@@ -32,10 +32,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Do NOT pin a version here — pnpm/action-setup reads it from the
+      # "packageManager" field in package.json (pnpm@10.4.1). Specifying both errors out.
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10.4.1
 
       - name: Setup Node
         uses: actions/setup-node@v4
