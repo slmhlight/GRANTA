@@ -96,6 +96,48 @@
       "composition": {},
       "points": [[1.01, 48, 48, 18, 1.7, 0, 0.25], [1.01, 42, 45, 11, 1.5, 0, 0.25], [1.01, 48, 50, 20, 1.8, 0, 0.25]],
       "sources": [{ "label": "EOS / 3D Systems — PA 2200 / DuraForm PA (SLS)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PLA", "category": "Polymer", "subcategory": "Polymer - PLA (FDM)", "process": "FDM",
+      "composition": {},
+      "points": [[1.24, 50, 55, 5, 3.5, 0, 0.13], [1.24, 45, 50, 3, 3.3, 0, 0.13], [1.24, 55, 60, 6, 3.6, 0, 0.13]],
+      "sources": [{ "label": "Material datasheets — PLA (FDM)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PETG", "category": "Polymer", "subcategory": "Polymer - PETG (FDM)", "process": "FDM",
+      "composition": {},
+      "points": [[1.27, 50, 53, 8, 2.1, 0, 0.2], [1.27, 45, 50, 5, 2.0, 0, 0.2], [1.27, 53, 55, 10, 2.2, 0, 0.2]],
+      "sources": [{ "label": "Material datasheets — PETG (FDM)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Polycarbonate (PC)", "category": "Polymer", "subcategory": "Polymer - Polycarbonate", "process": "FDM",
+      "composition": {},
+      "points": [[1.20, 62, 68, 6, 2.3, 0, 0.2], [1.20, 55, 62, 4, 2.2, 0, 0.2], [1.20, 65, 70, 8, 2.4, 0, 0.2]],
+      "sources": [{ "label": "Material datasheets — Polycarbonate (FDM/molded)", "url": null, "verified": false }]
+    },
+    {
+      "name": "TPU (95A)", "category": "Polymer", "subcategory": "Polymer - TPU (FDM)", "process": "FDM",
+      "composition": {},
+      "points": [[1.20, 8, 35, 500, 0.03, 0, 0.2], [1.20, 6, 28, 400, 0.025, 0, 0.2], [1.20, 10, 40, 580, 0.035, 0, 0.2]],
+      "sources": [{ "label": "Material datasheets — TPU 95A (FDM)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Inconel 713C", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Cast",
+      "composition": { "Ni": "balance", "Cr": "12~14", "Mo": "3.8~5.2", "Nb": "1.8~2.8", "Al": "5.5~6.5", "Ti": "0.5~1" },
+      "points": [[7.91, 750, 850, 7, 206, 330, 11], [7.91, 700, 800, 5, 206, 310, 11], [7.91, 800, 900, 8, 206, 350, 11]],
+      "sources": [{ "label": "ASM / cast superalloy data — IN-713C", "url": null, "verified": false }]
+    },
+    {
+      "name": "Stellite 6 (CoCrW)", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Cast",
+      "composition": { "Co": "balance", "Cr": "27~32", "W": "4~6", "C": "0.9~1.4", "Ni": "≤3", "Fe": "≤3" },
+      "points": [[8.44, 540, 830, 1.5, 209, 420, 14], [8.44, 500, 790, 1, 209, 400, 14], [8.44, 580, 896, 2, 209, 440, 14]],
+      "sources": [{ "label": "Kennametal Stellite — Stellite 6 (UNS R30006)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Beryllium Copper C17200", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "balance", "Be": "1.8~2", "Co": "0.2~0.6", "Ni": "≤0.3" },
+      "points": [[8.25, 1030, 1300, 4, 128, 380, 105], [8.25, 965, 1240, 3, 128, 360, 105], [8.25, 1100, 1400, 5, 128, 400, 105]],
+      "sources": [{ "label": "ASM / Materion — C17200 beryllium copper (aged)", "url": null, "verified": false }]
     }
   ]
 }

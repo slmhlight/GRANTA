@@ -3,30 +3,30 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **273 materials**: 99 curated · 9 am_vendor · 149 generic
+- **610 materials**: 99 curated · 9 am_vendor · 479 generic
 - Dropped 307 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 273/273 | 0 |
-| yield_strength | 271/273 | 254 |
-| uts | 262/273 | 251 |
-| elongation | 271/273 | 253 |
-| modulus | 273/273 | 4 |
-| hardness | 237/273 | 200 |
-| thermal_conductivity | 273/273 | 2 |
-| fatigue_strength | 20/273 | 20 |
-| impact_strength | 20/273 | 20 |
+| density | 610/610 | 0 |
+| yield_strength | 608/610 | 482 |
+| uts | 599/610 | 479 |
+| elongation | 608/610 | 481 |
+| modulus | 610/610 | 8 |
+| hardness | 570/610 | 424 |
+| thermal_conductivity | 610/610 | 2 |
+| fatigue_strength | 564/610 | 444 |
+| impact_strength | 20/610 | 20 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 103/273 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 103/610 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
 ## Integrity fixes
 - Removed **1** corrupt CSV row(s) (e.g. `material_name="0"`).
-- AA aluminium series subcategory auto-corrected: **15** materials.
+- AA aluminium series subcategory auto-corrected: **45** materials.
 - Process labels canonicalised: {"Casting":"Cast","Die Casting":"Cast","Sand Casting":"Cast","Investment Casting":"Cast","Cast/Wrought":"Wrought"}.
 - Placeholder `corrosion_resistance=0` in 2313 raw rows (treated as “unknown”, not 0).
 - Empty fatigue/impact in 2364 raw rows (left null, not zero).

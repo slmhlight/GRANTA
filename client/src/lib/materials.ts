@@ -62,6 +62,7 @@ export interface Material {
   processes?: string[];
   aliases?: string[];
   families?: string[];
+  fatigue_estimated?: boolean;
   meta?: Record<string, unknown>;
 }
 
@@ -71,6 +72,7 @@ export interface PropertyRange {
   max: number;
   typical: number;
   n: number;
+  estimated?: boolean;
 }
 
 /** A provenance entry — verified datasheet URL or honest generic reference. */

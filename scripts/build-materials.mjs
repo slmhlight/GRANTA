@@ -355,6 +355,18 @@ function compositionFromRows(g) {
 }
 function rangesFromRows(g) { const ranges = {}; for (const p of NUM_PROPS) ranges[p] = rangeFrom(g.map(r => r[p])); return ranges; }
 function fixSubcategory(name, rawSub) { return aaSubcategory(name) || rawSub; }
+// bucket the in-name condition into a coarse class so an alloy×process splits into a few materials
+function conditionClass(name) {
+  const m = String(name).match(/\(([^)]+)\)/);
+  const c = (m ? m[1] : '').toLowerCase().trim();
+  if (!c) return 'As-supplied';
+  if (/anneal|^o$|^o\b/.test(c)) return 'Annealed';
+  if (/solution|aged|t\d|precipit|\bph\b/.test(c)) return 'Aged / solution-treated';
+  if (/quench|temper|normaliz|harden/.test(c)) return 'Quenched / tempered';
+  if (/h\d|cold|hot roll|rolled|drawn|work/.test(c)) return 'Strain-hardened';
+  if (/cast|forged/.test(c)) return 'As-cast / forged';
+  return 'As-supplied';
+}
 
 // Non-curated rows → one entry per (alloy × process). Different process = different
 // material; conditions/tempers within a process are aggregated into the range.
@@ -367,8 +379,9 @@ for (const r of csvRows) {
   const alloy = (isAm ? alloyOf(r.material_name) : baseName(r.material_name)).trim();
   if (!norm(alloy)) { droppedCuratedDup++; continue; }
   const proc = PROCESS_CANON[r.process] || r.process || 'Unknown';
-  const key = norm(alloy) + '|' + proc;
-  if (!ncGroups.has(key)) ncGroups.set(key, { rows: [], hasAm: false, name: alloy, process: proc });
+  const cond = conditionClass(r.material_name);
+  const key = norm(alloy) + '|' + proc + '|' + cond;
+  if (!ncGroups.has(key)) ncGroups.set(key, { rows: [], hasAm: false, name: alloy, process: proc, cond });
   const grp = ncGroups.get(key);
   grp.rows.push(r);
   if (isAm) grp.hasAm = true;
@@ -392,10 +405,10 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
   const conditions = uniq(g.map(r => { const mm = String(r.material_name).match(/\(([^)]+)\)/); return mm ? mm[1] : null; }));
   return {
     id: (tier === 'am_vendor' ? 'V_' : 'G_') + String(idx).padStart(4, '0'),
-    name: `${grp.name} (${grp.process})`,
+    name: `${grp.name} — ${grp.cond} (${grp.process})`,
     category: rep.category || 'Metal', subcategory: sub, tier,
     manufacturers: tier === 'am_vendor' ? manus : ['Generic'], machines: [],
-    processes: [grp.process], heat_treatment: null,
+    processes: [grp.process], heat_treatment: grp.cond,
     ranges: rangesFromRows(g), composition: compositionFromRows(g), sources, points: g.map(r => PROP_ORDER.map(p => num(r[p]))),
     machinability: mostCommonKnown(g.map(r => r.machinability)),
     weldability: mostCommonKnown(g.map(r => r.weldability)),
@@ -412,6 +425,8 @@ const supplementary = supRaw.map((s, idx) => {
   const ranges = {};
   for (const p of NUM_PROPS) ranges[p] = null;
   PROP_ORDER.forEach((p, i) => { ranges[p] = rangeFrom(s.points.map((row) => row[i])); });
+  if (Array.isArray(s.fatigue)) ranges.fatigue_strength = rangeFrom(s.fatigue);
+  if (Array.isArray(s.impact)) ranges.impact_strength = rangeFrom(s.impact);
   return {
     id: 'R_' + String(idx).padStart(4, '0'),
     name: s.name, category: s.category, subcategory: s.subcategory, tier: 'reference',
@@ -433,6 +448,15 @@ for (const m of all) {
   m.families = familyTags(m.category, m.subcategory, m.composition);
   const q = qualFor(m.name);
   if (q) { m.machinability = m.machinability || q.machinability; m.weldability = m.weldability || q.weldability; m.corrosion_resistance = m.corrosion_resistance || q.corrosion; }
+  // estimated fatigue (endurance) from UTS where no measured value — labelled as an estimate
+  if (m.category !== 'Polymer' && !m.ranges.fatigue_strength && m.ranges.uts) {
+    const f = m.families || [];
+    const ratio = f.includes('Titanium-based') ? 0.55 : f.includes('Nickel-based') ? 0.40 : (f.includes('Aluminum-based') || f.includes('Copper-based') || f.includes('Magnesium-based')) ? 0.35 : 0.45;
+    const u = m.ranges.uts;
+    m.ranges.fatigue_strength = { min: round(u.min * ratio), max: round(u.max * ratio), typical: round(u.typical * ratio), n: 0, estimated: true };
+    m.fatigue_strength = round(u.typical * ratio);
+    m.fatigue_estimated = true;
+  }
 }
 
 // ───────── validation report ─────────
