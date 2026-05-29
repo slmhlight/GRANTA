@@ -1,0 +1,75 @@
+name: Deploy to GitHub Pages
+
+# Builds the Vite static site and publishes it to GitHub Pages.
+# The app is a project site served from https://<owner>.github.io/<repo>/,
+# so VITE_BASE / VITE_ROUTER_BASE must match the repository name.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+# Permissions required by the official Pages deployment actions
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment; let an in-progress run finish
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Repo is slmhlight/GRANTA -> site lives under /GRANTA/.
+      # vite `base` needs the trailing slash; wouter `base` must NOT have it.
+      VITE_BASE: /GRANTA/
+      VITE_ROUTER_BASE: /GRANTA
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.4.1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build data (regenerate client/public/materials.json)
+        run: pnpm build:data
+
+      - name: Build static site
+        run: pnpm exec vite build
+
+      - name: SPA fallback (serve index.html for unknown routes)
+        run: cp dist/public/index.html dist/public/404.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

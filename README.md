@@ -8,9 +8,9 @@ filtering, **range-based property data**, and **cited manufacturer datasheets**.
 > **데이터시트 출처 추적**을 제공합니다.
 
 ## Features
-- **Range-based properties** — every property is a `min · typical · max` aggregated from real data points (heat treatments × build direction × vendors), shown as error bars on the Ashby chart and min–max sub-lines in the detail panel.
-- **Interactive Ashby chart** (Plotly.js) — selectable X/Y axes, log-log scatter, box-zoom / pan / PNG export, filter highlighting, click-to-select.
-- **3-panel layout** — filter sidebar · data view (table / cards / scatter / Ashby) · detail & compare panel.
+- **Range-based properties** — every property is a `min · typical · max` aggregated from real data points (heat treatments × build direction × vendors), shown as smooth property envelopes on the Ashby chart and min–max sub-lines in the detail panel.
+- **Interactive Ashby chart** (Plotly.js) — selectable X/Y axes, per-axis log toggles + limit sliders, convex-hull envelopes, compare-selection colouring, and a Display panel of visibility toggles (grid, legend, labels, opacity, dark theme, colour-by).
+- **3-panel layout** — filter sidebar · data view (table / cards / Ashby) · detail & compare panel (per-property bars + click-to-sort).
 - **Source traceability** — curated AM alloys link to verified manufacturer datasheets (EOS, Renishaw, GE Additive, 3D Systems, …); no fabricated citations.
 - **CSV export** of filtered results.
 
@@ -30,9 +30,18 @@ Production build: `pnpm build` · Type-check: `pnpm check`
 
 See [`CLAUDE.md`](./CLAUDE.md) for environment notes and [`docs/PROJECT_PLAN.md`](./docs/PROJECT_PLAN.md) for the full plan.
 
+## Deploy (GitHub Pages)
+The app is a pure static SPA and ships with a GitHub Actions workflow that builds and
+publishes it to Pages on every push to `main`. One-time setup: **Settings → Pages →
+Source = "GitHub Actions"**. Live URL: `https://slmhlight.github.io/GRANTA/`.
+Full instructions: [`docs/DEPLOY_GITHUB_PAGES.md`](./docs/DEPLOY_GITHUB_PAGES.md).
+
 ## Data
-216 materials — 46 curated AM alloys, 6 AM vendor-data alloys, 164 generic reference alloys.
-Source provenance and integrity fixes are summarized in [`data/validation-report.md`](./data/validation-report.md).
+**690 materials** across metals & polymers — curated AM alloys (verified manufacturer
+datasheets), AM vendor data, condition-split generics, and standard reference alloys with
+cross-standard designations (UNS/EN/DIN/JIS/GB/AMS). Each property is a real `min · typical · max`
+range; fatigue limits are measured where available and otherwise estimated from UTS (clearly
+flagged `est.`). Source provenance and integrity checks: [`data/validation-report.md`](./data/validation-report.md).
 
 ## License
 MIT

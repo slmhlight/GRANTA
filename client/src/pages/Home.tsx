@@ -65,7 +65,7 @@ export default function Home() {
 
   // Load data
   useEffect(() => {
-    fetch('./materials.json')
+    fetch(`${import.meta.env.BASE_URL}materials.json`)
       .then(r => {
         if (!r.ok) throw new Error('Failed to load materials database');
         return r.json();

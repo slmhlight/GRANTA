@@ -5,6 +5,9 @@ import path from "node:path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  // For GitHub Pages project sites the app is served from /<repo>/, so the asset
+  // base path must match. Set VITE_BASE=/GRANTA/ in CI; defaults to "/" for local dev.
+  base: process.env.VITE_BASE || "/",
   plugins: [react(), tailwindcss(), jsxLocPlugin()],
   resolve: {
     alias: {
