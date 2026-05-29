@@ -138,6 +138,114 @@
       "composition": { "Cu": "balance", "Be": "1.8~2", "Co": "0.2~0.6", "Ni": "≤0.3" },
       "points": [[8.25, 1030, 1300, 4, 128, 380, 105], [8.25, 965, 1240, 3, 128, 360, 105], [8.25, 1100, 1400, 5, 128, 400, 105]],
       "sources": [{ "label": "ASM / Materion — C17200 beryllium copper (aged)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Scalmalloy", "category": "Metal", "subcategory": "Aluminum", "process": "LPBF",
+      "composition": { "Al": "balance", "Mg": "4~4.8", "Sc": "0.6~0.8", "Zr": "0.2~0.5", "Mn": "0.3~0.8" },
+      "points": [[2.67, 470, 520, 13, 70, 150, 110], [2.67, 450, 500, 10, 70, 140, 110], [2.67, 490, 540, 16, 70, 160, 110]],
+      "sources": [{ "label": "APWORKS — Scalmalloy datasheet (LPBF)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Hastelloy X", "category": "Metal", "subcategory": "Nickel - Hastelloy", "process": "LPBF",
+      "composition": { "Ni": "balance", "Cr": "20.5~23", "Fe": "17~20", "Mo": "8~10", "Co": "0.5~2.5", "W": "0.2~1" },
+      "points": [[8.22, 360, 770, 45, 205, 240, 9], [8.22, 330, 740, 40, 205, 220, 9], [8.22, 390, 800, 50, 205, 260, 9]],
+      "sources": [{ "label": "Haynes International — Hastelloy X (UNS N06002)", "url": null, "verified": false }]
+    },
+    {
+      "name": "GRCop-42", "category": "Metal", "subcategory": "Copper", "process": "LPBF",
+      "composition": { "Cu": "balance", "Cr": "3.5~4.5", "Nb": "3.5~4.5" },
+      "points": [[8.8, 190, 310, 25, 85, 110, 290], [8.8, 170, 290, 20, 85, 100, 290], [8.8, 210, 330, 30, 85, 120, 290]],
+      "sources": [{ "label": "NASA — GRCop-42 Cu-Cr-Nb (LPBF)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Invar 36 (FeNi36)", "category": "Metal", "subcategory": "Controlled Expansion Alloy", "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "36" },
+      "points": [[8.1, 280, 490, 30, 141, 160, 10], [8.1, 250, 460, 25, 141, 150, 10], [8.1, 310, 520, 35, 141, 170, 10]],
+      "sources": [{ "label": "ASM — Invar 36 / UNS K93600 controlled expansion", "url": null, "verified": false }]
+    },
+    {
+      "name": "Kovar (FeNiCo)", "category": "Metal", "subcategory": "Controlled Expansion Alloy", "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "29", "Co": "17" },
+      "points": [[8.36, 340, 520, 30, 138, 160, 17], [8.36, 310, 480, 25, 138, 150, 17], [8.36, 370, 560, 35, 138, 175, 17]],
+      "sources": [{ "label": "ASTM F15 — Kovar / UNS K94610", "url": null, "verified": false }]
+    },
+    {
+      "name": "Nitinol (NiTi)", "category": "Metal", "subcategory": "Shape Memory Alloy", "process": "Wrought",
+      "composition": { "Ni": "54.5~57", "Ti": "balance" },
+      "points": [[6.45, 400, 900, 12, 75, 350, 18], [6.45, 350, 830, 10, 70, 330, 18], [6.45, 480, 960, 15, 83, 380, 18]],
+      "sources": [{ "label": "ASTM F2063 — NiTi shape memory alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "CM247LC", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "LPBF",
+      "composition": { "Ni": "balance", "Cr": "8~8.5", "Co": "9~10", "W": "9.5~10", "Al": "5.5~5.75", "Ta": "3~3.5", "Ti": "0.7~0.9" },
+      "points": [[8.5, 830, 1000, 5, 200, 380, 10], [8.5, 780, 950, 3, 200, 360, 10], [8.5, 880, 1050, 7, 200, 400, 10]],
+      "sources": [{ "label": "Cannon-Muskegon — CM247LC (AM superalloy)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Haynes 282", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "19~20", "Co": "10~11", "Mo": "8~9", "Ti": "2~2.3", "Al": "1.4~1.6" },
+      "points": [[8.27, 700, 1150, 28, 217, 320, 10], [8.27, 660, 1100, 24, 217, 300, 10], [8.27, 740, 1200, 32, 217, 340, 10]],
+      "sources": [{ "label": "Haynes International — Haynes 282 (UNS N07208)", "url": null, "verified": false }]
+    },
+    {
+      "name": "254 SMO (S31254)", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "19.5~20.5", "Ni": "17.5~18.5", "Mo": "6~6.5", "N": "0.18~0.22", "Cu": "0.5~1" },
+      "points": [[8.0, 300, 680, 40, 195, 210, 13], [8.0, 280, 650, 35, 195, 200, 13], [8.0, 340, 720, 45, 195, 230, 13]],
+      "sources": [{ "label": "Outokumpu — 254 SMO super-austenitic (UNS S31254)", "url": null, "verified": false }]
+    },
+    {
+      "name": "904L (N08904)", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "19~23", "Ni": "23~28", "Mo": "4~5", "Cu": "1~2" },
+      "points": [[8.0, 220, 520, 40, 190, 180, 12], [8.0, 200, 490, 35, 190, 170, 12], [8.0, 250, 550, 45, 190, 200, 12]],
+      "sources": [{ "label": "ASTM B625 — 904L super-austenitic (UNS N08904)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Custom 465", "category": "Metal", "subcategory": "Stainless Steel - Ferritic/Martensitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "11~12.5", "Ni": "10.75~11.25", "Ti": "1.5~1.8", "Mo": "0.75~1.25" },
+      "points": [[7.8, 1450, 1550, 12, 200, 480, 16], [7.8, 1380, 1500, 10, 200, 460, 16], [7.8, 1500, 1620, 14, 200, 500, 16]],
+      "sources": [{ "label": "Carpenter — Custom 465 PH stainless (UNS S46500)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Tungsten (W)", "category": "Metal", "subcategory": "Refractory Metal", "process": "LPBF",
+      "composition": { "W": "99.9~100" },
+      "points": [[19.3, 750, 980, 2, 410, 400, 170], [19.3, 650, 900, 1, 410, 380, 170], [19.3, 850, 1050, 3, 410, 430, 170]],
+      "sources": [{ "label": "Plansee / ASM — pure tungsten", "url": null, "verified": false }]
+    },
+    {
+      "name": "Niobium C-103", "category": "Metal", "subcategory": "Refractory Metal", "process": "Wrought",
+      "composition": { "Nb": "balance", "Hf": "10", "Ti": "1" },
+      "points": [[8.85, 310, 415, 25, 95, 180, 38], [8.85, 280, 380, 20, 95, 170, 38], [8.85, 345, 450, 30, 95, 195, 38]],
+      "sources": [{ "label": "ASM — Niobium C-103 (Nb-10Hf-1Ti)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Tantalum (Ta)", "category": "Metal", "subcategory": "Refractory Metal", "process": "Wrought",
+      "composition": { "Ta": "99.9~100" },
+      "points": [[16.6, 200, 310, 30, 186, 90, 57], [16.6, 170, 280, 25, 186, 80, 57], [16.6, 240, 345, 40, 186, 110, 57]],
+      "sources": [{ "label": "ASM — pure tantalum (UNS R05200)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Nickel Aluminum Bronze C95800", "category": "Metal", "subcategory": "Copper", "process": "Cast",
+      "composition": { "Cu": "balance", "Al": "8.5~9.5", "Fe": "3.5~4.5", "Ni": "4~5", "Mn": "0.8~1.5" },
+      "points": [[7.64, 250, 650, 15, 120, 190, 42], [7.64, 230, 620, 12, 120, 180, 42], [7.64, 280, 690, 18, 120, 210, 42]],
+      "sources": [{ "label": "ASTM B148 — Nickel Aluminum Bronze (C95800)", "url": null, "verified": false }]
+    },
+    {
+      "name": "2507 Super Duplex (S32750)", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "24~26", "Ni": "6~8", "Mo": "3~5", "N": "0.24~0.32" },
+      "points": [[7.8, 550, 800, 25, 200, 290, 16], [7.8, 520, 770, 20, 200, 270, 16], [7.8, 590, 850, 30, 200, 310, 16]],
+      "sources": [{ "label": "ASTM A789 — 2507 super duplex (UNS S32750)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Ti-6Al-7Nb", "category": "Metal", "subcategory": "Titanium", "process": "Wrought",
+      "composition": { "Ti": "balance", "Al": "5.5~6.5", "Nb": "6.5~7.5" },
+      "points": [[4.52, 800, 900, 12, 110, 320, 7], [4.52, 760, 860, 10, 110, 300, 7], [4.52, 850, 950, 15, 110, 340, 7]],
+      "sources": [{ "label": "ASTM F1295 — Ti-6Al-7Nb (medical)", "url": null, "verified": false }]
+    },
+    {
+      "name": "CoCrMo (ASTM F75)", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Cast",
+      "composition": { "Co": "balance", "Cr": "27~30", "Mo": "5~7", "Ni": "≤1", "Fe": "≤0.75" },
+      "points": [[8.3, 520, 900, 12, 220, 350, 13], [8.3, 480, 850, 8, 220, 330, 13], [8.3, 560, 950, 15, 220, 380, 13]],
+      "sources": [{ "label": "ASTM F75 — cast CoCrMo (implant)", "url": null, "verified": false }]
     }
   ]
 }

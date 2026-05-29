@@ -130730,5 +130730,3031 @@
     "max_service_temp": 200,
     "price_per_kg": 40,
     "price_per_cm3": 0.33
+  },
+  {
+    "id": "R_0023",
+    "name": "Scalmalloy",
+    "category": "Metal",
+    "subcategory": "Aluminum",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "LPBF"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 2.67,
+        "max": 2.67,
+        "typical": 2.67,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 450,
+        "max": 490,
+        "typical": 470,
+        "n": 3
+      },
+      "uts": {
+        "min": 500,
+        "max": 540,
+        "typical": 520,
+        "n": 3
+      },
+      "elongation": {
+        "min": 10,
+        "max": 16,
+        "typical": 13,
+        "n": 3
+      },
+      "modulus": {
+        "min": 70,
+        "max": 70,
+        "typical": 70,
+        "n": 3
+      },
+      "hardness": {
+        "min": 140,
+        "max": 160,
+        "typical": 150,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 110,
+        "max": 110,
+        "typical": 110,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 175,
+        "max": 189,
+        "typical": 182,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 40,
+        "max": 40,
+        "typical": 40,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 170,
+        "max": 170,
+        "typical": 170,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.032,
+        "max": 0.032,
+        "typical": 0.032,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Al": "balance",
+      "Mg": "4~4.8",
+      "Sc": "0.6~0.8",
+      "Zr": "0.2~0.5",
+      "Mn": "0.3~0.8"
+    },
+    "sources": [
+      {
+        "label": "APWORKS — Scalmalloy datasheet (LPBF)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        2.67,
+        470,
+        520,
+        13,
+        70,
+        150,
+        110
+      ],
+      [
+        2.67,
+        450,
+        500,
+        10,
+        70,
+        140,
+        110
+      ],
+      [
+        2.67,
+        490,
+        540,
+        16,
+        70,
+        160,
+        110
+      ]
+    ],
+    "machinability": "Excellent",
+    "weldability": "Good",
+    "corrosion_resistance": "Good",
+    "meta": {
+      "reference": true
+    },
+    "density": 2.67,
+    "yield_strength": 470,
+    "uts": 520,
+    "elongation": 13,
+    "modulus": 70,
+    "hardness": 150,
+    "thermal_conductivity": 110,
+    "fatigue_strength": 182,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "LPBF",
+    "source": "APWORKS — Scalmalloy datasheet (LPBF)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Aluminum",
+      "Aluminum-based"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 40,
+    "max_service_temp": 170,
+    "price_per_kg": 12,
+    "price_per_cm3": 0.032
+  },
+  {
+    "id": "R_0024",
+    "name": "Hastelloy X",
+    "category": "Metal",
+    "subcategory": "Nickel - Hastelloy",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "LPBF"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8.22,
+        "max": 8.22,
+        "typical": 8.22,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 330,
+        "max": 390,
+        "typical": 360,
+        "n": 3
+      },
+      "uts": {
+        "min": 740,
+        "max": 800,
+        "typical": 770,
+        "n": 3
+      },
+      "elongation": {
+        "min": 40,
+        "max": 50,
+        "typical": 45,
+        "n": 3
+      },
+      "modulus": {
+        "min": 205,
+        "max": 205,
+        "typical": 205,
+        "n": 3
+      },
+      "hardness": {
+        "min": 220,
+        "max": 260,
+        "typical": 240,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 9,
+        "max": 9,
+        "typical": 9,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 296,
+        "max": 320,
+        "typical": 308,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 1.3,
+        "max": 1.3,
+        "typical": 1.3,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 1000,
+        "max": 1000,
+        "typical": 1000,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 50,
+        "max": 50,
+        "typical": 50,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.411,
+        "max": 0.411,
+        "typical": 0.411,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Ni": "balance",
+      "Cr": "20.5~23",
+      "Fe": "17~20",
+      "Mo": "8~10",
+      "Co": "0.5~2.5",
+      "W": "0.2~1"
+    },
+    "sources": [
+      {
+        "label": "Haynes International — Hastelloy X (UNS N06002)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8.22,
+        360,
+        770,
+        45,
+        205,
+        240,
+        9
+      ],
+      [
+        8.22,
+        330,
+        740,
+        40,
+        205,
+        220,
+        9
+      ],
+      [
+        8.22,
+        390,
+        800,
+        50,
+        205,
+        260,
+        9
+      ]
+    ],
+    "machinability": "Poor",
+    "weldability": "Fair",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 8.22,
+    "yield_strength": 360,
+    "uts": 770,
+    "elongation": 45,
+    "modulus": 205,
+    "hardness": 240,
+    "thermal_conductivity": 9,
+    "fatigue_strength": 308,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "LPBF",
+    "source": "Haynes International — Hastelloy X (UNS N06002)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Nickel - Hastelloy",
+      "Nickel-based",
+      "Superalloy"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 1.3,
+    "max_service_temp": 1000,
+    "price_per_kg": 50,
+    "price_per_cm3": 0.411
+  },
+  {
+    "id": "R_0025",
+    "name": "GRCop-42",
+    "category": "Metal",
+    "subcategory": "Copper",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "LPBF"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8.8,
+        "max": 8.8,
+        "typical": 8.8,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 170,
+        "max": 210,
+        "typical": 190,
+        "n": 3
+      },
+      "uts": {
+        "min": 290,
+        "max": 330,
+        "typical": 310,
+        "n": 3
+      },
+      "elongation": {
+        "min": 20,
+        "max": 30,
+        "typical": 25,
+        "n": 3
+      },
+      "modulus": {
+        "min": 85,
+        "max": 85,
+        "typical": 85,
+        "n": 3
+      },
+      "hardness": {
+        "min": 100,
+        "max": 120,
+        "typical": 110,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 290,
+        "max": 290,
+        "typical": 290,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 101.5,
+        "max": 115.5,
+        "typical": 108.5,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 80,
+        "max": 80,
+        "typical": 80,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 9,
+        "max": 9,
+        "typical": 9,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.0792,
+        "max": 0.0792,
+        "typical": 0.0792,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Cu": "balance",
+      "Cr": "3.5~4.5",
+      "Nb": "3.5~4.5"
+    },
+    "sources": [
+      {
+        "label": "NASA — GRCop-42 Cu-Cr-Nb (LPBF)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8.8,
+        190,
+        310,
+        25,
+        85,
+        110,
+        290
+      ],
+      [
+        8.8,
+        170,
+        290,
+        20,
+        85,
+        100,
+        290
+      ],
+      [
+        8.8,
+        210,
+        330,
+        30,
+        85,
+        120,
+        290
+      ]
+    ],
+    "machinability": "Good",
+    "weldability": "Fair",
+    "corrosion_resistance": "Good",
+    "meta": {
+      "reference": true
+    },
+    "density": 8.8,
+    "yield_strength": 190,
+    "uts": 310,
+    "elongation": 25,
+    "modulus": 85,
+    "hardness": 110,
+    "thermal_conductivity": 290,
+    "fatigue_strength": 108.5,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "LPBF",
+    "source": "NASA — GRCop-42 Cu-Cr-Nb (LPBF)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Copper",
+      "Copper-based"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 80,
+    "max_service_temp": 200,
+    "price_per_kg": 9,
+    "price_per_cm3": 0.0792
+  },
+  {
+    "id": "R_0026",
+    "name": "Invar 36 (FeNi36)",
+    "category": "Metal",
+    "subcategory": "Controlled Expansion Alloy",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8.1,
+        "max": 8.1,
+        "typical": 8.1,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 250,
+        "max": 310,
+        "typical": 280,
+        "n": 3
+      },
+      "uts": {
+        "min": 460,
+        "max": 520,
+        "typical": 490,
+        "n": 3
+      },
+      "elongation": {
+        "min": 25,
+        "max": 35,
+        "typical": 30,
+        "n": 3
+      },
+      "modulus": {
+        "min": 141,
+        "max": 141,
+        "typical": 141,
+        "n": 3
+      },
+      "hardness": {
+        "min": 150,
+        "max": 170,
+        "typical": 160,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 10,
+        "max": 10,
+        "typical": 10,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 207,
+        "max": 234,
+        "typical": 220.5,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 9,
+        "max": 9,
+        "typical": 9,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 450,
+        "max": 450,
+        "typical": 450,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 2,
+        "max": 2,
+        "typical": 2,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.0162,
+        "max": 0.0162,
+        "typical": 0.0162,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Fe": "balance",
+      "Ni": "36"
+    },
+    "sources": [
+      {
+        "label": "ASM — Invar 36 / UNS K93600 controlled expansion",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8.1,
+        280,
+        490,
+        30,
+        141,
+        160,
+        10
+      ],
+      [
+        8.1,
+        250,
+        460,
+        25,
+        141,
+        150,
+        10
+      ],
+      [
+        8.1,
+        310,
+        520,
+        35,
+        141,
+        170,
+        10
+      ]
+    ],
+    "machinability": "Good",
+    "weldability": "Good",
+    "corrosion_resistance": "Poor",
+    "meta": {
+      "reference": true
+    },
+    "density": 8.1,
+    "yield_strength": 280,
+    "uts": 490,
+    "elongation": 30,
+    "modulus": 141,
+    "hardness": 160,
+    "thermal_conductivity": 10,
+    "fatigue_strength": 220.5,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASM — Invar 36 / UNS K93600 controlled expansion",
+    "aliases": [
+      "FeNi36",
+      "UNS K93600",
+      "EN 1.3912",
+      "Nilo 36"
+    ],
+    "families": [
+      "Metal",
+      "Controlled Expansion Alloy",
+      "Iron-based"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 9,
+    "max_service_temp": 450,
+    "price_per_kg": 2,
+    "price_per_cm3": 0.0162
+  },
+  {
+    "id": "R_0027",
+    "name": "Kovar (FeNiCo)",
+    "category": "Metal",
+    "subcategory": "Controlled Expansion Alloy",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8.36,
+        "max": 8.36,
+        "typical": 8.36,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 310,
+        "max": 370,
+        "typical": 340,
+        "n": 3
+      },
+      "uts": {
+        "min": 480,
+        "max": 560,
+        "typical": 520,
+        "n": 3
+      },
+      "elongation": {
+        "min": 25,
+        "max": 35,
+        "typical": 30,
+        "n": 3
+      },
+      "modulus": {
+        "min": 138,
+        "max": 138,
+        "typical": 138,
+        "n": 3
+      },
+      "hardness": {
+        "min": 150,
+        "max": 175,
+        "typical": 160,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 17,
+        "max": 17,
+        "typical": 17,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 216,
+        "max": 252,
+        "typical": 234,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 9,
+        "max": 9,
+        "typical": 9,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 450,
+        "max": 450,
+        "typical": 450,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 2,
+        "max": 2,
+        "typical": 2,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.0167,
+        "max": 0.0167,
+        "typical": 0.0167,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Fe": "balance",
+      "Ni": "29",
+      "Co": "17"
+    },
+    "sources": [
+      {
+        "label": "ASTM F15 — Kovar / UNS K94610",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8.36,
+        340,
+        520,
+        30,
+        138,
+        160,
+        17
+      ],
+      [
+        8.36,
+        310,
+        480,
+        25,
+        138,
+        150,
+        17
+      ],
+      [
+        8.36,
+        370,
+        560,
+        35,
+        138,
+        175,
+        17
+      ]
+    ],
+    "machinability": "Good",
+    "weldability": "Good",
+    "corrosion_resistance": "Poor",
+    "meta": {
+      "reference": true
+    },
+    "density": 8.36,
+    "yield_strength": 340,
+    "uts": 520,
+    "elongation": 30,
+    "modulus": 138,
+    "hardness": 160,
+    "thermal_conductivity": 17,
+    "fatigue_strength": 234,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASTM F15 — Kovar / UNS K94610",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Controlled Expansion Alloy",
+      "Iron-based"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 9,
+    "max_service_temp": 450,
+    "price_per_kg": 2,
+    "price_per_cm3": 0.0167
+  },
+  {
+    "id": "R_0028",
+    "name": "Nitinol (NiTi)",
+    "category": "Metal",
+    "subcategory": "Shape Memory Alloy",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 6.45,
+        "max": 6.45,
+        "typical": 6.45,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 350,
+        "max": 480,
+        "typical": 400,
+        "n": 3
+      },
+      "uts": {
+        "min": 830,
+        "max": 960,
+        "typical": 900,
+        "n": 3
+      },
+      "elongation": {
+        "min": 10,
+        "max": 15,
+        "typical": 12,
+        "n": 3
+      },
+      "modulus": {
+        "min": 70,
+        "max": 83,
+        "typical": 75,
+        "n": 3
+      },
+      "hardness": {
+        "min": 330,
+        "max": 380,
+        "typical": 350,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 18,
+        "max": 18,
+        "typical": 18,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 456.5,
+        "max": 528,
+        "typical": 495,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 1.5,
+        "max": 1.5,
+        "typical": 1.5,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 400,
+        "max": 400,
+        "typical": 400,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 35,
+        "max": 35,
+        "typical": 35,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.2258,
+        "max": 0.2258,
+        "typical": 0.2258,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Ni": "54.5~57",
+      "Ti": "balance"
+    },
+    "sources": [
+      {
+        "label": "ASTM F2063 — NiTi shape memory alloy",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        6.45,
+        400,
+        900,
+        12,
+        75,
+        350,
+        18
+      ],
+      [
+        6.45,
+        350,
+        830,
+        10,
+        70,
+        330,
+        18
+      ],
+      [
+        6.45,
+        480,
+        960,
+        15,
+        83,
+        380,
+        18
+      ]
+    ],
+    "machinability": "Poor",
+    "weldability": "Good",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 6.45,
+    "yield_strength": 400,
+    "uts": 900,
+    "elongation": 12,
+    "modulus": 75,
+    "hardness": 350,
+    "thermal_conductivity": 18,
+    "fatigue_strength": 495,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASTM F2063 — NiTi shape memory alloy",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Shape Memory Alloy",
+      "Titanium-based"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 1.5,
+    "max_service_temp": 400,
+    "price_per_kg": 35,
+    "price_per_cm3": 0.2258
+  },
+  {
+    "id": "R_0029",
+    "name": "CM247LC",
+    "category": "Metal",
+    "subcategory": "Nickel Superalloy",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "LPBF"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8.5,
+        "max": 8.5,
+        "typical": 8.5,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 780,
+        "max": 880,
+        "typical": 830,
+        "n": 3
+      },
+      "uts": {
+        "min": 950,
+        "max": 1050,
+        "typical": 1000,
+        "n": 3
+      },
+      "elongation": {
+        "min": 3,
+        "max": 7,
+        "typical": 5,
+        "n": 3
+      },
+      "modulus": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 3
+      },
+      "hardness": {
+        "min": 360,
+        "max": 400,
+        "typical": 380,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 10,
+        "max": 10,
+        "typical": 10,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 380,
+        "max": 420,
+        "typical": 400,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 1.3,
+        "max": 1.3,
+        "typical": 1.3,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 950,
+        "max": 950,
+        "typical": 950,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 80,
+        "max": 80,
+        "typical": 80,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.68,
+        "max": 0.68,
+        "typical": 0.68,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Ni": "balance",
+      "Cr": "8~8.5",
+      "Co": "9~10",
+      "W": "9.5~10",
+      "Al": "5.5~5.75",
+      "Ta": "3~3.5",
+      "Ti": "0.7~0.9"
+    },
+    "sources": [
+      {
+        "label": "Cannon-Muskegon — CM247LC (AM superalloy)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8.5,
+        830,
+        1000,
+        5,
+        200,
+        380,
+        10
+      ],
+      [
+        8.5,
+        780,
+        950,
+        3,
+        200,
+        360,
+        10
+      ],
+      [
+        8.5,
+        880,
+        1050,
+        7,
+        200,
+        400,
+        10
+      ]
+    ],
+    "machinability": "Poor",
+    "weldability": "Fair",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 8.5,
+    "yield_strength": 830,
+    "uts": 1000,
+    "elongation": 5,
+    "modulus": 200,
+    "hardness": 380,
+    "thermal_conductivity": 10,
+    "fatigue_strength": 400,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "LPBF",
+    "source": "Cannon-Muskegon — CM247LC (AM superalloy)",
+    "aliases": [
+      "CM247LC",
+      "MAR-M247"
+    ],
+    "families": [
+      "Metal",
+      "Nickel Superalloy",
+      "Nickel-based",
+      "Superalloy"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 1.3,
+    "max_service_temp": 950,
+    "price_per_kg": 80,
+    "price_per_cm3": 0.68
+  },
+  {
+    "id": "R_0030",
+    "name": "Haynes 282",
+    "category": "Metal",
+    "subcategory": "Nickel Superalloy",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8.27,
+        "max": 8.27,
+        "typical": 8.27,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 660,
+        "max": 740,
+        "typical": 700,
+        "n": 3
+      },
+      "uts": {
+        "min": 1100,
+        "max": 1200,
+        "typical": 1150,
+        "n": 3
+      },
+      "elongation": {
+        "min": 24,
+        "max": 32,
+        "typical": 28,
+        "n": 3
+      },
+      "modulus": {
+        "min": 217,
+        "max": 217,
+        "typical": 217,
+        "n": 3
+      },
+      "hardness": {
+        "min": 300,
+        "max": 340,
+        "typical": 320,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 10,
+        "max": 10,
+        "typical": 10,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 440,
+        "max": 480,
+        "typical": 460,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 1.3,
+        "max": 1.3,
+        "typical": 1.3,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 1100,
+        "max": 1100,
+        "typical": 1100,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 80,
+        "max": 80,
+        "typical": 80,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.6616,
+        "max": 0.6616,
+        "typical": 0.6616,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Ni": "balance",
+      "Cr": "19~20",
+      "Co": "10~11",
+      "Mo": "8~9",
+      "Ti": "2~2.3",
+      "Al": "1.4~1.6"
+    },
+    "sources": [
+      {
+        "label": "Haynes International — Haynes 282 (UNS N07208)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8.27,
+        700,
+        1150,
+        28,
+        217,
+        320,
+        10
+      ],
+      [
+        8.27,
+        660,
+        1100,
+        24,
+        217,
+        300,
+        10
+      ],
+      [
+        8.27,
+        740,
+        1200,
+        32,
+        217,
+        340,
+        10
+      ]
+    ],
+    "machinability": "Poor",
+    "weldability": "Fair",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 8.27,
+    "yield_strength": 700,
+    "uts": 1150,
+    "elongation": 28,
+    "modulus": 217,
+    "hardness": 320,
+    "thermal_conductivity": 10,
+    "fatigue_strength": 460,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "Haynes International — Haynes 282 (UNS N07208)",
+    "aliases": [
+      "UNS N07208"
+    ],
+    "families": [
+      "Metal",
+      "Nickel Superalloy",
+      "Nickel-based",
+      "Superalloy"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 1.3,
+    "max_service_temp": 1100,
+    "price_per_kg": 80,
+    "price_per_cm3": 0.6616
+  },
+  {
+    "id": "R_0031",
+    "name": "254 SMO (S31254)",
+    "category": "Metal",
+    "subcategory": "Stainless Steel - Austenitic",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8,
+        "max": 8,
+        "typical": 8,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 280,
+        "max": 340,
+        "typical": 300,
+        "n": 3
+      },
+      "uts": {
+        "min": 650,
+        "max": 720,
+        "typical": 680,
+        "n": 3
+      },
+      "elongation": {
+        "min": 35,
+        "max": 45,
+        "typical": 40,
+        "n": 3
+      },
+      "modulus": {
+        "min": 195,
+        "max": 195,
+        "typical": 195,
+        "n": 3
+      },
+      "hardness": {
+        "min": 200,
+        "max": 230,
+        "typical": 210,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 13,
+        "max": 13,
+        "typical": 13,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 292.5,
+        "max": 324,
+        "typical": 306,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 2.5,
+        "max": 2.5,
+        "typical": 2.5,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 800,
+        "max": 800,
+        "typical": 800,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 5,
+        "max": 5,
+        "typical": 5,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.04,
+        "max": 0.04,
+        "typical": 0.04,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Fe": "balance",
+      "Cr": "19.5~20.5",
+      "Ni": "17.5~18.5",
+      "Mo": "6~6.5",
+      "N": "0.18~0.22",
+      "Cu": "0.5~1"
+    },
+    "sources": [
+      {
+        "label": "Outokumpu — 254 SMO super-austenitic (UNS S31254)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8,
+        300,
+        680,
+        40,
+        195,
+        210,
+        13
+      ],
+      [
+        8,
+        280,
+        650,
+        35,
+        195,
+        200,
+        13
+      ],
+      [
+        8,
+        340,
+        720,
+        45,
+        195,
+        230,
+        13
+      ]
+    ],
+    "machinability": "Fair",
+    "weldability": "Good",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 8,
+    "yield_strength": 300,
+    "uts": 680,
+    "elongation": 40,
+    "modulus": 195,
+    "hardness": 210,
+    "thermal_conductivity": 13,
+    "fatigue_strength": 306,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "Outokumpu — 254 SMO super-austenitic (UNS S31254)",
+    "aliases": [
+      "S31254",
+      "UNS S31254",
+      "EN 1.4547",
+      "254 SMO"
+    ],
+    "families": [
+      "Metal",
+      "Stainless Steel - Austenitic",
+      "Iron-based",
+      "Stainless Steel",
+      "Austenitic"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 2.5,
+    "max_service_temp": 800,
+    "price_per_kg": 5,
+    "price_per_cm3": 0.04
+  },
+  {
+    "id": "R_0032",
+    "name": "904L (N08904)",
+    "category": "Metal",
+    "subcategory": "Stainless Steel - Austenitic",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8,
+        "max": 8,
+        "typical": 8,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 200,
+        "max": 250,
+        "typical": 220,
+        "n": 3
+      },
+      "uts": {
+        "min": 490,
+        "max": 550,
+        "typical": 520,
+        "n": 3
+      },
+      "elongation": {
+        "min": 35,
+        "max": 45,
+        "typical": 40,
+        "n": 3
+      },
+      "modulus": {
+        "min": 190,
+        "max": 190,
+        "typical": 190,
+        "n": 3
+      },
+      "hardness": {
+        "min": 170,
+        "max": 200,
+        "typical": 180,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 220.5,
+        "max": 247.5,
+        "typical": 234,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 2.5,
+        "max": 2.5,
+        "typical": 2.5,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 800,
+        "max": 800,
+        "typical": 800,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 5,
+        "max": 5,
+        "typical": 5,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.04,
+        "max": 0.04,
+        "typical": 0.04,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Fe": "balance",
+      "Cr": "19~23",
+      "Ni": "23~28",
+      "Mo": "4~5",
+      "Cu": "1~2"
+    },
+    "sources": [
+      {
+        "label": "ASTM B625 — 904L super-austenitic (UNS N08904)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8,
+        220,
+        520,
+        40,
+        190,
+        180,
+        12
+      ],
+      [
+        8,
+        200,
+        490,
+        35,
+        190,
+        170,
+        12
+      ],
+      [
+        8,
+        250,
+        550,
+        45,
+        190,
+        200,
+        12
+      ]
+    ],
+    "machinability": "Fair",
+    "weldability": "Good",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 8,
+    "yield_strength": 220,
+    "uts": 520,
+    "elongation": 40,
+    "modulus": 190,
+    "hardness": 180,
+    "thermal_conductivity": 12,
+    "fatigue_strength": 234,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASTM B625 — 904L super-austenitic (UNS N08904)",
+    "aliases": [
+      "N08904"
+    ],
+    "families": [
+      "Metal",
+      "Stainless Steel - Austenitic",
+      "Iron-based",
+      "Stainless Steel",
+      "Austenitic"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 2.5,
+    "max_service_temp": 800,
+    "price_per_kg": 5,
+    "price_per_cm3": 0.04
+  },
+  {
+    "id": "R_0033",
+    "name": "Custom 465",
+    "category": "Metal",
+    "subcategory": "Stainless Steel - Ferritic/Martensitic",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 7.8,
+        "max": 7.8,
+        "typical": 7.8,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 1380,
+        "max": 1500,
+        "typical": 1450,
+        "n": 3
+      },
+      "uts": {
+        "min": 1500,
+        "max": 1620,
+        "typical": 1550,
+        "n": 3
+      },
+      "elongation": {
+        "min": 10,
+        "max": 14,
+        "typical": 12,
+        "n": 3
+      },
+      "modulus": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 3
+      },
+      "hardness": {
+        "min": 460,
+        "max": 500,
+        "typical": 480,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 16,
+        "max": 16,
+        "typical": 16,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 675,
+        "max": 729,
+        "typical": 697.5,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 2.5,
+        "max": 2.5,
+        "typical": 2.5,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 500,
+        "max": 500,
+        "typical": 500,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 5,
+        "max": 5,
+        "typical": 5,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.039,
+        "max": 0.039,
+        "typical": 0.039,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Fe": "balance",
+      "Cr": "11~12.5",
+      "Ni": "10.75~11.25",
+      "Ti": "1.5~1.8",
+      "Mo": "0.75~1.25"
+    },
+    "sources": [
+      {
+        "label": "Carpenter — Custom 465 PH stainless (UNS S46500)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        7.8,
+        1450,
+        1550,
+        12,
+        200,
+        480,
+        16
+      ],
+      [
+        7.8,
+        1380,
+        1500,
+        10,
+        200,
+        460,
+        16
+      ],
+      [
+        7.8,
+        1500,
+        1620,
+        14,
+        200,
+        500,
+        16
+      ]
+    ],
+    "machinability": "Fair",
+    "weldability": "Good",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 7.8,
+    "yield_strength": 1450,
+    "uts": 1550,
+    "elongation": 12,
+    "modulus": 200,
+    "hardness": 480,
+    "thermal_conductivity": 16,
+    "fatigue_strength": 697.5,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "Carpenter — Custom 465 PH stainless (UNS S46500)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Stainless Steel - Ferritic/Martensitic",
+      "Iron-based",
+      "Stainless Steel"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 2.5,
+    "max_service_temp": 500,
+    "price_per_kg": 5,
+    "price_per_cm3": 0.039
+  },
+  {
+    "id": "R_0034",
+    "name": "Tungsten (W)",
+    "category": "Metal",
+    "subcategory": "Refractory Metal",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "LPBF"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 19.3,
+        "max": 19.3,
+        "typical": 19.3,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 650,
+        "max": 850,
+        "typical": 750,
+        "n": 3
+      },
+      "uts": {
+        "min": 900,
+        "max": 1050,
+        "typical": 980,
+        "n": 3
+      },
+      "elongation": {
+        "min": 1,
+        "max": 3,
+        "typical": 2,
+        "n": 3
+      },
+      "modulus": {
+        "min": 410,
+        "max": 410,
+        "typical": 410,
+        "n": 3
+      },
+      "hardness": {
+        "min": 380,
+        "max": 430,
+        "typical": 400,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 170,
+        "max": 170,
+        "typical": 170,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 405,
+        "max": 472.5,
+        "typical": 441,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 31,
+        "max": 31,
+        "typical": 31,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 1000,
+        "max": 1000,
+        "typical": 1000,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 70,
+        "max": 70,
+        "typical": 70,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 1.351,
+        "max": 1.351,
+        "typical": 1.351,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "W": "99.9~100"
+    },
+    "sources": [
+      {
+        "label": "Plansee / ASM — pure tungsten",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        19.3,
+        750,
+        980,
+        2,
+        410,
+        400,
+        170
+      ],
+      [
+        19.3,
+        650,
+        900,
+        1,
+        410,
+        380,
+        170
+      ],
+      [
+        19.3,
+        850,
+        1050,
+        3,
+        410,
+        430,
+        170
+      ]
+    ],
+    "machinability": "Fair",
+    "weldability": "Fair",
+    "corrosion_resistance": "Good",
+    "meta": {
+      "reference": true
+    },
+    "density": 19.3,
+    "yield_strength": 750,
+    "uts": 980,
+    "elongation": 2,
+    "modulus": 410,
+    "hardness": 400,
+    "thermal_conductivity": 170,
+    "fatigue_strength": 441,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "LPBF",
+    "source": "Plansee / ASM — pure tungsten",
+    "aliases": [
+      "W",
+      "Pure tungsten 99.95"
+    ],
+    "families": [
+      "Metal",
+      "Refractory Metal",
+      "Refractory"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 31,
+    "max_service_temp": 1000,
+    "price_per_kg": 70,
+    "price_per_cm3": 1.351
+  },
+  {
+    "id": "R_0035",
+    "name": "Niobium C-103",
+    "category": "Metal",
+    "subcategory": "Refractory Metal",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8.85,
+        "max": 8.85,
+        "typical": 8.85,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 280,
+        "max": 345,
+        "typical": 310,
+        "n": 3
+      },
+      "uts": {
+        "min": 380,
+        "max": 450,
+        "typical": 415,
+        "n": 3
+      },
+      "elongation": {
+        "min": 20,
+        "max": 30,
+        "typical": 25,
+        "n": 3
+      },
+      "modulus": {
+        "min": 95,
+        "max": 95,
+        "typical": 95,
+        "n": 3
+      },
+      "hardness": {
+        "min": 170,
+        "max": 195,
+        "typical": 180,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 38,
+        "max": 38,
+        "typical": 38,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 171,
+        "max": 202.5,
+        "typical": 186.75,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 31,
+        "max": 31,
+        "typical": 31,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 1000,
+        "max": 1000,
+        "typical": 1000,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 70,
+        "max": 70,
+        "typical": 70,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.6195,
+        "max": 0.6195,
+        "typical": 0.6195,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Nb": "balance",
+      "Hf": "10",
+      "Ti": "1"
+    },
+    "sources": [
+      {
+        "label": "ASM — Niobium C-103 (Nb-10Hf-1Ti)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8.85,
+        310,
+        415,
+        25,
+        95,
+        180,
+        38
+      ],
+      [
+        8.85,
+        280,
+        380,
+        20,
+        95,
+        170,
+        38
+      ],
+      [
+        8.85,
+        345,
+        450,
+        30,
+        95,
+        195,
+        38
+      ]
+    ],
+    "machinability": "Fair",
+    "weldability": "Fair",
+    "corrosion_resistance": "Good",
+    "meta": {
+      "reference": true
+    },
+    "density": 8.85,
+    "yield_strength": 310,
+    "uts": 415,
+    "elongation": 25,
+    "modulus": 95,
+    "hardness": 180,
+    "thermal_conductivity": 38,
+    "fatigue_strength": 186.75,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASM — Niobium C-103 (Nb-10Hf-1Ti)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Refractory Metal",
+      "Refractory"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 31,
+    "max_service_temp": 1000,
+    "price_per_kg": 70,
+    "price_per_cm3": 0.6195
+  },
+  {
+    "id": "R_0036",
+    "name": "Tantalum (Ta)",
+    "category": "Metal",
+    "subcategory": "Refractory Metal",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 16.6,
+        "max": 16.6,
+        "typical": 16.6,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 170,
+        "max": 240,
+        "typical": 200,
+        "n": 3
+      },
+      "uts": {
+        "min": 280,
+        "max": 345,
+        "typical": 310,
+        "n": 3
+      },
+      "elongation": {
+        "min": 25,
+        "max": 40,
+        "typical": 30,
+        "n": 3
+      },
+      "modulus": {
+        "min": 186,
+        "max": 186,
+        "typical": 186,
+        "n": 3
+      },
+      "hardness": {
+        "min": 80,
+        "max": 110,
+        "typical": 90,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 57,
+        "max": 57,
+        "typical": 57,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 126,
+        "max": 155.25,
+        "typical": 139.5,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 31,
+        "max": 31,
+        "typical": 31,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 1000,
+        "max": 1000,
+        "typical": 1000,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 70,
+        "max": 70,
+        "typical": 70,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 1.162,
+        "max": 1.162,
+        "typical": 1.162,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Ta": "99.9~100"
+    },
+    "sources": [
+      {
+        "label": "ASM — pure tantalum (UNS R05200)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        16.6,
+        200,
+        310,
+        30,
+        186,
+        90,
+        57
+      ],
+      [
+        16.6,
+        170,
+        280,
+        25,
+        186,
+        80,
+        57
+      ],
+      [
+        16.6,
+        240,
+        345,
+        40,
+        186,
+        110,
+        57
+      ]
+    ],
+    "machinability": "Fair",
+    "weldability": "Good",
+    "corrosion_resistance": "Outstanding",
+    "meta": {
+      "reference": true
+    },
+    "density": 16.6,
+    "yield_strength": 200,
+    "uts": 310,
+    "elongation": 30,
+    "modulus": 186,
+    "hardness": 90,
+    "thermal_conductivity": 57,
+    "fatigue_strength": 139.5,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASM — pure tantalum (UNS R05200)",
+    "aliases": [
+      "Ta",
+      "UNS R05200"
+    ],
+    "families": [
+      "Metal",
+      "Refractory Metal",
+      "Refractory"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 31,
+    "max_service_temp": 1000,
+    "price_per_kg": 70,
+    "price_per_cm3": 1.162
+  },
+  {
+    "id": "R_0037",
+    "name": "Nickel Aluminum Bronze C95800",
+    "category": "Metal",
+    "subcategory": "Copper",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Cast"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 7.64,
+        "max": 7.64,
+        "typical": 7.64,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 230,
+        "max": 280,
+        "typical": 250,
+        "n": 3
+      },
+      "uts": {
+        "min": 620,
+        "max": 690,
+        "typical": 650,
+        "n": 3
+      },
+      "elongation": {
+        "min": 12,
+        "max": 18,
+        "typical": 15,
+        "n": 3
+      },
+      "modulus": {
+        "min": 120,
+        "max": 120,
+        "typical": 120,
+        "n": 3
+      },
+      "hardness": {
+        "min": 180,
+        "max": 210,
+        "typical": 190,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 42,
+        "max": 42,
+        "typical": 42,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 217,
+        "max": 241.5,
+        "typical": 227.5,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 15,
+        "max": 15,
+        "typical": 15,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.0917,
+        "max": 0.0917,
+        "typical": 0.0917,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Cu": "balance",
+      "Al": "8.5~9.5",
+      "Fe": "3.5~4.5",
+      "Ni": "4~5",
+      "Mn": "0.8~1.5"
+    },
+    "sources": [
+      {
+        "label": "ASTM B148 — Nickel Aluminum Bronze (C95800)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        7.64,
+        250,
+        650,
+        15,
+        120,
+        190,
+        42
+      ],
+      [
+        7.64,
+        230,
+        620,
+        12,
+        120,
+        180,
+        42
+      ],
+      [
+        7.64,
+        280,
+        690,
+        18,
+        120,
+        210,
+        42
+      ]
+    ],
+    "machinability": "Good",
+    "weldability": "Fair",
+    "corrosion_resistance": "Good",
+    "meta": {
+      "reference": true
+    },
+    "density": 7.64,
+    "yield_strength": 250,
+    "uts": 650,
+    "elongation": 15,
+    "modulus": 120,
+    "hardness": 190,
+    "thermal_conductivity": 42,
+    "fatigue_strength": 227.5,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Cast",
+    "source": "ASTM B148 — Nickel Aluminum Bronze (C95800)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Copper",
+      "Copper-based"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 15,
+    "max_service_temp": 200,
+    "price_per_kg": 12,
+    "price_per_cm3": 0.0917
+  },
+  {
+    "id": "R_0038",
+    "name": "2507 Super Duplex (S32750)",
+    "category": "Metal",
+    "subcategory": "Stainless Steel - Austenitic",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 7.8,
+        "max": 7.8,
+        "typical": 7.8,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 520,
+        "max": 590,
+        "typical": 550,
+        "n": 3
+      },
+      "uts": {
+        "min": 770,
+        "max": 850,
+        "typical": 800,
+        "n": 3
+      },
+      "elongation": {
+        "min": 20,
+        "max": 30,
+        "typical": 25,
+        "n": 3
+      },
+      "modulus": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 3
+      },
+      "hardness": {
+        "min": 270,
+        "max": 310,
+        "typical": 290,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 16,
+        "max": 16,
+        "typical": 16,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 346.5,
+        "max": 382.5,
+        "typical": 360,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 2.5,
+        "max": 2.5,
+        "typical": 2.5,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 800,
+        "max": 800,
+        "typical": 800,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 6,
+        "max": 6,
+        "typical": 6,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.0468,
+        "max": 0.0468,
+        "typical": 0.0468,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Fe": "balance",
+      "Cr": "24~26",
+      "Ni": "6~8",
+      "Mo": "3~5",
+      "N": "0.24~0.32"
+    },
+    "sources": [
+      {
+        "label": "ASTM A789 — 2507 super duplex (UNS S32750)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        7.8,
+        550,
+        800,
+        25,
+        200,
+        290,
+        16
+      ],
+      [
+        7.8,
+        520,
+        770,
+        20,
+        200,
+        270,
+        16
+      ],
+      [
+        7.8,
+        590,
+        850,
+        30,
+        200,
+        310,
+        16
+      ]
+    ],
+    "machinability": "Fair",
+    "weldability": "Good",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 7.8,
+    "yield_strength": 550,
+    "uts": 800,
+    "elongation": 25,
+    "modulus": 200,
+    "hardness": 290,
+    "thermal_conductivity": 16,
+    "fatigue_strength": 360,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASTM A789 — 2507 super duplex (UNS S32750)",
+    "aliases": [
+      "S32750"
+    ],
+    "families": [
+      "Metal",
+      "Stainless Steel - Austenitic",
+      "Iron-based",
+      "Stainless Steel",
+      "Austenitic"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 2.5,
+    "max_service_temp": 800,
+    "price_per_kg": 6,
+    "price_per_cm3": 0.0468
+  },
+  {
+    "id": "R_0039",
+    "name": "Ti-6Al-7Nb",
+    "category": "Metal",
+    "subcategory": "Titanium",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 4.52,
+        "max": 4.52,
+        "typical": 4.52,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 760,
+        "max": 850,
+        "typical": 800,
+        "n": 3
+      },
+      "uts": {
+        "min": 860,
+        "max": 950,
+        "typical": 900,
+        "n": 3
+      },
+      "elongation": {
+        "min": 10,
+        "max": 15,
+        "typical": 12,
+        "n": 3
+      },
+      "modulus": {
+        "min": 110,
+        "max": 110,
+        "typical": 110,
+        "n": 3
+      },
+      "hardness": {
+        "min": 300,
+        "max": 340,
+        "typical": 320,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 7,
+        "max": 7,
+        "typical": 7,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 473,
+        "max": 522.5,
+        "typical": 495,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 1.5,
+        "max": 1.5,
+        "typical": 1.5,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 400,
+        "max": 400,
+        "typical": 400,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 35,
+        "max": 35,
+        "typical": 35,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.1582,
+        "max": 0.1582,
+        "typical": 0.1582,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Ti": "balance",
+      "Al": "5.5~6.5",
+      "Nb": "6.5~7.5"
+    },
+    "sources": [
+      {
+        "label": "ASTM F1295 — Ti-6Al-7Nb (medical)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        4.52,
+        800,
+        900,
+        12,
+        110,
+        320,
+        7
+      ],
+      [
+        4.52,
+        760,
+        860,
+        10,
+        110,
+        300,
+        7
+      ],
+      [
+        4.52,
+        850,
+        950,
+        15,
+        110,
+        340,
+        7
+      ]
+    ],
+    "machinability": "Poor",
+    "weldability": "Good",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 4.52,
+    "yield_strength": 800,
+    "uts": 900,
+    "elongation": 12,
+    "modulus": 110,
+    "hardness": 320,
+    "thermal_conductivity": 7,
+    "fatigue_strength": 495,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASTM F1295 — Ti-6Al-7Nb (medical)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Titanium",
+      "Titanium-based"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 1.5,
+    "max_service_temp": 400,
+    "price_per_kg": 35,
+    "price_per_cm3": 0.1582
+  },
+  {
+    "id": "R_0040",
+    "name": "CoCrMo (ASTM F75)",
+    "category": "Metal",
+    "subcategory": "Cobalt-Chrome Alloy",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Cast"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 8.3,
+        "max": 8.3,
+        "typical": 8.3,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 480,
+        "max": 560,
+        "typical": 520,
+        "n": 3
+      },
+      "uts": {
+        "min": 850,
+        "max": 950,
+        "typical": 900,
+        "n": 3
+      },
+      "elongation": {
+        "min": 8,
+        "max": 15,
+        "typical": 12,
+        "n": 3
+      },
+      "modulus": {
+        "min": 220,
+        "max": 220,
+        "typical": 220,
+        "n": 3
+      },
+      "hardness": {
+        "min": 330,
+        "max": 380,
+        "typical": 350,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 13,
+        "max": 13,
+        "typical": 13,
+        "n": 3
+      },
+      "fatigue_strength": {
+        "min": 382.5,
+        "max": 427.5,
+        "typical": 405,
+        "n": 0,
+        "estimated": true
+      },
+      "impact_strength": null,
+      "electrical_conductivity": {
+        "min": 1.5,
+        "max": 1.5,
+        "typical": 1.5,
+        "n": 0,
+        "estimated": true
+      },
+      "max_service_temp": {
+        "min": 1000,
+        "max": 1000,
+        "typical": 1000,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_kg": {
+        "min": 60,
+        "max": 60,
+        "typical": 60,
+        "n": 0,
+        "estimated": true
+      },
+      "price_per_cm3": {
+        "min": 0.498,
+        "max": 0.498,
+        "typical": 0.498,
+        "n": 0,
+        "estimated": true
+      }
+    },
+    "composition": {
+      "Co": "balance",
+      "Cr": "27~30",
+      "Mo": "5~7",
+      "Ni": "≤1",
+      "Fe": "≤0.75"
+    },
+    "sources": [
+      {
+        "label": "ASTM F75 — cast CoCrMo (implant)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        8.3,
+        520,
+        900,
+        12,
+        220,
+        350,
+        13
+      ],
+      [
+        8.3,
+        480,
+        850,
+        8,
+        220,
+        330,
+        13
+      ],
+      [
+        8.3,
+        560,
+        950,
+        15,
+        220,
+        380,
+        13
+      ]
+    ],
+    "machinability": "Poor",
+    "weldability": "Fair",
+    "corrosion_resistance": "Excellent",
+    "meta": {
+      "reference": true
+    },
+    "density": 8.3,
+    "yield_strength": 520,
+    "uts": 900,
+    "elongation": 12,
+    "modulus": 220,
+    "hardness": 350,
+    "thermal_conductivity": 13,
+    "fatigue_strength": 405,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Cast",
+    "source": "ASTM F75 — cast CoCrMo (implant)",
+    "aliases": [
+      "ASTM F75"
+    ],
+    "families": [
+      "Metal",
+      "Cobalt-Chrome Alloy",
+      "Cobalt-based"
+    ],
+    "fatigue_estimated": true,
+    "electrical_conductivity": 1.5,
+    "max_service_temp": 1000,
+    "price_per_kg": 60,
+    "price_per_cm3": 0.498
   }
 ]

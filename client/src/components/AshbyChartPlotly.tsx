@@ -41,7 +41,7 @@ const CLASSES: Array<{ key: string; color: string; test: (s: string, cat: string
   { key: 'Polymer', color: '#16A34A', test: (_s, cat) => cat === 'Polymer' },
   { key: 'Aluminum', color: '#F59E0B', test: (s) => /alumin/.test(s) },
   { key: 'Titanium', color: '#06B6D4', test: (s) => /titan|ti6|ti-6|ti5|ti cp|ti6242|ta15/.test(s) },
-  { key: 'Nickel', color: '#8B5CF6', test: (s) => /nickel|inconel|hastelloy|haynes|monel|invar|cm247|grcop|cp-nickel/.test(s) },
+  { key: 'Nickel', color: '#8B5CF6', test: (s) => /nickel|inconel|hastelloy|haynes|monel|invar|cm247|nimonic|waspaloy|rene|nitinol|cp-nickel/.test(s) },
   { key: 'Cobalt', color: '#EC4899', test: (s) => /cobalt|cocr/.test(s) },
   { key: 'Copper', color: '#D97706', test: (s) => /copper|bronze|brass|cuni|cucr|\bcu\b/.test(s) },
   { key: 'Refractory', color: '#475569', test: (s) => /refract|tungsten|tantal|niobium|molybden|c-103/.test(s) },
