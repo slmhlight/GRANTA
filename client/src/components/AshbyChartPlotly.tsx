@@ -72,19 +72,28 @@ const rgba = (hex: string, a: number) => { const n = parseInt(hex.slice(1), 16);
 export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId }: AshbyChartPlotlyProps) {
   const [xProperty, setXProperty] = useState('yield_strength');
   const [yProperty, setYProperty] = useState('elongation');
-  const [familyFilter, setFamilyFilter] = useState('all');
+  const [groupFilter, setGroupFilter] = useState('all');
+  const [subFilter, setSubFilter] = useState('all');
+  const [showEnvelopes, setShowEnvelopes] = useState(true);
+  const [logScale, setLogScale] = useState(true);
 
   const filtered = filteredMaterials || materials;
-  const familyOptions = useMemo(() => {
+  const groupOptions = useMemo(() => {
     const s = new Set<string>();
-    for (const m of materials) for (const f of ((m as any).families || [])) s.add(f);
+    for (const m of materials) s.add(classOf(m).key);
     return ['all', ...Array.from(s).sort()];
   }, [materials]);
+  const subOptions = useMemo(() => {
+    const s = new Set<string>();
+    for (const m of materials) if (groupFilter === 'all' || classOf(m).key === groupFilter) { if (m.subcategory) s.add(m.subcategory); }
+    return ['all', ...Array.from(s).sort()];
+  }, [materials, groupFilter]);
 
   const { data, layout } = useMemo(() => {
-    const inFamily = (m: any) => familyFilter === 'all' || ((m.families || []) as string[]).includes(familyFilter);
+    const inGroup = (m: any) => groupFilter === 'all' || classOf(m).key === groupFilter;
+    const inSub = (m: any) => subFilter === 'all' || m.subcategory === subFilter;
     const valid = (m: any) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
-    const fset = filtered.filter((m) => valid(m) && inFamily(m));
+    const fset = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m));
     const fsetIds = new Set(fset.map((m) => m.id));
     const others = materials.filter((m) => !fsetIds.has(m.id) && valid(m));
 
@@ -156,29 +165,32 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       const poly = h.map((p) => [10 ** p[0], 10 ** p[1]]);
       return { x: [...poly.map((p) => p[0]), poly[0][0]], y: [...poly.map((p) => p[1]), poly[0][1]], mode: 'lines', type: 'scatter', fill: 'toself', fillcolor: rgba(color, alpha), line: { color, width, shape: 'spline', smoothing: 1.1 }, hoverinfo: 'skip', showlegend: false };
     };
-    // a single smooth envelope around the whole family when one is selected
-    const familyTrace = familyFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : [];
     // highlight the selected material's own envelope on top
     const selM = selectedId ? materials.find((m) => m.id === selectedId) : null;
-    const selTrace = selM ? [envFromPoints([selM], classOf(selM).color, 0.32, 3)].filter(Boolean) : [];
-    const envelopeTraces = familyFilter !== 'all' ? familyTrace : hullTraces;
+    const selTrace = (showEnvelopes && selM) ? [envFromPoints([selM], classOf(selM).color, 0.32, 3)].filter(Boolean) : [];
+    // envelopes: hidden if toggled off; one class envelope when a class is selected; else per-material
+    let envelopeTraces: any[] = [];
+    if (showEnvelopes) envelopeTraces = groupFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : hullTraces;
 
     // auto-range to the filtered envelope (log10 units, with padding)
     const xs = fset.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
     const ys = fset.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
-    const xRange = xs.length ? [L(Math.min(...xs)) - 0.15, L(Math.max(...xs)) + 0.15] : undefined;
-    const yRange = ys.length ? [L(Math.min(...ys)) - 0.15, L(Math.max(...ys)) + 0.15] : undefined;
+    const logRange = (v: number[]) => v.length ? [L(Math.min(...v)) - 0.15, L(Math.max(...v)) + 0.15] : undefined;
+    const linRange = (v: number[]) => { if (!v.length) return undefined; const mn = Math.min(...v), mx = Math.max(...v), pad = (mx - mn) * 0.06 || mx * 0.06; return [Math.max(0, mn - pad), mx + pad]; };
+    const xRange = logScale ? logRange(xs) : linRange(xs);
+    const yRange = logScale ? logRange(ys) : linRange(ys);
 
     // active-filter selection window (limits) for the current axes
     const fx = filters && RANGE_FILTER_KEY[xProperty] ? (filters[RANGE_FILTER_KEY[xProperty]] as [number, number] | null) : null;
     const fy = filters && RANGE_FILTER_KEY[yProperty] ? (filters[RANGE_FILTER_KEY[yProperty]] as [number, number] | null) : null;
-    if (fx) for (const xv of fx) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: L(xv), x1: L(xv), y0: 0, y1: 1, line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
-    if (fy) for (const yv of fy) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: L(yv), y1: L(yv), line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
+    const sc = (v: number) => (logScale ? L(v) : v);
+    if (fx) for (const xv of fx) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: sc(xv), x1: sc(xv), y0: 0, y1: 1, line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
+    if (fy) for (const yv of fy) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: sc(yv), y1: sc(yv), line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
 
     // material-index guide lines (Ashby): constant performance-index directions on log-log
     const guideAnnotations: any[] = [];
     const guides = INDEX_GUIDES[`${xProperty}|${yProperty}`];
-    if (guides && xRange && yRange) {
+    if (logScale && guides && xRange && yRange) {
       const xm = (xRange[0] + xRange[1]) / 2, ym = (yRange[0] + yRange[1]) / 2;
       for (const g of guides) {
         const yAt = (xl: number) => g.slope * (xl - xm) + ym;
@@ -193,8 +205,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const layout: any = {
       autosize: true, height: 600,
       margin: { l: 72, r: 20, t: 28, b: 56 },
-      xaxis: { title: { text: `${xMeta?.label ?? xProperty} (${xMeta?.unit ?? ''})`, font: { size: 12 } }, type: 'log', range: xRange, gridcolor: '#eef2f7', zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
-      yaxis: { title: { text: `${yMeta?.label ?? yProperty} (${yMeta?.unit ?? ''})`, font: { size: 12 } }, type: 'log', range: yRange, gridcolor: '#eef2f7', zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
+      xaxis: { title: { text: `${xMeta?.label ?? xProperty} (${xMeta?.unit ?? ''})`, font: { size: 12 } }, type: logScale ? 'log' : 'linear', range: xRange, gridcolor: '#eef2f7', zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
+      yaxis: { title: { text: `${yMeta?.label ?? yProperty} (${yMeta?.unit ?? ''})`, font: { size: 12 } }, type: logScale ? 'log' : 'linear', range: yRange, gridcolor: '#eef2f7', zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
       hovermode: 'closest', shapes, annotations: guideAnnotations,
       legend: { orientation: 'h', y: 1.07, x: 0, font: { size: 11 }, bgcolor: 'rgba(255,255,255,0)' },
       paper_bgcolor: '#ffffff', plot_bgcolor: '#ffffff',
@@ -202,7 +214,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     };
 
     return { data: [...envelopeTraces, ...contextTrace, ...markerTraces, ...selTrace], layout };
-  }, [materials, filtered, xProperty, yProperty, filters, familyFilter, selectedId]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, logScale]);
 
   const config = {
     responsive: true, displaylogo: false,
@@ -229,13 +241,23 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
           </Select>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs text-muted-foreground font-medium">Family</span>
-          <Select value={familyFilter} onValueChange={setFamilyFilter}>
+          <span className="text-xs text-muted-foreground font-medium">Class</span>
+          <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
+            <SelectTrigger className="h-7 text-xs w-[140px]"><SelectValue /></SelectTrigger>
+            <SelectContent>{groupOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All classes' : f}</SelectItem>)}</SelectContent>
+          </Select>
+          <Select value={subFilter} onValueChange={setSubFilter}>
             <SelectTrigger className="h-7 text-xs w-[180px]"><SelectValue /></SelectTrigger>
-            <SelectContent>{familyOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : f}</SelectItem>)}</SelectContent>
+            <SelectContent>{subOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : f}</SelectItem>)}</SelectContent>
           </Select>
         </div>
-        <span className="text-[11px] text-muted-foreground ml-auto">Ellipse = min–max range · dotted box = filter limits</span>
+        <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
+          <input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> Envelopes
+        </label>
+        <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
+          <input type="checkbox" checked={logScale} onChange={(e) => setLogScale(e.target.checked)} className="accent-accent" /> Log
+        </label>
+        <span className="text-[11px] text-muted-foreground ml-auto">Curved envelope = property range</span>
       </div>
 
       {/* Chart */}
