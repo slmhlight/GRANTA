@@ -3,24 +3,24 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **216 materials**: 46 curated · 6 am_vendor · 164 generic
-- Dropped 67 CSV rows that duplicate curated AM alloys (curated db is the richer source).
+- **199 materials**: 46 curated · 6 am_vendor · 147 generic
+- Dropped 307 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 216/216 | 0 |
-| yield_strength | 212/216 | 204 |
-| uts | 206/216 | 200 |
-| elongation | 212/216 | 203 |
-| modulus | 216/216 | 2 |
-| hardness | 199/216 | 186 |
-| thermal_conductivity | 216/216 | 2 |
-| fatigue_strength | 27/216 | 27 |
-| impact_strength | 27/216 | 27 |
+| density | 199/199 | 0 |
+| yield_strength | 195/199 | 188 |
+| uts | 191/199 | 185 |
+| elongation | 195/199 | 187 |
+| modulus | 199/199 | 3 |
+| hardness | 182/199 | 170 |
+| thermal_conductivity | 199/199 | 3 |
+| fatigue_strength | 20/199 | 20 |
+| impact_strength | 20/199 | 20 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 46/216 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 46/199 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
@@ -31,7 +31,7 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - Placeholder `corrosion_resistance=0` in 2313 raw rows (treated as “unknown”, not 0).
 - Empty fatigue/impact in 2364 raw rows (left null, not zero).
 
-## Subcategory mismatch flags (35) — manual review
+## Subcategory mismatch flags (33) — manual review
 - Inconel 100: Aluminum - Pure/Other / Nickel Superalloy
 - C26000: Copper - Brass (Cu-Zn) / Titanium - Pure/Other
 - C27000: Copper - Brass (Cu-Zn) / Titanium - Pure/Other
@@ -43,11 +43,9 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - C17200: Copper - Pure/Other / Titanium - Pure/Other
 - Monel 400: Copper - Pure/Other / Titanium - Pure/Other
 - Hastelloy C-276: Nickel - Hastelloy / Titanium - Pure/Other
-- Hastelloy X: Nickel - Hastelloy / Titanium - Pure/Other
-- Inconel 600: Nickel - Inconel Superalloy / Titanium - Pure/Other
-- Inconel 625: Nickel - Inconel Superalloy / Titanium - Pure/Other
-- Inconel 718: Nickel - Inconel Superalloy / Titanium - Pure/Other
 - Inconel X-750: Nickel - Inconel Superalloy / Titanium - Pure/Other
+- Inconel 600: Nickel - Inconel Superalloy / Titanium - Pure/Other
+- 15-5PH: Nickel - Other Superalloy / Stainless Steel - Austenitic
 - Epoxy Resin: Polymer - Epoxy/Thermoset Resin / Polymer - Nylon (FDM/SLS) / Polymer - Photopolymer Resin (SLA)
 - Polyester Resin: Polymer - Epoxy/Thermoset Resin / Polymer - Nylon (FDM/SLS) / Polymer - Photopolymer Resin (SLA)
 - HDPE: Polymer - Nylon (FDM/SLS) / Polymer - Photopolymer Resin (SLA) / Polymer - Polyethylene
@@ -57,6 +55,8 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - PEEK: Polymer - Nylon (FDM/SLS) / Polymer - PEEK (FDM)
 - PEI: Polymer - Nylon (FDM/SLS) / Polymer - PEI/ULTEM (FDM)
 - PES: Polymer - Nylon (FDM/SLS) / Polymer - PES (FDM)
+- PMMA: Polymer - Nylon (FDM/SLS) / Polymer - PMMA (Acrylic) / Polymer - Photopolymer Resin (SLA)
+- PP: Polymer - Nylon (FDM/SLS) / Polymer - PP (FDM)
 
 ## TODO
 - Hardness scale unification (HV/HRC/HB).

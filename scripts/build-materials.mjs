@@ -149,16 +149,7 @@ const isCurated = name => {
   return false;
 };
 
-// ───────── split CSV rows ─────────
-const amGroups = new Map(), genGroups = new Map();
-let droppedCuratedDup = 0;
-for (const r of csvRows) {
-  const isAm = r.manufacturer !== 'Generic' || AM_PROC.has(r.process);
-  if (isCurated(r.material_name) && isAm) { droppedCuratedDup++; continue; } // covered by curated db
-  if (isAm) { const k = alloyOf(r.material_name); if (!amGroups.has(k)) amGroups.set(k, []); amGroups.get(k).push(r); }
-  else { const k = r.category + '||' + baseName(r.material_name); if (!genGroups.has(k)) genGroups.set(k, []); genGroups.get(k).push(r); }
-}
-
+// ───────── non-curated tiers (am_vendor / generic) ─────────
 function compositionFromRows(g) {
   const composition = {};
   for (const el of ELEMENTS) { const vals = g.map(r => num(r[el])).filter(v => v != null && v > 0); if (vals.length) { const mn = round(Math.min(...vals)), mx = round(Math.max(...vals)); composition[el] = mn === mx ? String(mn) : `${mn}~${mx}`; } }
@@ -167,36 +158,49 @@ function compositionFromRows(g) {
 function rangesFromRows(g) { const ranges = {}; for (const p of NUM_PROPS) ranges[p] = rangeFrom(g.map(r => r[p])); return ranges; }
 function fixSubcategory(name, rawSub) { return aaSubcategory(name) || rawSub; }
 
-let aaFixed = 0;
-const am_vendor = [...amGroups.entries()].map(([alloy, g], idx) => {
-  const rep = g[0];
-  const rawSub = mostCommon(g.map(r => r.subcategory));
-  const sub = fixSubcategory(rep.material_name, rawSub); if (sub !== rawSub) aaFixed++;
-  return {
-    id: 'V_' + String(idx).padStart(4, '0'), name: alloy, category: rep.category || 'Metal', subcategory: sub, tier: 'am_vendor',
-    manufacturers: uniq(g.map(r => r.manufacturer)), machines: [], processes: uniq(g.map(r => PROCESS_CANON[r.process] || r.process)),
-    ranges: rangesFromRows(g), composition: compositionFromRows(g),
-    sources: dedupeSources([...uniq(g.map(r => r.manufacturer)).map(mf => ({ label: `${mf} (AM vendor datasheet)`, url: null, verified: false })), matwebSearch(alloy)]),
-    meta: { row_count: g.length, subcategory_variants: uniq(g.map(r => r.subcategory)) },
-  };
-});
+// Merge all non-curated rows by normalised alloy so an alloy never appears twice.
+// Priority: curated db is authoritative (its alloys are dropped here). A merged
+// non-curated material is 'am_vendor' if ANY of its rows is AM/vendor data, else 'generic'.
+let droppedCuratedDup = 0;
+const ncGroups = new Map(); // norm(alloy) -> { rows, hasAm, name }
+for (const r of csvRows) {
+  if (isCurated(r.material_name)) { droppedCuratedDup++; continue; }
+  const isAm = r.manufacturer !== 'Generic' || AM_PROC.has(r.process);
+  const alloy = (isAm ? alloyOf(r.material_name) : baseName(r.material_name)).trim();
+  const key = norm(alloy);
+  if (!key) { droppedCuratedDup++; continue; }
+  if (!ncGroups.has(key)) ncGroups.set(key, { rows: [], hasAm: false, name: alloy });
+  const grp = ncGroups.get(key);
+  grp.rows.push(r);
+  if (isAm) grp.hasAm = true;
+  if (alloy && alloy.length < grp.name.length) grp.name = alloy; // prefer the most concise designation
+}
 
+let aaFixed = 0;
 const subcatFlags = [];
-const generic = [...genGroups.entries()].map(([key, g], idx) => {
-  const rep = g[0];
+const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
+  const g = grp.rows, rep = g[0];
   const rawSub = mostCommon(g.map(r => r.subcategory));
-  const sub = fixSubcategory(rep.material_name, rawSub); if (sub !== rawSub) aaFixed++;
+  const sub = fixSubcategory(grp.name, rawSub); if (sub !== rawSub) aaFixed++;
   const variants = uniq(g.map(r => r.subcategory));
-  if (variants.length > 1) subcatFlags.push({ name: baseName(rep.material_name), variants });
-  const srcVals = uniq(g.map(r => r.source).filter(s => s !== 'Unknown'));
+  if (variants.length > 1) subcatFlags.push({ name: grp.name, variants });
+  const tier = grp.hasAm ? 'am_vendor' : 'generic';
+  const manus = uniq(g.map(r => r.manufacturer));
+  const realSrc = uniq(g.map(r => r.source).filter(s => s !== 'Unknown')).map(s => ({ label: s, url: null, verified: false }));
+  const sources = grp.hasAm
+    ? dedupeSources([...manus.filter(m => m !== 'Generic').map(mf => ({ label: `${mf} (AM vendor datasheet)`, url: null, verified: false })), ...realSrc, matwebSearch(grp.name)])
+    : dedupeSources([...realSrc, familyHandbook(rep.category, sub), matwebSearch(grp.name)]);
   return {
-    id: 'G_' + String(idx).padStart(4, '0'), name: baseName(rep.material_name), category: rep.category, subcategory: sub, tier: 'generic',
-    manufacturers: ['Generic'], machines: [], processes: uniq(g.map(r => PROCESS_CANON[r.process] || r.process)),
-    ranges: rangesFromRows(g), composition: compositionFromRows(g),
-    sources: dedupeSources([...srcVals.map(s => ({ label: s, url: null, verified: false })), familyHandbook(rep.category, sub), matwebSearch(baseName(rep.material_name))]),
+    id: (tier === 'am_vendor' ? 'V_' : 'G_') + String(idx).padStart(4, '0'),
+    name: grp.name, category: rep.category || 'Metal', subcategory: sub, tier,
+    manufacturers: tier === 'am_vendor' ? manus : ['Generic'], machines: [],
+    processes: uniq(g.map(r => PROCESS_CANON[r.process] || r.process)),
+    ranges: rangesFromRows(g), composition: compositionFromRows(g), sources,
     meta: { row_count: g.length, subcategory_variants: variants },
   };
 });
+const am_vendor = nonCurated.filter(m => m.tier === 'am_vendor');
+const generic = nonCurated.filter(m => m.tier === 'generic');
 
 const all = [...curated, ...am_vendor, ...generic];
 

@@ -393,6 +393,7 @@ export default function Home() {
                 <AshbyChart
                   materials={materials}
                   filteredMaterials={filtered}
+                  filters={filters}
                   onMaterialClick={handleSelectMaterial}
                 />
               </Suspense>

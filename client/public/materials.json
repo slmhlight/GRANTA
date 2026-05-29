@@ -6058,66 +6058,75 @@
     "source": "Nikon SLM Hastelloy X MDS 2023-04.1"
   },
   {
-    "id": "V_0000",
+    "id": "V_0040",
     "name": "Ti5-8-5",
     "category": "Metal",
     "subcategory": "Aluminum - Pure/Other",
     "tier": "am_vendor",
     "manufacturers": [
       "3D Systems",
-      "Renishaw"
+      "Renishaw",
+      "Generic"
     ],
     "machines": [],
     "processes": [
-      "LPBF"
+      "LPBF",
+      "Wrought"
     ],
     "ranges": {
       "density": {
         "min": 4.8,
         "max": 4.8,
         "typical": 4.8,
-        "n": 2
+        "n": 12
       },
       "yield_strength": {
         "min": 1050,
-        "max": 1060,
-        "typical": 1060,
-        "n": 2
+        "max": 1427.9,
+        "typical": 1336.2,
+        "n": 12
       },
-      "uts": null,
+      "uts": {
+        "min": 1283.4,
+        "max": 1504.2,
+        "typical": 1449,
+        "n": 10
+      },
       "elongation": {
-        "min": 8,
-        "max": 8.2,
-        "typical": 8.2,
-        "n": 2
+        "min": 6.48,
+        "max": 8.72,
+        "typical": 7.84,
+        "n": 12
       },
       "modulus": {
-        "min": 125,
+        "min": 120,
         "max": 126,
-        "typical": 126,
-        "n": 2
+        "typical": 120,
+        "n": 12
       },
       "hardness": {
-        "min": 390,
-        "max": 395,
+        "min": 353.4,
+        "max": 414.2,
         "typical": 395,
-        "n": 2
+        "n": 12
       },
       "thermal_conductivity": {
-        "min": 8.1,
+        "min": 7.5,
         "max": 8.2,
-        "typical": 8.2,
-        "n": 2
+        "typical": 7.5,
+        "n": 12
       },
       "fatigue_strength": null,
       "impact_strength": null
     },
     "composition": {
-      "Fe": "2.5",
+      "Fe": "0.4~2.5",
       "Cr": "1",
-      "Al": "5",
-      "Ti": "86.5",
-      "V": "5"
+      "Si": "0.3",
+      "Cu": "0.05",
+      "Al": "1~98.5",
+      "Ti": "86.5~98",
+      "V": "1~5"
     },
     "sources": [
       {
@@ -6137,26 +6146,26 @@
       }
     ],
     "meta": {
-      "row_count": 2,
+      "row_count": 12,
       "subcategory_variants": [
         "Aluminum - Pure/Other"
       ]
     },
     "density": 4.8,
-    "yield_strength": 1060,
-    "uts": null,
-    "elongation": 8.2,
-    "modulus": 126,
+    "yield_strength": 1336.2,
+    "uts": 1449,
+    "elongation": 7.84,
+    "modulus": 120,
     "hardness": 395,
-    "thermal_conductivity": 8.2,
+    "thermal_conductivity": 7.5,
     "fatigue_strength": null,
     "impact_strength": null,
-    "manufacturer": "3D Systems, Renishaw",
-    "process": "LPBF",
+    "manufacturer": "3D Systems, Renishaw, Generic",
+    "process": "LPBF / Wrought",
     "source": "3D Systems (AM vendor datasheet)"
   },
   {
-    "id": "V_0001",
+    "id": "V_0048",
     "name": "Al12Si",
     "category": "Metal",
     "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
@@ -6254,64 +6263,77 @@
     "source": "3D Systems (AM vendor datasheet)"
   },
   {
-    "id": "V_0002",
+    "id": "V_0068",
     "name": "Inconel X-750",
     "category": "Metal",
     "subcategory": "Nickel - Inconel Superalloy",
     "tier": "am_vendor",
     "manufacturers": [
-      "EOS"
+      "EOS",
+      "Generic"
     ],
     "machines": [],
     "processes": [
-      "DMLS"
+      "DMLS",
+      "Wrought"
     ],
     "ranges": {
       "density": {
         "min": 8.28,
         "max": 8.28,
         "typical": 8.28,
-        "n": 1
+        "n": 11
       },
       "yield_strength": {
         "min": 950,
-        "max": 950,
-        "typical": 950,
-        "n": 1
+        "max": 1275.3,
+        "typical": 1181.7,
+        "n": 11
       },
-      "uts": null,
+      "uts": {
+        "min": 1283.4,
+        "max": 1504.2,
+        "typical": 1407.6,
+        "n": 10
+      },
       "elongation": {
-        "min": 20,
+        "min": 9.6,
         "max": 20,
-        "typical": 20,
-        "n": 1
+        "typical": 11.4,
+        "n": 11
       },
       "modulus": {
         "min": 205,
-        "max": 205,
-        "typical": 205,
-        "n": 1
+        "max": 210,
+        "typical": 210,
+        "n": 11
       },
       "hardness": {
-        "min": 400,
-        "max": 400,
-        "typical": 400,
-        "n": 1
+        "min": 353.4,
+        "max": 414.2,
+        "typical": 387.6,
+        "n": 11
       },
       "thermal_conductivity": {
         "min": 11.8,
-        "max": 11.8,
-        "typical": 11.8,
-        "n": 1
+        "max": 12.3,
+        "typical": 12.3,
+        "n": 11
       },
       "fatigue_strength": null,
       "impact_strength": null
     },
     "composition": {
-      "Fe": "0.4",
+      "Fe": "0.4~5",
+      "Cr": "21",
+      "Ni": "58",
+      "Mo": "9",
       "Si": "0.3",
       "Cu": "0.05",
-      "Al": "98.5"
+      "Al": "1~98.5",
+      "Ti": "98",
+      "V": "1",
+      "Nb": "3.6"
     },
     "sources": [
       {
@@ -6326,26 +6348,27 @@
       }
     ],
     "meta": {
-      "row_count": 1,
+      "row_count": 11,
       "subcategory_variants": [
-        "Nickel - Inconel Superalloy"
+        "Nickel - Inconel Superalloy",
+        "Titanium - Pure/Other"
       ]
     },
     "density": 8.28,
-    "yield_strength": 950,
-    "uts": null,
-    "elongation": 20,
-    "modulus": 205,
-    "hardness": 400,
-    "thermal_conductivity": 11.8,
+    "yield_strength": 1181.7,
+    "uts": 1407.6,
+    "elongation": 11.4,
+    "modulus": 210,
+    "hardness": 387.6,
+    "thermal_conductivity": 12.3,
     "fatigue_strength": null,
     "impact_strength": null,
-    "manufacturer": "EOS",
-    "process": "DMLS",
+    "manufacturer": "EOS, Generic",
+    "process": "DMLS / Wrought",
     "source": "EOS (AM vendor datasheet)"
   },
   {
-    "id": "V_0003",
+    "id": "V_0070",
     "name": "15-5PH",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -6452,7 +6475,7 @@
     "source": "Nikon SLM Solutions (AM vendor datasheet)"
   },
   {
-    "id": "V_0004",
+    "id": "V_0099",
     "name": "304L",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -6552,7 +6575,7 @@
     "source": "3D Systems (AM vendor datasheet)"
   },
   {
-    "id": "V_0005",
+    "id": "V_0127",
     "name": "Bronze",
     "category": "Metal",
     "subcategory": "Titanium - Pure/Other",
@@ -8873,104 +8896,6 @@
   },
   {
     "id": "G_0023",
-    "name": "Monel K-500",
-    "category": "Metal",
-    "subcategory": "Aluminum - Cu Alloys (2xxx)",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8.8,
-        "max": 8.8,
-        "typical": 8.8,
-        "n": 10
-      },
-      "yield_strength": {
-        "min": 651,
-        "max": 763,
-        "typical": 714,
-        "n": 10
-      },
-      "uts": {
-        "min": 930,
-        "max": 1090,
-        "typical": 1020,
-        "n": 10
-      },
-      "elongation": {
-        "min": 12,
-        "max": 16.35,
-        "typical": 14.25,
-        "n": 10
-      },
-      "modulus": {
-        "min": 180,
-        "max": 180,
-        "typical": 180,
-        "n": 10
-      },
-      "hardness": {
-        "min": 260.4,
-        "max": 305.2,
-        "typical": 285.6,
-        "n": 10
-      },
-      "thermal_conductivity": {
-        "min": 21.8,
-        "max": 21.8,
-        "typical": 21.8,
-        "n": 10
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "Fe": "0.4",
-      "Si": "0.3",
-      "Cu": "0.05",
-      "Al": "1~98.5",
-      "Ti": "98",
-      "V": "1"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Monel K-500\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Monel%20K-500",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 10,
-      "subcategory_variants": [
-        "Aluminum - Cu Alloys (2xxx)"
-      ]
-    },
-    "density": 8.8,
-    "yield_strength": 714,
-    "uts": 1020,
-    "elongation": 14.25,
-    "modulus": 180,
-    "hardness": 285.6,
-    "thermal_conductivity": 21.8,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
-  },
-  {
-    "id": "G_0024",
     "name": "AA 5005",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -9066,7 +8991,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0025",
+    "id": "G_0024",
     "name": "AA 5050",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -9162,7 +9087,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0026",
+    "id": "G_0025",
     "name": "AA 5052",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -9258,7 +9183,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0027",
+    "id": "G_0026",
     "name": "AA 5154",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -9354,7 +9279,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0028",
+    "id": "G_0027",
     "name": "AA 5182",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -9450,7 +9375,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0029",
+    "id": "G_0028",
     "name": "AA 5251",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -9546,7 +9471,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0030",
+    "id": "G_0029",
     "name": "AA 5356",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -9642,7 +9567,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0031",
+    "id": "G_0030",
     "name": "AA 6063",
     "category": "Metal",
     "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
@@ -9737,7 +9662,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0032",
+    "id": "G_0031",
     "name": "AA 3003",
     "category": "Metal",
     "subcategory": "Aluminum - Mn Alloys (3xxx)",
@@ -9832,7 +9757,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0033",
+    "id": "G_0032",
     "name": "AA 3004",
     "category": "Metal",
     "subcategory": "Aluminum - Mn Alloys (3xxx)",
@@ -9928,7 +9853,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0034",
+    "id": "G_0033",
     "name": "AA 3005",
     "category": "Metal",
     "subcategory": "Aluminum - Mn Alloys (3xxx)",
@@ -10023,7 +9948,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0035",
+    "id": "G_0034",
     "name": "AA 3105",
     "category": "Metal",
     "subcategory": "Aluminum - Mn Alloys (3xxx)",
@@ -10119,7 +10044,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0036",
+    "id": "G_0035",
     "name": "AA 5083",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -10215,7 +10140,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0037",
+    "id": "G_0036",
     "name": "AA 5086",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -10310,7 +10235,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0038",
+    "id": "G_0037",
     "name": "AA 5383",
     "category": "Metal",
     "subcategory": "Aluminum - Mg Alloys (5xxx)",
@@ -10406,7 +10331,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0039",
+    "id": "G_0038",
     "name": "AA 6082",
     "category": "Metal",
     "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
@@ -10502,7 +10427,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0040",
+    "id": "G_0039",
     "name": "AA 7005",
     "category": "Metal",
     "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
@@ -11007,104 +10932,6 @@
   },
   {
     "id": "G_0045",
-    "name": "Ti Grade 5",
-    "category": "Metal",
-    "subcategory": "Aluminum - Pure/Other",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 4.43,
-        "max": 4.43,
-        "typical": 4.43,
-        "n": 10
-      },
-      "yield_strength": {
-        "min": 1023,
-        "max": 1199,
-        "typical": 1155,
-        "n": 10
-      },
-      "uts": {
-        "min": 1078.8,
-        "max": 1264.4,
-        "typical": 1218,
-        "n": 10
-      },
-      "elongation": {
-        "min": 8.1,
-        "max": 10.9,
-        "typical": 9.5,
-        "n": 10
-      },
-      "modulus": {
-        "min": 114,
-        "max": 114,
-        "typical": 114,
-        "n": 10
-      },
-      "hardness": {
-        "min": 310.62,
-        "max": 364.06,
-        "typical": 350.7,
-        "n": 10
-      },
-      "thermal_conductivity": {
-        "min": 7.3,
-        "max": 7.3,
-        "typical": 7.3,
-        "n": 10
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "Fe": "0.4",
-      "Si": "0.3",
-      "Cu": "0.05",
-      "Al": "6~98.5",
-      "Ti": "90",
-      "V": "4"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Ti Grade 5\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%205",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 10,
-      "subcategory_variants": [
-        "Aluminum - Pure/Other"
-      ]
-    },
-    "density": 4.43,
-    "yield_strength": 1155,
-    "uts": 1218,
-    "elongation": 9.5,
-    "modulus": 114,
-    "hardness": 350.7,
-    "thermal_conductivity": 7.3,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
-  },
-  {
-    "id": "G_0046",
     "name": "Ti-5-2-5",
     "category": "Metal",
     "subcategory": "Aluminum - Pure/Other",
@@ -11202,203 +11029,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0047",
-    "name": "Ti-5-8-5",
-    "category": "Metal",
-    "subcategory": "Aluminum - Pure/Other",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 4.8,
-        "max": 4.8,
-        "typical": 4.8,
-        "n": 10
-      },
-      "yield_strength": {
-        "min": 1218.3,
-        "max": 1427.9,
-        "typical": 1375.5,
-        "n": 10
-      },
-      "uts": {
-        "min": 1283.4,
-        "max": 1504.2,
-        "typical": 1449,
-        "n": 10
-      },
-      "elongation": {
-        "min": 6.48,
-        "max": 8.72,
-        "typical": 7.6,
-        "n": 10
-      },
-      "modulus": {
-        "min": 120,
-        "max": 120,
-        "typical": 120,
-        "n": 10
-      },
-      "hardness": {
-        "min": 353.4,
-        "max": 414.2,
-        "typical": 399,
-        "n": 10
-      },
-      "thermal_conductivity": {
-        "min": 7.5,
-        "max": 7.5,
-        "typical": 7.5,
-        "n": 10
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "Fe": "0.4",
-      "Si": "0.3",
-      "Cu": "0.05",
-      "Al": "1~98.5",
-      "Ti": "98",
-      "V": "1"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Ti-5-8-5\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-5-8-5",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 10,
-      "subcategory_variants": [
-        "Aluminum - Pure/Other"
-      ]
-    },
-    "density": 4.8,
-    "yield_strength": 1375.5,
-    "uts": 1449,
-    "elongation": 7.6,
-    "modulus": 120,
-    "hardness": 399,
-    "thermal_conductivity": 7.5,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
-  },
-  {
-    "id": "G_0048",
-    "name": "Ti-6-2-4-2",
-    "category": "Metal",
-    "subcategory": "Aluminum - Pure/Other",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 4.63,
-        "max": 4.63,
-        "typical": 4.63,
-        "n": 10
-      },
-      "yield_strength": {
-        "min": 1088.1,
-        "max": 1275.3,
-        "typical": 1228.5,
-        "n": 10
-      },
-      "uts": {
-        "min": 1153.2,
-        "max": 1351.6,
-        "typical": 1302,
-        "n": 10
-      },
-      "elongation": {
-        "min": 6.48,
-        "max": 8.72,
-        "typical": 7.6,
-        "n": 10
-      },
-      "modulus": {
-        "min": 110,
-        "max": 110,
-        "typical": 110,
-        "n": 10
-      },
-      "hardness": {
-        "min": 334.8,
-        "max": 392.4,
-        "typical": 378,
-        "n": 10
-      },
-      "thermal_conductivity": {
-        "min": 7.8,
-        "max": 7.8,
-        "typical": 7.8,
-        "n": 10
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "Fe": "0.4",
-      "Si": "0.3",
-      "Cu": "0.05",
-      "Al": "1~98.5",
-      "Ti": "98",
-      "V": "1"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Ti-6-2-4-2\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6-2-4-2",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 10,
-      "subcategory_variants": [
-        "Aluminum - Pure/Other"
-      ]
-    },
-    "density": 4.63,
-    "yield_strength": 1228.5,
-    "uts": 1302,
-    "elongation": 7.6,
-    "modulus": 110,
-    "hardness": 378,
-    "thermal_conductivity": 7.8,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
-  },
-  {
-    "id": "G_0049",
+    "id": "G_0046",
     "name": "Ti-6-2-4-6",
     "category": "Metal",
     "subcategory": "Aluminum - Pure/Other",
@@ -11496,7 +11127,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0050",
+    "id": "G_0047",
     "name": "Ti-8-1-1",
     "category": "Metal",
     "subcategory": "Aluminum - Pure/Other",
@@ -11594,7 +11225,7 @@
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations"
   },
   {
-    "id": "G_0051",
+    "id": "G_0049",
     "name": "AISI 1010",
     "category": "Metal",
     "subcategory": "Carbon Steel",
@@ -11692,7 +11323,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0052",
+    "id": "G_0050",
     "name": "AISI 1015",
     "category": "Metal",
     "subcategory": "Carbon Steel",
@@ -11793,7 +11424,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0053",
+    "id": "G_0051",
     "name": "AISI 1020",
     "category": "Metal",
     "subcategory": "Carbon Steel",
@@ -11891,7 +11522,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0054",
+    "id": "G_0052",
     "name": "AISI 1025",
     "category": "Metal",
     "subcategory": "Carbon Steel",
@@ -11992,7 +11623,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0055",
+    "id": "G_0053",
     "name": "AISI 1030",
     "category": "Metal",
     "subcategory": "Carbon Steel",
@@ -12093,7 +11724,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0056",
+    "id": "G_0054",
     "name": "AISI 1040",
     "category": "Metal",
     "subcategory": "Carbon Steel",
@@ -12194,7 +11825,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0057",
+    "id": "G_0055",
     "name": "AISI 1050",
     "category": "Metal",
     "subcategory": "Carbon Steel",
@@ -12291,7 +11922,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0058",
+    "id": "G_0056",
     "name": "AISI 1080",
     "category": "Metal",
     "subcategory": "Carbon Steel",
@@ -12389,7 +12020,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0059",
+    "id": "G_0057",
     "name": "AISI 1095",
     "category": "Metal",
     "subcategory": "Carbon Steel",
@@ -12487,7 +12118,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0060",
+    "id": "G_0058",
     "name": "C26000",
     "category": "Metal",
     "subcategory": "Copper - Brass (Cu-Zn)",
@@ -12587,7 +12218,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0061",
+    "id": "G_0059",
     "name": "C27000",
     "category": "Metal",
     "subcategory": "Copper - Brass (Cu-Zn)",
@@ -12687,7 +12318,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0062",
+    "id": "G_0060",
     "name": "C28000",
     "category": "Metal",
     "subcategory": "Copper - Brass (Cu-Zn)",
@@ -12784,7 +12415,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0063",
+    "id": "G_0061",
     "name": "C44300",
     "category": "Metal",
     "subcategory": "Copper - Brass (Cu-Zn)",
@@ -12882,7 +12513,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0064",
+    "id": "G_0062",
     "name": "C11000",
     "category": "Metal",
     "subcategory": "Copper - Pure/Other",
@@ -12980,7 +12611,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0065",
+    "id": "G_0063",
     "name": "C12000",
     "category": "Metal",
     "subcategory": "Copper - Pure/Other",
@@ -13077,7 +12708,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0066",
+    "id": "G_0064",
     "name": "C14500",
     "category": "Metal",
     "subcategory": "Copper - Pure/Other",
@@ -13172,7 +12803,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0067",
+    "id": "G_0065",
     "name": "C17200",
     "category": "Metal",
     "subcategory": "Copper - Pure/Other",
@@ -13272,7 +12903,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0068",
+    "id": "G_0066",
     "name": "Monel 400",
     "category": "Metal",
     "subcategory": "Copper - Pure/Other",
@@ -13371,7 +13002,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0069",
+    "id": "G_0067",
     "name": "Hastelloy C-276",
     "category": "Metal",
     "subcategory": "Nickel - Hastelloy",
@@ -13470,106 +13101,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0070",
-    "name": "Hastelloy X",
-    "category": "Metal",
-    "subcategory": "Nickel - Hastelloy",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8.94,
-        "max": 8.94,
-        "typical": 8.94,
-        "n": 10
-      },
-      "yield_strength": {
-        "min": 288.3,
-        "max": 337.9,
-        "typical": 316.2,
-        "n": 10
-      },
-      "uts": {
-        "min": 609.15,
-        "max": 713.95,
-        "typical": 668.1,
-        "n": 10
-      },
-      "elongation": {
-        "min": 32,
-        "max": 43.6,
-        "typical": 38,
-        "n": 10
-      },
-      "modulus": {
-        "min": 210,
-        "max": 210,
-        "typical": 210,
-        "n": 10
-      },
-      "hardness": {
-        "min": 195.3,
-        "max": 228.9,
-        "typical": 214.2,
-        "n": 10
-      },
-      "thermal_conductivity": {
-        "min": 10.1,
-        "max": 10.1,
-        "typical": 10.1,
-        "n": 10
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "Fe": "0.4",
-      "Si": "0.3",
-      "Cu": "0.05",
-      "Al": "1~98.5",
-      "Ti": "98",
-      "V": "1"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Hastelloy X\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Hastelloy%20X",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 10,
-      "subcategory_variants": [
-        "Nickel - Hastelloy",
-        "Titanium - Pure/Other"
-      ]
-    },
-    "density": 8.94,
-    "yield_strength": 316.2,
-    "uts": 668.1,
-    "elongation": 38,
-    "modulus": 210,
-    "hardness": 214.2,
-    "thermal_conductivity": 10.1,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
-  },
-  {
-    "id": "G_0071",
+    "id": "G_0069",
     "name": "Inconel 600",
     "category": "Metal",
     "subcategory": "Nickel - Inconel Superalloy",
@@ -13672,316 +13204,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0072",
-    "name": "Inconel 625",
-    "category": "Metal",
-    "subcategory": "Nickel - Inconel Superalloy",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8.44,
-        "max": 8.44,
-        "typical": 8.44,
-        "n": 10
-      },
-      "yield_strength": {
-        "min": 418.5,
-        "max": 490.5,
-        "typical": 459,
-        "n": 10
-      },
-      "uts": {
-        "min": 930,
-        "max": 1090,
-        "typical": 1020,
-        "n": 10
-      },
-      "elongation": {
-        "min": 24,
-        "max": 32.7,
-        "typical": 28.5,
-        "n": 10
-      },
-      "modulus": {
-        "min": 210,
-        "max": 210,
-        "typical": 210,
-        "n": 10
-      },
-      "hardness": {
-        "min": 204.6,
-        "max": 239.8,
-        "typical": 224.4,
-        "n": 10
-      },
-      "thermal_conductivity": {
-        "min": 9.8,
-        "max": 9.8,
-        "typical": 9.8,
-        "n": 10
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "Fe": "0.4~5",
-      "Cr": "21",
-      "Ni": "58",
-      "Mo": "9",
-      "Si": "0.3",
-      "Cu": "0.05",
-      "Al": "1~98.5",
-      "Ti": "98",
-      "V": "1",
-      "Nb": "3.6"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Inconel 625\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20625",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 10,
-      "subcategory_variants": [
-        "Nickel - Inconel Superalloy",
-        "Titanium - Pure/Other"
-      ]
-    },
-    "density": 8.44,
-    "yield_strength": 459,
-    "uts": 1020,
-    "elongation": 28.5,
-    "modulus": 210,
-    "hardness": 224.4,
-    "thermal_conductivity": 9.8,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
-  },
-  {
-    "id": "G_0073",
-    "name": "Inconel 718",
-    "category": "Metal",
-    "subcategory": "Nickel - Inconel Superalloy",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8.19,
-        "max": 8.19,
-        "typical": 8.19,
-        "n": 10
-      },
-      "yield_strength": {
-        "min": 1023,
-        "max": 1199,
-        "typical": 1122,
-        "n": 10
-      },
-      "uts": {
-        "min": 1283.4,
-        "max": 1504.2,
-        "typical": 1407.6,
-        "n": 10
-      },
-      "elongation": {
-        "min": 9.6,
-        "max": 13.08,
-        "typical": 11.4,
-        "n": 10
-      },
-      "modulus": {
-        "min": 200,
-        "max": 200,
-        "typical": 200,
-        "n": 10
-      },
-      "hardness": {
-        "min": 353.4,
-        "max": 414.2,
-        "typical": 387.6,
-        "n": 10
-      },
-      "thermal_conductivity": {
-        "min": 11.4,
-        "max": 11.4,
-        "typical": 11.4,
-        "n": 10
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "Fe": "0.4~5",
-      "Cr": "21",
-      "Ni": "58",
-      "Mo": "9",
-      "Si": "0.3",
-      "Cu": "0.05",
-      "Al": "1~98.5",
-      "Ti": "98",
-      "V": "1",
-      "Nb": "3.6"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Inconel 718\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20718",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 10,
-      "subcategory_variants": [
-        "Nickel - Inconel Superalloy",
-        "Titanium - Pure/Other"
-      ]
-    },
-    "density": 8.19,
-    "yield_strength": 1122,
-    "uts": 1407.6,
-    "elongation": 11.4,
-    "modulus": 200,
-    "hardness": 387.6,
-    "thermal_conductivity": 11.4,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
-  },
-  {
-    "id": "G_0074",
-    "name": "Inconel X-750",
-    "category": "Metal",
-    "subcategory": "Nickel - Inconel Superalloy",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8.28,
-        "max": 8.28,
-        "typical": 8.28,
-        "n": 10
-      },
-      "yield_strength": {
-        "min": 1088.1,
-        "max": 1275.3,
-        "typical": 1193.4,
-        "n": 10
-      },
-      "uts": {
-        "min": 1283.4,
-        "max": 1504.2,
-        "typical": 1407.6,
-        "n": 10
-      },
-      "elongation": {
-        "min": 9.6,
-        "max": 13.08,
-        "typical": 11.4,
-        "n": 10
-      },
-      "modulus": {
-        "min": 210,
-        "max": 210,
-        "typical": 210,
-        "n": 10
-      },
-      "hardness": {
-        "min": 353.4,
-        "max": 414.2,
-        "typical": 387.6,
-        "n": 10
-      },
-      "thermal_conductivity": {
-        "min": 12.3,
-        "max": 12.3,
-        "typical": 12.3,
-        "n": 10
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "Fe": "0.4~5",
-      "Cr": "21",
-      "Ni": "58",
-      "Mo": "9",
-      "Si": "0.3",
-      "Cu": "0.05",
-      "Al": "1~98.5",
-      "Ti": "98",
-      "V": "1",
-      "Nb": "3.6"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Inconel X-750\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20X-750",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 10,
-      "subcategory_variants": [
-        "Nickel - Inconel Superalloy",
-        "Titanium - Pure/Other"
-      ]
-    },
-    "density": 8.28,
-    "yield_strength": 1193.4,
-    "uts": 1407.6,
-    "elongation": 11.4,
-    "modulus": 210,
-    "hardness": 387.6,
-    "thermal_conductivity": 12.3,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
-  },
-  {
-    "id": "G_0075",
+    "id": "G_0071",
     "name": "ABS",
     "category": "Polymer",
     "subcategory": "Polymer - ABS (FDM)",
@@ -14078,7 +13301,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0076",
+    "id": "G_0072",
     "name": "ABS-PC",
     "category": "Polymer",
     "subcategory": "Polymer - ABS (FDM)",
@@ -14175,7 +13398,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0077",
+    "id": "G_0073",
     "name": "PC-ABS",
     "category": "Polymer",
     "subcategory": "Polymer - ABS (FDM)",
@@ -14272,7 +13495,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0078",
+    "id": "G_0074",
     "name": "Epoxy Resin",
     "category": "Polymer",
     "subcategory": "Polymer - Epoxy/Thermoset Resin",
@@ -14370,7 +13593,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0079",
+    "id": "G_0075",
     "name": "Polyester Resin",
     "category": "Polymer",
     "subcategory": "Polymer - Epoxy/Thermoset Resin",
@@ -14468,7 +13691,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0080",
+    "id": "G_0076",
     "name": "HDPE",
     "category": "Polymer",
     "subcategory": "Polymer - Polyethylene",
@@ -14567,7 +13790,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0081",
+    "id": "G_0077",
     "name": "LDPE",
     "category": "Polymer",
     "subcategory": "Polymer - Polyethylene",
@@ -14666,7 +13889,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0082",
+    "id": "G_0078",
     "name": "Nylon 6",
     "category": "Polymer",
     "subcategory": "Polymer - Nylon (FDM/SLS)",
@@ -14763,7 +13986,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0083",
+    "id": "G_0079",
     "name": "Nylon 66",
     "category": "Polymer",
     "subcategory": "Polymer - Nylon (FDM/SLS)",
@@ -14860,7 +14083,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0084",
+    "id": "G_0080",
     "name": "PC",
     "category": "Polymer",
     "subcategory": "Polymer - Polycarbonate",
@@ -14959,7 +14182,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0085",
+    "id": "G_0081",
     "name": "PE",
     "category": "Polymer",
     "subcategory": "Polymer - Polyethylene",
@@ -15058,7 +14281,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0086",
+    "id": "G_0082",
     "name": "PEEK",
     "category": "Polymer",
     "subcategory": "Polymer - PEEK (FDM)",
@@ -15156,7 +14379,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0087",
+    "id": "G_0083",
     "name": "PEI",
     "category": "Polymer",
     "subcategory": "Polymer - PEI/ULTEM (FDM)",
@@ -15254,7 +14477,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0088",
+    "id": "G_0084",
     "name": "PES",
     "category": "Polymer",
     "subcategory": "Polymer - PES (FDM)",
@@ -15352,7 +14575,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0089",
+    "id": "G_0085",
     "name": "PMMA",
     "category": "Polymer",
     "subcategory": "Polymer - PMMA (Acrylic)",
@@ -15451,7 +14674,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0090",
+    "id": "G_0086",
     "name": "PP",
     "category": "Polymer",
     "subcategory": "Polymer - PP (FDM)",
@@ -15549,7 +14772,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0091",
+    "id": "G_0087",
     "name": "PPS",
     "category": "Polymer",
     "subcategory": "Polymer - PP (FDM)",
@@ -15647,7 +14870,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0092",
+    "id": "G_0088",
     "name": "PS",
     "category": "Polymer",
     "subcategory": "Polymer - Polystyrene",
@@ -15746,7 +14969,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0093",
+    "id": "G_0089",
     "name": "Silicone Rubber",
     "category": "Polymer",
     "subcategory": "Polymer - Silicone Rubber",
@@ -15844,7 +15067,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0094",
+    "id": "G_0090",
     "name": "TPE",
     "category": "Polymer",
     "subcategory": "Polymer - Polyethylene",
@@ -15943,7 +15166,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0095",
+    "id": "G_0091",
     "name": "TPU",
     "category": "Polymer",
     "subcategory": "Polymer - TPU (FDM)",
@@ -16041,7 +15264,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0096",
+    "id": "G_0092",
     "name": "Nylon 6 GF30",
     "category": "Polymer",
     "subcategory": "Polymer - Nylon GF (FDM)",
@@ -16138,7 +15361,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0097",
+    "id": "G_0093",
     "name": "Nylon 66 GF30",
     "category": "Polymer",
     "subcategory": "Polymer - Nylon GF (FDM)",
@@ -16235,7 +15458,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0098",
+    "id": "G_0094",
     "name": "PEEK GF30",
     "category": "Polymer",
     "subcategory": "Polymer - PEEK GF (FDM)",
@@ -16333,7 +15556,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0099",
+    "id": "G_0095",
     "name": "PP-GF30",
     "category": "Polymer",
     "subcategory": "Polymer - PP GF (FDM)",
@@ -16431,7 +15654,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0100",
+    "id": "G_0096",
     "name": "PPS GF40",
     "category": "Polymer",
     "subcategory": "Polymer - PP GF (FDM)",
@@ -16529,7 +15752,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0101",
+    "id": "G_0097",
     "name": "PETG",
     "category": "Polymer",
     "subcategory": "Polymer - PETG (FDM)",
@@ -16626,7 +15849,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0102",
+    "id": "G_0098",
     "name": "PLA",
     "category": "Polymer",
     "subcategory": "Polymer - PLA (FDM)",
@@ -16723,7 +15946,7 @@
     "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics"
   },
   {
-    "id": "G_0103",
+    "id": "G_0100",
     "name": "AISI 301",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -16821,7 +16044,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0104",
+    "id": "G_0101",
     "name": "AISI 302",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -16919,7 +16142,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0105",
+    "id": "G_0102",
     "name": "AISI 303",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -17020,7 +16243,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0106",
+    "id": "G_0103",
     "name": "AISI 304",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -17118,7 +16341,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0107",
+    "id": "G_0104",
     "name": "AISI 304L",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -17216,7 +16439,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0108",
+    "id": "G_0105",
     "name": "AISI 305",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -17317,7 +16540,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0109",
+    "id": "G_0106",
     "name": "AISI 308",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -17418,7 +16641,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0110",
+    "id": "G_0107",
     "name": "AISI 309",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -17519,7 +16742,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0111",
+    "id": "G_0108",
     "name": "AISI 310",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -17617,7 +16840,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0112",
+    "id": "G_0109",
     "name": "AISI 316",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -17716,106 +16939,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0113",
-    "name": "AISI 316L",
-    "category": "Metal",
-    "subcategory": "Stainless Steel - Austenitic",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8,
-        "max": 8,
-        "typical": 8,
-        "n": 20
-      },
-      "yield_strength": {
-        "min": 146.2,
-        "max": 193.8,
-        "typical": 173.4,
-        "n": 20
-      },
-      "uts": {
-        "min": 417.1,
-        "max": 552.9,
-        "typical": 494.7,
-        "n": 20
-      },
-      "elongation": {
-        "min": 31.6,
-        "max": 43.6,
-        "typical": 38.4,
-        "n": 20
-      },
-      "modulus": {
-        "min": 193,
-        "max": 193,
-        "typical": 193,
-        "n": 20
-      },
-      "hardness": {
-        "min": 186.62,
-        "max": 247.38,
-        "typical": 221.34,
-        "n": 20
-      },
-      "thermal_conductivity": {
-        "min": 16.3,
-        "max": 16.3,
-        "typical": 16.3,
-        "n": 20
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "C": "0.08",
-      "Fe": "68",
-      "Cr": "17",
-      "Ni": "10",
-      "Mo": "2.5",
-      "Mn": "2",
-      "Si": "1"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"AISI 316L\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20316L",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 20,
-      "subcategory_variants": [
-        "Stainless Steel - Austenitic"
-      ]
-    },
-    "density": 8,
-    "yield_strength": 173.4,
-    "uts": 494.7,
-    "elongation": 38.4,
-    "modulus": 193,
-    "hardness": 221.34,
-    "thermal_conductivity": 16.3,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
-  },
-  {
-    "id": "G_0114",
+    "id": "G_0110",
     "name": "AISI 317",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -17916,7 +17040,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0115",
+    "id": "G_0111",
     "name": "AISI 321",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -18015,7 +17139,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0116",
+    "id": "G_0112",
     "name": "AISI 347",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -18114,7 +17238,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0117",
+    "id": "G_0113",
     "name": "AISI 4340",
     "category": "Metal",
     "subcategory": "Stainless Steel - Austenitic",
@@ -18215,7 +17339,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0118",
+    "id": "G_0114",
     "name": "AISI 405",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -18313,7 +17437,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0119",
+    "id": "G_0115",
     "name": "AISI 410",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -18410,7 +17534,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0120",
+    "id": "G_0116",
     "name": "AISI 4130",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -18511,7 +17635,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0121",
+    "id": "G_0117",
     "name": "AISI 4140",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -18612,7 +17736,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0122",
+    "id": "G_0118",
     "name": "AISI 4150",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -18713,104 +17837,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0123",
-    "name": "AISI 420",
-    "category": "Metal",
-    "subcategory": "Stainless Steel - Ferritic/Martensitic",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 7.75,
-        "max": 7.75,
-        "typical": 7.75,
-        "n": 20
-      },
-      "yield_strength": {
-        "min": 356.9,
-        "max": 473.1,
-        "typical": 423.3,
-        "n": 20
-      },
-      "uts": {
-        "min": 533.2,
-        "max": 706.8,
-        "typical": 632.4,
-        "n": 20
-      },
-      "elongation": {
-        "min": 7.9,
-        "max": 10.9,
-        "typical": 9.6,
-        "n": 20
-      },
-      "modulus": {
-        "min": 200,
-        "max": 200,
-        "typical": 200,
-        "n": 20
-      },
-      "hardness": {
-        "min": 186.62,
-        "max": 247.38,
-        "typical": 221.34,
-        "n": 20
-      },
-      "thermal_conductivity": {
-        "min": 24.8,
-        "max": 24.8,
-        "typical": 24.8,
-        "n": 20
-      },
-      "fatigue_strength": null,
-      "impact_strength": null
-    },
-    "composition": {
-      "C": "0.38",
-      "Fe": "84",
-      "Cr": "13",
-      "Mn": "1",
-      "Si": "1"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"AISI 420\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20420",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 20,
-      "subcategory_variants": [
-        "Stainless Steel - Ferritic/Martensitic"
-      ]
-    },
-    "density": 7.75,
-    "yield_strength": 423.3,
-    "uts": 632.4,
-    "elongation": 9.6,
-    "modulus": 200,
-    "hardness": 221.34,
-    "thermal_conductivity": 24.8,
-    "fatigue_strength": null,
-    "impact_strength": null,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
-  },
-  {
-    "id": "G_0124",
+    "id": "G_0119",
     "name": "AISI 430",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -18907,7 +17934,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0125",
+    "id": "G_0120",
     "name": "AISI 434",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -19005,7 +18032,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0126",
+    "id": "G_0121",
     "name": "AISI 436",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -19106,7 +18133,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0127",
+    "id": "G_0122",
     "name": "AISI 440A",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -19207,7 +18234,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0128",
+    "id": "G_0123",
     "name": "AISI 440B",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -19308,7 +18335,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0129",
+    "id": "G_0124",
     "name": "AISI 440C",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -19409,7 +18436,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0130",
+    "id": "G_0125",
     "name": "AISI 446",
     "category": "Metal",
     "subcategory": "Stainless Steel - Ferritic/Martensitic",
@@ -19510,7 +18537,7 @@
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys"
   },
   {
-    "id": "G_0131",
+    "id": "G_0126",
     "name": "C36000",
     "category": "Metal",
     "subcategory": "Titanium - Pure/Other",
@@ -19604,7 +18631,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0132",
+    "id": "G_0128",
     "name": "Ti Grade 1",
     "category": "Metal",
     "subcategory": "Titanium - Pure/Other",
@@ -19702,7 +18729,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0133",
+    "id": "G_0129",
     "name": "Ti Grade 2",
     "category": "Metal",
     "subcategory": "Titanium - Pure/Other",
@@ -19801,7 +18828,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0134",
+    "id": "G_0130",
     "name": "Ti Grade 23",
     "category": "Metal",
     "subcategory": "Titanium - Pure/Other",
@@ -19900,7 +18927,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0135",
+    "id": "G_0131",
     "name": "Ti Grade 3",
     "category": "Metal",
     "subcategory": "Titanium - Pure/Other",
@@ -19998,7 +19025,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0136",
+    "id": "G_0132",
     "name": "Ti Grade 4",
     "category": "Metal",
     "subcategory": "Titanium - Pure/Other",
@@ -20096,7 +19123,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0137",
+    "id": "G_0133",
     "name": "Ti Grade 7",
     "category": "Metal",
     "subcategory": "Titanium - Pure/Other",
@@ -20194,7 +19221,7 @@
     "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys"
   },
   {
-    "id": "G_0138",
+    "id": "G_0134",
     "name": "AZ91D",
     "category": "Metal",
     "subcategory": "Magnesium Alloy",
@@ -20304,7 +19331,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0139",
+    "id": "G_0135",
     "name": "AZ80A",
     "category": "Metal",
     "subcategory": "Magnesium Alloy",
@@ -20414,7 +19441,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0140",
+    "id": "G_0136",
     "name": "ZE63A",
     "category": "Metal",
     "subcategory": "Magnesium Alloy",
@@ -20525,7 +19552,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0141",
+    "id": "G_0137",
     "name": "H11",
     "category": "Metal",
     "subcategory": "Tool Steel",
@@ -20636,118 +19663,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0142",
-    "name": "H13",
-    "category": "Metal",
-    "subcategory": "Tool Steel",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 7.75,
-        "max": 7.75,
-        "typical": 7.75,
-        "n": 20
-      },
-      "yield_strength": {
-        "min": 945,
-        "max": 1144.5,
-        "typical": 1008,
-        "n": 20
-      },
-      "uts": {
-        "min": 1215,
-        "max": 1471.5,
-        "typical": 1296,
-        "n": 20
-      },
-      "elongation": {
-        "min": 9.35,
-        "max": 11.99,
-        "typical": 10.56,
-        "n": 20
-      },
-      "modulus": {
-        "min": 210,
-        "max": 210,
-        "typical": 210,
-        "n": 20
-      },
-      "hardness": {
-        "min": 351,
-        "max": 425.1,
-        "typical": 374.4,
-        "n": 20
-      },
-      "thermal_conductivity": {
-        "min": 25,
-        "max": 25,
-        "typical": 25,
-        "n": 20
-      },
-      "fatigue_strength": {
-        "min": 558,
-        "max": 675.8,
-        "typical": 595.2,
-        "n": 20
-      },
-      "impact_strength": {
-        "min": 38.4,
-        "max": 56.64,
-        "typical": 48.48,
-        "n": 20
-      }
-    },
-    "composition": {
-      "Fe": "92.5",
-      "Cr": "5",
-      "Mo": "1.5",
-      "V": "1"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"H13\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=H13",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 20,
-      "subcategory_variants": [
-        "Tool Steel"
-      ]
-    },
-    "density": 7.75,
-    "yield_strength": 1008,
-    "uts": 1296,
-    "elongation": 10.56,
-    "modulus": 210,
-    "hardness": 374.4,
-    "thermal_conductivity": 25,
-    "fatigue_strength": 595.2,
-    "impact_strength": 48.48,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook"
-  },
-  {
-    "id": "G_0143",
+    "id": "G_0138",
     "name": "D2",
     "category": "Metal",
     "subcategory": "Tool Steel",
@@ -20859,7 +19775,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0144",
+    "id": "G_0139",
     "name": "O1",
     "category": "Metal",
     "subcategory": "Tool Steel",
@@ -20970,452 +19886,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0145",
-    "name": "Maraging 250",
-    "category": "Metal",
-    "subcategory": "Maraging Steel",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8.08,
-        "max": 8.08,
-        "typical": 8.08,
-        "n": 20
-      },
-      "yield_strength": {
-        "min": 1548,
-        "max": 1874.8,
-        "typical": 1651.2,
-        "n": 20
-      },
-      "uts": {
-        "min": 1674,
-        "max": 2027.4,
-        "typical": 1785.6,
-        "n": 20
-      },
-      "elongation": {
-        "min": 9.35,
-        "max": 11.99,
-        "typical": 10.56,
-        "n": 20
-      },
-      "modulus": {
-        "min": 210,
-        "max": 210,
-        "typical": 210,
-        "n": 20
-      },
-      "hardness": {
-        "min": 468,
-        "max": 566.8,
-        "typical": 499.2,
-        "n": 20
-      },
-      "thermal_conductivity": {
-        "min": 20,
-        "max": 20,
-        "typical": 20,
-        "n": 20
-      },
-      "fatigue_strength": {
-        "min": 810,
-        "max": 981,
-        "typical": 864,
-        "n": 20
-      },
-      "impact_strength": {
-        "min": 64,
-        "max": 94.4,
-        "typical": 80.8,
-        "n": 20
-      }
-    },
-    "composition": {
-      "Fe": "75.7",
-      "Ni": "18",
-      "Mo": "1.3",
-      "Co": "5"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Maraging 250\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Maraging%20250",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 20,
-      "subcategory_variants": [
-        "Maraging Steel"
-      ]
-    },
-    "density": 8.08,
-    "yield_strength": 1651.2,
-    "uts": 1785.6,
-    "elongation": 10.56,
-    "modulus": 210,
-    "hardness": 499.2,
-    "thermal_conductivity": 20,
-    "fatigue_strength": 864,
-    "impact_strength": 80.8,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook"
-  },
-  {
-    "id": "G_0146",
-    "name": "Maraging 300",
-    "category": "Metal",
-    "subcategory": "Maraging Steel",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8.08,
-        "max": 8.08,
-        "typical": 8.08,
-        "n": 20
-      },
-      "yield_strength": {
-        "min": 1863,
-        "max": 2256.3,
-        "typical": 1987.2,
-        "n": 20
-      },
-      "uts": {
-        "min": 1953,
-        "max": 2365.3,
-        "typical": 2083.2,
-        "n": 20
-      },
-      "elongation": {
-        "min": 6.8,
-        "max": 8.72,
-        "typical": 7.68,
-        "n": 20
-      },
-      "modulus": {
-        "min": 210,
-        "max": 210,
-        "typical": 210,
-        "n": 20
-      },
-      "hardness": {
-        "min": 540,
-        "max": 654,
-        "typical": 576,
-        "n": 20
-      },
-      "thermal_conductivity": {
-        "min": 20,
-        "max": 20,
-        "typical": 20,
-        "n": 20
-      },
-      "fatigue_strength": {
-        "min": 900,
-        "max": 1090,
-        "typical": 960,
-        "n": 20
-      },
-      "impact_strength": {
-        "min": 56,
-        "max": 82.6,
-        "typical": 70.7,
-        "n": 20
-      }
-    },
-    "composition": {
-      "Fe": "68.7",
-      "Ni": "18",
-      "Mo": "4.8",
-      "Co": "8.5"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Maraging 300\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Maraging%20300",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 20,
-      "subcategory_variants": [
-        "Maraging Steel"
-      ]
-    },
-    "density": 8.08,
-    "yield_strength": 1987.2,
-    "uts": 2083.2,
-    "elongation": 7.68,
-    "modulus": 210,
-    "hardness": 576,
-    "thermal_conductivity": 20,
-    "fatigue_strength": 960,
-    "impact_strength": 70.7,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook"
-  },
-  {
-    "id": "G_0147",
-    "name": "Maraging 350",
-    "category": "Metal",
-    "subcategory": "Maraging Steel",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8.08,
-        "max": 8.08,
-        "typical": 8.08,
-        "n": 20
-      },
-      "yield_strength": {
-        "min": 2169,
-        "max": 2626.9,
-        "typical": 2313.6,
-        "n": 20
-      },
-      "uts": {
-        "min": 2268,
-        "max": 2746.8,
-        "typical": 2419.2,
-        "n": 20
-      },
-      "elongation": {
-        "min": 4.25,
-        "max": 5.45,
-        "typical": 4.8,
-        "n": 20
-      },
-      "modulus": {
-        "min": 210,
-        "max": 210,
-        "typical": 210,
-        "n": 20
-      },
-      "hardness": {
-        "min": 612,
-        "max": 741.2,
-        "typical": 652.8,
-        "n": 20
-      },
-      "thermal_conductivity": {
-        "min": 20,
-        "max": 20,
-        "typical": 20,
-        "n": 20
-      },
-      "fatigue_strength": {
-        "min": 990,
-        "max": 1199,
-        "typical": 1056,
-        "n": 20
-      },
-      "impact_strength": {
-        "min": 48,
-        "max": 70.8,
-        "typical": 60.6,
-        "n": 20
-      }
-    },
-    "composition": {
-      "Fe": "61",
-      "Ni": "18",
-      "Mo": "8",
-      "Co": "12"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Maraging 350\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Maraging%20350",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 20,
-      "subcategory_variants": [
-        "Maraging Steel"
-      ]
-    },
-    "density": 8.08,
-    "yield_strength": 2313.6,
-    "uts": 2419.2,
-    "elongation": 4.8,
-    "modulus": 210,
-    "hardness": 652.8,
-    "thermal_conductivity": 20,
-    "fatigue_strength": 1056,
-    "impact_strength": 60.6,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook"
-  },
-  {
-    "id": "G_0148",
-    "name": "CoCr",
-    "category": "Metal",
-    "subcategory": "Cobalt-Chrome Alloy",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 8.3,
-        "max": 8.3,
-        "typical": 8.3,
-        "n": 20
-      },
-      "yield_strength": {
-        "min": 589.5,
-        "max": 713.95,
-        "typical": 628.8,
-        "n": 20
-      },
-      "uts": {
-        "min": 1242,
-        "max": 1504.2,
-        "typical": 1324.8,
-        "n": 20
-      },
-      "elongation": {
-        "min": 10.2,
-        "max": 13.08,
-        "typical": 11.52,
-        "n": 20
-      },
-      "modulus": {
-        "min": 230,
-        "max": 230,
-        "typical": 230,
-        "n": 20
-      },
-      "hardness": {
-        "min": 342,
-        "max": 414.2,
-        "typical": 364.8,
-        "n": 20
-      },
-      "thermal_conductivity": {
-        "min": 12,
-        "max": 12,
-        "typical": 12,
-        "n": 20
-      },
-      "fatigue_strength": {
-        "min": 630,
-        "max": 763,
-        "typical": 672,
-        "n": 20
-      },
-      "impact_strength": {
-        "min": 72,
-        "max": 106.2,
-        "typical": 90.9,
-        "n": 20
-      }
-    },
-    "composition": {
-      "Fe": "5",
-      "Cr": "27",
-      "Ni": "2",
-      "Mo": "1",
-      "Co": "65"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"CoCr\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=CoCr",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 20,
-      "subcategory_variants": [
-        "Cobalt-Chrome Alloy"
-      ]
-    },
-    "density": 8.3,
-    "yield_strength": 628.8,
-    "uts": 1324.8,
-    "elongation": 11.52,
-    "modulus": 230,
-    "hardness": 364.8,
-    "thermal_conductivity": 12,
-    "fatigue_strength": 672,
-    "impact_strength": 90.9,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook"
-  },
-  {
-    "id": "G_0149",
+    "id": "G_0140",
     "name": "MP35N",
     "category": "Metal",
     "subcategory": "Cobalt-Chrome Alloy",
@@ -21526,115 +19997,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0150",
-    "name": "Tungsten",
-    "category": "Metal",
-    "subcategory": "Refractory Metal",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 19.25,
-        "max": 19.25,
-        "typical": 19.25,
-        "n": 20
-      },
-      "yield_strength": {
-        "min": 1242,
-        "max": 1504.2,
-        "typical": 1324.8,
-        "n": 20
-      },
-      "uts": {
-        "min": 1368,
-        "max": 1656.8,
-        "typical": 1459.2,
-        "n": 20
-      },
-      "elongation": {
-        "min": 1.7,
-        "max": 2.18,
-        "typical": 1.92,
-        "n": 20
-      },
-      "modulus": {
-        "min": 410,
-        "max": 410,
-        "typical": 410,
-        "n": 20
-      },
-      "hardness": {
-        "min": 342,
-        "max": 414.2,
-        "typical": 364.8,
-        "n": 20
-      },
-      "thermal_conductivity": {
-        "min": 174,
-        "max": 174,
-        "typical": 174,
-        "n": 20
-      },
-      "fatigue_strength": {
-        "min": 630,
-        "max": 763,
-        "typical": 672,
-        "n": 20
-      },
-      "impact_strength": {
-        "min": 12,
-        "max": 17.7,
-        "typical": 15.15,
-        "n": 20
-      }
-    },
-    "composition": {
-      "W": "99.9"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Tungsten\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Tungsten",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 20,
-      "subcategory_variants": [
-        "Refractory Metal"
-      ]
-    },
-    "density": 19.25,
-    "yield_strength": 1324.8,
-    "uts": 1459.2,
-    "elongation": 1.92,
-    "modulus": 410,
-    "hardness": 364.8,
-    "thermal_conductivity": 174,
-    "fatigue_strength": 672,
-    "impact_strength": 15.15,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook"
-  },
-  {
-    "id": "G_0151",
+    "id": "G_0141",
     "name": "Tungsten Heavy Alloy",
     "category": "Metal",
     "subcategory": "Refractory Metal",
@@ -21744,7 +20107,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0152",
+    "id": "G_0142",
     "name": "Beryllium",
     "category": "Metal",
     "subcategory": "Beryllium Alloy",
@@ -21852,7 +20215,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0153",
+    "id": "G_0143",
     "name": "Be-Cu",
     "category": "Metal",
     "subcategory": "Beryllium Alloy",
@@ -21961,7 +20324,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0154",
+    "id": "G_0144",
     "name": "Molybdenum",
     "category": "Metal",
     "subcategory": "Refractory Metal",
@@ -22069,7 +20432,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0155",
+    "id": "G_0145",
     "name": "Mo-0.5Ti",
     "category": "Metal",
     "subcategory": "Refractory Metal",
@@ -22178,7 +20541,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0156",
+    "id": "G_0146",
     "name": "Niobium",
     "category": "Metal",
     "subcategory": "Refractory Metal",
@@ -22286,7 +20649,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0157",
+    "id": "G_0147",
     "name": "Nb-1Zr",
     "category": "Metal",
     "subcategory": "Refractory Metal",
@@ -22394,115 +20757,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0158",
-    "name": "Tantalum",
-    "category": "Metal",
-    "subcategory": "Refractory Metal",
-    "tier": "generic",
-    "manufacturers": [
-      "Generic"
-    ],
-    "machines": [],
-    "processes": [
-      "Wrought"
-    ],
-    "ranges": {
-      "density": {
-        "min": 16.69,
-        "max": 16.69,
-        "typical": 16.69,
-        "n": 20
-      },
-      "yield_strength": {
-        "min": 279,
-        "max": 337.9,
-        "typical": 297.6,
-        "n": 20
-      },
-      "uts": {
-        "min": 342,
-        "max": 414.2,
-        "typical": 364.8,
-        "n": 20
-      },
-      "elongation": {
-        "min": 21.25,
-        "max": 27.25,
-        "typical": 24,
-        "n": 20
-      },
-      "modulus": {
-        "min": 186,
-        "max": 186,
-        "typical": 186,
-        "n": 20
-      },
-      "hardness": {
-        "min": 90,
-        "max": 109,
-        "typical": 96,
-        "n": 20
-      },
-      "thermal_conductivity": {
-        "min": 54,
-        "max": 54,
-        "typical": 54,
-        "n": 20
-      },
-      "fatigue_strength": {
-        "min": 180,
-        "max": 218,
-        "typical": 192,
-        "n": 20
-      },
-      "impact_strength": {
-        "min": 80,
-        "max": 118,
-        "typical": 101,
-        "n": 20
-      }
-    },
-    "composition": {
-      "Ta": "99.9"
-    },
-    "sources": [
-      {
-        "label": "ASM Handbook",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-        "url": null,
-        "verified": false
-      },
-      {
-        "label": "MatWeb — search \"Tantalum\"",
-        "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Tantalum",
-        "verified": false
-      }
-    ],
-    "meta": {
-      "row_count": 20,
-      "subcategory_variants": [
-        "Refractory Metal"
-      ]
-    },
-    "density": 16.69,
-    "yield_strength": 297.6,
-    "uts": 364.8,
-    "elongation": 24,
-    "modulus": 186,
-    "hardness": 96,
-    "thermal_conductivity": 54,
-    "fatigue_strength": 192,
-    "impact_strength": 101,
-    "manufacturer": "Generic",
-    "process": "Wrought",
-    "source": "ASM Handbook"
-  },
-  {
-    "id": "G_0159",
+    "id": "G_0148",
     "name": "Vanadium",
     "category": "Metal",
     "subcategory": "Refractory Metal",
@@ -22610,7 +20865,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0160",
+    "id": "G_0149",
     "name": "Zirconium",
     "category": "Metal",
     "subcategory": "Refractory Metal",
@@ -22726,7 +20981,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0161",
+    "id": "G_0150",
     "name": "Zircaloy-2",
     "category": "Metal",
     "subcategory": "Refractory Metal",
@@ -22836,7 +21091,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0162",
+    "id": "G_0151",
     "name": "Rene 41",
     "category": "Metal",
     "subcategory": "Nickel Superalloy",
@@ -22949,7 +21204,7 @@
     "source": "ASM Handbook"
   },
   {
-    "id": "G_0163",
+    "id": "G_0152",
     "name": "Waspaloy",
     "category": "Metal",
     "subcategory": "Nickel Superalloy",
