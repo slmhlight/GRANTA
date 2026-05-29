@@ -56,7 +56,7 @@ export interface Material {
   // ── range-based schema (v2 data pipeline) ──
   ranges?: Record<string, PropertyRange | null>;
   sources?: MaterialSource[];
-  tier?: 'curated' | 'am_vendor' | 'generic';
+  tier?: 'curated' | 'am_vendor' | 'generic' | 'reference';
   manufacturers?: string[];
   machines?: string[];
   processes?: string[];

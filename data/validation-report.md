@@ -3,24 +3,24 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **257 materials**: 99 curated · 9 am_vendor · 149 generic
+- **265 materials**: 99 curated · 9 am_vendor · 149 generic
 - Dropped 307 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 257/257 | 0 |
-| yield_strength | 255/257 | 238 |
-| uts | 246/257 | 235 |
-| elongation | 255/257 | 237 |
-| modulus | 257/257 | 1 |
-| hardness | 224/257 | 187 |
-| thermal_conductivity | 257/257 | 1 |
-| fatigue_strength | 20/257 | 20 |
-| impact_strength | 20/257 | 20 |
+| density | 265/265 | 0 |
+| yield_strength | 263/265 | 246 |
+| uts | 254/265 | 243 |
+| elongation | 263/265 | 245 |
+| modulus | 265/265 | 1 |
+| hardness | 232/265 | 195 |
+| thermal_conductivity | 265/265 | 1 |
+| fatigue_strength | 20/265 | 20 |
+| impact_strength | 20/265 | 20 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 99/257 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 103/265 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 

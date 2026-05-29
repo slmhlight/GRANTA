@@ -24,6 +24,7 @@ const TIER_BADGE: Record<string, { label: string; cls: string }> = {
   curated: { label: 'Curated · multi-vendor', cls: 'bg-accent/15 text-accent border-accent/30' },
   am_vendor: { label: 'AM vendor data', cls: 'bg-violet-500/15 text-violet-600 border-violet-500/30' },
   generic: { label: 'Generic reference', cls: 'bg-muted text-muted-foreground border-border' },
+  reference: { label: 'Reference data', cls: 'bg-amber-500/15 text-amber-600 border-amber-500/30' },
 };
 
 function RangeRow({ label, range, fallback, unit }: { label: string; range?: PropertyRange | null; fallback?: number | string | null; unit: string }) {

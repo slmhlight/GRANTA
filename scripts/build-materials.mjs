@@ -406,7 +406,21 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
 const am_vendor = nonCurated.filter(m => m.tier === 'am_vendor');
 const generic = nonCurated.filter(m => m.tier === 'generic');
 
-const all = [...curated, ...am_vendor, ...generic];
+// supplementary reference materials (web/handbook-verified ranges) — broadens coverage
+const supRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'supplementary-materials.json'), 'utf8')).materials) || [];
+const supplementary = supRaw.map((s, idx) => {
+  const ranges = {};
+  for (const p of NUM_PROPS) ranges[p] = null;
+  PROP_ORDER.forEach((p, i) => { ranges[p] = rangeFrom(s.points.map((row) => row[i])); });
+  return {
+    id: 'R_' + String(idx).padStart(4, '0'),
+    name: s.name, category: s.category, subcategory: s.subcategory, tier: 'reference',
+    manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: null,
+    ranges, composition: s.composition || {}, sources: s.sources || [], points: s.points,
+    machinability: null, weldability: null, corrosion_resistance: null, meta: { reference: true },
+  };
+});
+const all = [...curated, ...am_vendor, ...generic, ...supplementary];
 
 // back-compat flat fields: current app reads m.density / m.manufacturer / m.process / m.source directly.
 // Keep them (= typical value) alongside the richer {ranges, sources, tier, meta} so the UI can migrate gradually.
@@ -451,7 +465,7 @@ fs.writeFileSync(liveJson, outJson);
 fs.writeFileSync(path.join(DATA, 'validation-report.md'), rep.join('\n'));
 
 // ───────── console summary ─────────
-console.log(`TOTAL ${all.length} = curated ${curated.length} + am_vendor ${am_vendor.length} + generic ${generic.length}`);
+console.log(`TOTAL ${all.length} = curated ${curated.length} + am_vendor ${am_vendor.length} + generic ${generic.length} + reference ${supplementary.length}`);
 console.log('am_vendor recovered:', am_vendor.map(m => m.name).join(', '));
 console.log('AA subcategory fixes:', aaFixed, '| subcat mismatch flags:', subcatFlags.length, '| verified-source materials:', withVerifiedSrc);
 console.log('Wrote data/materials.preview.json + data/validation-report.md');
