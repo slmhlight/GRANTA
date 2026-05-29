@@ -4,7 +4,7 @@
  * property-range ELLIPSES (min–max envelopes), an active-filter selection window,
  * auto-ranging axes that follow the current selection, and a class legend.
  */
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 import Plot from 'react-plotly.js';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
@@ -133,6 +133,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [boxedIds, setBoxedIds] = useState<Set<string>>(new Set());
   const [indexPreset2, setIndexPreset2] = useState('none');
   const [indexThreshold2, setIndexThreshold2] = useState<number | null>(null);
+  const indexLineRef = useRef<{ shapeIndex: number; p: number; x0: number; y0: number } | null>(null);
 
   const filtered = filteredMaterials || materials;
   const dom = (prop: string): [number, number] => {
@@ -290,23 +291,25 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const xRange = xLog ? logRange(xs) : linRange(xs);
     const yRange = yLog ? logRange(ys) : linRange(ys);
 
-    // Ashby selection line: iso-index M = indexThr (log-log slope 1/p), drawn across the x-range
     const indexTraces: any[] = [];
-    if (idx && indexThr != null && xLog && yLog && xRange) {
-      const lx0 = 10 ** xRange[0], lx1 = 10 ** xRange[1];
-      const yAtX = (xv: number) => Math.pow(indexThr! * xv, 1 / idx.p);
-      indexTraces.push({ x: [lx0, lx1], y: [yAtX(lx0), yAtX(lx1)], mode: 'lines', type: 'scatter', line: { color: '#dc2626', width: 2.5 }, name: 'index', hoverinfo: 'skip', showlegend: false });
-    }
 
-    // active-filter selection window (limits) for the current axes
+    // active-filter selection window + axis limit sliders → reference lines (locked, not draggable)
     const fx = filters && RANGE_FILTER_KEY[xProperty] ? (filters[RANGE_FILTER_KEY[xProperty]] as [number, number] | null) : null;
     const fy = filters && RANGE_FILTER_KEY[yProperty] ? (filters[RANGE_FILTER_KEY[yProperty]] as [number, number] | null) : null;
     const scX = (v: number) => (xLog ? L(v) : v), scY = (v: number) => (yLog ? L(v) : v);
-    if (fx) for (const xv of fx) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
-    if (fy) for (const yv of fy) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
-    // chart-local axis limit sliders → dashed limit lines
-    if (xLimit) for (const xv of xLimit) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#9333ea', width: 1.5, dash: 'dash' } });
-    if (yLimit) for (const yv of yLimit) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#9333ea', width: 1.5, dash: 'dash' } });
+    if (fx) for (const xv of fx) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#0066CC', width: 1.5, dash: 'dot' }, editable: false });
+    if (fy) for (const yv of fy) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#0066CC', width: 1.5, dash: 'dot' }, editable: false });
+    if (xLimit) for (const xv of xLimit) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#9333ea', width: 1.5, dash: 'dash' }, editable: false });
+    if (yLimit) for (const yv of yLimit) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#9333ea', width: 1.5, dash: 'dash' }, editable: false });
+    // Ashby selection line as an EDITABLE shape — drag it up/down to change the index threshold M
+    if (idx && indexThr != null && xLog && yLog && xRange) {
+      const ilx0 = 10 ** xRange[0], ilx1 = 10 ** xRange[1];
+      const iyAt = (xv: number) => Math.pow(indexThr! * xv, 1 / idx.p);
+      shapes.push({ type: 'line', xref: 'x', yref: 'y', x0: scX(ilx0), y0: scY(iyAt(ilx0)), x1: scX(ilx1), y1: scY(iyAt(ilx1)), line: { color: '#dc2626', width: 2.5 } });
+      indexLineRef.current = { shapeIndex: shapes.length - 1, p: idx.p, x0: ilx0, y0: iyAt(ilx0) };
+    } else {
+      indexLineRef.current = null;
+    }
 
     // material-index guide lines (Ashby): constant performance-index directions on log-log
     const guideAnnotations: any[] = [];
@@ -315,7 +318,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       const xm = (xRange[0] + xRange[1]) / 2, ym = (yRange[0] + yRange[1]) / 2;
       for (const g of guides) {
         const yAt = (xl: number) => g.slope * (xl - xm) + ym;
-        shapes.push({ type: 'line', xref: 'x', yref: 'y', x0: xRange[0], x1: xRange[1], y0: yAt(xRange[0]), y1: yAt(xRange[1]), line: { color: '#cbd5e1', width: 1, dash: 'dash' }, layer: 'below' });
+        shapes.push({ type: 'line', xref: 'x', yref: 'y', x0: xRange[0], x1: xRange[1], y0: yAt(xRange[0]), y1: yAt(xRange[1]), line: { color: '#cbd5e1', width: 1, dash: 'dash' }, layer: 'below', editable: false });
         guideAnnotations.push({ x: xRange[1], y: yAt(xRange[1]), xref: 'x', yref: 'y', text: g.label, showarrow: false, font: { size: 9, color: '#94a3b8' }, xanchor: 'right', yanchor: 'bottom' });
       }
     }
@@ -345,6 +348,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const config = {
     responsive: true, displaylogo: false,
     modeBarButtonsToRemove: ['autoScale2d'], // keep box-select + lasso for material selection
+    edits: { shapePosition: true }, // allow dragging the index selection line
     toImageButtonOptions: { format: 'png', filename: 'ashby_chart', height: 700, width: 1000, scale: 2 },
   };
   const comparing = (compareList?.length ?? 0) > 0;
@@ -514,6 +518,17 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
               if (ids.length) setBoxedIds(new Set(ids));
             },
             onDeselect: () => setBoxedIds(new Set()),
+            onRelayout: (e: any) => {
+              const ref = indexLineRef.current;
+              if (!ref || !xLog || !yLog) return;
+              const ny = e[`shapes[${ref.shapeIndex}].y0`];
+              const nx = e[`shapes[${ref.shapeIndex}].x0`];
+              if (ny == null && nx == null) return;
+              const rawX = nx != null ? 10 ** nx : ref.x0;
+              const rawY = ny != null ? 10 ** ny : ref.y0;
+              const M = Math.pow(rawY, ref.p) / rawX;
+              if (isFinite(M) && M > 0) setIndexThreshold(M);
+            },
           } as any)}
         />
       </div>

@@ -418,7 +418,7 @@ export default function Home() {
 
         {/* ─── Right Detail/Compare Panel ─── */}
         {rightPanelOpen && (
-          <div className="flex-shrink-0 w-80 xl:w-96 overflow-hidden border-l border-border">
+          <div className="fixed inset-0 z-40 md:static md:z-auto md:inset-auto flex-shrink-0 w-full md:w-80 xl:w-96 overflow-hidden md:border-l border-border bg-background">
             {showCompare ? (
               <ComparePanel
                 materials={compareMaterials}

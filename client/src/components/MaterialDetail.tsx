@@ -157,7 +157,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
   const processes = material.processes ?? (material.process ? [material.process] : []);
 
   return (
-    <div className="fixed inset-y-0 right-0 w-96 bg-background border-l border-border shadow-lg z-40 overflow-hidden flex flex-col">
+    <div className="h-full w-full bg-background overflow-hidden flex flex-col">
       {/* Header */}
       <div className="flex items-start justify-between p-4 border-b border-border/50 flex-shrink-0">
         <div className="flex-1 min-w-0">
