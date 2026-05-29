@@ -294,6 +294,21 @@ function curatedRangesForHT(m, htKey) {
   const ranges = {}; for (const p of NUM_PROPS) ranges[p] = rangeFrom(pts[p]);
   return ranges;
 }
+// raw data points per material (for convex-hull property envelopes on the chart)
+const PROP_ORDER = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
+function curatedPointsForHT(m, htKey) {
+  const ht = htKey ? m.heat_treatments[htKey] : null;
+  const D = m.density ?? null, E = m.E ?? null, K = m.thermal_k ?? null;
+  const out = [];
+  const push = (ys, uts, el, hv) => out.push([D, ys ?? null, uts ?? null, el ?? null, E, hv ?? null, K]);
+  if (ht) { push(ht.ys, ht.uts, ht.elong, ht.hardness_HV); push(ht.ys_z, ht.uts_z, ht.elong_z, ht.hardness_HV); }
+  for (const v of Object.values(m.vendors || {})) {
+    if (htKey && !vendorMatchesHT(v.post_treatment, htKey)) continue;
+    push(v.yield_MPa, v.uts_xy_MPa, v.elongation_xy_pct ?? v.elongation_pct, v.hardness_HV);
+    push(v.yield_z_MPa, v.uts_z_MPa, v.elongation_z_pct, v.hardness_HV);
+  }
+  return out.filter(t => (t[1] > 0) || (t[2] > 0)); // keep points with a yield or UTS value
+}
 // Curated AM alloys → one entry PER heat-treatment (different heat treatment = different material).
 const curated = [];
 let cidx = 0;
@@ -317,7 +332,7 @@ for (const key of dbKeys) {
       name: htKey ? `${key} — ${htLabel}` : key,
       category: 'Metal', subcategory, tier: 'curated',
       manufacturers, machines, processes: ['LPBF'], heat_treatment: htLabel,
-      ranges, composition, sources,
+      ranges, composition, sources, points: curatedPointsForHT(m, htKey),
       machinability: null, weldability: null, corrosion_resistance: null,
       meta: baseMeta,
     });
@@ -381,7 +396,7 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
     category: rep.category || 'Metal', subcategory: sub, tier,
     manufacturers: tier === 'am_vendor' ? manus : ['Generic'], machines: [],
     processes: [grp.process], heat_treatment: null,
-    ranges: rangesFromRows(g), composition: compositionFromRows(g), sources,
+    ranges: rangesFromRows(g), composition: compositionFromRows(g), sources, points: g.map(r => PROP_ORDER.map(p => num(r[p]))),
     machinability: mostCommonKnown(g.map(r => r.machinability)),
     weldability: mostCommonKnown(g.map(r => r.weldability)),
     corrosion_resistance: mostCommonKnown(g.map(r => r.corrosion_resistance)),

@@ -54,6 +54,18 @@ const tv = (m: any, p: string): number | null => (m[p] ?? m.ranges?.[p]?.typical
 const loOf = (m: any, p: string): number | null => (m.ranges?.[p]?.min ?? tv(m, p));
 const hiOf = (m: any, p: string): number | null => (m.ranges?.[p]?.max ?? tv(m, p));
 const L = Math.log10;
+const PROP_ORDER = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
+// convex hull (Andrew's monotone chain) → real, slightly-irregular data envelope
+function convexHull(pts: number[][]): number[][] {
+  if (pts.length < 3) return pts;
+  const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cross = (o: number[], a: number[], b: number[]) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lower: number[][] = [];
+  for (const pt of p) { while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], pt) <= 0) lower.pop(); lower.push(pt); }
+  const upper: number[][] = [];
+  for (let i = p.length - 1; i >= 0; i--) { const pt = p[i]; while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], pt) <= 0) upper.pop(); upper.push(pt); }
+  return lower.slice(0, -1).concat(upper.slice(0, -1));
+}
 
 export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick }: AshbyChartPlotlyProps) {
   const [xProperty, setXProperty] = useState('density');
@@ -98,19 +110,30 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       showlegend: false,
     }] : [];
 
-    // property-range ELLIPSES for every filtered material that has a real range (Ashby envelopes)
+    // property envelopes: convex hull of each material's real data points (irregular blob),
+    // falling back to a min–max ellipse when there aren't enough points for a hull.
     const shapes: any[] = [];
+    const xi = PROP_ORDER.indexOf(xProperty), yi = PROP_ORDER.indexOf(yProperty);
     for (const m of fset) {
+      const c = classOf(m);
+      const raw = (((m as any).points || []) as number[][]);
+      const pts = (xi >= 0 && yi >= 0)
+        ? raw.map((t) => [t[xi], t[yi]]).filter(([x, y]) => x > 0 && y > 0).map(([x, y]) => [L(x), L(y)])
+        : [];
+      const uniqPts = Array.from(new Map(pts.map((p) => [`${p[0].toFixed(4)},${p[1].toFixed(4)}`, p])).values());
+      if (uniqPts.length >= 3) {
+        const h = convexHull(uniqPts);
+        if (h.length >= 3) {
+          const path = 'M ' + h.map((p) => `${p[0]},${p[1]}`).join(' L ') + ' Z';
+          shapes.push({ type: 'path', path, line: { color: c.color, width: 1 }, fillcolor: c.color, opacity: 0.12, layer: 'below' });
+          continue;
+        }
+      }
       const xl = loOf(m, xProperty)!, xh = hiOf(m, xProperty)!, yl = loOf(m, yProperty)!, yh = hiOf(m, yProperty)!;
       if (!(xl > 0 && yl > 0)) continue;
-      if (xh === xl && yh === yl) continue; // single data point — the marker is enough
-      const c = classOf(m);
-      const xpad = xh === xl ? 0.012 : 0, ypad = yh === yl ? 0.012 : 0; // pad a degenerate axis so the envelope stays visible
-      shapes.push({
-        type: 'circle', xref: 'x', yref: 'y',
-        x0: L(xl) - xpad, x1: L(xh) + xpad, y0: L(yl) - ypad, y1: L(yh) + ypad,
-        line: { color: c.color, width: 1 }, fillcolor: c.color, opacity: 0.12, layer: 'below',
-      });
+      if (xh === xl && yh === yl) continue;
+      const xpad = xh === xl ? 0.012 : 0, ypad = yh === yl ? 0.012 : 0;
+      shapes.push({ type: 'circle', xref: 'x', yref: 'y', x0: L(xl) - xpad, x1: L(xh) + xpad, y0: L(yl) - ypad, y1: L(yh) + ypad, line: { color: c.color, width: 1 }, fillcolor: c.color, opacity: 0.12, layer: 'below' });
     }
 
     // auto-range to the filtered envelope (log10 units, with padding)
