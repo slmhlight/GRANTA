@@ -1,10 +1,11 @@
 /*
  * AM Materials Explorer — Compare Panel
- * Rows = materials, columns = properties (chosen from a dropdown). Shows typical + min–max range.
+ * Rows = materials, columns = properties (chosen from a dropdown). Shows typical + min–max range,
+ * an in-cell horizontal bar (value vs column max) for visual comparison, and click-to-sort headers.
  */
 
-import { useState } from 'react';
-import { X, SlidersHorizontal } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { X, SlidersHorizontal, ArrowUp, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import type { Material, PropertyRange } from '@/lib/materials';
@@ -18,11 +19,50 @@ interface ComparePanelProps {
 
 const DEFAULT_COLS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness'];
 const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
+const typOf = (m: Material, key: string): number | null => {
+  const r = (m.ranges || {})[key] as PropertyRange | null | undefined;
+  return r?.typical ?? (typeof (m as any)[key] === 'number' ? ((m as any)[key] as number) : null);
+};
+
+type Sort = { key: string; dir: 'asc' | 'desc' } | null;
 
 export function ComparePanel({ materials, onRemove, onClose }: ComparePanelProps) {
   const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
+  const [sort, setSort] = useState<Sort>(null);
   const selected = ALL_NUMERIC_PROPERTIES.filter((p) => cols.includes(p.key as string));
   const toggle = (k: string) => setCols((c) => (c.includes(k) ? c.filter((x) => x !== k) : [...c, k]));
+
+  // per-column max for the in-cell comparison bars (each property normalised independently)
+  const colMax = useMemo(() => {
+    const mx: Record<string, number> = {};
+    for (const p of selected) {
+      const k = p.key as string;
+      const vals = materials.map((m) => typOf(m, k)).filter((v): v is number => v != null && v > 0);
+      mx[k] = vals.length ? Math.max(...vals) : 0;
+    }
+    return mx;
+  }, [materials, selected]);
+
+  const sortedMaterials = useMemo(() => {
+    if (!sort) return materials;
+    const arr = [...materials];
+    arr.sort((a, b) => {
+      if (sort.key === 'name') {
+        return sort.dir === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+      }
+      const av = typOf(a, sort.key), bv = typOf(b, sort.key);
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1; // nulls always last
+      if (bv == null) return -1;
+      return sort.dir === 'asc' ? av - bv : bv - av;
+    });
+    return arr;
+  }, [materials, sort]);
+
+  // click cycle: none → desc → asc → none
+  const onSort = (key: string) => setSort((s) => (s && s.key === key ? (s.dir === 'desc' ? { key, dir: 'asc' } : null) : { key, dir: 'desc' }));
+  const SortIcon = ({ k }: { k: string }) =>
+    sort?.key === k ? (sort.dir === 'desc' ? <ArrowDown className="w-3 h-3 inline ml-0.5" /> : <ArrowUp className="w-3 h-3 inline ml-0.5" />) : null;
 
   return (
     <div className="flex flex-col h-full bg-card border-l border-border">
@@ -54,15 +94,27 @@ export function ComparePanel({ materials, onRemove, onClose }: ComparePanelProps
         </div>
       </div>
 
+      <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">Click a column header to sort · bar = value vs the highest in that column</p>
+
       {/* Comparison table: rows = materials, columns = properties */}
       <div className="flex-1 overflow-auto">
         <table className="text-xs border-collapse min-w-full">
           <thead className="sticky top-0 z-10 bg-card">
             <tr className="border-b border-border">
-              <th className="text-left px-3 py-2 bg-muted/40 sticky left-0 z-20 font-semibold text-[10px] uppercase tracking-wider text-muted-foreground">Material</th>
+              <th
+                className="text-left px-3 py-2 bg-muted/40 sticky left-0 z-20 font-semibold text-[10px] uppercase tracking-wider text-muted-foreground cursor-pointer hover:text-foreground select-none"
+                onClick={() => onSort('name')}
+              >
+                Material <SortIcon k="name" />
+              </th>
               {selected.map((p) => (
-                <th key={p.key as string} className="text-right px-3 py-2 font-medium text-foreground whitespace-nowrap">
-                  {p.label}
+                <th
+                  key={p.key as string}
+                  className="text-right px-3 py-2 font-medium text-foreground whitespace-nowrap min-w-[104px] cursor-pointer hover:bg-muted/40 select-none"
+                  onClick={() => onSort(p.key as string)}
+                  title={`Sort by ${p.label}`}
+                >
+                  {p.label}<SortIcon k={p.key as string} />
                   <div className="text-[10px] font-normal text-muted-foreground">{p.unit}</div>
                 </th>
               ))}
@@ -70,7 +122,7 @@ export function ComparePanel({ materials, onRemove, onClose }: ComparePanelProps
             </tr>
           </thead>
           <tbody>
-            {materials.map((m) => {
+            {sortedMaterials.map((m) => {
               const color = CATEGORY_COLORS[m.category] ?? '#6B7280';
               return (
                 <tr key={m.id} className="border-b border-border/40 hover:bg-muted/20">
@@ -87,17 +139,22 @@ export function ComparePanel({ materials, onRemove, onClose }: ComparePanelProps
                     </div>
                   </td>
                   {selected.map((p) => {
-                    const r = (m.ranges || {})[p.key as string] as PropertyRange | null | undefined;
-                    const typical = r?.typical ?? (typeof m[p.key] === 'number' ? (m[p.key] as number) : null);
+                    const k = p.key as string;
+                    const r = (m.ranges || {})[k] as PropertyRange | null | undefined;
+                    const typical = typOf(m, k);
                     const hasRange = !!r && r.max > r.min;
+                    const pct = typical != null && colMax[k] > 0 ? Math.max(3, Math.min(100, (typical / colMax[k]) * 100)) : 0;
                     return (
-                      <td key={p.key as string} className="px-3 py-2 text-right font-mono whitespace-nowrap align-top">
+                      <td key={k} className="px-3 py-2 align-top">
                         {typical == null ? (
-                          <span className="text-muted-foreground/40">—</span>
+                          <span className="text-muted-foreground/40 block text-right font-mono">—</span>
                         ) : (
                           <>
-                            <span className="font-medium text-foreground">{fmt(typical)}</span>
-                            {hasRange && <div className="text-[10px] text-muted-foreground">{fmt(r!.min)}–{fmt(r!.max)}</div>}
+                            <div className="text-right font-mono font-medium text-foreground">{fmt(typical)}</div>
+                            <div className="mt-1 h-1.5 w-full bg-muted/40 rounded-sm overflow-hidden">
+                              <div className="h-full rounded-sm" style={{ width: `${pct}%`, background: color, opacity: 0.85 }} />
+                            </div>
+                            {hasRange && <div className="text-[10px] text-muted-foreground text-right font-mono mt-0.5">{fmt(r!.min)}–{fmt(r!.max)}</div>}
                           </>
                         )}
                       </td>

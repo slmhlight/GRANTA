@@ -8,6 +8,7 @@ import { useMemo, useState, useEffect } from 'react';
 import Plot from 'react-plotly.js';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Material, ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 
@@ -101,6 +102,12 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [yLog, setYLog] = useState(true);
   const [xLimit, setXLimit] = useState<[number, number] | null>(null);
   const [yLimit, setYLimit] = useState<[number, number] | null>(null);
+  const [markerSize, setMarkerSize] = useState(7);
+  const [showContext, setShowContext] = useState(true);
+  const [showGrid, setShowGrid] = useState(true);
+  const [showLabels, setShowLabels] = useState(false);
+  const [showLegend, setShowLegend] = useState(true);
+  const [showGuides, setShowGuides] = useState(true);
 
   const filtered = filteredMaterials || materials;
   const dom = (prop: string): [number, number] => {
@@ -149,13 +156,14 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     }
     const markerTraces = Array.from(byClass.entries()).sort((a, b) => b[1].ms.length - a[1].ms.length).map(([key, { color, ms }]) => ({
       x: ms.map((m) => tv(m, xProperty)), y: ms.map((m) => tv(m, yProperty)),
-      mode: 'markers', type: 'scatter', name: `${key} (${ms.length})`,
-      marker: { size: colorMode ? 11 : 7, color, line: { color: '#ffffff', width: colorMode ? 1.2 : 0.5 }, opacity: 0.95 },
+      mode: showLabels ? 'markers+text' : 'markers', type: 'scatter', name: `${key} (${ms.length})`,
+      textposition: 'top center', textfont: { size: 8, color: '#64748b' },
+      marker: { size: colorMode ? markerSize + 4 : markerSize, color, line: { color: '#ffffff', width: colorMode ? 1.2 : 0.5 }, opacity: 0.95 },
       text: ms.map((m) => m.name), customdata: ms.map((m) => m.id),
       hovertemplate: `<b>%{text}</b><br>${xProperty}: %{x:.4g}<br>${yProperty}: %{y:.4g}<extra>${key}</extra>`,
     }));
 
-    const ctx = [...others, ...coldFset];
+    const ctx = showContext ? [...others, ...coldFset] : [];
     const contextTrace = ctx.length ? [{
       x: ctx.map((m) => tv(m, xProperty)), y: ctx.map((m) => tv(m, yProperty)),
       mode: 'markers', type: 'scatter', name: 'filtered out',
@@ -237,7 +245,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     // material-index guide lines (Ashby): constant performance-index directions on log-log
     const guideAnnotations: any[] = [];
     const guides = INDEX_GUIDES[`${xProperty}|${yProperty}`];
-    if (xLog && yLog && guides && xRange && yRange) {
+    if (showGuides && xLog && yLog && guides && xRange && yRange) {
       const xm = (xRange[0] + xRange[1]) / 2, ym = (yRange[0] + yRange[1]) / 2;
       for (const g of guides) {
         const yAt = (xl: number) => g.slope * (xl - xm) + ym;
@@ -252,16 +260,16 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const layout: any = {
       autosize: true, height: 600,
       margin: { l: 72, r: 20, t: 28, b: 56 },
-      xaxis: { title: { text: `${xMeta?.label ?? xProperty} (${xMeta?.unit ?? ''})`, font: { size: 12 } }, type: xLog ? 'log' : 'linear', range: xRange, gridcolor: '#eef2f7', zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
-      yaxis: { title: { text: `${yMeta?.label ?? yProperty} (${yMeta?.unit ?? ''})`, font: { size: 12 } }, type: yLog ? 'log' : 'linear', range: yRange, gridcolor: '#eef2f7', zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
-      hovermode: 'closest', shapes, annotations: guideAnnotations,
+      xaxis: { title: { text: `${xMeta?.label ?? xProperty} (${xMeta?.unit ?? ''})`, font: { size: 12 } }, type: xLog ? 'log' : 'linear', range: xRange, gridcolor: '#eef2f7', showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
+      yaxis: { title: { text: `${yMeta?.label ?? yProperty} (${yMeta?.unit ?? ''})`, font: { size: 12 } }, type: yLog ? 'log' : 'linear', range: yRange, gridcolor: '#eef2f7', showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
+      hovermode: 'closest', shapes, annotations: guideAnnotations, showlegend: showLegend,
       legend: { orientation: 'h', y: 1.07, x: 0, font: { size: 11 }, bgcolor: 'rgba(255,255,255,0)' },
       paper_bgcolor: '#ffffff', plot_bgcolor: '#ffffff',
       font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: '#334155' },
     };
 
     return { data: [...envelopeTraces, ...contextTrace, ...markerTraces, ...selTrace], layout };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides]);
 
   const config = {
     responsive: true, displaylogo: false,
@@ -308,6 +316,22 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
           <input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" /> Y log
         </label>
+        <Popover>
+          <PopoverTrigger asChild>
+            <button type="button" className="text-xs text-muted-foreground hover:text-foreground border border-border rounded px-2 h-7 flex items-center gap-1">Display ▾</button>
+          </PopoverTrigger>
+          <PopoverContent align="start" className="w-60 text-xs space-y-3">
+            <div>
+              <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Marker size</span><span className="font-mono">{markerSize}</span></div>
+              <Slider min={4} max={16} step={1} value={[markerSize]} onValueChange={(v: number[]) => setMarkerSize(v[0])} />
+            </div>
+            {([['Gridlines', showGrid, setShowGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+              <label key={label} className="flex items-center gap-2 cursor-pointer select-none">
+                <input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}
+              </label>
+            ))}
+          </PopoverContent>
+        </Popover>
         {comparing
           ? <span className="text-[11px] font-medium text-accent ml-auto">● Colouring {compareList!.length} Compare selection{compareList!.length > 1 ? 's' : ''}</span>
           : <span className="text-[11px] text-muted-foreground ml-auto">Curved envelope = property range</span>}
