@@ -44,9 +44,12 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
       <div className="text-right">
         <span className="font-mono text-xs font-medium text-foreground">{fmt(typical)}</span>
         <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>
+        {range?.estimated && (
+          <span className="ml-1 text-[10px] text-amber-500/90" title="Estimated from UTS — not a measured value">est.</span>
+        )}
         {hasRange && (
           <div className="text-[10px] font-mono text-muted-foreground/70 leading-tight">
-            {fmt(range!.min)}–{fmt(range!.max)} <span className="text-muted-foreground/40">n={range!.n}</span>
+            {fmt(range!.min)}–{fmt(range!.max)} <span className="text-muted-foreground/40">{range!.estimated ? '≈UTS' : `n=${range!.n}`}</span>
           </div>
         )}
       </div>
