@@ -3,30 +3,30 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **628 materials**: 99 curated · 9 am_vendor · 479 generic
-- Dropped 307 CSV rows that duplicate curated AM alloys (curated db is the richer source).
+- **630 materials**: 99 curated · 9 am_vendor · 474 generic
+- Dropped 367 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 628/628 | 0 |
-| yield_strength | 626/628 | 500 |
-| uts | 617/628 | 497 |
-| elongation | 626/628 | 499 |
-| modulus | 628/628 | 9 |
-| hardness | 588/628 | 442 |
-| thermal_conductivity | 628/628 | 2 |
-| fatigue_strength | 582/628 | 463 |
-| impact_strength | 46/628 | 46 |
+| density | 630/630 | 0 |
+| yield_strength | 628/630 | 503 |
+| uts | 619/630 | 500 |
+| elongation | 628/630 | 502 |
+| modulus | 630/630 | 18 |
+| hardness | 582/630 | 437 |
+| thermal_conductivity | 630/630 | 2 |
+| fatigue_strength | 580/630 | 468 |
+| impact_strength | 79/630 | 79 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 103/628 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 103/630 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
 ## Integrity fixes
 - Removed **1** corrupt CSV row(s) (e.g. `material_name="0"`).
-- AA aluminium series subcategory auto-corrected: **45** materials.
+- AA aluminium series subcategory auto-corrected: **42** materials.
 - Process labels canonicalised: {"Casting":"Cast","Die Casting":"Cast","Sand Casting":"Cast","Investment Casting":"Cast","Cast/Wrought":"Wrought"}.
 - Placeholder `corrosion_resistance=0` in 2313 raw rows (treated as “unknown”, not 0).
 - Empty fatigue/impact in 2364 raw rows (left null, not zero).

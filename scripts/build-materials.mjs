@@ -273,8 +273,15 @@ const REAL_PROPS = {
   'alsi10mg': { fatigue: [90, 115, 140], impact: [3, 4, 5], elevated_temp: [{ temp: 20, ys: 230, uts: 360 }, { temp: 150, ys: 180, uts: 270 }, { temp: 200, ys: 120, uts: 180 }, { temp: 250, ys: 70, uts: 110 }] },
   'maraging': { fatigue: [600, 650, 700], impact: [15, 20, 25], elevated_temp: [{ temp: 20, ys: 1900, uts: 1950 }, { temp: 300, ys: 1700, uts: 1800 }, { temp: 450, ys: 1500, uts: 1600 }] },
   'haynes230': { fatigue: [250, 300, 350], impact: [50, 70, 90], elevated_temp: [{ temp: 20, ys: 390, uts: 860 }, { temp: 760, ys: 285, uts: 575 }, { temp: 870, ys: 250, uts: 420 }, { temp: 980, ys: 180, uts: 280 }] },
+  '304l': { fatigue: [220, 240, 260], impact: [120, 160, 200], elevated_temp: [{ temp: 20, ys: 250, uts: 580 }, { temp: 300, ys: 150, uts: 450 }, { temp: 500, ys: 130, uts: 400 }, { temp: 600, ys: 120, uts: 330 }] },
+  '155ph': { fatigue: [550, 600, 650], impact: [25, 35, 45], elevated_temp: [{ temp: 20, ys: 1070, uts: 1140 }, { temp: 300, ys: 930, uts: 1010 }, { temp: 425, ys: 860, uts: 950 }] },
+  'alsi7mg': { fatigue: [80, 100, 120], impact: [4, 6, 8], elevated_temp: [{ temp: 20, ys: 250, uts: 320 }, { temp: 150, ys: 200, uts: 260 }, { temp: 200, ys: 140, uts: 190 }] },
+  'aa6061': { fatigue: [90, 97, 110], impact: [8, 12, 18], elevated_temp: [{ temp: 20, ys: 275, uts: 310 }, { temp: 150, ys: 260, uts: 290 }, { temp: 200, ys: 210, uts: 235 }, { temp: 300, ys: 40, uts: 60 }] },
+  'aa7075': { fatigue: [140, 159, 180], impact: [5, 8, 12], elevated_temp: [{ temp: 20, ys: 505, uts: 570 }, { temp: 150, ys: 400, uts: 455 }, { temp: 200, ys: 215, uts: 260 }] },
+  'aa2024': { fatigue: [120, 138, 160], impact: [10, 15, 20], elevated_temp: [{ temp: 20, ys: 345, uts: 485 }, { temp: 150, ys: 290, uts: 420 }, { temp: 200, ys: 180, uts: 290 }] },
+  '4340': { fatigue: [380, 470, 560], impact: [20, 35, 50], elevated_temp: [{ temp: 20, ys: 1240, uts: 1380 }, { temp: 300, ys: 1100, uts: 1240 }, { temp: 425, ys: 1000, uts: 1100 }] },
 };
-const REAL_ALIAS = { 'maragingsteel': 'maraging', 'm300': 'maraging', 'ms1': 'maraging', '18ni300': 'maraging', '718': 'inconel718', '625': 'inconel625' };
+const REAL_ALIAS = { 'maragingsteel': 'maraging', 'm300': 'maraging', 'ms1': 'maraging', '18ni300': 'maraging', '718': 'inconel718', '625': 'inconel625', '6061': 'aa6061', '7075': 'aa7075', '2024': 'aa2024', '304': '304l', 'a357': 'alsi7mg' };
 function realPropsFor(name) {
   const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
   for (const tok of String(name).split(/[\s(),/]+/)) if (/\d/.test(tok)) keys.add(norm(tok));
@@ -433,12 +440,20 @@ function conditionClass(name) {
 // material; conditions/tempers within a process are aggregated into the range.
 // Curated alloys are dropped here (curated db is authoritative).
 let droppedCuratedDup = 0;
+// reference (supplementary) metal alloys are authoritative — drop CSV generics of the same alloy
+// (polymers excluded so FDM reference vs injection-moulded CSV stay as distinct materials)
+const refAlloySet = new Set(
+  (((JSON.parse(fs.readFileSync(path.join(DATA, 'supplementary-materials.json'), 'utf8')).materials) || [])
+    .filter((s) => s.category !== 'Polymer'))
+    .map((s) => norm(alloyOf(s.name)))
+);
 const ncGroups = new Map(); // norm(alloy)|process -> { rows, hasAm, name, process }
 for (const r of csvRows) {
   if (isCurated(r.material_name)) { droppedCuratedDup++; continue; }
   const isAm = r.manufacturer !== 'Generic' || AM_PROC.has(r.process);
   const alloy = (isAm ? alloyOf(r.material_name) : baseName(r.material_name)).trim();
   if (!norm(alloy)) { droppedCuratedDup++; continue; }
+  if (refAlloySet.has(norm(alloy))) { droppedCuratedDup++; continue; } // reference entry is authoritative for this alloy
   const proc = PROCESS_CANON[r.process] || r.process || 'Unknown';
   const cond = conditionClass(r.material_name);
   const key = norm(alloy) + '|' + proc + '|' + cond;
@@ -482,7 +497,9 @@ const generic = nonCurated.filter(m => m.tier === 'generic');
 
 // supplementary reference materials (web/handbook-verified ranges) — broadens coverage
 const supRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'supplementary-materials.json'), 'utf8')).materials) || [];
-const supplementary = supRaw.map((s, idx) => {
+const supplementary = supRaw
+  .filter((s) => !curatedAlias.has(norm(alloyOf(s.name))) && !curatedAlias.has(norm(baseName(s.name)))) // curated wins over reference
+  .map((s, idx) => {
   const ranges = {};
   for (const p of NUM_PROPS) ranges[p] = null;
   PROP_ORDER.forEach((p, i) => { ranges[p] = rangeFrom(s.points.map((row) => row[i])); });

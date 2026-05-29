@@ -246,6 +246,102 @@
       "composition": { "Co": "balance", "Cr": "27~30", "Mo": "5~7", "Ni": "≤1", "Fe": "≤0.75" },
       "points": [[8.3, 520, 900, 12, 220, 350, 13], [8.3, 480, 850, 8, 220, 330, 13], [8.3, 560, 950, 15, 220, 380, 13]],
       "sources": [{ "label": "ASTM F75 — cast CoCrMo (implant)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Acetal (POM)", "category": "Polymer", "subcategory": "Polymer - Acetal (POM)", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.41, 65, 70, 30, 3.1, 0, 0.31], [1.41, 60, 66, 25, 2.9, 0, 0.31], [1.41, 70, 75, 40, 3.3, 0, 0.31]],
+      "sources": [{ "label": "Material datasheets — POM / Delrin acetal", "url": null, "verified": false }]
+    },
+    {
+      "name": "PVC (rigid)", "category": "Polymer", "subcategory": "Polymer - PVC", "process": "Extrusion",
+      "composition": {},
+      "points": [[1.40, 45, 52, 40, 3.0, 0, 0.16], [1.40, 40, 48, 20, 2.8, 0, 0.16], [1.40, 50, 58, 60, 3.2, 0, 0.16]],
+      "sources": [{ "label": "Material datasheets — rigid PVC", "url": null, "verified": false }]
+    },
+    {
+      "name": "PVDF", "category": "Polymer", "subcategory": "Polymer - PVDF", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.78, 50, 55, 50, 2.0, 0, 0.19], [1.78, 45, 50, 30, 1.8, 0, 0.19], [1.78, 55, 60, 80, 2.2, 0, 0.19]],
+      "sources": [{ "label": "Material datasheets — PVDF (Kynar)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Polysulfone (PSU)", "category": "Polymer", "subcategory": "Polymer - Polysulfone (PSU)", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.24, 70, 75, 50, 2.5, 0, 0.26], [1.24, 65, 70, 30, 2.4, 0, 0.26], [1.24, 75, 80, 70, 2.6, 0, 0.26]],
+      "sources": [{ "label": "Material datasheets — Polysulfone (Udel)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PPSU (Radel)", "category": "Polymer", "subcategory": "Polymer - PPSU", "process": "FDM",
+      "composition": {},
+      "points": [[1.29, 70, 76, 60, 2.3, 0, 0.23], [1.29, 65, 70, 40, 2.2, 0, 0.23], [1.29, 76, 82, 80, 2.4, 0, 0.23]],
+      "sources": [{ "label": "Material datasheets — PPSU (Radel)", "url": null, "verified": false }]
+    },
+    {
+      "name": "ASA", "category": "Polymer", "subcategory": "Polymer - ASA (FDM)", "process": "FDM",
+      "composition": {},
+      "points": [[1.07, 44, 47, 20, 2.0, 0, 0.17], [1.07, 40, 44, 12, 1.9, 0, 0.17], [1.07, 47, 50, 30, 2.1, 0, 0.17]],
+      "sources": [{ "label": "Material datasheets — ASA (FDM)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PEKK", "category": "Polymer", "subcategory": "Polymer - PEKK (FDM)", "process": "FDM",
+      "composition": {},
+      "points": [[1.28, 90, 100, 10, 3.8, 0, 0.25], [1.28, 80, 92, 6, 3.5, 0, 0.25], [1.28, 100, 110, 14, 4.1, 0, 0.25]],
+      "sources": [{ "label": "Material datasheets — PEKK (high-performance)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PTFE (Teflon)", "category": "Polymer", "subcategory": "Polymer - PTFE", "process": "Compression Molding",
+      "composition": {},
+      "points": [[2.16, 12, 25, 300, 0.5, 0, 0.25], [2.16, 9, 20, 200, 0.4, 0, 0.25], [2.16, 15, 31, 400, 0.6, 0, 0.25]],
+      "sources": [{ "label": "Material datasheets — PTFE", "url": null, "verified": false }]
+    },
+    {
+      "name": "AISI 1045", "category": "Metal", "subcategory": "Carbon Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.43~0.5", "Mn": "0.6~0.9" },
+      "points": [[7.85, 530, 625, 16, 205, 180, 50], [7.85, 505, 595, 12, 205, 170, 50], [7.85, 560, 660, 20, 205, 200, 50]],
+      "sources": [{ "label": "ASM — AISI 1045 medium-carbon steel (normalized)", "url": null, "verified": false }]
+    },
+    {
+      "name": "AISI 1018", "category": "Metal", "subcategory": "Carbon Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.15~0.2", "Mn": "0.6~0.9" },
+      "points": [[7.87, 370, 440, 15, 205, 130, 52], [7.87, 340, 420, 12, 205, 120, 52], [7.87, 400, 470, 18, 205, 145, 52]],
+      "sources": [{ "label": "ASM — AISI 1018 low-carbon steel", "url": null, "verified": false }]
+    },
+    {
+      "name": "12L14 (free-machining)", "category": "Metal", "subcategory": "Carbon Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.15", "Mn": "0.85~1.15", "Pb": "0.15~0.35", "S": "0.26~0.35" },
+      "points": [[7.87, 415, 540, 10, 205, 160, 50], [7.87, 390, 510, 8, 205, 150, 50], [7.87, 440, 570, 13, 205, 175, 50]],
+      "sources": [{ "label": "ASM — 12L14 free-machining steel", "url": null, "verified": false }]
+    },
+    {
+      "name": "Gray Cast Iron (Class 30)", "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "composition": { "Fe": "balance", "C": "3~3.5", "Si": "1.8~2.4" },
+      "points": [[7.2, 195, 214, 1, 100, 210, 46], [7.2, 180, 200, 0.5, 90, 200, 46], [7.2, 210, 235, 1, 110, 230, 46]],
+      "sources": [{ "label": "ASM — gray cast iron Class 30", "url": null, "verified": false }]
+    },
+    {
+      "name": "Ductile Iron 65-45-12", "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "composition": { "Fe": "balance", "C": "3.4~3.8", "Si": "2.2~2.8", "Mg": "0.03~0.05" },
+      "points": [[7.1, 310, 450, 12, 165, 170, 36], [7.1, 290, 430, 10, 165, 160, 36], [7.1, 340, 480, 15, 165, 185, 36]],
+      "sources": [{ "label": "ASTM A536 — ductile iron 65-45-12", "url": null, "verified": false }]
+    },
+    {
+      "name": "Zamak 3 (Zinc)", "category": "Metal", "subcategory": "Zinc Alloy", "process": "Cast",
+      "composition": { "Zn": "balance", "Al": "3.5~4.3", "Mg": "0.02~0.05" },
+      "points": [[6.6, 220, 280, 10, 96, 82, 113], [6.6, 200, 260, 7, 96, 75, 113], [6.6, 240, 300, 13, 96, 90, 113]],
+      "sources": [{ "label": "ASTM B86 — Zamak 3 zinc die-casting alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Phosphor Bronze C51000", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "balance", "Sn": "4.2~5.8", "P": "0.03~0.35" },
+      "points": [[8.86, 350, 450, 30, 110, 150, 69], [8.86, 320, 420, 20, 110, 140, 69], [8.86, 390, 500, 40, 110, 165, 69]],
+      "sources": [{ "label": "ASTM B103 — phosphor bronze C51000", "url": null, "verified": false }]
+    },
+    {
+      "name": "Stainless 316Ti", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "16~18", "Ni": "10~14", "Mo": "2~3", "Ti": "0.3~0.7" },
+      "points": [[8.0, 240, 590, 40, 193, 180, 16], [8.0, 220, 560, 35, 193, 170, 16], [8.0, 270, 620, 45, 193, 200, 16]],
+      "sources": [{ "label": "ASM — 316Ti stabilised austenitic stainless (UNS S31635)", "url": null, "verified": false }]
     }
   ]
 }
