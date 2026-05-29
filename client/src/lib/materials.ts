@@ -272,6 +272,11 @@ export const FAMILY_TREE: FamilyGroup[] = [
       'Polymer - ASA (FDM)',
       'Polymer - PEKK (FDM)',
       'Polymer - PTFE',
+      'Polymer - PAI',
+      'Polymer - Polyimide',
+      'Polymer - PBT',
+      'Polymer - LCP',
+      'Polymer - ETFE',
     ],
   },
 ];

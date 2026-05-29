@@ -492,6 +492,216 @@
       "composition": { "Mo": "balance", "Ti": "0.4~0.55", "Zr": "0.06~0.12" },
       "points": [[10.2, 560, 680, 25, 320, 250, 126], [10.2, 500, 620, 20, 320, 230, 126], [10.2, 620, 740, 30, 320, 270, 126]],
       "sources": [{ "label": "Plansee — TZM molybdenum alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "AA 2618", "category": "Metal", "subcategory": "Aluminum", "process": "Wrought",
+      "composition": { "Al": "balance", "Cu": "1.9~2.7", "Mg": "1.3~1.8", "Fe": "0.9~1.3", "Ni": "0.9~1.2" },
+      "points": [[2.76, 370, 440, 10, 74, 115, 146], [2.76, 350, 420, 8, 74, 110, 146], [2.76, 390, 460, 12, 74, 125, 146]],
+      "sources": [{ "label": "ASM — AA 2618 high-temperature aluminium (T61)", "url": null, "verified": false }]
+    },
+    {
+      "name": "A319 (cast Al)", "category": "Metal", "subcategory": "Aluminum", "process": "Cast",
+      "composition": { "Al": "balance", "Si": "5.5~6.5", "Cu": "3~4" },
+      "points": [[2.79, 165, 250, 2, 74, 80, 109], [2.79, 150, 230, 1, 74, 75, 109], [2.79, 185, 280, 3, 74, 95, 109]],
+      "sources": [{ "label": "ASM — A319 cast aluminium (T6)", "url": null, "verified": false }]
+    },
+    {
+      "name": "A380 (die-cast Al)", "category": "Metal", "subcategory": "Aluminum", "process": "Cast",
+      "composition": { "Al": "balance", "Si": "7.5~9.5", "Cu": "3~4", "Fe": "≤1.3" },
+      "points": [[2.74, 160, 320, 3, 71, 80, 96], [2.74, 150, 300, 2, 71, 75, 96], [2.74, 170, 340, 4, 71, 90, 96]],
+      "sources": [{ "label": "ASM — A380 aluminium die-casting alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "ASTM A36 (structural)", "category": "Metal", "subcategory": "Carbon Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "≤0.26", "Mn": "0.6~0.9" },
+      "points": [[7.85, 250, 450, 23, 200, 120, 50], [7.85, 250, 400, 20, 200, 110, 50], [7.85, 250, 550, 26, 200, 130, 50]],
+      "sources": [{ "label": "ASTM A36 — structural carbon steel", "url": null, "verified": false }]
+    },
+    {
+      "name": "A516 Grade 70", "category": "Metal", "subcategory": "Carbon Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "≤0.27", "Mn": "0.85~1.2", "Si": "0.15~0.4" },
+      "points": [[7.85, 260, 485, 21, 200, 150, 52], [7.85, 260, 460, 17, 200, 140, 52], [7.85, 290, 620, 23, 200, 160, 52]],
+      "sources": [{ "label": "ASTM A516 Gr.70 — pressure-vessel steel", "url": null, "verified": false }]
+    },
+    {
+      "name": "AISI 5160 (spring)", "category": "Metal", "subcategory": "Alloy Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.56~0.64", "Cr": "0.7~0.9", "Mn": "0.75~1" },
+      "points": [[7.85, 1450, 1600, 9, 205, 480, 46], [7.85, 1380, 1520, 7, 205, 460, 46], [7.85, 1530, 1700, 11, 205, 500, 46]],
+      "sources": [{ "label": "ASM — AISI 5160 spring steel (Q&T)", "url": null, "verified": false }]
+    },
+    {
+      "name": "A2 tool steel", "category": "Metal", "subcategory": "Tool Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.95~1.05", "Cr": "4.75~5.5", "Mo": "0.9~1.4" },
+      "points": [[7.86, 1380, 1620, 8, 203, 600, 24], [7.86, 1300, 1550, 5, 203, 580, 24], [7.86, 1450, 1700, 10, 203, 620, 24]],
+      "sources": [{ "label": "ASM — A2 air-hardening tool steel (DIN 1.2363)", "url": null, "verified": false }]
+    },
+    {
+      "name": "CPM 3V", "category": "Metal", "subcategory": "Tool Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.8", "Cr": "7.5", "V": "2.75", "Mo": "1.3" },
+      "points": [[7.46, 1500, 1900, 5, 207, 600, 21], [7.46, 1400, 1800, 3, 207, 580, 21], [7.46, 1600, 2000, 7, 207, 620, 21]],
+      "sources": [{ "label": "Crucible — CPM 3V powder-metallurgy tool steel", "url": null, "verified": false }]
+    },
+    {
+      "name": "HY-80", "category": "Metal", "subcategory": "Alloy Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "2~3.25", "Cr": "1~1.8", "Mo": "0.2~0.6", "C": "≤0.18" },
+      "points": [[7.85, 550, 690, 20, 207, 240, 35], [7.85, 550, 660, 18, 207, 230, 35], [7.85, 620, 740, 22, 207, 255, 35]],
+      "sources": [{ "label": "MIL-S-16216 — HY-80 naval steel", "url": null, "verified": false }]
+    },
+    {
+      "name": "416 stainless", "category": "Metal", "subcategory": "Stainless Steel - Ferritic/Martensitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "12~14", "S": "0.15~0.35" },
+      "points": [[7.7, 690, 825, 12, 200, 260, 25], [7.7, 620, 760, 10, 200, 250, 25], [7.7, 760, 900, 15, 200, 280, 25]],
+      "sources": [{ "label": "ASM — 416 free-machining stainless (UNS S41600)", "url": null, "verified": false }]
+    },
+    {
+      "name": "431 stainless", "category": "Metal", "subcategory": "Stainless Steel - Ferritic/Martensitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "15~17", "Ni": "1.25~2.5" },
+      "points": [[7.7, 900, 1100, 13, 200, 350, 20], [7.7, 850, 1050, 10, 200, 330, 20], [7.7, 980, 1200, 16, 200, 380, 20]],
+      "sources": [{ "label": "ASM — 431 martensitic stainless (UNS S43100)", "url": null, "verified": false }]
+    },
+    {
+      "name": "2304 lean duplex", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "21.5~24.5", "Ni": "3~5.5", "Mo": "0.05~0.6", "N": "0.05~0.2" },
+      "points": [[7.8, 450, 650, 25, 200, 250, 17], [7.8, 420, 620, 20, 200, 240, 17], [7.8, 490, 700, 30, 200, 270, 17]],
+      "sources": [{ "label": "Outokumpu — 2304 lean duplex (UNS S32304)", "url": null, "verified": false }]
+    },
+    {
+      "name": "253 MA", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "20~22", "Ni": "10~12", "Si": "1.4~2", "N": "0.14~0.2", "Ce": "0.03~0.08" },
+      "points": [[7.8, 310, 650, 40, 200, 200, 15], [7.8, 290, 620, 35, 200, 190, 15], [7.8, 340, 720, 45, 200, 220, 15]],
+      "sources": [{ "label": "Outokumpu — 253 MA heat-resistant stainless (UNS S30815)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Inconel 706", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Fe": "balance", "Cr": "14.5~17.5", "Nb": "2.5~3.3", "Ti": "1.5~2" },
+      "points": [[8.05, 1000, 1300, 20, 210, 380, 12], [8.05, 950, 1240, 16, 210, 360, 12], [8.05, 1060, 1360, 24, 210, 400, 12]],
+      "sources": [{ "label": "Special Metals — Inconel 706 (UNS N09706)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Inconel 751", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "14~17", "Fe": "5~9", "Ti": "2~2.6", "Al": "0.9~1.5", "Nb": "0.7~1.2" },
+      "points": [[8.24, 690, 1170, 22, 214, 320, 12], [8.24, 650, 1120, 18, 214, 300, 12], [8.24, 740, 1230, 26, 214, 340, 12]],
+      "sources": [{ "label": "Special Metals — Inconel 751 (UNS N07751)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Udimet 720", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "15~17", "Co": "14~16", "Ti": "4.5~5.5", "Al": "2~3", "Mo": "2.5~3.5" },
+      "points": [[8.08, 1100, 1500, 15, 210, 420, 11], [8.08, 1050, 1440, 12, 210, 400, 11], [8.08, 1180, 1560, 18, 210, 440, 11]],
+      "sources": [{ "label": "Special Metals — Udimet 720 (turbine disc superalloy)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Nimonic 263", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "19~21", "Co": "19~21", "Mo": "5.6~6.1", "Ti": "1.9~2.4" },
+      "points": [[8.36, 580, 970, 39, 222, 300, 11], [8.36, 540, 920, 34, 222, 290, 11], [8.36, 620, 1020, 44, 222, 320, 11]],
+      "sources": [{ "label": "Special Metals — Nimonic 263 (UNS N07263)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Nickel 200", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "99~99.9" },
+      "points": [[8.89, 150, 460, 45, 204, 110, 70], [8.89, 130, 420, 40, 204, 100, 70], [8.89, 180, 500, 50, 204, 125, 70]],
+      "sources": [{ "label": "Special Metals — Nickel 200 (UNS N02200)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Haynes 188", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Wrought",
+      "composition": { "Co": "balance", "Cr": "20~24", "Ni": "20~24", "W": "13~16" },
+      "points": [[8.98, 464, 960, 56, 232, 250, 10], [8.98, 420, 910, 50, 232, 240, 10], [8.98, 500, 1010, 60, 232, 270, 10]],
+      "sources": [{ "label": "Haynes International — Haynes 188 (UNS R30188, Co-base)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Ultimet", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Wrought",
+      "composition": { "Co": "balance", "Cr": "26", "Ni": "9", "Mo": "5", "Fe": "3", "W": "2" },
+      "points": [[8.47, 530, 1030, 28, 228, 300, 11], [8.47, 490, 980, 24, 228, 290, 11], [8.47, 570, 1080, 32, 228, 320, 11]],
+      "sources": [{ "label": "Haynes International — Ultimet (UNS R31233)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Stellite 12", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Cast",
+      "composition": { "Co": "balance", "Cr": "28~32", "W": "7~9.5", "C": "1.4~1.85" },
+      "points": [[8.56, 620, 880, 1, 230, 480, 14], [8.56, 580, 830, 1, 230, 460, 14], [8.56, 660, 930, 2, 230, 510, 14]],
+      "sources": [{ "label": "Kennametal Stellite — Stellite 12 hardfacing", "url": null, "verified": false }]
+    },
+    {
+      "name": "Beta-C (Ti-3Al-8V-6Cr-4Mo-4Zr)", "category": "Metal", "subcategory": "Titanium", "process": "Wrought",
+      "composition": { "Ti": "balance", "V": "7.5~8.5", "Cr": "5.5~6.5", "Mo": "3.5~4.5", "Zr": "3.5~4.5", "Al": "3~4" },
+      "points": [[4.82, 1100, 1200, 7, 100, 380, 8], [4.82, 1050, 1150, 5, 100, 360, 8], [4.82, 1170, 1280, 9, 100, 400, 8]],
+      "sources": [{ "label": "ASM — Beta-C titanium (UNS R58640)", "url": null, "verified": false }]
+    },
+    {
+      "name": "OFHC Copper C10100", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "99.99~100" },
+      "points": [[8.94, 70, 220, 45, 117, 50, 391], [8.94, 60, 210, 40, 117, 45, 391], [8.94, 330, 350, 50, 117, 100, 391]],
+      "sources": [{ "label": "ASM — OFHC copper C10100 (UNS C10100)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Naval Brass C46400", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "59~62", "Zn": "balance", "Sn": "0.5~1" },
+      "points": [[8.41, 170, 400, 40, 100, 110, 116], [8.41, 150, 370, 30, 100, 100, 116], [8.41, 360, 450, 45, 100, 130, 116]],
+      "sources": [{ "label": "ASTM B21 — naval brass C46400", "url": null, "verified": false }]
+    },
+    {
+      "name": "Silicon Bronze C65500", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "balance", "Si": "2.8~3.8", "Mn": "0.5~1.3" },
+      "points": [[8.53, 145, 390, 55, 105, 110, 36], [8.53, 130, 370, 40, 105, 100, 36], [8.53, 400, 460, 60, 105, 130, 36]],
+      "sources": [{ "label": "ASTM B98 — silicon bronze C65500", "url": null, "verified": false }]
+    },
+    {
+      "name": "AM60 (Mg)", "category": "Metal", "subcategory": "Magnesium Alloy", "process": "Cast",
+      "composition": { "Mg": "balance", "Al": "5.5~6.5", "Mn": "0.24~0.6" },
+      "points": [[1.8, 130, 240, 8, 45, 65, 62], [1.8, 115, 220, 6, 45, 60, 62], [1.8, 145, 260, 13, 45, 70, 62]],
+      "sources": [{ "label": "ASTM B94 — AM60B magnesium die-casting alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "ZE41 (Mg)", "category": "Metal", "subcategory": "Magnesium Alloy", "process": "Cast",
+      "composition": { "Mg": "balance", "Zn": "3.5~5", "Zr": "0.4~1", "Ce": "0.75~1.75" },
+      "points": [[1.84, 140, 205, 3, 44, 70, 113], [1.84, 125, 195, 2, 44, 65, 113], [1.84, 160, 220, 5, 44, 80, 113]],
+      "sources": [{ "label": "ASTM B80 — ZE41A magnesium casting alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Hafnium", "category": "Metal", "subcategory": "Refractory Metal", "process": "Wrought",
+      "composition": { "Hf": "97~100", "Zr": "≤3" },
+      "points": [[13.31, 240, 445, 25, 78, 180, 23], [13.31, 220, 415, 20, 78, 170, 23], [13.31, 270, 480, 30, 78, 195, 23]],
+      "sources": [{ "label": "ASTM B776 — hafnium (UNS R02001)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PAI (Torlon)", "category": "Polymer", "subcategory": "Polymer - PAI", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.42, 110, 150, 12, 4.5, 0, 0.26], [1.42, 100, 140, 8, 4.4, 0, 0.26], [1.42, 120, 160, 15, 4.6, 0, 0.26]],
+      "sources": [{ "label": "Solvay — Torlon PAI", "url": null, "verified": false }]
+    },
+    {
+      "name": "Polyimide (Vespel)", "category": "Polymer", "subcategory": "Polymer - Polyimide", "process": "Compression Molding",
+      "composition": {},
+      "points": [[1.43, 75, 86, 7, 3.1, 0, 0.35], [1.43, 68, 80, 5, 3.0, 0, 0.35], [1.43, 82, 95, 9, 3.2, 0, 0.35]],
+      "sources": [{ "label": "DuPont — Vespel SP-1 polyimide", "url": null, "verified": false }]
+    },
+    {
+      "name": "PBT", "category": "Polymer", "subcategory": "Polymer - PBT", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.31, 55, 60, 50, 2.5, 0, 0.21], [1.31, 50, 56, 30, 2.4, 0, 0.21], [1.31, 58, 65, 200, 2.6, 0, 0.21]],
+      "sources": [{ "label": "Material datasheets — PBT (Valox/Crastin)", "url": null, "verified": false }]
+    },
+    {
+      "name": "LCP", "category": "Polymer", "subcategory": "Polymer - LCP", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.4, 110, 130, 3, 11, 0, 0.3], [1.4, 100, 120, 2, 10, 0, 0.3], [1.4, 120, 145, 5, 12, 0, 0.3]],
+      "sources": [{ "label": "Material datasheets — LCP (Vectra)", "url": null, "verified": false }]
+    },
+    {
+      "name": "UHMWPE", "category": "Polymer", "subcategory": "Polymer - Polyethylene", "process": "Compression Molding",
+      "composition": {},
+      "points": [[0.94, 21, 40, 350, 0.7, 0, 0.42], [0.94, 18, 35, 300, 0.6, 0, 0.42], [0.94, 25, 48, 450, 0.8, 0, 0.42]],
+      "sources": [{ "label": "Material datasheets — UHMWPE", "url": null, "verified": false }]
+    },
+    {
+      "name": "ETFE", "category": "Polymer", "subcategory": "Polymer - ETFE", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.7, 22, 42, 300, 0.9, 0, 0.24], [1.7, 20, 38, 250, 0.8, 0, 0.24], [1.7, 25, 46, 400, 1.0, 0, 0.24]],
+      "sources": [{ "label": "Material datasheets — ETFE (Tefzel)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PA11 (Rilsan)", "category": "Polymer", "subcategory": "Polymer - Nylon (FDM/SLS)", "process": "SLS",
+      "composition": {},
+      "points": [[1.03, 45, 55, 100, 1.4, 0, 0.28], [1.03, 40, 50, 80, 1.3, 0, 0.28], [1.03, 50, 60, 150, 1.5, 0, 0.28]],
+      "sources": [{ "label": "Arkema — Rilsan PA11 (SLS)", "url": null, "verified": false }]
     }
   ]
 }
