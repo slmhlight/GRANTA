@@ -69,7 +69,7 @@ export function ComparePanel({ materials, onRemove, onClose }: ComparePanelProps
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted/30">
         <span className="text-sm font-semibold">
-          Material Comparison <span className="text-xs text-muted-foreground font-normal">({materials.length}/4)</span>
+          Material Comparison <span className="text-xs text-muted-foreground font-normal">({materials.length})</span>
         </span>
         <div className="flex items-center gap-1">
           <DropdownMenu>

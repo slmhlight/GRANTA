@@ -38,7 +38,7 @@ const ChartLoader = () => <div className="flex items-center justify-center h-96"
 
 type ViewMode = 'table' | 'cards' | 'ashby';
 
-const MAX_COMPARE = 4;
+const MAX_COMPARE = 12;
 
 export default function Home() {
   const [materials, setMaterials] = useState<Material[]>([]);
@@ -93,6 +93,16 @@ export default function Home() {
       if (prev.length >= MAX_COMPARE) return prev;
       return [...prev, id];
     });
+  }, []);
+
+  const handleAddManyToCompare = useCallback((ids: string[]) => {
+    setCompareList(prev => {
+      const next = [...prev];
+      for (const id of ids) { if (next.length >= MAX_COMPARE) break; if (!next.includes(id)) next.push(id); }
+      return next;
+    });
+    setShowCompare(true);
+    setSelectedMaterial(null);
   }, []);
 
   const handleOpenCompare = useCallback(() => {
@@ -386,6 +396,7 @@ export default function Home() {
                   selectedId={selectedMaterial?.id ?? null}
                   compareList={compareList}
                   onMaterialClick={handleSelectMaterial}
+                  onCompareMany={handleAddManyToCompare}
                 />
               </Suspense>
             )}

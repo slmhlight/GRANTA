@@ -19,6 +19,7 @@ interface AshbyChartPlotlyProps {
   onMaterialClick?: (material: Material) => void;
   selectedId?: string | null;
   compareList?: string[];
+  onCompareMany?: (ids: string[]) => void;
 }
 
 const PROPERTY_OPTIONS = ALL_NUMERIC_PROPERTIES.map((p) => ({ value: p.key as string, label: `${p.label} (${p.unit})` }));
@@ -104,7 +105,7 @@ function AxisLimitSlider({ axis, color, domain, limit, onChange }: { axis: strin
   );
 }
 
-export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId, compareList }: AshbyChartPlotlyProps) {
+export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId, compareList, onCompareMany }: AshbyChartPlotlyProps) {
   const [xProperty, setXProperty] = useState('yield_strength');
   const [yProperty, setYProperty] = useState('elongation');
   const [groupFilter, setGroupFilter] = useState('all');
@@ -128,6 +129,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [colorByCategory, setColorByCategory] = useState(false);
   const [indexPreset, setIndexPreset] = useState('none');
   const [indexThreshold, setIndexThreshold] = useState<number | null>(null);
+  const [boxedIds, setBoxedIds] = useState<Set<string>>(new Set());
 
   const filtered = filteredMaterials || materials;
   const dom = (prop: string): [number, number] => {
@@ -150,7 +152,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     return ['all', ...Array.from(s).sort()];
   }, [materials, groupFilter]);
 
-  const { data, layout, indexInfo } = useMemo(() => {
+  const { data, layout, indexInfo, selectedIds } = useMemo(() => {
     const inGroup = (m: any) => groupFilter === 'all' || classOf(m).key === groupFilter;
     const inSub = (m: any) => subFilter === 'all' || m.subcategory === subFilter;
     const valid = (m: any) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
@@ -160,16 +162,21 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const fsetIds = new Set(fset.map((m) => m.id));
     const others = materials.filter((m) => !fsetIds.has(m.id) && valid(m));
 
-    // ── Ashby material-index selection (preset) drives colouring; else Compare selection ──
+    // ── selection precedence: chart box-select > material-index preset > Compare list ──
     const idx = MATERIAL_INDICES.find((i) => i.key === indexPreset) || null;
     let colored: Material[], coldFset: Material[], colorMode = false;
     let indexThr: number | null = null, minM = 0, maxM = 0;
-    if (idx) {
+    if (boxedIds.size > 0) {
+      colored = fset.filter((m) => boxedIds.has(m.id));
+      coldFset = fset.filter((m) => !boxedIds.has(m.id));
+      colorMode = colored.length > 0;
+      if (!colorMode) colored = fset;
+    } else if (idx) {
       const Mof = (m: any) => { const xv = tv(m, idx.x), yv = tv(m, idx.y); return xv && yv && xv > 0 && yv > 0 ? Math.pow(yv, idx.p) / xv : null; };
       const Ms = fset.map(Mof).filter((v): v is number => v != null && isFinite(v)).sort((a, b) => a - b);
       minM = Ms[0] ?? 0; maxM = Ms[Ms.length - 1] ?? 0;
       indexThr = indexThreshold ?? (Ms.length ? Ms[Math.floor(Ms.length / 2)] : 0); // default ≈ median → ~half pass
-      colored = fset.filter((m) => { const M = Mof(m); return M != null && M >= indexThr!; });
+      colored = fset.filter((m) => { const M = Mof(m); return M != null && M >= indexThr!; }).sort((a, b) => (Mof(b) ?? 0) - (Mof(a) ?? 0));
       coldFset = fset.filter((m) => { const M = Mof(m); return !(M != null && M >= indexThr!); });
       colorMode = colored.length > 0;
     } else {
@@ -179,6 +186,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       if (!colorMode) colored = fset;
       coldFset = colorMode ? fset.filter((m) => !compareSet.has(m.id)) : [];
     }
+    const selectedIds = colorMode ? colored.map((m) => m.id) : [];
 
     // markers grouped by colour key (material class, or category when colour-by-category is on)
     const colKey = (m: any) => (colorByCategory ? m.category : classOf(m).key);
@@ -315,16 +323,37 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: fontC },
     };
 
-    const indexInfo = idx ? { count: colored.length, total: fset.length, thr: indexThr as number, minM, maxM, unit: idx.unit } : null;
-    return { data: [...envelopeTraces, ...contextTrace, ...markerTraces, ...selTrace, ...indexTraces], layout, indexInfo };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold]);
+    const indexInfo = (idx && boxedIds.size === 0) ? { count: colored.length, total: fset.length, thr: indexThr as number, minM, maxM, unit: idx.unit } : null;
+    return { data: [...envelopeTraces, ...contextTrace, ...markerTraces, ...selTrace, ...indexTraces], layout, indexInfo, selectedIds };
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds]);
 
   const config = {
     responsive: true, displaylogo: false,
-    modeBarButtonsToRemove: ['lasso2d', 'select2d', 'autoScale2d'],
+    modeBarButtonsToRemove: ['autoScale2d'], // keep box-select + lasso for material selection
     toImageButtonOptions: { format: 'png', filename: 'ashby_chart', height: 700, width: 1000, scale: 2 },
   };
   const comparing = (compareList?.length ?? 0) > 0;
+
+  // export the current selection (box / index-passing / compare) to CSV
+  const exportSelection = () => {
+    const ids = new Set(selectedIds);
+    const rows = materials.filter((m) => ids.has(m.id));
+    if (!rows.length) return;
+    const esc = (v: any) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+    const header = ['name', 'category', 'subcategory', 'process', ...ALL_NUMERIC_PROPERTIES.map((p) => `${p.label} (${p.unit})`), 'aliases'];
+    const lines = [header.map(esc).join(',')];
+    for (const m of rows) {
+      const cells = [m.name, m.category, m.subcategory, (m.processes || (m.process ? [m.process] : [])).join(' / '),
+        ...ALL_NUMERIC_PROPERTIES.map((p) => { const r = (m.ranges || {})[p.key as string]; return r?.typical ?? (m as any)[p.key] ?? ''; }),
+        (m.aliases || []).join('; ')];
+      lines.push(cells.map(esc).join(','));
+    }
+    const blob = new Blob(['﻿' + lines.join('\n')], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'ashby_selection.csv'; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
 
   return (
     <div className="w-full h-full flex flex-col bg-white">
@@ -419,6 +448,14 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <button type="button" onClick={() => setIndexThreshold(null)} className="text-[10px] px-1.5 py-0.5 rounded border text-accent border-accent/40 hover:bg-accent/10">auto</button>
           </>
         )}
+        {selectedIds.length > 0 && (
+          <div className="ml-auto flex items-center gap-1.5">
+            <span className="text-[11px] text-muted-foreground">{selectedIds.length} selected</span>
+            {onCompareMany && <button type="button" onClick={() => onCompareMany(selectedIds)} className="text-[11px] px-2 py-0.5 rounded border border-accent/50 text-accent hover:bg-accent/10 font-medium">+ Compare</button>}
+            <button type="button" onClick={exportSelection} className="text-[11px] px-2 py-0.5 rounded border border-border text-foreground hover:bg-muted">Export CSV</button>
+            {boxedIds.size > 0 && <button type="button" onClick={() => setBoxedIds(new Set())} className="text-[11px] px-2 py-0.5 rounded border border-border text-muted-foreground hover:bg-muted">Clear box</button>}
+          </div>
+        )}
       </div>
 
       {/* Axis limit sliders — limitation filters on the current X / Y properties */}
@@ -440,6 +477,13 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             const m = id && materials.find((x) => x.id === id);
             if (m && onMaterialClick) onMaterialClick(m);
           }}
+          {...({
+            onSelected: (e: any) => {
+              const ids = (e?.points || []).map((p: any) => p.customdata).filter(Boolean);
+              if (ids.length) setBoxedIds(new Set(ids));
+            },
+            onDeselect: () => setBoxedIds(new Set()),
+          } as any)}
         />
       </div>
     </div>
