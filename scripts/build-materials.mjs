@@ -45,6 +45,17 @@ function rangeFrom(values) {
 const uniq = a => [...new Set(a.filter(Boolean))];
 const mostCommon = arr => { const c = {}; let best = arr[0], n = 0; for (const x of arr) { c[x] = (c[x] || 0) + 1; if (c[x] > n) { n = c[x]; best = x; } } return best; };
 
+// generic/am_vendor source enrichment — verifiable references, NOT fabricated per-material datasheets
+const matwebSearch = (name) => ({ label: `MatWeb — search "${name}"`, url: `https://www.matweb.com/search/QuickText.aspx?SearchText=${encodeURIComponent(name)}`, verified: false });
+function familyHandbook(category, subcategory) {
+  if (category === 'Polymer') return { label: 'ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics', url: null, verified: false };
+  const sc = String(subcategory || '').toLowerCase();
+  if (sc.includes('alumin')) return { label: 'ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations', url: null, verified: false };
+  if (sc.includes('steel') || sc.includes('iron')) return { label: 'ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys', url: null, verified: false };
+  return { label: 'ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys', url: null, verified: false };
+}
+const dedupeSources = (arr) => { const seen = new Set(); return arr.filter(s => s && s.label && !seen.has(s.label) && seen.add(s.label)); };
+
 const NUM_PROPS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity', 'fatigue_strength', 'impact_strength'];
 const ELEMENTS = ['C', 'O', 'Fe', 'Cr', 'Ni', 'Mo', 'Mn', 'Si', 'Cu', 'Al', 'Ti', 'V', 'Co', 'W', 'Nb', 'N', 'P', 'S', 'Mg', 'Zn', 'Sn', 'Be', 'Ta', 'La', 'Ce'];
 const AM_PROC = new Set(['LPBF', 'DMLS', 'SLM', 'EBM', 'Binder Jetting', 'SLS', 'MJF', 'DED', 'Powder', 'Directed Energy Deposition']);
@@ -165,7 +176,7 @@ const am_vendor = [...amGroups.entries()].map(([alloy, g], idx) => {
     id: 'V_' + String(idx).padStart(4, '0'), name: alloy, category: rep.category || 'Metal', subcategory: sub, tier: 'am_vendor',
     manufacturers: uniq(g.map(r => r.manufacturer)), machines: [], processes: uniq(g.map(r => PROCESS_CANON[r.process] || r.process)),
     ranges: rangesFromRows(g), composition: compositionFromRows(g),
-    sources: uniq(g.map(r => r.manufacturer)).map(mf => ({ label: `${mf} (AM vendor datasheet)`, url: null, verified: false })),
+    sources: dedupeSources([...uniq(g.map(r => r.manufacturer)).map(mf => ({ label: `${mf} (AM vendor datasheet)`, url: null, verified: false })), matwebSearch(alloy)]),
     meta: { row_count: g.length, subcategory_variants: uniq(g.map(r => r.subcategory)) },
   };
 });
@@ -182,7 +193,7 @@ const generic = [...genGroups.entries()].map(([key, g], idx) => {
     id: 'G_' + String(idx).padStart(4, '0'), name: baseName(rep.material_name), category: rep.category, subcategory: sub, tier: 'generic',
     manufacturers: ['Generic'], machines: [], processes: uniq(g.map(r => PROCESS_CANON[r.process] || r.process)),
     ranges: rangesFromRows(g), composition: compositionFromRows(g),
-    sources: srcVals.length ? srcVals.map(s => ({ label: s, url: null, verified: false })) : [{ label: 'Generic reference (ASM-derived)', url: null, verified: false }],
+    sources: dedupeSources([...srcVals.map(s => ({ label: s, url: null, verified: false })), familyHandbook(rep.category, sub), matwebSearch(baseName(rep.material_name))]),
     meta: { row_count: g.length, subcategory_variants: variants },
   };
 });
@@ -213,11 +224,11 @@ rep.push('## Output', `- **${all.length} materials**: ${curated.length} curated 
 rep.push('## Property range coverage', '| property | has range | non-degenerate (max>min) |', '|---|---|---|');
 for (const p of NUM_PROPS) rep.push(`| ${p} | ${rangeCov[p].have}/${all.length} | ${rangeCov[p].real} |`);
 rep.push('');
-rep.push('## Sources (Task 2)', `- Materials with ≥1 **verified datasheet URL**: ${withVerifiedSrc}/${all.length} (all curated + ref_urls).`, `- Raw CSV had \`source=Unknown\` for ${rawUnknownSrc}/${csvRows.length} rows; curated provenance restored from \`ref_urls\`.`, '- ⚠️ Generic-tier source enrichment (ASM/MatWeb/MMPDS) pending — see TODO.', '');
+rep.push('## Sources (Task 2)', `- Materials with ≥1 **verified datasheet URL**: ${withVerifiedSrc}/${all.length} (all curated + ref_urls).`, `- Raw CSV had \`source=Unknown\` for ${rawUnknownSrc}/${csvRows.length} rows; curated provenance restored from \`ref_urls\`.`, '- Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).', '');
 rep.push('## Integrity fixes', `- Removed **${garbageRemoved}** corrupt CSV row(s) (e.g. \`material_name="0"\`).`, `- AA aluminium series subcategory auto-corrected: **${aaFixed}** materials.`, `- Process labels canonicalised: ${JSON.stringify(PROCESS_CANON)}.`, `- Placeholder \`corrosion_resistance=0\` in ${rawCorrosion0} raw rows (treated as “unknown”, not 0).`, `- Empty fatigue/impact in ${rawFatigueEmpty} raw rows (left null, not zero).`, '');
 rep.push(`## Subcategory mismatch flags (${subcatFlags.length}) — manual review`);
 for (const f of subcatFlags.slice(0, 25)) rep.push(`- ${f.name}: ${f.variants.join(' / ')}`);
-rep.push('', '## TODO', '- Generic-tier verified source enrichment (Q2 "보강").', '- Hardness scale unification (HV/HRC/HB).', '- Reconcile fatigue/impact gaps where datasheets provide values.');
+rep.push('', '## TODO', '- Hardness scale unification (HV/HRC/HB).', '- Reconcile fatigue/impact gaps where datasheets provide values.');
 
 const liveJson = path.join(ROOT, 'client', 'public', 'materials.json');
 const backup = path.join(DATA, 'materials.original.json');

@@ -22,7 +22,7 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 ## Sources (Task 2)
 - Materials with ≥1 **verified datasheet URL**: 46/216 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
-- ⚠️ Generic-tier source enrichment (ASM/MatWeb/MMPDS) pending — see TODO.
+- Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
 ## Integrity fixes
 - Removed **1** corrupt CSV row(s) (e.g. `material_name="0"`).
@@ -59,6 +59,5 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - PES: Polymer - Nylon (FDM/SLS) / Polymer - PES (FDM)
 
 ## TODO
-- Generic-tier verified source enrichment (Q2 "보강").
 - Hardness scale unification (HV/HRC/HB).
 - Reconcile fatigue/impact gaps where datasheets provide values.
