@@ -66,6 +66,7 @@ function convexHull(pts: number[][]): number[][] {
   for (let i = p.length - 1; i >= 0; i--) { const pt = p[i]; while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], pt) <= 0) upper.pop(); upper.push(pt); }
   return lower.slice(0, -1).concat(upper.slice(0, -1));
 }
+const rgba = (hex: string, a: number) => { const n = parseInt(hex.slice(1), 16); return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`; };
 
 export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick }: AshbyChartPlotlyProps) {
   const [xProperty, setXProperty] = useState('yield_strength');
@@ -95,7 +96,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     }
     const markerTraces = Array.from(byClass.entries()).sort((a, b) => b[1].ms.length - a[1].ms.length).map(([key, { color, ms }]) => ({
       x: ms.map((m) => tv(m, xProperty)), y: ms.map((m) => tv(m, yProperty)),
-      mode: 'markers', type: 'scattergl', name: `${key} (${ms.length})`,
+      mode: 'markers', type: 'scatter', name: `${key} (${ms.length})`,
       marker: { size: 7, color, line: { color: '#ffffff', width: 0.5 }, opacity: 0.95 },
       text: ms.map((m) => m.name), customdata: ms.map((m) => m.id),
       hovertemplate: `<b>%{text}</b><br>${xProperty}: %{x:.4g}<br>${yProperty}: %{y:.4g}<extra>${key}</extra>`,
@@ -103,38 +104,46 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
     const contextTrace = others.length ? [{
       x: others.map((m) => tv(m, xProperty)), y: others.map((m) => tv(m, yProperty)),
-      mode: 'markers', type: 'scattergl', name: 'filtered out',
+      mode: 'markers', type: 'scatter', name: 'filtered out',
       marker: { size: 5, color: '#cbd5e1', opacity: 0.3 },
       text: others.map((m) => m.name), customdata: others.map((m) => m.id),
       hovertemplate: `<b>%{text}</b><br>${xProperty}: %{x:.4g}<br>${yProperty}: %{y:.4g}<extra>out</extra>`,
       showlegend: false,
     }] : [];
 
-    // property envelopes: convex hull of each material's real data points (irregular blob),
-    // falling back to a min–max ellipse when there aren't enough points for a hull.
+    // property envelopes as FILLED TRACES (raw values → correct on log axes, unlike shapes),
+    // grouped by class. Convex hull of real data points → irregular blob; box fallback.
     const shapes: any[] = [];
     const xi = PROP_ORDER.indexOf(xProperty), yi = PROP_ORDER.indexOf(yProperty);
+    const hullByClass = new Map<string, { color: string; xs: (number | null)[]; ys: (number | null)[] }>();
     for (const m of fset) {
       const c = classOf(m);
       const raw = (((m as any).points || []) as number[][]);
-      const pts = (xi >= 0 && yi >= 0)
+      const logPairs = (xi >= 0 && yi >= 0)
         ? raw.map((t) => [t[xi], t[yi]]).filter(([x, y]) => x > 0 && y > 0).map(([x, y]) => [L(x), L(y)])
         : [];
-      const uniqPts = Array.from(new Map(pts.map((p) => [`${p[0].toFixed(4)},${p[1].toFixed(4)}`, p])).values());
-      if (uniqPts.length >= 3) {
-        const h = convexHull(uniqPts);
-        if (h.length >= 3) {
-          const path = 'M ' + h.map((p) => `${p[0]},${p[1]}`).join(' L ') + ' Z';
-          shapes.push({ type: 'path', path, line: { color: c.color, width: 1 }, fillcolor: c.color, opacity: 0.12, layer: 'below' });
-          continue;
+      const uniqPts = Array.from(new Map(logPairs.map((p) => [`${p[0].toFixed(4)},${p[1].toFixed(4)}`, p])).values());
+      let poly: number[][] | null = null;
+      if (uniqPts.length >= 3) { const h = convexHull(uniqPts); if (h.length >= 3) poly = h.map((p) => [10 ** p[0], 10 ** p[1]]); }
+      if (!poly) {
+        const xl = loOf(m, xProperty)!, xh = hiOf(m, xProperty)!, yl = loOf(m, yProperty)!, yh = hiOf(m, yProperty)!;
+        if (xl > 0 && yl > 0 && !(xl === xh && yl === yh)) {
+          const xb = xh === xl ? xl * 1.03 : xh, yb = yh === yl ? yl * 1.03 : yh;
+          poly = [[xl, yl], [xb, yl], [xb, yb], [xl, yb]];
         }
       }
-      const xl = loOf(m, xProperty)!, xh = hiOf(m, xProperty)!, yl = loOf(m, yProperty)!, yh = hiOf(m, yProperty)!;
-      if (!(xl > 0 && yl > 0)) continue;
-      if (xh === xl && yh === yl) continue;
-      const xpad = xh === xl ? 0.012 : 0, ypad = yh === yl ? 0.012 : 0;
-      shapes.push({ type: 'circle', xref: 'x', yref: 'y', x0: L(xl) - xpad, x1: L(xh) + xpad, y0: L(yl) - ypad, y1: L(yh) + ypad, line: { color: c.color, width: 1 }, fillcolor: c.color, opacity: 0.12, layer: 'below' });
+      if (!poly) continue;
+      if (!hullByClass.has(c.key)) hullByClass.set(c.key, { color: c.color, xs: [], ys: [] });
+      const e = hullByClass.get(c.key)!;
+      for (const [x, y] of poly) { e.xs.push(x); e.ys.push(y); }
+      e.xs.push(poly[0][0]); e.ys.push(poly[0][1]); // close polygon
+      e.xs.push(null); e.ys.push(null);             // separate from next polygon
     }
+    const hullTraces = Array.from(hullByClass.values()).map((e) => ({
+      x: e.xs, y: e.ys, mode: 'lines', type: 'scatter', fill: 'toself',
+      fillcolor: rgba(e.color, 0.18), line: { color: e.color, width: 1 },
+      hoverinfo: 'skip', showlegend: false,
+    }));
 
     // auto-range to the filtered envelope (log10 units, with padding)
     const xs = fset.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
@@ -174,7 +183,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: '#334155' },
     };
 
-    return { data: [...contextTrace, ...markerTraces], layout };
+    return { data: [...hullTraces, ...contextTrace, ...markerTraces], layout };
   }, [materials, filtered, xProperty, yProperty, filters, familyFilter]);
 
   const config = {
