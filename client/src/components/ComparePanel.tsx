@@ -1,13 +1,14 @@
 /*
  * AM Materials Explorer — Compare Panel
- * Scientific Precision Design System
- * Side-by-side comparison of up to 4 materials
+ * Rows = materials, columns = properties (chosen from a dropdown). Shows typical + min–max range.
  */
 
-import { X, BarChart3 } from 'lucide-react';
+import { useState } from 'react';
+import { X, SlidersHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import type { Material } from '@/lib/materials';
-import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, formatValue, CATEGORY_COLORS } from '@/lib/materials';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
+import type { Material, PropertyRange } from '@/lib/materials';
+import { ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS } from '@/lib/materials';
 
 interface ComparePanelProps {
   materials: Material[];
@@ -15,108 +16,101 @@ interface ComparePanelProps {
   onClose: () => void;
 }
 
-const COMPARE_PROPS = [
-  ...PHYSICAL_PROPERTIES,
-  ...MECHANICAL_PROPERTIES,
-];
-
-function BarIndicator({ value, max, color }: { value: number | null; max: number; color: string }) {
-  if (!value || max === 0) return <div className="h-1.5 bg-border/40 rounded-full w-full" />;
-  const pct = Math.min((value / max) * 100, 100);
-  return (
-    <div className="h-1.5 bg-border/40 rounded-full w-full overflow-hidden">
-      <div
-        className="h-full rounded-full transition-all duration-500"
-        style={{ width: `${pct}%`, background: color }}
-      />
-    </div>
-  );
-}
+const DEFAULT_COLS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness'];
+const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
 
 export function ComparePanel({ materials, onRemove, onClose }: ComparePanelProps) {
-  const maxValues: Record<string, number> = {};
-  COMPARE_PROPS.forEach(p => {
-    const vals = materials.map(m => m[p.key] as number | null).filter(v => v !== null && v !== undefined && v > 0) as number[];
-    maxValues[p.key as string] = vals.length > 0 ? Math.max(...vals) : 0;
-  });
+  const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
+  const selected = ALL_NUMERIC_PROPERTIES.filter((p) => cols.includes(p.key as string));
+  const toggle = (k: string) => setCols((c) => (c.includes(k) ? c.filter((x) => x !== k) : [...c, k]));
 
   return (
-    <div className="flex flex-col h-full bg-card border-l border-border detail-panel-enter">
+    <div className="flex flex-col h-full bg-card border-l border-border">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted/30">
-        <div className="flex items-center gap-2">
-          <BarChart3 className="w-4 h-4 text-accent" />
-          <span className="text-sm font-semibold">Material Comparison</span>
-          <span className="text-xs text-muted-foreground">({materials.length}/4)</span>
+        <span className="text-sm font-semibold">
+          Material Comparison <span className="text-xs text-muted-foreground font-normal">({materials.length}/4)</span>
+        </span>
+        <div className="flex items-center gap-1">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1"><SlidersHorizontal className="w-3 h-3" /> Columns</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="max-h-80 overflow-auto">
+              <DropdownMenuLabel className="text-xs">Properties (columns)</DropdownMenuLabel>
+              {ALL_NUMERIC_PROPERTIES.map((p) => (
+                <DropdownMenuCheckboxItem
+                  key={p.key as string}
+                  checked={cols.includes(p.key as string)}
+                  onCheckedChange={() => toggle(p.key as string)}
+                  className="text-xs"
+                >
+                  {p.label} <span className="text-muted-foreground ml-1">({p.unit})</span>
+                </DropdownMenuCheckboxItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Button variant="ghost" size="sm" className="h-7 w-7 p-0" onClick={onClose}><X className="w-3.5 h-3.5" /></Button>
         </div>
-        <Button variant="ghost" size="sm" className="h-7 w-7 p-0" onClick={onClose}>
-          <X className="w-3.5 h-3.5" />
-        </Button>
       </div>
 
+      {/* Comparison table: rows = materials, columns = properties */}
       <div className="flex-1 overflow-auto">
-        {/* Material headers */}
-        <div className="sticky top-0 z-10 bg-card border-b border-border">
-          <div className="flex">
-            <div className="w-32 flex-shrink-0 px-3 py-2 bg-muted/40 border-r border-border">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Property</span>
-            </div>
-            {materials.map(m => {
+        <table className="text-xs border-collapse min-w-full">
+          <thead className="sticky top-0 z-10 bg-card">
+            <tr className="border-b border-border">
+              <th className="text-left px-3 py-2 bg-muted/40 sticky left-0 z-20 font-semibold text-[10px] uppercase tracking-wider text-muted-foreground">Material</th>
+              {selected.map((p) => (
+                <th key={p.key as string} className="text-right px-3 py-2 font-medium text-foreground whitespace-nowrap">
+                  {p.label}
+                  <div className="text-[10px] font-normal text-muted-foreground">{p.unit}</div>
+                </th>
+              ))}
+              {selected.length === 0 && <th className="px-3 py-2 text-muted-foreground italic font-normal">Pick columns →</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {materials.map((m) => {
               const color = CATEGORY_COLORS[m.category] ?? '#6B7280';
               return (
-                <div key={m.id} className="compare-column flex-1 px-3 py-2 bg-muted/20">
-                  <div className="flex items-start justify-between gap-1">
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1 mb-0.5">
-                        <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: color }} />
-                        <span className="text-[9px] text-muted-foreground uppercase">{m.category}</span>
+                <tr key={m.id} className="border-b border-border/40 hover:bg-muted/20">
+                  <td className="px-3 py-2 bg-muted/10 sticky left-0 z-10 align-top">
+                    <div className="flex items-start gap-1.5">
+                      <span className="inline-block w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: color }} />
+                      <div className="min-w-0 max-w-[150px]">
+                        <p className="font-semibold text-foreground leading-tight">{m.name}</p>
+                        <p className="text-[10px] text-muted-foreground truncate">{(m.processes || (m.process ? [m.process] : [])).join(' / ')}</p>
                       </div>
-                      <p className="text-[11px] font-semibold text-foreground leading-tight truncate" title={m.name}>
-                        {m.name}
-                      </p>
-                      <p className="text-[10px] text-muted-foreground truncate">{m.process}</p>
+                      <button className="ml-1 text-muted-foreground/40 hover:text-destructive transition-colors flex-shrink-0" onClick={() => onRemove(m.id)} title="Remove">
+                        <X className="w-3 h-3" />
+                      </button>
                     </div>
-                    <button
-                      className="text-muted-foreground/40 hover:text-destructive transition-colors flex-shrink-0 mt-0.5"
-                      onClick={() => onRemove(m.id)}
-                    >
-                      <X className="w-3 h-3" />
-                    </button>
-                  </div>
-                </div>
+                  </td>
+                  {selected.map((p) => {
+                    const r = (m.ranges || {})[p.key as string] as PropertyRange | null | undefined;
+                    const typical = r?.typical ?? (typeof m[p.key] === 'number' ? (m[p.key] as number) : null);
+                    const hasRange = !!r && r.max > r.min;
+                    return (
+                      <td key={p.key as string} className="px-3 py-2 text-right font-mono whitespace-nowrap align-top">
+                        {typical == null ? (
+                          <span className="text-muted-foreground/40">—</span>
+                        ) : (
+                          <>
+                            <span className="font-medium text-foreground">{fmt(typical)}</span>
+                            {hasRange && <div className="text-[10px] text-muted-foreground">{fmt(r!.min)}–{fmt(r!.max)}</div>}
+                          </>
+                        )}
+                      </td>
+                    );
+                  })}
+                </tr>
               );
             })}
-          </div>
-        </div>
-
-        {/* Property rows */}
-        {COMPARE_PROPS.map(prop => {
-          const maxVal = maxValues[prop.key as string];
-          return (
-            <div key={prop.key as string} className="flex border-b border-border/40 hover:bg-muted/20 transition-colors">
-              <div className="w-32 flex-shrink-0 px-3 py-2 bg-muted/10 border-r border-border/40">
-                <p className="text-[11px] font-medium text-foreground">{prop.label}</p>
-                <p className="text-[10px] text-muted-foreground">{prop.unit}</p>
-              </div>
-              {materials.map((m, idx) => {
-                const val = m[prop.key] as number | null;
-                const colors = ['#00A3E0', '#22C55E', '#F59E0B', '#EC4899'];
-                const color = colors[idx % colors.length];
-                return (
-                  <div key={m.id} className="compare-column flex-1 px-3 py-2 space-y-1">
-                    <p className="font-mono text-xs font-medium text-foreground">
-                      {formatValue(val, 2)}
-                      {val !== null && val !== undefined && val > 0 && (
-                        <span className="text-[10px] font-normal text-muted-foreground ml-1">{prop.unit}</span>
-                      )}
-                    </p>
-                    <BarIndicator value={val} max={maxVal} color={color} />
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
+          </tbody>
+        </table>
+        {materials.length === 0 && (
+          <p className="text-xs text-muted-foreground italic p-4 text-center">Select materials to compare (up to 4).</p>
+        )}
       </div>
     </div>
   );

@@ -11,7 +11,6 @@ import {
   Search,
   Table2,
   LayoutGrid,
-  ScatterChart as ScatterIcon,
   BarChart3,
   Menu,
   X,
@@ -28,7 +27,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import FilterSidebar from '@/components/FilterSidebar';
 import { MaterialTable } from '@/components/MaterialTable';
 import { MaterialCards } from '@/components/MaterialCards';
-const ScatterChartView = lazy(() => import('@/components/ScatterChart').then(m => ({ default: m.ScatterChartView })));
 const AshbyChart = lazy(() => import('@/components/AshbyChartPlotly').then(m => ({ default: m.AshbyChartPlotly })));
 import { MaterialDetail } from '@/components/MaterialDetail';
 import { ComparePanel } from '@/components/ComparePanel';
@@ -38,7 +36,7 @@ import type { Material } from '@/lib/materials';
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
 
-type ViewMode = 'table' | 'cards' | 'scatter' | 'ashby';
+type ViewMode = 'table' | 'cards' | 'ashby';
 
 const MAX_COMPARE = 4;
 
@@ -195,7 +193,6 @@ export default function Home() {
           {([
             { mode: 'table' as ViewMode, icon: Table2, label: 'Table' },
             { mode: 'cards' as ViewMode, icon: LayoutGrid, label: 'Cards' },
-            { mode: 'scatter' as ViewMode, icon: ScatterIcon, label: 'Chart' },
             { mode: 'ashby' as ViewMode, icon: BarChart3, label: 'Ashby' },
           ] as const).map(({ mode, icon: Icon, label }) => (
             <Tooltip key={mode}>
@@ -379,14 +376,6 @@ export default function Home() {
                 onSelect={handleSelectMaterial}
                 onToggleCompare={handleToggleCompare}
               />
-            )}
-            {viewMode === 'scatter' && (
-              <Suspense fallback={<ChartLoader />}>
-                <ScatterChartView
-                  materials={filtered}
-                  onSelect={handleSelectMaterial}
-                />
-              </Suspense>
             )}
             {viewMode === 'ashby' && (
               <Suspense fallback={<ChartLoader />}>
