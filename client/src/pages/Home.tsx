@@ -394,6 +394,7 @@ export default function Home() {
                   materials={materials}
                   filteredMaterials={filtered}
                   filters={filters}
+                  selectedId={selectedMaterial?.id ?? null}
                   onMaterialClick={handleSelectMaterial}
                 />
               </Suspense>

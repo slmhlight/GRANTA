@@ -15,6 +15,7 @@ interface AshbyChartPlotlyProps {
   filteredMaterials?: Material[];
   filters?: FilterState;
   onMaterialClick?: (material: Material) => void;
+  selectedId?: string | null;
 }
 
 const PROPERTY_OPTIONS = ALL_NUMERIC_PROPERTIES.map((p) => ({ value: p.key as string, label: `${p.label} (${p.unit})` }));
@@ -68,7 +69,7 @@ function convexHull(pts: number[][]): number[][] {
 }
 const rgba = (hex: string, a: number) => { const n = parseInt(hex.slice(1), 16); return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`; };
 
-export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick }: AshbyChartPlotlyProps) {
+export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId }: AshbyChartPlotlyProps) {
   const [xProperty, setXProperty] = useState('yield_strength');
   const [yProperty, setYProperty] = useState('elongation');
   const [familyFilter, setFamilyFilter] = useState('all');
@@ -141,9 +142,26 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     }
     const hullTraces = Array.from(hullByClass.values()).map((e) => ({
       x: e.xs, y: e.ys, mode: 'lines', type: 'scatter', fill: 'toself',
-      fillcolor: rgba(e.color, 0.18), line: { color: e.color, width: 1 },
+      fillcolor: rgba(e.color, 0.18), line: { color: e.color, width: 1, shape: 'spline', smoothing: 1 },
       hoverinfo: 'skip', showlegend: false,
     }));
+
+    // smooth filled envelope from a set of materials' data points (spline-curved hull)
+    const envFromPoints = (ms: any[], color: string, alpha: number, width: number) => {
+      const pts: number[][] = [];
+      for (const m of ms) for (const t of ((m.points || []) as number[][])) { const x = t[xi], y = t[yi]; if (xi >= 0 && yi >= 0 && x > 0 && y > 0) pts.push([L(x), L(y)]); }
+      const uq = Array.from(new Map(pts.map((p) => [`${p[0].toFixed(4)},${p[1].toFixed(4)}`, p])).values());
+      if (uq.length < 3) return null;
+      const h = convexHull(uq); if (h.length < 3) return null;
+      const poly = h.map((p) => [10 ** p[0], 10 ** p[1]]);
+      return { x: [...poly.map((p) => p[0]), poly[0][0]], y: [...poly.map((p) => p[1]), poly[0][1]], mode: 'lines', type: 'scatter', fill: 'toself', fillcolor: rgba(color, alpha), line: { color, width, shape: 'spline', smoothing: 1.1 }, hoverinfo: 'skip', showlegend: false };
+    };
+    // a single smooth envelope around the whole family when one is selected
+    const familyTrace = familyFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : [];
+    // highlight the selected material's own envelope on top
+    const selM = selectedId ? materials.find((m) => m.id === selectedId) : null;
+    const selTrace = selM ? [envFromPoints([selM], classOf(selM).color, 0.32, 3)].filter(Boolean) : [];
+    const envelopeTraces = familyFilter !== 'all' ? familyTrace : hullTraces;
 
     // auto-range to the filtered envelope (log10 units, with padding)
     const xs = fset.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
@@ -183,8 +201,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: '#334155' },
     };
 
-    return { data: [...hullTraces, ...contextTrace, ...markerTraces], layout };
-  }, [materials, filtered, xProperty, yProperty, filters, familyFilter]);
+    return { data: [...envelopeTraces, ...contextTrace, ...markerTraces, ...selTrace], layout };
+  }, [materials, filtered, xProperty, yProperty, filters, familyFilter, selectedId]);
 
   const config = {
     responsive: true, displaylogo: false,

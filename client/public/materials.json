@@ -68711,5 +68711,999 @@
       "Aluminum - Si Alloys (6xxx/7xxx)",
       "Aluminum-based"
     ]
+  },
+  {
+    "id": "R_0008",
+    "name": "Ti-5553 (Ti-5Al-5V-5Mo-3Cr)",
+    "category": "Metal",
+    "subcategory": "Titanium",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 4.65,
+        "max": 4.65,
+        "typical": 4.65,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 1050,
+        "max": 1200,
+        "typical": 1140,
+        "n": 3
+      },
+      "uts": {
+        "min": 1180,
+        "max": 1310,
+        "typical": 1250,
+        "n": 3
+      },
+      "elongation": {
+        "min": 6,
+        "max": 10,
+        "typical": 8,
+        "n": 3
+      },
+      "modulus": {
+        "min": 110,
+        "max": 110,
+        "typical": 110,
+        "n": 3
+      },
+      "hardness": {
+        "min": 340,
+        "max": 380,
+        "typical": 360,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 7,
+        "max": 7,
+        "typical": 7,
+        "n": 3
+      },
+      "fatigue_strength": null,
+      "impact_strength": null
+    },
+    "composition": {
+      "Ti": "balance",
+      "Al": "4.4~5.7",
+      "V": "4~5.5",
+      "Mo": "4~5.5",
+      "Cr": "2.5~3.5",
+      "Fe": "0.3~0.5"
+    },
+    "sources": [
+      {
+        "label": "Industry data — Ti-5553 (solution + aged)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        4.65,
+        1140,
+        1250,
+        8,
+        110,
+        360,
+        7
+      ],
+      [
+        4.65,
+        1050,
+        1180,
+        10,
+        110,
+        340,
+        7
+      ],
+      [
+        4.65,
+        1200,
+        1310,
+        6,
+        110,
+        380,
+        7
+      ]
+    ],
+    "machinability": null,
+    "weldability": null,
+    "corrosion_resistance": null,
+    "meta": {
+      "reference": true
+    },
+    "density": 4.65,
+    "yield_strength": 1140,
+    "uts": 1250,
+    "elongation": 8,
+    "modulus": 110,
+    "hardness": 360,
+    "thermal_conductivity": 7,
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "Industry data — Ti-5553 (solution + aged)",
+    "aliases": [
+      "Ti-5Al-5V-5Mo-3Cr"
+    ],
+    "families": [
+      "Metal",
+      "Titanium",
+      "Titanium-based"
+    ]
+  },
+  {
+    "id": "R_0009",
+    "name": "AerMet 100",
+    "category": "Metal",
+    "subcategory": "Alloy Steel",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 7.89,
+        "max": 7.89,
+        "typical": 7.89,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 1620,
+        "max": 1790,
+        "typical": 1724,
+        "n": 3
+      },
+      "uts": {
+        "min": 1860,
+        "max": 2030,
+        "typical": 1965,
+        "n": 3
+      },
+      "elongation": {
+        "min": 13,
+        "max": 16,
+        "typical": 14,
+        "n": 3
+      },
+      "modulus": {
+        "min": 194,
+        "max": 194,
+        "typical": 194,
+        "n": 3
+      },
+      "hardness": {
+        "min": 520,
+        "max": 560,
+        "typical": 540,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 28,
+        "max": 28,
+        "typical": 28,
+        "n": 3
+      },
+      "fatigue_strength": null,
+      "impact_strength": null
+    },
+    "composition": {
+      "Fe": "balance",
+      "Co": "13~14",
+      "Ni": "11~12",
+      "Cr": "3~3.3",
+      "Mo": "1.1~1.3",
+      "C": "0.21~0.25"
+    },
+    "sources": [
+      {
+        "label": "Carpenter — AerMet 100 (aged)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        7.89,
+        1724,
+        1965,
+        14,
+        194,
+        540,
+        28
+      ],
+      [
+        7.89,
+        1620,
+        1860,
+        13,
+        194,
+        520,
+        28
+      ],
+      [
+        7.89,
+        1790,
+        2030,
+        16,
+        194,
+        560,
+        28
+      ]
+    ],
+    "machinability": null,
+    "weldability": null,
+    "corrosion_resistance": null,
+    "meta": {
+      "reference": true
+    },
+    "density": 7.89,
+    "yield_strength": 1724,
+    "uts": 1965,
+    "elongation": 14,
+    "modulus": 194,
+    "hardness": 540,
+    "thermal_conductivity": 28,
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "Carpenter — AerMet 100 (aged)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Alloy Steel",
+      "Iron-based"
+    ]
+  },
+  {
+    "id": "R_0010",
+    "name": "300M",
+    "category": "Metal",
+    "subcategory": "Alloy Steel",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 7.83,
+        "max": 7.83,
+        "typical": 7.83,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 1400,
+        "max": 1620,
+        "typical": 1520,
+        "n": 3
+      },
+      "uts": {
+        "min": 1800,
+        "max": 2000,
+        "typical": 1930,
+        "n": 3
+      },
+      "elongation": {
+        "min": 8,
+        "max": 12,
+        "typical": 10,
+        "n": 3
+      },
+      "modulus": {
+        "min": 205,
+        "max": 205,
+        "typical": 205,
+        "n": 3
+      },
+      "hardness": {
+        "min": 540,
+        "max": 580,
+        "typical": 560,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 35,
+        "max": 35,
+        "typical": 35,
+        "n": 3
+      },
+      "fatigue_strength": null,
+      "impact_strength": null
+    },
+    "composition": {
+      "Fe": "balance",
+      "Ni": "1.65~2",
+      "Cr": "0.7~0.95",
+      "Si": "1.45~1.8",
+      "Mo": "0.3~0.5",
+      "C": "0.4~0.46"
+    },
+    "sources": [
+      {
+        "label": "ASM / AMS 6417 — 300M (quenched & tempered)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        7.83,
+        1520,
+        1930,
+        10,
+        205,
+        560,
+        35
+      ],
+      [
+        7.83,
+        1400,
+        1800,
+        8,
+        205,
+        540,
+        35
+      ],
+      [
+        7.83,
+        1620,
+        2000,
+        12,
+        205,
+        580,
+        35
+      ]
+    ],
+    "machinability": null,
+    "weldability": null,
+    "corrosion_resistance": null,
+    "meta": {
+      "reference": true
+    },
+    "density": 7.83,
+    "yield_strength": 1520,
+    "uts": 1930,
+    "elongation": 10,
+    "modulus": 205,
+    "hardness": 560,
+    "thermal_conductivity": 35,
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASM / AMS 6417 — 300M (quenched & tempered)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Alloy Steel",
+      "Iron-based"
+    ]
+  },
+  {
+    "id": "R_0011",
+    "name": "C95400 Aluminum Bronze",
+    "category": "Metal",
+    "subcategory": "Copper",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Cast"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 7.45,
+        "max": 7.45,
+        "typical": 7.45,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 170,
+        "max": 250,
+        "typical": 205,
+        "n": 3
+      },
+      "uts": {
+        "min": 485,
+        "max": 585,
+        "typical": 515,
+        "n": 3
+      },
+      "elongation": {
+        "min": 10,
+        "max": 18,
+        "typical": 12,
+        "n": 3
+      },
+      "modulus": {
+        "min": 110,
+        "max": 110,
+        "typical": 110,
+        "n": 3
+      },
+      "hardness": {
+        "min": 150,
+        "max": 190,
+        "typical": 170,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 59,
+        "max": 59,
+        "typical": 59,
+        "n": 3
+      },
+      "fatigue_strength": null,
+      "impact_strength": null
+    },
+    "composition": {
+      "Cu": "balance",
+      "Al": "10~11.5",
+      "Fe": "3~5",
+      "Mn": "≤0.5",
+      "Ni": "≤1.5"
+    },
+    "sources": [
+      {
+        "label": "ASM / CDA — C95400 aluminum bronze",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        7.45,
+        205,
+        515,
+        12,
+        110,
+        170,
+        59
+      ],
+      [
+        7.45,
+        250,
+        585,
+        18,
+        110,
+        190,
+        59
+      ],
+      [
+        7.45,
+        170,
+        485,
+        10,
+        110,
+        150,
+        59
+      ]
+    ],
+    "machinability": null,
+    "weldability": null,
+    "corrosion_resistance": null,
+    "meta": {
+      "reference": true
+    },
+    "density": 7.45,
+    "yield_strength": 205,
+    "uts": 515,
+    "elongation": 12,
+    "modulus": 110,
+    "hardness": 170,
+    "thermal_conductivity": 59,
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Cast",
+    "source": "ASM / CDA — C95400 aluminum bronze",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Copper",
+      "Copper-based"
+    ]
+  },
+  {
+    "id": "R_0012",
+    "name": "AZ31B Magnesium",
+    "category": "Metal",
+    "subcategory": "Magnesium Alloy",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "Wrought"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 1.77,
+        "max": 1.77,
+        "typical": 1.77,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 150,
+        "max": 220,
+        "typical": 200,
+        "n": 3
+      },
+      "uts": {
+        "min": 245,
+        "max": 290,
+        "typical": 260,
+        "n": 3
+      },
+      "elongation": {
+        "min": 12,
+        "max": 16,
+        "typical": 15,
+        "n": 3
+      },
+      "modulus": {
+        "min": 45,
+        "max": 45,
+        "typical": 45,
+        "n": 3
+      },
+      "hardness": {
+        "min": 60,
+        "max": 80,
+        "typical": 73,
+        "n": 3
+      },
+      "thermal_conductivity": {
+        "min": 96,
+        "max": 96,
+        "typical": 96,
+        "n": 3
+      },
+      "fatigue_strength": null,
+      "impact_strength": null
+    },
+    "composition": {
+      "Mg": "balance",
+      "Al": "2.5~3.5",
+      "Zn": "0.6~1.4",
+      "Mn": "≥0.2"
+    },
+    "sources": [
+      {
+        "label": "ASM — AZ31B (UNS M11311)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        1.77,
+        200,
+        260,
+        15,
+        45,
+        73,
+        96
+      ],
+      [
+        1.77,
+        150,
+        245,
+        12,
+        45,
+        60,
+        96
+      ],
+      [
+        1.77,
+        220,
+        290,
+        16,
+        45,
+        80,
+        96
+      ]
+    ],
+    "machinability": null,
+    "weldability": null,
+    "corrosion_resistance": null,
+    "meta": {
+      "reference": true
+    },
+    "density": 1.77,
+    "yield_strength": 200,
+    "uts": 260,
+    "elongation": 15,
+    "modulus": 45,
+    "hardness": 73,
+    "thermal_conductivity": 96,
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "Wrought",
+    "source": "ASM — AZ31B (UNS M11311)",
+    "aliases": [],
+    "families": [
+      "Metal",
+      "Magnesium Alloy",
+      "Magnesium-based"
+    ]
+  },
+  {
+    "id": "R_0013",
+    "name": "PEEK",
+    "category": "Polymer",
+    "subcategory": "Polymer - PEEK (FDM)",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "FDM"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 1.32,
+        "max": 1.32,
+        "typical": 1.32,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 90,
+        "max": 100,
+        "typical": 97,
+        "n": 3
+      },
+      "uts": {
+        "min": 95,
+        "max": 103,
+        "typical": 100,
+        "n": 3
+      },
+      "elongation": {
+        "min": 30,
+        "max": 45,
+        "typical": 40,
+        "n": 3
+      },
+      "modulus": {
+        "min": 3.6,
+        "max": 3.8,
+        "typical": 3.6,
+        "n": 3
+      },
+      "hardness": null,
+      "thermal_conductivity": {
+        "min": 0.25,
+        "max": 0.25,
+        "typical": 0.25,
+        "n": 3
+      },
+      "fatigue_strength": null,
+      "impact_strength": null
+    },
+    "composition": {},
+    "sources": [
+      {
+        "label": "Victrex / ASM Engineering Plastics — PEEK",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        1.32,
+        97,
+        100,
+        40,
+        3.6,
+        0,
+        0.25
+      ],
+      [
+        1.32,
+        90,
+        95,
+        30,
+        3.6,
+        0,
+        0.25
+      ],
+      [
+        1.32,
+        100,
+        103,
+        45,
+        3.8,
+        0,
+        0.25
+      ]
+    ],
+    "machinability": null,
+    "weldability": null,
+    "corrosion_resistance": null,
+    "meta": {
+      "reference": true
+    },
+    "density": 1.32,
+    "yield_strength": 97,
+    "uts": 100,
+    "elongation": 40,
+    "modulus": 3.6,
+    "hardness": null,
+    "thermal_conductivity": 0.25,
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "FDM",
+    "source": "Victrex / ASM Engineering Plastics — PEEK",
+    "aliases": [],
+    "families": [
+      "Polymer",
+      "Polymer - PEEK (FDM)"
+    ]
+  },
+  {
+    "id": "R_0014",
+    "name": "ULTEM 9085 (PEI)",
+    "category": "Polymer",
+    "subcategory": "Polymer - PEI/ULTEM (FDM)",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "FDM"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 1.34,
+        "max": 1.34,
+        "typical": 1.34,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 42,
+        "max": 71,
+        "typical": 70,
+        "n": 3
+      },
+      "uts": {
+        "min": 69,
+        "max": 105,
+        "typical": 71,
+        "n": 3
+      },
+      "elongation": {
+        "min": 2,
+        "max": 60,
+        "typical": 5.9,
+        "n": 3
+      },
+      "modulus": {
+        "min": 2.2,
+        "max": 2.9,
+        "typical": 2.2,
+        "n": 3
+      },
+      "hardness": null,
+      "thermal_conductivity": {
+        "min": 0.2,
+        "max": 0.22,
+        "typical": 0.2,
+        "n": 3
+      },
+      "fatigue_strength": null,
+      "impact_strength": null
+    },
+    "composition": {},
+    "sources": [
+      {
+        "label": "Stratasys — ULTEM 9085 datasheet",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        1.34,
+        71,
+        105,
+        60,
+        2.9,
+        0,
+        0.22
+      ],
+      [
+        1.34,
+        42,
+        69,
+        2,
+        2.2,
+        0,
+        0.2
+      ],
+      [
+        1.34,
+        70,
+        71,
+        5.9,
+        2.2,
+        0,
+        0.2
+      ]
+    ],
+    "machinability": null,
+    "weldability": null,
+    "corrosion_resistance": null,
+    "meta": {
+      "reference": true
+    },
+    "density": 1.34,
+    "yield_strength": 70,
+    "uts": 71,
+    "elongation": 5.9,
+    "modulus": 2.2,
+    "hardness": null,
+    "thermal_conductivity": 0.2,
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "FDM",
+    "source": "Stratasys — ULTEM 9085 datasheet",
+    "aliases": [],
+    "families": [
+      "Polymer",
+      "Polymer - PEI/ULTEM (FDM)"
+    ]
+  },
+  {
+    "id": "R_0015",
+    "name": "PA12 (Nylon 12, SLS)",
+    "category": "Polymer",
+    "subcategory": "Polymer - Nylon (FDM/SLS)",
+    "tier": "reference",
+    "manufacturers": [
+      "Reference data"
+    ],
+    "machines": [],
+    "processes": [
+      "SLS"
+    ],
+    "heat_treatment": null,
+    "ranges": {
+      "density": {
+        "min": 1.01,
+        "max": 1.01,
+        "typical": 1.01,
+        "n": 3
+      },
+      "yield_strength": {
+        "min": 42,
+        "max": 48,
+        "typical": 48,
+        "n": 3
+      },
+      "uts": {
+        "min": 45,
+        "max": 50,
+        "typical": 48,
+        "n": 3
+      },
+      "elongation": {
+        "min": 11,
+        "max": 20,
+        "typical": 18,
+        "n": 3
+      },
+      "modulus": {
+        "min": 1.5,
+        "max": 1.8,
+        "typical": 1.7,
+        "n": 3
+      },
+      "hardness": null,
+      "thermal_conductivity": {
+        "min": 0.25,
+        "max": 0.25,
+        "typical": 0.25,
+        "n": 3
+      },
+      "fatigue_strength": null,
+      "impact_strength": null
+    },
+    "composition": {},
+    "sources": [
+      {
+        "label": "EOS / 3D Systems — PA 2200 / DuraForm PA (SLS)",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "points": [
+      [
+        1.01,
+        48,
+        48,
+        18,
+        1.7,
+        0,
+        0.25
+      ],
+      [
+        1.01,
+        42,
+        45,
+        11,
+        1.5,
+        0,
+        0.25
+      ],
+      [
+        1.01,
+        48,
+        50,
+        20,
+        1.8,
+        0,
+        0.25
+      ]
+    ],
+    "machinability": null,
+    "weldability": null,
+    "corrosion_resistance": null,
+    "meta": {
+      "reference": true
+    },
+    "density": 1.01,
+    "yield_strength": 48,
+    "uts": 48,
+    "elongation": 18,
+    "modulus": 1.7,
+    "hardness": null,
+    "thermal_conductivity": 0.25,
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "manufacturer": "Reference data",
+    "process": "SLS",
+    "source": "EOS / 3D Systems — PA 2200 / DuraForm PA (SLS)",
+    "aliases": [
+      "Nylon 12"
+    ],
+    "families": [
+      "Polymer",
+      "Polymer - Nylon (FDM/SLS)"
+    ]
   }
 ]
