@@ -431,7 +431,7 @@ export default function Home() {
             AM Materials Explorer · Granta-Style Database
           </span>
           <span className="text-[10px] text-muted-foreground/50">
-            {materials.length.toLocaleString()} materials · 45 properties
+            {materials.length.toLocaleString()} materials · min–max ranges · cited sources
           </span>
         </div>
         <div className="flex items-center gap-2">

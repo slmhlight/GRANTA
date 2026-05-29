@@ -27,7 +27,10 @@ React 19 · Vite 7 · TypeScript · Tailwind CSS 4 · shadcn/ui · **Plotly.js**
 - `server/index.ts` — tiny Express static server for production builds.
 - `scripts/build-materials.mjs` — data build pipeline.
 
-## De-Manus status
-Recovered from the Manus platform; Manus-specific code is being removed.
-Done: `vite-plugin-manus-runtime`, debug-collector, storage-proxy, umami analytics.
-Pending: `ManusDialog.tsx`, OAuth helper in `lib/const.ts`, manus `allowedHosts` in vite.config, `client/public/__manus__/`, dead `AshbyChart.tsx` (non-Plotly).
+## De-Manus status — complete
+Recovered from the Manus platform; all Manus-specific code removed:
+`vite-plugin-manus-runtime`, debug-collector, storage-proxy, umami analytics,
+`ManusDialog.tsx`, OAuth helper (`const.ts` + `shared/const.ts`), manus `allowedHosts`,
+`client/public/__manus__/`, plus dead code (`AshbyChart.tsx` non-Plotly, `Map.tsx`,
+duplicate `client/src/data/materials.json`) and junk deps (`add`, `@types/google.maps`).
+`recharts` is kept — used by `ScatterChart.tsx` and `ui/chart.tsx`.

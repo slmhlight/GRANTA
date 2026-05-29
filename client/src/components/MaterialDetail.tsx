@@ -70,7 +70,7 @@ function SourcesList({ sources }: { sources: MaterialSource[] }) {
           >
             <ExternalLink className="w-3 h-3 mt-0.5 text-accent flex-shrink-0" />
             <span className="text-[11px] text-foreground group-hover:text-accent break-words flex-1 leading-snug">{s.label}</span>
-            {s.verified && <Check className="w-3 h-3 text-emerald-500 flex-shrink-0" title="Verified datasheet" />}
+            {s.verified && <span title="Verified datasheet"><Check className="w-3 h-3 text-emerald-500 flex-shrink-0" /></span>}
           </a>
         ) : (
           <div key={i} className="flex items-center gap-1.5 p-2 rounded bg-muted/30 border border-border/20">
