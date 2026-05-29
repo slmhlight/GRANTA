@@ -342,6 +342,156 @@
       "composition": { "Fe": "balance", "Cr": "16~18", "Ni": "10~14", "Mo": "2~3", "Ti": "0.3~0.7" },
       "points": [[8.0, 240, 590, 40, 193, 180, 16], [8.0, 220, 560, 35, 193, 170, 16], [8.0, 270, 620, 45, 193, 200, 16]],
       "sources": [{ "label": "ASM — 316Ti stabilised austenitic stainless (UNS S31635)", "url": null, "verified": false }]
+    },
+    {
+      "name": "317L", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "18~20", "Ni": "11~15", "Mo": "3~4" },
+      "points": [[8.0, 240, 585, 45, 193, 170, 14], [8.0, 220, 560, 40, 193, 160, 14], [8.0, 270, 620, 50, 193, 190, 14]],
+      "sources": [{ "label": "ASM — 317L austenitic stainless (UNS S31703)", "url": null, "verified": false }]
+    },
+    {
+      "name": "17-7 PH", "category": "Metal", "subcategory": "Stainless Steel - Ferritic/Martensitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "16~18", "Ni": "6.5~7.75", "Al": "0.75~1.5" },
+      "points": [[7.81, 1450, 1650, 6, 200, 480, 16], [7.81, 1380, 1580, 4, 200, 460, 16], [7.81, 1500, 1700, 9, 200, 500, 16]],
+      "sources": [{ "label": "AK Steel — 17-7 PH (UNS S17700, RH950)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PH13-8 Mo", "category": "Metal", "subcategory": "Stainless Steel - Ferritic/Martensitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "12.25~13.25", "Ni": "7.5~8.5", "Mo": "2~2.5", "Al": "0.9~1.35" },
+      "points": [[7.76, 1410, 1520, 10, 203, 470, 14], [7.76, 1340, 1450, 8, 203, 450, 14], [7.76, 1480, 1590, 12, 203, 490, 14]],
+      "sources": [{ "label": "ASM — PH13-8Mo (UNS S13800, H1000)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Nitronic 50", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "20.5~23.5", "Ni": "11.5~13.5", "Mn": "4~6", "Mo": "1.5~3", "N": "0.2~0.4" },
+      "points": [[7.88, 415, 825, 35, 193, 250, 16], [7.88, 380, 760, 30, 193, 230, 16], [7.88, 450, 880, 40, 193, 270, 16]],
+      "sources": [{ "label": "ASM — Nitronic 50 (UNS S20910)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Nitronic 60", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "16~18", "Ni": "8~9", "Mn": "7~9", "Si": "3.5~4.5", "N": "0.08~0.18" },
+      "points": [[7.62, 415, 690, 35, 193, 220, 14], [7.62, 380, 650, 30, 193, 210, 14], [7.62, 450, 760, 45, 193, 240, 14]],
+      "sources": [{ "label": "ASM — Nitronic 60 (UNS S21800)", "url": null, "verified": false }]
+    },
+    {
+      "name": "AL-6XN", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "20~22", "Ni": "23.5~25.5", "Mo": "6~7", "N": "0.18~0.25" },
+      "points": [[8.06, 310, 690, 40, 195, 210, 12], [8.06, 290, 655, 35, 195, 200, 12], [8.06, 340, 720, 45, 195, 230, 12]],
+      "sources": [{ "label": "ATI — AL-6XN super-austenitic (UNS N08367)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Inconel 601", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "58~63", "Cr": "21~25", "Fe": "balance", "Al": "1~1.7" },
+      "points": [[8.05, 310, 690, 45, 207, 190, 11], [8.05, 290, 650, 40, 207, 180, 11], [8.05, 340, 730, 50, 207, 210, 11]],
+      "sources": [{ "label": "Special Metals — Inconel 601 (UNS N06601)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Inconel 617", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "20~24", "Co": "10~15", "Mo": "8~10", "Al": "0.8~1.5" },
+      "points": [[8.36, 350, 755, 55, 211, 200, 13], [8.36, 320, 720, 50, 211, 190, 13], [8.36, 390, 800, 60, 211, 220, 13]],
+      "sources": [{ "label": "Special Metals — Inconel 617 (UNS N06617)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Inconel 690", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "27~31", "Fe": "7~11" },
+      "points": [[8.19, 348, 725, 45, 211, 190, 13], [8.19, 320, 690, 40, 211, 180, 13], [8.19, 380, 760, 50, 211, 210, 13]],
+      "sources": [{ "label": "Special Metals — Inconel 690 (UNS N06690)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Incoloy 800H", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "30~35", "Cr": "19~23", "Al": "0.15~0.6", "Ti": "0.15~0.6" },
+      "points": [[7.94, 205, 520, 45, 197, 150, 12], [7.94, 180, 480, 40, 197, 140, 12], [7.94, 240, 560, 50, 197, 165, 12]],
+      "sources": [{ "label": "Special Metals — Incoloy 800H (UNS N08810)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Incoloy 825", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "38~46", "Fe": "balance", "Cr": "19.5~23.5", "Mo": "2.5~3.5", "Cu": "1.5~3" },
+      "points": [[8.14, 310, 690, 45, 206, 180, 11], [8.14, 290, 655, 40, 206, 170, 11], [8.14, 340, 720, 50, 206, 200, 11]],
+      "sources": [{ "label": "Special Metals — Incoloy 825 (UNS N08825)", "url": null, "verified": false }]
+    },
+    {
+      "name": "A286", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "24~27", "Cr": "13.5~16", "Ti": "1.9~2.35", "Mo": "1~1.5" },
+      "points": [[7.94, 590, 895, 25, 201, 290, 12], [7.94, 550, 860, 20, 201, 280, 12], [7.94, 640, 950, 28, 201, 310, 12]],
+      "sources": [{ "label": "ASM — A-286 iron-base superalloy (UNS S66286)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Hastelloy B-2", "category": "Metal", "subcategory": "Nickel - Hastelloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Mo": "26~30", "Fe": "≤2", "Cr": "≤1" },
+      "points": [[9.22, 400, 850, 50, 217, 230, 11], [9.22, 370, 800, 45, 217, 220, 11], [9.22, 440, 900, 55, 217, 250, 11]],
+      "sources": [{ "label": "Haynes — Hastelloy B-2 (UNS N10665)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Nimonic 90", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "18~21", "Co": "15~21", "Ti": "2~3", "Al": "1~2" },
+      "points": [[8.18, 800, 1240, 25, 213, 340, 11], [8.18, 760, 1180, 20, 213, 320, 11], [8.18, 850, 1300, 30, 213, 360, 11]],
+      "sources": [{ "label": "Special Metals — Nimonic 90 (UNS N07090)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Cupronickel 90/10 (C70600)", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "balance", "Ni": "9~11", "Fe": "1~1.8", "Mn": "≤1" },
+      "points": [[8.94, 105, 290, 35, 135, 80, 40], [8.94, 90, 275, 30, 135, 75, 40], [8.94, 140, 320, 42, 135, 90, 40]],
+      "sources": [{ "label": "ASM — Cupronickel 90/10 (UNS C70600)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Cupronickel 70/30 (C71500)", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "balance", "Ni": "29~33", "Fe": "0.4~1", "Mn": "≤1" },
+      "points": [[8.94, 140, 370, 35, 152, 95, 29], [8.94, 125, 350, 30, 152, 90, 29], [8.94, 170, 415, 42, 152, 110, 29]],
+      "sources": [{ "label": "ASM — Cupronickel 70/30 (UNS C71500)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Ti Grade 12", "category": "Metal", "subcategory": "Titanium", "process": "Wrought",
+      "composition": { "Ti": "balance", "Mo": "0.2~0.4", "Ni": "0.6~0.9" },
+      "points": [[4.51, 380, 500, 18, 103, 220, 19], [4.51, 345, 480, 15, 103, 210, 19], [4.51, 420, 540, 22, 103, 240, 19]],
+      "sources": [{ "label": "ASTM Grade 12 — Ti-0.3Mo-0.8Ni (UNS R53400)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Ti-10V-2Fe-3Al", "category": "Metal", "subcategory": "Titanium", "process": "Wrought",
+      "composition": { "Ti": "balance", "V": "9~11", "Fe": "1.6~2.2", "Al": "2.6~3.4" },
+      "points": [[4.65, 1100, 1170, 8, 110, 360, 8], [4.65, 1050, 1120, 6, 110, 340, 8], [4.65, 1170, 1250, 10, 110, 380, 8]],
+      "sources": [{ "label": "ASM — Ti-10-2-3 beta titanium (UNS R58010)", "url": null, "verified": false }]
+    },
+    {
+      "name": "L605 (Co-Cr-W)", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Wrought",
+      "composition": { "Co": "balance", "Cr": "19~21", "W": "14~16", "Ni": "9~11" },
+      "points": [[9.13, 445, 1000, 55, 225, 250, 10], [9.13, 410, 960, 50, 225, 240, 10], [9.13, 490, 1060, 60, 225, 270, 10]],
+      "sources": [{ "label": "Haynes — L605 / Haynes 25 (UNS R30605)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Stellite 21 (CoCrMo)", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Cast",
+      "composition": { "Co": "balance", "Cr": "26~29", "Mo": "5~6", "Ni": "2~3", "C": "0.2~0.35" },
+      "points": [[8.34, 510, 730, 9, 230, 350, 14], [8.34, 470, 690, 6, 230, 330, 14], [8.34, 560, 790, 12, 230, 380, 14]],
+      "sources": [{ "label": "Kennametal Stellite — Stellite 21 (UNS R30021)", "url": null, "verified": false }]
+    },
+    {
+      "name": "AISI 52100 (bearing)", "category": "Metal", "subcategory": "Alloy Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.98~1.1", "Cr": "1.3~1.6", "Mn": "0.25~0.45" },
+      "points": [[7.81, 1750, 2050, 1, 210, 700, 45], [7.81, 1600, 1900, 1, 210, 660, 45], [7.81, 1900, 2200, 2, 210, 740, 45]],
+      "sources": [{ "label": "ASM — AISI 52100 bearing steel (UNS G52986, hardened)", "url": null, "verified": false }]
+    },
+    {
+      "name": "P20 mold steel", "category": "Metal", "subcategory": "Tool Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.28~0.4", "Cr": "1.4~2", "Mo": "0.3~0.55", "Mn": "0.6~1" },
+      "points": [[7.85, 860, 1000, 16, 205, 300, 29], [7.85, 800, 960, 13, 205, 290, 29], [7.85, 930, 1080, 19, 205, 320, 29]],
+      "sources": [{ "label": "ASM — P20 mold steel (DIN 1.2311)", "url": null, "verified": false }]
+    },
+    {
+      "name": "S7 tool steel", "category": "Metal", "subcategory": "Tool Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.45~0.55", "Cr": "3~3.5", "Mo": "1.3~1.8" },
+      "points": [[7.83, 1450, 2100, 7, 207, 560, 30], [7.83, 1380, 1950, 5, 207, 540, 30], [7.83, 1550, 2200, 9, 207, 580, 30]],
+      "sources": [{ "label": "ASM — S7 shock-resisting tool steel (UNS T41907)", "url": null, "verified": false }]
+    },
+    {
+      "name": "WE43 (Mg-Y-RE)", "category": "Metal", "subcategory": "Magnesium Alloy", "process": "Cast",
+      "composition": { "Mg": "balance", "Y": "3.7~4.3", "Nd": "2.4~4.4", "Zr": "0.4~1" },
+      "points": [[1.84, 165, 250, 2, 44, 85, 51], [1.84, 150, 230, 1, 44, 80, 51], [1.84, 195, 280, 5, 44, 95, 51]],
+      "sources": [{ "label": "Magnesium Elektron — WE43 (UNS M18430)", "url": null, "verified": false }]
+    },
+    {
+      "name": "TZM (Mo alloy)", "category": "Metal", "subcategory": "Refractory Metal", "process": "Wrought",
+      "composition": { "Mo": "balance", "Ti": "0.4~0.55", "Zr": "0.06~0.12" },
+      "points": [[10.2, 560, 680, 25, 320, 250, 126], [10.2, 500, 620, 20, 320, 230, 126], [10.2, 620, 740, 30, 320, 270, 126]],
+      "sources": [{ "label": "Plansee — TZM molybdenum alloy", "url": null, "verified": false }]
     }
   ]
 }
