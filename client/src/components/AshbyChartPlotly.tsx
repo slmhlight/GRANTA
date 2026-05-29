@@ -9,7 +9,7 @@ import Plot from 'react-plotly.js';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Material, ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
+import { Material, ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS } from '@/lib/materials';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 
 interface AshbyChartPlotlyProps {
@@ -108,6 +108,12 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [showLabels, setShowLabels] = useState(false);
   const [showLegend, setShowLegend] = useState(true);
   const [showGuides, setShowGuides] = useState(true);
+  const [markerOpacity, setMarkerOpacity] = useState(0.92);
+  const [envOpacity, setEnvOpacity] = useState(0.18);
+  const [showMinorGrid, setShowMinorGrid] = useState(false);
+  const [showSelected, setShowSelected] = useState(true);
+  const [darkChart, setDarkChart] = useState(false);
+  const [colorByCategory, setColorByCategory] = useState(false);
 
   const filtered = filteredMaterials || materials;
   const dom = (prop: string): [number, number] => {
@@ -147,18 +153,20 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     if (!colorMode) colored = fset;
     const coldFset = colorMode ? fset.filter((m) => !compareSet.has(m.id)) : [];
 
-    // markers grouped by class (colour + legend)
+    // markers grouped by colour key (material class, or category when colour-by-category is on)
+    const colKey = (m: any) => (colorByCategory ? m.category : classOf(m).key);
+    const colColor = (m: any) => (colorByCategory ? (CATEGORY_COLORS[m.category] || '#64748b') : classOf(m).color);
     const byClass = new Map<string, { color: string; ms: Material[] }>();
     for (const m of colored) {
-      const c = classOf(m);
-      if (!byClass.has(c.key)) byClass.set(c.key, { color: c.color, ms: [] });
-      byClass.get(c.key)!.ms.push(m);
+      const ck = colKey(m), cc = colColor(m);
+      if (!byClass.has(ck)) byClass.set(ck, { color: cc, ms: [] });
+      byClass.get(ck)!.ms.push(m);
     }
     const markerTraces = Array.from(byClass.entries()).sort((a, b) => b[1].ms.length - a[1].ms.length).map(([key, { color, ms }]) => ({
       x: ms.map((m) => tv(m, xProperty)), y: ms.map((m) => tv(m, yProperty)),
       mode: showLabels ? 'markers+text' : 'markers', type: 'scatter', name: `${key} (${ms.length})`,
       textposition: 'top center', textfont: { size: 8, color: '#64748b' },
-      marker: { size: colorMode ? markerSize + 4 : markerSize, color, line: { color: '#ffffff', width: colorMode ? 1.2 : 0.5 }, opacity: 0.95 },
+      marker: { size: colorMode ? markerSize + 4 : markerSize, color, line: { color: darkChart ? '#0f172a' : '#ffffff', width: colorMode ? 1.2 : 0.5 }, opacity: markerOpacity },
       text: ms.map((m) => m.name), customdata: ms.map((m) => m.id),
       hovertemplate: `<b>%{text}</b><br>${xProperty}: %{x:.4g}<br>${yProperty}: %{y:.4g}<extra>${key}</extra>`,
     }));
@@ -179,7 +187,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const xi = PROP_ORDER.indexOf(xProperty), yi = PROP_ORDER.indexOf(yProperty);
     const hullByClass = new Map<string, { color: string; xs: (number | null)[]; ys: (number | null)[] }>();
     for (const m of colored) {
-      const c = classOf(m);
+      const ck = colKey(m), cc = colColor(m);
       const raw = (((m as any).points || []) as number[][]);
       const logPairs = (xi >= 0 && yi >= 0)
         ? raw.map((t) => [t[xi], t[yi]]).filter(([x, y]) => x > 0 && y > 0).map(([x, y]) => [L(x), L(y)])
@@ -195,15 +203,15 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         }
       }
       if (!poly) continue;
-      if (!hullByClass.has(c.key)) hullByClass.set(c.key, { color: c.color, xs: [], ys: [] });
-      const e = hullByClass.get(c.key)!;
+      if (!hullByClass.has(ck)) hullByClass.set(ck, { color: cc, xs: [], ys: [] });
+      const e = hullByClass.get(ck)!;
       for (const [x, y] of poly) { e.xs.push(x); e.ys.push(y); }
       e.xs.push(poly[0][0]); e.ys.push(poly[0][1]); // close polygon
       e.xs.push(null); e.ys.push(null);             // separate from next polygon
     }
     const hullTraces = Array.from(hullByClass.values()).map((e) => ({
       x: e.xs, y: e.ys, mode: 'lines', type: 'scatter', fill: 'toself',
-      fillcolor: rgba(e.color, 0.18), line: { color: e.color, width: 1, shape: 'spline', smoothing: 1 },
+      fillcolor: rgba(e.color, envOpacity), line: { color: e.color, width: 1, shape: 'spline', smoothing: 1 },
       hoverinfo: 'skip', showlegend: false,
     }));
 
@@ -219,7 +227,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     };
     // highlight the selected material's own envelope on top
     const selM = selectedId ? materials.find((m) => m.id === selectedId) : null;
-    const selTrace = (showEnvelopes && selM) ? [envFromPoints([selM], classOf(selM).color, 0.32, 3)].filter(Boolean) : [];
+    const selTrace = (showEnvelopes && showSelected && selM) ? [envFromPoints([selM], classOf(selM).color, 0.32, 3)].filter(Boolean) : [];
     // envelopes: hidden if toggled off; one class envelope when a class is selected; else per-material
     let envelopeTraces: any[] = [];
     if (showEnvelopes) envelopeTraces = groupFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : hullTraces;
@@ -257,19 +265,23 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const xMeta = ALL_NUMERIC_PROPERTIES.find((p) => p.key === xProperty);
     const yMeta = ALL_NUMERIC_PROPERTIES.find((p) => p.key === yProperty);
 
+    const gridC = darkChart ? '#1e293b' : '#eef2f7';
+    const tickC = darkChart ? '#475569' : '#cbd5e1';
+    const fontC = darkChart ? '#cbd5e1' : '#334155';
+    const minorAxis = showMinorGrid ? { showgrid: true, gridcolor: darkChart ? '#16203a' : '#f5f8fc', gridwidth: 0.5 } : {};
     const layout: any = {
       autosize: true, height: 600,
       margin: { l: 72, r: 20, t: 28, b: 56 },
-      xaxis: { title: { text: `${xMeta?.label ?? xProperty} (${xMeta?.unit ?? ''})`, font: { size: 12 } }, type: xLog ? 'log' : 'linear', range: xRange, gridcolor: '#eef2f7', showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
-      yaxis: { title: { text: `${yMeta?.label ?? yProperty} (${yMeta?.unit ?? ''})`, font: { size: 12 } }, type: yLog ? 'log' : 'linear', range: yRange, gridcolor: '#eef2f7', showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
+      xaxis: { title: { text: `${xMeta?.label ?? xProperty} (${xMeta?.unit ?? ''})`, font: { size: 12 } }, type: xLog ? 'log' : 'linear', range: xRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, minor: minorAxis },
+      yaxis: { title: { text: `${yMeta?.label ?? yProperty} (${yMeta?.unit ?? ''})`, font: { size: 12 } }, type: yLog ? 'log' : 'linear', range: yRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, minor: minorAxis },
       hovermode: 'closest', shapes, annotations: guideAnnotations, showlegend: showLegend,
-      legend: { orientation: 'h', y: 1.07, x: 0, font: { size: 11 }, bgcolor: 'rgba(255,255,255,0)' },
-      paper_bgcolor: '#ffffff', plot_bgcolor: '#ffffff',
-      font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: '#334155' },
+      legend: { orientation: 'h', y: 1.07, x: 0, font: { size: 11, color: fontC }, bgcolor: 'rgba(0,0,0,0)' },
+      paper_bgcolor: darkChart ? '#0b1220' : '#ffffff', plot_bgcolor: darkChart ? '#0f172a' : '#ffffff',
+      font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: fontC },
     };
 
     return { data: [...envelopeTraces, ...contextTrace, ...markerTraces, ...selTrace], layout };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory]);
 
   const config = {
     responsive: true, displaylogo: false,
@@ -325,7 +337,15 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
               <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Marker size</span><span className="font-mono">{markerSize}</span></div>
               <Slider min={4} max={16} step={1} value={[markerSize]} onValueChange={(v: number[]) => setMarkerSize(v[0])} />
             </div>
-            {([['Gridlines', showGrid, setShowGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+            <div>
+              <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Marker opacity</span><span className="font-mono">{markerOpacity.toFixed(2)}</span></div>
+              <Slider min={0.2} max={1} step={0.05} value={[markerOpacity]} onValueChange={(v: number[]) => setMarkerOpacity(v[0])} />
+            </div>
+            <div>
+              <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Envelope opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div>
+              <Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} />
+            </div>
+            {([['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
               <label key={label} className="flex items-center gap-2 cursor-pointer select-none">
                 <input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}
               </label>
