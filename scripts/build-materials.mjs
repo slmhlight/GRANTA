@@ -55,6 +55,33 @@ function familyHandbook(category, subcategory) {
   return { label: 'ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys', url: null, verified: false };
 }
 const dedupeSources = (arr) => { const seen = new Set(); return arr.filter(s => s && s.label && !seen.has(s.label) && seen.add(s.label)); };
+const mostCommonKnown = (arr) => { const v = arr.filter(x => x && x !== 'Unknown' && x !== '0'); return v.length ? mostCommon(v) : null; };
+
+// multi-family auto-tagging — one material can belong to several families
+const ELEMENT_FAMILY = [['Fe', 'Iron-based'], ['Al', 'Aluminum-based'], ['Ni', 'Nickel-based'], ['Ti', 'Titanium-based'], ['Co', 'Cobalt-based'], ['Cu', 'Copper-based'], ['Mg', 'Magnesium-based'], ['W', 'Refractory'], ['Ta', 'Refractory'], ['Nb', 'Refractory']];
+function dominantElement(composition) {
+  let best = null, bestVal = -1;
+  for (const [el, v] of Object.entries(composition || {})) {
+    let val; if (v === 'balance') val = 100; else { const mm = String(v).match(/[\d.]+/g); val = mm ? Math.max(...mm.map(Number)) : 0; }
+    if (val > bestVal) { bestVal = val; best = el; }
+  }
+  return best;
+}
+function familyTags(category, subcategory, composition) {
+  const tags = new Set();
+  if (category) tags.add(category);
+  if (subcategory) tags.add(subcategory);
+  if (category !== 'Polymer') {
+    const fam = (ELEMENT_FAMILY.find(([e]) => e === dominantElement(composition)) || [])[1];
+    if (fam) tags.add(fam);
+  }
+  const s = String(subcategory || '').toLowerCase();
+  if (s.includes('stainless')) tags.add('Stainless Steel');
+  if (s.includes('austenit')) tags.add('Austenitic');
+  if (s.includes('superalloy') || s.includes('inconel') || s.includes('nickel')) tags.add('Superalloy');
+  if (s.includes('tool')) tags.add('Tool Steel');
+  return Array.from(tags);
+}
 
 const NUM_PROPS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity', 'fatigue_strength', 'impact_strength'];
 const ELEMENTS = ['C', 'O', 'Fe', 'Cr', 'Ni', 'Mo', 'Mn', 'Si', 'Cu', 'Al', 'Ti', 'V', 'Co', 'W', 'Nb', 'N', 'P', 'S', 'Mg', 'Zn', 'Sn', 'Be', 'Ta', 'La', 'Ce'];
@@ -77,6 +104,88 @@ function aaSubcategory(name) {
   const m = baseName(name).match(/^AA\s*(\d)\d{3}/i);
   if (!m) return null;
   return { '1': 'Aluminum - Pure/Other', '2': 'Aluminum - Cu Alloys (2xxx)', '3': 'Aluminum - Mn Alloys (3xxx)', '5': 'Aluminum - Mg Alloys (5xxx)', '6': 'Aluminum - Si Alloys (6xxx/7xxx)', '7': 'Aluminum - Si Alloys (6xxx/7xxx)', '8': 'Aluminum - Pure/Other' }[m[1]] || null;
+}
+
+// ── cross-standard designations (widely-published equivalents; conservative, not fabricated) ──
+const ALIAS_MAP = {
+  '316l': ['UNS S31603', 'EN 1.4404', 'X2CrNiMo17-12-2', 'JIS SUS316L', 'KS STS316L'],
+  '304l': ['UNS S30403', 'EN 1.4307', 'X2CrNi18-9', 'JIS SUS304L', 'KS STS304L'],
+  '174ph': ['UNS S17400', 'EN 1.4542', 'AISI 630', 'JIS SUS630', 'KS STS630'],
+  '155ph': ['UNS S15500', 'EN 1.4545', 'XM-12'],
+  '420': ['UNS S42000', 'EN 1.4021', 'JIS SUS420J2', 'KS STS420J2'],
+  'ti6al4v': ['UNS R56400', 'ASTM Grade 5', 'DIN 3.7165', 'Gr23 ELI (R56407)'],
+  'ticpgr1': ['UNS R50250', 'ASTM Grade 1'],
+  'ticpgr2': ['UNS R50400', 'ASTM Grade 2'],
+  'alsi10mg': ['EN AC-43000', 'EN AC-AlSi10Mg', 'DIN 3.2381'],
+  'alsi7mg': ['EN AC-42000', 'AlSi7Mg', 'A356 (cast equiv.)'],
+  'al12si': ['EN AC-44000', 'AlSi12', 'A413 (cast equiv.)'],
+  'inconel625': ['UNS N06625', 'EN 2.4856', 'NiCr22Mo9Nb', 'Alloy 625'],
+  'inconel718': ['UNS N07718', 'EN 2.4668', 'Alloy 718', 'AMS 5662'],
+  'inconel738': ['IN738', 'IN-738LC'],
+  'inconel939': ['IN939'],
+  'inconel600': ['UNS N06600', 'EN 2.4816', 'Alloy 600'],
+  'inconelx750': ['UNS N07750', 'EN 2.4669', 'Alloy X-750'],
+  'hastelloyc22': ['UNS N06022', 'EN 2.4602', 'Alloy C-22'],
+  'haynes282': ['UNS N07208'],
+  'haynes214': ['UNS N07214'],
+  'monelk500': ['UNS N05500', 'EN 2.4375', 'Alloy K-500'],
+  'cocr': ['CoCrMo', 'ASTM F75', 'UNS R30075', 'Co-28Cr-6Mo'],
+  'h13': ['DIN 1.2344', 'X40CrMoV5-1', 'JIS SKD61', 'KS STD61', 'AISI H13'],
+  'maragingsteel': ['18Ni-300', 'DIN 1.2709', 'UNS K93120'],
+  'invar36': ['UNS K93600', 'EN 1.3912', 'FeNi36', 'Nilo 36'],
+  'aa6061': ['UNS A96061', 'EN AW-6061', 'AlMg1SiCu', 'DIN 3.3211'],
+  'aa7075': ['UNS A97075', 'EN AW-7075', 'AlZn5.5MgCu', 'DIN 3.4365'],
+  'aa2024': ['UNS A92024', 'EN AW-2024', 'AlCu4Mg1', 'DIN 3.1355'],
+  'aa5052': ['UNS A95052', 'EN AW-5052', 'AlMg2.5'],
+  'aa6082': ['UNS A96082', 'EN AW-6082', 'AlSi1MgMn'],
+  'tantalum': ['Ta', 'UNS R05200'],
+  'cucr1zr': ['UNS C18150', 'EN CW106C', 'CuCrZr'],
+};
+function extractAliases(name) {
+  const out = [];
+  for (const p of String(name).match(/\(([^)]+)\)/g) || []) {
+    for (const tok of p.slice(1, -1).split(/[/,]/).map((t) => t.trim())) {
+      if (tok.length >= 2 && /\d/.test(tok) && !/°|aged|anneal|temper|built|quench|solution|stress|^h\d+$|^t\d+$|^o$/i.test(tok)) out.push(tok);
+    }
+  }
+  return out;
+}
+function aliasesFor(name) {
+  const set = new Set(extractAliases(name));
+  const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
+  for (const tok of String(name).split(/[\s(),/]+/)) if (/\d/.test(tok)) keys.add(norm(tok));
+  for (const k of keys) (ALIAS_MAP[k] || []).forEach((a) => set.add(a));
+  return Array.from(set);
+}
+
+// established qualitative ratings for well-known alloys (textbook engineering facts, not fabricated)
+const QUAL_MAP = {
+  '316l': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },
+  '304l': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },
+  '174ph': { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' },
+  '155ph': { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' },
+  '420': { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },
+  'ti6al4v': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'alsi10mg': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
+  'alsi7mg': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
+  'inconel625': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Excellent' },
+  'inconel718': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'inconel600': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'hastelloyc22': { corrosion: 'Outstanding', machinability: 'Poor', weldability: 'Good' },
+  'cocr': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
+  'h13': { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Fair' },
+  'maragingsteel': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' },
+  'aa6061': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
+  'aa7075': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },
+  'aa2024': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },
+  'cucr1zr': { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },
+  'tantalum': { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },
+};
+function qualFor(name) {
+  const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
+  for (const tok of String(name).split(/[\s(),/]+/)) if (/\d/.test(tok)) keys.add(norm(tok));
+  for (const k of keys) if (QUAL_MAP[k]) return QUAL_MAP[k];
+  return null;
 }
 
 // ───────── load ─────────
@@ -126,20 +235,61 @@ function curatedRanges(m) {
   for (const p of NUM_PROPS) ranges[p] = rangeFrom(pts[p]);
   return ranges;
 }
-const curated = dbKeys.map((key, idx) => {
+function prettyHT(k) {
+  const map = { as_built: 'As-built', annealed: 'Annealed', HT_HIP: 'HIP', stress_relieved: 'Stress-relieved', solution_annealed: 'Solution-annealed' };
+  return map[k] || String(k).replace(/[_+]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+function vendorMatchesHT(vPost, htKey) {
+  if (!vPost) return false;
+  const a = norm(vPost), b = norm(htKey);
+  return a === b || a.includes(b) || b.includes(a);
+}
+function curatedRangesForHT(m, htKey) {
+  const ht = m.heat_treatments[htKey];
+  const pts = { yield_strength: [ht.ys, ht.ys_z], uts: [ht.uts, ht.uts_z], elongation: [ht.elong, ht.elong_z], hardness: [ht.hardness_HV], modulus: [m.E], density: [m.density], thermal_conductivity: [m.thermal_k], fatigue_strength: [], impact_strength: [] };
+  for (const v of Object.values(m.vendors || {})) {
+    if (!vendorMatchesHT(v.post_treatment, htKey)) continue;
+    pts.yield_strength.push(v.yield_MPa, v.yield_z_MPa); pts.uts.push(v.uts_xy_MPa, v.uts_z_MPa);
+    pts.elongation.push(v.elongation_pct, v.elongation_xy_pct, v.elongation_z_pct); pts.hardness.push(v.hardness_HV);
+    const vr = v._value_ranges || {};
+    if (vr.yield_MPa_z) pts.yield_strength.push(...vr.yield_MPa_z);
+    if (vr.tensile_MPa_xy) pts.uts.push(...vr.tensile_MPa_xy);
+    if (vr.tensile_MPa_z) pts.uts.push(...vr.tensile_MPa_z);
+    if (vr.elongation_pct_xy) pts.elongation.push(...vr.elongation_pct_xy);
+    if (vr.elongation_pct_z) pts.elongation.push(...vr.elongation_pct_z);
+  }
+  const ranges = {}; for (const p of NUM_PROPS) ranges[p] = rangeFrom(pts[p]);
+  return ranges;
+}
+// Curated AM alloys → one entry PER heat-treatment (different heat treatment = different material).
+const curated = [];
+let cidx = 0;
+for (const key of dbKeys) {
   const m = db.materials[key];
   addAliases(key, m);
   const vendors = Object.values(m.vendors || {});
-  return {
-    id: 'C_' + String(idx).padStart(4, '0'), name: key, category: 'Metal',
-    subcategory: dbCatToSub[m.category] || m.category || 'Metal - Other', tier: 'curated',
-    manufacturers: uniq(vendors.map(v => v.manufacturer)).length ? uniq(vendors.map(v => v.manufacturer)) : ['Multiple (AM)'],
-    machines: uniq(vendors.map(v => v.machine)), processes: ['LPBF'],
-    ranges: curatedRanges(m), composition: Object.fromEntries((m.composition || []).filter(Array.isArray)),
-    sources: curatedSources(m),
-    meta: { applications: m.applications || null, magnetic: m.magnetic ?? null, melt_C: m.melt ?? null, cte: m.cte ?? null, cp: m.cp ?? null, poisson: m.poisson ?? null, heat_treatments: Object.keys(m.heat_treatments || {}), vendor_count: vendors.length, anisotropy: true },
-  };
-});
+  const composition = Object.fromEntries((m.composition || []).filter(Array.isArray));
+  const subcategory = dbCatToSub[m.category] || m.category || 'Metal - Other';
+  const sources = curatedSources(m);
+  const manufacturers = uniq(vendors.map(v => v.manufacturer)).length ? uniq(vendors.map(v => v.manufacturer)) : ['Multiple (AM)'];
+  const machines = uniq(vendors.map(v => v.machine));
+  const baseMeta = { applications: m.applications || null, magnetic: m.magnetic ?? null, melt_C: m.melt ?? null, cte: m.cte ?? null, cp: m.cp ?? null, poisson: m.poisson ?? null, vendor_count: vendors.length, anisotropy: true };
+  const htKeys = Object.keys(m.heat_treatments || {});
+  for (const htKey of (htKeys.length ? htKeys : [null])) {
+    const ranges = htKey ? curatedRangesForHT(m, htKey) : curatedRanges(m);
+    if (!ranges.yield_strength && !ranges.uts && !ranges.hardness && !ranges.elongation) continue; // no mechanical data for this condition
+    const htLabel = htKey ? prettyHT(htKey) : 'AM (combined)';
+    curated.push({
+      id: 'C_' + String(cidx++).padStart(4, '0'),
+      name: htKey ? `${key} — ${htLabel}` : key,
+      category: 'Metal', subcategory, tier: 'curated',
+      manufacturers, machines, processes: ['LPBF'], heat_treatment: htLabel,
+      ranges, composition, sources,
+      machinability: null, weldability: null, corrosion_resistance: null,
+      meta: baseMeta,
+    });
+  }
+}
 ['copper', 'nickel', 'cobaltchrome'].forEach(x => curatedAlias.add(x)); // word-name alloys → curated Cu / CP-Nickel / CoCr
 const isCurated = name => {
   const a = norm(alloyOf(name));
@@ -158,22 +308,23 @@ function compositionFromRows(g) {
 function rangesFromRows(g) { const ranges = {}; for (const p of NUM_PROPS) ranges[p] = rangeFrom(g.map(r => r[p])); return ranges; }
 function fixSubcategory(name, rawSub) { return aaSubcategory(name) || rawSub; }
 
-// Merge all non-curated rows by normalised alloy so an alloy never appears twice.
-// Priority: curated db is authoritative (its alloys are dropped here). A merged
-// non-curated material is 'am_vendor' if ANY of its rows is AM/vendor data, else 'generic'.
+// Non-curated rows → one entry per (alloy × process). Different process = different
+// material; conditions/tempers within a process are aggregated into the range.
+// Curated alloys are dropped here (curated db is authoritative).
 let droppedCuratedDup = 0;
-const ncGroups = new Map(); // norm(alloy) -> { rows, hasAm, name }
+const ncGroups = new Map(); // norm(alloy)|process -> { rows, hasAm, name, process }
 for (const r of csvRows) {
   if (isCurated(r.material_name)) { droppedCuratedDup++; continue; }
   const isAm = r.manufacturer !== 'Generic' || AM_PROC.has(r.process);
   const alloy = (isAm ? alloyOf(r.material_name) : baseName(r.material_name)).trim();
-  const key = norm(alloy);
-  if (!key) { droppedCuratedDup++; continue; }
-  if (!ncGroups.has(key)) ncGroups.set(key, { rows: [], hasAm: false, name: alloy });
+  if (!norm(alloy)) { droppedCuratedDup++; continue; }
+  const proc = PROCESS_CANON[r.process] || r.process || 'Unknown';
+  const key = norm(alloy) + '|' + proc;
+  if (!ncGroups.has(key)) ncGroups.set(key, { rows: [], hasAm: false, name: alloy, process: proc });
   const grp = ncGroups.get(key);
   grp.rows.push(r);
   if (isAm) grp.hasAm = true;
-  if (alloy && alloy.length < grp.name.length) grp.name = alloy; // prefer the most concise designation
+  if (alloy.length < grp.name.length) grp.name = alloy; // prefer the most concise designation
 }
 
 let aaFixed = 0;
@@ -190,13 +341,18 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
   const sources = grp.hasAm
     ? dedupeSources([...manus.filter(m => m !== 'Generic').map(mf => ({ label: `${mf} (AM vendor datasheet)`, url: null, verified: false })), ...realSrc, matwebSearch(grp.name)])
     : dedupeSources([...realSrc, familyHandbook(rep.category, sub), matwebSearch(grp.name)]);
+  const conditions = uniq(g.map(r => { const mm = String(r.material_name).match(/\(([^)]+)\)/); return mm ? mm[1] : null; }));
   return {
     id: (tier === 'am_vendor' ? 'V_' : 'G_') + String(idx).padStart(4, '0'),
-    name: grp.name, category: rep.category || 'Metal', subcategory: sub, tier,
+    name: `${grp.name} (${grp.process})`,
+    category: rep.category || 'Metal', subcategory: sub, tier,
     manufacturers: tier === 'am_vendor' ? manus : ['Generic'], machines: [],
-    processes: uniq(g.map(r => PROCESS_CANON[r.process] || r.process)),
+    processes: [grp.process], heat_treatment: null,
     ranges: rangesFromRows(g), composition: compositionFromRows(g), sources,
-    meta: { row_count: g.length, subcategory_variants: variants },
+    machinability: mostCommonKnown(g.map(r => r.machinability)),
+    weldability: mostCommonKnown(g.map(r => r.weldability)),
+    corrosion_resistance: mostCommonKnown(g.map(r => r.corrosion_resistance)),
+    meta: { row_count: g.length, subcategory_variants: variants, conditions },
   };
 });
 const am_vendor = nonCurated.filter(m => m.tier === 'am_vendor');
@@ -211,6 +367,10 @@ for (const m of all) {
   m.manufacturer = m.manufacturers.join(', ');
   m.process = m.processes.join(' / ');
   m.source = m.sources[0]?.label ?? null;
+  m.aliases = aliasesFor(m.name);
+  m.families = familyTags(m.category, m.subcategory, m.composition);
+  const q = qualFor(m.name);
+  if (q) { m.machinability = m.machinability || q.machinability; m.weldability = m.weldability || q.weldability; m.corrosion_resistance = m.corrosion_resistance || q.corrosion; }
 }
 
 // ───────── validation report ─────────

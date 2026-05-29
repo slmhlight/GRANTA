@@ -51,14 +51,21 @@ const L = Math.log10;
 export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick }: AshbyChartPlotlyProps) {
   const [xProperty, setXProperty] = useState('density');
   const [yProperty, setYProperty] = useState('yield_strength');
+  const [familyFilter, setFamilyFilter] = useState('all');
 
   const filtered = filteredMaterials || materials;
+  const familyOptions = useMemo(() => {
+    const s = new Set<string>();
+    for (const m of materials) for (const f of ((m as any).families || [])) s.add(f);
+    return ['all', ...Array.from(s).sort()];
+  }, [materials]);
 
   const { data, layout } = useMemo(() => {
-    const filteredIds = new Set(filtered.map((m) => m.id));
+    const inFamily = (m: any) => familyFilter === 'all' || ((m.families || []) as string[]).includes(familyFilter);
     const valid = (m: any) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
-    const fset = filtered.filter(valid);
-    const others = materials.filter((m) => !filteredIds.has(m.id) && valid(m));
+    const fset = filtered.filter((m) => valid(m) && inFamily(m));
+    const fsetIds = new Set(fset.map((m) => m.id));
+    const others = materials.filter((m) => !fsetIds.has(m.id) && valid(m));
 
     // markers grouped by class (colour + legend)
     const byClass = new Map<string, { color: string; ms: Material[] }>();
@@ -137,7 +144,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     };
 
     return { data: [...contextTrace, ...markerTraces], layout };
-  }, [materials, filtered, xProperty, yProperty, filters]);
+  }, [materials, filtered, xProperty, yProperty, filters, familyFilter]);
 
   const config = {
     responsive: true, displaylogo: false,
@@ -163,7 +170,14 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
           </Select>
         </div>
-        <span className="text-[11px] text-muted-foreground ml-auto">Ellipse = min–max range · dotted box = active filter limits</span>
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-muted-foreground font-medium">Family</span>
+          <Select value={familyFilter} onValueChange={setFamilyFilter}>
+            <SelectTrigger className="h-7 text-xs w-[180px]"><SelectValue /></SelectTrigger>
+            <SelectContent>{familyOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : f}</SelectItem>)}</SelectContent>
+          </Select>
+        </div>
+        <span className="text-[11px] text-muted-foreground ml-auto">Ellipse = min–max range · dotted box = filter limits</span>
       </div>
 
       {/* Chart */}

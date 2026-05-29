@@ -73,7 +73,8 @@ export function useMaterialFilter(materials: Material[]) {
         m.name.toLowerCase().includes(q) ||
         m.subcategory.toLowerCase().includes(q) ||
         m.manufacturer.toLowerCase().includes(q) ||
-        m.process.toLowerCase().includes(q)
+        m.process.toLowerCase().includes(q) ||
+        (m.aliases || []).some(a => a.toLowerCase().includes(q))
       );
     }
 
@@ -84,7 +85,10 @@ export function useMaterialFilter(materials: Material[]) {
 
     // Subcategory filter
     if (filters.subcategories.length > 0) {
-      result = result.filter(m => filters.subcategories.includes(m.subcategory));
+      result = result.filter(m =>
+        filters.subcategories.includes(m.subcategory) ||
+        (m.families || []).some(f => filters.subcategories.includes(f))
+      );
     }
 
     // Process filter

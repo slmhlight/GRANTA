@@ -3,24 +3,24 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **199 materials**: 46 curated · 6 am_vendor · 147 generic
+- **257 materials**: 99 curated · 9 am_vendor · 149 generic
 - Dropped 307 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 199/199 | 0 |
-| yield_strength | 195/199 | 188 |
-| uts | 191/199 | 185 |
-| elongation | 195/199 | 187 |
-| modulus | 199/199 | 3 |
-| hardness | 182/199 | 170 |
-| thermal_conductivity | 199/199 | 3 |
-| fatigue_strength | 20/199 | 20 |
-| impact_strength | 20/199 | 20 |
+| density | 257/257 | 0 |
+| yield_strength | 255/257 | 238 |
+| uts | 246/257 | 235 |
+| elongation | 255/257 | 237 |
+| modulus | 257/257 | 1 |
+| hardness | 224/257 | 187 |
+| thermal_conductivity | 257/257 | 1 |
+| fatigue_strength | 20/257 | 20 |
+| impact_strength | 20/257 | 20 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 46/199 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 99/257 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
@@ -43,8 +43,8 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - C17200: Copper - Pure/Other / Titanium - Pure/Other
 - Monel 400: Copper - Pure/Other / Titanium - Pure/Other
 - Hastelloy C-276: Nickel - Hastelloy / Titanium - Pure/Other
-- Inconel X-750: Nickel - Inconel Superalloy / Titanium - Pure/Other
 - Inconel 600: Nickel - Inconel Superalloy / Titanium - Pure/Other
+- Inconel X-750: Nickel - Inconel Superalloy / Titanium - Pure/Other
 - 15-5PH: Nickel - Other Superalloy / Stainless Steel - Austenitic
 - Epoxy Resin: Polymer - Epoxy/Thermoset Resin / Polymer - Nylon (FDM/SLS) / Polymer - Photopolymer Resin (SLA)
 - Polyester Resin: Polymer - Epoxy/Thermoset Resin / Polymer - Nylon (FDM/SLS) / Polymer - Photopolymer Resin (SLA)

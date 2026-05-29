@@ -224,6 +224,34 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
 
           {/* Process */}
           <TabsContent value="process" className="p-4 space-y-3">
+            {material.aliases && material.aliases.length > 0 && (
+              <Field label="Designations / a.k.a. (ISO·ASTM·JIS·DIN·KS·UNS)">
+                <div className="flex flex-wrap gap-1">
+                  {material.aliases.map((a) => (
+                    <span key={a} className="text-[10px] px-1.5 py-0.5 rounded bg-muted border border-border/40 font-mono">{a}</span>
+                  ))}
+                </div>
+              </Field>
+            )}
+            {material.families && material.families.length > 0 && (
+              <Field label="Families">
+                <div className="flex flex-wrap gap-1">
+                  {material.families.map((f) => (
+                    <span key={f} className="text-[10px] px-1.5 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/30">{f}</span>
+                  ))}
+                </div>
+              </Field>
+            )}
+            {material.heat_treatment && <Field label="Condition / heat treatment">{material.heat_treatment}</Field>}
+            {(material.corrosion_resistance || material.machinability || material.weldability) && (
+              <Field label="Fabrication & durability">
+                <div className="space-y-0.5 text-[11px]">
+                  {material.corrosion_resistance != null && material.corrosion_resistance !== '' && <div>Corrosion: <span className="font-medium text-foreground">{String(material.corrosion_resistance)}</span></div>}
+                  {material.machinability && <div>Machinability: <span className="font-medium text-foreground">{material.machinability}</span></div>}
+                  {material.weldability && <div>Weldability: <span className="font-medium text-foreground">{material.weldability}</span></div>}
+                </div>
+              </Field>
+            )}
             <Field label="Process">
               <div className="flex flex-wrap gap-1">
                 {processes.length ? processes.map(p => (

@@ -60,6 +60,8 @@ export interface Material {
   manufacturers?: string[];
   machines?: string[];
   processes?: string[];
+  aliases?: string[];
+  families?: string[];
   meta?: Record<string, unknown>;
 }
 
