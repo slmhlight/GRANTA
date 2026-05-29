@@ -4,12 +4,12 @@
  * source citations (verified datasheet URLs where available).
  */
 
-import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText } from 'lucide-react';
+import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
-import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES } from '@/lib/materials';
+import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
 
 interface MaterialDetailProps {
   material: Material | null;
@@ -212,6 +212,33 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 ))}
               </div>
             </div>
+            {COST_PROPERTIES.some(p => material[p.key as keyof Material] != null) && (
+              <div>
+                <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Coins className="w-3 h-3" />Cost <span className="text-[10px] font-normal text-muted-foreground/60">(approx. market)</span></h3>
+                <div className="space-y-1">
+                  {COST_PROPERTIES.map(prop => (
+                    <RangeRow key={prop.key} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
+                  ))}
+                </div>
+              </div>
+            )}
+            {material.elevated_temp && material.elevated_temp.length > 0 && (
+              <div>
+                <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Thermometer className="w-3 h-3" />Strength vs Temperature</h3>
+                <table className="w-full text-[11px]">
+                  <thead><tr className="text-muted-foreground"><th className="text-left font-normal py-0.5">Temp</th><th className="text-right font-normal">YS (MPa)</th><th className="text-right font-normal">UTS (MPa)</th></tr></thead>
+                  <tbody>
+                    {material.elevated_temp.map((e) => (
+                      <tr key={e.temp} className="border-t border-border/30">
+                        <td className="py-0.5 font-mono">{e.temp}°C</td>
+                        <td className="text-right font-mono">{e.ys ?? '—'}</td>
+                        <td className="text-right font-mono">{e.uts ?? '—'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
             <div>
               <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1">
                 <BookText className="w-3 h-3" />Sources & Datasheets

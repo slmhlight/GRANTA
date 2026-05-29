@@ -220,6 +220,49 @@ function qualFor(name) {
   for (const k of keys) if (QUAL_MAP[k]) return QUAL_MAP[k];
   return null;
 }
+// class-typical physical & qualitative properties — handbook-level representative values
+// (NOT per-sample measurements; flagged estimated and shown as "typical" in the UI).
+// ec = electrical conductivity %IACS, tmax = max continuous service temp °C, price = approx raw-material $/kg
+function assignPhysicals(m) {
+  const fam = m.families || [];
+  const sub = String(m.subcategory || '').toLowerCase();
+  const nm = String(m.name || '').toLowerCase();
+  const has = (re) => re.test(nm) || re.test(sub);
+  if (m.category === 'Polymer') {
+    const tmax = has(/peek/) ? 250 : has(/ultem|pei/) ? 170 : has(/pes/) ? 180 : has(/nylon|pa1[12]|pa6|pa2|polyamide/) ? 110
+      : has(/polycarb|\bpc\b/) ? 115 : has(/abs/) ? 90 : has(/petg/) ? 70 : has(/pla/) ? 55 : has(/tpu/) ? 80 : has(/\bpp\b|polypro/) ? 100 : 90;
+    const price = has(/peek/) ? 400 : has(/ultem|pei|pes/) ? 200 : has(/nylon|polyamide/) ? 50 : has(/tpu|polycarb|\bpc\b/) ? 40 : 25;
+    return { ec: 0, tmax, price, qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' } };
+  }
+  if (fam.includes('Copper-based')) {
+    const ec = has(/becu|beryllium/) ? 22 : has(/brass/) ? 28 : has(/bronze/) ? 15 : has(/cucr|crzr|grcop|glidcop/) ? 80 : 95;
+    return { ec, tmax: 200, price: has(/becu|beryllium/) ? 40 : has(/bronze/) ? 12 : 9, qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+  }
+  if (fam.includes('Aluminum-based')) {
+    const ec = has(/7075|7050|7175|7068/) ? 33 : has(/2024|2014|2219|2618/) ? 30 : has(/alsi10|alsi7|a356|f357|scalmalloy/) ? 40 : 45;
+    return { ec, tmax: has(/7075|7050/) ? 120 : 170, price: has(/scalmalloy/) ? 12 : 4, qual: { corrosion: 'Good', machinability: 'Excellent', weldability: 'Good' } };
+  }
+  if (fam.includes('Titanium-based')) {
+    return { ec: 1.5, tmax: has(/6242|6246|1100/) ? 540 : has(/5553|beta|2154/) ? 315 : 400, price: 35, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+  }
+  if (fam.includes('Nickel-based') || fam.includes('Superalloy')) {
+    const tmax = has(/haynes|230/) ? 1100 : has(/hastelloy/) ? 1000 : has(/625/) ? 815 : has(/738|939|713|waspaloy|rene|nimonic|247/) ? 950 : has(/718/) ? 650 : has(/600|601|617/) ? 1000 : 800;
+    return { ec: 1.3, tmax, price: has(/waspaloy|rene|haynes|247/) ? 80 : 50, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+  }
+  if (fam.includes('Cobalt-based')) return { ec: 1.5, tmax: 1000, price: 60, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+  if (fam.includes('Magnesium-based')) return { ec: 33, tmax: 120, price: 6, qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' } };
+  if (fam.includes('Refractory')) return { ec: 31, tmax: 1000, price: 70, qual: { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' } };
+  if (fam.includes('Iron-based') || has(/steel|stainless|invar|kovar/)) {
+    if (has(/stainless|316|304|17-?4|174ph|155ph|duplex|2205|austenit|ferritic|martensit|410|420|440|nitronic/)) {
+      const tmax = has(/austenit|316|304|310|nitronic/) ? 800 : 500;
+      return { ec: 2.5, tmax, price: has(/duplex|2205|nitronic/) ? 6 : 5, qual: { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' } };
+    }
+    if (has(/maraging|18ni|c300|c250|c350|m300/) || sub.includes('maraging')) return { ec: 3, tmax: 400, price: 15, qual: { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' } };
+    if (sub.includes('tool') || has(/h13|d2|m2|m4|p20|s7|a2|o1|cpm/)) return { ec: 5, tmax: 550, price: 6, qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' } };
+    return { ec: 9, tmax: 450, price: 2, qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
+  }
+  return { ec: null, tmax: null, price: null, qual: null };
+}
 
 // ───────── load ─────────
 const csvMatrix = parseCSV(fs.readFileSync(path.join(DATA, 'AM_Materials_DB_enriched.csv'), 'utf8')).filter(r => r.length > 1);
@@ -456,6 +499,20 @@ for (const m of all) {
     m.ranges.fatigue_strength = { min: round(u.min * ratio), max: round(u.max * ratio), typical: round(u.typical * ratio), n: 0, estimated: true };
     m.fatigue_strength = round(u.typical * ratio);
     m.fatigue_estimated = true;
+  }
+  // class-typical physical & qualitative properties (handbook-level; flagged estimated)
+  const ph = assignPhysicals(m);
+  if (ph.qual) {
+    m.corrosion_resistance = m.corrosion_resistance || ph.qual.corrosion;
+    m.machinability = m.machinability || ph.qual.machinability;
+    m.weldability = m.weldability || ph.qual.weldability;
+  }
+  const setTyp = (k, v) => { if (v != null) { m[k] = v; m.ranges[k] = { min: v, max: v, typical: v, n: 0, estimated: true }; } };
+  if (ph.ec != null) setTyp('electrical_conductivity', ph.ec);
+  if (ph.tmax != null) setTyp('max_service_temp', ph.tmax);
+  if (ph.price != null) {
+    setTyp('price_per_kg', ph.price);
+    if (m.density) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4));
   }
 }
 

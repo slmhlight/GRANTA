@@ -51,6 +51,11 @@ export interface Material {
   corrosion_resistance?: string | null;
   machinability?: string | null;
   weldability?: string | null;
+  electrical_conductivity?: number | null;
+  max_service_temp?: number | null;
+  price_per_kg?: number | null;
+  price_per_cm3?: number | null;
+  elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null }>;
   heat_treatment?: string | null;
   source?: string | null;
   // ── range-based schema (v2 data pipeline) ──
@@ -87,7 +92,7 @@ export interface PropertyMeta {
   label: string;
   unit: string;
   description: string;
-  group: 'mechanical' | 'thermal' | 'physical' | 'chemical' | 'qualitative';
+  group: 'mechanical' | 'thermal' | 'physical' | 'chemical' | 'qualitative' | 'cost';
   min?: number;
   max?: number;
 }
@@ -105,11 +110,19 @@ export const MECHANICAL_PROPERTIES: PropertyMeta[] = [
 export const PHYSICAL_PROPERTIES: PropertyMeta[] = [
   { key: 'density', label: 'Density', unit: 'g/cm³', description: 'Mass density', group: 'physical' },
   { key: 'thermal_conductivity', label: 'Thermal Conductivity', unit: 'W/m·K', description: 'Thermal conductivity at RT', group: 'thermal' },
+  { key: 'electrical_conductivity', label: 'Electrical Conductivity', unit: '%IACS', description: 'Electrical conductivity (% IACS), typical', group: 'physical' },
+  { key: 'max_service_temp', label: 'Max Service Temp', unit: '°C', description: 'Max continuous service temperature, typical', group: 'thermal' },
+];
+
+export const COST_PROPERTIES: PropertyMeta[] = [
+  { key: 'price_per_kg', label: 'Price (per kg)', unit: 'USD/kg', description: 'Approximate raw-material price', group: 'cost' },
+  { key: 'price_per_cm3', label: 'Price (per cm³)', unit: 'USD/cm³', description: 'Approximate price per unit volume', group: 'cost' },
 ];
 
 export const ALL_NUMERIC_PROPERTIES: PropertyMeta[] = [
   ...PHYSICAL_PROPERTIES,
   ...MECHANICAL_PROPERTIES,
+  ...COST_PROPERTIES,
 ];
 
 export const CHEMICAL_ELEMENTS: Array<{ key: string; label: string }> = [
