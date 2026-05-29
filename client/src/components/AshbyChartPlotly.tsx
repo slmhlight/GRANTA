@@ -68,8 +68,8 @@ function convexHull(pts: number[][]): number[][] {
 }
 
 export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick }: AshbyChartPlotlyProps) {
-  const [xProperty, setXProperty] = useState('density');
-  const [yProperty, setYProperty] = useState('yield_strength');
+  const [xProperty, setXProperty] = useState('yield_strength');
+  const [yProperty, setYProperty] = useState('elongation');
   const [familyFilter, setFamilyFilter] = useState('all');
 
   const filtered = filteredMaterials || materials;
