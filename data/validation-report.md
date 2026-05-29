@@ -16,8 +16,8 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 | modulus | 610/610 | 8 |
 | hardness | 570/610 | 424 |
 | thermal_conductivity | 610/610 | 2 |
-| fatigue_strength | 564/610 | 444 |
-| impact_strength | 20/610 | 20 |
+| fatigue_strength | 564/610 | 445 |
+| impact_strength | 46/610 | 46 |
 
 ## Sources (Task 2)
 - Materials with ≥1 **verified datasheet URL**: 103/610 (all curated + ref_urls).

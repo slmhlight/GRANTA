@@ -74,13 +74,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 247.5,
-        "max": 342,
-        "typical": 292.5,
-        "n": 0,
-        "estimated": true
+        "min": 240,
+        "max": 270,
+        "typical": 255,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 100,
+        "max": 180,
+        "typical": 140,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -551,8 +555,8 @@
     "modulus": 190,
     "hardness": 220,
     "thermal_conductivity": 16.2,
-    "fatigue_strength": 292.5,
-    "impact_strength": null,
+    "fatigue_strength": 255,
+    "impact_strength": 140,
     "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT",
     "process": "LPBF",
     "source": "Nikon SLM 316L MDS 2026-01.1",
@@ -568,7 +572,29 @@
       "Stainless Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 290,
+        "uts": 580
+      },
+      {
+        "temp": 300,
+        "ys": 190,
+        "uts": 480
+      },
+      {
+        "temp": 500,
+        "ys": 150,
+        "uts": 430
+      },
+      {
+        "temp": 600,
+        "ys": 140,
+        "uts": 360
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 800,
     "price_per_kg": 5,
@@ -649,13 +675,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 247.5,
-        "max": 324,
-        "typical": 279,
-        "n": 0,
-        "estimated": true
+        "min": 240,
+        "max": 270,
+        "typical": 255,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 100,
+        "max": 180,
+        "typical": 140,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -910,8 +940,8 @@
     "modulus": 190,
     "hardness": 180,
     "thermal_conductivity": 16.2,
-    "fatigue_strength": 279,
-    "impact_strength": null,
+    "fatigue_strength": 255,
+    "impact_strength": 140,
     "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT",
     "process": "LPBF",
     "source": "Nikon SLM 316L MDS 2026-01.1",
@@ -927,7 +957,29 @@
       "Stainless Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 290,
+        "uts": 580
+      },
+      {
+        "temp": 300,
+        "ys": 190,
+        "uts": 480
+      },
+      {
+        "temp": 500,
+        "ys": 150,
+        "uts": 430
+      },
+      {
+        "temp": 600,
+        "ys": 140,
+        "uts": 360
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 800,
     "price_per_kg": 5,
@@ -1008,13 +1060,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 270,
-        "max": 355.5,
-        "typical": 310.5,
-        "n": 0,
-        "estimated": true
+        "min": 240,
+        "max": 270,
+        "typical": 255,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 100,
+        "max": 180,
+        "typical": 140,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -1233,8 +1289,8 @@
     "modulus": 190,
     "hardness": 208.5,
     "thermal_conductivity": 16.2,
-    "fatigue_strength": 310.5,
-    "impact_strength": null,
+    "fatigue_strength": 255,
+    "impact_strength": 140,
     "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT",
     "process": "LPBF",
     "source": "Nikon SLM 316L MDS 2026-01.1",
@@ -1250,7 +1306,29 @@
       "Stainless Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 290,
+        "uts": 580
+      },
+      {
+        "temp": 300,
+        "ys": 190,
+        "uts": 480
+      },
+      {
+        "temp": 500,
+        "ys": 150,
+        "uts": 430
+      },
+      {
+        "temp": 600,
+        "ys": 140,
+        "uts": 360
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 800,
     "price_per_kg": 5,
@@ -2104,13 +2182,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 569.25,
-        "max": 803,
-        "typical": 676.5,
-        "n": 0,
-        "estimated": true
+        "min": 450,
+        "max": 600,
+        "typical": 525,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 17,
+        "max": 24,
+        "typical": 20,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -2930,8 +3012,8 @@
     "modulus": 114,
     "hardness": 357,
     "thermal_conductivity": 6.7,
-    "fatigue_strength": 676.5,
-    "impact_strength": null,
+    "fatigue_strength": 525,
+    "impact_strength": 20,
     "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM Ti6Al4V Gr23",
@@ -2948,7 +3030,29 @@
       "Titanium",
       "Titanium-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 880,
+        "uts": 950
+      },
+      {
+        "temp": 200,
+        "ys": 710,
+        "uts": 820
+      },
+      {
+        "temp": 400,
+        "ys": 560,
+        "uts": 670
+      },
+      {
+        "temp": 500,
+        "ys": 470,
+        "uts": 570
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 400,
     "price_per_kg": 35,
@@ -3046,13 +3150,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 544.5,
-        "max": 616,
-        "typical": 596.75,
-        "n": 0,
-        "estimated": true
+        "min": 450,
+        "max": 600,
+        "typical": 525,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 17,
+        "max": 24,
+        "typical": 20,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -3431,8 +3539,8 @@
     "modulus": 114,
     "hardness": 362,
     "thermal_conductivity": 6.7,
-    "fatigue_strength": 596.75,
-    "impact_strength": null,
+    "fatigue_strength": 525,
+    "impact_strength": 20,
     "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM Ti6Al4V Gr23",
@@ -3449,7 +3557,29 @@
       "Titanium",
       "Titanium-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 880,
+        "uts": 950
+      },
+      {
+        "temp": 200,
+        "ys": 710,
+        "uts": 820
+      },
+      {
+        "temp": 400,
+        "ys": 560,
+        "uts": 670
+      },
+      {
+        "temp": 500,
+        "ys": 470,
+        "uts": 570
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 400,
     "price_per_kg": 35,
@@ -3547,13 +3677,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 508.75,
-        "max": 561,
-        "typical": 550,
-        "n": 0,
-        "estimated": true
+        "min": 450,
+        "max": 600,
+        "typical": 525,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 17,
+        "max": 24,
+        "typical": 20,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -3878,8 +4012,8 @@
     "modulus": 114,
     "hardness": 305,
     "thermal_conductivity": 6.7,
-    "fatigue_strength": 550,
-    "impact_strength": null,
+    "fatigue_strength": 525,
+    "impact_strength": 20,
     "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM Ti6Al4V Gr23",
@@ -3896,7 +4030,29 @@
       "Titanium",
       "Titanium-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 880,
+        "uts": 950
+      },
+      {
+        "temp": 200,
+        "ys": 710,
+        "uts": 820
+      },
+      {
+        "temp": 400,
+        "ys": 560,
+        "uts": 670
+      },
+      {
+        "temp": 500,
+        "ys": 470,
+        "uts": 570
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 400,
     "price_per_kg": 35,
@@ -3994,13 +4150,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 552.75,
-        "max": 591.25,
-        "typical": 569.25,
-        "n": 0,
-        "estimated": true
+        "min": 450,
+        "max": 600,
+        "typical": 525,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 17,
+        "max": 24,
+        "typical": 20,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -4334,8 +4494,8 @@
     "modulus": 114,
     "hardness": 342,
     "thermal_conductivity": 6.7,
-    "fatigue_strength": 569.25,
-    "impact_strength": null,
+    "fatigue_strength": 525,
+    "impact_strength": 20,
     "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM Ti6Al4V Gr23",
@@ -4352,7 +4512,29 @@
       "Titanium",
       "Titanium-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 880,
+        "uts": 950
+      },
+      {
+        "temp": 200,
+        "ys": 710,
+        "uts": 820
+      },
+      {
+        "temp": 400,
+        "ys": 560,
+        "uts": 670
+      },
+      {
+        "temp": 500,
+        "ys": 470,
+        "uts": 570
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 400,
     "price_per_kg": 35,
@@ -4450,13 +4632,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 577.5,
-        "max": 682,
-        "typical": 599.5,
-        "n": 0,
-        "estimated": true
+        "min": 450,
+        "max": 600,
+        "typical": 525,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 17,
+        "max": 24,
+        "typical": 20,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -4790,8 +4976,8 @@
     "modulus": 114,
     "hardness": 365,
     "thermal_conductivity": 6.7,
-    "fatigue_strength": 599.5,
-    "impact_strength": null,
+    "fatigue_strength": 525,
+    "impact_strength": 20,
     "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM Ti6Al4V Gr23",
@@ -4808,7 +4994,29 @@
       "Titanium",
       "Titanium-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 880,
+        "uts": 950
+      },
+      {
+        "temp": 200,
+        "ys": 710,
+        "uts": 820
+      },
+      {
+        "temp": 400,
+        "ys": 560,
+        "uts": 670
+      },
+      {
+        "temp": 500,
+        "ys": 470,
+        "uts": 570
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 400,
     "price_per_kg": 35,
@@ -5867,13 +6075,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 84,
-        "max": 173.25,
-        "typical": 150.5,
-        "n": 0,
-        "estimated": true
+        "min": 90,
+        "max": 140,
+        "typical": 115,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 3,
+        "max": 5,
+        "typical": 4,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 40,
         "max": 40,
@@ -6499,8 +6711,8 @@
     "modulus": 75,
     "hardness": 120,
     "thermal_conductivity": 130,
-    "fatigue_strength": 150.5,
-    "impact_strength": null,
+    "fatigue_strength": 115,
+    "impact_strength": 4,
     "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT",
     "process": "LPBF",
     "source": "Nikon SLM AlSi10Mg MDS 2026-01.1",
@@ -6514,7 +6726,29 @@
       "Aluminum",
       "Aluminum-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 230,
+        "uts": 360
+      },
+      {
+        "temp": 150,
+        "ys": 180,
+        "uts": 270
+      },
+      {
+        "temp": 200,
+        "ys": 120,
+        "uts": 180
+      },
+      {
+        "temp": 250,
+        "ys": 70,
+        "uts": 110
+      }
+    ],
     "electrical_conductivity": 40,
     "max_service_temp": 170,
     "price_per_kg": 4,
@@ -6593,13 +6827,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 108.5,
-        "max": 108.5,
-        "typical": 108.5,
-        "n": 0,
-        "estimated": true
+        "min": 90,
+        "max": 140,
+        "typical": 115,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 3,
+        "max": 5,
+        "typical": 4,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 40,
         "max": 40,
@@ -6775,8 +7013,8 @@
     "modulus": 75,
     "hardness": null,
     "thermal_conductivity": 130,
-    "fatigue_strength": 108.5,
-    "impact_strength": null,
+    "fatigue_strength": 115,
+    "impact_strength": 4,
     "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT",
     "process": "LPBF",
     "source": "Nikon SLM AlSi10Mg MDS 2026-01.1",
@@ -6790,7 +7028,29 @@
       "Aluminum",
       "Aluminum-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 230,
+        "uts": 360
+      },
+      {
+        "temp": 150,
+        "ys": 180,
+        "uts": 270
+      },
+      {
+        "temp": 200,
+        "ys": 120,
+        "uts": 180
+      },
+      {
+        "temp": 250,
+        "ys": 70,
+        "uts": 110
+      }
+    ],
     "electrical_conductivity": 40,
     "max_service_temp": 170,
     "price_per_kg": 4,
@@ -6874,13 +7134,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 87.5,
-        "max": 112,
-        "typical": 98,
-        "n": 0,
-        "estimated": true
+        "min": 90,
+        "max": 140,
+        "typical": 115,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 3,
+        "max": 5,
+        "typical": 4,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 40,
         "max": 40,
@@ -7272,8 +7536,8 @@
     "modulus": 75,
     "hardness": 120,
     "thermal_conductivity": 130,
-    "fatigue_strength": 98,
-    "impact_strength": null,
+    "fatigue_strength": 115,
+    "impact_strength": 4,
     "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT",
     "process": "LPBF",
     "source": "Nikon SLM AlSi10Mg MDS 2026-01.1",
@@ -7287,7 +7551,29 @@
       "Aluminum",
       "Aluminum-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 230,
+        "uts": 360
+      },
+      {
+        "temp": 150,
+        "ys": 180,
+        "uts": 270
+      },
+      {
+        "temp": 200,
+        "ys": 120,
+        "uts": 180
+      },
+      {
+        "temp": 250,
+        "ys": 70,
+        "uts": 110
+      }
+    ],
     "electrical_conductivity": 40,
     "max_service_temp": 170,
     "price_per_kg": 4,
@@ -7371,13 +7657,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 105,
-        "max": 161,
-        "typical": 126,
-        "n": 0,
-        "estimated": true
+        "min": 90,
+        "max": 140,
+        "typical": 115,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 3,
+        "max": 5,
+        "typical": 4,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 40,
         "max": 40,
@@ -7661,8 +7951,8 @@
     "modulus": 75,
     "hardness": 115.5,
     "thermal_conductivity": 130,
-    "fatigue_strength": 126,
-    "impact_strength": null,
+    "fatigue_strength": 115,
+    "impact_strength": 4,
     "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT",
     "process": "LPBF",
     "source": "Nikon SLM AlSi10Mg MDS 2026-01.1",
@@ -7676,7 +7966,29 @@
       "Aluminum",
       "Aluminum-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 230,
+        "uts": 360
+      },
+      {
+        "temp": 150,
+        "ys": 180,
+        "uts": 270
+      },
+      {
+        "temp": 200,
+        "ys": 120,
+        "uts": 180
+      },
+      {
+        "temp": 250,
+        "ys": 70,
+        "uts": 110
+      }
+    ],
     "electrical_conductivity": 40,
     "max_service_temp": 170,
     "price_per_kg": 4,
@@ -9789,13 +10101,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 340,
-        "max": 424,
-        "typical": 378,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 480,
+        "typical": 415,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 90,
+        "typical": 70,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -10182,8 +10498,8 @@
     "modulus": 207,
     "hardness": 285,
     "thermal_conductivity": 9.8,
-    "fatigue_strength": 378,
-    "impact_strength": null,
+    "fatigue_strength": 415,
+    "impact_strength": 70,
     "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM IN625 MDS 2024-06.1",
@@ -10194,7 +10510,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 490,
+        "uts": 930
+      },
+      {
+        "temp": 540,
+        "ys": 410,
+        "uts": 780
+      },
+      {
+        "temp": 650,
+        "ys": 400,
+        "uts": 760
+      },
+      {
+        "temp": 815,
+        "ys": 330,
+        "uts": 550
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 815,
     "price_per_kg": 50,
@@ -10278,13 +10616,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 332,
-        "max": 404,
-        "typical": 364,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 480,
+        "typical": 415,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 90,
+        "typical": 70,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -10572,8 +10914,8 @@
     "modulus": 207,
     "hardness": 265,
     "thermal_conductivity": 9.8,
-    "fatigue_strength": 364,
-    "impact_strength": null,
+    "fatigue_strength": 415,
+    "impact_strength": 70,
     "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM IN625 MDS 2024-06.1",
@@ -10584,7 +10926,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 490,
+        "uts": 930
+      },
+      {
+        "temp": 540,
+        "ys": 410,
+        "uts": 780
+      },
+      {
+        "temp": 650,
+        "ys": 400,
+        "uts": 760
+      },
+      {
+        "temp": 815,
+        "ys": 330,
+        "uts": 550
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 815,
     "price_per_kg": 50,
@@ -10668,13 +11032,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 358,
-        "max": 468,
-        "typical": 408,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 480,
+        "typical": 415,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 90,
+        "typical": 70,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -10854,8 +11222,8 @@
     "modulus": 207,
     "hardness": 286.5,
     "thermal_conductivity": 9.8,
-    "fatigue_strength": 408,
-    "impact_strength": null,
+    "fatigue_strength": 415,
+    "impact_strength": 70,
     "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM IN625 MDS 2024-06.1",
@@ -10866,7 +11234,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 490,
+        "uts": 930
+      },
+      {
+        "temp": 540,
+        "ys": 410,
+        "uts": 780
+      },
+      {
+        "temp": 650,
+        "ys": 400,
+        "uts": 760
+      },
+      {
+        "temp": 815,
+        "ys": 330,
+        "uts": 550
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 815,
     "price_per_kg": 50,
@@ -10950,13 +11340,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 356,
-        "max": 426,
-        "typical": 404,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 480,
+        "typical": 415,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 90,
+        "typical": 70,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -11190,8 +11584,8 @@
     "modulus": 207,
     "hardness": 274,
     "thermal_conductivity": 9.8,
-    "fatigue_strength": 404,
-    "impact_strength": null,
+    "fatigue_strength": 415,
+    "impact_strength": 70,
     "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM IN625 MDS 2024-06.1",
@@ -11202,7 +11596,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 490,
+        "uts": 930
+      },
+      {
+        "temp": 540,
+        "ys": 410,
+        "uts": 780
+      },
+      {
+        "temp": 650,
+        "ys": 400,
+        "uts": 760
+      },
+      {
+        "temp": 815,
+        "ys": 330,
+        "uts": 550
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 815,
     "price_per_kg": 50,
@@ -11296,13 +11712,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 400.5,
-        "max": 495,
-        "typical": 441,
-        "n": 0,
-        "estimated": true
+        "min": 450,
+        "max": 620,
+        "typical": 535,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 30,
+        "max": 50,
+        "typical": 40,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -11796,8 +12216,8 @@
     "modulus": 200,
     "hardness": 280,
     "thermal_conductivity": 11.4,
-    "fatigue_strength": 441,
-    "impact_strength": null,
+    "fatigue_strength": 535,
+    "impact_strength": 40,
     "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM IN718 MDS 2025-11.1",
@@ -11808,7 +12228,29 @@
       "Iron-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1100,
+        "uts": 1280
+      },
+      {
+        "temp": 540,
+        "ys": 1010,
+        "uts": 1150
+      },
+      {
+        "temp": 650,
+        "ys": 950,
+        "uts": 1110
+      },
+      {
+        "temp": 760,
+        "ys": 870,
+        "uts": 950
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 650,
     "price_per_kg": 50,
@@ -11902,13 +12344,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 407.25,
-        "max": 688.95,
-        "typical": 643.5,
-        "n": 0,
-        "estimated": true
+        "min": 450,
+        "max": 620,
+        "typical": 535,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 30,
+        "max": 50,
+        "typical": 40,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -12222,8 +12668,8 @@
     "modulus": 200,
     "hardness": 465,
     "thermal_conductivity": 11.4,
-    "fatigue_strength": 643.5,
-    "impact_strength": null,
+    "fatigue_strength": 535,
+    "impact_strength": 40,
     "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM IN718 MDS 2025-11.1",
@@ -12234,7 +12680,29 @@
       "Iron-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1100,
+        "uts": 1280
+      },
+      {
+        "temp": 540,
+        "ys": 1010,
+        "uts": 1150
+      },
+      {
+        "temp": 650,
+        "ys": 950,
+        "uts": 1110
+      },
+      {
+        "temp": 760,
+        "ys": 870,
+        "uts": 950
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 650,
     "price_per_kg": 50,
@@ -21732,13 +22200,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 447.75,
-        "max": 954,
-        "typical": 531,
-        "n": 0,
-        "estimated": true
+        "min": 600,
+        "max": 700,
+        "typical": 650,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 15,
+        "max": 25,
+        "typical": 20,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 3,
         "max": 3,
@@ -22069,8 +22541,8 @@
     "modulus": 180,
     "hardness": 347,
     "thermal_conductivity": 14.2,
-    "fatigue_strength": 531,
-    "impact_strength": null,
+    "fatigue_strength": 650,
+    "impact_strength": 20,
     "manufacturer": "Nikon SLM Solutions, 3D Systems, EOS, GE Additive, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM 1.2709 MDS 2026-04.1",
@@ -22088,7 +22560,24 @@
       "Tool Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1900,
+        "uts": 1950
+      },
+      {
+        "temp": 300,
+        "ys": 1700,
+        "uts": 1800
+      },
+      {
+        "temp": 450,
+        "ys": 1500,
+        "uts": 1600
+      }
+    ],
     "electrical_conductivity": 3,
     "max_service_temp": 400,
     "price_per_kg": 15,
@@ -22171,13 +22660,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 450,
-        "max": 857.25,
-        "typical": 823.5,
-        "n": 0,
-        "estimated": true
+        "min": 600,
+        "max": 700,
+        "typical": 650,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 15,
+        "max": 25,
+        "typical": 20,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 3,
         "max": 3,
@@ -22391,8 +22884,8 @@
     "modulus": 180,
     "hardness": 321,
     "thermal_conductivity": 14.2,
-    "fatigue_strength": 823.5,
-    "impact_strength": null,
+    "fatigue_strength": 650,
+    "impact_strength": 20,
     "manufacturer": "Nikon SLM Solutions, 3D Systems, EOS, GE Additive, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM 1.2709 MDS 2026-04.1",
@@ -22410,7 +22903,24 @@
       "Tool Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1900,
+        "uts": 1950
+      },
+      {
+        "temp": 300,
+        "ys": 1700,
+        "uts": 1800
+      },
+      {
+        "temp": 450,
+        "ys": 1500,
+        "uts": 1600
+      }
+    ],
     "electrical_conductivity": 3,
     "max_service_temp": 400,
     "price_per_kg": 15,
@@ -22488,13 +22998,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 823.5,
-        "max": 846,
-        "typical": 846,
-        "n": 0,
-        "estimated": true
+        "min": 600,
+        "max": 700,
+        "typical": 650,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 15,
+        "max": 25,
+        "typical": 20,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 3,
         "max": 3,
@@ -22654,8 +23168,8 @@
     "modulus": 180,
     "hardness": null,
     "thermal_conductivity": 14.2,
-    "fatigue_strength": 846,
-    "impact_strength": null,
+    "fatigue_strength": 650,
+    "impact_strength": 20,
     "manufacturer": "Nikon SLM Solutions, 3D Systems, EOS, GE Additive, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM 1.2709 MDS 2026-04.1",
@@ -22673,7 +23187,24 @@
       "Tool Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1900,
+        "uts": 1950
+      },
+      {
+        "temp": 300,
+        "ys": 1700,
+        "uts": 1800
+      },
+      {
+        "temp": 450,
+        "ys": 1500,
+        "uts": 1600
+      }
+    ],
     "electrical_conductivity": 3,
     "max_service_temp": 400,
     "price_per_kg": 15,
@@ -22756,13 +23287,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 450,
-        "max": 954,
-        "typical": 843.75,
-        "n": 0,
-        "estimated": true
+        "min": 600,
+        "max": 700,
+        "typical": 650,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 15,
+        "max": 25,
+        "typical": 20,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 3,
         "max": 3,
@@ -23102,8 +23637,8 @@
     "modulus": 180,
     "hardness": 358,
     "thermal_conductivity": 14.2,
-    "fatigue_strength": 843.75,
-    "impact_strength": null,
+    "fatigue_strength": 650,
+    "impact_strength": 20,
     "manufacturer": "Nikon SLM Solutions, 3D Systems, EOS, GE Additive, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM 1.2709 MDS 2026-04.1",
@@ -23121,7 +23656,24 @@
       "Tool Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1900,
+        "uts": 1950
+      },
+      {
+        "temp": 300,
+        "ys": 1700,
+        "uts": 1800
+      },
+      {
+        "temp": 450,
+        "ys": 1500,
+        "uts": 1600
+      }
+    ],
     "electrical_conductivity": 3,
     "max_service_temp": 400,
     "price_per_kg": 15,
@@ -23198,13 +23750,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 342,
-        "max": 657,
-        "typical": 493.2,
-        "n": 0,
-        "estimated": true
+        "min": 550,
+        "max": 650,
+        "typical": 600,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 20,
+        "max": 40,
+        "typical": 30,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -23528,8 +24084,8 @@
     "modulus": 197,
     "hardness": 301.5,
     "thermal_conductivity": 16,
-    "fatigue_strength": 493.2,
-    "impact_strength": null,
+    "fatigue_strength": 600,
+    "impact_strength": 30,
     "manufacturer": "3D Systems, EOS, GE Additive, Nikon SLM Solutions",
     "process": "LPBF",
     "source": "Nikon SLM 17-4PH MDS 2026-02",
@@ -23546,7 +24102,24 @@
       "Iron-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1100,
+        "uts": 1190
+      },
+      {
+        "temp": 300,
+        "ys": 950,
+        "uts": 1050
+      },
+      {
+        "temp": 425,
+        "ys": 880,
+        "uts": 1000
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 500,
     "price_per_kg": 5,
@@ -23623,13 +24196,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 411.75,
-        "max": 657,
-        "typical": 612,
-        "n": 0,
-        "estimated": true
+        "min": 550,
+        "max": 650,
+        "typical": 600,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 20,
+        "max": 40,
+        "typical": 30,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -23935,8 +24512,8 @@
     "modulus": 197,
     "hardness": 295.5,
     "thermal_conductivity": 16,
-    "fatigue_strength": 612,
-    "impact_strength": null,
+    "fatigue_strength": 600,
+    "impact_strength": 30,
     "manufacturer": "3D Systems, EOS, GE Additive, Nikon SLM Solutions",
     "process": "LPBF",
     "source": "Nikon SLM 17-4PH MDS 2026-02",
@@ -23953,7 +24530,24 @@
       "Iron-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1100,
+        "uts": 1190
+      },
+      {
+        "temp": 300,
+        "ys": 950,
+        "uts": 1050
+      },
+      {
+        "temp": 425,
+        "ys": 880,
+        "uts": 1000
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 500,
     "price_per_kg": 5,
@@ -24025,13 +24619,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 463.5,
-        "max": 535.5,
-        "typical": 526.5,
-        "n": 0,
-        "estimated": true
+        "min": 550,
+        "max": 650,
+        "typical": 600,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 20,
+        "max": 40,
+        "typical": 30,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -24211,8 +24809,8 @@
     "modulus": 197,
     "hardness": null,
     "thermal_conductivity": 16,
-    "fatigue_strength": 526.5,
-    "impact_strength": null,
+    "fatigue_strength": 600,
+    "impact_strength": 30,
     "manufacturer": "3D Systems, EOS, GE Additive, Nikon SLM Solutions",
     "process": "LPBF",
     "source": "Nikon SLM 17-4PH MDS 2026-02",
@@ -24229,7 +24827,24 @@
       "Iron-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1100,
+        "uts": 1190
+      },
+      {
+        "temp": 300,
+        "ys": 950,
+        "uts": 1050
+      },
+      {
+        "temp": 425,
+        "ys": 880,
+        "uts": 1000
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 500,
     "price_per_kg": 5,
@@ -126412,13 +127027,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 304,
-        "max": 364,
-        "typical": 344,
-        "n": 0,
-        "estimated": true
+        "min": 250,
+        "max": 350,
+        "typical": 300,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 90,
+        "typical": 70,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -126508,8 +127127,8 @@
     "modulus": 211,
     "hardness": 95,
     "thermal_conductivity": 8.9,
-    "fatigue_strength": 344,
-    "impact_strength": null,
+    "fatigue_strength": 300,
+    "impact_strength": 70,
     "manufacturer": "Reference data",
     "process": "Wrought",
     "source": "Haynes International / Aircraft Materials — Haynes 230 (N06230)",
@@ -126520,7 +127139,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 390,
+        "uts": 860
+      },
+      {
+        "temp": 760,
+        "ys": 285,
+        "uts": 575
+      },
+      {
+        "temp": 870,
+        "ys": 250,
+        "uts": 420
+      },
+      {
+        "temp": 980,
+        "ys": 180,
+        "uts": 280
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 1100,
     "price_per_kg": 80,
