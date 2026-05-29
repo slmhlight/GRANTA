@@ -20,6 +20,7 @@ interface AshbyChartPlotlyProps {
   selectedId?: string | null;
   compareList?: string[];
   onCompareMany?: (ids: string[]) => void;
+  onApplyToFilter?: (ids: string[]) => void;
 }
 
 const PROPERTY_OPTIONS = ALL_NUMERIC_PROPERTIES.map((p) => ({ value: p.key as string, label: `${p.label} (${p.unit})` }));
@@ -105,7 +106,7 @@ function AxisLimitSlider({ axis, color, domain, limit, onChange }: { axis: strin
   );
 }
 
-export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId, compareList, onCompareMany }: AshbyChartPlotlyProps) {
+export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId, compareList, onCompareMany, onApplyToFilter }: AshbyChartPlotlyProps) {
   const [xProperty, setXProperty] = useState('yield_strength');
   const [yProperty, setYProperty] = useState('elongation');
   const [groupFilter, setGroupFilter] = useState('all');
@@ -130,6 +131,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [indexPreset, setIndexPreset] = useState('none');
   const [indexThreshold, setIndexThreshold] = useState<number | null>(null);
   const [boxedIds, setBoxedIds] = useState<Set<string>>(new Set());
+  const [indexPreset2, setIndexPreset2] = useState('none');
+  const [indexThreshold2, setIndexThreshold2] = useState<number | null>(null);
 
   const filtered = filteredMaterials || materials;
   const dom = (prop: string): [number, number] => {
@@ -162,22 +165,34 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const fsetIds = new Set(fset.map((m) => m.id));
     const others = materials.filter((m) => !fsetIds.has(m.id) && valid(m));
 
-    // ── selection precedence: chart box-select > material-index preset > Compare list ──
+    // ── selection precedence: chart box-select > material-index preset(s) > Compare list ──
     const idx = MATERIAL_INDICES.find((i) => i.key === indexPreset) || null;
+    const idx2 = MATERIAL_INDICES.find((i) => i.key === indexPreset2) || null;
+    const Mof = (ix: { x: string; y: string; p: number } | null, m: any) => { if (!ix) return null; const xv = tv(m, ix.x), yv = tv(m, ix.y); return xv && yv && xv > 0 && yv > 0 ? Math.pow(yv, ix.p) / xv : null; };
     let colored: Material[], coldFset: Material[], colorMode = false;
     let indexThr: number | null = null, minM = 0, maxM = 0;
+    let indexThr2: number | null = null, minM2 = 0, maxM2 = 0;
     if (boxedIds.size > 0) {
       colored = fset.filter((m) => boxedIds.has(m.id));
       coldFset = fset.filter((m) => !boxedIds.has(m.id));
       colorMode = colored.length > 0;
       if (!colorMode) colored = fset;
     } else if (idx) {
-      const Mof = (m: any) => { const xv = tv(m, idx.x), yv = tv(m, idx.y); return xv && yv && xv > 0 && yv > 0 ? Math.pow(yv, idx.p) / xv : null; };
-      const Ms = fset.map(Mof).filter((v): v is number => v != null && isFinite(v)).sort((a, b) => a - b);
+      const Ms = fset.map((m) => Mof(idx, m)).filter((v): v is number => v != null && isFinite(v)).sort((a, b) => a - b);
       minM = Ms[0] ?? 0; maxM = Ms[Ms.length - 1] ?? 0;
       indexThr = indexThreshold ?? (Ms.length ? Ms[Math.floor(Ms.length / 2)] : 0); // default ≈ median → ~half pass
-      colored = fset.filter((m) => { const M = Mof(m); return M != null && M >= indexThr!; }).sort((a, b) => (Mof(b) ?? 0) - (Mof(a) ?? 0));
-      coldFset = fset.filter((m) => { const M = Mof(m); return !(M != null && M >= indexThr!); });
+      if (idx2) {
+        const Ms2 = fset.map((m) => Mof(idx2, m)).filter((v): v is number => v != null && isFinite(v)).sort((a, b) => a - b);
+        minM2 = Ms2[0] ?? 0; maxM2 = Ms2[Ms2.length - 1] ?? 0;
+        indexThr2 = indexThreshold2 ?? (Ms2.length ? Ms2[Math.floor(Ms2.length / 2)] : 0);
+      }
+      const pass = (m: any) => {
+        const M = Mof(idx, m); if (!(M != null && M >= indexThr!)) return false;
+        if (idx2) { const M2 = Mof(idx2, m); return M2 != null && M2 >= indexThr2!; }
+        return true;
+      };
+      colored = fset.filter(pass).sort((a, b) => (Mof(idx, b) ?? 0) - (Mof(idx, a) ?? 0));
+      coldFset = fset.filter((m) => !pass(m));
       colorMode = colored.length > 0;
     } else {
       const compareSet = new Set(compareList || []);
@@ -323,9 +338,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: fontC },
     };
 
-    const indexInfo = (idx && boxedIds.size === 0) ? { count: colored.length, total: fset.length, thr: indexThr as number, minM, maxM, unit: idx.unit } : null;
+    const indexInfo = (idx && boxedIds.size === 0) ? { count: colored.length, total: fset.length, thr: indexThr as number, minM, maxM, unit: idx.unit, second: idx2 ? { thr: indexThr2 as number, minM: minM2, maxM: maxM2, unit: idx2.unit } : null } : null;
     return { data: [...envelopeTraces, ...contextTrace, ...markerTraces, ...selTrace, ...indexTraces], layout, indexInfo, selectedIds };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, indexPreset2, indexThreshold2]);
 
   const config = {
     responsive: true, displaylogo: false,
@@ -425,7 +440,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       {/* Ashby material-index selection — pick a performance index, move the selection line by value */}
       <div className="flex flex-wrap items-center gap-3 px-4 py-2 border-b border-border bg-rose-50/50">
         <span className="text-[10px] text-rose-700 uppercase tracking-wide font-semibold">Index</span>
-        <Select value={indexPreset} onValueChange={(v) => { setIndexPreset(v); const p = MATERIAL_INDICES.find((i) => i.key === v); if (p) { setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null); } }}>
+        <Select value={indexPreset} onValueChange={(v) => { setIndexPreset(v); setIndexPreset2('none'); setIndexThreshold2(null); const p = MATERIAL_INDICES.find((i) => i.key === v); if (p) { setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null); } }}>
           <SelectTrigger className="h-7 text-xs w-[240px]"><SelectValue placeholder="Material index (off)" /></SelectTrigger>
           <SelectContent>
             <SelectItem value="none" className="text-xs">Off</SelectItem>
@@ -446,6 +461,21 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <div className="w-44"><Slider min={indexInfo.minM} max={indexInfo.maxM} step={(indexInfo.maxM - indexInfo.minM) / 200 || 0.01} value={[Math.min(indexInfo.maxM, Math.max(indexInfo.minM, indexThreshold ?? indexInfo.thr))]} onValueChange={(v: number[]) => setIndexThreshold(v[0])} /></div>
             <span className="text-[11px] font-semibold text-rose-700">{indexInfo.count}/{indexInfo.total} pass</span>
             <button type="button" onClick={() => setIndexThreshold(null)} className="text-[10px] px-1.5 py-0.5 rounded border text-accent border-accent/40 hover:bg-accent/10">auto</button>
+            <span className="text-rose-300">·</span>
+            <Select value={indexPreset2} onValueChange={(v) => { setIndexPreset2(v); setIndexThreshold2(null); }}>
+              <SelectTrigger className="h-7 text-xs w-[190px]"><SelectValue placeholder="+ 2nd constraint" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="none" className="text-xs">No 2nd constraint</SelectItem>
+                {MATERIAL_INDICES.filter((i) => i.key !== indexPreset).map((i) => <SelectItem key={i.key} value={i.key} className="text-xs">{i.label}</SelectItem>)}
+              </SelectContent>
+            </Select>
+            {indexInfo.second && (
+              <>
+                <span className="text-[11px] text-muted-foreground">M₂ ≥</span>
+                <input type="number" value={Number((indexThreshold2 ?? indexInfo.second.thr).toPrecision(4))} step={(indexInfo.second.maxM - indexInfo.second.minM) / 100 || 0.1} onChange={(e) => setIndexThreshold2(e.target.value === '' ? null : Number(e.target.value))} className="h-7 w-24 text-xs font-mono rounded border border-border px-1.5 bg-background" />
+                <span className="text-[10px] text-muted-foreground">{indexInfo.second.unit}</span>
+              </>
+            )}
           </>
         )}
         {selectedIds.length > 0 && (
@@ -453,6 +483,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <span className="text-[11px] text-muted-foreground">{selectedIds.length} selected</span>
             {onCompareMany && <button type="button" onClick={() => onCompareMany(selectedIds)} className="text-[11px] px-2 py-0.5 rounded border border-accent/50 text-accent hover:bg-accent/10 font-medium">+ Compare</button>}
             <button type="button" onClick={exportSelection} className="text-[11px] px-2 py-0.5 rounded border border-border text-foreground hover:bg-muted">Export CSV</button>
+            {onApplyToFilter && <button type="button" onClick={() => onApplyToFilter(selectedIds)} className="text-[11px] px-2 py-0.5 rounded border border-border text-foreground hover:bg-muted">→ Filter</button>}
             {boxedIds.size > 0 && <button type="button" onClick={() => setBoxedIds(new Set())} className="text-[11px] px-2 py-0.5 rounded border border-border text-muted-foreground hover:bg-muted">Clear box</button>}
           </div>
         )}

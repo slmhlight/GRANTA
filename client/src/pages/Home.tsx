@@ -48,6 +48,7 @@ export default function Home() {
   const [viewMode, setViewMode] = useState<ViewMode>('table');
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
   const [compareList, setCompareList] = useState<string[]>([]);
+  const [restrictIds, setRestrictIds] = useState<string[] | null>(null);
   const [showCompare, setShowCompare] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
@@ -105,6 +106,8 @@ export default function Home() {
     setSelectedMaterial(null);
   }, []);
 
+  const handleApplyToFilter = useCallback((ids: string[]) => { setRestrictIds(ids.length ? ids : null); }, []);
+
   const handleOpenCompare = useCallback(() => {
     if (compareList.length > 0) {
       setShowCompare(true);
@@ -113,6 +116,8 @@ export default function Home() {
   }, [compareList]);
 
   const compareMaterials = materials.filter(m => compareList.includes(m.id));
+  const restrictSet = restrictIds ? new Set(restrictIds) : null;
+  const viewFiltered = restrictSet ? filtered.filter(m => restrictSet.has(m.id)) : filtered;
 
   const rightPanelOpen = selectedMaterial !== null || showCompare;
 
@@ -364,11 +369,18 @@ export default function Home() {
             )}
           </div>
 
+          {restrictIds && (
+            <div className="flex items-center gap-2 px-4 py-1.5 bg-accent/10 border-b border-accent/30 text-xs">
+              <span className="text-accent font-medium">{viewFiltered.length} materials pinned from chart selection</span>
+              <span className="text-muted-foreground">(table &amp; cards)</span>
+              <button onClick={() => setRestrictIds(null)} className="ml-auto text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10">Clear</button>
+            </div>
+          )}
           {/* Data view */}
           <div className="flex-1 overflow-hidden">
             {viewMode === 'table' && (
               <MaterialTable
-                materials={filtered}
+                materials={viewFiltered}
                 selectedId={selectedMaterial?.id ?? null}
                 compareList={compareList}
                 onSelect={handleSelectMaterial}
@@ -380,7 +392,7 @@ export default function Home() {
             )}
             {viewMode === 'cards' && (
               <MaterialCards
-                materials={filtered}
+                materials={viewFiltered}
                 selectedId={selectedMaterial?.id ?? null}
                 compareList={compareList}
                 onSelect={handleSelectMaterial}
@@ -397,6 +409,7 @@ export default function Home() {
                   compareList={compareList}
                   onMaterialClick={handleSelectMaterial}
                   onCompareMany={handleAddManyToCompare}
+                  onApplyToFilter={handleApplyToFilter}
                 />
               </Suspense>
             )}
