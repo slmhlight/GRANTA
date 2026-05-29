@@ -384,6 +384,7 @@ export default function Home() {
                   filteredMaterials={filtered}
                   filters={filters}
                   selectedId={selectedMaterial?.id ?? null}
+                  compareList={compareList}
                   onMaterialClick={handleSelectMaterial}
                 />
               </Suspense>

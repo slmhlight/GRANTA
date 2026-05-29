@@ -4,9 +4,10 @@
  * property-range ELLIPSES (min–max envelopes), an active-filter selection window,
  * auto-ranging axes that follow the current selection, and a class legend.
  */
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import Plot from 'react-plotly.js';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Slider } from '@/components/ui/slider';
 import { Material, ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 
@@ -16,6 +17,7 @@ interface AshbyChartPlotlyProps {
   filters?: FilterState;
   onMaterialClick?: (material: Material) => void;
   selectedId?: string | null;
+  compareList?: string[];
 }
 
 const PROPERTY_OPTIONS = ALL_NUMERIC_PROPERTIES.map((p) => ({ value: p.key as string, label: `${p.label} (${p.unit})` }));
@@ -69,8 +71,27 @@ function convexHull(pts: number[][]): number[][] {
 }
 const rgba = (hex: string, a: number) => { const n = parseInt(hex.slice(1), 16); return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`; };
 const cleanSub = (s: string) => s.replace(/^[A-Za-z]+(?:\s+[A-Za-z]+)?\s*-\s*/, '').trim() || s;
+const fmtNum = (v: number) => (v >= 1000 ? Math.round(v).toLocaleString() : v >= 10 ? v.toFixed(0) : v >= 1 ? v.toFixed(1) : v.toFixed(2));
 
-export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId }: AshbyChartPlotlyProps) {
+// per-axis min/max range slider that acts as a limitation filter on the plotted set
+function AxisLimitSlider({ axis, color, domain, limit, onChange }: { axis: string; color: string; domain: [number, number]; limit: [number, number] | null; onChange: (v: [number, number] | null) => void }) {
+  const lo = domain[0];
+  const hi = domain[1] > domain[0] ? domain[1] : domain[0] + (domain[0] || 1);
+  const val = limit ?? [lo, hi];
+  const step = Math.max((hi - lo) / 120, hi > 1000 ? 1 : 0.001);
+  const active = !!limit && (limit[0] > lo || limit[1] < hi);
+  return (
+    <div className="flex items-center gap-2 min-w-[280px] flex-1 max-w-[480px]">
+      <span className="text-xs font-medium w-3" style={{ color }}>{axis}</span>
+      <span className="font-mono text-[10px] text-muted-foreground w-14 text-right tabular-nums">{fmtNum(val[0])}</span>
+      <Slider min={lo} max={hi} step={step} value={[val[0], val[1]]} onValueChange={(v: number[]) => onChange([v[0], v[1]])} className="flex-1" />
+      <span className="font-mono text-[10px] text-muted-foreground w-14 tabular-nums">{fmtNum(val[1])}</span>
+      <button type="button" onClick={() => onChange(null)} disabled={!active} className={`text-[10px] px-1.5 py-0.5 rounded border transition-colors ${active ? 'text-accent border-accent/40 hover:bg-accent/10' : 'text-muted-foreground/30 border-transparent cursor-default'}`}>reset</button>
+    </div>
+  );
+}
+
+export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId, compareList }: AshbyChartPlotlyProps) {
   const [xProperty, setXProperty] = useState('yield_strength');
   const [yProperty, setYProperty] = useState('elongation');
   const [groupFilter, setGroupFilter] = useState('all');
@@ -78,8 +99,18 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [showEnvelopes, setShowEnvelopes] = useState(true);
   const [xLog, setXLog] = useState(true);
   const [yLog, setYLog] = useState(true);
+  const [xLimit, setXLimit] = useState<[number, number] | null>(null);
+  const [yLimit, setYLimit] = useState<[number, number] | null>(null);
 
   const filtered = filteredMaterials || materials;
+  const dom = (prop: string): [number, number] => {
+    const vs = materials.map((m) => tv(m, prop)).filter((v): v is number => v != null && v > 0);
+    return vs.length ? [Math.min(...vs), Math.max(...vs)] : [0, 1];
+  };
+  const xDomain = useMemo(() => dom(xProperty), [materials, xProperty]);
+  const yDomain = useMemo(() => dom(yProperty), [materials, yProperty]);
+  useEffect(() => { setXLimit(null); }, [xProperty]);
+  useEffect(() => { setYLimit(null); }, [yProperty]);
   const groupOptions = useMemo(() => {
     const s = new Set<string>();
     for (const m of materials) s.add(classOf(m).key);
@@ -96,13 +127,22 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const inGroup = (m: any) => groupFilter === 'all' || classOf(m).key === groupFilter;
     const inSub = (m: any) => subFilter === 'all' || m.subcategory === subFilter;
     const valid = (m: any) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
-    const fset = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m));
+    const inLim = (m: any) => (!xLimit || (tv(m, xProperty)! >= xLimit[0] && tv(m, xProperty)! <= xLimit[1]))
+      && (!yLimit || (tv(m, yProperty)! >= yLimit[0] && tv(m, yProperty)! <= yLimit[1]));
+    const fset = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m) && inLim(m));
     const fsetIds = new Set(fset.map((m) => m.id));
     const others = materials.filter((m) => !fsetIds.has(m.id) && valid(m));
 
+    // when materials are picked for Compare, colour ONLY those; everything else is muted context
+    const compareSet = new Set(compareList || []);
+    let colored = fset.filter((m) => compareSet.has(m.id));
+    const colorMode = compareSet.size > 0 && colored.length > 0;
+    if (!colorMode) colored = fset;
+    const coldFset = colorMode ? fset.filter((m) => !compareSet.has(m.id)) : [];
+
     // markers grouped by class (colour + legend)
     const byClass = new Map<string, { color: string; ms: Material[] }>();
-    for (const m of fset) {
+    for (const m of colored) {
       const c = classOf(m);
       if (!byClass.has(c.key)) byClass.set(c.key, { color: c.color, ms: [] });
       byClass.get(c.key)!.ms.push(m);
@@ -110,16 +150,17 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const markerTraces = Array.from(byClass.entries()).sort((a, b) => b[1].ms.length - a[1].ms.length).map(([key, { color, ms }]) => ({
       x: ms.map((m) => tv(m, xProperty)), y: ms.map((m) => tv(m, yProperty)),
       mode: 'markers', type: 'scatter', name: `${key} (${ms.length})`,
-      marker: { size: 7, color, line: { color: '#ffffff', width: 0.5 }, opacity: 0.95 },
+      marker: { size: colorMode ? 11 : 7, color, line: { color: '#ffffff', width: colorMode ? 1.2 : 0.5 }, opacity: 0.95 },
       text: ms.map((m) => m.name), customdata: ms.map((m) => m.id),
       hovertemplate: `<b>%{text}</b><br>${xProperty}: %{x:.4g}<br>${yProperty}: %{y:.4g}<extra>${key}</extra>`,
     }));
 
-    const contextTrace = others.length ? [{
-      x: others.map((m) => tv(m, xProperty)), y: others.map((m) => tv(m, yProperty)),
+    const ctx = [...others, ...coldFset];
+    const contextTrace = ctx.length ? [{
+      x: ctx.map((m) => tv(m, xProperty)), y: ctx.map((m) => tv(m, yProperty)),
       mode: 'markers', type: 'scatter', name: 'filtered out',
-      marker: { size: 5, color: '#cbd5e1', opacity: 0.3 },
-      text: others.map((m) => m.name), customdata: others.map((m) => m.id),
+      marker: { size: 5, color: '#cbd5e1', opacity: colorMode ? 0.45 : 0.3 },
+      text: ctx.map((m) => m.name), customdata: ctx.map((m) => m.id),
       hovertemplate: `<b>%{text}</b><br>${xProperty}: %{x:.4g}<br>${yProperty}: %{y:.4g}<extra>out</extra>`,
       showlegend: false,
     }] : [];
@@ -129,7 +170,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const shapes: any[] = [];
     const xi = PROP_ORDER.indexOf(xProperty), yi = PROP_ORDER.indexOf(yProperty);
     const hullByClass = new Map<string, { color: string; xs: (number | null)[]; ys: (number | null)[] }>();
-    for (const m of fset) {
+    for (const m of colored) {
       const c = classOf(m);
       const raw = (((m as any).points || []) as number[][]);
       const logPairs = (xi >= 0 && yi >= 0)
@@ -176,8 +217,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     if (showEnvelopes) envelopeTraces = groupFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : hullTraces;
 
     // auto-range to the filtered envelope (log10 units, with padding)
-    const xs = fset.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
-    const ys = fset.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
+    const xs = colored.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
+    const ys = colored.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
     const logRange = (v: number[]) => v.length ? [L(Math.min(...v)) - 0.15, L(Math.max(...v)) + 0.15] : undefined;
     const linRange = (v: number[]) => { if (!v.length) return undefined; const mn = Math.min(...v), mx = Math.max(...v), pad = (mx - mn) * 0.06 || mx * 0.06; return [Math.max(0, mn - pad), mx + pad]; };
     const xRange = xLog ? logRange(xs) : linRange(xs);
@@ -189,6 +230,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const scX = (v: number) => (xLog ? L(v) : v), scY = (v: number) => (yLog ? L(v) : v);
     if (fx) for (const xv of fx) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
     if (fy) for (const yv of fy) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
+    // chart-local axis limit sliders → dashed limit lines
+    if (xLimit) for (const xv of xLimit) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#9333ea', width: 1.5, dash: 'dash' } });
+    if (yLimit) for (const yv of yLimit) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#9333ea', width: 1.5, dash: 'dash' } });
 
     // material-index guide lines (Ashby): constant performance-index directions on log-log
     const guideAnnotations: any[] = [];
@@ -217,13 +261,14 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     };
 
     return { data: [...envelopeTraces, ...contextTrace, ...markerTraces, ...selTrace], layout };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit]);
 
   const config = {
     responsive: true, displaylogo: false,
     modeBarButtonsToRemove: ['lasso2d', 'select2d', 'autoScale2d'],
     toImageButtonOptions: { format: 'png', filename: 'ashby_chart', height: 700, width: 1000, scale: 2 },
   };
+  const comparing = (compareList?.length ?? 0) > 0;
 
   return (
     <div className="w-full h-full flex flex-col bg-white">
@@ -263,7 +308,16 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
           <input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" /> Y log
         </label>
-        <span className="text-[11px] text-muted-foreground ml-auto">Curved envelope = property range</span>
+        {comparing
+          ? <span className="text-[11px] font-medium text-accent ml-auto">● Colouring {compareList!.length} Compare selection{compareList!.length > 1 ? 's' : ''}</span>
+          : <span className="text-[11px] text-muted-foreground ml-auto">Curved envelope = property range</span>}
+      </div>
+
+      {/* Axis limit sliders — limitation filters on the current X / Y properties */}
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 px-4 py-2 border-b border-border bg-muted/20">
+        <span className="text-[10px] text-muted-foreground uppercase tracking-wide w-10">Limits</span>
+        <AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} onChange={setXLimit} />
+        <AxisLimitSlider axis="Y" color="#9333ea" domain={yDomain} limit={yLimit} onChange={setYLimit} />
       </div>
 
       {/* Chart */}
