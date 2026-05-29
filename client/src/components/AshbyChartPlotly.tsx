@@ -25,6 +25,13 @@ const RANGE_FILTER_KEY: Record<string, keyof FilterState> = {
   elongation: 'elongationRange', modulus: 'modulusRange', hardness: 'hardnessRange',
 };
 
+// Ashby material-index guide lines: constant performance-index directions on log-log axes
+const INDEX_GUIDES: Record<string, { slope: number; label: string }[]> = {
+  'density|modulus': [{ slope: 1, label: 'E/ρ' }, { slope: 2, label: 'E^½/ρ' }, { slope: 3, label: 'E^⅓/ρ' }],
+  'density|yield_strength': [{ slope: 1, label: 'σ/ρ' }, { slope: 1.5, label: 'σ^⅔/ρ' }],
+  'density|uts': [{ slope: 1, label: 'σ/ρ' }, { slope: 1.5, label: 'σ^⅔/ρ' }],
+};
+
 // coarse material class → colour (legend + ellipse colour)
 const CLASSES: Array<{ key: string; color: string; test: (s: string, cat: string) => boolean }> = [
   { key: 'Polymer', color: '#16A34A', test: (_s, cat) => cat === 'Polymer' },
@@ -91,22 +98,19 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       showlegend: false,
     }] : [];
 
-    // property-range ellipses for the filtered set (skip when too many → clutter/perf)
+    // property-range ELLIPSES for every filtered material that has a real range (Ashby envelopes)
     const shapes: any[] = [];
-    if (fset.length <= 160) {
-      for (const m of fset) {
-        const xl = loOf(m, xProperty)!, xh = hiOf(m, xProperty)!, yl = loOf(m, yProperty)!, yh = hiOf(m, yProperty)!;
-        if (!(xl > 0 && yl > 0)) continue;
-        if (xh === xl && yh === yl) continue; // single point — marker is enough
-        const c = classOf(m);
-        // pad degenerate axis slightly so the envelope is visible
-        const xpad = xh === xl ? 0.012 : 0, ypad = yh === yl ? 0.012 : 0;
-        shapes.push({
-          type: 'circle', xref: 'x', yref: 'y',
-          x0: L(xl) - xpad, x1: L(xh) + xpad, y0: L(yl) - ypad, y1: L(yh) + ypad,
-          line: { color: c.color, width: 1 }, fillcolor: c.color, opacity: 0.1, layer: 'below',
-        });
-      }
+    for (const m of fset) {
+      const xl = loOf(m, xProperty)!, xh = hiOf(m, xProperty)!, yl = loOf(m, yProperty)!, yh = hiOf(m, yProperty)!;
+      if (!(xl > 0 && yl > 0)) continue;
+      if (xh === xl && yh === yl) continue; // single data point — the marker is enough
+      const c = classOf(m);
+      const xpad = xh === xl ? 0.012 : 0, ypad = yh === yl ? 0.012 : 0; // pad a degenerate axis so the envelope stays visible
+      shapes.push({
+        type: 'circle', xref: 'x', yref: 'y',
+        x0: L(xl) - xpad, x1: L(xh) + xpad, y0: L(yl) - ypad, y1: L(yh) + ypad,
+        line: { color: c.color, width: 1 }, fillcolor: c.color, opacity: 0.12, layer: 'below',
+      });
     }
 
     // auto-range to the filtered envelope (log10 units, with padding)
@@ -118,15 +122,19 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     // active-filter selection window (limits) for the current axes
     const fx = filters && RANGE_FILTER_KEY[xProperty] ? (filters[RANGE_FILTER_KEY[xProperty]] as [number, number] | null) : null;
     const fy = filters && RANGE_FILTER_KEY[yProperty] ? (filters[RANGE_FILTER_KEY[yProperty]] as [number, number] | null) : null;
-    if (fx || fy) {
-      const x0 = fx ? L(fx[0]) : xRange?.[0] ?? (xs.length ? L(Math.min(...xs)) : 0);
-      const x1 = fx ? L(fx[1]) : xRange?.[1] ?? (xs.length ? L(Math.max(...xs)) : 1);
-      const y0 = fy ? L(fy[0]) : yRange?.[0] ?? (ys.length ? L(Math.min(...ys)) : 0);
-      const y1 = fy ? L(fy[1]) : yRange?.[1] ?? (ys.length ? L(Math.max(...ys)) : 1);
-      shapes.push({
-        type: 'rect', xref: 'x', yref: 'y', x0, x1, y0, y1,
-        line: { color: '#0066CC', width: 1.5, dash: 'dot' }, fillcolor: '#0066CC', opacity: 0.06, layer: 'below',
-      });
+    if (fx) for (const xv of fx) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: L(xv), x1: L(xv), y0: 0, y1: 1, line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
+    if (fy) for (const yv of fy) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: L(yv), y1: L(yv), line: { color: '#0066CC', width: 1.5, dash: 'dot' } });
+
+    // material-index guide lines (Ashby): constant performance-index directions on log-log
+    const guideAnnotations: any[] = [];
+    const guides = INDEX_GUIDES[`${xProperty}|${yProperty}`];
+    if (guides && xRange && yRange) {
+      const xm = (xRange[0] + xRange[1]) / 2, ym = (yRange[0] + yRange[1]) / 2;
+      for (const g of guides) {
+        const yAt = (xl: number) => g.slope * (xl - xm) + ym;
+        shapes.push({ type: 'line', xref: 'x', yref: 'y', x0: xRange[0], x1: xRange[1], y0: yAt(xRange[0]), y1: yAt(xRange[1]), line: { color: '#cbd5e1', width: 1, dash: 'dash' }, layer: 'below' });
+        guideAnnotations.push({ x: xRange[1], y: yAt(xRange[1]), xref: 'x', yref: 'y', text: g.label, showarrow: false, font: { size: 9, color: '#94a3b8' }, xanchor: 'right', yanchor: 'bottom' });
+      }
     }
 
     const xMeta = ALL_NUMERIC_PROPERTIES.find((p) => p.key === xProperty);
@@ -137,7 +145,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       margin: { l: 72, r: 20, t: 28, b: 56 },
       xaxis: { title: { text: `${xMeta?.label ?? xProperty} (${xMeta?.unit ?? ''})`, font: { size: 12 } }, type: 'log', range: xRange, gridcolor: '#eef2f7', zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
       yaxis: { title: { text: `${yMeta?.label ?? yProperty} (${yMeta?.unit ?? ''})`, font: { size: 12 } }, type: 'log', range: yRange, gridcolor: '#eef2f7', zeroline: false, ticks: 'outside', tickcolor: '#cbd5e1' },
-      hovermode: 'closest', shapes,
+      hovermode: 'closest', shapes, annotations: guideAnnotations,
       legend: { orientation: 'h', y: 1.07, x: 0, font: { size: 11 }, bgcolor: 'rgba(255,255,255,0)' },
       paper_bgcolor: '#ffffff', plot_bgcolor: '#ffffff',
       font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: '#334155' },

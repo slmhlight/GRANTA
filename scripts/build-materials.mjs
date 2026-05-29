@@ -140,6 +140,39 @@ const ALIAS_MAP = {
   'aa6082': ['UNS A96082', 'EN AW-6082', 'AlSi1MgMn'],
   'tantalum': ['Ta', 'UNS R05200'],
   'cucr1zr': ['UNS C18150', 'EN CW106C', 'CuCrZr'],
+  // conventional alloy/carbon steels (AISI/SAE)
+  '4140': ['UNS G41400', 'DIN 1.7225', '42CrMo4', 'JIS SCM440', 'EN19', 'GB 42CrMo'],
+  '42crmo4': ['AISI 4140', 'UNS G41400', 'DIN 1.7225', 'JIS SCM440'],
+  '4340': ['UNS G43400', 'DIN 1.6582', '34CrNiMo6', 'JIS SNCM439'],
+  '4130': ['UNS G41300', 'DIN 1.7218', '25CrMo4', 'JIS SCM430'],
+  '8620': ['UNS G86200', 'DIN 1.6523', '21NiCrMo2', 'JIS SNCM220'],
+  '5140': ['UNS G51400', 'DIN 1.7035', '41Cr4', 'JIS SCr440'],
+  '6150': ['UNS G61500', 'DIN 1.8159', '51CrV4', 'JIS SUP10'],
+  '1045': ['UNS G10450', 'DIN 1.1191', 'C45', 'JIS S45C', 'KS SM45C'],
+  '20mncr5': ['DIN 1.7147', '20MnCr5', 'JIS SMnC420'],
+  // stainless (non-L grades)
+  '304': ['UNS S30400', 'EN 1.4301', 'X5CrNi18-10', 'JIS SUS304', 'KS STS304'],
+  '316': ['UNS S31600', 'EN 1.4401', 'X5CrNiMo17-12-2', 'JIS SUS316', 'KS STS316'],
+  '410': ['UNS S41000', 'EN 1.4006', 'X12Cr13', 'JIS SUS410', 'KS STS410'],
+  '430': ['UNS S43000', 'EN 1.4016', 'X6Cr17', 'JIS SUS430'],
+  '254smo': ['UNS S31254', 'EN 1.4547', '254 SMO'],
+  'superduplex': ['UNS S32750', 'EN 1.4410', '2507', 'SAF 2507'],
+  // titanium / nickel
+  'ti6242': ['Ti-6Al-2Sn-4Zr-2Mo', 'UNS R54620'],
+  'cm247lc': ['CM247LC', 'MAR-M247'],
+  'cpnickel': ['Nickel 200', 'UNS N02200'],
+  'cuni30': ['UNS C71500', 'CuNi30Mn1Fe', 'CW354H'],
+  // aluminium
+  'aa1050': ['UNS A91050', 'EN AW-1050A', 'Al99.5'],
+  'aa2014': ['UNS A92014', 'EN AW-2014', 'AlCu4SiMg'],
+  'aa2219': ['UNS A92219', 'EN AW-2219', 'AlCu6Mn'],
+  'aa7050': ['UNS A97050', 'EN AW-7050'],
+  'aa5083': ['UNS A95083', 'EN AW-5083', 'AlMg4.5Mn0.7'],
+  'aa3003': ['UNS A93003', 'EN AW-3003', 'AlMn1Cu'],
+  // magnesium / refractory
+  'az91d': ['UNS M11916', 'MgAl9Zn1'],
+  'az80a': ['MgAl8Zn'],
+  'tungsten': ['W', 'Pure tungsten 99.95'],
 };
 function extractAliases(name) {
   const out = [];
