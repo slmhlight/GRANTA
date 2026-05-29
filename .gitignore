@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+dist-ssr/
+
+# logs
+.manus-logs/
+*.log
+
+# editor / OS
+.DS_Store
+*.local
+*.swp
+
+# local-only Claude settings
+.claude/settings.local.json
+
+# project recovery scratch (not part of the codebase)
+_inspect/
+_src_zip/
+
+# generated preview (the live dataset is client/public/materials.json)
+data/materials.preview.json

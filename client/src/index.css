@@ -1,0 +1,305 @@
+/*
+ * AM Materials Explorer — Scientific Precision Design System
+ * Design Movement: Engineering Tool / Granta MI Aesthetic
+ * Color: Deep Navy (#1B2A4A) + ANSYS Blue (#00A3E0) + Light Gray Surface (#F0F4F8)
+ * Typography: IBM Plex Sans (UI) + IBM Plex Mono (numeric data)
+ * Layout: 3-panel (filter sidebar + data table + detail drawer)
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom AM Materials tokens */
+  --color-navy-900: oklch(0.18 0.05 250);
+  --color-navy-800: oklch(0.22 0.055 250);
+  --color-navy-700: oklch(0.28 0.06 250);
+  --color-navy-600: oklch(0.35 0.065 250);
+  --color-ansys-blue: oklch(0.62 0.17 220);
+  --color-ansys-blue-light: oklch(0.72 0.14 220);
+  --color-data-surface: oklch(0.97 0.005 250);
+  --color-metal: oklch(0.55 0.15 220);
+  --color-polymer: oklch(0.55 0.15 145);
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.375rem;
+  --background: oklch(0.97 0.005 250);
+  --foreground: oklch(0.18 0.05 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.05 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.05 250);
+  --primary: oklch(0.22 0.055 250);
+  --primary-foreground: oklch(0.97 0.005 250);
+  --secondary: oklch(0.93 0.01 250);
+  --secondary-foreground: oklch(0.28 0.06 250);
+  --muted: oklch(0.93 0.008 250);
+  --muted-foreground: oklch(0.48 0.04 250);
+  --accent: oklch(0.62 0.17 220);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.012 250);
+  --input: oklch(0.88 0.012 250);
+  --ring: oklch(0.62 0.17 220);
+  --chart-1: oklch(0.55 0.15 220);
+  --chart-2: oklch(0.55 0.15 145);
+  --chart-3: oklch(0.65 0.18 60);
+  --chart-4: oklch(0.60 0.18 300);
+  --chart-5: oklch(0.58 0.18 30);
+  --sidebar: oklch(0.22 0.055 250);
+  --sidebar-foreground: oklch(0.90 0.01 250);
+  --sidebar-primary: oklch(0.62 0.17 220);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.28 0.06 250);
+  --sidebar-accent-foreground: oklch(0.90 0.01 250);
+  --sidebar-border: oklch(0.30 0.06 250);
+  --sidebar-ring: oklch(0.62 0.17 220);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+
+  /* Numeric data — monospace */
+  .font-mono, .tabular-nums {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1400px;
+    }
+  }
+
+  /* AM Materials custom components */
+  .data-cell {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .property-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .sidebar-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: oklch(0.75 0.02 250);
+    transition: all 150ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .sidebar-nav-item:hover {
+    background: oklch(0.28 0.06 250);
+    color: oklch(0.95 0.005 250);
+  }
+
+  .sidebar-nav-item.active {
+    background: oklch(0.62 0.17 220 / 0.2);
+    color: oklch(0.72 0.14 220);
+  }
+
+  /* Table row hover */
+  .material-row {
+    transition: background 120ms ease-out;
+    cursor: pointer;
+  }
+
+  .material-row:hover {
+    background: oklch(0.62 0.17 220 / 0.06);
+  }
+
+  .material-row.selected {
+    background: oklch(0.62 0.17 220 / 0.12);
+  }
+
+  /* Scatter plot tooltip */
+  .chart-tooltip {
+    background: oklch(0.18 0.05 250 / 0.95);
+    color: oklch(0.95 0.005 250);
+    border: 1px solid oklch(0.30 0.06 250);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Range slider custom */
+  .range-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 2px;
+    background: oklch(0.88 0.012 250);
+    outline: none;
+  }
+
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: oklch(0.62 0.17 220);
+    cursor: pointer;
+    transition: transform 150ms ease-out;
+  }
+
+  .range-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+
+  /* Comparison panel */
+  .compare-column {
+    border-left: 1px solid oklch(0.88 0.012 250);
+    min-width: 180px;
+  }
+
+  /* Animate table rows in */
+  @keyframes rowIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .row-animate {
+    animation: rowIn 150ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+
+  /* Detail panel slide in */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .detail-panel-enter {
+    animation: slideInRight 250ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.80 0.015 250);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.65 0.03 250);
+  }
+}
