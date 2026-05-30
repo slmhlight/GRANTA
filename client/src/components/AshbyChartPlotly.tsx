@@ -239,37 +239,35 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     // grouped by class. Convex hull of real data points → irregular blob; box fallback.
     const shapes: any[] = [];
     const xi = PROP_ORDER.indexOf(xProperty), yi = PROP_ORDER.indexOf(yProperty);
-    const hullByClass = new Map<string, { color: string; xs: (number | null)[]; ys: (number | null)[] }>();
+    // ONE merged convex hull per group (1st-level family by default) — pool every member's data points
+    const hullByClass = new Map<string, { color: string; pts: number[][] }>();
     for (const m of colored) {
       const ck = envelopeBy === 'family' ? (m.subcategory || colKey(m)) : colKey(m);
       const cc = classOf(m).color;
+      if (!hullByClass.has(ck)) hullByClass.set(ck, { color: cc, pts: [] });
+      const g = hullByClass.get(ck)!;
       const raw = (((m as any).points || []) as number[][]);
-      const logPairs = (xi >= 0 && yi >= 0)
-        ? raw.map((t) => [t[xi], t[yi]]).filter(([x, y]) => x > 0 && y > 0).map(([x, y]) => [L(x), L(y)])
-        : [];
-      const uniqPts = Array.from(new Map(logPairs.map((p) => [`${p[0].toFixed(4)},${p[1].toFixed(4)}`, p])).values());
-      let poly: number[][] | null = null;
-      if (uniqPts.length >= 3) { const h = convexHull(uniqPts); if (h.length >= 3) poly = h.map((p) => [10 ** p[0], 10 ** p[1]]); }
-      if (!poly) {
+      if (xi >= 0 && yi >= 0 && raw.length) {
+        for (const t of raw) { const x = t[xi], y = t[yi]; if (x > 0 && y > 0) g.pts.push([L(x), L(y)]); }
+      } else {
         const xl = loOf(m, xProperty)!, xh = hiOf(m, xProperty)!, yl = loOf(m, yProperty)!, yh = hiOf(m, yProperty)!;
-        if (xl > 0 && yl > 0 && !(xl === xh && yl === yh)) {
-          const xb = xh === xl ? xl * 1.03 : xh, yb = yh === yl ? yl * 1.03 : yh;
-          poly = [[xl, yl], [xb, yl], [xb, yb], [xl, yb]];
-        }
+        if (xl > 0 && yl > 0) g.pts.push([L(xl), L(yl)], [L(xh), L(yl)], [L(xh), L(yh)], [L(xl), L(yh)]);
       }
-      if (!poly) continue;
-      if (!hullByClass.has(ck)) hullByClass.set(ck, { color: cc, xs: [], ys: [] });
-      const e = hullByClass.get(ck)!;
-      for (const [x, y] of poly) { e.xs.push(x); e.ys.push(y); }
-      e.xs.push(poly[0][0]); e.ys.push(poly[0][1]); // close polygon
-      e.xs.push(null); e.ys.push(null);             // separate from next polygon
     }
     const hullLegend = showLegend && !showMarkers && !colorMode; // label envelopes in the legend when markers are hidden
-    const hullTraces = Array.from(hullByClass.entries()).map(([key, e]) => ({
-      x: e.xs, y: e.ys, mode: 'lines', type: 'scatter', fill: envFill ? 'toself' : 'none',
-      fillcolor: rgba(e.color, envOpacity), line: { color: e.color, width: envFill ? 1 : 2, shape: 'spline', smoothing: 1 },
-      name: cleanSub(key), hoverinfo: 'skip', showlegend: hullLegend,
-    }));
+    const hullTraces = Array.from(hullByClass.entries()).map(([key, g]) => {
+      const uniq = Array.from(new Map(g.pts.map((p) => [`${p[0].toFixed(3)},${p[1].toFixed(3)}`, p])).values());
+      if (uniq.length < 3) return null;
+      const h = convexHull(uniq);
+      if (h.length < 3) return null;
+      const poly = h.map((p) => [10 ** p[0], 10 ** p[1]]);
+      return {
+        x: [...poly.map((p) => p[0]), poly[0][0]], y: [...poly.map((p) => p[1]), poly[0][1]],
+        mode: 'lines', type: 'scatter', fill: envFill ? 'toself' : 'none',
+        fillcolor: rgba(g.color, envOpacity), line: { color: g.color, width: envFill ? 1.5 : 2, shape: 'spline', smoothing: 1 },
+        name: cleanSub(key), hoverinfo: 'skip', showlegend: hullLegend,
+      };
+    }).filter(Boolean);
 
     // smooth filled envelope from a set of materials' data points (spline-curved hull)
     const envFromPoints = (ms: any[], color: string, alpha: number, width: number) => {
