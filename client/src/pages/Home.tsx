@@ -43,7 +43,7 @@ const ChartLoader = () => <div className="flex items-center justify-center h-96"
 
 type ViewMode = 'table' | 'cards' | 'ashby';
 
-const MAX_COMPARE = 30;
+const MAX_COMPARE = 500; // generous backstop; the Compare table/chart handle large sets fine
 
 export default function Home() {
   const [materials, setMaterials] = useState<Material[]>([]);
