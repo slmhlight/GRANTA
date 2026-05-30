@@ -19,11 +19,15 @@ import {
   Database,
   Info,
   Download,
+  Bookmark,
+  BookmarkPlus,
+  Trash2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import FilterSidebar from '@/components/FilterSidebar';
 import { MaterialTable } from '@/components/MaterialTable';
 import { MaterialCards } from '@/components/MaterialCards';
@@ -49,6 +53,8 @@ export default function Home() {
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
   const [compareList, setCompareList] = useState<string[]>([]);
   const [restrictIds, setRestrictIds] = useState<string[] | null>(null);
+  const [collections, setCollections] = useState<{ name: string; ids: string[] }[]>([]);
+  const [collName, setCollName] = useState('');
   const [showCompare, setShowCompare] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
@@ -81,6 +87,28 @@ export default function Home() {
         setError(e.message);
         setLoading(false);
       });
+  }, []);
+
+  // saved collections persist in localStorage
+  useEffect(() => {
+    try { const s = localStorage.getItem('am_collections'); if (s) setCollections(JSON.parse(s)); } catch { /* ignore */ }
+  }, []);
+  const saveCollection = useCallback(() => {
+    const name = collName.trim();
+    if (!name || !restrictIds || !restrictIds.length) return;
+    setCollections(prev => {
+      const next = [...prev.filter(c => c.name !== name), { name, ids: restrictIds }];
+      try { localStorage.setItem('am_collections', JSON.stringify(next)); } catch { /* ignore */ }
+      return next;
+    });
+    setCollName('');
+  }, [collName, restrictIds]);
+  const deleteCollection = useCallback((name: string) => {
+    setCollections(prev => {
+      const next = prev.filter(c => c.name !== name);
+      try { localStorage.setItem('am_collections', JSON.stringify(next)); } catch { /* ignore */ }
+      return next;
+    });
   }, []);
 
   const handleSelectMaterial = useCallback((m: Material) => {
@@ -367,13 +395,37 @@ export default function Home() {
                 {compareList.length}/{MAX_COMPARE} selected for comparison
               </span>
             )}
+            {collections.length > 0 && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm" className="h-7 text-xs gap-1"><Bookmark className="w-3 h-3" /> Collections <span className="text-muted-foreground">({collections.length})</span></Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="max-h-80 overflow-auto w-64">
+                  <DropdownMenuLabel className="text-xs">Saved collections</DropdownMenuLabel>
+                  {collections.map(c => (
+                    <div key={c.name} className="flex items-center gap-1 px-1.5 py-1 hover:bg-muted/50 rounded">
+                      <button className="flex-1 text-left text-xs truncate" onClick={() => setRestrictIds(c.ids)} title="Load (pin to table & cards)">
+                        {c.name} <span className="text-muted-foreground">({c.ids.length})</span>
+                      </button>
+                      <button className="text-muted-foreground/50 hover:text-destructive flex-shrink-0" onClick={() => deleteCollection(c.name)} title="Delete">
+                        <Trash2 className="w-3 h-3" />
+                      </button>
+                    </div>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
 
           {restrictIds && (
             <div className="flex items-center gap-2 px-4 py-1.5 bg-accent/10 border-b border-accent/30 text-xs">
               <span className="text-accent font-medium">{viewFiltered.length} materials pinned from chart selection</span>
               <span className="text-muted-foreground">(table &amp; cards)</span>
-              <button onClick={() => setRestrictIds(null)} className="ml-auto text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10">Clear</button>
+              <div className="ml-auto flex items-center gap-1.5">
+                <input value={collName} onChange={e => setCollName(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') saveCollection(); }} placeholder="collection name" className="h-6 w-36 text-[11px] rounded border border-border px-2 bg-background" />
+                <button onClick={saveCollection} disabled={!collName.trim()} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10 disabled:opacity-40 flex items-center gap-1"><BookmarkPlus className="w-3 h-3" /> Save</button>
+                <button onClick={() => setRestrictIds(null)} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10">Clear</button>
+              </div>
             </div>
           )}
           {/* Data view */}

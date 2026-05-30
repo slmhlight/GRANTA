@@ -28,10 +28,10 @@ const PROPERTY_OPTIONS = ALL_NUMERIC_PROPERTIES.map((p) => ({ value: p.key as st
 // Ashby material-selection indices: maximise M = Y^p / X to minimise mass for a given function.
 // On a log–log Y-vs-X chart the iso-index line has slope 1/p; materials on/above it pass.
 const MATERIAL_INDICES: { key: string; label: string; x: string; y: string; p: number; unit: string }[] = [
-  { key: 'E/rho', label: 'Stiff tie — E/ρ', x: 'density', y: 'modulus', p: 1, unit: 'GPa·cm³/g' },
+  { key: 'E/rho', label: 'Stiff tie — E/ρ', x: 'density', y: 'modulus', p: 1, unit: 'MJ/kg' },
   { key: 'sqrtE/rho', label: 'Light stiff beam — E½/ρ', x: 'density', y: 'modulus', p: 0.5, unit: 'GPa^½·cm³/g' },
   { key: 'cbrtE/rho', label: 'Light stiff panel — E⅓/ρ', x: 'density', y: 'modulus', p: 0.3333, unit: 'GPa^⅓·cm³/g' },
-  { key: 'Sy/rho', label: 'Strong tie — σy/ρ', x: 'density', y: 'yield_strength', p: 1, unit: 'MPa·cm³/g' },
+  { key: 'Sy/rho', label: 'Strong tie — σy/ρ', x: 'density', y: 'yield_strength', p: 1, unit: 'kJ/kg' },
   { key: 'Sy23/rho', label: 'Light strong beam — σy⅔/ρ', x: 'density', y: 'yield_strength', p: 0.6667, unit: 'MPa^⅔·cm³/g' },
   { key: 'sqrtSy/rho', label: 'Light strong panel — σy½/ρ', x: 'density', y: 'yield_strength', p: 0.5, unit: 'MPa^½·cm³/g' },
   { key: 'Sy2/E', label: 'Elastic spring/hinge — σy²/E', x: 'modulus', y: 'yield_strength', p: 2, unit: 'MPa²/GPa' },
