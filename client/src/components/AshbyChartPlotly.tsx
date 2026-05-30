@@ -86,22 +86,27 @@ function convexHull(pts: number[][]): number[][] {
 }
 const rgba = (hex: string, a: number) => { const n = parseInt(hex.slice(1), 16); return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`; };
 const cleanSub = (s: string) => s.replace(/^[A-Za-z]+(?:\s+[A-Za-z]+)?\s*-\s*/, '').trim() || s;
-const fmtNum = (v: number) => (v >= 1000 ? Math.round(v).toLocaleString() : v >= 10 ? v.toFixed(0) : v >= 1 ? v.toFixed(1) : v.toFixed(2));
-
-// per-axis min/max range slider that acts as a limitation filter on the plotted set
-function AxisLimitSlider({ axis, color, domain, limit, onChange }: { axis: string; color: string; domain: [number, number]; limit: [number, number] | null; onChange: (v: [number, number] | null) => void }) {
+// per-axis min/max limit: log-scale slider when the axis is log + editable numeric inputs (acts as a limitation filter)
+function AxisLimitSlider({ axis, color, domain, limit, log, onChange }: { axis: string; color: string; domain: [number, number]; limit: [number, number] | null; log?: boolean; onChange: (v: [number, number] | null) => void }) {
   const lo = domain[0];
   const hi = domain[1] > domain[0] ? domain[1] : domain[0] + (domain[0] || 1);
+  const useLog = !!log && lo > 0;
   const val = limit ?? [lo, hi];
-  const step = Math.max((hi - lo) / 120, hi > 1000 ? 1 : 0.001);
   const active = !!limit && (limit[0] > lo || limit[1] < hi);
+  const toS = (v: number) => (useLog ? Math.log10(v) : v);
+  const fromS = (s: number) => (useLog ? 10 ** s : s);
+  const sMin = toS(lo), sMax = toS(hi);
+  const step = (sMax - sMin) / 200 || 0.001;
+  const clamp = (v: number) => Math.min(hi, Math.max(lo, v));
+  const setRange = (a: number, b: number) => { const a2 = clamp(Math.min(a, b)), b2 = clamp(Math.max(a, b)); onChange(a2 <= lo && b2 >= hi ? null : [a2, b2]); };
+  const inputCls = 'w-16 h-6 text-[10px] font-mono rounded border border-border px-1 bg-background tabular-nums';
   return (
-    <div className="flex items-center gap-2 w-full">
-      <span className="text-[10px] font-medium flex-shrink-0" style={{ color }} title="limit">{axis}↔</span>
-      <span className="font-mono text-[10px] text-muted-foreground w-14 text-right tabular-nums">{fmtNum(val[0])}</span>
-      <Slider min={lo} max={hi} step={step} value={[val[0], val[1]]} onValueChange={(v: number[]) => onChange([v[0], v[1]])} className="flex-1" />
-      <span className="font-mono text-[10px] text-muted-foreground w-14 tabular-nums">{fmtNum(val[1])}</span>
-      <button type="button" onClick={() => onChange(null)} disabled={!active} className={`text-[10px] px-1.5 py-0.5 rounded border transition-colors ${active ? 'text-accent border-accent/40 hover:bg-accent/10' : 'text-muted-foreground/30 border-transparent cursor-default'}`}>reset</button>
+    <div className="flex items-center gap-1.5 w-full">
+      <span className="text-[10px] font-medium flex-shrink-0" style={{ color }} title={useLog ? `${axis} limit (log scale)` : `${axis} limit`}>{axis}{useLog ? ' log' : ''}↔</span>
+      <input type="number" value={Number(val[0].toPrecision(4))} onChange={(e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) setRange(v, val[1]); }} className={inputCls} />
+      <Slider min={sMin} max={sMax} step={step} value={[toS(val[0]), toS(val[1])]} onValueChange={(v: number[]) => setRange(fromS(v[0]), fromS(v[1]))} className="flex-1 min-w-[50px]" />
+      <input type="number" value={Number(val[1].toPrecision(4))} onChange={(e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) setRange(val[0], v); }} className={inputCls} />
+      <button type="button" onClick={() => onChange(null)} disabled={!active} className={`text-[12px] leading-none px-1.5 py-0.5 rounded border flex-shrink-0 ${active ? 'text-accent border-accent/40 hover:bg-accent/10' : 'text-muted-foreground/30 border-transparent cursor-default'}`} title="reset limit">×</button>
     </div>
   );
 }
@@ -406,7 +411,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             </Select>
             <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={xLog} onChange={(e) => setXLog(e.target.checked)} className="accent-accent" />log</label>
           </div>
-          <div className="mt-1.5 pl-5"><AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} onChange={setXLimit} /></div>
+          <div className="mt-1.5 pl-5"><AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} log={xLog} onChange={setXLimit} /></div>
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
@@ -417,7 +422,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             </Select>
             <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" />log</label>
           </div>
-          <div className="mt-1.5 pl-5"><AxisLimitSlider axis="Y" color="#9333ea" domain={yDomain} limit={yLimit} onChange={setYLimit} /></div>
+          <div className="mt-1.5 pl-5"><AxisLimitSlider axis="Y" color="#9333ea" domain={yDomain} limit={yLimit} log={yLog} onChange={setYLimit} /></div>
         </div>
       </div>
 
