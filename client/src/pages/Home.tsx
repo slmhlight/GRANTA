@@ -60,6 +60,12 @@ export default function Home() {
   const [showCompare, setShowCompare] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [panelWidth, setPanelWidth] = useState<number>(() => {
+    const s = typeof window !== 'undefined' ? window.localStorage.getItem('am_panel_w') : null;
+    const n = s ? Number(s) : 460;
+    return isFinite(n) && n >= 300 ? n : 460;
+  });
+  const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches);
 
   const {
     filters,
@@ -164,6 +170,31 @@ export default function Home() {
   const viewFiltered = restrictSet ? filtered.filter(m => restrictSet.has(m.id)) : filtered;
 
   const rightPanelOpen = selectedMaterial !== null || showCompare;
+
+  // Right Detail/Compare panel: persisted, drag-to-resize on desktop (full-screen overlay on mobile)
+  useEffect(() => { try { window.localStorage.setItem('am_panel_w', String(Math.round(panelWidth))); } catch { /* ignore */ } }, [panelWidth]);
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    const onChange = () => setIsDesktop(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  const startPanelResize = (e: { clientX: number; preventDefault: () => void }) => {
+    e.preventDefault();
+    const startX = e.clientX, startW = panelWidth;
+    const onMove = (ev: PointerEvent) => {
+      const max = Math.min(window.innerWidth - 360, 1100); // leave room for the data view
+      setPanelWidth(Math.max(320, Math.min(max, startW + (startX - ev.clientX)))); // panel is right-anchored: drag left → wider
+    };
+    const stop = () => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', stop);
+      document.body.style.userSelect = ''; document.body.style.cursor = '';
+    };
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', stop);
+    document.body.style.userSelect = 'none'; document.body.style.cursor = 'col-resize';
+  };
 
   // Stats
   const metalCount = materials.filter(m => m.category === 'Metal').length;
@@ -490,7 +521,14 @@ export default function Home() {
 
         {/* ─── Right Detail/Compare Panel ─── */}
         {rightPanelOpen && (
-          <div className={`fixed inset-0 z-40 md:static md:z-auto md:inset-auto flex-shrink-0 w-full overflow-hidden md:border-l border-border bg-background ${showCompare ? 'md:w-[30rem] xl:w-[40rem]' : 'md:w-80 xl:w-96'}`}>
+          <div className="fixed inset-0 z-40 md:relative md:z-auto md:inset-auto flex-shrink-0 w-full overflow-hidden md:border-l border-border bg-background" style={{ width: isDesktop ? panelWidth : undefined }}>
+            {/* drag handle (desktop): drag to resize, double-click to reset */}
+            <div
+              onPointerDown={startPanelResize}
+              onDoubleClick={() => setPanelWidth(460)}
+              className="hidden md:block absolute left-0 top-0 h-full w-1.5 -ml-0.5 z-20 cursor-col-resize hover:bg-accent/40 active:bg-accent/60 transition-colors"
+              title="Drag to resize · double-click to reset"
+            />
             {showCompare ? (
               <ComparePanel
                 materials={compareMaterials}
