@@ -53,6 +53,10 @@ export interface Material {
   weldability?: string | null;
   electrical_conductivity?: number | null;
   max_service_temp?: number | null;
+  thermal_expansion?: number | null;
+  poisson_ratio?: number | null;
+  specific_heat?: number | null;
+  melting_point?: number | null;
   price_per_kg?: number | null;
   price_per_cm3?: number | null;
   elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null }>;
@@ -112,6 +116,10 @@ export const PHYSICAL_PROPERTIES: PropertyMeta[] = [
   { key: 'thermal_conductivity', label: 'Thermal Conductivity', unit: 'W/m·K', description: 'Thermal conductivity at RT', group: 'thermal' },
   { key: 'electrical_conductivity', label: 'Electrical Conductivity', unit: '%IACS', description: 'Electrical conductivity (% IACS), typical', group: 'physical' },
   { key: 'max_service_temp', label: 'Max Service Temp', unit: '°C', description: 'Max continuous service temperature, typical', group: 'thermal' },
+  { key: 'thermal_expansion', label: 'Thermal Expansion (CTE)', unit: '10⁻⁶/K', description: 'Linear coefficient of thermal expansion near RT — class-typical', group: 'thermal' },
+  { key: 'specific_heat', label: 'Specific Heat', unit: 'J/kg·K', description: 'Specific heat capacity — class-typical', group: 'thermal' },
+  { key: 'melting_point', label: 'Melting / Liquidus', unit: '°C', description: 'Melting or liquidus temperature — class-typical', group: 'thermal' },
+  { key: 'poisson_ratio', label: "Poisson's Ratio", unit: '–', description: "Poisson's ratio — class-typical", group: 'physical' },
 ];
 
 export const COST_PROPERTIES: PropertyMeta[] = [

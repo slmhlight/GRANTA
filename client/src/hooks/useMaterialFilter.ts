@@ -27,6 +27,10 @@ export interface FilterState {
   fatigueStrengthRange: [number, number] | null;
   impactStrengthRange: [number, number] | null;
   pricePerKgRange: [number, number] | null;
+  thermalExpansionRange: [number, number] | null;
+  poissonRatioRange: [number, number] | null;
+  specificHeatRange: [number, number] | null;
+  meltingPointRange: [number, number] | null;
   corrosion: string[];
   machinability: string[];
   weldability: string[];
@@ -52,6 +56,10 @@ export const DEFAULT_FILTERS: FilterState = {
   fatigueStrengthRange: null,
   impactStrengthRange: null,
   pricePerKgRange: null,
+  thermalExpansionRange: null,
+  poissonRatioRange: null,
+  specificHeatRange: null,
+  meltingPointRange: null,
   corrosion: [],
   machinability: [],
   weldability: [],
@@ -167,6 +175,10 @@ export function useMaterialFilter(materials: Material[]) {
       { range: filters.fatigueStrengthRange, key: 'fatigue_strength' },
       { range: filters.impactStrengthRange, key: 'impact_strength' },
       { range: filters.pricePerKgRange, key: 'price_per_kg' },
+      { range: filters.thermalExpansionRange, key: 'thermal_expansion' },
+      { range: filters.poissonRatioRange, key: 'poisson_ratio' },
+      { range: filters.specificHeatRange, key: 'specific_heat' },
+      { range: filters.meltingPointRange, key: 'melting_point' },
     ];
 
     for (const { range, key } of rangeFilters) {
@@ -223,6 +235,10 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.fatigueStrengthRange) count++;
     if (filters.impactStrengthRange) count++;
     if (filters.pricePerKgRange) count++;
+    if (filters.thermalExpansionRange) count++;
+    if (filters.poissonRatioRange) count++;
+    if (filters.specificHeatRange) count++;
+    if (filters.meltingPointRange) count++;
     if (filters.corrosion.length > 0) count++;
     if (filters.machinability.length > 0) count++;
     if (filters.weldability.length > 0) count++;

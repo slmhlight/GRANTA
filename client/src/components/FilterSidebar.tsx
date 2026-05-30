@@ -441,6 +441,10 @@ export default function FilterSidebar({
   const fatigueStrengthRange = useMemo(() => getPropertyRange(materials, 'fatigue_strength'), [materials]);
   const impactStrengthRange = useMemo(() => getPropertyRange(materials, 'impact_strength'), [materials]);
   const pricePerKgRange = useMemo(() => getPropertyRange(materials, 'price_per_kg'), [materials]);
+  const thermalExpansionRange = useMemo(() => getPropertyRange(materials, 'thermal_expansion'), [materials]);
+  const poissonRatioRange = useMemo(() => getPropertyRange(materials, 'poisson_ratio'), [materials]);
+  const specificHeatRange = useMemo(() => getPropertyRange(materials, 'specific_heat'), [materials]);
+  const meltingPointRange = useMemo(() => getPropertyRange(materials, 'melting_point'), [materials]);
   const corrosionOpts = useMemo(() => orderQual(getUniqueValues(materials, 'corrosion_resistance')), [materials]);
   const machinabilityOpts = useMemo(() => orderQual(getUniqueValues(materials, 'machinability')), [materials]);
   const weldabilityOpts = useMemo(() => orderQual(getUniqueValues(materials, 'weldability')), [materials]);
@@ -566,6 +570,18 @@ export default function FilterSidebar({
         )}
         {pricePerKgRange && (
           <RangeSlider label="Price" unit="$/kg" min={pricePerKgRange[0]} max={pricePerKgRange[1]} value={filters.pricePerKgRange} onChange={v => updateFilter('pricePerKgRange', v)} />
+        )}
+        {thermalExpansionRange && (
+          <RangeSlider label="Thermal Expansion (CTE)" unit="10⁻⁶/K" min={thermalExpansionRange[0]} max={thermalExpansionRange[1]} value={filters.thermalExpansionRange} onChange={v => updateFilter('thermalExpansionRange', v)} />
+        )}
+        {meltingPointRange && (
+          <RangeSlider label="Melting / Liquidus" unit="°C" min={meltingPointRange[0]} max={meltingPointRange[1]} value={filters.meltingPointRange} onChange={v => updateFilter('meltingPointRange', v)} />
+        )}
+        {specificHeatRange && (
+          <RangeSlider label="Specific Heat" unit="J/kg·K" min={specificHeatRange[0]} max={specificHeatRange[1]} value={filters.specificHeatRange} onChange={v => updateFilter('specificHeatRange', v)} />
+        )}
+        {poissonRatioRange && (
+          <RangeSlider label="Poisson's Ratio" unit="–" min={poissonRatioRange[0]} max={poissonRatioRange[1]} value={filters.poissonRatioRange} onChange={v => updateFilter('poissonRatioRange', v)} />
         )}
         <QualitativeFilter label="Corrosion resistance" options={corrosionOpts} selected={filters.corrosion} onChange={v => updateFilter('corrosion', v)} />
         <QualitativeFilter label="Machinability" options={machinabilityOpts} selected={filters.machinability} onChange={v => updateFilter('machinability', v)} />

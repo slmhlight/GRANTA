@@ -16,8 +16,8 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 | modulus | 775/775 | 47 |
 | hardness | 697/775 | 552 |
 | thermal_conductivity | 775/775 | 2 |
-| fatigue_strength | 695/775 | 583 |
-| impact_strength | 79/775 | 79 |
+| fatigue_strength | 695/775 | 586 |
+| impact_strength | 87/775 | 87 |
 
 ## Sources (Task 2)
 - Materials with ≥1 **verified datasheet URL**: 103/775 (all curated + ref_urls).

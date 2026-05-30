@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
+import { TempCurveChart } from '@/components/TempCurveChart';
 
 interface MaterialDetailProps {
   material: Material | null;
@@ -225,7 +226,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {material.elevated_temp && material.elevated_temp.length > 0 && (
               <div>
                 <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Thermometer className="w-3 h-3" />Strength vs Temperature</h3>
-                <table className="w-full text-[11px]">
+                <TempCurveChart series={[{ name: material.name, color: '#0066CC', points: material.elevated_temp }]} mode="single" height={180} />
+                <table className="w-full text-[11px] mt-2">
                   <thead><tr className="text-muted-foreground"><th className="text-left font-normal py-0.5">Temp</th><th className="text-right font-normal">YS (MPa)</th><th className="text-right font-normal">UTS (MPa)</th></tr></thead>
                   <tbody>
                     {material.elevated_temp.map((e) => (

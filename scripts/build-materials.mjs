@@ -396,36 +396,45 @@ function assignPhysicals(m) {
     const tmax = has(/peek/) ? 250 : has(/ultem|pei/) ? 170 : has(/pes/) ? 180 : has(/nylon|pa1[12]|pa6|pa2|polyamide/) ? 110
       : has(/polycarb|\bpc\b/) ? 115 : has(/abs/) ? 90 : has(/petg/) ? 70 : has(/pla/) ? 55 : has(/tpu/) ? 80 : has(/\bpp\b|polypro/) ? 100 : 90;
     const price = has(/peek/) ? 400 : has(/ultem|pei|pes/) ? 200 : has(/nylon|polyamide/) ? 50 : has(/tpu|polycarb|\bpc\b/) ? 40 : 25;
-    return { ec: 0, tmax, price, qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' } };
+    const cte = has(/peek|ultem|pei|pes/) ? 50 : has(/nylon|polyamide/) ? 90 : has(/abs|polycarb|\bpc\b/) ? 70 : 80;
+    return { ec: 0, tmax, price, cte, poisson: 0.40, cp: 1500, melt: null, qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' } };
   }
   if (fam.includes('Copper-based')) {
     const ec = has(/becu|beryllium/) ? 22 : has(/brass/) ? 28 : has(/bronze/) ? 15 : has(/cucr|crzr|grcop|glidcop/) ? 80 : 95;
-    return { ec, tmax: 200, price: has(/becu|beryllium/) ? 40 : has(/bronze/) ? 12 : 9, qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    return { ec, tmax: 200, price: has(/becu|beryllium/) ? 40 : has(/bronze/) ? 12 : 9, cte: 17.5, poisson: 0.34, cp: 385, melt: has(/brass/) ? 930 : has(/bronze/) ? 950 : 1083, qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
   }
   if (fam.includes('Aluminum-based')) {
     const ec = has(/7075|7050|7175|7068/) ? 33 : has(/2024|2014|2219|2618/) ? 30 : has(/alsi10|alsi7|a356|f357|scalmalloy/) ? 40 : 45;
-    return { ec, tmax: has(/7075|7050/) ? 120 : 170, price: has(/scalmalloy/) ? 12 : 4, qual: { corrosion: 'Good', machinability: 'Excellent', weldability: 'Good' } };
+    return { ec, tmax: has(/7075|7050/) ? 120 : 170, price: has(/scalmalloy/) ? 12 : 4, cte: 23, poisson: 0.33, cp: 900, melt: 650, qual: { corrosion: 'Good', machinability: 'Excellent', weldability: 'Good' } };
   }
   if (fam.includes('Titanium-based')) {
-    return { ec: 1.5, tmax: has(/6242|6246|1100/) ? 540 : has(/5553|beta|2154/) ? 315 : 400, price: 35, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    return { ec: 1.5, tmax: has(/6242|6246|1100/) ? 540 : has(/5553|beta|2154/) ? 315 : 400, price: 35, cte: 8.8, poisson: 0.34, cp: 560, melt: 1650, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
   }
   if (fam.includes('Nickel-based') || fam.includes('Superalloy')) {
     const tmax = has(/haynes|230/) ? 1100 : has(/hastelloy/) ? 1000 : has(/625/) ? 815 : has(/738|939|713|waspaloy|rene|nimonic|247/) ? 950 : has(/718/) ? 650 : has(/600|601|617/) ? 1000 : 800;
-    return { ec: 1.3, tmax, price: has(/waspaloy|rene|haynes|247/) ? 80 : 50, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+    return { ec: 1.3, tmax, price: has(/waspaloy|rene|haynes|247/) ? 80 : 50, cte: 13, poisson: 0.30, cp: 440, melt: 1350, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
   }
-  if (fam.includes('Cobalt-based')) return { ec: 1.5, tmax: 1000, price: 60, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
-  if (fam.includes('Magnesium-based')) return { ec: 33, tmax: 120, price: 6, qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' } };
-  if (fam.includes('Refractory')) return { ec: 31, tmax: 1000, price: 70, qual: { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' } };
+  if (fam.includes('Cobalt-based')) return { ec: 1.5, tmax: 1000, price: 60, cte: 12.5, poisson: 0.30, cp: 420, melt: 1330, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+  if (fam.includes('Magnesium-based')) return { ec: 33, tmax: 120, price: 6, cte: 26, poisson: 0.35, cp: 1020, melt: 620, qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' } };
+  if (fam.includes('Refractory')) {
+    const cte = has(/tungsten|\bw\b/) ? 4.5 : has(/tantal/) ? 6.5 : has(/molybden|\bmo\b|tzm/) ? 5.0 : has(/niobium|\bnb\b|c-?103/) ? 7.3 : 5.5;
+    const cp = has(/tungsten|\bw\b/) ? 135 : has(/tantal/) ? 140 : has(/molybden|\bmo\b|tzm/) ? 250 : has(/niobium|\bnb\b|c-?103/) ? 265 : 200;
+    const melt = has(/tungsten|\bw\b/) ? 3410 : has(/tantal/) ? 3017 : has(/molybden|\bmo\b|tzm/) ? 2620 : has(/niobium|\bnb\b|c-?103/) ? 2477 : 2600;
+    return { ec: 31, tmax: 1000, price: 70, cte, poisson: 0.30, cp, melt, qual: { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' } };
+  }
   if (fam.includes('Iron-based') || has(/steel|stainless|invar|kovar/)) {
+    if (has(/\binvar\b|fe-?ni-?36|nilo|super-?invar/)) return { ec: 2, tmax: 200, price: 25, cte: 1.3, poisson: 0.29, cp: 515, melt: 1430, qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
+    if (has(/kovar|fe-?ni-?co|nilo-?k|dilver/)) return { ec: 3, tmax: 450, price: 30, cte: 5.5, poisson: 0.32, cp: 460, melt: 1450, qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
     if (has(/stainless|316|304|17-?4|174ph|155ph|duplex|2205|austenit|ferritic|martensit|410|420|440|nitronic/)) {
-      const tmax = has(/austenit|316|304|310|nitronic/) ? 800 : 500;
-      return { ec: 2.5, tmax, price: has(/duplex|2205|nitronic/) ? 6 : 5, qual: { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' } };
+      const aust = has(/austenit|316|304|310|nitronic/);
+      const tmax = aust ? 800 : 500;
+      return { ec: 2.5, tmax, price: has(/duplex|2205|nitronic/) ? 6 : 5, cte: aust ? 16 : 10.8, poisson: aust ? 0.30 : 0.29, cp: aust ? 500 : 460, melt: 1440, qual: { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' } };
     }
-    if (has(/maraging|18ni|c300|c250|c350|m300/) || sub.includes('maraging')) return { ec: 3, tmax: 400, price: 15, qual: { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' } };
-    if (sub.includes('tool') || has(/h13|d2|m2|m4|p20|s7|a2|o1|cpm/)) return { ec: 5, tmax: 550, price: 6, qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' } };
-    return { ec: 9, tmax: 450, price: 2, qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
+    if (has(/maraging|18ni|c300|c250|c350|m300/) || sub.includes('maraging')) return { ec: 3, tmax: 400, price: 15, cte: 10.3, poisson: 0.30, cp: 450, melt: 1430, qual: { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' } };
+    if (sub.includes('tool') || has(/h13|d2|m2|m4|p20|s7|a2|o1|cpm/)) return { ec: 5, tmax: 550, price: 6, cte: 11.5, poisson: 0.29, cp: 460, melt: 1430, qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' } };
+    return { ec: 9, tmax: 450, price: 2, cte: 12, poisson: 0.29, cp: 470, melt: 1500, qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
   }
-  return { ec: null, tmax: null, price: null, qual: null };
+  return { ec: null, tmax: null, price: null, cte: null, poisson: null, cp: null, melt: null, qual: null };
 }
 // measured fatigue (R=-1, MPa) / Charpy impact (J) / elevated-temp YS-UTS (handbook-typical) for key alloys
 const REAL_PROPS = {
@@ -444,8 +453,12 @@ const REAL_PROPS = {
   'aa7075': { fatigue: [140, 159, 180], impact: [5, 8, 12], elevated_temp: [{ temp: 20, ys: 505, uts: 570 }, { temp: 150, ys: 400, uts: 455 }, { temp: 200, ys: 215, uts: 260 }] },
   'aa2024': { fatigue: [120, 138, 160], impact: [10, 15, 20], elevated_temp: [{ temp: 20, ys: 345, uts: 485 }, { temp: 150, ys: 290, uts: 420 }, { temp: 200, ys: 180, uts: 290 }] },
   '4340': { fatigue: [380, 470, 560], impact: [20, 35, 50], elevated_temp: [{ temp: 20, ys: 1240, uts: 1380 }, { temp: 300, ys: 1100, uts: 1240 }, { temp: 425, ys: 1000, uts: 1100 }] },
+  'a286': { fatigue: [350, 420, 480], impact: [30, 45, 60], elevated_temp: [{ temp: 20, ys: 590, uts: 895 }, { temp: 540, ys: 520, uts: 790 }, { temp: 650, ys: 480, uts: 690 }, { temp: 760, ys: 280, uts: 410 }] },
+  '2205': { fatigue: [240, 280, 320], impact: [80, 120, 160], elevated_temp: [{ temp: 20, ys: 480, uts: 700 }, { temp: 100, ys: 410, uts: 650 }, { temp: 200, ys: 360, uts: 630 }, { temp: 300, ys: 330, uts: 610 }] },
+  'inconel600': { fatigue: [180, 220, 260], impact: [80, 110, 140], elevated_temp: [{ temp: 20, ys: 310, uts: 660 }, { temp: 540, ys: 200, uts: 580 }, { temp: 760, ys: 180, uts: 340 }, { temp: 870, ys: 95, uts: 190 }] },
+  'ti6242': { fatigue: [400, 480, 560], impact: [12, 16, 20], elevated_temp: [{ temp: 20, ys: 900, uts: 1010 }, { temp: 200, ys: 740, uts: 870 }, { temp: 400, ys: 620, uts: 760 }, { temp: 540, ys: 540, uts: 690 }] },
 };
-const REAL_ALIAS = { 'maragingsteel': 'maraging', 'm300': 'maraging', 'ms1': 'maraging', '18ni300': 'maraging', '718': 'inconel718', '625': 'inconel625', '6061': 'aa6061', '7075': 'aa7075', '2024': 'aa2024', '304': '304l', 'a357': 'alsi7mg' };
+const REAL_ALIAS = { 'maragingsteel': 'maraging', 'm300': 'maraging', 'ms1': 'maraging', '18ni300': 'maraging', '718': 'inconel718', '625': 'inconel625', '6061': 'aa6061', '7075': 'aa7075', '2024': 'aa2024', '304': '304l', 'a357': 'alsi7mg', '286': 'a286', '600': 'inconel600', '6242': 'ti6242', 'ti6242s': 'ti6242' };
 function realPropsFor(name) {
   const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
   for (const tok of String(name).split(/[\s(),/]+/)) if (/\d/.test(tok)) keys.add(norm(tok));
@@ -725,6 +738,10 @@ for (const m of all) {
   const setTyp = (k, v) => { if (v != null) { m[k] = v; m.ranges[k] = { min: v, max: v, typical: v, n: 0, estimated: true }; } };
   if (ph.ec != null) setTyp('electrical_conductivity', ph.ec);
   if (ph.tmax != null) setTyp('max_service_temp', ph.tmax);
+  if (ph.cte != null) setTyp('thermal_expansion', ph.cte);
+  if (ph.poisson != null) setTyp('poisson_ratio', ph.poisson);
+  if (ph.cp != null) setTyp('specific_heat', ph.cp);
+  if (ph.melt != null) setTyp('melting_point', ph.melt);
   if (ph.price != null) {
     setTyp('price_per_kg', ph.price);
     if (m.density) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4));
