@@ -428,6 +428,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
       {/* ── Grouping & display ── */}
       <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-b border-border">
+        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0">Filter</span>
         <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
           <SelectTrigger className="h-7 text-xs w-[128px]"><SelectValue /></SelectTrigger>
           <SelectContent>{groupOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All classes' : f}</SelectItem>)}</SelectContent>
@@ -436,8 +437,10 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
           <SelectTrigger className="h-7 text-xs w-[150px]"><SelectValue placeholder="Sub-family" /></SelectTrigger>
           <SelectContent>{subOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : cleanSub(f)}</SelectItem>)}</SelectContent>
         </Select>
+        <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
+        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0">Envelopes</span>
         <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
-          <input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> Envelopes
+          <input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> Show
         </label>
         <Select value={envelopeBy} onValueChange={(v) => setEnvelopeBy(v as 'category' | 'class' | 'family')}>
           <SelectTrigger className="h-7 text-xs w-[155px]" title="Envelope grouping"><SelectValue /></SelectTrigger>
@@ -447,6 +450,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <SelectItem value="family" className="text-xs">Sub-family (2nd)</SelectItem>
           </SelectContent>
         </Select>
+        <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
         <Popover>
           <PopoverTrigger asChild>
             <button type="button" className="text-xs text-muted-foreground hover:text-foreground border border-border rounded px-2 h-7 flex items-center gap-1">Display ▾</button>
