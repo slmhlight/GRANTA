@@ -451,24 +451,37 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
           <PopoverTrigger asChild>
             <button type="button" className="text-xs text-muted-foreground hover:text-foreground border border-border rounded px-2 h-7 flex items-center gap-1">Display ▾</button>
           </PopoverTrigger>
-          <PopoverContent align="start" className="w-60 text-xs space-y-3">
-            <div>
-              <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Marker size</span><span className="font-mono">{markerSize}</span></div>
-              <Slider min={4} max={16} step={1} value={[markerSize]} onValueChange={(v: number[]) => setMarkerSize(v[0])} />
+          <PopoverContent align="start" className="w-64 text-xs max-h-[75vh] overflow-auto space-y-3">
+            <div className="space-y-2">
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Markers</div>
+              <div><div className="flex justify-between text-muted-foreground mb-1"><span>Size</span><span className="font-mono">{markerSize}</span></div><Slider min={4} max={16} step={1} value={[markerSize]} onValueChange={(v: number[]) => setMarkerSize(v[0])} /></div>
+              <div><div className="flex justify-between text-muted-foreground mb-1"><span>Opacity</span><span className="font-mono">{markerOpacity.toFixed(2)}</span></div><Slider min={0.2} max={1} step={0.05} value={[markerOpacity]} onValueChange={(v: number[]) => setMarkerOpacity(v[0])} /></div>
+              {([['Show markers (scatter)', showMarkers, setShowMarkers], ['Point labels', showLabels, setShowLabels], ['Colour by category', colorByCategory, setColorByCategory]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+                <label key={label} className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}</label>
+              ))}
             </div>
-            <div>
-              <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Marker opacity</span><span className="font-mono">{markerOpacity.toFixed(2)}</span></div>
-              <Slider min={0.2} max={1} step={0.05} value={[markerOpacity]} onValueChange={(v: number[]) => setMarkerOpacity(v[0])} />
+            <div className="border-t border-border/60" />
+            <div className="space-y-2">
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Envelopes</div>
+              <div><div className="flex justify-between text-muted-foreground mb-1"><span>Opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div><Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} /></div>
+              {([['Fill', envFill, setEnvFill], ['Outline', envOutline, setEnvOutline]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+                <label key={label} className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}</label>
+              ))}
             </div>
-            <div>
-              <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Envelope opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div>
-              <Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} />
+            <div className="border-t border-border/60" />
+            <div className="space-y-2">
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Axes &amp; grid</div>
+              {([['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Ashby guide lines', showGuides, setShowGuides], ['Legend', showLegend, setShowLegend]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+                <label key={label} className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}</label>
+              ))}
             </div>
-            {([['Markers (scatter)', showMarkers, setShowMarkers], ['Envelope fill', envFill, setEnvFill], ['Envelope outline', envOutline, setEnvOutline], ['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
-              <label key={label} className="flex items-center gap-2 cursor-pointer select-none">
-                <input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}
-              </label>
-            ))}
+            <div className="border-t border-border/60" />
+            <div className="space-y-2">
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Appearance</div>
+              {([['Filtered-out points', showContext, setShowContext], ['Selected highlight', showSelected, setShowSelected], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+                <label key={label} className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}</label>
+              ))}
+            </div>
           </PopoverContent>
         </Popover>
         {comparing
