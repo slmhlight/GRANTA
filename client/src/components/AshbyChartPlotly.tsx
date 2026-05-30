@@ -131,6 +131,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [showMarkers, setShowMarkers] = useState(false);          // default: no scatter (envelopes only)
   const [envelopeBy, setEnvelopeBy] = useState<'class' | 'family'>('class'); // default: 1st-level family (coarse class: Steel/Al/Ni…); sub-family is opt-in
   const [envFill, setEnvFill] = useState(true);
+  const [envOutline, setEnvOutline] = useState(true);
   const [indexPreset, setIndexPreset] = useState('none');
   const [indexThreshold, setIndexThreshold] = useState<number | null>(null);
   const [boxedIds, setBoxedIds] = useState<Set<string>>(new Set());
@@ -264,7 +265,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       return {
         x: [...poly.map((p) => p[0]), poly[0][0]], y: [...poly.map((p) => p[1]), poly[0][1]],
         mode: 'lines', type: 'scatter', fill: envFill ? 'toself' : 'none',
-        fillcolor: rgba(g.color, envOpacity), line: { color: g.color, width: envFill ? 1.5 : 2, shape: 'spline', smoothing: 1 },
+        fillcolor: rgba(g.color, envOpacity), line: { color: g.color, width: envOutline ? (envFill ? 1.5 : 2) : 0, shape: 'spline', smoothing: 1 },
         name: cleanSub(key), hoverinfo: 'skip', showlegend: hullLegend,
       };
     }).filter(Boolean);
@@ -354,7 +355,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       ...indexTraces,
     ];
     return { data, layout, indexInfo, selectedIds };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, indexPreset2, indexThreshold2, showMarkers, envelopeBy, envFill]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, indexPreset2, indexThreshold2, showMarkers, envelopeBy, envFill, envOutline]);
 
   const config = {
     responsive: true, displaylogo: false,
@@ -440,7 +441,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
               <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Envelope opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div>
               <Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} />
             </div>
-            {([['Markers (scatter)', showMarkers, setShowMarkers], ['Sub-family envelopes (2nd level)', envelopeBy === 'family', (v: boolean) => setEnvelopeBy(v ? 'family' : 'class')], ['Envelope fill', envFill, setEnvFill], ['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+            {([['Markers (scatter)', showMarkers, setShowMarkers], ['Sub-family envelopes (2nd level)', envelopeBy === 'family', (v: boolean) => setEnvelopeBy(v ? 'family' : 'class')], ['Envelope fill', envFill, setEnvFill], ['Envelope outline', envOutline, setEnvOutline], ['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
               <label key={label} className="flex items-center gap-2 cursor-pointer select-none">
                 <input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}
               </label>
