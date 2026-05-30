@@ -129,7 +129,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [darkChart, setDarkChart] = useState(false);
   const [colorByCategory, setColorByCategory] = useState(false);
   const [showMarkers, setShowMarkers] = useState(false);          // default: no scatter (envelopes only)
-  const [envelopeBy, setEnvelopeBy] = useState<'class' | 'family'>('class'); // default: 1st-level family (coarse class: Steel/Al/Ni…); sub-family is opt-in
+  const [envelopeBy, setEnvelopeBy] = useState<'category' | 'class' | 'family'>('class'); // default 1st-level family (class); category = all-metals/all-polymers, family = sub-level
   const [envFill, setEnvFill] = useState(true);
   const [envOutline, setEnvOutline] = useState(true);
   const [indexPreset, setIndexPreset] = useState('none');
@@ -166,7 +166,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const valid = (m: any) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
     const inLim = (m: any) => (!xLimit || (tv(m, xProperty)! >= xLimit[0] && tv(m, xProperty)! <= xLimit[1]))
       && (!yLimit || (tv(m, yProperty)! >= yLimit[0] && tv(m, yProperty)! <= yLimit[1]));
-    const fset = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m) && inLim(m));
+    const fset = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m)); // limits act as a selection (below), not a frame change
     const fsetIds = new Set(fset.map((m) => m.id));
     const others = materials.filter((m) => !fsetIds.has(m.id) && valid(m));
 
@@ -199,6 +199,12 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       colored = fset.filter(pass).sort((a, b) => (Mof(idx, b) ?? 0) - (Mof(idx, a) ?? 0));
       coldFset = fset.filter((m) => !pass(m));
       colorMode = colored.length > 0;
+    } else if (xLimit || yLimit) {
+      // axis-limit sliders act as a selection window: highlight materials inside, divide the rest out
+      colored = fset.filter(inLim);
+      coldFset = fset.filter((m) => !inLim(m));
+      colorMode = colored.length > 0;
+      if (!colorMode) colored = fset;
     } else {
       const compareSet = new Set(compareList || []);
       colored = fset.filter((m) => compareSet.has(m.id));
@@ -242,9 +248,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const xi = PROP_ORDER.indexOf(xProperty), yi = PROP_ORDER.indexOf(yProperty);
     // ONE merged convex hull per group (1st-level family by default) — pool every member's data points
     const hullByClass = new Map<string, { color: string; pts: number[][] }>();
-    for (const m of colored) {
-      const ck = envelopeBy === 'family' ? (m.subcategory || colKey(m)) : colKey(m);
-      const cc = classOf(m).color;
+    for (const m of fset) {   // envelopes follow the full group (stable map), not the current selection
+      const ck = envelopeBy === 'category' ? m.category : envelopeBy === 'family' ? (m.subcategory || classOf(m).key) : classOf(m).key;
+      const cc = envelopeBy === 'category' ? (CATEGORY_COLORS[m.category] || '#64748b') : classOf(m).color;
       if (!hullByClass.has(ck)) hullByClass.set(ck, { color: cc, pts: [] });
       const g = hullByClass.get(ck)!;
       const raw = (((m as any).points || []) as number[][]);
@@ -288,8 +294,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     if (showEnvelopes) envelopeTraces = groupFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : hullTraces;
 
     // auto-range to the filtered envelope (log10 units, with padding)
-    const xs = colored.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
-    const ys = colored.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
+    const xs = fset.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
+    const ys = fset.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
     const logRange = (v: number[]) => v.length ? [L(Math.min(...v)) - 0.15, L(Math.max(...v)) + 0.15] : undefined;
     const linRange = (v: number[]) => { if (!v.length) return undefined; const mn = Math.min(...v), mx = Math.max(...v), pad = (mx - mn) * 0.06 || mx * 0.06; return [Math.max(0, mn - pad), mx + pad]; };
     const xRange = xLog ? logRange(xs) : linRange(xs);
@@ -335,7 +341,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const fontC = darkChart ? '#cbd5e1' : '#334155';
     const minorAxis = showMinorGrid ? { showgrid: true, gridcolor: darkChart ? '#16203a' : '#f5f8fc', gridwidth: 0.5 } : {};
     const layout: any = {
-      autosize: true, height: 600,
+      autosize: true,
       margin: { l: 72, r: 20, t: 28, b: 56 },
       xaxis: { title: { text: `${xMeta?.label ?? xProperty} (${xMeta?.unit ?? ''})`, font: { size: 12 } }, type: xLog ? 'log' : 'linear', range: xRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, minor: minorAxis },
       yaxis: { title: { text: `${yMeta?.label ?? yProperty} (${yMeta?.unit ?? ''})`, font: { size: 12 } }, type: yLog ? 'log' : 'linear', range: yRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, minor: minorAxis },
@@ -387,7 +393,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-white">
+    <div className="w-full h-full flex flex-col bg-white overflow-y-auto md:overflow-hidden">
       {/* Axis selectors */}
       <div className="flex flex-wrap items-center gap-4 px-4 py-2.5 border-b border-border">
         <div className="flex items-center gap-2">
@@ -441,7 +447,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
               <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Envelope opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div>
               <Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} />
             </div>
-            {([['Markers (scatter)', showMarkers, setShowMarkers], ['Sub-family envelopes (2nd level)', envelopeBy === 'family', (v: boolean) => setEnvelopeBy(v ? 'family' : 'class')], ['Envelope fill', envFill, setEnvFill], ['Envelope outline', envOutline, setEnvOutline], ['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+            {([['Markers (scatter)', showMarkers, setShowMarkers], ['All metals / all polymers (1 envelope each)', envelopeBy === 'category', (v: boolean) => setEnvelopeBy(v ? 'category' : 'class')], ['Sub-family envelopes (2nd level)', envelopeBy === 'family', (v: boolean) => setEnvelopeBy(v ? 'family' : 'class')], ['Envelope fill', envFill, setEnvFill], ['Envelope outline', envOutline, setEnvOutline], ['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
               <label key={label} className="flex items-center gap-2 cursor-pointer select-none">
                 <input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}
               </label>
@@ -513,11 +519,12 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       </div>
 
       {/* Chart */}
-      <div className="flex-1 min-h-0 p-2">
+      <div className="flex-1 min-h-[60vh] md:min-h-0 p-2">
         <Plot
           data={data as any}
           layout={layout as any}
           config={config as any}
+          useResizeHandler
           style={{ width: '100%', height: '100%' }}
           onClick={(e: any) => {
             const id = e?.points?.[0]?.customdata;
