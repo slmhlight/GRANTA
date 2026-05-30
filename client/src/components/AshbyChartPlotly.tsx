@@ -299,6 +299,14 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     // highlight the selected material's own envelope on top
     const selM = selectedId ? materials.find((m) => m.id === selectedId) : null;
     const selTrace = (showEnvelopes && showSelected && selM) ? [envFromPoints([selM], classOf(selM).color, 0.32, 3)].filter(Boolean) : [];
+    // prominent ring + label so a selected (or Compare-clicked) material is always locatable on the chart
+    const selX = selM ? tv(selM, xProperty) : null, selY = selM ? tv(selM, yProperty) : null;
+    const selMarker = (showSelected && selM && selX != null && selY != null && selX > 0 && selY > 0) ? [{
+      x: [selX], y: [selY], type: 'scatter' as const, mode: 'markers+text' as const,
+      marker: { size: 20, symbol: 'circle-open', color: darkChart ? '#f8fafc' : '#0f172a', line: { color: darkChart ? '#f8fafc' : '#0f172a', width: 3 } },
+      text: [selM.name], textposition: 'top center' as const, textfont: { size: 11, color: darkChart ? '#f8fafc' : '#0f172a' },
+      hoverinfo: 'text' as const, hovertext: [selM.name], showlegend: false, cliponaxis: false,
+    }] : [];
     // envelopes: hidden if toggled off; one class envelope when a class is selected; else per-material
     let envelopeTraces: any[] = [];
     if (showEnvelopes) envelopeTraces = groupFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : hullTraces;
@@ -369,6 +377,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       ...(showPts ? markerTraces : []),
       ...selTrace,
       ...indexTraces,
+      ...selMarker,
     ];
     return { data, layout, indexInfo, selectedIds };
   }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline]);

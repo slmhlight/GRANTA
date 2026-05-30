@@ -138,6 +138,13 @@ export default function Home() {
     setShowCompare(false);
   }, []);
 
+  // click a material inside Compare → open its detail AND show it highlighted on the Ashby chart
+  const handleSelectFromCompare = useCallback((m: Material) => {
+    setSelectedMaterial(m);
+    setShowCompare(false);
+    setViewMode('ashby');
+  }, []);
+
   const handleToggleCompare = useCallback((id: string) => {
     setCompareList(prev => {
       if (prev.includes(id)) return prev.filter(i => i !== id);
@@ -537,6 +544,7 @@ export default function Home() {
                   if (compareList.length <= 1) setShowCompare(false);
                 }}
                 onClose={() => setShowCompare(false)}
+                onSelect={handleSelectFromCompare}
               />
             ) : (
               <MaterialDetail

@@ -18,6 +18,7 @@ interface ComparePanelProps {
   materials: Material[];
   onRemove: (id: string) => void;
   onClose: () => void;
+  onSelect?: (m: Material) => void; // click a row → open its detail + locate it on the chart
 }
 
 const DEFAULT_COLS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness'];
@@ -29,7 +30,7 @@ const typOf = (m: Material, key: string): number | null => {
 
 type Sort = { key: string; dir: 'asc' | 'desc' } | null;
 
-export function ComparePanel({ materials, onRemove, onClose }: ComparePanelProps) {
+export function ComparePanel({ materials, onRemove, onClose, onSelect }: ComparePanelProps) {
   const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
   const [sort, setSort] = useState<Sort>(null);
   const [tempField, setTempField] = useState<'ys' | 'uts'>('ys');
@@ -142,7 +143,11 @@ export function ComparePanel({ materials, onRemove, onClose }: ComparePanelProps
                     <div className="flex items-start gap-1.5">
                       <span className="inline-block w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: color }} />
                       <div className="min-w-0 max-w-[150px]">
-                        <p className="font-semibold text-foreground leading-tight">{m.name}</p>
+                        {onSelect ? (
+                          <button type="button" onClick={() => onSelect(m)} className="font-semibold text-foreground leading-tight text-left hover:text-accent hover:underline underline-offset-2 cursor-pointer" title="Open detail & locate on chart">{m.name}</button>
+                        ) : (
+                          <p className="font-semibold text-foreground leading-tight">{m.name}</p>
+                        )}
                         <p className="text-[10px] text-muted-foreground truncate">{(m.processes || (m.process ? [m.process] : [])).join(' / ')}</p>
                       </div>
                       <button className="ml-1 text-muted-foreground/40 hover:text-destructive transition-colors flex-shrink-0" onClick={() => onRemove(m.id)} title="Remove">
