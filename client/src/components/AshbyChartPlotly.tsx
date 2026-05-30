@@ -306,7 +306,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     // active-filter selection window + axis limit sliders → reference lines (locked, not draggable)
     const fx = filters && RANGE_FILTER_KEY[xProperty] ? (filters[RANGE_FILTER_KEY[xProperty]] as [number, number] | null) : null;
     const fy = filters && RANGE_FILTER_KEY[yProperty] ? (filters[RANGE_FILTER_KEY[yProperty]] as [number, number] | null) : null;
-    const scX = (v: number) => (xLog ? L(v) : v), scY = (v: number) => (yLog ? L(v) : v);
+    const scX = (v: number) => v, scY = (v: number) => v; // Plotly shapes use RAW data coords (it applies log10 internally on log axes)
     if (fx) for (const xv of fx) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#0066CC', width: 1.5, dash: 'dot' }, editable: false });
     if (fy) for (const yv of fy) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#0066CC', width: 1.5, dash: 'dot' }, editable: false });
     if (xLimit) for (const xv of xLimit) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#9333ea', width: 1.5, dash: 'dash' }, editable: false });
@@ -327,9 +327,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     if (showGuides && xLog && yLog && guides && xRange && yRange) {
       const xm = (xRange[0] + xRange[1]) / 2, ym = (yRange[0] + yRange[1]) / 2;
       for (const g of guides) {
-        const yAt = (xl: number) => g.slope * (xl - xm) + ym;
-        shapes.push({ type: 'line', xref: 'x', yref: 'y', x0: xRange[0], x1: xRange[1], y0: yAt(xRange[0]), y1: yAt(xRange[1]), line: { color: '#cbd5e1', width: 1, dash: 'dash' }, layer: 'below', editable: false });
-        guideAnnotations.push({ x: xRange[1], y: yAt(xRange[1]), xref: 'x', yref: 'y', text: g.label, showarrow: false, font: { size: 9, color: '#94a3b8' }, xanchor: 'right', yanchor: 'bottom' });
+        const yAt = (xl: number) => g.slope * (xl - xm) + ym; // log-space; convert endpoints to raw for the shape
+        shapes.push({ type: 'line', xref: 'x', yref: 'y', x0: 10 ** xRange[0], x1: 10 ** xRange[1], y0: 10 ** yAt(xRange[0]), y1: 10 ** yAt(xRange[1]), line: { color: '#cbd5e1', width: 1, dash: 'dash' }, layer: 'below', editable: false });
+        guideAnnotations.push({ x: 10 ** xRange[1], y: 10 ** yAt(xRange[1]), xref: 'x', yref: 'y', text: g.label, showarrow: false, font: { size: 9, color: '#94a3b8' }, xanchor: 'right', yanchor: 'bottom' });
       }
     }
 
@@ -514,7 +514,22 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         )}
         {selectedIds.length > 0 && (
           <div className="ml-auto flex items-center gap-1.5">
-            <span className="text-[11px] text-muted-foreground">{selectedIds.length} selected</span>
+            <Popover>
+              <PopoverTrigger asChild>
+                <button type="button" className="text-[11px] text-accent font-medium hover:underline underline-offset-2">{selectedIds.length} active ▾</button>
+              </PopoverTrigger>
+              <PopoverContent align="end" className="w-64 p-0 text-xs">
+                <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-border">
+                  <span className="font-semibold">{selectedIds.length} active materials</span>
+                  {onCompareMany && <button type="button" onClick={() => onCompareMany(selectedIds)} className="text-[11px] px-2 py-0.5 rounded border border-accent/50 text-accent hover:bg-accent/10 flex-shrink-0">Add all → Compare</button>}
+                </div>
+                <div className="max-h-60 overflow-auto py-1">
+                  {selectedIds.map((id) => { const m = materials.find((x) => x.id === id); return m ? (
+                    <div key={id} className="px-3 py-1 truncate hover:bg-muted/50" title={m.name}>{m.name}</div>
+                  ) : null; })}
+                </div>
+              </PopoverContent>
+            </Popover>
             {onCompareMany && <button type="button" onClick={() => onCompareMany(selectedIds)} className="text-[11px] px-2 py-0.5 rounded border border-accent/50 text-accent hover:bg-accent/10 font-medium">+ Compare</button>}
             <button type="button" onClick={exportSelection} className="text-[11px] px-2 py-0.5 rounded border border-border text-foreground hover:bg-muted">Export CSV</button>
             {onApplyToFilter && <button type="button" onClick={() => onApplyToFilter(selectedIds)} className="text-[11px] px-2 py-0.5 rounded border border-border text-foreground hover:bg-muted">→ Filter</button>}
@@ -548,8 +563,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
               const ny = e[`shapes[${ref.shapeIndex}].y0`];
               const nx = e[`shapes[${ref.shapeIndex}].x0`];
               if (ny == null && nx == null) return;
-              const rawX = nx != null ? 10 ** nx : ref.x0;
-              const rawY = ny != null ? 10 ** ny : ref.y0;
+              const rawX = nx != null ? nx : ref.x0;   // shape coords are raw data values
+              const rawY = ny != null ? ny : ref.y0;
               const M = Math.pow(rawY, ref.p) / rawX;
               if (isFinite(M) && M > 0) setIndexThreshold(M);
             },

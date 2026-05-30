@@ -43,7 +43,7 @@ const ChartLoader = () => <div className="flex items-center justify-center h-96"
 
 type ViewMode = 'table' | 'cards' | 'ashby';
 
-const MAX_COMPARE = 12;
+const MAX_COMPARE = 30;
 
 export default function Home() {
   const [materials, setMaterials] = useState<Material[]>([]);
