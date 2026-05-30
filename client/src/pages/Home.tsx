@@ -490,7 +490,7 @@ export default function Home() {
 
         {/* ─── Right Detail/Compare Panel ─── */}
         {rightPanelOpen && (
-          <div className="fixed inset-0 z-40 md:static md:z-auto md:inset-auto flex-shrink-0 w-full md:w-80 xl:w-96 overflow-hidden md:border-l border-border bg-background">
+          <div className={`fixed inset-0 z-40 md:static md:z-auto md:inset-auto flex-shrink-0 w-full overflow-hidden md:border-l border-border bg-background ${showCompare ? 'md:w-[30rem] xl:w-[40rem]' : 'md:w-80 xl:w-96'}`}>
             {showCompare ? (
               <ComparePanel
                 materials={compareMaterials}

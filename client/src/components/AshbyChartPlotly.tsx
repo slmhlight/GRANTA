@@ -35,6 +35,10 @@ const MATERIAL_INDICES: { key: string; label: string; x: string; y: string; p: n
   { key: 'Sy23/rho', label: 'Light strong beam — σy⅔/ρ', x: 'density', y: 'yield_strength', p: 0.6667, unit: 'MPa^⅔·cm³/g' },
   { key: 'sqrtSy/rho', label: 'Light strong panel — σy½/ρ', x: 'density', y: 'yield_strength', p: 0.5, unit: 'MPa^½·cm³/g' },
   { key: 'Sy2/E', label: 'Elastic spring/hinge — σy²/E', x: 'modulus', y: 'yield_strength', p: 2, unit: 'MPa²/GPa' },
+  { key: 'Sy/E', label: 'Elastic strain — σy/E', x: 'modulus', y: 'yield_strength', p: 1, unit: 'MPa/GPa' },
+  { key: 'k/rho', label: 'Light heat-sink — k/ρ', x: 'density', y: 'thermal_conductivity', p: 1, unit: 'W·cm³/m·K·g' },
+  { key: 'E/cost', label: 'Cheap stiffness — E/Cm', x: 'price_per_kg', y: 'modulus', p: 1, unit: 'GPa·kg/$' },
+  { key: 'Sy/cost', label: 'Cheap strength — σy/Cm', x: 'price_per_kg', y: 'yield_strength', p: 1, unit: 'MPa·kg/$' },
 ];
 
 // numeric property → its range-filter key in FilterState (for the selection window)
@@ -140,8 +144,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [indexPreset, setIndexPreset] = useState('none');
   const [indexThreshold, setIndexThreshold] = useState<number | null>(null);
   const [boxedIds, setBoxedIds] = useState<Set<string>>(new Set());
-  const [indexPreset2, setIndexPreset2] = useState('none');
-  const [indexThreshold2, setIndexThreshold2] = useState<number | null>(null);
+  const [constraints, setConstraints] = useState<{ key: string; thr: number | null }[]>([]); // additional index constraints (multi-index, ANDed)
   const indexLineRef = useRef<{ shapeIndex: number; p: number; x0: number; y0: number } | null>(null);
 
   const filtered = filteredMaterials || materials;
@@ -177,11 +180,18 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
     // ── selection precedence: chart box-select > material-index preset(s) > Compare list ──
     const idx = MATERIAL_INDICES.find((i) => i.key === indexPreset) || null;
-    const idx2 = MATERIAL_INDICES.find((i) => i.key === indexPreset2) || null;
     const Mof = (ix: { x: string; y: string; p: number } | null, m: any) => { if (!ix) return null; const xv = tv(m, ix.x), yv = tv(m, ix.y); return xv && yv && xv > 0 && yv > 0 ? Math.pow(yv, ix.p) / xv : null; };
+    // resolve every additional index constraint to its preset + auto/median threshold + range (multi-index, ANDed)
+    const consInfo = (idx ? constraints : []).map((c) => {
+      const cidx = MATERIAL_INDICES.find((i) => i.key === c.key);
+      if (!cidx) return null;
+      const cMs = fset.map((m) => Mof(cidx, m)).filter((v): v is number => v != null && isFinite(v)).sort((a, b) => a - b);
+      const cMin = cMs[0] ?? 0, cMax = cMs[cMs.length - 1] ?? 0;
+      const cThr = c.thr ?? (cMs.length ? cMs[Math.floor(cMs.length / 2)] : 0);
+      return { key: c.key, label: cidx.label, idx: cidx, thr: cThr, minM: cMin, maxM: cMax, unit: cidx.unit };
+    }).filter(Boolean) as { key: string; label: string; idx: { x: string; y: string; p: number }; thr: number; minM: number; maxM: number; unit: string }[];
     let colored: Material[], coldFset: Material[], colorMode = false;
     let indexThr: number | null = null, minM = 0, maxM = 0;
-    let indexThr2: number | null = null, minM2 = 0, maxM2 = 0;
     if (boxedIds.size > 0) {
       colored = fset.filter((m) => boxedIds.has(m.id));
       coldFset = fset.filter((m) => !boxedIds.has(m.id));
@@ -191,14 +201,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       const Ms = fset.map((m) => Mof(idx, m)).filter((v): v is number => v != null && isFinite(v)).sort((a, b) => a - b);
       minM = Ms[0] ?? 0; maxM = Ms[Ms.length - 1] ?? 0;
       indexThr = indexThreshold ?? (Ms.length ? Ms[Math.floor(Ms.length / 2)] : 0); // default ≈ median → ~half pass
-      if (idx2) {
-        const Ms2 = fset.map((m) => Mof(idx2, m)).filter((v): v is number => v != null && isFinite(v)).sort((a, b) => a - b);
-        minM2 = Ms2[0] ?? 0; maxM2 = Ms2[Ms2.length - 1] ?? 0;
-        indexThr2 = indexThreshold2 ?? (Ms2.length ? Ms2[Math.floor(Ms2.length / 2)] : 0);
-      }
       const pass = (m: any) => {
         const M = Mof(idx, m); if (!(M != null && M >= indexThr!)) return false;
-        if (idx2) { const M2 = Mof(idx2, m); return M2 != null && M2 >= indexThr2!; }
+        for (const c of consInfo) { const Mc = Mof(c.idx, m); if (!(Mc != null && Mc >= c.thr)) return false; }
         return true;
       };
       colored = fset.filter(pass).sort((a, b) => (Mof(idx, b) ?? 0) - (Mof(idx, a) ?? 0));
@@ -356,7 +361,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: fontC },
     };
 
-    const indexInfo = (idx && boxedIds.size === 0) ? { count: colored.length, total: fset.length, thr: indexThr as number, minM, maxM, unit: idx.unit, second: idx2 ? { thr: indexThr2 as number, minM: minM2, maxM: maxM2, unit: idx2.unit } : null } : null;
+    const indexInfo = (idx && boxedIds.size === 0) ? { count: colored.length, total: fset.length, thr: indexThr as number, minM, maxM, unit: idx.unit, constraints: consInfo.map((c) => ({ key: c.key, label: c.label, thr: c.thr, minM: c.minM, maxM: c.maxM, unit: c.unit })) } : null;
     const showPts = showMarkers || colorMode; // markers shown if toggled on, or when a selection is active
     const data = [
       ...envelopeTraces,
@@ -366,12 +371,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       ...indexTraces,
     ];
     return { data, layout, indexInfo, selectedIds };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, indexPreset2, indexThreshold2, showMarkers, envelopeBy, envFill, envOutline]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline]);
 
   const config = {
     responsive: true, displaylogo: false,
     modeBarButtonsToRemove: ['autoScale2d'], // keep box-select + lasso for material selection
-    edits: { shapePosition: true }, // allow dragging the index selection line
     toImageButtonOptions: { format: 'png', filename: 'ashby_chart', height: 700, width: 1000, scale: 2 },
   };
   const comparing = (compareList?.length ?? 0) > 0;
@@ -405,7 +409,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
             <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">X</span>
-            <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); }}>
+            <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); setConstraints([]); }}>
               <SelectTrigger className="h-7 text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
               <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
             </Select>
@@ -416,7 +420,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
             <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">Y</span>
-            <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); }}>
+            <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); setConstraints([]); }}>
               <SelectTrigger className="h-7 text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
               <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
             </Select>
@@ -496,7 +500,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       {/* Ashby material-index selection — pick a performance index, move the selection line by value */}
       <div className="flex flex-wrap items-center gap-3 px-4 py-2 border-b border-border bg-rose-50/50">
         <span className="text-[10px] text-rose-700 uppercase tracking-wide font-semibold">Index</span>
-        <Select value={indexPreset} onValueChange={(v) => { setIndexPreset(v); setIndexPreset2('none'); setIndexThreshold2(null); const p = MATERIAL_INDICES.find((i) => i.key === v); if (p) { setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null); } }}>
+        <Select value={indexPreset} onValueChange={(v) => { setIndexPreset(v); setConstraints([]); const p = MATERIAL_INDICES.find((i) => i.key === v); if (p) { setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null); } }}>
           <SelectTrigger className="h-7 text-xs w-[240px]"><SelectValue placeholder="Material index (off)" /></SelectTrigger>
           <SelectContent>
             <SelectItem value="none" className="text-xs">Off</SelectItem>
@@ -518,19 +522,28 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <span className="text-[11px] font-semibold text-rose-700">{indexInfo.count}/{indexInfo.total} pass</span>
             <button type="button" onClick={() => setIndexThreshold(null)} className="text-[10px] px-1.5 py-0.5 rounded border text-accent border-accent/40 hover:bg-accent/10">auto</button>
             <span className="text-rose-300">·</span>
-            <Select value={indexPreset2} onValueChange={(v) => { setIndexPreset2(v); setIndexThreshold2(null); }}>
-              <SelectTrigger className="h-7 text-xs w-[190px]"><SelectValue placeholder="+ 2nd constraint" /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="none" className="text-xs">No 2nd constraint</SelectItem>
-                {MATERIAL_INDICES.filter((i) => i.key !== indexPreset).map((i) => <SelectItem key={i.key} value={i.key} className="text-xs">{i.label}</SelectItem>)}
-              </SelectContent>
-            </Select>
-            {indexInfo.second && (
-              <>
-                <span className="text-[11px] text-muted-foreground">M₂ ≥</span>
-                <input type="number" value={Number((indexThreshold2 ?? indexInfo.second.thr).toPrecision(4))} step={(indexInfo.second.maxM - indexInfo.second.minM) / 100 || 0.1} onChange={(e) => setIndexThreshold2(e.target.value === '' ? null : Number(e.target.value))} className="h-7 w-24 text-xs font-mono rounded border border-border px-1.5 bg-background" />
-                <span className="text-[10px] text-muted-foreground">{indexInfo.second.unit}</span>
-              </>
+            {indexInfo.constraints.map((c, ci) => (
+              <span key={ci} className="flex items-center gap-1 rounded bg-rose-100/60 border border-rose-200 px-1.5 py-0.5">
+                <Select value={c.key} onValueChange={(v) => setConstraints((prev) => prev.map((x, i) => (i === ci ? { key: v, thr: null } : x)))}>
+                  <SelectTrigger className="h-6 text-[11px] w-[168px] border-0 bg-transparent px-1"><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    {MATERIAL_INDICES.filter((i) => i.key === c.key || (i.key !== indexPreset && !constraints.some((x) => x.key === i.key))).map((i) => <SelectItem key={i.key} value={i.key} className="text-xs">{i.label}</SelectItem>)}
+                  </SelectContent>
+                </Select>
+                <span className="text-[10px] text-muted-foreground">≥</span>
+                <input type="number" value={Number((constraints[ci]?.thr ?? c.thr).toPrecision(4))} step={(c.maxM - c.minM) / 100 || 0.1} onChange={(e) => setConstraints((prev) => prev.map((x, i) => (i === ci ? { ...x, thr: e.target.value === '' ? null : Number(e.target.value) } : x)))} className="h-6 w-20 text-[11px] font-mono rounded border border-border px-1 bg-background" />
+                <span className="text-[9px] text-muted-foreground">{c.unit}</span>
+                <button type="button" onClick={() => setConstraints((prev) => prev.filter((_, i) => i !== ci))} className="text-rose-500 hover:text-rose-700 text-sm leading-none px-0.5" title="Remove constraint">×</button>
+              </span>
+            ))}
+            {MATERIAL_INDICES.some((i) => i.key !== indexPreset && !constraints.some((x) => x.key === i.key)) && (
+              <Select value="none" onValueChange={(v) => { if (v !== 'none') setConstraints((prev) => [...prev, { key: v, thr: null }]); }}>
+                <SelectTrigger className="h-7 text-xs w-[150px] border-dashed"><SelectValue placeholder="+ constraint" /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="none" className="text-xs">+ add constraint…</SelectItem>
+                  {MATERIAL_INDICES.filter((i) => i.key !== indexPreset && !constraints.some((x) => x.key === i.key)).map((i) => <SelectItem key={i.key} value={i.key} className="text-xs">{i.label}</SelectItem>)}
+                </SelectContent>
+              </Select>
             )}
           </>
         )}
