@@ -22,6 +22,7 @@ import {
   Bookmark,
   BookmarkPlus,
   Trash2,
+  Share2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -55,6 +56,7 @@ export default function Home() {
   const [restrictIds, setRestrictIds] = useState<string[] | null>(null);
   const [collections, setCollections] = useState<{ name: string; ids: string[] }[]>([]);
   const [collName, setCollName] = useState('');
+  const [linkCopied, setLinkCopied] = useState(false);
   const [showCompare, setShowCompare] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
@@ -93,6 +95,11 @@ export default function Home() {
   useEffect(() => {
     try { const s = localStorage.getItem('am_collections'); if (s) setCollections(JSON.parse(s)); } catch { /* ignore */ }
   }, []);
+  // restore a shared selection from the URL hash (#g=name~id.id.id)
+  useEffect(() => {
+    const m = location.hash.match(/^#g=([^~]*)~(.+)$/);
+    if (m) { const ids = m[2].split('.').filter(Boolean); if (ids.length) setRestrictIds(ids); }
+  }, []);
   const saveCollection = useCallback(() => {
     const name = collName.trim();
     if (!name || !restrictIds || !restrictIds.length) return;
@@ -109,6 +116,15 @@ export default function Home() {
       try { localStorage.setItem('am_collections', JSON.stringify(next)); } catch { /* ignore */ }
       return next;
     });
+  }, []);
+  // shareable URL: encode the material-id set in the hash, copy to clipboard + put in the address bar
+  const shareSet = useCallback((name: string, ids: string[]) => {
+    if (!ids || !ids.length) return;
+    const url = `${location.origin}${location.pathname}#g=${encodeURIComponent(name || 'shared')}~${ids.join('.')}`;
+    try { navigator.clipboard?.writeText(url); } catch { /* ignore */ }
+    try { history.replaceState(null, '', url); } catch { /* ignore */ }
+    setLinkCopied(true);
+    window.setTimeout(() => setLinkCopied(false), 2500);
   }, []);
 
   const handleSelectMaterial = useCallback((m: Material) => {
@@ -407,6 +423,9 @@ export default function Home() {
                       <button className="flex-1 text-left text-xs truncate" onClick={() => setRestrictIds(c.ids)} title="Load (pin to table & cards)">
                         {c.name} <span className="text-muted-foreground">({c.ids.length})</span>
                       </button>
+                      <button className="text-muted-foreground/50 hover:text-accent flex-shrink-0" onClick={() => shareSet(c.name, c.ids)} title="Copy share link">
+                        <Share2 className="w-3 h-3" />
+                      </button>
                       <button className="text-muted-foreground/50 hover:text-destructive flex-shrink-0" onClick={() => deleteCollection(c.name)} title="Delete">
                         <Trash2 className="w-3 h-3" />
                       </button>
@@ -424,6 +443,7 @@ export default function Home() {
               <div className="ml-auto flex items-center gap-1.5">
                 <input value={collName} onChange={e => setCollName(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') saveCollection(); }} placeholder="collection name" className="h-6 w-36 text-[11px] rounded border border-border px-2 bg-background" />
                 <button onClick={saveCollection} disabled={!collName.trim()} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10 disabled:opacity-40 flex items-center gap-1"><BookmarkPlus className="w-3 h-3" /> Save</button>
+                <button onClick={() => shareSet(collName.trim(), restrictIds || [])} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10 flex items-center gap-1"><Share2 className="w-3 h-3" /> {linkCopied ? 'Copied!' : 'Share'}</button>
                 <button onClick={() => setRestrictIds(null)} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10">Clear</button>
               </div>
             </div>

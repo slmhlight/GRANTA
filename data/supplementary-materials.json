@@ -702,6 +702,192 @@
       "composition": {},
       "points": [[1.03, 45, 55, 100, 1.4, 0, 0.28], [1.03, 40, 50, 80, 1.3, 0, 0.28], [1.03, 50, 60, 150, 1.5, 0, 0.28]],
       "sources": [{ "label": "Arkema — Rilsan PA11 (SLS)", "url": null, "verified": false }]
+    },
+    {
+      "name": "CMSX-4", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Cast",
+      "composition": { "Ni": "balance", "Cr": "6.5", "Co": "9", "W": "6", "Re": "3", "Al": "5.6", "Ta": "6.5", "Ti": "1" },
+      "points": [[8.7, 950, 1100, 15, 125, 400, 11], [8.7, 900, 1050, 18, 125, 420, 11]],
+      "sources": [{ "label": "Cannon-Muskegon — CMSX-4 single-crystal superalloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Rene N5", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Cast",
+      "composition": { "Ni": "balance", "Cr": "7", "Co": "8", "W": "5", "Re": "3", "Al": "6.2", "Ta": "7", "Mo": "2" },
+      "points": [[8.63, 950, 1100, 14, 130, 400, 11], [8.63, 900, 1050, 16, 130, 420, 11]],
+      "sources": [{ "label": "GE / ASM — Rene N5 single-crystal superalloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "PWA1484", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Cast",
+      "composition": { "Ni": "balance", "Cr": "5", "Co": "10", "W": "6", "Re": "3", "Al": "5.6", "Ta": "9", "Mo": "2" },
+      "points": [[8.95, 940, 1090, 12, 128, 400, 10], [8.95, 890, 1040, 15, 128, 420, 10]],
+      "sources": [{ "label": "Pratt & Whitney / ASM — PWA1484 single-crystal superalloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Inconel 740H", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "24~26", "Co": "20", "Nb": "1.5", "Ti": "1.4", "Al": "1.4" },
+      "points": [[8.05, 700, 1050, 30, 221, 320, 12], [8.05, 660, 1000, 25, 221, 300, 12]],
+      "sources": [{ "label": "Special Metals — Inconel 740H (A-USC superalloy)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Incoloy 901", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "40~45", "Cr": "11~14", "Mo": "5~6.5", "Ti": "2.5~3.1" },
+      "points": [[8.21, 900, 1200, 15, 206, 360, 12], [8.21, 850, 1150, 12, 206, 340, 12]],
+      "sources": [{ "label": "Special Metals — Incoloy 901 (UNS N09901)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Nimonic 105", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Co": "18~22", "Cr": "14~15.7", "Mo": "4.5~5.5", "Al": "4.5~4.9", "Ti": "0.9~1.5" },
+      "points": [[8.0, 770, 1130, 25, 222, 340, 11], [8.0, 730, 1080, 20, 222, 320, 11]],
+      "sources": [{ "label": "Special Metals — Nimonic 105 (UNS N13021)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Hastelloy C-2000", "category": "Metal", "subcategory": "Nickel - Hastelloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "22~24", "Mo": "15~17", "Cu": "1.3~1.9" },
+      "points": [[8.5, 360, 765, 60, 207, 230, 9], [8.5, 330, 730, 55, 207, 220, 9]],
+      "sources": [{ "label": "Haynes — Hastelloy C-2000 (UNS N06200)", "url": null, "verified": false }]
+    },
+    {
+      "name": "15-7 PH", "category": "Metal", "subcategory": "Stainless Steel - Ferritic/Martensitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "14~16", "Ni": "6.5~7.75", "Mo": "2~3", "Al": "0.75~1.5" },
+      "points": [[7.8, 1380, 1550, 7, 200, 460, 16], [7.8, 1310, 1480, 5, 200, 440, 16]],
+      "sources": [{ "label": "AK Steel — 15-7 PH (UNS S15700, RH950)", "url": null, "verified": false }]
+    },
+    {
+      "name": "309S", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "22~24", "Ni": "12~15" },
+      "points": [[7.9, 250, 580, 45, 200, 170, 15], [7.9, 230, 550, 40, 200, 160, 15]],
+      "sources": [{ "label": "ASM — 309S heat-resistant stainless (UNS S30908)", "url": null, "verified": false }]
+    },
+    {
+      "name": "310S", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "24~26", "Ni": "19~22" },
+      "points": [[7.9, 260, 590, 45, 200, 170, 14], [7.9, 240, 560, 40, 200, 160, 14]],
+      "sources": [{ "label": "ASM — 310S heat-resistant stainless (UNS S31008)", "url": null, "verified": false }]
+    },
+    {
+      "name": "347H", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "17~19", "Ni": "9~13", "Nb": "0.8~1" },
+      "points": [[8.0, 240, 600, 45, 193, 170, 16], [8.0, 220, 570, 40, 193, 160, 16]],
+      "sources": [{ "label": "ASM — 347H stabilised austenitic stainless (UNS S34709)", "url": null, "verified": false }]
+    },
+    {
+      "name": "410S", "category": "Metal", "subcategory": "Stainless Steel - Ferritic/Martensitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "11.5~13.5", "Ni": "≤0.6" },
+      "points": [[7.7, 280, 450, 25, 200, 160, 25], [7.7, 260, 420, 20, 200, 150, 25]],
+      "sources": [{ "label": "ASM — 410S ferritic stainless (UNS S41008)", "url": null, "verified": false }]
+    },
+    {
+      "name": "C18000 (CuNiSiCr)", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "balance", "Ni": "1.8~3", "Si": "0.4~0.8", "Cr": "0.1~0.8" },
+      "points": [[8.8, 380, 550, 12, 130, 160, 200], [8.8, 350, 520, 10, 130, 150, 200]],
+      "sources": [{ "label": "ASM — C18000 copper-nickel-silicon-chromium", "url": null, "verified": false }]
+    },
+    {
+      "name": "C19400 (CuFeP)", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "balance", "Fe": "2.1~2.6", "P": "0.015~0.15", "Zn": "0.05~0.2" },
+      "points": [[8.91, 310, 380, 10, 121, 120, 260], [8.91, 280, 350, 8, 121, 110, 260]],
+      "sources": [{ "label": "ASM — C19400 high-conductivity copper", "url": null, "verified": false }]
+    },
+    {
+      "name": "Commercial Bronze C22000", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "89~91", "Zn": "balance" },
+      "points": [[8.8, 125, 290, 45, 115, 75, 189], [8.8, 300, 360, 5, 115, 100, 189]],
+      "sources": [{ "label": "ASTM B36 — commercial bronze C22000", "url": null, "verified": false }]
+    },
+    {
+      "name": "Nickel-Aluminium Bronze C63000", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "balance", "Al": "9~11", "Ni": "4~5.5", "Fe": "2~4" },
+      "points": [[7.58, 350, 720, 15, 110, 200, 39], [7.58, 320, 690, 12, 110, 190, 39]],
+      "sources": [{ "label": "ASTM B150 — nickel-aluminium bronze C63000", "url": null, "verified": false }]
+    },
+    {
+      "name": "Bearing Bronze C93200", "category": "Metal", "subcategory": "Copper", "process": "Cast",
+      "composition": { "Cu": "balance", "Sn": "6~8", "Pb": "6~8", "Zn": "1~4" },
+      "points": [[8.93, 125, 240, 20, 100, 65, 59], [8.93, 110, 220, 15, 100, 60, 59]],
+      "sources": [{ "label": "ASTM B584 — bearing bronze C93200 (SAE 660)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Ti-6Al-2Sn-4Zr-2Mo", "category": "Metal", "subcategory": "Titanium", "process": "Wrought",
+      "composition": { "Ti": "balance", "Al": "5.5~6.5", "Sn": "1.8~2.2", "Zr": "3.6~4.4", "Mo": "1.8~2.2" },
+      "points": [[4.54, 900, 1010, 13, 114, 340, 7], [4.54, 860, 970, 10, 114, 320, 7]],
+      "sources": [{ "label": "ASM — Ti-6242 near-alpha titanium (UNS R54620)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Ti-15V-3Cr-3Al-3Sn", "category": "Metal", "subcategory": "Titanium", "process": "Wrought",
+      "composition": { "Ti": "balance", "V": "14~16", "Cr": "2.5~3.5", "Al": "2.5~3.5", "Sn": "2.5~3.5" },
+      "points": [[4.76, 1000, 1100, 10, 100, 360, 8], [4.76, 950, 1050, 8, 100, 340, 8]],
+      "sources": [{ "label": "ASM — Ti-15-3 beta titanium", "url": null, "verified": false }]
+    },
+    {
+      "name": "Stellite 6B", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Wrought",
+      "composition": { "Co": "balance", "Cr": "28~32", "W": "3.5~5.5", "Ni": "≤3", "C": "0.9~1.4" },
+      "points": [[8.39, 630, 1000, 11, 230, 420, 14], [8.39, 590, 950, 8, 230, 400, 14]],
+      "sources": [{ "label": "Kennametal Stellite — Stellite 6B wrought (UNS R30016)", "url": null, "verified": false }]
+    },
+    {
+      "name": "MP159", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Wrought",
+      "composition": { "Co": "balance", "Ni": "25", "Cr": "19", "Fe": "9", "Mo": "7", "Ti": "3", "Nb": "0.6" },
+      "points": [[8.43, 1620, 1790, 8, 200, 480, 11], [8.43, 1550, 1720, 6, 200, 460, 11]],
+      "sources": [{ "label": "SPS — MP159 multiphase superalloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Elgiloy", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Wrought",
+      "composition": { "Co": "balance", "Cr": "19~21", "Ni": "14~16", "Fe": "14~18", "Mo": "6~8" },
+      "points": [[8.3, 1100, 1700, 10, 190, 500, 12], [8.3, 1500, 2000, 3, 190, 560, 12]],
+      "sources": [{ "label": "Elgiloy Specialty Metals — Elgiloy (UNS R30003)", "url": null, "verified": false }]
+    },
+    {
+      "name": "WE54 (Mg-Y-RE)", "category": "Metal", "subcategory": "Magnesium Alloy", "process": "Cast",
+      "composition": { "Mg": "balance", "Y": "4.75~5.5", "Nd": "1.5~2", "Zr": "0.4~1" },
+      "points": [[1.85, 200, 285, 4, 44, 90, 51], [1.85, 185, 265, 2, 44, 85, 51]],
+      "sources": [{ "label": "Magnesium Elektron — WE54", "url": null, "verified": false }]
+    },
+    {
+      "name": "EZ33A (Mg)", "category": "Metal", "subcategory": "Magnesium Alloy", "process": "Cast",
+      "composition": { "Mg": "balance", "Zn": "2~3.1", "Zr": "0.5~1", "Ce": "2.5~4" },
+      "points": [[1.8, 100, 160, 3, 44, 55, 100], [1.8, 90, 150, 2, 44, 50, 100]],
+      "sources": [{ "label": "ASTM B80 — EZ33A magnesium casting alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Ta-10W", "category": "Metal", "subcategory": "Refractory Metal", "process": "Wrought",
+      "composition": { "Ta": "balance", "W": "9~11" },
+      "points": [[16.8, 480, 620, 20, 200, 250, 54], [16.8, 440, 580, 15, 200, 240, 54]],
+      "sources": [{ "label": "ASTM B708 — Ta-10W tantalum alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Zirconium 705", "category": "Metal", "subcategory": "Refractory Metal", "process": "Wrought",
+      "composition": { "Zr": "balance", "Nb": "2~3", "Hf": "≤4.5" },
+      "points": [[6.64, 380, 550, 20, 95, 200, 17], [6.64, 350, 520, 16, 95, 190, 17]],
+      "sources": [{ "label": "ASTM B551 — Zirconium 705 (Zr-2.5Nb, UNS R60705)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PESU (Polyethersulfone)", "category": "Polymer", "subcategory": "Polymer - Polysulfone (PSU)", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.37, 85, 90, 40, 2.6, 0, 0.18], [1.37, 78, 84, 25, 2.5, 0, 0.18]],
+      "sources": [{ "label": "BASF — Ultrason E (PESU)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PFA", "category": "Polymer", "subcategory": "Polymer - PTFE", "process": "Injection Molding",
+      "composition": {},
+      "points": [[2.15, 14, 28, 300, 0.65, 0, 0.19], [2.15, 12, 25, 250, 0.6, 0, 0.19]],
+      "sources": [{ "label": "Material datasheets — PFA fluoropolymer", "url": null, "verified": false }]
+    },
+    {
+      "name": "PCTFE", "category": "Polymer", "subcategory": "Polymer - PTFE", "process": "Injection Molding",
+      "composition": {},
+      "points": [[2.12, 35, 40, 150, 1.3, 0, 0.22], [2.12, 32, 37, 100, 1.2, 0, 0.22]],
+      "sources": [{ "label": "Material datasheets — PCTFE (Kel-F)", "url": null, "verified": false }]
+    },
+    {
+      "name": "PA46", "category": "Polymer", "subcategory": "Polymer - Nylon (FDM/SLS)", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.18, 100, 110, 20, 3.3, 0, 0.3], [1.18, 90, 100, 15, 3.2, 0, 0.3]],
+      "sources": [{ "label": "DSM — Stanyl PA46", "url": null, "verified": false }]
+    },
+    {
+      "name": "HIPS", "category": "Polymer", "subcategory": "Polymer - Polystyrene", "process": "Injection Molding",
+      "composition": {},
+      "points": [[1.05, 22, 28, 40, 2.0, 0, 0.17], [1.05, 20, 25, 30, 1.9, 0, 0.17]],
+      "sources": [{ "label": "Material datasheets — high-impact polystyrene", "url": null, "verified": false }]
     }
   ]
 }
