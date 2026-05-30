@@ -284,6 +284,8 @@ export const FAMILY_TREE: FamilyGroup[] = [
       'Polymer - EVA',
       'Polymer - PVB',
       'Polymer - PBI',
+      'Polymer - Polyurethane',
+      'Polymer - PHA',
     ],
   },
 ];

@@ -316,6 +316,27 @@ const ALIAS_MAP = {
   'chromium': ['Cr', 'pure chromium'],
   'ultem1010': ['PEI', 'ULTEM 1010', 'SABIC'],
   'onyx': ['Markforged Onyx', 'micro-carbon nylon'],
+  // ── round-5 expansion aliases ──
+  'aa5456': ['UNS A95456', 'EN AW-5456', 'AlMg5'],
+  'aa6463': ['UNS A96463', 'EN AW-6463'],
+  '8740': ['UNS G87400', 'AISI 8740', 'DIN 1.6546'],
+  'd3toolsteel': ['DIN 1.2080', 'X210Cr12', 'JIS SKD1', 'AISI D3'],
+  'o1toolsteel': ['DIN 1.2510', '100MnCrW4', 'JIS SKS3', 'AISI O1'],
+  '316ln': ['UNS S31653', 'EN 1.4429'],
+  '422': ['UNS S42200', 'EN 1.4935'],
+  'ma754': ['UNS N07754', 'Alloy MA754 ODS'],
+  'ma956': ['Alloy MA956', 'FeCrAlY ODS'],
+  'incoloy909': ['UNS N19909', 'Alloy 909'],
+  'rene88dt': ['Rene 88DT', 'R88DT'],
+  'beta21s': ['Ti-15Mo-3Nb-3Al', 'TIMETAL 21S'],
+  'c10200': ['UNS C10200', 'OF copper', 'EN CW008A'],
+  'c12200': ['UNS C12200', 'DHP copper', 'EN CW024A'],
+  'c61400': ['UNS C61400', 'EN CW307G(~)', 'aluminium bronze D'],
+  'stellite3': ['UNS R30103', 'Co-31Cr-12.5W'],
+  'fsx414': ['Co-29Cr-10Ni-7W', 'X-40 derivative'],
+  'hk31a': ['UNS M13310', 'MgTh3Zr'],
+  'niobium1zr': ['UNS R04251', 'Nb-1Zr'],
+  'rhenium': ['Re', 'pure rhenium'],
 };
 function extractAliases(name) {
   const out = [];
@@ -664,6 +685,15 @@ for (const m of all) {
   for (const p of NUM_PROPS) m[p] = m.ranges[p]?.typical ?? null;
   m.manufacturer = m.manufacturers.join(', ');
   m.process = m.processes.join(' / ');
+  // dedupe sources (by URL, else by label), keep verified first, cap at 3 per material
+  {
+    const seen = new Set();
+    m.sources = (m.sources || [])
+      .slice()
+      .sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
+      .filter((s) => { const k = String(s.url || s.label || '').trim().toLowerCase(); if (!k || seen.has(k)) return false; seen.add(k); return true; })
+      .slice(0, 3);
+  }
   m.source = m.sources[0]?.label ?? null;
   m.aliases = aliasesFor(m.name);
   m.families = familyTags(m.category, m.subcategory, m.composition);

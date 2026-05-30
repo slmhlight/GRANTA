@@ -1058,6 +1058,148 @@
       "composition": { "Cr": "99~100" },
       "points": [[7.19, 280, 380, 1, 279, 120, 94], [7.19, 260, 360, 1, 279, 110, 94]],
       "sources": [{ "label": "ASM — pure chromium", "url": null, "verified": false }]
+    },
+    {
+      "name": "AA 5456", "category": "Metal", "subcategory": "Aluminum", "process": "Wrought",
+      "composition": { "Al": "balance", "Mg": "4.7~5.5", "Mn": "0.5~1" },
+      "points": [[2.66, 230, 350, 16, 71, 90, 116], [2.66, 160, 310, 22, 71, 80, 116]],
+      "sources": [{ "label": "ASM — AA 5456 aluminium", "url": null, "verified": false }]
+    },
+    {
+      "name": "AA 6463", "category": "Metal", "subcategory": "Aluminum", "process": "Wrought",
+      "composition": { "Al": "balance", "Mg": "0.45~0.9", "Si": "0.2~0.6" },
+      "points": [[2.69, 215, 245, 12, 69, 80, 200], [2.69, 90, 150, 20, 69, 50, 200]],
+      "sources": [{ "label": "ASM — AA 6463 architectural aluminium", "url": null, "verified": false }]
+    },
+    {
+      "name": "AISI 1144 (Stressproof)", "category": "Metal", "subcategory": "Carbon Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.4~0.48", "Mn": "1.35~1.65", "S": "0.24~0.33" },
+      "points": [[7.85, 620, 690, 10, 205, 200, 50], [7.85, 540, 620, 16, 205, 180, 50]],
+      "sources": [{ "label": "ASM — AISI 1144 free-machining steel", "url": null, "verified": false }]
+    },
+    {
+      "name": "AISI 8740", "category": "Metal", "subcategory": "Alloy Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.38~0.43", "Ni": "0.4~0.7", "Cr": "0.4~0.6", "Mo": "0.2~0.3" },
+      "points": [[7.85, 950, 1050, 16, 205, 320, 44], [7.85, 830, 950, 13, 205, 300, 44]],
+      "sources": [{ "label": "ASM — AISI 8740 (Q&T)", "url": null, "verified": false }]
+    },
+    {
+      "name": "D3 tool steel", "category": "Metal", "subcategory": "Tool Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "2.0~2.35", "Cr": "11~13.5" },
+      "points": [[7.7, 1400, 1900, 2, 210, 740, 20], [7.7, 1300, 1800, 1, 210, 720, 20]],
+      "sources": [{ "label": "ASM — D3 cold-work tool steel (DIN 1.2080)", "url": null, "verified": false }]
+    },
+    {
+      "name": "O1 tool steel", "category": "Metal", "subcategory": "Tool Steel", "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.85~1", "Mn": "1~1.4", "Cr": "0.4~0.6" },
+      "points": [[7.85, 1450, 1600, 5, 205, 620, 35], [7.85, 1380, 1520, 3, 205, 600, 35]],
+      "sources": [{ "label": "ASM — O1 oil-hardening tool steel (DIN 1.2510)", "url": null, "verified": false }]
+    },
+    {
+      "name": "316LN", "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "16~18", "Ni": "10~14", "Mo": "2~3", "N": "0.1~0.16" },
+      "points": [[8.0, 290, 600, 45, 193, 180, 16], [8.0, 270, 570, 40, 193, 170, 16]],
+      "sources": [{ "label": "ASM — 316LN nitrogen-strengthened stainless (UNS S31653)", "url": null, "verified": false }]
+    },
+    {
+      "name": "422 stainless", "category": "Metal", "subcategory": "Stainless Steel - Ferritic/Martensitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "11~13", "Ni": "0.5~1", "Mo": "0.75~1.25", "V": "0.15~0.3", "W": "0.75~1.25" },
+      "points": [[7.8, 860, 1000, 13, 200, 320, 24], [7.8, 800, 950, 10, 200, 310, 24]],
+      "sources": [{ "label": "ASM — 422 martensitic stainless (UNS S42200)", "url": null, "verified": false }]
+    },
+    {
+      "name": "MA754 (ODS)", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "20", "Fe": "≤1", "Ti": "0.5", "Al": "0.3" },
+      "points": [[8.3, 585, 965, 20, 150, 300, 13], [8.3, 550, 920, 15, 150, 290, 13]],
+      "sources": [{ "label": "Special Metals — MA754 oxide-dispersion-strengthened (UNS N07754)", "url": null, "verified": false }]
+    },
+    {
+      "name": "MA956 (ODS FeCrAl)", "category": "Metal", "subcategory": "Stainless Steel - Ferritic/Martensitic", "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "20", "Al": "4.5", "Ti": "0.5" },
+      "points": [[7.2, 360, 510, 18, 211, 250, 11], [7.2, 330, 480, 14, 211, 240, 11]],
+      "sources": [{ "label": "ASM — MA956 oxide-dispersion-strengthened FeCrAl", "url": null, "verified": false }]
+    },
+    {
+      "name": "Incoloy 909", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "38", "Co": "13", "Nb": "4.7", "Ti": "1.5" },
+      "points": [[8.3, 1035, 1310, 15, 159, 380, 14], [8.3, 980, 1250, 12, 159, 360, 14]],
+      "sources": [{ "label": "Special Metals — Incoloy 909 controlled-expansion superalloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Rene 88DT", "category": "Metal", "subcategory": "Nickel Superalloy", "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "16", "Co": "13", "Mo": "4", "W": "4", "Ti": "3.7", "Al": "2.1", "Nb": "0.7" },
+      "points": [[8.0, 1100, 1500, 18, 220, 420, 11], [8.0, 1050, 1440, 14, 220, 400, 11]],
+      "sources": [{ "label": "GE / ASM — Rene 88DT turbine-disc superalloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Ti Grade 11", "category": "Metal", "subcategory": "Titanium", "process": "Wrought",
+      "composition": { "Ti": "balance", "Pd": "0.12~0.25" },
+      "points": [[4.51, 170, 240, 24, 103, 150, 17], [4.51, 140, 220, 20, 103, 140, 17]],
+      "sources": [{ "label": "ASTM Grade 11 — Ti-0.15Pd (UNS R52250)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Beta-21S", "category": "Metal", "subcategory": "Titanium", "process": "Wrought",
+      "composition": { "Ti": "balance", "Mo": "14~16", "Nb": "2.4~3.2", "Al": "2.5~3.5" },
+      "points": [[4.94, 1100, 1200, 8, 105, 360, 8], [4.94, 1050, 1150, 6, 105, 340, 8]],
+      "sources": [{ "label": "ASM — Beta-21S (Ti-15Mo-3Nb-3Al)", "url": null, "verified": false }]
+    },
+    {
+      "name": "OF Copper C10200", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "99.95~100" },
+      "points": [[8.94, 70, 220, 45, 117, 50, 391], [8.94, 330, 350, 8, 117, 100, 391]],
+      "sources": [{ "label": "ASM — oxygen-free copper C10200", "url": null, "verified": false }]
+    },
+    {
+      "name": "DHP Copper C12200", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "99.9~100", "P": "0.015~0.04" },
+      "points": [[8.94, 70, 220, 45, 117, 50, 339], [8.94, 320, 345, 6, 117, 95, 339]],
+      "sources": [{ "label": "ASM — DHP copper C12200 (plumbing)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Aluminum Bronze C61400", "category": "Metal", "subcategory": "Copper", "process": "Wrought",
+      "composition": { "Cu": "balance", "Al": "6~8", "Fe": "1.5~3.5" },
+      "points": [[7.89, 240, 550, 32, 110, 150, 56], [7.89, 310, 585, 25, 110, 160, 56]],
+      "sources": [{ "label": "ASTM B169 — aluminium bronze C61400", "url": null, "verified": false }]
+    },
+    {
+      "name": "Stellite 3", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Cast",
+      "composition": { "Co": "balance", "Cr": "30~33", "W": "11~14", "C": "2.2~2.7" },
+      "points": [[8.39, 690, 900, 1, 230, 560, 14], [8.39, 650, 850, 1, 230, 540, 14]],
+      "sources": [{ "label": "Kennametal Stellite — Stellite 3 hardfacing", "url": null, "verified": false }]
+    },
+    {
+      "name": "FSX-414", "category": "Metal", "subcategory": "Cobalt-Chrome Alloy", "process": "Cast",
+      "composition": { "Co": "balance", "Cr": "28~30", "Ni": "9~11", "W": "6.5~7.5" },
+      "points": [[8.3, 450, 750, 10, 225, 300, 13], [8.3, 420, 710, 7, 225, 290, 13]],
+      "sources": [{ "label": "ASM — FSX-414 cobalt-base vane alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "HK31A (Mg)", "category": "Metal", "subcategory": "Magnesium Alloy", "process": "Cast",
+      "composition": { "Mg": "balance", "Th": "2.5~4", "Zr": "0.4~1" },
+      "points": [[1.79, 140, 215, 4, 45, 60, 92], [1.79, 125, 200, 3, 45, 55, 92]],
+      "sources": [{ "label": "ASTM — HK31A magnesium-thorium casting alloy", "url": null, "verified": false }]
+    },
+    {
+      "name": "Niobium-1Zr", "category": "Metal", "subcategory": "Refractory Metal", "process": "Wrought",
+      "composition": { "Nb": "balance", "Zr": "1" },
+      "points": [[8.6, 140, 240, 25, 69, 80, 50], [8.6, 125, 220, 20, 69, 75, 50]],
+      "sources": [{ "label": "ASM — Nb-1Zr niobium alloy (UNS R04251)", "url": null, "verified": false }]
+    },
+    {
+      "name": "Rhenium", "category": "Metal", "subcategory": "Refractory Metal", "process": "Wrought",
+      "composition": { "Re": "99~100" },
+      "points": [[21.0, 290, 1070, 25, 463, 250, 48], [21.0, 270, 1000, 20, 463, 240, 48]],
+      "sources": [{ "label": "Plansee / ASM — pure rhenium", "url": null, "verified": false }]
+    },
+    {
+      "name": "Polyurethane (cast)", "category": "Polymer", "subcategory": "Polymer - Polyurethane", "process": "Casting",
+      "composition": {}, "points": [[1.2, 40, 50, 100, 1.5, 0, 0.2], [1.2, 35, 45, 60, 1.3, 0, 0.2]],
+      "sources": [{ "label": "Material datasheets — cast polyurethane", "url": null, "verified": false }]
+    },
+    {
+      "name": "PHA (bioplastic)", "category": "Polymer", "subcategory": "Polymer - PHA", "process": "FDM",
+      "composition": {}, "points": [[1.25, 35, 40, 5, 3.5, 0, 0.2], [1.25, 30, 36, 3, 3.2, 0, 0.2]],
+      "sources": [{ "label": "Material datasheets — polyhydroxyalkanoate (PHA)", "url": null, "verified": false }]
     }
   ]
 }
