@@ -17,6 +17,8 @@ interface MaterialDetailProps {
   compareList: string[];
   onToggleCompare: (id: string) => void;
   onClose: () => void;
+  dragHandleProps?: { onPointerDown?: (e: any) => void }; // when floating, makes the header a drag handle
+  floating?: boolean;
 }
 
 const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
@@ -146,7 +148,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-export function MaterialDetail({ material, compareList, onToggleCompare, onClose }: MaterialDetailProps) {
+export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating }: MaterialDetailProps) {
   if (!material) return null;
 
   const isCompared = compareList.includes(material.id);
@@ -159,8 +161,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
 
   return (
     <div className="h-full w-full bg-background overflow-hidden flex flex-col">
-      {/* Header */}
-      <div className="flex items-start justify-between p-4 border-b border-border/50 flex-shrink-0">
+      {/* Header (drag handle when floating) */}
+      <div {...dragHandleProps} className={`flex items-start justify-between p-4 border-b border-border/50 flex-shrink-0 ${floating ? 'cursor-move select-none' : ''}`}>
         <div className="flex-1 min-w-0">
           <h2 className="text-sm font-bold text-foreground leading-tight">{material.name}</h2>
           <p className="text-xs text-muted-foreground truncate mt-0.5">{material.subcategory}</p>

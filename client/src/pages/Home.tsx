@@ -33,7 +33,7 @@ import FilterSidebar from '@/components/FilterSidebar';
 import { MaterialTable } from '@/components/MaterialTable';
 import { MaterialCards } from '@/components/MaterialCards';
 const AshbyChart = lazy(() => import('@/components/AshbyChartPlotly').then(m => ({ default: m.AshbyChartPlotly })));
-import { MaterialDetail } from '@/components/MaterialDetail';
+import { MaterialDetailPopup } from '@/components/MaterialDetailPopup';
 import { ComparePanel } from '@/components/ComparePanel';
 import { useMaterialFilter } from '@/hooks/useMaterialFilter';
 import { exportMaterialsToCSV, generateCSVFilename } from '@/lib/csv-export';
@@ -133,15 +133,14 @@ export default function Home() {
     window.setTimeout(() => setLinkCopied(false), 2500);
   }, []);
 
+  // detail now opens as a floating popup, so it no longer needs to close the Compare panel
   const handleSelectMaterial = useCallback((m: Material) => {
     setSelectedMaterial(m);
-    setShowCompare(false);
   }, []);
 
-  // click a material inside Compare → open its detail AND show it highlighted on the Ashby chart
+  // click a material inside Compare → open its detail popup AND locate it on the Ashby chart
   const handleSelectFromCompare = useCallback((m: Material) => {
     setSelectedMaterial(m);
-    setShowCompare(false);
     setViewMode('ashby');
   }, []);
 
@@ -176,9 +175,7 @@ export default function Home() {
   const restrictSet = restrictIds ? new Set(restrictIds) : null;
   const viewFiltered = restrictSet ? filtered.filter(m => restrictSet.has(m.id)) : filtered;
 
-  const rightPanelOpen = selectedMaterial !== null || showCompare;
-
-  // Right Detail/Compare panel: persisted, drag-to-resize on desktop (full-screen overlay on mobile)
+  // Right Compare panel: persisted, drag-to-resize on desktop (full-screen overlay on mobile)
   useEffect(() => { try { window.localStorage.setItem('am_panel_w', String(Math.round(panelWidth))); } catch { /* ignore */ } }, [panelWidth]);
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 768px)');
@@ -526,8 +523,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ─── Right Detail/Compare Panel ─── */}
-        {rightPanelOpen && (
+        {/* ─── Right Compare Panel (resizable) ─── */}
+        {showCompare && (
           <div className="fixed inset-0 z-40 md:relative md:z-auto md:inset-auto flex-shrink-0 w-full overflow-hidden md:border-l border-border bg-background" style={{ width: isDesktop ? panelWidth : undefined }}>
             {/* drag handle (desktop): drag to resize, double-click to reset */}
             <div
@@ -536,26 +533,25 @@ export default function Home() {
               className="hidden md:block absolute left-0 top-0 h-full w-1.5 -ml-0.5 z-20 cursor-col-resize hover:bg-accent/40 active:bg-accent/60 transition-colors"
               title="Drag to resize · double-click to reset"
             />
-            {showCompare ? (
-              <ComparePanel
-                materials={compareMaterials}
-                onRemove={id => {
-                  setCompareList(prev => prev.filter(i => i !== id));
-                  if (compareList.length <= 1) setShowCompare(false);
-                }}
-                onClose={() => setShowCompare(false)}
-                onSelect={handleSelectFromCompare}
-              />
-            ) : (
-              <MaterialDetail
-                material={selectedMaterial}
-                compareList={compareList}
-                onToggleCompare={handleToggleCompare}
-                onClose={() => setSelectedMaterial(null)}
-              />
-            )}
+            <ComparePanel
+              materials={compareMaterials}
+              onRemove={id => {
+                setCompareList(prev => prev.filter(i => i !== id));
+                if (compareList.length <= 1) setShowCompare(false);
+              }}
+              onClose={() => setShowCompare(false)}
+              onSelect={handleSelectFromCompare}
+            />
           </div>
         )}
+
+        {/* ─── Floating Material Detail popup (over chart + compare; draggable) ─── */}
+        <MaterialDetailPopup
+          material={selectedMaterial}
+          compareList={compareList}
+          onToggleCompare={handleToggleCompare}
+          onClose={() => setSelectedMaterial(null)}
+        />
       </div>
 
       {/* ─── Status Bar ─── */}
