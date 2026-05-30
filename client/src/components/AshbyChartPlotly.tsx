@@ -96,8 +96,8 @@ function AxisLimitSlider({ axis, color, domain, limit, onChange }: { axis: strin
   const step = Math.max((hi - lo) / 120, hi > 1000 ? 1 : 0.001);
   const active = !!limit && (limit[0] > lo || limit[1] < hi);
   return (
-    <div className="flex items-center gap-2 min-w-[280px] flex-1 max-w-[480px]">
-      <span className="text-xs font-medium w-3" style={{ color }}>{axis}</span>
+    <div className="flex items-center gap-2 w-full">
+      <span className="text-[10px] font-medium flex-shrink-0" style={{ color }} title="limit">{axis}↔</span>
       <span className="font-mono text-[10px] text-muted-foreground w-14 text-right tabular-nums">{fmtNum(val[0])}</span>
       <Slider min={lo} max={hi} step={step} value={[val[0], val[1]]} onValueChange={(v: number[]) => onChange([v[0], v[1]])} className="flex-1" />
       <span className="font-mono text-[10px] text-muted-foreground w-14 tabular-nums">{fmtNum(val[1])}</span>
@@ -395,41 +395,53 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   return (
     <div className="w-full h-full flex flex-col bg-white overflow-y-auto md:overflow-hidden">
       {/* Axis selectors */}
-      <div className="flex flex-wrap items-center gap-4 px-4 py-2.5 border-b border-border">
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-muted-foreground font-medium">X</span>
-          <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); }}>
-            <SelectTrigger className="h-7 text-xs w-[210px]"><SelectValue /></SelectTrigger>
-            <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
-          </Select>
+      {/* ── Axes: each property dropdown + log toggle, with its limit slider directly below ── */}
+      <div className="flex flex-col sm:flex-row gap-x-6 gap-y-2.5 px-3 py-2.5 border-b border-border">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">X</span>
+            <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); }}>
+              <SelectTrigger className="h-7 text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
+              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
+            </Select>
+            <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={xLog} onChange={(e) => setXLog(e.target.checked)} className="accent-accent" />log</label>
+          </div>
+          <div className="mt-1.5 pl-5"><AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} onChange={setXLimit} /></div>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-muted-foreground font-medium">Y</span>
-          <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); }}>
-            <SelectTrigger className="h-7 text-xs w-[210px]"><SelectValue /></SelectTrigger>
-            <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
-          </Select>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">Y</span>
+            <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); }}>
+              <SelectTrigger className="h-7 text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
+              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
+            </Select>
+            <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" />log</label>
+          </div>
+          <div className="mt-1.5 pl-5"><AxisLimitSlider axis="Y" color="#9333ea" domain={yDomain} limit={yLimit} onChange={setYLimit} /></div>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-muted-foreground font-medium">Class</span>
-          <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
-            <SelectTrigger className="h-7 text-xs w-[140px]"><SelectValue /></SelectTrigger>
-            <SelectContent>{groupOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All classes' : f}</SelectItem>)}</SelectContent>
-          </Select>
-          <Select value={subFilter} onValueChange={setSubFilter} disabled={groupFilter === 'all'}>
-            <SelectTrigger className="h-7 text-xs w-[170px]"><SelectValue placeholder="Sub-family" /></SelectTrigger>
-            <SelectContent>{subOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : cleanSub(f)}</SelectItem>)}</SelectContent>
-          </Select>
-        </div>
+      </div>
+
+      {/* ── Grouping & display ── */}
+      <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-b border-border">
+        <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
+          <SelectTrigger className="h-7 text-xs w-[128px]"><SelectValue /></SelectTrigger>
+          <SelectContent>{groupOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All classes' : f}</SelectItem>)}</SelectContent>
+        </Select>
+        <Select value={subFilter} onValueChange={setSubFilter} disabled={groupFilter === 'all'}>
+          <SelectTrigger className="h-7 text-xs w-[150px]"><SelectValue placeholder="Sub-family" /></SelectTrigger>
+          <SelectContent>{subOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : cleanSub(f)}</SelectItem>)}</SelectContent>
+        </Select>
         <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
           <input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> Envelopes
         </label>
-        <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
-          <input type="checkbox" checked={xLog} onChange={(e) => setXLog(e.target.checked)} className="accent-accent" /> X log
-        </label>
-        <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
-          <input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" /> Y log
-        </label>
+        <Select value={envelopeBy} onValueChange={(v) => setEnvelopeBy(v as 'category' | 'class' | 'family')}>
+          <SelectTrigger className="h-7 text-xs w-[155px]" title="Envelope grouping"><SelectValue /></SelectTrigger>
+          <SelectContent>
+            <SelectItem value="category" className="text-xs">All metals / polymers</SelectItem>
+            <SelectItem value="class" className="text-xs">1st-level family</SelectItem>
+            <SelectItem value="family" className="text-xs">Sub-family (2nd)</SelectItem>
+          </SelectContent>
+        </Select>
         <Popover>
           <PopoverTrigger asChild>
             <button type="button" className="text-xs text-muted-foreground hover:text-foreground border border-border rounded px-2 h-7 flex items-center gap-1">Display ▾</button>
@@ -447,7 +459,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
               <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Envelope opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div>
               <Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} />
             </div>
-            {([['Markers (scatter)', showMarkers, setShowMarkers], ['All metals / all polymers (1 envelope each)', envelopeBy === 'category', (v: boolean) => setEnvelopeBy(v ? 'category' : 'class')], ['Sub-family envelopes (2nd level)', envelopeBy === 'family', (v: boolean) => setEnvelopeBy(v ? 'family' : 'class')], ['Envelope fill', envFill, setEnvFill], ['Envelope outline', envOutline, setEnvOutline], ['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+            {([['Markers (scatter)', showMarkers, setShowMarkers], ['Envelope fill', envFill, setEnvFill], ['Envelope outline', envOutline, setEnvOutline], ['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
               <label key={label} className="flex items-center gap-2 cursor-pointer select-none">
                 <input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}
               </label>
@@ -509,13 +521,6 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             {boxedIds.size > 0 && <button type="button" onClick={() => setBoxedIds(new Set())} className="text-[11px] px-2 py-0.5 rounded border border-border text-muted-foreground hover:bg-muted">Clear box</button>}
           </div>
         )}
-      </div>
-
-      {/* Axis limit sliders — limitation filters on the current X / Y properties */}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 px-4 py-2 border-b border-border bg-muted/20">
-        <span className="text-[10px] text-muted-foreground uppercase tracking-wide w-10">Limits</span>
-        <AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} onChange={setXLimit} />
-        <AxisLimitSlider axis="Y" color="#9333ea" domain={yDomain} limit={yLimit} onChange={setYLimit} />
       </div>
 
       {/* Chart */}
