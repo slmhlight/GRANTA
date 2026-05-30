@@ -129,7 +129,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [darkChart, setDarkChart] = useState(false);
   const [colorByCategory, setColorByCategory] = useState(false);
   const [showMarkers, setShowMarkers] = useState(false);          // default: no scatter (envelopes only)
-  const [envelopeBy, setEnvelopeBy] = useState<'class' | 'family'>('family'); // default: family-level envelopes
+  const [envelopeBy, setEnvelopeBy] = useState<'class' | 'family'>('class'); // default: 1st-level family (coarse class: Steel/Al/Ni…); sub-family is opt-in
   const [envFill, setEnvFill] = useState(true);
   const [indexPreset, setIndexPreset] = useState('none');
   const [indexThreshold, setIndexThreshold] = useState<number | null>(null);
@@ -264,10 +264,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       e.xs.push(poly[0][0]); e.ys.push(poly[0][1]); // close polygon
       e.xs.push(null); e.ys.push(null);             // separate from next polygon
     }
-    const hullTraces = Array.from(hullByClass.values()).map((e) => ({
+    const hullLegend = showLegend && !showMarkers && !colorMode; // label envelopes in the legend when markers are hidden
+    const hullTraces = Array.from(hullByClass.entries()).map(([key, e]) => ({
       x: e.xs, y: e.ys, mode: 'lines', type: 'scatter', fill: envFill ? 'toself' : 'none',
       fillcolor: rgba(e.color, envOpacity), line: { color: e.color, width: envFill ? 1 : 2, shape: 'spline', smoothing: 1 },
-      hoverinfo: 'skip', showlegend: false,
+      name: cleanSub(key), hoverinfo: 'skip', showlegend: hullLegend,
     }));
 
     // smooth filled envelope from a set of materials' data points (spline-curved hull)
@@ -441,7 +442,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
               <div className="flex justify-between mb-1.5"><span className="text-muted-foreground">Envelope opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div>
               <Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} />
             </div>
-            {([['Markers (scatter)', showMarkers, setShowMarkers], ['Family-level envelopes', envelopeBy === 'family', (v: boolean) => setEnvelopeBy(v ? 'family' : 'class')], ['Envelope fill', envFill, setEnvFill], ['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+            {([['Markers (scatter)', showMarkers, setShowMarkers], ['Sub-family envelopes (2nd level)', envelopeBy === 'family', (v: boolean) => setEnvelopeBy(v ? 'family' : 'class')], ['Envelope fill', envFill, setEnvFill], ['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Legend', showLegend, setShowLegend], ['Filtered-out points', showContext, setShowContext], ['Point labels', showLabels, setShowLabels], ['Ashby guide lines', showGuides, setShowGuides], ['Selected highlight', showSelected, setShowSelected], ['Colour by category', colorByCategory, setColorByCategory], ['Dark chart', darkChart, setDarkChart]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
               <label key={label} className="flex items-center gap-2 cursor-pointer select-none">
                 <input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}
               </label>
