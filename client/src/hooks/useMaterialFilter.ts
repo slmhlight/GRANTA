@@ -21,6 +21,15 @@ export interface FilterState {
   elongationRange: [number, number] | null;
   modulusRange: [number, number] | null;
   hardnessRange: [number, number] | null;
+  thermalConductivityRange: [number, number] | null;
+  electricalConductivityRange: [number, number] | null;
+  maxServiceTempRange: [number, number] | null;
+  fatigueStrengthRange: [number, number] | null;
+  impactStrengthRange: [number, number] | null;
+  pricePerKgRange: [number, number] | null;
+  corrosion: string[];
+  machinability: string[];
+  weldability: string[];
 }
 
 export const DEFAULT_FILTERS: FilterState = {
@@ -37,6 +46,15 @@ export const DEFAULT_FILTERS: FilterState = {
   elongationRange: null,
   modulusRange: null,
   hardnessRange: null,
+  thermalConductivityRange: null,
+  electricalConductivityRange: null,
+  maxServiceTempRange: null,
+  fatigueStrengthRange: null,
+  impactStrengthRange: null,
+  pricePerKgRange: null,
+  corrosion: [],
+  machinability: [],
+  weldability: [],
 };
 
 export function useMaterialFilter(materials: Material[]) {
@@ -143,6 +161,12 @@ export function useMaterialFilter(materials: Material[]) {
       { range: filters.elongationRange, key: 'elongation' },
       { range: filters.modulusRange, key: 'modulus' },
       { range: filters.hardnessRange, key: 'hardness' },
+      { range: filters.thermalConductivityRange, key: 'thermal_conductivity' },
+      { range: filters.electricalConductivityRange, key: 'electrical_conductivity' },
+      { range: filters.maxServiceTempRange, key: 'max_service_temp' },
+      { range: filters.fatigueStrengthRange, key: 'fatigue_strength' },
+      { range: filters.impactStrengthRange, key: 'impact_strength' },
+      { range: filters.pricePerKgRange, key: 'price_per_kg' },
     ];
 
     for (const { range, key } of rangeFilters) {
@@ -154,6 +178,11 @@ export function useMaterialFilter(materials: Material[]) {
         });
       }
     }
+
+    // Qualitative filters (corrosion / machinability / weldability)
+    if (filters.corrosion.length) result = result.filter(m => m.corrosion_resistance != null && filters.corrosion.includes(String(m.corrosion_resistance)));
+    if (filters.machinability.length) result = result.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
+    if (filters.weldability.length) result = result.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
 
     // Sort
     result = [...result].sort((a, b) => {
@@ -188,6 +217,15 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.elongationRange) count++;
     if (filters.modulusRange) count++;
     if (filters.hardnessRange) count++;
+    if (filters.thermalConductivityRange) count++;
+    if (filters.electricalConductivityRange) count++;
+    if (filters.maxServiceTempRange) count++;
+    if (filters.fatigueStrengthRange) count++;
+    if (filters.impactStrengthRange) count++;
+    if (filters.pricePerKgRange) count++;
+    if (filters.corrosion.length > 0) count++;
+    if (filters.machinability.length > 0) count++;
+    if (filters.weldability.length > 0) count++;
     return count;
   }, [filters]);
 

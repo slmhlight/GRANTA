@@ -386,6 +386,36 @@ function ProcessFilter({ allProcesses, selected, onChange }: ProcessFilterProps)
   );
 }
 
+// ── Qualitative Filter (corrosion / machinability / weldability) ─────────────
+const QUAL_ORDER = ['Outstanding', 'Excellent', 'Good', 'Fair', 'Moderate', 'Poor', 'N/A'];
+const orderQual = (opts: string[]) => [...opts].sort((a, b) => { const ia = QUAL_ORDER.indexOf(a), ib = QUAL_ORDER.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); });
+
+function QualitativeFilter({ label, options, selected, onChange }: { label: string; options: string[]; selected: string[]; onChange: (v: string[]) => void }) {
+  const [expanded, setExpanded] = useState(false);
+  const isActive = selected.length > 0;
+  if (!options.length) return null;
+  const toggle = (o: string) => (selected.includes(o) ? onChange(selected.filter((s) => s !== o)) : onChange([...selected, o]));
+  return (
+    <div className="border-b border-border/50">
+      <button className="w-full flex items-center justify-between px-3 py-2 text-xs font-medium text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-colors" onClick={() => setExpanded((e) => !e)}>
+        <span className="flex items-center gap-1.5">{label}{isActive && <Badge variant="secondary" className="h-4 px-1 text-[10px] bg-accent/20 text-accent border-0">{selected.length}</Badge>}</span>
+        {expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
+      </button>
+      {expanded && (
+        <div className="px-3 py-2 space-y-1.5">
+          {options.map((o) => (
+            <label key={o} className="flex items-center gap-2 cursor-pointer">
+              <Checkbox checked={selected.includes(o)} onCheckedChange={() => toggle(o)} className="w-3.5 h-3.5 rounded-sm flex-shrink-0" />
+              <span className="text-xs">{o}</span>
+            </label>
+          ))}
+          {isActive && <button className="text-[10px] text-muted-foreground hover:text-foreground hover:underline pl-5" onClick={() => onChange([])}>Clear</button>}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Main Sidebar ────────────────────────────────────────────────────────────
 export default function FilterSidebar({
   materials,
@@ -405,6 +435,15 @@ export default function FilterSidebar({
   const elongationRange = useMemo(() => getPropertyRange(materials, 'elongation'), [materials]);
   const modulusRange = useMemo(() => getPropertyRange(materials, 'modulus'), [materials]);
   const hardnessRange = useMemo(() => getPropertyRange(materials, 'hardness'), [materials]);
+  const thermalConductivityRange = useMemo(() => getPropertyRange(materials, 'thermal_conductivity'), [materials]);
+  const electricalConductivityRange = useMemo(() => getPropertyRange(materials, 'electrical_conductivity'), [materials]);
+  const maxServiceTempRange = useMemo(() => getPropertyRange(materials, 'max_service_temp'), [materials]);
+  const fatigueStrengthRange = useMemo(() => getPropertyRange(materials, 'fatigue_strength'), [materials]);
+  const impactStrengthRange = useMemo(() => getPropertyRange(materials, 'impact_strength'), [materials]);
+  const pricePerKgRange = useMemo(() => getPropertyRange(materials, 'price_per_kg'), [materials]);
+  const corrosionOpts = useMemo(() => orderQual(getUniqueValues(materials, 'corrosion_resistance')), [materials]);
+  const machinabilityOpts = useMemo(() => orderQual(getUniqueValues(materials, 'machinability')), [materials]);
+  const weldabilityOpts = useMemo(() => orderQual(getUniqueValues(materials, 'weldability')), [materials]);
 
   return (
     <div className="flex flex-col h-full bg-card border-r border-border">
@@ -510,6 +549,27 @@ export default function FilterSidebar({
             onChange={v => updateFilter('hardnessRange', v)}
           />
         )}
+        {thermalConductivityRange && (
+          <RangeSlider label="Thermal Conductivity" unit="W/m·K" min={thermalConductivityRange[0]} max={thermalConductivityRange[1]} value={filters.thermalConductivityRange} onChange={v => updateFilter('thermalConductivityRange', v)} />
+        )}
+        {electricalConductivityRange && (
+          <RangeSlider label="Electrical Conductivity" unit="%IACS" min={electricalConductivityRange[0]} max={electricalConductivityRange[1]} value={filters.electricalConductivityRange} onChange={v => updateFilter('electricalConductivityRange', v)} />
+        )}
+        {maxServiceTempRange && (
+          <RangeSlider label="Max Service Temp" unit="°C" min={maxServiceTempRange[0]} max={maxServiceTempRange[1]} value={filters.maxServiceTempRange} onChange={v => updateFilter('maxServiceTempRange', v)} />
+        )}
+        {fatigueStrengthRange && (
+          <RangeSlider label="Fatigue Strength" unit="MPa" min={fatigueStrengthRange[0]} max={fatigueStrengthRange[1]} value={filters.fatigueStrengthRange} onChange={v => updateFilter('fatigueStrengthRange', v)} />
+        )}
+        {impactStrengthRange && (
+          <RangeSlider label="Impact (Charpy)" unit="J" min={impactStrengthRange[0]} max={impactStrengthRange[1]} value={filters.impactStrengthRange} onChange={v => updateFilter('impactStrengthRange', v)} />
+        )}
+        {pricePerKgRange && (
+          <RangeSlider label="Price" unit="$/kg" min={pricePerKgRange[0]} max={pricePerKgRange[1]} value={filters.pricePerKgRange} onChange={v => updateFilter('pricePerKgRange', v)} />
+        )}
+        <QualitativeFilter label="Corrosion resistance" options={corrosionOpts} selected={filters.corrosion} onChange={v => updateFilter('corrosion', v)} />
+        <QualitativeFilter label="Machinability" options={machinabilityOpts} selected={filters.machinability} onChange={v => updateFilter('machinability', v)} />
+        <QualitativeFilter label="Weldability" options={weldabilityOpts} selected={filters.weldability} onChange={v => updateFilter('weldability', v)} />
         <div className="border-t border-border/50 mt-2">
           <CompositionFamilyBrowser
             materials={materials}
