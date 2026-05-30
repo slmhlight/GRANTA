@@ -277,6 +277,13 @@ export const FAMILY_TREE: FamilyGroup[] = [
       'Polymer - PBT',
       'Polymer - LCP',
       'Polymer - ETFE',
+      'Polymer - Carbon-Fiber Reinforced',
+      'Polymer - Glass-Fiber Reinforced',
+      'Polymer - PET',
+      'Polymer - PCL',
+      'Polymer - EVA',
+      'Polymer - PVB',
+      'Polymer - PBI',
     ],
   },
 ];

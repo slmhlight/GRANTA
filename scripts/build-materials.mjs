@@ -300,6 +300,22 @@ const ALIAS_MAP = {
   'pctfe': ['Kel-F', 'Polychlorotrifluoroethylene'],
   'pa46': ['Stanyl', 'Nylon 46'],
   'hips': ['High-impact polystyrene'],
+  // ── round-4 expansion aliases ──
+  'aa5454': ['UNS A95454', 'EN AW-5454', 'AlMg3Mn'],
+  'aa6005a': ['UNS A96005', 'EN AW-6005A', 'AlSiMg'],
+  'aa7068': ['UNS A97068', 'EN AW-7068'],
+  'aa2099': ['UNS A92099', 'Al-Li 2099'],
+  '4145': ['UNS G41450', 'AISI 4145', '42CrMo4(~)'],
+  'cpms30v': ['CPM S30V', 'UNS S30V'],
+  '316h': ['UNS S31609', 'EN 1.4919'],
+  '654smo': ['UNS S32654', 'EN 1.4652'],
+  'zeron100': ['UNS S32760', 'EN 1.4501', 'F55'],
+  'inconel718plus': ['UNS N07818', 'ATI 718Plus'],
+  'incoloy925': ['UNS N09925', 'Alloy 925'],
+  'inconel686': ['UNS N06686', 'Alloy 686'],
+  'chromium': ['Cr', 'pure chromium'],
+  'ultem1010': ['PEI', 'ULTEM 1010', 'SABIC'],
+  'onyx': ['Markforged Onyx', 'micro-carbon nylon'],
 };
 function extractAliases(name) {
   const out = [];
