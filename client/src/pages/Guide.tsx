@@ -7,7 +7,7 @@
  * 예시이며 특정 재료의 측정값이 아님.
  */
 import { Link } from 'wouter';
-import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, ExternalLink, Play } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, ExternalLink, Play, Sigma } from 'lucide-react';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 
 /** 인라인 수식/기호 강조 */
@@ -180,6 +180,9 @@ const TOC: { id: string; label: string }[] = [
   { id: 'intro', label: '0. 이 가이드를 읽는 이유' },
   { id: 'glossary', label: '1. 물성 용어 — 설계 언어로' },
   { id: 'translate', label: '2. 설계 요구 → 물성 수치 변환' },
+  { id: 'sections', label: '2.5 단면 형상별 단면 성질 (A·I·Z·J)' },
+  { id: 'beamcases', label: '2.6 보 하중·지지조건별 처짐·응력' },
+  { id: 'extra', label: '2.7 비틀림 · 좌굴 · 복합 응력' },
   { id: 'method', label: '3. Ashby 재료 선택법' },
   { id: 'chart', label: '4. Ashby 차트 읽기 & 이 앱 사용법' },
   { id: 'workflow', label: '5. 사례별 예시 시나리오' },
@@ -318,6 +321,280 @@ export default function Guide() {
         <Note tone="warn">
           <b>안전계수(SF)는 설계자·규격의 책임</b>입니다. 정적/연성 재료는 보통 1.5~2, 취성·불확실·인명 관련은 더 높게. 피로·고온·충격은 별도 기준을 따르세요. 이 앱은 물성값을 제공할 뿐 SF를 정해주지 않습니다.
         </Note>
+
+        {/* 2.5 단면 형상별 단면 성질 */}
+        <H id="sections" icon={Sigma}>2.5 단면 형상별 단면 성질 (A · I · Z · J)</H>
+        <p className="leading-relaxed">
+          응력·처짐·좌굴·비틀림 식에 들어가는 “단면 성질”은 단면 모양으로 정해집니다. 그래서 <b>형상을 먼저 정한 뒤</b> 필요한 재료 물성을 계산하는 것이 일반적입니다.
+        </p>
+        <ul className="list-disc pl-6 mt-2 space-y-1 leading-relaxed text-sm">
+          <li><F>A</F> — 단면적 (응력 <F>σ = F/A</F>에 사용)</li>
+          <li><F>I</F> — 단면 2차모멘트 (굽힘 변형·응력에 사용; 중립축 기준)</li>
+          <li><F>Z = I/c</F> — 단면계수, <F>c</F>는 중립축에서 가장 먼 섬유까지 거리 → 굽힘응력 <F>σ_b = M/Z</F></li>
+          <li><F>J</F> — 극관성모멘트 (비틀림 <F>τ = T·r/J</F>); 원형 단면에서만 단순한 닫힌식이 성립</li>
+          <li><F>r = √(I/A)</F> — 회전반경 (좌굴에 사용)</li>
+        </ul>
+        <div className="overflow-x-auto mt-3">
+          <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+            <thead className="bg-muted/50 text-left text-[11px] uppercase tracking-wide">
+              <tr>
+                <th className="p-2 font-semibold">단면</th>
+                <th className="p-2 font-semibold">A</th>
+                <th className="p-2 font-semibold">I (중립축)</th>
+                <th className="p-2 font-semibold">Z = I/c</th>
+                <th className="p-2 font-semibold">J (비틀림)</th>
+              </tr>
+            </thead>
+            <tbody className="[&>tr]:border-t [&>tr]:border-border align-middle">
+              <tr>
+                <td className="p-2"><div className="flex items-center gap-2"><svg viewBox="0 0 80 70" className="w-16 h-14"><rect x="20" y="10" width="40" height="50" className="fill-accent/15 stroke-accent" strokeWidth="1.8"/><line x1="12" y1="35" x2="68" y2="35" strokeDasharray="3 2" className="stroke-foreground/40"/><text x="36" y="68" fontSize="9" className="fill-foreground/70" fontFamily="monospace">b</text><text x="63" y="38" fontSize="9" className="fill-foreground/70" fontFamily="monospace">h</text></svg><span><b>직사각형</b><br/><span className="text-muted-foreground text-[11px]">b × h</span></span></div></td>
+                <td className="p-2 font-mono"><F>b · h</F></td>
+                <td className="p-2 font-mono"><F>b·h³ / 12</F></td>
+                <td className="p-2 font-mono"><F>b·h² / 6</F></td>
+                <td className="p-2 font-mono text-muted-foreground/60">근사식*</td>
+              </tr>
+              <tr>
+                <td className="p-2"><div className="flex items-center gap-2"><svg viewBox="0 0 80 70" className="w-16 h-14"><rect x="22" y="13" width="36" height="44" className="fill-accent/15 stroke-accent" strokeWidth="1.8"/><line x1="14" y1="35" x2="66" y2="35" strokeDasharray="3 2" className="stroke-foreground/40"/><text x="37" y="68" fontSize="9" className="fill-foreground/70" fontFamily="monospace">a</text></svg><span><b>정사각형</b><br/><span className="text-muted-foreground text-[11px]">a × a</span></span></div></td>
+                <td className="p-2 font-mono"><F>a²</F></td>
+                <td className="p-2 font-mono"><F>a⁴ / 12</F></td>
+                <td className="p-2 font-mono"><F>a³ / 6</F></td>
+                <td className="p-2 font-mono text-muted-foreground/60">0.141 a⁴</td>
+              </tr>
+              <tr>
+                <td className="p-2"><div className="flex items-center gap-2"><svg viewBox="0 0 80 70" className="w-16 h-14"><circle cx="40" cy="35" r="22" className="fill-accent/15 stroke-accent" strokeWidth="1.8"/><line x1="14" y1="35" x2="66" y2="35" strokeDasharray="3 2" className="stroke-foreground/40"/><text x="35" y="68" fontSize="9" className="fill-foreground/70" fontFamily="monospace">d</text></svg><span><b>원형</b><br/><span className="text-muted-foreground text-[11px]">지름 d</span></span></div></td>
+                <td className="p-2 font-mono"><F>π·d² / 4</F></td>
+                <td className="p-2 font-mono"><F>π·d⁴ / 64</F></td>
+                <td className="p-2 font-mono"><F>π·d³ / 32</F></td>
+                <td className="p-2 font-mono"><F>π·d⁴ / 32</F></td>
+              </tr>
+              <tr>
+                <td className="p-2"><div className="flex items-center gap-2"><svg viewBox="0 0 80 70" className="w-16 h-14"><rect x="14" y="10" width="52" height="50" className="fill-accent/15 stroke-accent" strokeWidth="1.8"/><rect x="26" y="20" width="28" height="30" className="fill-background stroke-accent" strokeWidth="1.5"/><line x1="8" y1="35" x2="72" y2="35" strokeDasharray="3 2" className="stroke-foreground/40"/></svg><span><b>박스(중공)</b><br/><span className="text-muted-foreground text-[11px]">B,H 외 / b,h 내</span></span></div></td>
+                <td className="p-2 font-mono"><F>B·H − b·h</F></td>
+                <td className="p-2 font-mono"><F>(B·H³ − b·h³) / 12</F></td>
+                <td className="p-2 font-mono"><F>2·I / H</F></td>
+                <td className="p-2 font-mono text-muted-foreground/60">근사식*</td>
+              </tr>
+              <tr>
+                <td className="p-2"><div className="flex items-center gap-2"><svg viewBox="0 0 80 70" className="w-16 h-14"><circle cx="40" cy="35" r="24" className="fill-accent/15 stroke-accent" strokeWidth="1.8"/><circle cx="40" cy="35" r="14" className="fill-background stroke-accent" strokeWidth="1.5"/><line x1="10" y1="35" x2="70" y2="35" strokeDasharray="3 2" className="stroke-foreground/40"/></svg><span><b>관(튜브)</b><br/><span className="text-muted-foreground text-[11px]">D 외 / d 내</span></span></div></td>
+                <td className="p-2 font-mono"><F>π·(D² − d²)/4</F></td>
+                <td className="p-2 font-mono"><F>π·(D⁴ − d⁴)/64</F></td>
+                <td className="p-2 font-mono"><F>π·(D⁴ − d⁴)/(32·D)</F></td>
+                <td className="p-2 font-mono"><F>π·(D⁴ − d⁴)/32</F></td>
+              </tr>
+              <tr>
+                <td className="p-2"><div className="flex items-center gap-2"><svg viewBox="0 0 80 70" className="w-16 h-14"><g className="fill-accent/15 stroke-accent" strokeWidth="1.6"><rect x="14" y="12" width="52" height="8"/><rect x="36" y="20" width="8" height="30"/><rect x="14" y="50" width="52" height="8"/></g><line x1="8" y1="35" x2="72" y2="35" strokeDasharray="3 2" className="stroke-foreground/40"/></svg><span><b>I-빔</b><br/><span className="text-muted-foreground text-[11px]">플랜지 + 웹</span></span></div></td>
+                <td className="p-2 font-mono text-[11px]"><F>2·b_f·t_f + h_w·t_w</F></td>
+                <td className="p-2 font-mono text-[11px]" colSpan={2}>플랜지+웹 합산 <span className="text-muted-foreground">(parallel-axis)</span></td>
+                <td className="p-2 font-mono text-muted-foreground/60">개단면 — 작음</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <Note tone="tip">
+          <b>실용 팁.</b> 같은 <F>A</F> 일 때 <F>I</F>를 키우려면 “재료를 중립축에서 멀리” 두세요. 그래서 보·기둥은 I-빔·박스·관이 압도적으로 효율적입니다. <br/>
+          *비틀림: 비원형 단면의 <F>J</F>는 단순 닫힌식이 없고, 직사각형은 <F>J ≈ β·b·h³</F>(β: h/b에 의존하는 표)으로, 개단면(I·L·채널)은 비틀림에 매우 약해 권장하지 않습니다.
+        </Note>
+
+        {/* 2.6 보 하중·지지조건별 처짐·응력 */}
+        <H id="beamcases" icon={Sigma}>2.6 보 하중·지지조건별 처짐 · 모멘트</H>
+        <p className="leading-relaxed">
+          처짐 식 <F>δ = (계수) · F·L³ / (E·I)</F> 또는 <F>(계수) · w·L⁴ / (E·I)</F> 형태가 표준입니다. 처짐 한계로부터 <F>필요 E·I</F>를 구한 뒤,
+          앞서 정한 단면(I 결정)으로 나누면 <b>필요한 재료 E</b> 가 나옵니다. 굽힘응력은 <F>σ_b = M_max / Z</F>.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+          {/* Case 1: 외팔보, 끝 집중하중 */}
+          <div className="rounded-lg border border-border p-3 bg-card">
+            <div className="flex items-start gap-3">
+              <svg viewBox="0 0 140 70" className="w-32 h-16 flex-shrink-0">
+                <g className={stroke} strokeWidth="1"><line x1="12" y1="10" x2="12" y2="60"/><line x1="8" y1="14" x2="12" y2="18"/><line x1="8" y1="24" x2="12" y2="28"/><line x1="8" y1="34" x2="12" y2="38"/><line x1="8" y1="44" x2="12" y2="48"/><line x1="8" y1="54" x2="12" y2="58"/></g>
+                <rect x="12" y="32" width="116" height="8" className={`fill-accent/15 ${accent}`} strokeWidth="1.8"/>
+                <g className={force} strokeWidth="2" fill="none"><line x1="124" y1="20" x2="124" y2="50"/><polyline points="120,46 124,52 128,46"/></g>
+                <text x="118" y="16" fontSize="9" className="fill-rose-500" fontFamily="monospace">F</text>
+                <text x="60" y="68" fontSize="9" className="fill-foreground/70" fontFamily="monospace">L</text>
+              </svg>
+              <div className="text-sm leading-snug">
+                <p className="font-semibold">외팔보 · 끝단 집중하중</p>
+                <p className="font-mono text-[12px] mt-1">δ_max = F·L³ / (3·E·I)</p>
+                <p className="font-mono text-[12px]">M_max = F·L <span className="text-muted-foreground">(근원)</span></p>
+              </div>
+            </div>
+          </div>
+
+          {/* Case 2: 외팔보, 분포하중 */}
+          <div className="rounded-lg border border-border p-3 bg-card">
+            <div className="flex items-start gap-3">
+              <svg viewBox="0 0 140 70" className="w-32 h-16 flex-shrink-0">
+                <g className={stroke} strokeWidth="1"><line x1="12" y1="10" x2="12" y2="60"/><line x1="8" y1="14" x2="12" y2="18"/><line x1="8" y1="24" x2="12" y2="28"/><line x1="8" y1="34" x2="12" y2="38"/><line x1="8" y1="44" x2="12" y2="48"/><line x1="8" y1="54" x2="12" y2="58"/></g>
+                <rect x="12" y="32" width="116" height="8" className={`fill-accent/15 ${accent}`} strokeWidth="1.8"/>
+                <g className={force} strokeWidth="1.4" fill="none">
+                  <line x1="22" y1="18" x2="22" y2="30"/><polyline points="20,28 22,32 24,28"/>
+                  <line x1="42" y1="18" x2="42" y2="30"/><polyline points="40,28 42,32 44,28"/>
+                  <line x1="62" y1="18" x2="62" y2="30"/><polyline points="60,28 62,32 64,28"/>
+                  <line x1="82" y1="18" x2="82" y2="30"/><polyline points="80,28 82,32 84,28"/>
+                  <line x1="102" y1="18" x2="102" y2="30"/><polyline points="100,28 102,32 104,28"/>
+                  <line x1="122" y1="18" x2="122" y2="30"/><polyline points="120,28 122,32 124,28"/>
+                </g>
+                <text x="64" y="14" fontSize="9" className="fill-rose-500" fontFamily="monospace">w</text>
+              </svg>
+              <div className="text-sm leading-snug">
+                <p className="font-semibold">외팔보 · 등분포하중 w</p>
+                <p className="font-mono text-[12px] mt-1">δ_max = w·L⁴ / (8·E·I)</p>
+                <p className="font-mono text-[12px]">M_max = w·L² / 2</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Case 3: 단순지지, 중앙 집중하중 */}
+          <div className="rounded-lg border border-border p-3 bg-card">
+            <div className="flex items-start gap-3">
+              <svg viewBox="0 0 140 70" className="w-32 h-16 flex-shrink-0">
+                <rect x="12" y="32" width="116" height="8" className={`fill-accent/15 ${accent}`} strokeWidth="1.8"/>
+                <polygon points="12,40 6,52 18,52" className={`fill-foreground/30 ${stroke}`} strokeWidth="1"/>
+                <polygon points="128,40 122,52 134,52" className={`fill-foreground/30 ${stroke}`} strokeWidth="1"/>
+                <g className={force} strokeWidth="2" fill="none"><line x1="70" y1="18" x2="70" y2="30"/><polyline points="66,26 70,32 74,26"/></g>
+                <text x="64" y="14" fontSize="9" className="fill-rose-500" fontFamily="monospace">F</text>
+                <text x="62" y="65" fontSize="9" className="fill-foreground/70" fontFamily="monospace">L</text>
+              </svg>
+              <div className="text-sm leading-snug">
+                <p className="font-semibold">단순지지 · 중앙 집중하중</p>
+                <p className="font-mono text-[12px] mt-1">δ_max = F·L³ / (48·E·I)</p>
+                <p className="font-mono text-[12px]">M_max = F·L / 4</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Case 4: 단순지지, 분포하중 */}
+          <div className="rounded-lg border border-border p-3 bg-card">
+            <div className="flex items-start gap-3">
+              <svg viewBox="0 0 140 70" className="w-32 h-16 flex-shrink-0">
+                <rect x="12" y="32" width="116" height="8" className={`fill-accent/15 ${accent}`} strokeWidth="1.8"/>
+                <polygon points="12,40 6,52 18,52" className={`fill-foreground/30 ${stroke}`} strokeWidth="1"/>
+                <polygon points="128,40 122,52 134,52" className={`fill-foreground/30 ${stroke}`} strokeWidth="1"/>
+                <g className={force} strokeWidth="1.4" fill="none">
+                  <line x1="22" y1="18" x2="22" y2="30"/><polyline points="20,28 22,32 24,28"/>
+                  <line x1="42" y1="18" x2="42" y2="30"/><polyline points="40,28 42,32 44,28"/>
+                  <line x1="62" y1="18" x2="62" y2="30"/><polyline points="60,28 62,32 64,28"/>
+                  <line x1="82" y1="18" x2="82" y2="30"/><polyline points="80,28 82,32 84,28"/>
+                  <line x1="102" y1="18" x2="102" y2="30"/><polyline points="100,28 102,32 104,28"/>
+                  <line x1="122" y1="18" x2="122" y2="30"/><polyline points="120,28 122,32 124,28"/>
+                </g>
+                <text x="64" y="14" fontSize="9" className="fill-rose-500" fontFamily="monospace">w</text>
+              </svg>
+              <div className="text-sm leading-snug">
+                <p className="font-semibold">단순지지 · 등분포하중 w</p>
+                <p className="font-mono text-[12px] mt-1">δ_max = 5·w·L⁴ / (384·E·I)</p>
+                <p className="font-mono text-[12px]">M_max = w·L² / 8</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Case 5: 고정-고정, 중앙하중 */}
+          <div className="rounded-lg border border-border p-3 bg-card">
+            <div className="flex items-start gap-3">
+              <svg viewBox="0 0 140 70" className="w-32 h-16 flex-shrink-0">
+                <g className={stroke} strokeWidth="1"><line x1="12" y1="14" x2="12" y2="58"/><line x1="128" y1="14" x2="128" y2="58"/><line x1="8" y1="18" x2="12" y2="22"/><line x1="8" y1="28" x2="12" y2="32"/><line x1="8" y1="38" x2="12" y2="42"/><line x1="8" y1="48" x2="12" y2="52"/><line x1="128" y1="22" x2="132" y2="18"/><line x1="128" y1="32" x2="132" y2="28"/><line x1="128" y1="42" x2="132" y2="38"/><line x1="128" y1="52" x2="132" y2="48"/></g>
+                <rect x="12" y="32" width="116" height="8" className={`fill-accent/15 ${accent}`} strokeWidth="1.8"/>
+                <g className={force} strokeWidth="2" fill="none"><line x1="70" y1="18" x2="70" y2="30"/><polyline points="66,26 70,32 74,26"/></g>
+                <text x="64" y="14" fontSize="9" className="fill-rose-500" fontFamily="monospace">F</text>
+              </svg>
+              <div className="text-sm leading-snug">
+                <p className="font-semibold">고정-고정 · 중앙 집중하중</p>
+                <p className="font-mono text-[12px] mt-1">δ_max = F·L³ / (192·E·I)</p>
+                <p className="font-mono text-[12px]">M_max = F·L / 8 <span className="text-muted-foreground">(단부)</span></p>
+              </div>
+            </div>
+          </div>
+
+          {/* Case 6: 고정-고정, 분포하중 */}
+          <div className="rounded-lg border border-border p-3 bg-card">
+            <div className="flex items-start gap-3">
+              <svg viewBox="0 0 140 70" className="w-32 h-16 flex-shrink-0">
+                <g className={stroke} strokeWidth="1"><line x1="12" y1="14" x2="12" y2="58"/><line x1="128" y1="14" x2="128" y2="58"/><line x1="8" y1="18" x2="12" y2="22"/><line x1="8" y1="28" x2="12" y2="32"/><line x1="8" y1="38" x2="12" y2="42"/><line x1="8" y1="48" x2="12" y2="52"/><line x1="128" y1="22" x2="132" y2="18"/><line x1="128" y1="32" x2="132" y2="28"/><line x1="128" y1="42" x2="132" y2="38"/><line x1="128" y1="52" x2="132" y2="48"/></g>
+                <rect x="12" y="32" width="116" height="8" className={`fill-accent/15 ${accent}`} strokeWidth="1.8"/>
+                <g className={force} strokeWidth="1.4" fill="none">
+                  <line x1="26" y1="18" x2="26" y2="30"/><polyline points="24,28 26,32 28,28"/>
+                  <line x1="46" y1="18" x2="46" y2="30"/><polyline points="44,28 46,32 48,28"/>
+                  <line x1="66" y1="18" x2="66" y2="30"/><polyline points="64,28 66,32 68,28"/>
+                  <line x1="86" y1="18" x2="86" y2="30"/><polyline points="84,28 86,32 88,28"/>
+                  <line x1="106" y1="18" x2="106" y2="30"/><polyline points="104,28 106,32 108,28"/>
+                </g>
+                <text x="62" y="14" fontSize="9" className="fill-rose-500" fontFamily="monospace">w</text>
+              </svg>
+              <div className="text-sm leading-snug">
+                <p className="font-semibold">고정-고정 · 등분포하중 w</p>
+                <p className="font-mono text-[12px] mt-1">δ_max = w·L⁴ / (384·E·I)</p>
+                <p className="font-mono text-[12px]">M_max = w·L² / 12 <span className="text-muted-foreground">(단부)</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Note>
+          <b>역산 흐름.</b> ① 처짐 한계 <F>δ_max</F>·하중·길이로 <F>필요 E·I</F> 계산 → ② 2.5에서 단면을 골라 <F>I</F> 계산 → ③ <b>필요 E = (필요 E·I) / I</b>. 강도 점검은 <F>σ_b = M_max / Z ≤ σy / SF</F> → <b>필요 σy ≥ SF·M_max / Z</b>.
+        </Note>
+
+        <Note tone="tip">
+          <b>워크드 예제 (외팔보 · 끝하중).</b> 길이 <F>L = 200 mm</F>, 끝 하중 <F>F = 500 N</F>, 처짐 한계 <F>δ_max ≤ 1 mm</F>, 단면을 <b>관(D=20, d=16 mm)</b>으로 정함.<br />
+          ① <F>I = π(20⁴ − 16⁴)/64 = (π/64)(160000 − 65536) ≈ 4633 mm⁴</F><br />
+          ② 필요 <F>E·I = F·L³ / (3·δ) = 500 × 200³ / (3 × 1) = 1.333 × 10⁹ N·mm²</F><br />
+          ③ <F>필요 E = 1.333×10⁹ / 4633 ≈ 2.88 × 10⁵ MPa = 288 GPa</F> — 너무 큼! 일반 금속(E ≤ 210 GPa)으로 안 됨.<br />
+          ④ 단면을 키우면 됨: <F>D=24, d=20 → I = π(24⁴ − 20⁴)/64 ≈ 8454 mm⁴</F> → <F>필요 E ≈ 158 GPa</F> → <b>강(E≈210)·구리합금(E≈120)·티타늄(E≈115)이 후보</b>.<br />
+          ⑤ 강도 점검: <F>M_max = 500 × 200 = 10⁵ N·mm</F>, <F>Z = π(24⁴ − 20⁴)/(32·24) ≈ 704 mm³</F> → <F>σ_b ≈ 142 MPa</F>. <F>SF=2</F> 적용 시 <F>필요 σy ≥ 284 MPa</F>.<br />
+          ⑥ 앱에서: <b>Modulus ≥ 158</b>, <b>Yield ≥ 284</b> 필터 → 후보 산점도·Compare로 비교.
+        </Note>
+
+        {/* 2.7 비틀림 · 좌굴 · 복합 */}
+        <H id="extra" icon={Sigma}>2.7 비틀림 · 좌굴 · 복합 응력</H>
+
+        <h3 className="font-semibold mt-3 mb-1">비틀림 (원형축)</h3>
+        <p className="leading-relaxed">
+          토크 <F>T</F>가 작용하는 원형 축에서 전단응력은 표면에서 최대이고 비틀림각도 정해진 식으로 얻습니다.
+        </p>
+        <ul className="list-disc pl-6 mt-1 space-y-1 text-sm leading-relaxed">
+          <li>최대 전단응력: <F>τ_max = T·c / J</F> &nbsp;(<F>c = D/2</F>, 원형축은 <F>J = π·D⁴/32</F>)</li>
+          <li>비틀림각: <F>φ = T·L / (G·J)</F> &nbsp;(<F>G = E / [2(1+ν)]</F>, 금속은 <F>G ≈ 0.38·E</F>)</li>
+          <li>전단 허용응력: 보통 <F>τ_allow ≈ 0.5~0.6 · σy / SF</F> (von Mises/Tresca 기준에 따라)</li>
+        </ul>
+
+        <h3 className="font-semibold mt-4 mb-1">좌굴 (장주: Euler 식)</h3>
+        <div className="flex items-start gap-4 mt-1">
+          <svg viewBox="0 0 110 90" className="w-24 h-20 flex-shrink-0 bg-muted/30 rounded border border-border/60 p-1">
+            <g className={stroke} strokeWidth="1"><line x1="20" y1="78" x2="90" y2="78"/><line x1="22" y1="78" x2="18" y2="86"/><line x1="32" y1="78" x2="28" y2="86"/><line x1="42" y1="78" x2="38" y2="86"/><line x1="52" y1="78" x2="48" y2="86"/><line x1="62" y1="78" x2="58" y2="86"/><line x1="72" y1="78" x2="68" y2="86"/><line x1="82" y1="78" x2="78" y2="86"/></g>
+            <rect x="50" y="14" width="10" height="64" className={`fill-accent/15 ${accent}`} strokeWidth="1.8"/>
+            <g className={force} strokeWidth="2" fill="none"><line x1="55" y1="2" x2="55" y2="14"/><polyline points="51,10 55,14 59,10"/></g>
+            <text x="42" y="10" fontSize="9" className="fill-rose-500" fontFamily="monospace">P</text>
+          </svg>
+          <div className="text-sm leading-relaxed">
+            <p>임계좌굴하중: <F>P_cr = π² · E · I / L_eff²</F></p>
+            <p>유효길이 <F>L_eff = K · L</F> (단부 조건):</p>
+            <ul className="list-disc pl-5 mt-1 text-[13px] space-y-0.5">
+              <li>핀-핀: <F>K = 1.0</F></li>
+              <li>고정-자유 (외팔): <F>K = 2.0</F></li>
+              <li>고정-핀: <F>K ≈ 0.7</F></li>
+              <li>고정-고정: <F>K = 0.5</F></li>
+            </ul>
+            <p className="mt-1 text-muted-foreground">길이 대비 단면이 작으면 σy를 넘기 전에 좌굴이 먼저 옵니다. 가는 봉·장주 설계 시 반드시 확인.</p>
+          </div>
+        </div>
+
+        <h3 className="font-semibold mt-4 mb-1">복합 응력 (von Mises)</h3>
+        <p className="leading-relaxed text-sm">
+          축 응력과 전단이 동시에 작용할 때(예: 굽힘 + 비틀림 회전축) 등가응력 <F>σ_eq</F>를 σy 와 비교합니다.
+        </p>
+        <p className="font-mono text-sm mt-1">σ_eq = √(σ_x² + 3·τ²) &nbsp; ≤ &nbsp; σy / SF</p>
+        <Note tone="tip">
+          위 식은 평면응력의 단순한 경우입니다. 일반 3축 응력은 <F>σ_eq = √[½((σ₁−σ₂)² + (σ₂−σ₃)² + (σ₃−σ₁)²)]</F>. 자세한 조합 응력은 재료역학 교과서를 참조하세요.
+        </Note>
+
+        <h3 className="font-semibold mt-4 mb-1">압력 용기 (얇은 두께)</h3>
+        <p className="text-sm leading-relaxed">반경 <F>r</F>, 두께 <F>t</F>, 내압 <F>p</F>인 얇은 원통(<F>t ≪ r</F>):</p>
+        <ul className="list-disc pl-6 mt-1 text-sm font-mono">
+          <li>원주(후프)응력 σ_h = p·r / t</li>
+          <li>축방향응력 σ_a = p·r / (2t)</li>
+          <li>구형 압력 용기 σ = p·r / (2t)</li>
+        </ul>
+        <p className="text-sm mt-1 text-muted-foreground">필요 두께 <F>t ≥ p·r·SF / σy</F>. 안전계수는 코드(ASME 등)를 따르세요.</p>
 
         {/* 3. Ashby 방법 */}
         <H id="method" icon={ListChecks}>3. Ashby 재료 선택법</H>
