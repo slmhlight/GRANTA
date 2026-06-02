@@ -127,6 +127,61 @@ export const SvgElectrical = () => (
     <text x="14" y="80" fontSize="9" className="fill-rose-500" fontFamily="monospace">I²R · ΔT</text>
   </svg>
 );
+/* 라운드 7 추가: 압력용기·기어·체결구·금형 */
+export const SvgPressureVesselSmall = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 원통형 압력용기 (양 끝 반구) + 내부압 화살표 */}
+    <path d="M 30 30 a 12 12 0 0 1 0 30 L 90 60 a 12 12 0 0 0 0 -30 Z" className={`fill-accent/15 ${accent}`} strokeWidth="2" />
+    <g className={force} strokeWidth="1.5" fill="none">
+      <line x1="60" y1="48" x2="50" y2="38" /><polyline points="52,41 50,38 53,36" />
+      <line x1="60" y1="48" x2="70" y2="38" /><polyline points="68,36 70,38 67,41" />
+      <line x1="60" y1="48" x2="50" y2="58" /><polyline points="53,60 50,58 52,55" />
+      <line x1="60" y1="48" x2="70" y2="58" /><polyline points="67,55 70,58 68,60" />
+    </g>
+    <text x="60" y="46" fontSize="10" textAnchor="middle" className="fill-rose-500 font-bold" fontFamily="monospace">P</text>
+    <text x="12" y="80" fontSize="9" className="fill-foreground/70" fontFamily="monospace">σ_h = PD/2t</text>
+  </svg>
+);
+export const SvgGear = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 큰 기어 (12 톱니) + 토크 화살 */}
+    <g className={`fill-accent/15 ${accent}`} strokeWidth="1.5">
+      <circle cx="60" cy="48" r="26" />
+      {Array.from({ length: 14 }).map((_, i) => { const a = (i * 360 / 14) * Math.PI / 180; const cx = 60 + Math.cos(a) * 28; const cy = 48 + Math.sin(a) * 28; return <rect key={i} x={cx - 2} y={cy - 2} width="4" height="4" transform={`rotate(${i * 360 / 14} ${cx} ${cy})`} />; })}
+      <circle cx="60" cy="48" r="4" className="fill-accent" />
+    </g>
+    {/* 회전 화살 */}
+    <path d="M 78 38 a 22 22 0 1 1 -6 -22" className={force} strokeWidth="1.6" fill="none" />
+    <polygon points="74,16 78,12 80,18" className="fill-rose-500" />
+    <text x="14" y="80" fontSize="9" className="fill-rose-500" fontFamily="monospace">T · F_t</text>
+  </svg>
+);
+export const SvgFastener = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 헥스 볼트 + 나사산 */}
+    <polygon points="20,28 36,18 52,28 52,46 36,56 20,46" className={`fill-accent/20 ${accent}`} strokeWidth="1.6" />
+    <line x1="36" y1="56" x2="36" y2="74" className={accent} strokeWidth="3" />
+    {/* 나사산 */}
+    <g className={accent} strokeWidth="1.2" fill="none">
+      <line x1="28" y1="58" x2="44" y2="58" /><line x1="28" y1="62" x2="44" y2="62" /><line x1="28" y1="66" x2="44" y2="66" /><line x1="28" y1="70" x2="44" y2="70" />
+    </g>
+    {/* 너트 */}
+    <polygon points="68,52 80,46 92,52 92,62 80,68 68,62" className={`fill-foreground/10 ${stroke}`} strokeWidth="1.5" />
+    <circle cx="80" cy="57" r="5" className="fill-background" stroke="none" />
+    <text x="14" y="84" fontSize="9" className="fill-foreground/70" fontFamily="monospace">UTS · σy · 등급</text>
+  </svg>
+);
+export const SvgDieMold = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 상하 다이 + 캐비티 (사출 금형 도식) */}
+    <rect x="14" y="18" width="92" height="22" className={`fill-foreground/15 ${stroke}`} strokeWidth="1.5" />
+    <path d="M 36 40 L 36 52 L 50 60 L 70 60 L 84 52 L 84 40" className="fill-rose-100/60 stroke-rose-500" strokeWidth="1.5" />
+    <rect x="14" y="60" width="92" height="22" className={`fill-foreground/15 ${stroke}`} strokeWidth="1.5" />
+    {/* 분할선 */}
+    <line x1="14" y1="50" x2="106" y2="50" strokeDasharray="3 2" className="stroke-accent/60" strokeWidth="1" />
+    <text x="60" y="14" textAnchor="middle" fontSize="8" className="fill-foreground/70" fontFamily="monospace">HV ≥ 600 · 인성</text>
+  </svg>
+);
 
 /* ─── 단면 형상 SVG (Chapter 3 카드) ─────────────────────────────────────── */
 export const SvgRect = () => (

@@ -16,6 +16,7 @@ import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCar
 import {
   SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink,
   SvgWear, SvgMedical, SvgCryogenic, SvgElectrical,
+  SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold,
   SvgRect, SvgSquare, SvgCircle, SvgBox, SvgTube, SvgIBeam,
   SvgColumn,
   SvgStressStrain, SvgBendingStress, SvgAshbyChart, SvgFCOF, SvgTorsion, SvgMohr, SvgPressureVessel,
@@ -41,7 +42,7 @@ const TOC: { id: string; n: number; label: string; icon: any }[] = [
 ];
 
 /** 사례 타일 — 가이드 최상단에서 한눈에 보고 곧장 다이얼로그를 열 수 있게.
- *  라운드 6: 8 → 12 종 확장. 첫 8 개는 일반 기계 설계, 마지막 4 개는 산업 특화. */
+ *  라운드 7: 12 → 16 종 확장. 일반 기계 → 산업 특화 → 핵심 기계요소 순. */
 const SCENARIO_TILES: { key: ScenarioKey; title: string; sub: string; svg: () => React.ReactElement }[] = [
   { key: 'bracket', title: '구조 브래킷', sub: '경량 + 고강성', svg: SvgBracket },
   { key: 'hightemp', title: '고온 부품', sub: '배기 · 터빈', svg: SvgManifold },
@@ -55,6 +56,10 @@ const SCENARIO_TILES: { key: ScenarioKey; title: string; sub: string; svg: () =>
   { key: 'medical', title: '의료 임플란트', sub: '생체적합', svg: SvgMedical },
   { key: 'cryogenic', title: '극저온', sub: 'LNG · 우주', svg: SvgCryogenic },
   { key: 'electrical', title: '전기 전도체', sub: '버스바·접점', svg: SvgElectrical },
+  { key: 'pressure_vessel', title: '압력용기', sub: '탱크·실린더', svg: SvgPressureVesselSmall },
+  { key: 'gear', title: '기어', sub: '동력 전달', svg: SvgGear },
+  { key: 'fastener', title: '체결구', sub: '볼트·스터드', svg: SvgFastener },
+  { key: 'die_mold', title: '다이·금형', sub: '사출·단조·절삭', svg: SvgDieMold },
 ];
 
 export default function Guide() {

@@ -826,6 +826,265 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
     },
   },
 
+  pressure_vessel: {
+    label: '압력용기 (탱크·실린더·보일러)',
+    filters: {},
+    viewMode: 'ashby',
+    indexHint: 'Hoop stress 우선 — Sy/ρ 로 무게 비교, 내식·고온 필터로 환경 조건 반영',
+    configurator: {
+      description: '내압·내경·온도·환경을 입력하면 박판/후판 식으로 필요 σy 와 두께를 산출합니다. ASME VIII Div.1 식 기반.',
+      fields: [
+        { id: 'P', label: '설계 압력 P', unit: 'MPa', type: 'number', default: 2, min: 0.01, step: 0.1, group: '하중' },
+        { id: 'D', label: '내경 D', unit: 'mm', type: 'number', default: 500, min: 10, step: 10, group: '기하' },
+        { id: 'T', label: '사용 온도', unit: '°C', type: 'number', default: 60, step: 10, group: '환경' },
+        { id: 'env', label: '내부 환경', type: 'select', default: 'water', options: [
+          { value: 'water', label: '물·일반 액체 — 부식 무시' },
+          { value: 'steam', label: '증기·고온수 — 산화 고려' },
+          { value: 'corrosive', label: '부식성 (산·해수) — 내식 필수' },
+          { value: 'gas', label: '압축 가스 (LPG·CO₂) — 부식 무시' },
+          { value: 'cryogen', label: '극저온 액체 (LNG·LOX·LH₂)' },
+        ], group: '환경' },
+        { id: 'SF', label: '안전계수 SF', type: 'number', default: 3.5, min: 1.5, step: 0.5, help: '일반 압력용기 SF=3.5 (ASME VIII Div.1)', group: '설계 마진' },
+        { id: 't_assumed', label: '가정 두께 t (산출 검증용)', unit: 'mm', type: 'number', default: 6, min: 0.1, step: 0.5, group: '기하' },
+      ],
+      compute: (v) => {
+        const P = Number(v.P), D = Number(v.D), T = Number(v.T), SF = Number(v.SF), t = Number(v.t_assumed);
+        const env = String(v.env);
+        // Hoop stress (박판 가정): σ_h = P·D/(2·t). 두꺼우면 Lamé 식 필요하지만 D/t > 20 가정.
+        const sigmaHoop = (P * D) / (2 * t);
+        const needSy = SF * sigmaHoop;
+        // 환경별 추가 마진·내식 등급
+        const envMargin = env === 'steam' ? 30 : env === 'cryogen' ? 0 : 0;
+        const corr = env === 'corrosive' ? ['Excellent'] : env === 'steam' ? ['Excellent', 'Good'] : env === 'cryogen' ? ['Excellent', 'Good'] : [];
+        const subRec = env === 'cryogen' ? ['Stainless - Austenitic', 'Aluminum', 'Nickel Superalloy'] : [];
+        const tMax = Math.max(T + envMargin, T);
+        const filters: Partial<FilterState> = {
+          yieldStrengthRange: [round0(needSy), HI],
+          maxServiceTempRange: [tMax + 20, HI],
+        };
+        if (corr.length) filters.corrosion = corr;
+        if (subRec.length) filters.subcategories = subRec;
+        return {
+          filters,
+          summary: [
+            { label: 'Hoop 응력', value: `σ_h = P·D/(2t) = ${round1(sigmaHoop)} MPa` },
+            { label: '필요 σy', value: `≥ ${round0(needSy)} MPa  (SF=${SF})` },
+            { label: 'D/t', value: `${round1(D / t)}  ${D / t < 20 ? '⚠ 후판 — Lamé 식 필요' : '(박판 가정 OK)'}` },
+            { label: '내부식 등급', value: corr.length ? corr.join(' · ') : '제약 없음' },
+            { label: '최대사용온도 (필터)', value: `≥ ${tMax + 20} °C` },
+            ...(env === 'cryogen' ? [{ label: '극저온 군', value: 'Austenitic SS · Al · Ni (BCC 강 제외)' }] : []),
+            { label: '검증', value: 'ASME BPVC Sec.VIII Div.1, 두께·재료 등급 표준 — 실 설계 시 코드 식 적용' },
+          ],
+        };
+      },
+    },
+  },
+
+  gear: {
+    label: '기어 (전동·동력 전달)',
+    filters: {},
+    viewMode: 'ashby',
+    indexHint: '굽힘 한도 + 접촉 한도 동시 — 침탄·질화로 후공정 강도 추가 흔함',
+    configurator: {
+      description: '토크·치수·사이클로 굽힘응력(Lewis)·접촉응력(Hertz)을 추정해 필요 σy/HV 를 산출합니다. AGMA 단순화.',
+      fields: [
+        { id: 'app', label: '응용', type: 'select', default: 'industrial', options: [
+          { value: 'industrial', label: '산업용 감속기 (보통 강도)' },
+          { value: 'automotive', label: '자동차 변속기 (고강도 + 피로)' },
+          { value: 'aerospace', label: '항공 (고강도 + 경량 + 정밀)' },
+          { value: 'precision', label: '시계·계측 (정밀, 저토크)' },
+        ], group: '응용' },
+        { id: 'T_torque', label: '전달 토크 T', unit: 'N·m', type: 'number', default: 100, min: 0.1, step: 10, group: '하중' },
+        { id: 'd_pitch', label: '피치원 지름 d', unit: 'mm', type: 'number', default: 80, min: 5, step: 5, group: '기하' },
+        { id: 'm_module', label: '모듈 m', unit: 'mm', type: 'number', default: 2.5, min: 0.5, step: 0.5, group: '기하', help: '치형 크기 — 자동차 2-4, 산업용 3-8' },
+        { id: 'b_face', label: '치폭 b', unit: 'mm', type: 'number', default: 20, min: 1, step: 2, group: '기하' },
+        { id: 'cycles', label: '예상 사이클 수', type: 'select', default: '1e7', options: [
+          { value: '1e5', label: '~10⁵ (저 사이클)' },
+          { value: '1e7', label: '~10⁷ (피로한도 수렴)' },
+          { value: '1e9', label: '~10⁹ (영구 — 차량 변속기 급)' },
+        ], group: '수명' },
+        { id: 'surface', label: '표면 처리', type: 'select', default: 'hardened', options: [
+          { value: 'asis', label: '소재 그대로 (가공 후 그대로)' },
+          { value: 'hardened', label: '침탄/질화 (HV 600+ 표층)' },
+          { value: 'ground', label: '연삭 + 침탄 (HV 700+, 항공 등급)' },
+        ], group: '표면' },
+      ],
+      compute: (v) => {
+        const T = Number(v.T_torque) * 1000; // N·mm
+        const d = Number(v.d_pitch), m = Number(v.m_module), b = Number(v.b_face);
+        const cyclesStr = String(v.cycles), surf = String(v.surface);
+        // Tangential force Ft = 2T/d
+        const Ft = (2 * T) / d;
+        // Lewis form factor 단순화: Y ≈ 0.35 (m=2-5 강), 굽힘응력 σ_b ≈ Ft/(b·m·Y)
+        const Y = 0.35;
+        const sigmaBend = Ft / (b * m * Y);
+        // Hertz 접촉응력: σ_c ≈ 0.418·sqrt(Ft·E/(b·d·sin(α)·cos(α))), α=20°. E=200GPa 가정.
+        const alpha = 20 * Math.PI / 180;
+        const E = 200e3; // MPa
+        const sigmaContact = 0.418 * Math.sqrt(Ft * E / (b * d * Math.sin(alpha) * Math.cos(alpha)));
+        // 피로 마진
+        const cyclesFactor: Record<string, number> = { '1e5': 1.0, '1e7': 1.4, '1e9': 1.8 };
+        const cyc = cyclesFactor[cyclesStr] ?? 1.4;
+        const needSy = sigmaBend * cyc * 1.5; // 굽힘 SF=1.5
+        // 표면 경도 권장 (Hertz 접촉응력 기반 — 접촉응력 1MPa ≈ 0.3 HV 환산 보수적)
+        const surfHV: Record<string, number> = { asis: 200, hardened: 600, ground: 700 };
+        const recHV = Math.max(Math.round(sigmaContact * 0.35), surfHV[surf] ?? 400);
+        return {
+          filters: {
+            yieldStrengthRange: [round0(needSy), HI],
+            hardnessRange: [recHV, HI],
+            fatigueStrengthRange: [Math.round(needSy * 0.5), HI],
+          },
+          summary: [
+            { label: '접선력 F_t', value: `${round0(Ft)} N` },
+            { label: '굽힘응력 (Lewis)', value: `σ_b = F_t/(b·m·Y) = ${round0(sigmaBend)} MPa` },
+            { label: '접촉응력 (Hertz)', value: `σ_c ≈ ${round0(sigmaContact)} MPa` },
+            { label: '필요 σy (SF=1.5·사이클 보정)', value: `≥ ${round0(needSy)} MPa` },
+            { label: '권장 경도 (표층)', value: `≥ ${recHV} HV` },
+            { label: '필요 피로한도', value: `≥ ${Math.round(needSy * 0.5)} MPa` },
+            { label: '후공정', value: surf === 'hardened' ? '침탄(SCM·SNCM) 또는 질화(질화강)' : surf === 'ground' ? '연삭 + 침탄(SAE 8620·9310) + Shot peening' : '냉간·온간 가공 그대로' },
+          ],
+        };
+      },
+    },
+  },
+
+  fastener: {
+    label: '체결구 (볼트·스터드)',
+    filters: {},
+    viewMode: 'ashby',
+    indexHint: 'UTS + σy 동시 — 등급 자체가 표준값을 정의하므로 등급 선택 우선',
+    configurator: {
+      description: '체결구 등급(ISO/SAE) 선택 시 표준 UTS/σy 가 자동 적용됩니다. 사용자 정의 모드도 지원.',
+      fields: [
+        { id: 'grade', label: '등급 (자동 표준값)', type: 'select', default: '8.8', options: [
+          { value: 'custom', label: '직접 입력' },
+          { value: '4.8', label: 'ISO 4.8 (UTS 400 / σy 320)' },
+          { value: '8.8', label: 'ISO 8.8 (UTS 800 / σy 640) — 범용' },
+          { value: '10.9', label: 'ISO 10.9 (UTS 1040 / σy 940) — 자동차' },
+          { value: '12.9', label: 'ISO 12.9 (UTS 1220 / σy 1100) — 고강도' },
+          { value: 'A2-70', label: 'A2-70 SS 304 (UTS 700 / σy 450) — 내식' },
+          { value: 'A4-80', label: 'A4-80 SS 316 (UTS 800 / σy 600) — 해수' },
+          { value: 'inconel', label: 'Inconel 718 (UTS 1240 / σy 1030) — 고온' },
+        ], group: '등급' },
+        { id: 'app', label: '응용', type: 'select', default: 'general', options: [
+          { value: 'general', label: '일반 기계 결합' },
+          { value: 'preload', label: '체결 + 예압 (밀폐·구조)' },
+          { value: 'dynamic', label: '진동·반복 하중 (피로 핵심)' },
+          { value: 'marine', label: '해양·실외 (부식 필수)' },
+          { value: 'hightemp', label: '고온 (>200°C)' },
+        ], group: '응용' },
+        { id: 'F_axial', label: '예상 축력 F', unit: 'kN', type: 'number', default: 10, min: 0, step: 1, group: '하중' },
+        { id: 'UTS_custom', label: '필요 UTS (직접 모드)', unit: 'MPa', type: 'number', default: 800, min: 0, step: 10, group: '직접 입력' },
+        { id: 'Sy_custom', label: '필요 σy (직접 모드)', unit: 'MPa', type: 'number', default: 640, min: 0, step: 10, group: '직접 입력' },
+      ],
+      compute: (v) => {
+        const grade = String(v.grade), app = String(v.app);
+        const F = Number(v.F_axial);
+        // 표준 등급값
+        const gradeMap: Record<string, { uts: number; sy: number; el: number; note: string; corr?: string[]; temp?: number }> = {
+          '4.8': { uts: 400, sy: 320, el: 14, note: 'ISO 898-1 4.8 — 저강도 일반용' },
+          '8.8': { uts: 800, sy: 640, el: 12, note: 'ISO 898-1 8.8 — 범용 (가장 흔함)' },
+          '10.9': { uts: 1040, sy: 940, el: 9, note: 'ISO 898-1 10.9 — 자동차·기계' },
+          '12.9': { uts: 1220, sy: 1100, el: 8, note: 'ISO 898-1 12.9 — 고강도, 수소취성 주의' },
+          'A2-70': { uts: 700, sy: 450, el: 40, note: 'ISO 3506 A2-70 (304 SS)', corr: ['Excellent', 'Good'] },
+          'A4-80': { uts: 800, sy: 600, el: 25, note: 'ISO 3506 A4-80 (316 SS) — 해수', corr: ['Excellent'] },
+          'inconel': { uts: 1240, sy: 1030, el: 12, note: 'Inconel 718 — 고온 (~650°C)', corr: ['Excellent'], temp: 650 },
+        };
+        const g = gradeMap[grade];
+        const uts = g ? g.uts : Number(v.UTS_custom);
+        const sy = g ? g.sy : Number(v.Sy_custom);
+        const filters: Partial<FilterState> = {
+          utsRange: [uts, HI],
+          yieldStrengthRange: [sy, HI],
+          elongationRange: [g ? g.el : 8, HI],
+        };
+        if (app === 'dynamic') filters.fatigueStrengthRange = [Math.round(sy * 0.4), HI];
+        if (app === 'marine' || g?.corr) filters.corrosion = (g?.corr || ['Excellent']);
+        if (app === 'hightemp' || g?.temp) filters.maxServiceTempRange = [(g?.temp ?? 200) + 50, HI];
+        return {
+          filters,
+          summary: [
+            { label: '등급', value: g ? g.note : '직접 입력' },
+            { label: '필요 UTS', value: `≥ ${uts} MPa` },
+            { label: '필요 σy', value: `≥ ${sy} MPa` },
+            { label: '최소 연신율', value: `≥ ${g?.el ?? 8}%` },
+            { label: '축력 F', value: `${F} kN` },
+            ...(app === 'dynamic' ? [{ label: '피로한도', value: `≥ ${Math.round(sy * 0.4)} MPa (R≈-1)` }] : []),
+            ...(app === 'preload' ? [{ label: '예압 토크', value: '0.7·σy → 토크 환산식 별도' }] : []),
+            { label: '주의', value: grade === '12.9' ? '수소취성 — 도금 후 베이킹 필수' : grade === 'inconel' ? '단가↑, 절삭성 ↓' : '표준 강·SS 가능' },
+          ],
+        };
+      },
+    },
+  },
+
+  die_mold: {
+    label: '다이·금형 (절삭·사출·단조)',
+    filters: {},
+    viewMode: 'ashby',
+    indexHint: '경도 우선 + 인성으로 chipping 회피 — 사이클이 길면 열피로도 필터',
+    configurator: {
+      description: '응용·사이클·내마모 요구로 공구강 등급 권장값을 산출합니다. AISI 표준 등급 매핑.',
+      fields: [
+        { id: 'app', label: '금형 응용', type: 'select', default: 'plastic_injection', options: [
+          { value: 'plastic_injection', label: '플라스틱 사출 (저-중 사이클, 광택)' },
+          { value: 'die_casting', label: '다이캐스팅 (Al·Mg, 600-700°C 열피로)' },
+          { value: 'cold_forging', label: '냉간 단조 (고압력, 마모)' },
+          { value: 'hot_forging', label: '열간 단조 (>900°C, 열피로 + 마모)' },
+          { value: 'stamping', label: '스탬핑 (절단 다이, 경도 + 인성)' },
+          { value: 'extrusion', label: '압출 다이 (고압력, 마모, 열간)' },
+        ], group: '응용' },
+        { id: 'T_op', label: '작동 온도 (열간)', unit: '°C', type: 'number', default: 200, min: 20, max: 1200, step: 50, help: '냉간이면 상온 그대로', group: '온도' },
+        { id: 'cycles_target', label: '목표 사이클 수', type: 'select', default: '1e5', options: [
+          { value: '1e4', label: '~10⁴ (저생산, 시제품)' },
+          { value: '1e5', label: '~10⁵ (양산)' },
+          { value: '1e6', label: '~10⁶ (대량 양산)' },
+        ], group: '수명' },
+        { id: 'wear_priority', label: '마모 우선도', type: 'select', default: 'medium', options: [
+          { value: 'low', label: '낮음 (인성 우선)' },
+          { value: 'medium', label: '균형' },
+          { value: 'high', label: '높음 (HV >60 HRC급)' },
+        ], group: '마모' },
+      ],
+      compute: (v) => {
+        const app = String(v.app);
+        const T = Number(v.T_op);
+        const wear = String(v.wear_priority);
+        // 응용별 표준 공구강 권장
+        const appMap: Record<string, { hv: number; tempMin: number; note: string; grade: string }> = {
+          plastic_injection: { hv: 350, tempMin: 200, note: 'P20·1.2738 (열처리 출하) — 경도/광택 균형', grade: 'P20 / NAK80' },
+          die_casting: { hv: 500, tempMin: 750, note: 'H13(1.2344) — 열피로·고온 안정', grade: 'H13 / SKD61' },
+          cold_forging: { hv: 700, tempMin: 200, note: 'D2·DC53·SLD — 고경도·내마모', grade: 'D2 / SKD11' },
+          hot_forging: { hv: 500, tempMin: 1000, note: 'H13·H21 — 고온 안정 + 인성', grade: 'H13 / H21' },
+          stamping: { hv: 600, tempMin: 100, note: 'A2·D2·SKD11 — 경도 + 인성 균형', grade: 'A2 / D2 / SKD11' },
+          extrusion: { hv: 550, tempMin: 800, note: 'H13·Inconel — 고압 + 고온', grade: 'H13 + Nitriding' },
+        };
+        const m = appMap[app];
+        const wearBoost: Record<string, number> = { low: -50, medium: 0, high: 100 };
+        const recHV = Math.max(200, m.hv + wearBoost[wear]);
+        const recTemp = Math.max(m.tempMin, T + 100); // 마진
+        return {
+          filters: {
+            hardnessRange: [recHV, HI],
+            maxServiceTempRange: [recTemp, HI],
+            // 인성: low/medium 이면 impactStrength 도 일정 수준
+            ...(wear === 'low' || wear === 'medium' ? { impactStrengthRange: [10, HI] } : {}),
+          },
+          summary: [
+            { label: '권장 공구강', value: m.grade },
+            { label: '권장 경도', value: `≥ ${recHV} HV  (≈ ${Math.round(recHV / 10)} HRC)` },
+            { label: '필요 최대사용온도', value: `≥ ${recHV > 600 ? recTemp : recTemp} °C` },
+            { label: '특성 메모', value: m.note },
+            ...(wear === 'low' || wear === 'medium' ? [{ label: '충격 인성', value: '≥ 10 J (chipping 회피)' }] : []),
+            { label: '열처리', value: '담금질 + 1차/2차 템퍼링 + (필요 시) 질화 코팅' },
+            { label: '검증', value: 'NADCA(다이캐스팅), DIN 17350·JIS G4404 — 등급별 표준 데이터' },
+          ],
+        };
+      },
+    },
+  },
+
   electrical: {
     label: '전기 전도체 (버스바·접점)',
     filters: {},

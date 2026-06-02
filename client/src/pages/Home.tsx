@@ -45,7 +45,7 @@ import { SCENARIO_PRESETS, decodeFiltersFromParams, type ScenarioKey } from '@/l
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import type { FilterState } from '@/hooks/useMaterialFilter';
-import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical } from './guide/svgs';
+import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical, SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold } from './guide/svgs';
 
 /** Saved collection — pinned material IDs + optional filter snapshot + scenario provenance.
  *  Older entries (pre-U10) lack `filters`; we render the bullet conditionally. */
@@ -492,6 +492,10 @@ export default function Home() {
                   { key: 'medical' as ScenarioKey, title: '의료 임플란트', sub: '생체적합', Svg: SvgMedical },
                   { key: 'cryogenic' as ScenarioKey, title: '극저온', sub: 'LNG · 우주', Svg: SvgCryogenic },
                   { key: 'electrical' as ScenarioKey, title: '전기 전도체', sub: '버스바·접점', Svg: SvgElectrical },
+                  { key: 'pressure_vessel' as ScenarioKey, title: '압력용기', sub: '탱크·실린더', Svg: SvgPressureVesselSmall },
+                  { key: 'gear' as ScenarioKey, title: '기어', sub: '동력 전달', Svg: SvgGear },
+                  { key: 'fastener' as ScenarioKey, title: '체결구', sub: '볼트·스터드', Svg: SvgFastener },
+                  { key: 'die_mold' as ScenarioKey, title: '다이·금형', sub: '사출·단조·절삭', Svg: SvgDieMold },
                 ].map((t) => (
                   <button
                     key={t.key}
@@ -694,27 +698,23 @@ export default function Home() {
           </div>
 
           {appliedPreset && (
-            <div className="flex items-center gap-2 px-4 py-1.5 bg-amber-500/10 border-b border-amber-500/30 text-xs">
+            <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-4 py-1 sm:py-1.5 bg-amber-500/10 border-b border-amber-500/30 text-[11px] sm:text-xs">
               <GraduationCap className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
-              <span className="text-amber-700 font-medium">사례 적용: {appliedPreset.label}</span>
+              <span className="text-amber-700 font-medium truncate min-w-0">{appliedPreset.label}</span>
               {appliedPreset.indexHint && (
-                <span className="text-muted-foreground">· 권장 Index: <span className="font-mono">{appliedPreset.indexHint}</span></span>
+                <span className="text-muted-foreground hidden md:inline truncate">· 권장 Index: <span className="font-mono">{appliedPreset.indexHint}</span></span>
               )}
-              <div className="ml-auto flex items-center gap-1.5">
-                {/* U12: suggest (don't force) the recommended view — only show when user isn't already there */}
+              <div className="ml-auto flex items-center gap-1 flex-shrink-0">
+                {/* U12: suggest the recommended view — only when user is currently elsewhere */}
                 {appliedPreset.suggestedView && viewMode !== appliedPreset.suggestedView && (
-                  <button
-                    onClick={() => setViewMode(appliedPreset.suggestedView!)}
-                    className="text-[11px] px-2 py-0.5 rounded border border-amber-500/60 bg-amber-500/15 text-amber-800 hover:bg-amber-500/25 flex items-center gap-1"
-                    title={`${appliedPreset.suggestedView === 'ashby' ? 'Ashby 차트' : appliedPreset.suggestedView === 'cards' ? 'Cards' : 'Table'} 뷰로 전환 — 이 사례의 권장 시점`}
-                  >
-                    {appliedPreset.suggestedView === 'ashby' ? <BarChart3 className="w-3 h-3" /> : appliedPreset.suggestedView === 'cards' ? <LayoutGrid className="w-3 h-3" /> : <Table2 className="w-3 h-3" />}
-                    {appliedPreset.suggestedView === 'ashby' ? 'Ashby로 보기' : appliedPreset.suggestedView === 'cards' ? 'Cards로 보기' : 'Table로 보기'}
+                  <button onClick={() => setViewMode(appliedPreset.suggestedView!)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/60 bg-amber-500/15 text-amber-800 hover:bg-amber-500/25 flex items-center gap-0.5" title="권장 뷰로 전환">
+                    {appliedPreset.suggestedView === 'ashby' ? <BarChart3 className="w-3 h-3" /> : <Table2 className="w-3 h-3" />}
+                    <span className="hidden sm:inline">{appliedPreset.suggestedView === 'ashby' ? 'Ashby' : appliedPreset.suggestedView === 'cards' ? 'Cards' : 'Table'}</span>
                   </button>
                 )}
-                <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">다시 편집</button>
-                <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">필터 초기화</button>
-                <button onClick={() => setAppliedPreset(null)} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">배너 닫기</button>
+                <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">다시 편집</button>
+                <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">필터 초기화</button>
+                <button onClick={() => setAppliedPreset(null)} className="text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10" title="배너 닫기">×</button>
               </div>
             </div>
           )}
@@ -871,8 +871,80 @@ export default function Home() {
         />
       </div>
 
-      {/* ─── Status Bar ─── */}
-      <footer className="flex-shrink-0 h-6 flex items-center justify-between px-4 border-t border-border bg-muted/30">
+      {/* ─── Mobile bottom action bar (sm:hidden) ─── 화면 폭이 좁을 때 상단 헤더가 빠듯하므로
+       *  핵심 작업(Filter·View·Compare·Guide)을 하단 고정 바로 분리. 데스크탑은 hidden. */}
+      <nav className="md:hidden flex-shrink-0 grid grid-cols-4 border-t border-border bg-background z-30">
+        <button onClick={() => setMobileSidebarOpen(true)} className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors">
+          <Menu className="w-4 h-4" /> 필터{activeFilterCount > 0 && <span className="absolute mt-2 -mr-6 inline-block w-3 h-3 rounded-full bg-accent text-white text-[8px] leading-3 text-center font-bold">{activeFilterCount}</span>}
+        </button>
+        <button
+          onClick={() => setViewMode(viewMode === 'table' ? 'ashby' : viewMode === 'ashby' ? 'cards' : 'table')}
+          className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors"
+          title="다음 뷰로 전환"
+        >
+          {viewMode === 'table' ? <Table2 className="w-4 h-4" /> : viewMode === 'ashby' ? <BarChart3 className="w-4 h-4" /> : <LayoutGrid className="w-4 h-4" />}
+          {viewMode === 'table' ? 'Table' : viewMode === 'ashby' ? 'Ashby' : 'Cards'}
+        </button>
+        <button
+          onClick={handleOpenCompare}
+          disabled={compareList.length === 0}
+          className="relative flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
+        >
+          <Bookmark className="w-4 h-4" /> Compare
+          {compareList.length > 0 && (
+            <span className="absolute top-0.5 right-1/4 -translate-y-0 inline-block min-w-[16px] h-4 rounded-full bg-accent text-white text-[9px] leading-4 text-center font-bold px-1">{compareList.length}</span>
+          )}
+        </button>
+        <Sheet>
+          <SheetTrigger className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors w-full">
+            <GraduationCap className="w-4 h-4" /> 가이드
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[88vw] sm:max-w-md overflow-y-auto">
+            <SheetHeader>
+              <SheetTitle className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-accent" /> 가이드 · 사례 빠른 시작</SheetTitle>
+            </SheetHeader>
+            <div className="mt-3 space-y-2">
+              <p className="text-[11px] text-muted-foreground">사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.</p>
+              <div className="grid grid-cols-2 gap-1.5">
+                {[
+                  { key: 'bracket' as ScenarioKey, title: '구조 브래킷', Svg: SvgBracket },
+                  { key: 'hightemp' as ScenarioKey, title: '고온 부품', Svg: SvgManifold },
+                  { key: 'fatigue' as ScenarioKey, title: '회전·진동축', Svg: SvgShaft },
+                  { key: 'precision' as ScenarioKey, title: '정밀 마운트', Svg: SvgPrecision },
+                  { key: 'corrosion' as ScenarioKey, title: '해양·화학', Svg: SvgMarine },
+                  { key: 'lowcost' as ScenarioKey, title: '저원가 양산', Svg: SvgLowcost },
+                  { key: 'spring' as ScenarioKey, title: '스프링·힌지', Svg: SvgSpring },
+                  { key: 'heatsink' as ScenarioKey, title: '히트싱크', Svg: SvgHeatsink },
+                  { key: 'wear' as ScenarioKey, title: '내마모', Svg: SvgWear },
+                  { key: 'medical' as ScenarioKey, title: '의료 임플란트', Svg: SvgMedical },
+                  { key: 'cryogenic' as ScenarioKey, title: '극저온', Svg: SvgCryogenic },
+                  { key: 'electrical' as ScenarioKey, title: '전기 전도체', Svg: SvgElectrical },
+                  { key: 'pressure_vessel' as ScenarioKey, title: '압력용기', Svg: SvgPressureVesselSmall },
+                  { key: 'gear' as ScenarioKey, title: '기어', Svg: SvgGear },
+                  { key: 'fastener' as ScenarioKey, title: '체결구', Svg: SvgFastener },
+                  { key: 'die_mold' as ScenarioKey, title: '다이·금형', Svg: SvgDieMold },
+                ].map(t => (
+                  <button
+                    key={t.key}
+                    type="button"
+                    onClick={() => setEditingScenario(t.key)}
+                    className="group rounded border border-border bg-card hover:border-accent hover:bg-accent/5 transition-all p-1.5 text-left flex items-center gap-1.5"
+                  >
+                    <div className="w-9 h-7 flex-shrink-0 rounded bg-muted/40 p-0.5 flex items-center justify-center"><t.Svg /></div>
+                    <p className="text-[11px] font-medium text-foreground truncate leading-tight">{t.title}</p>
+                  </button>
+                ))}
+              </div>
+              <Link href="/guide" className="block text-center text-xs font-medium px-3 py-2 rounded border border-accent text-accent hover:bg-accent/10 transition-colors mt-2">
+                전체 가이드 페이지 열기 →
+              </Link>
+            </div>
+          </SheetContent>
+        </Sheet>
+      </nav>
+
+      {/* ─── Status Bar (desktop 만 노출) ─── */}
+      <footer className="hidden md:flex flex-shrink-0 h-6 items-center justify-between px-4 border-t border-border bg-muted/30">
         <div className="flex items-center gap-3">
           <span className="text-[10px] text-muted-foreground">
             AM Materials Explorer · Granta-Style Database

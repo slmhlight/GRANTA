@@ -443,67 +443,69 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
   return (
     <div className="w-full h-full flex flex-col bg-white overflow-y-auto md:overflow-hidden">
-      {/* Axis selectors */}
-      {/* ── Axes: each property dropdown + log toggle, with its limit slider directly below.
-       *   모바일은 block (자연 stacking) — 데스크탑은 sm:flex sm:flex-row 로 좌우 분할.
-       *   block 으로 두면 부모 height 가 children 의 자연 합으로 정확히 결정돼 overflow 가 사라짐. ── */}
-      <div className="flex-shrink-0 block sm:flex sm:flex-row sm:gap-x-6 px-3 py-2 border-b border-border space-y-2 sm:space-y-0">
-        <div className="w-full sm:flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">X</span>
-            <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); setConstraints([]); }}>
-              <SelectTrigger className="h-7 text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
-              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
-            </Select>
-            <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={xLog} onChange={(e) => setXLog(e.target.checked)} className="accent-accent" />log</label>
-          </div>
-          <div className="mt-1.5 pl-5"><AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} log={xLog} onChange={setXLimit} /></div>
-        </div>
-        <div className="w-full sm:flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">Y</span>
-            <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); setConstraints([]); }}>
-              <SelectTrigger className="h-7 text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
-              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
-            </Select>
-            <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" />log</label>
-          </div>
-          <div className="mt-1.5 pl-5"><AxisLimitSlider axis="Y" color="#9333ea" domain={yDomain} limit={yLimit} log={yLog} onChange={setYLimit} /></div>
-        </div>
+      {/* Axis selectors — 모바일 공격적 단순화: X/Y 드롭다운만 + log/limit 은 Display popover 안으로.
+       *  X/Y 라벨 제거 (드롭다운 자체로 충분), 한 줄 stack 만 사용. */}
+      <div className="flex-shrink-0 flex flex-col sm:flex-row gap-1 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 border-b border-border">
+        <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); setConstraints([]); }}>
+          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs flex-1 min-w-0"><span className="text-muted-foreground mr-1.5 text-[10px]">X</span><SelectValue /></SelectTrigger>
+          <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
+        </Select>
+        <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); setConstraints([]); }}>
+          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs flex-1 min-w-0"><span className="text-muted-foreground mr-1.5 text-[10px]">Y</span><SelectValue /></SelectTrigger>
+          <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
+        </Select>
       </div>
 
-      {/* ── Grouping & display ── 모바일에서는 라벨·구분선 숨겨 한 줄에 더 들어가게.
-       *  flex-shrink-0 — 부모(차트 root)의 flex-col 에서 toolbar 가 압축돼 wrap 된 children 이
-       *  부모 box 밖으로 새어 INDEX 행과 겹치던 문제 해결. */}
-      <div className="flex-shrink-0 flex flex-wrap items-center gap-2 px-3 py-2 border-b border-border">
-        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Filter</span>
+      {/* ── Grouping + Display popover ── 핵심 컨트롤만: class / subclass / envelope-by + Display ▾.
+       *  log·envelope 토글·옵션 슬라이더·점·격자 등은 Display popover 안으로 이동. */}
+      <div className="flex-shrink-0 flex flex-wrap items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-2 border-b border-border">
         <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
-          <SelectTrigger className="h-7 text-xs w-[110px] sm:w-[128px]"><SelectValue /></SelectTrigger>
+          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[100px] sm:w-[128px]"><SelectValue /></SelectTrigger>
           <SelectContent>{groupOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All classes' : f}</SelectItem>)}</SelectContent>
         </Select>
         <Select value={subFilter} onValueChange={setSubFilter} disabled={groupFilter === 'all'}>
-          <SelectTrigger className="h-7 text-xs w-[130px] sm:w-[150px]"><SelectValue placeholder="Sub-family" /></SelectTrigger>
+          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[110px] sm:w-[150px]"><SelectValue placeholder="Sub-family" /></SelectTrigger>
           <SelectContent>{subOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : cleanSub(f)}</SelectItem>)}</SelectContent>
         </Select>
-        <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
-        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Envelopes</span>
-        <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
-          <input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> <span className="hidden sm:inline">Show</span><span className="sm:hidden">Env</span>
-        </label>
         <Select value={envelopeBy} onValueChange={(v) => setEnvelopeBy(v as 'category' | 'class' | 'family')}>
-          <SelectTrigger className="h-7 text-xs w-[120px] sm:w-[155px]" title="Envelope grouping"><SelectValue /></SelectTrigger>
+          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[105px] sm:w-[155px]" title="Envelope grouping"><SelectValue /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="category" className="text-xs">All metals / polymers</SelectItem>
+            <SelectItem value="category" className="text-xs">All metals/polymers</SelectItem>
             <SelectItem value="class" className="text-xs">1st-level family</SelectItem>
             <SelectItem value="family" className="text-xs">Sub-family (2nd)</SelectItem>
           </SelectContent>
         </Select>
-        <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
         <Popover>
           <PopoverTrigger asChild>
-            <button type="button" className="text-xs text-muted-foreground hover:text-foreground border border-border rounded px-2 h-7 flex items-center gap-1">Display ▾</button>
+            <button type="button" className="text-[11px] sm:text-xs text-muted-foreground hover:text-foreground border border-border rounded px-1.5 sm:px-2 h-6 sm:h-7 flex items-center gap-1">Display ▾</button>
           </PopoverTrigger>
-          <PopoverContent align="start" className="w-64 text-xs max-h-[75vh] overflow-auto space-y-3">
+          <PopoverContent align="start" className="w-72 text-xs max-h-[75vh] overflow-auto space-y-3">
+            {/* 라운드 7: Axis log + limit 도 popover 안으로 (이전엔 메인 행에 노출 — 항상 log 라 거의 안 만짐). */}
+            <div className="space-y-2">
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Axes</div>
+              <div className="flex items-center gap-4">
+                <label className="flex items-center gap-1.5 cursor-pointer select-none"><input type="checkbox" checked={xLog} onChange={(e) => setXLog(e.target.checked)} className="accent-accent" /> X log</label>
+                <label className="flex items-center gap-1.5 cursor-pointer select-none"><input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" /> Y log</label>
+              </div>
+              {(xLimit || yLimit || true) && (
+                <>
+                  <div className="text-[10px] text-muted-foreground">X limit (선택 창)</div>
+                  <AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} log={xLog} onChange={setXLimit} />
+                  <div className="text-[10px] text-muted-foreground">Y limit (선택 창)</div>
+                  <AxisLimitSlider axis="Y" color="#9333ea" domain={yDomain} limit={yLimit} log={yLog} onChange={setYLimit} />
+                </>
+              )}
+            </div>
+            <div className="border-t border-border/60" />
+            <div className="space-y-2">
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Envelopes</div>
+              <label className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> Show envelopes</label>
+              <div><div className="flex justify-between text-muted-foreground mb-1"><span>Opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div><Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} /></div>
+              {([['Fill', envFill, setEnvFill], ['Outline', envOutline, setEnvOutline]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
+                <label key={label} className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}</label>
+              ))}
+            </div>
+            <div className="border-t border-border/60" />
             <div className="space-y-2">
               <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Markers</div>
               <div><div className="flex justify-between text-muted-foreground mb-1"><span>Size</span><span className="font-mono">{markerSize}</span></div><Slider min={4} max={16} step={1} value={[markerSize]} onValueChange={(v: number[]) => setMarkerSize(v[0])} /></div>
@@ -514,15 +516,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             </div>
             <div className="border-t border-border/60" />
             <div className="space-y-2">
-              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Envelopes</div>
-              <div><div className="flex justify-between text-muted-foreground mb-1"><span>Opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div><Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} /></div>
-              {([['Fill', envFill, setEnvFill], ['Outline', envOutline, setEnvOutline]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
-                <label key={label} className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}</label>
-              ))}
-            </div>
-            <div className="border-t border-border/60" />
-            <div className="space-y-2">
-              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Axes &amp; grid</div>
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Grid &amp; legend</div>
               {([['Gridlines', showGrid, setShowGrid], ['Minor gridlines', showMinorGrid, setShowMinorGrid], ['Ashby guide lines', showGuides, setShowGuides], ['Legend', showLegend, setShowLegend]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
                 <label key={label} className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}</label>
               ))}
@@ -543,7 +537,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
       {/* Ashby material-index selection — pick a performance index, move the selection line by value.
        *  모바일: 슬라이더 숨김, 단위/auto 버튼 축약, dropdown 폭 축소. */}
-      <div className="flex-shrink-0 flex flex-wrap items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 border-b border-border bg-rose-50/50">
+      <div className="flex-shrink-0 flex flex-wrap items-center gap-1.5 sm:gap-3 px-2 sm:px-4 py-1 sm:py-2 border-b border-border bg-rose-50/50">
         <span className="text-[10px] text-rose-700 uppercase tracking-wide font-semibold">Index</span>
         <Select value={indexPreset} onValueChange={(v) => { setIndexPreset(v); setConstraints([]); const p = MATERIAL_INDICES.find((i) => i.key === v); if (p) { setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null); } }}>
           <SelectTrigger className="h-7 text-xs w-[170px] sm:w-[240px]"><SelectValue placeholder="Material index (off)" /></SelectTrigger>
@@ -618,8 +612,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         )}
       </div>
 
-      {/* Chart */}
-      <div className="flex-1 min-h-[60vh] md:min-h-0 p-2">
+      {/* Chart — 모바일 min-h 50vh (이전 60vh 는 bottom bar 와 겹침). 데스크탑은 flex-1 자동. */}
+      <div className="flex-1 min-h-[50vh] md:min-h-0 p-1 sm:p-2">
         <Plot
           data={data as any}
           layout={layout as any}
