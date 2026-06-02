@@ -879,7 +879,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
             { label: '내부식 등급', value: corr.length ? corr.join(' · ') : '제약 없음' },
             { label: '최대사용온도 (필터)', value: `≥ ${tMax + 20} °C` },
             ...(env === 'cryogen' ? [{ label: '극저온 군', value: 'Austenitic SS · Al · Ni (BCC 강 제외)' }] : []),
-            { label: '검증', value: 'ASME BPVC Sec.VIII Div.1, 두께·재료 등급 표준 — 실 설계 시 코드 식 적용' },
+            { label: '표준 코드', value: 'ASME BPVC Sec.VIII Div.1 UG-27 (얇은 셸 식) · 용접부 효율 E (코드 표 UW-12) 별도 적용 — 실 설계 시 검증 필수' },
           ],
         };
       },
@@ -949,6 +949,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
             { label: '권장 경도 (표층)', value: `≥ ${recHV} HV` },
             { label: '필요 피로한도', value: `≥ ${Math.round(needSy * 0.5)} MPa` },
             { label: '후공정', value: surf === 'hardened' ? '침탄(SCM·SNCM) 또는 질화(질화강)' : surf === 'ground' ? '연삭 + 침탄(SAE 8620·9310) + Shot peening' : '냉간·온간 가공 그대로' },
+            { label: '표준 코드', value: 'AGMA 2001 (강도 등급), ISO 6336 (굽힘·접촉 안전계수). Lewis Y는 m=2-5·치수 z=15-25 가정 — 정밀 설계는 AGMA 표 참고.' },
           ],
         };
       },
@@ -1019,6 +1020,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
             ...(app === 'dynamic' ? [{ label: '피로한도', value: `≥ ${Math.round(sy * 0.4)} MPa (R≈-1)` }] : []),
             ...(app === 'preload' ? [{ label: '예압 토크', value: '0.7·σy → 토크 환산식 별도' }] : []),
             { label: '주의', value: grade === '12.9' ? '수소취성 — 도금 후 베이킹 필수' : grade === 'inconel' ? '단가↑, 절삭성 ↓' : '표준 강·SS 가능' },
+            { label: '표준 코드', value: 'ISO 898-1 (탄소·합금강) / ISO 3506 (스테인리스) / ASME B18.2.6 (구조용). 등급값은 그대로 — 응용별 보정만 추가.' },
           ],
         };
       },
@@ -1084,7 +1086,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
             { label: '특성 메모', value: m.note },
             ...(wear === 'low' || wear === 'medium' ? [{ label: '충격 인성', value: '≥ 10 J (chipping 회피)' }] : []),
             { label: '열처리', value: '담금질 + 1차/2차 템퍼링 + (필요 시) 질화 코팅' },
-            { label: '검증', value: 'NADCA(다이캐스팅), DIN 17350·JIS G4404 — 등급별 표준 데이터' },
+            { label: '표준 코드', value: 'NADCA #207 (다이캐스팅), DIN 17350 / JIS G4404 (공구강), AISI Tool Steel Composition — 등급명·열처리 condition 명시 권장.' },
           ],
         };
       },
