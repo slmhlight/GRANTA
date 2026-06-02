@@ -928,6 +928,148 @@ const ELEV_DATA = {
       { temp: 870, stress: 280, hours: 1000 },
     ],
   },
+  // R23 — 추가 10 합금 (의료·항공·PH·합금강·전통 Ni base).
+  // 출처: ASTM F75/F90, ASM Handbook Vol.2, Special Metals SMC, Haynes International H-3068C, Carpenter Custom 15Cr-5Ni.
+  'cocrmo': {  // ASTM F75 cast cobalt-chrome-molybdenum (의료 임플란트).
+    elevated_temp: [
+      { temp: 25,  ys: 500, uts: 800, E: 230 },
+      { temp: 200, ys: 460, uts: 760, E: 220 },
+      { temp: 400, ys: 420, uts: 700, E: 200 },
+      { temp: 600, ys: 400, uts: 600, E: 180 },
+    ],
+  },
+  'l605': {  // L-605 / Haynes 25 Co-base superalloy (의료 스텐트 + 고온 항공)
+    elevated_temp: [
+      { temp: 25,   ys: 460, uts: 1000, E: 220 },
+      { temp: 400,  ys: 350, uts:  850, E: 200 },
+      { temp: 600,  ys: 290, uts:  720, E: 180 },
+      { temp: 800,  ys: 250, uts:  410, E: 160 },
+      { temp: 1000, ys: 110, uts:  170, E: 130 },
+    ],
+    creep_rupture: [
+      { temp: 815, stress: 80, hours: 1000 },
+      { temp: 900, stress: 40, hours: 1000 },
+    ],
+  },
+  'mar-m247': {  // 단결정 Ni superalloy turbine blade
+    elevated_temp: [
+      { temp: 25,   ys: 870, uts: 1080, E: 195 },
+      { temp: 800,  ys: 750, uts:  950, E: 160 },
+      { temp: 900,  ys: 600, uts:  700, E: 145 },
+      { temp: 1000, ys: 350, uts:  400, E: 130 },
+      { temp: 1050, ys: 200, uts:  230, E: 120 },
+    ],
+    creep_rupture: [
+      { temp: 982,  stress: 110, hours: 1000 },
+      { temp: 1038, stress: 70,  hours: 1000 },
+      { temp: 1093, stress: 60,  hours: 100 },
+    ],
+  },
+  '17-4 ph': {  // H900 condition — PH stainless 표준
+    elevated_temp: [
+      { temp: 25,  ys: 1170, uts: 1310, E: 200 },
+      { temp: 200, ys: 1050, uts: 1190, E: 190 },
+      { temp: 300, ys: 1000, uts: 1140, E: 184 },
+      { temp: 400, ys:  900, uts: 1020, E: 175 },
+      { temp: 500, ys:  700, uts:  800, E: 165 },
+    ],
+  },
+  '17-4ph': {  // 별칭 (붙어있는 표기)
+    elevated_temp: [
+      { temp: 25,  ys: 1170, uts: 1310, E: 200 },
+      { temp: 200, ys: 1050, uts: 1190, E: 190 },
+      { temp: 300, ys: 1000, uts: 1140, E: 184 },
+      { temp: 400, ys:  900, uts: 1020, E: 175 },
+      { temp: 500, ys:  700, uts:  800, E: 165 },
+    ],
+  },
+  '15-5 ph': {  // H900 condition — clean PH (Δ-ferrite 적음)
+    elevated_temp: [
+      { temp: 25,  ys: 1170, uts: 1310, E: 196 },
+      { temp: 200, ys: 1050, uts: 1180, E: 187 },
+      { temp: 300, ys: 1010, uts: 1130, E: 180 },
+      { temp: 400, ys:  920, uts: 1020, E: 172 },
+    ],
+  },
+  '15-5ph': {  // 별칭
+    elevated_temp: [
+      { temp: 25,  ys: 1170, uts: 1310, E: 196 },
+      { temp: 200, ys: 1050, uts: 1180, E: 187 },
+      { temp: 300, ys: 1010, uts: 1130, E: 180 },
+      { temp: 400, ys:  920, uts: 1020, E: 172 },
+    ],
+  },
+  'a286': {  // 별칭 (dash 없는 표기)
+    elevated_temp: [
+      { temp: 25,  ys: 660, uts: 1000, E: 201 },
+      { temp: 200, ys: 600, uts:  920, E: 190 },
+      { temp: 400, ys: 580, uts:  870, E: 175 },
+      { temp: 600, ys: 540, uts:  800, E: 158 },
+      { temp: 700, ys: 480, uts:  680, E: 145 },
+    ],
+    creep_rupture: [
+      { temp: 650, stress: 290, hours: 1000 },
+      { temp: 730, stress: 170, hours: 1000 },
+    ],
+  },
+  'a-286': {  // AMS 5731 Fe-Ni-Cr-Ti austenitic + age — 가스 터빈 디스크
+    elevated_temp: [
+      { temp: 25,  ys: 660, uts: 1000, E: 201 },
+      { temp: 200, ys: 600, uts:  920, E: 190 },
+      { temp: 400, ys: 580, uts:  870, E: 175 },
+      { temp: 600, ys: 540, uts:  800, E: 158 },
+      { temp: 700, ys: 480, uts:  680, E: 145 },
+    ],
+    creep_rupture: [
+      { temp: 650, stress: 290, hours: 1000 },
+      { temp: 730, stress: 170, hours: 1000 },
+    ],
+  },
+  '4140': {  // AISI 4140 / 42CrMo4 / SCM440 Q+T — 자동차·기계 표준
+    elevated_temp: [
+      { temp: 25,  ys: 685, uts: 760, E: 210 },
+      { temp: 200, ys: 620, uts: 700, E: 200 },
+      { temp: 300, ys: 580, uts: 660, E: 190 },
+      { temp: 400, ys: 510, uts: 580, E: 178 },
+      { temp: 500, ys: 350, uts: 420, E: 162 },
+      { temp: 600, ys: 180, uts: 240, E: 142 },
+    ],
+  },
+  'nimonic 80a': {  // Ni-Cr-Ti-Al precipitation hardened — turbine blade
+    elevated_temp: [
+      { temp: 25,  ys: 780, uts: 1230, E: 219 },
+      { temp: 600, ys: 740, uts: 1150, E: 195 },
+      { temp: 750, ys: 680, uts:  940, E: 175 },
+      { temp: 815, ys: 550, uts:  700, E: 165 },
+      { temp: 870, ys: 250, uts:  350, E: 150 },
+    ],
+    creep_rupture: [
+      { temp: 750, stress: 280, hours: 1000 },
+      { temp: 815, stress: 180, hours: 1000 },
+      { temp: 870, stress: 60,  hours: 1000 },
+    ],
+  },
+  'inconel 706': {  // 구 turbine disk (718 의 전임자)
+    elevated_temp: [
+      { temp: 25,  ys: 1000, uts: 1300, E: 209 },
+      { temp: 400, ys:  920, uts: 1200, E: 192 },
+      { temp: 540, ys:  880, uts: 1140, E: 180 },
+      { temp: 650, ys:  750, uts:  940, E: 162 },
+    ],
+  },
+  'inconel 600': {  // Annealed Ni-Cr-Fe — 열교환기·요업 furnace
+    elevated_temp: [
+      { temp: 25,   ys: 250, uts: 615, E: 207 },
+      { temp: 400,  ys: 180, uts: 560, E: 195 },
+      { temp: 600,  ys: 160, uts: 500, E: 180 },
+      { temp: 800,  ys: 140, uts: 380, E: 158 },
+      { temp: 1000, ys:  60, uts:  90, E: 130 },
+    ],
+    creep_rupture: [
+      { temp: 800, stress: 30, hours: 1000 },
+      { temp: 900, stress: 15, hours: 1000 },
+    ],
+  },
 };
 function injectTempCurves(m) {
   if (!m || !m.name) return;
