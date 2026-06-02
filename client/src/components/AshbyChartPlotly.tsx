@@ -52,6 +52,48 @@ const RANGE_FILTER_KEY: Record<string, keyof FilterState> = {
   elongation: 'elongationRange', modulus: 'modulusRange', hardness: 'hardnessRange',
 };
 
+// R28 — 물성별 Pareto 최적화 방향 (max=높을수록 좋음 / min=낮을수록 좋음).
+// 명시 안 된 항목은 'max' 기본 (대부분 강도·인성 류는 큰 게 좋음).
+const PROP_DIR: Record<string, 'max' | 'min'> = {
+  density: 'min',
+  price_per_kg: 'min',
+  price_per_cm3: 'min',
+  thermal_expansion: 'min',  // 저 CTE 가 정밀 부품에 좋음
+  total_cost_estimate: 'min',
+  machining_cost_factor: 'min',
+  ht_cost_factor: 'min',
+  yield_strength: 'max',
+  uts: 'max',
+  modulus: 'max',
+  hardness: 'max',
+  fatigue_strength: 'max',
+  impact_strength: 'max',
+  elongation: 'max',
+  thermal_conductivity: 'max',
+  electrical_conductivity: 'max',
+  max_service_temp: 'max',
+  popularity: 'max',
+  melting_point: 'max',
+};
+function paretoDir(prop: string): 'max' | 'min' { return PROP_DIR[prop] ?? 'max'; }
+/** R28 — Pareto frontier 추출. xDir/yDir 따라 dominance test.
+ *  알고리즘: x 기준 정렬 후 y best-so-far 추적 — O(n log n). */
+function paretoFrontier(points: { x: number; y: number; id: string; name: string }[], xDir: 'max' | 'min', yDir: 'max' | 'min') {
+  if (points.length === 0) return [];
+  // x: min 이면 ascending sort, max 이면 descending — 두 경우 모두 "선두에 도달하면 y 가 best 인 첫 점" 기준.
+  const sorted = [...points].sort((a, b) => xDir === 'min' ? a.x - b.x : b.x - a.x);
+  const frontier: typeof points = [];
+  let bestY = yDir === 'max' ? -Infinity : Infinity;
+  for (const p of sorted) {
+    const better = yDir === 'max' ? p.y > bestY : p.y < bestY;
+    if (better) {
+      frontier.push(p);
+      bestY = p.y;
+    }
+  }
+  return frontier;
+}
+
 // Ashby material-index guide lines: constant performance-index directions on log-log axes
 const INDEX_GUIDES: Record<string, { slope: number; label: string }[]> = {
   'density|modulus': [{ slope: 1, label: 'E/ρ' }, { slope: 2, label: 'E^½/ρ' }, { slope: 3, label: 'E^⅓/ρ' }],
@@ -108,6 +150,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   /** 모바일 (width < 640) 감지 — Plotly 마진/폰트, 툴바 컴팩트 모드, 레전드 표시 여부를 동시 조절.
    *  resize listener 로 회전·창 변경에도 반응. */
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches);
+  /** R28 — Pareto frontier overlay 토글. 활성화 시 현재 fset 의 frontier 점만 강조 + 라인 연결. */
+  const [showPareto, setShowPareto] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 640px)');
     const on = () => setIsMobile(mq.matches);
@@ -197,7 +241,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     return ['all', ...Array.from(s).sort()];
   }, [materials, groupFilter]);
 
-  const { data, layout, indexInfo, selectedIds } = useMemo(() => {
+  const { data, layout, indexInfo, selectedIds, paretoInfo } = useMemo(() => {
     const inGroup = (m: any) => groupFilter === 'all' || classOf(m).key === groupFilter;
     const inSub = (m: any) => subFilter === 'all' || m.subcategory === subFilter;
     const valid = (m: any) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
@@ -428,16 +472,43 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
     const indexInfo = (idx && boxedIds.size === 0) ? { count: colored.length, total: fset.length, thr: indexThr as number, minM, maxM, unit: idx.unit, constraints: consInfo.map((c) => ({ key: c.key, label: c.label, thr: c.thr, minM: c.minM, maxM: c.maxM, unit: c.unit })) } : null;
     const showPts = showMarkers || colorMode; // markers shown if toggled on, or when a selection is active
+    // R28 — Pareto frontier trace. fset 에서 valid 점 추출 → frontier 계산 → 별도 trace.
+    const paretoTraces: any[] = [];
+    let paretoInfo: { count: number; xDir: 'max' | 'min'; yDir: 'max' | 'min' } | null = null;
+    if (showPareto && fset.length > 0) {
+      const xDir = paretoDir(xProperty);
+      const yDir = paretoDir(yProperty);
+      const pts = fset.map((m) => {
+        const xv = tv(m, xProperty), yv = tv(m, yProperty);
+        return (xv != null && yv != null && xv > 0 && yv > 0) ? { x: xv, y: yv, id: m.id, name: m.name } : null;
+      }).filter((p): p is { x: number; y: number; id: string; name: string } => p !== null);
+      const front = paretoFrontier(pts, xDir, yDir);
+      if (front.length > 0) {
+        paretoInfo = { count: front.length, xDir, yDir };
+        paretoTraces.push({
+          x: front.map(p => p.x), y: front.map(p => p.y),
+          mode: 'lines+markers', type: 'scatter',
+          name: `Pareto frontier (${front.length})`,
+          line: { color: '#f59e0b', width: 2.5, dash: 'solid', shape: 'linear' },
+          marker: { size: markerSize + 5, color: '#f59e0b', symbol: 'star', line: { color: '#92400e', width: 1.5 }, opacity: 1 },
+          text: front.map(p => p.name),
+          customdata: front.map(p => p.id),
+          hovertemplate: `<b>%{text}</b><br>${xProperty}: %{x:.4g}<br>${yProperty}: %{y:.4g}<extra>Pareto optimum</extra>`,
+          showlegend: showLegend,
+        });
+      }
+    }
     const data = [
       ...envelopeTraces,
       ...(showMarkers ? contextTrace : []),
       ...(showPts ? markerTraces : []),
       ...selTrace,
       ...indexTraces,
+      ...paretoTraces,  // Pareto 는 가장 위 layer
       ...selMarker,
     ];
-    return { data, layout, indexInfo, selectedIds };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile]);
+    return { data, layout, indexInfo, selectedIds, paretoInfo };
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile, showPareto]);
 
   const config = {
     responsive: true, displaylogo: false,
@@ -525,6 +596,17 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <SelectItem value="family" className="text-xs">Sub-family (2nd)</SelectItem>
           </SelectContent>
         </Select>
+        <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
+        {/* R28 — Pareto frontier 토글 (메인 행에 노출 — 자주 사용). 활성화 시 옆에 N pts 정보 표시. */}
+        <label className="flex items-center gap-1 text-[11px] sm:text-xs cursor-pointer select-none" title="Pareto frontier — X·Y 두 물성의 trade-off 외곽선 (gold marker + line)">
+          <input type="checkbox" checked={showPareto} onChange={(e) => setShowPareto(e.target.checked)} className="accent-amber-500" />
+          <span className="text-amber-700 font-medium">Pareto</span>
+          {showPareto && paretoInfo && (
+            <span className="text-[10px] text-amber-700/80 hidden md:inline ml-0.5">
+              {paretoInfo.count} pts · {paretoInfo.xDir === 'min' ? 'X↓' : 'X↑'} {paretoInfo.yDir === 'min' ? 'Y↓' : 'Y↑'}
+            </span>
+          )}
+        </label>
         <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
         <Popover>
           <PopoverTrigger asChild>
