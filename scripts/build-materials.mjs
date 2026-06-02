@@ -780,6 +780,18 @@ for (const m of all) {
   }
   // 인기도 (0–5) — 산업 사용 빈도 휴리스틱. 표준 합금 이름에 매칭하는 명시적 규칙.
   m.popularity = popularityFor(m);
+  // F3: cast superalloy 의 누락된 heat_treatment 를 표준 문헌값으로 보완 — reference-tier 라
+  // 별도 condition 데이터가 없는 IN713C / IN738LC / IN939 등은 일반적 적용 사이클을 기록.
+  if (!m.heat_treatment) {
+    const nm = String(m.name || '');
+    const proc = String(m.process || '');
+    if (/cast/i.test(proc) && /Inconel|IN ?7\d{2}|IN ?9\d{2}/i.test(nm)) {
+      if (/713/.test(nm)) m.heat_treatment = 'As-cast (AC) — IN713C 는 통상 별도 솔루션 처리 없이 사용 (γ′ 안정)';
+      else if (/738/.test(nm)) m.heat_treatment = 'HIP 1175°C / 4h / 100MPa Ar → 솔루션 1120°C / 2h, 공냉 → 시효 845°C / 24h, 공냉 (표준 IN738 사이클)';
+      else if (/939/.test(nm)) m.heat_treatment = 'HIP 1200°C / 4h / 100MPa Ar → 솔루션 1160°C / 4h → 1차 시효 1000°C / 6h → 2차 시효 900°C / 16h, 공냉 (Allvac IN939 표준)';
+      else m.heat_treatment = 'Cast superalloy — HIP + 솔루션 + 1·2차 시효 표준 사이클 (구체 값은 데이터시트 확인)';
+    }
+  }
   // AM 이방성 플래그 — 적층제조 공정 금속은 빌드 방향(XY vs Z)에 따라 σy·연신율·피로
   // ~10–30% 차이. HIP 처리되면 다공성·이방성이 크게 완화되므로 약화된 메시지.
   const procStr = String(m.process || '');

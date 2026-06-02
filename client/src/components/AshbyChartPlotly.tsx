@@ -415,7 +415,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
   const config = {
     responsive: true, displaylogo: false,
-    modeBarButtonsToRemove: ['autoScale2d'], // keep box-select + lasso for material selection
+    // 모바일에서 hover 없이도 modeBar 노출 → PNG export·zoom·pan·reset 항상 보임.
+    // box-select/lasso 는 plotly-dist-min 번들에서 제외돼 모바일·데스크탑 모두 표시 안 됨.
+    // 모바일 다중 선택은 좌측 필터·검색·테이블 다중 체크로 우회.
+    displayModeBar: true as const,
+    modeBarButtonsToRemove: ['autoScale2d'],
     toImageButtonOptions: { format: 'png', filename: 'ashby_chart', height: 700, width: 1000, scale: 2 },
   };
   const comparing = (compareList?.length ?? 0) > 0;
