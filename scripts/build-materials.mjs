@@ -1917,9 +1917,15 @@ function popularityFor(m) {
   }
   if (cat === 'Polymer' && (has(/ppsu/) || has(/pekk/) || has(/pps\b/) || has(/lcp\b/))) return 2;
   // tier 1: AM 전용 또는 매우 특수
-  if (has(/scalmalloy/) || has(/aheadd/) || has(/al5x1|a205|a20x/) || has(/\bcx\b|cm55/) || has(/ta15|ti[\s-]?5[\s-]?8[\s-]?5|ti[\s-]?6242/)) return 1;
-  if (cat === 'Polymer' && (has(/-cf|onyx|pcl|pha\b|pekk-?cf/))) return 1;
-  return 1;
+  let t = 1;
+  if (has(/scalmalloy/) || has(/aheadd/) || has(/al5x1|a205|a20x/) || has(/\bcx\b|cm55/) || has(/ta15|ti[\s-]?5[\s-]?8[\s-]?5|ti[\s-]?6242/)) t = 1;
+  if (cat === 'Polymer' && (has(/-cf|onyx|pcl|pha\b|pekk-?cf/))) t = 1;
+  // R35a — m.process 가 AM 공정이면 인기도 상한 3 (검증 단계 신소재 — 산업 표준 합금 대비 보수적 평가).
+  //   기존 Ti-6Al-4V LPBF / Inconel 718 LPBF 같이 tier 5 였던 케이스는 3 으로 cap.
+  const proc = String(m.process || '');
+  const isAM = /LPBF|DMLS|SLM|EBM|Binder Jetting|DED|MJF|FDM|SLS/i.test(proc);
+  if (isAM && t > 3) t = 3;
+  return t;
 }
 
 // ───────── validation report ─────────

@@ -387,6 +387,89 @@ function ProcessFilter({ allProcesses, selected, onChange }: ProcessFilterProps)
   );
 }
 
+// ── Family Filter (subcategory 다중 선택 — Granta-style 2-3 차 family) ─────
+// R35a — Category 가 1차 family (Metal/Polymer/Ceramic/Composite) 인 반면,
+//        Family 는 그 안의 subcategory (예: Stainless Steel - Austenitic / Polymer - PEEK / UHTC).
+//        선택된 카테고리가 있으면 그 안의 subcategory 만 노출 (없으면 전체).
+//        빈도순 정렬 (개수 많은 게 위) — 흔한 family 부터 노출.
+interface FamilyFilterProps {
+  materials: Material[];
+  selectedCategories: string[];
+  selected: string[];
+  onChange: (v: string[]) => void;
+}
+function FamilyFilter({ materials, selectedCategories, selected, onChange }: FamilyFilterProps) {
+  const [expanded, setExpanded] = useState(false);
+  const isActive = selected.length > 0;
+  const families = useMemo(() => {
+    const count = new Map<string, number>();
+    for (const m of materials) {
+      if (selectedCategories.length > 0 && !selectedCategories.includes(m.category)) continue;
+      const sub = m.subcategory || 'Other';
+      count.set(sub, (count.get(sub) || 0) + 1);
+    }
+    return Array.from(count.entries()).sort((a, b) => b[1] - a[1]);
+  }, [materials, selectedCategories]);
+  const toggle = (sub: string) => {
+    if (selected.includes(sub)) onChange(selected.filter(s => s !== sub));
+    else onChange([...selected, sub]);
+  };
+  return (
+    <div className="border-b border-border/50">
+      <button
+        className="w-full flex items-center justify-between px-3 py-2 text-xs font-medium text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-colors"
+        onClick={() => setExpanded(e => !e)}
+      >
+        <span className="flex items-center gap-1.5">
+          Family
+          {isActive && (
+            <Badge variant="secondary" className="h-4 px-1 text-[10px] bg-accent/20 text-accent border-0">
+              {selected.length}
+            </Badge>
+          )}
+          {!isActive && selectedCategories.length > 0 && (
+            <span className="text-[9px] text-muted-foreground">({families.length})</span>
+          )}
+        </span>
+        {expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
+      </button>
+      {expanded && (
+        <div className="px-3 py-2 space-y-1.5 max-h-72 overflow-y-auto">
+          {families.length === 0 && (
+            <p className="text-[10px] text-muted-foreground italic">선택된 Category 가 없습니다 — 모든 family 표시</p>
+          )}
+          {families.map(([sub, n]) => (
+            <label key={sub} className="flex items-center gap-2 cursor-pointer text-[11px]">
+              <Checkbox
+                checked={selected.includes(sub)}
+                onCheckedChange={() => toggle(sub)}
+                className="w-3.5 h-3.5 rounded-sm flex-shrink-0"
+              />
+              <span className="flex-1 truncate" title={sub}>{sub}</span>
+              <span className="text-[9px] text-muted-foreground font-mono flex-shrink-0">{n}</span>
+            </label>
+          ))}
+          {isActive && (
+            <button className="text-[10px] text-muted-foreground hover:text-foreground hover:underline pl-5 mt-1" onClick={() => onChange([])}>
+              Clear
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Section Group Header (필터 그룹 구분자) ──────────────────────────────────
+// R35a — 필터를 의미별 그룹으로 묶고 시각적 구분자 추가 (sticky uppercase divider).
+function SectionGroup({ label }: { label: string }) {
+  return (
+    <div className="px-3 py-1.5 text-[9px] uppercase tracking-wider font-bold text-muted-foreground/70 bg-muted/40 border-b border-border/30 select-none">
+      {label}
+    </div>
+  );
+}
+
 // ── Qualitative Filter (corrosion / machinability / weldability) ─────────────
 const QUAL_ORDER = ['Outstanding', 'Excellent', 'Good', 'Fair', 'Moderate', 'Poor', 'N/A'];
 const orderQual = (opts: string[]) => [...opts].sort((a, b) => { const ia = QUAL_ORDER.indexOf(a), ib = QUAL_ORDER.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); });
@@ -487,90 +570,53 @@ export default function FilterSidebar({
         </p>
       </div>
 
-      {/* Filters */}
+      {/* Filters — R35a 그룹화 순서: 기본 검색 → 기계 → 열 → 전기 → 원가 → 품질 → 규제 */}
       <div className="flex-1 overflow-y-auto">
+        {/* ── 1. 기본 검색 (Popularity 최상단 — 가장 중요한 property) ── */}
+        <SectionGroup label="기본 검색 · Essentials" />
+        {popularityRange && (
+          <RangeSlider label={t('filter.popularity')} unit="0–5" min={popularityRange[0]} max={popularityRange[1]} value={filters.popularityRange} onChange={v => updateFilter('popularityRange', v)} />
+        )}
         <CategoryFilter
           selected={filters.categories}
           onChange={v => updateFilter('categories', v)}
         />
-        <ElementRangeFilter
+        <FamilyFilter
           materials={materials}
-          ranges={filters.compositionRanges}
-          onChange={v => updateFilter('compositionRanges', v)}
+          selectedCategories={filters.categories}
+          selected={filters.subcategories}
+          onChange={v => updateFilter('subcategories', v)}
         />
         <ProcessFilter
           allProcesses={allProcesses}
           selected={filters.processes}
           onChange={v => updateFilter('processes', v)}
         />
+        <ElementRangeFilter
+          materials={materials}
+          ranges={filters.compositionRanges}
+          onChange={v => updateFilter('compositionRanges', v)}
+        />
+
+        {/* ── 2. 기계적 성질 ── */}
+        <SectionGroup label="기계적 성질 · Mechanical" />
         {densityRange && (
-          <RangeSlider
-            label={t('filter.density')}
-            unit="g/cm³"
-            min={densityRange[0]}
-            max={densityRange[1]}
-            value={filters.densityRange}
-            onChange={v => updateFilter('densityRange', v)}
-          />
-        )}
-        {yieldStrengthRange && (
-          <RangeSlider
-            label="Yield Strength"
-            unit="MPa"
-            min={yieldStrengthRange[0]}
-            max={yieldStrengthRange[1]}
-            value={filters.yieldStrengthRange}
-            onChange={v => updateFilter('yieldStrengthRange', v)}
-          />
-        )}
-        {utsRange && (
-          <RangeSlider
-            label="UTS"
-            unit="MPa"
-            min={utsRange[0]}
-            max={utsRange[1]}
-            value={filters.utsRange}
-            onChange={v => updateFilter('utsRange', v)}
-          />
-        )}
-        {elongationRange && (
-          <RangeSlider
-            label="Elongation"
-            unit="%"
-            min={elongationRange[0]}
-            max={elongationRange[1]}
-            value={filters.elongationRange}
-            onChange={v => updateFilter('elongationRange', v)}
-          />
+          <RangeSlider label={t('filter.density')} unit="g/cm³" min={densityRange[0]} max={densityRange[1]} value={filters.densityRange} onChange={v => updateFilter('densityRange', v)} />
         )}
         {modulusRange && (
-          <RangeSlider
-            label="Modulus"
-            unit="GPa"
-            min={modulusRange[0]}
-            max={modulusRange[1]}
-            value={filters.modulusRange}
-            onChange={v => updateFilter('modulusRange', v)}
-          />
+          <RangeSlider label="Modulus" unit="GPa" min={modulusRange[0]} max={modulusRange[1]} value={filters.modulusRange} onChange={v => updateFilter('modulusRange', v)} />
+        )}
+        {yieldStrengthRange && (
+          <RangeSlider label="Yield Strength" unit="MPa" min={yieldStrengthRange[0]} max={yieldStrengthRange[1]} value={filters.yieldStrengthRange} onChange={v => updateFilter('yieldStrengthRange', v)} />
+        )}
+        {utsRange && (
+          <RangeSlider label="UTS" unit="MPa" min={utsRange[0]} max={utsRange[1]} value={filters.utsRange} onChange={v => updateFilter('utsRange', v)} />
+        )}
+        {elongationRange && (
+          <RangeSlider label="Elongation" unit="%" min={elongationRange[0]} max={elongationRange[1]} value={filters.elongationRange} onChange={v => updateFilter('elongationRange', v)} />
         )}
         {hardnessRange && (
-          <RangeSlider
-            label={t('filter.hardness')}
-            unit="HV"
-            min={hardnessRange[0]}
-            max={hardnessRange[1]}
-            value={filters.hardnessRange}
-            onChange={v => updateFilter('hardnessRange', v)}
-          />
-        )}
-        {thermalConductivityRange && (
-          <RangeSlider label="Thermal Conductivity" unit="W/m·K" min={thermalConductivityRange[0]} max={thermalConductivityRange[1]} value={filters.thermalConductivityRange} onChange={v => updateFilter('thermalConductivityRange', v)} />
-        )}
-        {electricalConductivityRange && (
-          <RangeSlider label="Electrical Conductivity" unit="%IACS" min={electricalConductivityRange[0]} max={electricalConductivityRange[1]} value={filters.electricalConductivityRange} onChange={v => updateFilter('electricalConductivityRange', v)} />
-        )}
-        {maxServiceTempRange && (
-          <RangeSlider label="Max Service Temp" unit="°C" min={maxServiceTempRange[0]} max={maxServiceTempRange[1]} value={filters.maxServiceTempRange} onChange={v => updateFilter('maxServiceTempRange', v)} />
+          <RangeSlider label={t('filter.hardness')} unit="HV" min={hardnessRange[0]} max={hardnessRange[1]} value={filters.hardnessRange} onChange={v => updateFilter('hardnessRange', v)} />
         )}
         {fatigueStrengthRange && (
           <RangeSlider label="Fatigue Strength" unit="MPa" min={fatigueStrengthRange[0]} max={fatigueStrengthRange[1]} value={filters.fatigueStrengthRange} onChange={v => updateFilter('fatigueStrengthRange', v)} />
@@ -578,8 +624,20 @@ export default function FilterSidebar({
         {impactStrengthRange && (
           <RangeSlider label="Impact (Charpy)" unit="J" min={impactStrengthRange[0]} max={impactStrengthRange[1]} value={filters.impactStrengthRange} onChange={v => updateFilter('impactStrengthRange', v)} />
         )}
-        {pricePerKgRange && (
-          <RangeSlider label="Price" unit="$/kg" min={pricePerKgRange[0]} max={pricePerKgRange[1]} value={filters.pricePerKgRange} onChange={v => updateFilter('pricePerKgRange', v)} />
+        {fractureToughnessRange && (
+          <RangeSlider label="Fracture Toughness" unit="MPa·√m" min={fractureToughnessRange[0]} max={fractureToughnessRange[1]} value={filters.fractureToughnessRange} onChange={v => updateFilter('fractureToughnessRange', v)} />
+        )}
+        {poissonRatioRange && (
+          <RangeSlider label="Poisson's Ratio" unit="–" min={poissonRatioRange[0]} max={poissonRatioRange[1]} value={filters.poissonRatioRange} onChange={v => updateFilter('poissonRatioRange', v)} />
+        )}
+
+        {/* ── 3. 열적 성질 ── */}
+        <SectionGroup label="열적 성질 · Thermal" />
+        {thermalConductivityRange && (
+          <RangeSlider label="Thermal Conductivity" unit="W/m·K" min={thermalConductivityRange[0]} max={thermalConductivityRange[1]} value={filters.thermalConductivityRange} onChange={v => updateFilter('thermalConductivityRange', v)} />
+        )}
+        {maxServiceTempRange && (
+          <RangeSlider label="Max Service Temp" unit="°C" min={maxServiceTempRange[0]} max={maxServiceTempRange[1]} value={filters.maxServiceTempRange} onChange={v => updateFilter('maxServiceTempRange', v)} />
         )}
         {thermalExpansionRange && (
           <RangeSlider label="Thermal Expansion (CTE)" unit="10⁻⁶/K" min={thermalExpansionRange[0]} max={thermalExpansionRange[1]} value={filters.thermalExpansionRange} onChange={v => updateFilter('thermalExpansionRange', v)} />
@@ -590,12 +648,17 @@ export default function FilterSidebar({
         {specificHeatRange && (
           <RangeSlider label="Specific Heat" unit="J/kg·K" min={specificHeatRange[0]} max={specificHeatRange[1]} value={filters.specificHeatRange} onChange={v => updateFilter('specificHeatRange', v)} />
         )}
-        {poissonRatioRange && (
-          <RangeSlider label="Poisson's Ratio" unit="–" min={poissonRatioRange[0]} max={poissonRatioRange[1]} value={filters.poissonRatioRange} onChange={v => updateFilter('poissonRatioRange', v)} />
+
+        {/* ── 4. 전기적 성질 ── */}
+        <SectionGroup label="전기적 성질 · Electrical" />
+        {electricalConductivityRange && (
+          <RangeSlider label="Electrical Conductivity" unit="%IACS" min={electricalConductivityRange[0]} max={electricalConductivityRange[1]} value={filters.electricalConductivityRange} onChange={v => updateFilter('electricalConductivityRange', v)} />
         )}
-        {/* R30 — 누락된 numeric 필드 7 개 추가 노출. 데이터 없는 필드는 자동 hide. */}
-        {fractureToughnessRange && (
-          <RangeSlider label="Fracture Toughness" unit="MPa·√m" min={fractureToughnessRange[0]} max={fractureToughnessRange[1]} value={filters.fractureToughnessRange} onChange={v => updateFilter('fractureToughnessRange', v)} />
+
+        {/* ── 5. 원가·가공 ── */}
+        <SectionGroup label="원가·가공 · Cost & Process" />
+        {pricePerKgRange && (
+          <RangeSlider label="Price" unit="$/kg" min={pricePerKgRange[0]} max={pricePerKgRange[1]} value={filters.pricePerKgRange} onChange={v => updateFilter('pricePerKgRange', v)} />
         )}
         {totalCostEstimateRange && (
           <RangeSlider label="Total Cost (est.)" unit="USD/kg" min={totalCostEstimateRange[0]} max={totalCostEstimateRange[1]} value={filters.totalCostEstimateRange} onChange={v => updateFilter('totalCostEstimateRange', v)} />
@@ -612,25 +675,28 @@ export default function FilterSidebar({
         {surfaceFinishTypicalRange && (
           <RangeSlider label="Surface Ra" unit="μm" min={surfaceFinishTypicalRange[0]} max={surfaceFinishTypicalRange[1]} value={filters.surfaceFinishTypicalRange} onChange={v => updateFilter('surfaceFinishTypicalRange', v)} />
         )}
-        {popularityRange && (
-          <RangeSlider label="Popularity" unit="0–5" min={popularityRange[0]} max={popularityRange[1]} value={filters.popularityRange} onChange={v => updateFilter('popularityRange', v)} />
-        )}
+
+        {/* ── 6. 품질·내환경성 ── */}
+        <SectionGroup label="품질 · Quality" />
         <QualitativeFilter label="Corrosion resistance" options={corrosionOpts} selected={filters.corrosion} onChange={v => updateFilter('corrosion', v)} />
         <QualitativeFilter label="Machinability" options={machinabilityOpts} selected={filters.machinability} onChange={v => updateFilter('machinability', v)} />
         <QualitativeFilter label="Weldability" options={weldabilityOpts} selected={filters.weldability} onChange={v => updateFilter('weldability', v)} />
-        {/* R16: RoHS toggle — composition 기반 자동 검출 (Pb < 0.1% / Cd < 0.01% / Hg < 0.1%). */}
+
+        {/* ── 7. 규제 ── */}
+        <SectionGroup label="규제 · Regulatory" />
         <label className="flex items-center gap-2 px-3 py-2 text-xs cursor-pointer select-none hover:bg-muted/40 rounded">
           <input type="checkbox" checked={!!filters.rohsOnly} onChange={(e) => updateFilter('rohsOnly', e.target.checked)} className="accent-accent" />
           <span className="flex-1">RoHS 통과만 (EU 규제)</span>
           <span className="text-[10px] text-muted-foreground">Pb·Cd·Hg</span>
         </label>
-        <div className="border-t border-border/50 mt-2">
-          <CompositionFamilyBrowser
-            materials={materials}
-            onSelectMaterial={onSelectMaterial}
-            onApplyCompositionFilter={v => updateFilter('compositionRanges', v)}
-          />
-        </div>
+
+        {/* ── 8. Composition Browser (참고용) ── */}
+        <SectionGroup label="구성 탐색 · Composition Tree" />
+        <CompositionFamilyBrowser
+          materials={materials}
+          onSelectMaterial={onSelectMaterial}
+          onApplyCompositionFilter={v => updateFilter('compositionRanges', v)}
+        />
       </div>
     </div>
   );

@@ -77,6 +77,34 @@ function SelectInput({ field, value, onChange }: { field: Extract<ConfigField, {
   );
 }
 
+/** R35b — 다중 선택 체크박스 (제조 공정 multi-select). 빈 배열 = 전체 허용. */
+function MultiSelectInput({ field, value, onChange }: { field: Extract<ConfigField, { type: 'multiselect' }>; value: string[]; onChange: (v: string[]) => void }) {
+  const toggle = (val: string) => {
+    if (value.includes(val)) onChange(value.filter((x) => x !== val));
+    else onChange([...value, val]);
+  };
+  return (
+    <div className="text-sm">
+      <div className="flex items-center justify-between mb-1">
+        <span className="text-foreground">{field.label}</span>
+        {value.length > 0 && (
+          <span className="text-[10px] px-1.5 py-0.5 rounded bg-accent/15 text-accent font-mono">{value.length} 선택</span>
+        )}
+      </div>
+      {field.help && <p className="text-[11px] text-muted-foreground mb-1.5">{field.help}</p>}
+      <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 pt-0.5">
+        {field.options.map((o) => (
+          <label key={o.value} className="flex items-center gap-1.5 text-[12px] cursor-pointer rounded px-1.5 py-1 hover:bg-muted/40">
+            <input type="checkbox" checked={value.includes(o.value)} onChange={() => toggle(o.value)} className="accent-accent flex-shrink-0" />
+            <span className="leading-tight">{o.label}</span>
+          </label>
+        ))}
+      </div>
+      {value.length === 0 && <p className="text-[10px] text-muted-foreground italic mt-1">선택 없음 — 모든 공정 허용</p>}
+    </div>
+  );
+}
+
 /** 하중 방향 화살표 — 강축은 위에서 아래(↓), 약축은 좌에서 우(→). 둘 다 빨강·굵게.
  *  중립축은 axis에 직각이므로 라벨로 함께 표시. */
 function LoadArrow({ axis, cx, cy, h }: { axis?: 'strong' | 'weak'; cx: number; cy: number; h: number }) {
@@ -314,15 +342,15 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
   const scenario = scenarioKey ? SCENARIO_PRESETS[scenarioKey] : null;
   const cfg = scenario?.configurator;
 
-  // 입력 상태 — 사례가 바뀌면 default 로 초기화
-  const initialValues: Record<string, number | string> = useMemo(() => {
-    const v: Record<string, number | string> = {};
+  // 입력 상태 — 사례가 바뀌면 default 로 초기화. R35b — multiselect (string[]) 도 포함.
+  const initialValues: Record<string, number | string | string[]> = useMemo(() => {
+    const v: Record<string, number | string | string[]> = {};
     if (!cfg) return v;
     for (const f of cfg.fields) v[f.id] = f.default;
     if (cfg.sections) for (const f of cfg.sections[0].dimFields) v[f.id] = (f as any).default;
     return v;
   }, [scenarioKey, cfg]);
-  const [values, setValues] = useState<Record<string, number | string>>(initialValues);
+  const [values, setValues] = useState<Record<string, number | string | string[]>>(initialValues);
   const [sectionId, setSectionId] = useState<string>(cfg?.sections?.[0]?.id ?? '');
   // 사례가 바뀌면 입력값을 default 로 리셋
   useEffect(() => { setValues(initialValues); setSectionId(cfg?.sections?.[0]?.id ?? ''); }, [scenarioKey]);
@@ -371,9 +399,14 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
             {Object.entries(grouped).map(([g, fs], gi) => (
               <CollapsibleGroup key={g} title={g} defaultOpen={gi === 0} count={fs.length}>
                 <div className="space-y-2 pt-1">
-                  {fs.map((f) => f.type === 'number'
-                    ? <NumberInput key={f.id} field={f} value={Number(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} error={result?.fieldErrors?.[f.id]} />
-                    : <SelectInput key={f.id} field={f} value={String(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />)}
+                  {fs.map((f) => {
+                    if (f.type === 'number') return <NumberInput key={f.id} field={f} value={Number(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} error={result?.fieldErrors?.[f.id]} />;
+                    if (f.type === 'select') return <SelectInput key={f.id} field={f} value={String(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />;
+                    // R35b — multiselect (제조 공정 다중 체크박스)
+                    const curr = values[f.id];
+                    const arr = Array.isArray(curr) ? curr : (f.default as string[]);
+                    return <MultiSelectInput key={f.id} field={f} value={arr} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />;
+                  })}
                 </div>
               </CollapsibleGroup>
             ))}

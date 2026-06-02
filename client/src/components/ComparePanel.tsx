@@ -121,7 +121,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
           <thead className="sticky top-0 z-10">
             <tr className="border-b border-border bg-card shadow-[0_2px_4px_-2px_rgba(0,0,0,0.08)]">
               <th
-                className="text-left px-3 py-2 bg-muted/40 sticky left-0 z-20 font-semibold text-[10px] uppercase tracking-wider text-muted-foreground cursor-pointer hover:text-foreground select-none"
+                className="text-left px-3 py-2 bg-card sticky left-0 z-20 font-semibold text-[10px] uppercase tracking-wider text-muted-foreground cursor-pointer hover:text-foreground select-none border-r border-border/40"
                 onClick={() => onSort('name')}
               >
                 Material <SortIcon k="name" />
@@ -145,7 +145,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
               const color = familyColor(m);
               return (
                 <tr key={m.id} className="border-b border-border/40 hover:bg-muted/20">
-                  <td className="px-3 py-2 bg-muted/10 sticky left-0 z-10 align-top" style={{ borderLeft: `3px solid ${color}` }}>
+                  <td className="px-3 py-2 bg-card sticky left-0 z-10 align-top border-r border-border/40" style={{ borderLeft: `3px solid ${color}` }}>
                     <div className="flex items-start gap-1.5">
                       <span className="inline-block w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ring-1 ring-background" style={{ background: color }} />
                       <div className="min-w-0 max-w-[150px]">

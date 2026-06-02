@@ -198,6 +198,9 @@ export const COMPOSITION_COLORS: Record<string, string> = {
 export const CATEGORY_COLORS: Record<string, string> = {
   Metal: '#00A3E0',
   Polymer: '#22C55E',
+  // R35a — 1차 family 4종 모두 노출 (이전: Metal/Polymer 만)
+  Ceramic: '#F59E0B',
+  Composite: '#A855F7',
 };
 
 /**

@@ -28,13 +28,13 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
   const scenario = scenarioKey ? SCENARIO_PRESETS[scenarioKey] : null;
   const cfg = scenario?.configurator;
   const initialValues = useMemo(() => {
-    const v: Record<string, number | string> = {};
+    const v: Record<string, number | string | string[]> = {};
     if (!cfg) return v;
     for (const f of cfg.fields) v[f.id] = f.default;
     if (cfg.sections) for (const f of cfg.sections[0].dimFields) v[f.id] = (f as any).default;
     return v;
   }, [scenarioKey, cfg]);
-  const [values, setValues] = useState<Record<string, number | string>>(initialValues);
+  const [values, setValues] = useState<Record<string, number | string | string[]>>(initialValues);
   const [sectionId, setSectionId] = useState<string>(cfg?.sections?.[0]?.id ?? '');
   useEffect(() => { setValues(initialValues); setSectionId(cfg?.sections?.[0]?.id ?? ''); }, [scenarioKey]);
   const section: CrossSection | undefined = cfg?.sections?.find((s) => s.id === sectionId);
@@ -80,7 +80,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
                 <Select value={sectionId} onValueChange={(v) => {
                   setSectionId(v);
                   setValues((p) => {
-                    const np: Record<string, number | string> = { ...p, _axis: 'strong' };
+                    const np: Record<string, number | string | string[]> = { ...p, _axis: 'strong' };
                     const s = cfg.sections!.find((x) => x.id === v);
                     if (s) for (const f of s.dimFields) np[f.id] = (f as any).default;
                     return np;
@@ -133,7 +133,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
 }
 
 /** ScenarioColumn 안에서 쓰는 콤팩트 입력 — 라벨 위 / 입력 아래 stacking. */
-function CompactInput({ field, value, error, onChange }: { field: ConfigField; value: number | string | undefined; error?: string; onChange: (v: number | string) => void }) {
+function CompactInput({ field, value, error, onChange }: { field: ConfigField; value: number | string | string[] | undefined; error?: string; onChange: (v: number | string | string[]) => void }) {
   if (field.type === 'select') {
     return (
       <label className="block text-[11px]">
@@ -142,6 +142,27 @@ function CompactInput({ field, value, error, onChange }: { field: ConfigField; v
           {field.options.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
         </select>
       </label>
+    );
+  }
+  // R35b — multiselect (제조 공정 등). 콤팩트 — wrap 가능한 grid 1 column.
+  if (field.type === 'multiselect') {
+    const arr = Array.isArray(value) ? value : (field.default as string[]);
+    const toggle = (val: string) => onChange(arr.includes(val) ? arr.filter((x) => x !== val) : [...arr, val]);
+    return (
+      <div className="block text-[11px]">
+        <div className="flex items-center justify-between mb-0.5">
+          <span className="text-muted-foreground leading-tight">{field.label}</span>
+          {arr.length > 0 && <span className="text-[9px] px-1 rounded bg-accent/15 text-accent font-mono">{arr.length}</span>}
+        </div>
+        <div className="space-y-0.5">
+          {field.options.map((o) => (
+            <label key={o.value} className="flex items-center gap-1.5 text-[10.5px] cursor-pointer hover:bg-muted/40 rounded px-1">
+              <input type="checkbox" checked={arr.includes(o.value)} onChange={() => toggle(o.value)} className="accent-accent flex-shrink-0 w-3 h-3" />
+              <span className="leading-tight">{o.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
     );
   }
   return (

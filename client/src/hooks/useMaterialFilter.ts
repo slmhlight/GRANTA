@@ -70,7 +70,8 @@ export const DEFAULT_FILTERS: FilterState = {
   poissonRatioRange: null,
   specificHeatRange: null,
   meltingPointRange: null,
-  popularityRange: null,
+  // R35a — 인기도는 산업 사용 빈도 기준. 기본 4-5 로 좁혀서 검증된 알로이 위주로 보여줌.
+  popularityRange: [4, 5],
   fractureToughnessRange: null,
   totalCostEstimateRange: null,
   minWallThicknessRange: null,

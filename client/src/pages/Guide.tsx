@@ -31,7 +31,7 @@ import {
 const TOC: { id: string; n: number; label: string; icon: any }[] = [
   // 라운드 6: 추천 순서대로 1..8 로 번호 재정렬. 사례(앱 자동 연계) → Ashby → 기초/물성 → 응용 → 참고.
   // 챕터 번호는 JSX 본문의 Chapter n 와 동기 — 두 값이 어긋나면 TOC 와 badge 가 다르게 보임.
-  { id: 'ch7', n: 1, label: '실전 사례 12선 (앱 자동 연계)', icon: LineChart },
+  { id: 'ch7', n: 1, label: '실전 사례 16선 (앱 자동 연계)', icon: LineChart },
   { id: 'ch6', n: 2, label: 'Ashby 재료 선택법', icon: ListChecks },
   { id: 'ch1', n: 3, label: '물성 사전 — 재료 표기의 의미', icon: BookOpen },
   { id: 'ch2', n: 4, label: '설계 요구를 물성 수치로 변환', icon: Target },
@@ -93,7 +93,7 @@ export default function Guide() {
               '응력 = F/A 부터 시작',
               '보 처짐과 단면의 관계',
               'Ashby 차트로 후보 좁히기',
-              '실전 사례 12선 → 한 클릭 적용',
+              '실전 사례 16선 → 한 클릭 적용',
             ].map((t) => (
               <span key={t} className="text-[11px] px-2 py-1 rounded-full bg-background border border-border text-foreground/80">{t}</span>
             ))}
@@ -143,10 +143,11 @@ export default function Guide() {
         <Chapter
           n={1}
           id="ch7"
-          title="실전 사례 12선 — 클릭 한 번으로 앱 시작"
+          title="실전 사례 16선 — 클릭 한 번으로 앱 시작"
           learn={[
-            '대표 부품 유형 8가지의 “요구→숫자→앱 단계→유력 재료군”',
+            '구조·열·피로·내환경·원가·내마모·전기·생체·압력·동력전달 등 산업 전반 16 사례의 “요구→숫자→앱 단계→유력 재료군”',
             '각 사례의 “이 사례로 앱 시작” 버튼이 필터·뷰·Index 힌트를 자동 적용',
+            '각 사례에 산업 적용 예시 + 외부 참고 링크 + 추천 alloy 가족 포함',
           ]}
         >
           <p className="leading-relaxed">
@@ -282,6 +283,142 @@ export default function Guide() {
               <><b>Compare</b>로 k·밀도·가격 비교.</>,
             ]}
             families={<>구리(최고 k), 알루미늄(경량 방열 <F>k/ρ</F> 우수), AlSi 합금.</>}
+          />
+
+          <Scenario
+            n={9}
+            presetKey="wear"
+            onConfigure={openConfig}
+            diagram={<SvgWear />}
+            examples={<>지질 시추용 드릴 비트 인서트, 광산 컨베이어 라이너, 굴삭기 버킷 투스, 절삭공구 인서트, 광산 분쇄기 해머. <ExtLink href="https://en.wikipedia.org/wiki/Tungsten_carbide">Tungsten carbide</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Hardfacing">Hardfacing</ExtLink></>}
+            title="내마모 부품 (드릴·라이너·절삭공구)"
+            situation="고압·반복 접촉으로 표면이 깎이는 환경 — 광산·건설·제조 라인."
+            needs={<>높은 <b>경도 (Hardness)</b>, 충분한 <b>충격 인성 (Impact)</b>. Archard 마모식: <F>V = K·F·s/H</F> — H 가 커야 마모율 ↓.</>}
+            steps={[
+              <>필터: <b>Hardness ≥ 600 HV</b>, <b>Impact ≥ 15 J</b> (인성).</>,
+              <><b>Compare</b>로 HV·KIC·가격 비교 (HRC 가 더 익숙하면 HV ≈ 10×HRC).</>,
+              <>상세 팝업에서 <b>권장 후공정 (R17)</b> 확인 — DLC·TiN·CrN PVD 코팅으로 표면만 강화 가능.</>,
+            ]}
+            families={<>WC-Co (텅스텐 카바이드), 공구강 H13/D2/M2, Stellite 6/12 (Co 합금), 고경도 베어링강 52100. PVD/CVD 표면 코팅.</>}
+          />
+
+          <Scenario
+            n={10}
+            presetKey="medical"
+            onConfigure={openConfig}
+            diagram={<SvgMedical />}
+            examples={<>척추 케이지 (PEEK·Ti LPBF), 인공관절 (CoCrMo F75, Ti-6Al-4V ELI), 치과 임플란트 (Ti CP Gr4), 두개골 재건 plate. <ExtLink href="https://en.wikipedia.org/wiki/Titanium_biocompatibility">Ti biocompatibility</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/PEEK">PEEK</ExtLink></>}
+            title="의료 임플란트 (척추 cage · 인공관절)"
+            situation="체내 영구 매식 — 생체 적합성, 부식 저항, 골 친화성, MRI 호환성 필요."
+            needs={<>ISO 10993 / ASTM F75/F136 인증 alloy, <b>비자성</b> (MRI), 골 모듈러스 매칭 <F>E ≈ 10–30 GPa</F> (Ti가 강철의 절반), Ni 비함유 (알레르기).</>}
+            steps={[
+              <>필터: <b>Category ⊃ Polymer(PEEK·UHMWPE) 또는 Metal(Ti·CoCr)</b>, <b>RoHS 통과 = ✓</b>, <b>Modulus ≤ 30 GPa</b> (골 매칭).</>,
+              <>Compare 로 σy·연신율·CTE·MRI 호환성 비교.</>,
+              <>상세 팝업에서 <b>SVHC 검출</b> 확인 — Ni, Be 함유 alloy 는 자동 경고.</>,
+            ]}
+            families={<>Ti-6Al-4V ELI (Grade 23), Ti CP Gr2/Gr4 (pure), CoCrMo F75 (인공관절), PEEK (Victrex 450G), UHMWPE (joint surface), 316LVM (저Ni vacuum melt).</>}
+          />
+
+          <Scenario
+            n={11}
+            presetKey="cryogenic"
+            onConfigure={openConfig}
+            diagram={<SvgCryogenic />}
+            examples={<>LNG 운반선 화물탱크 (9% Ni 강), 액체수소 저장기, 우주 발사체 추진제 탱크, MRI 자기 코일 보빈, 액체 헬륨 저장조. <ExtLink href="https://en.wikipedia.org/wiki/Ductile-to-brittle_transition_temperature">DBTT</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Liquefied_natural_gas">LNG</ExtLink></>}
+            title="극저온 부품 (LNG 탱크 · 우주 추진제)"
+            situation="-162 °C (LNG) ~ -253 °C (LH₂) ~ -269 °C (LHe) 환경 — 취성 천이 위험."
+            needs={<>저온에서도 <b>충격 인성 유지</b> (Charpy ≥ 27 J at -196 °C 요구가 흔함). 자성 변화 적음 (MRI 응용). 열전도 낮음 (열침입 감소).</>}
+            steps={[
+              <>필터: <b>Impact Strength ≥ 100 J</b>, <b>Category = Metal</b>, fcc 결정 구조 선호 (오스테나이트계 STS).</>,
+              <>Compare 의 σy·UTS·연신율·열전도도 비교. <b>FCC 구조 (304L/316L) 는 DBTT 가 없어 안전</b>.</>,
+              <>상세 팝업의 출처에서 저온 시험 데이터 확인 (ASTM E1820).</>,
+            ]}
+            families={<>304L/316L (austenitic SS, no DBTT), 9% Ni 강 (LNG 표준), Invar 36 (정밀 저열팽창), Al 5083 (LNG cargo containment), Cu OFE.</>}
+          />
+
+          <Scenario
+            n={12}
+            presetKey="electrical"
+            onConfigure={openConfig}
+            diagram={<SvgElectrical />}
+            examples={<>전력 분배 busbar (배전반·UPS), 전동차 카테너리 접촉선, EV 충전건 접점, 반도체 lead frame, 전자석 코일. <ExtLink href="https://en.wikipedia.org/wiki/Busbar">Busbar</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/IACS_(electrical)">%IACS</ExtLink></>}
+            title="전기 전도체 (버스바 · 접점)"
+            situation="고전류 (kA 급) 전달 — 줄열 손실 ↓ 와 강도·내식성 동시 요구."
+            needs={<>높은 <b>전기전도도 (≥ 80 %IACS)</b>, 충분한 <b>σy</b> (가공 후 sag 방지), 항복응력 유지하면서 끌어내고 가공 가능.</>}
+            steps={[
+              <>필터: <b>Electrical Conductivity ≥ 80 %IACS</b>, <b>σy ≥ 200 MPa</b> (가공 강도).</>,
+              <><b>Index = Cu / σy</b> 또는 <b>k / ρ</b> (방열도 함께 본다면).</>,
+              <>Compare 로 σ·전도도·가격 비교. 도금 (Ag/Sn) 은 R17 권장 코팅에서 확인.</>,
+            ]}
+            families={<>구리 OFE (C10100, ~101 %IACS), CuCrZr (C18150, 응력 완화 저항), 황동 C26000, 알루미늄 1350 (경량 transmission), Cu-Be C17200 (정밀 접점·스프링).</>}
+          />
+
+          <Scenario
+            n={13}
+            presetKey="pressure_vessel"
+            onConfigure={openConfig}
+            diagram={<SvgPressureVesselSmall />}
+            examples={<>수소 저장 탱크 (350·700 bar), LPG 실린더, 스팀 보일러, 화학 reactor, 공기 압축기 receiver. <ExtLink href="https://en.wikipedia.org/wiki/Pressure_vessel">Pressure vessel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/ASME_Boiler_and_Pressure_Vessel_Code">ASME BPVC</ExtLink></>}
+            title="압력 용기 (수소 탱크 · 보일러)"
+            situation="내압 P 에서 hoop stress σ = PD/2t 발생. 누설·파열 절대 방지."
+            needs={<>충분한 <b>σy</b> (SF ≥ 3 typical ASME), <b>인성</b> (균열 진전 둔화), 부식 (수소 취화 / 황화수소 SSC) 저항. ISO 11119 / ASME VIII.</>}
+            steps={[
+              <>필터: <b>UTS ≥ 600 MPa</b>, <b>Fracture Toughness ≥ 50 MPa·√m</b>, <b>Process ⊃ Wrought</b> (단조 두께 보장).</>,
+              <>Compare 로 σy·KIC·내식 비교. 수소 환경이면 H₂ 취화 저항 (Ni·Cr 함량) 검증.</>,
+              <>상세 팝업의 ASME 표준 합금 (P-No.) 확인.</>,
+            ]}
+            families={<>SA-516 Gr70 (보일러), 4130 / 4140 (수소 탱크 라이너), 304L/316L (화학 reactor), Inconel 625 (H₂S 환경), Type II/III/IV 복합재 탱크 wrap.</>}
+          />
+
+          <Scenario
+            n={14}
+            presetKey="gear"
+            onConfigure={openConfig}
+            diagram={<SvgGear />}
+            examples={<>자동차 변속기 (8AT 의 sun gear), 산업 감속기, 헬리콥터 main gearbox, 로봇 harmonic drive, 항공 엔진 액세서리 기어. <ExtLink href="https://en.wikipedia.org/wiki/Gear">Gear</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Case-hardening">Case hardening</ExtLink></>}
+            title="기어 (변속기 · 감속기)"
+            situation="이빨 접촉 (Hertz contact) + 굽힘 응력 + 충격 부하 + 100M 사이클 이상의 피로 환경."
+            needs={<>표면 <b>경도 ≥ 600 HV</b> (접촉 피로), 코어 <b>인성 ≥ 30 J</b> (충격 흡수), 침탄 / 질화 / 유도 경화 적용 가능 alloy. AGMA grade 2/3.</>}
+            steps={[
+              <>필터: <b>Hardness 300–400 HV</b> (코어), <b>Impact ≥ 30 J</b>, <b>Process ⊃ Wrought</b>.</>,
+              <>상세 팝업 R17 권장 후공정 — 침탄/질화/유도경화 표면 처리 alloy 만 후보.</>,
+              <>Compare 의 Machinability 가 Good 이상 (가공성).</>,
+            ]}
+            families={<>침탄강 SAE 8620 / 9310 (항공), 질화강 31CrMoV9 (산업), 4140 / 4340 (자동차 변속), Maraging 300 (high-end racing), 분말야금 P/M gear (저가).</>}
+          />
+
+          <Scenario
+            n={15}
+            presetKey="fastener"
+            onConfigure={openConfig}
+            diagram={<SvgFastener />}
+            examples={<>볼트·너트·스터드, 항공기 fastener (HiLok / NAS), 시추 drill pipe joint, 풍력 타워 anchor bolt, 의료 척추 pedicle screw. <ExtLink href="https://en.wikipedia.org/wiki/ISO_metric_screw_thread">ISO metric thread</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Tensile_strength">Tensile strength</ExtLink></>}
+            title="체결구 (볼트 · 스터드)"
+            situation="인장·전단·반복 풀림 — 토크 설계는 σ_yield 의 60-90 %로 preload."
+            needs={<>등급 (ISO 898-1 Class 8.8 / 10.9 / 12.9): <b>UTS ≥ 800·1000·1200 MPa</b>, <b>σy ≥ 0.8·UTS</b>, 인장·전단 연성 모두 충족.</>}
+            steps={[
+              <>필터: 등급별 — <b>Class 10.9 → UTS ≥ 1000</b>, <b>σy/UTS ≥ 0.8</b>, <b>Elongation ≥ 9 %</b>.</>,
+              <>고온 ↔ 저온 환경이면 사용 온도 확인 (스테인리스 A4-80 / Inconel).</>,
+              <>Compare 의 부식 등급 비교. 갈바닉 부식 회피.</>,
+            ]}
+            families={<>Class 8.8/10.9 = SAE 4140/4340 quenched-tempered, Class 12.9 = SCM440 표면 경화, 항공 H-11 / MP35N / Inconel 718 (제트엔진), 스테인리스 A2-70 / A4-80 (해양).</>}
+          />
+
+          <Scenario
+            n={16}
+            presetKey="die_mold"
+            onConfigure={openConfig}
+            diagram={<SvgDieMold />}
+            examples={<>플라스틱 사출 mold (스마트폰 케이스, 의료기기 housing), 열간 단조 die (자동차 크랭크), 알루미늄 다이캐스팅 mold, 압출 die (창호 알루미늄 프로파일), 인서트 절삭공구. <ExtLink href="https://en.wikipedia.org/wiki/Tool_steel">Tool steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Conformal_cooling">Conformal cooling</ExtLink></>}
+            title="다이·금형 (사출 · 단조 · 다이캐스팅)"
+            situation="반복 가열·냉각, 마모, 열 피로 (heat checking), 화학적 침식 (Zn/Al 용탕). 대당 $50K–$2M."
+            needs={<>고온 강도 (≥ 500 °C 유지), <b>경도 ≥ 40 HRC</b>, 열피로 저항, 절삭·EDM·연마 가능, AM 시 conformal cooling 채널.</>}
+            steps={[
+              <>필터: <b>Hardness ≥ 400 HV</b> (담금 후), <b>Max Service Temp ≥ 500 °C</b>, <b>Process ⊃ Wrought</b> 또는 <b>LPBF</b> (3D 프린팅 mold).</>,
+              <>Compare 의 열피로 저항 + 가공성. EDM 가공성 따로 보고.</>,
+              <>인서트 표면만 PVD TiAlN/CrN R17 권장 코팅 — 수명 3–5× 연장.</>,
+            ]}
+            families={<>H13 (열간 die 표준), P20 (사출 pre-hardened), S7 (shock), D2 (cold work), Maraging M300 (LPBF mold, conformal cooling), Stavax (corrosion-resistant 사출), CPM 3V (high impact PM tool).</>}
           />
 
           <Note tone="tip">

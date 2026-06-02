@@ -19,7 +19,9 @@ export type ScenarioPreset = {
 
 export type ConfigField =
   | { id: string; label: string; unit?: string; type: 'number'; default: number; min?: number; max?: number; step?: number; group?: string; help?: string }
-  | { id: string; label: string; type: 'select'; default: string; options: { value: string; label: string }[]; group?: string; help?: string };
+  | { id: string; label: string; type: 'select'; default: string; options: { value: string; label: string }[]; group?: string; help?: string }
+  // R35b — 다중 선택 (체크박스) 입력. 빈 배열 = 제약 없음 (all-allowed).
+  | { id: string; label: string; type: 'multiselect'; default: string[]; options: { value: string; label: string }[]; group?: string; help?: string };
 
 /** 단면 형상 + 단면 성질 식 (I, Z, A) 계산용.
  *  비대칭 단면은 강축(strong, default) vs 약축(weak) 모두 지원. */
@@ -46,7 +48,7 @@ export type ScenarioConfigurator = {
   sections?: CrossSection[];
   /** 입력값 + 선택 단면 ID → 필터 오버라이드 + 산출 요약 + (NB14) 필드별 인라인 검증 메시지.
    *  fieldErrors 는 field.id → 한 줄 경고. ScenarioDialog 가 해당 입력 옆에 빨간 메시지/테두리로 표시. */
-  compute: (v: Record<string, number | string>, section?: CrossSection) => { filters: Partial<FilterState>; summary: { label: string; value: string }[]; fieldErrors?: Record<string, string> };
+  compute: (v: Record<string, number | string | string[]>, section?: CrossSection) => { filters: Partial<FilterState>; summary: { label: string; value: string }[]; fieldErrors?: Record<string, string> };
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -255,8 +257,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
         { id: 'w', label: '등분포하중 w (해당 시)', unit: 'N/mm', type: 'number', default: 2, min: 0, step: 0.1, group: '치수·하중' },
         { id: 'dmax', label: '처짐 한계 δ_max', unit: 'mm', type: 'number', default: 0.5, min: 0.01, step: 0.1, group: '치수·하중' },
         { id: 'SF', label: '안전계수 SF', type: 'number', default: 2, min: 1, step: 0.1, group: '설계 마진' },
-        { id: 'process', label: '제조 공정', type: 'select', default: 'any', options: [
-          { value: 'any', label: '전체 (선택 안 함)' },
+        { id: 'process', label: '제조 공정 (다중 선택)', type: 'multiselect', default: [], help: '체크 없음 = 전체 허용. 여러 공정 동시 선택 가능.', options: [
           { value: 'LPBF', label: 'LPBF (금속 분말상 적층)' },
           { value: 'DMLS', label: 'DMLS' },
           { value: 'EBM', label: 'EBM' },
@@ -289,12 +290,13 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
         const needE_GPa = needE_MPa / 1000;
         const sigmaB = Mmax / Z;
         const needSy = SF * sigmaB;
-        const proc = String(v.process);
+        // R35b — process 는 multiselect (string[]). 빈 배열 = 제약 없음.
+        const procs = Array.isArray(v.process) ? (v.process as string[]) : [];
         const filters: Partial<FilterState> = {
           yieldStrengthRange: [round0(needSy), HI],
           modulusRange: [Math.max(1, round1(needE_GPa)), HI],
         };
-        if (proc !== 'any') filters.processes = [proc];
+        if (procs.length > 0) filters.processes = procs;
         return {
           filters,
           summary: [
@@ -306,7 +308,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
             { label: '필요 E', value: `≥ ${round1(needE_GPa)} GPa` },
             { label: '굽힘응력 σ_b', value: `${round0(sigmaB)} MPa` },
             { label: '필요 σy (SF 포함)', value: `≥ ${round0(needSy)} MPa` },
-            ...(proc !== 'any' ? [{ label: '공정 제약', value: proc }] : []),
+            ...(procs.length > 0 ? [{ label: '공정 제약', value: procs.join(' / ') }] : []),
           ],
         };
       },
@@ -544,8 +546,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
       fields: [
         { id: 'sy', label: '필요 σy', unit: 'MPa', type: 'number', default: 250, min: 0, step: 10, group: '성능' },
         { id: 'maxPrice', label: '최대 단가 ($/kg)', unit: '$/kg', type: 'number', default: 5, min: 0.1, step: 0.5, group: '원가' },
-        { id: 'process', label: '제조 공정 제약', type: 'select', default: 'any', options: [
-          { value: 'any', label: '제약 없음' },
+        { id: 'process', label: '제조 공정 제약 (다중)', type: 'multiselect', default: [], help: '체크 없음 = 제약 없음. 여러 공정 동시 허용.', options: [
           { value: 'Wrought', label: '단조·압연 (대량 강·알루미늄)' },
           { value: 'Cast', label: '주조 (복잡 형상)' },
           { value: 'Injection-Molded', label: '사출 (폴리머)' },
@@ -557,16 +558,18 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
         ], group: '제조' },
       ],
       compute: (v) => {
-        const sy = Number(v.sy), mp = Number(v.maxPrice), proc = String(v.process), cat = String(v.category);
+        const sy = Number(v.sy), mp = Number(v.maxPrice), cat = String(v.category);
+        // R35b — process multiselect (string[]).
+        const procs = Array.isArray(v.process) ? (v.process as string[]) : [];
         const filters: Partial<FilterState> = { yieldStrengthRange: [sy, HI], pricePerKgRange: [0, mp] };
-        if (proc !== 'any') filters.processes = [proc];
+        if (procs.length > 0) filters.processes = procs;
         if (cat !== 'any') filters.categories = [cat];
         return {
           filters,
           summary: [
             { label: '필요 σy', value: `≥ ${sy} MPa` },
             { label: '원가', value: `≤ $${mp}/kg` },
-            ...(proc !== 'any' ? [{ label: '제조', value: proc }] : []),
+            ...(procs.length > 0 ? [{ label: '제조', value: procs.join(' / ') }] : []),
             ...(cat !== 'any' ? [{ label: '카테고리', value: cat }] : []),
           ],
         };
