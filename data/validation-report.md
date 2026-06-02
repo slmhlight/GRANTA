@@ -20,7 +20,7 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 | impact_strength | 134/810 | 134 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 136/810 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 122/810 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
