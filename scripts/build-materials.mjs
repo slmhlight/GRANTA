@@ -2157,12 +2157,59 @@ function popularityFor(m) {
     else if (has(/cmc|ceramic-?matrix/)) t = 2;
     else t = 3;
   }
-  // R35a — m.process 가 AM 공정이면 인기도 상한 3 (검증 단계 신소재 — 산업 표준 합금 대비 보수적 평가).
-  //   기존 Ti-6Al-4V LPBF / Inconel 718 LPBF 같이 tier 5 였던 케이스는 3 으로 cap.
+  // R40a — 한국 산업 노출도 modifier (0 ~ 0.45) — base tier 안에서 세분화.
+  //   같은 tier 안에서도 한국 자동차·조선·반도체·사출 현장 노출도가 다름 → 소수 둘째자리 점수.
+  let mod = 0;
+  // Tier A 매우 흔함 (자동차 동력전달 · 조선 H형강 · 식기 · 사출 표준 · 일반 PC/ABS)
+  if (
+    has(/\bsus3(04|16)\b|\b3(04|16)l?\b/) ||                  // 식기·반도체·의료
+    has(/\baa\s?6061\b|\b6061\b/) ||                          // 자전거·드론·일반
+    has(/\bs45c\b|^1045\b|c45\b/) ||                          // 자동차 샤프트·기어
+    has(/\babs\b/) || has(/polycarbonate|\bpc\b(?!-)|lexan/)  // 사출 가전 표준
+  ) mod = 0.45;
+  // Tier B 자주 보이는 표준 (현장 알면 신뢰)
+  else if (
+    has(/\bsus4(30|10|20)\b|\b4(30|10|20)\b/) ||
+    has(/scm440|\b4140\b|42crmo/) ||
+    has(/\baa\s?5083\b|\b5083\b/) ||                          // LNG 조선
+    has(/alsi10mg/) ||                                        // LPBF 산업 표준
+    has(/inconel\s?718|in[\s-]?718/) ||
+    has(/pa\s?66|nylon\s?66/) ||
+    has(/\bss400\b|\ba36\b/) ||                               // 구조용 H형강
+    has(/\b1018\b|\b1020\b|aisi 10[12]0/) ||                  // 저탄소강 (가공 표준)
+    has(/\bsus630\b|17[\s-]?4\s?ph/) ||
+    has(/\bh13\b|skd61/) ||                                    // 자동차 단조 die
+    has(/\bsuj2\b|\b52100\b|\b100cr6\b/)                      // 베어링강
+  ) mod = 0.35;
+  // Tier C 보통 (지명도 있음)
+  else if (
+    has(/aa\s?5052|\b5052\b/) || has(/aa\s?7075|\b7075\b/) ||
+    has(/ti[\s-]?6al[\s-]?4v|grade\s?5|gr\s?5/) ||
+    has(/\bpla\b|petg/) || has(/\bpom\b|delrin|acetal/) ||
+    has(/\bpmma\b|acrylic/) || has(/\bpp\b|polypro/) ||
+    has(/cocrmo|\bcocr\b|f75/) || has(/inconel\s?625|in[\s-]?625/) ||
+    has(/maraging|18ni/) || has(/\b4340\b|sncm/) || has(/\b8620\b/) ||
+    has(/aa\s?6063|\b6063\b/)
+  ) mod = 0.25;
+  // Tier D 약간 흔함
+  else if (
+    has(/haynes\s?230/) || has(/hastelloy x/) ||
+    has(/invar|\bp20\b/) ||
+    has(/\bbrass\b|c26000|황동/) || has(/bronze/) ||
+    has(/\bpeek\b(?!-)/) || has(/ultem|pei\b/) ||
+    has(/\baa\s?2024\b|\b2024\b/) || has(/\b2205\b|duplex/) ||
+    has(/c10100|c11000|ofe.?copper/) ||
+    has(/\ba356\b|alsi7mg/)
+  ) mod = 0.15;
+  // 그 외 → mod 0 (base tier 그대로)
+
+  let score = t + mod;
+  // R35a — AM 공정 합금은 상한 3.45 (mod 포함). 검증 단계 신소재 — 산업 표준 대비 보수적 평가.
   const proc = String(m.process || '');
   const isAM = /LPBF|DMLS|SLM|EBM|Binder Jetting|DED|MJF|FDM|SLS/i.test(proc);
-  if (isAM && t > 3) t = 3;
-  return t;
+  if (isAM && score > 3.45) score = 3.45;
+  // 소수 둘째자리 반올림.
+  return Math.round(score * 100) / 100;
 }
 
 // ───────── validation report ─────────

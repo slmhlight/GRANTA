@@ -5,13 +5,14 @@
  */
 
 import { useState, useMemo } from 'react';
-import { useT } from '@/lib/i18n';
+import { useT, useLang } from '@/lib/i18n';
 import { X, SlidersHorizontal, ArrowUp, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import type { Material, PropertyRange } from '@/lib/materials';
 import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import { familyColor, propColor } from '@/lib/material-colors';
+import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
 // R21: Compare 패널에서 온도-강도 그래프 제거. MaterialDetail 의 단일 차트만 유지.
 
 const PALETTE = ['#0066CC', '#dc2626', '#16a34a', '#9333ea', '#ea580c', '#0891b2', '#ca8a04', '#db2777', '#4f46e5', '#65a30d'];
@@ -35,6 +36,8 @@ type Sort = { key: string; dir: 'asc' | 'desc' } | null;
 
 export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }: ComparePanelProps) {
   const t = useT();
+  const { lang } = useLang();
+  const sysUnits = loadUnitSystem();
   const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
   const [sort, setSort] = useState<Sort>(null);
   // R21: tempSeries 제거. 사용자 요청 — Compare 패널에 온도 그래프 불필요.
@@ -134,7 +137,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
                   title={`Sort by ${p.label}`}
                 >
                   <span className="block whitespace-normal leading-tight">{p.label}<SortIcon k={p.key as string} /></span>
-                  <span className="block text-[10px] font-normal text-muted-foreground mt-0.5 whitespace-normal leading-tight">{p.unit}</span>
+                  <span className="block text-[10px] font-normal text-muted-foreground mt-0.5 whitespace-normal leading-tight">{/USD\//.test(p.unit || '') ? (lang === 'ko' ? `₩${(p.unit || '').replace(/^USD/, '')}` : p.unit) : p.unit}</span>
                 </th>
               ))}
               {selected.length === 0 && <th className="px-3 py-2 text-muted-foreground italic font-normal bg-card">Pick columns →</th>}
@@ -167,16 +170,18 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
                     const typical = typOf(m, k);
                     const hasRange = !!r && r.max > r.min;
                     const pct = typical != null && colMax[k] > 0 ? Math.max(3, Math.min(100, (typical / colMax[k]) * 100)) : 0;
-                    const barColor = propColor(k); // 비슷한 물성(같은 group)은 같은 색으로
-                    // 신뢰도 색 점 — Detail 의 뱃지 색과 동일 (NB12)
+                    const barColor = propColor(k);
                     const conf = r?.confidence;
                     const confDot: Record<string, string> = {
-                      measured: '#94a3b8',  // foreground/50 슬레이트
-                      handbook: '#0284c7',  // sky-600
-                      class: '#d97706',     // amber-600
-                      derived: '#f43f5e',   // rose-500
+                      measured: '#94a3b8', handbook: '#0284c7', class: '#d97706', derived: '#f43f5e',
                     };
                     const dotColor = conf ? confDot[conf] : null;
+                    // R40b — price 셀은 formatPrice 로 USD/KRW + kg/lb 자동 변환.
+                    const isPrice = /USD\//.test(p.unit || '') || /price/.test(k);
+                    const priceUnit: 'kg' | 'cm3' = (p.unit || '').includes('cm³') || (p.unit || '').includes('cm3') || k.includes('cm3') ? 'cm3' : 'kg';
+                    const typStr = isPrice && typical != null ? formatPrice(typical, lang, sysUnits, priceUnit) : (typical != null ? fmt(typical) : null);
+                    const minStr = isPrice && r ? formatPrice(r.min, lang, sysUnits, priceUnit) : (r ? fmt(r.min) : null);
+                    const maxStr = isPrice && r ? formatPrice(r.max, lang, sysUnits, priceUnit) : (r ? fmt(r.max) : null);
                     return (
                       <td key={k} className="px-3 py-2 align-top">
                         {typical == null ? (
@@ -185,12 +190,12 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
                           <>
                             <div className="flex items-center justify-end gap-1">
                               {dotColor && <span className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: dotColor }} title={`신뢰도: ${conf}`} />}
-                              <span className="text-right font-mono font-medium text-foreground">{fmt(typical)}</span>
+                              <span className="text-right font-mono font-medium text-foreground">{typStr}</span>
                             </div>
                             <div className="mt-1 h-1.5 w-full bg-muted/40 rounded-sm overflow-hidden">
                               <div className="h-full rounded-sm" style={{ width: `${pct}%`, background: barColor, opacity: 0.85 }} />
                             </div>
-                            {hasRange && <div className="text-[10px] text-muted-foreground text-right font-mono mt-0.5">{fmt(r!.min)}–{fmt(r!.max)}</div>}
+                            {hasRange && <div className="text-[10px] text-muted-foreground text-right font-mono mt-0.5">{minStr}–{maxStr}</div>}
                           </>
                         )}
                       </td>

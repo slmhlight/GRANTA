@@ -5,7 +5,8 @@
  */
 
 import { useState, useMemo } from 'react';
-import { useT } from '@/lib/i18n';
+import { useT, useLang } from '@/lib/i18n';
+import { priceUnitLabel, loadUnitSystem } from '@/lib/unit-convert';
 import { ChevronDown, ChevronRight, SlidersHorizontal, RotateCcw, X as XIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -730,6 +731,9 @@ interface ActiveFilterChipsProps {
   updateFilter: <K extends keyof FilterState>(key: K, value: FilterState[K]) => void;
 }
 function ActiveFilterChips({ filters, updateFilter }: ActiveFilterChipsProps) {
+  // R40b — Price chip 단위 lang 인식 ($/kg vs ₩/kg).
+  const { lang } = useLang();
+  const priceLabel = priceUnitLabel(lang, loadUnitSystem(), 'kg');
   const chips: { label: string; onRemove: () => void; key: string }[] = [];
   // R30 정의된 range 필드 — 함수형으로 추출.
   const rangeFields: Array<[keyof FilterState, string, string]> = [
@@ -750,8 +754,8 @@ function ActiveFilterChips({ filters, updateFilter }: ActiveFilterChipsProps) {
     ['meltingPointRange', 'T_m', '°C'],
     ['specificHeatRange', 'cp', 'J/kg·K'],
     ['electricalConductivityRange', 'EC', '%IACS'],
-    ['pricePerKgRange', 'Price', '$/kg'],
-    ['totalCostEstimateRange', 'TotCost', '$/kg'],
+    ['pricePerKgRange', 'Price', priceLabel],
+    ['totalCostEstimateRange', 'TotCost', priceLabel],
     ['machiningCostFactorRange', 'Mach.', '×'],
     ['htCostFactorRange', 'HT', '×'],
     ['minWallThicknessRange', 'MinWall', 'mm'],
@@ -912,6 +916,9 @@ export default function FilterSidebar({
   onSelectMaterial,
 }: FilterSidebarProps) {
   const t = useT();
+  // R40b — Price slider unit lang/units 인식 ($/kg ↔ ₩/kg).
+  const { lang } = useLang();
+  const sidebarPriceLabel = priceUnitLabel(lang, loadUnitSystem(), 'kg');
   // Process 필터를 4개로 단순화
   const allProcesses = ['Wrought', 'Molding', 'Casting', 'AM'];
 
@@ -1066,10 +1073,10 @@ export default function FilterSidebar({
         {/* ── 5. 원가·가공 ── */}
         <SectionGroup label="원가·가공 · Cost & Process" />
         {pricePerKgRange && (
-          <RangeSlider label="Price" unit="$/kg" min={pricePerKgRange[0]} max={pricePerKgRange[1]} value={filters.pricePerKgRange} onChange={v => updateFilter('pricePerKgRange', v)} />
+          <RangeSlider label="Price" unit={sidebarPriceLabel} min={pricePerKgRange[0]} max={pricePerKgRange[1]} value={filters.pricePerKgRange} onChange={v => updateFilter('pricePerKgRange', v)} />
         )}
         {totalCostEstimateRange && (
-          <RangeSlider label="Total Cost (est.)" unit="USD/kg" min={totalCostEstimateRange[0]} max={totalCostEstimateRange[1]} value={filters.totalCostEstimateRange} onChange={v => updateFilter('totalCostEstimateRange', v)} />
+          <RangeSlider label="Total Cost (est.)" unit={sidebarPriceLabel} min={totalCostEstimateRange[0]} max={totalCostEstimateRange[1]} value={filters.totalCostEstimateRange} onChange={v => updateFilter('totalCostEstimateRange', v)} />
         )}
         {machiningCostFactorRange && (
           <RangeSlider label="Machining factor" unit="×" min={machiningCostFactorRange[0]} max={machiningCostFactorRange[1]} value={filters.machiningCostFactorRange} onChange={v => updateFilter('machiningCostFactorRange', v)} />

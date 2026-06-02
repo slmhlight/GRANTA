@@ -13,8 +13,9 @@ import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/l
 import { TempCurveChart } from '@/components/TempCurveChart';
 import { CreepRuptureChart } from '@/components/CreepRuptureChart';
 import { recommendedCoatings } from '@/lib/coatings';
-import { useT } from '@/lib/i18n';
+import { useT, useLang } from '@/lib/i18n';
 import { familyColor } from '@/lib/material-colors';
+import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
 
 interface MaterialDetailProps {
   material: Material | null;
@@ -35,6 +36,12 @@ const TIER_BADGE: Record<string, { label: string; cls: string }> = {
 };
 
 function RangeRow({ label, range, fallback, unit }: { label: string; range?: PropertyRange | null; fallback?: number | string | null; unit: string }) {
+  // R40b — price 표시 시 lang/unitSystem 에 따라 USD/KRW + kg/lb 자동 변환.
+  const { lang } = useLang();
+  const isPrice = /USD\//.test(unit);
+  const priceUnit: 'kg' | 'cm3' = unit.includes('cm³') || unit.includes('cm3') ? 'cm3' : 'kg';
+  const sys = isPrice ? loadUnitSystem() : null;
+
   const typical = range?.typical ?? (typeof fallback === 'number' ? fallback : null);
   const hasRange = !!range && range.max > range.min;
   if (typical == null) {
@@ -54,18 +61,22 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
     derived: { label: '≈UTS', cls: 'text-rose-500', tip: '다른 물성에서 유도 (예: 피로 = UTS·비율)' },
   };
   const badge = conf ? confBadge[conf] : null;
+  // price 표시는 formatPrice 사용 — 단위 라벨까지 포함된 string 반환.
+  const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(typical)}`;
+  const rangeMinStr = isPrice && sys ? formatPrice(range!.min, lang, sys, priceUnit) : fmt(range!.min);
+  const rangeMaxStr = isPrice && sys ? formatPrice(range!.max, lang, sys, priceUnit) : fmt(range!.max);
   return (
     <div className="flex items-start justify-between py-1.5 border-b border-border/40 last:border-0">
       <span className="text-xs text-muted-foreground pt-0.5">{label}</span>
       <div className="text-right">
-        <span className="font-mono text-xs font-medium text-foreground">{fmt(typical)}</span>
-        <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>
+        <span className="font-mono text-xs font-medium text-foreground">{typicalStr}</span>
+        {!isPrice && <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>}
         {badge && (
           <span className={`ml-1 text-[10px] ${badge.cls}`} title={badge.tip}>{badge.label}</span>
         )}
         {hasRange && (
           <div className="text-[10px] font-mono text-muted-foreground/70 leading-tight">
-            {fmt(range!.min)}–{fmt(range!.max)}
+            {rangeMinStr}–{rangeMaxStr}
           </div>
         )}
       </div>

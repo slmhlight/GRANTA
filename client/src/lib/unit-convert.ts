@@ -76,3 +76,62 @@ export function loadUnitSystem(): UnitSystem {
 export function saveUnitSystem(s: UnitSystem) {
   try { localStorage.setItem('am_units', s); } catch { /* ignore */ }
 }
+
+// ── R40b — 통화 변환 (USD ↔ KRW) ─────────────────────────────────────────
+// price_per_kg / price_per_cm³ / total_cost_estimate 는 모두 USD 기준 저장.
+// 사용자 lang 가 'ko' 면 KRW (₩) 자동 변환 표시. 환율: 1 USD ≈ 1,400 KRW (2026 기준 평균).
+// 환율은 정확한 실시간이 아닌 표시 편의용 — 정확한 가격은 사용자가 별도 quote 받아야 함.
+
+export type Currency = 'usd' | 'krw';
+export const USD_TO_KRW = 1400;
+
+export function currencyForLang(lang: 'ko' | 'en'): Currency {
+  return lang === 'ko' ? 'krw' : 'usd';
+}
+
+/**
+ * 통화 변환 + 단위 변환 (lb vs kg) 통합. priceKey 는 'price_per_kg' / 'price_per_cm3' /
+ * 'total_cost_estimate' 등 USD/kg 기반 값. KRW 변환 시 1,000원 단위로 반올림 (₩ 가독성).
+ */
+export function formatPrice(
+  valueUSDPerKg: number | null,
+  lang: 'ko' | 'en',
+  system: UnitSystem,
+  perUnit: 'kg' | 'cm3' = 'kg'
+): string {
+  if (valueUSDPerKg == null || !isFinite(valueUSDPerKg)) return '—';
+  const isKRW = lang === 'ko';
+  // 1) per-unit 변환 (kg ↔ lb, cm³ ↔ in³)
+  let v = valueUSDPerKg;
+  let unitLabel = perUnit === 'kg' ? '/kg' : '/cm³';
+  if (system === 'imperial') {
+    v = valueUSDPerKg * (perUnit === 'kg' ? 0.4536 : 16.387);
+    unitLabel = perUnit === 'kg' ? '/lb' : '/in³';
+  }
+  // 2) 통화 변환
+  if (isKRW) {
+    v = v * USD_TO_KRW;
+    // 1,000원 단위 반올림 (소액은 100원 단위)
+    const rounded = v < 10000 ? Math.round(v / 100) * 100 : Math.round(v / 1000) * 1000;
+    return `₩${rounded.toLocaleString()}${unitLabel}`;
+  }
+  // USD — 가격 크기별 소수 자릿수 자동 조정
+  const digits = v < 10 ? 2 : v < 100 ? 1 : 0;
+  return `$${v.toFixed(digits)}${unitLabel}`;
+}
+
+/** 통화 라벨만 ('USD/kg' or '₩/kg' or '$/lb' 등). slider 라벨용. */
+export function priceUnitLabel(lang: 'ko' | 'en', system: UnitSystem, perUnit: 'kg' | 'cm3' = 'kg'): string {
+  const isKRW = lang === 'ko';
+  const unitTail = system === 'imperial' ? (perUnit === 'kg' ? '/lb' : '/in³') : (perUnit === 'kg' ? '/kg' : '/cm³');
+  return isKRW ? `₩${unitTail}` : `$${unitTail}`;
+}
+
+/** 값 자체만 변환 (라벨 없이). FilterSidebar slider min/max 같이 숫자만 필요할 때. */
+export function convertPrice(valueUSDPerKg: number | null, lang: 'ko' | 'en', system: UnitSystem, perUnit: 'kg' | 'cm3' = 'kg'): number | null {
+  if (valueUSDPerKg == null) return null;
+  let v = valueUSDPerKg;
+  if (system === 'imperial') v = valueUSDPerKg * (perUnit === 'kg' ? 0.4536 : 16.387);
+  if (lang === 'ko') v = v * USD_TO_KRW;
+  return v;
+}
