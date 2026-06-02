@@ -2,6 +2,60 @@
   "_note": "Supplementary reference materials, web/handbook-verified typical property ranges. points = [density(g/cm3), yield(MPa), uts(MPa), elongation(%), modulus(GPa), hardness(HV), thermal_conductivity(W/mK)] per condition; ranges are computed from these. Conservative published values, not fabricated.",
   "materials": [
     {
+      "name": "17-4 PH (UNS S17400)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - PH",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "Cr": "15~17.5",
+        "Ni": "3~5",
+        "Cu": "3~5",
+        "Mn": "≤1",
+        "Si": "≤1",
+        "C": "≤0.07",
+        "Nb": "0.15~0.45"
+      },
+      "points": [
+        [7.75, 1170, 1310, 10, 200, 415, 18.4],
+        [7.75, 1000, 1070, 12, 200, 388, 17.8],
+        [7.75, 860, 1000, 13, 200, 350, 17.5],
+        [7.75, 795, 965, 16, 200, 311, 17.0]
+      ],
+      "conditions": ["H900", "H1025", "H1075", "H1150"],
+      "ref_urls": [
+        "https://www.aksteel.com/our-products/stainless/17-4-ph",
+        "https://www.matweb.com/search/datasheet.aspx?MatGUID=14a0d4d2c8074bb0baadfb56dd5f3a08"
+      ]
+    },
+    {
+      "name": "Haynes 230 — LPBF",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "LPBF",
+      "composition": {
+        "Ni": "balance",
+        "Cr": "20~24",
+        "W": "13~15",
+        "Mo": "1~3",
+        "Fe": "≤3",
+        "Co": "≤5",
+        "Mn": "0.3~1",
+        "Si": "0.25~0.75",
+        "C": "0.05~0.15"
+      },
+      "points": [
+        [8.83, 380, 850, 35, 205, 92, 8.9],
+        [8.83, 480, 910, 30, 205, 105, 8.9],
+        [8.83, 350, 800, 38, 205, 88, 8.9]
+      ],
+      "conditions": ["As-built", "HIP + solution + age", "Stress-relieved"],
+      "ref_urls": [
+        "https://www.haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HAYNES230alloy.aspx",
+        "https://additive.oerlikon.com/en/materials/nickel-superalloys/haynes-230"
+      ]
+    },
+    {
       "name": "Haynes 230",
       "category": "Metal",
       "subcategory": "Nickel Superalloy",

@@ -1952,36 +1952,189 @@ function htCostFactor(m) {
   return +f.toFixed(2);
 }
 
-// 잘 알려진 표준 합금(가전·자동차·항공·산업에 광범위) → 높은 점수.
-// AM 전용·실험적 합금 → 낮음. 명확한 규칙 기반이라 데이터 무결성 원칙에 부합.
+// R38c — 한국 산업 기준 인기도 (KS/JIS 표준 합금 우선, 자동차·조선·반도체·디스플레이·건설·가전).
+//        많이 쓰이고 흔할수록 높은 점수. AM process 합금은 상한 3 (R35a 유지).
+//
+// Tier 5 — 한국 산업 현장에서 학생·실무 모두 일상적으로 쓰는 흔한 합금/플라스틱.
+//   자동차(현대·기아·HD), 조선(HD현대·삼성중공업), 가전(LG·삼성), 건설(포스코·현대제철), 일반 기계.
+// Tier 4 — 자주 보이지만 가공·조달 까다로움 (PH stainless, Maraging, 항공 7xxx Al, AM 표준).
+// Tier 3 — 보통: 특수 application (의료 CoCr, 항공 7075, 듀플렉스 2205, 고성능 폴리머 PEEK).
+// Tier 2 — 특수/항공우주 (Inconel 738/939, Haynes 282, Hastelloy C, Cu-Cr-Zr, Nitinol, PEKK).
+// Tier 1 — 전문/희귀 (single-crystal SX, refractory composite, UHTC, PBI, AM 신소재).
 function popularityFor(m) {
   const n = String(m.name || '').toLowerCase();
   const has = (re) => re.test(n);
   const cat = m.category;
-  // tier 5: 학생도 들어본 표준 합금
-  if (cat === 'Metal') {
-    if (has(/ti[\s-]?6al[\s-]?4v|ti-6-4|gr ?5\b/) || has(/alsi10mg/) || has(/\b316l?\b/) || has(/17[\s-]?4 ?ph/) || has(/inconel 718|in[\s-]?718/) || has(/\b6061\b/) || has(/\ba356\b/) || has(/\b4340\b/) || has(/\bh13\b/)) return 5;
-  }
-  if (cat === 'Polymer' && (has(/\babs\b/) || has(/pa[\s-]?12|nylon 12/) || has(/polycarbonate|\bpc\b(?!-)/) || has(/\bpla\b/))) return 5;
-  // tier 4: 매우 흔함
-  if (cat === 'Metal') {
-    if (has(/inconel 625|in[\s-]?625/) || has(/alsi7mg|\ba357\b/) || has(/\b304l?\b/) || has(/15[\s-]?5 ?ph/) || has(/\b7075\b/) || has(/\b5052\b/) || has(/\b4140\b/) || has(/cocrmo|\bcocr\b/) || has(/maraging|m300|c300|18ni/)) return 4;
-  }
-  if (cat === 'Polymer' && (has(/\bpeek\b(?!-)/) || has(/ultem|pei\b/) || has(/petg/))) return 4;
-  // tier 3
-  if (cat === 'Metal') {
-    if (has(/haynes 230/) || has(/hastelloy x/) || has(/a-?286/) || has(/\b2205\b|\bduplex\b/) || has(/invar/) || has(/becu|beryllium copper/) || has(/bronze/) || has(/\b2024\b/) || has(/\b2014\b/) || has(/inconel 600/) || has(/cunisi|c18000|cuni2sicr/)) return 3;
-  }
-  if (cat === 'Polymer' && (has(/pa[\s-]?11|nylon 11/) || has(/asa\b/) || has(/\bpp\b|polypro/) || has(/\btpu\b/))) return 3;
-  // tier 2
-  if (cat === 'Metal') {
-    if (has(/inconel 738|inconel 939|inconel x-?750|in[\s-]?(738|939|713)/) || has(/haynes 282|haynes 214/) || has(/hastelloy c-?22|c-?276/) || has(/cucr1zr|c18150|grcop/) || has(/tantal/) || has(/niobium|\bnb-?\b|c-?103/) || has(/superduplex|\b2507\b/) || has(/nitinol/) || has(/cuni30|c71500/)) return 2;
-  }
-  if (cat === 'Polymer' && (has(/ppsu/) || has(/pekk/) || has(/pps\b/) || has(/lcp\b/))) return 2;
-  // tier 1: AM 전용 또는 매우 특수
   let t = 1;
-  if (has(/scalmalloy/) || has(/aheadd/) || has(/al5x1|a205|a20x/) || has(/\bcx\b|cm55/) || has(/ta15|ti[\s-]?5[\s-]?8[\s-]?5|ti[\s-]?6242/)) t = 1;
-  if (cat === 'Polymer' && (has(/-cf|onyx|pcl|pha\b|pekk-?cf/))) t = 1;
+
+  if (cat === 'Metal') {
+    // T5 — 한국 산업 표준
+    if (
+      has(/\bs45c\b|^1045\b|\b1045\b|c45\b/) ||
+      has(/\bscm440\b|\b4140\b|42crmo/) ||
+      has(/\bss400\b|\ba36\b|^st37/) ||
+      has(/\bsus304\b|\b304l?\b/) ||
+      has(/\bsus316\b|\b316l?\b/) ||
+      has(/aa\s*?6061|\b6061\b/) ||
+      has(/aa\s*?5052|\b5052\b/) ||
+      has(/\b1018\b|\b1020\b|^1010|aisi 10[12]0/) ||
+      has(/alsi10mg/) ||
+      has(/ti[\s-]?6al[\s-]?4v|ti-6-4|grade ?5\b|gr ?5\b/) ||
+      has(/inconel 718|in[\s-]?718/)
+    ) t = 5;
+    // T4 — 자주 사용
+    if (t < 5 && (
+      has(/\bsus430\b|\b430\b/) ||
+      has(/\bsus410\b|\b410\b|\bsus420\b|\b420\b/) ||
+      has(/17[\s-]?4 ?ph|\bsus630\b/) ||
+      has(/15[\s-]?5 ?ph/) ||
+      has(/\bsm45c\b|^1050|s50c\b/) ||
+      has(/aa\s*?7075|\b7075\b/) ||
+      has(/aa\s*?6063|\b6063\b/) ||
+      has(/aa\s*?5083|\b5083\b/) ||
+      has(/aa\s*?2024|\b2024\b/) ||
+      has(/\ba356\b|\baa357\b|alsi7mg/) ||
+      has(/\bh13\b|\bskd61\b/) ||
+      has(/\bp20\b/) ||
+      has(/\b4340\b|sncm/) ||
+      has(/\b8620\b/) ||
+      has(/\bsuj2\b|\b52100\b|\b100cr6\b/) ||
+      has(/inconel 625|in[\s-]?625/) ||
+      has(/maraging|18ni/) ||
+      has(/cocrmo|\bcocr\b|f75/) ||
+      has(/c10100|c11000|ofe.?copper/) ||
+      has(/c26000|brass/) ||
+      has(/cucr|c18\d{3}/) ||
+      has(/az31|az91|magnesium/) ||
+      has(/\binvar\b|invar 36|fe-?ni36/)
+    )) t = 4;
+    // T3 — 특수/고성능
+    if (t < 4 && (
+      has(/haynes 230/) ||
+      has(/hastelloy x|hastelloy c-?(22|276)/) ||
+      has(/inconel 6\d{2}/) ||
+      has(/a-?286|incoloy 901/) ||
+      has(/\b2205\b|duplex/) ||
+      has(/becu|beryllium copper|c17200/) ||
+      has(/bronze|c5\d{3}|c6\d{3}|c9\d{3}/) ||
+      has(/aa\s*?2014|\b2014\b/) ||
+      has(/aa\s*?7050|\b7050\b/) ||
+      has(/(ti\s*cp|ti grade ?[1-4]|ti gr ?[1-4])/) ||
+      has(/ti grade ?9|ti-?3al-?2\.?5v/) ||
+      has(/tool steel|d2|cpm|m2|s7/) ||
+      has(/cuni|c70600|c71500/)
+    )) t = 3;
+    // T2 — 항공우주·연구
+    if (t < 3 && (
+      has(/inconel 7(38|39|13|40|51)|inconel x-?750|in[\s-]?9\d{2}/) ||
+      has(/haynes (282|214|188|25)/) ||
+      has(/waspaloy|nimonic|rene 41|udimet/) ||
+      has(/cucr1zr|c18150|grcop/) ||
+      has(/tantal|niobium|c-?103|tzm/) ||
+      has(/superduplex|\b2507\b|254\s?smo|al-?6xn/) ||
+      has(/nitinol|niti\b/) ||
+      has(/ti[\s-]?6242|ti-?6242|ti-?17/) ||
+      has(/aermet 100|300m\b/) ||
+      has(/scalmalloy/)
+    )) t = 2;
+    // T1 (default) — 매우 특수
+    if (t < 2 && (
+      has(/cmsx|rene n5|pwa 1484|single[\s-]?crystal|cm247/) ||
+      has(/aheadd|al5x1|a205|a20x|cm55/) ||
+      has(/ti[\s-]?5[\s-]?8[\s-]?5|ti-5553|ta15/)
+    )) t = 1;
+    // R38c — subcategory level fallback (이름 매칭 미스 시 표준 industrial 합금은 최소 T3 보장).
+    const sub = String(m.subcategory || '');
+    if (t === 1) {
+      if (/Stainless Steel - Austenitic|Stainless Steel - Ferritic|Stainless Steel - PH|Stainless Steel - Duplex/.test(sub)) t = 3;
+      else if (/Carbon Steel|Alloy Steel|Tool Steel|Cast Iron/.test(sub)) t = 3;
+      else if (/^Aluminum/.test(sub)) t = 3;
+      else if (/^Titanium/.test(sub)) t = 3;
+      else if (/^Copper Alloy/.test(sub)) t = 3;
+      else if (/Maraging Steel/.test(sub)) t = 3;
+      else if (/Nickel Superalloy|Cobalt Alloy/.test(sub)) t = 2;       // 더 특수
+      else if (/Refractory Metal|Beryllium Alloy|Shape Memory|Controlled Expansion/.test(sub)) t = 2;
+      else if (/Magnesium|Zinc Alloy/.test(sub)) t = 3;
+    }
+  }
+
+  if (cat === 'Polymer') {
+    // T5 — 일상
+    if (
+      has(/\babs\b/) ||
+      has(/pa\s*?12|nylon 12|pa\s*?6\b|nylon 6\b|pa\s*?66|nylon 66/) ||
+      has(/polycarbonate|\bpc\b(?!-)|lexan/) ||
+      has(/\bpla\b/) ||
+      has(/\bpp\b|polypro/) ||
+      has(/\bpmma\b|acrylic|plexiglas/) ||
+      has(/\bpom\b|delrin|acetal/) ||
+      has(/\bpet\b/) ||
+      has(/petg/) ||
+      has(/\bpvc\b|polyvinyl/)
+    ) t = 5;
+    // T4 — 엔지니어링 표준
+    if (t < 5 && (
+      has(/\bpeek\b(?!-)/) ||
+      has(/ultem|pei\b/) ||
+      has(/pa\s*?11|nylon 11|rilsan/) ||
+      has(/asa\b/) ||
+      has(/\btpu\b|\btpe\b|elastollan/) ||
+      has(/\bhdpe\b|\bldpe\b|polyethylene/) ||
+      has(/silicone/) ||
+      has(/\bpbt\b|valox/)
+    )) t = 4;
+    // T3 — 고성능
+    if (t < 4 && (
+      has(/ppsu|radel/) ||
+      has(/\bpsu\b|udel/) ||
+      has(/\bpps\b|fortron/) ||
+      has(/ptfe|teflon/) ||
+      has(/pvdf|kynar/) ||
+      has(/etfe|tefzel/)
+    )) t = 3;
+    // T2 — 특수
+    if (t < 3 && (
+      has(/pekk|antero/) ||
+      has(/lcp\b|vectra|xydar/) ||
+      has(/\bpai\b|torlon/) ||
+      has(/polyimide|vespel|kapton/) ||
+      has(/uhmwpe/)
+    )) t = 2;
+    // T1 — 전문 (CF·BIO·PBI)
+    if (t < 2 && (
+      has(/-cf|carbon[\s-]?fiber/) ||
+      has(/onyx|pcl|pha\b/) ||
+      has(/pbi\b/)
+    )) t = 1;
+  }
+
+  if (cat === 'Ceramic') {
+    if (has(/tungsten carbide|wc-?co|^wc\b/)) t = 5;
+    else if (has(/glass|silica|quartz/)) t = 5;
+    else if (has(/alumina|al2o3|99.5%/)) t = 4;
+    else if (has(/zirconia|zro2|y-?tzp|ysz/)) t = 4;
+    else if (has(/silicon carbide|^sic|sic\b/)) t = 4;
+    else if (has(/pzt|piezoelectric|batio3|mlcc|dielectric/)) t = 4;
+    else if (has(/silicon nitride|si3n4/)) t = 3;
+    else if (has(/aluminum nitride|^aln|aln\b/)) t = 3;
+    else if (has(/macor|cordierite|steatite|porcelain|mullite/)) t = 3;
+    else if (has(/zrb2|hfb2|hfc|uhtc|ultra-?high/)) t = 1;
+    else if (has(/lab6/)) t = 1;
+    else t = 2;
+  }
+
+  if (cat === 'Composite') {
+    if (has(/glass.*epoxy|gfrp/)) t = 5;
+    else if (has(/wood/)) t = 5;
+    else if (has(/foam/)) t = 4;
+    else if (has(/carbon.*epoxy|cfrp/)) t = 4;
+    else if (has(/aramid|kevlar/)) t = 3;
+    else if (has(/uhmwpe|polyethylene/)) t = 3;
+    else if (has(/honeycomb|sandwich/)) t = 3;
+    else if (has(/mmc|metal-?matrix/)) t = 2;
+    else if (has(/cmc|ceramic-?matrix/)) t = 2;
+    else t = 3;
+  }
   // R35a — m.process 가 AM 공정이면 인기도 상한 3 (검증 단계 신소재 — 산업 표준 합금 대비 보수적 평가).
   //   기존 Ti-6Al-4V LPBF / Inconel 718 LPBF 같이 tier 5 였던 케이스는 3 으로 cap.
   const proc = String(m.process || '');

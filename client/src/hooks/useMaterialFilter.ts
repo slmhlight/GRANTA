@@ -44,6 +44,8 @@ export interface FilterState {
   weldability: string[];
   /** R16: RoHS 통과 재료만 표시 (납·카드뮴·수은 한계 통과). null/undefined 데이터는 포함. */
   rohsOnly?: boolean;
+  /** R38e: 열처리 다중 선택 (As-built/Annealed/Solution/Aged/Q&T/HIP/Normalized/Stress-relieved/...) */
+  heatTreatments: string[];
 }
 
 export const DEFAULT_FILTERS: FilterState = {
@@ -82,6 +84,7 @@ export const DEFAULT_FILTERS: FilterState = {
   machinability: [],
   weldability: [],
   rohsOnly: false,
+  heatTreatments: [],
 };
 
 export function useMaterialFilter(materials: Material[]) {
@@ -230,6 +233,27 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.weldability.length) result = result.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
     // R16: RoHS toggle — false (default) 면 통과, true 면 rohs_compliant === false 만 제외 (null/true 유지).
     if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant !== false);
+    // R38e: 열처리 다중 선택 — m.heat_treatment 가 선택된 라벨 중 하나로 시작 or 포함 일 때 통과.
+    //   현실적이지 않은 조합 (예: SLM 합금 + 단조 후 어닐링) 은 데이터에 없는 시점에서 자동 배제.
+    if (filters.heatTreatments && filters.heatTreatments.length) {
+      const wanted = filters.heatTreatments.map(s => s.toLowerCase());
+      result = result.filter(m => {
+        const ht = String(m.heat_treatment || '').toLowerCase();
+        if (!ht) return wanted.includes('none / as-supplied');
+        return wanted.some(w => {
+          if (w === 'none / as-supplied') return /as[\s-]?(built|cast|supplied|received|forged|rolled|extruded|deposited)/.test(ht);
+          if (w === 'annealed') return /anneal/.test(ht);
+          if (w === 'solution treated') return /solution/.test(ht);
+          if (w === 'aged / precipitation') return /aged|aging|precipitation|peak\s*ag|t6|t7/.test(ht);
+          if (w === 'quenched & tempered') return /quench|tempered|qt\b|q\s*&\s*t/.test(ht);
+          if (w === 'hip (hot isostatic)') return /hip|isostatic/.test(ht);
+          if (w === 'stress-relieved') return /stress[\s-]?reliev/.test(ht);
+          if (w === 'normalized') return /normaliz/.test(ht);
+          if (w === 'hardened') return /harden|case[\s-]?harden|nitrid|carburiz/.test(ht);
+          return ht.includes(w);
+        });
+      });
+    }
 
     // Sort
     result = [...result].sort((a, b) => {
@@ -285,6 +309,7 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.machinability.length > 0) count++;
     if (filters.weldability.length > 0) count++;
     if (filters.rohsOnly) count++;
+    if (filters.heatTreatments && filters.heatTreatments.length > 0) count++;
     return count;
   }, [filters]);
 
