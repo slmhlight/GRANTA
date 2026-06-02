@@ -19,6 +19,7 @@ interface ComparePanelProps {
   materials: Material[];
   onRemove: (id: string) => void;
   onClose: () => void;
+  onClear?: () => void; // 전체 비우기
   onSelect?: (m: Material) => void; // click a row → open its detail + locate it on the chart
 }
 
@@ -31,7 +32,7 @@ const typOf = (m: Material, key: string): number | null => {
 
 type Sort = { key: string; dir: 'asc' | 'desc' } | null;
 
-export function ComparePanel({ materials, onRemove, onClose, onSelect }: ComparePanelProps) {
+export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }: ComparePanelProps) {
   const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
   const [sort, setSort] = useState<Sort>(null);
   const [tempField, setTempField] = useState<'ys' | 'uts'>('ys');
@@ -104,6 +105,15 @@ export function ComparePanel({ materials, onRemove, onClose, onSelect }: Compare
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+          {onClear && materials.length > 0 && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-7 px-2 text-[11px] text-muted-foreground hover:text-destructive"
+              onClick={() => { if (confirm(`Compare 목록 ${materials.length}개 모두 비우시겠습니까?`)) onClear(); }}
+              title="모든 재료를 Compare 에서 제거"
+            >전체 비우기</Button>
+          )}
           <Button variant="ghost" size="sm" className="h-7 w-7 p-0" onClick={onClose}><X className="w-3.5 h-3.5" /></Button>
         </div>
       </div>

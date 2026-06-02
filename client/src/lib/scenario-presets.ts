@@ -451,7 +451,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
         { id: 'T_high', label: '최고 작동 온도', unit: '°C', type: 'number', default: 60, step: 5, group: '온도 범위' },
         { id: 'T_low', label: '최저 작동 온도', unit: '°C', type: 'number', default: 10, step: 5, group: '온도 범위' },
         { id: 'L', label: '부품 길이 L', unit: 'mm', type: 'number', default: 100, min: 1, step: 5, group: '기하' },
-        { id: 'dL', label: '허용 치수변화 ΔL', unit: 'μm', type: 'number', default: 10, min: 0.001, step: 0.5, help: '1 mm = 1000 μm', group: '기하' },
+        { id: 'dL', label: '허용 치수변화 ΔL', unit: 'μm', type: 'number', default: 60, min: 0.001, step: 1, help: '기본값 60μm → CTE 한도 ≈ 12 ×10⁻⁶/K (일반 강 통과). 더 정밀하면 ΔL 작게.', group: '기하' },
         { id: 'E_req', label: '최소 강성 E (선택)', unit: 'GPa', type: 'number', default: 100, min: 0, step: 10, group: '강성 옵션' },
       ],
       compute: (v) => {
@@ -629,10 +629,10 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
           { value: 'power_semi', label: '전력반도체 콜드플레이트 (>200 W)' },
           { value: 'electronics', label: '소형 전자기기 (~10 W)' },
         ], group: '응용' },
-        { id: 'P', label: '발열 P', unit: 'W', type: 'number', default: 100, min: 0.1, step: 5, group: '하중·기하' },
+        { id: 'P', label: '발열 P', unit: 'W', type: 'number', default: 50, min: 0.1, step: 5, group: '하중·기하' },
         { id: 'A', label: '단면적 A', unit: 'mm²', type: 'number', default: 500, min: 1, step: 10, group: '하중·기하' },
         { id: 'L', label: '전열 경로 L', unit: 'mm', type: 'number', default: 30, min: 0.1, step: 1, group: '하중·기하' },
-        { id: 'dT', label: '허용 ΔT', unit: '°C', type: 'number', default: 20, min: 0.1, step: 1, group: '하중·기하' },
+        { id: 'dT', label: '허용 ΔT', unit: '°C', type: 'number', default: 20, min: 0.1, step: 1, help: '기본값 50W/500mm²/30mm/20°C → 필요 k ≈ 150 W/m·K (구리·알루미늄·일부 합금 통과)', group: '하중·기하' },
         { id: 'mode', label: '냉각 모드', type: 'select', default: 'conduction', options: [
           { value: 'conduction', label: '전도 위주 (1D)' },
           { value: 'forced_air', label: '강제 공냉 (대류 추가)' },

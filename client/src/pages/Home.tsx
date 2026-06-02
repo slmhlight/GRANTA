@@ -626,6 +626,7 @@ export default function Home() {
                 setCompareList(prev => prev.filter(i => i !== id));
                 if (compareList.length <= 1) setShowCompare(false);
               }}
+              onClear={() => { setCompareList([]); setShowCompare(false); }}
               onClose={() => setShowCompare(false)}
               onSelect={handleSelectFromCompare}
             />
