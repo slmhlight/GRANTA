@@ -42,18 +42,27 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
       </div>
     );
   }
+  // confidence 단계별 뱃지: 'measured' (회색 n=N) · 'handbook' (파랑) · 'class' (앰버 추정) · 'derived' (붉은 ≈UTS)
+  const conf = range?.confidence;
+  const confBadge: Record<string, { label: string; cls: string; tip: string }> = {
+    measured: { label: `n=${range?.n ?? 0}`, cls: 'text-foreground/50', tip: '실측 데이터 다수' },
+    handbook: { label: '핸드북', cls: 'text-sky-600', tip: '표준 데이터시트 기반' },
+    class: { label: 'class', cls: 'text-amber-600', tip: '재료 클래스 대표값 (handbook 평균)' },
+    derived: { label: '≈UTS', cls: 'text-rose-500', tip: '다른 물성에서 유도 (예: 피로 = UTS·비율)' },
+  };
+  const badge = conf ? confBadge[conf] : null;
   return (
     <div className="flex items-start justify-between py-1.5 border-b border-border/40 last:border-0">
       <span className="text-xs text-muted-foreground pt-0.5">{label}</span>
       <div className="text-right">
         <span className="font-mono text-xs font-medium text-foreground">{fmt(typical)}</span>
         <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>
-        {range?.estimated && (
-          <span className="ml-1 text-[10px] text-amber-500/90" title="Estimated from UTS — not a measured value">est.</span>
+        {badge && (
+          <span className={`ml-1 text-[10px] ${badge.cls}`} title={badge.tip}>{badge.label}</span>
         )}
         {hasRange && (
           <div className="text-[10px] font-mono text-muted-foreground/70 leading-tight">
-            {fmt(range!.min)}–{fmt(range!.max)} <span className="text-muted-foreground/40">{range!.estimated ? '≈UTS' : `n=${range!.n}`}</span>
+            {fmt(range!.min)}–{fmt(range!.max)}
           </div>
         )}
       </div>
@@ -305,7 +314,11 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {material.machines && material.machines.length > 0 && <Field label="Machines">{material.machines.join(', ')}</Field>}
             {meta.heat_treatments && (meta.heat_treatments as string[]).length > 0 && <Field label="Heat treatments">{(meta.heat_treatments as string[]).join(', ')}</Field>}
             {meta.applications && <Field label="Applications">{String(meta.applications)}</Field>}
-            {meta.anisotropy && <Field label="Note"><span className="text-muted-foreground">Properties vary by build direction (XY vs Z).</span></Field>}
+            {(meta.anisotropy || meta.anisotropic) && (
+              <div className="mt-2 rounded border border-amber-400/40 bg-amber-50/60 p-2 text-[12px] leading-relaxed">
+                <b className="text-amber-700">⚠ AM 이방성 주의:</b> {String(meta.anisotropy_note || 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로가 ~10–30% 차이날 수 있습니다. 데이터시트의 방향·후처리(HIP·열처리) 조건을 반드시 확인하세요.')}
+              </div>
+            )}
           </TabsContent>
         </Tabs>
       </div>

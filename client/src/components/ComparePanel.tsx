@@ -124,12 +124,12 @@ export function ComparePanel({ materials, onRemove, onClose, onSelect }: Compare
               {selected.map((p) => (
                 <th
                   key={p.key as string}
-                  className="text-right px-3 py-2 font-medium text-foreground whitespace-nowrap min-w-[104px] cursor-pointer hover:bg-muted/40 select-none"
+                  className="text-right px-3 py-2 font-medium text-foreground min-w-[110px] cursor-pointer hover:bg-muted/40 select-none align-bottom"
                   onClick={() => onSort(p.key as string)}
                   title={`Sort by ${p.label}`}
                 >
-                  {p.label}<SortIcon k={p.key as string} />
-                  <div className="text-[10px] font-normal text-muted-foreground">{p.unit}</div>
+                  <span className="block whitespace-normal leading-tight">{p.label}<SortIcon k={p.key as string} /></span>
+                  <span className="block text-[10px] font-normal text-muted-foreground mt-0.5 whitespace-normal leading-tight">{p.unit}</span>
                 </th>
               ))}
               {selected.length === 0 && <th className="px-3 py-2 text-muted-foreground italic font-normal">Pick columns →</th>}

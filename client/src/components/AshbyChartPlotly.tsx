@@ -131,6 +131,16 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [boxedIds, setBoxedIds] = useState<Set<string>>(new Set());
   const [constraints, setConstraints] = useState<{ key: string; thr: number | null }[]>([]); // additional index constraints (multi-index, ANDed)
   const indexLineRef = useRef<{ shapeIndex: number; p: number; x0: number; y0: number } | null>(null);
+  // 사례 다이얼로그가 URL `idx=` 로 권장 인덱스를 전달하면 mount 시점에 적용
+  useEffect(() => {
+    const idx = new URLSearchParams(window.location.search).get('idx');
+    if (idx && MATERIAL_INDICES.some((i) => i.key === idx)) {
+      setIndexPreset(idx);
+      const p = MATERIAL_INDICES.find((i) => i.key === idx)!;
+      setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const filtered = filteredMaterials || materials;
   const dom = (prop: string): [number, number] => {

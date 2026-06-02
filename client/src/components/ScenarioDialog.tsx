@@ -7,8 +7,47 @@ import { useMemo, useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Play, Sigma } from 'lucide-react';
+import { Play, Sigma, ChevronDown, ChevronRight } from 'lucide-react';
 import { SCENARIO_PRESETS, encodeFiltersToParams, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
+
+/** indexHint 문자열에서 차트의 MATERIAL_INDICES 키 추출.
+ *  예: "경량 강성 보 E^½/ρ — 평판이면 E^⅓/ρ" → 'sqrtE/rho'. 실패 시 null. */
+function indexKeyFromHint(hint?: string): string | null {
+  if (!hint) return null;
+  const tests: [RegExp, string][] = [
+    [/E\^½\s*\/\s*ρ/, 'sqrtE/rho'],
+    [/E\^⅓\s*\/\s*ρ/, 'cbrtE/rho'],
+    [/E\s*\/\s*ρ/, 'E/rho'],
+    [/σy²\s*\/\s*E/, 'Sy2/E'],
+    [/σy\s*\/\s*E/, 'Sy/E'],
+    [/σy\^⅔\s*\/\s*ρ/, 'Sy23/rho'],
+    [/σy\^½\s*\/\s*ρ/, 'sqrtSy/rho'],
+    [/σy\s*\/\s*ρ/, 'Sy/rho'],
+    [/k\s*\/\s*ρ/, 'k/rho'],
+    [/E\s*\/\s*Cm/, 'E/cost'],
+    [/σy\s*\/\s*Cm/, 'Sy/cost'],
+  ];
+  for (const [re, key] of tests) if (re.test(hint)) return key;
+  return null;
+}
+
+/** 접을 수 있는 그룹 — defaultOpen 첫 그룹은 열려, 나머지는 닫혀 시작. */
+function CollapsibleGroup({ title, defaultOpen, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) {
+  const [open, setOpen] = useState(!!defaultOpen);
+  return (
+    <div className="rounded border border-border/60 overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between gap-2 px-2.5 py-1.5 bg-muted/30 hover:bg-muted/50 text-left transition-colors"
+      >
+        <span className="text-[11px] font-semibold uppercase tracking-wide text-accent/80">{title}</span>
+        {open ? <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" /> : <ChevronRight className="w-3.5 h-3.5 text-muted-foreground" />}
+      </button>
+      {open && <div className="px-2.5 pb-2.5">{children}</div>}
+    </div>
+  );
+}
 
 function NumberInput({ field, value, onChange }: { field: Extract<ConfigField, { type: 'number' }>; value: number; onChange: (v: number) => void }) {
   return (
@@ -241,7 +280,9 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
   const apply = () => {
     if (!scenarioKey || !result) return;
     const qs = encodeFiltersToParams(result.filters);
-    navigate(`/?p=${scenarioKey}${qs ? `&${qs}` : ''}`);
+    const idxKey = indexKeyFromHint(scenario?.indexHint);
+    const idxQ = idxKey ? `&idx=${encodeURIComponent(idxKey)}` : '';
+    navigate(`/?p=${scenarioKey}${qs ? `&${qs}` : ''}${idxQ}`);
     onOpenChange(false);
   };
 
@@ -263,17 +304,16 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
         </DialogHeader>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-          {/* 왼쪽: 입력 */}
-          <div className="space-y-4">
-            {Object.entries(grouped).map(([g, fs]) => (
-              <div key={g}>
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-accent/80 mb-2">{g}</p>
-                <div className="space-y-2">
+          {/* 왼쪽: 입력 (그룹별 접기) */}
+          <div className="space-y-2">
+            {Object.entries(grouped).map(([g, fs], gi) => (
+              <CollapsibleGroup key={g} title={g} defaultOpen={gi === 0}>
+                <div className="space-y-2 pt-1">
                   {fs.map((f) => f.type === 'number'
                     ? <NumberInput key={f.id} field={f} value={Number(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />
                     : <SelectInput key={f.id} field={f} value={String(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />)}
                 </div>
-              </div>
+              </CollapsibleGroup>
             ))}
 
             {cfg.sections && (

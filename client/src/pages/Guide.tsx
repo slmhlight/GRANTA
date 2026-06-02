@@ -950,15 +950,15 @@ const TOC: { id: string; n: number; label: string; icon: any }[] = [
 ];
 
 /** 사례 타일 — 가이드 최상단에서 한눈에 보고 곧장 다이얼로그를 열 수 있게. */
-const SCENARIO_TILES: { key: ScenarioKey; title: string; sub: string; icon: any }[] = [
-  { key: 'bracket', title: '구조 브래킷', sub: '경량 + 고강성', icon: Sigma },
-  { key: 'hightemp', title: '고온 부품', sub: '배기 · 터빈', icon: Sigma },
-  { key: 'fatigue', title: '회전·진동축', sub: '피로 한도', icon: Sigma },
-  { key: 'precision', title: '정밀 마운트', sub: '저 CTE', icon: Sigma },
-  { key: 'corrosion', title: '해양·화학', sub: '내식 환경', icon: Sigma },
-  { key: 'lowcost', title: '저원가 양산', sub: '가성비', icon: Sigma },
-  { key: 'spring', title: '스프링 · 힌지', sub: '탄성 에너지', icon: Sigma },
-  { key: 'heatsink', title: '히트싱크', sub: '방열', icon: Sigma },
+const SCENARIO_TILES: { key: ScenarioKey; title: string; sub: string; svg: () => React.ReactElement }[] = [
+  { key: 'bracket', title: '구조 브래킷', sub: '경량 + 고강성', svg: SvgBracket },
+  { key: 'hightemp', title: '고온 부품', sub: '배기 · 터빈', svg: SvgManifold },
+  { key: 'fatigue', title: '회전·진동축', sub: '피로 한도', svg: SvgShaft },
+  { key: 'precision', title: '정밀 마운트', sub: '저 CTE', svg: SvgPrecision },
+  { key: 'corrosion', title: '해양·화학', sub: '내식 환경', svg: SvgMarine },
+  { key: 'lowcost', title: '저원가 양산', sub: '가성비', svg: SvgLowcost },
+  { key: 'spring', title: '스프링 · 힌지', sub: '탄성 에너지', svg: SvgSpring },
+  { key: 'heatsink', title: '히트싱크', sub: '방열', svg: SvgHeatsink },
 ];
 
 export default function Guide() {
@@ -1011,12 +1011,14 @@ export default function Guide() {
                 type="button"
                 key={t.key}
                 onClick={() => openConfig(t.key)}
-                className="group flex flex-col items-start gap-1 rounded-lg border border-border bg-card p-3 text-left hover:border-accent hover:shadow-md transition-all"
+                className="group flex flex-col gap-1 rounded-lg border border-border bg-card p-2 text-left hover:border-accent hover:shadow-md transition-all"
                 title="세부 조건 입력 다이얼로그를 엽니다"
               >
-                <t.icon className="w-4 h-4 text-accent group-hover:scale-110 transition-transform" />
-                <span className="text-sm font-semibold text-foreground leading-tight">{t.title}</span>
-                <span className="text-[11px] text-muted-foreground">{t.sub}</span>
+                <div className="w-full h-14 bg-muted/30 rounded border border-border/60 flex items-center justify-center p-1 group-hover:bg-accent/5 transition-colors">
+                  <t.svg />
+                </div>
+                <span className="text-sm font-semibold text-foreground leading-tight px-1">{t.title}</span>
+                <span className="text-[11px] text-muted-foreground px-1">{t.sub}</span>
               </button>
             ))}
           </div>

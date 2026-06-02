@@ -113,7 +113,8 @@ const SHAPE_IBEAM: CrossSection = {
   },
   A: (v) => 2 * v.bf * v.tf + (v.h - 2 * v.tf) * v.tw,
 };
-// ㄷ-채널 (U-channel) — 강축 굽힘(수평 중립축). 웹은 좌측 수직, 플랜지는 우측으로 뻗음.
+// ㄷ-채널 (U-channel) — 강축 굽힘(수평 중립축). bf 는 전체 플랜지 길이(웹 두께 포함).
+// 강축에 대해 I_x 는 채널을 "닫힌 박스 − 측면 빈공간"으로 보는 식이 가장 정확.
 const SHAPE_CHANNEL: CrossSection = {
   id: 'channel', label: 'ㄷ-채널 (U-channel)',
   dimFields: [
@@ -122,19 +123,10 @@ const SHAPE_CHANNEL: CrossSection = {
     { id: 'tw', label: '웹 두께 t_w', unit: 'mm', type: 'number', default: 6, min: 0.5, step: 0.5 },
     { id: 'h', label: '전체 높이 h', unit: 'mm', type: 'number', default: 100, min: 1, step: 1 },
   ],
-  // 강축(수평) 굽힘: 단면이 위·아래 대칭이라 신경통(centroid)은 y=h/2.
-  // I_x = 웹 + 2·플랜지(평행축).  플랜지는 단면 외곽에 있어 (h/2 - t_f/2) 만큼 떨어짐.
-  I: (v) => {
-    const Iw = v.tw * Math.pow(v.h, 3) / 12;  // 웹 단독
-    const If = 2 * (v.bf * Math.pow(v.tf, 3) / 12 + v.bf * v.tf * Math.pow(v.h / 2 - v.tf / 2, 2));
-    return Iw + If;
-  },
-  Z: (v) => {
-    const Iw = v.tw * Math.pow(v.h, 3) / 12;
-    const If = 2 * (v.bf * Math.pow(v.tf, 3) / 12 + v.bf * v.tf * Math.pow(v.h / 2 - v.tf / 2, 2));
-    return (Iw + If) / (v.h / 2);
-  },
-  A: (v) => v.tw * v.h + 2 * v.bf * v.tf - 2 * v.tw * v.tf,  // 중복 영역 제거
+  // I_x = (b_f·h³ − (b_f − t_w)·(h − 2·t_f)³) / 12  — 박스 − 한쪽 측면 빈공간
+  I: (v) => (v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(v.h - 2 * v.tf, 3)) / 12,
+  Z: (v) => ((v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(v.h - 2 * v.tf, 3)) / 12) / (v.h / 2),
+  A: (v) => 2 * v.bf * v.tf + v.tw * (v.h - 2 * v.tf),  // 플랜지 2개 + 웹(플랜지 사이)
 };
 // T-단면 — 비대칭. 상부 플랜지 + 하부 웹(스템). 신경통은 위에서 y_c 만큼 아래.
 const SHAPE_T: CrossSection = {
@@ -166,33 +158,33 @@ const SHAPE_T: CrossSection = {
   },
   A: (v) => v.bf * v.tf + v.tw * v.hw,
 };
-// ㄱ-앵글(L) — 같은 다리 길이 a, 두께 t. 약축 굽힘 가정 (가장 일반적 사용).
-// 표준 핸드북 식: A = t(2a - t), y_c = (a² + t(a - t)) / (2a - t) (한 변의 끝에서)
-// I_x = (1/3)·t·a³ + (1/3)·t·(a - t)³ - (2a - t)·t·(y_c - t/2)² 류 — 약식 간이 식 사용:
-// I_x ≈ (a⁴ - (a - t)⁴) / 12 + 보정. 학생용 가이드라 단순 근사 사용:
+// ㄱ-앵글(L) — 등변 (다리 길이 a, 두께 t). 한 다리에 평행한 강축에 대한 I.
+// L 을 두 직사각형으로 분해 — 수평 다리(a×t) + 수직 다리(t×(a−t)) (코너 중복 제외).
+// y_c (외측 코너 기준) = (a²·t/2 + (a−t)·t·(t + (a−t)/2)·t) / A → 아래 식으로 정리.
 const SHAPE_ANGLE: CrossSection = {
   id: 'angle', label: 'ㄱ-앵글 (L)',
   dimFields: [
     { id: 'a', label: '다리 길이 a (등변)', unit: 'mm', type: 'number', default: 50, min: 1, step: 1 },
     { id: 't', label: '두께 t', unit: 'mm', type: 'number', default: 6, min: 0.5, step: 0.5 },
   ],
-  // 등변 앵글의 표준식 (한 변 길이=a, 두께=t, 강축=한 다리에 평행):
-  // A = t·(2a - t)
-  // y_c (변의 끝에서) = (a² + (a - t)·t) / (2·(2a - t))
-  // 정확한 I는 적분이 필요하지만 핸드북 근사로 사용:
+  // A = t·(2a − t).  L = (수평 다리 a×t) + (수직 다리 t×(a−t)), 두 사각형으로 분해.
+  // y_c (외측 코너에서) = [a·t·(t/2) + (a−t)·t·(t + (a−t)/2)] / A
+  // I_x (수평 중립축) = 두 사각형 각각의 (own I + parallel-axis) 합 — 표준 핸드북식.
   I: (v) => {
-    const A = v.t * (2 * v.a - v.t);
-    const yc = (v.a * v.a + (v.a - v.t) * v.t) / (2 * (2 * v.a - v.t));
-    // 한 다리(폭 t × 길이 a)의 I + 평행축, × 2 (대칭 두 다리). 근사 식.
-    const I_leg = v.t * Math.pow(v.a, 3) / 12 + (v.t * v.a) * Math.pow(v.a / 2 - yc, 2);
-    return 2 * I_leg - (v.t * v.t * v.t) / 12;  // 중복 코너 영역 보정
+    const a = v.a, t = v.t;
+    const A = t * (2 * a - t);
+    const yc = (a * t * (t / 2) + (a - t) * t * (t + (a - t) / 2)) / A;
+    const Ih = (a * Math.pow(t, 3)) / 12 + (a * t) * Math.pow(yc - t / 2, 2);
+    const Iv = (t * Math.pow(a - t, 3)) / 12 + (t * (a - t)) * Math.pow(t + (a - t) / 2 - yc, 2);
+    return Ih + Iv;
   },
   Z: (v) => {
-    const A = v.t * (2 * v.a - v.t);
-    const yc = (v.a * v.a + (v.a - v.t) * v.t) / (2 * (2 * v.a - v.t));
-    const I_leg = v.t * Math.pow(v.a, 3) / 12 + (v.t * v.a) * Math.pow(v.a / 2 - yc, 2);
-    const I = 2 * I_leg - (v.t * v.t * v.t) / 12;
-    return I / Math.max(yc, v.a - yc);
+    const a = v.a, t = v.t;
+    const A = t * (2 * a - t);
+    const yc = (a * t * (t / 2) + (a - t) * t * (t + (a - t) / 2)) / A;
+    const Ih = (a * Math.pow(t, 3)) / 12 + (a * t) * Math.pow(yc - t / 2, 2);
+    const Iv = (t * Math.pow(a - t, 3)) / 12 + (t * (a - t)) * Math.pow(t + (a - t) / 2 - yc, 2);
+    return (Ih + Iv) / Math.max(yc, a - yc);
   },
   A: (v) => v.t * (2 * v.a - v.t),
 };

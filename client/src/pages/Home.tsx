@@ -40,7 +40,9 @@ import { ComparePanel } from '@/components/ComparePanel';
 import { useMaterialFilter } from '@/hooks/useMaterialFilter';
 import { exportMaterialsToCSV, generateCSVFilename } from '@/lib/csv-export';
 import type { Material } from '@/lib/materials';
-import { SCENARIO_PRESETS, decodeFiltersFromParams } from '@/lib/scenario-presets';
+import { SCENARIO_PRESETS, decodeFiltersFromParams, type ScenarioKey } from '@/lib/scenario-presets';
+import { ScenarioDialog } from '@/components/ScenarioDialog';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
 
@@ -112,6 +114,7 @@ export default function Home() {
 
   // apply a Guide scenario preset from ?p=<key> (filters + viewMode + index hint banner)
   const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string } | null>(null);
+  const [editingScenario, setEditingScenario] = useState<ScenarioKey | null>(null);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const p = params.get('p');
@@ -346,19 +349,52 @@ export default function Home() {
           <TooltipContent side="bottom" className="text-xs">Export to CSV ({filtered.length} items)</TooltipContent>
         </Tooltip>
 
-        {/* Guide / help link */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Link
-              href="/guide"
-              className="h-7 px-2 flex items-center gap-1.5 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
-            >
-              <GraduationCap className="w-3.5 h-3.5" />
-              <span className="hidden lg:inline">가이드</span>
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">재료 선택 가이드 (설계 요구 → 물성)</TooltipContent>
-        </Tooltip>
+        {/* 가이드 — 시트로 빠른 열람 + 사례 시작 */}
+        <Sheet>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <SheetTrigger
+                className="h-7 px-2 flex items-center gap-1.5 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
+              >
+                <GraduationCap className="w-3.5 h-3.5" />
+                <span className="hidden lg:inline">가이드</span>
+              </SheetTrigger>
+            </TooltipTrigger>
+            <TooltipContent side="bottom" className="text-xs">가이드·사례 빠른 시작 (사이드 시트)</TooltipContent>
+          </Tooltip>
+          <SheetContent side="right" className="w-[420px] sm:max-w-md overflow-y-auto">
+            <SheetHeader>
+              <SheetTitle className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-accent" /> 가이드 · 사례 빠른 시작</SheetTitle>
+            </SheetHeader>
+            <div className="mt-4 space-y-3">
+              <p className="text-xs text-muted-foreground">자기 상황에 맞는 사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.</p>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { key: 'bracket' as ScenarioKey, title: '구조 브래킷' },
+                  { key: 'hightemp' as ScenarioKey, title: '고온 부품' },
+                  { key: 'fatigue' as ScenarioKey, title: '회전·진동축' },
+                  { key: 'precision' as ScenarioKey, title: '정밀 마운트' },
+                  { key: 'corrosion' as ScenarioKey, title: '해양·화학' },
+                  { key: 'lowcost' as ScenarioKey, title: '저원가 양산' },
+                  { key: 'spring' as ScenarioKey, title: '스프링·힌지' },
+                  { key: 'heatsink' as ScenarioKey, title: '히트싱크' },
+                ].map((t) => (
+                  <button
+                    key={t.key}
+                    type="button"
+                    onClick={() => setEditingScenario(t.key)}
+                    className="rounded border border-border bg-card hover:border-accent hover:shadow-sm transition-all px-3 py-2 text-left text-sm"
+                  >
+                    {t.title}
+                  </button>
+                ))}
+              </div>
+              <Link href="/guide" className="block text-center text-xs font-medium px-3 py-2 rounded border border-accent text-accent hover:bg-accent/10 transition-colors mt-3">
+                전체 가이드 페이지 열기 →
+              </Link>
+            </div>
+          </SheetContent>
+        </Sheet>
 
         {/* Compare button */}
         {compareList.length > 0 && (
@@ -512,12 +548,16 @@ export default function Home() {
               <GraduationCap className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
               <span className="text-amber-700 font-medium">사례 적용: {appliedPreset.label}</span>
               {appliedPreset.indexHint && (
-                <span className="text-muted-foreground">· 권장 Index: <span className="font-mono">{appliedPreset.indexHint}</span> (차트 상단 Index 드롭다운에서 선택)</span>
+                <span className="text-muted-foreground">· 권장 Index: <span className="font-mono">{appliedPreset.indexHint}</span></span>
               )}
-              <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="ml-auto text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">필터 초기화</button>
-              <button onClick={() => setAppliedPreset(null)} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">배너 닫기</button>
+              <div className="ml-auto flex items-center gap-1.5">
+                <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">다시 편집</button>
+                <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">필터 초기화</button>
+                <button onClick={() => setAppliedPreset(null)} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">배너 닫기</button>
+              </div>
             </div>
           )}
+          <ScenarioDialog scenarioKey={editingScenario} open={editingScenario !== null} onOpenChange={(v) => { if (!v) setEditingScenario(null); }} />
           {restrictIds && (
             <div className="flex items-center gap-2 px-4 py-1.5 bg-accent/10 border-b border-accent/30 text-xs">
               <span className="text-accent font-medium">{viewFiltered.length} materials pinned from chart selection</span>

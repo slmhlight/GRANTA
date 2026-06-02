@@ -26,7 +26,7 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 
 ## Integrity fixes
 - Removed **1** corrupt CSV row(s) (e.g. `material_name="0"`).
-- AA aluminium series subcategory auto-corrected: **42** materials.
+- AA aluminium series subcategory auto-corrected: **114** materials.
 - Process labels canonicalised: {"Casting":"Cast","Die Casting":"Cast","Sand Casting":"Cast","Investment Casting":"Cast","Cast/Wrought":"Wrought"}.
 - Placeholder `corrosion_resistance=0` in 2313 raw rows (treated as “unknown”, not 0).
 - Empty fatigue/impact in 2364 raw rows (left null, not zero).

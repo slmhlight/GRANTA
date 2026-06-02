@@ -25,4 +25,10 @@ export default defineConfig({
     strictPort: false, // fall back to the next free port if 3000 is busy
     host: true,
   },
+  // @ts-expect-error vitest test config (vitest extends vite UserConfig at runtime)
+  test: {
+    environment: 'node',
+    root: path.resolve(import.meta.dirname),  // 테스트는 레포 루트 기준
+    include: ['tests/**/*.test.ts'],
+  },
 });

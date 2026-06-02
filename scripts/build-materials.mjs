@@ -37,10 +37,12 @@ const num = v => { if (v === '' || v == null) return null; const n = Number(v); 
 const baseName = n => String(n).split(' (')[0].trim();
 const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, '');
 const round = (x, d = 2) => x == null ? null : Math.round(x * 10 ** d) / 10 ** d;
-function rangeFrom(values) {
+function rangeFrom(values, confidence) {
   const vals = values.map(num).filter(v => v != null && v > 0).sort((a, b) => a - b);
   if (!vals.length) return null;
-  return { min: round(vals[0]), max: round(vals[vals.length - 1]), typical: round(vals[Math.floor(vals.length / 2)]), n: vals.length };
+  // 다수의 실측이 모이면 'measured', 핸드북 1–3 포인트는 'handbook' (호출 측에서 지정)
+  const conf = confidence || (vals.length >= 3 ? 'measured' : 'handbook');
+  return { min: round(vals[0]), max: round(vals[vals.length - 1]), typical: round(vals[Math.floor(vals.length / 2)]), n: vals.length, confidence: conf };
 }
 const uniq = a => [...new Set(a.filter(Boolean))];
 const mostCommon = arr => { const c = {}; let best = arr[0], n = 0; for (const x of arr) { c[x] = (c[x] || 0) + 1; if (c[x] > n) { n = c[x]; best = x; } } return best; };
@@ -608,7 +610,26 @@ function compositionFromRows(g) {
   return composition;
 }
 function rangesFromRows(g) { const ranges = {}; for (const p of NUM_PROPS) ranges[p] = rangeFrom(g.map(r => r[p])); return ranges; }
-function fixSubcategory(name, rawSub) { return aaSubcategory(name) || rawSub; }
+// Name-based subcategory override — CSV의 잘못된 subcategory를 정정.
+// 합금 이름에 분명한 키워드가 있으면 raw subcategory 보다 우선.
+function nameBasedSubcategory(name) {
+  const n = String(name).toLowerCase();
+  if (/inconel|hastelloy|haynes|monel|nimonic|waspaloy|rene|incoloy|udimet|cm247|nitinol|invar|cp-nickel/.test(n)) return 'Nickel Superalloy';
+  if (/cocr|cobalt|stellite|haynes 188/.test(n)) return 'Cobalt-based';
+  if (/ti[\s-]?6al|ti6al|ti-6|ti5|ti6242|ta15|beta-2/.test(n)) return 'Titanium - α+β';
+  if (/tungsten|tantalum|niobium|molybden|rhenium|c-103/.test(n)) return 'Refractory';
+  if (/(brass|bronze|cuni|cucr|grcop|becu|beryllium copper)/.test(n)) return 'Copper-based';
+  if (/maraging|18ni-?300|m300|c300|c350|ms1/.test(n)) return 'Maraging Steel';
+  if (/h13|d2|p20|s7|a2|o1|cpm|m2|m4 |\btool\b/.test(n)) return 'Tool Steel';
+  if (/duplex|2205|2507|superduplex/.test(n)) return 'Stainless - Duplex';
+  if (/15-?5 ?ph|17-?4 ?ph|155ph|174ph|13-?8 ?ph/.test(n)) return 'Stainless - PH';
+  if (/316l?|304l?|310|nitronic|austenit/.test(n)) return 'Stainless - Austenitic';
+  return null;
+}
+function fixSubcategory(name, rawSub) {
+  const nb = nameBasedSubcategory(name);
+  return nb || aaSubcategory(name) || rawSub;
+}
 // bucket the in-name condition into a coarse class so an alloy×process splits into a few materials
 function conditionClass(name) {
   const m = String(name).match(/\(([^)]+)\)/);
@@ -726,8 +747,8 @@ for (const m of all) {
   // measured fatigue/impact/elevated-temp overrides for key alloys (take precedence over estimates)
   const rp = realPropsFor(m.name);
   if (rp) {
-    if (rp.fatigue) { m.ranges.fatigue_strength = rangeFrom(rp.fatigue); m.fatigue_strength = m.ranges.fatigue_strength.typical; m.fatigue_estimated = false; }
-    if (rp.impact && !m.ranges.impact_strength) { m.ranges.impact_strength = rangeFrom(rp.impact); m.impact_strength = m.ranges.impact_strength.typical; }
+    if (rp.fatigue) { m.ranges.fatigue_strength = rangeFrom(rp.fatigue, 'handbook'); m.fatigue_strength = m.ranges.fatigue_strength.typical; m.fatigue_estimated = false; }
+    if (rp.impact && !m.ranges.impact_strength) { m.ranges.impact_strength = rangeFrom(rp.impact, 'handbook'); m.impact_strength = m.ranges.impact_strength.typical; }
     if (rp.elevated_temp) m.elevated_temp = rp.elevated_temp;
   }
   // estimated fatigue (endurance) from UTS where no measured value — labelled as an estimate
@@ -735,7 +756,7 @@ for (const m of all) {
     const f = m.families || [];
     const ratio = f.includes('Titanium-based') ? 0.55 : f.includes('Nickel-based') ? 0.40 : (f.includes('Aluminum-based') || f.includes('Copper-based') || f.includes('Magnesium-based')) ? 0.35 : 0.45;
     const u = m.ranges.uts;
-    m.ranges.fatigue_strength = { min: round(u.min * ratio), max: round(u.max * ratio), typical: round(u.typical * ratio), n: 0, estimated: true };
+    m.ranges.fatigue_strength = { min: round(u.min * ratio), max: round(u.max * ratio), typical: round(u.typical * ratio), n: 0, estimated: true, confidence: 'derived' };
     m.fatigue_strength = round(u.typical * ratio);
     m.fatigue_estimated = true;
   }
@@ -746,7 +767,7 @@ for (const m of all) {
     m.machinability = m.machinability || ph.qual.machinability;
     m.weldability = m.weldability || ph.qual.weldability;
   }
-  const setTyp = (k, v) => { if (v != null) { m[k] = v; m.ranges[k] = { min: v, max: v, typical: v, n: 0, estimated: true }; } };
+  const setTyp = (k, v) => { if (v != null) { m[k] = v; m.ranges[k] = { min: v, max: v, typical: v, n: 0, estimated: true, confidence: 'class' }; } };
   if (ph.ec != null) setTyp('electrical_conductivity', ph.ec);
   if (ph.tmax != null) setTyp('max_service_temp', ph.tmax);
   if (ph.cte != null) setTyp('thermal_expansion', ph.cte);
@@ -759,6 +780,15 @@ for (const m of all) {
   }
   // 인기도 (0–5) — 산업 사용 빈도 휴리스틱. 표준 합금 이름에 매칭하는 명시적 규칙.
   m.popularity = popularityFor(m);
+  // AM 이방성 플래그 — 적층제조 공정으로 만든 금속은 일반적으로 빌드 방향 (XY vs Z) 에 따라
+  // 강도·연신율·피로가 10–30% 차이남. UI 가 detail 에서 경고 표시.
+  const procStr = String(m.process || '');
+  const isAM = /LPBF|DMLS|SLM|EBM|Binder Jetting|DED/i.test(procStr);
+  m.meta = m.meta || {};
+  if (isAM && m.category === 'Metal') {
+    m.meta.anisotropic = true;
+    m.meta.anisotropy_note = 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.';
+  }
 }
 
 // 잘 알려진 표준 합금(가전·자동차·항공·산업에 광범위) → 높은 점수.
