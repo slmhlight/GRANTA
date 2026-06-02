@@ -172,6 +172,9 @@ export default function Home() {
       // 둘 다 닫음. 라운드 14 에서 모바일 state 누락으로 보고됨 → 라운드 15 에서 보강.
       setSidebarOpen(false);
       setMobileSidebarOpen(false);
+      // R18 — 가이드 Sheet 도 안전망으로 명시적 close (어떤 경로로 apply 되든).
+      setGuideHeaderOpen(false);
+      setGuideMobileOpen(false);
       // Round 9: URL clear 제거 — share URL 보존이 더 큰 가치. 사용자가 새로고침해도 같은 사례 +
       // 같은 필터가 재적용될 뿐, 데이터/사용자에게 부작용 없음. URL 이 길어 보이는 게 흠이라
       // 별도 'URL 정리' 버튼 (배너 닫기 시점) 으로 처리.
