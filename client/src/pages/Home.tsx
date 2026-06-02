@@ -40,6 +40,7 @@ import { ComparePanel } from '@/components/ComparePanel';
 import { useMaterialFilter } from '@/hooks/useMaterialFilter';
 import { exportMaterialsToCSV, generateCSVFilename } from '@/lib/csv-export';
 import type { Material } from '@/lib/materials';
+import { SCENARIO_PRESETS } from '@/lib/scenario-presets';
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
 
@@ -107,6 +108,22 @@ export default function Home() {
   useEffect(() => {
     const m = location.hash.match(/^#g=([^~]*)~(.+)$/);
     if (m) { const ids = m[2].split('.').filter(Boolean); if (ids.length) setRestrictIds(ids); }
+  }, []);
+
+  // apply a Guide scenario preset from ?p=<key> (filters + viewMode + index hint banner)
+  const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string } | null>(null);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('p');
+    if (p && SCENARIO_PRESETS[p]) {
+      const cfg = SCENARIO_PRESETS[p];
+      (Object.entries(cfg.filters) as [keyof typeof filters, any][]).forEach(([k, v]) => updateFilter(k, v));
+      if (cfg.viewMode) setViewMode(cfg.viewMode);
+      setAppliedPreset({ key: p, label: cfg.label, indexHint: cfg.indexHint });
+      // clean URL so a refresh doesn't re-apply
+      window.history.replaceState({}, '', window.location.pathname + window.location.hash);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const saveCollection = useCallback(() => {
     const name = collName.trim();
@@ -487,6 +504,17 @@ export default function Home() {
             )}
           </div>
 
+          {appliedPreset && (
+            <div className="flex items-center gap-2 px-4 py-1.5 bg-amber-500/10 border-b border-amber-500/30 text-xs">
+              <GraduationCap className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+              <span className="text-amber-700 font-medium">사례 적용: {appliedPreset.label}</span>
+              {appliedPreset.indexHint && (
+                <span className="text-muted-foreground">· 권장 Index: <span className="font-mono">{appliedPreset.indexHint}</span> (차트 상단 Index 드롭다운에서 선택)</span>
+              )}
+              <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="ml-auto text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">필터 초기화</button>
+              <button onClick={() => setAppliedPreset(null)} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">배너 닫기</button>
+            </div>
+          )}
           {restrictIds && (
             <div className="flex items-center gap-2 px-4 py-1.5 bg-accent/10 border-b border-accent/30 text-xs">
               <span className="text-accent font-medium">{viewFiltered.length} materials pinned from chart selection</span>

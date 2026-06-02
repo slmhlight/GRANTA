@@ -7,7 +7,8 @@
  * 예시이며 특정 재료의 측정값이 아님.
  */
 import { Link } from 'wouter';
-import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, ExternalLink, Play } from 'lucide-react';
+import type { ScenarioKey } from '@/lib/scenario-presets';
 
 /** 인라인 수식/기호 강조 */
 function F({ children }: { children: React.ReactNode }) {
@@ -31,10 +32,22 @@ function H({ id, icon: Icon, children }: { id: string; icon?: any; children: Rea
   );
 }
 
-/** 사례별 예시 시나리오 카드 (상황 → 요구를 숫자로 → 이 앱에서 → 유력 재료군) */
-function Scenario({ n, title, situation, needs, steps, families }: {
+/** 외부 링크 (실제 산업 예시) */
+function ExtLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2 inline-flex items-center gap-0.5">
+      {children}<ExternalLink className="w-3 h-3 inline" />
+    </a>
+  );
+}
+
+/** 사례별 예시 시나리오 카드 (도식 + 실제 예시 + 요구→숫자 + 앱 단계 + 재료군 + 시작 버튼) */
+function Scenario({ n, title, presetKey, diagram, examples, situation, needs, steps, families }: {
   n: number;
   title: React.ReactNode;
+  presetKey: ScenarioKey;
+  diagram: React.ReactNode;
+  examples: React.ReactNode;
   situation: React.ReactNode;
   needs: React.ReactNode;
   steps: React.ReactNode[];
@@ -44,17 +57,124 @@ function Scenario({ n, title, situation, needs, steps, families }: {
     <span className="text-[11px] font-semibold uppercase tracking-wide text-accent/80">{children}</span>
   );
   return (
-    <div className="rounded-lg border border-border bg-card p-4 my-4">
-      <p className="font-semibold text-foreground"><span className="text-accent">사례 {n}.</span> {title}</p>
-      <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{situation}</p>
+    <div className="rounded-lg border border-border bg-card p-4 my-5">
+      <div className="flex items-start gap-4">
+        <div className="flex-shrink-0 w-32 h-24 bg-muted/30 rounded border border-border/60 flex items-center justify-center p-2">{diagram}</div>
+        <div className="min-w-0 flex-1">
+          <p className="font-semibold text-foreground"><span className="text-accent">사례 {n}.</span> {title}</p>
+          <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{situation}</p>
+          <p className="text-xs mt-2 leading-relaxed"><Label>실제 예시</Label> <span className="ml-1">{examples}</span></p>
+        </div>
+      </div>
       <div className="mt-3 space-y-2 text-sm leading-relaxed">
         <div><Label>요구 → 숫자</Label><div className="mt-0.5">{needs}</div></div>
         <div><Label>이 앱에서</Label><ol className="list-decimal pl-5 space-y-0.5 mt-0.5">{steps.map((s, i) => <li key={i}>{s}</li>)}</ol></div>
         <div><Label>유력 재료군</Label> <span>{families}</span></div>
       </div>
+      <div className="mt-3 pt-3 border-t border-border/60 flex justify-end">
+        <Link href={`/?p=${presetKey}`} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded bg-accent text-white hover:bg-accent/90 transition-colors">
+          <Play className="w-3 h-3" /> 이 사례로 앱 시작 (필터·뷰 자동 적용)
+        </Link>
+      </div>
     </div>
   );
 }
+
+/* ── 8개 사례 도식 SVG (모두 인라인, 라이트/다크 자동 대응) ────────────────────────── */
+const stroke = 'stroke-foreground/70';
+const accent = 'stroke-accent';
+const force = 'stroke-rose-500';
+const SvgBracket = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 벽 해칭 */}
+    <g className={stroke} strokeWidth="1.2"><line x1="14" y1="8" x2="14" y2="82" /><line x1="10" y1="12" x2="14" y2="16" /><line x1="10" y1="22" x2="14" y2="26" /><line x1="10" y1="32" x2="14" y2="36" /><line x1="10" y1="42" x2="14" y2="46" /><line x1="10" y1="52" x2="14" y2="56" /><line x1="10" y1="62" x2="14" y2="66" /><line x1="10" y1="72" x2="14" y2="76" /></g>
+    {/* L 브래킷 */}
+    <path d="M 14 14 L 96 14 L 96 30 L 30 30 L 30 82 L 14 82 Z" className={`fill-accent/15 ${accent}`} strokeWidth="2" />
+    {/* 하중 화살표 */}
+    <g className={force} strokeWidth="2" fill="none"><line x1="86" y1="34" x2="86" y2="64" /><polyline points="80,58 86,68 92,58" /></g>
+    <text x="90" y="50" fontSize="10" className="fill-rose-500" fontFamily="monospace">F</text>
+  </svg>
+);
+const SvgManifold = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 매니폴드 본관 + 가지 */}
+    <path d="M 16 60 L 100 60 M 30 60 L 30 22 M 50 60 L 50 22 M 70 60 L 70 22 M 90 60 L 90 22" className={`fill-none ${accent}`} strokeWidth="3.5" strokeLinecap="round" />
+    {/* 열 파동 */}
+    <g className={force} strokeWidth="1.5" fill="none"><path d="M 30 18 q 3 -4 6 0 t 6 0" /><path d="M 50 18 q 3 -4 6 0 t 6 0" /><path d="M 70 18 q 3 -4 6 0 t 6 0" /></g>
+    <text x="10" y="80" fontSize="9" className="fill-rose-500" fontFamily="monospace">~700°C</text>
+  </svg>
+);
+const SvgShaft = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 샤프트 */}
+    <rect x="14" y="38" width="92" height="18" rx="2" className={`fill-accent/15 ${accent}`} strokeWidth="2" />
+    {/* 베어링 */}
+    <g className={stroke} strokeWidth="1.5" fill="none"><rect x="22" y="32" width="10" height="30" /><rect x="88" y="32" width="10" height="30" /></g>
+    {/* 회전 화살표 */}
+    <path d="M 60 30 a 14 14 0 1 1 -10 6" className={accent} strokeWidth="1.5" fill="none" />
+    <polygon points="48,32 52,38 56,32" className="fill-accent" />
+    {/* ± 응력 */}
+    <text x="14" y="80" fontSize="9" className="fill-rose-500" fontFamily="monospace">±σ 반복</text>
+  </svg>
+);
+const SvgPrecision = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 광학 마운트 블록 */}
+    <rect x="22" y="36" width="60" height="32" rx="2" className={`fill-accent/15 ${accent}`} strokeWidth="2" />
+    {/* 온도 ΔT */}
+    <g className={force} strokeWidth="1.5" fill="none"><circle cx="98" cy="40" r="5" /><line x1="98" y1="45" x2="98" y2="64" /><circle cx="98" cy="64" r="3.5" className="fill-rose-500" /></g>
+    <text x="89" y="80" fontSize="9" className="fill-rose-500" fontFamily="monospace">ΔT</text>
+    {/* ΔL 표시 */}
+    <g className={stroke} strokeWidth="1" fill="none"><line x1="22" y1="76" x2="82" y2="76" /><line x1="22" y1="73" x2="22" y2="79" /><line x1="82" y1="73" x2="82" y2="79" /></g>
+    <text x="38" y="86" fontSize="8" className="fill-foreground/70" fontFamily="monospace">ΔL ≈ 0</text>
+  </svg>
+);
+const SvgMarine = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 물결 */}
+    <path d="M 6 28 q 6 -6 12 0 t 12 0 t 12 0 t 12 0 t 12 0 t 12 0 t 12 0 t 12 0" className="stroke-sky-500" strokeWidth="1.5" fill="none" />
+    {/* 임펠러/밸브 */}
+    <circle cx="60" cy="58" r="18" className={`fill-accent/15 ${accent}`} strokeWidth="2" />
+    <g className={accent} strokeWidth="1.5"><line x1="60" y1="40" x2="60" y2="76" /><line x1="42" y1="58" x2="78" y2="58" /><line x1="47" y1="45" x2="73" y2="71" /><line x1="73" y1="45" x2="47" y2="71" /></g>
+    <text x="20" y="86" fontSize="8" className="fill-sky-600" fontFamily="monospace">Cl⁻ · NaCl</text>
+  </svg>
+);
+const SvgLowcost = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 동일 부품 다수 */}
+    <g className={`fill-accent/15 ${accent}`} strokeWidth="1.5">
+      <rect x="10" y="20" width="32" height="18" rx="1.5" /><rect x="10" y="42" width="32" height="18" rx="1.5" /><rect x="10" y="64" width="32" height="18" rx="1.5" />
+      <rect x="48" y="20" width="32" height="18" rx="1.5" /><rect x="48" y="42" width="32" height="18" rx="1.5" /><rect x="48" y="64" width="32" height="18" rx="1.5" />
+    </g>
+    <text x="92" y="46" fontSize="22" className="fill-emerald-600" fontFamily="serif" fontWeight="bold">$</text>
+    <text x="86" y="64" fontSize="8" className="fill-foreground/60" fontFamily="monospace">×10⁵</text>
+  </svg>
+);
+const SvgSpring = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 코일 스프링 */}
+    <path d="M 18 45 q 6 -18 12 0 t 12 0 t 12 0 t 12 0 t 12 0 t 12 0 t 12 0" className={accent} strokeWidth="2.5" fill="none" />
+    {/* 양쪽 평판 */}
+    <line x1="14" y1="22" x2="14" y2="68" className={stroke} strokeWidth="2.5" />
+    <line x1="106" y1="22" x2="106" y2="68" className={stroke} strokeWidth="2.5" />
+    {/* 변위 화살표 */}
+    <g className={force} strokeWidth="1.5" fill="none"><line x1="6" y1="45" x2="14" y2="45" /><polyline points="8,42 4,45 8,48" /><line x1="106" y1="45" x2="114" y2="45" /><polyline points="112,42 116,45 112,48" /></g>
+    <text x="44" y="82" fontSize="9" className="fill-foreground/70" fontFamily="monospace">σy² / E ↑</text>
+  </svg>
+);
+const SvgHeatsink = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 핀 */}
+    <g className={`fill-accent/20 ${accent}`} strokeWidth="1.2">
+      <rect x="20" y="14" width="6" height="40" /><rect x="32" y="14" width="6" height="40" /><rect x="44" y="14" width="6" height="40" /><rect x="56" y="14" width="6" height="40" /><rect x="68" y="14" width="6" height="40" /><rect x="80" y="14" width="6" height="40" /><rect x="92" y="14" width="6" height="40" />
+    </g>
+    {/* 베이스 */}
+    <rect x="14" y="54" width="92" height="10" className={`fill-accent/30 ${accent}`} strokeWidth="1.5" />
+    {/* 칩 + 발열 */}
+    <rect x="50" y="68" width="20" height="6" className="fill-rose-500/70" stroke="none" />
+    <g className={force} strokeWidth="1.5" fill="none"><path d="M 36 12 q 2 -4 4 0 t 4 0" /><path d="M 58 8 q 2 -4 4 0 t 4 0" /><path d="M 78 12 q 2 -4 4 0 t 4 0" /></g>
+  </svg>
+);
 
 const TOC: { id: string; label: string }[] = [
   { id: 'intro', label: '0. 이 가이드를 읽는 이유' },
@@ -288,6 +408,9 @@ export default function Guide() {
 
         <Scenario
           n={1}
+          presetKey="bracket"
+          diagram={<SvgBracket />}
+          examples={<>GE Aviation의 LPBF 제트엔진 연료 노즐·브래킷, Airbus A350 캐빈 브래킷(티타늄 LPBF). <ExtLink href="https://en.wikipedia.org/wiki/3D_printing#Aerospace">Aerospace AM 개요</ExtLink></>}
           title="경량 고강성 구조 브래킷 (드론·항공, LPBF 출력)"
           situation="진동·하중을 받는 마운트를 가능한 한 가볍게, 충분히 강하고 덜 휘게. 금속 적층제조로 출력."
           needs={<>하중·처짐 분석(2부) 결과 예: <F>σy ≥ 300&nbsp;MPa</F>, <F>E ≥ 90&nbsp;GPa</F>, 무게 최소.</>}
@@ -301,6 +424,9 @@ export default function Guide() {
 
         <Scenario
           n={2}
+          presetKey="hightemp"
+          diagram={<SvgManifold />}
+          examples={<>자동차/F1 배기 매니폴드, 제트엔진 터빈 디스크·블레이드, 로켓 노즐. <ExtLink href="https://en.wikipedia.org/wiki/Inconel">Inconel(Ni 초합금)</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Exhaust_manifold">Exhaust manifold</ExtLink></>}
           title="고온 부품 (배기 매니폴드 · 터빈 디스크)"
           situation="700 °C 부근에서 연속 사용, 반복 가열·산화."
           needs={<>최대사용온도 <F>≥ 700&nbsp;°C</F>, 그리고 <b>그 온도에서의</b> <F>σy</F>가 충분(상온값이 아님). 내산화.</>}
@@ -314,6 +440,9 @@ export default function Guide() {
 
         <Scenario
           n={3}
+          presetKey="fatigue"
+          diagram={<SvgShaft />}
+          examples={<>자동차 크랭크샤프트, 발전기·증기터빈 로터, 항공기 랜딩기어 액슬. <ExtLink href="https://en.wikipedia.org/wiki/Crankshaft">Crankshaft</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Fatigue_(material)">Fatigue</ExtLink></>}
           title="회전·진동 부품 (샤프트 · 임펠러)"
           situation="반복 응력을 오래 견뎌야 하는 부품. 정적 강도만으로는 부족."
           needs={<>응력진폭 예 <F>150&nbsp;MPa</F>, <F>SF = 1.5</F> → <b>피로강도</b> <F>≥ 225&nbsp;MPa</F>.</>}
@@ -326,6 +455,9 @@ export default function Guide() {
 
         <Scenario
           n={4}
+          presetKey="precision"
+          diagram={<SvgPrecision />}
+          examples={<>James Webb 우주망원경 백플레인(흑연·Invar 조합), 정밀 측정기 광학 마운트, 시계 밸런스. <ExtLink href="https://en.wikipedia.org/wiki/Invar">Invar</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/James_Webb_Space_Telescope">JWST</ExtLink></>}
           title="정밀 계측·광학 마운트 (치수 안정성)"
           situation="온도가 변해도 치수가 거의 변하면 안 되는 부품."
           needs={<>열변형 <F>ΔL = L·CTE·ΔT</F>에서 역산 → 매우 낮은 <b>CTE</b>(예 <F>≤ 3×10⁻⁶/K</F>), 충분한 <F>E</F>.</>}
@@ -338,6 +470,9 @@ export default function Guide() {
 
         <Scenario
           n={5}
+          presetKey="corrosion"
+          diagram={<SvgMarine />}
+          examples={<>해수 펌프·임펠러(Cu-Ni·듀플렉스 스테인리스), 잠수함 밸브, 해양 플랜트 파이프. <ExtLink href="https://en.wikipedia.org/wiki/Duplex_stainless_steel">Duplex stainless steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Cupronickel">Cupronickel</ExtLink></>}
           title="해양·화학 환경 부품"
           situation="염수·약품에 노출되며 하중도 받는 부품."
           needs={<>환경에 맞는 <b>내식성</b> 등급 + 강도 <F>σy ≥</F> 요구값.</>}
@@ -350,6 +485,9 @@ export default function Guide() {
 
         <Scenario
           n={6}
+          presetKey="lowcost"
+          diagram={<SvgLowcost />}
+          examples={<>자동차 차체·새시 패널, 가전 외장(스탬핑 강판), 일반 산업기계 프레임. <ExtLink href="https://en.wikipedia.org/wiki/Carbon_steel">Carbon steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/6061_aluminium_alloy">6061 Al</ExtLink></>}
           title="저원가 대량 생산 부품"
           situation="성능 요구는 평범하고 단가가 최우선."
           needs={<>필요 강도 <F>σy</F>를 만족하면서 <b>kg당 가격 최소</b>.</>}
@@ -362,6 +500,9 @@ export default function Guide() {
 
         <Scenario
           n={7}
+          presetKey="spring"
+          diagram={<SvgSpring />}
+          examples={<>자동차 밸브스프링·서스펜션 스프링, 시계 헤어스프링, 베릴륨동 커넥터 콘택트. <ExtLink href="https://en.wikipedia.org/wiki/Spring_steel">Spring steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Beryllium_copper">Beryllium copper</ExtLink></>}
           title="스프링 · 스냅핏 · 탄성 힌지"
           situation="큰 탄성 변형으로 에너지를 저장·복원하되 영구변형은 없어야."
           needs={<>단위부피당 탄성에너지 지표 <F>σy²/E</F> 최대 + 충분한 연신율.</>}
@@ -374,6 +515,9 @@ export default function Guide() {
 
         <Scenario
           n={8}
+          presetKey="heatsink"
+          diagram={<SvgHeatsink />}
+          examples={<>CPU·GPU 쿨러, LED 조명 방열 케이스, 전력반도체 콜드플레이트. <ExtLink href="https://en.wikipedia.org/wiki/Heat_sink">Heat sink</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Thermal_conductivity_of_metals">Thermal conductivity of metals</ExtLink></>}
           title="방열 부품 (히트싱크 · 콜드플레이트)"
           situation="열을 빠르게 퍼뜨려야 하고, 가벼우면 더 좋음."
           needs={<>높은 <b>열전도도 k</b>; 경량 방열이면 <F>k/ρ</F> 최대.</>}
