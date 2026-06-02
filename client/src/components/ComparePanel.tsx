@@ -151,7 +151,7 @@ export function ComparePanel({ materials, onRemove, onClose, onSelect }: Compare
                         )}
                         <p className="text-[10px] text-muted-foreground truncate">{(m.processes || (m.process ? [m.process] : [])).join(' / ')}</p>
                       </div>
-                      <button className="ml-1 text-muted-foreground/40 hover:text-destructive transition-colors flex-shrink-0" onClick={() => onRemove(m.id)} title="Remove">
+                      <button className="ml-1 text-muted-foreground/60 hover:text-destructive transition-colors flex-shrink-0" onClick={() => onRemove(m.id)} title="Remove">
                         <X className="w-3 h-3" />
                       </button>
                     </div>
@@ -175,7 +175,7 @@ export function ComparePanel({ materials, onRemove, onClose, onSelect }: Compare
                     return (
                       <td key={k} className="px-3 py-2 align-top">
                         {typical == null ? (
-                          <span className="text-muted-foreground/40 block text-right font-mono">—</span>
+                          <span className="text-muted-foreground/60 block text-right font-mono">—</span>
                         ) : (
                           <>
                             <div className="flex items-center justify-end gap-1">

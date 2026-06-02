@@ -1038,6 +1038,224 @@ export default function Guide() {
           </ol>
         </div>
 
+        {/* ── Chapter 7: 실전 사례 ─────────────────────────────────────── */}
+        <Chapter
+          n={7}
+          id="ch7"
+          title="실전 사례 8선 — 클릭 한 번으로 앱 시작"
+          learn={[
+            '대표 부품 유형 8가지의 “요구→숫자→앱 단계→유력 재료군”',
+            '각 사례의 “이 사례로 앱 시작” 버튼이 필터·뷰·Index 힌트를 자동 적용',
+          ]}
+        >
+          <p className="leading-relaxed">
+            자기 상황과 가장 가까운 사례를 찾아 그대로 따라 해 보세요.
+            <span className="text-muted-foreground"> 수치는 방법을 보여주는 예시이고, “유력 재료군”은 일반적 경향입니다 — 최종 선택은 항상 데이터로 검증하세요.</span>
+          </p>
+
+          <Scenario
+            n={1}
+            presetKey="bracket"
+            onConfigure={openConfig}
+            diagram={<SvgBracket />}
+            examples={<>GE Aviation의 LPBF 제트엔진 연료 노즐·브래킷, Airbus A350 캐빈 브래킷(티타늄 LPBF). <ExtLink href="https://en.wikipedia.org/wiki/3D_printing#Aerospace">Aerospace AM 개요</ExtLink></>}
+            title="경량 고강성 구조 브래킷 (드론·항공, LPBF 출력)"
+            situation="진동·하중을 받는 마운트를 가능한 한 가볍게, 충분히 강하고 덜 휘게. 금속 적층제조로 출력."
+            needs={<>하중·처짐 분석(Ch.2) 결과 예: <F>σy ≥ 300 MPa</F>, <F>E ≥ 90 GPa</F>, 무게 최소.</>}
+            steps={[
+              <>좌측 필터: <b>Yield ≥ 300</b>, <b>Modulus ≥ 90</b>, <b>Process = LPBF</b>.</>,
+              <>상단 <b>Index = 경량 강성 보 <F>E^½/ρ</F></b> 선택. <b>+ constraint</b>로 <F>σy^⅔/ρ</F> 추가.</>,
+              <><b>M 임계</b>를 올려 통과를 5~10개로 좁힘 → <b>Add all → Compare</b> → 무게·강도·가격 비교.</>,
+            ]}
+            families={<>고강도 알루미늄(Scalmalloy·AlSi10Mg), 티타늄(Ti-6Al-4V), 마그네슘 합금.</>}
+          />
+
+          <Scenario
+            n={2}
+            presetKey="hightemp"
+            onConfigure={openConfig}
+            diagram={<SvgManifold />}
+            examples={<>자동차/F1 배기 매니폴드, 제트엔진 터빈 디스크·블레이드, 로켓 노즐. <ExtLink href="https://en.wikipedia.org/wiki/Inconel">Inconel(Ni 초합금)</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Exhaust_manifold">Exhaust manifold</ExtLink></>}
+            title="고온 부품 (배기 매니폴드 · 터빈 디스크)"
+            situation="700 °C 부근에서 연속 사용, 반복 가열·산화."
+            needs={<>최대사용온도 <F>≥ 700 °C</F>, 그리고 <b>그 온도에서의</b> <F>σy</F>가 충분(상온값이 아님). 내산화.</>}
+            steps={[
+              <>필터: <b>Max Service Temp ≥ 700</b>.</>,
+              <>후보 상세 팝업의 <b>온도-강도 곡선</b>으로 700 °C 부근 σy/UTS 비교 · <b>Compare</b>에 여러 후보 곡선 오버레이.</>,
+              <>내식성(정성) 등급도 확인.</>,
+            ]}
+            families={<>니켈 초합금(Inconel 718/625, Haynes 230), 코발트 합금. 중온(≤540 °C)은 티타늄 Ti-6242.</>}
+          />
+
+          <Scenario
+            n={3}
+            presetKey="fatigue"
+            onConfigure={openConfig}
+            diagram={<SvgShaft />}
+            examples={<>자동차 크랭크샤프트, 발전기·증기터빈 로터, 항공기 랜딩기어 액슬. <ExtLink href="https://en.wikipedia.org/wiki/Crankshaft">Crankshaft</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Fatigue_(material)">Fatigue</ExtLink></>}
+            title="회전·진동 부품 (샤프트 · 임펠러)"
+            situation="반복 응력을 오래 견뎌야 하는 부품. 정적 강도만으로는 부족."
+            needs={<>응력진폭 예 <F>150 MPa</F>, <F>SF = 1.5</F> → <b>피로강도</b> <F>≥ 225 MPa</F>.</>}
+            steps={[
+              <>필터: <b>Fatigue Strength ≥ 225</b> (<F>est.</F>가 붙었는지 상세에서 확인).</>,
+              <><b>Compare</b>로 피로강도·연신율·강도 함께 비교.</>,
+            ]}
+            families={<>티타늄(높은 피로/강도비), 고강도강(4340), 일부 니켈합금. <span className="text-muted-foreground">알루미늄은 뚜렷한 내구한도가 없어 주의.</span></>}
+          />
+
+          <Scenario
+            n={4}
+            presetKey="precision"
+            onConfigure={openConfig}
+            diagram={<SvgPrecision />}
+            examples={<>James Webb 우주망원경 백플레인(흑연·Invar 조합), 정밀 측정기 광학 마운트, 시계 밸런스. <ExtLink href="https://en.wikipedia.org/wiki/Invar">Invar</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/James_Webb_Space_Telescope">JWST</ExtLink></>}
+            title="정밀 계측·광학 마운트 (치수 안정성)"
+            situation="온도가 변해도 치수가 거의 변하면 안 되는 부품."
+            needs={<>열변형 <F>ΔL = L·CTE·ΔT</F>에서 역산 → 매우 낮은 <b>CTE</b>(예 <F>≤ 3×10⁻⁶/K</F>), 충분한 <F>E</F>.</>}
+            steps={[
+              <>필터: <b>Thermal Expansion (CTE) 상한 ≤ 3</b>, 필요시 Modulus 하한.</>,
+              <><b>Compare</b>로 CTE·E·밀도 비교.</>,
+            ]}
+            families={<>Invar(Fe-Ni36, CTE≈1.3), Kovar, 일부 세라믹·복합재.</>}
+          />
+
+          <Scenario
+            n={5}
+            presetKey="corrosion"
+            onConfigure={openConfig}
+            diagram={<SvgMarine />}
+            examples={<>해수 펌프·임펠러(Cu-Ni·듀플렉스 스테인리스), 잠수함 밸브, 해양 플랜트 파이프. <ExtLink href="https://en.wikipedia.org/wiki/Duplex_stainless_steel">Duplex stainless steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Cupronickel">Cupronickel</ExtLink></>}
+            title="해양·화학 환경 부품"
+            situation="염수·약품에 노출되며 하중도 받는 부품."
+            needs={<>환경에 맞는 <b>내식성</b> 등급 + 강도 <F>σy ≥</F> 요구값.</>}
+            steps={[
+              <>필터: <b>Corrosion resistance = Excellent/Good</b> + <b>Yield</b> 하한.</>,
+              <>정량 부식(부식속도·PREN 등)은 앱에 없으므로 <b>데이터시트</b>로 최종 확인.</>,
+            ]}
+            families={<>스테인리스(316L, 듀플렉스 2205), 티타늄, 니켈합금(Inconel 625).</>}
+          />
+
+          <Scenario
+            n={6}
+            presetKey="lowcost"
+            onConfigure={openConfig}
+            diagram={<SvgLowcost />}
+            examples={<>자동차 차체·새시 패널, 가전 외장(스탬핑 강판), 일반 산업기계 프레임. <ExtLink href="https://en.wikipedia.org/wiki/Carbon_steel">Carbon steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/6061_aluminium_alloy">6061 Al</ExtLink></>}
+            title="저원가 대량 생산 부품"
+            situation="성능 요구는 평범하고 단가가 최우선."
+            needs={<>필요 강도 <F>σy</F>를 만족하면서 <b>kg당 가격 최소</b>.</>}
+            steps={[
+              <>필터: <b>Yield</b> 하한으로 “쓸 수 있는” 재료만 남김.</>,
+              <>상단 <b>Index = 저원가 강도 <F>σy/Cm</F></b>로 정렬 · <b>Compare</b>에 <b>Price</b> 열 추가.</>,
+            ]}
+            families={<>탄소강·저합금강, 일반 알루미늄(6061), 일부 폴리머.</>}
+          />
+
+          <Scenario
+            n={7}
+            presetKey="spring"
+            onConfigure={openConfig}
+            diagram={<SvgSpring />}
+            examples={<>자동차 밸브스프링·서스펜션 스프링, 시계 헤어스프링, 베릴륨동 커넥터 콘택트. <ExtLink href="https://en.wikipedia.org/wiki/Spring_steel">Spring steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Beryllium_copper">Beryllium copper</ExtLink></>}
+            title="스프링 · 스냅핏 · 탄성 힌지"
+            situation="큰 탄성 변형으로 에너지를 저장·복원하되 영구변형은 없어야."
+            needs={<>단위부피당 탄성에너지 지표 <F>σy²/E</F> 최대 + 충분한 연신율.</>}
+            steps={[
+              <>상단 <b>Index = 탄성 스프링/힌지 <F>σy²/E</F></b> 선택.</>,
+              <><b>Compare</b>로 σy·E·연신율 비교.</>,
+            ]}
+            families={<>스프링강, 베릴륨동(BeCu), 티타늄, 일부 니켈합금.</>}
+          />
+
+          <Scenario
+            n={8}
+            presetKey="heatsink"
+            onConfigure={openConfig}
+            diagram={<SvgHeatsink />}
+            examples={<>CPU·GPU 쿨러, LED 조명 방열 케이스, 전력반도체 콜드플레이트. <ExtLink href="https://en.wikipedia.org/wiki/Heat_sink">Heat sink</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Thermal_conductivity_of_metals">Thermal conductivity of metals</ExtLink></>}
+            title="방열 부품 (히트싱크 · 콜드플레이트)"
+            situation="열을 빠르게 퍼뜨려야 하고, 가벼우면 더 좋음."
+            needs={<>높은 <b>열전도도 k</b>; 경량 방열이면 <F>k/ρ</F> 최대.</>}
+            steps={[
+              <>필터: <b>Thermal Conductivity</b> 하한. 경량까지 필요하면 상단 <b>Index = 경량 방열 <F>k/ρ</F></b>.</>,
+              <><b>Compare</b>로 k·밀도·가격 비교.</>,
+            ]}
+            families={<>구리(최고 k), 알루미늄(경량 방열 <F>k/ρ</F> 우수), AlSi 합금.</>}
+          />
+
+          <Note tone="tip">
+            공통 마무리: 후보를 좁혔으면 <b>Compare</b>에서 이름을 클릭해 차트에 위치를 확인하고, <b>상세 팝업</b>에서 범위(min–max)·<F>est.</F> 여부·온도-강도·<b>출처 데이터시트</b>를 검증한 뒤 컬렉션으로 저장/공유하세요.
+          </Note>
+        </Chapter>
+
+        {/* ── Chapter 6: Ashby 방법 ─────────────────────────────────────── */}
+        <Chapter
+          n={6}
+          id="ch6"
+          title="Ashby 재료 선택법"
+          learn={[
+            '문제를 “기능 · 제약 · 목적 · 자유변수” 4가지로 정리',
+            '성능지수(material index)가 무엇이고 왜 거듭제곱이 분수가 되는지',
+            'Ashby 차트의 한계선과 등지수선을 이 앱에서 그대로 다루기',
+          ]}
+        >
+          <p className="leading-relaxed">Ashby 방법은 문제를 네 가지로 분리합니다.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
+            <div className="rounded border border-border bg-card p-3 text-sm"><b>① 기능 (Function)</b><br/>부품이 무엇을 하는가 (인장재·보·패널·축…).</div>
+            <div className="rounded border border-border bg-card p-3 text-sm"><b>② 제약 (Constraints)</b><br/>반드시 만족할 조건 (σy ≥ X · 온도 ≥ Y · 공정 = LPBF…).</div>
+            <div className="rounded border border-border bg-card p-3 text-sm"><b>③ 목적 (Objective)</b><br/>최대/최소화할 것 (무게 ↓ · 원가 ↓ · 강성 ↑).</div>
+            <div className="rounded border border-border bg-card p-3 text-sm"><b>④ 자유변수 (Free)</b><br/>설계가 바꿀 수 있는 것 (단면적, 두께…) + 재료.</div>
+          </div>
+
+          {/* 핵심 도식: F-C-O-Free → M */}
+          <div className="rounded-lg border border-border bg-card p-3 my-4">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📊 핵심 그림 — 4요소를 모아 성능지수 M 도출</p>
+            <div className="h-[160px]"><SvgFCOF /></div>
+          </div>
+
+          <H3>성능지수(material index) — 왜 거듭제곱이 분수가 될까?</H3>
+          <Note tone="why" title="유도 (경량 인장 부재)">
+            <p>강도 제약: <F>F/A ≤ σy</F> → 필요 단면 <F>A ≥ F/σy</F>.</p>
+            <p>질량: <F>m = A · L · ρ = F · L · (ρ/σy)</F>.</p>
+            <p><F>F, L</F> 은 고정 → 질량 최소화는 <F>ρ/σy</F> 최소화 = <F>σy/ρ</F> <b>최대화</b>. ⇒ 성능지수 <F>M = σy/ρ</F>.</p>
+            <p className="mt-2">기능이 “굽힘 보/패널”이면 두께·폭이 자유변수로 들어가고 단면 2차모멘트(<F>I ∝ h³</F>)를 통해 식이 정리되면서 <b>거듭제곱이 분수</b>가 됩니다. 그래서 보는 <F>E^½/ρ</F>, 패널은 <F>E^⅓/ρ</F>.</p>
+          </Note>
+
+          <div className="overflow-x-auto mt-3">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold">기능 / 목적</th><th className="p-2 font-semibold">성능지수 M (클수록 우수)</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top">
+                <tr><td className="p-2">경량 강성 인장재</td><td className="p-2 font-mono"><F>E/ρ</F></td></tr>
+                <tr><td className="p-2">경량 강성 보</td><td className="p-2 font-mono"><F>E^½/ρ</F></td></tr>
+                <tr><td className="p-2">경량 강성 패널</td><td className="p-2 font-mono"><F>E^⅓/ρ</F></td></tr>
+                <tr><td className="p-2">경량 강도 인장재</td><td className="p-2 font-mono"><F>σy/ρ</F></td></tr>
+                <tr><td className="p-2">경량 강도 보 / 패널</td><td className="p-2 font-mono"><F>σy^⅔/ρ</F> / <F>σy^½/ρ</F></td></tr>
+                <tr><td className="p-2">탄성 스프링·힌지 (에너지 저장)</td><td className="p-2 font-mono"><F>σy²/E</F></td></tr>
+                <tr><td className="p-2">경량 방열</td><td className="p-2 font-mono"><F>k/ρ</F></td></tr>
+                <tr><td className="p-2">저원가 강성 / 강도</td><td className="p-2 font-mono"><F>E/Cm</F> / <F>σy/Cm</F></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <H3>차트 활용 (이 앱과 1:1 매핑)</H3>
+          <p className="text-sm leading-relaxed">Ashby 차트는 보통 <b>로그-로그 축</b>에 두 물성을 그립니다. 한계선(필터)·외피(재료군 분포)·등지수선(성능지수 방향)을 함께 보면 좋은 후보가 어디에 모이는지 한눈에 잡힙니다.</p>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[220px]"><SvgAshbyChart /></div>
+          <p className="text-[12px] text-muted-foreground">위 그림은 ρ vs σy 샘플 — <span className="text-amber-600 font-semibold">한계선(노랑)</span> 위쪽이 σy 제약 통과, <span className="text-rose-500 font-semibold">등지수선(빨강)</span>을 위쪽으로 옮길수록 더 좋은 재료. 둘 다 만족하는 영역에 모인 재료가 최종 후보입니다.</p>
+          <div className="overflow-x-auto mt-2">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold">Ashby 개념</th><th className="p-2 font-semibold">이 앱에서</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top">
+                <tr><td className="p-2">제약 (반드시 만족)</td><td className="p-2">좌측 <b>필터</b> 범위 · 차트 축 <b>한계 슬라이더</b></td></tr>
+                <tr><td className="p-2">목적 (성능지수)</td><td className="p-2">상단 <b>Index</b> 프리셋 + <b>M 임계값</b> 슬라이더</td></tr>
+                <tr><td className="p-2">다목적 (여러 지수)</td><td className="p-2"><b>+ constraint</b> 로 N개 AND</td></tr>
+                <tr><td className="p-2">재료군 분포</td><td className="p-2"><b>Envelopes</b>(category/family/sub) 토글</td></tr>
+                <tr><td className="p-2">후보 추리기</td><td className="p-2"><b>박스 선택</b> → Add all → Compare / → Filter</td></tr>
+                <tr><td className="p-2">비교·검증</td><td className="p-2"><b>Compare</b> · 상세 팝업 · 출처 링크 · CSV</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </Chapter>
+
         {/* ── Chapter 1: 물성 사전 ─────────────────────────────────────────── */}
         <Chapter
           n={1}
@@ -1462,224 +1680,6 @@ export default function Guide() {
             <li>구형 용기 σ = p·r / (2t)</li>
           </ul>
           <p className="text-sm mt-1 text-muted-foreground">필요 두께 <F>t ≥ p·r·SF / σy</F>. 코드(ASME 등)를 따르세요. <span className="text-foreground/80">압력 용기에 보통 세로로 갈라지는 이유는 후프 응력이 2배라서</span>.</p>
-        </Chapter>
-
-        {/* ── Chapter 6: Ashby 방법 ─────────────────────────────────────── */}
-        <Chapter
-          n={6}
-          id="ch6"
-          title="Ashby 재료 선택법"
-          learn={[
-            '문제를 “기능 · 제약 · 목적 · 자유변수” 4가지로 정리',
-            '성능지수(material index)가 무엇이고 왜 거듭제곱이 분수가 되는지',
-            'Ashby 차트의 한계선과 등지수선을 이 앱에서 그대로 다루기',
-          ]}
-        >
-          <p className="leading-relaxed">Ashby 방법은 문제를 네 가지로 분리합니다.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
-            <div className="rounded border border-border bg-card p-3 text-sm"><b>① 기능 (Function)</b><br/>부품이 무엇을 하는가 (인장재·보·패널·축…).</div>
-            <div className="rounded border border-border bg-card p-3 text-sm"><b>② 제약 (Constraints)</b><br/>반드시 만족할 조건 (σy ≥ X · 온도 ≥ Y · 공정 = LPBF…).</div>
-            <div className="rounded border border-border bg-card p-3 text-sm"><b>③ 목적 (Objective)</b><br/>최대/최소화할 것 (무게 ↓ · 원가 ↓ · 강성 ↑).</div>
-            <div className="rounded border border-border bg-card p-3 text-sm"><b>④ 자유변수 (Free)</b><br/>설계가 바꿀 수 있는 것 (단면적, 두께…) + 재료.</div>
-          </div>
-
-          {/* 핵심 도식: F-C-O-Free → M */}
-          <div className="rounded-lg border border-border bg-card p-3 my-4">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📊 핵심 그림 — 4요소를 모아 성능지수 M 도출</p>
-            <div className="h-[160px]"><SvgFCOF /></div>
-          </div>
-
-          <H3>성능지수(material index) — 왜 거듭제곱이 분수가 될까?</H3>
-          <Note tone="why" title="유도 (경량 인장 부재)">
-            <p>강도 제약: <F>F/A ≤ σy</F> → 필요 단면 <F>A ≥ F/σy</F>.</p>
-            <p>질량: <F>m = A · L · ρ = F · L · (ρ/σy)</F>.</p>
-            <p><F>F, L</F> 은 고정 → 질량 최소화는 <F>ρ/σy</F> 최소화 = <F>σy/ρ</F> <b>최대화</b>. ⇒ 성능지수 <F>M = σy/ρ</F>.</p>
-            <p className="mt-2">기능이 “굽힘 보/패널”이면 두께·폭이 자유변수로 들어가고 단면 2차모멘트(<F>I ∝ h³</F>)를 통해 식이 정리되면서 <b>거듭제곱이 분수</b>가 됩니다. 그래서 보는 <F>E^½/ρ</F>, 패널은 <F>E^⅓/ρ</F>.</p>
-          </Note>
-
-          <div className="overflow-x-auto mt-3">
-            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
-              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold">기능 / 목적</th><th className="p-2 font-semibold">성능지수 M (클수록 우수)</th></tr></thead>
-              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top">
-                <tr><td className="p-2">경량 강성 인장재</td><td className="p-2 font-mono"><F>E/ρ</F></td></tr>
-                <tr><td className="p-2">경량 강성 보</td><td className="p-2 font-mono"><F>E^½/ρ</F></td></tr>
-                <tr><td className="p-2">경량 강성 패널</td><td className="p-2 font-mono"><F>E^⅓/ρ</F></td></tr>
-                <tr><td className="p-2">경량 강도 인장재</td><td className="p-2 font-mono"><F>σy/ρ</F></td></tr>
-                <tr><td className="p-2">경량 강도 보 / 패널</td><td className="p-2 font-mono"><F>σy^⅔/ρ</F> / <F>σy^½/ρ</F></td></tr>
-                <tr><td className="p-2">탄성 스프링·힌지 (에너지 저장)</td><td className="p-2 font-mono"><F>σy²/E</F></td></tr>
-                <tr><td className="p-2">경량 방열</td><td className="p-2 font-mono"><F>k/ρ</F></td></tr>
-                <tr><td className="p-2">저원가 강성 / 강도</td><td className="p-2 font-mono"><F>E/Cm</F> / <F>σy/Cm</F></td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <H3>차트 활용 (이 앱과 1:1 매핑)</H3>
-          <p className="text-sm leading-relaxed">Ashby 차트는 보통 <b>로그-로그 축</b>에 두 물성을 그립니다. 한계선(필터)·외피(재료군 분포)·등지수선(성능지수 방향)을 함께 보면 좋은 후보가 어디에 모이는지 한눈에 잡힙니다.</p>
-          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[220px]"><SvgAshbyChart /></div>
-          <p className="text-[12px] text-muted-foreground">위 그림은 ρ vs σy 샘플 — <span className="text-amber-600 font-semibold">한계선(노랑)</span> 위쪽이 σy 제약 통과, <span className="text-rose-500 font-semibold">등지수선(빨강)</span>을 위쪽으로 옮길수록 더 좋은 재료. 둘 다 만족하는 영역에 모인 재료가 최종 후보입니다.</p>
-          <div className="overflow-x-auto mt-2">
-            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
-              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold">Ashby 개념</th><th className="p-2 font-semibold">이 앱에서</th></tr></thead>
-              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top">
-                <tr><td className="p-2">제약 (반드시 만족)</td><td className="p-2">좌측 <b>필터</b> 범위 · 차트 축 <b>한계 슬라이더</b></td></tr>
-                <tr><td className="p-2">목적 (성능지수)</td><td className="p-2">상단 <b>Index</b> 프리셋 + <b>M 임계값</b> 슬라이더</td></tr>
-                <tr><td className="p-2">다목적 (여러 지수)</td><td className="p-2"><b>+ constraint</b> 로 N개 AND</td></tr>
-                <tr><td className="p-2">재료군 분포</td><td className="p-2"><b>Envelopes</b>(category/family/sub) 토글</td></tr>
-                <tr><td className="p-2">후보 추리기</td><td className="p-2"><b>박스 선택</b> → Add all → Compare / → Filter</td></tr>
-                <tr><td className="p-2">비교·검증</td><td className="p-2"><b>Compare</b> · 상세 팝업 · 출처 링크 · CSV</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </Chapter>
-
-        {/* ── Chapter 7: 실전 사례 ─────────────────────────────────────── */}
-        <Chapter
-          n={7}
-          id="ch7"
-          title="실전 사례 8선 — 클릭 한 번으로 앱 시작"
-          learn={[
-            '대표 부품 유형 8가지의 “요구→숫자→앱 단계→유력 재료군”',
-            '각 사례의 “이 사례로 앱 시작” 버튼이 필터·뷰·Index 힌트를 자동 적용',
-          ]}
-        >
-          <p className="leading-relaxed">
-            자기 상황과 가장 가까운 사례를 찾아 그대로 따라 해 보세요.
-            <span className="text-muted-foreground"> 수치는 방법을 보여주는 예시이고, “유력 재료군”은 일반적 경향입니다 — 최종 선택은 항상 데이터로 검증하세요.</span>
-          </p>
-
-          <Scenario
-            n={1}
-            presetKey="bracket"
-            onConfigure={openConfig}
-            diagram={<SvgBracket />}
-            examples={<>GE Aviation의 LPBF 제트엔진 연료 노즐·브래킷, Airbus A350 캐빈 브래킷(티타늄 LPBF). <ExtLink href="https://en.wikipedia.org/wiki/3D_printing#Aerospace">Aerospace AM 개요</ExtLink></>}
-            title="경량 고강성 구조 브래킷 (드론·항공, LPBF 출력)"
-            situation="진동·하중을 받는 마운트를 가능한 한 가볍게, 충분히 강하고 덜 휘게. 금속 적층제조로 출력."
-            needs={<>하중·처짐 분석(Ch.2) 결과 예: <F>σy ≥ 300 MPa</F>, <F>E ≥ 90 GPa</F>, 무게 최소.</>}
-            steps={[
-              <>좌측 필터: <b>Yield ≥ 300</b>, <b>Modulus ≥ 90</b>, <b>Process = LPBF</b>.</>,
-              <>상단 <b>Index = 경량 강성 보 <F>E^½/ρ</F></b> 선택. <b>+ constraint</b>로 <F>σy^⅔/ρ</F> 추가.</>,
-              <><b>M 임계</b>를 올려 통과를 5~10개로 좁힘 → <b>Add all → Compare</b> → 무게·강도·가격 비교.</>,
-            ]}
-            families={<>고강도 알루미늄(Scalmalloy·AlSi10Mg), 티타늄(Ti-6Al-4V), 마그네슘 합금.</>}
-          />
-
-          <Scenario
-            n={2}
-            presetKey="hightemp"
-            onConfigure={openConfig}
-            diagram={<SvgManifold />}
-            examples={<>자동차/F1 배기 매니폴드, 제트엔진 터빈 디스크·블레이드, 로켓 노즐. <ExtLink href="https://en.wikipedia.org/wiki/Inconel">Inconel(Ni 초합금)</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Exhaust_manifold">Exhaust manifold</ExtLink></>}
-            title="고온 부품 (배기 매니폴드 · 터빈 디스크)"
-            situation="700 °C 부근에서 연속 사용, 반복 가열·산화."
-            needs={<>최대사용온도 <F>≥ 700 °C</F>, 그리고 <b>그 온도에서의</b> <F>σy</F>가 충분(상온값이 아님). 내산화.</>}
-            steps={[
-              <>필터: <b>Max Service Temp ≥ 700</b>.</>,
-              <>후보 상세 팝업의 <b>온도-강도 곡선</b>으로 700 °C 부근 σy/UTS 비교 · <b>Compare</b>에 여러 후보 곡선 오버레이.</>,
-              <>내식성(정성) 등급도 확인.</>,
-            ]}
-            families={<>니켈 초합금(Inconel 718/625, Haynes 230), 코발트 합금. 중온(≤540 °C)은 티타늄 Ti-6242.</>}
-          />
-
-          <Scenario
-            n={3}
-            presetKey="fatigue"
-            onConfigure={openConfig}
-            diagram={<SvgShaft />}
-            examples={<>자동차 크랭크샤프트, 발전기·증기터빈 로터, 항공기 랜딩기어 액슬. <ExtLink href="https://en.wikipedia.org/wiki/Crankshaft">Crankshaft</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Fatigue_(material)">Fatigue</ExtLink></>}
-            title="회전·진동 부품 (샤프트 · 임펠러)"
-            situation="반복 응력을 오래 견뎌야 하는 부품. 정적 강도만으로는 부족."
-            needs={<>응력진폭 예 <F>150 MPa</F>, <F>SF = 1.5</F> → <b>피로강도</b> <F>≥ 225 MPa</F>.</>}
-            steps={[
-              <>필터: <b>Fatigue Strength ≥ 225</b> (<F>est.</F>가 붙었는지 상세에서 확인).</>,
-              <><b>Compare</b>로 피로강도·연신율·강도 함께 비교.</>,
-            ]}
-            families={<>티타늄(높은 피로/강도비), 고강도강(4340), 일부 니켈합금. <span className="text-muted-foreground">알루미늄은 뚜렷한 내구한도가 없어 주의.</span></>}
-          />
-
-          <Scenario
-            n={4}
-            presetKey="precision"
-            onConfigure={openConfig}
-            diagram={<SvgPrecision />}
-            examples={<>James Webb 우주망원경 백플레인(흑연·Invar 조합), 정밀 측정기 광학 마운트, 시계 밸런스. <ExtLink href="https://en.wikipedia.org/wiki/Invar">Invar</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/James_Webb_Space_Telescope">JWST</ExtLink></>}
-            title="정밀 계측·광학 마운트 (치수 안정성)"
-            situation="온도가 변해도 치수가 거의 변하면 안 되는 부품."
-            needs={<>열변형 <F>ΔL = L·CTE·ΔT</F>에서 역산 → 매우 낮은 <b>CTE</b>(예 <F>≤ 3×10⁻⁶/K</F>), 충분한 <F>E</F>.</>}
-            steps={[
-              <>필터: <b>Thermal Expansion (CTE) 상한 ≤ 3</b>, 필요시 Modulus 하한.</>,
-              <><b>Compare</b>로 CTE·E·밀도 비교.</>,
-            ]}
-            families={<>Invar(Fe-Ni36, CTE≈1.3), Kovar, 일부 세라믹·복합재.</>}
-          />
-
-          <Scenario
-            n={5}
-            presetKey="corrosion"
-            onConfigure={openConfig}
-            diagram={<SvgMarine />}
-            examples={<>해수 펌프·임펠러(Cu-Ni·듀플렉스 스테인리스), 잠수함 밸브, 해양 플랜트 파이프. <ExtLink href="https://en.wikipedia.org/wiki/Duplex_stainless_steel">Duplex stainless steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Cupronickel">Cupronickel</ExtLink></>}
-            title="해양·화학 환경 부품"
-            situation="염수·약품에 노출되며 하중도 받는 부품."
-            needs={<>환경에 맞는 <b>내식성</b> 등급 + 강도 <F>σy ≥</F> 요구값.</>}
-            steps={[
-              <>필터: <b>Corrosion resistance = Excellent/Good</b> + <b>Yield</b> 하한.</>,
-              <>정량 부식(부식속도·PREN 등)은 앱에 없으므로 <b>데이터시트</b>로 최종 확인.</>,
-            ]}
-            families={<>스테인리스(316L, 듀플렉스 2205), 티타늄, 니켈합금(Inconel 625).</>}
-          />
-
-          <Scenario
-            n={6}
-            presetKey="lowcost"
-            onConfigure={openConfig}
-            diagram={<SvgLowcost />}
-            examples={<>자동차 차체·새시 패널, 가전 외장(스탬핑 강판), 일반 산업기계 프레임. <ExtLink href="https://en.wikipedia.org/wiki/Carbon_steel">Carbon steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/6061_aluminium_alloy">6061 Al</ExtLink></>}
-            title="저원가 대량 생산 부품"
-            situation="성능 요구는 평범하고 단가가 최우선."
-            needs={<>필요 강도 <F>σy</F>를 만족하면서 <b>kg당 가격 최소</b>.</>}
-            steps={[
-              <>필터: <b>Yield</b> 하한으로 “쓸 수 있는” 재료만 남김.</>,
-              <>상단 <b>Index = 저원가 강도 <F>σy/Cm</F></b>로 정렬 · <b>Compare</b>에 <b>Price</b> 열 추가.</>,
-            ]}
-            families={<>탄소강·저합금강, 일반 알루미늄(6061), 일부 폴리머.</>}
-          />
-
-          <Scenario
-            n={7}
-            presetKey="spring"
-            onConfigure={openConfig}
-            diagram={<SvgSpring />}
-            examples={<>자동차 밸브스프링·서스펜션 스프링, 시계 헤어스프링, 베릴륨동 커넥터 콘택트. <ExtLink href="https://en.wikipedia.org/wiki/Spring_steel">Spring steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Beryllium_copper">Beryllium copper</ExtLink></>}
-            title="스프링 · 스냅핏 · 탄성 힌지"
-            situation="큰 탄성 변형으로 에너지를 저장·복원하되 영구변형은 없어야."
-            needs={<>단위부피당 탄성에너지 지표 <F>σy²/E</F> 최대 + 충분한 연신율.</>}
-            steps={[
-              <>상단 <b>Index = 탄성 스프링/힌지 <F>σy²/E</F></b> 선택.</>,
-              <><b>Compare</b>로 σy·E·연신율 비교.</>,
-            ]}
-            families={<>스프링강, 베릴륨동(BeCu), 티타늄, 일부 니켈합금.</>}
-          />
-
-          <Scenario
-            n={8}
-            presetKey="heatsink"
-            onConfigure={openConfig}
-            diagram={<SvgHeatsink />}
-            examples={<>CPU·GPU 쿨러, LED 조명 방열 케이스, 전력반도체 콜드플레이트. <ExtLink href="https://en.wikipedia.org/wiki/Heat_sink">Heat sink</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Thermal_conductivity_of_metals">Thermal conductivity of metals</ExtLink></>}
-            title="방열 부품 (히트싱크 · 콜드플레이트)"
-            situation="열을 빠르게 퍼뜨려야 하고, 가벼우면 더 좋음."
-            needs={<>높은 <b>열전도도 k</b>; 경량 방열이면 <F>k/ρ</F> 최대.</>}
-            steps={[
-              <>필터: <b>Thermal Conductivity</b> 하한. 경량까지 필요하면 상단 <b>Index = 경량 방열 <F>k/ρ</F></b>.</>,
-              <><b>Compare</b>로 k·밀도·가격 비교.</>,
-            ]}
-            families={<>구리(최고 k), 알루미늄(경량 방열 <F>k/ρ</F> 우수), AlSi 합금.</>}
-          />
-
-          <Note tone="tip">
-            공통 마무리: 후보를 좁혔으면 <b>Compare</b>에서 이름을 클릭해 차트에 위치를 확인하고, <b>상세 팝업</b>에서 범위(min–max)·<F>est.</F> 여부·온도-강도·<b>출처 데이터시트</b>를 검증한 뒤 컬렉션으로 저장/공유하세요.
-          </Note>
         </Chapter>
 
         {/* ── Chapter 8: 데이터 해석 + 참고 ─────────────────────────────── */}
