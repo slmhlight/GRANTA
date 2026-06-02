@@ -1070,6 +1070,253 @@ const ELEV_DATA = {
       { temp: 900, stress: 15, hours: 1000 },
     ],
   },
+  // R24 — 25 additional alloys.
+  // Ti 등급 — DB 패턴 'Ti CP Gr2' 또는 'Ti Grade 1' (둘 다 매칭).
+  'ti cp gr1': { elevated_temp: [{ temp: 25, ys: 170, uts: 240, E: 103 }, { temp: 200, ys: 130, uts: 190, E: 98 }] },
+  'ti cp gr2': { elevated_temp: [{ temp: 25, ys: 275, uts: 345, E: 105 }, { temp: 200, ys: 180, uts: 250, E: 100 }, { temp: 400, ys: 80, uts: 140, E: 90 }] },
+  'ti cp gr3': { elevated_temp: [{ temp: 25, ys: 380, uts: 450, E: 105 }, { temp: 200, ys: 280, uts: 350, E: 100 }] },
+  'ti cp gr4': { elevated_temp: [{ temp: 25, ys: 480, uts: 550, E: 108 }, { temp: 200, ys: 350, uts: 430, E: 102 }] },
+  'ti grade 1': { elevated_temp: [{ temp: 25, ys: 170, uts: 240, E: 103 }, { temp: 200, ys: 130, uts: 190, E: 98 }] },
+  'ti grade 2': { elevated_temp: [{ temp: 25, ys: 275, uts: 345, E: 105 }, { temp: 200, ys: 180, uts: 250, E: 100 }] },
+  'ti grade 3': { elevated_temp: [{ temp: 25, ys: 380, uts: 450, E: 105 }, { temp: 200, ys: 280, uts: 350, E: 100 }] },
+  'ti grade 4': { elevated_temp: [{ temp: 25, ys: 480, uts: 550, E: 108 }, { temp: 200, ys: 350, uts: 430, E: 102 }] },
+  'ti-6242': {  // Ti-6Al-2Sn-4Zr-2Mo — 고온 항공 엔진
+    elevated_temp: [
+      { temp: 25,  ys: 950,  uts: 1010, E: 114 },
+      { temp: 300, ys: 760,  uts:  870, E: 108 },
+      { temp: 450, ys: 620,  uts:  740, E: 100 },
+      { temp: 540, ys: 540,  uts:  650, E:  95 },
+    ],
+    creep_rupture: [{ temp: 480, stress: 380, hours: 1000 }, { temp: 540, stress: 250, hours: 1000 }],
+  },
+  'ti-5553': {  // Ti-5Al-5V-5Mo-3Cr — 고강도 항공 구조 (랜딩기어)
+    elevated_temp: [
+      { temp: 25,  ys: 1240, uts: 1310, E: 113 },
+      { temp: 200, ys: 1100, uts: 1190, E: 108 },
+      { temp: 400, ys:  920, uts: 1000, E: 100 },
+    ],
+  },
+  'ti-beta-21s': {  // β-Ti — 형상기억·박판
+    elevated_temp: [
+      { temp: 25,  ys: 1175, uts: 1240, E: 105 },
+      { temp: 300, ys:  920, uts: 1000, E:  96 },
+      { temp: 500, ys:  600, uts:  700, E:  85 },
+    ],
+  },
+  'ti-3al-2.5v': {  // Aerospace tubing
+    elevated_temp: [
+      { temp: 25,  ys: 620, uts: 700, E: 100 },
+      { temp: 200, ys: 480, uts: 580, E:  95 },
+      { temp: 300, ys: 380, uts: 480, E:  90 },
+    ],
+  },
+  // Al 합금 — DB 패턴 'AA 2014' 형식 매칭.
+  'aa 2014': {
+    elevated_temp: [
+      { temp: 25,  ys: 414, uts: 483, E: 72 },
+      { temp: 100, ys: 380, uts: 450, E: 70 },
+      { temp: 200, ys: 180, uts: 220, E: 64 },
+      { temp: 300, ys:  60, uts:  90, E: 56 },
+    ],
+  },
+  'aa 5052': {
+    elevated_temp: [
+      { temp: 25,  ys: 193, uts: 228, E: 70 },
+      { temp: 100, ys: 180, uts: 220, E: 68 },
+      { temp: 200, ys: 130, uts: 180, E: 64 },
+    ],
+  },
+  'aa 5083': {
+    elevated_temp: [
+      { temp: 25,  ys: 145, uts: 290, E: 70 },
+      { temp: 200, ys: 100, uts: 200, E: 64 },
+      { temp: 300, ys:  60, uts: 120, E: 58 },
+    ],
+  },
+  'aa 2024': {
+    elevated_temp: [
+      { temp: 25,  ys: 345, uts: 483, E: 73 },
+      { temp: 100, ys: 320, uts: 450, E: 71 },
+      { temp: 200, ys: 220, uts: 290, E: 65 },
+      { temp: 300, ys:  85, uts: 130, E: 56 },
+    ],
+  },
+  'aa 7050': {  // 항공 plate
+    elevated_temp: [
+      { temp: 25,  ys: 470, uts: 540, E: 71.7 },
+      { temp: 100, ys: 420, uts: 490, E:  69 },
+      { temp: 200, ys: 270, uts: 320, E:  64 },
+    ],
+  },
+  'aa 6082': {
+    elevated_temp: [
+      { temp: 25,  ys: 250, uts: 290, E: 70 },
+      { temp: 100, ys: 230, uts: 270, E: 67 },
+      { temp: 200, ys: 130, uts: 170, E: 60 },
+    ],
+  },
+  'aa 6063': {
+    elevated_temp: [
+      { temp: 25,  ys: 145, uts: 185, E: 68 },
+      { temp: 100, ys: 140, uts: 180, E: 65 },
+      { temp: 200, ys:  75, uts: 100, E: 58 },
+    ],
+  },
+  // 스테인리스 확장
+  '301': {  // 1/4 hard or full annealed
+    elevated_temp: [
+      { temp: 25,  ys: 275, uts: 760, E: 193 },
+      { temp: 200, ys: 200, uts: 660, E: 184 },
+      { temp: 400, ys: 165, uts: 550, E: 168 },
+      { temp: 600, ys: 140, uts: 440, E: 150 },
+    ],
+  },
+  '321': {  // Ti-stabilized austenitic
+    elevated_temp: [
+      { temp: 25,  ys: 240, uts: 600, E: 200 },
+      { temp: 200, ys: 180, uts: 510, E: 191 },
+      { temp: 400, ys: 150, uts: 470, E: 175 },
+      { temp: 600, ys: 130, uts: 410, E: 158 },
+      { temp: 800, ys:  90, uts: 250, E: 135 },
+    ],
+    creep_rupture: [{ temp: 650, stress: 130, hours: 1000 }, { temp: 800, stress: 35, hours: 1000 }],
+  },
+  '347': {  // Nb-stabilized
+    elevated_temp: [
+      { temp: 25,  ys: 245, uts: 620, E: 200 },
+      { temp: 400, ys: 160, uts: 470, E: 174 },
+      { temp: 600, ys: 135, uts: 400, E: 157 },
+      { temp: 800, ys:  90, uts: 230, E: 135 },
+    ],
+    creep_rupture: [{ temp: 700, stress: 100, hours: 1000 }],
+  },
+  '310': {  // High-temp stainless (25Cr-20Ni)
+    elevated_temp: [
+      { temp: 25,   ys: 220, uts: 550, E: 200 },
+      { temp: 600,  ys: 120, uts: 410, E: 158 },
+      { temp: 800,  ys: 100, uts: 270, E: 138 },
+      { temp: 1000, ys:  60, uts: 140, E: 115 },
+    ],
+    creep_rupture: [{ temp: 900, stress: 35, hours: 1000 }, { temp: 1000, stress: 20, hours: 1000 }],
+  },
+  '904l': {  // Super-austenitic, 부식 저항
+    elevated_temp: [
+      { temp: 25,  ys: 220, uts: 540, E: 195 },
+      { temp: 400, ys: 140, uts: 420, E: 175 },
+      { temp: 600, ys: 110, uts: 350, E: 155 },
+    ],
+  },
+  '2205 duplex': {  // 23Cr-5Ni-3Mo-N
+    elevated_temp: [
+      { temp: 25,  ys: 450, uts: 655, E: 200 },
+      { temp: 200, ys: 360, uts: 600, E: 191 },
+      { temp: 300, ys: 320, uts: 570, E: 184 },
+    ],
+  },
+  '2507 super duplex': {  // 25Cr-7Ni-4Mo-N
+    elevated_temp: [
+      { temp: 25,  ys: 550, uts: 750, E: 200 },
+      { temp: 200, ys: 470, uts: 700, E: 191 },
+      { temp: 300, ys: 430, uts: 660, E: 184 },
+    ],
+  },
+  '410': {  // Martensitic SS — Q+T
+    elevated_temp: [
+      { temp: 25,  ys: 500, uts: 660, E: 200 },
+      { temp: 300, ys: 380, uts: 540, E: 184 },
+      { temp: 500, ys: 240, uts: 380, E: 165 },
+    ],
+  },
+  '420': {  // High-C martensitic — knife/bearing
+    elevated_temp: [
+      { temp: 25,  ys: 1480, uts: 1720, E: 200 },
+      { temp: 200, ys: 1330, uts: 1570, E: 192 },
+      { temp: 400, ys: 1100, uts: 1300, E: 174 },
+    ],
+  },
+  // 탄소강·합금강 확장
+  '4340': {  // Q+T — high-strength alloy steel
+    elevated_temp: [
+      { temp: 25,  ys: 860, uts: 1280, E: 200 },
+      { temp: 200, ys: 800, uts: 1180, E: 191 },
+      { temp: 400, ys: 670, uts: 950,  E: 175 },
+      { temp: 500, ys: 500, uts: 680,  E: 160 },
+    ],
+  },
+  '8620': {  // 침탄 표준
+    elevated_temp: [
+      { temp: 25,  ys: 360, uts: 540, E: 200 },
+      { temp: 200, ys: 320, uts: 500, E: 191 },
+      { temp: 400, ys: 270, uts: 430, E: 174 },
+    ],
+  },
+  '52100': {  // 베어링강 (Q+T)
+    elevated_temp: [
+      { temp: 25,  ys: 1700, uts: 2000, E: 210 },
+      { temp: 200, ys: 1500, uts: 1850, E: 200 },
+      { temp: 400, ys: 1100, uts: 1400, E: 180 },
+    ],
+  },
+  '1045': {  // 표준 탄소강
+    elevated_temp: [
+      { temp: 25,  ys: 410, uts: 565, E: 200 },
+      { temp: 200, ys: 350, uts: 510, E: 192 },
+      { temp: 400, ys: 240, uts: 360, E: 175 },
+    ],
+  },
+  // 공구강 추가
+  'a2': {  // Air-hardening tool steel
+    elevated_temp: [
+      { temp: 25,  ys: 1860, uts: 2070, E: 210 },
+      { temp: 200, ys: 1700, uts: 1900, E: 200 },
+      { temp: 400, ys: 1380, uts: 1620, E: 180 },
+    ],
+  },
+  'm2 hss': {  // High-speed steel
+    elevated_temp: [
+      { temp: 25,  ys: 1900, uts: 2200, E: 210 },
+      { temp: 400, ys: 1700, uts: 1980, E: 195 },
+      { temp: 540, ys: 1450, uts: 1700, E: 180 },
+    ],
+  },
+  'h11': {  // Hot-work die steel
+    elevated_temp: [
+      { temp: 25,  ys: 1400, uts: 1700, E: 207 },
+      { temp: 400, ys: 1100, uts: 1380, E: 188 },
+      { temp: 540, ys:  900, uts: 1100, E: 170 },
+      { temp: 600, ys:  700, uts:  900, E: 155 },
+    ],
+  },
+  // Cu 확장 — DB 'C17200' 또는 'Beryllium Copper'.
+  'c17200': {  // Berylium copper — 정밀 스프링
+    elevated_temp: [
+      { temp: 25,  ys: 1100, uts: 1280, E: 128 },
+      { temp: 200, ys:  900, uts: 1100, E: 124 },
+      { temp: 300, ys:  600, uts:  800, E: 115 },
+    ],
+  },
+  'beryllium copper': {
+    elevated_temp: [
+      { temp: 25,  ys: 1100, uts: 1280, E: 128 },
+      { temp: 200, ys:  900, uts: 1100, E: 124 },
+      { temp: 300, ys:  600, uts:  800, E: 115 },
+    ],
+  },
+  'cuni 90-10': {  // C70600 marine heat exchanger
+    elevated_temp: [
+      { temp: 25,  ys: 120, uts: 320, E: 138 },
+      { temp: 200, ys: 100, uts: 290, E: 130 },
+      { temp: 400, ys:  80, uts: 240, E: 118 },
+      { temp: 600, ys:  40, uts: 130, E: 100 },
+    ],
+  },
+  'cuni 70-30': {  // C71500
+    elevated_temp: [
+      { temp: 25,  ys: 130, uts: 380, E: 150 },
+      { temp: 200, ys: 110, uts: 340, E: 142 },
+      { temp: 400, ys:  85, uts: 270, E: 128 },
+    ],
+  },
 };
 function injectTempCurves(m) {
   if (!m || !m.name) return;
