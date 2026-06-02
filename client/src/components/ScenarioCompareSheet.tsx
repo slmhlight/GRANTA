@@ -196,15 +196,28 @@ export function ScenarioCompareSheet({ open, onOpenChange }: { open: boolean; on
   const applyLeft = () => applyOne(leftKey, leftResult);
   const applyRight = () => applyOne(rightKey, rightResult);
 
+  /** R22 — 교집합 미리 계산해 sheet 안에 카운트 표시 + 빈 categories 경고 감지. */
+  const intersectedFilters = useMemo(() => {
+    if (!leftKey || !rightKey) return null;
+    const a = leftResult?.filters ?? SCENARIO_PRESETS[leftKey].filters ?? {};
+    const b = rightResult?.filters ?? SCENARIO_PRESETS[rightKey].filters ?? {};
+    return intersectFilters(a, b);
+  }, [leftKey, rightKey, leftResult, rightResult]);
+  /** 빈 categories/processes/corrosion 등 (사례 충돌) 검출. */
+  const intersectEmpty = useMemo(() => {
+    if (!intersectedFilters) return false;
+    for (const k of ['categories', 'processes', 'corrosion', 'subcategories'] as const) {
+      const v = (intersectedFilters as any)[k];
+      if (Array.isArray(v) && v.length === 0) return k;
+    }
+    return false;
+  }, [intersectedFilters]);
+
   const applyBoth = () => {
-    if (!leftKey || !rightKey) return;
-    // R19 fix — 이전엔 SCENARIO_PRESETS[key].filters (baseline 빈 객체) 사용해서 교집합이 비었음.
-    // 라이브 compute 결과(leftResult/rightResult.filters)를 사용해 사용자 입력 반영된 정확한 필터 교집합.
-    const aFilters = leftResult?.filters ?? SCENARIO_PRESETS[leftKey].filters ?? {};
-    const bFilters = rightResult?.filters ?? SCENARIO_PRESETS[rightKey].filters ?? {};
-    const merged = intersectFilters(aFilters, bFilters);
-    const qs = encodeFiltersToParams(merged);
-    navigate(`/?p=${leftKey}${qs ? `&${qs}` : ''}`);
+    if (!leftKey || !rightKey || !intersectedFilters) return;
+    const qs = encodeFiltersToParams(intersectedFilters);
+    // R22 — p2= 로 우측 사례도 URL 에 보존. Home effect 가 secondary label 도 banner 에 표시.
+    navigate(`/?p=${leftKey}&p2=${rightKey}${qs ? `&${qs}` : ''}`);
     onOpenChange(false);
   };
 
@@ -225,6 +238,28 @@ export function ScenarioCompareSheet({ open, onOpenChange }: { open: boolean; on
             <ScenarioColumn panelKey="L" label="좌측 (A)" scenarioKey={leftKey} onScenarioChange={setLeftKey} onResultChange={setLeftResult} />
             <ScenarioColumn panelKey="R" label="우측 (B)" scenarioKey={rightKey} onScenarioChange={setRightKey} onResultChange={setRightResult} />
           </div>
+          {/* R22: 교집합 사전 미리보기 — 라이브 카운트 + 빈 categories 경고. */}
+          {leftKey && rightKey && intersectedFilters && (
+            <div className="mt-3 rounded border border-accent/30 bg-accent/5 p-2.5 text-[12px]">
+              <p className="font-semibold text-accent mb-1">📐 교집합 미리보기</p>
+              <div className="space-y-0.5 text-[11px] text-foreground/80">
+                {Object.entries(intersectedFilters).map(([k, v]) => {
+                  if (!v) return null;
+                  if (Array.isArray(v) && typeof v[0] === 'number') {
+                    const hi = v[1] as number;
+                    return <div key={k}><span className="font-mono">{k}</span>: <span className="font-mono">[{v[0]}, {hi >= 99999 ? '∞' : hi}]</span></div>;
+                  }
+                  if (Array.isArray(v) && v.length > 0) {
+                    return <div key={k}><span className="font-mono">{k}</span>: {(v as string[]).join(' · ')}</div>;
+                  }
+                  return null;
+                })}
+              </div>
+              {intersectEmpty && (
+                <p className="mt-2 text-[11px] text-rose-700 font-medium">⚠ {intersectEmpty} 가 빈 교집합 → 적용 시 통과 재료 0개. 두 사례가 충돌함.</p>
+              )}
+            </div>
+          )}
         </div>
         <SheetFooter className="border-t border-border/60 mt-0 flex-row justify-between gap-2 p-3 sm:p-4">
           <Button variant="outline" onClick={() => onOpenChange(false)} className="flex-shrink-0">취소</Button>

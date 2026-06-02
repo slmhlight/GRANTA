@@ -142,7 +142,8 @@ export default function Home() {
   }, []);
 
   // apply a Guide scenario preset from ?p=<key> (filters + index hint banner; viewMode is now a suggestion not a force)
-  const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string; suggestedView?: ViewMode } | null>(null);
+  // R22: secondaryLabel/secondaryKey 추가 — 사례 교집합 (ScenarioCompareSheet) 적용 시 두 사례 모두 banner 에 표시.
+  const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string; suggestedView?: ViewMode; secondaryKey?: string; secondaryLabel?: string } | null>(null);
   const [editingScenario, setEditingScenario] = useState<ScenarioKey | null>(null);
   const [scenarioCompareOpen, setScenarioCompareOpen] = useState(false);
   /** R18 — Guide Sheet open state (controlled). 사례 tile 클릭 시 자동 닫힘. */
@@ -167,7 +168,16 @@ export default function Home() {
       // 곧장 차트 위에서 확인할 수 있도록. suggestedView 메타는 그대로 보관해서 사용자가 나중에
       // 다른 뷰로 전환했을 때 배너의 "Ashby로 보기" 버튼이 다시 안내해 줄 수 있게 함.
       if (cfg.viewMode) setViewMode(cfg.viewMode);
-      setAppliedPreset({ key: p, label: cfg.label, indexHint: cfg.indexHint, suggestedView: cfg.viewMode });
+      // R22 — p2= 도 함께 있으면 사례 교집합 적용임. secondary label/key 도 보관해서 banner 가 'A ∩ B' 표시.
+      const p2 = params.get('p2');
+      const cfg2 = p2 ? SCENARIO_PRESETS[p2] : null;
+      setAppliedPreset({
+        key: p,
+        label: cfg.label,
+        indexHint: cfg.indexHint,
+        suggestedView: cfg.viewMode,
+        ...(cfg2 ? { secondaryKey: p2!, secondaryLabel: cfg2.label } : {}),
+      });
       // 사례 적용 시 좌측 사이드바 자동 닫기 — 데스크탑(sidebarOpen)·모바일 오버레이(mobileSidebarOpen)
       // 둘 다 닫음. 라운드 14 에서 모바일 state 누락으로 보고됨 → 라운드 15 에서 보강.
       setSidebarOpen(false);
@@ -792,8 +802,13 @@ export default function Home() {
           {appliedPreset && (
             <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-4 py-1 sm:py-1.5 bg-amber-500/10 border-b border-amber-500/30 text-[11px] sm:text-xs">
               <GraduationCap className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
-              <span className="text-amber-700 font-medium truncate min-w-0">{appliedPreset.label}</span>
-              {appliedPreset.indexHint && (
+              <span className="text-amber-700 font-medium truncate min-w-0">
+                {appliedPreset.label}
+                {appliedPreset.secondaryLabel && (
+                  <span className="text-amber-800 ml-1.5">∩ <span className="font-medium">{appliedPreset.secondaryLabel}</span></span>
+                )}
+              </span>
+              {appliedPreset.indexHint && !appliedPreset.secondaryLabel && (
                 <span className="text-muted-foreground hidden md:inline truncate">· 권장 Index: <span className="font-mono">{appliedPreset.indexHint}</span></span>
               )}
               <div className="ml-auto flex items-center gap-1 flex-shrink-0">
