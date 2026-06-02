@@ -77,18 +77,29 @@ const PROP_DIR: Record<string, 'max' | 'min'> = {
 };
 function paretoDir(prop: string): 'max' | 'min' { return PROP_DIR[prop] ?? 'max'; }
 /** R28 — Pareto frontier 추출. xDir/yDir 따라 dominance test.
- *  알고리즘: x 기준 정렬 후 y best-so-far 추적 — O(n log n). */
+ *  알고리즘: x 기준 정렬 후 y best-so-far 추적 — O(n log n).
+ *  R29 — edge case 강화: 0/1 point 처리, NaN/Infinity 필터, 동일 x 값 처리 (같은 x 면 better y 우선). */
 function paretoFrontier(points: { x: number; y: number; id: string; name: string }[], xDir: 'max' | 'min', yDir: 'max' | 'min') {
-  if (points.length === 0) return [];
-  // x: min 이면 ascending sort, max 이면 descending — 두 경우 모두 "선두에 도달하면 y 가 best 인 첫 점" 기준.
-  const sorted = [...points].sort((a, b) => xDir === 'min' ? a.x - b.x : b.x - a.x);
+  // 1) 유효 점만 (finite 양수). NaN/Infinity/0 이하 제외.
+  const valid = points.filter(p => isFinite(p.x) && isFinite(p.y) && p.x > 0 && p.y > 0);
+  if (valid.length === 0) return [];
+  if (valid.length === 1) return valid;  // 한 점도 frontier 자기 자신.
+  // 2) 정렬 — x 우선, 같은 x 면 better y (frontier 후보) 우선해서 sort 위로.
+  const sorted = [...valid].sort((a, b) => {
+    if (a.x !== b.x) return xDir === 'min' ? a.x - b.x : b.x - a.x;
+    return yDir === 'max' ? b.y - a.y : a.y - b.y;
+  });
+  // 3) 누적 best y 보다 좋은 점만 frontier 에 추가. 같은 y 면 한 번만 (중복 제거).
   const frontier: typeof points = [];
   let bestY = yDir === 'max' ? -Infinity : Infinity;
+  const seenIds = new Set<string>();
   for (const p of sorted) {
+    if (seenIds.has(p.id)) continue;
     const better = yDir === 'max' ? p.y > bestY : p.y < bestY;
     if (better) {
       frontier.push(p);
       bestY = p.y;
+      seenIds.add(p.id);
     }
   }
   return frontier;

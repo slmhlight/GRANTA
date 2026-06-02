@@ -115,13 +115,21 @@ function AxisLabel({ axis, hasAxes, isWeakOrientation }: { axis?: 'strong' | 'we
   return <text x="160" y="58" fontSize="9" className="fill-emerald-600 font-bold" fontFamily="monospace">{text}</text>;
 }
 
-/** 단면 SVG 큰 미리보기 — 현재 선택한 단면·치수·하중 방향을 시각화 */
+/** 단면 SVG 큰 미리보기 — 현재 선택한 단면·치수·하중 방향을 시각화.
+ *  R29 — 가시성 개선: stroke 두꺼움(1.6→2.2), 색상 진하게(/15→/25), 텍스트 진하게(/70→full),
+ *        라벨 배경 white pill 로 둘러 대비 향상, 그리드 dash 약화. */
 function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<string, number>; axis?: 'strong' | 'weak'; hasAxes?: boolean }) {
   const stroke = 'stroke-accent';
-  const fill = 'fill-accent/15';
-  const txt = 'fill-foreground/70';
-  const label = (x: number, y: number, t: string) => <text x={x} y={y} fontSize="9" className={txt} fontFamily="monospace">{t}</text>;
-  const dash = 'stroke-foreground/40';
+  const fill = 'fill-accent/25';
+  const txt = 'fill-foreground';
+  // 라벨에 white background pill — SVG 위 글자 가독성 ↑
+  const label = (x: number, y: number, t: string, anchor: 'start' | 'middle' | 'end' = 'middle') => (
+    <g>
+      <text x={x} y={y} fontSize="10" textAnchor={anchor} className="fill-white stroke-white" strokeWidth="3" paintOrder="stroke fill" fontFamily="monospace" fontWeight="600">{t}</text>
+      <text x={x} y={y} fontSize="10" textAnchor={anchor} className={`${txt} font-semibold`} fontFamily="monospace">{t}</text>
+    </g>
+  );
+  const dash = 'stroke-foreground/30';
   switch (id) {
     case 'rect': {
       const b = dims.b ?? 20, h = dims.h ?? 10;
@@ -131,7 +139,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
       const isWeak = hasAxes && axis === 'weak';
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
-          <rect x={x0} y={y0} width={W} height={H} className={`${fill} ${stroke}`} strokeWidth="1.6" />
+          <rect x={x0} y={y0} width={W} height={H} className={`${fill} ${stroke}`} strokeWidth="2.2" />
           {/* 중립축: 강축이면 수평, 약축이면 수직 (하중에 직각). */}
           {isWeak
             ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
@@ -149,7 +157,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
       const scale = 100 / a; const A = a * scale;
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
-          <rect x={100 - A / 2} y={60 - A / 2} width={A} height={A} className={`${fill} ${stroke}`} strokeWidth="1.6" />
+          <rect x={100 - A / 2} y={60 - A / 2} width={A} height={A} className={`${fill} ${stroke}`} strokeWidth="2.2" />
           <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />
           {label(100, 60 + A / 2 + 14, `a = ${a} mm`)}
         </svg>
@@ -160,7 +168,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
       const scale = 100 / d; const r = d * scale / 2;
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
-          <circle cx="100" cy="60" r={r} className={`${fill} ${stroke}`} strokeWidth="1.6" />
+          <circle cx="100" cy="60" r={r} className={`${fill} ${stroke}`} strokeWidth="2.2" />
           <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />
           {label(100, 60 + r + 14, `d = ${d} mm`)}
         </svg>
@@ -171,7 +179,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
       const scale = 100 / D; const R = D * scale / 2; const ri = di * scale / 2;
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
-          <circle cx="100" cy="60" r={R} className={`${fill} ${stroke}`} strokeWidth="1.6" />
+          <circle cx="100" cy="60" r={R} className={`${fill} ${stroke}`} strokeWidth="2.2" />
           <circle cx="100" cy="60" r={ri} className="fill-background stroke-accent" strokeWidth="1.4" />
           <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />
           {label(100, 60 + R + 14, `D = ${D}, d = ${di} mm`)}
@@ -185,7 +193,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
       const isWeak = hasAxes && axis === 'weak';
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
-          <rect x={x0} y={y0} width={W} height={He} className={`${fill} ${stroke}`} strokeWidth="1.6" />
+          <rect x={x0} y={y0} width={W} height={He} className={`${fill} ${stroke}`} strokeWidth="2.2" />
           <rect x={100 - w / 2} y={60 - he2 / 2} width={w} height={he2} className="fill-background stroke-accent" strokeWidth="1.4" />
           {isWeak
             ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
@@ -203,7 +211,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
       const isWeak = hasAxes && axis === 'weak';
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
-          <g className={`${fill} ${stroke}`} strokeWidth="1.5">
+          <g className={`${fill} ${stroke}`} strokeWidth="2">
             <rect x={xc - BF / 2} y={60 - H / 2} width={BF} height={TF} />
             <rect x={xc - TW / 2} y={60 - H / 2 + TF} width={TW} height={H - 2 * TF} />
             <rect x={xc - BF / 2} y={60 + H / 2 - TF} width={BF} height={TF} />
@@ -224,7 +232,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
       const isWeak = hasAxes && axis === 'weak';
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
-          <g className={`${fill} ${stroke}`} strokeWidth="1.5">
+          <g className={`${fill} ${stroke}`} strokeWidth="2">
             <rect x={xL} y={60 - H / 2} width={TW} height={H} />
             <rect x={xL} y={60 - H / 2} width={BF + TW} height={TF} />
             <rect x={xL} y={60 + H / 2 - TF} width={BF + TW} height={TF} />
@@ -245,7 +253,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
       const yTop = 60 - Htot * scale / 2;
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
-          <g className={`${fill} ${stroke}`} strokeWidth="1.5">
+          <g className={`${fill} ${stroke}`} strokeWidth="2">
             <rect x={100 - BF / 2} y={yTop} width={BF} height={TF} />
             <rect x={100 - TW / 2} y={yTop + TF} width={TW} height={HW} />
           </g>
@@ -259,7 +267,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
       const x0 = 100 - A / 2, y0 = 60 - A / 2;
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
-          <g className={`${fill} ${stroke}`} strokeWidth="1.5">
+          <g className={`${fill} ${stroke}`} strokeWidth="2">
             <polygon points={`${x0},${y0} ${x0 + T},${y0} ${x0 + T},${y0 + A - T} ${x0 + A},${y0 + A - T} ${x0 + A},${y0 + A} ${x0},${y0 + A}`} />
           </g>
           {label(100, y0 + A + 14, `a=${a}·t=${t} mm`)}
@@ -277,15 +285,15 @@ function SectionIcon({ id }: { id: string }) {
   const fc = `fill-accent/15 ${c}`;
   switch (id) {
     case 'rect':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="10" y="6" width="10" height="18" className={fc} strokeWidth="1.5"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="10" y="6" width="10" height="18" className={fc} strokeWidth="2"/></svg>;
     case 'sq':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="9" y="9" width="12" height="12" className={fc} strokeWidth="1.5"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="9" y="9" width="12" height="12" className={fc} strokeWidth="2"/></svg>;
     case 'circ':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><circle cx="15" cy="15" r="9" className={fc} strokeWidth="1.5"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><circle cx="15" cy="15" r="9" className={fc} strokeWidth="2"/></svg>;
     case 'tube':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><circle cx="15" cy="15" r="11" className={fc} strokeWidth="1.5"/><circle cx="15" cy="15" r="6" className="fill-background stroke-accent" strokeWidth="1.3"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><circle cx="15" cy="15" r="11" className={fc} strokeWidth="2"/><circle cx="15" cy="15" r="6" className="fill-background stroke-accent" strokeWidth="1.3"/></svg>;
     case 'box':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="6" y="6" width="18" height="18" className={fc} strokeWidth="1.5"/><rect x="11" y="11" width="8" height="8" className="fill-background stroke-accent" strokeWidth="1.3"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="6" y="6" width="18" height="18" className={fc} strokeWidth="2"/><rect x="11" y="11" width="8" height="8" className="fill-background stroke-accent" strokeWidth="1.3"/></svg>;
     case 'ibeam':
       return <svg viewBox="0 0 30 30" className="w-7 h-7"><g className={fc} strokeWidth="1.4"><rect x="6" y="4" width="18" height="4"/><rect x="13" y="8" width="4" height="14"/><rect x="6" y="22" width="18" height="4"/></g></svg>;
     case 'channel':

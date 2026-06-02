@@ -112,11 +112,12 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
 
       <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">Click a column header to sort · bar = value vs the highest in that column</p>
 
-      {/* Comparison table: rows = materials, columns = properties */}
+      {/* Comparison table: rows = materials, columns = properties.
+       *   R29: sticky thead 배경 문제 fix — 모든 th 에 bg-card (이전엔 첫 th 만 bg-muted, 나머지 투명 → 스크롤 시 row 데이터 비침). */}
       <div className="flex-1 overflow-auto">
         <table className="text-xs border-collapse min-w-full">
-          <thead className="sticky top-0 z-10 bg-card">
-            <tr className="border-b border-border">
+          <thead className="sticky top-0 z-10">
+            <tr className="border-b border-border bg-card shadow-[0_2px_4px_-2px_rgba(0,0,0,0.08)]">
               <th
                 className="text-left px-3 py-2 bg-muted/40 sticky left-0 z-20 font-semibold text-[10px] uppercase tracking-wider text-muted-foreground cursor-pointer hover:text-foreground select-none"
                 onClick={() => onSort('name')}
@@ -126,7 +127,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
               {selected.map((p) => (
                 <th
                   key={p.key as string}
-                  className="text-right px-3 py-2 font-medium text-foreground min-w-[110px] cursor-pointer hover:bg-muted/40 select-none align-bottom"
+                  className="text-right px-3 py-2 font-medium text-foreground min-w-[110px] cursor-pointer hover:bg-muted/40 select-none align-bottom bg-card"
                   onClick={() => onSort(p.key as string)}
                   title={`Sort by ${p.label}`}
                 >
@@ -134,7 +135,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
                   <span className="block text-[10px] font-normal text-muted-foreground mt-0.5 whitespace-normal leading-tight">{p.unit}</span>
                 </th>
               ))}
-              {selected.length === 0 && <th className="px-3 py-2 text-muted-foreground italic font-normal">Pick columns →</th>}
+              {selected.length === 0 && <th className="px-3 py-2 text-muted-foreground italic font-normal bg-card">Pick columns →</th>}
             </tr>
           </thead>
           <tbody>
