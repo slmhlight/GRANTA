@@ -145,6 +145,15 @@ export default function Home() {
   const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string; suggestedView?: ViewMode } | null>(null);
   const [editingScenario, setEditingScenario] = useState<ScenarioKey | null>(null);
   const [scenarioCompareOpen, setScenarioCompareOpen] = useState(false);
+  /** R18 — Guide Sheet open state (controlled). 사례 tile 클릭 시 자동 닫힘. */
+  const [guideHeaderOpen, setGuideHeaderOpen] = useState(false);
+  const [guideMobileOpen, setGuideMobileOpen] = useState(false);
+  /** 사례 tile 클릭 헬퍼 — Sheet 닫고 ScenarioDialog 열기. */
+  const openScenarioFromGuide = useCallback((k: ScenarioKey) => {
+    setGuideHeaderOpen(false);
+    setGuideMobileOpen(false);
+    setEditingScenario(k);
+  }, []);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const p = params.get('p');
@@ -523,8 +532,8 @@ export default function Home() {
           <TooltipContent side="bottom" className="text-xs">Export to CSV ({filtered.length} items)</TooltipContent>
         </Tooltip>
 
-        {/* 가이드 — 시트로 빠른 열람 + 사례 시작 */}
-        <Sheet>
+        {/* 가이드 — 시트로 빠른 열람 + 사례 시작 (R18: controlled state — 사례 tile 클릭 시 자동 닫김) */}
+        <Sheet open={guideHeaderOpen} onOpenChange={setGuideHeaderOpen}>
           <Tooltip>
             <TooltipTrigger asChild>
               <SheetTrigger
@@ -564,7 +573,7 @@ export default function Home() {
                   <button
                     key={t.key}
                     type="button"
-                    onClick={() => setEditingScenario(t.key)}
+                    onClick={() => openScenarioFromGuide(t.key)}
                     className="group rounded border border-border bg-card hover:border-accent hover:shadow-sm hover:bg-accent/5 transition-all p-2 text-left flex items-center gap-2.5"
                   >
                     <div className="w-12 h-10 flex-shrink-0 rounded bg-muted/40 border border-border/60 p-0.5 flex items-center justify-center group-hover:border-accent/40 transition-colors">
@@ -978,7 +987,7 @@ export default function Home() {
             <span className="absolute top-0.5 right-1/4 -translate-y-0 inline-block min-w-[16px] h-4 rounded-full bg-accent text-white text-[9px] leading-4 text-center font-bold px-1">{compareList.length}</span>
           )}
         </button>
-        <Sheet>
+        <Sheet open={guideMobileOpen} onOpenChange={setGuideMobileOpen}>
           <SheetTrigger className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors w-full">
             <GraduationCap className="w-4 h-4" /> 가이드
           </SheetTrigger>
@@ -1010,7 +1019,7 @@ export default function Home() {
                   <button
                     key={t.key}
                     type="button"
-                    onClick={() => setEditingScenario(t.key)}
+                    onClick={() => openScenarioFromGuide(t.key)}
                     className="group rounded border border-border bg-card hover:border-accent hover:bg-accent/5 transition-all p-1.5 text-left flex items-center gap-1.5"
                   >
                     <div className="w-9 h-7 flex-shrink-0 rounded bg-muted/40 p-0.5 flex items-center justify-center"><t.Svg /></div>

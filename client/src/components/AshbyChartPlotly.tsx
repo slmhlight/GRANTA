@@ -250,6 +250,13 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       colorMode = compareSet.size > 0 && colored.length > 0;
       if (!colorMode) colored = fset;
       coldFset = colorMode ? fset.filter((m) => !compareSet.has(m.id)) : [];
+      // R18 — Index/limit/Compare 가 모두 없어도 좌측 사이드바 필터가 활성화되어 fset 이 좁혀졌으면
+      // (filteredMaterials < materials), 통과 재료를 큰 마커·진한 색으로 강조.
+      // colorMode=true 로 올려 markerTrace 가 +size·진한 line·진한 opacity 모드로 그려지게 함.
+      if (!colorMode && fset.length > 0 && fset.length < materials.length) {
+        colorMode = true;
+        coldFset = []; // 미통과 (others) 는 별도 trace 로 회색 처리됨 (showContext)
+      }
     }
     const selectedIds = colorMode ? colored.map((m) => m.id) : [];
 
