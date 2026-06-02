@@ -787,6 +787,12 @@ for (const m of all) {
   if (m.price_per_kg != null && m.price_per_kg > 0) {
     m.total_cost_estimate = +(m.price_per_kg * m.machining_cost_factor * m.ht_cost_factor).toFixed(2);
   }
+  // R15: process attributes — 시제품 단계 즉시 판단용.
+  // process + 합금 패턴 기반 휴리스틱. AM/주조/단조/사출/시트 별 일반적 한계값.
+  const [mw, sr, tc] = processAttributes(m);
+  if (mw != null) m.min_wall_thickness = mw;
+  if (sr != null) m.surface_finish_typical = sr;
+  if (tc != null) m.tolerance_class = tc;
   // F3: cast superalloy 의 누락된 heat_treatment 를 표준 문헌값으로 보완 — reference-tier 라
   // 별도 condition 데이터가 없는 IN713C / IN738LC / IN939 등은 일반적 적용 사이클을 기록.
   if (!m.heat_treatment) {
@@ -812,6 +818,38 @@ for (const m of all) {
       : 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.';
     if (isHipped) m.meta.anisotropy_reduced = true;
   }
+}
+
+// R15 process attributes — 표준 한계값.
+// LPBF/DMLS: 분말상 적층 — 최소벽 0.4mm, Ra 8-15μm as-built, IT13-14.
+// EBM: 전자빔 — 최소벽 1mm, Ra 20-40μm as-built, IT14.
+// Binder Jetting: 최소벽 0.5mm, Ra 15-25μm, IT14-15.
+// Investment casting: 최소벽 1.5-3mm, Ra 1.6-6.3μm, IT11-13.
+// Sand casting: 최소벽 3-5mm, Ra 12-25μm, IT14-16.
+// Forging: 최소벽 3mm, Ra 6.3-25μm, IT12-14.
+// Wrought (rolled): Ra 1.6-3.2μm, IT10-12.
+// Injection molding (polymer): 최소벽 0.5-1.5mm, Ra 0.4-3.2μm, IT10-12.
+// 수치는 핸드북 기준 (ASM Handbook, NADCA, ISO 286, MPIF).
+function processAttributes(m) {
+  const proc = String(m.process || '').toLowerCase();
+  const cat = m.category;
+  const has = (re) => re.test(proc);
+  if (has(/lpbf|slm|dmls/i)) return [0.4, 12, 'IT13-14'];
+  if (has(/ebm|electron.?beam/i)) return [1.0, 30, 'IT14'];
+  if (has(/binder.?jet/i)) return [0.5, 20, 'IT14-15'];
+  if (has(/ded|directed.?energy|wire.?arc/i)) return [2.0, 50, 'IT15'];
+  if (has(/investment|lost.?wax/i)) return [1.5, 3.2, 'IT11-13'];
+  if (has(/die.?cast/i)) return [1.0, 0.8, 'IT11-12'];
+  if (has(/sand.?cast|gravity.?cast/i)) return [3.0, 18, 'IT14-16'];
+  if (has(/cast/i)) return [2.5, 12.5, 'IT13-14']; // 일반 주조
+  if (has(/forg|forge/i)) return [3.0, 12.5, 'IT12-14'];
+  if (has(/rolled|wrought|extrud/i)) return [0.5, 1.6, 'IT10-12'];
+  if (has(/injection|inject|molded/i)) return [0.8, 1.6, 'IT10-12'];
+  if (has(/sheet.?metal|stamp/i)) return [0.3, 3.2, 'IT11-12'];
+  if (has(/machined|cnc/i)) return [0.2, 0.8, 'IT7-9']; // 정밀 가공
+  if (has(/sintered|powder|pm/i)) return [1.5, 3.2, 'IT12-13'];
+  if (cat === 'Polymer') return [0.8, 1.6, 'IT10-12']; // 폴리머 default = 사출
+  return [null, null, null]; // 정보 없음
 }
 
 // F4 가공 비용 가중치 — 가공성·합금 패턴 기반. 1.0 = 표준 (저합금 강 기준), 높을수록 가공 어려움.

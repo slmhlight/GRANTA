@@ -66,6 +66,13 @@ export interface Material {
   ht_cost_factor?: number | null;
   /** F4: 총 추정 가공 단가 = price_per_kg × machining × ht. 빌드 단계에서 사전 계산. */
   total_cost_estimate?: number | null;
+  /** R15: 제조 attributes (Granta 격차 보완). 시제품 단계 설계자가 '내가 이 정밀도로 만들 수 있나' 즉시 판단. */
+  /** 최소 벽 두께 (mm) — AM 출력 가능 / 주조 깰림 한계 / 사출 단형 가능. process 별 휴리스틱. */
+  min_wall_thickness?: number | null;
+  /** 표면 거칠기 typical Ra (μm) — 마감 전 출하 상태. AM as-built / 단조 표면 / 주조 표면 / 정밀 가공. */
+  surface_finish_typical?: number | null;
+  /** 일반 공차 등급 (ISO 286 IT grade) — 5 가공 정밀 ~ 16 거친 주조. */
+  tolerance_class?: string | null;
   popularity?: number | null; // 0–5, 산업 사용 빈도 휴리스틱 (5 = 가장 흔히 쓰이는 표준 합금)
   elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null }>;
   heat_treatment?: string | null;
@@ -138,6 +145,8 @@ export const COST_PROPERTIES: PropertyMeta[] = [
   { key: 'machining_cost_factor', label: 'Machining factor', unit: '×', description: 'F4: 가공 비용 가중치 (1.0 = 표준 강, 높을수록 가공비↑)', group: 'cost' },
   { key: 'ht_cost_factor', label: 'HT factor', unit: '×', description: 'F4: 열처리·후공정 비용 가중치 (1.0 = 없음)', group: 'cost' },
   { key: 'total_cost_estimate', label: 'Total cost (est.)', unit: 'USD/kg', description: 'F4: raw × machining × HT 추정 가공 단가', group: 'cost' },
+  { key: 'min_wall_thickness', label: 'Min wall', unit: 'mm', description: 'R15: 최소 벽 두께 (process 별 휴리스틱)', group: 'cost' },
+  { key: 'surface_finish_typical', label: 'Surface Ra', unit: 'μm', description: 'R15: 표면 거칠기 typical (마감 전)', group: 'cost' },
   { key: 'popularity', label: 'Popularity', unit: '0–5', description: 'Industry usage heuristic — higher = more commonly used standard alloy', group: 'qualitative' },
 ];
 
