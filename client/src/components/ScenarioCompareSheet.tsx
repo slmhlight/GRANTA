@@ -14,12 +14,14 @@ import { Play, Sigma, GitCompareArrows } from 'lucide-react';
 import { SCENARIO_PRESETS, encodeFiltersToParams, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 
-/** 사례 panel 한 칸 — picker + 입력 + summary. Compare sheet 안에 2 개 렌더. */
-function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange }: {
+/** 사례 panel 한 칸 — picker + 입력 + summary. Compare sheet 안에 2 개 렌더.
+ *  R19: onResultChange 추가 — 라이브 compute 결과를 부모에게 전달해 교집합 적용에 사용. */
+function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResultChange }: {
   panelKey: 'L' | 'R';
   label: string;
   scenarioKey: ScenarioKey | null;
   onScenarioChange: (k: ScenarioKey | null) => void;
+  onResultChange?: (r: { filters: Partial<FilterState>; summary: any[] } | null) => void;
 }) {
   const scenario = scenarioKey ? SCENARIO_PRESETS[scenarioKey] : null;
   const cfg = scenario?.configurator;
@@ -39,6 +41,8 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange }: {
     try { return cfg.compute(values, section); }
     catch { return null; }
   }, [cfg, values, section]);
+  // R19 — result 변경 시 부모에게 전달 (교집합 적용에 사용).
+  useEffect(() => { onResultChange?.(result); }, [result, onResultChange]);
 
   // Picker for either side
   return (
@@ -177,28 +181,29 @@ export function ScenarioCompareSheet({ open, onOpenChange }: { open: boolean; on
   const [, navigate] = useLocation();
   const [leftKey, setLeftKey] = useState<ScenarioKey | null>(null);
   const [rightKey, setRightKey] = useState<ScenarioKey | null>(null);
+  /** R19 — 라이브 compute 결과를 부모에서 보관해 교집합 적용 시 정확한 filters 사용. */
+  const [leftResult, setLeftResult] = useState<{ filters: Partial<FilterState>; summary: any[] } | null>(null);
+  const [rightResult, setRightResult] = useState<{ filters: Partial<FilterState>; summary: any[] } | null>(null);
 
-  const applyLeft = () => applyOne(leftKey);
-  const applyRight = () => applyOne(rightKey);
-  const applyOne = (key: ScenarioKey | null) => {
+  const applyOne = (key: ScenarioKey | null, result: { filters: Partial<FilterState> } | null) => {
     if (!key) return;
-    const scenario = SCENARIO_PRESETS[key];
-    const cfg = scenario.configurator;
-    if (!cfg) return;
-    // Default values used — for full configurator-derived filter the user should use single Sheet.
-    // Compare sheet 모드에서는 기본 필터만 적용 (사용자 입력은 결과 비교용).
-    const qs = encodeFiltersToParams(scenario.filters || {});
+    // 사용자 입력으로 산출된 result.filters 가 있으면 그것을, 없으면 baseline.
+    const filters = result?.filters ?? SCENARIO_PRESETS[key].filters ?? {};
+    const qs = encodeFiltersToParams(filters);
     navigate(`/?p=${key}${qs ? `&${qs}` : ''}`);
     onOpenChange(false);
   };
+  const applyLeft = () => applyOne(leftKey, leftResult);
+  const applyRight = () => applyOne(rightKey, rightResult);
 
   const applyBoth = () => {
     if (!leftKey || !rightKey) return;
-    const aFilters = SCENARIO_PRESETS[leftKey].filters || {};
-    const bFilters = SCENARIO_PRESETS[rightKey].filters || {};
+    // R19 fix — 이전엔 SCENARIO_PRESETS[key].filters (baseline 빈 객체) 사용해서 교집합이 비었음.
+    // 라이브 compute 결과(leftResult/rightResult.filters)를 사용해 사용자 입력 반영된 정확한 필터 교집합.
+    const aFilters = leftResult?.filters ?? SCENARIO_PRESETS[leftKey].filters ?? {};
+    const bFilters = rightResult?.filters ?? SCENARIO_PRESETS[rightKey].filters ?? {};
     const merged = intersectFilters(aFilters, bFilters);
     const qs = encodeFiltersToParams(merged);
-    // 첫 사례만 banner 표시 (URL 의 p 파라미터). 사용자가 두 사례 비교 의도를 명시했음.
     navigate(`/?p=${leftKey}${qs ? `&${qs}` : ''}`);
     onOpenChange(false);
   };
@@ -217,8 +222,8 @@ export function ScenarioCompareSheet({ open, onOpenChange }: { open: boolean; on
         </SheetHeader>
         <div className="flex-1 min-h-0 overflow-y-auto p-3 sm:p-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 h-full">
-            <ScenarioColumn panelKey="L" label="좌측 (A)" scenarioKey={leftKey} onScenarioChange={setLeftKey} />
-            <ScenarioColumn panelKey="R" label="우측 (B)" scenarioKey={rightKey} onScenarioChange={setRightKey} />
+            <ScenarioColumn panelKey="L" label="좌측 (A)" scenarioKey={leftKey} onScenarioChange={setLeftKey} onResultChange={setLeftResult} />
+            <ScenarioColumn panelKey="R" label="우측 (B)" scenarioKey={rightKey} onScenarioChange={setRightKey} onResultChange={setRightResult} />
           </div>
         </div>
         <SheetFooter className="border-t border-border/60 mt-0 flex-row justify-between gap-2 p-3 sm:p-4">

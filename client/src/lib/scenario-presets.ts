@@ -1194,6 +1194,9 @@ const RANGE_MAP: Record<string, [string, string]> = {
   yieldStrengthRange: ['ysm', 'ysx'], modulusRange: ['mdm', 'mdx'], fatigueStrengthRange: ['fsm', 'fsx'],
   maxServiceTempRange: ['tmm', 'tmx'], thermalExpansionRange: ['ctem', 'ctex'], thermalConductivityRange: ['tcm', 'tcx'],
   elongationRange: ['elm', 'elx'], pricePerKgRange: ['prm', 'prx'], densityRange: ['dnm', 'dnx'],
+  // R19 — gear/wear/die_mold 사례에서 자주 쓰는 hardness/uts/electrical/impact 도 URL 에 인코딩.
+  hardnessRange: ['hvm', 'hvx'], utsRange: ['utm', 'utx'], electricalConductivityRange: ['ecm', 'ecx'],
+  impactStrengthRange: ['imm', 'imx'],
 };
 const LIST_MAP: Record<string, string> = { processes: 'proc', corrosion: 'corr', categories: 'cat', subcategories: 'sub' };
 
