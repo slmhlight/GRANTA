@@ -83,13 +83,16 @@ function H3({ children }: { children: React.ReactNode }) {
   return <h3 className="text-lg font-bold text-foreground mt-8 mb-2 flex items-center gap-2">{children}</h3>;
 }
 
-/** 물성 카드 (Chapter 1 글로서리) */
-function PropCard({ name, unit, intuition, useFor, range }: { name: string; unit: string; intuition: string; useFor: string; range: string }) {
+/** 물성 카드 (Chapter 1 글로서리) — 작은 아이콘 슬롯 포함 */
+function PropCard({ name, unit, icon, intuition, useFor, range }: { name: string; unit: string; icon?: React.ReactNode; intuition: string; useFor: string; range: string }) {
   return (
     <div className="rounded-lg border border-border bg-card p-4 hover:border-accent/40 transition-colors">
-      <div className="flex items-baseline justify-between gap-2 border-b border-border/60 pb-2 mb-2">
-        <span className="font-bold text-foreground">{name}</span>
-        <span className="font-mono text-[11px] text-accent">{unit}</span>
+      <div className="flex items-start justify-between gap-2 border-b border-border/60 pb-2 mb-2">
+        <div className="min-w-0">
+          <p className="font-bold text-foreground">{name}</p>
+          <p className="font-mono text-[11px] text-accent">{unit}</p>
+        </div>
+        {icon && <div className="w-20 h-12 flex-shrink-0 bg-muted/30 rounded border border-border/50 p-1">{icon}</div>}
       </div>
       <p className="text-[13px] leading-relaxed text-foreground/90"><b className="text-accent">감 잡기:</b> {intuition}</p>
       <p className="text-[12px] mt-2 leading-relaxed text-muted-foreground"><b className="text-foreground/80">언제 보나:</b> {useFor}</p>
@@ -413,6 +416,518 @@ const SvgColumn = () => (
 );
 
 /* ─────────────────────────────────────────────────────────────────────────────
+ * 교육용 큰 도식 (Chapter 인트로용)
+ * ────────────────────────────────────────────────────────────────────────── */
+
+/** 응력-변형률 곡선 — 한 그림으로 σy·UTS·연신율·E 모두 라벨링 */
+const SvgStressStrain = () => (
+  <svg viewBox="0 0 320 200" className="w-full h-full">
+    {/* 격자 (살짝) */}
+    <g className="stroke-foreground/10" strokeWidth="0.8">
+      {[40, 80, 120, 160].map(y => <line key={y} x1="40" y1={y} x2="300" y2={y} />)}
+      {[80, 130, 180, 230, 280].map(x => <line key={x} x1={x} y1="20" y2="180" x2={x} />)}
+    </g>
+    {/* 축 */}
+    <g className="stroke-foreground/80" strokeWidth="1.5" fill="none">
+      <line x1="40" y1="20" x2="40" y2="180" />
+      <line x1="40" y1="180" x2="300" y2="180" />
+      <polyline points="36,28 40,18 44,28" />
+      <polyline points="292,176 302,180 292,184" />
+    </g>
+    <text x="20" y="22" fontSize="11" className="fill-foreground font-semibold">σ</text>
+    <text x="306" y="178" fontSize="11" className="fill-foreground font-semibold">ε</text>
+
+    {/* 곡선: 탄성(선형) → 항복 무릎 → 가공경화 → UTS → 네킹 → 파단 */}
+    <path d="M 40 180 L 100 70 Q 115 60 145 60 Q 195 65 220 40 Q 245 40 260 130" fill="none" className="stroke-accent" strokeWidth="2.6" />
+    {/* 파단 점 (X 표시) */}
+    <g className="stroke-rose-500" strokeWidth="2"><line x1="255" y1="125" x2="265" y2="135" /><line x1="265" y1="125" x2="255" y2="135" /></g>
+    <text x="248" y="148" fontSize="10" className="fill-rose-500" fontFamily="monospace">파단</text>
+
+    {/* σy 표식 */}
+    <line x1="40" y1="70" x2="100" y2="70" className="stroke-emerald-600" strokeDasharray="3 2" strokeWidth="1.2" />
+    <line x1="100" y1="70" x2="100" y2="180" className="stroke-emerald-600" strokeDasharray="3 2" strokeWidth="1.2" />
+    <circle cx="100" cy="70" r="3.5" className="fill-emerald-600" />
+    <text x="18" y="74" fontSize="11" className="fill-emerald-600 font-bold">σy</text>
+
+    {/* UTS 표식 */}
+    <line x1="40" y1="40" x2="220" y2="40" className="stroke-violet-600" strokeDasharray="3 2" strokeWidth="1.2" />
+    <circle cx="220" cy="40" r="3.5" className="fill-violet-600" />
+    <text x="14" y="44" fontSize="11" className="fill-violet-600 font-bold">UTS</text>
+
+    {/* E 기울기 표시 */}
+    <text x="58" y="120" fontSize="10" className="fill-amber-600 font-semibold">E = 기울기 (강성)</text>
+    <line x1="55" y1="135" x2="95" y2="80" className="stroke-amber-600" strokeWidth="1.4" strokeDasharray="3 2" />
+
+    {/* 연신율 = 파단 점의 x */}
+    <g className="stroke-sky-500" strokeWidth="1.2" fill="none">
+      <line x1="40" y1="192" x2="260" y2="192" />
+      <polyline points="44,189 40,192 44,195" />
+      <polyline points="256,189 260,192 256,195" />
+    </g>
+    <text x="125" y="200" fontSize="10" className="fill-sky-600 font-semibold">연신율 (파단 변형률)</text>
+
+    {/* 구간 라벨 */}
+    <text x="55" y="155" fontSize="9" className="fill-foreground/60">탄성</text>
+    <text x="115" y="55" fontSize="9" className="fill-foreground/60">소성(가공경화)</text>
+    <text x="226" y="55" fontSize="9" className="fill-foreground/60">네킹</text>
+  </svg>
+);
+
+/** 굽힘 응력 분포 — 중립축과 σ_max 위치, 왜 I가 중요한가 */
+const SvgBendingStress = () => (
+  <svg viewBox="0 0 320 180" className="w-full h-full">
+    {/* 1) 좌측: 보가 굽혀진 모습 */}
+    <text x="6" y="14" fontSize="10" className="fill-foreground/70 font-semibold">① 굽힘 받은 보</text>
+    <path d="M 10 50 Q 80 90 150 50" fill="none" className="stroke-accent" strokeWidth="2.2" />
+    <path d="M 10 70 Q 80 110 150 70" fill="none" className="stroke-accent/50" strokeWidth="2" strokeDasharray="3 2" />
+    {/* 단부 모멘트 */}
+    <path d="M 14 38 a 8 8 0 1 1 0 16" fill="none" className="stroke-foreground/70" strokeWidth="1.3" />
+    <polygon points="13,38 18,38 16,33" className="fill-foreground/70" />
+    <path d="M 146 38 a 8 8 0 1 0 0 16" fill="none" className="stroke-foreground/70" strokeWidth="1.3" />
+    <polygon points="146,38 142,38 144,33" className="fill-foreground/70" />
+    <text x="20" y="34" fontSize="9" className="fill-foreground/70" fontFamily="monospace">M</text>
+    <text x="138" y="34" fontSize="9" className="fill-foreground/70" fontFamily="monospace">M</text>
+
+    {/* 2) 우측: 단면 + 응력 분포 삼각형 */}
+    <text x="172" y="14" fontSize="10" className="fill-foreground/70 font-semibold">② 단면 + 응력 분포</text>
+    <rect x="180" y="30" width="50" height="120" className="fill-accent/15 stroke-accent" strokeWidth="2" />
+    {/* 중립축 */}
+    <line x1="172" y1="90" x2="312" y2="90" className="stroke-foreground/60" strokeDasharray="3 2" strokeWidth="1.2" />
+    <text x="168" y="94" fontSize="9" className="fill-foreground/70" textAnchor="end">중립축</text>
+
+    {/* 상부 압축 삼각형 (σ = -) */}
+    <polygon points="230,30 280,30 230,90" className="fill-rose-500/20 stroke-rose-500" strokeWidth="1.5" />
+    {/* 하부 인장 삼각형 (σ = +) */}
+    <polygon points="230,90 280,150 230,150" className="fill-sky-500/20 stroke-sky-500" strokeWidth="1.5" />
+    {/* 압축 화살표 */}
+    <g className="stroke-rose-500" strokeWidth="1.4" fill="rose-500">
+      <line x1="232" y1="32" x2="278" y2="32" /><polyline points="274,28 278,32 274,36" fill="none" />
+      <line x1="232" y1="50" x2="266" y2="50" /><polyline points="262,46 266,50 262,54" fill="none" />
+      <line x1="232" y1="70" x2="250" y2="70" /><polyline points="246,66 250,70 246,74" fill="none" />
+    </g>
+    {/* 인장 화살표 */}
+    <g className="stroke-sky-500" strokeWidth="1.4" fill="none">
+      <line x1="232" y1="110" x2="252" y2="110" /><polyline points="248,106 252,110 248,114" />
+      <line x1="232" y1="130" x2="268" y2="130" /><polyline points="264,126 268,130 264,134" />
+      <line x1="232" y1="148" x2="278" y2="148" /><polyline points="274,144 278,148 274,152" />
+    </g>
+    <text x="282" y="34" fontSize="9" className="fill-rose-500 font-semibold">σ_max (압축)</text>
+    <text x="282" y="152" fontSize="9" className="fill-sky-500 font-semibold">σ_max (인장)</text>
+
+    {/* c 라벨 */}
+    <g className="stroke-foreground/60" strokeWidth="1" fill="none">
+      <line x1="174" y1="30" x2="178" y2="30" /><line x1="174" y1="90" x2="178" y2="90" /><line x1="176" y1="30" x2="176" y2="90" />
+    </g>
+    <text x="160" y="62" fontSize="10" className="fill-foreground/70" fontFamily="monospace">c</text>
+
+    {/* 공식 */}
+    <text x="2" y="172" fontSize="11" className="fill-foreground font-mono">σ_max = M · c / I &nbsp;→&nbsp; 같은 M·c여도 I가 크면 σ가 작아짐</text>
+  </svg>
+);
+
+/** Ashby 차트 샘플 — 한계선·외피·등지수선·통과 영역 라벨 */
+const SvgAshbyChart = () => (
+  <svg viewBox="0 0 320 220" className="w-full h-full">
+    <text x="8" y="14" fontSize="10" className="fill-foreground/70 font-semibold">샘플: ρ vs σy (log–log)</text>
+    {/* 축 */}
+    <g className="stroke-foreground/70" strokeWidth="1.4" fill="none">
+      <line x1="40" y1="30" x2="40" y2="190" />
+      <line x1="40" y1="190" x2="300" y2="190" />
+      <polyline points="36,38 40,28 44,38" />
+      <polyline points="292,186 302,190 292,194" />
+    </g>
+    <text x="14" y="34" fontSize="10" className="fill-foreground/70 font-mono">σy</text>
+    <text x="304" y="190" fontSize="10" className="fill-foreground/70 font-mono">ρ</text>
+
+    {/* 한계선 (수평: σy 하한) */}
+    <line x1="40" y1="110" x2="300" y2="110" className="stroke-amber-500" strokeWidth="1.5" strokeDasharray="5 3" />
+    <text x="240" y="106" fontSize="9" className="fill-amber-600 font-semibold">σy ≥ 한계 (필터)</text>
+
+    {/* 외피 — 폴리머, 알루미늄, 강철, 티타늄 (대략 위치) */}
+    <ellipse cx="220" cy="160" rx="38" ry="14" className="fill-emerald-500/15 stroke-emerald-600" strokeWidth="1.5" />
+    <text x="200" y="178" fontSize="9" className="fill-emerald-700">폴리머</text>
+    <ellipse cx="160" cy="120" rx="28" ry="14" className="fill-amber-500/15 stroke-amber-600" strokeWidth="1.5" />
+    <text x="142" y="138" fontSize="9" className="fill-amber-700">알루미늄</text>
+    <ellipse cx="120" cy="78" rx="22" ry="16" className="fill-sky-500/15 stroke-sky-600" strokeWidth="1.5" />
+    <text x="104" y="56" fontSize="9" className="fill-sky-700">티타늄</text>
+    <ellipse cx="200" cy="70" rx="34" ry="20" className="fill-violet-500/15 stroke-violet-600" strokeWidth="1.5" />
+    <text x="186" y="48" fontSize="9" className="fill-violet-700">강·고합금</text>
+
+    {/* 등지수선 (slope 1 on log–log → M = σy/ρ) */}
+    <line x1="60" y1="180" x2="280" y2="55" className="stroke-rose-500" strokeWidth="2.2" />
+    <polygon points="280,55 274,57 277,63" className="fill-rose-500" />
+    <text x="200" y="80" fontSize="9" className="fill-rose-500 font-bold">M = σy/ρ ↑ 더 좋음</text>
+
+    {/* 통과 영역 강조 */}
+    <text x="50" y="48" fontSize="9" className="fill-foreground/70 font-semibold">통과: 한계선 위 AND 등지수선 위쪽</text>
+
+    {/* 범례 */}
+    <g fontSize="9" className="fill-foreground/70" fontFamily="monospace">
+      <text x="58" y="210">─ 한계(제약)</text>
+      <text x="160" y="210">→ 성능지수 방향</text>
+    </g>
+  </svg>
+);
+
+/** Function · Constraint · Objective · Free → M 흐름도 */
+const SvgFCOF = () => (
+  <svg viewBox="0 0 320 160" className="w-full h-full">
+    {/* 4 박스 */}
+    {[
+      { x: 20, y: 28, color: 'sky', label: '기능 (Function)', sub: '인장재 / 보 / 패널 / 축' },
+      { x: 20, y: 88, color: 'amber', label: '제약 (Constraints)', sub: 'σy ≥ X · 온도 ≥ Y · 공정' },
+      { x: 180, y: 28, color: 'emerald', label: '목적 (Objective)', sub: '무게↓ · 원가↓ · 강성↑' },
+      { x: 180, y: 88, color: 'violet', label: '자유변수 (Free)', sub: '단면적 · 두께 · 재료' },
+    ].map((b, i) => (
+      <g key={i}>
+        <rect x={b.x} y={b.y} width="120" height="48" rx="6" className={`fill-${b.color}-500/10 stroke-${b.color}-500`} strokeWidth="1.5" />
+        <text x={b.x + 8} y={b.y + 18} fontSize="11" className={`fill-${b.color}-700 font-bold`}>{b.label}</text>
+        <text x={b.x + 8} y={b.y + 34} fontSize="9" className="fill-foreground/70">{b.sub}</text>
+      </g>
+    ))}
+    {/* 화살표들을 가운데 모음 */}
+    <g className="stroke-rose-500" strokeWidth="1.8" fill="none">
+      <path d="M 140 52 Q 160 56 158 76" />
+      <path d="M 140 112 Q 160 108 158 84" />
+      <path d="M 180 52 Q 160 56 162 76" />
+      <path d="M 180 112 Q 160 108 162 84" />
+    </g>
+    <circle cx="160" cy="80" r="14" className="fill-rose-500/15 stroke-rose-500" strokeWidth="2" />
+    <text x="151" y="84" fontSize="13" className="fill-rose-600 font-bold" fontFamily="monospace">M</text>
+    {/* 결과 박스 */}
+    <rect x="60" y="135" width="200" height="20" rx="4" className="fill-rose-500/10 stroke-rose-500" strokeWidth="1.5" />
+    <text x="74" y="150" fontSize="10" className="fill-rose-700 font-semibold">자유변수 소거 → 성능지수 M (물성 조합)</text>
+  </svg>
+);
+
+/** 비틀림 축 + 단면 전단응력 분포 */
+const SvgTorsion = () => (
+  <svg viewBox="0 0 320 160" className="w-full h-full">
+    {/* 좌측: 원형 축 */}
+    <text x="6" y="14" fontSize="10" className="fill-foreground/70 font-semibold">① 토크 T 작용</text>
+    <g className="fill-accent/15 stroke-accent" strokeWidth="2">
+      <ellipse cx="40" cy="80" rx="10" ry="28" />
+      <rect x="40" y="52" width="120" height="56" />
+      <ellipse cx="160" cy="80" rx="10" ry="28" />
+    </g>
+    {/* 비틀림 화살표 */}
+    <g className="stroke-rose-500" strokeWidth="2" fill="none">
+      <path d="M 156 36 a 18 14 0 1 1 14 12" />
+      <polygon points="166,52 174,46 172,56" className="fill-rose-500" />
+    </g>
+    <text x="142" y="32" fontSize="11" className="fill-rose-500 font-bold" fontFamily="monospace">T</text>
+    {/* 비틀린 표시선 */}
+    <line x1="40" y1="60" x2="160" y2="68" className="stroke-foreground/50" strokeDasharray="3 2" strokeWidth="1" />
+    <line x1="40" y1="100" x2="160" y2="92" className="stroke-foreground/50" strokeDasharray="3 2" strokeWidth="1" />
+
+    {/* 우측: 단면 + 전단응력 분포 */}
+    <text x="186" y="14" fontSize="10" className="fill-foreground/70 font-semibold">② 단면 전단응력</text>
+    <circle cx="250" cy="80" r="44" className="fill-accent/10 stroke-accent" strokeWidth="2" />
+    {/* 반경 방향 응력 화살표 (선형 증가) */}
+    {[12, 22, 32, 42].map((r, i) => (
+      <g key={i} className="stroke-rose-500" strokeWidth="1.4" fill="none">
+        <path d={`M ${250 + r - 3} 80 a ${r} ${r} 0 0 1 6 6`} />
+        <polygon points={`${256 + r - 3},85 ${256 + r + 1},91 ${254 + r - 1},85`} className="fill-rose-500" />
+      </g>
+    ))}
+    <line x1="250" y1="80" x2="294" y2="80" className="stroke-foreground/60" strokeWidth="1" />
+    <text x="296" y="84" fontSize="9" className="fill-foreground/70" fontFamily="monospace">c=D/2</text>
+    <text x="244" y="138" fontSize="10" className="fill-rose-600 font-bold" fontFamily="monospace">τ_max = T·c/J</text>
+    <text x="248" y="152" fontSize="9" className="fill-foreground/70 italic">중심: τ=0</text>
+  </svg>
+);
+
+/** Mohr 원 + 응력 요소 */
+const SvgMohr = () => (
+  <svg viewBox="0 0 320 180" className="w-full h-full">
+    {/* 좌측: 응력 요소 */}
+    <text x="6" y="14" fontSize="10" className="fill-foreground/70 font-semibold">① 응력 요소</text>
+    <rect x="20" y="50" width="80" height="80" className="fill-accent/10 stroke-accent" strokeWidth="2" />
+    {/* σ_x 화살표 */}
+    <g className="stroke-sky-600" strokeWidth="1.8" fill="none">
+      <line x1="8" y1="90" x2="20" y2="90" /><polyline points="14,86 20,90 14,94" />
+      <line x1="100" y1="90" x2="112" y2="90" /><polyline points="106,86 112,90 106,94" />
+    </g>
+    <text x="0" y="86" fontSize="11" className="fill-sky-700 font-bold" fontFamily="monospace">σx</text>
+    <text x="105" y="86" fontSize="11" className="fill-sky-700 font-bold" fontFamily="monospace">σx</text>
+    {/* τ 화살표 */}
+    <g className="stroke-rose-500" strokeWidth="1.6" fill="none">
+      <line x1="32" y1="40" x2="88" y2="40" /><polyline points="84,36 88,40 84,44" />
+      <line x1="32" y1="140" x2="88" y2="140" /><polyline points="36,136 32,140 36,144" />
+    </g>
+    <text x="56" y="32" fontSize="10" className="fill-rose-500 font-bold" fontFamily="monospace">τ</text>
+
+    {/* 우측: Mohr 원 */}
+    <text x="170" y="14" fontSize="10" className="fill-foreground/70 font-semibold">② Mohr 원</text>
+    <g className="stroke-foreground/80" strokeWidth="1.4" fill="none">
+      <line x1="170" y1="100" x2="310" y2="100" />
+      <line x1="240" y1="40" x2="240" y2="160" />
+      <polyline points="306,96 314,100 306,104" />
+      <polyline points="236,46 240,38 244,46" />
+    </g>
+    <text x="312" y="98" fontSize="10" className="fill-foreground/70 font-mono">σ</text>
+    <text x="244" y="40" fontSize="10" className="fill-foreground/70 font-mono">τ</text>
+    {/* 원 */}
+    <circle cx="258" cy="100" r="36" className="fill-violet-500/10 stroke-violet-600" strokeWidth="2" />
+    <line x1="258" y1="100" x2="294" y2="100" className="stroke-violet-600" strokeWidth="1" strokeDasharray="2 2" />
+    {/* 주응력 점 */}
+    <circle cx="294" cy="100" r="3" className="fill-violet-600" />
+    <text x="284" y="118" fontSize="9" className="fill-violet-700 font-mono">σ₁</text>
+    <circle cx="222" cy="100" r="3" className="fill-violet-600" />
+    <text x="208" y="118" fontSize="9" className="fill-violet-700 font-mono">σ₂</text>
+    {/* τ_max */}
+    <circle cx="258" cy="64" r="3" className="fill-rose-500" />
+    <text x="262" y="62" fontSize="9" className="fill-rose-500 font-mono">τ_max</text>
+
+    <text x="170" y="172" fontSize="10" className="fill-foreground font-mono">σ_eq = √(σx² + 3τ²) ≤ σy/SF</text>
+  </svg>
+);
+
+/** 얇은 압력 용기 — 후프·축 응력 */
+const SvgPressureVessel = () => (
+  <svg viewBox="0 0 320 160" className="w-full h-full">
+    {/* 좌측: 측면도 */}
+    <ellipse cx="60" cy="80" rx="14" ry="40" className="fill-accent/15 stroke-accent" strokeWidth="2" />
+    <line x1="60" y1="40" x2="200" y2="40" className="stroke-accent" strokeWidth="2" />
+    <line x1="60" y1="120" x2="200" y2="120" className="stroke-accent" strokeWidth="2" />
+    <ellipse cx="200" cy="80" rx="14" ry="40" className="fill-accent/15 stroke-accent" strokeWidth="2" />
+    <path d="M 200 40 a 14 40 0 0 0 0 80" fill="none" className="stroke-accent" strokeWidth="2" strokeDasharray="2 2" />
+    {/* 내압 화살표 (가운데) */}
+    <g className="stroke-rose-500" strokeWidth="1.4" fill="none">
+      <line x1="130" y1="65" x2="130" y2="50" /><polyline points="126,54 130,48 134,54" />
+      <line x1="130" y1="95" x2="130" y2="110" /><polyline points="126,106 130,112 134,106" />
+      <line x1="130" y1="80" x2="120" y2="80" /><polyline points="124,76 118,80 124,84" />
+      <line x1="130" y1="80" x2="140" y2="80" /><polyline points="136,76 142,80 136,84" />
+    </g>
+    <text x="125" y="84" fontSize="10" className="fill-rose-500 font-bold" fontFamily="monospace">p</text>
+    {/* 후프 응력 화살표 (둘레 따라) */}
+    <g className="stroke-violet-600" strokeWidth="1.6" fill="none">
+      <path d="M 130 40 q -10 -10 -16 0" /><polygon points="114,40 110,36 118,36" className="fill-violet-600" />
+      <path d="M 130 120 q -10 10 -16 0" /><polygon points="114,120 110,124 118,124" className="fill-violet-600" />
+    </g>
+    <text x="84" y="30" fontSize="10" className="fill-violet-700 font-semibold">σ_h (후프)</text>
+    {/* 축응력 화살표 (양 끝) */}
+    <g className="stroke-emerald-600" strokeWidth="1.6" fill="none">
+      <line x1="44" y1="80" x2="30" y2="80" /><polyline points="34,76 28,80 34,84" />
+      <line x1="216" y1="80" x2="230" y2="80" /><polyline points="226,76 232,80 226,84" />
+    </g>
+    <text x="14" y="98" fontSize="10" className="fill-emerald-700 font-semibold">σ_a (축)</text>
+    <text x="222" y="98" fontSize="10" className="fill-emerald-700 font-semibold">σ_a</text>
+    {/* r, t 라벨 */}
+    <g className="stroke-foreground/50" strokeWidth="1" fill="none"><line x1="200" y1="80" x2="200" y2="120" /></g>
+    <text x="204" y="105" fontSize="9" className="fill-foreground/70" fontFamily="monospace">r</text>
+    <text x="246" y="80" fontSize="9" className="fill-foreground/70" fontFamily="monospace">t (얇음)</text>
+
+    {/* 공식 */}
+    <text x="22" y="148" fontSize="11" className="fill-foreground font-mono">σ_h = p·r/t · σ_a = p·r/(2t)</text>
+  </svg>
+);
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * 물성 카드용 작은 아이콘 (10종, ~70x50)
+ * ────────────────────────────────────────────────────────────────────────── */
+const _box = "w-full h-full";
+const IconYield = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    <g className="stroke-foreground/70" strokeWidth="1.2" fill="none"><line x1="10" y1="42" x2="10" y2="8" /><line x1="10" y1="42" x2="74" y2="42" /></g>
+    <path d="M 10 42 L 32 20 Q 40 17 56 20 Q 62 25 60 38" fill="none" className="stroke-accent" strokeWidth="2" />
+    <circle cx="32" cy="20" r="3" className="fill-emerald-600" />
+    <text x="38" y="14" fontSize="10" className="fill-emerald-600 font-bold" fontFamily="monospace">σy</text>
+  </svg>
+);
+const IconUTS = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    <g className="stroke-foreground/70" strokeWidth="1.2" fill="none"><line x1="10" y1="42" x2="10" y2="8" /><line x1="10" y1="42" x2="74" y2="42" /></g>
+    <path d="M 10 42 L 28 18 Q 36 14 50 14 Q 60 16 64 36" fill="none" className="stroke-accent" strokeWidth="2" />
+    <circle cx="48" cy="13" r="3" className="fill-violet-600" />
+    <text x="52" y="14" fontSize="9" className="fill-violet-600 font-bold" fontFamily="monospace">UTS</text>
+  </svg>
+);
+const IconElongation = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    <g className="stroke-foreground/70" strokeWidth="1.2" fill="none"><line x1="10" y1="42" x2="10" y2="8" /><line x1="10" y1="42" x2="74" y2="42" /></g>
+    {/* 취성 (짧음) */}
+    <path d="M 10 42 L 22 14" fill="none" className="stroke-rose-500" strokeWidth="2" />
+    <line x1="22" y1="13" x2="24" y2="11" className="stroke-rose-500" strokeWidth="2" />
+    <text x="14" y="10" fontSize="8" className="fill-rose-500">취성</text>
+    {/* 연성 (길음) */}
+    <path d="M 10 42 L 30 24 Q 40 22 58 22 L 62 38" fill="none" className="stroke-emerald-600" strokeWidth="2" />
+    <text x="46" y="18" fontSize="8" className="fill-emerald-600">연성</text>
+  </svg>
+);
+const IconE = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    <g className="stroke-foreground/70" strokeWidth="1.2" fill="none"><line x1="10" y1="42" x2="10" y2="8" /><line x1="10" y1="42" x2="74" y2="42" /></g>
+    {/* 가파른 (E 큼) */}
+    <line x1="10" y1="42" x2="32" y2="10" className="stroke-amber-600" strokeWidth="2" />
+    <text x="18" y="14" fontSize="8" className="fill-amber-600">E ↑</text>
+    {/* 완만한 (E 작음) */}
+    <line x1="10" y1="42" x2="70" y2="30" className="stroke-sky-600" strokeWidth="2" />
+    <text x="50" y="38" fontSize="8" className="fill-sky-600">E ↓</text>
+  </svg>
+);
+const IconHardness = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    {/* 표면 */}
+    <line x1="6" y1="36" x2="74" y2="36" className="stroke-foreground/70" strokeWidth="1.4" />
+    {/* 피라미드 압입자 */}
+    <polygon points="40,8 30,30 50,30" className="fill-accent/30 stroke-accent" strokeWidth="1.6" />
+    {/* 자국 */}
+    <polygon points="30,36 40,42 50,36" className="fill-rose-500/30 stroke-rose-500" strokeWidth="1.4" />
+    {/* 하중 화살표 */}
+    <g className="stroke-rose-500" strokeWidth="1.6" fill="none">
+      <line x1="40" y1="2" x2="40" y2="10" /><polyline points="37,8 40,11 43,8" />
+    </g>
+    <text x="56" y="26" fontSize="9" className="fill-foreground/70" fontFamily="monospace">HV</text>
+  </svg>
+);
+const IconFatigue = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    <g className="stroke-foreground/70" strokeWidth="1.2" fill="none"><line x1="10" y1="42" x2="10" y2="6" /><line x1="10" y1="42" x2="74" y2="42" /></g>
+    <text x="2" y="10" fontSize="7" className="fill-foreground/60">σ_a</text>
+    <text x="68" y="50" fontSize="7" className="fill-foreground/60">log N</text>
+    <path d="M 12 10 Q 28 14 40 24 Q 56 32 70 32" fill="none" className="stroke-accent" strokeWidth="2" />
+    <line x1="40" y1="32" x2="70" y2="32" className="stroke-rose-500" strokeWidth="1.2" strokeDasharray="2 2" />
+    <text x="46" y="30" fontSize="7" className="fill-rose-500">한도</text>
+  </svg>
+);
+const IconDensity = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    {/* 큐브 */}
+    <g className="fill-accent/20 stroke-accent" strokeWidth="1.4">
+      <polygon points="14,20 36,8 60,20 60,40 38,52 14,40" />
+      <line x1="14" y1="20" x2="38" y2="32" />
+      <line x1="60" y1="20" x2="38" y2="32" />
+      <line x1="38" y1="32" x2="38" y2="52" />
+    </g>
+    {/* 무거움 표시 점 */}
+    <g className="fill-foreground/70">
+      <circle cx="24" cy="26" r="1.2" /><circle cx="32" cy="24" r="1.2" /><circle cx="40" cy="22" r="1.2" />
+      <circle cx="48" cy="24" r="1.2" /><circle cx="28" cy="34" r="1.2" /><circle cx="36" cy="36" r="1.2" /><circle cx="44" cy="34" r="1.2" /><circle cx="52" cy="32" r="1.2" />
+    </g>
+    <text x="64" y="42" fontSize="9" className="fill-foreground/70" fontFamily="monospace">ρ</text>
+  </svg>
+);
+const IconCTE = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    {/* 차가운 바 */}
+    <rect x="6" y="14" width="36" height="14" className="fill-sky-500/20 stroke-sky-600" strokeWidth="1.4" />
+    {/* 뜨거운 바 (길어짐) */}
+    <rect x="6" y="30" width="56" height="14" className="fill-rose-500/20 stroke-rose-500" strokeWidth="1.4" />
+    {/* 길이 변화 화살표 */}
+    <g className="stroke-foreground/70" strokeWidth="1" fill="none">
+      <line x1="42" y1="50" x2="62" y2="50" />
+      <polyline points="44,48 42,50 44,52" /><polyline points="60,48 62,50 60,52" />
+    </g>
+    <text x="42" y="58" fontSize="7" className="fill-foreground/70">ΔL</text>
+    <text x="62" y="10" fontSize="8" className="fill-rose-500 font-bold">+ΔT</text>
+  </svg>
+);
+const IconK = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    {/* 막대 */}
+    <rect x="6" y="20" width="68" height="14" className="fill-accent/15 stroke-accent" strokeWidth="1.4" />
+    {/* 좌측 뜨거움 */}
+    <circle cx="10" cy="27" r="6" className="fill-rose-500/30 stroke-rose-500" strokeWidth="1.2" />
+    {/* 우측 차가움 */}
+    <circle cx="70" cy="27" r="6" className="fill-sky-500/30 stroke-sky-600" strokeWidth="1.2" />
+    {/* 열 흐름 화살표 */}
+    <g className="stroke-rose-500" strokeWidth="1.4" fill="none">
+      <line x1="22" y1="27" x2="34" y2="27" /><polyline points="30,24 34,27 30,30" />
+      <line x1="38" y1="27" x2="50" y2="27" /><polyline points="46,24 50,27 46,30" />
+      <line x1="54" y1="27" x2="62" y2="27" /><polyline points="58,24 62,27 58,30" />
+    </g>
+  </svg>
+);
+const IconMaxTemp = () => (
+  <svg viewBox="0 0 80 50" className={_box}>
+    {/* 온도계 */}
+    <rect x="36" y="4" width="8" height="32" rx="4" className="fill-rose-500/20 stroke-rose-500" strokeWidth="1.4" />
+    <circle cx="40" cy="40" r="6" className="fill-rose-500 stroke-rose-500" strokeWidth="1.4" />
+    {/* 한계선 */}
+    <line x1="20" y1="18" x2="56" y2="18" className="stroke-rose-500" strokeDasharray="3 2" strokeWidth="1.2" />
+    <text x="58" y="22" fontSize="9" className="fill-rose-500 font-bold" fontFamily="monospace">한계</text>
+    {/* 눈금 */}
+    <g className="stroke-foreground/50" strokeWidth="0.8"><line x1="32" y1="12" x2="36" y2="12" /><line x1="32" y1="22" x2="36" y2="22" /><line x1="32" y1="30" x2="36" y2="30" /></g>
+  </svg>
+);
+
+/* 개선된 LoadCard 처짐 곡선 오버레이 (Chapter 4) — 변형 모양·δ_max 표시 */
+const SvgCantileverV2 = () => (
+  <svg viewBox="0 0 200 90" className="w-full h-full">
+    {wallHatch(20)}
+    {/* 원래 위치 (점선) */}
+    <line x1="20" y1="38" x2="180" y2="38" className="stroke-foreground/30" strokeDasharray="3 2" strokeWidth="1.2" />
+    {/* 변형된 보 */}
+    <path d="M 20 38 Q 110 38 180 64" fill="none" className="stroke-accent" strokeWidth="3" />
+    {/* 하중 */}
+    <g className={force} strokeWidth="2.4" fill="none"><line x1="180" y1="40" x2="180" y2="76"/><polyline points="176,70 180,78 184,70"/></g>
+    <text x="184" y="58" fontSize="11" className="fill-rose-500" fontFamily="monospace">F</text>
+    {/* δ_max */}
+    <g className="stroke-emerald-600" strokeWidth="1" fill="none"><line x1="170" y1="38" x2="170" y2="64" /><polyline points="167,42 170,38 173,42" /><polyline points="167,60 170,64 173,60" /></g>
+    <text x="150" y="76" fontSize="9" className="fill-emerald-700 font-bold" fontFamily="monospace">δ_max</text>
+    <text x="92" y="86" fontSize="11" className="fill-foreground/70" fontFamily="monospace">L</text>
+  </svg>
+);
+const SvgCantileverUDLV2 = () => (
+  <svg viewBox="0 0 200 90" className="w-full h-full">
+    {wallHatch(20)}
+    <line x1="20" y1="38" x2="180" y2="38" className="stroke-foreground/30" strokeDasharray="3 2" strokeWidth="1.2" />
+    <path d="M 20 38 Q 110 40 180 56" fill="none" className="stroke-accent" strokeWidth="3" />
+    {udl(28, 180)}
+    <text x="94" y="14" fontSize="12" className="fill-rose-500" fontFamily="monospace">w</text>
+    <g className="stroke-emerald-600" strokeWidth="1" fill="none"><line x1="170" y1="38" x2="170" y2="56" /><polyline points="167,42 170,38 173,42" /><polyline points="167,52 170,56 173,52" /></g>
+    <text x="150" y="72" fontSize="9" className="fill-emerald-700 font-bold" fontFamily="monospace">δ_max</text>
+  </svg>
+);
+const SvgSimpleCenterV2 = () => (
+  <svg viewBox="0 0 200 90" className="w-full h-full">
+    <line x1="14" y1="38" x2="186" y2="38" className="stroke-foreground/30" strokeDasharray="3 2" strokeWidth="1.2" />
+    <path d="M 14 38 Q 100 60 186 38" fill="none" className="stroke-accent" strokeWidth="3" />
+    <polygon points="14,38 6,52 22,52" className={`fill-foreground/30 ${stroke}`} strokeWidth="1"/>
+    <polygon points="186,38 178,52 194,52" className={`fill-foreground/30 ${stroke}`} strokeWidth="1"/>
+    <g className={force} strokeWidth="2.4" fill="none"><line x1="100" y1="14" x2="100" y2="34"/><polyline points="95,28 100,36 105,28"/></g>
+    <text x="92" y="11" fontSize="12" className="fill-rose-500" fontFamily="monospace">F</text>
+    <g className="stroke-emerald-600" strokeWidth="1" fill="none"><line x1="106" y1="38" x2="106" y2="52" /><polyline points="103,42 106,38 109,42" /><polyline points="103,48 106,52 109,48" /></g>
+    <text x="110" y="48" fontSize="9" className="fill-emerald-700 font-bold" fontFamily="monospace">δ_max</text>
+  </svg>
+);
+const SvgSimpleUDLV2 = () => (
+  <svg viewBox="0 0 200 90" className="w-full h-full">
+    <line x1="14" y1="38" x2="186" y2="38" className="stroke-foreground/30" strokeDasharray="3 2" strokeWidth="1.2" />
+    <path d="M 14 38 Q 100 56 186 38" fill="none" className="stroke-accent" strokeWidth="3" />
+    <polygon points="14,38 6,52 22,52" className={`fill-foreground/30 ${stroke}`} strokeWidth="1"/>
+    <polygon points="186,38 178,52 194,52" className={`fill-foreground/30 ${stroke}`} strokeWidth="1"/>
+    {udl(22, 180)}
+    <text x="94" y="11" fontSize="12" className="fill-rose-500" fontFamily="monospace">w</text>
+    <g className="stroke-emerald-600" strokeWidth="1" fill="none"><line x1="106" y1="38" x2="106" y2="48" /></g>
+    <text x="110" y="48" fontSize="9" className="fill-emerald-700 font-bold" fontFamily="monospace">δ_max</text>
+  </svg>
+);
+const SvgFixedCenterV2 = () => (
+  <svg viewBox="0 0 200 90" className="w-full h-full">
+    {wallHatch(20)}{wallHatchR(180)}
+    <line x1="20" y1="38" x2="180" y2="38" className="stroke-foreground/30" strokeDasharray="3 2" strokeWidth="1.2" />
+    <path d="M 20 38 C 60 38 80 50 100 50 C 120 50 140 38 180 38" fill="none" className="stroke-accent" strokeWidth="3" />
+    <g className={force} strokeWidth="2.4" fill="none"><line x1="100" y1="14" x2="100" y2="34"/><polyline points="95,28 100,36 105,28"/></g>
+    <text x="92" y="11" fontSize="12" className="fill-rose-500" fontFamily="monospace">F</text>
+    <g className="stroke-emerald-600" strokeWidth="1" fill="none"><line x1="108" y1="38" x2="108" y2="50" /></g>
+    <text x="112" y="48" fontSize="9" className="fill-emerald-700 font-bold" fontFamily="monospace">δ_max</text>
+  </svg>
+);
+const SvgFixedUDLV2 = () => (
+  <svg viewBox="0 0 200 90" className="w-full h-full">
+    {wallHatch(20)}{wallHatchR(180)}
+    <line x1="20" y1="38" x2="180" y2="38" className="stroke-foreground/30" strokeDasharray="3 2" strokeWidth="1.2" />
+    <path d="M 20 38 C 60 38 80 46 100 46 C 120 46 140 38 180 38" fill="none" className="stroke-accent" strokeWidth="3" />
+    {udl(28, 180)}
+    <text x="94" y="11" fontSize="12" className="fill-rose-500" fontFamily="monospace">w</text>
+    <g className="stroke-emerald-600" strokeWidth="1" fill="none"><line x1="106" y1="38" x2="106" y2="46" /></g>
+    <text x="110" y="46" fontSize="9" className="fill-emerald-700 font-bold" fontFamily="monospace">δ_max</text>
+  </svg>
+);
+
+/* ─────────────────────────────────────────────────────────────────────────────
  * 메인 페이지
  * ────────────────────────────────────────────────────────────────────────── */
 
@@ -488,12 +1003,23 @@ export default function Guide() {
           prereq={<>고등학교 물리의 힘·면적·압력 개념(P = F/A)을 알면 충분합니다.</>}
         >
           <p className="leading-relaxed text-foreground/90">
-            재료 데이터베이스에는 <F>MPa</F>, <F>GPa</F>, <F>%</F> 같은 숫자가 잔뜩 있습니다. 각 물성이 무엇을 뜻하는지 <b>먼저 감을 잡고</b> 시작합시다. 아래 카드는 “직관 → 언제 보나 → 일반 범위” 순서로 보여줍니다.
+            재료 데이터베이스에는 <F>MPa</F>, <F>GPa</F>, <F>%</F> 같은 숫자가 잔뜩 있습니다. 각 물성이 무엇을 뜻하는지 <b>먼저 감을 잡고</b> 시작합시다.
           </p>
+
+          {/* 핵심 도식: 응력-변형률 곡선 — 한 그림으로 σy/UTS/연신율/E 모두 보기 */}
+          <div className="rounded-lg border border-border bg-card p-3 my-4">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📊 핵심 그림 — 응력-변형률 곡선 한 장</p>
+            <div className="h-[180px]"><SvgStressStrain /></div>
+            <p className="text-[12px] text-muted-foreground mt-2 leading-relaxed">
+              인장 시험으로 얻는 이 한 곡선에 <span className="text-emerald-600 font-bold">σy</span>·<span className="text-violet-600 font-bold">UTS</span>·<span className="text-sky-600 font-bold">연신율</span>·<span className="text-amber-600 font-bold">E(탄성 영역의 기울기)</span>가 모두 들어 있습니다. 아래 카드들은 각각의 의미와 일반 범위를 따로 풉니다.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
             <PropCard
               name="항복강도 σy"
               unit="MPa"
+              icon={<IconYield />}
               intuition="이 응력을 넘으면 영구 변형(소성). 클립을 살짝 구부리면 다시 펴지지만(탄성), 세게 구부리면 안 돌아오죠(소성) — 그 경계점."
               useFor="‘하중을 받아도 변형되면 안 된다’는 가장 흔한 강도 기준."
               range="알루미늄 100~500 · 강 250~1500 · 티타늄 800~1100 · 폴리머 30~100"
@@ -501,6 +1027,7 @@ export default function Guide() {
             <PropCard
               name="인장강도 UTS"
               unit="MPa"
+              icon={<IconUTS />}
               intuition="끊어지기 직전 최대 응력. σy가 ‘변하기 시작’ 이라면 UTS는 ‘파단 직전’."
               useFor="파단 안전여유 확인, 취성 재료 평가, 안전계수 산정."
               range="보통 σy의 1.1~1.5배"
@@ -508,6 +1035,7 @@ export default function Guide() {
             <PropCard
               name="연신율"
               unit="%"
+              icon={<IconElongation />}
               intuition="끊어질 때까지 늘어난 비율 = 연성. 낮으면 취성(갑자기 깨짐). 알루미늄 캔이 잘 찌그러지는 건 연성 덕분."
               useFor="충격 흡수, 성형/굽힘, 취성 파괴 회피."
               range="취성 세라믹 < 1 · 일반 금속 8~30 · 폴리머 50~500"
@@ -515,6 +1043,7 @@ export default function Guide() {
             <PropCard
               name="탄성계수 E"
               unit="GPa"
+              icon={<IconE />}
               intuition="‘뻣뻣함(강성)’. 같은 하중에서 얼마나 적게 휘는가. 고무는 작고, 강철은 크다."
               useFor="처짐 제한, 진동·고유진동수, 정밀도."
               range="고무 0.01 · 폴리머 1~5 · 알루미늄 70 · 티타늄 115 · 강 200 · 텅스텐 410"
@@ -522,6 +1051,7 @@ export default function Guide() {
             <PropCard
               name="경도 HV"
               unit="HV"
+              icon={<IconHardness />}
               intuition="국부 압입 저항. ‘긁힘·찍힘에 강한 정도’. 대략 마모·표면 강도의 지표."
               useFor="베어링/기어 표면, 마모 부품."
               range="알루미늄 30~150 · 강 150~700 · 공구강 700~"
@@ -529,6 +1059,7 @@ export default function Guide() {
             <PropCard
               name="피로강도"
               unit="MPa"
+              icon={<IconFatigue />}
               intuition="반복 하중(매번 같은 방향·반대 방향)에 견디는 응력 한계. 정적 강도보다 훨씬 낮음."
               useFor="회전·진동·반복 하중 부품 (샤프트·스프링·임펠러)."
               range="대략 UTS의 0.3~0.55. 알루미늄은 명확한 한도 없음(주의)"
@@ -536,6 +1067,7 @@ export default function Guide() {
             <PropCard
               name="밀도 ρ"
               unit="g/cm³"
+              icon={<IconDensity />}
               intuition="단위 부피당 무게. 경량화의 분모."
               useFor="‘비강도(σy/ρ)’ · ‘비강성(E/ρ)’ 같은 조합으로 경량화."
               range="폴리머 1~1.4 · 알루미늄 2.7 · 티타늄 4.5 · 강 7.8 · 텅스텐 19"
@@ -543,6 +1075,7 @@ export default function Guide() {
             <PropCard
               name="열팽창계수 CTE"
               unit="10⁻⁶/K"
+              icon={<IconCTE />}
               intuition="온도 1 °C 오르면 늘어나는 비율. 끼워맞춤·기차레일 틈·정밀 측정 등에서 결정적."
               useFor="열응력, 끼워맞춤, 치수 안정성. ‘끼워맞춤 부품의 가공이 어렵다’ 보통 CTE 미스매치."
               range="Invar 1.3 (정밀) · 강 12 · 알루미늄 23 · 폴리머 50~150"
@@ -550,6 +1083,7 @@ export default function Guide() {
             <PropCard
               name="열전도도 k"
               unit="W/m·K"
+              icon={<IconK />}
               intuition="열이 얼마나 잘 흐르는가. 구리는 빠르고, 폴리머는 거의 안 흐름."
               useFor="히트싱크, 금형, 단열재."
               range="단열 폴리머 0.2 · 강 50 · 알루미늄 240 · 구리 400"
@@ -557,6 +1091,7 @@ export default function Guide() {
             <PropCard
               name="최대사용온도"
               unit="°C"
+              icon={<IconMaxTemp />}
               intuition="장시간 사용 가능한 온도 상한. 잠깐은 더 견딜 수 있어도 ‘연속’ 사용은 여기까지."
               useFor="고온 부품(배기·터빈·열교환기)."
               range="폴리머 60~250 · 알루미늄 150 · 강 450 · Ni 초합금 800~1100"
@@ -661,6 +1196,15 @@ export default function Guide() {
             <F>I</F>는 “재료를 중립축에서 얼마나 멀리 두었는가”에 매우 민감합니다 (거리의 제곱·세제곱으로 들어감). 그래서 같은 단면적이면 <b>속을 비우고 멀리</b> 배치한 박스·관·I빔이 굽힘에 압도적으로 유리합니다. 건물 보·자전거 프레임·골프 채가 그렇죠.
           </Note>
 
+          {/* 핵심 도식: 굽힘 응력 분포 + 중립축 */}
+          <div className="rounded-lg border border-border bg-card p-3 my-4">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📊 핵심 그림 — 굽힘 응력 분포와 중립축</p>
+            <div className="h-[180px]"><SvgBendingStress /></div>
+            <p className="text-[12px] text-muted-foreground mt-2 leading-relaxed">
+              보가 굽혀지면 <span className="text-rose-500 font-bold">위는 압축</span>, <span className="text-sky-500 font-bold">아래는 인장</span>이 됩니다. 중간 어딘가는 응력이 0(<b>중립축</b>). 응력은 중립축에서 거리(<F>c</F>)에 비례해 선형 증가 → 같은 모멘트 <F>M</F>이어도 <F>I</F>가 크면 σ가 작아집니다.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
             <ShapeCard
               svg={<SvgRect />}
@@ -754,7 +1298,7 @@ export default function Guide() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
             <LoadCard
-              svg={<SvgCantilever />}
+              svg={<SvgCantileverV2 />}
               name="외팔보 · 끝단 집중하중"
               deflection="F·L³ / (3·E·I)"
               moment="F·L (근원에서 최대)"
@@ -762,28 +1306,28 @@ export default function Guide() {
               hint="처짐 계수가 1/3 — 모든 케이스 중 가장 크게 휨"
             />
             <LoadCard
-              svg={<SvgCantileverUDL />}
+              svg={<SvgCantileverUDLV2 />}
               name="외팔보 · 등분포하중 w"
               deflection="w·L⁴ / (8·E·I)"
               moment="w·L² / 2"
               common="천장에서 자중 받는 캔틸레버, 비행기 날개(근사)."
             />
             <LoadCard
-              svg={<SvgSimpleCenter />}
+              svg={<SvgSimpleCenterV2 />}
               name="단순지지 · 중앙 집중하중"
               deflection="F·L³ / (48·E·I)"
               moment="F·L / 4"
               common="가장 흔한 시험·교과서 케이스. 두 지점 올려놓은 막대 위 한 점."
             />
             <LoadCard
-              svg={<SvgSimpleUDL />}
+              svg={<SvgSimpleUDLV2 />}
               name="단순지지 · 등분포하중 w"
               deflection="5·w·L⁴ / (384·E·I)"
               moment="w·L² / 8"
               common="자기 무게로 휘는 보, 균등 하중 책장 선반."
             />
             <LoadCard
-              svg={<SvgFixedCenter />}
+              svg={<SvgFixedCenterV2 />}
               name="양단 고정 · 중앙 집중하중"
               deflection="F·L³ / (192·E·I)"
               moment="F·L / 8 (단부 최대)"
@@ -791,7 +1335,7 @@ export default function Guide() {
               hint="처짐이 단순지지의 1/4 — 고정조건이 매우 강력"
             />
             <LoadCard
-              svg={<SvgFixedUDL />}
+              svg={<SvgFixedUDLV2 />}
               name="양단 고정 · 등분포하중 w"
               deflection="w·L⁴ / (384·E·I)"
               moment="w·L² / 12 (단부)"
@@ -827,6 +1371,7 @@ export default function Guide() {
         >
           <H3>5.1 비틀림 (원형축)</H3>
           <p className="leading-relaxed">토크 <F>T</F> 가 원형 축에 작용할 때 전단응력은 표면(<F>c = D/2</F>)에서 최대입니다.</p>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[160px]"><SvgTorsion /></div>
           <ul className="list-disc pl-6 mt-1 space-y-1 text-sm leading-relaxed">
             <li>최대 전단응력: <F>τ_max = T·c / J</F> &nbsp;(원형축은 <F>J = π·D⁴/32</F>)</li>
             <li>비틀림각: <F>φ = T·L / (G·J)</F> &nbsp;(<F>G = E / [2(1+ν)]</F>, 금속은 <F>G ≈ 0.38·E</F>)</li>
@@ -857,15 +1402,18 @@ export default function Guide() {
           <p className="text-sm leading-relaxed">굽힘과 비틀림이 동시에 작용하는 회전축처럼, 축응력 <F>σ_x</F> 와 전단응력 <F>τ</F> 가 같이 있을 때는 등가응력을 σy 와 비교합니다.</p>
           <p className="font-mono text-sm mt-1 bg-muted/40 inline-block px-2 py-1 rounded">σ_eq = √(σ_x² + 3·τ²) ≤ σy / SF</p>
           <p className="text-[12px] mt-1 text-muted-foreground">일반 3축 응력: <F>σ_eq = √[½((σ₁−σ₂)² + (σ₂−σ₃)² + (σ₃−σ₁)²)]</F></p>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[180px]"><SvgMohr /></div>
+          <p className="text-[12px] text-muted-foreground">응력 요소(좌)의 σ_x·τ 가 작용할 때, 면의 회전에 따른 응력 변화를 <b>Mohr 원</b>(우)으로 시각화합니다. 원의 양 끝이 <b>주응력 σ₁, σ₂</b> 이고 정점이 <b>최대 전단 τ_max</b>.</p>
 
           <H3>5.4 얇은 압력 용기</H3>
           <p className="text-sm leading-relaxed">반경 <F>r</F>, 두께 <F>t</F>, 내압 <F>p</F> (<F>t ≪ r</F>):</p>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[160px]"><SvgPressureVessel /></div>
           <ul className="list-disc pl-6 mt-1 text-sm font-mono">
-            <li>원주(후프) σ_h = p·r / t</li>
+            <li>원주(후프) σ_h = p·r / t &nbsp;<span className="font-sans text-muted-foreground">— 후프 응력이 축응력의 2배</span></li>
             <li>축방향 σ_a = p·r / (2t)</li>
             <li>구형 용기 σ = p·r / (2t)</li>
           </ul>
-          <p className="text-sm mt-1 text-muted-foreground">필요 두께 <F>t ≥ p·r·SF / σy</F>. 코드(ASME 등)를 따르세요.</p>
+          <p className="text-sm mt-1 text-muted-foreground">필요 두께 <F>t ≥ p·r·SF / σy</F>. 코드(ASME 등)를 따르세요. <span className="text-foreground/80">압력 용기에 보통 세로로 갈라지는 이유는 후프 응력이 2배라서</span>.</p>
         </Chapter>
 
         {/* ── Chapter 6: Ashby 방법 ─────────────────────────────────────── */}
@@ -885,6 +1433,12 @@ export default function Guide() {
             <div className="rounded border border-border bg-card p-3 text-sm"><b>② 제약 (Constraints)</b><br/>반드시 만족할 조건 (σy ≥ X · 온도 ≥ Y · 공정 = LPBF…).</div>
             <div className="rounded border border-border bg-card p-3 text-sm"><b>③ 목적 (Objective)</b><br/>최대/최소화할 것 (무게 ↓ · 원가 ↓ · 강성 ↑).</div>
             <div className="rounded border border-border bg-card p-3 text-sm"><b>④ 자유변수 (Free)</b><br/>설계가 바꿀 수 있는 것 (단면적, 두께…) + 재료.</div>
+          </div>
+
+          {/* 핵심 도식: F-C-O-Free → M */}
+          <div className="rounded-lg border border-border bg-card p-3 my-4">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📊 핵심 그림 — 4요소를 모아 성능지수 M 도출</p>
+            <div className="h-[160px]"><SvgFCOF /></div>
           </div>
 
           <H3>성능지수(material index) — 왜 거듭제곱이 분수가 될까?</H3>
@@ -912,6 +1466,9 @@ export default function Guide() {
           </div>
 
           <H3>차트 활용 (이 앱과 1:1 매핑)</H3>
+          <p className="text-sm leading-relaxed">Ashby 차트는 보통 <b>로그-로그 축</b>에 두 물성을 그립니다. 한계선(필터)·외피(재료군 분포)·등지수선(성능지수 방향)을 함께 보면 좋은 후보가 어디에 모이는지 한눈에 잡힙니다.</p>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[220px]"><SvgAshbyChart /></div>
+          <p className="text-[12px] text-muted-foreground">위 그림은 ρ vs σy 샘플 — <span className="text-amber-600 font-semibold">한계선(노랑)</span> 위쪽이 σy 제약 통과, <span className="text-rose-500 font-semibold">등지수선(빨강)</span>을 위쪽으로 옮길수록 더 좋은 재료. 둘 다 만족하는 영역에 모인 재료가 최종 후보입니다.</p>
           <div className="overflow-x-auto mt-2">
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold">Ashby 개념</th><th className="p-2 font-semibold">이 앱에서</th></tr></thead>
