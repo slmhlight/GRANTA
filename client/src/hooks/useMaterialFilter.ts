@@ -31,6 +31,14 @@ export interface FilterState {
   poissonRatioRange: [number, number] | null;
   specificHeatRange: [number, number] | null;
   meltingPointRange: [number, number] | null;
+  /** R30 — 모든 numeric property 필터 일관성 차원 추가 항목. */
+  popularityRange: [number, number] | null;
+  fractureToughnessRange: [number, number] | null;
+  totalCostEstimateRange: [number, number] | null;
+  minWallThicknessRange: [number, number] | null;
+  surfaceFinishTypicalRange: [number, number] | null;
+  machiningCostFactorRange: [number, number] | null;
+  htCostFactorRange: [number, number] | null;
   corrosion: string[];
   machinability: string[];
   weldability: string[];
@@ -62,6 +70,13 @@ export const DEFAULT_FILTERS: FilterState = {
   poissonRatioRange: null,
   specificHeatRange: null,
   meltingPointRange: null,
+  popularityRange: null,
+  fractureToughnessRange: null,
+  totalCostEstimateRange: null,
+  minWallThicknessRange: null,
+  surfaceFinishTypicalRange: null,
+  machiningCostFactorRange: null,
+  htCostFactorRange: null,
   corrosion: [],
   machinability: [],
   weldability: [],
@@ -188,6 +203,14 @@ export function useMaterialFilter(materials: Material[]) {
       { range: filters.poissonRatioRange, key: 'poisson_ratio' },
       { range: filters.specificHeatRange, key: 'specific_heat' },
       { range: filters.meltingPointRange, key: 'melting_point' },
+      // R30 — 신규 numeric properties 필터 추가
+      { range: filters.popularityRange, key: 'popularity' },
+      { range: filters.fractureToughnessRange, key: 'fracture_toughness' as keyof Material },
+      { range: filters.totalCostEstimateRange, key: 'total_cost_estimate' as keyof Material },
+      { range: filters.minWallThicknessRange, key: 'min_wall_thickness' as keyof Material },
+      { range: filters.surfaceFinishTypicalRange, key: 'surface_finish_typical' as keyof Material },
+      { range: filters.machiningCostFactorRange, key: 'machining_cost_factor' as keyof Material },
+      { range: filters.htCostFactorRange, key: 'ht_cost_factor' as keyof Material },
     ];
 
     for (const { range, key } of rangeFilters) {
@@ -250,6 +273,13 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.poissonRatioRange) count++;
     if (filters.specificHeatRange) count++;
     if (filters.meltingPointRange) count++;
+    if (filters.popularityRange) count++;
+    if (filters.fractureToughnessRange) count++;
+    if (filters.totalCostEstimateRange) count++;
+    if (filters.minWallThicknessRange) count++;
+    if (filters.surfaceFinishTypicalRange) count++;
+    if (filters.machiningCostFactorRange) count++;
+    if (filters.htCostFactorRange) count++;
     if (filters.corrosion.length > 0) count++;
     if (filters.machinability.length > 0) count++;
     if (filters.weldability.length > 0) count++;

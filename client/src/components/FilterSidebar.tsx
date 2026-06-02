@@ -445,6 +445,14 @@ export default function FilterSidebar({
   const poissonRatioRange = useMemo(() => getPropertyRange(materials, 'poisson_ratio'), [materials]);
   const specificHeatRange = useMemo(() => getPropertyRange(materials, 'specific_heat'), [materials]);
   const meltingPointRange = useMemo(() => getPropertyRange(materials, 'melting_point'), [materials]);
+  // R30 — 신규 numeric 필드 range (popularity / fracture / cost / process attrs).
+  const popularityRange = useMemo(() => getPropertyRange(materials, 'popularity'), [materials]);
+  const fractureToughnessRange = useMemo(() => getPropertyRange(materials, 'fracture_toughness' as keyof Material), [materials]);
+  const totalCostEstimateRange = useMemo(() => getPropertyRange(materials, 'total_cost_estimate' as keyof Material), [materials]);
+  const minWallThicknessRange = useMemo(() => getPropertyRange(materials, 'min_wall_thickness' as keyof Material), [materials]);
+  const surfaceFinishTypicalRange = useMemo(() => getPropertyRange(materials, 'surface_finish_typical' as keyof Material), [materials]);
+  const machiningCostFactorRange = useMemo(() => getPropertyRange(materials, 'machining_cost_factor' as keyof Material), [materials]);
+  const htCostFactorRange = useMemo(() => getPropertyRange(materials, 'ht_cost_factor' as keyof Material), [materials]);
   const corrosionOpts = useMemo(() => orderQual(getUniqueValues(materials, 'corrosion_resistance')), [materials]);
   const machinabilityOpts = useMemo(() => orderQual(getUniqueValues(materials, 'machinability')), [materials]);
   const weldabilityOpts = useMemo(() => orderQual(getUniqueValues(materials, 'weldability')), [materials]);
@@ -582,6 +590,28 @@ export default function FilterSidebar({
         )}
         {poissonRatioRange && (
           <RangeSlider label="Poisson's Ratio" unit="–" min={poissonRatioRange[0]} max={poissonRatioRange[1]} value={filters.poissonRatioRange} onChange={v => updateFilter('poissonRatioRange', v)} />
+        )}
+        {/* R30 — 누락된 numeric 필드 7 개 추가 노출. 데이터 없는 필드는 자동 hide. */}
+        {fractureToughnessRange && (
+          <RangeSlider label="Fracture Toughness" unit="MPa·√m" min={fractureToughnessRange[0]} max={fractureToughnessRange[1]} value={filters.fractureToughnessRange} onChange={v => updateFilter('fractureToughnessRange', v)} />
+        )}
+        {totalCostEstimateRange && (
+          <RangeSlider label="Total Cost (est.)" unit="USD/kg" min={totalCostEstimateRange[0]} max={totalCostEstimateRange[1]} value={filters.totalCostEstimateRange} onChange={v => updateFilter('totalCostEstimateRange', v)} />
+        )}
+        {machiningCostFactorRange && (
+          <RangeSlider label="Machining factor" unit="×" min={machiningCostFactorRange[0]} max={machiningCostFactorRange[1]} value={filters.machiningCostFactorRange} onChange={v => updateFilter('machiningCostFactorRange', v)} />
+        )}
+        {htCostFactorRange && (
+          <RangeSlider label="HT factor" unit="×" min={htCostFactorRange[0]} max={htCostFactorRange[1]} value={filters.htCostFactorRange} onChange={v => updateFilter('htCostFactorRange', v)} />
+        )}
+        {minWallThicknessRange && (
+          <RangeSlider label="Min wall" unit="mm" min={minWallThicknessRange[0]} max={minWallThicknessRange[1]} value={filters.minWallThicknessRange} onChange={v => updateFilter('minWallThicknessRange', v)} />
+        )}
+        {surfaceFinishTypicalRange && (
+          <RangeSlider label="Surface Ra" unit="μm" min={surfaceFinishTypicalRange[0]} max={surfaceFinishTypicalRange[1]} value={filters.surfaceFinishTypicalRange} onChange={v => updateFilter('surfaceFinishTypicalRange', v)} />
+        )}
+        {popularityRange && (
+          <RangeSlider label="Popularity" unit="0–5" min={popularityRange[0]} max={popularityRange[1]} value={filters.popularityRange} onChange={v => updateFilter('popularityRange', v)} />
         )}
         <QualitativeFilter label="Corrosion resistance" options={corrosionOpts} selected={filters.corrosion} onChange={v => updateFilter('corrosion', v)} />
         <QualitativeFilter label="Machinability" options={machinabilityOpts} selected={filters.machinability} onChange={v => updateFilter('machinability', v)} />

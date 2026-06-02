@@ -352,9 +352,58 @@ export default function Guide() {
                 <tr><td className="p-2">재료군 분포</td><td className="p-2"><b>Envelopes</b>(category/family/sub) 토글</td></tr>
                 <tr><td className="p-2">후보 추리기</td><td className="p-2"><b>박스 선택</b> → Add all → Compare / → Filter</td></tr>
                 <tr><td className="p-2">비교·검증</td><td className="p-2"><b>Compare</b> · 상세 팝업 · 출처 링크 · CSV</td></tr>
+                <tr><td className="p-2"><b>Pareto frontier</b> (다목적 외곽선)</td><td className="p-2">상단 <b>Pareto</b> 체크박스 → 골드 별표 + 라인</td></tr>
               </tbody>
             </table>
           </div>
+
+          {/* R30 — Pareto frontier 섹션 신규 */}
+          <H3>Pareto Frontier — 다목적 trade-off 외곽선</H3>
+          <Note tone="why" title="언제 쓰나요?">
+            "<b>무게는 가볍게 (ρ ↓) + 강도는 높게 (σy ↑)</b>" 같이 <b>두 목적이 충돌하는</b> 상황.
+            성능지수 M 하나로 줄세우면 한 축만 보지만, Pareto frontier 는 두 목적 모두 더 좋게 만들 수 있는 점이 <b>존재하지 않는</b> 재료들만 골라 외곽선을 그립니다.
+          </Note>
+
+          <p className="text-sm leading-relaxed mt-3">
+            <b>정의:</b> 어떤 후보 A 가 있을 때, "A 보다 ρ 가 작으면서 σy 가 같거나 크다" 거나 "ρ 가 같거나 작은데 σy 가 크다" 는 후보 B 가 <b>없으면</b> A 는 <b>Pareto 최적</b>. 모든 Pareto 최적 점을 연결한 곡선이 Pareto frontier 입니다.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+            <div className="rounded border border-amber-400/40 bg-amber-50/60 p-3">
+              <p className="font-semibold text-amber-800 mb-1">⭐ Frontier 위 재료의 의미</p>
+              <p className="text-sm leading-relaxed">"<b>두 목적 모두 동시에</b> 이 합금보다 더 좋게 만족하는 다른 후보가 <b>현재 풀에</b> 없다." → 후보로 남길 만함.</p>
+            </div>
+            <div className="rounded border border-border bg-card p-3">
+              <p className="font-semibold text-foreground mb-1">🔍 자동 방향 매핑</p>
+              <p className="text-sm leading-relaxed">앱이 X·Y 축 물성에 따라 <b>max/min 방향을 자동 결정</b>. 예: density·price·CTE 는 <b>min</b>, σy·E·HV·k·T_max 는 <b>max</b>. 토글 옆에 'X↑ Y↑' 형식으로 표시.</p>
+            </div>
+          </div>
+
+          <div className="rounded-lg border border-border bg-card p-3 my-3">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">사용 흐름</p>
+            <ol className="list-decimal pl-5 text-sm space-y-1 leading-relaxed">
+              <li>차트 X / Y 축 선택 (예: X=density, Y=yield_strength)</li>
+              <li>좌측 필터로 후보 풀 좁히기 (예: Metal·LPBF·sy ≥ 200)</li>
+              <li>상단 <b>"Pareto"</b> 체크박스 ON → 골드 별표 + 라인 등장 ("N pts · X↓ Y↑" 정보 표시)</li>
+              <li>Frontier 위 별표 클릭 → 상세 popup → Compare 추가</li>
+            </ol>
+          </div>
+
+          <Note tone="tip" title="Index 와의 차이">
+            <ul className="list-disc pl-5 space-y-1">
+              <li><b>Index (M = σy/ρ 등)</b>: 하나의 성능지수 임계값(M ≥ X) 으로 잘라 후보를 가른다. 두 목적의 trade-off 를 <b>일직선</b>으로 가정.</li>
+              <li><b>Pareto</b>: trade-off 가 <b>곡선</b> 일 때도 작동. 두 목적의 가중치가 명확하지 않을 때 유용 — frontier 위 후보를 모두 추리고 가공성·비용 등 다른 기준으로 최종 선택.</li>
+              <li>둘 다 켜면: Index 통과 + Pareto 위 = <b>가장 강한 후보</b>.</li>
+            </ul>
+          </Note>
+
+          <Note tone="warn" title="주의 사항">
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Pareto frontier 는 <b>현재 필터 통과 풀 안에서만</b> 계산. 풀을 좁히면 frontier 도 다시 그려짐.</li>
+              <li>방향이 자동 매핑되지만 <b>특수 응용</b> (예: 의료 임플란트 modulus 는 너무 높지 않아야 함) 에서는 의미가 달라질 수 있음 — 사용자가 판단.</li>
+              <li>Frontier 위 재료라도 가공성·내식·환경 규제 (RoHS) 까지 자동 반영 안 됨 — Compare 패널로 추가 검증.</li>
+            </ul>
+          </Note>
         </Chapter>
 
         {/* ── Chapter 3 (구 1): 물성 사전 ─────────────────────────────── */}
