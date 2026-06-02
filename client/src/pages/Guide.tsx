@@ -31,13 +31,38 @@ function H({ id, icon: Icon, children }: { id: string; icon?: any; children: Rea
   );
 }
 
+/** 사례별 예시 시나리오 카드 (상황 → 요구를 숫자로 → 이 앱에서 → 유력 재료군) */
+function Scenario({ n, title, situation, needs, steps, families }: {
+  n: number;
+  title: React.ReactNode;
+  situation: React.ReactNode;
+  needs: React.ReactNode;
+  steps: React.ReactNode[];
+  families: React.ReactNode;
+}) {
+  const Label = ({ children }: { children: React.ReactNode }) => (
+    <span className="text-[11px] font-semibold uppercase tracking-wide text-accent/80">{children}</span>
+  );
+  return (
+    <div className="rounded-lg border border-border bg-card p-4 my-4">
+      <p className="font-semibold text-foreground"><span className="text-accent">사례 {n}.</span> {title}</p>
+      <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{situation}</p>
+      <div className="mt-3 space-y-2 text-sm leading-relaxed">
+        <div><Label>요구 → 숫자</Label><div className="mt-0.5">{needs}</div></div>
+        <div><Label>이 앱에서</Label><ol className="list-decimal pl-5 space-y-0.5 mt-0.5">{steps.map((s, i) => <li key={i}>{s}</li>)}</ol></div>
+        <div><Label>유력 재료군</Label> <span>{families}</span></div>
+      </div>
+    </div>
+  );
+}
+
 const TOC: { id: string; label: string }[] = [
   { id: 'intro', label: '0. 이 가이드를 읽는 이유' },
   { id: 'glossary', label: '1. 물성 용어 — 설계 언어로' },
   { id: 'translate', label: '2. 설계 요구 → 물성 수치 변환' },
   { id: 'method', label: '3. Ashby 재료 선택법' },
   { id: 'chart', label: '4. Ashby 차트 읽기 & 이 앱 사용법' },
-  { id: 'workflow', label: '5. 실전 워크플로우 예제' },
+  { id: 'workflow', label: '5. 사례별 예시 시나리오' },
   { id: 'caveats', label: '6. 데이터 해석 시 주의' },
   { id: 'refs', label: '참고문헌' },
 ];
@@ -254,18 +279,114 @@ export default function Guide() {
           </table>
         </div>
 
-        {/* 5. 워크플로우 */}
-        <H id="workflow" icon={LineChart}>5. 실전 워크플로우 예제</H>
-        <p className="leading-relaxed font-medium">목표: “가능한 한 가벼운, 충분히 강하고 뻣뻣한 LPBF 출력 브래킷.”</p>
-        <ol className="list-decimal pl-6 mt-2 space-y-1.5 leading-relaxed">
-          <li><b>요구→숫자.</b> 2부 방식으로 계산: 예) <F>σy ≥ 300&nbsp;MPa</F>, <F>E ≥ 100&nbsp;GPa</F>.</li>
-          <li><b>제약 걸기.</b> 좌측 필터에서 Yield ≥ 300, Modulus ≥ 100, <b>Process = LPBF</b> 선택.</li>
-          <li><b>목적 = 경량.</b> 상단 <b>Index</b>에서 “경량 강성 보 <F>E^½/ρ</F>” 선택. 보 형상이면 이 지수가 맞습니다.</li>
-          <li><b>다목적.</b> <b>+ constraint</b>로 “경량 강도 <F>σy^⅔/ρ</F>”도 추가 → 둘 다 상위인 재료만 남김.</li>
-          <li><b>M 올리기.</b> M 임계 슬라이더를 올려 통과(<F>N/총</F>)를 5~10개로 좁힘.</li>
-          <li><b>Compare.</b> Add all → Compare. 무게·강도·가격·연신율을 막대로 비교, 정렬.</li>
-          <li><b>검증.</b> 후보 이름 클릭 → 상세 팝업에서 범위(min–max)·<F>est.</F> 여부·온도-강도·<b>출처 데이터시트</b> 확인. 컬렉션 저장/공유.</li>
-        </ol>
+        {/* 5. 사례별 예시 시나리오 */}
+        <H id="workflow" icon={LineChart}>5. 사례별 예시 시나리오</H>
+        <p className="leading-relaxed">
+          자기 상황과 가장 가까운 사례를 찾아 그대로 따라 해 보세요.
+          <span className="text-muted-foreground"> 수치는 방법을 보여주는 예시이고, “유력 재료군”은 일반적 경향입니다 — 최종 선택은 항상 데이터·데이터시트로 검증하세요.</span>
+        </p>
+
+        <Scenario
+          n={1}
+          title="경량 고강성 구조 브래킷 (드론·항공, LPBF 출력)"
+          situation="진동·하중을 받는 마운트를 가능한 한 가볍게, 충분히 강하고 덜 휘게. 금속 적층제조로 출력."
+          needs={<>하중·처짐 분석(2부) 결과 예: <F>σy ≥ 300&nbsp;MPa</F>, <F>E ≥ 90&nbsp;GPa</F>, 무게 최소.</>}
+          steps={[
+            <>좌측 필터: <b>Yield ≥ 300</b>, <b>Modulus ≥ 90</b>, <b>Process = LPBF</b>.</>,
+            <>상단 <b>Index = 경량 강성 보 <F>E^½/ρ</F></b> 선택(보 형상). <b>+ constraint</b>로 <F>σy^⅔/ρ</F> 추가.</>,
+            <><b>M 임계</b>를 올려 통과를 5~10개로 좁힘 → <b>Add all → Compare</b> → 무게·강도·가격 비교.</>,
+          ]}
+          families={<>고강도 알루미늄(예: Scalmalloy·AlSi10Mg), 티타늄(Ti-6Al-4V), 마그네슘 합금.</>}
+        />
+
+        <Scenario
+          n={2}
+          title="고온 부품 (배기 매니폴드 · 터빈 디스크)"
+          situation="700 °C 부근에서 연속 사용, 반복 가열·산화."
+          needs={<>최대사용온도 <F>≥ 700&nbsp;°C</F>, 그리고 <b>그 온도에서의</b> <F>σy</F>가 충분(상온값이 아님). 내산화.</>}
+          steps={[
+            <>필터: <b>Max Service Temp ≥ 700</b>.</>,
+            <>후보 상세 팝업의 <b>온도-강도 곡선</b>으로 700 °C 부근 σy/UTS 비교 · <b>Compare</b>에 여러 후보 곡선 오버레이.</>,
+            <>내식성(정성) 등급도 확인.</>,
+          ]}
+          families={<>니켈 초합금(Inconel 718/625, Haynes 230), 코발트 합금. 중온(≤540 °C)은 티타늄 Ti-6242.</>}
+        />
+
+        <Scenario
+          n={3}
+          title="회전·진동 부품 (샤프트 · 임펠러)"
+          situation="반복 응력을 오래 견뎌야 하는 부품. 정적 강도만으로는 부족."
+          needs={<>응력진폭 예 <F>150&nbsp;MPa</F>, <F>SF = 1.5</F> → <b>피로강도</b> <F>≥ 225&nbsp;MPa</F>.</>}
+          steps={[
+            <>필터: <b>Fatigue Strength ≥ 225</b> (값에 <F>est.</F>가 붙었는지 상세에서 확인).</>,
+            <><b>Compare</b>로 피로강도·연신율·강도 함께 비교.</>,
+          ]}
+          families={<>티타늄(높은 피로/강도비), 고강도강(예: 4340), 일부 니켈합금. <span className="text-muted-foreground">알루미늄은 뚜렷한 내구한도가 없어 주의.</span></>}
+        />
+
+        <Scenario
+          n={4}
+          title="정밀 계측·광학 마운트 (치수 안정성)"
+          situation="온도가 변해도 치수가 거의 변하면 안 되는 부품."
+          needs={<>열변형 <F>ΔL = L·CTE·ΔT</F>에서 역산 → 매우 낮은 <b>CTE</b>(예 <F>≤ 3×10⁻⁶/K</F>), 충분한 <F>E</F>.</>}
+          steps={[
+            <>필터: <b>Thermal Expansion (CTE) 상한 ≤ 3</b>, 필요시 Modulus 하한.</>,
+            <><b>Compare</b>로 CTE·E·밀도 비교.</>,
+          ]}
+          families={<>Invar(Fe-Ni36, CTE≈1.3), Kovar, 일부 세라믹·복합재.</>}
+        />
+
+        <Scenario
+          n={5}
+          title="해양·화학 환경 부품"
+          situation="염수·약품에 노출되며 하중도 받는 부품."
+          needs={<>환경에 맞는 <b>내식성</b> 등급 + 강도 <F>σy ≥</F> 요구값.</>}
+          steps={[
+            <>필터: <b>Corrosion resistance = Excellent/Good</b> + <b>Yield</b> 하한.</>,
+            <>정량 부식(부식속도·PREN 등)은 앱에 없으므로 <b>데이터시트</b>로 최종 확인.</>,
+          ]}
+          families={<>스테인리스(316L, 듀플렉스 2205), 티타늄, 니켈합금(Inconel 625).</>}
+        />
+
+        <Scenario
+          n={6}
+          title="저원가 대량 생산 부품"
+          situation="성능 요구는 평범하고 단가가 최우선."
+          needs={<>필요 강도 <F>σy</F>를 만족하면서 <b>kg당 가격 최소</b>.</>}
+          steps={[
+            <>필터: <b>Yield</b> 하한으로 “쓸 수 있는” 재료만 남김.</>,
+            <>상단 <b>Index = 저원가 강도 <F>σy/Cm</F></b>로 정렬 · <b>Compare</b>에 <b>Price</b> 열 추가.</>,
+          ]}
+          families={<>탄소강·저합금강, 일반 알루미늄(6061), 일부 폴리머.</>}
+        />
+
+        <Scenario
+          n={7}
+          title="스프링 · 스냅핏 · 탄성 힌지"
+          situation="큰 탄성 변형으로 에너지를 저장·복원하되 영구변형은 없어야."
+          needs={<>단위부피당 탄성에너지 지표 <F>σy²/E</F> 최대 + 충분한 연신율.</>}
+          steps={[
+            <>상단 <b>Index = 탄성 스프링/힌지 <F>σy²/E</F></b> 선택.</>,
+            <><b>Compare</b>로 σy·E·연신율 비교.</>,
+          ]}
+          families={<>스프링강, 베릴륨동(BeCu), 티타늄, 일부 니켈합금.</>}
+        />
+
+        <Scenario
+          n={8}
+          title="방열 부품 (히트싱크 · 콜드플레이트)"
+          situation="열을 빠르게 퍼뜨려야 하고, 가벼우면 더 좋음."
+          needs={<>높은 <b>열전도도 k</b>; 경량 방열이면 <F>k/ρ</F> 최대.</>}
+          steps={[
+            <>필터: <b>Thermal Conductivity</b> 하한. 경량까지 필요하면 상단 <b>Index = 경량 방열 <F>k/ρ</F></b>.</>,
+            <><b>Compare</b>로 k·밀도·가격 비교.</>,
+          ]}
+          families={<>구리(최고 k), 알루미늄(경량 방열 <F>k/ρ</F> 우수), AlSi 합금.</>}
+        />
+
+        <Note tone="tip">
+          공통 마무리: 후보를 좁혔으면 <b>Compare</b>에서 이름을 클릭해 차트에 위치를 확인하고, <b>상세 팝업</b>에서 범위(min–max)·<F>est.</F> 여부·온도-강도·<b>출처 데이터시트</b>를 검증한 뒤 컬렉션으로 저장/공유하세요.
+        </Note>
 
         {/* 6. 주의 */}
         <H id="caveats" icon={AlertTriangle}>6. 데이터 해석 시 주의</H>
