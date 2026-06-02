@@ -66,6 +66,21 @@ export default function Home() {
   const search = useSearch();
 
   const [viewMode, setViewMode] = useState<ViewMode>('table');
+  /** 모바일에서 Table 뷰는 8 컬럼 × 75px = 600px 라 가로 스크롤 필수 — 첫 진입 1 회 Cards 뷰 권장 알림.
+   *  localStorage 플래그로 중복 방지. */
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 640px)').matches;
+    if (!isMobile || viewMode !== 'table') return;
+    if (localStorage.getItem('am_cards_hint_shown')) return;
+    import('sonner').then(({ toast }) => {
+      toast('모바일에서는 Cards 뷰가 보기 편함', {
+        description: '가로 스크롤 없이 한 줄씩 — 하단 바의 뷰 토글로 전환.',
+        duration: 6000,
+        action: { label: 'Cards 로 전환', onClick: () => setViewMode('cards') },
+      });
+    });
+    localStorage.setItem('am_cards_hint_shown', '1');
+  }, [viewMode]);
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
   const [compareList, setCompareList] = useState<string[]>([]);
   const [restrictIds, setRestrictIds] = useState<string[] | null>(null);
@@ -657,21 +672,23 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Mobile sidebar overlay */}
+        {/* Mobile sidebar overlay — w-72 → w-64 로 좁혀 우측 dismiss 영역 확보 (375 vw 에서 256/119 px). */}
         {mobileSidebarOpen && (
-          <div className="md:hidden fixed inset-0 z-30 flex">
-            <div className="w-72 flex-shrink-0">
-            <FilterSidebar
-              materials={materials}
-              filters={filters}
-              updateFilter={updateFilter}
-              resetFilters={resetFilters}
-              activeFilterCount={activeFilterCount}
-              resultCount={filtered.length}
-              onSelectMaterial={handleSelectMaterial}
-            />
+          <div className="md:hidden fixed inset-0 z-40 flex">
+            <div className="w-64 flex-shrink-0 shadow-2xl">
+              <FilterSidebar
+                materials={materials}
+                filters={filters}
+                updateFilter={updateFilter}
+                resetFilters={resetFilters}
+                activeFilterCount={activeFilterCount}
+                resultCount={filtered.length}
+                onSelectMaterial={handleSelectMaterial}
+              />
             </div>
-            <div
+            <button
+              type="button"
+              aria-label="필터 닫기"
               className="flex-1 bg-black/40 backdrop-blur-sm"
               onClick={() => setMobileSidebarOpen(false)}
             />
@@ -917,9 +934,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ─── Right Compare Panel (resizable) ─── */}
+        {/* ─── Right Compare Panel (resizable) ─── 모바일에서 z-50 으로 bottom bar(z-30) 위. */}
         {showCompare && (
-          <div className="fixed inset-0 z-40 md:relative md:z-auto md:inset-auto flex-shrink-0 w-full overflow-hidden md:border-l border-border bg-background" style={{ width: isDesktop ? panelWidth : undefined }}>
+          <div className="fixed inset-0 z-50 md:relative md:z-auto md:inset-auto flex-shrink-0 w-full overflow-hidden md:border-l border-border bg-background" style={{ width: isDesktop ? panelWidth : undefined }}>
             {/* drag handle (desktop): drag to resize, double-click to reset */}
             <div
               onPointerDown={startPanelResize}
