@@ -675,7 +675,9 @@ const generic = nonCurated.filter(m => m.tier === 'generic');
 // supplementary reference materials (web/handbook-verified ranges) — broadens coverage
 const supRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'supplementary-materials.json'), 'utf8')).materials) || [];
 const supplementary = supRaw
-  .filter((s) => !curatedAlias.has(norm(alloyOf(s.name))) && !curatedAlias.has(norm(baseName(s.name)))) // curated wins over reference
+  // curated wins over reference ONLY when both target the same (AM) process. Wrought/Cast/Injection-Molded
+  // counterparts are kept even when the alloy name matches a curated AM entry — that's the whole point.
+  .filter((s) => AM_PROC.has(s.process) ? !(curatedAlias.has(norm(alloyOf(s.name))) || curatedAlias.has(norm(baseName(s.name)))) : true)
   .map((s, idx) => {
   const ranges = {};
   for (const p of NUM_PROPS) ranges[p] = null;
@@ -746,6 +748,40 @@ for (const m of all) {
     setTyp('price_per_kg', ph.price);
     if (m.density) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4));
   }
+  // 인기도 (0–5) — 산업 사용 빈도 휴리스틱. 표준 합금 이름에 매칭하는 명시적 규칙.
+  m.popularity = popularityFor(m);
+}
+
+// 잘 알려진 표준 합금(가전·자동차·항공·산업에 광범위) → 높은 점수.
+// AM 전용·실험적 합금 → 낮음. 명확한 규칙 기반이라 데이터 무결성 원칙에 부합.
+function popularityFor(m) {
+  const n = String(m.name || '').toLowerCase();
+  const has = (re) => re.test(n);
+  const cat = m.category;
+  // tier 5: 학생도 들어본 표준 합금
+  if (cat === 'Metal') {
+    if (has(/ti[\s-]?6al[\s-]?4v|ti-6-4|gr ?5\b/) || has(/alsi10mg/) || has(/\b316l?\b/) || has(/17[\s-]?4 ?ph/) || has(/inconel 718|in[\s-]?718/) || has(/\b6061\b/) || has(/\ba356\b/) || has(/\b4340\b/) || has(/\bh13\b/)) return 5;
+  }
+  if (cat === 'Polymer' && (has(/\babs\b/) || has(/pa[\s-]?12|nylon 12/) || has(/polycarbonate|\bpc\b(?!-)/) || has(/\bpla\b/))) return 5;
+  // tier 4: 매우 흔함
+  if (cat === 'Metal') {
+    if (has(/inconel 625|in[\s-]?625/) || has(/alsi7mg|\ba357\b/) || has(/\b304l?\b/) || has(/15[\s-]?5 ?ph/) || has(/\b7075\b/) || has(/\b5052\b/) || has(/\b4140\b/) || has(/cocrmo|\bcocr\b/) || has(/maraging|m300|c300|18ni/)) return 4;
+  }
+  if (cat === 'Polymer' && (has(/\bpeek\b(?!-)/) || has(/ultem|pei\b/) || has(/petg/))) return 4;
+  // tier 3
+  if (cat === 'Metal') {
+    if (has(/haynes 230/) || has(/hastelloy x/) || has(/a-?286/) || has(/\b2205\b|\bduplex\b/) || has(/invar/) || has(/becu|beryllium copper/) || has(/bronze/) || has(/\b2024\b/) || has(/\b2014\b/) || has(/inconel 600/) || has(/cunisi|c18000|cuni2sicr/)) return 3;
+  }
+  if (cat === 'Polymer' && (has(/pa[\s-]?11|nylon 11/) || has(/asa\b/) || has(/\bpp\b|polypro/) || has(/\btpu\b/))) return 3;
+  // tier 2
+  if (cat === 'Metal') {
+    if (has(/inconel 738|inconel 939|inconel x-?750|in[\s-]?(738|939|713)/) || has(/haynes 282|haynes 214/) || has(/hastelloy c-?22|c-?276/) || has(/cucr1zr|c18150|grcop/) || has(/tantal/) || has(/niobium|\bnb-?\b|c-?103/) || has(/superduplex|\b2507\b/) || has(/nitinol/) || has(/cuni30|c71500/)) return 2;
+  }
+  if (cat === 'Polymer' && (has(/ppsu/) || has(/pekk/) || has(/pps\b/) || has(/lcp\b/))) return 2;
+  // tier 1: AM 전용 또는 매우 특수
+  if (has(/scalmalloy/) || has(/aheadd/) || has(/al5x1|a205|a20x/) || has(/\bcx\b|cm55/) || has(/ta15|ti[\s-]?5[\s-]?8[\s-]?5|ti[\s-]?6242/)) return 1;
+  if (cat === 'Polymer' && (has(/-cf|onyx|pcl|pha\b|pekk-?cf/))) return 1;
+  return 1;
 }
 
 // ───────── validation report ─────────

@@ -59,6 +59,7 @@ export interface Material {
   melting_point?: number | null;
   price_per_kg?: number | null;
   price_per_cm3?: number | null;
+  popularity?: number | null; // 0–5, 산업 사용 빈도 휴리스틱 (5 = 가장 흔히 쓰이는 표준 합금)
   elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null }>;
   heat_treatment?: string | null;
   source?: string | null;
@@ -125,6 +126,7 @@ export const PHYSICAL_PROPERTIES: PropertyMeta[] = [
 export const COST_PROPERTIES: PropertyMeta[] = [
   { key: 'price_per_kg', label: 'Price (per kg)', unit: 'USD/kg', description: 'Approximate raw-material price', group: 'cost' },
   { key: 'price_per_cm3', label: 'Price (per cm³)', unit: 'USD/cm³', description: 'Approximate price per unit volume', group: 'cost' },
+  { key: 'popularity', label: 'Popularity', unit: '0–5', description: 'Industry usage heuristic — higher = more commonly used standard alloy', group: 'qualitative' },
 ];
 
 export const ALL_NUMERIC_PROPERTIES: PropertyMeta[] = [
