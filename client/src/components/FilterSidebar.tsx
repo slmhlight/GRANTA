@@ -5,6 +5,7 @@
  */
 
 import { useState, useMemo } from 'react';
+import { useT } from '@/lib/i18n';
 import { ChevronDown, ChevronRight, SlidersHorizontal, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -426,6 +427,7 @@ export default function FilterSidebar({
   resultCount,
   onSelectMaterial,
 }: FilterSidebarProps) {
+  const t = useT();
   // Process 필터를 4개로 단순화
   const allProcesses = ['Wrought', 'Molding', 'Casting', 'AM'];
 
@@ -463,7 +465,7 @@ export default function FilterSidebar({
       <div className="flex items-center justify-between px-4 py-3 border-b border-border/50">
         <div className="flex items-center gap-2">
           <SlidersHorizontal className="w-4 h-4 text-foreground/60" />
-          <h2 className="text-xs font-semibold text-foreground">Filters</h2>
+          <h2 className="text-xs font-semibold text-foreground">{t('filter.title')}</h2>
         </div>
         {activeFilterCount > 0 && (
           <Button
@@ -503,7 +505,7 @@ export default function FilterSidebar({
         />
         {densityRange && (
           <RangeSlider
-            label="Density"
+            label={t('filter.density')}
             unit="g/cm³"
             min={densityRange[0]}
             max={densityRange[1]}
@@ -553,7 +555,7 @@ export default function FilterSidebar({
         )}
         {hardnessRange && (
           <RangeSlider
-            label="Hardness"
+            label={t('filter.hardness')}
             unit="HV"
             min={hardnessRange[0]}
             max={hardnessRange[1]}

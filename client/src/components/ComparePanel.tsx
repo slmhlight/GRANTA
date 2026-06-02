@@ -5,6 +5,7 @@
  */
 
 import { useState, useMemo } from 'react';
+import { useT } from '@/lib/i18n';
 import { X, SlidersHorizontal, ArrowUp, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
@@ -33,6 +34,7 @@ const typOf = (m: Material, key: string): number | null => {
 type Sort = { key: string; dir: 'asc' | 'desc' } | null;
 
 export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }: ComparePanelProps) {
+  const t = useT();
   const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
   const [sort, setSort] = useState<Sort>(null);
   // R21: tempSeries 제거. 사용자 요청 — Compare 패널에 온도 그래프 불필요.
@@ -76,7 +78,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted/30">
         <span className="text-sm font-semibold">
-          Material Comparison <span className="text-xs text-muted-foreground font-normal">({materials.length})</span>
+          {t('compare.title')} <span className="text-xs text-muted-foreground font-normal">({materials.length})</span>
         </span>
         <div className="flex items-center gap-1">
           <DropdownMenu>
@@ -104,13 +106,13 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
               className="h-7 px-2 text-[11px] text-muted-foreground hover:text-destructive"
               onClick={() => { if (confirm(`Compare 목록 ${materials.length}개 모두 비우시겠습니까?`)) onClear(); }}
               title="모든 재료를 Compare 에서 제거"
-            >전체 비우기</Button>
+            >{t('compare.clearAll')}</Button>
           )}
           <Button variant="ghost" size="sm" className="h-7 w-7 p-0" onClick={onClose}><X className="w-3.5 h-3.5" /></Button>
         </div>
       </div>
 
-      <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">Click a column header to sort · bar = value vs the highest in that column</p>
+      <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">{t('compare.hint')}</p>
 
       {/* Comparison table: rows = materials, columns = properties.
        *   R29: sticky thead 배경 문제 fix — 모든 th 에 bg-card (이전엔 첫 th 만 bg-muted, 나머지 투명 → 스크롤 시 row 데이터 비침). */}

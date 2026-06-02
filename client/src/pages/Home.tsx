@@ -50,6 +50,7 @@ import type { FilterState } from '@/hooks/useMaterialFilter';
 import { SHOP_ALIAS_DICT } from '@/lib/shop-alias-dict';
 import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical, SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold } from './guide/svgs';
 import { loadUnitSystem, saveUnitSystem, type UnitSystem } from '@/lib/unit-convert';
+import { useT, useLang } from '@/lib/i18n';
 
 /** Saved collection — pinned material IDs + optional filter snapshot + scenario provenance + viewMode.
  *  Older entries (pre-U10) lack `filters` / `viewMode`; we render conditionally and restore safely. */
@@ -147,6 +148,9 @@ export default function Home() {
   const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string; suggestedView?: ViewMode; secondaryKey?: string; secondaryLabel?: string } | null>(null);
   const [editingScenario, setEditingScenario] = useState<ScenarioKey | null>(null);
   const [scenarioCompareOpen, setScenarioCompareOpen] = useState(false);
+  /** R31 — 언어 (한/영) + 번역 헬퍼. */
+  const t = useT();
+  const { lang, setLang } = useLang();
   /** R27 — 단위 시스템 (SI / Imperial). MaterialDetail·Compare 사용. */
   const [unitSystem, setUnitSystemState] = useState<UnitSystem>(() => loadUnitSystem());
   const toggleUnitSystem = useCallback(() => {
@@ -479,7 +483,7 @@ export default function Home() {
         {/* Stats chips */}
         <div className="hidden md:flex items-center gap-2">
           <span className="text-[11px] text-sidebar-foreground/60">
-            <span className="font-mono font-semibold text-white">{materials.length.toLocaleString()}</span> materials
+            <span className="font-mono font-semibold text-white">{materials.length.toLocaleString()}</span> {t('header.materials')}
           </span>
           <span className="text-[10px] px-1.5 py-0.5 rounded bg-[oklch(0.62_0.17_220_/_0.3)] text-[oklch(0.72_0.14_220)] font-medium">
             {metalCount.toLocaleString()} Metal
@@ -498,7 +502,7 @@ export default function Home() {
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-sidebar-foreground/40" />
             <Input
               className="h-7 pl-8 pr-3 text-xs bg-[oklch(0.28_0.06_250)] border-sidebar-border text-sidebar-foreground placeholder:text-sidebar-foreground/40 focus-visible:ring-accent"
-              placeholder="Search materials, alloys, processes…"
+              placeholder={t('header.search.placeholder')}
               value={filters.search}
               onChange={e => updateFilter('search', e.target.value)}
             />
@@ -563,10 +567,10 @@ export default function Home() {
                 className="h-7 px-2 flex items-center gap-1.5 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
               >
                 <GraduationCap className="w-3.5 h-3.5" />
-                <span className="hidden lg:inline">가이드</span>
+                <span className="hidden lg:inline">{t('header.guide')}</span>
               </SheetTrigger>
             </TooltipTrigger>
-            <TooltipContent side="bottom" className="text-xs">가이드·사례 빠른 시작 (사이드 시트)</TooltipContent>
+            <TooltipContent side="bottom" className="text-xs">{t('header.guide.tooltip')}</TooltipContent>
           </Tooltip>
           <SheetContent side="right" className="w-[420px] sm:max-w-md overflow-y-auto">
             <SheetHeader>
@@ -616,6 +620,19 @@ export default function Home() {
           </SheetContent>
         </Sheet>
 
+        {/* R31 — KO / EN 언어 토글 */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={() => setLang(lang === 'ko' ? 'en' : 'ko')}
+              className="h-7 px-2 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-mono font-semibold"
+            >
+              {lang === 'ko' ? '한' : 'EN'}
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" className="text-xs">{lang === 'ko' ? '언어 전환 — 한국어' : 'Switch language — English'}</TooltipContent>
+        </Tooltip>
+
         {/* R27 — SI / Imperial 단위 토글 */}
         <Tooltip>
           <TooltipTrigger asChild>
@@ -626,7 +643,7 @@ export default function Home() {
               {unitSystem === 'si' ? 'SI' : 'IMP'}
             </button>
           </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">단위 전환 — {unitSystem === 'si' ? 'SI (MPa·GPa·°C·g/cm³)' : 'Imperial (ksi·Msi·°F·lb/in³)'}</TooltipContent>
+          <TooltipContent side="bottom" className="text-xs">{lang === 'ko' ? '단위 전환' : 'Switch units'} — {unitSystem === 'si' ? 'SI (MPa·GPa·°C·g/cm³)' : 'Imperial (ksi·Msi·°F·lb/in³)'}</TooltipContent>
         </Tooltip>
 
         {/* B5: 사례 비교 — 두 사례 동시 입력 + 산출 비교 + 교집합 적용 */}
@@ -637,10 +654,10 @@ export default function Home() {
               className="hidden lg:flex h-7 px-2 items-center gap-1.5 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
             >
               <GitCompareArrows className="w-3.5 h-3.5" />
-              사례 비교
+              {t('header.scenarioCompare')}
             </button>
           </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">두 사례 동시 입력 + 산출 비교</TooltipContent>
+          <TooltipContent side="bottom" className="text-xs">{t('header.scenarioCompare.tooltip')}</TooltipContent>
         </Tooltip>
 
         {/* Compare button */}
@@ -731,13 +748,13 @@ export default function Home() {
           <div className="flex-shrink-0 flex items-center gap-3 px-4 py-2 border-b border-border bg-muted/20">
             <span className="text-[11px] font-mono text-muted-foreground">
               <span className="font-semibold text-foreground">{filtered.length.toLocaleString()}</span>
-              {' '}results
+              {' '}{t('results.count')}
               {activeFilterCount > 0 && (
                 <button
                   className="ml-2 text-accent hover:underline"
                   onClick={resetFilters}
                 >
-                  clear filters
+                  {t('results.clearFilters')}
                 </button>
               )}
             </span>
