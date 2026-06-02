@@ -137,6 +137,39 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   'scenario.compare.emptyWarn': { ko: '가 빈 교집합 → 적용 시 통과 재료 0개. 두 사례가 충돌함.', en: ' is empty intersection → 0 materials pass. The two scenarios conflict.' },
   'scenario.warn.label': { ko: '⚠ 입력 경고', en: '⚠ Input warning' },
 
+  // Material detail
+  'detail.properties': { ko: '물성', en: 'Properties' },
+  'detail.composition': { ko: '조성', en: 'Composition' },
+  'detail.process': { ko: '공정', en: 'Process' },
+  'detail.confidence': { ko: '신뢰도', en: 'Confidence' },
+  'detail.confidence.measured': { ko: '실측 다수', en: 'measured (many)' },
+  'detail.confidence.handbook': { ko: '표준 데이터시트', en: 'handbook' },
+  'detail.confidence.class': { ko: '클래스 대표(추정)', en: 'class typical (estimated)' },
+  'detail.confidence.derived': { ko: '다른 물성에서 유도', en: 'derived from other properties' },
+  'detail.tempCurve.title': { ko: '온도 의존성 — 강도·강성', en: 'Strength & Modulus vs Temperature' },
+  'detail.creep.title': { ko: '크리프 파단 (응력 vs 시간)', en: 'Creep Rupture (stress vs time)' },
+  'detail.creep.dataPts': { ko: '데이터 포인트', en: 'data pts' },
+  'detail.creep.source': { ko: 'Larson-Miller 보간 — 데이터시트 (Special Metals SMC, Haynes International) 표준값. 실 사용 시 안전계수 적용.', en: 'Larson-Miller interpolation — datasheet (Special Metals SMC, Haynes International) values. Apply safety factor in practice.' },
+  'detail.regulated.title': { ko: '⚠ 규제 우려', en: '⚠ Regulatory concern' },
+  'detail.regulated.rohsFail': { ko: 'RoHS 미통과', en: 'RoHS non-compliant' },
+  'detail.regulated.svhc': { ko: 'SVHC', en: 'SVHC' },
+  'detail.regulated.note': { ko: '자동 검출 (composition 기반). EU·국내 전자제품 출시 시 실측 검증 필요.', en: 'Auto-detected (composition-based). Verify with measurements before EU/domestic electronics release.' },
+  'detail.coatings.title': { ko: '권장 후공정 (R17)', en: 'Recommended surface treatments' },
+  'detail.coatings.thickness': { ko: '두께', en: 'thickness' },
+  'detail.coatings.cost': { ko: '비용', en: 'cost' },
+  'detail.compare.added': { ko: 'Compare 에 추가됨', en: 'Added to Compare' },
+  'detail.compare.add': { ko: 'Compare 에 추가', en: 'Add to Compare' },
+  'detail.sources': { ko: '출처 · 데이터시트', en: 'Sources & Datasheets' },
+
+  // Banner — restrict / pinned / saved collection
+  'banner.materialsPinned': { ko: 'chart 선택에서 핀된 재료', en: 'materials pinned from chart selection' },
+  'banner.tableCards': { ko: '(table & cards)', en: '(table & cards)' },
+  'banner.collectionName': { ko: 'collection 이름', en: 'collection name' },
+
+  // Toast
+  'toast.ashbyIndexAuto': { ko: 'Ashby Index 자동 적용', en: 'Ashby index auto-applied' },
+  'toast.ashbyAxisAuto': { ko: 'Ashby 축 자동 전환', en: 'Ashby axes auto-switched' },
+
   // Common buttons
   'common.cancel': { ko: '취소', en: 'Cancel' },
   'common.save': { ko: '저장', en: 'Save' },

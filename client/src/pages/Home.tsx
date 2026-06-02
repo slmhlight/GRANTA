@@ -849,7 +849,7 @@ export default function Home() {
                 )}
               </span>
               {appliedPreset.indexHint && !appliedPreset.secondaryLabel && (
-                <span className="text-muted-foreground hidden md:inline truncate">· 권장 Index: <span className="font-mono">{appliedPreset.indexHint}</span></span>
+                <span className="text-muted-foreground hidden md:inline truncate">· {t('banner.recommendedIndex')}: <span className="font-mono">{appliedPreset.indexHint}</span></span>
               )}
               <div className="ml-auto flex items-center gap-1 flex-shrink-0">
                 {/* U12: suggest the recommended view — only when user is currently elsewhere */}
@@ -859,9 +859,9 @@ export default function Home() {
                     <span className="hidden sm:inline">{appliedPreset.suggestedView === 'ashby' ? 'Ashby' : appliedPreset.suggestedView === 'cards' ? 'Cards' : 'Table'}</span>
                   </button>
                 )}
-                <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">다시 편집</button>
-                <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">필터 초기화</button>
-                <button onClick={() => { setAppliedPreset(null); try { window.history.replaceState(null, '', window.location.pathname + window.location.hash); } catch { /* ignore */ } }} className="text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10" title="배너 닫기 + URL 정리">×</button>
+                <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">{t('banner.editAgain')}</button>
+                <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">{t('banner.resetFilters')}</button>
+                <button onClick={() => { setAppliedPreset(null); try { window.history.replaceState(null, '', window.location.pathname + window.location.hash); } catch { /* ignore */ } }} className="text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10" title={t('banner.closeBanner')}>×</button>
               </div>
             </div>
           )}
@@ -938,10 +938,10 @@ export default function Home() {
           </Sheet>
           {restrictIds && (
             <div className="flex items-center gap-2 px-4 py-1.5 bg-accent/10 border-b border-accent/30 text-xs">
-              <span className="text-accent font-medium">{viewFiltered.length} materials pinned from chart selection</span>
-              <span className="text-muted-foreground">(table &amp; cards)</span>
+              <span className="text-accent font-medium">{viewFiltered.length} {t('banner.materialsPinned')}</span>
+              <span className="text-muted-foreground">{t('banner.tableCards')}</span>
               <div className="ml-auto flex items-center gap-1.5">
-                <input value={collName} onChange={e => setCollName(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') saveCollection(); }} placeholder="collection name" className="h-6 w-36 text-[11px] rounded border border-border px-2 bg-background" />
+                <input value={collName} onChange={e => setCollName(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') saveCollection(); }} placeholder={t('banner.collectionName')} className="h-6 w-36 text-[11px] rounded border border-border px-2 bg-background" />
                 <button onClick={saveCollection} disabled={!collName.trim()} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10 disabled:opacity-40 flex items-center gap-1"><BookmarkPlus className="w-3 h-3" /> Save</button>
                 <button onClick={() => shareSet(collName.trim(), restrictIds || [])} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10 flex items-center gap-1"><Share2 className="w-3 h-3" /> {linkCopied ? 'Copied!' : 'Share'}</button>
                 <button onClick={() => setRestrictIds(null)} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10">Clear</button>

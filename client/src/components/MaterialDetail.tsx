@@ -13,6 +13,7 @@ import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/l
 import { TempCurveChart } from '@/components/TempCurveChart';
 import { CreepRuptureChart } from '@/components/CreepRuptureChart';
 import { recommendedCoatings } from '@/lib/coatings';
+import { useT } from '@/lib/i18n';
 import { familyColor } from '@/lib/material-colors';
 
 interface MaterialDetailProps {
@@ -161,6 +162,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 }
 
 export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating }: MaterialDetailProps) {
+  const t = useT();
   if (!material) return null;
 
   const isCompared = compareList.includes(material.id);
@@ -204,13 +206,13 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
         <Tabs defaultValue="properties" className="w-full">
           <TabsList className="w-full justify-start rounded-none border-b border-border/50 bg-transparent p-0 h-auto">
             <TabsTrigger value="properties" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-transparent px-3 py-2">
-              <Layers className="w-3 h-3 mr-1" />Properties
+              <Layers className="w-3 h-3 mr-1" />{t('detail.properties')}
             </TabsTrigger>
             <TabsTrigger value="composition" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-transparent px-3 py-2">
-              <Atom className="w-3 h-3 mr-1" />Composition
+              <Atom className="w-3 h-3 mr-1" />{t('detail.composition')}
             </TabsTrigger>
             <TabsTrigger value="process" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-transparent px-3 py-2">
-              <Wrench className="w-3 h-3 mr-1" />Process
+              <Wrench className="w-3 h-3 mr-1" />{t('detail.process')}
             </TabsTrigger>
           </TabsList>
 
@@ -219,11 +221,11 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             <p className="text-[10px] text-muted-foreground/60 -mt-1">Value = typical · sub-line = min–max across {meta.vendor_count ? `${meta.vendor_count} vendors` : 'conditions'}</p>
             {/* 신뢰도 뱃지 범례 */}
             <div className="rounded border border-border/50 bg-muted/20 p-2 text-[10px] flex flex-wrap gap-x-3 gap-y-1">
-              <span className="text-foreground/70 font-semibold">신뢰도:</span>
-              <span><span className="text-foreground/50">n=N</span> 실측 다수</span>
-              <span><span className="text-sky-600">handbook</span> 표준 데이터시트</span>
-              <span><span className="text-amber-600">class</span> 클래스 대표(추정)</span>
-              <span><span className="text-rose-500">≈UTS</span> 다른 물성에서 유도</span>
+              <span className="text-foreground/70 font-semibold">{t('detail.confidence')}:</span>
+              <span><span className="text-foreground/50">n=N</span> {t('detail.confidence.measured')}</span>
+              <span><span className="text-sky-600">handbook</span> {t('detail.confidence.handbook')}</span>
+              <span><span className="text-amber-600">class</span> {t('detail.confidence.class')}</span>
+              <span><span className="text-rose-500">≈UTS</span> {t('detail.confidence.derived')}</span>
             </div>
             <div>
               <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><FlaskConical className="w-3 h-3" />Mechanical Properties</h3>
@@ -253,7 +255,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             )}
             {material.elevated_temp && material.elevated_temp.length > 0 && (
               <div>
-                <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Thermometer className="w-3 h-3" />Strength &amp; Modulus vs Temperature</h3>
+                <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Thermometer className="w-3 h-3" />{t('detail.tempCurve.title')}</h3>
                 <TempCurveChart series={[{ name: material.name, color: '#0066CC', points: material.elevated_temp }]} mode="single" height={200} />
                 <table className="w-full text-[11px] mt-2">
                   <thead><tr className="text-muted-foreground"><th className="text-left font-normal py-0.5">Temp</th><th className="text-right font-normal">σy (MPa)</th><th className="text-right font-normal">UTS (MPa)</th><th className="text-right font-normal">E (GPa)</th></tr></thead>
@@ -274,11 +276,11 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {material.creep_rupture && material.creep_rupture.length > 0 && (
               <div>
                 <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1">
-                  <Thermometer className="w-3 h-3" />Creep Rupture (stress vs time)
-                  <span className="ml-auto text-[10px] text-muted-foreground">{material.creep_rupture.length} data pts</span>
+                  <Thermometer className="w-3 h-3" />{t('detail.creep.title')}
+                  <span className="ml-auto text-[10px] text-muted-foreground">{material.creep_rupture.length} {t('detail.creep.dataPts')}</span>
                 </h3>
                 <CreepRuptureChart points={material.creep_rupture} height={200} />
-                <p className="text-[10px] text-muted-foreground mt-1">Larson-Miller 보간 — 데이터시트 (Special Metals SMC, Haynes International) 표준값. 실 사용 시 안전계수 적용.</p>
+                <p className="text-[10px] text-muted-foreground mt-1">{t('detail.creep.source')}</p>
               </div>
             )}
             <div>
@@ -344,11 +346,11 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {/* R17: RoHS / SVHC 우려 — 자동 검출된 항목 노출. */}
             {(material.rohs_compliant === false || (material.svhc_concerns && material.svhc_concerns.length > 0)) && (
               <div className="mt-2 rounded border border-rose-400/40 bg-rose-50/60 p-2 text-[11px] leading-relaxed">
-                <p className="font-semibold text-rose-700 mb-1">⚠ 규제 우려 ({material.rohs_compliant === false ? 'RoHS 미통과' : 'SVHC'})</p>
+                <p className="font-semibold text-rose-700 mb-1">{t('detail.regulated.title')} ({material.rohs_compliant === false ? t('detail.regulated.rohsFail') : t('detail.regulated.svhc')})</p>
                 <ul className="list-disc pl-4 space-y-0.5 text-rose-900">
                   {(material.svhc_concerns || []).map((c, i) => <li key={i}>{c}</li>)}
                 </ul>
-                <p className="text-[10px] text-muted-foreground mt-1">자동 검출 (composition 기반). EU·국내 전자제품 출시 시 실측 검증 필요.</p>
+                <p className="text-[10px] text-muted-foreground mt-1">{t('detail.regulated.note')}</p>
               </div>
             )}
             {/* R17: 권장 후공정 — material 의 process + name 패턴 매칭 */}
@@ -357,7 +359,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               if (!recs.length) return null;
               return (
                 <div className="mt-3 rounded border border-accent/30 bg-accent/5 p-2.5">
-                  <p className="text-[11px] font-semibold text-accent mb-1.5 uppercase tracking-wide">권장 후공정 (R17)</p>
+                  <p className="text-[11px] font-semibold text-accent mb-1.5 uppercase tracking-wide">{t('detail.coatings.title')}</p>
                   <div className="space-y-2">
                     {recs.map((c) => (
                       <div key={c.id} className="text-[11px] leading-snug border-b border-accent/15 pb-1.5 last:border-0">
