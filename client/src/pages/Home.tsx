@@ -41,15 +41,15 @@ import { ComparePanel } from '@/components/ComparePanel';
 import { useMaterialFilter } from '@/hooks/useMaterialFilter';
 import { exportMaterialsToCSV, generateCSVFilename } from '@/lib/csv-export';
 import type { Material } from '@/lib/materials';
-import { SCENARIO_PRESETS, decodeFiltersFromParams, type ScenarioKey } from '@/lib/scenario-presets';
+import { SCENARIO_PRESETS, decodeFiltersFromParams, encodeFiltersToParams, type ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical, SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold } from './guide/svgs';
 
-/** Saved collection — pinned material IDs + optional filter snapshot + scenario provenance.
- *  Older entries (pre-U10) lack `filters`; we render the bullet conditionally. */
-type Collection = { name: string; ids: string[]; filters?: Partial<FilterState>; preset?: { key: string; label: string } };
+/** Saved collection — pinned material IDs + optional filter snapshot + scenario provenance + viewMode.
+ *  Older entries (pre-U10) lack `filters` / `viewMode`; we render conditionally and restore safely. */
+type Collection = { name: string; ids: string[]; filters?: Partial<FilterState>; preset?: { key: string; label: string }; viewMode?: 'table' | 'cards' | 'ashby' };
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
 
@@ -140,8 +140,9 @@ export default function Home() {
       // 다른 뷰로 전환했을 때 배너의 "Ashby로 보기" 버튼이 다시 안내해 줄 수 있게 함.
       if (cfg.viewMode) setViewMode(cfg.viewMode);
       setAppliedPreset({ key: p, label: cfg.label, indexHint: cfg.indexHint, suggestedView: cfg.viewMode });
-      // clean URL so a refresh doesn't re-apply
-      window.history.replaceState({}, '', window.location.pathname + window.location.hash);
+      // Round 9: URL clear 제거 — share URL 보존이 더 큰 가치. 사용자가 새로고침해도 같은 사례 +
+      // 같은 필터가 재적용될 뿐, 데이터/사용자에게 부작용 없음. URL 이 길어 보이는 게 흠이라
+      // 별도 'URL 정리' 버튼 (배너 닫기 시점) 으로 처리.
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
@@ -156,6 +157,7 @@ export default function Home() {
         name,
         ids: restrictIds,
         filters: { ...filters },
+        viewMode,
         ...(appliedPreset ? { preset: { key: appliedPreset.key, label: appliedPreset.label } } : {}),
       };
       const next = [...prev.filter(c => c.name !== name), entry];
@@ -163,12 +165,13 @@ export default function Home() {
       return next;
     });
     setCollName('');
-  }, [collName, restrictIds, filters, appliedPreset]);
-  /** Load a saved collection — pin the IDs AND restore the filter snapshot if one was saved. */
+  }, [collName, restrictIds, filters, appliedPreset, viewMode]);
+  /** Load a saved collection — pin the IDs AND restore the filter snapshot + viewMode if saved. */
   const loadCollection = useCallback((c: Collection) => {
     if (c.filters) restoreFilters(c.filters);
     setRestrictIds(c.ids);
     if (c.preset) setAppliedPreset({ key: c.preset.key, label: c.preset.label });
+    if (c.viewMode) setViewMode(c.viewMode);
   }, [restoreFilters]);
   const deleteCollection = useCallback((name: string) => {
     setCollections(prev => {
@@ -185,6 +188,55 @@ export default function Home() {
   const [importResult, setImportResult] = useState<{ matched: { name: string; matchedTo: string }[]; unmatched: string[] } | null>(null);
   const [importName, setImportName] = useState('');
   const normalize = (s: string) => s.toLowerCase().replace(/[\s\-_.()/]+/g, '');
+  /** 한일 가공집에서 흔히 쓰는 등급명 → 일반 등급 매핑. DB 의 name/alias 에 없는 표기를 위해.
+   *  좌측은 normalize 결과 (소문자·구분자 제거). 우측은 DB 매칭에 쓸 동의어. */
+  const SHOP_ALIAS_DICT: Record<string, string[]> = {
+    // JIS 스테인리스 → AISI / EN
+    sus304: ['304', '304ss', '1.4301', 'austenitic304', 'aisi304'],
+    sus304l: ['304l', '1.4307'],
+    sus316: ['316', '316ss', '1.4401', 'aisi316'],
+    sus316l: ['316l', '1.4404'],
+    sus321: ['321', '1.4541'],
+    sus630: ['174ph', '17_4ph', '1.4542'],
+    sus440c: ['440c', '1.4125'],
+    // JIS 탄소·합금강 → AISI
+    s45c: ['1045', 'aisi1045'],
+    s50c: ['1050'],
+    scm440: ['4140', 'aisi4140', '42crmos4'],
+    scm415: ['8615', '15crmo'],
+    sncm439: ['4340', 'aisi4340'],
+    // JIS 공구강 → AISI
+    skd11: ['d2', 'aisid2', '1.2379'],
+    skd61: ['h13', 'aisih13', '1.2344'],
+    skh51: ['m2', 'aisim2'],
+    skd62: ['h11'],
+    sk85: ['1095', 'aisi1095'],
+    skh9: ['m2'],
+    // 알루미늄 (Korean/Japanese suffix variations)
+    a6061: ['6061', '6061t6', '6061t651'],
+    a7075: ['7075', '7075t6'],
+    a5052: ['5052', '5052h32'],
+    a2024: ['2024', '2024t3'],
+    // 주철·주강
+    fc250: ['gjl250', 'castiron250', 'grayiron250'],
+    fcd400: ['gjs400', 'ductileiron400'],
+    // 동합금
+    c1100: ['cu-etp', 'c11000', 'electrolytictoughpitch'],
+    c3604: ['cuznpb', 'freecuttingbrass'],
+    c5191: ['phosphorbronze', 'pb1'],
+  };
+  /** 입력 문자열에서 등급 토큰(숫자 + 짧은 영문) 추출 — '304-SS', 'SUS304', '304L SS' 모두 [304] 가 핵심.
+   *  최소 3자 이상 토큰만 (단발 'A' 같은 잡음 제외). */
+  const extractTokens = (s: string): string[] => {
+    const tokens: string[] = [];
+    const re = /[a-z0-9]+/g; let m;
+    const lower = s.toLowerCase();
+    while ((m = re.exec(lower))) {
+      const t = m[0];
+      if (t.length >= 3 || /^\d{2,}/.test(t)) tokens.push(t); // 숫자 2+자리는 키 등급일 가능성
+    }
+    return tokens;
+  };
   const matchMaterials = useCallback((queries: string[]) => {
     if (!materials.length) return { matched: [], unmatched: [...queries] };
     const matched: { id: string; name: string; matchedTo: string }[] = [];
@@ -193,22 +245,42 @@ export default function Home() {
       const q = raw.trim();
       if (!q) continue;
       const nq = normalize(q);
-      // 우선순위: 정규화 정확일치 → startsWith → 부분일치 (이름·별칭 모두)
+      // 1단계: 입력에 매칭되는 동의어 후보 묶음 (입력 자체 + shop alias dict 확장)
+      const queries2 = [nq, ...(SHOP_ALIAS_DICT[nq] ?? []).map(normalize)];
       let hit: Material | null = null;
+      // 2단계: 정확일치
       for (const m of materials) {
-        const candidates = [m.name, ...(m.aliases || [])];
-        if (candidates.some(c => normalize(c) === nq)) { hit = m; break; }
+        const candidates = [m.name, ...(m.aliases || [])].map(normalize);
+        if (queries2.some(q2 => candidates.includes(q2))) { hit = m; break; }
       }
+      // 3단계: startsWith
       if (!hit) {
         for (const m of materials) {
-          const candidates = [m.name, ...(m.aliases || [])];
-          if (candidates.some(c => normalize(c).startsWith(nq))) { hit = m; break; }
+          const candidates = [m.name, ...(m.aliases || [])].map(normalize);
+          if (queries2.some(q2 => candidates.some(c => c.startsWith(q2)))) { hit = m; break; }
         }
       }
+      // 4단계: 부분일치
       if (!hit) {
         for (const m of materials) {
-          const candidates = [m.name, ...(m.aliases || [])];
-          if (candidates.some(c => normalize(c).includes(nq))) { hit = m; break; }
+          const candidates = [m.name, ...(m.aliases || [])].map(normalize);
+          if (queries2.some(q2 => candidates.some(c => c.includes(q2)))) { hit = m; break; }
+        }
+      }
+      // 5단계: 토큰 기반 — 등급 번호(304/316/6061/7075/4140 등) 가 양쪽에 모두 있으면 매칭.
+      //  보수적: 입력 토큰 ≥ 1 개와 후보 토큰이 모두 일치 (작은 문자열 false positive 회피).
+      if (!hit) {
+        const qTokens = extractTokens(q);
+        if (qTokens.length) {
+          for (const m of materials) {
+            const candidates = [m.name, ...(m.aliases || [])];
+            for (const c of candidates) {
+              const cTokens = extractTokens(c);
+              // 입력 토큰 모두가 후보 토큰에 들어 있으면 매칭
+              if (qTokens.every(qt => cTokens.includes(qt))) { hit = m; break; }
+            }
+            if (hit) break;
+          }
         }
       }
       if (hit) matched.push({ id: hit.id, name: hit.name, matchedTo: q });
@@ -258,15 +330,21 @@ export default function Home() {
     setImportResult(null);
     setImportName('');
   }, [importResult, importName, materials]);
-  // shareable URL: encode the material-id set in the hash, copy to clipboard + put in the address bar
+  /** Shareable URL — 기본은 IDs 만 hash 에 인코딩 (`#g=name~id1.id2...`),
+   *  Round 9: 옵션으로 적용된 필터 + 사례 도 함께 — `&p=preset&f.X=Y` 쿼리 추가.
+   *  수신측은 기존 effect 로 그대로 디코드 (decodeFiltersFromParams + p=). */
   const shareSet = useCallback((name: string, ids: string[]) => {
     if (!ids || !ids.length) return;
-    const url = `${location.origin}${location.pathname}#g=${encodeURIComponent(name || 'shared')}~${ids.join('.')}`;
+    const qs = encodeFiltersToParams(filters);
+    const presetQ = appliedPreset ? `p=${encodeURIComponent(appliedPreset.key)}` : '';
+    const query = [presetQ, qs].filter(Boolean).join('&');
+    const queryPart = query ? `?${query}` : '';
+    const url = `${location.origin}${location.pathname}${queryPart}#g=${encodeURIComponent(name || 'shared')}~${ids.join('.')}`;
     try { navigator.clipboard?.writeText(url); } catch { /* ignore */ }
     try { history.replaceState(null, '', url); } catch { /* ignore */ }
     setLinkCopied(true);
     window.setTimeout(() => setLinkCopied(false), 2500);
-  }, []);
+  }, [filters, appliedPreset]);
 
   // detail now opens as a floating popup, so it no longer needs to close the Compare panel
   const handleSelectMaterial = useCallback((m: Material) => {
@@ -714,7 +792,7 @@ export default function Home() {
                 )}
                 <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">다시 편집</button>
                 <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">필터 초기화</button>
-                <button onClick={() => setAppliedPreset(null)} className="text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10" title="배너 닫기">×</button>
+                <button onClick={() => { setAppliedPreset(null); try { window.history.replaceState(null, '', window.location.pathname + window.location.hash); } catch { /* ignore */ } }} className="text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10" title="배너 닫기 + URL 정리">×</button>
               </div>
             </div>
           )}

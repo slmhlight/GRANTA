@@ -44,8 +44,9 @@ export type ScenarioConfigurator = {
   fields: ConfigField[];
   /** 단면 선택이 필요한 경우 옵션 목록 */
   sections?: CrossSection[];
-  /** 입력값 + 선택 단면 ID → 필터 오버라이드 + 산출 요약 */
-  compute: (v: Record<string, number | string>, section?: CrossSection) => { filters: Partial<FilterState>; summary: { label: string; value: string }[] };
+  /** 입력값 + 선택 단면 ID → 필터 오버라이드 + 산출 요약 + (NB14) 필드별 인라인 검증 메시지.
+   *  fieldErrors 는 field.id → 한 줄 경고. ScenarioDialog 가 해당 입력 옆에 빨간 메시지/테두리로 표시. */
+  compute: (v: Record<string, number | string>, section?: CrossSection) => { filters: Partial<FilterState>; summary: { label: string; value: string }[]; fieldErrors?: Record<string, string> };
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -458,15 +459,20 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
       ],
       compute: (v) => {
         const mode = String(v.mode);
-        // L5: 입력 검증 — 음의 ΔT, 0 또는 음의 L/dL 방지.
+        // L5/NB14: 입력 검증 — 필드별 인라인 에러 메시지 생성. compute 가 fallback (양수화) 으로
+        // 깨지지 않게 처리하되, 사용자에게는 명확히 알려 줌.
         const rawDT = mode === 'range' ? Math.abs(Number(v.T_high) - Number(v.T_low)) : Math.abs(Number(v.dT));
+        const rawL = Number(v.L), rawDL = Number(v.dL);
+        const fieldErrors: Record<string, string> = {};
+        if (mode === 'delta' && rawDT < 0.1) fieldErrors.dT = 'ΔT 가 0 — 양의 값 필요';
+        if (mode === 'range' && rawDT < 0.1) { fieldErrors.T_high = 'T_high ≈ T_low — 범위 0'; fieldErrors.T_low = 'T_low ≈ T_high — 범위 0'; }
+        if (!isFinite(rawL) || rawL <= 0) fieldErrors.L = '양수 길이 필요';
+        if (!isFinite(rawDL) || rawDL <= 0) fieldErrors.dL = '양수 변위 필요';
         const dT = Math.max(0.1, rawDT);
-        const L = Math.max(0.1, Number(v.L));
-        const dL_um = Math.max(0.001, Number(v.dL));
+        const L = Math.max(0.1, rawL);
+        const dL_um = Math.max(0.001, rawDL);
         const E = Math.max(0, Number(v.E_req));
         const cteMax = dL_um / (L * dT * 1e-3);
-        const warn: { label: string; value: string }[] = [];
-        if (rawDT < 0.1) warn.push({ label: '⚠ 입력 경고', value: 'ΔT 가 0 — 양의 값 입력 필요' });
         return {
           filters: { thermalExpansionRange: [0, Math.max(0.1, round1(cteMax))], ...(E > 0 ? { modulusRange: [E, HI] } : {}) },
           summary: [
@@ -474,8 +480,8 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
             { label: '허용 ΔL/L', value: `${(dL_um / L).toFixed(2)} ppm` },
             { label: '필요 CTE', value: `≤ ${round1(cteMax)} ×10⁻⁶/K` },
             ...(E > 0 ? [{ label: '필요 E', value: `≥ ${E} GPa` }] : []),
-            ...warn,
           ],
+          fieldErrors: Object.keys(fieldErrors).length ? fieldErrors : undefined,
         };
       },
     },

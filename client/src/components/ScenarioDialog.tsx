@@ -55,22 +55,27 @@ function CollapsibleGroup({ title, defaultOpen, count, children }: { title: stri
   );
 }
 
-function NumberInput({ field, value, onChange }: { field: Extract<ConfigField, { type: 'number' }>; value: number; onChange: (v: number) => void }) {
+function NumberInput({ field, value, onChange, error }: { field: Extract<ConfigField, { type: 'number' }>; value: number; onChange: (v: number) => void; error?: string }) {
   return (
-    <label className="flex items-center justify-between gap-3 text-sm">
-      <span className="flex-1 min-w-0">
-        <span className="text-foreground">{field.label}</span>
-        {field.unit && <span className="text-muted-foreground ml-1 text-[11px]">({field.unit})</span>}
-        {field.help && <span className="block text-[11px] text-muted-foreground">{field.help}</span>}
-      </span>
-      <input
-        type="number"
-        value={value}
-        min={field.min} max={field.max} step={field.step ?? 1}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="w-24 h-7 text-right font-mono text-sm rounded border border-border bg-background px-2 focus:outline-none focus:ring-1 focus:ring-accent"
-      />
-    </label>
+    <div className="text-sm">
+      <label className="flex items-center justify-between gap-3">
+        <span className="flex-1 min-w-0">
+          <span className="text-foreground">{field.label}</span>
+          {field.unit && <span className="text-muted-foreground ml-1 text-[11px]">({field.unit})</span>}
+          {field.help && <span className="block text-[11px] text-muted-foreground">{field.help}</span>}
+        </span>
+        <input
+          type="number"
+          value={value}
+          min={field.min} max={field.max} step={field.step ?? 1}
+          onChange={(e) => onChange(Number(e.target.value))}
+          className={`w-24 h-7 text-right font-mono text-sm rounded border ${error ? 'border-rose-500 bg-rose-50 ring-1 ring-rose-300' : 'border-border bg-background'} px-2 focus:outline-none focus:ring-1 focus:ring-accent`}
+          aria-invalid={!!error}
+        />
+      </label>
+      {/* NB14: 인라인 검증 — 빨간 메시지로 즉각 피드백, summary 패널만 보지 않아도 알 수 있음. */}
+      {error && <p className="mt-0.5 text-[11px] text-rose-600 flex items-start gap-1 ml-1"><span>⚠</span><span>{error}</span></p>}
+    </div>
   );
 }
 
@@ -378,7 +383,7 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
               <CollapsibleGroup key={g} title={g} defaultOpen={gi === 0} count={fs.length}>
                 <div className="space-y-2 pt-1">
                   {fs.map((f) => f.type === 'number'
-                    ? <NumberInput key={f.id} field={f} value={Number(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />
+                    ? <NumberInput key={f.id} field={f} value={Number(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} error={result?.fieldErrors?.[f.id]} />
                     : <SelectInput key={f.id} field={f} value={String(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />)}
                 </div>
               </CollapsibleGroup>
