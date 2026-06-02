@@ -11,6 +11,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
 import { TempCurveChart } from '@/components/TempCurveChart';
+import { recommendedCoatings } from '@/lib/coatings';
 import { familyColor } from '@/lib/material-colors';
 
 interface MaterialDetailProps {
@@ -327,6 +328,43 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 <b className={meta.anisotropy_reduced ? 'text-emerald-700' : 'text-amber-700'}>{meta.anisotropy_reduced ? 'ℹ HIP 처리 — 이방성 감소:' : '⚠ AM 이방성 주의:'}</b> {String(meta.anisotropy_note || 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로가 ~10–30% 차이날 수 있습니다. 데이터시트의 방향·후처리(HIP·열처리) 조건을 반드시 확인하세요.')}
               </div>
             )}
+            {/* R17: RoHS / SVHC 우려 — 자동 검출된 항목 노출. */}
+            {(material.rohs_compliant === false || (material.svhc_concerns && material.svhc_concerns.length > 0)) && (
+              <div className="mt-2 rounded border border-rose-400/40 bg-rose-50/60 p-2 text-[11px] leading-relaxed">
+                <p className="font-semibold text-rose-700 mb-1">⚠ 규제 우려 ({material.rohs_compliant === false ? 'RoHS 미통과' : 'SVHC'})</p>
+                <ul className="list-disc pl-4 space-y-0.5 text-rose-900">
+                  {(material.svhc_concerns || []).map((c, i) => <li key={i}>{c}</li>)}
+                </ul>
+                <p className="text-[10px] text-muted-foreground mt-1">자동 검출 (composition 기반). EU·국내 전자제품 출시 시 실측 검증 필요.</p>
+              </div>
+            )}
+            {/* R17: 권장 후공정 — material 의 process + name 패턴 매칭 */}
+            {(() => {
+              const recs = recommendedCoatings({ category: material.category, name: material.name, process: material.process }, 3);
+              if (!recs.length) return null;
+              return (
+                <div className="mt-3 rounded border border-accent/30 bg-accent/5 p-2.5">
+                  <p className="text-[11px] font-semibold text-accent mb-1.5 uppercase tracking-wide">권장 후공정 (R17)</p>
+                  <div className="space-y-2">
+                    {recs.map((c) => (
+                      <div key={c.id} className="text-[11px] leading-snug border-b border-accent/15 pb-1.5 last:border-0">
+                        <p className="font-semibold text-foreground">{c.nameKo}</p>
+                        <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[10px] text-muted-foreground mt-0.5">
+                          {c.surfaceHardnessHV && <span>HV ≈ {c.surfaceHardnessHV}</span>}
+                          {c.frictionCoef != null && <span>μ ≈ {c.frictionCoef}</span>}
+                          {c.fatigueGainPct != null && c.fatigueGainPct !== 0 && <span className={c.fatigueGainPct > 0 ? 'text-emerald-700' : 'text-rose-700'}>Δ피로 {c.fatigueGainPct > 0 ? '+' : ''}{c.fatigueGainPct}%</span>}
+                          {c.corrosionUpgrade !== 'none' && <span>내식 {c.corrosionUpgrade}</span>}
+                          <span>두께 {c.thicknessMicrons[0]}-{c.thicknessMicrons[1]}μm</span>
+                          <span>비용 ×{c.costFactor}</span>
+                        </div>
+                        <p className="text-[10px] text-foreground/70 mt-0.5">{c.applications}</p>
+                        {c.limitations && <p className="text-[10px] text-amber-700 mt-0.5">⚠ {c.limitations}</p>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
           </TabsContent>
         </Tabs>
       </div>
