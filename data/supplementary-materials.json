@@ -2,6 +2,144 @@
   "_note": "Supplementary reference materials, web/handbook-verified typical property ranges. points = [density(g/cm3), yield(MPa), uts(MPa), elongation(%), modulus(GPa), hardness(HV), thermal_conductivity(W/mK)] per condition; ranges are computed from these. Conservative published values, not fabricated.",
   "materials": [
     {
+      "name": "Inconel 718",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Wrought",
+      "composition": {
+        "Ni": "50~55", "Cr": "17~21", "Fe": "balance", "Nb": "4.75~5.5", "Mo": "2.8~3.3",
+        "Ti": "0.65~1.15", "Al": "0.2~0.8", "C": "≤0.08"
+      },
+      "points": [
+        [8.19, 450, 980, 35, 200, 200, 11.4],
+        [8.19, 480, 1000, 30, 200, 220, 11.4],
+        [8.19, 1100, 1280, 18, 200, 380, 11.4],
+        [8.19, 1180, 1310, 16, 200, 410, 11.4]
+      ],
+      "conditions": ["Annealed (980°C/1h AC)", "Solution treated (1065°C/1h WQ)", "Solution + Single age (STA)", "Solution + Double age (DSA, full 718 cycle)"],
+      "ref_urls": [
+        "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf"
+      ]
+    },
+    {
+      "name": "Inconel 625",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Wrought",
+      "composition": {
+        "Ni": "≥58", "Cr": "20~23", "Mo": "8~10", "Nb": "3.15~4.15", "Fe": "≤5", "Co": "≤1"
+      },
+      "points": [
+        [8.44, 415, 830, 42, 207, 180, 9.8],
+        [8.44, 380, 800, 50, 207, 170, 9.8],
+        [8.44, 480, 850, 38, 207, 200, 9.8]
+      ],
+      "conditions": ["Annealed (980°C AC)", "Solution treated (1100°C)", "Stress-relieved (650°C/24h)"],
+      "ref_urls": [
+        "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf"
+      ]
+    },
+    {
+      "name": "Ti-6Al-4V (Grade 5)",
+      "category": "Metal",
+      "subcategory": "Titanium - α+β (Ti-6Al-4V class)",
+      "process": "Wrought",
+      "composition": { "Ti": "balance", "Al": "5.5~6.75", "V": "3.5~4.5", "Fe": "≤0.3", "O": "≤0.2" },
+      "points": [
+        [4.43, 880, 950, 14, 113, 320, 6.7],
+        [4.43, 830, 920, 12, 113, 310, 6.7],
+        [4.43, 1100, 1170, 10, 113, 380, 6.7],
+        [4.43, 900, 970, 16, 113, 330, 6.7]
+      ],
+      "conditions": ["Mill annealed (760°C/1h AC)", "Beta annealed (1050°C AC)", "Solution + Aged (STA, 955°C → 540°C/4h)", "Duplex annealed (940°C → 675°C)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/datasheet.aspx?MatGUID=10d463eb3d3d4ff48fc57e0ad1037434"
+      ]
+    },
+    {
+      "name": "Stainless Steel 316L",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "16~18", "Ni": "10~14", "Mo": "2~3", "C": "≤0.03", "Mn": "≤2", "Si": "≤1" },
+      "points": [
+        [7.99, 240, 580, 50, 200, 180, 16.3],
+        [7.99, 690, 760, 12, 200, 280, 16.3],
+        [7.99, 220, 550, 55, 200, 170, 16.3],
+        [7.99, 310, 620, 45, 200, 200, 16.3]
+      ],
+      "conditions": ["Annealed (1050°C WQ)", "Cold-worked (50% red.)", "Solution treated (1100°C)", "Stress-relieved (450°C)"],
+      "ref_urls": [
+        "https://www.aksteel.com/our-products/stainless/316-316L"
+      ]
+    },
+    {
+      "name": "Maraging 300 (UNS K93120)",
+      "category": "Metal",
+      "subcategory": "Maraging Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "18~19", "Co": "8.5~9.5", "Mo": "4.6~5.2", "Ti": "0.55~0.8", "Al": "0.05~0.15" },
+      "points": [
+        [8.10, 760, 970, 18, 190, 300, 25.5],
+        [8.10, 760, 1000, 17, 190, 310, 25.5],
+        [8.10, 1900, 1950, 8, 190, 540, 25.5],
+        [8.10, 1950, 2050, 7, 190, 580, 25.5]
+      ],
+      "conditions": ["Annealed (815°C AC)", "Solution treated (820°C/1h AC)", "Aged (480°C/6h)", "Solution + Aged"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=maraging+300"
+      ]
+    },
+    {
+      "name": "CoCrMo (ASTM F1537)",
+      "category": "Metal",
+      "subcategory": "Cobalt Alloy - Chrome",
+      "process": "Wrought",
+      "composition": { "Co": "balance", "Cr": "26~30", "Mo": "5~7", "Mn": "≤1", "Si": "≤1", "C": "≤0.35" },
+      "points": [
+        [8.30, 590, 1100, 20, 230, 380, 14.2],
+        [8.30, 480, 990, 28, 230, 320, 14.2],
+        [8.30, 825, 1240, 15, 230, 410, 14.2]
+      ],
+      "conditions": ["Hot-rolled bar", "Solution annealed", "Cold-worked"],
+      "ref_urls": [
+        "https://www.astm.org/f1537-20.html"
+      ]
+    },
+    {
+      "name": "Hastelloy X",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy - Hastelloy",
+      "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "20.5~23", "Fe": "17~20", "Mo": "8~10", "Co": "0.5~2.5", "W": "0.2~1" },
+      "points": [
+        [8.22, 360, 785, 45, 205, 200, 9.1],
+        [8.22, 410, 820, 38, 205, 230, 9.1],
+        [8.22, 380, 800, 42, 205, 215, 9.1]
+      ],
+      "conditions": ["Solution annealed (1175°C WQ)", "Solution + Aged (760°C/16h)", "Stress relieved (650°C)"],
+      "ref_urls": [
+        "https://www.haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HASTELLOYXalloy.aspx"
+      ]
+    },
+    {
+      "name": "Tool Steel H13",
+      "category": "Metal",
+      "subcategory": "Tool Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "4.75~5.5", "Mo": "1.1~1.75", "V": "0.8~1.2", "Si": "0.8~1.2", "C": "0.32~0.45", "Mn": "0.2~0.5" },
+      "points": [
+        [7.80, 600, 800, 25, 210, 220, 28.5],
+        [7.80, 1380, 1700, 10, 210, 540, 28.5],
+        [7.80, 1450, 1750, 8, 210, 580, 28.5],
+        [7.80, 1100, 1380, 13, 210, 470, 28.5]
+      ],
+      "conditions": ["Annealed (soft)", "Q+T (single 550°C × 2)", "Q+T (double 540°C × 2)", "Q+T (610°C, softer)"],
+      "ref_urls": [
+        "https://www.bohler.uddeholm.com/global/en/products/tool-steels/hot-work-tool-steels/h13/"
+      ]
+    },
+    {
       "name": "17-4 PH (UNS S17400)",
       "category": "Metal",
       "subcategory": "Stainless Steel - PH",

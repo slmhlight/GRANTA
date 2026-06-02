@@ -3,24 +3,24 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **906 materials**: 99 curated · 7 am_vendor · 473 generic
+- **940 materials**: 99 curated · 7 am_vendor · 473 generic
 - Dropped 379 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 906/906 | 0 |
-| yield_strength | 904/906 | 686 |
-| uts | 897/906 | 684 |
-| elongation | 859/906 | 683 |
-| modulus | 906/906 | 47 |
-| hardness | 779/906 | 591 |
-| thermal_conductivity | 906/906 | 3 |
-| fatigue_strength | 805/906 | 628 |
-| impact_strength | 137/906 | 137 |
+| density | 940/940 | 0 |
+| yield_strength | 938/940 | 684 |
+| uts | 931/940 | 682 |
+| elongation | 893/940 | 681 |
+| modulus | 940/940 | 47 |
+| hardness | 813/940 | 589 |
+| thermal_conductivity | 940/940 | 2 |
+| fatigue_strength | 839/940 | 652 |
+| impact_strength | 162/940 | 162 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 141/906 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 177/940 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
@@ -63,7 +63,7 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 ### Category counts
 | Category | Count | Distinct subcategories |
 |---|---|---|
-| Metal | 735 | (multiple) |
+| Metal | 769 | (multiple) |
 | Polymer | 96 | 44 |
 | Ceramic | 45 | 13 |
 | Composite | 30 | — |
@@ -82,9 +82,9 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - "Polymer - Nylon (FDM/SLS)" residual count: 1 — unmatched entries fall back to category-specific subcategory.
 
 ### Temperature & creep coverage
-- 262 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +21 mostly polymer).
-- 223 have Young's modulus vs T (E(T)).
-- 81 have creep rupture curves (Ni superalloys, no change in R34).
+- 292 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +51 mostly polymer).
+- 253 have Young's modulus vs T (E(T)).
+- 105 have creep rupture curves (Ni superalloys, no change in R34).
 
 ## TODO
 - Hardness scale unification (HV/HRC/HB).

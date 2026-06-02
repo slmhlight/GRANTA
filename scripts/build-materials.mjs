@@ -704,24 +704,46 @@ const generic = nonCurated.filter(m => m.tier === 'generic');
 
 // supplementary reference materials (web/handbook-verified ranges) — broadens coverage
 const supRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'supplementary-materials.json'), 'utf8')).materials) || [];
+// R39 — supplementary loader: `conditions[]` 가 있고 길이가 points 와 같으면 condition 별 row 로 분리.
+//        LPBF-Wrought pair 에서 Wrought 쪽 열처리 다양성 (Annealed / Solution / Aged / Q+T / STA / DSA …)
+//        을 살리기 위함. 없으면 기존 패턴 — 전체 통합 single row.
 const supplementary = supRaw
-  // curated wins over reference ONLY when both target the same (AM) process. Wrought/Cast/Injection-Molded
-  // counterparts are kept even when the alloy name matches a curated AM entry — that's the whole point.
   .filter((s) => AM_PROC.has(s.process) ? !(curatedAlias.has(norm(alloyOf(s.name))) || curatedAlias.has(norm(baseName(s.name)))) : true)
-  .map((s, idx) => {
-  const ranges = {};
-  for (const p of NUM_PROPS) ranges[p] = null;
-  PROP_ORDER.forEach((p, i) => { ranges[p] = rangeFrom(s.points.map((row) => row[i])); });
-  if (Array.isArray(s.fatigue)) ranges.fatigue_strength = rangeFrom(s.fatigue);
-  if (Array.isArray(s.impact)) ranges.impact_strength = rangeFrom(s.impact);
-  return {
-    id: 'R_' + String(idx).padStart(4, '0'),
-    name: s.name, category: s.category, subcategory: s.subcategory, tier: 'reference',
-    manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: null,
-    ranges, composition: s.composition || {}, sources: s.sources || [], points: s.points,
-    machinability: null, weldability: null, corrosion_resistance: null, meta: { reference: true },
-  };
-});
+  .flatMap((s, idx) => {
+    const hasConditions = Array.isArray(s.conditions) && s.conditions.length === s.points.length;
+    if (hasConditions) {
+      // condition 별 별도 entry — heat_treatment 채워서 R38e HT 필터·MaterialDetail 이 인식.
+      return s.conditions.map((cond, ci) => {
+        const ranges = {};
+        for (const p of NUM_PROPS) ranges[p] = null;
+        PROP_ORDER.forEach((p, i) => { ranges[p] = rangeFrom([s.points[ci][i]]); });
+        if (Array.isArray(s.fatigue) && s.fatigue[ci] != null) ranges.fatigue_strength = rangeFrom([s.fatigue[ci]]);
+        if (Array.isArray(s.impact) && s.impact[ci] != null) ranges.impact_strength = rangeFrom([s.impact[ci]]);
+        return {
+          id: 'R_' + String(idx).padStart(4, '0') + '_' + ci,
+          name: `${s.name} — ${cond}`,
+          category: s.category, subcategory: s.subcategory, tier: 'reference',
+          manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: cond,
+          ranges, composition: s.composition || {}, sources: (s.ref_urls || []).map((u) => ({ label: `Datasheet ${ci + 1}`, url: u, verified: true })),
+          points: [s.points[ci]],
+          machinability: null, weldability: null, corrosion_resistance: null, meta: { reference: true, condition: cond },
+        };
+      });
+    }
+    // 기존 패턴 — 모든 points 통합 (분류 없음)
+    const ranges = {};
+    for (const p of NUM_PROPS) ranges[p] = null;
+    PROP_ORDER.forEach((p, i) => { ranges[p] = rangeFrom(s.points.map((row) => row[i])); });
+    if (Array.isArray(s.fatigue)) ranges.fatigue_strength = rangeFrom(s.fatigue);
+    if (Array.isArray(s.impact)) ranges.impact_strength = rangeFrom(s.impact);
+    return [{
+      id: 'R_' + String(idx).padStart(4, '0'),
+      name: s.name, category: s.category, subcategory: s.subcategory, tier: 'reference',
+      manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: null,
+      ranges, composition: s.composition || {}, sources: s.sources || [], points: s.points,
+      machinability: null, weldability: null, corrosion_resistance: null, meta: { reference: true },
+    }];
+  });
 // R25 — Ceramic 30종 별도 파일 (data/ceramics-data.json) 에서 로드해 material 형식으로 변환 → all 에 추가.
 const CERAMIC_PROPS = ['density', 'yield_strength', 'uts', 'modulus', 'hardness', 'thermal_conductivity', 'thermal_expansion', 'max_service_temp', 'poisson_ratio', 'specific_heat', 'melting_point', 'price_per_kg', 'electrical_conductivity'];
 function loadCeramicsAsMaterials() {
