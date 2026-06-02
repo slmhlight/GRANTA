@@ -5,13 +5,13 @@
  */
 
 import { useState, useMemo } from 'react';
-import { X, SlidersHorizontal, ArrowUp, ArrowDown, Thermometer } from 'lucide-react';
+import { X, SlidersHorizontal, ArrowUp, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import type { Material, PropertyRange } from '@/lib/materials';
 import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import { familyColor, propColor } from '@/lib/material-colors';
-import { TempCurveChart } from '@/components/TempCurveChart';
+// R21: Compare 패널에서 온도-강도 그래프 제거. MaterialDetail 의 단일 차트만 유지.
 
 const PALETTE = ['#0066CC', '#dc2626', '#16a34a', '#9333ea', '#ea580c', '#0891b2', '#ca8a04', '#db2777', '#4f46e5', '#65a30d'];
 
@@ -35,15 +35,7 @@ type Sort = { key: string; dir: 'asc' | 'desc' } | null;
 export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }: ComparePanelProps) {
   const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
   const [sort, setSort] = useState<Sort>(null);
-  const [tempField, setTempField] = useState<'ys' | 'uts'>('ys');
-  // overlay σy/UTS-vs-T curves for compared materials that carry real elevated-temp data
-  const tempSeries = useMemo(
-    () =>
-      materials
-        .filter((m) => Array.isArray(m.elevated_temp) && m.elevated_temp.length > 1)
-        .map((m, i) => ({ name: m.name, color: PALETTE[i % PALETTE.length], points: m.elevated_temp! })),
-    [materials]
-  );
+  // R21: tempSeries 제거. 사용자 요청 — Compare 패널에 온도 그래프 불필요.
   const selected = ALL_NUMERIC_PROPERTIES.filter((p) => cols.includes(p.key as string));
   const toggle = (k: string) => setCols((c) => (c.includes(k) ? c.filter((x) => x !== k) : [...c, k]));
 
@@ -209,22 +201,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
         {materials.length === 0 && (
           <p className="text-xs text-muted-foreground italic p-4 text-center">Select materials to compare (up to 30).</p>
         )}
-        {tempSeries.length > 0 && (
-          <div className="border-t border-border p-3">
-            <div className="flex items-center justify-between mb-1.5">
-              <h3 className="text-xs font-semibold text-foreground/70 flex items-center gap-1">
-                <Thermometer className="w-3 h-3" />Strength vs Temperature
-                <span className="font-normal text-muted-foreground">({tempSeries.length})</span>
-              </h3>
-              <div className="flex rounded border border-border overflow-hidden text-[10px]">
-                <button className={`px-2 py-0.5 ${tempField === 'ys' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:bg-muted/40'}`} onClick={() => setTempField('ys')}>σy</button>
-                <button className={`px-2 py-0.5 border-l border-border ${tempField === 'uts' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:bg-muted/40'}`} onClick={() => setTempField('uts')}>UTS</button>
-              </div>
-            </div>
-            <TempCurveChart series={tempSeries} mode="overlay" field={tempField} height={230} />
-            <p className="text-[10px] text-muted-foreground mt-1">Only materials with measured/handbook elevated-temperature data are shown.</p>
-          </div>
-        )}
+        {/* R21: 온도-강도 그래프 제거 (MaterialDetail 의 단일 재료 차트만 유지). */}
       </div>
     </div>
   );

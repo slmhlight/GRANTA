@@ -804,6 +804,130 @@ const ELEV_DATA = {
       { temp: 980, stress: 35,  hours: 1000 },
     ],
   },
+  // R21 — 9 additional alloys spanning Ti, SS, Al, tool steel, Cu, Ni superalloy.
+  // 출처: MMPDS-15, ASM Handbook Vol.2, Special Metals, Carpenter Technology datasheets.
+  'ti6al4v': {  // Grade 5 / Gr23 ELI — annealed
+    elevated_temp: [
+      { temp: 25,  ys: 880, uts: 950, E: 113 },
+      { temp: 200, ys: 750, uts: 830, E: 110 },
+      { temp: 300, ys: 700, uts: 780, E: 104 },
+      { temp: 400, ys: 600, uts: 690, E: 100 },
+      { temp: 500, ys: 450, uts: 590, E:  92 },
+    ],
+    // Ti 의 creep 은 400°C 이상에서 의미 있음 (ASM Handbook Vol.2 Table 2.62).
+    creep_rupture: [
+      { temp: 450, stress: 350, hours: 100 },
+      { temp: 450, stress: 280, hours: 1000 },
+      { temp: 500, stress: 200, hours: 1000 },
+    ],
+  },
+  'ti-6al-4v': {  // 별칭 패턴
+    elevated_temp: [
+      { temp: 25,  ys: 880, uts: 950, E: 113 },
+      { temp: 200, ys: 750, uts: 830, E: 110 },
+      { temp: 300, ys: 700, uts: 780, E: 104 },
+      { temp: 400, ys: 600, uts: 690, E: 100 },
+      { temp: 500, ys: 450, uts: 590, E:  92 },
+    ],
+    creep_rupture: [
+      { temp: 450, stress: 350, hours: 100 },
+      { temp: 450, stress: 280, hours: 1000 },
+      { temp: 500, stress: 200, hours: 1000 },
+    ],
+  },
+  '304l': {  // Annealed austenitic — ASM Handbook Vol.2 / Carpenter datasheet
+    elevated_temp: [
+      { temp: 25,  ys: 200, uts: 520, E: 195 },
+      { temp: 200, ys: 150, uts: 460, E: 186 },
+      { temp: 400, ys: 130, uts: 410, E: 170 },
+      { temp: 600, ys: 110, uts: 350, E: 153 },
+      { temp: 800, ys:  70, uts: 200, E: 130 },
+    ],
+    creep_rupture: [
+      { temp: 600, stress: 150, hours: 1000 },
+      { temp: 700, stress:  60, hours: 1000 },
+      { temp: 800, stress:  20, hours: 1000 },
+    ],
+  },
+  '316l': {  // Annealed — Carpenter Custom 316L datasheet
+    elevated_temp: [
+      { temp: 25,  ys: 220, uts: 550, E: 200 },
+      { temp: 200, ys: 170, uts: 480, E: 191 },
+      { temp: 400, ys: 140, uts: 430, E: 174 },
+      { temp: 600, ys: 115, uts: 370, E: 156 },
+      { temp: 800, ys:  80, uts: 220, E: 132 },
+    ],
+    creep_rupture: [
+      { temp: 650, stress: 100, hours: 1000 },
+      { temp: 750, stress:  50, hours: 1000 },
+      { temp: 850, stress:  20, hours: 1000 },
+    ],
+  },
+  '7075': {  // 7075-T6 — MMPDS-15 Table 3.7.4.0
+    elevated_temp: [
+      { temp: 25,  ys: 503, uts: 572, E: 71.7 },
+      { temp: 100, ys: 400, uts: 470, E: 69   },
+      { temp: 200, ys: 200, uts: 240, E: 65   },
+      { temp: 300, ys:  60, uts:  90, E: 58   },
+    ],
+  },
+  '6061': {  // 6061-T6 — MMPDS-15 / ASM Handbook Vol.2
+    elevated_temp: [
+      { temp: 25,  ys: 276, uts: 310, E: 68.9 },
+      { temp: 100, ys: 260, uts: 290, E: 66   },
+      { temp: 200, ys: 130, uts: 170, E: 60   },
+      { temp: 300, ys:  50, uts:  75, E: 50   },
+    ],
+  },
+  'h13': {  // Quenched + double-tempered. 다이캐스팅 다이 표준 (NADCA #207).
+    elevated_temp: [
+      { temp: 25,  ys: 1500, uts: 1850, E: 210 },
+      { temp: 200, ys: 1380, uts: 1750, E: 200 },
+      { temp: 400, ys: 1240, uts: 1500, E: 185 },
+      { temp: 500, ys: 1100, uts: 1300, E: 170 },
+      { temp: 600, ys:  850, uts: 1000, E: 150 },
+    ],
+    creep_rupture: [
+      { temp: 600, stress: 500, hours: 1000 },
+      { temp: 700, stress: 250, hours: 100 },
+      { temp: 700, stress: 180, hours: 1000 },
+    ],
+  },
+  'cu (pure': {  // DB 의 'Cu (Pure)' — OFHC / C10100 / C11000 등 annealed copper.
+    elevated_temp: [
+      { temp: 25,  ys: 70, uts: 220, E: 117 },
+      { temp: 100, ys: 60, uts: 200, E: 113 },
+      { temp: 200, ys: 50, uts: 170, E: 107 },
+      { temp: 300, ys: 40, uts: 140, E: 100 },
+      { temp: 400, ys: 30, uts: 110, E:  90 },
+    ],
+  },
+  'waspaloy': {  // Solution + age — Special Metals
+    elevated_temp: [
+      { temp: 25,  ys: 1000, uts: 1300, E: 209 },
+      { temp: 400, ys:  950, uts: 1240, E: 192 },
+      { temp: 600, ys:  900, uts: 1150, E: 175 },
+      { temp: 760, ys:  800, uts:  950, E: 153 },
+      { temp: 900, ys:  350, uts:  500, E: 130 },
+    ],
+    creep_rupture: [
+      { temp: 730, stress: 540, hours: 100 },
+      { temp: 760, stress: 420, hours: 1000 },
+      { temp: 815, stress: 240, hours: 1000 },
+    ],
+  },
+  'rene 41': {  // Solution + age — High-Temp Aerospace
+    elevated_temp: [
+      { temp: 25,  ys: 1050, uts: 1410, E: 215 },
+      { temp: 540, ys:  950, uts: 1310, E: 188 },
+      { temp: 760, ys:  900, uts: 1100, E: 158 },
+      { temp: 870, ys:  600, uts:  700, E: 138 },
+    ],
+    creep_rupture: [
+      { temp: 760, stress: 580, hours: 100 },
+      { temp: 870, stress: 280, hours: 1000 },
+    ],
+  },
 };
 function injectTempCurves(m) {
   if (!m || !m.name) return;
