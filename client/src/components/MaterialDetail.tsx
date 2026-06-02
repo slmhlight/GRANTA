@@ -215,6 +215,14 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
           {/* Properties */}
           <TabsContent value="properties" className="p-4 space-y-4">
             <p className="text-[10px] text-muted-foreground/60 -mt-1">Value = typical · sub-line = min–max across {meta.vendor_count ? `${meta.vendor_count} vendors` : 'conditions'}</p>
+            {/* 신뢰도 뱃지 범례 */}
+            <div className="rounded border border-border/50 bg-muted/20 p-2 text-[10px] flex flex-wrap gap-x-3 gap-y-1">
+              <span className="text-foreground/70 font-semibold">신뢰도:</span>
+              <span><span className="text-foreground/50">n=N</span> 실측 다수</span>
+              <span><span className="text-sky-600">handbook</span> 표준 데이터시트</span>
+              <span><span className="text-amber-600">class</span> 클래스 대표(추정)</span>
+              <span><span className="text-rose-500">≈UTS</span> 다른 물성에서 유도</span>
+            </div>
             <div>
               <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><FlaskConical className="w-3 h-3" />Mechanical Properties</h3>
               <div className="space-y-1">
@@ -315,8 +323,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {meta.heat_treatments && (meta.heat_treatments as string[]).length > 0 && <Field label="Heat treatments">{(meta.heat_treatments as string[]).join(', ')}</Field>}
             {meta.applications && <Field label="Applications">{String(meta.applications)}</Field>}
             {(meta.anisotropy || meta.anisotropic) && (
-              <div className="mt-2 rounded border border-amber-400/40 bg-amber-50/60 p-2 text-[12px] leading-relaxed">
-                <b className="text-amber-700">⚠ AM 이방성 주의:</b> {String(meta.anisotropy_note || 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로가 ~10–30% 차이날 수 있습니다. 데이터시트의 방향·후처리(HIP·열처리) 조건을 반드시 확인하세요.')}
+              <div className={`mt-2 rounded border p-2 text-[12px] leading-relaxed ${meta.anisotropy_reduced ? 'border-emerald-400/40 bg-emerald-50/60' : 'border-amber-400/40 bg-amber-50/60'}`}>
+                <b className={meta.anisotropy_reduced ? 'text-emerald-700' : 'text-amber-700'}>{meta.anisotropy_reduced ? 'ℹ HIP 처리 — 이방성 감소:' : '⚠ AM 이방성 주의:'}</b> {String(meta.anisotropy_note || 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로가 ~10–30% 차이날 수 있습니다. 데이터시트의 방향·후처리(HIP·열처리) 조건을 반드시 확인하세요.')}
               </div>
             )}
           </TabsContent>

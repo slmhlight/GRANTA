@@ -322,13 +322,15 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const scX = (v: number) => v, scY = (v: number) => v; // Plotly shapes use RAW data coords (it applies log10 internally on log axes)
     if (fx) for (const xv of fx) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#0066CC', width: 1.5, dash: 'dot' }, editable: false });
     if (fy) for (const yv of fy) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#0066CC', width: 1.5, dash: 'dot' }, editable: false });
-    if (xLimit) for (const xv of xLimit) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#9333ea', width: 1.5, dash: 'dash' }, editable: false });
-    if (yLimit) for (const yv of yLimit) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#9333ea', width: 1.5, dash: 'dash' }, editable: false });
+    // 축 한계선: 옅은 보라 짧은 점선 (Index 선의 두꺼운 빨강 실선과 분명히 구분)
+    if (xLimit) for (const xv of xLimit) if (xv > 0) shapes.push({ type: 'line', xref: 'x', yref: 'paper', x0: scX(xv), x1: scX(xv), y0: 0, y1: 1, line: { color: '#9333ea', width: 1.2, dash: 'dot' }, opacity: 0.7, editable: false });
+    if (yLimit) for (const yv of yLimit) if (yv > 0) shapes.push({ type: 'line', xref: 'paper', yref: 'y', x0: 0, x1: 1, y0: scY(yv), y1: scY(yv), line: { color: '#9333ea', width: 1.2, dash: 'dot' }, opacity: 0.7, editable: false });
     // Ashby selection line as an EDITABLE shape — drag it up/down to change the index threshold M
     if (idx && indexThr != null && xLog && yLog && xRange) {
       const ilx0 = 10 ** xRange[0], ilx1 = 10 ** xRange[1];
       const iyAt = (xv: number) => Math.pow(indexThr! * xv, 1 / idx.p);
-      shapes.push({ type: 'line', xref: 'x', yref: 'y', x0: scX(ilx0), y0: scY(iyAt(ilx0)), x1: scX(ilx1), y1: scY(iyAt(ilx1)), line: { color: '#dc2626', width: 2.5 } });
+      // Index 선택선: 두꺼운 빨강 (한계선과 시각적으로 구분). 한계선은 보라/얇은 점선.
+      shapes.push({ type: 'line', xref: 'x', yref: 'y', x0: scX(ilx0), y0: scY(iyAt(ilx0)), x1: scX(ilx1), y1: scY(iyAt(ilx1)), line: { color: '#dc2626', width: 3, dash: 'solid' } });
       indexLineRef.current = { shapeIndex: shapes.length - 1, p: idx.p, x0: ilx0, y0: iyAt(ilx0) };
     } else {
       indexLineRef.current = null;

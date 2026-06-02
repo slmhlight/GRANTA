@@ -79,6 +79,37 @@ describe('단면 형상별 I·Z·A 정확성', () => {
     expect(I).toBeGreaterThan(120_000);
     expect(I).toBeLessThan(145_000);
   });
+
+  it('직사각형 강축/약축 교환: I_strong/I_weak = (h/b)²', () => {
+    const s = get('rect');
+    const dims = { b: 20, h: 10 };
+    const Is = s.I(dims, 'strong');
+    const Iw = s.I(dims, 'weak');
+    expect(Is / Iw).toBeCloseTo(Math.pow(dims.h / dims.b, 2), 0.01);
+  });
+
+  it('I-빔 약축 I_y ≈ tf·bf³/6 + hw·tw³/12 (b_f=80, h=120, t_f=10, t_w=6)', () => {
+    const s = get('ibeam');
+    const dims = { bf: 80, h: 120, tf: 10, tw: 6 };
+    const Iw = s.I(dims, 'weak');
+    const ref = 2 * (10 * Math.pow(80, 3) / 12) + 100 * Math.pow(6, 3) / 12;
+    expect(Iw).toBeCloseTo(ref, 0.5);
+    // 약축은 강축의 ~1/6 정도
+    const Is = s.I(dims, 'strong');
+    expect(Iw / Is).toBeLessThan(0.2);
+  });
+
+  it('박스 강축/약축 — 외부 치수 교환 시 식 일치', () => {
+    const s = get('box');
+    const dims = { B: 30, H: 20, bi: 24, hi: 14 };
+    const Is = s.I(dims, 'strong');
+    const Iw = s.I(dims, 'weak');
+    // weak 는 (H·B³ - h·b³)/12
+    const ref_weak = (20 * Math.pow(30, 3) - 14 * Math.pow(24, 3)) / 12;
+    expect(Iw).toBeCloseTo(ref_weak, 0.5);
+    // 약축이 강축보다 큼 (B>H 이므로) — B=30 > H=20 이라 weak 가 더 큼
+    expect(Iw).toBeGreaterThan(Is);
+  });
 });
 
 describe('bracket 시나리오 compute — 핸드북 외팔보 식', () => {

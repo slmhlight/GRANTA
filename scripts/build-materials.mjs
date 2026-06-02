@@ -780,14 +780,18 @@ for (const m of all) {
   }
   // 인기도 (0–5) — 산업 사용 빈도 휴리스틱. 표준 합금 이름에 매칭하는 명시적 규칙.
   m.popularity = popularityFor(m);
-  // AM 이방성 플래그 — 적층제조 공정으로 만든 금속은 일반적으로 빌드 방향 (XY vs Z) 에 따라
-  // 강도·연신율·피로가 10–30% 차이남. UI 가 detail 에서 경고 표시.
+  // AM 이방성 플래그 — 적층제조 공정 금속은 빌드 방향(XY vs Z)에 따라 σy·연신율·피로
+  // ~10–30% 차이. HIP 처리되면 다공성·이방성이 크게 완화되므로 약화된 메시지.
   const procStr = String(m.process || '');
   const isAM = /LPBF|DMLS|SLM|EBM|Binder Jetting|DED/i.test(procStr);
+  const isHipped = /HIP|hipped|hot[\s-]?isostatic/i.test(String(m.name || '') + ' ' + String(m.heat_treatment || ''));
   m.meta = m.meta || {};
   if (isAM && m.category === 'Metal') {
     m.meta.anisotropic = true;
-    m.meta.anisotropy_note = 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.';
+    m.meta.anisotropy_note = isHipped
+      ? 'HIP 처리 후 빌드 방향(XY vs Z) 차이는 일반적으로 ~5% 미만으로 감소 — 데이터시트 확인 권장.'
+      : 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.';
+    if (isHipped) m.meta.anisotropy_reduced = true;
   }
 }
 

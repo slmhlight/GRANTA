@@ -617,8 +617,8 @@ export default function Home() {
             <div
               onPointerDown={startPanelResize}
               onDoubleClick={() => setPanelWidth(460)}
-              className="hidden md:block absolute left-0 top-0 h-full w-1.5 -ml-0.5 z-20 cursor-col-resize hover:bg-accent/40 active:bg-accent/60 transition-colors"
-              title="Drag to resize · double-click to reset"
+              className="hidden md:block absolute left-0 top-0 h-full w-2 -ml-1 z-20 cursor-col-resize bg-border/40 hover:bg-accent/70 hover:w-3 hover:-ml-1.5 active:bg-accent transition-all"
+              title="드래그로 폭 조절 · 더블클릭으로 초기화"
             />
             <ComparePanel
               materials={compareMaterials}

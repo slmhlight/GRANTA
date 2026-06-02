@@ -21,18 +21,22 @@ export type ConfigField =
   | { id: string; label: string; unit?: string; type: 'number'; default: number; min?: number; max?: number; step?: number; group?: string; help?: string }
   | { id: string; label: string; type: 'select'; default: string; options: { value: string; label: string }[]; group?: string; help?: string };
 
-/** 단면 형상 + 단면 성질 식 (I, Z, A) 계산용 */
+/** 단면 형상 + 단면 성질 식 (I, Z, A) 계산용.
+ *  비대칭 단면은 강축(strong, default) vs 약축(weak) 모두 지원. */
+export type SectionAxis = 'strong' | 'weak';
 export type CrossSection = {
   id: string;
   label: string;
   /** 이 단면을 선택했을 때 추가로 요구되는 치수 필드들 */
   dimFields: ConfigField[];
-  /** 단면 2차모멘트 I [mm⁴] */
-  I: (v: Record<string, number>) => number;
-  /** 단면계수 Z [mm³] */
-  Z: (v: Record<string, number>) => number;
+  /** 단면 2차모멘트 I [mm⁴]. axis 미지정 시 강축. */
+  I: (v: Record<string, number>, axis?: SectionAxis) => number;
+  /** 단면계수 Z [mm³]. axis 미지정 시 강축. */
+  Z: (v: Record<string, number>, axis?: SectionAxis) => number;
   /** 단면적 A [mm²] (참고용, 인장 응력에 사용) */
   A: (v: Record<string, number>) => number;
+  /** 강축/약축이 구분되는 단면인지 (선택 UI 표시 여부) */
+  hasAxes?: boolean;
 };
 
 export type ScenarioConfigurator = {
@@ -51,11 +55,13 @@ const SHAPE_RECT: CrossSection = {
   id: 'rect', label: '직사각형 b×h',
   dimFields: [
     { id: 'b', label: '폭 b', unit: 'mm', type: 'number', default: 20, min: 1, step: 0.5 },
-    { id: 'h', label: '높이 h (굽힘방향)', unit: 'mm', type: 'number', default: 10, min: 1, step: 0.5 },
+    { id: 'h', label: '높이 h', unit: 'mm', type: 'number', default: 10, min: 1, step: 0.5 },
   ],
-  I: (v) => v.b * Math.pow(v.h, 3) / 12,
-  Z: (v) => v.b * v.h * v.h / 6,
+  // 강축: h가 하중방향(높이) — I = b·h³/12. 약축: b가 하중방향 — I = h·b³/12.
+  I: (v, axis) => axis === 'weak' ? v.h * Math.pow(v.b, 3) / 12 : v.b * Math.pow(v.h, 3) / 12,
+  Z: (v, axis) => axis === 'weak' ? v.h * v.b * v.b / 6 : v.b * v.h * v.h / 6,
   A: (v) => v.b * v.h,
+  hasAxes: true,
 };
 const SHAPE_CIRC: CrossSection = {
   id: 'circ', label: '원형 (꽉찬) d',
@@ -82,9 +88,15 @@ const SHAPE_BOX: CrossSection = {
     { id: 'bi', label: '내부 폭 b', unit: 'mm', type: 'number', default: 24, min: 0, step: 0.5 },
     { id: 'hi', label: '내부 높이 h', unit: 'mm', type: 'number', default: 14, min: 0, step: 0.5 },
   ],
-  I: (v) => (v.B * Math.pow(v.H, 3) - v.bi * Math.pow(v.hi, 3)) / 12,
-  Z: (v) => 2 * ((v.B * Math.pow(v.H, 3) - v.bi * Math.pow(v.hi, 3)) / 12) / v.H,
+  // 강축: 하중이 H 방향. 약축: 하중이 B 방향.
+  I: (v, axis) => axis === 'weak'
+    ? (v.H * Math.pow(v.B, 3) - v.hi * Math.pow(v.bi, 3)) / 12
+    : (v.B * Math.pow(v.H, 3) - v.bi * Math.pow(v.hi, 3)) / 12,
+  Z: (v, axis) => axis === 'weak'
+    ? 2 * ((v.H * Math.pow(v.B, 3) - v.hi * Math.pow(v.bi, 3)) / 12) / v.B
+    : 2 * ((v.B * Math.pow(v.H, 3) - v.bi * Math.pow(v.hi, 3)) / 12) / v.H,
   A: (v) => v.B * v.H - v.bi * v.hi,
+  hasAxes: true,
 };
 const SHAPE_SQ: CrossSection = {
   id: 'sq', label: '정사각형 a×a',
@@ -94,6 +106,7 @@ const SHAPE_SQ: CrossSection = {
   A: (v) => v.a * v.a,
 };
 // I-빔 / H-빔 (대칭) — 강축(수평 중립축) 굽힘 기준. h = 웹 높이 + 2·플랜지 두께(전체 높이).
+// 약축은 하중이 수평이고 단면이 옆으로 휘는 경우 — 플랜지가 약축에서 I 의 대부분.
 const SHAPE_IBEAM: CrossSection = {
   id: 'ibeam', label: 'I-빔 / H-빔',
   dimFields: [
@@ -102,16 +115,25 @@ const SHAPE_IBEAM: CrossSection = {
     { id: 'tw', label: '웹 두께 t_w', unit: 'mm', type: 'number', default: 6, min: 0.5, step: 0.5 },
     { id: 'h', label: '전체 높이 h', unit: 'mm', type: 'number', default: 120, min: 1, step: 1 },
   ],
-  I: (v) => {
-    const hw = v.h - 2 * v.tf;  // 웹 높이
+  I: (v, axis) => {
+    const hw = v.h - 2 * v.tf;
+    if (axis === 'weak') {
+      // I_y = 2·(tf·bf³/12) + hw·tw³/12  — 플랜지 두 개 + 웹
+      return 2 * (v.tf * Math.pow(v.bf, 3) / 12) + hw * Math.pow(v.tw, 3) / 12;
+    }
     return (v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(hw, 3)) / 12;
   },
-  Z: (v) => {
+  Z: (v, axis) => {
     const hw = v.h - 2 * v.tf;
+    if (axis === 'weak') {
+      const Iy = 2 * (v.tf * Math.pow(v.bf, 3) / 12) + hw * Math.pow(v.tw, 3) / 12;
+      return Iy / (v.bf / 2);
+    }
     const I = (v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(hw, 3)) / 12;
     return I / (v.h / 2);
   },
   A: (v) => 2 * v.bf * v.tf + (v.h - 2 * v.tf) * v.tw,
+  hasAxes: true,
 };
 // ㄷ-채널 (U-channel) — 강축 굽힘(수평 중립축). bf 는 전체 플랜지 길이(웹 두께 포함).
 // 강축에 대해 I_x 는 채널을 "닫힌 박스 − 측면 빈공간"으로 보는 식이 가장 정확.
@@ -123,10 +145,26 @@ const SHAPE_CHANNEL: CrossSection = {
     { id: 'tw', label: '웹 두께 t_w', unit: 'mm', type: 'number', default: 6, min: 0.5, step: 0.5 },
     { id: 'h', label: '전체 높이 h', unit: 'mm', type: 'number', default: 100, min: 1, step: 1 },
   ],
-  // I_x = (b_f·h³ − (b_f − t_w)·(h − 2·t_f)³) / 12  — 박스 − 한쪽 측면 빈공간
-  I: (v) => (v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(v.h - 2 * v.tf, 3)) / 12,
-  Z: (v) => ((v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(v.h - 2 * v.tf, 3)) / 12) / (v.h / 2),
-  A: (v) => 2 * v.bf * v.tf + v.tw * (v.h - 2 * v.tf),  // 플랜지 2개 + 웹(플랜지 사이)
+  // 강축(수평): I_x = (b_f·h³ − (b_f − t_w)·(h − 2·t_f)³) / 12 — 박스 − 한쪽 측면 빈공간.
+  // 약축(수직): 약식 — 신경통이 웹에서 약간 떨어져 있어 정확식은 복잡. 대수적 근사:
+  //   I_y ≈ 2·(tf·bf³/12) + (h−2tf)·tw³/12  (대칭으로 가정한 보수적 근사).
+  I: (v, axis) => {
+    if (axis === 'weak') {
+      const hw = v.h - 2 * v.tf;
+      return 2 * (v.tf * Math.pow(v.bf, 3) / 12) + hw * Math.pow(v.tw, 3) / 12;
+    }
+    return (v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(v.h - 2 * v.tf, 3)) / 12;
+  },
+  Z: (v, axis) => {
+    if (axis === 'weak') {
+      const hw = v.h - 2 * v.tf;
+      const Iy = 2 * (v.tf * Math.pow(v.bf, 3) / 12) + hw * Math.pow(v.tw, 3) / 12;
+      return Iy / (v.bf / 2);  // 약식 — 신경통 offset 무시
+    }
+    return ((v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(v.h - 2 * v.tf, 3)) / 12) / (v.h / 2);
+  },
+  A: (v) => 2 * v.bf * v.tf + v.tw * (v.h - 2 * v.tf),
+  hasAxes: true,
 };
 // T-단면 — 비대칭. 상부 플랜지 + 하부 웹(스템). 신경통은 위에서 y_c 만큼 아래.
 const SHAPE_T: CrossSection = {
@@ -224,13 +262,18 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
           { value: 'Wrought', label: '단조·압연(Wrought)' },
           { value: 'Cast', label: '주조(Cast)' },
         ], group: '제조' },
+        { id: 'axis', label: '하중 방향 (단면의 강/약축)', type: 'select', default: 'strong', options: [
+          { value: 'strong', label: '강축 (단면 h 방향 하중 — 가장 효율적)' },
+          { value: 'weak', label: '약축 (단면 b 방향 하중 — I 작아짐)' },
+        ], group: '하중 방향', help: '단면이 비등방일 때 하중을 어느 축에 받느냐로 I 가 크게 달라집니다.' },
       ],
       sections: SHAPES_BENDING,
       compute: (v, section) => {
         const dims: Record<string, number> = {};
         for (const f of section?.dimFields || []) dims[f.id] = Number(v[f.id] ?? (f.type === 'number' ? f.default : 0));
-        const I = section ? section.I(dims) : 1;
-        const Z = section ? section.Z(dims) : 1;
+        const axis = (String(v.axis) === 'weak' ? 'weak' : 'strong') as SectionAxis;
+        const I = section ? section.I(dims, axis) : 1;
+        const Z = section ? section.Z(dims, axis) : 1;
         const F = Number(v.F), w = Number(v.w), L = Number(v.L), dmax = Number(v.dmax), SF = Number(v.SF);
         const pattern = String(v.pattern);
         // 하중 패턴별 δ·M_max 표준식 (boundary-condition coefficient)
@@ -257,6 +300,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
           filters,
           summary: [
             { label: '하중 패턴', value: label },
+            { label: '하중 방향', value: axis === 'weak' ? '약축' : '강축' + (section?.hasAxes ? '' : ' (대칭 단면)') },
             { label: '단면 I', value: `${round0(I)} mm⁴` },
             { label: '단면 Z', value: `${round0(Z)} mm³` },
             { label: '최대 모멘트', value: `${round0(Mmax)} N·mm` },
@@ -414,16 +458,23 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
       ],
       compute: (v) => {
         const mode = String(v.mode);
-        const dT = mode === 'range' ? Math.max(0.1, Number(v.T_high) - Number(v.T_low)) : Number(v.dT);
-        const L = Number(v.L), dL_um = Number(v.dL), E = Number(v.E_req);
+        // L5: 입력 검증 — 음의 ΔT, 0 또는 음의 L/dL 방지.
+        const rawDT = mode === 'range' ? Math.abs(Number(v.T_high) - Number(v.T_low)) : Math.abs(Number(v.dT));
+        const dT = Math.max(0.1, rawDT);
+        const L = Math.max(0.1, Number(v.L));
+        const dL_um = Math.max(0.001, Number(v.dL));
+        const E = Math.max(0, Number(v.E_req));
         const cteMax = dL_um / (L * dT * 1e-3);
+        const warn: { label: string; value: string }[] = [];
+        if (rawDT < 0.1) warn.push({ label: '⚠ 입력 경고', value: 'ΔT 가 0 — 양의 값 입력 필요' });
         return {
           filters: { thermalExpansionRange: [0, Math.max(0.1, round1(cteMax))], ...(E > 0 ? { modulusRange: [E, HI] } : {}) },
           summary: [
-            { label: 'ΔT', value: `${dT} °C` + (mode === 'range' ? ' (범위로부터)' : '') },
+            { label: 'ΔT', value: `${dT} °C` + (mode === 'range' ? ' (범위 절댓값)' : '') },
             { label: '허용 ΔL/L', value: `${(dL_um / L).toFixed(2)} ppm` },
             { label: '필요 CTE', value: `≤ ${round1(cteMax)} ×10⁻⁶/K` },
             ...(E > 0 ? [{ label: '필요 E', value: `≥ ${E} GPa` }] : []),
+            ...warn,
           ],
         };
       },
@@ -451,7 +502,10 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
       ],
       compute: (v) => {
         const env = String(v.env), T = Number(v.T), sy = Number(v.sy);
-        const isHighSeverity = ['seawater', 'acid', 'oxidizing'].includes(env) || T > 60;
+        // L4: 환경별 critical 온도 — 부식이 가속되기 시작하는 임계점
+        const critT: Record<string, number> = { seawater: 40, acid: 25, alkaline: 80, freshwater: 60, atmosphere: 100, oxidizing: 25 };
+        const tCrit = critT[env] ?? 60;
+        const isHighSeverity = ['seawater', 'acid', 'oxidizing'].includes(env) || T > tCrit;
         const corr = isHighSeverity ? ['Excellent'] : env === 'atmosphere' ? ['Excellent', 'Good', 'Moderate'] : ['Excellent', 'Good'];
         const hints: Record<string, string> = {
           atmosphere: '도금/도장 후 사용 가능',
@@ -466,7 +520,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
           summary: [
             { label: '내식성 (필터)', value: corr.join(' · ') },
             { label: '환경 메모', value: hints[env] },
-            { label: '온도 영향', value: T > 60 ? '상온대비 가혹 (마진↑)' : '상온 부근' },
+            { label: `환경 임계 온도 (${env})`, value: `${tCrit} °C — ${T > tCrit ? '초과 (가혹)' : '이하 (정상 범위)'}` },
             { label: '필요 σy', value: `≥ ${sy} MPa` },
           ],
         };
