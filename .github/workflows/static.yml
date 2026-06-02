@@ -1,0 +1,104 @@
+name: Deploy static site
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Detect source and stage site
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          rm -rf _site
+          mkdir -p _site
+
+          # 1) client/package.json 이 있으면: 프론트엔드 앱으로 간주하고 build
+          if [ -f client/package.json ]; then
+            echo "Detected app in /client"
+
+            cd client
+
+            if [ -f package-lock.json ]; then
+              npm ci
+            else
+              npm install
+            fi
+
+            npm run build
+
+            if [ -d dist ]; then
+              rsync -a --delete dist/ ../_site/
+            elif [ -d build ]; then
+              rsync -a --delete build/ ../_site/
+            else
+              echo "Build output not found. Expected client/dist or client/build." >&2
+              exit 1
+            fi
+
+          # 2) client/index.html 이 있으면: 정적 사이트로 간주
+          elif [ -f client/index.html ]; then
+            echo "Detected static site in /client"
+            rsync -a --delete client/ _site/
+
+          # 3) docs/index.html 이 있으면: docs 폴더 배포
+          elif [ -f docs/index.html ]; then
+            echo "Detected static site in /docs"
+            rsync -a --delete docs/ _site/
+
+          # 4) root/index.html 이 있으면: repo root 배포
+          elif [ -f index.html ]; then
+            echo "Detected static site in repository root"
+            rsync -a --delete \
+              --exclude ".git" \
+              --exclude ".github" \
+              --exclude "_site" \
+              ./ _site/
+
+          else
+            echo "No deployable site found."
+            echo "Need one of these:"
+            echo "- client/package.json (build app)"
+            echo "- client/index.html"
+            echo "- docs/index.html"
+            echo "- index.html at repository root"
+            exit 1
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
