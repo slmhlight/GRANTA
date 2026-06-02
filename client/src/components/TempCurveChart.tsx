@@ -78,8 +78,10 @@ export function TempCurveChart({
 
   return (
     <div ref={ref} style={{ width: '100%' }}>
+      {/* R37 — margin 확보 (top: Legend 자리 / bottom: X 라벨 / left·right: Y 라벨).
+                 Legend 를 chart 상단으로 올려 X 축과 겹침 제거. axis label 도 외부 (left/right) 로. */}
       {valid.length > 0 && w > 0 && (
-        <LineChart width={w} height={height} data={data} margin={{ top: 6, right: 12, bottom: 18, left: -4 }}>
+        <LineChart width={w} height={height} data={data} margin={{ top: 28, right: hasEData ? 56 : 16, bottom: 30, left: 14 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
           <XAxis
             dataKey="temp"
@@ -87,14 +89,14 @@ export function TempCurveChart({
             domain={['dataMin', 'dataMax']}
             tick={{ fontSize: 10 }}
             tickLine={false}
-            label={{ value: 'Temperature (°C)', position: 'insideBottom', offset: -6, fontSize: 10, fill: '#64748b' }}
+            label={{ value: 'Temperature (°C)', position: 'insideBottom', offset: -2, fontSize: 10, fill: '#64748b' }}
           />
           <YAxis
             yAxisId="left"
             tick={{ fontSize: 10 }}
             tickLine={false}
-            width={44}
-            label={{ value: 'MPa', angle: -90, position: 'insideLeft', fontSize: 10, fill: '#64748b' }}
+            width={52}
+            label={{ value: 'MPa', angle: -90, position: 'left', offset: -2, fontSize: 10, fill: '#64748b' }}
           />
           {hasEData && (
             <YAxis
@@ -102,8 +104,8 @@ export function TempCurveChart({
               orientation="right"
               tick={{ fontSize: 10, fill: '#16a34a' }}
               tickLine={false}
-              width={36}
-              label={{ value: 'GPa', angle: 90, position: 'insideRight', fontSize: 10, fill: '#16a34a' }}
+              width={48}
+              label={{ value: 'GPa', angle: 90, position: 'right', offset: -2, fontSize: 10, fill: '#16a34a' }}
             />
           )}
           <Tooltip
@@ -111,7 +113,7 @@ export function TempCurveChart({
             formatter={((v: any, n: any) => [v == null ? '—' : `${v}${String(n).includes('GPa') ? ' GPa' : ' MPa'}`, n]) as any}
             labelFormatter={((l: any) => `${l} °C`) as any}
           />
-          <Legend wrapperStyle={{ fontSize: 10 }} iconType="line" />
+          <Legend verticalAlign="top" align="right" height={22} wrapperStyle={{ fontSize: 10, paddingBottom: 4, paddingTop: 0 }} iconType="line" />
           {lines.map((ln) => (
             <Line
               key={ln.key}

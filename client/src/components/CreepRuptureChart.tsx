@@ -44,8 +44,9 @@ export function CreepRuptureChart({ points, height = 200 }: { points: CreepPoint
   });
   return (
     <div ref={ref} style={{ width: '100%' }}>
+      {/* R37 — Legend top + axis label 외부 (Y 'left', X 'insideBottom' offset -2). */}
       {w > 0 && (
-        <LineChart width={w} height={height} data={data} margin={{ top: 6, right: 12, bottom: 22, left: -4 }}>
+        <LineChart width={w} height={height} data={data} margin={{ top: 28, right: 16, bottom: 34, left: 14 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
           <XAxis
             dataKey="hours"
@@ -56,20 +57,20 @@ export function CreepRuptureChart({ points, height = 200 }: { points: CreepPoint
             tickFormatter={(v) => v >= 1000 ? `${v / 1000}k` : String(v)}
             tick={{ fontSize: 10 }}
             tickLine={false}
-            label={{ value: 'Time to rupture (h, log)', position: 'insideBottom', offset: -8, fontSize: 10, fill: '#64748b' }}
+            label={{ value: 'Time to rupture (h, log)', position: 'insideBottom', offset: -2, fontSize: 10, fill: '#64748b' }}
           />
           <YAxis
             tick={{ fontSize: 10 }}
             tickLine={false}
-            width={44}
-            label={{ value: 'Stress (MPa)', angle: -90, position: 'insideLeft', fontSize: 10, fill: '#64748b' }}
+            width={60}
+            label={{ value: 'Stress (MPa)', angle: -90, position: 'left', offset: -2, fontSize: 10, fill: '#64748b' }}
           />
           <Tooltip
             contentStyle={{ fontSize: 11, padding: '4px 8px' }}
             formatter={((v: any, n: any) => [v == null ? '—' : `${v} MPa`, String(n).replace('t', '')]) as any}
             labelFormatter={((l: any) => `${l} h`) as any}
           />
-          <Legend wrapperStyle={{ fontSize: 10 }} iconType="line" />
+          <Legend verticalAlign="top" align="right" height={22} wrapperStyle={{ fontSize: 10, paddingBottom: 4 }} iconType="line" />
           {temps.map((t, i) => (
             <Line
               key={t}

@@ -455,7 +455,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const mTitleFont = isMobile ? 10 : 12;
     const mTickFont = isMobile ? 9 : 11;
     const mBaseFont = isMobile ? 10 : 12;
-    const mMargin = isMobile ? { l: 50, r: 8, t: 24, b: 44 } : { l: 72, r: 20, t: 28, b: 56 };
+    // R37 — 모바일 b 마진 확장 (44→78) — legend 가 X축 아래 horizontal 로 떨어질 때 X축 라벨과 겹침 방지.
+    //        데스크탑 t 도 28→36 (legend y=1.07 + envelope group 다수일 때 2줄 여유).
+    const mMargin = isMobile ? { l: 50, r: 8, t: 24, b: 78 } : { l: 72, r: 20, t: 36, b: 56 };
     // 모바일에서 단위 축약 — "yield_strength (MPa)" → "σ_y (MPa)" 식으로 짧게.
     const shortLabel = (label: string | undefined, key: string) => {
       if (!isMobile) return label ?? key;
@@ -474,9 +476,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       hovermode: 'closest', shapes, annotations: guideAnnotations,
       // 모바일에서는 레전드를 차트 위가 아닌 아래로 옮겨 차트 면적을 보호 (또는 항목 많을 때 토글).
       showlegend: showLegend && (!isMobile || (envelopeTraces.length + markerTraces.length <= 6)),
+      // R37 — 모바일 legend 위치 (-0.32 → -0.42) + yanchor='top' 으로 X축과 분리.
+      //        margin.b 78 확보분에 자리잡음 → tick label 와 분명한 거리.
       legend: isMobile
-        ? { orientation: 'h', y: -0.32, x: 0, font: { size: 9, color: fontC }, bgcolor: 'rgba(0,0,0,0)' }
-        : { orientation: 'h', y: 1.07, x: 0, font: { size: 11, color: fontC }, bgcolor: 'rgba(0,0,0,0)' },
+        ? { orientation: 'h', y: -0.42, x: 0, yanchor: 'top', font: { size: 9, color: fontC }, bgcolor: 'rgba(0,0,0,0)' }
+        : { orientation: 'h', y: 1.09, x: 0, yanchor: 'bottom', font: { size: 11, color: fontC }, bgcolor: 'rgba(0,0,0,0)' },
       paper_bgcolor: darkChart ? '#0b1220' : '#ffffff', plot_bgcolor: darkChart ? '#0f172a' : '#ffffff',
       font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: mBaseFont, color: fontC },
     };
