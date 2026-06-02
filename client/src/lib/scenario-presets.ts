@@ -344,18 +344,20 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
       compute: (v) => {
         const Top = Number(v.Top), sy = Number(v.sy_req);
         const env = String(v.env), duration = String(v.duration);
-        // 환경별 권장 마진
-        const margin = env === 'oxidizing' ? 100 : env === 'reducing' ? 80 : 50;
-        const durNote = duration === 'continuous' ? '크리프 데이터 필수 확인' : duration === 'cyclic_short' ? '열피로(thermal fatigue) 고려' : '단발 강도 위주';
-        const envNote = env === 'oxidizing' ? '내산화성 합금 우선 (예: Ni 초합금, Haynes)' : env === 'reducing' ? '환원성 분위기 적합 합금' : '광범위한 합금 가능';
+        // 환경별 권장 마진 (보수적): 산화성은 산화/탈탄 가속 위험으로 더 큰 마진.
+        // 연속(creep) 운전이면 30°C 추가 마진 — 0.4·Tm 이상에서 크리프 가속.
+        const baseMargin = env === 'oxidizing' ? 100 : env === 'reducing' ? 80 : 50;
+        const margin = baseMargin + (duration === 'continuous' ? 30 : 0);
+        const durNote = duration === 'continuous' ? '크리프 데이터 필수 확인 (Larson-Miller, 100kh 강도)' : duration === 'cyclic_short' ? '열피로(thermal fatigue) + 산화막 박리 고려' : '단발 강도 위주 (산화막 형성 시간 짧음)';
+        const envNote = env === 'oxidizing' ? '내산화성 합금 우선 (Inconel·Haynes·Hastelloy)' : env === 'reducing' ? '환원성 분위기 적합 합금 (특수 Ni 합금)' : '광범위한 합금 가능';
         return {
           filters: { maxServiceTempRange: [Top + margin, HI], yieldStrengthRange: [sy, HI] },
           summary: [
-            { label: '환경별 권장 마진', value: `+${margin} °C` },
+            { label: '환경 + 시간 마진', value: `+${margin} °C${duration === 'continuous' ? ' (크리프 +30)' : ''}` },
             { label: '최대사용온도 (필터)', value: `≥ ${Top + margin} °C` },
             { label: '환경 메모', value: envNote },
             { label: '하중 메모', value: durNote },
-            { label: '필요 σy (상온 기준)', value: `≥ ${sy} MPa` },
+            { label: '필요 σy', value: `≥ ${sy} MPa  ⚠ DB 는 상온 기준, T_op 의 σy 는 상세 팝업 곡선 확인` },
           ],
         };
       },
@@ -660,6 +662,219 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
             { label: '냉각 모드 보정', value: `×${convFactor}` },
             { label: '필요 k', value: `≥ ${round0(k)} W/m·K` },
             ...(dMax !== null ? [{ label: '경량 조건', value: `밀도 ≤ ${dMax} g/cm³` }] : []),
+          ],
+        };
+      },
+    },
+  },
+
+  /* ──────────────────────────────────────────────────────────────────────
+   * 라운드 6 추가 사례: 마모, 의료 임플란트, 극저온, 전기 전도체
+   * 각 사례는 표준 핸드북 근거를 둔 필터 산출로만 동작 (값 조작 없음).
+   * ────────────────────────────────────────────────────────────────────── */
+  wear: {
+    label: '마모·내마모 부품',
+    filters: {},
+    viewMode: 'ashby',
+    indexHint: '경도 HV 우선, 연성 확보 후 σy 보조 — 표면 처리 별도',
+    configurator: {
+      description: '응용·접촉 모드·하중을 입력하면 경도/연성 권장치를 산출합니다. 표면 처리(질화·코팅)는 후처리로 분리.',
+      fields: [
+        { id: 'app', label: '응용 (빠른 설정)', type: 'select', default: 'custom', options: [
+          { value: 'custom', label: '직접 입력' },
+          { value: 'gear', label: '기어 (피팅·플랭크 마모)' },
+          { value: 'cam', label: '캠·종동절 (접촉 응력)' },
+          { value: 'bearing_race', label: '베어링 레이스 (구름 피로)' },
+          { value: 'wear_plate', label: '내마모 플레이트 (abrasive)' },
+          { value: 'cutting_tool', label: '절삭공구 (고경도)' },
+        ], group: '응용' },
+        { id: 'mode', label: '마모 모드', type: 'select', default: 'abrasive', options: [
+          { value: 'abrasive', label: '연마성 (입자·모래)' },
+          { value: 'adhesive', label: '응착성 (금속-금속 미끄럼)' },
+          { value: 'rolling', label: '구름 피로 (접촉 응력)' },
+          { value: 'erosive', label: '침식 (고속 입자)' },
+        ], group: '접촉' },
+        { id: 'HV_req', label: '필요 경도 HV (직접 입력 시)', unit: 'HV', type: 'number', default: 450, min: 50, step: 10, help: '연마성→500+, 응착성→350+, 구름→700+ (베어링급)', group: '경도' },
+        { id: 'el_min', label: '최소 연신율 (취성 회피)', unit: '%', type: 'number', default: 5, min: 0, step: 0.5, group: '연성' },
+      ],
+      compute: (v) => {
+        const mode = String(v.mode);
+        const HV = Number(v.HV_req);
+        const el = Number(v.el_min);
+        // 모드별 권장 최소 경도 — Archard 마모 W ∝ FL/H 에 따라 H 가 클수록 마모 감소.
+        const recHV: Record<string, number> = { abrasive: 500, adhesive: 350, rolling: 700, erosive: 600 };
+        const finalHV = Math.max(HV, recHV[mode] ?? 400);
+        const note: Record<string, string> = {
+          abrasive: '입자 경도 < 재료 경도 — 1.2배 권장. 표면 침탄·질화 효과 큼.',
+          adhesive: '경질·연질 짝짓기 (galling 방지). PTFE/그리스 윤활 검토.',
+          rolling: '접촉 응력 (Hertz) 우선 — σ_y 가 아니라 H 와 청정도(inclusion).',
+          erosive: '입자 각도 90° 면 취성재 위험. HV 우선 + 두께 마진.',
+        };
+        return {
+          filters: { hardnessRange: [finalHV, HI], elongationRange: [el, HI] },
+          summary: [
+            { label: '권장 경도 (모드 적용)', value: `≥ ${finalHV} HV` },
+            { label: '최소 연신율', value: `≥ ${el}%` },
+            { label: '모드 메모', value: note[mode] ?? '' },
+            { label: '표면 처리 고려', value: '질화·DLC·HVOF 코팅으로 경도·내마모 추가 향상' },
+          ],
+        };
+      },
+    },
+  },
+
+  medical: {
+    label: '의료 임플란트 (생체적합)',
+    filters: {},
+    viewMode: 'ashby',
+    indexHint: '뼈와 modulus 매칭(과강성 회피 — stress shielding) + 부식 면역',
+    configurator: {
+      description: '임플란트 위치·하중 종류·내구 기간을 입력하면 생체적합 금속군과 modulus 범위를 좁힙니다.',
+      fields: [
+        { id: 'site', label: '식립 부위', type: 'select', default: 'orthopedic', options: [
+          { value: 'orthopedic', label: '정형외과 (대퇴골·고관절 — 굽힘·압축)' },
+          { value: 'dental', label: '치과 (임플란트 픽스처 — 압축)' },
+          { value: 'spine', label: '척추 (케이지·스크류)' },
+          { value: 'cardiovascular', label: '심혈관 (스텐트·인공판막 — 피로)' },
+          { value: 'cranial', label: '두개골·맥실로페이셜 (정적 하중)' },
+        ], group: '부위' },
+        { id: 'duration', label: '체내 체류 기간', type: 'select', default: 'long', options: [
+          { value: 'short', label: '단기 (<1년, 골절 fixation)' },
+          { value: 'long', label: '장기 (>5년, 영구)' },
+        ], group: '체류' },
+        { id: 'load', label: '주 하중 타입', type: 'select', default: 'cyclic', options: [
+          { value: 'static', label: '정적 (작은 변형)' },
+          { value: 'cyclic', label: '주기적 보행/맥동 (피로 확실)' },
+        ], group: '하중' },
+        { id: 'sy_req', label: '필요 σy', unit: 'MPa', type: 'number', default: 600, min: 0, step: 50, group: '하중', help: '치과·정형외과 600+ 일반, 척추 800+' },
+      ],
+      compute: (v) => {
+        const site = String(v.site), load = String(v.load), sy = Number(v.sy_req);
+        // 피질골 모듈러스 E ≈ 18 GPa. Ti-6Al-4V 110 GPa, CoCr 230, 316L 200, PEEK 4.
+        // Stress shielding 방지 위해 E 상한 권장 (정형/척추), 치과는 압축 위주라 상한 완화.
+        const ePrefRange: [number, number] = site === 'dental' || site === 'cardiovascular' ? [100, HI] : [90, 200];
+        const corr = ['Excellent']; // 생체 환경 → 부식 면역 필수.
+        const filters: Partial<FilterState> = {
+          yieldStrengthRange: [sy, HI],
+          modulusRange: ePrefRange,
+          corrosion: corr,
+          categories: ['Metal'], // 생체적합 금속 (Ti·CoCr·316L 등)
+        };
+        if (load === 'cyclic') filters.fatigueStrengthRange = [Math.round(sy * 0.4), HI];
+        const siteNote: Record<string, string> = {
+          orthopedic: 'Ti-6Al-4V 표준. E 매칭 위해 Ti-Nb-Zr 등 β-Ti 도 검토.',
+          dental: 'Grade 4·5 Ti 일반. 표면 처리 (SLA·anodizing) 로 osseointegration 향상.',
+          spine: 'PEEK 케이지 + Ti 스크류 조합 잦음 (modulus 매칭).',
+          cardiovascular: '스텐트 — 316L 또는 Nitinol(형상기억). 피로 시험 필수.',
+          cranial: 'Ti mesh 또는 PEEK. 영상 호환성도 고려.',
+        };
+        return {
+          filters,
+          summary: [
+            { label: '필요 σy', value: `≥ ${sy} MPa` },
+            { label: 'Modulus 권장', value: `${ePrefRange[0]}–${ePrefRange[1] === HI ? '∞' : ePrefRange[1]} GPa  (피질골 ≈ 18, 과강성 회피)` },
+            { label: '부식', value: 'Excellent (생체 환경 면역 필수)' },
+            ...(load === 'cyclic' ? [{ label: '필요 피로한도 (추정)', value: `≥ ${Math.round(sy * 0.4)} MPa` }] : []),
+            { label: '부위 메모', value: siteNote[site] },
+            { label: '규제', value: 'ISO 10993 (생체적합성), ISO 5832 (재료 등급)' },
+          ],
+        };
+      },
+    },
+  },
+
+  cryogenic: {
+    label: '극저온 부품 (LNG·우주)',
+    filters: {},
+    viewMode: 'ashby',
+    indexHint: '연신율 ≥ 15% + FCC 구조(Al·Cu·γ-Fe austenitic·Ni) — BCC 강은 DBTT 주의',
+    configurator: {
+      description: '운전 온도와 하중을 입력하면 저온 인성을 확보한 합금만 남깁니다. DBTT가 있는 BCC 강은 자동 제외.',
+      fields: [
+        { id: 'T_low', label: '최저 운전 온도', unit: '°C', type: 'number', default: -196, min: -273, max: 25, step: 10, help: '액화N₂ −196°C, 액화수소 −253°C, 액화헬륨 −269°C', group: '온도' },
+        { id: 'sy_req', label: '필요 σy', unit: 'MPa', type: 'number', default: 300, min: 0, step: 10, group: '하중' },
+        { id: 'el_min', label: '최소 연신율 (저온 인성 지표)', unit: '%', type: 'number', default: 15, min: 0, step: 1, help: 'FCC 금속은 저온에서도 15%+ 유지. BCC 강 위험.', group: '인성' },
+        { id: 'app', label: '응용 (참고)', type: 'select', default: 'lng', options: [
+          { value: 'lng', label: 'LNG 저장·이송 (−162°C)' },
+          { value: 'rocket', label: '액체산소·수소 로켓 탱크' },
+          { value: 'cryo_med', label: '의료·연구 (액N₂·He)' },
+        ], group: '응용' },
+      ],
+      compute: (v) => {
+        const Tlow = Number(v.T_low), sy = Number(v.sy_req), el = Number(v.el_min);
+        // 권장: 오스테나이트계 (FCC), Al, Cu, Ni 합금. 페라이트·마르텐사이트 강(BCC)은
+        // DBTT(Ductile-Brittle Transition Temperature) 가 보통 −30~−80°C 이상에서 취성 천이 → 제외.
+        // 필터로 직접 제외 불가능하므로 subcategories 권장: Austenitic SS, Al 합금, Ni 합금.
+        const subRec = ['Stainless - Austenitic', 'Aluminum', 'Nickel Superalloy', 'Copper - High Strength'];
+        return {
+          filters: {
+            yieldStrengthRange: [sy, HI],
+            elongationRange: [el, HI],
+            categories: ['Metal'],
+            subcategories: subRec,
+          },
+          summary: [
+            { label: '운전 온도', value: `${Tlow} °C` },
+            { label: '필요 σy', value: `≥ ${sy} MPa` },
+            { label: '필요 연신율', value: `≥ ${el}% (FCC 구조 보존 지표)` },
+            { label: '추천 군', value: 'Austenitic SS · Al · Ni · 일부 Cu — BCC 강은 DBTT 위험으로 제외' },
+            { label: '검증', value: 'Charpy 시험 (−196°C, ≥27J/kV) — 저온 인성 직접 확인 필수' },
+            { label: '주의', value: 'Ti 는 저온 강도↑·인성↓ — α 상 다량 시 위험. β·근접 합금 확인.' },
+          ],
+        };
+      },
+    },
+  },
+
+  electrical: {
+    label: '전기 전도체 (버스바·접점)',
+    filters: {},
+    viewMode: 'ashby',
+    indexHint: '전기전도도 ≥ N % IACS — 동시에 σy 확보로 영구 변형 회피',
+    configurator: {
+      description: '응용·전류·온도 상승 한도를 입력하면 단면적과 필요 전기전도도를 산출합니다.',
+      fields: [
+        { id: 'app', label: '응용', type: 'select', default: 'busbar', options: [
+          { value: 'busbar', label: '버스바 (배전반·EV 배터리)' },
+          { value: 'contact', label: '전기 접점 (스위치·릴레이)' },
+          { value: 'connector', label: '커넥터 핀 (저항 가열 회피)' },
+          { value: 'rf', label: 'RF·마이크로파 (표피효과)' },
+        ], group: '응용' },
+        { id: 'I', label: '연속 전류 I', unit: 'A', type: 'number', default: 100, min: 0.1, step: 10, group: '하중' },
+        { id: 'dT', label: '허용 온도상승 ΔT', unit: '°C', type: 'number', default: 40, min: 5, step: 5, help: '도체 IEC 권장 ΔT = 30~50°C', group: '하중' },
+        { id: 'A_mm2', label: '단면적 (현재 설계)', unit: 'mm²', type: 'number', default: 100, min: 1, step: 10, group: '기하' },
+        { id: 'sy_min', label: '최소 σy (변형 방지)', unit: 'MPa', type: 'number', default: 100, min: 0, step: 10, group: '기계' },
+      ],
+      compute: (v) => {
+        const I = Number(v.I), dT = Number(v.dT), A = Number(v.A_mm2), sy = Number(v.sy_min);
+        // Cu 표준 전기전도도 약 58 MS/m ≈ 100% IACS. 동손 P = I²·R = I²·ρ·L/A.
+        // 정상상태 도체 dT ≈ ρ·I²/(A²·h) — 정확하지 않으나 필요 전도도 (=1/ρ) 의 가이드.
+        // 보수적 근사: σ_e (S/m) ≥ I²·L_ref / (A²·dT·h_ref), L_ref=1m, h_ref ≈ 10 W/m²K 자유대류.
+        const Lref = 1000; // mm
+        const h = 10;      // W/m²K (자유 대류)
+        // 표면적 ~ 4·sqrt(A) ·L (대략 정사각 단면 가정). dT = P/(h·As) = (I²/(σ_e A)) / (h·As)
+        // → σ_e ≥ I² · Lref / (A² · dT · h · As_factor). 단순화: σ_e ≥ I² / (A · dT · 0.05)
+        const sigmaE = (I * I) / (A * dT * 0.05); // S/m (보수적)
+        const iacsPct = sigmaE / 58e6 * 100;
+        const sigmaE_MS = sigmaE / 1e6;
+        const rec: Record<string, string> = {
+          busbar: 'Cu (C11000) 표준 — Al (1350) 도 가능 (2배 단면).',
+          contact: 'Ag/AgCdO 도금 베이스 + Cu 합금 (CuBe·CuCr).',
+          connector: '베릴륨동(C17200) · 인청동 — σy·탄성 동시 확보.',
+          rf: '도금 Cu (도금 두께 ≥ 표피두께 5배) — 표피효과 보상.',
+        };
+        return {
+          filters: {
+            electricalConductivityRange: [Math.round(iacsPct * 0.95), HI], // %IACS 로 가정 (DB 키 확인 필요)
+            yieldStrengthRange: [sy, HI],
+            categories: ['Metal'],
+          },
+          summary: [
+            { label: '소모전력 (개략)', value: `~${round0(I * I / (A * sigmaE_MS * 1000))} W (1m 당)` },
+            { label: '필요 전도도', value: `≥ ${round1(iacsPct)} %IACS  (=${round1(sigmaE_MS)} MS/m)` },
+            { label: '필요 σy', value: `≥ ${sy} MPa (변형 방지)` },
+            { label: '응용 권장', value: rec[String(v.app)] },
+            { label: '검증', value: 'IEEE/IEC 도체 표준 (도체 단면·온도 상승) 으로 최종 검증' },
           ],
         };
       },

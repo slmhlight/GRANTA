@@ -15,6 +15,7 @@ import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario } from './guide/components';
 import {
   SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink,
+  SvgWear, SvgMedical, SvgCryogenic, SvgElectrical,
   SvgRect, SvgSquare, SvgCircle, SvgBox, SvgTube, SvgIBeam,
   SvgColumn,
   SvgStressStrain, SvgBendingStress, SvgAshbyChart, SvgFCOF, SvgTorsion, SvgMohr, SvgPressureVessel,
@@ -27,18 +28,20 @@ import {
  * ────────────────────────────────────────────────────────────────────────── */
 
 const TOC: { id: string; n: number; label: string; icon: any }[] = [
-  // 추천 순서: 사례 → Ashby → 기초/물성 → 응용. 챕터 번호는 JSX 본문과 일치.
-  { id: 'ch7', n: 7, label: '실전 사례 8선 (앱 자동 연계)', icon: LineChart },
-  { id: 'ch6', n: 6, label: 'Ashby 재료 선택법', icon: ListChecks },
-  { id: 'ch1', n: 1, label: '물성 사전 — 재료 표기의 의미', icon: BookOpen },
-  { id: 'ch2', n: 2, label: '설계 요구를 물성 수치로 변환', icon: Target },
-  { id: 'ch3', n: 3, label: '단면 성질 도감 (A · I · Z · J)', icon: Sigma },
-  { id: 'ch4', n: 4, label: '보 하중·지지조건별 처짐 · 모멘트', icon: Sigma },
-  { id: 'ch5', n: 5, label: '비틀림 · 좌굴 · 복합 · 압력', icon: Sigma },
+  // 라운드 6: 추천 순서대로 1..8 로 번호 재정렬. 사례(앱 자동 연계) → Ashby → 기초/물성 → 응용 → 참고.
+  // 챕터 번호는 JSX 본문의 Chapter n 와 동기 — 두 값이 어긋나면 TOC 와 badge 가 다르게 보임.
+  { id: 'ch7', n: 1, label: '실전 사례 12선 (앱 자동 연계)', icon: LineChart },
+  { id: 'ch6', n: 2, label: 'Ashby 재료 선택법', icon: ListChecks },
+  { id: 'ch1', n: 3, label: '물성 사전 — 재료 표기의 의미', icon: BookOpen },
+  { id: 'ch2', n: 4, label: '설계 요구를 물성 수치로 변환', icon: Target },
+  { id: 'ch3', n: 5, label: '단면 성질 도감 (A · I · Z · J)', icon: Sigma },
+  { id: 'ch4', n: 6, label: '보 하중·지지조건별 처짐 · 모멘트', icon: Sigma },
+  { id: 'ch5', n: 7, label: '비틀림 · 좌굴 · 복합 · 압력', icon: Sigma },
   { id: 'ch8', n: 8, label: '데이터 해석 & 참고문헌', icon: BookText },
 ];
 
-/** 사례 타일 — 가이드 최상단에서 한눈에 보고 곧장 다이얼로그를 열 수 있게. */
+/** 사례 타일 — 가이드 최상단에서 한눈에 보고 곧장 다이얼로그를 열 수 있게.
+ *  라운드 6: 8 → 12 종 확장. 첫 8 개는 일반 기계 설계, 마지막 4 개는 산업 특화. */
 const SCENARIO_TILES: { key: ScenarioKey; title: string; sub: string; svg: () => React.ReactElement }[] = [
   { key: 'bracket', title: '구조 브래킷', sub: '경량 + 고강성', svg: SvgBracket },
   { key: 'hightemp', title: '고온 부품', sub: '배기 · 터빈', svg: SvgManifold },
@@ -48,6 +51,10 @@ const SCENARIO_TILES: { key: ScenarioKey; title: string; sub: string; svg: () =>
   { key: 'lowcost', title: '저원가 양산', sub: '가성비', svg: SvgLowcost },
   { key: 'spring', title: '스프링 · 힌지', sub: '탄성 에너지', svg: SvgSpring },
   { key: 'heatsink', title: '히트싱크', sub: '방열', svg: SvgHeatsink },
+  { key: 'wear', title: '내마모', sub: '경도 + 접촉', svg: SvgWear },
+  { key: 'medical', title: '의료 임플란트', sub: '생체적합', svg: SvgMedical },
+  { key: 'cryogenic', title: '극저온', sub: 'LNG · 우주', svg: SvgCryogenic },
+  { key: 'electrical', title: '전기 전도체', sub: '버스바·접점', svg: SvgElectrical },
 ];
 
 export default function Guide() {
@@ -81,7 +88,7 @@ export default function Guide() {
               '응력 = F/A 부터 시작',
               '보 처짐과 단면의 관계',
               'Ashby 차트로 후보 좁히기',
-              '실전 사례 8선 → 한 클릭 적용',
+              '실전 사례 12선 → 한 클릭 적용',
             ].map((t) => (
               <span key={t} className="text-[11px] px-2 py-1 rounded-full bg-background border border-border text-foreground/80">{t}</span>
             ))}
@@ -129,9 +136,9 @@ export default function Guide() {
 
         {/* ── Chapter 7: 실전 사례 ─────────────────────────────────────── */}
         <Chapter
-          n={7}
+          n={1}
           id="ch7"
-          title="실전 사례 8선 — 클릭 한 번으로 앱 시작"
+          title="실전 사례 12선 — 클릭 한 번으로 앱 시작"
           learn={[
             '대표 부품 유형 8가지의 “요구→숫자→앱 단계→유력 재료군”',
             '각 사례의 “이 사례로 앱 시작” 버튼이 필터·뷰·Index 힌트를 자동 적용',
@@ -277,9 +284,9 @@ export default function Guide() {
           </Note>
         </Chapter>
 
-        {/* ── Chapter 6: Ashby 방법 ─────────────────────────────────────── */}
+        {/* ── Chapter 2 (구 6): Ashby 방법 ─────────────────────────────── */}
         <Chapter
-          n={6}
+          n={2}
           id="ch6"
           title="Ashby 재료 선택법"
           learn={[
@@ -345,9 +352,9 @@ export default function Guide() {
           </div>
         </Chapter>
 
-        {/* ── Chapter 1: 물성 사전 ─────────────────────────────────────────── */}
+        {/* ── Chapter 3 (구 1): 물성 사전 ─────────────────────────────── */}
         <Chapter
-          n={1}
+          n={3}
           id="ch1"
           title="물성 사전 — 재료가 말하는 언어"
           learn={[
@@ -457,9 +464,9 @@ export default function Guide() {
           </Note>
         </Chapter>
 
-        {/* ── Chapter 2: 요구를 숫자로 ─────────────────────────────────────── */}
+        {/* ── Chapter 4 (구 2): 요구를 숫자로 ───────────────────────────── */}
         <Chapter
-          n={2}
+          n={4}
           id="ch2"
           title="설계 요구를 숫자로 바꾸기"
           learn={[
@@ -529,9 +536,9 @@ export default function Guide() {
           </div>
         </Chapter>
 
-        {/* ── Chapter 3: 단면 모양 도감 ────────────────────────────────────── */}
+        {/* ── Chapter 5 (구 3): 단면 모양 도감 ─────────────────────────── */}
         <Chapter
-          n={3}
+          n={5}
           id="ch3"
           title="단면 모양 도감 — A · I · Z · J"
           learn={[
@@ -637,9 +644,9 @@ export default function Guide() {
           </Note>
         </Chapter>
 
-        {/* ── Chapter 4: 보 하중 도감 ───────────────────────────────────── */}
+        {/* ── Chapter 6 (구 4): 보 하중 도감 ───────────────────────────── */}
         <Chapter
-          n={4}
+          n={6}
           id="ch4"
           title="보 하중·지지조건 도감"
           learn={[
@@ -712,9 +719,9 @@ export default function Guide() {
           </div>
         </Chapter>
 
-        {/* ── Chapter 5: 응용 ───────────────────────────────────────────── */}
+        {/* ── Chapter 7 (구 5): 응용 ───────────────────────────────────── */}
         <Chapter
-          n={5}
+          n={7}
           id="ch5"
           title="응용 — 비틀림 · 좌굴 · 복합 · 압력"
           learn={[

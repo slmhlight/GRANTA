@@ -79,6 +79,54 @@ export const SvgHeatsink = () => (
     <g className={force} strokeWidth="1.5" fill="none"><path d="M 36 12 q 2 -4 4 0 t 4 0" /><path d="M 58 8 q 2 -4 4 0 t 4 0" /><path d="M 78 12 q 2 -4 4 0 t 4 0" /></g>
   </svg>
 );
+/* 새 사례 (라운드 6) — wear/medical/cryogenic/electrical */
+export const SvgWear = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 기어 한 쌍 — 마모/접촉의 대표 도식 */}
+    <g className={`fill-accent/15 ${accent}`} strokeWidth="1.5">
+      <circle cx="40" cy="48" r="20" />
+      {Array.from({ length: 12 }).map((_, i) => { const a = (i * 30) * Math.PI / 180; return <rect key={i} x={40 + Math.cos(a) * 20 - 2} y={48 + Math.sin(a) * 20 - 2} width="4" height="4" transform={`rotate(${i * 30} ${40 + Math.cos(a) * 20} ${48 + Math.sin(a) * 20})`} />; })}
+      <circle cx="40" cy="48" r="3" className="fill-accent" />
+      <circle cx="85" cy="48" r="13" />
+      {Array.from({ length: 8 }).map((_, i) => { const a = (i * 45) * Math.PI / 180; return <rect key={i} x={85 + Math.cos(a) * 13 - 1.5} y={48 + Math.sin(a) * 13 - 1.5} width="3" height="3" />; })}
+      <circle cx="85" cy="48" r="2" className="fill-accent" />
+    </g>
+    <text x="14" y="80" fontSize="9" className="fill-rose-500" fontFamily="monospace">Hertz · HV ↑</text>
+  </svg>
+);
+export const SvgMedical = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 골절판 스크류 — 임플란트 대표 도식 */}
+    <path d="M 18 24 Q 60 14 102 24 L 102 38 Q 60 30 18 38 Z" className={`fill-accent/15 ${accent}`} strokeWidth="1.5" />
+    {[28, 50, 72, 94].map(x => <g key={x}><circle cx={x} cy={31} r={3} className="fill-background stroke-accent" strokeWidth="1.2" /><line x1={x} y1={34} x2={x} y2={64} className={accent} strokeWidth="2" /><polyline points={`${x - 3},60 ${x},66 ${x + 3},60`} className={accent} strokeWidth="1" fill="none" /></g>)}
+    <text x="14" y="84" fontSize="8" className="fill-emerald-600" fontFamily="monospace">Ti / CoCr / 316L</text>
+  </svg>
+);
+export const SvgCryogenic = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* LNG 탱크 + 눈송이 (저온) */}
+    <rect x="14" y="32" width="76" height="40" rx="6" className={`fill-accent/15 ${accent}`} strokeWidth="2" />
+    <rect x="14" y="32" width="76" height="40" rx="6" className="fill-sky-200/40" stroke="none" />
+    <text x="22" y="56" fontSize="9" className="fill-foreground/70" fontFamily="monospace">LNG</text>
+    <text x="22" y="68" fontSize="8" className="fill-sky-700" fontFamily="monospace">−162°C</text>
+    {/* 눈송이 */}
+    <g className="stroke-sky-500" strokeWidth="1.3" fill="none">
+      <line x1="102" y1="20" x2="102" y2="38" /><line x1="93" y1="29" x2="111" y2="29" />
+      <line x1="95" y1="22" x2="109" y2="36" /><line x1="109" y1="22" x2="95" y2="36" />
+    </g>
+  </svg>
+);
+export const SvgElectrical = () => (
+  <svg viewBox="0 0 120 90" className="w-full h-full">
+    {/* 버스바 + 전류 + 번개 표시 */}
+    <rect x="16" y="38" width="78" height="14" className={`fill-amber-300/40 ${accent}`} strokeWidth="1.5" />
+    <line x1="10" y1="45" x2="98" y2="45" className="stroke-accent" strokeWidth="0.8" strokeDasharray="3 2" />
+    <text x="20" y="48" fontSize="9" className="fill-foreground/80" fontFamily="monospace">Cu 100A</text>
+    {/* 번개 */}
+    <path d="M 100 18 L 92 38 L 100 38 L 96 58 L 110 32 L 102 32 L 108 18 Z" className="fill-amber-500" stroke="none" />
+    <text x="14" y="80" fontSize="9" className="fill-rose-500" fontFamily="monospace">I²R · ΔT</text>
+  </svg>
+);
 
 /* ─── 단면 형상 SVG (Chapter 3 카드) ─────────────────────────────────────── */
 export const SvgRect = () => (

@@ -102,6 +102,15 @@ function AxisLimitSlider({ axis, color, domain, limit, log, onChange }: { axis: 
 }
 
 export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId, compareList, onCompareMany, onApplyToFilter }: AshbyChartPlotlyProps) {
+  /** 모바일 (width < 640) 감지 — Plotly 마진/폰트, 툴바 컴팩트 모드, 레전드 표시 여부를 동시 조절.
+   *  resize listener 로 회전·창 변경에도 반응. */
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)');
+    const on = () => setIsMobile(mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
   const [xProperty, setXProperty] = useState('yield_strength');
   const [yProperty, setYProperty] = useState('elongation');
   const [groupFilter, setGroupFilter] = useState('all');
@@ -361,15 +370,34 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const tickC = darkChart ? '#475569' : '#cbd5e1';
     const fontC = darkChart ? '#cbd5e1' : '#334155';
     const minorAxis = showMinorGrid ? { showgrid: true, gridcolor: darkChart ? '#16203a' : '#f5f8fc', gridwidth: 0.5 } : {};
+    // 모바일에서는 마진·폰트·title 축약·범례를 줄여 차트 면적·시인성 확보.
+    const mTitleFont = isMobile ? 10 : 12;
+    const mTickFont = isMobile ? 9 : 11;
+    const mBaseFont = isMobile ? 10 : 12;
+    const mMargin = isMobile ? { l: 50, r: 8, t: 24, b: 44 } : { l: 72, r: 20, t: 28, b: 56 };
+    // 모바일에서 단위 축약 — "yield_strength (MPa)" → "σ_y (MPa)" 식으로 짧게.
+    const shortLabel = (label: string | undefined, key: string) => {
+      if (!isMobile) return label ?? key;
+      const map: Record<string, string> = {
+        yield_strength: 'σ_y', uts: 'UTS', elongation: 'El.', modulus: 'E',
+        hardness: 'HV', density: 'ρ', thermal_conductivity: 'k', thermal_expansion: 'CTE',
+        max_service_temp: 'T_max', fatigue_strength: 'σ_f', price_per_kg: 'Price',
+      };
+      return map[key] ?? label ?? key;
+    };
     const layout: any = {
       autosize: true,
-      margin: { l: 72, r: 20, t: 28, b: 56 },
-      xaxis: { title: { text: `${xMeta?.label ?? xProperty} (${xMeta?.unit ?? ''})`, font: { size: 12 } }, type: xLog ? 'log' : 'linear', range: xRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, minor: minorAxis },
-      yaxis: { title: { text: `${yMeta?.label ?? yProperty} (${yMeta?.unit ?? ''})`, font: { size: 12 } }, type: yLog ? 'log' : 'linear', range: yRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, minor: minorAxis },
-      hovermode: 'closest', shapes, annotations: guideAnnotations, showlegend: showLegend,
-      legend: { orientation: 'h', y: 1.07, x: 0, font: { size: 11, color: fontC }, bgcolor: 'rgba(0,0,0,0)' },
+      margin: mMargin,
+      xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      hovermode: 'closest', shapes, annotations: guideAnnotations,
+      // 모바일에서는 레전드를 차트 위가 아닌 아래로 옮겨 차트 면적을 보호 (또는 항목 많을 때 토글).
+      showlegend: showLegend && (!isMobile || (envelopeTraces.length + markerTraces.length <= 6)),
+      legend: isMobile
+        ? { orientation: 'h', y: -0.32, x: 0, font: { size: 9, color: fontC }, bgcolor: 'rgba(0,0,0,0)' }
+        : { orientation: 'h', y: 1.07, x: 0, font: { size: 11, color: fontC }, bgcolor: 'rgba(0,0,0,0)' },
       paper_bgcolor: darkChart ? '#0b1220' : '#ffffff', plot_bgcolor: darkChart ? '#0f172a' : '#ffffff',
-      font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: fontC },
+      font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: mBaseFont, color: fontC },
     };
 
     const indexInfo = (idx && boxedIds.size === 0) ? { count: colored.length, total: fset.length, thr: indexThr as number, minM, maxM, unit: idx.unit, constraints: consInfo.map((c) => ({ key: c.key, label: c.label, thr: c.thr, minM: c.minM, maxM: c.maxM, unit: c.unit })) } : null;
@@ -383,7 +411,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       ...selMarker,
     ];
     return { data, layout, indexInfo, selectedIds };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile]);
 
   const config = {
     responsive: true, displaylogo: false,
@@ -416,9 +444,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   return (
     <div className="w-full h-full flex flex-col bg-white overflow-y-auto md:overflow-hidden">
       {/* Axis selectors */}
-      {/* ── Axes: each property dropdown + log toggle, with its limit slider directly below ── */}
-      <div className="flex flex-col sm:flex-row gap-x-6 gap-y-2.5 px-3 py-2.5 border-b border-border">
-        <div className="flex-1 min-w-0">
+      {/* ── Axes: each property dropdown + log toggle, with its limit slider directly below.
+       *   모바일은 block (자연 stacking) — 데스크탑은 sm:flex sm:flex-row 로 좌우 분할.
+       *   block 으로 두면 부모 height 가 children 의 자연 합으로 정확히 결정돼 overflow 가 사라짐. ── */}
+      <div className="flex-shrink-0 block sm:flex sm:flex-row sm:gap-x-6 px-3 py-2 border-b border-border space-y-2 sm:space-y-0">
+        <div className="w-full sm:flex-1 min-w-0">
           <div className="flex items-center gap-2">
             <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">X</span>
             <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); setConstraints([]); }}>
@@ -429,7 +459,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
           </div>
           <div className="mt-1.5 pl-5"><AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} log={xLog} onChange={setXLimit} /></div>
         </div>
-        <div className="flex-1 min-w-0">
+        <div className="w-full sm:flex-1 min-w-0">
           <div className="flex items-center gap-2">
             <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">Y</span>
             <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); setConstraints([]); }}>
@@ -442,24 +472,26 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         </div>
       </div>
 
-      {/* ── Grouping & display ── */}
-      <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-b border-border">
-        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0">Filter</span>
+      {/* ── Grouping & display ── 모바일에서는 라벨·구분선 숨겨 한 줄에 더 들어가게.
+       *  flex-shrink-0 — 부모(차트 root)의 flex-col 에서 toolbar 가 압축돼 wrap 된 children 이
+       *  부모 box 밖으로 새어 INDEX 행과 겹치던 문제 해결. */}
+      <div className="flex-shrink-0 flex flex-wrap items-center gap-2 px-3 py-2 border-b border-border">
+        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Filter</span>
         <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
-          <SelectTrigger className="h-7 text-xs w-[128px]"><SelectValue /></SelectTrigger>
+          <SelectTrigger className="h-7 text-xs w-[110px] sm:w-[128px]"><SelectValue /></SelectTrigger>
           <SelectContent>{groupOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All classes' : f}</SelectItem>)}</SelectContent>
         </Select>
         <Select value={subFilter} onValueChange={setSubFilter} disabled={groupFilter === 'all'}>
-          <SelectTrigger className="h-7 text-xs w-[150px]"><SelectValue placeholder="Sub-family" /></SelectTrigger>
+          <SelectTrigger className="h-7 text-xs w-[130px] sm:w-[150px]"><SelectValue placeholder="Sub-family" /></SelectTrigger>
           <SelectContent>{subOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : cleanSub(f)}</SelectItem>)}</SelectContent>
         </Select>
         <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
-        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0">Envelopes</span>
+        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Envelopes</span>
         <label className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer select-none">
-          <input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> Show
+          <input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> <span className="hidden sm:inline">Show</span><span className="sm:hidden">Env</span>
         </label>
         <Select value={envelopeBy} onValueChange={(v) => setEnvelopeBy(v as 'category' | 'class' | 'family')}>
-          <SelectTrigger className="h-7 text-xs w-[155px]" title="Envelope grouping"><SelectValue /></SelectTrigger>
+          <SelectTrigger className="h-7 text-xs w-[120px] sm:w-[155px]" title="Envelope grouping"><SelectValue /></SelectTrigger>
           <SelectContent>
             <SelectItem value="category" className="text-xs">All metals / polymers</SelectItem>
             <SelectItem value="class" className="text-xs">1st-level family</SelectItem>
@@ -505,15 +537,16 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
           </PopoverContent>
         </Popover>
         {comparing
-          ? <span className="text-[11px] font-medium text-accent ml-auto">● Colouring {compareList!.length} Compare selection{compareList!.length > 1 ? 's' : ''}</span>
-          : <span className="text-[11px] text-muted-foreground ml-auto">Curved envelope = property range</span>}
+          ? <span className="text-[10px] sm:text-[11px] font-medium text-accent ml-auto">● {compareList!.length} Compare</span>
+          : <span className="text-[11px] text-muted-foreground ml-auto hidden md:inline">Curved envelope = property range</span>}
       </div>
 
-      {/* Ashby material-index selection — pick a performance index, move the selection line by value */}
-      <div className="flex flex-wrap items-center gap-3 px-4 py-2 border-b border-border bg-rose-50/50">
+      {/* Ashby material-index selection — pick a performance index, move the selection line by value.
+       *  모바일: 슬라이더 숨김, 단위/auto 버튼 축약, dropdown 폭 축소. */}
+      <div className="flex-shrink-0 flex flex-wrap items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 border-b border-border bg-rose-50/50">
         <span className="text-[10px] text-rose-700 uppercase tracking-wide font-semibold">Index</span>
         <Select value={indexPreset} onValueChange={(v) => { setIndexPreset(v); setConstraints([]); const p = MATERIAL_INDICES.find((i) => i.key === v); if (p) { setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null); } }}>
-          <SelectTrigger className="h-7 text-xs w-[240px]"><SelectValue placeholder="Material index (off)" /></SelectTrigger>
+          <SelectTrigger className="h-7 text-xs w-[170px] sm:w-[240px]"><SelectValue placeholder="Material index (off)" /></SelectTrigger>
           <SelectContent>
             <SelectItem value="none" className="text-xs">Off</SelectItem>
             {MATERIAL_INDICES.map((i) => <SelectItem key={i.key} value={i.key} className="text-xs">{i.label}</SelectItem>)}
@@ -527,10 +560,10 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
               value={Number((indexThreshold ?? indexInfo.thr).toPrecision(4))}
               step={(indexInfo.maxM - indexInfo.minM) / 100 || 0.1}
               onChange={(e) => setIndexThreshold(e.target.value === '' ? null : Number(e.target.value))}
-              className="h-7 w-24 text-xs font-mono rounded border border-border px-1.5 bg-background"
+              className="h-7 w-20 sm:w-24 text-xs font-mono rounded border border-border px-1.5 bg-background"
             />
-            <span className="text-[10px] text-muted-foreground">{indexInfo.unit}</span>
-            <div className="w-44"><Slider min={indexInfo.minM} max={indexInfo.maxM} step={(indexInfo.maxM - indexInfo.minM) / 200 || 0.01} value={[Math.min(indexInfo.maxM, Math.max(indexInfo.minM, indexThreshold ?? indexInfo.thr))]} onValueChange={(v: number[]) => setIndexThreshold(v[0])} /></div>
+            <span className="text-[10px] text-muted-foreground hidden sm:inline">{indexInfo.unit}</span>
+            <div className="w-44 hidden md:block"><Slider min={indexInfo.minM} max={indexInfo.maxM} step={(indexInfo.maxM - indexInfo.minM) / 200 || 0.01} value={[Math.min(indexInfo.maxM, Math.max(indexInfo.minM, indexThreshold ?? indexInfo.thr))]} onValueChange={(v: number[]) => setIndexThreshold(v[0])} /></div>
             <span className="text-[11px] font-semibold text-rose-700">{indexInfo.count}/{indexInfo.total} pass</span>
             <button type="button" onClick={() => setIndexThreshold(null)} className="text-[10px] px-1.5 py-0.5 rounded border text-accent border-accent/40 hover:bg-accent/10">auto</button>
             <span className="text-rose-300">·</span>
