@@ -5,7 +5,7 @@
  */
 import { useMemo, useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Play, Sigma, ChevronDown, ChevronRight } from 'lucide-react';
 import { SCENARIO_PRESETS, encodeFiltersToParams, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
@@ -361,14 +361,17 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2"><Sigma className="w-4 h-4 text-accent" /> {scenario.label}</DialogTitle>
-          <DialogDescription>{cfg.description}</DialogDescription>
-        </DialogHeader>
+    <Sheet open={open} onOpenChange={onOpenChange}>
+      <SheetContent
+        side="right"
+        className="w-full sm:max-w-[760px] flex flex-col gap-0 p-0"
+      >
+        <SheetHeader className="border-b border-border/60 pb-3">
+          <SheetTitle className="flex items-center gap-2 pr-8"><Sigma className="w-4 h-4 text-accent" /> {scenario.label}</SheetTitle>
+          <SheetDescription>{cfg.description}</SheetDescription>
+        </SheetHeader>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 flex-1 min-h-0 overflow-y-auto px-4 py-3">
           {/* 왼쪽: 입력 (그룹별 접기) */}
           <div className="space-y-2">
             {Object.entries(grouped).map(([g, fs], gi) => (
@@ -467,11 +470,11 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
           </div>
         </div>
 
-        <DialogFooter className="mt-4">
+        <SheetFooter className="border-t border-border/60 mt-0 flex-row justify-end gap-2 p-4">
           <Button variant="outline" onClick={() => onOpenChange(false)}>취소</Button>
           <Button onClick={apply} className="gap-1.5"><Play className="w-3.5 h-3.5" /> 적용하고 시작</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
   );
 }

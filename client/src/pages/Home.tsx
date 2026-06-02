@@ -25,7 +25,7 @@ import {
   Share2,
   GraduationCap,
 } from 'lucide-react';
-import { Link } from 'wouter';
+import { Link, useSearch } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -43,6 +43,11 @@ import type { Material } from '@/lib/materials';
 import { SCENARIO_PRESETS, decodeFiltersFromParams, type ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import type { FilterState } from '@/hooks/useMaterialFilter';
+
+/** Saved collection — pinned material IDs + optional filter snapshot + scenario provenance.
+ *  Older entries (pre-U10) lack `filters`; we render the bullet conditionally. */
+type Collection = { name: string; ids: string[]; filters?: Partial<FilterState>; preset?: { key: string; label: string } };
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
 
@@ -54,12 +59,15 @@ export default function Home() {
   const [materials, setMaterials] = useState<Material[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  /** wouter's search string — re-firing the scenario-apply effect when ScenarioSheet navigates
+   *  to /?p=... while Home is already mounted (the empty-dep effect missed in-route URL changes). */
+  const search = useSearch();
 
   const [viewMode, setViewMode] = useState<ViewMode>('table');
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
   const [compareList, setCompareList] = useState<string[]>([]);
   const [restrictIds, setRestrictIds] = useState<string[] | null>(null);
-  const [collections, setCollections] = useState<{ name: string; ids: string[] }[]>([]);
+  const [collections, setCollections] = useState<Collection[]>([]);
   const [collName, setCollName] = useState('');
   const [linkCopied, setLinkCopied] = useState(false);
   const [showCompare, setShowCompare] = useState(false);
@@ -76,6 +84,7 @@ export default function Home() {
     filters,
     updateFilter,
     resetFilters,
+    restoreFilters,
     filtered,
     sortKey,
     sortDir,
@@ -112,8 +121,8 @@ export default function Home() {
     if (m) { const ids = m[2].split('.').filter(Boolean); if (ids.length) setRestrictIds(ids); }
   }, []);
 
-  // apply a Guide scenario preset from ?p=<key> (filters + viewMode + index hint banner)
-  const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string } | null>(null);
+  // apply a Guide scenario preset from ?p=<key> (filters + index hint banner; viewMode is now a suggestion not a force)
+  const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string; suggestedView?: ViewMode } | null>(null);
   const [editingScenario, setEditingScenario] = useState<ScenarioKey | null>(null);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -124,23 +133,39 @@ export default function Home() {
       const override = decodeFiltersFromParams(params);
       const merged = { ...cfg.filters, ...override } as Record<string, any>;
       (Object.entries(merged) as [keyof typeof filters, any][]).forEach(([k, v]) => updateFilter(k, v));
-      if (cfg.viewMode) setViewMode(cfg.viewMode);
-      setAppliedPreset({ key: p, label: cfg.label, indexHint: cfg.indexHint });
+      // U12: do NOT force a viewMode change — respect whatever the user had open. The applied-preset
+      // banner offers a button to switch to the recommended view if the user wants.
+      setAppliedPreset({ key: p, label: cfg.label, indexHint: cfg.indexHint, suggestedView: cfg.viewMode });
       // clean URL so a refresh doesn't re-apply
       window.history.replaceState({}, '', window.location.pathname + window.location.hash);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [search]);
   const saveCollection = useCallback(() => {
     const name = collName.trim();
     if (!name || !restrictIds || !restrictIds.length) return;
+    // U10: snapshot the current filter context so loading the collection later restores both
+    // the pinned IDs and the search conditions that produced them. Also stamp the applied scenario
+    // (if any) so the user can tell at a glance what design case this collection came from.
     setCollections(prev => {
-      const next = [...prev.filter(c => c.name !== name), { name, ids: restrictIds }];
+      const entry: Collection = {
+        name,
+        ids: restrictIds,
+        filters: { ...filters },
+        ...(appliedPreset ? { preset: { key: appliedPreset.key, label: appliedPreset.label } } : {}),
+      };
+      const next = [...prev.filter(c => c.name !== name), entry];
       try { localStorage.setItem('am_collections', JSON.stringify(next)); } catch { /* ignore */ }
       return next;
     });
     setCollName('');
-  }, [collName, restrictIds]);
+  }, [collName, restrictIds, filters, appliedPreset]);
+  /** Load a saved collection — pin the IDs AND restore the filter snapshot if one was saved. */
+  const loadCollection = useCallback((c: Collection) => {
+    if (c.filters) restoreFilters(c.filters);
+    setRestrictIds(c.ids);
+    if (c.preset) setAppliedPreset({ key: c.preset.key, label: c.preset.label });
+  }, [restoreFilters]);
   const deleteCollection = useCallback((name: string) => {
     setCollections(prev => {
       const next = prev.filter(c => c.name !== name);
@@ -523,12 +548,23 @@ export default function Home() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" size="sm" className="h-7 text-xs gap-1"><Bookmark className="w-3 h-3" /> Collections <span className="text-muted-foreground">({collections.length})</span></Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="max-h-80 overflow-auto w-64">
+                <DropdownMenuContent align="end" className="max-h-80 overflow-auto w-72">
                   <DropdownMenuLabel className="text-xs">Saved collections</DropdownMenuLabel>
                   {collections.map(c => (
                     <div key={c.name} className="flex items-center gap-1 px-1.5 py-1 hover:bg-muted/50 rounded">
-                      <button className="flex-1 text-left text-xs truncate" onClick={() => setRestrictIds(c.ids)} title="Load (pin to table & cards)">
-                        {c.name} <span className="text-muted-foreground">({c.ids.length})</span>
+                      <button
+                        className="flex-1 text-left text-xs truncate min-w-0"
+                        onClick={() => loadCollection(c)}
+                        title={c.filters ? 'Load — pins + restores filters' : 'Load (pin to table & cards)'}
+                      >
+                        <span className="block truncate font-medium text-foreground">{c.name} <span className="text-muted-foreground font-normal">({c.ids.length})</span></span>
+                        {(c.filters || c.preset) && (
+                          <span className="block truncate text-[10px] text-muted-foreground/80 mt-0.5">
+                            {c.preset && <span className="text-amber-700">↳ {c.preset.label}</span>}
+                            {c.preset && c.filters && <span> · </span>}
+                            {c.filters && <span>필터 포함</span>}
+                          </span>
+                        )}
                       </button>
                       <button className="text-muted-foreground/50 hover:text-accent flex-shrink-0" onClick={() => shareSet(c.name, c.ids)} title="Copy share link">
                         <Share2 className="w-3 h-3" />
@@ -551,6 +587,17 @@ export default function Home() {
                 <span className="text-muted-foreground">· 권장 Index: <span className="font-mono">{appliedPreset.indexHint}</span></span>
               )}
               <div className="ml-auto flex items-center gap-1.5">
+                {/* U12: suggest (don't force) the recommended view — only show when user isn't already there */}
+                {appliedPreset.suggestedView && viewMode !== appliedPreset.suggestedView && (
+                  <button
+                    onClick={() => setViewMode(appliedPreset.suggestedView!)}
+                    className="text-[11px] px-2 py-0.5 rounded border border-amber-500/60 bg-amber-500/15 text-amber-800 hover:bg-amber-500/25 flex items-center gap-1"
+                    title={`${appliedPreset.suggestedView === 'ashby' ? 'Ashby 차트' : appliedPreset.suggestedView === 'cards' ? 'Cards' : 'Table'} 뷰로 전환 — 이 사례의 권장 시점`}
+                  >
+                    {appliedPreset.suggestedView === 'ashby' ? <BarChart3 className="w-3 h-3" /> : appliedPreset.suggestedView === 'cards' ? <LayoutGrid className="w-3 h-3" /> : <Table2 className="w-3 h-3" />}
+                    {appliedPreset.suggestedView === 'ashby' ? 'Ashby로 보기' : appliedPreset.suggestedView === 'cards' ? 'Cards로 보기' : 'Table로 보기'}
+                  </button>
+                )}
                 <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">다시 편집</button>
                 <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">필터 초기화</button>
                 <button onClick={() => setAppliedPreset(null)} className="text-[11px] px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10">배너 닫기</button>

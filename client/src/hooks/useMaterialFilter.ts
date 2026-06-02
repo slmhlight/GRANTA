@@ -78,6 +78,12 @@ export function useMaterialFilter(materials: Material[]) {
     setFilters(DEFAULT_FILTERS);
   }, []);
 
+  /** Restore a previously saved filter snapshot atomically. Missing keys fall back to defaults
+   *  so an old localStorage entry without a new property still loads cleanly. */
+  const restoreFilters = useCallback((snapshot: Partial<FilterState>) => {
+    setFilters({ ...DEFAULT_FILTERS, ...snapshot });
+  }, []);
+
   const toggleSort = useCallback((key: keyof Material) => {
     setSortKey(prev => {
       if (prev === key) {
@@ -264,6 +270,7 @@ export function useMaterialFilter(materials: Material[]) {
     updateFilter,
     updateCompositionRange,
     resetFilters,
+    restoreFilters,
     filtered,
     sortKey,
     sortDir,
