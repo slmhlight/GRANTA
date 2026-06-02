@@ -1,0 +1,270 @@
+{
+  "_comment": "R25 — 세라믹 30종. 출처: ASM Handbook Vol.4 (Ceramics and Glasses), CoorsTek/CeramTec/Saint-Gobain 데이터시트, NIST WebElements, Kingery Ceramics textbook. 모든 수치는 typical room temperature, fully dense (>95% TD). Density g/cm³, σy/UTS MPa, E GPa, 경도 HV, 열전도도 W/m·K, 열팽창 10⁻⁶/K, 최대 사용 온도 °C.",
+  "ceramics": [
+    {
+      "name": "Alumina (Al₂O₃, 99.5% pure)",
+      "subcategory": "Oxide",
+      "density": 3.89, "ys": 350, "uts": 350, "modulus": 380, "hardness_HV": 1800, "fracture_toughness": 4.2,
+      "thermal_k": 30, "cte": 8.1, "max_temp": 1700, "electrical_conductivity": 0,
+      "poisson": 0.22, "specific_heat": 900, "melting_point": 2072,
+      "applications": "베어링, 절연체, 의료 임플란트 (인공관절 ball head), 절삭 인서트",
+      "limitations": "충격에 약함 (KIC 4 MPa·√m), 열충격 ΔT ~200°C 한계",
+      "price_per_kg": 18, "popularity": 5
+    },
+    {
+      "name": "Alumina (Al₂O₃, 96%)",
+      "subcategory": "Oxide",
+      "density": 3.72, "ys": 220, "uts": 220, "modulus": 300, "hardness_HV": 1400, "fracture_toughness": 3.5,
+      "thermal_k": 24, "cte": 8.2, "max_temp": 1500,
+      "poisson": 0.23, "specific_heat": 880,
+      "applications": "산업 베어링, 절삭공구 (저가), 분쇄 미디어",
+      "price_per_kg": 12, "popularity": 5
+    },
+    {
+      "name": "Zirconia (Y-TZP, 3 mol% Y₂O₃)",
+      "subcategory": "Oxide",
+      "density": 6.05, "ys": 1200, "uts": 1200, "modulus": 200, "hardness_HV": 1300, "fracture_toughness": 10,
+      "thermal_k": 2.7, "cte": 10.5, "max_temp": 1000,
+      "poisson": 0.31, "specific_heat": 460, "melting_point": 2715,
+      "applications": "치과 임플란트, 정밀 가위·나이프, 산소 센서, 단열 코팅",
+      "limitations": "200-300°C 저온 열화 (LTD) 가능 — 수증기 노출 시 t→m 변환",
+      "price_per_kg": 95, "popularity": 4
+    },
+    {
+      "name": "Zirconia (Mg-PSZ, partially stabilized)",
+      "subcategory": "Oxide",
+      "density": 5.74, "ys": 600, "uts": 600, "modulus": 200, "hardness_HV": 1200, "fracture_toughness": 12,
+      "thermal_k": 2.5, "cte": 9.8, "max_temp": 1400,
+      "applications": "고온 다이, 압출 다이, 와이어 다이",
+      "price_per_kg": 55, "popularity": 3
+    },
+    {
+      "name": "Silicon Nitride (Si₃N₄, HIP'd)",
+      "subcategory": "Nitride",
+      "density": 3.21, "ys": 900, "uts": 900, "modulus": 320, "hardness_HV": 1500, "fracture_toughness": 7,
+      "thermal_k": 30, "cte": 3.2, "max_temp": 1400,
+      "poisson": 0.27, "specific_heat": 700, "melting_point": 1900,
+      "applications": "베어링 볼 (롤링 베어링 hybrid), 절삭 인서트, 디젤 엔진 글로 플러그, 터빈 로터",
+      "limitations": "고가, 가공 어려움 (다이아몬드 그라인딩 필수)",
+      "price_per_kg": 180, "popularity": 4
+    },
+    {
+      "name": "Silicon Nitride (Si₃N₄, sintered)",
+      "subcategory": "Nitride",
+      "density": 3.17, "ys": 700, "uts": 700, "modulus": 290, "hardness_HV": 1400, "fracture_toughness": 5.5,
+      "thermal_k": 25, "cte": 3.3, "max_temp": 1300,
+      "applications": "산업 베어링, 절삭공구 (Si3N4 인서트)",
+      "price_per_kg": 95, "popularity": 4
+    },
+    {
+      "name": "Silicon Carbide (SiC, sintered)",
+      "subcategory": "Carbide",
+      "density": 3.13, "ys": 400, "uts": 400, "modulus": 410, "hardness_HV": 2500, "fracture_toughness": 4.5,
+      "thermal_k": 110, "cte": 4.0, "max_temp": 1600,
+      "poisson": 0.16, "specific_heat": 670, "melting_point": 2700,
+      "applications": "기계적 씰, 베어링, 강화 코팅, 우주항공 거울 기재, 반도체 wafer chuck",
+      "limitations": "고가, KIC 낮음 (충격 취약)",
+      "price_per_kg": 75, "popularity": 4
+    },
+    {
+      "name": "Silicon Carbide (SiC, reaction-bonded)",
+      "subcategory": "Carbide",
+      "density": 3.05, "ys": 200, "uts": 200, "modulus": 380, "hardness_HV": 2200, "fracture_toughness": 4,
+      "thermal_k": 130, "cte": 4.3, "max_temp": 1380,
+      "applications": "내마모 라이너, 핸들링 부품 (저가 SiC)",
+      "price_per_kg": 35, "popularity": 3
+    },
+    {
+      "name": "Tungsten Carbide (WC-Co, 6%)",
+      "subcategory": "Carbide",
+      "density": 14.9, "ys": 2200, "uts": 2200, "modulus": 630, "hardness_HV": 1700, "fracture_toughness": 12,
+      "thermal_k": 80, "cte": 5.0, "max_temp": 600,
+      "poisson": 0.22, "specific_heat": 280,
+      "applications": "절삭 인서트, 드릴 비트, 다이, 측정기 anvils, 광산 비트",
+      "limitations": "Co 매트릭스 — 600°C 이상에서 산화 + Co 손실",
+      "price_per_kg": 60, "popularity": 5
+    },
+    {
+      "name": "Tungsten Carbide (WC-Co, 12%)",
+      "subcategory": "Carbide",
+      "density": 14.2, "ys": 1750, "uts": 1750, "modulus": 580, "hardness_HV": 1350, "fracture_toughness": 16,
+      "thermal_k": 65, "cte": 5.6, "max_temp": 600,
+      "applications": "충격 하중 절삭공구, 광산 비트, 내마모 부품",
+      "price_per_kg": 55, "popularity": 4
+    },
+    {
+      "name": "Aluminum Nitride (AlN)",
+      "subcategory": "Nitride",
+      "density": 3.26, "ys": 300, "uts": 300, "modulus": 320, "hardness_HV": 1100, "fracture_toughness": 3,
+      "thermal_k": 180, "cte": 4.5, "max_temp": 1100, "electrical_conductivity": 0,
+      "poisson": 0.23, "specific_heat": 740,
+      "applications": "전력반도체 기재, LED 모듈, 마이크로파 패키징 (열전도 + 절연)",
+      "limitations": "수분에 약함 (서서히 가수분해 → AlOOH)",
+      "price_per_kg": 220, "popularity": 4
+    },
+    {
+      "name": "Boron Carbide (B₄C)",
+      "subcategory": "Carbide",
+      "density": 2.52, "ys": 350, "uts": 350, "modulus": 460, "hardness_HV": 3000, "fracture_toughness": 3,
+      "thermal_k": 27, "cte": 5.5, "max_temp": 1500,
+      "applications": "방탄 패널 (가장 가벼운 ballistic ceramic), 핵중성자 흡수, 연마재",
+      "limitations": "충격 취약, KIC 매우 낮음",
+      "price_per_kg": 350, "popularity": 3
+    },
+    {
+      "name": "Magnesia (MgO, 99%)",
+      "subcategory": "Oxide",
+      "density": 3.58, "ys": 100, "uts": 100, "modulus": 270, "hardness_HV": 700, "fracture_toughness": 2,
+      "thermal_k": 60, "cte": 13.5, "max_temp": 1900,
+      "poisson": 0.18, "specific_heat": 940, "melting_point": 2852,
+      "applications": "고온 도가니, 열전대 보호관, 분광 윈도우 (IR)",
+      "limitations": "물에 반응 (수산화)",
+      "price_per_kg": 25, "popularity": 3
+    },
+    {
+      "name": "Mullite (3Al₂O₃·2SiO₂)",
+      "subcategory": "Oxide",
+      "density": 3.16, "ys": 200, "uts": 200, "modulus": 145, "hardness_HV": 1100, "fracture_toughness": 2.5,
+      "thermal_k": 6, "cte": 5.4, "max_temp": 1750,
+      "applications": "고온 furnace 라이너, 열적 충격 부품, 글래스 furnace",
+      "price_per_kg": 15, "popularity": 3
+    },
+    {
+      "name": "Cordierite (2MgO·2Al₂O₃·5SiO₂)",
+      "subcategory": "Oxide",
+      "density": 2.65, "ys": 110, "uts": 110, "modulus": 70, "hardness_HV": 700, "fracture_toughness": 2,
+      "thermal_k": 4, "cte": 2.0, "max_temp": 1400,
+      "applications": "촉매 변환기 honeycomb (자동차 배기), 가열 부품, 인덕션 cooktop 판",
+      "limitations": "낮은 강도, 강도 의존 부품 부적합",
+      "price_per_kg": 8, "popularity": 4
+    },
+    {
+      "name": "Steatite (Soapstone, MgSiO₃)",
+      "subcategory": "Oxide",
+      "density": 2.7, "ys": 130, "uts": 130, "modulus": 100, "hardness_HV": 600, "fracture_toughness": 1.5,
+      "thermal_k": 2.5, "cte": 8, "max_temp": 1200,
+      "applications": "전기 절연체 (히터 코어, 소켓), 저가 산업 절연",
+      "price_per_kg": 5, "popularity": 3
+    },
+    {
+      "name": "Porcelain (Hard, electrical grade)",
+      "subcategory": "Glass-ceramic",
+      "density": 2.4, "ys": 65, "uts": 65, "modulus": 70, "hardness_HV": 700, "fracture_toughness": 1.2,
+      "thermal_k": 1.5, "cte": 6.5, "max_temp": 1100,
+      "applications": "고압 송전 절연체, 일반 자기 부품",
+      "price_per_kg": 4, "popularity": 4
+    },
+    {
+      "name": "Glass (Soda-lime, container)",
+      "subcategory": "Glass",
+      "density": 2.5, "ys": 50, "uts": 50, "modulus": 72, "hardness_HV": 540, "fracture_toughness": 0.7,
+      "thermal_k": 0.96, "cte": 9.0, "max_temp": 400,
+      "poisson": 0.22, "specific_heat": 880,
+      "applications": "일반 유리 (병, 윈도우)",
+      "price_per_kg": 1, "popularity": 5
+    },
+    {
+      "name": "Glass (Borosilicate, Pyrex / Schott Duran)",
+      "subcategory": "Glass",
+      "density": 2.23, "ys": 70, "uts": 70, "modulus": 64, "hardness_HV": 480, "fracture_toughness": 0.75,
+      "thermal_k": 1.2, "cte": 3.3, "max_temp": 500,
+      "applications": "실험기기, 광학 렌즈 (저분산), 요리 기구, 냉열 사이클 부품",
+      "price_per_kg": 6, "popularity": 5
+    },
+    {
+      "name": "Fused Silica (SiO₂, 99.99%)",
+      "subcategory": "Glass",
+      "density": 2.20, "ys": 110, "uts": 110, "modulus": 73, "hardness_HV": 600, "fracture_toughness": 0.8,
+      "thermal_k": 1.4, "cte": 0.55, "max_temp": 1100,
+      "applications": "정밀 광학 (UV·IR), 반도체 제조 부품, 우주 거울 기재",
+      "limitations": "고가, 열 stresses 잘 견딤 (CTE 매우 작음)",
+      "price_per_kg": 80, "popularity": 4
+    },
+    {
+      "name": "Lithium Aluminosilicate (Glass-ceramic, LAS)",
+      "subcategory": "Glass-ceramic",
+      "density": 2.5, "ys": 110, "uts": 110, "modulus": 88, "hardness_HV": 700, "fracture_toughness": 2,
+      "thermal_k": 1.7, "cte": 0.1, "max_temp": 800,
+      "applications": "Zerodur (망원경 거울 기재), Ceran (인덕션 cooktop), 광학 fiber 케이블 부품",
+      "limitations": "고가 (Zerodur)",
+      "price_per_kg": 250, "popularity": 3
+    },
+    {
+      "name": "Sialon (β-SiAlON)",
+      "subcategory": "Nitride",
+      "density": 3.25, "ys": 750, "uts": 750, "modulus": 290, "hardness_HV": 1500, "fracture_toughness": 7,
+      "thermal_k": 21, "cte": 3.5, "max_temp": 1400,
+      "applications": "절삭공구 (주철·고온합금 가공), 용접 노즐, 베어링",
+      "price_per_kg": 130, "popularity": 3
+    },
+    {
+      "name": "Hydroxyapatite (Ca₁₀(PO₄)₆(OH)₂)",
+      "subcategory": "Bioceramic",
+      "density": 3.16, "ys": 100, "uts": 100, "modulus": 100, "hardness_HV": 500, "fracture_toughness": 1.2,
+      "thermal_k": 1.3, "cte": 11, "max_temp": 1200,
+      "applications": "골이식재, 임플란트 코팅 (Ti 위), 치과 충전재",
+      "limitations": "낮은 강도 — 하중 부담 부품 부적합 (코팅용)",
+      "price_per_kg": 120, "popularity": 3
+    },
+    {
+      "name": "Macor (machinable glass-ceramic)",
+      "subcategory": "Glass-ceramic",
+      "density": 2.52, "ys": 94, "uts": 94, "modulus": 64, "hardness_HV": 250, "fracture_toughness": 1.5,
+      "thermal_k": 1.46, "cte": 9.3, "max_temp": 800,
+      "applications": "정밀 가공 가능한 세라믹 (선반·드릴), 진공 부품, 우주 부품 (BlueOrigin)",
+      "price_per_kg": 80, "popularity": 3
+    },
+    {
+      "name": "Silica Aerogel",
+      "subcategory": "Aerogel",
+      "density": 0.05, "ys": 0.5, "uts": 0.5, "modulus": 0.05, "hardness_HV": 5, "fracture_toughness": 0.05,
+      "thermal_k": 0.017, "cte": 2, "max_temp": 650,
+      "applications": "초경량 단열재 (우주 미션 — NASA Stardust), 진공 단열, 의료 영상 detector",
+      "limitations": "매우 약함 (압축 강도 0.5 MPa), 가공 거의 불가",
+      "price_per_kg": 1500, "popularity": 2
+    },
+    {
+      "name": "Sapphire (single-crystal Al₂O₃)",
+      "subcategory": "Oxide",
+      "density": 3.98, "ys": 690, "uts": 690, "modulus": 345, "hardness_HV": 2300, "fracture_toughness": 2.5,
+      "thermal_k": 42, "cte": 5.0, "max_temp": 1800,
+      "applications": "고급 시계 윈도우, 스캐너 윈도우, LED 기재, 광학 lens (UV-IR)",
+      "limitations": "다이아몬드급 가공 — 고가",
+      "price_per_kg": 600, "popularity": 4
+    },
+    {
+      "name": "Diamond (CVD synthetic)",
+      "subcategory": "Carbide",
+      "density": 3.52, "ys": 2000, "uts": 2000, "modulus": 1050, "hardness_HV": 10000, "fracture_toughness": 5,
+      "thermal_k": 2200, "cte": 1.0, "max_temp": 700, "electrical_conductivity": 0,
+      "applications": "절삭공구 (PCD inserts), 광학 윈도우 (적외), 열 확산기 (전력반도체)",
+      "limitations": "공기 中 700°C 이상 → CO₂ 변환. Fe 와 친화성으로 강 절삭 부적합.",
+      "price_per_kg": 8000, "popularity": 3
+    },
+    {
+      "name": "CBN (cubic Boron Nitride, sintered)",
+      "subcategory": "Nitride",
+      "density": 3.48, "ys": 1300, "uts": 1300, "modulus": 720, "hardness_HV": 4500, "fracture_toughness": 5,
+      "thermal_k": 200, "cte": 4.5, "max_temp": 1300,
+      "applications": "철계 가공 절삭공구 (다이아몬드 대체 — Fe 친화성 없음)",
+      "price_per_kg": 1200, "popularity": 3
+    },
+    {
+      "name": "Yttria-Stabilized Zirconia (YSZ, 8 mol%)",
+      "subcategory": "Oxide",
+      "density": 5.9, "ys": 350, "uts": 350, "modulus": 210, "hardness_HV": 1300, "fracture_toughness": 3,
+      "thermal_k": 2.2, "cte": 10.5, "max_temp": 1500,
+      "applications": "Thermal Barrier Coating (가스 터빈 블레이드), SOFC 전해질, 산소 센서",
+      "price_per_kg": 130, "popularity": 4
+    },
+    {
+      "name": "Quartz (Single-crystal SiO₂)",
+      "subcategory": "Oxide",
+      "density": 2.65, "ys": 50, "uts": 50, "modulus": 95, "hardness_HV": 1100, "fracture_toughness": 0.85,
+      "thermal_k": 10, "cte": 7.5, "max_temp": 573,
+      "applications": "압전 진동자 (시계·MEMS), QCM 센서, 광학 편광 부품",
+      "limitations": "573°C α→β 상전이 (균열 위험)",
+      "price_per_kg": 400, "popularity": 4
+    }
+  ]
+}

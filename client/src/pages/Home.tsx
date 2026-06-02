@@ -49,6 +49,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import type { FilterState } from '@/hooks/useMaterialFilter';
 import { SHOP_ALIAS_DICT } from '@/lib/shop-alias-dict';
 import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical, SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold } from './guide/svgs';
+import { loadUnitSystem, saveUnitSystem, type UnitSystem } from '@/lib/unit-convert';
 
 /** Saved collection — pinned material IDs + optional filter snapshot + scenario provenance + viewMode.
  *  Older entries (pre-U10) lack `filters` / `viewMode`; we render conditionally and restore safely. */
@@ -146,6 +147,15 @@ export default function Home() {
   const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string; suggestedView?: ViewMode; secondaryKey?: string; secondaryLabel?: string } | null>(null);
   const [editingScenario, setEditingScenario] = useState<ScenarioKey | null>(null);
   const [scenarioCompareOpen, setScenarioCompareOpen] = useState(false);
+  /** R27 — 단위 시스템 (SI / Imperial). MaterialDetail·Compare 사용. */
+  const [unitSystem, setUnitSystemState] = useState<UnitSystem>(() => loadUnitSystem());
+  const toggleUnitSystem = useCallback(() => {
+    setUnitSystemState(prev => {
+      const next: UnitSystem = prev === 'si' ? 'imperial' : 'si';
+      saveUnitSystem(next);
+      return next;
+    });
+  }, []);
   /** R18 — Guide Sheet open state (controlled). 사례 tile 클릭 시 자동 닫힘. */
   const [guideHeaderOpen, setGuideHeaderOpen] = useState(false);
   const [guideMobileOpen, setGuideMobileOpen] = useState(false);
@@ -605,6 +615,19 @@ export default function Home() {
             </div>
           </SheetContent>
         </Sheet>
+
+        {/* R27 — SI / Imperial 단위 토글 */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={toggleUnitSystem}
+              className="h-7 px-2 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-mono font-semibold"
+            >
+              {unitSystem === 'si' ? 'SI' : 'IMP'}
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" className="text-xs">단위 전환 — {unitSystem === 'si' ? 'SI (MPa·GPa·°C·g/cm³)' : 'Imperial (ksi·Msi·°F·lb/in³)'}</TooltipContent>
+        </Tooltip>
 
         {/* B5: 사례 비교 — 두 사례 동시 입력 + 산출 비교 + 교집합 적용 */}
         <Tooltip>

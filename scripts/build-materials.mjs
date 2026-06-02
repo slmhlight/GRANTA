@@ -722,7 +722,79 @@ const supplementary = supRaw
     machinability: null, weldability: null, corrosion_resistance: null, meta: { reference: true },
   };
 });
-const all = [...curated, ...am_vendor, ...generic, ...supplementary];
+// R25 — Ceramic 30종 별도 파일 (data/ceramics-data.json) 에서 로드해 material 형식으로 변환 → all 에 추가.
+const CERAMIC_PROPS = ['density', 'yield_strength', 'uts', 'modulus', 'hardness', 'thermal_conductivity', 'thermal_expansion', 'max_service_temp', 'poisson_ratio', 'specific_heat', 'melting_point', 'price_per_kg', 'electrical_conductivity'];
+function loadCeramicsAsMaterials() {
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(DATA, 'ceramics-data.json'), 'utf8'));
+    const ceramics = raw.ceramics || [];
+    return ceramics.map((c, i) => {
+      const ranges = {};
+      for (const p of CERAMIC_PROPS) ranges[p] = null;
+      const setR = (k, v) => { if (v != null && isFinite(v)) ranges[k] = { min: v, max: v, typical: v, n: 1, confidence: 'handbook' }; };
+      setR('density', c.density);
+      setR('yield_strength', c.ys);
+      setR('uts', c.uts);
+      setR('modulus', c.modulus);
+      setR('hardness', c.hardness_HV);
+      setR('thermal_conductivity', c.thermal_k);
+      setR('thermal_expansion', c.cte);
+      setR('max_service_temp', c.max_temp);
+      setR('poisson_ratio', c.poisson);
+      setR('specific_heat', c.specific_heat);
+      setR('melting_point', c.melting_point);
+      setR('price_per_kg', c.price_per_kg);
+      setR('electrical_conductivity', c.electrical_conductivity);
+      setR('fracture_toughness', c.fracture_toughness);
+      return {
+        id: 'CER_' + String(i).padStart(3, '0'),
+        name: c.name, category: 'Ceramic', subcategory: c.subcategory || 'Oxide', tier: 'reference',
+        manufacturers: ['Reference data'], machines: [], processes: ['Sintered'],
+        heat_treatment: null, ranges,
+        composition: c.composition || {}, sources: [{ label: c.applications ? `Applications: ${c.applications}` : 'Ceramic handbook', url: null, verified: false }],
+        machinability: null, weldability: null, corrosion_resistance: 'Excellent',
+        meta: { ceramic: true, applications: c.applications, limitations: c.limitations },
+        popularity: c.popularity || 3,
+      };
+    });
+  } catch { return []; }
+}
+const ceramics = loadCeramicsAsMaterials();
+// R26 — 복합재 30종 (data/composites-data.json). CFRP/GFRP/AFK/UHMWPE/Wood/Foam/MMC/CMC 카테고리.
+function loadCompositesAsMaterials() {
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(DATA, 'composites-data.json'), 'utf8'));
+    const list = raw.composites || [];
+    return list.map((c, i) => {
+      const ranges = {};
+      for (const p of CERAMIC_PROPS) ranges[p] = null;
+      ranges.elongation = null;
+      const setR = (k, v) => { if (v != null && isFinite(v)) ranges[k] = { min: v, max: v, typical: v, n: 1, confidence: 'handbook' }; };
+      setR('density', c.density);
+      setR('yield_strength', c.ys);
+      setR('uts', c.uts);
+      setR('modulus', c.modulus);
+      setR('elongation', c.elongation);
+      setR('thermal_conductivity', c.thermal_k);
+      setR('thermal_expansion', c.cte);
+      setR('max_service_temp', c.max_temp);
+      setR('price_per_kg', c.price_per_kg);
+      return {
+        id: 'CMP_' + String(i).padStart(3, '0'),
+        name: c.name, category: 'Composite', subcategory: c.subcategory || 'Composite', tier: 'reference',
+        manufacturers: ['Reference data'], machines: [], processes: ['Layup'],
+        heat_treatment: null, ranges, composition: {},
+        sources: [{ label: c.applications ? `Apps: ${c.applications}` : 'Composites handbook', url: null, verified: false }],
+        machinability: null, weldability: null, corrosion_resistance: null,
+        meta: { composite: true, anisotropic: true, ply_direction: c.ply_direction, fiber_vf: c.fiber_vf, applications: c.applications, limitations: c.limitations,
+          anisotropy_note: '복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).' },
+        popularity: c.popularity || 3,
+      };
+    });
+  } catch { return []; }
+}
+const composites = loadCompositesAsMaterials();
+const all = [...curated, ...am_vendor, ...generic, ...supplementary, ...ceramics, ...composites];
 
 // R20 — Ni 초합금 5종 (Inconel 718, 625, 738LC, Haynes 230, Hastelloy X) 의 elevated_temp + creep_rupture.
 // 출처: Special Metals SMC-045/093, Haynes International H-3000H/H-3008C, ASM Aerospace.
