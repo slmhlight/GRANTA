@@ -265,6 +265,149 @@
       "applications": "압전 진동자 (시계·MEMS), QCM 센서, 광학 편광 부품",
       "limitations": "573°C α→β 상전이 (균열 위험)",
       "price_per_kg": 400, "popularity": 4
+    },
+    {
+      "name": "PZT (Pb(Zr,Ti)O₃, soft PZT-5H)",
+      "subcategory": "Piezoelectric",
+      "density": 7.5, "ys": 70, "uts": 70, "modulus": 60, "hardness_HV": 350, "fracture_toughness": 1.5,
+      "thermal_k": 1.3, "cte": 4, "max_temp": 200,
+      "poisson": 0.31, "specific_heat": 350, "melting_point": 1300,
+      "applications": "압전 actuator (잉크젯, AFM), 초음파 트랜스듀서, 햅틱 motor, 가속도계",
+      "limitations": "Curie 점 195°C — 이상에서 폴링 손실. RoHS Pb 예외 (산업·의료 한정).",
+      "price_per_kg": 250, "popularity": 5
+    },
+    {
+      "name": "BaTiO₃ (Barium Titanate, X7R MLCC dielectric)",
+      "subcategory": "Dielectric",
+      "density": 5.7, "ys": 80, "uts": 80, "modulus": 67, "hardness_HV": 350, "fracture_toughness": 1.2,
+      "thermal_k": 6.2, "cte": 9, "max_temp": 125,
+      "poisson": 0.27, "specific_heat": 450, "melting_point": 1625,
+      "applications": "MLCC 다층 세라믹 콘덴서 (X7R 자동차·통신), PTC 서미스터, PZT 전구체",
+      "limitations": "Curie 점 120°C — 사용 범위 -55~+125°C (EIA X7R).",
+      "price_per_kg": 35, "popularity": 5
+    },
+    {
+      "name": "AlSiC-9 (Al-SiC MMC, electronic packaging)",
+      "subcategory": "Composite",
+      "density": 3.01, "ys": 200, "uts": 200, "modulus": 190, "hardness_HV": 350, "fracture_toughness": 6,
+      "thermal_k": 180, "cte": 9, "max_temp": 400,
+      "applications": "IGBT 모듈 baseplate (CTE 매칭 Si), 위성 전자 housing, 광 모듈 carrier",
+      "limitations": "고가 (>$500/kg), 절삭 어려움 (다이아 그라인딩)",
+      "price_per_kg": 550, "popularity": 4
+    },
+    {
+      "name": "ZTA (Zirconia-Toughened Alumina, 10-20% ZrO₂)",
+      "subcategory": "Oxide",
+      "density": 4.1, "ys": 700, "uts": 700, "modulus": 350, "hardness_HV": 1700, "fracture_toughness": 8,
+      "thermal_k": 22, "cte": 8.5, "max_temp": 1500,
+      "applications": "고하중 절삭 인서트, 의료 임플란트 헤드 (ISO 6474-2), 와이어 다이",
+      "price_per_kg": 60, "popularity": 4
+    },
+    {
+      "name": "Titanium Carbide (TiC, 99%)",
+      "subcategory": "Carbide",
+      "density": 4.93, "ys": 260, "uts": 260, "modulus": 450, "hardness_HV": 2900, "fracture_toughness": 4,
+      "thermal_k": 21, "cte": 7.7, "max_temp": 1400,
+      "melting_point": 3160,
+      "applications": "Cermet 절삭공구 (TiC-Ni-Mo), 마모 코팅 (PVD/CVD), 항공 탱크 라이닝",
+      "limitations": "공기 中 800°C 산화 (TiO₂ 형성). WC 보다 brittle.",
+      "price_per_kg": 90, "popularity": 4
+    },
+    {
+      "name": "Tantalum Carbide (TaC, refractory)",
+      "subcategory": "Carbide",
+      "density": 14.5, "ys": 350, "uts": 350, "modulus": 470, "hardness_HV": 1700, "fracture_toughness": 5,
+      "thermal_k": 22, "cte": 6.3, "max_temp": 2800,
+      "melting_point": 3880,
+      "applications": "로켓 노즐 throat, 핵 분야 thermal couple sheath, 초고온 도가니",
+      "limitations": "고가 (Ta 원료), 가공 매우 어려움",
+      "price_per_kg": 1200, "popularity": 2
+    },
+    {
+      "name": "Hafnium Carbide (HfC, ultra-high-temp)",
+      "subcategory": "UHTC",
+      "density": 12.7, "ys": 280, "uts": 280, "modulus": 461, "hardness_HV": 2700, "fracture_toughness": 3.5,
+      "thermal_k": 20, "cte": 6.6, "max_temp": 3000,
+      "melting_point": 3900,
+      "applications": "재진입체 (re-entry vehicle) 리딩 엣지, 핵 reactor 컨트롤 rod",
+      "limitations": "세계 최고 융점급 — 가공 거의 불가, 산화 1500°C 이상",
+      "price_per_kg": 3500, "popularity": 1
+    },
+    {
+      "name": "Zirconium Diboride (ZrB₂, UHTC)",
+      "subcategory": "UHTC",
+      "density": 6.0, "ys": 360, "uts": 360, "modulus": 510, "hardness_HV": 2300, "fracture_toughness": 4.5,
+      "thermal_k": 60, "cte": 6.8, "max_temp": 2200,
+      "melting_point": 3245,
+      "applications": "극초음속 비행체 nose tip, 로켓 throat, 용탕 측정 thermo well",
+      "limitations": "공기 中 1100°C 이상 ZrO₂+B₂O₃ 형성 — SiC 첨가로 보호 스케일",
+      "price_per_kg": 800, "popularity": 2
+    },
+    {
+      "name": "Hafnium Diboride (HfB₂, UHTC)",
+      "subcategory": "UHTC",
+      "density": 11.2, "ys": 350, "uts": 350, "modulus": 480, "hardness_HV": 2900, "fracture_toughness": 4,
+      "thermal_k": 105, "cte": 7.6, "max_temp": 2300,
+      "melting_point": 3380,
+      "applications": "재진입체 sharp leading edge, 핵 cladding, MHD 발전 전극",
+      "limitations": "ZrB₂ 보다 더 고가, 산화 보호 SiC 필수",
+      "price_per_kg": 5500, "popularity": 1
+    },
+    {
+      "name": "Magnesium Aluminate Spinel (MgAl₂O₄, transparent)",
+      "subcategory": "Oxide",
+      "density": 3.58, "ys": 200, "uts": 200, "modulus": 280, "hardness_HV": 1400, "fracture_toughness": 1.9,
+      "thermal_k": 14, "cte": 7.6, "max_temp": 1900,
+      "poisson": 0.26, "specific_heat": 815, "melting_point": 2135,
+      "applications": "transparent armor (장갑차 윈도우), IR dome (3-5 μm), HID 램프 envelope",
+      "limitations": "비싸고 hot-press 가공 필요. 충격 KIC 2 미만.",
+      "price_per_kg": 800, "popularity": 3
+    },
+    {
+      "name": "Yttria (Y₂O₃, 99.99%)",
+      "subcategory": "Oxide",
+      "density": 5.03, "ys": 130, "uts": 130, "modulus": 170, "hardness_HV": 720, "fracture_toughness": 1.5,
+      "thermal_k": 13.6, "cte": 8.1, "max_temp": 2200,
+      "melting_point": 2425,
+      "applications": "반도체 etching chamber 코팅 (Cl/F 플라즈마 저항), YAG 레이저 도가니, ZrO₂ 안정화제",
+      "price_per_kg": 200, "popularity": 4
+    },
+    {
+      "name": "Lanthanum Hexaboride (LaB₆, single-crystal)",
+      "subcategory": "Boride",
+      "density": 4.72, "ys": 100, "uts": 100, "modulus": 470, "hardness_HV": 2700, "fracture_toughness": 1.5,
+      "thermal_k": 47, "cte": 6.4, "max_temp": 1800,
+      "melting_point": 2210,
+      "applications": "SEM·TEM·EBL 전자총 cathode (높은 brightness, 낮은 work function 2.7 eV)",
+      "limitations": "매우 고가, 진공 中에서만 안정",
+      "price_per_kg": 12000, "popularity": 2
+    },
+    {
+      "name": "Zinc Oxide (ZnO, varistor grade)",
+      "subcategory": "Oxide",
+      "density": 5.6, "ys": 130, "uts": 130, "modulus": 110, "hardness_HV": 220, "fracture_toughness": 1.1,
+      "thermal_k": 24, "cte": 6.5, "max_temp": 800,
+      "melting_point": 1975,
+      "applications": "MOV varistor (surge protector), 전자 페이스트 (조명 ZnO:Al TCO), UV 센서",
+      "price_per_kg": 12, "popularity": 5
+    },
+    {
+      "name": "Cerium Oxide (CeO₂, gas sensor grade)",
+      "subcategory": "Oxide",
+      "density": 7.13, "ys": 100, "uts": 100, "modulus": 165, "hardness_HV": 850, "fracture_toughness": 1.3,
+      "thermal_k": 12, "cte": 11, "max_temp": 2000,
+      "melting_point": 2400,
+      "applications": "자동차 lambda 센서, SOFC 전해질 (GDC), CMP 폴리싱 슬러리, 자동차 catalyst",
+      "price_per_kg": 25, "popularity": 5
+    },
+    {
+      "name": "Forsterite (Mg₂SiO₄, electronic substrate)",
+      "subcategory": "Silicate",
+      "density": 3.21, "ys": 90, "uts": 90, "modulus": 150, "hardness_HV": 750, "fracture_toughness": 1.2,
+      "thermal_k": 4.5, "cte": 10, "max_temp": 1300,
+      "melting_point": 1890,
+      "applications": "MW telecom 부품 (low loss tan δ), 진공관 절연체, 5G mmWave 부품",
+      "price_per_kg": 18, "popularity": 4
     }
   ]
 }
