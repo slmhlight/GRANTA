@@ -73,6 +73,11 @@ export interface Material {
   surface_finish_typical?: number | null;
   /** 일반 공차 등급 (ISO 286 IT grade) — 5 가공 정밀 ~ 16 거친 주조. */
   tolerance_class?: string | null;
+  /** R16: RoHS 통과 여부. composition 에서 Pb < 0.1% / Cd < 0.01% / Hg < 0.1% / Cr⁶⁺ < 0.1% /
+   *  PBB·PBDE < 0.1% 검출. 합금에서 Cr 은 통상 Cr³⁺/0가 — Cr⁶⁺는 도금/표면처리 단계 위험. */
+  rohs_compliant?: boolean | null;
+  /** R16: REACH SVHC / EU 규제 우려 항목 목록. 합금에 Pb/Cd/Be/Co/Ni-allergen 등 있으면 노출. */
+  svhc_concerns?: string[];
   popularity?: number | null; // 0–5, 산업 사용 빈도 휴리스틱 (5 = 가장 흔히 쓰이는 표준 합금)
   elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null }>;
   heat_treatment?: string | null;

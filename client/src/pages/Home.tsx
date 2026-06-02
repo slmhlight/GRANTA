@@ -47,6 +47,7 @@ import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { ScenarioCompareSheet } from '@/components/ScenarioCompareSheet';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import type { FilterState } from '@/hooks/useMaterialFilter';
+import { SHOP_ALIAS_DICT } from '@/lib/shop-alias-dict';
 import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical, SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold } from './guide/svgs';
 
 /** Saved collection — pinned material IDs + optional filter snapshot + scenario provenance + viewMode.
@@ -210,43 +211,6 @@ export default function Home() {
   const [importResult, setImportResult] = useState<{ matched: { name: string; matchedTo: string }[]; unmatched: string[] } | null>(null);
   const [importName, setImportName] = useState('');
   const normalize = (s: string) => s.toLowerCase().replace(/[\s\-_.()/]+/g, '');
-  /** 한일 가공집에서 흔히 쓰는 등급명 → 일반 등급 매핑. DB 의 name/alias 에 없는 표기를 위해.
-   *  좌측은 normalize 결과 (소문자·구분자 제거). 우측은 DB 매칭에 쓸 동의어. */
-  const SHOP_ALIAS_DICT: Record<string, string[]> = {
-    // JIS 스테인리스 → AISI / EN
-    sus304: ['304', '304ss', '1.4301', 'austenitic304', 'aisi304'],
-    sus304l: ['304l', '1.4307'],
-    sus316: ['316', '316ss', '1.4401', 'aisi316'],
-    sus316l: ['316l', '1.4404'],
-    sus321: ['321', '1.4541'],
-    sus630: ['174ph', '17_4ph', '1.4542'],
-    sus440c: ['440c', '1.4125'],
-    // JIS 탄소·합금강 → AISI
-    s45c: ['1045', 'aisi1045'],
-    s50c: ['1050'],
-    scm440: ['4140', 'aisi4140', '42crmos4'],
-    scm415: ['8615', '15crmo'],
-    sncm439: ['4340', 'aisi4340'],
-    // JIS 공구강 → AISI
-    skd11: ['d2', 'aisid2', '1.2379'],
-    skd61: ['h13', 'aisih13', '1.2344'],
-    skh51: ['m2', 'aisim2'],
-    skd62: ['h11'],
-    sk85: ['1095', 'aisi1095'],
-    skh9: ['m2'],
-    // 알루미늄 (Korean/Japanese suffix variations)
-    a6061: ['6061', '6061t6', '6061t651'],
-    a7075: ['7075', '7075t6'],
-    a5052: ['5052', '5052h32'],
-    a2024: ['2024', '2024t3'],
-    // 주철·주강
-    fc250: ['gjl250', 'castiron250', 'grayiron250'],
-    fcd400: ['gjs400', 'ductileiron400'],
-    // 동합금
-    c1100: ['cu-etp', 'c11000', 'electrolytictoughpitch'],
-    c3604: ['cuznpb', 'freecuttingbrass'],
-    c5191: ['phosphorbronze', 'pb1'],
-  };
   /** 입력 문자열에서 등급 토큰(숫자 + 짧은 영문) 추출 — '304-SS', 'SUS304', '304L SS' 모두 [304] 가 핵심.
    *  최소 3자 이상 토큰만 (단발 'A' 같은 잡음 제외). */
   const extractTokens = (s: string): string[] => {

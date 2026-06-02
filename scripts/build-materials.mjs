@@ -793,6 +793,11 @@ for (const m of all) {
   if (mw != null) m.min_wall_thickness = mw;
   if (sr != null) m.surface_finish_typical = sr;
   if (tc != null) m.tolerance_class = tc;
+  // R16: RoHS 통과 여부 + SVHC 우려 검출 — composition 에서 Pb/Cd/Hg 농도 확인.
+  // EU RoHS 2 한계: Pb 0.1%, Cd 0.01%, Hg 0.1%, Cr⁶⁺ 0.1%, PBB/PBDE 0.1% (homogeneous 기준).
+  const { rohs, svhc } = checkRegulated(m);
+  m.rohs_compliant = rohs;
+  if (svhc.length) m.svhc_concerns = svhc;
   // F3: cast superalloy 의 누락된 heat_treatment 를 표준 문헌값으로 보완 — reference-tier 라
   // 별도 condition 데이터가 없는 IN713C / IN738LC / IN939 등은 일반적 적용 사이클을 기록.
   if (!m.heat_treatment) {
@@ -818,6 +823,46 @@ for (const m of all) {
       : 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.';
     if (isHipped) m.meta.anisotropy_reduced = true;
   }
+}
+
+// R16 — RoHS / REACH SVHC 검출 (composition 기반 휴리스틱).
+//   RoHS 2 EU Directive 2011/65/EU: Pb 0.1%, Cd 0.01%, Hg 0.1%, Cr⁶⁺ 0.1%, PBB·PBDE 0.1% (homogeneous).
+//   REACH SVHC (Substances of Very High Concern): Be, Co compounds, Ni-allergen (피부), Pb·Cd 일부.
+//   composition entry 형식: ["Element", "min~max"] | ["Element", "balance"] | ["Element", "≤x"]
+function checkRegulated(m) {
+  const comp = m.composition;
+  if (!comp || typeof comp !== 'object') return { rohs: null, svhc: [] };
+  const svhc = [];
+  let pb = 0, cd = 0, hg = 0;
+  const pct = (val) => {
+    if (typeof val !== 'string') return 0;
+    const v = String(val).trim();
+    if (v === 'balance' || v === '나머지') return 0;
+    // "0.1~0.5" → 0.3 평균, "≤0.5" → 0.5 (보수적 최대), "0.05" → 0.05
+    if (v.startsWith('≤') || v.startsWith('<')) { const n = parseFloat(v.replace(/[^\d.]/g, '')); return isFinite(n) ? n : 0; }
+    if (v.includes('~')) { const [a, b] = v.split('~').map(parseFloat); return isFinite(b) ? b : (isFinite(a) ? a : 0); }
+    const n = parseFloat(v); return isFinite(n) ? n : 0;
+  };
+  // composition 은 객체 or 배열 두 형식 모두
+  const entries = Array.isArray(comp) ? comp : Object.entries(comp);
+  for (const [el, val] of entries) {
+    const key = String(el).trim();
+    const p = pct(val);
+    if (/^Pb$/i.test(key)) pb = p;
+    if (/^Cd$/i.test(key)) cd = p;
+    if (/^Hg$/i.test(key)) hg = p;
+    if (/^Be$/i.test(key) && p > 0.1) svhc.push(`Be ${p}% — 호흡기 유해 (베릴륨 분진), CMR Cat.1`);
+    if (/^Co$/i.test(key) && p > 0.1) svhc.push(`Co ${p}% — REACH SVHC 후보 (소비자 접촉 제품 제한)`);
+    if (/^Ni$/i.test(key) && p > 1.0) svhc.push(`Ni ${p}% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)`);
+  }
+  // RoHS 한계 비교
+  const rohsViolations = [];
+  if (pb > 0.1) rohsViolations.push(`Pb ${pb}% > 0.1%`);
+  if (cd > 0.01) rohsViolations.push(`Cd ${cd}% > 0.01%`);
+  if (hg > 0.1) rohsViolations.push(`Hg ${hg}% > 0.1%`);
+  const rohs = rohsViolations.length === 0;
+  if (!rohs) svhc.push(...rohsViolations.map(v => `RoHS 초과: ${v}`));
+  return { rohs, svhc };
 }
 
 // R15 process attributes — 표준 한계값.

@@ -586,6 +586,12 @@ export default function FilterSidebar({
         <QualitativeFilter label="Corrosion resistance" options={corrosionOpts} selected={filters.corrosion} onChange={v => updateFilter('corrosion', v)} />
         <QualitativeFilter label="Machinability" options={machinabilityOpts} selected={filters.machinability} onChange={v => updateFilter('machinability', v)} />
         <QualitativeFilter label="Weldability" options={weldabilityOpts} selected={filters.weldability} onChange={v => updateFilter('weldability', v)} />
+        {/* R16: RoHS toggle — composition 기반 자동 검출 (Pb < 0.1% / Cd < 0.01% / Hg < 0.1%). */}
+        <label className="flex items-center gap-2 px-3 py-2 text-xs cursor-pointer select-none hover:bg-muted/40 rounded">
+          <input type="checkbox" checked={!!filters.rohsOnly} onChange={(e) => updateFilter('rohsOnly', e.target.checked)} className="accent-accent" />
+          <span className="flex-1">RoHS 통과만 (EU 규제)</span>
+          <span className="text-[10px] text-muted-foreground">Pb·Cd·Hg</span>
+        </label>
         <div className="border-t border-border/50 mt-2">
           <CompositionFamilyBrowser
             materials={materials}

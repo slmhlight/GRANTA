@@ -34,6 +34,8 @@ export interface FilterState {
   corrosion: string[];
   machinability: string[];
   weldability: string[];
+  /** R16: RoHS 통과 재료만 표시 (납·카드뮴·수은 한계 통과). null/undefined 데이터는 포함. */
+  rohsOnly?: boolean;
 }
 
 export const DEFAULT_FILTERS: FilterState = {
@@ -63,6 +65,7 @@ export const DEFAULT_FILTERS: FilterState = {
   corrosion: [],
   machinability: [],
   weldability: [],
+  rohsOnly: false,
 };
 
 export function useMaterialFilter(materials: Material[]) {
@@ -201,6 +204,8 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.corrosion.length) result = result.filter(m => m.corrosion_resistance != null && filters.corrosion.includes(String(m.corrosion_resistance)));
     if (filters.machinability.length) result = result.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
     if (filters.weldability.length) result = result.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
+    // R16: RoHS toggle — false (default) 면 통과, true 면 rohs_compliant === false 만 제외 (null/true 유지).
+    if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant !== false);
 
     // Sort
     result = [...result].sort((a, b) => {
@@ -248,6 +253,7 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.corrosion.length > 0) count++;
     if (filters.machinability.length > 0) count++;
     if (filters.weldability.length > 0) count++;
+    if (filters.rohsOnly) count++;
     return count;
   }, [filters]);
 
