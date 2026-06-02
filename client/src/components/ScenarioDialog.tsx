@@ -50,17 +50,26 @@ function SelectInput({ field, value, onChange }: { field: Extract<ConfigField, {
 /** 단면 SVG 미니 아이콘 (선택자 버튼용) */
 function SectionIcon({ id }: { id: string }) {
   const c = 'stroke-accent';
+  const fc = `fill-accent/15 ${c}`;
   switch (id) {
     case 'rect':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="10" y="6" width="10" height="18" className={`fill-accent/15 ${c}`} strokeWidth="1.5"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="10" y="6" width="10" height="18" className={fc} strokeWidth="1.5"/></svg>;
     case 'sq':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="9" y="9" width="12" height="12" className={`fill-accent/15 ${c}`} strokeWidth="1.5"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="9" y="9" width="12" height="12" className={fc} strokeWidth="1.5"/></svg>;
     case 'circ':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><circle cx="15" cy="15" r="9" className={`fill-accent/15 ${c}`} strokeWidth="1.5"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><circle cx="15" cy="15" r="9" className={fc} strokeWidth="1.5"/></svg>;
     case 'tube':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><circle cx="15" cy="15" r="11" className={`fill-accent/15 ${c}`} strokeWidth="1.5"/><circle cx="15" cy="15" r="6" className="fill-background stroke-accent" strokeWidth="1.3"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><circle cx="15" cy="15" r="11" className={fc} strokeWidth="1.5"/><circle cx="15" cy="15" r="6" className="fill-background stroke-accent" strokeWidth="1.3"/></svg>;
     case 'box':
-      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="6" y="6" width="18" height="18" className={`fill-accent/15 ${c}`} strokeWidth="1.5"/><rect x="11" y="11" width="8" height="8" className="fill-background stroke-accent" strokeWidth="1.3"/></svg>;
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><rect x="6" y="6" width="18" height="18" className={fc} strokeWidth="1.5"/><rect x="11" y="11" width="8" height="8" className="fill-background stroke-accent" strokeWidth="1.3"/></svg>;
+    case 'ibeam':
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><g className={fc} strokeWidth="1.4"><rect x="6" y="4" width="18" height="4"/><rect x="13" y="8" width="4" height="14"/><rect x="6" y="22" width="18" height="4"/></g></svg>;
+    case 'channel':
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><g className={fc} strokeWidth="1.4"><rect x="6" y="4" width="6" height="22"/><rect x="12" y="4" width="14" height="4"/><rect x="12" y="22" width="14" height="4"/></g></svg>;
+    case 'tsec':
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><g className={fc} strokeWidth="1.4"><rect x="4" y="6" width="22" height="5"/><rect x="13" y="11" width="4" height="13"/></g></svg>;
+    case 'angle':
+      return <svg viewBox="0 0 30 30" className="w-7 h-7"><g className={fc} strokeWidth="1.4"><polygon points="6,4 11,4 11,21 26,21 26,26 6,26"/></g></svg>;
     default:
       return null;
   }
@@ -141,7 +150,8 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                       key={s.id}
                       onClick={() => {
                         setSectionId(s.id);
-                        setValues((p) => { const np = { ...p }; for (const f of s.dimFields) if (np[f.id] === undefined) np[f.id] = (f as any).default; return np; });
+                        // 단면 전환 시 그 단면의 dimField default 를 항상 적용 (이전 단면의 같은 id 값 carryover 방지)
+                        setValues((p) => { const np = { ...p }; for (const f of s.dimFields) np[f.id] = (f as any).default; return np; });
                       }}
                       className={`flex flex-col items-center gap-0.5 p-1.5 rounded border text-[10px] transition-colors ${sectionId === s.id ? 'border-accent bg-accent/10 text-foreground' : 'border-border text-muted-foreground hover:border-accent/50'}`}
                       title={s.label}

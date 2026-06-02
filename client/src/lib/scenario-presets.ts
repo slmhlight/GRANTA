@@ -93,7 +93,110 @@ const SHAPE_SQ: CrossSection = {
   Z: (v) => Math.pow(v.a, 3) / 6,
   A: (v) => v.a * v.a,
 };
-const SHAPES_BENDING = [SHAPE_RECT, SHAPE_SQ, SHAPE_CIRC, SHAPE_TUBE, SHAPE_BOX];
+// I-빔 / H-빔 (대칭) — 강축(수평 중립축) 굽힘 기준. h = 웹 높이 + 2·플랜지 두께(전체 높이).
+const SHAPE_IBEAM: CrossSection = {
+  id: 'ibeam', label: 'I-빔 / H-빔',
+  dimFields: [
+    { id: 'bf', label: '플랜지 폭 b_f', unit: 'mm', type: 'number', default: 80, min: 1, step: 1 },
+    { id: 'tf', label: '플랜지 두께 t_f', unit: 'mm', type: 'number', default: 10, min: 0.5, step: 0.5 },
+    { id: 'tw', label: '웹 두께 t_w', unit: 'mm', type: 'number', default: 6, min: 0.5, step: 0.5 },
+    { id: 'h', label: '전체 높이 h', unit: 'mm', type: 'number', default: 120, min: 1, step: 1 },
+  ],
+  I: (v) => {
+    const hw = v.h - 2 * v.tf;  // 웹 높이
+    return (v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(hw, 3)) / 12;
+  },
+  Z: (v) => {
+    const hw = v.h - 2 * v.tf;
+    const I = (v.bf * Math.pow(v.h, 3) - (v.bf - v.tw) * Math.pow(hw, 3)) / 12;
+    return I / (v.h / 2);
+  },
+  A: (v) => 2 * v.bf * v.tf + (v.h - 2 * v.tf) * v.tw,
+};
+// ㄷ-채널 (U-channel) — 강축 굽힘(수평 중립축). 웹은 좌측 수직, 플랜지는 우측으로 뻗음.
+const SHAPE_CHANNEL: CrossSection = {
+  id: 'channel', label: 'ㄷ-채널 (U-channel)',
+  dimFields: [
+    { id: 'bf', label: '플랜지 길이 b_f', unit: 'mm', type: 'number', default: 50, min: 1, step: 1 },
+    { id: 'tf', label: '플랜지 두께 t_f', unit: 'mm', type: 'number', default: 8, min: 0.5, step: 0.5 },
+    { id: 'tw', label: '웹 두께 t_w', unit: 'mm', type: 'number', default: 6, min: 0.5, step: 0.5 },
+    { id: 'h', label: '전체 높이 h', unit: 'mm', type: 'number', default: 100, min: 1, step: 1 },
+  ],
+  // 강축(수평) 굽힘: 단면이 위·아래 대칭이라 신경통(centroid)은 y=h/2.
+  // I_x = 웹 + 2·플랜지(평행축).  플랜지는 단면 외곽에 있어 (h/2 - t_f/2) 만큼 떨어짐.
+  I: (v) => {
+    const Iw = v.tw * Math.pow(v.h, 3) / 12;  // 웹 단독
+    const If = 2 * (v.bf * Math.pow(v.tf, 3) / 12 + v.bf * v.tf * Math.pow(v.h / 2 - v.tf / 2, 2));
+    return Iw + If;
+  },
+  Z: (v) => {
+    const Iw = v.tw * Math.pow(v.h, 3) / 12;
+    const If = 2 * (v.bf * Math.pow(v.tf, 3) / 12 + v.bf * v.tf * Math.pow(v.h / 2 - v.tf / 2, 2));
+    return (Iw + If) / (v.h / 2);
+  },
+  A: (v) => v.tw * v.h + 2 * v.bf * v.tf - 2 * v.tw * v.tf,  // 중복 영역 제거
+};
+// T-단면 — 비대칭. 상부 플랜지 + 하부 웹(스템). 신경통은 위에서 y_c 만큼 아래.
+const SHAPE_T: CrossSection = {
+  id: 'tsec', label: 'T-단면',
+  dimFields: [
+    { id: 'bf', label: '플랜지 폭 b_f', unit: 'mm', type: 'number', default: 80, min: 1, step: 1 },
+    { id: 'tf', label: '플랜지 두께 t_f', unit: 'mm', type: 'number', default: 10, min: 0.5, step: 0.5 },
+    { id: 'tw', label: '웹 두께 t_w', unit: 'mm', type: 'number', default: 8, min: 0.5, step: 0.5 },
+    { id: 'hw', label: '웹 높이 h_w', unit: 'mm', type: 'number', default: 80, min: 1, step: 1 },
+  ],
+  // 신경통(상단으로부터): y_c = (b_f·t_f·t_f/2 + t_w·h_w·(t_f + h_w/2)) / A
+  I: (v) => {
+    const Af = v.bf * v.tf, Aw = v.tw * v.hw;
+    const A = Af + Aw;
+    const yc = (Af * v.tf / 2 + Aw * (v.tf + v.hw / 2)) / A;
+    const Iflange = v.bf * Math.pow(v.tf, 3) / 12 + Af * Math.pow(yc - v.tf / 2, 2);
+    const Iweb = v.tw * Math.pow(v.hw, 3) / 12 + Aw * Math.pow(v.tf + v.hw / 2 - yc, 2);
+    return Iflange + Iweb;
+  },
+  Z: (v) => {
+    const Af = v.bf * v.tf, Aw = v.tw * v.hw;
+    const A = Af + Aw;
+    const yc = (Af * v.tf / 2 + Aw * (v.tf + v.hw / 2)) / A;
+    const Iflange = v.bf * Math.pow(v.tf, 3) / 12 + Af * Math.pow(yc - v.tf / 2, 2);
+    const Iweb = v.tw * Math.pow(v.hw, 3) / 12 + Aw * Math.pow(v.tf + v.hw / 2 - yc, 2);
+    const I = Iflange + Iweb;
+    const cMax = Math.max(yc, v.tf + v.hw - yc);
+    return I / cMax;
+  },
+  A: (v) => v.bf * v.tf + v.tw * v.hw,
+};
+// ㄱ-앵글(L) — 같은 다리 길이 a, 두께 t. 약축 굽힘 가정 (가장 일반적 사용).
+// 표준 핸드북 식: A = t(2a - t), y_c = (a² + t(a - t)) / (2a - t) (한 변의 끝에서)
+// I_x = (1/3)·t·a³ + (1/3)·t·(a - t)³ - (2a - t)·t·(y_c - t/2)² 류 — 약식 간이 식 사용:
+// I_x ≈ (a⁴ - (a - t)⁴) / 12 + 보정. 학생용 가이드라 단순 근사 사용:
+const SHAPE_ANGLE: CrossSection = {
+  id: 'angle', label: 'ㄱ-앵글 (L)',
+  dimFields: [
+    { id: 'a', label: '다리 길이 a (등변)', unit: 'mm', type: 'number', default: 50, min: 1, step: 1 },
+    { id: 't', label: '두께 t', unit: 'mm', type: 'number', default: 6, min: 0.5, step: 0.5 },
+  ],
+  // 등변 앵글의 표준식 (한 변 길이=a, 두께=t, 강축=한 다리에 평행):
+  // A = t·(2a - t)
+  // y_c (변의 끝에서) = (a² + (a - t)·t) / (2·(2a - t))
+  // 정확한 I는 적분이 필요하지만 핸드북 근사로 사용:
+  I: (v) => {
+    const A = v.t * (2 * v.a - v.t);
+    const yc = (v.a * v.a + (v.a - v.t) * v.t) / (2 * (2 * v.a - v.t));
+    // 한 다리(폭 t × 길이 a)의 I + 평행축, × 2 (대칭 두 다리). 근사 식.
+    const I_leg = v.t * Math.pow(v.a, 3) / 12 + (v.t * v.a) * Math.pow(v.a / 2 - yc, 2);
+    return 2 * I_leg - (v.t * v.t * v.t) / 12;  // 중복 코너 영역 보정
+  },
+  Z: (v) => {
+    const A = v.t * (2 * v.a - v.t);
+    const yc = (v.a * v.a + (v.a - v.t) * v.t) / (2 * (2 * v.a - v.t));
+    const I_leg = v.t * Math.pow(v.a, 3) / 12 + (v.t * v.a) * Math.pow(v.a / 2 - yc, 2);
+    const I = 2 * I_leg - (v.t * v.t * v.t) / 12;
+    return I / Math.max(yc, v.a - yc);
+  },
+  A: (v) => v.t * (2 * v.a - v.t),
+};
+const SHAPES_BENDING = [SHAPE_RECT, SHAPE_SQ, SHAPE_CIRC, SHAPE_TUBE, SHAPE_BOX, SHAPE_IBEAM, SHAPE_CHANNEL, SHAPE_T, SHAPE_ANGLE];
 
 const HI = 99999;
 const round1 = (x: number) => Math.round(x * 10) / 10;
@@ -101,39 +204,74 @@ const round0 = (x: number) => Math.round(x);
 
 export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
   bracket: {
-    label: '경량 고강성 브래킷 (LPBF)',
-    filters: { processes: ['LPBF'] },
+    label: '경량 고강성 구조 브래킷',
+    filters: {},
     viewMode: 'ashby',
     indexHint: '경량 강성 보 E^½/ρ — 평판이면 E^⅓/ρ',
     configurator: {
-      description: '외팔보(브래킷)의 길이·하중·처짐 한계·단면을 입력하면 필요 E와 σy를 자동 계산합니다.',
+      description: '하중 형태·단면·치수를 선택하면 표준 재료역학식으로 필요한 E와 σy를 산출합니다. 공정은 선택 사항.',
       fields: [
-        { id: 'L', label: '길이 L', unit: 'mm', type: 'number', default: 100, min: 10, step: 5, group: '하중·치수' },
-        { id: 'F', label: '끝하중 F', unit: 'N', type: 'number', default: 200, min: 1, step: 10, group: '하중·치수' },
-        { id: 'dmax', label: '처짐 한계 δ_max', unit: 'mm', type: 'number', default: 0.5, min: 0.01, step: 0.1, group: '하중·치수' },
+        { id: 'pattern', label: '하중·지지 형태', type: 'select', default: 'cant_tip', options: [
+          { value: 'cant_tip', label: '외팔보 · 끝단 집중하중' },
+          { value: 'cant_udl', label: '외팔보 · 등분포하중' },
+          { value: 'ss_center', label: '단순지지 · 중앙 집중하중' },
+          { value: 'ss_udl', label: '단순지지 · 등분포하중' },
+          { value: 'ff_center', label: '양단 고정 · 중앙 집중하중' },
+          { value: 'ff_udl', label: '양단 고정 · 등분포하중' },
+        ], group: '하중 형태' },
+        { id: 'L', label: '길이 L', unit: 'mm', type: 'number', default: 100, min: 10, step: 5, group: '치수·하중' },
+        { id: 'F', label: '집중하중 F (해당 시)', unit: 'N', type: 'number', default: 200, min: 0, step: 10, group: '치수·하중' },
+        { id: 'w', label: '등분포하중 w (해당 시)', unit: 'N/mm', type: 'number', default: 2, min: 0, step: 0.1, group: '치수·하중' },
+        { id: 'dmax', label: '처짐 한계 δ_max', unit: 'mm', type: 'number', default: 0.5, min: 0.01, step: 0.1, group: '치수·하중' },
         { id: 'SF', label: '안전계수 SF', type: 'number', default: 2, min: 1, step: 0.1, group: '설계 마진' },
+        { id: 'process', label: '제조 공정', type: 'select', default: 'any', options: [
+          { value: 'any', label: '전체 (선택 안 함)' },
+          { value: 'LPBF', label: 'LPBF (금속 분말상 적층)' },
+          { value: 'DMLS', label: 'DMLS' },
+          { value: 'EBM', label: 'EBM' },
+          { value: 'Wrought', label: '단조·압연(Wrought)' },
+          { value: 'Cast', label: '주조(Cast)' },
+        ], group: '제조' },
       ],
       sections: SHAPES_BENDING,
       compute: (v, section) => {
         const dims: Record<string, number> = {};
         for (const f of section?.dimFields || []) dims[f.id] = Number(v[f.id] ?? (f.type === 'number' ? f.default : 0));
-        const I = section ? section.I(dims) : 1; // mm^4
-        const Z = section ? section.Z(dims) : 1; // mm^3
-        const F = Number(v.F), L = Number(v.L), dmax = Number(v.dmax), SF = Number(v.SF);
-        // 처짐: δ = F·L³ / (3·E·I) → 필요 E [MPa] = F·L³ / (3·I·δ); ÷1000 → GPa
-        const needE_MPa = (F * Math.pow(L, 3)) / (3 * I * dmax);
+        const I = section ? section.I(dims) : 1;
+        const Z = section ? section.Z(dims) : 1;
+        const F = Number(v.F), w = Number(v.w), L = Number(v.L), dmax = Number(v.dmax), SF = Number(v.SF);
+        const pattern = String(v.pattern);
+        // 하중 패턴별 δ·M_max 표준식 (boundary-condition coefficient)
+        let needEI = 0, Mmax = 0, label = '';
+        switch (pattern) {
+          case 'cant_tip':   needEI = (F * Math.pow(L, 3)) / (3 * dmax);    Mmax = F * L;         label = 'δ=FL³/(3EI), M=FL'; break;
+          case 'cant_udl':   needEI = (w * Math.pow(L, 4)) / (8 * dmax);    Mmax = w * L * L / 2; label = 'δ=wL⁴/(8EI), M=wL²/2'; break;
+          case 'ss_center':  needEI = (F * Math.pow(L, 3)) / (48 * dmax);   Mmax = F * L / 4;     label = 'δ=FL³/(48EI), M=FL/4'; break;
+          case 'ss_udl':     needEI = (5 * w * Math.pow(L, 4)) / (384 * dmax); Mmax = w * L * L / 8; label = 'δ=5wL⁴/(384EI), M=wL²/8'; break;
+          case 'ff_center':  needEI = (F * Math.pow(L, 3)) / (192 * dmax);  Mmax = F * L / 8;     label = 'δ=FL³/(192EI), M=FL/8'; break;
+          case 'ff_udl':     needEI = (w * Math.pow(L, 4)) / (384 * dmax);  Mmax = w * L * L / 12; label = 'δ=wL⁴/(384EI), M=wL²/12'; break;
+        }
+        const needE_MPa = needEI / I;
         const needE_GPa = needE_MPa / 1000;
-        // 굽힘응력: σ_b = M_max/Z = F·L/Z → 필요 σy ≥ SF·σ_b
-        const sigmaB = (F * L) / Z;
+        const sigmaB = Mmax / Z;
         const needSy = SF * sigmaB;
+        const proc = String(v.process);
+        const filters: Partial<FilterState> = {
+          yieldStrengthRange: [round0(needSy), HI],
+          modulusRange: [Math.max(1, round1(needE_GPa)), HI],
+        };
+        if (proc !== 'any') filters.processes = [proc];
         return {
-          filters: { yieldStrengthRange: [round0(needSy), HI], modulusRange: [Math.max(1, round1(needE_GPa)), HI], processes: ['LPBF'] },
+          filters,
           summary: [
+            { label: '하중 패턴', value: label },
             { label: '단면 I', value: `${round0(I)} mm⁴` },
             { label: '단면 Z', value: `${round0(Z)} mm³` },
+            { label: '최대 모멘트', value: `${round0(Mmax)} N·mm` },
             { label: '필요 E', value: `≥ ${round1(needE_GPa)} GPa` },
             { label: '굽힘응력 σ_b', value: `${round0(sigmaB)} MPa` },
             { label: '필요 σy (SF 포함)', value: `≥ ${round0(needSy)} MPa` },
+            ...(proc !== 'any' ? [{ label: '공정 제약', value: proc }] : []),
           ],
         };
       },

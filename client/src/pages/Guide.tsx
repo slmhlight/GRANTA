@@ -96,8 +96,8 @@ function PropCard({ name, unit, icon, intuition, useFor, range }: { name: string
         </div>
         {icon && <div className="w-20 h-12 flex-shrink-0 bg-muted/30 rounded border border-border/50 p-1">{icon}</div>}
       </div>
-      <p className="text-[13px] leading-relaxed text-foreground/90"><b className="text-accent">감 잡기:</b> {intuition}</p>
-      <p className="text-[12px] mt-2 leading-relaxed text-muted-foreground"><b className="text-foreground/80">언제 보나:</b> {useFor}</p>
+      <p className="text-[13px] leading-relaxed text-foreground/90"><b className="text-accent">물리적 의미:</b> {intuition}</p>
+      <p className="text-[12px] mt-2 leading-relaxed text-muted-foreground"><b className="text-foreground/80">관련 설계 요구:</b> {useFor}</p>
       <p className="text-[11px] mt-2 text-muted-foreground font-mono"><b className="not-italic text-foreground/70">일반 범위:</b> {range}</p>
     </div>
   );
@@ -938,14 +938,27 @@ const SvgFixedUDLV2 = () => (
  * ────────────────────────────────────────────────────────────────────────── */
 
 const TOC: { id: string; n: number; label: string; icon: any }[] = [
-  { id: 'ch1', n: 1, label: '물성 사전 — 재료가 말하는 언어', icon: BookOpen },
-  { id: 'ch2', n: 2, label: '설계 요구를 숫자로 바꾸기', icon: Target },
-  { id: 'ch3', n: 3, label: '단면 모양 도감 (A · I · Z · J)', icon: Sigma },
-  { id: 'ch4', n: 4, label: '보 하중·지지조건 도감', icon: Sigma },
-  { id: 'ch5', n: 5, label: '응용 — 비틀림 · 좌굴 · 압력', icon: Sigma },
-  { id: 'ch6', n: 6, label: 'Ashby 재료 선택법', icon: ListChecks },
+  // 추천 순서: 사례 → Ashby → 기초/물성 → 응용. 챕터 번호는 JSX 본문과 일치.
   { id: 'ch7', n: 7, label: '실전 사례 8선 (앱 자동 연계)', icon: LineChart },
+  { id: 'ch6', n: 6, label: 'Ashby 재료 선택법', icon: ListChecks },
+  { id: 'ch1', n: 1, label: '물성 사전 — 재료 표기의 의미', icon: BookOpen },
+  { id: 'ch2', n: 2, label: '설계 요구를 물성 수치로 변환', icon: Target },
+  { id: 'ch3', n: 3, label: '단면 성질 도감 (A · I · Z · J)', icon: Sigma },
+  { id: 'ch4', n: 4, label: '보 하중·지지조건별 처짐 · 모멘트', icon: Sigma },
+  { id: 'ch5', n: 5, label: '비틀림 · 좌굴 · 복합 · 압력', icon: Sigma },
   { id: 'ch8', n: 8, label: '데이터 해석 & 참고문헌', icon: BookText },
+];
+
+/** 사례 타일 — 가이드 최상단에서 한눈에 보고 곧장 다이얼로그를 열 수 있게. */
+const SCENARIO_TILES: { key: ScenarioKey; title: string; sub: string; icon: any }[] = [
+  { key: 'bracket', title: '구조 브래킷', sub: '경량 + 고강성', icon: Sigma },
+  { key: 'hightemp', title: '고온 부품', sub: '배기 · 터빈', icon: Sigma },
+  { key: 'fatigue', title: '회전·진동축', sub: '피로 한도', icon: Sigma },
+  { key: 'precision', title: '정밀 마운트', sub: '저 CTE', icon: Sigma },
+  { key: 'corrosion', title: '해양·화학', sub: '내식 환경', icon: Sigma },
+  { key: 'lowcost', title: '저원가 양산', sub: '가성비', icon: Sigma },
+  { key: 'spring', title: '스프링 · 힌지', sub: '탄성 에너지', icon: Sigma },
+  { key: 'heatsink', title: '히트싱크', sub: '방열', icon: Sigma },
 ];
 
 export default function Guide() {
@@ -986,9 +999,33 @@ export default function Guide() {
           </div>
         </div>
 
+        {/* 빠른 접근 — 사례 타일 그리드 (다이얼로그로 곧장) */}
+        <div className="mt-6">
+          <div className="flex items-baseline justify-between mb-2">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground flex items-center gap-1.5"><Sigma className="w-3.5 h-3.5" /> 바로 시작 — 설계 사례 선택</p>
+            <a href="#ch7" className="text-[11px] text-accent hover:underline">사례 설명 자세히 →</a>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            {SCENARIO_TILES.map((t) => (
+              <button
+                type="button"
+                key={t.key}
+                onClick={() => openConfig(t.key)}
+                className="group flex flex-col items-start gap-1 rounded-lg border border-border bg-card p-3 text-left hover:border-accent hover:shadow-md transition-all"
+                title="세부 조건 입력 다이얼로그를 엽니다"
+              >
+                <t.icon className="w-4 h-4 text-accent group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-semibold text-foreground leading-tight">{t.title}</span>
+                <span className="text-[11px] text-muted-foreground">{t.sub}</span>
+              </button>
+            ))}
+          </div>
+          <p className="text-[11px] text-muted-foreground mt-2">타일을 누르면 치수·하중·재료 조건 다이얼로그가 열립니다. 기초가 필요하면 아래 목차에서 챕터로.</p>
+        </div>
+
         {/* 학습 흐름 */}
         <div className="mt-6 rounded-lg border border-border bg-card p-4">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-3 flex items-center gap-1.5"><Compass className="w-3.5 h-3.5" /> 학습 흐름 (목차)</p>
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-3 flex items-center gap-1.5"><Compass className="w-3.5 h-3.5" /> 추천 목차 (실전 → 이론 순)</p>
           <ol className="space-y-1.5">
             {TOC.map((t) => (
               <li key={t.id} className="flex items-center gap-2">
