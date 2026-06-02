@@ -58,6 +58,27 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - PMMA: Polymer - Nylon (FDM/SLS) / Polymer - PMMA (Acrylic) / Polymer - Photopolymer Resin (SLA)
 - PP: Polymer - Nylon (FDM/SLS) / Polymer - PP (FDM)
 
+## R34 — Category Expansion & Normalization Summary
+
+### Category counts
+| Category | Count | Distinct subcategories |
+|---|---|---|
+| Metal | 733 | (multiple) |
+| Polymer | 96 | 44 |
+| Ceramic | 45 | 13 |
+| Composite | 30 | — |
+
+### Polymer subcategory canonicalization (R34c)
+- 51 polymer entries had their subcategory rewritten by the canonicalization pass (`POLY_SUB_RULES`).
+- PEEK / PEEK CF, PEKK / PEKK CF, PA / PA GF / PA CF, ULTEM / ULTEM GF kept distinct (reinforcement variants have meaningfully different properties).
+- "Polymer - Nylon (FDM/SLS)" residual count: 1 — unmatched entries fall back to category-specific subcategory.
+
+### Temperature & creep coverage
+- 260 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +19 mostly polymer).
+- 221 have Young's modulus vs T (E(T)).
+- 80 have creep rupture curves (Ni superalloys, no change in R34).
+
 ## TODO
 - Hardness scale unification (HV/HRC/HB).
 - Reconcile fatigue/impact gaps where datasheets provide values.
+- (R34d candidate) Polymer creep rupture curves (PEEK / ULTEM / PEKK 100–200°C, 1000–10⁴ h).

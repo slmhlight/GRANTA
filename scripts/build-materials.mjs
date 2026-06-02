@@ -1682,6 +1682,93 @@ for (const m of all) {
 
 // (R20 ELEV_DATA + injectTempCurves 는 loop 전으로 이동됨 — const hoisting 미지원으로 TDZ 회피)
 
+// R34c — 폴리머 subcategory normalization 룰 테이블. [namePattern, modifierPattern, targetSubcategory].
+// modifierPattern 이 있으면 그것까지 매칭해야 적용 (CF / GF 변종 분리). 순서가 우선순위 — PEKK 가 PEEK 보다 먼저.
+const POLY_SUB_RULES = [
+  // PEKK 가 PEEK 보다 먼저 — 'pekk' 가 'peek' 보다 selective
+  [/pekk|kepstan|antero\s*800/i, /carbon|cf|gf/i, 'Polymer - PEKK CF'],
+  [/pekk|kepstan|antero\s*800/i, null, 'Polymer - PEKK'],
+  // PEEK CF 우선 (PEEK 보다 selective)
+  [/peek/i, /carbon|cf|ca30|scf|fortron/i, 'Polymer - PEEK CF'],
+  [/peek/i, null, 'Polymer - PEEK'],
+  // PEI / ULTEM
+  [/ultem|polyetherimide|\bpei\b/i, /glass|gf/i, 'Polymer - PEI/ULTEM GF'],
+  [/ultem|polyetherimide|\bpei\b/i, null, 'Polymer - PEI/ULTEM'],
+  // sulfone family — PPSU 가 PSU 보다 selective
+  [/ppsu|radel/i, null, 'Polymer - PPSU'],
+  [/\bpsu\b|udel/i, null, 'Polymer - PSU'],
+  [/\bpes\b|polyethersulfone/i, null, 'Polymer - PES'],
+  // PPS
+  [/\bpps\b|fortron/i, null, 'Polymer - PPS'],
+  // polyimide
+  [/vespel|polyimide/i, null, 'Polymer - Polyimide'],
+  // polyamide-imide / polybenzimidazole
+  [/\bpai\b|torlon/i, null, 'Polymer - PAI'],
+  [/\bpbi\b/i, null, 'Polymer - PBI'],
+  // Polyamide variants (GF / CF / base)
+  [/pa\s*?(?:6|11|12|66)|\bnylon\b|polyamide|rilsan|ultramid|zytel|pa\s*?2200|pa\s*?1101|hp\s*?3/i, /glass\b|gf|^.*\bgf\b|with\s+glass/i, 'Polymer - Polyamide GF'],
+  [/pa\s*?12.*(?:cf|carbon)|hp\s*?3|pa-cf|nylon.*carbon/i, null, 'Polymer - Polyamide CF'],
+  [/pa\s*?(?:6|11|12|66)|\bnylon\b|polyamide|rilsan|ultramid|zytel|pa\s*?2200|pa\s*?1101/i, null, 'Polymer - Polyamide'],
+  // Polycarbonate (PC) — ABS-PC 는 ABS+PC 둘 다 가짐 → PC-ABS 는 ABS 로 먼저 매칭
+  [/abs\s*-\s*pc|pc\s*-\s*abs|abs\/pc|pc\/abs/i, null, 'Polymer - ABS-PC blend'],
+  [/lexan|polycarbonate|^pc\s*—|^pc\s*[—\(]|\bpc\b/i, null, 'Polymer - Polycarbonate'],
+  // PET / PETG / PBT
+  [/petg/i, null, 'Polymer - PETG'],
+  [/\bpet\b|polyethylene\s*terephthalate/i, null, 'Polymer - PET'],
+  [/\bpbt\b|valox|crastin/i, null, 'Polymer - PBT'],
+  // LCP
+  [/\blcp\b|vectra|xydar/i, null, 'Polymer - LCP'],
+  // POM / Delrin
+  [/delrin|\bpom\b|acetal/i, null, 'Polymer - POM'],
+  // PMMA / acrylic
+  [/pmma|acrylic|plexiglas/i, null, 'Polymer - PMMA'],
+  // ABS / ASA
+  [/\babs\b/i, null, 'Polymer - ABS'],
+  [/\basa\b/i, null, 'Polymer - ASA'],
+  // PP
+  [/^pp\s*—|^pp\s*[—\(]|\bpp\b\s*gf|polypropylene/i, /glass|gf/i, 'Polymer - PP GF'],
+  [/^pp\s*—|^pp\s*[—\(]|polypropylene/i, null, 'Polymer - PP'],
+  // PE variants
+  [/uhmwpe|uhmw-pe|ultra\s*high/i, null, 'Polymer - UHMWPE'],
+  [/\bhdpe\b/i, null, 'Polymer - Polyethylene'],
+  [/\bldpe\b/i, null, 'Polymer - Polyethylene'],
+  [/\bpe\b|polyethylene/i, null, 'Polymer - Polyethylene'],
+  // halogenated / specialty
+  [/\bpvc\b|polyvinyl\s*chloride/i, null, 'Polymer - PVC'],
+  [/pvdf|kynar/i, null, 'Polymer - PVDF'],
+  [/ptfe|teflon|fluoropolymer/i, null, 'Polymer - PTFE'],
+  [/etfe|tefzel/i, null, 'Polymer - ETFE'],
+  // PS family
+  [/\bps\b|polystyrene/i, null, 'Polymer - Polystyrene'],
+  // PLA / bio
+  [/pla|polylactic|polylactide/i, null, 'Polymer - PLA'],
+  // elastomers / rubbers
+  [/tpu|polyurethane|elastollan|estane/i, null, 'Polymer - TPU'],
+  [/\btpe\b|thermoplastic\s*elast/i, null, 'Polymer - TPE'],
+  [/silicone|pdms/i, null, 'Polymer - Silicone Rubber'],
+  // thermoset resins
+  [/epoxy|aralite/i, null, 'Polymer - Epoxy/Thermoset'],
+  [/polyester\s*resin|unsaturated\s*polyester|upr/i, null, 'Polymer - Polyester'],
+  [/photopolymer|sla\s+resin|resin\s+sla/i, null, 'Polymer - Photopolymer Resin'],
+];
+function normalizePolymerSubcategory(m) {
+  if (!m || m.category !== 'Polymer') return;
+  const name = String(m.name || '');
+  for (const [namePat, modPat, sub] of POLY_SUB_RULES) {
+    if (!namePat.test(name)) continue;
+    if (modPat && !modPat.test(name)) continue;
+    m.subcategory = sub;
+    return;
+  }
+  // 매칭 실패 시 'Polymer - Other' fallback (기존 잘못 매핑된 카테고리 차단)
+  if (!String(m.subcategory || '').startsWith('Polymer')) m.subcategory = 'Polymer - Other';
+}
+// R34c pass — 룰 + 함수 정의 후 호출 (const TDZ 회피).
+let polyNormalized = 0;
+for (const m of all) {
+  if (m.category === 'Polymer') { const before = m.subcategory; normalizePolymerSubcategory(m); if (m.subcategory !== before) polyNormalized++; }
+}
+
 // R16 — RoHS / REACH SVHC 검출 (composition 기반 휴리스틱).
 //   RoHS 2 EU Directive 2011/65/EU: Pb 0.1%, Cd 0.01%, Hg 0.1%, Cr⁶⁺ 0.1%, PBB·PBDE 0.1% (homogeneous).
 //   REACH SVHC (Substances of Very High Concern): Be, Co compounds, Ni-allergen (피부), Pb·Cd 일부.
@@ -1854,7 +1941,37 @@ rep.push('## Sources (Task 2)', `- Materials with ≥1 **verified datasheet URL*
 rep.push('## Integrity fixes', `- Removed **${garbageRemoved}** corrupt CSV row(s) (e.g. \`material_name="0"\`).`, `- AA aluminium series subcategory auto-corrected: **${aaFixed}** materials.`, `- Process labels canonicalised: ${JSON.stringify(PROCESS_CANON)}.`, `- Placeholder \`corrosion_resistance=0\` in ${rawCorrosion0} raw rows (treated as “unknown”, not 0).`, `- Empty fatigue/impact in ${rawFatigueEmpty} raw rows (left null, not zero).`, '');
 rep.push(`## Subcategory mismatch flags (${subcatFlags.length}) — manual review`);
 for (const f of subcatFlags.slice(0, 25)) rep.push(`- ${f.name}: ${f.variants.join(' / ')}`);
-rep.push('', '## TODO', '- Hardness scale unification (HV/HRC/HB).', '- Reconcile fatigue/impact gaps where datasheets provide values.');
+rep.push('');
+// R34 expansion summary — polymer/ceramic/temperature curves.
+{
+  const polyCount = all.filter(x => x.category === 'Polymer').length;
+  const cerCount = all.filter(x => x.category === 'Ceramic').length;
+  const cmpCount = all.filter(x => x.category === 'Composite').length;
+  const withTempCurve = all.filter(x => Array.isArray(x.elevated_temp) && x.elevated_temp.length > 0).length;
+  const withCreep = all.filter(x => Array.isArray(x.creep_rupture) && x.creep_rupture.length > 0).length;
+  const withE = all.filter(x => Array.isArray(x.elevated_temp) && x.elevated_temp.some(p => p.E)).length;
+  const polySubs = new Set(all.filter(x => x.category === 'Polymer').map(x => x.subcategory));
+  const cerSubs = new Set(all.filter(x => x.category === 'Ceramic').map(x => x.subcategory));
+  rep.push('## R34 — Category Expansion & Normalization Summary', '');
+  rep.push('### Category counts');
+  rep.push('| Category | Count | Distinct subcategories |', '|---|---|---|');
+  rep.push(`| Metal | ${all.filter(x => x.category === 'Metal').length} | (multiple) |`);
+  rep.push(`| Polymer | ${polyCount} | ${polySubs.size} |`);
+  rep.push(`| Ceramic | ${cerCount} | ${cerSubs.size} |`);
+  rep.push(`| Composite | ${cmpCount} | — |`);
+  rep.push('');
+  rep.push('### Polymer subcategory canonicalization (R34c)');
+  rep.push(`- ${polyNormalized} polymer entries had their subcategory rewritten by the canonicalization pass (\`POLY_SUB_RULES\`).`);
+  rep.push('- PEEK / PEEK CF, PEKK / PEKK CF, PA / PA GF / PA CF, ULTEM / ULTEM GF kept distinct (reinforcement variants have meaningfully different properties).');
+  rep.push('- "Polymer - Nylon (FDM/SLS)" residual count: ' + all.filter(x => x.subcategory === 'Polymer - Nylon (FDM/SLS)').length + ' — unmatched entries fall back to category-specific subcategory.');
+  rep.push('');
+  rep.push('### Temperature & creep coverage');
+  rep.push(`- ${withTempCurve} materials carry σy/UTS vs temperature data (was 241 before R34a, gain +${withTempCurve - 241} mostly polymer).`);
+  rep.push(`- ${withE} have Young's modulus vs T (E(T)).`);
+  rep.push(`- ${withCreep} have creep rupture curves (Ni superalloys, no change in R34).`);
+  rep.push('');
+}
+rep.push('## TODO', '- Hardness scale unification (HV/HRC/HB).', '- Reconcile fatigue/impact gaps where datasheets provide values.', '- (R34d candidate) Polymer creep rupture curves (PEEK / ULTEM / PEKK 100–200°C, 1000–10⁴ h).');
 
 const liveJson = path.join(ROOT, 'client', 'public', 'materials.json');
 const backup = path.join(DATA, 'materials.original.json');
