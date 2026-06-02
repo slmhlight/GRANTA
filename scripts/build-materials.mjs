@@ -794,7 +794,45 @@ function loadCompositesAsMaterials() {
   } catch { return []; }
 }
 const composites = loadCompositesAsMaterials();
-const all = [...curated, ...am_vendor, ...generic, ...supplementary, ...ceramics, ...composites];
+// R34a — 고성능/엔지니어링 폴리머 19종 (data/polymers-data.json) PEEK / PEEK-CF / ULTEM / PEKK / PSU / PPSU / PA12 / PA66 / Vespel / POM / PC. tg/tm/hdt/flame/uv 등 폴리머 특유 속성 meta 에 보존.
+const POLYMER_NUM = ['density', 'yield_strength', 'uts', 'modulus', 'elongation', 'thermal_conductivity', 'thermal_expansion', 'max_service_temp', 'price_per_kg'];
+function loadPolymersAsMaterials() {
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(DATA, 'polymers-data.json'), 'utf8'));
+    const list = raw.polymers || [];
+    return list.map((p, i) => {
+      const ranges = {};
+      for (const k of POLYMER_NUM) ranges[k] = null;
+      const setR = (k, v) => { if (v != null && isFinite(v)) ranges[k] = { min: v, max: v, typical: v, n: 1, confidence: 'handbook' }; };
+      setR('density', p.density);
+      setR('yield_strength', p.ys);
+      setR('uts', p.uts);
+      setR('modulus', p.modulus);
+      setR('elongation', p.elongation);
+      setR('thermal_conductivity', p.thermal_k);
+      setR('thermal_expansion', p.cte);
+      setR('max_service_temp', p.max_temp);
+      setR('price_per_kg', p.price_per_kg);
+      const sources = [];
+      if (p.datasheet_url) sources.push({ label: `Datasheet — ${p.name.split(' — ')[0]}`, url: p.datasheet_url, verified: true });
+      if (p.applications) sources.push({ label: `Applications: ${p.applications}`, url: null, verified: false });
+      return {
+        id: 'POL_' + String(i).padStart(3, '0'),
+        name: p.name, category: 'Polymer', subcategory: p.subcategory || 'Polymer - Other', tier: 'reference',
+        manufacturers: ['Reference data'], machines: [], processes: ['Injection Molding'],
+        heat_treatment: null, ranges, composition: {},
+        sources,
+        machinability: null, weldability: null, corrosion_resistance: null,
+        meta: { polymer: true, tg: p.tg, tm: p.tm, hdt_182: p.hdt_182, moisture_24h: p.moisture_24h,
+          flame_ul94: p.flame_ul94, uv_resistance: p.uv_resistance,
+          applications: p.applications, limitations: p.limitations },
+        popularity: p.popularity || 3,
+      };
+    });
+  } catch (err) { console.error('Polymer load failed:', err.message); return []; }
+}
+const polymers_extra = loadPolymersAsMaterials();
+const all = [...curated, ...am_vendor, ...generic, ...supplementary, ...ceramics, ...composites, ...polymers_extra];
 
 // R20 — Ni 초합금 5종 (Inconel 718, 625, 738LC, Haynes 230, Hastelloy X) 의 elevated_temp + creep_rupture.
 // 출처: Special Metals SMC-045/093, Haynes International H-3000H/H-3008C, ASM Aerospace.
@@ -1387,6 +1425,139 @@ const ELEV_DATA = {
       { temp: 25,  ys: 130, uts: 380, E: 150 },
       { temp: 200, ys: 110, uts: 340, E: 142 },
       { temp: 400, ys:  85, uts: 270, E: 128 },
+    ],
+  },
+  // R34a — 고성능 폴리머 elevated_temp (typical thermoplastic creep: Tg 부근 강도 급강하).
+  //   출처: Victrex PEEK technical guide, SABIC ULTEM design guide, Solvay KetaSpire & KEPSTAN datasheet,
+  //   DuPont Delrin handbook, SABIC Lexan PC design guide.
+  'peek victrex 450g': {
+    elevated_temp: [
+      { temp: 25,  ys: 100, uts: 100, E: 3.7 },
+      { temp: 100, ys:  85, uts:  85, E: 3.5 },
+      { temp: 150, ys:  70, uts:  70, E: 3.3 },
+      { temp: 200, ys:  50, uts:  50, E: 2.5 },
+      { temp: 250, ys:  20, uts:  20, E: 1.5 },
+    ],
+  },
+  'peek victrex 450ca30': {
+    elevated_temp: [
+      { temp: 25,  ys: 230, uts: 230, E: 23 },
+      { temp: 150, ys: 200, uts: 200, E: 22 },
+      { temp: 200, ys: 160, uts: 160, E: 18 },
+      { temp: 250, ys: 100, uts: 100, E: 12 },
+    ],
+  },
+  'peek solvay ketaspire': {
+    elevated_temp: [
+      { temp: 25,  ys: 270, uts: 270, E: 22 },
+      { temp: 150, ys: 240, uts: 240, E: 21 },
+      { temp: 200, ys: 200, uts: 200, E: 17 },
+      { temp: 250, ys: 130, uts: 130, E: 11 },
+    ],
+  },
+  'ultem 1010': {
+    elevated_temp: [
+      { temp: 25,  ys: 110, uts: 110, E: 3.6 },
+      { temp: 100, ys:  95, uts:  95, E: 3.4 },
+      { temp: 150, ys:  75, uts:  75, E: 3.0 },
+      { temp: 200, ys:  35, uts:  35, E: 1.5 },
+    ],
+  },
+  'ultem 9085': {
+    elevated_temp: [
+      { temp: 25,  ys: 71, uts: 71, E: 2.5 },
+      { temp: 100, ys: 62, uts: 62, E: 2.3 },
+      { temp: 150, ys: 45, uts: 45, E: 2.0 },
+      { temp: 180, ys: 18, uts: 18, E: 0.8 },
+    ],
+  },
+  'pekk kepstan': {
+    elevated_temp: [
+      { temp: 25,  ys: 105, uts: 105, E: 4.5 },
+      { temp: 100, ys:  90, uts:  90, E: 4.0 },
+      { temp: 150, ys:  75, uts:  75, E: 3.5 },
+      { temp: 200, ys:  50, uts:  50, E: 2.5 },
+      { temp: 240, ys:  20, uts:  20, E: 1.2 },
+    ],
+  },
+  'antero 800na': {
+    elevated_temp: [
+      { temp: 25,  ys: 90, uts: 90, E: 3.5 },
+      { temp: 100, ys: 78, uts: 78, E: 3.2 },
+      { temp: 150, ys: 60, uts: 60, E: 2.7 },
+      { temp: 200, ys: 35, uts: 35, E: 1.6 },
+    ],
+  },
+  'udel p-1700': {
+    elevated_temp: [
+      { temp: 25,  ys: 70, uts: 70, E: 2.5 },
+      { temp: 100, ys: 55, uts: 55, E: 2.2 },
+      { temp: 150, ys: 35, uts: 35, E: 1.8 },
+      { temp: 187, ys: 15, uts: 15, E: 0.5 },
+    ],
+  },
+  'radel r-5000': {
+    elevated_temp: [
+      { temp: 25,  ys: 70, uts: 70, E: 2.3 },
+      { temp: 100, ys: 65, uts: 65, E: 2.1 },
+      { temp: 150, ys: 55, uts: 55, E: 1.9 },
+      { temp: 200, ys: 35, uts: 35, E: 1.3 },
+    ],
+  },
+  'pa 2200': {  // PA12 SLS
+    elevated_temp: [
+      { temp: 25,  ys: 48, uts: 48, E: 1.7 },
+      { temp: 50,  ys: 40, uts: 40, E: 1.4 },
+      { temp: 80,  ys: 25, uts: 25, E: 0.9 },
+      { temp: 120, ys: 10, uts: 10, E: 0.3 },
+    ],
+  },
+  'pa66 ultramid': {
+    elevated_temp: [
+      { temp: 25,  ys: 85, uts: 85, E: 3.3 },
+      { temp: 60,  ys: 70, uts: 70, E: 2.5 },
+      { temp: 100, ys: 40, uts: 40, E: 1.3 },
+      { temp: 150, ys: 18, uts: 18, E: 0.5 },
+    ],
+  },
+  'pa66-gf30 zytel': {
+    elevated_temp: [
+      { temp: 25,  ys: 175, uts: 175, E: 9.5 },
+      { temp: 100, ys: 130, uts: 130, E: 6.5 },
+      { temp: 150, ys:  85, uts:  85, E: 4.5 },
+      { temp: 200, ys:  35, uts:  35, E: 2.2 },
+    ],
+  },
+  'delrin 500': {  // POM
+    elevated_temp: [
+      { temp: 25,  ys: 70, uts: 70, E: 3.1 },
+      { temp: 60,  ys: 55, uts: 55, E: 2.5 },
+      { temp: 90,  ys: 35, uts: 35, E: 1.5 },
+      { temp: 120, ys: 15, uts: 15, E: 0.6 },
+    ],
+  },
+  'lexan 101r': {  // PC
+    elevated_temp: [
+      { temp: 25,  ys: 65, uts: 65, E: 2.4 },
+      { temp: 80,  ys: 55, uts: 55, E: 2.2 },
+      { temp: 120, ys: 35, uts: 35, E: 1.8 },
+      { temp: 145, ys: 10, uts: 10, E: 0.5 },
+    ],
+  },
+  'vespel sp-1': {  // Polyimide
+    elevated_temp: [
+      { temp: 25,  ys: 86, uts: 86, E: 3.1 },
+      { temp: 100, ys: 75, uts: 75, E: 2.9 },
+      { temp: 200, ys: 60, uts: 60, E: 2.5 },
+      { temp: 290, ys: 35, uts: 35, E: 1.8 },
+    ],
+  },
+  'pa12-cf eos hp 3': {
+    elevated_temp: [
+      { temp: 25,  ys: 76, uts: 76, E: 5.2 },
+      { temp: 80,  ys: 60, uts: 60, E: 4.0 },
+      { temp: 120, ys: 30, uts: 30, E: 1.8 },
+      { temp: 150, ys: 12, uts: 12, E: 0.7 },
     ],
   },
 };
