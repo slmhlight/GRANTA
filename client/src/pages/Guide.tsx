@@ -7,8 +7,10 @@
  * 방법을 보여주기 위한 예시이며 특정 재료의 측정값이 아님.
  */
 import { Link } from 'wouter';
-import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, ExternalLink, Play, Sigma, Lightbulb, BookOpen, Compass } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, ExternalLink, Play, Sigma, Lightbulb, BookOpen, Compass, Settings } from 'lucide-react';
 import type { ScenarioKey } from '@/lib/scenario-presets';
+import { ScenarioDialog } from '@/components/ScenarioDialog';
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * 작은 표시 컴포넌트
@@ -165,7 +167,7 @@ function LoadCard({ svg, name, deflection, moment, common, hint }: { svg: React.
 /* ─────────────────────────────────────────────────────────────────────────────
  * 사례별 카드 (Chapter 7) — 기존 SVG / 외부 링크 유지
  * ────────────────────────────────────────────────────────────────────────── */
-function Scenario({ n, title, presetKey, diagram, examples, situation, needs, steps, families }: {
+function Scenario({ n, title, presetKey, diagram, examples, situation, needs, steps, families, onConfigure }: {
   n: number;
   title: React.ReactNode;
   presetKey: ScenarioKey;
@@ -175,6 +177,7 @@ function Scenario({ n, title, presetKey, diagram, examples, situation, needs, st
   needs: React.ReactNode;
   steps: React.ReactNode[];
   families: React.ReactNode;
+  onConfigure: (k: ScenarioKey) => void;
 }) {
   const Label = ({ children }: { children: React.ReactNode }) => (
     <span className="text-[11px] font-semibold uppercase tracking-wide text-accent/80">{children}</span>
@@ -194,9 +197,12 @@ function Scenario({ n, title, presetKey, diagram, examples, situation, needs, st
         <div><Label>이 앱에서</Label><ol className="list-decimal pl-5 space-y-0.5 mt-0.5">{steps.map((s, i) => <li key={i}>{s}</li>)}</ol></div>
         <div><Label>유력 재료군</Label> <span>{families}</span></div>
       </div>
-      <div className="mt-3 pt-3 border-t border-border/60 flex justify-end">
-        <Link href={`/?p=${presetKey}`} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded bg-accent text-white hover:bg-accent/90 transition-colors">
-          <Play className="w-3 h-3" /> 이 사례로 앱 시작 (필터·뷰 자동 적용)
+      <div className="mt-3 pt-3 border-t border-border/60 flex justify-end gap-2">
+        <button type="button" onClick={() => onConfigure(presetKey)} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-accent text-accent hover:bg-accent/10 transition-colors" title="치수·하중을 입력해 정밀하게 시작">
+          <Settings className="w-3 h-3" /> 세부 조건 입력
+        </button>
+        <Link href={`/?p=${presetKey}`} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded bg-accent text-white hover:bg-accent/90 transition-colors" title="기본값으로 바로 시작">
+          <Play className="w-3 h-3" /> 빠른 시작
         </Link>
       </div>
     </div>
@@ -943,8 +949,11 @@ const TOC: { id: string; n: number; label: string; icon: any }[] = [
 ];
 
 export default function Guide() {
+  const [dialogKey, setDialogKey] = useState<ScenarioKey | null>(null);
+  const openConfig = (k: ScenarioKey) => setDialogKey(k);
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <ScenarioDialog scenarioKey={dialogKey} open={dialogKey !== null} onOpenChange={(v) => { if (!v) setDialogKey(null); }} />
       {/* 상단 바 */}
       <header className="sticky top-0 z-20 h-12 flex items-center gap-3 px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
         <Link href="/" className="flex items-center gap-1.5 text-sm hover:text-white text-sidebar-foreground/80">
@@ -1502,6 +1511,7 @@ export default function Guide() {
           <Scenario
             n={1}
             presetKey="bracket"
+            onConfigure={openConfig}
             diagram={<SvgBracket />}
             examples={<>GE Aviation의 LPBF 제트엔진 연료 노즐·브래킷, Airbus A350 캐빈 브래킷(티타늄 LPBF). <ExtLink href="https://en.wikipedia.org/wiki/3D_printing#Aerospace">Aerospace AM 개요</ExtLink></>}
             title="경량 고강성 구조 브래킷 (드론·항공, LPBF 출력)"
@@ -1518,6 +1528,7 @@ export default function Guide() {
           <Scenario
             n={2}
             presetKey="hightemp"
+            onConfigure={openConfig}
             diagram={<SvgManifold />}
             examples={<>자동차/F1 배기 매니폴드, 제트엔진 터빈 디스크·블레이드, 로켓 노즐. <ExtLink href="https://en.wikipedia.org/wiki/Inconel">Inconel(Ni 초합금)</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Exhaust_manifold">Exhaust manifold</ExtLink></>}
             title="고온 부품 (배기 매니폴드 · 터빈 디스크)"
@@ -1534,6 +1545,7 @@ export default function Guide() {
           <Scenario
             n={3}
             presetKey="fatigue"
+            onConfigure={openConfig}
             diagram={<SvgShaft />}
             examples={<>자동차 크랭크샤프트, 발전기·증기터빈 로터, 항공기 랜딩기어 액슬. <ExtLink href="https://en.wikipedia.org/wiki/Crankshaft">Crankshaft</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Fatigue_(material)">Fatigue</ExtLink></>}
             title="회전·진동 부품 (샤프트 · 임펠러)"
@@ -1549,6 +1561,7 @@ export default function Guide() {
           <Scenario
             n={4}
             presetKey="precision"
+            onConfigure={openConfig}
             diagram={<SvgPrecision />}
             examples={<>James Webb 우주망원경 백플레인(흑연·Invar 조합), 정밀 측정기 광학 마운트, 시계 밸런스. <ExtLink href="https://en.wikipedia.org/wiki/Invar">Invar</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/James_Webb_Space_Telescope">JWST</ExtLink></>}
             title="정밀 계측·광학 마운트 (치수 안정성)"
@@ -1564,6 +1577,7 @@ export default function Guide() {
           <Scenario
             n={5}
             presetKey="corrosion"
+            onConfigure={openConfig}
             diagram={<SvgMarine />}
             examples={<>해수 펌프·임펠러(Cu-Ni·듀플렉스 스테인리스), 잠수함 밸브, 해양 플랜트 파이프. <ExtLink href="https://en.wikipedia.org/wiki/Duplex_stainless_steel">Duplex stainless steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Cupronickel">Cupronickel</ExtLink></>}
             title="해양·화학 환경 부품"
@@ -1579,6 +1593,7 @@ export default function Guide() {
           <Scenario
             n={6}
             presetKey="lowcost"
+            onConfigure={openConfig}
             diagram={<SvgLowcost />}
             examples={<>자동차 차체·새시 패널, 가전 외장(스탬핑 강판), 일반 산업기계 프레임. <ExtLink href="https://en.wikipedia.org/wiki/Carbon_steel">Carbon steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/6061_aluminium_alloy">6061 Al</ExtLink></>}
             title="저원가 대량 생산 부품"
@@ -1594,6 +1609,7 @@ export default function Guide() {
           <Scenario
             n={7}
             presetKey="spring"
+            onConfigure={openConfig}
             diagram={<SvgSpring />}
             examples={<>자동차 밸브스프링·서스펜션 스프링, 시계 헤어스프링, 베릴륨동 커넥터 콘택트. <ExtLink href="https://en.wikipedia.org/wiki/Spring_steel">Spring steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Beryllium_copper">Beryllium copper</ExtLink></>}
             title="스프링 · 스냅핏 · 탄성 힌지"
@@ -1609,6 +1625,7 @@ export default function Guide() {
           <Scenario
             n={8}
             presetKey="heatsink"
+            onConfigure={openConfig}
             diagram={<SvgHeatsink />}
             examples={<>CPU·GPU 쿨러, LED 조명 방열 케이스, 전력반도체 콜드플레이트. <ExtLink href="https://en.wikipedia.org/wiki/Heat_sink">Heat sink</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Thermal_conductivity_of_metals">Thermal conductivity of metals</ExtLink></>}
             title="방열 부품 (히트싱크 · 콜드플레이트)"

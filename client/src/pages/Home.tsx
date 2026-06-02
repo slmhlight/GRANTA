@@ -40,7 +40,7 @@ import { ComparePanel } from '@/components/ComparePanel';
 import { useMaterialFilter } from '@/hooks/useMaterialFilter';
 import { exportMaterialsToCSV, generateCSVFilename } from '@/lib/csv-export';
 import type { Material } from '@/lib/materials';
-import { SCENARIO_PRESETS } from '@/lib/scenario-presets';
+import { SCENARIO_PRESETS, decodeFiltersFromParams } from '@/lib/scenario-presets';
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
 
@@ -117,7 +117,10 @@ export default function Home() {
     const p = params.get('p');
     if (p && SCENARIO_PRESETS[p]) {
       const cfg = SCENARIO_PRESETS[p];
-      (Object.entries(cfg.filters) as [keyof typeof filters, any][]).forEach(([k, v]) => updateFilter(k, v));
+      // baseline 프리셋 필터 위에 다이얼로그가 산출한 f.* 오버라이드를 머지
+      const override = decodeFiltersFromParams(params);
+      const merged = { ...cfg.filters, ...override } as Record<string, any>;
+      (Object.entries(merged) as [keyof typeof filters, any][]).forEach(([k, v]) => updateFilter(k, v));
       if (cfg.viewMode) setViewMode(cfg.viewMode);
       setAppliedPreset({ key: p, label: cfg.label, indexHint: cfg.indexHint });
       // clean URL so a refresh doesn't re-apply
