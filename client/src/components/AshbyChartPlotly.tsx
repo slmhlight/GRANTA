@@ -443,22 +443,37 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
   return (
     <div className="w-full h-full flex flex-col bg-white overflow-y-auto md:overflow-hidden">
-      {/* Axis selectors — 모바일 공격적 단순화: X/Y 드롭다운만 + log/limit 은 Display popover 안으로.
-       *  X/Y 라벨 제거 (드롭다운 자체로 충분), 한 줄 stack 만 사용. */}
-      <div className="flex-shrink-0 flex flex-col sm:flex-row gap-1 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 border-b border-border">
-        <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); setConstraints([]); }}>
-          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs flex-1 min-w-0"><span className="text-muted-foreground mr-1.5 text-[10px]">X</span><SelectValue /></SelectTrigger>
-          <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
-        </Select>
-        <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); setConstraints([]); }}>
-          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs flex-1 min-w-0"><span className="text-muted-foreground mr-1.5 text-[10px]">Y</span><SelectValue /></SelectTrigger>
-          <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
-        </Select>
+      {/* Axis selectors — 메인 노출 유지 (라운드 7에서 popover 로 옮겼다 복구). 각 행: 라벨 + dropdown + log + limit slider.
+       *  flex-shrink-0 — 부모 flex-col 에서 toolbar 가 압축돼 overflow 되지 않도록. */}
+      <div className="flex-shrink-0 block sm:flex sm:flex-row sm:gap-x-6 px-2 sm:px-3 py-1.5 sm:py-2 border-b border-border space-y-1.5 sm:space-y-0">
+        <div className="w-full sm:flex-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">X</span>
+            <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); setConstraints([]); }}>
+              <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
+              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
+            </Select>
+            <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={xLog} onChange={(e) => setXLog(e.target.checked)} className="accent-accent" />log</label>
+          </div>
+          <div className="mt-1 pl-5"><AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} log={xLog} onChange={setXLimit} /></div>
+        </div>
+        <div className="w-full sm:flex-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">Y</span>
+            <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); setConstraints([]); }}>
+              <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
+              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
+            </Select>
+            <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" />log</label>
+          </div>
+          <div className="mt-1 pl-5"><AxisLimitSlider axis="Y" color="#9333ea" domain={yDomain} limit={yLimit} log={yLog} onChange={setYLimit} /></div>
+        </div>
       </div>
 
-      {/* ── Grouping + Display popover ── 핵심 컨트롤만: class / subclass / envelope-by + Display ▾.
-       *  log·envelope 토글·옵션 슬라이더·점·격자 등은 Display popover 안으로 이동. */}
+      {/* ── Grouping & display ── Filter/Envelopes 라벨 + Show 체크박스 메인 노출 유지 (라운드 7 일부 복구).
+       *  모바일에서는 라벨·구분선 숨겨 한 줄에 더 들어가게. */}
       <div className="flex-shrink-0 flex flex-wrap items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-2 border-b border-border">
+        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Filter</span>
         <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
           <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[100px] sm:w-[128px]"><SelectValue /></SelectTrigger>
           <SelectContent>{groupOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All classes' : f}</SelectItem>)}</SelectContent>
@@ -467,6 +482,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
           <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[110px] sm:w-[150px]"><SelectValue placeholder="Sub-family" /></SelectTrigger>
           <SelectContent>{subOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : cleanSub(f)}</SelectItem>)}</SelectContent>
         </Select>
+        <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
+        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Envelopes</span>
+        <label className="flex items-center gap-1 text-[11px] sm:text-xs text-muted-foreground cursor-pointer select-none">
+          <input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> <span className="hidden sm:inline">Show</span><span className="sm:hidden">Env</span>
+        </label>
         <Select value={envelopeBy} onValueChange={(v) => setEnvelopeBy(v as 'category' | 'class' | 'family')}>
           <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[105px] sm:w-[155px]" title="Envelope grouping"><SelectValue /></SelectTrigger>
           <SelectContent>
@@ -475,31 +495,15 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <SelectItem value="family" className="text-xs">Sub-family (2nd)</SelectItem>
           </SelectContent>
         </Select>
+        <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
         <Popover>
           <PopoverTrigger asChild>
             <button type="button" className="text-[11px] sm:text-xs text-muted-foreground hover:text-foreground border border-border rounded px-1.5 sm:px-2 h-6 sm:h-7 flex items-center gap-1">Display ▾</button>
           </PopoverTrigger>
           <PopoverContent align="start" className="w-72 text-xs max-h-[75vh] overflow-auto space-y-3">
-            {/* 라운드 7: Axis log + limit 도 popover 안으로 (이전엔 메인 행에 노출 — 항상 log 라 거의 안 만짐). */}
+            {/* X/Y log + AxisLimit + Envelope Show 는 라운드 8 에서 메인 행으로 복구. popover 에는 세부 옵션만. */}
             <div className="space-y-2">
-              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Axes</div>
-              <div className="flex items-center gap-4">
-                <label className="flex items-center gap-1.5 cursor-pointer select-none"><input type="checkbox" checked={xLog} onChange={(e) => setXLog(e.target.checked)} className="accent-accent" /> X log</label>
-                <label className="flex items-center gap-1.5 cursor-pointer select-none"><input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" /> Y log</label>
-              </div>
-              {(xLimit || yLimit || true) && (
-                <>
-                  <div className="text-[10px] text-muted-foreground">X limit (선택 창)</div>
-                  <AxisLimitSlider axis="X" color="#9333ea" domain={xDomain} limit={xLimit} log={xLog} onChange={setXLimit} />
-                  <div className="text-[10px] text-muted-foreground">Y limit (선택 창)</div>
-                  <AxisLimitSlider axis="Y" color="#9333ea" domain={yDomain} limit={yLimit} log={yLog} onChange={setYLimit} />
-                </>
-              )}
-            </div>
-            <div className="border-t border-border/60" />
-            <div className="space-y-2">
-              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Envelopes</div>
-              <label className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> Show envelopes</label>
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Envelopes (세부)</div>
               <div><div className="flex justify-between text-muted-foreground mb-1"><span>Opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div><Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} /></div>
               {([['Fill', envFill, setEnvFill], ['Outline', envOutline, setEnvOutline]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
                 <label key={label} className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}</label>
