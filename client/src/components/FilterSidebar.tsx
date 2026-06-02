@@ -4,13 +4,14 @@
  * Left panel: category checkboxes, composition filter, process filter, numeric range sliders
  */
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useT, useLang } from '@/lib/i18n';
 import { priceUnitLabel, loadUnitSystem } from '@/lib/unit-convert';
 import { ChevronDown, ChevronRight, SlidersHorizontal, RotateCcw, X as XIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
+import { Slider } from '@/components/ui/slider';
 import { RangeSliderCompact } from '@/components/RangeSliderCompact';
 import { CompositionFamilyBrowser } from '@/components/CompositionFamilyBrowser';
 import type { Material } from '@/lib/materials';
@@ -38,10 +39,36 @@ interface RangeSliderProps {
   onChange: (v: [number, number] | null) => void;
 }
 
+// R44b: shadcn/Radix Slider dual-thumb 사용 (touch-friendly).
+// R44c: 큰 input box (h-9) + onBlur 또는 Enter commit. 일시 invalid 값 허용.
 function RangeSlider({ label, unit, min, max, value, onChange }: RangeSliderProps) {
   const [expanded, setExpanded] = useState(false);
   const current: [number, number] = value ?? [min, max];
   const isActive = value !== null;
+  const [minInput, setMinInput] = useState(current[0].toFixed(1));
+  const [maxInput, setMaxInput] = useState(current[1].toFixed(1));
+
+  useEffect(() => {
+    setMinInput(current[0].toFixed(1));
+    setMaxInput(current[1].toFixed(1));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
+
+  const commitMin = (val: string) => {
+    const parsed = parseFloat(val);
+    if (isNaN(parsed)) { setMinInput(current[0].toFixed(1)); return; }
+    const clamped = Math.max(min, Math.min(parsed, current[1]));
+    onChange([clamped, current[1]]);
+    setMinInput(clamped.toFixed(1));
+  };
+  const commitMax = (val: string) => {
+    const parsed = parseFloat(val);
+    if (isNaN(parsed)) { setMaxInput(current[1].toFixed(1)); return; }
+    const clamped = Math.min(max, Math.max(parsed, current[0]));
+    onChange([current[0], clamped]);
+    setMaxInput(clamped.toFixed(1));
+  };
+  const sliderStep = (max - min) / 100;
 
   return (
     <div className="border-b border-border/50 last:border-0">
@@ -63,52 +90,37 @@ function RangeSlider({ label, unit, min, max, value, onChange }: RangeSliderProp
             <span>{current[0].toFixed(1)} {unit}</span>
             <span>{current[1].toFixed(1)} {unit}</span>
           </div>
-          <div className="space-y-1.5">
-            <input
-              type="range"
-              className="range-slider w-full"
-              min={min}
-              max={max}
-              step={(max - min) / 100}
-              value={current[0]}
-              onChange={e => {
-                const v = parseFloat(e.target.value);
-                onChange([Math.min(v, current[1]), current[1]]);
-              }}
-            />
-            <input
-              type="range"
-              className="range-slider w-full"
-              min={min}
-              max={max}
-              step={(max - min) / 100}
-              value={current[1]}
-              onChange={e => {
-                const v = parseFloat(e.target.value);
-                onChange([current[0], Math.max(v, current[0])]);
-              }}
-            />
-          </div>
-          <div className="flex gap-1.5">
+          <Slider
+            min={min}
+            max={max}
+            step={sliderStep}
+            value={current}
+            onValueChange={(v) => onChange(v as [number, number])}
+            className="py-1"
+          />
+          <div className="flex items-center gap-1.5">
             <input
               type="number"
-              placeholder="Min"
-              value={current[0].toFixed(1)}
-              onChange={e => {
-                const v = parseFloat(e.target.value);
-                if (!isNaN(v)) onChange([Math.max(v, min), current[1]]);
-              }}
-              className="flex-1 px-2 py-1 text-xs bg-muted border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
+              inputMode="decimal"
+              value={minInput}
+              onChange={(e) => setMinInput(e.target.value)}
+              onBlur={(e) => commitMin(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+              step={sliderStep}
+              placeholder={String(min)}
+              className="flex-1 h-9 px-2 text-sm font-mono bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
             />
+            <span className="text-xs text-muted-foreground font-mono">~</span>
             <input
               type="number"
-              placeholder="Max"
-              value={current[1].toFixed(1)}
-              onChange={e => {
-                const v = parseFloat(e.target.value);
-                if (!isNaN(v)) onChange([current[0], Math.min(v, max)]);
-              }}
-              className="flex-1 px-2 py-1 text-xs bg-muted border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
+              inputMode="decimal"
+              value={maxInput}
+              onChange={(e) => setMaxInput(e.target.value)}
+              onBlur={(e) => commitMax(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+              step={sliderStep}
+              placeholder={String(max)}
+              className="flex-1 h-9 px-2 text-sm font-mono bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
             />
           </div>
           {isActive && (
@@ -988,10 +1000,7 @@ export default function FilterSidebar({
         {popularityRange && (
           <RangeSlider label={t('filter.popularity')} unit="0–5" min={popularityRange[0]} max={popularityRange[1]} value={filters.popularityRange} onChange={v => updateFilter('popularityRange', v)} />
         )}
-        <CategoryFilter
-          selected={filters.categories}
-          onChange={v => updateFilter('categories', v)}
-        />
+        {/* R44a — Category 필터 제거. Family Tree 가 1차 family 4 카테고리 + 2-3차 subcategory 모두 노출. */}
         <FamilyFilter
           materials={materials}
           selectedCategories={filters.categories}

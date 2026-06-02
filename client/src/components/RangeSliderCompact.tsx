@@ -1,11 +1,13 @@
 /*
- * Enhanced Range Slider Component
- * Features: visual range display, min/max input fields, quick presets
- * Design: Scientific Precision with real-time feedback
+ * Range Slider (compact) — Element Range Filter 안 사용.
+ * R44b: 2-input HTML range 슬라이더 → shadcn/Radix Slider dual-thumb. 모바일 터치 충돌 해소.
+ * R44c: 입력칸 크게 (h-9), onChange 즉시 clamp 안 함 — onBlur 또는 Enter 시 commit.
+ *       잘못된 값 입력 시 일시 허용 + reset 버튼.
  */
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { Slider } from '@/components/ui/slider';
 
 interface RangeSliderCompactProps {
   label: string;
@@ -28,92 +30,40 @@ export function RangeSliderCompact({
 }: RangeSliderCompactProps) {
   const current: [number, number] = value ?? [min, max];
   const isActive = value !== null;
-  const [isDragging, setIsDragging] = useState<'min' | 'max' | null>(null);
   const [showPresets, setShowPresets] = useState(false);
   const [minInput, setMinInput] = useState(current[0].toFixed(1));
   const [maxInput, setMaxInput] = useState(current[1].toFixed(1));
-  const containerRef = useRef<HTMLDivElement>(null);
 
-  const range = max - min;
-  const minPercent = ((current[0] - min) / range) * 100;
-  const maxPercent = ((current[1] - min) / range) * 100;
-
-  // Update input fields when value changes
+  // Update input fields ONLY when external value changes (not on every keystroke).
   useEffect(() => {
     setMinInput(current[0].toFixed(1));
     setMaxInput(current[1].toFixed(1));
-  }, [current]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
-  const handleMouseDown = (thumb: 'min' | 'max') => {
-    setIsDragging(thumb);
-  };
-
-  useEffect(() => {
-    if (!isDragging) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
-      const percent = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
-      const newValue = min + (percent / 100) * range;
-
-      if (isDragging === 'min') {
-        onChange([Math.min(newValue, current[1]), current[1]]);
-      } else {
-        onChange([current[0], Math.max(newValue, current[0])]);
-      }
-    };
-
-    const handleMouseUp = () => {
-      setIsDragging(null);
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, [isDragging, current, min, max, range, onChange]);
-
-  const handleMinInput = (val: string) => {
-    setMinInput(val);
+  const commitMin = (val: string) => {
     const parsed = parseFloat(val);
-    if (!isNaN(parsed)) {
-      const clamped = Math.max(min, Math.min(parsed, current[1]));
-      onChange([clamped, current[1]]);
-    }
+    if (isNaN(parsed)) { setMinInput(current[0].toFixed(1)); return; }
+    const clamped = Math.max(min, Math.min(parsed, current[1]));
+    onChange([clamped, current[1]]);
+    setMinInput(clamped.toFixed(1));
   };
-
-  const handleMaxInput = (val: string) => {
-    setMaxInput(val);
+  const commitMax = (val: string) => {
     const parsed = parseFloat(val);
-    if (!isNaN(parsed)) {
-      const clamped = Math.min(max, Math.max(parsed, current[0]));
-      onChange([current[0], clamped]);
-    }
-  };
-
-  const handlePresetClick = (presetRange: [number, number]) => {
-    onChange(presetRange);
-    setShowPresets(false);
-  };
-
-  const handleReset = () => {
-    onChange(null);
-    setShowPresets(false);
+    if (isNaN(parsed)) { setMaxInput(current[1].toFixed(1)); return; }
+    const clamped = Math.min(max, Math.max(parsed, current[0]));
+    onChange([current[0], clamped]);
+    setMaxInput(clamped.toFixed(1));
   };
 
   return (
     <div className="space-y-2">
-      {/* Header: Label + Status */}
+      {/* Header: Label + Reset */}
       <div className="flex items-center justify-between">
         <label className="text-xs font-semibold text-foreground/90">{label}</label>
         {isActive && (
           <button
-            onClick={handleReset}
+            onClick={() => { onChange(null); setShowPresets(false); }}
             className="flex items-center gap-1 px-1.5 py-0.5 text-[9px] rounded bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
           >
             <X className="w-2.5 h-2.5" />
@@ -122,108 +72,61 @@ export function RangeSliderCompact({
         )}
       </div>
 
-      {/* Slider */}
-      <div
-        ref={containerRef}
-        className="relative h-5 bg-muted rounded-full cursor-pointer group"
-        onMouseDown={(e) => {
-          const rect = containerRef.current?.getBoundingClientRect();
-          if (!rect) return;
-          const percent = ((e.clientX - rect.left) / rect.width) * 100;
-          const newValue = min + (percent / 100) * range;
+      {/* shadcn Slider — single track + 2 thumbs (touch-friendly Radix UI). */}
+      <Slider
+        min={min}
+        max={max}
+        step={step}
+        value={current}
+        onValueChange={(v) => onChange(v as [number, number])}
+        className="py-1"
+      />
 
-          const distToMin = Math.abs(newValue - current[0]);
-          const distToMax = Math.abs(newValue - current[1]);
-
-          if (distToMin < distToMax) {
-            handleMouseDown('min');
-          } else {
-            handleMouseDown('max');
-          }
-        }}
-      >
-        {/* Track Background */}
-        <div className="absolute inset-0 h-5 bg-muted rounded-full" />
-
-        {/* Track Fill */}
-        <div
-          className="absolute top-0 h-5 bg-gradient-to-r from-accent/50 to-accent rounded-full pointer-events-none transition-all"
-          style={{
-            left: `${minPercent}%`,
-            right: `${100 - maxPercent}%`,
-          }}
+      {/* Input fields — R44c bigger (h-9), onBlur/Enter commit. */}
+      <div className="flex items-center gap-1.5">
+        <input
+          type="number"
+          inputMode="decimal"
+          value={minInput}
+          onChange={(e) => setMinInput(e.target.value)}
+          onBlur={(e) => commitMin(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+          step={step}
+          className="flex-1 h-9 px-2 text-sm font-mono bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+          placeholder={String(min)}
         />
-
-        {/* Min Thumb */}
-        <div
-          className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 bg-white border-2 border-accent rounded-full shadow-md transition-all cursor-grab active:cursor-grabbing ${
-            isDragging === 'min' ? 'scale-125 shadow-lg z-10' : 'hover:scale-110'
-          }`}
-          style={{ left: `${minPercent}%` }}
-          onMouseDown={() => handleMouseDown('min')}
-          title={`Min: ${current[0].toFixed(1)}`}
+        <span className="text-[11px] text-muted-foreground font-mono">~</span>
+        <input
+          type="number"
+          inputMode="decimal"
+          value={maxInput}
+          onChange={(e) => setMaxInput(e.target.value)}
+          onBlur={(e) => commitMax(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+          step={step}
+          className="flex-1 h-9 px-2 text-sm font-mono bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+          placeholder={String(max)}
         />
-
-        {/* Max Thumb */}
-        <div
-          className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 bg-white border-2 border-accent rounded-full shadow-md transition-all cursor-grab active:cursor-grabbing ${
-            isDragging === 'max' ? 'scale-125 shadow-lg z-10' : 'hover:scale-110'
-          }`}
-          style={{ left: `${maxPercent}%` }}
-          onMouseDown={() => handleMouseDown('max')}
-          title={`Max: ${current[1].toFixed(1)}`}
-        />
-      </div>
-
-      {/* Range Display + Input Fields */}
-      <div className="flex items-center gap-2">
-        <div className="flex-1 flex items-center gap-1.5">
-          {/* Min Input */}
-          <input
-            type="number"
-            value={minInput}
-            onChange={(e) => handleMinInput(e.target.value)}
-            className="w-14 px-2 py-1 text-[10px] bg-muted border border-border/50 rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
-            step={step}
-            min={min}
-            max={current[1]}
-          />
-          <span className="text-[9px] text-muted-foreground font-mono">–</span>
-          {/* Max Input */}
-          <input
-            type="number"
-            value={maxInput}
-            onChange={(e) => handleMaxInput(e.target.value)}
-            className="w-14 px-2 py-1 text-[10px] bg-muted border border-border/50 rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
-            step={step}
-            min={current[0]}
-            max={max}
-          />
-        </div>
-
-        {/* Presets Button */}
         {presets.length > 0 && (
           <div className="relative">
             <button
               onClick={() => setShowPresets(!showPresets)}
-              className="px-2 py-1 text-[9px] font-medium rounded border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:bg-muted/50 transition-colors"
+              className="h-9 px-2 text-xs font-medium rounded border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:bg-muted/50 transition-colors flex-shrink-0"
               title="Quick presets"
             >
               ⚡
             </button>
-
-            {/* Presets Dropdown */}
             {showPresets && (
               <div className="absolute right-0 top-full mt-1 bg-card border border-border rounded shadow-lg z-20 min-w-max">
                 {presets.map((preset, idx) => (
                   <button
                     key={idx}
-                    onClick={() => handlePresetClick(preset.range)}
-                    className="w-full text-left px-3 py-1.5 text-[10px] hover:bg-muted/50 transition-colors first:rounded-t last:rounded-b"
+                    onClick={() => { onChange(preset.range); setShowPresets(false); }}
+                    className="w-full text-left px-3 py-1.5 text-[11px] hover:bg-muted/50 transition-colors first:rounded-t last:rounded-b"
                   >
                     <span className="font-medium">{preset.label}</span>
                     <span className="text-muted-foreground ml-2">
-                      {preset.range[0].toFixed(1)}-{preset.range[1].toFixed(1)}
+                      {preset.range[0].toFixed(1)}–{preset.range[1].toFixed(1)}
                     </span>
                   </button>
                 ))}
@@ -233,8 +136,7 @@ export function RangeSliderCompact({
         )}
       </div>
 
-      {/* Range Info */}
-      <div className="flex justify-between text-[8px] text-muted-foreground/60 font-mono">
+      <div className="flex justify-between text-[9px] text-muted-foreground/60 font-mono">
         <span>Min: {min.toFixed(1)}</span>
         <span>Max: {max.toFixed(1)}</span>
       </div>
