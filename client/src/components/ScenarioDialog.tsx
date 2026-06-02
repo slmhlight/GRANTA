@@ -86,8 +86,36 @@ function SelectInput({ field, value, onChange }: { field: Extract<ConfigField, {
   );
 }
 
-/** 단면 SVG 큰 미리보기 — 현재 선택한 단면과 입력된 치수를 시각화 */
-function SectionPreview({ id, dims }: { id: string; dims: Record<string, number> }) {
+/** 하중 방향 화살표 — 강축은 위에서 아래(↓), 약축은 좌에서 우(→). 둘 다 빨강·굵게.
+ *  중립축은 axis에 직각이므로 라벨로 함께 표시. */
+function LoadArrow({ axis, cx, cy, h }: { axis?: 'strong' | 'weak'; cx: number; cy: number; h: number }) {
+  if (!axis) return null;
+  const strong = axis !== 'weak';
+  if (strong) {
+    // 수직 하중 (↓) — 단면 위쪽에서
+    const x = cx, y0 = cy - h / 2 - 20, y1 = cy - h / 2 - 4;
+    return (
+      <g className="stroke-rose-500" strokeWidth="2.4" fill="none">
+        <line x1={x} y1={y0} x2={x} y2={y1} />
+        <polyline points={`${x - 4},${y1 - 6} ${x},${y1} ${x + 4},${y1 - 6}`} />
+        <text x={x + 6} y={y0 + 12} fontSize="11" className="fill-rose-500 font-bold" fontFamily="monospace">F</text>
+      </g>
+    );
+  } else {
+    // 수평 하중 (→) — 단면 왼쪽에서
+    const y = cy, x0 = cx - h / 2 - 22, x1 = cx - h / 2 - 6;
+    return (
+      <g className="stroke-rose-500" strokeWidth="2.4" fill="none">
+        <line x1={x0} y1={y} x2={x1} y2={y} />
+        <polyline points={`${x1 - 6},${y - 4} ${x1},${y} ${x1 - 6},${y + 4}`} />
+        <text x={x0 - 2} y={y + 4} fontSize="11" className="fill-rose-500 font-bold" fontFamily="monospace">F</text>
+      </g>
+    );
+  }
+}
+
+/** 단면 SVG 큰 미리보기 — 현재 선택한 단면·치수·하중 방향을 시각화 */
+function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<string, number>; axis?: 'strong' | 'weak'; hasAxes?: boolean }) {
   const stroke = 'stroke-accent';
   const fill = 'fill-accent/15';
   const txt = 'fill-foreground/70';
@@ -96,17 +124,21 @@ function SectionPreview({ id, dims }: { id: string; dims: Record<string, number>
   switch (id) {
     case 'rect': {
       const b = dims.b ?? 20, h = dims.h ?? 10;
-      // 200 viewBox에서 비율 유지로 표시. 최대 변 = 160px.
       const scale = 130 / Math.max(b, h);
       const W = b * scale, H = h * scale;
       const x0 = 100 - W / 2, y0 = 60 - H / 2;
+      const isWeak = hasAxes && axis === 'weak';
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
           <rect x={x0} y={y0} width={W} height={H} className={`${fill} ${stroke}`} strokeWidth="1.6" />
-          <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />
-          <text x="14" y="64" fontSize="9" className={txt}>중립축</text>
+          {/* 중립축: 강축이면 수평, 약축이면 수직 (하중에 직각). */}
+          {isWeak
+            ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
+            : <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />}
+          <text x={isWeak ? 104 : 14} y={isWeak ? 18 : 64} fontSize="9" className={txt}>중립축</text>
           {label(100, y0 + H + 14, `b = ${b} mm`)}
           {label(x0 + W + 6, y0 + H / 2 + 3, `h = ${h} mm`)}
+          <LoadArrow axis={hasAxes ? axis : undefined} cx={100} cy={60} h={isWeak ? W : H} />
         </svg>
       );
     }
@@ -148,12 +180,16 @@ function SectionPreview({ id, dims }: { id: string; dims: Record<string, number>
       const B = dims.B ?? 30, H = dims.H ?? 20, b = dims.bi ?? 24, h = dims.hi ?? 14;
       const scale = 120 / Math.max(B, H); const W = B * scale, He = H * scale, w = b * scale, he2 = h * scale;
       const x0 = 100 - W / 2, y0 = 60 - He / 2;
+      const isWeak = hasAxes && axis === 'weak';
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
           <rect x={x0} y={y0} width={W} height={He} className={`${fill} ${stroke}`} strokeWidth="1.6" />
           <rect x={100 - w / 2} y={60 - he2 / 2} width={w} height={he2} className="fill-background stroke-accent" strokeWidth="1.4" />
-          <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />
-          {label(100, y0 + He + 14, `B=${B}·H=${He / scale}·b=${b}·h=${h}`)}
+          {isWeak
+            ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
+            : <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />}
+          {label(100, y0 + He + 14, `B=${B}·H=${H}·b=${b}·h=${h}`)}
+          <LoadArrow axis={hasAxes ? axis : undefined} cx={100} cy={60} h={isWeak ? W : He} />
         </svg>
       );
     }
@@ -161,6 +197,7 @@ function SectionPreview({ id, dims }: { id: string; dims: Record<string, number>
       const bf = dims.bf ?? 80, tf = dims.tf ?? 10, tw = dims.tw ?? 6, h = dims.h ?? 120;
       const scale = 100 / Math.max(bf, h); const BF = bf * scale, TF = tf * scale, TW = tw * scale, H = h * scale;
       const xc = 100;
+      const isWeak = hasAxes && axis === 'weak';
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
           <g className={`${fill} ${stroke}`} strokeWidth="1.5">
@@ -168,8 +205,11 @@ function SectionPreview({ id, dims }: { id: string; dims: Record<string, number>
             <rect x={xc - TW / 2} y={60 - H / 2 + TF} width={TW} height={H - 2 * TF} />
             <rect x={xc - BF / 2} y={60 + H / 2 - TF} width={BF} height={TF} />
           </g>
-          <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />
+          {isWeak
+            ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
+            : <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />}
           {label(100, 60 + H / 2 + 14, `bf=${bf}·h=${h}·tf=${tf}·tw=${tw}`)}
+          <LoadArrow axis={hasAxes ? axis : undefined} cx={100} cy={60} h={isWeak ? BF : H} />
         </svg>
       );
     }
@@ -177,6 +217,7 @@ function SectionPreview({ id, dims }: { id: string; dims: Record<string, number>
       const bf = dims.bf ?? 50, tf = dims.tf ?? 8, tw = dims.tw ?? 6, h = dims.h ?? 100;
       const scale = 90 / Math.max(bf + tw, h); const BF = bf * scale, TF = tf * scale, TW = tw * scale, H = h * scale;
       const xL = 100 - (bf + tw) * scale / 2;
+      const isWeak = hasAxes && axis === 'weak';
       return (
         <svg viewBox="0 0 200 140" className="w-full h-full">
           <g className={`${fill} ${stroke}`} strokeWidth="1.5">
@@ -184,8 +225,11 @@ function SectionPreview({ id, dims }: { id: string; dims: Record<string, number>
             <rect x={xL} y={60 - H / 2} width={BF + TW} height={TF} />
             <rect x={xL} y={60 + H / 2 - TF} width={BF + TW} height={TF} />
           </g>
-          <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />
+          {isWeak
+            ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
+            : <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />}
           {label(100, 60 + H / 2 + 14, `bf=${bf}·h=${h}·tf=${tf}·tw=${tw}`)}
+          <LoadArrow axis={hasAxes ? axis : undefined} cx={100} cy={60} h={isWeak ? BF + TW : H} />
         </svg>
       );
     }
@@ -326,8 +370,12 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                       key={s.id}
                       onClick={() => {
                         setSectionId(s.id);
-                        // 단면 전환 시 그 단면의 dimField default 를 항상 적용 (이전 단면의 같은 id 값 carryover 방지)
-                        setValues((p) => { const np = { ...p }; for (const f of s.dimFields) np[f.id] = (f as any).default; return np; });
+                        // 단면 전환 시 그 단면의 dimField default 적용 + axis 도 strong 으로 리셋
+                        setValues((p) => {
+                          const np: Record<string, number | string> = { ...p, _axis: 'strong' };
+                          for (const f of s.dimFields) np[f.id] = (f as any).default;
+                          return np;
+                        });
                       }}
                       className={`flex flex-col items-center gap-0.5 p-1.5 rounded border text-[10px] transition-colors ${sectionId === s.id ? 'border-accent bg-accent/10 text-foreground' : 'border-border text-muted-foreground hover:border-accent/50'}`}
                       title={s.label}
@@ -339,9 +387,31 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                 </div>
                 {section && (
                   <>
-                    {/* 선택된 단면의 큰 미리보기 — 입력 치수가 변하면 그림도 갱신 */}
-                    <div className="mt-2 bg-muted/30 rounded-lg border border-border h-[140px] p-1">
-                      <SectionPreview id={section.id} dims={Object.fromEntries(section.dimFields.map((f) => [f.id, Number(values[f.id] ?? (f as any).default)]))} />
+                    {/* 강·약축 토글 — hasAxes 단면만 노출. 시각 토글 + 즉시 미리보기 갱신. */}
+                    {section.hasAxes && (
+                      <div className="mt-3 rounded border border-accent/30 bg-accent/5 p-2">
+                        <p className="text-[11px] font-semibold uppercase tracking-wide text-accent/80 mb-1.5">하중 방향 (이 단면의 축)</p>
+                        <div className="flex gap-1.5">
+                          {[
+                            { v: 'strong', label: '강축', sub: '하중 ⊥ h/H — 가장 효율' },
+                            { v: 'weak', label: '약축', sub: '하중 ⊥ b/B — I 작아짐' },
+                          ].map((opt) => (
+                            <button
+                              key={opt.v}
+                              type="button"
+                              onClick={() => setValues((p) => ({ ...p, _axis: opt.v }))}
+                              className={`flex-1 text-left px-2 py-1.5 rounded border text-[11px] transition-colors ${(String(values._axis ?? 'strong')) === opt.v ? 'border-accent bg-accent/15 text-foreground' : 'border-border text-muted-foreground hover:border-accent/50'}`}
+                            >
+                              <div className="font-semibold">{opt.label}</div>
+                              <div className="text-[10px] opacity-80">{opt.sub}</div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {/* 선택된 단면의 큰 미리보기 — 입력 치수 + 하중 방향이 변하면 그림도 갱신 */}
+                    <div className="mt-2 bg-muted/30 rounded-lg border border-border h-[160px] p-1">
+                      <SectionPreview id={section.id} dims={Object.fromEntries(section.dimFields.map((f) => [f.id, Number(values[f.id] ?? (f as any).default)]))} axis={String(values._axis ?? 'strong') as 'strong' | 'weak'} hasAxes={!!section.hasAxes} />
                     </div>
                     <div className="mt-2 space-y-2">
                       {section.dimFields.map((f) => f.type === 'number'

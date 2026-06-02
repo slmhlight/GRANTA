@@ -262,16 +262,14 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
           { value: 'Wrought', label: '단조·압연(Wrought)' },
           { value: 'Cast', label: '주조(Cast)' },
         ], group: '제조' },
-        { id: 'axis', label: '하중 방향 (단면의 강/약축)', type: 'select', default: 'strong', options: [
-          { value: 'strong', label: '강축 (단면 h 방향 하중 — 가장 효율적)' },
-          { value: 'weak', label: '약축 (단면 b 방향 하중 — I 작아짐)' },
-        ], group: '하중 방향', help: '단면이 비등방일 때 하중을 어느 축에 받느냐로 I 가 크게 달라집니다.' },
+        // axis 는 다이얼로그에서 단면 picker 옆 토글로 별도 렌더링 (collapsible 안에 숨기지 않음)
+        // values['_axis'] = 'strong' | 'weak' 로 ScenarioDialog 가 채워 넣음
       ],
       sections: SHAPES_BENDING,
       compute: (v, section) => {
         const dims: Record<string, number> = {};
         for (const f of section?.dimFields || []) dims[f.id] = Number(v[f.id] ?? (f.type === 'number' ? f.default : 0));
-        const axis = (String(v.axis) === 'weak' ? 'weak' : 'strong') as SectionAxis;
+        const axis = (String(v._axis) === 'weak' ? 'weak' : 'strong') as SectionAxis;
         const I = section ? section.I(dims, axis) : 1;
         const Z = section ? section.Z(dims, axis) : 1;
         const F = Number(v.F), w = Number(v.w), L = Number(v.L), dmax = Number(v.dmax), SF = Number(v.SF);
