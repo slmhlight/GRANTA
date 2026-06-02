@@ -2065,18 +2065,49 @@ function popularityFor(m) {
       has(/aheadd|al5x1|a205|a20x|cm55/) ||
       has(/ti[\s-]?5[\s-]?8[\s-]?5|ti-5553|ta15/)
     )) t = 1;
-    // R38c — subcategory level fallback (이름 매칭 미스 시 표준 industrial 합금은 최소 T3 보장).
+    // R43 — subcategory level fallback. 이전 R38c 가 정수 3 / 2 로 단일화 → R43 에서
+    //        family 별 미세 차등으로 분포 자연화 (2.0 ~ 3.7 spread, 흔할수록 높음).
     const sub = String(m.subcategory || '');
     if (t === 1) {
-      if (/Stainless Steel - Austenitic|Stainless Steel - Ferritic|Stainless Steel - PH|Stainless Steel - Duplex/.test(sub)) t = 3;
-      else if (/Carbon Steel|Alloy Steel|Tool Steel|Cast Iron/.test(sub)) t = 3;
-      else if (/^Aluminum/.test(sub)) t = 3;
-      else if (/^Titanium/.test(sub)) t = 3;
-      else if (/^Copper Alloy/.test(sub)) t = 3;
-      else if (/Maraging Steel/.test(sub)) t = 3;
-      else if (/Nickel Superalloy|Cobalt Alloy/.test(sub)) t = 2;       // 더 특수
-      else if (/Refractory Metal|Beryllium Alloy|Shape Memory|Controlled Expansion/.test(sub)) t = 2;
-      else if (/Magnesium|Zinc Alloy/.test(sub)) t = 3;
+      // Stainless 계열 — 식기·반도체·의료 매우 흔함
+      if (/Stainless Steel - Austenitic/.test(sub)) t = 3.5;
+      else if (/Stainless Steel - Ferritic|Stainless Steel - Martensitic/.test(sub)) t = 3.3;
+      else if (/Stainless Steel - PH/.test(sub)) t = 3.0;
+      else if (/Stainless Steel - Duplex/.test(sub)) t = 2.7;
+      // Carbon Steel — 건설·조선·자동차 동력 전달
+      else if (/Carbon Steel/.test(sub)) t = 3.4;
+      else if (/Alloy Steel/.test(sub)) t = 3.2;
+      else if (/Tool Steel/.test(sub)) t = 2.9;
+      else if (/Cast Iron/.test(sub)) t = 3.3;
+      else if (/Maraging Steel/.test(sub)) t = 2.6;
+      // Aluminum 계열 — 자동차·가전·자전거·항공
+      else if (/Aluminum - Si Alloys|Aluminum - Pure/.test(sub)) t = 3.5;
+      else if (/Aluminum - Mg Alloys|Aluminum - Cu Alloys/.test(sub)) t = 3.3;
+      else if (/Aluminum - Mn Alloys|Aluminum - Cast/.test(sub)) t = 3.0;
+      else if (/^Aluminum/.test(sub)) t = 3.2;
+      // Titanium — 항공·의료 (덜 흔함)
+      else if (/Titanium - α\+β|Ti-6Al-4V/.test(sub)) t = 3.4;       // Ti-6-4 더 흔함
+      else if (/^Titanium/.test(sub)) t = 2.8;
+      // Copper 계열 — 전기·전자·배관
+      else if (/Copper Alloy - Pure|Copper Alloy - Brass/.test(sub)) t = 3.4;
+      else if (/Copper Alloy - Bronze/.test(sub)) t = 3.1;
+      else if (/Copper Alloy - Specialty|Copper Alloy - Cu-Ni/.test(sub)) t = 2.7;
+      else if (/^Copper Alloy/.test(sub)) t = 3.0;
+      // Magnesium — 노트북·드론 (자동차 일부)
+      else if (/Magnesium/.test(sub)) t = 2.5;
+      // Nickel Superalloy / Cobalt Alloy — 항공우주 위주
+      else if (/Nickel Superalloy - Inconel/.test(sub)) t = 2.4;
+      else if (/Nickel Superalloy - Hastelloy/.test(sub)) t = 2.2;
+      else if (/Nickel Superalloy/.test(sub)) t = 2.3;
+      else if (/Cobalt Alloy - Chrome/.test(sub)) t = 2.5;          // 의료
+      else if (/Cobalt Alloy/.test(sub)) t = 2.1;
+      // 특수 합금
+      else if (/Beryllium Alloy/.test(sub)) t = 2.4;                // 정밀 측정 (희소)
+      else if (/Shape Memory Alloy/.test(sub)) t = 2.3;
+      else if (/Controlled Expansion/.test(sub)) t = 2.5;            // Invar 분광기·MEMS
+      else if (/Refractory Metal/.test(sub)) t = 1.8;                // 우주·핵
+      else if (/Zinc Alloy/.test(sub)) t = 2.4;
+      else t = 1.5;                                                  // 진짜 fallback (rare alloy)
     }
   }
 
@@ -2203,13 +2234,25 @@ function popularityFor(m) {
   ) mod = 0.15;
   // 그 외 → mod 0 (base tier 그대로)
 
-  let score = t + mod;
+  // R43 — condition (heat_treatment / name suffix) 기반 modifier (-0.10 ~ +0.10).
+  //        같은 alloy 의 condition 별 미세 차등 — 사용 상태에 가까울수록 높음.
+  const ht = String(m.heat_treatment || '').toLowerCase();
+  const nameRest = String(m.name || '').toLowerCase();
+  const haystack = ht + ' ' + nameRest;
+  let condMod = 0;
+  if (/q\+t|quench.*tempered|tempered\b|aged|peak[\s-]?ag|h900|h1025|h1075|sta\b|dsa\b/.test(haystack)) condMod = 0.07;
+  else if (/hip|isostatic/.test(haystack)) condMod = 0.04;
+  else if (/anneal|solution|mill annealed|beta annealed/.test(haystack)) condMod = 0;
+  else if (/cold[\s-]?worked|strain[\s-]?hardened|hardened\b/.test(haystack)) condMod = 0.03;
+  else if (/normaliz|stress[\s-]?reliev/.test(haystack)) condMod = -0.03;
+  else if (/as[\s-]?(built|cast|supplied|received|rolled|forged|extruded)/.test(haystack)) condMod = -0.08;
+
+  let score = t + mod + condMod;
   // R35a — AM 공정 합금은 상한 3.0 (mod 포함). 검증 단계 신소재 — 산업 표준 대비 보수적 평가.
   const proc = String(m.process || '');
   const isAM = /LPBF|DMLS|SLM|EBM|Binder Jetting|DED|MJF|FDM|SLS/i.test(proc);
   if (isAM && score > 3.0) score = 3.0;
-  // R42 — popularity 5 점 만점 cap (이전: 5.45 초과 → slider [0,5] 범위 벗어남, 필터링 버그).
-  //        만점 (5.00) 이 여러 alloy 에 분포해도 OK — 사용자 요청.
+  // R42 — popularity 5 점 만점 cap.  R43 — 1 점 하한 + 5 점 상한 (slider [0,5] 호환).
   if (score > 5) score = 5;
   if (score < 1) score = 1;
   // 소수 둘째자리 반올림.
