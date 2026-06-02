@@ -23,7 +23,9 @@ import {
   BookmarkPlus,
   Trash2,
   Share2,
+  GraduationCap,
 } from 'lucide-react';
+import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -322,6 +324,20 @@ export default function Home() {
             </button>
           </TooltipTrigger>
           <TooltipContent side="bottom" className="text-xs">Export to CSV ({filtered.length} items)</TooltipContent>
+        </Tooltip>
+
+        {/* Guide / help link */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Link
+              href="/guide"
+              className="h-7 px-2 flex items-center gap-1.5 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
+            >
+              <GraduationCap className="w-3.5 h-3.5" />
+              <span className="hidden lg:inline">가이드</span>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" className="text-xs">재료 선택 가이드 (설계 요구 → 물성)</TooltipContent>
         </Tooltip>
 
         {/* Compare button */}
