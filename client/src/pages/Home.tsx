@@ -22,6 +22,7 @@ import {
   Upload,
   Bookmark,
   BookmarkPlus,
+  GitCompareArrows,
   Trash2,
   Share2,
   GraduationCap,
@@ -43,6 +44,7 @@ import { exportMaterialsToCSV, generateCSVFilename } from '@/lib/csv-export';
 import type { Material } from '@/lib/materials';
 import { SCENARIO_PRESETS, decodeFiltersFromParams, encodeFiltersToParams, type ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
+import { ScenarioCompareSheet } from '@/components/ScenarioCompareSheet';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical, SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold } from './guide/svgs';
@@ -141,6 +143,7 @@ export default function Home() {
   // apply a Guide scenario preset from ?p=<key> (filters + index hint banner; viewMode is now a suggestion not a force)
   const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string; suggestedView?: ViewMode } | null>(null);
   const [editingScenario, setEditingScenario] = useState<ScenarioKey | null>(null);
+  const [scenarioCompareOpen, setScenarioCompareOpen] = useState(false);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const p = params.get('p');
@@ -613,6 +616,20 @@ export default function Home() {
           </SheetContent>
         </Sheet>
 
+        {/* B5: 사례 비교 — 두 사례 동시 입력 + 산출 비교 + 교집합 적용 */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={() => setScenarioCompareOpen(true)}
+              className="hidden lg:flex h-7 px-2 items-center gap-1.5 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
+            >
+              <GitCompareArrows className="w-3.5 h-3.5" />
+              사례 비교
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" className="text-xs">두 사례 동시 입력 + 산출 비교</TooltipContent>
+        </Tooltip>
+
         {/* Compare button */}
         {compareList.length > 0 && (
           <Button
@@ -814,6 +831,8 @@ export default function Home() {
             </div>
           )}
           <ScenarioDialog scenarioKey={editingScenario} open={editingScenario !== null} onOpenChange={(v) => { if (!v) setEditingScenario(null); }} />
+          {/* B5: 두 사례 동시 비교 시트 */}
+          <ScenarioCompareSheet open={scenarioCompareOpen} onOpenChange={setScenarioCompareOpen} />
           {/* 재료 import 결과 sheet — 매칭/미매칭 목록 + 컬렉션 이름 입력 + 저장 확인. */}
           <Sheet open={importResult !== null} onOpenChange={(v) => { if (!v) setImportResult(null); }}>
             <SheetContent side="right" className="w-full sm:max-w-md flex flex-col gap-0 p-0">

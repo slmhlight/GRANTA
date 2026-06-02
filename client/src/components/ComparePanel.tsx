@@ -23,7 +23,7 @@ interface ComparePanelProps {
   onSelect?: (m: Material) => void; // click a row → open its detail + locate it on the chart
 }
 
-const DEFAULT_COLS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'price_per_kg', 'popularity'];
+const DEFAULT_COLS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'price_per_kg', 'total_cost_estimate', 'popularity'];
 const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
 const typOf = (m: Material, key: string): number | null => {
   const r = (m.ranges || {})[key] as PropertyRange | null | undefined;

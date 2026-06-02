@@ -59,6 +59,13 @@ export interface Material {
   melting_point?: number | null;
   price_per_kg?: number | null;
   price_per_cm3?: number | null;
+  /** F4: 가공 비용 가중치 — raw material × machining_cost_factor 가 가공 후 단가 추정. 1.0=기본,
+   *  >1=가공성 낮음(공구강·티타늄·니켈 합금), <1=쉬움(저탄소강·알루미늄). */
+  machining_cost_factor?: number | null;
+  /** F4: 열처리/후공정 비용 가중치 — 열처리·HIP·코팅 적용 시 raw 대비 추가비용 (1.0=없음). */
+  ht_cost_factor?: number | null;
+  /** F4: 총 추정 가공 단가 = price_per_kg × machining × ht. 빌드 단계에서 사전 계산. */
+  total_cost_estimate?: number | null;
   popularity?: number | null; // 0–5, 산업 사용 빈도 휴리스틱 (5 = 가장 흔히 쓰이는 표준 합금)
   elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null }>;
   heat_treatment?: string | null;
@@ -128,6 +135,9 @@ export const PHYSICAL_PROPERTIES: PropertyMeta[] = [
 export const COST_PROPERTIES: PropertyMeta[] = [
   { key: 'price_per_kg', label: 'Price (per kg)', unit: 'USD/kg', description: 'Approximate raw-material price', group: 'cost' },
   { key: 'price_per_cm3', label: 'Price (per cm³)', unit: 'USD/cm³', description: 'Approximate price per unit volume', group: 'cost' },
+  { key: 'machining_cost_factor', label: 'Machining factor', unit: '×', description: 'F4: 가공 비용 가중치 (1.0 = 표준 강, 높을수록 가공비↑)', group: 'cost' },
+  { key: 'ht_cost_factor', label: 'HT factor', unit: '×', description: 'F4: 열처리·후공정 비용 가중치 (1.0 = 없음)', group: 'cost' },
+  { key: 'total_cost_estimate', label: 'Total cost (est.)', unit: 'USD/kg', description: 'F4: raw × machining × HT 추정 가공 단가', group: 'cost' },
   { key: 'popularity', label: 'Popularity', unit: '0–5', description: 'Industry usage heuristic — higher = more commonly used standard alloy', group: 'qualitative' },
 ];
 

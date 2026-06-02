@@ -416,7 +416,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const config = {
     responsive: true, displaylogo: false,
     // 모바일에서 hover 없이도 modeBar 노출 → PNG export·zoom·pan·reset 항상 보임.
-    // box-select/lasso 는 plotly-dist-min 번들에서 제외돼 모바일·데스크탑 모두 표시 안 됨.
+    // box-select/lasso 는 plotly-dist-min 번들 한계로 지원 불가 (full plotly bundle 은 vite 에서 import 실패).
     // 모바일 다중 선택은 좌측 필터·검색·테이블 다중 체크로 우회.
     displayModeBar: true as const,
     modeBarButtonsToRemove: ['autoScale2d'],

@@ -780,6 +780,13 @@ for (const m of all) {
   }
   // 인기도 (0–5) — 산업 사용 빈도 휴리스틱. 표준 합금 이름에 매칭하는 명시적 규칙.
   m.popularity = popularityFor(m);
+  // F4: 가공·열처리 비용 가중치 — raw 단가만으로는 가공 단가를 추정하기 어려우므로 휴리스틱 적용.
+  // machinability + HT 필드 + 합금 패턴 기반. 실수 (factor 가 음수 또는 0) 회피.
+  m.machining_cost_factor = machiningCostFactor(m);
+  m.ht_cost_factor = htCostFactor(m);
+  if (m.price_per_kg != null && m.price_per_kg > 0) {
+    m.total_cost_estimate = +(m.price_per_kg * m.machining_cost_factor * m.ht_cost_factor).toFixed(2);
+  }
   // F3: cast superalloy 의 누락된 heat_treatment 를 표준 문헌값으로 보완 — reference-tier 라
   // 별도 condition 데이터가 없는 IN713C / IN738LC / IN939 등은 일반적 적용 사이클을 기록.
   if (!m.heat_treatment) {
@@ -805,6 +812,55 @@ for (const m of all) {
       : 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.';
     if (isHipped) m.meta.anisotropy_reduced = true;
   }
+}
+
+// F4 가공 비용 가중치 — 가공성·합금 패턴 기반. 1.0 = 표준 (저합금 강 기준), 높을수록 가공 어려움.
+// 데이터 무결성: 휴리스틱이며 실 가공 견적과 다를 수 있음 — 비교 용도. raw price 자체는 그대로.
+function machiningCostFactor(m) {
+  const n = String(m.name || '').toLowerCase();
+  const cat = m.category;
+  const mach = String(m.machinability || '').toLowerCase();
+  const proc = String(m.process || '').toLowerCase();
+  // AM 출력물은 후가공 (서포트 제거, 표면 마감, HIP) 비용 추가
+  if (/lpbf|dmls|slm|ebm|binder|ded/i.test(proc)) return 1.8;
+  if (cat === 'Polymer') {
+    if (/peek|ultem|pekk|ppsu/i.test(n)) return 1.3; // 고성능 폴리머 가공 까다로움
+    return 0.7; // 일반 폴리머 사출
+  }
+  // 금속: 합금명·machinability 기준
+  if (/inconel|hastelloy|haynes|waspaloy|udimet|in[\s-]?7\d{2}|in[\s-]?9\d{2}/i.test(n)) return 2.6; // Ni 초합금 절삭 매우 어려움
+  if (/ti[\s-]?6al|ti6al|titanium|grade ?5|grade ?23|ti-6-4/i.test(n)) return 2.2; // 티타늄
+  if (/maraging|m300|c300|18ni/i.test(n)) return 2.0; // 마레이징강
+  if (/(d2|h13|m2|skd|skh|cpm|powder metal)/i.test(n)) return 2.0; // 공구강
+  if (/(440c|17-?4 ?ph|15-?5 ?ph|duplex|2205|2507)/i.test(n)) return 1.5; // PH·듀플렉스
+  if (/304|316|stainless/i.test(n)) return 1.3; // 일반 스테인리스
+  if (/(7075|7050|aerospace al|2024|2014)/i.test(n)) return 0.8; // 고강도 알루미늄
+  if (/(6061|6063|aluminum|al-?si|alsi)/i.test(n)) return 0.6; // 일반 알루미늄
+  if (/(brass|c360|c272|cu-zn|free.?cutting)/i.test(n)) return 0.5; // 황동
+  if (/(bronze|c5|c9)/i.test(n)) return 1.1; // 동
+  if (/(45c|1045|s45c|45 carbon|aisi 10)/i.test(n)) return 1.0; // 표준 탄소강
+  if (/(4140|4340|scm|sncm|chromoly)/i.test(n)) return 1.1; // 합금강
+  if (/(cast iron|gjl|gjs|gray iron|ductile)/i.test(n)) return 0.9; // 주철
+  // machinability 라벨 fallback
+  if (mach.includes('excellent') || mach.includes('good')) return 0.9;
+  if (mach.includes('poor') || mach.includes('difficult')) return 1.8;
+  return 1.0;
+}
+
+// F4 열처리/후공정 비용 가중치 — heat_treatment 있으면 + HIP/coating + 합금 분류.
+function htCostFactor(m) {
+  const ht = String(m.heat_treatment || '').toLowerCase();
+  const n = String(m.name || '').toLowerCase();
+  if (!ht && !/heat.?treated|aged|tempered|hipped/i.test(n)) return 1.0;
+  let f = 1.15; // 기본 열처리 사이클
+  if (/hip|hot.?isostatic/i.test(ht + ' ' + n)) f += 0.5;
+  if (/solution|aged|aging|시효/i.test(ht)) f += 0.15;
+  if (/nitrid|carburiz|cementation|침탄|질화/i.test(ht)) f += 0.3;
+  if (/coating|coated|dlc|tin|cvd|pvd/i.test(ht + ' ' + n)) f += 0.25;
+  // 다단 사이클 — '1차/2차' 또는 콤마/+ 다수 → 비용↑
+  const cycleCount = (ht.match(/[,+→]|2차|1차/g) || []).length;
+  if (cycleCount >= 2) f += 0.15;
+  return +f.toFixed(2);
 }
 
 // 잘 알려진 표준 합금(가전·자동차·항공·산업에 광범위) → 높은 점수.
