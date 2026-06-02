@@ -79,7 +79,10 @@ export interface Material {
   /** R16: REACH SVHC / EU 규제 우려 항목 목록. 합금에 Pb/Cd/Be/Co/Ni-allergen 등 있으면 노출. */
   svhc_concerns?: string[];
   popularity?: number | null; // 0–5, 산업 사용 빈도 휴리스틱 (5 = 가장 흔히 쓰이는 표준 합금)
-  elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null }>;
+  /** R20: Tensile properties at elevated temperature. E (Young's modulus, GPa) 추가. */
+  elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null; E?: number | null }>;
+  /** R20: Creep rupture data — Larson-Miller / stress-time-temperature 표면용. 100h, 1000h, 10000h, 100000h 표준. */
+  creep_rupture?: Array<{ temp: number; stress: number; hours: number }>;
   heat_treatment?: string | null;
   source?: string | null;
   // ── range-based schema (v2 data pipeline) ──

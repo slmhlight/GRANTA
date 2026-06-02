@@ -11,6 +11,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
 import { TempCurveChart } from '@/components/TempCurveChart';
+import { CreepRuptureChart } from '@/components/CreepRuptureChart';
 import { recommendedCoatings } from '@/lib/coatings';
 import { familyColor } from '@/lib/material-colors';
 
@@ -252,20 +253,32 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             )}
             {material.elevated_temp && material.elevated_temp.length > 0 && (
               <div>
-                <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Thermometer className="w-3 h-3" />Strength vs Temperature</h3>
-                <TempCurveChart series={[{ name: material.name, color: '#0066CC', points: material.elevated_temp }]} mode="single" height={180} />
+                <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Thermometer className="w-3 h-3" />Strength &amp; Modulus vs Temperature</h3>
+                <TempCurveChart series={[{ name: material.name, color: '#0066CC', points: material.elevated_temp }]} mode="single" height={200} />
                 <table className="w-full text-[11px] mt-2">
-                  <thead><tr className="text-muted-foreground"><th className="text-left font-normal py-0.5">Temp</th><th className="text-right font-normal">YS (MPa)</th><th className="text-right font-normal">UTS (MPa)</th></tr></thead>
+                  <thead><tr className="text-muted-foreground"><th className="text-left font-normal py-0.5">Temp</th><th className="text-right font-normal">σy (MPa)</th><th className="text-right font-normal">UTS (MPa)</th><th className="text-right font-normal">E (GPa)</th></tr></thead>
                   <tbody>
                     {material.elevated_temp.map((e) => (
                       <tr key={e.temp} className="border-t border-border/30">
                         <td className="py-0.5 font-mono">{e.temp}°C</td>
                         <td className="text-right font-mono">{e.ys ?? '—'}</td>
                         <td className="text-right font-mono">{e.uts ?? '—'}</td>
+                        <td className="text-right font-mono text-emerald-700">{e.E ?? '—'}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
+              </div>
+            )}
+            {/* R20: Creep rupture (log–log, one line per temperature) */}
+            {material.creep_rupture && material.creep_rupture.length > 0 && (
+              <div>
+                <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1">
+                  <Thermometer className="w-3 h-3" />Creep Rupture (stress vs time)
+                  <span className="ml-auto text-[10px] text-muted-foreground">{material.creep_rupture.length} data pts</span>
+                </h3>
+                <CreepRuptureChart points={material.creep_rupture} height={200} />
+                <p className="text-[10px] text-muted-foreground mt-1">Larson-Miller 보간 — 데이터시트 (Special Metals SMC, Haynes International) 표준값. 실 사용 시 안전계수 적용.</p>
               </div>
             )}
             <div>

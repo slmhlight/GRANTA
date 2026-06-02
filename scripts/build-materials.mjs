@@ -724,6 +724,103 @@ const supplementary = supRaw
 });
 const all = [...curated, ...am_vendor, ...generic, ...supplementary];
 
+// R20 — Ni 초합금 5종 (Inconel 718, 625, 738LC, Haynes 230, Hastelloy X) 의 elevated_temp + creep_rupture.
+// 출처: Special Metals SMC-045/093, Haynes International H-3000H/H-3008C, ASM Aerospace.
+//   const 가 hoisting 되지 않아 loop 전에 선언해야 injectTempCurves() 가 ELEV_DATA 접근 가능.
+const ELEV_DATA = {
+  'inconel 718': {
+    elevated_temp: [
+      { temp: 25,  ys: 1100, uts: 1280, E: 200 },
+      { temp: 200, ys: 1050, uts: 1230, E: 192 },
+      { temp: 400, ys: 1020, uts: 1180, E: 178 },
+      { temp: 600, ys: 980,  uts: 1110, E: 168 },
+      { temp: 650, ys: 950,  uts: 1050, E: 162 },
+      { temp: 760, ys: 760,  uts: 850,  E: 145 },
+    ],
+    creep_rupture: [
+      { temp: 650, stress: 700, hours: 100 },
+      { temp: 650, stress: 620, hours: 1000 },
+      { temp: 650, stress: 540, hours: 10000 },
+      { temp: 700, stress: 480, hours: 1000 },
+      { temp: 760, stress: 410, hours: 100 },
+      { temp: 760, stress: 310, hours: 1000 },
+    ],
+  },
+  'inconel 625': {
+    elevated_temp: [
+      { temp: 25,  ys: 480, uts: 930, E: 207 },
+      { temp: 200, ys: 420, uts: 890, E: 200 },
+      { temp: 400, ys: 380, uts: 850, E: 188 },
+      { temp: 600, ys: 360, uts: 800, E: 172 },
+      { temp: 800, ys: 320, uts: 540, E: 154 },
+      { temp: 900, ys: 240, uts: 320, E: 140 },
+    ],
+    creep_rupture: [
+      { temp: 650, stress: 450, hours: 1000 },
+      { temp: 760, stress: 240, hours: 1000 },
+      { temp: 800, stress: 200, hours: 100 },
+      { temp: 900, stress: 100, hours: 1000 },
+    ],
+  },
+  'inconel 738': {
+    elevated_temp: [
+      { temp: 25,   ys: 950, uts: 1095, E: 200 },
+      { temp: 600,  ys: 870, uts: 980,  E: 169 },
+      { temp: 800,  ys: 760, uts: 850,  E: 145 },
+      { temp: 900,  ys: 580, uts: 660,  E: 130 },
+      { temp: 1000, ys: 350, uts: 400,  E: 110 },
+    ],
+    creep_rupture: [
+      { temp: 850,  stress: 350, hours: 100 },
+      { temp: 900,  stress: 200, hours: 1000 },
+      { temp: 1000, stress: 100, hours: 1000 },
+    ],
+  },
+  'haynes 230': {
+    elevated_temp: [
+      { temp: 25,   ys: 400, uts: 860, E: 211 },
+      { temp: 400,  ys: 280, uts: 800, E: 197 },
+      { temp: 600,  ys: 260, uts: 770, E: 184 },
+      { temp: 800,  ys: 240, uts: 530, E: 162 },
+      { temp: 1000, ys: 165, uts: 240, E: 130 },
+    ],
+    creep_rupture: [
+      { temp: 800,  stress: 165, hours: 100 },
+      { temp: 900,  stress: 90,  hours: 1000 },
+      { temp: 1000, stress: 35,  hours: 1000 },
+    ],
+  },
+  'hastelloy x': {
+    elevated_temp: [
+      { temp: 25,   ys: 360, uts: 770, E: 205 },
+      { temp: 400,  ys: 280, uts: 680, E: 184 },
+      { temp: 600,  ys: 250, uts: 620, E: 168 },
+      { temp: 800,  ys: 240, uts: 470, E: 145 },
+      { temp: 1000, ys: 130, uts: 195, E: 124 },
+    ],
+    creep_rupture: [
+      { temp: 760, stress: 140, hours: 1000 },
+      { temp: 870, stress: 70,  hours: 1000 },
+      { temp: 980, stress: 35,  hours: 1000 },
+    ],
+  },
+};
+function injectTempCurves(m) {
+  if (!m || !m.name) return;
+  const n = String(m.name).toLowerCase();
+  for (const [pattern, data] of Object.entries(ELEV_DATA)) {
+    if (n.includes(pattern)) {
+      if (!m.elevated_temp || m.elevated_temp.length === 0) {
+        m.elevated_temp = data.elevated_temp;
+      } else {
+        m.elevated_temp = m.elevated_temp.map(p => ({ ...p, E: p.E ?? data.elevated_temp.find(d => Math.abs(d.temp - p.temp) < 25)?.E ?? null }));
+      }
+      if (!m.creep_rupture) m.creep_rupture = data.creep_rupture;
+      break;
+    }
+  }
+}
+
 // back-compat flat fields: current app reads m.density / m.manufacturer / m.process / m.source directly.
 // Keep them (= typical value) alongside the richer {ranges, sources, tier, meta} so the UI can migrate gradually.
 for (const m of all) {
@@ -823,7 +920,11 @@ for (const m of all) {
       : 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.';
     if (isHipped) m.meta.anisotropy_reduced = true;
   }
+  // R20 — 핵심 Ni 초합금 5종에 elevated_temp (σy/UTS/E vs T) + creep_rupture 데이터 주입.
+  injectTempCurves(m);
 }
+
+// (R20 ELEV_DATA + injectTempCurves 는 loop 전으로 이동됨 — const hoisting 미지원으로 TDZ 회피)
 
 // R16 — RoHS / REACH SVHC 검출 (composition 기반 휴리스틱).
 //   RoHS 2 EU Directive 2011/65/EU: Pb 0.1%, Cd 0.01%, Hg 0.1%, Cr⁶⁺ 0.1%, PBB·PBDE 0.1% (homogeneous).
