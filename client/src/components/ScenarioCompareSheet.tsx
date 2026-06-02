@@ -13,6 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Play, Sigma, GitCompareArrows } from 'lucide-react';
 import { SCENARIO_PRESETS, encodeFiltersToParams, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
 import type { FilterState } from '@/hooks/useMaterialFilter';
+import { useT } from '@/lib/i18n';
 
 /** 사례 panel 한 칸 — picker + 입력 + summary. Compare sheet 안에 2 개 렌더.
  *  R19: onResultChange 추가 — 라이브 compute 결과를 부모에게 전달해 교집합 적용에 사용. */
@@ -23,6 +24,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
   onScenarioChange: (k: ScenarioKey | null) => void;
   onResultChange?: (r: { filters: Partial<FilterState>; summary: any[] } | null) => void;
 }) {
+  const t = useT();
   const scenario = scenarioKey ? SCENARIO_PRESETS[scenarioKey] : null;
   const cfg = scenario?.configurator;
   const initialValues = useMemo(() => {
@@ -51,7 +53,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
         <span className="text-[10px] font-semibold uppercase tracking-wide text-accent">{label}</span>
         <Select value={scenarioKey ?? ''} onValueChange={(v) => onScenarioChange(v ? (v as ScenarioKey) : null)}>
           <SelectTrigger className="h-7 text-xs flex-1 min-w-0">
-            <SelectValue placeholder="사례 선택…" />
+            <SelectValue placeholder={t('scenario.compare.pick')} />
           </SelectTrigger>
           <SelectContent>
             {(Object.entries(SCENARIO_PRESETS) as [ScenarioKey, typeof SCENARIO_PRESETS[ScenarioKey]][]).map(([k, s]) => (
@@ -62,7 +64,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
       </div>
       {!scenario || !cfg ? (
         <div className="flex-1 flex items-center justify-center text-xs text-muted-foreground p-6 text-center">
-          왼쪽의 드롭다운에서 비교할 사례를 선택하세요.
+          {t('scenario.compare.empty')}
         </div>
       ) : (
         <div className="flex-1 overflow-y-auto p-3 space-y-3">
@@ -74,7 +76,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
             ))}
             {cfg.sections && (
               <div>
-                <label className="text-[10px] text-muted-foreground block mb-1">단면 형상</label>
+                <label className="text-[10px] text-muted-foreground block mb-1">{t('scenario.section')}</label>
                 <Select value={sectionId} onValueChange={(v) => {
                   setSectionId(v);
                   setValues((p) => {
@@ -98,7 +100,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
                       <div className="flex gap-1.5 mt-2">
                         {['strong', 'weak'].map((ax) => (
                           <button key={ax} type="button" onClick={() => setValues((p) => ({ ...p, _axis: ax }))} className={`flex-1 text-[10px] px-2 py-1 rounded border ${String(values._axis ?? 'strong') === ax ? 'border-accent bg-accent/15 text-foreground' : 'border-border text-muted-foreground'}`}>
-                            {ax === 'strong' ? '강축' : '약축'}
+                            {ax === 'strong' ? t('scenario.strongAxis') : t('scenario.weakAxis')}
                           </button>
                         ))}
                       </div>
@@ -110,7 +112,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
           </div>
           {/* Summary card */}
           <div className="bg-emerald-50/40 rounded-lg border border-emerald-200 p-2">
-            <p className="text-[10px] font-semibold uppercase tracking-wide text-emerald-700 mb-1.5">📐 산출 결과</p>
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-emerald-700 mb-1.5">📐 {t('scenario.compare.summary')}</p>
             {result ? (
               <dl className="text-[11px] space-y-1">
                 {result.summary.map((s, i) => (
@@ -121,7 +123,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
                 ))}
               </dl>
             ) : (
-              <p className="text-xs text-muted-foreground italic">입력값 확인</p>
+              <p className="text-xs text-muted-foreground italic">{t('scenario.compare.invalid')}</p>
             )}
           </div>
         </div>
@@ -178,6 +180,7 @@ function intersectFilters(a: Partial<FilterState>, b: Partial<FilterState>): Par
 }
 
 export function ScenarioCompareSheet({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {
+  const t = useT();
   const [, navigate] = useLocation();
   const [leftKey, setLeftKey] = useState<ScenarioKey | null>(null);
   const [rightKey, setRightKey] = useState<ScenarioKey | null>(null);
@@ -226,22 +229,22 @@ export function ScenarioCompareSheet({ open, onOpenChange }: { open: boolean; on
       <SheetContent side="right" className="w-full sm:max-w-[1100px] flex flex-col gap-0 p-0">
         <SheetHeader className="border-b border-border/60 pb-3">
           <SheetTitle className="flex items-center gap-2 pr-8">
-            <GitCompareArrows className="w-4 h-4 text-accent" /> 두 사례 동시 비교
+            <GitCompareArrows className="w-4 h-4 text-accent" /> {t('scenario.compare.title')}
           </SheetTitle>
           <SheetDescription>
-            두 사례를 옆에 두고 산출치를 비교 — 예: bracket 외팔보 vs gear 굽힘 → 어느 σy 가 더 엄격한지 확인.
-            <span className="block mt-1 text-[11px]">"두 사례 모두 적용" 시 두 필터의 <b>교집합</b> 만 통과.</span>
+            {t('scenario.compare.description')}
+            <span className="block mt-1 text-[11px]">{t('scenario.compare.bothNote')}</span>
           </SheetDescription>
         </SheetHeader>
         <div className="flex-1 min-h-0 overflow-y-auto p-3 sm:p-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 h-full">
-            <ScenarioColumn panelKey="L" label="좌측 (A)" scenarioKey={leftKey} onScenarioChange={setLeftKey} onResultChange={setLeftResult} />
-            <ScenarioColumn panelKey="R" label="우측 (B)" scenarioKey={rightKey} onScenarioChange={setRightKey} onResultChange={setRightResult} />
+            <ScenarioColumn panelKey="L" label={t('scenario.compare.left')} scenarioKey={leftKey} onScenarioChange={setLeftKey} onResultChange={setLeftResult} />
+            <ScenarioColumn panelKey="R" label={t('scenario.compare.right')} scenarioKey={rightKey} onScenarioChange={setRightKey} onResultChange={setRightResult} />
           </div>
           {/* R22: 교집합 사전 미리보기 — 라이브 카운트 + 빈 categories 경고. */}
           {leftKey && rightKey && intersectedFilters && (
             <div className="mt-3 rounded border border-accent/30 bg-accent/5 p-2.5 text-[12px]">
-              <p className="font-semibold text-accent mb-1">📐 교집합 미리보기</p>
+              <p className="font-semibold text-accent mb-1">{t('scenario.compare.preview')}</p>
               <div className="space-y-0.5 text-[11px] text-foreground/80">
                 {Object.entries(intersectedFilters).map(([k, v]) => {
                   if (!v) return null;
@@ -256,22 +259,22 @@ export function ScenarioCompareSheet({ open, onOpenChange }: { open: boolean; on
                 })}
               </div>
               {intersectEmpty && (
-                <p className="mt-2 text-[11px] text-rose-700 font-medium">⚠ {intersectEmpty} 가 빈 교집합 → 적용 시 통과 재료 0개. 두 사례가 충돌함.</p>
+                <p className="mt-2 text-[11px] text-rose-700 font-medium">⚠ {intersectEmpty}{t('scenario.compare.emptyWarn')}</p>
               )}
             </div>
           )}
         </div>
         <SheetFooter className="border-t border-border/60 mt-0 flex-row justify-between gap-2 p-3 sm:p-4">
-          <Button variant="outline" onClick={() => onOpenChange(false)} className="flex-shrink-0">취소</Button>
+          <Button variant="outline" onClick={() => onOpenChange(false)} className="flex-shrink-0">{t('scenario.cancel')}</Button>
           <div className="flex gap-1.5 flex-wrap justify-end">
             <Button variant="outline" onClick={applyLeft} disabled={!leftKey} className="gap-1 text-xs">
-              <Play className="w-3 h-3" /> A 만 적용
+              <Play className="w-3 h-3" /> {t('scenario.compare.applyLeft')}
             </Button>
             <Button variant="outline" onClick={applyRight} disabled={!rightKey} className="gap-1 text-xs">
-              <Play className="w-3 h-3" /> B 만 적용
+              <Play className="w-3 h-3" /> {t('scenario.compare.applyRight')}
             </Button>
             <Button onClick={applyBoth} disabled={!leftKey || !rightKey} className="gap-1.5 text-xs">
-              <Sigma className="w-3.5 h-3.5" /> A ∩ B 적용 (교집합)
+              <Sigma className="w-3.5 h-3.5" /> {t('scenario.compare.applyBoth')}
             </Button>
           </div>
         </SheetFooter>

@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetT
 import { Button } from '@/components/ui/button';
 import { Play, Sigma, ChevronDown, ChevronRight } from 'lucide-react';
 import { SCENARIO_PRESETS, encodeFiltersToParams, indexKeyFromHint, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
+import { useT } from '@/lib/i18n';
 
 /** 접을 수 있는 그룹 — defaultOpen 첫 그룹은 열려, 나머지는 닫혀 시작.
  *  count: 접힌 상태에서도 "이 그룹에 N개 입력이 있다"는 뱃지를 띄움 (NB3). */
@@ -308,6 +309,7 @@ function SectionIcon({ id }: { id: string }) {
 }
 
 export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKey: ScenarioKey | null; open: boolean; onOpenChange: (v: boolean) => void }) {
+  const t = useT();
   const [, navigate] = useLocation();
   const scenario = scenarioKey ? SCENARIO_PRESETS[scenarioKey] : null;
   const cfg = scenario?.configurator;
@@ -378,7 +380,7 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
 
             {cfg.sections && (
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-accent/80 mb-2">단면 형상</p>
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-accent/80 mb-2">{t('scenario.section')}</p>
                 <div className="grid grid-cols-5 gap-1.5">
                   {cfg.sections.map((s) => (
                     <button
@@ -406,11 +408,11 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                     {/* 강·약축 토글 — hasAxes 단면만 노출. 시각 토글 + 즉시 미리보기 갱신. */}
                     {section.hasAxes && (
                       <div className="mt-3 rounded border border-accent/30 bg-accent/5 p-2">
-                        <p className="text-[11px] font-semibold uppercase tracking-wide text-accent/80 mb-1.5">하중 방향 (이 단면의 축)</p>
+                        <p className="text-[11px] font-semibold uppercase tracking-wide text-accent/80 mb-1.5">{t('scenario.loadDirection')}</p>
                         <div className="flex gap-1.5">
                           {[
-                            { v: 'strong', label: '강축', sub: '하중 ⊥ h/H — 가장 효율' },
-                            { v: 'weak', label: '약축', sub: '하중 ⊥ b/B — I 작아짐' },
+                            { v: 'strong', label: t('scenario.strongAxis'), sub: t('scenario.strongAxis.sub') },
+                            { v: 'weak', label: t('scenario.weakAxis'), sub: t('scenario.weakAxis.sub') },
                           ].map((opt) => (
                             <button
                               key={opt.v}
@@ -442,7 +444,7 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
 
           {/* 오른쪽: 라이브 미리보기 */}
           <div className="bg-muted/30 rounded-lg p-3 border border-border">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-emerald-700 mb-2">📐 산출 결과 (라이브)</p>
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-emerald-700 mb-2">📐 {t('scenario.result')}</p>
             {result ? (
               <dl className="text-sm space-y-1.5">
                 {result.summary.map((s, i) => (
@@ -453,18 +455,18 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                 ))}
               </dl>
             ) : (
-              <p className="text-sm text-muted-foreground italic">입력값을 확인해 주세요.</p>
+              <p className="text-sm text-muted-foreground italic">{t('scenario.fillValues')}</p>
             )}
             <p className="text-[11px] text-muted-foreground mt-3 pt-2 border-t border-border/40">
-              위 값들이 좌측 <b>필터</b>에 자동 입력됩니다. Index는 차트 상단에서 골라주세요.
-              {scenario.indexHint && <span className="block mt-1">권장 Index: <span className="font-mono text-accent">{scenario.indexHint}</span></span>}
+              {t('scenario.appliesToFilter')}
+              {scenario.indexHint && <span className="block mt-1">{t('scenario.recommendedIndex')}: <span className="font-mono text-accent">{scenario.indexHint}</span></span>}
             </p>
           </div>
         </div>
 
         <SheetFooter className="border-t border-border/60 mt-0 flex-row justify-end gap-2 p-4">
-          <Button variant="outline" onClick={() => onOpenChange(false)}>취소</Button>
-          <Button onClick={apply} className="gap-1.5"><Play className="w-3.5 h-3.5" /> 적용하고 시작</Button>
+          <Button variant="outline" onClick={() => onOpenChange(false)}>{t('scenario.cancel')}</Button>
+          <Button onClick={apply} className="gap-1.5"><Play className="w-3.5 h-3.5" /> {t('scenario.apply')}</Button>
         </SheetFooter>
       </SheetContent>
     </Sheet>
