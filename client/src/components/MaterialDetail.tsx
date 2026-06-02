@@ -11,6 +11,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
 import { TempCurveChart } from '@/components/TempCurveChart';
+import { familyColor } from '@/lib/material-colors';
 
 interface MaterialDetailProps {
   material: Material | null;
@@ -159,16 +160,22 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
   const manufacturers = material.manufacturers ?? (material.manufacturer ? [material.manufacturer] : []);
   const processes = material.processes ?? (material.process ? [material.process] : []);
 
+  const famColor = familyColor(material);
   return (
     <div className="h-full w-full bg-background overflow-hidden flex flex-col">
+      {/* Family color bar at very top */}
+      <div className="h-1.5 flex-shrink-0" style={{ background: famColor }} />
       {/* Header (drag handle when floating) */}
       <div {...dragHandleProps} className={`flex items-start justify-between p-4 border-b border-border/50 flex-shrink-0 ${floating ? 'cursor-move select-none' : ''}`}>
-        <div className="flex-1 min-w-0">
-          <h2 className="text-sm font-bold text-foreground leading-tight">{material.name}</h2>
-          <p className="text-xs text-muted-foreground truncate mt-0.5">{material.subcategory}</p>
-          {tier && (
-            <span className={`inline-block mt-1.5 text-[10px] px-1.5 py-0.5 rounded border font-medium ${tier.cls}`}>{tier.label}</span>
-          )}
+        <div className="flex-1 min-w-0 flex items-start gap-2">
+          <span className="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1 ring-1 ring-background" style={{ background: famColor }} />
+          <div className="min-w-0">
+            <h2 className="text-sm font-bold text-foreground leading-tight">{material.name}</h2>
+            <p className="text-xs text-muted-foreground truncate mt-0.5">{material.subcategory}</p>
+            {tier && (
+              <span className={`inline-block mt-1.5 text-[10px] px-1.5 py-0.5 rounded border font-medium ${tier.cls}`}>{tier.label}</span>
+            )}
+          </div>
         </div>
         <button onClick={onClose} className="ml-2 p-1 hover:bg-muted rounded transition-colors flex-shrink-0">
           <X className="w-4 h-4" />

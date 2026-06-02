@@ -9,6 +9,7 @@ import { Plus, Check } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import type { Material } from '@/lib/materials';
 import { formatValue, CATEGORY_COLORS, SUBCATEGORY_COLORS } from '@/lib/materials';
+import { familyColor } from '@/lib/material-colors';
 
 interface MaterialCardsProps {
   materials: Material[];
@@ -71,6 +72,7 @@ export function MaterialCards({
               const isCompare = compareList.includes(m.id);
               const catColor = CATEGORY_COLORS[m.category] ?? '#6B7280';
               const subColor = SUBCATEGORY_COLORS[m.subcategory] ?? catColor;
+              const famColor = familyColor(m);
 
               return (
                 <div
@@ -84,10 +86,14 @@ export function MaterialCards({
                   style={{ animationDelay: `${Math.min(i, 30) * 15}ms` }}
                   onClick={() => onSelect(m)}
                 >
-                  {/* Category indicator */}
+                  {/* Family color band (top) + side stripe */}
                   <div
-                    className="absolute top-0 left-0 right-0 h-0.5 rounded-t-md"
-                    style={{ background: subColor }}
+                    className="absolute top-0 left-0 right-0 h-1 rounded-t-md"
+                    style={{ background: famColor }}
+                  />
+                  <div
+                    className="absolute top-1 left-0 bottom-0 w-0.5"
+                    style={{ background: famColor, opacity: 0.4 }}
                   />
 
                   {/* Compare button */}

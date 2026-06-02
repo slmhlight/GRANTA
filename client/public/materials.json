@@ -1248,13 +1248,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 506.25,
-        "max": 911.25,
-        "typical": 816.75,
-        "n": 0,
-        "estimated": true
+        "min": 550,
+        "max": 690,
+        "typical": 620,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 12,
+        "max": 25,
+        "typical": 18,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 5,
         "max": 5,
@@ -1485,8 +1489,8 @@
     "modulus": 200,
     "hardness": 555,
     "thermal_conductivity": 28.6,
-    "fatigue_strength": 816.75,
-    "impact_strength": null,
+    "fatigue_strength": 620,
+    "impact_strength": 18,
     "manufacturer": "EOS, GE Additive, Nikon SLM Solutions",
     "process": "LPBF",
     "source": "Nikon SLM H13 MDS 2026-02",
@@ -1502,7 +1506,29 @@
       "Tool Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1380,
+        "uts": 1560
+      },
+      {
+        "temp": 425,
+        "ys": 1100,
+        "uts": 1280
+      },
+      {
+        "temp": 540,
+        "ys": 900,
+        "uts": 1050
+      },
+      {
+        "temp": 650,
+        "ys": 600,
+        "uts": 720
+      }
+    ],
     "electrical_conductivity": 5,
     "max_service_temp": 550,
     "thermal_expansion": 11.5,
@@ -1580,13 +1606,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 776.25,
-        "max": 850.5,
-        "typical": 828,
-        "n": 0,
-        "estimated": true
+        "min": 550,
+        "max": 690,
+        "typical": 620,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 12,
+        "max": 25,
+        "typical": 18,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 5,
         "max": 5,
@@ -1763,8 +1793,8 @@
     "modulus": 200,
     "hardness": 560,
     "thermal_conductivity": 28.6,
-    "fatigue_strength": 828,
-    "impact_strength": null,
+    "fatigue_strength": 620,
+    "impact_strength": 18,
     "manufacturer": "EOS, GE Additive, Nikon SLM Solutions",
     "process": "LPBF",
     "source": "Nikon SLM H13 MDS 2026-02",
@@ -1780,7 +1810,29 @@
       "Tool Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1380,
+        "uts": 1560
+      },
+      {
+        "temp": 425,
+        "ys": 1100,
+        "uts": 1280
+      },
+      {
+        "temp": 540,
+        "ys": 900,
+        "uts": 1050
+      },
+      {
+        "temp": 650,
+        "ys": 600,
+        "uts": 720
+      }
+    ],
     "electrical_conductivity": 5,
     "max_service_temp": 550,
     "thermal_expansion": 11.5,
@@ -1858,13 +1910,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 141.75,
-        "max": 141.75,
-        "typical": 141.75,
-        "n": 0,
-        "estimated": true
+        "min": 550,
+        "max": 690,
+        "typical": 620,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 12,
+        "max": 25,
+        "typical": 18,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 5,
         "max": 5,
@@ -1978,8 +2034,8 @@
     "modulus": 200,
     "hardness": 97,
     "thermal_conductivity": 28.6,
-    "fatigue_strength": 141.75,
-    "impact_strength": null,
+    "fatigue_strength": 620,
+    "impact_strength": 18,
     "manufacturer": "EOS, GE Additive, Nikon SLM Solutions",
     "process": "LPBF",
     "source": "Nikon SLM H13 MDS 2026-02",
@@ -1995,7 +2051,29 @@
       "Tool Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1380,
+        "uts": 1560
+      },
+      {
+        "temp": 425,
+        "ys": 1100,
+        "uts": 1280
+      },
+      {
+        "temp": 540,
+        "ys": 900,
+        "uts": 1050
+      },
+      {
+        "temp": 650,
+        "ys": 600,
+        "uts": 720
+      }
+    ],
     "electrical_conductivity": 5,
     "max_service_temp": 550,
     "thermal_expansion": 11.5,
@@ -12028,13 +12106,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 472.5,
-        "max": 623.25,
-        "typical": 549,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 550,
+        "typical": 450,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 25,
+        "max": 75,
+        "typical": 50,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -12274,8 +12356,8 @@
     "modulus": 230,
     "hardness": 398,
     "thermal_conductivity": 13,
-    "fatigue_strength": 549,
-    "impact_strength": null,
+    "fatigue_strength": 450,
+    "impact_strength": 50,
     "manufacturer": "3D Systems, GE Additive, EOS",
     "process": "LPBF",
     "source": "Nikon SLM CoCr28Mo6 MDS 2023-04.1",
@@ -12290,7 +12372,29 @@
       "Cobalt Chrome",
       "Cobalt-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 450,
+        "uts": 655
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 560
+      },
+      {
+        "temp": 760,
+        "ys": 280,
+        "uts": 420
+      },
+      {
+        "temp": 870,
+        "ys": 180,
+        "uts": 280
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 1000,
     "thermal_expansion": 12.5,
@@ -12365,13 +12469,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 432,
-        "max": 495,
-        "typical": 463.5,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 550,
+        "typical": 450,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 25,
+        "max": 75,
+        "typical": 50,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -12512,8 +12620,8 @@
     "modulus": 230,
     "hardness": null,
     "thermal_conductivity": 13,
-    "fatigue_strength": 463.5,
-    "impact_strength": null,
+    "fatigue_strength": 450,
+    "impact_strength": 50,
     "manufacturer": "3D Systems, GE Additive, EOS",
     "process": "LPBF",
     "source": "Nikon SLM CoCr28Mo6 MDS 2023-04.1",
@@ -12528,7 +12636,29 @@
       "Cobalt Chrome",
       "Cobalt-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 450,
+        "uts": 655
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 560
+      },
+      {
+        "temp": 760,
+        "ys": 280,
+        "uts": 420
+      },
+      {
+        "temp": 870,
+        "ys": 180,
+        "uts": 280
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 1000,
     "thermal_expansion": 12.5,
@@ -12603,13 +12733,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 409.5,
-        "max": 490.5,
-        "typical": 445.5,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 550,
+        "typical": 450,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 25,
+        "max": 75,
+        "typical": 50,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -12750,8 +12884,8 @@
     "modulus": 230,
     "hardness": null,
     "thermal_conductivity": 13,
-    "fatigue_strength": 445.5,
-    "impact_strength": null,
+    "fatigue_strength": 450,
+    "impact_strength": 50,
     "manufacturer": "3D Systems, GE Additive, EOS",
     "process": "LPBF",
     "source": "Nikon SLM CoCr28Mo6 MDS 2023-04.1",
@@ -12766,7 +12900,29 @@
       "Cobalt Chrome",
       "Cobalt-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 450,
+        "uts": 655
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 560
+      },
+      {
+        "temp": 760,
+        "ys": 280,
+        "uts": 420
+      },
+      {
+        "temp": 870,
+        "ys": 180,
+        "uts": 280
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 1000,
     "thermal_expansion": 12.5,
@@ -12846,13 +13002,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 508.5,
-        "max": 580.5,
-        "typical": 535.5,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 550,
+        "typical": 450,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 25,
+        "max": 75,
+        "typical": 50,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -13020,8 +13180,8 @@
     "modulus": 230,
     "hardness": 344,
     "thermal_conductivity": 13,
-    "fatigue_strength": 535.5,
-    "impact_strength": null,
+    "fatigue_strength": 450,
+    "impact_strength": 50,
     "manufacturer": "3D Systems, GE Additive, EOS",
     "process": "LPBF",
     "source": "Nikon SLM CoCr28Mo6 MDS 2023-04.1",
@@ -13036,7 +13196,29 @@
       "Cobalt Chrome",
       "Cobalt-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 450,
+        "uts": 655
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 560
+      },
+      {
+        "temp": 760,
+        "ys": 280,
+        "uts": 420
+      },
+      {
+        "temp": 870,
+        "ys": 180,
+        "uts": 280
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 1000,
     "thermal_expansion": 12.5,
@@ -14923,13 +15105,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 322,
-        "max": 404,
-        "typical": 366,
-        "n": 0,
-        "estimated": true
+        "min": 400,
+        "max": 550,
+        "typical": 475,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 110,
+        "typical": 80,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -15124,8 +15310,8 @@
     "modulus": 215,
     "hardness": 280,
     "thermal_conductivity": 11,
-    "fatigue_strength": 366,
-    "impact_strength": null,
+    "fatigue_strength": 475,
+    "impact_strength": 80,
     "manufacturer": "EOS, Nikon SLM Solutions, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM Haynes 282 MDS 2025-05.1",
@@ -15136,7 +15322,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 730,
+        "uts": 1110
+      },
+      {
+        "temp": 540,
+        "ys": 700,
+        "uts": 1050
+      },
+      {
+        "temp": 760,
+        "ys": 650,
+        "uts": 920
+      },
+      {
+        "temp": 870,
+        "ys": 480,
+        "uts": 620
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 1100,
     "thermal_expansion": 13,
@@ -15214,13 +15422,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 354,
-        "max": 404,
-        "typical": 404,
-        "n": 0,
-        "estimated": true
+        "min": 400,
+        "max": 550,
+        "typical": 475,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 110,
+        "typical": 80,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -15343,8 +15555,8 @@
     "modulus": 215,
     "hardness": 280,
     "thermal_conductivity": 11,
-    "fatigue_strength": 404,
-    "impact_strength": null,
+    "fatigue_strength": 475,
+    "impact_strength": 80,
     "manufacturer": "EOS, Nikon SLM Solutions, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM Haynes 282 MDS 2025-05.1",
@@ -15355,7 +15567,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 730,
+        "uts": 1110
+      },
+      {
+        "temp": 540,
+        "ys": 700,
+        "uts": 1050
+      },
+      {
+        "temp": 760,
+        "ys": 650,
+        "uts": 920
+      },
+      {
+        "temp": 870,
+        "ys": 480,
+        "uts": 620
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 1100,
     "thermal_expansion": 13,
@@ -15433,13 +15667,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 322,
-        "max": 481.6,
-        "typical": 366.4,
-        "n": 0,
-        "estimated": true
+        "min": 400,
+        "max": 550,
+        "typical": 475,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 110,
+        "typical": 80,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -15643,8 +15881,8 @@
     "modulus": 215,
     "hardness": 280,
     "thermal_conductivity": 11,
-    "fatigue_strength": 366.4,
-    "impact_strength": null,
+    "fatigue_strength": 475,
+    "impact_strength": 80,
     "manufacturer": "EOS, Nikon SLM Solutions, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM Haynes 282 MDS 2025-05.1",
@@ -15655,7 +15893,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 730,
+        "uts": 1110
+      },
+      {
+        "temp": 540,
+        "ys": 700,
+        "uts": 1050
+      },
+      {
+        "temp": 760,
+        "ys": 650,
+        "uts": 920
+      },
+      {
+        "temp": 870,
+        "ys": 480,
+        "uts": 620
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 1100,
     "thermal_expansion": 13,
@@ -15728,13 +15988,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 456.4,
-        "max": 463.2,
-        "typical": 463.2,
-        "n": 0,
-        "estimated": true
+        "min": 400,
+        "max": 550,
+        "typical": 475,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 110,
+        "typical": 80,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -15848,8 +16112,8 @@
     "modulus": 215,
     "hardness": null,
     "thermal_conductivity": 11,
-    "fatigue_strength": 463.2,
-    "impact_strength": null,
+    "fatigue_strength": 475,
+    "impact_strength": 80,
     "manufacturer": "EOS, Nikon SLM Solutions, Velo3D",
     "process": "LPBF",
     "source": "Nikon SLM Haynes 282 MDS 2025-05.1",
@@ -15860,7 +16124,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 730,
+        "uts": 1110
+      },
+      {
+        "temp": 540,
+        "ys": 700,
+        "uts": 1050
+      },
+      {
+        "temp": 760,
+        "ys": 650,
+        "uts": 920
+      },
+      {
+        "temp": 870,
+        "ys": 480,
+        "uts": 620
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 1100,
     "thermal_expansion": 13,
@@ -18934,13 +19220,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 508,
-        "max": 537.6,
-        "typical": 518,
-        "n": 0,
-        "estimated": true
+        "min": 400,
+        "max": 500,
+        "typical": 450,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 10,
+        "max": 22,
+        "typical": 15,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -19108,8 +19398,8 @@
     "modulus": 200,
     "hardness": 6508,
     "thermal_conductivity": 11,
-    "fatigue_strength": 518,
-    "impact_strength": null,
+    "fatigue_strength": 450,
+    "impact_strength": 15,
     "manufacturer": "EOS",
     "process": "LPBF",
     "source": "EOS MDS summary — nickelalloy in738",
@@ -19123,7 +19413,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 950,
+        "uts": 1130
+      },
+      {
+        "temp": 540,
+        "ys": 920,
+        "uts": 1100
+      },
+      {
+        "temp": 760,
+        "ys": 860,
+        "uts": 1020
+      },
+      {
+        "temp": 870,
+        "ys": 700,
+        "uts": 870
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 950,
     "thermal_expansion": 13,
@@ -19195,13 +19507,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 436,
-        "max": 464,
-        "typical": 464,
-        "n": 0,
-        "estimated": true
+        "min": 380,
+        "max": 480,
+        "typical": 430,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 10,
+        "max": 20,
+        "typical": 14,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -19365,8 +19681,8 @@
     "modulus": 207,
     "hardness": 327,
     "thermal_conductivity": 9.8,
-    "fatigue_strength": 464,
-    "impact_strength": null,
+    "fatigue_strength": 430,
+    "impact_strength": 14,
     "manufacturer": "EOS",
     "process": "LPBF",
     "source": "EOS MDS summary — nickelalloy in939",
@@ -19379,7 +19695,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 800,
+        "uts": 1050
+      },
+      {
+        "temp": 540,
+        "ys": 760,
+        "uts": 1000
+      },
+      {
+        "temp": 760,
+        "ys": 720,
+        "uts": 950
+      },
+      {
+        "temp": 870,
+        "ys": 620,
+        "uts": 800
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 950,
     "thermal_expansion": 13,
@@ -19451,13 +19789,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 584,
-        "max": 624,
-        "typical": 608,
-        "n": 0,
-        "estimated": true
+        "min": 380,
+        "max": 480,
+        "typical": 430,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 10,
+        "max": 20,
+        "typical": 14,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -19621,8 +19963,8 @@
     "modulus": 207,
     "hardness": 484,
     "thermal_conductivity": 9.8,
-    "fatigue_strength": 608,
-    "impact_strength": null,
+    "fatigue_strength": 430,
+    "impact_strength": 14,
     "manufacturer": "EOS",
     "process": "LPBF",
     "source": "EOS MDS summary — nickelalloy in939",
@@ -19635,7 +19977,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 800,
+        "uts": 1050
+      },
+      {
+        "temp": 540,
+        "ys": 760,
+        "uts": 1000
+      },
+      {
+        "temp": 760,
+        "ys": 720,
+        "uts": 950
+      },
+      {
+        "temp": 870,
+        "ys": 620,
+        "uts": 800
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 950,
     "thermal_expansion": 13,
@@ -20162,13 +20526,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 553.5,
-        "max": 553.5,
-        "typical": 553.5,
-        "n": 0,
-        "estimated": true
+        "min": 340,
+        "max": 460,
+        "typical": 400,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 40,
+        "max": 70,
+        "typical": 55,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 9,
         "max": 9,
@@ -20311,8 +20679,8 @@
     "modulus": 210,
     "hardness": null,
     "thermal_conductivity": 42.7,
-    "fatigue_strength": 553.5,
-    "impact_strength": null,
+    "fatigue_strength": 400,
+    "impact_strength": 55,
     "manufacturer": "EOS",
     "process": "LPBF",
     "source": "EOS MDS summary — steel 42crmo4",
@@ -20327,7 +20695,29 @@
       "Alloy Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 655,
+        "uts": 850
+      },
+      {
+        "temp": 200,
+        "ys": 600,
+        "uts": 790
+      },
+      {
+        "temp": 425,
+        "ys": 520,
+        "uts": 710
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 540
+      }
+    ],
     "electrical_conductivity": 9,
     "max_service_temp": 450,
     "thermal_expansion": 12,
@@ -29434,15 +29824,15 @@
         "n": 2
       },
       "fatigue_strength": {
-        "min": 550,
-        "max": 650,
-        "typical": 600,
+        "min": 480,
+        "max": 600,
+        "typical": 540,
         "n": 3
       },
       "impact_strength": {
         "min": 25,
-        "max": 45,
-        "typical": 35,
+        "max": 55,
+        "typical": 40,
         "n": 3
       },
       "electrical_conductivity": {
@@ -29565,8 +29955,8 @@
     "modulus": 189,
     "hardness": 405,
     "thermal_conductivity": 11.2,
-    "fatigue_strength": 600,
-    "impact_strength": 35,
+    "fatigue_strength": 540,
+    "impact_strength": 40,
     "manufacturer": "Nikon SLM Solutions, SLM Solutions",
     "process": "SLM",
     "source": "Nikon SLM Solutions (AM vendor datasheet)",
@@ -29585,18 +29975,23 @@
     "elevated_temp": [
       {
         "temp": 20,
-        "ys": 1070,
-        "uts": 1140
+        "ys": 1170,
+        "uts": 1310
       },
       {
         "temp": 300,
-        "ys": 930,
-        "uts": 1010
+        "ys": 1010,
+        "uts": 1170
       },
       {
         "temp": 425,
-        "ys": 860,
-        "uts": 950
+        "ys": 940,
+        "uts": 1080
+      },
+      {
+        "temp": 540,
+        "ys": 760,
+        "uts": 900
       }
     ],
     "electrical_conductivity": 1.3,
@@ -29883,15 +30278,15 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 550,
-        "max": 650,
-        "typical": 600,
+        "min": 480,
+        "max": 600,
+        "typical": 540,
         "n": 3
       },
       "impact_strength": {
         "min": 25,
-        "max": 45,
-        "typical": 35,
+        "max": 55,
+        "typical": 40,
         "n": 3
       },
       "electrical_conductivity": {
@@ -29998,8 +30393,8 @@
     "modulus": 188,
     "hardness": 400,
     "thermal_conductivity": 11,
-    "fatigue_strength": 600,
-    "impact_strength": 35,
+    "fatigue_strength": 540,
+    "impact_strength": 40,
     "manufacturer": "EOS",
     "process": "DMLS",
     "source": "EOS (AM vendor datasheet)",
@@ -30019,18 +30414,23 @@
     "elevated_temp": [
       {
         "temp": 20,
-        "ys": 1070,
-        "uts": 1140
+        "ys": 1170,
+        "uts": 1310
       },
       {
         "temp": 300,
-        "ys": 930,
-        "uts": 1010
+        "ys": 1010,
+        "uts": 1170
       },
       {
         "temp": 425,
-        "ys": 860,
-        "uts": 950
+        "ys": 940,
+        "uts": 1080
+      },
+      {
+        "temp": 540,
+        "ys": 760,
+        "uts": 900
       }
     ],
     "electrical_conductivity": 2.5,
@@ -49983,13 +50383,17 @@
         "n": 9
       },
       "fatigue_strength": {
-        "min": 71.82,
-        "max": 86.98,
-        "typical": 77.41,
-        "n": 0,
-        "estimated": true
+        "min": 105,
+        "max": 140,
+        "typical": 117,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 20,
+        "max": 40,
+        "typical": 30,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 45,
         "max": 45,
@@ -50175,8 +50579,8 @@
     "modulus": 70,
     "hardness": 58.2,
     "thermal_conductivity": 138,
-    "fatigue_strength": 77.41,
-    "impact_strength": null,
+    "fatigue_strength": 117,
+    "impact_strength": 30,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
@@ -50186,7 +50590,29 @@
       "Aluminum - Mg Alloys (5xxx)",
       "Aluminum-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 195,
+        "uts": 230
+      },
+      {
+        "temp": 100,
+        "ys": 185,
+        "uts": 220
+      },
+      {
+        "temp": 200,
+        "ys": 165,
+        "uts": 195
+      },
+      {
+        "temp": 300,
+        "ys": 70,
+        "uts": 95
+      }
+    ],
     "electrical_conductivity": 45,
     "max_service_temp": 170,
     "thermal_expansion": 23,
@@ -50255,13 +50681,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 75.01,
-        "max": 75.01,
-        "typical": 75.01,
-        "n": 0,
-        "estimated": true
+        "min": 105,
+        "max": 140,
+        "typical": 117,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 20,
+        "max": 40,
+        "typical": 30,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 45,
         "max": 45,
@@ -50367,8 +50797,8 @@
     "modulus": 70,
     "hardness": 56.4,
     "thermal_conductivity": 138,
-    "fatigue_strength": 75.01,
-    "impact_strength": null,
+    "fatigue_strength": 117,
+    "impact_strength": 30,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
@@ -50378,7 +50808,29 @@
       "Aluminum - Mg Alloys (5xxx)",
       "Aluminum-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 195,
+        "uts": 230
+      },
+      {
+        "temp": 100,
+        "ys": 185,
+        "uts": 220
+      },
+      {
+        "temp": 200,
+        "ys": 165,
+        "uts": 195
+      },
+      {
+        "temp": 300,
+        "ys": 70,
+        "uts": 95
+      }
+    ],
     "electrical_conductivity": 45,
     "max_service_temp": 170,
     "thermal_expansion": 23,
@@ -50447,13 +50899,17 @@
         "n": 10
       },
       "fatigue_strength": {
-        "min": 71.82,
-        "max": 84.59,
-        "typical": 78.2,
-        "n": 0,
-        "estimated": true
+        "min": 105,
+        "max": 140,
+        "typical": 117,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 20,
+        "max": 40,
+        "typical": 30,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 45,
         "max": 45,
@@ -50649,8 +51105,8 @@
     "modulus": 70,
     "hardness": 58.8,
     "thermal_conductivity": 138,
-    "fatigue_strength": 78.2,
-    "impact_strength": null,
+    "fatigue_strength": 117,
+    "impact_strength": 30,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
@@ -50660,7 +51116,29 @@
       "Aluminum - Mg Alloys (5xxx)",
       "Aluminum-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 195,
+        "uts": 230
+      },
+      {
+        "temp": 100,
+        "ys": 185,
+        "uts": 220
+      },
+      {
+        "temp": 200,
+        "ys": 165,
+        "uts": 195
+      },
+      {
+        "temp": 300,
+        "ys": 70,
+        "uts": 95
+      }
+    ],
     "electrical_conductivity": 45,
     "max_service_temp": 170,
     "thermal_expansion": 23,
@@ -106642,13 +107120,17 @@
         "n": 4
       },
       "fatigue_strength": {
-        "min": 220.16,
-        "max": 236.39,
-        "typical": 236.39,
-        "n": 0,
-        "estimated": true
+        "min": 240,
+        "max": 270,
+        "typical": 255,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 100,
+        "max": 180,
+        "typical": 140,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -106787,8 +107269,8 @@
     "modulus": 193,
     "hardness": 221.34,
     "thermal_conductivity": 16.3,
-    "fatigue_strength": 236.39,
-    "impact_strength": null,
+    "fatigue_strength": 255,
+    "impact_strength": 140,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -106806,7 +107288,29 @@
       "Stainless Steel",
       "Austenitic"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 290,
+        "uts": 580
+      },
+      {
+        "temp": 300,
+        "ys": 190,
+        "uts": 480
+      },
+      {
+        "temp": 500,
+        "ys": 150,
+        "uts": 430
+      },
+      {
+        "temp": 600,
+        "ys": 140,
+        "uts": 360
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 800,
     "thermal_expansion": 16,
@@ -106875,13 +107379,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 203.94,
-        "max": 203.94,
-        "typical": 203.94,
-        "n": 0,
-        "estimated": true
+        "min": 240,
+        "max": 270,
+        "typical": 255,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 100,
+        "max": 180,
+        "typical": 140,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -106990,8 +107498,8 @@
     "modulus": 193,
     "hardness": 190.96,
     "thermal_conductivity": 16.3,
-    "fatigue_strength": 203.94,
-    "impact_strength": null,
+    "fatigue_strength": 255,
+    "impact_strength": 140,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -107009,7 +107517,29 @@
       "Stainless Steel",
       "Austenitic"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 290,
+        "uts": 580
+      },
+      {
+        "temp": 300,
+        "ys": 190,
+        "uts": 480
+      },
+      {
+        "temp": 500,
+        "ys": 150,
+        "uts": 430
+      },
+      {
+        "temp": 600,
+        "ys": 140,
+        "uts": 360
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 800,
     "thermal_expansion": 16,
@@ -107078,13 +107608,17 @@
         "n": 2
       },
       "fatigue_strength": {
-        "min": 231.75,
-        "max": 254.93,
-        "typical": 254.93,
-        "n": 0,
-        "estimated": true
+        "min": 240,
+        "max": 270,
+        "typical": 255,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 100,
+        "max": 180,
+        "typical": 140,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -107203,8 +107737,8 @@
     "modulus": 193,
     "hardness": 238.7,
     "thermal_conductivity": 16.3,
-    "fatigue_strength": 254.93,
-    "impact_strength": null,
+    "fatigue_strength": 255,
+    "impact_strength": 140,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -107222,7 +107756,29 @@
       "Stainless Steel",
       "Austenitic"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 290,
+        "uts": 580
+      },
+      {
+        "temp": 300,
+        "ys": 190,
+        "uts": 480
+      },
+      {
+        "temp": 500,
+        "ys": 150,
+        "uts": 430
+      },
+      {
+        "temp": 600,
+        "ys": 140,
+        "uts": 360
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 800,
     "thermal_expansion": 16,
@@ -107291,13 +107847,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 199.31,
-        "max": 264.2,
-        "typical": 250.29,
-        "n": 0,
-        "estimated": true
+        "min": 240,
+        "max": 270,
+        "typical": 255,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 100,
+        "max": 180,
+        "typical": 140,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -107426,8 +107986,8 @@
     "modulus": 193,
     "hardness": 234.36,
     "thermal_conductivity": 16.3,
-    "fatigue_strength": 250.29,
-    "impact_strength": null,
+    "fatigue_strength": 255,
+    "impact_strength": 140,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -107445,7 +108005,29 @@
       "Stainless Steel",
       "Austenitic"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 290,
+        "uts": 580
+      },
+      {
+        "temp": 300,
+        "ys": 190,
+        "uts": 480
+      },
+      {
+        "temp": 500,
+        "ys": 150,
+        "uts": 430
+      },
+      {
+        "temp": 600,
+        "ys": 140,
+        "uts": 360
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 800,
     "thermal_expansion": 16,
@@ -107514,13 +108096,17 @@
         "n": 5
       },
       "fatigue_strength": {
-        "min": 217.85,
-        "max": 264.2,
-        "typical": 257.24,
-        "n": 0,
-        "estimated": true
+        "min": 240,
+        "max": 270,
+        "typical": 255,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 100,
+        "max": 180,
+        "typical": 140,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -107669,8 +108255,8 @@
     "modulus": 193,
     "hardness": 240.87,
     "thermal_conductivity": 16.3,
-    "fatigue_strength": 257.24,
-    "impact_strength": null,
+    "fatigue_strength": 255,
+    "impact_strength": 140,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -107688,7 +108274,29 @@
       "Stainless Steel",
       "Austenitic"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 290,
+        "uts": 580
+      },
+      {
+        "temp": 300,
+        "ys": 190,
+        "uts": 480
+      },
+      {
+        "temp": 500,
+        "ys": 150,
+        "uts": 430
+      },
+      {
+        "temp": 600,
+        "ys": 140,
+        "uts": 360
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 800,
     "thermal_expansion": 16,
@@ -107757,13 +108365,17 @@
         "n": 5
       },
       "fatigue_strength": {
-        "min": 201.62,
-        "max": 247.97,
-        "typical": 234.07,
-        "n": 0,
-        "estimated": true
+        "min": 240,
+        "max": 270,
+        "typical": 255,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 100,
+        "max": 180,
+        "typical": 140,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -107912,8 +108524,8 @@
     "modulus": 193,
     "hardness": 219.17,
     "thermal_conductivity": 16.3,
-    "fatigue_strength": 234.07,
-    "impact_strength": null,
+    "fatigue_strength": 255,
+    "impact_strength": 140,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -107931,7 +108543,29 @@
       "Stainless Steel",
       "Austenitic"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 290,
+        "uts": 580
+      },
+      {
+        "temp": 300,
+        "ys": 190,
+        "uts": 480
+      },
+      {
+        "temp": 500,
+        "ys": 150,
+        "uts": 430
+      },
+      {
+        "temp": 600,
+        "ys": 140,
+        "uts": 360
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 800,
     "thermal_expansion": 16,
@@ -117413,13 +118047,17 @@
         "n": 4
       },
       "fatigue_strength": {
-        "min": 427.5,
-        "max": 459,
-        "typical": 459,
-        "n": 0,
-        "estimated": true
+        "min": 340,
+        "max": 460,
+        "typical": 400,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 40,
+        "max": 70,
+        "typical": 55,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -117558,8 +118196,8 @@
     "modulus": 210,
     "hardness": 285.6,
     "thermal_conductivity": 42,
-    "fatigue_strength": 459,
-    "impact_strength": null,
+    "fatigue_strength": 400,
+    "impact_strength": 55,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -117577,7 +118215,29 @@
       "Iron-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 655,
+        "uts": 850
+      },
+      {
+        "temp": 200,
+        "ys": 600,
+        "uts": 790
+      },
+      {
+        "temp": 425,
+        "ys": 520,
+        "uts": 710
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 540
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 500,
     "thermal_expansion": 10.8,
@@ -117646,13 +118306,17 @@
         "n": 1
       },
       "fatigue_strength": {
-        "min": 308,
-        "max": 308,
-        "typical": 308,
-        "n": 0,
-        "estimated": true
+        "min": 340,
+        "max": 460,
+        "typical": 400,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 40,
+        "max": 70,
+        "typical": 55,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 45,
         "max": 45,
@@ -117758,8 +118422,8 @@
     "modulus": 210,
     "hardness": 246.4,
     "thermal_conductivity": 42,
-    "fatigue_strength": 308,
-    "impact_strength": null,
+    "fatigue_strength": 400,
+    "impact_strength": 55,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -117777,7 +118441,29 @@
       "Aluminum-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 655,
+        "uts": 850
+      },
+      {
+        "temp": 200,
+        "ys": 600,
+        "uts": 790
+      },
+      {
+        "temp": 425,
+        "ys": 520,
+        "uts": 710
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 540
+      }
+    ],
     "electrical_conductivity": 45,
     "max_service_temp": 170,
     "thermal_expansion": 23,
@@ -117846,13 +118532,17 @@
         "n": 2
       },
       "fatigue_strength": {
-        "min": 450,
-        "max": 495,
-        "typical": 495,
-        "n": 0,
-        "estimated": true
+        "min": 340,
+        "max": 460,
+        "typical": 400,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 40,
+        "max": 70,
+        "typical": 55,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -117968,8 +118658,8 @@
     "modulus": 210,
     "hardness": 308,
     "thermal_conductivity": 42,
-    "fatigue_strength": 495,
-    "impact_strength": null,
+    "fatigue_strength": 400,
+    "impact_strength": 55,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -117987,7 +118677,29 @@
       "Iron-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 655,
+        "uts": 850
+      },
+      {
+        "temp": 200,
+        "ys": 600,
+        "uts": 790
+      },
+      {
+        "temp": 425,
+        "ys": 520,
+        "uts": 710
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 540
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 500,
     "thermal_expansion": 10.8,
@@ -118056,13 +118768,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 387,
-        "max": 513,
-        "typical": 486,
-        "n": 0,
-        "estimated": true
+        "min": 340,
+        "max": 460,
+        "typical": 400,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 40,
+        "max": 70,
+        "typical": 55,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -118188,8 +118904,8 @@
     "modulus": 210,
     "hardness": 302.4,
     "thermal_conductivity": 42,
-    "fatigue_strength": 486,
-    "impact_strength": null,
+    "fatigue_strength": 400,
+    "impact_strength": 55,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -118207,7 +118923,29 @@
       "Iron-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 655,
+        "uts": 850
+      },
+      {
+        "temp": 200,
+        "ys": 600,
+        "uts": 790
+      },
+      {
+        "temp": 425,
+        "ys": 520,
+        "uts": 710
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 540
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 500,
     "thermal_expansion": 10.8,
@@ -118276,13 +119014,17 @@
         "n": 5
       },
       "fatigue_strength": {
-        "min": 423,
-        "max": 513,
-        "typical": 499.5,
-        "n": 0,
-        "estimated": true
+        "min": 340,
+        "max": 460,
+        "typical": 400,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 40,
+        "max": 70,
+        "typical": 55,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -118431,8 +119173,8 @@
     "modulus": 210,
     "hardness": 310.8,
     "thermal_conductivity": 42,
-    "fatigue_strength": 499.5,
-    "impact_strength": null,
+    "fatigue_strength": 400,
+    "impact_strength": 55,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -118450,7 +119192,29 @@
       "Iron-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 655,
+        "uts": 850
+      },
+      {
+        "temp": 200,
+        "ys": 600,
+        "uts": 790
+      },
+      {
+        "temp": 425,
+        "ys": 520,
+        "uts": 710
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 540
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 500,
     "thermal_expansion": 10.8,
@@ -118519,13 +119283,17 @@
         "n": 5
       },
       "fatigue_strength": {
-        "min": 391.5,
-        "max": 481.5,
-        "typical": 454.5,
-        "n": 0,
-        "estimated": true
+        "min": 340,
+        "max": 460,
+        "typical": 400,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 40,
+        "max": 70,
+        "typical": 55,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -118674,8 +119442,8 @@
     "modulus": 210,
     "hardness": 282.8,
     "thermal_conductivity": 42,
-    "fatigue_strength": 454.5,
-    "impact_strength": null,
+    "fatigue_strength": 400,
+    "impact_strength": 55,
     "manufacturer": "Generic",
     "process": "Wrought",
     "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -118693,7 +119461,29 @@
       "Iron-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 655,
+        "uts": 850
+      },
+      {
+        "temp": 200,
+        "ys": 600,
+        "uts": 790
+      },
+      {
+        "temp": 425,
+        "ys": 520,
+        "uts": 710
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 540
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 500,
     "thermal_expansion": 10.8,
@@ -146648,13 +147438,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 440,
-        "max": 480,
-        "typical": 460,
-        "n": 0,
-        "estimated": true
+        "min": 400,
+        "max": 550,
+        "typical": 475,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 110,
+        "typical": 80,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -146769,8 +147563,8 @@
     "modulus": 217,
     "hardness": 320,
     "thermal_conductivity": 10,
-    "fatigue_strength": 460,
-    "impact_strength": null,
+    "fatigue_strength": 475,
+    "impact_strength": 80,
     "manufacturer": "Reference data",
     "process": "Wrought",
     "source": "Haynes International — Haynes 282 (UNS N07208)",
@@ -146783,7 +147577,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 730,
+        "uts": 1110
+      },
+      {
+        "temp": 540,
+        "ys": 700,
+        "uts": 1050
+      },
+      {
+        "temp": 760,
+        "ys": 650,
+        "uts": 920
+      },
+      {
+        "temp": 870,
+        "ys": 480,
+        "uts": 620
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 1100,
     "thermal_expansion": 13,
@@ -148489,13 +149305,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 382.5,
-        "max": 427.5,
-        "typical": 405,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 550,
+        "typical": 450,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 25,
+        "max": 75,
+        "typical": 50,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -148609,8 +149429,8 @@
     "modulus": 220,
     "hardness": 350,
     "thermal_conductivity": 13,
-    "fatigue_strength": 405,
-    "impact_strength": null,
+    "fatigue_strength": 450,
+    "impact_strength": 50,
     "manufacturer": "Reference data",
     "process": "Cast",
     "source": "ASTM F75 — cast CoCrMo (implant)",
@@ -148622,7 +149442,29 @@
       "Cobalt-Chrome Alloy",
       "Cobalt-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 450,
+        "uts": 655
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 560
+      },
+      {
+        "temp": 760,
+        "ys": 280,
+        "uts": 420
+      },
+      {
+        "temp": 870,
+        "ys": 180,
+        "uts": 280
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 1000,
     "thermal_expansion": 12.5,
@@ -180200,13 +181042,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 270,
-        "max": 337.5,
-        "typical": 294.75,
-        "n": 0,
-        "estimated": true
+        "min": 350,
+        "max": 550,
+        "typical": 450,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 25,
+        "max": 75,
+        "typical": 50,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -180321,8 +181167,8 @@
     "modulus": 240,
     "hardness": 360,
     "thermal_conductivity": 14,
-    "fatigue_strength": 294.75,
-    "impact_strength": null,
+    "fatigue_strength": 450,
+    "impact_strength": 50,
     "manufacturer": "Reference data",
     "process": "Cast",
     "source": "ASTM F75 / Carpenter datasheet",
@@ -180333,7 +181179,29 @@
       "Metal",
       "Cobalt-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 450,
+        "uts": 655
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 560
+      },
+      {
+        "temp": 760,
+        "ys": 280,
+        "uts": 420
+      },
+      {
+        "temp": 870,
+        "ys": 180,
+        "uts": 280
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 1000,
     "thermal_expansion": 12.5,
@@ -180402,13 +181270,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 405,
-        "max": 531,
+        "min": 350,
+        "max": 550,
         "typical": 450,
-        "n": 0,
-        "estimated": true
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 25,
+        "max": 75,
+        "typical": 50,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.5,
         "max": 1.5,
@@ -180523,7 +181395,7 @@
     "hardness": 350,
     "thermal_conductivity": 14,
     "fatigue_strength": 450,
-    "impact_strength": null,
+    "impact_strength": 50,
     "manufacturer": "Reference data",
     "process": "Wrought",
     "source": "ASTM F1537 / Carpenter BioDur CCM",
@@ -180534,7 +181406,29 @@
       "Metal",
       "Cobalt-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 450,
+        "uts": 655
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 560
+      },
+      {
+        "temp": 760,
+        "ys": 280,
+        "uts": 420
+      },
+      {
+        "temp": 870,
+        "ys": 180,
+        "uts": 280
+      }
+    ],
     "electrical_conductivity": 1.5,
     "max_service_temp": 1000,
     "thermal_expansion": 12.5,
@@ -180826,13 +181720,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 675,
-        "max": 765,
-        "typical": 702,
-        "n": 0,
-        "estimated": true
+        "min": 550,
+        "max": 690,
+        "typical": 620,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 12,
+        "max": 25,
+        "typical": 18,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 5,
         "max": 5,
@@ -180947,8 +181845,8 @@
     "modulus": 215,
     "hardness": 540,
     "thermal_conductivity": 28.5,
-    "fatigue_strength": 702,
-    "impact_strength": null,
+    "fatigue_strength": 620,
+    "impact_strength": 18,
     "manufacturer": "Reference data",
     "process": "Wrought",
     "source": "AISI H13 / Bohler W302",
@@ -180964,7 +181862,29 @@
       "Tool Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1380,
+        "uts": 1560
+      },
+      {
+        "temp": 425,
+        "ys": 1100,
+        "uts": 1280
+      },
+      {
+        "temp": 540,
+        "ys": 900,
+        "uts": 1050
+      },
+      {
+        "temp": 650,
+        "ys": 600,
+        "uts": 720
+      }
+    ],
     "electrical_conductivity": 5,
     "max_service_temp": 550,
     "thermal_expansion": 11.5,
@@ -181033,13 +181953,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 558,
-        "max": 621,
-        "typical": 589.5,
-        "n": 0,
-        "estimated": true
+        "min": 480,
+        "max": 600,
+        "typical": 540,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 25,
+        "max": 55,
+        "typical": 40,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 2.5,
         "max": 2.5,
@@ -181153,8 +182077,8 @@
     "modulus": 196,
     "hardness": 380,
     "thermal_conductivity": 17.8,
-    "fatigue_strength": 589.5,
-    "impact_strength": null,
+    "fatigue_strength": 540,
+    "impact_strength": 40,
     "manufacturer": "Reference data",
     "process": "Wrought",
     "source": "AMS 5659 / AK Steel 15-5PH",
@@ -181165,7 +182089,29 @@
       "Iron-based",
       "Stainless Steel"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 1170,
+        "uts": 1310
+      },
+      {
+        "temp": 300,
+        "ys": 1010,
+        "uts": 1170
+      },
+      {
+        "temp": 425,
+        "ys": 940,
+        "uts": 1080
+      },
+      {
+        "temp": 540,
+        "ys": 760,
+        "uts": 900
+      }
+    ],
     "electrical_conductivity": 2.5,
     "max_service_temp": 500,
     "thermal_expansion": 10.8,
@@ -181880,12 +182826,16 @@
       },
       "fatigue_strength": {
         "min": 380,
-        "max": 472,
-        "typical": 420,
-        "n": 0,
-        "estimated": true
+        "max": 480,
+        "typical": 430,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 10,
+        "max": 20,
+        "typical": 14,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -182002,8 +182952,8 @@
     "modulus": 215,
     "hardness": 330,
     "thermal_conductivity": 11.5,
-    "fatigue_strength": 420,
-    "impact_strength": null,
+    "fatigue_strength": 430,
+    "impact_strength": 14,
     "manufacturer": "Reference data",
     "process": "Cast",
     "source": "IN939 datasheet / Inconel 939 paper",
@@ -182014,7 +182964,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 800,
+        "uts": 1050
+      },
+      {
+        "temp": 540,
+        "ys": 760,
+        "uts": 1000
+      },
+      {
+        "temp": 760,
+        "ys": 720,
+        "uts": 950
+      },
+      {
+        "temp": 870,
+        "ys": 620,
+        "uts": 800
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 950,
     "thermal_expansion": 13,
@@ -182083,13 +183055,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 420,
-        "max": 472,
-        "typical": 444,
-        "n": 0,
-        "estimated": true
+        "min": 400,
+        "max": 550,
+        "typical": 475,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 50,
+        "max": 110,
+        "typical": 80,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 1.3,
         "max": 1.3,
@@ -182204,8 +183180,8 @@
     "modulus": 217,
     "hardness": 290,
     "thermal_conductivity": 9.5,
-    "fatigue_strength": 444,
-    "impact_strength": null,
+    "fatigue_strength": 475,
+    "impact_strength": 80,
     "manufacturer": "Reference data",
     "process": "Wrought",
     "source": "Haynes International — Haynes 282",
@@ -182216,7 +183192,29 @@
       "Nickel-based",
       "Superalloy"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 730,
+        "uts": 1110
+      },
+      {
+        "temp": 540,
+        "ys": 700,
+        "uts": 1050
+      },
+      {
+        "temp": 760,
+        "ys": 650,
+        "uts": 920
+      },
+      {
+        "temp": 870,
+        "ys": 480,
+        "uts": 620
+      }
+    ],
     "electrical_conductivity": 1.3,
     "max_service_temp": 1100,
     "thermal_expansion": 13,
@@ -184311,13 +185309,17 @@
         "n": 3
       },
       "fatigue_strength": {
-        "min": 405,
-        "max": 486,
-        "typical": 450,
-        "n": 0,
-        "estimated": true
+        "min": 340,
+        "max": 460,
+        "typical": 400,
+        "n": 3
       },
-      "impact_strength": null,
+      "impact_strength": {
+        "min": 40,
+        "max": 70,
+        "typical": 55,
+        "n": 3
+      },
       "electrical_conductivity": {
         "min": 9,
         "max": 9,
@@ -184432,8 +185434,8 @@
     "modulus": 210,
     "hardness": 305,
     "thermal_conductivity": 42,
-    "fatigue_strength": 450,
-    "impact_strength": null,
+    "fatigue_strength": 400,
+    "impact_strength": 55,
     "manufacturer": "Reference data",
     "process": "Wrought",
     "source": "DIN EN 10083-3 42CrMo4 / Bohler V123",
@@ -184451,7 +185453,29 @@
       "Carbon/Low-alloy Steel",
       "Iron-based"
     ],
-    "fatigue_estimated": true,
+    "fatigue_estimated": false,
+    "elevated_temp": [
+      {
+        "temp": 20,
+        "ys": 655,
+        "uts": 850
+      },
+      {
+        "temp": 200,
+        "ys": 600,
+        "uts": 790
+      },
+      {
+        "temp": 425,
+        "ys": 520,
+        "uts": 710
+      },
+      {
+        "temp": 540,
+        "ys": 380,
+        "uts": 540
+      }
+    ],
     "electrical_conductivity": 9,
     "max_service_temp": 450,
     "thermal_expansion": 12,

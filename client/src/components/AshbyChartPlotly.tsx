@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Slider } from '@/components/ui/slider';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Material, ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS } from '@/lib/materials';
+import { classOf } from '@/lib/material-colors';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 
 interface AshbyChartPlotlyProps {
@@ -54,23 +55,7 @@ const INDEX_GUIDES: Record<string, { slope: number; label: string }[]> = {
   'density|uts': [{ slope: 1, label: 'σ/ρ' }, { slope: 1.5, label: 'σ^⅔/ρ' }],
 };
 
-// coarse material class → colour (legend + ellipse colour)
-const CLASSES: Array<{ key: string; color: string; test: (s: string, cat: string) => boolean }> = [
-  { key: 'Polymer', color: '#16A34A', test: (_s, cat) => cat === 'Polymer' },
-  { key: 'Aluminum', color: '#F59E0B', test: (s) => /alumin/.test(s) },
-  { key: 'Titanium', color: '#06B6D4', test: (s) => /titan|ti6|ti-6|ti5|ti cp|ti6242|ta15/.test(s) },
-  { key: 'Nickel', color: '#8B5CF6', test: (s) => /nickel|inconel|hastelloy|monel|invar|cm247|nimonic|waspaloy|rene|nitinol|incoloy|udimet|cp-nickel/.test(s) },
-  { key: 'Cobalt', color: '#EC4899', test: (s) => /cobalt|cocr/.test(s) },
-  { key: 'Copper', color: '#D97706', test: (s) => /copper|bronze|brass|cuni|cucr|\bcu\b/.test(s) },
-  { key: 'Refractory', color: '#475569', test: (s) => /refract|tungsten|tantal|niobium|molybden|c-103/.test(s) },
-  { key: 'Magnesium', color: '#0D9488', test: (s) => /magnes/.test(s) },
-  { key: 'Steel', color: '#3B82F6', test: (s) => /steel|iron|maraging|stainless|aisi|aheadd|superduplex/.test(s) },
-];
-function classOf(m: Material): { key: string; color: string } {
-  const s = `${m.subcategory || ''} ${m.name || ''}`.toLowerCase();
-  for (const c of CLASSES) if (c.test(s, m.category)) return { key: c.key, color: c.color };
-  return { key: 'Other', color: '#94A3B8' };
-}
+// 재료 분류별 색은 단일 진실 소스(lib/material-colors)에서 — UI 전반과 동일.
 
 const tv = (m: any, p: string): number | null => (m[p] ?? m.ranges?.[p]?.typical ?? null);
 const loOf = (m: any, p: string): number | null => (m.ranges?.[p]?.min ?? tv(m, p));

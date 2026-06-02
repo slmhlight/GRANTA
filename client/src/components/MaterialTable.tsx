@@ -9,6 +9,7 @@ import { ChevronUp, ChevronDown, ChevronsUpDown, Plus, Check } from 'lucide-reac
 import { Badge } from '@/components/ui/badge';
 import type { Material } from '@/lib/materials';
 import { formatValue, CATEGORY_COLORS, SUBCATEGORY_COLORS } from '@/lib/materials';
+import { familyColor } from '@/lib/material-colors';
 
 interface MaterialTableProps {
   materials: Material[];
@@ -96,6 +97,7 @@ export function MaterialTable({
               const isCompare = compareList.includes(m.id);
               const catColor = CATEGORY_COLORS[m.category] ?? '#6B7280';
               const subColor = SUBCATEGORY_COLORS[m.subcategory];
+              const famColor = familyColor(m);
 
               return (
                 <tr
@@ -121,8 +123,9 @@ export function MaterialTable({
                   <td className="px-3 py-1.5">
                     <div className="flex items-center gap-2">
                       <span
-                        className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ background: subColor ?? catColor }}
+                        className="inline-block w-2 h-2 rounded-full flex-shrink-0 ring-1 ring-background"
+                        style={{ background: famColor }}
+                        title={m.subcategory}
                       />
                       <span className="font-medium text-foreground truncate max-w-[200px]" title={m.name}>
                         {m.name}

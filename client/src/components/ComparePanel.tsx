@@ -9,7 +9,8 @@ import { X, SlidersHorizontal, ArrowUp, ArrowDown, Thermometer } from 'lucide-re
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import type { Material, PropertyRange } from '@/lib/materials';
-import { ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS } from '@/lib/materials';
+import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
+import { familyColor, propColor } from '@/lib/material-colors';
 import { TempCurveChart } from '@/components/TempCurveChart';
 
 const PALETTE = ['#0066CC', '#dc2626', '#16a34a', '#9333ea', '#ea580c', '#0891b2', '#ca8a04', '#db2777', '#4f46e5', '#65a30d'];
@@ -136,12 +137,12 @@ export function ComparePanel({ materials, onRemove, onClose, onSelect }: Compare
           </thead>
           <tbody>
             {sortedMaterials.map((m) => {
-              const color = CATEGORY_COLORS[m.category] ?? '#6B7280';
+              const color = familyColor(m);
               return (
                 <tr key={m.id} className="border-b border-border/40 hover:bg-muted/20">
-                  <td className="px-3 py-2 bg-muted/10 sticky left-0 z-10 align-top">
+                  <td className="px-3 py-2 bg-muted/10 sticky left-0 z-10 align-top" style={{ borderLeft: `3px solid ${color}` }}>
                     <div className="flex items-start gap-1.5">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: color }} />
+                      <span className="inline-block w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ring-1 ring-background" style={{ background: color }} />
                       <div className="min-w-0 max-w-[150px]">
                         {onSelect ? (
                           <button type="button" onClick={() => onSelect(m)} className="font-semibold text-foreground leading-tight text-left hover:text-accent hover:underline underline-offset-2 cursor-pointer" title="Open detail & locate on chart">{m.name}</button>
@@ -161,6 +162,7 @@ export function ComparePanel({ materials, onRemove, onClose, onSelect }: Compare
                     const typical = typOf(m, k);
                     const hasRange = !!r && r.max > r.min;
                     const pct = typical != null && colMax[k] > 0 ? Math.max(3, Math.min(100, (typical / colMax[k]) * 100)) : 0;
+                    const barColor = propColor(k); // 비슷한 물성(같은 group)은 같은 색으로
                     return (
                       <td key={k} className="px-3 py-2 align-top">
                         {typical == null ? (
@@ -169,7 +171,7 @@ export function ComparePanel({ materials, onRemove, onClose, onSelect }: Compare
                           <>
                             <div className="text-right font-mono font-medium text-foreground">{fmt(typical)}</div>
                             <div className="mt-1 h-1.5 w-full bg-muted/40 rounded-sm overflow-hidden">
-                              <div className="h-full rounded-sm" style={{ width: `${pct}%`, background: color, opacity: 0.85 }} />
+                              <div className="h-full rounded-sm" style={{ width: `${pct}%`, background: barColor, opacity: 0.85 }} />
                             </div>
                             {hasRange && <div className="text-[10px] text-muted-foreground text-right font-mono mt-0.5">{fmt(r!.min)}–{fmt(r!.max)}</div>}
                           </>
