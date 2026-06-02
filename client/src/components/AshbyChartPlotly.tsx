@@ -11,6 +11,7 @@ import { Slider } from '@/components/ui/slider';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Material, ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS } from '@/lib/materials';
 import { classOf } from '@/lib/material-colors';
+import { toast } from 'sonner';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 
 interface AshbyChartPlotlyProps {
@@ -131,13 +132,18 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [boxedIds, setBoxedIds] = useState<Set<string>>(new Set());
   const [constraints, setConstraints] = useState<{ key: string; thr: number | null }[]>([]); // additional index constraints (multi-index, ANDed)
   const indexLineRef = useRef<{ shapeIndex: number; p: number; x0: number; y0: number } | null>(null);
-  // 사례 다이얼로그가 URL `idx=` 로 권장 인덱스를 전달하면 mount 시점에 적용
+  // 사례 다이얼로그가 URL `idx=` 로 권장 인덱스를 전달하면 mount 시점에 적용 + 사용자에게 toast 안내 (NB4)
   useEffect(() => {
     const idx = new URLSearchParams(window.location.search).get('idx');
     if (idx && MATERIAL_INDICES.some((i) => i.key === idx)) {
-      setIndexPreset(idx);
       const p = MATERIAL_INDICES.find((i) => i.key === idx)!;
+      setIndexPreset(idx);
       setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null);
+      // 사용자에게 차트 축·인덱스가 변경됐음을 명시 (이전에는 조용히 변경됐음)
+      toast.success(`Ashby Index 자동 적용: ${p.label}`, {
+        description: `차트 축이 ${p.x} (X) · ${p.y} (Y) 로 설정됨. 상단 Index 드롭다운에서 언제든지 변경.`,
+        duration: 6000,
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -31,8 +31,9 @@ function indexKeyFromHint(hint?: string): string | null {
   return null;
 }
 
-/** 접을 수 있는 그룹 — defaultOpen 첫 그룹은 열려, 나머지는 닫혀 시작. */
-function CollapsibleGroup({ title, defaultOpen, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) {
+/** 접을 수 있는 그룹 — defaultOpen 첫 그룹은 열려, 나머지는 닫혀 시작.
+ *  count: 접힌 상태에서도 "이 그룹에 N개 입력이 있다"는 뱃지를 띄움 (NB3). */
+function CollapsibleGroup({ title, defaultOpen, count, children }: { title: string; defaultOpen?: boolean; count?: number; children: React.ReactNode }) {
   const [open, setOpen] = useState(!!defaultOpen);
   return (
     <div className="rounded border border-border/60 overflow-hidden">
@@ -41,7 +42,12 @@ function CollapsibleGroup({ title, defaultOpen, children }: { title: string; def
         onClick={() => setOpen((v) => !v)}
         className="w-full flex items-center justify-between gap-2 px-2.5 py-1.5 bg-muted/30 hover:bg-muted/50 text-left transition-colors"
       >
-        <span className="text-[11px] font-semibold uppercase tracking-wide text-accent/80">{title}</span>
+        <span className="flex items-center gap-1.5">
+          <span className="text-[11px] font-semibold uppercase tracking-wide text-accent/80">{title}</span>
+          {count !== undefined && count > 0 && (
+            <span className="text-[10px] px-1.5 py-0.5 rounded bg-accent/15 text-accent font-mono">{count}</span>
+          )}
+        </span>
         {open ? <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" /> : <ChevronRight className="w-3.5 h-3.5 text-muted-foreground" />}
       </button>
       {open && <div className="px-2.5 pb-2.5">{children}</div>}
@@ -114,6 +120,17 @@ function LoadArrow({ axis, cx, cy, h }: { axis?: 'strong' | 'weak'; cx: number; 
   }
 }
 
+/** 중립축 라벨 — 현재 활성 축에 "x (강축)" 또는 "y (약축)" 표기 (NB9). */
+function AxisLabel({ axis, hasAxes, isWeakOrientation }: { axis?: 'strong' | 'weak'; hasAxes?: boolean; isWeakOrientation: boolean }) {
+  if (!hasAxes) return null;
+  // 약축 모드면 중립축은 수직 (가운데 100, 위 14~106). 강축이면 수평 (60).
+  const text = axis === 'weak' ? 'y (약축)' : 'x (강축)';
+  if (isWeakOrientation) {
+    return <text x="106" y="20" fontSize="9" className="fill-emerald-600 font-bold" fontFamily="monospace">{text}</text>;
+  }
+  return <text x="160" y="58" fontSize="9" className="fill-emerald-600 font-bold" fontFamily="monospace">{text}</text>;
+}
+
 /** 단면 SVG 큰 미리보기 — 현재 선택한 단면·치수·하중 방향을 시각화 */
 function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<string, number>; axis?: 'strong' | 'weak'; hasAxes?: boolean }) {
   const stroke = 'stroke-accent';
@@ -136,6 +153,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
             ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
             : <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />}
           <text x={isWeak ? 104 : 14} y={isWeak ? 18 : 64} fontSize="9" className={txt}>중립축</text>
+          <AxisLabel axis={axis} hasAxes={hasAxes} isWeakOrientation={!!isWeak} />
           {label(100, y0 + H + 14, `b = ${b} mm`)}
           {label(x0 + W + 6, y0 + H / 2 + 3, `h = ${h} mm`)}
           <LoadArrow axis={hasAxes ? axis : undefined} cx={100} cy={60} h={isWeak ? W : H} />
@@ -188,6 +206,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
           {isWeak
             ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
             : <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />}
+          <AxisLabel axis={axis} hasAxes={hasAxes} isWeakOrientation={!!isWeak} />
           {label(100, y0 + He + 14, `B=${B}·H=${H}·b=${b}·h=${h}`)}
           <LoadArrow axis={hasAxes ? axis : undefined} cx={100} cy={60} h={isWeak ? W : He} />
         </svg>
@@ -208,6 +227,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
           {isWeak
             ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
             : <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />}
+          <AxisLabel axis={axis} hasAxes={hasAxes} isWeakOrientation={!!isWeak} />
           {label(100, 60 + H / 2 + 14, `bf=${bf}·h=${h}·tf=${tf}·tw=${tw}`)}
           <LoadArrow axis={hasAxes ? axis : undefined} cx={100} cy={60} h={isWeak ? BF : H} />
         </svg>
@@ -228,6 +248,7 @@ function SectionPreview({ id, dims, axis, hasAxes }: { id: string; dims: Record<
           {isWeak
             ? <line x1="100" y1="14" x2="100" y2="106" strokeDasharray="3 2" className={dash} strokeWidth="1" />
             : <line x1="20" y1="60" x2="180" y2="60" strokeDasharray="3 2" className={dash} strokeWidth="1" />}
+          <AxisLabel axis={axis} hasAxes={hasAxes} isWeakOrientation={!!isWeak} />
           {label(100, 60 + H / 2 + 14, `bf=${bf}·h=${h}·tf=${tf}·tw=${tw}`)}
           <LoadArrow axis={hasAxes ? axis : undefined} cx={100} cy={60} h={isWeak ? BF + TW : H} />
         </svg>
@@ -351,7 +372,7 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
           {/* 왼쪽: 입력 (그룹별 접기) */}
           <div className="space-y-2">
             {Object.entries(grouped).map(([g, fs], gi) => (
-              <CollapsibleGroup key={g} title={g} defaultOpen={gi === 0}>
+              <CollapsibleGroup key={g} title={g} defaultOpen={gi === 0} count={fs.length}>
                 <div className="space-y-2 pt-1">
                   {fs.map((f) => f.type === 'number'
                     ? <NumberInput key={f.id} field={f} value={Number(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />

@@ -163,13 +163,25 @@ export function ComparePanel({ materials, onRemove, onClose, onSelect }: Compare
                     const hasRange = !!r && r.max > r.min;
                     const pct = typical != null && colMax[k] > 0 ? Math.max(3, Math.min(100, (typical / colMax[k]) * 100)) : 0;
                     const barColor = propColor(k); // 비슷한 물성(같은 group)은 같은 색으로
+                    // 신뢰도 색 점 — Detail 의 뱃지 색과 동일 (NB12)
+                    const conf = r?.confidence;
+                    const confDot: Record<string, string> = {
+                      measured: '#94a3b8',  // foreground/50 슬레이트
+                      handbook: '#0284c7',  // sky-600
+                      class: '#d97706',     // amber-600
+                      derived: '#f43f5e',   // rose-500
+                    };
+                    const dotColor = conf ? confDot[conf] : null;
                     return (
                       <td key={k} className="px-3 py-2 align-top">
                         {typical == null ? (
                           <span className="text-muted-foreground/40 block text-right font-mono">—</span>
                         ) : (
                           <>
-                            <div className="text-right font-mono font-medium text-foreground">{fmt(typical)}</div>
+                            <div className="flex items-center justify-end gap-1">
+                              {dotColor && <span className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: dotColor }} title={`신뢰도: ${conf}`} />}
+                              <span className="text-right font-mono font-medium text-foreground">{fmt(typical)}</span>
+                            </div>
                             <div className="mt-1 h-1.5 w-full bg-muted/40 rounded-sm overflow-hidden">
                               <div className="h-full rounded-sm" style={{ width: `${pct}%`, background: barColor, opacity: 0.85 }} />
                             </div>
