@@ -26,6 +26,8 @@ import {
   Trash2,
   Share2,
   GraduationCap,
+  Pencil,
+  RotateCcw,
 } from 'lucide-react';
 import { Link, useSearch } from 'wouter';
 import { Button } from '@/components/ui/button';
@@ -859,8 +861,15 @@ export default function Home() {
                     <span className="hidden sm:inline">{appliedPreset.suggestedView === 'ashby' ? 'Ashby' : appliedPreset.suggestedView === 'cards' ? 'Cards' : 'Table'}</span>
                   </button>
                 )}
-                <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">{t('banner.editAgain')}</button>
-                <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 hidden sm:inline-flex">{t('banner.resetFilters')}</button>
+                {/* R36a — 모바일에서도 표시. 모바일은 icon 만, sm+ 는 icon + 텍스트. */}
+                <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 inline-flex items-center gap-1" title={t('banner.editAgain')}>
+                  <Pencil className="w-3 h-3" />
+                  <span className="hidden sm:inline">{t('banner.editAgain')}</span>
+                </button>
+                <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 inline-flex items-center gap-1" title={t('banner.resetFilters')}>
+                  <RotateCcw className="w-3 h-3" />
+                  <span className="hidden sm:inline">{t('banner.resetFilters')}</span>
+                </button>
                 <button onClick={() => { setAppliedPreset(null); try { window.history.replaceState(null, '', window.location.pathname + window.location.hash); } catch { /* ignore */ } }} className="text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10" title={t('banner.closeBanner')}>×</button>
               </div>
             </div>

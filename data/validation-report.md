@@ -68,6 +68,14 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 | Ceramic | 45 | 13 |
 | Composite | 30 | — |
 
+### Metal subcategory canonicalization (R36c)
+- 221 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
+- Stainless: Stainless / Stainless Steel / PH Stainless → "Stainless Steel - Austenitic / Ferritic·Martensitic / Duplex / PH".
+- Nickel: Nickel-based / Nickel Alloy / Nickel Superalloy / Hastelloy / Inconel / Monel / Haynes 등 → "Nickel Superalloy - <subfamily>".
+- Cobalt: Cobalt Chrome / Cobalt-based → "Cobalt Alloy - Chrome / Wear".
+- Copper: Copper / Copper Alloy / Copper-based / Brass / Bronze / Cu-Be / Cu-Ni → "Copper Alloy - <subfamily>".
+- Steel: Carbon Steel / Steel / Carbon-Low-alloy → "Carbon Steel"; Maraging / Tool / Cast Iron 분리.
+
 ### Polymer subcategory canonicalization (R34c)
 - 51 polymer entries had their subcategory rewritten by the canonicalization pass (`POLY_SUB_RULES`).
 - PEEK / PEEK CF, PEKK / PEKK CF, PA / PA GF / PA CF, ULTEM / ULTEM GF kept distinct (reinforcement variants have meaningfully different properties).

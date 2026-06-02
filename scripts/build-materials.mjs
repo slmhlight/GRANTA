@@ -1769,6 +1769,68 @@ for (const m of all) {
   if (m.category === 'Polymer') { const before = m.subcategory; normalizePolymerSubcategory(m); if (m.subcategory !== before) polyNormalized++; }
 }
 
+// R36c — Metal subcategory 합리화. 같은 family 가 여러 라벨로 분산되어 있어 (Stainless / Stainless Steel /
+//   Nickel-based / Nickel Alloy / Nickel Superalloy / Cobalt Chrome / Cobalt-Chrome Alloy / Copper / Copper Alloy / Copper-based)
+//   tree 에 중복으로 나타남. canonical 라벨로 통합.
+const METAL_SUB_RULES = [
+  // Stainless — "Stainless Steel - X" 로 통일
+  [/stainless[\s-]*(?:steel[\s-]*)?(?:austenit)/i, 'Stainless Steel - Austenitic'],
+  [/stainless[\s-]*(?:steel[\s-]*)?(?:ferrit|martens)/i, 'Stainless Steel - Ferritic/Martensitic'],
+  [/stainless[\s-]*(?:steel[\s-]*)?(?:duplex|super[\s-]?duplex|2205|2507|2304)/i, 'Stainless Steel - Duplex'],
+  [/(?:stainless[\s-]*(?:steel[\s-]*)?[\s-]*ph|^ph[\s-]?stainless)/i, 'Stainless Steel - PH'],
+  [/^stainless(\s+steel)?$/i, 'Stainless Steel - Austenitic'],   // bare 'Stainless' / 'Stainless Steel' default austenitic
+  // Nickel 통합 — 모든 Ni alloy 는 Nickel Superalloy 카테고리 아래 family bucket
+  [/nickel.*(hastelloy)|^hastelloy/i, 'Nickel Superalloy - Hastelloy'],
+  [/nickel.*(inconel)|^inconel|^incoloy/i, 'Nickel Superalloy - Inconel'],
+  [/nickel.*(monel)|^monel/i, 'Nickel Superalloy - Monel'],
+  [/(haynes|waspaloy|nimonic|rene|udimet|cmsx|cm247|in[\s-]?7\d{2}|in[\s-]?9\d{2}|a-?286|pwa1484)/i, 'Nickel Superalloy - Other'],
+  [/nickel[\s-]?based|^nickel(\s+alloy)?$|nickel superalloy/i, 'Nickel Superalloy'],
+  // Cobalt 통합
+  [/cobalt[\s-]?chrome|cocrmo|cocr|cocr[\s-]?mo/i, 'Cobalt Alloy - Chrome'],
+  [/(stellite|l605|haynes\s*25|mp159|elgiloy)/i, 'Cobalt Alloy - Wear'],
+  [/cobalt[\s-]?based|^cobalt(\s+alloy)?$/i, 'Cobalt Alloy'],
+  // Copper 통합
+  [/copper.*brass|^brass$|cu[\s-]?zn/i, 'Copper Alloy - Brass'],
+  [/copper.*(bronze)|^bronze/i, 'Copper Alloy - Bronze'],
+  [/copper.*(pure|other)|^pure[\s-]?copper|c1[01]\d{3}|ofe[\s-]?copper/i, 'Copper Alloy - Pure'],
+  [/cucr|c18\d{3}|grcop|cu[\s-]?be|c172\d{2}|beryllium copper/i, 'Copper Alloy - Specialty (CuBe·CuCr)'],
+  [/cuni|c70\d{3}|c71\d{3}|cu[\s-]?ni/i, 'Copper Alloy - Cu-Ni'],
+  [/^copper(\s+alloy)?$|copper[\s-]?based/i, 'Copper Alloy'],
+  // Steel 합리화 — Carbon Steel / Alloy Steel / Tool Steel / Maraging 구분
+  [/^(carbon[\s\/]+low-?alloy|carbon\s+steel|steel)$/i, 'Carbon Steel'],
+  [/(case[\s-]?hardening|carburizing)/i, 'Alloy Steel - Case Hardening'],
+  [/^alloy steel$/i, 'Alloy Steel'],
+  [/^maraging|18ni-?\d{2,3}/i, 'Maraging Steel'],
+  [/^tool steel$/i, 'Tool Steel'],
+  [/cast iron|^gj[ls]|asm a48/i, 'Cast Iron'],
+  // Titanium 통합 — "Titanium - X" 표준
+  [/titanium.*(pure|other)|titanium\s*-\s*cp/i, 'Titanium - Pure / CP Grades'],
+  [/titanium.*(α[\s+-]?β|alpha[\s+-]?beta)/i, 'Titanium - α+β (Ti-6Al-4V class)'],
+  [/^titanium$/i, 'Titanium - Pure / CP Grades'],
+  // Aluminum — series 별. 기존 라벨 유지하되 통일.
+  [/^aluminum$/i, 'Aluminum - Pure/Other'],
+  // Refractory
+  [/^refractory(\s+metal)?$/i, 'Refractory Metal'],
+  // Misc
+  [/iron[\s-]?nickel|^invar/i, 'Controlled Expansion (Invar/Kovar)'],
+  [/controlled expansion|^kovar/i, 'Controlled Expansion (Invar/Kovar)'],
+  [/^beryllium\s+alloy$/i, 'Beryllium Alloy'],
+  [/shape memory|nitinol|niti/i, 'Shape Memory Alloy'],
+];
+function normalizeMetalSubcategory(m) {
+  if (!m || m.category !== 'Metal') return;
+  const sub = String(m.subcategory || '');
+  if (!sub) return;
+  for (const [re, target] of METAL_SUB_RULES) {
+    if (re.test(sub)) { m.subcategory = target; return; }
+  }
+  // 매칭 실패 → 그대로 유지 (이미 합리적 라벨일 가능성)
+}
+let metalNormalized = 0;
+for (const m of all) {
+  if (m.category === 'Metal') { const before = m.subcategory; normalizeMetalSubcategory(m); if (m.subcategory !== before) metalNormalized++; }
+}
+
 // R16 — RoHS / REACH SVHC 검출 (composition 기반 휴리스틱).
 //   RoHS 2 EU Directive 2011/65/EU: Pb 0.1%, Cd 0.01%, Hg 0.1%, Cr⁶⁺ 0.1%, PBB·PBDE 0.1% (homogeneous).
 //   REACH SVHC (Substances of Very High Concern): Be, Co compounds, Ni-allergen (피부), Pb·Cd 일부.
@@ -1965,6 +2027,14 @@ rep.push('');
   rep.push(`| Polymer | ${polyCount} | ${polySubs.size} |`);
   rep.push(`| Ceramic | ${cerCount} | ${cerSubs.size} |`);
   rep.push(`| Composite | ${cmpCount} | — |`);
+  rep.push('');
+  rep.push('### Metal subcategory canonicalization (R36c)');
+  rep.push(`- ${metalNormalized} metal entries had their subcategory rewritten by \`METAL_SUB_RULES\`.`);
+  rep.push('- Stainless: Stainless / Stainless Steel / PH Stainless → "Stainless Steel - Austenitic / Ferritic·Martensitic / Duplex / PH".');
+  rep.push('- Nickel: Nickel-based / Nickel Alloy / Nickel Superalloy / Hastelloy / Inconel / Monel / Haynes 등 → "Nickel Superalloy - <subfamily>".');
+  rep.push('- Cobalt: Cobalt Chrome / Cobalt-based → "Cobalt Alloy - Chrome / Wear".');
+  rep.push('- Copper: Copper / Copper Alloy / Copper-based / Brass / Bronze / Cu-Be / Cu-Ni → "Copper Alloy - <subfamily>".');
+  rep.push('- Steel: Carbon Steel / Steel / Carbon-Low-alloy → "Carbon Steel"; Maraging / Tool / Cast Iron 분리.');
   rep.push('');
   rep.push('### Polymer subcategory canonicalization (R34c)');
   rep.push(`- ${polyNormalized} polymer entries had their subcategory rewritten by the canonicalization pass (\`POLY_SUB_RULES\`).`);

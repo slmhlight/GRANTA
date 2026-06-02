@@ -462,6 +462,43 @@ function leafLabel(sub: string): string {
   return sub.replace(/^Polymer - /, '').replace(/^Stainless Steel - /, 'SS - ').replace(/^Stainless - /, 'SS - ').replace(/^Aluminum - /, 'Al - ').replace(/^Titanium - /, 'Ti - ').replace(/^Copper - /, 'Cu - ').replace(/^Nickel - /, 'Ni - ').replace(/^Cobalt - /, 'Co - ');
 }
 
+/** R36b — 카테고리별 색상 토큰 (CATEGORY_COLORS 와 일관). tailwind 정적 클래스만 사용해야 JIT 가 인식. */
+const CATEGORY_TIER_STYLE: Record<string, { bg1: string; bg2: string; tier1Bd: string; tier2Bd: string; tier3Bd: string; text1: string; text2: string; dot: string }> = {
+  Metal: {
+    bg1: 'bg-sky-500/10', bg2: 'bg-sky-500/5',
+    tier1Bd: 'border-l-[4px] border-sky-500',
+    tier2Bd: 'border-l-2 border-sky-500/60',
+    tier3Bd: 'border-l border-sky-500/35',
+    text1: 'text-sky-800 dark:text-sky-300', text2: 'text-sky-700/85',
+    dot: 'bg-sky-500',
+  },
+  Polymer: {
+    bg1: 'bg-emerald-500/10', bg2: 'bg-emerald-500/5',
+    tier1Bd: 'border-l-[4px] border-emerald-500',
+    tier2Bd: 'border-l-2 border-emerald-500/60',
+    tier3Bd: 'border-l border-emerald-500/35',
+    text1: 'text-emerald-800 dark:text-emerald-300', text2: 'text-emerald-700/85',
+    dot: 'bg-emerald-500',
+  },
+  Ceramic: {
+    bg1: 'bg-amber-500/10', bg2: 'bg-amber-500/5',
+    tier1Bd: 'border-l-[4px] border-amber-500',
+    tier2Bd: 'border-l-2 border-amber-500/60',
+    tier3Bd: 'border-l border-amber-500/35',
+    text1: 'text-amber-800 dark:text-amber-300', text2: 'text-amber-700/85',
+    dot: 'bg-amber-500',
+  },
+  Composite: {
+    bg1: 'bg-violet-500/10', bg2: 'bg-violet-500/5',
+    tier1Bd: 'border-l-[4px] border-violet-500',
+    tier2Bd: 'border-l-2 border-violet-500/60',
+    tier3Bd: 'border-l border-violet-500/35',
+    text1: 'text-violet-800 dark:text-violet-300', text2: 'text-violet-700/85',
+    dot: 'bg-violet-500',
+  },
+};
+const FALLBACK_STYLE = CATEGORY_TIER_STYLE.Metal;
+
 interface FamilyTreeNode {
   tier1: string;            // category
   tier2Groups: Array<{
@@ -557,10 +594,11 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
             const tier1State: 'none' | 'partial' | 'all' =
               checkedCount === 0 ? 'none' : checkedCount === allCount ? 'all' : 'partial';
             const tier1Expanded = expandedTier1.has(node.tier1);
+            const style = CATEGORY_TIER_STYLE[node.tier1] || FALLBACK_STYLE;
             return (
-              <div key={node.tier1} className="mb-1">
-                {/* tier1 — category */}
-                <div className="flex items-center gap-1 py-0.5 hover:bg-muted/40 rounded">
+              <div key={node.tier1} className="mb-2 rounded-md overflow-hidden">
+                {/* tier1 — category (강조: 색상 + 좌측 4px 띠 + 컬러 dot) */}
+                <div className={`flex items-center gap-1.5 py-1 px-2 ${style.bg1} ${style.tier1Bd} hover:brightness-95 transition-all`}>
                   <button
                     type="button"
                     onClick={() => {
@@ -569,83 +607,95 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
                       else next.add(node.tier1);
                       setExpandedTier1(next);
                     }}
-                    className="w-4 h-4 flex items-center justify-center text-muted-foreground hover:text-foreground"
+                    className={`w-4 h-4 flex items-center justify-center ${style.text1}`}
                     aria-label={tier1Expanded ? 'collapse' : 'expand'}
                   >
-                    {tier1Expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
+                    {tier1Expanded ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
                   </button>
                   <input
                     type="checkbox"
                     ref={(el) => { if (el) el.indeterminate = tier1State === 'partial'; }}
                     checked={tier1State === 'all'}
                     onChange={() => toggleGroup(allSubs)}
-                    className="accent-accent w-3 h-3 flex-shrink-0"
+                    className="accent-accent w-3.5 h-3.5 flex-shrink-0"
                   />
+                  <span className={`w-2 h-2 rounded-full flex-shrink-0 ${style.dot}`} />
                   <span
-                    className="text-[11px] font-semibold text-foreground/90 flex-1 truncate cursor-pointer"
+                    className={`text-[12px] font-bold flex-1 truncate cursor-pointer ${style.text1}`}
                     onClick={() => toggleGroup(allSubs)}
                   >
                     {node.tier1}
                   </span>
-                  <span className="text-[9px] text-muted-foreground font-mono">{node.count}</span>
+                  <span className={`text-[10px] font-mono ${style.text2}`}>{node.count}</span>
                 </div>
-                {tier1Expanded && node.tier2Groups.map((group) => {
-                  const groupSubs = group.leaves.map(l => l.sub);
-                  const groupCheckedN = groupSubs.filter(s => selected.includes(s)).length;
-                  const tier2State: 'none' | 'partial' | 'all' =
-                    groupCheckedN === 0 ? 'none' : groupCheckedN === groupSubs.length ? 'all' : 'partial';
-                  const key2 = `${node.tier1}::${group.tier2}`;
-                  const tier2Expanded = expandedTier2.has(key2);
-                  return (
-                    <div key={key2}>
-                      {/* tier2 — family bucket */}
-                      <div className="flex items-center gap-1 py-0.5 pl-4 hover:bg-muted/30 rounded">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const next = new Set(expandedTier2);
-                            if (next.has(key2)) next.delete(key2);
-                            else next.add(key2);
-                            setExpandedTier2(next);
-                          }}
-                          className="w-4 h-4 flex items-center justify-center text-muted-foreground hover:text-foreground"
-                        >
-                          {group.leaves.length > 1 ? (tier2Expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />) : <span className="w-3 h-3 inline-block" />}
-                        </button>
-                        <input
-                          type="checkbox"
-                          ref={(el) => { if (el) el.indeterminate = tier2State === 'partial'; }}
-                          checked={tier2State === 'all'}
-                          onChange={() => toggleGroup(groupSubs)}
-                          className="accent-accent w-3 h-3 flex-shrink-0"
-                        />
-                        <span
-                          className="text-[10.5px] text-foreground/85 flex-1 truncate cursor-pointer"
-                          title={group.tier2}
-                          onClick={() => toggleGroup(groupSubs)}
-                        >
-                          {group.tier2}
-                        </span>
-                        <span className="text-[9px] text-muted-foreground font-mono">{group.count}</span>
-                      </div>
-                      {/* tier3 — leaf subcategories */}
-                      {(tier2Expanded || group.leaves.length === 1) && group.leaves.map((leaf) => (
-                        <label key={leaf.sub} className="flex items-center gap-1 py-0.5 pl-10 hover:bg-muted/20 rounded cursor-pointer text-[10.5px]">
-                          <input
-                            type="checkbox"
-                            checked={selected.includes(leaf.sub)}
-                            onChange={() => toggleLeaf(leaf.sub)}
-                            className="accent-accent w-3 h-3 flex-shrink-0"
-                          />
-                          <span className="flex-1 truncate text-foreground/75" title={leaf.sub}>
-                            {leafLabel(leaf.sub)}
-                          </span>
-                          <span className="text-[9px] text-muted-foreground font-mono">{leaf.count}</span>
-                        </label>
-                      ))}
-                    </div>
-                  );
-                })}
+                {/* tier2/tier3 wrapper — 좌측 colored line이 tier1 dot 아래로 이어짐 */}
+                {tier1Expanded && (
+                  <div className={`relative ml-3 mt-0.5 ${style.tier2Bd}`}>
+                    {node.tier2Groups.map((group) => {
+                      const groupSubs = group.leaves.map(l => l.sub);
+                      const groupCheckedN = groupSubs.filter(s => selected.includes(s)).length;
+                      const tier2State: 'none' | 'partial' | 'all' =
+                        groupCheckedN === 0 ? 'none' : groupCheckedN === groupSubs.length ? 'all' : 'partial';
+                      const key2 = `${node.tier1}::${group.tier2}`;
+                      const tier2Expanded = expandedTier2.has(key2);
+                      return (
+                        <div key={key2} className="relative">
+                          {/* tier2 — family bucket. ┗ connector + 옅은 color bg */}
+                          <div className={`flex items-center gap-1 py-0.5 pl-1 pr-1 ${style.bg2} hover:brightness-95 rounded-r transition-all`}>
+                            <span className={`font-mono ${style.text2} text-[11px] select-none leading-none w-3 text-center`} aria-hidden>└</span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const next = new Set(expandedTier2);
+                                if (next.has(key2)) next.delete(key2);
+                                else next.add(key2);
+                                setExpandedTier2(next);
+                              }}
+                              className={`w-3.5 h-3.5 flex items-center justify-center ${style.text2}`}
+                            >
+                              {group.leaves.length > 1 ? (tier2Expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />) : <span className="w-3 h-3 inline-block" />}
+                            </button>
+                            <input
+                              type="checkbox"
+                              ref={(el) => { if (el) el.indeterminate = tier2State === 'partial'; }}
+                              checked={tier2State === 'all'}
+                              onChange={() => toggleGroup(groupSubs)}
+                              className="accent-accent w-3 h-3 flex-shrink-0"
+                            />
+                            <span
+                              className={`text-[11px] flex-1 truncate cursor-pointer font-medium ${style.text2}`}
+                              title={group.tier2}
+                              onClick={() => toggleGroup(groupSubs)}
+                            >
+                              {group.tier2}
+                            </span>
+                            <span className="text-[9px] text-muted-foreground font-mono">{group.count}</span>
+                          </div>
+                          {/* tier3 — leaf subcategories (들여쓰기 + 더 옅은 ㄴ) */}
+                          {(tier2Expanded || group.leaves.length === 1) && (
+                            <div className={`ml-3 ${style.tier3Bd}`}>
+                              {group.leaves.map((leaf) => (
+                                <label key={leaf.sub} className="flex items-center gap-1 py-0.5 pl-1 pr-1 hover:bg-muted/30 rounded-r cursor-pointer text-[10.5px]">
+                                  <span className={`font-mono text-muted-foreground/50 text-[10px] select-none leading-none w-3 text-center`} aria-hidden>└</span>
+                                  <input
+                                    type="checkbox"
+                                    checked={selected.includes(leaf.sub)}
+                                    onChange={() => toggleLeaf(leaf.sub)}
+                                    className="accent-accent w-3 h-3 flex-shrink-0"
+                                  />
+                                  <span className="flex-1 truncate text-foreground/70" title={leaf.sub}>
+                                    {leafLabel(leaf.sub)}
+                                  </span>
+                                  <span className="text-[9px] text-muted-foreground/70 font-mono">{leaf.count}</span>
+                                </label>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             );
           })}
