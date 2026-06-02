@@ -2204,10 +2204,14 @@ function popularityFor(m) {
   // 그 외 → mod 0 (base tier 그대로)
 
   let score = t + mod;
-  // R35a — AM 공정 합금은 상한 3.45 (mod 포함). 검증 단계 신소재 — 산업 표준 대비 보수적 평가.
+  // R35a — AM 공정 합금은 상한 3.0 (mod 포함). 검증 단계 신소재 — 산업 표준 대비 보수적 평가.
   const proc = String(m.process || '');
   const isAM = /LPBF|DMLS|SLM|EBM|Binder Jetting|DED|MJF|FDM|SLS/i.test(proc);
-  if (isAM && score > 3.45) score = 3.45;
+  if (isAM && score > 3.0) score = 3.0;
+  // R42 — popularity 5 점 만점 cap (이전: 5.45 초과 → slider [0,5] 범위 벗어남, 필터링 버그).
+  //        만점 (5.00) 이 여러 alloy 에 분포해도 OK — 사용자 요청.
+  if (score > 5) score = 5;
+  if (score < 1) score = 1;
   // 소수 둘째자리 반올림.
   return Math.round(score * 100) / 100;
 }
