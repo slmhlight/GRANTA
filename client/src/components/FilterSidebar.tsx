@@ -387,11 +387,91 @@ function ProcessFilter({ allProcesses, selected, onChange }: ProcessFilterProps)
   );
 }
 
-// ── Family Filter (subcategory 다중 선택 — Granta-style 2-3 차 family) ─────
-// R35a — Category 가 1차 family (Metal/Polymer/Ceramic/Composite) 인 반면,
-//        Family 는 그 안의 subcategory (예: Stainless Steel - Austenitic / Polymer - PEEK / UHTC).
-//        선택된 카테고리가 있으면 그 안의 subcategory 만 노출 (없으면 전체).
-//        빈도순 정렬 (개수 많은 게 위) — 흔한 family 부터 노출.
+// ── Family Filter (Granta-style 3-tier tree — Category > Family > Sub-family) ─
+// R35a-v2 — tier1 = Category (Metal/Polymer/Ceramic/Composite),
+//           tier2 = explicit family bucket (Stainless Steel / Nickel Alloy / High-Performance Polymer / Oxide ceramic …),
+//           tier3 = subcategory leaf 자체. Indeterminate (▣) / fully-checked (☑) cascade.
+//
+//           각 노드 별 확장 상태 + 체크 cascade — tier2 클릭 시 그 그룹의 모든 leaf 토글,
+//           tier1 클릭 시 그 카테고리의 모든 leaf 토글 (state 는 filters.subcategories[] 에만 저장).
+
+function tier2OfMetal(sub: string): string {
+  const s = sub.toLowerCase();
+  if (/stainless|ph stainless/.test(s)) return 'Stainless Steel';
+  if (/^aluminum/.test(s)) return 'Aluminum';
+  if (/nickel|inconel|hastelloy|monel|incoloy|waspaloy|haynes|rene|nimonic|udimet|cmsx|cm247|in[\s-]?7\d{2}|in[\s-]?9\d{2}/.test(s)) return 'Nickel Alloy';
+  if (/cobalt|stellite|cocr|l605|mp159|elgiloy/.test(s)) return 'Cobalt Alloy';
+  if (/^titanium|ti cp|ti grade|ti-/.test(s)) return 'Titanium';
+  if (/^copper|brass|bronze|cu-/.test(s)) return 'Copper Alloy';
+  if (/magnesium|^az\d|^we\d|^ez\d|^am6/.test(s)) return 'Magnesium';
+  if (/tool steel|maraging|aermet|300m/.test(s)) return 'Tool / Special Steel';
+  if (/carbon steel|alloy steel|case-hardening|cast iron|^\d{4}$/.test(s)) return 'Carbon / Alloy Steel';
+  if (/refractory|tungsten|tantalum|niobium|molybdenum|tzm|hafnium|c103|zirconium/.test(s)) return 'Refractory';
+  if (/invar|controlled expansion|kovar/.test(s)) return 'Controlled Expansion';
+  if (/beryllium|zinc|shape memory|nitinol/.test(s)) return 'Other Specialty';
+  return 'Other Metal';
+}
+function tier2OfPolymer(sub: string): string {
+  const s = sub.toLowerCase();
+  if (/peek|pekk|pei|ultem|ppsu|psu|pps|pai|pbi|polyimide|\bpes\b/.test(s)) return 'High-Performance';
+  if (/polyamide|polycarbonate|pom|pbt|pet|pmma/.test(s)) return 'Engineering';
+  if (/abs|asa|\bpp\b|polystyrene|pvc|polyethylene|petg|pla/.test(s)) return 'Commodity';
+  if (/ptfe|pvdf|etfe|fluoropolymer/.test(s)) return 'Fluoropolymer';
+  if (/tpu|tpe|silicone|elastomer/.test(s)) return 'Elastomer / Rubber';
+  if (/lcp|uhmwpe|pcl|eva|pvb/.test(s)) return 'Specialty';
+  if (/epoxy|thermoset|polyester|photopolymer/.test(s)) return 'Thermoset';
+  if (/nylon \(fdm/.test(s)) return 'Engineering';
+  return 'Other Polymer';
+}
+function tier2OfCeramic(sub: string): string {
+  const s = sub.toLowerCase();
+  if (/oxide|alumina|zirconia|yttria|ceria|spinel|sapphire|quartz|mullite|magnesia|porcelain|steatite/.test(s)) return 'Oxide';
+  if (/nitride|si3n4|aln|^bn$|cbn|tin/.test(s)) return 'Nitride';
+  if (/carbide|sic|wc|b4c|tic|tac/.test(s)) return 'Carbide';
+  if (/uhtc|hfc|zrb2|hfb2/.test(s)) return 'UHTC (Ultra-High-Temp)';
+  if (/glass|aerogel|silica/.test(s)) return 'Glass / Aerogel';
+  if (/piezoelectric|dielectric|pzt|batio3|alsic/.test(s)) return 'Electronic Ceramic';
+  if (/bioceramic|hydroxyapatite/.test(s)) return 'Bioceramic';
+  if (/silicate|cordierite|forsterite/.test(s)) return 'Silicate';
+  if (/macor|lab6|boride/.test(s)) return 'Specialty Ceramic';
+  return 'Other Ceramic';
+}
+function tier2OfComposite(sub: string): string {
+  const s = sub.toLowerCase();
+  if (/carbon/.test(s)) return 'Carbon Fiber (CFRP)';
+  if (/glass/.test(s)) return 'Glass Fiber (GFRP)';
+  if (/aramid/.test(s)) return 'Aramid (AFK)';
+  if (/metal-matrix|mmc/.test(s)) return 'Metal-Matrix (MMC)';
+  if (/ceramic-matrix|cmc/.test(s)) return 'Ceramic-Matrix (CMC)';
+  if (/wood/.test(s)) return 'Natural (Wood)';
+  if (/honeycomb/.test(s)) return 'Sandwich (Honeycomb)';
+  if (/foam/.test(s)) return 'Foam';
+  if (/polyethylene/.test(s)) return 'Polyethylene-Composite';
+  if (/bulk-molding/.test(s)) return 'Bulk Molding (BMC/SMC)';
+  return 'Other Composite';
+}
+function tier2Of(category: string, subcategory: string): string {
+  if (category === 'Metal') return tier2OfMetal(subcategory);
+  if (category === 'Polymer') return tier2OfPolymer(subcategory);
+  if (category === 'Ceramic') return tier2OfCeramic(subcategory);
+  if (category === 'Composite') return tier2OfComposite(subcategory);
+  return 'Other';
+}
+/** display-friendly leaf label — 카테고리 prefix 제거. */
+function leafLabel(sub: string): string {
+  return sub.replace(/^Polymer - /, '').replace(/^Stainless Steel - /, 'SS - ').replace(/^Stainless - /, 'SS - ').replace(/^Aluminum - /, 'Al - ').replace(/^Titanium - /, 'Ti - ').replace(/^Copper - /, 'Cu - ').replace(/^Nickel - /, 'Ni - ').replace(/^Cobalt - /, 'Co - ');
+}
+
+interface FamilyTreeNode {
+  tier1: string;            // category
+  tier2Groups: Array<{
+    tier2: string;          // family bucket
+    leaves: Array<{ sub: string; count: number }>;
+    count: number;
+  }>;
+  count: number;
+}
+
 interface FamilyFilterProps {
   materials: Material[];
   selectedCategories: string[];
@@ -400,20 +480,52 @@ interface FamilyFilterProps {
 }
 function FamilyFilter({ materials, selectedCategories, selected, onChange }: FamilyFilterProps) {
   const [expanded, setExpanded] = useState(false);
+  const [expandedTier1, setExpandedTier1] = useState<Set<string>>(new Set());
+  const [expandedTier2, setExpandedTier2] = useState<Set<string>>(new Set());
   const isActive = selected.length > 0;
-  const families = useMemo(() => {
-    const count = new Map<string, number>();
+
+  const tree = useMemo<FamilyTreeNode[]>(() => {
+    // tier1 → tier2 → leafSet
+    const accum = new Map<string, Map<string, Map<string, number>>>();
     for (const m of materials) {
       if (selectedCategories.length > 0 && !selectedCategories.includes(m.category)) continue;
+      const cat = m.category || 'Other';
       const sub = m.subcategory || 'Other';
-      count.set(sub, (count.get(sub) || 0) + 1);
+      const t2 = tier2Of(cat, sub);
+      if (!accum.has(cat)) accum.set(cat, new Map());
+      const m1 = accum.get(cat)!;
+      if (!m1.has(t2)) m1.set(t2, new Map());
+      const m2 = m1.get(t2)!;
+      m2.set(sub, (m2.get(sub) || 0) + 1);
     }
-    return Array.from(count.entries()).sort((a, b) => b[1] - a[1]);
+    const out: FamilyTreeNode[] = [];
+    accum.forEach((m1, tier1) => {
+      const tier2Groups: FamilyTreeNode['tier2Groups'] = [];
+      let cat_count = 0;
+      m1.forEach((m2, tier2) => {
+        const leaves: Array<{ sub: string; count: number }> = [];
+        m2.forEach((count, sub) => leaves.push({ sub, count }));
+        leaves.sort((a, b) => b.count - a.count);
+        const groupCount = leaves.reduce((s, l) => s + l.count, 0);
+        cat_count += groupCount;
+        tier2Groups.push({ tier2, leaves, count: groupCount });
+      });
+      tier2Groups.sort((a, b) => b.count - a.count);
+      out.push({ tier1, tier2Groups, count: cat_count });
+    });
+    return out.sort((a, b) => b.count - a.count);
   }, [materials, selectedCategories]);
-  const toggle = (sub: string) => {
+
+  const toggleLeaf = (sub: string) => {
     if (selected.includes(sub)) onChange(selected.filter(s => s !== sub));
     else onChange([...selected, sub]);
   };
+  const toggleGroup = (subs: string[]) => {
+    const allChecked = subs.every(s => selected.includes(s));
+    if (allChecked) onChange(selected.filter(s => !subs.includes(s)));
+    else onChange(Array.from(new Set([...selected, ...subs])));
+  };
+
   return (
     <div className="border-b border-border/50">
       <button
@@ -421,37 +533,128 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
         onClick={() => setExpanded(e => !e)}
       >
         <span className="flex items-center gap-1.5">
-          Family
+          Family Tree
           {isActive && (
             <Badge variant="secondary" className="h-4 px-1 text-[10px] bg-accent/20 text-accent border-0">
               {selected.length}
             </Badge>
           )}
-          {!isActive && selectedCategories.length > 0 && (
-            <span className="text-[9px] text-muted-foreground">({families.length})</span>
+          {!isActive && tree.length > 0 && (
+            <span className="text-[9px] text-muted-foreground">({tree.reduce((s, t) => s + t.tier2Groups.length, 0)} 그룹)</span>
           )}
         </span>
         {expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
       </button>
       {expanded && (
-        <div className="px-3 py-2 space-y-1.5 max-h-72 overflow-y-auto">
-          {families.length === 0 && (
+        <div className="px-2 py-2 max-h-[28rem] overflow-y-auto">
+          {tree.length === 0 && (
             <p className="text-[10px] text-muted-foreground italic">선택된 Category 가 없습니다 — 모든 family 표시</p>
           )}
-          {families.map(([sub, n]) => (
-            <label key={sub} className="flex items-center gap-2 cursor-pointer text-[11px]">
-              <Checkbox
-                checked={selected.includes(sub)}
-                onCheckedChange={() => toggle(sub)}
-                className="w-3.5 h-3.5 rounded-sm flex-shrink-0"
-              />
-              <span className="flex-1 truncate" title={sub}>{sub}</span>
-              <span className="text-[9px] text-muted-foreground font-mono flex-shrink-0">{n}</span>
-            </label>
-          ))}
+          {tree.map((node) => {
+            const allSubs = node.tier2Groups.flatMap(g => g.leaves.map(l => l.sub));
+            const allCount = allSubs.length;
+            const checkedCount = allSubs.filter(s => selected.includes(s)).length;
+            const tier1State: 'none' | 'partial' | 'all' =
+              checkedCount === 0 ? 'none' : checkedCount === allCount ? 'all' : 'partial';
+            const tier1Expanded = expandedTier1.has(node.tier1);
+            return (
+              <div key={node.tier1} className="mb-1">
+                {/* tier1 — category */}
+                <div className="flex items-center gap-1 py-0.5 hover:bg-muted/40 rounded">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const next = new Set(expandedTier1);
+                      if (next.has(node.tier1)) next.delete(node.tier1);
+                      else next.add(node.tier1);
+                      setExpandedTier1(next);
+                    }}
+                    className="w-4 h-4 flex items-center justify-center text-muted-foreground hover:text-foreground"
+                    aria-label={tier1Expanded ? 'collapse' : 'expand'}
+                  >
+                    {tier1Expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
+                  </button>
+                  <input
+                    type="checkbox"
+                    ref={(el) => { if (el) el.indeterminate = tier1State === 'partial'; }}
+                    checked={tier1State === 'all'}
+                    onChange={() => toggleGroup(allSubs)}
+                    className="accent-accent w-3 h-3 flex-shrink-0"
+                  />
+                  <span
+                    className="text-[11px] font-semibold text-foreground/90 flex-1 truncate cursor-pointer"
+                    onClick={() => toggleGroup(allSubs)}
+                  >
+                    {node.tier1}
+                  </span>
+                  <span className="text-[9px] text-muted-foreground font-mono">{node.count}</span>
+                </div>
+                {tier1Expanded && node.tier2Groups.map((group) => {
+                  const groupSubs = group.leaves.map(l => l.sub);
+                  const groupCheckedN = groupSubs.filter(s => selected.includes(s)).length;
+                  const tier2State: 'none' | 'partial' | 'all' =
+                    groupCheckedN === 0 ? 'none' : groupCheckedN === groupSubs.length ? 'all' : 'partial';
+                  const key2 = `${node.tier1}::${group.tier2}`;
+                  const tier2Expanded = expandedTier2.has(key2);
+                  return (
+                    <div key={key2}>
+                      {/* tier2 — family bucket */}
+                      <div className="flex items-center gap-1 py-0.5 pl-4 hover:bg-muted/30 rounded">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const next = new Set(expandedTier2);
+                            if (next.has(key2)) next.delete(key2);
+                            else next.add(key2);
+                            setExpandedTier2(next);
+                          }}
+                          className="w-4 h-4 flex items-center justify-center text-muted-foreground hover:text-foreground"
+                        >
+                          {group.leaves.length > 1 ? (tier2Expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />) : <span className="w-3 h-3 inline-block" />}
+                        </button>
+                        <input
+                          type="checkbox"
+                          ref={(el) => { if (el) el.indeterminate = tier2State === 'partial'; }}
+                          checked={tier2State === 'all'}
+                          onChange={() => toggleGroup(groupSubs)}
+                          className="accent-accent w-3 h-3 flex-shrink-0"
+                        />
+                        <span
+                          className="text-[10.5px] text-foreground/85 flex-1 truncate cursor-pointer"
+                          title={group.tier2}
+                          onClick={() => toggleGroup(groupSubs)}
+                        >
+                          {group.tier2}
+                        </span>
+                        <span className="text-[9px] text-muted-foreground font-mono">{group.count}</span>
+                      </div>
+                      {/* tier3 — leaf subcategories */}
+                      {(tier2Expanded || group.leaves.length === 1) && group.leaves.map((leaf) => (
+                        <label key={leaf.sub} className="flex items-center gap-1 py-0.5 pl-10 hover:bg-muted/20 rounded cursor-pointer text-[10.5px]">
+                          <input
+                            type="checkbox"
+                            checked={selected.includes(leaf.sub)}
+                            onChange={() => toggleLeaf(leaf.sub)}
+                            className="accent-accent w-3 h-3 flex-shrink-0"
+                          />
+                          <span className="flex-1 truncate text-foreground/75" title={leaf.sub}>
+                            {leafLabel(leaf.sub)}
+                          </span>
+                          <span className="text-[9px] text-muted-foreground font-mono">{leaf.count}</span>
+                        </label>
+                      ))}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
           {isActive && (
-            <button className="text-[10px] text-muted-foreground hover:text-foreground hover:underline pl-5 mt-1" onClick={() => onChange([])}>
-              Clear
+            <button
+              className="text-[10px] text-muted-foreground hover:text-foreground hover:underline pl-5 mt-2 border-t border-border/30 pt-2 w-full text-left"
+              onClick={() => onChange([])}
+            >
+              Clear all family selections
             </button>
           )}
         </div>
