@@ -23,6 +23,9 @@ interface AshbyChartPlotlyProps {
   compareList?: string[];
   onCompareMany?: (ids: string[]) => void;
   onApplyToFilter?: (ids: string[]) => void;
+  /** 사례 적용 후 권장 Index 자동 설정 — 차트 mount 시점이 사례 적용 후라면 url idx 가 비었을 수 있어
+   *  prop 으로 받아 X/Y/index preset 전체 자동 셋업. null 이면 자동 변경 안 함. */
+  forceIndexKey?: string | null;
 }
 
 const PROPERTY_OPTIONS = ALL_NUMERIC_PROPERTIES.map((p) => ({ value: p.key as string, label: `${p.label} (${p.unit})` }));
@@ -101,7 +104,7 @@ function AxisLimitSlider({ axis, color, domain, limit, log, onChange }: { axis: 
   );
 }
 
-export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId, compareList, onCompareMany, onApplyToFilter }: AshbyChartPlotlyProps) {
+export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMaterialClick, selectedId, compareList, onCompareMany, onApplyToFilter, forceIndexKey }: AshbyChartPlotlyProps) {
   /** 모바일 (width < 640) 감지 — Plotly 마진/폰트, 툴바 컴팩트 모드, 레전드 표시 여부를 동시 조절.
    *  resize listener 로 회전·창 변경에도 반응. */
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches);
@@ -156,6 +159,22 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  /** 라운드 14 — forceIndexKey prop 변경 시 (사례 적용 등) 자동 axis + index 전환.
+   *  URL idx= 가 mount 후에 변경되거나 차트가 이미 mount 되어있는 경우 useEffect[] 에 잡히지 않으므로
+   *  prop 으로 명시적 재설정 받음. 사용자가 차트에서 직접 다른 axis 로 바꾼 후 사례를 다시 적용하면
+   *  의도가 명확해서 prop 우선 처리. */
+  useEffect(() => {
+    if (!forceIndexKey) return;
+    const p = MATERIAL_INDICES.find((i) => i.key === forceIndexKey);
+    if (!p) return;
+    setIndexPreset(forceIndexKey);
+    setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null);
+    toast.success(`Ashby 축 자동 전환: ${p.label}`, {
+      description: `X = ${p.x} · Y = ${p.y}. 상단 Index 드롭다운에서 변경 가능.`,
+      duration: 5000,
+    });
+  }, [forceIndexKey]);
 
   const filtered = filteredMaterials || materials;
   const dom = (prop: string): [number, number] => {

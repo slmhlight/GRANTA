@@ -1151,6 +1151,28 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
 
 export type ScenarioKey = keyof typeof SCENARIO_PRESETS;
 
+/** indexHint 문자열에서 Ashby 차트의 MATERIAL_INDICES 키 추출.
+ *  예: "경량 강성 보 E^½/ρ — 평판이면 E^⅓/ρ" → 'sqrtE/rho'. 실패 시 null.
+ *  ScenarioDialog 와 Home (자동 축 전환) 양쪽에서 재사용. */
+export function indexKeyFromHint(hint?: string): string | null {
+  if (!hint) return null;
+  const tests: [RegExp, string][] = [
+    [/E\^½\s*\/\s*ρ/, 'sqrtE/rho'],
+    [/E\^⅓\s*\/\s*ρ/, 'cbrtE/rho'],
+    [/E\s*\/\s*ρ/, 'E/rho'],
+    [/σy²\s*\/\s*E/, 'Sy2/E'],
+    [/σy\s*\/\s*E/, 'Sy/E'],
+    [/σy\^⅔\s*\/\s*ρ/, 'Sy23/rho'],
+    [/σy\^½\s*\/\s*ρ/, 'sqrtSy/rho'],
+    [/σy\s*\/\s*ρ/, 'Sy/rho'],
+    [/k\s*\/\s*ρ/, 'k/rho'],
+    [/E\s*\/\s*Cm/, 'E/cost'],
+    [/σy\s*\/\s*Cm/, 'Sy/cost'],
+  ];
+  for (const [re, key] of tests) if (re.test(hint)) return key;
+  return null;
+}
+
 /* ──────────────────────────────────────────────────────────────────────────
  * URL 쿼리 파라미터 직렬화 — 다이얼로그가 계산한 filters 오버라이드를
  * `?p=KEY&f.XYZ=...` 형태로 인코딩, Home이 디코드해 baseline 위에 머지.

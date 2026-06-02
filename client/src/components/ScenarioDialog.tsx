@@ -8,28 +8,7 @@ import { useLocation } from 'wouter';
 import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Play, Sigma, ChevronDown, ChevronRight } from 'lucide-react';
-import { SCENARIO_PRESETS, encodeFiltersToParams, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
-
-/** indexHint 문자열에서 차트의 MATERIAL_INDICES 키 추출.
- *  예: "경량 강성 보 E^½/ρ — 평판이면 E^⅓/ρ" → 'sqrtE/rho'. 실패 시 null. */
-function indexKeyFromHint(hint?: string): string | null {
-  if (!hint) return null;
-  const tests: [RegExp, string][] = [
-    [/E\^½\s*\/\s*ρ/, 'sqrtE/rho'],
-    [/E\^⅓\s*\/\s*ρ/, 'cbrtE/rho'],
-    [/E\s*\/\s*ρ/, 'E/rho'],
-    [/σy²\s*\/\s*E/, 'Sy2/E'],
-    [/σy\s*\/\s*E/, 'Sy/E'],
-    [/σy\^⅔\s*\/\s*ρ/, 'Sy23/rho'],
-    [/σy\^½\s*\/\s*ρ/, 'sqrtSy/rho'],
-    [/σy\s*\/\s*ρ/, 'Sy/rho'],
-    [/k\s*\/\s*ρ/, 'k/rho'],
-    [/E\s*\/\s*Cm/, 'E/cost'],
-    [/σy\s*\/\s*Cm/, 'Sy/cost'],
-  ];
-  for (const [re, key] of tests) if (re.test(hint)) return key;
-  return null;
-}
+import { SCENARIO_PRESETS, encodeFiltersToParams, indexKeyFromHint, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
 
 /** 접을 수 있는 그룹 — defaultOpen 첫 그룹은 열려, 나머지는 닫혀 시작.
  *  count: 접힌 상태에서도 "이 그룹에 N개 입력이 있다"는 뱃지를 띄움 (NB3). */

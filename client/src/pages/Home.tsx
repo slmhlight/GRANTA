@@ -42,7 +42,7 @@ import { ComparePanel } from '@/components/ComparePanel';
 import { useMaterialFilter } from '@/hooks/useMaterialFilter';
 import { exportMaterialsToCSV, generateCSVFilename } from '@/lib/csv-export';
 import type { Material } from '@/lib/materials';
-import { SCENARIO_PRESETS, decodeFiltersFromParams, encodeFiltersToParams, type ScenarioKey } from '@/lib/scenario-presets';
+import { SCENARIO_PRESETS, decodeFiltersFromParams, encodeFiltersToParams, indexKeyFromHint, type ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { ScenarioCompareSheet } from '@/components/ScenarioCompareSheet';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
@@ -158,6 +158,9 @@ export default function Home() {
       // 다른 뷰로 전환했을 때 배너의 "Ashby로 보기" 버튼이 다시 안내해 줄 수 있게 함.
       if (cfg.viewMode) setViewMode(cfg.viewMode);
       setAppliedPreset({ key: p, label: cfg.label, indexHint: cfg.indexHint, suggestedView: cfg.viewMode });
+      // 사례 적용 시 좌측 사이드바 자동 닫기 — 차트/테이블이 더 잘 보이게.
+      // 사용자가 명시적으로 다시 열면 (chevron 클릭) 그대로 유지됨.
+      setSidebarOpen(false);
       // Round 9: URL clear 제거 — share URL 보존이 더 큰 가치. 사용자가 새로고침해도 같은 사례 +
       // 같은 필터가 재적용될 뿐, 데이터/사용자에게 부작용 없음. URL 이 길어 보이는 게 흠이라
       // 별도 'URL 정리' 버튼 (배너 닫기 시점) 으로 처리.
@@ -947,6 +950,7 @@ export default function Home() {
                   onMaterialClick={handleSelectMaterial}
                   onCompareMany={handleAddManyToCompare}
                   onApplyToFilter={handleApplyToFilter}
+                  forceIndexKey={appliedPreset ? indexKeyFromHint(appliedPreset.indexHint) : null}
                 />
               </Suspense>
             )}
