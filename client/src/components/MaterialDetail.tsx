@@ -11,6 +11,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
 import { htGlossaryFor } from '@/lib/ht-glossary';
+import { computeCET, computeMachinability } from '@/lib/welding-machinability';
 import { TempCurveChart } from '@/components/TempCurveChart';
 import { CreepRuptureChart } from '@/components/CreepRuptureChart';
 import { recommendedCoatings } from '@/lib/coatings';
@@ -283,6 +284,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               <span><span className="text-sky-600">handbook</span> {t('detail.confidence.handbook')}</span>
               <span><span className="text-amber-600">class</span> {t('detail.confidence.class')}</span>
               <span><span className="text-rose-500">≈UTS</span> {t('detail.confidence.derived')}</span>
+              {/* R67 #11 — MMPDS A/B basis 안내 link → Guide datasheet section */}
+              <a href="/guide#ch8" className="ml-auto text-accent hover:underline">A/B basis 의미 →</a>
             </div>
             <div>
               <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><FlaskConical className="w-3 h-3" />Mechanical Properties</h3>
@@ -310,6 +313,48 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 </div>
               </div>
             )}
+            {/* R67 #13·#14 — 제조성 (Machinability rating + CET 자동 계산). Metal 만, 데이터 매칭 시. */}
+            {(() => {
+              const mach = computeMachinability(material);
+              const cet = computeCET(material);
+              if (!mach && !cet) return null;
+              const bandColor = (b: string) => ({
+                easy: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+                normal: 'text-foreground bg-muted/40 border-border',
+                hard: 'text-amber-700 bg-amber-50 border-amber-200',
+                very_hard: 'text-rose-700 bg-rose-50 border-rose-200',
+                low: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+                med: 'text-amber-700 bg-amber-50 border-amber-200',
+                high: 'text-rose-700 bg-rose-50 border-rose-200',
+              } as Record<string, string>)[b] || '';
+              return (
+                <div>
+                  <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Layers className="w-3 h-3" />제조성 (Manufacturability)</h3>
+                  <div className="space-y-2 text-[12px]">
+                    {mach && (
+                      <div className={`rounded border p-2 ${bandColor(mach.band)}`}>
+                        <div className="flex items-baseline justify-between gap-2">
+                          <b>절삭성 (Machinability)</b>
+                          <span className="font-mono">{mach.rating}% <span className="text-[10px]">· {mach.label}</span></span>
+                        </div>
+                        <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{mach.note}</p>
+                        <p className="text-[10px] mt-1 text-muted-foreground">기준: AISI 1018 = 100% (ASM Vol. 16 Machining)</p>
+                      </div>
+                    )}
+                    {cet && (
+                      <div className={`rounded border p-2 ${bandColor(cet.band)}`}>
+                        <div className="flex items-baseline justify-between gap-2">
+                          <b>용접성 CET</b>
+                          <span className="font-mono">{cet.cet.toFixed(2)} <span className="text-[10px]">· {cet.label}</span></span>
+                        </div>
+                        <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{cet.note}</p>
+                        <p className="text-[10px] mt-1 text-muted-foreground">{cet.preheat} · IIW Doc IX-1086-87 (CET = C + (Mn+Mo)/10 + (Cr+Cu)/20 + Ni/40)</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })()}
             {material.elevated_temp && material.elevated_temp.length > 0 && (
               <div>
                 <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Thermometer className="w-3 h-3" />{t('detail.tempCurve.title')}</h3>
