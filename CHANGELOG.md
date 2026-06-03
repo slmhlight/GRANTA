@@ -2,6 +2,12 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R77 — Table·Card view 에 개발 스토리 배지
+`m.story` 가 있는 합금의 이름 옆에 작은 amber `BookText` 아이콘 표시. 사용자가 list 에서 즉시 "이 재료엔 개발 역사 + industry-standard 응용 기록이 있다" 를 인지 가능.
+- **MaterialTable**: 이름 셀의 family-color dot 옆에 W3 H3 amber BookText, hover title "개발 스토리·industry-standard 응용 기록 있음 (Process 탭)"
+- **MaterialCards**: 이름 텍스트 inline 첫 글자 앞에 W3 H3 amber BookText, card title attribute 에 동일 hint
+- 적용 대상 = R75 의 99 alloy (Inconel 718/625 의 condition 변형 모두, AISI 304/304L/316/1010/1018/1020/4140, Ti-6Al-4V, AA 6061/5052/2024/7075, 17-4 PH, Maraging 300, Stellite 6, Nylon 66, PMMA, PP, ABS, PC, PETG, PLA, PEEK, A356, Hadfield Mn13, AZ31B, Al-Bronze, Cu C11000, Nitinol, Invar 36, Alumina, Si₃N₄, WC-Co, CFRP T800, GFRP, POM Delrin, PVC)
+
 ## R76 — Story Process 탭 이동 + Composition 탭 SVG 도넛차트
 **Story 위치 이동**: R75 에서 Properties 탭 최상단에 노출하던 History·개발 스토리 amber 박스를 **Process 탭** 최상단으로 옮김. Properties 는 다축 성능 (Radar) → 기계·물리·열·비용으로 즉시 접근, Process 는 alias·family·heat treatment 와 함께 dev history 가 자연스럽게 묶임.
 **Composition 도넛차트**: `CompositionDisplay` 가 모든 재료의 chemical composition 을 SVG 도넛으로 시각화. 풍성한 polymer 부터 99% Fe 강철까지 동일 컴포넌트로 대응.

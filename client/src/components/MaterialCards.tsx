@@ -5,7 +5,7 @@
  */
 
 import { useState } from 'react';
-import { Plus, Check } from 'lucide-react';
+import { Plus, Check, BookText } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import type { Material } from '@/lib/materials';
 import { formatValue, CATEGORY_COLORS, SUBCATEGORY_COLORS } from '@/lib/materials';
@@ -111,8 +111,14 @@ export function MaterialCards({
                     {isCompare ? <Check className="w-2.5 h-2.5" /> : <Plus className="w-2.5 h-2.5" />}
                   </button>
 
-                  {/* Name */}
-                  <p className="text-[11px] font-semibold text-foreground leading-tight pr-5 mb-1 line-clamp-2" title={m.name}>
+                  {/* Name + R77 story 뱃지 */}
+                  <p className="text-[11px] font-semibold text-foreground leading-tight pr-5 mb-1 line-clamp-2" title={m.story ? `${m.name} — 개발 스토리·industry-standard 응용 기록 있음 (Process 탭)` : m.name}>
+                    {m.story && (
+                      <BookText
+                        className="inline w-3 h-3 mr-1 -mt-0.5 text-amber-600"
+                        aria-label="개발 스토리 있음"
+                      />
+                    )}
                     {m.name}
                   </p>
 

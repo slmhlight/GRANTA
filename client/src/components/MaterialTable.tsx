@@ -5,7 +5,7 @@
  */
 
 import { useState, useRef, useEffect } from 'react';
-import { ChevronUp, ChevronDown, ChevronsUpDown, Plus, Check, Minus } from 'lucide-react';
+import { ChevronUp, ChevronDown, ChevronsUpDown, Plus, Check, Minus, BookText } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import type { Material } from '@/lib/materials';
 import { formatValue, CATEGORY_COLORS, SUBCATEGORY_COLORS } from '@/lib/materials';
@@ -157,7 +157,7 @@ export function MaterialTable({
                     </button>
                   </td>
 
-                  {/* Material name */}
+                  {/* Material name + R77 story 뱃지 */}
                   <td className="px-3 py-1.5">
                     <div className="flex items-center gap-2">
                       <span
@@ -165,6 +165,15 @@ export function MaterialTable({
                         style={{ background: famColor }}
                         title={m.subcategory}
                       />
+                      {m.story && (
+                        <span
+                          className="flex-shrink-0"
+                          title="개발 스토리·industry-standard 응용 기록 있음 (Process 탭)"
+                          aria-label="개발 스토리 있음"
+                        >
+                          <BookText className="w-3 h-3 text-amber-600" />
+                        </span>
+                      )}
                       <span className="font-medium text-foreground truncate max-w-[200px]" title={m.name}>
                         {m.name}
                       </span>
