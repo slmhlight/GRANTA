@@ -503,6 +503,18 @@ export default function Home() {
     setShowCompare(true);
     setSelectedMaterial(null);
   }, []);
+  // R58 — header checkbox 전체 토글 (add=true union, add=false difference). MAX_COMPARE 자동 제한.
+  const handleToggleAllCompare = useCallback((ids: string[], add: boolean) => {
+    setCompareList(prev => {
+      if (add) {
+        const next = [...prev];
+        for (const id of ids) { if (next.length >= MAX_COMPARE) break; if (!next.includes(id)) next.push(id); }
+        return next;
+      }
+      const removeSet = new Set(ids);
+      return prev.filter(id => !removeSet.has(id));
+    });
+  }, []);
 
   const handleApplyToFilter = useCallback((ids: string[]) => { setRestrictIds(ids.length ? ids : null); }, []);
 
@@ -1176,6 +1188,7 @@ export default function Home() {
                 compareList={compareList}
                 onSelect={handleSelectMaterial}
                 onToggleCompare={handleToggleCompare}
+                onToggleAll={handleToggleAllCompare}
                 sortKey={sortKey}
                 sortDir={sortDir}
                 onSort={toggleSort}

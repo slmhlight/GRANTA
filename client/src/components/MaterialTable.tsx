@@ -4,8 +4,8 @@
  * Sortable table with pagination, row selection, compare checkbox
  */
 
-import { useState } from 'react';
-import { ChevronUp, ChevronDown, ChevronsUpDown, Plus, Check } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { ChevronUp, ChevronDown, ChevronsUpDown, Plus, Check, Minus } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import type { Material } from '@/lib/materials';
 import { formatValue, CATEGORY_COLORS, SUBCATEGORY_COLORS } from '@/lib/materials';
@@ -17,6 +17,8 @@ interface MaterialTableProps {
   compareList: string[];
   onSelect: (m: Material) => void;
   onToggleCompare: (id: string) => void;
+  /** R58 — 일괄 add/remove (현재 page 의 모든 id). add=true → set union, false → set difference. */
+  onToggleAll?: (ids: string[], add: boolean) => void;
   sortKey: keyof Material;
   sortDir: 'asc' | 'desc';
   onSort: (key: keyof Material) => void;
@@ -50,6 +52,7 @@ export function MaterialTable({
   compareList,
   onSelect,
   onToggleCompare,
+  onToggleAll,
   sortKey,
   sortDir,
   onSort,
@@ -63,6 +66,19 @@ export function MaterialTable({
     setPage(0);
   }
 
+  // R58 — header checkbox 3-state (none / some / all-on-this-page).
+  const pageIds = pageData.map(m => m.id);
+  const compareSet = new Set(compareList);
+  const onPageCount = pageIds.filter(id => compareSet.has(id)).length;
+  const headerState: 'none' | 'some' | 'all' =
+    onPageCount === 0 ? 'none' : onPageCount === pageIds.length ? 'all' : 'some';
+  const headerRef = useRef<HTMLInputElement>(null);
+  useEffect(() => { if (headerRef.current) headerRef.current.indeterminate = headerState === 'some'; }, [headerState]);
+  const toggleAllOnPage = () => {
+    if (!onToggleAll) return;
+    onToggleAll(pageIds, headerState !== 'all');  // none/some → add, all → remove
+  };
+
   return (
     <div className="flex flex-col h-full">
       {/* Table */}
@@ -70,9 +86,26 @@ export function MaterialTable({
         <table className="w-full text-xs border-collapse">
           <thead className="sticky top-0 z-10">
             <tr className="bg-muted/80 backdrop-blur-sm border-b-2 border-border">
-              {/* Compare checkbox col */}
+              {/* Compare checkbox col — R58 header checkbox */}
               <th className="w-8 px-2 py-2 text-left">
-                <span className="sr-only">Compare</span>
+                {onToggleAll ? (
+                  <button
+                    type="button"
+                    onClick={toggleAllOnPage}
+                    className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
+                      headerState === 'all'
+                        ? 'bg-accent border-accent text-accent-foreground'
+                        : headerState === 'some'
+                          ? 'bg-accent/40 border-accent text-accent-foreground'
+                          : 'border-border/60 hover:border-accent/60 text-transparent hover:text-accent/40'
+                    }`}
+                    title={headerState === 'all' ? `현재 페이지 ${pageIds.length}개 모두 해제` : `현재 페이지 ${pageIds.length}개 모두 Compare 에 추가`}
+                  >
+                    {headerState === 'all' ? <Check className="w-3 h-3" /> : headerState === 'some' ? <Minus className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
+                  </button>
+                ) : (
+                  <span className="sr-only">Compare</span>
+                )}
               </th>
               {COLUMNS.map(col => (
                 <th
