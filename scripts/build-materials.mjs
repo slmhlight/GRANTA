@@ -359,6 +359,10 @@ function aliasesFor(name) {
   const set = new Set(extractAliases(name));
   const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
   for (const tok of String(name).split(/[\s(),/]+/)) if (/\d/.test(tok)) keys.add(norm(tok));
+  // Sprint1 A1 — sub-token 매칭 강화. "Tool Steel H13" / "Maraging 300 (UNS K93120)" /
+  //   "Stainless Steel 17-4PH" 같은 prefix-augmented name 도 ALIAS_MAP 매칭.
+  const subTokens = String(name).toLowerCase().match(/\b(?:h1[013]|m2|d2|d3|skd\d{2}|17[\s-]?4\s?ph|15[\s-]?5\s?ph|maraging\s?\d{0,3}|inconel\s?\d{3}|hastelloy\s?[a-z]\b|hastelloy\s?[cxbn]-?\d{0,3}|haynes\s?\d{3}|nimonic\s?\d{2,3}|monel\s?[a-z]?-?\d{0,3}|aa\s?\d{4}|s45c|scm\d{3,4}|sncm\d{3}|sus\d{3}|suj2|s\d{2,3}c|\d{4,5}ph|4\d{3}|8620|9310|52100|100cr6|cocrmo|f75|f1537)\b/g) || [];
+  for (const tok of subTokens) keys.add(norm(tok));
   for (const k of keys) (ALIAS_MAP[k] || []).forEach((a) => set.add(a));
   return Array.from(set);
 }
@@ -2485,6 +2489,16 @@ showSev('high', 40);
 showSev('med', 20);
 showSev('low', 10);
 
+// Sprint1 B7 — cost data 시점 명시 (사용자가 raw price 가 언제 기준인지 알 수 있도록).
+rep.push('## Cost Data Provenance', '');
+rep.push('- Bulk pricing typical from **2026 Q1** snapshots (LME 2026-01 / Special Metals 2026 price book / MatWeb 2026).');
+rep.push('- Actual quotes from vendors vary ±30% (volume, lead time, region).');
+rep.push('- Tier 1 alloys (Inconel/Hastelloy/Ti): Special Metals / Haynes published list price.');
+rep.push('- Tier 2 (Wrought 강·Al·Cu): LME spot + vendor markup ~15-30%.');
+rep.push('- Polymer: resin grade pellet price (Victrex / SABIC / EOS published).');
+rep.push('- AM powder: typical 2-4× wrought equivalent (atomization premium).');
+rep.push('- **Refresh frequency**: quarterly. Last sync: 2026-Q1.');
+rep.push('');
 rep.push('## TODO', '- Hardness scale unification (HV/HRC/HB).', '- Reconcile fatigue/impact gaps where datasheets provide values.', '- (R34d candidate) Polymer creep rupture curves (PEEK / ULTEM / PEKK 100–200°C, 1000–10⁴ h).');
 
 const liveJson = path.join(ROOT, 'client', 'public', 'materials.json');

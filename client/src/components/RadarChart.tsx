@@ -108,6 +108,16 @@ export function RadarChart({
 
   return (
     <div className={className} style={{ width: size }}>
+      {/* Sprint1 A6 — normalize base 인디케이터 ("Base: N alloys"). single mode 만 표시. */}
+      {series.length === 1 && allMaterials && (
+        <div className="text-[9px] text-muted-foreground/70 mb-1 leading-tight">
+          Base: <b className="text-foreground/70">{baseSet.length}</b> alloys ·{' '}
+          {normalizeBase === 'category' && `Category (${series[0].material.category})`}
+          {normalizeBase === 'family3' && `3rd Family (${series[0].material.subcategory})`}
+          {normalizeBase === 'family2' && `2nd Family`}
+          {normalizeBase === 'set' && `Compare set`}
+        </div>
+      )}
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="block">
         {/* Grid rings */}
         {[0.25, 0.5, 0.75, 1.0].map((g, i) => {

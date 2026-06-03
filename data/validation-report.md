@@ -111,6 +111,16 @@ Total: **330** — high 0 / medium 0 / low 330
 | AISI 5140 — Aged / solution-treated (Wrought) | no verified source URL |  |
 | AISI 5140 — Annealed (Wrought) | no verified source URL |  |
 
+## Cost Data Provenance
+
+- Bulk pricing typical from **2026 Q1** snapshots (LME 2026-01 / Special Metals 2026 price book / MatWeb 2026).
+- Actual quotes from vendors vary ±30% (volume, lead time, region).
+- Tier 1 alloys (Inconel/Hastelloy/Ti): Special Metals / Haynes published list price.
+- Tier 2 (Wrought 강·Al·Cu): LME spot + vendor markup ~15-30%.
+- Polymer: resin grade pellet price (Victrex / SABIC / EOS published).
+- AM powder: typical 2-4× wrought equivalent (atomization premium).
+- **Refresh frequency**: quarterly. Last sync: 2026-Q1.
+
 ## TODO
 - Hardness scale unification (HV/HRC/HB).
 - Reconcile fatigue/impact gaps where datasheets provide values.
