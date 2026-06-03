@@ -8,7 +8,7 @@
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Search, SlidersHorizontal, MousePointerClick, GitCompareArrows, Rocket, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, SlidersHorizontal, MousePointerClick, GitCompareArrows, Rocket, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLang } from '@/lib/i18n';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 
@@ -20,6 +20,29 @@ interface Props {
 }
 
 /* ───────── R61 #8 — Step illustrations (inline SVG, no extra bundle weight) ───────── */
+function IllustWelcome() {
+  // 1040 alloys · 차트 · 사례. KO 모드에서도 영문 fallback 가능.
+  return (
+    <svg viewBox="0 0 200 64" className="w-full h-16">
+      <g transform="translate(10 12)">
+        <rect width="52" height="40" rx="6" fill="oklch(0.6 0.12 220 / 0.15)" stroke="oklch(0.6 0.12 220)" />
+        <text x="26" y="22" textAnchor="middle" fontSize="14" fontWeight="bold" fill="oklch(0.45 0.12 220)">1,040</text>
+        <text x="26" y="34" textAnchor="middle" fontSize="7" fill="oklch(0.45 0.12 220)">alloys</text>
+      </g>
+      <g transform="translate(74 12)">
+        <rect width="52" height="40" rx="6" fill="oklch(0.6 0.12 30 / 0.15)" stroke="oklch(0.6 0.12 30)" />
+        <polyline points="6,32 18,22 28,28 40,12 46,18" fill="none" stroke="oklch(0.5 0.12 30)" strokeWidth="2" />
+        <circle cx="46" cy="18" r="3" fill="oklch(0.5 0.12 30)" />
+        <text x="26" y="38" textAnchor="middle" fontSize="6" fill="oklch(0.45 0.12 30)">Ashby</text>
+      </g>
+      <g transform="translate(138 12)">
+        <rect width="52" height="40" rx="6" fill="oklch(0.6 0.12 110 / 0.15)" stroke="oklch(0.6 0.12 110)" />
+        <text x="26" y="22" textAnchor="middle" fontSize="14" fontWeight="bold" fill="oklch(0.45 0.12 110)">16</text>
+        <text x="26" y="34" textAnchor="middle" fontSize="7" fill="oklch(0.45 0.12 110)">사례</text>
+      </g>
+    </svg>
+  );
+}
 function IllustSearch() {
   return (
     <svg viewBox="0 0 200 60" className="w-full h-16">
@@ -130,6 +153,7 @@ interface StepEntry {
 }
 
 const STEPS_KO: StepEntry[] = [
+  { icon: Sparkles, illust: IllustWelcome, title: '환영합니다', body: 'AM Materials Explorer 는 1,040 합금 데이터베이스 · Ashby 차트 · 16 설계 사례를 한 곳에서. 약 1분이면 둘러보기 완료, 곧장 한 사례로 시작할 수 있어요.' },
   { icon: Search, illust: IllustSearch, title: '1. 검색', body: '상단 검색창에서 합금 이름·별칭·공정으로 검색하세요. 구분자·약어도 fuzzy 검색으로 잡힙니다. 예: "ti6al4v", "316l", "ss316".' },
   { icon: SlidersHorizontal, illust: IllustFilter, title: '2. 필터', body: '왼쪽 사이드바에서 카테고리·공정·물성·조성으로 필터링하세요. Granta MI 스타일 — 한 필터가 좁혀지면 다른 필터의 범위도 자동 좁아집니다.' },
   { icon: MousePointerClick, illust: IllustDetail, title: '3. 상세 보기', body: '재료를 클릭하면 우측에 상세 패널이 열립니다. 측정값 범위(min/max/typical), Radar 차트, Composition, 출처 datasheet URL 까지 확인 가능합니다.' },
@@ -138,6 +162,7 @@ const STEPS_KO: StepEntry[] = [
 ];
 
 const STEPS_EN: StepEntry[] = [
+  { icon: Sparkles, illust: IllustWelcome, title: 'Welcome', body: 'AM Materials Explorer combines a 1,040-alloy database, Ashby charts, and 16 design scenarios in one place. The tour takes about a minute — you can also jump straight into one scenario.' },
   { icon: Search, illust: IllustSearch, title: '1. Search', body: 'Search by alloy name, alias, or process in the top search bar. Fuzzy matching handles separators and abbreviations — try "ti6al4v", "316l", or "ss316".' },
   { icon: SlidersHorizontal, illust: IllustFilter, title: '2. Filter', body: 'Use the left sidebar to filter by category, process, properties, or composition. Granta MI-style — narrowing one filter automatically narrows the others.' },
   { icon: MousePointerClick, illust: IllustDetail, title: '3. Material Detail', body: 'Click a material to open the detail panel on the right. See measurement ranges (min/max/typical), a Radar chart, composition, and verified datasheet URLs.' },

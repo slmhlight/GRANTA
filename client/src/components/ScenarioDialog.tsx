@@ -535,9 +535,15 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
           </div>
         </div>
 
-        <SheetFooter className="border-t border-border/60 mt-0 flex-row justify-end gap-2 p-4">
-          <Button variant="outline" onClick={() => onOpenChange(false)}>{t('scenario.cancel')}</Button>
-          <Button onClick={apply} className="gap-1.5"><Play className="w-3.5 h-3.5" /> {t('scenario.apply')}</Button>
+        <SheetFooter className="border-t border-border/60 mt-0 flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-4">
+          {/* R63 B — 기본값 그대로 적용 가능 안내. 비전공자가 모든 필드 채워야 한다 오해 방지. */}
+          <p className="text-[11px] text-muted-foreground flex items-center gap-1 sm:max-w-[55%]">
+            💡 입력 값을 비워두면 default 가 사용됩니다. <b className="text-foreground/70">기본값 그대로 적용</b> 만 해도 추천 필터·차트가 셋업됩니다.
+          </p>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" onClick={() => onOpenChange(false)}>{t('scenario.cancel')}</Button>
+            <Button onClick={apply} className="gap-1.5"><Play className="w-3.5 h-3.5" /> {t('scenario.apply')}</Button>
+          </div>
         </SheetFooter>
       </SheetContent>
     </Sheet>

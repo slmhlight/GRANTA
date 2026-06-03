@@ -108,10 +108,15 @@ export function RadarChart({
 
   return (
     <div className={className} style={{ width: size }}>
-      {/* Sprint1 A6 — normalize base 인디케이터 ("Base: N alloys"). single mode 만 표시. */}
+      {/* Sprint1 A6 + R63 E — normalize base 인디케이터. abbr title 로 의미 풀이 (Base = 1.0 기준집합). */}
       {series.length === 1 && allMaterials && (
         <div className="text-[9px] text-muted-foreground/70 mb-1 leading-tight">
-          Base: <b className="text-foreground/70">{baseSet.length}</b> alloys ·{' '}
+          <abbr
+            title={`Radar 축의 1.0 = 이 N개 합금의 typical 값 최고치. 같은 기준 위에서 상대 위치를 비교합니다.`}
+            className="cursor-help no-underline border-b border-dotted border-muted-foreground/40"
+          >
+            Base
+          </abbr>: <b className="text-foreground/70">{baseSet.length}</b> alloys ·{' '}
           {normalizeBase === 'category' && `Category (${series[0].material.category})`}
           {normalizeBase === 'family3' && `3rd Family (${series[0].material.subcategory})`}
           {normalizeBase === 'family2' && `2nd Family`}

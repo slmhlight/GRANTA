@@ -403,17 +403,18 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {material.machines && material.machines.length > 0 && <Field label="Machines">{material.machines.join(', ')}</Field>}
             {meta.heat_treatments && (meta.heat_treatments as string[]).length > 0 && (
               <Field label="Heat treatments">
-                <span className="flex flex-wrap gap-x-3 gap-y-1">
+                {/* R63 G — 효과 multiline · 색조 강화. 좁은 panel 에서 ellipsis 없이 가독성 ↑. */}
+                <ul className="space-y-1.5 mt-0.5">
                   {(meta.heat_treatments as string[]).map((ht, i) => {
                     const g = htGlossaryFor(ht);
                     return (
-                      <span key={i} className="inline-flex flex-col">
-                        <span className="font-mono text-foreground">{ht}</span>
-                        {g && <span className="text-[9px] text-muted-foreground italic leading-tight">{g.effect}</span>}
-                      </span>
+                      <li key={i} className="leading-snug">
+                        <span className="font-mono text-foreground text-[12px]">{ht}</span>
+                        {g && <span className="block text-[10px] text-muted-foreground/90 italic mt-0.5">— {g.effect}</span>}
+                      </li>
                     );
                   })}
-                </span>
+                </ul>
               </Field>
             )}
             {meta.applications && <Field label="Applications">{String(meta.applications)}</Field>}

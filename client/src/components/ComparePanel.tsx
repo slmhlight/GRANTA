@@ -269,7 +269,14 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
                   <span className="block text-[10px] font-normal text-muted-foreground mt-0.5 whitespace-normal leading-tight">{/USD\//.test(p.unit || '') ? (lang === 'ko' ? `₩${(p.unit || '').replace(/^USD/, '')}` : p.unit) : p.unit}</span>
                 </th>
               ))}
-              {selected.length === 0 && <th className="px-3 py-2 text-muted-foreground italic font-normal bg-card">Pick columns →</th>}
+              {selected.length === 0 && (
+                <th className="px-3 py-2 bg-card">
+                  {/* R63 F — empty state 강화: "어디서 추가하나요" 명시. 첫 사용자 미발견 회귀 방지. */}
+                  <span className="flex items-center gap-1.5 text-xs text-amber-700 font-normal not-italic">
+                    <SlidersHorizontal className="w-3.5 h-3.5 animate-pulse" /> 좌측 상단 <b>Columns</b> 에서 비교할 물성 선택 →
+                  </span>
+                </th>
+              )}
             </tr>
           </thead>
           <tbody>
