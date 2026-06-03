@@ -465,6 +465,156 @@ function PressureVessel() {
   );
 }
 
+/* ───────── #H1 Larson-Miller parameter (creep lifetime) ───────── */
+function LMPCalc() {
+  const [T, setT] = useState(600);   // °C
+  const [t, setT_h] = useState(1000); // h
+  const [C, setC] = useState(20);
+  const Tk = T + 273.15;
+  const LMP = Tk * (C + Math.log10(t)) / 1000; // in 10^3 units
+  // Inverse: same LMP at different T → predict t
+  const [T2, setT2] = useState(650);
+  const T2k = T2 + 273.15;
+  const log_t2 = (LMP * 1000) / T2k - C;
+  const t2 = Math.pow(10, log_t2);
+  return (
+    <div className={W}>
+      <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> Larson-Miller parameter (creep 수명)</p>
+      <p className="text-[11px] text-muted-foreground mb-3">LMP = T·(C+log₁₀ t)/1000 — 같은 응력의 다른 (T,t) 예측. C ≈ 20 (강) · 25 (Ni-base).</p>
+      <svg viewBox="0 0 280 60" className="w-full h-14 mb-2">
+        <line x1="20" y1="50" x2="260" y2="50" stroke="oklch(0.5 0.04 250)" />
+        <line x1="20" y1="10" x2="20" y2="50" stroke="oklch(0.5 0.04 250)" />
+        <path d="M 20 15 Q 90 30 260 45" fill="none" stroke="oklch(0.55 0.12 220)" strokeWidth="2" />
+        <text x="20" y="8" fontSize="8" fill="oklch(0.4 0.04 250)">σ_rupture</text>
+        <text x="260" y="58" textAnchor="end" fontSize="8" fill="oklch(0.4 0.04 250)">LMP →</text>
+        <text x="140" y="40" fontSize="9" fill="oklch(0.45 0.12 220)" fontStyle="italic">master curve</text>
+      </svg>
+      <div className="grid grid-cols-2 gap-2 mb-2 text-[12px]">
+        <div><label className={Lab}>온도 T (°C)</label><input type="number" className={In + ' w-full'} value={T} onChange={(e) => setT(+e.target.value || 0)} /></div>
+        <div><label className={Lab}>시간 t (h)</label><input type="number" className={In + ' w-full'} value={t} onChange={(e) => setT_h(+e.target.value || 1)} /></div>
+        <div><label className={Lab}>상수 C</label><input type="number" className={In + ' w-full'} value={C} onChange={(e) => setC(+e.target.value || 0)} /></div>
+        <div><label className={Lab}>예측 T₂ (°C)</label><input type="number" className={In + ' w-full'} value={T2} onChange={(e) => setT2(+e.target.value || 0)} /></div>
+      </div>
+      <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
+        <div>LMP = <b className="text-base">{LMP.toFixed(2)}</b> × 10³</div>
+        <div className="text-emerald-700">→ T₂={T2}°C 에서 같은 LMP 의 수명 ≈ <b className="text-base">{t2.toExponential(2)} h</b></div>
+      </div>
+      <p className="text-[11px] text-muted-foreground mt-1">전형: P91 σ=100 MPa LMP ≈ 22.5. Inconel 718 σ=400 MPa LMP ≈ 24. ECCC datasheets 참고.</p>
+      <a href="/guide#ch9" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.10 LMP →</a>
+    </div>
+  );
+}
+
+/* ───────── #H2 Mohr's circle ───────── */
+function MohrCalc() {
+  const [sx, setSx] = useState(100);
+  const [sy, setSy] = useState(40);
+  const [txy, setTxy] = useState(30);
+  const center = (sx + sy) / 2;
+  const R = Math.sqrt(((sx - sy) / 2) ** 2 + txy ** 2);
+  const s1 = center + R;
+  const s2 = center - R;
+  const tmax = R;
+  // Principal angle
+  const angle = (Math.atan2(2 * txy, sx - sy) * 180 / Math.PI) / 2;
+  // SVG scale
+  const sw = 280, sh = 180;
+  const cx = sw / 2, cy = sh / 2 + 10;
+  const scale = (sh - 50) / (R * 2 + 20);
+  return (
+    <div className={W}>
+      <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> Mohr's circle (주응력·최대 전단)</p>
+      <p className="text-[11px] text-muted-foreground mb-3">2D 응력 상태 → 주응력 σ₁·σ₂, 최대 전단 τ_max, 회전각.</p>
+      <svg viewBox={`0 0 ${sw} ${sh}`} className="w-full h-32 mb-2 border border-border rounded">
+        <line x1="0" y1={cy} x2={sw} y2={cy} stroke="oklch(0.5 0.04 250)" />
+        <line x1={cx} y1="10" x2={cx} y2={sh - 10} stroke="oklch(0.5 0.04 250)" />
+        <text x={sw - 4} y={cy - 4} textAnchor="end" fontSize="9" fill="oklch(0.45 0.04 250)">σ</text>
+        <text x={cx + 4} y="14" fontSize="9" fill="oklch(0.45 0.04 250)">τ</text>
+        <circle cx={cx + (center - center) * scale} cy={cy} r={R * scale} fill="none" stroke="oklch(0.55 0.12 220)" strokeWidth="2" />
+        {/* current stress point */}
+        <circle cx={cx + (sx - center) * scale} cy={cy - txy * scale} r="4" fill="oklch(0.5 0.18 30)" />
+        <circle cx={cx + (sy - center) * scale} cy={cy + txy * scale} r="4" fill="oklch(0.5 0.18 30)" />
+        {/* sigma1, sigma2 */}
+        <text x={cx + R * scale} y={cy + 13} textAnchor="middle" fontSize="10" fill="oklch(0.45 0.12 220)" fontWeight="bold">σ₁</text>
+        <text x={cx - R * scale} y={cy + 13} textAnchor="middle" fontSize="10" fill="oklch(0.45 0.12 220)" fontWeight="bold">σ₂</text>
+      </svg>
+      <div className="grid grid-cols-3 gap-2 mb-2 text-[12px]">
+        <div><label className={Lab}>σ_x (MPa)</label><input type="number" className={In + ' w-full'} value={sx} onChange={(e) => setSx(+e.target.value || 0)} /></div>
+        <div><label className={Lab}>σ_y (MPa)</label><input type="number" className={In + ' w-full'} value={sy} onChange={(e) => setSy(+e.target.value || 0)} /></div>
+        <div><label className={Lab}>τ_xy (MPa)</label><input type="number" className={In + ' w-full'} value={txy} onChange={(e) => setTxy(+e.target.value || 0)} /></div>
+      </div>
+      <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
+        <div>σ₁ = <b>{s1.toFixed(1)}</b> · σ₂ = <b>{s2.toFixed(1)}</b> MPa</div>
+        <div>τ_max = <b>{tmax.toFixed(1)}</b> MPa · 회전각 = <b>{angle.toFixed(1)}°</b></div>
+        <div className="text-emerald-700 mt-1 pt-1 border-t border-border/30">von Mises σ_eq = √(σ₁² − σ₁σ₂ + σ₂²) ≈ <b>{Math.sqrt(s1*s1 - s1*s2 + s2*s2).toFixed(1)}</b> MPa</div>
+      </div>
+      <a href="/guide#ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 Mohr·복합응력 →</a>
+    </div>
+  );
+}
+
+/* ───────── #H3 Schaeffler diagram (stainless) ───────── */
+function SchaefflerCalc() {
+  const [Cr, setCr] = useState(18);
+  const [Ni, setNi] = useState(10);
+  const [Mo, setMo] = useState(0);
+  const [Si, setSi] = useState(0.5);
+  const [Nb, setNb] = useState(0);
+  const [C, setC] = useState(0.05);
+  const [N, setN] = useState(0.04);
+  const [Mn, setMn] = useState(1.5);
+  const [Cu, setCu] = useState(0);
+  const Cr_eq = Cr + Mo + 1.5 * Si + 0.5 * Nb;
+  const Ni_eq = Ni + 30 * C + 30 * N + 0.5 * Mn + 0.3 * Cu;
+  // Phase prediction (rough Schaeffler zones)
+  let phase = '';
+  if (Ni_eq > 25) phase = 'γ Austenite';
+  else if (Cr_eq > 25 && Ni_eq < 5) phase = 'α Ferrite';
+  else if (Ni_eq < 8 && Cr_eq > 12) phase = "α' Martensite";
+  else phase = 'A+F (Duplex 영역)';
+  // SVG positions: Cr_eq x-axis (0–40), Ni_eq y-axis (0–32)
+  const sw = 280, sh = 200;
+  const X = (v: number) => 30 + (v / 40) * (sw - 40);
+  const Y = (v: number) => sh - 25 - (v / 32) * (sh - 40);
+  return (
+    <div className={W}>
+      <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> Schaeffler diagram (stainless 미세조직)</p>
+      <p className="text-[11px] text-muted-foreground mb-3">Cr-eq / Ni-eq 로 austenite·ferrite·martensite·duplex 영역 예측. 용접부 미세조직 추정에 사용.</p>
+      <svg viewBox={`0 0 ${sw} ${sh}`} className="w-full h-44 mb-2 border border-border rounded bg-white">
+        {/* axes */}
+        <line x1="30" y1={sh - 25} x2={sw - 10} y2={sh - 25} stroke="oklch(0.4 0.04 250)" />
+        <line x1="30" y1="15" x2="30" y2={sh - 25} stroke="oklch(0.4 0.04 250)" />
+        {[0, 10, 20, 30, 40].map(v => <g key={v}><line x1={X(v)} y1="15" x2={X(v)} y2={sh - 22} stroke="oklch(0.92 0.012 250)" /><text x={X(v)} y={sh - 10} textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">{v}</text></g>)}
+        {[0, 8, 16, 24, 32].map(v => <g key={v}><line x1="30" y1={Y(v)} x2={sw - 10} y2={Y(v)} stroke="oklch(0.92 0.012 250)" /><text x="24" y={Y(v) + 3} textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">{v}</text></g>)}
+        {/* Phase zones (rough boundaries) */}
+        <text x={X(8)} y={Y(28)} fontSize="9" fill="oklch(0.5 0.12 220)" fontWeight="bold">γ Austenite</text>
+        <text x={X(32)} y={Y(2)} fontSize="9" fill="oklch(0.5 0.12 30)" fontWeight="bold">α Ferrite</text>
+        <text x={X(15)} y={Y(2)} fontSize="9" fill="oklch(0.5 0.12 80)" fontWeight="bold">α' Mart.</text>
+        <text x={X(22)} y={Y(12)} fontSize="9" fill="oklch(0.4 0.04 250)" fontStyle="italic">A+F</text>
+        {/* User point */}
+        <circle cx={X(Cr_eq)} cy={Y(Ni_eq)} r="5" fill="oklch(0.5 0.18 30)" stroke="white" strokeWidth="2" />
+        <text x={X(Cr_eq) + 7} y={Y(Ni_eq) + 3} fontSize="10" fill="oklch(0.4 0.18 30)" fontWeight="bold">현재</text>
+        <text x={sw / 2} y={sh - 2} textAnchor="middle" fontSize="9" fill="oklch(0.3 0.04 250)" fontWeight="bold">Cr-eq</text>
+        <text x="8" y="10" fontSize="9" fill="oklch(0.3 0.04 250)" fontWeight="bold">Ni-eq</text>
+      </svg>
+      <div className="grid grid-cols-3 gap-1 mb-2 text-[11px]">
+        {[{l:'Cr', v:Cr, s:setCr}, {l:'Ni', v:Ni, s:setNi}, {l:'Mo', v:Mo, s:setMo}, {l:'Si', v:Si, s:setSi}, {l:'Nb', v:Nb, s:setNb}, {l:'C', v:C, s:setC}, {l:'N', v:N, s:setN}, {l:'Mn', v:Mn, s:setMn}, {l:'Cu', v:Cu, s:setCu}].map(f => (
+          <label key={f.l}>
+            <span className="text-muted-foreground text-[10px]">{f.l} %</span>
+            <input type="number" step="0.1" className={In + ' w-full'} value={f.v} onChange={(e) => f.s(+e.target.value || 0)} />
+          </label>
+        ))}
+      </div>
+      <div className="rounded bg-muted/30 p-2 text-sm font-mono">
+        <div>Cr-eq = <b>{Cr_eq.toFixed(1)}</b> · Ni-eq = <b>{Ni_eq.toFixed(1)}</b></div>
+        <div className="text-emerald-700 mt-1">예측 미세조직: <b>{phase}</b></div>
+      </div>
+      <p className="text-[11px] text-muted-foreground mt-1">전형: 304 SS Cr-eq≈18·Ni-eq≈10 (γ) · 17-4 PH Cr-eq≈16·Ni-eq≈5 (Mart.) · 2205 Duplex Cr-eq≈25·Ni-eq≈10 (A+F).</p>
+      <a href="/guide#ch12" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.11 가공성·용접성 →</a>
+    </div>
+  );
+}
+
 export default function Tools() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -495,6 +645,9 @@ export default function Tools() {
           <CTEMismatch />
           <HardnessConv />
           <PressureVessel />
+          <LMPCalc />
+          <MohrCalc />
+          <SchaefflerCalc />
         </div>
 
         <div className="mt-8 pt-4 border-t border-border text-[12px] text-muted-foreground">

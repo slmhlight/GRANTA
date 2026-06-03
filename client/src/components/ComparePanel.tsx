@@ -42,6 +42,21 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   const sysUnits = loadUnitSystem();
   // R50d — export 대상 (table) ref + busy state.
   const tableRef = useRef<HTMLDivElement>(null);
+  // R69 G — 사용자 가중치 score (강도·강성·경량·저가). 합 = 100%. score = Σ(w_i · normalized).
+  const [weights, setWeights] = useState({ strength: 40, stiffness: 20, light: 20, cheap: 20 });
+  const wSum = weights.strength + weights.stiffness + weights.light + weights.cheap || 1;
+  const computeScore = (m: Material): number => {
+    const ys = typOf(m, 'yield_strength') || 0;
+    const E = typOf(m, 'modulus') || 0;
+    const rho = typOf(m, 'density') || 1;
+    const price = typOf(m, 'price_per_kg') || 0;
+    return (
+      (weights.strength / wSum) * ys +
+      (weights.stiffness / wSum) * E +
+      (weights.light / wSum) * (100 / rho) +
+      (weights.cheap / wSum) * (price > 0 ? 100 / price : 0)
+    );
+  };
   const [exporting, setExporting] = useState(false);
   // R53a — Radar view mode (table | radar) + radar axes + focus
   const [viewMode, setViewMode] = useState<'table' | 'radar' | 'goodman'>('table');
@@ -262,6 +277,48 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       </div>
 
       <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">{t('compare.hint')}</p>
+      {/* R69 G — 가중치 score 슬라이더 + Top-3 ranking. */}
+      {sortedMaterials.length >= 2 && (
+        <div className="px-4 py-2 border-b border-border/50 bg-sky-50/30">
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-[10px] font-semibold uppercase tracking-wide text-sky-700">⚖ 가중치 종합 score</span>
+            <span className="text-[9px] text-muted-foreground">합 {wSum}%</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-1.5">
+            {[
+              { key: 'strength', label: '강도 σy', max: 100 },
+              { key: 'stiffness', label: '강성 E', max: 100 },
+              { key: 'light', label: '경량 1/ρ', max: 100 },
+              { key: 'cheap', label: '저가 1/$', max: 100 },
+            ].map(s => (
+              <label key={s.key} className="text-[10px] text-foreground/70">
+                <div className="flex justify-between">
+                  <span>{s.label}</span>
+                  <span className="font-mono">{(weights as any)[s.key]}%</span>
+                </div>
+                <input
+                  type="range" min={0} max={s.max} step={5}
+                  value={(weights as any)[s.key]}
+                  onChange={(e) => setWeights(w => ({ ...w, [s.key]: +e.target.value }))}
+                  className="w-full h-1"
+                />
+              </label>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-1.5 text-[11px]">
+            {sortedMaterials.map(m => ({ m, score: computeScore(m) })).sort((a, b) => b.score - a.score).slice(0, 3).map((r, i) => (
+              <span key={r.m.id} className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 border ${
+                i === 0 ? 'bg-amber-100 text-amber-800 border-amber-300 font-semibold'
+                : 'bg-sky-50 text-sky-700 border-sky-200'
+              }`}>
+                <b>{['🥇', '🥈', '🥉'][i]}</b>
+                <span className="font-mono truncate max-w-[140px]">{r.m.name}</span>
+                <span className="text-[9px] opacity-70">({r.score.toFixed(0)})</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
       {/* R69 B — Best-pick badges (sortedMaterials >= 2). */}
       {bestPicks && (
         <div className="px-4 py-2 border-b border-border/50 bg-amber-50/40 flex flex-wrap gap-2 text-[11px]">
