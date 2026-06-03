@@ -48,6 +48,8 @@ export interface Material {
   // Additional properties
   fatigue_strength?: number | null;
   impact_strength?: number | null;
+  // R56-fix #1: Sprint 4 C2 KIC family fallback 데이터 노출.
+  fracture_toughness?: number | null;
   corrosion_resistance?: string | null;
   machinability?: string | null;
   weldability?: string | null;
@@ -134,6 +136,9 @@ export const MECHANICAL_PROPERTIES: PropertyMeta[] = [
   { key: 'hardness', label: 'Hardness', unit: 'HV', description: 'Vickers hardness', group: 'mechanical' },
   { key: 'fatigue_strength', label: 'Fatigue Strength', unit: 'MPa', description: 'Fatigue limit (R=-1)', group: 'mechanical' },
   { key: 'impact_strength', label: 'Impact Strength', unit: 'J', description: 'Charpy impact energy', group: 'mechanical' },
+  // R56-fix #1: Sprint 4 C2 KIC 데이터를 UI 에서 사용 가능하도록 entry 추가.
+  // 814 alloys 가 family fallback (confidence='class') 으로 채워져 있음 — Ashby chart KIC 축 / Detail / Compare 노출.
+  { key: 'fracture_toughness', label: 'Fracture Toughness', unit: 'MPa√m', description: 'Plane-strain fracture toughness K_IC', group: 'mechanical' },
 ];
 
 export const PHYSICAL_PROPERTIES: PropertyMeta[] = [

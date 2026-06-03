@@ -18,7 +18,7 @@ const STEPS_KO = [
   {
     icon: Search,
     title: '1. 검색',
-    body: '상단 검색창에서 합금 이름·별칭·공정으로 검색하세요. 오타·약어도 fuzzy 검색으로 잡힙니다. 예: "tisalv", "316l", "ss316".',
+    body: '상단 검색창에서 합금 이름·별칭·공정으로 검색하세요. 구분자·약어도 fuzzy 검색으로 잡힙니다. 예: "ti6al4v", "316l", "ss316".',
   },
   {
     icon: SlidersHorizontal,
@@ -41,7 +41,7 @@ const STEPS_EN = [
   {
     icon: Search,
     title: '1. Search',
-    body: 'Search by alloy name, alias, or process in the top search bar. Fuzzy matching handles typos and abbreviations — try "tisalv", "316l", or "ss316".',
+    body: 'Search by alloy name, alias, or process in the top search bar. Fuzzy matching handles separators and abbreviations — try "ti6al4v", "316l", or "ss316".',
   },
   {
     icon: SlidersHorizontal,
