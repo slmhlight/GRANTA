@@ -2,6 +2,22 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R79 — popularity 4+ metal 스토리 확장 (65 → 89 base, 176 → 238 alloy 노출)
+popularity 4.0+ metal 중 story 없는 25종 추가. existing key 3종 단축 (`Ti-6Al-4V (Grade 5)` → `Ti-6Al-4V`, `AISI 4140 (...)` → `AISI 4140`, `Copper (Pure, C11000)` → `Copper C11000`) 으로 prefix match 폭 확대. 신규 entry 들도 친근한 한국어 완성문 어투.
+- **AM Al cast 표준** — AlSi10Mg (모든 metal AM vendor 의 default Al 분말, F1 BMW Sauber oil cooler housing 부터 Apple AirPods Max 까지)
+- **carbon steel** — AISI 1045 (S45C 동등, flame-hardenable cam shaft), ASTM A36 (1960 → 미국 빌딩 frame 80%, 매년 8천만 ton)
+- **항공 Al** — AA 5083 (1957 Alcoa Fink, LNG carrier inner tank + Tesla Roadster 1세대 frame), AA 6063 (1935 압출 default, LG Hausys 새시 + curtain wall + Apple Mac mini), AA 1100 (commercial pure, 재활용 Al 의 default destination)
+- **stainless** — AISI 410 (1903 Brearley, 모든 밸브 trim + Wüsthof 칼날), AISI 430 (1929 ferritic, 모든 dishwasher inner liner + kitchen sink), 15-5 PH (1962 Armco, 17-4 의 forging-isotropy 보완)
+- **alias** — Stainless Steel 316L (ELC, 의료 ASTM F138 + 반도체 EP-finished + AM 1순위), 304L Stainless (Cloud Gate 168장 용접), 42CrMo4 (4140 EU 동등), C11000 (ETP 짧은 alias)
+- **공구·금형** — H13 Tool Steel (1929 Carpenter, BMW iX5 Hydrogen FC stack die LPBF), P20 mold steel (1936 Bethlehem, 사출금형 70%), Maraging C300 (EOS MS1 LPBF 표준)
+- **고강도 합금강** — AISI 4340 (1923 SAE, 737/A320 nose gear + Sidewinder motor case), Inconel 718Plus (2000 Allvac Wei-Di Cao, F-35 + Trent XWB 차세대 disc)
+- **copper alloy** — OFHC Copper C10100 (1937, CERN LHC + ITER + Furutech audio), Naval Brass C46400 (1881 영국 royal navy, Big Ben bell bracket + sailor superstition), C26000 Cartridge Brass (1882 Federal, M16/5.56 NATO + 트럼펫 bell + 풍산 글로벌 20%), CuCr1Zr (1940s GE/Krupp, 모든 자동차 spot welding tip)
+- **Mg** — AZ91D (1933 Dow, VW Beetle transmission case 65년 + Audi A8 ZF housing)
+- **고급 wear/medical** — Stellite 21 (1930 Haynes, Vitallium 의료 + Stryker Accolade)
+- **JIS spring** — SUP9 (5160 일본 equivalent, Toyota Land Cruiser + 현대 마이티 leaf spring, 한국 SPS9)
+
+build script 의 prefix-match + word-boundary 가 condition 변형 ("AA 5083 — Strain-hardened", "OFHC Copper C10100 — Annealed") 까지 자동 attach. 25/25 신규 base name 진입 검증.
+
 ## R78 — Metal 스토리 확장 (30 → 65) + 어투 친근화 (99 → 176 alloy 노출)
 **스토리 수 확장** — 기존 30개에 metal 20종 추가, 비-metal 일부 보강해 65 base stories. build-materials.mjs 의 prefix-match + word-boundary lookup 으로 condition 변형까지 자동 attach → 노출되는 alloy **99 → 176**.
 **어투 다듬기** — 핵심 7종 (Inconel 718, AISI 304/304L/316, Ti-6Al-4V, AA 6061/2024/7075) 을 친근한 한국어 완성문으로 재작성. 인물명은 한글 병기, 어미 다양화, "그가 풀려고 한 문제" / "그가 내놓은 답은" 같은 narrative tone.

@@ -76,7 +76,7 @@
         "ASM Handbook Vol.1 \"Properties and Selection: Irons, Steels and High-Performance Alloys\""
       ]
     },
-    "Ti-6Al-4V (Grade 5)": {
+    "Ti-6Al-4V": {
       "text": "1940년, 룩셈부르크 출신 화학자 윌리엄 저스틴 크롤 (William Justin Kroll) 이 Mg 환원으로 sponge titanium 의 산업 공정을 완성합니다 (Kroll process, US Patent 2,205,854). 그로부터 14년 뒤인 1954년 미국 Battelle Memorial Institute (오하이오 콜럼버스) 의 스탠리 아브코비츠 (Stanley Abkowitz) 와 R J 셔먼 (Sherman) 이 새 도전에 나서요. Al 6% (α 안정화) + V 4% (β 안정화) 의 비율로 α+β 양상 합금을 만들어보자는 시도였죠. 결과는 단연 압도적 — 1956년 USAF 의 SR-71 후보 합금 평가에서 Ti-6Al-4V 가 1위로 선정됐습니다.\n\nTi-6Al-4V (또는 Ti64) 가 차지하는 위상은 그야말로 압도적이에요. 전 세계 Ti 사용량의 약 56% 가 이 한 합금이거든요. F-22 / F-35 fuselage frame, Boeing 787 의 landing gear (ELI 변형), GE GE9X 의 fan disc, SpaceX Merlin 엔진 valve body, 의료 — ASTM F136 / F1472 의 hip stem 과 dental implant 전체 시장의 80%, Apple Watch Series 7 Edition case, F1 차의 suspension wishbone … 어디든 '비강도 (σ_y/ρ ≈ 200 km) + 부식 저항' 이 필요하면 Ti64 가 답.\n\nAM (LPBF, EBM) 에서도 가장 인기 분말이에요. 이유? atomization 이 비교적 쉽고, post-HIP + STA 처리로 단조 수준의 강도를 회복할 수 있어서죠. SpaceX Raptor 의 일부 valve, Aurora UAV 의 mounting bracket, NASA Artemis Orion 의 RCS thruster bracket 까지 — 모두 Ti64 LPBF. 약점은 oxygen 흡수예요 — 700°C 이상에서 표면이 빠르게 산화되니까, hot work 도 진공 또는 inert gas 환경이 필수입니다.",
       "refs": [
         "Kroll W J (1940) US Patent 2,205,854 \"Method for manufacturing titanium and alloys thereof\"",
@@ -144,7 +144,7 @@
         "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys"
       ]
     },
-    "AISI 4140 (Cr-Mo, alias 42CrMo4)": {
+    "AISI 4140": {
       "text": "1923년 SAE 의 새 numbering system 이 4xxx 시리즈를 Mo-bearing low-alloy steel 로 지정하면서 그 중 4140 — 1.0% Cr + 0.20% Mo + 0.40% C — 가 'general purpose Cr-Mo' 표준으로 등장합니다. 1941년 AISI 와 SAE 가 통합 numbering 을 합의하면서 정식 등재됐고, EU 표준명 42CrMo4 (EN 10083-3) 는 1971년 등록됐어요.\n\n4140 의 의의는 Mo 0.2% 의 역할에 있어요. tempering brittleness (350-450°C 영역에서 σ 인접 P, S 가 입계 석출) 를 억제하면서, Cr 1% 가 경화능 (hardenability) 을 ø100 mm 두께까지 보장하는 거죠 — 가장 두꺼운 단조에서도 균일한 σ_y 700+ MPa 가 나옵니다. 응용 — 자동차·트럭의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. 가장 흔히 만져지는 alloy steel 의 가장 흔한 grade 라고 보면 됩니다.",
       "refs": [
         "SAE J404 (1930) \"Chemical Compositions of SAE Alloy Steels\"",
@@ -458,7 +458,7 @@
         "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
       ]
     },
-    "Copper (Pure, C11000)": {
+    "Copper C11000": {
       "text": "C11000 (Electrolytic Tough Pitch, ETP) Cu 는 1865년 영국 제임스 엘킹턴 (James Elkington) 이 전해 정련 공정을 발명한 직후부터 표준 conductor 자리에 올랐어요. 99.90% Cu + 200~400 ppm 산소 (소량의 Cu₂O 입자 형태로 결정 boundary 에 분포 → P, S 같은 불순물을 oxide 로 트랩핑) 가 ETP 의 비결입니다.\n\n응용 — 전기 — 송전선 (이중선·고전압 grid), 모터 권선 (Tesla Model 3 의 rear motor 가 Cu rotor), 변압기 권선, 통신 케이블 (CAT-6 Ethernet), 빌딩 — 지붕 (Buckingham Palace, Statue of Liberty 의 패티나 표면), 가스 배관 (LP gas indoor piping), 가구 — kitchen 동냄비. 1960년대 H₂ 분위기 annealing 시 H + O → H₂O 입계 균열 ('hydrogen embrittlement') 이 발견되면서 진공 / 수소 분위기 응용은 oxygen-free OFE (C10100) 또는 OFHC (C10200) 로 전환됐죠.",
       "refs": [
         "ASTM B187 / B187M \"Standard Specification for Copper, Bus Bar, Rod, and Shapes and General Purpose Rod, Bar, and Shapes\"",
@@ -545,6 +545,205 @@
         "Semon W L (1933) US Patent 1,929,453 (BF Goodrich) \"Synthetic rubber-like composition and method of making same\"",
         "Wickson E J (ed., 1993) Handbook of Polyvinyl Chloride Formulating, Wiley",
         "Wilkes C E, Summers J W & Daniels C A (eds., 2005) PVC Handbook, Hanser"
+      ]
+    },
+    "AlSi10Mg": {
+      "text": "AlSi10Mg 는 1960년대 알루미늄 다이캐스팅 alloy A360 (Al-9.5Si-0.5Mg) 의 변형으로 시작됐어요. Si 10% 의 eutectic 근접 조성으로 fluidity 가 우수해 복잡 형상의 thin-wall casting 이 가능하고, Mg 0.4% 의 시효 강화 (Mg₂Si 석출) 로 σ_y 240 MPa + El 5% 의 균형을 달성합니다.\n\n2010년대 들어 AM (LPBF, DMLS) 시장이 본격적으로 열리면서 AlSi10Mg 가 metal 3D 프린팅의 거의 default Al 분말 자리에 올랐어요. 이유는 첫째, 분말 atomization 이 비교적 쉽고 (다른 Al 합금은 산화 위험으로 atomization 이 어렵죠), 둘째, LPBF 의 빠른 열 cycle 이 자연스럽게 Si 의 미세 분산을 만들어 strength 가 단조 6061 의 약 90% 수준에 도달하기 때문입니다.\n\n응용 — F1 BMW Sauber 의 oil-cooler housing (Optomec LENS 인쇄, 2015), Boeing 787 의 ECS (Environmental Control System) bracket, GE Catalyst engine 의 heat exchanger, Apple AirPods Max 의 일부 internal mount. EOS 의 EOS Aluminum AlSi10Mg, SLM Solutions 의 AlSi10Mg, GE Additive Concept Laser 의 AlSi10Mg-A — 사실상 모든 metal AM vendor 의 표준 grade 입니다.",
+      "refs": [
+        "Aboulkhair N T et al. (2019) \"3D printing of Aluminium alloys: Additive Manufacturing of Aluminium alloys using selective laser melting\", Prog Mater Sci 106",
+        "EOS GmbH \"EOS Aluminium AlSi10Mg Material Data Sheet\" (2020)",
+        "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
+      ]
+    },
+    "AISI 1045": {
+      "text": "AISI 1045 는 carbon 0.43~0.50% 의 medium-carbon plain steel 로, 1911년 SAE numbering 표준화 직후부터 'general purpose machinery steel' 자리에 올랐어요. 0.45% C 는 normalized 상태로 σ_y 530 MPa + El 16% — 1018 (0.18% C) 의 약 1.5배 강도이면서도 가공성은 여전히 양호한 sweet spot 이거든요.\n\n응용 — 자동차 axle shaft (Hyundai/Kia), 산업 펌프 shaft, gear blank (induction-hardened 후 case 만 강하게), bolt blank (Grade 5 / 8.8), 머시너리 base plate, 농기계 fork tine, 산업 hydraulic ram. 한국 KS D 3752 의 S45C, 독일 DIN EN 10083 의 C45, 일본 JIS G 4051 의 S45C 모두 동일 합금이에요 — 자동차·기계 산업의 단조 blank 의 절반 정도가 1045 / S45C / C45 입니다.\n\n흥미. 1045 는 'flame-hardenable medium carbon' 의 typical example 이에요. 표면을 산소-아세틸렌 torch 로 빨갛게 달군 후 물 분사로 quench 하면 surface 만 HRC 55 의 martensite 가 되고 안쪽은 ductile pearlite 가 유지됩니다. 자동차 cam shaft 의 cam lobe 표면 hardening 이 이 기술의 가장 흔한 응용이죠.",
+      "refs": [
+        "SAE J403 \"Chemical Composition of SAE Carbon Steels\"",
+        "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM",
+        "ASTM A29 \"Standard Specification for General Requirements for Steel Bars\""
+      ]
+    },
+    "ASTM A36 (structural)": {
+      "text": "1960년 미국 ASTM 이 처음 발표한 ASTM A36 은 carbon ≤0.26% + Si 0.40% + Mn 0.50~1.20% 의 plain carbon structural steel 이에요. 1018 의 cousin 이지만 mill 의 자유도가 더 크고 (예: scrap 함량이 더 많아도 OK), σ_y 250 MPa + El 23% 의 ductility + 우수한 용접성 (CE 0.45 미만) 의 균형으로 미국 건설 산업의 baseline 자리에 올랐습니다.\n\n1970-2002년 동안 미국 도시의 거의 모든 W-shape beam, channel, angle, plate 가 A36 — 시카고 Sears Tower (현 Willis Tower), 보스턴 John Hancock Building, World Trade Center 의 frame 까지. 2002년 ASTM A992 가 W-shape 의 default 가 됐지만, plate 와 bar 응용에서는 A36 이 여전히 default 자리에 있어요.\n\n응용 — 다리 (미국 interstate 의 80% 이상이 A36 plate), 빌딩 frame (지진 안전 spec 없는 저층), 콘크리트 reinforcing rebar (Grade 36 변형), 농기계 trailer chassis, 산업 컨베이어 frame, 가설 발판. 매년 미국에서 약 8천만 ton 의 A36 가 소비되며 — 양으로는 모든 강 중 1위입니다.",
+      "refs": [
+        "ASTM A36 / A36M \"Standard Specification for Carbon Structural Steel\"",
+        "AISC \"Steel Construction Manual\" 15th Edition (2017)",
+        "Brockenbrough R L & Merritt F S (eds., 2011) Structural Steel Designer's Handbook, McGraw-Hill"
+      ]
+    },
+    "AA 5083": {
+      "text": "1957년 미국 Alcoa 의 R W Fink 가 Mg 4.5% + Mn 0.7% + Cr 0.15% 조성으로 marine 환경에 강한 새 5xxx 합금을 개발하면서 AA 5083 이 등장합니다. 이전 5052 (Mg 2.5%) 의 강도 한계를 거의 두 배 (σ_y 145 → 230 MPa) 로 끌어올리면서 해수 SCC 저항을 그대로 유지한 게 핵심이었어요.\n\n응용은 marine 의 모든 곳이에요. 어선 hull (Bertram, Boston Whaler 의 high-end 모델), 잠수정 (이전 Russian Mir + USS Trieste 의 외부 frame), LNG carrier 의 inner tank (−163°C 까지 fully toughness 유지, IMO IGC code 표준), 군용 — M2 Bradley IFV 의 ballistic 보강 (aluminum armor), 미해군 LCS class 의 superstructure. 자동차에서는 Audi A8 의 일부 frame member, Tesla Roadster 1세대의 frame — 'high-strength 5xxx' 자리의 default 입니다.\n\n약점도 있어요. Mg 4.5% 는 65°C 이상에서 β-phase (Al₃Mg₂) 가 입계에 석출하면서 IGC (입계 부식) sensitization 이 일어날 수 있죠. 그래서 marine 응용에서도 dewpoint condensation 등 표면 온도가 60°C 를 넘는 곳에는 H116 / H321 같은 special-temper grade 를 별도로 사용합니다.",
+      "refs": [
+        "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+        "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
+        "Searles J L et al. (2001) \"Stress corrosion cracking of sensitized AA5083\", Met Mater Trans A 32(11)"
+      ]
+    },
+    "AISI 410": {
+      "text": "1903년 영국 셰필드 (Sheffield) 의 해리 브리얼리 (Harry Brearley) 가 총포 강의 부식 저항을 연구하던 중 우연히 발견한 Cr 12~14% steel 이 martensitic stainless 의 첫 발견이었어요. 1913년 Brearley's 'Rustless Steel' 로 발표됐고, 1925년 AISI 가 type 410 으로 표준화 — 18-8 (304) 와 함께 stainless steel 의 두 가지 큰 family 의 한 축이 됐죠.\n\n410 의 핵심은 carbon 0.15% + Cr 12% 의 자기-quenching martensitic 조성이에요. 빠르게 식히면 austenite → martensite 변태가 일어나면서 σ_y 850 MPa 의 강도가 나오는데, 동시에 Cr 12% 의 부동태로 mild 부식 환경에서는 안정적입니다.\n\n응용 — 밸브 trim (API 6A trim 8/8A, 가장 흔한 trim spec), 펌프 impeller (해수 펌프), 칼날 (cutlery — Wüsthof, 헨켈의 entry-level), 산업 turbine blade (저온단), 항공 fastener (12% Cr 부동태로 mild stress corrosion 회피). 자동차 엔진 valve 일부도 410 변형 (SUH 1, SUH 3) 입니다. 한국 KS 의 STS 410, 일본 SUS 410, EU 의 X20Cr13 모두 동일 합금이에요.",
+      "refs": [
+        "Brearley H (1913) UK Patent 23,498/1913 \"Improvements in the Manufacture of Iron and Steel Alloys\"",
+        "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
+        "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2"
+      ]
+    },
+    "AISI 430": {
+      "text": "430 은 carbon 을 ≤ 0.12% 로 낮추고 Cr 16~18% 만 넣은 ferritic stainless 로, 410 의 cousin 이지만 성격이 완전히 다른 합금입니다. 가열-냉각해도 martensite 가 생기지 않아 항상 ferrite 100% — 그래서 'soft, ductile, weldable' stainless 가 되었고, 1929년 미국 ASTM 이 표준화했어요.\n\n430 의 매력은 가격입니다. 304 보다 약 30% 가격으로 mild 환경 부식 저항 + magnetic property + 우수한 deep drawing 의 균형을 얻을 수 있거든요. 응용 — 자동차 exhaust system muffler / catalytic converter housing (Toyota, 현대), kitchen sink (Kohler, 한국 대림), 가정용 dishwasher inner liner (LG, 삼성), 가전 inner panel (전자 oven), 식기 (cheap-end 식당 spoon, fork).\n\n단점은 Ni 가 없어 austenitic stainless 의 SCC + chloride 저항이 없다는 점 — 그래서 outdoor + chloride 환경에서는 여전히 304/316 이 필요합니다. 그래도 '인테리어 stainless' 시장의 80% 가 430 — 우리가 부엌에서 매일 만지는 stainless 의 대부분이 이 합금이에요.",
+      "refs": [
+        "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
+        "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
+        "Sedriks A J (1996) Corrosion of Stainless Steels, 2nd ed., Wiley"
+      ]
+    },
+    "H13 Tool Steel": {
+      "text": "1929년 미국 Carpenter Steel 이 다이캐스팅 산업의 die-life 문제를 풀려고 시도한 결과 등장한 합금이에요. Cr 5% + Mo 1.5% + V 1% 의 secondary-hardening 조합으로, 600°C 영역에서 10000 cycle 의 thermal cycling 후도 σ_y 1100 MPa 를 유지하는 게 특징이죠. 1932년 AISI 가 H13 (UNS T20813) 으로 표준화했습니다.\n\nH13 의 응용은 그야말로 hot work 의 절대 표준. Al 다이캐스팅 die (Toyota Lexus engine block die, 한국 GM 알페온의 cylinder block die), Mg 다이캐스팅 die (Ford Mustang 의 transmission housing), forging die (자동차 valve, connecting rod 의 단조 형판), 산업 hot punch, hot shear blade. 한국 두산 KP4M, 일본 Hitachi DAC, Bohler W302, Uddeholm Orvar Supreme — 모두 H13 변형입니다.\n\nLPBF 분말로도 인기. EOS 의 MS1 (Maraging 변형) 과 함께 H13 이 mold AM 의 default 가 됐어요. Conformal cooling channel — die 안에 곡선 채널을 인쇄로 만들어 mold 냉각을 5~10배 빠르게 — 가 H13 AM 의 대표 응용이고, BMW iX5 Hydrogen 의 fuel cell stack housing die 가 그 최신 예입니다.",
+      "refs": [
+        "Roberts G A, Krauss G & Kennedy R (1998) Tool Steels 5th ed., ASM",
+        "Bohler-Uddeholm \"W302 / Orvar Supreme Technical Information\" (2019)",
+        "ASTM A681 \"Standard Specification for Tool Steels Alloy\""
+      ]
+    },
+    "AISI 4340": {
+      "text": "1923년 SAE 4xxx Mo-bearing series 와 함께 등장한 합금이에요. Ni 1.8% + Cr 0.8% + Mo 0.25% + C 0.40% — Ni + Cr 의 경화능 + Mo 의 tempering brittleness 억제로 ø150 mm 두께까지 균일한 σ_y 1100 MPa 가 나오는 게 특징이죠. 1932년 AISI 4340 (UNS G43406) 으로 표준화됐습니다.\n\n4340 의 자리는 'general purpose ultra-high-strength' 입니다. 4140 보다 한 단계 강도가 위, D6AC / HP 9-4-30 보다 한 단계 아래. 응용 — 항공 landing gear (Boeing 737-800, A320 의 nose gear), 자동차 crankshaft (F1 의 일부 grade), 미사일 motor case (Sidewinder AIM-9), Boeing 777 의 wing folding mechanism, 산업 forging die (대형 단조 hammer anvil), 산업 hydraulic cylinder rod (1000-ton press).\n\n흥미로운 진화. 1965년 AISI 가 4340 의 Si 함량을 1.6% 로 늘려 tempering 후 σ_y 1620 MPa 까지 끌어올린 '300M' 을 표준화했어요. F-22 / F-35 / F/A-18 의 main landing gear 가 모두 300M — 4340 의 family member 중 하나가 항공의 핵심 부품으로 자리잡은 셈입니다.",
+      "refs": [
+        "SAE J404 (1930) \"Chemical Compositions of SAE Alloy Steels\"",
+        "Roberts G A, Krauss G & Kennedy R (1998) Tool Steels 5th ed., ASM",
+        "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM"
+      ]
+    },
+    "AA 6063": {
+      "text": "1935년 미국 Alcoa 가 6061 의 변형으로 Cu 와 Cr 을 줄인 alloy 63S 를 출시했어요 — 6061 보다 약간 약하지만 압출성이 훨씬 좋고 표면 마감 (anodizing) 도 더 매끄러운 합금이었죠. 1954년 IADS 통합 시 AA 6063 으로 재명명됐습니다.\n\n6063 의 매력은 '모든 압출의 default' 라는 점이에요. T5 (수냉 air-quench + 자연 시효) 또는 T6 (water-quench + 인공 시효) 상태로 σ_y 145~215 MPa — 적당한 강도 + 우수한 압출성 + 깔끔한 surface anodizing 의 3박자입니다.\n\n응용 — 창호 frame (한국 LG Hausys, KCC 의 알루미늄 새시의 표준 합금), curtain wall (전 세계 모든 high-rise 의 외관 frame), 가정용 air-conditioner heat exchanger 의 fin, automobile heat exchanger (라디에이터, condenser fin), 자전거 frame (entry-level), Apple Mac mini 의 외관 chassis (anodized clear), 가구 — IKEA 의 일부 알루미늄 다리. 매년 세계 알루미늄 압출 생산량의 약 60% 가 6063 — '비행기는 2024/7075, 자동차는 6061, 압출은 6063' 이라는 말이 통하는 합금입니다.",
+      "refs": [
+        "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+        "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
+        "Saha P K (2000) Aluminum Extrusion Technology, ASM"
+      ]
+    },
+    "Stellite 21 (CoCrMo)": {
+      "text": "1930년 미국 Haynes Stellite Works 의 엘우드 헤인즈 (Elwood Haynes) 가 Stellite 6 의 후속으로 Mo 5.5% + Cr 27% + Co bal 의 새 변형을 출시했어요 — W 대신 Mo 를 쓰면서 corrosion 저항 (특히 acid 환경) 이 6 보다 좋아졌고 가공성도 더 좋아진 합금이었죠. 1934년 미국 J O Eden 의 'Vitallium' 으로 의료 응용이 시작된 게 의료 표준 자리에 오른 계기였습니다.\n\n응용 — 의료 — hip replacement (Stryker Accolade II 의 일부 grade), knee replacement, dental crown 의 일부 grade. 항공 — 가스 터빈 의 burner shroud (GE T700 의 일부), 우주 — Apollo Lunar Module 의 일부 hot-section vane. 산업 — chemical plant 의 corrosion-resistant pump (Goulds Type 3196 의 일부 grade), oil & gas 의 H₂S 환경 valve seat (Stellite 6 의 cousin 이지만 sour service 에서 우수).\n\nStellite 6 (W-rich, hardfacing) 과 Stellite 21 (Mo-rich, biomedical + corrosion) 의 양강 구도가 cobalt alloy 의 분류 기준이 됐어요. 6 은 마모, 21 은 부식 + 의료 — 한 가지 응용에 한 가지 grade 가 거의 정해져 있습니다.",
+      "refs": [
+        "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
+        "Davis J R (ed., 2003) Handbook of Materials for Medical Devices, ASM International",
+        "Crook P & Caudill R L (1986) \"Wear Resistance of Cobalt-Base Alloys\", Wear 111(2)"
+      ]
+    },
+    "P20 mold steel": {
+      "text": "1936년 미국 Bethlehem Steel 이 plastic injection mold 산업의 표준 자재로 출시한 합금이에요. Cr 1.6% + Mn 1.0% + Mo 0.4% + C 0.4% 의 조성으로 pre-hardened (HRC 30~36) 상태로 출하 — 사용자가 별도 열처리 없이 가공 후 바로 mold 로 사용 가능한 게 혁명적이었죠. 1941년 AISI P20 (UNS T51620) 으로 표준화됐습니다.\n\nP20 의 의의는 '사출금형 제조의 생산성 혁명' 이에요. 이전엔 mold 가공 → quench + temper → 변형 보정 가공의 3 단계가 필요했는데, P20 은 가공 → 끝. mold 제조 시간이 50% 단축되면서 plastic 산업이 폭발적으로 확산됐죠.\n\n응용 — 사출금형의 약 70% 가 P20 또는 그 변형 (NAK80, 718H — pre-hardened 4140) 입니다. 가전 제품 (LG, 삼성의 가전 plastic case), 자동차 interior (dashboard, bumper), 식품 용기 (Tupperware, Coca-Cola plastic bottle 제조 mold), 의료 device housing, 사출 plastic toy (LEGO mold 는 더 hard 한 STAVAX 사용). 한국 두산공작기계의 KP4, Bohler M238, Uddeholm Impax Supreme 도 P20 변형이에요.",
+      "refs": [
+        "Roberts G A, Krauss G & Kennedy R (1998) Tool Steels 5th ed., ASM",
+        "ASTM A681 \"Standard Specification for Tool Steels Alloy\"",
+        "Bohler-Uddeholm \"M238 Technical Information\" (2019)"
+      ]
+    },
+    "OFHC Copper C10100": {
+      "text": "1923년 미국 GE 의 윌리엄 쿨리지 (William Coolidge — Tungsten filament 발명자!) 가 X-ray tube 의 vacuum 내부에 사용할 oxygen-free Cu 의 필요성을 제기하면서 시작됐어요. 일반 Cu (ETP C11000) 의 산소 200~400 ppm 이 H₂ 분위기에서 'hydrogen embrittlement' (H + O → H₂O 입계 균열) 를 일으키는 게 문제였거든요. 1937년 American Brass 사가 oxygen ≤ 10 ppm 의 'Oxygen-Free High-Conductivity' 즉 OFHC 를 처음 상업화했습니다. C10100 은 ≤ 5 ppm 의 더 엄격한 OFE (Oxygen-Free Electronic) 변형이에요.\n\n응용 — 초전도 자석 — CERN LHC 의 수퍼컨덕팅 자석 stabilizer 가 OFE Cu, ITER 핵융합로의 TF coil 도 OFE Cu — 초저온 (-269°C) 에서 안정한 electrical contact 자리에 있죠. 입자가속기 cavity, 전자관 (klystron, magnetron), CRT TV 의 deflection yoke (이제 사라진 기술), 고급 audio 케이블 (Furutech, Mogami), 음향 transducer 의 voice coil. UHV (ultra-high vacuum) 진공 챔버의 sealing 도 OFE Cu gasket.\n\n표준 — ASTM B170 (C10100, C10200) 가 글로벌 reference. 1 kg 당 가격이 ETP Cu 의 약 2배지만, vacuum + 정밀 application 의 90% 가 OFHC/OFE — 그 만큼 'hydrogen embrittlement 사고' 의 보험이 비싸지 않다는 거죠.",
+      "refs": [
+        "ASTM B170 \"Standard Specification for Oxygen-Free Electrolytic Copper - Refinery Shapes\"",
+        "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+        "Coolidge W D (1923) US Patent 1,082,933 \"Tungsten and method of making the same for use as filaments\""
+      ]
+    },
+    "Naval Brass C46400": {
+      "text": "1881년 영국 해군이 19세기 sail ship 에서 steam-driven ironclad 로 전환하면서, 해수 환경의 fitting 자재 — propeller shaft, valve seat — 의 부식 문제가 심각해졌어요. 영국 Vickers 가 통상 brass (70/30 Cartridge) 에 Sn 1% 를 추가한 alloy 가 60/40 brass + Sn 1% — 이게 'Naval Brass' (UNS C46400) 의 등장 배경입니다. Sn 의 dezincification 억제로 해수에서 30년 사용이 가능해졌죠.\n\n응용 — 해수 propeller shaft (작은 선박), 해수 valve seat (펌프, condenser), boat hull fastener (bolt, nut, washer — 해군 sailor 가 'silicon bronze' 만큼 자주 부르는 자재), 산업 condenser tube plate (해수 condenser 의 tube + plate 의 plate 부분), 영국 royal navy 의 mine 도. Big Ben 의 bell mounting bracket 도 Naval Brass — 100+ 년이 지나도 부식 없이 견디고 있어요.\n\n특이한 사실. 영국·미국·유럽의 yacht 들 사이에 'Naval Brass turnbuckle 은 항상 sailors 가 자기 손으로 잠근다' 는 전통이 있어요. 이유는 Naval Brass 가 60/40 알파-베타 brass 라 ductile + machinable 해서 hand-tightening 시 thread 가 자연스럽게 burnish 되면서 grip 이 강해지기 때문이죠. 100년 전 sailors 의 superstition 같지만 실제로 metallurgy 적으로 맞는 이야기입니다.",
+      "refs": [
+        "ASTM B21 \"Standard Specification for Naval Brass Rod, Bar, and Shapes\"",
+        "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+        "Copper Development Association \"Brasses for Marine Service\" Pub TN 26 (2010)"
+      ]
+    },
+    "C26000": {
+      "text": "1882년 미국 Federal Cartridge 가 탄피 (cartridge case) 의 표준 합금으로 채택한 70% Cu + 30% Zn 의 α-brass. Zn 30% 가 정확히 cold-work 의 극한 한계 — 한 번의 deep-drawing 으로 brass strip 이 탄피 모양으로 변형되면서도 균열이 안 가는 sweet spot 이었어요. 1925년 ASTM B36 으로 표준화됐고, UNS C26000 으로 등재됐죠.\n\n응용은 군용·산업 일대. 군용 탄피 — M16 의 5.56×45 NATO, M2 Browning 의 .50 BMG, M240 의 7.62×51 NATO — 모두 C26000. 산업 — 가스라이터의 fuel chamber, 전자관 envelope, 음향 wind instrument (트럼펫, 트럼본의 bell 부분 — 음향적 brilliance 가 70/30 의 특징입니다), pen body (Cross 펜의 일부 grade), 라디에이터의 core tube. 한국 풍산 (Poongsan) 이 글로벌 cartridge brass 의 약 20% 를 점유 — 한국이 cartridge case 산업의 강자 중 하나예요.\n\n흥미. cartridge brass 의 일관 deep-drawing 공정은 '15 단계 이상의 cup-drawing + 중간 annealing' 의 매우 정교한 manufacturing process 이고, scrap 회수율이 95% 가 넘는 모범적 closed-loop 산업입니다. 한 발의 탄피가 결국 다시 탄피로 돌아오는 거죠.",
+      "refs": [
+        "ASTM B36 \"Standard Specification for Brass Plate, Sheet, Strip, And Rolled Bar\"",
+        "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+        "Mendenhall J H (ed., 1980) Understanding Copper Alloys, Olin Brass"
+      ]
+    },
+    "15-5 PH Stainless": {
+      "text": "1962년 미국 Armco Steel 이 17-4 PH (1944) 의 약점 — austenite δ-ferrite 잔류로 가공 방향에 따른 강도 차이 — 를 해결하려고 새 PH stainless 를 시도했어요. Cr 15% + Ni 5% + Cu 4% — Cr 을 17 → 15% 로 줄이고 Ni 를 4 → 5% 로 늘려 δ-ferrite 를 거의 없앤 게 핵심이었죠. 결과 — 17-4 와 동일한 강도 + 약 30% 더 좋은 transverse impact + 통일된 가공성을 얻었습니다.\n\n응용 — 항공 — F-22 의 hydraulic actuator (15-5 가 17-4 보다 isotropy 가 좋아 정밀 forging 에 유리), Boeing 777 의 일부 fastener (Hi-Lok), 우주 — NASA SLS 의 LH2 pump shaft. 군 — M249 SAW 의 일부 internal part. 의료 — Stryker 의 일부 spinal hardware (인체 인장-피로 환경에서 17-4 보다 우수). LPBF 분말로도 인기 — 17-4 PH 다음으로 인기 있는 stainless powder 가 15-5 PH 입니다.\n\n흥미. 17-4 와 15-5 의 family relationship 은 stainless 산업에서 'sister grades' 로 통해요. 같은 시효 단계 (H900, H1025, H1075, H1100, H1150) 를 공유하고, 가격도 비슷하고, 응용 영역도 거의 겹치죠. 다만 'forging direction 의 인성 균일성' 이 결정적인 응용 (대형 항공 단조) 에서는 15-5 가 거의 항상 선택됩니다.",
+      "refs": [
+        "ASTM A564 \"Standard Specification for Hot-Rolled and Cold-Finished Age-Hardening Stainless Steel Bars and Shapes\"",
+        "AK Steel \"15-5 PH Stainless Steel Product Data Bulletin\" (2007)",
+        "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
+      ]
+    },
+    "AZ91D": {
+      "text": "1933년 미국 Dow Chemical 이 AZ31 (Mg-Al 3%) 의 cast 변형으로 Al 9% + Zn 1% 의 합금을 출시했어요 — die-cast 의 fluidity 와 die-soldering 저항을 동시에 풀려고 한 결과물이었죠. 1950년대 들어 'D' suffix 가 추가되며 (Al 7.5~9.7% 의 tight 한 범위로 spec) AZ91D 가 자동차 die-cast 의 default 자리에 올랐습니다.\n\n응용 — 자동차 — VW Beetle 의 transmission case (1938-2003, AZ91D 의 가장 유명한 응용), Audi A8 의 ZF transmission housing (2003-), BMW i8 의 일부 내부 chassis. 가전 — Sony α7 mirrorless camera body, Apple iPad 1세대의 internal frame (저전류 응용). 자동차 — 핸들 column lock, gear shift housing, seat frame.\n\n흥미. AZ91D 의 die-cast 공정에서는 mold (steel) 와 molten Mg 사이의 'soldering' (mutual adhesion) 이 큰 issue 였어요. Al 9% 가 정확히 이를 회피하는 비율 — 너무 적으면 (예: AZ31) die 에 붙고, 너무 많으면 (예: AM50) 강도가 떨어집니다. 1933년 Dow 의 발견이 60년이 지나도 정확한 비율로 자리잡은 셈이죠.",
+      "refs": [
+        "Avedesian M M & Baker H (eds., 1999) ASM Specialty Handbook: Magnesium and Magnesium Alloys",
+        "ASTM B94 \"Standard Specification for Magnesium-Alloy Die Castings\"",
+        "Friedrich H E & Mordike B L (eds., 2006) Magnesium Technology, Springer"
+      ]
+    },
+    "Inconel 718Plus": {
+      "text": "2000년 미국 Allvac (현 ATI Allvac) 의 카오 웨이디 (Wei-Di Cao) 가 Inconel 718 (1959) 의 한계 — 700°C 이상에서 γ\" 가 가속 coarsening 으로 강도 손실 — 을 풀려고 시도한 합금이 718Plus 입니다. 718 의 Nb 5% + Mo 3% 에 Al 1.5% + Ti 0.7% + Co 9% 를 더해 γ\" + γ' 의 dual-precipitate 구조를 만들었어요. 결과 — 718 의 응고 균열 저항을 유지하면서 사용 온도를 50~100°C 끌어올린 (740°C 영역까지) 새 합금이 됐죠.\n\n응용 — Pratt & Whitney F135 (F-35) 의 일부 component, GE LEAP-1A 의 일부 hot section (FOD 보호 위치), Rolls-Royce Trent XWB 의 일부 disc — 모든 차세대 엔진의 718 대체 후보로 자리잡았어요. 우주 — NASA Artemis Orion 의 일부 thermal-cycling component, SpaceX Raptor 의 일부 injector.\n\n흥미. 718Plus 는 'evolution by alloying' 의 모범 예입니다. 718 (1959) → IN-718Plus (2000) → AD730 (2010, French ONERA) → 차세대 candidate (2020+) 의 진화 계보가 있는데, 모두 'γ\" 가속 coarsening' 이라는 한 가지 mechanism 을 풀어내는 시도들이에요. 한 합금의 한 가지 한계가 60년에 걸쳐 4~5 세대의 변형을 만들어내는 흥미로운 합금 가족이죠.",
+      "refs": [
+        "Cao W D & Kennedy R L (2004) \"Role of Chemistry in 718-type Alloys – Allvac 718Plus Alloy Development\", Superalloys 2004",
+        "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP",
+        "ATI Allvac \"Allvac 718Plus Alloy Technical Data\" (2014)"
+      ]
+    },
+    "AA 1100": {
+      "text": "AA 1100 은 99.0% 의 commercial pure Al 으로, 1925년 미국 Alcoa 가 alloy 2S 로 출시한 게 시작이에요. 1954년 IADS 통합 시 AA 1100 으로 재명명됐고요. 합금 원소 없이 거의 pure Al — σ_y 105 MPa 의 매우 낮은 강도지만 가공성·용접성·전기 전도성·열 전도성 모두 최상급입니다.\n\n응용 — Foil — 알루미늄 호일 (식품 packaging), 캔 음료 옆면 (Coca-Cola, Pepsi 캔의 외피는 3104 H19, top end 는 5182 H19, 그러나 일부는 1100), 가정용 cookware (frying pan, 압력 cooker), 산업 — heat exchanger fin (라디에이터, condenser), 전기 — bus bar (transformer 의 connection, 가격 대비 효율), 케이블 외피 (overhead transmission line 의 conductor). 한국 LS 전선의 ACSR (Aluminum Conductor Steel Reinforced) 의 외부 strand 가 1100 변형이에요.\n\n흥미. 1100 의 가장 큰 산업적 의의는 'recycled aluminum 의 default destination' 이에요. 전 세계 aluminum 재활용량 (~30 Mt/y) 의 약 절반이 1100 grade 로 재가공됩니다. 이유는 합금 원소가 거의 없어 어떤 source 의 scrap (음료 캔, 호일, 가전) 이라도 sorting 없이 melting → 1100 으로 만들 수 있기 때문이죠. 'circular economy 의 base alloy' 라고 보면 됩니다.",
+      "refs": [
+        "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+        "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
+        "Schwarz H J & Hatch J E (1984) Aluminum: Properties and Physical Metallurgy, ASM"
+      ]
+    },
+    "CuCr1Zr": {
+      "text": "1940년대 미국 GE 와 독일 Krupp 이 거의 동시에 spot welding electrode 의 표준 자재를 찾던 중 등장한 합금이에요. Cu 99% + Cr 1% + Zr 0.1% — 매우 낮은 합금 함량이지만 Cr 의 시효 석출 (Cu₃Cr 미세 분산) + Zr 의 grain boundary 안정화로 σ_y 350 MPa + 80% IACS (Cu 의 80% 전도성) + 800°C 까지 strength 유지의 균형을 달성했죠.\n\n응용은 자동차 산업의 spot welding 의 절대 표준입니다. 한 대의 자동차에는 4000~6000 개의 spot weld 가 있는데, 그 모든 weld 의 electrode tip 이 CuCr1Zr 이에요. Toyota Camry 의 차체 spot weld electrode, Ford F-150 의 robotic spot weld 의 모든 tip — CuCr1Zr 의 6 mm 끝부분. 한 tip 당 약 2000~3000 weld cycle 후 grinding-renewal 이 필요합니다.\n\n산업 — railway overhead contact wire (전철·KTX 의 catenary wire — Cu 의 wear + 강도가 동시에 필요), 산업용 motor brush, 산업 heat exchanger (고온 + 부식 환경의 tube). UNS C18150 (Cu-Cr-Zr) 과 C18200 (Cu-Cr) 의 두 grade 가 ASTM B105 표준이에요.",
+      "refs": [
+        "ASTM B105 \"Standard Specification for Hard-Drawn Copper Alloy Wires for Electric Conductors\"",
+        "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+        "Copper Development Association \"Resistance Welding Electrode Materials\" Pub TN 28 (2010)"
+      ]
+    },
+    "Stainless Steel 316L": {
+      "text": "316L 은 1962년 미국 Combustion Engineering 이 316 (1929) 의 sensitization 문제 — 450~850°C 영역에서 Cr₂₃C₆ 가 입계에 석출해 IGC (입계 부식) 가 일어나는 — 를 풀려고 carbon 함량을 ≤ 0.03% 로 낮춘 ELC (Extra-Low-Carbon) 변형이에요. 316 의 marine + chloride 부식 저항을 유지하면서 용접 후 PWHT 없이 바로 service 가능한 합금이 된 거죠.\n\n응용은 정말 폭넓어요. 의료 — ASTM F138 ELC 316LVM (Vacuum Melted) 의 정형외과 nail / screw / plate, 외과 surgical instrument (Mayo Clinic 표준), pacemaker case. 화학 — 화학 plant 의 jacketed reactor + pump + valve, 펄프·종이 산업의 chemical pump (Goulds 3196 의 일부 grade). 식품 — 와인 발효조 (Mondavi, La Tâche), beer brewery (Heineken, Sapporo) 의 tank + piping. 해상 — FPSO 의 무수 수송관 + 해상 platform handrail. 반도체 — super-clean piping (EP-finished 316L, 표면 Ra < 0.4 μm — TSMC, 삼성 5 nm fab 의 process gas line).\n\nAM 에서도 인기 1순위. EOS 의 EOS Stainless Steel 316L, SLM Solutions, GE Additive Concept Laser 의 standard powder. 2010년대 들어 LPBF AM 의 가장 흔한 stainless powder 가 316L 이고, GE H-class 가스터빈의 후단 nozzle, NASA RAMPT 의 일부 cooling channel, 의료 임플란트 (FDA Class III orthopedic) 까지 폭넓게 쓰입니다.",
+      "refs": [
+        "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
+        "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
+        "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2"
+      ]
+    },
+    "304L Stainless": {
+      "text": "304L 은 1962년 미국 Combustion Engineering 이 304 의 sensitization 문제를 풀기 위해 carbon 함량을 ≤0.03% 로 낮춘 ELC (Extra-Low-Carbon) 변형입니다. 304 가 가진 모든 부식 환경 적응성은 그대로 살리면서 용접 그대로 PWHT (post-weld heat treatment) 없이 바로 service 가능한 합금이 된 거죠. 사실상 '용접하는 304' 의 기준이 됐어요.\n\n응용은 304 와 거의 동일하면서도 용접 의존도가 높은 분야에 특화돼 있어요. 식품 공정 라인 (un-pasteurized milk, beer brewery 의 용접 tank), 의료 surgical tray, 화학 plant 의 jacketed reactor, 반도체 super-clean piping (EP-finished, 표면 Ra < 0.4 μm), HVAC ductwork, 대형 outdoor 조각상 (시카고 Anish Kapoor 의 'Cloud Gate' 가 304L 의 12-mm sheet 168 장을 용접해서 만든 것). 단점은 carbon 감소로 σ_y 가 304 대비 약 5% 낮다는 점이에요.",
+      "refs": [
+        "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
+        "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
+      ]
+    },
+    "C11000": {
+      "text": "C11000 (Electrolytic Tough Pitch, ETP) Cu 는 1865년 영국 제임스 엘킹턴 (James Elkington) 이 전해 정련 공정을 발명한 직후부터 표준 conductor 자리에 올랐어요. 99.90% Cu + 200~400 ppm 산소 (소량의 Cu₂O 입자 형태로 결정 boundary 에 분포 → P, S 같은 불순물을 oxide 로 트랩핑) 가 ETP 의 비결입니다.\n\n응용 — 전기 — 송전선 (이중선·고전압 grid), 모터 권선 (Tesla Model 3 의 rear motor 가 Cu rotor), 변압기 권선, 통신 케이블 (CAT-6 Ethernet), 빌딩 — 지붕 (Buckingham Palace, Statue of Liberty 의 패티나 표면), 가스 배관 (LP gas indoor piping), 가구 — kitchen 동냄비. 1960년대 H₂ 분위기 annealing 시 H + O → H₂O 입계 균열 ('hydrogen embrittlement') 이 발견되면서 진공 / 수소 분위기 응용은 oxygen-free OFE (C10100) 또는 OFHC (C10200) 로 전환됐죠.",
+      "refs": [
+        "ASTM B187 / B187M \"Standard Specification for Copper, Bus Bar, Rod, and Shapes\"",
+        "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+        "Elkington J B (1865) UK Patent 2,838 \"Improvements in the electrolytic refining of copper\""
+      ]
+    },
+    "42CrMo4": {
+      "text": "42CrMo4 는 미국 AISI 4140 (1923 SAE 표준) 의 유럽 표준 명칭으로, 1971년 DIN 17200 (현 EN 10083-3) 으로 표준화됐어요. 1.0% Cr + 0.20% Mo + 0.40% C — 동일한 조성, 동일한 응용, 동일한 'general purpose Cr-Mo' 의 위상을 가진 합금이죠.\n\n자동차·트럭 의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. Mo 0.2% 가 tempering brittleness (350-450°C 영역에서 P, S 가 입계 석출) 를 억제하면서 Cr 1% 의 경화능으로 ø100 mm 두께까지 균일한 σ_y 700+ MPa 가 나옵니다. EU 산업의 단조 blank 의 약 25% 가 42CrMo4 입니다.",
+      "refs": [
+        "EN 10083-3 \"Steels for quenching and tempering - Part 3: Technical delivery conditions for alloy steels\"",
+        "Bhadeshia H K D H & Honeycombe R W K (2017) Steels: Microstructure and Properties, 4th ed., Butterworth-Heinemann",
+        "DIN 17200 (1987 superseded by EN 10083)"
+      ]
+    },
+    "Maraging C300 (18Ni-300)": {
+      "text": "Maraging C300 은 Maraging 300 (UNS K93120, 1959 INCO Decker/Floreen 발명) 의 commercial grade 명칭으로, Vasco (현 Vacuumelt) / Allvac / Latrobe Specialty Steel 같은 미국 specialty mill 의 자체 brand name 입니다. 'C' 는 Commercial 또는 carbon-related minor 변형의 표시.\n\n조성과 응용은 Maraging 300 과 거의 동일해요 — Ni 18% + Co 9% + Mo 5% + Ti 0.7% 의 carbon-free martensite + 480°C aging 으로 σ_y 2000 MPa 의 ultra-high strength + KIC 100 MPa√m 의 인성 균형. 응용 — Falcon 9 의 second-stage interstage forging, NASA Hubble repair mission hand tool, 미사일 motor case (Tomahawk, Trident D-5), Callaway 골프 driver face plate, F1 gearbox shaft 일부.\n\nAM (LPBF) 에서도 EOS 의 EOS MaragingSteel MS1 (= C300 변형) 으로 가장 인기 있는 high-strength tool steel 분말 자리에 있어요. 사출금형의 conformal cooling channel, 자동차 stamping die 의 customizable insert, F1 의 핵심 brackets — 모두 MS1 LPBF + post-age 의 조합. Maraging 300 family 의 응용 범위가 매년 확장되는 중이에요.",
+      "refs": [
+        "Decker R F, Eash J T, Goldman A J (1962) \"18% Nickel Maraging Steel\", Trans ASM 55",
+        "Sha W & Guo Z (2009) Maraging Steels: Modelling of Microstructure, Properties and Applications, Woodhead Publishing",
+        "EOS GmbH \"EOS MaragingSteel MS1 Material Data Sheet\" (2020)"
+      ]
+    },
+    "SUP9": {
+      "text": "SUP9 은 일본 JIS G 4801 의 Cr-Mn spring steel 로, 1960년대 일본 자동차 산업의 leaf spring 자재 표준화 과정에서 등장했어요. Cr 0.7% + Mn 0.8% + C 0.55% — 미국 AISI 5160 의 일본 equivalent 입니다.\n\n응용 — 자동차 leaf spring 의 표준 자재. Toyota Land Cruiser, Hyundai Porter, Mitsubishi Fuso, Isuzu D-Max 의 truck rear leaf spring 의 거의 모두가 SUP9 또는 그 변형. 한국 KS D 3701 의 SPS9 도 동일 합금이고, 한국 트럭 (현대 마이티, Tata Daewoo Novus) 의 spring 도 대부분 SPS9 입니다. 농기계 — 트랙터 의 hitch spring, 산업 — vibratory feeder spring, 의료 — orthopedic external fixator spring.\n\nSUP10 (Cr-V, 5160 와 9260 의 중간) 과 함께 일본·한국·동남아 spring 시장의 양강 구도를 형성하고 있어요. 가격이 미국 AISI 5160 의 절반에 비슷한 강도 — '아시아 spring 의 표준' 입니다.",
+      "refs": [
+        "JIS G 4801 \"Spring Steels\"",
+        "KS D 3701 \"Spring Steels\"",
+        "Yamada Y (ed., 2007) Materials for Springs, Springer"
       ]
     }
   }
