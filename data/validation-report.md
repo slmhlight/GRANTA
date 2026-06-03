@@ -13,7 +13,7 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 | yield_strength | 938/940 | 684 |
 | uts | 931/940 | 682 |
 | elongation | 893/940 | 681 |
-| modulus | 940/940 | 47 |
+| modulus | 940/940 | 48 |
 | hardness | 813/940 | 589 |
 | thermal_conductivity | 940/940 | 2 |
 | fatigue_strength | 839/940 | 652 |
@@ -85,6 +85,29 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - 292 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +51 mostly polymer).
 - 253 have Young's modulus vs T (E(T)).
 - 105 have creep rupture curves (Ni superalloys, no change in R34).
+
+## R48a — Anomaly Detection
+
+Total: **480** — high 0 / medium 0 / low 480
+
+### By kind
+| Kind | Count |
+|---|---|
+| no verified source URL | 480 |
+
+### LOW severity (showing 10 / 480)
+| Material | Kind | Detail |
+|---|---|---|
+| Ti5-8-5 — As-supplied (LPBF) | no verified source URL |  |
+| Inconel X-750 — As-supplied (DMLS) | no verified source URL |  |
+| 15-5PH — As-supplied (SLM) | no verified source URL |  |
+| 304L — As-supplied (LPBF) | no verified source URL |  |
+| 15-5PH — As-supplied (DMLS) | no verified source URL |  |
+| 304L — As-supplied (DMLS) | no verified source URL |  |
+| Bronze — As-supplied (Binder Jetting) | no verified source URL |  |
+| AISI 5130 — Aged / solution-treated (Wrought) | no verified source URL |  |
+| AISI 5130 — Annealed (Wrought) | no verified source URL |  |
+| AISI 5130 — As-cast / forged (Wrought) | no verified source URL |  |
 
 ## TODO
 - Hardness scale unification (HV/HRC/HB).
