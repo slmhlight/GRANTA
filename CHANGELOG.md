@@ -2,6 +2,26 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R95 — Ashby chart reset 후 비합리적 frame 두 가지 원인 fix
+사용자 보고: "density / Young's Modulus 선택하면 정상. reset axes 누르면 X 가 1~2000 같은 이상한 범위로 가버림".
+
+**원인 1 — frame anchor 의 marker `opacity: 0` 이 plotly autorange 에 무시됨**: R93/R94 의 frame anchor 가 opacity 0 + size 1 이라 시각적으로는 invisible. Plotly 가 autorange 계산 시 invisible marker 는 무시 → reset axes 가 frame anchor 의 4 corner 를 cover 하지 못함 → 다른 visible trace (envelope · marker) 의 bbox 로 axis 가 fit.
+- 수정: `opacity 0.001 + size 6` — 시각적으로 거의 invisible (육안 식별 거의 불가) 이면서 plotly autorange 가 marker 점으로 인식
+
+**원인 2 — ranges 의 outlier hiOf 가 xs/ys 를 과대 확장**: 일부 alloy 의 `ranges.<prop>.max` 가 typical 의 수십 배인 경우 (anomaly·variant 합금). xs = flatMap [loOf, hiOf] 라 그 큰 hiOf 가 max 로 들어가 → xRange 가 비합리적으로 확장.
+- 수정: xs/ys 에 `xDomain * [0.9, 1.1]` clamping. xDomain 자체는 전체 materials 의 typical min/max 라서 outlier 영향 안 받음 → xs 가 sane range 로 제한
+
+```js
+const xClampLo = xDomain[0] * 0.9, xClampHi = xDomain[1] * 1.1;
+const xs = xRangeSet.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)])
+  .filter((v) => !!v && v > 0 && v >= xClampLo && v <= xClampHi);
+```
+
+**효과**:
+- frame anchor 가 plotly autorange 에 인식 → reset 시 정확히 xRange/yRange 의 4 corner 로 axis 복원
+- 데이터 outlier (anomaly ranges) 영향 차단 → xRange 가 항상 typical range 안
+- density vs Modulus 시나리오: reset 후 X 0.05~25, Y 0.005~2000 의 합리적 frame 유지
+
 ## R94 — Ashby chart X/Y 축 범위 독립 계산 (reset 시 합리적 frame)
 사용자 보고: "reset axes 할때 특정 값 range로 무조건 전환되는데 그 값이 합리적이지 않은듯. XY축 각각 합리적인 range 미리 계산하고 조합해서 적용해야".
 **원인**: `valid(m) = X property && Y property 둘 다 > 0` 조건. xs/ys 계산이 fsetForFrame (= valid + family/sub 통과) 으로 묶여있어, 예) Y=KIC 일 때 KIC 데이터가 일부 alloy 에만 있으면:

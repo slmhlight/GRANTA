@@ -430,15 +430,18 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     let envelopeTraces: any[] = [];
     if (showEnvelopes) envelopeTraces = groupFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : hullTraces;
 
-    // auto-range — R89/R94: range slider 적용 전의 fsetForFrame 기준으로 frame 고정.
-    // R94 — X·Y 범위를 각자 독립적으로 계산. 이전엔 `valid(m) = X && Y 둘 다 > 0` 조건의 fsetForFrame 만
-    //        사용해서, 예) Y=KIC 인데 KIC 가 일부 alloy 에만 있으면 그 적은 alloy 의 X 범위만 X axis 로 적용 →
-    //        Y 가 없는 alloy 들의 합리적 X 범위 (예 7 g/cm³ 알로이) 도 모두 무시되어 X axis 가 좁아짐.
-    //        해법: X range 는 X property 가진 모든 alloy (Y 무관), Y range 도 동일 원리로 독립 계산.
+    // auto-range — R89/R94/R95: X·Y 축을 각자 독립 set 으로 계산 + R95 ranges outlier 를 xDomain/yDomain 안에 clamping.
+    // R94 valid(m) = X && Y 둘 다 > 0 조건은 X range 가 Y 도 가진 alloy 의 X 값에 한정되는 문제 야기 → 독립 계산.
+    // R95 — ranges 의 hiOf (max) 가 비정상적으로 크거나 (anomaly) typical 의 수십 배인 경우 axis 가 그쪽으로 확장 →
+    //        xDomain/yDomain (전체 materials 의 typical min/max) 안으로 강제 clamping. outlier 영향 제거.
     const xRangeSet = filtered.filter((m) => (tv(m, xProperty) ?? 0) > 0 && inGroup(m) && inSub(m));
     const yRangeSet = filtered.filter((m) => (tv(m, yProperty) ?? 0) > 0 && inGroup(m) && inSub(m));
-    const xs = xRangeSet.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
-    const ys = yRangeSet.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
+    const xClampLo = xDomain[0] * 0.9, xClampHi = xDomain[1] * 1.1;
+    const yClampLo = yDomain[0] * 0.9, yClampHi = yDomain[1] * 1.1;
+    const xs = xRangeSet.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)])
+      .filter((v): v is number => !!v && v > 0 && v >= xClampLo && v <= xClampHi);
+    const ys = yRangeSet.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)])
+      .filter((v): v is number => !!v && v > 0 && v >= yClampLo && v <= yClampHi);
     const logRange = (v: number[]) => v.length ? [L(Math.min(...v)) - 0.15, L(Math.max(...v)) + 0.15] : undefined;
     const linRange = (v: number[]) => { if (!v.length) return undefined; const mn = Math.min(...v), mx = Math.max(...v), pad = (mx - mn) * 0.06 || mx * 0.06; return [Math.max(0, mn - pad), mx + pad]; };
     // R90 — fallback: xs/ys 비어있어도 (filter 너무 좁아짐 edge case) 차트가 안 깨지도록 전체 domain 사용.
@@ -458,8 +461,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       x: [fAxX[0], fAxX[1], fAxX[0], fAxX[1]],
       y: [fAxY[0], fAxY[0], fAxY[1], fAxY[1]],
       mode: 'markers' as const, type: 'scatter' as const,
-      // R94 — marker size 1 + opacity 0 (이전 0.01 은 plotly autorange 가 무시할 수 있음). 시각적으로 안 보임.
-      marker: { size: 1, opacity: 0, color: 'rgba(0,0,0,0)' },
+      // R95 — opacity 0 (R94) 은 plotly autorange 가 marker 를 무시하게 만들어 reset 시 다른 trace bbox 로 가는 원인이었음.
+      //       opacity 0.001 (시각적 invisible) + size 6 (autorange 가 인식할 충분한 크기) 으로 변경.
+      marker: { size: 6, opacity: 0.001, color: 'rgba(0,0,0,0)' },
       hoverinfo: 'skip' as const, showlegend: false, name: '_frame',
     };
 
