@@ -2,6 +2,25 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R105 — POSCO 10종 (PosMAC + API + GIGA STEEL + 9% Ni + Electrical + Stainless)
+
+### POSCO 시리즈 (한국 철강 자체 개발 / 대표 등급)
+- **PosMAC 3.0** — Zn-Mg-Al 3원계 도금 (Zn 93% · Mg 3% · Al 4%) — 부식 저항 SGCC 대비 5-10배 ↑. POSCO 특허. 건축 외장 / 태양광 frame / 자동차 underbody.
+- **API 5L X80** (sour service) + **API 5L X70** — TMCP 송유관 표준. 한국 KOGAS / 일본 Tokyo Gas / Saudi Aramco 수출.
+- **GIGA STEEL TWIP1180** — UTS 1180 + El 45% 동시 만족 (자동차 무게-안전 trade-off 돌파). 18-22% Mn austenitic + twin slip. 현대 IONIQ / 기아 EV6 B-pillar.
+- **GIGA STEEL DP980** — Dual-Phase 980. ArcelorMittal Usibor 1500 등가. 현대·기아·Toyota·GM 표준 AHSS.
+- **9% Ni Steel** — LNG -162°C / LH₂ -253°C 저장 tank. ASTM A553 Type I / EN 1.5662 등가. 한국 KOGAS LNG terminal + Daewoo Shipbuilding LNG carrier.
+- **CGO 0.27** Grain Oriented Silicon Steel — 변압기 core. 효성 / LS전선 / Mitsubishi HVDC.
+- **POSCO SUS304L / 316L** (KS D 3705) — 한국 스테인리스 표준. 부산 광양 stainless mill.
+- **KIST ULC 304** — C ≤ 0.015 ultra-low-carbon. 반도체 wafer carrier / 의료 implant long-term.
+
+### 누적
+- supplementary: 377 → **387** (+10)
+- DB total: 1,234 → **1,244**
+- verified-source materials: 738 → **748**
+
+검증: tsc OK · vitest 47/47 · build:data OK · production build OK.
+
 ## R104 — Tier 3 KS 강종 6 + 풍산 Cu 2 + 한국 산업 spring/tool 3
 
 ### 추가 강종 (supplementary +11)

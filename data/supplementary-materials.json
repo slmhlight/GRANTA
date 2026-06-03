@@ -13043,6 +13043,166 @@
       ],
       "aliases": ["SK 85", "SK5", "KS SK85", "JIS G 4401 SK85", "C80W1 (DIN) equivalent"],
       "industry_note": "KS D 3751 탄소공구강. 0.85% C → 적당한 경도 + 인성. 칼날 (식칼 / 사냥용) / shear blade / 가위 / 핸드 도구 (chisel · plier 일부) / spring 일부. 한국 KIYOSHI / SEKI 식칼 가공 (단조 후 Q+T). EN C80W1 등가."
+    },
+    {
+      "name": "POSCO PosMAC 3.0 (Zn-Mg-Al, 고내식 도금강) — POSCO",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Dip Galvanized (Zn-Mg-Al ternary coating)",
+      "composition": { "Fe": "balance (substrate)", "Coating": "Zn ~93% · Mg 3% · Al 4% (PosMAC 3.0)" },
+      "points": [
+        [7.85, 350, 470, 22, 200, 150, 212]
+      ],
+      "conditions": ["Cold rolled + PosMAC 3.0 coating (Z140-Z275 equivalent)"],
+      "ref_urls": [
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000005.jsp"
+      ],
+      "aliases": ["PosMAC 3.0", "POSCO MAC", "POSMAC", "Zn-Mg-Al coated steel"],
+      "industry_note": "POSCO 독자 개발 (특허) 3원계 Zn-Mg-Al 도금 강판. 부식 저항 SGCC (Zn-only) 대비 5~10배 ↑ — Mg/Al 첨가로 산화막 안정화. 한국 건축 외장 / 태양광 module frame / 자동차 underbody (현대·기아) / 풍력 tower 외장. EN 표기 ZM 도금과 유사. POSCO 매출의 highest-margin coated product."
+    },
+    {
+      "name": "POSCO X80 Line Pipe (API 5L X80, sour service) — POSCO",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "TMCP (Thermomechanical Controlled Process)",
+      "composition": { "Fe": "balance", "C": "≤0.08", "Mn": "≤1.80", "Si": "≤0.40", "P": "≤0.020", "S": "≤0.003", "Nb+V+Ti": "≤0.15" },
+      "points": [
+        [7.85, 555, 625, 25, 210, 195, 281]
+      ],
+      "conditions": ["TMCP + accelerated cooling"],
+      "ref_urls": [
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000003.jsp"
+      ],
+      "aliases": ["API 5L X80", "X80 line pipe", "L555M (EN)", "POSCO X80MS"],
+      "industry_note": "POSCO TMCP API 5L X80 표준 — 천연가스 / 원유 송유관 표준. Sour service (H₂S) MS suffix 가능 (NACE MR0175). 한국 KOGAS 평택 LNG terminal / Saudi Aramco 송유관 export 표준. Ti·Nb micro-alloy 로 고강도 + 저 CE. ASTM A841 Grade B 등가."
+    },
+    {
+      "name": "POSCO X70 Line Pipe (API 5L X70) — POSCO",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "TMCP",
+      "composition": { "Fe": "balance", "C": "≤0.10", "Mn": "≤1.65", "Si": "≤0.40", "P": "≤0.025", "S": "≤0.010", "Nb": "≤0.05", "Ti": "≤0.04" },
+      "points": [
+        [7.85, 485, 565, 28, 210, 180, 254]
+      ],
+      "conditions": ["TMCP rolled"],
+      "ref_urls": [
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000003.jsp"
+      ],
+      "aliases": ["API 5L X70", "X70 line pipe", "L485 (EN)"],
+      "industry_note": "POSCO TMCP API 5L X70 — 중장거리 송유관 / 가스관 표준. 한국 SK Energy 울산 정유공장 송유관 / 일본 가스공사 (Tokyo Gas). X80 보다 1 grade 아래, 경제성 ↑. 미국 Trans-Alaska Pipeline 등가."
+    },
+    {
+      "name": "POSCO GIGA STEEL TWIP1180 (자동차용 초고장력) — POSCO",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Cold Rolled (TWIP: Twinning-Induced Plasticity)",
+      "composition": { "Fe": "balance", "Mn": "18~22", "C": "0.5~0.6", "Al": "≤2", "Si": "≤0.3" },
+      "points": [
+        [7.95, 580, 1180, 45, 195, 280, 531]
+      ],
+      "conditions": ["Annealed (Austenitic, fully recrystallized)"],
+      "ref_urls": [
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp"
+      ],
+      "aliases": ["TWIP1180", "POSCO GIGA STEEL", "TWIP steel", "Twinning-Induced Plasticity 1180"],
+      "industry_note": "POSCO 독자 개발 TWIP steel (Twinning-Induced Plasticity) — 자동차 B-pillar / A-pillar / bumper. UTS 1180 + El 45% (동시 만족 = 무게 감량 + 충돌 안전 trade-off 해결). 18~22% Mn 으로 austenitic 유지 + twin slip mechanism. 현대 IONIQ / 기아 EV6 차체 구조용. 다른 1차 자료: POSCO 백서."
+    },
+    {
+      "name": "POSCO GIGA STEEL DP980 (Dual-Phase) — POSCO",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Cold Rolled + Continuous Annealed (Dual-Phase: Ferrite + Martensite)",
+      "composition": { "Fe": "balance", "C": "0.10~0.15", "Mn": "1.5~2.5", "Si": "≤0.5", "Cr+Mo": "≤0.5" },
+      "points": [
+        [7.85, 590, 980, 12, 200, 290, 441]
+      ],
+      "conditions": ["Continuous annealed (ferrite ~80% + martensite ~20%)"],
+      "ref_urls": [
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp"
+      ],
+      "aliases": ["DP980", "Dual Phase 980", "POSCO DP980", "VDA239-100 CR980Y700T-DP"],
+      "industry_note": "POSCO DP980 (Dual-Phase 980) — 자동차 outer body / door inner / B-pillar inner. UTS 980 + El 12% — TRIP 보다 cold-formable. ArcelorMittal Usibor 1500 / TKS DP980 등가. 현대·기아 / Toyota / GM 표준 AHSS (Advanced High Strength Steel)."
+    },
+    {
+      "name": "POSCO 9% Ni Steel (LNG 저장 tank용) — POSCO",
+      "category": "Metal",
+      "subcategory": "Stainless Steel",
+      "process": "Q+T (heat-treated for cryogenic toughness)",
+      "composition": { "Fe": "balance", "Ni": "8.50~9.50", "C": "≤0.13", "Mn": "≤0.90", "Si": "0.15~0.30", "P": "≤0.025", "S": "≤0.025" },
+      "points": [
+        [7.85, 585, 680, 18, 200, 220, 306]
+      ],
+      "conditions": ["QLT (Quench + Lamellarize + Temper) for -196°C service"],
+      "ref_urls": [
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000003.jsp"
+      ],
+      "aliases": ["9Ni steel", "ASTM A553 Type I", "POSCO 9% Ni", "LNG tank steel", "EN 1.5662 X8Ni9"],
+      "industry_note": "POSCO 9% Ni 강 — LNG 저장 tank (육상·해상) 표준 (LNG -162°C, LH2 -253°C 일부). Ni 9% 로 austenite 안정 + martensite-austenite duplex 구조 → 극저온 Charpy 100J+. 한국 KOGAS 통영 / 평택 LNG terminal / Daewoo Shipbuilding LNG carrier hull. ASTM A553 Type I / EN 1.5662 등가. 9-25% Ni 영역에서 가장 비용 효율적."
+    },
+    {
+      "name": "POSCO Electrical Steel CGO 0.27 (Cold-Rolled Grain Oriented, 변압기용) — POSCO",
+      "category": "Metal",
+      "subcategory": "Stainless Steel",
+      "process": "Cold Rolled + Grain Orientation (Goss texture)",
+      "composition": { "Fe": "balance", "Si": "3.0~3.2", "C": "≤0.003", "Mn": "≤0.10", "P": "≤0.020", "S": "≤0.010", "Al": "≤0.05" },
+      "points": [
+        [7.65, 290, 340, 8, 200, 130, 153]
+      ],
+      "conditions": ["Cold rolled + final annealed (Goss orientation)"],
+      "ref_urls": [
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000002.jsp"
+      ],
+      "aliases": ["CGO 0.27", "Grain Oriented Silicon Steel", "POSCO PI20-G",  "Goss texture electrical steel"],
+      "industry_note": "POSCO CGO 0.27 mm — 변압기 core 표준. 3.0~3.2% Si → 전기저항 ↑ + magnetostriction ↓ + Goss orientation (110)[001]. 한국 효성 / LS전선 변압기 / Mitsubishi Heavy Industries HVDC convertor. 손실 ~0.85 W/kg @ 1.7 T 50Hz. 기존 자재 대비 efficiency 5~10% ↑."
+    },
+    {
+      "name": "POSCO Stainless 304L (KS D 3705) — POSCO",
+      "category": "Metal",
+      "subcategory": "Stainless Steel",
+      "process": "Cold Rolled (Annealed)",
+      "composition": { "Fe": "balance", "Cr": "18.0~20.0", "Ni": "8.0~12.0", "C": "≤0.030", "Mn": "≤2.0", "Si": "≤1.0" },
+      "points": [
+        [7.93, 215, 545, 50, 193, 165, 245]
+      ],
+      "conditions": ["Annealed (1050°C WQ)"],
+      "ref_urls": [
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000001.jsp"
+      ],
+      "aliases": ["SUS304L", "STS304L", "KS D 3705 STS304L", "ASTM A240 304L", "AISI 304L", "EN 1.4307"],
+      "industry_note": "POSCO SUS304L (low-C) — 한국 식품·의료·건축·반도체 장비 표준 austenitic 스테인리스. L = low-carbon (sensitization 회피). 화학 plant / LNG 저장 / 의료 임플란트 (단기) / 일반 주방 sink. 일본 SUS304L 동등. POSCO 부산 광양 stainless mill 표준 생산. AISI 304 의 KS 등가."
+    },
+    {
+      "name": "POSCO Stainless 316L (KS D 3705) — POSCO",
+      "category": "Metal",
+      "subcategory": "Stainless Steel",
+      "process": "Cold Rolled (Annealed)",
+      "composition": { "Fe": "balance", "Cr": "16.0~18.0", "Ni": "10.0~14.0", "Mo": "2.0~3.0", "C": "≤0.030", "Mn": "≤2.0", "Si": "≤1.0" },
+      "points": [
+        [7.95, 215, 525, 50, 193, 165, 236]
+      ],
+      "conditions": ["Annealed (1050°C WQ)"],
+      "ref_urls": [
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000001.jsp"
+      ],
+      "aliases": ["SUS316L", "STS316L", "KS D 3705 STS316L", "ASTM A240 316L", "AISI 316L", "EN 1.4404"],
+      "industry_note": "POSCO SUS316L (low-C, Mo 첨가) — 304L 대비 부식 저항 강화. 해수 환경 / 의료 임플란트 (장기 — 인공관절·치과 implant) / 화학 plant 강산 / 식품 cleaning. Mo 2-3% → pitting / crevice corrosion 저항 ↑. PREN = Cr + 3.3Mo + 16N ≈ 25~28. 부산 광양 stainless mill 표준 생산."
+    },
+    {
+      "name": "KIST 한국형 STS304 ULC (Ultra-Low-Carbon) — KIST · POSCO 공동개발",
+      "category": "Metal",
+      "subcategory": "Stainless Steel",
+      "process": "Vacuum Refined (VOD/AOD)",
+      "composition": { "Fe": "balance", "Cr": "18.0~20.0", "Ni": "8.0~10.0", "C": "≤0.015", "Mn": "≤2.0", "Si": "≤1.0" },
+      "points": [
+        [7.93, 220, 550, 55, 193, 165, 248]
+      ],
+      "conditions": ["Annealed (1050°C WQ) + ULC refining"],
+      "ref_urls": [
+        "https://www.kist.re.kr/eng"
+      ],
+      "aliases": ["STS304 ULC", "Ultra-Low-Carbon 304", "KIST 304"],
+      "industry_note": "KIST + POSCO 공동개발 ULC stainless — C ≤ 0.015 (304L 의 1/2). 반도체 wafer carrier / 의료 implant (인공관절 long-term) / 항공 우주 high-purity. 한국재료연구원 (KIST) 표준 spec."
     }
   ]
 }
