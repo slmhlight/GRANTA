@@ -2,6 +2,30 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R97 — Reset axes 동작을 X/Y property 재선택과 동일화
+사용자 요청: "reset axes 의 동작을 현재의 XY 축을 다시 설정했을 때와 동일하게 적용".
+**관찰**: 사용자가 X-axis property 변경 (예: density → modulus) 시 axis 가 정상적으로 새 frame 으로 reset — uirevision 에 xProperty 가 포함되어 plotly 가 사용자 zoom 폐기 + layout.range 적용. 이게 의도된 동작.
+**문제**: modeBar 의 🏠 Reset axes / doubleClick 은 plotly 자체 동작 (`xaxis.autorange:true`) 으로 marker bbox 에 fit — 우리 layout.range 무시.
+
+**해결**: 동일 메커니즘으로 통일.
+1. `useState<number>` 의 `resetCounter` 추가
+2. xaxis.uirevision / yaxis.uirevision 의 끝에 `|${resetCounter}` 포함
+3. `onRelayout` 핸들러에서 plotly 의 reset event 감지:
+```js
+if (e['xaxis.autorange'] === true || e['yaxis.autorange'] === true) {
+  setResetCounter(c => c + 1);
+  return;
+}
+```
+4. resetCounter 증가 → useMemo 재실행 → uirevision 변경 → plotly 가 다음 render 에서 axis state 폐기 + 새 layout.range 적용
+
+**결과**:
+- 🏠 Reset axes 클릭 → property 재선택 시와 동일한 코드 path → 같은 layout.range (R94/R95 의 xRange/yRange) 로 정확 복원
+- doubleClick reset 도 동일 동작
+- indexLine drag (기존 onRelayout 처리) 은 그대로 동작 (autorange 조건이 false 이므로 indexLine 분기로 진입)
+
+**구현 노트**: indexLine reference 가 frame anchor / layout 모두 그대로 — fset 기반의 인덱스 임계선이 새 frame 안에 다시 그려짐.
+
 ## R96 — Family tree tier2 색을 실제 family color 와 일치
 사용자 요청: "family tree 색상을 1st 는 그대로 두고 2nd family 와 같게 수정. 실제 표시되는 것은 2nd family 색상".
 

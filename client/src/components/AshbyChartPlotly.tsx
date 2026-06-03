@@ -199,6 +199,10 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const [boxedIds, setBoxedIds] = useState<Set<string>>(new Set());
   const [constraints, setConstraints] = useState<{ key: string; thr: number | null }[]>([]); // additional index constraints (multi-index, ANDed)
   const indexLineRef = useRef<{ shapeIndex: number; p: number; x0: number; y0: number } | null>(null);
+  /* R97 — Reset axes (modeBar 🏠 / doubleClick) 동작을 X/Y property 재선택 시와 동일하게 만들기 위한 카운터.
+   *       reset 시 onRelayout 이 xaxis.autorange / yaxis.autorange === true 감지 → resetCounter++ →
+   *       uirevision 변경 → plotly 가 사용자 zoom 폐기 + layout.range 적용 (= property 변경 효과). */
+  const [resetCounter, setResetCounter] = useState(0);
   // 사례 다이얼로그가 URL `idx=` 로 권장 인덱스를 전달하면 mount 시점에 적용 + 사용자에게 toast 안내 (NB4)
   useEffect(() => {
     const idx = new URLSearchParams(window.location.search).get('idx');
@@ -526,11 +530,12 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const layout: any = {
       autosize: true,
       margin: mMargin,
-      // R90/R92 — uirevision: xProperty/yProperty/log/groupFilter/subFilter 가 바뀔 때만 axis state reset.
+      // R90/R92/R97 — uirevision: xProperty/yProperty/log/groupFilter/subFilter/resetCounter 가 바뀔 때만 axis state reset.
       //       indexPreset · indexThreshold · xLimit · yLimit · compareList 등은 axis state 보존.
-      //       R92 — autorange:false 제거 (reset 동작 + 물성 변경 시 새 range 적용을 방해). range 명시만으로 충분.
-      xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, uirevision: `${xProperty}|${xLog}|${groupFilter}|${subFilter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
-      yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, uirevision: `${yProperty}|${yLog}|${groupFilter}|${subFilter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      //       R97 — resetCounter 포함: reset axes 클릭 시 onRelayout 핸들러가 ++ 해서 uirevision 변경 →
+      //              plotly 가 axis state 폐기 + layout.range 적용 (X/Y property 재선택과 같은 효과).
+      xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, uirevision: `${xProperty}|${xLog}|${groupFilter}|${subFilter}|${resetCounter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, uirevision: `${yProperty}|${yLog}|${groupFilter}|${subFilter}|${resetCounter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
       hovermode: 'closest', shapes, annotations: guideAnnotations,
       // 모바일에서는 레전드를 차트 위가 아닌 아래로 옮겨 차트 면적을 보호 (또는 항목 많을 때 토글).
       showlegend: showLegend && (!isMobile || (envelopeTraces.length + markerTraces.length <= 8)),
@@ -583,7 +588,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       ...selMarker,
     ];
     return { data, layout, indexInfo, selectedIds, paretoInfo };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile, showPareto]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile, showPareto, resetCounter]);
 
   const config = {
     responsive: true, displaylogo: false,
@@ -832,6 +837,13 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             },
             onDeselect: () => setBoxedIds(new Set()),
             onRelayout: (e: any) => {
+              // R97 — modeBar 🏠 Reset axes / doubleClick reset 감지. plotly 가 reset 시
+              //        xaxis.autorange = true 또는 yaxis.autorange = true 를 send.
+              //        resetCounter++ → uirevision 변경 → 다음 render 에서 layout.range 강제 적용 (= property 재선택과 같은 효과).
+              if (e['xaxis.autorange'] === true || e['yaxis.autorange'] === true) {
+                setResetCounter((c) => c + 1);
+                return;
+              }
               const ref = indexLineRef.current;
               if (!ref || !xLog || !yLog) return;
               const ny = e[`shapes[${ref.shapeIndex}].y0`];
