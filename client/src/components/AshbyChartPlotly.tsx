@@ -273,8 +273,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const inLim = (m: any) => (!xLimit || (tv(m, xProperty)! >= xLimit[0] && tv(m, xProperty)! <= xLimit[1]))
       && (!yLimit || (tv(m, yProperty)! >= yLimit[0] && tv(m, yProperty)! <= yLimit[1]));
     // R88 — X/Y range slider 를 hard filter (AND) 로 적용. 이전엔 'selection window' 였으나 사이드바 family
-    //       checkbox 와 직관적으로 일관되지 않아 데이터가 envelope 밖에서 계속 보이는 것처럼 인지됨.
-    const fset = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m) && inLim(m));
+    //       checkbox 와 직관적으로 일관되지 않아 envelope/marker 가 범위 밖에서 계속 보임.
+    // R89 — frame (axis auto-range) 은 inLim 적용 전의 fsetForFrame 기준 → range slider 좁혀도, index
+    //       임계값 조정해도 frame 흔들리지 않음. 데이터/envelope/index 만 inLim 통과 fset 사용.
+    const fsetForFrame = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m));
+    const fset = fsetForFrame.filter(inLim);
     const fsetIds = new Set(fset.map((m) => m.id));
     const others = materials.filter((m) => !fsetIds.has(m.id) && valid(m));
 
@@ -427,9 +430,10 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     let envelopeTraces: any[] = [];
     if (showEnvelopes) envelopeTraces = groupFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : hullTraces;
 
-    // auto-range to the filtered envelope (log10 units, with padding)
-    const xs = fset.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
-    const ys = fset.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
+    // auto-range — R89: range slider 적용 전의 fsetForFrame 기준으로 frame 고정 (사용자가 range/index 조정 시
+    //               차트 zoom 흔들림 방지). fset 이 비어도 frame 은 family 범위 유지.
+    const xs = fsetForFrame.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
+    const ys = fsetForFrame.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
     const logRange = (v: number[]) => v.length ? [L(Math.min(...v)) - 0.15, L(Math.max(...v)) + 0.15] : undefined;
     const linRange = (v: number[]) => { if (!v.length) return undefined; const mn = Math.min(...v), mx = Math.max(...v), pad = (mx - mn) * 0.06 || mx * 0.06; return [Math.max(0, mn - pad), mx + pad]; };
     const xRange = xLog ? logRange(xs) : linRange(xs);

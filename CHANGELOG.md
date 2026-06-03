@@ -2,6 +2,23 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R89 — Ashby chart frame을 inLim 미적용 fsetForFrame 기준으로 고정
+**문제**: R88 에서 X/Y range slider 를 hard filter 로 만들었더니, range 좁히거나 index 임계값 조정 시 fset 이 변하면서 차트 axis auto-range 까지 같이 변해 zoom 이 흔들림. 사용자 보고: "index 적용시에도 frame은 유지해야함".
+**수정**: fset 을 두 단계로 분리.
+- `fsetForFrame = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m))` — sidebar filter + family/sub 까지만. **차트 axis range 기준**.
+- `fset = fsetForFrame.filter(inLim)` — range slider 까지 적용. **envelope · marker · index 표시 기준**.
+
+auto-range 계산을 `fsetForFrame` 으로 변경:
+```js
+const xs = fsetForFrame.flatMap(...)
+const ys = fsetForFrame.flatMap(...)
+```
+
+**효과**:
+- range slider 좁혀도 axis range 유지 → envelope 가 차트 한 구석으로 작게 모이는 게 아니라 동일 위치에서 일부만 사라짐
+- index threshold 조정 시 colored/coldFset 분리는 일어나도 frame 흔들림 없음
+- 사용자가 range/index 인터랙티브 조정 시 차트 zoom 안정성 확보
+
 ## R88 — Ashby chart X/Y range → hard filter (AND) 변경 (Bug fix)
 **Bug**: 좌측 사이드바에서 Metal 만 선택 + Y range 145.6~1050 GPa 으로 좁혔는데도 Aluminum (E≈70 GPa) envelope 가 차트에 계속 표시. 사용자가 "AND 조건이 적용 안 되는 것 같다" 고 보고.
 **원인**: X/Y range slider (`xLimit`/`yLimit`) 가 fset 정의에 포함되지 않고 "selection window" 로만 동작. 코드에 `"limits act as a selection (below), not a frame change"` 주석으로 의도된 동작이었으나 사이드바 family checkbox 와 일관되지 않아 직관에 어긋남.
