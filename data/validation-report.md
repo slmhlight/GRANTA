@@ -88,32 +88,29 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 
 ## R48a — Anomaly Detection
 
-Total: **375** — high 0 / medium 0 / low 375
+Total: **350** — high 0 / medium 0 / low 350
 
 ### By kind
 | Kind | Count |
 |---|---|
 | no verified source URL | 326 |
-| Ni Superalloy E out of [190, 230] GPa | 17 |
-| Aluminum E out of [50, 90] GPa | 17 |
-| Steel family E out of [180, 220] GPa | 7 |
-| Cu Alloy E out of [100, 140] GPa | 6 |
-| Tool Steel σy/UTS > 0.98 | 1 |
-| Ti α+β σy/UTS out of [0.75, 0.98] | 1 |
+| Aluminum E out of [55, 85] GPa | 17 |
+| Steel family E out of [175, 225] GPa | 4 |
+| Ni Superalloy E out of [185, 235] GPa | 3 |
 
-### LOW severity (showing 10 / 375)
+### LOW severity (showing 10 / 350)
 | Material | Kind | Detail |
 |---|---|---|
-| Invar 36 (Fe-36Ni) — As-built | Steel family E out of [180, 220] GPa | 141 |
-| Invar 36 (Fe-36Ni) — Heat-Treated | Steel family E out of [180, 220] GPa | 141 |
-| Monel K-500 — As-built | Ni Superalloy E out of [190, 230] GPa | 179 |
-| Monel K-500 — Aged | Ni Superalloy E out of [190, 230] GPa | 179 |
-| Monel K-500 — Heat-Treated | Ni Superalloy E out of [190, 230] GPa | 179 |
-| Maraging Steel (1.2709/MS1/M300/M789) — Heat-Treated | Tool Steel σy/UTS > 0.98 | 1.00 |
 | Ti5-8-5 — As-supplied (LPBF) | no verified source URL |  |
 | Bronze — As-supplied (Binder Jetting) | no verified source URL |  |
 | AISI 5130 — Aged / solution-treated (Wrought) | no verified source URL |  |
 | AISI 5130 — Annealed (Wrought) | no verified source URL |  |
+| AISI 5130 — As-cast / forged (Wrought) | no verified source URL |  |
+| AISI 5130 — Strain-hardened (Wrought) | no verified source URL |  |
+| AISI 5130 — As-supplied (Wrought) | no verified source URL |  |
+| AISI 5130 — Quenched / tempered (Wrought) | no verified source URL |  |
+| AISI 5140 — Aged / solution-treated (Wrought) | no verified source URL |  |
+| AISI 5140 — Annealed (Wrought) | no verified source URL |  |
 
 ## TODO
 - Hardness scale unification (HV/HRC/HB).
