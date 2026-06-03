@@ -7,6 +7,7 @@
     "dev": "vite --host",
     "build:data": "node scripts/build-materials.mjs",
     "verify:urls": "node scripts/verify-datasheet-urls.mjs",
+    "verify:guide": "node scripts/verify-guide-links.mjs",
     "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",

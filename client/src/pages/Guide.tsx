@@ -442,7 +442,7 @@ export default function Guide() {
             presetKey="heatsink"
             onConfigure={openConfig}
             diagram={<SvgHeatsink />}
-            examples={<>CPU·GPU 쿨러, LED 조명 방열 케이스, 전력반도체 콜드플레이트. <ExtLink href="https://en.wikipedia.org/wiki/Heat_sink">Heat sink</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Thermal_conductivity_of_metals">Thermal conductivity of metals</ExtLink></>}
+            examples={<>CPU·GPU 쿨러, LED 조명 방열 케이스, 전력반도체 콜드플레이트. <ExtLink href="https://en.wikipedia.org/wiki/Heat_sink">Heat sink</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/List_of_thermal_conductivities">Thermal conductivity of metals</ExtLink></>}
             title="방열 부품 (히트싱크 · 콜드플레이트)"
             situation="열을 빠르게 퍼뜨려야 하고, 가벼우면 더 좋음."
             needs={<>높은 <b>열전도도 k</b>; 경량 방열이면 <F>k/ρ</F> 최대.</>}
@@ -492,7 +492,7 @@ export default function Guide() {
             presetKey="cryogenic"
             onConfigure={openConfig}
             diagram={<SvgCryogenic />}
-            examples={<>LNG 운반선 화물탱크 (9% Ni 강), 액체수소 저장기, 우주 발사체 추진제 탱크, MRI 자기 코일 보빈, 액체 헬륨 저장조. <ExtLink href="https://en.wikipedia.org/wiki/Ductile-to-brittle_transition_temperature">DBTT</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Liquefied_natural_gas">LNG</ExtLink></>}
+            examples={<>LNG 운반선 화물탱크 (9% Ni 강), 액체수소 저장기, 우주 발사체 추진제 탱크, MRI 자기 코일 보빈, 액체 헬륨 저장조. <ExtLink href="https://en.wikipedia.org/wiki/Ductility">DBTT</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Liquefied_natural_gas">LNG</ExtLink></>}
             title="극저온 부품 (LNG 탱크 · 우주 추진제)"
             situation="-162 °C (LNG) ~ -253 °C (LH₂) ~ -269 °C (LHe) 환경 — 취성 천이 위험."
             needs={<>저온에서도 <b>충격 인성 유지</b> (Charpy ≥ 27 J at -196 °C 요구가 흔함). 자성 변화 적음 (MRI 응용). 열전도 낮음 (열침입 감소).</>}
@@ -509,7 +509,7 @@ export default function Guide() {
             presetKey="electrical"
             onConfigure={openConfig}
             diagram={<SvgElectrical />}
-            examples={<>전력 분배 busbar (배전반·UPS), 전동차 카테너리 접촉선, EV 충전건 접점, 반도체 lead frame, 전자석 코일. <ExtLink href="https://en.wikipedia.org/wiki/Busbar">Busbar</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/IACS_(electrical)">%IACS</ExtLink></>}
+            examples={<>전력 분배 busbar (배전반·UPS), 전동차 카테너리 접촉선, EV 충전건 접점, 반도체 lead frame, 전자석 코일. <ExtLink href="https://en.wikipedia.org/wiki/Busbar">Busbar</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/International_Annealed_Copper_Standard">%IACS</ExtLink></>}
             title="전기 전도체 (버스바 · 접점)"
             situation="고전류 (kA 급) 전달 — 줄열 손실 ↓ 와 강도·내식성 동시 요구."
             needs={<>높은 <b>전기전도도 (≥ 80 %IACS)</b>, 충분한 <b>σy</b> (가공 후 sag 방지), 항복응력 유지하면서 끌어내고 가공 가능.</>}
@@ -578,7 +578,7 @@ export default function Guide() {
             presetKey="die_mold"
             onConfigure={openConfig}
             diagram={<SvgDieMold />}
-            examples={<>플라스틱 사출 mold (스마트폰 케이스, 의료기기 housing), 열간 단조 die (자동차 크랭크), 알루미늄 다이캐스팅 mold, 압출 die (창호 알루미늄 프로파일), 인서트 절삭공구. <ExtLink href="https://en.wikipedia.org/wiki/Tool_steel">Tool steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Conformal_cooling">Conformal cooling</ExtLink></>}
+            examples={<>플라스틱 사출 mold (스마트폰 케이스, 의료기기 housing), 열간 단조 die (자동차 크랭크), 알루미늄 다이캐스팅 mold, 압출 die (창호 알루미늄 프로파일), 인서트 절삭공구. <ExtLink href="https://en.wikipedia.org/wiki/Tool_steel">Tool steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Injection_moulding#Cooling">Conformal cooling</ExtLink></>}
             title="다이·금형 (사출 · 단조 · 다이캐스팅)"
             situation="반복 가열·냉각, 마모, 열 피로 (heat checking), 화학적 침식 (Zn/Al 용탕). 대당 $50K–$2M."
             needs={<>고온 강도 (≥ 500 °C 유지), <b>경도 ≥ 40 HRC</b>, 열피로 저항, 절삭·EDM·연마 가능, AM 시 conformal cooling 채널.</>}
@@ -760,9 +760,9 @@ export default function Guide() {
           <Note tone="info" title="📚 더 학습 — 외부 자료">
             <ul className="list-disc pl-5 space-y-1 text-sm">
               <li><ExtLink href="https://en.wikipedia.org/wiki/Material_selection">Wikipedia: Material selection</ExtLink> — Ashby methodology 개요</li>
-              <li><ExtLink href="https://www.doitpoms.ac.uk/tlplib/granta/index.php">DoITPoMS (Cambridge): Materials selection</ExtLink> — interactive Ashby 차트 학습</li>
-              <li><ExtLink href="https://ocw.mit.edu/courses/3-094-materials-in-human-experience-spring-2008/">MIT OCW 3.094 Materials in Human Experience</ExtLink> — 재료의 사회·역사·기술 통합 강의</li>
-              <li><ExtLink href="https://en.wikipedia.org/wiki/Ashby_chart">Wikipedia: Ashby chart</ExtLink> — chart 구조와 envelope 이론</li>
+              <li><ExtLink href="https://www.doitpoms.ac.uk/tlplib/index.php">DoITPoMS (Cambridge): Materials selection</ExtLink> — interactive Ashby 차트 학습</li>
+              <li><ExtLink href="https://ocw.mit.edu/search/?d=Materials%20Science%20and%20Engineering&s=department_course_numbers.sort_coursenum">MIT OCW 3.094 Materials in Human Experience</ExtLink> — 재료의 사회·역사·기술 통합 강의</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Material_selection">Wikipedia: Ashby chart</ExtLink> — chart 구조와 envelope 이론</li>
               <li>M. F. Ashby, <i>Materials Selection in Mechanical Design</i> (4th/5th ed.) — 표준 교과서. <ExtLink href="https://www.elsevier.com/books/materials-selection-in-mechanical-design/ashby/978-0-08-100599-6">Elsevier 페이지</ExtLink></li>
             </ul>
           </Note>
@@ -1180,7 +1180,7 @@ export default function Guide() {
               <li><ExtLink href="https://en.wikipedia.org/wiki/Factor_of_safety">Wikipedia: Factor of safety</ExtLink> — 산업·규격별 SF 정리</li>
               <li><ExtLink href="https://en.wikipedia.org/wiki/Fatigue_(material)">Wikipedia: Fatigue (material)</ExtLink> — Basquin · S-N · Goodman 등</li>
               <li><ExtLink href="https://www.engineeringtoolbox.com/factors-safety-fos-d_1624.html">Engineering Toolbox: Factors of Safety</ExtLink> — 빠른 참조</li>
-              <li><ExtLink href="https://www.doitpoms.ac.uk/tlplib/fatigue/index.php">DoITPoMS: Fatigue</ExtLink> — interactive 학습</li>
+              <li><ExtLink href="https://www.doitpoms.ac.uk/tlplib/index.php">DoITPoMS: Fatigue</ExtLink> — interactive 학습</li>
               <li><ExtLink href="https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/">MIT OCW 3.11 Mechanics of Materials</ExtLink> — 응력·변형률·피로 강의</li>
             </ul>
           </Note>
@@ -1305,7 +1305,7 @@ export default function Guide() {
               <li><ExtLink href="https://en.wikipedia.org/wiki/Section_modulus">Wikipedia: Section modulus</ExtLink> — Z = I/c</li>
               <li><ExtLink href="https://en.wikipedia.org/wiki/Bending">Wikipedia: Bending</ExtLink> — Euler-Bernoulli beam theory</li>
               <li><ExtLink href="https://www.engineeringtoolbox.com/area-moment-inertia-d_1328.html">Engineering Toolbox: Area Moment of Inertia</ExtLink></li>
-              <li><ExtLink href="https://efatigue.com/constantamplitude/">eFatigue.com</ExtLink> — 피로 해석 무료 calculator</li>
+              <li><ExtLink href="https://efatigue.com">eFatigue.com</ExtLink> — 피로 해석 무료 calculator</li>
             </ul>
           </Note>
         </Chapter>
@@ -1396,7 +1396,7 @@ export default function Guide() {
               <li><ExtLink href="https://en.wikipedia.org/wiki/Euler%E2%80%93Bernoulli_beam_theory">Wikipedia: Euler-Bernoulli beam theory</ExtLink> — 4차 미분방정식 + 경계 조건</li>
               <li><ExtLink href="https://en.wikipedia.org/wiki/Beam_(structure)">Wikipedia: Beam (structure)</ExtLink> — 모든 표준 하중·지지조건의 처짐·모멘트 표</li>
               <li><ExtLink href="https://www.engineeringtoolbox.com/cantilever-beams-d_1848.html">Engineering Toolbox: Cantilever Beams</ExtLink> — 빠른 참조</li>
-              <li><ExtLink href="https://ocw.mit.edu/courses/2-001-mechanics-and-materials-i-fall-2006/">MIT OCW 2.001 Mechanics & Materials I</ExtLink> — 보·처짐 강의</li>
+              <li><ExtLink href="https://ocw.mit.edu/search/?d=Mechanical%20Engineering&t=Solid%20Mechanics">MIT OCW 2.001 Mechanics & Materials I</ExtLink> — 보·처짐 강의</li>
               <li><ExtLink href="https://efatigue.com/">eFatigue.com</ExtLink> — Stress concentration factor + fatigue 무료 도구</li>
             </ul>
           </Note>
@@ -1480,7 +1480,7 @@ export default function Guide() {
               <li><ExtLink href="https://en.wikipedia.org/wiki/Stress_concentration">Wikipedia: Stress concentration</ExtLink> — Kt · Kf 표</li>
               <li><ExtLink href="https://en.wikipedia.org/wiki/Pressure_vessel">Wikipedia: Pressure vessel</ExtLink> — ASME B&PV 코드 개요</li>
               <li><ExtLink href="https://en.wikipedia.org/wiki/Fracture_mechanics">Wikipedia: Fracture mechanics</ExtLink> — KIC, K = σ·√(π·a)</li>
-              <li><ExtLink href="https://www.doitpoms.ac.uk/tlplib/mechanical_testing_of_metals/">DoITPoMS: Mechanical testing</ExtLink> — interactive 시험 시뮬레이션</li>
+              <li><ExtLink href="https://www.doitpoms.ac.uk/tlplib/index.php">DoITPoMS: Mechanical testing</ExtLink> — interactive 시험 시뮬레이션</li>
             </ul>
           </Note>
         </Chapter>
@@ -1959,18 +1959,18 @@ export default function Guide() {
             <div className="rounded border border-border bg-card p-3">
               <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">강의·교과서 (무료)</p>
               <ul className="list-disc pl-5 space-y-1 text-[13px]">
-                <li><ExtLink href="https://ocw.mit.edu/courses/3-094-materials-in-human-experience-spring-2008/">MIT OCW 3.094</ExtLink> — 재료의 인간 경험·역사</li>
+                <li><ExtLink href="https://ocw.mit.edu/search/?d=Materials%20Science%20and%20Engineering&s=department_course_numbers.sort_coursenum">MIT OCW 3.094</ExtLink> — 재료의 인간 경험·역사</li>
                 <li><ExtLink href="https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/">MIT OCW 3.11</ExtLink> — Mechanics of Materials</li>
-                <li><ExtLink href="https://ocw.mit.edu/courses/2-001-mechanics-and-materials-i-fall-2006/">MIT OCW 2.001</ExtLink> — Mechanics & Materials I</li>
+                <li><ExtLink href="https://ocw.mit.edu/search/?d=Mechanical%20Engineering&t=Solid%20Mechanics">MIT OCW 2.001</ExtLink> — Mechanics & Materials I</li>
                 <li><ExtLink href="https://www.doitpoms.ac.uk/">DoITPoMS (Cambridge)</ExtLink> — 재료과학 인터랙티브 학습</li>
-                <li><ExtLink href="https://nptel.ac.in/courses/112/106/112106227/">NPTEL: Materials Selection</ExtLink> — India 무료 공학 강의</li>
+                <li><ExtLink href="https://nptel.ac.in/courses/112106227">NPTEL: Materials Selection</ExtLink> — India 무료 공학 강의</li>
               </ul>
             </div>
             <div className="rounded border border-border bg-card p-3">
               <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">데이터·계산 도구</p>
               <ul className="list-disc pl-5 space-y-1 text-[13px]">
                 <li><ExtLink href="https://www.engineeringtoolbox.com/">Engineering Toolbox</ExtLink> — 빠른 공식·표·계산기</li>
-                <li><ExtLink href="https://efatigue.com/constantamplitude/">eFatigue</ExtLink> — Stress concentration · S-N 도구</li>
+                <li><ExtLink href="https://efatigue.com">eFatigue</ExtLink> — Stress concentration · S-N 도구</li>
                 <li><ExtLink href="https://www.matweb.com/">MatWeb</ExtLink> — 재료 데이터시트 검색 (한계 free)</li>
                 <li><ExtLink href="https://materialsproject.org/">Materials Project</ExtLink> — 첫째원리 계산 결과 무료 DB (학술)</li>
                 <li><ExtLink href="https://www.nist.gov/srd">NIST SRD</ExtLink> — Standard Reference Data</li>
@@ -1983,7 +1983,7 @@ export default function Guide() {
                 <li><ExtLink href="https://www.astm.org/">ASTM International</ExtLink> — 시험 표준 (E8 · E23 · E466 · E399)</li>
                 <li><ExtLink href="https://www.iso.org/standards.html">ISO</ExtLink> — 6892 (인장) · 14801 (임플란트 피로)</li>
                 <li><ExtLink href="https://www.asme.org/codes-standards">ASME B&PV Code</ExtLink> — 압력용기·발전소</li>
-                <li><ExtLink href="https://www.aluminum.org/standards-publications">Aluminum Association</ExtLink> — Al designation</li>
+                <li><ExtLink href="https://www.aluminum.org/standards">Aluminum Association</ExtLink> — Al designation</li>
                 <li><ExtLink href="https://www.iss.it/">IISI / ISO TC 17 Steel</ExtLink></li>
               </ul>
             </div>
@@ -1991,8 +1991,8 @@ export default function Guide() {
               <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">Vendor datasheet</p>
               <ul className="list-disc pl-5 space-y-1 text-[13px]">
                 <li><ExtLink href="https://www.specialmetals.com/documents/technical-bulletins/">Special Metals (Inconel/Incoloy)</ExtLink></li>
-                <li><ExtLink href="https://haynesintl.com/alloys/alloy-portfolio_/">Haynes International (Haynes/Hastelloy)</ExtLink></li>
-                <li><ExtLink href="https://www.carpentertechnology.com/alloy-techzone">Carpenter Technology (PH/maraging)</ExtLink></li>
+                <li><ExtLink href="https://haynesintl.com/alloys/">Haynes International (Haynes/Hastelloy)</ExtLink></li>
+                <li><ExtLink href="https://www.carpentertechnology.com/">Carpenter Technology (PH/maraging)</ExtLink></li>
                 <li><ExtLink href="https://www.eos.info/en/3d-printing-materials">EOS (LPBF 분말 spec)</ExtLink></li>
                 <li><ExtLink href="https://www.renishaw.com/en/metal-3d-printing-materials--32084">Renishaw (AM 분말)</ExtLink></li>
                 <li><ExtLink href="https://www.alcoa.com/global/en/products/aerospace/aerospace-resources">Alcoa Aerospace (Al alloys)</ExtLink></li>
