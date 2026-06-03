@@ -97,9 +97,12 @@ export function MaterialTable({
                         ? 'bg-accent border-accent text-accent-foreground'
                         : headerState === 'some'
                           ? 'bg-accent/40 border-accent text-accent-foreground'
-                          : 'border-border/60 hover:border-accent/60 text-transparent hover:text-accent/40'
+                          // R58a — 항상 visible (이전엔 transparent → 사용자 눈에 안 보임 회귀).
+                          //        border 진하게 + Plus icon muted-foreground 로 살짝 노출.
+                          : 'border-border hover:border-accent text-muted-foreground hover:text-accent bg-background'
                     }`}
                     title={headerState === 'all' ? `현재 페이지 ${pageIds.length}개 모두 해제` : `현재 페이지 ${pageIds.length}개 모두 Compare 에 추가`}
+                    aria-label={headerState === 'all' ? '현재 페이지 전체 해제' : '현재 페이지 전체 Compare 추가'}
                   >
                     {headerState === 'all' ? <Check className="w-3 h-3" /> : headerState === 'some' ? <Minus className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
                   </button>
@@ -145,8 +148,10 @@ export function MaterialTable({
                       className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
                         isCompare
                           ? 'bg-accent border-accent text-accent-foreground'
-                          : 'border-border/60 hover:border-accent/60 text-transparent hover:text-accent/40'
+                          // R58a — row 체크박스도 항상 visible (이전엔 hover-only Plus icon → 발견 어려움).
+                          : 'border-border hover:border-accent text-muted-foreground/60 hover:text-accent bg-background'
                       }`}
+                      aria-label={isCompare ? `${m.name} Compare 에서 제거` : `${m.name} Compare 에 추가`}
                     >
                       {isCompare ? <Check className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
                     </button>
