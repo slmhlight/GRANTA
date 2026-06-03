@@ -4,9 +4,9 @@
  * an in-cell horizontal bar (value vs column max) for visual comparison, and click-to-sort headers.
  */
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { useT, useLang } from '@/lib/i18n';
-import { X, SlidersHorizontal, ArrowUp, ArrowDown } from 'lucide-react';
+import { X, SlidersHorizontal, ArrowUp, ArrowDown, Download, FileImage } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import type { Material, PropertyRange } from '@/lib/materials';
@@ -38,6 +38,9 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   const t = useT();
   const { lang } = useLang();
   const sysUnits = loadUnitSystem();
+  // R50d — export 대상 (table) ref + busy state.
+  const tableRef = useRef<HTMLDivElement>(null);
+  const [exporting, setExporting] = useState(false);
   const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
   const [sort, setSort] = useState<Sort>(null);
   // R21: tempSeries 제거. 사용자 요청 — Compare 패널에 온도 그래프 불필요.
@@ -76,6 +79,55 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   const SortIcon = ({ k }: { k: string }) =>
     sort?.key === k ? (sort.dir === 'desc' ? <ArrowDown className="w-3 h-3 inline ml-0.5" /> : <ArrowUp className="w-3 h-3 inline ml-0.5" />) : null;
 
+  // R50d — CSV export. material × selected columns 표 + UTF-8 BOM (Excel KO 호환).
+  const exportCSV = () => {
+    if (sortedMaterials.length === 0) return;
+    const headers = ['Material', 'Family', 'Process', ...selected.map((p) => `${p.label} (${p.unit})`)];
+    const rows = sortedMaterials.map((m) => {
+      const row: (string | number)[] = [m.name, m.subcategory || '', m.process || ''];
+      for (const p of selected) {
+        const k = p.key as string;
+        const v = typOf(m, k);
+        const r = (m.ranges || {})[k] as PropertyRange | null | undefined;
+        if (v == null) row.push('');
+        else if (r && r.max > r.min) row.push(`${fmt(v)} [${fmt(r.min)}-${fmt(r.max)}]`);
+        else row.push(fmt(v));
+      }
+      return row;
+    });
+    const csv = [headers, ...rows].map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\n');
+    const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `compare-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+
+  // R50d — PNG export (html2canvas). Compare 패널 table 영역만 캡쳐.
+  const exportPNG = async () => {
+    if (!tableRef.current) return;
+    setExporting(true);
+    try {
+      const { default: html2canvas } = await import('html2canvas');
+      const canvas = await html2canvas(tableRef.current, { scale: 2, backgroundColor: '#ffffff', logging: false });
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `compare-${new Date().toISOString().slice(0, 10)}.png`;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }, 'image/png');
+    } catch (err) {
+      console.error('PNG export failed:', err);
+    } finally {
+      setExporting(false);
+    }
+  };
+
   return (
     <div className="flex flex-col h-full bg-card border-l border-border">
       {/* Header */}
@@ -102,6 +154,17 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+          {/* R50d — CSV / PNG export 버튼 (material 1개 이상 일 때만) */}
+          {materials.length > 0 && (
+            <>
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1" onClick={exportCSV} title="CSV 로 내보내기">
+                <Download className="w-3 h-3" /> CSV
+              </Button>
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1" onClick={exportPNG} disabled={exporting} title="PNG 이미지로 내보내기">
+                <FileImage className="w-3 h-3" /> {exporting ? '...' : 'PNG'}
+              </Button>
+            </>
+          )}
           {onClear && materials.length > 0 && (
             <Button
               variant="ghost"
@@ -119,7 +182,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
 
       {/* Comparison table: rows = materials, columns = properties.
        *   R29: sticky thead 배경 문제 fix — 모든 th 에 bg-card (이전엔 첫 th 만 bg-muted, 나머지 투명 → 스크롤 시 row 데이터 비침). */}
-      <div className="flex-1 overflow-auto">
+      <div ref={tableRef} className="flex-1 overflow-auto">
         <table className="text-xs border-collapse min-w-full">
           <thead className="sticky top-0 z-10">
             <tr className="border-b border-border bg-card shadow-[0_2px_4px_-2px_rgba(0,0,0,0.08)]">

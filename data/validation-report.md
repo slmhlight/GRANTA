@@ -3,30 +3,30 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **940 materials**: 99 curated · 7 am_vendor · 473 generic
-- Dropped 379 CSV rows that duplicate curated AM alloys (curated db is the richer source).
+- **1044 materials**: 99 curated · 7 am_vendor · 454 generic
+- Dropped 499 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 940/940 | 0 |
-| yield_strength | 938/940 | 684 |
-| uts | 931/940 | 682 |
-| elongation | 893/940 | 681 |
-| modulus | 940/940 | 48 |
-| hardness | 813/940 | 589 |
-| thermal_conductivity | 940/940 | 2 |
-| fatigue_strength | 839/940 | 652 |
-| impact_strength | 162/940 | 162 |
+| density | 1044/1044 | 0 |
+| yield_strength | 1042/1044 | 670 |
+| uts | 1035/1044 | 668 |
+| elongation | 997/1044 | 667 |
+| modulus | 1044/1044 | 48 |
+| hardness | 901/1044 | 575 |
+| thermal_conductivity | 1044/1044 | 2 |
+| fatigue_strength | 929/1044 | 649 |
+| impact_strength | 167/1044 | 167 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 424/940 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 537/1044 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
 ## Integrity fixes
 - Removed **1** corrupt CSV row(s) (e.g. `material_name="0"`).
-- AA aluminium series subcategory auto-corrected: **114** materials.
+- AA aluminium series subcategory auto-corrected: **104** materials.
 - Process labels canonicalised: {"Casting":"Cast","Die Casting":"Cast","Sand Casting":"Cast","Investment Casting":"Cast","Cast/Wrought":"Wrought"}.
 - Placeholder `corrosion_resistance=0` in 2313 raw rows (treated as “unknown”, not 0).
 - Empty fatigue/impact in 2364 raw rows (left null, not zero).
@@ -63,13 +63,13 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 ### Category counts
 | Category | Count | Distinct subcategories |
 |---|---|---|
-| Metal | 769 | (multiple) |
-| Polymer | 96 | 44 |
+| Metal | 855 | (multiple) |
+| Polymer | 110 | 44 |
 | Ceramic | 45 | 13 |
-| Composite | 30 | — |
+| Composite | 34 | — |
 
 ### Metal subcategory canonicalization (R36c)
-- 221 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
+- 232 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
 - Stainless: Stainless / Stainless Steel / PH Stainless → "Stainless Steel - Austenitic / Ferritic·Martensitic / Duplex / PH".
 - Nickel: Nickel-based / Nickel Alloy / Nickel Superalloy / Hastelloy / Inconel / Monel / Haynes 등 → "Nickel Superalloy - <subfamily>".
 - Cobalt: Cobalt Chrome / Cobalt-based → "Cobalt Alloy - Chrome / Wear".
@@ -77,37 +77,43 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - Steel: Carbon Steel / Steel / Carbon-Low-alloy → "Carbon Steel"; Maraging / Tool / Cast Iron 분리.
 
 ### Polymer subcategory canonicalization (R34c)
-- 51 polymer entries had their subcategory rewritten by the canonicalization pass (`POLY_SUB_RULES`).
+- 63 polymer entries had their subcategory rewritten by the canonicalization pass (`POLY_SUB_RULES`).
 - PEEK / PEEK CF, PEKK / PEKK CF, PA / PA GF / PA CF, ULTEM / ULTEM GF kept distinct (reinforcement variants have meaningfully different properties).
 - "Polymer - Nylon (FDM/SLS)" residual count: 1 — unmatched entries fall back to category-specific subcategory.
 
 ### Temperature & creep coverage
-- 292 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +51 mostly polymer).
-- 253 have Young's modulus vs T (E(T)).
-- 105 have creep rupture curves (Ni superalloys, no change in R34).
+- 301 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +60 mostly polymer).
+- 260 have Young's modulus vs T (E(T)).
+- 109 have creep rupture curves (Ni superalloys, no change in R34).
 
 ## R48a — Anomaly Detection
 
-Total: **335** — high 0 / medium 0 / low 335
+Total: **375** — high 0 / medium 0 / low 375
 
 ### By kind
 | Kind | Count |
 |---|---|
-| no verified source URL | 335 |
+| no verified source URL | 326 |
+| Ni Superalloy E out of [190, 230] GPa | 17 |
+| Aluminum E out of [50, 90] GPa | 17 |
+| Steel family E out of [180, 220] GPa | 7 |
+| Cu Alloy E out of [100, 140] GPa | 6 |
+| Tool Steel σy/UTS > 0.98 | 1 |
+| Ti α+β σy/UTS out of [0.75, 0.98] | 1 |
 
-### LOW severity (showing 10 / 335)
+### LOW severity (showing 10 / 375)
 | Material | Kind | Detail |
 |---|---|---|
+| Invar 36 (Fe-36Ni) — As-built | Steel family E out of [180, 220] GPa | 141 |
+| Invar 36 (Fe-36Ni) — Heat-Treated | Steel family E out of [180, 220] GPa | 141 |
+| Monel K-500 — As-built | Ni Superalloy E out of [190, 230] GPa | 179 |
+| Monel K-500 — Aged | Ni Superalloy E out of [190, 230] GPa | 179 |
+| Monel K-500 — Heat-Treated | Ni Superalloy E out of [190, 230] GPa | 179 |
+| Maraging Steel (1.2709/MS1/M300/M789) — Heat-Treated | Tool Steel σy/UTS > 0.98 | 1.00 |
 | Ti5-8-5 — As-supplied (LPBF) | no verified source URL |  |
 | Bronze — As-supplied (Binder Jetting) | no verified source URL |  |
 | AISI 5130 — Aged / solution-treated (Wrought) | no verified source URL |  |
 | AISI 5130 — Annealed (Wrought) | no verified source URL |  |
-| AISI 5130 — As-cast / forged (Wrought) | no verified source URL |  |
-| AISI 5130 — Strain-hardened (Wrought) | no verified source URL |  |
-| AISI 5130 — As-supplied (Wrought) | no verified source URL |  |
-| AISI 5130 — Quenched / tempered (Wrought) | no verified source URL |  |
-| AISI 5140 — Aged / solution-treated (Wrought) | no verified source URL |  |
-| AISI 5140 — Annealed (Wrought) | no verified source URL |  |
 
 ## TODO
 - Hardness scale unification (HV/HRC/HB).

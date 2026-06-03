@@ -324,13 +324,22 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       if (!byClass.has(ck)) byClass.set(ck, { color: cc, ms: [] });
       byClass.get(ck)!.ms.push(m);
     }
+    // R50c — customdata 확장: [id, subcategory, process, popularity, verified]. hovertemplate 풍부화.
+    const verifiedOf = (m: Material) => (m.sources && m.sources.some((s: any) => s.verified)) ? '✓' : '';
     const markerTraces = Array.from(byClass.entries()).sort((a, b) => b[1].ms.length - a[1].ms.length).map(([key, { color, ms }]) => ({
       x: ms.map((m) => tv(m, xProperty)), y: ms.map((m) => tv(m, yProperty)),
       mode: showLabels ? 'markers+text' : 'markers', type: 'scatter', name: `${key} (${ms.length})`,
       textposition: 'top center', textfont: { size: 8, color: '#64748b' },
       marker: { size: colorMode ? markerSize + 4 : markerSize, color, line: { color: darkChart ? '#0f172a' : '#ffffff', width: colorMode ? 1.2 : 0.5 }, opacity: markerOpacity },
-      text: ms.map((m) => m.name), customdata: ms.map((m) => m.id),
-      hovertemplate: `<b>%{text}</b><br>${xProperty}: %{x:.4g}<br>${yProperty}: %{y:.4g}<extra>${key}</extra>`,
+      text: ms.map((m) => m.name),
+      customdata: ms.map((m) => [m.id, m.subcategory || '', m.process || '', m.popularity ?? 0, verifiedOf(m)]),
+      hovertemplate:
+        `<b>%{text}</b>` +
+        `<br><span style="color:#64748b">%{customdata[1]} · %{customdata[2]}</span>` +
+        `<br>${xMeta?.label || xProperty}: <b>%{x:.4g}</b> ${xMeta?.unit || ''}` +
+        `<br>${yMeta?.label || yProperty}: <b>%{y:.4g}</b> ${yMeta?.unit || ''}` +
+        `<br>인기도: %{customdata[3]:.2f}/5 %{customdata[4]}` +
+        `<extra>${key}</extra>`,
     }));
 
     const ctx = showContext ? [...others, ...coldFset] : [];
@@ -752,13 +761,15 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
           useResizeHandler
           style={{ width: '100%', height: '100%' }}
           onClick={(e: any) => {
-            const id = e?.points?.[0]?.customdata;
+            // R50c — customdata 가 array 일 수 있음 (markerTraces) 또는 string (paretoTraces / contextTrace 등).
+            const cd = e?.points?.[0]?.customdata;
+            const id = Array.isArray(cd) ? cd[0] : cd;
             const m = id && materials.find((x) => x.id === id);
             if (m && onMaterialClick) onMaterialClick(m);
           }}
           {...({
             onSelected: (e: any) => {
-              const ids = (e?.points || []).map((p: any) => p.customdata).filter(Boolean);
+              const ids = (e?.points || []).map((p: any) => Array.isArray(p.customdata) ? p.customdata[0] : p.customdata).filter(Boolean);
               if (ids.length) setBoxedIds(new Set(ids));
             },
             onDeselect: () => setBoxedIds(new Set()),

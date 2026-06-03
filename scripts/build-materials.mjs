@@ -2359,11 +2359,44 @@ function detectAnomalies(all) {
     const cat = m.category || 'Metal';
     const sy = typ(m, 'yield_strength'), uts = typ(m, 'uts');
     if (sy != null && uts != null && sy > uts * 1.02) push('high', 'σy > UTS', m, `σy ${sy} > UTS ${uts}`);
+
+    // R50b — family-aware σy/UTS ratio + modulus 범위 검사.
+    if (sy != null && uts != null && uts > 0) {
+      const ratio = sy / uts;
+      const sub = String(m.subcategory || '');
+      if (cat === 'Metal') {
+        if (ratio > 1.00) push('high', 'σy/UTS > 1.00 (data error)', m, `${ratio.toFixed(2)} (σy=${sy}, UTS=${uts})`);
+        else if (/Stainless Steel - Austenitic/.test(sub) && (ratio < 0.20 || ratio > 0.95))
+          push('med', 'Austenitic SS σy/UTS out of [0.20, 0.95]', m, `${ratio.toFixed(2)}`);
+        else if (/Carbon Steel/.test(sub) && (ratio < 0.35 || ratio > 0.95))
+          push('low', 'Carbon Steel σy/UTS out of [0.35, 0.95]', m, `${ratio.toFixed(2)}`);
+        else if (/Nickel Superalloy/.test(sub) && ratio > 0.98)
+          push('med', 'Ni Superalloy σy/UTS > 0.98 (suspect)', m, `${ratio.toFixed(2)}`);
+        else if (/Maraging/.test(sub) && ratio > 0.99)
+          push('low', 'Maraging σy/UTS > 0.99', m, `${ratio.toFixed(2)}`);
+        else if (/Titanium - α\+β/.test(sub) && (ratio < 0.75 || ratio > 0.98))
+          push('low', 'Ti α+β σy/UTS out of [0.75, 0.98]', m, `${ratio.toFixed(2)}`);
+        else if (/Tool Steel/.test(sub) && ratio > 0.98)
+          push('low', 'Tool Steel σy/UTS > 0.98', m, `${ratio.toFixed(2)}`);
+      }
+      if (cat === 'Polymer' && ratio > 1.05) push('med', 'Polymer σy > UTS × 1.05', m, `${ratio.toFixed(2)}`);
+    }
+
     const dens = typ(m, 'density');
     if (dens != null && (dens <= 0 || dens > 25)) push('high', 'density out of range', m, `${dens} g/cm³`);
     const E = typ(m, 'modulus');
     // 폴리머는 E ~0.0005 GPa (gel) 부터, silicone 0.005 GPa. 양의 값이면 OK. 음수·0 또는 > 1500 만 high.
     if (E != null && (E <= 0 || E > 1500)) push('high', 'modulus out of range', m, `${E} GPa`);
+    // R50b — family-aware E typical 범위.
+    if (E != null && cat === 'Metal') {
+      const sub = String(m.subcategory || '');
+      if (/^Aluminum/.test(sub) && (E < 50 || E > 90)) push('low', 'Aluminum E out of [50, 90] GPa', m, `${E}`);
+      else if (/^Titanium/.test(sub) && (E < 95 || E > 130)) push('low', 'Titanium E out of [95, 130] GPa', m, `${E}`);
+      else if (/Stainless Steel|Carbon Steel|Alloy Steel|Tool Steel|Maraging/.test(sub) && (E < 180 || E > 220)) push('low', 'Steel family E out of [180, 220] GPa', m, `${E}`);
+      else if (/Nickel Superalloy/.test(sub) && (E < 190 || E > 230)) push('low', 'Ni Superalloy E out of [190, 230] GPa', m, `${E}`);
+      else if (/^Copper Alloy/.test(sub) && (E < 100 || E > 140)) push('low', 'Cu Alloy E out of [100, 140] GPa', m, `${E}`);
+      else if (/Magnesium/.test(sub) && (E < 40 || E > 50)) push('low', 'Mg E out of [40, 50] GPa', m, `${E}`);
+    }
     if (sy != null && sy < 0) push('high', 'σy negative', m, `${sy}`);
     if (uts != null && uts < 0) push('high', 'UTS negative', m, `${uts}`);
 
