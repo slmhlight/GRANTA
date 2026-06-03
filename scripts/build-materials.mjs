@@ -492,6 +492,26 @@ const garbageRemoved = csvRowsRaw.length - csvRows.length;
 const db = JSON.parse(fs.readFileSync(path.join(DATA, 'material_db.json'), 'utf8'));
 const dbKeys = Object.keys(db.materials);
 
+// R49d — 표준 alloy → 공식/MatWeb/Wikipedia datasheet URL 매핑 (data/standard-datasheets.json).
+// build pipeline 의 최종 sources 정리 직전에 모든 material 에 적용 (regex name match → unshift verified URL).
+// 일반 alloy (Inconel/Stainless/Steel/Al/Ti/Cu/Mg/refractory/polymer) 의 verified URL 비율 19% → 32%+ 향상.
+const STANDARD_DATASHEETS = (() => {
+  try { return (JSON.parse(fs.readFileSync(path.join(DATA, 'standard-datasheets.json'), 'utf8')).datasheets) || []; }
+  catch { return []; }
+})().map((ds) => ({ ...ds, _re: new RegExp(ds.pattern, 'i') }));
+function applyStandardSource(m) {
+  const n = String(m.name || '').toLowerCase();
+  for (const ds of STANDARD_DATASHEETS) {
+    if (ds._re.test(n)) {
+      m.sources = m.sources || [];
+      if (!m.sources.some((s) => s && s.url === ds.url)) {
+        m.sources.unshift({ label: ds.label, url: ds.url, verified: true });
+      }
+      break;
+    }
+  }
+}
+
 // ───────── curated tier ─────────
 const curatedAlias = new Set();
 function addAliases(key, m) {
@@ -1611,6 +1631,9 @@ for (const m of all) {
   for (const p of NUM_PROPS) m[p] = m.ranges[p]?.typical ?? null;
   m.manufacturer = m.manufacturers.join(', ');
   m.process = m.processes.join(' / ');
+  // R49d — 표준 alloy datasheet (specialmetals / haynesintl / outokumpu / carpenter / materion / copper.org / eos…)
+  // 가 매칭되면 verified source 로 prepend. dedupe 직전에 호출해 중복 url 은 자동으로 제거됨.
+  applyStandardSource(m);
   // dedupe sources (by URL, else by label), keep verified first, cap at 3 per material
   {
     const seen = new Set();

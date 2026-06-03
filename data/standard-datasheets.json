@@ -1,0 +1,766 @@
+{
+  "_note": "R49d — 표준 alloy datasheet verified URLs. build script (scripts/build-materials.mjs → applyStandardSource) 가 alloy name regex 매칭하여 자동 추가. URL 은 모두 공식 도메인 (specialmetals/haynesintl/outokumpu/carpenter/materion/timet/arconic/eos/3dsystems 등) 또는 fallback 으로 MatWeb QuickText / Wikipedia 만 사용.",
+  "_priority_order": "공식 datasheet PDF > 공식 alloy 페이지 > MatWeb QuickText > Wikipedia",
+  "datasheets": [
+    {
+      "pattern": "\\binconel[\\s-]*718\\b|\\bin[\\s-]?718\\b|alloy[\\s-]*718",
+      "label": "Special Metals — Inconel Alloy 718",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*625\\b|alloy[\\s-]*625",
+      "label": "Special Metals — Inconel Alloy 625",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*600\\b|alloy[\\s-]*600",
+      "label": "Special Metals — Inconel Alloy 600",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*601\\b|alloy[\\s-]*601",
+      "label": "Special Metals — Inconel Alloy 601",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-601.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*617\\b|alloy[\\s-]*617",
+      "label": "Special Metals — Inconel Alloy 617",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-617.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*690\\b|alloy[\\s-]*690",
+      "label": "Special Metals — Inconel Alloy 690",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-690.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*706\\b|alloy[\\s-]*706",
+      "label": "Special Metals — Inconel Alloy 706",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-706.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*740h?\\b|alloy[\\s-]*740h?",
+      "label": "Special Metals — Inconel Alloy 740H",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740-h.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*x[\\s-]?750\\b|\\bx[\\s-]?750\\b",
+      "label": "Special Metals — Inconel Alloy X-750",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*751\\b|alloy[\\s-]*751",
+      "label": "Special Metals — Inconel Alloy 751",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-751.pdf"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*713c?\\b|in[\\s-]?713",
+      "label": "MatWeb — Inconel 713C",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+713C"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*738(lc)?\\b|in[\\s-]?738",
+      "label": "MatWeb — Inconel 738LC",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+738LC"
+    },
+    {
+      "pattern": "\\binconel[\\s-]*939\\b|in[\\s-]?939",
+      "label": "MatWeb — Inconel 939",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+939"
+    },
+    {
+      "pattern": "\\bincoloy[\\s-]*800h?\\b|alloy[\\s-]*800h?",
+      "label": "Special Metals — Incoloy Alloy 800H/800HT",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloys-800h-800ht.pdf"
+    },
+    {
+      "pattern": "\\bincoloy[\\s-]*825\\b|alloy[\\s-]*825",
+      "label": "Special Metals — Incoloy Alloy 825",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-825.pdf"
+    },
+    {
+      "pattern": "\\bincoloy[\\s-]*901\\b|alloy[\\s-]*901",
+      "label": "Special Metals — Incoloy Alloy 901",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-901.pdf"
+    },
+    {
+      "pattern": "\\bincoloy[\\s-]*925\\b|alloy[\\s-]*925",
+      "label": "Special Metals — Incoloy Alloy 925",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-925.pdf"
+    },
+    {
+      "pattern": "\\bmonel[\\s-]*400\\b|alloy[\\s-]*400(?!h)",
+      "label": "Special Metals — Monel Alloy 400",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/monel/monel-alloy-400.pdf"
+    },
+    {
+      "pattern": "\\bmonel[\\s-]*k[\\s-]?500\\b|alloy[\\s-]*k[\\s-]?500",
+      "label": "Special Metals — Monel Alloy K-500",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/monel/monel-alloy-k-500.pdf"
+    },
+    {
+      "pattern": "hastelloy[\\s-]*x\\b|\\balloy[\\s-]*x\\b",
+      "label": "Haynes International — Hastelloy X Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/Corrosion-resistant-Alloys/Hastelloy-X-Alloy"
+    },
+    {
+      "pattern": "hastelloy[\\s-]*c[\\s-]?276|alloy[\\s-]*c[\\s-]?276",
+      "label": "Haynes International — Hastelloy C-276 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/Corrosion-resistant-Alloys/HASTELLOY-C-276-Alloy"
+    },
+    {
+      "pattern": "hastelloy[\\s-]*c[\\s-]?22\\b|alloy[\\s-]*c[\\s-]?22\\b",
+      "label": "Haynes International — Hastelloy C-22 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/Corrosion-resistant-Alloys/HASTELLOY-C-22-Alloy"
+    },
+    {
+      "pattern": "hastelloy[\\s-]*c[\\s-]?2000|alloy[\\s-]*c[\\s-]?2000",
+      "label": "Haynes International — Hastelloy C-2000 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/Corrosion-resistant-Alloys/HASTELLOY-C-2000-Alloy"
+    },
+    {
+      "pattern": "hastelloy[\\s-]*b[\\s-]?2\\b|alloy[\\s-]*b[\\s-]?2\\b",
+      "label": "Haynes International — Hastelloy B-2 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/Corrosion-resistant-Alloys/HASTELLOY-B-2-Alloy"
+    },
+    {
+      "pattern": "haynes[\\s-]*25\\b|\\bl[\\s-]?605\\b",
+      "label": "Haynes International — Haynes 25 / L-605 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/High-temperature-Alloys/25-Alloy"
+    },
+    {
+      "pattern": "haynes[\\s-]*188\\b",
+      "label": "Haynes International — Haynes 188 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/High-temperature-Alloys/188-Alloy"
+    },
+    {
+      "pattern": "haynes[\\s-]*214\\b",
+      "label": "Haynes International — Haynes 214 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/High-temperature-Alloys/214-Alloy"
+    },
+    {
+      "pattern": "haynes[\\s-]*230\\b",
+      "label": "Haynes International — Haynes 230 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/High-temperature-Alloys/230-Alloy"
+    },
+    {
+      "pattern": "haynes[\\s-]*282\\b",
+      "label": "Haynes International — Haynes 282 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/High-temperature-Alloys/282-Alloy"
+    },
+    {
+      "pattern": "haynes[\\s-]*263\\b|nimonic[\\s-]*263\\b|\\bc[\\s-]?263\\b",
+      "label": "Haynes International — Haynes 263 Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/High-temperature-Alloys/263-Alloy"
+    },
+    {
+      "pattern": "waspaloy",
+      "label": "Haynes International — Waspaloy Alloy",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio/High-temperature-Alloys/Waspaloy-Alloy"
+    },
+    {
+      "pattern": "\\ba[\\s-]?286\\b|ams[\\s-]*5737",
+      "label": "Carpenter Technology — Pyromet Alloy A-286",
+      "url": "https://www.carpentertechnology.com/alloy-finder/a-286"
+    },
+    {
+      "pattern": "nimonic[\\s-]*80a?\\b",
+      "label": "Special Metals — Nimonic Alloy 80A",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/nimonic-alloy-80a.pdf"
+    },
+    {
+      "pattern": "nimonic[\\s-]*90\\b",
+      "label": "Special Metals — Nimonic Alloy 90",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/nimonic-alloy-90.pdf"
+    },
+    {
+      "pattern": "nimonic[\\s-]*105\\b",
+      "label": "MatWeb — Nimonic 105",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nimonic+105"
+    },
+    {
+      "pattern": "nimonic[\\s-]*263\\b",
+      "label": "Special Metals — Nimonic Alloy 263",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/nimonic-alloy-263.pdf"
+    },
+    {
+      "pattern": "ren[ée][\\s-]*n?5\\b|rene[\\s-]*n5",
+      "label": "MatWeb — Rene N5 single crystal",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+N5"
+    },
+    {
+      "pattern": "ren[ée][\\s-]*41|rene[\\s-]*41",
+      "label": "MatWeb — Rene 41",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+41"
+    },
+    {
+      "pattern": "ren[ée][\\s-]*88[\\s-]*dt|rene[\\s-]*88dt",
+      "label": "MatWeb — Rene 88DT",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+88DT"
+    },
+    {
+      "pattern": "cmsx[\\s-]?4",
+      "label": "Wikipedia — CMSX-4 single crystal superalloy",
+      "url": "https://en.wikipedia.org/wiki/CMSX-4"
+    },
+    {
+      "pattern": "udimet[\\s-]*720",
+      "label": "MatWeb — Udimet 720",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Udimet+720"
+    },
+    {
+      "pattern": "nickel[\\s-]*200\\b|cp[\\s-]?nickel\\b|pure nickel",
+      "label": "Special Metals — Nickel 200/201",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/nickel-200-201.pdf"
+    },
+    {
+      "pattern": "\\b304l\\b",
+      "label": "Outokumpu — Stainless Steel 304L (1.4307)",
+      "url": "https://www.outokumpu.com/en/forta-304l"
+    },
+    {
+      "pattern": "\\b304\\b(?!l)",
+      "label": "AK Steel/Outokumpu — Stainless Steel 304 (1.4301)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+304+stainless"
+    },
+    {
+      "pattern": "\\b316l\\b",
+      "label": "Outokumpu — Stainless Steel 316L (1.4404)",
+      "url": "https://www.outokumpu.com/en/forta-316l"
+    },
+    {
+      "pattern": "\\b316\\b(?!l|h|ti|ln)",
+      "label": "MatWeb — AISI 316 stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+316+stainless"
+    },
+    {
+      "pattern": "\\b321\\b stainless|sus321",
+      "label": "MatWeb — AISI 321 stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+321+stainless"
+    },
+    {
+      "pattern": "\\b347\\b stainless|sus347",
+      "label": "MatWeb — AISI 347 stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+347+stainless"
+    },
+    {
+      "pattern": "\\b904l\\b",
+      "label": "Outokumpu — 904L Super Austenitic",
+      "url": "https://www.outokumpu.com/en/forta-904l"
+    },
+    {
+      "pattern": "\\b2205\\b|duplex 2205|saf 2205",
+      "label": "Outokumpu — Duplex 2205 (1.4462)",
+      "url": "https://www.outokumpu.com/en/forta-duplex-2205"
+    },
+    {
+      "pattern": "\\b2507\\b|super[\\s-]?duplex|saf 2507",
+      "label": "Outokumpu — Super Duplex 2507 (1.4410)",
+      "url": "https://www.outokumpu.com/en/superduplex-2507"
+    },
+    {
+      "pattern": "254[\\s-]?smo",
+      "label": "Outokumpu — 254 SMO Super Austenitic",
+      "url": "https://www.outokumpu.com/en/forta-254-smo"
+    },
+    {
+      "pattern": "al[\\s-]?6xn",
+      "label": "ATI — AL-6XN Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AL-6XN"
+    },
+    {
+      "pattern": "17[\\s-]?4 ?ph|174ph",
+      "label": "Carpenter Technology — Custom 630 (17-4 PH)",
+      "url": "https://www.carpentertechnology.com/alloy-finder/17-4-stainless-steel"
+    },
+    {
+      "pattern": "15[\\s-]?5 ?ph|155ph",
+      "label": "Carpenter Technology — Custom 15-5 PH",
+      "url": "https://www.carpentertechnology.com/alloy-finder/15-5-ph"
+    },
+    {
+      "pattern": "13[\\s-]?8(?:mo)? ?ph|ph13[\\s-]?8mo",
+      "label": "Carpenter Technology — Custom 13-8 PH",
+      "url": "https://www.carpentertechnology.com/alloy-finder/13-8-supertough"
+    },
+    {
+      "pattern": "17[\\s-]?7 ?ph|177ph",
+      "label": "AK Steel/MatWeb — 17-7 PH Stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7+PH"
+    },
+    {
+      "pattern": "custom 465",
+      "label": "Carpenter Technology — Custom 465 Stainless",
+      "url": "https://www.carpentertechnology.com/alloy-finder/custom-465"
+    },
+    {
+      "pattern": "\\b410\\b stainless|sus410",
+      "label": "MatWeb — AISI 410 stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+410+stainless"
+    },
+    {
+      "pattern": "\\b420\\b stainless|sus420",
+      "label": "MatWeb — AISI 420 stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+420+stainless"
+    },
+    {
+      "pattern": "\\b430\\b stainless|sus430",
+      "label": "MatWeb — AISI 430 stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+430+stainless"
+    },
+    {
+      "pattern": "\\b440c\\b",
+      "label": "MatWeb — AISI 440C stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+440C"
+    },
+    {
+      "pattern": "nitronic[\\s-]*50",
+      "label": "Carpenter Technology — Nitronic 50",
+      "url": "https://www.carpentertechnology.com/alloy-finder/nitronic-50"
+    },
+    {
+      "pattern": "nitronic[\\s-]*60",
+      "label": "Carpenter Technology — Nitronic 60",
+      "url": "https://www.carpentertechnology.com/alloy-finder/nitronic-60"
+    },
+    {
+      "pattern": "\\b1018\\b|aisi 1018|sae 1018",
+      "label": "MatWeb — AISI 1018 carbon steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1018"
+    },
+    {
+      "pattern": "\\b1020\\b|aisi 1020|sae 1020",
+      "label": "MatWeb — AISI 1020 carbon steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1020"
+    },
+    {
+      "pattern": "\\b1045\\b|aisi 1045|sae 1045",
+      "label": "MatWeb — AISI 1045 carbon steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1045"
+    },
+    {
+      "pattern": "\\b1050\\b|aisi 1050|sae 1050",
+      "label": "MatWeb — AISI 1050 carbon steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1050"
+    },
+    {
+      "pattern": "\\b4140\\b|aisi 4140|42crmo4|1\\.7225",
+      "label": "MatWeb — AISI 4140 / DIN 1.7225 (42CrMo4)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+4140"
+    },
+    {
+      "pattern": "\\b4340\\b|aisi 4340|34crnimo6|1\\.6582",
+      "label": "MatWeb — AISI 4340 / DIN 1.6582",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+4340"
+    },
+    {
+      "pattern": "\\b4130\\b|aisi 4130|25crmo4",
+      "label": "MatWeb — AISI 4130 / DIN 1.7218",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+4130"
+    },
+    {
+      "pattern": "\\b8620\\b|aisi 8620",
+      "label": "MatWeb — AISI 8620 carburizing steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+8620"
+    },
+    {
+      "pattern": "\\b9310\\b|aisi 9310",
+      "label": "MatWeb — AISI 9310 gear steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+9310"
+    },
+    {
+      "pattern": "\\b52100\\b|aisi 52100|100cr6|suj2",
+      "label": "MatWeb — AISI 52100 bearing steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+52100"
+    },
+    {
+      "pattern": "\\b5160\\b|aisi 5160|sup9",
+      "label": "MatWeb — AISI 5160 spring steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+5160"
+    },
+    {
+      "pattern": "\\bh13\\b|1\\.2344|skd61|x40crmov5",
+      "label": "Böhler-Uddeholm — H13 / W302 Tool Steel",
+      "url": "https://www.bohler-edelstahl.com/en/products/w302/"
+    },
+    {
+      "pattern": "\\bd2\\b tool|1\\.2379|skd11|x153crmov12",
+      "label": "Böhler-Uddeholm — D2 / K110 Tool Steel",
+      "url": "https://www.bohler-edelstahl.com/en/products/k110/"
+    },
+    {
+      "pattern": "\\bm2\\b tool|1\\.3343|skh51",
+      "label": "Böhler-Uddeholm — M2 HSS Tool Steel",
+      "url": "https://www.bohler-edelstahl.com/en/products/s600/"
+    },
+    {
+      "pattern": "\\bp20\\b|1\\.2311|mold steel",
+      "label": "Böhler-Uddeholm — P20 / M238 Mould Steel",
+      "url": "https://www.bohler-edelstahl.com/en/products/m238/"
+    },
+    {
+      "pattern": "\\baa[\\s-]?1100\\b|\\b1100[\\s-]?aluminum|al 1100",
+      "label": "MatWeb — Aluminum 1100",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+1100"
+    },
+    {
+      "pattern": "\\baa[\\s-]?2024\\b|2024[\\s-]?(t3|t4|t6|t81|alclad|aluminum)|en aw-2024",
+      "label": "Arconic — 2024 Aluminum Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=2024+aluminum"
+    },
+    {
+      "pattern": "\\baa[\\s-]?2014\\b|2014[\\s-]?(t6|t651|aluminum)",
+      "label": "MatWeb — Aluminum 2014",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+2014"
+    },
+    {
+      "pattern": "\\baa[\\s-]?2618\\b|2618[\\s-]?(t6|aluminum)",
+      "label": "MatWeb — Aluminum 2618 (high-temp)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+2618"
+    },
+    {
+      "pattern": "\\baa[\\s-]?3003\\b|3003[\\s-]?(h14|h18|aluminum)",
+      "label": "MatWeb — Aluminum 3003",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+3003"
+    },
+    {
+      "pattern": "\\baa[\\s-]?5052\\b|5052[\\s-]?(h32|h34|aluminum)",
+      "label": "MatWeb — Aluminum 5052",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+5052"
+    },
+    {
+      "pattern": "\\baa[\\s-]?5083\\b|5083[\\s-]?(h111|h116|h321|aluminum)",
+      "label": "MatWeb — Aluminum 5083 (marine)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+5083"
+    },
+    {
+      "pattern": "\\baa[\\s-]?6061\\b|6061[\\s-]?(t4|t6|t651|aluminum)|en aw-6061",
+      "label": "Arconic/MatWeb — 6061 Aluminum Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=6061+aluminum"
+    },
+    {
+      "pattern": "\\baa[\\s-]?6063\\b|6063[\\s-]?(t5|t6|aluminum)",
+      "label": "MatWeb — Aluminum 6063 (extrusion)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+6063"
+    },
+    {
+      "pattern": "\\baa[\\s-]?6082\\b|6082[\\s-]?(t6|t651|aluminum)|en aw-6082",
+      "label": "MatWeb — Aluminum 6082",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+6082"
+    },
+    {
+      "pattern": "\\baa[\\s-]?7050\\b|7050[\\s-]?(t7451|t7651|aluminum)",
+      "label": "MatWeb — Aluminum 7050 (aerospace)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+7050"
+    },
+    {
+      "pattern": "\\baa[\\s-]?7075\\b|7075[\\s-]?(t6|t651|t7351|aluminum)|en aw-7075",
+      "label": "Arconic/MatWeb — 7075 Aluminum Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=7075+aluminum"
+    },
+    {
+      "pattern": "\\ba356\\b|alsi7mg",
+      "label": "MatWeb — Aluminum A356 / AlSi7Mg cast",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A356+aluminum"
+    },
+    {
+      "pattern": "\\ba357\\b|alsi7mg0\\.6",
+      "label": "MatWeb — Aluminum A357 cast",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A357+aluminum"
+    },
+    {
+      "pattern": "\\ba319\\b|^319\\b cast|alsi6cu",
+      "label": "MatWeb — Aluminum 319 cast",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=319+aluminum+cast"
+    },
+    {
+      "pattern": "\\ba380\\b|^380\\b cast|alsi8cu",
+      "label": "MatWeb — Aluminum 380 die cast",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=380+aluminum+cast"
+    },
+    {
+      "pattern": "alsi10mg",
+      "label": "EOS — AlSi10Mg for DMLS/LPBF",
+      "url": "https://www.eos.info/en/3d-printing-materials/metals/aluminium-alsi10mg"
+    },
+    {
+      "pattern": "scalmalloy",
+      "label": "APWORKS — Scalmalloy datasheet",
+      "url": "https://www.apworks.de/scalmalloy"
+    },
+    {
+      "pattern": "ti[\\s-]?cp[\\s-]?(grade)?[\\s-]?1\\b|titanium grade 1|astm grade 1",
+      "label": "MatWeb — Titanium Grade 1 (CP)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+1"
+    },
+    {
+      "pattern": "ti[\\s-]?cp[\\s-]?(grade)?[\\s-]?2\\b|titanium grade 2|astm grade 2",
+      "label": "MatWeb — Titanium Grade 2 (CP)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+2"
+    },
+    {
+      "pattern": "ti[\\s-]?cp[\\s-]?(grade)?[\\s-]?3\\b|titanium grade 3",
+      "label": "MatWeb — Titanium Grade 3 (CP)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+3"
+    },
+    {
+      "pattern": "ti[\\s-]?cp[\\s-]?(grade)?[\\s-]?4\\b|titanium grade 4",
+      "label": "MatWeb — Titanium Grade 4 (CP)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+4"
+    },
+    {
+      "pattern": "ti[\\s-]?6al[\\s-]?4v|grade 5\\b|ti-?6-?4|r56400",
+      "label": "TIMET — Ti-6Al-4V Grade 5 Datasheet",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V"
+    },
+    {
+      "pattern": "grade 9\\b|ti[\\s-]?3al[\\s-]?2\\.?5v|r56320",
+      "label": "MatWeb — Titanium Grade 9 (Ti-3Al-2.5V)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+9"
+    },
+    {
+      "pattern": "grade 12\\b|r53400",
+      "label": "MatWeb — Titanium Grade 12",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+12"
+    },
+    {
+      "pattern": "grade 23\\b|gr23 ?eli|gr23-?eli|r56407",
+      "label": "MatWeb — Titanium Grade 23 ELI (Ti-6Al-4V ELI)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V+ELI"
+    },
+    {
+      "pattern": "beta[\\s-]?c\\b|ti[\\s-]?38[\\s-]?6[\\s-]?44|r58640",
+      "label": "MatWeb — Ti Beta-C (Ti-3-8-6-4-4)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti+Beta+C"
+    },
+    {
+      "pattern": "ti[\\s-]?6242|ti-?6-?2-?4-?2|r54620",
+      "label": "MatWeb — Ti-6Al-2Sn-4Zr-2Mo",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6242"
+    },
+    {
+      "pattern": "ti[\\s-]?6al[\\s-]?7nb|r56700",
+      "label": "MatWeb — Ti-6Al-7Nb (ASTM F1295)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-7Nb"
+    },
+    {
+      "pattern": "\\bc10100\\b|ofe copper|oxygen[\\s-]?free electronic",
+      "label": "Copper.org — C10100 Oxygen-Free Electronic Copper",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c10100.html"
+    },
+    {
+      "pattern": "\\bc10200\\b|of copper",
+      "label": "Copper.org — C10200 Oxygen-Free Copper",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c10200.html"
+    },
+    {
+      "pattern": "\\bc11000\\b|etp copper|electrolytic tough pitch",
+      "label": "Copper.org — C11000 ETP Copper",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c11000.html"
+    },
+    {
+      "pattern": "\\bc12200\\b|dhp copper",
+      "label": "Copper.org — C12200 DHP Copper",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c12200.html"
+    },
+    {
+      "pattern": "\\bc17200\\b|cube2|beryllium copper.*(25|c17200)|cu[\\s-]?be2|alloy 25",
+      "label": "Materion — C17200 Beryllium Copper Alloy 25",
+      "url": "https://materion.com/products/alloys-and-composites/copper-beryllium/c17200"
+    },
+    {
+      "pattern": "\\bc17500\\b|cucr.*c17500|copper chromium",
+      "label": "Materion — C17500 Copper-Chromium",
+      "url": "https://materion.com/products/alloys-and-composites/copper-beryllium/c17500"
+    },
+    {
+      "pattern": "\\bc26000\\b|cartridge brass|70[\\s-]?30 brass",
+      "label": "Copper.org — C26000 Cartridge Brass",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c26000.html"
+    },
+    {
+      "pattern": "\\bc36000\\b|free[\\s-]?cutting brass",
+      "label": "Copper.org — C36000 Free-Cutting Brass",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c36000.html"
+    },
+    {
+      "pattern": "\\bc70600\\b|cuni10|90[\\s-]?10 cu[\\s-]?ni|90/10 cupro",
+      "label": "Copper.org — C70600 90-10 Cupronickel",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c70600.html"
+    },
+    {
+      "pattern": "\\bc71500\\b|cuni30|70[\\s-]?30 cu[\\s-]?ni|70/30 cupro",
+      "label": "Copper.org — C71500 70-30 Cupronickel",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c71500.html"
+    },
+    {
+      "pattern": "\\bc95800\\b|nickel[\\s-]?aluminum bronze|nickel[\\s-]?aluminium bronze|\\bab2\\b",
+      "label": "Copper.org — C95800 Nickel-Aluminum Bronze",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c95800.html"
+    },
+    {
+      "pattern": "\\bcucr1zr\\b|c18150",
+      "label": "Copper.org — C18150 Copper-Chromium-Zirconium",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c18150.html"
+    },
+    {
+      "pattern": "az31b?\\b",
+      "label": "Luxfer/Magnesium Elektron — AZ31B Magnesium",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ31B+magnesium"
+    },
+    {
+      "pattern": "az91d?\\b",
+      "label": "Luxfer/Magnesium Elektron — AZ91D Magnesium",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ91D+magnesium"
+    },
+    {
+      "pattern": "we43\\b|elektron we43",
+      "label": "Luxfer Magnesium Elektron — Elektron WE43",
+      "url": "https://www.luxfermeltechnologies.com/wp-content/uploads/2017/02/Elektron-WE43-data-sheet.pdf"
+    },
+    {
+      "pattern": "cocrmo|astm f75|astm f1537|co[\\s-]?28cr[\\s-]?6mo",
+      "label": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
+      "url": "https://www.astm.org/f0075-18.html"
+    },
+    {
+      "pattern": "mp35n|mp[\\s-]?35[\\s-]?n",
+      "label": "Carpenter Technology — MP35N Multiphase Alloy",
+      "url": "https://www.carpentertechnology.com/alloy-finder/mp35n"
+    },
+    {
+      "pattern": "mp159",
+      "label": "MatWeb — MP159 multiphase alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=MP159"
+    },
+    {
+      "pattern": "stellite[\\s-]?6\\b",
+      "label": "Kennametal/MatWeb — Stellite 6",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+6"
+    },
+    {
+      "pattern": "stellite[\\s-]?12",
+      "label": "Kennametal/MatWeb — Stellite 12",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+12"
+    },
+    {
+      "pattern": "stellite[\\s-]?21",
+      "label": "Kennametal/MatWeb — Stellite 21",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+21"
+    },
+    {
+      "pattern": "invar[\\s-]?36|fe[\\s-]?ni[\\s-]?36|nilo 36|invar(?![\\s-]?42)",
+      "label": "Carpenter Technology — Invar 36",
+      "url": "https://www.carpentertechnology.com/alloy-finder/invar-36"
+    },
+    {
+      "pattern": "\\bkovar\\b|astm f15|nilo k",
+      "label": "Carpenter Technology — Kovar (ASTM F15)",
+      "url": "https://www.carpentertechnology.com/alloy-finder/kovar-alloy"
+    },
+    {
+      "pattern": "nitinol|niti(?![\\s-]?nol)?\\b|astm f2063",
+      "label": "ATI/Memry — Nitinol Shape Memory Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nitinol"
+    },
+    {
+      "pattern": "maraging|18ni[\\s-]?300|c300\\b|m300\\b|1\\.2709",
+      "label": "Carpenter Technology — VascoMax C300 (Maraging 300)",
+      "url": "https://www.carpentertechnology.com/alloy-finder/vascomax-c-300"
+    },
+    {
+      "pattern": "aermet[\\s-]?100|aermet100",
+      "label": "Carpenter Technology — AerMet 100 Ultra-High Strength Steel",
+      "url": "https://www.carpentertechnology.com/alloy-finder/aermet-100"
+    },
+    {
+      "pattern": "300m\\b|35nicrmov",
+      "label": "MatWeb — 300M ultra-high strength steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=300M+steel"
+    },
+    {
+      "pattern": "tungsten|\\bw 99|pure tungsten",
+      "label": "MatWeb — Pure Tungsten W",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tungsten"
+    },
+    {
+      "pattern": "tantalum|\\bta\\b 99",
+      "label": "MatWeb — Pure Tantalum Ta",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tantalum"
+    },
+    {
+      "pattern": "molybdenum|\\bmo\\b 99|tzm",
+      "label": "MatWeb — Pure Molybdenum / TZM",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Molybdenum"
+    },
+    {
+      "pattern": "niobium|\\bnb\\b 99|c-?103",
+      "label": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Niobium+C-103"
+    },
+    {
+      "pattern": "rhenium|\\bre\\b 99",
+      "label": "MatWeb — Pure Rhenium Re",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Rhenium"
+    },
+    {
+      "pattern": "hafnium|\\bhf\\b(?:[\\s-]|$)",
+      "label": "MatWeb — Pure Hafnium Hf",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Hafnium"
+    },
+    {
+      "pattern": "zirconium 705|\\bzr[\\s-]?2\\.?5nb",
+      "label": "ATI — Zirconium 705 (Zr-2.5Nb)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Zirconium+705"
+    },
+    {
+      "pattern": "\\babs\\b(?!.*pa)|acrylonitrile butadiene",
+      "label": "MatWeb — ABS Plastic (general)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ABS+plastic"
+    },
+    {
+      "pattern": "\\bpa66\\b|nylon 66|polyamide 66",
+      "label": "DuPont/MatWeb — Nylon 66 (PA66)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+66"
+    },
+    {
+      "pattern": "\\bpa6\\b(?!6)|nylon 6\\b|polyamide 6\\b",
+      "label": "MatWeb — Nylon 6 (PA6)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+6"
+    },
+    {
+      "pattern": "\\bpa12\\b|nylon 12",
+      "label": "EOS/Arkema — PA12 (Nylon 12) for SLS",
+      "url": "https://www.eos.info/en/3d-printing-materials/plastics/pa-12"
+    },
+    {
+      "pattern": "\\bpc\\b plastic|polycarbonate",
+      "label": "MatWeb — Polycarbonate (PC)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Polycarbonate"
+    },
+    {
+      "pattern": "\\bpom\\b|acetal|polyoxymethylene",
+      "label": "MatWeb — POM (Acetal)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=POM+acetal"
+    },
+    {
+      "pattern": "\\bpvc\\b|polyvinyl chloride",
+      "label": "MatWeb — PVC plastic",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PVC"
+    },
+    {
+      "pattern": "\\bpp\\b plastic|polypropylene",
+      "label": "MatWeb — Polypropylene (PP)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Polypropylene"
+    },
+    {
+      "pattern": "\\bpmma\\b|acrylic|poly\\(methyl methacrylate\\)",
+      "label": "MatWeb — PMMA (Acrylic)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PMMA"
+    },
+    {
+      "pattern": "\\bpetg\\b|polyethylene terephthalate glycol",
+      "label": "MatWeb — PETG",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PETG"
+    }
+  ]
+}

@@ -20,7 +20,7 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 | impact_strength | 162/940 | 162 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 177/940 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 424/940 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
@@ -88,26 +88,26 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 
 ## R48a — Anomaly Detection
 
-Total: **480** — high 0 / medium 0 / low 480
+Total: **335** — high 0 / medium 0 / low 335
 
 ### By kind
 | Kind | Count |
 |---|---|
-| no verified source URL | 480 |
+| no verified source URL | 335 |
 
-### LOW severity (showing 10 / 480)
+### LOW severity (showing 10 / 335)
 | Material | Kind | Detail |
 |---|---|---|
 | Ti5-8-5 — As-supplied (LPBF) | no verified source URL |  |
-| Inconel X-750 — As-supplied (DMLS) | no verified source URL |  |
-| 15-5PH — As-supplied (SLM) | no verified source URL |  |
-| 304L — As-supplied (LPBF) | no verified source URL |  |
-| 15-5PH — As-supplied (DMLS) | no verified source URL |  |
-| 304L — As-supplied (DMLS) | no verified source URL |  |
 | Bronze — As-supplied (Binder Jetting) | no verified source URL |  |
 | AISI 5130 — Aged / solution-treated (Wrought) | no verified source URL |  |
 | AISI 5130 — Annealed (Wrought) | no verified source URL |  |
 | AISI 5130 — As-cast / forged (Wrought) | no verified source URL |  |
+| AISI 5130 — Strain-hardened (Wrought) | no verified source URL |  |
+| AISI 5130 — As-supplied (Wrought) | no verified source URL |  |
+| AISI 5130 — Quenched / tempered (Wrought) | no verified source URL |  |
+| AISI 5140 — Aged / solution-treated (Wrought) | no verified source URL |  |
+| AISI 5140 — Annealed (Wrought) | no verified source URL |  |
 
 ## TODO
 - Hardness scale unification (HV/HRC/HB).
