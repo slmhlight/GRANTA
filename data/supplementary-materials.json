@@ -12717,6 +12717,166 @@
       ],
       "aliases": ["SPFH 590", "JIS G 3134 SPFH590", "Automotive HSLA 590", "EN S500MC equivalent"],
       "industry_note": "JIS G 3134 / KS D 3519 자동차 고장력 — 현대·기아 OEM door inner / chassis / cross-member / suspension arm. YS 420 min, UTS 590 min, El 19% (Lo=80mm). 무게 감량 + 충돌 안전 — 차체 강성 ↑. EN S500MC 등가. SPFH540 보다 1 grade 강하고 SPFH590Y (YS controlled) 도 있음."
+    },
+    {
+      "name": "SHP275W (KS F 4603 토목 강널, weldable) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Steel Sheet Pile)",
+      "composition": { "Fe": "balance", "C": "≤0.23", "Si": "≤0.55", "Mn": "≥2.5×C", "P": "≤0.040", "S": "≤0.040" },
+      "points": [
+        [7.85, 275, 460, 18, 210, 145, 207]
+      ],
+      "conditions": ["As-rolled (Z-section / U-section)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Section/HSection.do"
+      ],
+      "aliases": ["SHP 275W", "Sheet Pile 275W", "Weldable Sheet Pile"],
+      "industry_note": "KS F 4603 강널 (Steel Sheet Pile) — 토목 흙막이 / 항만 안벽 / 가물막이. W = Weldable (CE 제한). 280-460 MPa 범위. 한국 토목 표준 — 항만공사 / 지하철 굴착 (서울 9호선 등) / 강변 정비. 기존 SHP275 보다 용접성 ↑."
+    },
+    {
+      "name": "SHP355W (KS F 4603 고강도 토목 강널, weldable) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Steel Sheet Pile)",
+      "composition": { "Fe": "balance", "C": "≤0.20", "Si": "≤0.55", "Mn": "1.50 max", "P": "≤0.040", "S": "≤0.040" },
+      "points": [
+        [7.85, 355, 550, 18, 210, 165, 248]
+      ],
+      "conditions": ["As-rolled (Z-section / U-section)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Section/HSection.do"
+      ],
+      "aliases": ["SHP 355W", "Sheet Pile 355W"],
+      "industry_note": "KS F 4603 고강도 강널. 대형 토목 / 지하 5층 이상 굴착 / 해상풍력 monopile. SM490 동급 강도 + 강널 형상. 잠실 롯데월드타워 / 송도 신도시 지하 공사."
+    },
+    {
+      "name": "SHP450W (KS F 4603 초고강도 토목 강널, weldable) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Steel Sheet Pile)",
+      "composition": { "Fe": "balance", "C": "≤0.22", "Si": "≤0.55", "Mn": "1.60 max", "P": "≤0.040", "S": "≤0.040" },
+      "points": [
+        [7.85, 450, 620, 16, 210, 190, 279]
+      ],
+      "conditions": ["As-rolled (Z-section)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Section/HSection.do"
+      ],
+      "aliases": ["SHP 450W", "Sheet Pile 450W"],
+      "industry_note": "KS F 4603 초고강도 강널. 대심도 굴착 / 해저터널 / 해상풍력 jacket. SM570 동급 강도. 두께 절감 (~30%) → 시공 비용 ↓ + 운반 효율 ↑. 인천 영종도 / 부산항 신항."
+    },
+    {
+      "name": "SGCC (KS D 3506 용융아연도금강판, commercial) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Cold Rolled + Hot Dip Galvanized (Z140~Z275)",
+      "composition": { "Fe": "balance", "C": "≤0.15", "Mn": "≤0.60", "P": "≤0.050", "S": "≤0.050" },
+      "points": [
+        [7.85, 205, 270, 28, 200, 90, 122]
+      ],
+      "conditions": ["Hot-dip galvanized (Z140 / Z180 / Z225 / Z275)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/CRC/CRC.do"
+      ],
+      "aliases": ["SGCC", "GI", "Galvanized Iron", "EN DX51D+Z equivalent", "JIS G 3302 SGCC"],
+      "industry_note": "KS D 3506 용융아연도금강판 — 한국 건축 외장 (지붕·외장 panel) / 가전 (냉장고·세탁기 외판) / 자동차 underbody. Z140 (140 g/m²) ~ Z275 (275 g/m²) 양면 합 부착량. 가성비 최고 — 한국 SGCC 연 100만 t+ 생산."
+    },
+    {
+      "name": "SGC400 (KS D 3506 고장력 도금강판) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Cold Rolled + Hot Dip Galvanized (HSLA)",
+      "composition": { "Fe": "balance", "C": "≤0.12", "Si": "≤0.50", "Mn": "≤1.30", "P": "≤0.025", "S": "≤0.025" },
+      "points": [
+        [7.85, 295, 400, 18, 200, 130, 180]
+      ],
+      "conditions": ["Hot-dip galvanized HSLA (Z275 typical)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/CRC/CRC.do"
+      ],
+      "aliases": ["SGC 400", "SGC295Y", "HX300LAD+Z equivalent"],
+      "industry_note": "KS D 3506 고장력 도금강판 (HX300LAD+Z 등가). 자동차 outer body 도장 전 substrate / 가전 고급 외장 / 건축 sandwich panel. 강도 + 부식 저항 동시. 일반 SGCC 대비 강도 50% ↑ → 두께 절감 가능."
+    },
+    {
+      "name": "STK490 (KS D 3566 일반구조용 강관) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Tube / Pipe, structural)",
+      "composition": { "Fe": "balance", "C": "≤0.18", "Si": "≤0.55", "Mn": "≤1.50", "P": "≤0.040", "S": "≤0.040" },
+      "points": [
+        [7.85, 315, 500, 23, 210, 150, 225]
+      ],
+      "conditions": ["As-rolled / ERW (Electric Resistance Welded)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Pipe/Pipe.do"
+      ],
+      "aliases": ["STK 490", "KS D 3566 STK490", "JIS G 3444 STK490", "SGT490"],
+      "industry_note": "KS D 3566 일반구조용 강관 — 한국 건축 frame / 공장 column / scaffolding / 가드레일 / 가로등 기둥. SM490 의 강관 형태. EN 10210 S355 등가. SGT490 (가스용) 으로도 표기."
+    },
+    {
+      "name": "STKM13B (KS D 3517 기계구조용 강관) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Cold Drawn (Mechanical Tube)",
+      "composition": { "Fe": "balance", "C": "≤0.25", "Si": "≤0.35", "Mn": "0.30~0.90", "P": "≤0.040", "S": "≤0.040" },
+      "points": [
+        [7.85, 380, 510, 21, 210, 160, 230]
+      ],
+      "conditions": ["Cold drawn (SR, normalized)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Pipe/Pipe.do"
+      ],
+      "aliases": ["STKM 13B", "KS D 3517 STKM13B", "JIS G 3445 STKM13B", "SAE 1020 cold-drawn"],
+      "industry_note": "KS D 3517 기계구조용 강관 — 정밀 기계 부품 / 유압 cylinder / 자동차 propeller shaft / 자전거 frame. Cold drawn → 표면 정도 ↑ + 치수 정도 ↑. SAE 1020 등가. 한국 자전거 (Samchully · Alton) / 운동기구 frame 표준."
+    },
+    {
+      "name": "SG325 (KS D 3533 가스용기용 강판) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate for Gas Cylinder)",
+      "composition": { "Fe": "balance", "C": "≤0.20", "Si": "0.55 max", "Mn": "1.50 max", "P": "≤0.030", "S": "≤0.030" },
+      "points": [
+        [7.85, 325, 490, 22, 210, 150, 221]
+      ],
+      "conditions": ["Hot rolled + normalized"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Plate/SteelPlate.do"
+      ],
+      "aliases": ["SG 325", "KS D 3533 SG325", "JIS G 3116 SG325"],
+      "industry_note": "KS D 3533 가스용기용 강판. LPG 가스통 / CNG 차량 연료 tank / 산소·아세틸렌 실린더. 충격 인성 강조 (저온 Charpy). 한국 가스公社 LPG 표준 + KGS 인증. ASME SA516 G70 보다 약간 약하나 한국 LPG 통 표준."
+    },
+    {
+      "name": "SPA-H (KS D 3542 내후성 강) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Weathering Steel",
+      "process": "Hot Rolled (Plate / Sheet)",
+      "composition": { "Fe": "balance", "C": "≤0.12", "Si": "0.20~0.75", "Mn": "≤0.60", "P": "≤0.070", "S": "≤0.035", "Cu": "0.25~0.55", "Cr": "0.30~1.25", "Ni": "≤0.65" },
+      "points": [
+        [7.85, 355, 490, 22, 210, 165, 221]
+      ],
+      "conditions": ["As-rolled (weathering)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/HRC/HRC.do"
+      ],
+      "aliases": ["SPA-H", "SPA H", "KS D 3542 SPA-H", "JIS G 3125 SPA-H", "Cor-Ten A equivalent", "ASTM A242"],
+      "industry_note": "KS D 3542 / JIS G 3125 내후성 강 (Cor-Ten 등가) — Cu·Cr·Ni 첨가로 산화막 stabilization → 대기 부식 4~8배 ↓. 도장 없이 사용 가능 (산화 cosmetic patina). 한국 인천대교 / 행복도시 (세종) 다리 / 부산 부산항대교 일부. ASTM A242 / EN S355J0WP 등가."
+    },
+    {
+      "name": "SD600 (KS D 3504 초고강도 철근) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Re-Bar)",
+      "composition": { "Fe": "balance", "C": "≤0.32", "Si": "≤0.60", "Mn": "≤1.80", "P": "≤0.045", "S": "≤0.045", "CE": "≤0.67%" },
+      "points": [
+        [7.85, 685, 740, 12, 200, 220, 333]
+      ],
+      "conditions": ["As-rolled (deformed bar)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/ReBar/ReBar.do"
+      ],
+      "aliases": ["SD 600", "KS D 3504 SD600", "Rebar 600", "ASTM A615 Grade 80 equivalent"],
+      "industry_note": "KS D 3504 초고강도 철근. UTS = YP × 1.08 min (≥648). El ≥ 12%. Bend 180° / 4d. 한국 100층+ 초고층 (Lotte World Tower 일부) / 대형 spans / RC 면적 절감 (자재비 ↓). ASTM A615 G80 등가."
     }
   ]
 }

@@ -2,6 +2,31 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R103 — Guide↔Preset 정합성 + Tier 2 KS 강종 10종
+
+### Guide 정합성 검증
+- Guide ch7 SCENARIO_TILES (16개: bracket·heatsink·fatigue·corrosion·wear·electrical + hightemp·precision·lowcost·spring·medical·cryogenic·**pressure_vessel**·gear·fastener·**die_mold**) ↔ SCENARIO_PRESETS 16개 모두 일치 확인 → **정합성 OK**.
+- Guide ch10 family 매핑 + Guide ch6 차트 인터랙션 — Ashby chart UI 와 일치.
+- indexHint regex (sqrtE/rho, Sy/rho 등) → MATERIAL_INDICES 키 모두 매핑 정상.
+
+### Tier 2 KS 강종 +10
+- **SHP×3** (KS F 4603 토목 강널): SHP275W / SHP355W / SHP450W — 토목 흙막이 · 항만 안벽 · 해상풍력 monopile. W (Weldable, CE 제한).
+- **도금 ×2** (KS D 3506): SGCC (commercial, Z140-Z275) + SGC400 (HSLA, 자동차 outer body). EN DX51D+Z / HX300LAD+Z 등가.
+- **강관 ×2**: STK490 (KS D 3566 일반구조, 건축 frame) + STKM13B (KS D 3517 기계, cold drawn 정밀).
+- **SG325** (KS D 3533 가스용기): LPG · CNG 차량 연료탱크. KGS 인증.
+- **SPA-H** (KS D 3542 내후성): Cor-Ten A 등가. Cu+Cr+Ni → 대기 부식 4-8배 ↓. 인천대교 · 세종 다리.
+- **SD600** (KS D 3504 초고강도 철근): YS 685 / UTS 740. ASTM A615 G80 등가. 100층+ 초고층.
+
+### 신뢰성 평가 — 제외
+- SHN490 후보 → **제외**. 2024 KS D 3866 현재 표준에서 SHN460 까지만 명시, SHN490 은 2009 ed. legacy. 현대제철 2025 카탈로그 확인 모호 → 신뢰성 부족.
+
+### 누적
+- supplementary: 356 → **366** (+10 KS Tier 2)
+- DB total: 1,213 → **1,223**
+- verified-source materials: 712 → **722**
+
+검증: tsc OK · vitest 47/47 · build:data OK · production build OK.
+
 ## R102 — 현대제철 KS 강종 17종 DB 입력
 사용자 지시: "데이터 수집 관련하여 목표랑 좀 다른 방향으로 가버린거 같음. 자체적으로 할 수 있는 데까지 데이터 수집 지속". R100 markdown 정리한 spec 을 JSON 으로 입력.
 
