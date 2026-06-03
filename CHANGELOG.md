@@ -2,6 +2,14 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R87 — Story 배지·History 박스 family color 통일
+R84 의 amber 단일톤 (모든 카드/표/Detail 에서 같은 amber) 이 family-color dot 옆에서 튀어 보이는 문제를 해결. 모든 story 시각 요소를 재료의 family color 톤으로 통일.
+- **Card view 배지** — `bg-amber-100 ring-amber-300/50 text-amber-700` → `bg: famColor + 1f` (12% alpha) + `boxShadow inset 1px famColor55` (33% alpha ring) + `icon: famColor` (full tone)
+- **Table view 배지** — 동일 패턴
+- **Detail panel History details** — `border-amber-500/30 bg-amber-50/40 text-amber-900` → `borderColor famColor55 / background famColor10 / 주요 텍스트 (summary, 📌 Industry standard, 출처 헤더) color famColor / 출처 구분선 famColor33`
+- 결과: 강철 합금은 푸른 톤, 알루미늄은 황금색, 니켈은 보라, 코발트는 핑크, 폴리머는 녹색 — 한눈에 family 와 매칭되면서도 "연한 배경 + 진한 아이콘/텍스트" 의 기조 유지
+- 모든 inline style 사용 (Tailwind dynamic class 불가) — famColor 가 이미 6-hex (`#3B82F6` 등) 라 alpha 2-hex suffix 안전
+
 ## R86 — Card view 물성 컨트롤 + 모바일 밀도 + Radar 약어
 **Card 표시 물성 사용자 선택**: Card view 상단에 chip 토글 11종 추가. `am_card_props` localStorage 영속, 최소 1 / 최대 6개 강제. Default 4개 (σy / UTS / El / ρ).
 - 옵션 11종 — σy, UTS, El, E, HV, k, ρ, Tmax, KIC, σf, $/kg

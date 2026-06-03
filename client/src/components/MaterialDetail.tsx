@@ -520,16 +520,16 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
 
           {/* Process */}
           <TabsContent value="process" className="p-4 space-y-3">
-            {/* R76 — History·개발 스토리·industry-standard 응용을 Process 탭으로 이동 (이전 R75 는 Properties 탭). */}
+            {/* R76 → R87 — History·개발 스토리. amber 단일톤 → 재료 family color 의 옅은 배경 + 진한 텍스트 (Card/Table 배지와 통일). */}
             {(material.story || material.industry_note) && (
-              <details open className="rounded border border-amber-500/30 bg-amber-50/40 p-3">
-                <summary className="flex items-center gap-2 text-xs font-semibold text-amber-900 cursor-pointer select-none">
+              <details open className="rounded border p-3" style={{ background: `${famColor}10`, borderColor: `${famColor}55` }}>
+                <summary className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none" style={{ color: famColor }}>
                   <BookText className="w-3.5 h-3.5" />
                   {t('detail.history') || 'History · 개발 스토리'}
                 </summary>
                 {material.industry_note && (
                   <p className="mt-2 text-[11px] text-foreground/80 leading-relaxed">
-                    <span className="font-semibold text-amber-900">📌 Industry standard:</span> {material.industry_note}
+                    <span className="font-semibold" style={{ color: famColor }}>📌 Industry standard:</span> {material.industry_note}
                   </p>
                 )}
                 {material.story && (
@@ -540,8 +540,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                   </div>
                 )}
                 {Array.isArray(material.story_refs) && material.story_refs.length > 0 && (
-                  <div className="mt-2 pt-2 border-t border-amber-500/20">
-                    <p className="text-[10px] font-semibold text-amber-900 mb-1">출처 · References</p>
+                  <div className="mt-2 pt-2 border-t" style={{ borderColor: `${famColor}33` }}>
+                    <p className="text-[10px] font-semibold mb-1" style={{ color: famColor }}>출처 · References</p>
                     <ul className="text-[10px] text-foreground/65 space-y-0.5 leading-snug list-disc list-inside">
                       {material.story_refs.map((r, i) => (
                         <li key={i} className="whitespace-pre-wrap">{r}</li>

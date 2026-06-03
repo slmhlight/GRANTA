@@ -181,10 +181,11 @@ export function MaterialCards({
                   <p className="text-[11px] font-semibold text-foreground leading-tight pr-5 mb-1 line-clamp-2" title={m.story ? `${m.name} — 개발 스토리·industry-standard 응용 기록 있음 (Process 탭)` : m.name}>
                     {m.story && (
                       <span
-                        className="inline-flex items-center justify-center w-4 h-4 mr-1 -mt-0.5 align-middle rounded-full bg-amber-100 ring-1 ring-amber-300/50"
+                        className="inline-flex items-center justify-center w-4 h-4 mr-1 -mt-0.5 align-middle rounded-full"
+                        style={{ background: `${famColor}1f`, boxShadow: `inset 0 0 0 1px ${famColor}55` }}
                         aria-label="개발 스토리 있음"
                       >
-                        <BookText className="w-2.5 h-2.5 text-amber-700" />
+                        <BookText className="w-2.5 h-2.5" style={{ color: famColor }} />
                       </span>
                     )}
                     {m.name}

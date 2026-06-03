@@ -167,11 +167,12 @@ export function MaterialTable({
                       />
                       {m.story && (
                         <span
-                          className="flex-shrink-0 inline-flex items-center justify-center w-4 h-4 rounded-full bg-amber-100 ring-1 ring-amber-300/50"
+                          className="flex-shrink-0 inline-flex items-center justify-center w-4 h-4 rounded-full"
+                          style={{ background: `${famColor}1f`, boxShadow: `inset 0 0 0 1px ${famColor}55` }}
                           title="개발 스토리·industry-standard 응용 기록 있음 (Process 탭)"
                           aria-label="개발 스토리 있음"
                         >
-                          <BookText className="w-2.5 h-2.5 text-amber-700" />
+                          <BookText className="w-2.5 h-2.5" style={{ color: famColor }} />
                         </span>
                       )}
                       <span className="font-medium text-foreground truncate max-w-[200px]" title={m.name}>
