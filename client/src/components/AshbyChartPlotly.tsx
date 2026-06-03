@@ -272,7 +272,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const valid = (m: any) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
     const inLim = (m: any) => (!xLimit || (tv(m, xProperty)! >= xLimit[0] && tv(m, xProperty)! <= xLimit[1]))
       && (!yLimit || (tv(m, yProperty)! >= yLimit[0] && tv(m, yProperty)! <= yLimit[1]));
-    const fset = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m)); // limits act as a selection (below), not a frame change
+    // R88 — X/Y range slider 를 hard filter (AND) 로 적용. 이전엔 'selection window' 였으나 사이드바 family
+    //       checkbox 와 직관적으로 일관되지 않아 데이터가 envelope 밖에서 계속 보이는 것처럼 인지됨.
+    const fset = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m) && inLim(m));
     const fsetIds = new Set(fset.map((m) => m.id));
     const others = materials.filter((m) => !fsetIds.has(m.id) && valid(m));
 
@@ -307,12 +309,6 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       colored = fset.filter(pass).sort((a, b) => (Mof(idx, b) ?? 0) - (Mof(idx, a) ?? 0));
       coldFset = fset.filter((m) => !pass(m));
       colorMode = colored.length > 0;
-    } else if (xLimit || yLimit) {
-      // axis-limit sliders act as a selection window: highlight materials inside, divide the rest out
-      colored = fset.filter(inLim);
-      coldFset = fset.filter((m) => !inLim(m));
-      colorMode = colored.length > 0;
-      if (!colorMode) colored = fset;
     } else {
       const compareSet = new Set(compareList || []);
       colored = fset.filter((m) => compareSet.has(m.id));

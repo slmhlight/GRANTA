@@ -2,6 +2,13 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R88 — Ashby chart X/Y range → hard filter (AND) 변경 (Bug fix)
+**Bug**: 좌측 사이드바에서 Metal 만 선택 + Y range 145.6~1050 GPa 으로 좁혔는데도 Aluminum (E≈70 GPa) envelope 가 차트에 계속 표시. 사용자가 "AND 조건이 적용 안 되는 것 같다" 고 보고.
+**원인**: X/Y range slider (`xLimit`/`yLimit`) 가 fset 정의에 포함되지 않고 "selection window" 로만 동작. 코드에 `"limits act as a selection (below), not a frame change"` 주석으로 의도된 동작이었으나 사이드바 family checkbox 와 일관되지 않아 직관에 어긋남.
+**수정**: `fset = filtered.filter((m) => valid(m) && inGroup(m) && inSub(m) && inLim(m))` 로 inLim 을 hard filter (AND) 에 포함. envelope · marker · index 임계 등 모든 후속 처리가 범위 밖 데이터 자동 제외. 이전 line 310-315 의 selection-window branch 도 무의미해져 제거.
+- **효과 (스크린샷 사례)**: Y range 145.6~1050 GPa + Metal family → Steel (E 200) Cobalt (E 220) 만 표시, Aluminum (E 70) 과 Magnesium (E 45) 의 envelope 는 그래프에서 사라짐
+- 회색 'others' background (사이드바 미통과 + valid) 는 그대로 — 비교 위치 anchor 유지
+
 ## R87 — Story 배지·History 박스 family color 통일
 R84 의 amber 단일톤 (모든 카드/표/Detail 에서 같은 amber) 이 family-color dot 옆에서 튀어 보이는 문제를 해결. 모든 story 시각 요소를 재료의 family color 톤으로 통일.
 - **Card view 배지** — `bg-amber-100 ring-amber-300/50 text-amber-700` → `bg: famColor + 1f` (12% alpha) + `boxShadow inset 1px famColor55` (33% alpha ring) + `icon: famColor` (full tone)
