@@ -1868,14 +1868,37 @@ const METAL_SUB_RULES = [
   [/^beryllium\s+alloy$/i, 'Beryllium Alloy'],
   [/shape memory|nitinol|niti/i, 'Shape Memory Alloy'],
 ];
+// R52a — name-based 강제 매핑 (subcategory 잘못 부여된 raw rows 보정).
+//   density 가 family typical 과 맞지 않는 사례 발견 (예: AA 3105 가 Stainless Steel - Austenitic,
+//   Ti-5-2-5 가 Aluminum - Pure/Other, C36000 brass 가 Titanium 으로 들어옴).
+//   alloy designation 이 매우 명확한 경우 (AA xxxx / Ti-X-Y / Cxxxxx) 이름으로 강제 재분류.
+const NAME_BASED_OVERRIDE = [
+  // Aluminum — AA 1xxx ~ 7xxx, A356 같은 cast designation
+  [/^aa\s?[1-7]\d{3}\b|^a[1-7]\d{3}\b/i, 'Aluminum - Pure/Other'],
+  // Titanium — Ti-X-Y-Z, Ti CP, Ti grade N, beta-Ti aliases
+  [/^ti[\s-]?(?:cp|grade)|^ti[\s-]?\d|^ti-\d|^β[\s-]?ti|beta[\s-]?ti/i, 'Titanium - Pure / CP Grades'],
+  // Copper — Cxxxxx UNS designation
+  [/^c\d{5}\b/i, 'Copper Alloy'],
+  // Magnesium — AZ31/AZ91/WE43/ZK60 등
+  [/^az\d{2}|^we\d{2}|^zk\d{2}|^am[\s-]?\d{2}|^ez33|^elektron/i, 'Magnesium Alloy'],
+  // Nickel — Inconel xxx, Incoloy xxx, Hastelloy X
+  [/^inconel|^incoloy|^hastelloy|^waspaloy|^nimonic|^monel|^haynes\s?\d|^rene\s?\d|^udimet/i, 'Nickel Superalloy'],
+  // Stainless — SUS xxx, 304/316/etc.
+  [/^sus\d{3}|^aisi\s?[3-4]\d{2}|^stainless|^17[\s-]?4\s?ph|^15[\s-]?5\s?ph/i, null], // 스테인리스는 sub family 별 매핑 — 일단 skip
+];
+
 function normalizeMetalSubcategory(m) {
   if (!m || m.category !== 'Metal') return;
+  const name = String(m.name || '');
+  // R52a — name-based 강제 매핑 우선 (raw data 의 잘못된 subcategory 보정)
+  for (const [re, target] of NAME_BASED_OVERRIDE) {
+    if (target && re.test(name)) { m.subcategory = target; return; }
+  }
   const sub = String(m.subcategory || '');
   if (!sub) return;
   for (const [re, target] of METAL_SUB_RULES) {
     if (re.test(sub)) { m.subcategory = target; return; }
   }
-  // 매칭 실패 → 그대로 유지 (이미 합리적 라벨일 가능성)
 }
 let metalNormalized = 0;
 for (const m of all) {

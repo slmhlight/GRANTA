@@ -69,7 +69,7 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 | Composite | 34 | — |
 
 ### Metal subcategory canonicalization (R36c)
-- 232 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
+- 349 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
 - Stainless: Stainless / Stainless Steel / PH Stainless → "Stainless Steel - Austenitic / Ferritic·Martensitic / Duplex / PH".
 - Nickel: Nickel-based / Nickel Alloy / Nickel Superalloy / Hastelloy / Inconel / Monel / Haynes 등 → "Nickel Superalloy - <subfamily>".
 - Cobalt: Cobalt Chrome / Cobalt-based → "Cobalt Alloy - Chrome / Wear".
@@ -88,17 +88,16 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 
 ## R48a — Anomaly Detection
 
-Total: **350** — high 0 / medium 0 / low 350
+Total: **330** — high 0 / medium 0 / low 330
 
 ### By kind
 | Kind | Count |
 |---|---|
 | no verified source URL | 326 |
-| Aluminum E out of [55, 85] GPa | 17 |
-| Steel family E out of [175, 225] GPa | 4 |
 | Ni Superalloy E out of [185, 235] GPa | 3 |
+| Steel family E out of [175, 225] GPa | 1 |
 
-### LOW severity (showing 10 / 350)
+### LOW severity (showing 10 / 330)
 | Material | Kind | Detail |
 |---|---|---|
 | Ti5-8-5 — As-supplied (LPBF) | no verified source URL |  |
