@@ -2,6 +2,15 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R92 — modeBar Reset axes (home icon) 동작 회복
+사용자 보고: 물성 변경 후 Reset axes (modeBar 의 🏠 = `resetScale2d`) 버튼 누르면 이상한 곳으로 axis 가 reset 됨.
+**원인**: R90 에서 추가한 `autorange: false`. Plotly 의 `resetScale2d` 동작은 axis 를 layout 의 range 로 복원하려 하지만, autorange:false 가 명시되어 있으면 axis state 가 frozen 상태로 인식되어 새 layout.range 적용이 제대로 안 됨.
+**수정**: `xaxis.autorange / yaxis.autorange` 라인 제거. range 명시만으로 plotly 가 그 범위로 axis lock — autorange 의 default 처리가 더 정확.
+**효과**:
+- 물성 변경 (예: density → modulus) 시 uirevision 변화로 axis 가 새 layout.range 로 정상 reset
+- 사용자가 zoom 후 🏠 버튼 누르면 fsetForFrame 기준의 layout.range 로 정확히 복원
+- doubleClick 'reset' 동작도 동일하게 정상
+
 ## R91 — CI workflow fix + materials.json gitignore (repo 위생)
 사용자 보고: "GitHub Actions 에서 실패가 많았다 · gitignore 도 좀 손봐야 할지도".
 

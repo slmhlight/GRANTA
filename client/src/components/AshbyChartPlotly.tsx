@@ -501,10 +501,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const layout: any = {
       autosize: true,
       margin: mMargin,
-      // R90 — uirevision 추가: xProperty/yProperty/log/groupFilter/subFilter 가 바뀔 때만 axis state reset.
-      //       indexPreset · indexThreshold · xLimit · yLimit · compareList 등은 axis state 보존 (사용자 zoom/pan 유지).
-      xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, autorange: false, uirevision: `${xProperty}|${xLog}|${groupFilter}|${subFilter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
-      yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, autorange: false, uirevision: `${yProperty}|${yLog}|${groupFilter}|${subFilter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      // R90/R92 — uirevision: xProperty/yProperty/log/groupFilter/subFilter 가 바뀔 때만 axis state reset.
+      //       indexPreset · indexThreshold · xLimit · yLimit · compareList 등은 axis state 보존.
+      //       R92 — autorange:false 제거 (reset 동작 + 물성 변경 시 새 range 적용을 방해). range 명시만으로 충분.
+      xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, uirevision: `${xProperty}|${xLog}|${groupFilter}|${subFilter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, uirevision: `${yProperty}|${yLog}|${groupFilter}|${subFilter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
       hovermode: 'closest', shapes, annotations: guideAnnotations,
       // 모바일에서는 레전드를 차트 위가 아닌 아래로 옮겨 차트 면적을 보호 (또는 항목 많을 때 토글).
       showlegend: showLegend && (!isMobile || (envelopeTraces.length + markerTraces.length <= 8)),
