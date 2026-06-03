@@ -2,6 +2,40 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R96 — Family tree tier2 색을 실제 family color 와 일치
+사용자 요청: "family tree 색상을 1st 는 그대로 두고 2nd family 와 같게 수정. 실제 표시되는 것은 2nd family 색상".
+
+기존 family tree 의 색 위계:
+- tier1 (Metal/Polymer/Ceramic/Composite) — sky / emerald / amber / violet
+- tier2 (Stainless Steel · Nickel Alloy · Aluminum · Cobalt Alloy …) — **tier1 의 lighter variant (모두 같은 hue)**
+- alloy 의 family color (Card / Table / Detail / Ashby) — `lib/material-colors.ts CLASSES` 의 별개 색
+
+문제 — 실제 표시 (Card 의 family-color dot, Detail 의 history border, Ashby 의 envelope) 는 family color (Steel blue · Nickel violet · Cobalt pink · Aluminum amber 등) 인데 family tree 는 그걸 안 따라가서 시각 inconsistency.
+
+**수정**: 새 `TIER2_FAMILY_COLOR` 매핑.
+```js
+const TIER2_FAMILY_COLOR = {
+  'Stainless Steel': '#3B82F6',        // Steel blue
+  'Tool / Special Steel': '#3B82F6',
+  'Carbon / Alloy Steel': '#3B82F6',
+  'Aluminum': '#F59E0B',               // Aluminum amber
+  'Nickel Alloy': '#8B5CF6',           // Nickel violet
+  'Cobalt Alloy': '#EC4899',           // Cobalt pink
+  'Titanium': '#06B6D4',               // Titanium cyan
+  'Copper Alloy': '#D97706',           // Copper orange
+  'Magnesium': '#0D9488',              // Magnesium teal
+  'Refractory': '#475569',             // Refractory slate
+  'Controlled Expansion': '#8B5CF6',   // Invar/Kovar (Fe-Ni → Nickel)
+  'Other Specialty / Other Metal': '#94A3B8',
+};
+```
+
+tier2 노드의 `text / └ / chevron / bg` 모두 inline style 로 family color 적용. `background: famHex + '14'` (8% alpha) 의 옅은 배경.
+- tier1 (Metal 의 좌측 sky 라인) 은 그대로 — 카테고리 구분 유지
+- tier2 의 메탈 family bucket 만 family color 로 매핑. Polymer / Ceramic / Composite tier2 는 category 색 유지 (CLASSES 에 family 세분이 없으므로)
+
+**효과**: Family tree 에서 "Stainless Steel" 을 보면 푸른 톤, "Nickel Alloy" 는 보라, "Cobalt Alloy" 는 핑크 — Card 그리드 / Ashby envelope / Detail history 박스의 색과 동일 hue. 한눈에 시각 일관성.
+
 ## R95 — Ashby chart reset 후 비합리적 frame 두 가지 원인 fix
 사용자 보고: "density / Young's Modulus 선택하면 정상. reset axes 누르면 X 가 1~2000 같은 이상한 범위로 가버림".
 

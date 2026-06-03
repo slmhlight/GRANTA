@@ -519,6 +519,26 @@ const CATEGORY_TIER_STYLE: Record<string, { bg1: string; bg2: string; tier1Bd: s
 };
 const FALLBACK_STYLE = CATEGORY_TIER_STYLE.Metal;
 
+/* R96 — tier2 (family bucket) 색상을 실제 alloy 의 family color (lib/material-colors.ts 의 CLASSES) 와 일치시킴.
+ *       Card·Table·Detail·Ashby 의 family-color dot 과 동일 hue 라서 한눈에 시각 일관성 확보.
+ *       tier1 (category) 색은 그대로 — sky-Metal, emerald-Polymer 등. metal 만 family 별로 세분되어 매핑함. */
+const TIER2_FAMILY_COLOR: Record<string, string> = {
+  // Metal — CLASSES key 와 매칭되는 family color (lib/material-colors.ts)
+  'Stainless Steel': '#3B82F6',       // Steel blue
+  'Tool / Special Steel': '#3B82F6',
+  'Carbon / Alloy Steel': '#3B82F6',
+  'Aluminum': '#F59E0B',              // Aluminum amber
+  'Nickel Alloy': '#8B5CF6',          // Nickel violet
+  'Cobalt Alloy': '#EC4899',          // Cobalt pink
+  'Titanium': '#06B6D4',              // Titanium cyan
+  'Copper Alloy': '#D97706',          // Copper orange
+  'Magnesium': '#0D9488',             // Magnesium teal
+  'Refractory': '#475569',            // Refractory slate
+  'Controlled Expansion': '#8B5CF6',  // Invar/Kovar (Fe-Ni → Nickel family in classOf)
+  'Other Specialty': '#94A3B8',
+  'Other Metal': '#94A3B8',
+};
+
 interface FamilyTreeNode {
   tier1: string;            // category
   tier2Groups: Array<{
@@ -648,7 +668,7 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
                   </span>
                   <span className={`text-[11px] sm:text-[10px] font-mono ${style.text2}`}>{node.count}</span>
                 </div>
-                {/* tier2/tier3 wrapper — 좌측 colored line이 tier1 dot 아래로 이어짐 */}
+                {/* tier2/tier3 wrapper — 좌측 colored line이 tier1 dot 아래로 이어짐 (tier1 색 그대로) */}
                 {tier1Expanded && (
                   <div className={`relative ml-3 mt-0.5 ${style.tier2Bd}`}>
                     {node.tier2Groups.map((group) => {
@@ -658,11 +678,19 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
                         groupCheckedN === 0 ? 'none' : groupCheckedN === groupSubs.length ? 'all' : 'partial';
                       const key2 = `${node.tier1}::${group.tier2}`;
                       const tier2Expanded = expandedTier2.has(key2);
+                      // R96 — tier2 색을 실제 family color (CLASSES) 와 매칭. 폴백 = tier1 의 style.text2 (이전 그대로).
+                      const famHex = TIER2_FAMILY_COLOR[group.tier2] ?? null;
+                      const useFamHex = !!famHex;
+                      const tier2Style = useFamHex ? { color: famHex } : undefined;
+                      const tier2BgStyle = useFamHex ? { background: `${famHex}14` } : undefined; // ~8% alpha
                       return (
                         <div key={key2} className="relative">
-                          {/* tier2 — family bucket. Sprint 2 A4: mobile padding 1→1.5, text 12→11, checkbox 4→3 */}
-                          <div className={`flex items-center gap-1.5 sm:gap-1 py-1 sm:py-0.5 pl-1 pr-1 ${style.bg2} hover:brightness-95 rounded-r transition-all`}>
-                            <span className={`font-mono ${style.text2} text-[11px] select-none leading-none w-3 text-center`} aria-hidden>└</span>
+                          {/* tier2 — family bucket. R96: metal 은 family color (inline style), 그 외는 tier1 색 (Tailwind class). */}
+                          <div
+                            className={`flex items-center gap-1.5 sm:gap-1 py-1 sm:py-0.5 pl-1 pr-1 hover:brightness-95 rounded-r transition-all ${useFamHex ? '' : style.bg2}`}
+                            style={tier2BgStyle}
+                          >
+                            <span className={`font-mono text-[11px] select-none leading-none w-3 text-center ${useFamHex ? '' : style.text2}`} style={tier2Style} aria-hidden>└</span>
                             <button
                               type="button"
                               onClick={() => {
@@ -671,7 +699,8 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
                                 else next.add(key2);
                                 setExpandedTier2(next);
                               }}
-                              className={`w-4 h-4 sm:w-3.5 sm:h-3.5 flex items-center justify-center ${style.text2}`}
+                              className={`w-4 h-4 sm:w-3.5 sm:h-3.5 flex items-center justify-center ${useFamHex ? '' : style.text2}`}
+                              style={tier2Style}
                             >
                               {tier2Expanded ? <ChevronDown className="w-3.5 h-3.5 sm:w-3 sm:h-3" /> : <ChevronRight className="w-3.5 h-3.5 sm:w-3 sm:h-3" />}
                             </button>
@@ -683,7 +712,8 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
                               className="accent-accent w-3.5 h-3.5 sm:w-3 sm:h-3 flex-shrink-0"
                             />
                             <span
-                              className={`text-[12px] sm:text-[11px] flex-1 truncate cursor-pointer font-medium ${style.text2}`}
+                              className={`text-[12px] sm:text-[11px] flex-1 truncate cursor-pointer font-medium ${useFamHex ? '' : style.text2}`}
+                              style={tier2Style}
                               title={group.tier2}
                               onClick={() => toggleGroup(groupSubs)}
                             >
