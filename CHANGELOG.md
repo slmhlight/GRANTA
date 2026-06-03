@@ -2,6 +2,19 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R80 — 모바일 헤더 합리화 + Settings 시트 신설
+모바일 상단 헤더에서 자주 안 쓰는 컨트롤을 빼서 하단 nav 의 새 Settings 시트로 옮김. 헤더는 핵심 동작 (검색 · 뷰 전환 · Export · Tools · 즐겨찾기 · 가이드) 만 노출.
+- **Logo 모바일 hidden** — 좁은 헤더에서 가장 왼쪽 Database 아이콘이 공간을 차지했는데 정보값 없어 `hidden md:flex` 처리
+- **모바일 햄버거 제거** — 필터는 하단 nav 의 첫 버튼 (Menu icon) 으로 통일 → 사용자가 직관적으로 '왼쪽 sidebar 가 슬라이드되는 것' 과 일관. 필터 버튼은 nav 왼쪽 첫 자리.
+- **`?` 온보딩 · KO/EN · SI/IMP — 모바일 hidden** — 모두 새 Settings 시트 안으로 이동
+- **Tools `⚙` → Wrench 아이콘** — 새 Settings ⚙ 와 시각적 혼동 방지
+- **하단 nav `grid-cols-4 → 5`** — 마지막에 ⚙ Settings 추가: 필터 / 뷰전환 / Compare / 가이드 / Settings
+- **Settings 시트 내용** — 우측 슬라이드 sheet 안에 3 카드:
+  - 언어 — 한국어 / English 2-button toggle (active 는 accent 배경)
+  - 단위 — SI (MPa·°C·g/cm³) / Imperial (ksi·°F·lb/in³) 2-button + sub-label
+  - 도움말 — 온보딩 5단계 다시 보기 (` ? ` icon + 라벨)
+- 데스크탑 (`md+`) 동작은 변경 없음 — 기존 상단 우측의 KO/EN, SI/IMP, ? 버튼 그대로
+
 ## R79 — popularity 4+ metal 스토리 확장 (65 → 89 base, 176 → 238 alloy 노출)
 popularity 4.0+ metal 중 story 없는 25종 추가. existing key 3종 단축 (`Ti-6Al-4V (Grade 5)` → `Ti-6Al-4V`, `AISI 4140 (...)` → `AISI 4140`, `Copper (Pure, C11000)` → `Copper C11000`) 으로 prefix match 폭 확대. 신규 entry 들도 친근한 한국어 완성문 어투.
 - **AM Al cast 표준** — AlSi10Mg (모든 metal AM vendor 의 default Al 분말, F1 BMW Sauber oil cooler housing 부터 Apple AirPods Max 까지)

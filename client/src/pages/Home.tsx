@@ -29,6 +29,8 @@ import {
   Pencil,
   RotateCcw,
   Star,
+  Settings,
+  Wrench,
 } from 'lucide-react';
 import { Link, useSearch } from 'wouter';
 import { Button } from '@/components/ui/button';
@@ -670,8 +672,8 @@ export default function Home() {
     <div className="flex flex-col h-screen overflow-hidden bg-background">
       {/* ─── Top Header ─── */}
       <header className="flex-shrink-0 h-12 flex items-center gap-3 px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground z-20">
-        {/* Logo */}
-        <div className="flex items-center gap-2.5 mr-2">
+        {/* Logo — R80: 모바일 hidden (좁은 헤더 공간 절약, 사용자가 가장 왼쪽 아이콘 제거 요청). */}
+        <div className="hidden md:flex items-center gap-2.5 mr-2">
           <div className="w-7 h-7 rounded bg-accent flex items-center justify-center flex-shrink-0">
             <Database className="w-4 h-4 text-white" />
           </div>
@@ -813,7 +815,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setTourOpen(true)}
-              className="h-7 w-7 flex items-center justify-center rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-xs font-bold"
+              className="hidden md:flex h-7 w-7 items-center justify-center rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-xs font-bold"
               aria-label={lang === 'en' ? 'Show onboarding tour' : '온보딩 다시 보기'}
             >
               ?
@@ -829,7 +831,7 @@ export default function Home() {
               className="h-7 px-2 flex items-center gap-1 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
             >
               <span className="hidden lg:inline">Tools</span>
-              <span className="lg:hidden">⚙</span>
+              <Wrench className="w-3.5 h-3.5 lg:hidden" />
             </Link>
           </TooltipTrigger>
           <TooltipContent side="bottom" className="text-xs">Engineering Tools — Kt · Galvanic · Buckling · CTE · Hardness · Pressure</TooltipContent>
@@ -948,12 +950,12 @@ export default function Home() {
           </SheetContent>
         </Sheet>
 
-        {/* R31 — KO / EN 언어 토글 */}
+        {/* R31 — KO / EN 언어 토글. R80: 모바일 hidden (하단 Settings 시트에서 처리). */}
         <Tooltip>
           <TooltipTrigger asChild>
             <button
               onClick={() => setLang(lang === 'ko' ? 'en' : 'ko')}
-              className="h-7 px-2 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-mono font-semibold"
+              className="hidden md:block h-7 px-2 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-mono font-semibold"
             >
               {lang === 'ko' ? '한' : 'EN'}
             </button>
@@ -961,12 +963,12 @@ export default function Home() {
           <TooltipContent side="bottom" className="text-xs">{lang === 'ko' ? '언어 전환 — 한국어' : 'Switch language — English'}</TooltipContent>
         </Tooltip>
 
-        {/* R27 — SI / Imperial 단위 토글 */}
+        {/* R27 — SI / Imperial 단위 토글. R80: 모바일 hidden. */}
         <Tooltip>
           <TooltipTrigger asChild>
             <button
               onClick={toggleUnitSystem}
-              className="h-7 px-2 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-mono font-semibold"
+              className="hidden md:block h-7 px-2 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-mono font-semibold"
             >
               {unitSystem === 'si' ? 'SI' : 'IMP'}
             </button>
@@ -1004,13 +1006,7 @@ export default function Home() {
           </Button>
         )}
 
-        {/* Mobile sidebar toggle */}
-        <button
-          className="md:hidden text-sidebar-foreground/60 hover:text-sidebar-foreground"
-          onClick={() => setMobileSidebarOpen(o => !o)}
-        >
-          <Menu className="w-4 h-4" />
-        </button>
+        {/* R80 — 모바일 sidebar toggle 제거. 필터는 하단 nav 의 첫 버튼으로 통일 (왼쪽에서 sidebar 가 슬라이드되는 동작과 일관). */}
       </header>
 
       {/* ─── Main Content ─── */}
@@ -1426,7 +1422,7 @@ export default function Home() {
 
       {/* ─── Mobile bottom action bar (sm:hidden) ─── 화면 폭이 좁을 때 상단 헤더가 빠듯하므로
        *  핵심 작업(Filter·View·Compare·Guide)을 하단 고정 바로 분리. 데스크탑은 hidden. */}
-      <nav className="md:hidden flex-shrink-0 grid grid-cols-4 border-t border-border bg-background z-30">
+      <nav className="md:hidden flex-shrink-0 grid grid-cols-5 border-t border-border bg-background z-30">
         <button onClick={() => setMobileSidebarOpen(true)} className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors">
           <Menu className="w-4 h-4" /> 필터{activeFilterCount > 0 && <span className="absolute mt-2 -mr-6 inline-block w-3 h-3 rounded-full bg-accent text-white text-[8px] leading-3 text-center font-bold">{activeFilterCount}</span>}
         </button>
@@ -1491,6 +1487,58 @@ export default function Home() {
               <Link href="/guide" className="block text-center text-xs font-medium px-3 py-2 rounded border border-accent text-accent hover:bg-accent/10 transition-colors mt-2">
                 전체 가이드 페이지 열기 →
               </Link>
+            </div>
+          </SheetContent>
+        </Sheet>
+        {/* R80 — Settings 시트: 모바일 헤더에서 빠진 KO/EN · SI/IMP · 온보딩 토글을 한 곳에 모음. */}
+        <Sheet>
+          <SheetTrigger className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors w-full">
+            <Settings className="w-4 h-4" /> Settings
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[88vw] sm:max-w-md overflow-y-auto">
+            <SheetHeader>
+              <SheetTitle className="flex items-center gap-2"><Settings className="w-4 h-4 text-accent" /> Settings</SheetTitle>
+            </SheetHeader>
+            <div className="mt-4 space-y-3 text-sm">
+              {/* 언어 */}
+              <div className="rounded border border-border p-3">
+                <p className="text-[11px] font-semibold text-foreground/80 mb-2">{lang === 'ko' ? '언어 · Language' : 'Language · 언어'}</p>
+                <div className="grid grid-cols-2 gap-1.5">
+                  <button
+                    onClick={() => setLang('ko')}
+                    className={`h-9 rounded border text-xs font-semibold transition-colors ${lang === 'ko' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-border hover:border-accent/60'}`}
+                  >한국어</button>
+                  <button
+                    onClick={() => setLang('en')}
+                    className={`h-9 rounded border text-xs font-semibold transition-colors ${lang === 'en' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-border hover:border-accent/60'}`}
+                  >English</button>
+                </div>
+              </div>
+              {/* 단위 */}
+              <div className="rounded border border-border p-3">
+                <p className="text-[11px] font-semibold text-foreground/80 mb-2">{lang === 'ko' ? '단위 · Units' : 'Units · 단위'}</p>
+                <div className="grid grid-cols-2 gap-1.5">
+                  <button
+                    onClick={() => unitSystem !== 'si' && toggleUnitSystem()}
+                    className={`h-9 rounded border text-xs font-semibold transition-colors ${unitSystem === 'si' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-border hover:border-accent/60'}`}
+                  >SI<span className="block text-[9px] opacity-70 font-normal">MPa·°C·g/cm³</span></button>
+                  <button
+                    onClick={() => unitSystem !== 'imperial' && toggleUnitSystem()}
+                    className={`h-9 rounded border text-xs font-semibold transition-colors ${unitSystem === 'imperial' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-border hover:border-accent/60'}`}
+                  >Imperial<span className="block text-[9px] opacity-70 font-normal">ksi·°F·lb/in³</span></button>
+                </div>
+              </div>
+              {/* 온보딩 */}
+              <div className="rounded border border-border p-3">
+                <p className="text-[11px] font-semibold text-foreground/80 mb-2">{lang === 'ko' ? '도움말 · 다시 보기' : 'Help · Replay'}</p>
+                <button
+                  onClick={() => setTourOpen(true)}
+                  className="w-full h-9 rounded border border-accent/40 text-accent hover:bg-accent/10 text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  <span className="inline-block w-4 h-4 rounded-full border border-accent text-[10px] leading-[14px] text-center font-bold">?</span>
+                  {lang === 'ko' ? '온보딩 다시 보기 (5단계)' : 'Onboarding tour (5 steps)'}
+                </button>
+              </div>
             </div>
           </SheetContent>
         </Sheet>
