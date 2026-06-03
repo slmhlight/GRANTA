@@ -430,10 +430,15 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     let envelopeTraces: any[] = [];
     if (showEnvelopes) envelopeTraces = groupFilter !== 'all' ? [envFromPoints(fset, '#0EA5E9', 0.1, 2.5)].filter(Boolean) : hullTraces;
 
-    // auto-range — R89: range slider 적용 전의 fsetForFrame 기준으로 frame 고정 (사용자가 range/index 조정 시
-    //               차트 zoom 흔들림 방지). fset 이 비어도 frame 은 family 범위 유지.
-    const xs = fsetForFrame.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
-    const ys = fsetForFrame.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
+    // auto-range — R89/R94: range slider 적용 전의 fsetForFrame 기준으로 frame 고정.
+    // R94 — X·Y 범위를 각자 독립적으로 계산. 이전엔 `valid(m) = X && Y 둘 다 > 0` 조건의 fsetForFrame 만
+    //        사용해서, 예) Y=KIC 인데 KIC 가 일부 alloy 에만 있으면 그 적은 alloy 의 X 범위만 X axis 로 적용 →
+    //        Y 가 없는 alloy 들의 합리적 X 범위 (예 7 g/cm³ 알로이) 도 모두 무시되어 X axis 가 좁아짐.
+    //        해법: X range 는 X property 가진 모든 alloy (Y 무관), Y range 도 동일 원리로 독립 계산.
+    const xRangeSet = filtered.filter((m) => (tv(m, xProperty) ?? 0) > 0 && inGroup(m) && inSub(m));
+    const yRangeSet = filtered.filter((m) => (tv(m, yProperty) ?? 0) > 0 && inGroup(m) && inSub(m));
+    const xs = xRangeSet.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)]).filter((v): v is number => !!v && v > 0);
+    const ys = yRangeSet.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
     const logRange = (v: number[]) => v.length ? [L(Math.min(...v)) - 0.15, L(Math.max(...v)) + 0.15] : undefined;
     const linRange = (v: number[]) => { if (!v.length) return undefined; const mn = Math.min(...v), mx = Math.max(...v), pad = (mx - mn) * 0.06 || mx * 0.06; return [Math.max(0, mn - pad), mx + pad]; };
     // R90 — fallback: xs/ys 비어있어도 (filter 너무 좁아짐 edge case) 차트가 안 깨지도록 전체 domain 사용.
@@ -453,7 +458,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       x: [fAxX[0], fAxX[1], fAxX[0], fAxX[1]],
       y: [fAxY[0], fAxY[0], fAxY[1], fAxY[1]],
       mode: 'markers' as const, type: 'scatter' as const,
-      marker: { size: 0.01, opacity: 0, color: 'rgba(0,0,0,0)' },
+      // R94 — marker size 1 + opacity 0 (이전 0.01 은 plotly autorange 가 무시할 수 있음). 시각적으로 안 보임.
+      marker: { size: 1, opacity: 0, color: 'rgba(0,0,0,0)' },
       hoverinfo: 'skip' as const, showlegend: false, name: '_frame',
     };
 

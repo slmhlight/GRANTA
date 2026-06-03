@@ -2,6 +2,26 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R94 — Ashby chart X/Y 축 범위 독립 계산 (reset 시 합리적 frame)
+사용자 보고: "reset axes 할때 특정 값 range로 무조건 전환되는데 그 값이 합리적이지 않은듯. XY축 각각 합리적인 range 미리 계산하고 조합해서 적용해야".
+**원인**: `valid(m) = X property && Y property 둘 다 > 0` 조건. xs/ys 계산이 fsetForFrame (= valid + family/sub 통과) 으로 묶여있어, 예) Y=KIC 일 때 KIC 데이터가 일부 alloy 에만 있으면:
+- X 범위가 "KIC 도 가진 alloy 의 X 값" 만으로 계산 → X 가 합리적인 7 g/cm³ alloy 라도 KIC 없으면 X 범위 결정에서 제외됨 → X axis 가 비합리적으로 좁아짐
+- Y range 도 X 가진 alloy 만 고려하는 같은 문제
+
+**수정**: X/Y range 를 각자 독립 set 으로 계산.
+```js
+const xRangeSet = filtered.filter((m) => tv(m, xProperty) > 0 && inGroup && inSub);
+const yRangeSet = filtered.filter((m) => tv(m, yProperty) > 0 && inGroup && inSub);
+const xs = xRangeSet.flatMap((m) => [loOf(m, xProperty), hiOf(m, xProperty)])...
+const ys = yRangeSet.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)])...
+```
+- X range 는 **X property 가진 모든 alloy** (Y 데이터 무관)
+- Y range 는 **Y property 가진 모든 alloy** (X 데이터 무관)
+- 두 독립 range 를 조합 → 차트 frame 이 각 axis 별 합리적 한계 cover
+- fsetForFrame 자체는 그대로 (envelope·marker 표시는 둘 다 가진 alloy 만)
+
+**추가 fix**: R93 frame anchor marker `size: 0.01` → `1` (plotly 의 autorange 가 size 0.01 을 무시할 가능성 차단). opacity 0 이라 시각적으로는 동일 invisible.
+
 ## R93 — Ashby chart frame anchor trace 로 reset 시 axis 확실 복원
 사용자 보고 (R92 후에도 잔존): "기본 상태 → index 선택 → reset axes 누르면 엉뚱한 곳으로".
 **진짜 원인 발견**: Plotly 의 `doubleClick: 'reset'` 과 modeBar 의 `resetScale2d` (🏠 home icon) 는 **layout.range 가 아니라 trace 의 데이터 bbox 로 axis 를 reset 한다**. uirevision 도, layout.range 명시도 reset 동작에는 영향이 없음.
