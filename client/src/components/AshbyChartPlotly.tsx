@@ -436,8 +436,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const ys = fsetForFrame.flatMap((m) => [loOf(m, yProperty), hiOf(m, yProperty)]).filter((v): v is number => !!v && v > 0);
     const logRange = (v: number[]) => v.length ? [L(Math.min(...v)) - 0.15, L(Math.max(...v)) + 0.15] : undefined;
     const linRange = (v: number[]) => { if (!v.length) return undefined; const mn = Math.min(...v), mx = Math.max(...v), pad = (mx - mn) * 0.06 || mx * 0.06; return [Math.max(0, mn - pad), mx + pad]; };
-    const xRange = xLog ? logRange(xs) : linRange(xs);
-    const yRange = yLog ? logRange(ys) : linRange(ys);
+    // R90 — fallback: xs/ys 비어있어도 (filter 너무 좁아짐 edge case) 차트가 안 깨지도록 전체 domain 사용.
+    const xRangeFallback = xLog ? [L(xDomain[0]) - 0.15, L(xDomain[1]) + 0.15] : [xDomain[0] * 0.9, xDomain[1] * 1.1];
+    const yRangeFallback = yLog ? [L(yDomain[0]) - 0.15, L(yDomain[1]) + 0.15] : [yDomain[0] * 0.9, yDomain[1] * 1.1];
+    const xRange = (xLog ? logRange(xs) : linRange(xs)) ?? xRangeFallback;
+    const yRange = (yLog ? logRange(ys) : linRange(ys)) ?? yRangeFallback;
 
     const indexTraces: any[] = [];
 
@@ -498,8 +501,10 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const layout: any = {
       autosize: true,
       margin: mMargin,
-      xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
-      yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      // R90 — uirevision 추가: xProperty/yProperty/log/groupFilter/subFilter 가 바뀔 때만 axis state reset.
+      //       indexPreset · indexThreshold · xLimit · yLimit · compareList 등은 axis state 보존 (사용자 zoom/pan 유지).
+      xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, autorange: false, uirevision: `${xProperty}|${xLog}|${groupFilter}|${subFilter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, autorange: false, uirevision: `${yProperty}|${yLog}|${groupFilter}|${subFilter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
       hovermode: 'closest', shapes, annotations: guideAnnotations,
       // 모바일에서는 레전드를 차트 위가 아닌 아래로 옮겨 차트 면적을 보호 (또는 항목 많을 때 토글).
       showlegend: showLegend && (!isMobile || (envelopeTraces.length + markerTraces.length <= 8)),
@@ -564,7 +569,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     modeBarButtonsToRemove: ['autoScale2d'],
     modeBarButtonsToAdd: ['toggleSpikelines' as const],
     toImageButtonOptions: { format: 'png', filename: 'ashby_chart', height: 700, width: 1000, scale: 2 },
-    doubleClick: 'reset+autosize' as const,
+    // R90 — 'reset' 만 (이전 'reset+autosize' 는 autosize 가 colored marker bbox 에 맞춰 zoom-in 시켜
+    //       index pass 가 3개 등 작을 때 빈 영역처럼 보이는 문제 유발). 'reset' 은 layout 의 range 로 복귀.
+    doubleClick: 'reset' as const,
   };
   const comparing = (compareList?.length ?? 0) > 0;
 

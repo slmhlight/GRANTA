@@ -2,6 +2,22 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R90 — Ashby chart axis 안정성 (uirevision · reset · fallback)
+사용자 보고: "(R89 후에도) index 활성화에 따라 chart frame 바뀜 · reset-axis 가 이상하게 반응 (빈 화면만 보임)". 세 가지 근본 원인을 동시에 수정.
+
+**원인 1 — uirevision 부재**: useMemo dep 에 `indexPreset / indexThreshold / xLimit / yLimit / compareList` 등이 들어가 있어, 이들이 변할 때마다 Plotly props 가 새로 전달되고 Plotly 가 axis state 를 layout 의 range 로 강제 reset. 사용자가 zoom/pan 한 상태가 보존되지 않음 + frame 이 흔들리는 것처럼 보임.
+
+**원인 2 — doubleClick: 'reset+autosize'**: reset 시 plotly 가 marker trace 의 bbox 에 맞춰 axis auto-fit 함. index preset 활성화 후 colored marker 가 3-4개만 통과하면 axis 가 그 3-4개에 맞춰 매우 좁아져 "빈 화면" 처럼 보임.
+
+**원인 3 — xRange/yRange undefined**: fsetForFrame 이 비어있는 edge case (예: family/sub 조합이 빈 set) 에서 logRange/linRange 가 undefined 반환 → layout axis range 없음 → plotly fallback 동작 → 빈 axis.
+
+**수정**:
+- `xaxis.uirevision = "${xProperty}|${xLog}|${groupFilter}|${subFilter}"` — xProperty/yProperty/log/family/sub 변경 시에만 axis reset, 그 외는 사용자 zoom/pan 보존
+- `yaxis.uirevision` 동일 패턴
+- `xaxis.autorange: false / yaxis.autorange: false` 명시 — range 명시 시 plotly 의 자동 auto-range 동작 차단
+- `doubleClick: 'reset+autosize' → 'reset'` — autosize 제거, layout 의 range 로 정확히 복귀
+- `xRangeFallback / yRangeFallback` — fsetForFrame 이 비어도 xDomain (전체 materials 의 range) 으로 fallback
+
 ## R89 — Ashby chart frame을 inLim 미적용 fsetForFrame 기준으로 고정
 **문제**: R88 에서 X/Y range slider 를 hard filter 로 만들었더니, range 좁히거나 index 임계값 조정 시 fset 이 변하면서 차트 axis auto-range 까지 같이 변해 zoom 이 흔들림. 사용자 보고: "index 적용시에도 frame은 유지해야함".
 **수정**: fset 을 두 단계로 분리.
