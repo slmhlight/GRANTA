@@ -58,7 +58,7 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   // R57 — KO property 라벨에 영문 병기 (한국어 모드에서도 학술/표준 영문 한 눈에 확인 가능).
   'filter.density': { ko: '밀도 (Density)', en: 'Density' },
   'filter.yieldStrength': { ko: '항복강도 (Yield Strength)', en: 'Yield Strength' },
-  'filter.uts': { ko: 'UTS', en: 'UTS' },
+  'filter.uts': { ko: '인장 강도 (Ultimate Tensile Strength)', en: 'Ultimate Tensile Strength' },
   'filter.elongation': { ko: '연신율 (Elongation)', en: 'Elongation' },
   'filter.modulus': { ko: "탄성계수 (Young's Modulus)", en: "Young's Modulus" },
   'filter.hardness': { ko: '경도 (Hardness)', en: 'Hardness' },
