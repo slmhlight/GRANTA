@@ -118,6 +118,7 @@ export default function Home() {
     sortDir,
     toggleSort,
     activeFilterCount,
+    narrowedRanges,
   } = useMaterialFilter(materials);
 
   // Load data
@@ -762,6 +763,7 @@ export default function Home() {
               activeFilterCount={activeFilterCount}
               resultCount={filtered.length}
               onSelectMaterial={handleSelectMaterial}
+              narrowedRanges={narrowedRanges}
             />
           )}
         </div>

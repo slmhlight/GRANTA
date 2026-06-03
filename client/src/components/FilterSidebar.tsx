@@ -27,6 +27,9 @@ interface FilterSidebarProps {
   activeFilterCount: number;
   resultCount: number;
   onSelectMaterial?: (material: Material) => void;
+  /** R51b — Leave-one-out narrowed ranges. 각 numeric property 의 slider min/max 를
+   *  "자기 자신 제외" 한 모든 필터 적용 결과 기준으로 좁혀 표시. */
+  narrowedRanges?: Record<string, [number, number] | null>;
 }
 
 // ── Range Slider (for numeric properties) ───────────────────────────────────
@@ -930,11 +933,15 @@ export default function FilterSidebar({
   activeFilterCount,
   resultCount,
   onSelectMaterial,
+  narrowedRanges,
 }: FilterSidebarProps) {
   const t = useT();
   // R40b — Price slider unit lang/units 인식 ($/kg ↔ ₩/kg).
   const { lang } = useLang();
   const sidebarPriceLabel = priceUnitLabel(lang, loadUnitSystem(), 'kg');
+  // R51b — leave-one-out narrow 우선, 없으면 (예: 데이터 없음) 기본 전체 범위 사용.
+  const nr = (props: Record<string, [number, number] | null> | undefined, key: string, fallback: [number, number] | null) =>
+    (props && props[key]) || fallback;
   // Process 필터를 4개로 단순화
   const allProcesses = ['Wrought', 'Molding', 'Casting', 'AM'];
 
@@ -965,6 +972,34 @@ export default function FilterSidebar({
   const corrosionOpts = useMemo(() => orderQual(getUniqueValues(materials, 'corrosion_resistance')), [materials]);
   const machinabilityOpts = useMemo(() => orderQual(getUniqueValues(materials, 'machinability')), [materials]);
   const weldabilityOpts = useMemo(() => orderQual(getUniqueValues(materials, 'weldability')), [materials]);
+
+  // R51b — effective ranges: narrowedRanges (leave-one-out) 우선, 없으면 전체 dataset range.
+  //   사용자가 다른 필터 적용 시 slider min/max 가 좁아짐. 자기 자신 only 일 땐 전체 범위 유지.
+  const effRanges = useMemo(() => ({
+    density: nr(narrowedRanges, 'density', densityRange),
+    yield_strength: nr(narrowedRanges, 'yield_strength', yieldStrengthRange),
+    uts: nr(narrowedRanges, 'uts', utsRange),
+    elongation: nr(narrowedRanges, 'elongation', elongationRange),
+    modulus: nr(narrowedRanges, 'modulus', modulusRange),
+    hardness: nr(narrowedRanges, 'hardness', hardnessRange),
+    thermal_conductivity: nr(narrowedRanges, 'thermal_conductivity', thermalConductivityRange),
+    electrical_conductivity: nr(narrowedRanges, 'electrical_conductivity', electricalConductivityRange),
+    max_service_temp: nr(narrowedRanges, 'max_service_temp', maxServiceTempRange),
+    fatigue_strength: nr(narrowedRanges, 'fatigue_strength', fatigueStrengthRange),
+    impact_strength: nr(narrowedRanges, 'impact_strength', impactStrengthRange),
+    price_per_kg: nr(narrowedRanges, 'price_per_kg', pricePerKgRange),
+    thermal_expansion: nr(narrowedRanges, 'thermal_expansion', thermalExpansionRange),
+    poisson_ratio: nr(narrowedRanges, 'poisson_ratio', poissonRatioRange),
+    specific_heat: nr(narrowedRanges, 'specific_heat', specificHeatRange),
+    melting_point: nr(narrowedRanges, 'melting_point', meltingPointRange),
+    popularity: nr(narrowedRanges, 'popularity', popularityRange),
+    fracture_toughness: nr(narrowedRanges, 'fracture_toughness', fractureToughnessRange),
+    total_cost_estimate: nr(narrowedRanges, 'total_cost_estimate', totalCostEstimateRange),
+    min_wall_thickness: nr(narrowedRanges, 'min_wall_thickness', minWallThicknessRange),
+    surface_finish_typical: nr(narrowedRanges, 'surface_finish_typical', surfaceFinishTypicalRange),
+    machining_cost_factor: nr(narrowedRanges, 'machining_cost_factor', machiningCostFactorRange),
+    ht_cost_factor: nr(narrowedRanges, 'ht_cost_factor', htCostFactorRange),
+  }), [narrowedRanges, densityRange, yieldStrengthRange, utsRange, elongationRange, modulusRange, hardnessRange, thermalConductivityRange, electricalConductivityRange, maxServiceTempRange, fatigueStrengthRange, impactStrengthRange, pricePerKgRange, thermalExpansionRange, poissonRatioRange, specificHeatRange, meltingPointRange, popularityRange, fractureToughnessRange, totalCostEstimateRange, minWallThicknessRange, surfaceFinishTypicalRange, machiningCostFactorRange, htCostFactorRange]);
 
   return (
     <div className="flex flex-col h-full bg-card border-r border-border">
@@ -1001,8 +1036,8 @@ export default function FilterSidebar({
       <div className="flex-1 overflow-y-auto">
         {/* ── 1. 기본 검색 (Popularity 최상단 — 가장 중요한 property) ── */}
         <SectionGroup label="기본 검색 · Essentials" />
-        {popularityRange && (
-          <RangeSlider label={t('filter.popularity')} unit="" min={popularityRange[0]} max={popularityRange[1]} value={filters.popularityRange} onChange={v => updateFilter('popularityRange', v)} />
+        {effRanges.popularity && (
+          <RangeSlider label={t('filter.popularity')} unit="" min={effRanges.popularity[0]} max={effRanges.popularity[1]} value={filters.popularityRange} onChange={v => updateFilter('popularityRange', v)} />
         )}
         {/* R44a — Category 필터 제거. Family Tree 가 1차 family 4 카테고리 + 2-3차 subcategory 모두 노출. */}
         <FamilyFilter
@@ -1028,80 +1063,80 @@ export default function FilterSidebar({
 
         {/* ── 2. 기계적 성질 ── */}
         <SectionGroup label="기계적 성질 · Mechanical" />
-        {densityRange && (
-          <RangeSlider label={t('filter.density')} unit="g/cm³" min={densityRange[0]} max={densityRange[1]} value={filters.densityRange} onChange={v => updateFilter('densityRange', v)} />
+        {effRanges.density && (
+          <RangeSlider label={t('filter.density')} unit="g/cm³" min={effRanges.density[0]} max={effRanges.density[1]} value={filters.densityRange} onChange={v => updateFilter('densityRange', v)} />
         )}
-        {modulusRange && (
-          <RangeSlider label="Modulus" unit="GPa" min={modulusRange[0]} max={modulusRange[1]} value={filters.modulusRange} onChange={v => updateFilter('modulusRange', v)} />
+        {effRanges.modulus && (
+          <RangeSlider label="Modulus" unit="GPa" min={effRanges.modulus[0]} max={effRanges.modulus[1]} value={filters.modulusRange} onChange={v => updateFilter('modulusRange', v)} />
         )}
-        {yieldStrengthRange && (
-          <RangeSlider label="Yield Strength" unit="MPa" min={yieldStrengthRange[0]} max={yieldStrengthRange[1]} value={filters.yieldStrengthRange} onChange={v => updateFilter('yieldStrengthRange', v)} />
+        {effRanges.yield_strength && (
+          <RangeSlider label="Yield Strength" unit="MPa" min={effRanges.yield_strength[0]} max={effRanges.yield_strength[1]} value={filters.yieldStrengthRange} onChange={v => updateFilter('yieldStrengthRange', v)} />
         )}
-        {utsRange && (
-          <RangeSlider label="UTS" unit="MPa" min={utsRange[0]} max={utsRange[1]} value={filters.utsRange} onChange={v => updateFilter('utsRange', v)} />
+        {effRanges.uts && (
+          <RangeSlider label="UTS" unit="MPa" min={effRanges.uts[0]} max={effRanges.uts[1]} value={filters.utsRange} onChange={v => updateFilter('utsRange', v)} />
         )}
-        {elongationRange && (
-          <RangeSlider label="Elongation" unit="%" min={elongationRange[0]} max={elongationRange[1]} value={filters.elongationRange} onChange={v => updateFilter('elongationRange', v)} />
+        {effRanges.elongation && (
+          <RangeSlider label="Elongation" unit="%" min={effRanges.elongation[0]} max={effRanges.elongation[1]} value={filters.elongationRange} onChange={v => updateFilter('elongationRange', v)} />
         )}
-        {hardnessRange && (
-          <RangeSlider label={t('filter.hardness')} unit="HV" min={hardnessRange[0]} max={hardnessRange[1]} value={filters.hardnessRange} onChange={v => updateFilter('hardnessRange', v)} />
+        {effRanges.hardness && (
+          <RangeSlider label={t('filter.hardness')} unit="HV" min={effRanges.hardness[0]} max={effRanges.hardness[1]} value={filters.hardnessRange} onChange={v => updateFilter('hardnessRange', v)} />
         )}
-        {fatigueStrengthRange && (
-          <RangeSlider label="Fatigue Strength" unit="MPa" min={fatigueStrengthRange[0]} max={fatigueStrengthRange[1]} value={filters.fatigueStrengthRange} onChange={v => updateFilter('fatigueStrengthRange', v)} />
+        {effRanges.fatigue_strength && (
+          <RangeSlider label="Fatigue Strength" unit="MPa" min={effRanges.fatigue_strength[0]} max={effRanges.fatigue_strength[1]} value={filters.fatigueStrengthRange} onChange={v => updateFilter('fatigueStrengthRange', v)} />
         )}
-        {impactStrengthRange && (
-          <RangeSlider label="Impact (Charpy)" unit="J" min={impactStrengthRange[0]} max={impactStrengthRange[1]} value={filters.impactStrengthRange} onChange={v => updateFilter('impactStrengthRange', v)} />
+        {effRanges.impact_strength && (
+          <RangeSlider label="Impact (Charpy)" unit="J" min={effRanges.impact_strength[0]} max={effRanges.impact_strength[1]} value={filters.impactStrengthRange} onChange={v => updateFilter('impactStrengthRange', v)} />
         )}
-        {fractureToughnessRange && (
-          <RangeSlider label="Fracture Toughness" unit="MPa·√m" min={fractureToughnessRange[0]} max={fractureToughnessRange[1]} value={filters.fractureToughnessRange} onChange={v => updateFilter('fractureToughnessRange', v)} />
+        {effRanges.fracture_toughness && (
+          <RangeSlider label="Fracture Toughness" unit="MPa·√m" min={effRanges.fracture_toughness[0]} max={effRanges.fracture_toughness[1]} value={filters.fractureToughnessRange} onChange={v => updateFilter('fractureToughnessRange', v)} />
         )}
-        {poissonRatioRange && (
-          <RangeSlider label="Poisson's Ratio" unit="–" min={poissonRatioRange[0]} max={poissonRatioRange[1]} value={filters.poissonRatioRange} onChange={v => updateFilter('poissonRatioRange', v)} />
+        {effRanges.poisson_ratio && (
+          <RangeSlider label="Poisson's Ratio" unit="–" min={effRanges.poisson_ratio[0]} max={effRanges.poisson_ratio[1]} value={filters.poissonRatioRange} onChange={v => updateFilter('poissonRatioRange', v)} />
         )}
 
         {/* ── 3. 열적 성질 ── */}
         <SectionGroup label="열적 성질 · Thermal" />
-        {thermalConductivityRange && (
-          <RangeSlider label="Thermal Conductivity" unit="W/m·K" min={thermalConductivityRange[0]} max={thermalConductivityRange[1]} value={filters.thermalConductivityRange} onChange={v => updateFilter('thermalConductivityRange', v)} />
+        {effRanges.thermal_conductivity && (
+          <RangeSlider label="Thermal Conductivity" unit="W/m·K" min={effRanges.thermal_conductivity[0]} max={effRanges.thermal_conductivity[1]} value={filters.thermalConductivityRange} onChange={v => updateFilter('thermalConductivityRange', v)} />
         )}
-        {maxServiceTempRange && (
-          <RangeSlider label="Max Service Temp" unit="°C" min={maxServiceTempRange[0]} max={maxServiceTempRange[1]} value={filters.maxServiceTempRange} onChange={v => updateFilter('maxServiceTempRange', v)} />
+        {effRanges.max_service_temp && (
+          <RangeSlider label="Max Service Temp" unit="°C" min={effRanges.max_service_temp[0]} max={effRanges.max_service_temp[1]} value={filters.maxServiceTempRange} onChange={v => updateFilter('maxServiceTempRange', v)} />
         )}
-        {thermalExpansionRange && (
-          <RangeSlider label="Thermal Expansion (CTE)" unit="10⁻⁶/K" min={thermalExpansionRange[0]} max={thermalExpansionRange[1]} value={filters.thermalExpansionRange} onChange={v => updateFilter('thermalExpansionRange', v)} />
+        {effRanges.thermal_expansion && (
+          <RangeSlider label="Thermal Expansion (CTE)" unit="10⁻⁶/K" min={effRanges.thermal_expansion[0]} max={effRanges.thermal_expansion[1]} value={filters.thermalExpansionRange} onChange={v => updateFilter('thermalExpansionRange', v)} />
         )}
-        {meltingPointRange && (
-          <RangeSlider label="Melting / Liquidus" unit="°C" min={meltingPointRange[0]} max={meltingPointRange[1]} value={filters.meltingPointRange} onChange={v => updateFilter('meltingPointRange', v)} />
+        {effRanges.melting_point && (
+          <RangeSlider label="Melting / Liquidus" unit="°C" min={effRanges.melting_point[0]} max={effRanges.melting_point[1]} value={filters.meltingPointRange} onChange={v => updateFilter('meltingPointRange', v)} />
         )}
-        {specificHeatRange && (
-          <RangeSlider label="Specific Heat" unit="J/kg·K" min={specificHeatRange[0]} max={specificHeatRange[1]} value={filters.specificHeatRange} onChange={v => updateFilter('specificHeatRange', v)} />
+        {effRanges.specific_heat && (
+          <RangeSlider label="Specific Heat" unit="J/kg·K" min={effRanges.specific_heat[0]} max={effRanges.specific_heat[1]} value={filters.specificHeatRange} onChange={v => updateFilter('specificHeatRange', v)} />
         )}
 
         {/* ── 4. 전기적 성질 ── */}
         <SectionGroup label="전기적 성질 · Electrical" />
-        {electricalConductivityRange && (
-          <RangeSlider label="Electrical Conductivity" unit="%IACS" min={electricalConductivityRange[0]} max={electricalConductivityRange[1]} value={filters.electricalConductivityRange} onChange={v => updateFilter('electricalConductivityRange', v)} />
+        {effRanges.electrical_conductivity && (
+          <RangeSlider label="Electrical Conductivity" unit="%IACS" min={effRanges.electrical_conductivity[0]} max={effRanges.electrical_conductivity[1]} value={filters.electricalConductivityRange} onChange={v => updateFilter('electricalConductivityRange', v)} />
         )}
 
         {/* ── 5. 원가·가공 ── */}
         <SectionGroup label="원가·가공 · Cost & Process" />
-        {pricePerKgRange && (
-          <RangeSlider label="Price" unit={sidebarPriceLabel} min={pricePerKgRange[0]} max={pricePerKgRange[1]} value={filters.pricePerKgRange} onChange={v => updateFilter('pricePerKgRange', v)} />
+        {effRanges.price_per_kg && (
+          <RangeSlider label="Price" unit={sidebarPriceLabel} min={effRanges.price_per_kg[0]} max={effRanges.price_per_kg[1]} value={filters.pricePerKgRange} onChange={v => updateFilter('pricePerKgRange', v)} />
         )}
-        {totalCostEstimateRange && (
-          <RangeSlider label="Total Cost (est.)" unit={sidebarPriceLabel} min={totalCostEstimateRange[0]} max={totalCostEstimateRange[1]} value={filters.totalCostEstimateRange} onChange={v => updateFilter('totalCostEstimateRange', v)} />
+        {effRanges.total_cost_estimate && (
+          <RangeSlider label="Total Cost (est.)" unit={sidebarPriceLabel} min={effRanges.total_cost_estimate[0]} max={effRanges.total_cost_estimate[1]} value={filters.totalCostEstimateRange} onChange={v => updateFilter('totalCostEstimateRange', v)} />
         )}
-        {machiningCostFactorRange && (
-          <RangeSlider label="Machining factor" unit="×" min={machiningCostFactorRange[0]} max={machiningCostFactorRange[1]} value={filters.machiningCostFactorRange} onChange={v => updateFilter('machiningCostFactorRange', v)} />
+        {effRanges.machining_cost_factor && (
+          <RangeSlider label="Machining factor" unit="×" min={effRanges.machining_cost_factor[0]} max={effRanges.machining_cost_factor[1]} value={filters.machiningCostFactorRange} onChange={v => updateFilter('machiningCostFactorRange', v)} />
         )}
-        {htCostFactorRange && (
-          <RangeSlider label="HT factor" unit="×" min={htCostFactorRange[0]} max={htCostFactorRange[1]} value={filters.htCostFactorRange} onChange={v => updateFilter('htCostFactorRange', v)} />
+        {effRanges.ht_cost_factor && (
+          <RangeSlider label="HT factor" unit="×" min={effRanges.ht_cost_factor[0]} max={effRanges.ht_cost_factor[1]} value={filters.htCostFactorRange} onChange={v => updateFilter('htCostFactorRange', v)} />
         )}
-        {minWallThicknessRange && (
-          <RangeSlider label="Min wall" unit="mm" min={minWallThicknessRange[0]} max={minWallThicknessRange[1]} value={filters.minWallThicknessRange} onChange={v => updateFilter('minWallThicknessRange', v)} />
+        {effRanges.min_wall_thickness && (
+          <RangeSlider label="Min wall" unit="mm" min={effRanges.min_wall_thickness[0]} max={effRanges.min_wall_thickness[1]} value={filters.minWallThicknessRange} onChange={v => updateFilter('minWallThicknessRange', v)} />
         )}
-        {surfaceFinishTypicalRange && (
-          <RangeSlider label="Surface Ra" unit="μm" min={surfaceFinishTypicalRange[0]} max={surfaceFinishTypicalRange[1]} value={filters.surfaceFinishTypicalRange} onChange={v => updateFilter('surfaceFinishTypicalRange', v)} />
+        {effRanges.surface_finish_typical && (
+          <RangeSlider label="Surface Ra" unit="μm" min={effRanges.surface_finish_typical[0]} max={effRanges.surface_finish_typical[1]} value={filters.surfaceFinishTypicalRange} onChange={v => updateFilter('surfaceFinishTypicalRange', v)} />
         )}
 
         {/* ── 6. 품질·내환경성 ── */}

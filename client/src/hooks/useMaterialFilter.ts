@@ -313,6 +313,89 @@ export function useMaterialFilter(materials: Material[]) {
     return count;
   }, [filters]);
 
+  // R51b — Leave-one-out narrowed ranges. 각 numeric property 의 가능 범위는
+  //   "그 property filter 만 제외" 한 모든 필터 적용 후 결과의 min/max.
+  //   Granta MI 스타일 — slider 가 다른 필터의 제약 반영.
+  const RANGE_FILTER_MAP: Record<string, keyof FilterState> = {
+    density: 'densityRange', yield_strength: 'yieldStrengthRange', uts: 'utsRange',
+    elongation: 'elongationRange', modulus: 'modulusRange', hardness: 'hardnessRange',
+    thermal_conductivity: 'thermalConductivityRange', electrical_conductivity: 'electricalConductivityRange',
+    max_service_temp: 'maxServiceTempRange', fatigue_strength: 'fatigueStrengthRange',
+    impact_strength: 'impactStrengthRange', price_per_kg: 'pricePerKgRange',
+    thermal_expansion: 'thermalExpansionRange', poisson_ratio: 'poissonRatioRange',
+    specific_heat: 'specificHeatRange', melting_point: 'meltingPointRange',
+    popularity: 'popularityRange', fracture_toughness: 'fractureToughnessRange',
+    total_cost_estimate: 'totalCostEstimateRange', min_wall_thickness: 'minWallThicknessRange',
+    surface_finish_typical: 'surfaceFinishTypicalRange', machining_cost_factor: 'machiningCostFactorRange',
+    ht_cost_factor: 'htCostFactorRange',
+  };
+
+  const narrowedRanges = useMemo(() => {
+    // 1) baseSet — non-range filter (category/sub/process/HT/qual/composition/text) 적용
+    let baseSet = materials;
+    if (filters.search.trim()) {
+      const q = filters.search.toLowerCase();
+      baseSet = baseSet.filter(m =>
+        m.name.toLowerCase().includes(q) ||
+        m.subcategory.toLowerCase().includes(q) ||
+        m.manufacturer.toLowerCase().includes(q) ||
+        m.process.toLowerCase().includes(q) ||
+        (m.aliases || []).some(a => a.toLowerCase().includes(q))
+      );
+    }
+    if (filters.categories.length) baseSet = baseSet.filter(m => filters.categories.includes(m.category));
+    if (filters.subcategories.length) baseSet = baseSet.filter(m =>
+      filters.subcategories.includes(m.subcategory) || (m.families || []).some(f => filters.subcategories.includes(f))
+    );
+    if (filters.processes.length) baseSet = baseSet.filter(m => filters.processes.includes(m.process));
+    if (filters.corrosion.length) baseSet = baseSet.filter(m => m.corrosion_resistance != null && filters.corrosion.includes(String(m.corrosion_resistance)));
+    if (filters.machinability.length) baseSet = baseSet.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
+    if (filters.weldability.length) baseSet = baseSet.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
+    if (filters.rohsOnly) baseSet = baseSet.filter(m => m.rohs_compliant !== false);
+    if (filters.heatTreatments && filters.heatTreatments.length) {
+      const wanted = filters.heatTreatments.map(s => s.toLowerCase());
+      baseSet = baseSet.filter(m => {
+        const ht = String(m.heat_treatment || '').toLowerCase();
+        if (!ht) return wanted.includes('none / as-supplied');
+        return wanted.some(w => {
+          if (w === 'none / as-supplied') return /as[\s-]?(built|cast|supplied|received|forged|rolled|extruded|deposited)/.test(ht);
+          if (w === 'annealed') return /anneal/.test(ht);
+          if (w === 'solution treated') return /solution/.test(ht);
+          if (w === 'aged / precipitation') return /aged|aging|precipitation|peak\s*ag|t6|t7/.test(ht);
+          if (w === 'quenched & tempered') return /quench|tempered|qt\b|q\s*&\s*t/.test(ht);
+          if (w === 'hip (hot isostatic)') return /hip|isostatic/.test(ht);
+          if (w === 'stress-relieved') return /stress[\s-]?reliev/.test(ht);
+          if (w === 'normalized') return /normaliz/.test(ht);
+          if (w === 'hardened') return /harden|case[\s-]?harden|nitrid|carburiz/.test(ht);
+          return ht.includes(w);
+        });
+      });
+    }
+
+    // 2) 각 target property 에 대해 — 자기 자신 제외 모든 range filter 적용 후 min/max 계산
+    const out: Record<string, [number, number] | null> = {};
+    for (const [propKey, filterKey] of Object.entries(RANGE_FILTER_MAP)) {
+      let s = baseSet;
+      for (const [otherProp, otherFilter] of Object.entries(RANGE_FILTER_MAP)) {
+        if (otherProp === propKey) continue;
+        const r = filters[otherFilter] as [number, number] | null | undefined;
+        if (!r) continue;
+        s = s.filter(m => {
+          const v = (m as any)[otherProp] as number | null;
+          return v != null && v >= r[0] && v <= r[1];
+        });
+      }
+      const vals: number[] = [];
+      for (const m of s) {
+        const v = (m as any)[propKey] as number | null;
+        if (v != null && isFinite(v)) vals.push(v);
+      }
+      out[propKey] = vals.length ? [Math.min(...vals), Math.max(...vals)] : null;
+    }
+    return out;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [materials, filters]);
+
   // 조성 범위 필터 업데이트 헬퍼
   const updateCompositionRange = useCallback(
     (element: string, range: [number, number] | null) => {
@@ -338,5 +421,6 @@ export function useMaterialFilter(materials: Material[]) {
     sortDir,
     toggleSort,
     activeFilterCount,
+    narrowedRanges,
   };
 }
