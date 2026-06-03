@@ -2,6 +2,21 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R72 — Industry-standard niche alloy DB (1,040 → 1,085)
+20 standard-grade alloys added to `data/supplementary-materials.json`, each tagged with `industry_note` describing its de-facto-standard application. Total reference materials 392 → 412; combined DB 1,040 → 1,085 alloys.
+- **Valve / pump trim** — SS410 (UNS S41000, API 6A trim), SS420 (cutlery / surgical), SS440C (premium bearing & blade)
+- **Aero bearing & gear** — M50 (AMS 6491, jet-engine mainshaft), AISI 9310 (VIM-VAR, helicopter transmission)
+- **Automotive body** — 22MnB5 (USIBOR 1500 hot-stamping PHS), DP780 (dual-phase AHSS)
+- **Boiler tube** — SA213 T22 (2.25Cr-1Mo subcritical/USC), Super 304H (S30432 Nb-Cu USC superheater)
+- **Reactor / fuel** — SA508 Grade 3 Class 1 (PWR RPV forging), Zircaloy-4 (R60804 PWR fuel cladding)
+- **Cryogenic structural** — 9% Ni Steel (ASTM A553 LNG tank inner shell)
+- **Shipbuilding** — AH36 (ABS/DNV/LR harmonized high-tensile hull)
+- **Engine valve** — SAE 21-4N (NCF3 automotive exhaust valve face)
+- **Cryogenic propellant** — AA 2219-T87 (Saturn V / SLS / Falcon 9 LOX tank)
+- **Aerospace fastener / medical** — MP35N (UNS R30035 Co-Ni-Cr-Mo)
+- **Plastic injection mold** — NAK80 (Daido pre-hardened mirror-finish), STAVAX ESR (Uddeholm corrosion-resistant)
+- **Spring** — Music Wire (ASTM A228 piano-wire), Chrome-Silicon (ASTM A401 oil-tempered engine valve spring)
+
 ## R71 — Quality push (security · a11y · backup · tests · CI)
 - **R71 Sprint A** — security headers (CSP, X-Frame, Referrer-Policy, Permissions-Policy), Guide & Tools lazy-loaded, ErrorBoundary classifies network/TDZ errors with 3 recovery actions
 - **R71 Sprint B** — anomaly detection excludes 17 specialty Ni superalloys (Monel, single-crystal CMSX/Rene/PWA, ODS, low-CTE) → 330 → 327

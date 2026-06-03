@@ -3,30 +3,30 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **1040 materials**: 99 curated · 7 am_vendor · 454 generic
-- Dropped 499 CSV rows that duplicate curated AM alloys (curated db is the richer source).
+- **1085 materials**: 99 curated · 7 am_vendor · 444 generic
+- Dropped 559 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 1040/1040 | 0 |
-| yield_strength | 1038/1040 | 670 |
-| uts | 1031/1040 | 668 |
-| elongation | 999/1040 | 667 |
-| modulus | 1040/1040 | 48 |
-| hardness | 897/1040 | 575 |
-| thermal_conductivity | 1040/1040 | 2 |
-| fatigue_strength | 928/1040 | 839 |
-| impact_strength | 167/1040 | 167 |
+| density | 1085/1085 | 0 |
+| yield_strength | 1083/1085 | 662 |
+| uts | 1076/1085 | 660 |
+| elongation | 1044/1085 | 659 |
+| modulus | 1085/1085 | 48 |
+| hardness | 942/1085 | 567 |
+| thermal_conductivity | 1085/1085 | 2 |
+| fatigue_strength | 973/1085 | 861 |
+| impact_strength | 166/1085 | 166 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 539/1040 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 587/1085 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
 ## Integrity fixes
 - Removed **1** corrupt CSV row(s) (e.g. `material_name="0"`).
-- AA aluminium series subcategory auto-corrected: **104** materials.
+- AA aluminium series subcategory auto-corrected: **98** materials.
 - Process labels canonicalised: {"Casting":"Cast","Die Casting":"Cast","Sand Casting":"Cast","Investment Casting":"Cast","Cast/Wrought":"Wrought"}.
 - Placeholder `corrosion_resistance=0` in 2313 raw rows (treated as “unknown”, not 0).
 - Empty fatigue/impact in 2364 raw rows (left null, not zero).
@@ -63,13 +63,13 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 ### Category counts
 | Category | Count | Distinct subcategories |
 |---|---|---|
-| Metal | 857 | (multiple) |
+| Metal | 902 | (multiple) |
 | Polymer | 110 | 44 |
 | Ceramic | 39 | 9 |
 | Composite | 34 | — |
 
 ### Metal subcategory canonicalization (R36c)
-- 349 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
+- 355 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
 - Stainless: Stainless / Stainless Steel / PH Stainless → "Stainless Steel - Austenitic / Ferritic·Martensitic / Duplex / PH".
 - Nickel: Nickel-based / Nickel Alloy / Nickel Superalloy / Hastelloy / Inconel / Monel / Haynes 등 → "Nickel Superalloy - <subfamily>".
 - Cobalt: Cobalt Chrome / Cobalt-based → "Cobalt Alloy - Chrome / Wear".
@@ -82,21 +82,21 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - "Polymer - Nylon (FDM/SLS)" residual count: 1 — unmatched entries fall back to category-specific subcategory.
 
 ### Temperature & creep coverage
-- 305 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +64 mostly polymer).
-- 264 have Young's modulus vs T (E(T)).
-- 113 have creep rupture curves (Ni superalloys, no change in R34).
+- 317 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +76 mostly polymer).
+- 276 have Young's modulus vs T (E(T)).
+- 110 have creep rupture curves (Ni superalloys, no change in R34).
 
 ## R48a — Anomaly Detection
 
-Total: **327** — high 0 / medium 0 / low 327
+Total: **324** — high 0 / medium 0 / low 324
 
 ### By kind
 | Kind | Count |
 |---|---|
-| no verified source URL | 326 |
+| no verified source URL | 323 |
 | Steel family E out of [175, 225] GPa | 1 |
 
-### LOW severity (showing 10 / 327)
+### LOW severity (showing 10 / 324)
 | Material | Kind | Detail |
 |---|---|---|
 | Ti5-8-5 — As-supplied (LPBF) | no verified source URL |  |

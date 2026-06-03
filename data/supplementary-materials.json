@@ -11413,6 +11413,343 @@
       "ref_urls": [
         "https://www.eccc-creep.com/wp-content/uploads/2018/04/X-10-CrMoVNb-9-1-2014.pdf"
       ]
+    },
+    {
+      "name": "SS410 (UNS S41000) — valve trim, pump shaft",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Martensitic",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "11.5~13.5", "C": "≤0.15", "Mn": "≤1.0", "Si": "≤1.0", "P": "≤0.04", "S": "≤0.03" },
+      "points": [
+        [7.74, 275, 515, 22, 200, 165, 24.9],
+        [7.74, 620, 760, 18, 200, 230, 24.9],
+        [7.74, 1000, 1220, 14, 200, 360, 24.9],
+        [7.74, 1380, 1520, 10, 200, 480, 24.9]
+      ],
+      "conditions": ["Annealed (815°C SC)", "Tempered (650°C)", "Q+T (200°C temper, hardened)", "Q+T (150°C temper, max hardness)"],
+      "ref_urls": [
+        "https://www.aksteel.com/sites/default/files/2018-01/410201706.pdf",
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20410"
+      ],
+      "industry_note": "API 6A/600 trim spec (e.g. trim no. 8/8A); butterfly/gate/globe valve disks, pump impellers and shafts."
+    },
+    {
+      "name": "SS420 (UNS S42000) — cutlery, surgical, nozzle",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Martensitic",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "12~14", "C": "0.15~0.40", "Mn": "≤1.0", "Si": "≤1.0", "P": "≤0.04", "S": "≤0.03" },
+      "points": [
+        [7.74, 350, 655, 25, 200, 195, 24.9],
+        [7.74, 1450, 1720, 8, 200, 510, 24.9],
+        [7.74, 1620, 1830, 6, 200, 580, 24.9]
+      ],
+      "conditions": ["Annealed", "Q+T (200°C temper)", "Hardened (1010°C oil Q + 150°C temper)"],
+      "ref_urls": [
+        "https://www.aksteel.com/sites/default/files/2018-01/420201706.pdf"
+      ],
+      "industry_note": "ASTM A276 standard for cutlery, surgical instruments, dental/surgical scalpels, sand-blast nozzles, gauge blocks."
+    },
+    {
+      "name": "SS440C (UNS S44004) — premium bearing & blade",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Martensitic",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "16~18", "C": "0.95~1.20", "Mo": "≤0.75", "Mn": "≤1.0", "Si": "≤1.0" },
+      "points": [
+        [7.65, 450, 760, 14, 200, 240, 24.2],
+        [7.65, 1900, 2030, 2, 200, 580, 24.2],
+        [7.65, 1965, 2080, 1.5, 200, 620, 24.2]
+      ],
+      "conditions": ["Annealed", "Hardened (1010°C oil Q + 150°C T)", "Cryogenically treated + Hardened"],
+      "ref_urls": [
+        "https://www.aksteel.com/sites/default/files/2018-01/440a440b440c201706.pdf"
+      ],
+      "industry_note": "ASTM A276 high-carbon Cr SS for rolling-element bearings (knife-edge balls), valves, surgical instruments, premium kitchen knives."
+    },
+    {
+      "name": "M50 (AMS 6491, T11350) — aircraft engine bearing",
+      "category": "Metal",
+      "subcategory": "Tool Steel - High-Speed",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "4.0~4.25", "Mo": "4.0~4.5", "V": "0.9~1.1", "C": "0.77~0.85", "W": "0.20~0.30", "Mn": "≤0.35" },
+      "points": [
+        [7.92, 700, 1000, 12, 207, 280, 19],
+        [7.92, 1900, 2200, 3, 207, 800, 19],
+        [7.92, 2000, 2400, 2, 207, 820, 19]
+      ],
+      "conditions": ["Annealed", "Hardened (1100°C oil Q + triple temper 540°C)", "Hardened (VIM-VAR, max hardness)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=M50%20tool%20steel"
+      ],
+      "industry_note": "Standard for jet-engine mainshaft bearings (J57, F100/F110, GE90 family); AMS 6491 / 6490; replaced by M50-NiL for case-carb variant."
+    },
+    {
+      "name": "AISI 9310 (VIM-VAR) — aerospace transmission gear",
+      "category": "Metal",
+      "subcategory": "Case-Hardening Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "3.0~3.5", "Cr": "1.0~1.4", "Mo": "0.08~0.15", "Mn": "0.45~0.65", "C": "0.08~0.13", "Si": "0.15~0.30" },
+      "points": [
+        [7.84, 450, 620, 17, 205, 190, 39],
+        [7.84, 1100, 1250, 15, 205, 360, 39],
+        [7.84, 1100, 1250, 12, 205, 720, 39]
+      ],
+      "conditions": ["Annealed", "Q+T core only", "Case-Carburized 0.8 mm + Q+T (case ~720 HV, core ~360 HV)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%209310"
+      ],
+      "industry_note": "Standard for helicopter transmission gears (Apache, Black Hawk), jet-engine accessory gearboxes; AMS 6260 / 6265 (VIM-VAR)."
+    },
+    {
+      "name": "22MnB5 (USIBOR 1500) — hot-stamped automotive PHS",
+      "category": "Metal",
+      "subcategory": "Press-Hardening Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Mn": "1.10~1.40", "C": "0.20~0.25", "B": "0.002~0.005", "Cr": "0.11~0.34", "Si": "0.10~0.40", "Ti": "0.020~0.05" },
+      "points": [
+        [7.85, 400, 580, 25, 210, 175, 26],
+        [7.85, 1100, 1500, 6, 210, 470, 30],
+        [7.85, 950, 1300, 8, 210, 410, 32]
+      ],
+      "conditions": ["As-supplied (ferrite-pearlite)", "Hot-stamped (full martensite)", "Hot-stamped + 200°C tempered"],
+      "ref_urls": [
+        "https://automotive.arcelormittal.com/products/flat/PHS/usibor_ductibor"
+      ],
+      "industry_note": "Industry standard for hot-stamped (press-hardened) B-pillar, door-impact beam, bumper beam, side member; Al-Si coated for high-temp oxidation."
+    },
+    {
+      "name": "DP780 — dual-phase automotive structural",
+      "category": "Metal",
+      "subcategory": "Advanced High-Strength Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Mn": "1.5~2.5", "C": "0.08~0.15", "Si": "0.30~1.0", "Cr+Mo": "≤0.6", "Nb+Ti": "micro" },
+      "points": [
+        [7.85, 470, 780, 16, 210, 250, 36],
+        [7.85, 520, 820, 18, 210, 260, 36],
+        [7.85, 550, 850, 14, 210, 270, 36]
+      ],
+      "conditions": ["As-rolled (DP cold-rolled, GA)", "As-rolled (DP electrogalvanized, EG)", "Annealed (post-form)"],
+      "ref_urls": [
+        "https://www.worldautosteel.org/projects/ahss-application-guidelines/"
+      ],
+      "industry_note": "WorldAutoSteel AHSS standard; martensite-in-ferrite microstructure; used for rocker panels, side members, A/B-pillar reinforcements (cold-formable, weldable)."
+    },
+    {
+      "name": "SA213 T22 (2.25Cr-1Mo) — boiler superheater tube",
+      "category": "Metal",
+      "subcategory": "Heat-Resistant Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "1.90~2.60", "Mo": "0.87~1.13", "Mn": "0.30~0.60", "Si": "≤0.50", "C": "≤0.15" },
+      "points": [
+        [7.86, 205, 415, 30, 207, 150, 36.7],
+        [7.86, 250, 450, 28, 207, 165, 36.7]
+      ],
+      "conditions": ["Annealed (isothermal 720°C)", "Normalized 950°C + Tempered 720°C"],
+      "ref_urls": [
+        "https://www.eccc-creep.com/wp-content/uploads/2018/04/X-22-CrMo-9-10.pdf"
+      ],
+      "industry_note": "ASME SA-213/A335 P22 boiler/header workhorse; subcritical & supercritical fossil plants, refinery reactor walls (H2 service per API 941 Nelson curve)."
+    },
+    {
+      "name": "Super 304H (S30432, Nb-Cu strengthened 18Cr-9Ni)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "17~19", "Ni": "7.5~10.5", "Cu": "2.5~3.5", "Nb": "0.30~0.60", "N": "0.05~0.12", "C": "0.07~0.13", "Mn": "≤1.0", "Si": "≤0.30" },
+      "points": [
+        [7.90, 235, 590, 35, 195, 190, 16.0],
+        [7.90, 320, 700, 30, 195, 220, 18.0]
+      ],
+      "conditions": ["Solution Annealed (1100°C WQ)", "Aged in service (650°C/10000h; Cu/NbCN precipitates)"],
+      "ref_urls": [
+        "https://www.nipponsteel.com/product/catalog_download/pdf/E001.pdf"
+      ],
+      "industry_note": "USC (ultra-supercritical) boiler superheater & reheater tubing (≥600°C steam); ASME Code Case 2328; Sumitomo SUPER304H / Salzgitter / Nippon."
+    },
+    {
+      "name": "SA508 Grade 3 Class 1 — reactor pressure vessel",
+      "category": "Metal",
+      "subcategory": "Pressure Vessel Steel",
+      "process": "Forged",
+      "composition": { "Fe": "balance", "Mn": "1.20~1.50", "Ni": "0.40~1.00", "Mo": "0.45~0.60", "Cr": "≤0.25", "C": "0.15~0.25", "Si": "0.15~0.40", "V": "≤0.05" },
+      "points": [
+        [7.85, 450, 620, 22, 210, 200, 41],
+        [7.85, 485, 650, 20, 210, 215, 41]
+      ],
+      "conditions": ["Q+T (austenitized 880°C, tempered 650°C)", "Q+T + Post-Weld Heat Treated (610°C/40h)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=SA508%20Grade%203"
+      ],
+      "industry_note": "PWR reactor pressure vessel forgings (head, shell, nozzle), steam generator channel head; ASME Sec III NB; KEPIC-MN; tracks ΔRTNDT for embrittlement."
+    },
+    {
+      "name": "Zircaloy-4 (R60804) — PWR fuel cladding",
+      "category": "Metal",
+      "subcategory": "Zirconium Alloy",
+      "process": "Wrought",
+      "composition": { "Zr": "balance", "Sn": "1.20~1.70", "Fe": "0.18~0.24", "Cr": "0.07~0.13", "O": "0.10~0.14" },
+      "points": [
+        [6.55, 540, 680, 8, 99, 240, 13],
+        [6.55, 380, 510, 25, 99, 200, 13],
+        [6.55, 480, 600, 15, 99, 220, 13]
+      ],
+      "conditions": ["Stress-Relieved Annealed (SRA, ~480°C)", "Recrystallized Annealed (RXA, ~565°C)", "Partial RXA"],
+      "ref_urls": [
+        "https://www.matweb.com/search/datasheet.aspx?MatGUID=eb0b1da9c8e44c3f99cb8aaa7e4f8c33"
+      ],
+      "industry_note": "ASTM B353 PWR fuel rod cladding (Westinghouse/AREVA); low neutron absorption σa ≈ 0.18 b; superseded for advanced PWR by ZIRLO™ / M5® but still standard."
+    },
+    {
+      "name": "9% Ni Steel (ASTM A553 Type I) — LNG tank",
+      "category": "Metal",
+      "subcategory": "Low-Temperature Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "8.50~9.50", "Mn": "≤0.90", "C": "≤0.13", "Si": "0.15~0.40", "P": "≤0.025", "S": "≤0.025" },
+      "points": [
+        [7.85, 585, 690, 22, 200, 230, 30],
+        [7.85, 620, 720, 20, 200, 240, 30]
+      ],
+      "conditions": ["Double-Normalized + Tempered (DN+T, 770°C/645°C/580°C)", "Q+T (800°C WQ + 580°C T)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=ASTM%20A553"
+      ],
+      "industry_note": "Toughness retained to -196°C; standard for LNG storage tank inner shell (Moss/membrane), ASME Sec VIII Div 1 Para UHA, IGC code; KOGAS/KEPIC."
+    },
+    {
+      "name": "AH36 (ABS/DNV high-tensile hull steel)",
+      "category": "Metal",
+      "subcategory": "Shipbuilding Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Mn": "0.90~1.60", "Si": "0.10~0.50", "C": "≤0.18", "Nb+V+Ti": "micro", "Cu+Cr+Ni+Mo": "≤0.5", "Al": "≥0.015" },
+      "points": [
+        [7.85, 355, 490, 22, 206, 170, 50],
+        [7.85, 355, 490, 22, 206, 160, 50],
+        [7.85, 360, 500, 20, 206, 175, 50]
+      ],
+      "conditions": ["TMCP (thermo-mechanically controlled rolled)", "Normalized", "Q+T (heavy plate, EH36)"],
+      "ref_urls": [
+        "https://ww2.eagle.org/content/dam/eagle/rules-and-guides/current/materials_and_welding/2_materials/ABS_Materials_2024_e-Aug24.pdf"
+      ],
+      "industry_note": "ABS / DNV / LR / KR / ClassNK harmonized standard for ship hull main structure (deck, side shell, bulkhead, longitudinal); CVN at -20°C (DH36) / -40°C (EH36) / -60°C (FH36)."
+    },
+    {
+      "name": "SAE 21-4N (NCF3) — automotive exhaust valve",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Forged",
+      "composition": { "Fe": "balance", "Cr": "20~22", "Ni": "3.5~5.0", "Mn": "8~10", "N": "0.35~0.50", "C": "0.45~0.55", "Si": "≤0.25" },
+      "points": [
+        [7.80, 510, 880, 30, 196, 320, 14.0],
+        [7.80, 760, 1000, 12, 196, 380, 16.0],
+        [7.80, 380, 510, 25, 175, 250, 22.0]
+      ],
+      "conditions": ["Solution Treated (1175°C WQ)", "Solution + Aged (760°C/4h, full strength)", "Solution + Aged, tested at 700°C (hot strength)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=21-4N"
+      ],
+      "industry_note": "Standard exhaust-valve face material in gasoline & light-diesel engines (Toyota / Honda / Bosch); replaces silchrome (21-2N) for higher hot strength; SAE J775."
+    },
+    {
+      "name": "AA 2219 (Al-Cu-Mn-V, cryogenic propellant tank)",
+      "category": "Metal",
+      "subcategory": "Aluminum Alloy",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Cu": "5.8~6.8", "Mn": "0.20~0.40", "V": "0.05~0.15", "Zr": "0.10~0.25", "Ti": "0.02~0.10", "Mg": "≤0.02" },
+      "points": [
+        [2.84, 75, 170, 18, 73, 50, 170],
+        [2.84, 290, 415, 10, 73, 120, 130],
+        [2.84, 395, 475, 10, 73, 130, 121]
+      ],
+      "conditions": ["O Annealed", "T62 (Solution + Artificial Aged)", "T87 (Solution + 7% CW + Aged)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=2219-T87"
+      ],
+      "industry_note": "Saturn V S-IC, Space Shuttle ET, SLS core stage, Falcon 9 second-stage LOX tank; weldable Al-Cu (FSW); retains strength to -253°C (LH2)."
+    },
+    {
+      "name": "MP35N (UNS R30035, Co-Ni-Cr-Mo)",
+      "category": "Metal",
+      "subcategory": "Cobalt Alloy - Multiphase",
+      "process": "Wrought",
+      "composition": { "Co": "balance", "Ni": "33~37", "Cr": "19~21", "Mo": "9.0~10.5", "Fe": "≤1.0", "Ti": "≤1.0", "C": "≤0.025" },
+      "points": [
+        [8.43, 415, 930, 35, 234, 280, 11.2],
+        [8.43, 1380, 1620, 12, 234, 460, 11.2],
+        [8.43, 1860, 1965, 8, 234, 540, 11.2]
+      ],
+      "conditions": ["Solution Annealed (1010°C WQ)", "35% Cold-Worked", "Cold-Worked + Aged (590°C/4h)"],
+      "ref_urls": [
+        "https://www.spsfasteners.com/wp-content/uploads/MP35N-Fastener-Material-Datasheet.pdf",
+        "https://www.specialmetals.com/documents/technical-bulletins/multiphase-alloy-mp35n.pdf"
+      ],
+      "industry_note": "ASTM F562 medical lead/pacemaker conductor wire; AMS 5844 aerospace high-strength fasteners (Hi-Lok); non-magnetic, immune to chloride SCC, σ_UTS > Inconel 718."
+    },
+    {
+      "name": "NAK80 (Daido) — pre-hardened mirror-finish mold steel",
+      "category": "Metal",
+      "subcategory": "Tool Steel - Mold",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "3.0", "Cu": "1.0", "Al": "1.0", "Mn": "1.5", "Mo": "0.30", "Cr": "0.30", "C": "0.15" },
+      "points": [
+        [7.85, 1100, 1280, 12, 207, 380, 38],
+        [7.85, 1200, 1380, 10, 207, 420, 38]
+      ],
+      "conditions": ["Pre-hardened (as-delivered, ~40 HRC)", "Solution + Aged (510°C/3h, peak hardness)"],
+      "ref_urls": [
+        "https://www.daido.co.jp/en/products/tool/nak.html"
+      ],
+      "industry_note": "Daido Steel proprietary; standard for high-gloss / mirror-finish plastic injection molds (cosmetic compacts, optical lens, LCD light guides); EDM-friendly, weldable, polishable to Ra < 0.01 μm."
+    },
+    {
+      "name": "STAVAX ESR (Uddeholm, ≈ AISI 420 mod) — corrosion-resistant mold",
+      "category": "Metal",
+      "subcategory": "Tool Steel - Mold",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "13.6", "C": "0.38", "Mn": "0.50", "Si": "0.90", "V": "0.30" },
+      "points": [
+        [7.80, 540, 760, 14, 200, 230, 25],
+        [7.80, 1700, 1900, 4, 200, 545, 22],
+        [7.80, 1450, 1620, 6, 200, 480, 22]
+      ],
+      "conditions": ["Soft Annealed (delivery)", "Hardened (1020°C oil Q + 200°C T, max hardness)", "Hardened (1020°C + 500°C T, secondary hardening)"],
+      "ref_urls": [
+        "https://www.uddeholm.com/files/PB_Uddeholm_stavax_esr_english.pdf"
+      ],
+      "industry_note": "ESR-melted clean; standard for medical / optical / PVC / fluoropolymer molds where corrosive monomer or chloride water-cooling lines would pit P20."
+    },
+    {
+      "name": "Music Wire (ASTM A228) — piano-wire spring",
+      "category": "Metal",
+      "subcategory": "Spring Steel",
+      "process": "Wrought (cold-drawn)",
+      "composition": { "Fe": "balance", "C": "0.70~1.00", "Mn": "0.20~0.60", "Si": "0.10~0.30", "P": "≤0.025", "S": "≤0.025" },
+      "points": [
+        [7.85, 2100, 2400, 2, 207, 600, 49],
+        [7.85, 1500, 1800, 3, 207, 500, 49],
+        [7.85, 1200, 1500, 4, 207, 440, 49]
+      ],
+      "conditions": ["As-drawn Ø0.8 mm (smallest, highest σ_UTS)", "As-drawn Ø3 mm", "As-drawn Ø6 mm (largest, lowest σ_UTS)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=ASTM%20A228"
+      ],
+      "industry_note": "ASTM A228 high-carbon patented cold-drawn; static & cyclic compression springs (clock, valve, retractable pen); piano string. Size-dependent strength per Schubert."
+    },
+    {
+      "name": "Chrome-Silicon (ASTM A401) — valve-spring oil-tempered",
+      "category": "Metal",
+      "subcategory": "Spring Steel",
+      "process": "Wrought (oil-tempered)",
+      "composition": { "Fe": "balance", "C": "0.51~0.59", "Si": "1.20~1.60", "Mn": "0.40~0.70", "Cr": "0.60~0.80", "P": "≤0.025", "S": "≤0.025" },
+      "points": [
+        [7.85, 1450, 1620, 9, 207, 460, 46],
+        [7.85, 1700, 1900, 7, 207, 510, 46]
+      ],
+      "conditions": ["Oil-Tempered (as-supplied)", "Shot-peened + low-stress tempered (engine valve spring)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=ASTM%20A401"
+      ],
+      "industry_note": "ASTM A401 standard for automotive engine valve springs (high-cycle fatigue ≥ 10^8 at σ_a ≈ 500 MPa), clutch springs; Si retards tempering softening to 230°C operating service."
     }
   ]
 }
