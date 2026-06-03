@@ -1704,6 +1704,79 @@ const ELEV_DATA = {
       { temp: 150, ys: 12, uts: 12, E: 0.7 },
     ],
   },
+  // ───────── Sprint 4 C3 — 3 alloys 추가 (절제) ─────────
+  // 욕심 안 부리고 핵심 3종: P91 발전소 boiler / Inconel 617 VHTR / Alloy 800H petrochem.
+  'p91': {  // Grade 91 (9Cr-1MoVNb) — ASME B&PV Code Sec.II Pt.D + ASTM A335. 발전소 main steam piping 표준.
+    elevated_temp: [
+      { temp: 25,  ys: 480, uts: 660, E: 218 },
+      { temp: 300, ys: 420, uts: 620, E: 200 },
+      { temp: 500, ys: 360, uts: 530, E: 180 },
+      { temp: 600, ys: 260, uts: 360, E: 165 },
+      { temp: 650, ys: 220, uts: 250, E: 155 },
+    ],
+    creep_rupture: [
+      // ECCC datasheet 2014 — 100,000h rupture
+      { temp: 550, stress: 210, hours: 100000 },
+      { temp: 600, stress: 100, hours: 100000 },
+      { temp: 650, stress:  50, hours: 100000 },
+    ],
+  },
+  'grade 91': {  // 별칭
+    elevated_temp: [
+      { temp: 25,  ys: 480, uts: 660, E: 218 },
+      { temp: 300, ys: 420, uts: 620, E: 200 },
+      { temp: 500, ys: 360, uts: 530, E: 180 },
+      { temp: 600, ys: 260, uts: 360, E: 165 },
+      { temp: 650, ys: 220, uts: 250, E: 155 },
+    ],
+    creep_rupture: [
+      { temp: 550, stress: 210, hours: 100000 },
+      { temp: 600, stress: 100, hours: 100000 },
+      { temp: 650, stress:  50, hours: 100000 },
+    ],
+  },
+  'inconel 617': {  // Special Metals SMC-029 — VHTR 후보, 1000°C 까지 사용.
+    elevated_temp: [
+      { temp: 25,   ys: 350, uts: 760, E: 211 },
+      { temp: 400,  ys: 240, uts: 700, E: 198 },
+      { temp: 600,  ys: 220, uts: 670, E: 184 },
+      { temp: 800,  ys: 200, uts: 540, E: 168 },
+      { temp: 1000, ys: 110, uts: 180, E: 145 },
+    ],
+    creep_rupture: [
+      { temp: 800,  stress: 90, hours: 1000 },
+      { temp: 900,  stress: 50, hours: 1000 },
+      { temp: 1000, stress: 25, hours: 1000 },
+    ],
+  },
+  'incoloy 800h': {  // Special Metals SMC-046 — petrochem heater tube, ASME case 2843.
+    elevated_temp: [
+      { temp: 25,  ys: 200, uts: 520, E: 196 },
+      { temp: 300, ys: 145, uts: 450, E: 180 },
+      { temp: 500, ys: 130, uts: 410, E: 168 },
+      { temp: 700, ys: 120, uts: 350, E: 155 },
+      { temp: 900, ys:  90, uts: 180, E: 140 },
+    ],
+    creep_rupture: [
+      { temp: 700, stress: 100, hours: 1000 },
+      { temp: 800, stress:  50, hours: 1000 },
+      { temp: 900, stress:  20, hours: 1000 },
+    ],
+  },
+  'alloy 800h': {  // 별칭
+    elevated_temp: [
+      { temp: 25,  ys: 200, uts: 520, E: 196 },
+      { temp: 300, ys: 145, uts: 450, E: 180 },
+      { temp: 500, ys: 130, uts: 410, E: 168 },
+      { temp: 700, ys: 120, uts: 350, E: 155 },
+      { temp: 900, ys:  90, uts: 180, E: 140 },
+    ],
+    creep_rupture: [
+      { temp: 700, stress: 100, hours: 1000 },
+      { temp: 800, stress:  50, hours: 1000 },
+      { temp: 900, stress:  20, hours: 1000 },
+    ],
+  },
 };
 function injectTempCurves(m) {
   if (!m || !m.name) return;
