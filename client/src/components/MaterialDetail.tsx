@@ -61,10 +61,9 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
     derived: { label: '≈UTS', cls: 'text-rose-500', tip: '다른 물성에서 유도 (예: 피로 = UTS·비율)' },
   };
   const badge = conf ? confBadge[conf] : null;
-  // price 표시는 formatPrice 사용 — 단위 라벨까지 포함된 string 반환.
+  // R48c — price 표시는 formatPrice 사용 — typical 만 항상 평가. range min/max 는 hasRange 조건 안에서만
+  //        (이전: range null 인 5 flat-only properties 클릭 시 range!.min eager 평가로 crash).
   const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(typical)}`;
-  const rangeMinStr = isPrice && sys ? formatPrice(range!.min, lang, sys, priceUnit) : fmt(range!.min);
-  const rangeMaxStr = isPrice && sys ? formatPrice(range!.max, lang, sys, priceUnit) : fmt(range!.max);
   return (
     <div className="flex items-start justify-between py-1.5 border-b border-border/40 last:border-0">
       <span className="text-xs text-muted-foreground pt-0.5">{label}</span>
@@ -74,9 +73,11 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
         {badge && (
           <span className={`ml-1 text-[10px] ${badge.cls}`} title={badge.tip}>{badge.label}</span>
         )}
-        {hasRange && (
+        {hasRange && range && (
           <div className="text-[10px] font-mono text-muted-foreground/70 leading-tight">
-            {rangeMinStr}–{rangeMaxStr}
+            {isPrice && sys ? formatPrice(range.min, lang, sys, priceUnit) : fmt(range.min)}
+            –
+            {isPrice && sys ? formatPrice(range.max, lang, sys, priceUnit) : fmt(range.max)}
           </div>
         )}
       </div>
