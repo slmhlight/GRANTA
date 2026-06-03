@@ -6,8 +6,56 @@ import { Link } from 'wouter';
 import { ExternalLink, Play, Settings } from 'lucide-react';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 
-/** 인라인 수식/기호 강조 */
+/** R61 #4 — 약어/기호 풀이 사전. F 컴포넌트가 자식 텍스트를 lookup → title 자동 부여.
+ *  hover 시 native browser tooltip 으로 풀이 표시. 모바일에서는 첫 등장 시 한 번 해설.
+ *  정확 일치 외에 prefix/substring 도 시도 — "σy ≥ 250 MPa" 같이 단위가 붙어도 매칭. */
+const SYM_GLOSSARY: Record<string, string> = {
+  'σy': '항복강도 (Yield Strength) — 영구 변형이 시작되는 응력',
+  'σ_y': '항복강도 (Yield Strength) — 영구 변형이 시작되는 응력',
+  'UTS': '인장강도 (Ultimate Tensile Strength) — 파단 직전의 최대 응력',
+  'σu': '인장강도 (Ultimate Tensile Strength) — 파단 직전의 최대 응력',
+  'E': '영률·탄성계수 (Young\'s Modulus) — 응력 ÷ 변형률, 강성의 척도',
+  'ρ': '밀도 (Density) — 단위 부피당 질량 [g/cm³]',
+  'KIC': '파괴인성 (Fracture Toughness K_IC) — 균열 진전 저항',
+  'K_IC': '파괴인성 (Fracture Toughness K_IC) — 균열 진전 저항',
+  'K': '열전도도 (Thermal Conductivity) — 단위 시간·면적·온도구배당 열류',
+  'k': '열전도도 (Thermal Conductivity) — 단위 시간·면적·온도구배당 열류',
+  'HV': 'Vickers 경도 — 다이아몬드 압자 압흔 면적 기준',
+  'HRC': 'Rockwell C 경도 — HV ≈ 10 × HRC',
+  'CTE': '열팽창계수 (Coefficient of Thermal Expansion) — 온도 변화당 길이 변화율',
+  'σf': '피로한도 (Fatigue Strength) — 무한수명 응력진폭 한계',
+  'σ_f': '피로한도 (Fatigue Strength) — 무한수명 응력진폭 한계',
+  'σh': 'Hoop stress (원주응력) — 압력용기 σ = PD/2t',
+  'σ_h': 'Hoop stress (원주응력) — 압력용기 σ = PD/2t',
+  'I': '단면 2차모멘트 — 굽힘 강성의 단면 의존 항',
+  'Z': '단면계수 — 굽힘 응력 σ = M/Z',
+  'J': '극관성모멘트 — 비틀림 강성 θ = TL/GJ',
+  'M': '성능지수 (Material Index) — Ashby 방법, 클수록 우수',
+  'F': '집중 하중 (Force, N)',
+  'L': '길이 (m 또는 mm)',
+  'SF': '안전계수 (Safety Factor)',
+};
+function lookupSym(text: string): string | undefined {
+  const trimmed = text.trim();
+  if (SYM_GLOSSARY[trimmed]) return SYM_GLOSSARY[trimmed];
+  // 단위 등 뒤붙은 경우 ("σy ≥ 250 MPa" → σy 매칭)
+  const first = trimmed.split(/[\s≥≤=≈]/)[0];
+  if (first && SYM_GLOSSARY[first]) return SYM_GLOSSARY[first];
+  // 분수 (E^½/ρ → 첫 ρ/M 등) — first symbol 만 hover
+  return undefined;
+}
+
+/** 인라인 수식/기호 강조. R61 #4 — 약어이면 hover 풀이 (점선 밑줄 신호). */
 export function F({ children }: { children: React.ReactNode }) {
+  const text = typeof children === 'string' ? children : '';
+  const tip = text ? lookupSym(text) : undefined;
+  if (tip) {
+    return (
+      <abbr title={tip} className="font-mono text-[0.95em] text-accent whitespace-nowrap cursor-help no-underline border-b border-dotted border-accent/40">
+        {children}
+      </abbr>
+    );
+  }
   return <span className="font-mono text-[0.95em] text-accent whitespace-nowrap">{children}</span>;
 }
 

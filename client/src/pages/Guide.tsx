@@ -8,7 +8,7 @@
  */
 import { Link } from 'wouter';
 import { useState } from 'react';
-import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass, Rocket, ChevronDown } from 'lucide-react';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 // C1: Guide 페이지 구성요소를 ./guide/{components,svgs}.tsx 로 분리해 파일 사이즈 축소.
@@ -41,30 +41,36 @@ const TOC: { id: string; n: number; label: string; icon: any }[] = [
   { id: 'ch8', n: 8, label: '데이터 해석 & 참고문헌', icon: BookText },
 ];
 
-/** 사례 타일 — 가이드 최상단에서 한눈에 보고 곧장 다이얼로그를 열 수 있게.
- *  라운드 7: 12 → 16 종 확장. 일반 기계 → 산업 특화 → 핵심 기계요소 순. */
-const SCENARIO_TILES: { key: ScenarioKey; title: string; sub: string; svg: () => React.ReactElement }[] = [
+/** 사례 타일 — R61 #3 자주 쓰는 6 + 점진 공개 10. 첫 시각 부담 ↓. */
+type ScenarioTile = { key: ScenarioKey; title: string; sub: string; svg: () => React.ReactElement };
+const POPULAR_TILES: ScenarioTile[] = [
   { key: 'bracket', title: '구조 브래킷', sub: '경량 + 고강성', svg: SvgBracket },
-  { key: 'hightemp', title: '고온 부품', sub: '배기 · 터빈', svg: SvgManifold },
+  { key: 'heatsink', title: '히트싱크', sub: '방열', svg: SvgHeatsink },
   { key: 'fatigue', title: '회전·진동축', sub: '피로 한도', svg: SvgShaft },
-  { key: 'precision', title: '정밀 마운트', sub: '저 CTE', svg: SvgPrecision },
   { key: 'corrosion', title: '해양·화학', sub: '내식 환경', svg: SvgMarine },
+  { key: 'wear', title: '내마모', sub: '경도 + 접촉', svg: SvgWear },
+  { key: 'electrical', title: '전기 전도체', sub: '버스바·접점', svg: SvgElectrical },
+];
+const EXTRA_TILES: ScenarioTile[] = [
+  { key: 'hightemp', title: '고온 부품', sub: '배기 · 터빈', svg: SvgManifold },
+  { key: 'precision', title: '정밀 마운트', sub: '저 CTE', svg: SvgPrecision },
   { key: 'lowcost', title: '저원가 양산', sub: '가성비', svg: SvgLowcost },
   { key: 'spring', title: '스프링 · 힌지', sub: '탄성 에너지', svg: SvgSpring },
-  { key: 'heatsink', title: '히트싱크', sub: '방열', svg: SvgHeatsink },
-  { key: 'wear', title: '내마모', sub: '경도 + 접촉', svg: SvgWear },
   { key: 'medical', title: '의료 임플란트', sub: '생체적합', svg: SvgMedical },
   { key: 'cryogenic', title: '극저온', sub: 'LNG · 우주', svg: SvgCryogenic },
-  { key: 'electrical', title: '전기 전도체', sub: '버스바·접점', svg: SvgElectrical },
   { key: 'pressure_vessel', title: '압력용기', sub: '탱크·실린더', svg: SvgPressureVesselSmall },
   { key: 'gear', title: '기어', sub: '동력 전달', svg: SvgGear },
   { key: 'fastener', title: '체결구', sub: '볼트·스터드', svg: SvgFastener },
   { key: 'die_mold', title: '다이·금형', sub: '사출·단조·절삭', svg: SvgDieMold },
 ];
+const SCENARIO_TILES = [...POPULAR_TILES, ...EXTRA_TILES];
 
 export default function Guide() {
   const [dialogKey, setDialogKey] = useState<ScenarioKey | null>(null);
   const openConfig = (k: ScenarioKey) => setDialogKey(k);
+  // R61 #3 — 자주 쓰는 6개만 처음 노출. "더 보기" 로 나머지 10 펼침.
+  const [showAllTiles, setShowAllTiles] = useState(false);
+  const visibleTiles = showAllTiles ? [...POPULAR_TILES, ...EXTRA_TILES] : POPULAR_TILES;
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScenarioDialog scenarioKey={dialogKey} open={dialogKey !== null} onOpenChange={(v) => { if (!v) setDialogKey(null); }} />
@@ -106,14 +112,49 @@ export default function Guide() {
           </p>
         </div>
 
+        {/* R61 #2 — 3-path CTA: 5분 시작 / Ashby 방법 / 전체 목차. 첫 사용자 의도 분기. */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
+          <button
+            type="button"
+            onClick={() => openConfig('bracket')}
+            className="group rounded-lg border border-accent/40 bg-accent/5 p-4 text-left hover:border-accent hover:shadow-md transition-all"
+          >
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="w-7 h-7 rounded-full bg-accent text-white flex items-center justify-center"><Rocket className="w-4 h-4" /></span>
+              <b className="text-sm">5분 빠른 시작</b>
+            </div>
+            <p className="text-[11px] text-muted-foreground leading-relaxed">대표 사례 <b className="text-foreground/80">구조 브래킷</b>으로 한 클릭 적용 → 필터·차트·Index 가 자동으로 셋업됩니다.</p>
+          </button>
+          <a
+            href="#ch6"
+            className="rounded-lg border border-border bg-card p-4 hover:border-accent hover:shadow-md transition-all block"
+          >
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="w-7 h-7 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center"><ListChecks className="w-4 h-4" /></span>
+              <b className="text-sm">30분 Ashby 방법 학습</b>
+            </div>
+            <p className="text-[11px] text-muted-foreground leading-relaxed">기능·제약·목적·자유변수 4요소로 문제를 정리, 성능지수 M 도출, 차트 활용까지.</p>
+          </a>
+          <a
+            href="#ch1"
+            className="rounded-lg border border-border bg-card p-4 hover:border-accent hover:shadow-md transition-all block"
+          >
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="w-7 h-7 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center"><BookOpen className="w-4 h-4" /></span>
+              <b className="text-sm">참고서로 보기</b>
+            </div>
+            <p className="text-[11px] text-muted-foreground leading-relaxed">16 사례 + Ashby 이론 + 물성 사전 + 단면·보·비틀림·압력. 챕터 별 별도 학습용.</p>
+          </a>
+        </div>
+
         {/* 빠른 접근 — 사례 타일 그리드 (다이얼로그로 곧장) */}
         <div className="mt-6">
           <div className="flex items-baseline justify-between mb-2">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground flex items-center gap-1.5"><Sigma className="w-3.5 h-3.5" /> 바로 시작 — 설계 사례 선택</p>
             <a href="#ch7" className="text-[11px] text-accent hover:underline">사례 설명 자세히 →</a>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {SCENARIO_TILES.map((t) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {visibleTiles.map((t) => (
               <button
                 type="button"
                 key={t.key}
@@ -129,6 +170,17 @@ export default function Guide() {
               </button>
             ))}
           </div>
+          {/* R61 #3 — 6 자주 쓰는 + 더보기 10. 점진 공개로 첫 시각 부담 ↓ */}
+          {!showAllTiles && (
+            <button
+              type="button"
+              onClick={() => setShowAllTiles(true)}
+              className="mt-2 w-full text-[11px] py-1.5 rounded border border-dashed border-border text-muted-foreground hover:text-foreground hover:border-accent flex items-center justify-center gap-1"
+            >
+              <ChevronDown className="w-3 h-3" />
+              산업 특화 + 기계요소 {EXTRA_TILES.length}개 더 보기
+            </button>
+          )}
           <p className="text-[11px] text-muted-foreground mt-2">타일을 누르면 치수·하중·재료 조건 다이얼로그가 열리고, <b className="text-foreground/80">적용 전 어떤 필터가 켜질지 미리보기</b>도 함께 표시됩니다. 기초가 필요하면 아래 목차에서 챕터로.</p>
         </div>
 
