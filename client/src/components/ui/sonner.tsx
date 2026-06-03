@@ -27,6 +27,14 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--normal-border": "var(--border)",
         } as React.CSSProperties
       }
+      toastOptions={{
+        // R62 — sonner default description 색이 너무 옅음 (muted-foreground/50).
+        //   foreground/85 + leading 보강 → 본문 가독성 ↑. title 은 그대로 유지.
+        classNames: {
+          description: '!text-foreground/85 !leading-relaxed !text-[13px]',
+          title: '!text-foreground !font-semibold',
+        },
+      }}
       {...props}
     />
   );
