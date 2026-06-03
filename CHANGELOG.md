@@ -2,6 +2,20 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R74 — Metal 산업군 추가 확장 (1,121 → 1,168)
+이전 R72/R73이 다룬 metal 도메인(밸브·베어링·항공 disc·차체·보일러튜브·원자로) 외 미커버 metal 산업군 20종을 supplementary 에 추가. 모든 entry 에 `industry_note` 로 표준·OEM·기체 모델 명시.
+- **철도 (Rail / Wheel)** — R260 (UIC 860 / EN 13674-1, 60E1 mainline), Class C wheel (AAR M-107, 39 t/axle heavy-haul)
+- **방위 갑옷** — RHA MIL-A-46100 (M1 Abrams 핵체 / Bradley IFV / Stryker)
+- **미사일 motor case / 항공 landing gear** — D6AC (Minuteman III / Trident D-5 / B-1B), HP 9-4-30 (F-14/15/16 main gear)
+- **자동차 단조** — 38MnVS6 (BMW B57 · VW EA288 · MAN D2868 크랭크샤프트 microalloyed)
+- **구조강 (Civil / Infrastructure)** — A992 (US W-shape, 모든 미국 빌딩·다리), S355J2+N (EU 다리·풍력 타워·선체), S275JR (EU general fabrication 95%), S690QL (Liebherr 크레인 boom, Cat 굴착기 stick), API 2H Gr.50 (Shell Mars / North Sea offshore jacket)
+- **마모 / 광업** — Hardox 450 (Komatsu HD785 / Cat 793F dump body, 분쇄기 hopper)
+- **스프링 (heavy-truck)** — AISI 9260 (Hino / Tata / Volvo FH leaf spring, John Deere disc plough)
+- **공구강** — D2 Tool Steel (cold-work stamping die 글로벌 표준, Bohler K110 / Uddeholm Sverker 21), AISI H21 (W tool, 단조 die 적열경도 650°C)
+- **로켓 엔진 (Cu 열교환 chamber)** — NARLOY-Z (SSME/RS-25 / Aerojet RL10), GRCop-84 (NASA RAMPT 2세대 AM, Raptor V2 candidate)
+- **항공 / 우주 Al-Li** — AA 2195 (SLWT Shuttle / SLS LH2 tank / Falcon 9), AA 2050 Constellium AIRWARE (A380 lower wing / A350 fuselage frame / A220)
+- **저온 LPG / 냉동 LNG 갑판 탱크** — ASTM A537 Class 2 (Statoil Mongstad NH₃ sphere, refrigerated propane bullet)
+
 ## R73 — Industry-standard 도메인 확장 (1,085 → 1,121)
 보유 데이터가 풍부한 ceramic 영역(Macor, Mullite, Spinel, WC-Co, Sialon 등 이미 존재)은 건너뛰고, metal·composite·polymer 영역에 20종 추가. 각 metal entry 에 `industry_note`, composite/polymer entry 에 `applications` 상세 표기.
 - **잠수함 / 수소 서비스 / 파이프라인** — HY-100 (Virginia·Seawolf hull), SA336 F22V (hydroprocessing reactor V-mod Cr-Mo), API 5L X65 PSL2 (sour offshore), API 5L X70 PSL2 (gas transmission), L80 Type 13Cr (CO₂ sweet OCTG)

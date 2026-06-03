@@ -11982,6 +11982,333 @@
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%208620"
       ],
       "industry_note": "Automotive transmission ring gear & pinion, wind-turbine planet/sun gear (NREL 1.5 MW reference design), industrial gearbox; AMS 6274 aerospace, NACE compatible; widely substituted by 18CrNiMo7-6 in EU."
+    },
+    {
+      "name": "R260 Rail Steel (UIC 860 / EN 13674-1) — railway head",
+      "category": "Metal",
+      "subcategory": "Rail Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.62~0.80", "Mn": "0.70~1.20", "Si": "0.15~0.58", "P": "≤0.025", "S": "≤0.025" },
+      "points": [
+        [7.85, 480, 880, 10, 207, 260, 50],
+        [7.85, 600, 1100, 10, 207, 330, 50],
+        [7.85, 650, 1175, 9, 207, 370, 50]
+      ],
+      "conditions": ["NHH (Non-Heat-Treated, natural cooled)", "HHT (Head-Hardened, accelerated cooled)", "Premium HP HHT (heavy haul)"],
+      "ref_urls": [
+        "https://www.en-standard.eu/csn-en-13674-1-railway-applications-track-rail-part-1-vignole-railway-rails-46-kg-m-and-above/"
+      ],
+      "industry_note": "UIC 860 / EN 13674-1 standard rail head, profiles 60E1 / 60E2 / 54E1; KORAIL / DB / SNCF / JR mainline; surface RCF (rolling-contact fatigue) life governed by HHT depth ≥15 mm."
+    },
+    {
+      "name": "Railway Wheel Class C (AAR M-107) — heavy-haul",
+      "category": "Metal",
+      "subcategory": "Rail Steel",
+      "process": "Forged",
+      "composition": { "Fe": "balance", "C": "0.67~0.77", "Mn": "0.60~0.90", "Si": "0.15~1.00", "Cr": "≤0.25", "P": "≤0.030", "S": "≤0.040" },
+      "points": [
+        [7.85, 600, 1050, 12, 207, 340, 49],
+        [7.85, 690, 1100, 10, 207, 360, 49]
+      ],
+      "conditions": ["Rim-Toughened (Quenched rim + Tempered)", "Premium Class C+ (post-2010 heavy-haul, ≥39 t/axle)"],
+      "ref_urls": [
+        "https://www.aar.com/standards/M-107.html"
+      ],
+      "industry_note": "AAR M-107/M-208 standard for heavy-haul freight wheels (BHP iron-ore, Vale Carajás, BNSF coal); rim hardness 321~363 BHN balances tread wear (vs Class B 277 BHN softer) and shelling resistance."
+    },
+    {
+      "name": "RHA (Rolled Homogeneous Armor, MIL-A-46100) — combat vehicle armor",
+      "category": "Metal",
+      "subcategory": "Armor Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "0.50~1.50", "Ni": "0.50~2.50", "Mo": "0.20~0.50", "Mn": "1.00~1.60", "C": "0.27~0.32", "Si": "0.15~0.50", "P": "≤0.015", "S": "≤0.010" },
+      "points": [
+        [7.83, 1100, 1500, 12, 200, 450, 35],
+        [7.83, 950, 1200, 16, 200, 360, 36]
+      ],
+      "conditions": ["Q+T (250°C T, ballistic-optimized)", "Q+T (450°C T, weldability-optimized)"],
+      "ref_urls": [
+        "https://everyspec.com/MIL-SPECS/MIL-SPECS-MIL-A/MIL-A-46100E_19090/"
+      ],
+      "industry_note": "MIL-A-46100E ballistic homogeneous armor plate; M1 Abrams hull/turret structural skin, M2 Bradley IFV, Stryker, AMV; CVN ≥27J at -40°C; V₅₀ vs 7.62×54R B32 AP ≈ 850 m/s @ 12 mm thickness."
+    },
+    {
+      "name": "D6AC (Ultra-High Strength Low-Alloy) — missile motor case",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "0.90~1.20", "Ni": "0.40~0.70", "Mo": "0.90~1.10", "V": "0.05~0.10", "C": "0.42~0.48", "Mn": "0.60~0.90", "Si": "0.15~0.30" },
+      "points": [
+        [7.85, 760, 1000, 14, 207, 310, 36],
+        [7.85, 1600, 1900, 8, 207, 590, 36],
+        [7.85, 1500, 1800, 11, 207, 550, 36]
+      ],
+      "conditions": ["Annealed", "Q+T (245°C low temper, σ_UTS ≈ 1900 MPa class)", "Q+T (425°C standard temper, balance of strength + toughness)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=D6AC"
+      ],
+      "industry_note": "Minuteman III / Peacekeeper / Trident D-5 second-stage solid-rocket motor case; F-111 wing pivot fitting; B-1B main landing gear; high σ_y/ρ for filament-wound replacement reservoir."
+    },
+    {
+      "name": "HP 9-4-30 (9Ni-4Co-0.3C) — aircraft landing gear",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Forged",
+      "composition": { "Fe": "balance", "Ni": "7.00~8.00", "Co": "4.25~4.75", "Mo": "0.90~1.10", "Cr": "0.90~1.10", "V": "0.06~0.12", "C": "0.29~0.34", "Mn": "0.10~0.35", "Si": "≤0.20" },
+      "points": [
+        [7.78, 1000, 1240, 14, 200, 380, 28],
+        [7.78, 1380, 1620, 12, 200, 490, 28],
+        [7.78, 1450, 1720, 10, 200, 520, 28]
+      ],
+      "conditions": ["Annealed (650°C)", "Q+T (815°C oil Q + 565°C T)", "Q+T (815°C oil Q + 510°C T, peak σy)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=HP%209-4-30"
+      ],
+      "industry_note": "F-14 / F-15 / F-16 / F/A-18 main landing gear, missile housing; Co-Ni martensite with secondary M₂C carbide gives σ_UTS 1620 MPa + KIC 110 MPa√m (vs 300M 60 MPa√m); AMS 6526."
+    },
+    {
+      "name": "38MnVS6 (microalloyed forging) — automotive crankshaft",
+      "category": "Metal",
+      "subcategory": "Microalloyed Steel",
+      "process": "Forged",
+      "composition": { "Fe": "balance", "C": "0.34~0.41", "Mn": "1.20~1.60", "V": "0.08~0.20", "Si": "0.15~0.80", "S": "0.020~0.060", "Cr": "≤0.30" },
+      "points": [
+        [7.84, 580, 880, 12, 210, 280, 42],
+        [7.84, 650, 950, 11, 210, 295, 42]
+      ],
+      "conditions": ["As-Forged (controlled cooled, no Q+T)", "As-Forged small section (≤50 mm)"],
+      "ref_urls": [
+        "https://www.bgh.de/fileadmin/user_upload/PDF/Werkstoffdatenblaetter/38MnVS6_BGH.pdf"
+      ],
+      "industry_note": "BMW B57, VW EA288, MAN D2868 crankshaft & connecting rod standard; V-microalloyed pearlite-ferrite from forge heat saves ~50% cost vs 4140 Q+T (no separate heat-treat); free-machining S-modification (BY-mark)."
+    },
+    {
+      "name": "A992 (US wide-flange beam, ASTM A992)",
+      "category": "Metal",
+      "subcategory": "Structural Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "≤0.23", "Mn": "≤1.50", "Si": "≤0.40", "V": "≤0.15", "Nb": "≤0.05", "P": "≤0.035", "S": "≤0.045", "Cu": "≤0.60" },
+      "points": [
+        [7.85, 345, 450, 21, 200, 145, 53],
+        [7.85, 380, 480, 20, 200, 160, 53],
+        [7.85, 415, 550, 18, 200, 175, 53]
+      ],
+      "conditions": ["As-Rolled (light W-shape, < W14)", "As-Rolled (medium W14~W36)", "As-Rolled (heavy column section)"],
+      "ref_urls": [
+        "https://www.astm.org/a0992_a0992m-22.html"
+      ],
+      "industry_note": "ASTM A992 standard W-shape (W6 ~ W44) for ALL US structural steel framing since 2002 (superseded A36 / A572); One World Trade Center, Salesforce Tower, Empire State Building upgrades, US highway bridges."
+    },
+    {
+      "name": "S355J2+N (EN 10025-2, EU mild structural)",
+      "category": "Metal",
+      "subcategory": "Structural Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "≤0.22", "Mn": "≤1.60", "Si": "≤0.55", "V+Nb+Ti": "micro", "P": "≤0.025", "S": "≤0.025", "Cu": "≤0.55" },
+      "points": [
+        [7.85, 355, 510, 22, 210, 170, 50],
+        [7.85, 355, 470, 22, 210, 165, 50]
+      ],
+      "conditions": ["Normalized (+N, EN 10025-2)", "TMCP (+M, heavy plate)"],
+      "ref_urls": [
+        "https://www.en-standard.eu/csn-en-10025-2-hot-rolled-products-of-structural-steels-part-2-technical-delivery-conditions-for-non-alloy-structural-steels/"
+      ],
+      "industry_note": "EU workhorse for bridges (Øresund, Millau, Stonecutters), wind-turbine towers (Vestas V90/V112, Siemens SWT-3.6), ship hull (Damen), crane jib (Liebherr); CVN ≥27 J at -20°C (J2 sub-grade)."
+    },
+    {
+      "name": "S690QL (EN 10025-6, high-strength Q+T)",
+      "category": "Metal",
+      "subcategory": "Structural Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "≤0.20", "Mn": "≤1.70", "B": "≤0.005", "Cr": "≤1.50", "Ni": "≤2.00", "Mo": "≤0.70", "V+Nb+Ti": "≤0.15" },
+      "points": [
+        [7.85, 690, 850, 14, 210, 270, 45],
+        [7.85, 770, 940, 12, 210, 290, 45]
+      ],
+      "conditions": ["Q+T (water Q + 600°C T)", "Q+T heavy section (peak σy ≥770)"],
+      "ref_urls": [
+        "https://www.en-standard.eu/csn-en-10025-6-hot-rolled-products-of-structural-steels-part-6-technical-delivery-conditions-for-flat-products-of-high-yield-strength-structural-steels-in-the-quenched-and-tempered-condition/"
+      ],
+      "industry_note": "Crane boom (Liebherr LTM 1750-9.1 1300 t), excavator stick (Cat 6090 FS), mining haul truck chassis (Komatsu 980E-5), high-strength bridge truss; weldable with preheat 100°C."
+    },
+    {
+      "name": "Hardox 450 (SSAB abrasion-resistant)",
+      "category": "Metal",
+      "subcategory": "Wear-Resistant Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.21", "Si": "0.70", "Mn": "1.60", "B": "0.005", "Cr": "0.50", "Mo": "0.25", "Ni": "0.25", "P": "≤0.025", "S": "≤0.010" },
+      "points": [
+        [7.85, 1200, 1400, 10, 207, 460, 38],
+        [7.85, 1250, 1450, 9, 207, 475, 38]
+      ],
+      "conditions": ["Q+T (water Q, target 450 HBW)", "Q+T thin plate (≤10 mm, higher BHN)"],
+      "ref_urls": [
+        "https://www.ssab.com/-/media/files/products-and-services/hardox-data-sheets/hardox-450-en.pdf"
+      ],
+      "industry_note": "SSAB proprietary; standard for dump-truck haul body (Komatsu HD785-7, Cat 793F), excavator bucket liner (Cat 6020B), feeder pan, crusher hopper, dredger cutter; 3× abrasion life of mild S275."
+    },
+    {
+      "name": "AISI 9260 (Si-Mn leaf spring)",
+      "category": "Metal",
+      "subcategory": "Spring Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.55~0.65", "Mn": "0.70~1.00", "Si": "1.80~2.20", "P": "≤0.035", "S": "≤0.040" },
+      "points": [
+        [7.85, 1480, 1700, 6, 207, 510, 47],
+        [7.85, 1100, 1300, 10, 207, 410, 47]
+      ],
+      "conditions": ["Q+T (425°C T, peak strength)", "Q+T (575°C T, balanced)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%209260"
+      ],
+      "industry_note": "Heavy-truck multi-leaf and parabolic leaf spring (Hino, Tata, Volvo FH), agricultural plough disc (John Deere), military trailer; 2% Si retards tempering softening, σ_relax low to 230°C."
+    },
+    {
+      "name": "D2 Tool Steel (AISI D2, cold-work die)",
+      "category": "Metal",
+      "subcategory": "Tool Steel - Cold-Work",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "1.40~1.60", "Cr": "11.0~13.0", "Mo": "0.70~1.20", "V": "0.50~1.10", "Mn": "≤0.60", "Si": "≤0.60" },
+      "points": [
+        [7.70, 620, 760, 18, 207, 240, 20],
+        [7.70, 1900, 2100, 3, 207, 650, 20],
+        [7.70, 1700, 1900, 4, 207, 600, 20]
+      ],
+      "conditions": ["Annealed (delivery)", "Hardened (1020°C oil Q + 200°C T, peak HV)", "Hardened (520°C T, secondary hardening peak)"],
+      "ref_urls": [
+        "https://www.uddeholm.com/files/PB_Uddeholm_sverker_21_english.pdf"
+      ],
+      "industry_note": "Most-used cold-work tool steel worldwide; stamping & blanking die (auto body panel), slitter knife, thread roll, cold-header punch, knife blade (Bohler K110, Uddeholm Sverker 21, Hitachi SLD); high Cr gives oxidation resistance vs O1."
+    },
+    {
+      "name": "AISI H21 (Hot-Work Tungsten tool)",
+      "category": "Metal",
+      "subcategory": "Tool Steel - Hot-Work",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.26~0.35", "Cr": "3.0~3.75", "W": "8.50~10.0", "V": "0.30~0.60", "Mn": "0.15~0.45", "Si": "0.15~0.50" },
+      "points": [
+        [8.30, 690, 880, 16, 207, 240, 27],
+        [8.30, 1380, 1620, 9, 207, 525, 25],
+        [8.30, 1100, 1380, 11, 207, 470, 25]
+      ],
+      "conditions": ["Annealed", "Q+T (1175°C oil Q + 620°C T, room temp peak)", "Q+T tested at 550°C (red-hardness retention)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20H21"
+      ],
+      "industry_note": "Heavy forging die for hot-forged steel & superalloy (turbine disc preform), Al extrusion die mandrel, hot-header punch, hot-shear blade; 9% W maintains hot-hardness HV ≥ 400 to 650°C (vs H13 limit ~580°C)."
+    },
+    {
+      "name": "NARLOY-Z (Cu-3Ag-0.5Zr) — SSME chamber",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought",
+      "composition": { "Cu": "balance", "Ag": "2.9~3.2", "Zr": "0.40~0.60" },
+      "points": [
+        [8.92, 90, 220, 50, 124, 80, 320],
+        [8.92, 290, 380, 22, 124, 100, 316],
+        [8.92, 240, 290, 30, 124, 95, 316]
+      ],
+      "conditions": ["Solution Annealed (900°C WQ)", "Solution + Aged (480°C/3h)", "Solution + Aged, tested at 500°C (creep regime)"],
+      "ref_urls": [
+        "https://ntrs.nasa.gov/api/citations/19920002923/downloads/19920002923.pdf"
+      ],
+      "industry_note": "Space Shuttle Main Engine (SSME / RS-25) main combustion chamber liner with cooling channels (LH2 regenerative); RS-25E on SLS Block 1B, Aerojet RL10C; Zr stabilizes grain boundary at 800K + Ag for high thermal-k."
+    },
+    {
+      "name": "GRCop-84 (Cu-8Cr-4Nb, NASA dispersion-strengthened)",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Forged",
+      "composition": { "Cu": "balance", "Cr": "7.6~8.4", "Nb": "3.8~4.2" },
+      "points": [
+        [8.74, 200, 380, 25, 130, 130, 280],
+        [8.74, 150, 200, 40, 130, 100, 260]
+      ],
+      "conditions": ["SPS-consolidated + Extruded (RT)", "Tested at 800°C (creep retention)"],
+      "ref_urls": [
+        "https://ntrs.nasa.gov/api/citations/20140003291/downloads/20140003291.pdf"
+      ],
+      "industry_note": "NASA Glenn dispersion-strengthened Cu (Cr₂Nb particles pin grain boundary); RAMPT additive-manufactured 2nd-gen thrust chamber liner (vs NARLOY-Z); Raptor V2 main injector candidate; superior creep at >600°C."
+    },
+    {
+      "name": "AA 2195 (Al-Cu-Li-Mg-Ag) — SLS LH2 tank",
+      "category": "Metal",
+      "subcategory": "Aluminum Alloy",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Cu": "3.7~4.3", "Li": "0.80~1.20", "Mg": "0.25~0.80", "Ag": "0.25~0.60", "Zr": "0.08~0.16", "Mn": "≤0.25" },
+      "points": [
+        [2.71, 480, 540, 8, 78, 175, 84],
+        [2.71, 580, 660, 5, 78, 200, 84]
+      ],
+      "conditions": ["T8 (Solution + 6% CW + Aged 155°C/24h)", "T8 tested at -253°C (LH2, cryogenic strengthening)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202195"
+      ],
+      "industry_note": "Super-Lightweight External Tank (SLWT, STS-91+ Shuttle), SLS Block 1 core stage LH2 + LOX tank, Falcon 9 second-stage interstage; 5% lighter and 30% stiffer than 2219; FSW-friendly."
+    },
+    {
+      "name": "AA 2050 (Al-Cu-Li, 3rd-gen) — Airbus A380 wing",
+      "category": "Metal",
+      "subcategory": "Aluminum Alloy",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Cu": "3.2~3.9", "Li": "0.70~1.30", "Mg": "0.20~0.60", "Ag": "0.20~0.70", "Mn": "0.20~0.50", "Zr": "0.06~0.14", "Zn": "≤0.25" },
+      "points": [
+        [2.70, 460, 510, 12, 76, 165, 95],
+        [2.70, 485, 530, 11, 76, 170, 95]
+      ],
+      "conditions": ["T84 (Solution + Stretched + Aged, std)", "T84 (heavy plate, peak σy)"],
+      "ref_urls": [
+        "https://www.constellium.com/products/aerospace/2050-t84"
+      ],
+      "industry_note": "Constellium AIRWARE; A380 lower wing skin, A350 fuselage frame, A220 wing rib; 6% mass save vs 2024-T351 with higher KIC; quench-insensitive thick-section T84 ageing."
+    },
+    {
+      "name": "API 2H Grade 50 (offshore platform jacket)",
+      "category": "Metal",
+      "subcategory": "Structural Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "≤0.18", "Mn": "1.20~1.60", "Si": "0.15~0.50", "Nb+V+Ti": "micro", "P": "≤0.025", "S": "≤0.012", "Cu+Cr+Ni+Mo": "micro" },
+      "points": [
+        [7.85, 345, 485, 22, 210, 165, 50],
+        [7.85, 380, 520, 20, 210, 175, 50]
+      ],
+      "conditions": ["TMCP (thermo-mechanical controlled rolled)", "Q+T (heavy section ≥75 mm)"],
+      "ref_urls": [
+        "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-2h"
+      ],
+      "industry_note": "Offshore jacket leg, brace, can / chord node (Shell Mars / Mensa, Statoil Snorre, BP Atlantis); North Sea / GoM CTOD ≥ 0.25 mm at -10°C; ASTM-equiv A572 Gr.50 with tighter CVN."
+    },
+    {
+      "name": "S275JR (EN 10025-2, EU basic structural)",
+      "category": "Metal",
+      "subcategory": "Structural Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "≤0.21", "Mn": "≤1.50", "Si": "≤0.40", "P": "≤0.035", "S": "≤0.035", "N": "≤0.012", "Cu": "≤0.55" },
+      "points": [
+        [7.85, 275, 410, 23, 210, 145, 53],
+        [7.85, 275, 470, 23, 210, 150, 53]
+      ],
+      "conditions": ["As-Rolled (+AR, EN 10025-2)", "Normalized (+N, heavy section)"],
+      "ref_urls": [
+        "https://www.en-standard.eu/csn-en-10025-2-hot-rolled-products-of-structural-steels/"
+      ],
+      "industry_note": "EU general-purpose mild structural workhorse (warehouse columns, low-rise building, gates, fences, conveyor frame, agricultural machinery chassis); ~95% of European general-fabrication tonnage; CVN ≥ 27 J at +20°C only."
+    },
+    {
+      "name": "ASTM A537 Class 2 (cryogenic LPG / refrigerated tank)",
+      "category": "Metal",
+      "subcategory": "Pressure Vessel Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "≤0.24", "Mn": "1.20~1.50", "Si": "0.15~0.50", "Cu": "≤0.35", "Ni": "≤0.25", "Cr": "≤0.25", "Mo": "≤0.08", "Nb+V": "micro" },
+      "points": [
+        [7.85, 415, 550, 22, 210, 195, 47],
+        [7.85, 450, 580, 20, 210, 205, 47]
+      ],
+      "conditions": ["Q+T (Class 2, 900°C WQ + 620°C T)", "Q+T heavy plate (≥40 mm)"],
+      "ref_urls": [
+        "https://www.astm.org/a0537_a0537m-20.html"
+      ],
+      "industry_note": "Refrigerated LPG / NH₃ atmospheric storage spheres (Statoil Mongstad, Shell), refrigerated LNG carrier deck cargo tank, propane bullets; ASME Sec VIII Div 1 / IIA-3.8; CVN ≥27 J at -45°C."
     }
   ]
 }

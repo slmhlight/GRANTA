@@ -3,24 +3,24 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **1121 materials**: 99 curated · 7 am_vendor · 438 generic
+- **1168 materials**: 99 curated · 7 am_vendor · 438 generic
 - Dropped 579 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 1121/1121 | 0 |
-| yield_strength | 1119/1121 | 657 |
-| uts | 1112/1121 | 655 |
-| elongation | 1080/1121 | 654 |
-| modulus | 1121/1121 | 48 |
-| hardness | 972/1121 | 562 |
-| thermal_conductivity | 1121/1121 | 2 |
-| fatigue_strength | 1006/1121 | 876 |
-| impact_strength | 166/1121 | 166 |
+| density | 1168/1168 | 0 |
+| yield_strength | 1166/1168 | 657 |
+| uts | 1159/1168 | 655 |
+| elongation | 1127/1168 | 654 |
+| modulus | 1168/1168 | 48 |
+| hardness | 1019/1168 | 562 |
+| thermal_conductivity | 1168/1168 | 2 |
+| fatigue_strength | 1053/1168 | 899 |
+| impact_strength | 166/1168 | 166 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 620/1121 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 667/1168 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
@@ -63,13 +63,13 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 ### Category counts
 | Category | Count | Distinct subcategories |
 |---|---|---|
-| Metal | 932 | (multiple) |
+| Metal | 979 | (multiple) |
 | Polymer | 113 | 45 |
 | Ceramic | 39 | 9 |
 | Composite | 37 | — |
 
 ### Metal subcategory canonicalization (R36c)
-- 374 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
+- 378 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
 - Stainless: Stainless / Stainless Steel / PH Stainless → "Stainless Steel - Austenitic / Ferritic·Martensitic / Duplex / PH".
 - Nickel: Nickel-based / Nickel Alloy / Nickel Superalloy / Hastelloy / Inconel / Monel / Haynes 등 → "Nickel Superalloy - <subfamily>".
 - Cobalt: Cobalt Chrome / Cobalt-based → "Cobalt Alloy - Chrome / Wear".
