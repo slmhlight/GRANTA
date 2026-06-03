@@ -7,6 +7,29 @@ import { useState, useMemo, useCallback } from 'react';
 import type { Material } from '@/lib/materials';
 import { parseCompositionRange, getRangeValue } from '@/lib/composition-parser';
 
+/**
+ * Sprint 2 A3 — fuzzy contains matcher.
+ * 1) exact substring (가장 빠른 케이스, 100% 의미 보존)
+ * 2) separator-stripped substring — "ti6al4v" 입력으로 "Ti-6Al-4V" 매칭
+ * 3) subsequence (q.length ≥ 3) — 오타·약어 허용 ("tisalv" → "Ti-6Al-4V")
+ *
+ * 입력 너무 짧으면(<2자) fuzzy 비활성 — false positive 방지.
+ */
+function fuzzyContains(text: string, q: string): boolean {
+  if (!text) return false;
+  if (text.includes(q)) return true;
+  if (q.length < 2) return false;
+  const cleanText = text.replace(/[-\s./_]/g, '');
+  const cleanQ = q.replace(/[-\s./_]/g, '');
+  if (cleanQ.length >= 2 && cleanText.includes(cleanQ)) return true;
+  if (cleanQ.length < 3) return false;
+  let i = 0;
+  for (let j = 0; j < cleanText.length && i < cleanQ.length; j++) {
+    if (cleanText[j] === cleanQ[i]) i++;
+  }
+  return i === cleanQ.length;
+}
+
 export interface FilterState {
   search: string;
   categories: string[];
@@ -120,15 +143,15 @@ export function useMaterialFilter(materials: Material[]) {
   const filtered = useMemo(() => {
     let result = materials;
 
-    // Text search
+    // Text search — Sprint 2 A3: fuzzyContains (subsequence + separator strip)
     if (filters.search.trim()) {
-      const q = filters.search.toLowerCase();
+      const q = filters.search.toLowerCase().trim();
       result = result.filter(m =>
-        m.name.toLowerCase().includes(q) ||
-        m.subcategory.toLowerCase().includes(q) ||
-        m.manufacturer.toLowerCase().includes(q) ||
-        m.process.toLowerCase().includes(q) ||
-        (m.aliases || []).some(a => a.toLowerCase().includes(q))
+        fuzzyContains(m.name.toLowerCase(), q) ||
+        fuzzyContains(m.subcategory.toLowerCase(), q) ||
+        fuzzyContains(m.manufacturer.toLowerCase(), q) ||
+        fuzzyContains(m.process.toLowerCase(), q) ||
+        (m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))
       );
     }
 
@@ -334,13 +357,13 @@ export function useMaterialFilter(materials: Material[]) {
     // 1) baseSet — non-range filter (category/sub/process/HT/qual/composition/text) 적용
     let baseSet = materials;
     if (filters.search.trim()) {
-      const q = filters.search.toLowerCase();
+      const q = filters.search.toLowerCase().trim();
       baseSet = baseSet.filter(m =>
-        m.name.toLowerCase().includes(q) ||
-        m.subcategory.toLowerCase().includes(q) ||
-        m.manufacturer.toLowerCase().includes(q) ||
-        m.process.toLowerCase().includes(q) ||
-        (m.aliases || []).some(a => a.toLowerCase().includes(q))
+        fuzzyContains(m.name.toLowerCase(), q) ||
+        fuzzyContains(m.subcategory.toLowerCase(), q) ||
+        fuzzyContains(m.manufacturer.toLowerCase(), q) ||
+        fuzzyContains(m.process.toLowerCase(), q) ||
+        (m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))
       );
     }
     if (filters.categories.length) baseSet = baseSet.filter(m => filters.categories.includes(m.category));

@@ -47,6 +47,7 @@ import type { Material } from '@/lib/materials';
 import { SCENARIO_PRESETS, decodeFiltersFromParams, encodeFiltersToParams, indexKeyFromHint, type ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { ScenarioCompareSheet } from '@/components/ScenarioCompareSheet';
+import OnboardingTour from '@/components/OnboardingTour';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 import { SHOP_ALIAS_DICT } from '@/lib/shop-alias-dict';
@@ -101,6 +102,29 @@ export default function Home() {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   // R49c — 모바일 검색창 펼침 토글 (default: 모바일 닫힘, 데스크탑 항상 표시).
   const [searchOpen, setSearchOpen] = useState(false);
+  // Sprint2 A7 — 최근 검색어 (최대 5개, localStorage 저장).
+  const [recentSearches, setRecentSearches] = useState<string[]>(() => {
+    try { const s = localStorage.getItem('am_recent_searches'); if (s) { const p = JSON.parse(s); if (Array.isArray(p)) return p.slice(0, 5); } } catch { /* ignore */ }
+    return [];
+  });
+  const [recentOpen, setRecentOpen] = useState(false);
+  // Sprint2 B1 — first-visit 온보딩 (4-step: Search/Filter/Detail/Compare).
+  const [tourOpen, setTourOpen] = useState(() => {
+    try { return !localStorage.getItem('am_onboarding_done'); } catch { return false; }
+  });
+  const closeTour = useCallback(() => {
+    setTourOpen(false);
+    try { localStorage.setItem('am_onboarding_done', '1'); } catch { /* ignore */ }
+  }, []);
+  const pushRecent = (q: string) => {
+    const trimmed = q.trim();
+    if (trimmed.length < 2) return;
+    setRecentSearches(prev => {
+      const next = [trimmed, ...prev.filter(x => x !== trimmed)].slice(0, 5);
+      try { localStorage.setItem('am_recent_searches', JSON.stringify(next)); } catch { /* ignore */ }
+      return next;
+    });
+  };
   const [panelWidth, setPanelWidth] = useState<number>(() => {
     const s = typeof window !== 'undefined' ? window.localStorage.getItem('am_panel_w') : null;
     const n = s ? Number(s) : 460;
@@ -561,8 +585,30 @@ export default function Home() {
               value={filters.search}
               onChange={e => updateFilter('search', e.target.value)}
               autoFocus={searchOpen}
-              onBlur={() => { if (!filters.search) setSearchOpen(false); }}
+              onFocus={() => setRecentOpen(recentSearches.length > 0)}
+              onBlur={() => {
+                if (filters.search.trim().length >= 2) pushRecent(filters.search);
+                if (!filters.search) setSearchOpen(false);
+                setTimeout(() => setRecentOpen(false), 200);
+              }}
+              onKeyDown={(e) => { if (e.key === 'Enter') { pushRecent(filters.search); setRecentOpen(false); (e.target as HTMLInputElement).blur(); } }}
             />
+            {/* Sprint2 A7 — 최근 검색 dropdown (input focus + 검색 비었을 때만) */}
+            {recentOpen && !filters.search && recentSearches.length > 0 && (
+              <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded shadow-lg z-50 max-h-64 overflow-auto">
+                <div className="text-[9px] uppercase tracking-wider text-muted-foreground px-3 py-1 border-b border-border/50">최근 검색</div>
+                {recentSearches.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onMouseDown={(e) => { e.preventDefault(); updateFilter('search', s); setRecentOpen(false); }}
+                    className="w-full flex items-center gap-2 text-left px-3 py-1.5 text-xs hover:bg-muted/40 text-foreground"
+                  >
+                    <Search className="w-3 h-3 text-muted-foreground" /> {s}
+                  </button>
+                ))}
+              </div>
+            )}
             {(filters.search || searchOpen) && (
               <button
                 className="absolute right-2 top-1/2 -translate-y-1/2 text-sidebar-foreground/40 hover:text-sidebar-foreground"
@@ -934,6 +980,8 @@ export default function Home() {
           <ScenarioDialog scenarioKey={editingScenario} open={editingScenario !== null} onOpenChange={(v) => { if (!v) setEditingScenario(null); }} />
           {/* B5: 두 사례 동시 비교 시트 */}
           <ScenarioCompareSheet open={scenarioCompareOpen} onOpenChange={setScenarioCompareOpen} />
+          {/* Sprint 2 B1: first-visit 온보딩 (4-step). localStorage 'am_onboarding_done' flag */}
+          <OnboardingTour open={tourOpen} onClose={closeTour} />
           {/* 재료 import 결과 sheet — 매칭/미매칭 목록 + 컬렉션 이름 입력 + 저장 확인. */}
           <Sheet open={importResult !== null} onOpenChange={(v) => { if (!v) setImportResult(null); }}>
             <SheetContent side="right" className="w-full sm:max-w-md flex flex-col gap-0 p-0">

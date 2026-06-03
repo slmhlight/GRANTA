@@ -325,11 +325,12 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       byClass.get(ck)!.ms.push(m);
     }
     // R50c — customdata 확장: [id, subcategory, process, popularity, verified]. hovertemplate 풍부화.
-    // R54a CRITICAL FIX — xMeta/yMeta 가 line 456+ 정의되었는데 여기서 사용 → TDZ. dev hot reload 는
-    //   회피 가능하나 production minify 후 ReferenceError 'Cannot access U0 before initialization'.
-    //   xMeta/yMeta 정의를 markerTraces 위로 이동 + xMetaForHover/yMetaForHover 별도 변수.
-    const xMetaForHover = ALL_NUMERIC_PROPERTIES.find((p) => p.key === xProperty);
-    const yMetaForHover = ALL_NUMERIC_PROPERTIES.find((p) => p.key === yProperty);
+    // R54b STRONG TDZ PREVENTION — xMeta/yMeta 단일 위치 선언 (이전 R54a 의 alias 제거).
+    //   원칙: useMemo block 의 모든 const 는 *최초 사용 직전*에 선언. alias 패턴은 production minify 후
+    //   변수 분리·재정렬로 TDZ 재현됨. label/unit 가 필요한 코드 (markerTraces hovertemplate, layout.xaxis,
+    //   shortLabel) 가 모두 xMeta/yMeta 를 직접 사용 → 단일 변수만 유지.
+    const xMeta = ALL_NUMERIC_PROPERTIES.find((p) => p.key === xProperty);
+    const yMeta = ALL_NUMERIC_PROPERTIES.find((p) => p.key === yProperty);
     const verifiedOf = (m: Material) => (m.sources && m.sources.some((s: any) => s.verified)) ? '✓' : '';
     const markerTraces = Array.from(byClass.entries()).sort((a, b) => b[1].ms.length - a[1].ms.length).map(([key, { color, ms }]) => ({
       x: ms.map((m) => tv(m, xProperty)), y: ms.map((m) => tv(m, yProperty)),
@@ -341,8 +342,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       hovertemplate:
         `<b>%{text}</b>` +
         `<br><span style="color:#64748b">%{customdata[1]} · %{customdata[2]}</span>` +
-        `<br>${xMetaForHover?.label || xProperty}: <b>%{x:.4g}</b> ${xMetaForHover?.unit || ''}` +
-        `<br>${yMetaForHover?.label || yProperty}: <b>%{y:.4g}</b> ${yMetaForHover?.unit || ''}` +
+        `<br>${xMeta?.label || xProperty}: <b>%{x:.4g}</b> ${xMeta?.unit || ''}` +
+        `<br>${yMeta?.label || yProperty}: <b>%{y:.4g}</b> ${yMeta?.unit || ''}` +
         `<br>인기도: %{customdata[3]:.2f}/5 %{customdata[4]}` +
         `<extra>${key}</extra>`,
     }));
@@ -458,10 +459,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       }
     }
 
-    // R54a — xMetaForHover / yMetaForHover 가 markerTraces 위에서 정의됨. 동일 값 alias 유지 (이후 코드 호환).
-    const xMeta = xMetaForHover;
-    const yMeta = yMetaForHover;
-
+    // R54b — xMeta/yMeta 는 위 markerTraces 직전에서 이미 단일 선언. alias 제거.
     const gridC = darkChart ? '#1e293b' : '#eef2f7';
     const tickC = darkChart ? '#475569' : '#cbd5e1';
     const fontC = darkChart ? '#cbd5e1' : '#334155';
@@ -490,11 +488,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
       hovermode: 'closest', shapes, annotations: guideAnnotations,
       // 모바일에서는 레전드를 차트 위가 아닌 아래로 옮겨 차트 면적을 보호 (또는 항목 많을 때 토글).
-      showlegend: showLegend && (!isMobile || (envelopeTraces.length + markerTraces.length <= 6)),
-      // R37 — 모바일 legend 위치 (-0.32 → -0.42) + yanchor='top' 으로 X축과 분리.
-      //        margin.b 78 확보분에 자리잡음 → tick label 와 분명한 거리.
+      showlegend: showLegend && (!isMobile || (envelopeTraces.length + markerTraces.length <= 8)),
+      // Sprint 2 A2 — 모바일 legend 가시성 향상.
+      //   font.size 9→12 (가독성), itemwidth 30 (탭 영역), tracegroupgap 8 (밀집 완화), threshold 6→8.
       legend: isMobile
-        ? { orientation: 'h', y: -0.42, x: 0, yanchor: 'top', font: { size: 9, color: fontC }, bgcolor: 'rgba(0,0,0,0)' }
+        ? { orientation: 'h', y: -0.42, x: 0, yanchor: 'top', font: { size: 12, color: fontC }, bgcolor: 'rgba(0,0,0,0)', itemwidth: 30, tracegroupgap: 8 }
         : { orientation: 'h', y: 1.09, x: 0, yanchor: 'bottom', font: { size: 11, color: fontC }, bgcolor: 'rgba(0,0,0,0)' },
       paper_bgcolor: darkChart ? '#0b1220' : '#ffffff', plot_bgcolor: darkChart ? '#0f172a' : '#ffffff',
       font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: mBaseFont, color: fontC },

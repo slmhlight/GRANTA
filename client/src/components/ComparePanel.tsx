@@ -219,7 +219,14 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
             isCompareSet
           />
           <RadarChart
-            series={sortedMaterials.map((m, i) => ({ id: m.id, name: m.name, color: COLORS[i % COLORS.length], material: m }))}
+            series={sortedMaterials.map((m, i) => {
+              // Sprint2 A5 — family color 사용 (같은 family 끼리 색 통일).
+              //   같은 family 안 다중 alloy 구별 위해 인덱스 기반 lightness 변형 추가.
+              const baseColor = familyColor(m);
+              const familyIdx = sortedMaterials.filter((x, xi) => xi < i && familyColor(x) === baseColor).length;
+              const variant = familyIdx === 0 ? baseColor : (familyIdx === 1 ? COLORS[(i + 7) % COLORS.length] : COLORS[(i + 13) % COLORS.length]);
+              return { id: m.id, name: m.name, color: variant, material: m };
+            })}
             axes={radarAxes}
             normalizeBase="set"
             size={Math.min(400, window.innerWidth - 64)}

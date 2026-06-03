@@ -160,7 +160,14 @@ export function RadarChart({
               {!dimmed && axes.map((ax, i) => {
                 const v = normValue(s.material, ax);
                 const [x, y] = vertex(i, r * v);
-                return <circle key={`${s.id}-${i}`} cx={x} cy={y} r={2.5} fill={s.color} />;
+                // Sprint2 B3 — vertex circle hover tooltip (SVG title — native, lib 의존 0).
+                const rawV = getProp(s.material, ax.key);
+                const tooltip = `${s.name}\n${ax.label}: ${rawV != null ? rawV.toFixed(rawV < 10 ? 2 : 1) : '—'}\n정규화: ${v.toFixed(2)} / 1.00`;
+                return (
+                  <circle key={`${s.id}-${i}`} cx={x} cy={y} r={2.5} fill={s.color}>
+                    <title>{tooltip}</title>
+                  </circle>
+                );
               })}
             </g>
           );

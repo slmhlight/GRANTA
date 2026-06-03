@@ -617,8 +617,8 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
             const style = CATEGORY_TIER_STYLE[node.tier1] || FALLBACK_STYLE;
             return (
               <div key={node.tier1} className="mb-2 rounded-md overflow-hidden">
-                {/* tier1 — category (강조: 색상 + 좌측 4px 띠 + 컬러 dot) */}
-                <div className={`flex items-center gap-1.5 py-1 px-2 ${style.bg1} ${style.tier1Bd} hover:brightness-95 transition-all`}>
+                {/* tier1 — category. Sprint 2 A4: mobile 탭 영역 확대 (py 1.5→1, text 13→12, checkbox 4→3.5). */}
+                <div className={`flex items-center gap-2 sm:gap-1.5 py-2 sm:py-1 px-2 ${style.bg1} ${style.tier1Bd} hover:brightness-95 transition-all`}>
                   <button
                     type="button"
                     onClick={() => {
@@ -627,26 +627,26 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
                       else next.add(node.tier1);
                       setExpandedTier1(next);
                     }}
-                    className={`w-4 h-4 flex items-center justify-center ${style.text1}`}
+                    className={`w-5 h-5 sm:w-4 sm:h-4 flex items-center justify-center ${style.text1}`}
                     aria-label={tier1Expanded ? 'collapse' : 'expand'}
                   >
-                    {tier1Expanded ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
+                    {tier1Expanded ? <ChevronDown className="w-4 h-4 sm:w-3.5 sm:h-3.5" /> : <ChevronRight className="w-4 h-4 sm:w-3.5 sm:h-3.5" />}
                   </button>
                   <input
                     type="checkbox"
                     ref={(el) => { if (el) el.indeterminate = tier1State === 'partial'; }}
                     checked={tier1State === 'all'}
                     onChange={() => toggleGroup(allSubs)}
-                    className="accent-accent w-3.5 h-3.5 flex-shrink-0"
+                    className="accent-accent w-4 h-4 sm:w-3.5 sm:h-3.5 flex-shrink-0"
                   />
                   <span className={`w-2 h-2 rounded-full flex-shrink-0 ${style.dot}`} />
                   <span
-                    className={`text-[12px] font-bold flex-1 truncate cursor-pointer ${style.text1}`}
+                    className={`text-[13px] sm:text-[12px] font-bold flex-1 truncate cursor-pointer ${style.text1}`}
                     onClick={() => toggleGroup(allSubs)}
                   >
                     {node.tier1}
                   </span>
-                  <span className={`text-[10px] font-mono ${style.text2}`}>{node.count}</span>
+                  <span className={`text-[11px] sm:text-[10px] font-mono ${style.text2}`}>{node.count}</span>
                 </div>
                 {/* tier2/tier3 wrapper — 좌측 colored line이 tier1 dot 아래로 이어짐 */}
                 {tier1Expanded && (
@@ -660,8 +660,8 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
                       const tier2Expanded = expandedTier2.has(key2);
                       return (
                         <div key={key2} className="relative">
-                          {/* tier2 — family bucket. ┗ connector + 옅은 color bg */}
-                          <div className={`flex items-center gap-1 py-0.5 pl-1 pr-1 ${style.bg2} hover:brightness-95 rounded-r transition-all`}>
+                          {/* tier2 — family bucket. Sprint 2 A4: mobile padding 1→1.5, text 12→11, checkbox 4→3 */}
+                          <div className={`flex items-center gap-1.5 sm:gap-1 py-1 sm:py-0.5 pl-1 pr-1 ${style.bg2} hover:brightness-95 rounded-r transition-all`}>
                             <span className={`font-mono ${style.text2} text-[11px] select-none leading-none w-3 text-center`} aria-hidden>└</span>
                             <button
                               type="button"
@@ -671,42 +671,43 @@ function FamilyFilter({ materials, selectedCategories, selected, onChange }: Fam
                                 else next.add(key2);
                                 setExpandedTier2(next);
                               }}
-                              className={`w-3.5 h-3.5 flex items-center justify-center ${style.text2}`}
+                              className={`w-4 h-4 sm:w-3.5 sm:h-3.5 flex items-center justify-center ${style.text2}`}
                             >
-                              {tier2Expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
+                              {tier2Expanded ? <ChevronDown className="w-3.5 h-3.5 sm:w-3 sm:h-3" /> : <ChevronRight className="w-3.5 h-3.5 sm:w-3 sm:h-3" />}
                             </button>
                             <input
                               type="checkbox"
                               ref={(el) => { if (el) el.indeterminate = tier2State === 'partial'; }}
                               checked={tier2State === 'all'}
                               onChange={() => toggleGroup(groupSubs)}
-                              className="accent-accent w-3 h-3 flex-shrink-0"
+                              className="accent-accent w-3.5 h-3.5 sm:w-3 sm:h-3 flex-shrink-0"
                             />
                             <span
-                              className={`text-[11px] flex-1 truncate cursor-pointer font-medium ${style.text2}`}
+                              className={`text-[12px] sm:text-[11px] flex-1 truncate cursor-pointer font-medium ${style.text2}`}
                               title={group.tier2}
                               onClick={() => toggleGroup(groupSubs)}
                             >
                               {group.tier2}
                             </span>
-                            <span className="text-[9px] text-muted-foreground font-mono">{group.count}</span>
+                            <span className="text-[10px] sm:text-[9px] text-muted-foreground font-mono">{group.count}</span>
                           </div>
                           {/* tier3 — leaf subcategories (들여쓰기 + 더 옅은 ㄴ) */}
                           {tier2Expanded && (
                             <div className={`ml-3 ${style.tier3Bd}`}>
+                              {/* tier3 leaf — Sprint 2 A4: mobile padding 1, text 11, checkbox 3.5 */}
                               {group.leaves.map((leaf) => (
-                                <label key={leaf.sub} className="flex items-center gap-1 py-0.5 pl-1 pr-1 hover:bg-muted/30 rounded-r cursor-pointer text-[10.5px]">
+                                <label key={leaf.sub} className="flex items-center gap-1.5 sm:gap-1 py-1 sm:py-0.5 pl-1 pr-1 hover:bg-muted/30 rounded-r cursor-pointer text-[11px] sm:text-[10.5px]">
                                   <span className={`font-mono text-muted-foreground/50 text-[10px] select-none leading-none w-3 text-center`} aria-hidden>└</span>
                                   <input
                                     type="checkbox"
                                     checked={selected.includes(leaf.sub)}
                                     onChange={() => toggleLeaf(leaf.sub)}
-                                    className="accent-accent w-3 h-3 flex-shrink-0"
+                                    className="accent-accent w-3.5 h-3.5 sm:w-3 sm:h-3 flex-shrink-0"
                                   />
                                   <span className="flex-1 truncate text-foreground/70" title={leaf.sub}>
                                     {leafLabel(leaf.sub)}
                                   </span>
-                                  <span className="text-[9px] text-muted-foreground/70 font-mono">{leaf.count}</span>
+                                  <span className="text-[10px] sm:text-[9px] text-muted-foreground/70 font-mono">{leaf.count}</span>
                                 </label>
                               ))}
                             </div>
