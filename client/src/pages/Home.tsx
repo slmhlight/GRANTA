@@ -1090,6 +1090,17 @@ export default function Home() {
                 <span className="text-muted-foreground hidden md:inline truncate">· {t('banner.recommendedIndex')}: <span className="font-mono">{appliedPreset.indexHint}</span></span>
               )}
               <div className="ml-auto flex items-center gap-1 flex-shrink-0">
+                {/* R61 #7 — Apply 후 다음 액션 안내: 첫 후보 보기 / Compare 다보기. 사용자가 막히지 않도록. */}
+                {viewFiltered.length > 0 && !selectedMaterial && (
+                  <button onClick={() => setSelectedMaterial(viewFiltered[0])} className="hidden sm:inline-flex text-[11px] px-2 py-0.5 rounded border border-emerald-500/60 bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 items-center gap-0.5" title="첫 후보 상세 보기">
+                    <Info className="w-3 h-3" /> 첫 후보 ({viewFiltered.length})
+                  </button>
+                )}
+                {compareList.length >= 2 && !showCompare && (
+                  <button onClick={() => setShowCompare(true)} className="hidden sm:inline-flex text-[11px] px-2 py-0.5 rounded border border-sky-500/60 bg-sky-500/10 text-sky-700 hover:bg-sky-500/20 items-center gap-0.5" title="Compare 패널 열기">
+                    <GitCompareArrows className="w-3 h-3" /> Compare ({compareList.length})
+                  </button>
+                )}
                 {/* U12: suggest the recommended view — only when user is currently elsewhere */}
                 {appliedPreset.suggestedView && viewMode !== appliedPreset.suggestedView && (
                   <button onClick={() => setViewMode(appliedPreset.suggestedView!)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/60 bg-amber-500/15 text-amber-800 hover:bg-amber-500/25 flex items-center gap-0.5" title="권장 뷰로 전환">

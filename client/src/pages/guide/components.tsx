@@ -2,8 +2,9 @@
  * Guide 페이지 공용 UI 컴포넌트 — 챕터·카드·강조 박스 등.
  * Guide.tsx 가 너무 커져 분리. svg 들은 ./svgs.tsx 로 별도 분리.
  */
+import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { ExternalLink, Play, Settings } from 'lucide-react';
+import { ExternalLink, Play, Settings, ChevronDown, ChevronRight } from 'lucide-react';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 
 /** R61 #4 — 약어/기호 풀이 사전. F 컴포넌트가 자식 텍스트를 lookup → title 자동 부여.
@@ -95,25 +96,59 @@ export function Term({ word, children }: { word: string; children: React.ReactNo
 }
 
 /** 챕터 인트로 — 번호 배지 + 제목 + "이 챕터에서 배우는 것" */
+/** R61 #11 — 모바일 (<sm) 에서는 chapter 가 collapsed 시작, 데스크탑은 항상 펼쳐짐.
+ *  hash navigation (#ch6 등) 시 해당 챕터 자동 펼침. */
 export function Chapter({ n, id, title, learn, prereq, children }: { n: number; id: string; title: string; learn: string[]; prereq?: React.ReactNode; children?: React.ReactNode }) {
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 639px)').matches);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 639px)');
+    const on = () => setIsMobile(mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  // 첫 챕터는 펼침, 나머지 모바일 접음. hash 가 본 챕터이면 펼침.
+  const [open, setOpen] = useState(() => {
+    if (typeof window === 'undefined') return n === 1;
+    if (window.location.hash === `#${id}`) return true;
+    return !window.matchMedia('(max-width: 639px)').matches || n === 1;
+  });
+  useEffect(() => {
+    const onHash = () => { if (window.location.hash === `#${id}`) setOpen(true); };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, [id]);
+  // 데스크탑은 항상 펼침
+  const effectiveOpen = isMobile ? open : true;
   return (
     <section id={id} className="scroll-mt-24 mt-14">
       <div className="border-b-2 border-accent/30 pb-4 mb-5">
         <div className="flex items-baseline gap-3">
           <span className="text-[10px] tracking-[0.2em] uppercase text-accent font-bold">CHAPTER {n}</span>
         </div>
-        <h2 className="text-2xl font-bold text-foreground mt-1 tracking-tight">{title}</h2>
-        <div className="mt-3 rounded-md bg-accent/5 border border-accent/20 px-3 py-2">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1">이 챕터에서 배우는 것</p>
-          <ul className="list-disc pl-5 text-sm space-y-0.5 text-foreground/85">
-            {learn.map((l, i) => <li key={i}>{l}</li>)}
-          </ul>
-        </div>
-        {prereq && (
-          <p className="mt-2 text-[12px] text-muted-foreground italic">선수 지식: {prereq}</p>
+        <button
+          type="button"
+          onClick={() => isMobile && setOpen(o => !o)}
+          className="sm:cursor-default w-full text-left flex items-baseline gap-2"
+          aria-expanded={effectiveOpen}
+        >
+          {isMobile && (effectiveOpen ? <ChevronDown className="w-4 h-4 text-accent flex-shrink-0 self-center" /> : <ChevronRight className="w-4 h-4 text-accent flex-shrink-0 self-center" />)}
+          <h2 className="text-2xl font-bold text-foreground mt-1 tracking-tight">{title}</h2>
+        </button>
+        {effectiveOpen && (
+          <>
+            <div className="mt-3 rounded-md bg-accent/5 border border-accent/20 px-3 py-2">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1">이 챕터에서 배우는 것</p>
+              <ul className="list-disc pl-5 text-sm space-y-0.5 text-foreground/85">
+                {learn.map((l, i) => <li key={i}>{l}</li>)}
+              </ul>
+            </div>
+            {prereq && (
+              <p className="mt-2 text-[12px] text-muted-foreground italic">선수 지식: {prereq}</p>
+            )}
+          </>
         )}
       </div>
-      {children}
+      {effectiveOpen && children}
     </section>
   );
 }

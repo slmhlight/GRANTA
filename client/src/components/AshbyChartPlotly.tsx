@@ -231,6 +231,20 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     });
   }, [forceIndexKey]);
 
+  // R61 #6 — 첫 진입 mini-tour. localStorage 'am_ashby_hint_shown' 으로 1회 표시.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (localStorage.getItem('am_ashby_hint_shown')) return;
+    const id = setTimeout(() => {
+      toast('Ashby 차트 시작 팁', {
+        description: '🔴 빨간 점선 = 필터 한계 · 🔴 빨간 실선 = Index 임계 · ⚙ 마우스 휠 zoom · 더블클릭 reset',
+        duration: 8000,
+      });
+      try { localStorage.setItem('am_ashby_hint_shown', '1'); } catch { /* ignore */ }
+    }, 700);
+    return () => clearTimeout(id);
+  }, []);
+
   const filtered = filteredMaterials || materials;
   const dom = (prop: string): [number, number] => {
     const vs = materials.map((m) => tv(m, prop)).filter((v): v is number => v != null && v > 0);
