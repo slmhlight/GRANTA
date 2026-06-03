@@ -241,7 +241,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     if (localStorage.getItem('am_ashby_hint_shown')) return;
     const id = setTimeout(() => {
       toast('Ashby 차트 시작 팁', {
-        description: '🔴 빨간 점선 = 필터 한계 · 🔴 빨간 실선 = Index 임계 · ⚙ 마우스 휠 zoom · 더블클릭 reset',
+        description: '🟣 보라 점선 = 축 한계 슬라이더 · 🔵 청록 점선 = 사이드바 범위 필터 · 🔴 빨간 실선 = Index 임계 · ⚙ 마우스 휠 zoom · 더블클릭 reset',
         duration: 8000,
       });
       try { localStorage.setItem('am_ashby_hint_shown', '1'); } catch { /* ignore */ }
@@ -658,9 +658,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         </div>
       </div>
 
-      {/* ── Grouping & display ── Filter/Envelopes 라벨 + Show 체크박스 메인 노출 유지 (라운드 7 일부 복구).
-       *  모바일에서는 라벨·구분선 숨겨 한 줄에 더 들어가게. */}
-      <div className="flex-shrink-0 flex flex-wrap items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-2 border-b border-border">
+      {/* ── Grouping & display ── R99: 세로 최소화 (py-0.5), select 컴팩트 */}
+      <div className="flex-shrink-0 flex flex-wrap items-center gap-1 sm:gap-2 px-2 sm:px-3 py-0.5 sm:py-1.5 border-b border-border">
         <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Filter</span>
         <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
           <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[100px] sm:w-[128px]"><SelectValue /></SelectTrigger>
@@ -740,7 +739,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
       {/* Ashby material-index selection — pick a performance index, move the selection line by value.
        *  모바일: 슬라이더 숨김, 단위/auto 버튼 축약, dropdown 폭 축소. */}
-      <div className="flex-shrink-0 flex flex-wrap items-center gap-1.5 sm:gap-3 px-2 sm:px-4 py-1 sm:py-2 border-b border-border bg-rose-50/50">
+      <div className="flex-shrink-0 flex flex-wrap items-center gap-1 sm:gap-2 px-2 sm:px-4 py-0.5 sm:py-1.5 border-b border-border bg-rose-50/50">
         <span className="text-[10px] text-rose-700 uppercase tracking-wide font-semibold">Index</span>
         <Select value={indexPreset} onValueChange={(v) => { setIndexPreset(v); setConstraints([]); const p = MATERIAL_INDICES.find((i) => i.key === v); if (p) { setXProperty(p.x); setYProperty(p.y); setXLog(true); setYLog(true); setIndexThreshold(null); } }}>
           <SelectTrigger className="h-7 text-xs w-[170px] sm:w-[240px]"><SelectValue placeholder="Material index (off)" /></SelectTrigger>
@@ -760,7 +759,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
               className="h-7 w-20 sm:w-24 text-xs font-mono rounded border border-border px-1.5 bg-background"
             />
             <span className="text-[10px] text-muted-foreground hidden sm:inline">{indexInfo.unit}</span>
-            <div className="w-44 hidden md:block"><Slider min={indexInfo.minM} max={indexInfo.maxM} step={(indexInfo.maxM - indexInfo.minM) / 200 || 0.01} value={[Math.min(indexInfo.maxM, Math.max(indexInfo.minM, indexThreshold ?? indexInfo.thr))]} onValueChange={(v: number[]) => setIndexThreshold(v[0])} /></div>
+            {/* R99: 모바일에서도 index slider 표시 (이전 hidden md:block) */}
+            <div className="flex-1 min-w-[80px] sm:flex-initial sm:w-44"><Slider min={indexInfo.minM} max={indexInfo.maxM} step={(indexInfo.maxM - indexInfo.minM) / 200 || 0.01} value={[Math.min(indexInfo.maxM, Math.max(indexInfo.minM, indexThreshold ?? indexInfo.thr))]} onValueChange={(v: number[]) => setIndexThreshold(v[0])} /></div>
             <span className="text-[11px] font-semibold text-rose-700">{indexInfo.count}/{indexInfo.total} pass</span>
             <button type="button" onClick={() => setIndexThreshold(null)} className="text-[10px] px-1.5 py-0.5 rounded border text-accent border-accent/40 hover:bg-accent/10">auto</button>
             <span className="text-rose-300">·</span>

@@ -6,7 +6,7 @@
 
 import { useState, useMemo, useRef } from 'react';
 import { useT, useLang } from '@/lib/i18n';
-import { X, SlidersHorizontal, ArrowUp, ArrowDown, Download, FileImage, Hexagon, Table as TableIcon } from 'lucide-react';
+import { X, SlidersHorizontal, ArrowUp, ArrowDown, Download, FileImage, Hexagon, Table as TableIcon, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import type { Material, PropertyRange } from '@/lib/materials';
@@ -44,6 +44,9 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   const tableRef = useRef<HTMLDivElement>(null);
   // R69 G — 사용자 가중치 score (강도·강성·경량·저가). 합 = 100%. score = Σ(w_i · normalized).
   const [weights, setWeights] = useState({ strength: 40, stiffness: 20, light: 20, cheap: 20 });
+  /* R99 — 가중치·Best-pick 섹션 접기 (모바일 세로 절약). 기본 접힘. */
+  const [weightOpen, setWeightOpen] = useState(false);
+  const [bestPickOpen, setBestPickOpen] = useState(false);
   const wSum = weights.strength + weights.stiffness + weights.light + weights.cheap || 1;
   const computeScore = (m: Material): number => {
     const ys = typOf(m, 'yield_strength') || 0;
@@ -198,12 +201,12 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
 
   return (
     <div className="flex flex-col h-full bg-card border-l border-border">
-      {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted/30">
-        <span className="text-sm font-semibold">
+      {/* Header — R99: flex-wrap + overflow-x-auto 로 좁은 화면에서도 닫기 X 가 항상 보이게. */}
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 border-b border-border bg-muted/30 gap-2 min-w-0">
+        <span className="text-sm font-semibold flex-shrink-0 whitespace-nowrap">
           {t('compare.title')} <span className="text-xs text-muted-foreground font-normal">({materials.length})</span>
         </span>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 overflow-x-auto">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="h-7 text-xs gap-1"><SlidersHorizontal className="w-3 h-3" /> Columns</Button>
@@ -277,69 +280,88 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       </div>
 
       <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">{t('compare.hint')}</p>
-      {/* R69 G — 가중치 score 슬라이더 + Top-3 ranking. */}
+      {/* R69 G / R99 — 가중치 score: 접기 가능 (default 닫힘) */}
       {sortedMaterials.length >= 2 && (
-        <div className="px-4 py-2 border-b border-border/50 bg-sky-50/30">
-          <div className="flex items-center gap-2 mb-1.5">
-            <span className="text-[10px] font-semibold uppercase tracking-wide text-sky-700">⚖ 가중치 종합 score</span>
-            <span className="text-[9px] text-muted-foreground">합 {wSum}%</span>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-1.5">
-            {[
-              { key: 'strength', label: '강도 σy', max: 100 },
-              { key: 'stiffness', label: '강성 E', max: 100 },
-              { key: 'light', label: '경량 1/ρ', max: 100 },
-              { key: 'cheap', label: '저가 1/$', max: 100 },
-            ].map(s => (
-              <label key={s.key} className="text-[10px] text-foreground/70">
-                <div className="flex justify-between">
-                  <span>{s.label}</span>
-                  <span className="font-mono">{(weights as any)[s.key]}%</span>
-                </div>
-                <input
-                  type="range" min={0} max={s.max} step={5}
-                  value={(weights as any)[s.key]}
-                  onChange={(e) => setWeights(w => ({ ...w, [s.key]: +e.target.value }))}
-                  className="w-full h-1"
-                />
-              </label>
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-1.5 text-[11px]">
-            {sortedMaterials.map(m => ({ m, score: computeScore(m) })).sort((a, b) => b.score - a.score).slice(0, 3).map((r, i) => (
-              <span key={r.m.id} className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 border ${
-                i === 0 ? 'bg-amber-100 text-amber-800 border-amber-300 font-semibold'
-                : 'bg-sky-50 text-sky-700 border-sky-200'
-              }`}>
-                <b>{['🥇', '🥈', '🥉'][i]}</b>
-                <span className="font-mono truncate max-w-[140px]">{r.m.name}</span>
-                <span className="text-[9px] opacity-70">({r.score.toFixed(0)})</span>
-              </span>
-            ))}
-          </div>
+        <div className="border-b border-border/50 bg-sky-50/30">
+          <button
+            type="button"
+            onClick={() => setWeightOpen(o => !o)}
+            className="w-full px-4 py-1.5 flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-sky-700 hover:bg-sky-100/40"
+          >
+            <span>⚖ 가중치 종합 score · 합 {wSum}%</span>
+            {weightOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+          </button>
+          {weightOpen && (
+            <div className="px-4 pb-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-1.5">
+                {[
+                  { key: 'strength', label: '강도 σy', max: 100 },
+                  { key: 'stiffness', label: '강성 E', max: 100 },
+                  { key: 'light', label: '경량 1/ρ', max: 100 },
+                  { key: 'cheap', label: '저가 1/$', max: 100 },
+                ].map(s => (
+                  <label key={s.key} className="text-[10px] text-foreground/70 min-w-0">
+                    <div className="flex justify-between gap-1">
+                      <span className="truncate">{s.label}</span>
+                      <span className="font-mono flex-shrink-0">{(weights as any)[s.key]}%</span>
+                    </div>
+                    <input
+                      type="range" min={0} max={s.max} step={5}
+                      value={(weights as any)[s.key]}
+                      onChange={(e) => setWeights(w => ({ ...w, [s.key]: +e.target.value }))}
+                      className="w-full h-1"
+                    />
+                  </label>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-1.5 text-[11px]">
+                {sortedMaterials.map(m => ({ m, score: computeScore(m) })).sort((a, b) => b.score - a.score).slice(0, 3).map((r, i) => (
+                  <span key={r.m.id} className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 border min-w-0 ${
+                    i === 0 ? 'bg-amber-100 text-amber-800 border-amber-300 font-semibold'
+                    : 'bg-sky-50 text-sky-700 border-sky-200'
+                  }`}>
+                    <b>{['🥇', '🥈', '🥉'][i]}</b>
+                    <span className="font-mono truncate max-w-[120px] sm:max-w-[140px]">{r.m.name}</span>
+                    <span className="text-[9px] opacity-70 flex-shrink-0">({r.score.toFixed(0)})</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
-      {/* R69 B — Best-pick badges (sortedMaterials >= 2). */}
+      {/* R69 B / R99 — Best-pick badges: 접기 가능 (default 닫힘) */}
       {bestPicks && (
-        <div className="px-4 py-2 border-b border-border/50 bg-amber-50/40 flex flex-wrap gap-2 text-[11px]">
-          <span className="text-[10px] font-semibold uppercase tracking-wide text-amber-700">🏆 Best-pick:</span>
-          {[
-            { l: '최대 강도 σy', m: bestPicks.strength, c: 'rose' },
-            { l: '최대 강성 E', m: bestPicks.stiffness, c: 'sky' },
-            { l: '비강도 σy/ρ', m: bestPicks.specStrength, c: 'rose' },
-            { l: '비강성 E/ρ', m: bestPicks.specStiffness, c: 'sky' },
-            { l: '최저 가격', m: bestPicks.cheap, c: 'emerald' },
-            { l: '최대 경도', m: bestPicks.hard, c: 'violet' },
-          ].filter(b => b.m).map((b, i) => (
-            <span key={i} className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 border ${
-              b.c === 'rose' ? 'bg-rose-50 text-rose-700 border-rose-200'
-              : b.c === 'sky' ? 'bg-sky-50 text-sky-700 border-sky-200'
-              : b.c === 'emerald' ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-              : 'bg-violet-50 text-violet-700 border-violet-200'
-            }`}>
-              <b>{b.l}:</b> <span className="font-mono truncate max-w-[120px]">{b.m!.name}</span>
-            </span>
-          ))}
+        <div className="border-b border-border/50 bg-amber-50/40">
+          <button
+            type="button"
+            onClick={() => setBestPickOpen(o => !o)}
+            className="w-full px-4 py-1.5 flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-amber-700 hover:bg-amber-100/40"
+          >
+            <span>🏆 Best-pick</span>
+            {bestPickOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+          </button>
+          {bestPickOpen && (
+            <div className="px-4 pb-2 flex flex-wrap gap-1.5 text-[11px]">
+              {[
+                { l: '최대 강도 σy', m: bestPicks.strength, c: 'rose' },
+                { l: '최대 강성 E', m: bestPicks.stiffness, c: 'sky' },
+                { l: '비강도 σy/ρ', m: bestPicks.specStrength, c: 'rose' },
+                { l: '비강성 E/ρ', m: bestPicks.specStiffness, c: 'sky' },
+                { l: '최저 가격', m: bestPicks.cheap, c: 'emerald' },
+                { l: '최대 경도', m: bestPicks.hard, c: 'violet' },
+              ].filter(b => b.m).map((b, i) => (
+                <span key={i} className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 border min-w-0 ${
+                  b.c === 'rose' ? 'bg-rose-50 text-rose-700 border-rose-200'
+                  : b.c === 'sky' ? 'bg-sky-50 text-sky-700 border-sky-200'
+                  : b.c === 'emerald' ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                  : 'bg-violet-50 text-violet-700 border-violet-200'
+                }`}>
+                  <b className="flex-shrink-0">{b.l}:</b> <span className="font-mono truncate max-w-[100px] sm:max-w-[120px]">{b.m!.name}</span>
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

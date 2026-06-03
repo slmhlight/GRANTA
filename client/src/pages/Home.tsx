@@ -669,7 +669,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-background">
+    <div className="flex flex-col h-screen overflow-hidden bg-background pb-[50px] md:pb-0">
       {/* ─── Top Header ─── */}
       <header className="flex-shrink-0 h-12 flex items-center gap-3 px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground z-20">
         {/* Logo — R80: 모바일 hidden (좁은 헤더 공간 절약, 사용자가 가장 왼쪽 아이콘 제거 요청). */}
@@ -1385,9 +1385,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ─── Right Compare Panel (resizable) ─── 모바일에서 z-50 으로 bottom bar(z-30) 위. */}
+        {/* ─── Right Compare Panel (resizable) ─── R99: 모바일에서 bottom nav (z-50) 위 영역만 차지 → 사용자가 nav 누르고 탈출 가능. */}
         {showCompare && (
-          <div className="fixed inset-0 z-50 md:relative md:z-auto md:inset-auto flex-shrink-0 w-full overflow-hidden md:border-l border-border bg-background" style={{ width: isDesktop ? panelWidth : undefined }}>
+          <div className="fixed top-12 left-0 right-0 bottom-[50px] z-40 md:relative md:top-auto md:left-auto md:right-auto md:bottom-auto md:z-auto md:inset-auto flex-shrink-0 w-full overflow-hidden md:border-l border-border bg-background" style={{ width: isDesktop ? panelWidth : undefined }}>
             {/* drag handle (desktop): drag to resize, double-click to reset */}
             <div
               onPointerDown={startPanelResize}
@@ -1422,7 +1422,7 @@ export default function Home() {
 
       {/* ─── Mobile bottom action bar (sm:hidden) ─── 화면 폭이 좁을 때 상단 헤더가 빠듯하므로
        *  핵심 작업(Filter·View·Compare·Guide)을 하단 고정 바로 분리. 데스크탑은 hidden. */}
-      <nav className="md:hidden flex-shrink-0 grid grid-cols-5 border-t border-border bg-background z-30">
+      <nav className="md:hidden fixed left-0 right-0 bottom-0 grid grid-cols-5 border-t border-border bg-background z-50">
         <button onClick={() => setMobileSidebarOpen(true)} className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors">
           <Menu className="w-4 h-4" /> 필터{activeFilterCount > 0 && <span className="absolute mt-2 -mr-6 inline-block w-3 h-3 rounded-full bg-accent text-white text-[8px] leading-3 text-center font-bold">{activeFilterCount}</span>}
         </button>

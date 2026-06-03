@@ -2,6 +2,21 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R99 — 모바일 긴급 fix (8건)
+사용자 긴급 보고. 모바일 사용성 회복 위주.
+- **모바일 Compare 탈출**: 모바일 nav (필터/뷰/Compare/가이드/Settings) 가 `z-30` → `fixed bottom-0 z-50` → Compare 패널 (`fixed top-12 bottom-[50px]`) 영역만 차지하여 nav 가 항상 보임. Compare 들어간 후 다른 view 로 즉시 이동 가능.
+- **Ashby Index slider 모바일 노출**: `hidden md:block` → `flex-1` (모바일 가용 폭만큼 자동 펼침) — 사용자가 누르고 끌어 임계값 조정 가능.
+- **가중치·Best-pick collapse**: Compare panel 의 두 섹션 모두 ChevronDown/Up 토글 헤더 — 기본 접힘, 모바일 세로 공간 절약. 데스크탑도 동일 UX.
+- **Goodman 색상 + 5개 제한**: 기존 모든 선이 family color 같은 hue 였음 → Goodman 전용 5색 categorical palette (`#0066CC blue · #DC2626 red · #16A34A green · #D97706 orange · #7C3AED purple`). 6개 이상이면 처음 5개만 표시 + amber 안내 박스.
+- **모바일 글자 망가짐**: Compare panel header `flex-wrap + min-w-0 + overflow-x-auto` → 닫기 X 항상 보임. 가중치/Best-pick 의 alloy 이름 `truncate max-w-[100-140px]` 적용. button group horizontal scroll 가능.
+- **Ashby 필터/Pareto/Display 영역 세로 최소화**: `py-1 sm:py-2` → `py-0.5 sm:py-1.5`. Filter row 와 Index row 모두 적용. 스크린샷 빨간 박스 영역의 세로 25% 축소.
+- **Toast 색상 정정**: "🔴 빨간 점선 = 필터 한계" → "🟣 보라 점선 = 축 한계 슬라이더 / 🔵 청록 점선 = 사이드바 범위 필터 / 🔴 빨간 실선 = Index 임계" — 실제 차트 shape 색상 (R50c 부터 보라/청록/빨강 3색) 과 정확히 일치.
+- **모바일 main container padding**: `pb-[50px]` 추가 — 차트 영역이 fixed bottom nav 뒤로 밀리지 않음.
+
+검증: tsc OK · vitest 47/47 · production build OK (1290.86 KB)
+
+> 보류 (사용자 재검토 후 별도 push): 풍산 7 alloy + data/general-knowledge/ 9 markdown + AISI 4140 industry_note (R98 작업분).
+
 ## R97 — Reset axes 동작을 X/Y property 재선택과 동일화
 사용자 요청: "reset axes 의 동작을 현재의 XY 축을 다시 설정했을 때와 동일하게 적용".
 **관찰**: 사용자가 X-axis property 변경 (예: density → modulus) 시 axis 가 정상적으로 새 frame 으로 reset — uirevision 에 xProperty 가 포함되어 plotly 가 사용자 zoom 폐기 + layout.range 적용. 이게 의도된 동작.

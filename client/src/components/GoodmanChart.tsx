@@ -27,7 +27,12 @@ export default function GoodmanChart({ materials, series }: Props) {
   const plotW = W - mL - mR;
   const plotH = H - mT - mB;
 
-  const list = series ? series.map(s => ({ ...s, material: s.material })) : materials.map(m => ({ id: m.id, name: m.name, color: '#0066CC', material: m }));
+  /* R99 — Goodman 전용 distinct color palette (max 5 alloy). 기존 series.color (family hue) 가 단조로워 라인 구분 불가 → categorical 색상 직접 할당. */
+  const GOODMAN_PALETTE = ['#0066CC', '#DC2626', '#16A34A', '#D97706', '#7C3AED']; // blue · red · green · orange · purple
+  const list0 = series ? series.map(s => ({ ...s, material: s.material })) : materials.map(m => ({ id: m.id, name: m.name, color: '#0066CC', material: m }));
+  /* 5개 초과시 alloy 추리고 toast 메시지 (UI 에서 안내) */
+  const overflowed = list0.length > 5;
+  const list = list0.slice(0, 5).map((s, i) => ({ ...s, color: GOODMAN_PALETTE[i % GOODMAN_PALETTE.length] }));
   const rows = list.map(s => {
     const sigmaY = tv(s.material, 'yield_strength') || 0;
     const sigmaU = tv(s.material, 'uts') || sigmaY * 1.3;
@@ -40,6 +45,10 @@ export default function GoodmanChart({ materials, series }: Props) {
   }).filter(r => r.sigmaF > 0 && r.denom > 0);
 
   if (rows.length === 0) return <div className="text-xs text-muted-foreground italic p-4">σy·UTS·σf 데이터가 모두 있는 alloy 가 없습니다.</div>;
+  /* R99: 6개 이상이면 5개만 그리고 안내 메시지 표시 */
+  if (overflowed) {
+    // (실제 렌더링 직전 안내) — list/rows 는 이미 slice 됨
+  }
 
   const xMax = Math.max(...rows.map(r => r.denom), sigmaM * 1.2, 100);
   const yMax = Math.max(...rows.map(r => r.sigmaF), sigmaA * 1.2, 100);
@@ -66,6 +75,12 @@ export default function GoodmanChart({ materials, series }: Props) {
         </div>
         <p className="text-[10px] text-muted-foreground self-center max-w-[300px]">σ_a/σ_f + σ_m/σ_{criterion === 'goodman' ? 'u' : 'y'} = 1/SF. 직선 아래 = 안전, 위 = 파괴.</p>
       </div>
+      {/* R99 — 6개 이상이면 처음 5개만 표시 안내 */}
+      {overflowed && (
+        <div className="mb-2 text-[10px] rounded bg-amber-100/60 text-amber-900 border border-amber-300 px-2 py-1 inline-block">
+          ⚠ Goodman 그래프는 최대 5개 alloy 까지 — 처음 5개만 표시됩니다 ({list0.length} 중). 추리려면 Compare 에서 일부 제거.
+        </div>
+      )}
 
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full max-w-[640px] h-auto border border-border rounded bg-card">
         {/* axes */}
