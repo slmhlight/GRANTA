@@ -3,24 +3,24 @@
 Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` (2908 rows).
 
 ## Output
-- **1085 materials**: 99 curated · 7 am_vendor · 444 generic
-- Dropped 559 CSV rows that duplicate curated AM alloys (curated db is the richer source).
+- **1121 materials**: 99 curated · 7 am_vendor · 438 generic
+- Dropped 579 CSV rows that duplicate curated AM alloys (curated db is the richer source).
 
 ## Property range coverage
 | property | has range | non-degenerate (max>min) |
 |---|---|---|
-| density | 1085/1085 | 0 |
-| yield_strength | 1083/1085 | 662 |
-| uts | 1076/1085 | 660 |
-| elongation | 1044/1085 | 659 |
-| modulus | 1085/1085 | 48 |
-| hardness | 942/1085 | 567 |
-| thermal_conductivity | 1085/1085 | 2 |
-| fatigue_strength | 973/1085 | 861 |
-| impact_strength | 166/1085 | 166 |
+| density | 1121/1121 | 0 |
+| yield_strength | 1119/1121 | 657 |
+| uts | 1112/1121 | 655 |
+| elongation | 1080/1121 | 654 |
+| modulus | 1121/1121 | 48 |
+| hardness | 972/1121 | 562 |
+| thermal_conductivity | 1121/1121 | 2 |
+| fatigue_strength | 1006/1121 | 876 |
+| impact_strength | 166/1121 | 166 |
 
 ## Sources (Task 2)
-- Materials with ≥1 **verified datasheet URL**: 587/1085 (all curated + ref_urls).
+- Materials with ≥1 **verified datasheet URL**: 620/1121 (all curated + ref_urls).
 - Raw CSV had `source=Unknown` for 2368/2908 rows; curated provenance restored from `ref_urls`.
 - Generic & am_vendor tiers enriched with a family handbook reference + a MatWeb QuickText search link (verifiable URLs, not fabricated datasheets).
 
@@ -63,13 +63,13 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 ### Category counts
 | Category | Count | Distinct subcategories |
 |---|---|---|
-| Metal | 902 | (multiple) |
-| Polymer | 110 | 44 |
+| Metal | 932 | (multiple) |
+| Polymer | 113 | 45 |
 | Ceramic | 39 | 9 |
-| Composite | 34 | — |
+| Composite | 37 | — |
 
 ### Metal subcategory canonicalization (R36c)
-- 355 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
+- 374 metal entries had their subcategory rewritten by `METAL_SUB_RULES`.
 - Stainless: Stainless / Stainless Steel / PH Stainless → "Stainless Steel - Austenitic / Ferritic·Martensitic / Duplex / PH".
 - Nickel: Nickel-based / Nickel Alloy / Nickel Superalloy / Hastelloy / Inconel / Monel / Haynes 등 → "Nickel Superalloy - <subfamily>".
 - Cobalt: Cobalt Chrome / Cobalt-based → "Cobalt Alloy - Chrome / Wear".
@@ -77,14 +77,14 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 - Steel: Carbon Steel / Steel / Carbon-Low-alloy → "Carbon Steel"; Maraging / Tool / Cast Iron 분리.
 
 ### Polymer subcategory canonicalization (R34c)
-- 63 polymer entries had their subcategory rewritten by the canonicalization pass (`POLY_SUB_RULES`).
+- 64 polymer entries had their subcategory rewritten by the canonicalization pass (`POLY_SUB_RULES`).
 - PEEK / PEEK CF, PEKK / PEKK CF, PA / PA GF / PA CF, ULTEM / ULTEM GF kept distinct (reinforcement variants have meaningfully different properties).
 - "Polymer - Nylon (FDM/SLS)" residual count: 1 — unmatched entries fall back to category-specific subcategory.
 
 ### Temperature & creep coverage
-- 317 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +76 mostly polymer).
-- 276 have Young's modulus vs T (E(T)).
-- 110 have creep rupture curves (Ni superalloys, no change in R34).
+- 325 materials carry σy/UTS vs temperature data (was 241 before R34a, gain +84 mostly polymer).
+- 284 have Young's modulus vs T (E(T)).
+- 113 have creep rupture curves (Ni superalloys, no change in R34).
 
 ## R48a — Anomaly Detection
 

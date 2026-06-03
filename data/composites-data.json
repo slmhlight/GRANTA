@@ -265,6 +265,36 @@
       "thermal_k": 0.5, "cte": 25, "max_temp": 150,
       "applications": "자동차 hood·trunk lid·panels (FRP large parts), 인프라 패널",
       "price_per_kg": 3, "popularity": 5
+    },
+    {
+      "name": "CFRP — T700SC/Epoxy (UD 0°)",
+      "subcategory": "Carbon-Epoxy",
+      "density": 1.55, "ys": 2300, "uts": 2300, "modulus": 135, "elongation": 1.7,
+      "thermal_k": 5, "cte": 0.5, "max_temp": 120,
+      "fiber_vf": 0.60, "ply_direction": "UD 0°",
+      "applications": "F1 모노코크 보강, 자전거 프레임, 카이트보드 spar, 풍력 spar cap (mid-range, Vestas / GE 일부 모델), 산악 자전거, 압력 수소 탱크",
+      "limitations": "T800 보다 modulus 17% 낮음, 자동화 lay-up 시 결함 민감",
+      "price_per_kg": 85, "popularity": 5
+    },
+    {
+      "name": "CFRP — IM7/BMI (UD 0°, supersonic structural)",
+      "subcategory": "Carbon-BMI",
+      "density": 1.60, "ys": 2500, "uts": 2500, "modulus": 165, "elongation": 1.6,
+      "thermal_k": 6, "cte": 0.4, "max_temp": 230,
+      "fiber_vf": 0.60, "ply_direction": "UD 0°",
+      "applications": "F-22 Raptor·F-35 Lightning II nose & wing skin (high-temp 200°C 환경), 미사일 nosecone (radome), Trent 1000 fan blade containment, hypersonic UAV",
+      "limitations": "에폭시 대비 toughness 낮음 (KIC 약), 가공·curing 비용 ↑, 흡습 영향 영구",
+      "price_per_kg": 220, "popularity": 4
+    },
+    {
+      "name": "CFRP — M40J/Cyanate Ester (UD 0°, satellite dimensional)",
+      "subcategory": "Carbon-Cyanate",
+      "density": 1.65, "ys": 1900, "uts": 1900, "modulus": 230, "elongation": 0.8,
+      "thermal_k": 35, "cte": -0.4, "max_temp": 180,
+      "fiber_vf": 0.60, "ply_direction": "UD 0°",
+      "applications": "통신 위성 antenna reflector & feed boom (저 CTE, 낮은 OOS), Sentinel·WorldView optical bench, James Webb sun-shield strut, GPS satellite truss",
+      "limitations": "고가 (CE resin $200/kg), Tg 250°C 부근 toughness drop, processing window 좁음",
+      "price_per_kg": 380, "popularity": 3
     }
   ]
 }

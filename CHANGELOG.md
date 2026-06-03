@@ -2,6 +2,17 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R73 — Industry-standard 도메인 확장 (1,085 → 1,121)
+보유 데이터가 풍부한 ceramic 영역(Macor, Mullite, Spinel, WC-Co, Sialon 등 이미 존재)은 건너뛰고, metal·composite·polymer 영역에 20종 추가. 각 metal entry 에 `industry_note`, composite/polymer entry 에 `applications` 상세 표기.
+- **잠수함 / 수소 서비스 / 파이프라인** — HY-100 (Virginia·Seawolf hull), SA336 F22V (hydroprocessing reactor V-mod Cr-Mo), API 5L X65 PSL2 (sour offshore), API 5L X70 PSL2 (gas transmission), L80 Type 13Cr (CO₂ sweet OCTG)
+- **마모 / 충격** — Hadfield Manganese Steel Mn13 (ASTM A128 Grade B, 분쇄기 jaw / 철도 frog)
+- **항공·우주 Al** — AA 5083-H321 (LNG inner tank / ABS marine), AA 2024-T351 (737/747 fuselage skin), AA 7050-T7451 (F-22/777 thick forging)
+- **β-Ti** — Ti-13V-11Cr-3Al (SR-71 Blackbird airframe, 1st-gen β)
+- **헬리콥터 기어** — Pyrowear 53 (AMS 6308; Black Hawk/Apache main gearbox, 315°C loss-of-lube)
+- **터빈 블레이드 / 디스크** — MAR-M 247 (GE F404/F414 blade, F1/Le Mans turbo wheel), Udimet 720Li (Trent 500/700/900 HP disc), AISI 8620 (자동차 변속기 ring & 풍력 1.5 MW 기어 reference)
+- **CFRP 확장** — T700SC/Epoxy (F1·자전거·풍력 mid-range), IM7/BMI (F-22·F-35 supersonic 230°C 1차 구조), M40J/Cyanate Ester (위성 antenna boom 저 CTE)
+- **고성능 폴리머** — PMMA Plexiglas G (F-16/Cessna 캐노피 MIL-PRF-25690), PET-GF30 Rynite 530 (산업 감속기·펌프·헤어드라이어), PPA-GF45 Amodel A-1145 HS (자동차 EV 인버터·트랜스미션 HT)
+
 ## R72 — Industry-standard niche alloy DB (1,040 → 1,085)
 20 standard-grade alloys added to `data/supplementary-materials.json`, each tagged with `industry_note` describing its de-facto-standard application. Total reference materials 392 → 412; combined DB 1,040 → 1,085 alloys.
 - **Valve / pump trim** — SS410 (UNS S41000, API 6A trim), SS420 (cutlery / surgical), SS440C (premium bearing & blade)

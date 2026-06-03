@@ -11750,6 +11750,238 @@
         "https://www.matweb.com/search/QuickText.aspx?SearchText=ASTM%20A401"
       ],
       "industry_note": "ASTM A401 standard for automotive engine valve springs (high-cycle fatigue ≥ 10^8 at σ_a ≈ 500 MPa), clutch springs; Si retards tempering softening to 230°C operating service."
+    },
+    {
+      "name": "HY-100 (MIL-S-16216) — submarine pressure hull",
+      "category": "Metal",
+      "subcategory": "High-Strength Low-Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "2.25~3.50", "Cr": "1.00~1.80", "Mo": "0.20~0.60", "Mn": "0.10~0.45", "C": "≤0.20", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 690, 800, 20, 200, 260, 36],
+        [7.85, 760, 860, 18, 200, 280, 36]
+      ],
+      "conditions": ["Q+T (860°C WQ + 650°C T)", "Q+T heavy plate (welded HAZ, peened)"],
+      "ref_urls": [
+        "https://everyspec.com/MIL-SPECS/MIL-SPECS-MIL-S/MIL-S-16216K_9737/"
+      ],
+      "industry_note": "USN submarine pressure hull (Los Angeles → Virginia → Seawolf class) and surface combatants; CVN ≥ 81 J at −18°C, low-H welding (MIL-E-22200/10)."
+    },
+    {
+      "name": "SA336 F22V Class 3 (V-modified 2.25Cr-1Mo) — hydroprocessing reactor",
+      "category": "Metal",
+      "subcategory": "Heat-Resistant Steel",
+      "process": "Forged",
+      "composition": { "Fe": "balance", "Cr": "2.0~2.5", "Mo": "0.90~1.10", "V": "0.25~0.35", "Cb": "0.030~0.070", "C": "0.11~0.15", "Mn": "0.30~0.60", "Si": "≤0.10" },
+      "points": [
+        [7.85, 450, 590, 18, 207, 200, 36],
+        [7.85, 490, 620, 16, 207, 215, 36]
+      ],
+      "conditions": ["Q+T (920°C oil Q + 700°C T)", "Q+T + Post-Weld HT (705°C/30h)"],
+      "ref_urls": [
+        "https://www.astm.org/a0336_a0336m-22.html"
+      ],
+      "industry_note": "Heavy-wall hydroprocessing reactor (hydrocracker, hydrotreater) shells per API 934-A; V/Cb stable carbides retard creep & H₂ disbonding (Nelson curve > P22 base)."
+    },
+    {
+      "name": "API 5L X65 PSL2 (Offshore sour-service line pipe)",
+      "category": "Metal",
+      "subcategory": "Pipeline Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Mn": "1.0~1.6", "C": "≤0.12", "Si": "≤0.45", "Nb+V+Ti": "≤0.15", "S": "≤0.003", "P": "≤0.020", "Cu+Ni+Mo": "micro" },
+      "points": [
+        [7.85, 450, 535, 22, 207, 195, 50],
+        [7.85, 480, 565, 20, 207, 210, 50]
+      ],
+      "conditions": ["TMCP rolled (sour HIC-resistant)", "Normalized + sour-service heat-treated"],
+      "ref_urls": [
+        "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5l"
+      ],
+      "industry_note": "Offshore subsea pipeline workhorse (Gulf of Mexico, North Sea, pre-salt); NACE MR0175 HIC/SSC qualified; max H₂S service to ~0.1 bar partial pressure."
+    },
+    {
+      "name": "API 5L X70 PSL2 (Gas-transmission pipeline)",
+      "category": "Metal",
+      "subcategory": "Pipeline Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Mn": "1.4~1.8", "C": "≤0.10", "Si": "≤0.45", "Nb": "0.04~0.10", "V+Ti": "≤0.15", "P": "≤0.020", "S": "≤0.010" },
+      "points": [
+        [7.85, 485, 570, 20, 207, 215, 50],
+        [7.85, 510, 600, 18, 207, 225, 50]
+      ],
+      "conditions": ["TMCP (acicular ferrite + minor M-A)", "TMCP + accelerated cooled (heavy wall, > 25 mm)"],
+      "ref_urls": [
+        "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5l"
+      ],
+      "industry_note": "Long-distance gas trunkline workhorse (West-East China, Nord Stream, TANAP); CTOD ≥ 0.25 mm at -20°C for arrest of running brittle fracture."
+    },
+    {
+      "name": "L80 Type 13Cr (UNS S42000) — sour-service OCTG",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Martensitic",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "12~14", "C": "0.15~0.22", "Mn": "≤1.0", "Si": "≤1.0", "Ni": "≤0.50", "Mo": "≤0.10" },
+      "points": [
+        [7.74, 552, 655, 20, 200, 245, 25],
+        [7.74, 655, 760, 18, 200, 270, 25]
+      ],
+      "conditions": ["Q+T (980°C oil Q + 700°C T, σy min)", "Q+T (peak hardness, σy max)"],
+      "ref_urls": [
+        "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5ct"
+      ],
+      "industry_note": "API 5CT L80 13Cr standard for CO₂-rich sweet gas wells (no free H₂S); workhorse for gas production tubing in Middle East / Sichuan basin; NACE MR0175 < 10 ppm H₂S."
+    },
+    {
+      "name": "Hadfield Manganese Steel (Mn13, ASTM A128 Grade B)",
+      "category": "Metal",
+      "subcategory": "Wear-Resistant Steel",
+      "process": "Cast",
+      "composition": { "Fe": "balance", "Mn": "11~14", "C": "1.10~1.40", "Si": "≤1.0", "P": "≤0.07" },
+      "points": [
+        [7.85, 380, 860, 35, 200, 200, 13],
+        [7.85, 410, 900, 30, 200, 220, 13],
+        [7.85, 480, 1100, 18, 200, 550, 13]
+      ],
+      "conditions": ["Water-Toughened (1050°C WQ, as-supplied)", "WT + Explosion-hardened (surface)", "WT + In-service work-hardened (impact-loaded, 5 mm depth)"],
+      "ref_urls": [
+        "https://www.astm.org/a0128_a0128m-19.html"
+      ],
+      "industry_note": "Cast 100+ years; jaw-crusher liner, cone crusher mantle, railway switch frog/crossing, dragline bucket teeth, dredge cutter heads; HV doubles under impact (work-hardening γ→α' transformation)."
+    },
+    {
+      "name": "AA 5083-H321 (marine / LNG inner-tank Al)",
+      "category": "Metal",
+      "subcategory": "Aluminum Alloy",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Mg": "4.0~4.9", "Mn": "0.40~1.0", "Cr": "0.05~0.25", "Fe": "≤0.40", "Si": "≤0.40" },
+      "points": [
+        [2.66, 145, 290, 22, 70, 75, 117],
+        [2.66, 215, 305, 16, 70, 85, 117],
+        [2.66, 230, 320, 14, 70, 95, 117]
+      ],
+      "conditions": ["O (annealed)", "H321 (strain-hardened + stabilized, ABS marine)", "H116 (special temper for stress-corrosion)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%205083-H321"
+      ],
+      "industry_note": "ABS / DNV approved for ship superstructure, LNG carrier inner tank (IMO Type-B), high-speed catamaran hull, cryogenic ground tanks (-196°C retention); Mg saturation gives SCC risk above 65°C."
+    },
+    {
+      "name": "AA 2024-T351 (aerospace fuselage skin)",
+      "category": "Metal",
+      "subcategory": "Aluminum Alloy",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Cu": "3.8~4.9", "Mg": "1.2~1.8", "Mn": "0.30~0.90", "Fe": "≤0.50", "Si": "≤0.50" },
+      "points": [
+        [2.78, 75, 185, 20, 73, 50, 190],
+        [2.78, 325, 470, 20, 73, 137, 121],
+        [2.78, 450, 480, 6, 73, 145, 130]
+      ],
+      "conditions": ["O (Annealed)", "T351 (Solution + 1.5~3% stretched + naturally aged)", "T81 (T3 + artificial aged)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202024-T351"
+      ],
+      "industry_note": "Standard fuselage skin & lower wing panel for Boeing 737/747/757, Airbus A320 family, McDonnell DC-10; Alclad variant gives corrosion-cladding for marine atmosphere."
+    },
+    {
+      "name": "AA 7050-T7451 (aerospace forging / thick plate)",
+      "category": "Metal",
+      "subcategory": "Aluminum Alloy",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Zn": "5.7~6.7", "Mg": "1.9~2.6", "Cu": "2.0~2.6", "Zr": "0.08~0.15", "Mn": "≤0.10", "Cr": "≤0.04" },
+      "points": [
+        [2.83, 90, 235, 13, 72, 60, 154],
+        [2.83, 470, 525, 10, 71.7, 165, 154],
+        [2.83, 510, 560, 11, 72, 175, 154]
+      ],
+      "conditions": ["O (Annealed)", "T7451 (Overaged for SCC resistance, peak fracture toughness)", "T74 (Standard overage)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%207050-T7451"
+      ],
+      "industry_note": "Standard for thick aircraft forgings & plate ≥ 50 mm: F/A-18, F-22, F-35 main spars; Boeing 777 wing rib; lower SCC sensitivity than 7075 makes T7451 preferred for thick-section."
+    },
+    {
+      "name": "Ti-13V-11Cr-3Al (B120-VCA, 1st-gen β-titanium)",
+      "category": "Metal",
+      "subcategory": "Titanium - β",
+      "process": "Wrought",
+      "composition": { "Ti": "balance", "V": "12.5~14.5", "Cr": "10~12", "Al": "2.5~3.5", "Fe": "≤0.35", "O": "≤0.17" },
+      "points": [
+        [4.84, 830, 880, 14, 100, 250, 7.0],
+        [4.84, 1170, 1230, 7, 100, 365, 7.0]
+      ],
+      "conditions": ["Solution Treated (750°C/30min AC)", "Solution + Aged (480°C/96h, peak strength)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/datasheet.aspx?MatGUID=15a1e9bfb95e4e98a85fc3afebbf0ba2"
+      ],
+      "industry_note": "First commercial β-Ti; SR-71 Blackbird airframe (~93% of structure), Lockheed A-12; fast-aging to ω makes precision heat-treat critical; ω-embrittlement at room temp limits modern use."
+    },
+    {
+      "name": "Pyrowear 53 (Carpenter, AMS 6308) — helicopter transmission gear",
+      "category": "Metal",
+      "subcategory": "Case-Hardening Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "1.00", "Ni": "2.00", "Mo": "3.25", "Cu": "2.00", "V": "0.10", "C": "0.10", "Mn": "0.35", "Si": "1.00" },
+      "points": [
+        [7.79, 760, 970, 14, 205, 305, 22],
+        [7.79, 1200, 1350, 12, 205, 360, 22],
+        [7.79, 1200, 1350, 12, 205, 740, 22]
+      ],
+      "conditions": ["Annealed (875°C SC)", "Through-Hardened core (Q+T)", "Case-Carburized 0.6~1.0 mm + Q+T (case HV 740, core HV 360)"],
+      "ref_urls": [
+        "https://www.carpentertechnology.com/blog/pyrowear-53-alloy"
+      ],
+      "industry_note": "AMS 6308; UH-60 Black Hawk, AH-64 Apache, CH-47 Chinook main rotor gearbox standard; retains case strength to 315°C (vs. 9310 limit ~150°C) for loss-of-lube survival."
+    },
+    {
+      "name": "MAR-M 247 — aerospace blade & turbo wheel",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Cast",
+      "composition": { "Ni": "balance", "Co": "10.0", "Cr": "8.4", "W": "10.0", "Ta": "3.0", "Al": "5.5", "Ti": "1.0", "Mo": "0.70", "Hf": "1.5", "C": "0.16", "B": "0.015", "Zr": "0.05" },
+      "points": [
+        [8.55, 815, 965, 7, 220, 350, 12],
+        [8.55, 900, 1050, 8, 200, 365, 12],
+        [8.55, 870, 980, 6, 200, 360, 12]
+      ],
+      "conditions": ["As-cast (conventionally CC)", "Directionally Solidified (DS, columnar grain)", "As-cast + Sustained 800°C (creep regime)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=MAR-M%20247"
+      ],
+      "industry_note": "Standard cast nickel for GE F404/F414 turbine blade (1st-2nd stage), automotive racing turbocharger wheel (F1, Le Mans, WRC), industrial GT first-stage; γ' volume ~62% provides creep strength to 950°C."
+    },
+    {
+      "name": "Udimet 720Li (low-interstitial, P/M disc)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Forged",
+      "composition": { "Ni": "balance", "Cr": "16.0", "Co": "14.7", "Mo": "3.0", "W": "1.25", "Al": "2.5", "Ti": "5.0", "C": "0.025", "B": "0.015", "Zr": "0.03" },
+      "points": [
+        [8.06, 825, 1300, 22, 220, 400, 11.5],
+        [8.06, 1100, 1500, 18, 220, 440, 11.5],
+        [8.06, 1000, 1300, 12, 220, 420, 11.5]
+      ],
+      "conditions": ["Solution Treated (1080°C OQ)", "Solution + Stabilization + Aged (760°C/24h)", "S+S+A + tested 700°C (hot strength)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Udimet%20720Li"
+      ],
+      "industry_note": "Rolls-Royce Trent 500/700/800/900 HP & IP turbine disc; Pratt&Whitney F119/F135; γ' ~45% balances creep, LCF and burst margin at 650-700°C; Li (Low-Interstitial) variant minimizes B/C for forgeability."
+    },
+    {
+      "name": "AISI 8620 (automotive case-hardening gear)",
+      "category": "Metal",
+      "subcategory": "Case-Hardening Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "0.40~0.70", "Cr": "0.40~0.60", "Mo": "0.15~0.25", "Mn": "0.70~0.90", "C": "0.18~0.23", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 350, 540, 32, 205, 165, 47],
+        [7.85, 360, 635, 26, 205, 200, 47],
+        [7.85, 1100, 1300, 12, 205, 720, 47]
+      ],
+      "conditions": ["Annealed", "Normalized (925°C AC)", "Case-Carburized + Q+T (case HV 720, core HV 360)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%208620"
+      ],
+      "industry_note": "Automotive transmission ring gear & pinion, wind-turbine planet/sun gear (NREL 1.5 MW reference design), industrial gearbox; AMS 6274 aerospace, NACE compatible; widely substituted by 18CrNiMo7-6 in EU."
     }
   ]
 }
