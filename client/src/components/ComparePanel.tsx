@@ -142,6 +142,45 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
     }
   };
 
+  /** R69 C — PDF 출력 (window.print). 사용자가 브라우저 "PDF 로 저장" 선택. */
+  const exportPDF = () => {
+    // body 에 'compare-print' class 부여 → @media print CSS 가 Compare 만 표시
+    document.body.classList.add('compare-print');
+    window.print();
+    setTimeout(() => document.body.classList.remove('compare-print'), 1000);
+  };
+
+  /* ───────── R69 B — Best-pick badges ───────── */
+  const bestPicks = (() => {
+    if (sortedMaterials.length < 2) return null;
+    const pickMax = (key: string) => sortedMaterials.reduce((best, m) => {
+      const v = typOf(m, key);
+      const bv = best ? typOf(best, key) : null;
+      if (v != null && (bv == null || v > bv)) return m;
+      return best;
+    }, null as Material | null);
+    const pickMin = (key: string) => sortedMaterials.reduce((best, m) => {
+      const v = typOf(m, key);
+      const bv = best ? typOf(best, key) : null;
+      if (v != null && v > 0 && (bv == null || v < bv)) return m;
+      return best;
+    }, null as Material | null);
+    const pickRatio = (numKey: string, denKey: string) => sortedMaterials.reduce((best, m) => {
+      const n = typOf(m, numKey), d = typOf(m, denKey);
+      const bn = best ? typOf(best, numKey) : null, bd = best ? typOf(best, denKey) : null;
+      if (n != null && d != null && d > 0 && (bn == null || bd == null || bd <= 0 || (n / d) > (bn / bd))) return m;
+      return best;
+    }, null as Material | null);
+    return {
+      strength: pickMax('yield_strength'),
+      stiffness: pickMax('modulus'),
+      specStrength: pickRatio('yield_strength', 'density'),
+      specStiffness: pickRatio('modulus', 'density'),
+      cheap: pickMin('price_per_kg'),
+      hard: pickMax('hardness'),
+    };
+  })();
+
   return (
     <div className="flex flex-col h-full bg-card border-l border-border">
       {/* Header */}
@@ -203,6 +242,10 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
               <Button variant="outline" size="sm" className="h-7 text-xs gap-1" onClick={exportPNG} disabled={exporting} title="PNG 이미지로 내보내기">
                 <FileImage className="w-3 h-3" /> {exporting ? '...' : 'PNG'}
               </Button>
+              {/* R69 C — PDF (window.print) */}
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1" onClick={exportPDF} title="PDF 로 출력 (인쇄 → PDF로 저장)">
+                📄 PDF
+              </Button>
             </>
           )}
           {onClear && materials.length > 0 && (
@@ -219,6 +262,29 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       </div>
 
       <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">{t('compare.hint')}</p>
+      {/* R69 B — Best-pick badges (sortedMaterials >= 2). */}
+      {bestPicks && (
+        <div className="px-4 py-2 border-b border-border/50 bg-amber-50/40 flex flex-wrap gap-2 text-[11px]">
+          <span className="text-[10px] font-semibold uppercase tracking-wide text-amber-700">🏆 Best-pick:</span>
+          {[
+            { l: '최대 강도 σy', m: bestPicks.strength, c: 'rose' },
+            { l: '최대 강성 E', m: bestPicks.stiffness, c: 'sky' },
+            { l: '비강도 σy/ρ', m: bestPicks.specStrength, c: 'rose' },
+            { l: '비강성 E/ρ', m: bestPicks.specStiffness, c: 'sky' },
+            { l: '최저 가격', m: bestPicks.cheap, c: 'emerald' },
+            { l: '최대 경도', m: bestPicks.hard, c: 'violet' },
+          ].filter(b => b.m).map((b, i) => (
+            <span key={i} className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 border ${
+              b.c === 'rose' ? 'bg-rose-50 text-rose-700 border-rose-200'
+              : b.c === 'sky' ? 'bg-sky-50 text-sky-700 border-sky-200'
+              : b.c === 'emerald' ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+              : 'bg-violet-50 text-violet-700 border-violet-200'
+            }`}>
+              <b>{b.l}:</b> <span className="font-mono truncate max-w-[120px]">{b.m!.name}</span>
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* R67 Sprint C — Goodman diagram view */}
       {viewMode === 'goodman' && materials.length > 0 && (

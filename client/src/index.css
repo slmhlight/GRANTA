@@ -109,6 +109,16 @@
     font-size: 14px;
     line-height: 1.5;
   }
+  /* R69 C — PDF print mode. body.compare-print 활성 시 Compare 패널 제외 모두 숨김. */
+  @media print {
+    body.compare-print > *:not(.flex.flex-col.h-full.bg-card.border-l) {
+      display: none !important;
+    }
+    body.compare-print {
+      background: white !important;
+    }
+    @page { margin: 12mm; }
+  }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
