@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
+import { htGlossaryFor } from '@/lib/ht-glossary';
 import { TempCurveChart } from '@/components/TempCurveChart';
 import { CreepRuptureChart } from '@/components/CreepRuptureChart';
 import { recommendedCoatings } from '@/lib/coatings';
@@ -373,7 +374,15 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 </div>
               </Field>
             )}
-            {material.heat_treatment && <Field label="Condition / heat treatment">{material.heat_treatment}</Field>}
+            {material.heat_treatment && (() => {
+              const g = htGlossaryFor(material.heat_treatment);
+              return (
+                <Field label="Condition / heat treatment">
+                  <span>{material.heat_treatment}</span>
+                  {g && <span className="ml-1.5 text-[10px] text-muted-foreground italic" title={g.short}>— {g.effect}</span>}
+                </Field>
+              );
+            })()}
             {(material.corrosion_resistance || material.machinability || material.weldability) && (
               <Field label="Fabrication & durability">
                 <div className="space-y-0.5 text-[11px]">
@@ -392,7 +401,21 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             </Field>
             <Field label="Manufacturer / Vendor">{manufacturers.length ? manufacturers.join(', ') : '—'}</Field>
             {material.machines && material.machines.length > 0 && <Field label="Machines">{material.machines.join(', ')}</Field>}
-            {meta.heat_treatments && (meta.heat_treatments as string[]).length > 0 && <Field label="Heat treatments">{(meta.heat_treatments as string[]).join(', ')}</Field>}
+            {meta.heat_treatments && (meta.heat_treatments as string[]).length > 0 && (
+              <Field label="Heat treatments">
+                <span className="flex flex-wrap gap-x-3 gap-y-1">
+                  {(meta.heat_treatments as string[]).map((ht, i) => {
+                    const g = htGlossaryFor(ht);
+                    return (
+                      <span key={i} className="inline-flex flex-col">
+                        <span className="font-mono text-foreground">{ht}</span>
+                        {g && <span className="text-[9px] text-muted-foreground italic leading-tight">{g.effect}</span>}
+                      </span>
+                    );
+                  })}
+                </span>
+              </Field>
+            )}
             {meta.applications && <Field label="Applications">{String(meta.applications)}</Field>}
             {(meta.anisotropy || meta.anisotropic) && (
               <div className={`mt-2 rounded border p-2 text-[12px] leading-relaxed ${meta.anisotropy_reduced ? 'border-emerald-400/40 bg-emerald-50/60' : 'border-amber-400/40 bg-amber-50/60'}`}>
