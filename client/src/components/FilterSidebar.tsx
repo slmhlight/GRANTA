@@ -100,7 +100,9 @@ function RangeSlider({ label, unit, min, max, value, onChange }: RangeSliderProp
             onValueChange={(v) => onChange(v as [number, number])}
             className="py-1 mx-2"
           />
-          <div className="flex items-center gap-1.5">
+          {/* R47: min-w-0 + 작은 padding + spinner 숨김으로 좁은 panel 에서 input 잘림 fix.
+                   text 는 가운데 정렬 (font-mono + tabular-nums) — 4.0/5.0 같은 수치가 가지런히. */}
+          <div className="flex items-center gap-1.5 min-w-0">
             <input
               type="number"
               inputMode="decimal"
@@ -110,9 +112,9 @@ function RangeSlider({ label, unit, min, max, value, onChange }: RangeSliderProp
               onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
               step={sliderStep}
               placeholder={String(min)}
-              className="flex-1 h-9 px-2 text-sm font-mono bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+              className="flex-1 min-w-0 h-9 px-1.5 text-center text-sm font-mono tabular-nums bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
-            <span className="text-xs text-muted-foreground font-mono">~</span>
+            <span className="text-xs text-muted-foreground font-mono flex-shrink-0">~</span>
             <input
               type="number"
               inputMode="decimal"
@@ -122,7 +124,7 @@ function RangeSlider({ label, unit, min, max, value, onChange }: RangeSliderProp
               onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
               step={sliderStep}
               placeholder={String(max)}
-              className="flex-1 h-9 px-2 text-sm font-mono bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+              className="flex-1 min-w-0 h-9 px-1.5 text-center text-sm font-mono tabular-nums bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
           </div>
           {isActive && (

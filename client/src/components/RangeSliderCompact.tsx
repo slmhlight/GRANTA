@@ -82,8 +82,8 @@ export function RangeSliderCompact({
         className="py-1"
       />
 
-      {/* Input fields — R44c bigger (h-9), onBlur/Enter commit. */}
-      <div className="flex items-center gap-1.5">
+      {/* Input fields — R44c bigger (h-9), onBlur/Enter commit. R47: min-w-0 + 작은 padding + spinner 숨김. */}
+      <div className="flex items-center gap-1.5 min-w-0">
         <input
           type="number"
           inputMode="decimal"
@@ -92,10 +92,10 @@ export function RangeSliderCompact({
           onBlur={(e) => commitMin(e.target.value)}
           onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
           step={step}
-          className="flex-1 h-9 px-2 text-sm font-mono bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+          className="flex-1 min-w-0 h-9 px-1.5 text-center text-sm font-mono tabular-nums bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           placeholder={String(min)}
         />
-        <span className="text-[11px] text-muted-foreground font-mono">~</span>
+        <span className="text-[11px] text-muted-foreground font-mono flex-shrink-0">~</span>
         <input
           type="number"
           inputMode="decimal"
@@ -104,14 +104,14 @@ export function RangeSliderCompact({
           onBlur={(e) => commitMax(e.target.value)}
           onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
           step={step}
-          className="flex-1 h-9 px-2 text-sm font-mono bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+          className="flex-1 min-w-0 h-9 px-1.5 text-center text-sm font-mono tabular-nums bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           placeholder={String(max)}
         />
         {presets.length > 0 && (
-          <div className="relative">
+          <div className="relative flex-shrink-0">
             <button
               onClick={() => setShowPresets(!showPresets)}
-              className="h-9 px-2 text-xs font-medium rounded border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:bg-muted/50 transition-colors flex-shrink-0"
+              className="h-9 px-2 text-xs font-medium rounded border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:bg-muted/50 transition-colors"
               title="Quick presets"
             >
               ⚡
