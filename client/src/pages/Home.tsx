@@ -752,6 +752,22 @@ export default function Home() {
           <TooltipContent side="bottom" className="text-xs">Export to CSV ({filtered.length} items)</TooltipContent>
         </Tooltip>
 
+        {/* R61 #5 — 헤더 ? 도움말 버튼: 모바일·데스크탑 공통 Onboarding 재시작 trigger.
+                     ?(Shift+/) 키 단축키와 동일 동작이지만, 모바일은 키보드 없으므로 필수. */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              type="button"
+              onClick={() => setTourOpen(true)}
+              className="h-7 w-7 flex items-center justify-center rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-xs font-bold"
+              aria-label={lang === 'en' ? 'Show onboarding tour' : '온보딩 다시 보기'}
+            >
+              ?
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" className="text-xs">{lang === 'en' ? 'Onboarding tour (5 steps)' : '온보딩 다시 보기 (5단계)'}</TooltipContent>
+        </Tooltip>
+
         {/* 가이드 — 시트로 빠른 열람 + 사례 시작 (R18: controlled state — 사례 tile 클릭 시 자동 닫김) */}
         <Sheet open={guideHeaderOpen} onOpenChange={setGuideHeaderOpen}>
           <Tooltip>
@@ -1098,7 +1114,11 @@ export default function Home() {
           {/* B5: 두 사례 동시 비교 시트 */}
           <ScenarioCompareSheet open={scenarioCompareOpen} onOpenChange={setScenarioCompareOpen} />
           {/* Sprint 2 B1: first-visit 온보딩 (4-step). localStorage 'am_onboarding_done' flag */}
-          <OnboardingTour open={tourOpen} onClose={closeTour} />
+          <OnboardingTour
+            open={tourOpen}
+            onClose={closeTour}
+            onQuickStart={(k) => { closeTour(); setEditingScenario(k); }}
+          />
           {/* 재료 import 결과 sheet — 매칭/미매칭 목록 + 컬렉션 이름 입력 + 저장 확인. */}
           <Sheet open={importResult !== null} onOpenChange={(v) => { if (!v) setImportResult(null); }}>
             <SheetContent side="right" className="w-full sm:max-w-md flex flex-col gap-0 p-0">
