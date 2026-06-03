@@ -12877,6 +12877,172 @@
       ],
       "aliases": ["SD 600", "KS D 3504 SD600", "Rebar 600", "ASTM A615 Grade 80 equivalent"],
       "industry_note": "KS D 3504 초고강도 철근. UTS = YP × 1.08 min (≥648). El ≥ 12%. Bend 180° / 4d. 한국 100층+ 초고층 (Lotte World Tower 일부) / 대형 spans / RC 면적 절감 (자재비 ↓). ASTM A615 G80 등가."
+    },
+    {
+      "name": "SM275A (KS D 3515 용접구조용 강) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate / Section)",
+      "composition": { "Fe": "balance", "C": "≤0.20", "Si": "≤0.45", "Mn": "≤1.50", "P": "≤0.035", "S": "≤0.035" },
+      "points": [
+        [7.85, 275, 430, 25, 210, 145, 194]
+      ],
+      "conditions": ["As-rolled, t≤16 mm (suffix A = no Charpy req.)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Plate/SteelPlate.do"
+      ],
+      "aliases": ["SM 275A", "KS D 3515 SM275A", "JIS G 3106 SM275A", "EN S275JR equivalent"],
+      "industry_note": "KS D 3515 용접구조용 강 — 중경량 다리·산업 frame 표준. EN S275JR / ASTM A283 C 등가. SM490 이전 단계, 비용 ↓."
+    },
+    {
+      "name": "SM355B (KS D 3515 용접구조용 강) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate / Section)",
+      "composition": { "Fe": "balance", "C": "≤0.20", "Si": "≤0.55", "Mn": "≤1.60", "P": "≤0.035", "S": "≤0.035" },
+      "points": [
+        [7.85, 355, 510, 22, 210, 165, 230]
+      ],
+      "conditions": ["As-rolled, Charpy 27J @ 0°C"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Plate/SteelPlate.do"
+      ],
+      "aliases": ["SM 355B", "KS D 3515 SM355B", "JIS G 3106 SM355B", "EN S355J0 equivalent"],
+      "industry_note": "KS D 3515 용접구조용 + EN S355 등가. 한국 다리 (서해대교 일부) · 풍력 tower · LNG carrier hull. SM490 보다 1 등급 아래."
+    },
+    {
+      "name": "SM420C (KS D 3515 용접구조용 고강도, -20°C Charpy) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate / Section)",
+      "composition": { "Fe": "balance", "C": "≤0.18", "Si": "≤0.55", "Mn": "≤1.60", "P": "≤0.025", "S": "≤0.025" },
+      "points": [
+        [7.85, 420, 550, 19, 210, 175, 248]
+      ],
+      "conditions": ["As-rolled, Charpy 27J @ -20°C"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Plate/SteelPlate.do"
+      ],
+      "aliases": ["SM 420C", "KS D 3515 SM420C", "EN S420N equivalent"],
+      "industry_note": "KS D 3515 고강도 + 저온 인성. 인천대교 cable strand support / 해상풍력 tower 일부. SM355 보다 강도 ↑."
+    },
+    {
+      "name": "SM570 (KS D 3515 용접구조용 초고강도, -20°C Charpy) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate / Section)",
+      "composition": { "Fe": "balance", "C": "≤0.18", "Si": "≤0.55", "Mn": "≤1.70", "P": "≤0.025", "S": "≤0.025", "Nb": "≤0.05", "V": "≤0.10" },
+      "points": [
+        [7.85, 460, 620, 17, 210, 195, 279]
+      ],
+      "conditions": ["As-rolled / TMCP, Charpy 47J @ -20°C"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Plate/SteelPlate.do"
+      ],
+      "aliases": ["SM 570", "KS D 3515 SM570", "JIS G 3106 SM570", "EN S460ML equivalent"],
+      "industry_note": "KS D 3515 초고강도 + 저온. 한국 해양 / 풍력 tower / 초고층 frame. CE ≤ 0.44%, Pcm ≤ 0.28%. TMCP (Thermomechanical Controlled Process) 압연으로 제조. EN S460ML 등가."
+    },
+    {
+      "name": "SD700 (KS D 3504 최고강도 철근) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Re-Bar)",
+      "composition": { "Fe": "balance", "C": "≤0.32", "Si": "≤0.60", "Mn": "≤2.00", "P": "≤0.045", "S": "≤0.045", "CE": "≤0.67%" },
+      "points": [
+        [7.85, 790, 850, 10, 200, 250, 383]
+      ],
+      "conditions": ["As-rolled (deformed bar)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/ReBar/ReBar.do"
+      ],
+      "aliases": ["SD 700", "KS D 3504 SD700", "Rebar 700"],
+      "industry_note": "KS D 3504 최고강도 철근. UTS = YP × 1.08 min (≥756). El ≥ 10%. KS only — 미국 ASTM 에는 없음. 100층+ 초고층 (DMC 롯데캐슬 / 한강자이) / 원전 격납고 / 대형 LNG 저장 탱크."
+    },
+    {
+      "name": "C5191 Phosphor Bronze (UNS C51900) — 풍산 strip grade",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought (cold-rolled strip)",
+      "composition": { "Cu": "balance", "Sn": "5.5~7.0", "P": "0.03~0.35", "Pb": "≤0.05" },
+      "points": [
+        [8.86, 195, 380, 50, 110, 90, 110],
+        [8.86, 470, 530, 25, 110, 145, 110],
+        [8.86, 590, 620, 8, 110, 170, 110],
+        [8.86, 690, 720, 4, 110, 190, 110]
+      ],
+      "conditions": ["O (Annealed)", "1/2H", "H (Full-Hard)", "EH (Extra Hard)"],
+      "ref_urls": [
+        "https://www.poongsan.co.kr/eng/business/copper/"
+      ],
+      "aliases": ["C51900", "PB-1", "Phosphor Bronze 6Sn", "KS C5191", "CuSn6"],
+      "industry_note": "풍산 KS D 5506 인청동 (Phosphor Bronze) 표준. 6% Sn → spring 용 탄성 + 부식 저항. connector 핀 / spring contact / 마모 베어링 / EV 모터 commutator brush. P 가 deoxidizer 역할 + 미세 P-bronze 강화. 한국 KEC / 한국단자 / Foxconn 커넥터 OEM."
+    },
+    {
+      "name": "C7521 Nickel Silver 65/18 (UNS C75200) — 풍산 strip grade",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought (cold-rolled strip)",
+      "composition": { "Cu": "63~66", "Ni": "16.5~19.5", "Zn": "balance", "Pb": "≤0.05", "Mn": "≤0.50" },
+      "points": [
+        [8.73, 170, 410, 45, 125, 95, 105],
+        [8.73, 380, 510, 25, 125, 130, 105],
+        [8.73, 540, 600, 8, 125, 170, 105],
+        [8.73, 620, 690, 3, 125, 200, 105]
+      ],
+      "conditions": ["O (Annealed)", "1/2H", "H (Full-Hard)", "EH (Extra Hard)"],
+      "ref_urls": [
+        "https://www.poongsan.co.kr/eng/business/copper/"
+      ],
+      "aliases": ["C75200", "Nickel Silver 65-18", "German Silver", "KS C7521", "CuNi18Zn20"],
+      "industry_note": "풍산 KS D 5102 양백 (Nickel Silver) 표준. Ni 18% / Zn ~17% → silver-like 색 + 강도. 일반 식기 (silverware 도금 base) / 음향 instrument (flute · saxophone) / 정밀 spring / fuse cap. Ni 가 Ag substitute 역할."
+    },
+    {
+      "name": "SUP9 Cr-Mn Spring Steel (KS D 3701) — 한국 산업표준",
+      "category": "Metal",
+      "subcategory": "Spring Steel",
+      "process": "Wrought (Q+T)",
+      "composition": { "Fe": "balance", "C": "0.52~0.6", "Si": "0.15~0.35", "Mn": "0.65~0.95", "Cr": "0.65~0.95", "P": "≤0.035", "S": "≤0.035" },
+      "points": [
+        [7.85, 1130, 1230, 9, 207, 380, 553]
+      ],
+      "conditions": ["Q+T (830°C OQ + 430°C T)"],
+      "ref_urls": [
+        "https://www.kssa.co.kr/standard/KS_D_3701"
+      ],
+      "aliases": ["SUP 9", "KS SUP9", "JIS G 4801 SUP9", "SAE 5160 close equivalent"],
+      "industry_note": "KS D 3701 스프링강 표준. 한국 자동차 leaf spring (트럭·버스 후축) / 농기계 spring / coil spring. Cr 추가로 경화능 ↑, Mn 으로 저비용 + 강도. SAE 5160 (1Cr-Mn-Si) 근사 등가."
+    },
+    {
+      "name": "SUP10 Cr-V Spring Steel (KS D 3701) — 한국 산업표준",
+      "category": "Metal",
+      "subcategory": "Spring Steel",
+      "process": "Wrought (Q+T)",
+      "composition": { "Fe": "balance", "C": "0.47~0.55", "Si": "0.15~0.35", "Mn": "0.65~0.95", "Cr": "0.80~1.10", "V": "0.15~0.25", "P": "≤0.035", "S": "≤0.035" },
+      "points": [
+        [7.85, 1230, 1320, 9, 207, 400, 594]
+      ],
+      "conditions": ["Q+T (850°C OQ + 430°C T)"],
+      "ref_urls": [
+        "https://www.kssa.co.kr/standard/KS_D_3701"
+      ],
+      "aliases": ["SUP 10", "KS SUP10", "JIS G 4801 SUP10", "SAE 6150 / 50CrV4 equivalent"],
+      "industry_note": "KS D 3701 고급 스프링강. V 추가로 미세 carbide → 피로 강도 ↑. 고급 자동차 valve spring (디젤 엔진) / 정밀 coil spring / 핸드 도구 spring. SAE 6150 / DIN 50CrV4 등가."
+    },
+    {
+      "name": "SK85 Carbon Tool Steel (KS D 3751) — 한국 산업표준",
+      "category": "Metal",
+      "subcategory": "Tool Steel",
+      "process": "Wrought (Q+T)",
+      "composition": { "Fe": "balance", "C": "0.80~0.90", "Si": "0.10~0.35", "Mn": "0.10~0.50", "P": "≤0.030", "S": "≤0.030" },
+      "points": [
+        [7.85, 580, 800, 8, 200, 800, 360]
+      ],
+      "conditions": ["Q+T (780°C WQ + 200°C T, full hard)"],
+      "ref_urls": [
+        "https://www.kssa.co.kr/standard/KS_D_3751"
+      ],
+      "aliases": ["SK 85", "SK5", "KS SK85", "JIS G 4401 SK85", "C80W1 (DIN) equivalent"],
+      "industry_note": "KS D 3751 탄소공구강. 0.85% C → 적당한 경도 + 인성. 칼날 (식칼 / 사냥용) / shear blade / 가위 / 핸드 도구 (chisel · plier 일부) / spring 일부. 한국 KIYOSHI / SEKI 식칼 가공 (단조 후 Q+T). EN C80W1 등가."
     }
   ]
 }

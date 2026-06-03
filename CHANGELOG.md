@@ -2,6 +2,26 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R104 — Tier 3 KS 강종 6 + 풍산 Cu 2 + 한국 산업 spring/tool 3
+
+### 추가 강종 (supplementary +11)
+- **SM 시리즈 +4** (KS D 3515 용접구조): SM275A · SM355B · SM420C · SM570 — 한국 다리·풍력 tower·LNG carrier 전 등급 (EN S275JR/S355J0/S420N/S460ML 등가).
+- **SD700** (KS D 3504 최고강도 철근): YS 790 / UTS 850. 100층+ 초고층 · 원전 격납고 · 대형 LNG tank. ASTM 에 없음 (KS only).
+- **풍산 Cu +2**:
+  - **C5191** (인청동 Phosphor Bronze 6Sn): connector pin · spring contact · EV 모터 commutator. KS D 5506.
+  - **C7521** (양백 Nickel Silver 65/18): 정밀 spring · 음향 instrument · 식기 도금 base. KS D 5102.
+- **한국 산업 spring/tool +3**:
+  - **SUP9** (KS D 3701 Cr-Mn spring): 자동차 leaf spring · 농기계 spring. SAE 5160 근사.
+  - **SUP10** (Cr-V): 디젤 valve spring · 정밀 coil spring. SAE 6150 / 50CrV4 등가.
+  - **SK85** (KS D 3751 탄소공구강): 칼날 · shear blade · spring 일부. EN C80W1 등가.
+
+### 누적
+- supplementary: 366 → **377** (+11)
+- DB total: 1,223 → **1,234**
+- verified-source materials: 722 → **738**
+
+검증: tsc OK · vitest 47/47 · build:data OK · production build OK.
+
 ## R103 — Guide↔Preset 정합성 + Tier 2 KS 강종 10종
 
 ### Guide 정합성 검증
