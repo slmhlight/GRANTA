@@ -16,6 +16,8 @@ export function MaterialDetailPopup({
   onToggleCompare,
   onClose,
   allMaterials,
+  favorites,
+  onToggleFavorite,
 }: {
   material: Material | null;
   compareList: string[];
@@ -23,6 +25,9 @@ export function MaterialDetailPopup({
   onClose: () => void;
   /** R53a — Radar 정규화 base 에 사용. */
   allMaterials?: Material[];
+  /** R69 A — 즐겨찾기 props 패스스루. */
+  favorites?: Set<string>;
+  onToggleFavorite?: (id: string) => void;
 }) {
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const [isDesktop, setIsDesktop] = useState(
@@ -62,7 +67,7 @@ export function MaterialDetailPopup({
   if (!isDesktop) {
     return (
       <div className="fixed inset-0 z-50 bg-background">
-        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} allMaterials={allMaterials} />
+        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} allMaterials={allMaterials} favorites={favorites} onToggleFavorite={onToggleFavorite} />
       </div>
     );
   }

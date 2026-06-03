@@ -2674,6 +2674,22 @@ fs.writeFileSync(path.join(DATA, 'materials.preview.json'), outJson);
 fs.writeFileSync(liveJson, outJson);
 fs.writeFileSync(path.join(DATA, 'validation-report.md'), rep.join('\n'));
 
+// R69 A — build metadata (앱이 fetch 해 detail / footer 에 표시).
+const buildMeta = {
+  buildDate: new Date().toISOString().slice(0, 10),
+  buildTime: new Date().toISOString(),
+  totalAlloys: all.length,
+  byCategory: {
+    Metal: all.filter(m => m.category === 'Metal').length,
+    Polymer: all.filter(m => m.category === 'Polymer').length,
+    Ceramic: all.filter(m => m.category === 'Ceramic').length,
+    Composite: all.filter(m => m.category === 'Composite').length,
+  },
+  anomalies: anomalies.length,
+  verifiedSrcMaterials: withVerifiedSrc,
+};
+fs.writeFileSync(path.join(ROOT, 'client', 'public', 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
+
 // ───────── console summary ─────────
 console.log(`TOTAL ${all.length} = curated ${curated.length} + am_vendor ${am_vendor.length} + generic ${generic.length} + reference ${supplementary.length}`);
 console.log('am_vendor recovered:', am_vendor.map(m => m.name).join(', '));

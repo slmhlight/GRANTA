@@ -4,7 +4,7 @@
  * source citations (verified datasheet URLs where available).
  */
 
-import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer } from 'lucide-react';
+import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -30,6 +30,9 @@ interface MaterialDetailProps {
   floating?: boolean;
   /** R53a — Radar normalize 에 사용할 전체 dataset. 없으면 'set' base 만 동작. */
   allMaterials?: Material[];
+  /** R69 A — 즐겨찾기. favorites set + toggle callback. */
+  favorites?: Set<string>;
+  onToggleFavorite?: (id: string) => void;
 }
 
 const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
@@ -179,7 +182,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating, allMaterials }: MaterialDetailProps) {
+export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite }: MaterialDetailProps) {
   const t = useT();
   // R53a — Radar axes + normalize base (localStorage 저장)
   const [radarAxes, setRadarAxes] = useStateRD<RadarAxis[]>(() => {
@@ -226,9 +229,23 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             )}
           </div>
         </div>
-        <button onClick={onClose} className="ml-2 p-1 hover:bg-muted rounded transition-colors flex-shrink-0">
-          <X className="w-4 h-4" />
-        </button>
+        <div className="flex items-start gap-1 flex-shrink-0">
+          {/* R69 A — 즐겨찾기 ⭐ 토글 */}
+          {onToggleFavorite && (
+            <button
+              type="button"
+              onClick={() => onToggleFavorite(material.id)}
+              className="ml-2 p-1 hover:bg-muted rounded transition-colors"
+              title={favorites?.has(material.id) ? '즐겨찾기 해제' : '즐겨찾기 추가'}
+              aria-label="Toggle favorite"
+            >
+              <Star className={`w-4 h-4 ${favorites?.has(material.id) ? 'fill-amber-400 text-amber-500' : 'text-muted-foreground'}`} />
+            </button>
+          )}
+          <button onClick={onClose} className="p-1 hover:bg-muted rounded transition-colors">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
       {/* Content */}

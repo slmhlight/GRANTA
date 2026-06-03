@@ -28,6 +28,7 @@ import {
   GraduationCap,
   Pencil,
   RotateCcw,
+  Star,
 } from 'lucide-react';
 import { Link, useSearch } from 'wouter';
 import { Button } from '@/components/ui/button';
@@ -129,6 +130,27 @@ export default function Home() {
   const [tourOpen, setTourOpen] = useState(() => {
     try { return !localStorage.getItem('am_onboarding_done'); } catch { return false; }
   });
+  // R69 A — 즐겨찾기. localStorage 'am_favorites' = string[].
+  const [favorites, setFavorites] = useState<Set<string>>(() => {
+    try { const s = localStorage.getItem('am_favorites'); if (s) return new Set(JSON.parse(s) as string[]); } catch { /* ignore */ }
+    return new Set();
+  });
+  // R69 A — build metadata. last-updated 표시.
+  const [buildMeta, setBuildMeta] = useState<{ buildDate?: string; totalAlloys?: number } | null>(null);
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}build-meta.json`)
+      .then(r => r.ok ? r.json() : null)
+      .then(m => { if (m) setBuildMeta(m); })
+      .catch(() => { /* ignore */ });
+  }, []);
+  const toggleFavorite = useCallback((id: string) => {
+    setFavorites(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      try { localStorage.setItem('am_favorites', JSON.stringify(Array.from(next))); } catch { /* ignore */ }
+      return next;
+    });
+  }, []);
   const closeTour = useCallback(() => {
     setTourOpen(false);
     try { localStorage.setItem('am_onboarding_done', '1'); } catch { /* ignore */ }
@@ -780,6 +802,49 @@ export default function Home() {
           </TooltipTrigger>
           <TooltipContent side="bottom" className="text-xs">Engineering Tools — Kt · Galvanic · Buckling · CTE · Hardness · Pressure</TooltipContent>
         </Tooltip>
+        {/* R69 A — 즐겨찾기 dropdown */}
+        {favorites.size > 0 && (
+          <DropdownMenu>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <DropdownMenuTrigger asChild>
+                  <button className="h-7 px-2 flex items-center gap-1 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium">
+                    <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                    <span className="hidden lg:inline">{favorites.size}</span>
+                  </button>
+                </DropdownMenuTrigger>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="text-xs">즐겨찾기 ({favorites.size})</TooltipContent>
+            </Tooltip>
+            <DropdownMenuContent align="end" className="max-h-80 overflow-auto w-64">
+              <DropdownMenuLabel className="text-xs">즐겨찾기</DropdownMenuLabel>
+              {Array.from(favorites).map((id) => {
+                const m = materials.find((x) => x.id === id);
+                if (!m) return null;
+                return (
+                  <div key={id} className="flex items-center gap-1 px-1.5 py-1 hover:bg-muted/50 rounded">
+                    <button
+                      type="button"
+                      onClick={() => { setSelectedMaterial(m); }}
+                      className="flex-1 text-left text-xs truncate min-w-0"
+                    >
+                      <span className="block truncate font-medium text-foreground">{m.name}</span>
+                      <span className="block truncate text-[10px] text-muted-foreground">{m.subcategory}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => toggleFavorite(id)}
+                      className="text-muted-foreground/50 hover:text-destructive flex-shrink-0"
+                      title="즐겨찾기 해제"
+                    >
+                      <Trash2 className="w-3 h-3" />
+                    </button>
+                  </div>
+                );
+              })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )}
 
         {/* 가이드 — 시트로 빠른 열람 + 사례 시작 (R18: controlled state — 사례 tile 클릭 시 자동 닫김) */}
         <Sheet open={guideHeaderOpen} onOpenChange={setGuideHeaderOpen}>
@@ -1295,6 +1360,8 @@ export default function Home() {
           onToggleCompare={handleToggleCompare}
           onClose={() => setSelectedMaterial(null)}
           allMaterials={materials}
+          favorites={favorites}
+          onToggleFavorite={toggleFavorite}
         />
       </div>
 
@@ -1372,13 +1439,19 @@ export default function Home() {
 
       {/* ─── Status Bar (desktop 만 노출) ─── */}
       <footer className="hidden md:flex flex-shrink-0 h-6 items-center justify-between px-4 border-t border-border bg-muted/30">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           <span className="text-[10px] text-muted-foreground">
             AM Materials Explorer · Granta-Style Database
           </span>
           <span className="text-[10px] text-muted-foreground/50">
             {materials.length.toLocaleString()} materials · min–max ranges · cited sources
           </span>
+          {/* R69 A — build last-updated 표시 */}
+          {buildMeta?.buildDate && (
+            <span className="text-[10px] text-muted-foreground/60" title={`Build time: ${(buildMeta as any).buildTime || ''}`}>
+              · Data updated <b className="text-foreground/70">{buildMeta.buildDate}</b>
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-2">
           {compareList.length > 0 && (
