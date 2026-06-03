@@ -1078,6 +1078,7 @@ export default function Home() {
               type="file"
               accept=".csv,.txt,.json,.tsv,text/plain,text/csv,application/json"
               className="hidden"
+              aria-label="재료 목록 파일 업로드"
               onChange={(e) => { const f = e.target.files?.[0]; if (f) handleImportFile(f); e.target.value = ''; }}
             />
             <Tooltip>

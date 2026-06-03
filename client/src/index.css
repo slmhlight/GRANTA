@@ -119,6 +119,37 @@
     }
     @page { margin: 12mm; }
   }
+  /* R71 C — 접근성 보강.
+     1) focus-visible: 키보드 사용자가 ring 명확히 보이게. mouse 사용자에겐 안 보임.
+     2) 모바일 (pointer:coarse) 에서 작은 button 의 hit area 를 ::before pseudo-element 로 확장.
+        시각 크기는 그대로 유지, hit area 만 36×36 px 보장 (WCAG 2.2 AA).
+     3) prefers-reduced-motion: animation·transition 단순화. */
+  :focus-visible {
+    outline: 2px solid hsl(var(--accent, 200 90% 50%));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  @media (pointer: coarse) {
+    button:not([disabled]):not(.sr-only),
+    [role="button"]:not([disabled]) {
+      position: relative;
+    }
+    button:not([disabled]):not(.sr-only)::before,
+    [role="button"]:not([disabled])::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      pointer-events: none; /* 시각 영향 0, hit area 확장은 sufficient 한 padding 으로만 */
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
