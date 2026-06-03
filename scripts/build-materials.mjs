@@ -886,6 +886,54 @@ function loadPolymersAsMaterials() {
 const polymers_extra = loadPolymersAsMaterials();
 const all = [...curated, ...am_vendor, ...generic, ...supplementary, ...ceramics, ...composites, ...polymers_extra];
 
+// ───────── Sprint 4 C2 — Fracture toughness (KIC) family-typical fallback ─────────
+// 현재 covered 39/1038 (3.8%) — fracture-critical alloy 선정 정밀화 위해 family typical 채움.
+// 출처: ASM Handbook Vol. 1 (Steels) + Vol. 2 (Nonferrous) + MMPDS-2018 + Special Metals.
+// confidence: 'class' — typical 만 신뢰, individual heat·orientation 변동 큼.
+const KIC_FALLBACK = [
+  // [pattern, [min, typical, max], source]
+  [/tool steel|\bd[23]\b|\bm[24]\b|\bh1[13]\b|skd|cpm|maraging/i, [15, 25, 40], 'ASM Vol.1 Tool Steels'],
+  [/stainless.*austenitic|austenitic.*stainless|304\b|316\b|309|310|321/i, [100, 140, 200], 'ASM Vol.1 Austenitic SS'],
+  [/stainless.*ph|17-?4\s?ph|15-?5\s?ph|ph.*stainless|13-?8/i, [35, 60, 100], 'ASM Vol.1 PH SS'],
+  [/stainless.*martensitic|martensitic.*stainless|\b41[03]\b|\b42[02]\b|\b440[abc]?\b/i, [40, 65, 95], 'ASM Vol.1 Martensitic SS'],
+  [/stainless.*duplex|duplex.*stainless|2205|2507/i, [80, 110, 150], 'ASM Vol.1 Duplex SS'],
+  [/inconel|hastelloy|haynes|nimonic|waspaloy|udimet|rene|monel/i, [70, 100, 130], 'Special Metals SMC-045/093'],
+  [/cobalt|\bco[\s-]?cr[\s-]?mo\b|stellite|f-?75|l-?605/i, [50, 80, 110], 'ASM Vol.2 Cobalt alloys'],
+  [/titanium|^ti-?\d|ti6al4v|ti-?6al-?4v|\bcp\s?ti\b|ti grade/i, [50, 70, 90], 'MMPDS-2018 Titanium'],
+  [/aluminum.*7\d{3}|7075|7050|7\d{3}\b/i, [20, 26, 32], 'Aluminum Association AA 7xxx'],
+  [/aluminum.*6\d{3}|6061|6063|6082|6\d{3}\b/i, [25, 32, 40], 'Aluminum Association AA 6xxx'],
+  [/aluminum.*2\d{3}|2024|2219|2\d{3}\b/i, [18, 24, 30], 'Aluminum Association AA 2xxx'],
+  [/aluminum.*5\d{3}|5052|5083|5754|5\d{3}\b/i, [25, 35, 50], 'Aluminum Association AA 5xxx'],
+  [/aluminum|alsi\d+|aa\s?\d{4}/i, [22, 30, 40], 'Aluminum Association handbook'],
+  [/magnesium|\baz\d|\bwz\d|\baz3[1]\b|\baz9[1]/i, [12, 17, 25], 'ASM Vol.2 Mg alloys'],
+  [/copper|brass|bronze|c[12389]\d{4}/i, [50, 80, 110], 'ASM Vol.2 Cu alloys'],
+  [/carbon steel|alloy steel|41\d{2}|43\d{2}|s45c|aisi|sae\s?\d{4}|8620|9310|52100/i, [30, 45, 70], 'ASM Vol.1 Steels'],
+  [/refractory|tungsten|tantalum|niobium|molybdenum/i, [25, 35, 50], 'ASM Vol.2 Refractory'],
+];
+let kicFilled = 0;
+for (const m of all) {
+  const r = m.ranges && m.ranges.fracture_toughness;
+  if (r && r.typical != null) continue;
+  // metals only — ceramic/polymer/composite 는 family/structure 의존성 너무 큼
+  if (!m.category || m.category !== 'Metal') continue;
+  const key = `${m.subcategory || ''} ${m.name} ${m.category}`;
+  for (const [rx, vals, src] of KIC_FALLBACK) {
+    if (rx.test(key)) {
+      const [mn, tp, mx] = vals;
+      if (!m.ranges) m.ranges = {};
+      m.ranges.fracture_toughness = { min: mn, max: mx, typical: tp, n: 0, confidence: 'class' };
+      m.fracture_toughness = tp;
+      m.sources = m.sources || [];
+      if (!m.sources.some(s => s.label && s.label.startsWith('KIC fallback'))) {
+        m.sources.push({ label: `KIC fallback: ${src}`, url: null, verified: false });
+      }
+      kicFilled++;
+      break;
+    }
+  }
+}
+console.log('Sprint 4 C2 — KIC fallback applied:', kicFilled);
+
 // R20 — Ni 초합금 5종 (Inconel 718, 625, 738LC, Haynes 230, Hastelloy X) 의 elevated_temp + creep_rupture.
 // 출처: Special Metals SMC-045/093, Haynes International H-3000H/H-3008C, ASM Aerospace.
 //   const 가 hoisting 되지 않아 loop 전에 선언해야 injectTempCurves() 가 ELEV_DATA 접근 가능.
