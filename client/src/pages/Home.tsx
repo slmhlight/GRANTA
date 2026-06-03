@@ -6,7 +6,7 @@
  * Font: IBM Plex Sans (UI) + IBM Plex Mono (data)
  */
 
-import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef, lazy, Suspense } from 'react';
 import {
   Search,
   Table2,
@@ -57,7 +57,8 @@ import { useT, useLang } from '@/lib/i18n';
 
 /** Saved collection — pinned material IDs + optional filter snapshot + scenario provenance + viewMode.
  *  Older entries (pre-U10) lack `filters` / `viewMode`; we render conditionally and restore safely. */
-type Collection = { name: string; ids: string[]; filters?: Partial<FilterState>; preset?: { key: string; label: string }; viewMode?: 'table' | 'cards' | 'ashby' };
+type Collection = { name: string; ids: string[]; filters?: Partial<FilterState>; preset?: { key: string; label: string }; viewMode?: 'table' | 'cards' | 'ashby'; createdAt?: number };
+type CollectionSort = 'recent' | 'name' | 'size';
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
 
@@ -96,6 +97,22 @@ export default function Home() {
   const urlRestoredRef = useRef(false);
   const [collections, setCollections] = useState<Collection[]>([]);
   const [collName, setCollName] = useState('');
+  // Sprint 3 B8 — Collection 검색 + 정렬 (5+ 일 때 가시성↑).
+  const [collQuery, setCollQuery] = useState('');
+  const [collSort, setCollSort] = useState<CollectionSort>(() => {
+    try { const s = localStorage.getItem('am_coll_sort'); if (s === 'name' || s === 'size' || s === 'recent') return s; } catch { /* ignore */ }
+    return 'recent';
+  });
+  useEffect(() => { try { localStorage.setItem('am_coll_sort', collSort); } catch { /* ignore */ } }, [collSort]);
+  const sortedFilteredCollections = useMemo(() => {
+    const q = collQuery.trim().toLowerCase();
+    const filtered = q ? collections.filter(c => c.name.toLowerCase().includes(q)) : collections;
+    const sorted = [...filtered];
+    if (collSort === 'name') sorted.sort((a, b) => a.name.localeCompare(b.name));
+    else if (collSort === 'size') sorted.sort((a, b) => b.ids.length - a.ids.length);
+    else sorted.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    return sorted;
+  }, [collections, collQuery, collSort]);
   const [linkCopied, setLinkCopied] = useState(false);
   const [showCompare, setShowCompare] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -252,11 +269,13 @@ export default function Home() {
     // the pinned IDs and the search conditions that produced them. Also stamp the applied scenario
     // (if any) so the user can tell at a glance what design case this collection came from.
     setCollections(prev => {
+      // Sprint 3 B8 — createdAt 스탬프 (recent 정렬용)
       const entry: Collection = {
         name,
         ids: restrictIds,
         filters: { ...filters },
         viewMode,
+        createdAt: Date.now(),
         ...(appliedPreset ? { preset: { key: appliedPreset.key, label: appliedPreset.label } } : {}),
       };
       const next = [...prev.filter(c => c.name !== name), entry];
@@ -471,6 +490,35 @@ export default function Home() {
   const restrictSet = restrictIds ? new Set(restrictIds) : null;
   const viewFiltered = restrictSet ? filtered.filter(m => restrictSet.has(m.id)) : filtered;
 
+  // Sprint 3 B9 — 글로벌 키보드 단축키 (A11y / power user 가속).
+  //   `/` → 검색 포커스 (input·textarea 안일 때는 무시 — 일반 타이핑 보호)
+  //   Esc → 선택된 자료·Compare 패널 닫기 (이미 시트 자체는 Esc 처리)
+  //   ?  → onboarding tour 재시작
+  useEffect(() => {
+    const isTypingEl = (el: EventTarget | null): boolean => {
+      if (!(el instanceof HTMLElement)) return false;
+      const tag = el.tagName.toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || tag === 'select') return true;
+      if (el.isContentEditable) return true;
+      return false;
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === '/' && !isTypingEl(e.target)) {
+        e.preventDefault();
+        setSearchOpen(true);
+        setTimeout(() => {
+          const inp = document.querySelector<HTMLInputElement>('input[data-search-input="1"]');
+          inp?.focus();
+        }, 80);
+      } else if (e.key === '?' && !isTypingEl(e.target)) {
+        e.preventDefault();
+        setTourOpen(true);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
   // Right Compare panel: persisted, drag-to-resize on desktop (full-screen overlay on mobile)
   useEffect(() => { try { window.localStorage.setItem('am_panel_w', String(Math.round(panelWidth))); } catch { /* ignore */ } }, [panelWidth]);
   useEffect(() => {
@@ -580,6 +628,8 @@ export default function Home() {
           <div className={`relative w-full max-w-md ${searchOpen ? 'block' : 'hidden sm:block'}`}>
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-sidebar-foreground/40 pointer-events-none" />
             <Input
+              data-search-input="1"
+              aria-label={t('header.search.placeholder')}
               className="h-9 sm:h-7 pl-8 pr-8 text-sm sm:text-xs bg-[oklch(0.28_0.06_250)] border-sidebar-border text-sidebar-foreground placeholder:text-sidebar-foreground/40 focus-visible:ring-accent"
               placeholder={t('header.search.placeholder')}
               value={filters.search}
@@ -914,8 +964,36 @@ export default function Home() {
                   <Button variant="outline" size="sm" className="h-7 text-xs gap-1"><Bookmark className="w-3 h-3" /> Collections <span className="text-muted-foreground">({collections.length})</span></Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="max-h-80 overflow-auto w-72">
-                  <DropdownMenuLabel className="text-xs">Saved collections</DropdownMenuLabel>
-                  {collections.map(c => (
+                  <DropdownMenuLabel className="text-xs flex items-center justify-between gap-2">
+                    <span>Saved collections</span>
+                    {/* Sprint 3 B8 — sort cycle (recent ↔ name ↔ size). icon-only 로 공간 절약. */}
+                    <button
+                      type="button"
+                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); setCollSort(s => s === 'recent' ? 'name' : s === 'name' ? 'size' : 'recent'); }}
+                      className="text-[10px] font-normal text-muted-foreground hover:text-foreground border border-border/60 rounded px-1.5 py-0.5"
+                      title="정렬 전환"
+                    >
+                      {collSort === 'recent' ? '↻ 최신' : collSort === 'name' ? '↻ 이름' : '↻ 크기'}
+                    </button>
+                  </DropdownMenuLabel>
+                  {/* Sprint 3 B8 — 5+ 일 때만 검색 표시. */}
+                  {collections.length >= 5 && (
+                    <div className="px-1.5 pb-1">
+                      <input
+                        type="text"
+                        value={collQuery}
+                        onChange={(e) => setCollQuery(e.target.value)}
+                        onClick={(e) => e.stopPropagation()}
+                        onKeyDown={(e) => e.stopPropagation()}
+                        placeholder="이름 검색…"
+                        className="w-full text-xs px-2 py-1 border border-border/60 rounded bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent"
+                      />
+                    </div>
+                  )}
+                  {sortedFilteredCollections.length === 0 && collQuery && (
+                    <p className="text-[11px] text-muted-foreground italic px-2 py-2">"{collQuery}" 일치 없음</p>
+                  )}
+                  {sortedFilteredCollections.map(c => (
                     <div key={c.name} className="flex items-center gap-1 px-1.5 py-1 hover:bg-muted/50 rounded">
                       <button
                         className="flex-1 text-left text-xs truncate min-w-0"

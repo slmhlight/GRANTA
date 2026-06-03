@@ -490,6 +490,44 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
             ) : (
               <p className="text-sm text-muted-foreground italic">{t('scenario.fillValues')}</p>
             )}
+            {/* Sprint 3 B10 — Apply 전 어떤 필터가 활성화되는지 미리보기. */}
+            {result?.filters && Object.keys(result.filters).length > 0 && (
+              <div className="mt-3 pt-2 border-t border-border/40">
+                <p className="text-[10px] font-semibold uppercase tracking-wide text-accent/80 mb-1.5">적용될 필터 ({Object.keys(result.filters).length})</p>
+                <ul className="text-[11px] space-y-1">
+                  {Object.entries(result.filters).slice(0, 8).map(([k, v]) => {
+                    const labelOf = (key: string) => {
+                      const map: Record<string, string> = {
+                        yieldStrengthRange: 'σy', utsRange: 'UTS', modulusRange: 'E', elongationRange: 'El.',
+                        densityRange: 'ρ', hardnessRange: 'Hardness', thermalConductivityRange: 'k', maxServiceTempRange: 'T_max',
+                        thermalExpansionRange: 'CTE', fatigueStrengthRange: 'σ_f', impactStrengthRange: 'Impact',
+                        pricePerKgRange: 'Price', meltingPointRange: 'T_m', specificHeatRange: 'C_p',
+                        electricalConductivityRange: 'σ_elec', fractureToughnessRange: 'K_IC',
+                        categories: 'Category', subcategories: 'Family', processes: 'Process',
+                        heatTreatments: '열처리', manufacturers: 'Manufacturer', compositions: 'Composition',
+                      };
+                      return map[key] || key;
+                    };
+                    const fmt = (val: any): string => {
+                      if (Array.isArray(val)) {
+                        if (val.length === 2 && typeof val[0] === 'number') return `${val[0]} – ${val[1]}`;
+                        return val.slice(0, 2).join(', ') + (val.length > 2 ? ` +${val.length - 2}` : '');
+                      }
+                      return String(val);
+                    };
+                    return (
+                      <li key={k} className="flex items-baseline justify-between gap-2">
+                        <span className="text-foreground/60">{labelOf(k)}</span>
+                        <span className="font-mono text-foreground text-right truncate max-w-[60%]">{fmt(v)}</span>
+                      </li>
+                    );
+                  })}
+                  {Object.keys(result.filters).length > 8 && (
+                    <li className="text-[10px] text-muted-foreground italic">+ {Object.keys(result.filters).length - 8} 개 더</li>
+                  )}
+                </ul>
+              </div>
+            )}
             <p className="text-[11px] text-muted-foreground mt-3 pt-2 border-t border-border/40">
               {t('scenario.appliesToFilter')}
               {scenario.indexHint && <span className="block mt-1">{t('scenario.recommendedIndex')}: <span className="font-mono text-accent">{scenario.indexHint}</span></span>}
