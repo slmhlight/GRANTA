@@ -2,6 +2,31 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R101 — 사용자 보고 버그/UX 8건 + R98·R100 데이터 일부 확장
+
+### 버그 fix
+- **Alumina 가 Aluminum family 로 분류**: `material-colors.ts` 의 `/alumin/` regex 가 ceramic "Alumina" 까지 매치 → `alumin(?!a)` negative lookahead + Ceramic (sky #0EA5E9) · Composite (violet #A855F7) category 명시 추가. Polymer 와 동일하게 category 우선 분기.
+- **Price/cm³ = ₩0**: KRW 변환 후 100원 단위 반올림으로 작은 값 (₩15/cm³) 이 0이 됨 → `formatPrice` perUnit='cm3' 분기 추가 (정수/소수점 1자리). USD 도 4자리 강제. + `build-materials.mjs` 모든 material 에서 `price_per_kg × density / 1000` fallback (ceramic/composite/polymer/CSV) — 이전 reference 만 채우던 것.
+- **가이드 헤더 글자 잘림**: 모바일 라벨 축약 (`탐색기로 돌아가기` → `탐색`), 가이드 타이틀은 모바일에서 GraduationCap 아이콘만, `whitespace-nowrap` + `flex-shrink-0` + `min-w-0`.
+- **모바일 Nav 화면 가림 (Detail popup)**: 모바일 `MaterialDetailPopup` 의 `fixed inset-0` → `fixed top-12 left-0 right-0 bottom-[50px] z-40` (Compare 와 동일 패턴) — 헤더 + 하단 nav 항상 노출.
+
+### Ashby chart UX
+- **상단 필터 단순화**: Class | Sub-family | Env on/off | Env mode | Pareto | Display 6개 → `Class | Pareto | Display ▾` 3개. Sub-filter + Envelope on/off + mode 는 Display popover 안의 새 section ("Family filter (chart-local)") + 기존 "Envelopes" section 으로 이동.
+- **modeBar 정리**: `select2d` + `lasso2d` (plotly-dist-min 한계로 동작 불능) + `toggleSpikelines` (의미 불명) → 전부 제거. 남는 버튼: PNG / zoom+- / pan / reset.
+- **모바일 한 손가락 pan**: `dragmode='pan'` 모바일 기본 적용. 두 손가락 pinch zoom 은 plotly 기본 동작.
+- **모바일 클릭 = preview, 두 번째 = detail**: 첫 클릭 시 차트 위 floating preview card (이름 + family + ρ + E) 만 표시, "자세히 →" 버튼 또는 같은 점 재클릭 시 detail open. 모바일에서만. 데스크탑은 즉시 detail.
+
+### 데이터 — 신뢰성 평가 완료분만 push (R98 풍산 7종 + R100 markdown 9종)
+- **풍산 Cu 7 alloy** (supplementary +7): C1020 (OFC) / C1030 (Low-P) / C1220 (High-P) / C2100 RB1 / C2200 RB2 / C2300 RB3 / C2680 BA. 각 4 temper (O · 1/4H · 1/2H · H) σy/σ_UTS/El/HV. 신뢰성 평가: σy/UTS ratio (O 35-40%, H 95-100%) · modulus 117 GPa · density 8.94 (pure Cu) / 8.86 (RB95-5) — 풍산 카탈로그 + KS D 5101 + ASM Vol.2 일치 → OK 판정.
+- **Aliases 보충 (Cu strip 7종)**: C1020↔OFC/OFHC, C1030↔DLP, C1220↔DHP, C2100↔Red Brass 95-5/Gilding Metal, C2200↔Commercial Bronze, C2680↔Cartridge Brass.
+- **AISI 4140 + D6AC** ref_urls 에 MMPDS-08 FAA link + AISI 4140 industry_note (S-Basis 사용 시 주의사항).
+- **data/general-knowledge/** 9 markdown: 01 Cu alloys / 02 MMPDS statistical basis / 03 Steel + Stainless / 04 Aluminum / 05 Titanium / 06 Ni superalloy / 07 Pure metals table / 08 MMPDS-08 steel allowables / **09 현대제철 KS grades** (Hot Rolled / Cold Rolled / Section / Re-Bar / Galvanized 약 50종 family + KS↔JIS↔ASTM 매핑 + DB 확장 Tier 1-3 우선순위).
+
+### 보류 — 사용자 검토 필요
+- **현대제철 KS 강종 DB 입력**: SHN275/355/420/460 (내진 H형강) · SD400/500/400W/500W/400S/500S (철근) · SAPH440 / SPFH590 (자동차) 약 17종. spec 은 09-hyundai-steel-ks-grades.md 에 정리. JSON 입력은 R102 별도 작업으로 분리. OCR txt 는 .gitignore 처리 (각 ~500 KB).
+
+검증: tsc OK · vitest 47/47 · build:data OK (`Wrote materials.preview.json` · AA fix 98 · mismatch flag 33 · verified 695) · production build OK (1292.72 KB / gzip 356.51 KB).
+
 ## R99 — 모바일 긴급 fix (8건)
 사용자 긴급 보고. 모바일 사용성 회복 위주.
 - **모바일 Compare 탈출**: 모바일 nav (필터/뷰/Compare/가이드/Settings) 가 `z-30` → `fixed bottom-0 z-50` → Compare 패널 (`fixed top-12 bottom-[50px]`) 영역만 차지하여 nav 가 항상 보임. Compare 들어간 후 다른 view 로 즉시 이동 가능.

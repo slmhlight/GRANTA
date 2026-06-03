@@ -10733,6 +10733,139 @@
       ]
     },
     {
+      "name": "C1020 Oxygen-Free Copper (UNS C10200) — 풍산 strip grade",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought (cold-rolled strip)",
+      "composition": { "Cu": "≥99.99", "O": "≤0.001" },
+      "points": [
+        [8.94, 70, 195, 35, 117, 50, 391],
+        [8.94, 180, 250, 25, 117, 80, 391],
+        [8.94, 250, 275, 15, 117, 100, 391],
+        [8.94, 320, 330, 5, 117, 130, 391]
+      ],
+      "conditions": ["O (Annealed)", "1/4H (Quarter-Hard)", "1/2H (Half-Hard)", "H (Full-Hard)"],
+      "ref_urls": [
+        "https://www.poongsan.co.kr/eng/business/copper/"
+      ],
+      "aliases": ["C10200", "OFC", "Oxygen-Free Copper", "KS C1020", "OFHC", "Cu-OFE"],
+      "industry_note": "풍산 KS D 5101 strip 표준 grade. 99.99% pure OFC — 진공/수소 분위기 annealing 가능 (hydrogen embrittlement 회피). Coaxial cable, bus bar, automotive rectifier, sputtering target, 반도체 heat sink. IACS 101% — pure ETP (C11000, 100% IACS) 와 거의 동등."
+    },
+    {
+      "name": "C1030 Phosphorus Deoxidized Low-P Copper (UNS C10300) — 풍산 strip grade",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought (cold-rolled strip)",
+      "composition": { "Cu": "balance", "P": "0.001~0.005" },
+      "points": [
+        [8.94, 70, 195, 35, 117, 50, 380],
+        [8.94, 180, 250, 25, 117, 80, 380],
+        [8.94, 250, 275, 15, 117, 100, 380],
+        [8.94, 320, 330, 5, 117, 130, 380]
+      ],
+      "conditions": ["O (Annealed)", "1/4H", "1/2H", "H (Full-Hard)"],
+      "ref_urls": [
+        "https://www.poongsan.co.kr/eng/business/copper/"
+      ],
+      "aliases": ["C10300", "DLP", "Phosphorus Deoxidized Copper Low-P", "Cu-DLP", "KS C1030"],
+      "industry_note": "풍산 KS D 5101 strip. P 0.001~0.005% 첨가로 hydrogen embrittlement 회피, 진공 brazing 가능 (C1020 다음으로 진공 분위기 응용 표준). 가스 배관 (LP/도시가스), 핵 reactor 의 일부 copper part, 정밀 conductor."
+    },
+    {
+      "name": "C1220 Phosphorus Deoxidized High-P Copper (UNS C12200) — 풍산 strip grade",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought (cold-rolled strip)",
+      "composition": { "Cu": "≥99.9", "P": "0.015~0.040" },
+      "points": [
+        [8.94, 70, 195, 35, 117, 50, 339],
+        [8.94, 180, 250, 25, 117, 80, 339],
+        [8.94, 250, 275, 15, 117, 100, 339],
+        [8.94, 320, 330, 5, 117, 130, 339]
+      ],
+      "conditions": ["O (Annealed)", "1/4H", "1/2H", "H (Full-Hard)"],
+      "ref_urls": [
+        "https://www.poongsan.co.kr/eng/business/copper/"
+      ],
+      "aliases": ["C12200", "DHP", "Phosphorus Deoxidized Copper High-P", "Cu-DHP", "KS C1220"],
+      "industry_note": "풍산 KS D 5101 strip. P 0.015~0.040% (high) — 진공 brazing, 가스 배관, gaskets, 라디에이터, marine oil cooler, switch, casting mold. ASME Sec.II Part B C12200 으로 ASME pressure vessel application 도 가능. IACS 85% (C1020 의 84%)."
+    },
+    {
+      "name": "C2100 Red Brass RB1 (UNS C21000) — 풍산 strip grade",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought (cold-rolled strip)",
+      "composition": { "Cu": "94~96", "Zn": "balance", "Pb": "≤0.05", "Fe": "≤0.05" },
+      "points": [
+        [8.86, 80, 235, 35, 117, 55, 234],
+        [8.86, 200, 285, 25, 117, 85, 234],
+        [8.86, 270, 320, 15, 117, 105, 234],
+        [8.86, 340, 380, 5, 117, 130, 234]
+      ],
+      "conditions": ["O (Annealed)", "1/4H", "1/2H", "H (Full-Hard)"],
+      "ref_urls": [
+        "https://www.poongsan.co.kr/eng/business/copper/"
+      ],
+      "aliases": ["C21000", "RB1", "Red Brass 95-5", "Gilding Metal", "KS C2100", "CuZn5"],
+      "industry_note": "풍산 KS D 5101 RB1. 95Cu-5Zn red brass — coin (한국은행 10원 화폐 일부), fuse cap, connector, bullet jacket (full metal jacket bullet), 모터 rotor bar. 대기·민물·해수 부식 저항 우수. IACS 56% (Cu 의 절반 정도)."
+    },
+    {
+      "name": "C2200 Red Brass RB2 (UNS C22000) — 풍산 strip grade",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought (cold-rolled strip)",
+      "composition": { "Cu": "89~91", "Zn": "balance", "Pb": "≤0.05", "Fe": "≤0.05" },
+      "points": [
+        [8.80, 85, 255, 40, 115, 60, 189],
+        [8.80, 210, 305, 30, 115, 90, 189],
+        [8.80, 285, 345, 18, 115, 110, 189],
+        [8.80, 360, 410, 6, 115, 140, 189]
+      ],
+      "conditions": ["O (Annealed)", "1/4H", "1/2H", "H (Full-Hard)"],
+      "ref_urls": [
+        "https://www.poongsan.co.kr/eng/business/copper/"
+      ],
+      "aliases": ["C22000", "RB2", "Red Brass 90-10", "Commercial Bronze", "KS C2200", "CuZn10"],
+      "industry_note": "풍산 KS D 5101 RB2. 90Cu-10Zn — bolt, chain link, 장식·jewelry, 악기 일부. Red brass 의 색감 (24K 금에 가까움) 으로 cosmetic 응용도. IACS 44%."
+    },
+    {
+      "name": "C2300 Red Brass RB3 (UNS C23000) — 풍산 strip grade",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought (cold-rolled strip)",
+      "composition": { "Cu": "84~86", "Zn": "balance", "Pb": "≤0.05", "Fe": "≤0.05" },
+      "points": [
+        [8.75, 90, 270, 42, 115, 60, 159],
+        [8.75, 220, 320, 32, 115, 90, 159],
+        [8.75, 300, 365, 20, 115, 115, 159],
+        [8.75, 380, 430, 8, 115, 145, 159]
+      ],
+      "conditions": ["O (Annealed)", "1/4H", "1/2H", "H (Full-Hard)"],
+      "ref_urls": [
+        "https://www.poongsan.co.kr/eng/business/copper/"
+      ],
+      "aliases": ["C23000", "RB3", "Red Brass 85-15", "KS C2300", "CuZn15"],
+      "industry_note": "풍산 KS D 5101 RB3. 85Cu-15Zn — zipper, AC 모터 rotor bar, 정밀 ferrule, 일부 hardware. Red brass 영역의 마지막 grade — 더 high-Zn 으로 가면 Yellow Brass (C26000 70/30) 영역. IACS 37%."
+    },
+    {
+      "name": "C2680 Brass BA (UNS C26800) — 풍산 strip grade",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought (cold-rolled strip)",
+      "composition": { "Cu": "64~68", "Zn": "balance", "Pb": "≤0.07", "Fe": "≤0.05" },
+      "points": [
+        [8.47, 100, 320, 45, 110, 65, 121],
+        [8.47, 270, 385, 35, 110, 100, 121],
+        [8.47, 380, 450, 22, 110, 130, 121],
+        [8.47, 470, 540, 8, 110, 160, 121]
+      ],
+      "conditions": ["O (Annealed)", "1/4H", "1/2H", "H (Full-Hard)"],
+      "ref_urls": [
+        "https://www.poongsan.co.kr/eng/business/copper/"
+      ],
+      "aliases": ["C26800", "BA", "Brass 66-34", "Cartridge Brass (low-Cu)", "KS C2680", "CuZn35"],
+      "industry_note": "풍산 KS D 5101 BA grade. 66Cu-34Zn — 표준 Yellow Brass. switch contact, radiator core tube, 음향 instrument (트럼펫 등). C2600 (70/30) 보다 약간 lower Cu — 비용 trade-off. IACS 27%."
+    },
+    {
       "name": "SUP9 (JIS Cr-Mn spring steel)",
       "category": "Metal",
       "subcategory": "Spring Steel",
@@ -11393,8 +11526,10 @@
       ],
       "conditions": ["Annealed", "Normalized", "Q+T (200°C, full hard)"],
       "ref_urls": [
-        "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%204140"
-      ]
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%204140",
+        "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/MMPDS-08"
+      ],
+      "industry_note": "MMPDS-08 Table 2.3.1.0(c1)~(c3) 의 design allowables (HT-125 / HT-150) — FAA 항공 허용치 S-Basis. 단, MMPDS 표준은 'user heat-treated parts' 라 실제 lot tensile test 로 minimum substantiation 필수."
     },
     {
       "name": "Grade 91 (P91, 9Cr-1MoVNb)",
@@ -12045,7 +12180,8 @@
       ],
       "conditions": ["Annealed", "Q+T (245°C low temper, σ_UTS ≈ 1900 MPa class)", "Q+T (425°C standard temper, balance of strength + toughness)"],
       "ref_urls": [
-        "https://www.matweb.com/search/QuickText.aspx?SearchText=D6AC"
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=D6AC",
+        "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/MMPDS-08"
       ],
       "industry_note": "Minuteman III / Peacekeeper / Trident D-5 second-stage solid-rocket motor case; F-111 wing pivot fitting; B-1B main landing gear; high σ_y/ρ for filament-wound replacement reservoir."
     },

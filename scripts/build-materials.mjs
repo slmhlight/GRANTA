@@ -1860,6 +1860,17 @@ for (const m of all) {
   if (m.price_per_kg != null && m.price_per_kg > 0) {
     m.total_cost_estimate = +(m.price_per_kg * m.machining_cost_factor * m.ht_cost_factor).toFixed(2);
   }
+  /* R101 — price_per_cm3 fallback: price_per_kg + density 있으면 모든 material 에서 계산.
+     기존 reference (assignPhysicals) 만 채우던 것 → ceramic/composite/polymer/CSV 모두 포함. */
+  if (m.density != null && m.density > 0) {
+    const pk = m.price_per_kg != null ? m.price_per_kg : (m.ranges?.price_per_kg?.typical);
+    if (pk != null && pk > 0 && (m.price_per_cm3 == null || !(m.ranges?.price_per_cm3?.typical > 0))) {
+      const pc = +(pk * m.density / 1000).toFixed(4);
+      m.price_per_cm3 = pc;
+      m.ranges = m.ranges || {};
+      m.ranges.price_per_cm3 = { min: pc, max: pc, typical: pc, n: 0, estimated: true, confidence: 'derived' };
+    }
+  }
   // R15: process attributes — 시제품 단계 즉시 판단용.
   // process + 합금 패턴 기반 휴리스틱. AM/주조/단조/사출/시트 별 일반적 한계값.
   const [mw, sr, tc] = processAttributes(m);

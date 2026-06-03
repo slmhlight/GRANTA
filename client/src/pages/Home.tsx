@@ -94,6 +94,9 @@ export default function Home() {
     localStorage.setItem('am_cards_hint_shown', '1');
   }, [viewMode]);
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
+  /* R101 — 모바일 ashby preview: 첫 클릭 시 작은 floating card 만 표시, 같은 점 두 번째 클릭 시 detail open.
+     desktop 은 종전대로 즉시 detail open. previewMaterial 이 차트 위 작은 card 로 렌더링됨. */
+  const [previewMaterial, setPreviewMaterial] = useState<Material | null>(null);
   const [compareList, setCompareList] = useState<string[]>([]);
   const [restrictIds, setRestrictIds] = useState<string[] | null>(null);
   // R49f — URL filter restore 직후에만 URL encode 활성화 (encode/decode race 방지).
@@ -532,9 +535,21 @@ export default function Home() {
   }, [filters, appliedPreset, restrictIds]);
 
   // detail now opens as a floating popup, so it no longer needs to close the Compare panel
+  // R101 — 모바일: 첫 클릭은 preview card 표시, 같은 점 두 번째 클릭은 detail open. 데스크탑은 즉시 detail.
   const handleSelectMaterial = useCallback((m: Material) => {
-    setSelectedMaterial(m);
-  }, []);
+    const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+    if (isMobile) {
+      if (previewMaterial?.id === m.id) {
+        // 두 번째 클릭 → detail open + preview close
+        setPreviewMaterial(null);
+        setSelectedMaterial(m);
+      } else {
+        setPreviewMaterial(m);
+      }
+    } else {
+      setSelectedMaterial(m);
+    }
+  }, [previewMaterial]);
 
   // click a material inside Compare → open its detail popup AND locate it on the Ashby chart
   const handleSelectFromCompare = useCallback((m: Material) => {
@@ -1381,6 +1396,30 @@ export default function Home() {
                   forceIndexKey={appliedPreset ? indexKeyFromHint(appliedPreset.indexHint) : null}
                 />
               </Suspense>
+            )}
+            {/* R101 — 모바일 Ashby preview card. 차트 위 floating card. 한 번 더 누르거나 "자세히 보기" 클릭 → detail open. */}
+            {viewMode === 'ashby' && previewMaterial && (
+              <div className="md:hidden fixed left-2 right-2 bottom-[58px] z-30 rounded-lg border border-accent/40 bg-card shadow-xl px-3 py-2 flex items-center gap-2">
+                <div className="flex-1 min-w-0">
+                  <div className="text-[12px] font-semibold truncate">{previewMaterial.name}</div>
+                  <div className="text-[10px] text-muted-foreground flex items-center gap-1.5 flex-wrap">
+                    <span>{previewMaterial.category}{previewMaterial.subcategory ? ` · ${previewMaterial.subcategory}` : ''}</span>
+                    {previewMaterial.ranges?.density?.typical != null && <span>· ρ {previewMaterial.ranges.density.typical} g/cm³</span>}
+                    {previewMaterial.ranges?.modulus?.typical != null && <span>· E {previewMaterial.ranges.modulus.typical} GPa</span>}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => { setSelectedMaterial(previewMaterial); setPreviewMaterial(null); }}
+                  className="text-[11px] px-2 py-1 rounded bg-accent text-white whitespace-nowrap"
+                >자세히 →</button>
+                <button
+                  type="button"
+                  onClick={() => setPreviewMaterial(null)}
+                  className="text-muted-foreground hover:text-foreground p-1"
+                  aria-label="닫기"
+                >×</button>
+              </div>
             )}
           </div>
         </div>

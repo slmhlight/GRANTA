@@ -65,8 +65,10 @@ export function MaterialDetailPopup({
   if (!material) return null;
 
   if (!isDesktop) {
+    /* R101 — 모바일 Detail 영역: 상단 헤더 (h-12) 아래 ~ 하단 nav (50px) 위 로 한정.
+       이전 `fixed inset-0` 은 헤더·하단 nav 까지 가려 다른 view 로 이동 불가. (Compare 와 동일한 패턴) */
     return (
-      <div className="fixed inset-0 z-50 bg-background">
+      <div className="fixed top-12 left-0 right-0 bottom-[50px] z-40 bg-background overflow-auto">
         <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} allMaterials={allMaterials} favorites={favorites} onToggleFavorite={onToggleFavorite} />
       </div>
     );

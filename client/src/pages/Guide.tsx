@@ -97,16 +97,19 @@ export default function Guide() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScenarioDialog scenarioKey={dialogKey} open={dialogKey !== null} onOpenChange={(v) => { if (!v) setDialogKey(null); }} />
-      {/* 상단 바 — R66 검색 추가 */}
-      <header className="sticky top-0 z-20 h-12 flex items-center gap-3 px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
-        <Link href="/" className="flex items-center gap-1.5 text-sm hover:text-white text-sidebar-foreground/80">
-          <ArrowLeft className="w-4 h-4" /> 탐색기로 돌아가기
+      {/* 상단 바 — R66 검색 + R101 모바일 layout fix (whitespace-nowrap + 모바일 라벨 축약 + min-w-0). */}
+      <header className="sticky top-0 z-20 h-12 flex items-center gap-2 sm:gap-3 px-2 sm:px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
+        <Link href="/" className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm hover:text-white text-sidebar-foreground/80 whitespace-nowrap flex-shrink-0">
+          <ArrowLeft className="w-4 h-4" /> <span className="hidden sm:inline">탐색기로 돌아가기</span><span className="sm:hidden">탐색</span>
         </Link>
-        <div className="w-px h-5 bg-sidebar-border" />
-        <span className="flex items-center gap-2 text-sm font-semibold text-white">
+        <div className="w-px h-5 bg-sidebar-border hidden sm:block flex-shrink-0" />
+        <span className="hidden md:flex items-center gap-2 text-sm font-semibold text-white whitespace-nowrap flex-shrink-0">
           <GraduationCap className="w-4 h-4 text-accent" /> 재료 선택 가이드
         </span>
-        <div className="ml-auto relative w-full max-w-[280px] sm:max-w-[360px]">
+        <span className="flex md:hidden items-center text-white flex-shrink-0">
+          <GraduationCap className="w-4 h-4 text-accent" />
+        </span>
+        <div className="ml-auto relative flex-1 max-w-[280px] sm:max-w-[360px] min-w-0">
           <Search className="w-3.5 h-3.5 absolute left-2 top-1/2 -translate-y-1/2 text-sidebar-foreground/40 pointer-events-none" />
           <input
             type="text"

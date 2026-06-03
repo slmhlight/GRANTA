@@ -111,12 +111,17 @@ export function formatPrice(
   // 2) 통화 변환
   if (isKRW) {
     v = v * USD_TO_KRW;
-    // 1,000원 단위 반올림 (소액은 100원 단위)
+    /* R101 — per cm³/in³ 가격은 보통 ₩수십~수백 수준이라 1,000원 단위 반올림이 0으로 만든다.
+       per kg/lb: 큰 값 → 1000원 단위, per cm³: 정수 단위 (소수점 1자리), per in³: 100원 단위. */
+    if (perUnit === 'cm3') {
+      const r = v < 100 ? +v.toFixed(1) : Math.round(v);
+      return `₩${r.toLocaleString()}${unitLabel}`;
+    }
     const rounded = v < 10000 ? Math.round(v / 100) * 100 : Math.round(v / 1000) * 1000;
     return `₩${rounded.toLocaleString()}${unitLabel}`;
   }
-  // USD — 가격 크기별 소수 자릿수 자동 조정
-  const digits = v < 10 ? 2 : v < 100 ? 1 : 0;
+  // USD — 가격 크기별 소수 자릿수 자동 조정 (per cm³ 는 작은 값이라 4자리 강제)
+  const digits = perUnit === 'cm3' ? (v < 1 ? 3 : 2) : (v < 10 ? 2 : v < 100 ? 1 : 0);
   return `$${v.toFixed(digits)}${unitLabel}`;
 }
 

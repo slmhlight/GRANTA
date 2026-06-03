@@ -7,9 +7,12 @@ import type { Material } from './materials';
 
 // 순서 중요: CSV 데이터의 subcategory 가 잘못 입력된 경우(예: Inconel 100 의 subcategory 가
 // "Aluminum - Pure/Other"로 잘못 들어가 있음)를 우회하기 위해 BRAND/구체적인 키워드를
-// 일반적인 "alumin" 같은 패턴보다 먼저 검사. 폴리머만 카테고리 기반.
+// 일반적인 "alumin" 같은 패턴보다 먼저 검사. Polymer / Ceramic / Composite 은 category 기반
+// (R101: name regex 가 "Alumina" 를 "alumin" 으로 잘못 매칭해 Aluminum family 로 분류된 버그 fix).
 export const CLASSES: Array<{ key: string; color: string; test: (s: string, cat: string) => boolean }> = [
   { key: 'Polymer', color: '#16A34A', test: (_s, cat) => cat === 'Polymer' },
+  { key: 'Ceramic', color: '#0EA5E9', test: (_s, cat) => cat === 'Ceramic' },
+  { key: 'Composite', color: '#A855F7', test: (_s, cat) => cat === 'Composite' },
   { key: 'Nickel', color: '#8B5CF6', test: (s) => /\bnickel\b|inconel|hastelloy|haynes|monel|\binvar\b|kovar|cm247|nimonic|waspaloy|\brene\b|nitinol|incoloy|udimet|cp-nickel|ni 200/.test(s) },
   { key: 'Cobalt', color: '#EC4899', test: (s) => /cobalt|cocr|stellite/.test(s) },
   { key: 'Titanium', color: '#06B6D4', test: (s) => /\btitan|\bti\b|ti6|ti-6|ti5|ti cp|ti6242|ta15|\bbeta-2/.test(s) },
@@ -17,7 +20,7 @@ export const CLASSES: Array<{ key: string; color: string; test: (s: string, cat:
   { key: 'Copper', color: '#D97706', test: (s) => /\bcopper\b|bronze|brass|cuni|cucr|grcop|beryllium copper|becu|\bcu\b/.test(s) },
   { key: 'Magnesium', color: '#0D9488', test: (s) => /\bmagnes|\bmg\b/.test(s) },
   { key: 'Steel', color: '#3B82F6', test: (s) => /steel|maraging|stainless|aisi|aheadd|superduplex|duplex|chromoly|42crmo|20mncr|\biron\b/.test(s) },
-  { key: 'Aluminum', color: '#F59E0B', test: (s) => /alumin|\bal\b|aa\s*\d|alsi|a356|a357|a360|a380|a413|scalmalloy|a205|a20x/.test(s) },
+  { key: 'Aluminum', color: '#F59E0B', test: (s) => /alumin(?!a)|\bal\b|aa\s*\d|alsi|a356|a357|a360|a380|a413|scalmalloy|a205|a20x/.test(s) },
 ];
 
 export function classOf(m: Material): { key: string; color: string } {

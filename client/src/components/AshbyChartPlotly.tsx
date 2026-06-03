@@ -537,6 +537,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, uirevision: `${xProperty}|${xLog}|${groupFilter}|${subFilter}|${resetCounter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
       yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, uirevision: `${yProperty}|${yLog}|${groupFilter}|${subFilter}|${resetCounter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
       hovermode: 'closest', shapes, annotations: guideAnnotations,
+      /* R101 — 모바일: 단일 손가락 pan 기본 활성화 (touch zoom 은 두 손가락 pinch). 데스크탑: zoom 박스 기본. */
+      dragmode: isMobile ? 'pan' : 'zoom',
       // 모바일에서는 레전드를 차트 위가 아닌 아래로 옮겨 차트 면적을 보호 (또는 항목 많을 때 토글).
       showlegend: showLegend && (!isMobile || (envelopeTraces.length + markerTraces.length <= 8)),
       // Sprint 2 A2 — 모바일 legend 가시성 향상.
@@ -592,15 +594,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
   const config = {
     responsive: true, displaylogo: false,
-    // 모바일에서 hover 없이도 modeBar 노출 → PNG export·zoom·pan·reset 항상 보임.
-    // box-select/lasso 는 plotly-dist-min 번들 한계로 지원 불가 (full plotly bundle 은 vite 에서 import 실패).
-    // 모바일 다중 선택은 좌측 필터·검색·테이블 다중 체크로 우회.
     displayModeBar: true as const,
-    // Sprint 4 C6 — scroll wheel zoom 활성화 (Pan/Zoom UX 보강), pan/zoom 버튼 더 명확히.
-    //   기본 modeBar 의 zoom/pan/reset 외 'toggleSpikelines' 추가 (점 정확 위치 가이드라인).
+    /* R101 — modeBar 정리: select2d/lasso2d 는 plotly-dist-min 한계로 동작 불능 + toggleSpikelines 는 의미 불명 → 모두 제거.
+       남는 버튼: PNG 저장 · zoom in/out · pan · reset (autoScale2d 는 R90 이전부터 제거 — reset 과 중복). */
     scrollZoom: true,
-    modeBarButtonsToRemove: ['autoScale2d'],
-    modeBarButtonsToAdd: ['toggleSpikelines' as const],
+    modeBarButtonsToRemove: ['autoScale2d', 'select2d', 'lasso2d', 'toggleSpikelines'] as Array<'autoScale2d' | 'select2d' | 'lasso2d' | 'toggleSpikelines'>,
     toImageButtonOptions: { format: 'png', filename: 'ashby_chart', height: 700, width: 1000, scale: 2 },
     // R90 — 'reset' 만 (이전 'reset+autosize' 는 autosize 가 colored marker bbox 에 맞춰 zoom-in 시켜
     //       index pass 가 3개 등 작을 때 빈 영역처럼 보이는 문제 유발). 'reset' 은 layout 의 range 로 복귀.
@@ -658,29 +656,14 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         </div>
       </div>
 
-      {/* ── Grouping & display ── R99: 세로 최소화 (py-0.5), select 컴팩트 */}
+      {/* ── Grouping & display ── R101: 한 줄로 단순화. Filter class + Pareto + Display 만 노출.
+            Sub-filter / Envelope on-off / Envelope mode 는 Display popover 로 이동.
+            (사이드바에 이미 family/subcategory filter 가 있어 차트 헤더에 중복) */}
       <div className="flex-shrink-0 flex flex-wrap items-center gap-1 sm:gap-2 px-2 sm:px-3 py-0.5 sm:py-1.5 border-b border-border">
-        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Filter</span>
+        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Class</span>
         <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
-          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[100px] sm:w-[128px]"><SelectValue /></SelectTrigger>
+          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[100px] sm:w-[140px]"><SelectValue /></SelectTrigger>
           <SelectContent>{groupOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All classes' : f}</SelectItem>)}</SelectContent>
-        </Select>
-        <Select value={subFilter} onValueChange={setSubFilter} disabled={groupFilter === 'all'}>
-          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[110px] sm:w-[150px]"><SelectValue placeholder="Sub-family" /></SelectTrigger>
-          <SelectContent>{subOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : cleanSub(f)}</SelectItem>)}</SelectContent>
-        </Select>
-        <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
-        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 hidden sm:inline">Envelopes</span>
-        <label className="flex items-center gap-1 text-[11px] sm:text-xs text-muted-foreground cursor-pointer select-none">
-          <input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> <span className="hidden sm:inline">Show</span><span className="sm:hidden">Env</span>
-        </label>
-        <Select value={envelopeBy} onValueChange={(v) => setEnvelopeBy(v as 'category' | 'class' | 'family')}>
-          <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs w-[105px] sm:w-[155px]" title="Envelope grouping"><SelectValue /></SelectTrigger>
-          <SelectContent>
-            <SelectItem value="category" className="text-xs">All metals/polymers</SelectItem>
-            <SelectItem value="class" className="text-xs">1st-level family</SelectItem>
-            <SelectItem value="family" className="text-xs">Sub-family (2nd)</SelectItem>
-          </SelectContent>
         </Select>
         <span className="w-px h-5 bg-border/70 flex-shrink-0 hidden sm:block" />
         {/* R28 — Pareto frontier 토글 (메인 행에 노출 — 자주 사용). 활성화 시 옆에 N pts 정보 표시. */}
@@ -699,9 +682,39 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <button type="button" className="text-[11px] sm:text-xs text-muted-foreground hover:text-foreground border border-border rounded px-1.5 sm:px-2 h-6 sm:h-7 flex items-center gap-1">Display ▾</button>
           </PopoverTrigger>
           <PopoverContent align="start" className="w-72 text-xs max-h-[75vh] overflow-auto space-y-3">
-            {/* X/Y log + AxisLimit + Envelope Show 는 라운드 8 에서 메인 행으로 복구. popover 에는 세부 옵션만. */}
+            {/* R101 — Class·Sub-family·Envelope on/off + mode 를 Display popover 로 이동 (메인 행 단순화). */}
             <div className="space-y-2">
-              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Envelopes (세부)</div>
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Family filter (chart-local)</div>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] text-muted-foreground w-12">Class</span>
+                <Select value={groupFilter} onValueChange={(v) => { setGroupFilter(v); setSubFilter('all'); }}>
+                  <SelectTrigger className="h-7 text-xs flex-1"><SelectValue /></SelectTrigger>
+                  <SelectContent>{groupOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All classes' : f}</SelectItem>)}</SelectContent>
+                </Select>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] text-muted-foreground w-12">Sub</span>
+                <Select value={subFilter} onValueChange={setSubFilter} disabled={groupFilter === 'all'}>
+                  <SelectTrigger className="h-7 text-xs flex-1"><SelectValue placeholder="Sub-family" /></SelectTrigger>
+                  <SelectContent>{subOptions.map((f) => <SelectItem key={f} value={f} className="text-xs">{f === 'all' ? 'All families' : cleanSub(f)}</SelectItem>)}</SelectContent>
+                </Select>
+              </div>
+            </div>
+            <div className="border-t border-border/60" />
+            <div className="space-y-2">
+              <div className="text-[10px] uppercase tracking-wider text-accent/90 font-semibold">Envelopes</div>
+              <label className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={showEnvelopes} onChange={(e) => setShowEnvelopes(e.target.checked)} className="accent-accent" /> Show envelope</label>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] text-muted-foreground w-12">Group</span>
+                <Select value={envelopeBy} onValueChange={(v) => setEnvelopeBy(v as 'category' | 'class' | 'family')}>
+                  <SelectTrigger className="h-7 text-xs flex-1"><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="category" className="text-xs">All metals/polymers</SelectItem>
+                    <SelectItem value="class" className="text-xs">1st-level family</SelectItem>
+                    <SelectItem value="family" className="text-xs">Sub-family (2nd)</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
               <div><div className="flex justify-between text-muted-foreground mb-1"><span>Opacity</span><span className="font-mono">{envOpacity.toFixed(2)}</span></div><Slider min={0.03} max={0.5} step={0.01} value={[envOpacity]} onValueChange={(v: number[]) => setEnvOpacity(v[0])} /></div>
               {([['Fill', envFill, setEnvFill], ['Outline', envOutline, setEnvOutline]] as [string, boolean, (v: boolean) => void][]).map(([label, val, set]) => (
                 <label key={label} className="flex items-center gap-2 cursor-pointer select-none"><input type="checkbox" checked={val} onChange={(e) => set(e.target.checked)} className="accent-accent" /> {label}</label>
