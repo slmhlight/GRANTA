@@ -2,6 +2,23 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R78 — Metal 스토리 확장 (30 → 65) + 어투 친근화 (99 → 176 alloy 노출)
+**스토리 수 확장** — 기존 30개에 metal 20종 추가, 비-metal 일부 보강해 65 base stories. build-materials.mjs 의 prefix-match + word-boundary lookup 으로 condition 변형까지 자동 attach → 노출되는 alloy **99 → 176**.
+**어투 다듬기** — 핵심 7종 (Inconel 718, AISI 304/304L/316, Ti-6Al-4V, AA 6061/2024/7075) 을 친근한 한국어 완성문으로 재작성. 인물명은 한글 병기, 어미 다양화, "그가 풀려고 한 문제" / "그가 내놓은 답은" 같은 narrative tone.
+**추가된 metal 20종** (산업 표준 영역):
+- 잠수함·송유관 — **HY-100** (Virginia/Seawolf hull, Thresher 사고 후 hydrogen embrittlement spec), **API 5L X70** (Trans-Alaska Pipeline 1287km, Athabasca 1986 brittle fracture 이후 CTOD spec)
+- 화학·고온 — **Hastelloy C-276** (1965 Haynes, DuPont HF reactor 절대 표준), **Hastelloy X** (1954 Floreen·Decker 같은 콤비, Apollo LM descent + SSME), **Tungsten W 99.95%** (Coolidge 1908 GE filament + KE penetrator)
+- PH stainless — **17-7 PH** (Armco 1948 semi-austenitic, SR-71 사보 와이어), **PH 13-8 Mo** (Armco 1965, F-15/16/18 actuator + Stryker spinal rod)
+- 의료·생체 — **CoCrMo F75** (1929 Vitallium, 1937 Bohlman 첫 hip arthroplasty), **Beryllium Copper C17200** (1932 Brush, Apollo 우주복 zipper, F1 spring contact)
+- 해양 — **Cupronickel 70/30 C71500** (1929 USN 표준, 사우디 Ras Al Khair MSF 880km condenser tube)
+- 우주 — **Niobium C-103** (Apollo LM ascent engine, Mariner 4 산화 사고), **NARLOY-Z** (SSME 60년 표준), **GRCop-84** (NASA RAMPT, Raptor V2 candidate), **AA 2195** (Reynolds 1989, SLWT Shuttle + SLS LH2), **AA 2050** (Constellium AIRWARE, A380 lower wing 800m²)
+- 항공·헬기 — **Pyrowear 53** (Carpenter 1985, 헬기 변속기 loss-of-lube 30분 생존), **MAR-M 247** (Martin Marietta 1971, GE F404/F414 + F1 터보), **Udimet 720Li** (Special Metals 1965, Trent 500/700/800/900 HP disc)
+- 인프라·차체 — **22MnB5** (ArcelorMittal 1995 USIBOR, EU 95 g/km CO₂ 규제 후 표준), **Hardox 450** (SSAB 1974, Komatsu HD785 + Cat 793F dump body), **A992** (2002 표준, Northridge 1994 지진 trigger), **S355J2+N** (1993 EN 10025 EU 통합, Øresund/Millau/풍력 타워)
+- 철도 — **R260 Rail** (UIC 860 KTX/Shinkansen mainline), **Railway Wheel Class C** (AAR M-107 BHP Pilbara 35t/axle)
+- 공구·베어링 — **D2 Tool Steel** (1920s Vasco Wear, Bohler K110/Uddeholm Sverker 21), **AISI 52100** (1898 SKF Wingquist, 모든 자동차 wheel bearing + hybrid Si₃N₄ ball)
+
+**build script** — 기존 base-name exact match 에 prefix match + word-boundary (다음 글자가 space/em-dash/괄호/콤마 여야 함) 추가. "Inconel 718 — Annealed" 같은 condition 변형 + "HY-100 (MIL-S-16216) — submarine pressure hull — Q+T" 같은 3 단 이름 모두 매칭.
+
 ## R77 — Table·Card view 에 개발 스토리 배지
 `m.story` 가 있는 합금의 이름 옆에 작은 amber `BookText` 아이콘 표시. 사용자가 list 에서 즉시 "이 재료엔 개발 역사 + industry-standard 응용 기록이 있다" 를 인지 가능.
 - **MaterialTable**: 이름 셀의 family-color dot 옆에 W3 H3 amber BookText, hover title "개발 스토리·industry-standard 응용 기록 있음 (Process 탭)"
