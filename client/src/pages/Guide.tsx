@@ -8,7 +8,8 @@
  */
 import { Link } from 'wouter';
 import { useState } from 'react';
-import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass, Rocket, ChevronDown } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass, Rocket, ChevronDown, Search, X } from 'lucide-react';
+import { searchGuide, type GuideIndexEntry } from './guide/index-entries';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 // C1: Guide 페이지 구성요소를 ./guide/{components,svgs}.tsx 로 분리해 파일 사이즈 축소.
@@ -75,10 +76,28 @@ export default function Guide() {
   // R61 #3 — 자주 쓰는 6개만 처음 노출. "더 보기" 로 나머지 10 펼침.
   const [showAllTiles, setShowAllTiles] = useState(false);
   const visibleTiles = showAllTiles ? [...POPULAR_TILES, ...EXTRA_TILES] : POPULAR_TILES;
+  // R66 — Guide 안 검색. sticky bar + dropdown. 결과 click → anchor scroll + chapter open.
+  const [searchQ, setSearchQ] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchResults: GuideIndexEntry[] = searchQ ? searchGuide(searchQ) : [];
+  const gotoEntry = (e: GuideIndexEntry) => {
+    setSearchQ(''); setSearchOpen(false);
+    // hashchange listener (Chapter) 가 자동으로 chapter open. 직접 anchor 클릭.
+    window.location.hash = `#${e.ch}`;
+    // smooth scroll + 강조 효과
+    setTimeout(() => {
+      const el = document.getElementById(e.ch);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.classList.add('ring-2', 'ring-accent', 'rounded-lg');
+        setTimeout(() => el.classList.remove('ring-2', 'ring-accent', 'rounded-lg'), 2400);
+      }
+    }, 200);
+  };
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScenarioDialog scenarioKey={dialogKey} open={dialogKey !== null} onOpenChange={(v) => { if (!v) setDialogKey(null); }} />
-      {/* 상단 바 */}
+      {/* 상단 바 — R66 검색 추가 */}
       <header className="sticky top-0 z-20 h-12 flex items-center gap-3 px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
         <Link href="/" className="flex items-center gap-1.5 text-sm hover:text-white text-sidebar-foreground/80">
           <ArrowLeft className="w-4 h-4" /> 탐색기로 돌아가기
@@ -87,6 +106,55 @@ export default function Guide() {
         <span className="flex items-center gap-2 text-sm font-semibold text-white">
           <GraduationCap className="w-4 h-4 text-accent" /> 재료 선택 가이드
         </span>
+        <div className="ml-auto relative w-full max-w-[280px] sm:max-w-[360px]">
+          <Search className="w-3.5 h-3.5 absolute left-2 top-1/2 -translate-y-1/2 text-sidebar-foreground/40 pointer-events-none" />
+          <input
+            type="text"
+            value={searchQ}
+            onChange={(e) => { setSearchQ(e.target.value); setSearchOpen(true); }}
+            onFocus={() => setSearchOpen(searchQ.length >= 2)}
+            onBlur={() => setTimeout(() => setSearchOpen(false), 200)}
+            placeholder="가이드 검색 — Ashby · 안전계수 · HIP · ASTM · galvanic …"
+            className="w-full h-7 pl-7 pr-7 text-[12px] rounded border border-sidebar-border bg-[oklch(0.28_0.06_250)] text-white placeholder:text-sidebar-foreground/40 focus:outline-none focus:border-accent"
+            aria-label="가이드 검색"
+          />
+          {searchQ && (
+            <button
+              type="button"
+              onClick={() => { setSearchQ(''); setSearchOpen(false); }}
+              className="absolute right-1.5 top-1/2 -translate-y-1/2 text-sidebar-foreground/50 hover:text-white"
+              aria-label="검색 지우기"
+            >
+              <X className="w-3 h-3" />
+            </button>
+          )}
+          {/* 검색 결과 dropdown */}
+          {searchOpen && searchResults.length > 0 && (
+            <div className="absolute top-full left-0 right-0 mt-1 bg-popover border border-border rounded-lg shadow-lg max-h-[400px] overflow-auto z-30">
+              <div className="text-[10px] text-muted-foreground px-3 py-1.5 border-b border-border/50">결과 <b className="text-foreground">{searchResults.length}</b></div>
+              {searchResults.map((r, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onMouseDown={(e) => { e.preventDefault(); gotoEntry(r); }}
+                  className="w-full text-left px-3 py-2 hover:bg-muted/40 border-b border-border/30 last:border-0"
+                >
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-[10px] bg-accent/15 text-accent rounded px-1.5 py-0.5 font-bold flex-shrink-0">Ch.{r.chapterN}</span>
+                    <span className="text-[12px] font-semibold text-foreground">{r.chapterLabel}</span>
+                    {r.section && <span className="text-[10px] text-muted-foreground">› {r.section}</span>}
+                  </div>
+                  <p className="text-[11px] text-foreground/70 mt-0.5 line-clamp-2">{r.snippet}</p>
+                </button>
+              ))}
+            </div>
+          )}
+          {searchOpen && searchQ.length >= 2 && searchResults.length === 0 && (
+            <div className="absolute top-full left-0 right-0 mt-1 bg-popover border border-border rounded-lg shadow-lg z-30 p-3 text-xs text-muted-foreground">
+              "{searchQ}" 매칭 없음 — 다른 키워드 시도 (예: Ashby · HIP · 갈바닉 · MMPDS · ASTM E8)
+            </div>
+          )}
+        </div>
       </header>
 
       <div className="mx-auto max-w-3xl px-5 py-10">
