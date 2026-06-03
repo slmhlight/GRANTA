@@ -98,6 +98,12 @@ export default function Guide() {
               <span key={t} className="text-[11px] px-2 py-1 rounded-full bg-background border border-border text-foreground/80">{t}</span>
             ))}
           </div>
+          {/* 시작 팁 — 단축키·검색 패턴·언어/단위. 한 줄로 자연스럽게. */}
+          <p className="text-[11px] text-muted-foreground mt-3 leading-relaxed">
+            <b className="text-foreground/80">단축키</b>: <kbd className="px-1 py-0.5 rounded bg-muted border border-border font-mono text-[10px]">/</kbd> 검색 · <kbd className="px-1 py-0.5 rounded bg-muted border border-border font-mono text-[10px]">?</kbd> 온보딩 다시 보기 ·
+            <span className="ml-1"><b className="text-foreground/80">검색</b>은 약어·구분자 무시(<span className="font-mono">ti6al4v</span>·<span className="font-mono">316l</span>·<span className="font-mono">ss316</span>).</span>
+            <span className="ml-1">우측 상단에서 <b>한/EN</b>·<b>SI/Imperial</b> 전환.</span>
+          </p>
         </div>
 
         {/* 빠른 접근 — 사례 타일 그리드 (다이얼로그로 곧장) */}
@@ -123,7 +129,7 @@ export default function Guide() {
               </button>
             ))}
           </div>
-          <p className="text-[11px] text-muted-foreground mt-2">타일을 누르면 치수·하중·재료 조건 다이얼로그가 열립니다. 기초가 필요하면 아래 목차에서 챕터로.</p>
+          <p className="text-[11px] text-muted-foreground mt-2">타일을 누르면 치수·하중·재료 조건 다이얼로그가 열리고, <b className="text-foreground/80">적용 전 어떤 필터가 켜질지 미리보기</b>도 함께 표시됩니다. 기초가 필요하면 아래 목차에서 챕터로.</p>
         </div>
 
         {/* 학습 흐름 */}
@@ -167,7 +173,7 @@ export default function Guide() {
             steps={[
               <>좌측 필터: <b>Yield ≥ 300</b>, <b>Modulus ≥ 90</b>, <b>Process = LPBF</b>.</>,
               <>상단 <b>Index = 경량 강성 보 <F>E^½/ρ</F></b> 선택. <b>+ constraint</b>로 <F>σy^⅔/ρ</F> 추가.</>,
-              <><b>M 임계</b>를 올려 통과를 5~10개로 좁힘 → <b>Add all → Compare</b> → 무게·강도·가격 비교.</>,
+              <><b>M 임계</b>를 올려 통과를 5~10개로 좁힘 → <b>표 헤더의 ＋ 체크박스</b>로 현재 페이지 전체 추가 → <b>Compare</b> 패널에서 Radar 오버레이·CSV·PNG 로 비교.</>,
             ]}
             families={<>고강도 알루미늄(Scalmalloy·AlSi10Mg), 티타늄(Ti-6Al-4V), 마그네슘 합금.</>}
           />
@@ -186,7 +192,7 @@ export default function Guide() {
               <>후보 상세 팝업의 <b>온도-강도 곡선</b>으로 700 °C 부근 σy/UTS 비교 · <b>Compare</b>에 여러 후보 곡선 오버레이.</>,
               <>내식성(정성) 등급도 확인.</>,
             ]}
-            families={<>니켈 초합금(Inconel 718/625, Haynes 230), 코발트 합금. 중온(≤540 °C)은 티타늄 Ti-6242.</>}
+            families={<>니켈 초합금(Inconel 718/625/617, Haynes 230, Hastelloy X), 발전소 보일러용 Grade 91(P91), petrochem heater tube Incoloy 800H, Fe-Ni 디스크 A286, 코발트 합금. 중온(≤540 °C)은 티타늄 Ti-6242.</>}
           />
 
           <Scenario
@@ -197,10 +203,10 @@ export default function Guide() {
             examples={<>자동차 크랭크샤프트, 발전기·증기터빈 로터, 항공기 랜딩기어 액슬. <ExtLink href="https://en.wikipedia.org/wiki/Crankshaft">Crankshaft</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Fatigue_(material)">Fatigue</ExtLink></>}
             title="회전·진동 부품 (샤프트 · 임펠러)"
             situation="반복 응력을 오래 견뎌야 하는 부품. 정적 강도만으로는 부족."
-            needs={<>응력진폭 예 <F>150 MPa</F>, <F>SF = 1.5</F> → <b>피로강도</b> <F>≥ 225 MPa</F>.</>}
+            needs={<>응력진폭 예 <F>150 MPa</F>, <F>SF = 1.5</F> → <b>피로강도</b> <F>≥ 225 MPa</F>. <span className="text-muted-foreground">측정값이 없는 합금은 <F>σ_f ≈ k · σ_y</F> 근사 (강·니켈 k≈0.45–0.50, 티타늄 0.52, 알루미늄 0.38) 로 채워져 있으며 상세 패널의 <F>derived</F> 라벨로 구분됩니다.</span></>}
             steps={[
               <>필터: <b>Fatigue Strength ≥ 225</b> (<F>est.</F>가 붙었는지 상세에서 확인).</>,
-              <><b>Compare</b>로 피로강도·연신율·강도 함께 비교.</>,
+              <><b>Compare</b>로 피로강도·연신율·강도 함께 비교 — <b>≤20개</b>면 Radar 오버레이로 한눈에.</>,
             ]}
             families={<>티타늄(높은 피로/강도비), 고강도강(4340), 일부 니켈합금. <span className="text-muted-foreground">알루미늄은 뚜렷한 내구한도가 없어 주의.</span></>}
           />
@@ -361,9 +367,10 @@ export default function Guide() {
             examples={<>수소 저장 탱크 (350·700 bar), LPG 실린더, 스팀 보일러, 화학 reactor, 공기 압축기 receiver. <ExtLink href="https://en.wikipedia.org/wiki/Pressure_vessel">Pressure vessel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/ASME_Boiler_and_Pressure_Vessel_Code">ASME BPVC</ExtLink></>}
             title="압력 용기 (수소 탱크 · 보일러)"
             situation="내압 P 에서 hoop stress σ = PD/2t 발생. 누설·파열 절대 방지."
-            needs={<>충분한 <b>σy</b> (SF ≥ 3 typical ASME), <b>인성</b> (균열 진전 둔화), 부식 (수소 취화 / 황화수소 SSC) 저항. ISO 11119 / ASME VIII.</>}
+            needs={<>충분한 <b>σy</b> (SF ≥ 3 typical ASME), <b>인성</b> (균열 진전 둔화), 부식 (수소 취화 / 황화수소 SSC) 저항. ISO 11119 / ASME VIII. <span className="text-muted-foreground">KIC 측정값이 없는 합금은 family typical (ASM Vol. 1·2, MMPDS) 로 채워져 있으며 상세의 <F>class</F> 라벨로 식별 가능합니다.</span></>}
             steps={[
               <>필터: <b>UTS ≥ 600 MPa</b>, <b>Fracture Toughness ≥ 50 MPa·√m</b>, <b>Process ⊃ Wrought</b> (단조 두께 보장).</>,
+              <>Ashby 차트의 Y축 옵션 → <b>파괴 인성</b> 선택, X축 σy 로 두면 toughness-strength trade-off 가 한 눈에. 마우스 휠로 확대·더블클릭으로 reset.</>,
               <>Compare 로 σy·KIC·내식 비교. 수소 환경이면 H₂ 취화 저항 (Ni·Cr 함량) 검증.</>,
               <>상세 팝업의 ASME 표준 합금 (P-No.) 확인.</>,
             ]}
@@ -487,8 +494,9 @@ export default function Guide() {
                 <tr><td className="p-2">목적 (성능지수)</td><td className="p-2">상단 <b>Index</b> 프리셋 + <b>M 임계값</b> 슬라이더</td></tr>
                 <tr><td className="p-2">다목적 (여러 지수)</td><td className="p-2"><b>+ constraint</b> 로 N개 AND</td></tr>
                 <tr><td className="p-2">재료군 분포</td><td className="p-2"><b>Envelopes</b>(category/family/sub) 토글</td></tr>
-                <tr><td className="p-2">후보 추리기</td><td className="p-2"><b>박스 선택</b> → Add all → Compare / → Filter</td></tr>
-                <tr><td className="p-2">비교·검증</td><td className="p-2"><b>Compare</b> · 상세 팝업 · 출처 링크 · CSV</td></tr>
+                <tr><td className="p-2">후보 추리기</td><td className="p-2"><b>박스 선택</b> → Add all → Compare 또는 표 헤더 <b>＋ 체크박스</b>로 현재 페이지 전체 추가</td></tr>
+                <tr><td className="p-2">비교·검증</td><td className="p-2"><b>Compare</b> 패널 · Radar 오버레이(≤20) · CSV · PNG export · 상세 팝업 · 출처 링크</td></tr>
+                <tr><td className="p-2">차트 인터랙션</td><td className="p-2">마우스 휠로 zoom · 더블클릭으로 reset · modeBar 의 <b>Spike Lines</b> 로 점 좌표 가이드</td></tr>
                 <tr><td className="p-2"><b>Pareto frontier</b> (다목적 외곽선)</td><td className="p-2">상단 <b>Pareto</b> 체크박스 → 골드 별표 + 라인</td></tr>
               </tbody>
             </table>
@@ -981,8 +989,8 @@ export default function Guide() {
           ]}
         >
           <ul className="list-disc pl-6 mt-1 space-y-1.5 leading-relaxed text-sm">
-            <li>값은 <b>대표값(typical) + min–max 범위</b>입니다. 같은 합금도 공정·열처리·빌드 방향에 따라 크게 달라집니다.</li>
-            <li><F>est.</F> 라벨(피로 추정, 클래스 대표 물리값 등)은 <b>측정값이 아니라 추정/대표값</b>입니다. 설계 확정 전 데이터시트로 확인하세요.</li>
+            <li>값은 <b>대표값(typical) + min–max 범위</b>입니다. 같은 합금도 공정·열처리·빌드 방향에 따라 크게 달라집니다. 상세 패널의 <b>Process 탭</b>에서 condition 옆에 한 줄 효과 설명을 함께 표시합니다 (H900 = "최대 σy", HIP = "기공 제거·피로 ↑", T6 = "Al peak hardness" 등).</li>
+            <li><F>est.</F> 라벨은 confidence 가 <F>handbook</F>(표준 데이터시트), <F>class</F>(클래스 대표 추정), <F>derived</F>(다른 물성에서 유도) 인 경우. 설계 확정 전 출처를 직접 확인하세요. 출처 탭에 <b>"Fatigue fallback"</b> · <b>"KIC fallback"</b> 같은 라벨로 출처 종류를 명시했습니다.</li>
             <li><b>AM(적층제조)은 이방성</b>이 있습니다(XY vs Z). 방향·후처리(HIP/열처리)에 따른 차이를 반드시 고려하세요.</li>
             <li>최종 판단은 항상 <b>출처(데이터시트·규격)</b>로 검증하고, 안전계수·인증 요구를 적용하세요. 이 앱은 <b>후보를 좁히는 도구</b>이지 설계 승인 근거가 아닙니다.</li>
           </ul>
