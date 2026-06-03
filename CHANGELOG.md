@@ -2,6 +2,14 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R75 — Detail "History · 개발 스토리" 섹션 추가
+Popularity 최상위 재료 30종에 대해 2~3 단락의 개발 역사, 스토리, 실제 사용례를 `data/material-stories.json`(name → text+refs) 로 분리 작성. `build-materials.mjs` 가 base name lookup 으로 모든 condition 변형 ("Inconel 718 — Annealed", "— STA" 등) 에 동일 story 를 attach (99 alloy 노출). 모든 story 는 1차 출처 (특허, 논문, handbook) 명시.
+- **Material type 확장** — `story?: string`, `story_refs?: string[]`, `industry_note?: string` 신규 필드
+- **build-materials.mjs** — supplementary 의 `industry_note` 통과 + stories.json 자동 주입
+- **MaterialDetail.tsx** — Properties 탭 최상단에 amber 박스로 "History · 개발 스토리" 펼침 default open; 📌 Industry standard 한 줄 + 본문 다단락 + 출처 리스트
+- **138 alloy** 에 industry_note 노출 (R72-R74 의 metal 54종 × condition variants)
+- **30 base stories** = Inconel 718/625, AISI 304/304L/316/1010/1018/1020/4140, Ti-6Al-4V, AA 6061/5052/2024/7075, 17-4 PH, Maraging 300, Stellite 6, Nylon 66, PMMA, PP, ABS, PC, PETG, PLA, PEEK Victrex 450G, A356.0, Hadfield Mn13, AZ31B Mg, Aluminum Bronze C61400, Copper C11000, Nitinol, Invar 36, Alumina 99.5%, Si₃N₄ HIP'd, WC-6Co K10, CFRP T800, GFRP E-glass UD, POM Delrin 500, PVC
+
 ## R74 — Metal 산업군 추가 확장 (1,121 → 1,168)
 이전 R72/R73이 다룬 metal 도메인(밸브·베어링·항공 disc·차체·보일러튜브·원자로) 외 미커버 metal 산업군 20종을 supplementary 에 추가. 모든 entry 에 `industry_note` 로 표준·OEM·기체 모델 명시.
 - **철도 (Rail / Wheel)** — R260 (UIC 860 / EN 13674-1, 60E1 mainline), Class C wheel (AAR M-107, 39 t/axle heavy-haul)

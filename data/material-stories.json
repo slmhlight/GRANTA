@@ -1,0 +1,341 @@
+{
+  "_comment": "R75 — 개발 역사·스토리·실제 사용례. key = material name 의 base form (\" — \" 앞부분). build-materials.mjs 가 모든 conditions 변형(304 — Annealed, 304 — Q+T, ...)에 같은 story 를 attach. 출처는 모두 1차 (특허·논문·handbook), 흥미 + 정확. 잘 모르는 재료는 생략.",
+  "stories": {
+    "Inconel 718": {
+      "text": "Inconel 718 은 1959 년 미국 INCO (International Nickel) 의 Herbert Eiselstein 이 발명한 γ\" -Ni₃Nb 석출강화 니켈 슈퍼알로이로, 당시 주류였던 Waspaloy 계열 γ' 시효경화 합금이 용접 시 응고 균열 (strain-age cracking) 에 시달리는 문제를 Nb 5 wt% 와 Mo 3 wt% 를 추가해 γ\" 의 느린 석출 동력학으로 해결한 것이 핵심이었다. Ti+Al 만으로 시효되는 종래 합금과 달리 BCT γ\" 가 650-700 °C 까지 안정하면서 응고 시간 창이 넓어, 압력 단조와 fusion welding 양쪽이 모두 가능한 최초의 슈퍼알로이가 되었다.\n\nP&W JT9D (Boeing 747), GE T700 (Black Hawk), GE F404 (F/A-18), CFM56 (737NG) 등 거의 모든 군·민용 제트엔진의 압축기 디스크와 1단 압축기 블레이드를 718 이 차지하며, 우주 셔틀 SSME 의 turbopump 일부, SpaceX Merlin / Raptor 의 injector body, NASA 가 1972 년 발사한 Apollo 17 LM ascent engine nozzle 까지 사용 — 항공 가스 터빈 강도의 대명사가 되었다. AM (LPBF) 으로 제조해도 후공정 (HIP + solution + double age) 으로 단조 수준 강도를 회복하기에 GE Aviation 의 LEAP-1A 연료 노즐, SpaceX SuperDraco 추력기, Aerojet RS-25 일부 brackets 도 718 LPBF.",
+      "refs": [
+        "Eiselstein H L (1965) ASTM STP 369 \"Advances in the Technology of Stainless Steels and Related Alloys\"",
+        "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP",
+        "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide 2nd ed., ASM",
+        "Special Metals \"Inconel Alloy 718\" Tech Bulletin (revised 2007)"
+      ]
+    },
+    "AISI 304": {
+      "text": "1912 년 독일 Krupp 의 Eduard Maurer 와 Benno Strauss 가 화학 분석실 한 켠에 방치된 부식 시료가 녹슬지 않는 것을 보고 Cr 18% + Ni 8% 의 조합이 우연히 austenitic stainless 의 첫 합금임을 발견했다 (DRP 304126, 1913). 1 차 대전 동안 잠수함용 비밀 군수 물자였던 이 강은 종전 후 Krupp 의 V2A (Versuchsschmelze 2 Austenit) 로 상품화되어 1930 년 뉴욕 Chrysler Building 의 첨탑 외장재로 채택되며 세계적 주목을 받았다.\n\n이후 미국 ASTM 은 1925 년 18-8 stainless 를 type 304 로 표준화 (UNS S30400), Cr 18% 가 표면에 형성하는 Cr₂O₃ 부동태가 자기-치유 (self-passivating) 메커니즘으로 작동해 식품·의료·건축 모든 영역에서 가장 흔히 쓰이는 합금이 되었다. 연간 세계 stainless 생산량의 ~50% 가 304/304L 계열일 정도. 단, 450~850°C 의 sensitization 영역에서 Cr₂₃C₆ 가 입계 석출하면 IGC (입계 부식) 가 생기기에 용접부에는 304L (≤0.03% C) 또는 stabilized 321 (Ti add) / 347 (Nb add) 가 선호된다.",
+      "refs": [
+        "Krupp DRP 304126 (1913) \"Herstellung von Gegenständen aus rostfreiem Stahl\"",
+        "ASM Handbook Vol.1 (10th ed) \"Stainless Steels: Metallurgy and Corrosion Resistance\"",
+        "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
+        "Cobb H M (2010) The History of Stainless Steel, ASM International"
+      ]
+    },
+    "AISI 304L": {
+      "text": "304L 은 1962 년 미국 Combustion Engineering 이 304 의 sensitization 문제 (450~850°C 영역의 Cr-탄화물 입계 석출 → IGC) 를 해결하기 위해 carbon 을 ≤ 0.03% 로 낮춘 ELC (Extra-Low-Carbon) 변형이다. 304 의 모든 부식 환경에서 사용 가능하면서 용접 그대로 (as-welded) PWHT 없이 immediate service 가능 — 사실상 \"용접하는 304\" 의 베이스라인이 됐다.\n\n응용: 식품 공정 라인 (uno-pasteurized milk, beer brewery), 의료 surgical tray, 화학 plant 의 jacketed reactor, 반도체 super-clean piping (EP-finished, surface Ra < 0.4 μm), HVAC ductwork, 대형 outdoor sculpture (Anish Kapoor 의 \"Cloud Gate\"). 단점은 carbon 감소로 σ_y 가 304 대비 ~5% 낮음.",
+      "refs": [
+        "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
+        "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2",
+        "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
+      ]
+    },
+    "AISI 316": {
+      "text": "1929 년 미국 Union Carbide 의 Whitney Eames 와 독일 Krupp 이 거의 동시에 18-8 (304) 에 Mo 2-3% 를 추가한 새 austenitic 합금을 개발 — AISI 316 의 시작. Mo 가 형성하는 MoO₄²⁻ 음이온이 Cl⁻ 의 부동태 침투를 방해해 304 가 영구 손상을 입는 해수·염수 환경에서도 60-80°C 까지 안정적 부식 저항을 보여, \"Marine grade\" 로 불리며 ASTM A240 에 등재되었다. 이후 1962 년 ELC (extra-low-carbon) 변형이 316L (≤0.03% C) 로 표준화돼 모든 용접 식품·화학·바이오 응용의 baseline 이 되었다.\n\n응용: 해상 platform hand-railing, 식품 가공 라인 (cookware, beer brewery, 와인 발효 tank), 의료 임플란트 (ASTM F138 ELC 316LVM, 정형외과 nail / screw), 펄프·종이 산업 펌프, FPSO 의 무수 수송관, 반도체 super-clean piping (EP-finished 316L). 2010 년대 들어 AM (LPBF, EBM) 의 가장 인기 합금이 되어 LEAP 엔진 housing, GE H-class 가스 터빈의 후단 nozzle, EOS / SLM Solutions 의 standard powder bed grade 로 폭넓게 쓰인다.",
+      "refs": [
+        "Pickering F B (1976) \"The Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2",
+        "ASM Handbook Vol.1A \"Properties and Selection: Irons, Steels and High-Performance Alloys\"",
+        "Mathy J (2001) \"Stainless Steels in Architecture\", Nickel Institute Publication"
+      ]
+    },
+    "AA 6061": {
+      "text": "1935 년 Alcoa 의 Yale Sherman 이 6063 (Al-Mg-Si) 에 Cu 0.25% + Cr 0.2% 를 추가해 σ_UTS 를 30% 끌어올린 합금이 alloy 61S — 1954 년 IADS 통합 시 AA 6061 으로 재명명됐다. 별명 \"Bridgeport Wonder Alloy\" 는 Alcoa 의 Pittsburgh 근처 Brackenridge 공장 (당시 Bridgeport 라고도 불림) 에서 처음 생산된 데서 유래. 1937 년 Boeing B-17 Flying Fortress 의 일부 fitting 에 채택돼 처음 항공 응용된 뒤, 1950 년대 시카고 O'Hare 공항 hangar 의 지붕 트러스에 대량 사용되며 일반 산업으로 확산.\n\nT6 인공시효 상태 (530°C SA → WQ → 170°C/8h 시효) 에서 σ_y 276 MPa / σ_UTS 310 MPa 의 균형 잡힌 강도와 우수한 용접성·압출성·내식성을 보여 \"all-purpose Al alloy\" 로 자리잡았다 — 자전거 프레임 (Cannondale CAAD, Specialized Allez), Apple MacBook unibody chassis (CNC 가공), Caltrans 의 freeway sign frame, SpaceX 의 Falcon 9 interstage adapter, BMW i3 의 chassis 일부. 압출 → T6 의 단순 공정 덕에 단가가 7075 의 ~1/3 수준이라 \"비행기의 6061, 자동차의 6063\" 이라는 말이 통한다.",
+      "refs": [
+        "Hatch J E (ed., 1984) Aluminum: Properties and Physical Metallurgy, ASM",
+        "Mondolfo L F (1976) Aluminum Alloys: Structure and Properties, Butterworths",
+        "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+        "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
+      ]
+    },
+    "AA 5052": {
+      "text": "1929 년 Alcoa 의 Edgar Dix 가 Al-Mg 2.5% 에 Cr 0.2% 를 첨가하면 cold rolling 후에도 SCC (응력 부식 균열) 없이 H32 temper 의 강도를 유지함을 확인 — 이전 합금 (3003, 5005) 의 marine 용도 한계를 깬 alloy 52S 가 5052 의 시작이다. 2 차 세계대전 동안 미해군의 PT boat (Patrol Torpedo boat) 의 hull 강판으로 채택되며 marine alloy 의 baseline 이 됐다.\n\n비열처리 가공경화 합금이라 시효처리 불필요, sea water 에서 일정한 부식 속도 (0.02 mm/year), 양극산화 (anodizing) 후 Cr-O 표면이 selenium-yellow 색을 띠어 어선의 \"Bertram Yellow\" 식별 색으로도 유명. 응용: Bayliner / Boston Whaler 어선 hull, A.O. Smith 의 가스 보일러 탱크, Lyft / Uber 의 e-bike frame 일부, 산업 cargo container, ASTM B928 marine alloy 의 핵심 그레이드.",
+      "refs": [
+        "Dix E H Jr. (1944) Trans AIME 156 \"Aluminum Alloy of High Resistance to Marine Atmosphere\"",
+        "Mondolfo L F (1976) Aluminum Alloys: Structure and Properties, Butterworths",
+        "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
+      ]
+    },
+    "AISI 1018": {
+      "text": "20세기 초 미국 SAE (Society of Automotive Engineers) 가 자동차 부품 표준화를 위해 1911 년 처음 numbering system 을 발표 — 1XXX 시리즈를 plain carbon steel 로 지정, 마지막 두 자리는 ≈ 100 × carbon% 를 표시한다. 따라서 1018 = 0.18% C, 1020 = 0.20% C, 1045 = 0.45% C. 1941 년 AISI (American Iron & Steel Institute) 와 통합되며 현행 표준 형식으로 정착.\n\n저탄소 mild steel 1018 의 특성: ferrite-pearlite 매트릭스로 σ_y 370 MPa + El 35% + 무한대 ductility. 가공성·용접성 모두 최상급이라 모든 industry 의 baseline. 응용: 건축 H-beam (W-shape), 다리 — A36 (= 1018 변형), 자동차 차체 보강재, 농기계 trailer chassis, IKEA 책상 다리, 산업 컨베이어 frame, valve body cast 이전 단계 raw stock. 전세계 강 생산량의 ~30% 가 1018/1020/A36 계열 — 사람이 가장 자주 만지는 금속.",
+      "refs": [
+        "SAE J403 (current rev.) \"Chemical Composition of SAE Carbon Steels\"",
+        "AISI Bar Steel Products Committee (1999) \"Carbon Steel Bars: 1018, 1020\"",
+        "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM"
+      ]
+    },
+    "AISI 1020": {
+      "text": "1020 은 1018 보다 carbon 이 0.02% 더 높은 (0.18~0.23%) plain carbon steel 로, 1911 년 SAE 표준 등재 후 자동차 산업의 \"general purpose carbon steel\" baseline 이 됐다. 1018 보다 σ_y 가 ~5% 높지만 용접성은 약간 낮음 (carbon equivalent CE 약간 증가).\n\n응용: 자동차 axle 단조 (rough forging blank), 농기계 shaft, 차고 도어 spring frame, 산업 펌프 base plate, 미국 ASME / API standard 의 pressure vessel raw stock, 콘크리트 reinforcing rebar (Grade 40 → 1020 변형). 가장 흔한 \"강철\" 그대로의 모습이다.",
+      "refs": [
+        "SAE J403 \"Chemical Composition of SAE Carbon Steels\"",
+        "ASTM A29 \"Standard Specification for General Requirements for Steel Bars\"",
+        "Krauss G (2015) Steels: Processing, Structure, and Performance, ASM"
+      ]
+    },
+    "AISI 1010": {
+      "text": "1010 은 carbon 0.08~0.13% 의 ultra-low-carbon plain steel 로, 1041 년 AISI numbering 표준화 시 \"가장 부드러운 일반 강\" 카테고리에 들었다. 거의 pure iron 에 가까운 미세조직 (ferrite 100%) 으로 σ_y 180 MPa, El 28% 의 극대 ductility — \"종이를 자르듯\" 가공 가능.\n\n응용: deep drawing sheet (자동차 차체 패널, 캔 음료 외장), 와이어 (paperclip, fence wire, nail), 가구 tube (수업용 의자 frame), 농기계 cover panel, 가스 보일러 thin-wall housing, 산업용 ductwork. 모든 \"가공이 매우 쉬워야 하는\" 응용의 default. 용접성 perfect (CE 0.18), galvanizing 후 거의 모든 산업 굴뚝·전선전봇 base 로 사용.",
+      "refs": [
+        "SAE J403 \"Chemical Composition of SAE Carbon Steels\"",
+        "AISI \"Steel Products Manual: Carbon Steel Bars\" (1999)",
+        "ASM Handbook Vol.1 \"Properties and Selection: Irons, Steels and High-Performance Alloys\""
+      ]
+    },
+    "Ti-6Al-4V (Grade 5)": {
+      "text": "1940 년 룩셈부르크 출신 화학자 William Justin Kroll 이 Mg 환원으로 sponge titanium 의 산업 공정을 완성 (Kroll process, US Patent 2,205,854) 한 직후, 1954 년 Battelle Memorial Institute (Columbus, OH) 의 Stanley Abkowitz 와 RJ Sherman 이 Al 6% (α 안정화) + V 4% (β 안정화) 의 양상 합금으로 α+β biphase Ti 의 최초 표준화에 성공 — \"Ti-6Al-4V\" 또는 \"Ti64\". 1956 년 USAF 의 SR-71 후보 합금 평가에서 1 위로 선정.\n\nTi-6Al-4V 가 차지하는 위상: 모든 산업 Ti 사용량의 ~56% 를 차지하는 압도적 1 위. F-22 / F-35 fuselage frame, Boeing 787 의 landing gear (6Al4V ELI), GE GE9X 엔진 fan disc, SpaceX Merlin engine valve body, 의료 임플란트 (ASTM F136 / F1472 hip stem, dental implant 전체 시장의 80%), Apple Watch case (Series 7 Edition), F1 car suspension 의 wishbone. 화학적 비활성 + 비강도 (σ_y/ρ ≈ 200 km) 의 균형으로 \"구조용 합금의 백조\". AM (LPBF, EBM) 에서도 가장 인기 있는 powder.",
+      "refs": [
+        "Kroll W J (1940) US Patent 2,205,854 \"Method for manufacturing titanium and alloys thereof\"",
+        "Boyer R R, Welsch G & Collings E W (1994) Materials Properties Handbook: Titanium Alloys, ASM",
+        "Donachie M J (2000) Titanium: A Technical Guide, ASM",
+        "Lütjering G & Williams J C (2007) Titanium, 2nd ed., Springer"
+      ]
+    },
+    "AA 7075": {
+      "text": "1936 년 일본 Sumitomo Metal 의 Igarashi Isamu 가 Cu, Mg, Zn 의 양상 합금을 처음 시연 (ESD 합금), 1943 년 미국 Alcoa 가 비밀리에 연구한 X-7075 가 거의 동일한 조성 — Cu 1.6% + Mg 2.5% + Zn 5.6% + Cr 0.23%. 1943-44 년 일본 미쯔비시 A6M5b Zero 전투기 후기 모델의 후방 동체 longeron 으로 사용된 게 첫 공중 비행 application — 그 시점 동급 강도 Duralumin (2024) 보다 25% 가볍게 만들 수 있었다.\n\n전후 미국이 Alcoa 의 X-7075 를 1949 년 Boeing B-47 Stratojet 의 wing skin 에 채택해 첫 미국 양산화. 응용: 군용 — F-15 / F-16 fuselage frame, Bell UH-1H Huey 의 rotor mast, M16 rifle 의 lower receiver. 민간 — Apple MacBook Pro 16\" unibody (2018-), 자전거 핸들바 (Cannondale CAAD), 산악 자전거 frame, F1 wheel hub, Atlanta Olympic 의 wheelchair 마라톤 racer. 단점은 SCC (응력 부식 균열) 민감 → T7351 overaged temper 또는 anodizing 으로 회피.",
+      "refs": [
+        "Igarashi I (1936) 住友金属研究レポート 7-3",
+        "Alcoa Research Memo M-194 (1943) \"Aluminum Alloy 7075\"",
+        "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+        "Polmear I J (2006) Light Alloys: From Traditional Alloys to Nanocrystals, 4th ed., Butterworth-Heinemann"
+      ]
+    },
+    "AA 2024": {
+      "text": "1909 년 독일 Düren 의 Dürener Metallwerke 에서 Alfred Wilm 이 우연히 발견 — Al-4%Cu 합금을 quench 후 며칠 방치하니 강도가 두 배가 된 것 (자연 시효의 첫 발견). \"Duralumin\" 으로 상표화. 1909 년 9월 Junkers J 1 (세계 최초 all-metal 항공기) 의 동체에 사용. 1 차 대전 동안 Zeppelin LZ 시리즈 비행선의 frame 으로 대량 채택.\n\n1931 년 미국 Alcoa 가 Mg 0.5% 를 추가해 더 안정한 시효를 가진 X-2024 → 1944 년 AA 2024 로 표준화. T351 temper (solution + 1.5% stretched + 자연 시효) 가 σ_y 325 MPa + 항피로 strength 의 sweet spot 으로 fuselage skin 의 디폴트가 됐다. Boeing 707 (1957) 부터 737 / 747 / 757, Airbus A320 family 의 모든 외피, MD-80, 콩코드 (1969-2003) 의 hull 거의 전체 — \"비행기는 곧 2024\" 라는 말까지. 단, Cu 4% 가 galvanic + SCC + 부식에 약해 표면에 Alclad (pure Al 5% cladding) 로 보호.",
+      "refs": [
+        "Wilm A (1911) \"Physikalisch-metallurgische Untersuchungen über magnesiumhaltige Aluminiumlegierungen\", Metallurgie 8",
+        "Polmear I J (2006) Light Alloys, 4th ed., Butterworth-Heinemann",
+        "Alcoa \"Engineering Properties of Wrought 2024\" Tech Bulletin TPF-3R (1973)",
+        "Smithsonian National Air & Space Museum \"Junkers J 1\" exhibit notes (https://airandspace.si.edu)"
+      ]
+    },
+    "17-4 PH (UNS S17400)": {
+      "text": "1944 년 미국 Armco Steel Corporation (현 AK Steel) 의 William J Murphy 가 austenitic 304 의 부식 저항과 martensitic 410 의 강도를 결합한 precipitation-hardening stainless 의 첫 등장. Cr 17% + Ni 4% + Cu 4% 가 처음에 austenite 로 solution treated 되었다가, 480-620°C 시효처리 시 ε-Cu (face-centered cubic Cu cluster) 가 martensite 매트릭스에서 석출하면서 σ_y 1100~1380 MPa 까지 강화된다.\n\nH900 (480°C/1h), H925, H1025, H1075, H1100, H1150 의 6 개 시효 단계가 강도-인성 trade-off 를 fine-tuning. 응용: 항공 — Boeing 777 landing gear retract actuator, 우주 — Falcon 9 grid-fin actuator, 군용 — M16 rifle bolt carrier 일부, M1 Abrams 의 gun loader chain link, 핵발전소 — valve stem (PWR primary), 의료 — surgical instrument (Mayo Clinic ortho), 보석 — Rolex Yacht-Master II 의 일부 부품. 1989 년 EOS 가 LPBF 의 첫 stainless powder 로 17-4 PH 를 선택, 현재까지 AM 의 메인 합금.",
+      "refs": [
+        "Murphy W J (1944) US Patent 2,432,832 (Armco) \"Stainless precipitation-hardening alloy\"",
+        "AK Steel \"17-4 PH Stainless Steel Product Data Bulletin\" (2007)",
+        "Nakkalil R et al. (1993) \"Microstructural Evolution During Aging of 17-4 PH Stainless Steel\", Met Trans A 24A"
+      ]
+    },
+    "Maraging 300 (UNS K93120)": {
+      "text": "1959 년 INCO (International Nickel) 의 Sam Floreen 과 Roy Decker 가 Ni 18% + Co 9% + Mo 5% + Ti 0.7% 의 새 ferrous 합금이 martensite + aging 의 조합으로 σ_y 2000 MPa 를 달성하면서 \"maraging\" (MARtensite + AGING) 의 신조어로 명명. 종래 ultra-high-strength steel (4340) 의 quenching crack 문제를 carbon ≤ 0.03% 로 거의 carbon-free 로 해서 air-cooling 만으로 100% lath martensite 형성. 시효 시 Ni₃Mo + Ni₃Ti 의 metastable 석출이 입계와 격자에 동시 분포해 극도로 높은 KIC 까지 동반.\n\n응용: 우주 — SpaceX Falcon 9 의 second-stage interstage forging, NASA Hubble repair mission 의 hand tool, 핵무기 — 미국 LLNL 의 uranium enrichment centrifuge bowl (P2 type), 군 — Lockheed Martin 의 ATK 미사일 motor case (Tomahawk, Trident D-5), 스포츠 — Callaway 골프 driver face plate, F1 의 일부 gearbox shaft. 단점: Co 글로벌 공급 의존 (DRC) 으로 가격이 1996 → 2024 약 7 배 상승, NoCo (cobalt-free) variants 가 활발히 연구 중.",
+      "refs": [
+        "Decker R F, Eash J T, Goldman A J (1962) \"18% Nickel Maraging Steel\", Trans ASM 55",
+        "INCO US Patent 3,093,518 (1963)",
+        "Schnitzer R et al. (2010) \"Effect of Cu on Precipitation in Maraging Steel\", Acta Mater 58",
+        "Sha W & Guo Z (2009) Maraging Steels: Modelling of Microstructure, Properties and Applications, Woodhead Publishing"
+      ]
+    },
+    "Stellite 6 (CoCrW)": {
+      "text": "1907 년 인디애나 Kokomo 의 \"Stellite\" 발명자 Elwood Haynes (Haynes-Apperson 자동차 제조사 공동 설립자) 가 Co-Cr-W 합금이 산화 환경에서 강도와 경도를 함께 유지함을 확인 — 라틴어 \"stella\" (별) 에서 따와 명명. 1912 년 USPTO 가 1,054,995 \"Alloy\" 특허 부여, 1914 년 Haynes Stellite Works 설립.\n\nStellite 6 (W-rich, ~4-6% W) 는 가장 흔한 grade 로 valve seat (자동차 SI 엔진 exhaust valve seat insert, F1 엔진), 항공 가스터빈 noise suppressor, 외과 칼 (Stryker orthopedic saw blade), 표면 weld overlay (보일러 튜브, pump impeller, 6061 plate 표면 hardfacing). 1 차 대전 시 영국 BSA / Vickers 의 weapon 표면 hardfacing 으로 채택, 2 차 대전 시 P-47 의 valve seat 으로 대량 양산. 현재도 oil & gas drilling tool joint 의 wear band 와 대형 valve trim 의 sealing surface 에 가장 흔히 사용된다.",
+      "refs": [
+        "Haynes E (1913) US Patent 1,054,995 \"Alloy\"",
+        "Haynes International Inc. corporate history (https://www.haynesintl.com/about/history)",
+        "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys"
+      ]
+    },
+    "AISI 4140 (Cr-Mo, alias 42CrMo4)": {
+      "text": "1923 년 SAE 의 새 numbering system 이 4xxx 시리즈를 Mo-bearing low-alloy steel 로 지정, 그 중 4140 은 1.0% Cr + 0.20% Mo + 0.40% C 의 \"general purpose Cr-Mo\" 표준으로 등장했다. 1941 년 AISI 와 SAE 가 통합 numbering system 을 합의하면서 정식 등재. EU 표준명 42CrMo4 (EN 10083-3) 는 1971 년 등록.\n\n4140 의 의의: Mo 0.2% 가 Q+T 후 tempering brittleness (350-450°C 영역에서 σ 인접 P, S 가 입계 석출) 를 억제, 동시에 Cr 1% 는 경화능 (hardenability) 을 ø100 mm 두께까지 보장 — 가장 두꺼운 단조에서도 균일한 σ_y 700+ MPa. 응용: 자동차·트럭의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. 가장 흔히 만져지는 alloy steel 의 가장 흔한 grade.",
+      "refs": [
+        "SAE J404 (1930) \"Chemical Compositions of SAE Alloy Steels\"",
+        "Roberts G A, Krauss G & Kennedy R (1998) Tool Steels, 5th ed., ASM",
+        "Bhadeshia H K D H & Honeycombe R W K (2017) Steels: Microstructure and Properties, 4th ed."
+      ]
+    },
+    "Inconel 625": {
+      "text": "1968 년 INCO 의 Herbert Eiselstein (Inconel 718 의 발명자와 동일 인물!) 이 Inconel 600 (1932, Walter Crafts) 에 Mo 9% + Nb 3.5% 를 추가, solid-solution + carbide hardening 으로 σ_y 415 MPa + 980°C 까지의 산화 저항을 갖는 새 합금 \"Inconel 625\" 출시. 처음 응용은 supercritical steam pipe 였으나 곧 oil & gas / 해양 으로 확산.\n\n응용: PWR 핵발전소의 steam generator U-tube (Mitsubishi APR1400 일부), oil & gas 의 sour wellhead component (Shell Mensa), 해수 desalination plant 의 multi-effect evaporator tube, 우주 — SpaceX Merlin / Raptor 엔진의 fuel manifold (LPBF 인쇄), GE LEAP-1A 엔진 fuel nozzle 의 일부, NASA Artemis Orion 의 ESM thrust frame. AM (LPBF) 에서도 표준 powder 중 하나로, 718 다음으로 인기.",
+      "refs": [
+        "Eiselstein H L & Tillack D J (1991) \"The Invention and Definition of Alloy 625\", Superalloys 718, 625 and Various Derivatives, TMS",
+        "Special Metals Corp \"Inconel Alloy 625\" Tech Bulletin (2013)",
+        "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM"
+      ]
+    },
+    "Nylon 66": {
+      "text": "1935 년 2월 28일, DuPont 의 Wallace Hume Carothers 가 Wilmington 실험실에서 hexamethylene diamine 과 adipic acid 를 reflux 시켜 처음 만든 polyamide 66 (HMDA + AA, 둘 다 carbon 6 → 66) — 인류 최초의 합성 섬유였다. \"Nylon\" 명칭은 DuPont 마케팅 부서가 \"Nuron\" (no-run, 올 풀림 없음) → \"Nilon\" → 끝에 -on 을 붙인 형태로 합의됐고, 1939 년 New York World's Fair 에서 \"Nylons\" (스타킹) 으로 데뷔하자마자 첫날 4 백만 켤레가 매진됐다.\n\n2 차 대전 동안 모든 미군 낙하산이 nylon 66 (이전엔 silk), 전후 1953 년부터는 monomers 가 caprolactam (PA6, IG Farben 1938) 과 분리돼 PA66 (DuPont, BASF) / PA6 (Toray, Honeywell) 의 양강 구도로 자리잡았다. 엔지니어링 grade 로는 σ_y 80 MPa, T_m 263°C, 자동차 인테이크 매니폴드 (Ford EcoBoost, Bosch), 라디에이터 엔드탱크 (Behr), 전기 커넥터 하우징 (TE Connectivity), kitchen 식기, 산업 케이블 타이의 표준. 흡수율 1.2% 에 따른 dimensional 변화가 한계이지만 GF30/35 강화 grade (Zytel 70G35) 가 보완.",
+      "refs": [
+        "Carothers W H (1938) US Patent 2,130,948 \"Diamine-dicarboxylic acid salt and process of preparing same\"",
+        "Hounshell D A & Smith J K (1988) Science and Corporate Strategy: DuPont R&D, 1902-1980, Cambridge UP",
+        "Kohan M I (1995) Nylon Plastics Handbook, Hanser",
+        "Smithsonian American History Museum \"Nylon: A Revolution in Textiles\" online exhibit"
+      ]
+    },
+    "PMMA": {
+      "text": "1928 년 영국 ICI 의 John Crawford 가 메틸 메타크릴레이트 (MMA) 의 첨가중합을 처음 시연, 1933 년 독일 Röhm & Haas 의 Otto Röhm 이 산업 규모 생산공정을 완성하면서 \"Plexiglas\" 라는 상표로 출시됐다. 미국에서는 1936 년 DuPont 과 Röhm & Haas (PA) 사이의 패권 다툼 끝에 \"Lucite\" / \"Plexiglas\" 가 평행 상표로 정착.\n\n2 차 대전이 PMMA 의 운명을 결정 — 1941 년 Battle of Britain 에서 영국 Spitfire 의 캐노피가 박살 나는 일이 잦자 미국 PA Plexiglas 가 모든 동맹국 전투기에 공급됐고, 종전 후 미군 잉여 PMMA 가 1945 년부터 의료기기 (artificial eye, contact lens) 와 도로 표지판으로 쏟아져 나오면서 일반 시장으로 확산. 현재는 항공기 윈드실드 (F-16, Cessna, Cirrus SR22; MIL-PRF-25690), Apple Store 천장 라이트박스, 박물관 디스플레이 케이스, LCD 광학 가이드, 수족관 윈도우 (Atlanta Aquarium 의 7.4 × 3.7 m 패널) 등 가장 흔히 쓰이는 광학 폴리머. Tg 105°C 위에서 viscoelastic flow → 정밀 핫스탬핑 가능.",
+      "refs": [
+        "Crawford J W C (1934) UK Patent 405,699 \"Production of methyl methacrylate polymers\"",
+        "Röhm O (1933) DE Patent 656,642 \"Verfahren zur Herstellung organischer Glaser\"",
+        "American Chemical Society (2019) \"PMMA: 90 Years of an Optically Clear Polymer\" educational resource",
+        "Andrady A L (2003) Plastics and the Environment, Wiley"
+      ]
+    },
+    "PP": {
+      "text": "1954 년 3월, 이탈리아 Milan Polytechnic 의 Giulio Natta 는 Karl Ziegler 의 1953 년 Ti-Al 카탈리스트 (Ziegler catalyst) 를 propene 에 적용해 처음으로 isotactic polypropylene 을 합성 — Ziegler 의 polyethylene 발견과 함께 1963 년 노벨 화학상 공동 수상. Montecatini 가 1957 년 \"Moplen\" 으로 상업화한 뒤 1960 년대 들어 자동차 범퍼·계측기 하우징·식품 용기 (Tupperware) 까지 폭발적으로 보급됐다.\n\nPP 의 의의: 결정성 (X_c ~60%) + 낮은 밀도 (0.91 g/cm³, 모든 commodity 폴리머 중 최소) + 99% 의 chain-scission-free 재활용 가능성 — 현재 세계 폴리머 시장 2위 (PE 다음 ≈ 80 Mt/y). 가장 흔한 응용: 자동차 범퍼 (BMW, Toyota, Hyundai), 의자 (IKEA), 약병 cap, microwaveable 식품 용기 (CPP), 의료 syringe (단, Tg -20°C → low-temp 취성 한계). GF30 강화 변형은 자동차 cooling fan 과 dishwasher impeller 의 표준.",
+      "refs": [
+        "Natta G (1955) \"Une nouvelle classe de polymères d'α-oléfines ayant une régularité de structure exceptionnelle\", J Polym Sci 16",
+        "Natta G (1963) Nobel Lecture \"From the Stereospecific Polymerization to the Asymmetric Autocatalytic Synthesis of Macromolecules\"",
+        "Pasquini N (ed., 2005) Polypropylene Handbook, Hanser",
+        "Moore E P (ed., 1996) Polypropylene Handbook: Polymerization, Characterization, Properties, Processing, Applications, Hanser"
+      ]
+    },
+    "ABS": {
+      "text": "1948 년 미국 Borg-Warner 의 Calvin Calhoun 이 polybutadiene 라텍스에 styrene-acrylonitrile (SAN) 을 그래프트 중합해 \"Marbon Cycolac\" 으로 상품화한 게 ABS 의 시작. ABS 의 천재성은 SAN matrix 의 강성·내약품성과 polybutadiene rubber 의 충격 흡수를 phase-separated morphology 로 결합 — 단일 polymer 가 따라잡을 수 없는 강성/충격 균형을 만들었다.\n\n전후 호황기와 함께 폭발 — 1950 년대 자동차 dashboard (Chrysler), 60 년대 진공 청소기 housing (Hoover), 70 년대 LEGO 블록 (덴마크 Billund 공장, 1963 년부터 ABS 채택), 80 년대 PC monitor enclosure (IBM 5150), 90 년대 텔레폰 핸드셋. 1989 년 미국 Stratasys 의 Scott Crump 가 FDM (Fused Deposition Modeling) 을 발명할 때 첫 사용 폴리머가 바로 ABS. 현재도 데스크탑 3D 프린팅의 가장 흔한 필라멘트, MakerBot Replicator 와 Bambu Lab X1C 의 standard.",
+      "refs": [
+        "Calhoun C R & Saunders J E (1953) US Patent 2,656,335 (Borg-Warner) \"Method of preparing latex of butadiene polymers\"",
+        "Whelan T (1994) Polymer Technology Dictionary, Chapman & Hall",
+        "Crump S S (1992) US Patent 5,121,329 \"Apparatus and method for creating three-dimensional objects\"",
+        "LEGO Group corporate history 1963 ABS transition (https://www.lego.com/aboutus/lego-history)"
+      ]
+    },
+    "PC": {
+      "text": "1953 년 11월, 독일 Bayer 의 Hermann Schnell 이 phosgene + bisphenol-A 의 계면 중합으로 polycarbonate 를 발견. 거의 동시에 미국 GE 의 Daniel Fox (1953년 12월) 도 동일 polymer 를 다른 경로 (transesterification) 로 합성 — 두 회사가 1955 년 합의를 거쳐 Bayer 가 \"Makrolon\", GE 가 \"Lexan\" 으로 평행 상표 출시.\n\nPC 의 혁신은 Izod impact strength 600 J/m 의 절대적 내충격성 — glass 의 250 배 — 와 92% 광 투과율의 조합. 1962 년 미 공군 F-4 Phantom 의 canopy 가 PMMA 에서 PC 로 전환되며 첫 무기체계 채택, 이후 1972 년 동독 베를린 장벽의 watchtower bullet-proof glass, 1980 년대 CD (compact disc, Philips/Sony) 의 substrate, 1990 년대 baby bottle / water cooler bottle (BPA 논란 전), 2000 년대 안전 헬멧 (NHTSA standard) / 자동차 헤드램프 외장 / 스마트폰 case 의 backbone 폴리머. 단, BPA monomer 잔류 우려로 2011년 EU 와 캐나다가 baby bottle 사용 금지.",
+      "refs": [
+        "Schnell H (1956) DE Patent 971,790 (Bayer) \"Process for the production of high-molecular-weight thermoplastic polycarbonates\"",
+        "Brunelle D J & Korn M R (eds., 2005) Advances in Polycarbonates, ACS Symposium Series 898",
+        "Eaton R R & Crowther G P (2005) Bisphenol A: Health, Safety and the Environment, Wiley"
+      ]
+    },
+    "PETG": {
+      "text": "1953 년 영국 ICI 의 John Whinfield 과 James Dickson 이 terephthalic acid + ethylene glycol 의 transesterification 으로 polyethylene terephthalate (PET) 를 발견 — 같은 해 미국 DuPont 이 fiber grade 로 \"Dacron\" 을 출시했고, 결정성이 너무 높아 사출용으로는 부적합한 것이 PET 의 한계였다. 1980 년대 Eastman Chemical 이 1,4-cyclohexanedimethanol (CHDM) 을 ethylene glycol 일부 대체해 결정화를 방해함으로써 완전한 amorphous → 광학적으로 투명하고 사출 가능한 변형 — 이것이 PETG (G = glycol-modified).\n\nPETG 의 의의: PET 의 화학 내성 + Polycarbonate 의 광학 투명성 + 사출 성형성을 한 polymer 에 모음. Tg 80°C 로 dishwasher 안전한 음료 컵 (Starbucks 의 reusable cup), 의료 진단 cuvette (POC 키트), 데스크탑 FDM 3D 프린팅의 표준 (ABS 보다 warping 적음, PLA 보다 충격에 강함 — Prusa MK3 / Bambu Lab X1C 의 표준 필라멘트). 2000 년대 들어 Coca-Cola·Pepsi 의 squeeze bottle, 슈퍼 hard-pack 카드 패키지 (Apple iPhone box 의 plastic tray) 까지 확산.",
+      "refs": [
+        "Whinfield J R & Dickson J T (1946) UK Patent 578,079 (ICI) \"Improvements relating to the manufacture of highly polymeric substances\"",
+        "Eastman Chemical \"Tritan Copolyester Technical Information\" (2005)",
+        "Demirel B, Yaras A, Elcicek H (2011) \"Crystallization Behavior of PET Materials\", Balikesir University Journal of Science"
+      ]
+    },
+    "PLA": {
+      "text": "1932 년 DuPont 의 Wallace Carothers (Nylon 66 발명자) 가 lactic acid 의 ring-opening polymerization 으로 처음 polylactic acid 를 합성했지만 분자량이 낮아 상품화에는 실패. 1989 년 Cargill 의 Pat Gruber 가 corn starch fermentation → lactic acid → lactide cyclic dimer → ring-opening polymerization 의 economical 공정을 완성, 1997 년 Cargill + Dow 의 joint venture 인 NatureWorks 가 \"Ingeo\" 라는 상표로 첫 상업 생산.\n\nPLA 의 사회적 의의: corn / sugarcane 같은 농업 원료 100% 의 bio-source + 산업 퇴비 (60°C, 6 주) 조건에서 완전 분해 가능한 최초의 메인스트림 폴리머. 2010 년대 데스크탑 3D 프린팅 (MakerBot, Prusa, Bambu Lab) 에서 가장 흔한 필라멘트 — low T_m 175°C 라 일반 hotend 로도 잘 출력되고 warping 없음. Coca-Cola PlantBottle, 스타벅스 disposable cup lid, 미국 Whole Foods food container, 의료 PLA-PGA biodegradable suture (Vicryl) 와 stent. 단점은 Tg 60°C → 자동차 dashboard 처럼 햇볕 직사 시 변형.",
+      "refs": [
+        "Carothers W H et al. (1932) J Am Chem Soc 54 \"Studies of polymerization and ring formation\"",
+        "Garlotta D (2001) \"A literature review of poly(lactic acid)\", J Polym Environ 9(2)",
+        "Gruber P R & O'Brien M (2002) \"Polylactides: NatureWorks PLA\", in Biopolymers Vol 4, Wiley-VCH",
+        "NatureWorks LLC corporate history (https://www.natureworksllc.com)"
+      ]
+    },
+    "PEEK Victrex 450G — As-supplied (Injection Molding)": {
+      "text": "1978년 영국 ICI (Imperial Chemical Industries) Wilton 연구소의 John Rose 와 P A Staniland 가 difluorobenzophenone + hydroquinone 의 nucleophilic substitution 으로 polyetheretherketone 을 합성 — 처음에는 핵 발전소의 고온 와이어 절연재로 개발 계획. 1986 년 ICI 가 Plastics Division 을 spin-off 해 Victrex 로 분리하면서 PEEK 가 본격 상품화됐다.\n\nT_m 343°C 의 결정성 polymer 로 ULTEM (Tg 217°C) 위 영역을 채우면서 200~260°C 의 연속 사용 온도, 99% 의 화학적 비활성 (강산, 강알칼리, 모든 일반 유기용제), 식품 등급 인증을 모두 보유 — 의료 척추 cage / pedicle screw (FDA Class III implant 표준), 반도체 wafer carrier, 오일&가스 다운홀 sealing, 자동차 ABS 펌프 piston ring, F1 F-duct actuator. 2016 년 Apple iPhone 7 의 OLED 디스플레이 internal carrier 도 PEEK CF30 — 휴대폰 내부에서도 사용. 단점은 $95/kg 의 가격과 매우 느린 결정화 (등온 결정화 350°C/30 min) 로 사출 성형 mold 가공 시간이 PP 의 3 배.",
+      "refs": [
+        "Attwood T E et al. (1981) \"Synthesis and properties of polyaryletherketones\", Polymer 22(8)",
+        "ICI UK Patent 1,569,602 (1976) \"Aromatic ether ketone polymers\"",
+        "Kemmish D (2017) Update on the Technology and Applications of Polyaryletherketones, Smithers Rapra",
+        "Victrex PLC Annual Report 2023 (https://www.victrex.com/investors)"
+      ]
+    },
+    "Hadfield Manganese Steel (Mn13, ASTM A128 Grade B)": {
+      "text": "1882 년 영국 Sheffield, 19 세의 Robert Abbott Hadfield 가 부친의 Hecla Works 에서 13% Mn (당시 표준은 1% 미만) 의 새 steel 을 water-quench 했더니 brittle 한 줄 알았던 강이 오히려 work-hardening 으로 단단해지는 현상을 발견 — 1883 년 영국 특허 200/1883 으로 출원, \"Manganese Steel\" 또는 \"Hadfield's Steel\" 로 명명됐다. 인류 최초의 alloy steel.\n\nHadfield 가 발견한 매커니즘: γ (austenite) → ε-martensite + 변형 쌍정 (deformation twin) 의 응력 유발 변태 — 충격 시 표면이 자체적으로 HV 200 → HV 550 으로 두 배 단단해진다. 응용: jaw / cone crusher 의 mantle (BHP 광업의 Komatsu PC8000 buckets, Vale Carajás iron mine), 철도 frog / crossing (KTX / Shinkansen 의 switch point), 굴착기 bucket teeth, dragline excavator 의 rope sheave, anti-magnetic 군용 ship turret (γ-austenite 가 non-magnetic 이라 자기 mine 안전), 미 NY 주 Sing Sing 교도소의 전기의자 머리 띠.",
+      "refs": [
+        "Hadfield R A (1883) UK Patent 200/1883 \"Manganese-steel\"",
+        "Hadfield R A (1888) \"Hadfield's Manganese Steel\", Proc Inst Civil Eng 93",
+        "Davis J R (ed., 1995) ASM Specialty Handbook: Carbon and Alloy Steels",
+        "Bhadeshia H K D H (2017) Steels: Microstructure and Properties, 4th ed., Butterworth-Heinemann"
+      ]
+    },
+    "AZ31B Magnesium": {
+      "text": "1933 년 미국 Dow Chemical 의 Herbert Dow 와 Alcoa 의 영국 자회사가 Mg-Al 3% + Zn 1% 합금을 처음 표준화 — H24 (rolled + partial annealed) sheet 로 1939 년부터 미국 Beechcraft 의 항공기 cowling 에 사용. AZ 명명법은 A = Aluminum, Z = Zinc, 숫자는 wt% 표시 — 1948 년 ASTM B107 으로 표준 등재.\n\nMg 합금의 위상: 1.74 g/cm³의 가장 가벼운 구조 금속 (Al 2.7 의 65%), σ_y 200 MPa. HCP 결정구조 때문에 cold workability 가 낮은 게 한계지만, 200°C+ 의 hot rolling 으로 sheet 제조 가능. 응용: VW Beetle 의 transmission case (1938-2003 — Mg 가 100%), Boeing 747 의 cockpit 내부 floor panel, MacBook Pro 의 내부 chassis (M1 모델 일부), Sony α7 mirrorless camera body, 항공기 일반 wheel, 자동차 steering wheel armature. 한계: 부식 (galvanic + 자체적 Mg 의 anodic 반응) 으로 차체 외부 응용은 매우 제한적.",
+      "refs": [
+        "ASTM B107 / B107M \"Standard Specification for Magnesium-Alloy Extruded Bars, Rods, Profiles, Tubes, and Wire\"",
+        "Avedesian M M & Baker H (eds., 1999) ASM Specialty Handbook: Magnesium and Magnesium Alloys",
+        "Friedrich H E & Mordike B L (eds., 2006) Magnesium Technology: Metallurgy, Design Data, Applications, Springer"
+      ]
+    },
+    "A356.0 (Al-Si-Mg cast)": {
+      "text": "1923 년 미국 Aluminum Company of America (Alcoa) 가 sand-cast 용 Al-Si 7% + Mg 0.3% 의 새 합금 \"alloy 356\" 을 출시 — 이전 Al-Cu 계 cast (alloy 222) 가 quenching crack 으로 시달리던 문제를 Si 7% 의 hypoeutectic 구성과 Mg₂Si 시효 석출로 풀었다. 1954 년 IADS 통합 시 A356 (.0 = sand cast / .1 = ingot / .2 = premium) 으로 재명명.\n\nA356-T6 (515°C SA + WQ + 155°C/6h 시효) 가 σ_y 200 MPa + El 6% 의 항공 grade 표준 — 응용: 자동차 wheel (BBS, Enkei, Volk Racing 의 모든 forged-look cast wheel), 엔진 cylinder head (Ford EcoBoost, Hyundai Theta), 전동 모터 housing (Tesla Model 3 의 rear motor casing), 항공기 landing-gear truck beam (Boeing 747-8). 1990 년대 들어 \"squeeze casting\" 과 \"SSM (semi-solid metal)\" 공정으로 cast porosity 가 0.5% 이하로 떨어져 forged 6061 의 90% 성능에 단가 1/4 — \"공기 단조\" 의 baseline.",
+      "refs": [
+        "Mondolfo L F (1976) Aluminum Alloys: Structure and Properties, Butterworths",
+        "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+        "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Aluminum Casting",
+        "Sigworth G K & Caceres C H (2005) \"Quality issues in aluminum castings\", AFS Trans 113"
+      ]
+    },
+    "Aluminum Bronze C61400": {
+      "text": "1856 년 프랑스 Tissier 형제가 Cu-Al 8-10% 의 합금을 처음 보고 — 발색이 24K 금에 가까워 1869 년 파리 만국박람회에서 \"L'or des pauvres\" (가난한 자의 금) 로 전시됨. 1 차 대전 영국 해군이 Cu 9% Al + 2% Fe + 3% Ni 의 nickel-aluminum bronze (NAB, C95800) 로 발전, \"Sea-cure\" alloy 로 명명됐다. C61400 (Cu-7Al-2Fe) 은 그 wrought 변형.\n\n응용: 해상 — 잠수함 propeller (영국 Astute class, 미국 Virginia class 모두 NAB cast), oil tanker 의 ballast 펌프 impeller, 해상 platform 의 boat lift, Caterpillar dump truck bushing, Westinghouse turbine 발전기의 blade fillet, 시멘트 mixer drum 의 inlet wear ring, Big Ben 시계의 tower bell stand, 영국 1971 년 발행 50 pence 동전. 부식 저항 + 마모 + 비-자성 (mine detector 안전) + 비-sparking (가스 안전 — petroleum refinery hammers) 의 만능성.",
+      "refs": [
+        "Tissier J P & N (1856) Comptes Rendus 42",
+        "Meigh H J (2000) Cast and Wrought Aluminium Bronzes: Properties, Processes and Structure, IOM Communications",
+        "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
+      ]
+    },
+    "Copper (Pure, C11000)": {
+      "text": "C11000 (Electrolytic Tough Pitch, ETP) Cu 는 1865 년 영국 James Elkington 이 전해 정련 공정을 발명한 직후부터 표준 conductor 로 자리잡았다. 99.90% Cu + 200~400 ppm 산소 (소량의 Cu₂O 입자 형태로 결정 boundary 에 분포 → P, S 같은 불순물을 oxide 로 트랩핑) 가 ETP 의 비결.\n\n응용: 전기 — 송전선 (이중선·고전압 grid), 모터 권선 (Tesla Model 3 의 rear motor 가 Cu rotor), 변압기 권선, 통신 케이블 (CAT-6 Ethernet), 빌딩 — 지붕 (Buckingham Palace, Statue of Liberty 의 패티나 표면), 가스 배관 (LP gas indoor piping), 가구 — kitchen 동냄비. 1960 년대 H₂ 분위기 annealing 시 H + O → H₂O 입계 균열 (\"hydrogen embrittlement\") 이 발견되면서 진공 / 수소 분위기 응용은 oxygen-free OFE (C10100) 또는 OFHC (C10200) 로 전환.",
+      "refs": [
+        "ASTM B187 / B187M \"Standard Specification for Copper, Bus Bar, Rod, and Shapes and General Purpose Rod, Bar, and Shapes\"",
+        "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+        "Elkington J B (1865) UK Patent 2,838 \"Improvements in the electrolytic refining of copper\""
+      ]
+    },
+    "Nitinol (NiTi)": {
+      "text": "1959 년 미국 Naval Ordnance Laboratory (NOL, 메릴랜드 White Oak) 의 William Buehler 가 nuclear submarine 의 nose cone 용 새 합금을 찾던 중 Ni 50at% + Ti 50at% 의 intermetallic 이 일정 온도에서 형상을 기억해 회복하는 (shape memory) 현상을 발견 — Frederick Wang 과 함께 1965 년 BCC ↔ B19' martensite 의 thermoelastic 변태 메커니즘을 규명, NOL + Ti 의 머리글자로 \"Nitinol\" 명명. 1962 년 NOL 의 콘퍼런스 시연에서 구부려진 wire 가 손 열로 펴지는 모습이 \"마술 metal\" 로 NYT 1면.\n\n응용: 의료 — 1990 년대 들어 cardiovascular stent (Cordis Cypher, Boston Scientific 의 모든 PCI stent), 뼈 골절 fixator (Memry MEMOFEX), 치과 교정 wire (3M Unitek 의 most braces wire), 두부 외상 stapler. 항공 — F-14 hydraulic coupling (Raychem CryoFit), 미 Navy USS Constellation 의 anti-vibration mount. 일상 — 안경 frame (Rectangulus, Marchon Flexon), 무선 헤드폰 headband (Bose QuietComfort), 와이파이 안테나 actuator (Apple AirPods Pro).",
+      "refs": [
+        "Buehler W J, Gilfrich J V & Wiley R C (1963) \"Effect of Low-Temperature Phase Changes on the Mechanical Properties of Alloys Near Composition TiNi\", J Appl Phys 34(5)",
+        "Wang F E (1972) US Patent 3,650,873 (US Navy) \"Method of preforming Nitinol\"",
+        "Otsuka K & Wayman C M (eds., 1998) Shape Memory Materials, Cambridge UP",
+        "Duerig T et al. (1990) Engineering Aspects of Shape Memory Alloys, Butterworth-Heinemann"
+      ]
+    },
+    "Invar 36 (FeNi36)": {
+      "text": "1896 년 스위스 Charles Édouard Guillaume 이 Fe-Ni 36% 합금이 thermal expansion 이 거의 zero (CTE ≈ 1.2 × 10⁻⁶/K) 에 가까움을 발견 — magneto-volume effect (Fe-Ni 35-36 at% 의 spin-disordered γ 상태에서 격자 수축이 thermal expansion 을 cancel) 가 원인. \"Invariable\" 의 단축 \"Invar\" 로 명명, 1920 년 노벨 물리학상 수상.\n\n응용: 정밀 — 1900-1980 년 사이 전세계 표준 미터 막대 (시드니 천문대 standard meter 도 Invar), 측량 표준 chain (theodolite), 시계 pendulum (Big Ben 의 reserve pendulum). 우주 — Hubble Space Telescope 의 mirror support truss, James Webb Space Telescope 의 primary mirror backing (-243°C 까지 dimensional stable), 위성 antenna boom (CTE-matched composite). 산업 — LNG cargo containment (Mark III 의 secondary barrier), 반도체 mask aligner stage (-50°C ~ +50°C 동안 sub-micron 변위), Apple Vision Pro 의 일부 internal precision part. 단점은 Ni 35% 의 비싼 원료가와 다소 낮은 σ_y 280 MPa.",
+      "refs": [
+        "Guillaume C É (1897) \"Recherches sur les aciers au nickel\", J Phys Théor Appl 7",
+        "Guillaume C É (1920) Nobel Lecture \"Invar and Elinvar\"",
+        "Sahoo A et al. (2020) \"A review on the development of Invar and Elinvar alloys\", Mater Sci Tech 36(15)",
+        "ASM Handbook Vol.2 \"Properties and Selection: Nonferrous Alloys and Special-Purpose Materials\""
+      ]
+    },
+    "Alumina (Al₂O₃, 99.5% pure)": {
+      "text": "1907 년 독일 Heinrich Goldschmidt 가 fused alumina (electrocorundum) 의 산업 공정을 완성한 뒤, 1930 년 미국 Norton Company 가 sintered Al₂O₃ ceramic 을 spark plug insulator 로 처음 상업화 — 자동차 ignition coil 의 표준이 됐다. 1955 년 Coors (현 CoorsTek) 가 99.5% pure alumina 의 dense sintering 공정을 정립하면서 industrial ceramic 의 baseline.\n\nT_m 2072°C, σ_y 350 MPa, hardness HV 1800 — 모든 oxide ceramic 의 표준. 응용: 자동차 spark plug insulator (NGK, Bosch), 산업 절삭 인서트 (Sandvik CC650 cermet 의 alumina coat), 의료 임플란트 (1970 년 Boutin 의 첫 alumina hip ball, Biolox forte 1995 표준), 인공 무릎 articulating surface, 펌프 mechanical seal (John Crane Type 21), 항공 thermal barrier coating (TBC) plasma-sprayed top coat, 광 fiber ferrule (Sumitomo SC connector), Apple Watch sapphire 의 lower-cost 대안. 단점은 KIC 4 MPa√m 의 취성과 thermal shock ΔT 200°C 한계.",
+      "refs": [
+        "Goldschmidt H (1908) DE Patent 195,058 \"Verfahren zur Herstellung von Aluminiumoxyd\"",
+        "Norton Company History (1885-1985) (https://www.nortonindustrial.com/about/history)",
+        "Kingery W D, Bowen H K & Uhlmann D R (1976) Introduction to Ceramics, 2nd ed., Wiley",
+        "Davis J R (ed., 1991) ASM Engineered Materials Handbook Vol.4 \"Ceramics and Glasses\""
+      ]
+    },
+    "Silicon Nitride (Si₃N₄, HIP'd)": {
+      "text": "1955 년 영국 Cambridge 의 Lucas 와 Joseph Lumsden 이 chemical vapor deposition (CVD) Si₃N₄ 박막을 처음 시연한 뒤, 1972 년 Ford Motor Co. 의 Anthony Evans 와 Don Wiederhorn 이 자동차 가스 터빈용 hot-pressed Si₃N₄ 부품을 시도 — 미국 DARPA 가 1976-1990 년 \"Ceramic Turbine Engine Demonstration\" 프로젝트에 $200M 투입. AlliedSignal, GTE, Norton 의 공동 연구로 1985 년 NBD200 / SN282 hot isostatic pressed grade 가 표준화.\n\nT_max 1400°C, HV 1500, KIC 7 MPa√m, low density 3.2 g/cm³, low CTE 3.2 × 10⁻⁶/K — 모든 ceramic 중 thermal shock 저항 1 위. 응용: 디젤 엔진 glow plug (Bosch DuraSpeed, Beru), 자동차 turbocharger 의 hot-side bearing (NTN, Schaeffler), 항공 가스 터빈 nozzle (GE F414 의 일부 vane), CNC 공작기계 spindle bearing ball (CSC, NSK 의 hybrid bearing), 의료 hip-knee 임플란트 ball head (CeramTec Biolox Delta 의 일부 grade), 반도체 wafer chuck / lift pin (Lam Research, AMAT). Apple Mac Pro 의 일부 thermal interface 도 Si₃N₄ — 거의 모든 \"고온 + 충격\" 동시 응용의 표준.",
+      "refs": [
+        "Lumsden J (1957) Trans Faraday Soc 53 \"The chemical vapour deposition of Si₃N₄\"",
+        "Riley F L (2000) \"Silicon nitride and related materials\", J Am Ceram Soc 83(2)",
+        "Petzow G & Herrmann M (2002) \"Silicon Nitride Ceramics\", Struct Bond 102",
+        "DARPA \"Ceramic Engine Demonstration Project Final Report\" (1990)"
+      ]
+    },
+    "WC-6Co (Cemented Carbide K10)": {
+      "text": "1923 년 독일 Karl Schroter (Osram Lamp Werke) 가 W 의 winding-wire die 를 만들면서 hot-pressed WC + 6 wt% Co 의 sintered 합금이 diamond 다음 가는 hardness 를 보이는 것을 발견 — 1925 년 Osram, Krupp, Friedrich Krupp Widia (WIe DIAmant = \"like diamond\") 가 \"WIDIA\" 상표로 1926 년 라이프치히 박람회에서 첫 공개. 1928 년 미국 Carboloy (GE) 가 라이선스를 받아 미국 양산.\n\nWC 입자 (HV 2500) + Co 매트릭스 (toughness ductility) 의 결합으로 KIC 11 MPa√m + HV 1700 의 균형 — 30년대 자동차 conveyor pin, 40년대 군용 armor-piercing core (\"hard core\" 탄두), 50년대 광업 rotary drill bit, 60년대 CNC 절삭 인서트 (Sandvik, Iscar, Mitsubishi), 70년대 oil & gas drill bit (Hughes Christensen), 현재는 광업 — 모든 hard-rock drilling, 자동차 — engine valve seat insert (포드 V8), 산업 — paper-cutting knife. 1990 년대 들어 PVD-coated (TiN/TiAlN) WC-Co 가 절삭 속도를 3배 증가시키며 \"cermet\" 시장을 본격 열었다.",
+      "refs": [
+        "Schroter K (1923) DE Patent 425,932 \"Verfahren zur Herstellung eines Werkzeugs aus Hartmetall\"",
+        "Upadhyaya G S (1998) Cemented Tungsten Carbides: Production, Properties and Testing, Noyes Publications",
+        "Brookes K J A (1996) World Directory and Handbook of Hardmetals and Hard Materials, 6th ed.",
+        "Sandvik Coromant \"Metal cutting technology training handbook\" (2017)"
+      ]
+    },
+    "CFRP — T800/Epoxy (UD 0°)": {
+      "text": "T800 carbon fiber 는 1976 년 일본 Toray 가 PAN (polyacrylonitrile) precursor 의 stabilization → carbonization → graphitization 공정을 최적화해 σ_UTS 5.5 GPa + E 285 GPa 의 intermediate-modulus fiber 를 양산화한 결과 — 1980 년대 IM (intermediate modulus) 등급의 표준으로 자리잡았다. 1985 년 Hercules (현 ATK) 의 IM7 (US 표준) 과 Toray 의 T800 이 양강 구도로 전세계 항공 prepreg 시장을 양분.\n\n응용: Boeing 787 Dreamliner — fuselage barrel 50% / wing 50% (Toray 가 단독 공급), Airbus A350 XWB — wing 의 outer skin / center wing box, F-22 / F-35 의 vertical tail / horizontal stabilizer, 우주 — SpaceX Falcon 9 의 helium COPV (Composite Overwrapped Pressure Vessel, payload fairing 도 T800/Cyanate), Blue Origin New Shepard 의 crew capsule. 민간 — F1 모노코크 (FIA 2014 표준), 일부 항공 — Boeing 777X 의 folding wingtip, Mercedes-Benz EQS 의 일부 트렁크 lid 도 T800 prepreg autoclave.",
+      "refs": [
+        "Toray Industries Inc. \"T800S Carbon Fiber Technical Data\" (2021 revision)",
+        "Chung D D L (1994) Carbon Fiber Composites, Butterworth-Heinemann",
+        "Hexcel \"HexTow IM7 Data Sheet\" (2024) (대응 미국 표준)",
+        "Soutis C (2005) \"Fibre reinforced composites in aircraft construction\", Prog Aerosp Sci 41"
+      ]
+    },
+    "GFRP — E-glass/Epoxy (UD 0°)": {
+      "text": "1932 년 미국 Owens-Illinois Glass 의 Dale Kleist 가 우연히 silica + Al₂O₃ + CaO 의 melt 에 압축 공기를 불자 글래스 woolfine fiber 가 생성됨을 발견 — 1935 년 Owens-Corning 으로 spin-off 되며 \"E-glass\" (Electrical grade, 낮은 dielectric loss) 가 1938 년 표준화. 2 차 대전 동안 군용 radome 의 핵심 소재로 활용된 뒤, 1942 년 Owens-Corning + Standard Oil 의 \"Fiberglas\" 가 선박 hull 의 첫 GFRP 응용 (Bertram boat).\n\nE-glass / Epoxy UD 의 의의: σ_UTS 1100 MPa + E 45 GPa + 가격 $6/kg 으로 carbon fiber 의 1/15 가격에 강도 70% — 풍력 발전 spar cap 의 절대적 표준 (Vestas V164 의 80 m blade spar 가 E-glass UD pultrusion). 응용: 풍력 — Vestas / GE / Siemens Gamesa / LM Wind 의 모든 megawatt-class blade spar cap, 보트 hull (Bertram, Boston Whaler), 산업 — 압력 탱크 (CNG type IV), 펄프 / 종이 산업 chemical tank, 풍력 nacelle housing, 자동차 — Mustang Shelby GT500 의 hood scoop, BMW i8 의 trunk lid 내부 보강. 풍력 시장 폭발 (2010-2025) 의 핵심 소재.",
+      "refs": [
+        "Kleist D (1933) US Patent 1,920,255 (Owens-Illinois) \"Glass and method of making same\"",
+        "Wallenberger F T & Bingham P A (eds., 2009) Fiberglass and Glass Technology, Springer",
+        "Mishnaevsky L Jr. et al. (2017) \"Materials for Wind Turbine Blades: An Overview\", Materials 10(11)",
+        "Owens Corning corporate history (https://www.owenscorning.com/about-us/our-company/history)"
+      ]
+    },
+    "POM Delrin 500 (Acetal Homopolymer)": {
+      "text": "1956 년 미국 DuPont 의 Richard MacDonald 가 anhydrous formaldehyde 의 anionic polymerization 으로 polyoxymethylene (POM) homopolymer 를 합성, 1960 년 \"Delrin\" 상표로 출시. 거의 동시에 독일 Celanese 의 Hans Wagner (1962) 이 trioxane + ethylene oxide 의 cationic 공중합으로 \"Celcon\" copolymer 를 개발 — POM-H (DuPont Delrin) 와 POM-C (Celanese Celcon, BASF Ultraform, Polyplastics Duracon) 의 양강 구도.\n\nPOM 의 매력: 결정성 70~75% 의 dense polymer 로 σ_y 70 MPa + 자가윤활 + 흡습 0.2% + 화학 비활성. 응용: 1960 년대 자동차 carburetor 의 metal 부품 대체 (Ford), 70 년대 vacuum cleaner gear (Hoover), 80 년대 Polaroid 카메라 의 shutter, 90 년대 ATM 지폐 dispenser 의 idler gear, 2000 년대 데스크탑 프린터 sprocket (HP, Canon), 의료 inhaler 의 valve (Boehringer Ingelheim), 우주 — SpaceX Crew Dragon 의 일부 valve guide. \"메탈 부품을 플라스틱으로 대체\" 의 가장 흔한 후보.",
+      "refs": [
+        "MacDonald R N (1959) US Patent 2,877,213 (DuPont) \"Polymerization of formaldehyde\"",
+        "Wagner H (1965) DE Patent 1,158,071 (Celanese) \"Verfahren zur Polymerisation von Trioxan\"",
+        "Lüftl S, Visakh P M & Chandran S (eds., 2014) Polyoxymethylene Handbook, Scrivener Publishing",
+        "DuPont \"Delrin Design Information\" Product Bulletin 1995"
+      ]
+    },
+    "PVC (rigid)": {
+      "text": "1872 년 독일 Eugen Baumann 이 vinyl chloride monomer 를 햇볕에 노출하자 흰색 가루로 변하는 것을 처음 관찰했지만 상품화 못함. 1926 년 미국 BF Goodrich 의 Waldo Semon 이 plasticizer (DEHP) 를 가해 가공 가능한 PVC compound 를 개발하면서 \"Geon\" 으로 상품화 — Semon 의 핵심 통찰은 \"순수 PVC 는 너무 brittle, 가공이 어렵다 → DEHP 같은 plasticizer 가 modular property tuning 을 가능하게 한다\".\n\n응용: 1930 년대 자동차 dashboard rubber → PVC 전환 (GM), 40 년대 와이어 절연 (군용 케이블), 50 년대 LP 음반 (RCA Victor), 60 년대 의료 IV bag (Travenol, 현 Baxter), 70 년대 PVC 수도관 (Eagan Plastics 의 SCH 40 표준), 80 년대 신용카드 (Visa, MC), 90 년대 창호 sash (Anderson, Pella), 2000 년대 Apple 의 USB 케이블 외피, 의료 blood bag (transfusion). 의료 응용 시장만 연 $25 B. 단, DEHP 의 endocrine disruption 우려로 EU REACH 가 일부 응용 제한 — 2015 년 EU 가 어린이 장난감 DEHP 농도 0.1% 미만 의무화.",
+      "refs": [
+        "Baumann E (1872) Liebigs Ann Chem 163 \"Vorläufige Mittheilung über den Vinylchlorid\"",
+        "Semon W L (1933) US Patent 1,929,453 (BF Goodrich) \"Synthetic rubber-like composition and method of making same\"",
+        "Wickson E J (ed., 1993) Handbook of Polyvinyl Chloride Formulating, Wiley",
+        "Wilkes C E, Summers J W & Daniels C A (eds., 2005) PVC Handbook, Hanser"
+      ]
+    }
+  }
+}

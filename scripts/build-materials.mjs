@@ -756,7 +756,7 @@ const supplementary = supRaw
           manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: cond,
           ranges, composition: s.composition || {}, sources: (s.ref_urls || []).map((u) => ({ label: `Datasheet ${ci + 1}`, url: u, verified: true })),
           points: [s.points[ci]],
-          machinability: null, weldability: null, corrosion_resistance: null, meta: { reference: true, condition: cond },
+          machinability: null, weldability: null, corrosion_resistance: null, industry_note: s.industry_note || null, meta: { reference: true, condition: cond },
         };
       });
     }
@@ -771,7 +771,7 @@ const supplementary = supRaw
       name: s.name, category: s.category, subcategory: s.subcategory, tier: 'reference',
       manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: null,
       ranges, composition: s.composition || {}, sources: s.sources || [], points: s.points,
-      machinability: null, weldability: null, corrosion_resistance: null, meta: { reference: true },
+      machinability: null, weldability: null, corrosion_resistance: null, industry_note: s.industry_note || null, meta: { reference: true },
     }];
   });
 // R25 — Ceramic 30종 별도 파일 (data/ceramics-data.json) 에서 로드해 material 형식으로 변환 → all 에 추가.
@@ -2667,6 +2667,33 @@ rep.push('- AM powder: typical 2-4× wrought equivalent (atomization premium).')
 rep.push('- **Refresh frequency**: quarterly. Last sync: 2026-Q1.');
 rep.push('');
 rep.push('## TODO', '- Hardness scale unification (HV/HRC/HB).', '- Reconcile fatigue/impact gaps where datasheets provide values.', '- (R34d candidate) Polymer creep rupture curves (PEEK / ULTEM / PEKK 100–200°C, 1000–10⁴ h).');
+
+// R75 — material-stories.json 주입. key = material name 의 base form (split " — " 앞부분).
+// "Inconel 718 — Annealed (...)" 같은 condition 변형 모두에 같은 story attach.
+let storyAttached = 0;
+try {
+  const storiesFile = path.join(DATA, 'material-stories.json');
+  if (fs.existsSync(storiesFile)) {
+    const sj = JSON.parse(fs.readFileSync(storiesFile, 'utf8'));
+    const sMap = sj.stories || {};
+    // 우선순위: (1) exact full name → (2) base name (split " — " 앞부분) → (3) lower-case 비교.
+    const lowerMap = {};
+    for (const [k, v] of Object.entries(sMap)) lowerMap[k.toLowerCase()] = v;
+    for (const m of all) {
+      if (!m || !m.name) continue;
+      const base = m.name.split(' — ')[0].trim();
+      const story = sMap[m.name] || sMap[base] || lowerMap[m.name.toLowerCase()] || lowerMap[base.toLowerCase()] || null;
+      if (story && typeof story === 'object' && story.text) {
+        m.story = story.text;
+        if (Array.isArray(story.refs) && story.refs.length) m.story_refs = story.refs;
+        storyAttached++;
+      }
+    }
+  }
+} catch (e) {
+  console.warn('story injection skipped:', e?.message);
+}
+if (storyAttached) console.log(`R75 — stories attached: ${storyAttached}`);
 
 const liveJson = path.join(ROOT, 'client', 'public', 'materials.json');
 const backup = path.join(DATA, 'materials.original.json');
