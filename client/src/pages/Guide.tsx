@@ -29,16 +29,20 @@ import {
  * ────────────────────────────────────────────────────────────────────────── */
 
 const TOC: { id: string; n: number; label: string; icon: any }[] = [
-  // R64 — TOC 8 → 9. 신규 'AM 특화 주의사항' 챕터 추가.
+  // R65 — TOC 9 → 13. P0(mental model) + P1·P2 학습 흐름 강화.
   { id: 'ch7', n: 1, label: '실전 사례 16선 (앱 자동 연계)', icon: LineChart },
   { id: 'ch6', n: 2, label: 'Ashby 재료 선택법 + 차트 인터랙션', icon: ListChecks },
-  { id: 'ch1', n: 3, label: '물성 사전 + 열처리 글로서리', icon: BookOpen },
-  { id: 'ch2', n: 4, label: '설계 요구를 물성 수치로 변환', icon: Target },
-  { id: 'ch3', n: 5, label: '단면 성질 도감 (A · I · Z · J)', icon: Sigma },
-  { id: 'ch4', n: 6, label: '보 하중·지지조건별 처짐 · 모멘트', icon: Sigma },
-  { id: 'ch5', n: 7, label: '비틀림 · 좌굴 · 복합 · 압력', icon: Sigma },
-  { id: 'ch9', n: 8, label: 'AM 특화 — 이방성·HIP·후처리·분말', icon: Lightbulb },
-  { id: 'ch8', n: 9, label: '데이터 해석·출처·단위·FAQ', icon: BookText },
+  { id: 'ch10', n: 3, label: '합금 family 빠른 매핑 + 환경 조건별 선택', icon: Compass },
+  { id: 'ch1', n: 4, label: '물성 사전 + 열처리 글로서리', icon: BookOpen },
+  { id: 'ch2', n: 5, label: '설계 요구를 물성 수치로 변환 + 안전계수 사전', icon: Target },
+  { id: 'ch3', n: 6, label: '단면 성질 도감 (A · I · Z · J)', icon: Sigma },
+  { id: 'ch4', n: 7, label: '보 하중·지지조건별 처짐 · 모멘트', icon: Sigma },
+  { id: 'ch5', n: 8, label: '비틀림 · 좌굴 · 복합 · 압력', icon: Sigma },
+  { id: 'ch11', n: 9, label: '흔한 설계 실수 10선 (실패 학습)', icon: AlertTriangle },
+  { id: 'ch9', n: 10, label: 'AM 특화 — 이방성·HIP·후처리·분말', icon: Lightbulb },
+  { id: 'ch12', n: 11, label: '인증·가공·시제품 시험 (산업 적용)', icon: ListChecks },
+  { id: 'ch14', n: 12, label: '산업 case study 5선 — 추상에서 구체로', icon: LineChart },
+  { id: 'ch8', n: 13, label: '데이터 해석·datasheet·출처·단위·FAQ', icon: BookText },
 ];
 
 /** 사례 타일 — R61 #3 자주 쓰는 6 + 점진 공개 10. 첫 시각 부담 ↓. */
@@ -182,6 +186,44 @@ export default function Guide() {
             </button>
           )}
           <p className="text-[11px] text-muted-foreground mt-2">타일을 누르면 치수·하중·재료 조건 다이얼로그가 열리고, <b className="text-foreground/80">적용 전 어떤 필터가 켜질지 미리보기</b>도 함께 표시됩니다. 기초가 필요하면 아래 목차에서 챕터로.</p>
+        </div>
+
+        {/* R65 A — 설계 의사결정 흐름도. "지금 어느 단계에 있나" 큰 그림 + 챕터 anchor 링크. */}
+        <div className="mt-6 rounded-lg border border-accent/30 bg-accent/5 p-4">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-3 flex items-center gap-1.5"><Compass className="w-3.5 h-3.5" /> 설계 → 재료 선택 의사결정 흐름</p>
+          <svg viewBox="0 0 760 200" className="w-full h-auto">
+            {/* 7 단계 박스 */}
+            {[
+              { x: 8,   label: '① 요구 정의', sub: '기능·하중·환경', href: '#ch2', n: 5 },
+              { x: 118, label: '② Family 매핑', sub: '경량 → Al/Ti …', href: '#ch10', n: 3 },
+              { x: 228, label: '③ Ashby 좁히기', sub: '필터 + Index M', href: '#ch6', n: 2 },
+              { x: 338, label: '④ Compare', sub: 'CSV / PNG / Radar', href: '#ch6', n: 2 },
+              { x: 448, label: '⑤ 검증', sub: '데이터시트 출처', href: '#ch8', n: 13 },
+              { x: 558, label: '⑥ 시제품 시험', sub: '인장·피로·CT', href: '#ch12', n: 11 },
+              { x: 668, label: '⑦ 인증·양산', sub: 'AS9100·ISO 13485', href: '#ch12', n: 11 },
+            ].map((s, i) => (
+              <g key={i}>
+                <a href={s.href}>
+                  <rect x={s.x} y="58" width="92" height="60" rx="6" fill="oklch(0.99 0.005 250)" stroke="oklch(0.55 0.12 220)" className="hover:fill-accent/10" />
+                  <text x={s.x + 46} y="76" textAnchor="middle" fontSize="10" fontWeight="bold" fill="oklch(0.3 0.04 250)">{s.label}</text>
+                  <text x={s.x + 46} y="92" textAnchor="middle" fontSize="8" fill="oklch(0.5 0.04 250)">{s.sub}</text>
+                  <text x={s.x + 46} y="108" textAnchor="middle" fontSize="7" fill="oklch(0.55 0.12 220)">Ch.{s.n} →</text>
+                </a>
+                {i < 6 && (
+                  <line x1={s.x + 92} y1="88" x2={s.x + 110} y2="88" stroke="oklch(0.55 0.12 220)" strokeWidth="1.5" markerEnd="url(#arrow)" />
+                )}
+              </g>
+            ))}
+            {/* Feedback loop */}
+            <path d="M 700 130 Q 700 170 380 170 Q 60 170 60 130" fill="none" stroke="oklch(0.55 0.12 30 / 0.6)" strokeWidth="1.2" strokeDasharray="4 3" markerEnd="url(#arrowRed)" />
+            <text x="380" y="186" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.12 30)" fontStyle="italic">반복 — 시험 결과로 후보 재조정</text>
+            <defs>
+              <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 220)" /></marker>
+              <marker id="arrowRed" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 30)" /></marker>
+            </defs>
+            <text x="380" y="20" textAnchor="middle" fontSize="10" fontWeight="bold" fill="oklch(0.3 0.04 250)">전체 7단계 — 박스 클릭으로 해당 챕터로</text>
+            <text x="380" y="38" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">앱은 ②~④ 단계 자동화. ①·⑤·⑥·⑦ 은 가이드 + 외부 검증.</text>
+          </svg>
         </div>
 
         {/* 학습 흐름 */}
@@ -641,9 +683,69 @@ export default function Guide() {
           </div>
         </Chapter>
 
-        {/* ── Chapter 3 (구 1): 물성 사전 ─────────────────────────────── */}
+        {/* ── R65 신규 Chapter 3: 합금 family 매핑 + 환경 조건별 선택 (H + G) ── */}
         <Chapter
           n={3}
+          id="ch10"
+          title="합금 family 빠른 매핑 + 환경 조건별 선택"
+          learn={[
+            '도메인 (구조·고온·내식·전기·내마모·생체) → 우선 검토 family 30초 매핑',
+            '환경 조건 (부식·고온·저온·방사선·마모) 별 적합 합금 + 회피 합금',
+            '"어디서 시작할지" 모를 때 첫 후보군 4-5개로 좁히는 도구',
+          ]}
+        >
+          <p className="leading-relaxed">처음 마주하는 부품 — "어디서 시작해야 하나?" 가장 흔한 막힘 지점. 도메인과 환경 조건 두 차원으로 30초에 첫 후보 family 를 좁힙니다.</p>
+
+          <H3>3.1 도메인 → Family 빠른 매핑</H3>
+          <div className="overflow-x-auto mt-1">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[24%]">도메인 (요구)</th><th className="p-2 font-semibold">우선 검토 family</th><th className="p-2 font-semibold w-[16%]">참고 사례</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
+                <tr><td className="p-2 font-medium">구조 + 경량 (E·σy / ρ)</td><td className="p-2">고강도 알루미늄 (Scalmalloy · AlSi10Mg · 7075) · 티타늄 (Ti-6Al-4V · CP grade) · 마그네슘 (AZ31)</td><td className="p-2">브래킷·항공·자동차</td></tr>
+                <tr><td className="p-2 font-medium">고온 (≥ 600 °C · creep)</td><td className="p-2">Ni 초합금 (Inconel 718/625/617 · Haynes 230) · Co 합금 (L605 · Stellite) · Ti 중온(≤540 °C)</td><td className="p-2">배기·터빈·재사용 로켓</td></tr>
+                <tr><td className="p-2 font-medium">내식 (해수·산·Cl⁻)</td><td className="p-2">Ni 합금 (Hastelloy C-22 · Inconel 625) · 316L · Duplex (2205) · Ti grade 2</td><td className="p-2">해양·반도체·화학</td></tr>
+                <tr><td className="p-2 font-medium">전기 전도 (σ_elec)</td><td className="p-2">Cu (OFHC · CuCrZr) · Al 1xxx · Ag-alloy · 청동</td><td className="p-2">버스바·접점·열교환</td></tr>
+                <tr><td className="p-2 font-medium">내마모 (HV·접촉)</td><td className="p-2">공구강 (D2 · H13 · M2) · WC-Co · Stellite · CoCrMo · 케이스 hardening 강</td><td className="p-2">금형·다이·베어링</td></tr>
+                <tr><td className="p-2 font-medium">생체적합</td><td className="p-2">Ti-6Al-4V ELI (Grade 23) · CoCrMo (F75) · 316L · CP-Ti</td><td className="p-2">임플란트·스텐트</td></tr>
+                <tr><td className="p-2 font-medium">치수 안정 (저 CTE)</td><td className="p-2">Invar (Fe-Ni36) · Kovar · Pure W · Pyrex glass · CFRP</td><td className="p-2">정밀 광학·측정기</td></tr>
+                <tr><td className="p-2 font-medium">경량 방열 (k/ρ)</td><td className="p-2">Al (6061 · 1100) · Cu · 흑연 복합재 · AlSiC</td><td className="p-2">히트싱크·열교환기</td></tr>
+                <tr><td className="p-2 font-medium">탄성에너지 (σy²/E)</td><td className="p-2">스프링강 (52100 · 9254) · 마레이징강 · CuBe · 글래스 섬유</td><td className="p-2">스프링·다이어프램·힌지</td></tr>
+                <tr><td className="p-2 font-medium">압력 / 폭발</td><td className="p-2">압력용기 강 (A516 · A335 · P91) · Inconel 625 (수소) · 4130 (라이너) · 316L (화학)</td><td className="p-2">탱크·실린더·보일러</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <Note tone="tip">
+            <b>실무 사용.</b> 표의 family 명 (예: "Inconel") 을 앱의 검색창에 입력 → fuzzy 매칭 → 후보 표시. 또는 좌측 필터 Family Tree 에서 카테고리·family 체크.
+          </Note>
+
+          <H3>3.2 환경 조건별 적합·회피 합금</H3>
+          <div className="overflow-x-auto mt-1">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[18%]">환경</th><th className="p-2 font-semibold w-[18%]">조건</th><th className="p-2 font-semibold">적합 합금</th><th className="p-2 font-semibold">회피·주의</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12px]">
+                <tr><td className="p-2 font-medium">해수 부식</td><td className="p-2">Cl⁻ · 산화 환경</td><td className="p-2">Hastelloy · 316L · Cu-Ni 90/10 · Duplex 2205 · Ti</td><td className="p-2 text-rose-700">탄소강 · 304 · Al (피팅·균열)</td></tr>
+                <tr><td className="p-2 font-medium">산성 (H₂SO₄·HCl)</td><td className="p-2">강산 · 고온</td><td className="p-2">Hastelloy C-22/B-3 · 904L · Ti-Pd · 탄탈럼</td><td className="p-2 text-rose-700">탄소강 · SS 일반 · Al · 청동</td></tr>
+                <tr><td className="p-2 font-medium">알칼리 (NaOH)</td><td className="p-2">강염기</td><td className="p-2">Ni 200 · Inconel 600 · Monel 400 · 탄소강 (저농도)</td><td className="p-2 text-rose-700">Al · Zn · 304/316 (균열)</td></tr>
+                <tr><td className="p-2 font-medium">고온 (≥ 700 °C)</td><td className="p-2">대기·연소가스</td><td className="p-2">Inconel 617/625/X · Haynes 230 · MA956 · CMSX-4</td><td className="p-2 text-rose-700">탄소강 · 4140 · Al · 일반 SS</td></tr>
+                <tr><td className="p-2 font-medium">저온 / 극저온</td><td className="p-2">LNG (-162 °C) · 우주 (-269 °C)</td><td className="p-2">Inconel 718 · 316L · 9% Ni 강 · Al 5083 · Cu</td><td className="p-2 text-rose-700">탄소강 · 4140 · BCC 구조 (DBTT)</td></tr>
+                <tr><td className="p-2 font-medium">방사선 (원자력·우주)</td><td className="p-2">중성자·γ·X-ray</td><td className="p-2">SS 304L · Inconel 718 · Zircaloy-4 · MA956</td><td className="p-2 text-rose-700">Al · 구리 (swelling) · 폴리머</td></tr>
+                <tr><td className="p-2 font-medium">마모 / 부식 복합</td><td className="p-2">슬러리·미세입자</td><td className="p-2">Stellite · WC-Co · CoCrMo · Hardfaced steel · 알루미나 코팅</td><td className="p-2 text-rose-700">연강 · Al 일반 · 폴리머</td></tr>
+                <tr><td className="p-2 font-medium">수소 환경</td><td className="p-2">고압 H₂ · 700 bar</td><td className="p-2">316L · 304L · Inconel 625 · 4130 (라이너) · CFRP wrap</td><td className="p-2 text-rose-700">고강도 강 (4340 · maraging) · Ni-base 일부 (H-취화)</td></tr>
+                <tr><td className="p-2 font-medium">갈바닉 부식</td><td className="p-2">이종 금속 접촉</td><td className="p-2">같은 family 통일 · 절연 와셔 · 캐소드 가드</td><td className="p-2 text-rose-700">Al + steel 직접 접촉 · Cu + Zn 결합</td></tr>
+                <tr><td className="p-2 font-medium">미생물 부식 (MIC)</td><td className="p-2">정체 수·황화수소</td><td className="p-2">Cu · 6Mo SS (254 SMO) · Ti</td><td className="p-2 text-rose-700">탄소강 · 304 · Al</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[11px] text-muted-foreground mt-2">출처: ASM Handbook Vol. 13 (Corrosion); NACE MR0175 (Sulfide stress cracking); ASME B&PV Sec. VIII; NASA TM-2001-210803 (Cryogenic alloys).</p>
+
+          <Note tone="warn" title="환경 조건이 복잡하면">
+            여러 환경 (예: 해수 + 고온 + 마모) 이 동시에 발생하면 위 표의 교집합 + 표면 처리 (PVD · DLC · anodize) + 정기 검사 (NDT) 까지 함께 고려하세요. 단일 합금 만으로 모든 환경 대응 불가능.
+          </Note>
+        </Chapter>
+
+        {/* ── Chapter 4 (구 3): 물성 사전 ─────────────────────────────── */}
+        <Chapter
+          n={4}
           id="ch1"
           title="물성 사전 — 재료가 말하는 언어"
           learn={[
@@ -790,15 +892,15 @@ export default function Guide() {
           <p className="text-[11px] text-muted-foreground mt-1">출처: ASM Handbook Vol. 4 (Heat Treating), Vol. 1 (Properties); AMS spec; MMPDS-2018; Vendor datasheets (EOS · Renishaw · Sandvik · Special Metals).</p>
         </Chapter>
 
-        {/* ── Chapter 4 (구 2): 요구를 숫자로 ───────────────────────────── */}
+        {/* ── Chapter 5 (구 2): 요구를 숫자로 + R65 B 안전계수 사전 ───────── */}
         <Chapter
-          n={4}
+          n={5}
           id="ch2"
-          title="설계 요구를 숫자로 바꾸기"
+          title="설계 요구를 숫자로 바꾸기 + 안전계수 사전"
           learn={[
-            '응력 σ = F/A 한 줄에서 “필요 항복강도”를 산출한다',
-            '처짐 식으로 “필요 탄성계수 E”를 산출한다',
-            '안전계수 SF의 의미와 보수적 사용',
+            '응력 σ = F/A 한 줄에서 "필요 항복강도"를 산출한다',
+            '처짐 식으로 "필요 탄성계수 E"를 산출한다',
+            '산업·조건·규격별 안전계수 SF 선택 — 가장 자주 막히는 단계',
           ]}
           prereq={<>벡터·힘·기본 적분(약간) — 모르면 결과 식만 외우고 넘어가도 됩니다.</>}
         >
@@ -860,11 +962,59 @@ export default function Guide() {
               </tbody>
             </table>
           </div>
+
+          {/* R65 B — 안전계수 사전 (산업·조건·규격별). 학생들이 가장 자주 막히는 부분. */}
+          <H3>5.5 안전계수 (SF) 사전 — "얼마로 잡아야 하나"</H3>
+          <p className="text-sm leading-relaxed">SF = 작용응력 대비 허용응력의 여유. 너무 낮으면 위험·인명, 너무 높으면 무겁고 비쌈. 산업·조건·규격이 SF 의 기준을 정합니다.</p>
+
+          <H3>5.5.1 산업·용도별 일반 SF</H3>
+          <div className="overflow-x-auto mt-1">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[24%]">산업·용도</th><th className="p-2 font-semibold w-[14%]">SF 범위</th><th className="p-2 font-semibold">근거·규격</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
+                <tr><td className="p-2 font-medium">항공 (구조)</td><td className="p-2 text-emerald-700 font-mono">1.5 (Ultimate) · 1.0 (Limit)</td><td className="p-2">FAR 25.303 / EASA CS-25 — 무게 critical 한 만큼 SF 낮춤. 시험 검증 필수.</td></tr>
+                <tr><td className="p-2 font-medium">자동차 (구조)</td><td className="p-2 text-emerald-700 font-mono">2 ~ 3</td><td className="p-2">SAE J1100 / 일반 OEM. 충돌·피로 별도 마진.</td></tr>
+                <tr><td className="p-2 font-medium">일반 기계 (정적)</td><td className="p-2 text-emerald-700 font-mono">1.5 ~ 2</td><td className="p-2">교과서 기본값. ASME B&PV Sec.II Pt.D 의 σ_allow = σy/1.5.</td></tr>
+                <tr><td className="p-2 font-medium">압력 용기</td><td className="p-2 text-amber-700 font-mono">3 ~ 4 (UTS), 1.5 (σy)</td><td className="p-2">ASME B&PV Sec.VIII Div.1 — 누설·파열 인명 안전.</td></tr>
+                <tr><td className="p-2 font-medium">크레인·리프팅</td><td className="p-2 text-amber-700 font-mono">5 ~ 10</td><td className="p-2">OSHA · ASME B30 — 충격 + 인명. wire rope 는 10.</td></tr>
+                <tr><td className="p-2 font-medium">엘리베이터·승강기</td><td className="p-2 text-amber-700 font-mono">8 ~ 12</td><td className="p-2">EN 81 / ASME A17.1 — 인명 + 사이클 큼.</td></tr>
+                <tr><td className="p-2 font-medium">의료 임플란트</td><td className="p-2 text-amber-700 font-mono">5 ~ 10 (피로)</td><td className="p-2">ISO 14801 (치아) · ISO 7206 (고관절). 10⁶ 사이클 무파손.</td></tr>
+                <tr><td className="p-2 font-medium">건축 구조 강재</td><td className="p-2 text-emerald-700 font-mono">1.5 ~ 2.5</td><td className="p-2">AISC / EUROCODE 3 · KBC. LRFD load·resistance factor.</td></tr>
+                <tr><td className="p-2 font-medium">시제품·실험</td><td className="p-2 text-emerald-700 font-mono">1.5</td><td className="p-2">설계 검증용. 양산 전 SF 재조정.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <H3>5.5.2 조건·하중 종류별 SF 가산 (multiplicative)</H3>
+          <div className="overflow-x-auto mt-1">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[28%]">조건</th><th className="p-2 font-semibold">가산</th><th className="p-2 font-semibold">이유</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
+                <tr><td className="p-2 font-medium">반복 하중 (피로)</td><td className="p-2 font-mono">× 2 ~ 4</td><td className="p-2">σf ≈ 0.4·σy. 노치·표면 거칠기 영향 포함.</td></tr>
+                <tr><td className="p-2 font-medium">충격 하중</td><td className="p-2 font-mono">× 2 ~ 3</td><td className="p-2">동적 응력 = 정적 응력 × √(낙하높이/처짐) 의 2~3 배 가산.</td></tr>
+                <tr><td className="p-2 font-medium">취성 재료 (tool steel · 세라믹)</td><td className="p-2 font-mono">× 2 ~ 5</td><td className="p-2">변형 경고 없이 파단. Weibull 분포 큰 편차.</td></tr>
+                <tr><td className="p-2 font-medium">고온 (creep 영역)</td><td className="p-2 font-mono">× 1.5 ~ 3</td><td className="p-2">10⁵ h creep rupture stress 별도 적용 + 추가 SF.</td></tr>
+                <tr><td className="p-2 font-medium">부식·환경 (해수·산성)</td><td className="p-2 font-mono">× 1.3 ~ 2</td><td className="p-2">두께 손실 보정 (보통 1 mm/10년).</td></tr>
+                <tr><td className="p-2 font-medium">데이터 불확실성 (class·derived)</td><td className="p-2 font-mono">× 1.5 ~ 2</td><td className="p-2">측정값 아닌 추정. detail 패널의 confidence 라벨 확인.</td></tr>
+                <tr><td className="p-2 font-medium">제조 변동 (cast · AM)</td><td className="p-2 font-mono">× 1.2 ~ 2</td><td className="p-2">batch 간 변동, 빌드 방향 영향.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <Note tone="tip" title="실무 SF 계산 — 예제">
+            <p>자동차 부품 (일반 기계 SF=2) + 반복 하중 (×3) + 부식 (×1.3) + AM 제조 (×1.5)</p>
+            <p className="mt-1 font-mono text-[13px]">→ 최종 SF = 2 × 3 × 1.3 × 1.5 ≈ <b>11.7</b></p>
+            <p className="mt-1 text-muted-foreground">실제로는 각 항목 root 평균이나 max 사용 (보수성 vs 비용 trade-off). 위 값은 상한선 — 시험 결과로 점진적 조정.</p>
+          </Note>
+
+          <Note tone="warn" title="SF 가 너무 높으면">
+            과한 SF = 무겁고 비싸고 가공 어려움. <b>SF 낮추는 방법</b>: ① 측정 데이터 (n=N · handbook) 사용 → 추정 SF 제거 / ② 시제품 시험으로 실제 분포 확인 / ③ 동적 / 환경 SF 는 시험으로 직접 확인. 학생 프로젝트는 SF=2 로 시작 후 점진 조정.
+          </Note>
         </Chapter>
 
-        {/* ── Chapter 5 (구 3): 단면 모양 도감 ─────────────────────────── */}
+        {/* ── Chapter 6 (구 3): 단면 모양 도감 ─────────────────────────── */}
         <Chapter
-          n={5}
+          n={6}
           id="ch3"
           title="단면 모양 도감 — A · I · Z · J"
           learn={[
@@ -970,9 +1120,9 @@ export default function Guide() {
           </Note>
         </Chapter>
 
-        {/* ── Chapter 6 (구 4): 보 하중 도감 ───────────────────────────── */}
+        {/* ── Chapter 7 (구 4): 보 하중 도감 ───────────────────────────── */}
         <Chapter
-          n={6}
+          n={7}
           id="ch4"
           title="보 하중·지지조건 도감"
           learn={[
@@ -1047,7 +1197,7 @@ export default function Guide() {
 
         {/* ── Chapter 7 (구 5): 응용 ───────────────────────────────────── */}
         <Chapter
-          n={7}
+          n={8}
           id="ch5"
           title="응용 — 비틀림 · 좌굴 · 복합 · 압력"
           learn={[
@@ -1104,9 +1254,47 @@ export default function Guide() {
           <p className="text-sm mt-1 text-muted-foreground">필요 두께 <F>t ≥ p·r·SF / σy</F>. 코드(ASME 등)를 따르세요. <span className="text-foreground/80">압력 용기에 보통 세로로 갈라지는 이유는 후프 응력이 2배라서</span>.</p>
         </Chapter>
 
-        {/* ── Chapter 8 (신규): AM 특화 주의사항 ─────────────────────────── */}
+        {/* ── R65 J — Chapter 9 (신규): 흔한 설계 실수 10선 ─────────────── */}
         <Chapter
-          n={8}
+          n={9}
+          id="ch11"
+          title="흔한 설계 실수 10선 — 실패에서 배우기"
+          learn={[
+            '강도·인성 trade-off 무시, 표면 거칠기 영향, 노치 효과 같은 빈번한 실수',
+            '갈바닉 부식·H 취화 등 환경 간섭 무시 사례',
+            'AM 빌드 방향·용접성·표준 적합성 누락',
+          ]}
+        >
+          <p className="leading-relaxed">교과서가 잘 가르치지 않는 실패 패턴들. 모두 실제 산업에서 보고된 사례 기반입니다.</p>
+          <div className="space-y-3 mt-3">
+            {[
+              { n: 1, tag: '강도 vs 인성', t: 'σy 만 보고 인성 무시', d: 'tool steel (D2 · M2 · H13) 의 σy 는 1500 MPa+ 지만 KIC 가 15–25 MPa√m 로 매우 낮음. 결함·노치 있으면 변형 없이 파단. 정적 응력만 보고 선택 → 진동·낙하·열충격에서 깨짐.', fix: '취성 재료는 KIC + 사용 환경의 미세 균열 가능성 검토. Ti / Inconel 대체 검토.' },
+              { n: 2, tag: 'AM 이방성', t: 'AM Ti6Al4V 의 Z 방향 피로 무시', d: 'LPBF 빌드 Z 방향 피로가 XY 의 30~70% 수준. 회전축·날개 부품을 Z 방향으로 빌드 후 시제품 시험에서 조기 파괴.', fix: '응력이 한 방향이면 그 방향을 XY 평면에 배치. HIP 처리로 기공·이방성 동시 감소. AM 챕터 참고.' },
+              { n: 3, tag: '표면 거칠기', t: '표면 처리 무시 → 피로 50% ↓', d: 'AM as-built 표면 Ra ~25 μm 또는 절삭 직후 Ra ~3 μm 도 피로 강도 감소. 노치 효과 (Kf ≈ 1.5~3) 로 σf 가 1/2 까지.', fix: '회전·반복 하중 부품은 polishing (Ra ≤ 0.8 μm) 또는 shot peening (잔류 압축응력 부여) 필수.' },
+              { n: 4, tag: '갈바닉 부식', t: 'Al + Steel 직접 접촉', d: 'Al 과 Steel 의 갈바닉 전위차로 Al 쪽 급속 부식. 해양·습한 환경에서 6 개월 내 파공 사례.', fix: '같은 family 통일 또는 절연 와셔 (PTFE · 나일론) 삽입. 캐소드 보호 (희생 양극).' },
+              { n: 5, tag: '노치 효과', t: 'Sharp corner / 구멍 모서리 stress concentration 무시', d: 'σ_max = Kt · σ_nom (Kt 보통 2~4). SF 가 sufficient 라도 노치 부근만 응력 집중 → 균열 시작.', fix: '구멍·모서리에 fillet radius 적용 (r ≥ 1/4 board thickness). FEA 로 stress concentration 확인.' },
+              { n: 6, tag: '용접성', t: 'AM AlSi10Mg 부품 용접', d: 'AlSi10Mg 는 SiAl 공정 사출 미세조직 — 용접 시 균열 (porosity, crack). Vendor datasheet 의 용접성 정보 누락.', fix: '용접 필요 시 wrought 6061 또는 5052 로 대체. AM 부품은 mechanical fastening (bolt) 또는 friction stir welding 검토.' },
+              { n: 7, tag: 'H 취화', t: '고강도 강 (4340 · maraging) + 수소 환경', d: 'σy > 1000 MPa 고강도 강은 H₂ 가스 / 산세 / 도금 (Cd · Zn) 에서 수소 흡수 → 지연 파괴. 우주·압력용기 인명 사고 보고.', fix: 'σy ≤ 900 MPa 강 또는 316L / Inconel 625. 도금 후 baking (200 °C / 24 h) 으로 수소 제거.' },
+              { n: 8, tag: '저온 취성', t: '탄소강을 LNG (-162 °C) 환경에 사용', d: 'BCC 결정 (탄소강 · 4140) 은 DBTT (Ductile-Brittle Transition Temperature) 이하에서 갑자기 취성화. -50 °C 이하에서 충격 인성 1/10 까지.', fix: 'FCC 결정 (316L · 304L · 9% Ni 강 · Al · Cu) 사용. Charpy V-notch 시험으로 사용 온도 -10 °C 이하에서도 27 J 이상 확인.' },
+              { n: 9, tag: '열팽창 mismatch', t: '이종 재료 조합 정밀 부품에서 CTE 무시', d: 'Al (CTE 23) + Steel (12) 가 같은 부품에 있으면 100 °C 온도 변화에서 mismatch 0.1% — 정밀 광학·전자에서 치명적.', fix: 'Invar (CTE 1.3) · Kovar (5.5) · CFRP (≈0) 같은 저 CTE 재료. 또는 Si 같은 substrate 와 매칭.' },
+              { n: 10, tag: '데이터 confidence 무시', t: 'class · derived 라벨을 측정값처럼 설계에 사용', d: 'KIC 가 class 라벨 = family 평균 추정. 동일 alloy 의 다른 heat 에서 ±30% 변동. fatigue derived 도 동일.', fix: '인증·시제품 단계에서 측정값 또는 vendor datasheet 측정 항목 확보. detail 의 confidence 라벨 항상 확인. Ch.13 datasheet 섹션 참고.' },
+            ].map((m) => (
+              <div key={m.n} className="rounded border border-rose-200 bg-rose-50/50 p-3">
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-[11px] font-bold text-rose-700">#{m.n}</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-rose-200 text-rose-800 font-mono">{m.tag}</span>
+                  <span className="text-sm font-semibold text-foreground">{m.t}</span>
+                </div>
+                <p className="text-[12.5px] text-foreground/85 leading-relaxed"><b className="text-rose-700">상황:</b> {m.d}</p>
+                <p className="text-[12.5px] text-foreground/85 leading-relaxed mt-1"><b className="text-emerald-700">처방:</b> {m.fix}</p>
+              </div>
+            ))}
+          </div>
+        </Chapter>
+
+        {/* ── Chapter 10 (구 8): AM 특화 주의사항 ─────────────────────────── */}
+        <Chapter
+          n={10}
           id="ch9"
           title="AM (적층제조) 특화 주의사항"
           learn={[
@@ -1173,14 +1361,149 @@ export default function Guide() {
           </Note>
         </Chapter>
 
-        {/* ── Chapter 9 (구 8): 데이터 해석 + 참고 ─────────────────────────────── */}
+        {/* ── R65 F+K+E — Chapter 11 (신규): 인증·가공·시제품 시험 ───────── */}
         <Chapter
-          n={8}
+          n={11}
+          id="ch12"
+          title="인증·가공·시제품 시험 — 데이터에서 실물까지"
+          learn={[
+            '산업·인증 (AS9100·ISO 13485·ASME P-No.·NACE 등) 적용 가능 합금 매핑',
+            '같은 합금의 wrought·cast·forged·AM 가공 가능성 비교',
+            '후보 선정 후 시제품 시험·결함 분석·인증까지의 표준 흐름',
+          ]}
+        >
+          <p className="leading-relaxed">앱이 후보를 좁힌 후, 실제 양산·인증까지 가는 세 단계 (인증 적합성 → 가공 가능성 → 시제품 검증) 의 핵심.</p>
+
+          <H3>11.1 산업·인증 매핑 (Compliance)</H3>
+          <div className="overflow-x-auto mt-1">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[20%]">산업·인증</th><th className="p-2 font-semibold w-[18%]">규격</th><th className="p-2 font-semibold">적합 합금 (예시)</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
+                <tr><td className="p-2 font-medium">항공기 구조</td><td className="p-2">AS9100 · NADCAP · FAA 14 CFR 25</td><td className="p-2">Ti-6Al-4V (AMS 4928) · Inconel 718 (AMS 5663) · 7075-T7 · Al 2024-T3 · 4340 · 17-4 PH</td></tr>
+                <tr><td className="p-2 font-medium">의료 임플란트</td><td className="p-2">ISO 13485 · ISO 10993 · FDA 510(k)</td><td className="p-2">Ti-6Al-4V ELI (Grade 23) · CoCrMo (ASTM F75) · 316L (ASTM F138) · CP-Ti Grade 4</td></tr>
+                <tr><td className="p-2 font-medium">압력 용기</td><td className="p-2">ASME B&PV Sec.VIII · ASME P-No. matching</td><td className="p-2">SA-516 Gr70 (보일러) · SA-240 Type 304/316L (화학) · SA-335 P91 (발전소) · Inconel 625 (H₂)</td></tr>
+                <tr><td className="p-2 font-medium">석유·가스 (sour)</td><td className="p-2">NACE MR0175 / ISO 15156</td><td className="p-2">Inconel 625 · Hastelloy C-276 · 316L (제한적) · Duplex 2205 (제한적)</td></tr>
+                <tr><td className="p-2 font-medium">원자력 1st loop</td><td className="p-2">ASME Sec.III · ASME NQA-1</td><td className="p-2">SA-508 Cl.3 · Inconel 600/690 · Zircaloy-4 · 316L</td></tr>
+                <tr><td className="p-2 font-medium">건축 구조강</td><td className="p-2">AISC · EUROCODE 3 · KBC 2022</td><td className="p-2">A36 · A572 Gr50 · A992 · A500 Gr B</td></tr>
+                <tr><td className="p-2 font-medium">자동차 (EU)</td><td className="p-2">RoHS · REACH · ELV</td><td className="p-2">대부분 합금 — Pb·Cd·Cr⁶⁺ 제한. 일반 stainless · Al · 강 OK.</td></tr>
+                <tr><td className="p-2 font-medium">식품·음료</td><td className="p-2">FDA 21 CFR 177 · NSF/ANSI 51</td><td className="p-2">316L · 304L · 2205 · Hastelloy C-22 (acid)</td></tr>
+                <tr><td className="p-2 font-medium">군용</td><td className="p-2">MIL-DTL · MIL-STD</td><td className="p-2">MIL-S-46100 (장갑) · MIL-T-9046 (Ti) · MIL-A-46100 (Al)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[11px] text-muted-foreground mt-1">앱의 detail 패널에 <b>RoHS / SVHC 자동 검출</b> + 사례 챕터의 families 절에 industry 적용 예시 표시. 정확한 인증은 vendor lot certificate 와 함께 확인 必.</p>
+
+          <H3>11.2 가공·제조 가능성 (Manufacturability)</H3>
+          <div className="overflow-x-auto mt-1">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[20%]">공정</th><th className="p-2 font-semibold w-[12%]">평가 지표</th><th className="p-2 font-semibold">고려사항</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
+                <tr><td className="p-2 font-medium">절삭 (machining)</td><td className="p-2 font-mono">Machinability rating (Al 1100 = 100%)</td><td className="p-2">Al 6061 = 70% · 1018 강 = 70% · 4140 = 60% · 304 SS = 40% · Ti-6Al-4V = 22% · Inconel 718 = 12% · CoCrMo = 10%. 가공시간 = (100/MR) × 기본. 절삭유·공구 마모도 비례.</td></tr>
+                <tr><td className="p-2 font-medium">용접 (welding)</td><td className="p-2 font-mono">CET (Carbon Equivalent) · Schaeffler diagram</td><td className="p-2">CET &lt; 0.4 = pre-heat 불요. CET 0.4–0.6 = 150–200 °C pre-heat. CET &gt; 0.6 = 위험 (예: 4340 · maraging). Stainless 는 Schaeffler diagram 으로 Cr/Ni eq 평가.</td></tr>
+                <tr><td className="p-2 font-medium">성형 (forming)</td><td className="p-2 font-mono">N-value (변형 경화 지수) · r-value</td><td className="p-2">Deep drawing 은 n &gt; 0.2, r &gt; 1.4 권장. 304 SS / 6022-T4 Al 우수. 7075 / 마라징 어려움.</td></tr>
+                <tr><td className="p-2 font-medium">단조 (forging)</td><td className="p-2 font-mono">Forgeability rating</td><td className="p-2">Al · 1018 강 우수. Ti · Ni superalloy 는 좁은 온도창 (Ti-6Al-4V 950–1000 °C). 정밀 단조 (closed die) 는 부품마다 다이 비용 ↑.</td></tr>
+                <tr><td className="p-2 font-medium">주조 (casting)</td><td className="p-2 font-mono">유동성 · 수축률 · 결함률</td><td className="p-2">Investment casting (Ti · CoCrMo · 304SS · Inconel 718) — 정밀 ±0.5%. Die casting (Al · Zn · Mg). Sand casting (탄소강 · Al · 청동).</td></tr>
+                <tr><td className="p-2 font-medium">AM (LPBF · EBM · DED)</td><td className="p-2 font-mono">분말 spec · 빌드 방향 · 후처리</td><td className="p-2">표준화된 alloy 만 (Ti-6Al-4V · IN718 · 17-4 PH · 316L · AlSi10Mg · CoCrMo). HIP 후처리로 ±20% 성능 변동. <a href="#ch9" className="text-accent hover:underline">Ch.10 AM 특화</a> 참고.</td></tr>
+                <tr><td className="p-2 font-medium">표면처리</td><td className="p-2 font-mono">밀착성 · 두께 · 환경 적합성</td><td className="p-2">Al 양극산화 (anodize) · 강 도금 (Zn · Cd · Cr) · Ti TiN/DLC · stainless passivation. 의료 임플란트는 micro arc oxidation 또는 plasma electrolytic oxidation.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <H3>11.3 시제품 시험 → 결과 해석</H3>
+          <p className="text-sm leading-relaxed">앱에서 좁힌 후보 (보통 1–3개) 의 실제 시제품 시험은 데이터시트와 비교해 차이를 해석하는 단계.</p>
+          <div className="overflow-x-auto mt-2">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[18%]">시험</th><th className="p-2 font-semibold w-[20%]">표준</th><th className="p-2 font-semibold">목적·해석</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
+                <tr><td className="p-2 font-medium">인장 (Tensile)</td><td className="p-2">ASTM E8/E8M · ISO 6892</td><td className="p-2">σy · UTS · El 측정. 시편 5 개 이상으로 평균 ± 표준편차. 데이터시트 minimum 의 ±5% 이내면 정상.</td></tr>
+                <tr><td className="p-2 font-medium">압축 (Compression)</td><td className="p-2">ASTM E9</td><td className="p-2">취성 재료 · cellular structure · AM lattice 평가.</td></tr>
+                <tr><td className="p-2 font-medium">충격 (Charpy)</td><td className="p-2">ASTM E23 · ISO 148-1</td><td className="p-2">노치 인성 (J). 저온 (-40 °C) 시험으로 DBTT 평가. 27 J 이상 = ductile.</td></tr>
+                <tr><td className="p-2 font-medium">경도 (Hardness)</td><td className="p-2">ASTM E384 (HV) · E18 (HRC) · E10 (HB)</td><td className="p-2">10 회 측정 후 표준편차. 경화층 깊이 (case depth) 도 마이크로 비커스로.</td></tr>
+                <tr><td className="p-2 font-medium">피로 (Fatigue)</td><td className="p-2">ASTM E466 · ISO 12107</td><td className="p-2">S-N 곡선 (10⁴–10⁷ cycles). 시편 10–20 개. Weibull 분포로 B10 (90% survival) 값 추출.</td></tr>
+                <tr><td className="p-2 font-medium">파괴인성 (KIC)</td><td className="p-2">ASTM E399 · E1820 (J-int)</td><td className="p-2">두께 충분해야 plane strain. AM 부품은 빌드 방향별 측정 必.</td></tr>
+                <tr><td className="p-2 font-medium">CT 스캔 (NDT)</td><td className="p-2">ASTM E1441 · E1570</td><td className="p-2">내부 기공·균열·LOF. AM 부품 100% 또는 sampling.</td></tr>
+                <tr><td className="p-2 font-medium">FPI · PT (표면 NDT)</td><td className="p-2">ASTM E1417 · E165</td><td className="p-2">표면 균열 검출. 모든 critical 부품.</td></tr>
+                <tr><td className="p-2 font-medium">금속현미경</td><td className="p-2">ASTM E407 (etch)</td><td className="p-2">미세조직 (grain size · phase) 확인. AM 부품 빌드 방향 비교.</td></tr>
+                <tr><td className="p-2 font-medium">파괴 분석 (Fractography)</td><td className="p-2">SEM 관찰</td><td className="p-2">파면 분석 — ductile (dimple), brittle (cleavage), fatigue (striations). 실패 원인 진단의 핵심.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <Note tone="tip" title="결과가 데이터시트와 다르면">
+            <ol className="list-decimal pl-5 space-y-1 mt-1">
+              <li><b>시험 조건 확인</b>: 시편 크기, 변형 속도, 온도, 표면 마감 — 표준 어겼는지.</li>
+              <li><b>제조 조건 확인</b>: heat treatment, build direction (AM), batch, vendor lot.</li>
+              <li><b>데이터시트 base 확인</b>: typical 또는 A-basis (99%) 또는 B-basis (90%). Confidence 라벨 도 확인.</li>
+              <li><b>샘플 수 확인</b>: n=3 측정으로 ±10% 변동은 정상. n &gt; 10 이어야 통계적 신뢰.</li>
+              <li><b>vendor 확인</b>: 같은 alloy 도 vendor 간 ±5–20% 차이 일반.</li>
+            </ol>
+          </Note>
+        </Chapter>
+
+        {/* ── R65 I — Chapter 12 (신규): 산업 case study 5선 ──────────── */}
+        <Chapter
+          n={12}
+          id="ch14"
+          title="산업 case study 5선 — 추상에서 구체로"
+          learn={[
+            '실제 산업의 재료 선택 사례 — 어떤 요구가 어떤 합금으로 매핑됐는지',
+            '재료 변천사 — 같은 부품이 시대·기술 변화로 어떻게 진화했는지',
+            '엔지니어링 의사결정의 trade-off 실제 예',
+          ]}
+        >
+          <p className="leading-relaxed">교과서·앱의 추상적 이론을 구체화하는 데 가장 좋은 방법은 실제 산업 사례 분석. 5 개의 대표 사례.</p>
+
+          <div className="space-y-4 mt-3">
+            <div className="rounded-lg border border-border bg-card p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">① 자동차 — F1 엔진 블록 재료 변천사</p>
+              <p className="text-sm leading-relaxed"><b className="text-foreground">변천:</b> Cast iron (1950s) → 4340 alloy steel (1970s) → A356-T6 cast aluminum (1990s) → Honeycomb composite + Al 7075 (2010s).</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인:</b> 출력/무게 (engine specific power) = 200 → 1500 hp/L. 시린더 압력 = 100 → 240 bar. 회전수 = 6,000 → 18,000 rpm. 매번 더 가벼우면서도 더 강하고 더 thermally stable 한 재료가 필요.</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">앱에서 재현:</b> 사례 "구조 브래킷" + Index = E^½/ρ + Yield ≥ 400 + Process = LPBF → Al 7075 · Ti-6Al-4V · Scalmalloy 후보.</p>
+            </div>
+
+            <div className="rounded-lg border border-border bg-card p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">② 우주 — JWST 망원경 mirror</p>
+              <p className="text-sm leading-relaxed"><b className="text-foreground">선택:</b> Beryllium (구조) + Au coating (반사) + Si 광학 sensor support.</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인:</b> 극저온 (-220 °C) 치수 안정 — Be 는 σy·E·ρ 모두 좋고 CTE 가 작음. mirror 1.32 m 가 6.5 m 까지 가능. 단점: 발암성 분말, 가공 어려움, 비용 $$$ (kg 당 $100k+). 다른 선택지 (Zerodur glass, ULE) 는 우주 환경에서 thermal cycling 깨짐.</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">앱에서 재현:</b> 사례 "정밀 마운트" + Modulus ≥ 280 GPa + CTE ≤ 12 → Be 후보 (단, 안전성·비용으로 Invar / CFRP 가 일반적).</p>
+            </div>
+
+            <div className="rounded-lg border border-border bg-card p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">③ 로켓 — SpaceX Raptor engine 연소실</p>
+              <p className="text-sm leading-relaxed"><b className="text-foreground">선택:</b> Inconel 718 (외벽) + 자체 개발 <b>SX-300 (Cu-based AM 합금)</b> (regenerative cooling 채널) + Cu coating.</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인:</b> 챔버 압력 = 300 bar, 온도 3500 °C (가스), 벽면 600 °C (cooling 으로). 열전도도 (Cu) + 강도 (Inconel) 의 trade-off → 2 재료 동시 사용. SX-300 은 Cu (k=400 W/m·K) + Cr/Nb 강화 (σy ~600 MPa) — AM 으로 cooling 채널 직접 빌드.</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">앱에서 재현:</b> Inconel 617/625 (사례 "고온 부품") + Cu (사례 "전기 전도체") 비교. AM 후처리는 <a href="#ch9" className="text-accent hover:underline">Ch.10</a> 참고.</p>
+            </div>
+
+            <div className="rounded-lg border border-border bg-card p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">④ 자동차 — Tesla Model Y giga press</p>
+              <p className="text-sm leading-relaxed"><b className="text-foreground">선택:</b> 자체 개발 Al 합금 (Si 7% + Mg 0.4%, A356 변형). 6,000 ton casting press 로 후방 body 단일 부품 (70 → 1 부품).</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인:</b> 70 개 부품 용접 → 1 개 die cast 로 무게 -10%, 비용 -40%, 조립시간 -90%. 단점: cast Al 의 σy ~150 MPa (낮음) → 두께로 보상. 단일 부품 → 수리 불가 (보험·정비 비용 ↑).</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">앱에서 재현:</b> 사례 "저원가 양산" + Al 합금 + Process = Cast → A356 · AlSi10Mg 후보.</p>
+            </div>
+
+            <div className="rounded-lg border border-border bg-card p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">⑤ 의료 — DJI 드론 arm + 인공 관절</p>
+              <p className="text-sm leading-relaxed"><b className="text-foreground">드론 arm 선택:</b> Carbon fiber + 7075-T6 Al hub. <b>인공 고관절 선택:</b> Ti-6Al-4V ELI (stem) + CoCrMo (ball) + UHMWPE (cup).</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인 (드론):</b> 무게 / 강성 / 가격 — CFRP 가 best E/ρ 지만 가공·연결 어려움 → Al hub 로 보강. 무게 200g 차이가 비행시간 5분 결정.</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인 (관절):</b> 생체적합 + 피로 (10⁹ cycles) + 마모 (10⁻⁸ mm³/N·m). Ti 는 σy/ρ best 지만 적층 표면 마모 ↑ → CoCr ball + UHMWPE cup 의 마찰 대응. 평생 (20–30 년) 무파손이 목표.</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">앱에서 재현:</b> 사례 "의료 임플란트" + Index = σf/ρ + Compare 의 Radar 로 ρ·σy·피로·내식 비교.</p>
+            </div>
+          </div>
+
+          <Note tone="tip" title="사례 학습의 정리">
+            <p>실제 선택은 <b>한 합금이 모든 요구를 만족</b>하기보다 <b>여러 합금을 조합</b> (Raptor · 인공관절) 하거나 <b>가공·후처리로 보강</b> (giga press) 하는 경우가 많습니다. 앱의 Compare 패널이 trade-off 시각화에 가장 유용 — 1순위 후보 1개가 아니라 1–3 위 후보 + 보완 재료까지 함께 검토.</p>
+          </Note>
+        </Chapter>
+
+        {/* ── Chapter 13 (구 9): 데이터 해석 + 참고 ─────────────────────────────── */}
+        <Chapter
+          n={13}
           id="ch8"
-          title="데이터 해석·출처·단위·FAQ"
+          title="데이터 해석·datasheet 읽기·출처·단위·FAQ"
           learn={[
             '값은 "대표값 + 범위"이며 조건에 따라 달라진다',
             'confidence 4 라벨 (measured / handbook / class / derived) 의미',
+            'datasheet typical · minimum · A-basis · B-basis 의 차이',
             '데이터 출처 (ASM · MMPDS · vendor) 어디서 어디까지',
             'SI ↔ Imperial 빠른 변환 + 첫 사용자 FAQ',
           ]}
@@ -1274,11 +1597,36 @@ export default function Guide() {
           </div>
           <p className="text-[11px] text-muted-foreground mt-3">막힘이 있으면 우측 상단의 <kbd className="px-1 py-0.5 rounded bg-muted border border-border font-mono text-[10px]">?</kbd> 버튼 (또는 <kbd className="px-1 py-0.5 rounded bg-muted border border-border font-mono text-[10px]">?</kbd> 키) 으로 온보딩 투어 다시 보기.</p>
 
+          {/* R65 C — datasheet literacy. typical / minimum / A-basis / B-basis 의 의미. */}
+          <H3>Datasheet 읽기 — 같은 합금이 다르게 보이는 이유</H3>
+          <p className="text-sm leading-relaxed">같은 Ti-6Al-4V 라도 datasheet 마다 σy 가 800·830·850 MPa 로 다르게 표시되는 이유 — <b>어떤 통계 base 를 사용했나</b>가 핵심.</p>
+          <div className="overflow-x-auto mt-1">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[16%]">통계 base</th><th className="p-2 font-semibold w-[14%]">신뢰 수준</th><th className="p-2 font-semibold">의미·사용</th></tr></thead>
+              <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
+                <tr><td className="p-2 font-mono text-foreground/70">typical</td><td className="p-2">~50%</td><td className="p-2">측정값의 평균. vendor 마케팅·교과서·이 앱 default. 약 절반의 시편이 이 값 이상.</td></tr>
+                <tr><td className="p-2 font-mono text-sky-600">minimum</td><td className="p-2">~99%</td><td className="p-2">spec 의 최소 보장값. 99% 시편이 이 값 이상. vendor 보증 가능. 일반 양산용.</td></tr>
+                <tr><td className="p-2 font-mono text-amber-600">A-basis (S-basis)</td><td className="p-2">99% / 95% 신뢰</td><td className="p-2">MMPDS / MIL-HDBK-5J 표준. 99% 시편이 이 값 이상 — 95% 신뢰. <b>항공 design allowable</b>. typical 대비 80–90% 수준.</td></tr>
+                <tr><td className="p-2 font-mono text-amber-600">B-basis</td><td className="p-2">90% / 95% 신뢰</td><td className="p-2">MMPDS 표준. 90% 시편이 이 값 이상 — 95% 신뢰. <b>항공 일반·redundant 부품</b>. typical 의 85–95%.</td></tr>
+                <tr><td className="p-2 font-mono text-rose-500">guaranteed minimum</td><td className="p-2">100% (contractual)</td><td className="p-2">계약 기반 — vendor 가 lot certificate 로 보증. typical 의 70–85%. 가장 보수적.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <Note tone="tip" title="실무 의사결정">
+            <p><b>학생·시제품:</b> typical 사용 (이 앱 default).<br/>
+              <b>양산:</b> spec minimum 또는 vendor lot certificate 사용.<br/>
+              <b>항공·인증:</b> MMPDS A-basis 또는 B-basis 의무.<br/>
+              <b>중요</b>: 이 앱의 confidence 라벨 (measured / handbook / class / derived) 도 함께 확인. class·derived 라벨 = typical 도 아닌 추정값.</p>
+          </Note>
+
           <H3>참고문헌</H3>
           <ul className="list-disc pl-6 mt-1 space-y-1 leading-relaxed text-sm">
             <li>M. F. Ashby, <i>Materials Selection in Mechanical Design</i>, Butterworth-Heinemann — 재료 선택 방법·성능지수의 표준 교과서.</li>
             <li>Ansys Granta EduPack, <i>Materials Selection</i> &amp; <i>Performance Indices</i> 교육 자료 — 성능지수 목록과 차트 활용.</li>
             <li>일반 재료역학(응력 <F>σ=F/A</F>, 보 처짐, 안전계수) — 표준 기계공학 교과서 (Hibbeler·Beer 등).</li>
+            <li>MMPDS-2018 (구 MIL-HDBK-5J), Battelle Memorial Institute — A-basis / B-basis 통계 방법론의 표준.</li>
+            <li>ASM Handbook Vol. 19, <i>Fatigue and Fracture</i> — 피로·파괴 시험·해석 표준.</li>
+            <li>ISO 6892 / ASTM E8 — 인장 시험 표준 방법.</li>
           </ul>
 
           <div className="mt-10 pt-4 border-t border-border">
