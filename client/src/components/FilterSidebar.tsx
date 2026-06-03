@@ -486,7 +486,7 @@ const CATEGORY_TIER_STYLE: Record<string, { bg1: string; bg2: string; tier1Bd: s
     tier1Bd: 'border-l-[4px] border-sky-500',
     tier2Bd: 'border-l-2 border-sky-500/60',
     tier3Bd: 'border-l border-sky-500/35',
-    text1: 'text-sky-800 dark:text-sky-300', text2: 'text-sky-700/85',
+    text1: 'text-sky-800', text2: 'text-sky-700/85',
     dot: 'bg-sky-500',
   },
   Polymer: {
@@ -494,7 +494,7 @@ const CATEGORY_TIER_STYLE: Record<string, { bg1: string; bg2: string; tier1Bd: s
     tier1Bd: 'border-l-[4px] border-emerald-500',
     tier2Bd: 'border-l-2 border-emerald-500/60',
     tier3Bd: 'border-l border-emerald-500/35',
-    text1: 'text-emerald-800 dark:text-emerald-300', text2: 'text-emerald-700/85',
+    text1: 'text-emerald-800', text2: 'text-emerald-700/85',
     dot: 'bg-emerald-500',
   },
   Ceramic: {
@@ -502,7 +502,7 @@ const CATEGORY_TIER_STYLE: Record<string, { bg1: string; bg2: string; tier1Bd: s
     tier1Bd: 'border-l-[4px] border-amber-500',
     tier2Bd: 'border-l-2 border-amber-500/60',
     tier3Bd: 'border-l border-amber-500/35',
-    text1: 'text-amber-800 dark:text-amber-300', text2: 'text-amber-700/85',
+    text1: 'text-amber-800', text2: 'text-amber-700/85',
     dot: 'bg-amber-500',
   },
   Composite: {
@@ -510,7 +510,7 @@ const CATEGORY_TIER_STYLE: Record<string, { bg1: string; bg2: string; tier1Bd: s
     tier1Bd: 'border-l-[4px] border-violet-500',
     tier2Bd: 'border-l-2 border-violet-500/60',
     tier3Bd: 'border-l border-violet-500/35',
-    text1: 'text-violet-800 dark:text-violet-300', text2: 'text-violet-700/85',
+    text1: 'text-violet-800', text2: 'text-violet-700/85',
     dot: 'bg-violet-500',
   },
 };

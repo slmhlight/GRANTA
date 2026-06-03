@@ -1200,11 +1200,23 @@ const RANGE_MAP: Record<string, [string, string]> = {
   // R19 — gear/wear/die_mold 사례에서 자주 쓰는 hardness/uts/electrical/impact 도 URL 에 인코딩.
   hardnessRange: ['hvm', 'hvx'], utsRange: ['utm', 'utx'], electricalConductivityRange: ['ecm', 'ecx'],
   impactStrengthRange: ['imm', 'imx'],
+  // R49b — popularity/fracture/cost/process attrs 도 URL 에 동기화.
+  popularityRange: ['popm', 'popx'], fractureToughnessRange: ['kicm', 'kicx'],
+  totalCostEstimateRange: ['tcsm', 'tcsx'], minWallThicknessRange: ['mwm', 'mwx'],
+  surfaceFinishTypicalRange: ['sfm', 'sfx'], machiningCostFactorRange: ['mcm', 'mcx'],
+  htCostFactorRange: ['htcm', 'htcx'], specificHeatRange: ['shm', 'shx'],
+  poissonRatioRange: ['num', 'nux'], meltingPointRange: ['mpm', 'mpx'],
 };
-const LIST_MAP: Record<string, string> = { processes: 'proc', corrosion: 'corr', categories: 'cat', subcategories: 'sub' };
+const LIST_MAP: Record<string, string> = {
+  processes: 'proc', corrosion: 'corr', categories: 'cat', subcategories: 'sub',
+  // R49b — heat treatments / machinability / weldability 도 동기화.
+  heatTreatments: 'ht', machinability: 'mach', weldability: 'weld',
+};
 
 export function encodeFiltersToParams(f: Partial<FilterState>): string {
   const p = new URLSearchParams();
+  // R49b — text search 도 URL 에 (?q=...)
+  if (f.search && f.search.trim()) p.set('q', f.search.trim());
   for (const [k, [m, x]] of Object.entries(RANGE_MAP)) {
     const r = (f as any)[k] as [number, number] | null | undefined;
     if (Array.isArray(r)) { p.set(m, String(r[0])); p.set(x, String(r[1])); }
@@ -1213,11 +1225,14 @@ export function encodeFiltersToParams(f: Partial<FilterState>): string {
     const arr = (f as any)[k] as string[] | undefined;
     if (Array.isArray(arr) && arr.length) p.set(qk, arr.join(','));
   }
+  // R49b — boolean toggles
+  if (f.rohsOnly) p.set('rohs', '1');
   return p.toString();
 }
 
 export function decodeFiltersFromParams(qs: URLSearchParams): Partial<FilterState> {
   const out: Partial<FilterState> = {};
+  if (qs.has('q')) (out as any).search = qs.get('q') || '';
   for (const [k, [m, x]] of Object.entries(RANGE_MAP)) {
     if (qs.has(m) && qs.has(x)) (out as any)[k] = [Number(qs.get(m)), Number(qs.get(x))];
   }
@@ -1225,5 +1240,6 @@ export function decodeFiltersFromParams(qs: URLSearchParams): Partial<FilterStat
     const raw = qs.get(qk);
     if (raw) (out as any)[k] = raw.split(',').filter(Boolean);
   }
+  if (qs.get('rohs') === '1') (out as any).rohsOnly = true;
   return out;
 }

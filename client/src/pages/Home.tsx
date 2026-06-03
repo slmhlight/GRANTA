@@ -97,6 +97,8 @@ export default function Home() {
   const [showCompare, setShowCompare] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  // R49c — 모바일 검색창 펼침 토글 (default: 모바일 닫힘, 데스크탑 항상 표시).
+  const [searchOpen, setSearchOpen] = useState(false);
   const [panelWidth, setPanelWidth] = useState<number>(() => {
     const s = typeof window !== 'undefined' ? window.localStorage.getItem('am_panel_w') : null;
     const n = s ? Number(s) : 460;
@@ -370,6 +372,25 @@ export default function Home() {
     window.setTimeout(() => setLinkCopied(false), 2500);
   }, [filters, appliedPreset]);
 
+  // R49b — filters / appliedPreset / restrictIds 변경 시 URL params 자동 동기화.
+  //   history.replaceState 만 — clipboard 복사는 explicit Share 액션 (shareSet) 시에만.
+  //   사용자가 새로고침 / 뒤로가기 / URL 복사 후 즉시 같은 상태 복원 가능.
+  useEffect(() => {
+    try {
+      const qs = encodeFiltersToParams(filters);
+      const presetQ = appliedPreset ? `p=${encodeURIComponent(appliedPreset.key)}` : '';
+      const secondQ = appliedPreset?.secondaryKey ? `p2=${encodeURIComponent(appliedPreset.secondaryKey)}` : '';
+      const query = [presetQ, secondQ, qs].filter(Boolean).join('&');
+      const queryPart = query ? `?${query}` : '';
+      const hashPart = (restrictIds && restrictIds.length)
+        ? `#g=shared~${restrictIds.join('.')}`
+        : '';
+      const target = `${location.pathname}${queryPart}${hashPart}`;
+      const current = `${location.pathname}${location.search}${location.hash}`;
+      if (target !== current) history.replaceState(null, '', target);
+    } catch { /* ignore */ }
+  }, [filters, appliedPreset, restrictIds]);
+
   // detail now opens as a floating popup, so it no longer needs to close the Compare panel
   const handleSelectMaterial = useCallback((m: Material) => {
     setSelectedMaterial(m);
@@ -506,22 +527,35 @@ export default function Home() {
           </span>
         </div>
 
-        {/* Search */}
-        <div className="flex-1 max-w-md ml-auto mr-2">
-          <div className="relative">
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-sidebar-foreground/40" />
+        {/* Search — R49c: 모바일 기본 icon-only, 클릭 시 헤더 전체로 확장. 데스크탑은 항상 input. */}
+        <div className="flex-1 ml-auto mr-2 flex items-center justify-end min-w-0">
+          {!searchOpen && (
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="sm:hidden p-1.5 rounded hover:bg-white/10 text-sidebar-foreground"
+              aria-label={t('header.search.placeholder')}
+              title={t('header.search.placeholder')}
+            >
+              <Search className="w-4 h-4" />
+            </button>
+          )}
+          <div className={`relative w-full max-w-md ${searchOpen ? 'block' : 'hidden sm:block'}`}>
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-sidebar-foreground/40 pointer-events-none" />
             <Input
-              className="h-7 pl-8 pr-3 text-xs bg-[oklch(0.28_0.06_250)] border-sidebar-border text-sidebar-foreground placeholder:text-sidebar-foreground/40 focus-visible:ring-accent"
+              className="h-9 sm:h-7 pl-8 pr-8 text-sm sm:text-xs bg-[oklch(0.28_0.06_250)] border-sidebar-border text-sidebar-foreground placeholder:text-sidebar-foreground/40 focus-visible:ring-accent"
               placeholder={t('header.search.placeholder')}
               value={filters.search}
               onChange={e => updateFilter('search', e.target.value)}
+              autoFocus={searchOpen}
+              onBlur={() => { if (!filters.search) setSearchOpen(false); }}
             />
-            {filters.search && (
+            {(filters.search || searchOpen) && (
               <button
                 className="absolute right-2 top-1/2 -translate-y-1/2 text-sidebar-foreground/40 hover:text-sidebar-foreground"
-                onClick={() => updateFilter('search', '')}
+                onClick={() => { updateFilter('search', ''); setSearchOpen(false); }}
+                aria-label="Close search"
               >
-                <X className="w-3 h-3" />
+                <X className="w-4 h-4 sm:w-3 sm:h-3" />
               </button>
             )}
           </div>
