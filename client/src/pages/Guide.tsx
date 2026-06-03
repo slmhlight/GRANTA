@@ -1099,10 +1099,74 @@ export default function Guide() {
           {/* R66 B — 피로 (Basquin + Goodman) + 외부 링크 */}
           <H3>5.6 반복하중 — Basquin 식 + Goodman diagram</H3>
           <p className="text-sm leading-relaxed">정적 σy 만으로는 회전축·임펠러·스프링 같이 반복 하중 받는 부품 설계 불가. <b>S-N 곡선</b>이 사이클 수 N 에 따른 허용 응력진폭 σ_a 를 줍니다.</p>
+          {/* R68 — S-N 곡선 도식 */}
+          <div className="rounded-lg border border-border bg-card p-3 my-3">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📈 S-N 곡선 — Basquin 식 (log-log)</p>
+            <svg viewBox="0 0 480 220" className="w-full h-auto">
+              {/* axes */}
+              <line x1="50" y1="180" x2="460" y2="180" stroke="oklch(0.4 0.04 250)" />
+              <line x1="50" y1="20" x2="50" y2="180" stroke="oklch(0.4 0.04 250)" />
+              {/* gridlines */}
+              {[0, 1, 2, 3, 4, 5].map((i) => (
+                <g key={i}>
+                  <line x1={50 + i * 80} y1="20" x2={50 + i * 80} y2="180" stroke="oklch(0.92 0.012 250)" />
+                  <text x={50 + i * 80} y="195" textAnchor="middle" fontSize="10" fill="oklch(0.5 0.04 250)">10{['¹', '²', '³', '⁴', '⁵', '⁶'][i]}</text>
+                </g>
+              ))}
+              {/* Steel curve (with endurance limit) */}
+              <path d="M 50 30 L 290 110 L 460 110" fill="none" stroke="oklch(0.55 0.12 220)" strokeWidth="2.5" />
+              <text x="460" y="105" textAnchor="end" fontSize="11" fill="oklch(0.45 0.12 220)" fontWeight="bold">강·Ti (σf 한계)</text>
+              {/* Al curve (no endurance limit, continues down) */}
+              <path d="M 50 50 L 460 150" fill="none" stroke="oklch(0.55 0.12 30)" strokeWidth="2.5" />
+              <text x="460" y="160" textAnchor="end" fontSize="11" fill="oklch(0.45 0.12 30)" fontWeight="bold">Al (한계 없음)</text>
+              {/* Endurance limit dashed line */}
+              <line x1="290" y1="110" x2="290" y2="180" stroke="oklch(0.55 0.12 220)" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
+              <text x="290" y="208" textAnchor="middle" fontSize="9" fill="oklch(0.45 0.12 220)">N = 10⁶ (σf)</text>
+              {/* Labels */}
+              <text x="255" y="14" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_a (응력 진폭)</text>
+              <text x="255" y="215" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">사이클 수 N</text>
+              <text x="42" y="28" textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">UTS</text>
+              <text x="42" y="115" textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">σf</text>
+              <text x="42" y="180" textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">0</text>
+            </svg>
+            <p className="text-[11px] text-muted-foreground mt-1 leading-relaxed">강·Ti 는 10⁶ 사이클 이후 σf 한계 — 그 아래는 무한수명. Al·Mg 는 한계 없이 계속 감소 → 사이클 수 명시 必.</p>
+          </div>
           <Note tone="why" title="Basquin 식 (High-Cycle Fatigue)">
             <p className="font-mono text-[12.5px]">σ_a = σ'_f · (2N)^b</p>
             <p className="mt-1 text-[12px] leading-relaxed">σ'_f = 피로 강도계수 (≈ σf at 1 cycle) · b = Basquin 지수 (보통 -0.05 ~ -0.12). 강·Ti 는 N=10⁶ 부근 무한수명 한계 (σf), Al 은 한계 없음 — Basquin 식이 끝까지 적용.</p>
           </Note>
+          {/* R68 — Goodman diagram */}
+          <div className="rounded-lg border border-border bg-card p-3 my-3">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📐 Goodman diagram — 평균응력 영향</p>
+            <svg viewBox="0 0 420 220" className="w-full h-auto">
+              {/* axes */}
+              <line x1="50" y1="180" x2="380" y2="180" stroke="oklch(0.4 0.04 250)" />
+              <line x1="50" y1="20" x2="50" y2="180" stroke="oklch(0.4 0.04 250)" />
+              {/* Goodman (linear) */}
+              <line x1="50" y1="40" x2="370" y2="180" stroke="oklch(0.55 0.12 220)" strokeWidth="2" />
+              <text x="290" y="108" fontSize="11" fill="oklch(0.45 0.12 220)" fontWeight="bold">Goodman (σ_u)</text>
+              {/* Soderberg */}
+              <line x1="50" y1="40" x2="290" y2="180" stroke="oklch(0.55 0.12 110)" strokeWidth="2" />
+              <text x="220" y="138" fontSize="10" fill="oklch(0.45 0.12 110)" fontWeight="bold">Soderberg (σ_y)</text>
+              {/* Gerber parabolic */}
+              <path d="M 50 40 Q 220 90 370 180" fill="none" stroke="oklch(0.55 0.12 30)" strokeWidth="2" strokeDasharray="4 3" />
+              <text x="300" y="170" fontSize="10" fill="oklch(0.45 0.12 30)" fontWeight="bold">Gerber (실험)</text>
+              {/* Design point examples */}
+              <circle cx="170" cy="135" r="5" fill="oklch(0.5 0.18 30)" />
+              <text x="178" y="139" fontSize="10" fill="oklch(0.4 0.18 30)" fontWeight="bold">설계점 (안전)</text>
+              {/* Safe / unsafe zones */}
+              <text x="120" y="170" fontSize="10" fill="oklch(0.45 0.15 145)" fontWeight="bold">✓ 안전 영역</text>
+              <text x="250" y="50" fontSize="10" fill="oklch(0.45 0.18 30)" fontWeight="bold">✗ 파단</text>
+              {/* Labels */}
+              <text x="42" y="44" textAnchor="end" fontSize="11" fill="oklch(0.4 0.04 250)">σ_f</text>
+              <text x="42" y="184" textAnchor="end" fontSize="11" fill="oklch(0.4 0.04 250)">0</text>
+              <text x="290" y="195" textAnchor="middle" fontSize="11" fill="oklch(0.4 0.04 250)">σ_y</text>
+              <text x="370" y="195" textAnchor="middle" fontSize="11" fill="oklch(0.4 0.04 250)">σ_u</text>
+              <text x="42" y="14" textAnchor="end" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_a</text>
+              <text x="380" y="215" textAnchor="end" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_m  (평균응력)</text>
+            </svg>
+            <p className="text-[11px] text-muted-foreground mt-1 leading-relaxed">설계점 (σ_m, σ_a) 이 직선 아래면 안전. Goodman 가장 일반적, Soderberg 보수적, Gerber 실험 데이터 적합. Compare 패널의 <a href="/" className="text-accent hover:underline">Goodman view</a> 에서 alloy 별 SF 계산 가능.</p>
+          </div>
           <Note tone="why" title="Goodman / Soderberg / Gerber — 평균응력 보정">
             <p className="leading-relaxed">실제 부품은 평균응력 σ_m ≠ 0 인 경우가 많음 (예: 베어링 안 회전축). 평균응력은 피로 한계를 낮춤.</p>
             <p className="mt-1 font-mono text-[12.5px]">Goodman: σ_a/σ_f + σ_m/σ_u = 1/SF</p>
@@ -1475,6 +1539,44 @@ export default function Guide() {
 
           <H3>8.1 빌드 방향 이방성 (XY vs Z)</H3>
           <p className="text-sm leading-relaxed">LPBF·EBM 부품은 적층 방향 (보통 Z, "build direction") 과 적층면 (XY) 사이에 미세조직 차이가 큽니다. 일반적으로:</p>
+          {/* R68 — AM 빌드 방향 이방성 도식 */}
+          <div className="rounded-lg border border-border bg-card p-3 my-3">
+            <svg viewBox="0 0 480 220" className="w-full h-auto">
+              {/* Build plate */}
+              <rect x="20" y="170" width="200" height="10" fill="oklch(0.6 0.04 250)" />
+              <text x="120" y="200" textAnchor="middle" fontSize="10" fill="oklch(0.4 0.04 250)">빌드 플레이트</text>
+              {/* Layers stacked */}
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+                <rect key={i} x="80" y={150 - i * 16} width="80" height="14" fill={i % 2 === 0 ? 'oklch(0.85 0.05 90)' : 'oklch(0.82 0.05 90)'} stroke="oklch(0.5 0.05 90)" strokeWidth="0.5" />
+              ))}
+              {/* Z arrow */}
+              <line x1="170" y1="155" x2="170" y2="25" stroke="oklch(0.55 0.18 30)" strokeWidth="2" markerEnd="url(#amArrZ)" />
+              <text x="178" y="100" fontSize="11" fill="oklch(0.4 0.18 30)" fontWeight="bold">Z (빌드 방향)</text>
+              <text x="178" y="115" fontSize="9" fill="oklch(0.4 0.18 30)" fontStyle="italic">σy ↓5-15% · σf ↓30-70%</text>
+              {/* XY arrow */}
+              <line x1="60" y1="80" x2="80" y2="80" stroke="oklch(0.55 0.12 220)" strokeWidth="2" markerEnd="url(#amArrXY)" />
+              <text x="30" y="78" fontSize="11" fill="oklch(0.4 0.12 220)" fontWeight="bold">XY</text>
+              <text x="20" y="92" fontSize="9" fill="oklch(0.4 0.12 220)">(적층면, 우수)</text>
+              {/* Microstructure: column grains right side */}
+              <g stroke="oklch(0.3 0.04 250)" strokeWidth="0.7" fill="none">
+                <rect x="280" y="40" width="160" height="140" fill="oklch(0.95 0.005 250)" stroke="oklch(0.5 0.04 250)" />
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <line key={i} x1={290 + i * 30} y1="45" x2={290 + i * 30} y2="175" />
+                ))}
+                {/* Horizontal layer interfaces */}
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <line key={i} x1="285" y1={60 + i * 25} x2="435" y2={60 + i * 25} strokeDasharray="2 2" opacity="0.5" />
+                ))}
+              </g>
+              <text x="360" y="32" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">미세조직 (단면)</text>
+              <text x="360" y="200" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">column grain ⇂ + 층 경계 ━</text>
+              <defs>
+                <marker id="amArrZ" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.18 30)" /></marker>
+                <marker id="amArrXY" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 220)" /></marker>
+              </defs>
+              <text x="240" y="15" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">AM 빌드 방향 이방성</text>
+            </svg>
+          </div>
           <ul className="list-disc pl-6 mt-1 text-sm leading-relaxed">
             <li><b>인장강도 (σy·UTS)</b>: Z 방향이 XY 보다 5~15% 낮음 (column grain 경계가 응력과 수직)</li>
             <li><b>연신율 El.</b>: Z 방향이 XY 의 50~80% (취성 ↑)</li>
@@ -1486,6 +1588,33 @@ export default function Guide() {
           </Note>
 
           <H3>8.2 후처리 표준 워크플로우</H3>
+          {/* R68 — 후처리 7단계 flow 도식 */}
+          <div className="rounded-lg border border-border bg-card p-3 my-3 overflow-x-auto">
+            <svg viewBox="0 0 720 130" className="min-w-[680px] h-auto">
+              {[
+                { label: 'AM 빌드', sub: 'as-built', color: 'oklch(0.85 0.05 90)' },
+                { label: '응력 완화', sub: 'Stress relief', color: 'oklch(0.85 0.06 30)' },
+                { label: '분리·서포트 제거', sub: 'wire cut', color: 'oklch(0.85 0.04 250)' },
+                { label: 'HIP', sub: '기공 제거', color: 'oklch(0.85 0.08 220)' },
+                { label: '시효·SA', sub: 'Solution+Aging', color: 'oklch(0.85 0.06 110)' },
+                { label: '기계가공', sub: 'finishing', color: 'oklch(0.85 0.04 250)' },
+                { label: 'CT·NDT', sub: '검사', color: 'oklch(0.85 0.12 145)' },
+              ].map((s, i) => (
+                <g key={i}>
+                  <rect x={6 + i * 102} y="36" width="88" height="58" rx="6" fill={s.color} stroke="oklch(0.45 0.04 250)" />
+                  <text x={50 + i * 102} y="58" textAnchor="middle" fontSize="10" fontWeight="bold" fill="oklch(0.25 0.04 250)">{i + 1}. {s.label}</text>
+                  <text x={50 + i * 102} y="72" textAnchor="middle" fontSize="8" fill="oklch(0.4 0.04 250)">{s.sub}</text>
+                  <text x={50 + i * 102} y="88" textAnchor="middle" fontSize="7" fill="oklch(0.5 0.04 250)" fontStyle="italic">
+                    {['as-built', '650-815°C', '와이어컷', '1100°C/100MPa', 'alloy 별', 'Ra 0.5-3μm', 'porosity 0.5%'][i]}
+                  </text>
+                  {i < 6 && <line x1={94 + i * 102} y1="65" x2={108 + i * 102} y2="65" stroke="oklch(0.55 0.12 220)" strokeWidth="1.5" markerEnd="url(#wfArr)" />}
+                </g>
+              ))}
+              <defs><marker id="wfArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 220)" /></marker></defs>
+              <text x="360" y="20" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">AM 부품 후처리 워크플로우 (7단계)</text>
+              <text x="360" y="115" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)" fontStyle="italic">vendor·alloy·용도에 따라 일부 단계 생략 가능 — 단 항공·의료는 모든 단계 표준</text>
+            </svg>
+          </div>
           <div className="overflow-x-auto mt-2">
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold">단계</th><th className="p-2 font-semibold">처리</th><th className="p-2 font-semibold">목적</th></tr></thead>
