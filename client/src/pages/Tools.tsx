@@ -11,6 +11,208 @@ const W = 'rounded-lg border border-border bg-card p-4';
 const In = 'h-7 px-2 text-[12px] rounded border border-border bg-background focus:outline-none focus:border-accent';
 const Lab = 'text-[11px] font-semibold text-muted-foreground block mb-1';
 
+/* ───────── Tool illustrations (small SVG) ───────── */
+function KtIllust({ shape }: { shape: string }) {
+  return (
+    <svg viewBox="0 0 200 70" className="w-full h-14 mb-2">
+      {/* Plate */}
+      <rect x="20" y="20" width="160" height="30" fill="oklch(0.97 0.005 250)" stroke="oklch(0.5 0.04 250)" />
+      {/* Tension arrows */}
+      <g stroke="oklch(0.55 0.12 30)" strokeWidth="1.5">
+        <line x1="2" y1="35" x2="18" y2="35" markerEnd="url(#arrLeft)" />
+        <line x1="198" y1="35" x2="182" y2="35" markerEnd="url(#arrRight)" />
+      </g>
+      <defs>
+        <marker id="arrLeft" markerWidth="6" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 z" fill="oklch(0.55 0.12 30)" /></marker>
+        <marker id="arrRight" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 30)" /></marker>
+      </defs>
+      {/* Feature based on shape */}
+      {shape === 'hole' && <circle cx="100" cy="35" r="9" fill="oklch(0.92 0.012 250)" stroke="oklch(0.55 0.12 30)" strokeWidth="1.5" />}
+      {shape === 'fillet' && (
+        <g>
+          <rect x="20" y="10" width="80" height="50" fill="oklch(0.97 0.005 250)" stroke="oklch(0.5 0.04 250)" />
+          <path d="M 100 10 Q 105 10 105 15 L 105 55 Q 105 60 100 60" fill="none" stroke="oklch(0.55 0.12 30)" strokeWidth="1.5" />
+        </g>
+      )}
+      {shape === 'sharpCorner' && (
+        <g>
+          <rect x="20" y="5" width="80" height="60" fill="oklch(0.97 0.005 250)" stroke="oklch(0.5 0.04 250)" />
+          <line x1="100" y1="5" x2="100" y2="65" stroke="oklch(0.55 0.12 30)" strokeWidth="2" />
+          <text x="105" y="40" fontSize="9" fill="oklch(0.55 0.12 30)" fontWeight="bold">∞ 위험</text>
+        </g>
+      )}
+      {shape === 'shoulderCut' && (
+        <g>
+          <rect x="20" y="20" width="80" height="30" fill="oklch(0.97 0.005 250)" stroke="oklch(0.5 0.04 250)" />
+          <rect x="100" y="10" width="80" height="50" fill="oklch(0.97 0.005 250)" stroke="oklch(0.5 0.04 250)" />
+        </g>
+      )}
+      {/* Stress flow lines */}
+      <g stroke="oklch(0.55 0.12 30)" strokeWidth="0.5" opacity="0.5" fill="none">
+        {[26, 30, 40, 46].map((y, i) => <path key={i} d={`M 25 ${y} Q 100 ${shape === 'hole' ? y - (y > 35 ? 6 : -6) : y} 175 ${y}`} />)}
+      </g>
+    </svg>
+  );
+}
+
+function GalvanicIllust() {
+  return (
+    <svg viewBox="0 0 200 70" className="w-full h-14 mb-2">
+      {/* Two metals + electrolyte */}
+      <rect x="20" y="30" width="60" height="32" fill="oklch(0.85 0.05 90)" stroke="oklch(0.4 0.05 90)" />
+      <text x="50" y="50" textAnchor="middle" fontSize="9" fill="oklch(0.3 0.05 90)" fontWeight="bold">금속 A</text>
+      <text x="50" y="60" textAnchor="middle" fontSize="7" fill="oklch(0.5 0.04 250)">(anode)</text>
+      <rect x="120" y="30" width="60" height="32" fill="oklch(0.85 0.04 250)" stroke="oklch(0.4 0.04 250)" />
+      <text x="150" y="50" textAnchor="middle" fontSize="9" fill="oklch(0.3 0.04 250)" fontWeight="bold">금속 B</text>
+      <text x="150" y="60" textAnchor="middle" fontSize="7" fill="oklch(0.5 0.04 250)">(cathode)</text>
+      {/* Electrolyte */}
+      <path d="M 0 8 Q 100 -3 200 8 L 200 26 Q 100 18 0 26 z" fill="oklch(0.85 0.08 220 / 0.3)" />
+      <text x="100" y="22" textAnchor="middle" fontSize="8" fill="oklch(0.4 0.12 220)" fontStyle="italic">전해질 (해수·산)</text>
+      {/* Current flow */}
+      <path d="M 80 46 Q 100 38 120 46" fill="none" stroke="oklch(0.55 0.18 30)" strokeWidth="1.5" markerEnd="url(#galvArrow)" />
+      <text x="100" y="36" textAnchor="middle" fontSize="8" fill="oklch(0.55 0.18 30)" fontWeight="bold">e⁻</text>
+      <defs>
+        <marker id="galvArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.18 30)" /></marker>
+      </defs>
+      {/* Corrosion arrows on A */}
+      <g stroke="oklch(0.55 0.18 30)" strokeWidth="1" opacity="0.7">
+        <line x1="30" y1="65" x2="30" y2="69" />
+        <line x1="50" y1="65" x2="50" y2="69" />
+        <line x1="70" y1="65" x2="70" y2="69" />
+      </g>
+    </svg>
+  );
+}
+
+function BucklingIllust({ K }: { K: number }) {
+  return (
+    <svg viewBox="0 0 200 70" className="w-full h-14 mb-2">
+      {/* Straight column */}
+      <rect x="48" y="10" width="3" height="50" fill="oklch(0.5 0.04 250)" />
+      <text x="49" y="68" textAnchor="middle" fontSize="6" fill="oklch(0.5 0.04 250)">P &lt; P_cr</text>
+      {/* Buckled column */}
+      <path d={K === 0.5 ? 'M 100 10 Q 90 35 100 60' : K === 0.7 ? 'M 100 10 Q 88 25 100 40 Q 110 50 100 60' : K === 1 ? 'M 100 10 Q 130 35 100 60' : 'M 100 10 Q 80 35 100 60'} fill="none" stroke="oklch(0.55 0.12 30)" strokeWidth="3" />
+      <text x="100" y="68" textAnchor="middle" fontSize="6" fill="oklch(0.55 0.12 30)">좌굴 (K={K})</text>
+      {/* End conditions */}
+      <g fill="oklch(0.3 0.04 250)">
+        {/* fixed-fixed */}
+        {K === 0.5 && (
+          <>
+            <rect x="46" y="6" width="8" height="4" />
+            <rect x="46" y="60" width="8" height="4" />
+            <rect x="96" y="6" width="8" height="4" />
+            <rect x="96" y="60" width="8" height="4" />
+          </>
+        )}
+        {/* pinned-pinned */}
+        {K === 1 && (
+          <>
+            <circle cx="49.5" cy="8" r="2" />
+            <circle cx="49.5" cy="62" r="2" />
+            <circle cx="100" cy="8" r="2" />
+            <circle cx="100" cy="62" r="2" />
+          </>
+        )}
+      </g>
+      {/* Force arrow */}
+      <line x1="100" y1="3" x2="100" y2="9" stroke="oklch(0.55 0.18 30)" strokeWidth="1.5" markerEnd="url(#forceArr)" />
+      <defs><marker id="forceArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.18 30)" /></marker></defs>
+      <text x="170" y="35" textAnchor="middle" fontSize="9" fill="oklch(0.4 0.04 250)">L_eff = K · L</text>
+    </svg>
+  );
+}
+
+function CTEIllust() {
+  return (
+    <svg viewBox="0 0 200 70" className="w-full h-14 mb-2">
+      {/* Two bars at T1 */}
+      <rect x="20" y="14" width="80" height="10" fill="oklch(0.7 0.12 30)" stroke="oklch(0.4 0.12 30)" />
+      <text x="60" y="22" textAnchor="middle" fontSize="7" fill="white" fontWeight="bold">A (CTE 高)</text>
+      <rect x="20" y="28" width="80" height="10" fill="oklch(0.7 0.12 220)" stroke="oklch(0.4 0.12 220)" />
+      <text x="60" y="36" textAnchor="middle" fontSize="7" fill="white" fontWeight="bold">B (CTE 低)</text>
+      <text x="60" y="50" textAnchor="middle" fontSize="8" fill="oklch(0.5 0.04 250)">T₁: 같은 길이</text>
+      {/* Arrow */}
+      <line x1="105" y1="26" x2="115" y2="26" stroke="oklch(0.5 0.04 250)" strokeWidth="1.5" markerEnd="url(#cteArr)" />
+      <defs><marker id="cteArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.5 0.04 250)" /></marker></defs>
+      {/* At T2 — A expanded more */}
+      <rect x="120" y="14" width="78" height="10" fill="oklch(0.7 0.12 30)" stroke="oklch(0.4 0.12 30)" />
+      <rect x="120" y="28" width="65" height="10" fill="oklch(0.7 0.12 220)" stroke="oklch(0.4 0.12 220)" />
+      <line x1="185" y1="38" x2="198" y2="38" stroke="oklch(0.55 0.18 30)" strokeWidth="1" strokeDasharray="2 2" />
+      <text x="160" y="50" textAnchor="middle" fontSize="8" fill="oklch(0.5 0.04 250)">T₂ = T₁ + ΔT</text>
+      <text x="190" y="58" textAnchor="middle" fontSize="7" fill="oklch(0.55 0.18 30)" fontWeight="bold">ΔL</text>
+    </svg>
+  );
+}
+
+function HardnessIllust() {
+  return (
+    <svg viewBox="0 0 200 70" className="w-full h-14 mb-2">
+      {/* Material surface */}
+      <rect x="10" y="40" width="180" height="25" fill="oklch(0.85 0.04 250)" stroke="oklch(0.4 0.04 250)" />
+      <text x="100" y="58" textAnchor="middle" fontSize="9" fill="oklch(0.3 0.04 250)" fontStyle="italic">금속 표면</text>
+      {/* Vickers indenter (diamond pyramid) */}
+      <polygon points="60,10 70,30 50,30" fill="oklch(0.95 0.005 250)" stroke="oklch(0.3 0.04 250)" strokeWidth="1.5" />
+      <line x1="60" y1="0" x2="60" y2="10" stroke="oklch(0.55 0.18 30)" strokeWidth="1.5" markerEnd="url(#indentArr)" />
+      <text x="60" y="46" textAnchor="middle" fontSize="7" fill="oklch(0.4 0.04 250)">압자</text>
+      {/* Indentation */}
+      <ellipse cx="60" cy="44" rx="8" ry="2" fill="oklch(0.6 0.04 250)" />
+      <line x1="52" y1="46" x2="68" y2="46" stroke="oklch(0.4 0.04 250)" strokeWidth="0.5" strokeDasharray="1 1" />
+      <text x="60" y="50" textAnchor="middle" fontSize="6" fill="oklch(0.5 0.04 250)">d (지름)</text>
+      <defs><marker id="indentArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.18 30)" /></marker></defs>
+      {/* Formula */}
+      <text x="120" y="20" fontSize="8" fill="oklch(0.4 0.04 250)" fontStyle="italic">HV = F · 1.854 / d²</text>
+      <text x="120" y="32" fontSize="8" fill="oklch(0.4 0.04 250)" fontStyle="italic">UTS ≈ 3.45 · HV</text>
+    </svg>
+  );
+}
+
+function PVIllust({ shape }: { shape: string }) {
+  return (
+    <svg viewBox="0 0 200 70" className="w-full h-14 mb-2">
+      {shape === 'cyl' ? (
+        <>
+          {/* Cylinder side view */}
+          <rect x="40" y="20" width="120" height="30" fill="oklch(0.85 0.04 250)" stroke="oklch(0.3 0.04 250)" />
+          <ellipse cx="40" cy="35" rx="6" ry="15" fill="oklch(0.85 0.04 250)" stroke="oklch(0.3 0.04 250)" />
+          <ellipse cx="160" cy="35" rx="6" ry="15" fill="oklch(0.9 0.04 250 / 0.5)" stroke="oklch(0.3 0.04 250)" />
+          {/* Hoop arrows */}
+          <g stroke="oklch(0.55 0.18 30)" strokeWidth="1.5" fill="none">
+            <path d="M 80 14 Q 80 8 100 8 Q 120 8 120 14" markerEnd="url(#hoopArr)" />
+            <path d="M 80 56 Q 80 62 100 62 Q 120 62 120 56" markerEnd="url(#hoopArr)" />
+          </g>
+          <text x="100" y="3" textAnchor="middle" fontSize="8" fill="oklch(0.55 0.18 30)" fontWeight="bold">σ_hoop = p·r/t</text>
+          {/* Inner pressure */}
+          <g stroke="oklch(0.55 0.12 220)" strokeWidth="0.8">
+            {[28, 35, 42].map((y, i) => <line key={i} x1="50" y1={y} x2="150" y2={y} strokeDasharray="3 2" />)}
+          </g>
+          <text x="100" y="50" textAnchor="middle" fontSize="7" fill="oklch(0.55 0.12 220)">내압 p</text>
+        </>
+      ) : (
+        <>
+          {/* Sphere */}
+          <circle cx="100" cy="35" r="22" fill="oklch(0.85 0.04 250)" stroke="oklch(0.3 0.04 250)" />
+          <ellipse cx="100" cy="35" rx="22" ry="5" fill="none" stroke="oklch(0.5 0.04 250)" strokeWidth="0.5" strokeDasharray="2 2" />
+          <g stroke="oklch(0.55 0.18 30)" strokeWidth="1.2">
+            {[0, 72, 144, 216, 288].map((a, i) => {
+              const rad = a * Math.PI / 180;
+              const x = 100 + Math.cos(rad) * 30;
+              const y = 35 + Math.sin(rad) * 30;
+              const xi = 100 + Math.cos(rad) * 22;
+              const yi = 35 + Math.sin(rad) * 22;
+              return <line key={i} x1={xi} y1={yi} x2={x} y2={y} markerEnd="url(#sphArr)" />;
+            })}
+          </g>
+          <text x="100" y="68" textAnchor="middle" fontSize="8" fill="oklch(0.55 0.18 30)" fontWeight="bold">σ = p·r/(2t) · 모든 방향 등방</text>
+        </>
+      )}
+      <defs>
+        <marker id="hoopArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.18 30)" /></marker>
+        <marker id="sphArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.18 30)" /></marker>
+      </defs>
+    </svg>
+  );
+}
+
 /* ───────── #3 Stress concentration Kt ───────── */
 function KtCalc() {
   const [shape, setShape] = useState<'hole' | 'fillet' | 'sharpCorner' | 'shoulderCut'>('hole');
@@ -39,6 +241,7 @@ function KtCalc() {
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #3 응력 집중 계수 Kt</p>
       <p className="text-[11px] text-muted-foreground mb-3">노치·구멍·필렛에 의한 국부 응력 증대. σ_max = K_t · σ_nom.</p>
+      <KtIllust shape={shape} />
       <div className="grid grid-cols-2 gap-2 mb-3">
         <div>
           <label className={Lab}>형상</label>
@@ -106,6 +309,7 @@ function GalvanicCalc() {
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Zap className="w-3.5 h-3.5" /> #4 갈바닉 부식 호환성</p>
       <p className="text-[11px] text-muted-foreground mb-3">접촉하는 두 금속의 전위차로 부식. 전위 가까울수록 안전, 0.30V 이상이면 위험.</p>
+      <GalvanicIllust />
       <div className="grid grid-cols-2 gap-2 mb-3">
         <div><label className={Lab}>재료 A</label><select className={In + ' w-full'} value={a} onChange={(e) => setA(e.target.value)}>{SERIES.map(s => <option key={s.name}>{s.name}</option>)}</select></div>
         <div><label className={Lab}>재료 B</label><select className={In + ' w-full'} value={b} onChange={(e) => setB(e.target.value)}>{SERIES.map(s => <option key={s.name}>{s.name}</option>)}</select></div>
@@ -145,6 +349,7 @@ function BucklingCalc() {
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #5 좌굴 임계하중 (Euler / Johnson)</p>
       <p className="text-[11px] text-muted-foreground mb-3">기둥의 좌굴 한계 — 가늘면 Euler, 짧으면 Johnson 공식.</p>
+      <BucklingIllust K={K} />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
         <div><label className={Lab}>길이 L (mm)</label><input type="number" className={In + ' w-full'} value={L} onChange={(e) => setL(+e.target.value || 1)} /></div>
         <div><label className={Lab}>직경 d (mm)</label><input type="number" className={In + ' w-full'} value={d} onChange={(e) => setD(+e.target.value || 1)} /></div>
@@ -178,6 +383,7 @@ function CTEMismatch() {
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #6 CTE mismatch 열응력</p>
       <p className="text-[11px] text-muted-foreground mb-3">두 재료의 열팽창 차이로 발생하는 응력. σ ≈ ΔCTE × ΔT × E.</p>
+      <CTEIllust />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
         <div><label className={Lab}>재료 A CTE (×10⁻⁶/K)</label><input type="number" className={In + ' w-full'} value={cteA} onChange={(e) => setCteA(+e.target.value || 0)} /></div>
         <div><label className={Lab}>재료 B CTE</label><input type="number" className={In + ' w-full'} value={cteB} onChange={(e) => setCteB(+e.target.value || 0)} /></div>
@@ -209,6 +415,7 @@ function HardnessConv() {
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #7 경도 변환 (HV/HRC/HB)</p>
       <p className="text-[11px] text-muted-foreground mb-3">ASTM E140 근사 — 탄소·합금강에 가장 정확, 다른 합금은 ±10%.</p>
+      <HardnessIllust />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
         <div><label className={Lab}>입력 scale</label><select className={In + ' w-full'} value={scale} onChange={(e) => setScale(e.target.value as any)}><option value="HV">Vickers HV</option><option value="HRC">Rockwell HRC</option><option value="HB">Brinell HB</option></select></div>
         <div><label className={Lab}>값</label><input type="number" className={In + ' w-full'} value={val} onChange={(e) => setVal(+e.target.value || 0)} /></div>
@@ -240,6 +447,7 @@ function PressureVessel() {
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #9 압력 용기 두께</p>
       <p className="text-[11px] text-muted-foreground mb-3">얇은 벽 가정 — 원통 σ = p·r/t (후프), 구형 σ = p·r/(2t). 두꺼운 벽 (t/r &gt; 0.1) 은 Lame 식 필요.</p>
+      <PVIllust shape={shape} />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
         <div><label className={Lab}>형상</label><select className={In + ' w-full'} value={shape} onChange={(e) => setShape(e.target.value as any)}><option value="cyl">원통 (후프 응력)</option><option value="sph">구형</option></select></div>
         <div><label className={Lab}>내압 p (MPa)</label><input type="number" className={In + ' w-full'} value={p} onChange={(e) => setP(+e.target.value || 0)} /></div>
