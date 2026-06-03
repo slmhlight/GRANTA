@@ -262,6 +262,33 @@ export default function Home() {
     // R49f — deps `[search]` 가 wouter useSearch 의 첫 값 변경 race 로 trigger 불안정 → `[]` (mount-only).
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  // R55 — In-route preset 재적용. ScenarioDialog Apply → wouter navigate('/?p=...') 는
+  //   컴포넌트 unmount 없이 URL 만 바꾸므로 위 mount-only effect 가 trigger 안 됨.
+  //   wouter useSearch 의 search 값 변화에 반응해 preset/viewMode/indexHint 재적용.
+  //   idempotent guard: 같은 preset 이미 적용된 상태면 skip → race·loop 회피.
+  useEffect(() => {
+    if (!urlRestoredRef.current) return; // cold-start effect 가 처리 중
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('p');
+    if (!p || !SCENARIO_PRESETS[p]) return;
+    if (appliedPreset?.key === p) return; // 이미 같은 preset 적용됨
+    const cfg = SCENARIO_PRESETS[p];
+    const override = decodeFiltersFromParams(params);
+    const merged = { ...cfg.filters, ...override } as Record<string, any>;
+    (Object.entries(merged) as [keyof typeof filters, any][]).forEach(([k, v]) => updateFilter(k, v));
+    if (cfg.viewMode) setViewMode(cfg.viewMode);
+    const p2 = params.get('p2');
+    const cfg2 = p2 ? SCENARIO_PRESETS[p2] : null;
+    setAppliedPreset({
+      key: p, label: cfg.label, indexHint: cfg.indexHint, suggestedView: cfg.viewMode,
+      ...(cfg2 ? { secondaryKey: p2!, secondaryLabel: cfg2.label } : {}),
+    });
+    setSidebarOpen(false);
+    setMobileSidebarOpen(false);
+    setGuideHeaderOpen(false);
+    setGuideMobileOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
   const saveCollection = useCallback(() => {
     const name = collName.trim();
     if (!name || !restrictIds || !restrictIds.length) return;
