@@ -437,10 +437,12 @@ export default function Home() {
     document.body.style.userSelect = 'none'; document.body.style.cursor = 'col-resize';
   };
 
-  // Stats
+  // Stats — R46: Ceramic/Composite 추가 + AM 패턴 확장 (FDM/SLS/MJF/DED 포함, 폴리머 AM 포함).
   const metalCount = materials.filter(m => m.category === 'Metal').length;
   const polymerCount = materials.filter(m => m.category === 'Polymer').length;
-  const amCount = materials.filter(m => ['LPBF', 'DMLS', 'SLM', 'EBM', 'Binder Jetting'].includes(m.process)).length;
+  const ceramicCount = materials.filter(m => m.category === 'Ceramic').length;
+  const compositeCount = materials.filter(m => m.category === 'Composite').length;
+  const amCount = materials.filter(m => /LPBF|DMLS|SLM|EBM|Binder Jetting|DED|MJF|FDM|SLS/i.test(m.process || '')).length;
 
   if (loading) {
     return (
@@ -482,8 +484,8 @@ export default function Home() {
         {/* Divider */}
         <div className="w-px h-5 bg-sidebar-border hidden sm:block" />
 
-        {/* Stats chips */}
-        <div className="hidden md:flex items-center gap-2">
+        {/* Stats chips — R46: Ceramic/Composite 추가. AM 별도 chip 유지 (공정 — category 와 직교). */}
+        <div className="hidden md:flex items-center gap-2 flex-wrap">
           <span className="text-[11px] text-sidebar-foreground/60">
             <span className="font-mono font-semibold text-white">{materials.length.toLocaleString()}</span> {t('header.materials')}
           </span>
@@ -492,6 +494,12 @@ export default function Home() {
           </span>
           <span className="text-[10px] px-1.5 py-0.5 rounded bg-[oklch(0.55_0.15_145_/_0.3)] text-[oklch(0.65_0.15_145)] font-medium">
             {polymerCount.toLocaleString()} Polymer
+          </span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/30 text-amber-300 font-medium">
+            {ceramicCount} Ceramic
+          </span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded bg-violet-500/30 text-violet-300 font-medium">
+            {compositeCount} Composite
           </span>
           <span className="text-[10px] px-1.5 py-0.5 rounded bg-[oklch(0.65_0.18_60_/_0.3)] text-[oklch(0.75_0.18_60)] font-medium">
             {amCount} AM

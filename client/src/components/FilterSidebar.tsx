@@ -85,18 +85,20 @@ function RangeSlider({ label, unit, min, max, value, onChange }: RangeSliderProp
         {expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
       </button>
       {expanded && (
-        <div className="px-3 pb-3 space-y-2">
+        <div className="px-4 pb-3 space-y-2 overflow-hidden">
+          {/* R46: unit 빈 string 일 때 (popularity 등) 라벨 중복 방지. */}
           <div className="flex justify-between text-[10px] font-mono text-muted-foreground">
-            <span>{current[0].toFixed(1)} {unit}</span>
-            <span>{current[1].toFixed(1)} {unit}</span>
+            <span>{current[0].toFixed(1)}{unit ? ' ' + unit : ''}</span>
+            <span>{current[1].toFixed(1)}{unit ? ' ' + unit : ''}</span>
           </div>
+          {/* R46: thumb 16px translate(-50%) 가 좌우 외부로 8px 씩 튀어나오므로 mx-2 추가. */}
           <Slider
             min={min}
             max={max}
             step={sliderStep}
             value={current}
             onValueChange={(v) => onChange(v as [number, number])}
-            className="py-1"
+            className="py-1 mx-2"
           />
           <div className="flex items-center gap-1.5">
             <input
@@ -998,7 +1000,7 @@ export default function FilterSidebar({
         {/* ── 1. 기본 검색 (Popularity 최상단 — 가장 중요한 property) ── */}
         <SectionGroup label="기본 검색 · Essentials" />
         {popularityRange && (
-          <RangeSlider label={t('filter.popularity')} unit="0–5" min={popularityRange[0]} max={popularityRange[1]} value={filters.popularityRange} onChange={v => updateFilter('popularityRange', v)} />
+          <RangeSlider label={t('filter.popularity')} unit="" min={popularityRange[0]} max={popularityRange[1]} value={filters.popularityRange} onChange={v => updateFilter('popularityRange', v)} />
         )}
         {/* R44a — Category 필터 제거. Family Tree 가 1차 family 4 카테고리 + 2-3차 subcategory 모두 노출. */}
         <FamilyFilter
