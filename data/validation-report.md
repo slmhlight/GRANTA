@@ -16,7 +16,7 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 | modulus | 1038/1038 | 48 |
 | hardness | 895/1038 | 575 |
 | thermal_conductivity | 1038/1038 | 2 |
-| fatigue_strength | 923/1038 | 649 |
+| fatigue_strength | 926/1038 | 839 |
 | impact_strength | 167/1038 | 167 |
 
 ## Sources (Task 2)

@@ -934,6 +934,50 @@ for (const m of all) {
 }
 console.log('Sprint 4 C2 — KIC fallback applied:', kicFilled);
 
+// ───────── Sprint 4 C1 — Fatigue strength endurance-limit fallback ─────────
+// 11% metal missing — σ_fatigue ≈ k · σy 근사 (10^7 cycles, R=-1, smooth specimen).
+// 출처: Shigley's Mechanical Engineering Design (10th ed) Ch. 6 Eq. 6-10; ASM Vol. 19 Fatigue.
+const FATIGUE_RATIO = [
+  // [pattern, k_low, k_typ, k_high, source]
+  [/stainless.*austenitic|austenitic.*stainless|304\b|316\b/i, 0.35, 0.42, 0.50, 'ASM Vol.19 SS fatigue'],
+  [/stainless.*martensitic|martensitic|17-?4|15-?5|13-?8|\b41[03]\b/i, 0.40, 0.50, 0.58, 'ASM Vol.19 Martensitic SS'],
+  [/tool steel|\bd[23]\b|\bm[24]\b|\bh1[13]\b/i, 0.35, 0.42, 0.50, 'ASM Vol.1 Tool Steels'],
+  [/inconel|hastelloy|haynes|nimonic|monel|udimet|rene/i, 0.40, 0.48, 0.55, 'Special Metals fatigue data'],
+  [/cobalt|stellite|f-?75|l-?605/i, 0.40, 0.48, 0.55, 'ASM Vol.2 Co alloys'],
+  [/titanium|ti-?6al-?4v|ti grade|cp ?ti/i, 0.42, 0.52, 0.60, 'MMPDS-2018 Titanium'],
+  [/aluminum|aa\s?\d{4}|alsi\d+|7075|6061|2024/i, 0.30, 0.38, 0.46, 'Aluminum Association handbook'],
+  [/magnesium|\baz\d/i, 0.30, 0.35, 0.42, 'ASM Vol.2 Mg alloys'],
+  [/copper|brass|bronze|c[12389]\d{4}/i, 0.28, 0.35, 0.42, 'ASM Vol.2 Cu alloys'],
+  [/refractory|tantalum|tungsten|niobium|molybdenum/i, 0.35, 0.42, 0.50, 'ASM Vol.2 Refractory'],
+  [/carbon steel|alloy steel|41\d{2}|43\d{2}|s45c|aisi|sae/i, 0.40, 0.50, 0.58, "Shigley's Mechanical Engineering Design"],
+];
+let fatigueFilled = 0;
+for (const m of all) {
+  const r = m.ranges && m.ranges.fatigue_strength;
+  if (r && r.typical != null) continue;
+  if (!m.category || m.category !== 'Metal') continue;
+  const sy = m.ranges && m.ranges.yield_strength && m.ranges.yield_strength.typical;
+  if (sy == null || sy <= 0) continue;
+  const key = `${m.subcategory || ''} ${m.name} ${m.category}`;
+  for (const [rx, kLo, kTyp, kHi, src] of FATIGUE_RATIO) {
+    if (rx.test(key)) {
+      if (!m.ranges) m.ranges = {};
+      m.ranges.fatigue_strength = {
+        min: Math.round(sy * kLo), max: Math.round(sy * kHi), typical: Math.round(sy * kTyp),
+        n: 0, confidence: 'derived',
+      };
+      m.fatigue_strength = Math.round(sy * kTyp);
+      m.sources = m.sources || [];
+      if (!m.sources.some(s => s.label && s.label.startsWith('Fatigue fallback'))) {
+        m.sources.push({ label: `Fatigue fallback: σf ≈ ${kTyp}·σy (${src})`, url: null, verified: false });
+      }
+      fatigueFilled++;
+      break;
+    }
+  }
+}
+console.log('Sprint 4 C1 — Fatigue fallback applied:', fatigueFilled);
+
 // R20 — Ni 초합금 5종 (Inconel 718, 625, 738LC, Haynes 230, Hastelloy X) 의 elevated_temp + creep_rupture.
 // 출처: Special Metals SMC-045/093, Haynes International H-3000H/H-3008C, ASM Aerospace.
 //   const 가 hoisting 되지 않아 loop 전에 선언해야 injectTempCurves() 가 ELEV_DATA 접근 가능.
