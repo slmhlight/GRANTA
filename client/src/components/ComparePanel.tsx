@@ -14,6 +14,7 @@ import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import { familyColor, propColor } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis } from '@/components/RadarChart';
+import GoodmanChart from '@/components/GoodmanChart';
 // R21: Compare 패널에서 온도-강도 그래프 제거. MaterialDetail 의 단일 차트만 유지.
 
 const PALETTE = ['#0066CC', '#dc2626', '#16a34a', '#9333ea', '#ea580c', '#0891b2', '#ca8a04', '#db2777', '#4f46e5', '#65a30d'];
@@ -43,7 +44,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   const tableRef = useRef<HTMLDivElement>(null);
   const [exporting, setExporting] = useState(false);
   // R53a — Radar view mode (table | radar) + radar axes + focus
-  const [viewMode, setViewMode] = useState<'table' | 'radar'>('table');
+  const [viewMode, setViewMode] = useState<'table' | 'radar' | 'goodman'>('table');
   const [radarAxes, setRadarAxes] = useState<RadarAxis[]>(() => {
     try { const s = localStorage.getItem('am_radar_axes'); if (s) { const p = JSON.parse(s); if (Array.isArray(p) && p.length >= 3) return p; } } catch { /* ignore */ }
     return DEFAULT_RADAR_AXES;
@@ -181,6 +182,18 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
               {viewMode === 'radar' ? 'Table' : 'Radar'}
             </Button>
           )}
+          {/* R67 Sprint C — Goodman diagram 토글 */}
+          {materials.length > 0 && (
+            <Button
+              variant={viewMode === 'goodman' ? 'default' : 'outline'}
+              size="sm"
+              className="h-7 text-xs gap-1"
+              onClick={() => setViewMode(v => v === 'goodman' ? 'table' : 'goodman')}
+              title={viewMode === 'goodman' ? 'Table 로 전환' : 'Goodman diagram (피로 평균응력)'}
+            >
+              σ<sub>a</sub>·σ<sub>m</sub>
+            </Button>
+          )}
           {/* R50d — CSV / PNG export 버튼 (material 1개 이상 일 때만) */}
           {materials.length > 0 && (
             <>
@@ -206,6 +219,19 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       </div>
 
       <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">{t('compare.hint')}</p>
+
+      {/* R67 Sprint C — Goodman diagram view */}
+      {viewMode === 'goodman' && materials.length > 0 && (
+        <GoodmanChart
+          materials={sortedMaterials}
+          series={sortedMaterials.map((m, i) => ({
+            id: m.id,
+            name: m.name,
+            color: familyColor(m) || PALETTE[i % PALETTE.length],
+            material: m,
+          }))}
+        />
+      )}
 
       {/* R53a — Radar overlay 모드 (viewMode === 'radar'). Compare 의 모든 alloy 가 같은 radar 위에 overlay.
            legend 클릭 시 focus mode (선택 1.0 / 나머지 0.15). 다시 클릭하면 해제. */}
