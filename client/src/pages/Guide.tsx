@@ -749,6 +749,23 @@ export default function Guide() {
               </tbody>
             </table>
           </div>
+
+          {/* R66 B — Ashby 깊은 학습 + 외부 링크 */}
+          <H3>Ashby 방법 깊은 학습</H3>
+          <Note tone="why" title="성능지수 M 의 일반 유도 (인장 부재 예)">
+            <p className="leading-relaxed">기능 = 인장 (단면적 A·길이 L), 제약 = 강도 σy, 목적 = 무게 최소화, 자유변수 = A.</p>
+            <p className="mt-1 font-mono text-[12px]">m = ρ·A·L 이고, F ≤ σy·A 이므로 A ≥ F/σy. 대입하면 m ≥ F·L·(ρ/σy) = (F·L) · (1/M) — <b>M = σy/ρ</b> 최대화.</p>
+            <p className="mt-2 leading-relaxed">기능이 보·패널이면 단면 2차모멘트 <F>I ∝ b·h³</F> 의 자유변수가 더 많아 거듭제곱이 분수 (E^½/ρ · E^⅓/ρ) 가 됩니다.</p>
+          </Note>
+          <Note tone="info" title="📚 더 학습 — 외부 자료">
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Material_selection">Wikipedia: Material selection</ExtLink> — Ashby methodology 개요</li>
+              <li><ExtLink href="https://www.doitpoms.ac.uk/tlplib/granta/index.php">DoITPoMS (Cambridge): Materials selection</ExtLink> — interactive Ashby 차트 학습</li>
+              <li><ExtLink href="https://ocw.mit.edu/courses/3-094-materials-in-human-experience-spring-2008/">MIT OCW 3.094 Materials in Human Experience</ExtLink> — 재료의 사회·역사·기술 통합 강의</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Ashby_chart">Wikipedia: Ashby chart</ExtLink> — chart 구조와 envelope 이론</li>
+              <li>M. F. Ashby, <i>Materials Selection in Mechanical Design</i> (4th/5th ed.) — 표준 교과서. <ExtLink href="https://www.elsevier.com/books/materials-selection-in-mechanical-design/ashby/978-0-08-100599-6">Elsevier 페이지</ExtLink></li>
+            </ul>
+          </Note>
         </Chapter>
 
         {/* ── R65 신규 Chapter 3: 합금 family 매핑 + 환경 조건별 선택 (H + G) ── */}
@@ -1078,6 +1095,31 @@ export default function Guide() {
           <Note tone="warn" title="SF 가 너무 높으면">
             과한 SF = 무겁고 비싸고 가공 어려움. <b>SF 낮추는 방법</b>: ① 측정 데이터 (n=N · handbook) 사용 → 추정 SF 제거 / ② 시제품 시험으로 실제 분포 확인 / ③ 동적 / 환경 SF 는 시험으로 직접 확인. 학생 프로젝트는 SF=2 로 시작 후 점진 조정.
           </Note>
+
+          {/* R66 B — 피로 (Basquin + Goodman) + 외부 링크 */}
+          <H3>5.6 반복하중 — Basquin 식 + Goodman diagram</H3>
+          <p className="text-sm leading-relaxed">정적 σy 만으로는 회전축·임펠러·스프링 같이 반복 하중 받는 부품 설계 불가. <b>S-N 곡선</b>이 사이클 수 N 에 따른 허용 응력진폭 σ_a 를 줍니다.</p>
+          <Note tone="why" title="Basquin 식 (High-Cycle Fatigue)">
+            <p className="font-mono text-[12.5px]">σ_a = σ'_f · (2N)^b</p>
+            <p className="mt-1 text-[12px] leading-relaxed">σ'_f = 피로 강도계수 (≈ σf at 1 cycle) · b = Basquin 지수 (보통 -0.05 ~ -0.12). 강·Ti 는 N=10⁶ 부근 무한수명 한계 (σf), Al 은 한계 없음 — Basquin 식이 끝까지 적용.</p>
+          </Note>
+          <Note tone="why" title="Goodman / Soderberg / Gerber — 평균응력 보정">
+            <p className="leading-relaxed">실제 부품은 평균응력 σ_m ≠ 0 인 경우가 많음 (예: 베어링 안 회전축). 평균응력은 피로 한계를 낮춤.</p>
+            <p className="mt-1 font-mono text-[12.5px]">Goodman: σ_a/σ_f + σ_m/σ_u = 1/SF</p>
+            <p className="mt-1 font-mono text-[12.5px]">Soderberg: σ_a/σ_f + σ_m/σ_y = 1/SF (보수적, σy 기준)</p>
+            <p className="mt-1 font-mono text-[12.5px]">Gerber: σ_a/σ_f + (σ_m/σ_u)² = 1/SF (실험 데이터 적합)</p>
+            <p className="mt-2 text-[12px] text-muted-foreground">설계에서는 Goodman (most common) 또는 Soderberg (보수적). 인장 평균응력 위험, 압축 평균응력은 비교적 안전.</p>
+          </Note>
+          <Note tone="info" title="📚 더 학습 — 응력·피로·SF">
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Stress%E2%80%93strain_curve">Wikipedia: Stress-strain curve</ExtLink> — σy · UTS · 연신율 그래프 설명</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Factor_of_safety">Wikipedia: Factor of safety</ExtLink> — 산업·규격별 SF 정리</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Fatigue_(material)">Wikipedia: Fatigue (material)</ExtLink> — Basquin · S-N · Goodman 등</li>
+              <li><ExtLink href="https://www.engineeringtoolbox.com/factors-safety-fos-d_1624.html">Engineering Toolbox: Factors of Safety</ExtLink> — 빠른 참조</li>
+              <li><ExtLink href="https://www.doitpoms.ac.uk/tlplib/fatigue/index.php">DoITPoMS: Fatigue</ExtLink> — interactive 학습</li>
+              <li><ExtLink href="https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/">MIT OCW 3.11 Mechanics of Materials</ExtLink> — 응력·변형률·피로 강의</li>
+            </ul>
+          </Note>
         </Chapter>
 
         {/* ── Chapter 6 (구 3): 단면 모양 도감 ─────────────────────────── */}
@@ -1184,7 +1226,23 @@ export default function Guide() {
           </div>
 
           <Note tone="tip">
-            <b>설계 흐름.</b> ① 부품의 ‘<b>주된 하중</b>’(인장? 굽힘? 비틀림?)을 정한다 → ② 그에 맞는 <b>단면 모양</b>을 고른다 → ③ Chapter 4의 처짐 식으로 필요 E·I 산출 → ④ 단면이 정해지면 <F>I</F> 가 나오므로 <b>필요 E</b> 가 결정 → ⑤ 강도는 <F>σ_b = M / Z ≤ σy / SF</F> 로 점검.
+            <b>설계 흐름.</b> ① 부품의 '<b>주된 하중</b>'(인장? 굽힘? 비틀림?)을 정한다 → ② 그에 맞는 <b>단면 모양</b>을 고른다 → ③ Chapter 7의 처짐 식으로 필요 E·I 산출 → ④ 단면이 정해지면 <F>I</F> 가 나오므로 <b>필요 E</b> 가 결정 → ⑤ 강도는 <F>σ_b = M / Z ≤ σy / SF</F> 로 점검.
+          </Note>
+
+          {/* R66 B — 단면 모멘트 I 의 유도 + 외부 링크 */}
+          <Note tone="why" title="2차 모멘트 I 의 적분 정의">
+            <p className="font-mono text-[13px]">I = ∫_A y² dA</p>
+            <p className="mt-1 text-[12px] leading-relaxed">중립축 (보통 도심) 에서 y 만큼 떨어진 미소 면적 dA 의 거리 제곱 곱셈 합. 거리 제곱 → <b>축에서 멀수록 휘는 데 저항 ↑</b>. 그래서 I-beam · 박스가 무게 대비 가장 효율적.</p>
+            <p className="mt-1 text-[12px]">사각형 (b×h): I = b·h³/12 · 원: I = π·d⁴/64 · 박스 (B×H 외, b×h 내): I = (B·H³ − b·h³)/12.</p>
+          </Note>
+          <Note tone="info" title="📚 더 학습 — 단면·굽힘">
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Second_moment_of_area">Wikipedia: Second moment of area</ExtLink> — 모든 표준 단면의 I 공식</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Section_modulus">Wikipedia: Section modulus</ExtLink> — Z = I/c</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Bending">Wikipedia: Bending</ExtLink> — Euler-Bernoulli beam theory</li>
+              <li><ExtLink href="https://www.engineeringtoolbox.com/area-moment-inertia-d_1328.html">Engineering Toolbox: Area Moment of Inertia</ExtLink></li>
+              <li><ExtLink href="https://efatigue.com/constantamplitude/">eFatigue.com</ExtLink> — 피로 해석 무료 calculator</li>
+            </ul>
           </Note>
         </Chapter>
 
@@ -1261,9 +1319,26 @@ export default function Guide() {
             <Step n={5} title="강도 점검 (σ_b = M/Z)" formula={<>M_max = F·L = 10⁵ N·mm, Z ≈ 704 mm³</>} result={<>σ_b ≈ 142 MPa · SF=2 → 필요 σy ≥ <b>284 MPa</b></>} />
             <Step n={6} title="앱에서 후보 보기" result={<><b>Modulus ≥ 158</b>, <b>Yield ≥ 284</b> 두 필터로 산점도 + Compare.</>} />
           </div>
+
+          {/* R66 B — Euler-Bernoulli 유도 + 외부 링크 */}
+          <Note tone="why" title="Euler-Bernoulli 보 방정식">
+            <p className="leading-relaxed">보 처짐 식 (예: 외팔 F·L³/3EI) 의 유도는 4차 미분방정식에서 나옵니다.</p>
+            <p className="mt-1 font-mono text-[13px]">EI · (d⁴y/dx⁴) = w(x)</p>
+            <p className="mt-1 text-[12px] leading-relaxed">w(x) = 단위 길이당 분포하중. 경계 조건 (외팔: y(0)=0, y'(0)=0, M(L)=0, V(L)=F) 적분 → 처짐 y(L) 와 모멘트 M(x). 표의 공식들이 모두 이 적분 결과.</p>
+            <p className="mt-2 text-[12px] text-muted-foreground">가정: (i) 단면 평면이 굽힘 후에도 평면 유지 · (ii) 굽힘 변형 작음 (y'(x)² ≪ 1) · (iii) 전단 변형 무시. 이 가정 깨지면 (단단보·두꺼운 보) Timoshenko 이론 필요.</p>
+          </Note>
+          <Note tone="info" title="📚 더 학습 — 보·처짐">
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Euler%E2%80%93Bernoulli_beam_theory">Wikipedia: Euler-Bernoulli beam theory</ExtLink> — 4차 미분방정식 + 경계 조건</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Beam_(structure)">Wikipedia: Beam (structure)</ExtLink> — 모든 표준 하중·지지조건의 처짐·모멘트 표</li>
+              <li><ExtLink href="https://www.engineeringtoolbox.com/cantilever-beams-d_1848.html">Engineering Toolbox: Cantilever Beams</ExtLink> — 빠른 참조</li>
+              <li><ExtLink href="https://ocw.mit.edu/courses/2-001-mechanics-and-materials-i-fall-2006/">MIT OCW 2.001 Mechanics & Materials I</ExtLink> — 보·처짐 강의</li>
+              <li><ExtLink href="https://efatigue.com/">eFatigue.com</ExtLink> — Stress concentration factor + fatigue 무료 도구</li>
+            </ul>
+          </Note>
         </Chapter>
 
-        {/* ── Chapter 7 (구 5): 응용 ───────────────────────────────────── */}
+        {/* ── Chapter 8 (구 5): 응용 ───────────────────────────────────── */}
         <Chapter
           n={8}
           id="ch5"
@@ -1320,6 +1395,30 @@ export default function Guide() {
             <li>구형 용기 σ = p·r / (2t)</li>
           </ul>
           <p className="text-sm mt-1 text-muted-foreground">필요 두께 <F>t ≥ p·r·SF / σy</F>. 코드(ASME 등)를 따르세요. <span className="text-foreground/80">압력 용기에 보통 세로로 갈라지는 이유는 후프 응력이 2배라서</span>.</p>
+
+          {/* R66 B — 좌굴 Johnson formula + 외부 링크 */}
+          <Note tone="why" title="Euler 좌굴 vs Johnson 공식 — 짧은 기둥">
+            <p className="leading-relaxed">Euler 공식은 <b>가는 기둥 (slender ratio L/k &gt; 100)</b> 만 정확. 짧은 기둥은 σy 에 먼저 도달 → Johnson 공식 사용.</p>
+            <p className="mt-1 font-mono text-[12.5px]">P_cr (Johnson) = σy · [1 − σy·(L/k)² / (4π²·E)] · A</p>
+            <p className="mt-1 text-[12px]">k = √(I/A) = 회전 반경. (L/k) 가 임계값 = √(2π²·E/σy) 보다 작으면 Johnson, 크면 Euler. 강은 L/k ≈ 100, Al 은 ≈ 70.</p>
+          </Note>
+          <Note tone="why" title="Stress concentration factor Kt — 노치·구멍">
+            <p className="leading-relaxed">실제 단면에 노치·구멍이 있으면 응력 σ_max = K_t · σ_nom.</p>
+            <p className="mt-1 font-mono text-[12.5px]">K_t (구멍, 무한판) = 3 (실험·이론 일치) · K_t (fillet radius r/h=0.1) ≈ 2.5 · K_t (sharp corner) → ∞</p>
+            <p className="mt-1 text-[12px]">피로 노치 인자 K_f = 1 + q·(K_t − 1) — q는 재료 민감도 (강 ≈ 0.9, Al ≈ 0.6, cast iron ≈ 0).</p>
+          </Note>
+          <Note tone="info" title="📚 더 학습 — 비틀림·좌굴·파괴·압력">
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Torsion_(mechanics)">Wikipedia: Torsion</ExtLink> — TL/GJ 와 비틀림 응력</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Buckling">Wikipedia: Buckling</ExtLink> — Euler · Johnson formulas + K factor</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Von_Mises_yield_criterion">Wikipedia: von Mises yield criterion</ExtLink></li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Mohr%27s_circle">Wikipedia: Mohr's circle</ExtLink></li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Stress_concentration">Wikipedia: Stress concentration</ExtLink> — Kt · Kf 표</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Pressure_vessel">Wikipedia: Pressure vessel</ExtLink> — ASME B&PV 코드 개요</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Fracture_mechanics">Wikipedia: Fracture mechanics</ExtLink> — KIC, K = σ·√(π·a)</li>
+              <li><ExtLink href="https://www.doitpoms.ac.uk/tlplib/mechanical_testing_of_metals/">DoITPoMS: Mechanical testing</ExtLink> — interactive 시험 시뮬레이션</li>
+            </ul>
+          </Note>
         </Chapter>
 
         {/* ── R65 J — Chapter 9 (신규): 흔한 설계 실수 10선 ─────────────── */}
@@ -1426,6 +1525,30 @@ export default function Guide() {
           <Note tone="warn" title="AM 데이터 한계">
             <p>이 앱의 AM 합금 데이터는 vendor datasheet (EOS · Renishaw · Sandvik · SLM Solutions · GE Additive 등) 기반이며, <b>특정 build orientation · 후처리 condition</b> 의 측정값입니다. 다른 vendor·다른 machine 으로 같은 합금을 빌드하면 결과가 ±20% 변동 가능합니다.</p>
             <p className="mt-2"><b>실무</b>: 항공·의료·압력용기 등 인증 부품은 자체 시편으로 σy·UTS·El·피로·CT scan 검증 후 사용. 이 앱은 후보 좁히기 도구입니다.</p>
+          </Note>
+
+          {/* R66 B — Larson-Miller (creep) + Arrhenius (oxidation) + 외부 링크 */}
+          <H3>8.5 고온 부품 수명 예측 — Larson-Miller parameter</H3>
+          <Note tone="why" title="Larson-Miller parameter (LMP) — creep rupture 예측">
+            <p className="leading-relaxed">고온 부품 (Inconel 718 750°C, P91 600°C 보일러) 의 수명은 응력·온도·시간 3 변수. Larson-Miller 가 이를 하나의 parameter 로 통합.</p>
+            <p className="mt-1 font-mono text-[13px]">LMP = T · (C + log₁₀(t_r))</p>
+            <p className="mt-1 text-[12px]">T = 절대온도 (K) · t_r = rupture 시간 (h) · C = 상수 (강 보통 20, Ni 합금 25). 같은 응력의 LMP 가 일정 = master curve. 새 조건 (T', t') 에서 σ 예측 가능.</p>
+            <p className="mt-2 text-[12px] text-muted-foreground">예: P91 의 σ=100 MPa creep rupture 데이터 from ECCC datasheet — LMP ≈ 22,500 (with C=20). 600°C(873K) → t_r = 10^(22500/873 − 20) ≈ 10⁵ h. 650°C 시 → 10⁴ h. 50°C 증가 = 10배 단축.</p>
+          </Note>
+          <Note tone="why" title="Arrhenius equation — 산화·확산 속도">
+            <p className="font-mono text-[13px]">k(T) = A · exp(−Q/RT)</p>
+            <p className="mt-1 text-[12px]">활성화 에너지 Q (oxidation, diffusion, creep). 온도 ↑ → exponential 가속. 100°C 증가 = 보통 2–10 배 속도.</p>
+          </Note>
+          <Note tone="info" title="📚 더 학습 — AM·고온·creep">
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li><ExtLink href="https://en.wikipedia.org/wiki/3D_printing">Wikipedia: 3D printing</ExtLink> — AM 공정 광범위</li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Larson%E2%80%93Miller_relation">Wikipedia: Larson-Miller relation</ExtLink></li>
+              <li><ExtLink href="https://en.wikipedia.org/wiki/Creep_(deformation)">Wikipedia: Creep (deformation)</ExtLink></li>
+              <li><ExtLink href="https://www.eccc-creep.com/">ECCC (European Creep Collaborative Committee)</ExtLink> — creep datasheet 무료 다운로드</li>
+              <li><ExtLink href="https://www.americanelements.com/3d-printing-materials.html">American Elements: 3D Printing Materials</ExtLink> — 분말 spec</li>
+              <li><ExtLink href="https://www.astm.org/COMMITTEE/F42.htm">ASTM F42 Additive Manufacturing Technologies</ExtLink> — AM 표준 위원회</li>
+              <li><ExtLink href="https://www.specialmetals.com/documents/technical-bulletins/">Special Metals Tech Bulletins</ExtLink> — Inconel · Incoloy datasheet</li>
+            </ul>
           </Note>
         </Chapter>
 
@@ -1695,7 +1818,58 @@ export default function Guide() {
             <li>MMPDS-2018 (구 MIL-HDBK-5J), Battelle Memorial Institute — A-basis / B-basis 통계 방법론의 표준.</li>
             <li>ASM Handbook Vol. 19, <i>Fatigue and Fracture</i> — 피로·파괴 시험·해석 표준.</li>
             <li>ISO 6892 / ASTM E8 — 인장 시험 표준 방법.</li>
+            <li>Shigley's <i>Mechanical Engineering Design</i>, 10th ed. McGraw-Hill — Basquin · Goodman · SF 등 표준.</li>
+            <li>Roark's <i>Formulas for Stress and Strain</i>, 9th ed. — 보·기둥·압력용기 등 표준 공식 모음.</li>
+            <li>R. C. Reed, <i>The Superalloys: Fundamentals and Applications</i> — Ni·Co superalloy 의 표준 reference.</li>
+            <li>I. Gibson, D. Rosen, B. Stucker, <i>Additive Manufacturing Technologies</i>, Springer — AM 공정 표준 교과서.</li>
           </ul>
+
+          {/* R66 B — 외부 학습 자료 종합 카드 */}
+          <H3>📚 외부 학습 자료 — 무료 / 인터랙티브</H3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+            <div className="rounded border border-border bg-card p-3">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">강의·교과서 (무료)</p>
+              <ul className="list-disc pl-5 space-y-1 text-[13px]">
+                <li><ExtLink href="https://ocw.mit.edu/courses/3-094-materials-in-human-experience-spring-2008/">MIT OCW 3.094</ExtLink> — 재료의 인간 경험·역사</li>
+                <li><ExtLink href="https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/">MIT OCW 3.11</ExtLink> — Mechanics of Materials</li>
+                <li><ExtLink href="https://ocw.mit.edu/courses/2-001-mechanics-and-materials-i-fall-2006/">MIT OCW 2.001</ExtLink> — Mechanics & Materials I</li>
+                <li><ExtLink href="https://www.doitpoms.ac.uk/">DoITPoMS (Cambridge)</ExtLink> — 재료과학 인터랙티브 학습</li>
+                <li><ExtLink href="https://nptel.ac.in/courses/112/106/112106227/">NPTEL: Materials Selection</ExtLink> — India 무료 공학 강의</li>
+              </ul>
+            </div>
+            <div className="rounded border border-border bg-card p-3">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">데이터·계산 도구</p>
+              <ul className="list-disc pl-5 space-y-1 text-[13px]">
+                <li><ExtLink href="https://www.engineeringtoolbox.com/">Engineering Toolbox</ExtLink> — 빠른 공식·표·계산기</li>
+                <li><ExtLink href="https://efatigue.com/constantamplitude/">eFatigue</ExtLink> — Stress concentration · S-N 도구</li>
+                <li><ExtLink href="https://www.matweb.com/">MatWeb</ExtLink> — 재료 데이터시트 검색 (한계 free)</li>
+                <li><ExtLink href="https://materialsproject.org/">Materials Project</ExtLink> — 첫째원리 계산 결과 무료 DB (학술)</li>
+                <li><ExtLink href="https://www.nist.gov/srd">NIST SRD</ExtLink> — Standard Reference Data</li>
+                <li><ExtLink href="https://www.eccc-creep.com/">ECCC</ExtLink> — Creep rupture datasheet 무료</li>
+              </ul>
+            </div>
+            <div className="rounded border border-border bg-card p-3">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">규격·표준 (open access)</p>
+              <ul className="list-disc pl-5 space-y-1 text-[13px]">
+                <li><ExtLink href="https://www.astm.org/">ASTM International</ExtLink> — 시험 표준 (E8 · E23 · E466 · E399)</li>
+                <li><ExtLink href="https://www.iso.org/standards.html">ISO</ExtLink> — 6892 (인장) · 14801 (임플란트 피로)</li>
+                <li><ExtLink href="https://www.asme.org/codes-standards">ASME B&PV Code</ExtLink> — 압력용기·발전소</li>
+                <li><ExtLink href="https://www.aluminum.org/standards-publications">Aluminum Association</ExtLink> — Al designation</li>
+                <li><ExtLink href="https://www.iss.it/">IISI / ISO TC 17 Steel</ExtLink></li>
+              </ul>
+            </div>
+            <div className="rounded border border-border bg-card p-3">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">Vendor datasheet</p>
+              <ul className="list-disc pl-5 space-y-1 text-[13px]">
+                <li><ExtLink href="https://www.specialmetals.com/documents/technical-bulletins/">Special Metals (Inconel/Incoloy)</ExtLink></li>
+                <li><ExtLink href="https://haynesintl.com/alloys/alloy-portfolio_/">Haynes International (Haynes/Hastelloy)</ExtLink></li>
+                <li><ExtLink href="https://www.carpentertechnology.com/alloy-techzone">Carpenter Technology (PH/maraging)</ExtLink></li>
+                <li><ExtLink href="https://www.eos.info/en/3d-printing-materials">EOS (LPBF 분말 spec)</ExtLink></li>
+                <li><ExtLink href="https://www.renishaw.com/en/metal-3d-printing-materials--32084">Renishaw (AM 분말)</ExtLink></li>
+                <li><ExtLink href="https://www.alcoa.com/global/en/products/aerospace/aerospace-resources">Alcoa Aerospace (Al alloys)</ExtLink></li>
+              </ul>
+            </div>
+          </div>
 
           <div className="mt-10 pt-4 border-t border-border">
             <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-accent hover:underline underline-offset-2">
