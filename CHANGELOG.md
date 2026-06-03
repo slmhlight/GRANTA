@@ -2,6 +2,31 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R102 — 현대제철 KS 강종 17종 DB 입력
+사용자 지시: "데이터 수집 관련하여 목표랑 좀 다른 방향으로 가버린거 같음. 자체적으로 할 수 있는 데까지 데이터 수집 지속". R100 markdown 정리한 spec 을 JSON 으로 입력.
+
+### 입력 강종 (supplementary +17)
+- **SHN 시리즈 4** (KS D 3866 내진 H형강): SHN275 / SHN355 / SHN420 / SHN460 — 항복비 ≤85% + Charpy 27J@0°C (SHN275/355) / 47J@-5°C (SHN420/460). 한국 고층·내진 건축 핵심 (Lotte World Tower / 인천대교 등).
+- **SD 시리즈 6** (KS D 3504 철근): SD400 / SD500 / SD400W / SD500W / SD400S / SD500S — W = Weldable (CE ≤ 0.50%), S = Seismic (YR ≤ 1.25, El 10%). 한국 RC 콘크리트 보강 표준. ASTM A615 / A706 등가.
+- **SM 시리즈 3** (KS D 3515 용접구조): SM490A (no Charpy) / SM490B (27J @ 0°C) / SM490C (27J @ -20°C) — 한국 다리·선박·LPG 탱크 표준. EN S355JR/J0/J2 등가.
+- **SS 시리즈 2** (KS D 3503 일반구조): SS275 / SS315 — 신 KS (구 SS400 → SS275 매핑). EN S275JR / S315MC 등가.
+- **자동차 2종** (JIS G 3113/3134): SAPH440 (자동차 frame · 현대·기아 OEM) / SPFH590 (chassis · cross-member). EN S355MC / S500MC 등가.
+
+각 entry: composition (C/Si/Mn/P/S/CE) + points (1 row × 7 col [ρ, σy, UTS, El, E, HV, σf]) + conditions + ref_urls (현대제철 공식 product page) + aliases (영문·KS·JIS·EN 매핑) + industry_note (응용처 + 한국 산업 맥락).
+
+### 신뢰성 평가
+- σy/UTS ratio: SHN ≤85% (KS 표준 만족), SS/SM 50-65% (정상), SD 70-85% (정상)
+- modulus: 200-210 GPa (KS 강 표준 범위)
+- HV: UTS/3.45 derived (KS spec 직접 명시 없으면), Charpy 별도
+- 출처: 현대제철 2025 카탈로그 (PART 1+2) + KS D 3503/3504/3515/3866 표준 + JIS G 3113/3134 + ASTM A615/A706 / EN 10025
+
+### 누적
+- supplementary: 339 → **356** (+17 KS 강종)
+- DB total: 1,196 → **1,213**
+- verified-source materials: 695 → **712**
+
+검증: tsc OK · vitest 47/47 · build:data OK · production build OK.
+
 ## R101 — 사용자 보고 버그/UX 8건 + R98·R100 데이터 일부 확장
 
 ### 버그 fix

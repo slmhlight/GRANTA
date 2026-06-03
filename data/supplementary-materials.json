@@ -12445,6 +12445,278 @@
         "https://www.astm.org/a0537_a0537m-20.html"
       ],
       "industry_note": "Refrigerated LPG / NH₃ atmospheric storage spheres (Statoil Mongstad, Shell), refrigerated LNG carrier deck cargo tank, propane bullets; ASME Sec VIII Div 1 / IIA-3.8; CVN ≥27 J at -45°C."
+    },
+    {
+      "name": "SHN275 (KS D 3866 내진 H형강) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (H-Section)",
+      "composition": { "Fe": "balance", "C": "≤0.20", "Si": "≤0.40", "Mn": "≥2.5×C", "P": "≤0.035", "S": "≤0.030" },
+      "points": [
+        [7.85, 335, 465, 21, 210, 140, 209]
+      ],
+      "conditions": ["As-rolled (Yield Ratio ≤85%)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Section/HSection.do"
+      ],
+      "aliases": ["SHN 275", "KS D 3866 SHN275", "Seismic H-Section 275"],
+      "industry_note": "KS D 3866 내진 건축구조용 H형강 (한국 자체 표준). 항복비 (YR=YS/UTS) ≤ 85% 강제 → 항복 후 가공경화 여유 확보, 내진 ductility 핵심. Charpy 27J @ 0°C. CE ≤ 0.36%, Pcm ≤ 0.25%. 한국 고층 건축·내진 brace 표준. JIS G 3136 SN275 와 동일 base."
+    },
+    {
+      "name": "SHN355 (KS D 3866 내진 H형강) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (H-Section)",
+      "composition": { "Fe": "balance", "C": "≤0.18", "Si": "≤0.40", "Mn": "0.50~1.50", "P": "≤0.030", "S": "≤0.025", "V": "≤0.110", "Nb": "≤0.050" },
+      "points": [
+        [7.85, 415, 550, 21, 210, 170, 248]
+      ],
+      "conditions": ["As-rolled (Yield Ratio ≤85%)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Section/HSection.do"
+      ],
+      "aliases": ["SHN 355", "KS D 3866 SHN355", "Seismic H-Section 355"],
+      "industry_note": "KS D 3866 내진 H형강 중급. 항복비 ≤85%. Charpy 27J @ 0°C. CE ≤ 0.44%, Pcm ≤ 0.26%. 한국 고층 건축 표준 (SM490 대체 추세) — Hyundai Steel 인천 condo · 광화문 등. Nb+V ≤ 0.15% (micro-alloy)."
+    },
+    {
+      "name": "SHN420 (KS D 3866 내진 H형강) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (H-Section)",
+      "composition": { "Fe": "balance", "C": "≤0.18", "Si": "≤0.55", "Mn": "0.50~1.50", "P": "≤0.025", "S": "≤0.020", "V": "≤0.110", "Nb": "≤0.050" },
+      "points": [
+        [7.85, 480, 550, 19, 210, 175, 248]
+      ],
+      "conditions": ["As-rolled (Yield Ratio ≤85%)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Section/HSection.do"
+      ],
+      "aliases": ["SHN 420", "KS D 3866 SHN420", "Seismic H-Section 420"],
+      "industry_note": "KS D 3866 내진 H형강 고강도. 항복비 ≤85%. Charpy 47J @ -5°C (one tier higher than SHN275/355). CE ≤ 0.45%, Pcm ≤ 0.27%. 한국 50층+ 초고층 / 대형 spans."
+    },
+    {
+      "name": "SHN460 (KS D 3866 내진 H형강) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (H-Section)",
+      "composition": { "Fe": "balance", "C": "≤0.18", "Si": "≤0.55", "Mn": "1.00~1.60", "P": "≤0.025", "S": "≤0.020", "V": "≤0.110", "Nb": "≤0.050" },
+      "points": [
+        [7.85, 510, 580, 17, 210, 185, 261]
+      ],
+      "conditions": ["As-rolled (Yield Ratio ≤85%)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Section/HSection.do"
+      ],
+      "aliases": ["SHN 460", "KS D 3866 SHN460", "Seismic H-Section 460"],
+      "industry_note": "KS D 3866 내진 H형강 최고강도. 항복비 ≤85%. Charpy 47J @ -5°C. CE ≤ 0.45%, Pcm ≤ 0.29%. 한국 100층+ 초고층 (예: Lotte World Tower) · 대형 stadium roof truss · 풍력 tower."
+    },
+    {
+      "name": "SD400 (KS D 3504 철근) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Re-Bar)",
+      "composition": { "Fe": "balance", "C": "≤0.32", "Si": "≤0.60", "Mn": "≤1.60", "P": "≤0.045", "S": "≤0.045" },
+      "points": [
+        [7.85, 460, 550, 16, 200, 160, 247]
+      ],
+      "conditions": ["As-rolled (deformed bar)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/ReBar/ReBar.do"
+      ],
+      "aliases": ["SD 400", "KS D 3504 SD400", "Rebar 400", "ASTM A615 Grade 60 equivalent"],
+      "industry_note": "KS D 3504 콘크리트 보강용 철근 표준 grade — 한국 RC 콘크리트 보강 기본. UTS = YP × 1.15 min (≥460). El ≥ 16% (No.2호 시편). Bend 180° / 2d (D ≤ 25). ASTM A615 Grade 60 (60 ksi = 414 MPa) 등가. 한국 주택·상가·교량 90% 이상이 SD400."
+    },
+    {
+      "name": "SD500 (KS D 3504 고강도 철근) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Re-Bar)",
+      "composition": { "Fe": "balance", "C": "≤0.32", "Si": "≤0.60", "Mn": "≤1.80", "P": "≤0.045", "S": "≤0.045" },
+      "points": [
+        [7.85, 575, 635, 14, 200, 190, 286]
+      ],
+      "conditions": ["As-rolled (deformed bar)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/ReBar/ReBar.do"
+      ],
+      "aliases": ["SD 500", "KS D 3504 SD500", "Rebar 500", "ASTM A615 Grade 75 equivalent"],
+      "industry_note": "KS D 3504 고강도 철근. UTS = YP × 1.08 min (≥540). El ≥ 18%. Bend 180° / 4d. 고층 (50층+) 건축 · 대형 spans / 길이 단축 효과. ASTM A615 G75 등가."
+    },
+    {
+      "name": "SD400W (KS D 3504 용접 가능 철근) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Re-Bar, weldable)",
+      "composition": { "Fe": "balance", "C": "≤0.30", "Si": "≤0.60", "Mn": "≤1.60", "P": "≤0.040", "S": "≤0.040", "CE": "≤0.50%" },
+      "points": [
+        [7.85, 460, 550, 14, 200, 160, 247]
+      ],
+      "conditions": ["As-rolled (weldable, CE controlled)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/ReBar/ReBar.do"
+      ],
+      "aliases": ["SD 400W", "Weldable Rebar 400", "ASTM A706 Grade 60 equivalent"],
+      "industry_note": "KS D 3504 W = Weldable. CE (탄소당량) ≤ 0.50% 제한으로 현장 용접 가능. UTS = YP × 1.15 min. 철골 + RC 복합구조 · 철근 splicing 시 용접 이음 가능. ASTM A706 G60 (low-alloy weldable rebar) 등가."
+    },
+    {
+      "name": "SD500W (KS D 3504 용접 가능 고강도 철근) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Re-Bar, weldable)",
+      "composition": { "Fe": "balance", "C": "≤0.30", "Si": "≤0.60", "Mn": "≤1.60", "P": "≤0.040", "S": "≤0.040", "CE": "≤0.50%" },
+      "points": [
+        [7.85, 575, 635, 14, 200, 190, 286]
+      ],
+      "conditions": ["As-rolled (weldable, CE controlled)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/ReBar/ReBar.do"
+      ],
+      "aliases": ["SD 500W", "Weldable Rebar 500", "ASTM A706 Grade 75 equivalent"],
+      "industry_note": "KS D 3504 W = Weldable + 고강도. CE ≤ 0.50%. UTS = YP × 1.15 min. 고강도 + 용접 조합. ASTM A706 G75 등가."
+    },
+    {
+      "name": "SD400S (KS D 3504 내진 철근) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Re-Bar, seismic)",
+      "composition": { "Fe": "balance", "C": "≤0.30", "Si": "≤0.60", "Mn": "≤2.00", "P": "≤0.040", "S": "≤0.040", "CE": "≤0.55%" },
+      "points": [
+        [7.85, 460, 575, 10, 200, 160, 259]
+      ],
+      "conditions": ["As-rolled (seismic, YR ≤1.25)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/ReBar/ReBar.do"
+      ],
+      "aliases": ["SD 400S", "Seismic Rebar 400", "ASTM A706 Grade 60 Seismic equivalent"],
+      "industry_note": "KS D 3504 S = Seismic 내진. UTS = YP × 1.25 min (more conservative than SD400/W). 항복비 (YR=Re/Rm) ≤ 1.25 제한 → 항복 plateau 길게 유지 + uniform plasticity. Bend 90° / 4d (더 가혹). 한국 내진 등급 1·2 건물 의무. 대구 KTX 역사 / Lotte Mall 등."
+    },
+    {
+      "name": "SD500S (KS D 3504 내진 고강도 철근) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Re-Bar, seismic)",
+      "composition": { "Fe": "balance", "C": "≤0.32", "Si": "≤0.60", "Mn": "≤2.00", "P": "≤0.040", "S": "≤0.040", "CE": "≤0.60%" },
+      "points": [
+        [7.85, 560, 700, 10, 200, 190, 315]
+      ],
+      "conditions": ["As-rolled (seismic, YR ≤1.25)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/ReBar/ReBar.do"
+      ],
+      "aliases": ["SD 500S", "Seismic Rebar 500", "ASTM A706 Grade 75 Seismic equivalent"],
+      "industry_note": "KS D 3504 S = Seismic 고강도 내진. UTS = YP × 1.25 min. 항복비 ≤ 1.25. 한국 50층+ 내진 등급 특A 건물 (예: Le Meilleur Jongno Tower) · 원전 격납고. 미국 A706 G75 Seismic 등가."
+    },
+    {
+      "name": "SM490A (KS D 3515 용접구조용 강) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate / Section)",
+      "composition": { "Fe": "balance", "C": "≤0.20", "Si": "≤0.55", "Mn": "≤1.65", "P": "≤0.035", "S": "≤0.035" },
+      "points": [
+        [7.85, 285, 550, 21, 210, 160, 248]
+      ],
+      "conditions": ["As-rolled, t≤16 mm (suffix A = no Charpy req.)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Plate/SteelPlate.do"
+      ],
+      "aliases": ["SM 490A", "KS D 3515 SM490A", "JIS G 3106 SM490A", "EN S355JR equivalent"],
+      "industry_note": "KS D 3515 용접구조용 강 — 한국 다리·선박·건축 구조 표준 (SS400 대체 추세). YS 285 (t≤16) / 275 (16<t≤40). UTS 490-610. EN S355JR / ASTM A572 G50 등가. 수만 t / 년 사용."
+    },
+    {
+      "name": "SM490B (KS D 3515 용접구조용 강, 0°C Charpy) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate / Section)",
+      "composition": { "Fe": "balance", "C": "≤0.18", "Si": "≤0.55", "Mn": "≤1.65", "P": "≤0.035", "S": "≤0.035" },
+      "points": [
+        [7.85, 285, 550, 21, 210, 160, 248]
+      ],
+      "conditions": ["As-rolled, Charpy 27J @ 0°C"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Plate/SteelPlate.do"
+      ],
+      "aliases": ["SM 490B", "KS D 3515 SM490B", "JIS G 3106 SM490B", "EN S355J0 equivalent"],
+      "industry_note": "KS D 3515 용접구조 + Charpy 27J @ 0°C (B suffix). C 함량 단계적 감축 (0.18% max). 일반 다리 · 선박 hull · 압력 vessel (저온 응용 제외). EN S355J0 등가."
+    },
+    {
+      "name": "SM490C (KS D 3515 용접구조용 강, -20°C Charpy) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate / Section)",
+      "composition": { "Fe": "balance", "C": "≤0.18", "Si": "≤0.55", "Mn": "≤1.65", "P": "≤0.030", "S": "≤0.030" },
+      "points": [
+        [7.85, 285, 550, 21, 210, 160, 248]
+      ],
+      "conditions": ["As-rolled, Charpy 27J @ -20°C"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/Plate/SteelPlate.do"
+      ],
+      "aliases": ["SM 490C", "KS D 3515 SM490C", "JIS G 3106 SM490C", "EN S355J2 equivalent"],
+      "industry_note": "KS D 3515 용접구조 + Charpy 27J @ -20°C (C suffix). 한국 동절기 노출 outdoor 구조 (인천대교 / Lotte World Tower frame / 풍력 tower / LPG 탱크). EN S355J2 등가."
+    },
+    {
+      "name": "SS275 (KS D 3503 일반구조용) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate / Section)",
+      "composition": { "Fe": "balance", "C": "≤0.25", "Si": "—", "Mn": "≤1.40", "P": "≤0.050", "S": "≤0.050" },
+      "points": [
+        [7.85, 275, 480, 21, 210, 145, 216]
+      ],
+      "conditions": ["As-rolled, t≤16 mm"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/HRC/HRC.do"
+      ],
+      "aliases": ["SS 275", "KS D 3503 SS275", "EN S275JR equivalent", "ASTM A283 Grade C"],
+      "industry_note": "KS D 3503 일반구조용 압연강재 — 신 KS 표기 (구 SS400 → SS275 매핑). YS 275 (t≤16) / 265 (16<t≤40). UTS 410-550 (t≤16). EN S275JR / ASTM A283 C 등가. 가장 흔한 한국 일반구조용 강 (배관 support / shelving / 일반 frame)."
+    },
+    {
+      "name": "SS315 (KS D 3503 일반구조용) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Plate / Section)",
+      "composition": { "Fe": "balance", "C": "≤0.28", "Si": "—", "Mn": "≤1.50", "P": "≤0.050", "S": "≤0.050" },
+      "points": [
+        [7.85, 315, 470, 17, 210, 155, 212]
+      ],
+      "conditions": ["As-rolled, t≤16 mm"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/HRC/HRC.do"
+      ],
+      "aliases": ["SS 315", "KS D 3503 SS315", "EN S315MC equivalent"],
+      "industry_note": "KS D 3503 일반구조용 중강도. YS 315 (t≤16) / 305 (16<t≤40). 일반 frame · 농기계 · 컨테이너 frame. EN S315MC 등가."
+    },
+    {
+      "name": "SAPH440 (자동차 구조용 hot rolled) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Sheet, automotive)",
+      "composition": { "Fe": "balance", "P": "≤0.040", "S": "≤0.040" },
+      "points": [
+        [7.85, 305, 440, 24, 210, 140, 198]
+      ],
+      "conditions": ["Hot rolled sheet (1.6~14 mm)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/HRC/HRC.do"
+      ],
+      "aliases": ["SAPH 440", "JIS G 3113 SAPH440", "Automotive Frame Steel 440"],
+      "industry_note": "JIS G 3113 / KS D 3519 자동차 구조용 hot rolled — 현대·기아 OEM. YS 305 (t≤14) / 295 (depth-dependent), UTS 440 min, El 24% (No.5 시편). 차체 frame · chassis · suspension arm · cross-member. EN S355MC 등가."
+    },
+    {
+      "name": "SPFH590 (자동차 고장력 hot rolled) — 현대제철",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Hot Rolled (Sheet, automotive HSLA)",
+      "composition": { "Fe": "balance", "C": "≤0.12", "Si": "≤0.50", "Mn": "≤1.70", "P": "≤0.025", "S": "≤0.015", "Nb": "≤0.09", "Ti": "≤0.15", "V": "≤0.20" },
+      "points": [
+        [7.85, 420, 590, 19, 210, 180, 265]
+      ],
+      "conditions": ["Hot rolled HSLA sheet (1.6~6.0 mm)"],
+      "ref_urls": [
+        "https://www.hyundai-steel.com/en/products/HRC/HRC.do"
+      ],
+      "aliases": ["SPFH 590", "JIS G 3134 SPFH590", "Automotive HSLA 590", "EN S500MC equivalent"],
+      "industry_note": "JIS G 3134 / KS D 3519 자동차 고장력 — 현대·기아 OEM door inner / chassis / cross-member / suspension arm. YS 420 min, UTS 590 min, El 19% (Lo=80mm). 무게 감량 + 충돌 안전 — 차체 강성 ↑. EN S500MC 등가. SPFH540 보다 1 grade 강하고 SPFH590Y (YS controlled) 도 있음."
     }
   ]
 }
