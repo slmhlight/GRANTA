@@ -2,6 +2,27 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R86 — Card view 물성 컨트롤 + 모바일 밀도 + Radar 약어
+**Card 표시 물성 사용자 선택**: Card view 상단에 chip 토글 11종 추가. `am_card_props` localStorage 영속, 최소 1 / 최대 6개 강제. Default 4개 (σy / UTS / El / ρ).
+- 옵션 11종 — σy, UTS, El, E, HV, k, ρ, Tmax, KIC, σf, $/kg
+- Active chip = accent 배경 + shadow, inactive = 회색 border, hover 시 accent 강조
+- 카운터 `{n}/6` 으로 한도 표시
+- chip bar 가로 스크롤 (모바일 대응)
+
+**Card 모바일 정보 밀도 ↑**: 텍스트 크기 유지, 카드 자체를 더 compact 하게.
+- 카드 padding `p-3` → `p-2 sm:p-3`
+- grid gap `gap-3` → `gap-2 sm:gap-3`
+- Family + Process 한 줄 압축 (이전엔 2 줄)
+- bar 가 있는 prop (σy/UTS/El/E/HV/σf) 와 value-only prop (ρ/k/Tmax/KIC/$) 자동 구분
+- 기본 default 4개 + 사용자가 임의 추가 → 한 카드 안 정보량 2x
+
+**Radar label 약어 + 잘림 방지**:
+- `RadarAxis` 타입에 `longLabel` 추가 — chart 는 `label` (짧은 기호), picker UI 는 `longLabel` (풀어쓴 설명)
+- DEFAULT 6개 + OPTIONS 13개 모두 단축 — σy / UTS / E / El / k / 1/ρ / HV / σf / KIC / Tmax / 1/$ / 1/α / Pop
+- chart svg radius margin 32 → 22 (label 짧아져 안전 영역 ↑)
+- font 10 → 11 + semibold + fill `#334155` (이전 #475569) — 시인성 ↑
+- `<title>` 자식으로 hover 시 longLabel 노출 — 정보 손실 zero
+
 ## R82-R85 — UI 심미성 4-라운드 폴리시
 **R82 (P0 헤더)** — 데스크탑 헤더 시각적 noise 줄임.
 - Stats 5색 chip (`Metal blue · Polymer green · Ceramic amber · Composite violet · AM orange`) → 단일 `Database 1,168 materials` 버튼 + tooltip 안에 breakdown 정렬

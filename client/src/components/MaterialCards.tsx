@@ -4,7 +4,7 @@
  * Card grid with key property sparklines
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Plus, Check, BookText } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import type { Material } from '@/lib/materials';
@@ -37,13 +37,41 @@ function MiniBar({ value, max, color }: MiniBarProps) {
   );
 }
 
-// Approximate max values for bar scaling
-const PROP_MAX: Record<string, number> = {
-  yield_strength: 2700,
-  uts: 3000,
-  elongation: 100,
-  hardness: 750,
-};
+/* R86 — Card 에 표시할 수 있는 물성 옵션. 각 물성은 (symbol, unit, max, formatDigits, key) 로 정의.
+   key 는 Material 의 number 필드. localStorage 'am_card_props' 에 선택 array 저장. */
+interface CardPropOpt {
+  key: 'yield_strength' | 'uts' | 'elongation' | 'modulus' | 'hardness'
+       | 'thermal_conductivity' | 'density' | 'max_service_temp'
+       | 'fracture_toughness' | 'fatigue_strength' | 'price_per_kg';
+  symbol: string;
+  unit: string;
+  max: number;
+  fmt: number;
+}
+const CARD_PROP_OPTIONS: CardPropOpt[] = [
+  { key: 'yield_strength', symbol: 'σy', unit: 'MPa', max: 2700, fmt: 0 },
+  { key: 'uts', symbol: 'UTS', unit: 'MPa', max: 3000, fmt: 0 },
+  { key: 'elongation', symbol: 'El', unit: '%', max: 100, fmt: 1 },
+  { key: 'modulus', symbol: 'E', unit: 'GPa', max: 500, fmt: 0 },
+  { key: 'hardness', symbol: 'HV', unit: '', max: 750, fmt: 0 },
+  { key: 'thermal_conductivity', symbol: 'k', unit: 'W/mK', max: 400, fmt: 0 },
+  { key: 'density', symbol: 'ρ', unit: 'g/cm³', max: 22, fmt: 2 },
+  { key: 'max_service_temp', symbol: 'Tmax', unit: '°C', max: 1500, fmt: 0 },
+  { key: 'fracture_toughness', symbol: 'KIC', unit: '', max: 150, fmt: 0 },
+  { key: 'fatigue_strength', symbol: 'σf', unit: 'MPa', max: 1500, fmt: 0 },
+  { key: 'price_per_kg', symbol: '$/kg', unit: '', max: 500, fmt: 1 },
+];
+const DEFAULT_CARD_PROPS: CardPropOpt['key'][] = ['yield_strength', 'uts', 'elongation', 'density'];
+function loadCardProps(): CardPropOpt['key'][] {
+  try {
+    const raw = localStorage.getItem('am_card_props');
+    if (!raw) return DEFAULT_CARD_PROPS;
+    const arr = JSON.parse(raw);
+    if (!Array.isArray(arr) || arr.length === 0) return DEFAULT_CARD_PROPS;
+    const valid = arr.filter((k): k is CardPropOpt['key'] => CARD_PROP_OPTIONS.some(o => o.key === k));
+    return valid.length ? valid : DEFAULT_CARD_PROPS;
+  } catch { return DEFAULT_CARD_PROPS; }
+}
 
 export function MaterialCards({
   materials,
@@ -53,6 +81,21 @@ export function MaterialCards({
   onToggleCompare,
 }: MaterialCardsProps) {
   const [page, setPage] = useState(0);
+  /* R86 — 표시할 물성 선택 (localStorage 영속). */
+  const [selectedProps, setSelectedProps] = useState<CardPropOpt['key'][]>(() => loadCardProps());
+  useEffect(() => {
+    try { localStorage.setItem('am_card_props', JSON.stringify(selectedProps)); } catch { /* ignore */ }
+  }, [selectedProps]);
+  const toggleProp = (k: CardPropOpt['key']) => {
+    setSelectedProps((prev) => {
+      if (prev.includes(k)) return prev.length > 1 ? prev.filter(x => x !== k) : prev;  // 최소 1개 유지
+      if (prev.length >= 6) return prev;  // 최대 6개
+      return [...prev, k];
+    });
+  };
+  const activeProps = CARD_PROP_OPTIONS.filter(o => selectedProps.includes(o.key))
+    .sort((a, b) => selectedProps.indexOf(a.key) - selectedProps.indexOf(b.key));
+
   const totalPages = Math.ceil(materials.length / PAGE_SIZE);
   const pageData = materials.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
@@ -60,13 +103,36 @@ export function MaterialCards({
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-1 overflow-y-auto p-4">
+      {/* R86 — 컨트롤: 표시 물성 chip toggle. 가로 스크롤로 모바일 대응. */}
+      <div className="flex-shrink-0 flex items-center gap-1.5 px-3 sm:px-4 py-1.5 border-b border-border/60 bg-muted/20 overflow-x-auto">
+        <span className="text-[10px] text-muted-foreground flex-shrink-0">표시:</span>
+        {CARD_PROP_OPTIONS.map((opt) => {
+          const active = selectedProps.includes(opt.key);
+          return (
+            <button
+              key={opt.key}
+              type="button"
+              onClick={() => toggleProp(opt.key)}
+              title={`${opt.symbol}${opt.unit ? ' (' + opt.unit + ')' : ''}${active ? ' — 해제' : ' — 추가'}`}
+              className={`flex-shrink-0 px-1.5 py-0.5 rounded text-[10px] font-mono border transition-colors ${
+                active
+                  ? 'bg-accent text-white border-accent shadow-sm'
+                  : 'bg-background text-muted-foreground border-border hover:border-accent/50 hover:text-foreground'
+              }`}
+            >
+              {opt.symbol}
+            </button>
+          );
+        })}
+        <span className="text-[10px] text-muted-foreground/60 flex-shrink-0 ml-1">{selectedProps.length}/6</span>
+      </div>
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4">
         {materials.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 text-muted-foreground">
             <p className="text-sm font-medium">No materials match the current filters</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">
             {pageData.map((m, i) => {
               const isSelected = m.id === selectedId;
               const isCompare = compareList.includes(m.id);
@@ -78,7 +144,7 @@ export function MaterialCards({
                 <div
                   key={m.id}
                   className={`
-                    relative bg-card border rounded-md p-3 cursor-pointer
+                    relative bg-card border rounded-md p-2 sm:p-3 cursor-pointer
                     transition-all duration-150 row-animate
                     hover:shadow-md hover:-translate-y-0.5
                     ${isSelected ? 'border-accent shadow-sm ring-1 ring-accent/30' : 'border-border hover:border-accent/40'}
@@ -124,36 +190,31 @@ export function MaterialCards({
                     {m.name}
                   </p>
 
-                  {/* Family */}
-                  <p className="text-[10px] text-muted-foreground truncate mb-2">{m.subcategory}</p>
-
-                  {/* Process badge */}
-                  <Badge variant="outline" className="text-[9px] px-1 py-0 h-3.5 font-normal border-border/50 text-muted-foreground mb-2">
-                    {m.process}
-                  </Badge>
-
-                  {/* Key properties */}
-                  <div className="space-y-1.5 mt-2">
-                    <div>
-                      <div className="flex justify-between mb-0.5">
-                        <span className="text-[9px] text-muted-foreground">σ_y</span>
-                        <span className="font-mono text-[9px] text-foreground/80">{formatValue(m.yield_strength, 0)} MPa</span>
-                      </div>
-                      <MiniBar value={m.yield_strength} max={PROP_MAX.yield_strength} color={catColor} />
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-0.5">
-                        <span className="text-[9px] text-muted-foreground">El.</span>
-                        <span className="font-mono text-[9px] text-foreground/80">{formatValue(m.elongation, 1)}%</span>
-                      </div>
-                      <MiniBar value={m.elongation} max={PROP_MAX.elongation} color={catColor} />
-                    </div>
+                  {/* Family + Process — 한 줄로 압축 (모바일 정보 밀도 ↑) */}
+                  <div className="flex items-center gap-1.5 mb-1.5 min-w-0">
+                    <span className="text-[10px] text-muted-foreground truncate flex-1 min-w-0">{m.subcategory}</span>
+                    <Badge variant="outline" className="text-[9px] px-1 py-0 h-3.5 font-normal border-border/50 text-muted-foreground flex-shrink-0">
+                      {m.process}
+                    </Badge>
                   </div>
 
-                  {/* Density */}
-                  <div className="mt-2 pt-2 border-t border-border/40 flex justify-between">
-                    <span className="text-[9px] text-muted-foreground">ρ</span>
-                    <span className="font-mono text-[9px] text-foreground/80">{formatValue(m.density, 2)} g/cm³</span>
+                  {/* R86 — 사용자 선택 물성 (1~6). bar 있는 것 (σy·UTS·El·HV·E·σf) + value only (ρ·k·Tmax·KIC·$). */}
+                  <div className="space-y-1">
+                    {activeProps.map((opt) => {
+                      const v = (m as any)[opt.key] as number | null;
+                      const showBar = ['yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'fatigue_strength'].includes(opt.key);
+                      return (
+                        <div key={opt.key}>
+                          <div className="flex justify-between items-baseline gap-1">
+                            <span className="text-[9px] text-muted-foreground font-mono">{opt.symbol}</span>
+                            <span className="font-mono text-[9px] text-foreground/80 truncate">
+                              {formatValue(v, opt.fmt)}{opt.unit ? ` ${opt.unit}` : ''}
+                            </span>
+                          </div>
+                          {showBar && <MiniBar value={v} max={opt.max} color={catColor} />}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               );

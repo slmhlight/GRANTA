@@ -11,7 +11,8 @@ import type { Material } from '@/lib/materials';
 
 export interface RadarAxis {
   key: string;          // material property key (e.g. 'yield_strength')
-  label: string;        // display label (e.g. 'σy (MPa)')
+  label: string;        // chart 에 표시되는 짧은 기호 (e.g. 'σy', 'KIC', 'k')
+  longLabel?: string;   // R86 picker UI 의 풀어쓴 설명 (e.g. 'σy (Yield)') — 없으면 label 사용
   invert?: boolean;     // true → 작을수록 점수 ↑ (density, price)
 }
 
@@ -87,7 +88,7 @@ export function RadarChart({
 
   const cx = size / 2;
   const cy = size / 2;
-  const r = size / 2 - 32; // axis label 위해 32px margin
+  const r = size / 2 - 22; // axis label 위해 22px margin (R86 — 짧은 기호로 label 단축 후 margin 축소)
 
   // 3. axis vertex 좌표
   const N = axes.length || 6;
@@ -177,9 +178,9 @@ export function RadarChart({
             </g>
           );
         })}
-        {/* Axis labels */}
+        {/* Axis labels — R86 짧은 기호. font 11 + semibold 로 시인성 ↑. longLabel 은 <title> 로 hover. */}
         {axes.map((ax, i) => {
-          const [x, y] = vertex(i, r + 18);
+          const [x, y] = vertex(i, r + 14);
           const align = Math.abs(Math.cos((2 * Math.PI * i) / N - Math.PI / 2)) < 0.2 ? 'middle' :
             Math.cos((2 * Math.PI * i) / N - Math.PI / 2) > 0 ? 'start' : 'end';
           return (
@@ -187,12 +188,14 @@ export function RadarChart({
               key={ax.key}
               x={x}
               y={y}
-              fontSize={10}
-              fill="#475569"
+              fontSize={11}
+              fontWeight={600}
+              fill="#334155"
               textAnchor={align}
               dominantBaseline="middle"
             >
               {ax.label}
+              <title>{ax.longLabel || ax.label}</title>
             </text>
           );
         })}
@@ -222,31 +225,31 @@ export function RadarChart({
   );
 }
 
-// ── 기본 axis preset 6 개 ──────────────────────────────────────────────
+// ── 기본 axis preset 6 개. label = chart 상 짧은 기호 (잘림 방지). ──
 export const DEFAULT_RADAR_AXES: RadarAxis[] = [
-  { key: 'yield_strength', label: 'σy' },
-  { key: 'uts', label: 'UTS' },
-  { key: 'modulus', label: 'E' },
-  { key: 'elongation', label: 'El.' },
-  { key: 'thermal_conductivity', label: 'k' },
-  { key: 'density', label: 'Light', invert: true },  // 가벼울수록 점수 ↑
+  { key: 'yield_strength', label: 'σy', longLabel: 'σy (Yield)' },
+  { key: 'uts', label: 'UTS', longLabel: 'UTS' },
+  { key: 'modulus', label: 'E', longLabel: 'E (Modulus)' },
+  { key: 'elongation', label: 'El', longLabel: 'Elongation' },
+  { key: 'thermal_conductivity', label: 'k', longLabel: 'k (Thermal)' },
+  { key: 'density', label: '1/ρ', longLabel: 'Light (1/ρ)', invert: true },  // 가벼울수록 점수 ↑
 ];
 
-// ── Axis 선택 옵션 (사용자가 토글 가능) ────────────────────────────────
+// ── Axis 선택 옵션 (사용자가 토글 가능). label = chart 표시 (3~4자), longLabel = picker UI 풀이. ──
 export const RADAR_AXIS_OPTIONS: RadarAxis[] = [
-  { key: 'yield_strength', label: 'σy (Yield)' },
-  { key: 'uts', label: 'UTS' },
-  { key: 'modulus', label: 'E (Modulus)' },
-  { key: 'elongation', label: 'Elongation' },
-  { key: 'hardness', label: 'Hardness' },
-  { key: 'fatigue_strength', label: 'Fatigue' },
-  { key: 'fracture_toughness', label: 'KIC' },
-  { key: 'thermal_conductivity', label: 'k (Thermal)' },
-  { key: 'max_service_temp', label: 'T_max' },
-  { key: 'density', label: 'Light (1/ρ)', invert: true },
-  { key: 'price_per_kg', label: 'Cheap (1/$)', invert: true },
-  { key: 'thermal_expansion', label: 'Low CTE', invert: true },
-  { key: 'popularity', label: 'Popularity' },
+  { key: 'yield_strength', label: 'σy', longLabel: 'σy (Yield)' },
+  { key: 'uts', label: 'UTS', longLabel: 'UTS' },
+  { key: 'modulus', label: 'E', longLabel: 'E (Modulus)' },
+  { key: 'elongation', label: 'El', longLabel: 'Elongation' },
+  { key: 'hardness', label: 'HV', longLabel: 'Hardness' },
+  { key: 'fatigue_strength', label: 'σf', longLabel: 'Fatigue' },
+  { key: 'fracture_toughness', label: 'KIC', longLabel: 'KIC' },
+  { key: 'thermal_conductivity', label: 'k', longLabel: 'k (Thermal)' },
+  { key: 'max_service_temp', label: 'Tmax', longLabel: 'T_max' },
+  { key: 'density', label: '1/ρ', longLabel: 'Light (1/ρ)', invert: true },
+  { key: 'price_per_kg', label: '1/$', longLabel: 'Cheap (1/$)', invert: true },
+  { key: 'thermal_expansion', label: '1/α', longLabel: 'Low CTE', invert: true },
+  { key: 'popularity', label: 'Pop', longLabel: 'Popularity' },
 ];
 
 // ── Axis picker UI (체크박스 6+ 선택) ──────────────────────────────────
@@ -316,7 +319,7 @@ export function RadarConfig({
                     className="accent-accent flex-shrink-0"
                     disabled={!selectedKeys.has(opt.key) && axes.length >= 8}
                   />
-                  <span className="truncate">{opt.label}</span>
+                  <span className="truncate">{opt.longLabel || opt.label}</span>
                 </label>
               ))}
             </div>
