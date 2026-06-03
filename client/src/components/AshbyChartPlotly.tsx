@@ -544,8 +544,13 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     // box-select/lasso 는 plotly-dist-min 번들 한계로 지원 불가 (full plotly bundle 은 vite 에서 import 실패).
     // 모바일 다중 선택은 좌측 필터·검색·테이블 다중 체크로 우회.
     displayModeBar: true as const,
+    // Sprint 4 C6 — scroll wheel zoom 활성화 (Pan/Zoom UX 보강), pan/zoom 버튼 더 명확히.
+    //   기본 modeBar 의 zoom/pan/reset 외 'toggleSpikelines' 추가 (점 정확 위치 가이드라인).
+    scrollZoom: true,
     modeBarButtonsToRemove: ['autoScale2d'],
+    modeBarButtonsToAdd: ['toggleSpikelines' as const],
     toImageButtonOptions: { format: 'png', filename: 'ashby_chart', height: 700, width: 1000, scale: 2 },
+    doubleClick: 'reset+autosize' as const,
   };
   const comparing = (compareList?.length ?? 0) > 0;
 
