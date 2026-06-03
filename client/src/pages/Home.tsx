@@ -91,6 +91,8 @@ export default function Home() {
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
   const [compareList, setCompareList] = useState<string[]>([]);
   const [restrictIds, setRestrictIds] = useState<string[] | null>(null);
+  // R49f — URL filter restore 직후에만 URL encode 활성화 (encode/decode race 방지).
+  const urlRestoredRef = useRef(false);
   const [collections, setCollections] = useState<Collection[]>([]);
   const [collName, setCollName] = useState('');
   const [linkCopied, setLinkCopied] = useState(false);
@@ -176,6 +178,12 @@ export default function Home() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const p = params.get('p');
+    // R49f — URL filter restore (cold-start): preset 없어도 ?popm/popx/rohs/sub/ht 등 적용.
+    //   atomic restoreFilters 호출 — 개별 updateFilter 는 encode useEffect 와 race (default 로 덮어씀).
+    if (!p) {
+      const override = decodeFiltersFromParams(params);
+      if (Object.keys(override).length > 0) restoreFilters(override);
+    }
     if (p && SCENARIO_PRESETS[p]) {
       const cfg = SCENARIO_PRESETS[p];
       // baseline 프리셋 필터 위에 다이얼로그가 산출한 f.* 오버라이드를 머지
@@ -207,8 +215,11 @@ export default function Home() {
       // 같은 필터가 재적용될 뿐, 데이터/사용자에게 부작용 없음. URL 이 길어 보이는 게 흠이라
       // 별도 'URL 정리' 버튼 (배너 닫기 시점) 으로 처리.
     }
+    // R49f — URL restore 완료 후에야 encode effect 활성화 (default 덮어쓰기 race 방지).
+    urlRestoredRef.current = true;
+    // R49f — deps `[search]` 가 wouter useSearch 의 첫 값 변경 race 로 trigger 불안정 → `[]` (mount-only).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search]);
+  }, []);
   const saveCollection = useCallback(() => {
     const name = collName.trim();
     if (!name || !restrictIds || !restrictIds.length) return;
@@ -375,7 +386,9 @@ export default function Home() {
   // R49b — filters / appliedPreset / restrictIds 변경 시 URL params 자동 동기화.
   //   history.replaceState 만 — clipboard 복사는 explicit Share 액션 (shareSet) 시에만.
   //   사용자가 새로고침 / 뒤로가기 / URL 복사 후 즉시 같은 상태 복원 가능.
+  //   R49f gate — URL → state 복원 완료 후에만 encode (race 방지).
   useEffect(() => {
+    if (!urlRestoredRef.current) return;
     try {
       const qs = encodeFiltersToParams(filters);
       const presetQ = appliedPreset ? `p=${encodeURIComponent(appliedPreset.key)}` : '';
