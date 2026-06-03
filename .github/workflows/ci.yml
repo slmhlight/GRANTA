@@ -9,15 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # R91 — version 명시 제거. pnpm/action-setup 은 package.json 의 `packageManager` 필드 (pnpm@10.4.1) 를 자동으로 읽음.
+      #       둘 다 명시하면 errors out (deploy-pages.yml 코멘트 참조).
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10.4.1
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '22'
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Generate materials.json (data pipeline)
+        # client/public/materials.json 는 R91 부터 .gitignore 처리 — CI 에서 매 run 직접 생성.
+        run: pnpm build:data
       - name: Type check (tsc --noEmit)
         run: pnpm check
       - name: Run unit tests (vitest)

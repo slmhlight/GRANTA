@@ -2,6 +2,26 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R91 — CI workflow fix + materials.json gitignore (repo 위생)
+사용자 보고: "GitHub Actions 에서 실패가 많았다 · gitignore 도 좀 손봐야 할지도".
+
+**원인 1 — CI ci.yml 의 pnpm version 충돌**: `pnpm/action-setup@v4` 에 `version: 10.4.1` 명시했는데, package.json 의 `packageManager: pnpm@10.4.1` 와 충돌해 액션이 errors out. deploy-pages.yml 코멘트에 *"Do NOT pin a version here — pnpm/action-setup reads it from the packageManager field. Specifying both errors out"* 이미 명시되어 있었음.
+- 수정: ci.yml 의 `version: 10.4.1` 제거 → packageManager 필드에서 자동 읽기
+
+**원인 2 — build:data 단계 부재**: ci.yml 이 `pnpm install → check → test → build` 순서인데, build 가 client/public/materials.json 를 dist 에 copy 함. 이 파일이 git tracking 되어 commit 으로 전달되고 있었음 (6.3MB).
+- 수정: ci.yml 에 `pnpm build:data` 단계 추가 → CI 가 직접 materials.json 생성
+
+**원인 3 — 거대 generated 파일이 repo 에 commit**: 매 R72-R90 commit 마다 client/public/materials.json (6.3MB) + build-meta.json (매 build 마다 timestamp 변경) + data/validation-report.md (anomaly report) 가 diff 에 포함. push 부담 + repo 비대화.
+- 수정: .gitignore 에 3개 generated 파일 추가, `git rm --cached` 로 tracking 해제 (history 보존)
+
+**효과**:
+- CI 가 정상 동작 (frozen-lockfile + version 충돌 없음)
+- repo 매 commit 의 diff 가 src 변경만 — clean
+- CI runner 가 build:data 로 직접 데이터 생성하므로 stale 데이터 위험도 없음
+- node-version CI 도 22 (deploy 와 통일)
+
+**검증**: 로컬 tsc OK · vitest 47/47 · build:data OK · production build OK
+
 ## R90 — Ashby chart axis 안정성 (uirevision · reset · fallback)
 사용자 보고: "(R89 후에도) index 활성화에 따라 chart frame 바뀜 · reset-axis 가 이상하게 반응 (빈 화면만 보임)". 세 가지 근본 원인을 동시에 수정.
 
