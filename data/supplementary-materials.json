@@ -10600,6 +10600,801 @@
           "verified": false
         }
       ]
+    },
+    {
+      "name": "SCM415 (JIS Cr-Mo case-hardening)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.13~0.18", "Cr": "0.9~1.2", "Mo": "0.15~0.3", "Mn": "0.6~0.85", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 440, 740, 22, 205, 200, 42],
+        [7.85, 580, 830, 15, 205, 260, 42],
+        [7.85, 850, 1180, 10, 205, 600, 42]
+      ],
+      "conditions": ["Normalized", "Quenched + Tempered (180°C)", "Carburized + Q+T (case 700~800 HV)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM415",
+        "https://www.jisc.go.jp/eng/index.html"
+      ]
+    },
+    {
+      "name": "SCM430 (JIS Cr-Mo, AISI 4130 equiv.)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.28~0.33", "Cr": "0.9~1.2", "Mo": "0.15~0.3", "Mn": "0.6~0.85", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 460, 690, 20, 205, 200, 42],
+        [7.85, 670, 830, 14, 205, 250, 42],
+        [7.85, 850, 990, 12, 205, 310, 42]
+      ],
+      "conditions": ["Annealed", "Normalized", "Quenched + Tempered (550°C)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM430"
+      ]
+    },
+    {
+      "name": "SCM435 (JIS Cr-Mo, AISI 4135 equiv.)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.33~0.38", "Cr": "0.9~1.2", "Mo": "0.15~0.3", "Mn": "0.6~0.85", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 470, 720, 18, 205, 210, 42],
+        [7.85, 730, 880, 14, 205, 265, 42],
+        [7.85, 930, 1080, 11, 205, 340, 42]
+      ],
+      "conditions": ["Annealed", "Quenched + Tempered (600°C)", "Q+T (500°C)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM435"
+      ]
+    },
+    {
+      "name": "SCM445 (JIS Cr-Mo high-strength)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.43~0.48", "Cr": "0.9~1.2", "Mo": "0.15~0.3", "Mn": "0.6~0.85", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 500, 780, 16, 205, 230, 42],
+        [7.85, 800, 980, 12, 205, 290, 42],
+        [7.85, 1080, 1230, 9, 205, 380, 42]
+      ],
+      "conditions": ["Annealed", "Q+T (600°C)", "Q+T (450°C)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM445"
+      ]
+    },
+    {
+      "name": "SNCM439 (JIS Ni-Cr-Mo, AISI 4340 equiv.)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.36~0.43", "Ni": "1.6~2.0", "Cr": "0.6~1.0", "Mo": "0.15~0.3", "Mn": "0.6~0.9", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 540, 780, 22, 205, 220, 42],
+        [7.85, 900, 1050, 14, 205, 320, 42],
+        [7.85, 1230, 1380, 11, 205, 420, 42],
+        [7.85, 1620, 1760, 8, 205, 510, 42]
+      ],
+      "conditions": ["Annealed", "Q+T (550°C)", "Q+T (450°C)", "Q+T (200°C, full hard)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=SNCM439",
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%204340"
+      ]
+    },
+    {
+      "name": "S55C (JIS medium-carbon 0.55%)",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.52~0.58", "Mn": "0.6~0.9", "Si": "0.15~0.35" },
+      "points": [
+        [7.84, 410, 720, 18, 205, 200, 50],
+        [7.84, 480, 770, 14, 205, 230, 50],
+        [7.84, 700, 920, 10, 205, 280, 50]
+      ],
+      "conditions": ["Annealed", "Normalized", "Q+T (600°C)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20S55C"
+      ]
+    },
+    {
+      "name": "S35C (JIS medium-carbon 0.35%)",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.32~0.38", "Mn": "0.6~0.9", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 305, 510, 23, 205, 150, 52],
+        [7.85, 365, 570, 20, 205, 170, 52],
+        [7.85, 480, 690, 15, 205, 210, 52]
+      ],
+      "conditions": ["Annealed", "Normalized", "Q+T (600°C)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20S35C"
+      ]
+    },
+    {
+      "name": "20MnCr5 (DIN case-hardening)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.17~0.22", "Mn": "1.1~1.4", "Cr": "1.0~1.3", "Si": "≤0.4" },
+      "points": [
+        [7.85, 590, 780, 22, 205, 230, 42],
+        [7.85, 880, 1180, 12, 205, 350, 42],
+        [7.85, 1180, 1370, 8, 205, 600, 42]
+      ],
+      "conditions": ["Normalized", "Direct-hardened", "Carburized (case 700~800 HV)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=20MnCr5"
+      ]
+    },
+    {
+      "name": "SUP9 (JIS Cr-Mn spring steel)",
+      "category": "Metal",
+      "subcategory": "Spring Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.52~0.6", "Mn": "0.7~1.0", "Cr": "0.65~0.95", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 1130, 1230, 9, 207, 380, 46],
+        [7.85, 1230, 1320, 7, 207, 410, 46]
+      ],
+      "conditions": ["Q+T (430°C, spring temper)", "Q+T (380°C, full spring)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=SUP9"
+      ]
+    },
+    {
+      "name": "SUP10 (JIS Cr-V spring steel)",
+      "category": "Metal",
+      "subcategory": "Spring Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.47~0.55", "Mn": "0.65~0.95", "Cr": "0.8~1.1", "V": "0.15~0.25", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 1230, 1320, 9, 207, 400, 46],
+        [7.85, 1320, 1420, 7, 207, 430, 46]
+      ],
+      "conditions": ["Q+T (430°C)", "Q+T (380°C)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=SUP10"
+      ]
+    },
+    {
+      "name": "SK4 (JIS carbon tool steel, 1.0%C)",
+      "category": "Metal",
+      "subcategory": "Tool Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.95~1.05", "Mn": "≤0.5", "Si": "≤0.35" },
+      "points": [
+        [7.84, 380, 660, 20, 205, 200, 48],
+        [7.84, 1700, 2150, 2, 205, 780, 45]
+      ],
+      "conditions": ["Annealed (spheroidized)", "Q+T (180°C, full hard)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20SK4"
+      ]
+    },
+    {
+      "name": "SK5 (JIS carbon tool steel, 0.85%C)",
+      "category": "Metal",
+      "subcategory": "Tool Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.8~0.9", "Mn": "≤0.5", "Si": "≤0.35" },
+      "points": [
+        [7.84, 350, 620, 21, 205, 190, 49],
+        [7.84, 1600, 2050, 3, 205, 740, 46]
+      ],
+      "conditions": ["Annealed", "Q+T (180°C, full hard)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20SK5"
+      ]
+    },
+    {
+      "name": "31CrMoV9 (nitriding standard)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.27~0.34", "Cr": "2.3~2.7", "Mo": "0.15~0.25", "V": "0.1~0.2", "Mn": "0.4~0.7", "Si": "≤0.4" },
+      "points": [
+        [7.85, 800, 1000, 14, 210, 300, 42],
+        [7.85, 900, 1100, 11, 210, 340, 42],
+        [7.85, 950, 1180, 9, 210, 950, 42]
+      ],
+      "conditions": ["Q+T (600°C)", "Q+T (550°C)", "Nitrided (case 900~1100 HV)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=31CrMoV9"
+      ]
+    },
+    {
+      "name": "18CrNiMo7-6 (DIN case-hardening gear steel)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.15~0.21", "Cr": "1.5~1.8", "Ni": "1.4~1.7", "Mo": "0.25~0.35", "Mn": "0.5~0.9" },
+      "points": [
+        [7.85, 685, 1000, 18, 210, 270, 42],
+        [7.85, 880, 1180, 14, 210, 340, 42],
+        [7.85, 1280, 1480, 10, 210, 750, 42]
+      ],
+      "conditions": ["Normalized", "Direct-hardened (Q+T)", "Carburized + Q+T (case 700~800 HV)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=18CrNiMo7-6"
+      ]
+    },
+    {
+      "name": "Molybdenum (Mo 99.95% pure)",
+      "category": "Metal",
+      "subcategory": "Refractory Metal",
+      "process": "Wrought",
+      "composition": { "Mo": "≥99.95" },
+      "points": [
+        [10.22, 415, 550, 35, 324, 230, 142],
+        [10.22, 600, 700, 25, 324, 250, 142],
+        [10.22, 750, 880, 12, 324, 290, 142]
+      ],
+      "conditions": ["Annealed (sheet/rod)", "Stress-relieved", "Cold-worked"],
+      "ref_urls": [
+        "https://www.plansee.com/en/materials/molybdenum.html",
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Molybdenum%20pure"
+      ]
+    },
+    {
+      "name": "Mo-La (Lanthanum-doped Mo, MoLa)",
+      "category": "Metal",
+      "subcategory": "Refractory Metal",
+      "process": "Wrought",
+      "composition": { "Mo": "balance", "La2O3": "0.3~1.0" },
+      "points": [
+        [10.20, 480, 600, 30, 320, 240, 130],
+        [10.20, 650, 760, 18, 320, 270, 130]
+      ],
+      "conditions": ["Annealed (1100°C)", "Stress-relieved (recrystallization-resistant)"],
+      "ref_urls": [
+        "https://www.plansee.com/en/materials/molybdenum/mola.html"
+      ]
+    },
+    {
+      "name": "Mo-Re (Molybdenum-Rhenium, Mo-41Re)",
+      "category": "Metal",
+      "subcategory": "Refractory Metal",
+      "process": "Wrought",
+      "composition": { "Mo": "balance", "Re": "40~42" },
+      "points": [
+        [13.5, 720, 1000, 25, 360, 290, 60],
+        [13.5, 900, 1180, 20, 360, 320, 60]
+      ],
+      "conditions": ["Annealed", "Cold-rolled"],
+      "ref_urls": [
+        "https://www.plansee.com/en/materials/molybdenum/molybdenum-rhenium.html"
+      ]
+    },
+    {
+      "name": "Tantalum (Ta 99.95% pure, semiconductor)",
+      "category": "Metal",
+      "subcategory": "Refractory Metal",
+      "process": "Wrought",
+      "composition": { "Ta": "≥99.95" },
+      "points": [
+        [16.65, 165, 240, 40, 186, 90, 57.5],
+        [16.65, 345, 410, 25, 186, 120, 57.5],
+        [16.65, 480, 560, 10, 186, 170, 57.5]
+      ],
+      "conditions": ["Annealed (1100°C, sheet)", "Stress-relieved", "Cold-worked (sputter target blank)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Tantalum%20pure",
+        "https://www.hcstarck.com/en/products/tantalum.html"
+      ]
+    },
+    {
+      "name": "Tungsten (W 99.95% pure)",
+      "category": "Metal",
+      "subcategory": "Refractory Metal",
+      "process": "Wrought",
+      "composition": { "W": "≥99.95" },
+      "points": [
+        [19.25, 750, 980, 5, 411, 350, 173],
+        [19.25, 980, 1380, 2, 411, 430, 173],
+        [19.25, 550, 700, 12, 411, 280, 173]
+      ],
+      "conditions": ["Stress-relieved (sheet/rod)", "Cold-worked (heavy)", "Annealed (1500°C)"],
+      "ref_urls": [
+        "https://www.plansee.com/en/materials/tungsten.html",
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Tungsten%20pure"
+      ]
+    },
+    {
+      "name": "W-La (Lanthanated tungsten, WLa)",
+      "category": "Metal",
+      "subcategory": "Refractory Metal",
+      "process": "Wrought",
+      "composition": { "W": "balance", "La2O3": "0.9~1.2" },
+      "points": [
+        [19.18, 850, 1100, 6, 411, 380, 165],
+        [19.18, 1050, 1450, 3, 411, 450, 165]
+      ],
+      "conditions": ["Stress-relieved (electrode-grade)", "Cold-worked"],
+      "ref_urls": [
+        "https://www.plansee.com/en/materials/tungsten/wl.html"
+      ]
+    },
+    {
+      "name": "Inconel 783 (Low-CTE Ni-Co superalloy)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Wrought",
+      "composition": { "Ni": "26~30", "Co": "33~37", "Fe": "24~28", "Al": "5.0~6.0", "Nb": "2.5~3.5", "Cr": "2.5~3.5", "Ti": "0.1~0.4" },
+      "points": [
+        [7.81, 800, 1100, 25, 165, 320, 16.6],
+        [7.81, 1020, 1280, 20, 165, 380, 16.6]
+      ],
+      "conditions": ["Solution annealed (1120°C)", "Solution + Aged (845°C/8h + 720°C/8h)"],
+      "ref_urls": [
+        "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-783.pdf"
+      ]
+    },
+    {
+      "name": "GRX-810 (NASA ODS Ni superalloy)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "LPBF",
+      "composition": { "Ni": "balance", "Cr": "30~34", "W": "13~15", "Co": "5~7", "Al": "3~5", "Y2O3": "0.4~0.6" },
+      "points": [
+        [8.4, 690, 1100, 18, 200, 350, 11.0],
+        [8.4, 820, 1240, 15, 200, 400, 11.0]
+      ],
+      "conditions": ["LPBF as-built (HIP)", "LPBF + Solution + Aged"],
+      "ref_urls": [
+        "https://www.nasa.gov/aeroresearch/nasa-grx-810-superalloy",
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=GRX-810"
+      ]
+    },
+    {
+      "name": "Rene 80 (cast Ni turbine superalloy)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Cast",
+      "composition": { "Ni": "balance", "Cr": "13~15", "Co": "9~10", "Mo": "3.5~4.5", "W": "3.5~4.5", "Al": "2.8~3.2", "Ti": "4.7~5.1" },
+      "points": [
+        [8.16, 850, 1050, 8, 210, 370, 11.0],
+        [8.16, 880, 1100, 6, 210, 385, 11.0]
+      ],
+      "conditions": ["Cast (conventional, fully heat-treated)", "Cast + HIP + Aged"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene%2080"
+      ]
+    },
+    {
+      "name": "CMSX-10 (single-crystal Ni superalloy)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Cast",
+      "composition": { "Ni": "balance", "Cr": "1.8~2.2", "Co": "2.8~3.2", "W": "4.8~5.2", "Mo": "0.3~0.5", "Re": "5.8~6.2", "Ta": "7.8~8.4", "Al": "5.5~6.0", "Ti": "0.1~0.3", "Hf": "0.02~0.06" },
+      "points": [
+        [9.05, 1000, 1170, 18, 124, 410, 11.5],
+        [9.05, 1050, 1230, 15, 124, 430, 11.5]
+      ],
+      "conditions": ["Single-crystal cast (solutioned)", "Single-crystal + Aged (1080°C/4h + 870°C/16h)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=CMSX-10"
+      ]
+    },
+    {
+      "name": "Hastelloy N (molten-salt reactor alloy)",
+      "category": "Metal",
+      "subcategory": "Nickel - Hastelloy",
+      "process": "Wrought",
+      "composition": { "Ni": "balance", "Mo": "15~18", "Cr": "6.0~8.0", "Fe": "≤5", "Mn": "≤1", "Si": "≤1", "C": "0.04~0.08" },
+      "points": [
+        [8.86, 280, 760, 50, 218, 180, 11.8],
+        [8.86, 310, 780, 45, 218, 195, 11.8]
+      ],
+      "conditions": ["Solution-annealed (1175°C WQ)", "Aged (704°C/100h)"],
+      "ref_urls": [
+        "https://haynesintl.com/en/alloy-portfolio/hastelloy-n",
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Hastelloy%20N"
+      ]
+    },
+    {
+      "name": "Ti-15-3-3-3 (β titanium, alias Ti-15V-3Cr-3Al-3Sn)",
+      "category": "Metal",
+      "subcategory": "Titanium",
+      "process": "Wrought",
+      "composition": { "Ti": "balance", "V": "14~16", "Cr": "2.5~3.5", "Al": "2.5~3.5", "Sn": "2.5~3.5" },
+      "points": [
+        [4.76, 800, 830, 22, 96, 290, 8.1],
+        [4.76, 1000, 1100, 10, 100, 360, 8.0],
+        [4.76, 1240, 1310, 6, 103, 410, 8.0]
+      ],
+      "conditions": ["Solution-treated (β-quenched)", "Sol. + Aged (480°C/8h)", "Sol. + Aged (540°C/8h)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-15-3"
+      ]
+    },
+    {
+      "name": "Ti CP Gr3 (ASTM B265 Grade 3)",
+      "category": "Metal",
+      "subcategory": "Titanium",
+      "process": "Wrought",
+      "composition": { "Ti": "balance", "Fe": "≤0.3", "O": "≤0.35", "N": "≤0.05", "C": "≤0.08" },
+      "points": [
+        [4.51, 380, 450, 18, 105, 200, 16],
+        [4.51, 460, 520, 16, 105, 220, 16]
+      ],
+      "conditions": ["Annealed (650°C)", "Cold-worked + Stress-relieved"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%203"
+      ]
+    },
+    {
+      "name": "AA 8090 (Al-Li, 1st-gen)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Lithium",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Li": "2.3~2.7", "Cu": "1.0~1.6", "Mg": "0.6~1.3", "Zr": "0.04~0.16" },
+      "points": [
+        [2.54, 290, 415, 8, 77, 130, 105],
+        [2.54, 415, 480, 5, 77, 145, 105]
+      ],
+      "conditions": ["T3 (sol. + cold-worked)", "T8 (sol. + cold-worked + aged)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA8090"
+      ]
+    },
+    {
+      "name": "AA 2090 (Al-Li-Cu)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Lithium",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Li": "1.9~2.6", "Cu": "2.4~3.0", "Zr": "0.08~0.15" },
+      "points": [
+        [2.59, 280, 440, 7, 76, 130, 88],
+        [2.59, 520, 580, 5, 76, 155, 88]
+      ],
+      "conditions": ["T3", "T83 (peak-aged)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2090"
+      ]
+    },
+    {
+      "name": "AA 5182 (Al-Mg high-Mg)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg Alloys (5xxx)",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Mg": "4.0~5.0", "Mn": "0.2~0.5" },
+      "points": [
+        [2.65, 130, 275, 22, 70, 75, 123],
+        [2.65, 235, 325, 12, 70, 90, 123],
+        [2.65, 285, 360, 8, 70, 105, 123]
+      ],
+      "conditions": ["O (annealed)", "H19 (full hard)", "H321 (strain-hardened + stabilized)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5182"
+      ]
+    },
+    {
+      "name": "AA 6082 (Al-Mg-Si, KR/EU extrusion)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Mg": "0.6~1.2", "Si": "0.7~1.3", "Mn": "0.4~1.0", "Fe": "≤0.5", "Cr": "≤0.25" },
+      "points": [
+        [2.70, 60, 130, 25, 70, 35, 180],
+        [2.70, 250, 295, 10, 70, 95, 180],
+        [2.70, 295, 340, 8, 70, 110, 180]
+      ],
+      "conditions": ["O (annealed)", "T6 (sol. + artificial aged)", "T651 (T6 + stress-relieved)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6082"
+      ]
+    },
+    {
+      "name": "AA 7475 (Al-Zn-Mg-Cu, high-toughness)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "process": "Wrought",
+      "composition": { "Al": "balance", "Zn": "5.2~6.2", "Mg": "1.9~2.6", "Cu": "1.2~1.9", "Cr": "0.18~0.25" },
+      "points": [
+        [2.81, 460, 525, 12, 70, 145, 142],
+        [2.81, 415, 480, 13, 70, 135, 142]
+      ],
+      "conditions": ["T651", "T7351 (over-aged, SCC-resistant)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA7475"
+      ]
+    },
+    {
+      "name": "AZ80 (Mg-Al-Zn)",
+      "category": "Metal",
+      "subcategory": "Magnesium",
+      "process": "Wrought",
+      "composition": { "Mg": "balance", "Al": "7.8~9.2", "Zn": "0.2~0.8", "Mn": "≥0.12" },
+      "points": [
+        [1.80, 200, 290, 12, 45, 65, 78],
+        [1.80, 250, 340, 7, 45, 80, 78]
+      ],
+      "conditions": ["F (as-extruded)", "T5 (extruded + aged)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ80"
+      ]
+    },
+    {
+      "name": "ZK60 (Mg-Zn-Zr, aerospace)",
+      "category": "Metal",
+      "subcategory": "Magnesium",
+      "process": "Wrought",
+      "composition": { "Mg": "balance", "Zn": "4.8~6.2", "Zr": "≥0.45" },
+      "points": [
+        [1.83, 195, 305, 11, 45, 60, 121],
+        [1.83, 260, 340, 9, 45, 82, 121]
+      ],
+      "conditions": ["T5 (as-extruded + aged)", "T6 (sol. + aged)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=ZK60"
+      ]
+    },
+    {
+      "name": "PA46 (Stanyl, high-temp polyamide)",
+      "category": "Polymer",
+      "subcategory": "Polymer - Polyamide (PA46)",
+      "process": "Injection-Molded",
+      "composition": {},
+      "points": [
+        [1.18, 90, 100, 40, 3.3, 0, 0.30],
+        [1.18, 100, 110, 35, 3.5, 0, 0.30]
+      ],
+      "conditions": ["Dry as-molded", "Conditioned (50% RH)"],
+      "ref_urls": [
+        "https://www.dsm.com/engineering-materials/en/products/stanyl.html"
+      ]
+    },
+    {
+      "name": "POM-H (Delrin, homopolymer acetal)",
+      "category": "Polymer",
+      "subcategory": "Polymer - Acetal (POM)",
+      "process": "Injection-Molded",
+      "composition": {},
+      "points": [
+        [1.42, 70, 75, 35, 3.1, 0, 0.31],
+        [1.42, 65, 70, 25, 3.0, 0, 0.31]
+      ],
+      "conditions": ["Dry as-molded (Delrin 100/500)", "Annealed"],
+      "ref_urls": [
+        "https://www.dupont.com/products/delrin.html"
+      ]
+    },
+    {
+      "name": "POM-C (Hostaform, copolymer acetal)",
+      "category": "Polymer",
+      "subcategory": "Polymer - Acetal (POM)",
+      "process": "Injection-Molded",
+      "composition": {},
+      "points": [
+        [1.41, 62, 68, 40, 2.7, 0, 0.31],
+        [1.41, 58, 64, 30, 2.6, 0, 0.31]
+      ],
+      "conditions": ["Dry as-molded", "Annealed"],
+      "ref_urls": [
+        "https://www.celanese.com/products/hostaform-pom-c.html"
+      ]
+    },
+    {
+      "name": "LCP Vectra A130 (Ticona, high-flow)",
+      "category": "Polymer",
+      "subcategory": "Polymer - LCP",
+      "process": "Injection-Molded",
+      "composition": {},
+      "points": [
+        [1.61, 160, 175, 3, 18, 0, 0.7],
+        [1.61, 170, 185, 2.5, 19, 0, 0.7]
+      ],
+      "conditions": ["Dry as-molded (GF30)", "Annealed"],
+      "ref_urls": [
+        "https://www.celanese.com/products/vectra.html"
+      ]
+    },
+    {
+      "name": "PSU Eviva (BASF clear PSU)",
+      "category": "Polymer",
+      "subcategory": "Polymer - Polysulfone (PSU)",
+      "process": "Injection-Molded",
+      "composition": {},
+      "points": [
+        [1.24, 70, 80, 60, 2.5, 0, 0.26],
+        [1.24, 68, 75, 50, 2.5, 0, 0.26]
+      ],
+      "conditions": ["Dry as-molded (clear grade)", "Annealed"],
+      "ref_urls": [
+        "https://www.basf.com/global/en/products/plastics/eviva.html"
+      ]
+    },
+    {
+      "name": "PA12-GF30 (Glass-filled Nylon 12)",
+      "category": "Polymer",
+      "subcategory": "Polymer - Polyamide (PA12)",
+      "process": "Injection-Molded",
+      "composition": {},
+      "points": [
+        [1.23, 85, 110, 6, 5.5, 0, 0.27],
+        [1.23, 90, 115, 5, 5.8, 0, 0.27]
+      ],
+      "conditions": ["Dry as-molded (30% GF)", "Conditioned (50% RH)"],
+      "ref_urls": [
+        "https://www.evonik.com/vestamid/pa12.html"
+      ]
+    },
+    {
+      "name": "Carbon-Phenolic (rocket nozzle composite)",
+      "category": "Composite",
+      "subcategory": "Composite - Carbon/Phenolic",
+      "process": "Filament-wound / Compression-molded",
+      "composition": {},
+      "points": [
+        [1.45, 140, 175, 1.4, 22, 0, 0.85],
+        [1.45, 110, 145, 1.0, 19, 0, 0.85]
+      ],
+      "conditions": ["Cured (warp direction)", "Cured (fill direction)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Carbon%20Phenolic"
+      ]
+    },
+    {
+      "name": "B4C-Al MMC (boron carbide / Al armor)",
+      "category": "Composite",
+      "subcategory": "Composite - Ceramic-Metal",
+      "process": "Powder-Metallurgy",
+      "composition": {},
+      "points": [
+        [2.55, 220, 300, 4, 110, 280, 90],
+        [2.55, 250, 340, 2, 115, 320, 90]
+      ],
+      "conditions": ["Pressed + sintered (B4C 20%)", "Pressed + sintered (B4C 40%)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=B4C%20aluminum%20composite"
+      ]
+    },
+    {
+      "name": "17-7 PH (UNS S17700, semi-austenitic PH)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - PH",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "16~18", "Ni": "6.5~7.75", "Al": "0.75~1.5", "Mn": "≤1", "Si": "≤1", "C": "≤0.09" },
+      "points": [
+        [7.81, 380, 1030, 35, 204, 200, 16.4],
+        [7.81, 1240, 1380, 6, 204, 415, 16.4],
+        [7.81, 1380, 1450, 5, 204, 470, 16.4]
+      ],
+      "conditions": ["Condition A (annealed)", "Condition TH1050", "Condition RH950"],
+      "ref_urls": [
+        "https://www.aksteel.com/our-products/stainless/17-7-PH",
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7%20PH"
+      ]
+    },
+    {
+      "name": "Custom 455 (Carpenter PH stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - PH",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Cr": "11~12.5", "Ni": "7.5~9.5", "Ti": "0.8~1.4", "Cu": "1.5~2.5", "Nb": "0.1~0.5" },
+      "points": [
+        [7.81, 760, 940, 14, 200, 280, 17.0],
+        [7.81, 1620, 1720, 8, 200, 480, 17.0],
+        [7.81, 1480, 1580, 10, 200, 450, 17.0]
+      ],
+      "conditions": ["Annealed", "H900 (peak-aged)", "H950"],
+      "ref_urls": [
+        "https://www.carpentertechnology.com/alloy-finder/custom-455"
+      ]
+    },
+    {
+      "name": "Carpenter A-286 (Fe-Ni-Cr aged)",
+      "category": "Metal",
+      "subcategory": "Iron-Nickel Superalloy",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "Ni": "24~27", "Cr": "13.5~16", "Mo": "1.0~1.5", "Ti": "1.9~2.35", "Al": "≤0.35", "V": "0.1~0.5" },
+      "points": [
+        [7.94, 590, 900, 25, 201, 250, 12.6],
+        [7.94, 680, 1000, 18, 201, 290, 12.6],
+        [7.94, 800, 1100, 15, 201, 320, 12.6]
+      ],
+      "conditions": ["Solution treated (980°C)", "Sol. + Aged (720°C/16h)", "Sol. + Aged (650°C/16h)"],
+      "ref_urls": [
+        "https://www.carpentertechnology.com/alloy-finder/a-286",
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=A286"
+      ]
+    },
+    {
+      "name": "Allvac 718Plus (high-temp 718 variant)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "17~21", "Fe": "8~10", "Co": "8~10", "Nb": "5.2~5.8", "Mo": "2.5~3.1", "W": "0.9~1.4", "Ti": "0.5~1.0", "Al": "1.2~1.7" },
+      "points": [
+        [8.28, 750, 1050, 30, 209, 280, 11.4],
+        [8.28, 1180, 1430, 18, 209, 410, 11.4]
+      ],
+      "conditions": ["Solution annealed (970°C)", "Sol. + Double-aged (full STA)"],
+      "ref_urls": [
+        "https://www.atimetals.com/Products/Documents/datasheets/nickel-cobalt/superalloys/718plus.pdf"
+      ]
+    },
+    {
+      "name": "PA12 (Nylon 12) - GF50 high-stiffness",
+      "category": "Polymer",
+      "subcategory": "Polymer - Polyamide (PA12)",
+      "process": "Injection-Molded",
+      "composition": {},
+      "points": [
+        [1.41, 130, 160, 3, 11.5, 0, 0.32],
+        [1.41, 110, 140, 2, 10.5, 0, 0.32]
+      ],
+      "conditions": ["Dry as-molded (50% GF)", "Conditioned (50% RH)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=PA12%20GF50"
+      ]
+    },
+    {
+      "name": "Inconel 740H (USC boiler superalloy)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Wrought",
+      "composition": { "Ni": "balance", "Cr": "24~26", "Co": "19~21", "Nb": "1.4~1.7", "Ti": "1.3~1.6", "Al": "1.2~1.5", "Mo": "0.1~0.3", "C": "0.02~0.06" },
+      "points": [
+        [8.05, 620, 1050, 32, 221, 280, 11.0],
+        [8.05, 850, 1170, 22, 221, 340, 11.0]
+      ],
+      "conditions": ["Solution treated (1135°C)", "Sol. + Aged (800°C/16h)"],
+      "ref_urls": [
+        "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf"
+      ]
+    },
+    {
+      "name": "Ta-2.5W (tantalum-tungsten alloy)",
+      "category": "Metal",
+      "subcategory": "Refractory Metal",
+      "process": "Wrought",
+      "composition": { "Ta": "balance", "W": "2.0~3.5" },
+      "points": [
+        [16.8, 240, 345, 25, 200, 130, 54],
+        [16.8, 400, 480, 12, 200, 170, 54]
+      ],
+      "conditions": ["Annealed", "Cold-worked"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=Ta-2.5W"
+      ]
+    },
+    {
+      "name": "OFE Copper C10100 (oxygen-free electronic)",
+      "category": "Metal",
+      "subcategory": "Copper - Pure/Other",
+      "process": "Wrought",
+      "composition": { "Cu": "≥99.99" },
+      "points": [
+        [8.94, 70, 220, 50, 117, 50, 391],
+        [8.94, 300, 345, 8, 117, 100, 391]
+      ],
+      "conditions": ["Annealed (O60)", "Cold-rolled (H04)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=C10100"
+      ]
+    },
+    {
+      "name": "AISI 4140 (Cr-Mo, alias 42CrMo4)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "balance", "C": "0.38~0.43", "Cr": "0.8~1.1", "Mo": "0.15~0.25", "Mn": "0.75~1.0", "Si": "0.15~0.35" },
+      "points": [
+        [7.85, 415, 655, 26, 205, 197, 42.6],
+        [7.85, 660, 1020, 18, 205, 300, 42.6],
+        [7.85, 1240, 1410, 9, 205, 415, 42.6]
+      ],
+      "conditions": ["Annealed", "Normalized", "Q+T (200°C, full hard)"],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%204140"
+      ]
     }
   ]
 }
