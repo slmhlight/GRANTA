@@ -16,6 +16,8 @@ import { recommendedCoatings } from '@/lib/coatings';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
+import { useState as useStateRD } from 'react';
+import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
 
 interface MaterialDetailProps {
   material: Material | null;
@@ -24,6 +26,8 @@ interface MaterialDetailProps {
   onClose: () => void;
   dragHandleProps?: { onPointerDown?: (e: any) => void }; // when floating, makes the header a drag handle
   floating?: boolean;
+  /** R53a — Radar normalize 에 사용할 전체 dataset. 없으면 'set' base 만 동작. */
+  allMaterials?: Material[];
 }
 
 const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
@@ -173,8 +177,26 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating }: MaterialDetailProps) {
+export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating, allMaterials }: MaterialDetailProps) {
   const t = useT();
+  // R53a — Radar axes + normalize base (localStorage 저장)
+  const [radarAxes, setRadarAxes] = useStateRD<RadarAxis[]>(() => {
+    try {
+      const s = localStorage.getItem('am_radar_axes');
+      if (s) { const parsed = JSON.parse(s); if (Array.isArray(parsed) && parsed.length >= 3) return parsed; }
+    } catch { /* ignore */ }
+    return DEFAULT_RADAR_AXES;
+  });
+  const [radarBase, setRadarBase] = useStateRD<NormalizeBase>(() => {
+    try {
+      const s = localStorage.getItem('am_radar_base');
+      if (s === 'category' || s === 'family2' || s === 'family3') return s as NormalizeBase;
+    } catch { /* ignore */ }
+    return 'family3';
+  });
+  const updateAxes = (a: RadarAxis[]) => { setRadarAxes(a); try { localStorage.setItem('am_radar_axes', JSON.stringify(a)); } catch { /* ignore */ } };
+  const updateBase = (b: NormalizeBase) => { setRadarBase(b); try { localStorage.setItem('am_radar_base', b); } catch { /* ignore */ } };
+
   if (!material) return null;
 
   const isCompared = compareList.includes(material.id);
@@ -230,6 +252,28 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
 
           {/* Properties */}
           <TabsContent value="properties" className="p-4 space-y-4">
+            {/* R53a — Radar chart (단일 alloy, normalize base 선택). 모바일·데스크탑 가로 정렬. */}
+            <div className="rounded border border-border/50 bg-muted/10 p-3 flex flex-col sm:flex-row sm:items-start sm:gap-4">
+              <div className="flex-shrink-0">
+                <RadarChart
+                  series={[{ id: material.id, name: material.name, color: familyColor(material), material }]}
+                  axes={radarAxes}
+                  allMaterials={allMaterials}
+                  normalizeBase={radarBase === 'set' ? 'family3' : radarBase}
+                  size={200}
+                />
+              </div>
+              <div className="flex-1 mt-2 sm:mt-0">
+                <p className="text-[11px] font-semibold text-foreground/80 mb-1">{material.name} — 다축 성능</p>
+                <p className="text-[10px] text-muted-foreground mb-2">각 축은 normalize base 안에서 0~1 점수 (1 = base 내 최고). 축 / 정규화 기준은 ⚙ 버튼에서 변경.</p>
+                <RadarConfig
+                  axes={radarAxes}
+                  onAxesChange={updateAxes}
+                  normalizeBase={radarBase === 'set' ? 'family3' : radarBase}
+                  onNormalizeChange={updateBase}
+                />
+              </div>
+            </div>
             <p className="text-[10px] text-muted-foreground/60 -mt-1">Value = typical · sub-line = min–max across {meta.vendor_count ? `${meta.vendor_count} vendors` : 'conditions'}</p>
             {/* 신뢰도 뱃지 범례 */}
             <div className="rounded border border-border/50 bg-muted/20 p-2 text-[10px] flex flex-wrap gap-x-3 gap-y-1">

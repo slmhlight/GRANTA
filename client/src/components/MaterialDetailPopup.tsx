@@ -15,11 +15,14 @@ export function MaterialDetailPopup({
   compareList,
   onToggleCompare,
   onClose,
+  allMaterials,
 }: {
   material: Material | null;
   compareList: string[];
   onToggleCompare: (id: string) => void;
   onClose: () => void;
+  /** R53a — Radar 정규화 base 에 사용. */
+  allMaterials?: Material[];
 }) {
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const [isDesktop, setIsDesktop] = useState(
@@ -59,7 +62,7 @@ export function MaterialDetailPopup({
   if (!isDesktop) {
     return (
       <div className="fixed inset-0 z-50 bg-background">
-        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} />
+        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} allMaterials={allMaterials} />
       </div>
     );
   }
@@ -81,6 +84,7 @@ export function MaterialDetailPopup({
         onClose={onClose}
         floating
         dragHandleProps={{ onPointerDown: startDrag }}
+        allMaterials={allMaterials}
       />
     </div>
   );

@@ -6,13 +6,14 @@
 
 import { useState, useMemo, useRef } from 'react';
 import { useT, useLang } from '@/lib/i18n';
-import { X, SlidersHorizontal, ArrowUp, ArrowDown, Download, FileImage } from 'lucide-react';
+import { X, SlidersHorizontal, ArrowUp, ArrowDown, Download, FileImage, Hexagon, Table as TableIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import type { Material, PropertyRange } from '@/lib/materials';
 import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import { familyColor, propColor } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
+import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis } from '@/components/RadarChart';
 // R21: Compare 패널에서 온도-강도 그래프 제거. MaterialDetail 의 단일 차트만 유지.
 
 const PALETTE = ['#0066CC', '#dc2626', '#16a34a', '#9333ea', '#ea580c', '#0891b2', '#ca8a04', '#db2777', '#4f46e5', '#65a30d'];
@@ -41,6 +42,18 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   // R50d — export 대상 (table) ref + busy state.
   const tableRef = useRef<HTMLDivElement>(null);
   const [exporting, setExporting] = useState(false);
+  // R53a — Radar view mode (table | radar) + radar axes + focus
+  const [viewMode, setViewMode] = useState<'table' | 'radar'>('table');
+  const [radarAxes, setRadarAxes] = useState<RadarAxis[]>(() => {
+    try { const s = localStorage.getItem('am_radar_axes'); if (s) { const p = JSON.parse(s); if (Array.isArray(p) && p.length >= 3) return p; } } catch { /* ignore */ }
+    return DEFAULT_RADAR_AXES;
+  });
+  const [focusedId, setFocusedId] = useState<string | null>(null);
+  const RADAR_MAX = 20;
+  const radarDisabled = materials.length > RADAR_MAX;
+  const updateRadarAxes = (a: RadarAxis[]) => { setRadarAxes(a); try { localStorage.setItem('am_radar_axes', JSON.stringify(a)); } catch { /* ignore */ } };
+  // PALETTE - 색상 풀
+  const COLORS = ['#0066CC', '#dc2626', '#16a34a', '#9333ea', '#ea580c', '#0891b2', '#ca8a04', '#db2777', '#4f46e5', '#65a30d', '#06b6d4', '#a855f7', '#f59e0b', '#ef4444', '#10b981', '#3b82f6', '#f97316', '#8b5cf6', '#22c55e', '#eab308'];
   const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
   const [sort, setSort] = useState<Sort>(null);
   // R21: tempSeries 제거. 사용자 요청 — Compare 패널에 온도 그래프 불필요.
@@ -154,6 +167,20 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+          {/* R53a — Radar 모드 토글 (material 2개+ , 20개 이하 일 때만 활성) */}
+          {materials.length > 0 && (
+            <Button
+              variant={viewMode === 'radar' ? 'default' : 'outline'}
+              size="sm"
+              className="h-7 text-xs gap-1"
+              onClick={() => setViewMode(v => v === 'radar' ? 'table' : 'radar')}
+              disabled={radarDisabled}
+              title={radarDisabled ? `Radar 비활성 — ${materials.length} > ${RADAR_MAX} 개 (overlay 너무 복잡)` : viewMode === 'radar' ? 'Table 로 전환' : 'Radar 오버레이로 전환'}
+            >
+              {viewMode === 'radar' ? <TableIcon className="w-3 h-3" /> : <Hexagon className="w-3 h-3" />}
+              {viewMode === 'radar' ? 'Table' : 'Radar'}
+            </Button>
+          )}
           {/* R50d — CSV / PNG export 버튼 (material 1개 이상 일 때만) */}
           {materials.length > 0 && (
             <>
@@ -180,8 +207,40 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
 
       <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">{t('compare.hint')}</p>
 
+      {/* R53a — Radar overlay 모드 (viewMode === 'radar'). Compare 의 모든 alloy 가 같은 radar 위에 overlay.
+           legend 클릭 시 focus mode (선택 1.0 / 나머지 0.15). 다시 클릭하면 해제. */}
+      {viewMode === 'radar' && materials.length > 0 && !radarDisabled && (
+        <div ref={tableRef} className="flex-1 overflow-auto p-4 flex flex-col items-center gap-3">
+          <RadarConfig
+            axes={radarAxes}
+            onAxesChange={updateRadarAxes}
+            normalizeBase={'set'}
+            onNormalizeChange={() => {/* Compare 는 set 만 사용 */}}
+            isCompareSet
+          />
+          <RadarChart
+            series={sortedMaterials.map((m, i) => ({ id: m.id, name: m.name, color: COLORS[i % COLORS.length], material: m }))}
+            axes={radarAxes}
+            normalizeBase="set"
+            size={Math.min(400, window.innerWidth - 64)}
+            focusedId={focusedId}
+            onLegendClick={(id) => setFocusedId(prev => prev === id ? null : id)}
+          />
+          {focusedId && (
+            <button
+              type="button"
+              onClick={() => setFocusedId(null)}
+              className="text-[11px] text-accent hover:underline"
+            >
+              focus 해제 (모두 표시)
+            </button>
+          )}
+        </div>
+      )}
+
       {/* Comparison table: rows = materials, columns = properties.
        *   R29: sticky thead 배경 문제 fix — 모든 th 에 bg-card (이전엔 첫 th 만 bg-muted, 나머지 투명 → 스크롤 시 row 데이터 비침). */}
+      {viewMode === 'table' && (
       <div ref={tableRef} className="flex-1 overflow-auto">
         <table className="text-xs border-collapse min-w-full">
           <thead className="sticky top-0 z-10">
@@ -272,8 +331,18 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
         {materials.length === 0 && (
           <p className="text-xs text-muted-foreground italic p-4 text-center">Select materials to compare (up to 30).</p>
         )}
-        {/* R21: 온도-강도 그래프 제거 (MaterialDetail 의 단일 재료 차트만 유지). */}
       </div>
+      )}
+      {/* R53a — Radar 비활성 안내 (20+ alloy 일 때) */}
+      {viewMode === 'radar' && radarDisabled && (
+        <div className="flex-1 flex items-center justify-center text-center p-4">
+          <div className="text-xs text-muted-foreground">
+            <p className="mb-1">Radar 오버레이는 <b>최대 {RADAR_MAX}개</b> 까지 지원</p>
+            <p>현재 Compare 에 {materials.length}개 alloy 가 있습니다.</p>
+            <p>몇 개 제거 후 다시 시도해 주세요.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

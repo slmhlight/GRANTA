@@ -1084,6 +1084,7 @@ export default function Home() {
           compareList={compareList}
           onToggleCompare={handleToggleCompare}
           onClose={() => setSelectedMaterial(null)}
+          allMaterials={materials}
         />
       </div>
 
