@@ -88,16 +88,15 @@ Generated from `material_db.json` (46 curated) + `AM_Materials_DB_enriched.csv` 
 
 ## R48a — Anomaly Detection
 
-Total: **330** — high 0 / medium 0 / low 330
+Total: **327** — high 0 / medium 0 / low 327
 
 ### By kind
 | Kind | Count |
 |---|---|
 | no verified source URL | 326 |
-| Ni Superalloy E out of [185, 235] GPa | 3 |
 | Steel family E out of [175, 225] GPa | 1 |
 
-### LOW severity (showing 10 / 330)
+### LOW severity (showing 10 / 327)
 | Material | Kind | Detail |
 |---|---|---|
 | Ti5-8-5 — As-supplied (LPBF) | no verified source URL |  |

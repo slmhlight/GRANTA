@@ -2588,7 +2588,9 @@ function detectAnomalies(all) {
       if (/^Aluminum/.test(sub) && (E < 55 || E > 85)) push('low', 'Aluminum E out of [55, 85] GPa', m, `${E}`);
       else if (/^Titanium/.test(sub) && (E < 85 || E > 135)) push('low', 'Titanium E out of [85, 135] GPa', m, `${E}`);
       else if (/Stainless Steel|Carbon Steel|Alloy Steel|Tool Steel|Maraging/.test(sub) && (E < 175 || E > 225)) push('low', 'Steel family E out of [175, 225] GPa', m, `${E}`);
-      else if (/Nickel Superalloy/.test(sub) && (E < 185 || E > 235)) push('low', 'Ni Superalloy E out of [185, 235] GPa', m, `${E}`);
+      // R71 B — Monel(Ni-Cu) · single-crystal(SX) · low-CTE Ni-Co (Inconel 783, Incoloy 909) · ODS 는 특수 합금 →
+      //   E threshold 다름. 정상 분류이므로 anomaly 제외.
+      else if (/Nickel Superalloy/.test(sub) && !/monel|cmsx|rene n|pwa14|ma754|ods|incoloy 909|inconel 783|single-crystal/i.test(m.name) && (E < 185 || E > 235)) push('low', 'Ni Superalloy E out of [185, 235] GPa', m, `${E}`);
       else if (/^Copper Alloy/.test(sub) && (E < 95 || E > 145)) push('low', 'Cu Alloy E out of [95, 145] GPa', m, `${E}`);
       else if (/Magnesium/.test(sub) && (E < 40 || E > 50)) push('low', 'Mg E out of [40, 50] GPa', m, `${E}`);
     }
