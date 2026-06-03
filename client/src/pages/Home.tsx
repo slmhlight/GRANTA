@@ -767,6 +767,19 @@ export default function Home() {
           </TooltipTrigger>
           <TooltipContent side="bottom" className="text-xs">{lang === 'en' ? 'Onboarding tour (5 steps)' : '온보딩 다시 보기 (5단계)'}</TooltipContent>
         </Tooltip>
+        {/* R67 Sprint B — Engineering Tools link. 6 계산기 페이지. */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Link
+              href="/tools"
+              className="h-7 px-2 flex items-center gap-1 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
+            >
+              <span className="hidden lg:inline">Tools</span>
+              <span className="lg:hidden">⚙</span>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" className="text-xs">Engineering Tools — Kt · Galvanic · Buckling · CTE · Hardness · Pressure</TooltipContent>
+        </Tooltip>
 
         {/* 가이드 — 시트로 빠른 열람 + 사례 시작 (R18: controlled state — 사례 tile 클릭 시 자동 닫김) */}
         <Sheet open={guideHeaderOpen} onOpenChange={setGuideHeaderOpen}>
