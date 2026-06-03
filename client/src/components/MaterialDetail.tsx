@@ -124,21 +124,21 @@ function SourcesList({ sources }: { sources: MaterialSource[] }) {
   );
 }
 
-/* R76 — 원소별 색상 매핑 (CPK + handbook 관습 mix). 누락 원소는 안정 해시 HSL 폴백. */
+/* R76 — 원소별 색상 매핑 (CPK + handbook 관습 mix). R84 — 채도 ↑ (38% → 50%), 명도 살짝 ↓ 로 인접 원소 구분성 강화. */
 const ELEMENT_COLORS: Record<string, string> = {
-  Fe: '#6e7785', Cr: '#7fb1d4', Ni: '#a7c4a0', C: '#4a4a4a', Mn: '#9a7bc2',
-  Si: '#d4c574', Cu: '#c87f47', Al: '#bfc4cc', Ti: '#aeb7c2', V: '#d48fb3',
-  Mo: '#8b6db5', W: '#3a3a3a', Co: '#6b8fbe', Nb: '#7bb8b0', Ta: '#7d8088',
-  Mg: '#9ec896', Zn: '#b8b9c0', Sn: '#b4b6c4', N: '#a8d4e0', P: '#e0a168',
-  S:  '#e8d56b', B: '#e4a8b8', Y: '#dca0b8', Zr: '#a3a8b0', O: '#e87a7a',
-  Ag: '#d4d4dc', Hf: '#94989f', Li: '#d9b885', La: '#c8a8e0', Ce: '#d0b8e8',
-  Re: '#7a7e88', Pb: '#7e8492', Be: '#a7d4a8', Bi: '#8b7da0', Cd: '#cab87a',
-  Ga: '#a89db8', In: '#9aa3ad', Pt: '#bcc0c4', Pd: '#a8b0b8', Au: '#e8c878',
+  Fe: '#5a6473', Cr: '#5fa3d8', Ni: '#8fbd86', C: '#3a3a3a', Mn: '#8a5fc4',
+  Si: '#d4be4f', Cu: '#cf6f2e', Al: '#a5acba', Ti: '#9aa4b3', V: '#d870a5',
+  Mo: '#7a4fb8', W: '#2a2a2a', Co: '#4f7fbd', Nb: '#5aada3', Ta: '#646872',
+  Mg: '#80c075', Zn: '#a7a8b3', Sn: '#9da0b5', N: '#7fcbd9', P: '#e08c44',
+  S:  '#e8c83a', B: '#dc8aa4', Y: '#d089a8', Zr: '#8c92a0', O: '#e35a5a',
+  Ag: '#c8cdda', Hf: '#828891', Li: '#daa05f', La: '#bb88dc', Ce: '#c89edb',
+  Re: '#666c78', Pb: '#697080', Be: '#85c89e', Bi: '#7560a0', Cd: '#cab045',
+  Ga: '#a087c0', In: '#828a98', Pt: '#aab0b8', Pd: '#94a0a8', Au: '#e8b840',
 };
 function elementColor(el: string): string {
   if (ELEMENT_COLORS[el]) return ELEMENT_COLORS[el];
   let h = 0; for (let i = 0; i < el.length; i++) h = (h * 31 + el.charCodeAt(i)) | 0;
-  return `hsl(${Math.abs(h) % 360}, 38%, 62%)`;
+  return `hsl(${Math.abs(h) % 360}, 50%, 55%)`;
 }
 /* "16.0~18.0" → 17.0, "≤2" → 2, "≥58" → 58, "0.25" → 0.25, "balance" / "trace" → null. */
 function parseCompValue(raw: unknown): number | null {
@@ -360,13 +360,13 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
 
         <Tabs defaultValue="properties" className="w-full">
           <TabsList className="w-full justify-start rounded-none border-b border-border/50 bg-transparent p-0 h-auto">
-            <TabsTrigger value="properties" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-transparent px-3 py-2">
+            <TabsTrigger value="properties" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-accent/5 data-[state=active]:text-accent data-[state=active]:font-semibold px-3 py-2">
               <Layers className="w-3 h-3 mr-1" />{t('detail.properties')}
             </TabsTrigger>
-            <TabsTrigger value="composition" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-transparent px-3 py-2">
+            <TabsTrigger value="composition" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-accent/5 data-[state=active]:text-accent data-[state=active]:font-semibold px-3 py-2">
               <Atom className="w-3 h-3 mr-1" />{t('detail.composition')}
             </TabsTrigger>
-            <TabsTrigger value="process" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-transparent px-3 py-2">
+            <TabsTrigger value="process" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-accent/5 data-[state=active]:text-accent data-[state=active]:font-semibold px-3 py-2">
               <Wrench className="w-3 h-3 mr-1" />{t('detail.process')}
             </TabsTrigger>
           </TabsList>

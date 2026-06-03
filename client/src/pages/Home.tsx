@@ -698,31 +698,29 @@ export default function Home() {
           </button>
         )}
 
-        {/* Stats chips — R46: Ceramic/Composite 추가. AM 별도 chip 유지 (공정 — category 와 직교). */}
-        <div className="hidden md:flex items-center gap-2 flex-wrap">
-          <span className="text-[11px] text-sidebar-foreground/60">
-            <span className="font-mono font-semibold text-white">{materials.length.toLocaleString()}</span> {t('header.materials')}
-          </span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded bg-[oklch(0.62_0.17_220_/_0.3)] text-[oklch(0.72_0.14_220)] font-medium">
-            {metalCount.toLocaleString()} Metal
-          </span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded bg-[oklch(0.55_0.15_145_/_0.3)] text-[oklch(0.65_0.15_145)] font-medium">
-            {polymerCount.toLocaleString()} Polymer
-          </span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/30 text-amber-300 font-medium">
-            {ceramicCount} Ceramic
-          </span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded bg-violet-500/30 text-violet-300 font-medium">
-            {compositeCount} Composite
-          </span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded bg-[oklch(0.65_0.18_60_/_0.3)] text-[oklch(0.75_0.18_60)] font-medium">
-            {amCount} AM
-          </span>
-        </div>
+        {/* Stats — R82: 5색 chip 산만함 → 단일 텍스트 + hover tooltip breakdown 으로 통일. */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button className="hidden md:flex h-7 px-2.5 items-center gap-1.5 text-[11px] rounded border border-sidebar-border/60 text-sidebar-foreground/70 hover:text-white hover:border-sidebar-border transition-colors cursor-default">
+              <Database className="w-3 h-3 text-sidebar-foreground/50" />
+              <span className="font-mono font-semibold text-white">{materials.length.toLocaleString()}</span>
+              <span className="text-sidebar-foreground/50">{t('header.materials')}</span>
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" className="text-xs">
+            <div className="space-y-0.5 font-mono">
+              <div className="flex justify-between gap-3"><span className="text-foreground/70">Metal</span><span>{metalCount.toLocaleString()}</span></div>
+              <div className="flex justify-between gap-3"><span className="text-foreground/70">Polymer</span><span>{polymerCount.toLocaleString()}</span></div>
+              <div className="flex justify-between gap-3"><span className="text-foreground/70">Ceramic</span><span>{ceramicCount}</span></div>
+              <div className="flex justify-between gap-3"><span className="text-foreground/70">Composite</span><span>{compositeCount}</span></div>
+              <div className="flex justify-between gap-3 pt-0.5 border-t border-border/30 mt-0.5"><span className="text-foreground/70">AM process</span><span>{amCount}</span></div>
+            </div>
+          </TooltipContent>
+        </Tooltip>
 
         {/* Search — R49c: 모바일 기본 icon-only, 클릭 시 헤더 전체로 확장. 데스크탑은 항상 input. R81: 모바일 icon 은 헤더 왼쪽으로 분리됐고, 여기는 펼침 상태 input + 데스크탑 input 만 담당. */}
         <div className="flex-1 ml-auto mr-2 flex items-center justify-end min-w-0">
-          <div className={`relative w-full max-w-md ${searchOpen ? 'block' : 'hidden md:block'}`}>
+          <div className={`relative w-full max-w-md transition-all duration-200 ease-out ${searchOpen ? 'block opacity-100' : 'hidden md:block md:opacity-100'}`}>
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-sidebar-foreground/40 pointer-events-none" />
             <Input
               data-search-input="1"
@@ -769,7 +767,7 @@ export default function Home() {
         </div>
 
         {/* View mode toggle */}
-        <div className="flex items-center gap-0.5 bg-[oklch(0.28_0.06_250)] rounded-md p-0.5">
+        <div className="flex items-center gap-0.5 bg-[oklch(0.16_0.045_250)] rounded-md p-0.5 ring-1 ring-inset ring-sidebar-border/40 shadow-[inset_0_1px_2px_rgba(0,0,0,0.25)]">
           {([
             { mode: 'table' as ViewMode, icon: Table2, label: 'Table' },
             { mode: 'cards' as ViewMode, icon: LayoutGrid, label: 'Cards' },
@@ -832,8 +830,8 @@ export default function Home() {
               href="/tools"
               className="h-7 px-2 flex items-center gap-1 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
             >
+              <Wrench className="w-3.5 h-3.5" />
               <span className="hidden lg:inline">Tools</span>
-              <Wrench className="w-3.5 h-3.5 lg:hidden" />
             </Link>
           </TooltipTrigger>
           <TooltipContent side="bottom" className="text-xs">Engineering Tools — Kt · Galvanic · Buckling · CTE · Hardness · Pressure</TooltipContent>
@@ -1430,9 +1428,10 @@ export default function Home() {
         </button>
         <button
           onClick={() => setViewMode(viewMode === 'table' ? 'ashby' : viewMode === 'ashby' ? 'cards' : 'table')}
-          className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors"
+          className="relative flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-accent hover:bg-accent/5 transition-colors"
           title="다음 뷰로 전환"
         >
+          <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent" aria-hidden />
           {viewMode === 'table' ? <Table2 className="w-4 h-4" /> : viewMode === 'ashby' ? <BarChart3 className="w-4 h-4" /> : <LayoutGrid className="w-4 h-4" />}
           {viewMode === 'table' ? 'Table' : viewMode === 'ashby' ? 'Ashby' : 'Cards'}
         </button>
@@ -1501,79 +1500,53 @@ export default function Home() {
             <SheetHeader>
               <SheetTitle className="flex items-center gap-2"><Settings className="w-4 h-4 text-accent" /> Settings</SheetTitle>
             </SheetHeader>
-            <div className="mt-4 space-y-3 text-sm">
-              {/* 언어 */}
-              <div className="rounded border border-border p-3">
-                <p className="text-[11px] font-semibold text-foreground/80 mb-2">{lang === 'ko' ? '언어 · Language' : 'Language · 언어'}</p>
-                <div className="grid grid-cols-2 gap-1.5">
+            {/* R83 — row layout: 라벨(좌) + toggle group(우) 한 줄. 카드 3개 분리보다 자연스러움. */}
+            <div className="mt-4 rounded border border-border divide-y divide-border/60">
+              {/* 언어 row */}
+              <div className="flex items-center justify-between px-3 py-3 gap-3">
+                <span className="text-xs font-medium text-foreground/80 flex-shrink-0">{lang === 'ko' ? '언어' : 'Language'}</span>
+                <div className="flex gap-0.5 bg-muted/40 rounded p-0.5 ring-1 ring-inset ring-border/40">
                   <button
                     onClick={() => setLang('ko')}
-                    className={`h-9 rounded border text-xs font-semibold transition-colors ${lang === 'ko' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-border hover:border-accent/60'}`}
+                    className={`h-7 px-3 rounded text-xs font-semibold transition-all ${lang === 'ko' ? 'bg-accent text-white shadow-sm' : 'text-foreground/60 hover:text-foreground'}`}
                   >한국어</button>
                   <button
                     onClick={() => setLang('en')}
-                    className={`h-9 rounded border text-xs font-semibold transition-colors ${lang === 'en' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-border hover:border-accent/60'}`}
+                    className={`h-7 px-3 rounded text-xs font-semibold transition-all ${lang === 'en' ? 'bg-accent text-white shadow-sm' : 'text-foreground/60 hover:text-foreground'}`}
                   >English</button>
                 </div>
               </div>
-              {/* 단위 */}
-              <div className="rounded border border-border p-3">
-                <p className="text-[11px] font-semibold text-foreground/80 mb-2">{lang === 'ko' ? '단위 · Units' : 'Units · 단위'}</p>
-                <div className="grid grid-cols-2 gap-1.5">
+              {/* 단위 row */}
+              <div className="flex items-center justify-between px-3 py-3 gap-3">
+                <span className="text-xs font-medium text-foreground/80 flex-shrink-0">{lang === 'ko' ? '단위' : 'Units'}</span>
+                <div className="flex gap-0.5 bg-muted/40 rounded p-0.5 ring-1 ring-inset ring-border/40">
                   <button
                     onClick={() => unitSystem !== 'si' && toggleUnitSystem()}
-                    className={`h-9 rounded border text-xs font-semibold transition-colors ${unitSystem === 'si' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-border hover:border-accent/60'}`}
-                  >SI<span className="block text-[9px] opacity-70 font-normal">MPa·°C·g/cm³</span></button>
+                    className={`h-7 px-3 rounded text-xs font-semibold transition-all ${unitSystem === 'si' ? 'bg-accent text-white shadow-sm' : 'text-foreground/60 hover:text-foreground'}`}
+                  >SI</button>
                   <button
                     onClick={() => unitSystem !== 'imperial' && toggleUnitSystem()}
-                    className={`h-9 rounded border text-xs font-semibold transition-colors ${unitSystem === 'imperial' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-border hover:border-accent/60'}`}
-                  >Imperial<span className="block text-[9px] opacity-70 font-normal">ksi·°F·lb/in³</span></button>
+                    className={`h-7 px-3 rounded text-xs font-semibold transition-all ${unitSystem === 'imperial' ? 'bg-accent text-white shadow-sm' : 'text-foreground/60 hover:text-foreground'}`}
+                  >Imperial</button>
                 </div>
               </div>
-              {/* 온보딩 */}
-              <div className="rounded border border-border p-3">
-                <p className="text-[11px] font-semibold text-foreground/80 mb-2">{lang === 'ko' ? '도움말 · 다시 보기' : 'Help · Replay'}</p>
-                <button
-                  onClick={() => setTourOpen(true)}
-                  className="w-full h-9 rounded border border-accent/40 text-accent hover:bg-accent/10 text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
-                >
-                  <span className="inline-block w-4 h-4 rounded-full border border-accent text-[10px] leading-[14px] text-center font-bold">?</span>
+              {/* 온보딩 row */}
+              <button
+                onClick={() => setTourOpen(true)}
+                className="w-full flex items-center justify-between px-3 py-3 gap-3 hover:bg-muted/30 transition-colors"
+              >
+                <span className="text-xs font-medium text-foreground/80 flex items-center gap-2">
+                  <span className="inline-flex w-4 h-4 rounded-full border border-accent text-[10px] leading-[14px] items-center justify-center font-bold text-accent">?</span>
                   {lang === 'ko' ? '온보딩 다시 보기 (5단계)' : 'Onboarding tour (5 steps)'}
-                </button>
-              </div>
+                </span>
+                <ChevronRight className="w-3 h-3 text-muted-foreground/60" />
+              </button>
             </div>
           </SheetContent>
         </Sheet>
       </nav>
 
-      {/* ─── Status Bar (desktop 만 노출) ─── */}
-      <footer className="hidden md:flex flex-shrink-0 h-6 items-center justify-between px-4 border-t border-border bg-muted/30">
-        <div className="flex items-center gap-3 flex-wrap">
-          <span className="text-[10px] text-muted-foreground">
-            AM Materials Explorer · Granta-Style Database
-          </span>
-          <span className="text-[10px] text-muted-foreground/50">
-            {materials.length.toLocaleString()} materials · min–max ranges · cited sources
-          </span>
-          {/* R69 A — build last-updated 표시 */}
-          {buildMeta?.buildDate && (
-            <span className="text-[10px] text-muted-foreground/60" title={`Build time: ${(buildMeta as any).buildTime || ''}`}>
-              · Data updated <b className="text-foreground/70">{buildMeta.buildDate}</b>
-            </span>
-          )}
-        </div>
-        <div className="flex items-center gap-2">
-          {compareList.length > 0 && (
-            <button
-              className="text-[10px] text-accent hover:underline"
-              onClick={handleOpenCompare}
-            >
-              {compareList.length} selected for comparison
-            </button>
-          )}
-          <span className="text-[10px] text-muted-foreground/40 font-mono">v1.0</span>
-        </div>
-      </footer>
+      {/* R85 — Status bar 제거 (사용자 요청). 가독성 낮은 10px gray 줄이 1 줄 공간 차지하던 footer. build date 정보는 Detail 패널 footer / Tools 페이지에서 노출. */}
     </div>
   );
 }

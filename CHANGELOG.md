@@ -2,6 +2,25 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R82-R85 — UI 심미성 4-라운드 폴리시
+**R82 (P0 헤더)** — 데스크탑 헤더 시각적 noise 줄임.
+- Stats 5색 chip (`Metal blue · Polymer green · Ceramic amber · Composite violet · AM orange`) → 단일 `Database 1,168 materials` 버튼 + tooltip 안에 breakdown 정렬
+- View toggle 배경 `oklch(0.28...)` → `oklch(0.16...)` + inset shadow + ring → segmented control 느낌 강화 (sidebar bg 와 명확히 분리)
+
+**R83 (P1 모바일 nav + Settings)** — 현재 위치 시각 anchor + sheet layout.
+- 하단 nav 의 뷰전환 버튼에 top accent dot 추가 + 텍스트도 accent 색으로 → 현재 활성 뷰 한눈에
+- Settings sheet 의 3 카드 분리 → 단일 카드 + divide-y row 3개 (라벨 좌측 + segmented control 우측). 위계 일관
+
+**R84 (P2 Detail · Donut · Story 배지)** — Detail 패널 시인성.
+- Properties / Composition / Process 탭 active 시 `border-accent + bg-accent/5 + text-accent + font-semibold` (이전엔 border 만) — 어느 탭에 있는지 명확
+- Composition donut 채도 ↑: ELEMENT_COLORS 38색 모두 채도/명도 재조정 (saturation 38% → 50%, lightness 62% → 55%). 인접한 보라 계열 (Mn / Mo / Co) 구분 ↑
+- Story 배지 (`📖`) 시인성 ↑: amber-100 둥근 pill + amber-300 ring + amber-700 BookText (Table 셀 / Card 이름 양쪽)
+
+**R85 (P3 마감)** — 마이크로 폴리시.
+- Status bar (데스크탑 footer) **완전 제거** — 사용자 요청
+- Tools 헤더 아이콘: 모바일만 Wrench → 데스크탑/모바일 모두 Wrench + (lg) 텍스트 동시 노출
+- 검색창 expand transition 추가 — `transition-all duration-200 ease-out` + opacity fade
+
 ## R81 — 모바일 검색 버튼 왼쪽 정렬
 모바일 헤더의 search icon 을 wrapper 안에서 분리해 헤더 왼쪽 (logo 자리) 으로 이동. 좌측 정렬 일관성 (logo·필터·검색이 모두 왼쪽).
 - `Divider` 다음에 `md:hidden` search 아이콘 버튼 추가

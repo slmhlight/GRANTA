@@ -111,13 +111,15 @@ export function MaterialCards({
                     {isCompare ? <Check className="w-2.5 h-2.5" /> : <Plus className="w-2.5 h-2.5" />}
                   </button>
 
-                  {/* Name + R77 story 뱃지 */}
+                  {/* Name + R77 story 뱃지 (R84: amber pill bg + ring 으로 시인성 ↑) */}
                   <p className="text-[11px] font-semibold text-foreground leading-tight pr-5 mb-1 line-clamp-2" title={m.story ? `${m.name} — 개발 스토리·industry-standard 응용 기록 있음 (Process 탭)` : m.name}>
                     {m.story && (
-                      <BookText
-                        className="inline w-3 h-3 mr-1 -mt-0.5 text-amber-600"
+                      <span
+                        className="inline-flex items-center justify-center w-4 h-4 mr-1 -mt-0.5 align-middle rounded-full bg-amber-100 ring-1 ring-amber-300/50"
                         aria-label="개발 스토리 있음"
-                      />
+                      >
+                        <BookText className="w-2.5 h-2.5 text-amber-700" />
+                      </span>
                     )}
                     {m.name}
                   </p>
