@@ -325,6 +325,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       byClass.get(ck)!.ms.push(m);
     }
     // R50c — customdata 확장: [id, subcategory, process, popularity, verified]. hovertemplate 풍부화.
+    // R54a CRITICAL FIX — xMeta/yMeta 가 line 456+ 정의되었는데 여기서 사용 → TDZ. dev hot reload 는
+    //   회피 가능하나 production minify 후 ReferenceError 'Cannot access U0 before initialization'.
+    //   xMeta/yMeta 정의를 markerTraces 위로 이동 + xMetaForHover/yMetaForHover 별도 변수.
+    const xMetaForHover = ALL_NUMERIC_PROPERTIES.find((p) => p.key === xProperty);
+    const yMetaForHover = ALL_NUMERIC_PROPERTIES.find((p) => p.key === yProperty);
     const verifiedOf = (m: Material) => (m.sources && m.sources.some((s: any) => s.verified)) ? '✓' : '';
     const markerTraces = Array.from(byClass.entries()).sort((a, b) => b[1].ms.length - a[1].ms.length).map(([key, { color, ms }]) => ({
       x: ms.map((m) => tv(m, xProperty)), y: ms.map((m) => tv(m, yProperty)),
@@ -336,8 +341,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       hovertemplate:
         `<b>%{text}</b>` +
         `<br><span style="color:#64748b">%{customdata[1]} · %{customdata[2]}</span>` +
-        `<br>${xMeta?.label || xProperty}: <b>%{x:.4g}</b> ${xMeta?.unit || ''}` +
-        `<br>${yMeta?.label || yProperty}: <b>%{y:.4g}</b> ${yMeta?.unit || ''}` +
+        `<br>${xMetaForHover?.label || xProperty}: <b>%{x:.4g}</b> ${xMetaForHover?.unit || ''}` +
+        `<br>${yMetaForHover?.label || yProperty}: <b>%{y:.4g}</b> ${yMetaForHover?.unit || ''}` +
         `<br>인기도: %{customdata[3]:.2f}/5 %{customdata[4]}` +
         `<extra>${key}</extra>`,
     }));
@@ -453,8 +458,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       }
     }
 
-    const xMeta = ALL_NUMERIC_PROPERTIES.find((p) => p.key === xProperty);
-    const yMeta = ALL_NUMERIC_PROPERTIES.find((p) => p.key === yProperty);
+    // R54a — xMetaForHover / yMetaForHover 가 markerTraces 위에서 정의됨. 동일 값 alias 유지 (이후 코드 호환).
+    const xMeta = xMetaForHover;
+    const yMeta = yMetaForHover;
 
     const gridC = darkChart ? '#1e293b' : '#eef2f7';
     const tickC = darkChart ? '#475569' : '#cbd5e1';
