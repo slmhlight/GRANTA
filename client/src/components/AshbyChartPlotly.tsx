@@ -442,6 +442,21 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const xRange = (xLog ? logRange(xs) : linRange(xs)) ?? xRangeFallback;
     const yRange = (yLog ? logRange(ys) : linRange(ys)) ?? yRangeFallback;
 
+    // R93 — invisible frame-anchor trace. Plotly 의 doubleClick 'reset' / modeBar resetScale2d 는
+    //       layout.range 가 아니라 trace 의 데이터 bbox 로 axis 를 reset 한다. fset 이 inLim 으로 좁아지거나
+    //       index pass 가 colored 만 남으면 reset 시 그 좁은 영역으로 zoom-in (R88 사용자 보고 원인).
+    //       frame-anchor 의 4 corner 가 항상 fsetForFrame 영역을 cover 하도록 invisible marker 로 plot
+    //       → 어떤 reset 동작이든 axis 가 fsetForFrame 의 frame 으로 복원.
+    const fAxX = xLog ? [10 ** xRange[0], 10 ** xRange[1]] : [xRange[0], xRange[1]];
+    const fAxY = yLog ? [10 ** yRange[0], 10 ** yRange[1]] : [yRange[0], yRange[1]];
+    const frameAnchor = {
+      x: [fAxX[0], fAxX[1], fAxX[0], fAxX[1]],
+      y: [fAxY[0], fAxY[0], fAxY[1], fAxY[1]],
+      mode: 'markers' as const, type: 'scatter' as const,
+      marker: { size: 0.01, opacity: 0, color: 'rgba(0,0,0,0)' },
+      hoverinfo: 'skip' as const, showlegend: false, name: '_frame',
+    };
+
     const indexTraces: any[] = [];
 
     // active-filter selection window + axis limit sliders → reference lines (locked, not draggable)
@@ -547,6 +562,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       }
     }
     const data = [
+      // R93 — frame anchor 가 첫 trace (axis range 결정 보장). hoverinfo skip + opacity 0 으로 안 보임.
+      frameAnchor,
       ...envelopeTraces,
       ...(showMarkers ? contextTrace : []),
       ...(showPts ? markerTraces : []),

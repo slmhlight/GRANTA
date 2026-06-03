@@ -2,6 +2,32 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R93 — Ashby chart frame anchor trace 로 reset 시 axis 확실 복원
+사용자 보고 (R92 후에도 잔존): "기본 상태 → index 선택 → reset axes 누르면 엉뚱한 곳으로".
+**진짜 원인 발견**: Plotly 의 `doubleClick: 'reset'` 과 modeBar 의 `resetScale2d` (🏠 home icon) 는 **layout.range 가 아니라 trace 의 데이터 bbox 로 axis 를 reset 한다**. uirevision 도, layout.range 명시도 reset 동작에는 영향이 없음.
+- R89 에서 `fset = fsetForFrame.filter(inLim)` 분리 후, marker trace 가 fset 만 그려짐. index 선택 시 colored marker (= index 통과만) 가 또 작아짐.
+- → Reset axes → axis 가 colored marker 의 좁은 bbox 로 zoom-in → 사용자가 "엉뚱한 곳" 으로 인지.
+
+**진짜 해결책**: data 배열에 **4-corner invisible frame-anchor trace** 추가.
+```js
+const frameAnchor = {
+  x: [fAxX[0], fAxX[1], fAxX[0], fAxX[1]],
+  y: [fAxY[0], fAxY[0], fAxY[1], fAxY[1]],
+  mode: 'markers', type: 'scatter',
+  marker: { size: 0.01, opacity: 0, color: 'rgba(0,0,0,0)' },
+  hoverinfo: 'skip', showlegend: false, name: '_frame',
+};
+```
+- `fAxX/Y` = xRange/yRange 의 raw 값 (xLog 면 10^range, linear 면 그대로)
+- size 0.01 + opacity 0 + transparent color → 시각적으로 안 보임
+- hoverinfo skip → 호버 무반응
+- data 배열 첫 번째 위치 → plotly 가 axis range 결정 시 항상 cover
+
+**효과**:
+- 어떤 reset 동작이든 (doubleClick / 🏠 modeBar / 'autoScale2d' 가 있다면 그것까지) axis 가 frame-anchor 의 4 corner 를 cover → **fsetForFrame 의 frame 으로 정확 복원**
+- index 통과 colored marker 가 3개라도, fset 이 inLim 으로 좁아도, frame 영역은 fsetForFrame 기준 유지
+- 모든 reset 시 동일한 frame → 사용자 인지 일관
+
 ## R92 — modeBar Reset axes (home icon) 동작 회복
 사용자 보고: 물성 변경 후 Reset axes (modeBar 의 🏠 = `resetScale2d`) 버튼 누르면 이상한 곳으로 axis 가 reset 됨.
 **원인**: R90 에서 추가한 `autorange: false`. Plotly 의 `resetScale2d` 동작은 axis 를 layout 의 range 로 복원하려 하지만, autorange:false 가 명시되어 있으면 axis state 가 frozen 상태로 인식되어 새 layout.range 적용이 제대로 안 됨.
