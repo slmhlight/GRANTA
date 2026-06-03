@@ -151,6 +151,38 @@ export default function Home() {
       return next;
     });
   }, []);
+  // R71 D — 전체 localStorage state 백업/복원. 데이터 손실 방지 + 기기 이동.
+  const exportAllState = useCallback(() => {
+    const keys = ['am_collections', 'am_favorites', 'am_recent_searches', 'am_coll_sort', 'am_lang', 'am_units', 'am_radar_axes', 'am_radar_base', 'am_panel_w'];
+    const out: Record<string, any> = { _meta: { version: 1, exported: new Date().toISOString() } };
+    for (const k of keys) {
+      try { const v = localStorage.getItem(k); if (v != null) out[k] = JSON.parse(v); } catch { try { out[k] = localStorage.getItem(k); } catch { /* ignore */ } }
+    }
+    const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `am-backup-${new Date().toISOString().slice(0,10)}.json`; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }, []);
+  const importAllState = useCallback((file: File) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const json = JSON.parse(String(e.target?.result || '{}'));
+        let restored = 0;
+        for (const [k, v] of Object.entries(json)) {
+          if (k.startsWith('_')) continue;
+          if (k.startsWith('am_')) { localStorage.setItem(k, typeof v === 'string' ? v : JSON.stringify(v)); restored++; }
+        }
+        alert(`✓ ${restored} 항목 복원. 페이지를 새로고침합니다.`);
+        window.location.reload();
+      } catch (err) {
+        alert(`✗ 백업 파일을 읽을 수 없습니다: ${(err as Error).message}`);
+      }
+    };
+    reader.readAsText(file);
+  }, []);
+  const backupFileRef = useRef<HTMLInputElement>(null);
   const closeTour = useCallback(() => {
     setTourOpen(false);
     try { localStorage.setItem('am_onboarding_done', '1'); } catch { /* ignore */ }
@@ -802,6 +834,15 @@ export default function Home() {
           </TooltipTrigger>
           <TooltipContent side="bottom" className="text-xs">Engineering Tools — Kt · Galvanic · Buckling · CTE · Hardness · Pressure</TooltipContent>
         </Tooltip>
+        {/* R71 D — 백업/복원 hidden file input */}
+        <input
+          ref={backupFileRef}
+          type="file"
+          accept=".json,application/json"
+          className="hidden"
+          aria-label="백업 파일 선택"
+          onChange={(e) => { const f = e.target.files?.[0]; if (f) importAllState(f); e.target.value = ''; }}
+        />
         {/* R69 A — 즐겨찾기 dropdown */}
         {favorites.size > 0 && (
           <DropdownMenu>
@@ -1151,6 +1192,23 @@ export default function Home() {
                       </button>
                     </div>
                   ))}
+                  {/* R71 D — 백업/복원 footer */}
+                  <div className="border-t border-border/40 mt-1 pt-1 px-1.5">
+                    <button
+                      type="button"
+                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); exportAllState(); }}
+                      className="w-full text-left text-[11px] py-1 px-1 rounded hover:bg-muted/50 text-foreground/80"
+                    >
+                      📥 전체 백업 (JSON 다운로드)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); backupFileRef.current?.click(); }}
+                      className="w-full text-left text-[11px] py-1 px-1 rounded hover:bg-muted/50 text-foreground/80"
+                    >
+                      📤 백업 복원 (JSON 업로드)
+                    </button>
+                  </div>
                 </DropdownMenuContent>
               </DropdownMenu>
             )}
