@@ -2,6 +2,41 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R106 — 신규 49 entry name 영문 표준 규격화 + alias 정리
+사용자 정책: "재료 엔트리에 한국어가 있으면 안됨. 최대한 표준 규격에 가깝게 이름 표시, 상표명 등은 alias 에 표시." → 신규 49 entry name 일괄 fix.
+
+### name 변경 패턴 (영문 표준 우선)
+- **풍산 Cu 9종**: "C1020 Oxygen-Free Copper ... — 풍산 strip grade" → "C10200 (Oxygen-Free Copper, KS C1020)" 등. UNS 코드 우선 + 영문 분류 명칭.
+- **현대제철 KS 27종**: "SHN275 (KS D 3866 내진 H형강) — 현대제철" → "SHN275 (KS D 3866, seismic H-section)". KS 표준 번호 + 영문 분류.
+- **한국 spring/tool 3종**: "SUP9 Cr-Mn Spring Steel (KS D 3701) — 한국 산업표준" → "SUP9 (KS D 3701 / JIS G 4801, Cr-Mn spring steel)". 모표준 (JIS G 4801) 도 명기.
+- **POSCO 10종**: 상표명 → 표준 규격으로 대체:
+  - "POSCO PosMAC 3.0 (Zn-Mg-Al, 고내식 도금강)" → "Hot-dip Zn-Mg-Al coated steel (3% Mg, 4% Al ternary coating)"
+  - "POSCO X80 Line Pipe (API 5L X80)" → "API 5L X80 line pipe (TMCP, sour service capable)"
+  - "POSCO GIGA STEEL TWIP1180" → "TWIP1180 steel (Twinning-Induced Plasticity, high-Mn austenitic AHSS)"
+  - "POSCO GIGA STEEL DP980" → "DP980 dual-phase steel (VDA 239-100 CR980Y700T-DP)"
+  - "POSCO 9% Ni Steel (LNG 저장 tank용)" → "ASTM A553 Type I (9% Ni cryogenic steel)"
+  - "POSCO Electrical Steel CGO 0.27" → "CGO 0.27 mm grain-oriented electrical steel (3.2% Si, Goss texture)"
+  - "POSCO Stainless 304L" → "STS304L (KS D 3705 / JIS G 4304, low-carbon austenitic stainless)"
+  - "KIST 한국형 STS304 ULC" → "STS304 ULC (Ultra-Low-Carbon austenitic stainless, C ≤ 0.015)"
+
+### alias 보강
+상표명·제조사 + 동등 표준 모두 alias 로:
+- PosMAC ↔ "PosMAC 3.0" / "POSCO PosMAC" / "POSMAC" / "Zn-Mg-Al coated steel" / "NIPPON SUPER DYMA equivalent" / "Magnelis equivalent"
+- TWIP1180 ↔ "X-IP1000 (ThyssenKrupp equivalent)" / "VDA 239-100 HC1180T-AM"
+- DP980 ↔ "ArcelorMittal DP980" / "ThyssenKrupp DP-K39/70+Z" / "Usibor 1500 close equivalent"
+- 9% Ni ↔ "EN 1.5662 X8Ni9" / "JIS G 3127 SL9N520"
+- CGO ↔ "JIS C 2553 27P100" / "IEC 60404-8-7 M097-27P"
+- STS304L ↔ "AISI 304L" / "ASTM A240 304L" / "EN 1.4307" / "X2CrNi19-11 (EN)"
+- 풍산 Cu 모든 entry → "Poongsan strip" alias 추가
+- 현대제철 KS → "Hyundai Steel ___" alias
+
+### 정합성 보장
+- `name` 필드: 한국어 0건 (Grep 검증 통과)
+- `aliases` 필드: 상표명 + 다국가 표준 매핑 보강 → 검색 hit 율 ↑
+- `industry_note` 필드: 그대로 (description 영역, 한국 사용자 정보 가치 보존)
+
+검증: tsc OK · JSON valid · build:data OK (verified 748) · production build OK.
+
 ## R105 — POSCO 10종 (PosMAC + API + GIGA STEEL + 9% Ni + Electrical + Stainless)
 
 ### POSCO 시리즈 (한국 철강 자체 개발 / 대표 등급)
