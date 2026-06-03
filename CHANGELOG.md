@@ -2,6 +2,16 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R76 — Story Process 탭 이동 + Composition 탭 SVG 도넛차트
+**Story 위치 이동**: R75 에서 Properties 탭 최상단에 노출하던 History·개발 스토리 amber 박스를 **Process 탭** 최상단으로 옮김. Properties 는 다축 성능 (Radar) → 기계·물리·열·비용으로 즉시 접근, Process 는 alias·family·heat treatment 와 함께 dev history 가 자연스럽게 묶임.
+**Composition 도넛차트**: `CompositionDisplay` 가 모든 재료의 chemical composition 을 SVG 도넛으로 시각화. 풍성한 polymer 부터 99% Fe 강철까지 동일 컴포넌트로 대응.
+- `parseCompValue()` — "16~18" 중간값, "≤2" 상한, "≥58" 하한, "0.25" 그대로, "balance"/"trace" 별처리
+- `buildCompSlices()` — known element wt% 합 → balance 원소를 (100 − sum) 으로 자동 backfill, value desc 정렬
+- `ELEMENT_COLORS` — Fe slate, Cr 라이트블루, Ni 페일 그린, C 다크, Mn 보라, Si 옐로, Cu 코퍼 … 39 원소 표준 색; 누락 시 안정 해시 HSL 폴백
+- `CompositionDonut` — 200×200 SVG, R=78 / r=48, 중앙에 dominant element + % 표기, hover `<title>` 로 `Fe: 70.50 wt% (70.5%, balance)` 표시; 100% 단일 원소 (Cu C11000 등) 의 path-closure edge case 처리
+- 도넛 옆에 색상 dot + element + value% legend grid, 하단에 기존 raw range 그리드 유지 (예: `Cr 11.5~13.5`)
+- legend balance 항목에 italic `bal` 뱃지
+
 ## R75 — Detail "History · 개발 스토리" 섹션 추가
 Popularity 최상위 재료 30종에 대해 2~3 단락의 개발 역사, 스토리, 실제 사용례를 `data/material-stories.json`(name → text+refs) 로 분리 작성. `build-materials.mjs` 가 base name lookup 으로 모든 condition 변형 ("Inconel 718 — Annealed", "— STA" 등) 에 동일 story 를 attach (99 alloy 노출). 모든 story 는 1차 출처 (특허, 논문, handbook) 명시.
 - **Material type 확장** — `story?: string`, `story_refs?: string[]`, `industry_note?: string` 신규 필드

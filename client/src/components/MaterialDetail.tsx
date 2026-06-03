@@ -124,53 +124,155 @@ function SourcesList({ sources }: { sources: MaterialSource[] }) {
   );
 }
 
+/* R76 — 원소별 색상 매핑 (CPK + handbook 관습 mix). 누락 원소는 안정 해시 HSL 폴백. */
+const ELEMENT_COLORS: Record<string, string> = {
+  Fe: '#6e7785', Cr: '#7fb1d4', Ni: '#a7c4a0', C: '#4a4a4a', Mn: '#9a7bc2',
+  Si: '#d4c574', Cu: '#c87f47', Al: '#bfc4cc', Ti: '#aeb7c2', V: '#d48fb3',
+  Mo: '#8b6db5', W: '#3a3a3a', Co: '#6b8fbe', Nb: '#7bb8b0', Ta: '#7d8088',
+  Mg: '#9ec896', Zn: '#b8b9c0', Sn: '#b4b6c4', N: '#a8d4e0', P: '#e0a168',
+  S:  '#e8d56b', B: '#e4a8b8', Y: '#dca0b8', Zr: '#a3a8b0', O: '#e87a7a',
+  Ag: '#d4d4dc', Hf: '#94989f', Li: '#d9b885', La: '#c8a8e0', Ce: '#d0b8e8',
+  Re: '#7a7e88', Pb: '#7e8492', Be: '#a7d4a8', Bi: '#8b7da0', Cd: '#cab87a',
+  Ga: '#a89db8', In: '#9aa3ad', Pt: '#bcc0c4', Pd: '#a8b0b8', Au: '#e8c878',
+};
+function elementColor(el: string): string {
+  if (ELEMENT_COLORS[el]) return ELEMENT_COLORS[el];
+  let h = 0; for (let i = 0; i < el.length; i++) h = (h * 31 + el.charCodeAt(i)) | 0;
+  return `hsl(${Math.abs(h) % 360}, 38%, 62%)`;
+}
+/* "16.0~18.0" → 17.0, "≤2" → 2, "≥58" → 58, "0.25" → 0.25, "balance" / "trace" → null. */
+function parseCompValue(raw: unknown): number | null {
+  if (raw == null) return null;
+  if (typeof raw === 'number') return isFinite(raw) ? raw : null;
+  const s = String(raw).trim().toLowerCase();
+  if (!s || s === 'balance' || s === 'bal' || s === 'bal.' || s === 'rem' || s === 'remainder' || s === 'trace' || s === 'micro' || s === 'tr' || s === 'others') return null;
+  let m = s.match(/^[≤<≦]\s*([\d.]+)/); if (m) return parseFloat(m[1]);
+  m = s.match(/^[≥>≧]\s*([\d.]+)/);     if (m) return parseFloat(m[1]);
+  m = s.match(/^([\d.]+)\s*[~–\-—]\s*([\d.]+)/); if (m) return (parseFloat(m[1]) + parseFloat(m[2])) / 2;
+  const n = parseFloat(s); return isFinite(n) ? n : null;
+}
+type CompSlice = { element: string; value: number; color: string; isBalance: boolean; raw: string };
+function buildCompSlices(comp: Material['composition']): CompSlice[] {
+  // 통일 처리: array form [[el, range], ...] 또는 object form {El: range, ...} 둘 다.
+  const pairs: Array<[string, unknown]> = Array.isArray(comp)
+    ? (comp.filter((p): p is [string, string] => Array.isArray(p) && p.length >= 2))
+    : (comp && typeof comp === 'object' ? Object.entries(comp) : []);
+  if (pairs.length === 0) return [];
+  const items: Array<{ element: string; value: number; raw: string }> = [];
+  let balanceEl: string | null = null;
+  for (const [el, v] of pairs) {
+    if (v == null || v === '' || v === 0 || v === '0') continue;
+    const s = String(v).trim().toLowerCase();
+    if (s === 'balance' || s === 'bal' || s === 'bal.' || s === 'rem' || s === 'remainder') { balanceEl = el; continue; }
+    const num = parseCompValue(v);
+    if (num != null && num > 0) items.push({ element: el, value: num, raw: String(v) });
+  }
+  const knownSum = items.reduce((s, d) => s + d.value, 0);
+  const balVal = Math.max(0, 100 - knownSum);
+  if (balanceEl && balVal > 0) items.push({ element: balanceEl, value: balVal, raw: 'balance' });
+  items.sort((a, b) => b.value - a.value);
+  return items.map((d) => ({ ...d, color: elementColor(d.element), isBalance: d.element === balanceEl }));
+}
+
+/* SVG donut. center 에 dominant element 강조. hover title 로 wt% / share % 표시. */
+function CompositionDonut({ slices }: { slices: CompSlice[] }) {
+  const total = slices.reduce((s, d) => s + d.value, 0);
+  if (total <= 0 || slices.length === 0) return null;
+  const cx = 100, cy = 100, R = 78, r = 48;
+  let acc = 0;
+  return (
+    <svg viewBox="0 0 200 200" width="180" height="180" className="block" role="img" aria-label="composition donut">
+      {slices.map((d) => {
+        const frac = d.value / total;
+        const a0 = (acc / total) * 2 * Math.PI - Math.PI / 2; acc += d.value;
+        const a1 = (acc / total) * 2 * Math.PI - Math.PI / 2;
+        const large = frac > 0.5 ? 1 : 0;
+        // 100% 단일 원소 시 path 가 닫히지 않는 문제 → 두 개의 반-arc 로 분할 (a0 .. a0+π .. a1).
+        if (frac > 0.999) {
+          return (
+            <g key={d.element}>
+              <title>{`${d.element}: ${d.value.toFixed(2)} wt% (100%)`}</title>
+              <circle cx={cx} cy={cy} r={R} fill={d.color} stroke="white" strokeWidth="1" />
+              <circle cx={cx} cy={cy} r={r} fill="white" />
+            </g>
+          );
+        }
+        const x0 = cx + R * Math.cos(a0), y0 = cy + R * Math.sin(a0);
+        const x1 = cx + R * Math.cos(a1), y1 = cy + R * Math.sin(a1);
+        const xi1 = cx + r * Math.cos(a1), yi1 = cy + r * Math.sin(a1);
+        const xi0 = cx + r * Math.cos(a0), yi0 = cy + r * Math.sin(a0);
+        const path = `M ${x0} ${y0} A ${R} ${R} 0 ${large} 1 ${x1} ${y1} L ${xi1} ${yi1} A ${r} ${r} 0 ${large} 0 ${xi0} ${yi0} Z`;
+        return (
+          <g key={d.element}>
+            <title>{`${d.element}: ${d.value.toFixed(2)} wt% (${(frac * 100).toFixed(1)}%${d.isBalance ? ', balance' : ''})`}</title>
+            <path d={path} fill={d.color} stroke="white" strokeWidth="1" />
+          </g>
+        );
+      })}
+      <text x={cx} y={cy - 6} textAnchor="middle" dominantBaseline="middle" className="fill-foreground" style={{ fontSize: 14, fontWeight: 700 }}>{slices[0].element}</text>
+      <text x={cx} y={cy + 11} textAnchor="middle" dominantBaseline="middle" className="fill-muted-foreground" style={{ fontSize: 10 }}>{((slices[0].value / total) * 100).toFixed(1)}%</text>
+    </svg>
+  );
+}
+
 function CompositionDisplay({ material }: { material: Material }) {
   const composition = material.composition;
+  const slices = buildCompSlices(composition);
 
-  // Array of [element, range] pairs
-  if (Array.isArray(composition) && composition.length > 0) {
-    return (
-      <div className="space-y-3">
-        <div className="text-xs font-semibold text-foreground/80 mb-2">Chemical Composition (wt%)</div>
-        <div className="grid grid-cols-2 gap-2">
-          {composition.map((item, i) => {
-            if (!Array.isArray(item) || item.length < 2) return null;
-            const [element, range] = item;
-            return (
-              <div key={i} className="flex items-center justify-between p-2 rounded bg-muted/50 border border-border/30">
-                <span className="text-xs font-semibold text-foreground">{element}</span>
-                <span className="text-xs font-mono text-muted-foreground">{String(range)}</span>
+  // 둘 다: array form / object form 동일하게 grid 표시 + donut 상단.
+  const pairs: Array<[string, string]> = Array.isArray(composition)
+    ? (composition.filter((p): p is [string, string] => Array.isArray(p) && p.length >= 2).map(p => [String(p[0]), String(p[1])]))
+    : (composition && typeof composition === 'object'
+        ? Object.entries(composition).filter(([_, v]) => v !== null && v !== undefined && v !== '' && v !== '0' && v !== 0).map(([k, v]) => [k, String(v)])
+        : []);
+
+  if (pairs.length === 0 && slices.length === 0) {
+    return <p className="text-xs text-muted-foreground italic py-4 text-center">Chemical composition data not available</p>;
+  }
+  // grid sort: balance 우선 → 값 큰 순.
+  pairs.sort((a, b) => {
+    const isBalA = /^(balance|bal|bal\.|rem|remainder)$/i.test(a[1]);
+    const isBalB = /^(balance|bal|bal\.|rem|remainder)$/i.test(b[1]);
+    if (isBalA && !isBalB) return -1;
+    if (isBalB && !isBalA) return 1;
+    const va = parseCompValue(a[1]) ?? 0;
+    const vb = parseCompValue(b[1]) ?? 0;
+    return vb - va;
+  });
+
+  return (
+    <div className="space-y-3">
+      <div className="text-xs font-semibold text-foreground/80 mb-2">Chemical Composition (wt%)</div>
+      {slices.length > 0 && (
+        <div className="rounded border border-border/50 bg-muted/10 p-3 flex flex-col sm:flex-row sm:items-center sm:gap-4">
+          <div className="flex-shrink-0 mx-auto sm:mx-0"><CompositionDonut slices={slices} /></div>
+          <div className="flex-1 mt-2 sm:mt-0 grid grid-cols-2 gap-x-3 gap-y-1">
+            {slices.map((d) => (
+              <div key={d.element} className="flex items-center justify-between text-[10.5px]">
+                <span className="flex items-center gap-1.5">
+                  <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: d.color }} />
+                  <span className="font-semibold text-foreground">{d.element}</span>
+                  {d.isBalance && <span className="text-[9px] text-muted-foreground italic">bal</span>}
+                </span>
+                <span className="font-mono text-muted-foreground">{d.value.toFixed(d.value < 1 ? 2 : 1)}%</span>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
+      )}
+      <div className="grid grid-cols-2 gap-2">
+        {pairs.map(([element, range]) => (
+          <div key={element} className="flex items-center justify-between p-2 rounded bg-muted/50 border border-border/30">
+            <span className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+              <span className="inline-block w-2 h-2 rounded-sm" style={{ background: elementColor(element) }} />
+              {element}
+            </span>
+            <span className="text-xs font-mono text-muted-foreground">{range}</span>
+          </div>
+        ))}
       </div>
-    );
-  }
-
-  // Object dict with string range values ("16.0~18.0", "balance", "≤2.0") or numbers
-  if (typeof composition === 'object' && !Array.isArray(composition)) {
-    const entries = Object.entries(composition).filter(([_, v]) => v !== null && v !== undefined && v !== '' && v !== '0' && v !== 0);
-    if (entries.length === 0) {
-      return <p className="text-xs text-muted-foreground italic py-4 text-center">Chemical composition data not available</p>;
-    }
-    entries.sort((a, b) => (a[0] as string).localeCompare(b[0] as string));
-    return (
-      <div className="space-y-3">
-        <div className="text-xs font-semibold text-foreground/80 mb-2">Chemical Composition (wt%)</div>
-        <div className="grid grid-cols-2 gap-2">
-          {entries.map(([element, range]) => (
-            <div key={element} className="flex items-center justify-between p-2 rounded bg-muted/50 border border-border/30">
-              <span className="text-xs font-semibold text-foreground">{element}</span>
-              <span className="text-xs font-mono text-muted-foreground">{String(range)}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  return <p className="text-xs text-muted-foreground italic py-4 text-center">Chemical composition data not available</p>;
+    </div>
+  );
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
@@ -271,37 +373,6 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
 
           {/* Properties */}
           <TabsContent value="properties" className="p-4 space-y-4">
-            {/* R75 — 개발 역사·스토리·industry-standard 응용. 모든 탭의 첫 화면에 가장 큰 비중으로 노출. */}
-            {(material.story || material.industry_note) && (
-              <details open className="rounded border border-amber-500/30 bg-amber-50/40 p-3">
-                <summary className="flex items-center gap-2 text-xs font-semibold text-amber-900 cursor-pointer select-none">
-                  <BookText className="w-3.5 h-3.5" />
-                  {t('detail.history') || 'History · 개발 스토리'}
-                </summary>
-                {material.industry_note && (
-                  <p className="mt-2 text-[11px] text-foreground/80 leading-relaxed">
-                    <span className="font-semibold text-amber-900">📌 Industry standard:</span> {material.industry_note}
-                  </p>
-                )}
-                {material.story && (
-                  <div className="mt-2 space-y-2 text-[11.5px] text-foreground/85 leading-relaxed">
-                    {material.story.split('\n\n').map((para, i) => (
-                      <p key={i} className="whitespace-pre-wrap">{para}</p>
-                    ))}
-                  </div>
-                )}
-                {Array.isArray(material.story_refs) && material.story_refs.length > 0 && (
-                  <div className="mt-2 pt-2 border-t border-amber-500/20">
-                    <p className="text-[10px] font-semibold text-amber-900 mb-1">출처 · References</p>
-                    <ul className="text-[10px] text-foreground/65 space-y-0.5 leading-snug list-disc list-inside">
-                      {material.story_refs.map((r, i) => (
-                        <li key={i} className="whitespace-pre-wrap">{r}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </details>
-            )}
             {/* R53a — Radar chart (단일 alloy, normalize base 선택). 모바일·데스크탑 가로 정렬. */}
             <div className="rounded border border-border/50 bg-muted/10 p-3 flex flex-col sm:flex-row sm:items-start sm:gap-4">
               <div className="flex-shrink-0">
@@ -449,6 +520,37 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
 
           {/* Process */}
           <TabsContent value="process" className="p-4 space-y-3">
+            {/* R76 — History·개발 스토리·industry-standard 응용을 Process 탭으로 이동 (이전 R75 는 Properties 탭). */}
+            {(material.story || material.industry_note) && (
+              <details open className="rounded border border-amber-500/30 bg-amber-50/40 p-3">
+                <summary className="flex items-center gap-2 text-xs font-semibold text-amber-900 cursor-pointer select-none">
+                  <BookText className="w-3.5 h-3.5" />
+                  {t('detail.history') || 'History · 개발 스토리'}
+                </summary>
+                {material.industry_note && (
+                  <p className="mt-2 text-[11px] text-foreground/80 leading-relaxed">
+                    <span className="font-semibold text-amber-900">📌 Industry standard:</span> {material.industry_note}
+                  </p>
+                )}
+                {material.story && (
+                  <div className="mt-2 space-y-2 text-[11.5px] text-foreground/85 leading-relaxed">
+                    {material.story.split('\n\n').map((para, i) => (
+                      <p key={i} className="whitespace-pre-wrap">{para}</p>
+                    ))}
+                  </div>
+                )}
+                {Array.isArray(material.story_refs) && material.story_refs.length > 0 && (
+                  <div className="mt-2 pt-2 border-t border-amber-500/20">
+                    <p className="text-[10px] font-semibold text-amber-900 mb-1">출처 · References</p>
+                    <ul className="text-[10px] text-foreground/65 space-y-0.5 leading-snug list-disc list-inside">
+                      {material.story_refs.map((r, i) => (
+                        <li key={i} className="whitespace-pre-wrap">{r}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </details>
+            )}
             {material.aliases && material.aliases.length > 0 && (
               <Field label="Designations / a.k.a. (ISO·ASTM·JIS·DIN·KS·UNS)">
                 <div className="flex flex-wrap gap-1">
