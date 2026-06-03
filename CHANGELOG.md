@@ -2,6 +2,12 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R81 — 모바일 검색 버튼 왼쪽 정렬
+모바일 헤더의 search icon 을 wrapper 안에서 분리해 헤더 왼쪽 (logo 자리) 으로 이동. 좌측 정렬 일관성 (logo·필터·검색이 모두 왼쪽).
+- `Divider` 다음에 `md:hidden` search 아이콘 버튼 추가
+- 기존 wrapper 안 search icon 제거, expanded 상태 input 만 wrapper 가 담당
+- breakpoint `sm:` → `md:` 통일 (768px 이상에서만 데스크탑 input)
+
 ## R80 — 모바일 헤더 합리화 + Settings 시트 신설
 모바일 상단 헤더에서 자주 안 쓰는 컨트롤을 빼서 하단 nav 의 새 Settings 시트로 옮김. 헤더는 핵심 동작 (검색 · 뷰 전환 · Export · Tools · 즐겨찾기 · 가이드) 만 노출.
 - **Logo 모바일 hidden** — 좁은 헤더에서 가장 왼쪽 Database 아이콘이 공간을 차지했는데 정보값 없어 `hidden md:flex` 처리

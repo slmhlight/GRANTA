@@ -686,6 +686,18 @@ export default function Home() {
         {/* Divider */}
         <div className="w-px h-5 bg-sidebar-border hidden sm:block" />
 
+        {/* R81 — 모바일 search icon 을 헤더 왼쪽으로 이동 (왼쪽 정렬 일관). 검색 펼침 시는 헤더 전체 차지. */}
+        {!searchOpen && (
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="md:hidden p-1.5 rounded hover:bg-white/10 text-sidebar-foreground"
+            aria-label={t('header.search.placeholder')}
+            title={t('header.search.placeholder')}
+          >
+            <Search className="w-4 h-4" />
+          </button>
+        )}
+
         {/* Stats chips — R46: Ceramic/Composite 추가. AM 별도 chip 유지 (공정 — category 와 직교). */}
         <div className="hidden md:flex items-center gap-2 flex-wrap">
           <span className="text-[11px] text-sidebar-foreground/60">
@@ -708,19 +720,9 @@ export default function Home() {
           </span>
         </div>
 
-        {/* Search — R49c: 모바일 기본 icon-only, 클릭 시 헤더 전체로 확장. 데스크탑은 항상 input. */}
+        {/* Search — R49c: 모바일 기본 icon-only, 클릭 시 헤더 전체로 확장. 데스크탑은 항상 input. R81: 모바일 icon 은 헤더 왼쪽으로 분리됐고, 여기는 펼침 상태 input + 데스크탑 input 만 담당. */}
         <div className="flex-1 ml-auto mr-2 flex items-center justify-end min-w-0">
-          {!searchOpen && (
-            <button
-              onClick={() => setSearchOpen(true)}
-              className="sm:hidden p-1.5 rounded hover:bg-white/10 text-sidebar-foreground"
-              aria-label={t('header.search.placeholder')}
-              title={t('header.search.placeholder')}
-            >
-              <Search className="w-4 h-4" />
-            </button>
-          )}
-          <div className={`relative w-full max-w-md ${searchOpen ? 'block' : 'hidden sm:block'}`}>
+          <div className={`relative w-full max-w-md ${searchOpen ? 'block' : 'hidden md:block'}`}>
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-sidebar-foreground/40 pointer-events-none" />
             <Input
               data-search-input="1"
