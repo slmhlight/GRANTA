@@ -124,7 +124,17 @@ export function RadarChart({
           {normalizeBase === 'set' && `Compare set`}
         </div>
       )}
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="block">
+      {/* R123 — viewBox 양옆+상하 padding 50px 으로 확장 (axis label 잘림 방지).
+          chart 자체는 cx/cy 기준 r 반지름 유지. label 은 r+14 위치에 그려져서 viewBox 밖으로 나갈 수 있어
+          overflow visible + viewBox 확장 동시 적용. preserveAspectRatio = xMidYMid meet 으로 비율 유지. */}
+      <svg
+        width={size}
+        height={size}
+        viewBox={`-50 -20 ${size + 100} ${size + 40}`}
+        preserveAspectRatio="xMidYMid meet"
+        style={{ overflow: 'visible' }}
+        className="block"
+      >
         {/* Grid rings */}
         {[0.25, 0.5, 0.75, 1.0].map((g, i) => {
           const pts = axes.map((_, ai) => vertex(ai, r * g).join(',')).join(' ');
