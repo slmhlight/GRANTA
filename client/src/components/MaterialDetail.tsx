@@ -557,9 +557,9 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                       </div>
                     </details>
                   )}
-                  {/* 카드 2 — 열처리·후공정 통합 (default closed) */}
+                  {/* 카드 2 — 열처리·후공정 통합 (R117: default open, 사용자 요청). collapse 기능 유지. */}
                   {htCost && (
-                    <details className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)} md:col-span-1`}>
+                    <details open className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)} md:col-span-1`}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · 열처리</span>
                         <span className="text-[10px] font-normal opacity-70">×{htCost.factor.toFixed(2)} · <b>{htCost.label}</b></span>
