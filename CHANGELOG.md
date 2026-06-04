@@ -2,6 +2,35 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R107 — Guide ch15 재료 family 기본론 + 링크 안정성 보장
+
+### Guide ch15 새 chapter 추가
+data/general-knowledge/ 의 9 markdown 핵심을 React 컴포넌트로 압축, Guide ch15 로 통합. TOC 13 → 14 항목으로 확장.
+
+**14개 sub-section**:
+- **14.1 Steel + Stainless** (ASM Vol.1·2): AISI/SAE 4-digit, 4단계 열처리, Stainless 5 family, 부식 메커니즘 5, 경도 변환 (HRC↔HV↔HB), 한국·일본·EU 매핑
+- **14.2 Aluminum** (ASM Vol.2 + MMPDS Ch.3): Wrought 4-digit + Temper code (F/O/H/T/W), 시효 석출상 (θ'/β'/η'/T1), SCC 회피, Cl⁻ 환경 추천
+- **14.3 Titanium** (ASM Boyer): β-transus, 5 family (α/near-α/α+β/near-β/β), 열처리 modes (MA/BA/STA/Duplex), CP Gr.1-12 + ASTM F-series + AMS
+- **14.4 Nickel superalloy** (ASM Donachie): γ/γ'/γ" 3 결정구조, APB + coherency 강화, TCP phase 회피, 5 family + 표면 강화 (aluminide/MCrAlY/TBC) + AM powder
+- **14.5 Copper alloys** (풍산 카탈로그 + ASM): UNS C-series 분류, temper code, 부식 환경, 피로 ≈ σ_UTS/3, fabrication property rating, 한·일·미·EN 매핑
+- **14.6 한국 KS 강종** (Hyundai Steel + POSCO 2025): SS/SM (구조), SHN (내진 H형강), SD (철근), SAPH/SPFH/SPFC (자동차), SGCC/SGC (도금), STK/STKM (강관), SPA-H (내후성), POSCO 특수강 (PosMAC · TWIP · 9% Ni · CGO)
+- **14.7 MMPDS 통계적 기준** (MMPDS-08 Ch.1.4 + 9): A-Basis (T99) · B-Basis (T90) · S-Basis · Typical 정확한 정의 + Lower Tolerance Bound 공식 + 사용 시기
+- **14.8 Pure metals physical table** (ASM Appendix): 주요 commodity element + 귀금속 + 희토류 melting/boiling/density/E/crystal 표, allotropic transformation 정리
+- **14.9 MMPDS-08 Steel allowables** (MMPDS-08 Ch.2): AISI 4130/4340/8740/300M/D6AC Ftu/Fty/Fcy/Fsu/Fbru/E 표
+- 외부 학습 자료 9개 (ASM Library, MatWeb, DoITPoMS, Special Metals, Aluminum Association, Poongsan, Hyundai Steel, POSCO, FAA AR-03/57)
+
+### 링크 안정성 보장 — Dead 5 → 0, Error 2 → 0
+- efatigue.com (R70 이후 timeout 발생 → 3건 모두 대체):
+  - `efatigue.com` → Wikipedia: Fatigue (material) + Engineering Toolbox + Wikipedia: Stress concentration
+- 신규 ch15 링크 5개 dead 발견 → 안정 도메인 root 로 변경:
+  - `poongsan.co.kr/eng/business/copper/` (404) → `poongsan.co.kr/`
+  - `hyundai-steel.com/en/products/HRC/HRC.do` (404) → `hyundai-steel.com/`
+  - `product.posco.com/.../s91l5000001.jsp` (error) → `posco.com/`
+  - GitHub repo 가상 URL → `<code>data/general-knowledge/</code>` 텍스트로 변경
+  - amesweb.info → Wikipedia: Stress concentration / Wikipedia: Fatigue
+
+검증: tsc OK · vitest 47/47 · production build OK (1292.72 KB / gzip 356.51 KB) · **verify:guide OK 78 / Forbidden 3 (봇 차단, 브라우저 OK) / Dead 0 / Error 0**.
+
 ## R106 — 신규 49 entry name 영문 표준 규격화 + alias 정리
 사용자 정책: "재료 엔트리에 한국어가 있으면 안됨. 최대한 표준 규격에 가깝게 이름 표시, 상표명 등은 alias 에 표시." → 신규 49 entry name 일괄 fix.
 
