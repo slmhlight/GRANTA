@@ -2,6 +2,78 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R116 — 가격 다차원 모델 (condition + form + grade premium)
+사용자 지적: "비슷한 재료에서 다 비슷한 값들을 가져서 제대로 비교가 안됨. 열처리 여부에 따라서도 가격이 달라져야 할거같은데 안되고 있는듯". 정확한 진단 — 이전 `price_per_kg` 은 family base 한 값만 사용 + condition/process 무시.
+
+### 신규 다차원 가격 모델
+build-materials.mjs 에 3 multiplier 함수 추가:
+
+**1) `priceConditionFactor(m)`** — heat_treatment / temper 기반 가격 배수
+| Condition | factor | 예시 |
+|---|---|---|
+| As-supplied / as-rolled | 1.00 | mill 상태 그대로 |
+| Annealed (O temper) | 1.02 | mill anneal |
+| Normalized | 1.05 | 공냉 결정립 균질 |
+| Cold-worked 1/4H ~ H | 1.08 | 1 pass cold rolling |
+| EH / Spring temper | 1.15 | 추가 hard pass |
+| Q+T (martensitic) | 1.18 | 표준 quench + temper |
+| Solution + Aged / T6 / H900 | 1.25 | PH/aging |
+| Multi-step STA / Double age | 1.40 | 다단 사이클 |
+| Carburizing / Nitriding | 1.30 | case hardening |
+| Coating (TBC / DLC / PVD) | 1.50 | 표면 처리 |
+| HIP | 1.60 | vacuum + high-T |
+
+**2) `priceFormFactor(m)`** — process 형태 기반 가격 배수
+| Process | factor |
+|---|---|
+| Cast (sand/die) | 1.00 base |
+| Wrought / extrud | 1.05 |
+| Hot rolled | 1.08 |
+| Sheet / Stamping | 1.10 |
+| Forged | 1.15 |
+| Investment cast | 1.20 |
+| Cold-drawn / Cold-rolled | 1.20 |
+| Sintered (PM) | 1.50 |
+| DED / Wire arc | 2.00 |
+| Binder Jet | 2.20 |
+| LPBF / SLM / DMLS | 2.50 |
+| EBM (Ti powder premium) | 3.00 |
+
+**3) `priceGradePremium(m)`** — 같은 family 내 grade 차이
+- AISI/SAE steel: C 함량 기반 (4140 → 1.04, 4340 → 1.04, 1018 → 0.96)
+- AA aerospace: 7075/7050 → 1.10, 2024 → 1.05, Al-Li 2090/2195 → 1.30, Scalmalloy → 2.0
+- Ni superalloy: Single crystal CMSX-X / Rene N5 → 4.0, DS cast IN 738/939 → 2.0
+- regex bug fix: "1065°C" 같은 temperature 숫자가 AISI 매칭되던 문제 → `aisi|sae|astm` prefix 강제
+
+### delivered_price 신규 필드
+```
+delivered_price_per_kg = price_per_kg × condition × form × grade_premium
+total_cost_estimate = delivered_price × machining_cost_factor (이전 = raw × mach × ht)
+```
+
+### 효과 측정 — 같은 grade 다른 condition
+**AISI 4140** (이전 모두 $2.80):
+- Annealed: **$3.12** delivered
+- Normalized: **$3.21** (+3%)
+- Q+T: **$3.76** (+20%)
+
+**Inconel 718** (이전 모두 $50):
+- Annealed (wrought): **$53.55**
+- Solution treated: **$65.63** (+22%)
+- STA / DSA (정식 718 cycle): **$76.13** (+42%)
+- AM As-built (LPBF + as-supplied): **$125** (+133% — powder ×2.5 + AM premium)
+- AM Heat-Treated (LPBF + HIP): **$200+** (powder + HIP +60%)
+
+### UI 변경 (lib/materials.ts)
+- `Raw price (per kg)` — base material spot price (LME / vendor list, family typical)
+- `Delivered price (HT+form)` 신규 — raw × condition × form × grade
+- `Condition × (HT/temper)` 신규 multiplier 표시
+- `Form × (process)` 신규
+- `Grade × (premium)` 신규
+- `Total cost (machined)` = delivered × machining (가공 후 단가)
+
+검증: tsc OK · vitest 47/47 · build:data OK · production build OK · verified 763.
+
 ## R113 — 공정 카드 collapsible + Compare 공정 dot + Polymer 카드 + 출처 + Best-pick 가중치 UI
 사용자 5 작업 모두 적용 (6번 = 색상은 현재 OK 유지).
 

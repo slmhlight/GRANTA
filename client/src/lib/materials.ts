@@ -63,6 +63,12 @@ export interface Material {
   glass_transition_temp?: number | null;
   /** R110 — Polymer HDT @ 1.82 MPa (ISO 75-A) — Tg 보다 약간 낮은 처짐 한계. */
   hdt_182?: number | null;
+  /** R116 — 다차원 가격 모델: condition / form / grade 별 multiplier. */
+  price_condition_factor?: number | null;
+  price_form_factor?: number | null;
+  price_grade_premium?: number | null;
+  /** R116 — delivered price = raw × condition × form × grade (HT/form 적용 후 단가, 사용자 비교 기준). */
+  delivered_price_per_kg?: number | null;
   price_per_kg?: number | null;
   price_per_cm3?: number | null;
   /** F4: 가공 비용 가중치 — raw material × machining_cost_factor 가 가공 후 단가 추정. 1.0=기본,
@@ -166,12 +172,17 @@ export const PHYSICAL_PROPERTIES: PropertyMeta[] = [
 ];
 
 export const COST_PROPERTIES: PropertyMeta[] = [
-  { key: 'price_per_kg', label: 'Price (per kg)', unit: 'USD/kg', description: 'Approximate raw-material price', group: 'cost' },
-  { key: 'price_per_cm3', label: 'Price (per cm³)', unit: 'USD/cm³', description: 'Approximate price per unit volume', group: 'cost' },
-  /* R111 — machining_cost_factor + ht_cost_factor 는 의미 카드 (제조성 섹션) 로 옮김. 여기 cost 영역엔 숫자만 표시 (참고용). */
+  { key: 'price_per_kg', label: 'Raw price (per kg)', unit: 'USD/kg', description: 'Raw material spot price (LME / vendor list, family base). condition/form 차별화 X.', group: 'cost' },
+  /* R116 — delivered price = raw × condition × form × grade. 사용자 비교 기준 (HT/process 적용 후 단가). */
+  { key: 'delivered_price_per_kg', label: 'Delivered price (HT+form)', unit: 'USD/kg', description: 'R116: raw × condition × form × grade premium. As-supplied < Q+T < STA < HIP. Wrought < Cold-drawn < AM powder.', group: 'cost' },
+  { key: 'price_per_cm3', label: 'Price (per cm³)', unit: 'USD/cm³', description: 'Approximate price per unit volume (raw 기준)', group: 'cost' },
+  /* R111/R116 — factor 들은 의미 카드 (제조성 섹션) 로 옮김. 여기 cost 영역엔 숫자만 표시 (참고용). */
+  { key: 'price_condition_factor', label: 'Condition × (HT/temper)', unit: '×', description: 'R116: heat treatment / temper 가격 증가. As-supplied 1.0 / Annealed 1.02 / Q+T 1.18 / STA 1.25 / HIP 1.60 / Coating 1.50', group: 'cost' },
+  { key: 'price_form_factor', label: 'Form × (process)', unit: '×', description: 'R116: process 형태 가격. Cast 1.0 / Wrought 1.05 / Cold-drawn 1.20 / Forged 1.15 / AM powder 2.5 / EBM 3.0', group: 'cost' },
+  { key: 'price_grade_premium', label: 'Grade × (premium)', unit: '×', description: 'R116: 같은 family 내 grade 차이. Single crystal 4.0 / DS cast 2.0 / Scalmalloy 2.0 / Al-Li 1.30 / aerospace 7xxx 1.10', group: 'cost' },
   { key: 'machining_cost_factor', label: 'Machining factor', unit: '×', description: 'F4: 가공 비용 가중치 (1.0 = 표준 강) — 자세한 의미는 아래 "제조성" 카드 참조', group: 'cost' },
   { key: 'ht_cost_factor', label: 'HT factor', unit: '×', description: 'F4: 열처리·후공정 비용 가중치 (1.0 = 없음) — 자세한 의미는 아래 "제조성" 카드 참조', group: 'cost' },
-  { key: 'total_cost_estimate', label: 'Total cost (est.)', unit: 'USD/kg', description: 'F4: raw × machining × HT 추정 가공 단가', group: 'cost' },
+  { key: 'total_cost_estimate', label: 'Total cost (machined)', unit: 'USD/kg', description: 'R116: delivered_price × machining factor — 가공·열처리·form 모두 적용한 최종 추정 단가', group: 'cost' },
   /* R111 — Min wall / Surface Ra 는 process-aware (Wrought 에서는 의미 없음). build-materials 에서 Cast/AM/Injection 만 채움. */
   { key: 'min_wall_thickness', label: 'Min wall', unit: 'mm', description: 'R15: 최소 벽 두께 — Cast/AM/Injection 프로세스 한정 (Wrought 는 가공 결과에 의존하므로 N/A)', group: 'cost' },
   { key: 'surface_finish_typical', label: 'Surface Ra', unit: 'μm', description: 'R15: 제조 그대로의 표면 거칠기 — Cast/AM/Injection 한정 (Wrought 는 가공 후 결과로 결정, N/A)', group: 'cost' },

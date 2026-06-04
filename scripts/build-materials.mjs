@@ -2415,8 +2415,23 @@ for (const m of all) {
   // machinability + HT 필드 + 합금 패턴 기반. 실수 (factor 가 음수 또는 0) 회피.
   m.machining_cost_factor = machiningCostFactor(m);
   m.ht_cost_factor = htCostFactor(m);
+  /* R116 — 가격 다차원 모델:
+     raw price = base material spot price (LME / vendor list, family typical 또는 ALLOY_SPECIFIC handbook)
+     condition factor = heat treatment / temper 따른 가격 증가 (As-supplied 1.0 → STA 1.25 → HIP 1.60)
+     form factor = process 형태 (Cast 1.0 → Wrought 1.05 → Cold-drawn 1.20 → AM powder 2.5-3.0)
+     grade premium = 같은 family 내 grade 차이 (single crystal 4.0, Al-Li 1.30 등)
+     delivered_price_per_kg = raw × condition × form × grade — 사용자에게 보다 의미 있는 단가. */
+  m.price_condition_factor = priceConditionFactor(m);
+  m.price_form_factor = priceFormFactor(m);
+  m.price_grade_premium = priceGradePremium(m);
   if (m.price_per_kg != null && m.price_per_kg > 0) {
-    m.total_cost_estimate = +(m.price_per_kg * m.machining_cost_factor * m.ht_cost_factor).toFixed(2);
+    const delivered = m.price_per_kg * m.price_condition_factor * m.price_form_factor * m.price_grade_premium;
+    m.delivered_price_per_kg = +delivered.toFixed(2);
+    // total_cost_estimate 도 delivered price 기반으로 (가공 + HT 처리 후 단가)
+    m.total_cost_estimate = +(delivered * m.machining_cost_factor).toFixed(2);
+    // delivered range 도 ranges 에 (sorting/filter 가능)
+    m.ranges = m.ranges || {};
+    m.ranges.delivered_price_per_kg = { min: m.delivered_price_per_kg, max: m.delivered_price_per_kg, typical: m.delivered_price_per_kg, n: 0, estimated: true, confidence: 'derived' };
   }
   /* R101 — price_per_cm3 fallback: price_per_kg + density 있으면 모든 material 에서 계산.
      기존 reference (assignPhysicals) 만 채우던 것 → ceramic/composite/polymer/CSV 모두 포함. */
@@ -2765,6 +2780,91 @@ function htCostFactor(m) {
   const cycleCount = (ht.match(/[,+→]|2차|1차/g) || []).length;
   if (cycleCount >= 2) f += 0.15;
   return +f.toFixed(2);
+}
+
+/* R116 — Condition-aware price multiplier. heat_treatment / condition string 기반.
+   같은 grade 라도 As-supplied vs Annealed vs Q+T vs STA vs HIP 별로 가격 차이.
+   raw material price 자체에는 영향 X — 별도 delivered_price 계산에 사용.
+   1.00 = no extra processing · 0.95 = pre-anneal (slight discount) · 1.05-1.50 = various HT */
+function priceConditionFactor(m) {
+  const ht = String(m.heat_treatment || '').toLowerCase();
+  const cond = String(m.condition || '').toLowerCase();
+  const n = String(m.name || '').toLowerCase();
+  const all = ht + ' ' + cond + ' ' + n;
+  let f = 1.0;
+  // As-supplied / As-rolled / Mill-finish → 기본 (raw price 그대로)
+  if (/as.?supplied|as.?rolled|as.?cast|mill.?finish|as.?received/.test(all)) return 1.00;
+  // Annealed — 보통 mill 에서 함, 거의 추가 비용 없음
+  if (/^o\b|^annealed|annealed\b|softened/.test(all)) f = 1.02;
+  // Normalized — 더 큰 anneal 사이클
+  if (/normaliz/.test(all)) f = 1.05;
+  // Cold-worked (1/4H, 1/2H, H, EH) — extra cold rolling pass
+  if (/\b1\/4h\b|\b1\/2h\b|\bfull.?hard\b|cold.?work|strain.?harden|cold.?drawn|cold.?rolled/.test(all)) f = Math.max(f, 1.08);
+  if (/\beh\b|extra.?hard|spring.?temper/.test(all)) f = Math.max(f, 1.15);
+  // Q+T — 표준 quench + temper
+  if (/q\+t|quench.*temper|tempered|martensitic.?temper|hardened.*tempered/.test(all)) f = Math.max(f, 1.18);
+  // Solution + Aged — PH stainless / Ni 합금
+  if (/solution|aged|aging|시효|sta\b|h900|h925|h1025|h1075|h1100|h1150|t6\b|t651|t73|t76/.test(all)) f = Math.max(f, 1.25);
+  // Multi-step (STA + double aging, 718 standard 사이클)
+  if (/double.?age|sta.*age|sta.*solution|two.?step.*age|718.*sta/.test(all)) f = Math.max(f, 1.40);
+  // HIP — hot isostatic pressing, vacuum + high temp
+  if (/hip|hot.?isostatic/.test(all)) f = Math.max(f, 1.60);
+  // Carburizing / Nitriding — case hardening
+  if (/carburiz|nitrid|cementation|침탄|질화/.test(all)) f = Math.max(f, 1.30);
+  // Coating (TBC, MCrAlY, DLC, PVD/CVD)
+  if (/tbc\b|mcraly|aluminide|diffusion.?coating|dlc|tin\b|tialn|cvd|pvd/.test(all)) f = Math.max(f, 1.50);
+  // Multi-cycle indicator
+  const cycleCount = (all.match(/[,+→]|2차|1차/g) || []).length;
+  if (cycleCount >= 2) f += 0.05;
+  return +f.toFixed(3);
+}
+
+/* R116 — Form-factor (process) price multiplier. 같은 grade 라도 process 형태에 따라 가격 차이.
+   Cast: 1.0 (base), Wrought bar: 1.05, Rolled sheet: 1.10, Cold-drawn tube/wire: 1.20,
+   Forged: 1.15, Powder (AM): 2.0~3.5, Sintered (PM): 1.5 */
+function priceFormFactor(m) {
+  const proc = String(m.process || '').toLowerCase();
+  let f = 1.0;
+  if (/lpbf|slm|dmls/.test(proc)) f = 2.5;       // AM powder + atomization premium
+  else if (/ebm|electron.?beam/.test(proc)) f = 3.0;  // EBM Ti powder 더 비쌈
+  else if (/binder.?jet/.test(proc)) f = 2.2;
+  else if (/ded|directed.?energy|wire.?arc/.test(proc)) f = 2.0;
+  else if (/sintered|powder.?metal|\bpm\b/.test(proc)) f = 1.5;
+  else if (/investment|lost.?wax/.test(proc)) f = 1.20;  // 정밀 주조
+  else if (/die.?cast/.test(proc)) f = 1.05;
+  else if (/sand.?cast|gravity.?cast|cast\b/.test(proc)) f = 1.00;  // base
+  else if (/cold.?drawn|cold.?rolled|hard.?drawn/.test(proc)) f = 1.20;
+  else if (/forg|forge/.test(proc)) f = 1.15;
+  else if (/sheet.?metal|stamp/.test(proc)) f = 1.10;  // rolled sheet
+  else if (/rolled|hot.?rolled/.test(proc)) f = 1.08;
+  else if (/wrought|extrud/.test(proc)) f = 1.05;
+  else if (/injection|molded/.test(proc)) f = 1.0;
+  return +f.toFixed(3);
+}
+
+/* R116 — Grade premium within family. 같은 family 내 grade 차이 (이미 ALLOY_SPECIFIC 의 195 entry 는 base price 가 정확).
+   여기서는 CSV/generic entry 의 grade-수준 premium 만 추정. AISI/SAE 번호 기반.
+   주의: 4-digit 매치는 AISI/SAE 명시 prefix 또는 합금명 시작 위치만 사용 (e.g. "1065°C" 같은 temperature 매치 회피). */
+function priceGradePremium(m) {
+  const n = String(m.name || '').toLowerCase();
+  // Steel — AISI/SAE 번호 (prefix 명시 또는 강 합금명 anchored)
+  const aisi = n.match(/\b(?:aisi|sae|astm)\s*([1-9])(0|1|2|4|5|6|8|9)(\d)(\d)\b/) || n.match(/^(?:\W*)([1-9])(0|1|2|4|5|6|8|9)(\d)(\d)\b/);
+  if (aisi) {
+    const series = aisi[1] + aisi[2];
+    const cPct = +(aisi[3] + aisi[4]) / 100;
+    if (/^41|^43|^86|^93/.test(series)) return +(1.0 + cPct * 0.10).toFixed(3); // Cr-Mo / Ni-Cr-Mo, C 함량 따라 ↑
+    if (/^10|^15/.test(series)) return +(0.95 + cPct * 0.05).toFixed(3); // carbon steel
+    if (/^51|^61/.test(series)) return +(1.0 + cPct * 0.08).toFixed(3); // Cr spring
+  }
+  // Aluminum — series 별
+  if (/\b7068|7075|7050|7175/.test(n)) return 1.10;  // high-strength aerospace
+  if (/\b2090|2195|2099|2050/.test(n)) return 1.30;  // Al-Li
+  if (/\b2024|2014|2219/.test(n)) return 1.05;       // 2xxx
+  if (/\bscalmalloy|sc-modified/.test(n)) return 2.0; // Sc 추가 매우 비쌈
+  // Ni superalloy — single crystal premium
+  if (/cmsx-?[12345]|rene n5|rene n6|pwa 1480|pwa 1484/.test(n)) return 4.0; // single crystal
+  if (/ds-?cast|directionally.?solidified|rene 80|in 738|in 939/.test(n)) return 2.0; // DS cast
+  return 1.0;
 }
 
 // R38c — 한국 산업 기준 인기도 (KS/JIS 표준 합금 우선, 자동차·조선·반도체·디스플레이·건설·가전).
