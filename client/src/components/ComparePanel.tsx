@@ -301,7 +301,7 @@ ${panel.outerHTML}
         <div className="flex items-center gap-1 overflow-x-auto flex-1 min-w-0 justify-end">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="h-7 text-xs gap-1"><SlidersHorizontal className="w-3 h-3" /> Columns</Button>
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1 px-2 flex-shrink-0" title="컬럼 선택"><SlidersHorizontal className="w-3 h-3" /> <span className="hidden lg:inline">Columns</span></Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="max-h-80 overflow-auto">
               <DropdownMenuLabel className="text-xs">Properties (columns)</DropdownMenuLabel>
@@ -317,44 +317,44 @@ ${panel.outerHTML}
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          {/* R53a — Radar 모드 토글 (material 2개+ , 20개 이하 일 때만 활성) */}
+          {/* R53a/R120 — Radar 모드 토글. PC 폭 좁을 때도 보이도록 라벨 lg:inline, 평소 icon-only. */}
           {materials.length > 0 && (
             <Button
               variant={viewMode === 'radar' ? 'default' : 'outline'}
               size="sm"
-              className="h-7 text-xs gap-1"
+              className="h-7 text-xs gap-1 px-2 flex-shrink-0"
               onClick={() => setViewMode(v => v === 'radar' ? 'table' : 'radar')}
               disabled={radarDisabled}
               title={radarDisabled ? `Radar 비활성 — ${materials.length} > ${RADAR_MAX} 개 (overlay 너무 복잡)` : viewMode === 'radar' ? 'Table 로 전환' : 'Radar 오버레이로 전환'}
             >
               {viewMode === 'radar' ? <TableIcon className="w-3 h-3" /> : <Hexagon className="w-3 h-3" />}
-              {viewMode === 'radar' ? 'Table' : 'Radar'}
+              <span className="hidden lg:inline">{viewMode === 'radar' ? 'Table' : 'Radar'}</span>
             </Button>
           )}
-          {/* R67 Sprint C — Goodman diagram 토글 */}
+          {/* R67/R120 — Goodman diagram 토글, 라벨 축약 */}
           {materials.length > 0 && (
             <Button
               variant={viewMode === 'goodman' ? 'default' : 'outline'}
               size="sm"
-              className="h-7 text-xs gap-1"
+              className="h-7 text-xs gap-1 px-2 flex-shrink-0"
               onClick={() => setViewMode(v => v === 'goodman' ? 'table' : 'goodman')}
               title={viewMode === 'goodman' ? 'Table 로 전환' : 'Goodman diagram (피로 평균응력)'}
             >
-              σ<sub>a</sub>·σ<sub>m</sub>
+              <span className="font-bold">⊙</span>
+              <span className="hidden lg:inline">Goodman</span>
             </Button>
           )}
-          {/* R50d — CSV / PNG export 버튼 (material 1개 이상 일 때만) */}
+          {/* R50d/R120 — CSV / PNG / PDF export 버튼. 좁은 폭에서 icon-only. */}
           {materials.length > 0 && (
             <>
-              <Button variant="outline" size="sm" className="h-7 text-xs gap-1" onClick={exportCSV} title="CSV 로 내보내기">
-                <Download className="w-3 h-3" /> CSV
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1 px-2 flex-shrink-0" onClick={exportCSV} title="CSV 로 내보내기">
+                <Download className="w-3 h-3" /> <span className="hidden lg:inline">CSV</span>
               </Button>
-              <Button variant="outline" size="sm" className="h-7 text-xs gap-1" onClick={exportPNG} disabled={exporting} title="PNG 이미지로 내보내기">
-                <FileImage className="w-3 h-3" /> {exporting ? '...' : 'PNG'}
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1 px-2 flex-shrink-0" onClick={exportPNG} disabled={exporting} title="PNG 이미지로 내보내기">
+                <FileImage className="w-3 h-3" /> <span className="hidden lg:inline">{exporting ? '...' : 'PNG'}</span>
               </Button>
-              {/* R69 C — PDF (window.print) */}
-              <Button variant="outline" size="sm" className="h-7 text-xs gap-1" onClick={exportPDF} title="PDF 로 출력 (인쇄 → PDF로 저장)">
-                📄 PDF
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1 px-2 flex-shrink-0" onClick={exportPDF} title="PDF 로 출력 (인쇄 → PDF로 저장)">
+                📄 <span className="hidden lg:inline">PDF</span>
               </Button>
             </>
           )}
@@ -362,10 +362,10 @@ ${panel.outerHTML}
             <Button
               variant="ghost"
               size="sm"
-              className="h-7 px-2 text-[11px] text-muted-foreground hover:text-destructive"
+              className="h-7 px-2 text-[11px] text-muted-foreground hover:text-destructive flex-shrink-0"
               onClick={() => { if (confirm(`Compare 목록 ${materials.length}개 모두 비우시겠습니까?`)) onClear(); }}
               title="모든 재료를 Compare 에서 제거"
-            >{t('compare.clearAll')}</Button>
+            >🗑 <span className="hidden lg:inline">{t('compare.clearAll')}</span></Button>
           )}
         </div>
         {/* R115 — X 닫기를 overflow 영역 밖에 fix. 모바일·데스크탑 항상 우측 끝에 보임. */}
