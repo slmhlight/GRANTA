@@ -535,7 +535,279 @@ const ALLOY_SPECIFIC = {
   'maraging250': { ec: 3, tmax: 480, price: 14, cte: 10.0, poisson: 0.30, cp: 450, melt: 1430, kic: 110 },
   'maraging300': { ec: 3, tmax: 480, price: 16, cte: 10.1, poisson: 0.30, cp: 450, melt: 1430, kic: 80 },
   'maraging350': { ec: 3, tmax: 480, price: 20, cte: 10.2, poisson: 0.30, cp: 450, melt: 1430, kic: 50 },
+  // ─── R109 신규 확장 — Carbon/Alloy steel 추가 ───
+  '1010': { ec: 16, tmax: 540, price: 0.8, cte: 11.7, poisson: 0.29, cp: 481, melt: 1520, kic: 65 },
+  '1015': { ec: 16, tmax: 540, price: 0.9, cte: 11.7, poisson: 0.29, cp: 482, melt: 1520, kic: 60 },
+  '1025': { ec: 15, tmax: 540, price: 1.0, cte: 11.6, poisson: 0.29, cp: 486, melt: 1515, kic: 55 },
+  '1030': { ec: 15, tmax: 540, price: 1.1, cte: 11.5, poisson: 0.29, cp: 486, melt: 1510, kic: 53 },
+  '1035': { ec: 14, tmax: 540, price: 1.1, cte: 11.5, poisson: 0.29, cp: 486, melt: 1500, kic: 50 },
+  '1040': { ec: 14, tmax: 540, price: 1.2, cte: 11.5, poisson: 0.29, cp: 486, melt: 1500, kic: 47 },
+  '1060': { ec: 13, tmax: 540, price: 1.3, cte: 11.4, poisson: 0.29, cp: 486, melt: 1490, kic: 38 },
+  '1095': { ec: 12, tmax: 540, price: 1.5, cte: 11.4, poisson: 0.29, cp: 486, melt: 1480, kic: 28 },
+  '4135': { ec: 7.2, tmax: 425, price: 2.7, cte: 12.3, poisson: 0.29, cp: 477, melt: 1428, kic: 75 },
+  '4145': { ec: 7.0, tmax: 425, price: 2.9, cte: 12.3, poisson: 0.29, cp: 477, melt: 1425, kic: 75 },
+  '4150': { ec: 6.8, tmax: 425, price: 3.2, cte: 12.3, poisson: 0.29, cp: 477, melt: 1424, kic: 60 },
+  '4615': { ec: 7.5, tmax: 425, price: 2.8, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, kic: 75 },
+  '4620': { ec: 7.5, tmax: 425, price: 2.8, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, kic: 70 },
+  '5130': { ec: 7.5, tmax: 425, price: 2.4, cte: 12.4, poisson: 0.29, cp: 477, melt: 1428, kic: 65 },
+  '6150': { ec: 6.5, tmax: 480, price: 3.5, cte: 12.0, poisson: 0.29, cp: 476, melt: 1430, kic: 80 },
+  '8615': { ec: 7.5, tmax: 425, price: 2.7, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, kic: 70 },
+  '8625': { ec: 7.5, tmax: 425, price: 2.8, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, kic: 70 },
+  '8630': { ec: 7.0, tmax: 425, price: 2.8, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, kic: 70 },
+  '9260': { ec: 7.0, tmax: 425, price: 3.0, cte: 11.8, poisson: 0.29, cp: 480, melt: 1430, kic: 50 },
+  '9310': { ec: 6.5, tmax: 425, price: 4.0, cte: 11.9, poisson: 0.29, cp: 470, melt: 1425, kic: 100 },
+  // ─── Tool steels ───
+  'h13': { ec: 5.0, tmax: 540, price: 8.0, cte: 12.5, poisson: 0.29, cp: 460, melt: 1427, kic: 30 },
+  'd2':  { ec: 4.0, tmax: 540, price: 9.5, cte: 12.2, poisson: 0.29, cp: 461, melt: 1421, kic: 18 },
+  'm2':  { ec: 4.5, tmax: 540, price: 12,  cte: 11.6, poisson: 0.29, cp: 460, melt: 1427, kic: 22 },
+  'm4':  { ec: 4.0, tmax: 540, price: 15,  cte: 11.0, poisson: 0.29, cp: 458, melt: 1427, kic: 17 },
+  'p20': { ec: 5.0, tmax: 425, price: 4.5, cte: 12.7, poisson: 0.29, cp: 460, melt: 1426, kic: 50 },
+  'a2':  { ec: 4.5, tmax: 540, price: 6.5, cte: 12.0, poisson: 0.29, cp: 460, melt: 1427, kic: 28 },
+  'o1':  { ec: 5.0, tmax: 540, price: 5.0, cte: 12.4, poisson: 0.29, cp: 460, melt: 1427, kic: 22 },
+  // ─── Stainless 추가 ───
+  '904l': { ec: 1.7, tmax: 400, price: 18,  cte: 15.3, poisson: 0.30, cp: 460, melt: 1380, kic: 250 },
+  '254smo': { ec: 1.6, tmax: 400, price: 25, cte: 16.1, poisson: 0.30, cp: 500, melt: 1320, kic: 250 },
+  'a286': { ec: 2.0, tmax: 700, price: 14,  cte: 16.7, poisson: 0.29, cp: 460, melt: 1395, kic: 110 },
+  '405':  { ec: 3.5, tmax: 815, price: 3.5, cte: 10.8, poisson: 0.29, cp: 460, melt: 1480, kic: 80 },
+  '409':  { ec: 3.4, tmax: 705, price: 3.0, cte: 11.7, poisson: 0.29, cp: 460, melt: 1480, kic: 80 },
+  '13-8 mo': { ec: 2.0, tmax: 425, price: 12, cte: 11.1, poisson: 0.30, cp: 450, melt: 1400, kic: 100 },
+  '138mo':   { ec: 2.0, tmax: 425, price: 12, cte: 11.1, poisson: 0.30, cp: 450, melt: 1400, kic: 100 },
+  'custom455': { ec: 2.0, tmax: 425, price: 14, cte: 10.3, poisson: 0.30, cp: 450, melt: 1400, kic: 80 },
+  // ─── Aluminum 추가 ───
+  '1050': { ec: 60,  tmax: 200, price: 2.2, cte: 23.5, poisson: 0.33, cp: 902, melt: 657, kic: 60 },
+  '1060': { ec: 61,  tmax: 200, price: 2.3, cte: 23.6, poisson: 0.33, cp: 900, melt: 657, kic: 60 },
+  '1100': { ec: 58,  tmax: 200, price: 2.3, cte: 23.6, poisson: 0.33, cp: 904, melt: 657, kic: 55 },
+  '4047': { ec: 39,  tmax: 175, price: 4.5, cte: 19.3, poisson: 0.33, cp: 920, melt: 576, kic: 20 },
+  '5454': { ec: 34,  tmax: 200, price: 3.2, cte: 23.7, poisson: 0.33, cp: 900, melt: 638, kic: 38 },
+  '5456': { ec: 28,  tmax: 200, price: 3.4, cte: 23.9, poisson: 0.33, cp: 900, melt: 638, kic: 40 },
+  '5754': { ec: 34,  tmax: 200, price: 3.2, cte: 23.7, poisson: 0.33, cp: 900, melt: 638, kic: 38 },
+  '6005': { ec: 48,  tmax: 170, price: 3.0, cte: 23.4, poisson: 0.33, cp: 900, melt: 650, kic: 30 },
+  '6101': { ec: 57,  tmax: 170, price: 3.1, cte: 23.4, poisson: 0.33, cp: 900, melt: 650, kic: 30 },
+  '6111': { ec: 41,  tmax: 170, price: 3.5, cte: 23.4, poisson: 0.33, cp: 900, melt: 650, kic: 30 },
+  '6262': { ec: 44,  tmax: 170, price: 3.5, cte: 23.4, poisson: 0.33, cp: 900, melt: 650, kic: 25 },
+  '7068': { ec: 38,  tmax: 120, price: 18,  cte: 23.5, poisson: 0.33, cp: 875, melt: 632, kic: 24 },
+  '7150': { ec: 39,  tmax: 120, price: 10,  cte: 23.5, poisson: 0.33, cp: 860, melt: 635, kic: 28 },
+  '7449': { ec: 38,  tmax: 120, price: 12,  cte: 23.4, poisson: 0.33, cp: 860, melt: 633, kic: 26 },
+  '2050': { ec: 38,  tmax: 175, price: 20,  cte: 21.7, poisson: 0.33, cp: 875, melt: 627, kic: 28 },
+  '2099': { ec: 39,  tmax: 175, price: 20,  cte: 21.6, poisson: 0.33, cp: 875, melt: 625, kic: 30 },
+  // ─── Titanium 추가 ───
+  'tigr3': { ec: 3.1, tmax: 300, price: 23, cte: 8.6,  poisson: 0.34, cp: 520, melt: 1665, kic: 65 },
+  'tigr4': { ec: 3.1, tmax: 300, price: 24, cte: 8.6,  poisson: 0.34, cp: 520, melt: 1660, kic: 65 },
+  'tigr9': { ec: 1.5, tmax: 315, price: 30, cte: 9.5,  poisson: 0.34, cp: 540, melt: 1650, kic: 55 },
+  'tigr12': { ec: 2.5, tmax: 350, price: 35, cte: 8.7, poisson: 0.34, cp: 520, melt: 1660, kic: 65 },
+  'ti6al7nb': { ec: 1.0, tmax: 350, price: 80, cte: 8.6, poisson: 0.34, cp: 520, melt: 1660, kic: 60 },
+  'ti3al2.5v': { ec: 2.0, tmax: 315, price: 50, cte: 9.5, poisson: 0.34, cp: 540, melt: 1650, kic: 60 },
+  'ti811':    { ec: 1.0, tmax: 540, price: 60, cte: 8.0, poisson: 0.34, cp: 460, melt: 1680, kic: 60 },
+  // ─── Nickel superalloy 추가 ───
+  'inconel706': { ec: 1.3, tmax: 650, price: 60, cte: 14.6, poisson: 0.29, cp: 440, melt: 1336, kic: 100 },
+  'nimonic80a': { ec: 1.3, tmax: 815, price: 50, cte: 12.7, poisson: 0.30, cp: 461, melt: 1370, kic: 70 },
+  'nimonic90':  { ec: 1.3, tmax: 815, price: 65, cte: 12.7, poisson: 0.30, cp: 461, melt: 1370, kic: 75 },
+  'nimonic105': { ec: 1.2, tmax: 870, price: 80, cte: 12.7, poisson: 0.30, cp: 461, melt: 1340, kic: 60 },
+  'rene80': { ec: 1.3, tmax: 950, price: 200, cte: 12.7, poisson: 0.30, cp: 420, melt: 1310, kic: 30 },
+  'rene95': { ec: 1.3, tmax: 700, price: 150, cte: 12.6, poisson: 0.30, cp: 425, melt: 1330, kic: 50 },
+  'marm247': { ec: 1.3, tmax: 1050, price: 250, cte: 12.7, poisson: 0.30, cp: 420, melt: 1310, kic: 30 },
+  'in100':   { ec: 1.3, tmax: 1050, price: 200, cte: 12.6, poisson: 0.30, cp: 420, melt: 1310, kic: 28 },
+  'in738':   { ec: 1.3, tmax: 980, price: 220, cte: 12.7, poisson: 0.30, cp: 420, melt: 1320, kic: 30 },
+  'hastelloyg30': { ec: 1.5, tmax: 540, price: 65, cte: 14.6, poisson: 0.31, cp: 460, melt: 1370, kic: 110 },
+  'hastelloys': { ec: 1.3, tmax: 870, price: 70, cte: 11.3, poisson: 0.31, cp: 430, melt: 1370, kic: 100 },
+  // ─── Cobalt 추가 ───
+  'stellite1':  { ec: 1.5, tmax: 760, price: 70, cte: 12.5, poisson: 0.30, cp: 423, melt: 1330, kic: 20 },
+  'stellite12': { ec: 1.5, tmax: 760, price: 60, cte: 14.0, poisson: 0.30, cp: 423, melt: 1330, kic: 28 },
+  'mp35n': { ec: 1.5, tmax: 425, price: 80, cte: 12.8, poisson: 0.30, cp: 420, melt: 1430, kic: 100 },
+  'mp159': { ec: 1.5, tmax: 425, price: 100, cte: 12.4, poisson: 0.30, cp: 420, melt: 1410, kic: 90 },
+  // ─── Copper 추가 ───
+  'c14500': { ec: 95, tmax: 250, price: 11, cte: 17.0, poisson: 0.34, cp: 385, melt: 1083, kic: 60 },
+  'c19400': { ec: 65, tmax: 250, price: 12, cte: 17.1, poisson: 0.34, cp: 380, melt: 1080, kic: 55 },
+  'c27000': { ec: 27, tmax: 200, price: 7.5, cte: 19.9, poisson: 0.33, cp: 375, melt: 915, kic: 50 },
+  'c28000': { ec: 28, tmax: 200, price: 7.5, cte: 20.8, poisson: 0.33, cp: 380, melt: 905, kic: 40 },
+  'c44300': { ec: 25, tmax: 200, price: 8.5, cte: 20.2, poisson: 0.33, cp: 380, melt: 935, kic: 50 },
+  'c51000': { ec: 15, tmax: 200, price: 11,  cte: 17.6, poisson: 0.34, cp: 380, melt: 1027, kic: 55 },
+  'c52400': { ec: 13, tmax: 200, price: 12,  cte: 17.6, poisson: 0.34, cp: 380, melt: 1010, kic: 50 },
+  'c63200': { ec: 7,  tmax: 350, price: 18,  cte: 16.2, poisson: 0.30, cp: 419, melt: 1054, kic: 50 },
+  'c67500': { ec: 22, tmax: 200, price: 10,  cte: 21.0, poisson: 0.33, cp: 377, melt: 890, kic: 50 },
+  'c72500': { ec: 11, tmax: 350, price: 18,  cte: 16.4, poisson: 0.34, cp: 377, melt: 1080, kic: 60 },
+  'c92200': { ec: 15, tmax: 200, price: 14,  cte: 18.4, poisson: 0.34, cp: 377, melt: 990, kic: 40 },
+  // ─── Mg 추가 ───
+  'am50a': { ec: 30, tmax: 150, price: 6.5, cte: 26.0, poisson: 0.35, cp: 1024, melt: 600, kic: 20 },
+  'am60b': { ec: 28, tmax: 150, price: 6.0, cte: 26.0, poisson: 0.35, cp: 1024, melt: 595, kic: 18 },
+  'we43':  { ec: 18, tmax: 250, price: 25,  cte: 26.6, poisson: 0.35, cp: 1020, melt: 545, kic: 22 },
+  'zk60':  { ec: 27, tmax: 200, price: 12,  cte: 27.0, poisson: 0.35, cp: 1020, melt: 520, kic: 24 },
+  // ─── Refractory 추가 ───
+  'rhenium': { ec: 7.5, tmax: 2000, price: 1500, cte: 6.6, poisson: 0.30, cp: 137, melt: 3186, kic: 25 },
+  'wre10':   { ec: 14,  tmax: 1800, price: 200, cte: 4.7, poisson: 0.28, cp: 135, melt: 3300, kic: 15 },
+  'wcu':     { ec: 50,  tmax: 1500, price: 80,  cte: 8.5, poisson: 0.30, cp: 200, melt: 1083, kic: 18 },
 };
+
+/* R109 — alloy-specific fatigue (MPa, R=-1 endurance, 10^7 cycles) + Charpy V-notch impact (J) handbook values.
+   968 derived fatigue + 1083 missing impact 를 handbook 으로 대체. 1차 자료: ASM Vol.1/2, MMPDS-08, vendor datasheets. */
+const ALLOY_FAT_IMPACT = {
+  // Steel — fatigue ~UTS×0.45, impact varies by tempering
+  '4130':  { fatigue: [435, 465, 495], impact: [25, 35, 45] },
+  '4140':  { fatigue: [415, 470, 525], impact: [22, 30, 40] },
+  '4340':  { fatigue: [470, 540, 620], impact: [28, 40, 55] },
+  '8740':  { fatigue: [415, 475, 535], impact: [25, 35, 50] },
+  '8620':  { fatigue: [275, 325, 380], impact: [40, 60, 80] },
+  '300m':  { fatigue: [690, 770, 850], impact: [12, 18, 25] },
+  'd6ac':  { fatigue: [620, 695, 770], impact: [30, 45, 60] },
+  '1018':  { fatigue: [180, 220, 260], impact: [60, 90, 130] },
+  '1020':  { fatigue: [200, 230, 260], impact: [55, 80, 110] },
+  '1045':  { fatigue: [260, 290, 320], impact: [12, 18, 28] },
+  '1050':  { fatigue: [270, 310, 350], impact: [10, 14, 22] },
+  '1060':  { fatigue: [285, 330, 380], impact: [8, 12, 18] },
+  '1095':  { fatigue: [325, 380, 435], impact: [4, 6, 10] },
+  '4135':  { fatigue: [395, 450, 510], impact: [24, 32, 42] },
+  '4145':  { fatigue: [430, 495, 560], impact: [20, 28, 38] },
+  '4150':  { fatigue: [475, 545, 620], impact: [15, 22, 32] },
+  '5140':  { fatigue: [360, 415, 470], impact: [25, 35, 50] },
+  '5160':  { fatigue: [395, 450, 510], impact: [22, 32, 45] },
+  '6150':  { fatigue: [430, 495, 560], impact: [25, 35, 50] },
+  '8630':  { fatigue: [310, 360, 415], impact: [30, 45, 65] },
+  '9260':  { fatigue: [550, 620, 690], impact: [12, 18, 28] },
+  '9310':  { fatigue: [415, 480, 545], impact: [40, 60, 80] },
+  // Tool steel — high hardness, low ductility
+  'h13':   { fatigue: [620, 700, 780], impact: [15, 20, 28] },
+  'd2':    { fatigue: [550, 620, 690], impact: [5, 9, 15] },
+  'm2':    { fatigue: [600, 680, 760], impact: [4, 8, 14] },
+  'p20':   { fatigue: [340, 380, 420], impact: [30, 45, 60] },
+  'a2':    { fatigue: [550, 620, 690], impact: [8, 14, 22] },
+  // Stainless — austenitic (high impact), martensitic (low impact)
+  '304':   { fatigue: [220, 270, 310], impact: [110, 165, 220] },
+  '304l':  { fatigue: [220, 250, 280], impact: [120, 180, 240] },
+  '316':   { fatigue: [240, 270, 310], impact: [100, 155, 210] },
+  '316l':  { fatigue: [220, 250, 270], impact: [110, 165, 220] },
+  '321':   { fatigue: [230, 260, 290], impact: [100, 150, 200] },
+  '347':   { fatigue: [230, 260, 290], impact: [100, 150, 200] },
+  '410':   { fatigue: [340, 380, 420], impact: [15, 28, 45] },
+  '420':   { fatigue: [360, 410, 460], impact: [10, 18, 30] },
+  '430':   { fatigue: [200, 250, 300], impact: [40, 60, 90] },
+  '440c':  { fatigue: [350, 400, 450], impact: [4, 8, 14] },
+  '174ph': { fatigue: [550, 620, 690], impact: [20, 35, 55] },
+  '155ph': { fatigue: [510, 580, 650], impact: [25, 40, 60] },
+  '177ph': { fatigue: [500, 570, 640], impact: [18, 30, 50] },
+  '2205':  { fatigue: [350, 410, 470], impact: [80, 120, 170] },
+  '2507':  { fatigue: [430, 490, 550], impact: [70, 110, 160] },
+  '904l':  { fatigue: [230, 270, 310], impact: [110, 165, 220] },
+  '254smo':{ fatigue: [280, 320, 360], impact: [110, 165, 220] },
+  'a286':  { fatigue: [340, 380, 420], impact: [40, 65, 90] },
+  // Aluminum — fatigue ~0.35× UTS, low impact (5-20 J)
+  '6061':  { fatigue: [85, 96, 110], impact: [8, 13, 20] },
+  '6063':  { fatigue: [55, 68, 80], impact: [12, 18, 28] },
+  '6082':  { fatigue: [85, 96, 110], impact: [8, 13, 20] },
+  '7075':  { fatigue: [140, 159, 180], impact: [4, 7, 12] },
+  '7050':  { fatigue: [125, 145, 165], impact: [5, 9, 14] },
+  '7175':  { fatigue: [135, 155, 175], impact: [4, 7, 12] },
+  '2024':  { fatigue: [120, 138, 155], impact: [5, 9, 15] },
+  '2014':  { fatigue: [110, 125, 140], impact: [5, 9, 15] },
+  '2219':  { fatigue: [105, 125, 145], impact: [9, 15, 22] },
+  '2090':  { fatigue: [125, 145, 165], impact: [4, 8, 13] },
+  '2195':  { fatigue: [130, 150, 170], impact: [5, 9, 14] },
+  '5052':  { fatigue: [95, 115, 135], impact: [10, 16, 25] },
+  '5083':  { fatigue: [120, 145, 170], impact: [12, 20, 30] },
+  '5086':  { fatigue: [95, 115, 135], impact: [10, 17, 26] },
+  '3003':  { fatigue: [40, 50, 60], impact: [25, 40, 60] },
+  '1100':  { fatigue: [30, 40, 50], impact: [30, 50, 70] },
+  '1050':  { fatigue: [25, 35, 45], impact: [35, 55, 80] },
+  'a356':  { fatigue: [55, 70, 85], impact: [3, 5, 8] },
+  'a357':  { fatigue: [60, 75, 90], impact: [3, 5, 8] },
+  'alsi10mg': { fatigue: [90, 115, 140], impact: [3, 4, 6] },
+  'alsi7mg':  { fatigue: [80, 100, 120], impact: [4, 6, 8] },
+  'scalmalloy': { fatigue: [170, 200, 230], impact: [15, 20, 25] },
+  // Ti — fatigue ~0.55× UTS, impact 15-30 J
+  'ti6al4v': { fatigue: [450, 525, 600], impact: [17, 20, 24] },
+  'tigr1':   { fatigue: [180, 220, 260], impact: [60, 90, 120] },
+  'tigr2':   { fatigue: [230, 270, 310], impact: [55, 80, 110] },
+  'tigr5':   { fatigue: [450, 525, 600], impact: [17, 20, 24] },
+  'ti6242':  { fatigue: [490, 565, 640], impact: [15, 22, 30] },
+  'ti5553':  { fatigue: [580, 660, 740], impact: [12, 18, 25] },
+  'ti153':   { fatigue: [510, 580, 650], impact: [15, 22, 30] },
+  // Ni superalloy — fatigue ~0.4× UTS, impact 30-80 J
+  'inconel718': { fatigue: [450, 535, 620], impact: [30, 40, 50] },
+  'inconel625': { fatigue: [350, 415, 480], impact: [50, 70, 90] },
+  'inconel600': { fatigue: [180, 220, 260], impact: [80, 130, 180] },
+  'inconel601': { fatigue: [190, 230, 270], impact: [70, 115, 160] },
+  'inconel617': { fatigue: [320, 365, 410], impact: [60, 95, 130] },
+  'inconel x-750': { fatigue: [430, 490, 550], impact: [20, 35, 55] },
+  'inconelx750':   { fatigue: [430, 490, 550], impact: [20, 35, 55] },
+  'inconel706': { fatigue: [400, 470, 540], impact: [30, 45, 65] },
+  'rene41':  { fatigue: [400, 470, 540], impact: [20, 30, 45] },
+  'rene80':  { fatigue: [350, 410, 470], impact: [15, 22, 30] },
+  'rene95':  { fatigue: [550, 625, 700], impact: [22, 33, 48] },
+  'reneN5':  { fatigue: [400, 470, 540], impact: [10, 15, 22] },
+  'cmsx4':   { fatigue: [420, 490, 560], impact: [8, 13, 18] },
+  'waspaloy': { fatigue: [450, 520, 590], impact: [25, 38, 55] },
+  'haynes230': { fatigue: [250, 300, 350], impact: [50, 70, 90] },
+  'haynes188': { fatigue: [230, 280, 330], impact: [55, 80, 110] },
+  'haynes25':  { fatigue: [240, 290, 340], impact: [50, 75, 100] },
+  'hastelloyc276': { fatigue: [310, 365, 420], impact: [80, 120, 160] },
+  'hastelloyx': { fatigue: [225, 270, 315], impact: [85, 125, 165] },
+  'hastelloyb2': { fatigue: [310, 360, 410], impact: [55, 80, 110] },
+  'monel400': { fatigue: [205, 245, 285], impact: [120, 180, 240] },
+  'monel500': { fatigue: [340, 390, 440], impact: [25, 40, 60] },
+  'incoloy800': { fatigue: [230, 280, 330], impact: [60, 95, 130] },
+  'incoloy800h': { fatigue: [230, 280, 330], impact: [60, 95, 130] },
+  'incoloy825': { fatigue: [240, 290, 340], impact: [80, 125, 170] },
+  'nimonic80a': { fatigue: [330, 380, 430], impact: [22, 35, 50] },
+  'nimonic90':  { fatigue: [350, 405, 460], impact: [20, 32, 48] },
+  'invar36': { fatigue: [160, 190, 220], impact: [40, 65, 90] },
+  'kovar':   { fatigue: [180, 220, 260], impact: [35, 55, 80] },
+  'nitinol': { fatigue: [180, 220, 260], impact: [25, 40, 60] },
+  // Cobalt
+  'cocrmo': { fatigue: [350, 410, 470], impact: [25, 40, 60] },
+  'stellite6': { fatigue: [310, 360, 410], impact: [3, 5, 8] },
+  'stellite21': { fatigue: [285, 335, 385], impact: [4, 7, 12] },
+  'l605': { fatigue: [310, 365, 420], impact: [40, 60, 85] },
+  'mp35n': { fatigue: [610, 690, 770], impact: [45, 65, 90] },
+  // Copper alloys (Cu Development Association)
+  'c11000': { fatigue: [70, 90, 110], impact: [60, 100, 140] },
+  'c10100': { fatigue: [70, 90, 110], impact: [60, 100, 140] },
+  'c10200': { fatigue: [70, 90, 110], impact: [60, 100, 140] },
+  'c12200': { fatigue: [70, 90, 110], impact: [55, 95, 130] },
+  'c17200': { fatigue: [310, 380, 450], impact: [15, 25, 40] },
+  'c17500': { fatigue: [220, 270, 320], impact: [25, 45, 70] },
+  'c18150': { fatigue: [180, 220, 260], impact: [40, 70, 100] },
+  'c18200': { fatigue: [170, 210, 250], impact: [40, 70, 100] },
+  'c26000': { fatigue: [115, 140, 165], impact: [40, 70, 100] },
+  'c26800': { fatigue: [120, 150, 180], impact: [35, 60, 90] },
+  'c36000': { fatigue: [115, 140, 165], impact: [15, 28, 45] },
+  'c46400': { fatigue: [130, 155, 180], impact: [25, 45, 70] },
+  'c63000': { fatigue: [220, 270, 320], impact: [25, 45, 70] },
+  'c70600': { fatigue: [110, 135, 160], impact: [70, 115, 160] },
+  'c71500': { fatigue: [115, 140, 165], impact: [80, 130, 180] },
+  'c95400': { fatigue: [180, 220, 260], impact: [12, 22, 35] },
+  'grcop42': { fatigue: [200, 250, 300], impact: [25, 45, 70] },
+  'grcop84': { fatigue: [200, 250, 300], impact: [25, 45, 70] },
+  'c51000':  { fatigue: [185, 225, 265], impact: [25, 45, 70] },
+  'c92200':  { fatigue: [115, 140, 165], impact: [12, 22, 35] },
+  // Magnesium
+  'az31b': { fatigue: [55, 75, 95], impact: [3, 5, 8] },
+  'az61a': { fatigue: [60, 80, 100], impact: [3, 5, 8] },
+  'az91':  { fatigue: [70, 85, 100], impact: [2, 4, 6] },
+  'ze41':  { fatigue: [55, 70, 85], impact: [3, 5, 8] },
+  'am60b': { fatigue: [55, 70, 85], impact: [4, 6, 10] },
+  'we43':  { fatigue: [85, 105, 125], impact: [4, 7, 10] },
+  // Refractory
+  'tungsten': { fatigue: [200, 280, 360], impact: [2, 4, 8] },
+  'molybdenum': { fatigue: [140, 200, 260], impact: [10, 18, 28] },
+  'tzm': { fatigue: [220, 280, 340], impact: [10, 18, 28] },
+  'tantalum': { fatigue: [140, 180, 220], impact: [30, 50, 75] },
+  'niobium': { fatigue: [110, 140, 170], impact: [30, 50, 75] },
+  'c-103': { fatigue: [115, 145, 175], impact: [30, 50, 75] },
+  // Maraging
+  'maraging250': { fatigue: [600, 660, 720], impact: [20, 32, 48] },
+  'maraging300': { fatigue: [650, 700, 750], impact: [15, 22, 35] },
+  'maraging350': { fatigue: [700, 770, 840], impact: [10, 15, 22] },
+};
+
+function alloyFatigueImpact(name) {
+  if (!name) return null;
+  const lc = String(name).toLowerCase().replace(/[\s\-_(),/]+/g, '');
+  const keys = Object.keys(ALLOY_FAT_IMPACT).sort((a, b) => b.length - a.length);
+  for (const k of keys) {
+    const kn = k.replace(/[\s\-_(),/]+/g, '');
+    if (lc.includes(kn)) return ALLOY_FAT_IMPACT[k];
+  }
+  return null;
+}
 
 function alloySpecificPhysicals(name) {
   if (!name) return null;
@@ -1977,6 +2249,24 @@ for (const m of all) {
     if (rp.impact && !m.ranges.impact_strength) { m.ranges.impact_strength = rangeFrom(rp.impact, 'handbook'); m.impact_strength = m.ranges.impact_strength.typical; }
     if (rp.elevated_temp) m.elevated_temp = rp.elevated_temp;
   }
+  /* R109 — alloy-specific fatigue + impact (handbook) 적용. realPropsFor 없을 때만 (realPropsFor 는 핵심 11종 고정밀). */
+  const fi = alloyFatigueImpact(m.name);
+  if (fi) {
+    // fatigue: 기존이 없거나 derived (UTS×ratio) 이면 handbook 으로 덮어쓰기
+    const fCur = m.ranges.fatigue_strength;
+    if (!fCur || fCur.confidence === 'derived' || !(fCur.typical > 0)) {
+      if (fi.fatigue) {
+        m.ranges.fatigue_strength = rangeFrom(fi.fatigue, 'handbook');
+        m.fatigue_strength = m.ranges.fatigue_strength.typical;
+        m.fatigue_estimated = false;
+      }
+    }
+    // impact: 비어있으면 채우기 (기존 measured 가 있으면 유지)
+    if (fi.impact && (!m.ranges.impact_strength || !(m.ranges.impact_strength.typical > 0))) {
+      m.ranges.impact_strength = rangeFrom(fi.impact, 'handbook');
+      m.impact_strength = m.ranges.impact_strength.typical;
+    }
+  }
   // estimated fatigue (endurance) from UTS where no measured value — labelled as an estimate
   if (m.category !== 'Polymer' && !m.ranges.fatigue_strength && m.ranges.uts) {
     const f = m.families || [];
@@ -1985,6 +2275,30 @@ for (const m of all) {
     m.ranges.fatigue_strength = { min: round(u.min * ratio), max: round(u.max * ratio), typical: round(u.typical * ratio), n: 0, estimated: true, confidence: 'derived' };
     m.fatigue_strength = round(u.typical * ratio);
     m.fatigue_estimated = true;
+  }
+  /* R109 — impact_strength family typical fallback (alloy-specific 가 없을 때만). */
+  if (!m.ranges.impact_strength && m.category !== 'Polymer') {
+    const f = m.families || [];
+    const sub = String(m.subcategory || '').toLowerCase();
+    let imp = null;
+    if (sub.includes('austenitic') || /\b304\b|\b316\b|\b321\b|\b347\b/.test(m.name || '')) imp = [80, 130, 180];
+    else if (sub.includes('ferritic')) imp = [25, 50, 80];
+    else if (sub.includes('martensitic') || sub.includes('tool')) imp = [4, 12, 25];
+    else if (sub.includes('ph') || sub.includes('precipitation')) imp = [15, 30, 50];
+    else if (sub.includes('duplex')) imp = [60, 100, 150];
+    else if (sub.includes('maraging')) imp = [15, 22, 35];
+    else if (f.includes('Iron-based')) imp = [15, 35, 60];  // 일반 강
+    else if (f.includes('Aluminum-based')) imp = [5, 10, 18];
+    else if (f.includes('Titanium-based')) imp = [15, 22, 30];
+    else if (f.includes('Nickel-based') || f.includes('Superalloy')) imp = [30, 60, 100];
+    else if (f.includes('Cobalt-based')) imp = [10, 25, 50];
+    else if (f.includes('Copper-based')) imp = [40, 80, 130];
+    else if (f.includes('Magnesium-based')) imp = [3, 5, 8];
+    else if (f.includes('Refractory')) imp = [10, 25, 50];
+    if (imp) {
+      m.ranges.impact_strength = { min: imp[0], max: imp[2], typical: imp[1], n: 0, estimated: true, confidence: 'class' };
+      m.impact_strength = imp[1];
+    }
   }
   // class-typical physical & qualitative properties (handbook-level; flagged estimated)
   const ph = assignPhysicals(m);

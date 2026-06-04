@@ -2,6 +2,67 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R109 — ALLOY_SPECIFIC 확장 (110→195) + ALLOY_FAT_IMPACT 신규 + impact family typical
+사용자 지시 3건 동시 진행:
+1. ALLOY_SPECIFIC 확장 (110 → 195) — 잔여 class fallback ↓
+2. fatigue_strength 968 derived → handbook 으로 대체
+3. impact_strength 1083 missing → handbook + family typical 채움
+
+### 작업 내용
+
+**(1) ALLOY_SPECIFIC +85 신규 합금**
+- Carbon steel +12: AISI 1010/1015/1025/1030/1035/1040/1060/1095/4135/4145/4150
+- Alloy steel +9: 4615/4620/5130/6150/8615/8625/8630/9260/9310
+- Tool steel +7: H13/D2/M2/M4/P20/A2/O1
+- Stainless +7: 904L/254SMO/A286/405/409/13-8Mo/Custom 455
+- Aluminum +16: 1050/1060/1100/4047/5454/5456/5754/6005/6101/6111/6262/7068/7150/7449/2050/2099
+- Titanium +7: Ti Gr.3/4/9/12, Ti-6Al-7Nb, Ti-3-2.5V, Ti-8-1-1
+- Nickel superalloy +11: Inconel 706, Nimonic 80A/90/105, René 80/95, Mar-M-247, IN-100, IN-738, Hastelloy G-30/S
+- Cobalt +4: Stellite 1/12, MP35N, MP159
+- Copper +11: C14500/C19400/C27000/C28000/C44300/C51000/C52400/C63200/C67500/C72500/C92200
+- Mg +4: AM50A/AM60B/WE43/ZK60
+- Refractory +3: Rhenium, W-Re 10%, W-Cu
+
+**(2) ALLOY_FAT_IMPACT 신규 테이블 (~120 alloy)**
+fatigue (MPa, R=-1, 10⁷ cycles) + Charpy V-notch impact (J) handbook 값. 1차 자료 (ASM Vol.1/2, MMPDS, Special Metals/Haynes datasheets) 기반.
+- Steel: 4130/4140/4340/8740/8620/300M/D6AC/1018-1095/4135-4150/5140/5160/6150/8630/9260/9310
+- Tool steel: H13/D2/M2/P20/A2
+- Stainless: 304(L)/316(L)/321/347/410/420/430/440C/17-4PH/15-5PH/17-7PH/2205/2507/904L/254SMO/A286
+- Aluminum: 6061/6063/6082/7075/7050/7175/2024/2014/2219/2090/2195/5052/5083/5086/3003/1100/1050/A356/A357/AlSi10Mg/Scalmalloy
+- Titanium: Ti-6Al-4V/Gr.1/2/5/6242/5553/15-3
+- Nickel: Inconel 600/601/617/625/706/718/X-750, René 41/80/95/N5, CMSX-4, Waspaloy, Haynes 230/188/25, Hastelloy C276/X/B-2, Monel 400/500, Incoloy 800/825, Nimonic 80A/90, Invar 36, Kovar, Nitinol
+- Cobalt: CoCrMo, Stellite 6/21, L605, MP35N
+- Copper: C11000/C10100/C10200/C12200/C17200/C17500/C18150/C18200/C26000/C26800/C36000/C46400/C51000/C63000/C70600/C71500/C92200/C95400/GRCop-42/84
+- Magnesium: AZ31B/AZ61A/AZ91/ZE41/AM60B/WE43
+- Refractory: W/Mo/TZM/Ta/Nb/C-103
+- Maraging: 250/300/350
+
+로직: realPropsFor 우선 (핵심 11종 정밀), 그 다음 alloyFatigueImpact (~120 handbook), 그 다음 derived (UTS×ratio).
+
+**(3) impact_strength family typical fallback** (assignPhysicals 영역 확장)
+alloy-specific 매치 없으면 subcategory + family 기반:
+- Stainless austenitic / Ferritic / Martensitic / Tool / PH / Duplex / Maraging
+- Iron-based 일반 강, Al, Ti, Ni superalloy, Cobalt, Cu, Mg, Refractory
+
+### 결과 — 모든 핵심 물성 fallback 비율 큰 폭 감소
+| 물성 | R107 (전) | R108 | **R109** | handbook % (R109) |
+|---|---|---|---|---|
+| **impact_strength missing** | 1083 | 1083 | **215** | (87% 채움) |
+| **fatigue handbook** | 150 | 150 | **512** | (+241%) |
+| fatigue derived | 968 | 968 | **609** | (-37%) |
+| thermal_expansion handbook | 72 | 513 | **692** | (57%) |
+| max_service_temp handbook | 72 | 513 | **692** | (57%) |
+| price_per_kg handbook | 72 | 513 | **692** | (57%) |
+| poisson_ratio handbook | 10 | 434 | **616** | (54%) |
+| specific_heat handbook | 10 | 434 | **616** | (54%) |
+| melting_point handbook | 13 | 437 | **619** | (61%) |
+| electrical_conductivity handbook | 3 | 428 | **610** | (54%) |
+| fracture_toughness handbook | 39 | 460 | **642** | (65%) |
+
+총 누적 효과 (R107 → R109): handbook 값 ~70개 → ~6,200개 (약 90배 ↑). 사용자 detail panel 에서 "핸드북" 라벨이 표시되는 비율이 약 절반 이상.
+
+검증: tsc OK · vitest 47/47 · build:data OK (verified 748) · production build OK (1292.72 KB / gzip 356.51 KB).
+
 ## R108 — Fallback 비율 감축 (class → handbook 변환)
 사용자 정책: "기존 데이터에서 비어있는 물성 또는 fallback 된 물성 채울 수 있는 방안 수립" → fallback 비율 자체를 낮춰야 함. handbook 값으로 직접 대체.
 
