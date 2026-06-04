@@ -97,14 +97,26 @@ export function RadarChart({
     return [cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius] as [number, number];
   };
 
-  // 4. normalize value
+  /* R124 — normalize 정책 변경 (사용자 요청):
+     1) 최저값 floor 0.25 — 최저값이라도 1/4 지점까지는 OK (점이 중심에 모이지 않음)
+     2) log scale — max/min > 5 배 (1 order 이상 차이) 면 log scale 로 극단 차이 완화
+     3) 데이터 없음 (null) 도 0.25 기본점수 (radar 가 비어 보이지 않음) */
   const normValue = (m: Material, ax: RadarAxis): number => {
     const v = getProp(m, ax.key);
-    if (v == null || !isFinite(v) || v <= 0) return 0;
+    if (v == null || !isFinite(v) || v <= 0) return 0.25;  // 데이터 없어도 1/4 (기본점수)
     const { min, max } = axisStats[ax.key];
-    if (max === min) return 0.5;
-    const t = (v - min) / (max - min);
-    return ax.invert ? 1 - t : t;
+    if (max === min) return 0.625;  // 1.0/2 사이 = 0.25 + 0.75/2
+    // log scale (양수 only, 5배 이상 차이 시): 극단 차이 완화
+    let t: number;
+    if (min > 0 && max > 0 && max / min >= 5) {
+      t = (Math.log(v) - Math.log(min)) / (Math.log(max) - Math.log(min));
+    } else {
+      t = (v - min) / (max - min);
+    }
+    t = Math.max(0, Math.min(1, t));  // clamp 0..1
+    if (ax.invert) t = 1 - t;
+    // 최저값 0.25 ~ 최고값 1.0 매핑
+    return 0.25 + 0.75 * t;
   };
 
   return (
