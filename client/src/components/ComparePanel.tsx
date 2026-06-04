@@ -170,7 +170,8 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       restored = true;
     };
     try {
-      const { default: html2canvas } = await import('html2canvas');
+      // R121 — html2canvas-pro 사용 (oklch / lab / lch / color-mix 지원). 기존 html2canvas v1 은 modern CSS 미지원.
+      const { default: html2canvas } = await import('html2canvas-pro');
       const isMobile = window.matchMedia('(max-width: 767px)').matches;
       // 모바일: 임시로 width 1024 강제 (캡쳐 후 원복)
       origWidth = el.style.width;
@@ -298,10 +299,11 @@ ${panel.outerHTML}
         <span className="text-sm font-semibold flex-shrink-0 whitespace-nowrap">
           {t('compare.title')} <span className="text-xs text-muted-foreground font-normal">({materials.length})</span>
         </span>
-        <div className="flex items-center gap-1 overflow-x-auto flex-1 min-w-0 justify-end">
+        {/* R121 — overflow-x-auto 대신 flex-wrap. 좁은 panel 폭에서 자동 2줄. radar 버튼 숨겨짐 문제 해결. */}
+        <div className="flex flex-wrap items-center gap-1 flex-1 min-w-0 justify-end">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="h-7 text-xs gap-1 px-2 flex-shrink-0" title="컬럼 선택"><SlidersHorizontal className="w-3 h-3" /> <span className="hidden lg:inline">Columns</span></Button>
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1 px-2 flex-shrink-0" title="컬럼 선택"><SlidersHorizontal className="w-3 h-3" /> <span className="hidden md:inline">Columns</span></Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="max-h-80 overflow-auto">
               <DropdownMenuLabel className="text-xs">Properties (columns)</DropdownMenuLabel>
@@ -328,7 +330,7 @@ ${panel.outerHTML}
               title={radarDisabled ? `Radar 비활성 — ${materials.length} > ${RADAR_MAX} 개 (overlay 너무 복잡)` : viewMode === 'radar' ? 'Table 로 전환' : 'Radar 오버레이로 전환'}
             >
               {viewMode === 'radar' ? <TableIcon className="w-3 h-3" /> : <Hexagon className="w-3 h-3" />}
-              <span className="hidden lg:inline">{viewMode === 'radar' ? 'Table' : 'Radar'}</span>
+              <span className="hidden md:inline">{viewMode === 'radar' ? 'Table' : 'Radar'}</span>
             </Button>
           )}
           {/* R67/R120 — Goodman diagram 토글, 라벨 축약 */}
@@ -341,20 +343,20 @@ ${panel.outerHTML}
               title={viewMode === 'goodman' ? 'Table 로 전환' : 'Goodman diagram (피로 평균응력)'}
             >
               <span className="font-bold">⊙</span>
-              <span className="hidden lg:inline">Goodman</span>
+              <span className="hidden md:inline">Goodman</span>
             </Button>
           )}
           {/* R50d/R120 — CSV / PNG / PDF export 버튼. 좁은 폭에서 icon-only. */}
           {materials.length > 0 && (
             <>
               <Button variant="outline" size="sm" className="h-7 text-xs gap-1 px-2 flex-shrink-0" onClick={exportCSV} title="CSV 로 내보내기">
-                <Download className="w-3 h-3" /> <span className="hidden lg:inline">CSV</span>
+                <Download className="w-3 h-3" /> <span className="hidden md:inline">CSV</span>
               </Button>
               <Button variant="outline" size="sm" className="h-7 text-xs gap-1 px-2 flex-shrink-0" onClick={exportPNG} disabled={exporting} title="PNG 이미지로 내보내기">
-                <FileImage className="w-3 h-3" /> <span className="hidden lg:inline">{exporting ? '...' : 'PNG'}</span>
+                <FileImage className="w-3 h-3" /> <span className="hidden md:inline">{exporting ? '...' : 'PNG'}</span>
               </Button>
               <Button variant="outline" size="sm" className="h-7 text-xs gap-1 px-2 flex-shrink-0" onClick={exportPDF} title="PDF 로 출력 (인쇄 → PDF로 저장)">
-                📄 <span className="hidden lg:inline">PDF</span>
+                📄 <span className="hidden md:inline">PDF</span>
               </Button>
             </>
           )}
@@ -365,7 +367,7 @@ ${panel.outerHTML}
               className="h-7 px-2 text-[11px] text-muted-foreground hover:text-destructive flex-shrink-0"
               onClick={() => { if (confirm(`Compare 목록 ${materials.length}개 모두 비우시겠습니까?`)) onClear(); }}
               title="모든 재료를 Compare 에서 제거"
-            >🗑 <span className="hidden lg:inline">{t('compare.clearAll')}</span></Button>
+            >🗑 <span className="hidden md:inline">{t('compare.clearAll')}</span></Button>
           )}
         </div>
         {/* R115 — X 닫기를 overflow 영역 밖에 fix. 모바일·데스크탑 항상 우측 끝에 보임. */}
