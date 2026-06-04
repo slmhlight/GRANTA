@@ -635,7 +635,27 @@ export default function Tools() {
         <div className="rounded-lg border border-accent/30 bg-accent/5 p-4 mb-6">
           <p className="text-[11px] tracking-[0.25em] uppercase text-accent font-bold">기계공학 빠른 계산</p>
           <h1 className="text-2xl font-bold tracking-tight mt-1">Engineering Tools</h1>
-          <p className="text-[13px] text-foreground/80 mt-1">6 개 빠른 계산기 — 응력 집중·갈바닉·좌굴·CTE mismatch·경도 변환·압력 용기. 각 계산기 = Guide 상세 챕터 link.</p>
+          <p className="text-[13px] text-foreground/80 mt-1">9 개 계산기 — 응력집중 · 갈바닉 부식 · 좌굴 · CTE mismatch · 경도 변환 · 압력용기 · Larson-Miller (creep) · Mohr 원 · Schaeffler diagram (스테인리스 용접).</p>
+          <p className="text-[11px] text-foreground/60 mt-2">
+            사용법: 각 카드의 입력값 변경 → 결과 자동 갱신. 결과 색상: <span className="text-emerald-700">초록=안전</span> · <span className="text-amber-700">노랑=주의</span> · <span className="text-rose-700">빨강=위험</span>.
+            상세 이론은 <a href="/guide" className="text-accent hover:underline">Guide</a> 참조.
+          </p>
+        </div>
+
+        {/* R110 — 각 계산기 소개 + Guide 챕터 매핑 */}
+        <div className="rounded-lg border border-border/60 bg-muted/30 p-4 mb-6 text-[12px] text-foreground/80 leading-relaxed">
+          <p className="font-semibold mb-1.5">📚 계산기 9 개의 적용 영역</p>
+          <ul className="list-disc pl-5 space-y-0.5">
+            <li><b>Kt (응력 집중)</b> — hole/fillet/notch/groove 형상의 stress amplification. 피로 설계 핵심. <span className="text-muted-foreground">→ Guide <a href="/guide#ch4" className="text-accent">Ch.7 보 하중</a></span></li>
+            <li><b>Galvanic</b> — 이종금속 부식. anode-cathode 전위차 + 면적비. 해양·외기 환경. <span className="text-muted-foreground">→ Guide <a href="/guide#ch10" className="text-accent">Ch.3 family + 환경</a></span></li>
+            <li><b>Buckling (Euler)</b> — 압축 부재 임계하중 P_cr = π²EI/(KL)². 가늘고 긴 column. <span className="text-muted-foreground">→ Guide <a href="/guide#ch5" className="text-accent">Ch.8 비틀림·좌굴</a></span></li>
+            <li><b>CTE mismatch</b> — 이종재료 접합부 열응력. 반도체 패키지·복합재. ΔL = α × L × ΔT.</li>
+            <li><b>Hardness convert</b> — HV ↔ HRC ↔ HB. ASTM E140. UTS ≈ 3.45 × HV (강 한정).</li>
+            <li><b>Pressure vessel</b> — Thin-wall σ_hoop = pD/(2t), σ_axial = pD/(4t). ASME VIII Div 1.</li>
+            <li><b>Larson-Miller (LMP)</b> — Creep rupture time-temp 등가. LMP = T(C + log t). C = 20 일반.</li>
+            <li><b>Mohr 원</b> — 2D 응력 상태 회전. principal stress + max shear. von Mises / Tresca 평가.</li>
+            <li><b>Schaeffler</b> — 스테인리스 용접 weld metal phase 예측 (Cr_eq vs Ni_eq). 304/316 → A+F. <span className="text-muted-foreground">→ Detail panel 의 용접성 표시도 동일 계산</span></li>
+          </ul>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -650,8 +670,27 @@ export default function Tools() {
           <SchaefflerCalc />
         </div>
 
-        <div className="mt-8 pt-4 border-t border-border text-[12px] text-muted-foreground">
-          <p>주의: 모든 계산은 <b>근사식</b>이며 실제 설계는 vendor datasheet + FEA + 시제품 시험으로 검증하세요. ASTM·ASME·MMPDS 규격 우선.</p>
+        <div className="mt-8 pt-4 border-t border-border space-y-3 text-[12px] text-muted-foreground">
+          <div>
+            <p className="font-semibold text-foreground/80 mb-1">⚠ 사용 시 주의</p>
+            <ul className="list-disc pl-5 space-y-0.5">
+              <li>모든 계산은 <b>설계 초기 단계 후보 좁히기용</b>. 실제 설계는 vendor datasheet + FEA + 시제품 시험으로 검증 필수.</li>
+              <li>피로 (S-N curve, Goodman), 좌굴 (slenderness ratio λ), 압력용기 (안전계수 SF 3.5 = ASME / 4 = PED) 등 표준 코드 우선.</li>
+              <li>비표준 입력 (음수, 0, 극단값) 은 결과 신뢰성 ↓. 결과 의심 시 손계산 또는 별도 코드 검증.</li>
+              <li>이 도구는 <b>educational</b> — 단일 결과를 설계 승인 근거로 사용 금지.</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold text-foreground/80 mb-1">📖 출처</p>
+            <ul className="list-disc pl-5 space-y-0.5">
+              <li><b>응력 집중·피로</b>: Peterson "Stress Concentration Factors" (4th ed., 2008) · Shigley "Mechanical Engineering Design"</li>
+              <li><b>좌굴·보 처짐</b>: Roark "Formulas for Stress and Strain" (8th ed., 2011) · Timoshenko "Theory of Elastic Stability"</li>
+              <li><b>경도 변환</b>: ASTM E140-12b (Standard Hardness Conversion Tables for Metals)</li>
+              <li><b>압력 용기</b>: ASME Boiler &amp; Pressure Vessel Code Sec.VIII Div.1 · KS B 6750 · PED 2014/68/EU</li>
+              <li><b>Creep / Larson-Miller</b>: ASME Sec.II Part D + ASM Vol.19 (Fatigue and Fracture)</li>
+              <li><b>Schaeffler</b>: AWS A3.0 · ASM Vol.6 (Welding) · Schaeffler 1949 original chart</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

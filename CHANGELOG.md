@@ -2,6 +2,59 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R110 — Guide 내부 링크 점검 + Polymer Tg 노출 + Tools 보충 + 용접성 4 지표 통합
+
+### Guide 내부 anchor 링크 점검
+- 정의된 chapter ID **14개** (ch1-ch15, ch13 없음)
+- 사용된 #ch* anchor: **4개** (ch1, ch6, ch7, ch9)
+- **Broken anchor: 0** — 모두 valid
+- 보강 가능 (link 안된 chapter 10개): ch10/ch2/ch3/ch4/ch5/ch11/ch12/ch14/ch8/ch15. Tools 페이지에서 ch4/ch5/ch10 cross-link 추가됨.
+
+### Polymer Tg (Glass Transition Temperature) 정식 노출
+이전: `meta.tg` 에만 보존 → UI 표시 안됨. R110: `ranges.glass_transition_temp` 로 정식 물성화.
+
+**구현**:
+- `loadPolymersAsMaterials()`: polymers-data.json 의 tg/tm/hdt_182 → ranges (handbook confidence)
+- `assignPhysicals()` Polymer 분기에 family typical Tg 추가:
+  - PPSU 220 · PES 225 · PEEK 143 · PEI/ULTEM 217 · PEKK 162
+  - PSU 187 · PC 147 · PMMA 105 · ABS 105
+  - PA/Nylon 55 · PETG 80 · PLA 60 · PPS 88
+  - POM -73 · TPU -30 · PP -10 · PE -120
+  - Epoxy 120 · Polyester 110 · Polyimide/Vespel 360
+- 출처: ASM Handbook Vol.21 + IDES Prospector + ISO 11357 (DSC)
+
+**결과**:
+- Polymer 113/113 모두 Tg 값 표시 (handbook 21 + class 92)
+- `lib/materials.ts` PHYSICAL_PROPERTIES 에 `glass_transition_temp` + `hdt_182` 추가
+- `Material` interface 에 두 필드 추가
+
+### 용접성 평가 4 지표 통합 (lib/welding-machinability.ts)
+기존 CET 만 → CE_IIW + CET + Pcm + Schaeffler 모두 동시 표시.
+
+**1) CE_IIW** (IIW Doc IX-535-67) — 가장 일반적
+- CE = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15
+- < 0.40 / 0.40-0.50 / > 0.50 의 3 band
+
+**2) CET** (IIW Doc IX-1086-87) — modern HSLA 강 (이미 있음)
+
+**3) Pcm (Ito-Bessyo, JIS)** — 저합금 강 권장
+- Pcm = C + Si/30 + (Mn+Cu+Cr)/20 + Ni/60 + Mo/15 + V/10 + 5B
+- < 0.20 / 0.20-0.30 / > 0.30 의 3 band
+
+**4) Schaeffler diagram** — 스테인리스 용접 weld metal phase 예측
+- Cr_eq = Cr + Mo + 1.5Si + 0.5Nb
+- Ni_eq = Ni + 30C + 0.5Mn
+- Output: Austenite / Ferrite / Martensite / A+F / A+M / F+M, ferrite_pct (FN) 추정
+
+**MaterialDetail.tsx**: 4 지표 모두 detail panel "제조성" 섹션에 표시 (해당 합금에 적용 가능한 것만).
+
+### Engineering Tools 페이지 보충
+- Hero 영역: "6 개" → "9 개" 정정, 모든 계산기 설명 추가
+- 신규 안내 박스: 각 계산기 9개의 적용 영역 + Guide 챕터 link (ch4/ch5/ch10 cross-link)
+- 사용 시 주의 + 출처 섹션 추가 (Peterson, Roark, Timoshenko, ASTM E140, ASME VIII Div.1, AWS A3.0, Schaeffler 1949)
+
+검증: tsc OK · vitest 47/47 · build:data OK · production build OK · verify:guide 0 dead / 0 error / 78 OK.
+
 ## R109 — ALLOY_SPECIFIC 확장 (110→195) + ALLOY_FAT_IMPACT 신규 + impact family typical
 사용자 지시 3건 동시 진행:
 1. ALLOY_SPECIFIC 확장 (110 → 195) — 잔여 class fallback ↓

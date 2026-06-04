@@ -11,7 +11,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
 import { htGlossaryFor } from '@/lib/ht-glossary';
-import { computeCET, computeMachinability } from '@/lib/welding-machinability';
+import { computeCET, computeCEIIW, computePcm, computeSchaeffler, computeMachinability } from '@/lib/welding-machinability';
 import { TempCurveChart } from '@/components/TempCurveChart';
 import { CreepRuptureChart } from '@/components/CreepRuptureChart';
 import { recommendedCoatings } from '@/lib/coatings';
@@ -436,7 +436,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {(() => {
               const mach = computeMachinability(material);
               const cet = computeCET(material);
-              if (!mach && !cet) return null;
+              const ce_iiw = computeCEIIW(material);
+              const pcm = computePcm(material);
+              const sch = computeSchaeffler(material);
+              if (!mach && !cet && !ce_iiw && !pcm && !sch) return null;
               const bandColor = (b: string) => ({
                 easy: 'text-emerald-700 bg-emerald-50 border-emerald-200',
                 normal: 'text-foreground bg-muted/40 border-border',
@@ -460,6 +463,17 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         <p className="text-[10px] mt-1 text-muted-foreground">기준: AISI 1018 = 100% (ASM Vol. 16 Machining)</p>
                       </div>
                     )}
+                    {/* R110 — 용접성 4 지표 (CE_IIW, CET, Pcm, Schaeffler) 한꺼번에 표시. 각각 다른 강 family 에 더 적합. */}
+                    {ce_iiw && (
+                      <div className={`rounded border p-2 ${bandColor(ce_iiw.band)}`}>
+                        <div className="flex items-baseline justify-between gap-2">
+                          <b>용접성 CE_IIW</b>
+                          <span className="font-mono">{ce_iiw.ce.toFixed(2)} <span className="text-[10px]">· {ce_iiw.label}</span></span>
+                        </div>
+                        <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{ce_iiw.note}</p>
+                        <p className="text-[10px] mt-1 text-muted-foreground">{ce_iiw.preheat} · IIW Doc IX-535-67 (CE = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15) · 가장 일반적 용접 평가</p>
+                      </div>
+                    )}
                     {cet && (
                       <div className={`rounded border p-2 ${bandColor(cet.band)}`}>
                         <div className="flex items-baseline justify-between gap-2">
@@ -467,7 +481,27 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                           <span className="font-mono">{cet.cet.toFixed(2)} <span className="text-[10px]">· {cet.label}</span></span>
                         </div>
                         <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{cet.note}</p>
-                        <p className="text-[10px] mt-1 text-muted-foreground">{cet.preheat} · IIW Doc IX-1086-87 (CET = C + (Mn+Mo)/10 + (Cr+Cu)/20 + Ni/40)</p>
+                        <p className="text-[10px] mt-1 text-muted-foreground">{cet.preheat} · IIW Doc IX-1086-87 (CET = C + (Mn+Mo)/10 + (Cr+Cu)/20 + Ni/40) · modern HSLA 용</p>
+                      </div>
+                    )}
+                    {pcm && (
+                      <div className={`rounded border p-2 ${bandColor(pcm.band)}`}>
+                        <div className="flex items-baseline justify-between gap-2">
+                          <b>용접성 Pcm (Ito-Bessyo)</b>
+                          <span className="font-mono">{pcm.pcm.toFixed(3)} <span className="text-[10px]">· {pcm.label}</span></span>
+                        </div>
+                        <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{pcm.note}</p>
+                        <p className="text-[10px] mt-1 text-muted-foreground">{pcm.preheat} · Pcm = C + Si/30 + (Mn+Cu+Cr)/20 + Ni/60 + Mo/15 + V/10 + 5B · 저합금 강 권장</p>
+                      </div>
+                    )}
+                    {sch && (
+                      <div className="rounded border border-violet-200 bg-violet-50 text-violet-900 p-2">
+                        <div className="flex items-baseline justify-between gap-2">
+                          <b>Schaeffler diagram</b>
+                          <span className="font-mono">Cr_eq {sch.cr_eq.toFixed(1)} · Ni_eq {sch.ni_eq.toFixed(1)} <span className="text-[10px]">· <b>{sch.phase}</b></span></span>
+                        </div>
+                        <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{sch.note}</p>
+                        <p className="text-[10px] mt-1 text-muted-foreground">Cr_eq = Cr + Mo + 1.5Si + 0.5Nb · Ni_eq = Ni + 30C + 0.5Mn · Schaeffler 1949 (스테인리스 weld metal phase 예측)</p>
                       </div>
                     )}
                   </div>

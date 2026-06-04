@@ -1,14 +1,31 @@
 /*
- * R67 — Welding (CET) + Machinability rating helpers.
+ * R67/R110 — Welding (CE_IIW · CET · Pcm · Schaeffler) + Machinability rating helpers.
  *
- * CET (Carbon Equivalent Thyssen, IIW Doc IX-1086-87):
- *   CET = C + (Mn + Mo)/10 + (Cr + Cu)/20 + Ni/40
- *   < 0.40  → no preheat
- *   0.40 - 0.60 → 100-200 °C preheat
- *   > 0.60  → high crack risk, careful procedure
+ * 용접성 평가 — 4가지 보완 지표 (모두 동시 계산하면 정확도 ↑):
  *
- * Machinability rating — AISI 1018 = 100% baseline.
- * Source: AISI · ASM Vol. 16 (Machining) · Vendor machining data.
+ * 1) CE_IIW (Carbon Equivalent — IIW formula, IIW Doc IX-535-67) — 가장 일반적
+ *    CE = C + Mn/6 + (Cr + Mo + V)/5 + (Ni + Cu)/15
+ *    < 0.40  → cold cracking 우려 낮음
+ *    0.40 - 0.50 → moderate, 두꺼운 plate 에서 preheat 권장
+ *    > 0.50  → preheat 필수 + low-hydrogen 용접봉
+ *
+ * 2) CET (Carbon Equivalent — Thyssen formula, IIW Doc IX-1086-87) — modern HSLA 용
+ *    CET = C + (Mn + Mo)/10 + (Cr + Cu)/20 + Ni/40
+ *    < 0.40 / 0.40-0.60 / > 0.60 의 3 band.
+ *    CE_IIW 보다 high-strength low-alloy steel 에 더 정확.
+ *
+ * 3) Pcm (Ito-Bessyo formula, JIS 표기) — 저합금 강 (low CE) 에 권장
+ *    Pcm = C + Si/30 + (Mn + Cu + Cr)/20 + Ni/60 + Mo/15 + V/10 + 5B
+ *    < 0.20 / 0.20-0.30 / > 0.30 의 3 band.
+ *    C 비중 1.0 으로 가장 높음 — 미량합금강 평가에 정확.
+ *
+ * 4) Schaeffler diagram (오스테나이트계 스테인리스 용접 부위 phase prediction)
+ *    Cr_eq = Cr + Mo + 1.5·Si + 0.5·Nb
+ *    Ni_eq = Ni + 30·C + 0.5·Mn
+ *    Output: phase (Austenite / Martensite / Ferrite / A+M / A+F / M+F / Mixed)
+ *    Source: AWS A3.0 · ASM Vol. 6 (Welding) · Schaeffler 1949.
+ *
+ * Machinability rating — AISI 1018 = 100% baseline. ASM Vol. 16 (Machining).
  */
 
 import type { Material } from './materials';
@@ -69,6 +86,154 @@ export function computeCET(material: Material): CETResult | null {
     preheat: 'Pre-heat 200-300°C + post-weld heat treatment',
     note: 'CET > 0.60 — 균열 위험 高. 저수소 용접봉 + post-weld stress relief 필수.',
   };
+}
+
+/* R110 — 추가 용접성 지표 — CE_IIW, Pcm, Schaeffler */
+
+export interface CEIIWResult {
+  ce: number;
+  band: 'low' | 'med' | 'high';
+  label: string;
+  preheat: string;
+  note: string;
+}
+
+export function computeCEIIW(material: Material): CEIIWResult | null {
+  const cat = material.category || '';
+  const sub = (material.subcategory || '').toLowerCase();
+  if (cat !== 'Metal') return null;
+  if (/aluminum|copper|titanium|magnesium|nickel super|cobalt|refractory/i.test(sub)) return null;
+
+  const comp = material.composition || {};
+  const C = pctOf(comp, 'C');
+  const Mn = pctOf(comp, 'Mn');
+  const Cr = pctOf(comp, 'Cr');
+  const Mo = pctOf(comp, 'Mo');
+  const V = pctOf(comp, 'V');
+  const Ni = pctOf(comp, 'Ni');
+  const Cu = pctOf(comp, 'Cu');
+  if (C === 0 && Mn === 0 && Cr === 0) return null;
+
+  const ce = C + Mn / 6 + (Cr + Mo + V) / 5 + (Ni + Cu) / 15;
+
+  if (ce < 0.40) return {
+    ce, band: 'low', label: '우수',
+    preheat: 'Pre-heat 불요',
+    note: 'CE_IIW < 0.40 — 25 mm 이하 plate 에서 일반 용접 절차 가능.',
+  };
+  if (ce < 0.50) return {
+    ce, band: 'med', label: '주의',
+    preheat: 'Pre-heat 100-150°C (두께 ≥ 25 mm) 권장',
+    note: 'CE_IIW 0.40-0.50 — 두께 + 구속 조건에 따라 cold cracking. low-H 용접봉 권장.',
+  };
+  return {
+    ce, band: 'high', label: '위험',
+    preheat: 'Pre-heat 150-250°C + low-H 용접봉 + PWHT 필수',
+    note: 'CE_IIW > 0.50 — 균열 위험 高. interpass temp 통제 + post-weld heat treatment 필수.',
+  };
+}
+
+export interface PcmResult {
+  pcm: number;
+  band: 'low' | 'med' | 'high';
+  label: string;
+  preheat: string;
+  note: string;
+}
+
+export function computePcm(material: Material): PcmResult | null {
+  const cat = material.category || '';
+  const sub = (material.subcategory || '').toLowerCase();
+  if (cat !== 'Metal') return null;
+  if (/aluminum|copper|titanium|magnesium|nickel super|cobalt|refractory/i.test(sub)) return null;
+
+  const comp = material.composition || {};
+  const C = pctOf(comp, 'C');
+  const Si = pctOf(comp, 'Si');
+  const Mn = pctOf(comp, 'Mn');
+  const Cu = pctOf(comp, 'Cu');
+  const Cr = pctOf(comp, 'Cr');
+  const Ni = pctOf(comp, 'Ni');
+  const Mo = pctOf(comp, 'Mo');
+  const V = pctOf(comp, 'V');
+  const B = pctOf(comp, 'B');
+  if (C === 0 && Mn === 0) return null;
+
+  const pcm = C + Si / 30 + (Mn + Cu + Cr) / 20 + Ni / 60 + Mo / 15 + V / 10 + 5 * B;
+
+  if (pcm < 0.20) return {
+    pcm, band: 'low', label: '우수',
+    preheat: 'Pre-heat 불요',
+    note: 'Pcm < 0.20 — Ito-Bessyo 기준 cold cracking 위험 낮음 (저합금 강 표준).',
+  };
+  if (pcm < 0.30) return {
+    pcm, band: 'med', label: '주의',
+    preheat: 'Pre-heat 100-150°C 권장',
+    note: 'Pcm 0.20-0.30 — 두꺼운 plate 또는 micro-alloy 첨가 시 위험 ↑.',
+  };
+  return {
+    pcm, band: 'high', label: '위험',
+    preheat: 'Pre-heat 150-250°C + low-H 용접봉',
+    note: 'Pcm > 0.30 — 미세조직 변태 위험. Pcm + B 함량 동시 통제 필수.',
+  };
+}
+
+/* Schaeffler diagram — stainless 용접 후 결정상 예측. */
+export interface SchaefflerResult {
+  cr_eq: number;
+  ni_eq: number;
+  phase: 'Austenite' | 'Ferrite' | 'Martensite' | 'A+F' | 'A+M' | 'F+M' | 'A+F+M' | 'Mixed';
+  ferrite_pct: number | null;  // estimated % ferrite (A+F 영역 only)
+  note: string;
+}
+
+export function computeSchaeffler(material: Material): SchaefflerResult | null {
+  const cat = material.category || '';
+  const sub = (material.subcategory || '').toLowerCase();
+  if (cat !== 'Metal') return null;
+  // Schaeffler 는 stainless 용접 weld metal phase 예측. Iron-based stainless 만.
+  if (!/stainless|austenitic|ferritic|martensitic|duplex|ph/i.test(sub) && !/\bs(?:s|us|ts)\s*\d/i.test(material.name || '')) return null;
+
+  const comp = material.composition || {};
+  const Cr = pctOf(comp, 'Cr');
+  const Mo = pctOf(comp, 'Mo');
+  const Si = pctOf(comp, 'Si');
+  const Nb = pctOf(comp, 'Nb');
+  const Ni = pctOf(comp, 'Ni');
+  const C = pctOf(comp, 'C');
+  const Mn = pctOf(comp, 'Mn');
+  if (Cr === 0 && Ni === 0) return null;
+
+  const cr_eq = Cr + Mo + 1.5 * Si + 0.5 * Nb;
+  const ni_eq = Ni + 30 * C + 0.5 * Mn;
+
+  /* Phase 분류 — Schaeffler 1949 zones (simplified):
+   *   Pure Austenite: Ni_eq > 0.6 × Cr_eq + 8 (대략)
+   *   Pure Ferrite:   Ni_eq < 0.5 × Cr_eq - 8
+   *   Pure Martensite: Cr_eq < 14, Ni_eq < 8
+   *   A+F: Ni_eq ≈ Cr_eq / 2 (standard 304/316 영역)
+   *   A+M: Cr_eq < 15, 6 < Ni_eq < 10
+   *   F+M: Cr_eq > 15, Ni_eq < 6
+   */
+  let phase: SchaefflerResult['phase'] = 'Mixed';
+  let ferrite_pct: number | null = null;
+  let note = '';
+
+  if (cr_eq < 13 && ni_eq < 6) { phase = 'Martensite'; note = '410/420 류 — 용접부 martensite 다량 → preheat + low-H 필수.'; }
+  else if (cr_eq < 15 && ni_eq < 8 && ni_eq >= 4) { phase = 'A+M'; note = 'Austenite + Martensite 혼합 — 균열 위험. preheat 권장.'; }
+  else if (cr_eq > 18 && ni_eq < 5) { phase = 'F+M'; note = '430/446 류 ferritic — coarse grain → impact 손실. interpass temp ≤ 200°C.'; }
+  else if (cr_eq > 24 && ni_eq < 8 + 0.5 * cr_eq) { phase = 'Ferrite'; note = '430 류 fully ferritic. 균열 위험 낮으나 grain growth + 부식 위험.'; }
+  else if (ni_eq > 0.6 * cr_eq + 6) { phase = 'Austenite'; note = '310 류 100% austenite — 균열 위험 매우 낮음. hot cracking 만 주의.'; }
+  else {
+    // A+F band (가장 일반 — 304/316/Duplex)
+    phase = 'A+F';
+    // FN (Ferrite Number) 추정 — 304/316 = 5-10%, duplex 2205 = 40-50%
+    if (cr_eq > 22) ferrite_pct = Math.min(60, Math.round((cr_eq - 18) * 8));
+    else ferrite_pct = Math.max(3, Math.round((cr_eq - 16) * 4));
+    note = `A+F dual-phase. Ferrite ${ferrite_pct}% (FN ≈ ${ferrite_pct}). σ-phase + hot cracking 회피 — 3-10% ferrite 권장.`;
+  }
+
+  return { cr_eq, ni_eq, phase, ferrite_pct, note };
 }
 
 /* ───────── Machinability rating ───────── */

@@ -834,7 +834,13 @@ function assignPhysicals(m) {
       : has(/polycarb|\bpc\b/) ? 115 : has(/abs/) ? 90 : has(/petg/) ? 70 : has(/pla/) ? 55 : has(/tpu/) ? 80 : has(/\bpp\b|polypro/) ? 100 : 90;
     const price = has(/peek/) ? 400 : has(/ultem|pei|pes/) ? 200 : has(/nylon|polyamide/) ? 50 : has(/tpu|polycarb|\bpc\b/) ? 40 : 25;
     const cte = has(/peek|ultem|pei|pes/) ? 50 : has(/nylon|polyamide/) ? 90 : has(/abs|polycarb|\bpc\b/) ? 70 : 80;
-    return { ec: 0, tmax, price, cte, poisson: 0.40, cp: 1500, melt: null, qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' } };
+    /* R110 — Polymer Tg (Glass Transition Temperature) family typical. ASM Handbook Vol.21 + IDES Prospector + ISO 11357 (DSC). */
+    const tg = has(/ppsu/) ? 220 : has(/pes\b/) ? 225 : has(/peek/) ? 143 : has(/pei|ultem/) ? 217 : has(/pekk/) ? 162
+      : has(/psu\b|polysulf/) ? 187 : has(/polycarb|\bpc\b/) ? 147 : has(/pmma|acrylic/) ? 105 : has(/abs/) ? 105
+      : has(/polyamide|nylon|pa1[12]|pa6/) ? 55 : has(/petg/) ? 80 : has(/pla/) ? 60 : has(/pps\b/) ? 88
+      : has(/pom|acetal/) ? -73 : has(/tpu|elastomer/) ? -30 : has(/\bpp\b|polypro/) ? -10
+      : has(/hdpe|ldpe|\bpe\b/) ? -120 : has(/epoxy/) ? 120 : has(/polyester/) ? 110 : has(/vespel|polyimid/) ? 360 : 80;
+    return { ec: 0, tmax, price, cte, poisson: 0.40, cp: 1500, melt: null, tg, qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' } };
   }
   if (fam.includes('Copper-based')) {
     const ec = has(/becu|beryllium/) ? 22 : has(/brass/) ? 28 : has(/bronze/) ? 15 : has(/cucr|crzr|grcop|glidcop/) ? 80 : 95;
@@ -1290,6 +1296,10 @@ function loadPolymersAsMaterials() {
       setR('thermal_expansion', p.cte);
       setR('max_service_temp', p.max_temp);
       setR('price_per_kg', p.price_per_kg);
+      /* R110 — polymer 한정 물성 (Tg/Tm/HDT) 을 ranges 로 정식 노출. 이전엔 meta 에만 보존 → UI 표시 안됨. */
+      setR('glass_transition_temp', p.tg);
+      setR('melting_point', p.tm);
+      setR('hdt_182', p.hdt_182);
       const sources = [];
       if (p.datasheet_url) sources.push({ label: `Datasheet — ${p.name.split(' — ')[0]}`, url: p.datasheet_url, verified: true });
       if (p.applications) sources.push({ label: `Applications: ${p.applications}`, url: null, verified: false });
@@ -2334,6 +2344,8 @@ for (const m of all) {
   if (ph.poisson != null && (m.ranges.poisson_ratio == null || !(m.ranges.poisson_ratio.typical > 0))) setTyp('poisson_ratio', ph.poisson, 'class');
   if (ph.cp != null && (m.ranges.specific_heat == null || !(m.ranges.specific_heat.typical > 0))) setTyp('specific_heat', ph.cp, 'class');
   if (ph.melt != null && (m.ranges.melting_point == null || !(m.ranges.melting_point.typical > 0))) setTyp('melting_point', ph.melt, 'class');
+  /* R110 — Polymer Tg class fallback. polymers-data 19개는 handbook, 나머지 ~94 CSV polymer 는 family typical. */
+  if (ph.tg != null && (m.ranges.glass_transition_temp == null || !(m.ranges.glass_transition_temp.typical > 0))) setTyp('glass_transition_temp', ph.tg, 'class');
   if (ph.price != null && (m.ranges.price_per_kg == null || !(m.ranges.price_per_kg.typical > 0))) {
     setTyp('price_per_kg', ph.price, 'class');
     if (m.density && (m.ranges.price_per_cm3 == null || !(m.ranges.price_per_cm3.typical > 0))) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4), 'class');

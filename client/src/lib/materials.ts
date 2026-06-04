@@ -59,6 +59,10 @@ export interface Material {
   poisson_ratio?: number | null;
   specific_heat?: number | null;
   melting_point?: number | null;
+  /** R110 — Polymer 한정 Tg (Glass Transition Temperature, °C). DSC (ISO 11357) 표준. */
+  glass_transition_temp?: number | null;
+  /** R110 — Polymer HDT @ 1.82 MPa (ISO 75-A) — Tg 보다 약간 낮은 처짐 한계. */
+  hdt_182?: number | null;
   price_per_kg?: number | null;
   price_per_cm3?: number | null;
   /** F4: 가공 비용 가중치 — raw material × machining_cost_factor 가 가공 후 단가 추정. 1.0=기본,
@@ -156,6 +160,9 @@ export const PHYSICAL_PROPERTIES: PropertyMeta[] = [
   { key: 'specific_heat', label: 'Specific Heat', unit: 'J/kg·K', description: 'Specific heat capacity — class-typical', group: 'thermal' },
   { key: 'melting_point', label: 'Melting / Liquidus', unit: '°C', description: 'Melting or liquidus temperature — class-typical', group: 'thermal' },
   { key: 'poisson_ratio', label: "Poisson's Ratio", unit: '–', description: "Poisson's ratio — class-typical", group: 'physical' },
+  /* R110 — Polymer 한정: Glass Transition Temperature (Tg). DSC (ISO 11357) 표준 측정. */
+  { key: 'glass_transition_temp', label: 'Glass Transition (Tg)', unit: '°C', description: 'Polymer Tg — amorphous chain mobility onset. ISO 11357 (DSC) typical. Polymer 외 N/A.', group: 'thermal' },
+  { key: 'hdt_182', label: 'HDT @ 1.82 MPa', unit: '°C', description: 'Polymer Heat Deflection Temp under 1.82 MPa load (ISO 75-A). 보통 Tg 보다 약간 낮음.', group: 'thermal' },
 ];
 
 export const COST_PROPERTIES: PropertyMeta[] = [
