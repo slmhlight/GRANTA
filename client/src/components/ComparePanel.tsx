@@ -51,6 +51,8 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   /* R99 — 가중치·Best-pick 섹션 접기 (모바일 세로 절약). 기본 접힘. */
   const [weightOpen, setWeightOpen] = useState(false);
   const [bestPickOpen, setBestPickOpen] = useState(false);
+  /* R114 — Compare 공정 평가 row 도 기본 collapse + 5개 이하일 때만 표시 (6+ 면 너무 길어짐). */
+  const [processEvalOpen, setProcessEvalOpen] = useState(false);
   /* R113 — 활성화된 항목만 wSum 계산. 비활성 항목은 0 으로 처리. */
   const effWeights = {
     strength: enabledFactors.strength ? weights.strength : 0,
@@ -408,11 +410,11 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
         </div>
       )}
 
-      {/* R113 — Compare panel 공정 평가 mini row (절삭성/HT/용접성). 4 dot + tooltip 으로 1줄 비교. */}
-      {sortedMaterials.length >= 2 && viewMode === 'table' && (() => {
-        // dynamic import to avoid circular dep
+      {/* R113/R114 — Compare 공정 평가 mini row (절삭성/HT/용접성).
+           표시 조건: viewMode='table' + 2 ≤ N ≤ 5 (6+ 면 세로 너무 길어짐).
+           기본 collapse — 헤더 버튼 클릭 시 펼침. */}
+      {sortedMaterials.length >= 2 && sortedMaterials.length <= 5 && viewMode === 'table' && (() => {
         const evalDots = sortedMaterials.map(m => {
-          const cls = m.category === 'Metal' ? '' : '';
           let machBand: string | null = null;
           let htBand: string | null = null;
           let weldBand: string | null = null;
@@ -428,7 +430,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
             const wb = [ce?.band, cet?.band, pcm?.band].filter(Boolean) as string[];
             weldBand = wb.includes('high') ? 'high' : wb.includes('med') ? 'med' : wb.length ? 'low' : null;
           } catch { /* ignore */ }
-          return { m, machBand, htBand, weldBand, cls };
+          return { m, machBand, htBand, weldBand };
         });
         const dotColor = (b: string | null): string => {
           if (!b) return 'bg-foreground/10';
@@ -441,23 +443,32 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
         const hasAny = evalDots.some(d => d.machBand || d.htBand || d.weldBand);
         if (!hasAny) return null;
         return (
-          <div className="border-b border-border/50 bg-violet-50/20 px-4 py-1.5">
-            <div className="flex items-center gap-2 text-[10px] uppercase tracking-wide text-violet-700 font-semibold mb-1">
-              <span>⚙ 공정 평가</span>
-              <span className="text-foreground/50 normal-case font-normal text-[9px]">절삭 · HT · 용접 (🟢 우수 · 🟡 주의 · 🔴 위험 · ⚪ N/A)</span>
-            </div>
-            <div className="space-y-0.5 text-[10.5px]">
-              {evalDots.map(d => (
-                <div key={d.m.id} className="flex items-center gap-2">
-                  <span className="flex-1 truncate text-foreground/80">{d.m.name}</span>
-                  <span className="flex items-center gap-1 flex-shrink-0">
-                    <span title={`절삭 ${d.machBand || 'N/A'}`} className={`inline-block w-2.5 h-2.5 rounded-full ${dotColor(d.machBand)}`} />
-                    <span title={`HT ${d.htBand || 'N/A'}`} className={`inline-block w-2.5 h-2.5 rounded-full ${dotColor(d.htBand)}`} />
-                    <span title={`용접 ${d.weldBand || 'N/A'}`} className={`inline-block w-2.5 h-2.5 rounded-full ${dotColor(d.weldBand)}`} />
-                  </span>
-                </div>
-              ))}
-            </div>
+          <div className="border-b border-border/50 bg-violet-50/20">
+            <button
+              type="button"
+              onClick={() => setProcessEvalOpen(o => !o)}
+              className="w-full px-4 py-1.5 flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-violet-700 hover:bg-violet-100/40"
+            >
+              <span className="flex items-center gap-2">
+                <span>⚙ 공정 평가</span>
+                <span className="text-foreground/50 normal-case font-normal text-[9px]">절삭 · HT · 용접 (🟢 우수 · 🟡 주의 · 🔴 위험 · ⚪ N/A)</span>
+              </span>
+              {processEvalOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            </button>
+            {processEvalOpen && (
+              <div className="px-4 pb-2 space-y-0.5 text-[10.5px]">
+                {evalDots.map(d => (
+                  <div key={d.m.id} className="flex items-center gap-2">
+                    <span className="flex-1 truncate text-foreground/80">{d.m.name}</span>
+                    <span className="flex items-center gap-1 flex-shrink-0">
+                      <span title={`절삭 ${d.machBand || 'N/A'}`} className={`inline-block w-2.5 h-2.5 rounded-full ${dotColor(d.machBand)}`} />
+                      <span title={`HT ${d.htBand || 'N/A'}`} className={`inline-block w-2.5 h-2.5 rounded-full ${dotColor(d.htBand)}`} />
+                      <span title={`용접 ${d.weldBand || 'N/A'}`} className={`inline-block w-2.5 h-2.5 rounded-full ${dotColor(d.weldBand)}`} />
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         );
       })()}
