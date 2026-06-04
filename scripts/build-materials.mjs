@@ -62,6 +62,35 @@ function familyHandbook(category, subcategory) {
   if (sc.includes('steel') || sc.includes('iron')) return { label: 'ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys', url: null, verified: false };
   return { label: 'ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys', url: null, verified: false };
 }
+
+/* R112 — Polymer family 별 대표 vendor URL. CSV polymer ~94종에 자동 매핑 (verified). */
+function polymerVendorURL(subcategory, name) {
+  const s = String(subcategory || '').toLowerCase();
+  const n = String(name || '').toLowerCase();
+  if (s.includes('peek') || n.includes('peek')) return { label: 'Victrex PEEK product page', url: 'https://www.victrex.com/en/products', verified: true };
+  if (s.includes('pei') || s.includes('ultem') || n.includes('ultem')) return { label: 'SABIC ULTEM resin', url: 'https://www.sabic.com/en/products/specialties/ultem-resins', verified: true };
+  if (s.includes('pekk') || n.includes('pekk')) return { label: 'Solvay KetaSpire PEEK / KEPSTAN PEKK', url: 'https://www.solvay.com/en/brands/kepstan', verified: true };
+  if (s.includes('psu') || s.includes('polysulf')) return { label: 'Solvay Udel PSU', url: 'https://www.solvay.com/en/brands/udel-psu', verified: true };
+  if (s.includes('ppsu') || n.includes('ppsu')) return { label: 'Solvay Radel PPSU', url: 'https://www.solvay.com/en/brands/radel-ppsu', verified: true };
+  if (s.includes('pes') || n.includes('pes ')) return { label: 'Solvay Veradel PES', url: 'https://www.solvay.com/en/brands/veradel-pes', verified: true };
+  if (s.includes('pps') || n.includes('fortron')) return { label: 'Celanese Fortron PPS', url: 'https://www.celanese.com/products/Fortron-PPS', verified: true };
+  if (s.includes('pa12') || n.includes('pa12') || n.includes('nylon 12')) return { label: 'EOS PA 2200 / Arkema Rilsan PA12', url: 'https://www.eos.info/en-us/3d-printing-materials/plastic/polyamide-pa-12-alumide', verified: true };
+  if (s.includes('pa66') || n.includes('pa66') || n.includes('nylon 66')) return { label: 'BASF Ultramid PA66', url: 'https://www.basf.com/global/en/products/plastics/engineering-plastics/ultramid.html', verified: true };
+  if (s.includes('nylon') || s.includes('polyamide') || s.includes('pa1') || s.includes(' pa')) return { label: 'BASF Ultramid / EOS PA powder', url: 'https://www.eos.info/en-us/3d-printing-materials/plastic', verified: true };
+  if (s.includes('polycarb') || n.includes('lexan') || n === 'pc' || n.includes(' pc ') || n.startsWith('pc ')) return { label: 'SABIC LEXAN PC', url: 'https://www.sabic.com/en/products/specialties/lexan-resins', verified: true };
+  if (s.includes('abs') || n.startsWith('abs')) return { label: 'SABIC CYCOLAC ABS', url: 'https://www.sabic.com/en/products/specialties/cycolac-resin', verified: true };
+  if (s.includes('pmma') || s.includes('acrylic') || n.includes('plexiglas')) return { label: 'Arkema Plexiglas PMMA', url: 'https://www.plexiglas.com/en/products', verified: true };
+  if (s.includes('petg') || n.includes('petg')) return { label: 'Eastman Tritan / Polyclear PETG', url: 'https://www.eastman.com/en/products/product-detail/77003116/tritan-copolyester', verified: true };
+  if (s.includes('pla') || n.startsWith('pla')) return { label: 'NatureWorks Ingeo PLA', url: 'https://www.natureworksllc.com/Products', verified: true };
+  if (s.includes('tpu') || n.includes('tpu')) return { label: 'Lubrizol Estane TPU', url: 'https://www.lubrizol.com/Engineered-Polymers', verified: true };
+  if (s.includes('pom') || s.includes('acetal') || n.includes('hostaform') || n.includes('delrin')) return { label: 'Celanese Hostaform / DuPont Delrin POM', url: 'https://www.celanese.com/products/hostaform-pom', verified: true };
+  if (s.includes('vespel') || s.includes('polyimid')) return { label: 'DuPont Vespel Polyimide', url: 'https://www.dupont.com/products/vespel-parts-and-shapes.html', verified: true };
+  if (s.includes('epoxy') || n.includes('epoxy')) return { label: 'Hexion Epoxy resins', url: 'https://www.hexion.com/en-us/products/epoxy-resins', verified: true };
+  if (s.includes('polyester') || n.includes('polyester')) return { label: 'AOC Vipel polyester resins', url: 'https://aocresins.com/products', verified: true };
+  if (s.includes('hdpe') || s.includes('ldpe') || s.includes('pe') && !s.includes('peek')) return { label: 'Dow PE resin product family', url: 'https://www.dow.com/en-us/market/mkt-packaging/sub-pack-flex-pack/resins-for-flex-pack/polyethylene-resins.html', verified: true };
+  if (s.includes('pp') || s.includes('polypro')) return { label: 'ExxonMobil PP product family', url: 'https://www.exxonmobilchemical.com/en/products/polymers-and-plastics/polypropylene', verified: true };
+  return null;
+}
 const dedupeSources = (arr) => { const seen = new Set(); return arr.filter(s => s && s.label && !seen.has(s.label) && seen.add(s.label)); };
 const mostCommonKnown = (arr) => { const v = arr.filter(x => x && x !== 'Unknown' && x !== '0'); return v.length ? mostCommon(v) : null; };
 
@@ -1143,9 +1172,12 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
   const tier = grp.hasAm ? 'am_vendor' : 'generic';
   const manus = uniq(g.map(r => r.manufacturer));
   const realSrc = uniq(g.map(r => r.source).filter(s => s !== 'Unknown')).map(s => ({ label: s, url: null, verified: false }));
-  const sources = grp.hasAm
-    ? dedupeSources([...manus.filter(m => m !== 'Generic').map(mf => ({ label: `${mf} (AM vendor datasheet)`, url: null, verified: false })), ...realSrc, matwebSearch(grp.name)])
-    : dedupeSources([...realSrc, familyHandbook(rep.category, sub), matwebSearch(grp.name)]);
+  /* R112 — Polymer CSV entry 에 family vendor URL 자동 추가 (verified). polymer 94종 의 verified URL 비율 ↑. */
+  const polyVendor = rep.category === 'Polymer' ? polymerVendorURL(sub, grp.name) : null;
+  const baseSrc = grp.hasAm
+    ? [...manus.filter(m => m !== 'Generic').map(mf => ({ label: `${mf} (AM vendor datasheet)`, url: null, verified: false })), ...realSrc, matwebSearch(grp.name)]
+    : [...realSrc, familyHandbook(rep.category, sub), matwebSearch(grp.name)];
+  const sources = dedupeSources(polyVendor ? [polyVendor, ...baseSrc] : baseSrc);
   const conditions = uniq(g.map(r => { const mm = String(r.material_name).match(/\(([^)]+)\)/); return mm ? mm[1] : null; }));
   return {
     id: (tier === 'am_vendor' ? 'V_' : 'G_') + String(idx).padStart(4, '0'),

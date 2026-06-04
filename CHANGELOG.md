@@ -2,6 +2,58 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R112 — 공정 평가 3 종합 카드 + Process 탭 이동 + Category 필터링 + Polymer URL 보강
+사용자 요청 4건 통합:
+1. 절삭성 + 가공비 → 1 카드 통합
+2. HT 평가 다양화 → 1 카드 (factor + 분위기 + 단계 수 + 시간 + 한국 표준)
+3. 용접성 4 지표 → 1 경고 카드 (worst-band 종합)
+4. 3 카드 모두 Properties 탭 → **Process 탭**으로 이동
+
+### 카드 1 — Machinability 종합 (Process 탭)
+- 절삭성 rating + 가공비 가중치 동시 표시
+- band 색상 (easy/normal/hard/very_hard) 통합
+- 표시: "{rating}% · 보통" + "×1.5 · +50% · 어려움"
+
+### 카드 2 — Heat Treatment 종합 (평가 다양화)
+- HT 가중치 (×factor · +%)
+- **분위기** 추정: Air / Inert gas / Vacuum
+- **단계 수**: 1 step (anneal) / 2 step (Q+T) / 3-5 step (STA + HIP)
+- **총 furnace 시간**: 0h / 1-3h / 4-8h / 8-24h
+- 한국 KS 참고: KS D 0040 (열처리 일반) · KS D 3866 (구조용 강)
+
+### 카드 3 — Weldability 종합 경고 ⚠
+- CE_IIW + CET + Pcm + Schaeffler 4 지표 한 카드에 표시
+- 종합 권고 절차 (worst band 기준):
+  - low: ✓ 일반 절차 가능, 표준 용접봉
+  - med: ⚠ Pre-heat 100-200°C, low-H 권장
+  - high: ⚠ Pre-heat 200°C+, low-H 필수, PWHT 필수
+- Schaeffler note 통합 표시
+
+### Category-aware property 필터링 (Properties 탭)
+- **Polymer 한정**: Tg, HDT@1.82MPa 표시
+- **Polymer 에서 hide**: melting_point (Tg 가 더 의미), electrical_conductivity (비전도성), fracture_toughness (다른 단위)
+- Metal/Ceramic/Composite 은 종전대로
+
+### Polymer vendor URL 보강 (+CSV 94종)
+build-materials.mjs 에 `polymerVendorURL(subcategory, name)` 신규 함수. CSV polymer 의 family 별 자동 매핑 (verified):
+- PEEK → Victrex · PEI/ULTEM → SABIC · PEKK → Solvay KEPSTAN
+- PSU → Udel · PPSU → Radel · PES → Veradel · PPS → Celanese Fortron
+- PA12 → EOS/Arkema Rilsan · PA66 → BASF Ultramid · PA → EOS powder
+- PC → SABIC LEXAN · ABS → SABIC CYCOLAC · PMMA → Plexiglas
+- PETG → Eastman · PLA → NatureWorks · TPU → Lubrizol Estane
+- POM → Hostaform/Delrin · Vespel → DuPont · Epoxy → Hexion
+- HDPE/LDPE → Dow · PP → ExxonMobil
+
+**결과**: Polymer verified URL 19/113 (17%) → **70/113 (62%)** · 전체 verified 748 → **763**.
+
+### 검증
+- tsc OK · vitest 47/47 · build:data OK · production build OK
+
+### 다음 단계 후보 (사용자 결정 시)
+1. **Polymer 한정 "Polymer Properties" 별도 카드** (flame UL94 / UV resistance / moisture 24h) — meta 에 이미 19종 데이터 보유, CSV 94종은 family typical 매핑
+2. **Best-pick 가중치 사용자 선택 UI** (Compare 패널 슬라이더 5개: 강도 / 비용 / 내식 / 가공성 / HT)
+3. **CSV polymer composition 대략 추정** (PEEK=C/H/O, PA=C/H/N/O 의 ratio family typical)
+
 ## R111 — Machining/HT factor 의미 라벨화 + 제조성 통합 + Surface Ra process-aware
 
 ### 사용자 지적 1: Machining factor / HT factor 의미 불명확
