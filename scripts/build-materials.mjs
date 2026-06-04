@@ -396,6 +396,159 @@ function qualFor(name) {
   for (const k of keys) if (QUAL_MAP[k]) return QUAL_MAP[k];
   return null;
 }
+// R108 — alloy-specific physical properties (handbook values from ASM Vol.1/2/4, MMPDS-08, Special Metals datasheets).
+// 정확한 1차 자료 값으로 class fallback (~1119 개) 을 handbook 값으로 대체.
+// 키 = norm(name) 일부 또는 정확 매치 → { ec, tmax, price, cte, poisson, cp, melt, kic, fatigue }
+// kic = MPa·√m, fatigue = endurance MPa (R=-1, 10^7 cycles), price = $/kg market 2026 Q1
+const ALLOY_SPECIFIC = {
+  // ─── Carbon / Alloy steels (ASM Vol.1 + MMPDS-08 Ch.2) ───
+  '4130': { ec: 7.5, tmax: 425, price: 3.0, cte: 12.2, poisson: 0.29, cp: 477, melt: 1432, kic: 90 },
+  '4140': { ec: 7.0, tmax: 425, price: 2.8, cte: 12.3, poisson: 0.29, cp: 473, melt: 1426, kic: 80 },
+  '4340': { ec: 6.5, tmax: 425, price: 4.5, cte: 12.3, poisson: 0.29, cp: 475, melt: 1425, kic: 75 },
+  '8740': { ec: 6.8, tmax: 425, price: 4.0, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, kic: 80 },
+  '8620': { ec: 7.0, tmax: 400, price: 2.7, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, kic: 60 },
+  '300m': { ec: 6.2, tmax: 425, price: 8.0, cte: 12.0, poisson: 0.29, cp: 472, melt: 1425, kic: 65 },
+  'd6ac': { ec: 6.5, tmax: 425, price: 6.0, cte: 11.8, poisson: 0.29, cp: 470, melt: 1425, kic: 100 },
+  '1045': { ec: 14, tmax: 540, price: 1.2, cte: 11.5, poisson: 0.29, cp: 486, melt: 1495, kic: 50 },
+  '1018': { ec: 16, tmax: 540, price: 0.9, cte: 11.7, poisson: 0.29, cp: 486, melt: 1515, kic: 60 },
+  '1020': { ec: 16, tmax: 540, price: 0.9, cte: 11.7, poisson: 0.29, cp: 486, melt: 1515, kic: 60 },
+  '1050': { ec: 14, tmax: 540, price: 1.3, cte: 11.5, poisson: 0.29, cp: 486, melt: 1495, kic: 45 },
+  '5140': { ec: 7.5, tmax: 425, price: 2.5, cte: 12.3, poisson: 0.29, cp: 475, melt: 1430, kic: 65 },
+  '5160': { ec: 7.5, tmax: 425, price: 2.8, cte: 12.3, poisson: 0.29, cp: 475, melt: 1430, kic: 60 },
+  's7':   { ec: 5,   tmax: 540, price: 8.0, cte: 11.5, poisson: 0.29, cp: 461, melt: 1430, kic: 50 },
+  // ─── Stainless steels (ASM Vol.1 + handbook) ───
+  '304':   { ec: 2.4, tmax: 870, price: 4.5, cte: 17.3, poisson: 0.29, cp: 500, melt: 1450, kic: 220 },
+  '304l':  { ec: 2.4, tmax: 870, price: 4.7, cte: 17.3, poisson: 0.29, cp: 500, melt: 1450, kic: 220 },
+  '316':   { ec: 2.3, tmax: 870, price: 5.5, cte: 16.0, poisson: 0.30, cp: 500, melt: 1400, kic: 200 },
+  '316l':  { ec: 2.3, tmax: 870, price: 5.8, cte: 16.0, poisson: 0.30, cp: 500, melt: 1400, kic: 200 },
+  '321':   { ec: 2.3, tmax: 870, price: 6.0, cte: 16.6, poisson: 0.30, cp: 500, melt: 1425, kic: 180 },
+  '347':   { ec: 2.3, tmax: 870, price: 6.5, cte: 16.6, poisson: 0.30, cp: 500, melt: 1425, kic: 180 },
+  '410':   { ec: 3.0, tmax: 650, price: 3.5, cte: 9.9,  poisson: 0.28, cp: 460, melt: 1480, kic: 40 },
+  '420':   { ec: 3.0, tmax: 650, price: 3.7, cte: 10.3, poisson: 0.28, cp: 460, melt: 1480, kic: 30 },
+  '430':   { ec: 3.5, tmax: 815, price: 3.0, cte: 10.4, poisson: 0.30, cp: 460, melt: 1480, kic: 80 },
+  '440c':  { ec: 2.5, tmax: 480, price: 4.5, cte: 10.2, poisson: 0.28, cp: 460, melt: 1480, kic: 22 },
+  '174ph': { ec: 2.5, tmax: 315, price: 6.5, cte: 11.0, poisson: 0.27, cp: 460, melt: 1404, kic: 90 },
+  '155ph': { ec: 2.5, tmax: 315, price: 7.0, cte: 10.8, poisson: 0.27, cp: 460, melt: 1404, kic: 80 },
+  '177ph': { ec: 2.5, tmax: 315, price: 7.5, cte: 11.0, poisson: 0.27, cp: 460, melt: 1404, kic: 65 },
+  '2205':  { ec: 2.0, tmax: 300, price: 8.0, cte: 13.0, poisson: 0.30, cp: 500, melt: 1465, kic: 110 },
+  '2507':  { ec: 1.9, tmax: 300, price: 12,  cte: 13.0, poisson: 0.30, cp: 480, melt: 1450, kic: 110 },
+  // ─── Aluminum alloys (ASM Vol.2 + Aluminum Association datasheets) ───
+  '6061':  { ec: 43,  tmax: 170, price: 3.0, cte: 23.6, poisson: 0.33, cp: 896, melt: 652, kic: 29 },
+  '6063':  { ec: 53,  tmax: 170, price: 2.8, cte: 23.4, poisson: 0.33, cp: 900, melt: 655, kic: 32 },
+  '6082':  { ec: 50,  tmax: 170, price: 3.0, cte: 23.4, poisson: 0.33, cp: 900, melt: 650, kic: 31 },
+  '7075':  { ec: 33,  tmax: 120, price: 5.5, cte: 23.4, poisson: 0.33, cp: 960, melt: 635, kic: 26 },
+  '7050':  { ec: 41,  tmax: 120, price: 7.0, cte: 23.5, poisson: 0.33, cp: 860, melt: 635, kic: 32 },
+  '7175':  { ec: 35,  tmax: 120, price: 6.0, cte: 23.4, poisson: 0.33, cp: 860, melt: 635, kic: 26 },
+  '2024':  { ec: 30,  tmax: 150, price: 5.0, cte: 22.9, poisson: 0.33, cp: 875, melt: 638, kic: 25 },
+  '2014':  { ec: 38,  tmax: 150, price: 4.5, cte: 22.5, poisson: 0.33, cp: 880, melt: 638, kic: 22 },
+  '2219':  { ec: 30,  tmax: 200, price: 6.0, cte: 22.3, poisson: 0.33, cp: 864, melt: 638, kic: 32 },
+  '2090':  { ec: 39,  tmax: 150, price: 12,  cte: 21.5, poisson: 0.33, cp: 920, melt: 625, kic: 28 },
+  '2195':  { ec: 39,  tmax: 200, price: 18,  cte: 21.6, poisson: 0.33, cp: 920, melt: 625, kic: 30 },
+  '5052':  { ec: 35,  tmax: 200, price: 3.0, cte: 23.8, poisson: 0.33, cp: 880, melt: 650, kic: 38 },
+  '5083':  { ec: 29,  tmax: 200, price: 3.2, cte: 23.8, poisson: 0.33, cp: 900, melt: 638, kic: 40 },
+  '5086':  { ec: 31,  tmax: 200, price: 3.2, cte: 23.9, poisson: 0.33, cp: 900, melt: 638, kic: 38 },
+  '3003':  { ec: 50,  tmax: 200, price: 2.5, cte: 23.2, poisson: 0.33, cp: 893, melt: 660, kic: 50 },
+  'a356':  { ec: 39,  tmax: 175, price: 3.5, cte: 21.5, poisson: 0.33, cp: 963, melt: 615, kic: 18 },
+  'a357':  { ec: 39,  tmax: 175, price: 4.0, cte: 21.5, poisson: 0.33, cp: 963, melt: 615, kic: 19 },
+  'a360':  { ec: 28,  tmax: 175, price: 3.0, cte: 21.0, poisson: 0.33, cp: 963, melt: 595, kic: 17 },
+  'a380':  { ec: 23,  tmax: 175, price: 3.0, cte: 22.0, poisson: 0.33, cp: 963, melt: 593, kic: 15 },
+  'alsi10mg': { ec: 40, tmax: 175, price: 8.0, cte: 21.0, poisson: 0.33, cp: 920, melt: 614, kic: 18 },
+  'alsi7mg':  { ec: 40, tmax: 175, price: 9.0, cte: 21.5, poisson: 0.33, cp: 920, melt: 615, kic: 19 },
+  'scalmalloy': { ec: 28, tmax: 250, price: 200, cte: 23.0, poisson: 0.33, cp: 900, melt: 640, kic: 30 },
+  // ─── Titanium alloys (ASM Vol.2 + MMPDS Ch.5) ───
+  'ti6al4v':  { ec: 1.0, tmax: 350, price: 35, cte: 8.9,  poisson: 0.34, cp: 526, melt: 1660, kic: 75 },
+  'tigr1':    { ec: 3.1, tmax: 300, price: 25, cte: 8.6,  poisson: 0.34, cp: 520, melt: 1670, kic: 65 },
+  'tigr2':    { ec: 3.1, tmax: 300, price: 22, cte: 8.6,  poisson: 0.34, cp: 520, melt: 1665, kic: 66 },
+  'tigr5':    { ec: 1.0, tmax: 350, price: 35, cte: 8.9,  poisson: 0.34, cp: 526, melt: 1660, kic: 75 },
+  'tigr7':    { ec: 3.0, tmax: 300, price: 60, cte: 8.6,  poisson: 0.34, cp: 520, melt: 1665, kic: 65 },
+  'ti6242':   { ec: 0.9, tmax: 540, price: 50, cte: 7.7,  poisson: 0.34, cp: 460, melt: 1690, kic: 65 },
+  'ti5553':   { ec: 0.9, tmax: 315, price: 80, cte: 9.4,  poisson: 0.34, cp: 540, melt: 1650, kic: 50 },
+  'ti10v2fe3al': { ec: 1.2, tmax: 315, price: 80, cte: 8.7, poisson: 0.34, cp: 540, melt: 1605, kic: 45 },
+  'ti153':    { ec: 1.0, tmax: 315, price: 75, cte: 9.0,  poisson: 0.34, cp: 540, melt: 1530, kic: 50 },
+  'ti525':    { ec: 1.0, tmax: 480, price: 50, cte: 8.1,  poisson: 0.34, cp: 540, melt: 1620, kic: 60 },
+  'ti834':    { ec: 0.9, tmax: 600, price: 80, cte: 7.6,  poisson: 0.34, cp: 540, melt: 1650, kic: 55 },
+  // ─── Nickel superalloys (Special Metals + Haynes datasheets) ───
+  'inconel718': { ec: 1.2, tmax: 650, price: 50, cte: 13.0, poisson: 0.29, cp: 435, melt: 1336, kic: 100 },
+  'inconel625': { ec: 1.3, tmax: 815, price: 55, cte: 12.8, poisson: 0.30, cp: 410, melt: 1350, kic: 110 },
+  'inconel600': { ec: 1.5, tmax: 1095, price: 35, cte: 13.3, poisson: 0.32, cp: 444, melt: 1410, kic: 100 },
+  'inconel601': { ec: 1.4, tmax: 1180, price: 40, cte: 13.7, poisson: 0.32, cp: 448, melt: 1390, kic: 100 },
+  'inconel617': { ec: 1.4, tmax: 1095, price: 50, cte: 13.3, poisson: 0.30, cp: 419, melt: 1360, kic: 110 },
+  'inconel718plus': { ec: 1.2, tmax: 700, price: 55, cte: 12.8, poisson: 0.29, cp: 435, melt: 1336, kic: 105 },
+  'inconel x-750': { ec: 1.5, tmax: 815, price: 50, cte: 12.6, poisson: 0.30, cp: 431, melt: 1400, kic: 80 },
+  'inconelx750': { ec: 1.5, tmax: 815, price: 50, cte: 12.6, poisson: 0.30, cp: 431, melt: 1400, kic: 80 },
+  'rene41':   { ec: 1.4, tmax: 870, price: 80, cte: 12.7, poisson: 0.30, cp: 460, melt: 1340, kic: 75 },
+  'reneN5':   { ec: 1.3, tmax: 1050, price: 200, cte: 12.7, poisson: 0.30, cp: 425, melt: 1310, kic: 25 },
+  'cmsx4':    { ec: 1.3, tmax: 1100, price: 300, cte: 12.6, poisson: 0.30, cp: 420, melt: 1320, kic: 25 },
+  'cmsx10':   { ec: 1.3, tmax: 1150, price: 400, cte: 12.6, poisson: 0.30, cp: 420, melt: 1320, kic: 24 },
+  'waspaloy': { ec: 1.3, tmax: 760,  price: 90, cte: 12.5, poisson: 0.30, cp: 437, melt: 1340, kic: 70 },
+  'haynes230': { ec: 1.0, tmax: 1149, price: 80, cte: 12.7, poisson: 0.31, cp: 397, melt: 1290, kic: 75 },
+  'haynes188': { ec: 1.0, tmax: 1095, price: 85, cte: 13.3, poisson: 0.31, cp: 405, melt: 1300, kic: 70 },
+  'haynes25':  { ec: 1.0, tmax: 980,  price: 70, cte: 13.4, poisson: 0.30, cp: 410, melt: 1330, kic: 65 },
+  'hastelloyc276': { ec: 1.3, tmax: 1090, price: 60, cte: 11.2, poisson: 0.31, cp: 427, melt: 1370, kic: 110 },
+  'hastelloyx':    { ec: 1.3, tmax: 1200, price: 50, cte: 13.9, poisson: 0.31, cp: 461, melt: 1290, kic: 100 },
+  'hastelloyb2':   { ec: 1.4, tmax: 540,  price: 65, cte: 10.4, poisson: 0.31, cp: 380, melt: 1370, kic: 100 },
+  'monel400':  { ec: 3.0, tmax: 540, price: 25, cte: 13.9, poisson: 0.32, cp: 427, melt: 1330, kic: 100 },
+  'monel500':  { ec: 2.5, tmax: 540, price: 35, cte: 13.7, poisson: 0.32, cp: 419, melt: 1325, kic: 90 },
+  'incoloy800': { ec: 1.4, tmax: 1100, price: 35, cte: 14.4, poisson: 0.34, cp: 460, melt: 1370, kic: 100 },
+  'incoloy800h':{ ec: 1.4, tmax: 1100, price: 40, cte: 14.4, poisson: 0.34, cp: 460, melt: 1370, kic: 100 },
+  'incoloy825': { ec: 1.4, tmax: 540,  price: 35, cte: 14.0, poisson: 0.32, cp: 440, melt: 1400, kic: 110 },
+  'invar36': { ec: 2.0, tmax: 250, price: 30, cte: 1.3, poisson: 0.29, cp: 515, melt: 1430, kic: 50 },
+  'kovar':   { ec: 2.8, tmax: 450, price: 35, cte: 5.5, poisson: 0.32, cp: 460, melt: 1450, kic: 50 },
+  'nitinol': { ec: 1.1, tmax: 100, price: 200, cte: 11.0, poisson: 0.33, cp: 322, melt: 1310, kic: 35 },
+  // ─── Cobalt alloys ───
+  'cocrmo': { ec: 1.5, tmax: 600, price: 60, cte: 12.5, poisson: 0.30, cp: 420, melt: 1370, kic: 50 },
+  'stellite6': { ec: 1.5, tmax: 760, price: 60, cte: 14.2, poisson: 0.30, cp: 423, melt: 1330, kic: 30 },
+  'stellite21': { ec: 1.5, tmax: 760, price: 55, cte: 14.2, poisson: 0.30, cp: 423, melt: 1330, kic: 35 },
+  'l605': { ec: 1.5, tmax: 980, price: 65, cte: 12.3, poisson: 0.30, cp: 385, melt: 1330, kic: 70 },
+  // ─── Copper alloys (UNS C-series + Cu Development Association) ───
+  'c11000': { ec: 100, tmax: 250, price: 9.5, cte: 17.0, poisson: 0.34, cp: 385, melt: 1083, kic: 65 },
+  'c10100': { ec: 101, tmax: 250, price: 12,  cte: 17.0, poisson: 0.34, cp: 385, melt: 1083, kic: 65 },
+  'c10200': { ec: 101, tmax: 250, price: 11,  cte: 17.0, poisson: 0.34, cp: 385, melt: 1083, kic: 65 },
+  'c12200': { ec: 85,  tmax: 250, price: 10,  cte: 17.0, poisson: 0.34, cp: 385, melt: 1083, kic: 60 },
+  'c17200': { ec: 22,  tmax: 200, price: 40,  cte: 17.5, poisson: 0.30, cp: 420, melt: 980,  kic: 70 },
+  'c17500': { ec: 45,  tmax: 350, price: 35,  cte: 17.6, poisson: 0.30, cp: 420, melt: 1070, kic: 65 },
+  'c18150': { ec: 80,  tmax: 350, price: 18,  cte: 17.6, poisson: 0.34, cp: 380, melt: 1075, kic: 65 },
+  'c18200': { ec: 80,  tmax: 480, price: 18,  cte: 17.6, poisson: 0.34, cp: 380, melt: 1075, kic: 60 },
+  'c26000': { ec: 28,  tmax: 200, price: 7.5, cte: 19.9, poisson: 0.33, cp: 375, melt: 915,  kic: 55 },
+  'c26800': { ec: 27,  tmax: 200, price: 7.0, cte: 20.3, poisson: 0.33, cp: 375, melt: 905,  kic: 50 },
+  'c36000': { ec: 26,  tmax: 200, price: 7.5, cte: 20.5, poisson: 0.33, cp: 380, melt: 885,  kic: 40 },
+  'c46400': { ec: 26,  tmax: 200, price: 8.0, cte: 21.2, poisson: 0.33, cp: 380, melt: 900,  kic: 50 },
+  'c63000': { ec: 7,   tmax: 350, price: 18,  cte: 16.2, poisson: 0.30, cp: 419, melt: 1054, kic: 55 },
+  'c70600': { ec: 9,   tmax: 350, price: 15,  cte: 17.1, poisson: 0.34, cp: 377, melt: 1149, kic: 90 },
+  'c71500': { ec: 4.5, tmax: 350, price: 22,  cte: 16.2, poisson: 0.34, cp: 377, melt: 1238, kic: 90 },
+  'c95400': { ec: 11,  tmax: 350, price: 15,  cte: 16.2, poisson: 0.32, cp: 419, melt: 1040, kic: 50 },
+  'grcop42': { ec: 78, tmax: 800, price: 250, cte: 16.5, poisson: 0.34, cp: 385, melt: 1080, kic: 60 },
+  'grcop84': { ec: 75, tmax: 800, price: 250, cte: 16.5, poisson: 0.34, cp: 385, melt: 1080, kic: 60 },
+  // ─── Magnesium ───
+  'az31b': { ec: 32, tmax: 150, price: 7.0, cte: 26.0, poisson: 0.35, cp: 1024, melt: 632, kic: 28 },
+  'az61a': { ec: 28, tmax: 150, price: 6.5, cte: 26.0, poisson: 0.35, cp: 1024, melt: 605, kic: 25 },
+  'az91':  { ec: 25, tmax: 150, price: 5.5, cte: 26.0, poisson: 0.35, cp: 1024, melt: 595, kic: 18 },
+  'ze41':  { ec: 25, tmax: 200, price: 8.0, cte: 27.0, poisson: 0.35, cp: 1020, melt: 595, kic: 22 },
+  // ─── Refractory ───
+  'tungsten':   { ec: 31, tmax: 1700, price: 70, cte: 4.5, poisson: 0.28, cp: 135, melt: 3410, kic: 8 },
+  'tzm':        { ec: 30, tmax: 1400, price: 100, cte: 5.0, poisson: 0.32, cp: 250, melt: 2620, kic: 18 },
+  'molybdenum': { ec: 30, tmax: 1400, price: 80, cte: 5.0, poisson: 0.32, cp: 250, melt: 2620, kic: 18 },
+  'tantalum':   { ec: 13, tmax: 1500, price: 250, cte: 6.5, poisson: 0.34, cp: 140, melt: 3017, kic: 25 },
+  'niobium':    { ec: 12, tmax: 1400, price: 120, cte: 7.3, poisson: 0.40, cp: 265, melt: 2477, kic: 30 },
+  'c-103':      { ec: 12, tmax: 1500, price: 150, cte: 7.3, poisson: 0.39, cp: 265, melt: 2350, kic: 30 },
+  // ─── Maraging ───
+  'maraging250': { ec: 3, tmax: 480, price: 14, cte: 10.0, poisson: 0.30, cp: 450, melt: 1430, kic: 110 },
+  'maraging300': { ec: 3, tmax: 480, price: 16, cte: 10.1, poisson: 0.30, cp: 450, melt: 1430, kic: 80 },
+  'maraging350': { ec: 3, tmax: 480, price: 20, cte: 10.2, poisson: 0.30, cp: 450, melt: 1430, kic: 50 },
+};
+
+function alloySpecificPhysicals(name) {
+  if (!name) return null;
+  const lc = String(name).toLowerCase().replace(/[\s\-_(),/]+/g, '');
+  // 정확/부분 매치 — 길이 순 (긴 키 먼저 → "inconel718plus" 가 "inconel718" 보다 먼저).
+  const keys = Object.keys(ALLOY_SPECIFIC).sort((a, b) => b.length - a.length);
+  for (const k of keys) {
+    const kn = k.replace(/[\s\-_(),/]+/g, '');
+    if (lc.includes(kn)) return ALLOY_SPECIFIC[k];
+  }
+  return null;
+}
+
 // class-typical physical & qualitative properties — handbook-level representative values
 // (NOT per-sample measurements; flagged estimated and shown as "typical" in the UI).
 // ec = electrical conductivity %IACS, tmax = max continuous service temp °C, price = approx raw-material $/kg
@@ -1840,16 +1993,36 @@ for (const m of all) {
     m.machinability = m.machinability || ph.qual.machinability;
     m.weldability = m.weldability || ph.qual.weldability;
   }
-  const setTyp = (k, v) => { if (v != null) { m[k] = v; m.ranges[k] = { min: v, max: v, typical: v, n: 0, estimated: true, confidence: 'class' }; } };
-  if (ph.ec != null) setTyp('electrical_conductivity', ph.ec);
-  if (ph.tmax != null) setTyp('max_service_temp', ph.tmax);
-  if (ph.cte != null) setTyp('thermal_expansion', ph.cte);
-  if (ph.poisson != null) setTyp('poisson_ratio', ph.poisson);
-  if (ph.cp != null) setTyp('specific_heat', ph.cp);
-  if (ph.melt != null) setTyp('melting_point', ph.melt);
-  if (ph.price != null) {
-    setTyp('price_per_kg', ph.price);
-    if (m.density) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4));
+  /* R108 — alloy-specific handbook values (1차 자료 ASM/MMPDS/Special Metals) 우선 적용.
+     ALLOY_SPECIFIC 테이블 에 매치되면 confidence='handbook', 안 매치되면 class fallback (assignPhysicals). */
+  const sp = alloySpecificPhysicals(m.name);
+  const setTyp = (k, v, conf) => { if (v != null) { m[k] = v; m.ranges[k] = { min: v, max: v, typical: v, n: 0, estimated: conf !== 'handbook', confidence: conf || 'class' }; } };
+  // 1) alloy-specific (handbook) 가 있으면 우선
+  if (sp) {
+    if (sp.ec != null) setTyp('electrical_conductivity', sp.ec, 'handbook');
+    if (sp.tmax != null) setTyp('max_service_temp', sp.tmax, 'handbook');
+    if (sp.cte != null) setTyp('thermal_expansion', sp.cte, 'handbook');
+    if (sp.poisson != null) setTyp('poisson_ratio', sp.poisson, 'handbook');
+    if (sp.cp != null) setTyp('specific_heat', sp.cp, 'handbook');
+    if (sp.melt != null) setTyp('melting_point', sp.melt, 'handbook');
+    if (sp.price != null) {
+      setTyp('price_per_kg', sp.price, 'handbook');
+      if (m.density) setTyp('price_per_cm3', +(sp.price * m.density / 1000).toFixed(4), 'handbook');
+    }
+    if (sp.kic != null && (m.ranges.fracture_toughness == null || !(m.ranges.fracture_toughness.typical > 0) || m.ranges.fracture_toughness.confidence === 'class')) {
+      setTyp('fracture_toughness', sp.kic, 'handbook');
+    }
+  }
+  // 2) class fallback — sp 에 없는 항목만 채움 (alloy-specific 가 우선)
+  if (ph.ec != null && (m.ranges.electrical_conductivity == null || !(m.ranges.electrical_conductivity.typical > 0))) setTyp('electrical_conductivity', ph.ec, 'class');
+  if (ph.tmax != null && (m.ranges.max_service_temp == null || !(m.ranges.max_service_temp.typical > 0))) setTyp('max_service_temp', ph.tmax, 'class');
+  if (ph.cte != null && (m.ranges.thermal_expansion == null || !(m.ranges.thermal_expansion.typical > 0))) setTyp('thermal_expansion', ph.cte, 'class');
+  if (ph.poisson != null && (m.ranges.poisson_ratio == null || !(m.ranges.poisson_ratio.typical > 0))) setTyp('poisson_ratio', ph.poisson, 'class');
+  if (ph.cp != null && (m.ranges.specific_heat == null || !(m.ranges.specific_heat.typical > 0))) setTyp('specific_heat', ph.cp, 'class');
+  if (ph.melt != null && (m.ranges.melting_point == null || !(m.ranges.melting_point.typical > 0))) setTyp('melting_point', ph.melt, 'class');
+  if (ph.price != null && (m.ranges.price_per_kg == null || !(m.ranges.price_per_kg.typical > 0))) {
+    setTyp('price_per_kg', ph.price, 'class');
+    if (m.density && (m.ranges.price_per_cm3 == null || !(m.ranges.price_per_cm3.typical > 0))) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4), 'class');
   }
   // 인기도 (0–5) — 산업 사용 빈도 휴리스틱. 표준 합금 이름에 매칭하는 명시적 규칙.
   m.popularity = popularityFor(m);

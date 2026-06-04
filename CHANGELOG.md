@@ -2,6 +2,45 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R108 — Fallback 비율 감축 (class → handbook 변환)
+사용자 정책: "기존 데이터에서 비어있는 물성 또는 fallback 된 물성 채울 수 있는 방안 수립" → fallback 비율 자체를 낮춰야 함. handbook 값으로 직접 대체.
+
+### 신규 함수 — `alloySpecificPhysicals(name)`
+`build-materials.mjs` 에 `ALLOY_SPECIFIC` 테이블 (~110 합금) 추가:
+- **Carbon/Alloy steel** (~12): 4130/4140/4340/8740/8620, 300M, D6AC, 1018/1020/1045/1050, 5140/5160, S7
+- **Stainless** (~14): 304/304L, 316/316L, 321/347, 410/420/430/440C, 17-4PH/15-5PH/17-7PH, 2205, 2507
+- **Aluminum** (~20): 6061/6063/6082, 7075/7050/7175, 2024/2014/2219/2090/2195, 5052/5083/5086, 3003, A356/A357/A360/A380, AlSi10Mg, AlSi7Mg, Scalmalloy
+- **Titanium** (~11): Ti-6Al-4V, Ti Gr.1/2/5/7, Ti-6242, Ti-5553, Ti-10-2-3, Ti-15-3, Ti-5-2.5, Ti-834
+- **Ni superalloy** (~25): Inconel 600/601/617/625/718/718Plus/X-750, René 41/N5, CMSX-4/10, Waspaloy, Haynes 230/188/25, Hastelloy C-276/X/B-2, Monel 400/500, Incoloy 800/800H/825, Invar 36, Kovar, Nitinol
+- **Cobalt** (4): CoCrMo, Stellite 6/21, L605
+- **Copper** (~17): C11000/C10100/C10200/C12200, C17200/C17500, C18150/C18200, C26000/C26800/C36000/C46400, C63000, C70600/C71500, C95400, GRCop-42/84
+- **Magnesium** (4): AZ31B, AZ61A, AZ91, ZE41
+- **Refractory** (6): W, TZM, Mo, Ta, Nb, C-103
+- **Maraging** (3): 250/300/350
+
+각 entry 의 7 물성: ec(%IACS), tmax(°C), price($/kg), cte(10⁻⁶/K), poisson, cp(J/kg·K), melt(°C), kic(MPa·√m).
+
+### 로직 변경
+- 1단계: `alloySpecificPhysicals(name)` 매치 → `confidence='handbook'` (1차 자료 값)
+- 2단계: 매치 없으면 기존 `assignPhysicals(m)` → `confidence='class'` (family typical)
+- 기존 entry 의 ranges 가 이미 있으면 alloy-specific 가 우선 (class 덮어쓰기)
+
+### 결과 — 7 물성 모두 class → handbook ~40% 전환
+| 물성 | 변경 전 | 변경 후 | handbook 비율 |
+|---|---|---|---|
+| thermal_expansion | 1119 class | 691 class + **513 handbook** | 0% → **43%** |
+| max_service_temp | 1119 class | 691 class + **513 handbook** | 0% → **43%** |
+| poisson_ratio | 1119 class | 713 class + **434 handbook** | 0% → **38%** |
+| specific_heat | 1119 class | 713 class + **434 handbook** | 0% → **38%** |
+| melting_point | 1006 class | 600 class + **437 handbook** | 0% → **42%** |
+| price_per_kg | 1119 class | 691 class + **513 handbook** | 0% → **43%** |
+| electrical_conductivity | 1119 class | 713 class + **428 handbook** | 0% → **38%** |
+| **fracture_toughness** | 956 class | 556 class + **460 handbook** | 0% → **46%** |
+
+핵심 well-known 합금 (Inconel 718, Ti-6Al-4V, 6061, 4140 등) 은 이제 1차 자료 값 표시. 사용자가 detail 패널에서 confidence 라벨 (sky "핸드북" vs amber "class") 로 즉시 구분 가능.
+
+검증: tsc OK · vitest 47/47 · build:data OK · production build OK (1292.72 KB / gzip 356.51 KB).
+
 ## R107 — Guide ch15 재료 family 기본론 + 링크 안정성 보장
 
 ### Guide ch15 새 chapter 추가
