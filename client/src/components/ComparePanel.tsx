@@ -215,12 +215,12 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
 
   return (
     <div className="flex flex-col h-full bg-card border-l border-border">
-      {/* Header — R99: flex-wrap + overflow-x-auto 로 좁은 화면에서도 닫기 X 가 항상 보이게. */}
-      <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 border-b border-border bg-muted/30 gap-2 min-w-0">
+      {/* R115 — Header layout 수정. X 닫기를 button group 밖으로 분리하여 모바일에서 항상 보이게 (스크롤 영역 밖). */}
+      <div className="flex items-center px-3 sm:px-4 py-2 sm:py-3 border-b border-border bg-muted/30 gap-2 min-w-0">
         <span className="text-sm font-semibold flex-shrink-0 whitespace-nowrap">
           {t('compare.title')} <span className="text-xs text-muted-foreground font-normal">({materials.length})</span>
         </span>
-        <div className="flex items-center gap-1 overflow-x-auto">
+        <div className="flex items-center gap-1 overflow-x-auto flex-1 min-w-0 justify-end">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="h-7 text-xs gap-1"><SlidersHorizontal className="w-3 h-3" /> Columns</Button>
@@ -289,8 +289,16 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
               title="모든 재료를 Compare 에서 제거"
             >{t('compare.clearAll')}</Button>
           )}
-          <Button variant="ghost" size="sm" className="h-7 w-7 p-0" onClick={onClose}><X className="w-3.5 h-3.5" /></Button>
         </div>
+        {/* R115 — X 닫기를 overflow 영역 밖에 fix. 모바일·데스크탑 항상 우측 끝에 보임. */}
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-8 w-8 p-0 flex-shrink-0 ml-1 hover:bg-destructive/10 hover:text-destructive border border-transparent hover:border-destructive/30"
+          onClick={onClose}
+          title="Compare 닫기"
+          aria-label="Compare 닫기"
+        ><X className="w-4 h-4" /></Button>
       </div>
 
       <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">{t('compare.hint')}</p>

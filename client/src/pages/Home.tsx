@@ -589,12 +589,12 @@ export default function Home() {
 
   const handleApplyToFilter = useCallback((ids: string[]) => { setRestrictIds(ids.length ? ids : null); }, []);
 
+  /* R115 — Compare 버튼이 토글로 동작. 열려있으면 닫고, 닫혀있으면 열기. 모바일 우측상단 + 하단 nav 동일. */
   const handleOpenCompare = useCallback(() => {
-    if (compareList.length > 0) {
-      setShowCompare(true);
-      setSelectedMaterial(null);
-    }
-  }, [compareList]);
+    if (compareList.length === 0) return;
+    setShowCompare(s => !s);
+    if (!showCompare) setSelectedMaterial(null);
+  }, [compareList, showCompare]);
 
   const compareMaterials = materials.filter(m => compareList.includes(m.id));
   const restrictSet = restrictIds ? new Set(restrictIds) : null;
@@ -1462,13 +1462,14 @@ export default function Home() {
       {/* ─── Mobile bottom action bar (sm:hidden) ─── 화면 폭이 좁을 때 상단 헤더가 빠듯하므로
        *  핵심 작업(Filter·View·Compare·Guide)을 하단 고정 바로 분리. 데스크탑은 hidden. */}
       <nav className="md:hidden fixed left-0 right-0 bottom-0 grid grid-cols-5 border-t border-border bg-background z-50">
-        <button onClick={() => setMobileSidebarOpen(true)} className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors">
+        {/* R115 — nav 의 다른 버튼 클릭 시 Compare 자동 닫힘. */}
+        <button onClick={() => { setShowCompare(false); setMobileSidebarOpen(true); }} className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors">
           <Menu className="w-4 h-4" /> 필터{activeFilterCount > 0 && <span className="absolute mt-2 -mr-6 inline-block w-3 h-3 rounded-full bg-accent text-white text-[8px] leading-3 text-center font-bold">{activeFilterCount}</span>}
         </button>
         <button
-          onClick={() => setViewMode(viewMode === 'table' ? 'ashby' : viewMode === 'ashby' ? 'cards' : 'table')}
+          onClick={() => { setShowCompare(false); setViewMode(viewMode === 'table' ? 'ashby' : viewMode === 'ashby' ? 'cards' : 'table'); }}
           className="relative flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-accent hover:bg-accent/5 transition-colors"
-          title="다음 뷰로 전환"
+          title="다음 뷰로 전환 · Compare 자동 닫힘"
         >
           <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent" aria-hidden />
           {viewMode === 'table' ? <Table2 className="w-4 h-4" /> : viewMode === 'ashby' ? <BarChart3 className="w-4 h-4" /> : <LayoutGrid className="w-4 h-4" />}
@@ -1484,7 +1485,7 @@ export default function Home() {
             <span className="absolute top-0.5 right-1/4 -translate-y-0 inline-block min-w-[16px] h-4 rounded-full bg-accent text-white text-[9px] leading-4 text-center font-bold px-1">{compareList.length}</span>
           )}
         </button>
-        <Sheet open={guideMobileOpen} onOpenChange={setGuideMobileOpen}>
+        <Sheet open={guideMobileOpen} onOpenChange={(v) => { if (v) setShowCompare(false); setGuideMobileOpen(v); }}>
           <SheetTrigger className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors w-full">
             <GraduationCap className="w-4 h-4" /> 가이드
           </SheetTrigger>
@@ -1530,8 +1531,8 @@ export default function Home() {
             </div>
           </SheetContent>
         </Sheet>
-        {/* R80 — Settings 시트: 모바일 헤더에서 빠진 KO/EN · SI/IMP · 온보딩 토글을 한 곳에 모음. */}
-        <Sheet>
+        {/* R80 — Settings 시트: 모바일 헤더에서 빠진 KO/EN · SI/IMP · 온보딩 토글을 한 곳에 모음. R115: 열림 시 Compare 자동 닫힘. */}
+        <Sheet onOpenChange={(v) => { if (v) setShowCompare(false); }}>
           <SheetTrigger className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors w-full">
             <Settings className="w-4 h-4" /> Settings
           </SheetTrigger>
