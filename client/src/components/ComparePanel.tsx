@@ -163,10 +163,23 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
     let origWidth = '';
     let origMinWidth = '';
     let restored = false;
+    /* R122 — Radar legend 잘림 fix. legend 의 max-h-32 + overflow-y-auto 가 캡쳐 시 일부만 보임.
+       export 전 임시로 max-height + overflow 해제. 캡쳐 후 원복. */
+    const legendElements = el.querySelectorAll<HTMLElement>('.max-h-32');
+    const legendOrig: Array<{ el: HTMLElement; mh: string; ov: string }> = [];
+    legendElements.forEach((leg) => {
+      legendOrig.push({ el: leg, mh: leg.style.maxHeight, ov: leg.style.overflow });
+      leg.style.maxHeight = 'none';
+      leg.style.overflow = 'visible';
+    });
+    const restoreLegend = () => {
+      legendOrig.forEach(({ el: leg, mh, ov }) => { leg.style.maxHeight = mh; leg.style.overflow = ov; });
+    };
     const restoreWidth = () => {
       if (restored) return;
       el.style.width = origWidth;
       el.style.minWidth = origMinWidth;
+      restoreLegend();
       restored = true;
     };
     try {
@@ -242,6 +255,18 @@ ${styles}
   [data-compare-panel] { width: 100%; height: auto; border: none !important; box-shadow: none !important; }
   [data-compare-panel] button { display: none !important; }
   [data-compare-panel] [role="button"] { display: none !important; }
+  /* R122 — Radar legend + 기타 overflow 제한 해제 (PDF 인쇄 시 잘림 방지) */
+  [data-compare-panel] .max-h-32,
+  [data-compare-panel] .max-h-40,
+  [data-compare-panel] .max-h-64,
+  [data-compare-panel] .overflow-y-auto,
+  [data-compare-panel] .overflow-x-auto,
+  [data-compare-panel] .overflow-auto {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  /* Radar SVG 자체도 최대 폭 확장 */
+  [data-compare-panel] svg { max-width: 100% !important; height: auto !important; }
   @page { margin: 12mm; size: A4 landscape; }
   @media print { body { padding: 0; } }
 </style>
