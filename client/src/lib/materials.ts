@@ -168,11 +168,13 @@ export const PHYSICAL_PROPERTIES: PropertyMeta[] = [
 export const COST_PROPERTIES: PropertyMeta[] = [
   { key: 'price_per_kg', label: 'Price (per kg)', unit: 'USD/kg', description: 'Approximate raw-material price', group: 'cost' },
   { key: 'price_per_cm3', label: 'Price (per cm³)', unit: 'USD/cm³', description: 'Approximate price per unit volume', group: 'cost' },
-  { key: 'machining_cost_factor', label: 'Machining factor', unit: '×', description: 'F4: 가공 비용 가중치 (1.0 = 표준 강, 높을수록 가공비↑)', group: 'cost' },
-  { key: 'ht_cost_factor', label: 'HT factor', unit: '×', description: 'F4: 열처리·후공정 비용 가중치 (1.0 = 없음)', group: 'cost' },
+  /* R111 — machining_cost_factor + ht_cost_factor 는 의미 카드 (제조성 섹션) 로 옮김. 여기 cost 영역엔 숫자만 표시 (참고용). */
+  { key: 'machining_cost_factor', label: 'Machining factor', unit: '×', description: 'F4: 가공 비용 가중치 (1.0 = 표준 강) — 자세한 의미는 아래 "제조성" 카드 참조', group: 'cost' },
+  { key: 'ht_cost_factor', label: 'HT factor', unit: '×', description: 'F4: 열처리·후공정 비용 가중치 (1.0 = 없음) — 자세한 의미는 아래 "제조성" 카드 참조', group: 'cost' },
   { key: 'total_cost_estimate', label: 'Total cost (est.)', unit: 'USD/kg', description: 'F4: raw × machining × HT 추정 가공 단가', group: 'cost' },
-  { key: 'min_wall_thickness', label: 'Min wall', unit: 'mm', description: 'R15: 최소 벽 두께 (process 별 휴리스틱)', group: 'cost' },
-  { key: 'surface_finish_typical', label: 'Surface Ra', unit: 'μm', description: 'R15: 표면 거칠기 typical (마감 전)', group: 'cost' },
+  /* R111 — Min wall / Surface Ra 는 process-aware (Wrought 에서는 의미 없음). build-materials 에서 Cast/AM/Injection 만 채움. */
+  { key: 'min_wall_thickness', label: 'Min wall', unit: 'mm', description: 'R15: 최소 벽 두께 — Cast/AM/Injection 프로세스 한정 (Wrought 는 가공 결과에 의존하므로 N/A)', group: 'cost' },
+  { key: 'surface_finish_typical', label: 'Surface Ra', unit: 'μm', description: 'R15: 제조 그대로의 표면 거칠기 — Cast/AM/Injection 한정 (Wrought 는 가공 후 결과로 결정, N/A)', group: 'cost' },
   { key: 'popularity', label: 'Popularity', unit: '0–5', description: 'Industry usage heuristic — higher = more commonly used standard alloy', group: 'qualitative' },
 ];
 

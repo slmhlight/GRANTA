@@ -236,6 +236,64 @@ export function computeSchaeffler(material: Material): SchaefflerResult | null {
   return { cr_eq, ni_eq, phase, ferrite_pct, note };
 }
 
+/* R111 — Machining/HT cost factor 의미 라벨화. 단순 숫자 (0.9× / 1.2× 등) 대신 정확한 의미 전달. */
+
+export interface CostFactorResult {
+  factor: number;
+  band: 'easy' | 'normal' | 'hard' | 'very_hard';
+  label: string;          // 한 단어 라벨
+  detail: string;         // 비용 영향 한 줄 (e.g. "+50%")
+  note: string;           // 의미 + 근거 한 줄
+}
+
+/** Machining cost factor (raw 단가 × machining factor = 가공 후 단가). 1.0 = 표준 강. */
+export function machiningCostBand(factor: number | null | undefined): CostFactorResult | null {
+  if (factor == null || !isFinite(factor) || factor <= 0) return null;
+  const f = factor;
+  const pct = Math.round((f - 1) * 100);
+  const pctStr = pct === 0 ? '기준' : pct > 0 ? `+${pct}%` : `${pct}%`;
+  if (f < 0.85) return {
+    factor: f, band: 'easy', label: '쉬움', detail: `${pctStr} (저렴)`,
+    note: '저탄소강/free-machining/연한 Al 류 — 표준보다 가공시간·공구비 ↓.'
+  };
+  if (f < 1.25) return {
+    factor: f, band: 'normal', label: '보통', detail: `${pctStr}`,
+    note: '일반 carbon steel·stainless·Al alloy — 표준 절삭. 표준 carbide 공구.'
+  };
+  if (f < 1.80) return {
+    factor: f, band: 'hard', label: '어려움', detail: `${pctStr} (가공비 ↑↑)`,
+    note: '저합금강 high-C, 일부 stainless martensitic·duplex — coated carbide, 낮은 속도.'
+  };
+  return {
+    factor: f, band: 'very_hard', label: '매우 어려움', detail: `${pctStr} (가공비 ↑↑↑)`,
+    note: 'Ni superalloy / Ti / 공구강 / 코발트 — CBN/ceramic 공구, cryo cooling. 가공시간 3-8×.'
+  };
+}
+
+/** HT (Heat Treatment + post-process) cost factor. 1.0 = 추가 비용 없음 (as-supplied 그대로). */
+export function htCostBand(factor: number | null | undefined): CostFactorResult | null {
+  if (factor == null || !isFinite(factor) || factor < 1.0) return null;
+  const f = factor;
+  const pct = Math.round((f - 1) * 100);
+  const pctStr = pct === 0 ? '없음' : `+${pct}%`;
+  if (f < 1.05) return {
+    factor: f, band: 'easy', label: '불요', detail: `${pctStr}`,
+    note: '추가 열처리 불필요 — as-supplied / annealed 그대로 사용.'
+  };
+  if (f < 1.20) return {
+    factor: f, band: 'normal', label: '단순 HT', detail: `${pctStr}`,
+    note: 'Stress relief / 단순 anneal — single furnace cycle (~2-4h).'
+  };
+  if (f < 1.50) return {
+    factor: f, band: 'hard', label: '본격 HT', detail: `${pctStr}`,
+    note: 'Q+T (강) / T6 aging (Al) — 다단 열처리 사이클 + quench, dimensional control 필요.'
+  };
+  return {
+    factor: f, band: 'very_hard', label: '복잡 HT', detail: `${pctStr}`,
+    note: 'STA + double aging (Ni superalloy) / HIP / 코팅 (TBC, MCrAlY) — 5+ 시간 furnace, vacuum 필요.'
+  };
+}
+
 /* ───────── Machinability rating ───────── */
 
 export interface MachinabilityResult {

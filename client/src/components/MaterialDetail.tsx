@@ -11,7 +11,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
 import { htGlossaryFor } from '@/lib/ht-glossary';
-import { computeCET, computeCEIIW, computePcm, computeSchaeffler, computeMachinability } from '@/lib/welding-machinability';
+import { computeCET, computeCEIIW, computePcm, computeSchaeffler, computeMachinability, machiningCostBand, htCostBand } from '@/lib/welding-machinability';
 import { TempCurveChart } from '@/components/TempCurveChart';
 import { CreepRuptureChart } from '@/components/CreepRuptureChart';
 import { recommendedCoatings } from '@/lib/coatings';
@@ -439,7 +439,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               const ce_iiw = computeCEIIW(material);
               const pcm = computePcm(material);
               const sch = computeSchaeffler(material);
-              if (!mach && !cet && !ce_iiw && !pcm && !sch) return null;
+              /* R111 — Machining cost factor + HT cost factor 도 제조성 카드로. 단순 숫자 표시 대신 의미 라벨. */
+              const machCost = machiningCostBand(material.machining_cost_factor);
+              const htCost = htCostBand(material.ht_cost_factor);
+              if (!mach && !cet && !ce_iiw && !pcm && !sch && !machCost && !htCost) return null;
               const bandColor = (b: string) => ({
                 easy: 'text-emerald-700 bg-emerald-50 border-emerald-200',
                 normal: 'text-foreground bg-muted/40 border-border',
@@ -461,6 +464,28 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         </div>
                         <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{mach.note}</p>
                         <p className="text-[10px] mt-1 text-muted-foreground">기준: AISI 1018 = 100% (ASM Vol. 16 Machining)</p>
+                      </div>
+                    )}
+                    {/* R111 — 가공비 가중치 (Machining cost factor) 의미 라벨. 단순 1.5× 표시 대신 "어려움 +50%". */}
+                    {machCost && (
+                      <div className={`rounded border p-2 ${bandColor(machCost.band)}`}>
+                        <div className="flex items-baseline justify-between gap-2">
+                          <b>가공비 가중치 (Machining cost ×{machCost.factor.toFixed(2)})</b>
+                          <span className="font-mono">{machCost.detail} <span className="text-[10px]">· {machCost.label}</span></span>
+                        </div>
+                        <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{machCost.note}</p>
+                        <p className="text-[10px] mt-1 text-muted-foreground">기준 1.0 = 표준 강. raw 단가 × factor = 가공 후 추정 단가.</p>
+                      </div>
+                    )}
+                    {/* R111 — HT (Heat Treatment + post-process) cost factor. 1.0 = HT 없음 (as-supplied). */}
+                    {htCost && (
+                      <div className={`rounded border p-2 ${bandColor(htCost.band)}`}>
+                        <div className="flex items-baseline justify-between gap-2">
+                          <b>열처리·후공정 가중치 (HT cost ×{htCost.factor.toFixed(2)})</b>
+                          <span className="font-mono">{htCost.detail} <span className="text-[10px]">· {htCost.label}</span></span>
+                        </div>
+                        <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{htCost.note}</p>
+                        <p className="text-[10px] mt-1 text-muted-foreground">1.0 = 추가 비용 없음 (as-supplied). HT + 코팅 + HIP 다단 시 ↑.</p>
                       </div>
                     )}
                     {/* R110 — 용접성 4 지표 (CE_IIW, CET, Pcm, Schaeffler) 한꺼번에 표시. 각각 다른 강 family 에 더 적합. */}

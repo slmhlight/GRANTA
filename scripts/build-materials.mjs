@@ -2638,6 +2638,9 @@ function processAttributes(m) {
   const proc = String(m.process || '').toLowerCase();
   const cat = m.category;
   const has = (re) => re.test(proc);
+  /* R111 — surface_finish & min_wall 은 "as-supplied" / "net-shape process" 에만 의미.
+     Wrought/rolled/extruded/forged/machined/sheet metal 은 추가 후가공으로 결정 → null 반환 (UI N/A).
+     Cast/AM/Injection/Sintered 만 의미 있는 값. tolerance_class 는 모두 유지. */
   if (has(/lpbf|slm|dmls/i)) return [0.4, 12, 'IT13-14'];
   if (has(/ebm|electron.?beam/i)) return [1.0, 30, 'IT14'];
   if (has(/binder.?jet/i)) return [0.5, 20, 'IT14-15'];
@@ -2646,11 +2649,11 @@ function processAttributes(m) {
   if (has(/die.?cast/i)) return [1.0, 0.8, 'IT11-12'];
   if (has(/sand.?cast|gravity.?cast/i)) return [3.0, 18, 'IT14-16'];
   if (has(/cast/i)) return [2.5, 12.5, 'IT13-14']; // 일반 주조
-  if (has(/forg|forge/i)) return [3.0, 12.5, 'IT12-14'];
-  if (has(/rolled|wrought|extrud/i)) return [0.5, 1.6, 'IT10-12'];
+  if (has(/forg|forge/i)) return [null, null, 'IT12-14']; // Wrought 변형 → 후가공 의존, surface/wall 의미 X
+  if (has(/rolled|wrought|extrud/i)) return [null, null, 'IT10-12']; // 후가공 의존, surface/wall 의미 X
   if (has(/injection|inject|molded/i)) return [0.8, 1.6, 'IT10-12'];
-  if (has(/sheet.?metal|stamp/i)) return [0.3, 3.2, 'IT11-12'];
-  if (has(/machined|cnc/i)) return [0.2, 0.8, 'IT7-9']; // 정밀 가공
+  if (has(/sheet.?metal|stamp/i)) return [null, null, 'IT11-12']; // 후가공 의존
+  if (has(/machined|cnc/i)) return [0.2, 0.8, 'IT7-9']; // 정밀 가공 — 그대로 최종 surface
   if (has(/sintered|powder|pm/i)) return [1.5, 3.2, 'IT12-13'];
   if (cat === 'Polymer') return [0.8, 1.6, 'IT10-12']; // 폴리머 default = 사출
   return [null, null, null]; // 정보 없음

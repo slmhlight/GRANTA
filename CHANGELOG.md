@@ -2,6 +2,56 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R111 — Machining/HT factor 의미 라벨화 + 제조성 통합 + Surface Ra process-aware
+
+### 사용자 지적 1: Machining factor / HT factor 의미 불명확
+이전: detail panel 의 cost 영역에 `1.50×` 같은 숫자만. 의미 전달 X.
+
+**해결**: `lib/welding-machinability.ts` 에 의미 카드 함수 신규:
+- `machiningCostBand(factor)` → `{ band, label, detail, note }`:
+  - < 0.85: "쉬움" (저렴 -15% 이상) — 저탄소강, free-machining, 연한 Al
+  - 0.85~1.25: "보통" (기준) — 표준 carbide 공구
+  - 1.25~1.80: "어려움" (+25-80%) — coated carbide, 낮은 속도
+  - > 1.80: "매우 어려움" (+80%↑) — CBN/ceramic, cryo cooling, 3-8× 가공시간
+- `htCostBand(factor)` → 4 band:
+  - < 1.05: "불요" — as-supplied 그대로
+  - 1.05~1.20: "단순 HT" — Stress relief / single furnace cycle
+  - 1.20~1.50: "본격 HT" — Q+T or T6 aging + quench + dimensional control
+  - > 1.50: "복잡 HT" — STA + double aging / HIP / coating, vacuum furnace
+
+**Detail panel "제조성" 섹션에 2 카드 추가** (절삭성 옆에):
+- 가공비 가중치 (Machining cost ×{factor}) — 의미 라벨 + 비용 영향 + 한 줄 설명
+- 열처리·후공정 가중치 (HT cost ×{factor}) — 동일 형식
+- 표시 예: "어려움 +50% (가공비 ↑↑)" / "본격 HT +20%"
+- COST_PROPERTIES 의 숫자 항목은 참고용으로 유지하되 description 에 "자세한 의미는 제조성 카드 참조" 추가
+
+### 사용자 지적 2: Surface Ra / Min wall 이 Wrought 재료에서 의미 없음
+이전: 모든 process 에서 surface Ra 1.6 / min wall 0.5 등으로 표시. Wrought 는 후가공으로 결정되므로 의미 없음 (잘못된 값).
+
+**해결**: `processAttributes(m)` 에서 process-aware 처리:
+- **유지** (net-shape / as-supplied 의미 있음): AM (LPBF/SLM/EBM/Binder/DED) · Cast (investment/die/sand) · Injection · Sintered (powder metal) · Machined (CNC, 정밀가공 그대로)
+- **null 반환** (후가공 의존): Wrought · Rolled · Extruded · Forged · Sheet metal / Stamping
+- `tolerance_class` 는 모두 유지 (이론적 process tolerance 능력은 의미 있음)
+
+**효과** (1,249 entries):
+| Process | 이전 (R110) | R111 |
+|---|---|---|
+| AM (131종) | Surface 131, Min wall 131 | 131, 131 (그대로) |
+| Cast (51종) | 51, 51 | 51, 51 (그대로) |
+| Injection (65종) | 65, 65 | 65, 65 (그대로) |
+| Machined (42종) | 42, 42 | 42, 42 (그대로) |
+| **Wrought (895종)** | **895, 895** (잘못된 값) | **0, 0** (정확) |
+
+### 검증
+- tsc OK · vitest 47/47 · build:data OK · production build OK
+
+### 추가 개선 제안 (다음 라운드 결정용)
+1. **Polymer 한정 물성 (Tg/HDT)** 도 process-aware 처리 — Metal/Ceramic/Composite 에서는 N/A 명시 (현재는 ranges 가 없으면 자동으로 안 보임)
+2. **min_wall_thickness/surface_finish_typical** description 에 N/A 사유 인라인 표시 (예: "Wrought — 후가공으로 결정, N/A")
+3. **Family-aware fatigue 더 채우기** — 한국 KS 강종 27종, 풍산 Cu 9종 등 신규 entry 에 fatigue/impact 추가 (현재 derived/missing)
+4. **CSV polymer ~94종 의 vendor URL** 보강 (현재 verified 비율 낮음)
+5. **Compare panel** 에 가공비/HT 가중치 column 추가 (best-pick 평가용)
+
 ## R110 — Guide 내부 링크 점검 + Polymer Tg 노출 + Tools 보충 + 용접성 4 지표 통합
 
 ### Guide 내부 anchor 링크 점검
