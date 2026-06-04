@@ -671,7 +671,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                   </summary>
                   <div className="space-y-1.5 text-[12px] mt-2 pt-2 border-t border-violet-300/50">
                     {flame && (
-                      <div className="flex items-baseline justify-between gap-2 p-1.5 rounded border" style={{}}>
+                      <div className="flex items-baseline justify-between gap-2 p-1.5 rounded border">
                         <b className="text-foreground/80">난연성 UL94</b>
                         <span className={`px-1.5 py-0.5 rounded text-[11px] font-mono border ${flameColor}`}>{flame}</span>
                       </div>

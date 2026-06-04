@@ -83,7 +83,7 @@ export default function Home() {
   useEffect(() => {
     const isMobile = window.matchMedia('(max-width: 640px)').matches;
     if (!isMobile || viewMode !== 'table') return;
-    if (localStorage.getItem('am_cards_hint_shown')) return;
+    try { if (localStorage.getItem('am_cards_hint_shown')) return; } catch { /* ignore */ }
     import('sonner').then(({ toast }) => {
       toast('모바일에서는 Cards 뷰가 보기 편함', {
         description: '가로 스크롤 없이 한 줄씩 — 하단 바의 뷰 토글로 전환.',
@@ -91,7 +91,7 @@ export default function Home() {
         action: { label: 'Cards 로 전환', onClick: () => setViewMode('cards') },
       });
     });
-    localStorage.setItem('am_cards_hint_shown', '1');
+    try { localStorage.setItem('am_cards_hint_shown', '1'); } catch { /* ignore */ }
   }, [viewMode]);
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
   /* R101 — 모바일 ashby preview: 첫 클릭 시 작은 floating card 만 표시, 같은 점 두 번째 클릭 시 detail open.
@@ -202,7 +202,8 @@ export default function Home() {
     });
   };
   const [panelWidth, setPanelWidth] = useState<number>(() => {
-    const s = typeof window !== 'undefined' ? window.localStorage.getItem('am_panel_w') : null;
+    let s: string | null = null;
+    try { s = typeof window !== 'undefined' ? window.localStorage.getItem('am_panel_w') : null; } catch { s = null; }
     const n = s ? Number(s) : 460;
     return isFinite(n) && n >= 300 ? n : 460;
   });

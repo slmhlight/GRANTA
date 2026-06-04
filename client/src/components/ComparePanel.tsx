@@ -160,12 +160,21 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       return;
     }
     setExporting(true);
+    let origWidth = '';
+    let origMinWidth = '';
+    let restored = false;
+    const restoreWidth = () => {
+      if (restored) return;
+      el.style.width = origWidth;
+      el.style.minWidth = origMinWidth;
+      restored = true;
+    };
     try {
       const { default: html2canvas } = await import('html2canvas');
       const isMobile = window.matchMedia('(max-width: 767px)').matches;
       // 모바일: 임시로 width 1024 강제 (캡쳐 후 원복)
-      const origWidth = el.style.width;
-      const origMinWidth = el.style.minWidth;
+      origWidth = el.style.width;
+      origMinWidth = el.style.minWidth;
       if (isMobile) {
         el.style.width = '1024px';
         el.style.minWidth = '1024px';
@@ -183,8 +192,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
         useCORS: true,
       });
       // 원복
-      el.style.width = origWidth;
-      el.style.minWidth = origMinWidth;
+      restoreWidth();
       canvas.toBlob((blob) => {
         if (!blob) {
           alert('PNG 생성 실패. 브라우저 호환 문제일 수 있습니다.');
@@ -201,6 +209,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       console.error('PNG export failed:', err);
       alert(`PNG 생성 실패: ${err instanceof Error ? err.message : '알 수 없는 오류'}`);
     } finally {
+      restoreWidth();
       setExporting(false);
     }
   };
@@ -241,11 +250,14 @@ ${panel.outerHTML}
 </body>
 </html>`);
     win.document.close();
-    // 렌더링 후 print
-    setTimeout(() => {
-      win.focus();
-      win.print();
-    }, 500);
+    // 렌더링 후 print — stylesheet load 대기
+    win.addEventListener('load', () => {
+      setTimeout(() => { win.focus(); win.print(); }, 200);
+    }, { once: true });
+    // fallback: 이미 load 된 경우
+    if (win.document.readyState === 'complete') {
+      setTimeout(() => { win.focus(); win.print(); }, 500);
+    }
   };
 
   /* ───────── R69 B — Best-pick badges ───────── */

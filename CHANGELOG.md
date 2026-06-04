@@ -2,6 +2,36 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R119 — 전반적 audit 6 fixes (high + medium 우선순위)
+사용자 요청: "다른 버그나 동작 안하는 버튼 있는지 전반적으로 체크". 정적 분석 후 6 issue fix.
+
+### HIGH (broken/incorrect) — 3건
+1. **Tools.tsx LMP Guide link** `#ch9` (AM 특화 챕터) → `#ch5` (Chapter 8 비틀림·좌굴·복합·압력 — LMP 실제 위치)
+2. **ComparePanel exportPNG width restore leak**: html2canvas 가 throw 시 element style.width 가 모바일에서 1024px 로 stuck. `restoreWidth()` helper + finally 블록으로 이동, idempotent guard
+3. **ComparePanel exportPDF popup race**: 이전 `setTimeout(print, 500)` 가 stylesheet load 보다 빨리 호출 → unstyled print. `addEventListener('load', ...)` + readyState fallback 으로 변경
+
+### MEDIUM (annoying/regression risk) — 2건
+4. **Home.tsx localStorage Safari private mode crash**: 4 location 의 getItem/setItem 을 try/catch 로 wrap:
+   - `am_cards_hint_shown` getItem (L86)
+   - `am_cards_hint_shown` setItem (L94)
+   - `am_panel_w` useState initializer (L205)
+5. **MaterialDetail.tsx empty `style={{}}`** UL94 flame row 에 dead code → 제거
+
+### LOW (cosmetic) — 1건
+6. **CLAUDE.md "13-chapter learning Guide"** stale (Guide ch15 추가로 실제 14 chapter) → "14-chapter learning Guide"
+
+### 검증
+- tsc OK · vitest 47/47 · production build OK
+- audit 에서 확인된 false positive: Guide cross-link 14건 검사 → 1건만 잘못 (LMP), 13건 OK
+- `.map()` key prop 모두 valid, dynamic Tailwind class 없음, zero-rendering hazard 없음
+
+### Audit 에서 발견했으나 fix 안 함 (사용자 결정 시 진행)
+- ComparePanel `confirm()` (clearAll) → sonner toast 패턴으로 변경 가능 (low priority)
+- Home.tsx hash regex 가 mount 1회만 — `hashchange` listener 누락 (in-page navigation 시 미동작)
+- AshbyChartPlotly toast 가 forceIndexKey 변경마다 stack 가능
+- MaterialDetail `useStateRD` alias (기존 collision 해결 후 stale rename 권장)
+- ComparePanel radar size `window.innerWidth` mount-time 캡쳐 (resize 시 stale)
+
 ## R116 — 가격 다차원 모델 (condition + form + grade premium)
 사용자 지적: "비슷한 재료에서 다 비슷한 값들을 가져서 제대로 비교가 안됨. 열처리 여부에 따라서도 가격이 달라져야 할거같은데 안되고 있는듯". 정확한 진단 — 이전 `price_per_kg` 은 family base 한 값만 사용 + condition/process 무시.
 

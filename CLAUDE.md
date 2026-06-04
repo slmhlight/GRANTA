@@ -2,7 +2,7 @@
 
 ANSYS Granta-style additive-manufacturing materials database. Interactive Ashby
 charts, Compare panel with Radar / Goodman views, 9-calculator Engineering Tools,
-13-chapter learning Guide, range-based material properties with cited datasheets.
+14-chapter learning Guide, range-based material properties with cited datasheets.
 
 ## Stack
 React 19 · Vite 7 · TypeScript · Tailwind CSS 4 · shadcn/ui · **Plotly.js** (Ashby chart) · wouter · pnpm 10 · Vitest.
@@ -32,7 +32,7 @@ React 19 · Vite 7 · TypeScript · Tailwind CSS 4 · shadcn/ui · **Plotly.js**
 ## Layout
 - `client/src/` — React app:
   - `pages/Home.tsx` — 3-panel main page (filter sidebar · table/cards/Ashby view · detail panel) with header (search, language, units, guide, tools, ?, favorites, collections, compare).
-  - `pages/Guide.tsx` — 13-chapter learning Guide with sticky search bar, mobile collapsible chapters, S-N / Goodman / AM-anisotropy / post-process SVG illustrations, external reference links (74 verified URLs).
+  - `pages/Guide.tsx` — 14-chapter learning Guide with sticky search bar, mobile collapsible chapters, S-N / Goodman / AM-anisotropy / post-process SVG illustrations, external reference links (74 verified URLs).
   - `pages/Tools.tsx` — 9-calculator Engineering Tools page (Kt · Galvanic · Buckling · CTE · Hardness · Pressure vessel · LMP creep · Mohr · Schaeffler).
   - `pages/guide/` — Guide sub-modules: `components.tsx` (Chapter, F symbol-glossary, Note, Scenario, ExtLink), `svgs.tsx`, `index-entries.ts` (Guide search index).
   - `components/` — AshbyChartPlotly · ComparePanel (Table/Radar/Goodman views + best-pick + weighted score + PDF print) · MaterialDetail (Properties/Composition/Process tabs with elev-temp/creep curves, machinability/CET, HT glossary, confidence legend, favorite star) · GoodmanChart · RadarChart · OnboardingTour (6-step welcome) · ScenarioDialog (with apply-preview) · FilterSidebar · MaterialTable (bulk-select header) · ErrorBoundary (network/TDZ classification).
