@@ -2382,6 +2382,33 @@ for (const m of all) {
     setTyp('price_per_kg', ph.price, 'class');
     if (m.density && (m.ranges.price_per_cm3 == null || !(m.ranges.price_per_cm3.typical > 0))) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4), 'class');
   }
+  /* R113 — Polymer family typical meta (flame UL94 / UV / moisture). polymers-data.json 19종 외 CSV 94종에 적용. */
+  if (m.category === 'Polymer' && (!m.meta?.flame_ul94 || !m.meta?.uv_resistance || !m.meta?.moisture_24h)) {
+    const n = String(m.name || '').toLowerCase();
+    const s = String(m.subcategory || '').toLowerCase();
+    const has = (re) => re.test(n) || re.test(s);
+    let flame = null, uv = null, moisture = null;
+    if (has(/peek|pekk|ultem|pei|pps\b|ppsu|pes|psu|vespel|polyimid/)) { flame = 'V-0'; uv = 'Fair'; moisture = 0.3; }
+    else if (has(/pa12|nylon 12|polyamide 12/)) { flame = 'HB'; uv = 'Good'; moisture = 1.0; }
+    else if (has(/pa66|nylon 66|polyamide 66/)) { flame = 'HB'; uv = 'Fair'; moisture = 2.8; }
+    else if (has(/pa6|nylon 6|polyamide/)) { flame = 'HB'; uv = 'Fair'; moisture = 2.5; }
+    else if (has(/polycarb|\blexan\b|\bpc\b/) && !has(/peek|pcm/)) { flame = 'V-2'; uv = 'Fair'; moisture = 0.15; }
+    else if (has(/abs/)) { flame = 'HB'; uv = 'Poor'; moisture = 0.3; }
+    else if (has(/pmma|acrylic/)) { flame = 'HB'; uv = 'Excellent'; moisture = 0.2; }
+    else if (has(/petg/)) { flame = 'HB'; uv = 'Good'; moisture = 0.2; }
+    else if (has(/pla/)) { flame = 'HB'; uv = 'Fair'; moisture = 0.5; }
+    else if (has(/tpu|elastomer/)) { flame = 'HB'; uv = 'Good'; moisture = 0.4; }
+    else if (has(/pom|acetal/)) { flame = 'HB'; uv = 'Fair'; moisture = 0.2; }
+    else if (has(/\bpp\b|polypro/)) { flame = 'HB'; uv = 'Poor'; moisture = 0.02; }
+    else if (has(/hdpe|ldpe|\bpe\b/)) { flame = 'HB'; uv = 'Poor'; moisture = 0.01; }
+    else if (has(/epoxy/)) { flame = 'HB'; uv = 'Good'; moisture = 0.3; }
+    else if (has(/polyester/)) { flame = 'HB'; uv = 'Good'; moisture = 0.3; }
+    m.meta = m.meta || {};
+    if (flame && !m.meta.flame_ul94) m.meta.flame_ul94 = flame;
+    if (uv && !m.meta.uv_resistance) m.meta.uv_resistance = uv;
+    if (moisture != null && m.meta.moisture_24h == null) m.meta.moisture_24h = moisture;
+    if (!m.meta.polymer) m.meta.polymer = true;
+  }
   // 인기도 (0–5) — 산업 사용 빈도 휴리스틱. 표준 합금 이름에 매칭하는 명시적 규칙.
   m.popularity = popularityFor(m);
   // F4: 가공·열처리 비용 가중치 — raw 단가만으로는 가공 단가를 추정하기 어려우므로 휴리스틱 적용.

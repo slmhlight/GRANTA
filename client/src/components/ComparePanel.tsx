@@ -13,6 +13,7 @@ import type { Material, PropertyRange } from '@/lib/materials';
 import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import { familyColor, propColor } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
+import { computeMachinability, machiningCostBand, htCostBand, computeCEIIW, computeCET, computePcm } from '@/lib/welding-machinability';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis } from '@/components/RadarChart';
 import GoodmanChart from '@/components/GoodmanChart';
 // R21: Compare 패널에서 온도-강도 그래프 제거. MaterialDetail 의 단일 차트만 유지.
@@ -42,22 +43,33 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   const sysUnits = loadUnitSystem();
   // R50d — export 대상 (table) ref + busy state.
   const tableRef = useRef<HTMLDivElement>(null);
-  // R69 G — 사용자 가중치 score (강도·강성·경량·저가). 합 = 100%. score = Σ(w_i · normalized).
+  /* R69 G — 사용자 가중치 score. R113: 기본 비활성화 + 체크박스로 항목별 활성화. score = Σ(w_i · normalized).
+     사용자 정책: "기본 비활성화, 기본 collapse, 버튼으로 활성화 및 체크박스로 가중치 활성화". */
+  const [weightActive, setWeightActive] = useState(false);  // 전체 가중치 시스템 활성화 toggle
+  const [enabledFactors, setEnabledFactors] = useState({ strength: true, stiffness: true, light: true, cheap: true });
   const [weights, setWeights] = useState({ strength: 40, stiffness: 20, light: 20, cheap: 20 });
   /* R99 — 가중치·Best-pick 섹션 접기 (모바일 세로 절약). 기본 접힘. */
   const [weightOpen, setWeightOpen] = useState(false);
   const [bestPickOpen, setBestPickOpen] = useState(false);
-  const wSum = weights.strength + weights.stiffness + weights.light + weights.cheap || 1;
+  /* R113 — 활성화된 항목만 wSum 계산. 비활성 항목은 0 으로 처리. */
+  const effWeights = {
+    strength: enabledFactors.strength ? weights.strength : 0,
+    stiffness: enabledFactors.stiffness ? weights.stiffness : 0,
+    light: enabledFactors.light ? weights.light : 0,
+    cheap: enabledFactors.cheap ? weights.cheap : 0,
+  };
+  const wSum = effWeights.strength + effWeights.stiffness + effWeights.light + effWeights.cheap || 1;
   const computeScore = (m: Material): number => {
+    if (!weightActive) return 0;
     const ys = typOf(m, 'yield_strength') || 0;
     const E = typOf(m, 'modulus') || 0;
     const rho = typOf(m, 'density') || 1;
     const price = typOf(m, 'price_per_kg') || 0;
     return (
-      (weights.strength / wSum) * ys +
-      (weights.stiffness / wSum) * E +
-      (weights.light / wSum) * (100 / rho) +
-      (weights.cheap / wSum) * (price > 0 ? 100 / price : 0)
+      (effWeights.strength / wSum) * ys +
+      (effWeights.stiffness / wSum) * E +
+      (effWeights.light / wSum) * (100 / rho) +
+      (effWeights.cheap / wSum) * (price > 0 ? 100 / price : 0)
     );
   };
   const [exporting, setExporting] = useState(false);
@@ -280,7 +292,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       </div>
 
       <p className="text-[10px] text-muted-foreground px-4 py-1.5 border-b border-border/50">{t('compare.hint')}</p>
-      {/* R69 G / R99 — 가중치 score: 접기 가능 (default 닫힘) */}
+      {/* R113 — 가중치 score: 기본 비활성 + collapse. 버튼으로 활성화 + 체크박스로 항목별 활성화. */}
       {sortedMaterials.length >= 2 && (
         <div className="border-b border-border/50 bg-sky-50/30">
           <button
@@ -288,44 +300,75 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
             onClick={() => setWeightOpen(o => !o)}
             className="w-full px-4 py-1.5 flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-sky-700 hover:bg-sky-100/40"
           >
-            <span>⚖ 가중치 종합 score · 합 {wSum}%</span>
+            <span>
+              ⚖ 가중치 종합 score
+              {weightActive ? <span className="ml-1 text-amber-700">· ON · 합 {wSum}%</span> : <span className="ml-1 text-foreground/40">· OFF (기본)</span>}
+            </span>
             {weightOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
           </button>
           {weightOpen && (
             <div className="px-4 pb-2">
+              {/* 활성화 토글 버튼 */}
+              <div className="flex items-center justify-between mb-2 pb-2 border-b border-sky-200/60">
+                <span className="text-[11px] text-foreground/70">
+                  {weightActive ? '✓ 활성화 — 슬라이더 + 체크박스 조정 가능' : '⊝ 비활성화 — best-pick 만 표시 (단일 axis 기준)'}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setWeightActive(v => !v)}
+                  className={`text-[11px] px-2 py-0.5 rounded border font-semibold transition ${weightActive
+                    ? 'bg-emerald-100 text-emerald-800 border-emerald-300 hover:bg-emerald-200'
+                    : 'bg-muted text-foreground/70 border-border hover:bg-muted-foreground/10'}`}
+                >
+                  {weightActive ? '✓ ON' : '⊝ OFF'}
+                </button>
+              </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-1.5">
                 {[
-                  { key: 'strength', label: '강도 σy', max: 100 },
-                  { key: 'stiffness', label: '강성 E', max: 100 },
-                  { key: 'light', label: '경량 1/ρ', max: 100 },
-                  { key: 'cheap', label: '저가 1/$', max: 100 },
-                ].map(s => (
-                  <label key={s.key} className="text-[10px] text-foreground/70 min-w-0">
-                    <div className="flex justify-between gap-1">
-                      <span className="truncate">{s.label}</span>
-                      <span className="font-mono flex-shrink-0">{(weights as any)[s.key]}%</span>
+                  { key: 'strength', label: '강도 σy' },
+                  { key: 'stiffness', label: '강성 E' },
+                  { key: 'light', label: '경량 1/ρ' },
+                  { key: 'cheap', label: '저가 1/$' },
+                ].map(s => {
+                  const en = (enabledFactors as any)[s.key];
+                  return (
+                    <div key={s.key} className={`text-[10px] min-w-0 ${weightActive && en ? 'text-foreground/80' : 'text-foreground/40'}`}>
+                      <label className="flex items-center gap-1 mb-0.5 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={en}
+                          disabled={!weightActive}
+                          onChange={(e) => setEnabledFactors(f => ({ ...f, [s.key]: e.target.checked }))}
+                          className="accent-sky-600 disabled:opacity-30"
+                        />
+                        <span className="truncate flex-1">{s.label}</span>
+                        <span className="font-mono flex-shrink-0">{en ? (weights as any)[s.key] : 0}%</span>
+                      </label>
+                      <input
+                        type="range" min={0} max={100} step={5}
+                        value={(weights as any)[s.key]}
+                        disabled={!weightActive || !en}
+                        onChange={(e) => setWeights(w => ({ ...w, [s.key]: +e.target.value }))}
+                        className="w-full h-1 disabled:opacity-30"
+                      />
                     </div>
-                    <input
-                      type="range" min={0} max={s.max} step={5}
-                      value={(weights as any)[s.key]}
-                      onChange={(e) => setWeights(w => ({ ...w, [s.key]: +e.target.value }))}
-                      className="w-full h-1"
-                    />
-                  </label>
-                ))}
+                  );
+                })}
               </div>
-              <div className="flex flex-wrap gap-1.5 text-[11px]">
-                {sortedMaterials.map(m => ({ m, score: computeScore(m) })).sort((a, b) => b.score - a.score).slice(0, 3).map((r, i) => (
-                  <span key={r.m.id} className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 border min-w-0 ${
-                    i === 0 ? 'bg-amber-100 text-amber-800 border-amber-300 font-semibold'
-                    : 'bg-sky-50 text-sky-700 border-sky-200'
-                  }`}>
-                    <b>{['🥇', '🥈', '🥉'][i]}</b>
-                    <span className="font-mono truncate max-w-[120px] sm:max-w-[140px]">{r.m.name}</span>
-                    <span className="text-[9px] opacity-70 flex-shrink-0">({r.score.toFixed(0)})</span>
-                  </span>
-                ))}
-              </div>
+              {weightActive && (
+                <div className="flex flex-wrap gap-1.5 text-[11px]">
+                  {sortedMaterials.map(m => ({ m, score: computeScore(m) })).sort((a, b) => b.score - a.score).slice(0, 3).map((r, i) => (
+                    <span key={r.m.id} className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 border min-w-0 ${
+                      i === 0 ? 'bg-amber-100 text-amber-800 border-amber-300 font-semibold'
+                      : 'bg-sky-50 text-sky-700 border-sky-200'
+                    }`}>
+                      <b>{['🥇', '🥈', '🥉'][i]}</b>
+                      <span className="font-mono truncate max-w-[120px] sm:max-w-[140px]">{r.m.name}</span>
+                      <span className="text-[9px] opacity-70 flex-shrink-0">({r.score.toFixed(0)})</span>
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -364,6 +407,60 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
           )}
         </div>
       )}
+
+      {/* R113 — Compare panel 공정 평가 mini row (절삭성/HT/용접성). 4 dot + tooltip 으로 1줄 비교. */}
+      {sortedMaterials.length >= 2 && viewMode === 'table' && (() => {
+        // dynamic import to avoid circular dep
+        const evalDots = sortedMaterials.map(m => {
+          const cls = m.category === 'Metal' ? '' : '';
+          let machBand: string | null = null;
+          let htBand: string | null = null;
+          let weldBand: string | null = null;
+          try {
+            const mach = computeMachinability(m);
+            const machC = machiningCostBand(m.machining_cost_factor);
+            const ht = htCostBand(m.ht_cost_factor);
+            const ce = computeCEIIW(m);
+            const cet = computeCET(m);
+            const pcm = computePcm(m);
+            machBand = machC?.band || mach?.band || null;
+            htBand = ht?.band || null;
+            const wb = [ce?.band, cet?.band, pcm?.band].filter(Boolean) as string[];
+            weldBand = wb.includes('high') ? 'high' : wb.includes('med') ? 'med' : wb.length ? 'low' : null;
+          } catch { /* ignore */ }
+          return { m, machBand, htBand, weldBand, cls };
+        });
+        const dotColor = (b: string | null): string => {
+          if (!b) return 'bg-foreground/10';
+          if (b === 'easy' || b === 'low') return 'bg-emerald-500';
+          if (b === 'normal') return 'bg-foreground/30';
+          if (b === 'hard' || b === 'med') return 'bg-amber-500';
+          if (b === 'very_hard' || b === 'high') return 'bg-rose-500';
+          return 'bg-foreground/10';
+        };
+        const hasAny = evalDots.some(d => d.machBand || d.htBand || d.weldBand);
+        if (!hasAny) return null;
+        return (
+          <div className="border-b border-border/50 bg-violet-50/20 px-4 py-1.5">
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-wide text-violet-700 font-semibold mb-1">
+              <span>⚙ 공정 평가</span>
+              <span className="text-foreground/50 normal-case font-normal text-[9px]">절삭 · HT · 용접 (🟢 우수 · 🟡 주의 · 🔴 위험 · ⚪ N/A)</span>
+            </div>
+            <div className="space-y-0.5 text-[10.5px]">
+              {evalDots.map(d => (
+                <div key={d.m.id} className="flex items-center gap-2">
+                  <span className="flex-1 truncate text-foreground/80">{d.m.name}</span>
+                  <span className="flex items-center gap-1 flex-shrink-0">
+                    <span title={`절삭 ${d.machBand || 'N/A'}`} className={`inline-block w-2.5 h-2.5 rounded-full ${dotColor(d.machBand)}`} />
+                    <span title={`HT ${d.htBand || 'N/A'}`} className={`inline-block w-2.5 h-2.5 rounded-full ${dotColor(d.htBand)}`} />
+                    <span title={`용접 ${d.weldBand || 'N/A'}`} className={`inline-block w-2.5 h-2.5 rounded-full ${dotColor(d.weldBand)}`} />
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* R67 Sprint C — Goodman diagram view */}
       {viewMode === 'goodman' && materials.length > 0 && (

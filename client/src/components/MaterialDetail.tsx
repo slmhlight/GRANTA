@@ -523,18 +523,22 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               // Weldability — worst band 기준 (CE_IIW vs CET vs Pcm 중 가장 보수적)
               const weldBands = [ce_iiw?.band, cet?.band, pcm?.band].filter(Boolean) as string[];
               const weldWorst = weldBands.includes('high') ? 'high' : weldBands.includes('med') ? 'med' : weldBands.length ? 'low' : null;
+              /* R113 — 3 카드 모두 collapsible (mobile 가독성). default: Machinability open · HT/Weld closed.
+                 모바일 1단 + 데스크탑 2단 grid 로 폭 적응. */
               return (
-                <div className="space-y-3">
-                  {/* 카드 1 — 절삭성 + 가공비 통합 */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {/* 카드 1 — 절삭성 + 가공비 통합 (default open) */}
                   {(mach || machCost) && (
-                    <div className={`rounded-lg border-2 p-3 ${bandColor((machCost?.band || mach?.band) as string)}`}>
-                      <h4 className="text-[12px] font-bold mb-2 flex items-center justify-between">
+                    <details open className={`rounded-lg border-2 p-3 ${bandColor((machCost?.band || mach?.band) as string)} md:col-span-1`}>
+                      <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5"><Wrench className="w-3.5 h-3.5" />Machinability · 절삭성</span>
-                        <span className="text-[10px] font-normal text-foreground/60">절삭+가공비 종합</span>
-                      </h4>
-                      <div className="space-y-1.5 text-[12px]">
+                        <span className="text-[10px] font-normal opacity-70">
+                          {mach && `${mach.rating}%`}{machCost && ` · ×${machCost.factor.toFixed(2)}`} · <b>{(machCost?.label || mach?.label)}</b>
+                        </span>
+                      </summary>
+                      <div className="space-y-1.5 text-[12px] mt-2 pt-2 border-t border-current/15">
                         {mach && (
-                          <div className="flex items-baseline justify-between gap-2 pb-1.5 border-b border-current/15">
+                          <div className="flex items-baseline justify-between gap-2">
                             <b>절삭성 rating</b>
                             <span className="font-mono">{mach.rating}% · <b>{mach.label}</b></span>
                           </div>
@@ -547,56 +551,60 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         )}
                         {mach && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{mach.note}</p>}
                         {machCost && machCost.band !== mach?.band && <p className="text-[11px] leading-relaxed text-foreground/80">{machCost.note}</p>}
-                        <p className="text-[10px] mt-1 text-foreground/60">기준: AISI 1018 rating 100% / cost factor 1.0 · ASM Vol.16 Machining · raw 단가 × factor = 가공 후 추정 단가</p>
+                        <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
+                          <b>출처 / 기준</b>: ASM Handbook Vol.16 Machining · AISI 1018 = rating 100% · raw 단가 × cost factor = 가공 후 추정 단가 (vendor 견적과 ±20-30% 차이).
+                        </p>
                       </div>
-                    </div>
+                    </details>
                   )}
-                  {/* 카드 2 — 열처리·후공정 통합 (다양화: factor + 분위기 + 단계) */}
+                  {/* 카드 2 — 열처리·후공정 통합 (default closed) */}
                   {htCost && (
-                    <div className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)}`}>
-                      <h4 className="text-[12px] font-bold mb-2 flex items-center justify-between">
-                        <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · 열처리·후공정</span>
-                        <span className="text-[10px] font-normal text-foreground/60">비용+공정 평가</span>
-                      </h4>
-                      <div className="space-y-1.5 text-[12px]">
-                        <div className="flex items-baseline justify-between gap-2 pb-1.5 border-b border-current/15">
+                    <details className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)} md:col-span-1`}>
+                      <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
+                        <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · 열처리</span>
+                        <span className="text-[10px] font-normal opacity-70">×{htCost.factor.toFixed(2)} · <b>{htCost.label}</b></span>
+                      </summary>
+                      <div className="space-y-1.5 text-[12px] mt-2 pt-2 border-t border-current/15">
+                        <div className="flex items-baseline justify-between gap-2">
                           <b>HT 가중치</b>
                           <span className="font-mono">×{htCost.factor.toFixed(2)} · {htCost.detail} · <b>{htCost.label}</b></span>
                         </div>
-                        {/* R112 — 열처리 평가 다양화: 단계 수 + 분위기 + 시간 추정 + 한국 HT 표준 */}
                         {(() => {
                           const f = htCost.factor;
-                          // 분위기 추정 (계산)
-                          const atmosphere = f >= 1.5 ? 'Vacuum / Inert gas (Ar/N₂) — 오염 회피' : f >= 1.2 ? 'Inert gas 또는 controlled air' : 'Air / open furnace';
-                          // 단계 수
+                          const atmosphere = f >= 1.5 ? 'Vacuum / Inert gas (Ar/N₂)' : f >= 1.2 ? 'Inert gas 또는 controlled air' : 'Air / open furnace';
                           const steps = f >= 1.5 ? '3-5 step (solution → quench → multi-stage aging + HIP/coating)' : f >= 1.2 ? '2 step (Q+T 또는 solution+aging)' : f >= 1.05 ? '1 step (stress relief 또는 anneal)' : 'None';
-                          // 총 furnace 시간
                           const hours = f >= 1.5 ? '8-24h' : f >= 1.2 ? '4-8h' : f >= 1.05 ? '1-3h' : '0h';
-                          // 한국 HT 표준
-                          const ksRef = f >= 1.2 ? 'KS D 0040 (열처리 일반) · KS D 3866 (구조용 강 표준)' : 'N/A';
+                          const ksRef = f >= 1.2 ? 'KS D 0040 (열처리 일반) · KS D 3866 (구조용 강)' : null;
                           return (
                             <>
-                              <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px]">
+                              <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px] mt-1">
                                 <div><span className="text-foreground/60">분위기:</span> <b>{atmosphere}</b></div>
                                 <div><span className="text-foreground/60">총 시간:</span> <b>{hours}</b></div>
                                 <div className="col-span-2"><span className="text-foreground/60">단계:</span> <b>{steps}</b></div>
                               </div>
                               <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{htCost.note}</p>
-                              {ksRef !== 'N/A' && <p className="text-[10px] mt-1 text-foreground/60">참고: {ksRef}</p>}
+                              <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
+                                <b>출처 / 기준</b>: ASM Handbook Vol.4 Heat Treating{ksRef && ` · ${ksRef}`} · 분위기/단계/시간은 factor 기반 휴리스틱 (vendor 견적 별도 필요).
+                              </p>
                             </>
                           );
                         })()}
                       </div>
-                    </div>
+                    </details>
                   )}
-                  {/* 카드 3 — 용접성 4 지표 통합 경고 */}
+                  {/* 카드 3 — 용접성 4 지표 통합 경고 (default closed, but high band 면 open) */}
                   {(ce_iiw || cet || pcm || sch) && (
-                    <div className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || 'normal')}`}>
-                      <h4 className="text-[12px] font-bold mb-2 flex items-center justify-between">
-                        <span className="flex items-center gap-1.5"><FlaskConical className="w-3.5 h-3.5" />Weldability · 용접성 종합 ⚠</span>
-                        <span className="text-[10px] font-normal text-foreground/60">CE_IIW · CET · Pcm · Schaeffler</span>
-                      </h4>
-                      <div className="space-y-1 text-[12px]">
+                    <details open={weldWorst === 'high'} className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || 'normal')} md:col-span-2`}>
+                      <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
+                        <span className="flex items-center gap-1.5">
+                          <FlaskConical className="w-3.5 h-3.5" />Weldability · 용접성 종합
+                          {weldWorst === 'high' && <span className="text-rose-700">⚠</span>}
+                        </span>
+                        <span className="text-[10px] font-normal opacity-70">
+                          {weldWorst === 'high' ? '⚠ 위험' : weldWorst === 'med' ? '주의' : '✓ 우수'} · CE+CET+Pcm+Schaeffler
+                        </span>
+                      </summary>
+                      <div className="space-y-1 text-[12px] mt-2 pt-2 border-t border-current/15">
                         {ce_iiw && (
                           <div className="flex items-baseline justify-between gap-2 py-0.5 border-b border-current/10">
                             <b>CE_IIW (일반)</b>
@@ -621,7 +629,6 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             <span className="font-mono">Cr<sub>eq</sub>{sch.cr_eq.toFixed(1)} · Ni<sub>eq</sub>{sch.ni_eq.toFixed(1)} · <b>{sch.phase}</b></span>
                           </div>
                         )}
-                        {/* 종합 권고 */}
                         <div className="mt-2 pt-2 border-t-2 border-current/30">
                           <p className="text-[11px] font-semibold leading-relaxed">권고 절차:</p>
                           <p className="text-[11px] leading-relaxed">
@@ -630,12 +637,74 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             {weldWorst === 'low' && '✓ 일반 절차 가능. 표준 용접봉 + 일반 procedure.'}
                           </p>
                           {sch && <p className="text-[11px] leading-relaxed text-foreground/80 mt-1">{sch.note}</p>}
-                          <p className="text-[10px] mt-1 text-foreground/60">출처: IIW Doc IX-535-67 (CE) · IIW IX-1086-87 (CET) · JIS (Pcm Ito-Bessyo) · AWS A3.0 / Schaeffler 1949</p>
+                          <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
+                            <b>출처 / 기준</b>: IIW Doc IX-535-67 (CE_IIW) · IIW IX-1086-87 (CET, Thyssen) · JIS (Pcm, Ito-Bessyo 1969) · AWS A3.0 / Schaeffler 1949 · ASM Vol.6 Welding
+                          </p>
                         </div>
                       </div>
-                    </div>
+                    </details>
                   )}
                 </div>
+              );
+            })()}
+
+            {/* R113 — Polymer 한정 카드 (Flame UL94 / UV / Moisture / Tg / HDT). Metal/Ceramic/Composite hide. */}
+            {material.category === 'Polymer' && (() => {
+              const meta = material.meta || {};
+              const flame = meta.flame_ul94 as string | undefined;
+              const uv = meta.uv_resistance as string | undefined;
+              const moisture = meta.moisture_24h as number | undefined;
+              const tg = material.ranges?.glass_transition_temp?.typical;
+              const hdt = material.ranges?.hdt_182?.typical;
+              if (!flame && !uv && moisture == null && tg == null && hdt == null) return null;
+              const flameColor = flame === 'V-0' ? 'text-emerald-700 bg-emerald-50 border-emerald-300'
+                : flame === 'V-1' ? 'text-emerald-600 bg-emerald-50 border-emerald-200'
+                : flame === 'V-2' ? 'text-amber-700 bg-amber-50 border-amber-300'
+                : 'text-rose-700 bg-rose-50 border-rose-300';
+              const uvColor = uv === 'Excellent' ? 'text-emerald-700' : uv === 'Good' ? 'text-emerald-600' : uv === 'Fair' ? 'text-amber-700' : 'text-rose-700';
+              const moistColor = (moisture ?? 0) < 0.5 ? 'text-emerald-700' : (moisture ?? 0) < 1.5 ? 'text-amber-700' : 'text-rose-700';
+              return (
+                <details open className="rounded-lg border-2 border-violet-300 bg-violet-50/50 p-3">
+                  <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-violet-900">
+                    <span className="flex items-center gap-1.5"><FlaskConical className="w-3.5 h-3.5" />Polymer-specific Properties</span>
+                    <span className="text-[10px] font-normal opacity-70">UL94 · UV · Moisture · Tg · HDT</span>
+                  </summary>
+                  <div className="space-y-1.5 text-[12px] mt-2 pt-2 border-t border-violet-300/50">
+                    {flame && (
+                      <div className="flex items-baseline justify-between gap-2 p-1.5 rounded border" style={{}}>
+                        <b className="text-foreground/80">난연성 UL94</b>
+                        <span className={`px-1.5 py-0.5 rounded text-[11px] font-mono border ${flameColor}`}>{flame}</span>
+                      </div>
+                    )}
+                    {uv && (
+                      <div className="flex items-baseline justify-between gap-2">
+                        <b className="text-foreground/80">UV 내성</b>
+                        <span className={`text-[11px] font-mono ${uvColor}`}>{uv}</span>
+                      </div>
+                    )}
+                    {moisture != null && (
+                      <div className="flex items-baseline justify-between gap-2">
+                        <b className="text-foreground/80">수분 흡수 (24h, dry as molded)</b>
+                        <span className={`text-[11px] font-mono ${moistColor}`}>{moisture}%</span>
+                      </div>
+                    )}
+                    {tg != null && (
+                      <div className="flex items-baseline justify-between gap-2">
+                        <b className="text-foreground/80">Glass Transition Tg</b>
+                        <span className="text-[11px] font-mono">{tg}°C</span>
+                      </div>
+                    )}
+                    {hdt != null && (
+                      <div className="flex items-baseline justify-between gap-2">
+                        <b className="text-foreground/80">HDT @ 1.82 MPa</b>
+                        <span className="text-[11px] font-mono">{hdt}°C</span>
+                      </div>
+                    )}
+                    <p className="text-[10px] mt-2 pt-1.5 border-t border-violet-300/30 text-foreground/60">
+                      <b>출처 / 기준</b>: UL94 (Flame), ISO 4892 (UV), ISO 62 (Moisture 24h DAM), ISO 11357 (Tg DSC), ISO 75-A (HDT 1.82 MPa). polymers-data 19종 vendor handbook + 94종 family typical.
+                    </p>
+                  </div>
+                </details>
               );
             })()}
 

@@ -2,6 +2,57 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R113 — 공정 카드 collapsible + Compare 공정 dot + Polymer 카드 + 출처 + Best-pick 가중치 UI
+사용자 5 작업 모두 적용 (6번 = 색상은 현재 OK 유지).
+
+### 1) 공정 3 카드 collapsible (모바일 가독성)
+- 카드 모두 `<details>` element 로 변경 + grid layout (`grid-cols-1 md:grid-cols-2`)
+- **Machinability**: default open · summary 에 rating + factor + band 한 줄 요약
+- **Heat Treatment**: default closed · summary 에 factor + label 요약
+- **Weldability**: default closed (`high` band 만 자동 open) · summary 에 worst band + 종합 평가
+- summary 클릭 시 펼침/접힘, 모바일에서 세로 길이 ↓
+
+### 2) Compare panel 공정 평가 mini row
+- Table view 의 비교 행 위에 신규 row: alloy 이름 + 3 dot (절삭 / HT / 용접)
+- 색상: 🟢 emerald (easy/low) · 보통 회색 · 🟡 amber (hard/med) · 🔴 rose (very_hard/high) · ⚪ N/A
+- `title` 속성으로 hover tooltip (band 명)
+- Compare ≥2 + table view 일 때만 표시
+
+### 3) Polymer-한정 카드 (Process 탭, violet border)
+- **Flame UL94** (V-0/V-1/V-2/HB) — 색상 band
+- **UV resistance** (Excellent/Good/Fair/Poor) — 색상 band
+- **Moisture absorption 24h DAM** (% — 낮을수록 좋음)
+- **Tg** (Glass Transition, °C)
+- **HDT @ 1.82 MPa** (°C)
+- 19 polymers-data 종은 vendor handbook · 94 CSV 종은 family typical
+- 출처: UL94 / ISO 4892 (UV) / ISO 62 (Moisture) / ISO 11357 (Tg DSC) / ISO 75-A (HDT)
+
+### 4) 공정 카드 데이터 출처 강화
+- Machinability: "ASM Handbook Vol.16 Machining · AISI 1018 = rating 100% · vendor 견적과 ±20-30% 차이"
+- HT: "ASM Handbook Vol.4 Heat Treating · KS D 0040 (열처리 일반) · KS D 3866 · 분위기/단계/시간 휴리스틱"
+- Weldability: "IIW Doc IX-535-67 (CE_IIW) · IX-1086-87 (CET, Thyssen) · JIS (Pcm, Ito-Bessyo 1969) · AWS A3.0 / Schaeffler 1949 · ASM Vol.6"
+
+### 5) Best-pick 가중치 슬라이더 UI (기본 비활성 + 체크박스 활성화)
+사용자 정책 정확 반영:
+- **기본: 비활성화** (OFF state) — 슬라이더·체크박스 모두 disabled 회색
+- **기본 collapse**: weightOpen=false (Compare 헤더에서 펼침 버튼)
+- **활성화 버튼**: `weightActive` toggle (OFF/ON 명확 표시)
+- **체크박스로 항목 활성화**: 4개 (강도/강성/경량/저가) 각각 enable/disable
+- 비활성 항목은 wSum 계산에서 0 처리 (effWeights)
+- ON 상태일 때만 best-pick 표시 + score 계산
+
+### 6) Polymer family typical meta (CSV 94종)
+build-materials.mjs 에 polymer family flame_ul94 / uv_resistance / moisture_24h 자동 매핑:
+- PEEK/PEKK/PEI/PPSU/PES → V-0 · Fair · 0.3%
+- PA12/PA66 → HB · Good/Fair · 1.0/2.8%
+- PC → V-2 · Fair · 0.15%
+- ABS → HB · Poor · 0.3%
+- PP/PE → HB · Poor · 0.02/0.01%
+- 등 15+ family pattern
+
+### 검증
+- tsc OK · vitest 47/47 · build:data OK · production build OK (verified 763)
+
 ## R112 — 공정 평가 3 종합 카드 + Process 탭 이동 + Category 필터링 + Polymer URL 보강
 사용자 요청 4건 통합:
 1. 절삭성 + 가공비 → 1 카드 통합
