@@ -151,15 +151,45 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
-  // R50d — PNG export (html2canvas). Compare 패널 table 영역만 캡쳐.
+  /* R118 — PNG export 모바일 fix. 좁은 viewport 에서 캡쳐 잘림 + html2canvas 호환 문제.
+     해결: windowWidth 강제 (1280) + 캡쳐 대상 원본 width 임시 변경 + 실패 시 사용자 피드백. */
   const exportPNG = async () => {
-    if (!tableRef.current) return;
+    const el = tableRef.current;
+    if (!el) {
+      alert('내보낼 영역을 찾을 수 없습니다. table view 에서 시도해주세요.');
+      return;
+    }
     setExporting(true);
     try {
       const { default: html2canvas } = await import('html2canvas');
-      const canvas = await html2canvas(tableRef.current, { scale: 2, backgroundColor: '#ffffff', logging: false });
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      // 모바일: 임시로 width 1024 강제 (캡쳐 후 원복)
+      const origWidth = el.style.width;
+      const origMinWidth = el.style.minWidth;
+      if (isMobile) {
+        el.style.width = '1024px';
+        el.style.minWidth = '1024px';
+      }
+      // scrollHeight 사용하여 overflow 영역 모두 포함
+      const canvas = await html2canvas(el, {
+        scale: isMobile ? 1.5 : 2,
+        backgroundColor: '#ffffff',
+        logging: false,
+        windowWidth: isMobile ? 1280 : undefined,
+        scrollX: 0,
+        scrollY: 0,
+        width: el.scrollWidth,
+        height: el.scrollHeight,
+        useCORS: true,
+      });
+      // 원복
+      el.style.width = origWidth;
+      el.style.minWidth = origMinWidth;
       canvas.toBlob((blob) => {
-        if (!blob) return;
+        if (!blob) {
+          alert('PNG 생성 실패. 브라우저 호환 문제일 수 있습니다.');
+          return;
+        }
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -169,17 +199,53 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       }, 'image/png');
     } catch (err) {
       console.error('PNG export failed:', err);
+      alert(`PNG 생성 실패: ${err instanceof Error ? err.message : '알 수 없는 오류'}`);
     } finally {
       setExporting(false);
     }
   };
 
-  /** R69 C — PDF 출력 (window.print). 사용자가 브라우저 "PDF 로 저장" 선택. */
+  /** R118 — PDF 출력 새 window 에 Compare 영역만 추출하여 print.
+       이전 방식 (body class + @media print) 은 selector fragile 해서 동작 불안정 → 새 popup 으로 깔끔하게. */
   const exportPDF = () => {
-    // body 에 'compare-print' class 부여 → @media print CSS 가 Compare 만 표시
-    document.body.classList.add('compare-print');
-    window.print();
-    setTimeout(() => document.body.classList.remove('compare-print'), 1000);
+    const panel = document.querySelector('[data-compare-panel]');
+    if (!panel) {
+      alert('Compare 패널을 찾을 수 없습니다.');
+      return;
+    }
+    const win = window.open('', '_blank', 'width=1024,height=800');
+    if (!win) {
+      alert('팝업이 차단되었습니다. 팝업을 허용해주세요.');
+      return;
+    }
+    // 현재 페이지의 stylesheet 모두 복사 (Tailwind etc.)
+    const styles = Array.from(document.querySelectorAll('link[rel="stylesheet"], style'))
+      .map(s => s.outerHTML).join('\n');
+    win.document.write(`<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Compare ${new Date().toISOString().slice(0, 10)}</title>
+${styles}
+<style>
+  body { margin: 0; padding: 20px; background: white; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+  [data-compare-panel] { width: 100%; height: auto; border: none !important; box-shadow: none !important; }
+  [data-compare-panel] button { display: none !important; }
+  [data-compare-panel] [role="button"] { display: none !important; }
+  @page { margin: 12mm; size: A4 landscape; }
+  @media print { body { padding: 0; } }
+</style>
+</head>
+<body>
+${panel.outerHTML}
+</body>
+</html>`);
+    win.document.close();
+    // 렌더링 후 print
+    setTimeout(() => {
+      win.focus();
+      win.print();
+    }, 500);
   };
 
   /* ───────── R69 B — Best-pick badges ───────── */
@@ -214,7 +280,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   })();
 
   return (
-    <div className="flex flex-col h-full bg-card border-l border-border">
+    <div data-compare-panel className="flex flex-col h-full bg-card border-l border-border">
       {/* R115 — Header layout 수정. X 닫기를 button group 밖으로 분리하여 모바일에서 항상 보이게 (스크롤 영역 밖). */}
       <div className="flex items-center px-3 sm:px-4 py-2 sm:py-3 border-b border-border bg-muted/30 gap-2 min-w-0">
         <span className="text-sm font-semibold flex-shrink-0 whitespace-nowrap">

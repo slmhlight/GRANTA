@@ -109,15 +109,36 @@
     font-size: 14px;
     line-height: 1.5;
   }
-  /* R69 C — PDF print mode. body.compare-print 활성 시 Compare 패널 제외 모두 숨김. */
+  /* R69 C / R118 — Compare PDF print mode. data-compare-panel 만 표시. */
   @media print {
-    body.compare-print > *:not(.flex.flex-col.h-full.bg-card.border-l) {
+    /* body 전체 hide, 그 다음 Compare 패널만 다시 표시 */
+    body.compare-print * {
+      visibility: hidden;
+    }
+    body.compare-print [data-compare-panel],
+    body.compare-print [data-compare-panel] * {
+      visibility: visible;
+    }
+    body.compare-print [data-compare-panel] {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: auto !important;
+      width: 100% !important;
+      height: auto !important;
+      border: none !important;
+      box-shadow: none !important;
+      background: white !important;
+    }
+    body.compare-print [data-compare-panel] button,
+    body.compare-print [data-compare-panel] [role="button"] {
       display: none !important;
     }
     body.compare-print {
       background: white !important;
     }
-    @page { margin: 12mm; }
+    @page { margin: 12mm; size: A4 landscape; }
   }
   /* R71 C — 접근성 보강.
      1) focus-visible: 키보드 사용자가 ring 명확히 보이게. mouse 사용자에겐 안 보임.
