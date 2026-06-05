@@ -2,6 +2,37 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R127 — 사용자 제공 PDF 분석 12 polymer + C18000 handbook 보강
+
+R126 의 데이터 부족 Top 10 응답으로 사용자가 ANSYS Granta 형식 polymer datasheet PDF 20개 (E:\Downloads\) + C18000 AzoM URL 제공.
+
+### 1) PDF 추출 파이프라인
+- Git mingw 의 `pdftotext.exe` (C:\Program Files\Git\mingw64\bin\) 사용 → 20 PDF → text (data/polymer_pdfs/*.txt).
+- ANSYS Granta layout (Young's modulus / Tensile strength / Elongation / HDT / Tg / Tm / CTE / Thermal-k / Price KRW÷1300) 파싱.
+
+### 2) 12 polymer 추가 (data/polymers-data.json: 19 → 31 entries)
+중복 PEEK Victrex 450G 1건 제외:
+- **PMMA**: Injection grade · Cast acrylic sheet (Plexiglas/Perspex class)
+- **PC**: Standard MW (Lexan/Makrolon class) · High Viscosity (Tough grade)
+- **PVC**: Rigid (uPVC) Type I Pipe/Profile grade
+- **POM**: Copolymer (Hostaform/Celcon, Acetal) · Homopolymer (Delrin, Acetal)
+- **PP**: Homopolymer Clarified/Nucleated (Borealis/Total class)
+- **PA-GF**: PA6-GF65 E-glass woven laminate (Tepex class) — `Polymer - Polyamide GF` 로 routing
+- **PBT**: General-purpose Unfilled · 30%GF Glass-fiber reinforced (Crastin/Valox class)
+- **PET**: Semi-Crystalline Engineering grade (Rynite/Arnite class)
+
+### 3) C18000 (CuNiSiCr) handbook 데이터 보강
+- AzoM (https://www.azom.com/article.aspx?ArticleID=6323) 에서 실측 값 추출.
+- 기존 supplementary 의 placeholder ([8.8, 380, 550, 12, 130, 160, 200] 등) → handbook 값 [8.75, 483, 586, 10, 114, 190, 208] 단일 row.
+- Composition fix: Cu 96.4 / Ni 2.4 / Si 0.6 / Cr 0.45 / Fe 0.15 (range → exact).
+- Source verified=true 로 승격, AzoM URL 첨부.
+- `ALLOY_SPECIFIC` 에 `c18000: {ec:50, tmax:480, price:25, cte:16.5, poisson:0.34, cp:380, melt:1070, kic:60}` + fatigue/impact table 추가.
+
+### 4) 결과
+- 1,040 → 1,041 materials (C18000 deduplicate) · 776 verified sources (+1)
+- KIC fallback 956 entries · Fatigue fallback 919 entries
+- 검증 통과: `pnpm check` clean / `pnpm test` 47 pass / `pnpm build` 21s
+
 ## R126 — 2nd_family 분기 + 추가 subcategory pattern + Fallback range 차별화
 
 ### 1) 추가 subcategory pattern (~70 신규 매칭)

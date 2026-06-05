@@ -1,20 +1,14 @@
 # Guide External Links — Health Report
 
-Generated: 2026-06-03
-Total URLs checked: 78
+Generated: 2026-06-04
+Total URLs checked: 81
 
 ## Summary
-- ✓ OK (200): **73**
+- ✓ OK (200): **78**
 - ⚠ Forbidden 403 (bot-block): 3
 - → Redirect (still works): 0
 - ✗ Dead (4xx/5xx): **0**
-- ⏱ Error / timeout: 2
-
-## ⏱ Network errors / timeouts
-| URL | Error |
-|---|---|
-| https://efatigue.com | fetch failed |
-| https://efatigue.com/ | fetch failed |
+- ⏱ Error / timeout: 0
 
 ## ⚠ Forbidden 403 (bot-block, likely valid in browser)
 | URL |

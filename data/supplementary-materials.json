@@ -6227,36 +6227,28 @@
       "subcategory": "Copper",
       "process": "Wrought",
       "composition": {
-        "Cu": "balance",
-        "Ni": "1.8~3",
-        "Si": "0.4~0.8",
-        "Cr": "0.1~0.8"
+        "Cu": "96.4",
+        "Ni": "2.4",
+        "Si": "0.6",
+        "Cr": "0.45",
+        "Fe": "0.15"
       },
       "points": [
         [
-          8.8,
-          380,
-          550,
-          12,
-          130,
-          160,
-          200
-        ],
-        [
-          8.8,
-          350,
-          520,
+          8.75,
+          483,
+          586,
           10,
-          130,
-          150,
-          200
+          114,
+          190,
+          208
         ]
       ],
       "sources": [
         {
-          "label": "ASM — C18000 copper-nickel-silicon-chromium",
-          "url": null,
-          "verified": false
+          "label": "AZoM — Copper Alloy UNS C18000 (CuNiSiCr) Properties",
+          "url": "https://www.azom.com/article.aspx?ArticleID=6323",
+          "verified": true
         }
       ]
     },
