@@ -567,6 +567,23 @@ const ALLOY_SPECIFIC = {
   'maraging250': { ec: 3, tmax: 480, price: 14, cte: 9.8, poisson: 0.32, cp: 490, melt: 1440, kic: 85 },
   'maraging300': { ec: 3, tmax: 480, price: 16, cte: 10.1, poisson: 0.30, cp: 450, melt: 1430, kic: 80 },
   'maraging350': { ec: 3, tmax: 480, price: 20, cte: 10.2, poisson: 0.30, cp: 450, melt: 1430, kic: 50 },
+  // R130c — Specialty alloys
+  'sae21-4n':  { ec: 2.0, tmax: 815, price: 12, cte: 18.4, poisson: 0.30, cp: 500, melt: 1400, kic: 140 },  // austenitic high-N exhaust valve
+  '21-4n':     { ec: 2.0, tmax: 815, price: 12, cte: 18.4, poisson: 0.30, cp: 500, melt: 1400, kic: 140 },
+  'narloyz':   { ec: 88,  tmax: 540, price: 350, cte: 17.5, poisson: 0.34, cp: 380, melt: 1080, kic: 70 },   // SSME chamber NASA-developed
+  'narloy-z':  { ec: 88,  tmax: 540, price: 350, cte: 17.5, poisson: 0.34, cp: 380, melt: 1080, kic: 70 },
+  'monel400':  { ec: 3.5, tmax: 480, price: 22, cte: 13.9, poisson: 0.32, cp: 427, melt: 1330, kic: 120 },  // solid-solution Cu-Ni
+  'monel':     { ec: 3.5, tmax: 480, price: 22, cte: 13.9, poisson: 0.32, cp: 427, melt: 1330, kic: 120 },
+  'monelk500': { ec: 2.5, tmax: 480, price: 35, cte: 13.7, poisson: 0.32, cp: 419, melt: 1330, kic: 100 },  // age-hardened
+  'invar36':   { ec: 2.0, tmax: 200, price: 18, cte: 1.6,  poisson: 0.29, cp: 515, melt: 1430, kic: 110 },  // low CTE FeNi36
+  'kovar':     { ec: 3.0, tmax: 450, price: 25, cte: 5.5,  poisson: 0.29, cp: 433, melt: 1450, kic: 70 },
+  'cuni2sicr': { ec: 50,  tmax: 480, price: 25, cte: 16.5, poisson: 0.34, cp: 380, melt: 1070, kic: 60 },
+  'ti6246':    { ec: 0.9, tmax: 480, price: 65, cte: 8.0,  poisson: 0.34, cp: 520, melt: 1650, kic: 60 },
+  'ti6-2-4-6': { ec: 0.9, tmax: 480, price: 65, cte: 8.0,  poisson: 0.34, cp: 520, melt: 1650, kic: 60 },
+  'aermet100': { ec: 6.0, tmax: 480, price: 35, cte: 11.8, poisson: 0.30, cp: 460, melt: 1430, kic: 105 },  // UHS Carpenter
+  'aermet310': { ec: 5.5, tmax: 480, price: 45, cte: 11.5, poisson: 0.30, cp: 460, melt: 1430, kic: 70 },
+  'custom465': { ec: 2.5, tmax: 480, price: 10, cte: 10.6, poisson: 0.27, cp: 460, melt: 1430, kic: 85 },
+  'custom475': { ec: 2.5, tmax: 480, price: 12, cte: 10.6, poisson: 0.27, cp: 460, melt: 1430, kic: 70 },
   // ─── R109 신규 확장 — Carbon/Alloy steel 추가 ───
   '1010': { ec: 16, tmax: 540, price: 0.8, cte: 11.7, poisson: 0.29, cp: 481, melt: 1520, kic: 65 },
   '1015': { ec: 16, tmax: 540, price: 0.9, cte: 11.7, poisson: 0.29, cp: 482, melt: 1520, kic: 60 },
@@ -830,6 +847,23 @@ const ALLOY_FAT_IMPACT = {
   'maraging250': { fatigue: [600, 660, 720], impact: [20, 32, 48] },
   'maraging300': { fatigue: [650, 700, 750], impact: [15, 22, 35] },
   'maraging350': { fatigue: [700, 770, 840], impact: [10, 15, 22] },
+  // R130c — Specialty alloys
+  'sae21-4n':    { fatigue: [330, 380, 430], impact: [60, 90, 130] },  // 21Cr-4Ni-9Mn-0.5N exhaust valve, NACE/Carpenter
+  '21-4n':       { fatigue: [330, 380, 430], impact: [60, 90, 130] },
+  'narloyz':     { fatigue: [80, 105, 130], impact: [40, 65, 95] },    // Cu-3Ag-0.5Zr SSME chamber, NASA TM-86932
+  'narloy-z':    { fatigue: [80, 105, 130], impact: [40, 65, 95] },
+  'monel400':    { fatigue: [180, 230, 280], impact: [110, 150, 200] }, // Cu-Ni Special Metals SMC-093
+  'monel':       { fatigue: [180, 230, 280], impact: [110, 150, 200] },
+  'monelk500':   { fatigue: [300, 370, 440], impact: [40, 70, 100] },   // Special Metals SMC-016
+  'invar36':     { fatigue: [180, 220, 260], impact: [60, 90, 130] },   // Carpenter Invar 36, FeNi36
+  'kovar':       { fatigue: [170, 210, 250], impact: [40, 65, 95] },    // CRS/Edge Carbide Kovar
+  'cuni2sicr':   { fatigue: [200, 250, 300], impact: [25, 45, 70] },    // C18000-family
+  'ti6246':      { fatigue: [430, 510, 590], impact: [12, 18, 25] },    // β-rich Ti, TIMET
+  'ti6-2-4-6':   { fatigue: [430, 510, 590], impact: [12, 18, 25] },
+  'aermet100':   { fatigue: [620, 740, 860], impact: [25, 40, 60] },    // UHS Carpenter
+  'aermet310':   { fatigue: [700, 830, 950], impact: [12, 22, 32] },
+  'custom465':   { fatigue: [620, 720, 820], impact: [10, 18, 28] },    // Carpenter PH stainless H950
+  'custom475':   { fatigue: [660, 760, 860], impact: [8, 15, 24] },
 };
 
 function alloyFatigueImpact(name) {
@@ -1011,14 +1045,32 @@ function htConditionMultiplier(m) {
     return { f: 1.00, i: 1.00, k: 1.00, condTag: 'annealed (assumed)' };
   }
 
+  // High-N austenitic stainless (SAE 21-4N exhaust valve) — solution + aged peak baseline
+  if (/sae\s*21[\s-]?4n|21-?4n|high[\s-]?nitrogen.*?stainless|21cr.*?4ni.*?n/.test(name)) {
+    if (/solution\s*\+?\s*aged|aged|peak/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Solution + Aged peak' };
+    if (/solution\s*treated|solution(?!\s*\+)|annealed/.test(combined)) return { f: 0.65, i: 1.40, k: 1.20, condTag: 'Solution Treated (no aging)' };
+    if (/tested at 700/.test(combined)) return { f: 0.65, i: 0.90, k: 0.95, condTag: 'hot strength at 700°C' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Solution + Aged (assumed)' };
+  }
+
+  // Narloy-Z (Cu-3Ag-0.5Zr) — solution + aged baseline
+  if (/narloy/.test(name)) {
+    if (/solution\s*aged|aged/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Solution + Aged peak' };
+    if (/solution\s*annealed|solution\s*treated/.test(combined)) return { f: 0.65, i: 1.50, k: 1.30, condTag: 'Solution Annealed' };
+    if (/creep|tested.*500/.test(combined)) return { f: 0.55, i: 0.85, k: 0.90, condTag: 'creep regime' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Solution + Aged (assumed)' };
+  }
+
   // Carbon / alloy steel Q+T (4140/4340/8620 등) — baseline = Q+T peak
-  if (/\b4[01]\d{2}\b|\b8[0-9]\d{2}\b|\b9\d{3}\b|\b5\d{3}\b|sncm|scm\s*\d|alloy steel/.test(name) || sub.includes('alloy steel')) {
+  if (/\b4[01]\d{2}\b|\b8[0-9]\d{2}\b|\b9\d{3}\b|\b5\d{3}\b|sncm|scm\s*\d|alloy steel|42crmo|31crmov|34crnimo/.test(name) || sub.includes('alloy steel')) {
+    if (/as-?built|as-?fab/.test(combined)) return { f: 0.85, i: 0.90, k: 0.92, condTag: 'as-built (no Q+T)' };
     if (/annealed(?!.*temper)/.test(combined)) return { f: 0.50, i: 2.50, k: 1.80, condTag: 'fully annealed' };
     if (/normalized/.test(combined)) return { f: 0.70, i: 1.80, k: 1.50, condTag: 'normalized' };
     if (/q\s*\+\s*t.*?(?:200|full\s*hard)/.test(combined)) return { f: 1.15, i: 0.40, k: 0.65, condTag: 'Q+T 200°C (full hard)' };
     if (/q\s*\+\s*t.*?(?:550|600|650)/.test(combined)) return { f: 0.92, i: 1.40, k: 1.25, condTag: 'Q+T high-temper' };
     if (/q\s*\+\s*t.*?(?:450|500)/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T 450°C (peak)' };
-    if (/q\s*\+\s*t|tempered/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak (assumed)' };
+    if (/q\s*\+\s*t.*?heavy|heavy\s*section/.test(combined)) return { f: 0.95, i: 0.85, k: 0.95, condTag: 'Q+T heavy section (slower cooling)' };
+    if (/q\s*\+\s*t|tempered|quenched/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak (assumed)' };
     return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak (assumed)' };
   }
 
@@ -1438,6 +1490,16 @@ for (const r of csvRows) {
 
 let aaFixed = 0;
 const subcatFlags = [];
+/* R130a — vendor "As-supplied" 의 의미 명시: AM process 면 "As-built (no post-processing)",
+   Wrought/Cast/Forged 이면 "Mill-supplied (annealed by default per ASTM)". 모호함 줄이기. */
+function resolveAsSupplied(cond, process) {
+  if (cond !== 'As-supplied') return cond;
+  const p = String(process).toLowerCase();
+  if (/lpbf|dmls|slm|ebm|bjt|sls|mjf|fdm|binder/.test(p)) return 'As-built (no post-processing)';
+  if (/wrought/.test(p)) return 'Mill-annealed (ASTM default)';
+  if (/cast|forged/.test(p)) return 'As-cast/forged (no temper)';
+  return cond;
+}
 const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
   const g = grp.rows, rep = g[0];
   const rawSub = mostCommon(g.map(r => r.subcategory));
@@ -1447,6 +1509,7 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
   const tier = grp.hasAm ? 'am_vendor' : 'generic';
   const manus = uniq(g.map(r => r.manufacturer));
   const realSrc = uniq(g.map(r => r.source).filter(s => s !== 'Unknown')).map(s => ({ label: s, url: null, verified: false }));
+  const resolvedCond = resolveAsSupplied(grp.cond, grp.process);
   /* R112 — Polymer CSV entry 에 family vendor URL 자동 추가 (verified). polymer 94종 의 verified URL 비율 ↑. */
   const polyVendor = rep.category === 'Polymer' ? polymerVendorURL(sub, grp.name) : null;
   const baseSrc = grp.hasAm
@@ -1459,7 +1522,7 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
     name: `${grp.name} — ${grp.cond} (${grp.process})`,
     category: rep.category || 'Metal', subcategory: sub, tier,
     manufacturers: tier === 'am_vendor' ? manus : ['Generic'], machines: [],
-    processes: [grp.process], heat_treatment: grp.cond,
+    processes: [grp.process], heat_treatment: resolvedCond,
     ranges: rangesFromRows(g), composition: compositionFromRows(g), sources, points: g.map(r => PROP_ORDER.map(p => num(r[p]))),
     machinability: mostCommonKnown(g.map(r => r.machinability)),
     weldability: mostCommonKnown(g.map(r => r.weldability)),
@@ -1504,10 +1567,19 @@ const supplementary = supRaw
     PROP_ORDER.forEach((p, i) => { ranges[p] = rangeFrom(s.points.map((row) => row[i])); });
     if (Array.isArray(s.fatigue)) ranges.fatigue_strength = rangeFrom(s.fatigue);
     if (Array.isArray(s.impact)) ranges.impact_strength = rangeFrom(s.impact);
+    /* R130a — name 에서 HT condition 추출. "— Wrought, Aged (AMS 5662)" / "— H900" / "— Solution-Annealed" 등.
+       conditions 배열 없는 supplementary 도 HT 검출 시 heat_treatment 필드 채움 → HT multiplier 적용 가능. */
+    let extractedHT = s.heat_treatment || null;
+    if (!extractedHT) {
+      const nm = String(s.name || '');
+      const ht = nm.match(/—\s*(?:Wrought|Cast|Forged|Rolled)\s*,?\s*([A-Za-z][^(—]*?)(?:\s*\(.*?\))?$/i)
+        || nm.match(/—\s*(H9\d{2}|H10\d{2}|H11\d{2}|H12\d{2}|Aged|Annealed|Solution\s*[+-]?\s*Aged|Solution[\s-]?Annealed|Solution\s*Treated|Hardened|Tempered|Hardened-Tempered|Maraged|STA|DSA|HIP|As-?built|As-?cast)/i);
+      if (ht && ht[1]) extractedHT = ht[1].trim().replace(/\s+/g, ' ');
+    }
     return [{
       id: 'R_' + String(idx).padStart(4, '0'),
       name: s.name, category: s.category, subcategory: s.subcategory, tier: 'reference',
-      manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: null,
+      manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: extractedHT,
       ranges, composition: s.composition || {}, sources: s.sources || [], points: s.points,
       machinability: null, weldability: null, corrosion_resistance: null, industry_note: s.industry_note || null, meta: { reference: true },
     }];

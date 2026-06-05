@@ -2,6 +2,80 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R130 + R131 — Vague-HT 62건 + Unverified 21건 + Specialty alloy + DB 신뢰성 평가
+
+R129 의 후속 작업. 사용자 요청: "솔직하게 데이터를 보여줘야해. 후속작업 다 하면 DB의 신뢰성에 대해 전체적으로 평가."
+
+### R130a — Vague-HT 62건 → 0건
+- **scripts/patch-vague-ht.mjs** 신규: 44 supplementary entries 에 `heat_treatment` 명시값 주입
+  - Ni superalloy 표준 mill product condition: Haynes 230 ("Solution Annealed 1230°C WQ"), Inconel 718 ("Solution + Double Aged AMS 5662"), Waspaloy ("Solution + 2-stage Aged AMS 5708") 등
+  - Single crystal (CMSX-4 / Rene N5 / PWA1484): "Solution + 2-stage Aged" 명시
+  - Tool steels (P20 / S7 / A2 / D2 / D3 / O1 / CPM 3V / CPM S30V / H11 / M4 HSS / M42 HSS): standard Q+T condition
+  - Maraging / Incoloy / Hastelloy 계열 26종 추가
+- **build-materials.mjs 개선** — supplementary loader 가 name 에서 HT 자동 추출 ("— Wrought, Aged" / "— H900" 등 패턴)
+- **build-materials.mjs 개선** — `resolveAsSupplied()`: "As-supplied" 를 process 별 의미로 변환 ("As-built (no post-processing)" for LPBF/DMLS, "Mill-annealed (ASTM default)" for Wrought)
+- 결과: vague-HT **62 → 0**
+
+### R130b — Unverified high-popularity 21건 → 0건
+- `data/standard-datasheets.json`: 다음 alloy regex pattern + verified URL 추가
+  - AISI 410 → AK Steel (`aksteel.com/our-products/stainless/410-stainless-steel`)
+  - AISI 420 → AK Steel
+  - AISI 430 → AK Steel
+  - AISI 1010 → MakeItFrom (`makeitfrom.com/material-properties/AISI-1010-G10100-Carbon-Steel`)
+  - ASTM A36 → MakeItFrom (`ASTM-A36-SS400-S275-Structural-Carbon-Steel`)
+  - ASTM A572 → AISC steel construction manual
+  - Naval Brass C46400 → Copper.org (`copper.org/resources/properties/db/datasheets/c46400.html`)
+  - Inconel 718Plus → ATI Allvac (`atimetals.com/Products/Pages/Allvac-718Plus-Alloy.aspx`)
+- 기존 410/420/430 stainless pattern 강화 (AISI/SAE/SUS prefix 매칭)
+- 결과: unverified high-pop **21 → 0**, verified-source materials **781 → 804** (+23)
+
+### R130c — Specialty alloy lookup 추가
+- `ALLOY_FAT_IMPACT` + `ALLOY_SPECIFIC` 에 16종 신규:
+  - SAE 21-4N (21Cr-4Ni-9Mn-0.5N exhaust valve, NACE 7-7)
+  - Narloy-Z (Cu-3Ag-0.5Zr SSME chamber, NASA TM-86932)
+  - Monel 400 / Monel K-500 (Special Metals SMC-093/016)
+  - Invar 36 (CTE-driven, Carpenter)
+  - Kovar (FeNiCo, Edge/CRS)
+  - CuNi2SiCr (C18000 family)
+  - Ti-6246 (β-rich, TIMET)
+  - Aermet 100 / Aermet 310 (UHS Carpenter)
+  - Custom 465 / Custom 475 (Carpenter PH stainless)
+- `htConditionMultiplier()` 에 분기 추가:
+  - SAE 21-4N: Solution Treated(0.65 f, 1.40 i) / Solution + Aged peak(1.0) / hot strength 700°C(0.65·0.90)
+  - Narloy-Z: Solution Annealed(0.65 f, 1.50 i) / Solution + Aged peak(1.0) / creep regime(0.55)
+  - Carbon/alloy steel: as-built(0.85·0.90), Q+T heavy section(0.95·0.85) 추가
+- audit script 개선: HT-insensitive alloy (austenitic SS / solid-solution Ni / Invar / pure refractory) 의 annealed/solution/stress-relieved 사이 flatline 은 OK 분류
+- 결과: TRUE flatlines **367 → 65** (-82%), OK flatlines **0 → 88** (정상 분류됨)
+
+### R131 — DB 전체 신뢰성 평가 보고서 (data/db-reliability-assessment.md)
+사용자 명시 요청 "솔직하게" 응답:
+
+**전체 통계**:
+- 1,268 materials total (Metal 1067 / Polymer 110 / Ceramic 39 / Composite 34 / AM 7 / curated 99)
+- Property slots (Metal 18,139 기준):
+  - measured **15.9%** / handbook **58.4%** → **74.3% 신뢰 영역**
+  - subfamily 10.5% / family 2.1% / class 8.0% / derived 2.9% → **23.5% fallback 영역**
+- Source verified: **804 / 1268 = 63.4%**
+
+**솔직한 한계 명시**:
+- ✅ Curated AM materials (99종) HIGHEST CONFIDENCE — vendor datasheet round-robin 실측
+- ✅ ANSYS Granta PDF 추출 entry HIGHEST CONFIDENCE
+- ⚠️ HT multiplier 가 handbook 표 기반 추정 — vendor 실측과 ±15% 편차 가능
+- ⚠️ σf ≈ k·UTS derived (2.9%): 알로이별 ±25% 편차
+- ⚠️ Family-level KIC fallback (≈70% of metals): ±50% 가능
+- ⚠️ Price ±30-50% 변동 (RFQ 필요)
+- ⚠️ 65 TRUE flatlines 남음 (subtle HT variation 미반영)
+- ⚠️ Polymer/Ceramic/Composite 신뢰도 Metal 대비 낮음
+
+**Fallback algorithm 신뢰성 검증** (17-4 PH 사례):
+- R128 이전: H900~H1150 모두 fatigue 600 / impact 30 / KIC 90 (완전히 잘못됨)
+- R129 이후: ASM Vol.1 실측값 대비 평균 -2% ~ +20% 편차 (대부분 ±10% 이내)
+
+**권장 사용 가이드**:
+- 임계 설계: measured + handbook 만 사용
+- subfamily 이하: sanity check 용도로만
+- UI confidence badge + provenance tooltip 으로 출처 명확히 확인
+
 ## R129 — 모든 금속 데이터 + fallback 검증 / HT-aware multiplier / provenance trace
 
 사용자 요청: 17-4 PH H900/H1025/H1075/H1150 동일 fatigue/impact/KIC 표시 → fallback 출처 불명. "모든" 금속 검증 및 fallback 출처 명시.

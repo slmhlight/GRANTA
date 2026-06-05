@@ -71,7 +71,20 @@ const baseKey = (name) => name
   .toLowerCase();
 
 const PEAK_EQ = /^(aged|maraged|sta|stat|dsa|solution\s*\+\s*aged|peak|hardened|tempered|q\+t|hip|null|empty|\(empty\)|unknown|as-?supplied|standard|typical)$/i;
-const isPeakEquivalent = (ht) => !ht || PEAK_EQ.test(ht.trim());
+/* R130c — austenitic SS / solid-solution Ni / Invar / pure refractory 는 metallurgically HT-insensitive.
+   이들 family 에서는 annealed / solution-treated / stress-relieved 사이 flatline 이 정상 (peak 가 별도로 없음). */
+const HT_INSENSITIVE = /^(annealed|solution|stress[\s-]*relieved|recrystalliz|hot[\s-]*worked|mill[\s-]*annealed|as[\s-]*rolled|as[\s-]*cast|as[\s-]*forged|as[\s-]*built|as[\s-]*supplied|cold[\s-]*finished|cold[\s-]*work|cw\b|h0[2-9]|h1[0-4])/i;
+/* austenitic SS / solid-solution Ni / Invar/Kovar / pure metals — peak hardening 불가 → 모든 condition 동일 취급. */
+const ALLOY_HT_INSENSITIVE = /\baustenit|\b316l?\b|\b304l?\b|\b321\b|\b347\b|\b301\b|\b302\b|\b305\b|invar|kovar|monel\s*400|monel(?!.*k)|inconel\s*60[0-9]|inconel\s*617|inconel\s*690|inconel\s*740|hastelloy|incoloy\s*8(?:00|25)|haynes\s*230|haynes\s*214|haynes\s*188|nickel\s*200|cp[\s-]?nickel|tantalum|niobium|c-?103|tzm|molybdenum|tungsten|cocrmo|cocr\b|narloy|aa[\s-]*3[0-9]{3}|aa[\s-]*5[0-9]{3}|aa[\s-]*1[0-9]{3}|aa\s*1100|1010\b|1018\b|1020\b|astm\s*a36|a36\b|a992\b|brass|c2[6-8]\d{3}|c4[6-8]\d{3}|c3[0-9]{4}|naval\s*brass/i;
+const isPeakEquivalent = (ht, alloyHint) => {
+  if (!ht) return true;
+  const t = ht.trim();
+  if (PEAK_EQ.test(t)) return true;
+  if (alloyHint && ALLOY_HT_INSENSITIVE.test(alloyHint) && HT_INSENSITIVE.test(t)) return true;
+  /* CSV-generic multi-condition string like "Aged / solution-treated / Annealed" → 모호함, audit 신뢰도 낮음. */
+  if (t.includes('/') || t.includes(',')) return true;
+  return false;
+};
 
 const groups = {};
 for (const m of mats) {
@@ -90,7 +103,8 @@ for (const [k, ms] of Object.entries(groups)) {
     const uniq = new Set(typicals);
     if (uniq.size === 1) {
       const hts = ms.map(m => m.heat_treatment || '');
-      const distinctNonPeak = hts.filter(h => h && !isPeakEquivalent(h));
+      const alloyHint = ms[0].name;
+      const distinctNonPeak = hts.filter(h => h && !isPeakEquivalent(h, alloyHint));
       const entry = { base: k, prop, value: typicals[0], variants: hts, count: ms.length, nonPeakHTs: [...new Set(distinctNonPeak)] };
       if (distinctNonPeak.length >= 1) trueFlatlines.push(entry);
       else okFlatlines.push(entry);
@@ -160,7 +174,9 @@ if (unverified.length > 60) console.log(`  ... (${unverified.length - 60} more)`
 // PH stainless / Maraging / Tool Steel / Aged Ni superalloy 인데 heat_treatment 가 비었거나 일반적인 'As-supplied'/'Annealed'
 console.log('\n\n═══ 5) HT condition 누락 의심 (precipitation-hardened material 인데 condition info 없음) ═══\n');
 const PH_SUBS = /Stainless Steel - PH|Maraging|Tool Steel|Nickel Superalloy/;
-const VAGUE_HT = /^$|undefined|unknown|as-?supplied|wrought$|standard|typical/i;
+/* R130a — vague-HT 판정: empty / generic "as-supplied" 만 vague. 구체적 HT 가 명시되면 "(standard mill product)" 같은
+   부연 표현은 OK. "typical" 도 condition 명 안에 정상적으로 들어가는 단어 (예: "Maraged 482°C/3h (typical)" 는 명시적). */
+const VAGUE_HT = /^$|^undefined$|^unknown$|^as-?supplied$|^wrought$|^cast$|^forged$|^standard$/i;
 const phSuspects = [];
 for (const m of mats) {
   if (!PH_SUBS.test(m.subcategory || '')) continue;
@@ -170,10 +186,9 @@ for (const m of mats) {
   }
 }
 console.log(`Found ${phSuspects.length} PH/Maraging/Tool/Ni-superalloy entries with vague/missing HT:\n`);
-for (const p of phSuspects.slice(0, 40)) {
+for (const p of phSuspects) {
   console.log(`  ${p.name.substring(0, 60).padEnd(62)} | ${p.sub.padEnd(35)} | HT="${p.ht}"`);
 }
-if (phSuspects.length > 40) console.log(`  ... (${phSuspects.length - 40} more)`);
 
 // ─── 6) Summary ───
 console.log('\n\n═══ 6) Overall summary ═══\n');

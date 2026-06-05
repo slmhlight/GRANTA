@@ -293,19 +293,19 @@
       "url": "https://www.carpentertechnology.com/alloy-finder/custom-465"
     },
     {
-      "pattern": "\\b410\\b stainless|sus410",
-      "label": "MatWeb — AISI 410 stainless",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+410+stainless"
+      "pattern": "(?:aisi|sae)[\\s-]*410\\b|sus410|\\b410\\b.*(?:stainless|martensit)|ss41[05]\\b|stainless[\\s-]*steel[\\s-]*410\\b|uns[\\s-]*s41000",
+      "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
+      "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel"
     },
     {
-      "pattern": "\\b420\\b stainless|sus420",
-      "label": "MatWeb — AISI 420 stainless",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+420+stainless"
+      "pattern": "(?:aisi|sae)[\\s-]*420\\b|sus420|\\b420\\b.*(?:stainless|martensit)",
+      "label": "AK Steel — 420 Stainless Steel",
+      "url": "https://www.aksteel.com/our-products/stainless/420-stainless-steel"
     },
     {
-      "pattern": "\\b430\\b stainless|sus430",
-      "label": "MatWeb — AISI 430 stainless",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+430+stainless"
+      "pattern": "(?:aisi|sae)[\\s-]*430\\b|sus430|\\b430\\b.*(?:stainless|ferrit)|stainless[\\s-]*steel[\\s-]*430\\b|uns[\\s-]*s43000",
+      "label": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
+      "url": "https://www.aksteel.com/our-products/stainless/430-stainless-steel"
     },
     {
       "pattern": "\\b440c\\b",
@@ -321,6 +321,26 @@
       "pattern": "nitronic[\\s-]*60",
       "label": "Carpenter Technology — Nitronic 60",
       "url": "https://www.carpentertechnology.com/alloy-finder/nitronic-60"
+    },
+    {
+      "pattern": "\\b1010\\b|aisi[\\s-]*1010|sae[\\s-]*1010|uns[\\s-]*g10100",
+      "label": "MakeItFrom — AISI 1010 / SAE 1010 Carbon Steel",
+      "url": "https://www.makeitfrom.com/material-properties/AISI-1010-G10100-Carbon-Steel"
+    },
+    {
+      "pattern": "astm[\\s-]*a36|\\ba36\\b\\s*(?:structural|carbon|mild)?|a36\\s*structural|structural\\s*a36",
+      "label": "AISC / MakeItFrom — ASTM A36 Structural Carbon Steel",
+      "url": "https://www.makeitfrom.com/material-properties/ASTM-A36-SS400-S275-Structural-Carbon-Steel"
+    },
+    {
+      "pattern": "astm[\\s-]*a572|grade[\\s-]*5[05]\\s*steel|\\ba572[\\s-]*(?:gr|grade)?[\\s-]*(?:50|65)?\\b",
+      "label": "AISC — ASTM A572 Grade 50 HSLA Structural Steel",
+      "url": "https://www.aisc.org/publications/steel-construction-manual-resources/15th-edition-steel-construction-manual"
+    },
+    {
+      "pattern": "inconel[\\s-]*718\\s*plus|inconel718plus|allvac[\\s-]*718plus|ats[\\s-]*340",
+      "label": "ATI Allvac — Inconel 718Plus (improved 718 with cobalt)",
+      "url": "https://www.atimetals.com/Products/Pages/Allvac-718Plus-Alloy.aspx"
     },
     {
       "pattern": "\\b1018\\b|aisi 1018|sae 1018",
@@ -581,6 +601,11 @@
       "pattern": "\\bc36000\\b|free[\\s-]?cutting brass",
       "label": "Copper.org — C36000 Free-Cutting Brass",
       "url": "https://www.copper.org/resources/properties/db/datasheets/c36000.html"
+    },
+    {
+      "pattern": "\\bc46400\\b|naval brass|uns[\\s-]*c46400",
+      "label": "Copper.org — C46400 Naval Brass (UNS C46400)",
+      "url": "https://www.copper.org/resources/properties/db/datasheets/c46400.html"
     },
     {
       "pattern": "\\bc70600\\b|cuni10|90[\\s-]?10 cu[\\s-]?ni|90/10 cupro",
