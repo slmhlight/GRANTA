@@ -2,6 +2,41 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R128 — 9개 ANSYS Granta PDF 분석: HX / Al₂O₃ / M250 / H13 / C18100 / Ti-6242 / C17200
+
+R127 의 "이런식으로 요청할 다른 재료들" 응답에 사용자가 9개 PDF 제공 (E:\Downloads\):
+HX.pdf, Al2o3.pdf, M250.pdf, H13.pdf, 181501.pdf (C18100 wp), 181502.pdf (C18100 whp), 6242.pdf (Ti-6242), moldmax1.pdf (C17200 TF00), moldmax2.pdf (C17200 TH04).
+
+사용자 가이드라인: 폴리머 후순위 · 국내 강재 후순위 · 세라믹은 정말 필요한 것만 (DB 는 기본적으로 금속 위주).
+
+### 1) PDF 추출 (Git mingw pdftotext)
+- 9 PDF → text (data/polymer_pdfs/HX.txt 등) — R127 와 동일 파이프라인.
+
+### 2) 기존 엔트리 handbook 승격 (supplementary-materials.json — 5건)
+| 엔트리 | 변경 사항 |
+|---|---|
+| **Hastelloy X** (Ni superalloy) | Composition Ni→41~54 명시, points YS/UTS/El/E/HV → AnsysGranta (UNS N06002, AMS 5536) |
+| **Tool Steel H13** | UNS T20813 / EN X40CrMoV5-1 / SKD61 alias 명시, points YS 1610-1690 / UTS 1940-2040 (HRC 50-53), Bohler URL 강화 |
+| **Ti-6Al-2Sn-4Zr-2Mo** | Composition Si 0.06-0.1 추가, 3 conditions (α-β annealed / β annealed / STA), TIMET URL verified=true |
+| **Beryllium Copper C17200 (CuBe2)** | 기존 placeholder → AnsysGranta TF00 + TH04 conditions, Materion URL verified=true |
+| **Alumina 99.5%** (ceramics-data.json) | E 380→400 GPa, KIC 4.2→6.0, CTE 8.1→8.9, density 3.89→3.96, CoorsTek datasheet URL |
+
+### 3) 신규 엔트리 추가 (2건)
+- **Maraging 250 (UNS K92890/K92940)** — AMS 6512, 1.6359, 482°C maraged 2 conditions
+- **Copper-Cr-Zr C18100 (CuCr1Zr)** — EN CW106C, 2 conditions (wp solution+aged / whp CW+aged), heat sink for ITER
+
+### 4) build-materials.mjs ALLOY_SPECIFIC 조정
+- `c18100` 추가: `{ec:87, tmax:350, price:10, cte:16.85, poisson:0.345, cp:390, melt:1080, kic:47}` + fatigue/impact
+- `c18100` alias: UNS C18100 / EN CW106C / CuCr1Zr / Elbrodur
+- `maraging250` KIC 110→85, cp 450→490 (Granta calibration)
+- `ti6242` KIC 65→76, poisson 0.34→0.36, cp 460→490, price 50→28 (Granta)
+
+### 5) 결과
+- 1,261 → **1,268** materials (+7)
+- verified-source: 776 → **781** (+5)
+- KIC fallback 956→963, Fatigue fallback 919→924
+- 검증: `pnpm check` clean · `pnpm test` 47 pass · `pnpm build` 21s
+
 ## R127 — 사용자 제공 PDF 분석 12 polymer + C18000 handbook 보강
 
 R126 의 데이터 부족 Top 10 응답으로 사용자가 ANSYS Granta 형식 polymer datasheet PDF 20개 (E:\Downloads\) + C18000 AzoM URL 제공.

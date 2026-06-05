@@ -91,6 +91,22 @@
       ]
     },
     {
+      "name": "Maraging 250 (UNS K92890)",
+      "category": "Metal",
+      "subcategory": "Maraging Steel",
+      "process": "Wrought",
+      "composition": { "Fe": "66~71", "Ni": "17~19", "Co": "7~8.5", "Mo": "4.6~5.2", "Ti": "0.3~0.6", "Al": "0.05~0.15" },
+      "points": [
+        [7.92, 1640, 1690, 6, 188, 480, 19.9],
+        [7.92, 1810, 1870, 5, 188, 510, 19.9]
+      ],
+      "conditions": ["Maraged 482°C/3h (typical)", "Maraged 482°C/6h (peak strength)"],
+      "ref_urls": [
+        "ANSYS Granta — Maraging 250 maraged at 482°C (UNS K92890, AMS 6512)",
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=maraging+250"
+      ]
+    },
+    {
       "name": "CoCrMo (ASTM F1537)",
       "category": "Metal",
       "subcategory": "Cobalt Alloy - Chrome",
@@ -111,15 +127,16 @@
       "category": "Metal",
       "subcategory": "Nickel Superalloy - Hastelloy",
       "process": "Wrought",
-      "composition": { "Ni": "balance", "Cr": "20.5~23", "Fe": "17~20", "Mo": "8~10", "Co": "0.5~2.5", "W": "0.2~1" },
+      "composition": { "Ni": "41~54", "Cr": "20.5~23", "Fe": "17~20", "Mo": "8~10", "Co": "0.5~2.5", "W": "0.2~1", "C": "≤0.1" },
       "points": [
-        [8.22, 360, 785, 45, 205, 200, 9.1],
-        [8.22, 410, 820, 38, 205, 230, 9.1],
-        [8.22, 380, 800, 42, 205, 215, 9.1]
+        [8.22, 340, 703, 30, 210, 160, 10.85],
+        [8.22, 367, 777, 40, 213, 200, 11.0],
+        [8.22, 350, 740, 35, 210, 180, 10.85]
       ],
       "conditions": ["Solution annealed (1175°C WQ)", "Solution + Aged (760°C/16h)", "Stress relieved (650°C)"],
       "ref_urls": [
-        "https://www.haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HASTELLOYXalloy.aspx"
+        "https://www.haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HASTELLOYXalloy.aspx",
+        "ANSYS Granta — HASTELLOY X solution treated (UNS N06002, AMS 5536)"
       ]
     },
     {
@@ -127,16 +144,17 @@
       "category": "Metal",
       "subcategory": "Tool Steel",
       "process": "Wrought",
-      "composition": { "Fe": "balance", "Cr": "4.75~5.5", "Mo": "1.1~1.75", "V": "0.8~1.2", "Si": "0.8~1.2", "C": "0.32~0.45", "Mn": "0.2~0.5" },
+      "composition": { "Fe": "88.9~92", "Cr": "4.75~5.5", "Mo": "1.1~1.75", "V": "0.8~1.25", "Si": "0.8~1.2", "C": "0.32~0.45", "Mn": "0.2~0.6" },
       "points": [
-        [7.80, 600, 800, 25, 210, 220, 28.5],
-        [7.80, 1380, 1700, 10, 210, 540, 28.5],
-        [7.80, 1450, 1750, 8, 210, 580, 28.5],
-        [7.80, 1100, 1380, 13, 210, 470, 28.5]
+        [7.77, 600, 800, 25, 216, 220, 27],
+        [7.77, 1610, 1940, 9.7, 216, 540, 27],
+        [7.77, 1690, 2040, 8.3, 216, 580, 27],
+        [7.77, 1100, 1380, 13, 216, 470, 27]
       ],
-      "conditions": ["Annealed (soft)", "Q+T (single 550°C × 2)", "Q+T (double 540°C × 2)", "Q+T (610°C, softer)"],
+      "conditions": ["Annealed (soft)", "Q + Temper 540°C (HRC 50)", "Q + Temper 540°C (HRC 53)", "Q + Temper 610°C (HRC 44)"],
       "ref_urls": [
-        "https://www.bohler.uddeholm.com/global/en/products/tool-steels/hot-work-tool-steels/h13/"
+        "https://www.bohler.uddeholm.com/global/en/products/tool-steels/hot-work-tool-steels/h13/",
+        "ANSYS Granta — AISI H13 (UNS T20813, EN X40CrMoV5-1) hot work tool steel"
       ]
     },
     {
@@ -1245,50 +1263,88 @@
       ]
     },
     {
-      "name": "Beryllium Copper C17200",
+      "name": "Beryllium Copper C17200 (CuBe2)",
       "category": "Metal",
       "subcategory": "Copper",
       "process": "Wrought",
       "composition": {
-        "Cu": "balance",
+        "Cu": "97~98",
         "Be": "1.8~2",
-        "Co": "0.2~0.6",
-        "Ni": "≤0.3"
+        "Co": "0.1~0.2",
+        "Ni": "0.1~0.2"
       },
       "points": [
         [
           8.25,
-          1030,
-          1300,
-          4,
-          128,
-          380,
-          105
+          917,
+          1145,
+          22,
+          132,
+          370,
+          95
         ],
         [
           8.25,
-          965,
-          1240,
-          3,
-          128,
-          360,
-          105
-        ],
-        [
-          8.25,
-          1100,
-          1400,
-          5,
-          128,
+          1050,
+          1235,
+          3.5,
+          132,
           400,
-          105
+          95
         ]
+      ],
+      "conditions": [
+        "TF00 — peak age hardened (Moldmax HH)",
+        "TH04 — cold rolled 37% + peak age hardened (high strength)"
       ],
       "sources": [
         {
-          "label": "ASM / Materion — C17200 beryllium copper (aged)",
-          "url": null,
-          "verified": false
+          "label": "ANSYS Granta — CuBe2 / C17200 TF00 & TH04 conditions",
+          "url": "https://materion.com/products/alloys-and-composites/copper-beryllium-strip",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "Copper-Cr-Zr alloy C18100 (CuCr1Zr, h.c. copper)",
+      "category": "Metal",
+      "subcategory": "Copper",
+      "process": "Wrought",
+      "composition": {
+        "Cu": "98.7~99.5",
+        "Cr": "0.4~1",
+        "Zr": "0.08~0.2",
+        "Mg": "0.03~0.06"
+      },
+      "points": [
+        [
+          8.94,
+          247,
+          412,
+          26,
+          125,
+          121,
+          385
+        ],
+        [
+          8.94,
+          370,
+          480,
+          15,
+          125,
+          145,
+          385
+        ]
+      ],
+      "conditions": [
+        "wp — Solution heat-treated + precipitation hardened",
+        "whp — Precipitation hardened after cold working"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta — CuCr1Zr / C18100 (EN CW106C, ISO CuCr1Zr) wp & whp",
+          "url": "https://www.wieland.com/en/products/copper-alloys/elbrodur-cucrzr",
+          "verified": true
         }
       ]
     },
@@ -6412,37 +6468,52 @@
       "subcategory": "Titanium",
       "process": "Wrought",
       "composition": {
-        "Ti": "balance",
+        "Ti": "84~87",
         "Al": "5.5~6.5",
         "Sn": "1.8~2.2",
         "Zr": "3.6~4.4",
-        "Mo": "1.8~2.2"
+        "Mo": "1.8~2.2",
+        "Si": "0.06~0.1"
       },
       "points": [
         [
           4.54,
-          900,
-          1010,
+          893,
+          990,
           13,
           114,
-          340,
-          7
+          287,
+          6.5
         ],
         [
           4.54,
-          860,
-          970,
-          10,
-          114,
-          320,
-          7
+          862,
+          931,
+          8,
+          113,
+          268,
+          6.5
+        ],
+        [
+          4.54,
+          920,
+          1020,
+          11,
+          115,
+          306,
+          6.5
         ]
+      ],
+      "conditions": [
+        "Alpha-beta annealed (typical)",
+        "Beta annealed",
+        "Solution + Aged (STA)"
       ],
       "sources": [
         {
-          "label": "ASM — Ti-6242 near-alpha titanium (UNS R54620)",
-          "url": null,
-          "verified": false
+          "label": "ANSYS Granta — Ti-6Al-2Sn-4Zr-2Mo (6-2-4-2) near-α (UNS R54620)",
+          "url": "https://www.timetal.com/products/non-aerospace-grades/timetal-6242/",
+          "verified": true
         }
       ]
     },
