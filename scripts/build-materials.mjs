@@ -872,22 +872,75 @@ function assignPhysicals(m) {
     return { ec: 0, tmax, price, cte, poisson: 0.40, cp: 1500, melt: null, tg, qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' } };
   }
   if (fam.includes('Copper-based')) {
-    const ec = has(/becu|beryllium/) ? 22 : has(/brass/) ? 28 : has(/bronze/) ? 15 : has(/cucr|crzr|grcop|glidcop/) ? 80 : 95;
-    return { ec, tmax: 200, price: has(/becu|beryllium/) ? 40 : has(/bronze/) ? 12 : 9, cte: 17.5, poisson: 0.34, cp: 385, melt: has(/brass/) ? 930 : has(/bronze/) ? 950 : 1083, qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    /* R126 — Cu 3rd_family 분기 확장: BeCu / brass / bronze / Cu-Ni / nickel silver / Cu-Cr-Zr / 순수 Cu */
+    if (has(/becu|beryllium|c17[2-5]00/)) return { ec: 22, tmax: 200, price: 40, cte: 17.5, poisson: 0.30, cp: 420, melt: 980, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    if (has(/cuni|c70[567]00|c71[5]00|copper.?nickel/)) return { ec: 7, tmax: 350, price: 18, cte: 16.5, poisson: 0.34, cp: 380, melt: 1170, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' } };
+    if (has(/nickel.?silver|c7[5][24]00|german.?silver/)) return { ec: 6, tmax: 250, price: 14, cte: 16.0, poisson: 0.34, cp: 380, melt: 1110, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    if (has(/brass|c[23][67890]\d{3}|cu.?zn/)) return { ec: 28, tmax: 200, price: 9, cte: 20, poisson: 0.33, cp: 380, melt: 930, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Excellent', weldability: 'Fair' } };
+    if (has(/bronze|c5[1-3]\d{3}|c6[0-5]\d{3}|c9[0-9]\d{3}|cu.?sn|phosphor|aluminum.?bronze|tin.?bronze/)) return { ec: 15, tmax: 250, price: 12, cte: 17.5, poisson: 0.34, cp: 380, melt: 990, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    if (has(/cucr|crzr|grcop|glidcop|c181[5-9]0|c182[0-9]0/)) return { ec: 80, tmax: 480, price: 25, cte: 17.0, poisson: 0.34, cp: 380, melt: 1075, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Good' } };
+    if (has(/pure.?copper|ofc|ofhc|c10\d{3}|c11\d{3}|c12[12]00/)) return { ec: 100, tmax: 250, price: 10, cte: 17.0, poisson: 0.34, cp: 385, melt: 1083, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    // 2nd_family: Cu-Zn group / Cu-Sn group
+    if (has(/c[2-3]\d{4}/)) return { ec: 25, tmax: 200, price: 9, cte: 19, poisson: 0.33, cp: 380, melt: 920, level: '2nd_family', qual: { corrosion: 'Good', machinability: 'Excellent', weldability: 'Fair' } };
+    if (has(/c[4-6]\d{4}/)) return { ec: 14, tmax: 250, price: 13, cte: 17, poisson: 0.34, cp: 380, melt: 990, level: '2nd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    return { ec: 90, tmax: 200, price: 9, cte: 17.5, poisson: 0.34, cp: 385, melt: 1083, level: '1st_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
   }
   if (fam.includes('Aluminum-based')) {
-    const ec = has(/7075|7050|7175|7068/) ? 33 : has(/2024|2014|2219|2618/) ? 30 : has(/alsi10|alsi7|a356|f357|scalmalloy/) ? 40 : 45;
-    return { ec, tmax: has(/7075|7050/) ? 120 : 170, price: has(/scalmalloy/) ? 12 : 4, cte: 23, poisson: 0.33, cp: 900, melt: 650, qual: { corrosion: 'Good', machinability: 'Excellent', weldability: 'Good' } };
+    /* R126 — Al 3rd_family 분기: 1xxx ~ 8xxx + cast (3xx.x, 4xx.x) */
+    if (has(/\b1[0-9]{3}\b|1050|1060|1100|pure.?al/) && !has(/seri|series/)) return { ec: 60, tmax: 150, price: 2.5, cte: 23.5, poisson: 0.33, cp: 900, melt: 660, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Excellent', weldability: 'Excellent' } };
+    if (has(/2024|2014|2219|2090|2195|2050|2099|2618|2[0-9]{3}.?series|al.?li/)) return { ec: 30, tmax: 175, price: 6, cte: 22.5, poisson: 0.33, cp: 875, melt: 638, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Good', weldability: 'Fair' } };
+    if (has(/3003|3004|3105|3xxx/)) return { ec: 50, tmax: 200, price: 2.5, cte: 23.2, poisson: 0.33, cp: 893, melt: 660, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Excellent', weldability: 'Good' } };
+    if (has(/5052|5083|5086|5454|5456|5754|5[0-9]{3}.?series|al.?mg/)) return { ec: 30, tmax: 200, price: 3.2, cte: 23.8, poisson: 0.33, cp: 900, melt: 638, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' } };
+    if (has(/6061|6063|6082|6005|6101|6111|6262|6[0-9]{3}.?series/)) return { ec: 45, tmax: 170, price: 3, cte: 23.4, poisson: 0.33, cp: 900, melt: 650, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Good' } };
+    if (has(/7075|7050|7175|7068|7150|7449|7[0-9]{3}.?series/)) return { ec: 35, tmax: 120, price: 6, cte: 23.4, poisson: 0.33, cp: 860, melt: 635, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' } };
+    if (has(/8090|8011|8[0-9]{3}.?series/)) return { ec: 35, tmax: 175, price: 15, cte: 22.0, poisson: 0.33, cp: 920, melt: 625, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    if (has(/alsi10|alsi7|alsi12|a356|a357|a360|a380|a413|f357|cast.?aluminum/)) return { ec: 30, tmax: 175, price: 3.5, cte: 21.5, poisson: 0.33, cp: 960, melt: 600, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    if (has(/scalmalloy|sc.?modified|al.?sc/)) return { ec: 28, tmax: 250, price: 200, cte: 23.0, poisson: 0.33, cp: 900, melt: 640, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' } };
+    return { ec: 40, tmax: 170, price: 4, cte: 23, poisson: 0.33, cp: 900, melt: 650, level: '1st_family', qual: { corrosion: 'Good', machinability: 'Excellent', weldability: 'Good' } };
   }
   if (fam.includes('Titanium-based')) {
-    return { ec: 1.5, tmax: has(/6242|6246|1100/) ? 540 : has(/5553|beta|2154/) ? 315 : 400, price: 35, cte: 8.8, poisson: 0.34, cp: 560, melt: 1650, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    /* R126 — Ti 3rd_family 분기: CP / α+β / β / near-α / near-β */
+    if (has(/cp.?ti|grade ?[1234]\b|\btigr[1234]\b|pure.?titanium/)) return { ec: 3.0, tmax: 300, price: 25, cte: 8.6, poisson: 0.34, cp: 520, melt: 1665, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' } };
+    if (has(/grade ?7|tigr7|ti.?pd/)) return { ec: 3.0, tmax: 300, price: 60, cte: 8.6, poisson: 0.34, cp: 520, melt: 1665, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' } };
+    if (has(/ti.?6al.?4v|grade ?5|tigr5|ti.?64/)) return { ec: 1.0, tmax: 350, price: 35, cte: 8.9, poisson: 0.34, cp: 526, melt: 1660, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    if (has(/6242|6246|ti.?6242|ti.?1100|near.?alpha/)) return { ec: 0.9, tmax: 540, price: 50, cte: 7.7, poisson: 0.34, cp: 460, melt: 1690, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    if (has(/5553|10v.?2fe.?3al|ti.?153|beta|2154|near.?beta/)) return { ec: 1.0, tmax: 315, price: 80, cte: 9.0, poisson: 0.34, cp: 540, melt: 1620, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+    if (has(/ti.?834|ti.?6al.?2sn|ti.?5.?2.?5/)) return { ec: 1.0, tmax: 480, price: 70, cte: 8.0, poisson: 0.34, cp: 540, melt: 1640, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+    return { ec: 1.5, tmax: 400, price: 35, cte: 8.8, poisson: 0.34, cp: 560, melt: 1650, level: '1st_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
   }
   if (fam.includes('Nickel-based') || fam.includes('Superalloy')) {
-    const tmax = has(/haynes|230/) ? 1100 : has(/hastelloy/) ? 1000 : has(/625/) ? 815 : has(/738|939|713|waspaloy|rene|nimonic|247/) ? 950 : has(/718/) ? 650 : has(/600|601|617/) ? 1000 : 800;
-    return { ec: 1.3, tmax, price: has(/waspaloy|rene|haynes|247/) ? 80 : 50, cte: 13, poisson: 0.30, cp: 440, melt: 1350, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+    /* R126 — Ni 3rd_family 분기: Inconel (γ' / γ" / solid-sol) / Hastelloy / Haynes / Single crystal */
+    if (has(/single.?crystal|sx\b|cmsx|rene.?n5|rene.?n6|pwa.?14|directionally.?solid|ds.?cast/)) return { ec: 1.3, tmax: 1100, price: 300, cte: 12.7, poisson: 0.30, cp: 420, melt: 1310, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Very Poor', weldability: 'Poor' } };
+    if (has(/rene.?80|rene.?95|rene.?142|mar.?m.?247|in.?100|in.?713|in.?738|in.?939|gamma.?prime.?cast/)) return { ec: 1.3, tmax: 1050, price: 200, cte: 12.7, poisson: 0.30, cp: 425, melt: 1320, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Very Poor', weldability: 'Poor' } };
+    if (has(/inconel.?718|in.?718|gamma.?double|x.?750|inconel.?706|706/)) return { ec: 1.2, tmax: 650, price: 50, cte: 13.0, poisson: 0.29, cp: 435, melt: 1336, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+    if (has(/inconel.?625|in.?625|inconel.?617|617/)) return { ec: 1.3, tmax: 815, price: 55, cte: 12.8, poisson: 0.30, cp: 410, melt: 1350, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    if (has(/inconel.?6\d{2}|in.?600|in.?601/)) return { ec: 1.5, tmax: 1095, price: 35, cte: 13.3, poisson: 0.32, cp: 444, melt: 1410, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    if (has(/waspaloy|nimonic|udimet|rene.?41|astroloy|gamma.?prime.?wrought/)) return { ec: 1.3, tmax: 870, price: 90, cte: 12.5, poisson: 0.30, cp: 437, melt: 1340, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Very Poor', weldability: 'Poor' } };
+    if (has(/hastelloy|c.?276|c.?22|b.?2|alloy.?22|alloy.?c/)) return { ec: 1.3, tmax: 1100, price: 60, cte: 11.2, poisson: 0.31, cp: 427, melt: 1370, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    if (has(/haynes|alloy.?230|haynes.?188|alloy.?282/)) return { ec: 1.0, tmax: 1149, price: 80, cte: 12.7, poisson: 0.31, cp: 397, melt: 1290, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    if (has(/monel|alloy.?400|alloy.?k.?500|ni.?cu/)) return { ec: 3.0, tmax: 540, price: 25, cte: 13.9, poisson: 0.32, cp: 427, melt: 1330, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' } };
+    if (has(/incoloy|alloy.?800|alloy.?825/)) return { ec: 1.4, tmax: 1100, price: 35, cte: 14.4, poisson: 0.34, cp: 460, melt: 1370, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    if (has(/nitinol|niti|shape.?memory/)) return { ec: 1.1, tmax: 100, price: 200, cte: 11.0, poisson: 0.33, cp: 322, melt: 1310, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' } };
+    // 2nd_family: 일반 Ni superalloy
+    if (sub.includes('superalloy')) return { ec: 1.3, tmax: 900, price: 60, cte: 13.0, poisson: 0.30, cp: 440, melt: 1350, level: '2nd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+    return { ec: 1.3, tmax: 800, price: 50, cte: 13, poisson: 0.30, cp: 440, melt: 1350, level: '1st_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
   }
-  if (fam.includes('Cobalt-based')) return { ec: 1.5, tmax: 1000, price: 60, cte: 12.5, poisson: 0.30, cp: 420, melt: 1330, qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
-  if (fam.includes('Magnesium-based')) return { ec: 33, tmax: 120, price: 6, cte: 26, poisson: 0.35, cp: 1020, melt: 620, qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' } };
+  if (fam.includes('Cobalt-based')) {
+    /* R126 — Co 3rd_family 분기 */
+    if (has(/stellite/)) return { ec: 1.5, tmax: 760, price: 60, cte: 14.2, poisson: 0.30, cp: 423, melt: 1330, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Very Poor', weldability: 'Fair' } };
+    if (has(/cocrmo|asm.?f75|astm.?f75|biomedical.?cobalt/)) return { ec: 1.5, tmax: 600, price: 60, cte: 12.5, poisson: 0.30, cp: 420, melt: 1370, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+    if (has(/mp35n|mp159|nicrocoat/)) return { ec: 1.5, tmax: 425, price: 80, cte: 12.8, poisson: 0.30, cp: 420, melt: 1430, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+    if (has(/l605|haynes.?25|alloy.?25/)) return { ec: 1.5, tmax: 980, price: 65, cte: 12.3, poisson: 0.30, cp: 385, melt: 1330, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' } };
+    return { ec: 1.5, tmax: 1000, price: 60, cte: 12.5, poisson: 0.30, cp: 420, melt: 1330, level: '1st_family', qual: { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' } };
+  }
+  if (fam.includes('Magnesium-based')) {
+    /* R126 — Mg 3rd_family 분기 */
+    if (has(/we43|wn03|elektron.?w/)) return { ec: 18, tmax: 250, price: 25, cte: 26.6, poisson: 0.35, cp: 1020, melt: 545, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Excellent', weldability: 'Fair' } };
+    if (has(/az31|az61|az91|az[0-9]{2}/)) return { ec: 30, tmax: 150, price: 6.5, cte: 26.0, poisson: 0.35, cp: 1024, melt: 600, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Good' } };
+    if (has(/am50|am60|am[0-9]{2}/)) return { ec: 29, tmax: 150, price: 6.0, cte: 26.0, poisson: 0.35, cp: 1024, melt: 595, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' } };
+    if (has(/zk60|ze41|zm21|elektron.?z/)) return { ec: 27, tmax: 200, price: 12, cte: 27.0, poisson: 0.35, cp: 1020, melt: 525, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Excellent', weldability: 'Good' } };
+    return { ec: 33, tmax: 120, price: 6, cte: 26, poisson: 0.35, cp: 1020, melt: 620, level: '1st_family', qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' } };
+  }
   if (fam.includes('Refractory')) {
     const cte = has(/tungsten|\bw\b/) ? 4.5 : has(/tantal/) ? 6.5 : has(/molybden|\bmo\b|tzm/) ? 5.0 : has(/niobium|\bnb\b|c-?103/) ? 7.3 : 5.5;
     const cp = has(/tungsten|\bw\b/) ? 135 : has(/tantal/) ? 140 : has(/molybden|\bmo\b|tzm/) ? 250 : has(/niobium|\bnb\b|c-?103/) ? 265 : 200;
@@ -895,17 +948,30 @@ function assignPhysicals(m) {
     return { ec: 31, tmax: 1000, price: 70, cte, poisson: 0.30, cp, melt, qual: { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' } };
   }
   if (fam.includes('Iron-based') || has(/steel|stainless|invar|kovar/)) {
-    /* R125c — fallback chain: 3rd family (specific subgroup) → 2nd family (group) → 1st family (Iron-based).
-       level 메타로 fallback 깊이 표시. handbook 은 별도 (ALLOY_SPECIFIC). */
-    if (has(/\binvar\b|fe-?ni-?36|nilo|super-?invar/)) return { ec: 2, tmax: 200, price: 25, cte: 1.3, poisson: 0.29, cp: 515, melt: 1430, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
-    if (has(/kovar|fe-?ni-?co|nilo-?k|dilver/)) return { ec: 3, tmax: 450, price: 30, cte: 5.5, poisson: 0.32, cp: 460, melt: 1450, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
-    if (has(/stainless|316|304|17-?4|174ph|155ph|duplex|2205|austenit|ferritic|martensit|410|420|440|nitronic/)) {
-      const aust = has(/austenit|316|304|310|nitronic/);
-      const tmax = aust ? 800 : 500;
-      return { ec: 2.5, tmax, price: has(/duplex|2205|nitronic/) ? 6 : 5, cte: aust ? 16 : 10.8, poisson: aust ? 0.30 : 0.29, cp: aust ? 500 : 460, melt: 1440, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' } };
-    }
+    /* R126 — Iron 3rd_family 분기 확장: invar/kovar/stainless detail/maraging/tool + 알로이강/탄소강/스프링/베어링/주철 */
+    if (has(/\binvar\b|fe.?ni.?36|nilo|super.?invar/)) return { ec: 2, tmax: 200, price: 25, cte: 1.3, poisson: 0.29, cp: 515, melt: 1430, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
+    if (has(/kovar|fe.?ni.?co|nilo.?k|dilver/)) return { ec: 3, tmax: 450, price: 30, cte: 5.5, poisson: 0.32, cp: 460, melt: 1450, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
+    if (has(/austenit|\b30[34]\b|\b30[34]l|\b316\b|316l|321|347|310|904l|254smo|nitronic/)) return { ec: 2.4, tmax: 870, price: 5.5, cte: 17.0, poisson: 0.30, cp: 500, melt: 1450, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' } };
+    if (has(/martensit|\b410\b|\b420\b|\b440[abc]?\b|13.?cr/)) return { ec: 3.0, tmax: 650, price: 3.5, cte: 10.2, poisson: 0.28, cp: 460, melt: 1480, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' } };
+    if (has(/ferritic|\b405\b|\b409\b|\b430\b|\b439\b|\b446\b/)) return { ec: 3.5, tmax: 815, price: 3.0, cte: 10.4, poisson: 0.30, cp: 460, melt: 1480, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' } };
+    if (has(/duplex|2205|2507|super.?duplex/)) return { ec: 2.0, tmax: 300, price: 8, cte: 13.0, poisson: 0.30, cp: 500, melt: 1465, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' } };
+    if (has(/17.?4.?ph|17.?7.?ph|15.?5.?ph|13.?8.?mo.?ph|a286|custom.?455|custom.?465|precipitation/) || sub.includes('ph')) return { ec: 2.5, tmax: 315, price: 7, cte: 11.0, poisson: 0.27, cp: 460, melt: 1404, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Fair' } };
     if (has(/maraging|18ni|c300|c250|c350|m300/) || sub.includes('maraging')) return { ec: 3, tmax: 400, price: 15, cte: 10.3, poisson: 0.30, cp: 450, melt: 1430, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' } };
-    if (sub.includes('tool') || has(/h13|d2|m2|m4|p20|s7|a2|o1|cpm/)) return { ec: 5, tmax: 550, price: 6, cte: 11.5, poisson: 0.29, cp: 460, melt: 1430, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' } };
+    if (sub.includes('tool') || has(/\bh13\b|\bd2\b|\bm[24]\b|\bp20\b|\bs7\b|\ba2\b|\bo1\b|cpm|skh|skd|stavax/)) return { ec: 5, tmax: 550, price: 6, cte: 11.5, poisson: 0.29, cp: 460, melt: 1430, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' } };
+    if (has(/\b4[0-9]{3}\b|cr.?mo|chromoly|42crmo|34crmo|aisi.?4[0-9]{3}|sae.?4[0-9]{3}|scm[0-9]+|low.?alloy.?steel/)) return { ec: 7, tmax: 425, price: 3, cte: 12.3, poisson: 0.29, cp: 475, melt: 1428, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
+    if (has(/\b8[6-7]\d{2}\b|\b93\d{2}\b|ni.?cr.?mo.?steel|carburiz/)) return { ec: 7, tmax: 425, price: 3.5, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
+    if (has(/\b10[1-5]\d\b|s[1-5][05]c|aisi.?10\d{2}|sae.?10\d{2}|carbon.?steel/) && !has(/sintered/)) return { ec: 14, tmax: 540, price: 1.2, cte: 11.5, poisson: 0.29, cp: 486, melt: 1500, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Excellent' } };
+    if (has(/\b10[6-9]\d\b|\b1095\b|high.?carbon|sk[0-9]+|tool.?carbon/)) return { ec: 12, tmax: 540, price: 1.5, cte: 11.4, poisson: 0.29, cp: 486, melt: 1480, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' } };
+    if (has(/spring.?steel|sup[0-9]+|sae.?51[0-9]{2}|sae.?6[0-1]\d{2}|5160|9260|6150/)) return { ec: 7.5, tmax: 480, price: 3, cte: 12.0, poisson: 0.29, cp: 477, melt: 1430, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' } };
+    if (has(/52100|100cr6|bearing.?steel|bearing.?alloy|gcr15/)) return { ec: 5, tmax: 480, price: 4, cte: 12.3, poisson: 0.29, cp: 475, melt: 1424, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' } };
+    if (has(/cast.?iron|gray.?iron|ductile.?iron|nodular|astm.?a48|astm.?a536/) || sub.includes('cast iron')) return { ec: 5, tmax: 400, price: 1.5, cte: 11.0, poisson: 0.26, cp: 460, melt: 1200, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Poor' } };
+    if (has(/sm49[0-9]|sm5[0-7]\d|sm3[5-9]\d|s.?n4\d{2}|s.?n[4-5]\d{2}|shn[2-5]\d{2}|sd[3-7]\d{2}|saph[3-4]\d{2}|spfh[5-9]\d{2}|stk[0-9]+|stkm[0-9]+|sg[0-9]+|spa.?h|posco|hyundai.?steel|hot.?rolled.?steel|cold.?rolled.?steel|sapeh|sgcc|sgc\d{3}|api.?5l|line.?pipe|twip|dp[0-9]{3}|trip[0-9]{3}|9.?ni.?steel|cgo/)) return { ec: 9, tmax: 450, price: 1.5, cte: 11.7, poisson: 0.29, cp: 480, melt: 1500, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
+    if (has(/weathering|cor.?ten|atmospheric.?corrosion|astm.?a242|astm.?a588/) || sub.includes('weathering')) return { ec: 7, tmax: 450, price: 2.5, cte: 11.7, poisson: 0.29, cp: 480, melt: 1500, level: '3rd_family', qual: { corrosion: 'Good', machinability: 'Good', weldability: 'Good' } };
+    if (has(/structural.?steel|ss[2-5]\d{2}|astm.?a36|astm.?a572|s235|s275|s355|s460|s500|s550|s620|s690|en.?10025/)) return { ec: 8, tmax: 450, price: 1.5, cte: 12.0, poisson: 0.29, cp: 470, melt: 1500, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
+    /* 2nd_family: stainless 전체 group (specific subgroup 미매치) */
+    if (has(/stainless|sus|sts|austenitic|ferritic|martensitic/) || sub.includes('stainless')) return { ec: 2.5, tmax: 700, price: 5, cte: 14.5, poisson: 0.29, cp: 480, melt: 1450, level: '2nd_family', qual: { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' } };
+    /* 2nd_family: 일반 강 (alloy / carbon 미매치) */
+    if (sub.includes('steel') || sub.includes('alloy steel') || sub.includes('carbon steel')) return { ec: 8, tmax: 450, price: 2, cte: 12.0, poisson: 0.29, cp: 475, melt: 1490, level: '2nd_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
     return { ec: 9, tmax: 450, price: 2, cte: 12, poisson: 0.29, cp: 470, melt: 1500, level: '1st_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
   }
   return { ec: null, tmax: null, price: null, cte: null, poisson: null, cp: null, melt: null, level: null, qual: null };
@@ -2354,7 +2420,18 @@ for (const m of all) {
   /* R108 — alloy-specific handbook values (1차 자료 ASM/MMPDS/Special Metals) 우선 적용.
      ALLOY_SPECIFIC 테이블 에 매치되면 confidence='handbook', 안 매치되면 class fallback (assignPhysicals). */
   const sp = alloySpecificPhysicals(m.name);
-  const setTyp = (k, v, conf) => { if (v != null) { m[k] = v; m.ranges[k] = { min: v, max: v, typical: v, n: 0, estimated: conf !== 'handbook', confidence: conf || 'class' }; } };
+  /* R126 — Fallback range 차별화. handbook 은 정밀 (min=typical=max), 그 외 level 별 spread 적용 → ranges 의 min/max 가 신뢰도 구간 표시.
+     handbook: ±0%, subfamily: ±15%, family: ±30%, class: ±50% (단방향 적용 — 음수 보정). */
+  const SPREAD_BY_CONF = { handbook: 0, subfamily: 0.15, family: 0.30, class: 0.50, derived: 0.40 };
+  const setTyp = (k, v, conf) => {
+    if (v == null) return;
+    const c = conf || 'class';
+    const spread = SPREAD_BY_CONF[c] ?? 0.50;
+    const min = spread > 0 ? Math.max(0, v * (1 - spread)) : v;
+    const max = spread > 0 ? v * (1 + spread) : v;
+    m[k] = v;
+    m.ranges[k] = { min: +min.toFixed(4), max: +max.toFixed(4), typical: v, n: 0, estimated: c !== 'handbook', confidence: c };
+  };
   // 1) alloy-specific (handbook) 가 있으면 우선
   if (sp) {
     if (sp.ec != null) setTyp('electrical_conductivity', sp.ec, 'handbook');

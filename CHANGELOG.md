@@ -2,6 +2,81 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R126 — 2nd_family 분기 + 추가 subcategory pattern + Fallback range 차별화
+
+### 1) 추가 subcategory pattern (~70 신규 매칭)
+build-materials.mjs 의 `assignPhysicals` 각 family 에 3rd/2nd 분기 대량 추가:
+
+**Iron-based 확장** (5 → 19 패턴):
+- 기존: invar/kovar/stainless/maraging/tool
+- 신규: austenitic/martensitic/ferritic/duplex/PH, alloy steel (41xx-43xx/86xx/93xx), carbon steel (10xx low/high), spring steel (51xx/61xx/SUP), bearing (52100/100Cr6), cast iron, KS 강 (SM/SHN/SD/SAPH/SPFH/STK/SGCC/POSCO), 내후성 (Cor-Ten/A242), structural (A36/A572/S235-S690)
+- 2nd: 일반 stainless / 일반 alloy steel
+
+**Aluminum-based 확장** (3 → 9 패턴):
+- 1xxx (pure) · 2xxx (Al-Cu/Al-Li) · 3xxx (Al-Mn) · 5xxx (Al-Mg) · 6xxx (Al-Mg-Si) · 7xxx (Al-Zn) · 8xxx · 3xx.x cast · Scalmalloy
+
+**Nickel-based 확장** (7 → 11 패턴):
+- Single crystal (CMSX/Rene N5) · DS cast (Rene 80/MAR-M-247/IN-738) · Inconel 718/X-750/706 · Inconel 625/617 · Inconel 600/601 · Waspaloy/Nimonic/Udimet · Hastelloy · Haynes · Monel · Incoloy · Nitinol
+- 2nd: 일반 superalloy
+
+**Copper-based 확장** (3 → 9 패턴):
+- BeCu (C17xxx) · Cu-Ni (C70xxx-C715xx) · nickel silver (C75xxx) · brass (C2xxxx-C3xxxx) · bronze (C5xxxx-C9xxxx) · Cu-Cr-Zr · pure Cu (C10xxx-C12xxx)
+- 2nd: Cu-Zn group / Cu-Sn group
+
+**Titanium-based 확장** (3 → 7 패턴):
+- CP Ti (Gr.1-4) · Gr.7 (Ti-Pd) · Ti-6Al-4V (Gr.5) · near-α (Ti-6242) · near-β (Ti-5553/Ti-10-2-3/Ti-15-3) · α+β (Ti-834)
+
+**Cobalt-based 확장** (1 → 5):
+- Stellite · CoCrMo · MP35N · L605 / Haynes 25
+
+**Magnesium-based 확장** (1 → 5):
+- WE43 · AZ31/61/91 · AM50/60 · ZK60/ZE41
+
+### 2) Fallback range 차별화
+이전: 모든 level 에서 min=max=typical (range 없음)
+변경: level 별 spread 적용 → ranges 의 min/max 가 신뢰도 구간 표시
+- `handbook`: ±0% (정밀)
+- `subfamily`: ±15%
+- `family`: ±30%
+- `class`: ±50%
+- `derived`: ±40%
+
+사용자 detail panel 의 `range` 표시가 좁을수록 정밀, 넓을수록 추정 → 시각적 신뢰도 평가 가능.
+
+### 3) 결과 — Confidence 분포 큰 개선
+
+| Label | R125 | R126 | 변화 |
+|---|---|---|---|
+| handbook | 12,194 | 12,194 | (1차 자료) |
+| measured | 3,247 | 3,247 | (실측) |
+| **subfamily** | **888** | **2,216** | **+149%** |
+| **family** (신규) | 0 | **448** | 신규 |
+| **class** | 4,213 | **2,437** | **-42%** |
+| derived | 1,818 | 1,818 | |
+
+class 4,213 → 2,437 (42% 감소). 더 정밀한 subfamily / family 로 1,776 entry 재분류.
+
+### 4) 데이터 부족 alloy Top 10 추출 (`scripts/find-data-gaps.mjs`)
+popularity ≥ 4 + score (handbook + measured + verified) 낮은 순:
+
+| Rank | Name | Category | 이유 |
+|---|---|---|---|
+| 1 | **PET** | Polymer | verified URL 0 |
+| 2 | **PBT** | Polymer | verified URL 0 |
+| 3 | **PA6-GF** (glass fiber) | Polymer | handbook 만, vendor datasheet 없음 |
+| 4 | **Polypropylene** (homopolymer) | Polymer | handbook 만 |
+| 5 | **Acetal (POM)** | Polymer | measured 만, family typical 없음 |
+| 6 | **PVC** (rigid) | Polymer | measured 만 |
+| 7 | **C18000 (CuNiSiCr)** | Metal | verified 0, vendor datasheet 없음 |
+| 8 | **PC As-supplied** | Polymer | measured 만 |
+| 9 | **PEEK As-supplied** (Injection) | Polymer | measured 7개 |
+| 10 | **PMMA As-supplied** | Polymer | measured 만 |
+
+Polymer 9 / Metal 1. PolyMix 위주 부족.
+
+### 검증
+- tsc OK · build:data OK · production build OK
+
 ## R125 — Ceramic/Composite 카드 hide + Fallback chain 3rd→2nd→1st + 검수 script
 
 사용자 보고: Si₃N₄ (Ceramic) 에 절삭성/HT 카드가 부적절하게 표시. + fallback 체계화 + 랜덤 검수 프로세스 요청.
