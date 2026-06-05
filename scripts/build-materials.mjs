@@ -895,18 +895,20 @@ function assignPhysicals(m) {
     return { ec: 31, tmax: 1000, price: 70, cte, poisson: 0.30, cp, melt, qual: { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' } };
   }
   if (fam.includes('Iron-based') || has(/steel|stainless|invar|kovar/)) {
-    if (has(/\binvar\b|fe-?ni-?36|nilo|super-?invar/)) return { ec: 2, tmax: 200, price: 25, cte: 1.3, poisson: 0.29, cp: 515, melt: 1430, qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
-    if (has(/kovar|fe-?ni-?co|nilo-?k|dilver/)) return { ec: 3, tmax: 450, price: 30, cte: 5.5, poisson: 0.32, cp: 460, melt: 1450, qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
+    /* R125c — fallback chain: 3rd family (specific subgroup) → 2nd family (group) → 1st family (Iron-based).
+       level 메타로 fallback 깊이 표시. handbook 은 별도 (ALLOY_SPECIFIC). */
+    if (has(/\binvar\b|fe-?ni-?36|nilo|super-?invar/)) return { ec: 2, tmax: 200, price: 25, cte: 1.3, poisson: 0.29, cp: 515, melt: 1430, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
+    if (has(/kovar|fe-?ni-?co|nilo-?k|dilver/)) return { ec: 3, tmax: 450, price: 30, cte: 5.5, poisson: 0.32, cp: 460, melt: 1450, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' } };
     if (has(/stainless|316|304|17-?4|174ph|155ph|duplex|2205|austenit|ferritic|martensit|410|420|440|nitronic/)) {
       const aust = has(/austenit|316|304|310|nitronic/);
       const tmax = aust ? 800 : 500;
-      return { ec: 2.5, tmax, price: has(/duplex|2205|nitronic/) ? 6 : 5, cte: aust ? 16 : 10.8, poisson: aust ? 0.30 : 0.29, cp: aust ? 500 : 460, melt: 1440, qual: { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' } };
+      return { ec: 2.5, tmax, price: has(/duplex|2205|nitronic/) ? 6 : 5, cte: aust ? 16 : 10.8, poisson: aust ? 0.30 : 0.29, cp: aust ? 500 : 460, melt: 1440, level: '3rd_family', qual: { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' } };
     }
-    if (has(/maraging|18ni|c300|c250|c350|m300/) || sub.includes('maraging')) return { ec: 3, tmax: 400, price: 15, cte: 10.3, poisson: 0.30, cp: 450, melt: 1430, qual: { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' } };
-    if (sub.includes('tool') || has(/h13|d2|m2|m4|p20|s7|a2|o1|cpm/)) return { ec: 5, tmax: 550, price: 6, cte: 11.5, poisson: 0.29, cp: 460, melt: 1430, qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' } };
-    return { ec: 9, tmax: 450, price: 2, cte: 12, poisson: 0.29, cp: 470, melt: 1500, qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
+    if (has(/maraging|18ni|c300|c250|c350|m300/) || sub.includes('maraging')) return { ec: 3, tmax: 400, price: 15, cte: 10.3, poisson: 0.30, cp: 450, melt: 1430, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' } };
+    if (sub.includes('tool') || has(/h13|d2|m2|m4|p20|s7|a2|o1|cpm/)) return { ec: 5, tmax: 550, price: 6, cte: 11.5, poisson: 0.29, cp: 460, melt: 1430, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' } };
+    return { ec: 9, tmax: 450, price: 2, cte: 12, poisson: 0.29, cp: 470, melt: 1500, level: '1st_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
   }
-  return { ec: null, tmax: null, price: null, cte: null, poisson: null, cp: null, melt: null, qual: null };
+  return { ec: null, tmax: null, price: null, cte: null, poisson: null, cp: null, melt: null, level: null, qual: null };
 }
 // measured fatigue (R=-1, MPa) / Charpy impact (J) / elevated-temp YS-UTS (handbook-typical) for key alloys
 const REAL_PROPS = {
@@ -2369,18 +2371,23 @@ for (const m of all) {
       setTyp('fracture_toughness', sp.kic, 'handbook');
     }
   }
-  // 2) class fallback — sp 에 없는 항목만 채움 (alloy-specific 가 우선)
-  if (ph.ec != null && (m.ranges.electrical_conductivity == null || !(m.ranges.electrical_conductivity.typical > 0))) setTyp('electrical_conductivity', ph.ec, 'class');
-  if (ph.tmax != null && (m.ranges.max_service_temp == null || !(m.ranges.max_service_temp.typical > 0))) setTyp('max_service_temp', ph.tmax, 'class');
-  if (ph.cte != null && (m.ranges.thermal_expansion == null || !(m.ranges.thermal_expansion.typical > 0))) setTyp('thermal_expansion', ph.cte, 'class');
-  if (ph.poisson != null && (m.ranges.poisson_ratio == null || !(m.ranges.poisson_ratio.typical > 0))) setTyp('poisson_ratio', ph.poisson, 'class');
-  if (ph.cp != null && (m.ranges.specific_heat == null || !(m.ranges.specific_heat.typical > 0))) setTyp('specific_heat', ph.cp, 'class');
-  if (ph.melt != null && (m.ranges.melting_point == null || !(m.ranges.melting_point.typical > 0))) setTyp('melting_point', ph.melt, 'class');
+  /* R125c — class fallback 의 confidence 라벨을 fallback level 별로 차별화:
+     - 3rd_family (가장 정밀, e.g. stainless-austenitic) → 'subfamily' 라벨 (사용자에게 가장 신뢰도 ↑)
+     - 2nd_family (group, e.g. stainless general) → 'family'
+     - 1st_family (category, e.g. Iron-based 일반 강) → 'class'
+     호환: 'class' 외 새 라벨도 기존 UI 'class' 표시 패턴으로 fallback (별도 UI 변경 시 차별화 가능). */
+  const phConf = ph.level === '3rd_family' ? 'subfamily' : ph.level === '2nd_family' ? 'family' : 'class';
+  if (ph.ec != null && (m.ranges.electrical_conductivity == null || !(m.ranges.electrical_conductivity.typical > 0))) setTyp('electrical_conductivity', ph.ec, phConf);
+  if (ph.tmax != null && (m.ranges.max_service_temp == null || !(m.ranges.max_service_temp.typical > 0))) setTyp('max_service_temp', ph.tmax, phConf);
+  if (ph.cte != null && (m.ranges.thermal_expansion == null || !(m.ranges.thermal_expansion.typical > 0))) setTyp('thermal_expansion', ph.cte, phConf);
+  if (ph.poisson != null && (m.ranges.poisson_ratio == null || !(m.ranges.poisson_ratio.typical > 0))) setTyp('poisson_ratio', ph.poisson, phConf);
+  if (ph.cp != null && (m.ranges.specific_heat == null || !(m.ranges.specific_heat.typical > 0))) setTyp('specific_heat', ph.cp, phConf);
+  if (ph.melt != null && (m.ranges.melting_point == null || !(m.ranges.melting_point.typical > 0))) setTyp('melting_point', ph.melt, phConf);
   /* R110 — Polymer Tg class fallback. polymers-data 19개는 handbook, 나머지 ~94 CSV polymer 는 family typical. */
-  if (ph.tg != null && (m.ranges.glass_transition_temp == null || !(m.ranges.glass_transition_temp.typical > 0))) setTyp('glass_transition_temp', ph.tg, 'class');
+  if (ph.tg != null && (m.ranges.glass_transition_temp == null || !(m.ranges.glass_transition_temp.typical > 0))) setTyp('glass_transition_temp', ph.tg, phConf);
   if (ph.price != null && (m.ranges.price_per_kg == null || !(m.ranges.price_per_kg.typical > 0))) {
-    setTyp('price_per_kg', ph.price, 'class');
-    if (m.density && (m.ranges.price_per_cm3 == null || !(m.ranges.price_per_cm3.typical > 0))) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4), 'class');
+    setTyp('price_per_kg', ph.price, phConf);
+    if (m.density && (m.ranges.price_per_cm3 == null || !(m.ranges.price_per_cm3.typical > 0))) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4), phConf);
   }
   /* R113 — Polymer family typical meta (flame UL94 / UV / moisture). polymers-data.json 19종 외 CSV 94종에 적용. */
   if (m.category === 'Polymer' && (!m.meta?.flame_ul94 || !m.meta?.uv_resistance || !m.meta?.moisture_24h)) {
@@ -2413,8 +2420,15 @@ for (const m of all) {
   m.popularity = popularityFor(m);
   // F4: 가공·열처리 비용 가중치 — raw 단가만으로는 가공 단가를 추정하기 어려우므로 휴리스틱 적용.
   // machinability + HT 필드 + 합금 패턴 기반. 실수 (factor 가 음수 또는 0) 회피.
-  m.machining_cost_factor = machiningCostFactor(m);
-  m.ht_cost_factor = htCostFactor(m);
+  /* R125 — Ceramic / Composite 은 절삭 자체 부적용 (grinding/EDM 별도 공정) + sintering 이 본체 공정.
+     factor null 로 설정 → UI 카드 hide + Cost 영역에서도 표시 X. */
+  if (m.category === 'Ceramic' || m.category === 'Composite') {
+    m.machining_cost_factor = null;
+    m.ht_cost_factor = null;
+  } else {
+    m.machining_cost_factor = machiningCostFactor(m);
+    m.ht_cost_factor = htCostFactor(m);
+  }
   /* R116 — 가격 다차원 모델:
      raw price = base material spot price (LME / vendor list, family typical 또는 ALLOY_SPECIFIC handbook)
      condition factor = heat treatment / temper 따른 가격 증가 (As-supplied 1.0 → STA 1.25 → HIP 1.60)

@@ -533,8 +533,9 @@ ${panel.outerHTML}
           let weldBand: string | null = null;
           try {
             const mach = computeMachinability(m);
-            const machC = machiningCostBand(m.machining_cost_factor);
-            const ht = htCostBand(m.ht_cost_factor);
+            // R125 — Ceramic/Composite 에서 가공·HT band null 반환
+            const machC = machiningCostBand(m.machining_cost_factor, m.category);
+            const ht = htCostBand(m.ht_cost_factor, m.category);
             const ce = computeCEIIW(m);
             const cet = computeCET(m);
             const pcm = computePcm(m);

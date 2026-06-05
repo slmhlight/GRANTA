@@ -2,6 +2,61 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R125 — Ceramic/Composite 카드 hide + Fallback chain 3rd→2nd→1st + 검수 script
+
+사용자 보고: Si₃N₄ (Ceramic) 에 절삭성/HT 카드가 부적절하게 표시. + fallback 체계화 + 랜덤 검수 프로세스 요청.
+
+### A. Ceramic / Composite 가공·HT 카드 hide
+- `lib/welding-machinability.ts`: `machiningCostBand()` / `htCostBand()` 에 `category` 파라미터 추가
+  - `Ceramic` / `Composite` → null 반환 (절삭/HT 자체 부적용)
+- `MaterialDetail.tsx`: 호출에 `material.category` 전달
+- `ComparePanel.tsx` mini dot row 도 동일
+- `build-materials.mjs`: source 단에서 `m.category === 'Ceramic'/'Composite'` 시 `machining_cost_factor` / `ht_cost_factor` 자체를 `null` 로 설정 — Cost 영역 표시도 X
+
+### B. 랜덤 샘플 검수 script (`scripts/audit-random-sample.mjs`)
+- 사용: `pnpm audit:sample [N] [category] [subcategory]`
+- 동작:
+  - 시드 기반 shuffle (재현 가능, 일자 + 인자 기반)
+  - 각 entry 의 핵심 derived value (cost factors, fallback levels, family typical 출처, 카드 표시 여부) 출력
+  - 자동 flag: Ceramic/Composite 에 가공/HT 카드 부적절, condition/form/grade 모두 1.0 (fallback 의심)
+  - `data/audit-random-samples.md` 에 issue log 누적
+- 첫 실행 (Ceramic 10 sample): 10/10 가공성 카드 flag 확인 → R125a 로 fix 완료
+
+### C. Fallback chain 3rd → 2nd → 1st family
+- `assignPhysicals()` 의 family 분기 결과에 `level` 메타 추가:
+  - `3rd_family`: 특정 subgroup (예: stainless-austenitic, kovar, invar, tool steel, maraging)
+  - `1st_family`: category 일반 (예: Iron-based 일반 강)
+  - (`2nd_family` 는 향후 분기 추가 시 사용)
+- `setTyp` 호출 시 `level` → confidence 라벨 매핑:
+  - `3rd_family` → `'subfamily'` (sky-blue, "sub-fam")
+  - `2nd_family` → `'family'` (cyan, "family")
+  - `1st_family` → `'class'` (amber, 기존)
+- `MaterialDetail.tsx` confBadge 에 `subfamily` / `family` 신규 색상 + tooltip:
+  - "3rd family typical (예: 스테인리스 austenitic / Al 7xxx — 특정 subgroup)"
+  - "2nd family typical (예: 스테인리스 일반 / Al 일반 — group)"
+  - "1st family / category typical (예: Iron-based 일반 / Polymer 일반)"
+
+### 효과 (confidence 라벨 분포)
+| Label | Count |
+|---|---|
+| handbook | 12,194 |
+| measured | 3,247 |
+| class | 4,213 |
+| derived | 1,818 |
+| **subfamily** (신규) | **888** |
+| (none) | 586 |
+
+이전 `class` 4,213 → 일부 (888) 가 더 정밀한 `subfamily` 로 재분류 됨. 사용자 detail panel 에 "sub-fam" 배지 (blue) 가 표시되는 항목들은 단순 category 평균이 아닌 특정 subgroup typical.
+
+### 검증
+- tsc OK · vitest 47/47 · build:data OK · production build OK
+- `pnpm audit:sample 10 Ceramic` 으로 flag 정상 동작 확인
+
+### 향후 확장 (별도 회차)
+- 2nd_family 분기 추가 (예: stainless 전체 group typical, Al 전체 group typical)
+- 더 많은 subcategory pattern matching (현재 stainless / maraging / tool 만 3rd; invar/kovar)
+- subfamily / family 라벨 별 별도 색상 UI 차별화
+
 ## R119 — 전반적 audit 6 fixes (high + medium 우선순위)
 사용자 요청: "다른 버그나 동작 안하는 버튼 있는지 전반적으로 체크". 정적 분석 후 6 issue fix.
 

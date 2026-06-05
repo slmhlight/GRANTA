@@ -246,8 +246,11 @@ export interface CostFactorResult {
   note: string;           // 의미 + 근거 한 줄
 }
 
-/** Machining cost factor (raw 단가 × machining factor = 가공 후 단가). 1.0 = 표준 강. */
-export function machiningCostBand(factor: number | null | undefined): CostFactorResult | null {
+/** Machining cost factor (raw 단가 × machining factor = 가공 후 단가). 1.0 = 표준 강.
+ *  R125: Ceramic / Composite 은 절삭 자체가 적용 안 됨 (grinding 등 별도 공정) → null 반환.
+ *  Polymer 는 사출/FDM 등 process 별로 절삭 의미 다르나 일단 표시 유지. */
+export function machiningCostBand(factor: number | null | undefined, category?: string | null): CostFactorResult | null {
+  if (category === 'Ceramic' || category === 'Composite') return null;
   if (factor == null || !isFinite(factor) || factor <= 0) return null;
   const f = factor;
   const pct = Math.round((f - 1) * 100);
@@ -270,8 +273,10 @@ export function machiningCostBand(factor: number | null | undefined): CostFactor
   };
 }
 
-/** HT (Heat Treatment + post-process) cost factor. 1.0 = 추가 비용 없음 (as-supplied 그대로). */
-export function htCostBand(factor: number | null | undefined): CostFactorResult | null {
+/** HT (Heat Treatment + post-process) cost factor. 1.0 = 추가 비용 없음 (as-supplied 그대로).
+ *  R125: Ceramic / Composite 은 별도 sintering 공정이 본체 — 후처리 HT 무의미 → null. */
+export function htCostBand(factor: number | null | undefined, category?: string | null): CostFactorResult | null {
+  if (category === 'Ceramic' || category === 'Composite') return null;
   if (factor == null || !isFinite(factor) || factor < 1.0) return null;
   const f = factor;
   const pct = Math.round((f - 1) * 100);

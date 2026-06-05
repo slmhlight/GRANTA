@@ -63,10 +63,15 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
   }
   // confidence 단계별 뱃지: 'measured' (회색 n=N) · 'handbook' (파랑) · 'class' (앰버 추정) · 'derived' (붉은 ≈UTS)
   const conf = range?.confidence;
+  /* R125c — fallback chain 단계별 confidence 라벨 차별화:
+     handbook (1차자료) → subfamily (3rd, 특정 subcategory, e.g. austenitic) → family (2nd, group)
+     → class (1st, category 일반) → derived (다른 물성 유도). 신뢰도 sky → blue → amber → orange → rose 순. */
   const confBadge: Record<string, { label: string; cls: string; tip: string }> = {
     measured: { label: `n=${range?.n ?? 0}`, cls: 'text-foreground/50', tip: '실측 데이터 다수' },
-    handbook: { label: '핸드북', cls: 'text-sky-600', tip: '표준 데이터시트 기반' },
-    class: { label: 'class', cls: 'text-amber-600', tip: '재료 클래스 대표값 (handbook 평균)' },
+    handbook: { label: '핸드북', cls: 'text-sky-600', tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)' },
+    subfamily: { label: 'sub-fam', cls: 'text-blue-600', tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)' },
+    family: { label: 'family', cls: 'text-cyan-600', tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)' },
+    class: { label: 'class', cls: 'text-amber-600', tip: '1st family / category typical (예: Iron-based 일반 / Polymer 일반)' },
     derived: { label: '≈UTS', cls: 'text-rose-500', tip: '다른 물성에서 유도 (예: 피로 = UTS·비율)' },
   };
   const badge = conf ? confBadge[conf] : null;
@@ -504,8 +509,9 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {/* R112 — 공정 평가 3 종합 카드 (Machinability / Heat Treatment / Weldability). 각각 단일 카드로 통합 + 경고 색상. */}
             {(() => {
               const mach = computeMachinability(material);
-              const machCost = machiningCostBand(material.machining_cost_factor);
-              const htCost = htCostBand(material.ht_cost_factor);
+              // R125 — Ceramic / Composite 에서 가공·HT 카드 hide (Si3N4 등 가공 불가 재료에 부적절한 카드 제거)
+              const machCost = machiningCostBand(material.machining_cost_factor, material.category);
+              const htCost = htCostBand(material.ht_cost_factor, material.category);
               const cet = computeCET(material);
               const ce_iiw = computeCEIIW(material);
               const pcm = computePcm(material);
