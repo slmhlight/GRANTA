@@ -838,9 +838,211 @@ function alloyFatigueImpact(name) {
   const keys = Object.keys(ALLOY_FAT_IMPACT).sort((a, b) => b.length - a.length);
   for (const k of keys) {
     const kn = k.replace(/[\s\-_(),/]+/g, '');
-    if (lc.includes(kn)) return ALLOY_FAT_IMPACT[k];
+    if (lc.includes(kn)) return { ...ALLOY_FAT_IMPACT[k], _key: k };
   }
   return null;
+}
+
+/* R129 — HT condition multiplier for fatigue / impact / KIC.
+   Problem: ALLOY_FAT_IMPACT / ALLOY_SPECIFIC.kic 가 alloy name 만 token 매치 → 17-4 PH H900/H1025/H1075/H1150 모두 같은 fatigue/impact/KIC 적용.
+   Fix: heat_treatment 필드 + name 에서 HT condition 추출, peak-aged baseline (1.0) 대비 multiplier 적용.
+   참조: ASM Vol.1 Steel HT chapter, MMPDS-08 Table 2.X (PH stainless), Nickel Institute Pub 9019 (Inconel),
+        AMS 4928 (Ti-6Al-4V mill annealed), ASM Vol.4 (Maraging).
+   Returns { f, i, k, condTag } — f=fatigue, i=impact, k=KIC multiplier; condTag=HT label for provenance. */
+function htConditionMultiplier(m) {
+  if (!m) return { f: 1, i: 1, k: 1, condTag: null };
+  const name = String(m.name || '').toLowerCase();
+  const ht = String(m.heat_treatment || '').toLowerCase();
+  const sub = String(m.subcategory || '').toLowerCase();
+  const combined = name + ' ' + ht;
+
+  // PH stainless — baseline = H900 (peak-aged)
+  if (/17-?4\s*ph|15-?5\s*ph|13-?8\s*ph|17-?7\s*ph|s17400|s15500|s13800|s17700|custom\s*4\d{2}|ph13|ph15|ph17/.test(name) || sub.includes('ph')) {
+    if (/h900\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'H900 peak-aged' };
+    if (/h925\b/.test(combined)) return { f: 0.97, i: 1.10, k: 1.06, condTag: 'H925' };
+    if (/h1025\b/.test(combined)) return { f: 0.90, i: 1.40, k: 1.20, condTag: 'H1025' };
+    if (/h1075\b/.test(combined)) return { f: 0.85, i: 2.20, k: 1.45, condTag: 'H1075' };
+    if (/h1100\b/.test(combined)) return { f: 0.82, i: 2.50, k: 1.55, condTag: 'H1100' };
+    if (/h1150[a-z]*|h1175\b|h1200\b/.test(combined)) return { f: 0.78, i: 3.00, k: 1.60, condTag: 'H1150 over-aged' };
+    if (/as-?built|as-?fab/.test(combined)) return { f: 0.92, i: 1.30, k: 1.10, condTag: 'as-built martensitic' };
+    if (/annealed|solution(?!\s*\+\s*aged)/.test(combined)) return { f: 0.55, i: 3.50, k: 1.50, condTag: 'solution annealed (soft)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'PH peak-aged (assumed)' };
+  }
+
+  // Maraging — baseline = aged 482°C peak
+  if (/maraging|18ni|c2[5-8]\d|c3\d{2}|m250|m300|m350|ms1|vasco/.test(name) || sub.includes('maraging')) {
+    if (/annealed(?!.*aged)/.test(combined)) return { f: 0.40, i: 3.50, k: 1.50, condTag: 'annealed (austenitic)' };
+    if (/solution(?!.*aged)|solution treated$/.test(combined)) return { f: 0.45, i: 3.00, k: 1.45, condTag: 'solution treated' };
+    if (/aged|maraged|sta\b|stat\b|hardened|peak/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'aged (peak strength)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'aged (assumed)' };
+  }
+
+  // Tool steel — baseline = Q+T peak hardness HRC 50-55
+  if (/tool steel|\b(?:h1[013]|d[23]|m[24]|s7|a2|p20|cpm|skd\d{1,2}|o1|w1|w2)\b/.test(name) || sub.includes('tool')) {
+    if (/annealed(?!.*temper)/.test(combined)) return { f: 0.30, i: 4.00, k: 2.20, condTag: 'spheroidized annealed' };
+    if (/q\s*\+\s*t.*?(?:610|softer|620|650)|over[\s-]?tempered/.test(combined)) return { f: 0.78, i: 1.50, k: 1.30, condTag: 'Q+T high-temper (softer)' };
+    if (/q\s*\+\s*t|tempered|hrc|maraged/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak HRC 50-55' };
+    if (/as-?built|as-?fab/.test(combined)) return { f: 0.88, i: 1.20, k: 1.10, condTag: 'as-built (no temper)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak (assumed)' };
+  }
+
+  // Ni superalloy precipitation hardenable — baseline = STA (solution + aged peak)
+  if (/inconel\s*7\d{2}|inconel\s*x[\s-]?7\d{2}|inconel\s*939|inconel\s*100|inconel\s*706|waspaloy|nimonic\s*(?:80|90|105|115|263)|udimet|rene\s*\d|cmsx|pwa|mar[\s-]?m|haynes\s*282|haynes\s*214/.test(name)) {
+    if (/annealed(?!.*aged)/.test(combined)) return { f: 0.60, i: 1.50, k: 1.40, condTag: 'annealed' };
+    if (/solution\s*(?:treated|annealed)(?!.*aged)|^solution$/.test(combined)) return { f: 0.65, i: 1.40, k: 1.30, condTag: 'solution treated' };
+    if (/single\s*age|sta\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA single age' };
+    if (/double\s*age|dsa\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'DSA double age' };
+    if (/aged|peak/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'aged peak' };
+    if (/as-?built|as-?fab/.test(combined)) return { f: 0.80, i: 1.30, k: 1.20, condTag: 'as-built (no age)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA (assumed)' };
+  }
+
+  // Ni superalloy solid-solution (Inconel 600/601/617/625/690, Hastelloy, Incoloy) — no real HT effect on fatigue/KIC
+  if (/inconel\s*(?:600|601|617|625|690)|hastelloy\s*[a-z]|incoloy|haynes\s*230|haynes\s*188|monel/.test(name)) {
+    if (/cold\s*work|cw\b|hard/.test(combined)) return { f: 1.20, i: 0.70, k: 0.85, condTag: 'cold worked' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'solid-solution annealed' };
+  }
+
+  // Ti-6Al-4V (Gr5) — baseline = mill annealed
+  if (/ti[\s-]?6al[\s-]?4v|tigr5|grade\s*5\b|r56400|r56407|grade\s*23/.test(name)) {
+    if (/as-?built|as-?fab/.test(combined)) return { f: 0.85, i: 0.85, k: 0.90, condTag: 'as-built (acicular α+β\')' };
+    if (/hip\b/.test(combined)) return { f: 1.05, i: 1.10, k: 1.05, condTag: 'HIP densified' };
+    if (/sta|solution\s*\+?\s*aged?/.test(combined)) return { f: 1.10, i: 0.90, k: 0.95, condTag: 'STA aged' };
+    if (/beta[\s-]?annealed/.test(combined)) return { f: 0.85, i: 1.20, k: 1.15, condTag: 'β-annealed (coarse)' };
+    if (/mill\s*annealed|annealed/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'mill annealed' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'mill annealed (assumed)' };
+  }
+
+  // β-Ti / near-α Ti — baseline = STA
+  if (/ti[\s-]?6242|ti[\s-]?5553|ti[\s-]?10[\sv]|ti[\s-]?153|ti[\s-]?525|ti[\s-]?185|ti[\s-]?17/.test(name)) {
+    if (/annealed(?!.*aged)/.test(combined)) return { f: 0.85, i: 1.20, k: 1.20, condTag: 'annealed (soft)' };
+    if (/sta|solution.*aged|aged/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA' };
+    if (/as-?built/.test(combined)) return { f: 0.85, i: 0.90, k: 0.95, condTag: 'as-built' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA (assumed)' };
+  }
+
+  // Austenitic stainless (304/316/321/347) — no HT effect except CW
+  if (/\b30[1-9]l?\b|\b3[1-4]\d\b|\b34[7-9]\b|austenit/.test(name) || sub.includes('austenitic')) {
+    if (/cold\s*work|cw\b|strain[\s-]?hardened|full[\s-]?hard/.test(combined)) return { f: 1.40, i: 0.50, k: 0.65, condTag: 'cold worked' };
+    if (/as-?built/.test(combined)) return { f: 1.05, i: 0.95, k: 0.95, condTag: 'as-built (fine columnar)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'solution annealed' };
+  }
+
+  // Stainless martensitic (410, 420, 440) — 3-digit. Q+T baseline.
+  if (/\b4[1-4]0\b|\bsus41[0-9]\b|\bsus42[0-9]\b|\bsus44[0-9]\b|\bx12cr13|\bx40cr|martensit/.test(name) || sub.includes('martensitic')) {
+    if (/annealed(?!.*temper)|spheroidized/.test(combined)) return { f: 0.45, i: 2.80, k: 1.60, condTag: 'fully annealed (soft)' };
+    if (/q\s*\+\s*t.*?(?:600|650|high[\s-]?temper)/.test(combined)) return { f: 0.85, i: 1.40, k: 1.25, condTag: 'Q+T high-temper' };
+    if (/q\s*\+\s*t.*?(?:200|150|peak|max[\s-]?hard|full[\s-]?hard)/.test(combined)) return { f: 1.05, i: 0.70, k: 0.85, condTag: 'Q+T peak hardness' };
+    if (/q\s*\+\s*t|tempered/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T mid-range' };
+    if (/strain[\s-]?hardened|cold\s*work/.test(combined)) return { f: 1.15, i: 0.65, k: 0.80, condTag: 'cold worked' };
+    if (/as-?cast|forged/.test(combined)) return { f: 0.65, i: 1.80, k: 1.30, condTag: 'as-cast/forged (no temper)' };
+    if (/as-?supplied/.test(combined)) return { f: 0.95, i: 1.05, k: 1.00, condTag: 'as-supplied (Q+T assumed)' };
+    if (/aged|solution[\s-]?treated/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'aged/STA' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
+  }
+
+  // Stainless ferritic (430, 446) — HT-insensitive (no quench-hardening)
+  if (/\b43[06]\b|\b44[68]\b|\bx6cr17|ferritic\s*stainless/.test(name) || sub.includes('ferritic')) {
+    if (/cold\s*work|strain[\s-]?hardened/.test(combined)) return { f: 1.30, i: 0.60, k: 0.80, condTag: 'cold worked' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'annealed (HT-insensitive)' };
+  }
+
+  // Spring steel (SUP, 5160, 9260, 51CrV4) — Q+T spring temper baseline
+  if (/\bsup\d{1,2}\b|\b5\d{3}\b|\b9260\b|51crv4|spring/.test(name) || sub.includes('spring')) {
+    if (/annealed(?!.*temper)/.test(combined)) return { f: 0.45, i: 3.00, k: 1.60, condTag: 'annealed (forming)' };
+    if (/q\s*\+\s*t.*?(?:380|400|full[\s-]?spring)/.test(combined)) return { f: 1.05, i: 0.85, k: 0.90, condTag: 'Q+T 380°C full spring' };
+    if (/q\s*\+\s*t.*?(?:430|450|spring[\s-]?temper)/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T spring temper' };
+    if (/q\s*\+\s*t|tempered/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
+  }
+
+  // Low-carbon mild steel (1010, 1018, 1020, A36, structural) — HT-insensitive (low C, no quench)
+  if (/\b10[12]\d\b|\b1018\b|\ba36\b|astm\s*a36|structural\s*steel|mild\s*steel/.test(name) || sub === 'carbon steel' || sub.includes('structural')) {
+    if (/cold\s*work|strain[\s-]?hardened|cold[\s-]?drawn/.test(combined)) return { f: 1.25, i: 0.60, k: 0.80, condTag: 'cold worked' };
+    if (/normalized/.test(combined)) return { f: 1.05, i: 1.15, k: 1.10, condTag: 'normalized' };
+    if (/annealed|as-?cast/.test(combined)) return { f: 0.95, i: 1.20, k: 1.10, condTag: 'annealed/as-cast' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'as-rolled (mild)' };
+  }
+
+  // Medium-carbon steel (1040, 1045, 1050, 1095) — Q+T variations
+  if (/\b10[34]\d\b|\b10[56]\d\b|\b1095\b/.test(name)) {
+    if (/annealed(?!.*temper)/.test(combined)) return { f: 0.50, i: 2.50, k: 1.80, condTag: 'fully annealed' };
+    if (/normalized/.test(combined)) return { f: 0.75, i: 1.60, k: 1.40, condTag: 'normalized' };
+    if (/q\s*\+\s*t/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
+  }
+
+  // Bearing steel (52100, 100Cr6, SUJ2)
+  if (/\b52100\b|\b100cr6\b|\bsuj2\b|bearing\s*steel/.test(name) || sub.includes('bearing')) {
+    if (/annealed/.test(combined)) return { f: 0.40, i: 2.50, k: 1.50, condTag: 'annealed (spheroidized)' };
+    if (/q\s*\+\s*t/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
+  }
+
+  // Case hardening steel (8620, 9310, 4620)
+  if (/\b8620\b|\b9310\b|\b4620\b|\b4820\b|case[\s-]?hardening|carburiz/.test(name) || sub.includes('case hardening')) {
+    if (/carburized/.test(combined)) return { f: 1.10, i: 0.85, k: 0.90, condTag: 'carburized case' };
+    if (/annealed/.test(combined)) return { f: 0.55, i: 2.20, k: 1.60, condTag: 'annealed' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
+  }
+
+  // BeCu / Cu-Ni-Si precipitation hardened (C17xxx, C18000)
+  if (/\bc17[0-9]{3}\b|\bc18000\b|\bcube|beryllium\s*copper|moldmax/.test(name)) {
+    if (/tb00|annealed|solution(?!.*aged)/.test(combined)) return { f: 0.35, i: 3.50, k: 1.80, condTag: 'TB00 solution annealed' };
+    if (/tf00|peak[\s-]?aged|aged(?!.*cold)/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'TF00 peak aged' };
+    if (/th04|cold[\s-]?rolled.*aged|cw\s*\+\s*age/.test(combined)) return { f: 1.10, i: 0.40, k: 0.75, condTag: 'TH04 CW+aged (high strength)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'TF00 (assumed)' };
+  }
+
+  // Cu-Cr-Zr (C18100, C18150, C18200 chromium copper)
+  if (/\bc181[0-9]{2}\b|\bc18200\b|cucr|chromium\s*copper|elbrodur/.test(name)) {
+    if (/wp\b|solution[\s-]?aged|tf00/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'wp solution + aged' };
+    if (/whp\b|th04|cw\s*\+\s*age/.test(combined)) return { f: 1.30, i: 0.50, k: 0.80, condTag: 'whp CW + aged' };
+    if (/annealed/.test(combined)) return { f: 0.45, i: 2.50, k: 1.50, condTag: 'fully annealed' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'precipitation hardened (assumed)' };
+  }
+
+  // Brass (CuZn) — H-tempers (cold worked)
+  if (/\bc2[6-8]\d{3}\b|brass|\bcuzn|c46400|naval\s*brass/.test(name)) {
+    if (/\bh0[24]\b|quarter[\s-]?hard/.test(combined)) return { f: 1.15, i: 0.85, k: 0.90, condTag: 'H02 quarter-hard' };
+    if (/\bh0[68]\b|half[\s-]?hard/.test(combined)) return { f: 1.25, i: 0.70, k: 0.85, condTag: 'H04 half-hard' };
+    if (/\bh10\b|three[\s-]?quarter|full[\s-]?hard/.test(combined)) return { f: 1.40, i: 0.55, k: 0.75, condTag: 'H08/H10 hard' };
+    if (/annealed|\b0\s*temper/.test(combined)) return { f: 0.65, i: 1.40, k: 1.20, condTag: 'annealed (soft)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'annealed (assumed)' };
+  }
+
+  // Carbon / alloy steel Q+T (4140/4340/8620 등) — baseline = Q+T peak
+  if (/\b4[01]\d{2}\b|\b8[0-9]\d{2}\b|\b9\d{3}\b|\b5\d{3}\b|sncm|scm\s*\d|alloy steel/.test(name) || sub.includes('alloy steel')) {
+    if (/annealed(?!.*temper)/.test(combined)) return { f: 0.50, i: 2.50, k: 1.80, condTag: 'fully annealed' };
+    if (/normalized/.test(combined)) return { f: 0.70, i: 1.80, k: 1.50, condTag: 'normalized' };
+    if (/q\s*\+\s*t.*?(?:200|full\s*hard)/.test(combined)) return { f: 1.15, i: 0.40, k: 0.65, condTag: 'Q+T 200°C (full hard)' };
+    if (/q\s*\+\s*t.*?(?:550|600|650)/.test(combined)) return { f: 0.92, i: 1.40, k: 1.25, condTag: 'Q+T high-temper' };
+    if (/q\s*\+\s*t.*?(?:450|500)/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T 450°C (peak)' };
+    if (/q\s*\+\s*t|tempered/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak (assumed)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak (assumed)' };
+  }
+
+  // Aluminum T-tempers — baseline = T6 peak-aged
+  if (/^aa\s?\d{4}|al-?\d{4}|aluminum|al\s*si|alsi|alumi|^al-?si/.test(name) || sub.toLowerCase().includes('aluminum')) {
+    if (/\bo\s*temper|annealed/.test(combined)) return { f: 0.40, i: 3.00, k: 2.00, condTag: 'O (annealed)' };
+    if (/\bt3\b|\bt4\b/.test(combined)) return { f: 0.85, i: 1.30, k: 1.30, condTag: 'T3/T4 naturally aged' };
+    if (/\bt5\b/.test(combined)) return { f: 0.90, i: 1.20, k: 1.20, condTag: 'T5 cooled + aged' };
+    if (/\bt6\b|peak/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'T6 peak-aged' };
+    if (/\bt7\b|over[\s-]?aged/.test(combined)) return { f: 0.85, i: 1.40, k: 1.30, condTag: 'T7 over-aged' };
+    if (/\bt8\b/.test(combined)) return { f: 1.08, i: 0.90, k: 0.95, condTag: 'T8 CW + aged' };
+    if (/as-?built/.test(combined)) return { f: 1.10, i: 0.95, k: 1.00, condTag: 'as-built (fine grain)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'T6 (assumed)' };
+  }
+
+  // CoCr / CoCrMo — baseline = solution annealed
+  if (/cocr|f75|f1537/.test(name) || sub.includes('cobalt')) {
+    if (/as-?built/.test(combined)) return { f: 1.05, i: 0.85, k: 0.90, condTag: 'as-built (fine grain)' };
+    if (/hip\b/.test(combined)) return { f: 1.10, i: 1.05, k: 1.05, condTag: 'HIP' };
+    if (/cold\s*work/.test(combined)) return { f: 1.30, i: 0.55, k: 0.70, condTag: 'cold worked' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'solution annealed' };
+  }
+
+  return { f: 1.00, i: 1.00, k: 1.00, condTag: null };
 }
 
 function alloySpecificPhysicals(name) {
@@ -850,7 +1052,7 @@ function alloySpecificPhysicals(name) {
   const keys = Object.keys(ALLOY_SPECIFIC).sort((a, b) => b.length - a.length);
   for (const k of keys) {
     const kn = k.replace(/[\s\-_(),/]+/g, '');
-    if (lc.includes(kn)) return ALLOY_SPECIFIC[k];
+    if (lc.includes(kn)) return { ...ALLOY_SPECIFIC[k], _key: k };
   }
   return null;
 }
@@ -1016,7 +1218,7 @@ const REAL_ALIAS = { 'maragingsteel': 'maraging', 'm300': 'maraging', 'ms1': 'ma
 function realPropsFor(name) {
   const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
   for (const tok of String(name).split(/[\s(),/]+/)) if (/\d/.test(tok)) keys.add(norm(tok));
-  for (const k of keys) { const kk = REAL_ALIAS[k] || k; if (REAL_PROPS[kk]) return REAL_PROPS[kk]; }
+  for (const k of keys) { const kk = REAL_ALIAS[k] || k; if (REAL_PROPS[kk]) return { ...REAL_PROPS[kk], _key: kk }; }
   return null;
 }
 
@@ -1461,8 +1663,16 @@ for (const m of all) {
     if (rx.test(key)) {
       const [mn, tp, mx] = vals;
       if (!m.ranges) m.ranges = {};
-      m.ranges.fracture_toughness = { min: mn, max: mx, typical: tp, n: 0, confidence: 'class' };
-      m.fracture_toughness = tp;
+      /* R129 — HT-aware scaling + provenance: KIC family typical 에 condition multiplier 적용. */
+      const multK = htConditionMultiplier(m);
+      const scaledTp = +(tp * multK.k).toFixed(1);
+      const scaledMn = +(mn * multK.k).toFixed(1);
+      const scaledMx = +(mx * multK.k).toFixed(1);
+      const provK = (multK.condTag && multK.k !== 1)
+        ? `class:${src} × HT:${multK.condTag} (k×${multK.k})`
+        : `class:${src}`;
+      m.ranges.fracture_toughness = { min: scaledMn, max: scaledMx, typical: scaledTp, n: 0, confidence: 'class', provenance: provK };
+      m.fracture_toughness = scaledTp;
       m.sources = m.sources || [];
       if (!m.sources.some(s => s.label && s.label.startsWith('KIC fallback'))) {
         m.sources.push({ label: `KIC fallback: ${src}`, url: null, verified: false });
@@ -1505,6 +1715,7 @@ for (const m of all) {
       m.ranges.fatigue_strength = {
         min: Math.round(sy * kLo), max: Math.round(sy * kHi), typical: Math.round(sy * kTyp),
         n: 0, confidence: 'derived',
+        provenance: `family:σf≈${kTyp}·σy (${src})`,  // R129 — Sprint 4 C1 fallback provenance
       };
       m.fatigue_strength = Math.round(sy * kTyp);
       m.sources = m.sources || [];
@@ -2358,61 +2569,101 @@ for (const m of all) {
   const q = qualFor(m.name);
   if (q) { m.machinability = m.machinability || q.machinability; m.weldability = m.weldability || q.weldability; m.corrosion_resistance = m.corrosion_resistance || q.corrosion; }
   // measured fatigue/impact/elevated-temp overrides for key alloys (take precedence over estimates)
+  /* R129 — realProps lookup 도 HT multiplier 적용 (피크 baseline 가정).
+            elevated_temp 은 HT-independent (온도 의존) → 그대로 유지. */
   const rp = realPropsFor(m.name);
   if (rp) {
-    if (rp.fatigue) { m.ranges.fatigue_strength = rangeFrom(rp.fatigue, 'handbook'); m.fatigue_strength = m.ranges.fatigue_strength.typical; m.fatigue_estimated = false; }
-    if (rp.impact && !m.ranges.impact_strength) { m.ranges.impact_strength = rangeFrom(rp.impact, 'handbook'); m.impact_strength = m.ranges.impact_strength.typical; }
+    const multRp = htConditionMultiplier(m);
+    const rpTag = (multRp.condTag && (multRp.f !== 1 || multRp.i !== 1))
+      ? `realprops:${rp._key} × HT:${multRp.condTag} (f×${multRp.f}, i×${multRp.i})`
+      : `realprops:${rp._key}`;
+    if (rp.fatigue) {
+      const scaled = rp.fatigue.map((v) => Math.round(v * multRp.f));
+      m.ranges.fatigue_strength = rangeFrom(scaled, 'handbook');
+      m.ranges.fatigue_strength.provenance = rpTag;
+      m.fatigue_strength = m.ranges.fatigue_strength.typical;
+      m.fatigue_estimated = false;
+    }
+    if (rp.impact && !m.ranges.impact_strength) {
+      const scaledI = rp.impact.map((v) => Math.round(v * multRp.i));
+      m.ranges.impact_strength = rangeFrom(scaledI, 'handbook');
+      m.ranges.impact_strength.provenance = rpTag;
+      m.impact_strength = m.ranges.impact_strength.typical;
+    }
     if (rp.elevated_temp) m.elevated_temp = rp.elevated_temp;
   }
-  /* R109 — alloy-specific fatigue + impact (handbook) 적용. realPropsFor 없을 때만 (realPropsFor 는 핵심 11종 고정밀). */
+  /* R109 — alloy-specific fatigue + impact (handbook) 적용. realPropsFor 없을 때만 (realPropsFor 는 핵심 11종 고정밀).
+     R129 — HT condition multiplier 적용: peak-aged baseline 대비 condition-scaled.
+            provenance 필드로 출처/조정 명시. */
   const fi = alloyFatigueImpact(m.name);
   if (fi) {
+    const mult = htConditionMultiplier(m);
+    const tag = (mult.condTag && (mult.f !== 1 || mult.i !== 1 || mult.k !== 1))
+      ? `alloy:${fi._key} × HT:${mult.condTag} (f×${mult.f}, i×${mult.i})`
+      : `alloy:${fi._key}`;
     // fatigue: 기존이 없거나 derived (UTS×ratio) 이면 handbook 으로 덮어쓰기
     const fCur = m.ranges.fatigue_strength;
     if (!fCur || fCur.confidence === 'derived' || !(fCur.typical > 0)) {
       if (fi.fatigue) {
-        m.ranges.fatigue_strength = rangeFrom(fi.fatigue, 'handbook');
+        const scaled = fi.fatigue.map((v) => Math.round(v * mult.f));
+        m.ranges.fatigue_strength = rangeFrom(scaled, 'handbook');
+        m.ranges.fatigue_strength.provenance = tag;
         m.fatigue_strength = m.ranges.fatigue_strength.typical;
         m.fatigue_estimated = false;
       }
     }
     // impact: 비어있으면 채우기 (기존 measured 가 있으면 유지)
     if (fi.impact && (!m.ranges.impact_strength || !(m.ranges.impact_strength.typical > 0))) {
-      m.ranges.impact_strength = rangeFrom(fi.impact, 'handbook');
+      const scaledI = fi.impact.map((v) => Math.round(v * mult.i));
+      m.ranges.impact_strength = rangeFrom(scaledI, 'handbook');
+      m.ranges.impact_strength.provenance = tag;
       m.impact_strength = m.ranges.impact_strength.typical;
     }
   }
   // estimated fatigue (endurance) from UTS where no measured value — labelled as an estimate
+  /* R129 — provenance 명시: family-level σf ≈ k·UTS ratio (Shigley/MMPDS family typical). */
   if (m.category !== 'Polymer' && !m.ranges.fatigue_strength && m.ranges.uts) {
     const f = m.families || [];
     const ratio = f.includes('Titanium-based') ? 0.55 : f.includes('Nickel-based') ? 0.40 : (f.includes('Aluminum-based') || f.includes('Copper-based') || f.includes('Magnesium-based')) ? 0.35 : 0.45;
+    const famTag = f.includes('Titanium-based') ? 'Ti-based' : f.includes('Nickel-based') ? 'Ni-based' : (f.includes('Aluminum-based') ? 'Al-based' : f.includes('Copper-based') ? 'Cu-based' : f.includes('Magnesium-based') ? 'Mg-based' : 'Fe-based');
     const u = m.ranges.uts;
-    m.ranges.fatigue_strength = { min: round(u.min * ratio), max: round(u.max * ratio), typical: round(u.typical * ratio), n: 0, estimated: true, confidence: 'derived' };
+    m.ranges.fatigue_strength = {
+      min: round(u.min * ratio), max: round(u.max * ratio), typical: round(u.typical * ratio),
+      n: 0, estimated: true, confidence: 'derived',
+      provenance: `family:${famTag} σf≈${ratio}·UTS (Shigley/MMPDS family typical)`
+    };
     m.fatigue_strength = round(u.typical * ratio);
     m.fatigue_estimated = true;
   }
-  /* R109 — impact_strength family typical fallback (alloy-specific 가 없을 때만). */
+  /* R109 — impact_strength family typical fallback (alloy-specific 가 없을 때만).
+     R129 — provenance 명시 + HT multiplier 적용. */
   if (!m.ranges.impact_strength && m.category !== 'Polymer') {
     const f = m.families || [];
     const sub = String(m.subcategory || '').toLowerCase();
     let imp = null;
-    if (sub.includes('austenitic') || /\b304\b|\b316\b|\b321\b|\b347\b/.test(m.name || '')) imp = [80, 130, 180];
-    else if (sub.includes('ferritic')) imp = [25, 50, 80];
-    else if (sub.includes('martensitic') || sub.includes('tool')) imp = [4, 12, 25];
-    else if (sub.includes('ph') || sub.includes('precipitation')) imp = [15, 30, 50];
-    else if (sub.includes('duplex')) imp = [60, 100, 150];
-    else if (sub.includes('maraging')) imp = [15, 22, 35];
-    else if (f.includes('Iron-based')) imp = [15, 35, 60];  // 일반 강
-    else if (f.includes('Aluminum-based')) imp = [5, 10, 18];
-    else if (f.includes('Titanium-based')) imp = [15, 22, 30];
-    else if (f.includes('Nickel-based') || f.includes('Superalloy')) imp = [30, 60, 100];
-    else if (f.includes('Cobalt-based')) imp = [10, 25, 50];
-    else if (f.includes('Copper-based')) imp = [40, 80, 130];
-    else if (f.includes('Magnesium-based')) imp = [3, 5, 8];
-    else if (f.includes('Refractory')) imp = [10, 25, 50];
+    let subTag = null;
+    if (sub.includes('austenitic') || /\b304\b|\b316\b|\b321\b|\b347\b/.test(m.name || '')) { imp = [80, 130, 180]; subTag = 'Stainless Austenitic'; }
+    else if (sub.includes('ferritic')) { imp = [25, 50, 80]; subTag = 'Stainless Ferritic'; }
+    else if (sub.includes('martensitic') || sub.includes('tool')) { imp = [4, 12, 25]; subTag = 'Martensitic/Tool steel'; }
+    else if (sub.includes('ph') || sub.includes('precipitation')) { imp = [15, 30, 50]; subTag = 'PH stainless'; }
+    else if (sub.includes('duplex')) { imp = [60, 100, 150]; subTag = 'Duplex stainless'; }
+    else if (sub.includes('maraging')) { imp = [15, 22, 35]; subTag = 'Maraging steel'; }
+    else if (f.includes('Iron-based')) { imp = [15, 35, 60]; subTag = 'Iron-based generic'; }  // 일반 강
+    else if (f.includes('Aluminum-based')) { imp = [5, 10, 18]; subTag = 'Al-based'; }
+    else if (f.includes('Titanium-based')) { imp = [15, 22, 30]; subTag = 'Ti-based'; }
+    else if (f.includes('Nickel-based') || f.includes('Superalloy')) { imp = [30, 60, 100]; subTag = 'Ni-based superalloy'; }
+    else if (f.includes('Cobalt-based')) { imp = [10, 25, 50]; subTag = 'Co-based'; }
+    else if (f.includes('Copper-based')) { imp = [40, 80, 130]; subTag = 'Cu-based'; }
+    else if (f.includes('Magnesium-based')) { imp = [3, 5, 8]; subTag = 'Mg-based'; }
+    else if (f.includes('Refractory')) { imp = [10, 25, 50]; subTag = 'Refractory'; }
     if (imp) {
-      m.ranges.impact_strength = { min: imp[0], max: imp[2], typical: imp[1], n: 0, estimated: true, confidence: 'class' };
-      m.impact_strength = imp[1];
+      const multImp = htConditionMultiplier(m);
+      const scaledI = imp.map((v) => Math.round(v * multImp.i * 10) / 10);
+      const provI = (multImp.condTag && multImp.i !== 1)
+        ? `class:${subTag} × HT:${multImp.condTag} (i×${multImp.i})`
+        : `class:${subTag}`;
+      m.ranges.impact_strength = { min: scaledI[0], max: scaledI[2], typical: scaledI[1], n: 0, estimated: true, confidence: 'class', provenance: provI };
+      m.impact_strength = scaledI[1];
     }
   }
   // class-typical physical & qualitative properties (handbook-level; flagged estimated)
@@ -2439,37 +2690,50 @@ for (const m of all) {
   };
   // 1) alloy-specific (handbook) 가 있으면 우선
   if (sp) {
-    if (sp.ec != null) setTyp('electrical_conductivity', sp.ec, 'handbook');
-    if (sp.tmax != null) setTyp('max_service_temp', sp.tmax, 'handbook');
-    if (sp.cte != null) setTyp('thermal_expansion', sp.cte, 'handbook');
-    if (sp.poisson != null) setTyp('poisson_ratio', sp.poisson, 'handbook');
-    if (sp.cp != null) setTyp('specific_heat', sp.cp, 'handbook');
-    if (sp.melt != null) setTyp('melting_point', sp.melt, 'handbook');
+    /* R129 — provenance tag: alloy-specific handbook lookup 의 매치 key 명시. */
+    const spProv = `alloy:${sp._key}`;
+    const setSp = (prop, val) => { setTyp(prop, val, 'handbook'); if (m.ranges[prop]) m.ranges[prop].provenance = spProv; };
+    if (sp.ec != null) setSp('electrical_conductivity', sp.ec);
+    if (sp.tmax != null) setSp('max_service_temp', sp.tmax);
+    if (sp.cte != null) setSp('thermal_expansion', sp.cte);
+    if (sp.poisson != null) setSp('poisson_ratio', sp.poisson);
+    if (sp.cp != null) setSp('specific_heat', sp.cp);
+    if (sp.melt != null) setSp('melting_point', sp.melt);
     if (sp.price != null) {
-      setTyp('price_per_kg', sp.price, 'handbook');
-      if (m.density) setTyp('price_per_cm3', +(sp.price * m.density / 1000).toFixed(4), 'handbook');
+      setSp('price_per_kg', sp.price);
+      if (m.density) setSp('price_per_cm3', +(sp.price * m.density / 1000).toFixed(4));
     }
     if (sp.kic != null && (m.ranges.fracture_toughness == null || !(m.ranges.fracture_toughness.typical > 0) || m.ranges.fracture_toughness.confidence === 'class')) {
-      setTyp('fracture_toughness', sp.kic, 'handbook');
+      /* R129 — HT-aware KIC: peak-aged baseline 의 sp.kic 에 condition multiplier 곱. */
+      const multK = htConditionMultiplier(m);
+      const scaledKic = +(sp.kic * multK.k).toFixed(1);
+      setTyp('fracture_toughness', scaledKic, 'handbook');
+      if (m.ranges.fracture_toughness && multK.condTag && multK.k !== 1) {
+        m.ranges.fracture_toughness.provenance = `alloy-specific KIC × HT:${multK.condTag} (k×${multK.k})`;
+      } else if (m.ranges.fracture_toughness) {
+        m.ranges.fracture_toughness.provenance = 'alloy-specific KIC';
+      }
     }
   }
   /* R125c — class fallback 의 confidence 라벨을 fallback level 별로 차별화:
      - 3rd_family (가장 정밀, e.g. stainless-austenitic) → 'subfamily' 라벨 (사용자에게 가장 신뢰도 ↑)
      - 2nd_family (group, e.g. stainless general) → 'family'
      - 1st_family (category, e.g. Iron-based 일반 강) → 'class'
-     호환: 'class' 외 새 라벨도 기존 UI 'class' 표시 패턴으로 fallback (별도 UI 변경 시 차별화 가능). */
+     R129 — provenance 명시: ph.level + matched key (sub/family name) — UI 에서 "어디서 fallback 됐는지" 표시 가능. */
   const phConf = ph.level === '3rd_family' ? 'subfamily' : ph.level === '2nd_family' ? 'family' : 'class';
-  if (ph.ec != null && (m.ranges.electrical_conductivity == null || !(m.ranges.electrical_conductivity.typical > 0))) setTyp('electrical_conductivity', ph.ec, phConf);
-  if (ph.tmax != null && (m.ranges.max_service_temp == null || !(m.ranges.max_service_temp.typical > 0))) setTyp('max_service_temp', ph.tmax, phConf);
-  if (ph.cte != null && (m.ranges.thermal_expansion == null || !(m.ranges.thermal_expansion.typical > 0))) setTyp('thermal_expansion', ph.cte, phConf);
-  if (ph.poisson != null && (m.ranges.poisson_ratio == null || !(m.ranges.poisson_ratio.typical > 0))) setTyp('poisson_ratio', ph.poisson, phConf);
-  if (ph.cp != null && (m.ranges.specific_heat == null || !(m.ranges.specific_heat.typical > 0))) setTyp('specific_heat', ph.cp, phConf);
-  if (ph.melt != null && (m.ranges.melting_point == null || !(m.ranges.melting_point.typical > 0))) setTyp('melting_point', ph.melt, phConf);
+  const phProv = `${ph.level || 'class'}:${ph._matchedKey || m.subcategory || (m.families || ['unknown'])[0]}`;
+  const setPh = (prop, val) => { setTyp(prop, val, phConf); if (m.ranges[prop]) m.ranges[prop].provenance = phProv; };
+  if (ph.ec != null && (m.ranges.electrical_conductivity == null || !(m.ranges.electrical_conductivity.typical > 0))) setPh('electrical_conductivity', ph.ec);
+  if (ph.tmax != null && (m.ranges.max_service_temp == null || !(m.ranges.max_service_temp.typical > 0))) setPh('max_service_temp', ph.tmax);
+  if (ph.cte != null && (m.ranges.thermal_expansion == null || !(m.ranges.thermal_expansion.typical > 0))) setPh('thermal_expansion', ph.cte);
+  if (ph.poisson != null && (m.ranges.poisson_ratio == null || !(m.ranges.poisson_ratio.typical > 0))) setPh('poisson_ratio', ph.poisson);
+  if (ph.cp != null && (m.ranges.specific_heat == null || !(m.ranges.specific_heat.typical > 0))) setPh('specific_heat', ph.cp);
+  if (ph.melt != null && (m.ranges.melting_point == null || !(m.ranges.melting_point.typical > 0))) setPh('melting_point', ph.melt);
   /* R110 — Polymer Tg class fallback. polymers-data 19개는 handbook, 나머지 ~94 CSV polymer 는 family typical. */
-  if (ph.tg != null && (m.ranges.glass_transition_temp == null || !(m.ranges.glass_transition_temp.typical > 0))) setTyp('glass_transition_temp', ph.tg, phConf);
+  if (ph.tg != null && (m.ranges.glass_transition_temp == null || !(m.ranges.glass_transition_temp.typical > 0))) setPh('glass_transition_temp', ph.tg);
   if (ph.price != null && (m.ranges.price_per_kg == null || !(m.ranges.price_per_kg.typical > 0))) {
-    setTyp('price_per_kg', ph.price, phConf);
-    if (m.density && (m.ranges.price_per_cm3 == null || !(m.ranges.price_per_cm3.typical > 0))) setTyp('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4), phConf);
+    setPh('price_per_kg', ph.price);
+    if (m.density && (m.ranges.price_per_cm3 == null || !(m.ranges.price_per_cm3.typical > 0))) setPh('price_per_cm3', +(ph.price * m.density / 1000).toFixed(4));
   }
   /* R113 — Polymer family typical meta (flame UL94 / UV / moisture). polymers-data.json 19종 외 CSV 94종에 적용. */
   if (m.category === 'Polymer' && (!m.meta?.flame_ul94 || !m.meta?.uv_resistance || !m.meta?.moisture_24h)) {

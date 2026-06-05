@@ -2,6 +2,75 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R129 — 모든 금속 데이터 + fallback 검증 / HT-aware multiplier / provenance trace
+
+사용자 요청: 17-4 PH H900/H1025/H1075/H1150 동일 fatigue/impact/KIC 표시 → fallback 출처 불명. "모든" 금속 검증 및 fallback 출처 명시.
+
+### 1) 근본 원인
+build-materials.mjs 의 `alloyFatigueImpact()`, `ALLOY_SPECIFIC.kic`, `KIC_FALLBACK`, `FATIGUE_RATIO` 가 alloy name token 만 매치 → **heat-treatment condition 미반영**. 367 "flatline" (서로 다른 HT 가 동일 값).
+
+### 2) Audit script (scripts/audit-metals.mjs)
+- Subcategory-level confidence breakdown (measured/handbook/subfamily/family/class/derived)
+- HT-variant 간 secondary prop flatline 검출 (TRUE vs OK distinction)
+- Low-confidence high-popularity gap 추출
+- Unverified high-popularity entry 추출
+- Vague-HT precipitation-hardened entry 추출
+- Report: data/metals-audit-before.txt · data/metals-audit-after.txt · **data/metals-fallback-audit.md**
+
+### 3) HT-aware multiplier (`htConditionMultiplier(m)`)
+17개 alloy family 분기 + peak-aged baseline 기준 condition multiplier `{f, i, k}`:
+- **PH stainless**: H900(1.0) / H1025(0.90·1.40·1.20) / H1075(0.85·2.20·1.45) / H1150(0.78·3.0·1.60)
+- **Maraging**: annealed(0.40·3.50·1.50) / aged peak(1.0)
+- **Tool steel**: annealed(0.30·4.0·2.20) / Q+T peak(1.0) / Q+T high-temper(0.78·1.50)
+- **Ni precipitation HT** (Inconel 718/X-750/Waspaloy/Haynes 282): annealed(0.60) / STA·DSA(1.0) / as-built(0.80)
+- **Ni solid-solution** (Inconel 600/625/Hastelloy): annealed(1.0) / CW(1.20·0.70)
+- **Ti-6Al-4V**: mill annealed(1.0) / STA(1.10·0.90) / HIP(1.05) / β-annealed(0.85) / as-built(0.85)
+- **β-Ti** (Ti-6242/5553/15-3): annealed(0.85) / STA(1.0)
+- **Stainless austenitic**: solution annealed(1.0) / CW(1.40·0.50)
+- **Stainless martensitic** (410/420/440): annealed(0.45·2.80·1.60) / Q+T peak(1.05·0.70·0.85) / Q+T high-temper(0.85·1.40·1.25)
+- **Stainless ferritic** (430/446): annealed(1.0 HT-insensitive)
+- **Spring steel** (SUP/5160/9260): annealed(0.45·3.0·1.60) / Q+T 380°C(1.05) / Q+T 430°C spring(1.0)
+- **Mild steel** (1010/1020/A36): annealed(0.95·1.20) / normalized(1.05) / CW(1.25·0.60)
+- **Medium-C steel** (1040/1045/1095): annealed(0.50·2.50·1.80) / Q+T peak(1.0)
+- **Bearing steel** (52100/100Cr6/SUJ2): annealed spheroidized(0.40·2.50·1.50) / Q+T peak(1.0)
+- **Case hardening** (8620/9310): carburized(1.10·0.85) / annealed(0.55)
+- **BeCu** (C17200/Moldmax): TB00 annealed(0.35·3.50·1.80) / TF00 peak(1.0) / TH04 CW+aged(1.10·0.40·0.75)
+- **Cu-Cr-Zr** (C18100/C18150): wp(1.0) / whp CW+aged(1.30·0.50·0.80) / annealed(0.45)
+- **Brass** (C26000/C46400): annealed(0.65·1.40) / H02(1.15) / H04(1.25) / H08-H10(1.40·0.55)
+- **Alloy steel Q+T** (4140/4340/8740/300M): annealed(0.50·2.50·1.80) / Q+T 200°C full hard(1.15·0.40·0.65) / Q+T 550-650°C(0.92·1.40·1.25) / Q+T 450°C peak(1.0)
+- **CoCr/F75/F1537**: solution annealed(1.0) / HIP(1.10) / CW(1.30·0.55)
+
+baseline 출처: ASM Vol.1 Steel HT · MMPDS-08 (PH) · Nickel Institute Pub 9019 (Ni superalloy) · AMS 4928 (Ti-6Al-4V) · ASM Vol.4 (Maraging) · AA Standards (Al T-tempers) · CDA TB46 (Cu-Be).
+
+### 4) Provenance trace (PropertyRange.provenance)
+모든 fallback 적용 시 출처 기록:
+- `alloy:174ph` — alloy-specific 직접 매치
+- `alloy:174ph × HT:H1075 (f×0.85, i×2.2)` — alloy peak + HT 조정
+- `realprops:haynes282 × HT:as-built (no age) (f×0.8, i×1.3)`
+- `subfamily:Stainless Steel - Austenitic` — 3rd family typical
+- `family:Iron-based steel` — 2nd family
+- `family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)` — derived
+- `class:PH stainless × HT:H1150 (i×3.0)` — class + HT
+- `class:Stainless Austenitic` — 1st family default
+
+UI: MaterialDetail.tsx 의 confidence badge tooltip 에 "출처: <provenance>" 표시.
+
+### 5) 결과
+| Metric | Before | After | Δ |
+|---|---|---|---|
+| TRUE flatlines | 367 | **145** | -60% |
+| OK flatlines (peak-equivalent) | (없음) | 12 | 분류됨 |
+| 17-4 PH 4-condition 분기 | ❌ 모두 600/30/90 | ✅ 600·540·510·468 / 30·42·66·90 / 90·108·130·144 | 정상 |
+
+### 6) 추가 변경
+- `client/src/lib/materials.ts` — PropertyRange 에 `provenance?: string` + 'subfamily' | 'family' confidence 추가
+- `client/src/components/MaterialDetail.tsx` — confidence badge tooltip 에 provenance 노출
+
+### 7) 후속 작업 (R130+)
+- Vague-HT 62건 (Inconel X-750 / Haynes 230 / Waspaloy / single crystal 등) HT 명시 필요
+- Unverified high-popularity 21건 (AISI 1010/410/430, A36, Naval Brass) verified URL 추가 필요
+- Specialty alloy lookup 확장 (Narloy-Z, SAE 21-4N, Monel 400 condition tracking)
+
 ## R128 — 9개 ANSYS Granta PDF 분석: HX / Al₂O₃ / M250 / H13 / C18100 / Ti-6242 / C17200
 
 R127 의 "이런식으로 요청할 다른 재료들" 응답에 사용자가 9개 PDF 제공 (E:\Downloads\):

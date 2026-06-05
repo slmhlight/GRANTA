@@ -123,8 +123,10 @@ export interface PropertyRange {
   typical: number;
   n: number;
   estimated?: boolean;
-  /** 데이터 신뢰도 단계. 'measured' = 실측 다수, 'handbook' = 표준 데이터시트, 'class' = 클래스 대표(추정), 'derived' = 다른 물성에서 유도(예: 피로 ~UTS×ratio). */
-  confidence?: 'measured' | 'handbook' | 'class' | 'derived';
+  /** 데이터 신뢰도 단계. 'measured' = 실측 다수, 'handbook' = 표준 데이터시트, 'subfamily/family/class' = fallback 단계, 'derived' = 다른 물성에서 유도(예: 피로 ~UTS×ratio). */
+  confidence?: 'measured' | 'handbook' | 'subfamily' | 'family' | 'class' | 'derived';
+  /** R129 — fallback 출처 trace. 예: "alloy:174ph × HT:H1025 (f×0.9, i×1.4)" / "class:PH stainless × HT:H1150 (i×3.0)" / "family:Fe-based σf≈0.45·UTS". UI tooltip 에 노출. */
+  provenance?: string;
 }
 
 /** A provenance entry — verified datasheet URL or honest generic reference. */

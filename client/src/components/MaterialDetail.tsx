@@ -75,6 +75,9 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
     derived: { label: '≈UTS', cls: 'text-rose-500', tip: '다른 물성에서 유도 (예: 피로 = UTS·비율)' },
   };
   const badge = conf ? confBadge[conf] : null;
+  /* R129 — fallback 출처/조정 표시 (provenance). hover tooltip 에 fallback chain 명시.
+            예: "alloy:174ph × HT:H1025 (f×0.9, i×1.4)" → 17-4 PH peak 값에서 H1025 condition 조정. */
+  const prov = (range as { provenance?: string })?.provenance;
   // R48c — price 표시는 formatPrice 사용 — typical 만 항상 평가. range min/max 는 hasRange 조건 안에서만
   //        (이전: range null 인 5 flat-only properties 클릭 시 range!.min eager 평가로 crash).
   const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(typical)}`;
@@ -85,7 +88,7 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
         <span className="font-mono text-xs font-medium text-foreground">{typicalStr}</span>
         {!isPrice && <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>}
         {badge && (
-          <span className={`ml-1 text-[10px] ${badge.cls}`} title={badge.tip}>{badge.label}</span>
+          <span className={`ml-1 text-[10px] ${badge.cls}`} title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}>{badge.label}</span>
         )}
         {hasRange && range && (
           <div className="text-[10px] font-mono text-muted-foreground/70 leading-tight">
