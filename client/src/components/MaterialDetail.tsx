@@ -78,6 +78,10 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
   /* R129 — fallback 출처/조정 표시 (provenance). hover tooltip 에 fallback chain 명시.
             예: "alloy:174ph × HT:H1025 (f×0.9, i×1.4)" → 17-4 PH peak 값에서 H1025 condition 조정. */
   const prov = (range as { provenance?: string })?.provenance;
+  /* R139b — typical (ASM/Granta 평균값) vs min_spec (vendor 보증 minimum, 예: AMS) 구분.
+            vendor minimum 이 typical 과 다를 때 별표 표시 + tooltip 에 출처 명시. */
+  const minSpec = (range as { min_spec_value?: number })?.min_spec_value;
+  const minSpecSrc = (range as { min_spec_source?: string })?.min_spec_source;
   // R48c — price 표시는 formatPrice 사용 — typical 만 항상 평가. range min/max 는 hasRange 조건 안에서만
   //        (이전: range null 인 5 flat-only properties 클릭 시 range!.min eager 평가로 crash).
   const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(typical)}`;
@@ -89,6 +93,15 @@ function RangeRow({ label, range, fallback, unit }: { label: string; range?: Pro
         {!isPrice && <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>}
         {badge && (
           <span className={`ml-1 text-[10px] ${badge.cls}`} title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}>{badge.label}</span>
+        )}
+        {/* R139b — min spec (vendor 보증) vs typical (ASM) 차이 표시 */}
+        {minSpec != null && typeof typical === 'number' && Math.abs(minSpec - typical) > typical * 0.15 && (
+          <span
+            className="ml-1 text-[10px] text-amber-600 font-medium"
+            title={`Typical: ${fmt(typical)} ${unit} (ASM/Granta 평균)\nMin spec: ${fmt(minSpec)} ${unit}${minSpecSrc ? ` (${minSpecSrc})` : ''}\n\n사용자 의사결정 권장: 안전 임계 시 min spec 사용.`}
+          >
+            min={fmt(minSpec)}
+          </span>
         )}
         {hasRange && range && (
           <div className="text-[10px] font-mono text-muted-foreground/70 leading-tight">

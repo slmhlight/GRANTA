@@ -1715,14 +1715,33 @@ function loadCeramicsAsMaterials() {
       setR('price_per_kg', c.price_per_kg);
       setR('electrical_conductivity', c.electrical_conductivity);
       setR('fracture_toughness', c.fracture_toughness);
+      /* R139c — datasheet_url 이 있으면 verified source 로 추가 (CoorsTek/CeramTec/Kennametal/Materion 등). */
+      const sources = [];
+      if (c.datasheet_url) {
+        const vendorName = (() => {
+          const u = c.datasheet_url;
+          if (u.includes('coorstek.com')) return 'CoorsTek';
+          if (u.includes('ceramtec')) return 'CeramTec';
+          if (u.includes('kennametal')) return 'Kennametal';
+          if (u.includes('materion')) return 'Materion';
+          if (u.includes('schott')) return 'Schott';
+          if (u.includes('3m.com')) return '3M';
+          if (u.includes('elementsix')) return 'Element Six';
+          if (u.includes('minteq')) return 'Minteq';
+          if (u.includes('azom')) return 'AZoM';
+          return 'Vendor';
+        })();
+        sources.push({ label: `${vendorName} — ${c.name}`, url: c.datasheet_url, verified: true });
+      }
+      sources.push({ label: c.applications ? `Applications: ${c.applications}` : 'Ceramic handbook', url: null, verified: false });
       return {
         id: 'CER_' + String(i).padStart(3, '0'),
         name: c.name, category: 'Ceramic', subcategory: c.subcategory || 'Oxide', tier: 'reference',
         manufacturers: ['Reference data'], machines: [], processes: ['Sintered'],
         heat_treatment: null, ranges,
-        composition: c.composition || {}, sources: [{ label: c.applications ? `Applications: ${c.applications}` : 'Ceramic handbook', url: null, verified: false }],
+        composition: c.composition || {}, sources,
         machinability: null, weldability: null, corrosion_resistance: 'Excellent',
-        meta: { ceramic: true, applications: c.applications, limitations: c.limitations },
+        meta: { ceramic: true, applications: c.applications, limitations: c.limitations, industry_note: c.industry_note },
         popularity: c.popularity || 3,
       };
     });
@@ -1748,14 +1767,38 @@ function loadCompositesAsMaterials() {
       setR('thermal_expansion', c.cte);
       setR('max_service_temp', c.max_temp);
       setR('price_per_kg', c.price_per_kg);
+      /* R139c — datasheet_url 이 있으면 verified source 로 추가 (Hexcel/Toray/Owens Corning/AGY/Cytec/3M/Honeywell/DuPont 등). */
+      const sources = [];
+      if (c.datasheet_url) {
+        const vendorName = (() => {
+          const u = c.datasheet_url;
+          if (u.includes('hexcel')) return 'Hexcel';
+          if (u.includes('toraytac') || u.includes('toray')) return 'Toray';
+          if (u.includes('owenscorning')) return 'Owens Corning';
+          if (u.includes('agy.com')) return 'AGY';
+          if (u.includes('cytec')) return 'Solvay/Cytec';
+          if (u.includes('3m.com')) return '3M';
+          if (u.includes('honeywell')) return 'Honeywell';
+          if (u.includes('dupont')) return 'DuPont';
+          if (u.includes('rohacell')) return 'Evonik ROHACELL';
+          if (u.includes('gurit')) return 'Gurit';
+          if (u.includes('cps-inc')) return 'CPS Inc';
+          if (u.includes('dynamet')) return 'Dynamet';
+          if (u.includes('elementsix')) return 'Element Six';
+          if (u.includes('matweb')) return 'MatWeb';
+          return 'Vendor';
+        })();
+        sources.push({ label: `${vendorName} — ${c.name}`, url: c.datasheet_url, verified: true });
+      }
+      sources.push({ label: c.applications ? `Apps: ${c.applications}` : 'Composites handbook', url: null, verified: false });
       return {
         id: 'CMP_' + String(i).padStart(3, '0'),
         name: c.name, category: 'Composite', subcategory: c.subcategory || 'Composite', tier: 'reference',
         manufacturers: ['Reference data'], machines: [], processes: ['Layup'],
         heat_treatment: null, ranges, composition: {},
-        sources: [{ label: c.applications ? `Apps: ${c.applications}` : 'Composites handbook', url: null, verified: false }],
+        sources,
         machinability: null, weldability: null, corrosion_resistance: null,
-        meta: { composite: true, anisotropic: true, ply_direction: c.ply_direction, fiber_vf: c.fiber_vf, applications: c.applications, limitations: c.limitations,
+        meta: { composite: true, anisotropic: true, ply_direction: c.ply_direction, fiber_vf: c.fiber_vf, applications: c.applications, limitations: c.limitations, industry_note: c.industry_note,
           anisotropy_note: '복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).' },
         popularity: c.popularity || 3,
       };
@@ -1811,25 +1854,104 @@ const all = [...curated, ...am_vendor, ...generic, ...supplementary, ...ceramics
 // 현재 covered 39/1038 (3.8%) — fracture-critical alloy 선정 정밀화 위해 family typical 채움.
 // 출처: ASM Handbook Vol. 1 (Steels) + Vol. 2 (Nonferrous) + MMPDS-2018 + Special Metals.
 // confidence: 'class' — typical 만 신뢰, individual heat·orientation 변동 큼.
+/* R139a — Subcategory-specific KIC fallback 확장.
+   순서 중요 — 가장 특정한 pattern 먼저 (early-match wins).
+   기존 17 entries → 38 entries (Spring Steel, Bearing Steel, Rail Steel, AHSS, Shipbuilding,
+   Low-Temperature, Press-Hardening, Heat-Resistant, Pressure Vessel, Pipeline, Microalloyed,
+   Armor Steel, Aluminum-Lithium, BeCu, Brass, Bronze 등 subgroup 별로 정밀 typical). */
 const KIC_FALLBACK = [
   // [pattern, [min, typical, max], source]
-  [/tool steel|\bd[23]\b|\bm[24]\b|\bh1[13]\b|skd|cpm|maraging/i, [15, 25, 40], 'ASM Vol.1 Tool Steels'],
-  [/stainless.*austenitic|austenitic.*stainless|304\b|316\b|309|310|321/i, [100, 140, 200], 'ASM Vol.1 Austenitic SS'],
-  [/stainless.*ph|17-?4\s?ph|15-?5\s?ph|ph.*stainless|13-?8/i, [35, 60, 100], 'ASM Vol.1 PH SS'],
-  [/stainless.*martensitic|martensitic.*stainless|\b41[03]\b|\b42[02]\b|\b440[abc]?\b/i, [40, 65, 95], 'ASM Vol.1 Martensitic SS'],
-  [/stainless.*duplex|duplex.*stainless|2205|2507/i, [80, 110, 150], 'ASM Vol.1 Duplex SS'],
-  [/inconel|hastelloy|haynes|nimonic|waspaloy|udimet|rene|monel/i, [70, 100, 130], 'Special Metals SMC-045/093'],
-  [/cobalt|\bco[\s-]?cr[\s-]?mo\b|stellite|f-?75|l-?605/i, [50, 80, 110], 'ASM Vol.2 Cobalt alloys'],
-  [/titanium|^ti-?\d|ti6al4v|ti-?6al-?4v|\bcp\s?ti\b|ti grade/i, [50, 70, 90], 'MMPDS-2018 Titanium'],
-  [/aluminum.*7\d{3}|7075|7050|7\d{3}\b/i, [20, 26, 32], 'Aluminum Association AA 7xxx'],
-  [/aluminum.*6\d{3}|6061|6063|6082|6\d{3}\b/i, [25, 32, 40], 'Aluminum Association AA 6xxx'],
-  [/aluminum.*2\d{3}|2024|2219|2\d{3}\b/i, [18, 24, 30], 'Aluminum Association AA 2xxx'],
-  [/aluminum.*5\d{3}|5052|5083|5754|5\d{3}\b/i, [25, 35, 50], 'Aluminum Association AA 5xxx'],
-  [/aluminum|alsi\d+|aa\s?\d{4}/i, [22, 30, 40], 'Aluminum Association handbook'],
-  [/magnesium|\baz\d|\bwz\d|\baz3[1]\b|\baz9[1]/i, [12, 17, 25], 'ASM Vol.2 Mg alloys'],
-  [/copper|brass|bronze|c[12389]\d{4}/i, [50, 80, 110], 'ASM Vol.2 Cu alloys'],
-  [/carbon steel|alloy steel|41\d{2}|43\d{2}|s45c|aisi|sae\s?\d{4}|8620|9310|52100/i, [30, 45, 70], 'ASM Vol.1 Steels'],
-  [/refractory|tungsten|tantalum|niobium|molybdenum/i, [25, 35, 50], 'ASM Vol.2 Refractory'],
+
+  // ========== Maraging / Tool Steel (specific 먼저) ==========
+  [/maraging\s?350|c-?350|vascomax\s?c-?350/i, [45, 55, 70], 'ATI Allegheny Tech Data Sheet'],
+  [/maraging\s?300|c-?300|18ni.?300/i, [70, 80, 90], 'AMS 6514 / ATI'],
+  [/maraging\s?250|c-?250|18ni.?250/i, [80, 85, 95], 'AMS 6512 / ATI'],
+  [/aermet\s?100|aermet100/i, [100, 130, 150], 'Carpenter AerMet 100 datasheet (AMS 6532)'],
+  [/aermet\s?310/i, [60, 70, 80], 'Carpenter AerMet 310'],
+  [/custom\s?465/i, [85, 104, 130], 'Carpenter Custom 465 (H950)'],
+  [/custom\s?475/i, [60, 70, 80], 'Carpenter Custom 475'],
+  [/h13|skd61|tool.*hot|hot.*tool|x40crmov/i, [20, 24, 30], 'Bohler-Uddeholm H13'],
+  [/m4\s?hss|m42\s?hss|cpm\s?s30v|hss/i, [10, 15, 22], 'Crucible PM tool steel'],
+  [/\bd[23]\b|\bm[24]\b|\bp20\b|\bs7\b|\ba2\b|\bo1\b|tool steel|skd\d|cpm/i, [15, 25, 40], 'ASM Vol.1 Tool Steels'],
+
+  // ========== Stainless 세분화 ==========
+  [/zeron\s?100|s32760|super.?duplex/i, [80, 100, 130], 'Rolled Alloys ZERON 100'],
+  [/stainless.*duplex|duplex.*stainless|\b2205\b|\b2507\b|s32750/i, [80, 110, 150], 'ASM Vol.1 Duplex SS'],
+  [/17-?4\s?ph|s17400|aisi\s?630/i, [85, 95, 110], 'ASM Vol.1 17-4PH H900'],
+  [/15-?5\s?ph|s15500|13-?8\s?mo|s13800/i, [80, 95, 110], 'ASM Vol.1 15-5PH H900'],
+  [/stainless.*ph|17-?7\s?ph|ph.*stainless|precipitation.*hardening/i, [35, 60, 100], 'ASM Vol.1 PH SS general'],
+  [/304l?\b|s30400|sus304|austenitic.*304/i, [180, 220, 260], 'ASM Vol.1 304/304L'],
+  [/316l?\b|s31603|sus316/i, [180, 200, 240], 'ASM Vol.1 316/316L'],
+  [/sae\s?21-?4n|21cr.*4ni/i, [120, 140, 170], 'Carpenter 21-4N NACE 7-7'],
+  [/254\s?smo|s31254/i, [150, 180, 220], 'Outokumpu 254 SMO'],
+  [/stainless.*austenitic|austenitic.*stainless|aisi\s?30[1-9]|aisi\s?31[0-7]|321\b|347\b/i, [100, 140, 200], 'ASM Vol.1 Austenitic SS'],
+  [/martensitic.*stainless|stainless.*martensitic|\b410\b|\b420\b|\b440[abc]?\b/i, [40, 65, 95], 'ASM Vol.1 Martensitic SS'],
+  [/ferritic.*stainless|stainless.*ferritic|\b430\b|\b436\b|\b446\b/i, [60, 80, 110], 'ASM Vol.1 Ferritic SS'],
+  [/cust\s?455|cust\s?630/i, [70, 85, 100], 'Carpenter Custom 455/630'],
+
+  // ========== Ni Superalloy 세분화 ==========
+  [/inconel\s?718|in[\s-]?718|n07718/i, [90, 100, 110], 'Special Metals SMC-045 Inconel 718'],
+  [/inconel\s?625|alloy\s?625|n06625/i, [100, 110, 130], 'Special Metals Inconel 625'],
+  [/hastelloy\s?x|haynes?\s?230|haynes?\s?282|haynes?\s?188/i, [80, 100, 120], 'Haynes International'],
+  [/cmsx-?4|rene\s?n5|pwa1484|single.?crystal/i, [25, 35, 50], 'GE Aviation Single Crystal'],
+  [/inconel\s?100|in-?100|in-?738|in-?939/i, [40, 55, 75], 'Cast Ni superalloy'],
+  [/inconel|hastelloy|haynes|nimonic|waspaloy|udimet|rene|monel|incoloy/i, [70, 100, 130], 'Special Metals/Haynes general'],
+
+  // ========== Cobalt / Ti 세분화 ==========
+  [/cobalt|\bco[\s-]?cr[\s-]?mo\b|stellite|f-?75|f1537|l-?605|mp35n/i, [50, 80, 110], 'ASM Vol.2 Cobalt alloys'],
+  [/ti-?6al-?4v|ti6al4v|r56400|r56407|grade\s?5\b|grade\s?23/i, [55, 75, 95], 'AMS 4928 / ASTM F136'],
+  [/ti-?6242|ti-?6-?2-?4-?2|r54620|near.?alpha.?ti/i, [60, 76, 90], 'TIMET Timetal 6242'],
+  [/ti-?5553|ti-?10v-?2fe|ti-?15-?3|beta.?ti|ti-?525/i, [40, 50, 65], 'TIMET beta Ti'],
+  [/ti-?gr.?11|ti.?0\.?2pd|grade\s?11/i, [68, 70, 72], 'ASTM B265 Ti Gr11'],
+  [/titanium|^ti-?\d|cp\s?ti|ti grade|ti-?\d+|^ti\b/i, [50, 70, 90], 'MMPDS-2018 Titanium'],
+
+  // ========== Steel subgroup 세분화 ==========
+  [/dp\s?980|dual.?phase.*980|hct980x|cr980/i, [70, 90, 110], 'AHSS DP980 (Granta + POSCO)'],
+  [/dp\s?\d{3,4}|trip\s?\d{3,4}|cp\s?\d{3,4}|advanced.*high.*strength|ahss/i, [60, 80, 100], 'AHSS family'],
+  [/twip\s?1180|twip\s?500/i, [50, 65, 80], 'POSCO TWIP'],
+  [/22mnb5|usibor|press.?hardening|phs/i, [80, 100, 140], '22MnB5 USIBOR hot-stamped'],
+  [/9\s?%?\s?ni|a553|low.?temp|cryogenic.?steel/i, [100, 130, 170], 'ASTM A553 9% Ni LNG'],
+  [/eh36|dh36|ah36|shipbuilding|abs\s?(?:a|b|d|e)h36/i, [80, 110, 140], 'ABS/DNV class shipbuilding'],
+  [/sa516|p355n|pressure.?vessel|asme.?b.?pv/i, [75, 90, 120], 'ASME SA-516 pressure vessel'],
+  [/api\s?5l|x42|x52|x60|x65|x70|x80|pipeline|line.?pipe/i, [70, 95, 130], 'API 5L pipeline'],
+  [/a572|a588|cor-?ten|hsla|weathering/i, [60, 80, 100], 'ASTM A572/A588 HSLA'],
+  [/structural|a36|s235|s275|s355|s460/i, [55, 75, 95], 'ASTM A36 / EN structural'],
+  [/armox|mil-?a-?46100|armor.?steel|rha/i, [25, 35, 45], 'SSAB Armox armor steel'],
+  [/r260|r350ht|rail.?steel|uic.?\d+/i, [25, 35, 50], 'BS EN 13674 Rail'],
+  [/p91|t22|800h|incoloy\s?800|heat.?resistant/i, [80, 100, 130], 'ASME B&PV Sec.II heat-resistant'],
+  [/52100|100cr6|suj2|bearing.?steel/i, [15, 22, 30], '52100 bearing'],
+  [/spring.?steel|\bsup\d|9260|5160|51crv4/i, [50, 65, 85], 'ASM spring steel'],
+  [/4140|4340|4130|8740|300m|d6ac|alloy steel|aisi\s?4|sae\s?4|sncm/i, [55, 75, 100], 'AMS 6415 alloy steel'],
+  [/1010|1018|1020|1045|1095|aisi\s?10|sae\s?10|carbon steel|s45c/i, [40, 55, 80], 'AISI carbon steel'],
+
+  // ========== Aluminum 세분화 ==========
+  [/aa\s?20(50|90|99|95)|aa\s?219[5-9]|al-?li|2196|2198/i, [25, 35, 45], 'FAA DOT/TC-18/21 Al-Li'],
+  [/aa\s?7075|aa\s?7050|aa\s?7068|7075|7050/i, [22, 28, 35], 'Aluminum Association AA 7075-T651'],
+  [/aluminum.*7\d{3}|7\d{3}\b/i, [20, 26, 32], 'AA 7xxx Al-Zn'],
+  [/aa\s?6061|aa\s?6063|aa\s?6082|6061|6063|6082/i, [27, 35, 42], 'AA 6061-T6'],
+  [/aluminum.*6\d{3}|6\d{3}\b/i, [25, 32, 40], 'AA 6xxx Al-Mg-Si'],
+  [/aa\s?2024|aa\s?2219|aa\s?2014|2024|2219/i, [20, 26, 32], 'AA 2024-T351'],
+  [/aluminum.*2\d{3}|2\d{3}\b/i, [18, 24, 30], 'AA 2xxx Al-Cu'],
+  [/aa\s?5083|aa\s?5052|aa\s?5454|5083|5052|5454/i, [27, 38, 50], 'AA 5083 marine'],
+  [/aluminum.*5\d{3}|5\d{3}\b/i, [25, 35, 50], 'AA 5xxx Al-Mg'],
+  [/aa\s?1100|aa\s?1050|aa\s?1200|1100|1050|1200/i, [40, 50, 65], 'AA 1xxx CP Al'],
+  [/scalmalloy|al.?mg.?sc/i, [22, 28, 35], 'APWorks Scalmalloy'],
+  [/alsi10mg|alsi7mg|al12si|alsi.?cast/i, [12, 18, 25], 'EOS AlSi10Mg cast'],
+  [/aluminum|alumi|aa\s?\d{4}/i, [22, 30, 40], 'Aluminum Association handbook'],
+
+  // ========== Magnesium / Copper / Refractory ==========
+  [/magnesium|\baz3[1]\b|\baz6[1]\b|\baz9[1]\b|we43|we54|zk60|wz\d/i, [12, 17, 25], 'ASM Vol.2 Mg alloys'],
+  [/c17200|c17500|c17510|cube|bery|moldmax/i, [50, 60, 75], 'Materion BeCu C17200'],
+  [/c18000|c18100|c18150|c18200|cucr|cuni2sicr/i, [50, 60, 75], 'Cu-Cr-Zr / Cu-Ni-Si-Cr family'],
+  [/c95820|c95500|c63020|cu.?al.?fe|aluminum.?bronze|nab\b/i, [40, 60, 80], 'Copper.org NIAB'],
+  [/c26000|c46400|brass|naval.?brass|cuzn/i, [40, 55, 75], 'Copper.org Brass'],
+  [/c70600|c71500|c75200|cuni|cupronickel/i, [70, 100, 130], 'Copper.org Cu-Ni'],
+  [/narloy.?z|narloyz/i, [55, 70, 85], 'NASA TM-86932 Narloy-Z'],
+  [/copper|brass|bronze|c[12389]\d{4}/i, [50, 80, 110], 'ASM Vol.2 Cu alloys general'],
+  [/invar|kovar|fe.?ni3[56]|controlled.?expansion/i, [70, 100, 130], 'Carpenter Invar 36 / Kovar'],
+  [/tungsten|tzm|tantalum|niobium|molybdenum|refractory|c-?103/i, [25, 35, 50], 'ASM Vol.2 Refractory'],
+  [/zircaloy|zr.?nb|zr-?4|r608\d{2}/i, [40, 55, 75], 'Westinghouse Zircaloy-4'],
+  [/cast iron|grey iron|ductile|nodular|a536/i, [25, 35, 50], 'ASTM A536 ductile iron'],
 ];
 let kicFilled = 0;
 for (const m of all) {
@@ -3923,6 +4045,41 @@ try {
   console.warn('story injection skipped:', e?.message);
 }
 if (storyAttached) console.log(`R75/R78 — stories attached: ${storyAttached}`);
+
+/* R139b — Impact strength typical (ASM) vs min_spec (vendor minimum) 표시.
+   사용자 의사결정 도우미: 안전 임계 시 min spec 사용 권장. */
+const IMPACT_MIN_SPECS = [
+  // [pattern, min_spec value (J), source]
+  [/maraging\s?250/i, 18, 'AMS 6512 minimum (vs ASM Vol.4 typical 32 J)'],
+  [/maraging\s?300/i, 12, 'AMS 6514 minimum'],
+  [/maraging\s?350|c-?350/i, 8, 'ATI C-350 minimum'],
+  [/inconel\s?718.*sta|inconel\s?718\b/i, 27, 'AMS 5662 minimum (vs ASM 40 J typical)'],
+  [/eh36|ah36|dh36/i, 27, 'ABS class minimum at -40°C (vs typical 70 J)'],
+  [/a553.*type\s?i|9\s?%?\s?ni.*lng/i, 100, 'ASTM A553 Type I minimum at -196°C (vs typical 130 J)'],
+  [/a572|a588|grade\s?50/i, 20, 'ASTM A572/A588 minimum'],
+  [/api\s?5l.*x[6-8][05]/i, 40, 'API 5L PSL2 minimum'],
+  [/dp\s?980|hct980x/i, 25, 'AHSS minimum (vs typical 40 J)'],
+  [/zeron\s?100/i, 100, 'NACE ISO 15156 minimum'],
+  [/custom\s?465.*h\s?950/i, 22, 'Carpenter Custom 465 H950 minimum'],
+  [/ti-?6al-?4v.*grade\s?23|ti.*eli/i, 17, 'ASTM F136 ELI minimum (vs typical 24 J)'],
+];
+let impactMinSpecFilled = 0;
+for (const m of all) {
+  if (m.category !== 'Metal') continue;
+  const r = m.ranges?.impact_strength;
+  if (!r || r.typical == null) continue;
+  const key = `${m.name} ${m.heat_treatment || ''} ${m.subcategory || ''}`;
+  for (const [rx, minVal, src] of IMPACT_MIN_SPECS) {
+    if (rx.test(key)) {
+      r.min_spec_value = minVal;
+      r.min_spec_source = src;
+      r.spec_type = 'typical';
+      impactMinSpecFilled++;
+      break;
+    }
+  }
+}
+if (impactMinSpecFilled > 0) console.log(`R139b — Impact min_spec annotated: ${impactMinSpecFilled} entries`);
 
 /* R133b — confidence_tier 자동 부여.
    사용자 요청: "재료가 없으면 표시하지 않는것도 하나의 방법".

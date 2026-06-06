@@ -133,6 +133,12 @@ export interface PropertyRange {
   confidence?: 'measured' | 'handbook' | 'subfamily' | 'family' | 'class' | 'derived';
   /** R129 — fallback 출처 trace. 예: "alloy:174ph × HT:H1025 (f×0.9, i×1.4)" / "class:PH stainless × HT:H1150 (i×3.0)" / "family:Fe-based σf≈0.45·UTS". UI tooltip 에 노출. */
   provenance?: string;
+  /** R139b — Property 값의 의미 분류. 'typical' = ASM/Granta 평균값 (default), 'min_spec' = vendor 보증 최소값 (e.g. AMS minimum), 'max_spec' = vendor max. 주로 impact_strength 에서 typical(ASM) vs min_spec(AMS) 차이를 명시. */
+  spec_type?: 'typical' | 'min_spec' | 'max_spec' | 'mixed';
+  /** R139b — vendor 보증 최소 spec (min_spec 값이 typical 와 다를 때). 예: Maraging 250 impact min spec 18 J (AMS 6512) vs typical 32 J (ASM Vol.4). UI 에 별도 표시. */
+  min_spec_value?: number;
+  /** R139b — min_spec 출처 (예: "AMS 6512", "EN 10025-2", "ASTM A553"). */
+  min_spec_source?: string;
 }
 
 /** A provenance entry — verified datasheet URL or honest generic reference. */

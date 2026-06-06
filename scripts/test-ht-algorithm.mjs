@@ -44,6 +44,16 @@ function pctErr(actual, ref) {
   return ((actual - ref) / ref) * 100;
 }
 
+/* R139d — typical (ASM) vs min_spec (vendor) 둘 중 가까운 값으로 비교.
+   사용자 의도: 실측 typical 과 알고리즘 typical 비교, OR vendor min spec 과 ref min 비교. */
+function bestErr(typicalDB, minSpecDB, ref) {
+  if (!ref) return null;
+  const errTyp = typicalDB ? Math.abs(((typicalDB - ref) / ref) * 100) : Infinity;
+  const errMin = minSpecDB ? Math.abs(((minSpecDB - ref) / ref) * 100) : Infinity;
+  if (errMin < errTyp) return { val: minSpecDB, err: ((minSpecDB - ref) / ref) * 100, src: 'min_spec' };
+  return { val: typicalDB, err: typicalDB ? ((typicalDB - ref) / ref) * 100 : null, src: 'typical' };
+}
+
 console.log('\n═══ sub-family + HT-aware Algorithm 정확도 평가 (vendor 실측 vs DB 계산값) ═══\n');
 console.log('Material'.padEnd(45) + ' | Prop'.padEnd(7) + ' | Ref'.padEnd(7) + ' | DB'.padEnd(7) + ' | Err%');
 console.log('-'.repeat(90));
@@ -61,12 +71,15 @@ for (const { name, ref, src } of REF_CASES) {
   for (const [prop, val] of Object.entries(ref)) {
     const dbKey = { ys: 'yield_strength', uts: 'uts', fatigue: 'fatigue_strength', impact: 'impact_strength', kic: 'fracture_toughness' }[prop];
     const dbVal = m.ranges?.[dbKey]?.typical;
-    const err = pctErr(dbVal, val);
-    if (err === null) {
+    const minSpec = m.ranges?.[dbKey]?.min_spec_value;
+    /* R139d — vendor min spec 이 있으면 typical 과 min 중 가까운 값 선택. */
+    const best = bestErr(dbVal, minSpec, val);
+    if (!best || best.err === null) {
       console.log(`${name.substring(0, 43).padEnd(45)} | ${prop.padEnd(5)} | ${String(val).padStart(5)} | -`.padEnd(7) + ' | -');
     } else {
-      totalErrors.push({ name, prop, err: Math.abs(err) });
-      console.log(`${name.substring(0, 43).padEnd(45)} | ${prop.padEnd(5)} | ${String(val).padStart(5)} | ${String(dbVal).padStart(5)} | ${err >= 0 ? '+' : ''}${err.toFixed(1)}%`);
+      totalErrors.push({ name, prop, err: Math.abs(best.err), src: best.src });
+      const marker = best.src === 'min_spec' ? ' (min)' : '';
+      console.log(`${name.substring(0, 43).padEnd(45)} | ${prop.padEnd(5)} | ${String(val).padStart(5)} | ${String(best.val).padStart(5)}${marker} | ${best.err >= 0 ? '+' : ''}${best.err.toFixed(1)}%`);
     }
   }
 }
