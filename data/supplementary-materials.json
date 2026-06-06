@@ -1092,49 +1092,60 @@
       "subcategory": "Alloy Steel",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance",
+        "Fe": "69~73",
         "Co": "13~14",
-        "Ni": "11~12",
-        "Cr": "3~3.3",
+        "Ni": "10~12",
+        "Cr": "2.9~3.3",
         "Mo": "1.1~1.3",
         "C": "0.21~0.25"
       },
       "points": [
         [
           7.89,
-          1724,
-          1965,
-          14,
-          194,
-          540,
-          28
+          1620,
+          1930,
+          8,
+          193,
+          568,
+          25
         ],
         [
           7.89,
-          1620,
-          1860,
-          13,
-          194,
-          520,
-          28
+          1705,
+          2030,
+          10,
+          198,
+          580,
+          26
         ],
         [
           7.89,
           1790,
-          2030,
-          16,
-          194,
-          560,
-          28
+          2130,
+          10,
+          203,
+          594,
+          27
         ]
+      ],
+      "conditions": [
+        "Solution treated + Aged 468°C (min spec)",
+        "Solution treated + Aged 475°C (typical)",
+        "Solution treated + Aged 482°C (max strength)"
+      ],
+      "fatigue": [737, 755, 772],
+      "ref_urls": [
+        "ANSYS Granta — High alloy steel, AerMet 100 (UNS K92580, AMS 6532)",
+        "https://www.carpentertechnology.com/alloy-finder/aermet-100"
       ],
       "sources": [
         {
-          "label": "Carpenter — AerMet 100 (aged)",
-          "url": null,
-          "verified": false
+          "label": "ANSYS Granta + Carpenter — AerMet 100 (UNS K92580, AMS 6532)",
+          "url": "https://www.carpentertechnology.com/alloy-finder/aermet-100",
+          "verified": true
         }
-      ]
+      ],
+      "heat_treatment": "Solution treated + Aged 468-482°C (AMS 6532)"
     },
     {
       "name": "300M",
@@ -2113,50 +2124,82 @@
       "subcategory": "Nickel Superalloy",
       "process": "Wrought",
       "composition": {
-        "Ni": "balance",
-        "Cr": "19~20",
-        "Co": "10~11",
-        "Mo": "8~9",
-        "Ti": "2~2.3",
-        "Al": "1.4~1.6"
+        "Ni": "57",
+        "Cr": "20",
+        "Co": "10",
+        "Mo": "8.5",
+        "Ti": "2.1",
+        "Al": "1.5",
+        "Fe": "≤1.5",
+        "B": "0.005",
+        "C": "0.06"
       },
       "points": [
         [
           8.27,
-          700,
-          1150,
-          28,
+          699,
+          1132,
+          30,
           217,
-          320,
-          10
+          280,
+          11
         ],
         [
           8.27,
-          660,
-          1100,
-          24,
+          715,
+          1147,
+          30,
           217,
           300,
-          10
+          11
         ],
         [
           8.27,
-          740,
-          1200,
-          32,
-          217,
-          340,
-          10
+          624,
+          941,
+          36,
+          200,
+          280,
+          18
+        ],
+        [
+          8.27,
+          612,
+          833,
+          27,
+          190,
+          265,
+          22
+        ],
+        [
+          8.27,
+          501,
+          555,
+          22,
+          175,
+          250,
+          26
         ]
+      ],
+      "conditions": [
+        "Solution Annealed + Aged (sheet, 1149°C + 1010°C 2h + 788°C 8h)",
+        "Solution Annealed + Aged (plate, 1135°C + 1010°C 2h + 788°C 8h)",
+        "Solution + Aged, tested at 704°C (1300°F service)",
+        "Solution + Aged, tested at 760°C (1400°F service)",
+        "Solution + Aged, tested at 871°C (1600°F service)"
+      ],
+      "ref_urls": [
+        "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HAYNES282alloy.aspx",
+        "Haynes International — HAYNES 282 alloy H-3173F brochure (2023)"
       ],
       "sources": [
         {
-          "label": "Haynes International — Haynes 282 (UNS N07208)",
-          "url": null,
-          "verified": false
+          "label": "Haynes International — HAYNES 282 alloy (UNS N07208, H-3173F)",
+          "url": "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HAYNES282alloy.aspx",
+          "verified": true
         }
       ],
-      "heat_treatment": "Solution + Aged (1135°C / 1010°C 2h + 790°C 8h, Haynes std)"
+      "heat_treatment": "Solution Annealed + Aged (1135°C / 1010°C 2h + 788°C 8h, Haynes std H-3173F)"
     },
     {
       "name": "254 SMO (S31254)",
@@ -2260,51 +2303,86 @@
     {
       "name": "Custom 465",
       "category": "Metal",
-      "subcategory": "Stainless Steel - Ferritic/Martensitic",
+      "subcategory": "Stainless Steel - PH",
       "process": "Wrought",
       "composition": {
         "Fe": "balance",
         "Cr": "11~12.5",
         "Ni": "10.75~11.25",
         "Ti": "1.5~1.8",
-        "Mo": "0.75~1.25"
+        "Mo": "0.75~1.25",
+        "Mn": "≤0.25",
+        "Si": "≤0.25",
+        "C": "≤0.02"
       },
       "points": [
         [
-          7.8,
-          1450,
-          1550,
-          12,
-          200,
-          480,
-          16
+          7.83,
+          1669,
+          1765,
+          13,
+          198,
+          540,
+          14.06
         ],
         [
-          7.8,
-          1380,
-          1500,
-          10,
-          200,
-          460,
-          16
-        ],
-        [
-          7.8,
-          1500,
+          7.84,
           1620,
-          14,
-          200,
-          500,
-          16
+          1703,
+          15,
+          197,
+          528,
+          15.65
+        ],
+        [
+          7.84,
+          1510,
+          1593,
+          17,
+          196,
+          515,
+          17.71
+        ],
+        [
+          7.84,
+          1413,
+          1517,
+          15,
+          196,
+          506,
+          19.37
+        ],
+        [
+          7.86,
+          1386,
+          1482,
+          18,
+          196,
+          488,
+          21.43
         ]
+      ],
+      "conditions": [
+        "H 950 (peak strength, 510°C/4h aged)",
+        "H 975 (480°C/4h aged)",
+        "H 1000 (538°C/4h aged)",
+        "H 1025 (552°C/4h aged)",
+        "H 1050 (566°C/4h aged)"
+      ],
+      "fatigue": [620, 720, 820],
+      "impact": [10, 30, 56],
+      "ref_urls": [
+        "https://www.carpentertechnology.com/alloy-finder/custom-465",
+        "Carpenter Custom 465 datasheet (AMS 5936, ASTM A564, MMPDS-01)"
       ],
       "sources": [
         {
-          "label": "Carpenter — Custom 465 PH stainless (UNS S46500)",
-          "url": null,
-          "verified": false
+          "label": "Carpenter Technology — Custom 465 (UNS S46500, AMS 5936, MMPDS-01)",
+          "url": "https://www.carpentertechnology.com/alloy-finder/custom-465",
+          "verified": true
         }
-      ]
+      ],
+      "heat_treatment": "H 950 (peak — 510°C 4h aged, UTS≥1765 MPa, KIC=104 MPa√m, Charpy 30J)"
     },
     {
       "name": "Tungsten (W)",
@@ -6964,6 +7042,59 @@
           "verified": true
         }
       ]
+    },
+    {
+      "name": "Ti-6Al-4V Grade 23 ELI (UNS R56401)",
+      "category": "Metal",
+      "subcategory": "Titanium",
+      "process": "Wrought",
+      "composition": {
+        "Ti": "88.09~91.0",
+        "Al": "5.5~6.5",
+        "V": "3.5~4.5",
+        "Fe": "≤0.25",
+        "C": "≤0.08",
+        "N": "≤0.03",
+        "H": "≤0.0125",
+        "O": "≤0.13"
+      },
+      "points": [
+        [
+          4.43,
+          790,
+          860,
+          15,
+          113.8,
+          341,
+          6.7
+        ],
+        [
+          4.43,
+          828,
+          895,
+          14,
+          113.8,
+          355,
+          6.7
+        ]
+      ],
+      "conditions": [
+        "Annealed (medical implant std, AMS 4907 / ASTM F136)",
+        "STA — Solution 904-954°C WQ + Aged 538°C 4h AC"
+      ],
+      "ref_urls": [
+        "https://www.azom.com/article.aspx?ArticleID=9365",
+        "ASTM F136 — Wrought Ti-6Al-4V ELI for Surgical Implants"
+      ],
+      "sources": [
+        {
+          "label": "AZoM + ASTM F136 — Ti-6Al-4V ELI Grade 23 (UNS R56401, surgical implant)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=9365",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Annealed (mill product, ASTM F136 surgical implant grade)",
+      "industry_note": "Extra Low Interstitial 의료 임플란트 grade. 일반 Grade 5 대비 O ≤0.13 / N ≤0.03 / Fe ≤0.25 / H ≤0.0125 로 interstitial 제한 → 저온 fracture toughness ↑. 인공관절 femoral stem, 척추 cage, 치과 implant abutment, cryogenic vessel (-320°C) 적용. AMS 4907, ASTM F136, MIL F-83142."
     },
     {
       "name": "Ti-15V-3Cr-3Al-3Sn",

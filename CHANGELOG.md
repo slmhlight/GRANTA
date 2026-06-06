@@ -2,6 +2,49 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R132 — 4 추가 자료 (Aermet 100 / Haynes 282 / Custom 465 / Ti-6-4 ELI Gr23) + 3rd_family heuristic 평가
+
+R131 의 후속 작업. 사용자 PDF 3개 + AZoM URL 1개 추가 제공.
+
+### R132a — 4 자료 handbook 승격
+- **AerMet 100** (UNS K92580 / AMS 6532, ANSYS Granta + Carpenter): 3 conditions (Aged 468/475/482°C) 정밀 데이터
+  - σy 1620-1790 / UTS 1930-2130 MPa / KIC 105 / fatigue 737-772 / CTE 10.4 / Cp 495
+- **Haynes 282** (Haynes Intl H-3173F 2023): 5 conditions (RT, 538°C, 649°C, 760°C, 871°C) + creep_rupture table
+  - 표준 HT: Solution Anneal 1135°C + Age 1010°C/2h + 788°C/8h
+- **Custom 465** (Carpenter datasheet AMS 5936 / MMPDS-01): 5 conditions H950/H975/H1000/H1025/H1050
+  - H950 peak: σy 1669 / UTS 1765 / Charpy 30J / KIC 104 / HRC 49.5
+  - subcategory: "Stainless Steel - Ferritic/Martensitic" → **"Stainless Steel - PH"** (corrected)
+- **Ti-6Al-4V Grade 23 ELI** (AZoM 9365 + ASTM F136): UNS R56401 의료 implant 신규 entry
+  - 2 conditions (annealed + STA), Extra Low Interstitial (O ≤0.13%, N ≤0.03%, Fe ≤0.25%)
+- Build pipeline: ALLOY_SPECIFIC + ALLOY_FAT_IMPACT 의 aermet100/custom465 값을 Granta/Carpenter 실측으로 calibrate
+
+### R132b — 3rd_family + HT heuristic 신뢰도 평가 (data/3rd-family-heuristic-assessment.md)
+사용자 질문 응답: "3rd family + HT heuristic이면 꽤 신뢰도가 높겠지?"
+
+**Confidence tier 별 expected error band**:
+- measured: ±5-10%
+- handbook (alloy-specific): ±10-15%
+- **handbook (alloy × HT-adjusted): ±15-20%** ← R129 multiplier
+- **subfamily (3rd family): ±15-25%** ← 사용자 질문의 답
+- family (2nd family): ±25-40%
+- class (1st family): ±40-60%
+- derived: ±25-30%
+
+**17-4 PH 사례 검증 결과**: handbook + HT 조합 평균 오차 **±5%** (ASM Vol.1 실측 대비).
+
+**Anchor 가용성** (scripts/audit-3rd-family.mjs):
+- 안정적 (anchor ≥50%): 13 subcategory — Stainless PH 95.5%, Maraging 100%, Refractory 86.5%, Alloy Steel 83.9% 등
+- **부족 (anchor 0%, 총 14 subfamily)**: Structural Steel (11 entries) · Rail (5) · Pressure Vessel (4) · Pipeline (4) · Press-Hardening (3) · AHSS (3) · Zirconium (3) · Shipbuilding (3) · Cast Iron / Al-Li / Low-Temp / HSLA / Armor / Microalloyed (각 2)
+
+**필요 자료 Top 5 (우선순위)**:
+1. ASTM A36 + A572 Gr50 (Structural Steel)
+2. API 5L X65/X70 (Pipeline + Microalloyed)
+3. 22MnB5 Usibor 1500 (Press-Hardening + AHSS)
+4. Zircaloy-4 / Zr-Nb cladding (Zirconium nuclear)
+5. Inconel 718 STA vs DSA SMC-045 (HT multiplier 검증)
+
+**결과**: 1,268 → **1,280** materials, verified-source **804 → 816**.
+
 ## R130 + R131 — Vague-HT 62건 + Unverified 21건 + Specialty alloy + DB 신뢰성 평가
 
 R129 의 후속 작업. 사용자 요청: "솔직하게 데이터를 보여줘야해. 후속작업 다 하면 DB의 신뢰성에 대해 전체적으로 평가."

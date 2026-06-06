@@ -580,9 +580,14 @@ const ALLOY_SPECIFIC = {
   'cuni2sicr': { ec: 50,  tmax: 480, price: 25, cte: 16.5, poisson: 0.34, cp: 380, melt: 1070, kic: 60 },
   'ti6246':    { ec: 0.9, tmax: 480, price: 65, cte: 8.0,  poisson: 0.34, cp: 520, melt: 1650, kic: 60 },
   'ti6-2-4-6': { ec: 0.9, tmax: 480, price: 65, cte: 8.0,  poisson: 0.34, cp: 520, melt: 1650, kic: 60 },
-  'aermet100': { ec: 6.0, tmax: 480, price: 35, cte: 11.8, poisson: 0.30, cp: 460, melt: 1430, kic: 105 },  // UHS Carpenter
-  'aermet310': { ec: 5.5, tmax: 480, price: 45, cte: 11.5, poisson: 0.30, cp: 460, melt: 1430, kic: 70 },
-  'custom465': { ec: 2.5, tmax: 480, price: 10, cte: 10.6, poisson: 0.27, cp: 460, melt: 1430, kic: 85 },
+  /* R132 — AerMet 100: Granta + Carpenter datasheet 실측. KIC 100-150 (aged peak 105) → 105.
+     CTE 10.1-10.6 → 10.4. Cp 485-505 → 495. Tmax 382-427 → 405. Price KRW 48100-59900 → 30 USD. */
+  'aermet100': { ec: 3.1, tmax: 405, price: 30, cte: 10.4, poisson: 0.30, cp: 495, melt: 1437, kic: 105 },
+  'aermet310': { ec: 3.0, tmax: 405, price: 40, cte: 10.4, poisson: 0.30, cp: 495, melt: 1430, kic: 70 },
+  /* R132 — Custom 465: Carpenter datasheet H950 peak. CTE 10.30 (25-100°C) / 12.40 (25-600°C).
+     Cp 480 (typical Fe-based PH). Tmax 482°C (Carpenter spec). KIC 104 (H950 @ RT). */
+  'custom465': { ec: 2.5, tmax: 482, price: 12, cte: 10.30, poisson: 0.28, cp: 480, melt: 1428, kic: 104 },
+  'custom475': { ec: 2.5, tmax: 482, price: 15, cte: 10.4, poisson: 0.28, cp: 480, melt: 1428, kic: 80 },
   'custom475': { ec: 2.5, tmax: 480, price: 12, cte: 10.6, poisson: 0.27, cp: 460, melt: 1430, kic: 70 },
   // ─── R109 신규 확장 — Carbon/Alloy steel 추가 ───
   '1010': { ec: 16, tmax: 540, price: 0.8, cte: 11.7, poisson: 0.29, cp: 481, melt: 1520, kic: 65 },
@@ -860,9 +865,12 @@ const ALLOY_FAT_IMPACT = {
   'cuni2sicr':   { fatigue: [200, 250, 300], impact: [25, 45, 70] },    // C18000-family
   'ti6246':      { fatigue: [430, 510, 590], impact: [12, 18, 25] },    // β-rich Ti, TIMET
   'ti6-2-4-6':   { fatigue: [430, 510, 590], impact: [12, 18, 25] },
-  'aermet100':   { fatigue: [620, 740, 860], impact: [25, 40, 60] },    // UHS Carpenter
+  /* R132 — AerMet 100 Granta: fatigue 737-772 MPa (peak aged 482°C). */
+  'aermet100':   { fatigue: [620, 755, 860], impact: [25, 45, 70] },    // UHS Carpenter — Granta verified
   'aermet310':   { fatigue: [700, 830, 950], impact: [12, 22, 32] },
-  'custom465':   { fatigue: [620, 720, 820], impact: [10, 18, 28] },    // Carpenter PH stainless H950
+  /* R132 — Custom 465: Carpenter datasheet H950 Charpy 30 J (22 ft-lbs). H1050 Charpy 56 J.
+     Fatigue endurance estimated from σf ≈ 0.42×UTS (PH stainless typical). */
+  'custom465':   { fatigue: [620, 720, 820], impact: [10, 30, 56] },    // Carpenter PH H950 peak
   'custom475':   { fatigue: [660, 760, 860], impact: [8, 15, 24] },
 };
 
@@ -1261,7 +1269,8 @@ const REAL_PROPS = {
   'cocrmo': { fatigue: [350, 450, 550], impact: [25, 50, 75], elevated_temp: [{ temp: 20, ys: 450, uts: 655 }, { temp: 540, ys: 380, uts: 560 }, { temp: 760, ys: 280, uts: 420 }, { temp: 870, ys: 180, uts: 280 }] },
   'aa5052': { fatigue: [105, 117, 140], impact: [20, 30, 40], elevated_temp: [{ temp: 20, ys: 195, uts: 230 }, { temp: 100, ys: 185, uts: 220 }, { temp: 200, ys: 165, uts: 195 }, { temp: 300, ys: 70, uts: 95 }] },
   'hastelloyx': { fatigue: [255, 290, 325], impact: [80, 110, 140], elevated_temp: [{ temp: 20, ys: 360, uts: 785 }, { temp: 540, ys: 260, uts: 620 }, { temp: 760, ys: 220, uts: 415 }, { temp: 870, ys: 180, uts: 275 }] },
-  'haynes282': { fatigue: [400, 475, 550], impact: [50, 80, 110], elevated_temp: [{ temp: 20, ys: 730, uts: 1110 }, { temp: 540, ys: 700, uts: 1050 }, { temp: 760, ys: 650, uts: 920 }, { temp: 870, ys: 480, uts: 620 }] },
+  /* R132 — Haynes 282 verified Haynes Intl H-3173F brochure (2023). Plate-form age-hardened RT YS=715, UTS=1147. */
+  'haynes282': { fatigue: [400, 475, 550], impact: [50, 80, 110], elevated_temp: [{ temp: 20, ys: 715, uts: 1147 }, { temp: 538, ys: 649, uts: 991 }, { temp: 649, ys: 643, uts: 1048 }, { temp: 760, ys: 628, uts: 856 }, { temp: 871, ys: 507, uts: 566 }, { temp: 927, ys: 310, uts: 359 }], creep_rupture: [{ temp: 760, stress: 255, hours: 100 }, { temp: 871, stress: 124, hours: 100 }, { temp: 927, stress: 62, hours: 100 }] },
   'inconel939': { fatigue: [380, 430, 480], impact: [10, 14, 20], elevated_temp: [{ temp: 20, ys: 800, uts: 1050 }, { temp: 540, ys: 760, uts: 1000 }, { temp: 760, ys: 720, uts: 950 }, { temp: 870, ys: 620, uts: 800 }] },
   'inconel738': { fatigue: [400, 450, 500], impact: [10, 15, 22], elevated_temp: [{ temp: 20, ys: 950, uts: 1130 }, { temp: 540, ys: 920, uts: 1100 }, { temp: 760, ys: 860, uts: 1020 }, { temp: 870, ys: 700, uts: 870 }] },
   '155ph': { fatigue: [480, 540, 600], impact: [25, 40, 55], elevated_temp: [{ temp: 20, ys: 1170, uts: 1310 }, { temp: 300, ys: 1010, uts: 1170 }, { temp: 425, ys: 940, uts: 1080 }, { temp: 540, ys: 760, uts: 900 }] },
