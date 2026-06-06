@@ -1,0 +1,89 @@
+﻿
+═══ sub-family + HT-aware Algorithm 정확도 평가 (vendor 실측 vs DB 계산값) ═══
+
+Material                                      | Prop | Ref  | DB   | Err%
+------------------------------------------------------------------------------------------
+17-4 PH (UNS S17400) — H900                   | ys    |  1170 |  1170 | +0.0%
+17-4 PH (UNS S17400) — H900                   | uts   |  1310 |  1310 | +0.0%
+17-4 PH (UNS S17400) — H900                   | fatigue |   600 |   600 | +0.0%
+17-4 PH (UNS S17400) — H900                   | impact |    30 |    30 | +0.0%
+17-4 PH (UNS S17400) — H900                   | kic   |    90 |    90 | +0.0%
+17-4 PH (UNS S17400) — H1025                  | ys    |  1000 |  1000 | +0.0%
+17-4 PH (UNS S17400) — H1025                  | uts   |  1070 |  1070 | +0.0%
+17-4 PH (UNS S17400) — H1025                  | fatigue |   545 |   540 | -0.9%
+17-4 PH (UNS S17400) — H1025                  | impact |    45 |    42 | -6.7%
+17-4 PH (UNS S17400) — H1025                  | kic   |   105 |   108 | +2.9%
+17-4 PH (UNS S17400) — H1075                  | ys    |   860 |   860 | +0.0%
+17-4 PH (UNS S17400) — H1075                  | uts   |  1000 |  1000 | +0.0%
+17-4 PH (UNS S17400) — H1075                  | fatigue |   510 |   510 | +0.0%
+17-4 PH (UNS S17400) — H1075                  | impact |    70 |    66 | -5.7%
+17-4 PH (UNS S17400) — H1075                  | kic   |   130 | 130.5 | +0.4%
+17-4 PH (UNS S17400) — H1150                  | ys    |   795 |   795 | +0.0%
+17-4 PH (UNS S17400) — H1150                  | uts   |   965 |   965 | +0.0%
+17-4 PH (UNS S17400) — H1150                  | fatigue |   460 |   468 | +1.7%
+17-4 PH (UNS S17400) — H1150                  | impact |    95 |    90 | -5.3%
+17-4 PH (UNS S17400) — H1150                  | kic   |   140 |   144 | +2.9%
+Maraging 250 (UNS K92890) — Maraged 482°C/3   | ys    |  1670 |  1640 | -1.8%
+Maraging 250 (UNS K92890) — Maraged 482°C/3   | uts   |  1750 |  1690 | -3.4%
+Maraging 250 (UNS K92890) — Maraged 482°C/3   | fatigue |   660 |   660 | +0.0%
+Maraging 250 (UNS K92890) — Maraged 482°C/3   | impact |    18 |    32 | +77.8%
+Maraging 250 (UNS K92890) — Maraged 482°C/3   | kic   |    85 |    85 | +0.0%
+Maraging 300 (UNS K93120, AMS 6514) — Solut   | ys    |  1960 |  1950 | -0.5%
+Maraging 300 (UNS K93120, AMS 6514) — Solut   | uts   |  2030 |  2050 | +1.0%
+Maraging 300 (UNS K93120, AMS 6514) — Solut   | fatigue |   800 |   700 | -12.5%
+Maraging 300 (UNS K93120, AMS 6514) — Solut   | impact |    18 |    22 | +22.2%
+Maraging 300 (UNS K93120, AMS 6514) — Solut   | kic   |    80 |    80 | +0.0%
+Inconel 718 Tech Data (HighTempMetals.com v   | ys    |  1100 |  1100 | +0.0%
+Inconel 718 Tech Data (HighTempMetals.com v   | uts   |  1280 |  1280 | +0.0%
+Inconel 718 Tech Data (HighTempMetals.com v   | fatigue |   535 |   535 | +0.0%
+Inconel 718 Tech Data (HighTempMetals.com v   | impact |    40 |    30 | -25.0%
+Inconel 718 Tech Data (HighTempMetals.com v   | kic   |   100 |   100 | +0.0%
+Ti-6Al-4V — Annealed                          | ys    |   850 |   880 | +3.5%
+Ti-6Al-4V — Annealed                          | uts   |   950 |   950 | +0.0%
+Ti-6Al-4V — Annealed                          | fatigue |   525 |   525 | +0.0%
+Ti-6Al-4V — Annealed                          | impact |    20 |    20 | +0.0%
+Ti-6Al-4V — Annealed                          | kic   |    75 |    75 | +0.0%
+Custom 465 — H 950 (peak strength, 510°C/4h   | ys    |  1669 |  1669 | +0.0%
+Custom 465 — H 950 (peak strength, 510°C/4h   | uts   |  1765 |  1765 | +0.0%
+Custom 465 — H 950 (peak strength, 510°C/4h   | fatigue |   720 |   620 | -13.9%
+Custom 465 — H 950 (peak strength, 510°C/4h   | impact |    30 |    10 | -66.7%
+Custom 465 — H 950 (peak strength, 510°C/4h   | kic   |   104 |   104 | +0.0%
+DP980 dual-phase steel (EN HCT980X / VDA 23   | ys    |   600 |   600 | +0.0%
+DP980 dual-phase steel (EN HCT980X / VDA 23   | uts   |   980 |   980 | +0.0%
+DP980 dual-phase steel (EN HCT980X / VDA 23   | fatigue |   338 |   220 | -34.9%
+DP980 dual-phase steel (EN HCT980X / VDA 23   | impact |    40 |    25 | -37.5%
+DP980 dual-phase steel (EN HCT980X / VDA 23   | kic   |    90 |    90 | +0.0%
+EH36 shipbuilding steel (ABS / DNV / KR / L   | ys    |   355 |   355 | +0.0%
+EH36 shipbuilding steel (ABS / DNV / KR / L   | uts   |   555 |   555 | +0.0%
+EH36 shipbuilding steel (ABS / DNV / KR / L   | fatigue |   220 |   180 | -18.2%
+EH36 shipbuilding steel (ABS / DNV / KR / L   | impact |    70 |    27 | -61.4%
+EH36 shipbuilding steel (ABS / DNV / KR / L   | kic   |   110 |   110 | +0.0%
+ZERON 100 (UNS S32760, super-duplex stainle   | ys    |   552 |   552 | +0.0%
+ZERON 100 (UNS S32760, super-duplex stainle   | uts   |   752 |   752 | +0.0%
+ZERON 100 (UNS S32760, super-duplex stainle   | fatigue |   320 |   280 | -12.5%
+ZERON 100 (UNS S32760, super-duplex stainle   | impact |   100 |    60 | -40.0%
+ZERON 100 (UNS S32760, super-duplex stainle   | kic   |   100 |   100 | +0.0%
+C18000 (CuNiSiCr)                             | ys    |   483 |   483 | +0.0%
+C18000 (CuNiSiCr)                             | uts   |   586 |   586 | +0.0%
+C18000 (CuNiSiCr)                             | fatigue |   240 |   240 | +0.0%
+C18000 (CuNiSiCr)                             | impact |    45 |    45 | +0.0%
+C18000 (CuNiSiCr)                             | kic   |    60 |    60 | +0.0%
+9% Ni Steel (ASTM A553 Type I) — LNG tank —   | ys    |   585 |   585 | +0.0%
+9% Ni Steel (ASTM A553 Type I) — LNG tank —   | uts   |   690 |   690 | +0.0%
+9% Ni Steel (ASTM A553 Type I) — LNG tank —   | fatigue |   290 |   240 | -17.2%
+9% Ni Steel (ASTM A553 Type I) — LNG tank —   | impact |   130 |    80 | -38.5%
+9% Ni Steel (ASTM A553 Type I) — LNG tank —   | kic   |   130 |   130 | +0.0%
+
+═══ Algorithm 정확도 통계 ═══
+
+Coverage: 14/14 materials (100%)
+Total prop comparisons: 70
+Mean absolute error: ±7.4%
+Maximum error: 77.8%
+Within ±5%: 53/70 (76%)
+Within ±10%: 56/70 (80%)
+Within ±20%: 61/70 (87%)
+
+═══ 평가 결론 ═══
+
+✅ 평균 오차 ±10% 미만 — 1차 sizing 적용 가능 (safety factor 2× 권장)

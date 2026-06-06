@@ -1429,6 +1429,69 @@
       "heat_treatment": "STA — Solution 980°C/1h WQ + Aged 720°C/8h FC + 620°C/8h AC (γ\" peak)"
     },
     {
+      "name": "AISI 302 (general-purpose austenitic stainless, higher-C 304)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "67.7~75", "Cr": "17~19", "Ni": "8~10",
+        "Mn": "≤2", "Si": "≤1", "C": "≤0.15", "P": "≤0.045", "S": "≤0.03"
+      },
+      "points": [
+        [7.91, 234, 565, 50, 193, 184, 16]
+      ],
+      "conditions": ["Solution annealed (S30200, EN 1.4319, X10CrNi18-8, SUS302)"],
+      "fatigue": [186, 210, 240],
+      "impact": [80, 130, 200],
+      "fracture_toughness": [60, 65, 72],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel austenitic AISI 302 annealed (UNS S30200, EN 1.4319)",
+        "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Outokumpu — AISI 302 (UNS S30200, X10CrNi18-8)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Solution annealed 1010°C WQ (higher-C 304 변종, 약간 강도 ↑ + 부식 동등)"
+    },
+    {
+      "name": "C63020 (Cu-Al-Fe-Ni nickel-iron-aluminum bronze, wrought)",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Wrought",
+      "composition": {
+        "Cu": "75.2~81.8", "Al": "10~11", "Ni": "4.2~6", "Fe": "4~5.5",
+        "Mn": "≤1.5", "Zn": "≤0.3", "Sn": "≤0.25", "Co": "≤0.2", "Cr": "≤0.05", "Pb": "≤0.03"
+      },
+      "points": [
+        [7.68, 410, 740, 19, 120, 203, 44]
+      ],
+      "conditions": ["As-extruded (CW307G, CuAl10Fe5Ni5)"],
+      "fatigue": [255, 300, 345],
+      "impact": [12, 22, 35],
+      "fracture_toughness": [45, 60, 80],
+      "ref_urls": [
+        "ANSYS Granta — Bronze CuAl10Fe5Ni5 C63020 as extruded (UNS C63020, EN CW307G, JIS C6301)",
+        "https://www.copper.org/resources/properties/db/datasheets/c63020.html"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Copper.org — C63020 NIAB wrought (UNS C63020, EN CW307G)",
+          "url": "https://www.copper.org/resources/properties/db/datasheets/c63020.html",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "As-extruded (wrought variant of C95820 cast NAB)",
+      "aliases": [
+        "C63020", "CuAl10Fe5Ni5", "CW307G", "QAl10-4-4", "C6301",
+        "Ampco 18", "Hidurax 1086", "Cupralinox"
+      ],
+      "industry_note": "C95820 (cast NAB) 의 wrought (extruded) 변종 — pump shaft, marine fastener / valve spindle, gear, slide bushing, deep-drawing die, marine shaft, heavy mill bearing, non-sparking tool. C95820 대비 wrought 가공으로 mechanical anisotropy ↓ + tighter tolerance. POSCO / Mitsubishi Materials / Ampco Pittsburgh 양산."
+    },
+    {
       "name": "C95820 (Cu-Al-Fe-Ni nickel-aluminum bronze)",
       "category": "Metal",
       "subcategory": "Copper Alloy",
