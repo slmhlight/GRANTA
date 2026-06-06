@@ -30,13 +30,26 @@
       "price_per_kg": 130, "popularity": 4
     },
     {
-      "name": "CFRP — IM7/Epoxy (UD 0°)",
+      "name": "CFRP — IM7/8552 Epoxy (Hexcel HexPly UD 0°)",
       "subcategory": "Carbon-Epoxy",
-      "density": 1.57, "ys": 2700, "uts": 2700, "modulus": 165, "elongation": 1.7,
-      "thermal_k": 6, "cte": 0.4, "max_temp": 130,
-      "fiber_vf": 0.6, "ply_direction": "UD 0°",
-      "applications": "B-1B 폭격기 동체, 미사일 모터 케이스, 로켓 격리벽",
-      "price_per_kg": 140, "popularity": 4
+      "density": 1.57, "ys": 2724, "uts": 2724, "modulus": 163, "elongation": 1.7,
+      "thermal_k": 6, "cte": 0.4, "max_temp": 121,
+      "fiber_vf": 0.5742, "ply_direction": "UD 0°",
+      "applications": "B-1B 폭격기 동체, 미사일 모터 케이스, 로켓 격리벽, Airbus A350 wing skin, Boeing 787 nacelle",
+      "price_per_kg": 140, "popularity": 4,
+      "datasheet_url": "https://www.hexcel.com/Resources/DataSheets/Prepreg/",
+      "industry_note": "Hexcel HexPly 8552 epoxy matrix (180°C cure) + IM7 (12K tow) UD prepreg. 항공기 primary aerospace structure 표준 — 0° tensile 2724 MPa (-55°C dry), 90° tensile 92 MPa, 0° compression 1690 MPa, ILSS 137 MPa. 121°C 환경에서 거의 무손실 (controlled flow matrix)."
+    },
+    {
+      "name": "CFRP — AS4/8552 Epoxy (Hexcel HexPly UD 0°)",
+      "subcategory": "Carbon-Epoxy",
+      "density": 1.58, "ys": 2207, "uts": 2207, "modulus": 134, "elongation": 1.7,
+      "thermal_k": 6, "cte": 0.5, "max_temp": 121,
+      "fiber_vf": 0.5742, "ply_direction": "UD 0°",
+      "applications": "Boeing 787 fuselage skin, 항공기 secondary structure, 헬리콥터 rotor blade",
+      "price_per_kg": 110, "popularity": 4,
+      "datasheet_url": "https://www.hexcel.com/Resources/DataSheets/Prepreg/",
+      "industry_note": "Hexcel HexPly 8552 epoxy matrix + AS4 (12K tow) UD prepreg. 0° tensile 1903-2207 MPa, 0° compression 1586 MPa, ILSS 128 MPa. IM7 대비 modulus 낮으나 cost 효율 (40% 저렴). Boeing 787 fuselage, F-22 / F-35 일부, regional aircraft 사용."
     },
     {
       "name": "CFRP — M55J/Epoxy (Pitch UD 0°)",

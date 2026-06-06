@@ -2,6 +2,68 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R135 — 13 PDF anchor 완성 + 필요 자료 10 + 삭제 후보 10
+
+R134b 의 후속 작업. 사용자 13 PDF 추가 제공 + 필요/삭제 list 요청.
+
+### R135a — 13 PDF 처리
+
+**신규 entries (anchor 추가)**:
+- **DP980 (HCT980X, EN 1.0944)** — AHSS subcategory 재분류 + Granta + POSCO + ArcelorMittal verified
+- **EH36 shipbuilding** (ABS/DNV/KR/LR class, ASTM A131) — Shipbuilding anchor (Charpy -40°C ≥27J)
+- **ASTM A588 Gr A** weathering steel — HSLA anchor (Cor-Ten A equivalent)
+
+**Upgrade entries (verified URL 강화)**:
+- **Maraging 300** (UNS K93120, AMS 6514) — ANSYS Granta verified, KIC 75-85, fatigue 768-816
+- **Y-TZP 3 mol%** — CoorsTek SDS + DURA-Z/TZ-3Y-E alias
+- **CFRP — IM7/8552** — Hexcel HexPly verified (Boeing 787 / Airbus A350 primary structure)
+- **CFRP — AS4/8552** — Hexcel HexPly verified 신규 entry
+
+**신규 Polymer**:
+- **PVDF Kynar 740** (Arkema fluorinated homopolymer) — NSF/ANSI 61 certified, Tensile 50 / Tm 168°C
+
+**Anchor% 변화**:
+| Subfamily | R134a | R135a |
+|---|---|---|
+| AHSS | 0% | **40%** |
+| HSLA | 0% | **33%** |
+| Shipbuilding | 0% | **25%** |
+
+**최종 통계**:
+- 1,235 → 1,240 materials
+- verified-source: 853 → **857**
+- confidence_tier: high 513 → **517**, low **80** (unchanged)
+
+### R135b — 필요 자료 10 + 삭제 후보 10 (data/r135b-action-list.md)
+
+**필요한 자료 10 (Tier 1-3)**:
+1. A553 Type I+II Nippon Steel 9Ni — Low-Temp anchor 완성
+2. API 5L X42N + X52M PSL2 vendor — Microalloyed anchor
+3. Inconel 718 STA + DSA SMC-045 full brochure — HT multiplier 0.65→0.80 calibration
+4. Maraging C350 datasheet (AMS 6520) — Maraging 350 anchor
+5. Tool steel H13 HRC 44/50/53 실측 — HRC variant multiplier 검증
+6. PEI Ultem 1010/9085 SABIC datasheet — Polymer 신뢰도
+7. PSU Udel + Radel PPSU Solvay datasheet — Polymer 신뢰도
+8. Al2O3 99.95% CoorsTek Vitox MSDS — Ceramic 신뢰도
+9. Y-TZP Tosoh TZ-3Y-E mechanical full datasheet — LTD/fatigue 실측
+10. Si3N4 CeramTec/Kyocera HIP grade datasheet — Ceramic 신뢰도
+
+**삭제 후보 10 (Metal only)** — `verified=0` + `safety<1` + `popularity≥3` + 대체 anchor 존재:
+1. AA 7005 (모든 HT 5 variants) → AA 7050/7075
+2. AISI 1144 (Stressproof) → AISI 4140/1045
+3. C68000 (high-Mn brass) → C26000/C46400
+4. C95500 (Cu-Ni-Al bronze) → C95400/C95800
+5. 309S / 310S (low-C 변종) → AISI 309/310 (이미 보유)
+6. AISI 301 / 302 (HT variants) → AISI 304/304L
+7. 654 SMO (Outokumpu specialty) → 254 SMO
+8. Zeron 100 (Rolled Alloys super-duplex) → 2507
+9. AA 5454 → AA 5052/5083
+10. Bronze — As-supplied (Binder Jetting) → Specific bronze (C36000, C46400)
+
+→ R136a 에서 EXCLUDED_ALLOY_PATTERNS 추가 권장 (총 ~30-40 CSV 행 추가 제외).
+
+검증: pnpm check / pnpm test (47 pass) / pnpm build 21s
+
 ## R134 — 24 PDF anchor 보강 + 8 alloy 명시 삭제 + 품질 로드맵
 
 R133b 의 후속 작업. 사용자 24 PDF 추가 제공 + "자료 없는 entry 삭제 고려" + "확장 < 정확성" 명시.

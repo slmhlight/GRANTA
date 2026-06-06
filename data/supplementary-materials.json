@@ -240,7 +240,7 @@
       ]
     },
     {
-      "name": "Maraging 300 (UNS K93120)",
+      "name": "Maraging 300 (UNS K93120, AMS 6514)",
       "category": "Metal",
       "subcategory": "Maraging Steel",
       "process": "Wrought",
@@ -294,11 +294,23 @@
         "Annealed (815°C AC)",
         "Solution treated (820°C/1h AC)",
         "Aged (480°C/6h)",
-        "Solution + Aged"
+        "Solution + Aged (peak 480°C/6h)"
       ],
+      "fatigue": [768, 816, 870],
+      "impact": [12, 18, 28],
+      "fracture_toughness": [75, 80, 85],
       "ref_urls": [
+        "ANSYS Granta — Maraging steel 300 maraged at 482°C (UNS K93120, AMS 6514, K93120)",
         "https://www.matweb.com/search/QuickText.aspx?SearchText=maraging+300"
-      ]
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + AMS 6514 — Maraging 300 (UNS K93120, X3NiCoMoTi 18-9-5)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=maraging+300",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Solution treated 820°C + Aged 482°C/6h (peak strength, AMS 6514)"
     },
     {
       "name": "Maraging 250 (UNS K92890)",
@@ -19168,44 +19180,128 @@
       "industry_note": "POSCO 독자 개발 TWIP steel (Twinning-Induced Plasticity) — 자동차 B-pillar / A-pillar / bumper. UTS 1180 + El 45% (동시 만족 = 무게 감량 + 충돌 안전 trade-off 해결). 18~22% Mn 으로 austenitic 유지 + twin slip mechanism. 현대 IONIQ / 기아 EV6 차체 구조용. 다른 1차 자료: POSCO 백서."
     },
     {
-      "name": "DP980 dual-phase steel (VDA 239-100 CR980Y700T-DP)",
+      "name": "DP980 dual-phase steel (EN HCT980X / VDA 239-100 CR980Y700T-DP)",
       "category": "Metal",
-      "subcategory": "Carbon Steel",
+      "subcategory": "Advanced High-Strength Steel",
       "process": "Cold Rolled + Continuous Annealed (Dual-Phase: Ferrite + Martensite)",
       "composition": {
-        "Fe": "balance",
-        "C": "0.10~0.15",
-        "Mn": "1.5~2.5",
-        "Si": "≤0.5",
-        "Cr+Mo": "≤0.5"
+        "Fe": "90.7~97.3",
+        "C": "0.06~0.23",
+        "Mn": "0.4~2.9",
+        "Si": "0.4~1.4",
+        "Al": "1.8~2.2",
+        "Cr+Mo": "≤2",
+        "Nb+Ti+V": "≤0.5",
+        "B": "≤0.005"
       },
       "points": [
-        [
-          7.85,
-          590,
-          980,
-          12,
-          200,
-          290,
-          441
-        ]
+        [7.85, 600, 980, 17, 200, 290, 42],
+        [7.85, 750, 1100, 10, 221, 323, 50]
       ],
       "conditions": [
-        "Continuous annealed (ferrite ~80% + martensite ~20%)"
+        "Cold-rolled YS600 (typical, σy 600 MPa min, σu 980-1100)",
+        "Cold-rolled YS750 (high-end, σy 750 MPa)"
       ],
+      "fatigue": [308, 338, 368],
+      "impact": [25, 40, 53],
+      "fracture_toughness": [74, 90, 107],
       "ref_urls": [
-        "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp"
+        "ANSYS Granta — Dual phase steel YS600 cold rolled (EN 10336:2007 HCT980X, EN 1.0944)",
+        "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp",
+        "ArcelorMittal DP 980 LCE Y600 / World Auto Steel DP 700/1000"
       ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + ArcelorMittal + POSCO — DP980 (HCT980X, EN 1.0944, VDA 239-100)",
+          "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Cold rolled + Continuous annealed (DP microstructure: ferrite + 20% martensite)",
       "aliases": [
-        "DP980",
-        "Dual Phase 980",
-        "POSCO DP980",
-        "VDA239-100 CR980Y700T-DP",
-        "ArcelorMittal DP980",
-        "ThyssenKrupp DP-K39/70+Z",
-        "Usibor 1500 close equivalent"
+        "DP980", "Dual Phase 980", "POSCO DP980", "HCT980X",
+        "VDA239-100 CR980Y700T-DP", "ArcelorMittal DP980", "ThyssenKrupp DP-K39/70+Z",
+        "World Auto Steel DP 700/1000"
       ],
-      "industry_note": "POSCO DP980 (Dual-Phase 980) — 자동차 outer body / door inner / B-pillar inner. UTS 980 + El 12% — TRIP 보다 cold-formable. ArcelorMittal Usibor 1500 / TKS DP980 등가. 현대·기아 / Toyota / GM 표준 AHSS (Advanced High Strength Steel)."
+      "industry_note": "POSCO DP980 (Dual-Phase 980) — 자동차 outer body / door inner / B-pillar inner. UTS 980 + El 12% — TRIP 보다 cold-formable. ArcelorMittal Usibor 1500 / TKS DP980 등가. 현대·기아 / Toyota / GM 표준 AHSS (Advanced High Strength Steel). 충돌 흡수 zone front/rear rail + crush can + rocker reinforcement."
+    },
+    {
+      "name": "EH36 shipbuilding steel (ABS / DNV / KR / LR class)",
+      "category": "Metal",
+      "subcategory": "Shipbuilding Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "C": "≤0.18",
+        "Mn": "0.9~1.6",
+        "Si": "0.10~0.50",
+        "Cu": "≤0.35", "Cr": "≤0.20", "Ni": "≤0.40", "Mo": "≤0.08",
+        "Nb": "≤0.05", "V": "≤0.10", "Ti": "≤0.02",
+        "P": "≤0.025", "S": "≤0.020"
+      },
+      "points": [
+        [7.85, 355, 555, 21, 206, 175, 40]
+      ],
+      "conditions": ["Normalized / TMCP (E grade = Charpy at -40°C ≥ 27J transverse)"],
+      "fatigue": [180, 220, 260],
+      "impact": [27, 70, 130],
+      "fracture_toughness": [80, 110, 140],
+      "ref_urls": [
+        "https://www.octalmetals.com/ah36-dh36-eh36-shipbuilding-steel-plate/",
+        "ABS / DNV-GL / KR / LR Rules for Building and Classing Steel Vessels Part 2 — Materials",
+        "ASTM A131 / A131M-19 Standard Spec for Structural Steel for Ships"
+      ],
+      "sources": [
+        {
+          "label": "ABS/DNV/KR/LR Class + Octal Metals — EH36 (-40°C Charpy ≥ 27J, hull/bulkhead/deck)",
+          "url": "https://www.octalmetals.com/ah36-dh36-eh36-shipbuilding-steel-plate/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Normalized 870-940°C 또는 TMCP (Thermo-Mechanical Controlled Process)",
+      "aliases": [
+        "EH36", "ABS EH36", "DNV EH36", "KR EH36", "LR EH36",
+        "JIS KE36", "GB/T 712 EH36"
+      ],
+      "industry_note": "고강도 선박용 강 — Arctic-class LNG carrier 외판, container ship hull, offshore platform deck, bulk carrier hatch cover. AH=20°C / DH=-20°C / EH=-40°C Charpy 등급. KR (한국선급) / ABS (미국선급) / DNV (노르웨이선급) / LR (영국선급) 모두 동등 spec. POSCO / Nippon Steel / JFE / Daewoo Shipbuilding (현 한화오션) 표준 EH36 plate."
+    },
+    {
+      "name": "ASTM A588 Grade A (weathering steel)",
+      "category": "Metal",
+      "subcategory": "High-Strength Low-Alloy Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "C": "≤0.19",
+        "Mn": "0.8~1.25",
+        "Si": "0.30~0.65",
+        "Cu": "0.25~0.40", "Cr": "0.40~0.65", "Ni": "≤0.40", "V": "0.02~0.10",
+        "P": "≤0.030", "S": "≤0.030"
+      },
+      "points": [
+        [7.85, 250, 475, 23, 200, 140, 50]
+      ],
+      "conditions": ["As-rolled (silicon-killed deoxidized, atmospheric corrosion-resistant patina)"],
+      "fatigue": [180, 215, 245],
+      "impact": [25, 45, 70],
+      "fracture_toughness": [60, 80, 100],
+      "ref_urls": [
+        "https://www.metalsusa.com/a588-grade-steel/",
+        "ASTM A588/A588M-19 Standard Spec for HSLA Structural Steel with Atmospheric Corrosion Resistance"
+      ],
+      "sources": [
+        {
+          "label": "ASTM A588/A588M-19 + Metals USA — A588 Grade A weathering steel (Cor-Ten A equivalent)",
+          "url": "https://www.metalsusa.com/a588-grade-steel/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "As-rolled (silicon-killed) — protective Cu-Cr-P oxide layer forms over 1-3 years",
+      "aliases": [
+        "ASTM A588", "A588 Gr A", "A588 Grade B", "A588 Grade K",
+        "Cor-Ten A", "Cor-Ten B", "Patinax", "Indaten"
+      ],
+      "industry_note": "Weathering steel — 무도장 outdoor 구조용 (4× 일반 carbon steel 부식 저항). 교량 (Mosca/Boston Iron Workers bridges), 송전탑, 공원 sculpture (Picasso Chicago / Serra installations), 화차 wagon, 건축 facade (Tadao Ando, RPBW). 한국 채택: 일부 산업단지 화학 plant + 일부 LRT 교각. POSCO / Nippon Steel / Tata Steel 양산."
     },
     {
       "name": "ASTM A553 Type I (9% Ni cryogenic steel)",
