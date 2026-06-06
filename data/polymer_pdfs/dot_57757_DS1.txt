@@ -1,0 +1,923 @@
+DOT/FAA/TC-18/21, V1                 Material Characterization
+                                     of Aluminum Lithium Alloys Used
+Federal Aviation Administration      in Aerospace Applications
+William J. Hughes Technical Center   Volume 1: Program Overview
+Aviation Research Division
+Atlantic City International Airport
+New Jersey 08405
+
+                                     March 2020
+                                     Final Report
+
+                                     This document is available to the U.S. public
+                                     through the National Technical Information
+                                     Services (NTIS), Springfield, Virginia 22161.
+                                     This document is also available from the
+                                     Federal Aviation Administration William J. Hughes
+                                     Technical Center at actlibrary.tc.faa.gov.
+
+                                     U.S. Department of Transportation
+                                     Federal Aviation Administration
+                                            NOTICE
+This document is disseminated under the sponsorship of the U.S.
+Department of Transportation in the interest of information exchange. The
+U.S. Government assumes no liability for the contents or use thereof. The
+U.S. Government does not endorse products or manufacturers. Trade or
+manufacturers' names appear herein solely because they are considered
+essential to the objective of this report. The findings and conclusions in this
+report are those of the author(s) and do not necessarily represent the views
+of the funding agency. This document does not constitute FAA policy.
+Consult the FAA sponsoring organization listed on the Technical
+Documentation page as to its use.
+
+This report is available at the Federal Aviation Administration William J.
+Hughes Technical Center's Full-Text Technical Reports page:
+actlibrary.tc.faa.gov in Adobe Acrobat portable document format (PDF).
+1. Report No.                           2. Government Accession No.                Technical Report Documentation Page
+
+DOT/FAA/TC-18/21, V1                                                               3. Recipient's Catalog No.
+
+4. Title and Subtitle                                                              5. Report Date
+
+MATERIAL CHARACTERIZATION OF ALUMINUM LITHIUM ALLOYS USED                          March 2020
+IN AEROSPACE APPLICATIONS, VOLUME 1: PROGRAM OVERVIEW
+                                                                                   6. Performing Organization Code
+
+7. Author(s)                                                                       8. Performing Organization Report No.
+                                                                                   10. Work Unit No. (TRAIS)
+Kevin Stonaker1, John Bakuckas1, Ian Won2, Mark Freisthler2, Bruce Thomas3,        11. Contract or Grant No.
+Michael Niedzinski4
+
+9. Performing Organization Name and Address
+
+1 FAA William J Hughes Technical 2 FAA NW Mountain Regional Office
+
+Center, Atlantic City, NJ               Renton, WA
+
+3 Bombardier Inc.                       4 Constellium
+    Montreal, Quebec, Canada              Hoffman Estates, IL
+
+12. Sponsoring Agency Name and Address                                             13. Type of Report and Period Covered
+
+U.S. Department of Transportation                                                  Final Report
+Federal Aviation Administration
+2200 S 216th St                                                                    14. Sponsoring Agency Code
+Des Moines, WA 98198
+                                                                                      ANM-100
+
+15. Supplementary Notes
+
+The FAA William J. Hughes Technical Center Aviation Research Division COR was Dr. John G. Bakuckas, Jr.
+
+16. Abstract
+
+This study was performed by the FAA to assess the material properties and mechanical behavior of next-generation aluminum
+lithium (Al-Li) alloys being used in aerospace structures through comparisons made to conventional aerospace aluminum alloys
+(AAs). The latest generation of Al-Li alloys purports to offer a significant weight savings over conventional aerospace aluminums
+resulting in significant use in recent aircraft and aerospace applications. The current public data provided for these alloys are limited
+and do not provide a comprehensive understanding of the strengths and weaknesses of these materials. Because previous generations
+of Al-Li alloys displayed material behaviors that limited their use for aerospace applications, it is necessary to understand the
+properties of these new alloys and identify if any unique behaviors exist.
+
+Two Al-Li alloys were considered as a case study, namely Al-Li 2198-T8 and 2196-T8511 alloys used for skin and extrusion
+applications, respectively. Several properties were assessed and compared with the baseline AA 2024-T3/351 and 7075-T6 alloys,
+including static properties, fatigue and fatigue crack-growth behavior, and supplemental properties. This report constitutes volume
+1 of 4 and serves as an overview and background for the program. The subsequent volumes provide a more focused look at the
+specific tests conducted and data generated. Though the sample size was limited, this program was not meant to develop any design
+allowables or present the Al-Li alloys as direct replacements for the traditional aluminums alloys. Rather, they were conducted to
+provide a broad, high-level look at the materials to determine if there are any unique behaviors in the Al-Li alloys that may need
+further vetting as these materials (and other third-generation Al-Li alloys) see more widespread use in new aircraft design.
+
+Overall, the Al-Li tested as part of this program behaved in line with expectations. All static properties results, for both the Al-Li
+and baseline AAs, exceeded the applicable Metallic Materials Property Development and Standardization (MMPDS) handbook
+values. The Al-Li did show signs of anisotropy, in which strength at the 45-degree grain orientation was the lowest, but this is
+accounted for by the MMPDS values. Under fatigue loading, the Al-Li 2198-T8 performed similar to the baseline 2024-T3 for the
+threshold and stable crack-growth phase. The Al-Li showed higher fatigue crack-growth resistance nearing instability, with the best
+performance at the 45-degree grain orientation. Finally, for all of the supplemental testing, both the Al-Li and baseline AAs
+responded comparably to external conditions; namely, a corrosive 5% NaCl aqueous solution, 1800°F flame, and fastener hole cold
+working.
+
+17. Key Words                                                        18. Distribution Statement
+
+Aluminum lithium, Aluminum, 2024-T3, 7075-T6, 2198-T8, 2196-         This document is available to the U.S. public through the
+T8511, Static properties, Fatigue crack growth, Supplemental         National Technical Information Service (NTIS), Springfield,
+properties                                                           Virginia 22161. This document is also available from the Federal
+                                                                     Aviation Administration William J. Hughes Technical Center at
+                                                                     actlibrary.tc.faa.gov.
+
+19. Security Classif. (of this report)  20. Security Classif. (of this page)       21. No. of Pages  22. Price
+
+   Unclassified                            Unclassified                               28
+
+Form DOT F 1700.7 (8-72)                Reproduction of completed page authorized
+                                          ACKNOWLEDGEMENTS
+The work presented in this series of reports is the culmination of a multi-year program that owes
+its success to the contributions of numerous partner organizations. It is only because of the
+expertise and resources provided by these organizations that such a wide array of testing could be
+completed in such a condensed amount of time. Many thanks and much appreciation to those who
+have contributed.
+Partner organizations and key contributors include: Frank Eberl, and Peter Bittner of Constellium;
+Prof. Jonathan Awerbuch, Prof. Tein Min Tan, David Stanley, Matthew Prokop, and Eric
+Prasalowicz of Drexel University; Patrick Safarian, Michael Gorelik, and Doug Ostgaard of the
+FAA; John Bakuckas, Tim Marker, Jeff Panco, Pat Sheehan, and Matt Lembo of the FAA William
+J. Hughes Technical Center; Joy Ransom of Fatigue Technology Inc.; Royce Foreman of NASA
+Johnson Space Center; Eun Lee of U.S. Navy Naval Air System Command; Paul Jonas, Royal
+Lovingfoss, and Elizabeth Clarkson of the National Institute for Aviation Research; and Todd
+Jones of the University of Dayton Research Institute.
+
+                                                         iii
+                       TABLE OF CONTENTS
+
+                                                                   Page
+
+EXECUTIVE SUMMARY                                                  viii
+
+1. INTRODUCTION                                                    1
+
+2. BACKGROUND                                                      2
+
+2.1 Historical Development                                         2
+
+2.2 Current Use                                                    5
+
+3. PROGRAM SUMMARY                                                 5
+
+3.1 Purpose                                                        5
+
+3.2 Scope                                                          6
+
+3.2.1 Program Test Matrix                                          6
+
+3.2.2 Al-Li 2198-T8 Sheet and Al-Li 2196-T8511 Extruded Materials  8
+
+4. TEST OVERVIEWS                                                  9
+
+4.1 Static Properties                                              9
+
+4.1.1 Tension Properties                                           9
+
+4.1.2 Compression Properties                                       10
+
+4.1.3 Shear Properties                                             10
+
+4.2 Fatigue and FCG                                                10
+
+4.2.1 FCG                                                          11
+
+4.2.2 Spectrum FCG                                                 11
+
+4.3 Supplemental Property Tests                                    12
+
+4.3.1 Environmentally Assisted Cracking                            12
+
+4.3.2 Flammability and Burn Resistance                             12
+
+4.3.3 Fastener Hole Process                                        13
+
+5. REPRESENTATIVE RESULTS                                          13
+
+5.1 Static Properties                                              13
+
+5.2 Fatigue Crack-Growth Properties                                14
+
+5.3 Supplemental Properties                                        15
+
+6. CONCLUSION                                                      16
+
+7. REFERENCES                                                      16
+
+                                 iv
+                             LIST OF FIGURES
+
+Figure                                                                            Page
+
+1 Chemical composition of second- and third-generation Al-Li alloys                      4
+
+2 Bombardier C-series aircraft use of advanced materials                                 5
+
+3 Al-Li 2196-T8511 extrusion shapes and dimensions                                       9
+
+4 Micro-shear specimen geometry                                                          10
+
+5 Spectrum FCG test by UDRI: simplified representation of a single flight cycle for the
+
+        comprehensive spectrum compared to the constant amplitude for B737               12
+
+6 Tension properties results: Al-Li 2198-T8 versus AA 2024-T3/351, average yield
+
+        strength comparison                                                              14
+
+7 FCGR result: 0.071-inch Al-Li 2198-T8 sheet, R=0.1, grain orientation comparison at
+
+        room temperature                                                                 15
+
+8 Spectrum result: comparison of FCGR for comprehensive spectrum tests for
+
+        Al-Li 2198-T8 and AA2024-T3 sheet material                                       15
+
+                                 v
+       LIST OF TABLES
+
+Table                                                            Page
+
+1 Timeline of Al-Li alloy development                            3
+
+2 Al-Li material characterization test matrix                    7
+
+3 Chemical composition of Al-Li 2198 and 2196 by weight percent  8
+
+                                       vi
+                             LIST OF ACRONYMS
+
+AA     Aluminum alloy
+
+Al-Li  Aluminum lithium
+
+FAA WJHTC Federal Aviation Administration William J. Hughes Technical Center
+
+FCG    Fatigue crack growth
+
+FTI    Fatigue Technology Inc.
+
+L      Longitudinal (rolling direction)
+
+LT     Longitudinal transverse
+
+MMPDS Metallic Materials Property Development and Standardization
+
+NASA-JSC NASA Johnson Space Center
+
+NAVAIR US Navy Naval Air Systems Command
+
+NIAR   National Institute for Aviation Research
+
+OLMP   Operation Loads Monitoring Program
+
+UDRI   University of Dayton Research Institute
+
+                                         vii
+                                          EXECUTIVE SUMMARY
+
+This study was performed by the FAA to assess the material properties and mechanical behavior
+of next-generation aluminum lithium (Al-Li) alloys being used in aerospace structures through
+comparisons made to conventional aerospace aluminum alloys (AAs). The latest generation of Al-
+Li alloys purports to offer a significant weight savings over conventional aerospace aluminums
+resulting in significant use in recent aircraft and aerospace applications. The current public data
+provided for these alloys are limited and do not provide a comprehensive understanding of the
+strengths and weaknesses of these materials. Because previous generations of Al-Li alloys
+displayed material behaviors that limited their use for aerospace applications, it is necessary to
+understand the properties of these new alloys and identify if any unique behaviors exist.
+
+Two Al-Li alloys were considered as a case study, namely Al-Li 2198-T8 and 2196-T8511 alloys
+used for skin and extrusion applications, respectively. Several properties were assessed and
+compared with the baseline AA 2024-T3/351 and 7075-T6 alloys, including static properties,
+fatigue, and fatigue crack growth behavior; and supplemental properties. This report constitutes
+volume 1 of 4 and serves as an overview and background for the program. The subsequent volumes
+provide a more focused look at the specific tests conducted and data generated. Though the sample
+size was limited, this program was not meant to develop any design allowables or present the Al-
+Li alloys as direct replacements for the traditional aluminums alloys. Rather, they were conducted
+to provide a broad, high-level look at the materials to determine if there are any unique behaviors
+in the Al-Li alloys that may need further vetting as these materials (and other third-generation Al-
+Li alloys) see more widespread use in new aircraft design.
+
+Overall, the Al-Li tested as part of this program behaved in line with expectations. All static
+properties results for both the Al-Li and baseline AAs exceeded the applicable Metallic Materials
+Property Development and Standardization (MMPDS) handbook values. The Al-Li did show signs
+of anisotropy, in which strength at the 45-degree grain orientation was the lowest, but this is
+accounted for by the MMPDS values. Under fatigue loading, the Al-Li 2198-T8 performed similar
+to the baseline 2024-T3 for the threshold and stable crack-growth phase. The Al-Li showed higher
+FCG resistance nearing instability, with the best performance at the 45-degree grain orientation.
+Finally, for all of the supplemental testing, both the Al-Li and baseline AAs responded comparably
+to external conditions; namely, a corrosive 5% NaCl aqueous solution, 1800°F flame, and fastener
+hole cold working.
+
+                                                         viii
+1. INTRODUCTION
+
+Over the past decade, significant investments and advances have been made by industry in the
+development of new metallic alloys with optimized material properties for specific structural
+applications. The latest (third) generation of advanced aluminum-lithium (Al-Li) alloys offers
+weight savings compared to conventional aluminum alloys (AAs) and maintains mechanical
+performance. Al-Li alloys have a lower density, higher modulus, and improved resistance against
+corrosion over the widely used 2xxx and 7xxx series alloys [1]. Previous generations of Al-Li
+exhibited material behavior, such as low elongation and ductility, low transverse toughness,
+inadequate thermal stability and fatigue properties, and highly anisotropic behavior with respect
+to the rolling grain orientation, which restricted their use for many aerospace applications [2­4].
+However, the latest generations of Al-Li alloys are reported to minimize these effects and also
+provide significant weight savings [5].
+
+With these improvements, there has been increased use of Al-Li in recent aircraft and aerospace
+applications. Bombardier is constructing the entire fuselage of its new C-Series airplane (recently
+transitioned and designated as Airbus product A220), a certificated Title 14 Code of Federal
+Regulations Part 25 airplane, using Al-Li [6]. Extruded floor beams for the Airbus A380 are now
+being made of Al-Li. Additionally, Al-Li plate applications are being used for the internal structure
+of the fuselage in the Boeing 787. Although these manufacturers have generated substantial
+proprietary data to substantiate structural applications, there is a lack of data available in the public
+domain to thoroughly document the mechanical performance of these latest-generation Al-Li
+alloys.
+
+The objective of this test program was to gain a better understanding of the material properties,
+mechanical behavior, and unique characteristics of the next-generation Al-Li being used in
+airframe structures through comparison with traditional AAs. It was not intended to develop any
+material design allowables or promote Al-Li as a direct replacement for the baseline materials. As
+a case study, two Al-Li alloys were considered--Al-Li 2198-T8 and 2196-T8511 alloys used for
+skin and extrusion applications, respectively. Several properties were assessed and compared with
+baseline AAs 2024-T3 and 7075-T6, including static properties, fatigue life and fatigue crack-
+growth (FCG) behavior, and supplemental properties. Resources and expertise were received from
+several organizations, including Constellium, Bombardier, NASA Johnson Space Center (NASA-
+JSC), US Navy Naval Air Systems Command (NAVAIR), University of Dayton Research Institute
+(UDRI), National Institute for Aviation Research (NIAR), Drexel University, and the FAA
+William J. Hughes Technical Center (FAA WJHTC).
+
+This report is the first of four volumes detailing the effort sponsored by the FAA and provides a
+general overview of the program as a whole. The subsequent volumes are comprised of more
+detailed information for the specific tests completed and the results generated [7­9]. The four
+volumes of this report are organized as follows:
+
+· Volume 1: Program Overview. This volume contains summary information that is relevant
+         to the three remaining volumes. It serves as a program overview with information related
+         to Al-Li background and use, program scope, brief test descriptions, representative results,
+         and general conclusions.
+
+                                                          1
+· Volume 2: Static Properties. This volume contains detailed information on the static
+         properties tests conducted by the FAA WJHTC, UDRI, and NIAR. The tests conducted
+         included tension, compression, and shear, and were performed to applicable ASTM
+         standards when possible. Deliverable results were material properties for modulus, yield,
+         and ultimate strengths.
+
+· Volume 3: Fatigue Crack-Growth Properties. This volume contains detailed information
+         on the FCG tests conducted by NASA-JSC and UDRI. The tests conducted by NASA-JSC
+         were loaded under constant amplitude at either room or elevated temperatures. The UDRI
+         tests were conducted at room temperature under either constant amplitude or spectrum
+         loading. Deliverable results were fatigue crack-growth rate (FCGR) and crack-growth life.
+
+· Volume 4: Supplemental Properties. This volume contains detailed information on the
+         supplemental properties tests conducted by NAVAIR, FAA WJHTC, Fatigue Technology
+         Inc. (FTI), and Drexel University. The test conducted by NAVAIR was a slow strain-rate
+         test under environmental conditions. The FAA WJHTC conducted a flammability and burn
+         resistance test. FTI, FAA WJHTC, and Drexel University partnered to look at the material
+         response to fastener hole processing, namely cold expansion and interference fit fasteners.
+         Deliverable results were material response to the various external factors.
+
+2. BACKGROUND
+
+The motivation to develop Al-Li as a structural alloy comes from the prospect of weight savings
+(because of lithium's low density) and increased stiffness (because of its higher elastic modulus)
+in airframe structures compared to those made of conventional aluminum [1]. However, earlier
+versions of these alloys exhibited reductions in other key mechanical properties, which limited
+their usefulness. The most recent generation of Al-Li alloys has reportedly addressed much of the
+drawbacks present in the older alloys while improving in other areas and, therefore, they are now
+seeing increased use in aerospace applications.
+
+2.1 HISTORICAL DEVELOPMENT
+
+The historical development of Al-Li alloys is summarized in table 1. The material and mechanical
+properties of Al-Li alloys have evolved because of significant metallurgical and processing
+changes in Al-Li alloys. The first Al-Li alloy (Scleron, Al-Zn-Cu-Li) was produced in Germany
+in the 1920s [10]. Further development of Al-Li alloys began in the 1950s with the first notable
+alloy Al-Li 2020. This alloy was used on the upper and lower skin of the RA-5C Vigilante aircraft,
+but it was withdrawn within 10 years of its production because of ductility and fracture toughness
+problems [2]. Al-Li 1420 was also developed in the 1950s and used in the cockpit and fuselage of
+the MIG-29. However, it was later discovered that this alloy was of relatively low strength [2] and
+its subsequent use was reduced.
+
+                                                          2
+             Table 1. Timeline of Al-Li alloy development
+
+Al-Li Alloy     Timeline         Alloy     Lithium       Aircraft Application
+Generation        1920's      Designation  Content
+             1950s ­ 1970s                  0.1%    MIG-29
+     1st     1970s ­ 1980s      Scleron     2.1%    RA-5C Vigilante Aircraft
+Generation                        1420      1.2%    MIG-29,
+             1990s - Present      2020      2.1%    Augusta Westland EH101,
+     2nd                          2090      2.0%    Boeing C-17
+Generation                        2091      2.4%
+                                  8090      1.0%    Bombardier C Series,
+     3rd                          2050      1.75%   Airbus A350 & A380,
+Generation                        2196      1.0%    Boeing 787
+                                  2198      1.6%
+                                  2199
+
+Increasing demand for fuel efficiency due to the oil crisis in the 1970s combined with larger
+aircraft payloads led to a revival of research in the field of high-performance AAs for airframe
+structures [11]. Among the second generation of alloys, Al-Li 2090, 2091, and 8090 were
+developed to compete with the long-serving commercial AAs, 7075-T6, 2024-T3, and 2014,
+respectively [12]. Whereas these alloys had an attractively high-elastic modulus, low density, and
+an improved FCG resistance, they still exhibited anisotropic mechanical properties [2]. Al-Li 2090
+and 8090 were also seen to exhibit low stress-corrosion cracking thresholds as well as hole
+cracking and delaminations during drilling [3]. Several comprehensive studies aimed at
+characterizing the material properties of these second-generation Al-Li alloys, such as in reference
+[4], were performed during this time. In general, the drawbacks associated with early generation
+Al-Li alloys included less than desirable ductility and fracture toughness in the short-transverse
+direction, accelerated FCGR when the cracks were micro-structurally small, excessive anisotropy
+of in-plane mechanical properties, crack deviations, poor thermal stability, and a loss of fatigue
+advantage in compression-dominated fatigue spectra tests.
+
+The development of the third generation of Al-Li alloys beginning in the 1990s started to overcome
+several drawbacks of the previous generations. The drawbacks of the previous Al-Li alloy
+generations, like low ST properties and poor thermal stability, were reduced by substantially
+lowering the lithium contents. This latest generation contains alloys, such as Al-Li 2050, 2096,
+2097, 2197, 2196, 2198, and 2297, that are less than 2% lithium by weight. These alloys also
+contain a small amount of magnesium to improve the resistance to stress-corrosion cracking and
+manganese to prevent strain localization and increase ductility and strength [13]. In addition to the
+purported weight savings, the third generation of Al-Li alloys has claimed several property
+benefits, such as improvements to corrosion resistance, spectrum FCG performance, strength, and
+toughness [5].
+
+Changes in the chemical composition of Al-Li alloys over the years as their development has
+progressed are shown in figure 1 [14]. Early generation Al-Li alloys contained approximately 2.5%
+lithium by weight, whereas newer generations have seen a reduced percentage of lithium and a
+
+                              3
+higher copper content. There have also been changes in the thermo-mechanical and aging
+processes in the newer Al-Li alloys.
+
+         Figure 1. Chemical composition of second- and third-generation Al-Li alloys
+Whereas the major advantages of adding lithium (e.g., density reduction and increase in modulus)
+are reduced in the latest alloys, the higher copper/lithium ratio in third-generation alloys helps
+increase their thermal stability and strengthens these alloys predominantly by the T1 (Al2CuLi)
+phase rather than by ' when processed conventionally [14]. It is seen that a reduction in the lithium
+content of the alloy leads to decreasing strength potential but increasing fracture toughness of the
+alloy. The solubility limit of the alloy at 500°C (a typical solutionizing temperature for such alloys)
+also drops by lowering the lithium content and increasing the copper content in the alloy [14].
+
+                                                          4
+2.2 CURRENT USE
+In 2010, it was announced that more than 20% of all materials in the new Bombardier C-Series
+aircraft, which has since been transitioned to Airbus and designated the A220,would be comprised
+of Al-Li alloys, specifically targeting fuselage structural applications [15]. A map of the proposed
+materials is shown in figure 2. Al-Li alloys 2196 from Constellium and 2099 from Arconic
+(formerly Alcoa) have been successfully qualified for use in floor beam applications in the Airbus
+A380 in the form of extrusions [16]. There were also reports of trade studies for the use of Al-Li
+2198 as a fuselage material for the Airbus A350 [17­18]. Additionally, Al-Li plate applications
+are being used for the internal structure of the fuselage in the Boeing 787.
+
+           Figure 2. Former Bombardier C-series aircraft use of advanced materials
+3. PROGRAM SUMMARY
+3.1 PURPOSE
+The objective of this test program was to generate data to better understand the overall behavior
+of third-generation Al-Li alloys through a comparative case study of the Al-Li 2198 and 2196
+alloys. Whereas substantial proprietary data have been generated on these materials, regulators
+desire more information available in the public domain to properly assess Al-Li alloys as their use
+in aircraft certification proposals increases. Data from this program will be used by the regulators
+to better assess the adequacy of current regulations on this new material type being proposed by
+applicants in their aircraft designs. In addition, this new material needs to be explored for potential
+safety concerns and the boundaries checked for any cliff-type failure modes. Data provided by this
+program are not intended to establish design values, which would satisfy the regulatory
+requirements for designing and certifying civil aircraft. Additionally, the inclusion of traditional
+aerospace AAs (AA 2024 and 7075) in the test plan was for baselining purposes only to add
+perspective to data generated. All comparisons made are for reference only and are not meant to
+promote one alloy over another or suggest Al-Li as a direct replacement.
+
+                                                          5
+3.2 SCOPE
+This program was conducted as a joint effort lead by the FAA in partnership with Bombardier and
+Constellium as a case study of the Al-Li 2198 and 2196 alloys. These alloys, produced and supplied
+by Constellium, were chosen because of their significant use in Bombardier's C-Series airplane,
+which was certified by the FAA in 2016 and transitioned to Airbus in 2017. Overall, eight different
+tests were completed and involved a number of other partner organizations, including UDRI,
+NIAR, NASA-JSC, NAVAIR, FTI, and Drexel University. Additional information on the program
+test matrix and subject Al-Li alloys is provided in the following subsections.
+3.2.1 Program Test Matrix
+To understand the overall behavior of the third-generation Al-Li alloys, the materials needed to be
+tested in different ways. Eight individual tests were carried out under three general test types, as
+shown in table 2. For baseline comparison purposes, two industry standard AAs--one for each Al-
+Li alloy--were also tested: AA 2024-T3 bare (except where noted as clad) for Al-Li 2198-T8, and
+AA 7075-T6 for Al-Li 2196-T8511. In addition to the multiple types of tests, specimens were
+machined in three major grain directions (longitudinal [L], longitudinal transverse [LT], and 45
+degrees), plus two midpoints (22.5 degrees and 67.5 degrees), and at multiple thicknesses to assess
+the extent of anisotropy and thickness effects, respectively. All testing generally included at least
+three repeat tests, except where noted otherwise. As mentioned above, the different test types are
+covered in more detail in their own separate volumes of this report.
+
+                                                          6
+                           Table 2. Al-Li material characterization test matrix
+
+Test Test Name and                           Materials        Variables*              Property Performing
+                                              Tested                                  Measured Organization
+Type                       Standard
+
+                            Tension            2198-T8,      ts (in.): 0.071, 0.125,  Fty, Ftu, Et,       FAA
+                           Properties,       2196-T8511,              0.25                e%           WJHTC,
+                           ASTM E8                                                                   UDRI, NIAR
+                                               2024-T3,      te (in.): 0.06, 0.120,
+                                               7075-T6                0.145
+
+Static Properties                                          : L, 67.5, 45, 22.5, LT
+                                                            T (°F) = RT, 200, 350
+
+                           Compression         2198-T8,      ts (in.): 0.071, 0.125,  Fcy, Ec          FAA
+                            Properties,      2196-T8511,              0.25                           WJHTC,
+                            ASTM E9
+                                               2024-T3,      te (in.): 0.06, 0.120,                   NIAR
+                                               7075-T6                0.145
+
+                                                           : L, 67.5, 45, 22.5, LT
+
+                               Shear           2198-T8,      ts (in.): 0.071, 0.125,  Fst, G         NIAR
+                            Properties,      2196-T8511,              0.25
+                           ASTM B831
+                                               2024-T3,      te (in.): 0.06, 0.120,
+                                               7075-T6                0.145
+
+                                                           : L, 67.5, 45, 22.5, LT
+
+Fatigue and Fatigue Crack  Fatigue Crack     2198-T8,       ts (in.): 0.071, 0.25     da/dN vs. NASA-JSC,
+   Growth Properties          Growth,        2024-T3        : L-T, 45-45, T-L
+                                                           T (°F) = RT, 200, 350      K              UDRI
+                           ASTM E647                       R = 0.1, 0.4, 0.7, 0.8
+
+                             Spectrum        2198-T8,         ts (in.): 0.071          Crack         UDRI
+                           Fatigue Crack     2024-T3       : L-T, 45-45, T-L           length
+                                                                                       during
+                              Growth,                                                 spectrum
+                           ASTM E647                                                   fatigue
+                                                                                      loading
+
+                           Environmentally     2198-T8,         ts (in.): 0.125       Time to        NAVAIR
+                                Assisted     2024-T3 Clad           : 45°             fracture
+Supplemental Properties        Cracking,
+                                                           V (/s): 10-5, 10-6, 10-7     and
+                             ASTM G129                                                strength
+
+                           Flammability      2198-T8,      ts (in.): 0.071, 0.125,     Burn-           FAA
+                              and Burn       2024-T3                0.25              through        WJHTC
+                             Resistance,
+                                                                                        time
+                           AC 25.856-2A
+
+                           Fastener Hole       2198-T8,    ts (in.): 0.071, 0.125,    Cracks            FAA
+                           Process: Cold     2196-T8511,            0.25                and           WJHTC,
+                                                                                                     NIAR, FTI
+                              Work and         2024-T3,    te (in.): 0.06, 0.120,     damage
+                           Interference Fit    7075-T6             0.145
+
+                                                               : L, 45, LT
+
+* Variable definitions:
+         ts = Typical sheet thickness for 2198-T8 and 2024-T3 in inches
+         te = Typical extrusion thickness for 2196-T8511; and plate thickness for 7075-T6 in inches
+         = Grain orientation, degree from L (rolling) direction
+
+                                                           7
+R = Load ratio (applied minimum to maximum)
+T = Temperature, °F
+V = Applied strain rate per second
+
+3.2.2 Al-Li 2198-T8 Sheet and Al-Li 2196-T8511 Extruded Materials
+
+All of the materials in this program were produced by Constellium and supplied by Bombardier to
+the FAA WJHTC for testing. Al-Li 2198-T8 is manufactured in sheet form with applications
+typically including aircraft fuselage/pressure cabin skins. For this program, sheet thicknesses of
+0.071 inch, 0.125 inch, and 0.25 inch were tested. The sheets were supplied unclad and no
+additional finishing or coating was performed. The Al-Li 2196-T8511 is produced in extruded
+form with applications typically including internal structures such as frames, stringers, and floor
+beams. The chemical compositions of the two alloys are shown in table 3. Both alloys were added
+to the Metallic Materials Property Development and Standardization (MMPDS) handbook in April
+2010 [19].
+
+       Table 3. Chemical composition of Al-Li 2198 and 2196 by weight percent
+
+Alloy    Si Fe Cu Mn Mg Ag                   Li                    Zr          Al
+
+2198-T8  0.08 0.1 2.90 ­ 0.50 0.25 ­ 0.10 ­ 0.80 ­ 0.04 ­                      93
+         max max 3.50 max 0.80 0.50 1.10 0.18
+
+2196-    0.12 0.15 2.5 ­ 0.35 0.25 ­ 0.25 ­ 1.4 ­ 0.25                         93
+
+T8511    max max 3.3 max 0.8 0.6 2.1 max
+
+The Al-Li 2196-T8511 extrusions were supplied in three shapes, with dimensions as shown in
+figure 3. The thicknesses tested were 0.06 inch, 0.120 inch, and 0.145 inch. Because of the limited
+dimensions of the extrusions, testing at multiple grain orientations under ASTM standards was not
+possible. Consequently, micro-specimens were used for all Al-Li 2196-T8511 static properties
+tests. This raised a concern over the validity of those results given the small width (0.080 inch)
+that was being tested. To alleviate those concerns, sections of the Al-Li 2196-T8511 extrusions
+were sent to Drexel University where they underwent a microstructural evaluation to determine
+the average grain size. The results of that work confirmed the grain size of approximately 5­10
+µm reported by Constellium. This correlates to approximately 200 grains at minimum across the
+width of the micro-specimen, which is sufficient to produce valid results.
+
+         8
+                                                                      All dimensions shown in inches
+
+Figure 3. Al-Li 2196-T8511 extrusion shapes and dimensions: (a) 0.06-inch web I-beam, (b)
+                      0.075-inch web I-beam, and (c) 0.145-inch flange Z-beam
+
+4. TEST OVERVIEWS
+The following subsections provide an overview of the individual tests conducted as part of this
+program and some representative results that were generated. More detailed information can be
+found in the respective volumes of this report.
+4.1 STATIC PROPERTIES
+The static properties considered in this study included tension, compression, and shear. Tests to
+generate these properties were governed by the associated ASTM standards, and the results are
+compared with published values in the MMDPS handbook [19]. Three repeat tests were conducted
+for each of the three material thicknesses and at five grain orientations to assess any anisotropic
+behavior of the materials.
+4.1.1 Tension Properties
+The tension properties were generated by three laboratories, namely the FAA WJHTC, UDRI, and
+NIAR, using the ASTM E8 standard for tension testing [20] and ASTM E21 standard for elevated
+temperatures [21], where applicable. Flat dog-bone specimen geometry was used for each test with
+modifications as needed. Specimens tested at an elevated temperature had an extended grip section
+
+                                                          9
+to allow clearance for the oven. For the Al-Li 2196-T8511 alloys, micro-sized, dog-bone
+specimens were used because of the restrictive size of the extrusions. Additionally, for Al-Li 2196-
+T85111, a set of full-size specimens were tested at the L grain direction to evaluate if there were
+any effects of specimen geometry. Each test was conducted under displacement-controlled
+conditions with load and strain recorded throughout. The data collected were used to calculate
+tensile modulus, Et; yield strength, Fty; ultimate strength, Ftu; and percent elongation, e%. The
+elevated temperature tests were run at 200°F and 350°F. The specimens were held at temperature
+for 20 minutes prior to testing.
+4.1.2 Compression Properties
+The compression property tests were performed by the FAA WJHTC and NIAR using the ASTM
+E9 standard [22] where applicable. Support jigs were used for all tests to prevent specimen
+buckling. Micro-sized, dog-bone specimens were used for the Al-Li 2196-T8511 extrusion
+because of the limited cross-section size; full-sized specimens at the L grain orientation were also
+tested to evaluate any size influence on results. Each test was conducted under displacement-
+controlled conditions with load and strain recorded throughout. The data collected were used to
+calculate compressive modulus, Ec, and yield strength, Fcy.
+4.1.3 Shear Properties
+The shear properties were determined by NIAR following the ASTM B831 standard [23], when
+applicable. Because of the limiting size of the extrusions, modified micro-shear specimen
+geometry was used for all materials. The geometry, shown in figure 4, was determined
+experimentally through a study plan of various configurations. Each test was conducted under
+displacement-controlled conditions with load and strain recorded throughout. The data collected
+were used to calculate shear modulus, G, and ultimate strength, Fst.
+
+                                Figure 4. Micro-shear specimen geometry
+4.2 FATIGUE AND FCG
+Two separate test programs were used to assess the crack-growth life and FCG behavior of the Al-
+Li materials when subjected to various loading conditions. Typically, each test was run under load-
+
+                                                         10
+controlled conditions, and different specimen configurations were used to achieve the desired
+results. Generally, three repeat tests were run for each test condition.
+
+4.2.1 FCG
+
+FCG properties at room and elevated temperatures were generated by NASA-JSC and UDRI using
+ASTM E647 [24] when applicable. The test covered the uniaxial fatigue testing of Al-Li 2198-T8
+and AA 2024-T3 sheet material to determine the crack-growth rate, da/dN, as a function of stress-
+intensity factor range, K, for a given load ratio, R. The tests conducted by NASA-JSC were at
+either room or elevated temperatures (200°F and 350°F) for two thicknesses (0.071 inch and 0.25
+inch) and three grain directions (L-T, 45 degrees­45 degrees, and T-L) using eccentrically loaded
+single-edge crack tension specimens. To check for lab-to-lab variation, FCG data were also
+generated by UDRI using middle tension specimens in the same three grain orientations having a
+thickness of 0.071 inch and at room temperature only.
+
+The tests conducted by NASA-JSC used MTS machines controlled by Fatigue Technology
+Associates software for the constant R-K control test method. This method maintains a constant
+load ratio and varies the loads throughout the test, allowing FCG data to be generated for the full
+da/dN versus K range for each specimen. The load ratios used were 0.1, 0.4, 0.7, and 0.8. Crack-
+growth data were recorded using DC potential drop KRAK gauges bonded to each specimen. The
+crack-growth data were reduced using the adjusted compliance ratio method to derive da/dN and
+K data for each test. The tests by UDRI were conducted under constant-amplitude loading with
+crack progression tracked using a traveling microscope having a 20X magnification.
+
+4.2.2 Spectrum FCG
+
+The effects of spectrum loading on FCG properties of Al-Li 2198-T8 and AA 2024-T3 sheet
+materials were studied by UDRI [9]. Specimens were machined at one thickness (0.071 inch) and
+three grain directions (L-T, 45 degrees­45 degrees, and T-L) in a middle tension specimen
+configuration. Each test was monitored using a traveling optical microscope, and crack length data
+were recorded throughout the test.
+
+Fatigue tests were performed using a uniaxial tension test machine under load-controlled mode
+using two loading profiles: constant amplitude loading (R = 0.1) and comprehensive flight
+spectrum typical of the crown section of a fuselage forward of the wing (R ~ 0). The comprehensive
+spectrum was developed as part of a previous FAA program by UDRI using incremental vertical
+load factor exceedances from the FAA Operation Loads Monitoring Program (OLMP) for the
+upper crown of the fuselage above the wing front spar for a B737 aircraft [25]. Data from the
+OLMP were used to create a representative flight-by-flight sequence, which included stresses from
+maneuvers and gusts from typical flights. Results from spectrum specimens were then compared
+to constant amplitude tests for the purpose of identifying a conservative constant amplitude
+equivalent to the spectrum sequence. A simplified representation of this is shown in figure 5. It
+should be noted that all tests were run at R ~ 0 in the previous UDRI program [25], whereas
+constant amplitude tests were run at R = 0.1 in this study to allow for comparison with the data
+generated by NASA-JSC.
+
+                                                         11
+Figure 5. Spectrum FCG test by UDRI: simplified representation of a single flight cycle for
+          the comprehensive spectrum compared to the constant amplitude for B737
+
+4.3 SUPPLEMENTAL PROPERTY TESTS
+
+The supplemental property tests were designed to evaluate the material response of the Al-Li alloys
+in comparison to the baseline aluminums when subjected to external conditions and machining
+processes, as described in sections 4.3.1­4.3.3.
+
+4.3.1 Environmentally Assisted Cracking
+
+Environmentally assisted cracking using slow strain-rate testing was studied by NAVAIR per
+ASTM G129 standard [26] to determine the corrosion resistance of the material under a gradually
+increasing tensile strain. The specimens were machined at one thickness (0.125 inch) and one grain
+direction (45 degrees) for both the Al-Li 2198-T8 and clad AA 2024-T3 alloys. The specimen
+geometry used was the sub-sized tension dog bone per ASTM E8 standard [20].
+
+The test was run at three strain rates (10-5/s, 10-6/s, and 10-7/s) to determine if rate has an effect on
+the material properties. An aqueous 5% NaCl solution was used to create the corrosive
+environment during the test; duplicates were also conducted at lab air conditions as a baseline. The
+tests were run until specimen failure with information on load, extension, and duration recorded.
+
+4.3.2 Flammability and Burn Resistance
+
+Testing was conducted by the FAA Fire Safety Branch at the FAA WJHTC to determine flame
+penetration, flammability, and burn resistance of the Al-Li 2198-T8 material. The specimens were
+machined at three thicknesses (0.071 inch, 0.125 inch, and 0.25 inch); grain directions were
+inconsequential to this test.
+
+The test was performed using a NexGen burner specified by AC 25.856-2A [27], which created a
+flame temperature of 1800°F. Each specimen was mounted on a test frame and moved into direct
+contact with the open flame. The tests were run until the flame was visually seen to penetrate the
+specimen with test duration and general observations being recorded.
+
+                                                         12
+4.3.3 Fastener Hole Process
+The effects of the cold expansion process on open holes and the installation of interference fit
+fasteners was studied by the FAA WJHTC. Both the Al-Li 2198-T8 and 2196-T8511 materials
+were tested at three thicknesses (0.071 inch, 0.125 inch, and 0.25 inch for 2198-T8; 0.06 inch,
+0.120 inch, and 0.145 inch for 2196-T8511). Comparisons were made with baseline AA 2024-T3
+and 7075-T6 alloys. The specimen processing was completed by FTI. A split-sleeve method was
+used to create the cold work holes with the sleeve opening oriented at three different angles (L, 45
+degrees, and LT). Through this method, a maximum of 5% cold working was accomplished. The
+interference fit fasteners were selected for a 0.003-inch interference. Post-processing inspections
+were then made using surface eddy current nondestructive inspections at the FAA WJHTC and
+high-magnification images from a scanning electron microscope by Drexel University.
+5. REPRESENTATIVE RESULTS
+5.1 STATIC PROPERTIES
+The static property tests completed for the Al-Li 2198-T8 and 2196-T8511 alloys all produced
+good, repeatable results. The reported results for all materials--Al-Li alloys and baseline
+aluminums--exceeded all respective MMPDS A and B basis allowables. Anisotropic behavior
+was evident in the Al-Li at the intermediate grain directions, especially 45 degrees, at which the
+tensile and compressive strengths were lowest compared to the other orientations. The tensile yield
+strength comparison for Al-Li 2198-T8 and AA 2024-T3/351 is shown in figure 6 as an example.
+This behavior was expected and is addressed with values at the 45-degree grain orientation
+published in MMPDS.
+
+                                                         13
+ Figure 6. Tension properties results: Al-Li 2198-T8 versus AA 2024-T3/351, average yield
+                                             strength comparison
+
+5.2 FATIGUE CRACK-GROWTH PROPERTIES
+The results of the FCG work showed that grain orientation and thickness had little-to-no impact
+on the FCGR of Al-Li 2198-T8 in the threshold and stable crack-growth regions of the da/dN
+versus K curve, as shown in figure 7. The Al-Li appeared to track the baseline AA closely for
+the threshold and stable crack-growth regions for both thicknesses; however, scatter in the data
+made drawing definitive conclusions difficult. The Al-Li 2198-T8 did show higher crack-growth
+resistance in the upper region (K greater than 20 ksiin) near instability compared to the baseline.
+Additionally, the Al-Li2198-T8 showed some anisotropy in the upper region with the highest
+crack-growth resistance at the 45 degree­45 degree grain orientation, as seen in figure 8, which
+was contrary to that orientation showing lower strength during the static tensile tests.
+
+                                                         14
+       Figure 7. FCGR result: 0.071-inch Al-Li 2198-T8 sheet, R=0.1, grain orientation
+                                     comparison at room temperature
+
+Figure 8. Spectrum result: comparison of FCGR for comprehensive spectrum tests for Al-
+                               Li 2198-T8 and AA2024-T3 sheet material
+
+5.3 SUPPLEMENTAL PROPERTIES
+The results of the supplemental testing showed that the Al-Li alloys responded comparably to
+baseline AAs. The environmentally assisted cracking using slow strain-rate testing showed no
+effect on ultimate tensile strength for Al-Li 2198-T8 or AA 2024-T3 for the testing completed at
+
+                                                         15
+the 10-5/s and 10-6/s strain rates. The flammability tests did not produce any unusual smoking,
+burning, ignition, or reignition for the Al-Li 2198-T8 and AA 2024-T3. The Al-Li also recorded
+approximately a 50% longer burn-through time against the baseline aluminum when comparing
+identical thicknesses. Finally, the fastener hole processing test showed no cracking or other
+damage for any material after high-frequency eddy current and high-magnification visual
+inspections.
+
+6. CONCLUSION
+
+The test programs previously detailed were conducted as a comparative study for two third-
+generation Al-Li alloys (2198-T8 and 2196-T8511) against traditional aerospace aluminums
+(2024-T3/351 and 7075-T6). Though the sample size is limited, this program was not meant to
+develop any design allowables or present the Al-Li alloys as direct replacements for the traditional
+aluminums. Rather, tests were conducted to provide a broad, high-level look at the materials to
+determine if there are any unique behaviors in the Al-Li alloys that may need further vetting as
+these materials (and other third-generation Al-Li alloys) see more widespread use in new aircraft
+design.
+
+In general, the mechanical properties and behaviors of the Al-Li materials were in accordance with
+expectations for the tests completed and comparisons made to the baseline AAs. The static
+properties for both the Al-Li and baseline materials tested were comparable, and the values exceed
+all MMPDS A and B basis values. Anisotropic behavior was evident in the Al-Li at the
+intermediate grain directions, especially 45 degrees, at which the tensile and compressive strengths
+were lowest compared to the other orientations, which may need to be further investigated.
+
+There was general improvement in the FCG properties in the Al-Li 2198-T8 compared to the
+baseline AA 2024-T3 bare material. Under constant amplitude loading, FCG behavior was similar
+for both materials in the near-threshold and linear stable crack-growth regions. In the upper
+instability region of the FCG curves, the Al-Li 2198-T8 showed a higher crack-growth resistance
+compared to the baseline. Likewise, under spectrum loading, the Al-Li 2198-T8 exhibited better
+FCG compared to AA 2024-T3. Interestingly, the 2198-T8 tested in the 45 degree­45 degree grain
+orientation had the longest crack-growth life despite this orientation having the lowest tensile and
+compressive strengths.
+
+The supplemental properties tests also showed the Al-Li compared favorably to the baseline
+material. For the environmentally assisted cracking using slow strain-rate testing, both the 2198-
+T8 and 2024-T3 clad reported no reduction in strength at 10-5/s and 10-6/s strain rates when tested
+in aqueous 5% NaCl solution. Additionally, the 2198-T8 had a longer burn-through time compared
+to the baseline and showed no signs of reigniting when removed from direct contact with the flame.
+Finally, none of the alloys tested showed any sign of damage or cracking due to the fastener hole
+processing.
+
+7. REFERENCES
+
+1. Prasad, N.E., Gokhale, A.A., and Wanhill, R.J.H. (Eds.), (2014). Aluminum-Lithium
+         Alloys; Processing, Properties, and Applications. Waltham, MA: Butterworth-Heinemann.
+
+                                                         16
+2. National Research Council (1996). New Materials for Next-Generation Commercial
+         Transports. Washington, DC.: The National Academies Press.
+
+3. Campbell, F.C. (2008). Elements of Metallurgy and Engineering Alloys. Materials Park,
+         OH: ASM International.
+
+4. Zink, W., Weike, J., Schwarmann, L., and Rendigs, K.H. (1989). "Investigation of Sheet
+         Material of 8090 and 2091 Aluminum-Lithium Alloys". Fort Belvoir, VA: Defense
+         Technical Information Center.
+
+5. Guimmarra, C., Thomas, B., and Rioja, R.J. (2007). New Aluminum Lithium Alloys for
+         Aerospace Applications. Proceedings from the Light Metals Technology Conference,
+         Saint-Sauveur, Québec, Canada.
+
+6. Alcan Global Aerospace Transportation & Industry. (2010, July 20). Bombardier chooses
+         Alcan's Airware Technology for its CSeries aircraft program in the framework of a long-
+         term agreement. [Press Release], (Note: Alcan later became Constellium).
+
+7. FAA Report. (2018). Material Characterization of Aluminum Lithium Alloys used in
+         Aerospace Applications ­ Volume 2 Static Properties. (DOT/FAA/CT-#).
+
+8. FAA Report. (2018). Material Characterization of Aluminum Lithium Alloys used in
+         Aerospace Applications ­ Volume 3 Fatigue Crack Growth Properties. (DOT/FAA/CT-#).
+
+9. FAA Report. (2018). Material Characterization of Aluminum Lithium Alloys used in
+         Aerospace Applications ­ Volume 4 Supplemental Properties. (DOT/FAA/CT-#).
+
+10. Davis, J. R. (1996). Aluminum and Aluminum Alloys. Geauga County, OH: ASM
+         International.
+
+11. Martin, J. W. (1988). Aluminum-Lithium Alloys. Annual Review of Materials Science, 18,
+         101-119.
+
+12. Wanhill, R. J. H. (1994). Status and Prospects for Aluminum-Lithium Alloys in Aircraft
+         Structures. International Journal of Fatigue, 16(1), 3­20.
+
+13. Williams, J. C. and Starke, E. A. (2003). Progress in Structural Materials for Aerospace
+         Systems. Acta Materialia, 51(19), 5775­5799.
+
+14. Warner, T. (2006). Recently-Developed Aluminum Solutions for Aerospace Applications.
+         Materials Science Forum, 519­251, 1271­1278.
+
+15. Alcan Engineered Products. "Bombardier chooses Alcan's AIRWARE technology for its
+         CSeries aircraft program in the framework of a long-term agreement". Alcan Press Release.
+         20 July 2010 (Note: Alcan later became Constellium)
+
+16. Guillaumin, V. C. (2004). Benefits from the Use of Extruded 2196 and C460 Al-Li Alloys
+         in A380 Floor Beam Applications. From AeroMat Conference. Seattle, WA.
+
+                                                         17
+17. Condom. P. (2006). Can Airbus upstage the Boeing 787?. Interavia Business and
+         Technology 684, 24­28.
+
+18. Knuewer, M., Schumacher, J., Ribes, H., Eberl, F., Bes, B. (2006). "2198 ­ Advanced
+         Aluminum-Lithium Alloy for A350 Fuselage Skin Sheet," From AeroMat Conference.
+         Seattle, WA.
+
+19. MMPDS-08. (2010). Metallic Materials Properties Development and Standardization,
+         Federal Aviation Administration, Battelle Memorial Institute (distributor), Washington
+         D.C., Columbus, OH.
+
+20. ASTM Standard E8-16a, 2016, "Standard Test Methods for Tension Testing of Metallic
+         Materials", ASTM International, West Conshohocken, PA.
+
+21. ASTM Standard E21-09, 2009, "Standard Test Methods for Elevated Temperature Tension
+         Tests of Metallic Materials", ASTM International, West Conshohocken, PA.
+
+22. ASTM Standard E9-09, 2009, "Standard Test Methods of Compression Testing of Metallic
+         Materials at Room Temperature", ASTM International, West Conshohocken, PA.
+
+23. ASTM Standard B831-14, 2014, "Standard Test Method for Shear Testing of Thin
+         Aluminum Alloy Products", ASTM International, West Conshohocken, PA.
+
+24. ASTM Standard E647-15e1, 2015, "Standard Test Method for Measurement of Fatigue
+         Crack Growth Rates," ASTM International, West Conshohocken, PA.
+
+25. FAA Report. (2012). Development and Assessment of Simplified Stress Sequences for
+         Fuselage Structures. (DOT/FAA/TC-12/17).
+
+26. ASTM Standard G129-00, 2013, "Standard Practice for Slow Strain Rate Testing to
+         Evaluate the Susceptibility of Metallic Materials to Environmentally Assisted Cracking,"
+         ASTM International, West Conshohocken, PA.
+
+27. FAA. (2008, July). Advisory Circular 25.856-2A Installation of Thermal/Acoustic
+         Insulation for Burnthrough Protection (AC 25.856-2A), Washington, D.C.: Government
+         Publishing Office.
+
+                                                         18
+

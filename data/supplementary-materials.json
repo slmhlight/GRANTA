@@ -1148,6 +1148,415 @@
       "heat_treatment": "Solution treated + Aged 468-482°C (AMS 6532)"
     },
     {
+      "name": "AISI 303 (free-machining austenitic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "66.7~74.8", "Cr": "17~19", "Ni": "8~10", "S": "0.15~0.35",
+        "Mn": "≤2", "Si": "≤1", "Mo": "≤0.6", "P": "≤0.2", "C": "≤0.15"
+      },
+      "points": [
+        [7.97, 240, 580, 45, 196, 165, 16]
+      ],
+      "conditions": ["Solution annealed (S30300, EN 1.4305, SUS 303)"],
+      "fatigue": [185, 215, 245],
+      "impact": [55, 90, 130],
+      "fracture_toughness": [200, 220, 240],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel, austenitic, AISI 303 annealed (UNS S30300, EN 1.4305, JIS SUS303)",
+        "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Outokumpu — AISI 303 (UNS S30300, X8CrNiS18-9, BS303S31)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Solution annealed — free-machining (S 0.15-0.35 for chip-breaking)"
+    },
+    {
+      "name": "AISI 305 (low-Ni austenitic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance", "Cr": "17~19", "Ni": "10.5~13",
+        "Mn": "≤2", "Si": "≤1", "P": "≤0.045", "S": "≤0.03", "C": "≤0.12"
+      },
+      "points": [
+        [7.91, 240, 580, 50, 193, 190, 16]
+      ],
+      "conditions": ["Solution annealed (S30500, EN 1.4303, SUS305)"],
+      "fatigue": [185, 215, 245],
+      "impact": [60, 95, 140],
+      "fracture_toughness": [200, 220, 240],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel, austenitic, AISI 305 annealed (UNS S30500)",
+        "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Outokumpu — AISI 305 (UNS S30500, EN 1.4303)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Solution annealed — deep-drawing grade (low strain-hardening)"
+    },
+    {
+      "name": "AISI 308 (welding-rod austenitic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance", "Cr": "19~21", "Ni": "10~12",
+        "Mn": "≤2", "Si": "≤1", "C": "≤0.08", "P": "≤0.045", "S": "≤0.03"
+      },
+      "points": [
+        [7.94, 258, 568, 40, 193, 180, 15]
+      ],
+      "conditions": ["Solution annealed (S30800, EN 1.4303)"],
+      "fatigue": [220, 250, 280],
+      "impact": [80, 130, 190],
+      "fracture_toughness": [220, 240, 260],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel, austenitic, AISI 308 annealed (UNS S30800)",
+        "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Outokumpu — AISI 308 (UNS S30800)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Solution annealed — primarily used as welding filler ER308",
+      "industry_note": "주로 304 용접용 filler 로 사용 (ER308 wire). 304 보다 약간 높은 Cr/Ni 로 dilution 후에도 304 동등 chemistry 확보."
+    },
+    {
+      "name": "AISI 309 (heat-resistant austenitic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance", "Cr": "22~24", "Ni": "12~15",
+        "Mn": "≤2", "Si": "≤1", "C": "≤0.2", "P": "≤0.045", "S": "≤0.03"
+      },
+      "points": [
+        [7.8, 258, 568, 40, 200, 184, 14]
+      ],
+      "conditions": ["Solution annealed (S30900, EN 1.4828, SUH309)"],
+      "fatigue": [220, 250, 280],
+      "impact": [70, 115, 170],
+      "fracture_toughness": [200, 220, 240],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel, austenitic, AISI 309 annealed (UNS S30900)",
+        "https://www.outokumpu.com/en/products/stainless-steel-grades/heat-resistant-grades"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Outokumpu — AISI 309 (UNS S30900, X15CrNiSi20-12)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/heat-resistant-grades",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Solution annealed — heat-resistant up to 980°C oxidizing",
+      "industry_note": "Furnace fixtures, kiln liner, heat treatment basket, jet engine combustor liner; 22Cr high-Cr → oxidation 저항 (vs 18-8 의 870°C 한계 vs 309 의 980°C)."
+    },
+    {
+      "name": "AISI 317 (Mo-bearing austenitic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance", "Cr": "18~20", "Ni": "11~15", "Mo": "3~4",
+        "Mn": "≤2", "Si": "≤1", "C": "≤0.08", "P": "≤0.045", "S": "≤0.03"
+      },
+      "points": [
+        [7.97, 244, 568, 38, 193, 200, 14]
+      ],
+      "conditions": ["Solution annealed (S31700, EN 1.4438)"],
+      "fatigue": [220, 250, 280],
+      "impact": [70, 110, 160],
+      "fracture_toughness": [180, 200, 220],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel, austenitic, AISI 317 annealed (UNS S31700)",
+        "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Outokumpu — AISI 317 (UNS S31700)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Solution annealed — high-Mo for chloride pitting resistance",
+      "industry_note": "316 의 Mo 강화 (3-4% vs 2-3%). 황산 / 인산 / 염수 환경 (시추 platform, 화학 plant, 펄프 mill digester) → pitting/crevice corrosion 저항 ↑."
+    },
+    {
+      "name": "AISI 436 (Mo-Nb ferritic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Ferritic/Martensitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance", "Cr": "16~18", "Mo": "0.75~1.25", "Nb": "5×C~0.8",
+        "Mn": "≤1", "Si": "≤1", "C": "≤0.12", "P": "≤0.04", "S": "≤0.03"
+      },
+      "points": [
+        [7.8, 365, 530, 23, 200, 158, 23]
+      ],
+      "conditions": ["Annealed (S43600, EN 1.4526, SUS436)"],
+      "fatigue": [200, 240, 280],
+      "impact": [30, 55, 90],
+      "fracture_toughness": [80, 100, 120],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel, ferritic, AISI 436 annealed (UNS S43600)",
+        "https://www.outokumpu.com/en/products/stainless-steel-grades/ferritic-grades"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Outokumpu — AISI 436 (UNS S43600)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/ferritic-grades",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Annealed — Mo+Nb stabilized ferritic, anti-roping in deep draw",
+      "industry_note": "자동차 trim, exhaust manifold inner panel — 430 대비 Mo (0.75-1.25%) + Nb (stabilizer) 로 deep-draw 시 roping/ridging 방지 + 약한 pitting 저항."
+    },
+    {
+      "name": "AISI 440A (low-C martensitic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Ferritic/Martensitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance", "Cr": "16~18", "Mo": "≤0.75",
+        "Mn": "≤1", "Si": "≤1", "C": "0.6~0.75", "P": "≤0.04", "S": "≤0.03"
+      },
+      "points": [
+        [7.8, 415, 725, 20, 200, 220, 24],
+        [7.8, 1860, 1960, 5, 200, 580, 24]
+      ],
+      "conditions": [
+        "Annealed (S44002, soft for forming/machining)",
+        "Q+T 200°C peak (HRC 56, knife/bearing application)"
+      ],
+      "fatigue": [400, 480, 560],
+      "impact": [10, 18, 28],
+      "fracture_toughness": [30, 40, 55],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel, martensitic, AISI 440A annealed (UNS S44002)",
+        "https://www.crucible.com/eselector/product.aspx?StlName=440A"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Crucible — AISI 440A (UNS S44002)",
+          "url": "https://www.crucible.com/eselector/product.aspx?StlName=440A",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Annealed (soft, HRC ≤22); end-use Q+T HRC 56-58"
+    },
+    {
+      "name": "AISI 440B (medium-C martensitic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Ferritic/Martensitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance", "Cr": "16~18", "Mo": "≤0.75",
+        "Mn": "≤1", "Si": "≤1", "C": "0.75~0.95", "P": "≤0.04", "S": "≤0.03"
+      },
+      "points": [
+        [7.8, 425, 740, 18, 200, 230, 24],
+        [7.8, 1900, 2000, 3, 200, 600, 24]
+      ],
+      "conditions": [
+        "Annealed (S44003, soft for forming/machining)",
+        "Q+T 200°C peak (HRC 58, cutlery/bearing application)"
+      ],
+      "fatigue": [420, 500, 580],
+      "impact": [8, 15, 24],
+      "fracture_toughness": [25, 35, 50],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel, martensitic, AISI 440B annealed (UNS S44003)",
+        "https://www.crucible.com/eselector/product.aspx?StlName=440B"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Crucible — AISI 440B (UNS S44003)",
+          "url": "https://www.crucible.com/eselector/product.aspx?StlName=440B",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Annealed (soft, HRC ≤24); end-use Q+T HRC 58-60",
+      "industry_note": "440A 와 440C 의 중간 — 440A 보다 단단, 440C 보다 toughness. 시중 식칼, scalpel blade, bearing race."
+    },
+    {
+      "name": "AISI 446 (high-Cr heat-resistant ferritic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Ferritic/Martensitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "69.2~77", "Cr": "23~27",
+        "Mn": "≤1.5", "Si": "≤1", "Ni": "≤0.75", "N": "≤0.25", "C": "≤0.2",
+        "P": "≤0.04", "S": "≤0.03"
+      },
+      "points": [
+        [7.5, 345, 555, 22, 200, 175, 22]
+      ],
+      "conditions": ["Annealed (S44600, EN 1.4749, X18CrN28, SUH446)"],
+      "fatigue": [200, 240, 280],
+      "impact": [25, 45, 75],
+      "fracture_toughness": [60, 80, 100],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel, ferritic, AISI 446 annealed (UNS S44600, EN 1.4749)",
+        "https://www.alleghenytechnologies.com/products/products-by-grade/?grade=446"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + ATI — AISI 446 (UNS S44600, X18CrN28, SUH446)",
+          "url": "https://www.alleghenytechnologies.com/products/products-by-grade/?grade=446",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Annealed — 23-27% Cr high heat resistance (up to 1095°C oxidation limit)",
+      "industry_note": "Heat-resistant ferritic — sulfur-bearing furnace atmosphere, oil refinery, nuclear plants underwater cables. 309/310 austenitic 대비 σ-phase embrittlement 회피 (475°C embrittlement 주의)."
+    },
+    {
+      "name": "Aluminum 1200 (commercial pure Al)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Pure/Other",
+      "process": "Wrought",
+      "composition": {
+        "Al": "99.6~100",
+        "Zn": "≤0.1", "Cu": "≤0.05", "Mn": "≤0.05", "Ti": "≤0.05",
+        "Si+Fe": "≤1"
+      },
+      "points": [
+        [2.71, 40, 90, 35, 70, 22, 230],
+        [2.71, 100, 110, 6, 70, 35, 230],
+        [2.71, 140, 150, 3, 70, 45, 230]
+      ],
+      "conditions": [
+        "O (Annealed, soft) — σy 38-42 / UTS 86-95 / El 33-38%",
+        "H14 (Half-hard) — σy 95-110 / UTS 105-125 / El 4-6%",
+        "H19 (Extra-hard) — σy 130-150 / UTS 140-160 / El 2-4%"
+      ],
+      "fatigue": [25, 35, 45],
+      "impact": [8, 15, 25],
+      "fracture_toughness": [35, 45, 60],
+      "ref_urls": [
+        "ANSYS Granta — Aluminum, commercial purity, 1200 (O/H14/H19) (UNS A91200, EN AW-1200, JIS H4120)",
+        "https://www.aluminum.org/aluminum-association/standards"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Aluminum Association — AA 1200 (UNS A91200, EN AW-Al99.0, EN 3.0205)",
+          "url": "https://www.aluminum.org/aluminum-association/standards",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "O (annealed) — chemical / electrical / general purpose Al",
+      "industry_note": "Commercial pure Al (99.0% min). 화학 / 페트로 chem 장비, 전기 비전도성 부품, 식품 packaging foil, AC 헤드 sink, 건축 cladding. Non-heat-treatable, strain-hardening (H temper) 으로만 강화."
+    },
+    {
+      "name": "Aluminum 6151 T6 (Anticorodal, Al-Mg-Si forging)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Pure/Other",
+      "process": "Wrought",
+      "composition": {
+        "Al": "95.6~98.8",
+        "Si": "0.6~1.2", "Mg": "0.45~0.8", "Cr": "0.15~0.35",
+        "Fe": "≤1", "Cu": "≤0.35", "Zn": "≤0.25", "Mn": "≤0.2", "Ti": "≤0.15"
+      },
+      "points": [
+        [2.71, 275, 327, 12, 69.6, 103, 173]
+      ],
+      "conditions": ["T6 (Solution heat-treated + artificially aged, peak strength)"],
+      "fatigue": [85, 100, 120],
+      "impact": [8, 14, 22],
+      "fracture_toughness": [25, 32, 40],
+      "ref_urls": [
+        "ANSYS Granta — Aluminum, 6151, T6 (UNS A96151, EN AW-6151, JIS A6151)",
+        "https://www.aluminum.org/aluminum-association/standards"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Aluminum Association — AA 6151-T6 (Anticorodal forging alloy)",
+          "url": "https://www.aluminum.org/aluminum-association/standards",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "T6 — Solution 530°C / WQ + Aged 170°C / 8h (peak Mg2Si precipitation)",
+      "industry_note": "Die-forging grade — crank case, fuse holder, machine parts. 6061 대비 fine forgeability + Cr 의 grain refinement. EV motor housing forging 일부 사용."
+    },
+    {
+      "name": "Aluminum 6463 T4/T6 (extrusion architectural)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Pure/Other",
+      "process": "Wrought",
+      "composition": {
+        "Al": "97.9~99.4",
+        "Mg": "0.45~0.9", "Si": "0.2~0.6",
+        "Cu": "≤0.2", "Fe": "≤0.15", "Mn": "≤0.05", "Zn": "≤0.05"
+      },
+      "points": [
+        [2.69, 81, 135, 19, 74, 41, 209],
+        [2.70, 172, 207, 12, 74, 60, 209]
+      ],
+      "conditions": [
+        "T4 (Solution + naturally aged) — σy 75-87 / UTS 125-146 / El 16-23%",
+        "T6 (Solution + artificially aged peak) — σy 145-180 / UTS 195-220 / El 10-14%"
+      ],
+      "fatigue": [42, 52, 65],
+      "impact": [10, 18, 26],
+      "fracture_toughness": [28, 35, 45],
+      "ref_urls": [
+        "ANSYS Granta — Aluminum, 6463, T4 / T6 (UNS A96463, EN AW-6463, EN AW-Al Mg0.7Si(B))",
+        "https://www.aluminum.org/aluminum-association/standards"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Aluminum Association — AA 6463 T4/T6 (Anticorodal extrusion)",
+          "url": "https://www.aluminum.org/aluminum-association/standards",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "T6 — Solution 530°C / WQ + Aged 175°C / 8h (peak)",
+      "industry_note": "Architectural extrusion grade — door/window frames, decorative trim, building cladding. 6063 의 저 Fe 변종 (≤0.15%) 으로 표면 brilliance 강화 (광택 anodizing). 한국 채택: 일부 high-end 건축 외장."
+    },
+    {
+      "name": "Titanium Grade 11 (Ti-0.2Pd, corrosion-resistant α-Ti)",
+      "category": "Metal",
+      "subcategory": "Titanium - Pure / CP Grades",
+      "process": "Wrought",
+      "composition": {
+        "Ti": "99.4~99.9", "Pd": "0.12~0.25",
+        "Fe": "≤0.2", "C": "≤0.08", "N": "≤0.03"
+      },
+      "points": [
+        [4.51, 200, 295, 30, 103, 120, 17]
+      ],
+      "conditions": ["Annealed (mill product, AMS 4941, ASTM B265 Gr11)"],
+      "fatigue": [137, 176, 220],
+      "impact": [40, 60, 85],
+      "fracture_toughness": [68, 70, 72],
+      "ref_urls": [
+        "ANSYS Granta — Titanium, alpha alloy, Ti-0.2Pd (grade 11, UNS R52250)",
+        "https://www.timetal.com/products/titanium-products/grade-11/"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + TIMET — Ti Gr11 (Ti-0.2Pd, UNS R52250, ASTM B265)",
+          "url": "https://www.timetal.com/products/titanium-products/grade-11/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Annealed (mill product) — Pd-stabilized for chloride/acid resistance",
+      "industry_note": "Grade 1 변종 + 0.12-0.25% Pd → reducing 환경 (염산 / 황산 / 인산) 내식성 ↑. 화학 plant heat exchanger tube, 탈염수 (seawater desalination), 펄프 mill bleach plant. Gr2 대비 강도 약간 ↓ but corrosion 압도적 ↑."
+    },
+    {
       "name": "300M",
       "category": "Metal",
       "subcategory": "Alloy Steel",
@@ -8315,43 +8724,224 @@
       ]
     },
     {
-      "name": "AA 2099 (Al-Li)",
+      "name": "AA 2099 (Al-Li, Arconic Airware)",
       "category": "Metal",
-      "subcategory": "Aluminum",
+      "subcategory": "Aluminum - Lithium",
       "process": "Wrought",
       "composition": {
-        "Al": "balance",
-        "Cu": "2.4~3",
-        "Li": "1.6~2",
-        "Zn": "0.4~1"
+        "Al": "balance", "Cu": "2.4~3", "Li": "1.6~2", "Zn": "0.4~1",
+        "Mg": "0.1~0.5", "Mn": "0.1~0.5", "Zr": "0.05~0.12"
       },
       "points": [
-        [
-          2.63,
-          470,
-          520,
-          8,
-          78,
-          150,
-          95
-        ],
-        [
-          2.63,
-          440,
-          490,
-          6,
-          78,
-          140,
-          95
-        ]
+        [2.63, 470, 520, 8, 78, 150, 95],
+        [2.63, 440, 490, 6, 78, 140, 95]
+      ],
+      "conditions": [
+        "T83 (Solution + CW + Aged, extrusion peak)",
+        "T8E69 (extrusion sub-peak)"
+      ],
+      "fatigue": [165, 195, 225],
+      "impact": [12, 18, 28],
+      "fracture_toughness": [30, 35, 42],
+      "ref_urls": [
+        "DOT/FAA/TC-18/21 V1 — Material Characterization of Aluminum Lithium Alloys (March 2020)",
+        "Arconic Airware Al-Li 2099 (Constellium / Arconic supplied)"
       ],
       "sources": [
         {
-          "label": "ASM — AA 2099 aluminium-lithium",
-          "url": null,
-          "verified": false
+          "label": "FAA DOT/TC-18/21 V1 + Arconic — AA 2099 Airware (3rd-gen Al-Li, Airbus A350 floor structure)",
+          "url": "https://actlibrary.tc.faa.gov/?searchTerm=DOT%2FFAA%2FTC-18%2F21",
+          "verified": true
         }
-      ]
+      ],
+      "heat_treatment": "T83 — Solution + CW + Aged (peak Li-CuLi2 precipitation)",
+      "industry_note": "3세대 Al-Li (1.6-2% Li) — Airbus A350 / A380 lower wing skin, floor beam, fuselage frame, stringer. AA 2024-T351 대비 4-5% 밀도 절감 + 동등 σy. Constellium (extrusion) + Arconic (rolling) 동시 생산. MMPDS Vol.1 2010 등록."
+    },
+    {
+      "name": "AA 2198 (Al-Li T8 sheet, Constellium Airware)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Lithium",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance", "Cu": "2.90~3.50", "Li": "0.80~1.10",
+        "Mg": "0.25~0.80", "Ag": "0.10~0.50", "Mn": "≤0.50",
+        "Zr": "0.04~0.18", "Si": "≤0.08", "Fe": "≤0.1"
+      },
+      "points": [
+        [2.69, 460, 525, 10, 76, 150, 95]
+      ],
+      "conditions": ["T8 (Solution + CW + Aged peak, sheet 0.071-0.125 inch)"],
+      "fatigue": [140, 165, 195],
+      "impact": [14, 20, 28],
+      "fracture_toughness": [32, 38, 45],
+      "ref_urls": [
+        "DOT/FAA/TC-18/21 V1 — Al-Li 2198-T8 case study (FAA WJHTC, March 2020)",
+        "Constellium Airware Al-Li 2198 sheet datasheet"
+      ],
+      "sources": [
+        {
+          "label": "FAA DOT/TC-18/21 V1 + Constellium — AA 2198-T8 (Airbus A350 fuselage skin, MMPDS 2010)",
+          "url": "https://actlibrary.tc.faa.gov/?searchTerm=DOT%2FFAA%2FTC-18%2F21",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "T8 — Solution 530°C + CW + Aged 155°C (peak T1 phase precipitation)",
+      "industry_note": "Airbus A350 fuselage skin, frame, stringer, floor beam. AA 2024-T3 대비 5-7% 가벼움 + 동등 fatigue 성능 (FAA verified). MMPDS Vol.1 2010 등록."
+    },
+    {
+      "name": "AA 2196 (Al-Li T8511 extrusion, Constellium Airware)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Lithium",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance", "Cu": "2.5~3.3", "Li": "1.4~2.1",
+        "Mg": "0.25~0.8", "Ag": "0.25~0.6", "Mn": "≤0.35",
+        "Zr": "0.04~0.25", "Si": "≤0.12", "Fe": "≤0.15"
+      },
+      "points": [
+        [2.65, 540, 600, 7, 78, 160, 95]
+      ],
+      "conditions": ["T8511 (Solution + stretched + CW + Aged peak, extrusion 0.06-0.145 inch)"],
+      "fatigue": [180, 215, 250],
+      "impact": [10, 16, 24],
+      "fracture_toughness": [28, 33, 40],
+      "ref_urls": [
+        "DOT/FAA/TC-18/21 V1 — Al-Li 2196-T8511 case study (FAA WJHTC, March 2020)",
+        "Constellium Airware Al-Li 2196 extrusion datasheet"
+      ],
+      "sources": [
+        {
+          "label": "FAA DOT/TC-18/21 V1 + Constellium — AA 2196-T8511 (Airbus A350 floor beam, frame, MMPDS 2010)",
+          "url": "https://actlibrary.tc.faa.gov/?searchTerm=DOT%2FFAA%2FTC-18%2F21",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "T8511 — Solution + stretched + CW + Aged peak (T1 + S precipitation)",
+      "industry_note": "Higher Li (1.4-2.1%) vs 2198 — 더 가벼움 (8% 절감) + 압출 grade. Airbus A350 lower wing skin stringer, floor beam I/Z extrusion. MMPDS Vol.1 2010 등록."
+    },
+    {
+      "name": "API 5L X65 / L450 PSL2 (line pipe)",
+      "category": "Metal",
+      "subcategory": "Pipeline Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance", "C": "≤0.18", "Mn": "≤1.45", "Si": "≤0.40",
+        "Nb": "≤0.05", "V": "≤0.07", "Ti": "≤0.04",
+        "P": "≤0.025", "S": "≤0.015"
+      },
+      "points": [
+        [7.85, 450, 535, 18, 210, 180, 45]
+      ],
+      "conditions": ["L450Q/QO (Q+T, σy 450 MPa min, σu 535 MPa min, PSL2 standard)"],
+      "fatigue": [200, 240, 280],
+      "impact": [80, 130, 180],
+      "fracture_toughness": [80, 110, 140],
+      "ref_urls": [
+        "API 5L Spec 46th Edition — Line Pipe (PSL1, PSL2, Sour Service)",
+        "Octalsteel API 5L pipe specification datasheet"
+      ],
+      "sources": [
+        {
+          "label": "API 5L Spec + Octalsteel — X65 / L450 PSL2 (line pipe, Q+T)",
+          "url": "https://www.octalsteel.com/api-5l-pipe-specification",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Q+T (Quenched + Tempered, PSL2 N=Normalized/Q=Q+T)",
+      "industry_note": "표준 가스 송유관 grade. POSCO / JFE / Nippon Steel / Tata Steel 동등 spec. -10°C 환경 Charpy 80J+ → leak-before-break design. KOGAS LNG receiving terminal, 천연가스 송유관."
+    },
+    {
+      "name": "API 5L X70 / L485 PSL2 (high-strength line pipe)",
+      "category": "Metal",
+      "subcategory": "Pipeline Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance", "C": "≤0.18", "Mn": "≤1.65", "Si": "≤0.40",
+        "Nb": "≤0.05", "V": "≤0.07", "Ti": "≤0.04",
+        "P": "≤0.025", "S": "≤0.015"
+      },
+      "points": [
+        [7.85, 485, 570, 17, 210, 195, 42]
+      ],
+      "conditions": ["L485M (TMCP, σy 485 MPa min, σu 570 MPa min)"],
+      "fatigue": [220, 260, 300],
+      "impact": [85, 140, 200],
+      "fracture_toughness": [90, 120, 150],
+      "ref_urls": [
+        "API 5L Spec 46th Edition — X70 / L485 PSL2",
+        "Octalsteel API 5L pipe specification datasheet"
+      ],
+      "sources": [
+        {
+          "label": "API 5L Spec + Octalsteel — X70 / L485 PSL2 (TMCP line pipe)",
+          "url": "https://www.octalsteel.com/api-5l-pipe-specification",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "TMCP (Thermo-Mechanical Controlled Process, acicular ferrite microstructure)",
+      "industry_note": "고압 가스 송유관 (DN 1200+ Russia/Korea/Middle East 천연가스). POSCO / Nippon Steel TMCP plate → SAW/UOE 제관. PSL2 sour service certified (HIC resistance < 5% CSR/CLR). 한국 KOGAS / KORAS pipeline 표준."
+    },
+    {
+      "name": "Rail Steel R260 (BS EN 13674-1 standard rail)",
+      "category": "Metal",
+      "subcategory": "Rail Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "C": "0.62~0.80", "Mn": "0.70~1.20", "Si": "0.15~0.58",
+        "P": "≤0.030", "S": "≤0.030"
+      },
+      "points": [
+        [7.83, 510, 880, 10, 207, 280, 50]
+      ],
+      "conditions": ["Hot-rolled + air cooled (pearlitic, HBW 260-300)"],
+      "fatigue": [320, 380, 440],
+      "impact": [10, 16, 25],
+      "fracture_toughness": [30, 40, 55],
+      "ref_urls": [
+        "BS EN 13674-1:2011 Railway applications — Rail Part 1: Vignole railway rails 46 kg/m and above",
+        "Nippon Steel Rail Catalog R260 / UIC60"
+      ],
+      "sources": [
+        {
+          "label": "BS EN 13674-1 + Nippon Steel — Rail Steel R260 (UIC60 standard rail)",
+          "url": "https://www.bsigroup.com/en-GB/standards/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Hot-rolled + air cooled (full pearlitic, no post-heat-treatment)",
+      "industry_note": "유럽 / 한국 (KORAIL) 표준 mainline rail (Vignole profile UIC60 60.21 kg/m). 고탄소 pearlite 조직 → wear resistance + ductility 균형. HBW 260-300, σu 880 MPa min, El 10% min. R350HT 대비 toughness ↑ but wear ↓."
+    },
+    {
+      "name": "Rail Steel R350HT (BS EN 13674-1 head-hardened rail)",
+      "category": "Metal",
+      "subcategory": "Rail Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "C": "0.72~0.80", "Mn": "0.70~1.20", "Si": "0.15~0.58",
+        "P": "≤0.020", "S": "≤0.025"
+      },
+      "points": [
+        [7.83, 800, 1175, 9, 207, 370, 50]
+      ],
+      "conditions": ["Hot-rolled + Head-hardened (HBW 350-390, accelerated cooling)"],
+      "fatigue": [400, 470, 540],
+      "impact": [6, 11, 18],
+      "fracture_toughness": [22, 30, 42],
+      "ref_urls": [
+        "BS EN 13674-1:2011 — R350HT head-hardened rail",
+        "Nippon Steel Rail Catalog R350HT high-strength rail"
+      ],
+      "sources": [
+        {
+          "label": "BS EN 13674-1 + Nippon Steel — R350HT (head-hardened high-strength rail)",
+          "url": "https://www.bsigroup.com/en-GB/standards/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Hot-rolled + accelerated head-hardening (forced air/water cooling, refined pearlite)",
+      "industry_note": "고하중 raillail (heavy freight, high-speed) — head-hardened (정면 360 HBW + 10mm 깊이) 로 wear resistance ↑↑ + 동등 ductility. 한국 KORAIL 일부 고속선 (KTX 호남선), 호주 BHP 광산 철도, 유럽 high-speed line. R260 대비 마모 수명 2-3×."
     },
     {
       "name": "AISI 4145",

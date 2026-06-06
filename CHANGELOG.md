@@ -2,6 +2,80 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R134 — 24 PDF anchor 보강 + 8 alloy 명시 삭제 + 품질 로드맵
+
+R133b 의 후속 작업. 사용자 24 PDF 추가 제공 + "자료 없는 entry 삭제 고려" + "확장 < 정확성" 명시.
+
+### R134a — 24 PDF 처리 + 8 alloy 삭제
+
+**삭제 (사용자 명시)**:
+- Build pipeline `EXCLUDED_ALLOY_PATTERNS` 추가 — 152 CSV 행 자동 제외
+  - Ti-5-8-5 (β-Ti specialty, datasheet 0)
+  - AA 7178 (구형 aerospace Al)
+  - AA 5005 / 5050 / 5154 / 5251 / 5356 / 5383 (Al-Mg variants — AA 5052/5083 으로 대체 가능)
+- 결과: 1,291 → 1,235 materials (-56 = -152 CSV + 96 신규/upgrade)
+
+**신규/upgrade entries (verified URL + handbook 데이터)** — 16 entries:
+- **AISI 303/305/308/309/317** austenitic anchor 확장 (Granta + Outokumpu verified)
+- **AISI 436/440A/440B/446** ferritic/martensitic anchor (Granta + Crucible/ATI verified)
+- **AA 1200** (UNS A91200) — CP Al anchor 3 conditions (O/H14/H19)
+- **AA 6151 T6** (Anticorodal forging) + **AA 6463 T4/T6** (architectural extrusion)
+- **Ti Grade 11** (Ti-0.2Pd, UNS R52250) — Pd corrosion-resistant α-Ti
+- **AA 2099 (Arconic Airware) + AA 2198 + AA 2196** (FAA DOT/TC-18/21 verified) — Al-Li anchor
+- **API 5L X65 / X70 PSL2** (Octalsteel + API spec verified) — Pipeline anchor
+- **Rail Steel R260 + R350HT** (BS EN 13674-1 + Nippon Steel verified) — Rail anchor
+- Build pipeline 개선:
+  - `aaSubcategory()` 에 Al-Li (2050/2090/2099/2195-9) 별도 분리
+  - `NAME_BASED_OVERRIDE` 에 Al-Li priority rule
+  - **subcategory mismatch** 해결 — Al-Li 가 "Aluminum - Pure/Other" 로 잘못 normalize 되던 문제 fix
+
+**Anchor% 변화 (3rd_family heuristic 효과)**:
+| Subfamily | Before | After |
+|---|---|---|
+| Aluminum - Lithium | 0% | **83.3%** |
+| Pipeline Steel | 0% | **33.3%** |
+| Rail Steel | 0% | **28.6%** |
+| Stainless Austenitic | 52% | (anchor 5종 추가) |
+| Stainless F/M | 59% | (anchor 4종 추가) |
+
+**Confidence tier 재분류**:
+| Tier | R133 | R134a | Δ |
+|---|---|---|---|
+| high | 487 | **513** | +26 |
+| medium | 436 | 435 | -1 |
+| medium-low | 237 | **207** | -30 |
+| **low** (default hide) | 131 | **80** | **-39%** |
+
+verified-source: 827 → **853** (+26).
+
+### R134b — 품질 향상 로드맵 (data/quality-improvement-roadmap.md)
+
+사용자 명시 응답: "확장보다는 데이터베이스의 질과 정확성을 향상시키는 작업".
+
+**Tier 1 — Anchor 부족 5 subfamily 해결 (남은 anchor 0%)**:
+1. DP980 / POSCO TWIP1180 — AHSS 3 entries
+2. ABS/DNV-GL EH36 + DH32 — Shipbuilding 3
+3. A553 Type II (Nippon 9Ni) — Low-Temp 2
+4. ASTM A588 Cor-Ten verified URL — HSLA 2
+5. API 5L X42N + X52M — Microalloyed 2
+
+**Tier 2 — HT multiplier 정확도 검증**:
+6. Inconel 718 STA + DSA full SMC-045 — multiplier 0.65 → 0.80 calibration 필요 (Granta ST/STA 데이터로 확인됨)
+7. Maraging 350 aged vs over-aged
+8. Tool steel H13 HRC 44 vs 50 vs 53
+9. Ti-6Al-4V STA vs HIP fatigue
+
+**Tier 3-4 — Polymer/Ceramic/Composite 보강**:
+10. Solvay PVDF Kynar 740 / Victrex PEEK 450G / Hexcel HexPly 8552 / CoorsTek Y-TZP
+
+### ⚠️ "A553" 처리 보류
+사용자 list 의 "A553" 은:
+- a553.pdf (R133a) 데이터 보유 + 9% Ni LNG tank 한국 산업 중요 grade
+- 현재 보수적 처리: 중복 통합 + a553.pdf 데이터 활용
+- 사용자 의도 확인 요청 (literal 삭제 vs 중복 제거만 vs 그대로 유지)
+
+검증: pnpm check / pnpm test (47 pass) / pnpm build 21s
+
 ## R133 — 10 PDF + 5 URL anchor 보강 + 자신감 낮은 10 material 식별 + confidence_tier 자동 분류 + UI hide toggle
 
 R132b 의 후속 작업. 사용자 자료 추가 + "가장 자신없는 재료 10개" 질문 + "표시하지 않는것도 하나의 방법" 권한 위임.

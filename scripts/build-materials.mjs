@@ -138,7 +138,11 @@ function alloyOf(name) {
 }
 // AA aluminium series → app subcategory
 function aaSubcategory(name) {
-  const m = baseName(name).match(/^AA\s*(\d)\d{3}/i);
+  /* R134a — Al-Li (2050/2090/2099/2195/2196/2198/2199) 는 별도 subcategory 로 분리.
+     일반 2xxx (2014/2024/2219/2618) 는 Cu Alloys (2xxx). */
+  const nm = baseName(name);
+  if (/\b20(50|90|99|95)\b|\b219[5-9]\b|\b21\d{2}\b.*?\bli\b|\bal-?li\b/i.test(nm)) return 'Aluminum - Lithium';
+  const m = nm.match(/^AA\s*(\d)\d{3}/i);
   if (!m) return null;
   return { '1': 'Aluminum - Pure/Other', '2': 'Aluminum - Cu Alloys (2xxx)', '3': 'Aluminum - Mn Alloys (3xxx)', '5': 'Aluminum - Mg Alloys (5xxx)', '6': 'Aluminum - Si Alloys (6xxx/7xxx)', '7': 'Aluminum - Si Alloys (6xxx/7xxx)', '8': 'Aluminum - Pure/Other' }[m[1]] || null;
 }
@@ -1480,9 +1484,29 @@ const refAlloySet = new Set(
     .filter((s) => s.category !== 'Polymer'))
     .map((s) => norm(alloyOf(s.name)))
 );
+/* R134a — 사용자 명시 요청: data sparse + 대체 anchor 존재 → DB 제외.
+   "확장보다는 데이터베이스의 질과 정확성을 향상시키는 작업".
+   Ti-5-8-5 (β-Ti specialty, datasheet 0) — Ti-5553 으로 대체 가능
+   AA 7178 (구형 aerospace) — AA 7075-T7351 으로 대체 가능
+   AA 5005/5050/5154/5251/5356/5383 — AA 5052/5083 으로 대체 가능
+   ASTM A553 (사용자 명시 — 단, a553.pdf 데이터 보유, 9% Ni LNG tank 등 valuable 가능성 → comment 하단 참고). */
+const EXCLUDED_ALLOY_PATTERNS = [
+  /^ti[\s-]?5[\s-]?8[\s-]?5$/i,        // Ti-5-8-5 (Ti-5Al-8V-5Cr)
+  /^aa[\s-]?7178$/i,                    // AA 7178
+  /^aa[\s-]?500[5]$/i, /^aa[\s-]?5050$/i, /^aa[\s-]?5154$/i,  // Al-Mg 5005, 5050, 5154
+  /^aa[\s-]?5251$/i, /^aa[\s-]?5356$/i, /^aa[\s-]?5383$/i,    // Al-Mg 5251, 5356, 5383
+];
+function isExcludedAlloy(name) {
+  const n = String(name || '').trim();
+  return EXCLUDED_ALLOY_PATTERNS.some(rx => rx.test(n));
+}
+let droppedExcluded = 0;
 const ncGroups = new Map(); // norm(alloy)|process -> { rows, hasAm, name, process }
 for (const r of csvRows) {
   if (isCurated(r.material_name)) { droppedCuratedDup++; continue; }
+  if (isExcludedAlloy(alloyOf(r.material_name)) || isExcludedAlloy(baseName(r.material_name))) {
+    droppedExcluded++; continue;
+  }
   const isAm = r.manufacturer !== 'Generic' || AM_PROC.has(r.process);
   const alloy = (isAm ? alloyOf(r.material_name) : baseName(r.material_name)).trim();
   if (!norm(alloy)) { droppedCuratedDup++; continue; }
@@ -3067,6 +3091,8 @@ const METAL_SUB_RULES = [
 //   Ti-5-2-5 가 Aluminum - Pure/Other, C36000 brass 가 Titanium 으로 들어옴).
 //   alloy designation 이 매우 명확한 경우 (AA xxxx / Ti-X-Y / Cxxxxx) 이름으로 강제 재분류.
 const NAME_BASED_OVERRIDE = [
+  // R134a — Al-Li (2050/2090/2099/2195/2196/2198/2199) 별도 분리
+  [/^aa\s?(?:2050|2090|2099|2195|2196|2198|2199)\b|\bal-?li\b/i, 'Aluminum - Lithium'],
   // Aluminum — AA 1xxx ~ 7xxx, A356 같은 cast designation
   [/^aa\s?[1-7]\d{3}\b|^a[1-7]\d{3}\b/i, 'Aluminum - Pure/Other'],
   // Titanium — Ti-X-Y-Z, Ti CP, Ti grade N, beta-Ti aliases
@@ -3885,6 +3911,7 @@ fs.writeFileSync(path.join(ROOT, 'client', 'public', 'build-meta.json'), JSON.st
 
 // ───────── console summary ─────────
 console.log(`TOTAL ${all.length} = curated ${curated.length} + am_vendor ${am_vendor.length} + generic ${generic.length} + reference ${supplementary.length}`);
+if (droppedExcluded > 0) console.log(`R134a — Dropped ${droppedExcluded} CSV rows from excluded alloys (Ti-5-8-5, AA 7178, AA 5005/5050/5154/5251/5356/5383).`);
 console.log('am_vendor recovered:', am_vendor.map(m => m.name).join(', '));
 console.log('AA subcategory fixes:', aaFixed, '| subcat mismatch flags:', subcatFlags.length, '| verified-source materials:', withVerifiedSrc);
 console.log('Wrote data/materials.preview.json + data/validation-report.md');
