@@ -11,6 +11,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
 import { htGlossaryFor } from '@/lib/ht-glossary';
+import { htAlloySpecificFor } from '@/lib/ht-alloy-specific';
 import { computeCET, computeCEIIW, computePcm, computeSchaeffler, computeMachinability, machiningCostBand, htCostBand } from '@/lib/welding-machinability';
 import { TempCurveChart } from '@/components/TempCurveChart';
 import { CreepRuptureChart } from '@/components/CreepRuptureChart';
@@ -579,41 +580,84 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                       </div>
                     </details>
                   )}
-                  {/* 카드 2 — 열처리·후공정 통합 (R117: default open, 사용자 요청). collapse 기능 유지. */}
-                  {htCost && (
-                    <details open className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)} md:col-span-1`}>
-                      <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
-                        <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · 열처리</span>
-                        <span className="text-[10px] font-normal opacity-70">×{htCost.factor.toFixed(2)} · <b>{htCost.label}</b></span>
-                      </summary>
-                      <div className="space-y-1.5 text-[12px] mt-2 pt-2 border-t border-current/15">
-                        <div className="flex items-baseline justify-between gap-2">
-                          <b>HT 가중치</b>
-                          <span className="font-mono">×{htCost.factor.toFixed(2)} · {htCost.detail} · <b>{htCost.label}</b></span>
-                        </div>
-                        {(() => {
-                          const f = htCost.factor;
-                          const atmosphere = f >= 1.5 ? 'Vacuum / Inert gas (Ar/N₂)' : f >= 1.2 ? 'Inert gas 또는 controlled air' : 'Air / open furnace';
-                          const steps = f >= 1.5 ? '3-5 step (solution → quench → multi-stage aging + HIP/coating)' : f >= 1.2 ? '2 step (Q+T 또는 solution+aging)' : f >= 1.05 ? '1 step (stress relief 또는 anneal)' : 'None';
-                          const hours = f >= 1.5 ? '8-24h' : f >= 1.2 ? '4-8h' : f >= 1.05 ? '1-3h' : '0h';
-                          const ksRef = f >= 1.2 ? 'KS D 0040 (열처리 일반) · KS D 3866 (구조용 강)' : null;
-                          return (
-                            <>
-                              <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px] mt-1">
-                                <div><span className="text-foreground/60">분위기:</span> <b>{atmosphere}</b></div>
-                                <div><span className="text-foreground/60">총 시간:</span> <b>{hours}</b></div>
-                                <div className="col-span-2"><span className="text-foreground/60">단계:</span> <b>{steps}</b></div>
+                  {/* R140 — 카드 2: 재료명에 HT 가 이미 반영된 경우 alloy-specific 설명 표시.
+                      예: "17-4 PH H900" → 1170 MPa peak strength + 482°C aged 1h + landing gear use case.
+                      미매칭 (specific HT 없거나 generic alloy) 시 기존 HT 가중치 카드 표시. */}
+                  {(() => {
+                    const alloyHt = htAlloySpecificFor(material.name, material.heat_treatment);
+                    if (alloyHt) {
+                      const { family, description } = alloyHt;
+                      return (
+                        <details open className="rounded-lg border-2 border-sky-300 bg-sky-50 p-3 md:col-span-1">
+                          <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-sky-800">
+                            <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · {description.code}</span>
+                            <span className="text-[10px] font-normal opacity-70">{family.familyName}</span>
+                          </summary>
+                          <div className="space-y-2 text-[12px] mt-2 pt-2 border-t border-sky-300/40">
+                            <div className="font-semibold text-sky-900">{description.title}</div>
+                            <div>
+                              <div className="text-[10px] uppercase tracking-wide text-sky-700/70 mb-0.5">공정 / Process</div>
+                              <div className="text-[11px] font-mono leading-relaxed text-foreground/90 bg-white/60 rounded px-2 py-1">{description.process}</div>
+                            </div>
+                            <div>
+                              <div className="text-[10px] uppercase tracking-wide text-sky-700/70 mb-0.5">결과 물성 / Resulting</div>
+                              <div className="text-[11px] font-mono leading-relaxed text-foreground/90 bg-white/60 rounded px-2 py-1">{description.resulting}</div>
+                            </div>
+                            <div>
+                              <div className="text-[10px] uppercase tracking-wide text-sky-700/70 mb-0.5">적용 / Use case</div>
+                              <div className="text-[11px] leading-relaxed text-foreground/80">{description.useCase}</div>
+                            </div>
+                            {description.caveat && (
+                              <div className="rounded border border-amber-300 bg-amber-50 px-2 py-1.5">
+                                <div className="text-[10px] uppercase tracking-wide text-amber-700 mb-0.5">⚠ 주의 / Caveat</div>
+                                <div className="text-[11px] leading-relaxed text-amber-900">{description.caveat}</div>
                               </div>
-                              <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{htCost.note}</p>
-                              <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
-                                <b>출처 / 기준</b>: ASM Handbook Vol.4 Heat Treating{ksRef && ` · ${ksRef}`} · 분위기/단계/시간은 factor 기반 휴리스틱 (vendor 견적 별도 필요).
-                              </p>
-                            </>
-                          );
-                        })()}
-                      </div>
-                    </details>
-                  )}
+                            )}
+                            <p className="text-[10px] mt-2 pt-1.5 border-t border-sky-300/40 text-foreground/60">
+                              <b>출처</b>: {description.source}
+                              {htCost && ` · HT 가공비 가중치: ×${htCost.factor.toFixed(2)} (${htCost.label})`}
+                            </p>
+                          </div>
+                        </details>
+                      );
+                    }
+                    // Fallback: 기존 HT 가중치 카드 (specific HT 매칭 안 됨)
+                    if (!htCost) return null;
+                    return (
+                      <details open className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)} md:col-span-1`}>
+                        <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
+                          <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · 열처리</span>
+                          <span className="text-[10px] font-normal opacity-70">×{htCost.factor.toFixed(2)} · <b>{htCost.label}</b></span>
+                        </summary>
+                        <div className="space-y-1.5 text-[12px] mt-2 pt-2 border-t border-current/15">
+                          <div className="flex items-baseline justify-between gap-2">
+                            <b>HT 가중치</b>
+                            <span className="font-mono">×{htCost.factor.toFixed(2)} · {htCost.detail} · <b>{htCost.label}</b></span>
+                          </div>
+                          {(() => {
+                            const f = htCost.factor;
+                            const atmosphere = f >= 1.5 ? 'Vacuum / Inert gas (Ar/N₂)' : f >= 1.2 ? 'Inert gas 또는 controlled air' : 'Air / open furnace';
+                            const steps = f >= 1.5 ? '3-5 step (solution → quench → multi-stage aging + HIP/coating)' : f >= 1.2 ? '2 step (Q+T 또는 solution+aging)' : f >= 1.05 ? '1 step (stress relief 또는 anneal)' : 'None';
+                            const hours = f >= 1.5 ? '8-24h' : f >= 1.2 ? '4-8h' : f >= 1.05 ? '1-3h' : '0h';
+                            const ksRef = f >= 1.2 ? 'KS D 0040 (열처리 일반) · KS D 3866 (구조용 강)' : null;
+                            return (
+                              <>
+                                <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px] mt-1">
+                                  <div><span className="text-foreground/60">분위기:</span> <b>{atmosphere}</b></div>
+                                  <div><span className="text-foreground/60">총 시간:</span> <b>{hours}</b></div>
+                                  <div className="col-span-2"><span className="text-foreground/60">단계:</span> <b>{steps}</b></div>
+                                </div>
+                                <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{htCost.note}</p>
+                                <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
+                                  <b>출처 / 기준</b>: ASM Handbook Vol.4 Heat Treating{ksRef && ` · ${ksRef}`} · 분위기/단계/시간은 factor 기반 휴리스틱 (vendor 견적 별도 필요).
+                                </p>
+                              </>
+                            );
+                          })()}
+                        </div>
+                      </details>
+                    );
+                  })()}
                   {/* 카드 3 — 용접성 4 지표 통합 경고 (default closed, but high band 면 open) */}
                   {(ce_iiw || cet || pcm || sch) && (
                     <details open={weldWorst === 'high'} className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || 'normal')} md:col-span-2`}>
@@ -780,11 +824,20 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               </Field>
             )}
             {material.heat_treatment && (() => {
+              /* R140 — alloy-specific HT 우선, 없으면 generic glossary. */
+              const alloyHt = htAlloySpecificFor(material.name, material.heat_treatment);
               const g = htGlossaryFor(material.heat_treatment);
               return (
                 <Field label="Condition / heat treatment">
                   <span>{material.heat_treatment}</span>
-                  {g && <span className="ml-1.5 text-[10px] text-muted-foreground italic" title={g.short}>— {g.effect}</span>}
+                  {alloyHt ? (
+                    <span
+                      className="ml-1.5 text-[10px] text-sky-700 italic"
+                      title={`${alloyHt.description.title}\n공정: ${alloyHt.description.process}\n결과: ${alloyHt.description.resulting}\n적용: ${alloyHt.description.useCase}${alloyHt.description.caveat ? `\n⚠ ${alloyHt.description.caveat}` : ''}\n출처: ${alloyHt.description.source}`}
+                    >— {alloyHt.description.title} (Process 탭 참조)</span>
+                  ) : g ? (
+                    <span className="ml-1.5 text-[10px] text-muted-foreground italic" title={g.short}>— {g.effect}</span>
+                  ) : null}
                 </Field>
               );
             })()}

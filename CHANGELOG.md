@@ -2,6 +2,89 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R140 — Alloy-specific HT 설명 카드 (재료명에 HT 반영된 경우 UX 개선)
+
+사용자 명시 UX 개선: "재료명에 HT 이미 반영된 경우 일반 HT difficulty 카드 대신 해당 HT 의 구체적 설명 표시. 동일 HT명도 alloy 마다 다르니 주의."
+
+### 핵심 문제 (R139 까지의 한계)
+**기존 HT 카드 (R117)**: 모든 재료에 동일하게 "HT 가중치 ×1.5, 분위기 Vacuum, 8-24h 단계" 같은 generic difficulty/cost 정보 표시. 이미 재료명에 "17-4 PH H900" 가 있으면:
+- "H900 이 무엇을 의미하는가?" 사용자 의문 미해소
+- 17-4 PH 의 H900 (482°C aged) ≠ 15-5 PH 의 H900 (parameters 유사하지만 미세 차이) — 구분 안 됨
+
+### R140 — Alloy-specific HT description library
+
+**client/src/lib/ht-alloy-specific.ts** 신규 (1000+ 줄):
+14 alloy family × 평균 4-6 HT condition = **83 entries (7% of DB)** 의 정밀 alloy-specific HT 설명:
+
+| Alloy Family | HT Codes 지원 |
+|---|---|
+| **17-4 PH** (S17400) | H900 / H925 / H1025 / H1075 / H1100 / H1150 / As-built |
+| **15-5 PH** (S15500, XM-12) | H900 / H1025 / H1150 |
+| **Custom 465** (S46500 Carpenter) | H900 / H 950 / H 1000 / H 1050 |
+| **AA 2xxx** (Al-Cu: 2024/2014/2219) | T3 / T351 / T4 / T6 / T8 |
+| **AA 6xxx** (Al-Mg-Si: 6061/6063/6082/6151) | T4 / T6 / T651 / T5 |
+| **AA 7xxx** (Al-Zn-Mg: 7075/7050/7068) | T6 / T651 / T73 / T7351 / T7451 |
+| **Maraging 250** (K92890) | Aged / 482°C/3h / 482°C/6h / Annealed |
+| **Maraging 300** (K93120) | Aged / Solution Treated |
+| **Maraging 350** (C-350 ATI) | Aged / Solution Annealed |
+| **Inconel 718** (N07718) | STA / DSA / Aged / Solution Treated / Annealed |
+| **Ti-6Al-4V** (R56400 Gr5 / R56407 Gr23 ELI) | Mill Annealed / Annealed / STA / β-annealed / HIP / As-built |
+| **BeCu C17200** (CuBe2) | TF00 (Moldmax HH) / TH04 / TB00 |
+| **Tool Steel H13** (SKD61) | Q+T 540°C HRC 50 / HRC 53 / 610°C HRC 44 / Annealed |
+| **9% Ni A553** (cryogenic LNG) | DN+T (Type I) / Q+T (Type II) |
+| **22MnB5 USIBOR 1500** (PHS) | High-ductility blank / Hot-stamped / +200°C tempered |
+
+**각 HT entry 구조**:
+```typescript
+{
+  code: 'H 950',
+  title: 'H 950 — peak balance (510°C aged)',
+  process: 'Solution treated 980°C / WQ → Aged 510°C / 4 h / AC',
+  resulting: 'σy 1669 MPa · UTS 1765 MPa · El 13% · KIC 104 MPa·√m · HRC 49',
+  useCase: '17-4PH H900 보다 strength + toughness 동시 ↑. Carpenter 추천 표준.',
+  caveat: '응력부식균열 우려 — chloride 환경 시 H1025 이상 권장.',
+  source: 'Carpenter Custom 465 datasheet (R132 verified)',
+}
+```
+
+### UI 변경 (MaterialDetail.tsx)
+
+**Process tab HT 카드**:
+- Alloy-specific HT 매칭 시 → **sky-blue 카드** 표시:
+  - Title (예: "H 950 — peak balance (510°C aged)")
+  - 공정 / Process box (모노폰트, 정확한 온도 + 시간 + 분위기)
+  - 결과 물성 / Resulting (σy, UTS, El, KIC, HRC handbook typical)
+  - 적용 / Use case
+  - ⚠ 주의 / Caveat (있는 경우 amber box)
+  - 출처 (AMS spec / vendor datasheet)
+- 미매칭 → 기존 generic HT 가중치 카드 fallback
+
+**Properties tab "Condition / heat treatment" Field**:
+- Alloy-specific 매칭 시 → "— H 950 — peak balance (510°C aged) (Process 탭 참조)" sky-blue
+- Hover tooltip → 공정·결과·적용·주의·출처 multi-line 표시
+- 미매칭 → 기존 generic glossary
+
+### 핵심 caveat 적용 (동일 HT명도 alloy 마다 다름)
+
+- **"H900"**: 17-4 PH (482°C/1h, σy 1170) vs 15-5 PH (482°C/1h, σy 1170 동등 + delta-ferrite 제거) vs Custom 465 (482°C/4h, σy 1830)
+- **"T6"**: AA 6061 (175°C aged, σy 275, Mg₂Si precipitate) vs AA 7075 (120°C aged, σy 505, η-MgZn₂ precipitate) vs AA 2024 (190°C aged, σy 395, S-Al₂CuMg precipitate)
+- **"Aged"**: Maraging 250 (482°C, Ni₃Mo/Ni₃Ti) vs Inconel 718 (720+620°C, γ"-Ni₃Nb)
+- **"STA"**: Ti-6Al-4V (α+β refinement) vs Inconel 718 (γ" peak strength)
+
+각 alloy family 의 독립된 conditions dictionary 로 처리 → 잘못된 cross-alloy 적용 방지.
+
+### 출처 명시 (각 HT entry)
+- **AMS spec**: AMS 5643 (17-4 PH), AMS 6512 (Maraging 250), AMS 5662 (IN718), AMS 4928 (Ti-6Al-4V) 등
+- **Vendor datasheet**: Carpenter Custom 465 (R132 verified), Special Metals SMC-045 (IN718), ATI VascoMax (Maraging), Materion (C17200), Bohler W302 (H13)
+- **R128-R137 Granta PDF 추출 데이터 활용**
+
+### 검증
+- scripts/test-alloy-ht-lookup.mjs: 14 alloy families × HT 조합 → **13/14 passed (93%)**
+- 전체 DB 매칭 entries: **83 / 1,245 (7%)**
+- 추가 alloy family 확장 후보 (R141+): AISI 304/316 (austenitic), DP980 (AHSS), EH36 (shipbuilding), Inconel 625/600/617 (Ni solid-solution), Hastelloy X (Ni superalloy), Haynes 230/282
+
+검증: pnpm check / pnpm test (47 pass) / pnpm build 21s
+
 ## R139 — 알고리즘 한계 보강 (KIC 확장 + min spec + 35 ceramic/composite URL) — 정확도 ±4.9%
 
 R138b 의 후속 작업. 사용자 명시: "알고리즘 한계를 최대한 보강하는 작업 진행".
