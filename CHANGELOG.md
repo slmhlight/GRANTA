@@ -2,6 +2,73 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R137 — 14 PDF (A553 7/8/9Ni, PSU/PPSU, Rohacell, C95820, AISI 302, Ti B348) + Al HT fallback + 3 명시 삭제 + **27/27 anchor 100%**
+
+R136b 의 후속 작업. 사용자 14 PDF + Al HT-aware fallback 정교화 + CFRP TP/Oak/Carbon-Phenolic 삭제 명시.
+
+### R137a — 14 PDF 처리 (anchor 완성)
+
+**신규 anchor entries (verified URL)**:
+- **A553 Type I (9% Ni) + Type II (8% Ni)** — Future Energy Steel verified, fatigue/impact/KIC 추가
+- **A553 Type III (7% Ni TMCP)** — Nippon Steel 신규 (low-Ni cost-down LNG plate)
+- **C95820 Cu-Ni-Al-Fe NAB bronze** — Granta + Copper.org verified (C95500 대체 anchor)
+- **Rohacell A PMI structural foam** (Evonik) — 31A/51A/71A, 항공기 sandwich core anchor
+- **PSU Udel P-1700** (Solvay/Boedeker) — Tg 187°C, USP Class VI / ISO 10993 grade
+- **PPSU Radel R-5100** (Solvay) — Tg 220°C, 1000+ autoclave cycles 의료 sterilization
+
+### **🎯 Active subfamily anchor% ≥30%: 26/27 → 27/27 (100%)**
+
+| Subfamily | R136a | R137a |
+|---|---|---|
+| Low-Temperature Steel | 0% | **100%** ✓ |
+| Microalloyed Steel | (R136a 처리) | 50% |
+| (외 25 subfamilies) | (already anchored) | 유지 |
+
+### R137a — 명시 삭제 (사용자 요청)
+
+**Composite generic entries 삭제 (composites-data.json 직접 제거)**:
+- CFRP — Std PAN/PEEK (TP, UD 0°) — thermoplastic CFRP generic vendor 명시 없음
+- Natural Composite — Hardwood (Oak, parallel to grain) — 디자인 specialty
+- Carbon-Phenolic (rocket nozzle composite) — single-app specialty
+
+**Copper EXCLUDED_ALLOY_PATTERNS 확장** (기존 entry 자료 부족):
+- C95500 (propeller specialty, C95820 anchor 로 대체)
+- C68000 (rare high-Mn brass, C26000/C46400 anchor 활용)
+
+→ Total CSV exclusion: 173 → **193 rows**
+
+### R137a — Aluminum HT-aware fallback 정교화 (사용자 명시 요청)
+
+**5xxx series (non-heat-treatable Al-Mg) 별도 처리**:
+- O annealed (0.50× / 1.80i / 1.50k)
+- H11/H12 1/8-1/4 hard (0.85×)
+- H14/H32 1/2 hard baseline (1.0×)
+- H16-H19/H34 3/4-full hard (1.15× / 0.75i)
+- H111/H112 as-fabricated (0.75×)
+- H321 strain + stabilized (1.10×)
+
+**6xxx/7xxx/2xxx series (heat-treatable) T-temper 전체 지원**:
+- T1/T2 cooled + naturally aged (0.50-0.55×)
+- T3/T4 solution + naturally aged (0.80-0.85×)
+- T5 cooled + artificial aged (0.90×)
+- T6 peak baseline (1.0×)
+- T7351/T7451 over-aged SCC-resistant (0.78×)
+- T81 CW + aged (1.08×)
+- T9 CW after aging (1.10×)
+- T10 cooled + CW + aged (0.60×)
+- "Aged/solution-treated" CSV-generic midpoint (0.95×)
+- as-cast/forged/as-supplied/as-built 각각 분기
+
+→ AA 6463 Aged / AA 6151 Annealed 등 누락 HT 가 정교한 multiplier 로 표시됨 (삭제 후보 → 표시 유지).
+
+### R137a — 통계
+- 1,248 → **1,249** materials (Low-Temp Type III 신규 + 3 CFRP/Oak/Phenolic 삭제 + 2 copper CSV 제외)
+- verified-source: 875 → **880** (+5)
+- confidence_tier: high 535 → **539**, **low 74 → 72**
+- **Active subfamily anchor% ≥30%: 27/27 (100%)** ✓
+
+검증: pnpm check / pnpm test (47 pass) / pnpm build 21s
+
 ## R136 — 30 PDF (Zeron/AA5454/AISI1144/301/Maraging C350/IN718/X42M/Ultem) + 명시 4 삭제 + 프로세스 평가
 
 R135b 의 후속 작업. 사용자 30 PDF + 명시 삭제 (AA 7005 / 309S / 310S / 654 SMO / Bronze BJ) + "프로세스 효과 평가" 요청.

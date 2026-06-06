@@ -1429,6 +1429,71 @@
       "heat_treatment": "STA — Solution 980°C/1h WQ + Aged 720°C/8h FC + 620°C/8h AC (γ\" peak)"
     },
     {
+      "name": "C95820 (Cu-Al-Fe-Ni nickel-aluminum bronze)",
+      "category": "Metal",
+      "subcategory": "Copper Alloy",
+      "process": "Cast",
+      "composition": {
+        "Cu": "77.4~82.5", "Al": "9~10", "Ni": "4.5~5.8", "Fe": "4~5",
+        "Mn": "≤1.5", "Zn": "≤0.2", "Si": "≤0.1", "Pb": "≤0.02", "Sn": "≤0.02"
+      },
+      "points": [
+        [7.60, 275, 670, 16, 112, 160, 41]
+      ],
+      "conditions": ["As-cast (CC333G / CuAl10Fe5Ni4)"],
+      "fatigue": [240, 285, 330],
+      "impact": [10, 18, 28],
+      "fracture_toughness": [40, 55, 75],
+      "ref_urls": [
+        "ANSYS Granta — Bronze CuAl10Fe5Ni5 C95820 cast (UNS C95820, EN CC333G, ISO CuAl10Fe5Ni4)",
+        "https://www.copper.org/resources/properties/db/datasheets/c95820.html"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Copper.org — C95820 NAB (UNS C95820, EN CC333G, JIS AlBC3 / CAC703)",
+          "url": "https://www.copper.org/resources/properties/db/datasheets/c95820.html",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "As-cast (Mn 분산 강화) — no post-cast HT (specialty bronze)",
+      "aliases": [
+        "C95820", "CuAl10Fe5Ni5", "CC333G", "AlBC3", "CAC703", "CAC703C",
+        "Hidurax", "Cupralinox", "Xantal"
+      ],
+      "industry_note": "Cu-Ni-Al bronze (NAB) — heavy gear, paper-making roll, glass-molding tooling, propeller (marine). Saltwater corrosion + cavitation 우수 — 잠수함 hull / ship propeller / marine fastener. C95500 의 Mn-fortified 변종 (Mn 1.5%) 으로 strength + ductility 균형 ↑. EN CC333G / JIS AlBC3 등가."
+    },
+    {
+      "name": "Rohacell A PMI structural foam (Evonik aircraft grade)",
+      "category": "Polymer",
+      "subcategory": "Polymer - Foam (PMI)",
+      "process": "Closed-cell foam",
+      "composition": {},
+      "points": [
+        [0.032, 0.4, 0.4, 3, 0.036, null, null],
+        [0.052, 0.9, 0.9, 3, 0.070, null, null],
+        [0.075, 1.5, 1.5, 3, 0.092, null, null]
+      ],
+      "conditions": [
+        "Rohacell 31A (density 32 kg/m³, σc 0.4 MPa, σt 1.0 MPa)",
+        "Rohacell 51A (density 52 kg/m³, σc 0.9 MPa, σt 1.9 MPa)",
+        "Rohacell 71A (density 75 kg/m³, σc 1.5 MPa, σt 2.8 MPa)"
+      ],
+      "ref_urls": [
+        "https://www.rohacell.com/product/rohacell/",
+        "Evonik ROHACELL A Product Information (April 2022, 243400 EN)",
+        "MIL-PRF-32125 / CMS / Boeing BMS aerospace foam spec"
+      ],
+      "sources": [
+        {
+          "label": "Evonik Operations GmbH — ROHACELL A PMI structural foam (aircraft, MIL-PRF-32125)",
+          "url": "https://www.rohacell.com/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Thermoformed / CNC-machined (autoclave-compatible up to 130°C / 0.3 MPa)",
+      "industry_note": "Evonik PMI (polymethacrylimide) closed-cell foam — sandwich composite core for aircraft (wing leading edge, helicopter rotor, satellite antenna). Co-curing 가능 (resin 흡수 ×, weight saving). 40+ years aerospace 검증, Airbus / Boeing 표준. Grades 31A (가벼움)~110A (고강도) 범위 5종."
+    },
+    {
       "name": "AISI 303 (free-machining austenitic stainless)",
       "category": "Metal",
       "subcategory": "Stainless Steel - Austenitic",
@@ -14409,40 +14474,6 @@
       ]
     },
     {
-      "name": "Carbon-Phenolic (rocket nozzle composite)",
-      "category": "Composite",
-      "subcategory": "Composite - Carbon/Phenolic",
-      "process": "Filament-wound / Compression-molded",
-      "composition": {},
-      "points": [
-        [
-          1.45,
-          140,
-          175,
-          1.4,
-          22,
-          0,
-          0.85
-        ],
-        [
-          1.45,
-          110,
-          145,
-          1,
-          19,
-          0,
-          0.85
-        ]
-      ],
-      "conditions": [
-        "Cured (warp direction)",
-        "Cured (fill direction)"
-      ],
-      "ref_urls": [
-        "https://www.matweb.com/search/QuickText.aspx?SearchText=Carbon%20Phenolic"
-      ]
-    },
-    {
       "name": "B4C-Al MMC (boron carbide / Al armor)",
       "category": "Composite",
       "subcategory": "Composite - Ceramic-Metal",
@@ -15766,13 +15797,59 @@
         ]
       ],
       "conditions": [
-        "Double-Normalized + Tempered (DN+T, 770°C/645°C/580°C)",
-        "Q+T (800°C WQ + 580°C T)"
+        "Type I (9% Ni) Double-Normalized + Tempered (DN+T, 770°C/645°C/580°C)",
+        "Type II (8% Ni) Q+T (800°C WQ + 580°C T)"
       ],
+      "fatigue": [240, 290, 340],
+      "impact": [80, 130, 200],
+      "fracture_toughness": [100, 130, 170],
       "ref_urls": [
-        "https://www.matweb.com/search/QuickText.aspx?SearchText=ASTM%20A553"
+        "ASTM A553/A553M-17 Standard Spec for Pressure Vessel Plates, Q+T 7/8/9% Nickel",
+        "https://energy-steel.com/product/astm-a553-a553m-7ni-8ni-9ni-steel-plates-for-pressure-vessel/",
+        "ASME Sec VIII Div 1 Para UHA-23 / IGC Code"
       ],
-      "industry_note": "Toughness retained to -196°C; standard for LNG storage tank inner shell (Moss/membrane), ASME Sec VIII Div 1 Para UHA, IGC code; KOGAS/KEPIC."
+      "sources": [
+        {
+          "label": "ASTM A553/A553M-17 + Future Energy Steel — A553 Type I/II 9Ni/8Ni LNG plate",
+          "url": "https://energy-steel.com/product/astm-a553-a553m-7ni-8ni-9ni-steel-plates-for-pressure-vessel/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Type I: DN+T (Double-normalized + tempered) / Type II: Q+T (Quenched + Tempered)",
+      "industry_note": "Toughness retained to -196°C (LNG -162°C); standard for LNG storage tank inner shell (Moss/membrane), ASME Sec VIII Div 1 Para UHA-23, IGC code. POSCO / Nippon Steel 9Ni plate — Daewoo Shipbuilding / Samsung Heavy Industries LNG carrier hull. KOGAS Tongyeong/Pyeongtaek LNG receiving terminal 표준. Type I (9% Ni DN+T) = 가장 보편적 grade, Type II (8% Ni Q+T) = lower Ni cost option."
+    },
+    {
+      "name": "ASTM A553 Type III (7% Nickel cryogenic steel, Nippon Steel low-Ni grade)",
+      "category": "Metal",
+      "subcategory": "Low-Temperature Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "Ni": "6.50~7.50", "Mn": "≤0.90",
+        "Si": "0.05~0.30", "Mo": "0.10~0.30", "Nb": "≤0.03",
+        "C": "≤0.13", "P": "≤0.010", "S": "≤0.010"
+      },
+      "points": [
+        [7.85, 585, 720, 22, 200, 235, 31]
+      ],
+      "conditions": ["Q+T (Quenched + Tempered) + Lamellarization"],
+      "fatigue": [240, 290, 340],
+      "impact": [60, 100, 160],
+      "fracture_toughness": [80, 110, 145],
+      "ref_urls": [
+        "ASTM A553/A553M-17 Type III (added 2009) — 7% Ni TMCP grade",
+        "https://energy-steel.com/product/astm-a553-a553m-7ni-8ni-9ni-steel-plates-for-pressure-vessel/",
+        "Nippon Steel 7Ni TMCP plate catalog"
+      ],
+      "sources": [
+        {
+          "label": "ASTM A553/A553M-17 Type III + Future Energy Steel — 7% Ni TMCP LNG plate (cost-effective)",
+          "url": "https://energy-steel.com/product/astm-a553-a553m-7ni-8ni-9ni-steel-plates-for-pressure-vessel/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Q+T + Lamellarization (TMCP — refined microstructure for -162°C Charpy 100J+)",
+      "industry_note": "Nippon Steel 개발 (2009 ASTM 추가) — 9% Ni 대비 Ni 함량 25% 절감 + 동등 cryogenic toughness. Lamellarization (반복 austenite-ferrite cycling) 으로 reverted austenite 안정화 → -162°C 에서도 Charpy 100J+. LNG tank cost-down 적용 (Nippon Steel 양산). 한국 POSCO 도 유사 grade 개발 중."
     },
     {
       "name": "AH36 (ABS/DNV high-tensile hull steel)",

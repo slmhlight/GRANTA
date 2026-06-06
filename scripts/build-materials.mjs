@@ -1087,15 +1087,41 @@ function htConditionMultiplier(m) {
   }
 
   // Aluminum T-tempers — baseline = T6 peak-aged
+  /* R137a — 사용자 명시: "Al 열처리 있으나 Annealed 등 없는 상태일 시 정교한 fallback-driven 알고리즘 사용".
+     5xxx series (non-heat-treatable Al-Mg) 와 6xxx/7xxx series (heat-treatable Al-Mg-Si/Al-Zn) 분리.
+     H temper (strain-hardened) 와 T temper (heat-treated) 별도 처리. */
   if (/^aa\s?\d{4}|al-?\d{4}|aluminum|al\s*si|alsi|alumi|^al-?si/.test(name) || sub.toLowerCase().includes('aluminum')) {
-    if (/\bo\s*temper|annealed/.test(combined)) return { f: 0.40, i: 3.00, k: 2.00, condTag: 'O (annealed)' };
-    if (/\bt3\b|\bt4\b/.test(combined)) return { f: 0.85, i: 1.30, k: 1.30, condTag: 'T3/T4 naturally aged' };
-    if (/\bt5\b/.test(combined)) return { f: 0.90, i: 1.20, k: 1.20, condTag: 'T5 cooled + aged' };
-    if (/\bt6\b|peak/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'T6 peak-aged' };
+    // 5xxx series (non-heat-treatable Al-Mg) — H temper baseline (cold-worked + stabilized)
+    if (/aa\s?5\d{3}|al-?mg|^5\d{3}/.test(name)) {
+      if (/\bo\b|^o$|annealed/.test(combined)) return { f: 0.50, i: 1.80, k: 1.50, condTag: 'O (annealed soft)' };
+      if (/\bh1[12]\b/.test(combined)) return { f: 0.85, i: 1.20, k: 1.15, condTag: 'H11/H12 1/8-1/4 hard' };
+      if (/\bh1[34]\b|\bh32\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'H14/H32 1/2 hard (peak baseline)' };
+      if (/\bh1[6-9]\b|\bh34\b/.test(combined)) return { f: 1.15, i: 0.75, k: 0.85, condTag: 'H16-H19/H34 3/4-full hard' };
+      if (/\bh111\b|\bh112\b/.test(combined)) return { f: 0.75, i: 1.40, k: 1.20, condTag: 'H111/H112 as-fabricated' };
+      if (/\bh321\b/.test(combined)) return { f: 1.10, i: 0.95, k: 1.05, condTag: 'H321 strain + stabilized' };
+      if (/as-?built/.test(combined)) return { f: 0.95, i: 1.00, k: 1.00, condTag: 'as-built' };
+      return { f: 1.00, i: 1.00, k: 1.00, condTag: '5xxx mid-temper (assumed)' };
+    }
+    // 6xxx/7xxx/2xxx series (heat-treatable) — T6 peak baseline
+    if (/\bo\s*temper|\bo\b\s*\(annealed\)|^o\s|^annealed/.test(combined)) return { f: 0.40, i: 3.00, k: 2.00, condTag: 'O (annealed soft, fallback derived from T6)' };
+    if (/\bt1\b/.test(combined)) return { f: 0.50, i: 2.20, k: 1.70, condTag: 'T1 cooled from extrusion + naturally aged' };
+    if (/\bt2\b/.test(combined)) return { f: 0.55, i: 2.00, k: 1.60, condTag: 'T2 cooled + CW + naturally aged' };
+    if (/\bt3\b/.test(combined)) return { f: 0.85, i: 1.30, k: 1.30, condTag: 'T3 solution + CW + naturally aged' };
+    if (/\bt4\b/.test(combined)) return { f: 0.80, i: 1.40, k: 1.35, condTag: 'T4 solution + naturally aged' };
+    if (/\bt5\b/.test(combined)) return { f: 0.90, i: 1.20, k: 1.20, condTag: 'T5 cooled + artificial aged' };
+    if (/\bt6\b|peak[\s-]?aged/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'T6 peak-aged (baseline)' };
+    if (/\bt73\d?\b|\bt74\d?\b/.test(combined)) return { f: 0.78, i: 1.50, k: 1.40, condTag: 'T7351/T7451 over-aged SCC-resistant' };
     if (/\bt7\b|over[\s-]?aged/.test(combined)) return { f: 0.85, i: 1.40, k: 1.30, condTag: 'T7 over-aged' };
+    if (/\bt81\d?\b/.test(combined)) return { f: 1.08, i: 0.90, k: 0.95, condTag: 'T81 CW + aged peak' };
     if (/\bt8\b/.test(combined)) return { f: 1.08, i: 0.90, k: 0.95, condTag: 'T8 CW + aged' };
+    if (/\bt9\b/.test(combined)) return { f: 1.10, i: 0.85, k: 0.90, condTag: 'T9 CW after aging' };
+    if (/\bt10\b/.test(combined)) return { f: 0.60, i: 1.90, k: 1.55, condTag: 'T10 cooled + CW + aged' };
+    if (/strain[\s-]?hardened|cold[\s-]?work/.test(combined)) return { f: 0.95, i: 1.10, k: 1.05, condTag: 'strain-hardened (fallback)' };
+    if (/aged\s*\/\s*solution[\s-]?treated/.test(combined)) return { f: 0.95, i: 1.10, k: 1.10, condTag: 'mixed aged/solution-treated CSV-generic (fallback midpoint)' };
+    if (/as-?cast|forged/.test(combined)) return { f: 0.65, i: 1.70, k: 1.40, condTag: 'as-cast / forged (no T-temper)' };
+    if (/as-?supplied/.test(combined)) return { f: 0.92, i: 1.15, k: 1.10, condTag: 'as-supplied (mill T-temper assumed)' };
     if (/as-?built/.test(combined)) return { f: 1.10, i: 0.95, k: 1.00, condTag: 'as-built (fine grain)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'T6 (assumed)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'T6 (assumed default)' };
   }
 
   // CoCr / CoCrMo — baseline = solution annealed
@@ -1500,7 +1526,20 @@ const EXCLUDED_ALLOY_PATTERNS = [
   /^309s$/i, /^310s$/i,                 // 309S/310S (low-C 변종 — 309/310 anchor 로 충분)
   /^654[\s-]?smo$/i,                    // 654 SMO (Outokumpu 독점)
   /^bronze$/i,                          // Bronze (Binder Jetting generic — vendor 명시 없음)
+  /* R137a — 사용자 명시: copper 기존 entry 자료 부족 시 삭제 */
+  /^c95500$/i, /^c68000$/i,             // Cu-Ni-Al specialty propeller bronze + high-Mn brass (C95820 anchor 로 대체)
 ];
+
+/* R137a — 사용자 명시 삭제 (Composite generic without vendor anchor).
+   별도 list — composites-data.json + polymers-data.json 의 entry 에 적용. */
+const EXCLUDED_NAME_PATTERNS = [
+  /CFRP — Std PAN\/PEEK \(TP, UD/i,         // Thermoplastic CFRP generic (vendor 명시 없음)
+  /Natural Composite — Hardwood/i,           // Oak/Pine 디자인 specialty
+  /Carbon-Phenolic \(rocket nozzle/i,        // Single-app specialty
+];
+function isExcludedByName(name) {
+  return EXCLUDED_NAME_PATTERNS.some(rx => rx.test(String(name || '')));
+}
 function isExcludedAlloy(name) {
   const n = String(name || '').trim();
   return EXCLUDED_ALLOY_PATTERNS.some(rx => rx.test(n));
