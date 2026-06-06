@@ -3824,6 +3824,41 @@ try {
 }
 if (storyAttached) console.log(`R75/R78 — stories attached: ${storyAttached}`);
 
+/* R133b — confidence_tier 자동 부여.
+   사용자 요청: "재료가 없으면 표시하지 않는것도 하나의 방법".
+   기준:
+   - high: verified source ≥2 OR (measured props ≥4 + verified ≥1)
+   - medium: verified ≥1 OR (handbook props ≥6 + safety props 신뢰 OK)
+   - medium-low: verified=0 + handbook < 6
+   - low: verified=0 + safety props 전부 family/class/derived + 대체 anchor 존재
+   UI 는 default 로 high+medium 만 표시, "show low-confidence" toggle 로 medium-low+low 노출. */
+const CONF_W = { measured: 4, handbook: 3, subfamily: 1.5, family: 0.5, class: 0.2, derived: 0.1 };
+const CORE_PROPS_C = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
+const SAFETY_PROPS_C = ['fatigue_strength', 'impact_strength', 'fracture_toughness'];
+let tierCounts = { high: 0, medium: 0, 'medium-low': 0, low: 0 };
+for (const m of all) {
+  let coreScore = 0, safetyScore = 0, measuredCount = 0, handbookCount = 0;
+  for (const p of CORE_PROPS_C) {
+    const c = m.ranges?.[p]?.confidence;
+    coreScore += CONF_W[c] || 0;
+    if (c === 'measured') measuredCount++;
+    if (c === 'handbook') handbookCount++;
+  }
+  for (const p of SAFETY_PROPS_C) {
+    const c = m.ranges?.[p]?.confidence;
+    safetyScore += CONF_W[c] || 0;
+  }
+  const verified = (m.sources || []).filter(s => s.verified).length;
+  let tier;
+  if (verified >= 2 || (measuredCount >= 4 && verified >= 1)) tier = 'high';
+  else if (verified >= 1 || (handbookCount >= 6 && safetyScore >= 3)) tier = 'medium';
+  else if (handbookCount >= 4 || safetyScore >= 1.5) tier = 'medium-low';
+  else tier = 'low';
+  m.confidence_tier = tier;
+  tierCounts[tier]++;
+}
+console.log(`R133b — confidence_tier: high=${tierCounts.high}, medium=${tierCounts.medium}, medium-low=${tierCounts['medium-low']}, low=${tierCounts.low}`);
+
 const liveJson = path.join(ROOT, 'client', 'public', 'materials.json');
 const backup = path.join(DATA, 'materials.original.json');
 if (fs.existsSync(liveJson) && !fs.existsSync(backup)) fs.copyFileSync(liveJson, backup); // preserve original 2902-row dataset once

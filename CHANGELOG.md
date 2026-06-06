@@ -2,6 +2,65 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R133 — 10 PDF + 5 URL anchor 보강 + 자신감 낮은 10 material 식별 + confidence_tier 자동 분류 + UI hide toggle
+
+R132b 의 후속 작업. 사용자 자료 추가 + "가장 자신없는 재료 10개" 질문 + "표시하지 않는것도 하나의 방법" 권한 위임.
+
+### R133a — 10 PDF + 5 URL 처리
+사용자 제공: A36 · TWIP 500/980 · A536 · A553 · SA516 · 22MnB5 (3 conditions) · Inconel 718 ST · Inconel 718 STA · API 5L grades · AZoM Zircaloy-4 (7644) · Armox 600T SSAB · A572 Leeco Steel.
+
+**신규/upgrade entries (verified URL + handbook 데이터)**:
+- **ASTM A36** (UNS K02600): Carbon Steel → **Structural Steel** subcategory 재분류, Granta + AISC verified
+- **ASTM A572 Gr50** (UNS K02303): 신규 — HSLA structural anchor
+- **SA516 Gr70 / P355N** (UNS K02700, EN 1.0562): 신규 — Pressure Vessel anchor (Granta + ASME verified)
+- **Armox 600T** (SSAB armor): 신규 — Armor Steel anchor (HBW 570-640, σy 1500, KIC 35)
+- **22MnB5 USIBOR 1500** (BS EN 10083-3): 3 conditions (high ductility blank / hot-stamped peak / Q+T) — ArcelorMittal verified
+- **Zircaloy-4** (UNS R60804): AZoM 7644 + ASTM B353 verified URL
+- **ASTM A536 Ductile Iron 80-55-06**: 신규 — general purpose anchor
+- **ASTM A536 Ductile Iron 100-70-03**: 신규 — Q+T high-strength
+
+**Anchor% 변화** (3rd_family heuristic 효과 확인):
+| Subfamily | Before | After |
+|---|---|---|
+| Press-Hardening Steel | 0% | **100%** |
+| Zirconium Alloy | 0% | **100%** |
+| Armor Steel | 0% | **60%** |
+| Cast Iron | 0% | **50%** |
+| Pressure Vessel | 0% | **33%** |
+| Structural Steel | 0% | **31%** |
+
+### R133b — 자신감 가장 낮은 10 material + 표시 정책 (data/least-confident-materials.md)
+
+사용자 질문 응답:
+
+**Top 10 자신감 가장 낮음** (verified=0 + safetyScore<1 + popularity≥3 + 대체 anchor 존재):
+1. Ti-5-8-5 (β-Ti specialty) — 7 HT variant 모두 fallback
+2. AA 6151 (Al-Mg-Si forging — 사장된 grade)
+3. AA 7178 (구형 aerospace Al-Zn)
+4. AA 7005 (자전거 frame — datasheet 부재)
+5. AA 5005 / 5050 / 5154 / 5251 / 5356 / 5383 (Al-Mg 변종 6종)
+6. AISI 303 / 305 / 308 / 309 / 317 (austenitic 변종 5종)
+7. AISI 436 / 440A / 440B / 446 (martensitic 변종 4종)
+8. AA 6463 (architectural extrusion)
+9. Ti Grade 11 (Pd-corrosion specialty)
+10. AA 1200 (CP Al)
+
+**Confidence tier 자동 분류** (`confidence_tier` 필드):
+- **high**: 487 entries (37.7%) — verified ≥2 또는 measured ≥4 + verified ≥1
+- **medium**: 436 entries (33.8%) — verified ≥1 또는 (handbook ≥6 + safety props 신뢰 OK)
+- **medium-low**: 237 entries (18.4%) — verified=0 + handbook ≥4
+- **low**: 131 entries (10.1%) — verified=0 + safety props 거의 fallback → **default hide**
+
+**UI filter toggle 추가**:
+- FilterSidebar 의 "규제·Regulatory" 섹션에 "Low-confidence 숨기기 (default ON)" 체크박스
+- default ON → 1,291 → ~1,160 entries 만 일반 사용자에게 표시
+- 토글 OFF 시 131 low-confidence entries 노출 (power user / 학술 비교 용)
+
+**최종 통계**:
+- 1,280 → **1,291** materials (+11)
+- verified-source: **816 → 827** (+11)
+- 검증: pnpm check / pnpm test (47 pass) / pnpm build 21s
+
 ## R132 — 4 추가 자료 (Aermet 100 / Haynes 282 / Custom 465 / Ti-6-4 ELI Gr23) + 3rd_family heuristic 평가
 
 R131 의 후속 작업. 사용자 PDF 3개 + AZoM URL 1개 추가 제공.

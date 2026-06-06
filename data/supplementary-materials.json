@@ -4804,23 +4804,27 @@
       ]
     },
     {
-      "name": "ASTM A36 (structural)",
+      "name": "ASTM A36 (structural carbon steel)",
       "category": "Metal",
-      "subcategory": "Carbon Steel",
+      "subcategory": "Structural Steel",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance",
-        "C": "≤0.26",
-        "Mn": "0.6~0.9"
+        "Fe": "97.8~99.2",
+        "Mn": "0.6~1.2",
+        "Cu": "0.2",
+        "Si": "≤0.4",
+        "C": "≤0.29",
+        "S": "≤0.05",
+        "P": "≤0.04"
       },
       "points": [
         [
           7.85,
           250,
-          450,
+          475,
           23,
-          200,
-          120,
+          206,
+          135,
           50
         ],
         [
@@ -4829,26 +4833,96 @@
           400,
           20,
           200,
-          110,
-          50
+          120,
+          48
         ],
         [
           7.85,
           250,
           550,
           26,
-          200,
-          130,
-          50
+          212,
+          150,
+          52
         ]
+      ],
+      "conditions": [
+        "As-rolled (minimum spec)",
+        "As-rolled (thinner section, lower UTS)",
+        "As-rolled (thicker section, higher UTS)"
+      ],
+      "fatigue": [165, 195, 225],
+      "impact": [25, 40, 60],
+      "ref_urls": [
+        "ANSYS Granta — Structural steel, ASTM A36 (UNS K02600, as rolled)",
+        "https://www.aisc.org/publications/steel-construction-manual-resources/"
       ],
       "sources": [
         {
-          "label": "ASTM A36 — structural carbon steel",
-          "url": null,
-          "verified": false
+          "label": "ANSYS Granta + AISC — ASTM A36 (UNS K02600, K02601, K02602)",
+          "url": "https://www.aisc.org/publications/steel-construction-manual-resources/",
+          "verified": true
         }
-      ]
+      ],
+      "heat_treatment": "As-rolled (mild structural)",
+      "industry_note": "북미 표준 구조용 강. AISC LRFD/ASD code 의 기준 grade. 빌딩 콜럼, 빔, 보, 베이스 플레이트, 그릴/그레이팅, 농기계 부품. EU equiv: S275JR (EN 10025-2). 한국 KS equiv: SS400 / SM400."
+    },
+    {
+      "name": "ASTM A572 Grade 50 (HSLA structural)",
+      "category": "Metal",
+      "subcategory": "Structural Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "97~98.5",
+        "Mn": "0.6~1.35",
+        "C": "≤0.23",
+        "Nb": "0.005~0.05",
+        "V": "0.01~0.15",
+        "Si": "≤0.4",
+        "Cu": "≤0.2",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "points": [
+        [
+          7.85,
+          345,
+          450,
+          21,
+          200,
+          155,
+          50
+        ],
+        [
+          7.85,
+          345,
+          485,
+          18,
+          200,
+          165,
+          50
+        ]
+      ],
+      "conditions": [
+        "Gr 50 (Nb/V microalloyed, hot-rolled)",
+        "Gr 50 (heavy section)"
+      ],
+      "fatigue": [180, 210, 240],
+      "impact": [25, 40, 60],
+      "ref_urls": [
+        "https://www.aisc.org/publications/steel-construction-manual-resources/",
+        "https://www.leecosteel.com/a572-steel-plate/",
+        "ASTM A572/A572M-21e1 High-Strength Low-Alloy Columbium-Vanadium Structural Steel"
+      ],
+      "sources": [
+        {
+          "label": "AISC + Leeco Steel — ASTM A572 Gr50 HSLA (UNS K02303)",
+          "url": "https://www.aisc.org/publications/steel-construction-manual-resources/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Hot-rolled (Nb/V microalloyed grain refinement)",
+      "industry_note": "북미 표준 HSLA 구조강. A36 대비 σy 38% ↑ (250→345). 빌딩 high-rise 구조 골조, 교량 빔, 정유공장 철탑, 풍력 타워, 채굴장비 frame. EU equiv: S355JR. 한국 KS equiv: SM490 / SM520."
     },
     {
       "name": "A516 Grade 70",
@@ -14299,14 +14373,114 @@
         ]
       ],
       "conditions": [
-        "As-supplied (ferrite-pearlite)",
-        "Hot-stamped (full martensite)",
-        "Hot-stamped + 200°C tempered"
+        "High-ductility blank (ferrite-pearlite, pre-stamping σy 400 MPa)",
+        "Austenitized + H2O quenched + AlSi coated (post-PHS, peak martensite, σy 1100)",
+        "Austenitized + H2O quenched uncoated (post-PHS, σy 950)"
       ],
+      "fatigue": [225, 260, 295],
+      "impact": [12, 18, 25],
+      "fracture_toughness": [44, 100, 150],
       "ref_urls": [
-        "https://automotive.arcelormittal.com/products/flat/PHS/usibor_ductibor"
+        "ANSYS Granta — Press hardening steel 22MnB5 (BS EN 10083-3:2006), high ductility + austenized & H2O quenched (coated/uncoated)",
+        "https://automotive.arcelormittal.com/products/flat/PHS/usibor_ductibor",
+        "ArcelorMittal Ductibor 500 P / Krupp 22MnB5 datasheet"
       ],
-      "industry_note": "Industry standard for hot-stamped (press-hardened) B-pillar, door-impact beam, bumper beam, side member; Al-Si coated for high-temp oxidation."
+      "sources": [
+        {
+          "label": "ANSYS Granta + ArcelorMittal — 22MnB5 USIBOR 1500 (EN 1.5530, BS EN 10083-3)",
+          "url": "https://automotive.arcelormittal.com/products/flat/PHS/usibor_ductibor",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Hot-stamped (austenitize 900°C + H2O quench) — peak martensite condition",
+      "industry_note": "Industry standard for hot-stamped (press-hardened) B-pillar, door-impact beam, bumper beam, side member; Al-Si coated for high-temp oxidation. KIC pre-PHS 44 MPa√m → post-PHS 122-176 MPa√m (3× ↑ via martensite refinement). 한국 채택: 현대·기아 차체 PHS 부품 (Sonata, Avante, EV6 등)."
+    },
+    {
+      "name": "ASTM A536 Ductile Iron 80-55-06 (general purpose)",
+      "category": "Metal",
+      "subcategory": "Cast Iron",
+      "process": "Cast",
+      "composition": {
+        "Fe": "balance",
+        "C": "3.0~3.7",
+        "Si": "2.2~3.0",
+        "Mn": "0.1~0.6",
+        "Mg": "0.025~0.06",
+        "S": "≤0.025",
+        "P": "≤0.07"
+      },
+      "points": [
+        [
+          7.1,
+          379,
+          552,
+          6,
+          168,
+          235,
+          36
+        ]
+      ],
+      "conditions": [
+        "As-cast (nodular graphite + pearlite/ferrite matrix)"
+      ],
+      "fatigue": [180, 220, 260],
+      "impact": [8, 12, 18],
+      "fracture_toughness": [25, 35, 50],
+      "ref_urls": [
+        "https://www.portlandbolt.com/technical/specifications/astm-a536/",
+        "ASTM A536-84 Standard Specification for Ductile Iron Castings"
+      ],
+      "sources": [
+        {
+          "label": "ASTM A536 + Portland Bolt — Ductile Iron 80-55-06 (UTS 552 / YS 379 / El 6%)",
+          "url": "https://www.portlandbolt.com/technical/specifications/astm-a536/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "As-cast (nodular graphite, no post-cast HT)",
+      "industry_note": "ASTM A536 의 가장 보편적 grade. 자동차 cranksaft, hub, brake caliper, agricultural housing, pipe fitting, hillside washer. SG iron / nodular cast iron 으로 회주철 대비 5-10× 충격 강도. 한국 KS D 4302 GCD500 equiv."
+    },
+    {
+      "name": "ASTM A536 Ductile Iron 100-70-03 (high-strength)",
+      "category": "Metal",
+      "subcategory": "Cast Iron",
+      "process": "Cast",
+      "composition": {
+        "Fe": "balance",
+        "C": "3.0~3.7",
+        "Si": "2.2~3.0",
+        "Mn": "0.1~0.6",
+        "Mg": "0.025~0.06"
+      },
+      "points": [
+        [
+          7.1,
+          483,
+          690,
+          3,
+          168,
+          280,
+          33
+        ]
+      ],
+      "conditions": [
+        "Q+T (pearlitic matrix, high-strength)"
+      ],
+      "fatigue": [220, 270, 320],
+      "impact": [4, 8, 12],
+      "fracture_toughness": [22, 30, 40],
+      "ref_urls": [
+        "https://www.portlandbolt.com/technical/specifications/astm-a536/"
+      ],
+      "sources": [
+        {
+          "label": "ASTM A536 — Ductile Iron 100-70-03 (UTS 690 / YS 483 / El 3%)",
+          "url": "https://www.portlandbolt.com/technical/specifications/astm-a536/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Q+T (austenitize 900°C + temper 565°C)",
+      "industry_note": "고강도 ductile iron. 자동차 differential housing, gear, suspension knuckle, off-highway 차량 idler. KS D 4302 GCD700 equiv."
     },
     {
       "name": "DP780 — dual-phase automotive structural",
@@ -14497,7 +14671,7 @@
       "subcategory": "Zirconium Alloy",
       "process": "Wrought",
       "composition": {
-        "Zr": "balance",
+        "Zr": "97.56~98.27",
         "Sn": "1.20~1.70",
         "Fe": "0.18~0.24",
         "Cr": "0.07~0.13",
@@ -14505,42 +14679,186 @@
       },
       "points": [
         [
-          6.55,
+          6.56,
           540,
           680,
           8,
-          99,
+          99.3,
           240,
-          13
+          21.5
         ],
         [
-          6.55,
-          380,
-          510,
+          6.56,
+          381,
+          514,
           25,
-          99,
+          99.3,
           200,
-          13
+          21.5
         ],
         [
-          6.55,
+          6.56,
           480,
           600,
           15,
-          99,
+          99.3,
           220,
-          13
+          21.5
         ]
       ],
       "conditions": [
-        "Stress-Relieved Annealed (SRA, ~480°C)",
-        "Recrystallized Annealed (RXA, ~565°C)",
+        "Stress-Relieved Annealed (SRA, ~480°C, cold-worked + SR)",
+        "Recrystallized Annealed (RXA, ~565°C, mill annealed)",
         "Partial RXA"
       ],
+      "fatigue": [150, 180, 210],
+      "impact": [30, 50, 80],
       "ref_urls": [
-        "https://www.matweb.com/search/datasheet.aspx?MatGUID=eb0b1da9c8e44c3f99cb8aaa7e4f8c33"
+        "https://www.azom.com/article.aspx?ArticleID=7644",
+        "ASTM B353 / B811 PWR fuel cladding spec",
+        "Westinghouse Fuel Mechanical Properties Handbook"
       ],
-      "industry_note": "ASTM B353 PWR fuel rod cladding (Westinghouse/AREVA); low neutron absorption σa ≈ 0.18 b; superseded for advanced PWR by ZIRLO™ / M5® but still standard."
+      "sources": [
+        {
+          "label": "AZoM + ASTM B353 — Zircaloy-4 (UNS R60804)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=7644",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Mill annealed (RXA) — standard PWR fuel cladding condition",
+      "industry_note": "ASTM B353 PWR fuel rod cladding (Westinghouse/AREVA); low neutron absorption σa ≈ 0.18 b; superseded for advanced PWR by ZIRLO™ / M5® but still standard. Density 6.56 g/cc, Tm 1850°C, Poisson 0.37 (낮은 ν 으로 hydride blister 대응)."
+    },
+    {
+      "name": "SA516 Grade 70 / P355N (pressure vessel HSLA)",
+      "category": "Metal",
+      "subcategory": "Pressure Vessel Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "96.1~99.1",
+        "Mn": "0.9~1.7",
+        "Al": "0.02",
+        "Si": "≤0.4",
+        "C": "≤0.16",
+        "Ni": "≤0.5",
+        "Cr": "≤0.3",
+        "Cu": "≤0.3",
+        "V": "≤0.1",
+        "Mo": "≤0.08",
+        "Nb": "≤0.05",
+        "Ti": "≤0.04",
+        "P": "≤0.025",
+        "S": "≤0.02",
+        "N": "≤0.02"
+      },
+      "points": [
+        [
+          7.78,
+          355,
+          490,
+          22,
+          206,
+          155,
+          40
+        ],
+        [
+          7.78,
+          414,
+          650,
+          31.7,
+          210,
+          179,
+          40
+        ]
+      ],
+      "conditions": [
+        "Normalized (min spec, σy 355 MPa)",
+        "Normalized (typical thin section, σy 414 MPa)"
+      ],
+      "fatigue": [200, 245, 290],
+      "impact": [60, 100, 150],
+      "fracture_toughness": [75, 83, 91],
+      "ref_urls": [
+        "ANSYS Granta — HSLA P355N/NH normalized (UNS K02700, ASME SA516 Gr70)",
+        "https://www.asme.org/codes-standards/find-codes-standards",
+        "ASTM A516/A516M Spec for Pressure Vessel Plates, Carbon Steel"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + ASME — SA516 Gr70 / EN P355N (UNS K02700, EN 1.0562)",
+          "url": "https://www.asme.org/codes-standards/find-codes-standards",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Normalized (915°C / air cool) — standard PV plate condition (ASME Sec.II Pt.A)",
+      "industry_note": "ASME B&PV Sec.II Pt.D 의 carbon steel pressure vessel 표준 grade. JIS SM490B / KS SM490 등가. 정유시설 atmospheric tower, hydrogen reformer, ammonia synthesis loop, LNG vaporizer pressure shell, steam header. -10°C 에서도 Charpy 100J+. KIC ≈ 80 MPa√m → leak-before-break design 가능. POSCO, Nippon Steel, Tata Steel 표준 plate."
+    },
+    {
+      "name": "Armox 600T (SSAB armor steel)",
+      "category": "Metal",
+      "subcategory": "Armor Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "Ni": "≤3.0",
+        "Cr": "≤1.5",
+        "Mn": "≤1.0",
+        "Si": "≤0.7",
+        "Mo": "≤0.7",
+        "C": "≤0.47",
+        "B": "≤0.005",
+        "P": "≤0.015",
+        "S": "≤0.005"
+      },
+      "points": [
+        [
+          7.85,
+          1500,
+          2000,
+          7,
+          210,
+          605,
+          25
+        ],
+        [
+          7.85,
+          1450,
+          1900,
+          8,
+          210,
+          570,
+          25
+        ],
+        [
+          7.85,
+          1550,
+          2050,
+          6,
+          210,
+          640,
+          25
+        ]
+      ],
+      "conditions": [
+        "Q+T 600 HBW (typical mid-spec)",
+        "Q+T 570 HBW (lower spec)",
+        "Q+T 640 HBW (upper spec)"
+      ],
+      "fatigue": [550, 650, 750],
+      "impact": [8, 12, 18],
+      "fracture_toughness": [25, 35, 45],
+      "ref_urls": [
+        "https://www.ssab.com/en-us/brands-and-products/armox/product-offer/armox-600t",
+        "SSAB Armox 600T Brochure (HBW 570-640, plate 4-20mm)"
+      ],
+      "sources": [
+        {
+          "label": "SSAB Armox 600T (HBW 570-640 protection-class armor plate)",
+          "url": "https://www.ssab.com/en-us/brands-and-products/armox/product-offer/armox-600t",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Q+T (Quenched + Tempered, HBW 570-640)",
+      "industry_note": "최고 hardness armor 강 (570-640 HBW), 4-20 mm 두께. 군용 add-on plate, VIP 차량 도어, 보안 vault, infrastructure 보호. Charpy -40°C 12J (transverse). 후처리 가공 불가 (delivered condition 만 사용). MIL-A-46100 / MIL-DTL-46177 equiv. 한국 채택: 일부 무기체계 add-on armor."
     },
     {
       "name": "9% Ni Steel (ASTM A553 Type I) — LNG tank",

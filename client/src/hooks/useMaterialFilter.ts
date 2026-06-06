@@ -69,6 +69,8 @@ export interface FilterState {
   rohsOnly?: boolean;
   /** R38e: 열처리 다중 선택 (As-built/Annealed/Solution/Aged/Q&T/HIP/Normalized/Stress-relieved/...) */
   heatTreatments: string[];
+  /** R133b: low confidence entry (verified=0 + handbook 적은) 숨기기. default ON — honest data 표시. */
+  hideLowConfidence?: boolean;
 }
 
 export const DEFAULT_FILTERS: FilterState = {
@@ -108,6 +110,8 @@ export const DEFAULT_FILTERS: FilterState = {
   weldability: [],
   rohsOnly: false,
   heatTreatments: [],
+  // R133b — default ON: confidence_tier='low' entry (~131건, 10%) 숨김. UI 토글로 노출 가능.
+  hideLowConfidence: true,
 };
 
 export function useMaterialFilter(materials: Material[]) {
@@ -256,6 +260,10 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.weldability.length) result = result.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
     // R16: RoHS toggle — false (default) 면 통과, true 면 rohs_compliant === false 만 제외 (null/true 유지).
     if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant !== false);
+    // R133b: hideLowConfidence — default true. confidence_tier='low' 제외 (~131건, ~10%).
+    if (filters.hideLowConfidence !== false) {
+      result = result.filter(m => (m as { confidence_tier?: string }).confidence_tier !== 'low');
+    }
     // R38e: 열처리 다중 선택 — m.heat_treatment 가 선택된 라벨 중 하나로 시작 or 포함 일 때 통과.
     //   현실적이지 않은 조합 (예: SLM 합금 + 단조 후 어닐링) 은 데이터에 없는 시점에서 자동 배제.
     if (filters.heatTreatments && filters.heatTreatments.length) {
@@ -375,6 +383,9 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.machinability.length) baseSet = baseSet.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
     if (filters.weldability.length) baseSet = baseSet.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
     if (filters.rohsOnly) baseSet = baseSet.filter(m => m.rohs_compliant !== false);
+    if (filters.hideLowConfidence !== false) {
+      baseSet = baseSet.filter(m => (m as { confidence_tier?: string }).confidence_tier !== 'low');
+    }
     if (filters.heatTreatments && filters.heatTreatments.length) {
       const wanted = filters.heatTreatments.map(s => s.toLowerCase());
       baseSet = baseSet.filter(m => {

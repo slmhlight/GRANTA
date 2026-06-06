@@ -101,6 +101,12 @@ export interface Material {
   ranges?: Record<string, PropertyRange | null>;
   sources?: MaterialSource[];
   tier?: 'curated' | 'am_vendor' | 'generic' | 'reference';
+  /** R133b — overall confidence tier (build pipeline 자동 부여, verified source + measured/handbook props 기반).
+      high: verified ≥2 OR (measured ≥4 + verified ≥1) — 안전 임계 사용 가능
+      medium: verified ≥1 OR (handbook ≥6 + safety props 신뢰 OK) — 표준 의사결정 사용 가능
+      medium-low: verified=0 + handbook ≥4 — sanity check 용
+      low: verified=0 + safety props 거의 fallback — UI 기본 hide (filter toggle 로 노출). */
+  confidence_tier?: 'high' | 'medium' | 'medium-low' | 'low';
   manufacturers?: string[];
   machines?: string[];
   processes?: string[];
