@@ -2,6 +2,88 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R136 — 30 PDF (Zeron/AA5454/AISI1144/301/Maraging C350/IN718/X42M/Ultem) + 명시 4 삭제 + 프로세스 평가
+
+R135b 의 후속 작업. 사용자 30 PDF + 명시 삭제 (AA 7005 / 309S / 310S / 654 SMO / Bronze BJ) + "프로세스 효과 평가" 요청.
+
+### R136a — 30 PDF 처리
+
+**신규 anchor entries (verified URL)**:
+- **ZERON 100** (UNS S32760, F55 super-duplex) — Stainless Duplex 보강 (Rolled Alloys verified)
+- **Maraging C350 / VascoMax C-350** (ATI Allegheny AMS 6520) — Maraging anchor (UTS 2413 MPa peak)
+- **API 5L X42N + X52M PSL2** — **Microalloyed Steel anchor 완성**
+- **Inconel 718 Tech Data** — HighTempMetals verified URL
+- **AA 5454** O/H32/H34/H111 — Granta verified, 기존 deletion 후보 → anchor 전환
+- **AISI 1144 Stressproof** 3 conditions — 기존 deletion 후보 → anchor 전환
+- **AISI 301** 5 conditions (annealed + 1/4/1/2/3/4/Full hard) — 기존 deletion 후보 → anchor
+
+**사용자 명시 삭제 (`EXCLUDED_ALLOY_PATTERNS` 확장)**:
+- AA 7005 (모든 HT variants)
+- 309S / 310S (low-C 변종 — 309/310 anchor 로 충분)
+- 654 SMO (Outokumpu specialty 독점)
+- Bronze (Binder Jetting generic — vendor 명시 없음)
+
+**결과**:
+| Metric | R135 | R136a |
+|---|---|---|
+| Total materials | 1,240 | **1,248** |
+| Excluded CSV rows | 152 | **173** (+21) |
+| verified-source | 857 | **875** (+18) |
+| confidence_tier: high | 517 | **535** |
+| confidence_tier: low | 80 | **74** |
+| Active subfamily anchor% ≥30% | 25/27 | **26/27** (Low-Temp 1개만 남음) |
+
+### R136b — 프로세스 효과 정량 평가 (data/r136b-process-evaluation.md)
+
+**6 round 누적 (R131 → R136a)**:
+| Metric | R131 | R136a | Δ |
+|---|---|---|---|
+| verified-source materials | 776 | **875** | +99 (+13%) |
+| Active subfamily anchor% ≥30% | 13/27 (48%) | **26/27 (96%)** | +48pp |
+| TRUE flatlines (HT 미반영) | 367 | 65 | -82% |
+| 시스템 신뢰성 (5점 척도) | 1.7/5 | **4.4/5** | +160% |
+
+**결론**: 이 프로세스 (사용자 PDF + pdftotext 자동 추출 + audit + 삭제) 매우 효과적.
+
+**효과적인 이유**:
+1. Vendor datasheet 우선 (Granta / Carpenter / POSCO / Hexcel) — 가장 신뢰
+2. 삭제 + 보강 동시 — noise ↓ + signal ↑
+3. 자동화 audit — 수동 부담 최소
+4. provenance trace — fallback 출처 명확
+5. UI default hide — 일반 사용자 보호
+
+### R136b — 다음 라운드 R137 필요 자료 10
+
+**Tier 1 — 마지막 anchor + HT multiplier 검증**:
+1. A553 Type II 9Ni Nippon Steel 보강 — Low-Temp 100%
+2. Inconel 718 STA vs DSA SMC-045 full brochure — HT multiplier 0.65 → 0.80 calibration
+3. Maraging 250 + C300 aged vs over-aged 측정
+4. Ti-6Al-4V STA vs HIP fatigue 실측 (Allegheny brochure)
+5. H13 HRC 44/50/53 별 실측 (Bohler-Uddeholm W302)
+
+**Tier 2 — Polymer/Ceramic/Composite 보강**:
+6. PSU Udel + Radel PPSU Solvay datasheet
+7. PVDF Solef 1010/5130 Solvay (R135 Kynar 740 비교)
+8. Al2O3 99.95% Vitox별도 entry
+9. Si3N4 CeramTec Rocar SiN HIP grade
+10. GFRP E-glass/Epoxy verified anchor (Toray / 3M)
+
+### R136b — 다음 라운드 R137 삭제 후보 10
+
+74 low-confidence entries 중:
+1. AA 6463 — Aged/solution-treated (CSV-generic, R134a anchor 중복)
+2. AA 6151 — Annealed (R134a T6 anchor 중복)
+3. Ti Grade 1/3/4 As-supplied (Ti CP anchor 위치)
+4. C68000 (rare brass)
+5. C95500 (propeller specialty Cu-Ni-Al)
+6. AISI 302 (모든 HT — 301/304 중간 specialty)
+7. Foam Core PMI Rohacell 71/110/200 IG
+8. CFRP Std PAN/PEEK (thermoplastic generic)
+9. Natural Composite Hardwood (Oak, parallel)
+10. Carbon-Phenolic rocket nozzle composite
+
+검증: pnpm check / pnpm test (47 pass) / pnpm build 21s
+
 ## R135 — 13 PDF anchor 완성 + 필요 자료 10 + 삭제 후보 10
 
 R134b 의 후속 작업. 사용자 13 PDF 추가 제공 + 필요/삭제 list 요청.

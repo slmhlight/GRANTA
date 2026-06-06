@@ -1491,10 +1491,15 @@ const refAlloySet = new Set(
    AA 5005/5050/5154/5251/5356/5383 — AA 5052/5083 으로 대체 가능
    ASTM A553 (사용자 명시 — 단, a553.pdf 데이터 보유, 9% Ni LNG tank 등 valuable 가능성 → comment 하단 참고). */
 const EXCLUDED_ALLOY_PATTERNS = [
-  /^ti[\s-]?5[\s-]?8[\s-]?5$/i,        // Ti-5-8-5 (Ti-5Al-8V-5Cr)
-  /^aa[\s-]?7178$/i,                    // AA 7178
-  /^aa[\s-]?500[5]$/i, /^aa[\s-]?5050$/i, /^aa[\s-]?5154$/i,  // Al-Mg 5005, 5050, 5154
-  /^aa[\s-]?5251$/i, /^aa[\s-]?5356$/i, /^aa[\s-]?5383$/i,    // Al-Mg 5251, 5356, 5383
+  /^ti[\s-]?5[\s-]?8[\s-]?5$/i,        // Ti-5-8-5 (Ti-5Al-8V-5Cr) — R134a
+  /^aa[\s-]?7178$/i,                    // AA 7178 — R134a
+  /^aa[\s-]?500[5]$/i, /^aa[\s-]?5050$/i, /^aa[\s-]?5154$/i,  // Al-Mg 5005, 5050, 5154 — R134a
+  /^aa[\s-]?5251$/i, /^aa[\s-]?5356$/i, /^aa[\s-]?5383$/i,    // Al-Mg 5251, 5356, 5383 — R134a
+  /* R136a — 사용자 명시 추가 삭제 */
+  /^aa[\s-]?7005$/i,                    // AA 7005 (자전거 frame, datasheet 부재)
+  /^309s$/i, /^310s$/i,                 // 309S/310S (low-C 변종 — 309/310 anchor 로 충분)
+  /^654[\s-]?smo$/i,                    // 654 SMO (Outokumpu 독점)
+  /^bronze$/i,                          // Bronze (Binder Jetting generic — vendor 명시 없음)
 ];
 function isExcludedAlloy(name) {
   const n = String(name || '').trim();

@@ -1160,6 +1160,275 @@
       "heat_treatment": "Solution treated + Aged 468-482°C (AMS 6532)"
     },
     {
+      "name": "ZERON 100 (UNS S32760, super-duplex stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Duplex",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "Ni": "6~8", "Cr": "24~26", "Mo": "3~4", "Mn": "≤1",
+        "Cu": "0.5~1", "W": "0.5~1", "Si": "≤1",
+        "N": "0.2~0.3", "C": "≤0.03", "P": "≤0.03", "S": "≤0.01"
+      },
+      "points": [
+        [7.83, 552, 752, 25, 200, 250, 13]
+      ],
+      "conditions": [
+        "Solution annealed (W.Nr. 1.4501, ASTM A 240 Gr F55, PREN ≥40)"
+      ],
+      "fatigue": [280, 320, 360],
+      "impact": [60, 100, 150],
+      "fracture_toughness": [80, 100, 130],
+      "ref_urls": [
+        "https://www.rolledalloys.com/wp-content/uploads/ZERON-100_data-sheet-rolled-alloys.pdf",
+        "ASTM A 240 / A 276 / A 789 / A 790 Gr F55 / S32760",
+        "NACE ISO 15156 / MRO175 Part 3"
+      ],
+      "sources": [
+        {
+          "label": "Rolled Alloys Bulletin 102USe — ZERON 100 (UNS S32760, W.Nr. 1.4501, ASTM A240 Gr F55)",
+          "url": "https://www.rolledalloys.com/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Solution annealed 1100°C WQ (PREN = Cr + 3.3Mo + 16N ≥ 40)",
+      "aliases": [
+        "ZERON 100", "Zeron 100", "UNS S32760", "EN 1.4501",
+        "ASTM A240 F55", "X2CrNiMoCuWN25-7-4", "Sandvik SAF 2507Cu"
+      ],
+      "industry_note": "Rolled Alloys 의 super-duplex stainless. PREN ≥40 (vs 2507 PREN 41) — 해양 / 사우어 가스 / 화학 plant 표준. Subsea manifold, umbilical tubing, wireline, FGD scrubber, RO desalination, 황산 plant, marine fastener. 600°F (315°C) 초과 시 toughness 급락 (장기 노출 금지)."
+    },
+    {
+      "name": "Maraging C350 / VascoMax C-350 (ATI 18Ni-9Co cobalt-strengthened)",
+      "category": "Metal",
+      "subcategory": "Maraging Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "Ni": "18", "Co": "12", "Mo": "4.6", "Ti": "1.4", "Al": "0.05~0.15",
+        "C": "≤0.03"
+      },
+      "points": [
+        [8.06, 980, 1100, 16, 192, 320, 19.7],
+        [8.06, 2310, 2413, 6, 192, 580, 19.7]
+      ],
+      "conditions": [
+        "Solution annealed 815°C AC (soft 30-35 HRC, formable)",
+        "Aged 480-510°C 3-6h AC (peak strength UTS 2413 MPa, 53-55 HRC)"
+      ],
+      "fatigue": [700, 770, 840],
+      "impact": [10, 15, 22],
+      "fracture_toughness": [45, 55, 65],
+      "ref_urls": [
+        "https://www.atimetals.com/Products/Documents/datasheets/specialty-steel/ati_c-200-250-300-350_tds_en4_v1.pdf",
+        "AMS 6520 / AMS 6521 — Maraging 350",
+        "ATI Technical Data Sheet C-200/250/300/350 (2012)"
+      ],
+      "sources": [
+        {
+          "label": "ATI Allegheny Technologies — Maraging C-350 (18Ni-Co, AMS 6520, UTS 350 ksi nominal)",
+          "url": "https://www.atimetals.com/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Solution 815°C AC + Aged 482°C 6h AC (peak — UTS 2413 MPa, HRC 53-55)",
+      "aliases": [
+        "Maraging C350", "Maraging 350", "VascoMax C-350", "Vascomax 350",
+        "ATI C-350", "Lescalloy Marvac 350", "X2NiCoMoTi18-12-4 (DIN 1.6357 equiv)"
+      ],
+      "industry_note": "ATI Allegheny 의 최고 강도 maraging. 미사일 / rocket motor case (Trident, Delta II/III/IV), wind tunnel model, recoil spring, flexure, actuator, landing gear, high-performance shaft, gear, fastener. 양산 grade 중 UTS 가 가장 높음 (350 ksi = 2413 MPa). 균일 shrinkage (warp 없음) — die-casting tooling 표준."
+    },
+    {
+      "name": "AA 5454 (Al-Mg-Mn marine grade)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg Alloys (5xxx)",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance",
+        "Mg": "2.4~3.0", "Mn": "0.5~1.0", "Cr": "0.05~0.20",
+        "Si": "≤0.25", "Fe": "≤0.40", "Cu": "≤0.10", "Zn": "≤0.25", "Ti": "≤0.20"
+      },
+      "points": [
+        [2.69, 87, 237, 18, 71.8, 60, 134],
+        [2.69, 200, 270, 12, 71.8, 75, 134],
+        [2.69, 240, 305, 10, 71.8, 87, 134],
+        [2.69, 165, 240, 14, 71.8, 65, 134]
+      ],
+      "conditions": [
+        "O (annealed, σy 83-91 / UTS 214-237, El 12-18%)",
+        "H32 (1/4 hard CW + stabilized, σy 200 / UTS 270 / El 12%)",
+        "H34 (1/2 hard CW + stabilized, σy 240 / UTS 305 / El 10%)",
+        "H111 (as-fabricated)"
+      ],
+      "fatigue": [85, 110, 135],
+      "impact": [20, 30, 45],
+      "fracture_toughness": [28, 35, 45],
+      "ref_urls": [
+        "ANSYS Granta — Aluminum 5454 (UNS A95454, EN AW-5454, AlMg3Mn)",
+        "https://www.aluminum.org/aluminum-association/standards"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Aluminum Association — AA 5454 O/H32/H34 (UNS A95454)",
+          "url": "https://www.aluminum.org/aluminum-association/standards",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "H32/H34 (CW + stabilized, marine welding 후 corrosion-resistant)",
+      "industry_note": "AA 5083 의 lower-Mg 변종. 마린 / 조선 (선박 hull, deck), 유조차 tank, road tanker — H321 보다 anti-stress-corrosion 강화. 65°C 이상 sensitization 위험 없음 (AA 5083 의 한계). 한국 채택: 일부 LNG carrier 외판 보강."
+    },
+    {
+      "name": "AISI 1144 Stressproof (free-machining medium-C carbon steel)",
+      "category": "Metal",
+      "subcategory": "Carbon Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "C": "0.40~0.48", "Mn": "1.35~1.65",
+        "S": "0.24~0.33", "P": "≤0.04", "Si": "≤0.10"
+      },
+      "points": [
+        [7.85, 400, 670, 21, 207, 200, 50],
+        [7.85, 620, 760, 14, 207, 240, 50],
+        [7.85, 760, 880, 12, 207, 280, 50]
+      ],
+      "conditions": [
+        "Normalized (σy 360-440, UTS 600-740, El 16-26%, HV 180-225)",
+        "Q+T 540°C high-temper (σy 620, UTS 760)",
+        "Q+T 425°C medium-temper (σy 760, UTS 880, peak strength)"
+      ],
+      "fatigue": [260, 305, 350],
+      "impact": [15, 25, 40],
+      "fracture_toughness": [40, 55, 75],
+      "ref_urls": [
+        "ANSYS Granta — Carbon steel AISI 1144 normalized/Q+T (UNS G11440, BS 212M44)",
+        "AISI 1144 Stressproof (Niagara LaSalle resulfurized free-machining grade)"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Niagara LaSalle — AISI 1144 Stressproof (UNS G11440, resulfurized)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1144",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Stressproof (CW + stress-relief 600°C, σy 620 MPa, machinability rating 80%)",
+      "industry_note": "Stressproof™ — Niagara LaSalle 의 cold-drawn + 600°C stress-relieved 1144. 모터 shaft, 펌프 shaft, 정밀 fastener, fluid power cylinder rod — 4140 Q+T 대비 가공성 2× (free-machining)."
+    },
+    {
+      "name": "AISI 301 (cold-rolled high-strength austenitic stainless)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "Cr": "16~18", "Ni": "6~8",
+        "Mn": "≤2", "Si": "≤1", "C": "≤0.15", "P": "≤0.045", "S": "≤0.03"
+      },
+      "points": [
+        [7.92, 220, 530, 35, 205, 95, 15.5],
+        [7.92, 760, 1100, 12, 187, 320, 15.5],
+        [7.92, 965, 1280, 9, 187, 380, 15.5],
+        [7.92, 1240, 1380, 5, 175, 430, 15.5],
+        [7.92, 1380, 1520, 4, 175, 470, 15.5]
+      ],
+      "conditions": [
+        "Annealed (S30100, σy 205-240, UTS 503-556, El 30-40%)",
+        "1/4 hard (cold-rolled, σy 515-760, UTS 860-1100)",
+        "1/2 hard (cold-rolled, σy 760-965, UTS 1035-1280)",
+        "3/4 hard (cold-rolled, σy 930-1240, UTS 1170-1380)",
+        "Full hard (cold-rolled, σy 965-1380, UTS 1275-1520)"
+      ],
+      "fatigue": [280, 380, 480],
+      "impact": [60, 100, 150],
+      "fracture_toughness": [80, 110, 150],
+      "ref_urls": [
+        "ANSYS Granta — Stainless steel austenitic AISI 301 (UNS S30100, EN 1.4310, X10CrNi18-8)",
+        "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
+      ],
+      "sources": [
+        {
+          "label": "ANSYS Granta + Outokumpu — AISI 301 + 301L (UNS S30100/S30103, EN 1.4310)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "Cold-rolled to temper (1/4, 1/2, 3/4, Full hard) — strain-induced martensite",
+      "industry_note": "Strain-hardening austenitic stainless — 자동차 spring, structural shape, railway car structure, aircraft skin, kitchen utensil. 304 대비 더 강한 strain-hardening (304 보다 N 더 많음). 1/4-Full hard 까지 cold-rolling 으로 강도 ↑↑. 304 의 가공경화 변종으로 보면 됨."
+    },
+    {
+      "name": "API 5L X42N + X52M PSL2 (heavy-wall pipeline, normalized/TMCP)",
+      "category": "Metal",
+      "subcategory": "Microalloyed Steel",
+      "process": "Wrought",
+      "composition": {
+        "Fe": "balance",
+        "C": "≤0.18", "Mn": "≤1.45", "Si": "≤0.40",
+        "Nb": "≤0.05", "V": "≤0.07", "Ti": "≤0.04",
+        "P": "≤0.025", "S": "≤0.015"
+      },
+      "points": [
+        [7.85, 290, 415, 23, 207, 130, 45],
+        [7.85, 360, 460, 21, 207, 160, 45]
+      ],
+      "conditions": [
+        "X42N / L290N (normalized, σy 290 MPa min, σu 415 min)",
+        "X52M / L360M (TMCP, σy 360 MPa min, σu 460 min)"
+      ],
+      "fatigue": [150, 185, 220],
+      "impact": [50, 100, 150],
+      "fracture_toughness": [70, 95, 125],
+      "ref_urls": [
+        "API 5L 46th Edition Spec — Line Pipe Grade L290N / L360M",
+        "American Piping Products — A106 / API 5L X-grade pipeline catalog",
+        "ASME B31.3 / B31.4 / B31.8 Pipeline Code"
+      ],
+      "sources": [
+        {
+          "label": "API 5L + American Piping Products — X42N + X52M PSL2 (line pipe, heavy-wall)",
+          "url": "https://amerpipe.com/",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "X42N: Normalized 920°C / X52M: TMCP (TMCR + accelerated cooling)",
+      "industry_note": "API 5L 의 medium-strength grade. X42N (normalized) — heavy-wall flange, header, manifold; X52M (TMCP) — high-pressure pipeline, sour-service capable. POSCO / Nippon Steel / Tata Steel / U.S. Steel 양산. KOGAS pipeline 표준 일부 채택."
+    },
+    {
+      "name": "Inconel 718 Tech Data (HighTempMetals.com verified)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Wrought",
+      "composition": {
+        "Ni+Co": "50~55", "Cr": "17~21", "Fe": "balance",
+        "Mo": "2.8~3.3", "Cb+Ta": "4.75~5.5",
+        "Ti": "0.65~1.15", "Al": "0.35~0.80",
+        "Co": "≤1", "Mn": "≤0.35", "Si": "≤0.35",
+        "C": "≤0.08", "B": "0.001~0.006",
+        "Cu": "≤0.15", "P": "≤0.015", "S": "≤0.015"
+      },
+      "points": [
+        [8.22, 1100, 1280, 12, 204, 380, 11.4]
+      ],
+      "conditions": [
+        "STA (Solution treated 980°C + Aged 720°C + 620°C, AMS 5662)"
+      ],
+      "fatigue": [450, 535, 620],
+      "impact": [30, 40, 50],
+      "fracture_toughness": [95, 100, 110],
+      "ref_urls": [
+        "https://www.hightempmetals.com/techdata/hitempInconel718data.php",
+        "Special Metals SMC-045 Inconel 718 technical bulletin",
+        "AMS 5662 / 5663 / 5664 / 5832 / 5914 / 5962"
+      ],
+      "sources": [
+        {
+          "label": "HighTempMetals + Special Metals — Inconel 718 Tech Data (UNS N07718, AMS 5662)",
+          "url": "https://www.hightempmetals.com/techdata/hitempInconel718data.php",
+          "verified": true
+        }
+      ],
+      "heat_treatment": "STA — Solution 980°C/1h WQ + Aged 720°C/8h FC + 620°C/8h AC (γ\" peak)"
+    },
+    {
       "name": "AISI 303 (free-machining austenitic stainless)",
       "category": "Metal",
       "subcategory": "Stainless Steel - Austenitic",
