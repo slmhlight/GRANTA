@@ -11,16 +11,21 @@ import type { Material } from './materials';
 // (R101: name regex 가 "Alumina" 를 "alumin" 으로 잘못 매칭해 Aluminum family 로 분류된 버그 fix).
 export const CLASSES: Array<{ key: string; color: string; test: (s: string, cat: string) => boolean }> = [
   { key: 'Polymer', color: '#16A34A', test: (_s, cat) => cat === 'Polymer' },
-  { key: 'Ceramic', color: '#0EA5E9', test: (_s, cat) => cat === 'Ceramic' },
+  /* R179 — Ceramic color: #0EA5E9 (sky) → #DC2626 (red-600). 사용자 지적: Al 과 너무 비슷.
+   *        Ceramic = ceramic kiln fire imagery. distinct from Al/Cu/Ti family. */
+  { key: 'Ceramic', color: '#DC2626', test: (_s, cat) => cat === 'Ceramic' },
   { key: 'Composite', color: '#A855F7', test: (_s, cat) => cat === 'Composite' },
-  { key: 'Nickel', color: '#8B5CF6', test: (s) => /\bnickel\b|inconel|hastelloy|haynes|monel|\binvar\b|kovar|cm247|nimonic|waspaloy|\brene\b|nitinol|incoloy|udimet|cp-nickel|ni 200/.test(s) },
-  { key: 'Cobalt', color: '#EC4899', test: (s) => /cobalt|cocr|stellite/.test(s) },
-  { key: 'Titanium', color: '#06B6D4', test: (s) => /\btitan|\bti\b|ti6|ti-6|ti5|ti cp|ti6242|ta15|\bbeta-2/.test(s) },
-  { key: 'Refractory', color: '#475569', test: (s) => /refract|tungsten|tantal|niobium|molybden|c-103|rhenium|\bnb\b/.test(s) },
-  { key: 'Copper', color: '#D97706', test: (s) => /\bcopper\b|bronze|brass|cuni|cucr|grcop|beryllium copper|becu|\bcu\b/.test(s) },
-  { key: 'Magnesium', color: '#0D9488', test: (s) => /\bmagnes|\bmg\b/.test(s) },
-  { key: 'Steel', color: '#3B82F6', test: (s) => /steel|maraging|stainless|aisi|aheadd|superduplex|duplex|chromoly|42crmo|20mncr|\biron\b/.test(s) },
-  { key: 'Aluminum', color: '#F59E0B', test: (s) => /alumin(?!a)|\bal\b|aa\s*\d|alsi|a356|a357|a360|a380|a413|scalmalloy|a205|a20x/.test(s) },
+  { key: 'Nickel', color: '#8B5CF6', test: (s) => /\bnickel\b|inconel|hastelloy|haynes|monel|\binvar\b|kovar|cm247|nimonic|waspaloy|\brene\b|nitinol|incoloy|udimet|cp-nickel|ni 200|a-?286|pyromet/.test(s) },
+  { key: 'Cobalt', color: '#EC4899', test: (s) => /cobalt|cocr|stellite|mp35n|elgiloy|haynes 188|haynes 25|l-?605/.test(s) },
+  /* R179 — Titanium regex 에 zirconium / zircaloy / hafnium 추가 (group 4 transition metal, chemistry 유사). */
+  { key: 'Titanium', color: '#06B6D4', test: (s) => /\btitan|\bti\b|ti6|ti-6|ti5|ti cp|ti6242|ta15|\bbeta-2|zirconium|zircaloy|zr-?2|\bhafnium\b|\bhf\b/.test(s) },
+  /* R179 — Refractory regex 에 beryllium / vanadium / chromium 추가. */
+  { key: 'Refractory', color: '#475569', test: (s) => /refract|tungsten|tantal|niobium|molybden|c-103|rhenium|\bnb\b|\btzm\b|beryllium|\bvanadium\b|pure cr|pure chromium/.test(s) },
+  { key: 'Copper', color: '#D97706', test: (s) => /\bcopper\b|bronze|brass|cuni|cucr|grcop|beryllium copper|becu|\bcu\b|c1\d{4}|c2\d{4}|c3\d{4}|c4\d{4}|c5\d{4}|c6\d{4}|c7\d{4}|c8\d{4}|c9\d{4}|narloy/.test(s) },
+  /* R179 — Magnesium regex 에 zinc / zamak 추가 (low-density / low-T cast alloy). */
+  { key: 'Magnesium', color: '#0D9488', test: (s) => /\bmagnes|\bmg\b|\bzinc\b|zamak|\bzn\b/.test(s) },
+  { key: 'Steel', color: '#3B82F6', test: (s) => /steel|maraging|stainless|aisi|aheadd|superduplex|duplex|chromoly|42crmo|20mncr|\biron\b|sus\d|sncm|scm\d|s45c|sm\d{2}c|sphc|saph|spfh|astm a\d|api 5l|\bsteel\b/.test(s) },
+  { key: 'Aluminum', color: '#F59E0B', test: (s) => /alumin(?!a)|\bal\b|aa\s*\d|alsi|a356|a357|a360|a380|a413|scalmalloy|a205|a20x|a356-rs|\bautoaa|6xxx|7xxx|2xxx|5xxx/.test(s) },
 ];
 
 export function classOf(m: Material): { key: string; color: string } {

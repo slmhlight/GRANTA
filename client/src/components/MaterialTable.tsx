@@ -26,18 +26,36 @@ interface MaterialTableProps {
 
 const PAGE_SIZE = 50;
 
-const COLUMNS: Array<{ key: keyof Material; label: string; unit?: string; width: string; mono?: boolean }> = [
-  { key: 'name', label: 'Material Name', width: 'min-w-[220px]' },
-  { key: 'subcategory', label: 'Family', width: 'min-w-[160px]' },
-  { key: 'process', label: 'Process', width: 'min-w-[100px]' },
-  { key: 'manufacturer', label: 'Manufacturer', width: 'min-w-[110px]' },
-  { key: 'density', label: 'ρ', unit: 'g/cm³', width: 'w-[80px]', mono: true },
-  { key: 'yield_strength', label: 'σ_y', unit: 'MPa', width: 'w-[80px]', mono: true },
-  { key: 'uts', label: 'UTS', unit: 'MPa', width: 'w-[80px]', mono: true },
-  { key: 'elongation', label: 'El.', unit: '%', width: 'w-[70px]', mono: true },
-  { key: 'modulus', label: 'E', unit: 'GPa', width: 'w-[70px]', mono: true },
-  { key: 'hardness', label: 'HV', unit: '', width: 'w-[70px]', mono: true },
+/* R179 — column 별 default width (px) + minWidth. Mouse drag resize 지원, localStorage 저장. */
+const COLUMNS: Array<{ key: keyof Material; label: string; unit?: string; defaultW: number; minW: number; mono?: boolean }> = [
+  { key: 'name', label: 'Material Name', defaultW: 280, minW: 150 },
+  { key: 'subcategory', label: 'Family', defaultW: 180, minW: 100 },
+  { key: 'process', label: 'Process', defaultW: 100, minW: 70 },
+  { key: 'manufacturer', label: 'Manufacturer', defaultW: 110, minW: 80 },
+  { key: 'density', label: 'ρ', unit: 'g/cm³', defaultW: 80, minW: 60, mono: true },
+  { key: 'yield_strength', label: 'σ_y', unit: 'MPa', defaultW: 80, minW: 60, mono: true },
+  { key: 'uts', label: 'UTS', unit: 'MPa', defaultW: 80, minW: 60, mono: true },
+  { key: 'elongation', label: 'El.', unit: '%', defaultW: 70, minW: 60, mono: true },
+  { key: 'modulus', label: 'E', unit: 'GPa', defaultW: 70, minW: 60, mono: true },
+  { key: 'hardness', label: 'HV', unit: '', defaultW: 70, minW: 60, mono: true },
 ];
+
+const COL_WIDTH_STORAGE_KEY = 'mt-col-widths-v1';
+
+function loadColWidths(): Record<string, number> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = window.localStorage.getItem(COL_WIDTH_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveColWidths(widths: Record<string, number>) {
+  if (typeof window === 'undefined') return;
+  try { window.localStorage.setItem(COL_WIDTH_STORAGE_KEY, JSON.stringify(widths)); } catch {}
+}
 
 function SortIcon({ col, sortKey, sortDir }: { col: keyof Material; sortKey: keyof Material; sortDir: 'asc' | 'desc' }) {
   if (col !== sortKey) return <ChevronsUpDown className="w-3 h-3 text-muted-foreground/40" />;
@@ -61,6 +79,54 @@ export function MaterialTable({
   const totalPages = Math.ceil(materials.length / PAGE_SIZE);
   const pageData = materials.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
+  /* R179 — column width state + mouse-drag resize handle.
+   * - localStorage 영구 저장 (사용자 별 width 보존).
+   * - Min width 통제 (column collapse 회피). */
+  const [colWidths, setColWidths] = useState<Record<string, number>>(() => loadColWidths());
+  const resizeStartXRef = useRef<{ key: string; startX: number; startW: number } | null>(null);
+
+  const startColResize = (key: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const col = COLUMNS.find(c => c.key === key);
+    if (!col) return;
+    const startW = colWidths[key] ?? col.defaultW;
+    resizeStartXRef.current = { key, startX: e.clientX, startW };
+
+    const onMove = (ev: MouseEvent) => {
+      const ctx = resizeStartXRef.current;
+      if (!ctx) return;
+      const dw = ev.clientX - ctx.startX;
+      const newW = Math.max(col.minW, ctx.startW + dw);
+      setColWidths(prev => ({ ...prev, [ctx.key]: newW }));
+    };
+    const onUp = () => {
+      resizeStartXRef.current = null;
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+      // Save to localStorage at the end of drag
+      setColWidths(prev => {
+        saveColWidths(prev);
+        return prev;
+      });
+    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  };
+
+  const getColWidth = (key: string): number => {
+    const col = COLUMNS.find(c => c.key === key);
+    if (!col) return 100;
+    return colWidths[key] ?? col.defaultW;
+  };
+
+  /* R179 — entry name + family column 의 max-width CSS variable 을 colWidths state 와 연동.
+   * MaterialTable 안에서만 적용 (root style 분리). */
+  const tableStyle: React.CSSProperties = {
+    ['--col-name-w' as string]: `${getColWidth('name') - 40}px`,        // pad + dot + story badge ~ 40px
+    ['--col-family-w' as string]: `${getColWidth('subcategory') - 20}px`, // pad ~ 20px
+  };
+
   // Reset to page 0 when materials change
   if (page > 0 && page >= totalPages) {
     setPage(0);
@@ -83,7 +149,7 @@ export function MaterialTable({
     <div className="flex flex-col h-full">
       {/* Table */}
       <div className="flex-1 overflow-auto">
-        <table className="w-full text-xs border-collapse">
+        <table className="w-full text-xs border-collapse" style={tableStyle}>
           <thead className="sticky top-0 z-10">
             <tr className="bg-muted/80 backdrop-blur-sm border-b-2 border-border">
               {/* Compare checkbox col — R58 header checkbox */}
@@ -113,7 +179,8 @@ export function MaterialTable({
               {COLUMNS.map(col => (
                 <th
                   key={col.key}
-                  className={`px-3 py-2 text-left font-semibold text-muted-foreground select-none ${col.width}`}
+                  className="px-3 py-2 text-left font-semibold text-muted-foreground select-none relative"
+                  style={{ width: getColWidth(col.key), minWidth: col.minW }}
                 >
                   <button
                     className="flex items-center gap-1 hover:text-foreground transition-colors"
@@ -123,6 +190,13 @@ export function MaterialTable({
                     {col.unit && <span className="text-[10px] font-normal text-muted-foreground/60">{col.unit}</span>}
                     <SortIcon col={col.key} sortKey={sortKey} sortDir={sortDir} />
                   </button>
+                  {/* R179 — column resize handle (draggable right edge) */}
+                  <div
+                    onMouseDown={(e) => startColResize(col.key as string, e)}
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute right-0 top-0 bottom-0 w-1.5 cursor-col-resize hover:bg-accent/50 active:bg-accent select-none"
+                    title="드래그하여 너비 조절"
+                  />
                 </th>
               ))}
             </tr>
@@ -175,7 +249,7 @@ export function MaterialTable({
                           <BookText className="w-2.5 h-2.5" style={{ color: famColor }} />
                         </span>
                       )}
-                      <span className="font-medium text-foreground truncate max-w-[200px]" title={m.name}>
+                      <span className="font-medium text-foreground truncate max-w-[var(--col-name-w,320px)]" title={m.name}>
                         {m.name}
                       </span>
                     </div>
@@ -183,7 +257,7 @@ export function MaterialTable({
 
                   {/* Family */}
                   <td className="px-3 py-1.5">
-                    <span className="text-muted-foreground truncate block max-w-[150px]" title={m.subcategory}>
+                    <span className="text-muted-foreground truncate block max-w-[var(--col-family-w,200px)]" title={m.subcategory}>
                       {m.subcategory}
                     </span>
                   </td>

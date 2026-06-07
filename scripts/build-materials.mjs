@@ -676,6 +676,12 @@ const QUAL_MAP = {
   /* GRCop-42 (NASA Cu alloy) */
   'grcop42':     { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                    // Rocket combustion
   'grcop':       { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
+  /* R179 — Cu alloys missing weldability rating (low-Zn brass + Al-Cu). ASM Vol.6 Cu welding. */
+  'c21000': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },      // Red Brass 95Cu-5Zn (Gilding Metal) — ER CuSn-A filler, low Zn fume
+  'c22000': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },      // Red Brass 90Cu-10Zn (Commercial Bronze)
+  'c23000': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },      // Red Brass 85Cu-15Zn
+  'c26800': { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },      // Yellow Brass 66Cu-34Zn — Zn fume LEV 필수
+  'a205':   { corrosion: 'Poor', machinability: 'Good', weldability: 'Poor' },      // AA 2139 Al-Cu (aerospace) — fusion welding 거의 불가 (Cu-Mg-Si segregation, hot crack)
 };
 function qualFor(name) {
   const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
@@ -1699,14 +1705,19 @@ const supplementary = supRaw
         PROP_ORDER.forEach((p, i) => { ranges[p] = rangeFrom([s.points[ci][i]]); });
         if (Array.isArray(s.fatigue) && s.fatigue[ci] != null) ranges.fatigue_strength = rangeFrom([s.fatigue[ci]]);
         if (Array.isArray(s.impact) && s.impact[ci] != null) ranges.impact_strength = rangeFrom([s.impact[ci]]);
+        // R179 — short letter condition codes ("O") 를 표준 풀이로 변환. 사용자 R179: 'O' 보고 바로 떠올릴 수 없음.
+        //        T-temper (T3/T6/T651/T73 등) + H-temper (H32/H321 등) 은 표준 코드 그대로 유지.
+        let condDisplay = cond;
+        if (cond === 'O') condDisplay = 'Annealed';
+        else if (/^O \(/.test(cond)) condDisplay = cond.replace(/^O \(/, 'Annealed (');
         return {
           id: 'R_' + String(idx).padStart(4, '0') + '_' + ci,
-          name: `${s.name} — ${cond}`,
+          name: `${s.name} — ${condDisplay}`,
           category: s.category, subcategory: s.subcategory, tier: 'reference',
-          manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: cond,
+          manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: condDisplay,
           ranges, composition: s.composition || {}, sources: (s.ref_urls || []).map((u) => ({ label: `Datasheet ${ci + 1}`, url: u, verified: true })),
           points: [s.points[ci]],
-          machinability: null, weldability: null, corrosion_resistance: null, industry_note: s.industry_note || null, meta: { reference: true, condition: cond },
+          machinability: null, weldability: null, corrosion_resistance: null, industry_note: s.industry_note || null, meta: { reference: true, condition: condDisplay },
         };
       });
     }
