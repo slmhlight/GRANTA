@@ -296,9 +296,21 @@
         "Aged (480°C/6h)",
         "Solution + Aged (peak 480°C/6h)"
       ],
-      "fatigue": [768, 816, 870],
-      "impact": [12, 18, 28],
-      "fracture_toughness": [75, 80, 85],
+      "fatigue": [
+        768,
+        816,
+        870
+      ],
+      "impact": [
+        12,
+        18,
+        28
+      ],
+      "fracture_toughness": [
+        75,
+        80,
+        85
+      ],
       "ref_urls": [
         "ANSYS Granta — Maraging steel 300 maraged at 482°C (UNS K93120, AMS 6514, K93120)",
         "https://www.matweb.com/search/QuickText.aspx?SearchText=maraging+300"
@@ -402,7 +414,7 @@
         "Cold-worked"
       ],
       "ref_urls": [
-        "https://www.astm.org/f1537-20.html"
+        "https://store.astm.org/f1537-20.html"
       ]
     },
     {
@@ -454,7 +466,7 @@
         "Stress relieved (650°C)"
       ],
       "ref_urls": [
-        "https://www.haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HASTELLOYXalloy.aspx",
+        "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HASTELLOYXalloy.aspx",
         "ANSYS Granta — HASTELLOY X solution treated (UNS N06002, AMS 5536)"
       ],
       "heat_treatment": "Solution Annealed (1175°C WQ)"
@@ -637,7 +649,7 @@
         "Stress-relieved"
       ],
       "ref_urls": [
-        "https://www.haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HAYNES230alloy.aspx",
+        "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HAYNES230alloy.aspx",
         "https://additive.oerlikon.com/en/materials/nickel-superalloys/haynes-230"
       ]
     },
@@ -1145,7 +1157,11 @@
         "Solution treated + Aged 475°C (typical)",
         "Solution treated + Aged 482°C (max strength)"
       ],
-      "fatigue": [737, 755, 772],
+      "fatigue": [
+        737,
+        755,
+        772
+      ],
       "ref_urls": [
         "ANSYS Granta — High alloy steel, AerMet 100 (UNS K92580, AMS 6532)",
         "https://www.carpentertechnology.com/alloy-finder/aermet-100"
@@ -1166,19 +1182,47 @@
       "process": "Wrought",
       "composition": {
         "Fe": "balance",
-        "Ni": "6~8", "Cr": "24~26", "Mo": "3~4", "Mn": "≤1",
-        "Cu": "0.5~1", "W": "0.5~1", "Si": "≤1",
-        "N": "0.2~0.3", "C": "≤0.03", "P": "≤0.03", "S": "≤0.01"
+        "Ni": "6~8",
+        "Cr": "24~26",
+        "Mo": "3~4",
+        "Mn": "≤1",
+        "Cu": "0.5~1",
+        "W": "0.5~1",
+        "Si": "≤1",
+        "N": "0.2~0.3",
+        "C": "≤0.03",
+        "P": "≤0.03",
+        "S": "≤0.01"
       },
       "points": [
-        [7.83, 552, 752, 25, 200, 250, 13]
+        [
+          7.83,
+          552,
+          752,
+          25,
+          200,
+          250,
+          13
+        ]
       ],
       "conditions": [
         "Solution annealed (W.Nr. 1.4501, ASTM A 240 Gr F55, PREN ≥40)"
       ],
-      "fatigue": [280, 320, 360],
-      "impact": [60, 100, 150],
-      "fracture_toughness": [80, 100, 130],
+      "fatigue": [
+        280,
+        320,
+        360
+      ],
+      "impact": [
+        60,
+        100,
+        150
+      ],
+      "fracture_toughness": [
+        80,
+        100,
+        130
+      ],
       "ref_urls": [
         "https://www.rolledalloys.com/wp-content/uploads/ZERON-100_data-sheet-rolled-alloys.pdf",
         "ASTM A 240 / A 276 / A 789 / A 790 Gr F55 / S32760",
@@ -1193,8 +1237,13 @@
       ],
       "heat_treatment": "Solution annealed 1100°C WQ (PREN = Cr + 3.3Mo + 16N ≥ 40)",
       "aliases": [
-        "ZERON 100", "Zeron 100", "UNS S32760", "EN 1.4501",
-        "ASTM A240 F55", "X2CrNiMoCuWN25-7-4", "Sandvik SAF 2507Cu"
+        "ZERON 100",
+        "Zeron 100",
+        "UNS S32760",
+        "EN 1.4501",
+        "ASTM A240 F55",
+        "X2CrNiMoCuWN25-7-4",
+        "Sandvik SAF 2507Cu"
       ],
       "industry_note": "Rolled Alloys 의 super-duplex stainless. PREN ≥40 (vs 2507 PREN 41) — 해양 / 사우어 가스 / 화학 plant 표준. Subsea manifold, umbilical tubing, wireline, FGD scrubber, RO desalination, 황산 plant, marine fastener. 600°F (315°C) 초과 시 toughness 급락 (장기 노출 금지)."
     },
@@ -1205,20 +1254,52 @@
       "process": "Wrought",
       "composition": {
         "Fe": "balance",
-        "Ni": "18", "Co": "12", "Mo": "4.6", "Ti": "1.4", "Al": "0.05~0.15",
+        "Ni": "18",
+        "Co": "12",
+        "Mo": "4.6",
+        "Ti": "1.4",
+        "Al": "0.05~0.15",
         "C": "≤0.03"
       },
       "points": [
-        [8.06, 980, 1100, 16, 192, 320, 19.7],
-        [8.06, 2310, 2413, 6, 192, 580, 19.7]
+        [
+          8.06,
+          980,
+          1100,
+          16,
+          192,
+          320,
+          19.7
+        ],
+        [
+          8.06,
+          2310,
+          2413,
+          6,
+          192,
+          580,
+          19.7
+        ]
       ],
       "conditions": [
         "Solution annealed 815°C AC (soft 30-35 HRC, formable)",
         "Aged 480-510°C 3-6h AC (peak strength UTS 2413 MPa, 53-55 HRC)"
       ],
-      "fatigue": [700, 770, 840],
-      "impact": [10, 15, 22],
-      "fracture_toughness": [45, 55, 65],
+      "fatigue": [
+        700,
+        770,
+        840
+      ],
+      "impact": [
+        10,
+        15,
+        22
+      ],
+      "fracture_toughness": [
+        45,
+        55,
+        65
+      ],
       "ref_urls": [
         "https://www.atimetals.com/Products/Documents/datasheets/specialty-steel/ati_c-200-250-300-350_tds_en4_v1.pdf",
         "AMS 6520 / AMS 6521 — Maraging 350",
@@ -1233,8 +1314,13 @@
       ],
       "heat_treatment": "Solution 815°C AC + Aged 482°C 6h AC (peak — UTS 2413 MPa, HRC 53-55)",
       "aliases": [
-        "Maraging C350", "Maraging 350", "VascoMax C-350", "Vascomax 350",
-        "ATI C-350", "Lescalloy Marvac 350", "X2NiCoMoTi18-12-4 (DIN 1.6357 equiv)"
+        "Maraging C350",
+        "Maraging 350",
+        "VascoMax C-350",
+        "Vascomax 350",
+        "ATI C-350",
+        "Lescalloy Marvac 350",
+        "X2NiCoMoTi18-12-4 (DIN 1.6357 equiv)"
       ],
       "industry_note": "ATI Allegheny 의 최고 강도 maraging. 미사일 / rocket motor case (Trident, Delta II/III/IV), wind tunnel model, recoil spring, flexure, actuator, landing gear, high-performance shaft, gear, fastener. 양산 grade 중 UTS 가 가장 높음 (350 ksi = 2413 MPa). 균일 shrinkage (warp 없음) — die-casting tooling 표준."
     },
@@ -1245,14 +1331,52 @@
       "process": "Wrought",
       "composition": {
         "Al": "balance",
-        "Mg": "2.4~3.0", "Mn": "0.5~1.0", "Cr": "0.05~0.20",
-        "Si": "≤0.25", "Fe": "≤0.40", "Cu": "≤0.10", "Zn": "≤0.25", "Ti": "≤0.20"
+        "Mg": "2.4~3.0",
+        "Mn": "0.5~1.0",
+        "Cr": "0.05~0.20",
+        "Si": "≤0.25",
+        "Fe": "≤0.40",
+        "Cu": "≤0.10",
+        "Zn": "≤0.25",
+        "Ti": "≤0.20"
       },
       "points": [
-        [2.69, 87, 237, 18, 71.8, 60, 134],
-        [2.69, 200, 270, 12, 71.8, 75, 134],
-        [2.69, 240, 305, 10, 71.8, 87, 134],
-        [2.69, 165, 240, 14, 71.8, 65, 134]
+        [
+          2.69,
+          87,
+          237,
+          18,
+          71.8,
+          60,
+          134
+        ],
+        [
+          2.69,
+          200,
+          270,
+          12,
+          71.8,
+          75,
+          134
+        ],
+        [
+          2.69,
+          240,
+          305,
+          10,
+          71.8,
+          87,
+          134
+        ],
+        [
+          2.69,
+          165,
+          240,
+          14,
+          71.8,
+          65,
+          134
+        ]
       ],
       "conditions": [
         "O (annealed, σy 83-91 / UTS 214-237, El 12-18%)",
@@ -1260,9 +1384,21 @@
         "H34 (1/2 hard CW + stabilized, σy 240 / UTS 305 / El 10%)",
         "H111 (as-fabricated)"
       ],
-      "fatigue": [85, 110, 135],
-      "impact": [20, 30, 45],
-      "fracture_toughness": [28, 35, 45],
+      "fatigue": [
+        85,
+        110,
+        135
+      ],
+      "impact": [
+        20,
+        30,
+        45
+      ],
+      "fracture_toughness": [
+        28,
+        35,
+        45
+      ],
       "ref_urls": [
         "ANSYS Granta — Aluminum 5454 (UNS A95454, EN AW-5454, AlMg3Mn)",
         "https://www.aluminum.org/aluminum-association/standards"
@@ -1284,22 +1420,61 @@
       "process": "Wrought",
       "composition": {
         "Fe": "balance",
-        "C": "0.40~0.48", "Mn": "1.35~1.65",
-        "S": "0.24~0.33", "P": "≤0.04", "Si": "≤0.10"
+        "C": "0.40~0.48",
+        "Mn": "1.35~1.65",
+        "S": "0.24~0.33",
+        "P": "≤0.04",
+        "Si": "≤0.10"
       },
       "points": [
-        [7.85, 400, 670, 21, 207, 200, 50],
-        [7.85, 620, 760, 14, 207, 240, 50],
-        [7.85, 760, 880, 12, 207, 280, 50]
+        [
+          7.85,
+          400,
+          670,
+          21,
+          207,
+          200,
+          50
+        ],
+        [
+          7.85,
+          620,
+          760,
+          14,
+          207,
+          240,
+          50
+        ],
+        [
+          7.85,
+          760,
+          880,
+          12,
+          207,
+          280,
+          50
+        ]
       ],
       "conditions": [
         "Normalized (σy 360-440, UTS 600-740, El 16-26%, HV 180-225)",
         "Q+T 540°C high-temper (σy 620, UTS 760)",
         "Q+T 425°C medium-temper (σy 760, UTS 880, peak strength)"
       ],
-      "fatigue": [260, 305, 350],
-      "impact": [15, 25, 40],
-      "fracture_toughness": [40, 55, 75],
+      "fatigue": [
+        260,
+        305,
+        350
+      ],
+      "impact": [
+        15,
+        25,
+        40
+      ],
+      "fracture_toughness": [
+        40,
+        55,
+        75
+      ],
       "ref_urls": [
         "ANSYS Granta — Carbon steel AISI 1144 normalized/Q+T (UNS G11440, BS 212M44)",
         "AISI 1144 Stressproof (Niagara LaSalle resulfurized free-machining grade)"
@@ -1321,15 +1496,60 @@
       "process": "Wrought",
       "composition": {
         "Fe": "balance",
-        "Cr": "16~18", "Ni": "6~8",
-        "Mn": "≤2", "Si": "≤1", "C": "≤0.15", "P": "≤0.045", "S": "≤0.03"
+        "Cr": "16~18",
+        "Ni": "6~8",
+        "Mn": "≤2",
+        "Si": "≤1",
+        "C": "≤0.15",
+        "P": "≤0.045",
+        "S": "≤0.03"
       },
       "points": [
-        [7.92, 220, 530, 35, 205, 95, 15.5],
-        [7.92, 760, 1100, 12, 187, 320, 15.5],
-        [7.92, 965, 1280, 9, 187, 380, 15.5],
-        [7.92, 1240, 1380, 5, 175, 430, 15.5],
-        [7.92, 1380, 1520, 4, 175, 470, 15.5]
+        [
+          7.92,
+          220,
+          530,
+          35,
+          205,
+          95,
+          15.5
+        ],
+        [
+          7.92,
+          760,
+          1100,
+          12,
+          187,
+          320,
+          15.5
+        ],
+        [
+          7.92,
+          965,
+          1280,
+          9,
+          187,
+          380,
+          15.5
+        ],
+        [
+          7.92,
+          1240,
+          1380,
+          5,
+          175,
+          430,
+          15.5
+        ],
+        [
+          7.92,
+          1380,
+          1520,
+          4,
+          175,
+          470,
+          15.5
+        ]
       ],
       "conditions": [
         "Annealed (S30100, σy 205-240, UTS 503-556, El 30-40%)",
@@ -1338,9 +1558,21 @@
         "3/4 hard (cold-rolled, σy 930-1240, UTS 1170-1380)",
         "Full hard (cold-rolled, σy 965-1380, UTS 1275-1520)"
       ],
-      "fatigue": [280, 380, 480],
-      "impact": [60, 100, 150],
-      "fracture_toughness": [80, 110, 150],
+      "fatigue": [
+        280,
+        380,
+        480
+      ],
+      "impact": [
+        60,
+        100,
+        150
+      ],
+      "fracture_toughness": [
+        80,
+        110,
+        150
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel austenitic AISI 301 (UNS S30100, EN 1.4310, X10CrNi18-8)",
         "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
@@ -1362,21 +1594,54 @@
       "process": "Wrought",
       "composition": {
         "Fe": "balance",
-        "C": "≤0.18", "Mn": "≤1.45", "Si": "≤0.40",
-        "Nb": "≤0.05", "V": "≤0.07", "Ti": "≤0.04",
-        "P": "≤0.025", "S": "≤0.015"
+        "C": "≤0.18",
+        "Mn": "≤1.45",
+        "Si": "≤0.40",
+        "Nb": "≤0.05",
+        "V": "≤0.07",
+        "Ti": "≤0.04",
+        "P": "≤0.025",
+        "S": "≤0.015"
       },
       "points": [
-        [7.85, 290, 415, 23, 207, 130, 45],
-        [7.85, 360, 460, 21, 207, 160, 45]
+        [
+          7.85,
+          290,
+          415,
+          23,
+          207,
+          130,
+          45
+        ],
+        [
+          7.85,
+          360,
+          460,
+          21,
+          207,
+          160,
+          45
+        ]
       ],
       "conditions": [
         "X42N / L290N (normalized, σy 290 MPa min, σu 415 min)",
         "X52M / L360M (TMCP, σy 360 MPa min, σu 460 min)"
       ],
-      "fatigue": [150, 185, 220],
-      "impact": [50, 100, 150],
-      "fracture_toughness": [70, 95, 125],
+      "fatigue": [
+        150,
+        185,
+        220
+      ],
+      "impact": [
+        50,
+        100,
+        150
+      ],
+      "fracture_toughness": [
+        70,
+        95,
+        125
+      ],
       "ref_urls": [
         "API 5L 46th Edition Spec — Line Pipe Grade L290N / L360M",
         "American Piping Products — A106 / API 5L X-grade pipeline catalog",
@@ -1398,22 +1663,51 @@
       "subcategory": "Nickel Superalloy",
       "process": "Wrought",
       "composition": {
-        "Ni+Co": "50~55", "Cr": "17~21", "Fe": "balance",
-        "Mo": "2.8~3.3", "Cb+Ta": "4.75~5.5",
-        "Ti": "0.65~1.15", "Al": "0.35~0.80",
-        "Co": "≤1", "Mn": "≤0.35", "Si": "≤0.35",
-        "C": "≤0.08", "B": "0.001~0.006",
-        "Cu": "≤0.15", "P": "≤0.015", "S": "≤0.015"
+        "Ni+Co": "50~55",
+        "Cr": "17~21",
+        "Fe": "balance",
+        "Mo": "2.8~3.3",
+        "Cb+Ta": "4.75~5.5",
+        "Ti": "0.65~1.15",
+        "Al": "0.35~0.80",
+        "Co": "≤1",
+        "Mn": "≤0.35",
+        "Si": "≤0.35",
+        "C": "≤0.08",
+        "B": "0.001~0.006",
+        "Cu": "≤0.15",
+        "P": "≤0.015",
+        "S": "≤0.015"
       },
       "points": [
-        [8.22, 1100, 1280, 12, 204, 380, 11.4]
+        [
+          8.22,
+          1100,
+          1280,
+          12,
+          204,
+          380,
+          11.4
+        ]
       ],
       "conditions": [
         "STA (Solution treated 980°C + Aged 720°C + 620°C, AMS 5662)"
       ],
-      "fatigue": [450, 535, 620],
-      "impact": [30, 40, 50],
-      "fracture_toughness": [95, 100, 110],
+      "fatigue": [
+        450,
+        535,
+        620
+      ],
+      "impact": [
+        30,
+        40,
+        50
+      ],
+      "fracture_toughness": [
+        95,
+        100,
+        110
+      ],
       "ref_urls": [
         "https://www.hightempmetals.com/techdata/hitempInconel718data.php",
         "Special Metals SMC-045 Inconel 718 technical bulletin",
@@ -1434,16 +1728,44 @@
       "subcategory": "Stainless Steel - Austenitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "67.7~75", "Cr": "17~19", "Ni": "8~10",
-        "Mn": "≤2", "Si": "≤1", "C": "≤0.15", "P": "≤0.045", "S": "≤0.03"
+        "Fe": "67.7~75",
+        "Cr": "17~19",
+        "Ni": "8~10",
+        "Mn": "≤2",
+        "Si": "≤1",
+        "C": "≤0.15",
+        "P": "≤0.045",
+        "S": "≤0.03"
       },
       "points": [
-        [7.91, 234, 565, 50, 193, 184, 16]
+        [
+          7.91,
+          234,
+          565,
+          50,
+          193,
+          184,
+          16
+        ]
       ],
-      "conditions": ["Solution annealed (S30200, EN 1.4319, X10CrNi18-8, SUS302)"],
-      "fatigue": [186, 210, 240],
-      "impact": [80, 130, 200],
-      "fracture_toughness": [60, 65, 72],
+      "conditions": [
+        "Solution annealed (S30200, EN 1.4319, X10CrNi18-8, SUS302)"
+      ],
+      "fatigue": [
+        186,
+        210,
+        240
+      ],
+      "impact": [
+        80,
+        130,
+        200
+      ],
+      "fracture_toughness": [
+        60,
+        65,
+        72
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel austenitic AISI 302 annealed (UNS S30200, EN 1.4319)",
         "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
@@ -1463,16 +1785,46 @@
       "subcategory": "Copper Alloy",
       "process": "Wrought",
       "composition": {
-        "Cu": "75.2~81.8", "Al": "10~11", "Ni": "4.2~6", "Fe": "4~5.5",
-        "Mn": "≤1.5", "Zn": "≤0.3", "Sn": "≤0.25", "Co": "≤0.2", "Cr": "≤0.05", "Pb": "≤0.03"
+        "Cu": "75.2~81.8",
+        "Al": "10~11",
+        "Ni": "4.2~6",
+        "Fe": "4~5.5",
+        "Mn": "≤1.5",
+        "Zn": "≤0.3",
+        "Sn": "≤0.25",
+        "Co": "≤0.2",
+        "Cr": "≤0.05",
+        "Pb": "≤0.03"
       },
       "points": [
-        [7.68, 410, 740, 19, 120, 203, 44]
+        [
+          7.68,
+          410,
+          740,
+          19,
+          120,
+          203,
+          44
+        ]
       ],
-      "conditions": ["As-extruded (CW307G, CuAl10Fe5Ni5)"],
-      "fatigue": [255, 300, 345],
-      "impact": [12, 22, 35],
-      "fracture_toughness": [45, 60, 80],
+      "conditions": [
+        "As-extruded (CW307G, CuAl10Fe5Ni5)"
+      ],
+      "fatigue": [
+        255,
+        300,
+        345
+      ],
+      "impact": [
+        12,
+        22,
+        35
+      ],
+      "fracture_toughness": [
+        45,
+        60,
+        80
+      ],
       "ref_urls": [
         "ANSYS Granta — Bronze CuAl10Fe5Ni5 C63020 as extruded (UNS C63020, EN CW307G, JIS C6301)",
         "https://www.copper.org/resources/properties/db/datasheets/c63020.html"
@@ -1486,8 +1838,14 @@
       ],
       "heat_treatment": "As-extruded (wrought variant of C95820 cast NAB)",
       "aliases": [
-        "C63020", "CuAl10Fe5Ni5", "CW307G", "QAl10-4-4", "C6301",
-        "Ampco 18", "Hidurax 1086", "Cupralinox"
+        "C63020",
+        "CuAl10Fe5Ni5",
+        "CW307G",
+        "QAl10-4-4",
+        "C6301",
+        "Ampco 18",
+        "Hidurax 1086",
+        "Cupralinox"
       ],
       "industry_note": "C95820 (cast NAB) 의 wrought (extruded) 변종 — pump shaft, marine fastener / valve spindle, gear, slide bushing, deep-drawing die, marine shaft, heavy mill bearing, non-sparking tool. C95820 대비 wrought 가공으로 mechanical anisotropy ↓ + tighter tolerance. POSCO / Mitsubishi Materials / Ampco Pittsburgh 양산."
     },
@@ -1497,16 +1855,45 @@
       "subcategory": "Copper Alloy",
       "process": "Cast",
       "composition": {
-        "Cu": "77.4~82.5", "Al": "9~10", "Ni": "4.5~5.8", "Fe": "4~5",
-        "Mn": "≤1.5", "Zn": "≤0.2", "Si": "≤0.1", "Pb": "≤0.02", "Sn": "≤0.02"
+        "Cu": "77.4~82.5",
+        "Al": "9~10",
+        "Ni": "4.5~5.8",
+        "Fe": "4~5",
+        "Mn": "≤1.5",
+        "Zn": "≤0.2",
+        "Si": "≤0.1",
+        "Pb": "≤0.02",
+        "Sn": "≤0.02"
       },
       "points": [
-        [7.60, 275, 670, 16, 112, 160, 41]
+        [
+          7.6,
+          275,
+          670,
+          16,
+          112,
+          160,
+          41
+        ]
       ],
-      "conditions": ["As-cast (CC333G / CuAl10Fe5Ni4)"],
-      "fatigue": [240, 285, 330],
-      "impact": [10, 18, 28],
-      "fracture_toughness": [40, 55, 75],
+      "conditions": [
+        "As-cast (CC333G / CuAl10Fe5Ni4)"
+      ],
+      "fatigue": [
+        240,
+        285,
+        330
+      ],
+      "impact": [
+        10,
+        18,
+        28
+      ],
+      "fracture_toughness": [
+        40,
+        55,
+        75
+      ],
       "ref_urls": [
         "ANSYS Granta — Bronze CuAl10Fe5Ni5 C95820 cast (UNS C95820, EN CC333G, ISO CuAl10Fe5Ni4)",
         "https://www.copper.org/resources/properties/db/datasheets/c95820.html"
@@ -1520,8 +1907,15 @@
       ],
       "heat_treatment": "As-cast (Mn 분산 강화) — no post-cast HT (specialty bronze)",
       "aliases": [
-        "C95820", "CuAl10Fe5Ni5", "CC333G", "AlBC3", "CAC703", "CAC703C",
-        "Hidurax", "Cupralinox", "Xantal"
+        "C95820",
+        "CuAl10Fe5Ni5",
+        "CC333G",
+        "AlBC3",
+        "CAC703",
+        "CAC703C",
+        "Hidurax",
+        "Cupralinox",
+        "Xantal"
       ],
       "industry_note": "Cu-Ni-Al bronze (NAB) — heavy gear, paper-making roll, glass-molding tooling, propeller (marine). Saltwater corrosion + cavitation 우수 — 잠수함 hull / ship propeller / marine fastener. C95500 의 Mn-fortified 변종 (Mn 1.5%) 으로 strength + ductility 균형 ↑. EN CC333G / JIS AlBC3 등가."
     },
@@ -1530,11 +1924,40 @@
       "category": "Polymer",
       "subcategory": "Polymer - Foam (PMI)",
       "process": "Closed-cell foam",
-      "composition": {},
+      "composition": {
+        "C": "61.8",
+        "H": "7.3",
+        "N": "14.4",
+        "O": "16.5"
+      },
       "points": [
-        [0.032, 0.4, 0.4, 3, 0.036, null, null],
-        [0.052, 0.9, 0.9, 3, 0.070, null, null],
-        [0.075, 1.5, 1.5, 3, 0.092, null, null]
+        [
+          0.032,
+          0.4,
+          0.4,
+          3,
+          0.036,
+          null,
+          null
+        ],
+        [
+          0.052,
+          0.9,
+          0.9,
+          3,
+          0.07,
+          null,
+          null
+        ],
+        [
+          0.075,
+          1.5,
+          1.5,
+          3,
+          0.092,
+          null,
+          null
+        ]
       ],
       "conditions": [
         "Rohacell 31A (density 32 kg/m³, σc 0.4 MPa, σt 1.0 MPa)",
@@ -1562,16 +1985,45 @@
       "subcategory": "Stainless Steel - Austenitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "66.7~74.8", "Cr": "17~19", "Ni": "8~10", "S": "0.15~0.35",
-        "Mn": "≤2", "Si": "≤1", "Mo": "≤0.6", "P": "≤0.2", "C": "≤0.15"
+        "Fe": "66.7~74.8",
+        "Cr": "17~19",
+        "Ni": "8~10",
+        "S": "0.15~0.35",
+        "Mn": "≤2",
+        "Si": "≤1",
+        "Mo": "≤0.6",
+        "P": "≤0.2",
+        "C": "≤0.15"
       },
       "points": [
-        [7.97, 240, 580, 45, 196, 165, 16]
+        [
+          7.97,
+          240,
+          580,
+          45,
+          196,
+          165,
+          16
+        ]
       ],
-      "conditions": ["Solution annealed (S30300, EN 1.4305, SUS 303)"],
-      "fatigue": [185, 215, 245],
-      "impact": [55, 90, 130],
-      "fracture_toughness": [200, 220, 240],
+      "conditions": [
+        "Solution annealed (S30300, EN 1.4305, SUS 303)"
+      ],
+      "fatigue": [
+        185,
+        215,
+        245
+      ],
+      "impact": [
+        55,
+        90,
+        130
+      ],
+      "fracture_toughness": [
+        200,
+        220,
+        240
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel, austenitic, AISI 303 annealed (UNS S30300, EN 1.4305, JIS SUS303)",
         "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
@@ -1591,16 +2043,44 @@
       "subcategory": "Stainless Steel - Austenitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance", "Cr": "17~19", "Ni": "10.5~13",
-        "Mn": "≤2", "Si": "≤1", "P": "≤0.045", "S": "≤0.03", "C": "≤0.12"
+        "Fe": "balance",
+        "Cr": "17~19",
+        "Ni": "10.5~13",
+        "Mn": "≤2",
+        "Si": "≤1",
+        "P": "≤0.045",
+        "S": "≤0.03",
+        "C": "≤0.12"
       },
       "points": [
-        [7.91, 240, 580, 50, 193, 190, 16]
+        [
+          7.91,
+          240,
+          580,
+          50,
+          193,
+          190,
+          16
+        ]
       ],
-      "conditions": ["Solution annealed (S30500, EN 1.4303, SUS305)"],
-      "fatigue": [185, 215, 245],
-      "impact": [60, 95, 140],
-      "fracture_toughness": [200, 220, 240],
+      "conditions": [
+        "Solution annealed (S30500, EN 1.4303, SUS305)"
+      ],
+      "fatigue": [
+        185,
+        215,
+        245
+      ],
+      "impact": [
+        60,
+        95,
+        140
+      ],
+      "fracture_toughness": [
+        200,
+        220,
+        240
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel, austenitic, AISI 305 annealed (UNS S30500)",
         "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
@@ -1620,16 +2100,44 @@
       "subcategory": "Stainless Steel - Austenitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance", "Cr": "19~21", "Ni": "10~12",
-        "Mn": "≤2", "Si": "≤1", "C": "≤0.08", "P": "≤0.045", "S": "≤0.03"
+        "Fe": "balance",
+        "Cr": "19~21",
+        "Ni": "10~12",
+        "Mn": "≤2",
+        "Si": "≤1",
+        "C": "≤0.08",
+        "P": "≤0.045",
+        "S": "≤0.03"
       },
       "points": [
-        [7.94, 258, 568, 40, 193, 180, 15]
+        [
+          7.94,
+          258,
+          568,
+          40,
+          193,
+          180,
+          15
+        ]
       ],
-      "conditions": ["Solution annealed (S30800, EN 1.4303)"],
-      "fatigue": [220, 250, 280],
-      "impact": [80, 130, 190],
-      "fracture_toughness": [220, 240, 260],
+      "conditions": [
+        "Solution annealed (S30800, EN 1.4303)"
+      ],
+      "fatigue": [
+        220,
+        250,
+        280
+      ],
+      "impact": [
+        80,
+        130,
+        190
+      ],
+      "fracture_toughness": [
+        220,
+        240,
+        260
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel, austenitic, AISI 308 annealed (UNS S30800)",
         "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
@@ -1650,16 +2158,44 @@
       "subcategory": "Stainless Steel - Austenitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance", "Cr": "22~24", "Ni": "12~15",
-        "Mn": "≤2", "Si": "≤1", "C": "≤0.2", "P": "≤0.045", "S": "≤0.03"
+        "Fe": "balance",
+        "Cr": "22~24",
+        "Ni": "12~15",
+        "Mn": "≤2",
+        "Si": "≤1",
+        "C": "≤0.2",
+        "P": "≤0.045",
+        "S": "≤0.03"
       },
       "points": [
-        [7.8, 258, 568, 40, 200, 184, 14]
+        [
+          7.8,
+          258,
+          568,
+          40,
+          200,
+          184,
+          14
+        ]
       ],
-      "conditions": ["Solution annealed (S30900, EN 1.4828, SUH309)"],
-      "fatigue": [220, 250, 280],
-      "impact": [70, 115, 170],
-      "fracture_toughness": [200, 220, 240],
+      "conditions": [
+        "Solution annealed (S30900, EN 1.4828, SUH309)"
+      ],
+      "fatigue": [
+        220,
+        250,
+        280
+      ],
+      "impact": [
+        70,
+        115,
+        170
+      ],
+      "fracture_toughness": [
+        200,
+        220,
+        240
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel, austenitic, AISI 309 annealed (UNS S30900)",
         "https://www.outokumpu.com/en/products/stainless-steel-grades/heat-resistant-grades"
@@ -1680,16 +2216,45 @@
       "subcategory": "Stainless Steel - Austenitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance", "Cr": "18~20", "Ni": "11~15", "Mo": "3~4",
-        "Mn": "≤2", "Si": "≤1", "C": "≤0.08", "P": "≤0.045", "S": "≤0.03"
+        "Fe": "balance",
+        "Cr": "18~20",
+        "Ni": "11~15",
+        "Mo": "3~4",
+        "Mn": "≤2",
+        "Si": "≤1",
+        "C": "≤0.08",
+        "P": "≤0.045",
+        "S": "≤0.03"
       },
       "points": [
-        [7.97, 244, 568, 38, 193, 200, 14]
+        [
+          7.97,
+          244,
+          568,
+          38,
+          193,
+          200,
+          14
+        ]
       ],
-      "conditions": ["Solution annealed (S31700, EN 1.4438)"],
-      "fatigue": [220, 250, 280],
-      "impact": [70, 110, 160],
-      "fracture_toughness": [180, 200, 220],
+      "conditions": [
+        "Solution annealed (S31700, EN 1.4438)"
+      ],
+      "fatigue": [
+        220,
+        250,
+        280
+      ],
+      "impact": [
+        70,
+        110,
+        160
+      ],
+      "fracture_toughness": [
+        180,
+        200,
+        220
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel, austenitic, AISI 317 annealed (UNS S31700)",
         "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades"
@@ -1710,16 +2275,45 @@
       "subcategory": "Stainless Steel - Ferritic/Martensitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance", "Cr": "16~18", "Mo": "0.75~1.25", "Nb": "5×C~0.8",
-        "Mn": "≤1", "Si": "≤1", "C": "≤0.12", "P": "≤0.04", "S": "≤0.03"
+        "Fe": "balance",
+        "Cr": "16~18",
+        "Mo": "0.75~1.25",
+        "Nb": "5×C~0.8",
+        "Mn": "≤1",
+        "Si": "≤1",
+        "C": "≤0.12",
+        "P": "≤0.04",
+        "S": "≤0.03"
       },
       "points": [
-        [7.8, 365, 530, 23, 200, 158, 23]
+        [
+          7.8,
+          365,
+          530,
+          23,
+          200,
+          158,
+          23
+        ]
       ],
-      "conditions": ["Annealed (S43600, EN 1.4526, SUS436)"],
-      "fatigue": [200, 240, 280],
-      "impact": [30, 55, 90],
-      "fracture_toughness": [80, 100, 120],
+      "conditions": [
+        "Annealed (S43600, EN 1.4526, SUS436)"
+      ],
+      "fatigue": [
+        200,
+        240,
+        280
+      ],
+      "impact": [
+        30,
+        55,
+        90
+      ],
+      "fracture_toughness": [
+        80,
+        100,
+        120
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel, ferritic, AISI 436 annealed (UNS S43600)",
         "https://www.outokumpu.com/en/products/stainless-steel-grades/ferritic-grades"
@@ -1740,20 +2334,54 @@
       "subcategory": "Stainless Steel - Ferritic/Martensitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance", "Cr": "16~18", "Mo": "≤0.75",
-        "Mn": "≤1", "Si": "≤1", "C": "0.6~0.75", "P": "≤0.04", "S": "≤0.03"
+        "Fe": "balance",
+        "Cr": "16~18",
+        "Mo": "≤0.75",
+        "Mn": "≤1",
+        "Si": "≤1",
+        "C": "0.6~0.75",
+        "P": "≤0.04",
+        "S": "≤0.03"
       },
       "points": [
-        [7.8, 415, 725, 20, 200, 220, 24],
-        [7.8, 1860, 1960, 5, 200, 580, 24]
+        [
+          7.8,
+          415,
+          725,
+          20,
+          200,
+          220,
+          24
+        ],
+        [
+          7.8,
+          1860,
+          1960,
+          5,
+          200,
+          580,
+          24
+        ]
       ],
       "conditions": [
         "Annealed (S44002, soft for forming/machining)",
         "Q+T 200°C peak (HRC 56, knife/bearing application)"
       ],
-      "fatigue": [400, 480, 560],
-      "impact": [10, 18, 28],
-      "fracture_toughness": [30, 40, 55],
+      "fatigue": [
+        400,
+        480,
+        560
+      ],
+      "impact": [
+        10,
+        18,
+        28
+      ],
+      "fracture_toughness": [
+        30,
+        40,
+        55
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel, martensitic, AISI 440A annealed (UNS S44002)",
         "https://www.crucible.com/eselector/product.aspx?StlName=440A"
@@ -1773,20 +2401,54 @@
       "subcategory": "Stainless Steel - Ferritic/Martensitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance", "Cr": "16~18", "Mo": "≤0.75",
-        "Mn": "≤1", "Si": "≤1", "C": "0.75~0.95", "P": "≤0.04", "S": "≤0.03"
+        "Fe": "balance",
+        "Cr": "16~18",
+        "Mo": "≤0.75",
+        "Mn": "≤1",
+        "Si": "≤1",
+        "C": "0.75~0.95",
+        "P": "≤0.04",
+        "S": "≤0.03"
       },
       "points": [
-        [7.8, 425, 740, 18, 200, 230, 24],
-        [7.8, 1900, 2000, 3, 200, 600, 24]
+        [
+          7.8,
+          425,
+          740,
+          18,
+          200,
+          230,
+          24
+        ],
+        [
+          7.8,
+          1900,
+          2000,
+          3,
+          200,
+          600,
+          24
+        ]
       ],
       "conditions": [
         "Annealed (S44003, soft for forming/machining)",
         "Q+T 200°C peak (HRC 58, cutlery/bearing application)"
       ],
-      "fatigue": [420, 500, 580],
-      "impact": [8, 15, 24],
-      "fracture_toughness": [25, 35, 50],
+      "fatigue": [
+        420,
+        500,
+        580
+      ],
+      "impact": [
+        8,
+        15,
+        24
+      ],
+      "fracture_toughness": [
+        25,
+        35,
+        50
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel, martensitic, AISI 440B annealed (UNS S44003)",
         "https://www.crucible.com/eselector/product.aspx?StlName=440B"
@@ -1807,17 +2469,45 @@
       "subcategory": "Stainless Steel - Ferritic/Martensitic",
       "process": "Wrought",
       "composition": {
-        "Fe": "69.2~77", "Cr": "23~27",
-        "Mn": "≤1.5", "Si": "≤1", "Ni": "≤0.75", "N": "≤0.25", "C": "≤0.2",
-        "P": "≤0.04", "S": "≤0.03"
+        "Fe": "69.2~77",
+        "Cr": "23~27",
+        "Mn": "≤1.5",
+        "Si": "≤1",
+        "Ni": "≤0.75",
+        "N": "≤0.25",
+        "C": "≤0.2",
+        "P": "≤0.04",
+        "S": "≤0.03"
       },
       "points": [
-        [7.5, 345, 555, 22, 200, 175, 22]
+        [
+          7.5,
+          345,
+          555,
+          22,
+          200,
+          175,
+          22
+        ]
       ],
-      "conditions": ["Annealed (S44600, EN 1.4749, X18CrN28, SUH446)"],
-      "fatigue": [200, 240, 280],
-      "impact": [25, 45, 75],
-      "fracture_toughness": [60, 80, 100],
+      "conditions": [
+        "Annealed (S44600, EN 1.4749, X18CrN28, SUH446)"
+      ],
+      "fatigue": [
+        200,
+        240,
+        280
+      ],
+      "impact": [
+        25,
+        45,
+        75
+      ],
+      "fracture_toughness": [
+        60,
+        80,
+        100
+      ],
       "ref_urls": [
         "ANSYS Granta — Stainless steel, ferritic, AISI 446 annealed (UNS S44600, EN 1.4749)",
         "https://www.alleghenytechnologies.com/products/products-by-grade/?grade=446"
@@ -1839,22 +2529,61 @@
       "process": "Wrought",
       "composition": {
         "Al": "99.6~100",
-        "Zn": "≤0.1", "Cu": "≤0.05", "Mn": "≤0.05", "Ti": "≤0.05",
+        "Zn": "≤0.1",
+        "Cu": "≤0.05",
+        "Mn": "≤0.05",
+        "Ti": "≤0.05",
         "Si+Fe": "≤1"
       },
       "points": [
-        [2.71, 40, 90, 35, 70, 22, 230],
-        [2.71, 100, 110, 6, 70, 35, 230],
-        [2.71, 140, 150, 3, 70, 45, 230]
+        [
+          2.71,
+          40,
+          90,
+          35,
+          70,
+          22,
+          230
+        ],
+        [
+          2.71,
+          100,
+          110,
+          6,
+          70,
+          35,
+          230
+        ],
+        [
+          2.71,
+          140,
+          150,
+          3,
+          70,
+          45,
+          230
+        ]
       ],
       "conditions": [
         "O (Annealed, soft) — σy 38-42 / UTS 86-95 / El 33-38%",
         "H14 (Half-hard) — σy 95-110 / UTS 105-125 / El 4-6%",
         "H19 (Extra-hard) — σy 130-150 / UTS 140-160 / El 2-4%"
       ],
-      "fatigue": [25, 35, 45],
-      "impact": [8, 15, 25],
-      "fracture_toughness": [35, 45, 60],
+      "fatigue": [
+        25,
+        35,
+        45
+      ],
+      "impact": [
+        8,
+        15,
+        25
+      ],
+      "fracture_toughness": [
+        35,
+        45,
+        60
+      ],
       "ref_urls": [
         "ANSYS Granta — Aluminum, commercial purity, 1200 (O/H14/H19) (UNS A91200, EN AW-1200, JIS H4120)",
         "https://www.aluminum.org/aluminum-association/standards"
@@ -1876,16 +2605,44 @@
       "process": "Wrought",
       "composition": {
         "Al": "95.6~98.8",
-        "Si": "0.6~1.2", "Mg": "0.45~0.8", "Cr": "0.15~0.35",
-        "Fe": "≤1", "Cu": "≤0.35", "Zn": "≤0.25", "Mn": "≤0.2", "Ti": "≤0.15"
+        "Si": "0.6~1.2",
+        "Mg": "0.45~0.8",
+        "Cr": "0.15~0.35",
+        "Fe": "≤1",
+        "Cu": "≤0.35",
+        "Zn": "≤0.25",
+        "Mn": "≤0.2",
+        "Ti": "≤0.15"
       },
       "points": [
-        [2.71, 275, 327, 12, 69.6, 103, 173]
+        [
+          2.71,
+          275,
+          327,
+          12,
+          69.6,
+          103,
+          173
+        ]
       ],
-      "conditions": ["T6 (Solution heat-treated + artificially aged, peak strength)"],
-      "fatigue": [85, 100, 120],
-      "impact": [8, 14, 22],
-      "fracture_toughness": [25, 32, 40],
+      "conditions": [
+        "T6 (Solution heat-treated + artificially aged, peak strength)"
+      ],
+      "fatigue": [
+        85,
+        100,
+        120
+      ],
+      "impact": [
+        8,
+        14,
+        22
+      ],
+      "fracture_toughness": [
+        25,
+        32,
+        40
+      ],
       "ref_urls": [
         "ANSYS Granta — Aluminum, 6151, T6 (UNS A96151, EN AW-6151, JIS A6151)",
         "https://www.aluminum.org/aluminum-association/standards"
@@ -1907,20 +2664,52 @@
       "process": "Wrought",
       "composition": {
         "Al": "97.9~99.4",
-        "Mg": "0.45~0.9", "Si": "0.2~0.6",
-        "Cu": "≤0.2", "Fe": "≤0.15", "Mn": "≤0.05", "Zn": "≤0.05"
+        "Mg": "0.45~0.9",
+        "Si": "0.2~0.6",
+        "Cu": "≤0.2",
+        "Fe": "≤0.15",
+        "Mn": "≤0.05",
+        "Zn": "≤0.05"
       },
       "points": [
-        [2.69, 81, 135, 19, 74, 41, 209],
-        [2.70, 172, 207, 12, 74, 60, 209]
+        [
+          2.69,
+          81,
+          135,
+          19,
+          74,
+          41,
+          209
+        ],
+        [
+          2.7,
+          172,
+          207,
+          12,
+          74,
+          60,
+          209
+        ]
       ],
       "conditions": [
         "T4 (Solution + naturally aged) — σy 75-87 / UTS 125-146 / El 16-23%",
         "T6 (Solution + artificially aged peak) — σy 145-180 / UTS 195-220 / El 10-14%"
       ],
-      "fatigue": [42, 52, 65],
-      "impact": [10, 18, 26],
-      "fracture_toughness": [28, 35, 45],
+      "fatigue": [
+        42,
+        52,
+        65
+      ],
+      "impact": [
+        10,
+        18,
+        26
+      ],
+      "fracture_toughness": [
+        28,
+        35,
+        45
+      ],
       "ref_urls": [
         "ANSYS Granta — Aluminum, 6463, T4 / T6 (UNS A96463, EN AW-6463, EN AW-Al Mg0.7Si(B))",
         "https://www.aluminum.org/aluminum-association/standards"
@@ -1941,16 +2730,41 @@
       "subcategory": "Titanium - Pure / CP Grades",
       "process": "Wrought",
       "composition": {
-        "Ti": "99.4~99.9", "Pd": "0.12~0.25",
-        "Fe": "≤0.2", "C": "≤0.08", "N": "≤0.03"
+        "Ti": "99.4~99.9",
+        "Pd": "0.12~0.25",
+        "Fe": "≤0.2",
+        "C": "≤0.08",
+        "N": "≤0.03"
       },
       "points": [
-        [4.51, 200, 295, 30, 103, 120, 17]
+        [
+          4.51,
+          200,
+          295,
+          30,
+          103,
+          120,
+          17
+        ]
       ],
-      "conditions": ["Annealed (mill product, AMS 4941, ASTM B265 Gr11)"],
-      "fatigue": [137, 176, 220],
-      "impact": [40, 60, 85],
-      "fracture_toughness": [68, 70, 72],
+      "conditions": [
+        "Annealed (mill product, AMS 4941, ASTM B265 Gr11)"
+      ],
+      "fatigue": [
+        137,
+        176,
+        220
+      ],
+      "impact": [
+        40,
+        60,
+        85
+      ],
+      "fracture_toughness": [
+        68,
+        70,
+        72
+      ],
       "ref_urls": [
         "ANSYS Granta — Titanium, alpha alloy, Ti-0.2Pd (grade 11, UNS R52250)",
         "https://www.timetal.com/products/titanium-products/grade-11/"
@@ -2117,7 +2931,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PEEK (FDM)",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "79.2",
+        "H": "4.2",
+        "O": "16.7"
+      },
       "points": [
         [
           1.32,
@@ -2160,7 +2978,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - PEI/ULTEM (FDM)",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "75.0",
+        "H": "4.1",
+        "N": "4.7",
+        "O": "16.2"
+      },
       "points": [
         [
           1.34,
@@ -2203,7 +3026,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Nylon (FDM/SLS)",
       "process": "SLS",
-      "composition": {},
+      "composition": {
+        "C": "73.0",
+        "H": "11.7",
+        "N": "7.1",
+        "O": "8.1"
+      },
       "points": [
         [
           1.01,
@@ -2246,7 +3074,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PLA (FDM)",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "50.0",
+        "H": "5.6",
+        "O": "44.4"
+      },
       "points": [
         [
           1.24,
@@ -2289,7 +3121,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PETG (FDM)",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "62.5",
+        "H": "4.2",
+        "O": "33.3"
+      },
       "points": [
         [
           1.27,
@@ -2332,7 +3168,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polycarbonate",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "75.6",
+        "H": "5.5",
+        "O": "18.9"
+      },
       "points": [
         [
           1.2,
@@ -2375,7 +3215,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - TPU (FDM)",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "62.7",
+        "H": "8.0",
+        "N": "5.9",
+        "O": "23.4"
+      },
       "points": [
         [
           1.2,
@@ -3187,8 +4032,16 @@
         "H 1025 (552°C/4h aged)",
         "H 1050 (566°C/4h aged)"
       ],
-      "fatigue": [620, 720, 820],
-      "impact": [10, 30, 56],
+      "fatigue": [
+        620,
+        720,
+        820
+      ],
+      "impact": [
+        10,
+        30,
+        56
+      ],
       "ref_urls": [
         "https://www.carpentertechnology.com/alloy-finder/custom-465",
         "Carpenter Custom 465 datasheet (AMS 5936, ASTM A564, MMPDS-01)"
@@ -3538,7 +4391,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - Acetal (POM)",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "40.0",
+        "H": "6.7",
+        "O": "53.3"
+      },
       "points": [
         [
           1.41,
@@ -3581,7 +4438,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PVC",
       "process": "Extrusion",
-      "composition": {},
+      "composition": {
+        "C": "38.4",
+        "H": "4.8",
+        "Cl": "56.7"
+      },
       "points": [
         [
           1.4,
@@ -3624,7 +4485,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PVDF",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "37.5",
+        "H": "3.1",
+        "F": "59.3"
+      },
       "points": [
         [
           1.78,
@@ -3667,7 +4532,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polysulfone (PSU)",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "73.3",
+        "H": "5.0",
+        "O": "14.5",
+        "S": "7.2"
+      },
       "points": [
         [
           1.24,
@@ -3710,7 +4580,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - PPSU",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "78.2",
+        "H": "4.4",
+        "O": "8.7",
+        "S": "8.7"
+      },
       "points": [
         [
           1.29,
@@ -3753,7 +4628,10 @@
       "category": "Polymer",
       "subcategory": "Polymer - ASA (FDM)",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "92.3",
+        "H": "7.7"
+      },
       "points": [
         [
           1.07,
@@ -3796,7 +4674,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PEKK (FDM)",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "78.0",
+        "H": "4.0",
+        "O": "18.1"
+      },
       "points": [
         [
           1.28,
@@ -3839,7 +4721,10 @@
       "category": "Polymer",
       "subcategory": "Polymer - PTFE",
       "process": "Compression Molding",
-      "composition": {},
+      "composition": {
+        "C": "24.0",
+        "F": "76.0"
+      },
       "points": [
         [
           2.16,
@@ -3882,43 +4767,34 @@
       "category": "Metal",
       "subcategory": "Carbon Steel",
       "process": "Wrought",
+      "heat_treatment": "Cold Drawn",
       "composition": {
         "Fe": "balance",
-        "C": "0.43~0.5",
-        "Mn": "0.6~0.9"
+        "C": "0.43~0.50",
+        "Mn": "0.60~0.90",
+        "P": "≤0.040",
+        "S": "≤0.050",
+        "Si": "≤0.10"
       },
       "points": [
-        [
-          7.85,
-          530,
-          625,
-          16,
-          205,
-          180,
-          50
-        ],
-        [
-          7.85,
-          505,
-          595,
-          12,
-          205,
-          170,
-          50
-        ],
-        [
-          7.85,
-          560,
-          660,
-          20,
-          205,
-          200,
-          50
-        ]
+        [7.85, 530, 625, 16, 205, 180, 50],
+        [7.85, 505, 595, 12, 205, 170, 50],
+        [7.85, 560, 660, 20, 205, 200, 50]
       ],
+      "industry_note": "R173 — UNS G10450 / JIS S45C / DIN C45. Medium-carbon steel (C 0.45%). 본 entry 는 cold-drawn 기준 (σy 530 MPa). Q+T 가능 — 540°C tempering 시 σy 590, UTS 825, HB 240. 205°C tempering 시 σy 880, UTS 1180, HB 305. 한국 KS D 3752 의 S45C 와 동등. 주요: 일반 기계 축, 기어, 펌프 임펠러, gear.",
       "sources": [
         {
-          "label": "ASM — AISI 1045 medium-carbon steel (normalized)",
+          "label": "ASM Handbook Vol.1 — AISI 1045 medium-carbon steel",
+          "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204960/Carbon-and-Low-Alloy-Steels",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — AISI 1045 cold drawn round bar",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=cbe4fd0a73cf4690853935f52d910784",
+          "verified": true
+        },
+        {
+          "label": "JIS G4051 / KS D 3752 — S45C carbon steel",
           "url": null,
           "verified": false
         }
@@ -3929,43 +4805,33 @@
       "category": "Metal",
       "subcategory": "Carbon Steel",
       "process": "Wrought",
+      "heat_treatment": "Cold Drawn",
       "composition": {
         "Fe": "balance",
-        "C": "0.15~0.2",
-        "Mn": "0.6~0.9"
+        "C": "0.15~0.20",
+        "Mn": "0.60~0.90",
+        "P": "≤0.040",
+        "S": "≤0.050"
       },
       "points": [
-        [
-          7.87,
-          370,
-          440,
-          15,
-          205,
-          130,
-          52
-        ],
-        [
-          7.87,
-          340,
-          420,
-          12,
-          205,
-          120,
-          52
-        ],
-        [
-          7.87,
-          400,
-          470,
-          18,
-          205,
-          145,
-          52
-        ]
+        [7.87, 370, 440, 15, 205, 130, 52],
+        [7.87, 340, 420, 12, 205, 120, 52],
+        [7.87, 400, 470, 18, 205, 145, 52]
       ],
+      "industry_note": "R173 — UNS G10180 / 1018 cold-drawn round bar (handbook standard). σy ≈ 370 MPa (54 ksi), UTS ≈ 440 MPa (64 ksi), HB ≈ 126. As-rolled 동일 grade 는 σy ≈ 295 MPa / El ≈ 25% (현 entry 는 cold-drawn 기준).",
       "sources": [
         {
-          "label": "ASM — AISI 1018 low-carbon steel",
+          "label": "ASM Handbook Vol.1 (10th ed) — Carbon and Low-Alloy Steels: 1018",
+          "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204960/Carbon-and-Low-Alloy-Steels",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — AISI 1018 cold drawn round bar",
+          "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=3a9cc570fbb24d119f08db22a53e2421",
+          "verified": true
+        },
+        {
+          "label": "AISI Steel Products Manual — Carbon Steel Bars 1018",
           "url": null,
           "verified": false
         }
@@ -5669,16 +6535,24 @@
         "As-rolled (thinner section, lower UTS)",
         "As-rolled (thicker section, higher UTS)"
       ],
-      "fatigue": [165, 195, 225],
-      "impact": [25, 40, 60],
+      "fatigue": [
+        165,
+        195,
+        225
+      ],
+      "impact": [
+        25,
+        40,
+        60
+      ],
       "ref_urls": [
         "ANSYS Granta — Structural steel, ASTM A36 (UNS K02600, as rolled)",
-        "https://www.aisc.org/publications/steel-construction-manual-resources/"
+        "https://www.aisc.org/aisc/publications/steel-construction-manual/"
       ],
       "sources": [
         {
           "label": "ANSYS Granta + AISC — ASTM A36 (UNS K02600, K02601, K02602)",
-          "url": "https://www.aisc.org/publications/steel-construction-manual-resources/",
+          "url": "https://www.aisc.org/aisc/publications/steel-construction-manual/",
           "verified": true
         }
       ],
@@ -5725,17 +6599,25 @@
         "Gr 50 (Nb/V microalloyed, hot-rolled)",
         "Gr 50 (heavy section)"
       ],
-      "fatigue": [180, 210, 240],
-      "impact": [25, 40, 60],
+      "fatigue": [
+        180,
+        210,
+        240
+      ],
+      "impact": [
+        25,
+        40,
+        60
+      ],
       "ref_urls": [
-        "https://www.aisc.org/publications/steel-construction-manual-resources/",
+        "https://www.aisc.org/aisc/publications/steel-construction-manual/",
         "https://www.leecosteel.com/a572-steel-plate/",
         "ASTM A572/A572M-21e1 High-Strength Low-Alloy Columbium-Vanadium Structural Steel"
       ],
       "sources": [
         {
           "label": "AISC + Leeco Steel — ASTM A572 Gr50 HSLA (UNS K02303)",
-          "url": "https://www.aisc.org/publications/steel-construction-manual-resources/",
+          "url": "https://www.aisc.org/aisc/publications/steel-construction-manual/",
           "verified": true
         }
       ],
@@ -6909,7 +7791,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - PAI",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "68.2",
+        "H": "3.1",
+        "N": "10.6",
+        "O": "18.2"
+      },
       "points": [
         [
           1.42,
@@ -6952,7 +7839,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polyimide",
       "process": "Compression Molding",
-      "composition": {},
+      "composition": {
+        "C": "69.1",
+        "H": "2.6",
+        "N": "7.3",
+        "O": "20.9"
+      },
       "points": [
         [
           1.43,
@@ -6995,7 +7887,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PBT",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "65.4",
+        "H": "5.5",
+        "O": "29.1"
+      },
       "points": [
         [
           1.31,
@@ -7038,7 +7934,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - LCP",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "70.0",
+        "H": "3.4",
+        "O": "26.6"
+      },
       "points": [
         [
           1.4,
@@ -7081,7 +7981,10 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polyethylene",
       "process": "Compression Molding",
-      "composition": {},
+      "composition": {
+        "C": "85.6",
+        "H": "14.4"
+      },
       "points": [
         [
           0.94,
@@ -7124,7 +8027,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - ETFE",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "37.5",
+        "H": "3.1",
+        "F": "59.3"
+      },
       "points": [
         [
           1.7,
@@ -7167,7 +8074,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Nylon (FDM/SLS)",
       "process": "SLS",
-      "composition": {},
+      "composition": {
+        "C": "72.1",
+        "H": "11.5",
+        "N": "7.6",
+        "O": "8.7"
+      },
       "points": [
         [
           1.03,
@@ -8308,7 +9220,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polysulfone (PSU)",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "73.3",
+        "H": "5.0",
+        "O": "14.5",
+        "S": "7.2"
+      },
       "points": [
         [
           1.37,
@@ -8342,7 +9259,10 @@
       "category": "Polymer",
       "subcategory": "Polymer - PTFE",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "24.0",
+        "F": "76.0"
+      },
       "points": [
         [
           2.15,
@@ -8376,7 +9296,10 @@
       "category": "Polymer",
       "subcategory": "Polymer - PTFE",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "24.0",
+        "F": "76.0"
+      },
       "points": [
         [
           2.12,
@@ -8410,7 +9333,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Nylon (FDM/SLS)",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "60.6",
+        "H": "9.2",
+        "N": "14.1",
+        "O": "16.1"
+      },
       "points": [
         [
           1.18,
@@ -8444,7 +9372,10 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polystyrene",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "92.3",
+        "H": "7.7"
+      },
       "points": [
         [
           1.05,
@@ -8478,7 +9409,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Carbon-Fiber Reinforced",
       "process": "SLS",
-      "composition": {},
+      "composition": {
+        "C": "73.0",
+        "H": "11.7",
+        "N": "7.1",
+        "O": "8.1"
+      },
       "points": [
         [
           1.05,
@@ -8512,7 +9448,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Glass-Fiber Reinforced",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "63.7",
+        "H": "9.8",
+        "N": "12.4",
+        "O": "14.1"
+      },
       "points": [
         [
           1.36,
@@ -8546,7 +9487,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - Carbon-Fiber Reinforced",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "75.6",
+        "H": "5.5",
+        "O": "18.9"
+      },
       "points": [
         [
           1.22,
@@ -8580,7 +9525,10 @@
       "category": "Polymer",
       "subcategory": "Polymer - Carbon-Fiber Reinforced",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "92.3",
+        "H": "7.7"
+      },
       "points": [
         [
           1.11,
@@ -8614,7 +9562,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - Carbon-Fiber Reinforced",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "79.2",
+        "H": "4.2",
+        "O": "16.7"
+      },
       "points": [
         [
           1.41,
@@ -8648,7 +9600,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - Carbon-Fiber Reinforced",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "78.0",
+        "H": "4.0",
+        "O": "18.1"
+      },
       "points": [
         [
           1.4,
@@ -8682,7 +9638,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - Carbon-Fiber Reinforced",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "62.5",
+        "H": "4.2",
+        "O": "33.3"
+      },
       "points": [
         [
           1.28,
@@ -8716,7 +9676,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Carbon-Fiber Reinforced",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "63.7",
+        "H": "9.8",
+        "N": "12.4",
+        "O": "14.1"
+      },
       "points": [
         [
           1.18,
@@ -8750,7 +9715,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - PEI/ULTEM (FDM)",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "75.0",
+        "H": "4.1",
+        "N": "4.7",
+        "O": "16.2"
+      },
       "points": [
         [
           1.27,
@@ -8784,7 +9754,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PET",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "62.5",
+        "H": "4.2",
+        "O": "33.3"
+      },
       "points": [
         [
           1.38,
@@ -8818,7 +9792,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PCL",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "63.1",
+        "H": "8.8",
+        "O": "28.0"
+      },
       "points": [
         [
           1.14,
@@ -8852,7 +9830,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - EVA",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "68.5",
+        "H": "8.6",
+        "O": "22.8"
+      },
       "points": [
         [
           0.94,
@@ -8886,7 +9868,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PVB",
       "process": "Extrusion",
-      "composition": {},
+      "composition": {
+        "C": "67.6",
+        "H": "9.9",
+        "O": "22.5"
+      },
       "points": [
         [
           1.08,
@@ -8920,7 +9906,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PBI",
       "process": "Compression Molding",
-      "composition": {},
+      "composition": {
+        "C": "77.9",
+        "H": "3.9",
+        "N": "18.2"
+      },
       "points": [
         [
           1.3,
@@ -8954,7 +9944,10 @@
       "category": "Polymer",
       "subcategory": "Polymer - PP (FDM)",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "85.6",
+        "H": "14.4"
+      },
       "points": [
         [
           0.905,
@@ -8988,7 +9981,10 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polystyrene",
       "process": "Injection Molding",
-      "composition": {},
+      "composition": {
+        "C": "92.3",
+        "H": "7.7"
+      },
       "points": [
         [
           1.05,
@@ -9138,20 +10134,53 @@
       "subcategory": "Aluminum - Lithium",
       "process": "Wrought",
       "composition": {
-        "Al": "balance", "Cu": "2.4~3", "Li": "1.6~2", "Zn": "0.4~1",
-        "Mg": "0.1~0.5", "Mn": "0.1~0.5", "Zr": "0.05~0.12"
+        "Al": "balance",
+        "Cu": "2.4~3",
+        "Li": "1.6~2",
+        "Zn": "0.4~1",
+        "Mg": "0.1~0.5",
+        "Mn": "0.1~0.5",
+        "Zr": "0.05~0.12"
       },
       "points": [
-        [2.63, 470, 520, 8, 78, 150, 95],
-        [2.63, 440, 490, 6, 78, 140, 95]
+        [
+          2.63,
+          470,
+          520,
+          8,
+          78,
+          150,
+          95
+        ],
+        [
+          2.63,
+          440,
+          490,
+          6,
+          78,
+          140,
+          95
+        ]
       ],
       "conditions": [
         "T83 (Solution + CW + Aged, extrusion peak)",
         "T8E69 (extrusion sub-peak)"
       ],
-      "fatigue": [165, 195, 225],
-      "impact": [12, 18, 28],
-      "fracture_toughness": [30, 35, 42],
+      "fatigue": [
+        165,
+        195,
+        225
+      ],
+      "impact": [
+        12,
+        18,
+        28
+      ],
+      "fracture_toughness": [
+        30,
+        35,
+        42
+      ],
       "ref_urls": [
         "DOT/FAA/TC-18/21 V1 — Material Characterization of Aluminum Lithium Alloys (March 2020)",
         "Arconic Airware Al-Li 2099 (Constellium / Arconic supplied)"
@@ -9172,17 +10201,45 @@
       "subcategory": "Aluminum - Lithium",
       "process": "Wrought",
       "composition": {
-        "Al": "balance", "Cu": "2.90~3.50", "Li": "0.80~1.10",
-        "Mg": "0.25~0.80", "Ag": "0.10~0.50", "Mn": "≤0.50",
-        "Zr": "0.04~0.18", "Si": "≤0.08", "Fe": "≤0.1"
+        "Al": "balance",
+        "Cu": "2.90~3.50",
+        "Li": "0.80~1.10",
+        "Mg": "0.25~0.80",
+        "Ag": "0.10~0.50",
+        "Mn": "≤0.50",
+        "Zr": "0.04~0.18",
+        "Si": "≤0.08",
+        "Fe": "≤0.1"
       },
       "points": [
-        [2.69, 460, 525, 10, 76, 150, 95]
+        [
+          2.69,
+          460,
+          525,
+          10,
+          76,
+          150,
+          95
+        ]
       ],
-      "conditions": ["T8 (Solution + CW + Aged peak, sheet 0.071-0.125 inch)"],
-      "fatigue": [140, 165, 195],
-      "impact": [14, 20, 28],
-      "fracture_toughness": [32, 38, 45],
+      "conditions": [
+        "T8 (Solution + CW + Aged peak, sheet 0.071-0.125 inch)"
+      ],
+      "fatigue": [
+        140,
+        165,
+        195
+      ],
+      "impact": [
+        14,
+        20,
+        28
+      ],
+      "fracture_toughness": [
+        32,
+        38,
+        45
+      ],
       "ref_urls": [
         "DOT/FAA/TC-18/21 V1 — Al-Li 2198-T8 case study (FAA WJHTC, March 2020)",
         "Constellium Airware Al-Li 2198 sheet datasheet"
@@ -9203,17 +10260,45 @@
       "subcategory": "Aluminum - Lithium",
       "process": "Wrought",
       "composition": {
-        "Al": "balance", "Cu": "2.5~3.3", "Li": "1.4~2.1",
-        "Mg": "0.25~0.8", "Ag": "0.25~0.6", "Mn": "≤0.35",
-        "Zr": "0.04~0.25", "Si": "≤0.12", "Fe": "≤0.15"
+        "Al": "balance",
+        "Cu": "2.5~3.3",
+        "Li": "1.4~2.1",
+        "Mg": "0.25~0.8",
+        "Ag": "0.25~0.6",
+        "Mn": "≤0.35",
+        "Zr": "0.04~0.25",
+        "Si": "≤0.12",
+        "Fe": "≤0.15"
       },
       "points": [
-        [2.65, 540, 600, 7, 78, 160, 95]
+        [
+          2.65,
+          540,
+          600,
+          7,
+          78,
+          160,
+          95
+        ]
       ],
-      "conditions": ["T8511 (Solution + stretched + CW + Aged peak, extrusion 0.06-0.145 inch)"],
-      "fatigue": [180, 215, 250],
-      "impact": [10, 16, 24],
-      "fracture_toughness": [28, 33, 40],
+      "conditions": [
+        "T8511 (Solution + stretched + CW + Aged peak, extrusion 0.06-0.145 inch)"
+      ],
+      "fatigue": [
+        180,
+        215,
+        250
+      ],
+      "impact": [
+        10,
+        16,
+        24
+      ],
+      "fracture_toughness": [
+        28,
+        33,
+        40
+      ],
       "ref_urls": [
         "DOT/FAA/TC-18/21 V1 — Al-Li 2196-T8511 case study (FAA WJHTC, March 2020)",
         "Constellium Airware Al-Li 2196 extrusion datasheet"
@@ -9234,17 +10319,45 @@
       "subcategory": "Pipeline Steel",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance", "C": "≤0.18", "Mn": "≤1.45", "Si": "≤0.40",
-        "Nb": "≤0.05", "V": "≤0.07", "Ti": "≤0.04",
-        "P": "≤0.025", "S": "≤0.015"
+        "Fe": "balance",
+        "C": "≤0.18",
+        "Mn": "≤1.45",
+        "Si": "≤0.40",
+        "Nb": "≤0.05",
+        "V": "≤0.07",
+        "Ti": "≤0.04",
+        "P": "≤0.025",
+        "S": "≤0.015"
       },
       "points": [
-        [7.85, 450, 535, 18, 210, 180, 45]
+        [
+          7.85,
+          450,
+          535,
+          18,
+          210,
+          180,
+          45
+        ]
       ],
-      "conditions": ["L450Q/QO (Q+T, σy 450 MPa min, σu 535 MPa min, PSL2 standard)"],
-      "fatigue": [200, 240, 280],
-      "impact": [80, 130, 180],
-      "fracture_toughness": [80, 110, 140],
+      "conditions": [
+        "L450Q/QO (Q+T, σy 450 MPa min, σu 535 MPa min, PSL2 standard)"
+      ],
+      "fatigue": [
+        200,
+        240,
+        280
+      ],
+      "impact": [
+        80,
+        130,
+        180
+      ],
+      "fracture_toughness": [
+        80,
+        110,
+        140
+      ],
       "ref_urls": [
         "API 5L Spec 46th Edition — Line Pipe (PSL1, PSL2, Sour Service)",
         "Octalsteel API 5L pipe specification datasheet"
@@ -9265,17 +10378,45 @@
       "subcategory": "Pipeline Steel",
       "process": "Wrought",
       "composition": {
-        "Fe": "balance", "C": "≤0.18", "Mn": "≤1.65", "Si": "≤0.40",
-        "Nb": "≤0.05", "V": "≤0.07", "Ti": "≤0.04",
-        "P": "≤0.025", "S": "≤0.015"
+        "Fe": "balance",
+        "C": "≤0.18",
+        "Mn": "≤1.65",
+        "Si": "≤0.40",
+        "Nb": "≤0.05",
+        "V": "≤0.07",
+        "Ti": "≤0.04",
+        "P": "≤0.025",
+        "S": "≤0.015"
       },
       "points": [
-        [7.85, 485, 570, 17, 210, 195, 42]
+        [
+          7.85,
+          485,
+          570,
+          17,
+          210,
+          195,
+          42
+        ]
       ],
-      "conditions": ["L485M (TMCP, σy 485 MPa min, σu 570 MPa min)"],
-      "fatigue": [220, 260, 300],
-      "impact": [85, 140, 200],
-      "fracture_toughness": [90, 120, 150],
+      "conditions": [
+        "L485M (TMCP, σy 485 MPa min, σu 570 MPa min)"
+      ],
+      "fatigue": [
+        220,
+        260,
+        300
+      ],
+      "impact": [
+        85,
+        140,
+        200
+      ],
+      "fracture_toughness": [
+        90,
+        120,
+        150
+      ],
       "ref_urls": [
         "API 5L Spec 46th Edition — X70 / L485 PSL2",
         "Octalsteel API 5L pipe specification datasheet"
@@ -9297,16 +10438,41 @@
       "process": "Wrought",
       "composition": {
         "Fe": "balance",
-        "C": "0.62~0.80", "Mn": "0.70~1.20", "Si": "0.15~0.58",
-        "P": "≤0.030", "S": "≤0.030"
+        "C": "0.62~0.80",
+        "Mn": "0.70~1.20",
+        "Si": "0.15~0.58",
+        "P": "≤0.030",
+        "S": "≤0.030"
       },
       "points": [
-        [7.83, 510, 880, 10, 207, 280, 50]
+        [
+          7.83,
+          510,
+          880,
+          10,
+          207,
+          280,
+          50
+        ]
       ],
-      "conditions": ["Hot-rolled + air cooled (pearlitic, HBW 260-300)"],
-      "fatigue": [320, 380, 440],
-      "impact": [10, 16, 25],
-      "fracture_toughness": [30, 40, 55],
+      "conditions": [
+        "Hot-rolled + air cooled (pearlitic, HBW 260-300)"
+      ],
+      "fatigue": [
+        320,
+        380,
+        440
+      ],
+      "impact": [
+        10,
+        16,
+        25
+      ],
+      "fracture_toughness": [
+        30,
+        40,
+        55
+      ],
       "ref_urls": [
         "BS EN 13674-1:2011 Railway applications — Rail Part 1: Vignole railway rails 46 kg/m and above",
         "Nippon Steel Rail Catalog R260 / UIC60"
@@ -9328,16 +10494,41 @@
       "process": "Wrought",
       "composition": {
         "Fe": "balance",
-        "C": "0.72~0.80", "Mn": "0.70~1.20", "Si": "0.15~0.58",
-        "P": "≤0.020", "S": "≤0.025"
+        "C": "0.72~0.80",
+        "Mn": "0.70~1.20",
+        "Si": "0.15~0.58",
+        "P": "≤0.020",
+        "S": "≤0.025"
       },
       "points": [
-        [7.83, 800, 1175, 9, 207, 370, 50]
+        [
+          7.83,
+          800,
+          1175,
+          9,
+          207,
+          370,
+          50
+        ]
       ],
-      "conditions": ["Hot-rolled + Head-hardened (HBW 350-390, accelerated cooling)"],
-      "fatigue": [400, 470, 540],
-      "impact": [6, 11, 18],
-      "fracture_toughness": [22, 30, 42],
+      "conditions": [
+        "Hot-rolled + Head-hardened (HBW 350-390, accelerated cooling)"
+      ],
+      "fatigue": [
+        400,
+        470,
+        540
+      ],
+      "impact": [
+        6,
+        11,
+        18
+      ],
+      "fracture_toughness": [
+        22,
+        30,
+        42
+      ],
       "ref_urls": [
         "BS EN 13674-1:2011 — R350HT head-hardened rail",
         "Nippon Steel Rail Catalog R350HT high-strength rail"
@@ -10659,7 +11850,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polyurethane",
       "process": "Casting",
-      "composition": {},
+      "composition": {
+        "C": "62.7",
+        "H": "8.0",
+        "N": "5.9",
+        "O": "23.4"
+      },
       "points": [
         [
           1.2,
@@ -10693,7 +11889,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - PHA",
       "process": "FDM",
-      "composition": {},
+      "composition": {
+        "C": "50.0",
+        "H": "5.6",
+        "O": "44.4"
+      },
       "points": [
         [
           1.25,
@@ -11710,7 +12910,7 @@
       "sources": [
         {
           "label": "C18150 CuCrZr — Aviva Metals",
-          "url": "https://avivametals.com/c18150",
+          "url": "https://www.avivametals.com/c18150",
           "verified": true
         }
       ]
@@ -12204,7 +13404,12 @@
       "category": "Polymer",
       "subcategory": "Polyamide",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "73.0",
+        "H": "11.7",
+        "N": "7.1",
+        "O": "8.1"
+      },
       "points": [
         [
           1.02,
@@ -12247,7 +13452,12 @@
       "category": "Polymer",
       "subcategory": "Polyamide",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "72.1",
+        "H": "11.5",
+        "N": "7.6",
+        "O": "8.7"
+      },
       "points": [
         [
           1.04,
@@ -12290,7 +13500,11 @@
       "category": "Polymer",
       "subcategory": "Polycarbonate",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "75.6",
+        "H": "5.5",
+        "O": "18.9"
+      },
       "points": [
         [
           1.2,
@@ -13943,7 +15157,7 @@
         "Aged (704°C/100h)"
       ],
       "ref_urls": [
-        "https://haynesintl.com/en/alloy-portfolio/hastelloy-n",
+        "https://haynesintl.com/en/alloys/alloy-portfolio/corrosion-resistant-alloys/hastelloy-n/",
         "https://www.matweb.com/search/QuickText.aspx?SearchText=Hastelloy%20N"
       ]
     },
@@ -14337,7 +15551,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polyamide (PA46)",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "60.6",
+        "H": "9.2",
+        "N": "14.1",
+        "O": "16.1"
+      },
       "points": [
         [
           1.18,
@@ -14371,7 +15590,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - Acetal (POM)",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "40.0",
+        "H": "6.7",
+        "O": "53.3"
+      },
       "points": [
         [
           1.42,
@@ -14405,7 +15628,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - Acetal (POM)",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "40.0",
+        "H": "6.7",
+        "O": "53.3"
+      },
       "points": [
         [
           1.41,
@@ -14439,7 +15666,11 @@
       "category": "Polymer",
       "subcategory": "Polymer - LCP",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "70.0",
+        "H": "3.4",
+        "O": "26.6"
+      },
       "points": [
         [
           1.61,
@@ -14473,7 +15704,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polysulfone (PSU)",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "73.3",
+        "H": "5.0",
+        "O": "14.5",
+        "S": "7.2"
+      },
       "points": [
         [
           1.24,
@@ -14507,7 +15743,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polyamide (PA12)",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "73.0",
+        "H": "11.7",
+        "N": "7.1",
+        "O": "8.1"
+      },
       "points": [
         [
           1.23,
@@ -14776,7 +16017,12 @@
       "category": "Polymer",
       "subcategory": "Polymer - Polyamide (PA12)",
       "process": "Injection-Molded",
-      "composition": {},
+      "composition": {
+        "C": "73.0",
+        "H": "11.7",
+        "N": "7.1",
+        "O": "8.1"
+      },
       "points": [
         [
           1.41,
@@ -15342,9 +16588,21 @@
         "Austenitized + H2O quenched + AlSi coated (post-PHS, peak martensite, σy 1100)",
         "Austenitized + H2O quenched uncoated (post-PHS, σy 950)"
       ],
-      "fatigue": [225, 260, 295],
-      "impact": [12, 18, 25],
-      "fracture_toughness": [44, 100, 150],
+      "fatigue": [
+        225,
+        260,
+        295
+      ],
+      "impact": [
+        12,
+        18,
+        25
+      ],
+      "fracture_toughness": [
+        44,
+        100,
+        150
+      ],
       "ref_urls": [
         "ANSYS Granta — Press hardening steel 22MnB5 (BS EN 10083-3:2006), high ductility + austenized & H2O quenched (coated/uncoated)",
         "https://automotive.arcelormittal.com/products/flat/PHS/usibor_ductibor",
@@ -15388,9 +16646,21 @@
       "conditions": [
         "As-cast (nodular graphite + pearlite/ferrite matrix)"
       ],
-      "fatigue": [180, 220, 260],
-      "impact": [8, 12, 18],
-      "fracture_toughness": [25, 35, 50],
+      "fatigue": [
+        180,
+        220,
+        260
+      ],
+      "impact": [
+        8,
+        12,
+        18
+      ],
+      "fracture_toughness": [
+        25,
+        35,
+        50
+      ],
       "ref_urls": [
         "https://www.portlandbolt.com/technical/specifications/astm-a536/",
         "ASTM A536-84 Standard Specification for Ductile Iron Castings"
@@ -15431,9 +16701,21 @@
       "conditions": [
         "Q+T (pearlitic matrix, high-strength)"
       ],
-      "fatigue": [220, 270, 320],
-      "impact": [4, 8, 12],
-      "fracture_toughness": [22, 30, 40],
+      "fatigue": [
+        220,
+        270,
+        320
+      ],
+      "impact": [
+        4,
+        8,
+        12
+      ],
+      "fracture_toughness": [
+        22,
+        30,
+        40
+      ],
       "ref_urls": [
         "https://www.portlandbolt.com/technical/specifications/astm-a536/"
       ],
@@ -15495,7 +16777,7 @@
         "Annealed (post-form)"
       ],
       "ref_urls": [
-        "https://www.worldautosteel.org/projects/ahss-application-guidelines/"
+        "https://www.worldautosteel.org/ahss-application-guidelines-update-begins/"
       ],
       "industry_note": "WorldAutoSteel AHSS standard; martensite-in-ferrite microstructure; used for rocker panels, side members, A/B-pillar reinforcements (cold-formable, weldable)."
     },
@@ -15676,8 +16958,16 @@
         "Recrystallized Annealed (RXA, ~565°C, mill annealed)",
         "Partial RXA"
       ],
-      "fatigue": [150, 180, 210],
-      "impact": [30, 50, 80],
+      "fatigue": [
+        150,
+        180,
+        210
+      ],
+      "impact": [
+        30,
+        50,
+        80
+      ],
       "ref_urls": [
         "https://www.azom.com/article.aspx?ArticleID=7644",
         "ASTM B353 / B811 PWR fuel cladding spec",
@@ -15739,9 +17029,21 @@
         "Normalized (min spec, σy 355 MPa)",
         "Normalized (typical thin section, σy 414 MPa)"
       ],
-      "fatigue": [200, 245, 290],
-      "impact": [60, 100, 150],
-      "fracture_toughness": [75, 83, 91],
+      "fatigue": [
+        200,
+        245,
+        290
+      ],
+      "impact": [
+        60,
+        100,
+        150
+      ],
+      "fracture_toughness": [
+        75,
+        83,
+        91
+      ],
       "ref_urls": [
         "ANSYS Granta — HSLA P355N/NH normalized (UNS K02700, ASME SA516 Gr70)",
         "https://www.asme.org/codes-standards/find-codes-standards",
@@ -15808,9 +17110,21 @@
         "Q+T 570 HBW (lower spec)",
         "Q+T 640 HBW (upper spec)"
       ],
-      "fatigue": [550, 650, 750],
-      "impact": [8, 12, 18],
-      "fracture_toughness": [25, 35, 45],
+      "fatigue": [
+        550,
+        650,
+        750
+      ],
+      "impact": [
+        8,
+        12,
+        18
+      ],
+      "fracture_toughness": [
+        25,
+        35,
+        45
+      ],
       "ref_urls": [
         "https://www.ssab.com/en-us/brands-and-products/armox/product-offer/armox-600t",
         "SSAB Armox 600T Brochure (HBW 570-640, plate 4-20mm)"
@@ -15863,9 +17177,21 @@
         "Type I (9% Ni) Double-Normalized + Tempered (DN+T, 770°C/645°C/580°C)",
         "Type II (8% Ni) Q+T (800°C WQ + 580°C T)"
       ],
-      "fatigue": [240, 290, 340],
-      "impact": [80, 130, 200],
-      "fracture_toughness": [100, 130, 170],
+      "fatigue": [
+        240,
+        290,
+        340
+      ],
+      "impact": [
+        80,
+        130,
+        200
+      ],
+      "fracture_toughness": [
+        100,
+        130,
+        170
+      ],
       "ref_urls": [
         "ASTM A553/A553M-17 Standard Spec for Pressure Vessel Plates, Q+T 7/8/9% Nickel",
         "https://energy-steel.com/product/astm-a553-a553m-7ni-8ni-9ni-steel-plates-for-pressure-vessel/",
@@ -15888,17 +17214,44 @@
       "process": "Wrought",
       "composition": {
         "Fe": "balance",
-        "Ni": "6.50~7.50", "Mn": "≤0.90",
-        "Si": "0.05~0.30", "Mo": "0.10~0.30", "Nb": "≤0.03",
-        "C": "≤0.13", "P": "≤0.010", "S": "≤0.010"
+        "Ni": "6.50~7.50",
+        "Mn": "≤0.90",
+        "Si": "0.05~0.30",
+        "Mo": "0.10~0.30",
+        "Nb": "≤0.03",
+        "C": "≤0.13",
+        "P": "≤0.010",
+        "S": "≤0.010"
       },
       "points": [
-        [7.85, 585, 720, 22, 200, 235, 31]
+        [
+          7.85,
+          585,
+          720,
+          22,
+          200,
+          235,
+          31
+        ]
       ],
-      "conditions": ["Q+T (Quenched + Tempered) + Lamellarization"],
-      "fatigue": [240, 290, 340],
-      "impact": [60, 100, 160],
-      "fracture_toughness": [80, 110, 145],
+      "conditions": [
+        "Q+T (Quenched + Tempered) + Lamellarization"
+      ],
+      "fatigue": [
+        240,
+        290,
+        340
+      ],
+      "impact": [
+        60,
+        100,
+        160
+      ],
+      "fracture_toughness": [
+        80,
+        110,
+        145
+      ],
       "ref_urls": [
         "ASTM A553/A553M-17 Type III (added 2009) — 7% Ni TMCP grade",
         "https://energy-steel.com/product/astm-a553-a553m-7ni-8ni-9ni-steel-plates-for-pressure-vessel/",
@@ -16583,7 +17936,7 @@
         "WT + In-service work-hardened (impact-loaded, 5 mm depth)"
       ],
       "ref_urls": [
-        "https://www.astm.org/a0128_a0128m-19.html"
+        "https://store.astm.org/a0128_a0128m-19.html"
       ],
       "industry_note": "Cast 100+ years; jaw-crusher liner, cone crusher mantle, railway switch frog/crossing, dragline bucket teeth, dredge cutter heads; HV doubles under impact (work-hardening γ→α' transformation)."
     },
@@ -17099,7 +18452,7 @@
         "Premium Class C+ (post-2010 heavy-haul, ≥39 t/axle)"
       ],
       "ref_urls": [
-        "https://www.aar.com/standards/M-107.html"
+        "https://www.aar.com/standards/M-107.php"
       ],
       "industry_note": "AAR M-107/M-208 standard for heavy-haul freight wheels (BHP iron-ore, Vale Carajás, BNSF coal); rim hardness 321~363 BHN balances tread wear (vs Class B 277 BHN softer) and shelling resistance."
     },
@@ -17297,7 +18650,7 @@
         "As-Forged small section (≤50 mm)"
       ],
       "ref_urls": [
-        "https://www.bgh.de/fileadmin/user_upload/PDF/Werkstoffdatenblaetter/38MnVS6_BGH.pdf"
+        "https://bgh.de/fileadmin/user_upload/PDF/Werkstoffdatenblaetter/38MnVS6_BGH.pdf"
       ],
       "industry_note": "BMW B57, VW EA288, MAN D2868 crankshaft & connecting rod standard; V-microalloyed pearlite-ferrite from forge heat saves ~50% cost vs 4140 Q+T (no separate heat-treat); free-machining S-modification (BY-mark)."
     },
@@ -17352,7 +18705,7 @@
         "As-Rolled (heavy column section)"
       ],
       "ref_urls": [
-        "https://www.astm.org/a0992_a0992m-22.html"
+        "https://store.astm.org/a0992_a0992m-22.html"
       ],
       "industry_note": "ASTM A992 standard W-shape (W6 ~ W44) for ALL US structural steel framing since 2002 (superseded A36 / A572); One World Trade Center, Salesforce Tower, Empire State Building upgrades, US highway bridges."
     },
@@ -17942,7 +19295,7 @@
         "Q+T heavy plate (≥40 mm)"
       ],
       "ref_urls": [
-        "https://www.astm.org/a0537_a0537m-20.html"
+        "https://store.astm.org/a0537_a0537m-20.html"
       ],
       "industry_note": "Refrigerated LPG / NH₃ atmospheric storage spheres (Statoil Mongstad, Shell), refrigerated LNG carrier deck cargo tank, propane bullets; ASME Sec VIII Div 1 / IIA-3.8; CVN ≥27 J at -45°C."
     },
@@ -19604,16 +20957,44 @@
         "B": "≤0.005"
       },
       "points": [
-        [7.85, 600, 980, 17, 200, 290, 42],
-        [7.85, 750, 1100, 10, 221, 323, 50]
+        [
+          7.85,
+          600,
+          980,
+          17,
+          200,
+          290,
+          42
+        ],
+        [
+          7.85,
+          750,
+          1100,
+          10,
+          221,
+          323,
+          50
+        ]
       ],
       "conditions": [
         "Cold-rolled YS600 (typical, σy 600 MPa min, σu 980-1100)",
         "Cold-rolled YS750 (high-end, σy 750 MPa)"
       ],
-      "fatigue": [308, 338, 368],
-      "impact": [25, 40, 53],
-      "fracture_toughness": [74, 90, 107],
+      "fatigue": [
+        308,
+        338,
+        368
+      ],
+      "impact": [
+        25,
+        40,
+        53
+      ],
+      "fracture_toughness": [
+        74,
+        90,
+        107
+      ],
       "ref_urls": [
         "ANSYS Granta — Dual phase steel YS600 cold rolled (EN 10336:2007 HCT980X, EN 1.0944)",
         "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp",
@@ -19628,8 +21009,13 @@
       ],
       "heat_treatment": "Cold rolled + Continuous annealed (DP microstructure: ferrite + 20% martensite)",
       "aliases": [
-        "DP980", "Dual Phase 980", "POSCO DP980", "HCT980X",
-        "VDA239-100 CR980Y700T-DP", "ArcelorMittal DP980", "ThyssenKrupp DP-K39/70+Z",
+        "DP980",
+        "Dual Phase 980",
+        "POSCO DP980",
+        "HCT980X",
+        "VDA239-100 CR980Y700T-DP",
+        "ArcelorMittal DP980",
+        "ThyssenKrupp DP-K39/70+Z",
         "World Auto Steel DP 700/1000"
       ],
       "industry_note": "POSCO DP980 (Dual-Phase 980) — 자동차 outer body / door inner / B-pillar inner. UTS 980 + El 12% — TRIP 보다 cold-formable. ArcelorMittal Usibor 1500 / TKS DP980 등가. 현대·기아 / Toyota / GM 표준 AHSS (Advanced High Strength Steel). 충돌 흡수 zone front/rear rail + crush can + rocker reinforcement."
@@ -19644,17 +21030,45 @@
         "C": "≤0.18",
         "Mn": "0.9~1.6",
         "Si": "0.10~0.50",
-        "Cu": "≤0.35", "Cr": "≤0.20", "Ni": "≤0.40", "Mo": "≤0.08",
-        "Nb": "≤0.05", "V": "≤0.10", "Ti": "≤0.02",
-        "P": "≤0.025", "S": "≤0.020"
+        "Cu": "≤0.35",
+        "Cr": "≤0.20",
+        "Ni": "≤0.40",
+        "Mo": "≤0.08",
+        "Nb": "≤0.05",
+        "V": "≤0.10",
+        "Ti": "≤0.02",
+        "P": "≤0.025",
+        "S": "≤0.020"
       },
       "points": [
-        [7.85, 355, 555, 21, 206, 175, 40]
+        [
+          7.85,
+          355,
+          555,
+          21,
+          206,
+          175,
+          40
+        ]
       ],
-      "conditions": ["Normalized / TMCP (E grade = Charpy at -40°C ≥ 27J transverse)"],
-      "fatigue": [180, 220, 260],
-      "impact": [27, 70, 130],
-      "fracture_toughness": [80, 110, 140],
+      "conditions": [
+        "Normalized / TMCP (E grade = Charpy at -40°C ≥ 27J transverse)"
+      ],
+      "fatigue": [
+        180,
+        220,
+        260
+      ],
+      "impact": [
+        27,
+        70,
+        130
+      ],
+      "fracture_toughness": [
+        80,
+        110,
+        140
+      ],
       "ref_urls": [
         "https://www.octalmetals.com/ah36-dh36-eh36-shipbuilding-steel-plate/",
         "ABS / DNV-GL / KR / LR Rules for Building and Classing Steel Vessels Part 2 — Materials",
@@ -19669,8 +21083,13 @@
       ],
       "heat_treatment": "Normalized 870-940°C 또는 TMCP (Thermo-Mechanical Controlled Process)",
       "aliases": [
-        "EH36", "ABS EH36", "DNV EH36", "KR EH36", "LR EH36",
-        "JIS KE36", "GB/T 712 EH36"
+        "EH36",
+        "ABS EH36",
+        "DNV EH36",
+        "KR EH36",
+        "LR EH36",
+        "JIS KE36",
+        "GB/T 712 EH36"
       ],
       "industry_note": "고강도 선박용 강 — Arctic-class LNG carrier 외판, container ship hull, offshore platform deck, bulk carrier hatch cover. AH=20°C / DH=-20°C / EH=-40°C Charpy 등급. KR (한국선급) / ABS (미국선급) / DNV (노르웨이선급) / LR (영국선급) 모두 동등 spec. POSCO / Nippon Steel / JFE / Daewoo Shipbuilding (현 한화오션) 표준 EH36 plate."
     },
@@ -19684,16 +21103,42 @@
         "C": "≤0.19",
         "Mn": "0.8~1.25",
         "Si": "0.30~0.65",
-        "Cu": "0.25~0.40", "Cr": "0.40~0.65", "Ni": "≤0.40", "V": "0.02~0.10",
-        "P": "≤0.030", "S": "≤0.030"
+        "Cu": "0.25~0.40",
+        "Cr": "0.40~0.65",
+        "Ni": "≤0.40",
+        "V": "0.02~0.10",
+        "P": "≤0.030",
+        "S": "≤0.030"
       },
       "points": [
-        [7.85, 250, 475, 23, 200, 140, 50]
+        [
+          7.85,
+          250,
+          475,
+          23,
+          200,
+          140,
+          50
+        ]
       ],
-      "conditions": ["As-rolled (silicon-killed deoxidized, atmospheric corrosion-resistant patina)"],
-      "fatigue": [180, 215, 245],
-      "impact": [25, 45, 70],
-      "fracture_toughness": [60, 80, 100],
+      "conditions": [
+        "As-rolled (silicon-killed deoxidized, atmospheric corrosion-resistant patina)"
+      ],
+      "fatigue": [
+        180,
+        215,
+        245
+      ],
+      "impact": [
+        25,
+        45,
+        70
+      ],
+      "fracture_toughness": [
+        60,
+        80,
+        100
+      ],
       "ref_urls": [
         "https://www.metalsusa.com/a588-grade-steel/",
         "ASTM A588/A588M-19 Standard Spec for HSLA Structural Steel with Atmospheric Corrosion Resistance"
@@ -19707,8 +21152,14 @@
       ],
       "heat_treatment": "As-rolled (silicon-killed) — protective Cu-Cr-P oxide layer forms over 1-3 years",
       "aliases": [
-        "ASTM A588", "A588 Gr A", "A588 Grade B", "A588 Grade K",
-        "Cor-Ten A", "Cor-Ten B", "Patinax", "Indaten"
+        "ASTM A588",
+        "A588 Gr A",
+        "A588 Grade B",
+        "A588 Grade K",
+        "Cor-Ten A",
+        "Cor-Ten B",
+        "Patinax",
+        "Indaten"
       ],
       "industry_note": "Weathering steel — 무도장 outdoor 구조용 (4× 일반 carbon steel 부식 저항). 교량 (Mosca/Boston Iron Workers bridges), 송전탑, 공원 sculpture (Picasso Chicago / Serra installations), 화차 wagon, 건축 facade (Tadao Ando, RPBW). 한국 채택: 일부 산업단지 화학 plant + 일부 LRT 교각. POSCO / Nippon Steel / Tata Steel 양산."
     },
@@ -19909,7 +21360,7 @@
         "Annealed (1050°C WQ) + ULC refining"
       ],
       "ref_urls": [
-        "https://www.kist.re.kr/eng"
+        "https://kist.re.kr/eng"
       ],
       "aliases": [
         "STS304 ULC",

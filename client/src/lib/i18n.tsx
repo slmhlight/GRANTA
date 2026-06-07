@@ -183,6 +183,37 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   'common.optional': { ko: '선택', en: 'Optional' },
   'common.loading': { ko: '로딩 중…', en: 'Loading…' },
   'common.error': { ko: '오류', en: 'Error' },
+
+  // R144b/c/d/e — Query DSL · Spec · Wizard
+  'query.placeholder': { ko: '빠른 검색: 밀도<8; 항복>500; T>300  ·  spec:AMS5662  ·  "Ti-6Al-4V"', en: 'Quick query: density<8; yield>500; T>300  ·  spec:AMS5662  ·  "Ti-6Al-4V"' },
+  'query.help.title': { ko: 'Multi-constraint 빠른 검색', en: 'Multi-constraint query' },
+  'query.help.intro': { ko: '`;` 또는 공백으로 구분된 token 들이 AND 로 결합. 숫자 비교, spec 매칭, 카테고리, 자연어 모두 지원.', en: 'Tokens separated by `;` or space, combined with AND. Supports numeric comparison, spec matching, category, and free text.' },
+  'query.help.examples': { ko: '예시', en: 'Examples' },
+  'query.help.tokens': { ko: '지원 token', en: 'Supported tokens' },
+  'query.help.rangeNote': { ko: '※ 범위 property 의 경우 > 는 max 비교, < 는 min 비교 (가장 너그러운 매칭). = 는 typical ±10%, ~ 는 ±20%.', en: 'Note: for range properties, > compares max, < compares min (most permissive). = matches typical ±10%, ~ ±20%.' },
+  'query.matched': { ko: '일치', en: 'match' },
+
+  'spec.label': { ko: '표준 spec', en: 'Standards' },
+  'spec.filter.placeholder': { ko: 'spec ID 입력 (예: AMS 5662)', en: 'Enter spec ID (e.g. AMS 5662)' },
+
+  'wizard.title': { ko: '설계 문제 → 재료 추천', en: 'Design Problem → Material Recommendation' },
+  'wizard.back': { ko: '탐색기로 돌아가기', en: 'Back to explorer' },
+  'wizard.guide': { ko: 'Guide', en: 'Guide' },
+  'wizard.step.previous': { ko: '이전', en: 'Previous' },
+  'wizard.step.skip': { ko: '건너뛰기', en: 'Skip' },
+  'wizard.step.restart': { ko: '다시', en: 'Restart' },
+  'wizard.result.title': { ko: '추천 결과', en: 'Recommendations' },
+  'wizard.result.candidatesPrefix': { ko: '개의 후보 시나리오', en: ' candidate scenarios' },
+  'wizard.result.applyButton': { ko: '탐색기로', en: 'Open in explorer' },
+  'wizard.result.scenarioKey': { ko: '시나리오 키', en: 'Scenario key' },
+  'wizard.result.queryPrefilter': { ko: '사전 필터', en: 'Pre-filter' },
+  'wizard.result.recommendedSpec': { ko: '권장 spec', en: 'Recommended spec' },
+  'wizard.result.relatedGuide': { ko: '관련 Guide', en: 'Related Guide' },
+  'wizard.result.restart': { ko: '처음부터', en: 'Start over' },
+  'wizard.result.directExplorer': { ko: '탐색기로 직접 이동', en: 'Open explorer directly' },
+
+  'cost.verified': { ko: '검증', en: 'verified' },
+  'cost.handbookEstimate': { ko: '(handbook 추정)', en: '(handbook estimate)' },
 };
 
 const LanguageContext = createContext<{ lang: Lang; setLang: (l: Lang) => void }>({

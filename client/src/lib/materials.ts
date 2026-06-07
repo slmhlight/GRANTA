@@ -119,7 +119,17 @@ export interface Material {
   story_refs?: string[];
   /** R72/R73/R74 — industry-standard application 한 줄. supplementary entry 의 industry_note 필드 그대로. */
   industry_note?: string | null;
-  meta?: Record<string, unknown>;
+  /** R157 — Primary composition class (legacy filter 호환 — 현재 build pipeline 이 채우지 않음). */
+  primary_composition?: string;
+  meta?: Record<string, unknown> & {
+    /** R144c — Standard spec refs (AMS, ASTM, ASME, DNV, EN, DIN, JIS, MIL, UNS, API, NACE) extracted from name+heat_treatment+sources. */
+    specs?: Array<{ id: string; org: 'AMS' | 'ASTM' | 'ASME' | 'DNV' | 'EN' | 'DIN' | 'JIS' | 'MIL' | 'UNS' | 'API' | 'NACE' | 'OTHER'; grade?: string; description?: string }>;
+    applications?: string[] | string;
+    /** R146 — Q2 2026 verified price (YYYY-MM format) — UI 에 ✓ verified 2026-04 badge 표시. */
+    price_verified_date?: string;
+    /** R146 — Source identifier (e.g., "Inconel 718"). */
+    price_verified_source?: string;
+  };
 }
 
 /** A property aggregated across a material's data points (conditions/vendors/build directions). */

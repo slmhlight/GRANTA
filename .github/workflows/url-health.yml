@@ -1,0 +1,112 @@
+name: URL Health Check
+
+# R144a — Datasheet/Guide 외부 링크 weekly 자동 검증.
+# Vendor 사이트 (Carpenter, Special Metals, Haynes, ATI, AMS 등) 의 URL 구조가 바뀌어도
+# 사용자가 404 에 부딪히기 전에 issue 가 자동 생성됨.
+
+on:
+  schedule:
+    # 매주 월요일 09:00 KST = 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+    # 수동 트리거도 허용 (URL 대량 변경 후 즉시 검증)
+    inputs:
+      fail-threshold:
+        description: 'Dead URL 임계치 (이 수 초과 시 fail)'
+        default: '5'
+        required: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  url-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate materials.json
+        run: pnpm build:data
+
+      - name: Check datasheet URLs (verified sources)
+        id: datasheet-check
+        continue-on-error: true
+        run: |
+          THRESHOLD="${{ github.event.inputs.fail-threshold || '5' }}"
+          node scripts/verify-datasheet-urls.mjs --concurrent 5 --fail-threshold "$THRESHOLD"
+
+      - name: Check Guide external links
+        id: guide-check
+        continue-on-error: true
+        run: |
+          THRESHOLD="${{ github.event.inputs.fail-threshold || '3' }}"
+          node scripts/verify-guide-links.mjs --concurrent 5 --fail-threshold "$THRESHOLD"
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: url-health-reports
+          path: |
+            data/dead-urls-report.md
+            data/guide-links-report.md
+          retention-days: 90
+
+      - name: Create issue on failure
+        if: steps.datasheet-check.outcome == 'failure' || steps.guide-check.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '## URL Health Check Failed\n\n';
+            body += `Run: ${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}\n\n`;
+            body += `Triggered by: \`${context.eventName}\` on \`${context.ref}\`\n\n`;
+            try {
+              const dr = fs.readFileSync('data/dead-urls-report.md', 'utf8');
+              const summary = dr.split('## Dead URLs')[1]?.split('## ')[0] ?? '';
+              if (summary) body += '### Datasheet dead URLs (excerpt)\n' + summary.slice(0, 2500) + '\n\n';
+            } catch {}
+            try {
+              const gr = fs.readFileSync('data/guide-links-report.md', 'utf8');
+              const summary = gr.split('## Dead')[1]?.split('## ')[0] ?? '';
+              if (summary) body += '### Guide dead URLs (excerpt)\n' + summary.slice(0, 2500) + '\n\n';
+            } catch {}
+            body += '\n👉 Full reports are attached as workflow artifacts.\n';
+            body += '\nTo fix:\n1. Download the artifacts to see all dead URLs\n2. Update affected sources in `data/*.json`\n3. Run `pnpm build:data` to regenerate\n4. Verify with `pnpm verify:urls`\n';
+
+            // Avoid duplicate issues — search for an open one with same title
+            const title = `URL health check failed (${new Date().toISOString().slice(0,10)})`;
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'url-health',
+              per_page: 30,
+            });
+            const dup = existing.data.find(i => i.title.startsWith('URL health check failed'));
+            if (dup) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: dup.number,
+                body: `Re-checked ${new Date().toISOString().slice(0,10)} — failure persists.\n\n` + body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['url-health', 'maintenance'],
+              });
+            }

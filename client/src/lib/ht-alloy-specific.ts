@@ -639,6 +639,512 @@ const FAMILIES: AlloyHtFamily[] = [
   },
 
   // ========================================
+  // R141b — Austenitic stainless steel 304 / 304L (UNS S30400 / S30403)
+  // ========================================
+  {
+    alloyPattern: /\b304l?\b|s30400|s30403|aisi\s?304|1\.430[01]/i,
+    familyName: 'Austenitic SS 304 / 304L (UNS S30400 / S30403)',
+    conditions: {
+      'annealed': {
+        code: 'Annealed',
+        title: 'Annealed — Solution treated (standard mill)',
+        process: 'Solution 1040-1120°C / WQ 또는 rapid AC — C 고용 + carbide 분해',
+        resulting: 'σy 205-240 MPa · UTS 515-620 MPa · El 40-60% · KIC > 100 · HV 160',
+        useCase: '식품·화학 plant, 건축 외장, 주방기구 — 가장 보편적 SS. 0°C 이하도 toughness 유지.',
+        caveat: '용접부 sensitization (475-815°C carbide 석출) → corrosion 위험 → L grade or stabilized (321) 권장.',
+        source: 'ASTM A240 / ASM Vol.1 Austenitic SS',
+      },
+      'as-built': {
+        code: 'As-built (LPBF)',
+        title: 'As-built — LPBF cellular austenite',
+        process: 'LPBF 후 처리 없음. 미세 cellular dislocation 구조 + retained austenite.',
+        resulting: 'σy 480 MPa · UTS 660 MPa · El 35% · HV 220 (cold-worked 와 유사)',
+        useCase: 'AM prototype. cellular 구조 효과로 wrought annealed 보다 강도 ↑.',
+        caveat: '잔류응력 + 이방성 → solution anneal (1050°C/1h/WQ) 권장.',
+        source: 'EOS StainlessSteel 316L / 304L AM (ASTM F3184)',
+      },
+    },
+  },
+
+  // ========================================
+  // Austenitic stainless steel 316 / 316L (UNS S31600 / S31603)
+  // ========================================
+  {
+    alloyPattern: /\b316l?\b|s31600|s31603|aisi\s?316|1\.440[14]/i,
+    familyName: 'Austenitic SS 316 / 316L (UNS S31600 / S31603)',
+    conditions: {
+      'annealed': {
+        code: 'Annealed',
+        title: 'Annealed — Solution treated (Mo 추가 → pitting ↑)',
+        process: 'Solution 1040-1120°C / WQ — austenite 단상 + Mo 고용',
+        resulting: 'σy 205-240 MPa · UTS 515-620 MPa · El 40-60% · PREN 24 (vs 304: 18)',
+        useCase: '해양·염화물 환경, 화학 plant pipe, 의료 implant (316LVM), 해상 fastener.',
+        caveat: '용접 후 sensitization → 316L (C ≤ 0.03%) 권장. PREN < 35 → 해수 침지 시 crevice corrosion 가능.',
+        source: 'ASTM A240 / AMS 5650 / ASM Vol.1',
+      },
+      'as-built': {
+        code: 'As-built (LPBF)',
+        title: 'As-built — LPBF cellular austenite (316L AM 표준)',
+        process: 'LPBF 후 처리 없음. fine cellular dislocation + Mo segregation',
+        resulting: 'σy 500-590 MPa · UTS 640-770 MPa · El 40-50% (이방성)',
+        useCase: 'AM 의료 implant, 해양 부품, microfluidic. cellular 구조 → wrought 대비 강도 ↑.',
+        caveat: 'Z-축 ductility ↓ → solution anneal (1050°C/1h/WQ) 시 strength ↓ but isotropic.',
+        source: 'EOS StainlessSteel 316L / ASTM F3184',
+      },
+      'solution treated': {
+        code: 'Solution Treated',
+        title: 'Solution Treated (AM 후처리)',
+        process: '1050°C / 1 h / WQ — cellular 구조 해소 → wrought-like 균일',
+        resulting: 'σy 230 MPa · UTS 590 MPa · El 55%',
+        useCase: 'AM 후 isotropy + ductility 회복. 의료·식품 application 표준.',
+        source: 'ASTM F3184 / NASA STD-6030',
+      },
+    },
+  },
+
+  // ========================================
+  // R141b — Duplex SS — ZERON 100 / 25Cr / Super-duplex
+  // ========================================
+  {
+    alloyPattern: /zeron\s?100|s32760|sd\s?25cr|super.?duplex/i,
+    familyName: 'Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)',
+    conditions: {
+      'solution annealed': {
+        code: 'Solution Annealed',
+        title: 'Solution Annealed — α+γ duplex (50:50)',
+        process: 'Solution 1100-1150°C / 30 min / WQ (rapid) — α + γ 50/50 balance',
+        resulting: 'σy 550-620 MPa · UTS 750-900 MPa · El 25% · PREN 42+ · KIC 100',
+        useCase: '해양 platform, sour service (H₂S), 화학 plant — chloride SCC + pitting 최강.',
+        caveat: 'WQ rate ↓ 시 σ-phase (475°C embrittlement) 석출 → KIC ↓↓. Welding heat input 제어 필수.',
+        source: 'ASTM A789 / Rolled Alloys ZERON 100 datasheet',
+      },
+      'hot-rolled + qst': {
+        code: 'Hot-rolled + Solution Treated',
+        title: 'HR + Solution Treated (forging 표준)',
+        process: 'Hot-rolled 1150°C → Solution treated 1100°C / WQ',
+        resulting: 'σy 550 MPa · UTS 750 MPa · El 25% · -50°C Charpy 100J+',
+        useCase: '해상 valve, sub-sea pipe, pump shaft — forging condition.',
+        source: 'ASTM A276 / Rolled Alloys',
+      },
+    },
+  },
+
+  // ========================================
+  // Duplex SS 2205 (UNS S32205, 22Cr-5Ni-3Mo)
+  // ========================================
+  {
+    alloyPattern: /2205|s32205|s31803|duplex.?2205/i,
+    familyName: 'Duplex SS 2205 (UNS S32205 / S31803, 22Cr-5Ni-3Mo)',
+    conditions: {
+      'solution annealed': {
+        code: 'Solution Annealed',
+        title: 'Solution Annealed — α+γ 50/50',
+        process: 'Solution 1020-1100°C / WQ rapid',
+        resulting: 'σy 450-520 MPa · UTS 655-860 MPa · El 25% · PREN 35 · -50°C Charpy 60J+',
+        useCase: '화학 plant, 해상 pipe, 펄프·종이 산업 — 316L 대비 강도 2× + chloride 저항 우수.',
+        caveat: '450-980°C 사용 금지 (σ-phase, χ-phase embrittlement). 용접 heat input 0.5-2.5 kJ/mm 권장.',
+        source: 'ASTM A240 / Outokumpu 2205 datasheet',
+      },
+    },
+  },
+
+  // ========================================
+  // Super-duplex 2507 (UNS S32750, 25Cr-7Ni-4Mo)
+  // ========================================
+  {
+    alloyPattern: /2507|s32750|super.?duplex.?2507/i,
+    familyName: 'Super-duplex SS 2507 (UNS S32750, 25Cr-7Ni-4Mo)',
+    conditions: {
+      'solution annealed': {
+        code: 'Solution Annealed',
+        title: 'Solution Annealed — α+γ + N stabilized',
+        process: 'Solution 1025-1125°C / WQ — α+γ balanced + 0.27% N',
+        resulting: 'σy 550 MPa · UTS 800-1000 MPa · El 25% · PREN 41 · -50°C Charpy 60J+',
+        useCase: '해상 sub-sea, sour service, 펄프 표백 plant — chloride pitting 최고급.',
+        caveat: 'σ-phase 위험 (700-900°C) — heat input strict. 480°C 이상 장시간 노출 금지.',
+        source: 'ASTM A240 / Sandvik SAF 2507 datasheet',
+      },
+    },
+  },
+
+  // ========================================
+  // R141b — AHSS DP980 (Dual-Phase 980 MPa class)
+  // ========================================
+  {
+    alloyPattern: /dp\s?980|dp980|dual.?phase.?980/i,
+    familyName: 'AHSS DP980 (Dual-Phase, ferrite + martensite)',
+    conditions: {
+      'as-rolled': {
+        code: 'As-rolled (CR)',
+        title: 'Cold-Rolled + intercritical annealed (DP 생성)',
+        process: 'Cold-rolled → Intercritical annealed 760-830°C (α+γ) → rapid cool (water/gas) → α + 15-30% martensite',
+        resulting: 'σy 550-700 MPa · UTS 980-1100 MPa · El 8-15% · BH200 50-60 MPa (bake-hardening)',
+        useCase: '자동차 BIW (B-pillar reinforcement, door beam, rocker), bumper beam — 충돌 흡수 + formability.',
+        caveat: 'Spot weld HAZ softening 위험 → laser welding 권장. Hydrogen embrittlement 주의.',
+        source: 'WorldAutoSteel AHSS Guide / ArcelorMittal DP980',
+      },
+      'galvanealed': {
+        code: 'Galvanealed (GA)',
+        title: 'Galvanealed coated (자동차 외판)',
+        process: 'DP980 base + hot-dip Zn-Fe (γ-phase) coating',
+        resulting: 'σy 550 MPa · UTS 980 MPa · El 12% · 부식 저항 ↑',
+        useCase: '자동차 외판 + 구조 동시 — 도장성 + 내식.',
+        source: 'ArcelorMittal Usibor + Galv. portfolio',
+      },
+    },
+  },
+
+  // ========================================
+  // AHSS TWIP1180 (TWinning Induced Plasticity, ~1180 MPa)
+  // ========================================
+  {
+    alloyPattern: /twip\s?1180|twip1180|twip.*steel/i,
+    familyName: 'AHSS TWIP1180 (TWinning Induced Plasticity, ~22 Mn)',
+    conditions: {
+      'cold-rolled': {
+        code: 'CR Annealed',
+        title: 'Cold-Rolled + Annealed (austenite + low SFE)',
+        process: 'Cold-rolled → Annealed 800-900°C / rapid cool → austenite 단상 (low SFE = 18-25 mJ/m²)',
+        resulting: 'σy 600-700 MPa · UTS 1050-1200 MPa · El 45-55% (deformation twinning)',
+        useCase: '자동차 충돌 흡수 부재, 자전거 frame — 가공 경화 + 변형 흡수 극대화 (kJ/kg 최고).',
+        caveat: 'Delayed fracture (H embrittlement) 위험. Welding 후 microcrack 가능. Cost 高 (22% Mn).',
+        source: 'WorldAutoSteel / POSCO TWIP1180',
+      },
+    },
+  },
+
+  // ========================================
+  // R141b — Shipbuilding steel AH36 / DH36 / EH36 (ABS / IACS grade)
+  // ========================================
+  {
+    alloyPattern: /\bah\s?36|\bdh\s?36|\beh\s?36|ah36|dh36|eh36|shipbuilding.*36/i,
+    familyName: 'Shipbuilding steel AH36 / DH36 / EH36 (IACS grade)',
+    conditions: {
+      'as-rolled': {
+        code: 'As-Rolled (AH)',
+        title: 'AH36 — As-rolled (mild, no notch req.)',
+        process: 'Hot-rolled (no controlled cool)',
+        resulting: 'σy 355 MPa min · UTS 490-630 MPa · El 21% · 0°C Charpy 34J+',
+        useCase: '선체 외판 (low-grade), barge, 일반 marine 구조. -20°C 미만 사용 금지.',
+        source: 'IACS UR W11 / ABS Rules Part 2 Chapter 1',
+      },
+      'normalized': {
+        code: 'Normalized (DH)',
+        title: 'DH36 — Normalized (−20°C Charpy 보장)',
+        process: 'Hot-rolled → Normalized 880-920°C / AC',
+        resulting: 'σy 355 MPa · UTS 490-630 MPa · El 21% · −20°C Charpy 34J+',
+        useCase: '선체 구조 중간 grade — Atlantic / Pacific 항로 표준.',
+        source: 'IACS UR W11 / DNV-OS-B101',
+      },
+      'tmcp': {
+        code: 'TMCP (EH)',
+        title: 'EH36 — TMCP (Thermo-Mechanical Controlled Process)',
+        process: 'Controlled rolling + accelerated cooling (CR+ACC) — fine grain 5-10 μm',
+        resulting: 'σy 355 MPa · UTS 490-630 MPa · El 22% · −40°C Charpy 41J+ · 용접성 ↑',
+        useCase: '극지 항로 (Arctic), 대형 컨테이너선, LNG 운반선 — 가장 높은 grade. CTOD 0.25mm @ -10°C 보장.',
+        caveat: '용접 heat input 제어 (≤ 5 kJ/mm) — HAZ softening 회피.',
+        source: 'IACS UR W11 / KR / DNV-OS-B101 / POSCO TMCP',
+      },
+    },
+  },
+
+  // ========================================
+  // R141b — Ni solid-solution: Inconel 625 (UNS N06625)
+  // ========================================
+  {
+    alloyPattern: /inconel\s?625|in[\s-]?625|n06625|alloy\s?625/i,
+    familyName: 'Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)',
+    conditions: {
+      'annealed': {
+        code: 'Annealed (Grade 1)',
+        title: 'Annealed — solid solution (low strength, max corrosion)',
+        process: 'Annealed 925-1050°C / AC or WQ',
+        resulting: 'σy 415 MPa · UTS 830 MPa · El 30% · 1000°C 까지 산화 저항',
+        useCase: '해양 platform, 화학 reactor (산성·염화물 모두), 항공 ducting — 광범위 환경 내식.',
+        caveat: 'Grade 2 (solution annealed 1090°C) 권장 — 600°C+ 사용 시 γ" 석출 → 인성 ↓.',
+        source: 'AMS 5599 / Special Metals SMC-063',
+      },
+      'solution annealed': {
+        code: 'Solution Annealed (Grade 2)',
+        title: 'Solution Annealed — high-temperature service grade',
+        process: 'Solution 1090-1120°C / 30 min / AC or WQ',
+        resulting: 'σy 380 MPa · UTS 800 MPa · El 50% · 925°C 산화 저항',
+        useCase: '650-925°C 고온 — gas turbine exhaust, jet 엔진 ring, 화학 plant heat exchanger.',
+        source: 'AMS 5666 / Special Metals',
+      },
+      'as-built': {
+        code: 'As-built (LPBF)',
+        title: 'As-built — LPBF dendritic + Nb seg.',
+        process: 'LPBF 후 처리 없음. dendritic 미세 + Laves phase + γ"',
+        resulting: 'σy 700 MPa · UTS 950 MPa · El 30% (cold-worked 와 유사)',
+        useCase: 'AM prototype. 후 HIP + solution anneal (1150°C/1-4h) 권장.',
+        caveat: 'Laves + γ" → ductility ↓. HIP 1150°C 후 strength ↓ but isotropic.',
+        source: 'EOS NickelAlloy IN625 / ASTM F3056',
+      },
+    },
+  },
+
+  // ========================================
+  // Inconel 600 (UNS N06600)
+  // ========================================
+  {
+    alloyPattern: /inconel\s?600|in[\s-]?600|n06600|alloy\s?600/i,
+    familyName: 'Inconel 600 (UNS N06600, Ni-Cr-Fe solid solution)',
+    conditions: {
+      'annealed': {
+        code: 'Annealed',
+        title: 'Annealed — solid solution standard',
+        process: 'Annealed 925-1040°C / AC',
+        resulting: 'σy 240-345 MPa · UTS 550-690 MPa · El 35-55% · 1095°C 까지 산화 저항',
+        useCase: '원자력 SG tube, 가열로 retort, 화학 plant — 광범위 high-T 내식.',
+        caveat: 'IGSCC (intergranular SCC) 위험 in pure water + caustic — TT (thermally treated) 또는 Alloy 690 권장.',
+        source: 'AMS 5540 / Special Metals SMC-027',
+      },
+      'thermally treated (tt)': {
+        code: 'TT (700°C/15h)',
+        title: 'TT — Thermally Treated (IGSCC 저항)',
+        process: 'Solution annealed → 700°C / 15 h / AC (carbide GB precipitation)',
+        resulting: 'σy 240 MPa · UTS 550 MPa · El 50% · IGSCC 저항 ↑↑',
+        useCase: '원자력 SG tube (PWR steam generator) — IGSCC 저항 grade.',
+        source: 'AMS 5540 / EPRI MRP-225',
+      },
+    },
+  },
+
+  // ========================================
+  // Inconel 617 (UNS N06617)
+  // ========================================
+  {
+    alloyPattern: /inconel\s?617|in[\s-]?617|n06617|alloy\s?617/i,
+    familyName: 'Inconel 617 (UNS N06617, Ni-Cr-Co-Mo)',
+    conditions: {
+      'solution annealed': {
+        code: 'Solution Annealed',
+        title: 'Solution Annealed — high-T creep grade',
+        process: 'Solution 1175°C / WQ — γ\' 미세 + carbide GB',
+        resulting: 'σy 295 MPa · UTS 760 MPa · El 55% · 1100°C 까지 산화 저항',
+        useCase: '가스터빈 combustor, 핵 He gas turbine (VHTR), 화학 reactor — 1000°C+ 산화·creep 최고급.',
+        caveat: 'Code Case N-862 (ASME III Section) — 950°C 까지 sub-critical use.',
+        source: 'AMS 5887 / Special Metals SMC-029 / Code Case N-862',
+      },
+      'as-built': {
+        code: 'As-built (LPBF)',
+        title: 'As-built (LPBF) — γ\' nanoprecip.',
+        process: 'LPBF 후 처리 없음. 미세 γ\' + dendritic.',
+        resulting: 'σy 600 MPa · UTS 900 MPa · El 25% (wrought 대비 ↑)',
+        useCase: 'AM prototype combustor liner. HIP + solution anneal (1175°C) 권장.',
+        source: 'ASTM F3056 / NASA STD-6030',
+      },
+    },
+  },
+
+  // ========================================
+  // Hastelloy X (UNS N06002)
+  // ========================================
+  {
+    alloyPattern: /hastelloy\s?x|n06002|alloy\s?x|hx\b/i,
+    familyName: 'Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)',
+    conditions: {
+      'solution annealed': {
+        code: 'Solution Annealed',
+        title: 'Solution Annealed — gas turbine combustor 표준',
+        process: 'Solution 1175°C / 30 min / WQ — γ\' 비형성 (solid solution + carbide)',
+        resulting: 'σy 360 MPa · UTS 770 MPa · El 50% · 1200°C 산화 저항',
+        useCase: 'Jet 엔진 combustor liner, afterburner, gas turbine transition duct — 1100°C+ 산화/sulfidation 최고급.',
+        caveat: '700-900°C 장시간 노출 시 σ-phase + μ-phase 석출 → 인성 ↓. Service > 1000°C 권장.',
+        source: 'AMS 5754 / Haynes HX datasheet (R128)',
+      },
+      'as-built': {
+        code: 'As-built (LPBF)',
+        title: 'As-built (LPBF) — combustor AM 표준',
+        process: 'LPBF 후 처리 없음. 미세 cellular + Mo segregation',
+        resulting: 'σy 700-800 MPa · UTS 900-1050 MPa · El 35-45%',
+        useCase: 'GE F414 combustor swirler, RR Trent NGV — AM gas turbine 부품.',
+        caveat: 'HIP + solution anneal (1175°C) → strength ↓ but ductility + isotropy ↑.',
+        source: 'EOS NickelAlloy HX / ASTM F3056',
+      },
+    },
+  },
+
+  // ========================================
+  // Haynes 230 (UNS N06230)
+  // ========================================
+  {
+    alloyPattern: /haynes\s?230|n06230|alloy\s?230/i,
+    familyName: 'Haynes 230 (UNS N06230, Ni-Cr-W-Mo)',
+    conditions: {
+      'solution annealed': {
+        code: 'Solution Annealed',
+        title: 'Solution Annealed — high-T creep + thermal stability',
+        process: 'Solution 1175-1230°C / WQ — fine carbide (M₆C, M₂₃C₆)',
+        resulting: 'σy 380 MPa · UTS 860 MPa · El 48% · 1150°C 까지 산화 + creep 우수',
+        useCase: 'Gas turbine combustor, 핵 He gas turbine, hot gas-path component — Hastelloy X 보다 thermal stability ↑.',
+        caveat: 'Long-term σ-phase 위험 (650-870°C). Welding 표준 (Haynes 230-W filler).',
+        source: 'AMS 5891 / Haynes 230 datasheet',
+      },
+    },
+  },
+
+  // ========================================
+  // Haynes 282 (UNS N07208) — γ' strengthened
+  // ========================================
+  {
+    alloyPattern: /haynes\s?282|n07208|alloy\s?282/i,
+    familyName: 'Haynes 282 (UNS N07208, γ\' precipitation strengthened)',
+    conditions: {
+      'sta': {
+        code: 'STA (1010 + 788)',
+        title: 'STA — Solution + Two-step Age (γ\' peak)',
+        process: 'Solution 1135°C / WQ → 1010°C / 2 h / AC → 788°C / 8 h / AC (2-step age)',
+        resulting: 'σy 720 MPa · UTS 1140 MPa · El 26% · KIC 90 · 750°C 안정',
+        useCase: '항공 디스크, 가스터빈 transition duct, hot gas-path — Waspaloy 대비 creep + 용접성 ↑.',
+        caveat: '850°C 이상 over-aging → γ\' 조대화. 용접 후 STA 재처리 권장.',
+        source: 'Haynes 282 datasheet / R132 verified',
+      },
+      'solution annealed': {
+        code: 'Solution Annealed',
+        title: 'Solution Annealed (forming/welding)',
+        process: 'Solution 1135°C / WQ',
+        resulting: 'σy 400 MPa · UTS 800 MPa · El 50% (formable)',
+        useCase: 'Forming / welding 전. 후 STA 처리.',
+        source: 'Haynes 282',
+      },
+    },
+  },
+
+  // ========================================
+  // R141b — Cobalt alloy: Stellite 6 (UNS R30006)
+  // ========================================
+  {
+    alloyPattern: /stellite\s?6|stellite\s?ka|r30006|co-?cr-?w/i,
+    familyName: 'Stellite 6 (UNS R30006, Co-Cr-W-C wear-resistant)',
+    conditions: {
+      'as-cast': {
+        code: 'As-cast',
+        title: 'As-cast — M₇C₃ carbide + Co matrix (peak hardness)',
+        process: 'Investment cast or PTAW deposit. M₇C₃ + M₂₃C₆ carbide + γ-Co (FCC)',
+        resulting: 'HRC 38-45 · σy 540 MPa · UTS 880 MPa · El 1-3% (very low)',
+        useCase: 'Valve seat, pump sleeve, hard-facing weld overlay (PTAW), drill bit insert — wear + corrosion 우수.',
+        caveat: 'El 1-3% — 충격 부적합. Brittle. 용접 cracking 위험 (Co matrix). Pre-heat 350°C 권장.',
+        source: 'Kennametal Stellite 6 / ASTM A638',
+      },
+      'ptaw deposit': {
+        code: 'PTAW deposit',
+        title: 'PTAW deposit — plasma transferred arc weld overlay',
+        process: 'Plasma transferred arc welding deposit on substrate (typical 3-5mm)',
+        resulting: 'HRC 40-45 · wear loss < 5 mg in ASTM G65',
+        useCase: 'Valve seat hardfacing, pump impeller wear surface, sliding surface industrial.',
+        source: 'Kennametal Stellite welding guide',
+      },
+    },
+  },
+
+  // ========================================
+  // CoCrMo (ASTM F75 / F1537, biomedical)
+  // ========================================
+  {
+    alloyPattern: /cocrmo|co-?cr-?mo|f75|f1537|astm\s?f75|astm\s?f1537/i,
+    familyName: 'CoCrMo biomedical (ASTM F75 cast / F1537 wrought)',
+    conditions: {
+      'as-cast (f75)': {
+        code: 'As-cast (F75)',
+        title: 'As-cast — investment cast (hip/knee implant)',
+        process: 'Investment cast at 1500°C → controlled cool. γ-Co FCC + M₂₃C₆ carbide',
+        resulting: 'σy 450-520 MPa · UTS 665-800 MPa · El 8% · HV 280-380 · biocompatible',
+        useCase: '인공 고관절·슬관절 stem + cup (ceramic head 짝), bone screw — biomedical 표준.',
+        caveat: 'El 8% — brittle. 부적합한 충격 하중. HIP (1200°C/100MPa) 으로 porosity 제거 권장.',
+        source: 'ASTM F75 / DePuy Synthes implant catalog',
+      },
+      'wrought (f1537)': {
+        code: 'Wrought (F1537)',
+        title: 'Wrought + Solution Treated (low-C grade)',
+        process: 'Forged / hot-rolled → Solution 1230°C / 1 h / WQ (low-C 0.05%)',
+        resulting: 'σy 700 MPa · UTS 1000 MPa · El 20% · HV 340 · biocompatible',
+        useCase: '인공 고관절 stem (cementless / HA-coated), 척추 implant — strength + ductility 우선.',
+        source: 'ASTM F1537 / Zimmer Biomet wrought catalog',
+      },
+      'hip + solution treated': {
+        code: 'HIP + ST',
+        title: 'HIP + Solution Treated (AM CoCrMo 표준)',
+        process: 'LPBF / EBM 후 HIP 1200°C / 100 MPa / 4 h → Solution 1230°C / 1 h / WQ',
+        resulting: 'σy 850 MPa · UTS 1100 MPa · El 25% · porosity < 0.1%',
+        useCase: 'AM 의료 implant (custom hip/knee, dental crown framework) — EBM/SLM standard.',
+        source: 'ASTM F3001 (Ti) parallel for Co / EOS CobaltChrome SP1',
+      },
+    },
+  },
+
+  // ========================================
+  // R141b — Mg alloy WE43 (Mg-Y-RE, aerospace + biomedical)
+  // ========================================
+  {
+    alloyPattern: /we\s?43|we43|mg-?y-?re|magnesium.*we/i,
+    familyName: 'Magnesium WE43 (Mg-Y-Nd-Zr, aerospace + biodegradable)',
+    conditions: {
+      't6': {
+        code: 'T6',
+        title: 'T6 — Solution + Aged (Y/Nd precipitate)',
+        process: 'Solution 525°C / 8 h / WQ → Aged 250°C / 16 h / AC',
+        resulting: 'σy 195-215 MPa · UTS 280-320 MPa · El 5-10% · 200°C 까지 성능 유지',
+        useCase: '항공기 helicopter gear box housing (AS9100), 자동차 transmission, F1 wheel — Mg 중 고온 grade.',
+        caveat: 'WE43 의 가격 ↑ (Y, Nd 비싸다). 발화 위험 → machining 시 cooling 필수. RE 함량 산화 저항 ↑.',
+        source: 'ASTM B107 / Magnesium Elektron WE43 datasheet',
+      },
+      't5': {
+        code: 'T5',
+        title: 'T5 — As-cast + aged (cost-effective)',
+        process: 'Sand cast / investment cast → Aged 250°C / 16 h',
+        resulting: 'σy 175 MPa · UTS 250 MPa · El 4%',
+        useCase: 'Helicopter gear housing 표준 — T6 대비 cost ↓ + similar 강도.',
+        source: 'Magnesium Elektron / ASM Vol.2',
+      },
+      'as-cast': {
+        code: 'As-cast',
+        title: 'As-cast — no HT',
+        process: 'Sand / investment cast',
+        resulting: 'σy 150 MPa · UTS 200 MPa · El 3-5%',
+        useCase: 'Prototype, low-load housing. 후 T5/T6 권장.',
+        source: 'Magnesium Elektron',
+      },
+    },
+  },
+
+  // ========================================
+  // Mg alloy AZ31 (Mg-3Al-1Zn, sheet 표준)
+  // ========================================
+  {
+    alloyPattern: /az\s?31|az31|mg-?al-?zn|magnesium.*az31/i,
+    familyName: 'Magnesium AZ31 (Mg-3Al-1Zn, wrought sheet 표준)',
+    conditions: {
+      'h24': {
+        code: 'H24',
+        title: 'H24 — Strain hardened + partially annealed',
+        process: 'Cold-rolled → Partial anneal 200°C (recovery without recrystallization)',
+        resulting: 'σy 180-220 MPa · UTS 260-290 MPa · El 12-15%',
+        useCase: 'Mg sheet 표준 — 자동차 inner panel, 노트북 외장, 카메라 body. Forming 후 사용.',
+        caveat: 'Mg sheet basal texture → 가공 시 anisotropy. Warm forming (200-250°C) 권장.',
+        source: 'ASTM B90 / Magnesium Elektron AZ31',
+      },
+      'o': {
+        code: 'O (Annealed)',
+        title: 'O — Fully annealed (max ductility)',
+        process: 'Full anneal 345°C / 2 h / AC',
+        resulting: 'σy 120 MPa · UTS 240 MPa · El 21%',
+        useCase: 'Deep drawing, complex forming — ductility 우선.',
+        source: 'ASTM B90',
+      },
+      'f': {
+        code: 'F (As-fabricated)',
+        title: 'F — As-fabricated (mill product, no HT)',
+        process: 'Hot-rolled or extruded, no HT',
+        resulting: 'σy 150-200 MPa · UTS 240-290 MPa · El 10-15%',
+        useCase: '압출 profile, extruded tube — 일반 구조용.',
+        source: 'ASTM B107',
+      },
+    },
+  },
+
+  // ========================================
   // 22MnB5 USIBOR 1500 (Press-Hardening Steel)
   // ========================================
   {

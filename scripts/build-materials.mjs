@@ -14,6 +14,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+/* R156b — pipeline 4-stage structure (scripts/pipeline/{loaders,enrich,validate,output}/).
+   현재는 enrich/ 만 채워져 있음 (R155b 의 pure function 모듈). 추후 R156c 에서 loaders/validate/output 으로 확장. */
+import { num, baseName, norm, round, smartRound, rangeFrom, uniq, mostCommon, mostCommonKnown, dedupeSources, dominantElement } from './pipeline/utilities.mjs';
+import { htCostFactor, priceConditionFactor, priceFormFactor, priceGradePremium } from './pipeline/enrich/factors.mjs';
+import { popularityFor } from './pipeline/enrich/popularity.mjs';
+import { VENDOR_PREFIXES, CLASS_WORDS, alloyOf, aaSubcategory, nameBasedSubcategory, fixSubcategory, conditionClass, isExcludedByName, isExcludedAlloy, EXCLUDED_ALLOY_PATTERNS, EXCLUDED_NAME_PATTERNS, isFakeVariant } from './pipeline/enrich/classification.mjs';
+import { htConditionMultiplier } from './pipeline/enrich/ht-condition.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -33,25 +40,7 @@ function parseCSV(text) {
   if (field.length || record.length) { record.push(field); rows.push(record); }
   return rows;
 }
-const num = v => { if (v === '' || v == null) return null; const n = Number(v); return Number.isFinite(n) ? n : null; };
-const baseName = n => String(n).split(' (')[0].trim();
-const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, '');
-const round = (x, d = 2) => x == null ? null : Math.round(x * 10 ** d) / 10 ** d;
-// R48a — 적응형 정밀도: silicone E 0.002 GPa 같은 작은 값도 정확히 표시. round1 만 쓰면 0 으로 잘림.
-const smartRound = (x) => {
-  if (x == null) return null;
-  const abs = Math.abs(x);
-  const d = abs < 0.01 ? 4 : abs < 1 ? 3 : abs < 100 ? 2 : 1;
-  return Math.round(x * 10 ** d) / 10 ** d;
-};
-function rangeFrom(values, confidence) {
-  const vals = values.map(num).filter(v => v != null && v > 0).sort((a, b) => a - b);
-  if (!vals.length) return null;
-  const conf = confidence || (vals.length >= 3 ? 'measured' : 'handbook');
-  return { min: smartRound(vals[0]), max: smartRound(vals[vals.length - 1]), typical: smartRound(vals[Math.floor(vals.length / 2)]), n: vals.length, confidence: conf };
-}
-const uniq = a => [...new Set(a.filter(Boolean))];
-const mostCommon = arr => { const c = {}; let best = arr[0], n = 0; for (const x of arr) { c[x] = (c[x] || 0) + 1; if (c[x] > n) { n = c[x]; best = x; } } return best; };
+// R155b — num, baseName, norm, round, smartRound, rangeFrom, uniq, mostCommon → scripts/lib/utilities.mjs 로 이동.
 
 // generic/am_vendor source enrichment — verifiable references, NOT fabricated per-material datasheets
 const matwebSearch = (name) => ({ label: `MatWeb — search "${name}"`, url: `https://www.matweb.com/search/QuickText.aspx?SearchText=${encodeURIComponent(name)}`, verified: false });
@@ -91,19 +80,11 @@ function polymerVendorURL(subcategory, name) {
   if (s.includes('pp') || s.includes('polypro')) return { label: 'ExxonMobil PP product family', url: 'https://www.exxonmobilchemical.com/en/products/polymers-and-plastics/polypropylene', verified: true };
   return null;
 }
-const dedupeSources = (arr) => { const seen = new Set(); return arr.filter(s => s && s.label && !seen.has(s.label) && seen.add(s.label)); };
-const mostCommonKnown = (arr) => { const v = arr.filter(x => x && x !== 'Unknown' && x !== '0'); return v.length ? mostCommon(v) : null; };
+// R155b — dedupeSources, mostCommonKnown → scripts/lib/utilities.mjs 로 이동.
 
 // multi-family auto-tagging — one material can belong to several families
 const ELEMENT_FAMILY = [['Fe', 'Iron-based'], ['Al', 'Aluminum-based'], ['Ni', 'Nickel-based'], ['Ti', 'Titanium-based'], ['Co', 'Cobalt-based'], ['Cu', 'Copper-based'], ['Mg', 'Magnesium-based'], ['W', 'Refractory'], ['Ta', 'Refractory'], ['Nb', 'Refractory']];
-function dominantElement(composition) {
-  let best = null, bestVal = -1;
-  for (const [el, v] of Object.entries(composition || {})) {
-    let val; if (v === 'balance') val = 100; else { const mm = String(v).match(/[\d.]+/g); val = mm ? Math.max(...mm.map(Number)) : 0; }
-    if (val > bestVal) { bestVal = val; best = el; }
-  }
-  return best;
-}
+// R155b — dominantElement → scripts/lib/utilities.mjs 로 이동.
 function familyTags(category, subcategory, composition) {
   const tags = new Set();
   if (category) tags.add(category);
@@ -127,25 +108,7 @@ const PROCESS_CANON = { 'Casting': 'Cast', 'Die Casting': 'Cast', 'Sand Casting'
 const dbCatToSub = { 'Stainless Steel': 'Stainless Steel', 'Tool Steel': 'Tool Steel', 'Alloy Steel': 'Alloy Steel', 'Maraging Steel': 'Maraging Steel', 'Titanium': 'Titanium', 'Aluminum': 'Aluminum', 'Nickel': 'Nickel Superalloy', 'Cobalt': 'Cobalt-Chrome Alloy', 'Copper': 'Copper', 'Refractory': 'Refractory Metal' };
 
 // vendor/class prefix stripper → true alloy designation
-const VENDOR_PREFIXES = ['3D Systems', 'EOS', 'Renishaw', 'Nikon SLM Solutions', 'Nikon SLM', 'SLM Solutions', 'GE Additive', 'ExOne', 'Farsoon', 'Trumpf', 'Huake 3D', 'Huake', 'Colibrium'];
-const CLASS_WORDS = ['Stainless Steel', 'Stainless', 'Titanium', 'Aluminium', 'Aluminum', 'Nickel Alloy', 'Nickel', 'Copper', 'Cobalt Chrome', 'Cobalt-Chrome', 'Bronze', 'Steel', 'Alloy'];
-function alloyOf(name) {
-  let s = baseName(name);
-  for (const v of VENDOR_PREFIXES) if (s.toLowerCase().startsWith(v.toLowerCase())) { s = s.slice(v.length).trim(); break; }
-  let changed = true;
-  while (changed) { changed = false; for (const w of CLASS_WORDS) { if (s.toLowerCase().startsWith(w.toLowerCase() + ' ')) { s = s.slice(w.length).trim(); changed = true; } } }
-  return s || baseName(name);
-}
-// AA aluminium series → app subcategory
-function aaSubcategory(name) {
-  /* R134a — Al-Li (2050/2090/2099/2195/2196/2198/2199) 는 별도 subcategory 로 분리.
-     일반 2xxx (2014/2024/2219/2618) 는 Cu Alloys (2xxx). */
-  const nm = baseName(name);
-  if (/\b20(50|90|99|95)\b|\b219[5-9]\b|\b21\d{2}\b.*?\bli\b|\bal-?li\b/i.test(nm)) return 'Aluminum - Lithium';
-  const m = nm.match(/^AA\s*(\d)\d{3}/i);
-  if (!m) return null;
-  return { '1': 'Aluminum - Pure/Other', '2': 'Aluminum - Cu Alloys (2xxx)', '3': 'Aluminum - Mn Alloys (3xxx)', '5': 'Aluminum - Mg Alloys (5xxx)', '6': 'Aluminum - Si Alloys (6xxx/7xxx)', '7': 'Aluminum - Si Alloys (6xxx/7xxx)', '8': 'Aluminum - Pure/Other' }[m[1]] || null;
-}
+// R155b — VENDOR_PREFIXES, CLASS_WORDS, alloyOf, aaSubcategory → scripts/lib/classification.mjs 로 이동.
 
 // ── cross-standard designations (widely-published equivalents; conservative, not fabricated) ──
 const ALIAS_MAP = {
@@ -401,28 +364,311 @@ function aliasesFor(name) {
   return Array.from(set);
 }
 
-// established qualitative ratings for well-known alloys (textbook engineering facts, not fabricated)
+/* R108 + R173 Phase B — handbook qualitative ratings (ASM Vol.1 corrosion / Vol.6 welding / Vol.16 machining).
+   confidence: handbook (1st reference); 4 grades: Outstanding > Excellent > Good > Fair > Poor.
+   Key = norm(name) — alpha-numeric only. */
 const QUAL_MAP = {
-  '316l': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },
-  '304l': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },
+  /* Stainless steels — austenitic */
+  '304':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },       // Sensitization risk on Q+T cycles
+  '304l':  { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },  // ELC → no sensitization
+  'aisi304':  { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'aisi304l': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },
+  '316':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },       // +Mo → Cl-pitting 저항
+  '316l':  { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },
+  'aisi316':  { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'aisi316l': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },
+  '321':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },  // Ti stabilized — no sensit.
+  '347':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },  // Nb stabilized
+  '302':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  /* Stainless steels — martensitic / ferritic */
+  '410':   { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },        // Q+T + preheat 필수
+  '420':   { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },        // High-C martensitic
+  '430':   { corrosion: 'Moderate', machinability: 'Good', weldability: 'Fair' },        // Ferritic
+  '440c':  { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },        // Bearing grade
+  /* Stainless steels — PH */
   '174ph': { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' },
   '155ph': { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' },
-  '420': { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },
-  'ti6al4v': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
-  'alsi10mg': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
-  'alsi7mg': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
-  'inconel625': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Excellent' },
-  'inconel718': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
-  'inconel600': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
-  'hastelloyc22': { corrosion: 'Outstanding', machinability: 'Poor', weldability: 'Good' },
-  'cocr': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
-  'h13': { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Fair' },
+  '177ph': { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' },
+  '157ph': { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' },
+  'ph138mo': { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' },
+  'custom465': { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' },
+  /* Plain carbon steels */
+  '1018':  { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Excellent' },  // ASM Vol.16 baseline = 100
+  '1020':  { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Excellent' },
+  '1010':  { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Excellent' },
+  '1045':  { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },            // Medium-C, Q+T 가능
+  '1040':  { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },
+  '1050':  { corrosion: 'Poor', machinability: 'Good', weldability: 'Fair' },
+  '1080':  { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' },            // High-C, preheat 필요
+  '1144':  { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' },       // Resulfurized free-machining
+  'a36':   { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Excellent' },  // ASTM A36 structural
+  '52100': { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' },            // Bearing — Q+T HRC 60+
+  /* Alloy steels (Cr-Mo, Ni-Cr-Mo) */
+  '4140':  { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },            // Q+T 표준
+  '42crmo4': { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },          // EN 4140 동등
+  '4340':  { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' },            // High-strength, preheat
+  '4130':  { corrosion: 'Poor', machinability: 'Good', weldability: 'Excellent' },       // Aerospace chromoly
+  '8620':  { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },            // Case-hardening
+  '8740':  { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' },
+  '300m':  { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' },            // UHS landing gear
+  'aermet100': { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' },
+  /* Tool steels */
+  'h13':   { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Fair' },        // Hot-work
+  'd2':    { corrosion: 'Moderate', machinability: 'Poor', weldability: 'Poor' },        // High-Cr cold-work
+  'a2':    { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },
+  'o1':    { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },
+  's7':    { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Fair' },        // Shock-resisting
+  'p20':   { corrosion: 'Moderate', machinability: 'Good', weldability: 'Fair' },        // Pre-hardened mold
+  'cpm3v': { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },        // PM high-impact
+  /* Spring steels */
+  'sup9':  { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' },
+  'sup10': { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' },
+  /* Maraging */
+  'maraging250': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' },  // Carbon-free → no HAZ crack
+  'maraging300': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' },
+  'maraging350': { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Excellent' },
   'maragingsteel': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' },
-  'aa6061': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
+  /* Titanium */
+  'tigrade1': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },   // CP-Ti most weldable
+  'tigrade2': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },
+  'tigrade3': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },
+  'tigrade4': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'tigrade5': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },        // Ti-6Al-4V
+  'tigrade23': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },       // ELI medical
+  'ti6al4v': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'ti6al7nb': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'tigrade9': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },        // Ti-3Al-2.5V
+  /* Nickel superalloys */
+  'inconel718': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },      // γ'' slow aging → no SAC
+  'inconel718plus': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'inconel625': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Excellent' }, // Solid-solution
+  'inconel600': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'inconel601': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'inconel617': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'inconel690': { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },    // SG tube
+  'inconel740h': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
+  'inconelx750': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
+  'incoloy800h': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'incoloy825': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'a286':   { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' },               // Fe-base γ'
+  'hastelloyc276': { corrosion: 'Outstanding', machinability: 'Poor', weldability: 'Good' }, // Best reducing acid
+  'hastelloyc22': { corrosion: 'Outstanding', machinability: 'Poor', weldability: 'Good' },  // Best general
+  'hastelloyx':  { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'hastelloyb2': { corrosion: 'Outstanding', machinability: 'Poor', weldability: 'Fair' },
+  'haynes230': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'haynes282': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },       // No SAC (low γ' Vf)
+  'haynes188': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'haynes214': { corrosion: 'Outstanding', machinability: 'Poor', weldability: 'Good' },     // Alumina-forming
+  'waspaloy': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },        // γ' → strain-age crack
+  'nimonic80a': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
+  'nimonic90':  { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
+  'nimonic263': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
+  'udimet720':  { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },      // High γ' — SAC
+  'udimet720li': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },
+  'cmsx4':  { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },          // SX — repair only
+  'cmsx10': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },
+  'rene80': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },
+  'monel400': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },
+  'monelk500': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },
+  'nickel200': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },
+  'invar36': { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' },          // Low CTE Fe-Ni
+  'kovar':   { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Excellent' },     // Glass-metal seal
+  'nitinol': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },
+  /* Cobalt-based */
+  'cocr':    { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
+  'cocrmo':  { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },         // F75 / F1537
+  'stellite6':  { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },      // Hard-facing overlay
+  'stellite21': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
+  'l605':    { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },         // Combustor liner
+  'haynes25': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },        // L-605 dup
+  'mp35n':   { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },
+  /* Aluminum */
+  'aa1050': { corrosion: 'Excellent', machinability: 'Excellent', weldability: 'Excellent' }, // Pure Al
+  'aa1100': { corrosion: 'Excellent', machinability: 'Excellent', weldability: 'Excellent' },
+  'aa2014': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },             // High-Cu SCC
+  'aa2024': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },             // SCC + porosity
+  'aa2099': { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },                 // Al-Li
+  'aa2618': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Fair' },
+  'aa3003': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },       // Non-HT, Mn
+  'aa5005': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },
+  'aa5052': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },
+  'aa5083': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },       // Marine standard
+  'aa5454': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },
+  'aa6005a': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
+  'aa6061': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                 // 4043 filler
+  'aa6063': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                 // Extrusion
+  'aa6082': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                 // EU structural
+  'aa7050': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },
+  'aa7068': { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },             // Highest-strength Al
   'aa7075': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },
-  'aa2024': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },
+  'alsi10mg': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },               // AM standard
+  'alsi7mg':  { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
+  'a356':     { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },               // Cast Al
+  'a380':     { corrosion: 'Moderate', machinability: 'Good', weldability: 'Fair' },           // Cast Al-Si-Cu
+  'scalmalloy': { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },
+  /* Copper alloys */
   'cucr1zr': { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },
+  'c11000':  { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },                // ETP, H-embrittlement
+  'c10100':  { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                // OFE
+  'c10200':  { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                // OF
+  'c18000':  { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },                // CuNiSiCr
+  'c18150':  { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },                // CuCrZr
+  'c17200':  { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },                // BeCu — toxic dust
+  'c46400':  { corrosion: 'Excellent', machinability: 'Excellent', weldability: 'Fair' },      // Naval brass
+  'c70600':  { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },           // 90/10 cupronickel
+  'c71500':  { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },           // 70/30 cupronickel
+  'c75200':  { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },                // Nickel silver
+  'c95800':  { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Fair' },           // NAB marine
+  /* Magnesium */
+  'az31b':  { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Good' },             // Wrought Mg
+  'az91d':  { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' },             // Die-cast
+  'we43':   { corrosion: 'Moderate', machinability: 'Excellent', weldability: 'Fair' },          // RE-Mg
+  /* Refractory */
   'tantalum': { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },
+  'tungsten': { corrosion: 'Good', machinability: 'Poor', weldability: 'Poor' },                 // Brittle, oxidation
+  'molybdenum': { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' },
+  'niobium':  { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'c103':     { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },             // Nb-Hf-Ti
+  /* Wear / pressure vessel / spring */
+  'hadfieldmanganesesteel': { corrosion: 'Poor', machinability: 'Poor', weldability: 'Fair' },    // Work-hardening Mn13 — ASM
+  'hadfield': { corrosion: 'Poor', machinability: 'Poor', weldability: 'Fair' },
+  'mn13':     { corrosion: 'Poor', machinability: 'Poor', weldability: 'Fair' },
+  'sa516':    { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },                  // Pressure vessel
+  'a516':     { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },
+  'p355n':    { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },
+  'a572':     { corrosion: 'Poor', machinability: 'Good', weldability: 'Excellent' },             // HSLA
+  /* Austenitic stainless variants */
+  'super304h': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },            // Nb-Cu strengthened
+  's30432':    { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  '253ma':     { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },            // High-temp
+  '904l':      { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },          // Super austenitic
+  'n08904':    { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },
+  '654smo':    { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },          // 7Mo super
+  '309s':      { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },            // High-temp
+  '310s':      { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  '316h':      { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  '316ln':     { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },       // Low-C high-N
+  '347h':      { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },       // Nb stabilized H grade
+  '317l':      { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Excellent' },     // 3-4% Mo
+  '317':       { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },
+  'aisi301':   { corrosion: 'Good', machinability: 'Fair', weldability: 'Good' },                 // CW high-strength
+  'aisi303':   { corrosion: 'Good', machinability: 'Excellent', weldability: 'Poor' },            // Free-machining (S)
+  'aisi305':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },            // Low-Ni
+  'aisi308':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Excellent' },       // Welding rod
+  'aisi309':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },            // Heat-resist
+  'aisi310':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'aisi317':   { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },
+  /* Valve steels */
+  '214n':      { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },            // SAE 21-4N
+  'sae214n':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },
+  'ncf3':      { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },            // JIS NCF3 = 21-4N
+  /* Titanium high-temp */
+  'ti525':     { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },            // Ti-5Al-2.5Sn α
+  'ti811':     { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },            // Ti-8Al-1Mo-1V near-α
+  'ti6242':    { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },            // High-temp α+β
+  /* Additional Al */
+  'aa1100':    { corrosion: 'Excellent', machinability: 'Excellent', weldability: 'Excellent' },  // CP Al 99.0
+  'aa1200':    { corrosion: 'Excellent', machinability: 'Excellent', weldability: 'Excellent' },
+  'aa6101':    { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                 // Electrical bus
+  'aa6151':    { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                 // Forging
+  'aa6262':    { corrosion: 'Good', machinability: 'Excellent', weldability: 'Fair' },            // Pb-Bi free-mach
+  /* More tool steel + HSS + mold */
+  'm50':       { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' },                   // AMS 6491 bearing
+  'm42':       { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' },                   // Co-8% HSS
+  'm42hss':    { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' },
+  'h11':       { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Fair' },               // Hot-work
+  'h21':       { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },               // W-Cr hot-work
+  'aisih21':   { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Poor' },
+  'd3':        { corrosion: 'Moderate', machinability: 'Poor', weldability: 'Poor' },               // High-Cr cold-work
+  'nak80':     { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' },                   // Daido pre-hard
+  /* More Titanium variants */
+  'ti6al7nb':  { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },              // ASTM F1295 medical
+  'beta21s':   { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },              // TIMETAL 21S
+  'betac':     { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },              // Ti-3-8-6-4-4
+  'ti13v11cr3al': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },           // B120-VCA 1st-gen β
+  'ti1533':    { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },              // Ti-15-3
+  'ti15v3cr3al3sn': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },
+  'ti6al2sn4zr2mo': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },         // Ti-6242
+  'ti6al2sn4zr6mo': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },         // Ti-6246
+  'ti10v2fe3al':    { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },          // Ti-10-2-3
+  'titaniumgrade11': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },    // Ti-0.15Pd
+  /* More Mg alloys */
+  'az80a':     { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' },               // CW Mg
+  'zk60':      { corrosion: 'Moderate', machinability: 'Excellent', weldability: 'Good' },           // Mg-Zn-Zr extrusion
+  'am60':      { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' },               // Die-cast
+  'ze41':      { corrosion: 'Moderate', machinability: 'Excellent', weldability: 'Good' },
+  'ez33a':     { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' },
+  'hk31a':     { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' },               // Mg-Th-Zr (legacy)
+  'we54':      { corrosion: 'Moderate', machinability: 'Excellent', weldability: 'Fair' },
+  'ze63a':     { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Fair' },
+  /* Zinc / Beryllium / special */
+  'zamak3':    { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },                // ZnAl4 die-cast — ZA series
+  'zamak':     { corrosion: 'Moderate', machinability: 'Good', weldability: 'Poor' },
+  'beryllium': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },               // Pure Be — toxic
+  'becu':      { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },                    // Same as C17200
+  /* PPS polymer */
+  'pps':       { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' },                // Solvent-resistant
+  'fortron':   { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' },
+  'ryton':     { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' },
+  /* Advanced Ni superalloys */
+  'inconel100': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },              // Cast γ' high-Vf
+  'inconel706': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },              // Fe-Ni γ''
+  'inconel783': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Fair' },              // Low-CTE γ'
+  'inconel713': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },              // Cast
+  'inconel738': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },              // Cast
+  'incoloy909': { corrosion: 'Moderate', machinability: 'Fair', weldability: 'Good' },               // Controlled expansion
+  'incoloy925': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },              // Oil/gas downhole
+  'rene80':     { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },              // Cast
+  'rene41':     { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },              // γ' wrought
+  'rene88dt':   { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },              // PM disc
+  'renen5':     { corrosion: 'Excellent', machinability: 'Very Poor', weldability: 'Poor' },         // SX
+  'pwa1484':    { corrosion: 'Excellent', machinability: 'Very Poor', weldability: 'Poor' },         // 2nd-gen SX
+  'allvac718plus': { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Good' },           // ATI 718Plus
+  'astroloy':   { corrosion: 'Excellent', machinability: 'Very Poor', weldability: 'Poor' },         // PM disc
+  /* Free-machining brass */
+  'c36000':    { corrosion: 'Good', machinability: 'Excellent', weldability: 'Fair' },               // CDA 360, baseline for machinability
+  /* Refractory metals (pure + alloyed) */
+  'chromium':    { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },              // Pure Cr — brittle
+  'hafnium':     { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },               // Nuclear cladding
+  'rhenium':     { corrosion: 'Good', machinability: 'Poor', weldability: 'Poor' },                    // High-T thrust chamber
+  'vanadium':    { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Fair' },               // Pure V (nuclear)
+  'zirconium':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },               // Nuclear cladding
+  'zircaloy2':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },               // BWR cladding
+  'zircaloy4':   { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },               // PWR cladding
+  'zirconium705': { corrosion: 'Excellent', machinability: 'Fair', weldability: 'Good' },              // Zr-2.5Nb chem
+  'mola':        { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' },                    // Lanthanum-doped Mo
+  'mo05ti':      { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' },                    // Mo-Ti-Zr (TZM)
+  'tzm':         { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' },                    // Mo-0.5Ti-0.08Zr
+  'more':        { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' },                    // Mo-Re
+  'wla':         { corrosion: 'Good', machinability: 'Poor', weldability: 'Poor' },                    // Lanthanated W
+  'tungstenheavy': { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' },                  // W-Ni-Fe HMA
+  'wnife':       { corrosion: 'Good', machinability: 'Fair', weldability: 'Fair' },
+  'nb1zr':       { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },               // Reactor
+  'ta10w':       { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },             // Acid + high-T
+  /* Specialty steels (cryogenic, armor, microalloyed) */
+  'eh36':        { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },                    // Shipbuilding
+  'dh36':        { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },
+  '9nisteel':    { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },                    // LNG cryogenic
+  'astma553':    { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },                    // 9% Ni / 7% Ni LNG
+  'api5lx65':    { corrosion: 'Poor', machinability: 'Good', weldability: 'Excellent' },               // Pipeline HSLA
+  'l450':        { corrosion: 'Poor', machinability: 'Good', weldability: 'Excellent' },
+  'armox600t':   { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' },                    // Quenched armor
+  'armox':       { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' },
+  'aisi9310':    { corrosion: 'Poor', machinability: 'Fair', weldability: 'Good' },                    // Aerospace gear
+  '38mnvs6':     { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' },                    // Microalloy crank
+  '254smo':      { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },             // Super austenitic
+  'aisi254smo':  { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },
+  's31254':      { corrosion: 'Outstanding', machinability: 'Fair', weldability: 'Good' },
+  /* Chrome-silicon spring */
+  'chromesilicon': { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' },                  // ASTM A401
+  /* Advanced Ni superalloys */
+  'inconel738':  { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },               // Cast turbine blade
+  'in738':       { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },
+  'in939':       { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },
+  'in713':       { corrosion: 'Excellent', machinability: 'Poor', weldability: 'Poor' },
+  /* GRCop-42 (NASA Cu alloy) */
+  'grcop42':     { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                    // Rocket combustion
+  'grcop':       { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
 };
 function qualFor(name) {
   const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
@@ -925,245 +1171,7 @@ function alloyFatigueImpact(name) {
    참조: ASM Vol.1 Steel HT chapter, MMPDS-08 Table 2.X (PH stainless), Nickel Institute Pub 9019 (Inconel),
         AMS 4928 (Ti-6Al-4V mill annealed), ASM Vol.4 (Maraging).
    Returns { f, i, k, condTag } — f=fatigue, i=impact, k=KIC multiplier; condTag=HT label for provenance. */
-function htConditionMultiplier(m) {
-  if (!m) return { f: 1, i: 1, k: 1, condTag: null };
-  const name = String(m.name || '').toLowerCase();
-  const ht = String(m.heat_treatment || '').toLowerCase();
-  const sub = String(m.subcategory || '').toLowerCase();
-  const combined = name + ' ' + ht;
-
-  // PH stainless — baseline = H900 (peak-aged)
-  if (/17-?4\s*ph|15-?5\s*ph|13-?8\s*ph|17-?7\s*ph|s17400|s15500|s13800|s17700|custom\s*4\d{2}|ph13|ph15|ph17/.test(name) || sub.includes('ph')) {
-    if (/h900\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'H900 peak-aged' };
-    if (/h925\b/.test(combined)) return { f: 0.97, i: 1.10, k: 1.06, condTag: 'H925' };
-    if (/h1025\b/.test(combined)) return { f: 0.90, i: 1.40, k: 1.20, condTag: 'H1025' };
-    if (/h1075\b/.test(combined)) return { f: 0.85, i: 2.20, k: 1.45, condTag: 'H1075' };
-    if (/h1100\b/.test(combined)) return { f: 0.82, i: 2.50, k: 1.55, condTag: 'H1100' };
-    if (/h1150[a-z]*|h1175\b|h1200\b/.test(combined)) return { f: 0.78, i: 3.00, k: 1.60, condTag: 'H1150 over-aged' };
-    if (/as-?built|as-?fab/.test(combined)) return { f: 0.92, i: 1.30, k: 1.10, condTag: 'as-built martensitic' };
-    if (/annealed|solution(?!\s*\+\s*aged)/.test(combined)) return { f: 0.55, i: 3.50, k: 1.50, condTag: 'solution annealed (soft)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'PH peak-aged (assumed)' };
-  }
-
-  // Maraging — baseline = aged 482°C peak
-  if (/maraging|18ni|c2[5-8]\d|c3\d{2}|m250|m300|m350|ms1|vasco/.test(name) || sub.includes('maraging')) {
-    if (/annealed(?!.*aged)/.test(combined)) return { f: 0.40, i: 3.50, k: 1.50, condTag: 'annealed (austenitic)' };
-    if (/solution(?!.*aged)|solution treated$/.test(combined)) return { f: 0.45, i: 3.00, k: 1.45, condTag: 'solution treated' };
-    if (/aged|maraged|sta\b|stat\b|hardened|peak/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'aged (peak strength)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'aged (assumed)' };
-  }
-
-  // Tool steel — baseline = Q+T peak hardness HRC 50-55
-  if (/tool steel|\b(?:h1[013]|d[23]|m[24]|s7|a2|p20|cpm|skd\d{1,2}|o1|w1|w2)\b/.test(name) || sub.includes('tool')) {
-    if (/annealed(?!.*temper)/.test(combined)) return { f: 0.30, i: 4.00, k: 2.20, condTag: 'spheroidized annealed' };
-    if (/q\s*\+\s*t.*?(?:610|softer|620|650)|over[\s-]?tempered/.test(combined)) return { f: 0.78, i: 1.50, k: 1.30, condTag: 'Q+T high-temper (softer)' };
-    if (/q\s*\+\s*t|tempered|hrc|maraged/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak HRC 50-55' };
-    if (/as-?built|as-?fab/.test(combined)) return { f: 0.88, i: 1.20, k: 1.10, condTag: 'as-built (no temper)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak (assumed)' };
-  }
-
-  // Ni superalloy precipitation hardenable — baseline = STA (solution + aged peak)
-  if (/inconel\s*7\d{2}|inconel\s*x[\s-]?7\d{2}|inconel\s*939|inconel\s*100|inconel\s*706|waspaloy|nimonic\s*(?:80|90|105|115|263)|udimet|rene\s*\d|cmsx|pwa|mar[\s-]?m|haynes\s*282|haynes\s*214/.test(name)) {
-    if (/annealed(?!.*aged)/.test(combined)) return { f: 0.60, i: 1.50, k: 1.40, condTag: 'annealed' };
-    if (/solution\s*(?:treated|annealed)(?!.*aged)|^solution$/.test(combined)) return { f: 0.65, i: 1.40, k: 1.30, condTag: 'solution treated' };
-    if (/single\s*age|sta\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA single age' };
-    if (/double\s*age|dsa\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'DSA double age' };
-    if (/aged|peak/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'aged peak' };
-    if (/as-?built|as-?fab/.test(combined)) return { f: 0.80, i: 1.30, k: 1.20, condTag: 'as-built (no age)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA (assumed)' };
-  }
-
-  // Ni superalloy solid-solution (Inconel 600/601/617/625/690, Hastelloy, Incoloy) — no real HT effect on fatigue/KIC
-  if (/inconel\s*(?:600|601|617|625|690)|hastelloy\s*[a-z]|incoloy|haynes\s*230|haynes\s*188|monel/.test(name)) {
-    if (/cold\s*work|cw\b|hard/.test(combined)) return { f: 1.20, i: 0.70, k: 0.85, condTag: 'cold worked' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'solid-solution annealed' };
-  }
-
-  // Ti-6Al-4V (Gr5) — baseline = mill annealed
-  if (/ti[\s-]?6al[\s-]?4v|tigr5|grade\s*5\b|r56400|r56407|grade\s*23/.test(name)) {
-    if (/as-?built|as-?fab/.test(combined)) return { f: 0.85, i: 0.85, k: 0.90, condTag: 'as-built (acicular α+β\')' };
-    if (/hip\b/.test(combined)) return { f: 1.05, i: 1.10, k: 1.05, condTag: 'HIP densified' };
-    if (/sta|solution\s*\+?\s*aged?/.test(combined)) return { f: 1.10, i: 0.90, k: 0.95, condTag: 'STA aged' };
-    if (/beta[\s-]?annealed/.test(combined)) return { f: 0.85, i: 1.20, k: 1.15, condTag: 'β-annealed (coarse)' };
-    if (/mill\s*annealed|annealed/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'mill annealed' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'mill annealed (assumed)' };
-  }
-
-  // β-Ti / near-α Ti — baseline = STA
-  if (/ti[\s-]?6242|ti[\s-]?5553|ti[\s-]?10[\sv]|ti[\s-]?153|ti[\s-]?525|ti[\s-]?185|ti[\s-]?17/.test(name)) {
-    if (/annealed(?!.*aged)/.test(combined)) return { f: 0.85, i: 1.20, k: 1.20, condTag: 'annealed (soft)' };
-    if (/sta|solution.*aged|aged/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA' };
-    if (/as-?built/.test(combined)) return { f: 0.85, i: 0.90, k: 0.95, condTag: 'as-built' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA (assumed)' };
-  }
-
-  // Austenitic stainless (304/316/321/347) — no HT effect except CW
-  if (/\b30[1-9]l?\b|\b3[1-4]\d\b|\b34[7-9]\b|austenit/.test(name) || sub.includes('austenitic')) {
-    if (/cold\s*work|cw\b|strain[\s-]?hardened|full[\s-]?hard/.test(combined)) return { f: 1.40, i: 0.50, k: 0.65, condTag: 'cold worked' };
-    if (/as-?built/.test(combined)) return { f: 1.05, i: 0.95, k: 0.95, condTag: 'as-built (fine columnar)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'solution annealed' };
-  }
-
-  // Stainless martensitic (410, 420, 440) — 3-digit. Q+T baseline.
-  if (/\b4[1-4]0\b|\bsus41[0-9]\b|\bsus42[0-9]\b|\bsus44[0-9]\b|\bx12cr13|\bx40cr|martensit/.test(name) || sub.includes('martensitic')) {
-    if (/annealed(?!.*temper)|spheroidized/.test(combined)) return { f: 0.45, i: 2.80, k: 1.60, condTag: 'fully annealed (soft)' };
-    if (/q\s*\+\s*t.*?(?:600|650|high[\s-]?temper)/.test(combined)) return { f: 0.85, i: 1.40, k: 1.25, condTag: 'Q+T high-temper' };
-    if (/q\s*\+\s*t.*?(?:200|150|peak|max[\s-]?hard|full[\s-]?hard)/.test(combined)) return { f: 1.05, i: 0.70, k: 0.85, condTag: 'Q+T peak hardness' };
-    if (/q\s*\+\s*t|tempered/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T mid-range' };
-    if (/strain[\s-]?hardened|cold\s*work/.test(combined)) return { f: 1.15, i: 0.65, k: 0.80, condTag: 'cold worked' };
-    if (/as-?cast|forged/.test(combined)) return { f: 0.65, i: 1.80, k: 1.30, condTag: 'as-cast/forged (no temper)' };
-    if (/as-?supplied/.test(combined)) return { f: 0.95, i: 1.05, k: 1.00, condTag: 'as-supplied (Q+T assumed)' };
-    if (/aged|solution[\s-]?treated/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'aged/STA' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
-  }
-
-  // Stainless ferritic (430, 446) — HT-insensitive (no quench-hardening)
-  if (/\b43[06]\b|\b44[68]\b|\bx6cr17|ferritic\s*stainless/.test(name) || sub.includes('ferritic')) {
-    if (/cold\s*work|strain[\s-]?hardened/.test(combined)) return { f: 1.30, i: 0.60, k: 0.80, condTag: 'cold worked' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'annealed (HT-insensitive)' };
-  }
-
-  // Spring steel (SUP, 5160, 9260, 51CrV4) — Q+T spring temper baseline
-  if (/\bsup\d{1,2}\b|\b5\d{3}\b|\b9260\b|51crv4|spring/.test(name) || sub.includes('spring')) {
-    if (/annealed(?!.*temper)/.test(combined)) return { f: 0.45, i: 3.00, k: 1.60, condTag: 'annealed (forming)' };
-    if (/q\s*\+\s*t.*?(?:380|400|full[\s-]?spring)/.test(combined)) return { f: 1.05, i: 0.85, k: 0.90, condTag: 'Q+T 380°C full spring' };
-    if (/q\s*\+\s*t.*?(?:430|450|spring[\s-]?temper)/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T spring temper' };
-    if (/q\s*\+\s*t|tempered/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
-  }
-
-  // Low-carbon mild steel (1010, 1018, 1020, A36, structural) — HT-insensitive (low C, no quench)
-  if (/\b10[12]\d\b|\b1018\b|\ba36\b|astm\s*a36|structural\s*steel|mild\s*steel/.test(name) || sub === 'carbon steel' || sub.includes('structural')) {
-    if (/cold\s*work|strain[\s-]?hardened|cold[\s-]?drawn/.test(combined)) return { f: 1.25, i: 0.60, k: 0.80, condTag: 'cold worked' };
-    if (/normalized/.test(combined)) return { f: 1.05, i: 1.15, k: 1.10, condTag: 'normalized' };
-    if (/annealed|as-?cast/.test(combined)) return { f: 0.95, i: 1.20, k: 1.10, condTag: 'annealed/as-cast' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'as-rolled (mild)' };
-  }
-
-  // Medium-carbon steel (1040, 1045, 1050, 1095) — Q+T variations
-  if (/\b10[34]\d\b|\b10[56]\d\b|\b1095\b/.test(name)) {
-    if (/annealed(?!.*temper)/.test(combined)) return { f: 0.50, i: 2.50, k: 1.80, condTag: 'fully annealed' };
-    if (/normalized/.test(combined)) return { f: 0.75, i: 1.60, k: 1.40, condTag: 'normalized' };
-    if (/q\s*\+\s*t/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
-  }
-
-  // Bearing steel (52100, 100Cr6, SUJ2)
-  if (/\b52100\b|\b100cr6\b|\bsuj2\b|bearing\s*steel/.test(name) || sub.includes('bearing')) {
-    if (/annealed/.test(combined)) return { f: 0.40, i: 2.50, k: 1.50, condTag: 'annealed (spheroidized)' };
-    if (/q\s*\+\s*t/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
-  }
-
-  // Case hardening steel (8620, 9310, 4620)
-  if (/\b8620\b|\b9310\b|\b4620\b|\b4820\b|case[\s-]?hardening|carburiz/.test(name) || sub.includes('case hardening')) {
-    if (/carburized/.test(combined)) return { f: 1.10, i: 0.85, k: 0.90, condTag: 'carburized case' };
-    if (/annealed/.test(combined)) return { f: 0.55, i: 2.20, k: 1.60, condTag: 'annealed' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T (assumed)' };
-  }
-
-  // BeCu / Cu-Ni-Si precipitation hardened (C17xxx, C18000)
-  if (/\bc17[0-9]{3}\b|\bc18000\b|\bcube|beryllium\s*copper|moldmax/.test(name)) {
-    if (/tb00|annealed|solution(?!.*aged)/.test(combined)) return { f: 0.35, i: 3.50, k: 1.80, condTag: 'TB00 solution annealed' };
-    if (/tf00|peak[\s-]?aged|aged(?!.*cold)/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'TF00 peak aged' };
-    if (/th04|cold[\s-]?rolled.*aged|cw\s*\+\s*age/.test(combined)) return { f: 1.10, i: 0.40, k: 0.75, condTag: 'TH04 CW+aged (high strength)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'TF00 (assumed)' };
-  }
-
-  // Cu-Cr-Zr (C18100, C18150, C18200 chromium copper)
-  if (/\bc181[0-9]{2}\b|\bc18200\b|cucr|chromium\s*copper|elbrodur/.test(name)) {
-    if (/wp\b|solution[\s-]?aged|tf00/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'wp solution + aged' };
-    if (/whp\b|th04|cw\s*\+\s*age/.test(combined)) return { f: 1.30, i: 0.50, k: 0.80, condTag: 'whp CW + aged' };
-    if (/annealed/.test(combined)) return { f: 0.45, i: 2.50, k: 1.50, condTag: 'fully annealed' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'precipitation hardened (assumed)' };
-  }
-
-  // Brass (CuZn) — H-tempers (cold worked)
-  if (/\bc2[6-8]\d{3}\b|brass|\bcuzn|c46400|naval\s*brass/.test(name)) {
-    if (/\bh0[24]\b|quarter[\s-]?hard/.test(combined)) return { f: 1.15, i: 0.85, k: 0.90, condTag: 'H02 quarter-hard' };
-    if (/\bh0[68]\b|half[\s-]?hard/.test(combined)) return { f: 1.25, i: 0.70, k: 0.85, condTag: 'H04 half-hard' };
-    if (/\bh10\b|three[\s-]?quarter|full[\s-]?hard/.test(combined)) return { f: 1.40, i: 0.55, k: 0.75, condTag: 'H08/H10 hard' };
-    if (/annealed|\b0\s*temper/.test(combined)) return { f: 0.65, i: 1.40, k: 1.20, condTag: 'annealed (soft)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'annealed (assumed)' };
-  }
-
-  // High-N austenitic stainless (SAE 21-4N exhaust valve) — solution + aged peak baseline
-  if (/sae\s*21[\s-]?4n|21-?4n|high[\s-]?nitrogen.*?stainless|21cr.*?4ni.*?n/.test(name)) {
-    if (/solution\s*\+?\s*aged|aged|peak/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Solution + Aged peak' };
-    if (/solution\s*treated|solution(?!\s*\+)|annealed/.test(combined)) return { f: 0.65, i: 1.40, k: 1.20, condTag: 'Solution Treated (no aging)' };
-    if (/tested at 700/.test(combined)) return { f: 0.65, i: 0.90, k: 0.95, condTag: 'hot strength at 700°C' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Solution + Aged (assumed)' };
-  }
-
-  // Narloy-Z (Cu-3Ag-0.5Zr) — solution + aged baseline
-  if (/narloy/.test(name)) {
-    if (/solution\s*aged|aged/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Solution + Aged peak' };
-    if (/solution\s*annealed|solution\s*treated/.test(combined)) return { f: 0.65, i: 1.50, k: 1.30, condTag: 'Solution Annealed' };
-    if (/creep|tested.*500/.test(combined)) return { f: 0.55, i: 0.85, k: 0.90, condTag: 'creep regime' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Solution + Aged (assumed)' };
-  }
-
-  // Carbon / alloy steel Q+T (4140/4340/8620 등) — baseline = Q+T peak
-  if (/\b4[01]\d{2}\b|\b8[0-9]\d{2}\b|\b9\d{3}\b|\b5\d{3}\b|sncm|scm\s*\d|alloy steel|42crmo|31crmov|34crnimo/.test(name) || sub.includes('alloy steel')) {
-    if (/as-?built|as-?fab/.test(combined)) return { f: 0.85, i: 0.90, k: 0.92, condTag: 'as-built (no Q+T)' };
-    if (/annealed(?!.*temper)/.test(combined)) return { f: 0.50, i: 2.50, k: 1.80, condTag: 'fully annealed' };
-    if (/normalized/.test(combined)) return { f: 0.70, i: 1.80, k: 1.50, condTag: 'normalized' };
-    if (/q\s*\+\s*t.*?(?:200|full\s*hard)/.test(combined)) return { f: 1.15, i: 0.40, k: 0.65, condTag: 'Q+T 200°C (full hard)' };
-    if (/q\s*\+\s*t.*?(?:550|600|650)/.test(combined)) return { f: 0.92, i: 1.40, k: 1.25, condTag: 'Q+T high-temper' };
-    if (/q\s*\+\s*t.*?(?:450|500)/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T 450°C (peak)' };
-    if (/q\s*\+\s*t.*?heavy|heavy\s*section/.test(combined)) return { f: 0.95, i: 0.85, k: 0.95, condTag: 'Q+T heavy section (slower cooling)' };
-    if (/q\s*\+\s*t|tempered|quenched/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak (assumed)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'Q+T peak (assumed)' };
-  }
-
-  // Aluminum T-tempers — baseline = T6 peak-aged
-  /* R137a — 사용자 명시: "Al 열처리 있으나 Annealed 등 없는 상태일 시 정교한 fallback-driven 알고리즘 사용".
-     5xxx series (non-heat-treatable Al-Mg) 와 6xxx/7xxx series (heat-treatable Al-Mg-Si/Al-Zn) 분리.
-     H temper (strain-hardened) 와 T temper (heat-treated) 별도 처리. */
-  if (/^aa\s?\d{4}|al-?\d{4}|aluminum|al\s*si|alsi|alumi|^al-?si/.test(name) || sub.toLowerCase().includes('aluminum')) {
-    // 5xxx series (non-heat-treatable Al-Mg) — H temper baseline (cold-worked + stabilized)
-    if (/aa\s?5\d{3}|al-?mg|^5\d{3}/.test(name)) {
-      if (/\bo\b|^o$|annealed/.test(combined)) return { f: 0.50, i: 1.80, k: 1.50, condTag: 'O (annealed soft)' };
-      if (/\bh1[12]\b/.test(combined)) return { f: 0.85, i: 1.20, k: 1.15, condTag: 'H11/H12 1/8-1/4 hard' };
-      if (/\bh1[34]\b|\bh32\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'H14/H32 1/2 hard (peak baseline)' };
-      if (/\bh1[6-9]\b|\bh34\b/.test(combined)) return { f: 1.15, i: 0.75, k: 0.85, condTag: 'H16-H19/H34 3/4-full hard' };
-      if (/\bh111\b|\bh112\b/.test(combined)) return { f: 0.75, i: 1.40, k: 1.20, condTag: 'H111/H112 as-fabricated' };
-      if (/\bh321\b/.test(combined)) return { f: 1.10, i: 0.95, k: 1.05, condTag: 'H321 strain + stabilized' };
-      if (/as-?built/.test(combined)) return { f: 0.95, i: 1.00, k: 1.00, condTag: 'as-built' };
-      return { f: 1.00, i: 1.00, k: 1.00, condTag: '5xxx mid-temper (assumed)' };
-    }
-    // 6xxx/7xxx/2xxx series (heat-treatable) — T6 peak baseline
-    if (/\bo\s*temper|\bo\b\s*\(annealed\)|^o\s|^annealed/.test(combined)) return { f: 0.40, i: 3.00, k: 2.00, condTag: 'O (annealed soft, fallback derived from T6)' };
-    if (/\bt1\b/.test(combined)) return { f: 0.50, i: 2.20, k: 1.70, condTag: 'T1 cooled from extrusion + naturally aged' };
-    if (/\bt2\b/.test(combined)) return { f: 0.55, i: 2.00, k: 1.60, condTag: 'T2 cooled + CW + naturally aged' };
-    if (/\bt3\b/.test(combined)) return { f: 0.85, i: 1.30, k: 1.30, condTag: 'T3 solution + CW + naturally aged' };
-    if (/\bt4\b/.test(combined)) return { f: 0.80, i: 1.40, k: 1.35, condTag: 'T4 solution + naturally aged' };
-    if (/\bt5\b/.test(combined)) return { f: 0.90, i: 1.20, k: 1.20, condTag: 'T5 cooled + artificial aged' };
-    if (/\bt6\b|peak[\s-]?aged/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'T6 peak-aged (baseline)' };
-    if (/\bt73\d?\b|\bt74\d?\b/.test(combined)) return { f: 0.78, i: 1.50, k: 1.40, condTag: 'T7351/T7451 over-aged SCC-resistant' };
-    if (/\bt7\b|over[\s-]?aged/.test(combined)) return { f: 0.85, i: 1.40, k: 1.30, condTag: 'T7 over-aged' };
-    if (/\bt81\d?\b/.test(combined)) return { f: 1.08, i: 0.90, k: 0.95, condTag: 'T81 CW + aged peak' };
-    if (/\bt8\b/.test(combined)) return { f: 1.08, i: 0.90, k: 0.95, condTag: 'T8 CW + aged' };
-    if (/\bt9\b/.test(combined)) return { f: 1.10, i: 0.85, k: 0.90, condTag: 'T9 CW after aging' };
-    if (/\bt10\b/.test(combined)) return { f: 0.60, i: 1.90, k: 1.55, condTag: 'T10 cooled + CW + aged' };
-    if (/strain[\s-]?hardened|cold[\s-]?work/.test(combined)) return { f: 0.95, i: 1.10, k: 1.05, condTag: 'strain-hardened (fallback)' };
-    if (/aged\s*\/\s*solution[\s-]?treated/.test(combined)) return { f: 0.95, i: 1.10, k: 1.10, condTag: 'mixed aged/solution-treated CSV-generic (fallback midpoint)' };
-    if (/as-?cast|forged/.test(combined)) return { f: 0.65, i: 1.70, k: 1.40, condTag: 'as-cast / forged (no T-temper)' };
-    if (/as-?supplied/.test(combined)) return { f: 0.92, i: 1.15, k: 1.10, condTag: 'as-supplied (mill T-temper assumed)' };
-    if (/as-?built/.test(combined)) return { f: 1.10, i: 0.95, k: 1.00, condTag: 'as-built (fine grain)' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'T6 (assumed default)' };
-  }
-
-  // CoCr / CoCrMo — baseline = solution annealed
-  if (/cocr|f75|f1537/.test(name) || sub.includes('cobalt')) {
-    if (/as-?built/.test(combined)) return { f: 1.05, i: 0.85, k: 0.90, condTag: 'as-built (fine grain)' };
-    if (/hip\b/.test(combined)) return { f: 1.10, i: 1.05, k: 1.05, condTag: 'HIP' };
-    if (/cold\s*work/.test(combined)) return { f: 1.30, i: 0.55, k: 0.70, condTag: 'cold worked' };
-    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'solution annealed' };
-  }
-
-  return { f: 1.00, i: 1.00, k: 1.00, condTag: null };
-}
+// R155b — htConditionMultiplier → scripts/lib/ht-condition.mjs 로 이동.
 
 function alloySpecificPhysicals(name) {
   if (!name) return null;
@@ -1490,44 +1498,16 @@ const isCurated = name => {
 };
 
 // ───────── non-curated tiers (am_vendor / generic) ─────────
-function compositionFromRows(g) {
+function compositionFromRows(g, category) {
+  /* R159 — Polymer/Ceramic/Composite 는 metal element 가 의미 없음. CSV 에 잘못된 metal 컬럼 값이 있어도 무시.
+   *        polymer 의 backbone 원자 (C/H/N/O 등) 는 polymer-specific composition source 로부터 별도 처리. */
+  if (category && category !== 'Metal') return {};
   const composition = {};
   for (const el of ELEMENTS) { const vals = g.map(r => num(r[el])).filter(v => v != null && v > 0); if (vals.length) { const mn = round(Math.min(...vals)), mx = round(Math.max(...vals)); composition[el] = mn === mx ? String(mn) : `${mn}~${mx}`; } }
   return composition;
 }
 function rangesFromRows(g) { const ranges = {}; for (const p of NUM_PROPS) ranges[p] = rangeFrom(g.map(r => r[p])); return ranges; }
-// Name-based subcategory override — CSV의 잘못된 subcategory를 정정.
-// 합금 이름에 분명한 키워드가 있으면 raw subcategory 보다 우선.
-function nameBasedSubcategory(name) {
-  const n = String(name).toLowerCase();
-  if (/inconel|hastelloy|haynes|monel|nimonic|waspaloy|rene|incoloy|udimet|cm247|nitinol|invar|cp-nickel/.test(n)) return 'Nickel Superalloy';
-  if (/cocr|cobalt|stellite|haynes 188/.test(n)) return 'Cobalt-based';
-  if (/ti[\s-]?6al|ti6al|ti-6|ti5|ti6242|ta15|beta-2/.test(n)) return 'Titanium - α+β';
-  if (/tungsten|tantalum|niobium|molybden|rhenium|c-103/.test(n)) return 'Refractory';
-  if (/(brass|bronze|cuni|cucr|grcop|becu|beryllium copper)/.test(n)) return 'Copper-based';
-  if (/maraging|18ni-?300|m300|c300|c350|ms1/.test(n)) return 'Maraging Steel';
-  if (/h13|d2|p20|s7|a2|o1|cpm|m2|m4 |\btool\b/.test(n)) return 'Tool Steel';
-  if (/duplex|2205|2507|superduplex/.test(n)) return 'Stainless - Duplex';
-  if (/15-?5 ?ph|17-?4 ?ph|155ph|174ph|13-?8 ?ph/.test(n)) return 'Stainless - PH';
-  if (/316l?|304l?|310|nitronic|austenit/.test(n)) return 'Stainless - Austenitic';
-  return null;
-}
-function fixSubcategory(name, rawSub) {
-  const nb = nameBasedSubcategory(name);
-  return nb || aaSubcategory(name) || rawSub;
-}
-// bucket the in-name condition into a coarse class so an alloy×process splits into a few materials
-function conditionClass(name) {
-  const m = String(name).match(/\(([^)]+)\)/);
-  const c = (m ? m[1] : '').toLowerCase().trim();
-  if (!c) return 'As-supplied';
-  if (/anneal|^o$|^o\b/.test(c)) return 'Annealed';
-  if (/solution|aged|t\d|precipit|\bph\b/.test(c)) return 'Aged / solution-treated';
-  if (/quench|temper|normaliz|harden/.test(c)) return 'Quenched / tempered';
-  if (/h\d|cold|hot roll|rolled|drawn|work/.test(c)) return 'Strain-hardened';
-  if (/cast|forged/.test(c)) return 'As-cast / forged';
-  return 'As-supplied';
-}
+// R155b — nameBasedSubcategory, fixSubcategory, conditionClass → scripts/lib/classification.mjs 로 이동.
 
 // Non-curated rows → one entry per (alloy × process). Different process = different
 // material; conditions/tempers within a process are aggregated into the range.
@@ -1546,34 +1526,7 @@ const refAlloySet = new Set(
    AA 7178 (구형 aerospace) — AA 7075-T7351 으로 대체 가능
    AA 5005/5050/5154/5251/5356/5383 — AA 5052/5083 으로 대체 가능
    ASTM A553 (사용자 명시 — 단, a553.pdf 데이터 보유, 9% Ni LNG tank 등 valuable 가능성 → comment 하단 참고). */
-const EXCLUDED_ALLOY_PATTERNS = [
-  /^ti[\s-]?5[\s-]?8[\s-]?5$/i,        // Ti-5-8-5 (Ti-5Al-8V-5Cr) — R134a
-  /^aa[\s-]?7178$/i,                    // AA 7178 — R134a
-  /^aa[\s-]?500[5]$/i, /^aa[\s-]?5050$/i, /^aa[\s-]?5154$/i,  // Al-Mg 5005, 5050, 5154 — R134a
-  /^aa[\s-]?5251$/i, /^aa[\s-]?5356$/i, /^aa[\s-]?5383$/i,    // Al-Mg 5251, 5356, 5383 — R134a
-  /* R136a — 사용자 명시 추가 삭제 */
-  /^aa[\s-]?7005$/i,                    // AA 7005 (자전거 frame, datasheet 부재)
-  /^309s$/i, /^310s$/i,                 // 309S/310S (low-C 변종 — 309/310 anchor 로 충분)
-  /^654[\s-]?smo$/i,                    // 654 SMO (Outokumpu 독점)
-  /^bronze$/i,                          // Bronze (Binder Jetting generic — vendor 명시 없음)
-  /* R137a — 사용자 명시: copper 기존 entry 자료 부족 시 삭제 */
-  /^c95500$/i, /^c68000$/i,             // Cu-Ni-Al specialty propeller bronze + high-Mn brass (C95820 anchor 로 대체)
-];
-
-/* R137a — 사용자 명시 삭제 (Composite generic without vendor anchor).
-   별도 list — composites-data.json + polymers-data.json 의 entry 에 적용. */
-const EXCLUDED_NAME_PATTERNS = [
-  /CFRP — Std PAN\/PEEK \(TP, UD/i,         // Thermoplastic CFRP generic (vendor 명시 없음)
-  /Natural Composite — Hardwood/i,           // Oak/Pine 디자인 specialty
-  /Carbon-Phenolic \(rocket nozzle/i,        // Single-app specialty
-];
-function isExcludedByName(name) {
-  return EXCLUDED_NAME_PATTERNS.some(rx => rx.test(String(name || '')));
-}
-function isExcludedAlloy(name) {
-  const n = String(name || '').trim();
-  return EXCLUDED_ALLOY_PATTERNS.some(rx => rx.test(n));
-}
+// R155b — EXCLUDED_*_PATTERNS, isExcludedByName, isExcludedAlloy → scripts/lib/classification.mjs 로 이동.
 let droppedExcluded = 0;
 const ncGroups = new Map(); // norm(alloy)|process -> { rows, hasAm, name, process }
 for (const r of csvRows) {
@@ -1630,15 +1583,97 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
     category: rep.category || 'Metal', subcategory: sub, tier,
     manufacturers: tier === 'am_vendor' ? manus : ['Generic'], machines: [],
     processes: [grp.process], heat_treatment: resolvedCond,
-    ranges: rangesFromRows(g), composition: compositionFromRows(g), sources, points: g.map(r => PROP_ORDER.map(p => num(r[p]))),
+    ranges: rangesFromRows(g), composition: compositionFromRows(g, rep.category), sources, points: g.map(r => PROP_ORDER.map(p => num(r[p]))),
     machinability: mostCommonKnown(g.map(r => r.machinability)),
     weldability: mostCommonKnown(g.map(r => r.weldability)),
     corrosion_resistance: mostCommonKnown(g.map(r => r.corrosion_resistance)),
     meta: { row_count: g.length, subcategory_variants: variants, conditions },
   };
 });
-const am_vendor = nonCurated.filter(m => m.tier === 'am_vendor');
-const generic = nonCurated.filter(m => m.tier === 'generic');
+/* R173 — drop fake-variant rows (alloy × physically-impossible condition).
+ *  e.g., AISI 1020 × Aged / solution-treated (plain carbon → no PH).
+ *  Patterns enforced by isFakeVariant() with ASM Handbook Vol.1·2 source. */
+let fakeVariantDropped = 0;
+const fakeVariantNames = [];
+const nonCuratedFiltered = nonCurated.filter(m => {
+  const alloyN = baseName(m.name);
+  const cond = (m.heat_treatment || '');
+  if (isFakeVariant(alloyN, cond)) {
+    fakeVariantDropped++;
+    fakeVariantNames.push(`${alloyN} × ${cond}`);
+    return false;
+  }
+  return true;
+});
+if (fakeVariantDropped > 0) {
+  console.log(`R173 — Dropped ${fakeVariantDropped} fake-variant rows (alloy × impossible condition).`);
+  const distinct = Array.from(new Set(fakeVariantNames));
+  console.log(`        Distinct patterns (${distinct.length}): ${distinct.slice(0, 8).join(' | ')}${distinct.length > 8 ? ' …' : ''}`);
+}
+const am_vendor = nonCuratedFiltered.filter(m => m.tier === 'am_vendor');
+const generic = nonCuratedFiltered.filter(m => m.tier === 'generic');
+
+/* R173 (curated layer) — material_db.json (manual curated) 의 일부 entries 도 검증.
+ *   예: "H13 — Aged" 는 hot-work tool steel 의 manual entry — Aged 라벨 모호.
+ *   각 curated entry 의 entire material 단위로 isFakeVariant() 적용. */
+let curatedFakeDropped = 0;
+const curatedFakeDroppedNames = [];
+const curatedFiltered = curated.filter(m => {
+  const alloyN = baseName(m.name);
+  const cond = (m.heat_treatment || '');
+  if (isFakeVariant(alloyN, cond)) {
+    curatedFakeDroppedNames.push(`${alloyN} × ${cond}`);
+    curatedFakeDropped++;
+    return false;
+  }
+  return true;
+});
+if (curatedFakeDropped > 0) {
+  console.log(`R173 — Dropped ${curatedFakeDropped} fake-variant rows from curated layer.`);
+  console.log(`        ${Array.from(new Set(curatedFakeDroppedNames)).slice(0, 8).join(' | ')}`);
+}
+
+/* R173 — write full drop list to data/r173-fake-variant-drops.md for human review */
+{
+  const lines = ['# R173 — Dropped fake-variant entries (검토용)\n', `Total dropped: ${fakeVariantDropped + curatedFakeDropped} (${fakeVariantDropped} non-curated + ${curatedFakeDropped} curated)\n`, '## Non-curated drops (CSV / supplementary)\n', '|#|Alloy|Condition class|Pattern|', '|--|--|--|--|'];
+  const sorted = [...fakeVariantNames].sort();
+  sorted.forEach((entry, i) => {
+    const [alloy, cond] = entry.split(' × ');
+    const n = (alloy || '').toLowerCase();
+    let pattern = '?';
+    if (/^(aisi |sae )?1[01][0-9]{2}\b/.test(n) || /^a36\b/.test(n)) pattern = 'P1: plain carbon × Aged';
+    else if (/\b(aisi |sae )?(41[046]|42[02]|431|44[024]|446)\b/.test(n)) pattern = 'P6: martensitic SS × Aged';
+    else if (/\b(aisi |sae )?4(05|0[3-6]|09|30|34|36|39|41|42|44|46)\b/.test(n) || /\b18cr|sus430|stavax/.test(n)) pattern = 'P2: ferritic SS × Aged/Q+T';
+    else if (/\b(aisi |sae )?3(0[14]|1[0-6]|21|47)l?\b/.test(n) || /sus3(0[14]|1[0-6])l?\b/.test(n)) pattern = 'P3/P5: austenitic SS × Q+T/Aged';
+    else if (/^aa[\s-]?(1[0-9]{3}|3[0-9]{3}|5[0-9]{3})\b/.test(n)) pattern = 'P4: non-HT Al × Aged/Q+T';
+    else if (/\b(aisi |sae )?(41[3457]0|43[124]0|46[02]0|47[125]0|48[12]0|51[14-6]0|52100|61[125-7]0|81[2-6]0|86[12-9]0|87[24]0|92[567]0|93[12-9]0)\b/.test(n) || /\bscm4(?:1[035]|20|3[05]|40|45)\b|\bsncm/.test(n)) pattern = 'P7: alloy steel × Aged';
+    else if (/^(?:monel\s?400)|^inconel\s?60[01]\b|^hastelloy\s?(?:c-?276|x|b-?[234]|c-?22|c-?2000)\b|^incoloy\s?(?:800h?t?|825)\b|^haynes\s?(?:230|556|625)\b/.test(n)) pattern = 'P8: solid-sol Ni × Aged';
+    else if (/^c706?00\b|^c715?00\b|^cuni\s?(?:10|30)/.test(n)) pattern = 'P9: cupronickel × Aged';
+    else if (/^(?:tool steel )?(?:h1[13]|d[23]|a2|o1|s7|m[24]|w1|cpm[\s-]?(?:3v|s30v|s35vn|s90v))\b/.test(n) || /^skd(?:1[12]|61)\b/.test(n)) pattern = 'P10: tool steel × Aged';
+    else if (/^ti\s?grade\s?[1234]\b|^ticpgr[1234]\b|^cp-?ti/.test(n)) pattern = 'P11: CP-Ti × Aged';
+    lines.push(`|${i + 1}|${alloy}|${cond}|${pattern}|`);
+  });
+  if (curatedFakeDroppedNames.length) {
+    lines.push('\n## Curated layer drops (material_db.json)\n', '|#|Alloy|Condition|', '|--|--|--|');
+    curatedFakeDroppedNames.forEach((entry, i) => {
+      const [alloy, cond] = entry.split(' × ');
+      lines.push(`|${i + 1}|${alloy}|${cond}|`);
+    });
+  }
+  lines.push('\n## Pattern reference (classification.mjs)\n');
+  lines.push('- **P1** Plain carbon (10xx/11xx) × Aged — ASM Vol.1: low-C steel 은 PH 불가');
+  lines.push('- **P2** Ferritic SS (4xx single-phase α) × Aged/Q+T — austenite 없음 → martensite 없음, PH 없음');
+  lines.push('- **P3** Austenitic SS (304/316/321/347) × Q+T — Ms ≈ -100°C, RT quench 으로 martensite 형성 X');
+  lines.push('- **P4** Non-HT Al (1xxx/3xxx/5xxx) × Aged/Q+T — solid-solution, only O/Hxx temper');
+  lines.push('- **P5** Austenitic SS × Aged — 18-8 austenitic no precipitation phase (사용자 직접 지적)');
+  lines.push('- **P6** Martensitic SS (410/420/440) × Aged — Q+T 만 valid');
+  lines.push('- **P7** Alloy steel (41xx/43xx/51xx/61xx/86xx/87xx Cr-Mo) × Aged — solid-solution 강화');
+  lines.push('- **P8** Solid-solution Ni (Monel 400/Inconel 600/Hastelloy C-276/X) × Aged — γ\'/γ\'\' 없음');
+  lines.push('- **P9** Cupronickel (C70600/C71500) × Aged — solid-solution Cu-Ni');
+  lines.push('- **P10** Tool steel (H13/D2/A2/CPM) × Aged 단독 — Hardened-tempered 가 정상');
+  lines.push('- **P11** CP-Ti Grade 1-4 × Aged — single-phase α, no β transformation');
+  fs.writeFileSync(path.join(DATA, 'r173-fake-variant-drops.md'), lines.join('\n') + '\n');
+}
 
 // supplementary reference materials (web/handbook-verified ranges) — broadens coverage
 const supRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'supplementary-materials.json'), 'utf8')).materials) || [];
@@ -1836,7 +1871,9 @@ function loadPolymersAsMaterials() {
         id: 'POL_' + String(i).padStart(3, '0'),
         name: p.name, category: 'Polymer', subcategory: p.subcategory || 'Polymer - Other', tier: 'reference',
         manufacturers: ['Reference data'], machines: [], processes: ['Injection Molding'],
-        heat_treatment: null, ranges, composition: {},
+        heat_treatment: null, ranges,
+        /* R159 — composition derived from monomer formula in polymers-data.json. */
+        composition: p.composition || {},
         sources,
         machinability: null, weldability: null, corrosion_resistance: null,
         meta: { polymer: true, tg: p.tg, tm: p.tm, hdt_182: p.hdt_182, moisture_24h: p.moisture_24h,
@@ -1848,7 +1885,7 @@ function loadPolymersAsMaterials() {
   } catch (err) { console.error('Polymer load failed:', err.message); return []; }
 }
 const polymers_extra = loadPolymersAsMaterials();
-const all = [...curated, ...am_vendor, ...generic, ...supplementary, ...ceramics, ...composites, ...polymers_extra];
+const all = [...curatedFiltered, ...am_vendor, ...generic, ...supplementary, ...ceramics, ...composites, ...polymers_extra];
 
 // ───────── Sprint 4 C2 — Fracture toughness (KIC) family-typical fallback ─────────
 // 현재 covered 39/1038 (3.8%) — fracture-critical alloy 선정 정밀화 위해 family typical 채움.
@@ -3429,391 +3466,15 @@ function machiningCostFactor(m) {
   return 1.0;
 }
 
-// F4 열처리/후공정 비용 가중치 — heat_treatment 있으면 + HIP/coating + 합금 분류.
-function htCostFactor(m) {
-  const ht = String(m.heat_treatment || '').toLowerCase();
-  const n = String(m.name || '').toLowerCase();
-  if (!ht && !/heat.?treated|aged|tempered|hipped/i.test(n)) return 1.0;
-  let f = 1.15; // 기본 열처리 사이클
-  if (/hip|hot.?isostatic/i.test(ht + ' ' + n)) f += 0.5;
-  if (/solution|aged|aging|시효/i.test(ht)) f += 0.15;
-  if (/nitrid|carburiz|cementation|침탄|질화/i.test(ht)) f += 0.3;
-  if (/coating|coated|dlc|tin|cvd|pvd/i.test(ht + ' ' + n)) f += 0.25;
-  // 다단 사이클 — '1차/2차' 또는 콤마/+ 다수 → 비용↑
-  const cycleCount = (ht.match(/[,+→]|2차|1차/g) || []).length;
-  if (cycleCount >= 2) f += 0.15;
-  return +f.toFixed(2);
-}
-
-/* R116 — Condition-aware price multiplier. heat_treatment / condition string 기반.
-   같은 grade 라도 As-supplied vs Annealed vs Q+T vs STA vs HIP 별로 가격 차이.
-   raw material price 자체에는 영향 X — 별도 delivered_price 계산에 사용.
-   1.00 = no extra processing · 0.95 = pre-anneal (slight discount) · 1.05-1.50 = various HT */
-function priceConditionFactor(m) {
-  const ht = String(m.heat_treatment || '').toLowerCase();
-  const cond = String(m.condition || '').toLowerCase();
-  const n = String(m.name || '').toLowerCase();
-  const all = ht + ' ' + cond + ' ' + n;
-  let f = 1.0;
-  // As-supplied / As-rolled / Mill-finish → 기본 (raw price 그대로)
-  if (/as.?supplied|as.?rolled|as.?cast|mill.?finish|as.?received/.test(all)) return 1.00;
-  // Annealed — 보통 mill 에서 함, 거의 추가 비용 없음
-  if (/^o\b|^annealed|annealed\b|softened/.test(all)) f = 1.02;
-  // Normalized — 더 큰 anneal 사이클
-  if (/normaliz/.test(all)) f = 1.05;
-  // Cold-worked (1/4H, 1/2H, H, EH) — extra cold rolling pass
-  if (/\b1\/4h\b|\b1\/2h\b|\bfull.?hard\b|cold.?work|strain.?harden|cold.?drawn|cold.?rolled/.test(all)) f = Math.max(f, 1.08);
-  if (/\beh\b|extra.?hard|spring.?temper/.test(all)) f = Math.max(f, 1.15);
-  // Q+T — 표준 quench + temper
-  if (/q\+t|quench.*temper|tempered|martensitic.?temper|hardened.*tempered/.test(all)) f = Math.max(f, 1.18);
-  // Solution + Aged — PH stainless / Ni 합금
-  if (/solution|aged|aging|시효|sta\b|h900|h925|h1025|h1075|h1100|h1150|t6\b|t651|t73|t76/.test(all)) f = Math.max(f, 1.25);
-  // Multi-step (STA + double aging, 718 standard 사이클)
-  if (/double.?age|sta.*age|sta.*solution|two.?step.*age|718.*sta/.test(all)) f = Math.max(f, 1.40);
-  // HIP — hot isostatic pressing, vacuum + high temp
-  if (/hip|hot.?isostatic/.test(all)) f = Math.max(f, 1.60);
-  // Carburizing / Nitriding — case hardening
-  if (/carburiz|nitrid|cementation|침탄|질화/.test(all)) f = Math.max(f, 1.30);
-  // Coating (TBC, MCrAlY, DLC, PVD/CVD)
-  if (/tbc\b|mcraly|aluminide|diffusion.?coating|dlc|tin\b|tialn|cvd|pvd/.test(all)) f = Math.max(f, 1.50);
-  // Multi-cycle indicator
-  const cycleCount = (all.match(/[,+→]|2차|1차/g) || []).length;
-  if (cycleCount >= 2) f += 0.05;
-  return +f.toFixed(3);
-}
-
-/* R116 — Form-factor (process) price multiplier. 같은 grade 라도 process 형태에 따라 가격 차이.
-   Cast: 1.0 (base), Wrought bar: 1.05, Rolled sheet: 1.10, Cold-drawn tube/wire: 1.20,
-   Forged: 1.15, Powder (AM): 2.0~3.5, Sintered (PM): 1.5 */
-function priceFormFactor(m) {
-  const proc = String(m.process || '').toLowerCase();
-  let f = 1.0;
-  if (/lpbf|slm|dmls/.test(proc)) f = 2.5;       // AM powder + atomization premium
-  else if (/ebm|electron.?beam/.test(proc)) f = 3.0;  // EBM Ti powder 더 비쌈
-  else if (/binder.?jet/.test(proc)) f = 2.2;
-  else if (/ded|directed.?energy|wire.?arc/.test(proc)) f = 2.0;
-  else if (/sintered|powder.?metal|\bpm\b/.test(proc)) f = 1.5;
-  else if (/investment|lost.?wax/.test(proc)) f = 1.20;  // 정밀 주조
-  else if (/die.?cast/.test(proc)) f = 1.05;
-  else if (/sand.?cast|gravity.?cast|cast\b/.test(proc)) f = 1.00;  // base
-  else if (/cold.?drawn|cold.?rolled|hard.?drawn/.test(proc)) f = 1.20;
-  else if (/forg|forge/.test(proc)) f = 1.15;
-  else if (/sheet.?metal|stamp/.test(proc)) f = 1.10;  // rolled sheet
-  else if (/rolled|hot.?rolled/.test(proc)) f = 1.08;
-  else if (/wrought|extrud/.test(proc)) f = 1.05;
-  else if (/injection|molded/.test(proc)) f = 1.0;
-  return +f.toFixed(3);
-}
+// R155 — htCostFactor, priceConditionFactor, priceFormFactor 는 scripts/lib/factors.mjs 로 이동.
+// 단위 테스트 가능 (tests/build-factors.test.ts) + R152a 류 silent bug 회귀 방지.
+// 본 file 의 import 문 (line ~18) 참조.
 
 /* R116 — Grade premium within family. 같은 family 내 grade 차이 (이미 ALLOY_SPECIFIC 의 195 entry 는 base price 가 정확).
    여기서는 CSV/generic entry 의 grade-수준 premium 만 추정. AISI/SAE 번호 기반.
    주의: 4-digit 매치는 AISI/SAE 명시 prefix 또는 합금명 시작 위치만 사용 (e.g. "1065°C" 같은 temperature 매치 회피). */
-function priceGradePremium(m) {
-  const n = String(m.name || '').toLowerCase();
-  // Steel — AISI/SAE 번호 (prefix 명시 또는 강 합금명 anchored)
-  const aisi = n.match(/\b(?:aisi|sae|astm)\s*([1-9])(0|1|2|4|5|6|8|9)(\d)(\d)\b/) || n.match(/^(?:\W*)([1-9])(0|1|2|4|5|6|8|9)(\d)(\d)\b/);
-  if (aisi) {
-    const series = aisi[1] + aisi[2];
-    const cPct = +(aisi[3] + aisi[4]) / 100;
-    if (/^41|^43|^86|^93/.test(series)) return +(1.0 + cPct * 0.10).toFixed(3); // Cr-Mo / Ni-Cr-Mo, C 함량 따라 ↑
-    if (/^10|^15/.test(series)) return +(0.95 + cPct * 0.05).toFixed(3); // carbon steel
-    if (/^51|^61/.test(series)) return +(1.0 + cPct * 0.08).toFixed(3); // Cr spring
-  }
-  // Aluminum — series 별
-  if (/\b7068|7075|7050|7175/.test(n)) return 1.10;  // high-strength aerospace
-  if (/\b2090|2195|2099|2050/.test(n)) return 1.30;  // Al-Li
-  if (/\b2024|2014|2219/.test(n)) return 1.05;       // 2xxx
-  if (/\bscalmalloy|sc-modified/.test(n)) return 2.0; // Sc 추가 매우 비쌈
-  // Ni superalloy — single crystal premium
-  if (/cmsx-?[12345]|rene n5|rene n6|pwa 1480|pwa 1484/.test(n)) return 4.0; // single crystal
-  if (/ds-?cast|directionally.?solidified|rene 80|in 738|in 939/.test(n)) return 2.0; // DS cast
-  return 1.0;
-}
+// R156 — priceGradePremium 은 scripts/lib/factors.mjs 로 이동.
 
-// R38c — 한국 산업 기준 인기도 (KS/JIS 표준 합금 우선, 자동차·조선·반도체·디스플레이·건설·가전).
-//        많이 쓰이고 흔할수록 높은 점수. AM process 합금은 상한 3 (R35a 유지).
-//
-// Tier 5 — 한국 산업 현장에서 학생·실무 모두 일상적으로 쓰는 흔한 합금/플라스틱.
-//   자동차(현대·기아·HD), 조선(HD현대·삼성중공업), 가전(LG·삼성), 건설(포스코·현대제철), 일반 기계.
-// Tier 4 — 자주 보이지만 가공·조달 까다로움 (PH stainless, Maraging, 항공 7xxx Al, AM 표준).
-// Tier 3 — 보통: 특수 application (의료 CoCr, 항공 7075, 듀플렉스 2205, 고성능 폴리머 PEEK).
-// Tier 2 — 특수/항공우주 (Inconel 738/939, Haynes 282, Hastelloy C, Cu-Cr-Zr, Nitinol, PEKK).
-// Tier 1 — 전문/희귀 (single-crystal SX, refractory composite, UHTC, PBI, AM 신소재).
-function popularityFor(m) {
-  const n = String(m.name || '').toLowerCase();
-  const has = (re) => re.test(n);
-  const cat = m.category;
-  let t = 1;
-
-  if (cat === 'Metal') {
-    // T5 — 한국 산업 표준
-    if (
-      has(/\bs45c\b|^1045\b|\b1045\b|c45\b/) ||
-      has(/\bscm440\b|\b4140\b|42crmo/) ||
-      has(/\bss400\b|\ba36\b|^st37/) ||
-      has(/\bsus304\b|\b304l?\b/) ||
-      has(/\bsus316\b|\b316l?\b/) ||
-      has(/aa\s*?6061|\b6061\b/) ||
-      has(/aa\s*?5052|\b5052\b/) ||
-      has(/\b1018\b|\b1020\b|^1010|aisi 10[12]0/) ||
-      has(/alsi10mg/) ||
-      has(/ti[\s-]?6al[\s-]?4v|ti-6-4|grade ?5\b|gr ?5\b/) ||
-      has(/inconel 718|in[\s-]?718/)
-    ) t = 5;
-    // T4 — 자주 사용
-    if (t < 5 && (
-      has(/\bsus430\b|\b430\b/) ||
-      has(/\bsus410\b|\b410\b|\bsus420\b|\b420\b/) ||
-      has(/17[\s-]?4 ?ph|\bsus630\b/) ||
-      has(/15[\s-]?5 ?ph/) ||
-      has(/\bsm45c\b|^1050|s50c\b/) ||
-      has(/aa\s*?7075|\b7075\b/) ||
-      has(/aa\s*?6063|\b6063\b/) ||
-      has(/aa\s*?5083|\b5083\b/) ||
-      has(/aa\s*?2024|\b2024\b/) ||
-      has(/\ba356\b|\baa357\b|alsi7mg/) ||
-      has(/\bh13\b|\bskd61\b/) ||
-      has(/\bp20\b/) ||
-      has(/\b4340\b|sncm/) ||
-      has(/\b8620\b/) ||
-      has(/\bsuj2\b|\b52100\b|\b100cr6\b/) ||
-      has(/inconel 625|in[\s-]?625/) ||
-      has(/maraging|18ni/) ||
-      has(/cocrmo|\bcocr\b|f75/) ||
-      has(/c10100|c11000|ofe.?copper/) ||
-      has(/c26000|brass/) ||
-      has(/cucr|c18\d{3}/) ||
-      has(/az31|az91|magnesium/) ||
-      has(/\binvar\b|invar 36|fe-?ni36/)
-    )) t = 4;
-    // T3 — 특수/고성능
-    if (t < 4 && (
-      has(/haynes 230/) ||
-      has(/hastelloy x|hastelloy c-?(22|276)/) ||
-      has(/inconel 6\d{2}/) ||
-      has(/a-?286|incoloy 901/) ||
-      has(/\b2205\b|duplex/) ||
-      has(/becu|beryllium copper|c17200/) ||
-      has(/bronze|c5\d{3}|c6\d{3}|c9\d{3}/) ||
-      has(/aa\s*?2014|\b2014\b/) ||
-      has(/aa\s*?7050|\b7050\b/) ||
-      has(/(ti\s*cp|ti grade ?[1-4]|ti gr ?[1-4])/) ||
-      has(/ti grade ?9|ti-?3al-?2\.?5v/) ||
-      has(/tool steel|d2|cpm|m2|s7/) ||
-      has(/cuni|c70600|c71500/)
-    )) t = 3;
-    // T2 — 항공우주·연구
-    if (t < 3 && (
-      has(/inconel 7(38|39|13|40|51)|inconel x-?750|in[\s-]?9\d{2}/) ||
-      has(/haynes (282|214|188|25)/) ||
-      has(/waspaloy|nimonic|rene 41|udimet/) ||
-      has(/cucr1zr|c18150|grcop/) ||
-      has(/tantal|niobium|c-?103|tzm/) ||
-      has(/superduplex|\b2507\b|254\s?smo|al-?6xn/) ||
-      has(/nitinol|niti\b/) ||
-      has(/ti[\s-]?6242|ti-?6242|ti-?17/) ||
-      has(/aermet 100|300m\b/) ||
-      has(/scalmalloy/)
-    )) t = 2;
-    // T1 (default) — 매우 특수
-    if (t < 2 && (
-      has(/cmsx|rene n5|pwa 1484|single[\s-]?crystal|cm247/) ||
-      has(/aheadd|al5x1|a205|a20x|cm55/) ||
-      has(/ti[\s-]?5[\s-]?8[\s-]?5|ti-5553|ta15/)
-    )) t = 1;
-    // R43 — subcategory level fallback. 이전 R38c 가 정수 3 / 2 로 단일화 → R43 에서
-    //        family 별 미세 차등으로 분포 자연화 (2.0 ~ 3.7 spread, 흔할수록 높음).
-    const sub = String(m.subcategory || '');
-    if (t === 1) {
-      // Stainless 계열 — 식기·반도체·의료 매우 흔함
-      if (/Stainless Steel - Austenitic/.test(sub)) t = 3.5;
-      else if (/Stainless Steel - Ferritic|Stainless Steel - Martensitic/.test(sub)) t = 3.3;
-      else if (/Stainless Steel - PH/.test(sub)) t = 3.0;
-      else if (/Stainless Steel - Duplex/.test(sub)) t = 2.7;
-      // Carbon Steel — 건설·조선·자동차 동력 전달
-      else if (/Carbon Steel/.test(sub)) t = 3.4;
-      else if (/Alloy Steel/.test(sub)) t = 3.2;
-      else if (/Tool Steel/.test(sub)) t = 2.9;
-      else if (/Cast Iron/.test(sub)) t = 3.3;
-      else if (/Maraging Steel/.test(sub)) t = 2.6;
-      // Aluminum 계열 — 자동차·가전·자전거·항공
-      else if (/Aluminum - Si Alloys|Aluminum - Pure/.test(sub)) t = 3.5;
-      else if (/Aluminum - Mg Alloys|Aluminum - Cu Alloys/.test(sub)) t = 3.3;
-      else if (/Aluminum - Mn Alloys|Aluminum - Cast/.test(sub)) t = 3.0;
-      else if (/^Aluminum/.test(sub)) t = 3.2;
-      // Titanium — 항공·의료 (덜 흔함)
-      else if (/Titanium - α\+β|Ti-6Al-4V/.test(sub)) t = 3.4;       // Ti-6-4 더 흔함
-      else if (/^Titanium/.test(sub)) t = 2.8;
-      // Copper 계열 — 전기·전자·배관
-      else if (/Copper Alloy - Pure|Copper Alloy - Brass/.test(sub)) t = 3.4;
-      else if (/Copper Alloy - Bronze/.test(sub)) t = 3.1;
-      else if (/Copper Alloy - Specialty|Copper Alloy - Cu-Ni/.test(sub)) t = 2.7;
-      else if (/^Copper Alloy/.test(sub)) t = 3.0;
-      // Magnesium — 노트북·드론 (자동차 일부)
-      else if (/Magnesium/.test(sub)) t = 2.5;
-      // Nickel Superalloy / Cobalt Alloy — 항공우주 위주
-      else if (/Nickel Superalloy - Inconel/.test(sub)) t = 2.4;
-      else if (/Nickel Superalloy - Hastelloy/.test(sub)) t = 2.2;
-      else if (/Nickel Superalloy/.test(sub)) t = 2.3;
-      else if (/Cobalt Alloy - Chrome/.test(sub)) t = 2.5;          // 의료
-      else if (/Cobalt Alloy/.test(sub)) t = 2.1;
-      // 특수 합금
-      else if (/Beryllium Alloy/.test(sub)) t = 2.4;                // 정밀 측정 (희소)
-      else if (/Shape Memory Alloy/.test(sub)) t = 2.3;
-      else if (/Controlled Expansion/.test(sub)) t = 2.5;            // Invar 분광기·MEMS
-      else if (/Refractory Metal/.test(sub)) t = 1.8;                // 우주·핵
-      else if (/Zinc Alloy/.test(sub)) t = 2.4;
-      else t = 1.5;                                                  // 진짜 fallback (rare alloy)
-    }
-  }
-
-  if (cat === 'Polymer') {
-    // T5 — 일상
-    if (
-      has(/\babs\b/) ||
-      has(/pa\s*?12|nylon 12|pa\s*?6\b|nylon 6\b|pa\s*?66|nylon 66/) ||
-      has(/polycarbonate|\bpc\b(?!-)|lexan/) ||
-      has(/\bpla\b/) ||
-      has(/\bpp\b|polypro/) ||
-      has(/\bpmma\b|acrylic|plexiglas/) ||
-      has(/\bpom\b|delrin|acetal/) ||
-      has(/\bpet\b/) ||
-      has(/petg/) ||
-      has(/\bpvc\b|polyvinyl/)
-    ) t = 5;
-    // T4 — 엔지니어링 표준
-    if (t < 5 && (
-      has(/\bpeek\b(?!-)/) ||
-      has(/ultem|pei\b/) ||
-      has(/pa\s*?11|nylon 11|rilsan/) ||
-      has(/asa\b/) ||
-      has(/\btpu\b|\btpe\b|elastollan/) ||
-      has(/\bhdpe\b|\bldpe\b|polyethylene/) ||
-      has(/silicone/) ||
-      has(/\bpbt\b|valox/)
-    )) t = 4;
-    // T3 — 고성능
-    if (t < 4 && (
-      has(/ppsu|radel/) ||
-      has(/\bpsu\b|udel/) ||
-      has(/\bpps\b|fortron/) ||
-      has(/ptfe|teflon/) ||
-      has(/pvdf|kynar/) ||
-      has(/etfe|tefzel/)
-    )) t = 3;
-    // T2 — 특수
-    if (t < 3 && (
-      has(/pekk|antero/) ||
-      has(/lcp\b|vectra|xydar/) ||
-      has(/\bpai\b|torlon/) ||
-      has(/polyimide|vespel|kapton/) ||
-      has(/uhmwpe/)
-    )) t = 2;
-    // T1 — 전문 (CF·BIO·PBI)
-    if (t < 2 && (
-      has(/-cf|carbon[\s-]?fiber/) ||
-      has(/onyx|pcl|pha\b/) ||
-      has(/pbi\b/)
-    )) t = 1;
-  }
-
-  if (cat === 'Ceramic') {
-    if (has(/tungsten carbide|wc-?co|^wc\b/)) t = 5;
-    else if (has(/glass|silica|quartz/)) t = 5;
-    else if (has(/alumina|al2o3|99.5%/)) t = 4;
-    else if (has(/zirconia|zro2|y-?tzp|ysz/)) t = 4;
-    else if (has(/silicon carbide|^sic|sic\b/)) t = 4;
-    else if (has(/pzt|piezoelectric|batio3|mlcc|dielectric/)) t = 4;
-    else if (has(/silicon nitride|si3n4/)) t = 3;
-    else if (has(/aluminum nitride|^aln|aln\b/)) t = 3;
-    else if (has(/macor|cordierite|steatite|porcelain|mullite/)) t = 3;
-    else if (has(/zrb2|hfb2|hfc|uhtc|ultra-?high/)) t = 1;
-    else if (has(/lab6/)) t = 1;
-    else t = 2;
-  }
-
-  if (cat === 'Composite') {
-    if (has(/glass.*epoxy|gfrp/)) t = 5;
-    else if (has(/wood/)) t = 5;
-    else if (has(/foam/)) t = 4;
-    else if (has(/carbon.*epoxy|cfrp/)) t = 4;
-    else if (has(/aramid|kevlar/)) t = 3;
-    else if (has(/uhmwpe|polyethylene/)) t = 3;
-    else if (has(/honeycomb|sandwich/)) t = 3;
-    else if (has(/mmc|metal-?matrix/)) t = 2;
-    else if (has(/cmc|ceramic-?matrix/)) t = 2;
-    else t = 3;
-  }
-  // R40a — 한국 산업 노출도 modifier (0 ~ 0.45) — base tier 안에서 세분화.
-  //   같은 tier 안에서도 한국 자동차·조선·반도체·사출 현장 노출도가 다름 → 소수 둘째자리 점수.
-  let mod = 0;
-  // Tier A 매우 흔함 (자동차 동력전달 · 조선 H형강 · 식기 · 사출 표준 · 일반 PC/ABS)
-  if (
-    has(/\bsus3(04|16)\b|\b3(04|16)l?\b/) ||                  // 식기·반도체·의료
-    has(/\baa\s?6061\b|\b6061\b/) ||                          // 자전거·드론·일반
-    has(/\bs45c\b|^1045\b|c45\b/) ||                          // 자동차 샤프트·기어
-    has(/\babs\b/) || has(/polycarbonate|\bpc\b(?!-)|lexan/)  // 사출 가전 표준
-  ) mod = 0.45;
-  // Tier B 자주 보이는 표준 (현장 알면 신뢰)
-  else if (
-    has(/\bsus4(30|10|20)\b|\b4(30|10|20)\b/) ||
-    has(/scm440|\b4140\b|42crmo/) ||
-    has(/\baa\s?5083\b|\b5083\b/) ||                          // LNG 조선
-    has(/alsi10mg/) ||                                        // LPBF 산업 표준
-    has(/inconel\s?718|in[\s-]?718/) ||
-    has(/pa\s?66|nylon\s?66/) ||
-    has(/\bss400\b|\ba36\b/) ||                               // 구조용 H형강
-    has(/\b1018\b|\b1020\b|aisi 10[12]0/) ||                  // 저탄소강 (가공 표준)
-    has(/\bsus630\b|17[\s-]?4\s?ph/) ||
-    has(/\bh13\b|skd61/) ||                                    // 자동차 단조 die
-    has(/\bsuj2\b|\b52100\b|\b100cr6\b/)                      // 베어링강
-  ) mod = 0.35;
-  // Tier C 보통 (지명도 있음)
-  else if (
-    has(/aa\s?5052|\b5052\b/) || has(/aa\s?7075|\b7075\b/) ||
-    has(/ti[\s-]?6al[\s-]?4v|grade\s?5|gr\s?5/) ||
-    has(/\bpla\b|petg/) || has(/\bpom\b|delrin|acetal/) ||
-    has(/\bpmma\b|acrylic/) || has(/\bpp\b|polypro/) ||
-    has(/cocrmo|\bcocr\b|f75/) || has(/inconel\s?625|in[\s-]?625/) ||
-    has(/maraging|18ni/) || has(/\b4340\b|sncm/) || has(/\b8620\b/) ||
-    has(/aa\s?6063|\b6063\b/)
-  ) mod = 0.25;
-  // Tier D 약간 흔함
-  else if (
-    has(/haynes\s?230/) || has(/hastelloy x/) ||
-    has(/invar|\bp20\b/) ||
-    has(/\bbrass\b|c26000|황동/) || has(/bronze/) ||
-    has(/\bpeek\b(?!-)/) || has(/ultem|pei\b/) ||
-    has(/\baa\s?2024\b|\b2024\b/) || has(/\b2205\b|duplex/) ||
-    has(/c10100|c11000|ofe.?copper/) ||
-    has(/\ba356\b|alsi7mg/)
-  ) mod = 0.15;
-  // 그 외 → mod 0 (base tier 그대로)
-
-  // R43 — condition (heat_treatment / name suffix) 기반 modifier (-0.10 ~ +0.10).
-  //        같은 alloy 의 condition 별 미세 차등 — 사용 상태에 가까울수록 높음.
-  const ht = String(m.heat_treatment || '').toLowerCase();
-  const nameRest = String(m.name || '').toLowerCase();
-  const haystack = ht + ' ' + nameRest;
-  let condMod = 0;
-  if (/q\+t|quench.*tempered|tempered\b|aged|peak[\s-]?ag|h900|h1025|h1075|sta\b|dsa\b/.test(haystack)) condMod = 0.07;
-  else if (/hip|isostatic/.test(haystack)) condMod = 0.04;
-  else if (/anneal|solution|mill annealed|beta annealed/.test(haystack)) condMod = 0;
-  else if (/cold[\s-]?worked|strain[\s-]?hardened|hardened\b/.test(haystack)) condMod = 0.03;
-  else if (/normaliz|stress[\s-]?reliev/.test(haystack)) condMod = -0.03;
-  else if (/as[\s-]?(built|cast|supplied|received|rolled|forged|extruded)/.test(haystack)) condMod = -0.08;
-
-  let score = t + mod + condMod;
-  // R35a — AM 공정 합금은 상한 3.0 (mod 포함). 검증 단계 신소재 — 산업 표준 대비 보수적 평가.
-  const proc = String(m.process || '');
-  const isAM = /LPBF|DMLS|SLM|EBM|Binder Jetting|DED|MJF|FDM|SLS/i.test(proc);
-  if (isAM && score > 3.0) score = 3.0;
-  // R42 — popularity 5 점 만점 cap.  R43 — 1 점 하한 + 5 점 상한 (slider [0,5] 호환).
-  if (score > 5) score = 5;
-  if (score < 1) score = 1;
-  // 소수 둘째자리 반올림.
-  return Math.round(score * 100) / 100;
-}
 
 // ───────── validation report ─────────
 const rawUnknownSrc = csvRows.filter(r => r.source === 'Unknown').length;
@@ -4011,9 +3672,19 @@ rep.push('## TODO', '- Hardness scale unification (HV/HRC/HB).', '- Reconcile fa
 let storyAttached = 0;
 try {
   const storiesFile = path.join(DATA, 'material-stories.json');
+  // R149 — material-stories-r149.json (popularity ≥ 4 missing 122 entry 의 65 base group 신규 story) 도 함께 merge.
+  const storiesR149File = path.join(DATA, 'material-stories-r149.json');
   if (fs.existsSync(storiesFile)) {
     const sj = JSON.parse(fs.readFileSync(storiesFile, 'utf8'));
-    const sMap = sj.stories || {};
+    const sMap = { ...(sj.stories || {}) };
+    // Merge R149 stories (later override existing only if collision)
+    if (fs.existsSync(storiesR149File)) {
+      const sj149 = JSON.parse(fs.readFileSync(storiesR149File, 'utf8'));
+      const sMap149 = sj149.stories || {};
+      for (const [k, v] of Object.entries(sMap149)) {
+        if (!sMap[k]) sMap[k] = v;
+      }
+    }
     const sortedKeys = Object.keys(sMap).sort((a, b) => b.length - a.length);
     const lowerKeys = sortedKeys.map((k) => ({ orig: k, lower: k.toLowerCase() }));
     const isBoundary = (ch) => ch === undefined || ch === ' ' || ch === '—' || ch === '-' || ch === '(' || ch === ',';
@@ -4116,6 +3787,255 @@ for (const m of all) {
 }
 console.log(`R133b — confidence_tier: high=${tierCounts.high}, medium=${tierCounts.medium}, medium-low=${tierCounts['medium-low']}, low=${tierCounts.low}`);
 
+// R146 — Cost data Q2 2026 verified backfill.
+//   data/cost-verified-q2-2026.json 의 24 alloy 의 시장 단가 → ranges.price_per_kg.confidence='measured' +
+//   provenance + meta.price_verified_date 부여. UI 에 "verified YYYY-MM" badge 표시.
+try {
+  const costRaw = JSON.parse(fs.readFileSync(path.join(DATA, 'cost-verified-q2-2026.json'), 'utf8'));
+  const costEntries = Object.entries(costRaw.prices || {});
+  let priceUpgraded = 0;
+  for (const [alloyKey, info] of costEntries) {
+    const sub = info.match_substring.toLowerCase();
+    // Apply to all material whose name contains the substring (e.g., '316l' → '316L — Annealed', 'as-built', etc.)
+    for (const m of all) {
+      if (!m.name || !m.name.toLowerCase().includes(sub)) continue;
+      if (!m.ranges) m.ranges = {};
+      const cur = m.ranges.price_per_kg || {};
+      m.ranges.price_per_kg = {
+        ...cur,
+        ...info.price_per_kg,
+        provenance: info.provenance,
+        n: Math.max(cur.n || 0, 1),
+      };
+      if (!m.meta) m.meta = {};
+      m.meta.price_verified_date = info.price_verified_date;
+      m.meta.price_verified_source = alloyKey;
+      priceUpgraded++;
+    }
+  }
+  console.log(`R146 — price verified backfill: ${priceUpgraded} material price entries upgraded (Q2 2026)`);
+} catch (e) {
+  console.warn('R146 cost backfill skipped:', e.message);
+}
+
+// R145+R150+R151 — Composite + Polymer measured value backfill (multi-round).
+//   R145: data/composite-polymer-measured-backfill.json — 8 composite + 8 polymer (16 entry)
+//   R150: data/composite-polymer-measured-backfill-r150.json — MMC/CMC/Foam/Honeycomb + elev-temp curve (12 entry)
+//   R151: data/polymer-elevtemp-backfill-r151.json — 13 high-temp polymer 의 elevated_temp 5-point curve
+//   confidence: handbook → measured (verified datasheet) 로 upgrade + 정확 composition 부여.
+//   match: name 의 처음 부분 (paren 이전) 으로 fuzzy match → ranges + composition + industry_note merge.
+try {
+  const backfillRaw = JSON.parse(fs.readFileSync(path.join(DATA, 'composite-polymer-measured-backfill.json'), 'utf8'));
+  /* R150 — second-round backfill (MMC + CMC + AFK + Pitch CFRP + elev-temp curves). */
+  let r150Raw = { composites: {}, polymers: {} };
+  try {
+    r150Raw = JSON.parse(fs.readFileSync(path.join(DATA, 'composite-polymer-measured-backfill-r150.json'), 'utf8'));
+  } catch { /* optional */ }
+  /* R151 — high-temp polymer elevated_temp curve backfill (13 entry). */
+  let r151Raw = { polymers: {} };
+  try {
+    r151Raw = JSON.parse(fs.readFileSync(path.join(DATA, 'polymer-elevtemp-backfill-r151.json'), 'utf8'));
+  } catch { /* optional */ }
+  const allBackfill = {
+    ...(backfillRaw.composites || {}),
+    ...(backfillRaw.polymers || {}),
+    ...(r150Raw.composites || {}),
+    ...(r150Raw.polymers || {}),
+    ...(r151Raw.polymers || {}),
+  };
+  let upgraded = 0;
+  for (const [bfName, bf] of Object.entries(allBackfill)) {
+    // Find best matching material — exact name first, then base-name match
+    let target = all.find(m => m.name === bfName);
+    if (!target) {
+      const bfBase = bfName.split(' (')[0].split(' — ')[0].toLowerCase().trim();
+      target = all.find(m => m.name && m.name.toLowerCase().startsWith(bfBase));
+    }
+    if (!target) continue;
+    // Merge composition (overwrite empty array/object)
+    if (bf.composition) {
+      const cur = target.composition;
+      const isEmpty = !cur ||
+        (Array.isArray(cur) && !cur.length) ||
+        (typeof cur === 'object' && !Array.isArray(cur) && !Object.keys(cur).length);
+      if (isEmpty) target.composition = bf.composition;
+    }
+    // Merge ranges (preserve existing measured, overwrite handbook/class)
+    if (bf.ranges) {
+      if (!target.ranges) target.ranges = {};
+      for (const [prop, range] of Object.entries(bf.ranges)) {
+        const cur = target.ranges[prop];
+        if (!cur || cur.confidence !== 'measured') {
+          target.ranges[prop] = { ...(cur || {}), ...range, n: Math.max(cur?.n || 0, 1) };
+        }
+      }
+    }
+    if (bf.industry_note && !target.industry_note) target.industry_note = bf.industry_note;
+    // R150 — elevated_temp curve merge (overwrite if backfill has 5+ points)
+    if (Array.isArray(bf.elevated_temp) && bf.elevated_temp.length >= 3) {
+      target.elevated_temp = bf.elevated_temp;
+    }
+    // Boost tier: reference handbook → curated for measured + verified
+    if (target.tier === 'reference' && bf.ranges && Object.values(bf.ranges).some(r => r.confidence === 'measured')) {
+      target.tier = 'am_vendor'; // 'am_vendor' tier = vendor-verified non-AM data 의 의미로 재사용
+    }
+    upgraded++;
+  }
+  console.log(`R145 — composite/polymer measured backfill: ${upgraded}/${Object.keys(allBackfill).length} entries upgraded`);
+} catch (e) {
+  console.warn('R145 backfill skipped:', e.message);
+}
+
+/* R173 Phase B — Handbook source / industry_note patch (비파괴적 후처리).
+ *   data/r173-handbook-sources.json 의 alloy-name regex 패턴 매칭 → 모든 matching entry 에
+ *   verified handbook sources merge + R173 industry_note prepend.
+ *   기존 entries (variants 포함) 보존 — 새 entry 추가하지 않음. CSV variant 흡수 방지.
+ */
+try {
+  const r173Raw = JSON.parse(fs.readFileSync(path.join(DATA, 'r173-handbook-sources.json'), 'utf8'));
+  const patches = r173Raw.patches || [];
+  let r173Touched = 0;
+  let r173SourcesAdded = 0;
+  let r173NotesAdded = 0;
+  const r173Hits = {};
+  for (const patch of patches) {
+    const rx = new RegExp(patch.pattern, 'i');
+    for (const m of all) {
+      if (!rx.test(m.name || '')) continue;
+      r173Touched++;
+      r173Hits[patch._alloy] = (r173Hits[patch._alloy] || 0) + 1;
+      // Merge sources — dedupe by URL (more robust than label)
+      if (Array.isArray(patch.sources) && patch.sources.length) {
+        if (!Array.isArray(m.sources)) m.sources = [];
+        const seenUrls = new Set(m.sources.map(s => (s && s.url) ? String(s.url).toLowerCase() : null).filter(Boolean));
+        for (const s of patch.sources) {
+          const url = s && s.url ? String(s.url).toLowerCase() : null;
+          if (url && !seenUrls.has(url)) {
+            m.sources.push(s);
+            seenUrls.add(url);
+            r173SourcesAdded++;
+          }
+        }
+      }
+      // Industry_note — prepend handbook note if not already applied (track via meta flag).
+      // UI 노출 텍스트에서는 "R173 — " 식별 prefix 제거하여 깨끗한 standard text 만 노출.
+      if (patch.industry_note) {
+        if (!m.meta) m.meta = {};
+        if (!m.meta._r173_note_applied) {
+          const cleaned = patch.industry_note.replace(/^R173\s*[—–-]\s*/, '');
+          const existing = String(m.industry_note || '').trim();
+          m.industry_note = existing
+            ? `${cleaned} || ${existing}`
+            : cleaned;
+          m.meta._r173_note_applied = true;
+          r173NotesAdded++;
+        }
+      }
+    }
+  }
+  console.log(`R173 Phase B — handbook patch: ${r173Touched} entries matched across ${patches.length} alloy patterns`);
+  console.log(`  sources added: ${r173SourcesAdded}, industry_notes added: ${r173NotesAdded}`);
+  for (const [alloy, count] of Object.entries(r173Hits).sort((a, b) => b[1] - a[1])) {
+    console.log(`    ${alloy}: ${count} entries`);
+  }
+} catch (e) {
+  console.warn('R173 Phase B handbook patch skipped:', e.message);
+}
+
+/* R173 Phase B — Range overrides for entries with verified handbook errors.
+ *   data/r173-range-overrides.json 의 exact-name 매칭 시 ranges 의 typical/min/max 를 정정값으로 교체.
+ *   (sources 와 다르게 정확한 entry name 매칭만 — accidental over-replacement 방지)
+ */
+try {
+  const r173RangesRaw = JSON.parse(fs.readFileSync(path.join(DATA, 'r173-range-overrides.json'), 'utf8'));
+  const overrides = r173RangesRaw.overrides || [];
+  let r173RangesApplied = 0;
+  let r173PropsOverridden = 0;
+  let r173CompositionOverridden = 0;
+  for (const ov of overrides) {
+    const target = all.find(m => m.name === ov.name);
+    if (!target) {
+      console.warn(`  ⚠ R173 range override target not found: ${ov.name}`);
+      continue;
+    }
+    if (!target.ranges) target.ranges = {};
+    for (const [prop, newRange] of Object.entries(ov.ranges || {})) {
+      target.ranges[prop] = { ...(target.ranges[prop] || {}), ...newRange };
+      r173PropsOverridden++;
+    }
+    // R173 — composition override 도 지원 (예: AISI 4340/4130 의 Al 97.5% 오류)
+    if (ov.composition) {
+      target.composition = ov.composition;
+      r173CompositionOverridden++;
+    }
+    r173RangesApplied++;
+  }
+  console.log(`R173 Phase B — range overrides: ${r173RangesApplied}/${overrides.length} entries overridden, ${r173PropsOverridden} properties + ${r173CompositionOverridden} compositions corrected`);
+} catch (e) {
+  console.warn('R173 Phase B range overrides skipped:', e.message);
+}
+
+/* R173 Phase B — Name overrides (표기 중복 정리).
+ *   data/r173-name-overrides.json 의 from→to 매핑으로 entry name 정규화.
+ *   ID 는 변경 X (deeplink 보존). aliases 는 build pipeline 후속 단계에서 재생성. */
+try {
+  const r173NamesRaw = JSON.parse(fs.readFileSync(path.join(DATA, 'r173-name-overrides.json'), 'utf8'));
+  const nameOvers = r173NamesRaw.overrides || [];
+  let nameRenamed = 0;
+  const notFound = [];
+  for (const ov of nameOvers) {
+    const target = all.find(m => m.name === ov.from);
+    if (!target) { notFound.push(ov.from); continue; }
+    target.name = ov.to;
+    nameRenamed++;
+  }
+  console.log(`R173 Phase B — name overrides: ${nameRenamed}/${nameOvers.length} entries renamed`);
+  if (notFound.length) for (const n of notFound) console.warn(`  ⚠ name override target not found: ${n.slice(0, 60)}`);
+} catch (e) {
+  console.warn('R173 Phase B name overrides skipped:', e.message);
+}
+
+// R144c — Spec extractor (AMS / ASTM / ASME / DNV / EN / DIN / JIS / MIL / UNS / API / NACE).
+//   name + heat_treatment + sources.label 에서 spec 번호 추출 → meta.specs[]
+//   (TS lib 의 미러본 — script 는 TS 를 import 못함, 패턴 단순화)
+const SPEC_PATTERNS = [
+  { rx: /\bAMS\s?(\d{3,5}[A-Z]?)\b/gi, org: 'AMS' },
+  { rx: /\bASTM\s?([A-Z]\s?\d{1,4}(?:\/?M)?[A-Z]?(?:[-\s]\d{2,4})?)\b/gi, org: 'ASTM' },
+  { rx: /\bASME\s?((?:SA[-\s]?)?[A-Z]?\d{1,3}(?:\.\d{1,2})?)\b/gi, org: 'ASME' },
+  { rx: /\bDNV(?:GL)?[-\s]?([A-Z]{2,4}[-\s]?[A-Z0-9]+(?:[-\s]?\d{0,4})?)\b/gi, org: 'DNV' },
+  { rx: /\bEN\s?(\d{4,6}(?:[-\s]?\d{1,3})?)\b/gi, org: 'EN' },
+  { rx: /\bEN\s?(\d\.\d{3,4})\b/gi, org: 'EN' },
+  { rx: /\bDIN\s?(\d{1,2}\.\d{3,4})\b/gi, org: 'DIN' },
+  { rx: /\bDIN\s?(\d{3,7})\b/gi, org: 'DIN' },
+  { rx: /\bJIS\s?([A-Z]\s?\d{4})\b/gi, org: 'JIS' },
+  { rx: /\bMIL[-\s]?([A-Z]+[-\s]?\d{3,5}[A-Z]?)\b/gi, org: 'MIL' },
+  { rx: /\bUNS\s?([A-Z]\d{5})\b/gi, org: 'UNS' },
+  { rx: /\bAPI\s?(\d{1,2}[A-Z]{1,3})\b/gi, org: 'API' },
+  { rx: /\bNACE\s?(MR\s?\d{4})\b/gi, org: 'NACE' },
+];
+let withSpec = 0, totalSpecs = 0;
+for (const m of all) {
+  const haystack = [m.name || '', m.heat_treatment || '', ...(m.sources || []).map(s => s?.label || '')].join(' \n ');
+  const seen = new Set();
+  const specs = [];
+  for (const { rx, org } of SPEC_PATTERNS) {
+    rx.lastIndex = 0;
+    let mm;
+    while ((mm = rx.exec(haystack))) {
+      const idPart = mm[1].replace(/\s+/g, ' ').trim().toUpperCase();
+      const id = `${org} ${idPart}`;
+      if (!seen.has(id)) { seen.add(id); specs.push({ id, org }); }
+    }
+  }
+  if (specs.length) {
+    if (!m.meta) m.meta = {};
+    m.meta.specs = specs;
+    withSpec++;
+    totalSpecs += specs.length;
+  }
+}
+console.log(`R144c — specs: ${withSpec}/${all.length} materials matched, ${totalSpecs} total spec refs`);
+
 const liveJson = path.join(ROOT, 'client', 'public', 'materials.json');
 const backup = path.join(DATA, 'materials.original.json');
 if (fs.existsSync(liveJson) && !fs.existsSync(backup)) fs.copyFileSync(liveJson, backup); // preserve original 2902-row dataset once
@@ -4123,6 +4043,64 @@ const outJson = JSON.stringify(all, null, 2);
 fs.writeFileSync(path.join(DATA, 'materials.preview.json'), outJson);
 fs.writeFileSync(liveJson, outJson);
 fs.writeFileSync(path.join(DATA, 'validation-report.md'), rep.join('\n'));
+
+/* R154 — JSON 카테고리별 분할 + slim index.
+   목적: 첫 페인트 단축. 1247 entry × full = 8.15 MB → index (slim) ~500 KB + category 별 분할.
+   - materials/index.json: 모든 entry 의 slim 필드 (id/name/category/subcategory/popularity/tier
+     + ranges 의 핵심 6 property (density, σy, UTS, modulus, T_max, price) + families/aliases).
+     Ashby preview · 검색 · filter 사이드바 · category 분포 즉시 가능.
+   - materials/{metal,polymer,ceramic,composite}.json: 각 카테고리의 full Material 리스트.
+   - materials.json (legacy) 도 그대로 유지 → 기존 deeplink + tooling 깨지지 않음. */
+// R154 — slim index 의 ranges 는 number-only (typical 만). min/max/provenance/confidence 는 full 에만.
+// 이렇게 해도 검색·filter slider·Ashby preview 모두 동작. 첫 페인트 우선.
+const SLIM_PROPS = ['density', 'yield_strength', 'uts', 'modulus', 'max_service_temp', 'price_per_kg'];
+const slimEntries = all.map(m => {
+  const slim = {
+    id: m.id,
+    name: m.name,
+    category: m.category,
+    subcategory: m.subcategory,
+    popularity: m.popularity,
+    tier: m.tier,
+    confidence_tier: m.confidence_tier,
+  };
+  if (m.aliases?.length) slim.aliases = m.aliases;
+  if (m.families?.length) slim.families = m.families;
+  if (m.manufacturer) slim.manufacturer = m.manufacturer;
+  if (m.process) slim.process = m.process;
+  // ranges 는 호환 형태 ({ typical } 만 유지). consumer 의 m.ranges?.X?.typical 접근 그대로 동작.
+  // min/max/provenance/confidence 는 full 에만 있음 → consumer 는 ?? fallback 으로 graceful.
+  if (m.ranges) {
+    const slimRanges = {};
+    for (const p of SLIM_PROPS) {
+      const r = m.ranges[p];
+      if (r) {
+        const v = r.typical ?? r.min ?? r.max ?? null;
+        if (typeof v === 'number' && isFinite(v)) {
+          slimRanges[p] = { typical: v, n: r.n || 1 };
+        }
+      }
+    }
+    if (Object.keys(slimRanges).length) slim.ranges = slimRanges;
+  }
+  return slim;
+});
+const matsDir = path.join(ROOT, 'client', 'public', 'materials');
+if (!fs.existsSync(matsDir)) fs.mkdirSync(matsDir, { recursive: true });
+fs.writeFileSync(path.join(matsDir, 'index.json'), JSON.stringify(slimEntries));
+const categoryFiles = {};
+for (const cat of ['Metal', 'Polymer', 'Ceramic', 'Composite']) {
+  const subset = all.filter(m => m.category === cat);
+  const filename = cat.toLowerCase() + '.json';
+  fs.writeFileSync(path.join(matsDir, filename), JSON.stringify(subset));
+  categoryFiles[cat] = { filename, count: subset.length, bytes: fs.statSync(path.join(matsDir, filename)).size };
+}
+const indexBytes = fs.statSync(path.join(matsDir, 'index.json')).size;
+const liveBytes = fs.statSync(liveJson).size;
+console.log(`R154 — JSON 분할: index ${(indexBytes/1024).toFixed(0)} KB (slim, ${all.length} entries) · materials.json ${(liveBytes/1024/1024).toFixed(2)} MB (legacy compat)`);
+for (const [cat, info] of Object.entries(categoryFiles)) {
+  console.log(`         ${cat.padEnd(10)} → ${info.filename.padEnd(15)} ${info.count.toString().padStart(4)} entries · ${(info.bytes/1024/1024).toFixed(2)} MB`);
+}
 
 // R69 A — build metadata (앱이 fetch 해 detail / footer 에 표시).
 const buildMeta = {

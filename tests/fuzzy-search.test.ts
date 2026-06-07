@@ -1,23 +1,9 @@
 /*
  * R71 Sprint E — fuzzyContains subsequence + separator-strip matcher.
- * Sprint 2 A3 의 핵심 알고리즘 — 모듈 내부라 동등한 구현으로 검증.
+ * R157b — function extracted to lib/fuzzy-search.ts → 직접 import 검증.
  */
 import { describe, it, expect } from 'vitest';
-
-function fuzzyContains(text: string, q: string): boolean {
-  if (!text) return false;
-  if (text.includes(q)) return true;
-  if (q.length < 2) return false;
-  const cleanText = text.replace(/[-\s./_]/g, '');
-  const cleanQ = q.replace(/[-\s./_]/g, '');
-  if (cleanQ.length >= 2 && cleanText.includes(cleanQ)) return true;
-  if (cleanQ.length < 3) return false;
-  let i = 0;
-  for (let j = 0; j < cleanText.length && i < cleanQ.length; j++) {
-    if (cleanText[j] === cleanQ[i]) i++;
-  }
-  return i === cleanQ.length;
-}
+import { fuzzyContains } from '../client/src/lib/fuzzy-search';
 
 describe('fuzzyContains (Sprint 2 A3)', () => {
   it('exact substring matches', () => {

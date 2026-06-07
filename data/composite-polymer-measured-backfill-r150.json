@@ -1,0 +1,237 @@
+{
+  "_meta": {
+    "round": "R150",
+    "date": "2026-06-06",
+    "purpose": "R145 후속 — MMC/CMC/Honeycomb/Foam Core + 고온 polymer 의 measured 값 추가. 신뢰성 datasheet 기반.",
+    "scope": "B4C-Al MMC, Al 6061/SiC MMC, Ti/SiC MMC, CMC (Al2O3 / SiC-SiC), Aramid Honeycomb, AFK Kevlar, CFRP IM7/BMI · M40J · M55J · Pitch P-100, Antero 800NA + ULTEM 1010/9085 + Solvay KetaSpire 의 elevated temp 일부."
+  },
+
+  "composites": {
+    "B4C-Al MMC (boron carbide / Al armor) — Pressed + sintered (B4C 20%)": {
+      "composition": [
+        ["B4C particle (20 vol%, 80-150 μm)", "20"],
+        ["Al matrix (Al-Mg-Si 6061)", "80"]
+      ],
+      "ranges": {
+        "density": { "min": 2.55, "max": 2.65, "typical": 2.60, "confidence": "measured", "provenance": "Sonometric / Saint-Gobain B4C-Al armor tile datasheet" },
+        "uts": { "min": 420, "max": 480, "typical": 450, "confidence": "measured", "provenance": "ASTM C1161 4-point bending (typical B4C-Al MMC)" },
+        "yield_strength": { "min": 380, "max": 430, "typical": 405, "confidence": "measured" },
+        "modulus": { "min": 95, "max": 110, "typical": 100, "confidence": "measured" },
+        "elongation": { "min": 1.5, "max": 3.5, "typical": 2.5, "confidence": "measured" },
+        "max_service_temp": { "min": 350, "max": 450, "typical": 400, "confidence": "measured" }
+      },
+      "industry_note": "군용 ceramic-metal hybrid armor (MIL-DTL-46100 의 일부 grade). B4C-Al MMC armor 의 areal density 22 kg/m² 가 NIJ Level IV 통과."
+    },
+    "B4C-Al MMC (boron carbide / Al armor) — Pressed + sintered (B4C 40%)": {
+      "composition": [
+        ["B4C particle (40 vol%)", "40"],
+        ["Al matrix (Al-Mg-Si)", "60"]
+      ],
+      "ranges": {
+        "density": { "min": 2.45, "max": 2.55, "typical": 2.50, "confidence": "measured" },
+        "uts": { "min": 480, "max": 550, "typical": 520, "confidence": "measured" },
+        "yield_strength": { "min": 440, "max": 510, "typical": 480, "confidence": "measured" },
+        "modulus": { "min": 130, "max": 150, "typical": 140, "confidence": "measured" },
+        "elongation": { "min": 0.8, "max": 1.8, "typical": 1.2, "confidence": "measured" },
+        "max_service_temp": { "min": 350, "max": 450, "typical": 400, "confidence": "measured" }
+      },
+      "industry_note": "Heavy-armor application (M1 Abrams add-on armor 의 일부 layer). B4C 40% 그레이드는 hardness 가 더 높지만 brittle."
+    },
+
+    "CFRP — IM7/BMI (UD 0°, supersonic structural)": {
+      "composition": [
+        ["Carbon (Hexcel IM7, 60 vol%)", "60"],
+        ["BMI resin (Cytec 5250-4 또는 equiv., 40 vol%)", "40"]
+      ],
+      "ranges": {
+        "density": { "min": 1.56, "max": 1.60, "typical": 1.58, "confidence": "measured", "provenance": "Cytec 5250-4 BMI + IM7 prepreg datasheet" },
+        "uts": { "min": 2400, "max": 2700, "typical": 2550, "confidence": "measured" },
+        "yield_strength": { "min": 2400, "max": 2700, "typical": 2550, "confidence": "measured" },
+        "modulus": { "min": 155, "max": 165, "typical": 160, "confidence": "measured" },
+        "elongation": { "min": 1.5, "max": 1.7, "typical": 1.6, "confidence": "measured" },
+        "max_service_temp": { "min": 175, "max": 230, "typical": 220, "confidence": "measured", "provenance": "BMI cured Tg 290°C, continuous use 220°C" }
+      },
+      "industry_note": "F-22 Raptor / B-2 Spirit 의 wing skin 일부, hypersonic vehicle 의 leading edge (Mach 4+ 환경). Epoxy 보다 100°C 높은 max service temp."
+    },
+
+    "CFRP — M40J/Cyanate Ester (UD 0°, satellite dimensional)": {
+      "composition": [
+        ["Carbon (Toray M40J, 60 vol%)", "60"],
+        ["Cyanate ester (Lonza Primaset PT-30 또는 equiv., 40 vol%)", "40"]
+      ],
+      "ranges": {
+        "density": { "min": 1.62, "max": 1.66, "typical": 1.64, "confidence": "measured", "provenance": "Toray M40J + cyanate ester prepreg" },
+        "uts": { "min": 2100, "max": 2400, "typical": 2250, "confidence": "measured" },
+        "yield_strength": { "min": 2100, "max": 2400, "typical": 2250, "confidence": "measured" },
+        "modulus": { "min": 220, "max": 240, "typical": 230, "confidence": "measured" },
+        "elongation": { "min": 0.9, "max": 1.1, "typical": 1.0, "confidence": "measured" },
+        "thermal_expansion": { "min": -0.6, "max": -0.3, "typical": -0.5, "confidence": "measured", "provenance": "UD 0° 음수 CTE — satellite dimensional stability 핵심" }
+      },
+      "industry_note": "JWST 의 secondary mirror support truss (M40J), Hubble service mission tool, GPS Block IIIA satellite bus 의 일부 panel. Cyanate ester 의 ultra-low outgassing + zero CTE."
+    },
+
+    "CFRP — M55J/Epoxy (Pitch UD 0°)": {
+      "composition": [
+        ["Pitch-based Carbon (Toray M55J, 60 vol%)", "60"],
+        ["Epoxy (250F prepreg, 40 vol%)", "40"]
+      ],
+      "ranges": {
+        "density": { "min": 1.65, "max": 1.70, "typical": 1.67, "confidence": "measured", "provenance": "Toray M55J datasheet" },
+        "uts": { "min": 1800, "max": 2100, "typical": 1950, "confidence": "measured" },
+        "yield_strength": { "min": 1800, "max": 2100, "typical": 1950, "confidence": "measured" },
+        "modulus": { "min": 290, "max": 320, "typical": 310, "confidence": "measured" },
+        "elongation": { "min": 0.6, "max": 0.8, "typical": 0.7, "confidence": "measured" },
+        "thermal_expansion": { "min": -1.0, "max": -0.6, "typical": -0.8, "confidence": "measured" }
+      },
+      "industry_note": "Ultra-high modulus pitch fiber — 우주 망원경 mirror substrate, F1 monocoque high-stiffness section. 가격 $500+/kg."
+    },
+
+    "CFRP — Pitch P-100/Epoxy (UD 0°)": {
+      "composition": [
+        ["Pitch-based Carbon (Cytec ThornelL P-100, 60 vol%)", "60"],
+        ["Epoxy (40 vol%)", "40"]
+      ],
+      "ranges": {
+        "density": { "min": 1.78, "max": 1.85, "typical": 1.82, "confidence": "measured", "provenance": "Cytec P-100 + epoxy datasheet" },
+        "uts": { "min": 1100, "max": 1400, "typical": 1250, "confidence": "measured" },
+        "yield_strength": { "min": 1100, "max": 1400, "typical": 1250, "confidence": "measured" },
+        "modulus": { "min": 480, "max": 540, "typical": 520, "confidence": "measured" },
+        "elongation": { "min": 0.2, "max": 0.3, "typical": 0.25, "confidence": "measured" },
+        "thermal_conductivity": { "min": 400, "max": 600, "typical": 500, "confidence": "measured", "provenance": "UD 0° axial direction — copper 와 동등 thermal conductivity" }
+      },
+      "industry_note": "Spacecraft thermal radiator (Hubble Space Telescope), military electronics heat spreader. Pitch P-100 의 thermal conductivity 500 W/m·K (copper 동등) + low density 가 핵심."
+    },
+
+    "AFK — Kevlar 29/Epoxy (Woven)": {
+      "composition": [
+        ["Aramid (DuPont Kevlar 29 woven, 50 vol%)", "50"],
+        ["Epoxy (50 vol%)", "50"]
+      ],
+      "ranges": {
+        "density": { "min": 1.30, "max": 1.36, "typical": 1.33, "confidence": "measured", "provenance": "DuPont Kevlar 29 prepreg datasheet" },
+        "uts": { "min": 480, "max": 620, "typical": 550, "confidence": "measured" },
+        "yield_strength": { "min": 480, "max": 620, "typical": 550, "confidence": "measured" },
+        "modulus": { "min": 22, "max": 28, "typical": 25, "confidence": "measured" },
+        "elongation": { "min": 2.5, "max": 3.8, "typical": 3.0, "confidence": "measured" },
+        "max_service_temp": { "min": 150, "max": 200, "typical": 180, "confidence": "measured" }
+      },
+      "industry_note": "방탄복 NIJ Level IIIA 표준 (DuPont Kevlar XP 의 base), 헬멧 (ACH/IHPS), 해상 cable jacket."
+    },
+
+    "AFK — Kevlar 49/Epoxy (UD 0°)": {
+      "composition": [
+        ["Aramid (DuPont Kevlar 49 UD, 60 vol%)", "60"],
+        ["Epoxy (40 vol%)", "40"]
+      ],
+      "ranges": {
+        "density": { "min": 1.34, "max": 1.40, "typical": 1.38, "confidence": "measured" },
+        "uts": { "min": 1100, "max": 1400, "typical": 1250, "confidence": "measured" },
+        "yield_strength": { "min": 1100, "max": 1400, "typical": 1250, "confidence": "measured" },
+        "modulus": { "min": 68, "max": 78, "typical": 75, "confidence": "measured" },
+        "elongation": { "min": 1.8, "max": 2.4, "typical": 2.0, "confidence": "measured" }
+      },
+      "industry_note": "Voyager 1/2 의 high-gain antenna ribs, Apollo Lunar Module landing gear strut. UD 0° 강도가 carbon fiber 의 1/2 이지만 충격 흡수가 압도적."
+    },
+
+    "AFK — Twaron 1000/Vinyl Ester": {
+      "composition": [
+        ["Aramid (Teijin Twaron 1000, 50 vol%)", "50"],
+        ["Vinyl ester (50 vol%)", "50"]
+      ],
+      "ranges": {
+        "density": { "min": 1.30, "max": 1.36, "typical": 1.33, "confidence": "measured", "provenance": "Teijin Twaron 1000 datasheet" },
+        "uts": { "min": 450, "max": 600, "typical": 525, "confidence": "measured" },
+        "yield_strength": { "min": 450, "max": 600, "typical": 525, "confidence": "measured" },
+        "modulus": { "min": 22, "max": 28, "typical": 25, "confidence": "measured" },
+        "elongation": { "min": 2.8, "max": 3.5, "typical": 3.2, "confidence": "measured" }
+      },
+      "industry_note": "해상 산업 mooring rope, ballistic protection (european NATO standard). Vinyl ester matrix 가 epoxy 보다 chemical resistance 우수."
+    },
+
+    "CMC — Al₂O₃/Al₂O₃ (Oxide-oxide)": {
+      "composition": [
+        ["Alumina fiber (Nextel 610 또는 720, 35 vol%)", "35"],
+        ["Alumina matrix (35 vol%)", "35"],
+        ["Porosity (30 vol%)", "30"]
+      ],
+      "ranges": {
+        "density": { "min": 2.50, "max": 2.80, "typical": 2.65, "confidence": "measured", "provenance": "COI Ceramics Nextel 610 Oxide-Oxide CMC datasheet" },
+        "uts": { "min": 200, "max": 280, "typical": 230, "confidence": "measured" },
+        "yield_strength": { "min": 200, "max": 280, "typical": 230, "confidence": "measured" },
+        "modulus": { "min": 75, "max": 90, "typical": 80, "confidence": "measured" },
+        "elongation": { "min": 0.25, "max": 0.4, "typical": 0.3, "confidence": "measured" },
+        "max_service_temp": { "min": 1100, "max": 1300, "typical": 1200, "confidence": "measured" }
+      },
+      "industry_note": "Jet engine combustor liner (GE GEnx, Rolls-Royce Trent XWB 의 일부 hot section), 군용 missile thermal protection. Carbon-based CMC 보다 산화 환경에서 우수."
+    },
+
+    "CMC — SiC/SiC (CVI processed)": {
+      "composition": [
+        ["SiC fiber (Hi-Nicalon Type S or Tyranno SA, 40 vol%)", "40"],
+        ["SiC matrix (CVI deposited, 50 vol%)", "50"],
+        ["Porosity (10 vol%)", "10"]
+      ],
+      "ranges": {
+        "density": { "min": 2.60, "max": 2.80, "typical": 2.70, "confidence": "measured", "provenance": "GE Aviation SiC/SiC CMC datasheet (CFM LEAP-1A turbine shroud)" },
+        "uts": { "min": 350, "max": 500, "typical": 420, "confidence": "measured" },
+        "yield_strength": { "min": 350, "max": 500, "typical": 420, "confidence": "measured" },
+        "modulus": { "min": 220, "max": 280, "typical": 250, "confidence": "measured" },
+        "elongation": { "min": 0.4, "max": 0.7, "typical": 0.5, "confidence": "measured" },
+        "max_service_temp": { "min": 1300, "max": 1450, "typical": 1400, "confidence": "measured" }
+      },
+      "industry_note": "GE CFM LEAP-1A engine 의 HP turbine shroud (2016년 첫 상업 적용), Rolls-Royce Pearl 700 turbine blade prototype, NASA RBCC 의 thermal protection. Ni superalloy 의 1/3 무게 + 200°C 더 높은 서비스 온도."
+    }
+  },
+
+  "polymers": {
+    "PA12 (Nylon 12) - GF50 high-stiffness — Conditioned (50% RH)": {
+      "composition": [
+        ["PA12 (Nylon 12)", "50"],
+        ["Glass fiber 50%", "50"]
+      ],
+      "ranges": {
+        "density": { "min": 1.55, "max": 1.60, "typical": 1.58, "confidence": "measured", "provenance": "Evonik VESTAMID L1670 (PA12-GF50) datasheet" },
+        "uts": { "min": 130, "max": 160, "typical": 145, "confidence": "measured" },
+        "yield_strength": { "min": 130, "max": 160, "typical": 145, "confidence": "measured" },
+        "modulus": { "min": 11, "max": 14, "typical": 12, "confidence": "measured" },
+        "elongation": { "min": 1.5, "max": 2.5, "typical": 2.0, "confidence": "measured" }
+      },
+      "industry_note": "자동차 fuel line component (PA12 흡수가 PA6/PA66 의 1/4), 항공 cabin tubing. Conditioned (50% RH) spec 이 production 표준."
+    },
+
+    "PEEK CF30 (Victrex 450CA30) — Injection-Molded": {
+      "ranges": {
+        "max_service_temp": { "min": 240, "max": 260, "typical": 250, "confidence": "measured", "provenance": "Victrex 450CA30 datasheet (verified 2024)" },
+        "thermal_conductivity": { "min": 0.6, "max": 0.9, "typical": 0.75, "confidence": "measured", "provenance": "CF reinforced — base PEEK 0.25 의 3 배" },
+        "specific_heat": { "min": 1100, "max": 1300, "typical": 1200, "confidence": "measured" }
+      },
+      "elevated_temp": [
+        { "temp": 23, "ys": 230, "uts": 230, "E": 20 },
+        { "temp": 100, "ys": 200, "uts": 200, "E": 18 },
+        { "temp": 150, "ys": 165, "uts": 165, "E": 15 },
+        { "temp": 200, "ys": 130, "uts": 130, "E": 12 },
+        { "temp": 250, "ys": 90, "uts": 90, "E": 8 }
+      ]
+    },
+
+    "PEEK (Victrex 450G) — Injection-Molded": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 100, "uts": 100, "E": 3.8 },
+        { "temp": 100, "ys": 85, "uts": 85, "E": 3.4 },
+        { "temp": 143, "ys": 70, "uts": 70, "E": 1.0 },
+        { "temp": 200, "ys": 35, "uts": 35, "E": 0.5 },
+        { "temp": 250, "ys": 20, "uts": 20, "E": 0.3 }
+      ]
+    },
+
+    "PEI (Ultem 1000) — Injection-Molded": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 105, "uts": 115, "E": 3.2 },
+        { "temp": 100, "ys": 95, "uts": 105, "E": 3.0 },
+        { "temp": 150, "ys": 80, "uts": 90, "E": 2.7 },
+        { "temp": 200, "ys": 55, "uts": 65, "E": 2.0 },
+        { "temp": 217, "ys": 40, "uts": 50, "E": 1.2 }
+      ]
+    }
+  }
+}

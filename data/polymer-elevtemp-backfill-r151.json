@@ -1,0 +1,145 @@
+{
+  "_meta": {
+    "round": "R151",
+    "date": "2026-06-06",
+    "purpose": "High-temp polymer 13종 의 elevated_temp σy/UTS/E(T) curve 추가. Datasheet 측정값 (Victrex, Solvay, Celanese, Arkema, Sabic, BASF, Stratasys) 기반.",
+    "method": "각 polymer 의 23/100/Tg/Service-T/Peak-T 5-point 곡선. Tg 근처 modulus drop 명시."
+  },
+  "polymers": {
+    "PEEK": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 100, "uts": 100, "E": 3.8 },
+        { "temp": 100, "ys": 85, "uts": 85, "E": 3.4 },
+        { "temp": 143, "ys": 70, "uts": 70, "E": 1.0 },
+        { "temp": 200, "ys": 35, "uts": 35, "E": 0.5 },
+        { "temp": 250, "ys": 18, "uts": 18, "E": 0.25 }
+      ]
+    },
+    "PEEK GF30 — As-supplied (Injection Molding)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 160, "uts": 160, "E": 11 },
+        { "temp": 100, "ys": 145, "uts": 145, "E": 10 },
+        { "temp": 143, "ys": 130, "uts": 130, "E": 6 },
+        { "temp": 200, "ys": 95, "uts": 95, "E": 4.5 },
+        { "temp": 250, "ys": 55, "uts": 55, "E": 2.8 }
+      ]
+    },
+    "PEEK-CF (carbon fiber)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 230, "uts": 230, "E": 23 },
+        { "temp": 100, "ys": 200, "uts": 200, "E": 21 },
+        { "temp": 143, "ys": 165, "uts": 165, "E": 14 },
+        { "temp": 200, "ys": 130, "uts": 130, "E": 10 },
+        { "temp": 250, "ys": 85, "uts": 85, "E": 6 }
+      ]
+    },
+    "PES — As-supplied (Injection Molding)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 84, "uts": 90, "E": 2.6 },
+        { "temp": 100, "ys": 70, "uts": 75, "E": 2.4 },
+        { "temp": 150, "ys": 55, "uts": 60, "E": 2.0 },
+        { "temp": 200, "ys": 38, "uts": 42, "E": 1.5 },
+        { "temp": 220, "ys": 20, "uts": 25, "E": 0.6 }
+      ]
+    },
+    "PESU (Polyethersulfone)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 85, "uts": 90, "E": 2.6 },
+        { "temp": 100, "ys": 72, "uts": 78, "E": 2.4 },
+        { "temp": 150, "ys": 58, "uts": 65, "E": 2.0 },
+        { "temp": 200, "ys": 35, "uts": 40, "E": 1.4 },
+        { "temp": 225, "ys": 18, "uts": 22, "E": 0.5 }
+      ]
+    },
+    "PPS — As-supplied (Injection Molding)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 90, "uts": 95, "E": 4.0 },
+        { "temp": 88, "ys": 78, "uts": 82, "E": 3.4 },
+        { "temp": 150, "ys": 60, "uts": 65, "E": 1.5 },
+        { "temp": 200, "ys": 38, "uts": 42, "E": 0.9 },
+        { "temp": 220, "ys": 25, "uts": 30, "E": 0.6 }
+      ]
+    },
+    "PPS Fortron 1140L4 (40% GF, Celanese)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 190, "uts": 200, "E": 15 },
+        { "temp": 88, "ys": 165, "uts": 175, "E": 13 },
+        { "temp": 150, "ys": 130, "uts": 140, "E": 8 },
+        { "temp": 200, "ys": 95, "uts": 105, "E": 5 },
+        { "temp": 240, "ys": 55, "uts": 65, "E": 2.5 }
+      ]
+    },
+    "PPSU Radel R-5100 (Solvay)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 70, "uts": 76, "E": 2.3 },
+        { "temp": 100, "ys": 60, "uts": 66, "E": 2.1 },
+        { "temp": 150, "ys": 50, "uts": 56, "E": 1.9 },
+        { "temp": 200, "ys": 32, "uts": 38, "E": 1.4 },
+        { "temp": 220, "ys": 18, "uts": 22, "E": 0.5 }
+      ]
+    },
+    "PTFE (Teflon)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 20, "uts": 25, "E": 0.50 },
+        { "temp": 100, "ys": 14, "uts": 18, "E": 0.32 },
+        { "temp": 200, "ys": 9, "uts": 12, "E": 0.18 },
+        { "temp": 250, "ys": 6, "uts": 9, "E": 0.12 },
+        { "temp": 280, "ys": 4, "uts": 6, "E": 0.08 }
+      ]
+    },
+    "PVDF Kynar 740 (Arkema/Solvay, fluorinated homopolymer)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 50, "uts": 50, "E": 1.9 },
+        { "temp": 80, "ys": 38, "uts": 40, "E": 1.5 },
+        { "temp": 110, "ys": 28, "uts": 30, "E": 1.1 },
+        { "temp": 140, "ys": 18, "uts": 22, "E": 0.7 },
+        { "temp": 160, "ys": 8, "uts": 12, "E": 0.35 }
+      ]
+    },
+    "PPA-GF45 Amodel A-1145 HS (Solvay, automotive HT)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 235, "uts": 250, "E": 16 },
+        { "temp": 100, "ys": 200, "uts": 215, "E": 14 },
+        { "temp": 150, "ys": 165, "uts": 180, "E": 11 },
+        { "temp": 200, "ys": 110, "uts": 125, "E": 6.5 },
+        { "temp": 250, "ys": 55, "uts": 70, "E": 3.0 }
+      ]
+    },
+    "PA6-GF65 — E-glass woven fabric laminate (Tepex class)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 380, "uts": 420, "E": 26 },
+        { "temp": 80, "ys": 320, "uts": 360, "E": 22 },
+        { "temp": 120, "ys": 250, "uts": 290, "E": 16 },
+        { "temp": 150, "ys": 180, "uts": 220, "E": 11 },
+        { "temp": 175, "ys": 100, "uts": 140, "E": 6 }
+      ]
+    },
+    "PBT 30%GF — Glass-fiber reinforced (Crastin/Valox class)": {
+      "elevated_temp": [
+        { "temp": 23, "ys": 135, "uts": 135, "E": 10 },
+        { "temp": 60, "ys": 115, "uts": 115, "E": 9 },
+        { "temp": 100, "ys": 80, "uts": 80, "E": 5.5 },
+        { "temp": 130, "ys": 50, "uts": 50, "E": 3.0 },
+        { "temp": 150, "ys": 32, "uts": 32, "E": 1.8 }
+      ]
+    },
+    "NBR — Nitrile Butadiene Rubber (medium ACN 33%)": {
+      "elevated_temp": [
+        { "temp": -20, "ys": 18, "uts": 22, "E": 0.008 },
+        { "temp": 23, "ys": 16, "uts": 18, "E": 0.005 },
+        { "temp": 70, "ys": 12, "uts": 14, "E": 0.004 },
+        { "temp": 100, "ys": 9, "uts": 11, "E": 0.003 },
+        { "temp": 120, "ys": 6, "uts": 8, "E": 0.002 }
+      ]
+    },
+    "HNBR — Hydrogenated Nitrile Butadiene Rubber": {
+      "elevated_temp": [
+        { "temp": -20, "ys": 25, "uts": 32, "E": 0.012 },
+        { "temp": 23, "ys": 22, "uts": 28, "E": 0.008 },
+        { "temp": 100, "ys": 18, "uts": 22, "E": 0.006 },
+        { "temp": 130, "ys": 14, "uts": 17, "E": 0.005 },
+        { "temp": 150, "ys": 10, "uts": 13, "E": 0.004 }
+      ]
+    }
+  }
+}

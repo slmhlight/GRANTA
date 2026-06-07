@@ -18,6 +18,7 @@ export function MaterialDetailPopup({
   allMaterials,
   favorites,
   onToggleFavorite,
+  onSelectMaterial,
 }: {
   material: Material | null;
   compareList: string[];
@@ -28,6 +29,8 @@ export function MaterialDetailPopup({
   /** R69 A — 즐겨찾기 props 패스스루. */
   favorites?: Set<string>;
   onToggleFavorite?: (id: string) => void;
+  /** R148 — 유사 재료 클릭 시 그 재료로 전환. */
+  onSelectMaterial?: (id: string) => void;
 }) {
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const [isDesktop, setIsDesktop] = useState(
@@ -69,7 +72,7 @@ export function MaterialDetailPopup({
        이전 `fixed inset-0` 은 헤더·하단 nav 까지 가려 다른 view 로 이동 불가. (Compare 와 동일한 패턴) */
     return (
       <div className="fixed top-12 left-0 right-0 bottom-[50px] z-40 bg-background overflow-auto">
-        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} allMaterials={allMaterials} favorites={favorites} onToggleFavorite={onToggleFavorite} />
+        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} allMaterials={allMaterials} favorites={favorites} onToggleFavorite={onToggleFavorite} onSelectMaterial={onSelectMaterial} />
       </div>
     );
   }
@@ -92,6 +95,9 @@ export function MaterialDetailPopup({
         floating
         dragHandleProps={{ onPointerDown: startDrag }}
         allMaterials={allMaterials}
+        favorites={favorites}
+        onToggleFavorite={onToggleFavorite}
+        onSelectMaterial={onSelectMaterial}
       />
     </div>
   );

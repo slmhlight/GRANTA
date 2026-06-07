@@ -1,0 +1,526 @@
+{
+  "_note": "R173 Phase B — 발견된 명백한 데이터 오류 정정 (R173 검증 과정에서 handbook 과 비교 결과). build-materials.mjs 의 후처리에서 entry 이름 정확 매칭 시 ranges 의 typical/min/max 를 overrides 의 값으로 교체. 출처 = ASM Handbook + MMPDS-08.",
+  "overrides": [
+    {
+      "name": "AA 7075 — Annealed (Wrought)",
+      "ranges": {
+        "yield_strength": { "typical": 105, "min": 95, "max": 145, "confidence": "handbook", "n": 1 },
+        "uts": { "typical": 230, "min": 220, "max": 275, "confidence": "handbook", "n": 1 },
+        "elongation": { "typical": 17, "min": 16, "max": 19, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — handbook AA 7075-O temper σy 105 MPa / UTS 230 MPa / El 17%. 이전 값 σy 473 은 T6 (peak aged) condition mock — Annealed entry 라면 O temper 값이어야 함. (Aluminum Association 7075 datasheet)"
+    },
+    {
+      "name": "AA 2024 — Annealed (Wrought)",
+      "ranges": {
+        "yield_strength": { "typical": 75, "min": 70, "max": 105, "confidence": "handbook", "n": 1 },
+        "uts": { "typical": 185, "min": 170, "max": 220, "confidence": "handbook", "n": 1 },
+        "elongation": { "typical": 20, "min": 18, "max": 22, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — handbook AA 2024-O temper σy 75 MPa / UTS 185 MPa / El 20%. 이전 값 σy 305 은 T3 condition mock. (MMPDS-08 Vol.1 Sec.3.7)"
+    },
+    {
+      "name": "AA 5083 — Annealed (Wrought)",
+      "ranges": {
+        "yield_strength": { "typical": 145, "min": 125, "max": 165, "confidence": "handbook", "n": 1 },
+        "uts": { "typical": 290, "min": 270, "max": 305, "confidence": "handbook", "n": 1 },
+        "elongation": { "typical": 22, "min": 18, "max": 25, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — handbook AA 5083-O temper σy 145 / UTS 290 / El 22%. 이전 값 σy 214 은 H321 mock. (ASM Vol.2)"
+    },
+    {
+      "name": "AISI 4340 — Annealed (Wrought)",
+      "ranges": {
+        "yield_strength": { "typical": 470, "min": 415, "max": 530, "confidence": "handbook", "n": 1 },
+        "uts": { "typical": 745, "min": 700, "max": 810, "confidence": "handbook", "n": 1 },
+        "elongation": { "typical": 22, "min": 20, "max": 28, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — handbook AISI 4340 annealed σy 470 / UTS 745 / El 22%. 이전 값 σy 968 / UTS 1408 은 Q+T condition mock. (MMPDS-08 + AMS 6415)"
+    },
+    {
+      "name": "AA 5052 — Annealed (Wrought)",
+      "ranges": {
+        "yield_strength": { "typical": 90, "min": 65, "max": 110, "confidence": "handbook", "n": 1 },
+        "uts": { "typical": 195, "min": 170, "max": 215, "confidence": "handbook", "n": 1 },
+        "elongation": { "typical": 25, "min": 20, "max": 30, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — handbook AA 5052-O temper σy 90 / UTS 195 / El 25%. 이전 값 σy 181 은 H32 mock (R5xxx non-heat-treatable, only O & Hxx tempers exist)."
+    },
+    {
+      "name": "AA 6061 — Annealed (Wrought)",
+      "ranges": {
+        "yield_strength": { "typical": 55, "min": 50, "max": 95, "confidence": "handbook", "n": 1 },
+        "uts": { "typical": 124, "min": 110, "max": 152, "confidence": "handbook", "n": 1 },
+        "elongation": { "typical": 25, "min": 22, "max": 30, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — handbook AA 6061-O temper σy 55 / UTS 124 / El 25%. 이전 값 σy 259 은 T6 mock — heat-treatable 의 잘못된 condition mapping. (MMPDS-08 Sec.3.6)"
+    },
+    {
+      "_alloy_group_note": "Tmax (max_service_temp) 정정 — CSV 의 잘못된 값.",
+      "name": "PA12 EOS PA 2200 — SLS Standard",
+      "ranges": {
+        "max_service_temp": { "typical": 80, "min": 75, "max": 100, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — EOS PA 2200 (Nylon 12) max continuous service temp 80°C (HDT 0.46 MPa 145°C, 1.8 MPa 75°C). 이전 Tmax 540 은 분명 오류 — Tg = 50°C, Tm = 178°C 인 polymer 가 540°C 사용 불가."
+    },
+    {
+      "name": "ULTEM 1010 (PEI)",
+      "ranges": {
+        "max_service_temp": { "typical": 200, "min": 180, "max": 215, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — SABIC ULTEM 1010 (PEI homopolymer) HDT 213°C, max continuous 200°C. 이전 Tmax 540 은 처리 melting T (~370°C) 도 넘는 명백한 오류."
+    },
+    {
+      "name": "ULTEM 1010 — Industrial Grade",
+      "ranges": {
+        "max_service_temp": { "typical": 200, "min": 180, "max": 215, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — 위와 동일 (ULTEM 1010 PEI homopolymer industrial grade)."
+    },
+    {
+      "name": "AISI 1050 — Annealed (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 425, "min": 400, "max": 450, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — AISI 1050 medium-C steel max service ≈ 425°C (other 10xx entries 도 540 인 점 — 1050 의 200 은 데이터 입력 오류)."
+    },
+    {
+      "name": "AISI 1050 — As-cast / forged (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 425, "min": 400, "max": 450, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — 위와 동일."
+    },
+    {
+      "name": "AISI 1050 — Strain-hardened (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 425, "min": 400, "max": 450, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — 위와 동일."
+    },
+    {
+      "name": "AISI 1050 — As-supplied (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 425, "min": 400, "max": 450, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — 위와 동일."
+    },
+    {
+      "name": "AISI 1050 — Quenched / tempered (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 425, "min": 400, "max": 450, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — 위와 동일."
+    },
+    {
+      "name": "SUP9 (JIS Cr-Mn spring steel) — Q+T (430°C, spring temper)",
+      "ranges": {
+        "max_service_temp": { "typical": 480, "min": 425, "max": 540, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — JIS spring steel SUP9 Q+T 430°C 기준 max service ≈ 480°C (over-tempering 위쪽). 이전 Tmax 815 은 austenitic stainless level — 오류. (JIS G4801)"
+    },
+    {
+      "name": "SUP10 (JIS Cr-V spring steel) — Q+T (430°C)",
+      "ranges": {
+        "max_service_temp": { "typical": 480, "min": 425, "max": 540, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — JIS spring steel SUP10 동일 (Tmax 480°C)."
+    },
+    {
+      "name": "STAVAX ESR (Uddeholm, ≈ AISI 420 mod) — corrosion-resistant mold — Soft Annealed (delivery)",
+      "ranges": {
+        "max_service_temp": { "typical": 540, "min": 500, "max": 580, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Uddeholm Stavax (1.2083 mod) max use 540°C (over-tempering 위쪽). 이전 Tmax 650 은 austenitic stainless level — mold steel 에서는 over-aging. (Uddeholm datasheet)"
+    },
+    {
+      "name": "ZTA (Zirconia-Toughened Alumina, 10-20% ZrO₂)",
+      "ranges": {
+        "max_service_temp": { "typical": 1500, "min": 1300, "max": 1600, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — ZTA continuous max ≈ 1500°C (alumina 의 max 와 zirconia over-aging 의 균형). 이전 Tmax 540 은 잘못 — ceramic 의 540 max 는 polymer 수준. (CoorsTek + Kyocera)"
+    },
+    {
+      "name": "Maraging C300 (18Ni-300) — Wrought, Aged",
+      "ranges": {
+        "max_service_temp": { "typical": 480, "min": 425, "max": 510, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Maraging steel max use ≈ 480°C (over-aging 위쪽). 이전 Tmax 200 은 polymer 수준 — 오류."
+    },
+    {
+      "name": "Maraging C350 / VascoMax C-350 (ATI 18Ni-9Co cobalt-strengthened) — Solution annealed 815°C AC (soft 30-35 HRC, formable)",
+      "ranges": {
+        "max_service_temp": { "typical": 480, "min": 425, "max": 510, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — VascoMax C-350 동일 (max 480°C)."
+    },
+    {
+      "name": "Maraging C350 / VascoMax C-350 (ATI 18Ni-9Co cobalt-strengthened) — Aged 480-510°C 3-6h AC (peak strength UTS 2413 MPa, 53-55 HRC)",
+      "ranges": {
+        "max_service_temp": { "typical": 480, "min": 425, "max": 510, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — VascoMax C-350 peak aged 동일 (max 480°C)."
+    },
+    {
+      "name": "STS304 ULC (Ultra-Low-Carbon austenitic stainless, C ≤ 0.015) — Annealed (1050°C WQ) + ULC refining",
+      "ranges": {
+        "max_service_temp": { "typical": 870, "min": 800, "max": 925, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — STS304 ULC (KS D 3705) max service 870°C (austenitic stainless 표준). 이전 Tmax 200 은 명백한 오류."
+    },
+    {
+      "name": "STS304L (KS D 3705 / JIS G 4304, low-carbon austenitic stainless) — Annealed (1050°C WQ)",
+      "ranges": {
+        "max_service_temp": { "typical": 870, "min": 800, "max": 925, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — STS304L 동일 (max 870°C, AISI 304L 의 KR 표준)."
+    },
+    {
+      "name": "STS316L (KS D 3705 / JIS G 4304, low-carbon Mo-bearing austenitic stainless) — Annealed (1050°C WQ)",
+      "ranges": {
+        "max_service_temp": { "typical": 870, "min": 800, "max": 925, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — STS316L 동일 (max 870°C, AISI 316L 의 KR 표준)."
+    },
+    {
+      "name": "SCM430 (JIS Cr-Mo, AISI 4130 equiv.) — Annealed",
+      "ranges": {
+        "yield_strength": { "typical": 360, "min": 320, "max": 415, "confidence": "handbook", "n": 1 },
+        "uts": { "typical": 560, "min": 520, "max": 670, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — handbook 4130 annealed σy 360 / UTS 560. 이전 460/690 은 Normalized condition mock. (ASM Vol.1)"
+    },
+    {
+      "name": "SNCM439 (JIS Ni-Cr-Mo, AISI 4340 equiv.) — Annealed",
+      "ranges": {
+        "yield_strength": { "typical": 470, "min": 415, "max": 530, "confidence": "handbook", "n": 1 },
+        "uts": { "typical": 745, "min": 700, "max": 810, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — handbook 4340 annealed σy 470 / UTS 745. 이전 540/780 은 Normalized condition mock."
+    },
+    {
+      "name": "PEKK",
+      "ranges": {
+        "max_service_temp": { "typical": 250, "min": 230, "max": 260, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — PEKK max use 250-260°C continuous (Tg 162°C, Tm 305-360°C). 이전 Tmax 90 은 명백한 오류 — PEEK 와 동등 high-T polymer."
+    },
+    {
+      "name": "PEKK-CF (carbon fiber)",
+      "ranges": {
+        "max_service_temp": { "typical": 250, "min": 230, "max": 260, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — PEKK-CF 동일 (max 250°C). CF 보강만 추가, polymer matrix Tmax 변화 없음."
+    },
+    {
+      "name": "LDPE — As-supplied (Injection Molding)",
+      "ranges": {
+        "max_service_temp": { "typical": 70, "min": 60, "max": 80, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — LDPE Tm 105-115°C, HDT (0.46 MPa) 49°C, max continuous service 60-70°C. 이전 Tmax 90 은 HDPE 수준 — LDPE 는 더 낮음."
+    },
+    {
+      "name": "Silicone Rubber — As-supplied (Injection Molding)",
+      "ranges": {
+        "max_service_temp": { "typical": 250, "min": 200, "max": 300, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Silicone Rubber (VMQ) max continuous 200-250°C, short-term 300°C (heat-resistant grade). 이전 Tmax 90 은 elastomer 평균 — Si 는 thermal class 가장 우수 (heat-resistant elastomer 표준)."
+    },
+    {
+      "name": "Super 304H (S30432, Nb-Cu strengthened 18Cr-9Ni) — Solution Annealed (1100°C WQ)",
+      "ranges": {
+        "max_service_temp": { "typical": 800, "min": 750, "max": 870, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Super 304H (S30432) 는 ultra-supercritical (USC) boiler tube 용 austenitic. Nb-Cu 석출경화 → creep rupture σf 100,000h @ 700°C ≈ 100 MPa. 이전 Tmax 200 은 잘못 — 실제 750-870°C continuous (creep-controlled)."
+    },
+    {
+      "name": "AA 6151 — Strain-hardened (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 170, "min": 150, "max": 200, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — AA 6151 (Al-Mg-Si-Cr forging) max use 170°C (6xxx family 표준). 이전 Tmax undefined — handbook 값 보강."
+    },
+    {
+      "name": "AISI H21 (Hot-Work Tungsten tool) — Annealed",
+      "ranges": {
+        "max_service_temp": { "typical": 600, "min": 540, "max": 650, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — AISI H21 (W-Cr hot-work tool steel) max use 600°C (red-hardness limit, secondary hardening). 이전 Tmax 1700 은 Tm 가까운 값 — 명백한 오류 (tool steel 의 일반 max 540-600°C)."
+    },
+    {
+      "name": "PPS GF40 — As-supplied (Injection Molding)",
+      "ranges": {
+        "max_service_temp": { "typical": 240, "min": 220, "max": 260, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — PPS GF40 (Celanese Fortron 1140L4, Solvay Ryton R-4) HDT (1.8 MPa) 270°C, max use 220-240°C continuous. 이전 Tmax 100 은 polypropylene 수준 — PPS 는 high-T engineering polymer."
+    },
+    {
+      "name": "Inconel 100 — Aged / solution-treated (Cast)",
+      "ranges": {
+        "max_service_temp": { "typical": 980, "min": 920, "max": 1050, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — IN-100 (cast γ' Ni superalloy) max use 980°C continuous (1100°C short). 이전 Tmax 400 은 polymer 수준 — Ni superalloy 의 명백한 오류 (jet engine turbine blade legacy material)."
+    },
+    {
+      "name": "Incoloy 909",
+      "ranges": {
+        "max_service_temp": { "typical": 540, "min": 500, "max": 580, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Incoloy 909 (controlled-expansion Fe-Ni-Co, UNS N19909) max use 540°C continuous (Curie 425°C 위에서 CTE 증가). 이전 Tmax 1100 은 Inconel superalloy 와 혼동 — 909 는 Invar-class low-CTE alloy."
+    },
+    {
+      "name": "Be-Cu — As-supplied (Wrought)",
+      "ranges": {
+        "modulus": { "typical": 128, "min": 124, "max": 132, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — BeCu (C17200, CuBe2) Young's modulus 128 GPa (Materion datasheet). 이전 E 310 은 pure Beryllium (Be) 의 modulus 와 혼동된 오류 — Cu 가 약 98% mass 이므로 modulus 는 Cu base (110-130 GPa)."
+    },
+    {
+      "name": "Mo-La (Lanthanum-doped Mo, MoLa) — Annealed (1100°C)",
+      "ranges": {
+        "max_service_temp": { "typical": 1900, "min": 1700, "max": 2100, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Mo-La (Plansee MoLa, 0.7% La₂O₃) max use 1900°C continuous (high-T furnace heating element). 이전 Tmax 200 은 polymer 수준 — 명백한 오류 (Plansee datasheet: Mo-La > MoLa > pure Mo for high-T applications)."
+    },
+    {
+      "name": "Zirconium — As-supplied (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 400, "min": 350, "max": 450, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Zirconium (UNS R60001 unalloyed) max continuous use 400°C in air (above which rapid oxidation). 이전 Tmax 170 은 Al 수준 — 잘못 (handbook ATI Wah Chang Zr datasheet)."
+    },
+    {
+      "name": "Chromium (pure)",
+      "ranges": {
+        "max_service_temp": { "typical": 950, "min": 900, "max": 1000, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Pure Cr (Tm 1907°C, ρ 7.19) max continuous use 950°C in air (above → rapid oxidation Cr₂O₃ spall). DBTT 300°C — RT brittle (cast/forged). ASM Vol.2 Refractory Metals."
+    },
+    {
+      "name": "Hafnium",
+      "ranges": {
+        "max_service_temp": { "typical": 800, "min": 700, "max": 900, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Pure Hf (Tm 2233°C, ρ 13.31) max continuous use 800°C (HfO₂ surface oxidation 보호적이지만 thicker layer 형성). ATI Wah Chang Hafnium datasheet."
+    },
+    {
+      "name": "Vanadium — As-supplied (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 600, "min": 500, "max": 700, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Pure V (Tm 1910°C) max continuous use 600°C in air (above → rapid oxidation V₂O₅ — Tm 690°C, vapor). Fusion reactor first-wall material (V-Cr-Ti)."
+    },
+    {
+      "name": "Zircaloy-2 — As-supplied (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 400, "min": 350, "max": 450, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Zircaloy-2 (BWR cladding) max continuous use 400°C (reactor coolant 300°C standard; accident 1200°C+ short-term — steam-Zr reaction). ATI Wah Chang."
+    },
+    {
+      "name": "Zirconium 705",
+      "ranges": {
+        "max_service_temp": { "typical": 450, "min": 400, "max": 500, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Zirconium 705 (Zr-2.5Nb, UNS R60705) max continuous use 450°C in air (chemical process — strong acid HNO₃/H₂SO₄/HCl). ASTM B493."
+    },
+    {
+      "name": "PA46",
+      "ranges": {
+        "max_service_temp": { "typical": 170, "min": 150, "max": 190, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — PA46 (DSM Stanyl, Polytetramethylene adipamide) — high-temp nylon. Tg 78°C, Tm 295°C, HDT (1.8 MPa) 160°C unfilled / 290°C GF30, max service 170°C continuous. 이전 Tmax 110 은 일반 PA66 수준 — PA46 는 PA family 중 가장 high-T."
+    },
+    {
+      "name": "PBI (Celazole)",
+      "ranges": {
+        "max_service_temp": { "typical": 300, "min": 260, "max": 350, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — PBI (Polybenzimidazole, Celazole Performance Plastics) — **가장 high-T thermoplastic**. Tg 427°C, no Tm (amorphous), max service 300°C continuous / 500°C short. 이전 Tmax 90 은 PP 수준 — 명백한 오류 (PBI 는 PEEK 의 2× 한계)."
+    },
+    {
+      "name": "PFA",
+      "ranges": {
+        "max_service_temp": { "typical": 260, "min": 240, "max": 280, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — PFA (Perfluoroalkoxy, Chemours Teflon PFA) — fluoropolymer family. Tg ≈ -10°C, Tm 305°C, max service 260°C continuous (PTFE 와 동등). 이전 Tmax 90 은 PE 수준 — fluoropolymer 의 명백한 오류 (FDA + 화학 plant 표준 lining)."
+    },
+    {
+      "name": "PCTFE",
+      "ranges": {
+        "max_service_temp": { "typical": 175, "min": 150, "max": 200, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — PCTFE (Polychlorotrifluoroethylene, 3M Kel-F 81 / Daikin Neoflon) — fluoropolymer. Tg 80°C, Tm 215°C, max service 175°C continuous (영하 -240°C 까지 ductile — cryogenic O₂ valve seat). 이전 Tmax 90 은 generic polymer 수준 — fluoropolymer 의 잘못."
+    },
+    {
+      "name": "Rohacell A PMI structural foam (Evonik aircraft grade) — Rohacell 31A (density 32 kg/m³, σc 0.4 MPa, σt 1.0 MPa)",
+      "ranges": {
+        "max_service_temp": { "typical": 180, "min": 160, "max": 200, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Rohacell A (Evonik PMI foam) max continuous service 180°C (autoclave-compatible aerospace sandwich panel core). 이전 Tmax 90 은 일반 polymer foam 수준 — Rohacell 의 핵심 장점은 high-T 사용 가능 (PEI/PEEK skin 함께 autoclave cure)."
+    },
+    {
+      "name": "Tungsten Heavy Alloy — As-supplied (Sintered)",
+      "ranges": {
+        "max_service_temp": { "typical": 600, "min": 500, "max": 700, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Tungsten Heavy Alloy (W-Ni-Fe / W-Ni-Cu, 90-97% W liquid-phase sintered) max use 600°C continuous (Ni-Fe matrix limits — above which W₃Fe₃C 부착 + oxidation). 이전 Tmax 1700 은 pure W 수준 — sintered W heavy alloy 는 matrix limited. Plansee Densimet datasheet."
+    },
+    {
+      "name": "Hastelloy B-2",
+      "ranges": {
+        "max_service_temp": { "typical": 760, "min": 700, "max": 820, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Hastelloy B-2 (UNS N10665, Ni-28Mo) max continuous use 760°C (sigma + Ni-Mo intermetallic 형성 540°C 위에서 → 540-760°C 는 pressure-vessel sour service caution zone). 이전 Tmax 540 은 lower bound — 일반 service spec 까지 760°C."
+    },
+    {
+      "name": "CFRP — M40J/Cyanate Ester (UD 0°, satellite dimensional)",
+      "ranges": {
+        "max_service_temp": { "typical": 350, "min": 320, "max": 400, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Cyanate Ester matrix (Bryte 5250-4, Lonza Primaset PT-30) Tg 280-300°C, max use 350°C continuous. 이전 Tmax 540 은 Pitch CFRP matrix-free 수준 — Cyanate ester matrix 가 limits."
+    },
+    {
+      "name": "Beryllium — As-supplied (Wrought)",
+      "ranges": {
+        "max_service_temp": { "typical": 700, "min": 600, "max": 800, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — Beryllium (Brush S-200F, vacuum hot-pressed) max use 700°C continuous (above → BeO surface oxide growth). Materion datasheet. ⚠ Be dust + machining swarf NIOSH 1A carcinogen — HEPA/ULPA 시 가공만 가능."
+    },
+    {
+      "name": "Tungsten Carbide (WC-Co, 6%)",
+      "ranges": {
+        "max_service_temp": { "typical": 800, "min": 700, "max": 900, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — WC-Co 6% cutting tool service limit ≈ 800°C (Co 1495°C melt, but practical limit by Co matrix softening + cobalt oxidation + WC binder degradation). 이전 Tmax 1700 은 WC pure Tm (2870°C) 와 혼동 — sintered WC-Co 의 실제 service max ≈ 800-900°C (Sandvik/Kennametal datasheet)."
+    },
+    {
+      "name": "Tungsten Carbide (WC-Co, 12%)",
+      "ranges": {
+        "max_service_temp": { "typical": 750, "min": 700, "max": 850, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R173 — WC-Co 12% — higher Co → tougher but lower thermal limit (Co matrix softens earlier). Service max ≈ 750°C (handbook Kennametal/Sandvik)."
+    },
+    {
+      "name": "AA 6151 — Aged / solution-treated (Wrought)",
+      "ranges": { "max_service_temp": { "typical": 170, "min": 150, "max": 200, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — AA 6151 6xxx family max use 170°C (T6 condition)."
+    },
+    {
+      "name": "Be-Cu — As-supplied (Wrought)",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — BeCu C17200 max use 200°C continuous (Materion datasheet — above which over-aging)."
+    },
+    {
+      "name": "Zamak 3 (Zinc)",
+      "ranges": { "max_service_temp": { "typical": 95, "min": 80, "max": 110, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Zamak 3 (ZnAl4) — Zn die-cast max continuous 95°C (Zn creep — above which dimensional change). ASTM B86."
+    },
+    {
+      "name": "Commercial Bronze C22000",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Commercial Bronze (90Cu-10Zn) max use 200°C — brass family standard (above → dezincification + creep)."
+    },
+    {
+      "name": "C21000 (Red Brass 95Cu-5Zn, Gilding Metal) — O (Annealed)",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Red Brass family Tmax 200°C (CDA datasheet)."
+    },
+    {
+      "name": "C21000 (Red Brass 95Cu-5Zn, Gilding Metal) — 1/4H",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — 동일."
+    },
+    {
+      "name": "C21000 (Red Brass 95Cu-5Zn, Gilding Metal) — 1/2H",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — 동일."
+    },
+    {
+      "name": "C21000 (Red Brass 95Cu-5Zn, Gilding Metal) — H (Full-Hard)",
+      "ranges": { "max_service_temp": { "typical": 175, "min": 150, "max": 200, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Full-hard CW reduce Tmax slightly (recrystallization 위쪽)."
+    },
+    {
+      "name": "C22000 (Red Brass 90Cu-10Zn, Commercial Bronze) — O (Annealed)",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Red Brass family Tmax 200°C."
+    },
+    {
+      "name": "C22000 (Red Brass 90Cu-10Zn, Commercial Bronze) — 1/4H",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — 동일."
+    },
+    {
+      "name": "C22000 (Red Brass 90Cu-10Zn, Commercial Bronze) — 1/2H",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — 동일."
+    },
+    {
+      "name": "C22000 (Red Brass 90Cu-10Zn, Commercial Bronze) — H (Full-Hard)",
+      "ranges": { "max_service_temp": { "typical": 175, "min": 150, "max": 200, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Full-hard CW reduce Tmax."
+    },
+    {
+      "name": "C23000 (Red Brass 85Cu-15Zn) — O (Annealed)",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Red Brass family Tmax 200°C."
+    },
+    {
+      "name": "C23000 (Red Brass 85Cu-15Zn) — 1/4H",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — 동일."
+    },
+    {
+      "name": "C23000 (Red Brass 85Cu-15Zn) — 1/2H",
+      "ranges": { "max_service_temp": { "typical": 200, "min": 150, "max": 250, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — 동일."
+    },
+    {
+      "name": "C23000 (Red Brass 85Cu-15Zn) — H (Full-Hard)",
+      "ranges": { "max_service_temp": { "typical": 175, "min": 150, "max": 200, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Full-hard CW reduce Tmax."
+    },
+    {
+      "name": "Mo-0.5Ti — As-supplied (Wrought)",
+      "ranges": { "max_service_temp": { "typical": 1700, "min": 1500, "max": 1900, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Mo-0.5Ti (TZM Mo-0.5Ti-0.08Zr base) max use 1700°C inert / 1100°C in air (oxidation). Plansee."
+    },
+    {
+      "name": "Mo-La (Lanthanum-doped Mo, MoLa) — Stress-relieved (recrystallization-resistant)",
+      "ranges": { "max_service_temp": { "typical": 1900, "min": 1700, "max": 2100, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Mo-La stress-relieved 동일 (max 1900°C inert atmosphere)."
+    },
+    {
+      "name": "Zircaloy-4 (R60804) — PWR fuel cladding — Stress-Relieved Annealed (SRA, ~480°C, cold-worked + SR)",
+      "ranges": { "max_service_temp": { "typical": 400, "min": 350, "max": 450, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Zircaloy-4 PWR cladding service temp 300-350°C coolant + max 400°C limit (above → rapid waterside oxidation)."
+    },
+    {
+      "name": "Zircaloy-4 (R60804) — PWR fuel cladding — Recrystallized Annealed (RXA, ~565°C, mill annealed)",
+      "ranges": { "max_service_temp": { "typical": 400, "min": 350, "max": 450, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — RXA 동일 (max 400°C in coolant)."
+    },
+    {
+      "name": "Zircaloy-4 (R60804) — PWR fuel cladding — Partial RXA",
+      "ranges": { "max_service_temp": { "typical": 400, "min": 350, "max": 450, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — Partial RXA 동일."
+    },
+    {
+      "name": "AISI 4340 — Annealed (Wrought)",
+      "composition": { "Fe": "balance", "C": "0.38~0.43", "Ni": "1.65~2.00", "Cr": "0.70~0.90", "Mo": "0.20~0.30", "Mn": "0.60~0.80", "Si": "0.15~0.35" },
+      "ranges": { "yield_strength": { "typical": 470, "min": 415, "max": 530, "confidence": "handbook", "n": 1 }, "uts": { "typical": 745, "min": 700, "max": 810, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — AISI 4340 (UNS G43400) handbook composition (Ni-Cr-Mo). 이전 Al 97.5% 은 AA 6061 의 composition 과 혼동 — 명백한 데이터 오류 (Al-base alloy vs Fe-base alloy steel)."
+    },
+    {
+      "name": "AISI 4130 — Annealed (Wrought)",
+      "composition": { "Fe": "balance", "C": "0.28~0.33", "Cr": "0.80~1.10", "Mo": "0.15~0.25", "Mn": "0.40~0.60", "Si": "0.15~0.35" },
+      "reason": "R173 — AISI 4130 (UNS G41300) handbook composition (Cr-Mo). 이전 Al 97.5% 은 AISI 4340 와 동일 mock 오류 — Fe-base 정정 (ASTM A29 / AMS 6345)."
+    },
+    {
+      "name": "Stainless Steel 316L — Annealed (1050°C WQ)",
+      "ranges": { "max_service_temp": { "typical": 870, "min": 800, "max": 925, "confidence": "handbook", "n": 1 } },
+      "reason": "R173 — 316L (austenitic stainless) max use 870°C continuous. 이전 Tmax 200 은 명백한 오류 (다른 316L entries 도 모두 870°C — 이 entry 만 단독 200). NOTE: range override 가 name override 보다 먼저 실행 — pre-rename name 사용."
+    }
+  ]
+}

@@ -110,6 +110,15 @@ export default function Guide() {
         <span className="flex md:hidden items-center text-white flex-shrink-0">
           <GraduationCap className="w-4 h-4 text-accent" />
         </span>
+        {/* R144e — Wizard quick link (Guide → 5-step recommend) */}
+        <Link
+          href="/wizard"
+          className="hidden sm:flex items-center gap-1 px-2 py-1 rounded border border-accent/40 text-accent text-[11px] font-medium hover:bg-accent/10 hover:border-accent transition-colors flex-shrink-0"
+          title="설계 문제 → 재료 추천 Wizard (5-step)"
+        >
+          <Compass className="w-3.5 h-3.5" />
+          <span>Wizard</span>
+        </Link>
         <div className="ml-auto relative flex-1 max-w-[280px] sm:max-w-[360px] min-w-0">
           <Search className="w-3.5 h-3.5 absolute left-2 top-1/2 -translate-y-1/2 text-sidebar-foreground/40 pointer-events-none" />
           <input
@@ -1911,11 +1920,11 @@ export default function Guide() {
               { q: '단위·언어를 어디서 바꾸나요?', a: '우측 상단 헤더의 <b>한 / EN</b> 토글 (언어), <b>SI / Imperial</b> 토글 (단위). 즉시 전환되며 localStorage 에 저장.' },
               { q: '필터를 적용했는데 결과가 0개 입니다.', a: '좌측 사이드바 상단의 <b>Reset</b> 또는 헤더의 <b>필터 초기화</b>. preset 으로 진입한 경우 banner 의 ↻ Reset 버튼.' },
               { q: '결과를 다시 보고 싶을 때 (북마크)?', a: 'URL 이 자동으로 필터·preset·index 를 인코딩합니다. 브라우저 즐겨찾기에 추가하거나 link 공유하면 같은 상태로 재현됩니다.' },
-              { q: '내가 자주 쓰는 합금 set 을 저장?', o: '우측 상단 <b>Collections</b>. 이름을 부여하면 현재 선택 + 필터 snapshot 이 localStorage 에 저장됩니다. 6개 이상이면 검색·정렬 cycle 도 자동 노출.' },
+              { q: '내가 자주 쓰는 합금 set 을 저장?', a: '우측 상단 <b>Collections</b>. 이름을 부여하면 현재 선택 + 필터 snapshot 이 localStorage 에 저장됩니다. 6개 이상이면 검색·정렬 cycle 도 자동 노출.' },
             ].map((f, i) => (
               <details key={i} className="rounded border border-border bg-card p-2.5">
                 <summary className="cursor-pointer text-sm font-semibold text-foreground/85">{f.q}</summary>
-                <p className="text-[12.5px] text-foreground/80 mt-1 leading-relaxed">{f.a || (f as any).o}</p>
+                <p className="text-[12.5px] text-foreground/80 mt-1 leading-relaxed">{f.a}</p>
               </details>
             ))}
           </div>

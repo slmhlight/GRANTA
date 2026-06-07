@@ -138,3 +138,12 @@ if (forbidden.length > 0) {
 const outPath = path.join(ROOT, 'data', 'guide-links-report.md');
 fs.writeFileSync(outPath, rep.join('\n'));
 console.log(`\nReport: ${outPath}`);
+
+/* R144a — CI 통합: `--fail-on-dead` 시 dead URL 검출 → exit 1. */
+const failOnDead = args.includes('--fail-on-dead');
+const failThresholdIdx = args.indexOf('--fail-threshold');
+const failThreshold = failThresholdIdx >= 0 ? parseInt(args[failThresholdIdx + 1], 10) : (failOnDead ? 0 : -1);
+if (failThreshold >= 0 && results.dead.length > failThreshold) {
+  console.error(`\n✗ Guide dead URL count (${results.dead.length}) exceeds threshold (${failThreshold}).`);
+  process.exit(1);
+}

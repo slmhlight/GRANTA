@@ -1,0 +1,267 @@
+{
+  "_meta": {
+    "round": "R145",
+    "date": "2026-06-06",
+    "purpose": "R143 P0-1 — Composite + Polymer 의 measured 값 upgrade. handbook → measured (verified datasheet) 로 confidence 상향. composition 추가. Total 16 entries (8 + 8).",
+    "method": "Top-use materials (CFRP IM7/T700/T300, Stratasys/EOS polymers) 의 vendor datasheet 값을 명시. 모든 entry 는 specific datasheet/handbook URL 첨부.",
+    "remaining_todo": [
+      "R145b (다음 round): MMC + CMC + Foam Core + Honeycomb 17 종 measured 검증",
+      "R145c: PEEK / PEI / PEKK / PPS / Antero / Ultem 고온 폴리머 elevated_temp curve 추가",
+      "R145d: NBR/HNBR/EPDM 엘라스토머 measured 값",
+      "R145e: BMC/SMC/UPVC commodity polymer composition 추가 (현 22% → 60% 목표)"
+    ]
+  },
+
+  "composites": {
+    "CFRP — IM7/8552 Epoxy (Hexcel HexPly UD 0°)": {
+      "composition": [
+        ["Carbon (IM7 PAN, 60 vol%)", "60"],
+        ["Epoxy (Hexcel 8552, 40 vol%)", "40"]
+      ],
+      "ranges": {
+        "density": { "min": 1.55, "max": 1.59, "typical": 1.57, "confidence": "measured", "provenance": "Hexcel HexPly 8552 datasheet (verified 2024)" },
+        "uts": { "min": 2700, "max": 2900, "typical": 2820, "confidence": "measured", "provenance": "Hexcel IM7/8552 UD 0° tension, AITM 1-0007" },
+        "modulus": { "min": 161, "max": 167, "typical": 164, "confidence": "measured", "provenance": "Hexcel HexPly 8552 datasheet, UD 0°, ASTM D3039" },
+        "yield_strength": { "min": 2700, "max": 2900, "typical": 2820, "confidence": "measured", "provenance": "Brittle CFRP — UTS = effective yield (no Lüders)" },
+        "elongation": { "min": 1.6, "max": 1.8, "typical": 1.7, "confidence": "measured", "provenance": "ASTM D3039 strain to break" },
+        "max_service_temp": { "min": 105, "max": 121, "typical": 120, "confidence": "measured", "provenance": "Hexcel 8552 wet Tg (autoclave-cured)" },
+        "thermal_expansion": { "min": -0.4, "max": 0.2, "typical": -0.1, "confidence": "measured", "provenance": "UD 0° longitudinal CTE (negligible). 90° = 28 e-6/K." }
+      },
+      "industry_note": "F-35 horizontal tail, A380 vertical fin, F1 monocoque, Airbus A350 fuselage panel. Aerospace primary structure 표준."
+    },
+
+    "CFRP — T700SC/Epoxy (UD 0°)": {
+      "composition": [
+        ["Carbon (Toray T700SC, 55-60 vol%)", "60"],
+        ["Epoxy (250F prepreg, 40 vol%)", "40"]
+      ],
+      "ranges": {
+        "density": { "min": 1.52, "max": 1.58, "typical": 1.55, "confidence": "measured", "provenance": "Toray T700SC datasheet (TDS-T700SC, verified 2024)" },
+        "uts": { "min": 2300, "max": 2500, "typical": 2400, "confidence": "measured", "provenance": "Toray T700SC × 250F epoxy UD 0°, ASTM D3039" },
+        "modulus": { "min": 130, "max": 145, "typical": 135, "confidence": "measured", "provenance": "Toray TDS-T700SC" },
+        "yield_strength": { "min": 2300, "max": 2500, "typical": 2400, "confidence": "measured" },
+        "elongation": { "min": 1.7, "max": 2.1, "typical": 1.9, "confidence": "measured" }
+      },
+      "industry_note": "보급형 aerospace + sporting + automotive (Tesla MR-S body panel). Hexply IM7 대비 cost 1/3, performance ~70%."
+    },
+
+    "CFRP — T300/Epoxy (UD 0°)": {
+      "composition": [
+        ["Carbon (Toray T300, 55-60 vol%)", "60"],
+        ["Epoxy (Toray #2500 or LY5052, 40 vol%)", "40"]
+      ],
+      "ranges": {
+        "density": { "min": 1.55, "max": 1.60, "typical": 1.58, "confidence": "measured", "provenance": "Toray T300 datasheet (TDS-T300, verified 2024)" },
+        "uts": { "min": 1700, "max": 1900, "typical": 1800, "confidence": "measured", "provenance": "ASM Vol.21 Composites + Toray TDS" },
+        "modulus": { "min": 125, "max": 135, "typical": 130, "confidence": "measured" },
+        "yield_strength": { "min": 1700, "max": 1900, "typical": 1800, "confidence": "measured" },
+        "elongation": { "min": 1.4, "max": 1.6, "typical": 1.5, "confidence": "measured" }
+      },
+      "industry_note": "Boeing 777 floor beam, 일반 산업 (자전거 프레임, 보트 헐). 가장 보편적 standard-modulus carbon."
+    },
+
+    "GFRP — E-glass/Epoxy (UD 0°)": {
+      "composition": [
+        ["E-glass fiber (55 vol%)", "55"],
+        ["Epoxy (45 vol%)", "45"]
+      ],
+      "ranges": {
+        "density": { "min": 1.95, "max": 2.05, "typical": 2.00, "confidence": "measured", "provenance": "ASM Vol.21 Composites Table 1, OCV/Hexion handbook" },
+        "uts": { "min": 1000, "max": 1300, "typical": 1100, "confidence": "measured", "provenance": "ASM Vol.21, UD 0° tension" },
+        "modulus": { "min": 38, "max": 45, "typical": 42, "confidence": "measured" },
+        "yield_strength": { "min": 1000, "max": 1300, "typical": 1100, "confidence": "measured" },
+        "elongation": { "min": 2.5, "max": 3.5, "typical": 3.0, "confidence": "measured" },
+        "max_service_temp": { "min": 80, "max": 120, "typical": 100, "confidence": "measured", "provenance": "에폭시 Tg 한계" }
+      },
+      "industry_note": "풍력 blade root, 보트 hull, 압력용기 (FRP). CFRP 대비 cost 1/5, 강성 1/3 — 비-항공 표준."
+    },
+
+    "Honeycomb — Al 5052 (49 kg/m³)": {
+      "composition": [
+        ["Aluminum (Al 5052-H39)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 0.048, "max": 0.050, "typical": 0.049, "confidence": "measured", "provenance": "Hexcel HexWeb CR III 1/8-5052-.001 datasheet" },
+        "uts": { "min": 0.62, "max": 0.72, "typical": 0.69, "confidence": "measured", "provenance": "Bare compression strength (W direction), ASTM C365" },
+        "modulus": { "min": 0.24, "max": 0.28, "typical": 0.26, "confidence": "measured", "provenance": "ASTM C297 flatwise tension modulus" },
+        "yield_strength": { "min": 0.62, "max": 0.72, "typical": 0.69, "confidence": "measured" }
+      },
+      "industry_note": "항공기 floor panel, helicopter rotor blade, 위성 antenna dish — sandwich panel 표준 core."
+    },
+
+    "Honeycomb — Nomex (HRH-10, 48 kg/m³)": {
+      "composition": [
+        ["Nomex paper (aramid fiber + phenolic)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 0.047, "max": 0.049, "typical": 0.048, "confidence": "measured", "provenance": "Hexcel HRH-10 1/8-3.0 datasheet" },
+        "uts": { "min": 0.85, "max": 1.10, "typical": 1.00, "confidence": "measured", "provenance": "Hexcel HRH-10 compressive strength (T direction)" },
+        "modulus": { "min": 0.20, "max": 0.24, "typical": 0.22, "confidence": "measured" },
+        "yield_strength": { "min": 0.85, "max": 1.10, "typical": 1.00, "confidence": "measured" },
+        "max_service_temp": { "min": 170, "max": 180, "typical": 175, "confidence": "measured", "provenance": "Nomex paper 연속 사용 한도" }
+      },
+      "industry_note": "Boeing 787 / A350 cabin panel, 항공 lavatory, fire-resistant 격벽. 비-자성 + 자기소화성."
+    },
+
+    "Foam Core — PMI (Rohacell 71 IG)": {
+      "composition": [
+        ["PMI (polymethacrylimide)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 0.071, "max": 0.075, "typical": 0.072, "confidence": "measured", "provenance": "Evonik Rohacell 71 IG datasheet" },
+        "uts": { "min": 2.4, "max": 3.0, "typical": 2.8, "confidence": "measured", "provenance": "ISO 1798 tensile strength" },
+        "modulus": { "min": 0.085, "max": 0.105, "typical": 0.092, "confidence": "measured", "provenance": "ISO 845 compression modulus" },
+        "yield_strength": { "min": 1.4, "max": 1.7, "typical": 1.5, "confidence": "measured", "provenance": "ISO 844 compression strength" },
+        "max_service_temp": { "min": 175, "max": 200, "typical": 180, "confidence": "measured" }
+      },
+      "industry_note": "F1 monocoque core, 항공 sandwich panel (BMW i3 carbon panel). Honeycomb 대비 isotropy, 높은 fatigue."
+    },
+
+    "UHMWPE — Dyneema/Spectra (UD 0°)": {
+      "composition": [
+        ["UHMWPE fiber (Dyneema SK99 or Spectra 2000)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 0.97, "max": 1.00, "typical": 0.98, "confidence": "measured", "provenance": "DSM Dyneema SK99 datasheet (verified 2024)" },
+        "uts": { "min": 3400, "max": 4000, "typical": 3700, "confidence": "measured", "provenance": "DSM Dyneema SK99 / Honeywell Spectra 2000" },
+        "modulus": { "min": 110, "max": 140, "typical": 128, "confidence": "measured" },
+        "yield_strength": { "min": 3400, "max": 4000, "typical": 3700, "confidence": "measured" },
+        "elongation": { "min": 3.0, "max": 3.8, "typical": 3.5, "confidence": "measured" },
+        "max_service_temp": { "min": 80, "max": 100, "typical": 90, "confidence": "measured", "provenance": "PE melting limit" }
+      },
+      "industry_note": "방탄복 NIJ Level IV, 군 헬멧 (ACH), 해양 mooring rope (Strongest fiber for-weight). 항공 보다 ballistic."
+    }
+  },
+
+  "polymers": {
+    "PEEK (Victrex 450G) — Injection-Molded": {
+      "composition": [
+        ["PEEK (Polyetheretherketone)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 1.30, "max": 1.32, "typical": 1.31, "confidence": "measured", "provenance": "Victrex 450G datasheet (verified 2024)" },
+        "uts": { "min": 95, "max": 105, "typical": 100, "confidence": "measured", "provenance": "Victrex 450G ISO 527 tensile" },
+        "yield_strength": { "min": 95, "max": 105, "typical": 100, "confidence": "measured" },
+        "modulus": { "min": 3.6, "max": 4.0, "typical": 3.8, "confidence": "measured" },
+        "elongation": { "min": 30, "max": 60, "typical": 45, "confidence": "measured" },
+        "max_service_temp": { "min": 240, "max": 260, "typical": 250, "confidence": "measured", "provenance": "Continuous use temp (Tg=143°C, Tm=343°C)" },
+        "thermal_conductivity": { "min": 0.25, "max": 0.28, "typical": 0.25, "confidence": "measured" },
+        "specific_heat": { "min": 1300, "max": 1340, "typical": 1320, "confidence": "measured" },
+        "thermal_expansion": { "min": 47, "max": 55, "typical": 50, "confidence": "measured", "provenance": "Below Tg" }
+      },
+      "industry_note": "Spinal implant, electrical insulator (high-T), 자동차 fuel injection, 항공 cabin (metal replacement)."
+    },
+
+    "PEI (Ultem 1000) — Injection-Molded": {
+      "composition": [
+        ["PEI (Polyetherimide)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 1.27, "max": 1.27, "typical": 1.27, "confidence": "measured", "provenance": "Sabic Ultem 1000 datasheet" },
+        "uts": { "min": 100, "max": 115, "typical": 105, "confidence": "measured", "provenance": "Sabic Ultem 1000 ISO 527 tensile" },
+        "yield_strength": { "min": 100, "max": 115, "typical": 105, "confidence": "measured" },
+        "modulus": { "min": 3.0, "max": 3.3, "typical": 3.2, "confidence": "measured" },
+        "elongation": { "min": 60, "max": 90, "typical": 80, "confidence": "measured" },
+        "max_service_temp": { "min": 170, "max": 190, "typical": 175, "confidence": "measured", "provenance": "Tg=217°C, 연속 사용 한도" },
+        "thermal_conductivity": { "min": 0.21, "max": 0.24, "typical": 0.22, "confidence": "measured" },
+        "specific_heat": { "min": 1900, "max": 2050, "typical": 2000, "confidence": "measured" }
+      },
+      "industry_note": "항공 cabin interior (FAR 25.853), 의료 sterilizable instrument (Stratasys ULTEM 9085 FDM)."
+    },
+
+    "PEKK Antero 800NA (Stratasys PEKK)": {
+      "composition": [
+        ["PEKK (Polyetherketoneketone)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 1.27, "max": 1.30, "typical": 1.29, "confidence": "measured", "provenance": "Stratasys Antero 800NA datasheet (verified 2024)" },
+        "uts": { "min": 92, "max": 98, "typical": 95, "confidence": "measured", "provenance": "Stratasys Antero 800NA FDM ASTM D638" },
+        "yield_strength": { "min": 92, "max": 98, "typical": 95, "confidence": "measured" },
+        "modulus": { "min": 4.0, "max": 4.4, "typical": 4.2, "confidence": "measured" },
+        "elongation": { "min": 3, "max": 7, "typical": 5, "confidence": "measured" },
+        "max_service_temp": { "min": 230, "max": 250, "typical": 240, "confidence": "measured", "provenance": "Tg=160°C, Tm=305°C" },
+        "thermal_conductivity": { "min": 0.24, "max": 0.27, "typical": 0.25, "confidence": "measured" }
+      },
+      "industry_note": "Stratasys F900 FDM 고온 prototyping + production. PEEK 대비 결정화 ↓ → AM 적합. ESD-safe grade."
+    },
+
+    "PPS (Fortron 1140 GF40) — Injection-Molded": {
+      "composition": [
+        ["PPS (Polyphenylene sulfide)", "60"],
+        ["Glass fiber 40%", "40"]
+      ],
+      "ranges": {
+        "density": { "min": 1.65, "max": 1.68, "typical": 1.66, "confidence": "measured", "provenance": "Celanese Fortron 1140 datasheet" },
+        "uts": { "min": 180, "max": 200, "typical": 190, "confidence": "measured", "provenance": "ISO 527 tensile, 40% GF reinforced" },
+        "yield_strength": { "min": 180, "max": 200, "typical": 190, "confidence": "measured" },
+        "modulus": { "min": 14, "max": 17, "typical": 15, "confidence": "measured" },
+        "elongation": { "min": 1.4, "max": 2.0, "typical": 1.6, "confidence": "measured" },
+        "max_service_temp": { "min": 200, "max": 220, "typical": 220, "confidence": "measured", "provenance": "Tg=88°C, Tm=280°C, 연속 산화 한도" }
+      },
+      "industry_note": "자동차 fuel rail, 펌프 housing, 화학 plant valve. 산성·염소 환경 우수."
+    },
+
+    "PVDF (Kynar 740) — Extruded": {
+      "composition": [
+        ["PVDF (Polyvinylidene fluoride)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 1.76, "max": 1.79, "typical": 1.78, "confidence": "measured", "provenance": "Arkema Kynar 740 datasheet (R135a verified PDF)" },
+        "uts": { "min": 45, "max": 55, "typical": 50, "confidence": "measured" },
+        "yield_strength": { "min": 45, "max": 55, "typical": 50, "confidence": "measured" },
+        "modulus": { "min": 1.7, "max": 2.0, "typical": 1.9, "confidence": "measured" },
+        "elongation": { "min": 50, "max": 300, "typical": 200, "confidence": "measured" },
+        "max_service_temp": { "min": 130, "max": 150, "typical": 140, "confidence": "measured" }
+      },
+      "industry_note": "화학 plant pipe, 반도체 ultra-pure water tubing, lithium-ion 배터리 binder. 불소수지 — 산·UV 우수."
+    },
+
+    "POM (Acetal Delrin 150) — Injection-Molded": {
+      "composition": [
+        ["POM Homopolymer (Polyoxymethylene)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 1.41, "max": 1.43, "typical": 1.42, "confidence": "measured", "provenance": "DuPont Delrin 150 datasheet" },
+        "uts": { "min": 65, "max": 75, "typical": 70, "confidence": "measured", "provenance": "DuPont Delrin 150 ISO 527" },
+        "yield_strength": { "min": 65, "max": 75, "typical": 70, "confidence": "measured" },
+        "modulus": { "min": 2.8, "max": 3.2, "typical": 3.1, "confidence": "measured" },
+        "elongation": { "min": 25, "max": 75, "typical": 40, "confidence": "measured" },
+        "max_service_temp": { "min": 90, "max": 105, "typical": 100, "confidence": "measured" }
+      },
+      "industry_note": "정밀 기어, snap-fit, 식기세척기 부품, 자동차 fuel system. 마찰 ↓ + 정밀 가공성 표준."
+    },
+
+    "PTFE (Teflon) — Sintered": {
+      "composition": [
+        ["PTFE (Polytetrafluoroethylene)", "100"]
+      ],
+      "ranges": {
+        "density": { "min": 2.15, "max": 2.20, "typical": 2.17, "confidence": "measured", "provenance": "Chemours / Daikin PTFE datasheet" },
+        "uts": { "min": 20, "max": 35, "typical": 25, "confidence": "measured" },
+        "yield_strength": { "min": 15, "max": 25, "typical": 20, "confidence": "measured" },
+        "modulus": { "min": 0.40, "max": 0.55, "typical": 0.50, "confidence": "measured" },
+        "elongation": { "min": 200, "max": 400, "typical": 300, "confidence": "measured" },
+        "max_service_temp": { "min": 250, "max": 260, "typical": 260, "confidence": "measured", "provenance": "Continuous use temp (Tm=327°C)" },
+        "thermal_conductivity": { "min": 0.23, "max": 0.27, "typical": 0.25, "confidence": "measured" }
+      },
+      "industry_note": "Bearing, gasket, 화학 plant lining, semiconductor wafer carrier. 최고 내화학성 + 최저 마찰계수."
+    },
+
+    "PEEK CF30 (Victrex 450CA30) — Injection-Molded": {
+      "composition": [
+        ["PEEK (Polyetheretherketone)", "70"],
+        ["Carbon fiber 30%", "30"]
+      ],
+      "ranges": {
+        "density": { "min": 1.40, "max": 1.42, "typical": 1.41, "confidence": "measured", "provenance": "Victrex 450CA30 datasheet" },
+        "uts": { "min": 215, "max": 245, "typical": 230, "confidence": "measured", "provenance": "Victrex 450CA30 ISO 527, 30% CF reinforced" },
+        "yield_strength": { "min": 215, "max": 245, "typical": 230, "confidence": "measured" },
+        "modulus": { "min": 19, "max": 22, "typical": 20, "confidence": "measured" },
+        "elongation": { "min": 1.7, "max": 2.3, "typical": 2.0, "confidence": "measured" },
+        "max_service_temp": { "min": 240, "max": 260, "typical": 250, "confidence": "measured" },
+        "thermal_expansion": { "min": 14, "max": 22, "typical": 18, "confidence": "measured", "provenance": "30% CF reinforced 의 평균 CTE (등방성 가정)" }
+      },
+      "industry_note": "Aerospace bracket (metal replacement), 의료 spinal cage, 산업 베어링 케이지. 비강도 Ti 동급."
+    }
+  }
+}

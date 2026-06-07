@@ -1,118 +1,33 @@
 /*
  * AM Materials Explorer — Filter State Hook
  * Scientific Precision Design System
+ *
+ * R157b — FilterState interface + DEFAULT_FILTERS → lib/filter-state.ts.
+ *   Hook 본체 (filter / sort / narrowedRanges) 만 여기 유지.
+ *   기존 import 호환을 위해 두 심볼 모두 re-export.
  */
 
 import { useState, useMemo, useCallback } from 'react';
 import type { Material } from '@/lib/materials';
 import { parseCompositionRange, getRangeValue } from '@/lib/composition-parser';
+import { applyQuery, parseQuery, type ParsedQuery } from '@/lib/query-dsl';
+// R157b — fuzzyContains → lib/fuzzy-search.ts 로 이동.
+import { fuzzyContains } from '@/lib/fuzzy-search';
+// R157b — HT matcher (filter 카테고리 → material.heat_treatment 매칭) → lib/ht-matcher.ts.
+import { matchAnyHeatTreatment } from '@/lib/ht-matcher';
+// R157b — FilterState type + DEFAULT_FILTERS 도 lib 로 이동.
+import { type FilterState, DEFAULT_FILTERS } from '@/lib/filter-state';
+
+// Re-export for backward compat (Home / ScenarioDialog / 다른 consumer).
+export { DEFAULT_FILTERS, type FilterState };
 
 /**
- * Sprint 2 A3 — fuzzy contains matcher.
- * 1) exact substring (가장 빠른 케이스, 100% 의미 보존)
- * 2) separator-stripped substring — "ti6al4v" 입력으로 "Ti-6Al-4V" 매칭
- * 3) subsequence (q.length ≥ 3) — 오타·약어 허용 ("tisalv" → "Ti-6Al-4V")
- *
- * 입력 너무 짧으면(<2자) fuzzy 비활성 — false positive 방지.
+ * R144b — Fuzzy text search (expanded for R144d full-text).
+ * 외부 사용: parser-fuzzy match 도 동일 의미.
  */
-function fuzzyContains(text: string, q: string): boolean {
-  if (!text) return false;
-  if (text.includes(q)) return true;
-  if (q.length < 2) return false;
-  const cleanText = text.replace(/[-\s./_]/g, '');
-  const cleanQ = q.replace(/[-\s./_]/g, '');
-  if (cleanQ.length >= 2 && cleanText.includes(cleanQ)) return true;
-  if (cleanQ.length < 3) return false;
-  let i = 0;
-  for (let j = 0; j < cleanText.length && i < cleanQ.length; j++) {
-    if (cleanText[j] === cleanQ[i]) i++;
-  }
-  return i === cleanQ.length;
+export function fuzzyContainsExport(text: string, q: string): boolean {
+  return fuzzyContains(text, q);
 }
-
-export interface FilterState {
-  search: string;
-  categories: string[];
-  subcategories: string[];
-  processes: string[];
-  manufacturers: string[];
-  compositions: string[];
-  compositionRanges: Record<string, [number, number] | null>; // e.g., { Fe: [10, 50], Al: [5, 20] }
-  densityRange: [number, number] | null;
-  yieldStrengthRange: [number, number] | null;
-  utsRange: [number, number] | null;
-  elongationRange: [number, number] | null;
-  modulusRange: [number, number] | null;
-  hardnessRange: [number, number] | null;
-  thermalConductivityRange: [number, number] | null;
-  electricalConductivityRange: [number, number] | null;
-  maxServiceTempRange: [number, number] | null;
-  fatigueStrengthRange: [number, number] | null;
-  impactStrengthRange: [number, number] | null;
-  pricePerKgRange: [number, number] | null;
-  thermalExpansionRange: [number, number] | null;
-  poissonRatioRange: [number, number] | null;
-  specificHeatRange: [number, number] | null;
-  meltingPointRange: [number, number] | null;
-  /** R30 — 모든 numeric property 필터 일관성 차원 추가 항목. */
-  popularityRange: [number, number] | null;
-  fractureToughnessRange: [number, number] | null;
-  totalCostEstimateRange: [number, number] | null;
-  minWallThicknessRange: [number, number] | null;
-  surfaceFinishTypicalRange: [number, number] | null;
-  machiningCostFactorRange: [number, number] | null;
-  htCostFactorRange: [number, number] | null;
-  corrosion: string[];
-  machinability: string[];
-  weldability: string[];
-  /** R16: RoHS 통과 재료만 표시 (납·카드뮴·수은 한계 통과). null/undefined 데이터는 포함. */
-  rohsOnly?: boolean;
-  /** R38e: 열처리 다중 선택 (As-built/Annealed/Solution/Aged/Q&T/HIP/Normalized/Stress-relieved/...) */
-  heatTreatments: string[];
-  /** R133b: low confidence entry (verified=0 + handbook 적은) 숨기기. default ON — honest data 표시. */
-  hideLowConfidence?: boolean;
-}
-
-export const DEFAULT_FILTERS: FilterState = {
-  search: '',
-  categories: [],
-  subcategories: [],
-  processes: [],
-  manufacturers: [],
-  compositions: [],
-  compositionRanges: {},
-  densityRange: null,
-  yieldStrengthRange: null,
-  utsRange: null,
-  elongationRange: null,
-  modulusRange: null,
-  hardnessRange: null,
-  thermalConductivityRange: null,
-  electricalConductivityRange: null,
-  maxServiceTempRange: null,
-  fatigueStrengthRange: null,
-  impactStrengthRange: null,
-  pricePerKgRange: null,
-  thermalExpansionRange: null,
-  poissonRatioRange: null,
-  specificHeatRange: null,
-  meltingPointRange: null,
-  // R35a — 인기도는 산업 사용 빈도 기준. 기본 4-5 로 좁혀서 검증된 알로이 위주로 보여줌.
-  popularityRange: [4, 5],
-  fractureToughnessRange: null,
-  totalCostEstimateRange: null,
-  minWallThicknessRange: null,
-  surfaceFinishTypicalRange: null,
-  machiningCostFactorRange: null,
-  htCostFactorRange: null,
-  corrosion: [],
-  machinability: [],
-  weldability: [],
-  rohsOnly: false,
-  heatTreatments: [],
-  // R133b — default ON: confidence_tier='low' entry (~131건, 10%) 숨김. UI 토글로 노출 가능.
-  hideLowConfidence: true,
-};
 
 export function useMaterialFilter(materials: Material[]) {
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
@@ -147,16 +62,46 @@ export function useMaterialFilter(materials: Material[]) {
   const filtered = useMemo(() => {
     let result = materials;
 
-    // Text search — Sprint 2 A3: fuzzyContains (subsequence + separator strip)
+    // Text search — Sprint 2 A3 + R144d full-text expansion.
+    //   기존: name + subcategory + manufacturer + process + aliases
+    //   추가: industry_note + heat_treatment + meta.applications + composition keys + spec id
     if (filters.search.trim()) {
       const q = filters.search.toLowerCase().trim();
-      result = result.filter(m =>
-        fuzzyContains(m.name.toLowerCase(), q) ||
-        fuzzyContains(m.subcategory.toLowerCase(), q) ||
-        fuzzyContains(m.manufacturer.toLowerCase(), q) ||
-        fuzzyContains(m.process.toLowerCase(), q) ||
-        (m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))
-      );
+      result = result.filter(m => {
+        if (fuzzyContains(m.name.toLowerCase(), q)) return true;
+        if (m.subcategory && fuzzyContains(m.subcategory.toLowerCase(), q)) return true;
+        if (m.manufacturer && fuzzyContains(m.manufacturer.toLowerCase(), q)) return true;
+        if (m.process && fuzzyContains(m.process.toLowerCase(), q)) return true;
+        if ((m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))) return true;
+        // R144d full-text expansion
+        if (m.industry_note && fuzzyContains(m.industry_note.toLowerCase(), q)) return true;
+        if (m.heat_treatment && fuzzyContains(m.heat_treatment.toLowerCase(), q)) return true;
+        const apps = (m.meta as { applications?: string[] | string })?.applications;
+        if (apps) {
+          const arr = Array.isArray(apps) ? apps : [apps];
+          if (arr.some(a => typeof a === 'string' && fuzzyContains(a.toLowerCase(), q))) return true;
+        }
+        if (m.composition && Object.keys(m.composition).some(k => fuzzyContains(k.toLowerCase(), q))) return true;
+        const specs = (m.meta as { specs?: Array<{ id: string }> })?.specs;
+        if (specs && specs.some(s => fuzzyContains(s.id.toLowerCase(), q))) return true;
+        return false;
+      });
+    }
+
+    // R144b — Multi-constraint DSL query (AND with other filters)
+    if (filters.query && filters.query.trim()) {
+      const parsed = parseQuery(filters.query);
+      if (parsed.constraints.length) result = applyQuery(result, parsed);
+    }
+
+    // R144c — Spec filter (multiple specs = OR within group)
+    if (filters.specs && filters.specs.length) {
+      const wanted = filters.specs.map(s => s.toUpperCase().replace(/\s+/g, ' '));
+      result = result.filter(m => {
+        const specs = (m.meta as { specs?: Array<{ id: string }> })?.specs;
+        if (!specs?.length) return false;
+        return specs.some(s => wanted.includes(s.id.toUpperCase().replace(/\s+/g, ' ')));
+      });
     }
 
     // Category filter
@@ -183,9 +128,10 @@ export function useMaterialFilter(materials: Material[]) {
     }
 
     // Composition filter (by primary composition)
+    // R157 — `as any` 제거: Material interface 에 primary_composition?: string 추가.
     if (filters.compositions.length > 0) {
       result = result.filter(m => {
-        const comp = (m as any).primary_composition || 'Other';
+        const comp = m.primary_composition || 'Other';
         return filters.compositions.includes(comp);
       });
     }
@@ -268,22 +214,7 @@ export function useMaterialFilter(materials: Material[]) {
     //   현실적이지 않은 조합 (예: SLM 합금 + 단조 후 어닐링) 은 데이터에 없는 시점에서 자동 배제.
     if (filters.heatTreatments && filters.heatTreatments.length) {
       const wanted = filters.heatTreatments.map(s => s.toLowerCase());
-      result = result.filter(m => {
-        const ht = String(m.heat_treatment || '').toLowerCase();
-        if (!ht) return wanted.includes('none / as-supplied');
-        return wanted.some(w => {
-          if (w === 'none / as-supplied') return /as[\s-]?(built|cast|supplied|received|forged|rolled|extruded|deposited)/.test(ht);
-          if (w === 'annealed') return /anneal/.test(ht);
-          if (w === 'solution treated') return /solution/.test(ht);
-          if (w === 'aged / precipitation') return /aged|aging|precipitation|peak\s*ag|t6|t7/.test(ht);
-          if (w === 'quenched & tempered') return /quench|tempered|qt\b|q\s*&\s*t/.test(ht);
-          if (w === 'hip (hot isostatic)') return /hip|isostatic/.test(ht);
-          if (w === 'stress-relieved') return /stress[\s-]?reliev/.test(ht);
-          if (w === 'normalized') return /normaliz/.test(ht);
-          if (w === 'hardened') return /harden|case[\s-]?harden|nitrid|carburiz/.test(ht);
-          return ht.includes(w);
-        });
-      });
+      result = result.filter(m => matchAnyHeatTreatment(String(m.heat_treatment || '').toLowerCase(), wanted));
     }
 
     // Sort
@@ -347,7 +278,9 @@ export function useMaterialFilter(materials: Material[]) {
   // R51b — Leave-one-out narrowed ranges. 각 numeric property 의 가능 범위는
   //   "그 property filter 만 제외" 한 모든 필터 적용 후 결과의 min/max.
   //   Granta MI 스타일 — slider 가 다른 필터의 제약 반영.
-  const RANGE_FILTER_MAP: Record<string, keyof FilterState> = {
+  /** R157 — RANGE_FILTER_MAP 키는 Material 의 number-valued property name. 우회 marker 제거를 위해
+      keyof Material 로 좁힘 (이전 Record<string, ...> → 안전 type). */
+  const RANGE_FILTER_MAP: { [P in keyof Material]?: keyof FilterState } = {
     density: 'densityRange', yield_strength: 'yieldStrengthRange', uts: 'utsRange',
     elongation: 'elongationRange', modulus: 'modulusRange', hardness: 'hardnessRange',
     thermal_conductivity: 'thermalConductivityRange', electrical_conductivity: 'electricalConductivityRange',
@@ -388,43 +321,35 @@ export function useMaterialFilter(materials: Material[]) {
     }
     if (filters.heatTreatments && filters.heatTreatments.length) {
       const wanted = filters.heatTreatments.map(s => s.toLowerCase());
-      baseSet = baseSet.filter(m => {
-        const ht = String(m.heat_treatment || '').toLowerCase();
-        if (!ht) return wanted.includes('none / as-supplied');
-        return wanted.some(w => {
-          if (w === 'none / as-supplied') return /as[\s-]?(built|cast|supplied|received|forged|rolled|extruded|deposited)/.test(ht);
-          if (w === 'annealed') return /anneal/.test(ht);
-          if (w === 'solution treated') return /solution/.test(ht);
-          if (w === 'aged / precipitation') return /aged|aging|precipitation|peak\s*ag|t6|t7/.test(ht);
-          if (w === 'quenched & tempered') return /quench|tempered|qt\b|q\s*&\s*t/.test(ht);
-          if (w === 'hip (hot isostatic)') return /hip|isostatic/.test(ht);
-          if (w === 'stress-relieved') return /stress[\s-]?reliev/.test(ht);
-          if (w === 'normalized') return /normaliz/.test(ht);
-          if (w === 'hardened') return /harden|case[\s-]?harden|nitrid|carburiz/.test(ht);
-          return ht.includes(w);
-        });
-      });
+      baseSet = baseSet.filter(m => matchAnyHeatTreatment(String(m.heat_treatment || '').toLowerCase(), wanted));
     }
 
     // 2) 각 target property 에 대해 — 자기 자신 제외 모든 range filter 적용 후 min/max 계산
+    // R157 — `as any` 제거: keyof Material 로 type-safe access.
+    const getProp = (m: Material, key: keyof Material): number | null => {
+      const v = m[key];
+      return typeof v === 'number' && isFinite(v) ? v : null;
+    };
     const out: Record<string, [number, number] | null> = {};
-    for (const [propKey, filterKey] of Object.entries(RANGE_FILTER_MAP)) {
+    for (const [propKey, filterKey] of Object.entries(RANGE_FILTER_MAP) as Array<[keyof Material, keyof FilterState]>) {
       let s = baseSet;
-      for (const [otherProp, otherFilter] of Object.entries(RANGE_FILTER_MAP)) {
+      for (const [otherProp, otherFilter] of Object.entries(RANGE_FILTER_MAP) as Array<[keyof Material, keyof FilterState]>) {
         if (otherProp === propKey) continue;
         const r = filters[otherFilter] as [number, number] | null | undefined;
         if (!r) continue;
         s = s.filter(m => {
-          const v = (m as any)[otherProp] as number | null;
+          const v = getProp(m, otherProp);
           return v != null && v >= r[0] && v <= r[1];
         });
       }
       const vals: number[] = [];
       for (const m of s) {
-        const v = (m as any)[propKey] as number | null;
-        if (v != null && isFinite(v)) vals.push(v);
+        const v = getProp(m, propKey);
+        if (v != null) vals.push(v);
       }
       out[propKey] = vals.length ? [Math.min(...vals), Math.max(...vals)] : null;
+      // Reference filterKey for narrowedRanges (consumer pairs propKey↔filterKey)
+      void filterKey;
     }
     return out;
     // eslint-disable-next-line react-hooks/exhaustive-deps

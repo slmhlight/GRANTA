@@ -21,7 +21,11 @@
       "limitations": "충격에 약함 (KIC ~6 MPa·√m), 열충격 ΔT ~200°C 한계",
       "price_per_kg": 41,
       "popularity": 5,
-      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/alumina/"
+      "datasheet_url": "https://www.coorstek.com/en/materials/technical-ceramics/alumina/",
+      "composition": {
+        "Al": "52.9",
+        "O": "47.1"
+      }
     },
     {
       "name": "Alumina (Al₂O₃, 96%)",
@@ -40,7 +44,11 @@
       "applications": "산업 베어링, 절삭공구 (저가), 분쇄 미디어",
       "price_per_kg": 12,
       "popularity": 5,
-      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/alumina/"
+      "datasheet_url": "https://www.coorstek.com/en/materials/technical-ceramics/alumina/",
+      "composition": {
+        "Al": "52.9",
+        "O": "47.1"
+      }
     },
     {
       "name": "Zirconia (Y-TZP, 3 mol% Y₂O₃, CoorsTek DURA-Z / TZ-3Y-E)",
@@ -61,8 +69,12 @@
       "limitations": "200-300°C 저온 열화 (LTD) 가능 — 수증기 노출 시 t→m 변환",
       "price_per_kg": 95,
       "popularity": 4,
-      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/zirconia/",
-      "industry_note": "CoorsTek 표준 grade: YTZP / TTZ / DURA-Z / ZDY / YZ-110 / TZ-3Y-E (Tosoh equivalent) / Cerastat. 3Y-TZP 의 metastable tetragonal 상이 stress 시 monoclinic 으로 변환 (transformation toughening) → KIC 10 달성 (Si3N4 와 동등)."
+      "datasheet_url": "https://www.coorstek.com/en/materials/technical-ceramics/zirconia/",
+      "industry_note": "CoorsTek 표준 grade: YTZP / TTZ / DURA-Z / ZDY / YZ-110 / TZ-3Y-E (Tosoh equivalent) / Cerastat. 3Y-TZP 의 metastable tetragonal 상이 stress 시 monoclinic 으로 변환 (transformation toughening) → KIC 10 달성 (Si3N4 와 동등).",
+      "composition": {
+        "Zr": "74.0",
+        "O": "26.0"
+      }
     },
     {
       "name": "Zirconia (Mg-PSZ, partially stabilized)",
@@ -79,7 +91,11 @@
       "applications": "고온 다이, 압출 다이, 와이어 다이",
       "price_per_kg": 55,
       "popularity": 3,
-      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/zirconia/"
+      "datasheet_url": "https://www.coorstek.com/en/materials/technical-ceramics/zirconia/",
+      "composition": {
+        "Zr": "74.0",
+        "O": "26.0"
+      }
     },
     {
       "name": "Silicon Nitride (Si₃N₄, HIP'd)",
@@ -100,7 +116,11 @@
       "limitations": "고가, 가공 어려움 (다이아몬드 그라인딩 필수)",
       "price_per_kg": 180,
       "popularity": 4,
-      "datasheet_url": "https://www.ceramtec-group.com/en/applications/automotive/"
+      "datasheet_url": "https://www.ceramtec-group.com/en/applications/automotive/",
+      "composition": {
+        "Si": "60.1",
+        "N": "39.9"
+      }
     },
     {
       "name": "Silicon Nitride (Si₃N₄, sintered)",
@@ -117,7 +137,11 @@
       "applications": "산업 베어링, 절삭공구 (Si3N4 인서트)",
       "price_per_kg": 95,
       "popularity": 4,
-      "datasheet_url": "https://www.ceramtec-group.com/en/applications/automotive/"
+      "datasheet_url": "https://www.ceramtec-group.com/en/applications/automotive/",
+      "composition": {
+        "Si": "60.1",
+        "N": "39.9"
+      }
     },
     {
       "name": "Silicon Carbide (SiC, sintered)",
@@ -138,7 +162,11 @@
       "limitations": "고가, KIC 낮음 (충격 취약)",
       "price_per_kg": 75,
       "popularity": 4,
-      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/silicon-carbide/"
+      "datasheet_url": "https://www.coorstek.com/en/materials/technical-ceramics/silicon-carbide/",
+      "composition": {
+        "Si": "70.0",
+        "C": "30.0"
+      }
     },
     {
       "name": "Silicon Carbide (SiC, reaction-bonded)",
@@ -155,7 +183,11 @@
       "applications": "내마모 라이너, 핸들링 부품 (저가 SiC)",
       "price_per_kg": 35,
       "popularity": 3,
-      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/silicon-carbide/"
+      "datasheet_url": "https://www.coorstek.com/en/materials/technical-ceramics/silicon-carbide/",
+      "composition": {
+        "Si": "70.0",
+        "C": "30.0"
+      }
     },
     {
       "name": "Tungsten Carbide (WC-Co, 6%)",
@@ -175,7 +207,11 @@
       "limitations": "Co 매트릭스 — 600°C 이상에서 산화 + Co 손실",
       "price_per_kg": 60,
       "popularity": 5,
-      "datasheet_url": "https://www.kennametal.com/us/en/resources/materials/wc-co.html"
+      "datasheet_url": "https://www.kennametal.com/us/en/resources/materials/wc-co.html",
+      "composition": {
+        "W": "93.9",
+        "C": "6.1"
+      }
     },
     {
       "name": "Tungsten Carbide (WC-Co, 12%)",
@@ -192,7 +228,11 @@
       "applications": "충격 하중 절삭공구, 광산 비트, 내마모 부품",
       "price_per_kg": 55,
       "popularity": 4,
-      "datasheet_url": "https://www.kennametal.com/us/en/resources/materials/wc-co.html"
+      "datasheet_url": "https://www.kennametal.com/us/en/resources/materials/wc-co.html",
+      "composition": {
+        "W": "93.9",
+        "C": "6.1"
+      }
     },
     {
       "name": "Aluminum Nitride (AlN)",
@@ -213,7 +253,11 @@
       "limitations": "수분에 약함 (서서히 가수분해 → AlOOH)",
       "price_per_kg": 220,
       "popularity": 4,
-      "datasheet_url": "https://www.ceramtec-group.com/en/medical/aln-products/"
+      "datasheet_url": "https://www.ceramtec-group.com/en/medical/aln-products/",
+      "composition": {
+        "Al": "65.8",
+        "N": "34.2"
+      }
     },
     {
       "name": "Boron Carbide (B₄C)",
@@ -231,7 +275,11 @@
       "limitations": "충격 취약, KIC 매우 낮음",
       "price_per_kg": 350,
       "popularity": 3,
-      "datasheet_url": "https://3m.com/3M/en_US/p/d/b40065023/"
+      "datasheet_url": "https://www.3m.com/3M/en_US/p/d/b40065023/",
+      "composition": {
+        "B": "78.3",
+        "C": "21.7"
+      }
     },
     {
       "name": "Magnesia (MgO, 99%)",
@@ -252,7 +300,11 @@
       "limitations": "물에 반응 (수산화)",
       "price_per_kg": 25,
       "popularity": 3,
-      "datasheet_url": "https://www.azom.com/article.aspx?ArticleID=54"
+      "datasheet_url": "https://www.azom.com/article.aspx?ArticleID=54",
+      "composition": {
+        "Mg": "60.3",
+        "O": "39.7"
+      }
     },
     {
       "name": "Mullite (3Al₂O₃·2SiO₂)",
@@ -269,7 +321,12 @@
       "applications": "고온 furnace 라이너, 열적 충격 부품, 글래스 furnace",
       "price_per_kg": 15,
       "popularity": 3,
-      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/mullite/"
+      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/mullite/",
+      "composition": {
+        "Al": "38.0",
+        "Si": "13.2",
+        "O": "48.8"
+      }
     },
     {
       "name": "Cordierite (2MgO·2Al₂O₃·5SiO₂)",
@@ -286,7 +343,13 @@
       "applications": "촉매 변환기 honeycomb (자동차 배기), 가열 부품, 인덕션 cooktop 판",
       "limitations": "낮은 강도, 강도 의존 부품 부적합",
       "price_per_kg": 8,
-      "popularity": 4
+      "popularity": 4,
+      "composition": {
+        "Mg": "8.3",
+        "Al": "18.4",
+        "Si": "24.0",
+        "O": "49.2"
+      }
     },
     {
       "name": "Steatite (Soapstone, MgSiO₃)",
@@ -302,7 +365,12 @@
       "max_temp": 1200,
       "applications": "전기 절연체 (히터 코어, 소켓), 저가 산업 절연",
       "price_per_kg": 5,
-      "popularity": 3
+      "popularity": 3,
+      "composition": {
+        "Mg": "24.2",
+        "Si": "28.0",
+        "O": "47.8"
+      }
     },
     {
       "name": "Porcelain (Hard, electrical grade)",
@@ -318,7 +386,12 @@
       "max_temp": 1100,
       "applications": "고압 송전 절연체, 일반 자기 부품",
       "price_per_kg": 4,
-      "popularity": 4
+      "popularity": 4,
+      "composition": {
+        "Al": "24.3",
+        "Si": "25.3",
+        "O": "50.4"
+      }
     },
     {
       "name": "Glass (Soda-lime, container)",
@@ -336,7 +409,13 @@
       "specific_heat": 880,
       "applications": "일반 유리 (병, 윈도우)",
       "price_per_kg": 1,
-      "popularity": 5
+      "popularity": 5,
+      "composition": {
+        "Si": "30.0",
+        "Na": "12.3",
+        "Ca": "10.7",
+        "O": "47.0"
+      }
     },
     {
       "name": "Glass (Borosilicate, Pyrex / Schott Duran)",
@@ -352,7 +431,12 @@
       "max_temp": 500,
       "applications": "실험기기, 광학 렌즈 (저분산), 요리 기구, 냉열 사이클 부품",
       "price_per_kg": 6,
-      "popularity": 5
+      "popularity": 5,
+      "composition": {
+        "B": "7.0",
+        "Si": "36.2",
+        "O": "56.8"
+      }
     },
     {
       "name": "Fused Silica (SiO₂, 99.99%)",
@@ -369,7 +453,11 @@
       "applications": "정밀 광학 (UV·IR), 반도체 제조 부품, 우주 거울 기재",
       "limitations": "고가, 열 stresses 잘 견딤 (CTE 매우 작음)",
       "price_per_kg": 80,
-      "popularity": 4
+      "popularity": 4,
+      "composition": {
+        "Si": "46.7",
+        "O": "53.3"
+      }
     },
     {
       "name": "Lithium Aluminosilicate (Glass-ceramic, LAS)",
@@ -386,7 +474,11 @@
       "applications": "Zerodur (망원경 거울 기재), Ceran (인덕션 cooktop), 광학 fiber 케이블 부품",
       "limitations": "고가 (Zerodur)",
       "price_per_kg": 250,
-      "popularity": 3
+      "popularity": 3,
+      "composition": {
+        "Si": "46.7",
+        "O": "53.3"
+      }
     },
     {
       "name": "Sialon (β-SiAlON)",
@@ -403,7 +495,13 @@
       "applications": "절삭공구 (주철·고온합금 가공), 용접 노즐, 베어링",
       "price_per_kg": 130,
       "popularity": 3,
-      "datasheet_url": "https://www.kennametal.com/us/en/resources/materials/sialon.html"
+      "datasheet_url": "https://www.kennametal.com/us/en/resources/materials/sialon.html",
+      "composition": {
+        "Si": "39.8",
+        "Al": "19.1",
+        "O": "11.3",
+        "N": "29.8"
+      }
     },
     {
       "name": "Hydroxyapatite (Ca₁₀(PO₄)₆(OH)₂)",
@@ -420,7 +518,10 @@
       "applications": "골이식재, 임플란트 코팅 (Ti 위), 치과 충전재",
       "limitations": "낮은 강도 — 하중 부담 부품 부적합 (코팅용)",
       "price_per_kg": 120,
-      "popularity": 3
+      "popularity": 3,
+      "composition": {
+        "Ca": "100.0"
+      }
     },
     {
       "name": "Macor (machinable glass-ceramic)",
@@ -436,7 +537,15 @@
       "max_temp": 800,
       "applications": "정밀 가공 가능한 세라믹 (선반·드릴), 진공 부품, 우주 부품 (BlueOrigin)",
       "price_per_kg": 80,
-      "popularity": 3
+      "popularity": 3,
+      "composition": {
+        "K": "9.3",
+        "Mg": "17.3",
+        "Al": "6.4",
+        "Si": "20.0",
+        "O": "38.0",
+        "F": "9.0"
+      }
     },
     {
       "name": "Silica Aerogel",
@@ -453,7 +562,11 @@
       "applications": "초경량 단열재 (우주 미션 — NASA Stardust), 진공 단열, 의료 영상 detector",
       "limitations": "매우 약함 (압축 강도 0.5 MPa), 가공 거의 불가",
       "price_per_kg": 1500,
-      "popularity": 2
+      "popularity": 2,
+      "composition": {
+        "Si": "46.7",
+        "O": "53.3"
+      }
     },
     {
       "name": "Sapphire (single-crystal Al₂O₃)",
@@ -470,7 +583,11 @@
       "applications": "고급 시계 윈도우, 스캐너 윈도우, LED 기재, 광학 lens (UV-IR)",
       "limitations": "다이아몬드급 가공 — 고가",
       "price_per_kg": 600,
-      "popularity": 4
+      "popularity": 4,
+      "composition": {
+        "Al": "52.9",
+        "O": "47.1"
+      }
     },
     {
       "name": "Diamond (CVD synthetic)",
@@ -489,7 +606,10 @@
       "limitations": "공기 中 700°C 이상 → CO₂ 변환. Fe 와 친화성으로 강 절삭 부적합.",
       "price_per_kg": 8000,
       "popularity": 3,
-      "datasheet_url": "https://www.elementsix.com/products/cvd-diamond"
+      "datasheet_url": "https://www.elementsix.com/products/cvd-diamond",
+      "composition": {
+        "C": "100.0"
+      }
     },
     {
       "name": "CBN (cubic Boron Nitride, sintered)",
@@ -505,7 +625,11 @@
       "max_temp": 1300,
       "applications": "철계 가공 절삭공구 (다이아몬드 대체 — Fe 친화성 없음)",
       "price_per_kg": 1200,
-      "popularity": 3
+      "popularity": 3,
+      "composition": {
+        "B": "43.6",
+        "N": "56.4"
+      }
     },
     {
       "name": "Yttria-Stabilized Zirconia (YSZ, 8 mol%)",
@@ -521,7 +645,11 @@
       "max_temp": 1500,
       "applications": "Thermal Barrier Coating (가스 터빈 블레이드), SOFC 전해질, 산소 센서",
       "price_per_kg": 130,
-      "popularity": 4
+      "popularity": 4,
+      "composition": {
+        "Zr": "74.0",
+        "O": "26.0"
+      }
     },
     {
       "name": "Quartz (Single-crystal SiO₂)",
@@ -538,7 +666,11 @@
       "applications": "압전 진동자 (시계·MEMS), QCM 센서, 광학 편광 부품",
       "limitations": "573°C α→β 상전이 (균열 위험)",
       "price_per_kg": 400,
-      "popularity": 4
+      "popularity": 4,
+      "composition": {
+        "Si": "46.7",
+        "O": "53.3"
+      }
     },
     {
       "name": "ZTA (Zirconia-Toughened Alumina, 10-20% ZrO₂)",
@@ -555,7 +687,11 @@
       "applications": "고하중 절삭 인서트, 의료 임플란트 헤드 (ISO 6474-2), 와이어 다이",
       "price_per_kg": 60,
       "popularity": 4,
-      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/alumina/"
+      "datasheet_url": "https://www.coorstek.com/en/materials/technical-ceramics/alumina/",
+      "composition": {
+        "Zr": "74.0",
+        "O": "26.0"
+      }
     },
     {
       "name": "Titanium Carbide (TiC, 99%)",
@@ -573,7 +709,11 @@
       "applications": "Cermet 절삭공구 (TiC-Ni-Mo), 마모 코팅 (PVD/CVD), 항공 탱크 라이닝",
       "limitations": "공기 中 800°C 산화 (TiO₂ 형성). WC 보다 brittle.",
       "price_per_kg": 90,
-      "popularity": 4
+      "popularity": 4,
+      "composition": {
+        "Ti": "79.9",
+        "C": "20.1"
+      }
     },
     {
       "name": "Tantalum Carbide (TaC, refractory)",
@@ -591,7 +731,11 @@
       "applications": "로켓 노즐 throat, 핵 분야 thermal couple sheath, 초고온 도가니",
       "limitations": "고가 (Ta 원료), 가공 매우 어려움",
       "price_per_kg": 1200,
-      "popularity": 2
+      "popularity": 2,
+      "composition": {
+        "Ta": "93.8",
+        "C": "6.2"
+      }
     },
     {
       "name": "Hafnium Carbide (HfC, ultra-high-temp)",
@@ -609,7 +753,11 @@
       "applications": "재진입체 (re-entry vehicle) 리딩 엣지, 핵 reactor 컨트롤 rod",
       "limitations": "세계 최고 융점급 — 가공 거의 불가, 산화 1500°C 이상",
       "price_per_kg": 3500,
-      "popularity": 1
+      "popularity": 1,
+      "composition": {
+        "Hf": "93.7",
+        "C": "6.3"
+      }
     },
     {
       "name": "Zirconium Diboride (ZrB₂, UHTC)",
@@ -627,7 +775,11 @@
       "applications": "극초음속 비행체 nose tip, 로켓 throat, 용탕 측정 thermo well",
       "limitations": "공기 中 1100°C 이상 ZrO₂+B₂O₃ 형성 — SiC 첨가로 보호 스케일",
       "price_per_kg": 800,
-      "popularity": 2
+      "popularity": 2,
+      "composition": {
+        "Zr": "80.8",
+        "B": "19.2"
+      }
     },
     {
       "name": "Hafnium Diboride (HfB₂, UHTC)",
@@ -645,7 +797,11 @@
       "applications": "재진입체 sharp leading edge, 핵 cladding, MHD 발전 전극",
       "limitations": "ZrB₂ 보다 더 고가, 산화 보호 SiC 필수",
       "price_per_kg": 5500,
-      "popularity": 1
+      "popularity": 1,
+      "composition": {
+        "Hf": "89.2",
+        "B": "10.8"
+      }
     },
     {
       "name": "Magnesium Aluminate Spinel (MgAl₂O₄, transparent)",
@@ -666,7 +822,11 @@
       "limitations": "비싸고 hot-press 가공 필요. 충격 KIC 2 미만.",
       "price_per_kg": 800,
       "popularity": 3,
-      "datasheet_url": "https://www.coorstek.com/english/materials/technical-ceramics/alumina/"
+      "datasheet_url": "https://www.coorstek.com/en/materials/technical-ceramics/alumina/",
+      "composition": {
+        "Al": "52.9",
+        "O": "47.1"
+      }
     },
     {
       "name": "Yttria (Y₂O₃, 99.99%)",
@@ -683,7 +843,11 @@
       "melting_point": 2425,
       "applications": "반도체 etching chamber 코팅 (Cl/F 플라즈마 저항), YAG 레이저 도가니, ZrO₂ 안정화제",
       "price_per_kg": 200,
-      "popularity": 4
+      "popularity": 4,
+      "composition": {
+        "Y": "78.7",
+        "O": "21.3"
+      }
     },
     {
       "name": "Forsterite (Mg₂SiO₄, electronic substrate)",
@@ -700,7 +864,12 @@
       "melting_point": 1890,
       "applications": "MW telecom 부품 (low loss tan δ), 진공관 절연체, 5G mmWave 부품",
       "price_per_kg": 18,
-      "popularity": 4
+      "popularity": 4,
+      "composition": {
+        "Mg": "34.6",
+        "Si": "20.0",
+        "O": "45.5"
+      }
     }
   ]
 }

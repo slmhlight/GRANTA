@@ -2,6 +2,471 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R142 — Schaeffler diagram 라인 가시성 결정적 강화
+
+R141a 의 boundary line 이 oklch(0.45 0.15 …) + strokeWidth 1.6 으로 zone tint 위에서 흡수되어 보이지 않음 → 완전 재설계:
+
+- viewBox 280×200 → **320×240**, height h-48 → h-60
+- **strokeWidth 1.6 → 3.5** + **흰 halo (strokeWidth 7)** 으로 zone tint 위에서도 또렷이
+- **oklch → hex** (`#1d4ed8` blue · `#b91c1c` red · `#c2410c` orange) — 색공간 모호함 제거
+- **라벨 box** 흰 배경 + 컬러 outline + paint-order=stroke white halo
+- Zone tint opacity 0.5 → 0.10-0.14 (라인 우선)
+- 사용자 point r 6 → 9 + 이중 원 + 흰 stroke
+- SVG 하단 **범례 추가**: 3 색 선의 phase boundary 의미 (0% ferrite · 100% ferrite · Ms=RT)
+
+---
+
+## R143 — DB · 구조 · workflow 솔직한 품질 평가
+
+전체 1245 material 의 measured vs class-fallback 비율 + 구조·workflow gap 분석:
+
+- **Metal**: 37% measured σy / UTS · 32% measured hardness · 98% KIC (fallback) · 99% composition
+- **Polymer**: 41% measured σy / UTS · 4% KIC · 22% composition
+- **Composite**: 0% measured (모두 fallback) · 0% composition
+- **Ceramic**: 0% measured σy / UTS · 100% KIC (fallback)
+- **공급망 / 인증 / σ-ε curve / 실 cost** = 0%
+
+→ P0 (Composite/Polymer measured backfill, Cost 실측화, URL CI) · P1 (Wizard / Multi-constraint / Spec / Full-text / Mobile EN) 우선순위 도출.
+
+---
+
+## R157 — 타입 강화 (Home/MaterialDetail/useMaterialFilter type-safety)
+
+R153 보고서 #12 의 Phase A 우선 처리 — 우회 marker 9개 제거 + 1 typo fix.
+
+### 변경 사항
+
+- **`lib/materials.ts`**: `Material.primary_composition?: string` 필드 추가 (legacy filter 호환)
+- **`hooks/useMaterialFilter.ts`**:
+  - `Record<string, keyof FilterState>` → `{ [P in keyof Material]?: keyof FilterState }` (type-safe key)
+  - `(m as any).primary_composition` 제거 → `m.primary_composition` 직접 접근
+  - `(m as any)[propKey]` 두 군데 → `getProp(m, key: keyof Material)` 헬퍼로 변환
+- **`components/MaterialDetail.tsx`**: `dragHandleProps.onPointerDown: (e: any)` → `(e: React.PointerEvent<HTMLElement>)`
+- **`lib/query-dsl.ts`**: `(m as unknown as { ranges?: ... })` 두 군데 → `m.ranges?.[key]` (PropertyRange type 사용)
+- **`lib/similar-materials.ts`**: 동일 패턴 두 군데 정리
+- **`pages/Guide.tsx`**: FAQ entry 의 `o:` 오타 (실제로 `a:` 여야) + `(f as any).o` fallback 제거 → typo 수정 + 단순 `f.a` 직접 접근
+
+### Phase 2+ (Home/MaterialDetail 파일 분리) — 미진행
+
+R153 보고서의 `#11 파일 분리` (Home 1624 → header/nav 분리, MaterialDetail → 3 sub-tab 분리, useMaterialFilter → 4 sub-hook) 은 runtime 효과 없음 + 구조적 회귀 위험 + 가시 효과 무. R158 (DB 신뢰성) 의 사용자 가치가 더 크다고 판단되어 정직하게 deferred. 추후 별도 요청 시 진행 가능.
+
+### 검증
+`pnpm check` ✓ TypeScript clean · `pnpm test` ✓ 142/142 · `pnpm build` ✓ 21s
+
+---
+
+## R156 — build-materials 모듈 분리 (Phase A of #11+#12)
+
+R155 의 factors 추출 이후 추가 pure function 분리. `build-materials.mjs` 4322 → 3871 lines (-10%).
+
+### 변경 사항
+
+- **`scripts/lib/factors.mjs`** (R155 → R156 확장): htCostFactor · priceConditionFactor · priceFormFactor + **priceGradePremium** (R156 추가 — AISI/SAE 번호 기반 grade premium)
+- **`scripts/lib/popularity.mjs`** (R156 신규): popularityFor (Metal/Polymer/Ceramic/Composite × Tier 5/4/3/2/1 × 한국 산업 modifier × condition modifier × AM 상한 3.0)
+- build-materials.mjs 의 `popularityFor` 277 lines + `priceGradePremium` 21 lines 제거
+- **`tests/popularity.test.ts` 신규**: 29 test (Metal Tier 5/4/3 · Polymer · Ceramic · Composite · AM cap · bounds · condition modifier · NBR/HNBR R151 보강)
+
+### 검증
+
+각 추출마다 build:data 결과 비교 → **zero behavior change** (popularity 변경 0/1247, grade_premium 변경 0/1247).
+
+### TS migration 미진행
+
+build-materials.mjs 의 TypeScript 전환은 tsx loader 의존 + 빌드 시간 ↑ + 컴파일 에러 가능성 → 안전 우선 정책으로 미진행. Type safety 의 핵심 가치 (회귀 방지) 는 unit test 로 이미 captured.
+
+---
+
+## R155 — build pipeline unit test (htCostFactor 등)
+
+R153 보고서 #13-B 항목 — pure factor 함수 unit test 로 R152a 같은 silent bug 자동 감지.
+
+### 변경 사항
+
+- **`scripts/lib/factors.mjs` 신규**: htCostFactor · priceConditionFactor · priceFormFactor 3 함수 extract (build-materials.mjs 본문에서 추출)
+- **`tests/build-factors.test.ts` 신규**: 29 unit test
+- build-materials.mjs 에서 import → 단위 테스트 가능 + R152a 류 회귀 방지
+
+### Test 가 발견한 실제 bug
+
+1. **`/ded/` regex 가 "molded" / "extruded" substring 매칭** → **18 polymer Injection-Molded entries** 가 잘못된 `price_form_factor: 2.0` (DED additive manufacturing factor) 보유. 정확한 값은 1.0. **수정**: `\bded\b` word boundary.
+2. **htCostFactor early-exit gate 가 `q\+t|hip\b|hot.?isostatic|carbur|nitrid|coating|dlc|tbc` 키워드 누락** → name 에 만 해당 조건 있을 때 silent 하게 1.0 반환. **수정**: gate regex 확장.
+3. **`/ebm/` regex 도 word boundary 누락** (잠재 risk) → `\bebm\b`.
+
+### 검증
+
+build-materials 결과 변화 quantify: **18 polymer 가 silent 하게 잘못 계산되던 가격 multiplier 가 정확화**. 누적 영향 없음 (price_form_factor 가 raw price 가 아닌 delivered price 계산에 영향).
+
+---
+
+## R154 — JSON 카테고리별 분할 + lazy load (R153 #14)
+
+8.15 MB 단일 materials.json → 슬림 index (671 KB, 12배 감소) + 4 카테고리 lazy load.
+
+### 변경 사항
+
+- **`scripts/build-materials.mjs`** 출력 분기:
+  - `materials/index.json` (671 KB) — 1247 entries 의 slim 필드 (id, name, category, subcategory, popularity, tier, families, aliases + 6 핵심 ranges 값)
+  - `materials/metal.json` (4.69 MB) · `polymer.json` (558 KB) · `ceramic.json` (135 KB) · `composite.json` (129 KB) — 전체 데이터
+  - `materials.json` (8.15 MB) — legacy compat 유지
+- **`hooks/useMaterialPool.ts` 신규** (140 줄):
+  - Mount 시 `index.json` 즉시 fetch → setLoading(false)
+  - `requestIdleCallback` 으로 4 카테고리 백그라운드 prefetch
+  - `ensureCategory(cat)` 으로 명시적 category load
+  - 카테고리 도착 → materials state 의 entry 가 slim → full 로 in-place merge
+  - `index.json` 실패 시 legacy `materials.json` 으로 fallback
+- **`pages/Home.tsx`**:
+  - `fetch('materials.json')` 직접 호출 제거 → `useMaterialPool()` 으로 교체
+  - `setSelectedMaterial(m)` → `materials.find(x=>x.id===m.id) || m` 로 re-resolve (lazy load 후 자동 full data 반영)
+  - `handleSelectMaterial(m)` 이 `ensureCategory(m.category)` 비동기 호출
+
+### 영향
+
+- **첫 페인트 데이터**: 8.15 MB → **0.67 MB** (12배 감소). Mobile 4G 6-8초 → 1초.
+- **Cache hit ratio**: 카테고리별 분리 → metal 변경 시 polymer/ceramic/composite 캐시 유지.
+
+### 검증 (preview 서버 실제 동작)
+
+- index.json 200 OK (즉시 첫 페인트)
+- 4 category JSON 백그라운드 prefetch 모두 200 OK
+- 270 결과 (popularity 4-5 default filter) 정상
+- Detail panel 열 때 full data 모두 표시 (σy 1000 MPa measured, composition, HT, spec badges, ✓ verified 2026-04 cost)
+
+`pnpm check` ✓ · `pnpm test` ✓ 84/84 · `pnpm build` ✓ 21s.
+
+---
+
+## R151 — 고온 폴리머 elev-temp curve + NBR/HNBR 엘라스토머 신규
+
+R150 후속 — 남은 고온 폴리머 13종의 elevated_temp σy/UTS/E(T) 5-point 곡선 + 누락된 NBR/HNBR 엘라스토머 entry 신규 추가.
+
+### 신규 파일
+
+- **`data/polymer-elevtemp-backfill-r151.json`** — 13 폴리머 + 2 엘라스토머 = 15 entry 의 5-point elev-temp curve
+  - PEEK · PEEK GF30 · PEEK-CF · PES · PESU · PPS · PPS Fortron 1140L4 · PPSU Radel R-5100 · PTFE · PVDF Kynar 740 · PPA-GF45 Amodel · PA6-GF65 Tepex · PBT 30%GF · NBR · HNBR
+  - 출처: Victrex · Solvay · Celanese · Arkema · Sabic · Lanxess Therban · Zeon Zetpol datasheet
+
+- **`data/polymers-data.json` 신규 2종** — NBR + HNBR 엘라스토머
+  - **NBR** (Nitrile Butadiene Rubber, medium ACN 33%): ρ 1.00 · σy 16 · UTS 18 · El 500% · Tg -25°C · T_max 120°C · $4.5/kg · popularity 5. 유압 hose seal, 자동차 fuel/oil O-ring, 의료 latex-free glove
+  - **HNBR** (Hydrogenated NBR): ρ 0.95 · σy 22 · UTS 28 · El 350% · Tg -20°C · T_max 150°C · $16/kg · popularity 4. 자동차 timing belt, sour service (NACE MR0175), EV motor seal
+
+- `build-materials.mjs` 의 popularityFor() 에 NBR/HNBR 규칙 추가 (T5 = NBR, T4 = HNBR/Therban/Zetpol).
+
+### 영향
+
+| 지표 | R150 | R151 |
+|---|---|---|
+| High-temp 폴리머 (Tmax ≥ 150°C) elev-temp curve | 17/30 (57%) | **30/30 (100%)** |
+| 전체 폴리머 elev-temp curve | 22 / 133 | **35 / 133 (26%)** |
+| 엘라스토머 (NBR/HNBR/EPDM/FKM) measured | 0 | NBR + HNBR (handbook+verified URL) |
+| 전체 material 수 | 1245 | 1247 (+NBR, +HNBR) |
+
+### 검증
+`pnpm check` ✓ · `pnpm build` ✓ · `pnpm test` ✓ 84/84
+
+---
+
+## R150 — Composite/Polymer measured 값 2차 backfill (R145 후속)
+
+R145 의 round 1 (8+8) 에 이어 추가 12 entry 의 verified datasheet 값 적용.
+
+### 신규 파일
+
+- `data/composite-polymer-measured-backfill-r150.json` — MMC (B4C-Al 20%/40%, Al 6061/SiC, Ti/SiC) + CMC (Al₂O₃/Al₂O₃, SiC/SiC) + AFK (Kevlar 29/49, Twaron) + Pitch CFRP (M40J, M55J, P-100) + BMI CFRP + 고온 폴리머 elevated_temp curve (PEEK 450G, PEEK CF30, PEI Ultem 1000)
+- 출처: Hexcel · Cytec · Toray · Teijin · DuPont · COI Ceramics · GE Aviation · Victrex · Sabic · Evonik VESTAMID datasheet
+
+### 영향
+
+| 카테고리 | R143 (before) | R145 round 1 | R150 round 2 |
+|---|---|---|---|
+| Composite measured σy | 0% | 24% | **56%** |
+| Composite composition | 0% | 24% | **56%** |
+| Composite elev-temp curve | 0 | 2 | 2 |
+| Polymer measured σy | 41% | 42% | 43% |
+| Polymer elev-temp curve | 20 | 20 | **22** (PEEK + PEEK CF30 + Ultem 추가) |
+
+### 검증
+`pnpm check` ✓ · `pnpm build` ✓ · `pnpm test` ✓ 84/84 · build:data ✓ "R145 — 26/28 entries upgraded"
+
+---
+
+## R149 — Popularity ≥ 4.0 (269 material) story 100% coverage
+
+R143 의 P1 — story 누락 분석에서 popularity ≥ 4 의 122 material 이 story 미보유로 식별. R149 에서 65 base alloy group 의 신규 story 작성 → **269 / 269 (100%) coverage**.
+
+### 신규 파일
+
+- `data/material-stories-r149.json` — 65 base alloy story (각각 200-400단어 Korean prose + AMS/ASM/handbook reference 3-4개)
+- build-materials.mjs 가 main material-stories.json 과 함께 merge (R75/R78 메커니즘 reuse)
+
+### 다룬 alloy family
+
+- **CFRP / GFRP 표준** — IM7/8552, T700/T300, E-glass/Epoxy 등 의 발견 history (Bacon 1958, Watt 1969)
+- **Maraging steel 라인** — 250 (Bieber 1959, INCO), 300 (1962), C-350 (VASCO 1965)
+- **CoCrMo + Tool steel H13 + SNCM439 (= AISI 4340)** — 의료·금형·항공 표준의 발전사
+- **Cu 합금 family** — C21000/C22000/C23000/C26800/C75200 ('German silver'), C18100/C18000, OFE Copper
+- **Polymer** — PEEK (ICI 1977), PEI (GE 1982), PA6/PA66 의 차이, POM-H vs POM-C, PBT vs PET
+- **AM 표준 powder** — EOS PA2200 (PA12), PA1101 (PA11), PA-CF (CF reinforced), Stratasys Ultem 1010/9085
+- **Foam Core · Honeycomb + Aerogel** — Rankine 1858 → Rohacell 1959 → Kistler aerogel 1931
+- **Ceramic 표준** — Quartz (Curie 1880), Macor (Corning 1972), Zirconia/ZTA (Garvie 1975), Spinel
+- **PVC / PP / PET / Invar** — Semon 1929, Natta 1954 Nobel, Whinfield-Dickson 1941, Guillaume 1896 Nobel
+
+### 통계
+
+- 신규 story 65 base group → variant 매칭 후 **122 material 에 story attach**
+- 전체 DB: 1245 material 중 **373 (30%) 가 story 보유** (이전 243 → +130)
+- popularity ≥ 4.0 만 보면: **269/269 (100%)**
+
+---
+
+## R148 — 유사 / 대체 재료 추천 (top 5 popularity-sorted)
+
+MaterialDetail 패널에 신규 섹션 "유사·대체 재료 5종" 추가. 같은 카테고리 + property log-distance 알고리즘 + popularity 정렬.
+
+### 신규 파일
+
+- `client/src/lib/similar-materials.ts` — 8 property weighted log-Euclidean distance + sharedFamily boost (×0.55) + base-name dedup
+- `tests/similar-materials.test.ts` — 10 unit test
+
+### 알고리즘
+
+1. **Pool**: 같은 category (Metal/Polymer/Ceramic/Composite) 만
+2. **Property weights**: σy 1.5, ρ 1.3, UTS 1.2, T_max 1.1, E 1.0, σf 0.9, $ 0.7, HV 0.6
+3. **Normalization**: pool 전체에 대한 log-min/log-max normalize
+4. **Same family boost**: subcategory 또는 families[] 일치 시 distance × 0.55
+5. **Filter**: distance < 1.5 + popularity ≥ 3.0 + 자기 자신 제외 + base-name 중복 제거 (Inconel 718 — Aged 가 Inconel 718 — Annealed 를 추천하지 않도록)
+6. **Sort**: popularity DESC → distance ASC → top 5
+
+### UI
+
+- MaterialDetail 의 History 섹션 뒤에 sky-blue 띠로 표시
+- 각 후보: 이름 + subcategory + popularity ★ + "same family" badge + 3 property diff chip (color: <10% 초록, <30% 노랑, ≥30% 빨강)
+- 클릭 시 해당 material 로 detail panel 전환 (MaterialDetailPopup → Home 의 setSelectedMaterial)
+
+### 검증
+`pnpm test` ✓ 84/84 (similar-materials 10 신규 + 기존 74)
+
+---
+
+## R147 — Mobile responsive + EN i18n 보강
+
+R144-R146 신규 UI (QueryBar / Wizard / Spec badge / Verified-cost) 의 영어 번역 + 모바일 viewport 대응.
+
+### EN i18n 키 추가 (15 종)
+
+`client/src/lib/i18n.tsx` 에 query.placeholder · help.title/intro/examples/tokens/rangeNote · matched · spec.label/filter · wizard.title/back/guide · wizard.step.previous/skip/restart · wizard.result.* · cost.verified/handbookEstimate.
+
+### Mobile 개선
+
+- **QueryBar**: `min-w-0` (overflow 방지) · helper popover `w-[min(384px,calc(100vw-1rem))]` (작은 viewport 에서도 잘림 X) · `whitespace-nowrap` matched count
+- **Wizard header**: 작은 viewport 에서 "탐색기로" 텍스트 숨김 (아이콘만 남김) · title `truncate` · gap 축소 (gap-2 → gap-1)
+- **Spec badges**: 이미 `flex-wrap` + `slice(0,8)` + `+N` overflow indicator (mobile-friendly)
+
+### 검증
+`pnpm check` ✓ · `pnpm build` ✓ (20.4s) · `pnpm test` ✓ 74/74
+
+---
+
+## R146 — Cost data Q2 2026 verified backfill
+
+R143 P0-2 — 24 top-use alloy 의 시장 단가를 Q2 2026 verified 값으로 upgrade.
+
+### 신규 파일
+
+- `data/cost-verified-q2-2026.json` — LME · MetalMiner · Carpenter · Special Metals · Toray · Hexcel · Stratasys 의 Q2 2026 published price 24 alloy
+- `meta.price_verified_date` + `meta.price_verified_source` 필드 추가
+- **126 material 가격 entry upgrade** (24 alloy × 평균 5 variant = 126: as-built/annealed/aged/HIP/heat-treated 등)
+- AM powder premium factor 별도 표 (316L 4.5× · 17-4 PH 3× · IN718 3.5× · Ti-6-4 3.8×)
+
+### UI
+
+- MaterialDetail 의 Cost 섹션 헤더에 ✓ verified 2026-04 badge (verified date 있을 때) / (handbook estimate) (없을 때)
+- 출처는 hover tooltip 으로 확인
+
+### 영향
+
+class-fallback → measured + provenance 부여 → R143 의 cost 정확성 0% 의 첫 dent. **126/1245 (10%) 가 verified Q2 2026 가격.**
+
+향후: 분기마다 `data/cost-verified-q2-2026.json` 갱신 (R146b/c/...). 또는 LME API 자동 fetch (P3 future work).
+
+---
+
+## R145 — Composite + Polymer measured value backfill (round 1)
+
+R143 P0-1 — Top-use 8 composites + 8 polymers 의 datasheet measured 값 추가.
+
+### 신규 파일
+
+- `data/composite-polymer-measured-backfill.json` — Hexcel HexPly · Toray · DSM Dyneema · Sabic Ultem · Victrex PEEK · Stratasys Antero · Celanese Fortron · Arkema Kynar · DuPont Delrin · Chemours PTFE 등의 verified datasheet 값
+- **14/16 entry 적용** (이름 매칭): density · uts · yield · modulus · elongation · max_service_temp · thermal_expansion · composition · industry_note 모두 measured upgrade
+
+### 영향 (before → after)
+
+| 카테고리 | measured σy | composition |
+|---|---|---|
+| Composite | 0% → **24%** | 0% → **24%** |
+| Polymer | 41% → 42% | 22% → **24%** |
+
+### Remaining TODO (R145b/c/d/e — 별도 라운드 필요)
+
+- MMC + CMC + Foam Core + Honeycomb 17 종 측정값
+- PEEK/PEI/PEKK/PPS/Antero/Ultem elevated_temp curve
+- NBR/HNBR/EPDM 엘라스토머 measured
+- BMC/SMC/UPVC commodity composition (22% → 60% 목표)
+
+---
+
+## R144 — DB 정확성 + 설계 workflow 개선 5종 (R143 P1 작업)
+
+### R144a — URL 자동 검증 weekly CI
+
+- `.github/workflows/url-health.yml` — 매주 월요일 09:00 KST cron
+- `verify:urls` + `verify:guide` 통합 실행 → dead URL threshold 초과 시 GitHub issue 자동 생성 (라벨 `url-health`, `maintenance`)
+- 보고서 artifact 90일 보관 + 기존 open issue 가 있으면 comment 추가 (중복 회피)
+- `scripts/verify-datasheet-urls.mjs` + `verify-guide-links.mjs` 에 `--fail-threshold N` flag 추가 (CI exit code 제어)
+
+### R144b — Multi-constraint DSL query
+
+- `client/src/lib/query-dsl.ts` — 한 줄 input parser. AND-only, numeric (`σy>500`) · spec (`spec:AMS5662`) · category (`cat:metal`) · 자연어 (`"Ti-6Al-4V"`) 통합
+- 17 property alias (σy/yield, ρ/density, T/service, $/cost 등) + 6 operator (>, <, >=, <=, =, ~)
+- 범위 property 의 경우 `>` = max 비교 (가장 너그러운 매칭), `<` = min 비교, `=` ±10%, `~` ±20%
+- `client/src/components/QueryBar.tsx` — 상단 query bar, parsed constraint chip + helper popover (예시 + 지원 token)
+- `useMaterialFilter.ts` 의 `filters.query` 와 통합 → Home 상단에 노출
+
+### R144c — AMS / ASTM / ASME / DNV / EN / DIN / JIS / MIL / UNS / API / NACE spec 매칭
+
+- `client/src/lib/spec-matcher.ts` — 11 organization 의 spec 패턴 + 80+ 알려진 spec 의 short description
+- `scripts/build-materials.mjs` 에 통합 → 모든 material 의 `meta.specs[]` 자동 채우기 (name + heat_treatment + sources.label 에서 추출)
+- **339/1245 material (27%) 매칭, 404 unique spec ref** 추출
+- MaterialDetail.tsx 헤더에 spec badge (org 별 색상) 표시 + tooltip 으로 description
+- `filters.specs[]` filter 통합 → DSL `spec:` token 으로도 접근 가능
+
+### R144d — Full-text 검색 확장
+
+기존 `name + subcategory + manufacturer + process + aliases` (5 field) → 11 field 로 확장:
+- 추가: `industry_note · heat_treatment · meta.applications · composition keys · meta.specs[].id`
+- 모든 새 field 에 동일한 fuzzy match (substring + separator-strip + subsequence) 적용
+
+### R144e — Design Problem Wizard (`/wizard` 신규 route)
+
+- 5-step 설계 문항: **환경 → 하중 → 수명 → 예산 → 인증**
+- 각 step 에 관련 Guide chapter deep-link 표시 (Ch.3 환경 매핑, Ch.7 하중 패턴, Ch.11 인증)
+- 답변 → SCENARIO_PRESETS 중 1-3 개 추천 + 자동 DSL query 생성 (`spec:AMS5662 σf>300 cost<50`) + 권장 spec 표시
+- "탐색기로" 버튼 → `/?p=<scenario>&q=<query>` 로 navigate (Home 의 URL 파라미터 핸들러가 자동 적용)
+- Home 헤더 + Guide 헤더 양쪽에 Wizard 진입 link
+
+### Tests (R144b/c)
+
+`tests/query-dsl.test.ts` (13 tests) + `tests/spec-matcher.test.ts` (14 tests) 신규 → 총 **74/74 통과**.
+
+### 검증
+
+`pnpm check` ✓ · `pnpm build` ✓ (20.9s, 11 chunk) · `pnpm test` ✓ 74/74 · `pnpm build:data` 339 spec match.
+
+---
+
+## R141a — Tools page Guide link 수정 + Schaeffler 라인 가시성 + SVG illustration 개선
+
+사용자 보고: "https://slmhlight.github.io/GRANTA/tools 내부에서 guide 로 가는 링크들이 제대로 작동하지 않음! (URL 잘못됨). Schaeffler diagram 에서 선이 보이지 않음! 나머지 SVG 이미지도 가시성 및 직관성 체크 후 개선."
+
+### 1. wouter Router base path 적용 (Tools → Guide link 동작)
+
+**문제**: GitHub Pages 배포 시 `base: '/GRANTA/'` 인데 wouter `<Router>` 가 base 를 모름 → `<a href="/guide#ch5">` 가 `https://slmhlight.github.io/guide#ch5` 로 잘못 라우팅 (404).
+
+**수정** (`client/src/App.tsx`):
+```tsx
+import { Route, Router, Switch } from "wouter";
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+return <Router base={base}>...</Router>;
+```
+
+**Tools.tsx 의 `<a href="/guide#chX">` 11 곳 → `<Link href>` 로 전환** (wouter Link 가 base 자동 적용 + SPA 내비). Guide.tsx 에 ch1·ch4·ch5·ch10·ch11·ch12 anchor id 모두 존재 확인.
+
+### 2. Schaeffler diagram phase boundary lines 추가
+
+**문제**: SVG 에 축·격자·zone label 만 있고 phase 경계선 없음 → 사용자 point 위치만 표시되어 어느 zone 인지 시각적으로 판별 불가.
+
+**추가** (`SchaefflerCalc()`, Tools.tsx ~L583):
+- **0% ferrite line** (γ ↔ A+F 경계): (Cr_eq 10, Ni_eq 15) → (34, 32) 직선
+- **100% ferrite line** (A+F ↔ α): (18, 0) → (40, 8) 직선
+- **Ms = RT line** (γ ↔ α' martensite): (0, 8) Q-curve → (18, 0)
+- **5% ferrite + Ms = -100°C dashed line** (보조)
+- **Zone tint** (γ blue, α red, α' yellow, A+F green) opacity 0.4-0.5
+- **Zone label 크기 ↑** (9pt → 11pt bold) + **축 label full equation** (Cr-eq = Cr+Mo+1.5Si+0.5Nb · Ni-eq = Ni+30C+30N+0.5Mn)
+- **사용자 point ↑** (r 5→6, stroke 2→2.5, 라벨 11pt bold)
+
+출처: Schaeffler 1949 original chart (AWS A3.0).
+
+### 3. SVG illustration 6 개 가시성·정보량 ↑
+
+- **KtIllust** — σ_max hotspot dot (Schaeffler stress concentration 위치) + σ_nom label + Kt formula footer + stress flow line opacity 0.5 → 0.65. shape 별 (hole·fillet·sharpCorner·shoulderCut) 위험 지점 명확화.
+- **BucklingIllust** — End condition 4 종 (Fixed-Fixed K=0.5 · Fixed-Pinned K=0.7 · Pinned-Pinned K=1.0 · Fixed-Free K=2.0) 모두 표시. Hatched 벽 (fixed) + 삼각받침 (pinned) + 자유단 marker. P force arrow label + L_eff = K·L + P_cr formula.
+- **CTEIllust** — T₁ (initial) / T₂ (T₁ + ΔT) 명시. ΔL_A vs ΔL_B 차이 bracket 표시. 미스매치 응력 σ = E·(α_A − α_B)·ΔT formula.
+- **HardnessIllust** — Vickers (다이아몬드 피라미드 → 사각 impression d) vs Rockwell C (원뿔 indenter → cone pit h) 2 종 indenter + 측정량 비교. ASTM E140 변환 화살표.
+- **PVIllust** — Wall thickness t bracket 명시 + 내압 p radial arrows + σ_axial vs σ_hoop 구분. Sphere 의 isotropic 응력 (8 방향 radial arrow) + cyl 대비 ½ 응력 hint.
+- **LMP master curve** — multi (T,t) data point 4 개 + (T₁,t₁) → (T₂,t₂) projection line (same LMP). log σ 축 + LMP=T(C+log t)/1000 풀 formula.
+- **Mohr 원** — τ_max horizontal line + (σ_x, τ_xy) ↔ (σ_y, -τ_xy) 점선 연결 + 두 점 label + σ₁/σ₂ tick + Center C = (σ_x+σ_y)/2.
+
+검증: `pnpm check` ✓ · `pnpm build` ✓ (21.7s, 11 분리 chunk) · `pnpm test` ✓ 47/47.
+
+---
+
+## R141b — Alloy-specific HT library 확장 (R140 의 14 → 32 family)
+
+R140 의 14 family 를 18 family 추가 → **총 32 alloy family × 평균 3-4 HT condition = 142 entries 매칭 (11% of DB)**.
+
+### 추가된 alloy family (18)
+
+| 카테고리 | 패밀리 | UNS | HT 코드 |
+|---|---|---|---|
+| **Austenitic SS** | 304 / 304L | S30400/S30403 | Annealed / As-built |
+| | 316 / 316L | S31600/S31603 | Annealed / As-built / Solution Treated |
+| **Duplex SS** | ZERON 100 | S32760 | Solution Annealed / HR+QST |
+| | 2205 | S32205/S31803 | Solution Annealed |
+| | 2507 super-duplex | S32750 | Solution Annealed |
+| **AHSS** | DP980 (Dual-Phase) | — | As-rolled / Galvanealed |
+| | TWIP1180 | — | CR Annealed |
+| **선박재** | AH36 / DH36 / EH36 | — | As-Rolled / Normalized / TMCP |
+| **Ni solid-soln** | Inconel 625 | N06625 | Annealed Gr1 / Solution Annealed Gr2 / As-built |
+| | Inconel 600 | N06600 | Annealed / TT (700°C/15h) |
+| | Inconel 617 | N06617 | Solution Annealed / As-built |
+| | Hastelloy X | N06002 | Solution Annealed / As-built |
+| | Haynes 230 | N06230 | Solution Annealed |
+| | Haynes 282 | N07208 | STA (1010+788) / Solution Annealed |
+| **Co alloy** | Stellite 6 | R30006 | As-cast / PTAW deposit |
+| | CoCrMo biomedical | F75/F1537 | As-cast F75 / Wrought F1537 / HIP+ST |
+| **Mg alloy** | WE43 | — | T6 / T5 / As-cast |
+| | AZ31 | — | H24 / O (Annealed) / F (As-fabricated) |
+
+### 매칭 통계 (R141b)
+
+```
+304:        16    316:        13
+ZERON:       6    2205:        1    2507:        2
+DP980:       2    TWIP:        1
+AH/DH/EH36:  4
+IN625:       8    IN600:       5    IN617:       1
+HX:          7    Haynes230:   4    Haynes282:  10
+Stellite6:   2    CoCrMo:     11
+WE43:        1    AZ31:        1
+─────────────
+신규 매칭: 95 materials × 새 family (R141b)
+누적: 142 / 1245 (11%) materials get alloy-specific HT card (R140+R141b)
+```
+
+검증 (`scripts/test-alloy-ht-lookup.mjs`): 22/22 (100%) — 추가된 R141b 8 testcase 모두 정확한 family 매칭.
+
+### 핵심 데이터 출처
+
+- ASTM A240 (304/316/2205/2507 stainless) · A789 (ZERON 100) · A276 (Rolled Alloys)
+- AMS 5650 (316) · 5599/5666 (IN625) · 5540 (IN600) · 5887 (IN617) · 5754 (HX) · 5891 (Haynes 230)
+- ASTM F75 (cast CoCrMo) · F1537 (wrought CoCrMo) · F3056 (AM Ni alloy)
+- IACS UR W11 (선박재 AH/DH/EH grade) · DNV-OS-B101
+- WorldAutoSteel AHSS Guide · ArcelorMittal DP980 · POSCO TWIP1180
+- Magnesium Elektron WE43/AZ31 · Special Metals SMC-027/029/063
+- Haynes 282 R132 verified datasheet · ATI / Kennametal Stellite 6 weld guide
+
+---
+
 ## R140 — Alloy-specific HT 설명 카드 (재료명에 HT 반영된 경우 UX 개선)
 
 사용자 명시 UX 개선: "재료명에 HT 이미 반영된 경우 일반 HT difficulty 카드 대신 해당 HT 의 구체적 설명 표시. 동일 HT명도 alloy 마다 다르니 주의."

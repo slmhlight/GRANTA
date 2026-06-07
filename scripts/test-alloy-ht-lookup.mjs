@@ -16,7 +16,7 @@ const TEST_CASES = [
   // Maraging
   { match: 'Maraging 250 (UNS K92890) — Maraged 482°C/3h (typical)', expectFamily: 'Maraging 250', expectCode: '482°C/3h' },
   { match: 'Maraging 300 (UNS K93120, AMS 6514) — Solution + Aged (peak 480°C/6h)', expectFamily: 'Maraging 300', expectCode: 'Aged' },
-  { match: 'Maraging C350 / VascoMax C-350', expectFamily: 'C-350', expectCode: 'Aged' },
+  { match: 'Maraging C350 / VascoMax C-350', expectFamily: 'Maraging 350', expectCode: 'Aged' },
   // Ni superalloy
   { match: 'Inconel 718 Tech Data', expectFamily: '718', expectCode: 'STA' },
   // Ti
@@ -30,10 +30,20 @@ const TEST_CASES = [
   { match: '9% Ni Steel (ASTM A553 Type I) — LNG tank', expectFamily: 'A553', expectCode: 'DN+T' },
   // 22MnB5
   { match: '22MnB5 (USIBOR 1500)', expectFamily: '22MnB5', expectCode: 'PHS' },
+  // R141b — 새 family 매칭 확인 (이름 매칭만 검증 — heat_treatment 값은 실제 DB 의 표기에 의존)
+  { match: '304', expectFamily: '304', expectCode: 'Annealed' },
+  { match: '316', expectFamily: '316', expectCode: 'Annealed' },
+  { match: 'Inconel 625', expectFamily: 'IN625', expectCode: 'Annealed' },
+  { match: 'Inconel 600', expectFamily: 'IN600', expectCode: 'Annealed' },
+  { match: 'Hastelloy X', expectFamily: 'Hastelloy X', expectCode: 'Solution' },
+  { match: 'Haynes 230', expectFamily: 'Haynes 230', expectCode: 'Solution' },
+  { match: 'Haynes 282', expectFamily: 'Haynes 282', expectCode: 'STA' },
+  { match: 'CoCrMo', expectFamily: 'CoCrMo', expectCode: 'F75' },
 ];
 
 /* Inline lookup (script doesn't load TS) */
 const FAMILIES = [
+  // R140
   { pattern: /17-?4\s?ph|s17400/i, family: '17-4 PH' },
   { pattern: /15-?5\s?ph|s15500/i, family: '15-5 PH' },
   { pattern: /custom\s?465/i, family: 'Custom 465' },
@@ -49,6 +59,25 @@ const FAMILIES = [
   { pattern: /\bh13\b|skd61/i, family: 'H13' },
   { pattern: /a553|9\s?%?\s?ni|9ni/i, family: 'A553 9% Ni' },
   { pattern: /22mnb5|usibor/i, family: '22MnB5' },
+  // R141b — Austenitic SS / Duplex / AHSS / Shipbuilding / Ni-SS / Co / Mg
+  { pattern: /\b304l?\b|s30400|s30403|aisi\s?304/i, family: '304/304L' },
+  { pattern: /\b316l?\b|s31600|s31603|aisi\s?316/i, family: '316/316L' },
+  { pattern: /zeron\s?100|s32760|super.?duplex/i, family: 'ZERON 100' },
+  { pattern: /2205|s32205|s31803/i, family: '2205 Duplex' },
+  { pattern: /2507|s32750/i, family: '2507 Super-Duplex' },
+  { pattern: /dp\s?980|dp980/i, family: 'DP980' },
+  { pattern: /twip\s?1180|twip1180/i, family: 'TWIP1180' },
+  { pattern: /\bah\s?36|\bdh\s?36|\beh\s?36|ah36|dh36|eh36/i, family: 'AH/DH/EH36' },
+  { pattern: /inconel\s?625|in[\s-]?625|n06625/i, family: 'IN625' },
+  { pattern: /inconel\s?600|in[\s-]?600|n06600/i, family: 'IN600' },
+  { pattern: /inconel\s?617|in[\s-]?617|n06617/i, family: 'IN617' },
+  { pattern: /hastelloy\s?x|n06002|hx\b/i, family: 'Hastelloy X' },
+  { pattern: /haynes\s?230|n06230/i, family: 'Haynes 230' },
+  { pattern: /haynes\s?282|n07208/i, family: 'Haynes 282' },
+  { pattern: /stellite\s?6|r30006/i, family: 'Stellite 6' },
+  { pattern: /cocrmo|f75|f1537/i, family: 'CoCrMo' },
+  { pattern: /we\s?43|we43/i, family: 'WE43' },
+  { pattern: /az\s?31|az31/i, family: 'AZ31' },
 ];
 
 console.log('═══ Alloy-specific HT lookup 검증 (R140) ═══\n');

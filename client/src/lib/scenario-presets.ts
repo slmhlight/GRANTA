@@ -1211,12 +1211,16 @@ const LIST_MAP: Record<string, string> = {
   processes: 'proc', corrosion: 'corr', categories: 'cat', subcategories: 'sub',
   // R49b — heat treatments / machinability / weldability 도 동기화.
   heatTreatments: 'ht', machinability: 'mach', weldability: 'weld',
+  // R167 share fix — spec 필터도 URL 에 (filters.specs).
+  specs: 'spec',
 };
 
 export function encodeFiltersToParams(f: Partial<FilterState>): string {
   const p = new URLSearchParams();
   // R49b — text search 도 URL 에 (?q=...)
   if (f.search && f.search.trim()) p.set('q', f.search.trim());
+  // R167 share fix — QueryBar DSL (filters.query) 도 URL 에 (?dsl=...).
+  if (f.query && f.query.trim()) p.set('dsl', f.query.trim());
   for (const [k, [m, x]] of Object.entries(RANGE_MAP)) {
     const r = (f as any)[k] as [number, number] | null | undefined;
     if (Array.isArray(r)) { p.set(m, String(r[0])); p.set(x, String(r[1])); }
@@ -1233,6 +1237,8 @@ export function encodeFiltersToParams(f: Partial<FilterState>): string {
 export function decodeFiltersFromParams(qs: URLSearchParams): Partial<FilterState> {
   const out: Partial<FilterState> = {};
   if (qs.has('q')) (out as any).search = qs.get('q') || '';
+  // R167 share fix — DSL query 디코드 (?dsl=...).
+  if (qs.has('dsl')) (out as any).query = qs.get('dsl') || '';
   for (const [k, [m, x]] of Object.entries(RANGE_MAP)) {
     if (qs.has(m) && qs.has(x)) (out as any)[k] = [Number(qs.get(m)), Number(qs.get(x))];
   }

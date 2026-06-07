@@ -16,10 +16,19 @@ import { computeCET, computeCEIIW, computePcm, computeSchaeffler, computeMachina
 import { TempCurveChart } from '@/components/TempCurveChart';
 import { CreepRuptureChart } from '@/components/CreepRuptureChart';
 import { recommendedCoatings } from '@/lib/coatings';
+/* R157b — MaterialDetail 의 sub-components 분리. */
+import { SourcesList } from '@/components/material-detail/SourcesList';
+import { RangeRow, fmt } from '@/components/material-detail/RangeRow';
+import { CompositionDisplay } from '@/components/material-detail/CompositionDisplay';
+import { Field } from '@/components/material-detail/Field';
+/* R160 — Spec badge popover. */
+import { SpecBadgeList } from '@/components/material-detail/SpecBadgeList';
+/* R161 — Similar / alternative materials card → Composition tab. */
+import { SimilarMaterialsCard } from '@/components/material-detail/SimilarMaterialsCard';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
-import { useState as useStateRD } from 'react';
+import { useState as useStateRD, type PointerEvent as ReactPointerEvent } from 'react';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
 
 interface MaterialDetailProps {
@@ -27,16 +36,18 @@ interface MaterialDetailProps {
   compareList: string[];
   onToggleCompare: (id: string) => void;
   onClose: () => void;
-  dragHandleProps?: { onPointerDown?: (e: any) => void }; // when floating, makes the header a drag handle
+  dragHandleProps?: { onPointerDown?: (e: ReactPointerEvent<HTMLElement>) => void }; // when floating, makes the header a drag handle
   floating?: boolean;
   /** R53a — Radar normalize 에 사용할 전체 dataset. 없으면 'set' base 만 동작. */
   allMaterials?: Material[];
   /** R69 A — 즐겨찾기. favorites set + toggle callback. */
   favorites?: Set<string>;
   onToggleFavorite?: (id: string) => void;
+  /** R148 — 유사 재료 추천 클릭 시 해당 material 로 detail panel 전환. */
+  onSelectMaterial?: (id: string) => void;
 }
 
-const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
+// R157b — fmt → components/material-detail/RangeRow.tsx (export 됨, RangeRow 와 함께 사용).
 
 const TIER_BADGE: Record<string, { label: string; cls: string }> = {
   curated: { label: 'Curated · multi-vendor', cls: 'bg-accent/15 text-accent border-accent/30' },
@@ -45,268 +56,35 @@ const TIER_BADGE: Record<string, { label: string; cls: string }> = {
   reference: { label: 'Reference data', cls: 'bg-amber-500/15 text-amber-600 border-amber-500/30' },
 };
 
-function RangeRow({ label, range, fallback, unit }: { label: string; range?: PropertyRange | null; fallback?: number | string | null; unit: string }) {
-  // R40b — price 표시 시 lang/unitSystem 에 따라 USD/KRW + kg/lb 자동 변환.
-  const { lang } = useLang();
-  const isPrice = /USD\//.test(unit);
-  const priceUnit: 'kg' | 'cm3' = unit.includes('cm³') || unit.includes('cm3') ? 'cm3' : 'kg';
-  const sys = isPrice ? loadUnitSystem() : null;
-
-  const typical = range?.typical ?? (typeof fallback === 'number' ? fallback : null);
-  const hasRange = !!range && range.max > range.min;
-  if (typical == null) {
-    return (
-      <div className="flex items-center justify-between py-1.5 border-b border-border/40 last:border-0">
-        <span className="text-xs text-muted-foreground">{label}</span>
-        <span className="font-mono text-xs text-muted-foreground/40">—</span>
-      </div>
-    );
-  }
-  // confidence 단계별 뱃지: 'measured' (회색 n=N) · 'handbook' (파랑) · 'class' (앰버 추정) · 'derived' (붉은 ≈UTS)
-  const conf = range?.confidence;
-  /* R125c — fallback chain 단계별 confidence 라벨 차별화:
-     handbook (1차자료) → subfamily (3rd, 특정 subcategory, e.g. austenitic) → family (2nd, group)
-     → class (1st, category 일반) → derived (다른 물성 유도). 신뢰도 sky → blue → amber → orange → rose 순. */
-  const confBadge: Record<string, { label: string; cls: string; tip: string }> = {
-    measured: { label: `n=${range?.n ?? 0}`, cls: 'text-foreground/50', tip: '실측 데이터 다수' },
-    handbook: { label: '핸드북', cls: 'text-sky-600', tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)' },
-    subfamily: { label: 'sub-fam', cls: 'text-blue-600', tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)' },
-    family: { label: 'family', cls: 'text-cyan-600', tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)' },
-    class: { label: 'class', cls: 'text-amber-600', tip: '1st family / category typical (예: Iron-based 일반 / Polymer 일반)' },
-    derived: { label: '≈UTS', cls: 'text-rose-500', tip: '다른 물성에서 유도 (예: 피로 = UTS·비율)' },
-  };
-  const badge = conf ? confBadge[conf] : null;
-  /* R129 — fallback 출처/조정 표시 (provenance). hover tooltip 에 fallback chain 명시.
-            예: "alloy:174ph × HT:H1025 (f×0.9, i×1.4)" → 17-4 PH peak 값에서 H1025 condition 조정. */
-  const prov = (range as { provenance?: string })?.provenance;
-  /* R139b — typical (ASM/Granta 평균값) vs min_spec (vendor 보증 minimum, 예: AMS) 구분.
-            vendor minimum 이 typical 과 다를 때 별표 표시 + tooltip 에 출처 명시. */
-  const minSpec = (range as { min_spec_value?: number })?.min_spec_value;
-  const minSpecSrc = (range as { min_spec_source?: string })?.min_spec_source;
-  // R48c — price 표시는 formatPrice 사용 — typical 만 항상 평가. range min/max 는 hasRange 조건 안에서만
-  //        (이전: range null 인 5 flat-only properties 클릭 시 range!.min eager 평가로 crash).
-  const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(typical)}`;
-  return (
-    <div className="flex items-start justify-between py-1.5 border-b border-border/40 last:border-0">
-      <span className="text-xs text-muted-foreground pt-0.5">{label}</span>
-      <div className="text-right">
-        <span className="font-mono text-xs font-medium text-foreground">{typicalStr}</span>
-        {!isPrice && <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>}
-        {badge && (
-          <span className={`ml-1 text-[10px] ${badge.cls}`} title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}>{badge.label}</span>
-        )}
-        {/* R139b — min spec (vendor 보증) vs typical (ASM) 차이 표시 */}
-        {minSpec != null && typeof typical === 'number' && Math.abs(minSpec - typical) > typical * 0.15 && (
-          <span
-            className="ml-1 text-[10px] text-amber-600 font-medium"
-            title={`Typical: ${fmt(typical)} ${unit} (ASM/Granta 평균)\nMin spec: ${fmt(minSpec)} ${unit}${minSpecSrc ? ` (${minSpecSrc})` : ''}\n\n사용자 의사결정 권장: 안전 임계 시 min spec 사용.`}
-          >
-            min={fmt(minSpec)}
-          </span>
-        )}
-        {hasRange && range && (
-          <div className="text-[10px] font-mono text-muted-foreground/70 leading-tight">
-            {isPrice && sys ? formatPrice(range.min, lang, sys, priceUnit) : fmt(range.min)}
-            –
-            {isPrice && sys ? formatPrice(range.max, lang, sys, priceUnit) : fmt(range.max)}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function SourcesList({ sources }: { sources: MaterialSource[] }) {
-  if (!sources.length) {
-    return <p className="text-xs text-muted-foreground italic py-2">No source information</p>;
-  }
-  return (
-    <div className="space-y-1.5">
-      {sources.map((s, i) =>
-        s.url ? (
-          <a
-            key={i}
-            href={s.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-start gap-1.5 p-2 rounded bg-muted/40 hover:bg-muted border border-border/30 transition-colors group"
-          >
-            <ExternalLink className="w-3 h-3 mt-0.5 text-accent flex-shrink-0" />
-            <span className="text-[11px] text-foreground group-hover:text-accent break-words flex-1 leading-snug">{s.label}</span>
-            {s.verified && <span title="Verified datasheet"><Check className="w-3 h-3 text-emerald-500 flex-shrink-0" /></span>}
-          </a>
-        ) : (
-          <div key={i} className="flex items-center gap-1.5 p-2 rounded bg-muted/30 border border-border/20">
-            <BookText className="w-3 h-3 text-muted-foreground/50 flex-shrink-0" />
-            <span className="text-[11px] text-muted-foreground">{s.label}</span>
-          </div>
-        )
-      )}
-    </div>
-  );
-}
-
-/* R76 — 원소별 색상 매핑 (CPK + handbook 관습 mix). R84 — 채도 ↑ (38% → 50%), 명도 살짝 ↓ 로 인접 원소 구분성 강화. */
-const ELEMENT_COLORS: Record<string, string> = {
-  Fe: '#5a6473', Cr: '#5fa3d8', Ni: '#8fbd86', C: '#3a3a3a', Mn: '#8a5fc4',
-  Si: '#d4be4f', Cu: '#cf6f2e', Al: '#a5acba', Ti: '#9aa4b3', V: '#d870a5',
-  Mo: '#7a4fb8', W: '#2a2a2a', Co: '#4f7fbd', Nb: '#5aada3', Ta: '#646872',
-  Mg: '#80c075', Zn: '#a7a8b3', Sn: '#9da0b5', N: '#7fcbd9', P: '#e08c44',
-  S:  '#e8c83a', B: '#dc8aa4', Y: '#d089a8', Zr: '#8c92a0', O: '#e35a5a',
-  Ag: '#c8cdda', Hf: '#828891', Li: '#daa05f', La: '#bb88dc', Ce: '#c89edb',
-  Re: '#666c78', Pb: '#697080', Be: '#85c89e', Bi: '#7560a0', Cd: '#cab045',
-  Ga: '#a087c0', In: '#828a98', Pt: '#aab0b8', Pd: '#94a0a8', Au: '#e8b840',
+/** R144c — Spec badge colors by issuing organization. */
+const SPEC_BADGE_COLOR: Record<string, { color: string; bg: string }> = {
+  AMS: { color: '#1d4ed8', bg: '#dbeafe' },
+  ASTM: { color: '#7c2d12', bg: '#fed7aa' },
+  ASME: { color: '#7e22ce', bg: '#e9d5ff' },
+  DNV: { color: '#0c4a6e', bg: '#bae6fd' },
+  EN: { color: '#166534', bg: '#bbf7d0' },
+  DIN: { color: '#365314', bg: '#d9f99d' },
+  JIS: { color: '#9f1239', bg: '#fecdd3' },
+  MIL: { color: '#1e293b', bg: '#cbd5e1' },
+  UNS: { color: '#92400e', bg: '#fde68a' },
+  API: { color: '#075985', bg: '#bae6fd' },
+  NACE: { color: '#854d0e', bg: '#fef08a' },
+  OTHER: { color: '#475569', bg: '#e2e8f0' },
 };
-function elementColor(el: string): string {
-  if (ELEMENT_COLORS[el]) return ELEMENT_COLORS[el];
-  let h = 0; for (let i = 0; i < el.length; i++) h = (h * 31 + el.charCodeAt(i)) | 0;
-  return `hsl(${Math.abs(h) % 360}, 50%, 55%)`;
-}
-/* "16.0~18.0" → 17.0, "≤2" → 2, "≥58" → 58, "0.25" → 0.25, "balance" / "trace" → null. */
-function parseCompValue(raw: unknown): number | null {
-  if (raw == null) return null;
-  if (typeof raw === 'number') return isFinite(raw) ? raw : null;
-  const s = String(raw).trim().toLowerCase();
-  if (!s || s === 'balance' || s === 'bal' || s === 'bal.' || s === 'rem' || s === 'remainder' || s === 'trace' || s === 'micro' || s === 'tr' || s === 'others') return null;
-  let m = s.match(/^[≤<≦]\s*([\d.]+)/); if (m) return parseFloat(m[1]);
-  m = s.match(/^[≥>≧]\s*([\d.]+)/);     if (m) return parseFloat(m[1]);
-  m = s.match(/^([\d.]+)\s*[~–\-—]\s*([\d.]+)/); if (m) return (parseFloat(m[1]) + parseFloat(m[2])) / 2;
-  const n = parseFloat(s); return isFinite(n) ? n : null;
-}
-type CompSlice = { element: string; value: number; color: string; isBalance: boolean; raw: string };
-function buildCompSlices(comp: Material['composition']): CompSlice[] {
-  // 통일 처리: array form [[el, range], ...] 또는 object form {El: range, ...} 둘 다.
-  const pairs: Array<[string, unknown]> = Array.isArray(comp)
-    ? (comp.filter((p): p is [string, string] => Array.isArray(p) && p.length >= 2))
-    : (comp && typeof comp === 'object' ? Object.entries(comp) : []);
-  if (pairs.length === 0) return [];
-  const items: Array<{ element: string; value: number; raw: string }> = [];
-  let balanceEl: string | null = null;
-  for (const [el, v] of pairs) {
-    if (v == null || v === '' || v === 0 || v === '0') continue;
-    const s = String(v).trim().toLowerCase();
-    if (s === 'balance' || s === 'bal' || s === 'bal.' || s === 'rem' || s === 'remainder') { balanceEl = el; continue; }
-    const num = parseCompValue(v);
-    if (num != null && num > 0) items.push({ element: el, value: num, raw: String(v) });
-  }
-  const knownSum = items.reduce((s, d) => s + d.value, 0);
-  const balVal = Math.max(0, 100 - knownSum);
-  if (balanceEl && balVal > 0) items.push({ element: balanceEl, value: balVal, raw: 'balance' });
-  items.sort((a, b) => b.value - a.value);
-  return items.map((d) => ({ ...d, color: elementColor(d.element), isBalance: d.element === balanceEl }));
-}
 
-/* SVG donut. center 에 dominant element 강조. hover title 로 wt% / share % 표시. */
-function CompositionDonut({ slices }: { slices: CompSlice[] }) {
-  const total = slices.reduce((s, d) => s + d.value, 0);
-  if (total <= 0 || slices.length === 0) return null;
-  const cx = 100, cy = 100, R = 78, r = 48;
-  let acc = 0;
-  return (
-    <svg viewBox="0 0 200 200" width="180" height="180" className="block" role="img" aria-label="composition donut">
-      {slices.map((d) => {
-        const frac = d.value / total;
-        const a0 = (acc / total) * 2 * Math.PI - Math.PI / 2; acc += d.value;
-        const a1 = (acc / total) * 2 * Math.PI - Math.PI / 2;
-        const large = frac > 0.5 ? 1 : 0;
-        // 100% 단일 원소 시 path 가 닫히지 않는 문제 → 두 개의 반-arc 로 분할 (a0 .. a0+π .. a1).
-        if (frac > 0.999) {
-          return (
-            <g key={d.element}>
-              <title>{`${d.element}: ${d.value.toFixed(2)} wt% (100%)`}</title>
-              <circle cx={cx} cy={cy} r={R} fill={d.color} stroke="white" strokeWidth="1" />
-              <circle cx={cx} cy={cy} r={r} fill="white" />
-            </g>
-          );
-        }
-        const x0 = cx + R * Math.cos(a0), y0 = cy + R * Math.sin(a0);
-        const x1 = cx + R * Math.cos(a1), y1 = cy + R * Math.sin(a1);
-        const xi1 = cx + r * Math.cos(a1), yi1 = cy + r * Math.sin(a1);
-        const xi0 = cx + r * Math.cos(a0), yi0 = cy + r * Math.sin(a0);
-        const path = `M ${x0} ${y0} A ${R} ${R} 0 ${large} 1 ${x1} ${y1} L ${xi1} ${yi1} A ${r} ${r} 0 ${large} 0 ${xi0} ${yi0} Z`;
-        return (
-          <g key={d.element}>
-            <title>{`${d.element}: ${d.value.toFixed(2)} wt% (${(frac * 100).toFixed(1)}%${d.isBalance ? ', balance' : ''})`}</title>
-            <path d={path} fill={d.color} stroke="white" strokeWidth="1" />
-          </g>
-        );
-      })}
-      <text x={cx} y={cy - 6} textAnchor="middle" dominantBaseline="middle" className="fill-foreground" style={{ fontSize: 14, fontWeight: 700 }}>{slices[0].element}</text>
-      <text x={cx} y={cy + 11} textAnchor="middle" dominantBaseline="middle" className="fill-muted-foreground" style={{ fontSize: 10 }}>{((slices[0].value / total) * 100).toFixed(1)}%</text>
-    </svg>
-  );
-}
+// R157b — RangeRow → components/material-detail/RangeRow.tsx 로 이동.
 
-function CompositionDisplay({ material }: { material: Material }) {
-  const composition = material.composition;
-  const slices = buildCompSlices(composition);
+// R157b — SourcesList → components/material-detail/SourcesList.tsx 로 이동.
 
-  // 둘 다: array form / object form 동일하게 grid 표시 + donut 상단.
-  const pairs: Array<[string, string]> = Array.isArray(composition)
-    ? (composition.filter((p): p is [string, string] => Array.isArray(p) && p.length >= 2).map(p => [String(p[0]), String(p[1])]))
-    : (composition && typeof composition === 'object'
-        ? Object.entries(composition).filter(([_, v]) => v !== null && v !== undefined && v !== '' && v !== '0' && v !== 0).map(([k, v]) => [k, String(v)])
-        : []);
+// R157b — ELEMENT_COLORS, elementColor, parseCompValue, buildCompSlices, CompSlice →
+//         components/material-detail/composition.ts 로 이동.
 
-  if (pairs.length === 0 && slices.length === 0) {
-    return <p className="text-xs text-muted-foreground italic py-4 text-center">Chemical composition data not available</p>;
-  }
-  // grid sort: balance 우선 → 값 큰 순.
-  pairs.sort((a, b) => {
-    const isBalA = /^(balance|bal|bal\.|rem|remainder)$/i.test(a[1]);
-    const isBalB = /^(balance|bal|bal\.|rem|remainder)$/i.test(b[1]);
-    if (isBalA && !isBalB) return -1;
-    if (isBalB && !isBalA) return 1;
-    const va = parseCompValue(a[1]) ?? 0;
-    const vb = parseCompValue(b[1]) ?? 0;
-    return vb - va;
-  });
+// R157b — CompositionDonut → components/material-detail/CompositionDonut.tsx 로 이동.
 
-  return (
-    <div className="space-y-3">
-      <div className="text-xs font-semibold text-foreground/80 mb-2">Chemical Composition (wt%)</div>
-      {slices.length > 0 && (
-        <div className="rounded border border-border/50 bg-muted/10 p-3 flex flex-col sm:flex-row sm:items-center sm:gap-4">
-          <div className="flex-shrink-0 mx-auto sm:mx-0"><CompositionDonut slices={slices} /></div>
-          <div className="flex-1 mt-2 sm:mt-0 grid grid-cols-2 gap-x-3 gap-y-1">
-            {slices.map((d) => (
-              <div key={d.element} className="flex items-center justify-between text-[10.5px]">
-                <span className="flex items-center gap-1.5">
-                  <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: d.color }} />
-                  <span className="font-semibold text-foreground">{d.element}</span>
-                  {d.isBalance && <span className="text-[9px] text-muted-foreground italic">bal</span>}
-                </span>
-                <span className="font-mono text-muted-foreground">{d.value.toFixed(d.value < 1 ? 2 : 1)}%</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-      <div className="grid grid-cols-2 gap-2">
-        {pairs.map(([element, range]) => (
-          <div key={element} className="flex items-center justify-between p-2 rounded bg-muted/50 border border-border/30">
-            <span className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-              <span className="inline-block w-2 h-2 rounded-sm" style={{ background: elementColor(element) }} />
-              {element}
-            </span>
-            <span className="text-xs font-mono text-muted-foreground">{range}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+// R157b — CompositionDisplay → components/material-detail/CompositionDisplay.tsx 로 이동.
+// R157b — Field → components/material-detail/Field.tsx 로 이동.
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div>
-      <div className="text-[10px] uppercase tracking-wide text-muted-foreground/70 mb-1">{label}</div>
-      <div className="text-xs text-foreground">{children}</div>
-    </div>
-  );
-}
-
-export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite }: MaterialDetailProps) {
+export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial }: MaterialDetailProps) {
   const t = useT();
   // R53a — Radar axes + normalize base (localStorage 저장)
   const [radarAxes, setRadarAxes] = useStateRD<RadarAxis[]>(() => {
@@ -350,6 +128,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             <p className="text-xs text-muted-foreground truncate mt-0.5">{material.subcategory}</p>
             {tier && (
               <span className={`inline-block mt-1.5 text-[10px] px-1.5 py-0.5 rounded border font-medium ${tier.cls}`}>{tier.label}</span>
+            )}
+            {/* R144c — Spec badges (AMS / ASTM / UNS …). R160 — popover 로 확장 (클릭 시 org/description/url 표시). */}
+            {material.meta?.specs && material.meta.specs.length > 0 && (
+              <SpecBadgeList specs={material.meta.specs} colorMap={SPEC_BADGE_COLOR} maxInline={8} />
             )}
           </div>
         </div>
@@ -468,7 +250,17 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             })()}
             {COST_PROPERTIES.some(p => material[p.key as keyof Material] != null) && (
               <div>
-                <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Coins className="w-3 h-3" />Cost <span className="text-[10px] font-normal text-muted-foreground/60">(approx. market)</span></h3>
+                <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1">
+                  <Coins className="w-3 h-3" />Cost
+                  {/* R146 — verified date badge if measured + recent. */}
+                  {material.meta?.price_verified_date ? (
+                    <span className="text-[10px] font-normal px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200" title={`Source: ${material.meta?.price_verified_source}`}>
+                      ✓ verified {material.meta.price_verified_date as string}
+                    </span>
+                  ) : (
+                    <span className="text-[10px] font-normal text-muted-foreground/60">(handbook estimate)</span>
+                  )}
+                </h3>
                 <div className="space-y-1">
                   {COST_PROPERTIES.map(prop => (
                     <RangeRow key={prop.key} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
@@ -517,8 +309,16 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
           </TabsContent>
 
           {/* Composition */}
-          <TabsContent value="composition" className="p-4">
+          <TabsContent value="composition" className="p-4 space-y-4">
             <CompositionDisplay material={material} />
+            {/* R161 — 유사 · 대체 재료 추천 + 각 추천 reason chip. Properties tab 에서 이동. */}
+            {allMaterials && allMaterials.length > 0 && (
+              <SimilarMaterialsCard
+                material={material}
+                allMaterials={allMaterials}
+                onSelectMaterial={onSelectMaterial}
+              />
+            )}
           </TabsContent>
 
           {/* Process */}
@@ -546,13 +346,14 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               // Weldability — worst band 기준 (CE_IIW vs CET vs Pcm 중 가장 보수적)
               const weldBands = [ce_iiw?.band, cet?.band, pcm?.band].filter(Boolean) as string[];
               const weldWorst = weldBands.includes('high') ? 'high' : weldBands.includes('med') ? 'med' : weldBands.length ? 'low' : null;
-              /* R113 — 3 카드 모두 collapsible (mobile 가독성). default: Machinability open · HT/Weld closed.
-                 모바일 1단 + 데스크탑 2단 grid 로 폭 적응. */
+              /* R113 + R152b — 3 카드 모두 collapsible (mobile 가독성). default: Machinability open · HT/Weld closed.
+                 R152b: 폭 좁은 detail panel (좌측 floating popup 430px 또는 모바일) 에서 2-column 이 텍스트
+                 wrap 으로 가독성 ↓ → 항상 1 column stack 으로 변경. */
               return (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3">
                   {/* 카드 1 — 절삭성 + 가공비 통합 (default open) */}
                   {(mach || machCost) && (
-                    <details open className={`rounded-lg border-2 p-3 ${bandColor((machCost?.band || mach?.band) as string)} md:col-span-1`}>
+                    <details open className={`rounded-lg border-2 p-3 ${bandColor((machCost?.band || mach?.band) as string)}`}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5"><Wrench className="w-3.5 h-3.5" />Machinability · 절삭성</span>
                         <span className="text-[10px] font-normal opacity-70">
@@ -588,7 +389,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     if (alloyHt) {
                       const { family, description } = alloyHt;
                       return (
-                        <details open className="rounded-lg border-2 border-sky-300 bg-sky-50 p-3 md:col-span-1">
+                        <details open className="rounded-lg border-2 border-sky-300 bg-sky-50 p-3">
                           <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-sky-800">
                             <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · {description.code}</span>
                             <span className="text-[10px] font-normal opacity-70">{family.familyName}</span>
@@ -624,7 +425,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     // Fallback: 기존 HT 가중치 카드 (specific HT 매칭 안 됨)
                     if (!htCost) return null;
                     return (
-                      <details open className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)} md:col-span-1`}>
+                      <details open className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)}`}>
                         <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                           <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · 열처리</span>
                           <span className="text-[10px] font-normal opacity-70">×{htCost.factor.toFixed(2)} · <b>{htCost.label}</b></span>
@@ -658,9 +459,11 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                       </details>
                     );
                   })()}
-                  {/* 카드 3 — 용접성 4 지표 통합 경고 (default closed, but high band 면 open) */}
+                  {/* 카드 3 — 용접성 4 지표 통합 경고 (default closed, but high band 면 open).
+                      R172 — `md:col-span-2` 제거: R152b 이전 2-col 디자인 잔재. 현재 grid-cols-1 만 사용 →
+                      잔재 클래스가 implicit 2nd column 생성 → Machinability + HT 가 같은 row 에 배치되어 겹침. */}
                   {(ce_iiw || cet || pcm || sch) && (
-                    <details open={weldWorst === 'high'} className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || 'normal')} md:col-span-2`}>
+                    <details open={weldWorst === 'high'} className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || 'normal')}`}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5">
                           <FlaskConical className="w-3.5 h-3.5" />Weldability · 용접성 종합
@@ -805,6 +608,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 )}
               </details>
             )}
+            {/* R148 / R161 — 유사 · 대체 재료 추천 Composition tab 으로 이동. 여기는 빈 자리. */}
             {material.aliases && material.aliases.length > 0 && (
               <Field label="Designations / a.k.a. (ISO·ASTM·JIS·DIN·KS·UNS)">
                 <div className="flex flex-wrap gap-1">

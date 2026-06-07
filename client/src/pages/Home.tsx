@@ -8,53 +8,39 @@
 
 import { useState, useEffect, useMemo, useCallback, useRef, lazy, Suspense } from 'react';
 import {
-  Search,
-  Table2,
-  LayoutGrid,
-  BarChart3,
-  Menu,
   X,
   ChevronLeft,
   ChevronRight,
-  Database,
-  Info,
-  Download,
   Upload,
-  Bookmark,
-  BookmarkPlus,
-  GitCompareArrows,
-  Trash2,
-  Share2,
-  GraduationCap,
-  Pencil,
-  RotateCcw,
-  Star,
-  Settings,
-  Wrench,
 } from 'lucide-react';
-import { Link, useSearch } from 'wouter';
+import { useSearch } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import FilterSidebar from '@/components/FilterSidebar';
+import { QueryBar } from '@/components/QueryBar';
+import { useMaterialPool } from '@/hooks/useMaterialPool';
+// R157b — Header + nav + 즐겨찾기 + Collections + PresetBanner + ImportSheet + RestrictBar + AshbyPreview → 별도 컴포넌트.
+import { HomeHeader } from '@/components/HomeHeader';
+import { HomeMobileNav } from '@/components/HomeMobileNav';
+import { HomeFavoritesDropdown } from '@/components/HomeFavoritesDropdown';
+import { HomeCollectionsDropdown } from '@/components/HomeCollectionsDropdown';
+import { HomePresetBanner } from '@/components/HomePresetBanner';
+import { HomeImportSheet } from '@/components/HomeImportSheet';
+import { HomeRestrictBar } from '@/components/HomeRestrictBar';
+import { HomeAshbyPreviewCard } from '@/components/HomeAshbyPreviewCard';
 import { MaterialTable } from '@/components/MaterialTable';
 import { MaterialCards } from '@/components/MaterialCards';
 const AshbyChart = lazy(() => import('@/components/AshbyChartPlotly').then(m => ({ default: m.AshbyChartPlotly })));
 import { MaterialDetailPopup } from '@/components/MaterialDetailPopup';
 import { ComparePanel } from '@/components/ComparePanel';
 import { useMaterialFilter } from '@/hooks/useMaterialFilter';
-import { exportMaterialsToCSV, generateCSVFilename } from '@/lib/csv-export';
 import type { Material } from '@/lib/materials';
 import { SCENARIO_PRESETS, decodeFiltersFromParams, encodeFiltersToParams, indexKeyFromHint, type ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { ScenarioCompareSheet } from '@/components/ScenarioCompareSheet';
 import OnboardingTour from '@/components/OnboardingTour';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 import { SHOP_ALIAS_DICT } from '@/lib/shop-alias-dict';
-import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical, SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold } from './guide/svgs';
 import { loadUnitSystem, saveUnitSystem, type UnitSystem } from '@/lib/unit-convert';
 import { useT, useLang } from '@/lib/i18n';
 
@@ -70,9 +56,9 @@ type ViewMode = 'table' | 'cards' | 'ashby';
 const MAX_COMPARE = 500; // generous backstop; the Compare table/chart handle large sets fine
 
 export default function Home() {
-  const [materials, setMaterials] = useState<Material[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  /* R154 — useMaterialPool: index.json (slim) 즉시 + 4 카테고리 백그라운드 prefetch.
+     첫 페인트 8.15 MB → 670 KB (12배 감소). */
+  const { materials, loading, error, ensureCategory } = useMaterialPool();
   /** wouter's search string — re-firing the scenario-apply effect when ScenarioSheet navigates
    *  to /?p=... while Home is already mounted (the empty-dep effect missed in-route URL changes). */
   const search = useSearch();
@@ -222,24 +208,7 @@ export default function Home() {
     narrowedRanges,
   } = useMaterialFilter(materials);
 
-  // Load data
-  useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}materials.json`)
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to load materials database');
-        return r.json();
-      })
-      .then((data: { materials: Material[] } | Material[]) => {
-        // Support both wrapped { materials: [...] } and raw array formats
-        const list = Array.isArray(data) ? data : (data as { materials: Material[] }).materials;
-        setMaterials(list);
-        setLoading(false);
-      })
-      .catch(e => {
-        setError(e.message);
-        setLoading(false);
-      });
-  }, []);
+  // R154 — Data load 는 useMaterialPool 이 담당. 별도 effect 불필요.
 
   // saved collections persist in localStorage
   useEffect(() => {
@@ -336,6 +305,9 @@ export default function Home() {
     const override = decodeFiltersFromParams(params);
     const merged = { ...cfg.filters, ...override } as Record<string, any>;
     (Object.entries(merged) as [keyof typeof filters, any][]).forEach(([k, v]) => updateFilter(k, v));
+    // R144e — wizard 가 추가한 q (multi-constraint query) 도 적용
+    const q = params.get('q');
+    if (q) updateFilter('query' as keyof typeof filters, q as never);
     if (cfg.viewMode) setViewMode(cfg.viewMode);
     const p2 = params.get('p2');
     const cfg2 = p2 ? SCENARIO_PRESETS[p2] : null;
@@ -537,8 +509,11 @@ export default function Home() {
 
   // detail now opens as a floating popup, so it no longer needs to close the Compare panel
   // R101 — 모바일: 첫 클릭은 preview card 표시, 같은 점 두 번째 클릭은 detail open. 데스크탑은 즉시 detail.
+  // R154 — 클릭 시 해당 material 의 category 가 아직 lazy-load 중이면 ensureCategory 후 detail open.
   const handleSelectMaterial = useCallback((m: Material) => {
     const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+    // Trigger ensureCategory (non-blocking — slim 데이터만으로도 일부 정보 표시 가능)
+    ensureCategory(m.category).catch(() => { /* swallow — non-fatal */ });
     if (isMobile) {
       if (previewMaterial?.id === m.id) {
         // 두 번째 클릭 → detail open + preview close
@@ -550,7 +525,7 @@ export default function Home() {
     } else {
       setSelectedMaterial(m);
     }
-  }, [previewMaterial]);
+  }, [previewMaterial, ensureCategory]);
 
   // click a material inside Compare → open its detail popup AND locate it on the Ashby chart
   const handleSelectFromCompare = useCallback((m: Material) => {
@@ -687,343 +662,43 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-background pb-[50px] md:pb-0">
       {/* ─── Top Header ─── */}
-      <header className="flex-shrink-0 h-12 flex items-center gap-3 px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground z-20">
-        {/* Logo — R80: 모바일 hidden (좁은 헤더 공간 절약, 사용자가 가장 왼쪽 아이콘 제거 요청). */}
-        <div className="hidden md:flex items-center gap-2.5 mr-2">
-          <div className="w-7 h-7 rounded bg-accent flex items-center justify-center flex-shrink-0">
-            <Database className="w-4 h-4 text-white" />
-          </div>
-          <div className="hidden sm:block">
-            <p className="text-[13px] font-bold tracking-tight text-white leading-none">AM Materials</p>
-            <p className="text-[9px] text-sidebar-foreground/50 uppercase tracking-widest leading-none mt-0.5">Explorer</p>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="w-px h-5 bg-sidebar-border hidden sm:block" />
-
-        {/* R81 — 모바일 search icon 을 헤더 왼쪽으로 이동 (왼쪽 정렬 일관). 검색 펼침 시는 헤더 전체 차지. */}
-        {!searchOpen && (
-          <button
-            onClick={() => setSearchOpen(true)}
-            className="md:hidden p-1.5 rounded hover:bg-white/10 text-sidebar-foreground"
-            aria-label={t('header.search.placeholder')}
-            title={t('header.search.placeholder')}
-          >
-            <Search className="w-4 h-4" />
-          </button>
-        )}
-
-        {/* Stats — R82: 5색 chip 산만함 → 단일 텍스트 + hover tooltip breakdown 으로 통일. */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button className="hidden md:flex h-7 px-2.5 items-center gap-1.5 text-[11px] rounded border border-sidebar-border/60 text-sidebar-foreground/70 hover:text-white hover:border-sidebar-border transition-colors cursor-default">
-              <Database className="w-3 h-3 text-sidebar-foreground/50" />
-              <span className="font-mono font-semibold text-white">{materials.length.toLocaleString()}</span>
-              <span className="text-sidebar-foreground/50">{t('header.materials')}</span>
-            </button>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">
-            <div className="space-y-0.5 font-mono">
-              <div className="flex justify-between gap-3"><span className="text-foreground/70">Metal</span><span>{metalCount.toLocaleString()}</span></div>
-              <div className="flex justify-between gap-3"><span className="text-foreground/70">Polymer</span><span>{polymerCount.toLocaleString()}</span></div>
-              <div className="flex justify-between gap-3"><span className="text-foreground/70">Ceramic</span><span>{ceramicCount}</span></div>
-              <div className="flex justify-between gap-3"><span className="text-foreground/70">Composite</span><span>{compositeCount}</span></div>
-              <div className="flex justify-between gap-3 pt-0.5 border-t border-border/30 mt-0.5"><span className="text-foreground/70">AM process</span><span>{amCount}</span></div>
-            </div>
-          </TooltipContent>
-        </Tooltip>
-
-        {/* Search — R49c: 모바일 기본 icon-only, 클릭 시 헤더 전체로 확장. 데스크탑은 항상 input. R81: 모바일 icon 은 헤더 왼쪽으로 분리됐고, 여기는 펼침 상태 input + 데스크탑 input 만 담당. */}
-        <div className="flex-1 ml-auto mr-2 flex items-center justify-end min-w-0">
-          <div className={`relative w-full max-w-md transition-all duration-200 ease-out ${searchOpen ? 'block opacity-100' : 'hidden md:block md:opacity-100'}`}>
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-sidebar-foreground/40 pointer-events-none" />
-            <Input
-              data-search-input="1"
-              aria-label={t('header.search.placeholder')}
-              className="h-9 sm:h-7 pl-8 pr-8 text-sm sm:text-xs bg-[oklch(0.28_0.06_250)] border-sidebar-border text-sidebar-foreground placeholder:text-sidebar-foreground/40 focus-visible:ring-accent"
-              placeholder={t('header.search.placeholder')}
-              value={filters.search}
-              onChange={e => updateFilter('search', e.target.value)}
-              autoFocus={searchOpen}
-              onFocus={() => setRecentOpen(recentSearches.length > 0)}
-              onBlur={() => {
-                if (filters.search.trim().length >= 2) pushRecent(filters.search);
-                if (!filters.search) setSearchOpen(false);
-                setTimeout(() => setRecentOpen(false), 200);
-              }}
-              onKeyDown={(e) => { if (e.key === 'Enter') { pushRecent(filters.search); setRecentOpen(false); (e.target as HTMLInputElement).blur(); } }}
-            />
-            {/* Sprint2 A7 — 최근 검색 dropdown (input focus + 검색 비었을 때만) */}
-            {recentOpen && !filters.search && recentSearches.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded shadow-lg z-50 max-h-64 overflow-auto">
-                <div className="text-[9px] uppercase tracking-wider text-muted-foreground px-3 py-1 border-b border-border/50">최근 검색</div>
-                {recentSearches.map((s) => (
-                  <button
-                    key={s}
-                    type="button"
-                    onMouseDown={(e) => { e.preventDefault(); updateFilter('search', s); setRecentOpen(false); }}
-                    className="w-full flex items-center gap-2 text-left px-3 py-1.5 text-xs hover:bg-muted/40 text-foreground"
-                  >
-                    <Search className="w-3 h-3 text-muted-foreground" /> {s}
-                  </button>
-                ))}
-              </div>
-            )}
-            {(filters.search || searchOpen) && (
-              <button
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-sidebar-foreground/40 hover:text-sidebar-foreground"
-                onClick={() => { updateFilter('search', ''); setSearchOpen(false); }}
-                aria-label="Close search"
-              >
-                <X className="w-4 h-4 sm:w-3 sm:h-3" />
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* View mode toggle */}
-        <div className="flex items-center gap-0.5 bg-[oklch(0.16_0.045_250)] rounded-md p-0.5 ring-1 ring-inset ring-sidebar-border/40 shadow-[inset_0_1px_2px_rgba(0,0,0,0.25)]">
-          {([
-            { mode: 'table' as ViewMode, icon: Table2, label: 'Table' },
-            { mode: 'cards' as ViewMode, icon: LayoutGrid, label: 'Cards' },
-            { mode: 'ashby' as ViewMode, icon: BarChart3, label: 'Ashby' },
-          ] as const).map(({ mode, icon: Icon, label }) => (
-            <Tooltip key={mode}>
-              <TooltipTrigger asChild>
-                <button
-                  className={`w-7 h-6 flex items-center justify-center rounded transition-all ${
-                    viewMode === mode
-                      ? 'bg-accent text-white shadow-sm'
-                      : 'text-sidebar-foreground/50 hover:text-sidebar-foreground'
-                  }`}
-                  onClick={() => setViewMode(mode)}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                </button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="text-xs">{label} view</TooltipContent>
-            </Tooltip>
-          ))}
-        </div>
-
-        {/* Export CSV button */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              className="h-7 w-7 flex items-center justify-center rounded border border-sidebar-border text-sidebar-foreground/60 hover:text-sidebar-foreground hover:border-accent transition-colors"
-              onClick={() => {
-                const filename = generateCSVFilename();
-                exportMaterialsToCSV(filtered, filename);
-              }}
-              title="Export filtered results to CSV"
-            >
-              <Download className="w-3.5 h-3.5" />
-            </button>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">Export to CSV ({filtered.length} items)</TooltipContent>
-        </Tooltip>
-
-        {/* R61 #5 — 헤더 ? 도움말 버튼: 모바일·데스크탑 공통 Onboarding 재시작 trigger.
-                     ?(Shift+/) 키 단축키와 동일 동작이지만, 모바일은 키보드 없으므로 필수. */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              type="button"
-              onClick={() => setTourOpen(true)}
-              className="hidden md:flex h-7 w-7 items-center justify-center rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-xs font-bold"
-              aria-label={lang === 'en' ? 'Show onboarding tour' : '온보딩 다시 보기'}
-            >
-              ?
-            </button>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">{lang === 'en' ? 'Onboarding tour (5 steps)' : '온보딩 다시 보기 (5단계)'}</TooltipContent>
-        </Tooltip>
-        {/* R67 Sprint B — Engineering Tools link. 6 계산기 페이지. */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Link
-              href="/tools"
-              className="h-7 px-2 flex items-center gap-1 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
-            >
-              <Wrench className="w-3.5 h-3.5" />
-              <span className="hidden lg:inline">Tools</span>
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">Engineering Tools — Kt · Galvanic · Buckling · CTE · Hardness · Pressure</TooltipContent>
-        </Tooltip>
-        {/* R71 D — 백업/복원 hidden file input */}
-        <input
-          ref={backupFileRef}
-          type="file"
-          accept=".json,application/json"
-          className="hidden"
-          aria-label="백업 파일 선택"
-          onChange={(e) => { const f = e.target.files?.[0]; if (f) importAllState(f); e.target.value = ''; }}
-        />
-        {/* R69 A — 즐겨찾기 dropdown */}
-        {favorites.size > 0 && (
-          <DropdownMenu>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <DropdownMenuTrigger asChild>
-                  <button className="h-7 px-2 flex items-center gap-1 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium">
-                    <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                    <span className="hidden lg:inline">{favorites.size}</span>
-                  </button>
-                </DropdownMenuTrigger>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="text-xs">즐겨찾기 ({favorites.size})</TooltipContent>
-            </Tooltip>
-            <DropdownMenuContent align="end" className="max-h-80 overflow-auto w-64">
-              <DropdownMenuLabel className="text-xs">즐겨찾기</DropdownMenuLabel>
-              {Array.from(favorites).map((id) => {
-                const m = materials.find((x) => x.id === id);
-                if (!m) return null;
-                return (
-                  <div key={id} className="flex items-center gap-1 px-1.5 py-1 hover:bg-muted/50 rounded">
-                    <button
-                      type="button"
-                      onClick={() => { setSelectedMaterial(m); }}
-                      className="flex-1 text-left text-xs truncate min-w-0"
-                    >
-                      <span className="block truncate font-medium text-foreground">{m.name}</span>
-                      <span className="block truncate text-[10px] text-muted-foreground">{m.subcategory}</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => toggleFavorite(id)}
-                      className="text-muted-foreground/50 hover:text-destructive flex-shrink-0"
-                      title="즐겨찾기 해제"
-                    >
-                      <Trash2 className="w-3 h-3" />
-                    </button>
-                  </div>
-                );
-              })}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
-
-        {/* 가이드 — 시트로 빠른 열람 + 사례 시작 (R18: controlled state — 사례 tile 클릭 시 자동 닫김) */}
-        <Sheet open={guideHeaderOpen} onOpenChange={setGuideHeaderOpen}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <SheetTrigger
-                className="h-7 px-2 flex items-center gap-1.5 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
-              >
-                <GraduationCap className="w-3.5 h-3.5" />
-                <span className="hidden lg:inline">{t('header.guide')}</span>
-              </SheetTrigger>
-            </TooltipTrigger>
-            <TooltipContent side="bottom" className="text-xs">{t('header.guide.tooltip')}</TooltipContent>
-          </Tooltip>
-          <SheetContent side="right" className="w-[420px] sm:max-w-md overflow-y-auto">
-            <SheetHeader>
-              <SheetTitle className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-accent" /> 가이드 · 사례 빠른 시작</SheetTitle>
-            </SheetHeader>
-            <div className="mt-4 space-y-3">
-              <p className="text-xs text-muted-foreground">자기 상황에 맞는 사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.</p>
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  { key: 'bracket' as ScenarioKey, title: '구조 브래킷', sub: '경량 + 고강성', Svg: SvgBracket },
-                  { key: 'hightemp' as ScenarioKey, title: '고온 부품', sub: '배기·터빈', Svg: SvgManifold },
-                  { key: 'fatigue' as ScenarioKey, title: '회전·진동축', sub: '피로 한도', Svg: SvgShaft },
-                  { key: 'precision' as ScenarioKey, title: '정밀 마운트', sub: '저 CTE', Svg: SvgPrecision },
-                  { key: 'corrosion' as ScenarioKey, title: '해양·화학', sub: '내식 환경', Svg: SvgMarine },
-                  { key: 'lowcost' as ScenarioKey, title: '저원가 양산', sub: '가성비', Svg: SvgLowcost },
-                  { key: 'spring' as ScenarioKey, title: '스프링·힌지', sub: '탄성 에너지', Svg: SvgSpring },
-                  { key: 'heatsink' as ScenarioKey, title: '히트싱크', sub: '방열', Svg: SvgHeatsink },
-                  { key: 'wear' as ScenarioKey, title: '내마모', sub: '경도 + 접촉', Svg: SvgWear },
-                  { key: 'medical' as ScenarioKey, title: '의료 임플란트', sub: '생체적합', Svg: SvgMedical },
-                  { key: 'cryogenic' as ScenarioKey, title: '극저온', sub: 'LNG · 우주', Svg: SvgCryogenic },
-                  { key: 'electrical' as ScenarioKey, title: '전기 전도체', sub: '버스바·접점', Svg: SvgElectrical },
-                  { key: 'pressure_vessel' as ScenarioKey, title: '압력용기', sub: '탱크·실린더', Svg: SvgPressureVesselSmall },
-                  { key: 'gear' as ScenarioKey, title: '기어', sub: '동력 전달', Svg: SvgGear },
-                  { key: 'fastener' as ScenarioKey, title: '체결구', sub: '볼트·스터드', Svg: SvgFastener },
-                  { key: 'die_mold' as ScenarioKey, title: '다이·금형', sub: '사출·단조·절삭', Svg: SvgDieMold },
-                ].map((t) => (
-                  <button
-                    key={t.key}
-                    type="button"
-                    onClick={() => openScenarioFromGuide(t.key)}
-                    className="group rounded border border-border bg-card hover:border-accent hover:shadow-sm hover:bg-accent/5 transition-all p-2 text-left flex items-center gap-2.5"
-                  >
-                    <div className="w-12 h-10 flex-shrink-0 rounded bg-muted/40 border border-border/60 p-0.5 flex items-center justify-center group-hover:border-accent/40 transition-colors">
-                      <t.Svg />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs font-semibold text-foreground truncate leading-tight">{t.title}</p>
-                      <p className="text-[10px] text-muted-foreground truncate leading-tight">{t.sub}</p>
-                    </div>
-                  </button>
-                ))}
-              </div>
-              <Link href="/guide" className="block text-center text-xs font-medium px-3 py-2 rounded border border-accent text-accent hover:bg-accent/10 transition-colors mt-3">
-                전체 가이드 페이지 열기 →
-              </Link>
-            </div>
-          </SheetContent>
-        </Sheet>
-
-        {/* R31 — KO / EN 언어 토글. R80: 모바일 hidden (하단 Settings 시트에서 처리). */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              onClick={() => setLang(lang === 'ko' ? 'en' : 'ko')}
-              className="hidden md:block h-7 px-2 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-mono font-semibold"
-            >
-              {lang === 'ko' ? '한' : 'EN'}
-            </button>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">{lang === 'ko' ? '언어 전환 — 한국어' : 'Switch language — English'}</TooltipContent>
-        </Tooltip>
-
-        {/* R27 — SI / Imperial 단위 토글. R80: 모바일 hidden. */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              onClick={toggleUnitSystem}
-              className="hidden md:block h-7 px-2 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-mono font-semibold"
-            >
-              {unitSystem === 'si' ? 'SI' : 'IMP'}
-            </button>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">{lang === 'ko' ? '단위 전환' : 'Switch units'} — {unitSystem === 'si' ? 'SI (MPa·GPa·°C·g/cm³)' : 'Imperial (ksi·Msi·°F·lb/in³)'}</TooltipContent>
-        </Tooltip>
-
-        {/* B5: 사례 비교 — 두 사례 동시 입력 + 산출 비교 + 교집합 적용 */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              onClick={() => setScenarioCompareOpen(true)}
-              className="hidden lg:flex h-7 px-2 items-center gap-1.5 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
-            >
-              <GitCompareArrows className="w-3.5 h-3.5" />
-              {t('header.scenarioCompare')}
-            </button>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">{t('header.scenarioCompare.tooltip')}</TooltipContent>
-        </Tooltip>
-
-        {/* Compare button */}
-        {compareList.length > 0 && (
-          <Button
-            variant="outline"
-            size="sm"
-            className="h-7 px-2.5 text-[11px] bg-transparent border-sidebar-border text-sidebar-foreground hover:bg-[oklch(0.28_0.06_250)] gap-1.5"
-            onClick={handleOpenCompare}
-          >
-            <BarChart3 className="w-3.5 h-3.5" />
-            Compare
-            <Badge className="h-4 w-4 p-0 text-[9px] flex items-center justify-center bg-accent text-white border-0 rounded-full">
-              {compareList.length}
-            </Badge>
-          </Button>
-        )}
-
-        {/* R80 — 모바일 sidebar toggle 제거. 필터는 하단 nav 의 첫 버튼으로 통일 (왼쪽에서 sidebar 가 슬라이드되는 동작과 일관). */}
-      </header>
+      {/* R157b — header → HomeHeader 컴포넌트로 추출. */}
+      <HomeHeader
+        t={t}
+        lang={lang}
+        setLang={setLang}
+        unitSystem={unitSystem}
+        toggleUnitSystem={toggleUnitSystem}
+        materials={materials}
+        filtered={filtered}
+        metalCount={metalCount}
+        polymerCount={polymerCount}
+        ceramicCount={ceramicCount}
+        compositeCount={compositeCount}
+        amCount={amCount}
+        searchOpen={searchOpen}
+        setSearchOpen={setSearchOpen}
+        filters={filters}
+        updateFilter={updateFilter}
+        recentSearches={recentSearches}
+        recentOpen={recentOpen}
+        setRecentOpen={setRecentOpen}
+        pushRecent={pushRecent}
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        compareList={compareList}
+        handleOpenCompare={handleOpenCompare}
+        favorites={favorites}
+        setSelectedMaterial={setSelectedMaterial}
+        toggleFavorite={toggleFavorite}
+        guideHeaderOpen={guideHeaderOpen}
+        setGuideHeaderOpen={setGuideHeaderOpen}
+        openScenarioFromGuide={openScenarioFromGuide}
+        setScenarioCompareOpen={setScenarioCompareOpen}
+        setTourOpen={setTourOpen}
+        backupFileRef={backupFileRef}
+        importAllState={importAllState}
+      />
 
       {/* ─── Main Content ─── */}
       <div className="flex flex-1 overflow-hidden">
@@ -1085,6 +760,13 @@ export default function Home() {
 
         {/* ─── Center Data View ─── */}
         <div className="flex-1 flex flex-col overflow-hidden min-w-0">
+          {/* R144b — Multi-constraint DSL bar */}
+          <QueryBar
+            value={filters.query || ''}
+            onChange={(v) => updateFilter('query', v)}
+            matchedCount={filtered.length}
+            totalCount={materials.length}
+          />
           {/* Toolbar */}
           <div className="flex-shrink-0 flex items-center gap-3 px-4 py-2 border-b border-border bg-muted/20">
             <span className="text-[11px] font-mono text-muted-foreground">
@@ -1145,131 +827,38 @@ export default function Home() {
                 <br/>파일은 매번 업로드, 매칭 결과는 collection 으로 자동 저장.
               </TooltipContent>
             </Tooltip>
-            {collections.length > 0 && (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="sm" className="h-7 text-xs gap-1"><Bookmark className="w-3 h-3" /> Collections <span className="text-muted-foreground">({collections.length})</span></Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="max-h-80 overflow-auto w-72">
-                  <DropdownMenuLabel className="text-xs flex items-center justify-between gap-2">
-                    <span>Saved collections</span>
-                    {/* Sprint 3 B8 — sort cycle (recent ↔ name ↔ size). icon-only 로 공간 절약. */}
-                    <button
-                      type="button"
-                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); setCollSort(s => s === 'recent' ? 'name' : s === 'name' ? 'size' : 'recent'); }}
-                      className="text-[10px] font-normal text-muted-foreground hover:text-foreground border border-border/60 rounded px-1.5 py-0.5"
-                      title="정렬 전환"
-                    >
-                      {collSort === 'recent' ? '↻ 최신' : collSort === 'name' ? '↻ 이름' : '↻ 크기'}
-                    </button>
-                  </DropdownMenuLabel>
-                  {/* Sprint 3 B8 — 5+ 일 때만 검색 표시. */}
-                  {collections.length >= 5 && (
-                    <div className="px-1.5 pb-1">
-                      <input
-                        type="text"
-                        value={collQuery}
-                        onChange={(e) => setCollQuery(e.target.value)}
-                        onClick={(e) => e.stopPropagation()}
-                        onKeyDown={(e) => e.stopPropagation()}
-                        placeholder="이름 검색…"
-                        className="w-full text-xs px-2 py-1 border border-border/60 rounded bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent"
-                      />
-                    </div>
-                  )}
-                  {sortedFilteredCollections.length === 0 && collQuery && (
-                    <p className="text-[11px] text-muted-foreground italic px-2 py-2">"{collQuery}" 일치 없음</p>
-                  )}
-                  {sortedFilteredCollections.map(c => (
-                    <div key={c.name} className="flex items-center gap-1 px-1.5 py-1 hover:bg-muted/50 rounded">
-                      <button
-                        className="flex-1 text-left text-xs truncate min-w-0"
-                        onClick={() => loadCollection(c)}
-                        title={c.filters ? 'Load — pins + restores filters' : 'Load (pin to table & cards)'}
-                      >
-                        <span className="block truncate font-medium text-foreground">{c.name} <span className="text-muted-foreground font-normal">({c.ids.length})</span></span>
-                        {(c.filters || c.preset) && (
-                          <span className="block truncate text-[10px] text-muted-foreground/80 mt-0.5">
-                            {c.preset && <span className="text-amber-700">↳ {c.preset.label}</span>}
-                            {c.preset && c.filters && <span> · </span>}
-                            {c.filters && <span>필터 포함</span>}
-                          </span>
-                        )}
-                      </button>
-                      <button className="text-muted-foreground/50 hover:text-accent flex-shrink-0" onClick={() => shareSet(c.name, c.ids)} title="Copy share link">
-                        <Share2 className="w-3 h-3" />
-                      </button>
-                      <button className="text-muted-foreground/50 hover:text-destructive flex-shrink-0" onClick={() => deleteCollection(c.name)} title="Delete">
-                        <Trash2 className="w-3 h-3" />
-                      </button>
-                    </div>
-                  ))}
-                  {/* R71 D — 백업/복원 footer */}
-                  <div className="border-t border-border/40 mt-1 pt-1 px-1.5">
-                    <button
-                      type="button"
-                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); exportAllState(); }}
-                      className="w-full text-left text-[11px] py-1 px-1 rounded hover:bg-muted/50 text-foreground/80"
-                    >
-                      📥 전체 백업 (JSON 다운로드)
-                    </button>
-                    <button
-                      type="button"
-                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); backupFileRef.current?.click(); }}
-                      className="w-full text-left text-[11px] py-1 px-1 rounded hover:bg-muted/50 text-foreground/80"
-                    >
-                      📤 백업 복원 (JSON 업로드)
-                    </button>
-                  </div>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
+            {/* R157b — Collections dropdown → HomeCollectionsDropdown 컴포넌트로 추출. */}
+            <HomeCollectionsDropdown
+              collections={collections}
+              sortedFilteredCollections={sortedFilteredCollections}
+              collSort={collSort}
+              setCollSort={setCollSort}
+              collQuery={collQuery}
+              setCollQuery={setCollQuery}
+              loadCollection={loadCollection}
+              shareSet={shareSet}
+              deleteCollection={deleteCollection}
+              exportAllState={exportAllState}
+              backupFileRef={backupFileRef}
+            />
           </div>
 
-          {appliedPreset && (
-            <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-4 py-1 sm:py-1.5 bg-amber-500/10 border-b border-amber-500/30 text-[11px] sm:text-xs">
-              <GraduationCap className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
-              <span className="text-amber-700 font-medium truncate min-w-0">
-                {appliedPreset.label}
-                {appliedPreset.secondaryLabel && (
-                  <span className="text-amber-800 ml-1.5">∩ <span className="font-medium">{appliedPreset.secondaryLabel}</span></span>
-                )}
-              </span>
-              {appliedPreset.indexHint && !appliedPreset.secondaryLabel && (
-                <span className="text-muted-foreground hidden md:inline truncate">· {t('banner.recommendedIndex')}: <span className="font-mono">{appliedPreset.indexHint}</span></span>
-              )}
-              <div className="ml-auto flex items-center gap-1 flex-shrink-0">
-                {/* R61 #7 — Apply 후 다음 액션 안내: 첫 후보 보기 / Compare 다보기. 사용자가 막히지 않도록. */}
-                {viewFiltered.length > 0 && !selectedMaterial && (
-                  <button onClick={() => setSelectedMaterial(viewFiltered[0])} className="hidden sm:inline-flex text-[11px] px-2 py-0.5 rounded border border-emerald-500/60 bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 items-center gap-0.5" title="첫 후보 상세 보기">
-                    <Info className="w-3 h-3" /> 첫 후보 ({viewFiltered.length})
-                  </button>
-                )}
-                {compareList.length >= 2 && !showCompare && (
-                  <button onClick={() => setShowCompare(true)} className="hidden sm:inline-flex text-[11px] px-2 py-0.5 rounded border border-sky-500/60 bg-sky-500/10 text-sky-700 hover:bg-sky-500/20 items-center gap-0.5" title="Compare 패널 열기">
-                    <GitCompareArrows className="w-3 h-3" /> Compare ({compareList.length})
-                  </button>
-                )}
-                {/* U12: suggest the recommended view — only when user is currently elsewhere */}
-                {appliedPreset.suggestedView && viewMode !== appliedPreset.suggestedView && (
-                  <button onClick={() => setViewMode(appliedPreset.suggestedView!)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/60 bg-amber-500/15 text-amber-800 hover:bg-amber-500/25 flex items-center gap-0.5" title="권장 뷰로 전환">
-                    {appliedPreset.suggestedView === 'ashby' ? <BarChart3 className="w-3 h-3" /> : <Table2 className="w-3 h-3" />}
-                    <span className="hidden sm:inline">{appliedPreset.suggestedView === 'ashby' ? 'Ashby' : appliedPreset.suggestedView === 'cards' ? 'Cards' : 'Table'}</span>
-                  </button>
-                )}
-                {/* R36a — 모바일에서도 표시. 모바일은 icon 만, sm+ 는 icon + 텍스트. */}
-                <button onClick={() => setEditingScenario(appliedPreset.key as ScenarioKey)} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 inline-flex items-center gap-1" title={t('banner.editAgain')}>
-                  <Pencil className="w-3 h-3" />
-                  <span className="hidden sm:inline">{t('banner.editAgain')}</span>
-                </button>
-                <button onClick={() => { resetFilters(); setAppliedPreset(null); }} className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10 inline-flex items-center gap-1" title={t('banner.resetFilters')}>
-                  <RotateCcw className="w-3 h-3" />
-                  <span className="hidden sm:inline">{t('banner.resetFilters')}</span>
-                </button>
-                <button onClick={() => { setAppliedPreset(null); try { window.history.replaceState(null, '', window.location.pathname + window.location.hash); } catch { /* ignore */ } }} className="text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded border border-amber-500/40 text-amber-700 hover:bg-amber-500/10" title={t('banner.closeBanner')}>×</button>
-              </div>
-            </div>
-          )}
+          {/* R157b — preset banner → HomePresetBanner 컴포넌트로 추출. */}
+          <HomePresetBanner
+            appliedPreset={appliedPreset}
+            viewFiltered={viewFiltered}
+            selectedMaterial={selectedMaterial}
+            setSelectedMaterial={setSelectedMaterial}
+            compareList={compareList}
+            showCompare={showCompare}
+            setShowCompare={setShowCompare}
+            viewMode={viewMode}
+            setViewMode={setViewMode}
+            setEditingScenario={setEditingScenario}
+            resetFilters={resetFilters}
+            setAppliedPreset={setAppliedPreset}
+            t={t}
+          />
           <ScenarioDialog scenarioKey={editingScenario} open={editingScenario !== null} onOpenChange={(v) => { if (!v) setEditingScenario(null); }} />
           {/* B5: 두 사례 동시 비교 시트 */}
           <ScenarioCompareSheet open={scenarioCompareOpen} onOpenChange={setScenarioCompareOpen} />
@@ -1279,86 +868,26 @@ export default function Home() {
             onClose={closeTour}
             onQuickStart={(k) => { closeTour(); setEditingScenario(k); }}
           />
-          {/* 재료 import 결과 sheet — 매칭/미매칭 목록 + 컬렉션 이름 입력 + 저장 확인. */}
-          <Sheet open={importResult !== null} onOpenChange={(v) => { if (!v) setImportResult(null); }}>
-            <SheetContent side="right" className="w-full sm:max-w-md flex flex-col gap-0 p-0">
-              <SheetHeader className="border-b border-border/60">
-                <SheetTitle className="flex items-center gap-2 pr-8"><Upload className="w-4 h-4 text-accent" /> 재료 목록 import 결과</SheetTitle>
-              </SheetHeader>
-              {importResult && (
-                <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                  <div className="grid grid-cols-2 gap-2 text-center">
-                    <div className="rounded border border-emerald-300 bg-emerald-50 px-2 py-2">
-                      <p className="text-[10px] text-emerald-700 uppercase tracking-wide font-semibold">매칭 성공</p>
-                      <p className="text-2xl font-bold text-emerald-700 tabular-nums">{importResult.matched.length}</p>
-                    </div>
-                    <div className="rounded border border-rose-300 bg-rose-50 px-2 py-2">
-                      <p className="text-[10px] text-rose-700 uppercase tracking-wide font-semibold">매칭 실패</p>
-                      <p className="text-2xl font-bold text-rose-700 tabular-nums">{importResult.unmatched.length}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-xs font-semibold text-muted-foreground block mb-1">컬렉션 이름</label>
-                    <input
-                      value={importName}
-                      onChange={(e) => setImportName(e.target.value)}
-                      placeholder="가공집 재료"
-                      className="w-full h-8 px-2 text-sm rounded border border-border bg-background focus:outline-none focus:ring-1 focus:ring-accent"
-                    />
-                    <p className="text-[10px] text-muted-foreground mt-1">localStorage(쿠키 대체) 에 저장돼 재방문 시 자동 복원.</p>
-                  </div>
-                  {importResult.matched.length > 0 && (
-                    <div>
-                      <p className="text-[11px] font-semibold text-emerald-700 uppercase tracking-wide mb-1">매칭된 재료 ({importResult.matched.length})</p>
-                      <div className="max-h-44 overflow-y-auto rounded border border-border bg-muted/30 text-xs divide-y divide-border/60">
-                        {importResult.matched.slice(0, 200).map((m, i) => (
-                          <div key={i} className="px-2 py-1 flex items-baseline justify-between gap-2">
-                            <span className="font-medium text-foreground truncate">{m.name}</span>
-                            <span className="text-[10px] text-muted-foreground flex-shrink-0">← {m.matchedTo}</span>
-                          </div>
-                        ))}
-                        {importResult.matched.length > 200 && (
-                          <div className="px-2 py-1 text-[10px] text-muted-foreground italic">… 외 {importResult.matched.length - 200}개</div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                  {importResult.unmatched.length > 0 && (
-                    <div>
-                      <p className="text-[11px] font-semibold text-rose-700 uppercase tracking-wide mb-1">매칭 실패 ({importResult.unmatched.length})</p>
-                      <div className="max-h-32 overflow-y-auto rounded border border-rose-200 bg-rose-50/50 text-xs">
-                        {importResult.unmatched.slice(0, 60).map((u, i) => (
-                          <div key={i} className="px-2 py-0.5 text-rose-800 truncate">{u}</div>
-                        ))}
-                        {importResult.unmatched.length > 60 && (
-                          <div className="px-2 py-0.5 text-[10px] text-rose-600 italic">… 외 {importResult.unmatched.length - 60}개</div>
-                        )}
-                      </div>
-                      <p className="text-[10px] text-muted-foreground mt-1 leading-relaxed">DB 에 없는 등급은 무시됩니다. 표기 차이가 원인이면 alias 추가를 검토하세요.</p>
-                    </div>
-                  )}
-                </div>
-              )}
-              <div className="border-t border-border/60 p-4 flex justify-end gap-2">
-                <Button variant="outline" onClick={() => setImportResult(null)}>취소</Button>
-                <Button onClick={confirmImport} disabled={!importResult || importResult.matched.length === 0} className="gap-1.5">
-                  <BookmarkPlus className="w-3.5 h-3.5" /> 컬렉션으로 저장 ({importResult?.matched.length ?? 0})
-                </Button>
-              </div>
-            </SheetContent>
-          </Sheet>
-          {restrictIds && (
-            <div className="flex items-center gap-2 px-4 py-1.5 bg-accent/10 border-b border-accent/30 text-xs">
-              <span className="text-accent font-medium">{viewFiltered.length} {t('banner.materialsPinned')}</span>
-              <span className="text-muted-foreground">{t('banner.tableCards')}</span>
-              <div className="ml-auto flex items-center gap-1.5">
-                <input value={collName} onChange={e => setCollName(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') saveCollection(); }} placeholder={t('banner.collectionName')} className="h-6 w-36 text-[11px] rounded border border-border px-2 bg-background" />
-                <button onClick={saveCollection} disabled={!collName.trim()} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10 disabled:opacity-40 flex items-center gap-1"><BookmarkPlus className="w-3 h-3" /> Save</button>
-                <button onClick={() => shareSet(collName.trim(), restrictIds || [])} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10 flex items-center gap-1"><Share2 className="w-3 h-3" /> {linkCopied ? 'Copied!' : 'Share'}</button>
-                <button onClick={() => setRestrictIds(null)} className="text-[11px] px-2 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10">Clear</button>
-              </div>
-            </div>
-          )}
+          {/* R157b — Import sheet → HomeImportSheet 컴포넌트로 추출. */}
+          <HomeImportSheet
+            importResult={importResult}
+            setImportResult={setImportResult}
+            importName={importName}
+            setImportName={setImportName}
+            confirmImport={confirmImport}
+          />
+          {/* R157b — Restrict bar → HomeRestrictBar 컴포넌트로 추출. */}
+          <HomeRestrictBar
+            restrictIds={restrictIds}
+            viewFilteredCount={viewFiltered.length}
+            collName={collName}
+            setCollName={setCollName}
+            saveCollection={saveCollection}
+            shareSet={shareSet}
+            setRestrictIds={setRestrictIds}
+            linkCopied={linkCopied}
+            t={t}
+          />
           {/* Data view */}
           <div className="flex-1 overflow-hidden">
             {viewMode === 'table' && (
@@ -1399,28 +928,13 @@ export default function Home() {
               </Suspense>
             )}
             {/* R101 — 모바일 Ashby preview card. 차트 위 floating card. 한 번 더 누르거나 "자세히 보기" 클릭 → detail open. */}
-            {viewMode === 'ashby' && previewMaterial && (
-              <div className="md:hidden fixed left-2 right-2 bottom-[58px] z-30 rounded-lg border border-accent/40 bg-card shadow-xl px-3 py-2 flex items-center gap-2">
-                <div className="flex-1 min-w-0">
-                  <div className="text-[12px] font-semibold truncate">{previewMaterial.name}</div>
-                  <div className="text-[10px] text-muted-foreground flex items-center gap-1.5 flex-wrap">
-                    <span>{previewMaterial.category}{previewMaterial.subcategory ? ` · ${previewMaterial.subcategory}` : ''}</span>
-                    {previewMaterial.ranges?.density?.typical != null && <span>· ρ {previewMaterial.ranges.density.typical} g/cm³</span>}
-                    {previewMaterial.ranges?.modulus?.typical != null && <span>· E {previewMaterial.ranges.modulus.typical} GPa</span>}
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => { setSelectedMaterial(previewMaterial); setPreviewMaterial(null); }}
-                  className="text-[11px] px-2 py-1 rounded bg-accent text-white whitespace-nowrap"
-                >자세히 →</button>
-                <button
-                  type="button"
-                  onClick={() => setPreviewMaterial(null)}
-                  className="text-muted-foreground hover:text-foreground p-1"
-                  aria-label="닫기"
-                >×</button>
-              </div>
+            {/* R157b — HomeAshbyPreviewCard 컴포넌트로 추출. */}
+            {viewMode === 'ashby' && (
+              <HomeAshbyPreviewCard
+                previewMaterial={previewMaterial}
+                setPreviewMaterial={setPreviewMaterial}
+                setSelectedMaterial={setSelectedMaterial}
+              />
             )}
           </div>
         </div>
@@ -1449,143 +963,42 @@ export default function Home() {
         )}
 
         {/* ─── Floating Material Detail popup (over chart + compare; draggable) ─── */}
+        {/* R154 — selectedMaterial 을 materials 배열에서 항상 re-resolve. lazy load 직후 slim → full 자동 반영. */}
         <MaterialDetailPopup
-          material={selectedMaterial}
+          material={selectedMaterial ? (materials.find((m) => m.id === selectedMaterial.id) || selectedMaterial) : null}
           compareList={compareList}
           onToggleCompare={handleToggleCompare}
           onClose={() => setSelectedMaterial(null)}
           allMaterials={materials}
           favorites={favorites}
           onToggleFavorite={toggleFavorite}
+          /* R148 — 유사 재료 클릭 시 그 재료로 전환. */
+          onSelectMaterial={(id) => {
+            const next = materials.find((m) => m.id === id);
+            if (next) setSelectedMaterial(next);
+          }}
         />
       </div>
 
       {/* ─── Mobile bottom action bar (sm:hidden) ─── 화면 폭이 좁을 때 상단 헤더가 빠듯하므로
        *  핵심 작업(Filter·View·Compare·Guide)을 하단 고정 바로 분리. 데스크탑은 hidden. */}
-      <nav className="md:hidden fixed left-0 right-0 bottom-0 grid grid-cols-5 border-t border-border bg-background z-50">
-        {/* R115 — nav 의 다른 버튼 클릭 시 Compare 자동 닫힘. */}
-        <button onClick={() => { setShowCompare(false); setMobileSidebarOpen(true); }} className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors">
-          <Menu className="w-4 h-4" /> 필터{activeFilterCount > 0 && <span className="absolute mt-2 -mr-6 inline-block w-3 h-3 rounded-full bg-accent text-white text-[8px] leading-3 text-center font-bold">{activeFilterCount}</span>}
-        </button>
-        <button
-          onClick={() => { setShowCompare(false); setViewMode(viewMode === 'table' ? 'ashby' : viewMode === 'ashby' ? 'cards' : 'table'); }}
-          className="relative flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-accent hover:bg-accent/5 transition-colors"
-          title="다음 뷰로 전환 · Compare 자동 닫힘"
-        >
-          <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent" aria-hidden />
-          {viewMode === 'table' ? <Table2 className="w-4 h-4" /> : viewMode === 'ashby' ? <BarChart3 className="w-4 h-4" /> : <LayoutGrid className="w-4 h-4" />}
-          {viewMode === 'table' ? 'Table' : viewMode === 'ashby' ? 'Ashby' : 'Cards'}
-        </button>
-        <button
-          onClick={handleOpenCompare}
-          disabled={compareList.length === 0}
-          className="relative flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-        >
-          <Bookmark className="w-4 h-4" /> Compare
-          {compareList.length > 0 && (
-            <span className="absolute top-0.5 right-1/4 -translate-y-0 inline-block min-w-[16px] h-4 rounded-full bg-accent text-white text-[9px] leading-4 text-center font-bold px-1">{compareList.length}</span>
-          )}
-        </button>
-        <Sheet open={guideMobileOpen} onOpenChange={(v) => { if (v) setShowCompare(false); setGuideMobileOpen(v); }}>
-          <SheetTrigger className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors w-full">
-            <GraduationCap className="w-4 h-4" /> 가이드
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[88vw] sm:max-w-md overflow-y-auto">
-            <SheetHeader>
-              <SheetTitle className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-accent" /> 가이드 · 사례 빠른 시작</SheetTitle>
-            </SheetHeader>
-            <div className="mt-3 space-y-2">
-              <p className="text-[11px] text-muted-foreground">사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.</p>
-              <div className="grid grid-cols-2 gap-1.5">
-                {[
-                  { key: 'bracket' as ScenarioKey, title: '구조 브래킷', Svg: SvgBracket },
-                  { key: 'hightemp' as ScenarioKey, title: '고온 부품', Svg: SvgManifold },
-                  { key: 'fatigue' as ScenarioKey, title: '회전·진동축', Svg: SvgShaft },
-                  { key: 'precision' as ScenarioKey, title: '정밀 마운트', Svg: SvgPrecision },
-                  { key: 'corrosion' as ScenarioKey, title: '해양·화학', Svg: SvgMarine },
-                  { key: 'lowcost' as ScenarioKey, title: '저원가 양산', Svg: SvgLowcost },
-                  { key: 'spring' as ScenarioKey, title: '스프링·힌지', Svg: SvgSpring },
-                  { key: 'heatsink' as ScenarioKey, title: '히트싱크', Svg: SvgHeatsink },
-                  { key: 'wear' as ScenarioKey, title: '내마모', Svg: SvgWear },
-                  { key: 'medical' as ScenarioKey, title: '의료 임플란트', Svg: SvgMedical },
-                  { key: 'cryogenic' as ScenarioKey, title: '극저온', Svg: SvgCryogenic },
-                  { key: 'electrical' as ScenarioKey, title: '전기 전도체', Svg: SvgElectrical },
-                  { key: 'pressure_vessel' as ScenarioKey, title: '압력용기', Svg: SvgPressureVesselSmall },
-                  { key: 'gear' as ScenarioKey, title: '기어', Svg: SvgGear },
-                  { key: 'fastener' as ScenarioKey, title: '체결구', Svg: SvgFastener },
-                  { key: 'die_mold' as ScenarioKey, title: '다이·금형', Svg: SvgDieMold },
-                ].map(t => (
-                  <button
-                    key={t.key}
-                    type="button"
-                    onClick={() => openScenarioFromGuide(t.key)}
-                    className="group rounded border border-border bg-card hover:border-accent hover:bg-accent/5 transition-all p-1.5 text-left flex items-center gap-1.5"
-                  >
-                    <div className="w-9 h-7 flex-shrink-0 rounded bg-muted/40 p-0.5 flex items-center justify-center"><t.Svg /></div>
-                    <p className="text-[11px] font-medium text-foreground truncate leading-tight">{t.title}</p>
-                  </button>
-                ))}
-              </div>
-              <Link href="/guide" className="block text-center text-xs font-medium px-3 py-2 rounded border border-accent text-accent hover:bg-accent/10 transition-colors mt-2">
-                전체 가이드 페이지 열기 →
-              </Link>
-            </div>
-          </SheetContent>
-        </Sheet>
-        {/* R80 — Settings 시트: 모바일 헤더에서 빠진 KO/EN · SI/IMP · 온보딩 토글을 한 곳에 모음. R115: 열림 시 Compare 자동 닫힘. */}
-        <Sheet onOpenChange={(v) => { if (v) setShowCompare(false); }}>
-          <SheetTrigger className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors w-full">
-            <Settings className="w-4 h-4" /> Settings
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[88vw] sm:max-w-md overflow-y-auto">
-            <SheetHeader>
-              <SheetTitle className="flex items-center gap-2"><Settings className="w-4 h-4 text-accent" /> Settings</SheetTitle>
-            </SheetHeader>
-            {/* R83 — row layout: 라벨(좌) + toggle group(우) 한 줄. 카드 3개 분리보다 자연스러움. */}
-            <div className="mt-4 rounded border border-border divide-y divide-border/60">
-              {/* 언어 row */}
-              <div className="flex items-center justify-between px-3 py-3 gap-3">
-                <span className="text-xs font-medium text-foreground/80 flex-shrink-0">{lang === 'ko' ? '언어' : 'Language'}</span>
-                <div className="flex gap-0.5 bg-muted/40 rounded p-0.5 ring-1 ring-inset ring-border/40">
-                  <button
-                    onClick={() => setLang('ko')}
-                    className={`h-7 px-3 rounded text-xs font-semibold transition-all ${lang === 'ko' ? 'bg-accent text-white shadow-sm' : 'text-foreground/60 hover:text-foreground'}`}
-                  >한국어</button>
-                  <button
-                    onClick={() => setLang('en')}
-                    className={`h-7 px-3 rounded text-xs font-semibold transition-all ${lang === 'en' ? 'bg-accent text-white shadow-sm' : 'text-foreground/60 hover:text-foreground'}`}
-                  >English</button>
-                </div>
-              </div>
-              {/* 단위 row */}
-              <div className="flex items-center justify-between px-3 py-3 gap-3">
-                <span className="text-xs font-medium text-foreground/80 flex-shrink-0">{lang === 'ko' ? '단위' : 'Units'}</span>
-                <div className="flex gap-0.5 bg-muted/40 rounded p-0.5 ring-1 ring-inset ring-border/40">
-                  <button
-                    onClick={() => unitSystem !== 'si' && toggleUnitSystem()}
-                    className={`h-7 px-3 rounded text-xs font-semibold transition-all ${unitSystem === 'si' ? 'bg-accent text-white shadow-sm' : 'text-foreground/60 hover:text-foreground'}`}
-                  >SI</button>
-                  <button
-                    onClick={() => unitSystem !== 'imperial' && toggleUnitSystem()}
-                    className={`h-7 px-3 rounded text-xs font-semibold transition-all ${unitSystem === 'imperial' ? 'bg-accent text-white shadow-sm' : 'text-foreground/60 hover:text-foreground'}`}
-                  >Imperial</button>
-                </div>
-              </div>
-              {/* 온보딩 row */}
-              <button
-                onClick={() => setTourOpen(true)}
-                className="w-full flex items-center justify-between px-3 py-3 gap-3 hover:bg-muted/30 transition-colors"
-              >
-                <span className="text-xs font-medium text-foreground/80 flex items-center gap-2">
-                  <span className="inline-flex w-4 h-4 rounded-full border border-accent text-[10px] leading-[14px] items-center justify-center font-bold text-accent">?</span>
-                  {lang === 'ko' ? '온보딩 다시 보기 (5단계)' : 'Onboarding tour (5 steps)'}
-                </span>
-                <ChevronRight className="w-3 h-3 text-muted-foreground/60" />
-              </button>
-            </div>
-          </SheetContent>
-        </Sheet>
-      </nav>
+      <HomeMobileNav
+        setShowCompare={setShowCompare}
+        setMobileSidebarOpen={setMobileSidebarOpen}
+        activeFilterCount={activeFilterCount}
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        compareList={compareList}
+        handleOpenCompare={handleOpenCompare}
+        guideMobileOpen={guideMobileOpen}
+        setGuideMobileOpen={setGuideMobileOpen}
+        openScenarioFromGuide={openScenarioFromGuide}
+        lang={lang}
+        setLang={setLang}
+        unitSystem={unitSystem}
+        toggleUnitSystem={toggleUnitSystem}
+        setTourOpen={setTourOpen}
+      />
 
       {/* R85 — Status bar 제거 (사용자 요청). 가독성 낮은 10px gray 줄이 1 줄 공간 차지하던 footer. build date 정보는 Detail 패널 footer / Tools 페이지에서 노출. */}
     </div>

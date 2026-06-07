@@ -1,0 +1,93 @@
+/*
+ * R157b — RangeRow: property value + range + confidence badge row.
+ * MaterialDetail.tsx 의 inline 정의에서 추출. Behavior identical.
+ *
+ * Used by Properties/Composition/Cost sections of detail panel.
+ */
+import type { PropertyRange } from '@/lib/materials';
+import { useLang } from '@/lib/i18n';
+import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
+
+/** 숫자 포맷 helper — 10 미만은 소수 2자리, 10 이상은 1자리, integer 그대로. */
+export const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
+
+export function RangeRow({
+  label,
+  range,
+  fallback,
+  unit,
+}: {
+  label: string;
+  range?: PropertyRange | null;
+  fallback?: number | string | null;
+  unit: string;
+}) {
+  // R40b — price 표시 시 lang/unitSystem 에 따라 USD/KRW + kg/lb 자동 변환.
+  const { lang } = useLang();
+  const isPrice = /USD\//.test(unit);
+  const priceUnit: 'kg' | 'cm3' = unit.includes('cm³') || unit.includes('cm3') ? 'cm3' : 'kg';
+  const sys = isPrice ? loadUnitSystem() : null;
+
+  const typical = range?.typical ?? (typeof fallback === 'number' ? fallback : null);
+  const hasRange = !!range && range.max > range.min;
+  if (typical == null) {
+    return (
+      <div className="flex items-center justify-between py-1.5 border-b border-border/40 last:border-0">
+        <span className="text-xs text-muted-foreground">{label}</span>
+        <span className="font-mono text-xs text-muted-foreground/40">—</span>
+      </div>
+    );
+  }
+  // confidence 단계별 뱃지: 'measured' (회색 n=N) · 'handbook' (파랑) · 'class' (앰버 추정) · 'derived' (붉은 ≈UTS)
+  const conf = range?.confidence;
+  /* R125c — fallback chain 단계별 confidence 라벨 차별화:
+     handbook (1차자료) → subfamily (3rd, 특정 subcategory, e.g. austenitic) → family (2nd, group)
+     → class (1st, category 일반) → derived (다른 물성 유도). 신뢰도 sky → blue → amber → orange → rose 순. */
+  const confBadge: Record<string, { label: string; cls: string; tip: string }> = {
+    measured: { label: `n=${range?.n ?? 0}`, cls: 'text-foreground/50', tip: '실측 데이터 다수' },
+    handbook: { label: '핸드북', cls: 'text-sky-600', tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)' },
+    subfamily: { label: 'sub-fam', cls: 'text-blue-600', tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)' },
+    family: { label: 'family', cls: 'text-cyan-600', tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)' },
+    class: { label: 'class', cls: 'text-amber-600', tip: '1st family / category typical (예: Iron-based 일반 / Polymer 일반)' },
+    derived: { label: '≈UTS', cls: 'text-rose-500', tip: '다른 물성에서 유도 (예: 피로 = UTS·비율)' },
+  };
+  const badge = conf ? confBadge[conf] : null;
+  /* R129 — fallback 출처/조정 표시 (provenance). hover tooltip 에 fallback chain 명시.
+            예: "alloy:174ph × HT:H1025 (f×0.9, i×1.4)" → 17-4 PH peak 값에서 H1025 condition 조정. */
+  const prov = (range as { provenance?: string })?.provenance;
+  /* R139b — typical (ASM/Granta 평균값) vs min_spec (vendor 보증 minimum, 예: AMS) 구분.
+            vendor minimum 이 typical 과 다를 때 별표 표시 + tooltip 에 출처 명시. */
+  const minSpec = (range as { min_spec_value?: number })?.min_spec_value;
+  const minSpecSrc = (range as { min_spec_source?: string })?.min_spec_source;
+  // R48c — price 표시는 formatPrice 사용 — typical 만 항상 평가. range min/max 는 hasRange 조건 안에서만
+  //        (이전: range null 인 5 flat-only properties 클릭 시 range!.min eager 평가로 crash).
+  const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(typical)}`;
+  return (
+    <div className="flex items-start justify-between py-1.5 border-b border-border/40 last:border-0">
+      <span className="text-xs text-muted-foreground pt-0.5">{label}</span>
+      <div className="text-right">
+        <span className="font-mono text-xs font-medium text-foreground">{typicalStr}</span>
+        {!isPrice && <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>}
+        {badge && (
+          <span className={`ml-1 text-[10px] ${badge.cls}`} title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}>{badge.label}</span>
+        )}
+        {/* R139b — min spec (vendor 보증) vs typical (ASM) 차이 표시 */}
+        {minSpec != null && typeof typical === 'number' && Math.abs(minSpec - typical) > typical * 0.15 && (
+          <span
+            className="ml-1 text-[10px] text-amber-600 font-medium"
+            title={`Typical: ${fmt(typical)} ${unit} (ASM/Granta 평균)\nMin spec: ${fmt(minSpec)} ${unit}${minSpecSrc ? ` (${minSpecSrc})` : ''}\n\n사용자 의사결정 권장: 안전 임계 시 min spec 사용.`}
+          >
+            min={fmt(minSpec)}
+          </span>
+        )}
+        {hasRange && range && (
+          <div className="text-[10px] font-mono text-muted-foreground/70 leading-tight">
+            {isPrice && sys ? formatPrice(range.min, lang, sys, priceUnit) : fmt(range.min)}
+            –
+            {isPrice && sys ? formatPrice(range.max, lang, sys, priceUnit) : fmt(range.max)}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
