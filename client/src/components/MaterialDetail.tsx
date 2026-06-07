@@ -378,8 +378,71 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         )}
                         {mach && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{mach.note}</p>}
                         {machCost && machCost.band !== mach?.band && <p className="text-[11px] leading-relaxed text-foreground/80">{machCost.note}</p>}
+                        {/* R175 — Machinability alloy-specific ⚠ 주의사항 + 가공 방법 */}
+                        <div className="mt-2 pt-2 border-t border-current/15">
+                          <p className="text-[11px] font-semibold leading-relaxed">⚠ 가공 주의사항 / 권장 방법:</p>
+                          <p className="text-[11px] leading-relaxed">
+                            {/* Free-machining (Pb / Bi / S 함유) */}
+                            {/^(?:aisi |sae )?1144|^12l14|^c36000|^free-?mach|^4140.*(?:free|leaded)/i.test(material.name || '') &&
+                              '✓ Free-machining grade (S/Pb/Bi 첨가 chip breaker). ⚠ **주의 1 — Pb/Bi fume 위험 (C36000 Pb 3.5%)**: high-speed turning 시 Pb vapor (Tm 327°C, 비등 1740°C). **LEV (Local Exhaust Ventilation) 필수, P100 respirator 권장**. ⚠ **주의 2 — Chip 처리**: short brittle chip → tangle 없음 OK. 단 Pb chip 폐기물 EPA RCRA 분류.'}
+                            {/* Carbon steel / low alloy steel */}
+                            {/^(?:aisi |sae )?10[12]\d\b|^a36/i.test(material.name || '') &&
+                              '✓ Low-carbon steel (1018/1020 baseline 100%) — HSS / carbide tool 모두 OK. Cutting speed: HSS 30 m/min, carbide 90 m/min. ⚠ **주의 — Long stringy chip**: chip breaker required (positive rake + 60° approach).'}
+                            {/^(?:aisi |sae )?10[3-8]\d\b/i.test(material.name || '') &&
+                              '주의. Medium/high-carbon steel (1030-1080) — carbide tool 권장 (HSS 빠르게 마모). ⚠ **주의 — 가공 후 stress relief 필요** (residual stress + dimensional change). Annealed condition 에서 가공 권장.'}
+                            {/^(?:aisi |sae )?41[34]0|^42crmo4|^scm44/i.test(material.name || '') &&
+                              '주의. 4140 / 42CrMo4 / SCM440 (Cr-Mo Q+T) — **annealed condition 에서 가공 → 후 Q+T**. carbide tool, **coated insert (TiAlN coating) 권장** (BUE 회피). cutting speed 80-120 m/min. ⚠ **주의 — Q+T 후 가공 시 tool wear 빠름** (HRC 30-35 일 때 90%까지 손실).'}
+                            {/^(?:aisi |sae )?43[14]0|^sncm439/i.test(material.name || '') &&
+                              '주의. 4340 / SNCM439 (Ni-Cr-Mo high-strength) — annealed condition gallant 가공. ⚠ **주의 1 — Strain hardening 발생**: cold-worked surface 두께 0.2-0.5 mm. tool 의 cutting depth > 0.5 mm 권장 (depth 부족 시 rubbing). ⚠ **주의 2 — Carbide tool only**, CBN for hardened (HRC 50+).'}
+                            {/^(?:aisi |sae )?52100|^bearing steel/i.test(material.name || '') &&
+                              '⚠ Bearing steel 52100 (HRC 60-62 fully hardened) — **CBN (cubic Boron Nitride) tool only** (PCD diamond X — Fe diffusion). Hard turning (cutting speed 100-200 m/min, depth 0.1-0.3 mm, dry 또는 minimum coolant). ⚠ **주의 — White layer (untempered martensite)**: hard turning surface 의 0.01 mm white layer 가 fatigue 손실. EDM 또는 grinding finish 권장.'}
+                            {/* Stainless steel */}
+                            {/^(?:aisi |sae )?30[14]l?\b|^aisi 31[06]l?|^aisi 32[14]|^aisi 347|^sts30[14]l?\b|^sts316l?\b|^316l?/i.test(material.name || '') &&
+                              '주의. Austenitic stainless (304/316/321/347) — **rating 40-45%, work-hardening 빠름**. ⚠ **주의 1 — Built-up edge (BUE) + work-hardening**: positive rake + sharp tool + heavy depth (no rubbing). HSS 깊이 빠름 → coated carbide 권장 (TiAlN). ⚠ **주의 2 — Flood coolant 必** (chip welding, BUE 방지). cutting speed: 60-90 m/min (carbide). ⚠ **주의 3 — Free-machining grade**: AISI 303 (S 0.15-0.35) 또는 304L 의 high-S variant 사용 권장.'}
+                            {/^(?:aisi |sae )?(41[046]|42[02]|431|44[024])\b|^stainless steel 420/i.test(material.name || '') &&
+                              '주의. Martensitic stainless (410/420/440C) — annealed condition (HRC 22-30) 에서 가공 권장. ⚠ **주의 1 — Hardened 후 가공 시**: HRC 50+ → CBN tool. ⚠ **주의 2 — Magnetic chuck workable** (austenitic 와 다름).'}
+                            {/^17-?4 ?ph|^15-?5 ?ph|^custom 465|^ph 13-?8/i.test(material.name || '') &&
+                              '주의. PH stainless (17-4 PH / 15-5 PH / Custom 465) — **Condition A (solution annealed) 에서 가공 → 후 H900-H1150 aging**. ⚠ **주의 — H900 aged (peak σy 1170) 에서 가공 어려움**: tool wear 빠름. Condition A (σy 415, HRC 35) 가공 → aging 표준 순서.'}
+                            {/* Tool steel */}
+                            {/^h1[13]\b|^d[23]\b|^a2\b|^o1\b|^s7\b|^m[24]\b|^cpm|^tool steel|^h13|^stavax|^nak80/i.test(material.name || '') &&
+                              '⚠ Tool steel (H13/D2/A2/CPM-3V/STAVAX) — **annealed (delivery HRC 22-25) 에서 rough machining → Q+T → finish grinding**. ⚠ **주의 1 — Hardened (HRC 55-62)**: CBN/PCD tool 만 가능, hard turning 가능 (depth 0.1-0.3 mm). ⚠ **주의 2 — Mirror polish (mold steel STAVAX/NAK80)**: lapping + diamond paste (Ra < 0.02 μm).'}
+                            {/* Maraging steel */}
+                            {/^maraging|^vascomax|^18ni-?\d/i.test(material.name || '') &&
+                              '✓ Maraging Steel (C-free martensitic) — **solution annealed (HRC 30) 에서 가공 → aging → light finish**. ⚠ **주의 — Aging 후 dimensional change ±0.05% (수축)** : 가공 시 tolerance allowance.'}
+                            {/* Al alloy */}
+                            {/^aa[\s-]?[125678]\d{3}|^alsi|^a3[56]\d|^a380/i.test(material.name || '') &&
+                              '✓ Al alloy — HSS 또는 carbide (rating 60-90%). cutting speed: HSS 100 m/min, carbide 300-500 m/min, **diamond PCD 1000 m/min+**. ⚠ **주의 1 — BUE (built-up edge) 위험**: positive rake (15-20°) + sharp edge + cutting fluid (synthetic, water-soluble). ⚠ **주의 2 — Long stringy chip**: chip breaker 必 (특히 5xxx/6xxx). ⚠ **주의 3 — AlSi cast/AM (Si 7-12%)**: Si particle 가 tool 마모 → PCD diamond tool 권장 (HSS 1시간 wear, carbide 8시간, PCD 100+ 시간).'}
+                            {/* Ti */}
+                            {/^ti[\s-]?(grade|gr) ?[1-9]\b|^ti-?6al-?4v|^ti.?64|^cp-?ti|^beta|^ti-?\d/i.test(material.name || '') &&
+                              '⚠ Ti alloy (rating 22% Ti-6Al-4V — 가장 어려운 일반 금속). ⚠ **주의 1 — Low thermal conductivity (7 W/m·K, Fe 의 1/8)**: heat 가 tool 에 집중 → rapid tool wear. **Flood coolant (high-pressure, ≥ 10 bar) 必** + sharp edge. cutting speed: HSS 10-20 m/min, carbide 30-60 m/min. ⚠ **주의 2 — Chemical affinity → galling**: tool 의 Cr/Ni/Co 와 Ti 가 화학 반응 → tool 표면 transfer + tool 파손. **CBN 또는 ceramic (Si₃N₄, SiAlON) tool 권장**, carbide insert TiAlN coating. ⚠ **주의 3 — Spark/fire hazard**: dry chip 자연 발화 (Ti 시작 460°C). **Wet cutting 必, dry chip 처리 금지** (water-based coolant + chip immediate disposal). ⚠ **주의 4 — Climb milling (down milling) 권장**: conventional 시 BUE.'}
+                            {/* Ni superalloy */}
+                            {/^inconel|^in[\s-]?\d{3}|^hastelloy|^haynes|^waspaloy|^rene|^nimonic|^udimet|^pwa|^cmsx|^monel|^a-?286|^incoloy/i.test(material.name || '') &&
+                              '⚠⚠ Ni superalloy (rating 8-15%) — **가장 어려운 가공 (Ti 보다 더). γ\' precipitate + work-hardening + low thermal conductivity**. ⚠ **주의 1 — Work-hardening rate 매우 高**: surface 가공 후 즉시 HV 100+ ↑ → tool 마모 폭발. **Sharp edge + heavy depth + slow speed**. cutting speed: HSS 5 m/min (X), carbide 15-25 m/min, **CBN 80-120 m/min 권장**. ⚠ **주의 2 — Heat 집중**: thermal conductivity 9 W/m·K → tool tip melt. **High-pressure flood coolant (≥ 20 bar, water-soluble synthetic) 必**, MQL (minimum quantity lubrication) 가능. ⚠ **주의 3 — Notch wear (tool nose)**: cutting depth 변경 시 notch 위치 균열. **Constant depth + ceramic insert (SiAlON) 권장**. ⚠ **주의 4 — Inconel 718 aged condition (σy 1180 MPa)**: solution-treated (σy 770) 에서 가공 → STA aging 순서 표준.'}
+                            {/* Co alloy */}
+                            {/^cocrmo|^cocr|^stellite|^l605|^haynes 188|^mp35n/i.test(material.name || '') &&
+                              '⚠⚠ Co-Cr-Mo (medical implant) — work-hardening 매우 빠름. **CBN tool 또는 SiAlON ceramic insert 권장**. cutting speed 20-40 m/min. ⚠ **주의 — Stellite (hard-facing, HRC 50+)**: grinding 또는 EDM 만 가능 (CNC machining 거의 불가).'}
+                            {/* Mg */}
+                            {/^az\d|^am\d|^we\d|^zk\d|^magnesium|^mg alloy/i.test(material.name || '') &&
+                              '✓ Mg alloy (rating 90% — 가장 easy machining 금속). HSS/carbide tool, cutting speed 200-500 m/min. ⚠⚠⚠ **주의 — Mg dust/swarf 자연 발화 위험 (가장 critical)**: **dry machining 가능 (Class D fire extinguisher 비치 必, NOT water/CO₂)**, swarf wet down 후 폐기. 가공 중 spark 즉시 발화 위험. **소량 swarf 도 spontaneous combustion 가능**.'}
+                            {/* Cu pure */}
+                            {/^c10[01]\d{2}\b|^c11000|^ofe|^ofhc/i.test(material.name || '') &&
+                              '주의. Pure Cu (OFE/OFHC/ETP) — high ductility → stringy chip + BUE. **Sharp tool + positive rake (20°) + high speed (200-400 m/min) + chip breaker 必**. ⚠ **주의 — Smearing/burr**: low cutting speed 시 burr 大. polish finish 어려움.'}
+                            {/* Brass */}
+                            {/^c2[1-6]\d{3}|^c36000|^red brass|^naval brass|^c46400|^brass/i.test(material.name || '') &&
+                              '✓ Brass (C36000 free-mach 100%, baseline) — high speed (400-800 m/min) carbide 또는 HSS. ⚠ **주의 — C36000 Pb fume**: turning 시 LEV + respirator. RoHS / EU 환경 규제 — Pb-free brass (C49260, C69300) 권장.'}
+                            {/* Cupronickel */}
+                            {/^c70[60]00|^c715[00]|^cupronickel/i.test(material.name || '') &&
+                              '주의. Cupronickel (C70600/C71500) — work-hardening + BUE. **TiAlN coated carbide + slow speed (60-100 m/min) + heavy depth**.'}
+                            {/* BeCu */}
+                            {/^c17200|^bube|^beryllium copper/i.test(material.name || '') &&
+                              '⚠⚠ BeCu C17200 — **⚠⚠ Be dust 발암성 (NIOSH 1A)**. Full PPE + ULPA + wet machining only. ⚠ **주의 — Dry machining 절대 금지** (Be dust 흡입 시 berylliosis). 회수 swarf 폐기물 RCRA hazardous waste.'}
+                            {/* Refractory */}
+                            {/^tungsten|^molybdenum|^tantalum|^niobium|^rhenium|^tzm|^mo-?la|^w-?la|^c-?103/i.test(material.name || '') &&
+                              '⚠ Refractory metal (W/Mo/Ta/Nb/Re) — brittle at RT (DBTT > 0°C). **Carbide tool with negative rake + slow speed + small depth (0.1-0.3 mm)**. ⚠ **주의 1 — Chipping 위험**: positive rake → 가공 표면 chip. ⚠ **주의 2 — Grinding 권장** (특히 W): cBN/diamond grinding wheel.'}
+                          </p>
+                        </div>
                         <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
-                          <b>출처 / 기준</b>: ASM Handbook Vol.16 Machining · AISI 1018 = rating 100% · raw 단가 × cost factor = 가공 후 추정 단가 (vendor 견적과 ±20-30% 차이).
+                          <b>출처 / 기준</b>: ASM Handbook Vol.16 Machining · ISO 3685 (tool life) · AISI 1018 = rating 100% · raw 단가 × cost factor = 가공 후 추정 단가 (vendor 견적과 ±20-30% 차이).
                         </p>
                       </div>
                     </details>
@@ -452,8 +515,50 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                                   <div className="col-span-2"><span className="text-foreground/60">단계:</span> <b>{steps}</b></div>
                                 </div>
                                 <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{htCost.note}</p>
+                                {/* R175 — HT alloy-specific ⚠ 주의사항 */}
+                                <div className="mt-2 pt-2 border-t border-current/15">
+                                  <p className="text-[11px] font-semibold leading-relaxed">⚠ 열처리 주의사항:</p>
+                                  <p className="text-[11px] leading-relaxed">
+                                    {/* Carbon/Alloy steel Q+T */}
+                                    {/^(?:aisi |sae )?(?:10[3-8]\d|41[34]0|43[14]0|52100|86\d{2}|92\d{2})\b|^42crmo4|^scm44|^sncm/i.test(material.name || '') &&
+                                      '⚠ Q+T (Quench + Temper) — austenitize 850-880°C → oil/water quench → temper 200-650°C. ⚠ **주의 1 — Quench crack**: 두꺼운 section + sharp corner + water quench → 균열. **Oil quench 권장** (4140/4340), water 는 1018 / 1045 같은 plain carbon 만. ⚠ **주의 2 — Temper embrittlement (270-370°C 의 "blue brittleness")**: 이 영역 통과 시 빠른 cooling. 540°C temper 권장. ⚠ **주의 3 — Distortion**: 두꺼운 part 의 quench 시 sag/twist. Fixture + uniform cooling. ⚠ **주의 4 — Surface decarburization**: open furnace 시 표면 C 손실 (HV 손실). Atmosphere (endothermic gas) 또는 box quenching salt.'}
+                                    {/* Aluminum T6/T7 */}
+                                    {/^aa[\s-]?(2|6|7)\d{3}|^alsi|^a3[56]\d|^a380|^aluminum/i.test(material.name || '') &&
+                                      '⚠ Aluminum T6/T7 aging — Solution heat treat (SHT) 500-540°C → water quench → artificial aging 120-200°C. ⚠ **주의 1 — Quench delay**: SHT → quench 까지 5-15초 내 (delay > 15초 시 grain boundary precipitation). Air/water quench 즉시. ⚠ **주의 2 — Quench distortion**: thin sheet (< 3mm) 의 water quench → warping. **Polymer quench (PAG 25%)** 권장 (5xxx/6xxx). ⚠ **주의 3 — Over-aging**: 7075-T73 (over-aged for SCC) vs T6 (peak) — 응용에 따라 선택. ⚠ **주의 4 — Natural aging (T4) 안정**: SHT 후 ageing 진행 → 5일 후 안정. T4 stock 은 잘 사용 됨.'}
+                                    {/* PH stainless */}
+                                    {/^17-?4 ?ph|^15-?5 ?ph|^17-?7 ?ph|^15-?7 ?ph|^ph 13-?8|^custom 465/i.test(material.name || '') &&
+                                      '⚠ PH stainless H-treatment — Condition A (Sol-T 1040°C, σy 415) → H900-H1150 aging. **H900 (482°C/1h)** peak strength 1170 MPa, **H1150 (621°C/4h)** max ductility 720 MPa. ⚠ **주의 1 — SCC 위험**: H900 의 σy 1170 + chloride 환경 → SCC. Marine 응용 = H1075+ 권장 (Custom 465 H950 = 의료 anti-SCC). ⚠ **주의 2 — Hydrogen embrittlement**: passivation (HNO₃) 후 H 흡수 → 응용 전 280°C/4h baking (de-H).'}
+                                    {/* Ni superalloy STA */}
+                                    {/^inconel ?718|^in[\s-]?718|^a-?286|^monel ?k-?500/i.test(material.name || '') &&
+                                      '⚠ STA (Solution + Two-step Aging) — γ\'\' precipitation hardening. **Sol-T 980°C/1h AC → 720°C/8h FC 50°C/h to 620°C/8h AC** (AMS 5662 표준). ⚠ **주의 1 — Sub-solvus vs Super-solvus**: 950°C (sub-γ\'\') = grain refinement, 1050°C (super-γ\'\') = creep 우수. Application 별 선택. ⚠ **주의 2 — Aging atmosphere**: vacuum 또는 inert gas (Ar). Air 시 표면 oxide → bond coat 약화. ⚠ **주의 3 — Quench delay (ageing 사이 보관)**: < 4h 권장 (γ\'\' nucleation 시작).'}
+                                    {/* γ' high-Vf */}
+                                    {/^waspaloy|^rene ?41|^astroloy|^u(?:dimet)? ?720|^cmsx|^rene ?n[56]|^pwa ?14/i.test(material.name || '') &&
+                                      '⚠⚠ γ\' high-Vf Ni superalloy — 4-step HT typical. Sol-T (1150-1200°C) → primary age (1080°C/4h) → secondary age (845°C/16h) → final age (705°C/16h). ⚠ **주의 1 — Distortion 매우 大** (turbine disc forging의 dimensional control): fixture + uniform heating. ⚠ **주의 2 — Vacuum HT 必** (γ\' precipitation 시 surface oxide → bond coat fail). ⚠ **주의 3 — SX (single-crystal) of CMSX/Rene N5/PWA1484**: dendritic homogenization 1300°C+ (γ\' solvus 위) 필요 — 분 단위 통제.'}
+                                    {/* Maraging */}
+                                    {/^maraging|^vascomax|^18ni-?\d/i.test(material.name || '') &&
+                                      '✓ Maraging steel aging — Sol-T 815°C/1h AC (soft martensite) → **aging 480°C/3-6h** (Ni₃Mo/Ni₃Ti precipitate). C-free 라 quench 시 균열 없음 (가장 easy HT). ⚠ **주의 1 — Aged 후 가공 불가** (HRC 50-53 hard): Sol-T 후 가공 → aging 순서 필수. ⚠ **주의 2 — Dimensional change**: aging 시 약 0.05% 수축. tolerance allowance.'}
+                                    {/* Ti α+β STA */}
+                                    {/^ti-?6al-?4v|^ti[\s-]?grade ?5\b|^ti gr5|^ti[\s-]?grade ?23|^ti-?6al-?7nb/i.test(material.name || '') &&
+                                      '⚠ Ti α+β STA — Mill anneal (700-790°C/1-4h AC) baseline, STA (Solution 955°C → WQ → 540°C/4h aging) peak strength. ⚠ **주의 1 — β-transus (980°C) 통제**: > β-transus 시 grain 가 너무 커짐 (creep 우수, fatigue 손실). 항공기 fatigue critical 부품은 β-transus 이하. ⚠ **주의 2 — α-case 형성 (vacuum HT or Ar atmosphere)**: oxidation → 표층 brittle. Surface grinding 후 사용 또는 vacuum HT. ⚠ **주의 3 — Cooling rate**: WQ (water quench) vs OQ (oil) vs AC (air cool) → strength + ductility 균형.'}
+                                    {/* β-Ti */}
+                                    {/^beta-?21s|^beta-?c|^ti-?15-?3|^ti-?5553|^ti-?10v/i.test(material.name || '') &&
+                                      '⚠ β-Ti aging — Sol-T 850°C (β-only) AC → ω-phase 회피 위해 빠른 cool → aging 480-540°C/8h (α precipitate in β matrix). ⚠ **주의 — ω-phase (cooling rate 부족 시)**: brittle ω-phase 가 RT 까지 잔존 → 균열 위험. WQ 또는 fast AC 必.'}
+                                    {/* Mg */}
+                                    {/^az\d|^am\d|^we\d|^zk\d|^magnesium|^mg alloy/i.test(material.name || '') &&
+                                      '주의. Mg T6 aging — Sol-T 415°C/16h → AC (hot water quench 가능) → aging 175°C/16h. ⚠⚠ **주의 1 — Mg fire hazard (가장 critical)**: HT furnace 의 Mg dust + SO₂ atmosphere (oxidation 회피) 사용. 일반 air furnace 금지. ⚠ **주의 2 — SO₂ atmosphere (specialty Mg HT furnace)**: dilute SO₂ (0.5-1%) 가 protective layer 형성. 또는 Ar/CO₂ atmosphere.'}
+                                    {/* Cu PH */}
+                                    {/^c17200|^c18150|^c18000|^cube|^cucrz/i.test(material.name || '') &&
+                                      '주의. PH Cu (BeCu C17200, CuCrZr C18150, CuNiSiCr C18000) aging — Sol-T 800-980°C/1h WQ → aging 315-500°C. ⚠⚠ **BeCu 의 Be fume 위험** (vacuum furnace + ULPA exhaust 必). ⚠ **주의 — CuCrZr aging precision**: 450°C/3h peak. over-aging 시 conductivity loss + strength loss.'}
+                                    {/* HIP */}
+                                    {/hip|hot.?isostatic/i.test(material.heat_treatment || '') &&
+                                      '⚠ HIP (Hot Isostatic Pressing) — Ar 가스 1000-2000 bar + 1100-1200°C / 2-4h. ⚠ **주의 1 — Cycle 시간 + cost**: total cycle 12-24h, $5-20/kg AM part cost 추가. ⚠ **주의 2 — Specialty 화로 limited**: Bodycote, Quintus 등 vendor 만 보유. ⚠ **주의 3 — Effect**: micro-porosity 제거 → fatigue 강도 2-3× boost (AM part 필수).'}
+                                    {/* Carburizing/Nitriding */}
+                                    {/carburiz|nitrid|cementation|침탄|질화/i.test(material.heat_treatment || '') &&
+                                      '⚠ Carburizing (case 0.5-1.5mm depth) / Nitriding (case 0.1-0.5mm). ⚠ **주의 1 — Core hardenability 필요** (8620/9310/4118 같은 case-hardening grade). Plain carbon (1018) 은 case 만 hardness, core soft. ⚠ **주의 2 — Distortion**: 900°C+ furnace + quench → 변형. Press quenching 또는 controlled atmosphere. ⚠ **주의 3 — Nitriding (lower T 500-550°C)**: distortion 적음, 단 case 더 thin.'}
+                                  </p>
+                                </div>
                                 <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
-                                  <b>출처 / 기준</b>: ASM Handbook Vol.4 Heat Treating{ksRef && ` · ${ksRef}`} · 분위기/단계/시간은 factor 기반 휴리스틱 (vendor 견적 별도 필요).
+                                  <b>출처 / 기준</b>: ASM Handbook Vol.4 Heat Treating{ksRef && ` · ${ksRef}`} · AMS spec (alloy 별) · 분위기/단계/시간은 factor 기반 휴리스틱 (vendor 견적 별도 필요).
                                 </p>
                               </>
                             );
