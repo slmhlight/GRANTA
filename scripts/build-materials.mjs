@@ -490,10 +490,17 @@ const QUAL_MAP = {
   'aa2099': { corrosion: 'Good', machinability: 'Good', weldability: 'Fair' },                 // Al-Li
   'aa2618': { corrosion: 'Moderate', machinability: 'Good', weldability: 'Fair' },
   'aa3003': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },       // Non-HT, Mn
-  'aa5005': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },
-  'aa5052': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },
-  'aa5083': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },       // Marine standard
-  'aa5454': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Excellent' },
+  /* R175 — AA 5xxx weldability 'Excellent' → 'Good' 정정.
+     5xxx Al-Mg 합금은 fusion welding 자체는 우수 (4043/5356 filler 표준) 이지만:
+     · HAZ softening — non-HT alloy 라 cold-worked H32/H34 → as-welded annealed (σy 50% 손실)
+     · Marine SCC — Mg ≥ 3% (5083 4.5%, 5456 5%) 의 50°C+ 장기 노출 시 β-phase 입계 석출 → SCC
+     · ASM Vol.6 의 정확한 rating 은 'Good' (Excellent 는 1xxx/3xxx 만) */
+  'aa5005': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },        // Low-Mg (0.8%), 안전
+  'aa5052': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },        // Mg 2.5%, HAZ softening
+  'aa5083': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },        // Mg 4.5%, Marine SCC > 50°C
+  'aa5454': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },        // Mg 3%, 자동차 fuel tank
+  'aa5456': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Fair' },        // Mg 5%, 가장 high-Mg → SCC 우려 大
+  'aa5086': { corrosion: 'Excellent', machinability: 'Good', weldability: 'Good' },        // Mg 4%, 해상
   'aa6005a': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },
   'aa6061': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                 // 4043 filler
   'aa6063': { corrosion: 'Good', machinability: 'Good', weldability: 'Good' },                 // Extrusion
