@@ -30,6 +30,7 @@ import { HomeRestrictBar } from '@/components/HomeRestrictBar';
 import { HomeAshbyPreviewCard } from '@/components/HomeAshbyPreviewCard';
 import { MaterialTable } from '@/components/MaterialTable';
 import { MaterialCards } from '@/components/MaterialCards';
+import { toast } from 'sonner';  // R173 — static import (dual-import build warning + production minify-safe)
 const AshbyChart = lazy(() => import('@/components/AshbyChartPlotly').then(m => ({ default: m.AshbyChartPlotly })));
 import { MaterialDetailPopup } from '@/components/MaterialDetailPopup';
 import { ComparePanel } from '@/components/ComparePanel';
@@ -70,12 +71,10 @@ export default function Home() {
     const isMobile = window.matchMedia('(max-width: 640px)').matches;
     if (!isMobile || viewMode !== 'table') return;
     try { if (localStorage.getItem('am_cards_hint_shown')) return; } catch { /* ignore */ }
-    import('sonner').then(({ toast }) => {
-      toast('모바일에서는 Cards 뷰가 보기 편함', {
-        description: '가로 스크롤 없이 한 줄씩 — 하단 바의 뷰 토글로 전환.',
-        duration: 6000,
-        action: { label: 'Cards 로 전환', onClick: () => setViewMode('cards') },
-      });
+    toast('모바일에서는 Cards 뷰가 보기 편함', {
+      description: '가로 스크롤 없이 한 줄씩 — 하단 바의 뷰 토글로 전환.',
+      duration: 6000,
+      action: { label: 'Cards 로 전환', onClick: () => setViewMode('cards') },
     });
     try { localStorage.setItem('am_cards_hint_shown', '1'); } catch { /* ignore */ }
   }, [viewMode]);
