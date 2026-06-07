@@ -3,72 +3,72 @@
   "overrides": [
     {
       "from": "Ti6Al4V (Gr5, Gr23) — As-built",
-      "to":   "Ti-6Al-4V (Gr5/Gr23, AM curated) — As-built",
-      "reason": "Hyphen 통일 — AISI/handbook 표기는 'Ti-6Al-4V'. AM curated 임을 명시하여 generic CSV 와 구분."
+      "to":   "Ti-6Al-4V (AM) — As-built",
+      "reason": "R178 — 짧게. Hyphen 통일 — AISI/handbook 표기는 'Ti-6Al-4V'. AM curated 임을 명시."
     },
     {
       "from": "Ti6Al4V (Gr5, Gr23) — Annealed",
-      "to":   "Ti-6Al-4V (Gr5/Gr23, AM curated) — Annealed",
+      "to":   "Ti-6Al-4V (AM) — Annealed",
       "reason": "동일."
     },
     {
       "from": "Ti6Al4V (Gr5, Gr23) — HIP",
-      "to":   "Ti-6Al-4V (Gr5/Gr23, AM curated) — HIP",
+      "to":   "Ti-6Al-4V (AM) — HIP",
       "reason": "동일."
     },
     {
       "from": "Ti6Al4V (Gr5, Gr23) — Stress-relieved",
-      "to":   "Ti-6Al-4V (Gr5/Gr23, AM curated) — Stress-relieved",
+      "to":   "Ti-6Al-4V (AM) — Stress-relieved",
       "reason": "동일."
     },
     {
       "from": "Ti6Al4V (Gr5, Gr23) — Heat-Treated",
-      "to":   "Ti-6Al-4V (Gr5/Gr23, AM curated) — Heat-Treated",
+      "to":   "Ti-6Al-4V (AM) — Heat-Treated",
       "reason": "동일."
     },
     {
       "from": "Inconel 718 Tech Data (HighTempMetals.com verified) — STA (Solution treated 980°C + Aged 720°C + 620°C, AMS 5662)",
-      "to":   "Inconel 718 (HighTempMetals AMS 5662) — STA (Solution 980°C + Aged 720°C/8h + 620°C/8h)",
-      "reason": "Prefix 'Inconel 718 Tech Data' 가 다른 Inconel 718 entries 와 정렬 깨짐 — 'Inconel 718' base 로 통일."
+      "to":   "Inconel 718 (AMS 5662) — STA",
+      "reason": "R178 — 짧게. Prefix 'Inconel 718 Tech Data' 가 다른 Inconel 718 entries 와 정렬 깨짐 — 'Inconel 718' base 로 통일."
     },
     {
       "from": "304L Stainless — Wrought, Annealed",
-      "to":   "AISI 304L (Wrought, reference) — Annealed",
-      "reason": "AISI 304L generic CSV entries 와 동일 alloy — base name 통일."
+      "to":   "AISI 304L (Wrought) — Annealed",
+      "reason": "AISI 304L generic CSV entries 와 동일 alloy — base name 통일. R178 — (Wrought, reference) → (Wrought) 단순화."
     },
     {
       "from": "Stainless Steel 316L — As-built",
-      "to":   "316L Stainless Steel (AM curated) — As-built",
-      "reason": "AM curated entry — base name '316L Stainless Steel' 로 통일 (search consistency)."
+      "to":   "AISI 316L (AM) — As-built",
+      "reason": "AM curated entry — base name '316L' 로 통일. R178 — (AM curated) → (AM) 단순화."
     },
     {
       "from": "Stainless Steel 316L — Annealed",
-      "to":   "316L Stainless Steel (AM curated) — Annealed",
+      "to":   "AISI 316L (AM) — Annealed",
       "reason": "동일."
     },
     {
       "from": "Stainless Steel 316L — Stress-relieved",
-      "to":   "316L Stainless Steel (AM curated) — Stress-relieved",
+      "to":   "AISI 316L (AM) — Stress-relieved",
       "reason": "동일."
     },
     {
       "from": "Stainless Steel 316L — Annealed (1050°C WQ)",
-      "to":   "316L Stainless Steel (Wrought, reference) — Annealed (1050°C WQ)",
-      "reason": "Wrought reference — base name 통일."
+      "to":   "AISI 316L (Wrought) — Annealed (1050°C WQ)",
+      "reason": "Wrought reference — base name 통일. R178 단순화."
     },
     {
       "from": "Stainless Steel 316L — Cold-worked (50% red.)",
-      "to":   "316L Stainless Steel (Wrought, reference) — Cold-worked (50% red.)",
+      "to":   "AISI 316L (Wrought) — Cold-worked (50% red.)",
       "reason": "동일."
     },
     {
       "from": "Stainless Steel 316L — Solution treated (1100°C)",
-      "to":   "316L Stainless Steel (Wrought, reference) — Solution treated (1100°C)",
+      "to":   "AISI 316L (Wrought) — Solution treated (1100°C)",
       "reason": "동일."
     },
     {
       "from": "Stainless Steel 316L — Stress-relieved (450°C)",
-      "to":   "316L Stainless Steel (Wrought, reference) — Stress-relieved (450°C)",
+      "to":   "AISI 316L (Wrought) — Stress-relieved (450°C)",
       "reason": "동일."
     },
     {
@@ -108,18 +108,18 @@
     },
     {
       "from": "STS304L (KS D 3705 / JIS G 4304, low-carbon austenitic stainless) — Annealed (1050°C WQ)",
-      "to":   "AISI 304L / STS304L (KS D 3705, austenitic stainless ELC) — Annealed (1050°C WQ)",
-      "reason": "KS 통합 — chemistry 100% 동일 (Cr 18-20, Ni 8-12, C ≤0.030). KS minimum 의 σy 215 / UTS 545 보존."
+      "to":   "AISI 304L / STS304L — Annealed (1050°C WQ)",
+      "reason": "R178 — 짧게. KS 통합 — chemistry 100% 동일 (Cr 18-20, Ni 8-12, C ≤0.030)."
     },
     {
       "from": "STS304 ULC (Ultra-Low-Carbon austenitic stainless, C ≤ 0.015) — Annealed (1050°C WQ) + ULC refining",
-      "to":   "AISI 304L / STS304 ULC (Ultra-Low-Carbon C≤0.015) — Annealed (1050°C WQ)",
-      "reason": "KS 통합 — STS304 ULC 는 304L 의 ULC 변종 (C ≤ 0.015 vs 304L 의 ≤ 0.030). 통합 base name 으로 검색 일관성."
+      "to":   "AISI 304L / STS304 ULC — Annealed (1050°C WQ)",
+      "reason": "R178 — 짧게. STS304 ULC 는 304L 의 ULC 변종 (C ≤ 0.015)."
     },
     {
       "from": "STS316L (KS D 3705 / JIS G 4304, low-carbon Mo-bearing austenitic stainless) — Annealed (1050°C WQ)",
-      "to":   "AISI 316L / STS316L (KS D 3705, austenitic stainless Mo-bearing ELC) — Annealed (1050°C WQ)",
-      "reason": "KS 통합 — chemistry 100% 동일 (Cr 16-18, Ni 10-14, Mo 2-3, C ≤0.030). KS minimum 보존."
+      "to":   "AISI 316L / STS316L — Annealed (1050°C WQ)",
+      "reason": "R178 — 짧게. KS 통합 — chemistry 100% 동일 (Cr 16-18, Ni 10-14, Mo 2-3)."
     },
     {
       "_obsolete_note": "R177 — R176 의 AA Al T6 rename overrides (12 entries) 제거. supplementary-materials.json 에 'AA 6061/7075/2024/2014/6063/5052/5083/5454/AlSi10Mg (handbook T-tempers reference)' 9 entries 추가 → generic CSV 의 부정확 평균값 entries 가 dedup 으로 대체됨. T4/T6/T651/T73 별 정확 handbook 값 표시.",
