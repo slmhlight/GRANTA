@@ -20,12 +20,27 @@ interface Choice {
   detail?: string;
 }
 
+/* R182 — Numeric bracket — typical industrial value 예시 (사용자가 수치 입력 시 reference). */
+interface NumericBracket {
+  value: number;       // typical numeric value
+  label: string;       // industrial example (e.g., "AISI 1018 normalized")
+}
+
+interface NumericInputDef {
+  key: string;         // answer key (props.σy, σUTS, E, El)
+  label: string;       // visible label (예: '항복 강도 σy')
+  unit: string;        // unit (예: 'MPa')
+  brackets: NumericBracket[]; // industrial examples — sorted ascending
+  placeholder?: string;
+}
+
 interface Step {
   id: string;
   question: string;
   detail?: string;
   guideChapter?: { num: string; id: string; label: string };
-  choices: Choice[];
+  choices?: Choice[];  // categorical step
+  numerics?: NumericInputDef[]; // numeric input step (R182)
 }
 
 const STEPS: Step[] = [
@@ -47,15 +62,15 @@ const STEPS: Step[] = [
   {
     id: 'load',
     question: '2. 하중 유형은?',
-    detail: '실패 모드를 결정 — 정적 항복, 피로, creep, 충격, 좌굴.',
+    detail: '실패 모드를 결정 — 정적 항복 (σy), 피로 (σ_endurance), 좌굴 (E·I), 마모, creep.',
     guideChapter: { num: 'Ch.7', id: 'ch7', label: '하중 패턴 & 파괴 모드' },
     choices: [
-      { value: 'static', label: '정적 인장 / 압축', detail: '하중 일정, σ_max < σy 검토' },
-      { value: 'fatigue', label: '반복 / 진동 (피로)', detail: '10⁵-10⁷ cycle, σ_a < σ_endurance 검토' },
-      { value: 'impact', label: '충격 / 단발 고하중', detail: 'Charpy KV / KIC 결정' },
-      { value: 'buckling', label: '압축 좌굴 우려', detail: 'P_cr = π²EI/L²' },
+      { value: 'static', label: '정적 인장 / 압축', detail: 'σ_max < σy / SF (가장 일반적 하중)' },
+      { value: 'fatigue', label: '반복 / 진동 (피로)', detail: '10⁵-10⁷ cycle, σ_a < σ_endurance (~σUTS×0.4)' },
+      { value: 'impact', label: '충격 / 단발 고하중', detail: 'Charpy KV 또는 동적 σy 검토 (data 가 부족할 수 있음)' },
+      { value: 'buckling', label: '압축 좌굴 우려', detail: 'P_cr = π²EI/L² (E + 단면 2차 모멘트 I)' },
       { value: 'creep', label: '고온 장기 (creep)', detail: '서비스 > 400°C 인 경우 시간-temp-stress 곡선 필요' },
-      { value: 'pressure', label: '내압 (압력용기)', detail: 'σ_hoop = pD/2t, ASME B&PV Sec.VIII' },
+      { value: 'pressure', label: '내압 (압력용기)', detail: 'σ_hoop = pD/2t, σy → 두께 결정 (ASME B&PV Sec.VIII)' },
       { value: 'wear', label: '마모 / 접촉', detail: '경도 + 윤활 + 표면 처리' },
     ],
   },
@@ -68,7 +83,7 @@ const STEPS: Step[] = [
       { value: 'short', label: '단기 (< 1년)', detail: '안전계수 2-3, 일반 산업용' },
       { value: 'medium', label: '중기 (1-10년)', detail: '안전계수 3-5, 정밀 기계' },
       { value: 'long', label: '장기 (10년+)', detail: '안전계수 5+, 항공·원자력·인프라' },
-      { value: 'safety_critical', label: '안전 critical', detail: '결함 = 인명피해. KIC + DT 검토 + AMS/ASME 인증.' },
+      { value: 'safety_critical', label: '안전 critical', detail: '결함 = 인명피해. 인증 (AMS / ASME / FDA) + 정밀 fatigue / σy 검증.' },
     ],
   },
   {
@@ -96,6 +111,72 @@ const STEPS: Step[] = [
       { value: 'fda_iso', label: 'FDA / ISO 10993 (의료)', detail: 'ASTM F75 · F136 · F1537' },
       { value: 'nace', label: 'NACE MR0175 (sour service)', detail: 'H₂S 환경 — 강도 한계 + SCC' },
       { value: 'dnv', label: 'DNV (해상)', detail: 'DNV-OS-B101' },
+    ],
+  },
+  /* R182 — 새 step 6: 기본 물성 수치 입력. 각 input 옆에 bracket 예시 (산업별 typical) 표시. */
+  {
+    id: 'properties',
+    question: '6. 필요한 기본 물성 (선택)',
+    detail: '수치 입력 시 후보 자동 필터. 예시 alloy 의 값과 비교하여 적정 수준 선택. 모두 비워두면 hint 만 사용.',
+    guideChapter: { num: 'Ch.4', id: 'ch4', label: '기본 물성 · 단위 · 시험 표준' },
+    numerics: [
+      {
+        key: 'sigma_y',
+        label: '항복 강도 σy (min)',
+        unit: 'MPa',
+        placeholder: '예: 275',
+        brackets: [
+          { value: 50,   label: '순 알루미늄 / 일반 polymer' },
+          { value: 200,  label: 'AISI 1018 normalized / AA 6061-T4' },
+          { value: 350,  label: 'AISI 4140 annealed / AA 2024-T3' },
+          { value: 500,  label: 'AA 7075-T6 / 4140 Q+T / Ti-6Al-4V annealed' },
+          { value: 800,  label: 'Inconel 718 STA / 4340 Q+T (peak)' },
+          { value: 1200, label: '17-4 PH H900 / Maraging 250 / 52100 bearing' },
+          { value: 1700, label: 'Maraging 300 / 52100 hardened / SX γ\' Ni' },
+        ],
+      },
+      {
+        key: 'uts',
+        label: '인장 강도 σUTS (min)',
+        unit: 'MPa',
+        placeholder: '예: 310',
+        brackets: [
+          { value: 150,  label: '순 알루미늄 / HDPE' },
+          { value: 350,  label: 'AA 6061-T6 / 일반 brass / AA 5083-O' },
+          { value: 600,  label: 'AISI 4140 annealed / AA 7075-T6' },
+          { value: 900,  label: 'AISI 4340 Q+T / Ti-6Al-4V / Inconel 625' },
+          { value: 1300, label: 'Inconel 718 STA / 17-4 PH H900' },
+          { value: 1800, label: 'Maraging 250-350 / piano wire / Aermet 100' },
+        ],
+      },
+      {
+        key: 'modulus',
+        label: '탄성 계수 E (min)',
+        unit: 'GPa',
+        placeholder: '예: 70',
+        brackets: [
+          { value: 3,   label: '일반 polymer (PP, ABS, PVC)' },
+          { value: 70,  label: 'Aluminum / Mg 합금' },
+          { value: 110, label: 'Brass / Titanium / Cu alloys' },
+          { value: 200, label: 'Steel / Stainless / Ni superalloy' },
+          { value: 380, label: 'Al₂O₃ ceramic / SiC' },
+          { value: 600, label: 'Tungsten / W heavy alloy' },
+        ],
+      },
+      {
+        key: 'elongation',
+        label: '연신율 El (min)',
+        unit: '%',
+        placeholder: '예: 12',
+        brackets: [
+          { value: 2,   label: 'Cast iron / Si3N4 / brittle ceramic' },
+          { value: 5,   label: '17-4 PH H900 peak / 7075-T6 / 52100 hardened' },
+          { value: 12,  label: 'AA 6061-T6 / 4140 Q+T / Ti-6Al-4V STA' },
+          { value: 20,  label: 'AA 2024-T3 / AA 5083-O / 1045 annealed' },
+          { value: 30,  label: 'AISI 304L annealed / AA 1100-O / pure Cu' },
+          { value: 50,  label: 'HDPE / pure Al / 어닐드 brass' },
+        ],
+      },
     ],
   },
 ];
@@ -130,8 +211,9 @@ function choiceHint(
     if (env === 'hightemp' && choiceValue === 'creep') {
       return { hint: 'recommended', reason: '고온 환경에서 creep 이 주요 실패 모드' };
     }
+    /* R182 — 극저온 + 충격 hint: KIC 강조 제거. Charpy KV 또는 일반 σy 검토. */
     if (env === 'cryogenic' && choiceValue === 'impact') {
-      return { hint: 'recommended', reason: '극저온에서 충격 인성 (KIC) 이 critical' };
+      return { hint: 'recommended', reason: '극저온에서 충격 인성 검토 필요 (Charpy KV)' };
     }
     if (env === 'marine' && (choiceValue === 'fatigue' || choiceValue === 'pressure')) {
       return { hint: 'recommended', reason: '해상 환경에서 피로·내압 부하 일반적' };
@@ -234,10 +316,11 @@ function deriveRecommendations(answers: Record<string, string>): Recommendation[
   };
   const envEntry = envScenario[env];
 
-  // 하중 기반 시나리오
+  /* R182 — 하중 기반 시나리오. KIC 강조 제거 (data 부족). 기본 물성 (σy, σUTS, E, El) 중심.
+   *        impact 의 query 도 KIC 제거하고 σy + El 위주 (ductile 한 alloy 가 충격 흡수 유리). */
   const loadScenario: Record<string, { key: string; label: string; query: string }> = {
     fatigue: { key: 'fatigue', label: '피로 critical', query: 'σf>300' },
-    impact: { key: 'cryogenic', label: '충격·인성', query: 'kic>50 impact>30' },
+    impact: { key: 'cryogenic', label: '충격·인성', query: 'σy>400 el>10' },
     buckling: { key: 'bracket', label: '경량 강성 (좌굴)', query: 'E>100' },
     creep: { key: 'hightemp', label: 'Creep (고온 장기)', query: 'T>500' },
     pressure: { key: 'pressure_vessel', label: '압력용기', query: 'σy>300' },
@@ -273,9 +356,21 @@ function deriveRecommendations(answers: Record<string, string>): Recommendation[
   if (loadEntry?.query) queryParts.push(loadEntry.query);
   if (budget && budgetQuery[budget]) queryParts.push(budgetQuery[budget]);
 
-  // Lifetime → safety filter
-  if (lifetime === 'safety_critical') queryParts.push('kic>50');
+  /* R182 — Lifetime → safety filter. KIC 제거. safety critical 의 경우 σy + El + σf 우선 검증. */
+  if (lifetime === 'safety_critical') queryParts.push('σy>400 el>8');
   if (lifetime === 'long') queryParts.push('σf>200');
+
+  /* R182 — 사용자가 step 6 에서 입력한 numeric values 를 query 에 추가. */
+  const numKeys: Array<{ key: string; q: string }> = [
+    { key: 'sigma_y', q: 'σy' },
+    { key: 'uts', q: 'σUTS' },
+    { key: 'modulus', q: 'E' },
+    { key: 'elongation', q: 'el' },
+  ];
+  for (const n of numKeys) {
+    const v = answers[n.key];
+    if (v && !isNaN(parseFloat(v))) queryParts.push(`${n.q}>${parseFloat(v)}`);
+  }
 
   // Cert specs
   const specs = cert ? certSpec[cert] : undefined;
@@ -400,8 +495,61 @@ export default function Wizard() {
               </Link>
             )}
 
+            {/* R182 — Numeric input step (basic properties) — input + bracket 예시 hint */}
+            {STEPS[step].numerics && (
+              <div className="space-y-4 mt-4">
+                {STEPS[step].numerics!.map((n) => {
+                  const val = answers[n.key] || '';
+                  const numVal = parseFloat(val);
+                  return (
+                    <div key={n.key} className="rounded border border-border bg-background p-3">
+                      <div className="flex items-baseline justify-between gap-2 mb-2">
+                        <label className="text-[13px] font-semibold">{n.label}</label>
+                        <span className="text-[10px] text-muted-foreground">{n.unit}</span>
+                      </div>
+                      <input
+                        type="number"
+                        step="any"
+                        placeholder={n.placeholder}
+                        value={val}
+                        onChange={(e) => setAnswers((p) => ({ ...p, [n.key]: e.target.value }))}
+                        className="w-full px-3 py-2 text-[14px] border border-border rounded bg-background focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      />
+                      {/* Bracket 예시 (industrial typical values) */}
+                      <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1">
+                        {n.brackets.map((b, i) => {
+                          const isClose = !isNaN(numVal) && Math.abs(numVal - b.value) <= b.value * 0.3;
+                          return (
+                            <button
+                              key={i}
+                              type="button"
+                              onClick={() => setAnswers((p) => ({ ...p, [n.key]: String(b.value) }))}
+                              className={`text-left px-2 py-1 rounded text-[10px] flex items-baseline gap-1.5 transition-colors ${
+                                isClose
+                                  ? 'bg-accent/15 border border-accent text-foreground'
+                                  : 'hover:bg-muted/50 border border-transparent text-muted-foreground hover:text-foreground'
+                              }`}
+                              title={`클릭하면 ${b.value} ${n.unit} 자동 입력`}
+                            >
+                              <span className="font-mono font-semibold text-foreground">{b.value}</span>
+                              <span className="opacity-60">— {b.label}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+                <p className="text-[11px] text-muted-foreground italic mt-2">
+                  ℹ 모두 비워두면 사전 hint 만 적용. 일부 입력해도 OK (입력된 항목만 필터에 반영).
+                </p>
+              </div>
+            )}
+
+            {/* Categorical step (기존 choices) */}
+            {STEPS[step].choices && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">
-              {STEPS[step].choices.map((c) => {
+              {STEPS[step].choices!.map((c) => {
                 /* R162 — 이전 답변 기반 hint. */
                 const { hint, reason } = choiceHint(STEPS[step].id, c.value, answers);
                 const isSelected = answers[STEPS[step].id] === c.value;
@@ -442,6 +590,7 @@ export default function Wizard() {
                 );
               })}
             </div>
+            )}
 
             <div className="flex items-center justify-between mt-5 pt-4 border-t border-border/50">
               <button
@@ -460,7 +609,7 @@ export default function Wizard() {
                 onClick={() => setStep((s) => Math.min(s + 1, STEPS.length))}
                 className="text-xs text-accent hover:underline flex items-center gap-1"
               >
-                건너뛰기 <ArrowRight className="w-3 h-3" />
+                {STEPS[step].numerics ? '다음' : '건너뛰기'} <ArrowRight className="w-3 h-3" />
               </button>
             </div>
           </div>
