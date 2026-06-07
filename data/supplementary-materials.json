@@ -21514,35 +21514,6 @@
         "Aluminum Association H-Temper / ASTM B928"
       ],
       "industry_note": "AA 5454 — H-tempers (Aluminum Association / ASTM B928). Mg 3% marine + 50°C+ service 적합. 5083 (Mg 4.5%) 보다 SCC 안전 (Mg 3% 임계값). 산업: LPG tank, fuel tank, oil/gas piping (high-T service)."
-    },
-    {
-      "name": "AlSi10Mg (LPBF handbook)",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "process": "AM (LPBF)",
-      "composition": {
-        "Al": "balance",
-        "Si": "9.0~11.0",
-        "Mg": "0.20~0.45",
-        "Fe": "≤0.55",
-        "Mn": "≤0.45",
-        "Cu": "≤0.05",
-        "Zn": "≤0.10",
-        "Ti": "≤0.15"
-      },
-      "points": [
-        [2.67, 270, 445, 8, 70, 110, 130],
-        [2.67, 215, 400, 10, 70, 95, 130],
-        [2.67, 260, 355, 5, 70, 100, 130],
-        [2.67, 95, 175, 18, 70, 50, 130]
-      ],
-      "conditions": ["As-built", "Stress-relieved", "T6", "Annealed"],
-      "ref_urls": [
-        "https://www.eos.info/03_system-related-assets/material-related-contents/metal-materials-and-examples/metal-material-datasheet/aluminium/material_datasheet_eos_aluminium-alsi10mg_premium_en_web.pdf",
-        "https://www.renishaw.com/en/data-sheets-additive-manufacturing--17862",
-        "ASTM F3318 (AM AlSi metallurgy) / EOS / Renishaw / SLM Solutions datasheet"
-      ],
-      "industry_note": "AlSi10Mg — LPBF conditions (ASTM F3318 / EOS / Renishaw datasheet). AM 알루미늄 표준. As-built σy 270 MPa (eutectic Si network fine ~ 0.5 μm). Stress-relieved 300°C 가 잔류응력 해소 + 강도 유지. T6 (sol. 525°C/1h + WQ + aged 160°C/8h) 는 LPBF 부품에서 ductility 손실 가능 (Si network 분해). Annealed 350°C/2h = full soft. 산업: 자동차 brackets, heat exchanger, fluidic manifold."
     }
   ]
 }
