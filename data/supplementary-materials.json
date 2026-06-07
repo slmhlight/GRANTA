@@ -21371,6 +21371,292 @@
         "VOD/AOD refined 304"
       ],
       "industry_note": "KIST + POSCO 공동개발 ULC stainless — C ≤ 0.015 (304L 의 1/2). 반도체 wafer carrier / 의료 implant (인공관절 long-term) / 항공 우주 high-purity. 한국재료연구원 (KIST) 표준 spec."
+    },
+    {
+      "name": "AA 6061 (handbook T-tempers reference)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance",
+        "Mg": "0.8~1.2",
+        "Si": "0.4~0.8",
+        "Cu": "0.15~0.4",
+        "Cr": "0.04~0.35",
+        "Fe": "≤0.7",
+        "Mn": "≤0.15"
+      },
+      "points": [
+        [2.70, 55, 125, 25, 69, 30, 167],
+        [2.70, 145, 240, 22, 69, 65, 167],
+        [2.70, 275, 310, 12, 69, 95, 167],
+        [2.70, 275, 310, 12, 69, 95, 167],
+        [2.70, 240, 270, 13, 69, 88, 167]
+      ],
+      "conditions": [
+        "O (annealed, full soft)",
+        "T4 (sol. + natural aged 4+ days)",
+        "T6 (sol. 530°C/WQ + artificial aged 175°C/8h, peak)",
+        "T651 (T6 + 1.5-3% stretched, low residual stress)",
+        "T73 (over-aged for SCC resistance)"
+      ],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6061",
+        "https://www.kaiseraluminum.com/aerospace/alloys/6061/",
+        "Aluminum Association T-Temper System / MMPDS-2018 Chap.3"
+      ],
+      "industry_note": "AA 6061 handbook T-tempers 정확 값 — Aluminum Association + MMPDS-2018 표준. T4 (σy 145, El 22%) vs T6 (σy 275, El 12%) 의 명확한 강도/연성 trade-off. T651 의 잔류응력 < 30 MPa (정밀 가공). T73 는 SCC-resistant over-aged (해양 응용). 산업: 자동차 frame, 자전거, 의료 walker, 항공 fitting."
+    },
+    {
+      "name": "AA 7075 (handbook T-tempers reference)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance",
+        "Zn": "5.1~6.1",
+        "Mg": "2.1~2.9",
+        "Cu": "1.2~2.0",
+        "Cr": "0.18~0.28",
+        "Fe": "≤0.5",
+        "Mn": "≤0.30"
+      },
+      "points": [
+        [2.81, 105, 230, 16, 72, 60, 130],
+        [2.81, 505, 570, 11, 72, 150, 130],
+        [2.81, 505, 570, 11, 72, 150, 130],
+        [2.81, 430, 505, 13, 72, 135, 130],
+        [2.81, 470, 540, 13, 72, 145, 130]
+      ],
+      "conditions": [
+        "O (annealed, full soft)",
+        "T6 (sol. 480°C/WQ + artificial aged 120°C/24h, peak)",
+        "T651 (T6 + 1.5-3% stretched, low residual stress)",
+        "T73 (over-aged 165°C double-aging, SCC ↑↑)",
+        "T7351 (T73 + 1.5-3% stretched, premium aerospace)"
+      ],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA7075",
+        "https://www.alcoa.com/products/aluminum/7075-aerospace-alloy",
+        "Aluminum Association T-Temper System / MMPDS-2018 / Boeing BPS 4350"
+      ],
+      "industry_note": "AA 7075 handbook T-tempers — Al 합금 중 최고 강도 (T6 σy 505 MPa). T73 over-aging 으로 σy 15% 손실 trade-off 로 SCC 저항 약 100배 향상 (해양 / 습한 환경). T7351 = T73 + stretched (Boeing 787 wing spar 표준). 산업: 항공 wing skin / fuselage, F1 monocoque, military armor."
+    },
+    {
+      "name": "AA 2024 (handbook T-tempers reference)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Cu Alloys (2xxx)",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance",
+        "Cu": "3.8~4.9",
+        "Mg": "1.2~1.8",
+        "Mn": "0.3~0.9",
+        "Fe": "≤0.5",
+        "Si": "≤0.5",
+        "Zn": "≤0.25"
+      },
+      "points": [
+        [2.78, 75, 185, 20, 73, 47, 121],
+        [2.78, 345, 485, 18, 73, 120, 121],
+        [2.78, 290, 425, 19, 73, 105, 121],
+        [2.78, 395, 470, 10, 73, 130, 121],
+        [2.78, 450, 480, 6, 73, 142, 121]
+      ],
+      "conditions": [
+        "O (annealed, full soft)",
+        "T3 (sol. + cold-rolled + natural aged, aerospace 표준)",
+        "T4 (sol. + natural aged, no CW)",
+        "T6 (sol. + artificial aged, peak strength)",
+        "T81 (T3 + artificial aged, fatigue + strength)"
+      ],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2024",
+        "Aluminum Association T-Temper System / MMPDS-2018 / Boeing fuselage spec"
+      ],
+      "industry_note": "AA 2024 handbook T-tempers — Boeing 737/777/787 의 fuselage skin (T3) 표준. T3 의 fatigue 우수 (T6 보다 낫음). T6 은 peak strength 이나 fatigue 손실. T81 의 cold-work + artificial aging 으로 fatigue + strength 균형. SCC 위험 short-transverse 방향 critical."
+    },
+    {
+      "name": "AA 2014 (handbook T-tempers reference)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Cu Alloys (2xxx)",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance",
+        "Cu": "3.9~5.0",
+        "Si": "0.5~1.2",
+        "Mg": "0.2~0.8",
+        "Mn": "0.4~1.2",
+        "Fe": "≤0.7",
+        "Zn": "≤0.25"
+      },
+      "points": [
+        [2.80, 95, 185, 18, 72, 45, 192],
+        [2.80, 290, 425, 20, 72, 105, 192],
+        [2.80, 415, 485, 13, 72, 135, 192]
+      ],
+      "conditions": [
+        "O (annealed, full soft)",
+        "T4 (sol. + natural aged)",
+        "T6 (sol. + artificial aged 170°C/10h, peak)"
+      ],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2014",
+        "Aluminum Association T-Temper System / MMPDS-2018"
+      ],
+      "industry_note": "AA 2014 handbook T-tempers — Al-Cu-Si-Mg 합금. Si 1% 가 hot crack 완화 (2024 보다 weldable). 항공 wing frame + 군용 truck chassis. 부식 저항은 2024 보다 낮음 (Cu 5%)."
+    },
+    {
+      "name": "AA 6063 (handbook T-tempers reference)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance",
+        "Mg": "0.45~0.9",
+        "Si": "0.2~0.6",
+        "Fe": "≤0.35",
+        "Cr": "≤0.10",
+        "Cu": "≤0.10",
+        "Zn": "≤0.10"
+      },
+      "points": [
+        [2.70, 50, 90, 25, 69, 25, 200],
+        [2.70, 145, 185, 12, 69, 60, 200],
+        [2.70, 215, 240, 12, 69, 73, 200]
+      ],
+      "conditions": [
+        "O (annealed, full soft)",
+        "T5 (cooled from extrusion + aged, 압출 표준)",
+        "T6 (sol. + artificial aged, peak strength)"
+      ],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6063",
+        "Aluminum Association T-Temper / Sapa extrusion datasheet"
+      ],
+      "industry_note": "AA 6063 handbook T-tempers — 건축 압출 표준 (창호 frame, decorative trim). T5 = 압출 직후 aging (cost 효율). T6 = sol. 530°C 후 aging (peak strength)."
+    },
+    {
+      "name": "AA 5052 (handbook H-tempers reference)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg Alloys (5xxx)",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance",
+        "Mg": "2.2~2.8",
+        "Cr": "0.15~0.35",
+        "Fe": "≤0.4",
+        "Si": "≤0.25",
+        "Mn": "≤0.10"
+      },
+      "points": [
+        [2.68, 90, 195, 25, 70, 47, 138],
+        [2.68, 195, 230, 12, 70, 67, 138],
+        [2.68, 215, 260, 10, 70, 73, 138]
+      ],
+      "conditions": [
+        "O (annealed, full soft)",
+        "H32 (strain-hardened 1/4 hard + stabilized)",
+        "H34 (strain-hardened 1/2 hard + stabilized)"
+      ],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5052",
+        "Aluminum Association H-Temper System / ASTM B209"
+      ],
+      "industry_note": "AA 5052 handbook H-tempers — 자동차 panel, marine sheet, ship superstructure. Non-heat-treatable (Mg 2.5%, β-phase 없음, SCC 안전). H32/H34 의 strain-hardening 단계별 강도. Welding 후 HAZ 가 annealed condition 으로 회귀."
+    },
+    {
+      "name": "AA 5083 (handbook H-tempers reference)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg Alloys (5xxx)",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance",
+        "Mg": "4.0~4.9",
+        "Mn": "0.4~1.0",
+        "Cr": "0.05~0.25",
+        "Fe": "≤0.4",
+        "Si": "≤0.4",
+        "Zn": "≤0.25"
+      },
+      "points": [
+        [2.66, 145, 290, 22, 70, 75, 117],
+        [2.66, 195, 305, 16, 70, 86, 117],
+        [2.66, 215, 315, 12, 70, 90, 117],
+        [2.66, 215, 305, 10, 70, 90, 117]
+      ],
+      "conditions": [
+        "O (annealed, full soft)",
+        "H32 (strain-hardened 1/4 hard)",
+        "H321 (stabilized for SCC, marine grade)",
+        "H116 (anti-SCC, ASTM B928 marine premium)"
+      ],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5083",
+        "Aluminum Association H-Temper / ASTM B928 (marine grade) / ASTM G67 (NAMLT test)"
+      ],
+      "industry_note": "AA 5083 handbook H-tempers — Mg 4.5% non-heat-treatable, marine 표준. Mg ≥ 3% 이라 SCC 위험 (β-phase Mg₂Al₃ 입계 석출). H321 + H116 의 stabilization 처리로 ASTM G67 NAMLT < 15 mg/cm² 보장 (anti-SCC). 산업: LNG carrier hull, naval ship superstructure, cryogenic tank."
+    },
+    {
+      "name": "AA 5454 (handbook H-tempers reference)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg Alloys (5xxx)",
+      "process": "Wrought",
+      "composition": {
+        "Al": "balance",
+        "Mg": "2.4~3.0",
+        "Mn": "0.5~1.0",
+        "Cr": "0.05~0.20",
+        "Fe": "≤0.4",
+        "Si": "≤0.25"
+      },
+      "points": [
+        [2.69, 90, 220, 22, 70, 50, 134],
+        [2.69, 200, 250, 10, 70, 69, 134]
+      ],
+      "conditions": [
+        "O (annealed, full soft)",
+        "H32 (strain-hardened 1/4 hard, 50°C+ marine service 적합)"
+      ],
+      "ref_urls": [
+        "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5454",
+        "Aluminum Association H-Temper / ASTM B928"
+      ],
+      "industry_note": "AA 5454 handbook H-tempers — Mg 3% marine + 50°C+ service 적합. 5083 (Mg 4.5%) 보다 SCC 안전 (Mg 3% 임계값). 산업: LPG tank, fuel tank, oil/gas piping (high-T service)."
+    },
+    {
+      "name": "AlSi10Mg (handbook LPBF reference)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "process": "AM (LPBF)",
+      "composition": {
+        "Al": "balance",
+        "Si": "9.0~11.0",
+        "Mg": "0.20~0.45",
+        "Fe": "≤0.55",
+        "Mn": "≤0.45",
+        "Cu": "≤0.05",
+        "Zn": "≤0.10",
+        "Ti": "≤0.15"
+      },
+      "points": [
+        [2.67, 270, 445, 8, 70, 110, 130],
+        [2.67, 215, 400, 10, 70, 95, 130],
+        [2.67, 260, 355, 5, 70, 100, 130],
+        [2.67, 95, 175, 18, 70, 50, 130]
+      ],
+      "conditions": [
+        "As-built (LPBF, 잔류응력 200+ MPa)",
+        "Stress-relieved 300°C/2h",
+        "T6 (sol. 525°C/1h + WQ + aged 160°C/8h)",
+        "Annealed 350°C/2h (full soft)"
+      ],
+      "ref_urls": [
+        "https://www.eos.info/03_system-related-assets/material-related-contents/metal-materials-and-examples/metal-material-datasheet/aluminium/material_datasheet_eos_aluminium-alsi10mg_premium_en_web.pdf",
+        "https://www.renishaw.com/en/data-sheets-additive-manufacturing--17862",
+        "ASTM F3318 (AM AlSi metallurgy) / EOS / Renishaw / SLM Solutions datasheet"
+      ],
+      "industry_note": "AlSi10Mg handbook LPBF conditions — AM 알루미늄 표준. As-built σy 270 MPa (eutectic Si network fine ~ 0.5 μm). Stress-relieved 300°C 가 잔류응력 해소 + 강도 유지. T6 는 LPBF 부품에서 ductility 손실 가능 (Si network 분해). 산업: 자동차 brackets, heat exchanger, fluidic manifold."
     }
   ]
 }

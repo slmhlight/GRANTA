@@ -1,6 +1,6 @@
 # R173 — Dropped fake-variant entries (검토용)
 
-Total dropped: 52 (50 non-curated + 2 curated)
+Total dropped: 50 (48 non-curated + 2 curated)
 
 ## Non-curated drops (CSV / supplementary)
 
@@ -13,49 +13,47 @@ Total dropped: 52 (50 non-curated + 2 curated)
 |5|AA 3004|Aged / solution-treated|P4: non-HT Al × Aged/Q+T|
 |6|AA 3005|Aged / solution-treated|P4: non-HT Al × Aged/Q+T|
 |7|AA 3105|Aged / solution-treated|P4: non-HT Al × Aged/Q+T|
-|8|AA 5052|Aged / solution-treated|P4: non-HT Al × Aged/Q+T|
-|9|AA 5083|Aged / solution-treated|P4: non-HT Al × Aged/Q+T|
-|10|AA 5086|Aged / solution-treated|P4: non-HT Al × Aged/Q+T|
-|11|AISI 1010|Aged / solution-treated|P1: plain carbon × Aged|
-|12|AISI 1015|Aged / solution-treated|P1: plain carbon × Aged|
-|13|AISI 1020|Aged / solution-treated|P1: plain carbon × Aged|
-|14|AISI 1025|Aged / solution-treated|P1: plain carbon × Aged|
-|15|AISI 1030|Aged / solution-treated|P1: plain carbon × Aged|
-|16|AISI 1040|Aged / solution-treated|P1: plain carbon × Aged|
-|17|AISI 1050|Aged / solution-treated|P1: plain carbon × Aged|
-|18|AISI 1080|Aged / solution-treated|P1: plain carbon × Aged|
-|19|AISI 1095|Aged / solution-treated|P1: plain carbon × Aged|
-|20|AISI 304|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
-|21|AISI 304|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
-|22|AISI 304L|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
-|23|AISI 304L|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
-|24|AISI 310|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
-|25|AISI 310|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
-|26|AISI 316|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
-|27|AISI 316|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
-|28|AISI 321|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
-|29|AISI 321|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
-|30|AISI 347|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
-|31|AISI 347|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
-|32|AISI 405|Aged / solution-treated|P2: ferritic SS × Aged/Q+T|
-|33|AISI 405|Quenched / tempered|P2: ferritic SS × Aged/Q+T|
-|34|AISI 410|Aged / solution-treated|P6: martensitic SS × Aged|
-|35|AISI 4130|Aged / solution-treated|P7: alloy steel × Aged|
-|36|AISI 4150|Aged / solution-treated|P7: alloy steel × Aged|
-|37|AISI 430|Aged / solution-treated|P2: ferritic SS × Aged/Q+T|
-|38|AISI 430|Quenched / tempered|P2: ferritic SS × Aged/Q+T|
-|39|AISI 434|Aged / solution-treated|P2: ferritic SS × Aged/Q+T|
-|40|AISI 434|Quenched / tempered|P2: ferritic SS × Aged/Q+T|
-|41|AISI 4340|Aged / solution-treated|P7: alloy steel × Aged|
-|42|AISI 5140|Aged / solution-treated|P7: alloy steel × Aged|
-|43|AISI 6150|Aged / solution-treated|P7: alloy steel × Aged|
-|44|Hastelloy C-276|Aged / solution-treated|P8: solid-sol Ni × Aged|
-|45|Inconel 600|Aged / solution-treated|P8: solid-sol Ni × Aged|
-|46|Monel 400|Aged / solution-treated|P8: solid-sol Ni × Aged|
-|47|Ti Grade 1|Aged / solution-treated|P11: CP-Ti × Aged|
-|48|Ti Grade 2|Aged / solution-treated|P11: CP-Ti × Aged|
-|49|Ti Grade 3|Aged / solution-treated|P11: CP-Ti × Aged|
-|50|Ti Grade 4|Aged / solution-treated|P11: CP-Ti × Aged|
+|8|AA 5086|Aged / solution-treated|P4: non-HT Al × Aged/Q+T|
+|9|AISI 1010|Aged / solution-treated|P1: plain carbon × Aged|
+|10|AISI 1015|Aged / solution-treated|P1: plain carbon × Aged|
+|11|AISI 1020|Aged / solution-treated|P1: plain carbon × Aged|
+|12|AISI 1025|Aged / solution-treated|P1: plain carbon × Aged|
+|13|AISI 1030|Aged / solution-treated|P1: plain carbon × Aged|
+|14|AISI 1040|Aged / solution-treated|P1: plain carbon × Aged|
+|15|AISI 1050|Aged / solution-treated|P1: plain carbon × Aged|
+|16|AISI 1080|Aged / solution-treated|P1: plain carbon × Aged|
+|17|AISI 1095|Aged / solution-treated|P1: plain carbon × Aged|
+|18|AISI 304|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
+|19|AISI 304|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
+|20|AISI 304L|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
+|21|AISI 304L|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
+|22|AISI 310|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
+|23|AISI 310|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
+|24|AISI 316|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
+|25|AISI 316|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
+|26|AISI 321|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
+|27|AISI 321|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
+|28|AISI 347|Aged / solution-treated|P3/P5: austenitic SS × Q+T/Aged|
+|29|AISI 347|Quenched / tempered|P3/P5: austenitic SS × Q+T/Aged|
+|30|AISI 405|Aged / solution-treated|P2: ferritic SS × Aged/Q+T|
+|31|AISI 405|Quenched / tempered|P2: ferritic SS × Aged/Q+T|
+|32|AISI 410|Aged / solution-treated|P6: martensitic SS × Aged|
+|33|AISI 4130|Aged / solution-treated|P7: alloy steel × Aged|
+|34|AISI 4150|Aged / solution-treated|P7: alloy steel × Aged|
+|35|AISI 430|Aged / solution-treated|P2: ferritic SS × Aged/Q+T|
+|36|AISI 430|Quenched / tempered|P2: ferritic SS × Aged/Q+T|
+|37|AISI 434|Aged / solution-treated|P2: ferritic SS × Aged/Q+T|
+|38|AISI 434|Quenched / tempered|P2: ferritic SS × Aged/Q+T|
+|39|AISI 4340|Aged / solution-treated|P7: alloy steel × Aged|
+|40|AISI 5140|Aged / solution-treated|P7: alloy steel × Aged|
+|41|AISI 6150|Aged / solution-treated|P7: alloy steel × Aged|
+|42|Hastelloy C-276|Aged / solution-treated|P8: solid-sol Ni × Aged|
+|43|Inconel 600|Aged / solution-treated|P8: solid-sol Ni × Aged|
+|44|Monel 400|Aged / solution-treated|P8: solid-sol Ni × Aged|
+|45|Ti Grade 1|Aged / solution-treated|P11: CP-Ti × Aged|
+|46|Ti Grade 2|Aged / solution-treated|P11: CP-Ti × Aged|
+|47|Ti Grade 3|Aged / solution-treated|P11: CP-Ti × Aged|
+|48|Ti Grade 4|Aged / solution-treated|P11: CP-Ti × Aged|
 
 ## Curated layer drops (material_db.json)
 

@@ -3681,6 +3681,8 @@ try {
   const storiesFile = path.join(DATA, 'material-stories.json');
   // R149 — material-stories-r149.json (popularity ≥ 4 missing 122 entry 의 65 base group 신규 story) 도 함께 merge.
   const storiesR149File = path.join(DATA, 'material-stories-r149.json');
+  // R177 — material-stories-r177.json (popularity 4.0-4.5 missing 28 entries 신규 story) merge.
+  const storiesR177File = path.join(DATA, 'material-stories-r177.json');
   if (fs.existsSync(storiesFile)) {
     const sj = JSON.parse(fs.readFileSync(storiesFile, 'utf8'));
     const sMap = { ...(sj.stories || {}) };
@@ -3689,6 +3691,14 @@ try {
       const sj149 = JSON.parse(fs.readFileSync(storiesR149File, 'utf8'));
       const sMap149 = sj149.stories || {};
       for (const [k, v] of Object.entries(sMap149)) {
+        if (!sMap[k]) sMap[k] = v;
+      }
+    }
+    // Merge R177 stories
+    if (fs.existsSync(storiesR177File)) {
+      const sj177 = JSON.parse(fs.readFileSync(storiesR177File, 'utf8'));
+      const sMap177 = sj177.stories || {};
+      for (const [k, v] of Object.entries(sMap177)) {
         if (!sMap[k]) sMap[k] = v;
       }
     }

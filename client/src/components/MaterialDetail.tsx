@@ -25,6 +25,8 @@ import { Field } from '@/components/material-detail/Field';
 import { SpecBadgeList } from '@/components/material-detail/SpecBadgeList';
 /* R161 — Similar / alternative materials card → Composition tab. */
 import { SimilarMaterialsCard } from '@/components/material-detail/SimilarMaterialsCard';
+/* R177 — Recommendation text renderer (ASCII table → real <table>). */
+import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
@@ -356,7 +358,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 <div className="grid grid-cols-1 gap-3">
                   {/* 카드 1 — 절삭성 + 가공비 통합 (default open) */}
                   {(mach || machCost) && (
-                    <details open className={`rounded-lg border-2 p-3 ${bandColor((machCost?.band || mach?.band) as string)}`}>
+                    <details className={`rounded-lg border-2 p-3 ${bandColor((machCost?.band || mach?.band) as string)}`}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5"><Wrench className="w-3.5 h-3.5" />Machinability · 절삭성</span>
                         <span className="text-[10px] font-normal opacity-70">
@@ -378,11 +380,11 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         )}
                         {mach && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{mach.note}</p>}
                         {machCost && machCost.band !== mach?.band && <p className="text-[11px] leading-relaxed text-foreground/80">{machCost.note}</p>}
-                        {/* R175/R176 — Machinability alloy-specific ⚠ 주의사항 + 가공 방법
-                            R176: whitespace-pre-line 으로 \n\n 줄바꿈 활성화, 완전 문장 + 줄 분리 */}
+                        {/* R175/R176/R177 — Machinability alloy-specific ⚠ 주의사항 + 가공 방법
+                            R177: RecText 로 ASCII table → real <table> 변환 */}
                         <div className="mt-2 pt-2 border-t border-current/15">
                           <p className="text-[11px] font-semibold leading-relaxed mb-1">⚠ 가공 주의사항 / 권장 방법:</p>
-                          <p className="text-[11px] leading-relaxed whitespace-pre-line">
+                          <RecText className="text-[11px] leading-relaxed">
                             {/* Free-machining (Pb / Bi / S 함유) — R176 완전 문장 + 줄바꿈 */}
                             {/^(?:aisi |sae )?1144|^12l14|^c36000|^free-?mach|^4140.*(?:free|leaded)/i.test(material.name || '') &&
                               '✓ Free-machining Grade (S / Pb / Bi 첨가 Chip Breaker)\n• AISI 1144: S 0.30%, screw machine\n• AISI 12L14: Pb 0.35%, free-cutting\n• C36000 brass: Pb 3.5%, screw machine 표준\n\n【권장 방법】\n• Tool: HSS 또는 일반 carbide\n• Cutting speed: 일반 grade 의 2-3배 (rating 160-180%)\n• Coolant: water-soluble 또는 minimum (dry 가능)\n• Chip 형태: short brittle chip (tangle 없음, removal easy)\n\n【⚠ 주의 1 — Pb / Bi Fume 위험 (C36000 Pb 3.5%, 가장 critical)】\nHigh-speed turning 또는 milling 시 Pb / Bi 가 vapor 형성:\n• Pb 비등점 1740°C — turning 시 chip 표면 약 600-800°C 까지 도달 → 일부 vapor\n• Pb dust + fume 흡입 시:\n  - 급성: 복통, 두통, 식욕 부진\n  - 만성: 신경 손상, 인지 기능 저하, 신장 손상\n• OSHA PEL: 50 μg/m³\n• Korean MOEL: 30 μg/m³\n\n【권장 안전 절차】\n• LEV (Local Exhaust Ventilation):\n  - Capture velocity > 0.5 m/s at cutting zone\n  - Filter: HEPA (Pb particulate)\n• Respirator: full-face P100 + acid gas cartridge\n• 작업복 wet decon (작업 후 옷 폐기 또는 dedicated laundry)\n• Medical surveillance: 매년 blood lead level (BLL) test\n  - Action level: BLL > 30 μg/dL → workplace removal\n  - Korean spec: BLL > 40 μg/dL → 의료 평가\n\n【⚠ 주의 2 — Chip 처리 (폐기물)】\nPb-containing chip 의 폐기 규정:\n• EPA RCRA: hazardous waste classification (D008 — lead)\n• Korean 환경부: 지정 폐기물 (납 함유 폐기물)\n• 폐기 방법:\n  - Licensed hazardous waste hauler 통한 polluter pays principle\n  - 직접 폐기 금지 (벌금 + criminal liability)\n  - 재활용: Pb smelter 로 재활용 가능 (specialty supplier)\n\n【대안 (RoHS / EU 환경 규제)】\nPb-free free-machining grade:\n• AISI 1215 (S만 함유) — cost 비슷, performance 약 90% Pb-grade\n• Sulfurized resulfurized steel: Mn-S 함유\n• Pb-free brass: C49260, C69300 (Bi 첨가) — 미국 / EU 표준'}
@@ -440,7 +442,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             {/* Refractory — R176 */}
                             {/^tungsten|^molybdenum|^tantalum|^niobium|^rhenium|^tzm|^mo-?la|^w-?la|^c-?103/i.test(material.name || '') &&
                               '⚠ Refractory Metal (W / Mo / Ta / Nb / Re)\nNuclear, aerospace, 반도체, 정밀 instrument 응용.\nRT brittle (DBTT > 0°C 일부 grade) — chipping 위험 매우 큼.\n\n【권장 방법】\n• Tool: carbide insert with negative rake\n  - Tungsten: cBN tool 권장 (carbide wear 빠름)\n  - Mo / TZM: carbide 가능 (TiAlN coating)\n  - Ta / Nb: carbide insert 가능\n• Cutting speed:\n  - W: 5-15 m/min (CBN)\n  - Mo: 20-40 m/min (carbide)\n  - Ta / Nb: 30-50 m/min\n• Coolant: dry 또는 minimum (water-based 가능)\n• Feed rate: 0.05-0.15 mm/rev (slow)\n• Depth of cut: 0.1-0.3 mm (small)\n\n【⚠ 주의 1 — Chipping 위험】\nRefractory metal 의 RT brittleness:\n• W: DBTT 300°C — RT 매우 brittle\n• Mo: DBTT 0°C — RT 약간 brittle\n• Ta / Nb: DBTT < -100°C — RT ductile (가공 안전)\n\nPositive rake 사용 시 (일반 가공):\n• Cutting edge 의 압축 응력 부족\n• Surface chipping (표면 작은 균열)\n• Tool 의 micro chipping (tip 손상)\n\n【권장 대응】\n• Negative rake angle (-5 ~ -10°)\n  - 압축 응력 증가\n  - Chipping 회피\n• Small depth of cut (0.1-0.3 mm)\n• Slow feed rate (0.05-0.15 mm/rev)\n• Sharp tool edge\n\n【⚠ 주의 2 — Grinding 권장 (특히 W)】\nW 의 가공 어려움 (RT brittle + abrasive):\n• CNC machining: 매우 limited (small section only)\n• Grinding 가 표준 방법:\n  - cBN wheel (CBN grain in vitreous bond)\n  - Diamond wheel (precision finishing)\n  - Wet grinding (heat 회피)\n• 응용:\n  - W heavy alloy (Ni-Fe matrix): carbide 가능\n  - Pure W: grinding only\n  - W-La: grinding only\n\n【표준】\nASM Vol.16 (Machining refractory) · ASTM B777 (W heavy alloy)'}
-                          </p>
+                          </RecText>
                         </div>
                         <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
                           <b>출처 / 기준</b>: ASM Handbook Vol.16 Machining · ISO 3685 (tool life) · AISI 1018 = rating 100% · raw 단가 × cost factor = 가공 후 추정 단가 (vendor 견적과 ±20-30% 차이).
@@ -456,7 +458,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     if (alloyHt) {
                       const { family, description } = alloyHt;
                       return (
-                        <details open className="rounded-lg border-2 border-sky-300 bg-sky-50 p-3">
+                        <details className="rounded-lg border-2 border-sky-300 bg-sky-50 p-3">
                           <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-sky-800">
                             <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · {description.code}</span>
                             <span className="text-[10px] font-normal opacity-70">{family.familyName}</span>
@@ -492,7 +494,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     // Fallback: 기존 HT 가중치 카드 (specific HT 매칭 안 됨)
                     if (!htCost) return null;
                     return (
-                      <details open className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)}`}>
+                      <details className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)}`}>
                         <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                           <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · 열처리</span>
                           <span className="text-[10px] font-normal opacity-70">×{htCost.factor.toFixed(2)} · <b>{htCost.label}</b></span>
@@ -516,10 +518,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                                   <div className="col-span-2"><span className="text-foreground/60">단계:</span> <b>{steps}</b></div>
                                 </div>
                                 <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{htCost.note}</p>
-                                {/* R175/R176 — HT alloy-specific ⚠ 주의사항 (whitespace-pre-line) */}
+                                {/* R175/R176/R177 — HT alloy-specific ⚠ 주의사항 (RecText 로 ASCII table → real <table>) */}
                                 <div className="mt-2 pt-2 border-t border-current/15">
                                   <p className="text-[11px] font-semibold leading-relaxed mb-1">⚠ 열처리 주의사항:</p>
-                                  <p className="text-[11px] leading-relaxed whitespace-pre-line">
+                                  <RecText className="text-[11px] leading-relaxed">
                                     {/* Carbon/Alloy steel Q+T — R176 완전 문장 + 줄바꿈 */}
                                     {/^(?:aisi |sae )?(?:10[3-8]\d|41[34]0|43[14]0|52100|86\d{2}|92\d{2})\b|^42crmo4|^scm44|^sncm/i.test(material.name || '') &&
                                       '⚠ Q+T (Quench + Temper) — Carbon / Alloy Steel\n표준 강화 절차:\n  ① Austenitize: 850-880°C / 30 min - 2 h (austenite 변환)\n  ② Quench: oil 또는 water (martensite 형성)\n  ③ Temper: 200-650°C / 1-2 h / AC (toughness 회복)\n\n【⚠ 주의 1 — Quench Crack】\n두꺼운 section + sharp corner + water quench 조합 시 즉시 균열:\n• Mechanism: martensite 변환의 volume expansion (4-5%) + 빠른 cooling 의 thermal stress\n• 위험 부위: sharp corner, key way, hole edge\n• 회피:\n  - 4140 / 4340 같은 alloy steel: oil quench (slow cooling)\n  - 1018 / 1045 plain carbon: water quench 가능\n  - 두꺼운 part: interrupted quench (oil → air) 권장\n  - Sharp corner 회피 (radius ≥ 0.5 mm)\n\n【⚠ 주의 2 — Temper Embrittlement (270-370°C "Blue Brittleness")】\n특정 temper 온도 범위에서 brittleness 증가:\n• 270-370°C: blue brittleness (martensite decomposition + cementite spheroidization)\n• 540°C+: re-embrittlement 회피 권장 (Ni-Cr-Mo steel)\n• Charpy 손실 50% 이상 가능\n\n【권장 대응】\n• Temper 시 270-370°C 영역을 빠르게 통과 (slow cooling 회피)\n• 540°C temper 표준 권장 (toughness 우수)\n• 응용:\n  - Spring (1095, 5160): 425-475°C temper\n  - Gear (4140): 200-300°C temper (carbide network 회피)\n  - Crankshaft (4340): 540-620°C temper (max toughness)\n\n【⚠ 주의 3 — Distortion (두꺼운 Part)】\n두꺼운 part 의 quench 시 differential cooling rate:\n• Surface vs core 의 cooling rate 차이 → thermal stress\n• Sag / twist / warpage 발생\n• 보정 가능: post-Q+T straightening (cold work)\n\n【권장 대응】\n• Fixture 사용 (quench dies, press quenching)\n• Uniform cooling (oil agitation, polymer quench)\n• 두꺼운 part: press quenching (specialty supplier)\n\n【⚠ 주의 4 — Surface Decarburization (Open Furnace)】\nOpen furnace 에서 austenitize 시:\n• 표면 C 가 furnace atmosphere 의 O₂ 와 반응\n• 표면 hardness 손실 (HV 600 → HV 300)\n• Fatigue strength 손실\n\n【권장 대응】\n• Endothermic gas atmosphere (controlled C potential)\n• Box quenching salt (NaCl + KCl, 표면 보호)\n• Vacuum furnace (premium 부품)\n• Surface grinding post-Q+T (decarburized layer 제거)\n\n【표준】\nASM Vol.4 (Heat Treating) · SAE J419 (Q+T standards) · AMS 6382 (4140 Q+T)'}
@@ -556,7 +558,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                                     {/* Carburizing/Nitriding — R176 */}
                                     {/carburiz|nitrid|cementation|침탄|질화/i.test(material.heat_treatment || '') &&
                                       '⚠ Carburizing / Nitriding — Case Hardening\nSurface hardening 처리:\n• Carburizing: case 0.5-1.5 mm 깊이, surface C 0.8-1.0%\n• Nitriding: case 0.1-0.5 mm 깊이, surface N 7-8%\n\n표준 절차:\n• Gas Carburizing: 900-925°C / 4-12 h / quench (endothermic gas atmosphere)\n• Plasma Carburizing: 850-950°C / vacuum + N₂-CH₄ plasma\n• Gas Nitriding: 500-550°C / 24-72 h / NH₃ atmosphere\n• Plasma Nitriding: 450-550°C / vacuum + N₂ plasma\n\n【⚠ 주의 1 — Core Hardenability 필요】\nCarburizing 의 base material 선택:\n• Plain carbon (1018, 1020): case 만 hardness, core soft (불충분)\n• Case-hardening grade:\n  - AISI 8620 (Ni 0.5%, Mo 0.2%): general gear\n  - AISI 9310 (Ni 3.2%, Mo 0.1%): aerospace gear\n  - AISI 4118 (Cr 0.5%, Mo 0.1%): automotive\n  - AISI 4320 (Ni 1.8%, Cr 0.5%, Mo 0.25%): heavy duty\n• Core hardness 보장: HRC 35-45 (정밀 gear)\n\nNitriding 의 base material:\n• Nitralloy 135 / N (Cr-Mo-Al 합금): 최고 case hardness\n• AISI 4140, 4340: 일반 nitriding grade\n• Tool steel (H13, D2): post-Q+T nitriding\n\n【⚠ 주의 2 — Distortion (Carburizing)】\nCarburizing 의 distortion 위험:\n• 900-925°C 의 high T → thermal expansion\n• Quench 시 differential cooling → warping\n• 두꺼운 part 의 sag, twist\n\n【권장 대응】\n• Press quenching (specialty equipment) — gear / shaft\n• Controlled atmosphere (endothermic gas)\n• Quench fixture (gear 의 정밀 dimensional control)\n• Post-quench tempering (low-T 180°C / 1 h, residual stress 해소)\n\n【⚠ 주의 3 — Nitriding (Lower T, Less Distortion)】\nNitriding 의 우수성:\n• 500-550°C — austenitize 회피 (austenite → martensite transformation 없음)\n• Distortion 매우 작음 (0.005-0.01% dimensional change)\n• Pre-machining 후 nitriding 가능 (final finishing 불필요)\n• 단, case 깊이 thin (0.1-0.5 mm)\n\n【응용】\n• Gear: carburizing (deep case, heavy load)\n• Precision part: nitriding (low distortion)\n• Aerospace gear: carburizing (case 1.0-1.5 mm)\n• Automotive gear: carburizing 또는 nitriding (cost trade-off)\n\n【표준】\nASM Vol.4 (Heat Treating) · SAE J1268 (carburized gear) · AMS 2759 / 5 (nitriding)'}
-                                  </p>
+                                  </RecText>
                                 </div>
                                 <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
                                   <b>출처 / 기준</b>: ASM Handbook Vol.4 Heat Treating{ksRef && ` · ${ksRef}`} · AMS spec (alloy 별) · 분위기/단계/시간은 factor 기반 휴리스틱 (vendor 견적 별도 필요).
@@ -574,7 +576,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             (2) ce_iiw/cet/pcm/sch 가 모두 null 인 Al/Cu/Ti/Mg/Ni-superalloy 같은 비철금속도
                                 qualitative weldability (material.weldability) 표시 — 카드 누락 fix. */}
                   {(material.category === 'Metal' && (ce_iiw || cet || pcm || sch || material.weldability)) && (
-                    <details open className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || (material.weldability === 'Poor' ? 'high' : material.weldability === 'Fair' ? 'med' : 'low'))}`}>
+                    <details className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || (material.weldability === 'Poor' ? 'high' : material.weldability === 'Fair' ? 'med' : 'low'))}`}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5">
                           <FlaskConical className="w-3.5 h-3.5" />Weldability · 용접성 종합
@@ -620,7 +622,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         )}
                         <div className="mt-2 pt-2 border-t-2 border-current/30">
                           <p className="text-[11px] font-semibold leading-relaxed mb-1">권고 절차:</p>
-                          <p className="text-[11px] leading-relaxed whitespace-pre-line">
+                          <RecText className="text-[11px] leading-relaxed">
                             {weldWorst === 'high' && '⚠ 균열 위험 高. Pre-heat 200°C+ · low-H 용접봉 · interpass temp 통제 · PWHT 필수.\n\n'}
                             {weldWorst === 'med' && '주의 필요. Pre-heat 100-200°C · 두꺼운 plate 에서 low-H 권장.\n\n'}
                             {weldWorst === 'low' && '✓ 일반 절차 가능. 표준 용접봉 + 일반 procedure.\n\n'}
@@ -791,7 +793,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                               '⚠⚠⚠ Pure Beryllium\n정밀 광학 mirror (NASA JWST primary mirror), X-ray window, nuclear reactor moderator.\nBeryllium 의 발암성 (NIOSH 1A carcinogen) — 작업 안전성 최고 우선.\n\n【⚠⚠⚠ 발암성 경고】\nBe 의 dust / fume 흡입:\n• CBD (Chronic Beryllium Disease): 일생 unrecoverable 폐 sarcoidosis\n• 일부에서 lung cancer 진행\n• 잠복기 10-30 년\n\n노출 한도:\n• OSHA PEL: 0.2 μg/m³ (Action level 0.1 μg/m³)\n• NIOSH REL: 0.5 μg/m³\n• Korean MOEL TLV: 0.001 mg/m³ (1.0 μg/m³)\n\n【권장 방법】\n• Welding rarely done (실용적 응용 거의 없음)\n• 권장: Ag-base brazing (BAg-1 / BAg-2 filler, AMS 4770)\n  - Process: 720-770°C / vacuum 10⁻⁴ mbar\n  - Filler: BAg-1 (45Ag-15Cu-16Zn-24Cd) 또는 BAg-2 (35Ag-26Cu-21Zn-18Cd)\n  - Cd-free alternative: BAg-7 (56Ag-22Cu-17Zn-5Sn)\n\nIf welding 강행 필수 시:\n• EBW (Electron Beam Welding) only\n• Vacuum 10⁻⁵ mbar\n• Full isolation booth\n\n【⚠⚠⚠ 주의 1 — Berylliosis (CBD)】\n만성 노출 진행:\n• 초기 (1-5 년): 무증상\n• 진행 (5-15 년): dyspnea, dry cough\n• 후기 (15-30 년): 폐 fibrosis, lung transplant 필요\n\n작업자 health surveillance:\n• Pre-employment chest X-ray\n• 매년 BeLPT (Beryllium Lymphocyte Proliferation Test)\n• 의심 증상 시 lung biopsy\n• Workplace registration (OSHA Be standard, 1910.1024)\n\n【⚠⚠ 주의 2 — Full Isolation Welding Booth】\n작업자 보호:\n• Respirator: positive-pressure SCBA (PAPR 부족)\n• Body: Tyvek body suit (one-time use)\n• Hands: double-layer nitrile gloves\n• Workshop:\n  - Negative pressure exhaust (booth 내부 → filter)\n  - HEPA → ULPA filter (99.999% @ 0.12 μm)\n  - 양압 환경 (외부 contamination 회피)\n\n작업 후 처리:\n• Wet decon shower (specialty soap + chelating agent)\n• 작업복 폐기 (incineration)\n• 도구 wet decontamination\n• Medical surveillance follow-up\n\n【⚠ 주의 3 — Grinding / Sanding 절대 금지】\nWeld 후 grinding 또는 sanding 시 BeO dust 생성:\n• BeO 의 흡입은 Be 보다 더 toxic (lung 깊이 침투)\n• 표면 finish 필요 시: chemical polishing only\n  - HNO₃ 30% + H₂SO₄ 30% etching (controlled chemistry)\n\n【응용 (산업적 specialty)】\n• 정밀 광학 mirror: NASA JWST primary mirror (Be-coated)\n• X-ray window: synchrotron beamline\n• Nuclear reactor moderator (ITER, EAST tokamak)\n• 모두 specialty supplier (Materion, NGK Insulators) 의 dedicated facility\n\n【표준】\nASTM B265 (Be sheet) · OSHA 1910.1024 (Be standard) · AMS 4770 (BAg-1 braze filler)'}
                             {!weldWorst && /^zamak ?[35]\b/i.test(material.name || '') &&
                               '주의. Zamak 3 / 5 (Zn-Al Die-cast, Tm 385°C)\nLow-melt zinc alloy:\n• Zamak 3 (Al 4%, Mg 0.04%): 가전 housing, hardware\n• Zamak 5 (Al 4%, Cu 1%, Mg 0.04%): 자동차 carburetor, gear case\n\n【권장 방법】\n• Fusion welding rarely done (Tm 385°C — puddle 통제 어려움)\n• 권장 대체 방법:\n  - Soldering: Sn-Zn paste filler (low-T soldering, 200-250°C)\n  - Mechanical repair: epoxy bonding (cosmetic only)\n  - Replacement: 부분 손상 시 부품 전체 교체\n\nWelding 강행 시:\n• Low-current GTAW (peak 50 A 이하)\n• Pulse mode\n• Cosmetic repair only — structural repair 불가\n\n【⚠ 주의 — Zinc Fume 위험 동일】\nZamak 의 Zn 95% 함량 → ZnO fume 위험:\n• Zn 비등점 907°C → arc temperature 에서 즉시 vaporize\n• Metal fume fever 위험 (감기 유사 증상, 1-2 일 내 회복)\n\n【권장 안전 절차】\n• LEV (Local Exhaust Ventilation) > 0.5 m/s\n• Full-face respirator (P100 + organic vapor cartridge)\n• PEL 5 mg/m³ ZnO\n• 작업 시간 < 2 시간 / day\n\n【응용 (실용적 한계)】\nDie-cast component 의 부분 손상 시:\n• Cosmetic repair (epoxy bonding) 가능\n• Structural repair (load-bearing) 불가\n• 권장: 부품 전체 교체\n\n【표준】\nASTM B86 (Zamak die-cast) · ASTM B240 (Zn ingot)'}
-                          </p>
+                          </RecText>
                           {sch && <p className="text-[11px] leading-relaxed text-foreground/80 mt-1">{sch.note}</p>}
                           <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
                             <b>출처 / 기준</b>: {(ce_iiw || cet || pcm || sch) ? 'IIW Doc IX-535-67 (CE_IIW) · IIW IX-1086-87 (CET, Thyssen) · JIS (Pcm, Ito-Bessyo 1969) · AWS A3.0 / Schaeffler 1949 · ASM Vol.6 Welding' : 'ASM Vol.6 Welding · AWS D1.2 (Al) / D1.6 (stainless) / D17.1 (aerospace) · Handbook qualitative rating'}
