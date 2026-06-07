@@ -333,7 +333,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               const ce_iiw = computeCEIIW(material);
               const pcm = computePcm(material);
               const sch = computeSchaeffler(material);
-              if (!mach && !machCost && !htCost && !cet && !ce_iiw && !pcm && !sch) return null;
+              /* R173 — Metal 이고 weldability rating 있으면 (quantitative metric 없어도) 카드 표시.
+                 AA 7075/Ti-6Al-4V/Inconel 718 등 비철금속이 CE_IIW 미적용이라 weldability 카드 누락 fix. */
+              const hasWeldFallback = material.category === 'Metal' && !!material.weldability;
+              if (!mach && !machCost && !htCost && !cet && !ce_iiw && !pcm && !sch && !hasWeldFallback) return null;
               const bandColor = (b: string) => ({
                 easy: 'text-emerald-700 bg-emerald-50 border-emerald-300',
                 normal: 'text-foreground bg-muted/40 border-border',
@@ -459,18 +462,22 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                       </details>
                     );
                   })()}
-                  {/* 카드 3 — 용접성 4 지표 통합 경고 (default closed, but high band 면 open).
-                      R172 — `md:col-span-2` 제거: R152b 이전 2-col 디자인 잔재. 현재 grid-cols-1 만 사용 →
-                      잔재 클래스가 implicit 2nd column 생성 → Machinability + HT 가 같은 row 에 배치되어 겹침. */}
-                  {(ce_iiw || cet || pcm || sch) && (
-                    <details open={weldWorst === 'high'} className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || 'normal')}`}>
+                  {/* 카드 3 — 용접성 종합 (R173: 항상 펼침 + 비철금속도 qualitative weldability 표시).
+                      R172 — `md:col-span-2` 제거: R152b 이전 2-col 디자인 잔재. 현재 grid-cols-1 만 사용.
+                      R173: (1) 항상 `open` (Mach/HT 카드와 일관성 — 이전 high 일 때만 open 은 버그)
+                            (2) ce_iiw/cet/pcm/sch 가 모두 null 인 Al/Cu/Ti/Mg/Ni-superalloy 같은 비철금속도
+                                qualitative weldability (material.weldability) 표시 — 카드 누락 fix. */}
+                  {(material.category === 'Metal' && (ce_iiw || cet || pcm || sch || material.weldability)) && (
+                    <details open className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || (material.weldability === 'Poor' ? 'high' : material.weldability === 'Fair' ? 'med' : 'low'))}`}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5">
                           <FlaskConical className="w-3.5 h-3.5" />Weldability · 용접성 종합
                           {weldWorst === 'high' && <span className="text-rose-700">⚠</span>}
+                          {!weldWorst && material.weldability === 'Poor' && <span className="text-rose-700">⚠</span>}
                         </span>
                         <span className="text-[10px] font-normal opacity-70">
-                          {weldWorst === 'high' ? '⚠ 위험' : weldWorst === 'med' ? '주의' : '✓ 우수'} · CE+CET+Pcm+Schaeffler
+                          {weldWorst === 'high' ? '⚠ 위험' : weldWorst === 'med' ? '주의' : weldWorst === 'low' ? '✓ 우수' : material.weldability && `${material.weldability}`}
+                          {(ce_iiw || cet || pcm || sch) ? ' · CE+CET+Pcm+Schaeffler' : ' · qualitative (handbook)'}
                         </span>
                       </summary>
                       <div className="space-y-1 text-[12px] mt-2 pt-2 border-t border-current/15">
@@ -498,16 +505,33 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             <span className="font-mono">Cr<sub>eq</sub>{sch.cr_eq.toFixed(1)} · Ni<sub>eq</sub>{sch.ni_eq.toFixed(1)} · <b>{sch.phase}</b></span>
                           </div>
                         )}
+                        {/* R173 — 비철금속 fallback: ce_iiw/cet/pcm/sch 모두 null 이면 qualitative rating + alloy 별 권고 */}
+                        {!ce_iiw && !cet && !pcm && !sch && material.weldability && (
+                          <div className="flex items-baseline justify-between gap-2 py-0.5 border-b border-current/10">
+                            <b>Weldability rating</b>
+                            <span className="font-mono"><b>{material.weldability}</b> (ASM Vol.6 handbook)</span>
+                          </div>
+                        )}
                         <div className="mt-2 pt-2 border-t-2 border-current/30">
                           <p className="text-[11px] font-semibold leading-relaxed">권고 절차:</p>
                           <p className="text-[11px] leading-relaxed">
                             {weldWorst === 'high' && '⚠ 균열 위험 高. Pre-heat 200°C+ · low-H 용접봉 · interpass temp 통제 · PWHT 필수.'}
                             {weldWorst === 'med' && '주의 필요. Pre-heat 100-200°C · 두꺼운 plate 에서 low-H 권장.'}
                             {weldWorst === 'low' && '✓ 일반 절차 가능. 표준 용접봉 + 일반 procedure.'}
+                            {/* 비철금속 alloy-specific 권고 */}
+                            {!weldWorst && /^aa[\s-]?7|^7075|^7050|^7068/i.test(material.name || '') && '⚠ AA 7xxx (Al-Zn-Mg-Cu) — SCC 우려. 단조용접 (FSW) 권장. fusion welding (GMAW/GTAW) 시 5356 filler + porosity 위험. T7 over-aging 후 용접 권장.'}
+                            {!weldWorst && /^aa[\s-]?2|^2024|^2014|^2219/i.test(material.name || '') && '⚠ AA 2xxx (Al-Cu) — porosity + SCC 위험. FSW 권장 (Boeing/Airbus 표준). GTAW 시 2319 filler + DC EP. Aging 후 용접은 강도 손실.'}
+                            {!weldWorst && /^aa[\s-]?(5052|5083|5454|5086|6061|6063|6082)/i.test(material.name || '') && '✓ Al-Mg / Al-Mg-Si 우수한 용접성. 5356 filler (마린) 또는 4043 filler (일반). GTAW AC 또는 GMAW spray transfer.'}
+                            {!weldWorst && /^ti-?6al-?4v|^ti.*grade ?[567]/i.test(material.name || '') && '✓ Ti α+β alloy — GTAW DC EN with Ar shielding (front+back+trailing). O/N/H absorption 회피 (가스 cover) 필수. Pre-clean acetone + stainless brush.'}
+                            {!weldWorst && /^inconel 718|^in[\s-]?718/i.test(material.name || '') && '✓ Inconel 718 — γ\'\' slow aging → no SAC (strain-age cracking). GTAW / EBW / LBW 표준. 718 filler (ER NiFeCr-2, AMS 5832) 권장.'}
+                            {!weldWorst && /^waspaloy|^rene|^cmsx|^pwa|^udimet|^nimonic/i.test(material.name || '') && '⚠ γ\' high-Vf 합금 — strain-age cracking 위험 高. EBW 권장 (low heat input). post-weld solution + aging 필수.'}
+                            {!weldWorst && /^cocrmo|^cocr|^stellite|^l605|^haynes 188/i.test(material.name || '') && '주의. Co-Cr-Mo / cobalt 합금 — GTAW with ERCoCr filler. Solution annealed condition 에서 용접. Carbide precipitation 회피.'}
+                            {!weldWorst && /^az\d|^am\d|^we\d|^zk\d/i.test(material.name || '') && '주의. Mg alloy GTAW AC with Ar shielding. Fire hazard (Mg shaving). Pre-heat 200-300°C 두꺼운 plate.'}
+                            {!weldWorst && /^c1[012]\d{3}|^c170[60]0|^c715|^cuni|^bronze|^brass|^c[2-5]\d{4}/i.test(material.name || '') && '주의. Cu alloy — thermal conductivity 높아 pre-heat 200-400°C 필수. GTAW with ERCu/ERCuSi-A filler. Cu-Ni: ERCuNi.'}
                           </p>
                           {sch && <p className="text-[11px] leading-relaxed text-foreground/80 mt-1">{sch.note}</p>}
                           <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
-                            <b>출처 / 기준</b>: IIW Doc IX-535-67 (CE_IIW) · IIW IX-1086-87 (CET, Thyssen) · JIS (Pcm, Ito-Bessyo 1969) · AWS A3.0 / Schaeffler 1949 · ASM Vol.6 Welding
+                            <b>출처 / 기준</b>: {(ce_iiw || cet || pcm || sch) ? 'IIW Doc IX-535-67 (CE_IIW) · IIW IX-1086-87 (CET, Thyssen) · JIS (Pcm, Ito-Bessyo 1969) · AWS A3.0 / Schaeffler 1949 · ASM Vol.6 Welding' : 'ASM Vol.6 Welding · AWS D1.2 (Al) / D1.6 (stainless) / D17.1 (aerospace) · Handbook qualitative rating'}
                           </p>
                         </div>
                       </div>
