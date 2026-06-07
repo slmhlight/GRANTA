@@ -338,6 +338,71 @@ const FAMILIES: AlloyHtFamily[] = [
   },
 
   // ========================================
+  // AlSi cast / AM (AlSi10Mg, AlSi12, A357)
+  // ========================================
+  {
+    alloyPattern: /alsi\s?10\s?mg|alsi\s?12|alsi\s?7\s?mg|a356|a357|^alsi/i,
+    familyName: 'AlSi cast / AM (AlSi10Mg, AlSi12, A357)',
+    conditions: {
+      'as-built': {
+        code: 'As-built',
+        title: 'As-built (LPBF / DMLS) — α-Al + eutectic Si network',
+        process: 'No post-heat. Microstructure: fine α-Al cell (~0.5 μm) surrounded by eutectic Si network.\n' +
+                 '결정질화 (solidification rate ~10⁶ K/s) 로 normal cast 보다 σy 50% ↑.',
+        resulting: 'AlSi10Mg LPBF as-built: σy 250-280 MPa · UTS 430-460 MPa · El 6-10% · 잔류응력 200 MPa+',
+        useCase: '경량 brackets, heat exchangers, fluidic manifolds. 잔류응력 우려 시 stress-relief 권장.',
+        caveat: '잔류응력 200 MPa 이상 — 박판 / overhang 부품 cracking 위험. Stress-relief 또는 T5 권장.',
+        source: 'EOS AlSi10Mg datasheet / SLM Solutions / ASTM F3318',
+      },
+      'stress-relieved': {
+        code: 'Stress-relieved',
+        title: 'Stress-relieved 300°C / 2 h — 잔류응력 해소 + 강도 유지',
+        process: 'Furnace 300°C / 2 h / FC (slow furnace cooling).\nMg 석출은 partially preserved → as-built 대비 강도 손실 작음.',
+        resulting: 'σy 200-230 MPa · UTS 380-420 MPa · El 8-12% · 잔류응력 < 50 MPa',
+        useCase: '정밀 machining 부품 — distortion 회피. As-built 대비 σy 15% ↓ but ductility ↑.',
+        source: 'EOS AlSi10Mg datasheet / Renishaw AM process guide',
+      },
+      't6': {
+        code: 'T6',
+        title: 'T6 — solution + WQ + artificial aged (peak strength)',
+        process: 'Solution 525-535°C / 1-6 h / WQ → Aged 160-170°C / 6-10 h / AC.\n' +
+                 'Mg₂Si precipitate peak — 강도 ↑↑.\n' +
+                 '단, LPBF 부품은 solution 시 eutectic Si network 분해 → ductility 변동.',
+        resulting: 'AlSi10Mg T6 (LPBF): σy 230-290 MPa · UTS 330-380 MPa · El 3-6%\n' +
+                   'Cast A357 T6: σy 250-280 MPa · UTS 310-340 MPa · El 5-7%',
+        useCase: 'Critical 부품 — strength 우선, ductility 약간 손실 허용.',
+        caveat: 'LPBF AlSi10Mg 는 T6 후 ductility 가 as-built 보다 낮을 수 있음 (Si 분해 + 입계 변화).\n' +
+                 '고연성 필요 시 stress-relieved 또는 modified-T6 (lower solution temp) 권장.',
+        source: 'EOS AlSi10Mg / Renishaw / AMS 4289 (A357)',
+      },
+      'aged': { // alias for T6
+        code: 'Aged',
+        title: 'Aged (T6 equivalent) — peak strength',
+        process: 'Solution + WQ + artificial aging — see T6 above.',
+        resulting: '~T6: σy 230-290 MPa · UTS 330-380 MPa',
+        useCase: 'AlSi cast/AM heat-treatable 표준.',
+        source: 'EOS / AMS 4289',
+      },
+      'heat-treated': { // alias for T6
+        code: 'Heat-Treated',
+        title: 'Heat-Treated (T6) — peak strength',
+        process: 'Solution + WQ + artificial aging — see T6.',
+        resulting: '~T6 results.',
+        useCase: 'AlSi cast/AM peak strength condition.',
+        source: 'EOS AlSi10Mg / AMS 4289',
+      },
+      'annealed': {
+        code: 'Annealed',
+        title: 'Annealed (Full-Anneal) — 최대 연성',
+        process: 'Furnace 350-400°C / 2-4 h / FC. Si network coarsening + Mg₂Si dissolution.',
+        resulting: 'AlSi10Mg annealed: σy 80-110 MPa · UTS 150-200 MPa · El 15-20%',
+        useCase: '심한 forming 필요 시. Cold work 후 재 anneal cycle 도 가능.',
+        source: 'AA Annealing standards',
+      },
+    },
+  },
+
+  // ========================================
   // Maraging 18Ni-Co 250 / 300 / 350
   // ========================================
   {
@@ -1181,6 +1246,22 @@ const FAMILIES: AlloyHtFamily[] = [
 
 const NORMALIZE = (s: string) => String(s || '').toLowerCase().trim();
 
+/*
+ * R176 — Generic-HT → family peak-aged fallback.
+ * Generic entries (CSV-derived) have heat_treatment = "Aged / solution-treated"
+ * — no T6/STA/Aged label match. Map family-by-family to its peak-aged code.
+ *
+ * Example: AA 6061 — Aged / solution-treated → maps to AA 6xxx family's "t6" condition,
+ * so the UI shows the full T6 description (Solution 530°C / WQ / Aged 175°C / 8 h / σy 275 MPa…).
+ */
+const PEAK_AGED_CODE: { [familyName: string]: string } = {
+  'AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)': 't6',
+  'AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)': 't6',
+  'AA 7xxx Al-Zn-Mg (7075, 7050, 7068)': 't6',
+  'AlSi cast / AM (AlSi10Mg, AlSi12, A357)': 't6',
+};
+const GENERIC_AGED_HT_RE = /^aged($|\s|\s*\/|-)|^sta\b|peak\s*ag(ed|ing)|solution\s*\+\s*ag/i;
+
 /**
  * Lookup alloy-specific HT description.
  * @param materialName 재료 이름 (e.g., "17-4 PH (UNS S17400) — H900")
@@ -1211,6 +1292,13 @@ export function htAlloySpecificFor(
       // Match standalone code (e.g., "H900" as word, T6 as word)
       const re = new RegExp(`\\b${codeNorm.replace(/[+().°]/g, '\\$&')}\\b`, 'i');
       if (re.test(nameStr)) return { family, description: desc };
+    }
+    // R176 — fallback: generic "Aged / solution-treated" → family peak-aged.
+    if (htStr && GENERIC_AGED_HT_RE.test(htStr)) {
+      const peakCode = PEAK_AGED_CODE[family.familyName];
+      if (peakCode && family.conditions[peakCode]) {
+        return { family, description: family.conditions[peakCode] };
+      }
     }
   }
   return undefined;

@@ -87,8 +87,8 @@
       "reason": "동일."
     },
     {
-      "from": "SNCM439 (JIS Ni-Cr-Mo, AISI 4340 equiv.) — Q+T (200°C)",
-      "to":   "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (200°C)",
+      "from": "SNCM439 (JIS Ni-Cr-Mo, AISI 4340 equiv.) — Q+T (200°C, full hard)",
+      "to":   "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (200°C, full hard)",
       "reason": "동일."
     },
     {
@@ -120,6 +120,66 @@
       "from": "STS316L (KS D 3705 / JIS G 4304, low-carbon Mo-bearing austenitic stainless) — Annealed (1050°C WQ)",
       "to":   "AISI 316L / STS316L (KS D 3705, austenitic stainless Mo-bearing ELC) — Annealed (1050°C WQ)",
       "reason": "KS 통합 — chemistry 100% 동일 (Cr 16-18, Ni 10-14, Mo 2-3, C ≤0.030). KS minimum 보존."
+    },
+    {
+      "from": "AA 6061 — Aged / solution-treated (Wrought)",
+      "to":   "AA 6061-T6 (Wrought, peak-aged)",
+      "reason": "R176 — generic 'Aged / solution-treated' label 이 가시성 낮음. AA 6xxx heat-treatable 의 peak-aged 표준 T6 label 명시. ht-alloy-specific.ts 의 T6 description 자동 매칭."
+    },
+    {
+      "from": "AA 6061 — Annealed (Wrought)",
+      "to":   "AA 6061-O (Wrought, annealed)",
+      "reason": "R176 — AA 'O' temper = annealed (Aluminum Association T-temper 표준)."
+    },
+    {
+      "from": "AA 6061 — Strain-hardened (Wrought)",
+      "to":   "AA 6061 (Wrought, strain-hardened)",
+      "reason": "R176 — AA 6061 은 heat-treatable 이므로 strain-hardened state 가 표준 아님 (typically T4/T6). Strain-hardened label 유지하되 base name 정리."
+    },
+    {
+      "from": "AA 7075 — Aged / solution-treated (Wrought)",
+      "to":   "AA 7075-T6 (Wrought, peak-aged)",
+      "reason": "R176 — AA 7xxx 의 peak-aged 표준 T6 label 명시. Aerospace wing skin 표준."
+    },
+    {
+      "from": "AA 7075 — Annealed (Wrought)",
+      "to":   "AA 7075-O (Wrought, annealed)",
+      "reason": "R176 — AA O temper = annealed."
+    },
+    {
+      "from": "AA 7075 — Strain-hardened (Wrought)",
+      "to":   "AA 7075 (Wrought, strain-hardened)",
+      "reason": "R176 — base name 정리."
+    },
+    {
+      "from": "AA 2024 — Aged / solution-treated (Wrought)",
+      "to":   "AA 2024-T6 (Wrought, peak-aged)",
+      "reason": "R176 — AA 2xxx peak-aged T6 label 명시. (fuselage 는 T3 권장이지만 generic 은 T6 peak)."
+    },
+    {
+      "from": "AA 2024 — Annealed (Wrought)",
+      "to":   "AA 2024-O (Wrought, annealed)",
+      "reason": "R176 — AA O temper = annealed."
+    },
+    {
+      "from": "AA 2024 — Strain-hardened (Wrought)",
+      "to":   "AA 2024 (Wrought, strain-hardened)",
+      "reason": "R176 — base name 정리."
+    },
+    {
+      "from": "AA 2014 — Aged / solution-treated (Wrought)",
+      "to":   "AA 2014-T6 (Wrought, peak-aged)",
+      "reason": "R176 — AA 2xxx peak-aged T6 label 명시."
+    },
+    {
+      "from": "AA 2014 — Annealed (Wrought)",
+      "to":   "AA 2014-O (Wrought, annealed)",
+      "reason": "R176 — AA O temper = annealed."
+    },
+    {
+      "from": "AA 2014 — Strain-hardened (Wrought)",
+      "to":   "AA 2014 (Wrought, strain-hardened)",
+      "reason": "R176 — base name 정리."
     }
   ]
 }
