@@ -1,11 +1,11 @@
 import { createRoot } from "react-dom/client";
-import { Router } from "wouter";
 import App from "./App";
 import "./index.css";
 
-// GitHub Pages 배포 시 서브디렉토리 경로를 base로 설정
-// 예: https://leeseulbi53.github.io/am-materials-database/
-const base = (import.meta.env.VITE_ROUTER_BASE as string) ?? "";
+/* R173 — main.tsx 의 <Router> wrapper 제거.
+ *   App.tsx 의 AppRouter() 가 자체 <Router base={...}> 를 wrap (R141a 마이그레이션).
+ *   양쪽 Router 가 nested 되면 wouter 가 base path 를 stack → 모든 route 미매칭 → 흰 화면.
+ *   단일 Router 로 통일 (App.tsx 의 BASE_URL 기반). */
 
 /* R120 — Dynamic chunk load failure 자동 복구.
    GitHub Pages 새 deploy 시 hash 변경된 chunk (예: AshbyChartPlotly-D442Ii3v.js) 를
@@ -35,7 +35,5 @@ window.addEventListener('unhandledrejection', handleChunkError);
 window.addEventListener('error', handleChunkError);
 
 createRoot(document.getElementById("root")!).render(
-  <Router base={base}>
-    <App />
-  </Router>
+  <App />
 );
