@@ -62,28 +62,15 @@ export function useMaterialFilter(materials: Material[]) {
   const filtered = useMemo(() => {
     let result = materials;
 
-    // Text search — Sprint 2 A3 + R144d full-text expansion.
-    //   기존: name + subcategory + manufacturer + process + aliases
-    //   추가: industry_note + heat_treatment + meta.applications + composition keys + spec id
+    // R180 — Text search 범위를 alloy name + alias 만으로 제한 (사용자 지적: 검색 범위 너무 넓음).
+    //   이전: name + subcategory + manufacturer + process + aliases + industry_note + heat_treatment
+    //         + meta.applications + composition keys + spec id (10가지 field 검색)
+    //   현재: name + aliases (2가지). 다른 field 는 filter 또는 DSL query 사용.
     if (filters.search.trim()) {
       const q = filters.search.toLowerCase().trim();
       result = result.filter(m => {
         if (fuzzyContains(m.name.toLowerCase(), q)) return true;
-        if (m.subcategory && fuzzyContains(m.subcategory.toLowerCase(), q)) return true;
-        if (m.manufacturer && fuzzyContains(m.manufacturer.toLowerCase(), q)) return true;
-        if (m.process && fuzzyContains(m.process.toLowerCase(), q)) return true;
         if ((m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))) return true;
-        // R144d full-text expansion
-        if (m.industry_note && fuzzyContains(m.industry_note.toLowerCase(), q)) return true;
-        if (m.heat_treatment && fuzzyContains(m.heat_treatment.toLowerCase(), q)) return true;
-        const apps = (m.meta as { applications?: string[] | string })?.applications;
-        if (apps) {
-          const arr = Array.isArray(apps) ? apps : [apps];
-          if (arr.some(a => typeof a === 'string' && fuzzyContains(a.toLowerCase(), q))) return true;
-        }
-        if (m.composition && Object.keys(m.composition).some(k => fuzzyContains(k.toLowerCase(), q))) return true;
-        const specs = (m.meta as { specs?: Array<{ id: string }> })?.specs;
-        if (specs && specs.some(s => fuzzyContains(s.id.toLowerCase(), q))) return true;
         return false;
       });
     }

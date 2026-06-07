@@ -3344,8 +3344,15 @@ const METAL_SUB_RULES = [
 const NAME_BASED_OVERRIDE = [
   // R134a — Al-Li (2050/2090/2099/2195/2196/2198/2199) 별도 분리
   [/^aa\s?(?:2050|2090|2099|2195|2196|2198|2199)\b|\bal-?li\b/i, 'Aluminum - Lithium'],
-  // Aluminum — AA 1xxx ~ 7xxx, A356 같은 cast designation
-  [/^aa\s?[1-7]\d{3}\b|^a[1-7]\d{3}\b/i, 'Aluminum - Pure/Other'],
+  // R180 — AA series 별 정확 subcategory (aaSubcategory() 와 일관). 이전 단일 rule 이 모든 AA series 를
+  //        'Aluminum - Pure/Other' 로 force 한 bug 수정 (AA 6063 / 6061 / 7075 잘못 분류).
+  [/^aa\s?2\d{3}\b/i, 'Aluminum - Cu Alloys (2xxx)'],           // 2xxx Al-Cu
+  [/^aa\s?3\d{3}\b/i, 'Aluminum - Mn Alloys (3xxx)'],           // 3xxx Al-Mn
+  [/^aa\s?5\d{3}\b/i, 'Aluminum - Mg Alloys (5xxx)'],           // 5xxx Al-Mg
+  [/^aa\s?[67]\d{3}\b/i, 'Aluminum - Si Alloys (6xxx/7xxx)'],   // 6xxx Al-Mg-Si, 7xxx Al-Zn-Mg
+  [/^aa\s?1\d{3}\b|^aa\s?8\d{3}\b/i, 'Aluminum - Pure/Other'],  // 1xxx pure, 8xxx misc
+  // Cast aluminum (A356, A357, A360, A380, A413 등) — 6xxx 와 함께 Si 계열로
+  [/^a3(?:5[67]|60|80|13)\b|^alsi\d|^aa\s?a3\d{2}/i, 'Aluminum - Si Alloys (6xxx/7xxx)'],
   // Titanium — Ti-X-Y-Z, Ti CP, Ti grade N, beta-Ti aliases
   [/^ti[\s-]?(?:cp|grade)|^ti[\s-]?\d|^ti-\d|^β[\s-]?ti|beta[\s-]?ti/i, 'Titanium - Pure / CP Grades'],
   // Copper — Cxxxxx UNS designation
