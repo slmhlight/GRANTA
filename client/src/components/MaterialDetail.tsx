@@ -518,16 +518,133 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             {weldWorst === 'high' && '⚠ 균열 위험 高. Pre-heat 200°C+ · low-H 용접봉 · interpass temp 통제 · PWHT 필수.'}
                             {weldWorst === 'med' && '주의 필요. Pre-heat 100-200°C · 두꺼운 plate 에서 low-H 권장.'}
                             {weldWorst === 'low' && '✓ 일반 절차 가능. 표준 용접봉 + 일반 procedure.'}
-                            {/* 비철금속 alloy-specific 권고 */}
-                            {!weldWorst && /^aa[\s-]?7|^7075|^7050|^7068/i.test(material.name || '') && '⚠ AA 7xxx (Al-Zn-Mg-Cu) — SCC 우려. 단조용접 (FSW) 권장. fusion welding (GMAW/GTAW) 시 5356 filler + porosity 위험. T7 over-aging 후 용접 권장.'}
-                            {!weldWorst && /^aa[\s-]?2|^2024|^2014|^2219/i.test(material.name || '') && '⚠ AA 2xxx (Al-Cu) — porosity + SCC 위험. FSW 권장 (Boeing/Airbus 표준). GTAW 시 2319 filler + DC EP. Aging 후 용접은 강도 손실.'}
-                            {!weldWorst && /^aa[\s-]?(5052|5083|5454|5086|6061|6063|6082)/i.test(material.name || '') && '✓ Al-Mg / Al-Mg-Si 우수한 용접성. 5356 filler (마린) 또는 4043 filler (일반). GTAW AC 또는 GMAW spray transfer.'}
-                            {!weldWorst && /^ti-?6al-?4v|^ti.*grade ?[567]/i.test(material.name || '') && '✓ Ti α+β alloy — GTAW DC EN with Ar shielding (front+back+trailing). O/N/H absorption 회피 (가스 cover) 필수. Pre-clean acetone + stainless brush.'}
-                            {!weldWorst && /^inconel 718|^in[\s-]?718/i.test(material.name || '') && '✓ Inconel 718 — γ\'\' slow aging → no SAC (strain-age cracking). GTAW / EBW / LBW 표준. 718 filler (ER NiFeCr-2, AMS 5832) 권장.'}
-                            {!weldWorst && /^waspaloy|^rene|^cmsx|^pwa|^udimet|^nimonic/i.test(material.name || '') && '⚠ γ\' high-Vf 합금 — strain-age cracking 위험 高. EBW 권장 (low heat input). post-weld solution + aging 필수.'}
-                            {!weldWorst && /^cocrmo|^cocr|^stellite|^l605|^haynes 188/i.test(material.name || '') && '주의. Co-Cr-Mo / cobalt 합금 — GTAW with ERCoCr filler. Solution annealed condition 에서 용접. Carbide precipitation 회피.'}
-                            {!weldWorst && /^az\d|^am\d|^we\d|^zk\d/i.test(material.name || '') && '주의. Mg alloy GTAW AC with Ar shielding. Fire hazard (Mg shaving). Pre-heat 200-300°C 두꺼운 plate.'}
-                            {!weldWorst && /^c1[012]\d{3}|^c170[60]0|^c715|^cuni|^bronze|^brass|^c[2-5]\d{4}/i.test(material.name || '') && '주의. Cu alloy — thermal conductivity 높아 pre-heat 200-400°C 필수. GTAW with ERCu/ERCuSi-A filler. Cu-Ni: ERCuNi.'}
+                            {/* R174 — 비철금속 alloy-specific 권고 (정교화: ~25 패턴, AWS spec + AMS filler grade) */}
+                            {/* === Al 합금 (AWS D1.2) === */}
+                            {!weldWorst && /^aa[\s-]?1[01]\d{2}\b|^al99/i.test(material.name || '') &&
+                              '✓ Al 1xxx (CP 99%+) — 모든 Al 중 가장 weldable. GTAW DC EN with Ar, GMAW spray transfer. Filler: **ER1100** (또는 base 자체 가능). Pre-heat 불요 (두께 ≤ 12mm) / 50-100°C (>12mm).'}
+                            {!weldWorst && /^aa[\s-]?2014\b/i.test(material.name || '') &&
+                              '⚠ AA 2014 (Al-Cu-Si-Mg, Si 1.0%) — 2xxx 중 가장 weldable (Si filler 효과). GMAW + **ER4043** filler 권장 (5356 X — Mg2Si crack). Post-weld T62 aging 필요. Pre-heat 150°C.'}
+                            {!weldWorst && /^aa[\s-]?2024\b/i.test(material.name || '') &&
+                              '⚠⚠ AA 2024 (Al-Cu-Mg) — Fusion welding 거의 불가 (porosity + SCC). **FSW (Friction Stir Welding) 권장** — Boeing 787 / Airbus A380 표준. GMAW 시 **ER2319** + DC EP + Ar+He shielding (Al alkoxide 침전 회피).'}
+                            {!weldWorst && /^aa[\s-]?2219\b/i.test(material.name || '') &&
+                              '✓ AA 2219 (Al-Cu 6.3%) — 2xxx 중 GMAW 가능 유일 (low Mg). **ER2319** filler (matching) + DC EP. NASA Space Shuttle external tank 표준. Post-weld T87 aging.'}
+                            {!weldWorst && /^aa[\s-]?2099\b|al-?li/i.test(material.name || '') &&
+                              '⚠ Al-Li 2099 — Li 가 가스 흡수 (H, oxide film). FSW 만 권장 (LCC). Fusion welding → 60% 강도 손실. Airbus A350 fuselage = FSW only.'}
+                            {!weldWorst && /^aa[\s-]?(5052|5083|5086|5454|5754)/i.test(material.name || '') &&
+                              '✓ Al-Mg (Mg 2-5%, non-HT) — 우수한 marine grade. **ER5356** filler (matching Mg, 표준), **ER5183** (5083 marine premium). GTAW AC Ar (sine) / GMAW spray. Pre-heat 50°C 이면 충분.'}
+                            {!weldWorst && /^aa[\s-]?(6061|6063|6082|6005|6101|6151)/i.test(material.name || '') &&
+                              '✓ Al-Mg-Si (6xxx) — 우수. **ER4043** filler (Si match, 일반) / **ER5356** (강도 우선). GTAW AC sine 또는 GMAW spray. Post-weld T6 aging 권장 (T6 → as-welded 50% loss).'}
+                            {!weldWorst && /^aa[\s-]?(7075|7050|7068|7150|7449)/i.test(material.name || '') &&
+                              '⚠⚠ AA 7xxx (Al-Zn-Mg-Cu, T6) — fusion welding 매우 어려움 (SCC + porosity). **FSW only** (Boeing 787 wing, Airbus A350). Welded 영역 σy 30-40% 손실. T7351 over-aged 시 약간 개선.'}
+                            {!weldWorst && /^alsi10mg|^alsi7|^a356|^a380/i.test(material.name || '') &&
+                              '✓ Al-Si cast / AM — Si 함량 6-13% 우수 weldable. **ER4043** (or ER4047 for Al-Si 12%). AM as-built 우수. Hot crack 회피 = filler Si 보장.'}
+                            {/* === Ti 합금 (AWS D17.1 aerospace) === */}
+                            {!weldWorst && /^ti[\s-]?grade ?[1234]\b|^cp-?ti\b|^unalloyed ti/i.test(material.name || '') &&
+                              '✓ CP-Ti (α single phase) — 가장 weldable Ti. **ERTi-1/2/3/4** matching filler. GTAW DC EN with **flow-meter Ar 25 L/min** front, **15 L/min trailing**, back-purge required. O/N/H pickup → embrittlement.'}
+                            {!weldWorst && /^ti-?6al-?4v|^ti[\s-]?grade ?5\b|^ti gr5/i.test(material.name || '') &&
+                              '✓ Ti-6Al-4V (α+β Gr5) — GTAW DC EN, **ERTi-5 (R56400)** filler 또는 Gr23 ELI filler for medical. Pre-clean: acetone + SS brush (no Cu). Ar shielding: 25 L/min front + back + trailing. Charpy fail = O/N contamination 의심.'}
+                            {!weldWorst && /^ti.*grade ?(23|7|9|12)\b|^ti-?3al-?2\.5v/i.test(material.name || '') &&
+                              '✓ Ti Gr9/12/23 ELI — medical grade. **ERTi-9 (Ti-3Al-2.5V)** 또는 **ERTi-23 (R56407)** matching. AWS D17.1 Class A weld 표준 (no porosity > 0.13mm).'}
+                            {!weldWorst && /^beta-?21s|^beta-?c|^ti-?13v|^ti-?15-?3|^ti-?10v|^ti-?5553/i.test(material.name || '') &&
+                              '⚠ β-Ti (Beta-21S/Beta-C/Ti-15-3 등) — β stabilizer 농축 → solidification crack 위험. EBW 권장 (low heat input). GTAW 시 inter-pass < 150°C 통제. Solution + aged 처리 후 weld.'}
+                            {/* === Ni superalloy === */}
+                            {!weldWorst && /^inconel ?(600|601|625|617|690)|^in[\s-]?(600|625|617)/i.test(material.name || '') &&
+                              '✓ Solid-solution Ni (600/601/625/617/690) — 우수. **ERNiCr-3 (600/X-750), ERNiCrMo-3 (625, AMS 5837), ERNiCrCoMo-1 (617)** filler. GTAW DC EN with Ar+He. Pre-heat 미요, inter-pass < 175°C.'}
+                            {!weldWorst && /^inconel ?718\b|^in[\s-]?718\b|^alloy ?718\b/i.test(material.name || '') &&
+                              '✓ Inconel 718 (γ\'\' slow aging → no SAC) — GTAW / EBW / LBW 모두 OK. **ERNiFeCr-2 (AMS 5832)** matching filler. Solution treated condition 에서 weld → post-weld STA (980°C SHT + 720°C/8h + 620°C/8h aging).'}
+                            {!weldWorst && /^inconel ?718plus\b/i.test(material.name || '') &&
+                              '✓ Inconel 718Plus — 718 와 동일 procedure. **ER 718Plus matching filler** (ATI Allvac).'}
+                            {!weldWorst && /^inconel ?x-?750|^in[\s-]?x-?750/i.test(material.name || '') &&
+                              '⚠ Inconel X-750 (γ\' precipitation, Vf 15%) — strain-age cracking 가능. **EBW 권장** (low heat input). GTAW 시 solution-treated condition + post-weld solution + aging 필수.'}
+                            {!weldWorst && /^inconel ?(738|100|939|713)|^in[\s-]?(738|100)|^rene ?80|^rene ?142|^mar-?m/i.test(material.name || '') &&
+                              '⚠⚠ Cast γ\' high-Vf (IN-738/100/939, Rene 80, MAR-M) — fusion welding 매우 어려움. **EBW only** (vacuum, low heat input). Repair only — Ni-base braze filler (BNi-1, AMS 4778) 사용 권장.'}
+                            {!weldWorst && /^hastelloy ?c-?(22|276|2000)|^alloy c-?(22|276)/i.test(material.name || '') &&
+                              '✓ Hastelloy C-22/C-276/C-2000 (solid-solution Ni-Cr-Mo) — 우수. **ERNiCrMo-10 (C-22, AMS 5800), ERNiCrMo-4 (C-276, AMS 5789)** filler. Solution-annealed condition. Sigma phase 540-820°C 영역 회피.'}
+                            {!weldWorst && /^hastelloy ?x\b|^alloy x\b|^un n06002/i.test(material.name || '') &&
+                              '✓ Hastelloy X (Ni-Cr-Fe-Mo solid solution) — 우수. **ERNiCrMo-2 (AMS 5798)** filler. Combustor liner 표준 (F100/F404/F119 engine). Pre-heat 미요.'}
+                            {!weldWorst && /^hastelloy ?b-?[23]\b/i.test(material.name || '') &&
+                              '⚠ Hastelloy B-2/B-3 (Ni-28Mo) — sigma phase 540°C+ 우려. **ERNiMo-7 (B-2, AMS 5837)** filler. Solution-annealed only. Welded part PWHT 1120°C SHT + water quench 권장.'}
+                            {!weldWorst && /^haynes ?(230|556|214)\b|^alloy ?(230|556|214)\b/i.test(material.name || '') &&
+                              '✓ Haynes 230/556/214 (solid-solution + La) — 우수. **ERNiCrWMo-1 (230, AMS 5839)** matching filler. GTAW with Ar shielding. Lanthanum oxide → stable arc.'}
+                            {!weldWorst && /^haynes ?282\b/i.test(material.name || '') &&
+                              '✓ Haynes 282 (γ\' Vf low ~ 19%) — 신소재, low SAC. **ER 282 matching filler** (Haynes spec). EBW 권장, GTAW 가능 (solution-treated). Post-weld STA 표준 (1010°C + 788°C/8h).'}
+                            {!weldWorst && /^haynes ?188|^l-?605|^haynes ?25/i.test(material.name || '') &&
+                              '✓ Haynes 188 (Co-22Cr-22Ni-14W) / L-605 (Co-Cr-W-Ni) — 우수. **ERCoCrW-A (AMS 5772)** filler. F100 jet engine combustor liner 표준 (sheet < 1.5mm GTAW).'}
+                            {!weldWorst && /^waspaloy\b|^rene ?41|^rene ?88|^astroloy|^u(?:dimet)? ?720/i.test(material.name || '') &&
+                              '⚠⚠ γ\' high-Vf wrought (Waspaloy Vf 25%, Rene 41 Vf 40%, Astroloy/U-720) — strain-age cracking 위험 매우 高. **EBW only** (low heat input + immediate solution treatment). GTAW 시 over-aged condition 필수, post-weld 직후 solution treatment.'}
+                            {!weldWorst && /^cmsx|^rene ?n5|^pwa ?14|directionally.?solidified|sx[\s-]?single/i.test(material.name || '') &&
+                              '⚠⚠⚠ SX (Single-Crystal) — fusion welding 거의 불가능 (single crystal 구조 깨짐). **Repair only** — directionally-solidified weld with seed crystal. Rene N5/CMSX-4 turbine blade tip 수리 = LMD (Laser Metal Deposition).'}
+                            {!weldWorst && /^monel ?400\b|^alloy ?400\b/i.test(material.name || '') &&
+                              '✓ Monel 400 (Ni-Cu 70/30 solid solution) — 우수. **ERNiCu-7 (AMS 4831)** matching filler. GTAW or GMAW. Sulfur contamination 회피 (HAZ embrittlement).'}
+                            {!weldWorst && /^monel ?k-?500\b/i.test(material.name || '') &&
+                              '✓ Monel K-500 (γ\' precipitation) — Inconel 718 와 비슷 procedure. **ERNiCuAl-1 matching** filler. Solution treated condition + post-weld aging (Al/Ti precipitate).'}
+                            {!weldWorst && /^a-?286|^uns s66286/i.test(material.name || '') &&
+                              '✓ A-286 (Fe-Ni γ\' precipitation) — 718 와 비슷. **ERNiFeCrMo-1** filler. Solution treated + post-weld aging.'}
+                            {!weldWorst && /^incoloy ?(800|825|909|925)/i.test(material.name || '') &&
+                              '✓ Incoloy 800H/825 (solid solution) — 우수. **ERNiCrMo-3 (825), ERNiCr-3 (800H)** filler. Pre-heat 미요. PWHT 미요.'}
+                            {/* === Cobalt-based === */}
+                            {!weldWorst && /^cocrmo|^co-?cr-?mo|^astm f75|^astm f1537/i.test(material.name || '') &&
+                              '주의. CoCrMo (medical implant grade, F75 cast / F1537 wrought) — **ERCoCr-A** filler (matching). GTAW DC EN with Ar. Solution-annealed condition (1175°C SHT) 에서 weld. Carbide reprecipitation 회피 (재용해 후 quench).'}
+                            {!weldWorst && /^stellite ?(6|12|21)\b/i.test(material.name || '') &&
+                              '주의. Stellite 6/12/21 (hard-facing overlay) — **ERCoCr-A/B/E** filler. PTA (Plasma Transferred Arc) 또는 laser cladding 권장 (GTAW 가능). Dilution < 10% 통제.'}
+                            {!weldWorst && /^mp35n|^elgiloy|^ultimet/i.test(material.name || '') &&
+                              '주의. MP35N/Elgiloy (Co-Ni-Cr-Mo multiphase) — **ERCoCrMo-A** filler. Cold-worked condition 에서 weld 시 강도 손실 100%. Solution-annealed only.'}
+                            {/* === Mg 합금 (AWS D1.1) === */}
+                            {!weldWorst && /^az31|^az80a?\b/i.test(material.name || '') &&
+                              '✓ Wrought Mg AZ31/AZ80 — 우수 (가장 weldable Mg). **ERAZ61A** filler. GTAW AC sine with Ar (high frequency). Pre-heat 300°C 두꺼운 plate. ⚠ Mg shaving fire — wet swarf cleanup.'}
+                            {!weldWorst && /^az91d?\b|^am[56]0|^am-lite/i.test(material.name || '') &&
+                              '주의. Die-cast Mg AZ91/AM60 (high Al) — porosity 위험 (entrapped gas). **ER AZ92A** filler. Re-melt zone 만 weldable (fully solidified zone 만). HPDC porosity 다수.'}
+                            {!weldWorst && /^we43\b|^we54\b/i.test(material.name || '') &&
+                              '⚠ WE43/54 (Mg-Y-Nd-RE) — RE element 가 oxide 생성. **ERWE43** matching filler. Vacuum or pure Ar (no leak). 의료 임플란트 → controlled cleanroom welding.'}
+                            {!weldWorst && /^zk60|^ze41|^ez33a|^hk31a/i.test(material.name || '') &&
+                              '주의. Mg-Zn-Zr / RE 합금 (ZK60/ZE41/EZ33A) — **ER AZ92A** filler (RE filler 없을 시). Pre-heat 250-300°C. Solution treatment 후 fast cool.'}
+                            {/* === Cu 합금 (AWS D1.4) === */}
+                            {!weldWorst && /^c10[01]\d{2}\b|^ofe ?copper|^ofhc ?copper|^c11000/i.test(material.name || '') &&
+                              '주의. Pure Cu (C10100/10200/11000) — 매우 high thermal conductivity (400 W/m·K). **ER Cu (AMS 4731)** filler. **Pre-heat 400-500°C 필수** (두꺼운 plate). GTAW DC EN with Ar + He (1:1) mix.'}
+                            {!weldWorst && /^c1[78]\d{3}\b|^cu-?cr-?zr|^c18150|^c18000|^grcop/i.test(material.name || '') &&
+                              '주의. PH Cu (CuCrZr C18150, CuNiSiCr C18000, GRCop-42) — solution-annealed condition. **ERCu** or **ERCuCr matching** filler. Post-weld aging (450-500°C) 필수.'}
+                            {!weldWorst && /^c17200|^cube|^berryllium copper/i.test(material.name || '') &&
+                              '⚠ BeCu C17200 — **⚠ Be dust/fume 발암성** (NIOSH 1A). Full PPE + ULPA fume extraction. **ERCuBe** filler (Materion supply). Solution-annealed condition.'}
+                            {!weldWorst && /^c2[123]\d{3}|^red brass|^c22000|^c23000/i.test(material.name || '') &&
+                              '주의. Red Brass (C21000/22000/23000) — Zn fume 위험 (vent 必). **ERCuSn-A (phosphor bronze) 또는 ERCuSi-A (silicon bronze)** filler. Pre-heat 200-300°C.'}
+                            {!weldWorst && /^c26000|^c26800|^c36000|^naval brass|^c46400/i.test(material.name || '') &&
+                              '주의. Cartridge/Yellow brass (C26000), Free-mach brass (C36000), Naval brass (C46400) — **Pb fume in C36000 위험**. ERCuSn-A filler. C46400: 우수 (Sn 함유로 dezincification 회피).'}
+                            {!weldWorst && /^c70[60]00|^c715[00]|^cuni|^cupronickel/i.test(material.name || '') &&
+                              '✓ Cupronickel C70600 (90/10) / C71500 (70/30) — 우수. **ERCuNi (AMS 4715)** matching filler. GTAW or GMAW. FPSO seawater piping 표준.'}
+                            {!weldWorst && /^c75200|^nickel silver|^german silver/i.test(material.name || '') &&
+                              '주의. Nickel Silver C75200 — Cu-Ni-Zn. **ERCuNi or ERNiCu-7** filler. Zn fume vent. Pre-heat 200°C.'}
+                            {!weldWorst && /^c95800|^nickel aluminum bronze|^nab\b/i.test(material.name || '') &&
+                              '✓ NAB C95800 (Ni-Al bronze) — 우수. **ERCuNiAl (AMS 4870)** matching filler. Marine propeller welding 표준 (ABS / DNV / KR class).'}
+                            {/* === Refractory metals === */}
+                            {!weldWorst && /^tantalum\b|^ta\b\s*\(|^ta-?10w/i.test(material.name || '') &&
+                              '✓ Tantalum (uniquely weldable refractory) — **EBW (vacuum) 또는 GTAW in Ar glove-box** (Ta + O2 → Ta2O5 embrittlement). Matching Ta filler. Ta-10W = 동일 procedure.'}
+                            {!weldWorst && /^tungsten\b|^w-la\b|^pure tungsten/i.test(material.name || '') &&
+                              '⚠⚠ Tungsten — fusion welding 매우 어려움 (Tm 3422°C, brittle DBTT 300°C). **EBW only** (vacuum). Sintered W heavy alloy (W-Ni-Fe) 는 ERNiCr filler 로 brazing.'}
+                            {!weldWorst && /^molybdenum\b|^mo-?la|^mo-?0\.5ti|^tzm\b|^mo-?re\b/i.test(material.name || '') &&
+                              '⚠ Mo / TZM / Mo-La / Mo-Re — **EBW preferred**. GTAW in Ar glove-box (O2 absorption → recrystallization). Pre-heat 400°C. Post-weld stress relief 1100°C.'}
+                            {!weldWorst && /^niobium\b|^c-?103\b|^nb-?1zr/i.test(material.name || '') &&
+                              '✓ Niobium / C-103 (Nb-Hf-Ti) — Ta 와 비슷 (weldable refractory). **EBW (vacuum) 또는 GTAW high-purity Ar**. C-103 = nuclear thermal rocket 표준 (Plansee/ATI).'}
+                            {!weldWorst && /^rhenium\b|^pure rhenium/i.test(material.name || '') &&
+                              '⚠⚠ Rhenium — **EBW only** (Tm 3186°C, dense, brittle). Cost $5000+/kg → repair-only.'}
+                            {!weldWorst && /^chromium\b|^pure cr|^pure chromium/i.test(material.name || '') &&
+                              '⚠⚠ Pure Cr — RT brittle (DBTT 300°C). **Welding impractical** — Cr plating / coating 으로 사용.'}
+                            {!weldWorst && /^hafnium\b|^pure hf/i.test(material.name || '') &&
+                              '✓ Hafnium — Zr 와 동일 procedure. **GTAW or EBW**. Reactor control rod 표준 (US Navy nuclear submarine).'}
+                            {!weldWorst && /^vanadium\b|^pure v\b/i.test(material.name || '') &&
+                              '주의. Pure V — **GTAW in Ar glove-box** (rapid oxidation > 300°C). V-Cr-Ti 합금 (fusion reactor) 표준.'}
+                            {!weldWorst && /^zirconium\b|^zr-?2\.5nb|^zircaloy/i.test(material.name || '') &&
+                              '✓ Zr / Zircaloy / Zr-2.5Nb — Ti 와 비슷 procedure. **GTAW with Ar (front+back)** or EBW. PWR/BWR fuel cladding 표준. O/N absorption 회피.'}
+                            {/* === Specialty 가공 합금 === */}
+                            {!weldWorst && /^invar ?36|^kovar/i.test(material.name || '') &&
+                              '✓ Invar 36 / Kovar (Fe-Ni / Fe-Ni-Co low-CTE) — 우수. Matching Invar/Kovar filler. GTAW with Ar. Vacuum chamber / glass-metal seal 표준. PWHT 870°C/2h (stress relief).'}
+                            {!weldWorst && /^maraging|^vascomax|^18ni-?\d/i.test(material.name || '') &&
+                              '✓ Maraging Steel (18Ni-7Co-5Mo-Ti, C-free) — 매우 우수 (no HAZ crack). **ER 18Ni Maraging matching** filler. Solution treated condition → weld → post-weld aging (480°C/3-6h).'}
+                            {!weldWorst && /^nitinol\b|^niti\b/i.test(material.name || '') &&
+                              '⚠ Nitinol (NiTi shape-memory) — laser welding only (precision medical). Heat affects shape-memory transformation temperature.'}
+                            {!weldWorst && /^beryllium\b/i.test(material.name || '') &&
+                              '⚠⚠ Pure Beryllium — **⚠⚠ Be dust/fume 발암성** (NIOSH 1A carcinogen, OSHA PEL 0.2 μg/m³). Welding rarely done — brazing preferred (BAg series).'}
+                            {!weldWorst && /^zamak ?[35]\b/i.test(material.name || '') &&
+                              '주의. Zamak 3 (Zn die-cast) — low melt 점 (385°C). Welding rarely done — replace 또는 soldering (Zn-Al filler) 권장.'}
                           </p>
                           {sch && <p className="text-[11px] leading-relaxed text-foreground/80 mt-1">{sch.note}</p>}
                           <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
@@ -601,12 +718,14 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               );
             })()}
 
-            {/* R76 → R87 — History·개발 스토리. amber 단일톤 → 재료 family color 의 옅은 배경 + 진한 텍스트 (Card/Table 배지와 통일). */}
+            {/* R76 → R87 — History·개발 스토리. R174: 기본 접힘 (collapse) — 사용자 요청.
+                긴 story 가 detail panel 의 상단 영역을 차지하던 issue 해소. 클릭 시만 펼침. */}
             {(material.story || material.industry_note) && (
-              <details open className="rounded border p-3" style={{ background: `${famColor}10`, borderColor: `${famColor}55` }}>
+              <details className="rounded border p-3" style={{ background: `${famColor}10`, borderColor: `${famColor}55` }}>
                 <summary className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none" style={{ color: famColor }}>
                   <BookText className="w-3.5 h-3.5" />
                   {t('detail.history') || 'History · 개발 스토리'}
+                  <span className="ml-auto text-[10px] font-normal opacity-60">▸ 클릭하여 펼침</span>
                 </summary>
                 {material.industry_note && (
                   <p className="mt-2 text-[11px] text-foreground/80 leading-relaxed">
