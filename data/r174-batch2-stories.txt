@@ -1,0 +1,90 @@
+﻿=== 42CrMo4 (file: main) ===
+42CrMo4 는 미국 AISI 4140 (1923 SAE 표준) 의 유럽 표준 명칭으로, 1971년 DIN 17200 (현 EN 10083-3) 으로 표준화됐어요. 1.0% Cr + 0.20% Mo + 0.40% C — 동일한 조성, 동일한 응용, 동일한 'general purpose Cr-Mo' 의 위상을 가진 합금이죠.
+
+자동차·트럭 의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. Mo 0.2% 가 tempering brittleness (350-450°C 영역에서 P, S 가 입계 석출) 를 억제하면서 Cr 1% 의 경화능으로 ø100 mm 두께까지 균일한 σ_y 700+ MPa 가 나옵니다. EU 산업의 단조 blank 의 약 25% 가 42CrMo4 입니다.
+
+=== AISI 1010 (file: main) ===
+1010 은 carbon 0.08~0.13% 의 ultra-low-carbon plain steel 로, 1941년 AISI numbering 표준화 시 '가장 부드러운 일반 강' 카테고리에 들어갔습니다. 거의 pure iron 에 가까운 미세조직 (ferrite 100%) 으로 σ_y 180 MPa, El 28% — 종이를 자르듯 가공이 쉬운 게 특징이에요.
+
+응용은 'deep drawing 이 필요한 모든 곳'. 자동차 차체 패널, 캔 음료 외장, 와이어 (paperclip, fence wire, nail), 가구 tube (수업용 의자 frame), 농기계 cover panel, 가스 보일러 thin-wall housing, 산업용 ductwork. 용접성도 perfect (CE 0.18) 이고, galvanizing 후 거의 모든 산업 굴뚝·전봇대 base 로도 사용됩니다.
+
+=== AISI 1020 (file: main) ===
+1020 은 1018 보다 carbon 이 0.02% 더 높은 (0.18~0.23%) plain carbon steel 로, 1911년 SAE 표준 등재 이후 자동차 산업의 'general purpose carbon steel' baseline 으로 자리잡았어요. 1018 보다 σ_y 가 약 5% 높지만 용접성은 다소 낮습니다 (carbon equivalent CE 가 살짝 증가).
+
+응용 — 자동차 axle 단조 (rough forging blank), 농기계 shaft, 차고 도어 spring frame, 산업 펌프 base plate, 미국 ASME / API standard 의 pressure vessel raw stock, 콘크리트 reinforcing rebar (Grade 40 → 1020 변형). 가장 흔한 '강철' 그대로의 모습이라고 보면 됩니다.
+
+=== AISI 1045 (file: main) ===
+AISI 1045 는 carbon 0.43~0.50% 의 medium-carbon plain steel 로, 1911년 SAE numbering 표준화 직후부터 'general purpose machinery steel' 자리에 올랐어요. 0.45% C 는 normalized 상태로 σ_y 530 MPa + El 16% — 1018 (0.18% C) 의 약 1.5배 강도이면서도 가공성은 여전히 양호한 sweet spot 이거든요.
+
+응용 — 자동차 axle shaft (Hyundai/Kia), 산업 펌프 shaft, gear blank (induction-hardened 후 case 만 강하게), bolt blank (Grade 5 / 8.8), 머시너리 base plate, 농기계 fork tine, 산업 hydraulic ram. 한국 KS D 3752 의 S45C, 독일 DIN EN 10083 의 C45, 일본 JIS G 4051 의 S45C 모두 동일 합금이에요 — 자동차·기계 산업의 단조 blank 의 절반 정도가 1045 / S45C / C45 입니다.
+
+흥미. 1045 는 'flame-hardenable medium carbon' 의 typical example 이에요. 표면을 산소-아세틸렌 torch 로 빨갛게 달군 후 물 분사로 quench 하면 surface 만 HRC 55 의 martensite 가 되고 안쪽은 ductile pearlite 가 유지됩니다. 자동차 cam shaft 의 cam lobe 표면 hardening 이 이 기술의 가장 흔한 응용이죠.
+
+=== AISI 302 (file: r149) ===
+AISI 302 는 austenitic stainless steel 중 304 의 'older sibling' 입니다. 1925년 ASTM 이 304 (Cr 18% + Ni 8% + C 0.08% max) 를 표준화하면서 그 직전의 high-C variant 를 302 (Cr 17-19% + Ni 8-10% + C 0.15% max) 로 designation 했어요. C 함량이 304 의 2배 가까이 높아서 cold-working 시 σy 가 더 빨리 올라가는 게 특징입니다.
+
+302 의 매력은 cold-work hardening 이 다른 austenitic 보다 강하다는 점입니다. Annealed σy 200 MPa → cold-worked half-hard 800 MPa → full-hard 1200 MPa. 304 의 ½ hard 가 700 MPa 인 데 비해 302 는 800 MPa 까지 가능. 이 때문에 spring 산업의 표준 austenitic stainless 가 됐어요.
+
+응용: stainless spring (302 가 austenitic spring steel 의 표준 — Smalley wave spring 의 일부 grade), watch spring (Rolex · Patek Philippe 의 일부 mainspring 의 base material), 정밀 wire form spring, surgical instrument 의 일부 (autoclave 환경의 spring 응용 — 외과 retractor 의 spring 부분), 그리고 식기 cutlery 의 일부 (302 가 일반 식기 grade 임). 단점은 C 함량이 높아 용접 후 sensitization 위험이 크다는 점. 그래서 용접 필요 응용은 304 또는 304L (C ≤ 0.03%) 로 대체됩니다.
+
+=== AISI 304 (file: main) ===
+1912년 독일 크루프 (Krupp) 실험실. 에두아르드 마우러 (Eduard Maurer) 와 베노 슈트라우스 (Benno Strauss) 는 분석실 한 켠에 방치돼 있던 시료가 몇 달이 지나도 녹슬지 않는다는 사실을 우연히 발견합니다. 분석해보니 Cr 18% + Ni 8% 의 조합 — 우리가 지금 '스테인리스' 라고 부르는 그 합금이었죠. 두 사람은 이 발견을 1913년 DRP 304126 특허로 출원했고, 이렇게 인류 최초의 오스테나이트계 스테인리스가 세상에 등장합니다.
+
+1차 대전 동안엔 잠수함 부품용 비밀 군수 물자로 묶여 있었지만, 종전 후 크루프가 V2A (Versuchsschmelze 2 Austenit, '2번 실험로 오스테나이트') 라는 이름으로 상품화하면서 일반인도 만나게 됐어요. 1930년 뉴욕 크라이슬러 빌딩의 첨탑 외장재로 채택되며 광택과 부식 저항으로 세계의 주목을 받았고, 미국 ASTM 은 1925년 18-8 stainless 를 type 304 (UNS S30400) 로 표준화합니다.
+
+304 의 비결은 표면에 형성되는 Cr₂O₃ 부동태 막입니다. 흠집이 나도 다시 자기-치유 (self-passivating) 되기 때문에 식품, 의료, 건축 어디서든 첫 번째 후보가 되죠. 세계 stainless 생산량의 절반 가까이가 304/304L 계열일 정도입니다. 단, 450~850°C 에 오래 머무르면 Cr₂₃C₆ 가 입계에 석출해 sensitization (입계 부식) 이 일어날 수 있어요. 그래서 용접부에는 304L (저탄소) 또는 Ti 안정화 321, Nb 안정화 347 이 함께 검토됩니다.
+
+=== AISI 316 (file: main) ===
+1929년, 304 의 한계 — 해수나 염수 환경에서의 부식 — 를 풀어보려는 시도가 미국과 독일에서 거의 동시에 이뤄집니다. 미국 Union Carbide 의 휘트니 임스 (Whitney Eames), 그리고 독일 Krupp 가 18-8 (304) 에 Mo 2~3% 를 추가한 새 합금을 들고 나온 거죠. Mo 가 만드는 MoO₄²⁻ 음이온이 Cl⁻ 의 부동태 침투를 막아주는 게 핵심이었어요. 이렇게 등장한 AISI 316 은 60~80°C 의 염수 환경까지 안정적인 부식 저항을 보여 'Marine grade' 로 불리며 ASTM A240 표준에 등재됩니다.
+
+1962년에 한 번 더 진화합니다. carbon 을 ≤0.03% 로 떨어뜨린 ELC 변형 — 316L 이 표준화됐고, 용접 후 별다른 후처리 없이 바로 쓸 수 있는 합금으로 자리잡았어요. 이게 모든 용접 식품·화학·바이오 응용의 기준선이 됩니다.
+
+응용 범위가 정말 넓습니다. 해상 platform 의 hand-railing, 식품 가공 라인 (요리도구, 맥주 양조 탱크, 와인 발효조), 의료 임플란트 (ASTM F138 ELC 316LVM 정형외과 nail/screw), 펄프·종이 산업 펌프, FPSO 의 무수 수송관, 반도체 super-clean piping … 2010년대 들어서는 AM (LPBF, EBM) 의 인기 분말 1순위가 되어 LEAP 엔진 housing, GE H-class 가스터빈 후단 nozzle, EOS·SLM Solutions 의 standard powder bed grade 까지 폭넓게 쓰입니다.
+
+=== AISI 4140 (file: main) ===
+1923년 SAE 의 새 numbering system 이 4xxx 시리즈를 Mo-bearing low-alloy steel 로 지정하면서 그 중 4140 — 1.0% Cr + 0.20% Mo + 0.40% C — 가 'general purpose Cr-Mo' 표준으로 등장합니다. 1941년 AISI 와 SAE 가 통합 numbering 을 합의하면서 정식 등재됐고, EU 표준명 42CrMo4 (EN 10083-3) 는 1971년 등록됐어요.
+
+4140 의 의의는 Mo 0.2% 의 역할에 있어요. tempering brittleness (350-450°C 영역에서 σ 인접 P, S 가 입계 석출) 를 억제하면서, Cr 1% 가 경화능 (hardenability) 을 ø100 mm 두께까지 보장하는 거죠 — 가장 두꺼운 단조에서도 균일한 σ_y 700+ MPa 가 나옵니다. 응용 — 자동차·트럭의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. 가장 흔히 만져지는 alloy steel 의 가장 흔한 grade 라고 보면 됩니다.
+
+=== AlSi10Mg (file: main) ===
+AlSi10Mg 는 1960년대 알루미늄 다이캐스팅 alloy A360 (Al-9.5Si-0.5Mg) 의 변형으로 시작됐어요. Si 10% 의 eutectic 근접 조성으로 fluidity 가 우수해 복잡 형상의 thin-wall casting 이 가능하고, Mg 0.4% 의 시효 강화 (Mg₂Si 석출) 로 σ_y 240 MPa + El 5% 의 균형을 달성합니다.
+
+2010년대 들어 AM (LPBF, DMLS) 시장이 본격적으로 열리면서 AlSi10Mg 가 metal 3D 프린팅의 거의 default Al 분말 자리에 올랐어요. 이유는 첫째, 분말 atomization 이 비교적 쉽고 (다른 Al 합금은 산화 위험으로 atomization 이 어렵죠), 둘째, LPBF 의 빠른 열 cycle 이 자연스럽게 Si 의 미세 분산을 만들어 strength 가 단조 6061 의 약 90% 수준에 도달하기 때문입니다.
+
+응용 — F1 BMW Sauber 의 oil-cooler housing (Optomec LENS 인쇄, 2015), Boeing 787 의 ECS (Environmental Control System) bracket, GE Catalyst engine 의 heat exchanger, Apple AirPods Max 의 일부 internal mount. EOS 의 EOS Aluminum AlSi10Mg, SLM Solutions 의 AlSi10Mg, GE Additive Concept Laser 의 AlSi10Mg-A — 사실상 모든 metal AM vendor 의 표준 grade 입니다.
+
+=== ASTM A36 (structural) (file: main) ===
+1960년 미국 ASTM 이 처음 발표한 ASTM A36 은 carbon ≤0.26% + Si 0.40% + Mn 0.50~1.20% 의 plain carbon structural steel 이에요. 1018 의 cousin 이지만 mill 의 자유도가 더 크고 (예: scrap 함량이 더 많아도 OK), σ_y 250 MPa + El 23% 의 ductility + 우수한 용접성 (CE 0.45 미만) 의 균형으로 미국 건설 산업의 baseline 자리에 올랐습니다.
+
+1970-2002년 동안 미국 도시의 거의 모든 W-shape beam, channel, angle, plate 가 A36 — 시카고 Sears Tower (현 Willis Tower), 보스턴 John Hancock Building, World Trade Center 의 frame 까지. 2002년 ASTM A992 가 W-shape 의 default 가 됐지만, plate 와 bar 응용에서는 A36 이 여전히 default 자리에 있어요.
+
+응용 — 다리 (미국 interstate 의 80% 이상이 A36 plate), 빌딩 frame (지진 안전 spec 없는 저층), 콘크리트 reinforcing rebar (Grade 36 변형), 농기계 trailer chassis, 산업 컨베이어 frame, 가설 발판. 매년 미국에서 약 8천만 ton 의 A36 가 소비되며 — 양으로는 모든 강 중 1위입니다.
+
+=== Inconel 718 (file: main) ===
+1950년대 후반 미국 INCO (International Nickel Company) 의 허버트 아이젤슈타인 (Herbert Eiselstein) 이 풀고 싶었던 골치 아픈 문제가 하나 있었습니다. 당시 주류였던 슈퍼알로이 Waspaloy 가 용접만 했다 하면 응고 균열 (strain-age cracking) 을 일으킨다는 거였죠. γ' (Ni₃(Al,Ti)) 시효가 너무 빨라, 용접 열을 받는 동안 균열이 먼저 자라버리는 게 원인이었습니다.
+
+그가 1959년에 내놓은 해법은 의외로 간단했어요. Nb 5 wt% 와 Mo 3 wt% 를 더해 γ" — BCT 결정의 Ni₃Nb — 라는 새 석출상을 만들면 시효 속도가 충분히 느려진다는 점을 알아낸 겁니다. γ" 는 650~700°C 까지 안정하면서 응고 시간 창이 넓어, 단조와 용접이 모두 가능한 슈퍼알로이가 처음 등장하게 됐죠. 이게 우리가 아는 Inconel 718 입니다.
+
+그 뒤로 60여 년 동안 718 은 거의 모든 제트엔진의 주요 부품으로 들어갔습니다. 보잉 747 의 P&W JT9D, 블랙호크 헬기의 GE T700, F/A-18 의 F404, 737NG 의 CFM56 — 어디든 압축기 디스크와 1단 블레이드가 718 이었어요. 우주 셔틀 SSME 의 터보펌프 일부, SpaceX Merlin·Raptor 의 인젝터 바디, 1972년 아폴로 17호 LM 상승 엔진 노즐까지 — 사실상 '항공 가스터빈 강도의 대명사' 가 된 합금입니다. 최근에는 LPBF 분말로도 가장 흔히 쓰여, GE LEAP-1A 의 연료 노즐, SpaceX SuperDraco 추력기까지 모두 718 의 3D 프린팅입니다.
+
+=== Ti-6Al-4V (file: main) ===
+1940년, 룩셈부르크 출신 화학자 윌리엄 저스틴 크롤 (William Justin Kroll) 이 Mg 환원으로 sponge titanium 의 산업 공정을 완성합니다 (Kroll process, US Patent 2,205,854). 그로부터 14년 뒤인 1954년 미국 Battelle Memorial Institute (오하이오 콜럼버스) 의 스탠리 아브코비츠 (Stanley Abkowitz) 와 R J 셔먼 (Sherman) 이 새 도전에 나서요. Al 6% (α 안정화) + V 4% (β 안정화) 의 비율로 α+β 양상 합금을 만들어보자는 시도였죠. 결과는 단연 압도적 — 1956년 USAF 의 SR-71 후보 합금 평가에서 Ti-6Al-4V 가 1위로 선정됐습니다.
+
+Ti-6Al-4V (또는 Ti64) 가 차지하는 위상은 그야말로 압도적이에요. 전 세계 Ti 사용량의 약 56% 가 이 한 합금이거든요. F-22 / F-35 fuselage frame, Boeing 787 의 landing gear (ELI 변형), GE GE9X 의 fan disc, SpaceX Merlin 엔진 valve body, 의료 — ASTM F136 / F1472 의 hip stem 과 dental implant 전체 시장의 80%, Apple Watch Series 7 Edition case, F1 차의 suspension wishbone … 어디든 '비강도 (σ_y/ρ ≈ 200 km) + 부식 저항' 이 필요하면 Ti64 가 답.
+
+AM (LPBF, EBM) 에서도 가장 인기 분말이에요. 이유? atomization 이 비교적 쉽고, post-HIP + STA 처리로 단조 수준의 강도를 회복할 수 있어서죠. SpaceX Raptor 의 일부 valve, Aurora UAV 의 mounting bracket, NASA Artemis Orion 의 RCS thruster bracket 까지 — 모두 Ti64 LPBF. 약점은 oxygen 흡수예요 — 700°C 이상에서 표면이 빠르게 산화되니까, hot work 도 진공 또는 inert gas 환경이 필수입니다.
+
+=== STAVAX ESR (file: r149) ===
+STAVAX ESR 은 Uddeholm (현 voestalpine Group) 의 plastic mold-grade stainless tool steel 입니다. Original 발표는 1972년 스웨덴 Uddeholm Tooling 으로, AISI 420 (13% Cr martensitic stainless tool steel) 의 ESR (Electroslag Remelting, 전극용해 정련) variant 입니다. ESR 공정은 inclusion (산화물 · 황화물 비금속 개재물) 을 1/10 수준으로 낮춰 polish 표면이 거울 같은 수준 (Ra < 0.05 μm) 까지 가능해집니다.
+
+STAVAX ESR 은 13% Cr + 0.5% Si + 0.4% Mn + 0.38% C 의 martensitic stainless 입니다. Q+T 후 HRC 48-52 hardness 와 함께 stainless 의 부식 저항 + ESR 의 polish ability + plastic mold 의 abrasion resistance 를 모두 갖춘 hybrid 입니다. Q+T 표준은 1030°C oil quench + 350°C double temper.
+
+응용은 plastic injection mold 의 '거울 표면' 이 필요한 cavity 입니다. CD/DVD pressing mold (0.7 μm pit 을 정확히 transfer), 광학 lens mold (안경 lens, 카메라 lens), 의료 syringe / catheter mold, 일반 소비재 의 transparent component (transparent ABS housing), 그리고 자동차 headlamp lens mold (acrylic 또는 polycarbonate 의 광학 cavity). STAVAX ESR 가격은 $25-35/kg 으로 일반 P20 mold steel ($8/kg) 대비 3-4 배이지만 corrosion 환경 (산성 또는 chloride 함유 resin) 의 mold 수명을 10 배 이상 늘립니다.
+
+=== Tungsten Carbide (file: r149) ===
+Tungsten Carbide (WC) 의 cemented carbide 형태는 1923년 독일 Osram 의 Karl Schröter 가 발견한 cobalt-binder sintering 공정이 시작입니다. 1925년 Krupp 이 'Widia' (Wie Diamant = 다이아몬드 같은) 이라는 상표로 시장 출시했고, GE 가 미국에서 1928년 'Carboloy' 라는 이름으로 상품화했어요. 이게 현대 cemented carbide industry 의 시작입니다.
+
+WC 의 메커니즘은 단순합니다. WC 단결정 (Mohs 9, HV 2400) 입자를 6-20% Co metal binder 가 둘러싸 sintering 으로 결합합니다. 이렇게 만든 WC-Co 의 경도는 HRC 70-75, σ_compress 5000 MPa, KIC 10-20 MPa·√m 의 압도적 강도 + 약간의 인성을 갖습니다. Co 함량으로 hardness vs toughness 균형을 조절해요 (6% Co → 매우 단단·brittle, 20% Co → 부드럽지만 tough).
+
+응용: cutting tool — turning insert, milling cutter, drill bit (전 세계 절삭공구 시장의 90% 이상이 WC-Co), 광산 drill bit (rock drilling 의 button bit), 자동차 stamping die (high-volume sheet metal forming die), 정밀 micro mold (시계 watch 부품 forming), wear-resistant coating (HVOF spray WC-Co coating on landing gear), 그리고 ammunition penetrator (군용 KE penetrator 의 일부 grade, depleted uranium 대안). 정밀 측정 분야의 표준 reference block (Mitutoyo / Carl Zeiss 의 calibration block) 도 WC-Co 입니다. 가격은 $40-80/kg 이지만 cutting tool life 가 HSS 의 5-10 배라 cost-of-ownership 은 압도적으로 유리합니다.
+
