@@ -39,6 +39,14 @@ interface RadarChartProps {
 }
 
 const getProp = (m: Material, key: string): number | null => {
+  // R173 — delivered_price_per_kg 우선 (condition × form × grade factor 반영).
+  // 같은 alloy 의 HT variants 가 raw price 동일하더라도 처리 후 cost 는 다름 — 사용자가
+  // 1/$ axis 에서 condition 별 차이 보이도록.
+  if (key === 'price_per_kg') {
+    const d = (m.ranges as any)?.delivered_price_per_kg;
+    if (d && typeof d.typical === 'number' && d.typical > 0) return d.typical;
+    if (typeof (m as any).delivered_price_per_kg === 'number' && (m as any).delivered_price_per_kg > 0) return (m as any).delivered_price_per_kg;
+  }
   const r = (m.ranges as any)?.[key];
   if (r && typeof r.typical === 'number') return r.typical;
   const v = (m as any)[key];

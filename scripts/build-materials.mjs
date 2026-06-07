@@ -4053,7 +4053,9 @@ fs.writeFileSync(path.join(DATA, 'validation-report.md'), rep.join('\n'));
    - materials.json (legacy) 도 그대로 유지 → 기존 deeplink + tooling 깨지지 않음. */
 // R154 — slim index 의 ranges 는 number-only (typical 만). min/max/provenance/confidence 는 full 에만.
 // 이렇게 해도 검색·filter slider·Ashby preview 모두 동작. 첫 페인트 우선.
-const SLIM_PROPS = ['density', 'yield_strength', 'uts', 'modulus', 'max_service_temp', 'price_per_kg'];
+// R173 — delivered_price_per_kg 추가 (condition × form × grade factor 반영된 processed cost).
+// Radar chart 의 1/$ axis 가 condition-aware price 사용 가능 (slim index 단계 부터).
+const SLIM_PROPS = ['density', 'yield_strength', 'uts', 'modulus', 'max_service_temp', 'price_per_kg', 'delivered_price_per_kg'];
 const slimEntries = all.map(m => {
   const slim = {
     id: m.id,
