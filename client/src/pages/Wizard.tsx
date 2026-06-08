@@ -7,10 +7,13 @@
  * URL: /wizard (또는 모바일 deep-link)
  * Output: home (/?p=scenarioKey) 로 이동 + Guide 학습 링크 옵션.
  */
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { ArrowLeft, ArrowRight, Compass, BookOpen, ChevronRight, RotateCcw, CheckCircle2, AlertTriangle, ThumbsUp } from 'lucide-react';
 import { useT } from '@/lib/i18n';
+/* R184 — Result count 표시 — materials.json load + applyQuery 로 실제 후보 수 계산. */
+import type { Material } from '@/lib/materials';
+import { parseQuery, applyQuery } from '@/lib/query-dsl';
 
 /* ───────── Step 정의 ───────── */
 
@@ -86,21 +89,10 @@ const STEPS: Step[] = [
       { value: 'safety_critical', label: '안전 critical', detail: '결함 = 인명피해. 인증 (AMS / ASME / FDA) + 정밀 fatigue / σy 검증.' },
     ],
   },
-  {
-    id: 'budget',
-    question: '4. 단가 한도는?',
-    detail: '재료 가격 기준 (USD/kg). 가공·HT 비용 별도.',
-    choices: [
-      { value: 'low', label: '< $10/kg', detail: '탄소강 · Al 보통 grade · 일반 polymer' },
-      { value: 'mid', label: '$10 - $50/kg', detail: 'Stainless · 6xxx Al · 일반 공구강' },
-      { value: 'high', label: '$50 - $200/kg', detail: 'Ti grade 5 · Inconel · PH stainless · Mg alloy' },
-      { value: 'premium', label: '$200+ /kg', detail: 'γ-TiAl · Inconel 718/HX · 의료 grade · BeCu' },
-      { value: 'nolimit', label: '제약 없음', detail: '성능 우선 (항공 · 우주 · F1)' },
-    ],
-  },
+  /* R184 — Cost step 제거 (사용자 요청). 가격은 home 의 filter sidebar 에서 별도 조정. */
   {
     id: 'cert',
-    question: '5. 인증 요구사항?',
+    question: '4. 인증 요구사항?',
     detail: '필수 spec 매칭 — 후보 좁히기.',
     guideChapter: { num: 'Ch.11', id: 'ch12', label: '인증 · 가공 · 시제품' },
     choices: [
@@ -113,10 +105,11 @@ const STEPS: Step[] = [
       { value: 'dnv', label: 'DNV (해상)', detail: 'DNV-OS-B101' },
     ],
   },
-  /* R182/R183 — 새 step 6: 기본 물성 수치 입력. 각 input 옆에 bracket 예시 (산업별 typical) 표시. */
+  /* R182/R183/R184 — 새 step 5: 기본 물성 수치 입력. 각 input 옆에 bracket 예시 (산업별 typical) 표시.
+   *                  (R184 — cost step 제거로 5번 step). */
   {
     id: 'properties',
-    question: '6. 필요한 기본 물성 (선택)',
+    question: '5. 필요한 기본 물성 (선택)',
     detail: '필요 수치를 직접 입력하거나, 아래 예시 alloy 의 값을 클릭하여 자동 입력. 모두 비워두면 사전 hint 만 사용.\n\n💡 필요 인장강도를 모르겠다면? — 비슷한 응용 예시를 비교하세요:\n  • 자동차 brackets / 일반 frame → σy ~ 200-350 MPa (AISI 1018 / AA 6061-T6)\n  • 항공 wing / 자전거 frame → σy ~ 350-500 MPa (AA 7075-T6 / Ti-6Al-4V)\n  • 고강도 fastener / spring → σy ~ 800-1200 MPa (4340 Q+T / 17-4 PH H900)\n  • 정밀 도구 / spring wire → σy 1200+ MPa (Maraging / piano wire)',
     guideChapter: { num: 'Ch.4', id: 'ch4', label: '기본 물성 · 단위 · 시험 표준' },
     numerics: [
@@ -203,7 +196,7 @@ function choiceHint(
   const env = answers.environment;
   const load = answers.load;
   const lifetime = answers.lifetime;
-  const budget = answers.budget;
+  /* R184 — budget step 제거. */
 
   /* ===== load step hints ===== */
   if (stepId === 'load') {
@@ -235,27 +228,7 @@ function choiceHint(
     }
   }
 
-  /* ===== budget step hints ===== */
-  if (stepId === 'budget') {
-    if (env === 'hightemp' && (choiceValue === 'low' || choiceValue === 'mid')) {
-      return { hint: 'caution', reason: '고온용 합금 (Inconel/Hastelloy/Haynes) 대부분 $100/kg 이상' };
-    }
-    if (env === 'biomedical' && (choiceValue === 'low' || choiceValue === 'mid')) {
-      return { hint: 'caution', reason: '의료 grade (Ti-6Al-4V ELI / CoCrMo / 316LVM) 대부분 고가' };
-    }
-    if (env === 'biomedical' && (choiceValue === 'high' || choiceValue === 'premium')) {
-      return { hint: 'recommended', reason: '의료 grade 합금 일반 가격대' };
-    }
-    if (lifetime === 'safety_critical' && choiceValue === 'low') {
-      return { hint: 'caution', reason: 'Safety critical 부품은 저가 generic grade 사용 어려움' };
-    }
-    if (lifetime === 'safety_critical' && (choiceValue === 'high' || choiceValue === 'premium' || choiceValue === 'nolimit')) {
-      return { hint: 'recommended', reason: 'Safety critical → AMS / ASME 인증 grade (고가)' };
-    }
-    if (env === 'cryogenic' && choiceValue === 'low') {
-      return { hint: 'caution', reason: '극저온용 (9Ni / 304L / Invar 36) 일반 grade 대비 가공비 ↑' };
-    }
-  }
+  /* R184 — budget step hints 제거 */
 
   /* ===== cert step hints ===== */
   if (stepId === 'cert') {
@@ -276,9 +249,6 @@ function choiceHint(
     }
     if (lifetime === 'safety_critical' && choiceValue === 'none') {
       return { hint: 'caution', reason: 'Safety critical → 인증 필수 (AMS / ASME / FDA 중 선택)' };
-    }
-    if (budget === 'low' && (choiceValue === 'ams' || choiceValue === 'fda_iso')) {
-      return { hint: 'caution', reason: 'AMS / FDA grade 는 일반적으로 $50/kg 이상' };
     }
   }
 
@@ -303,8 +273,8 @@ function deriveRecommendations(answers: Record<string, string>): Recommendation[
   const env = answers.environment;
   const load = answers.load;
   const lifetime = answers.lifetime;
-  const budget = answers.budget;
   const cert = answers.cert;
+  /* R184 — budget step 제거. */
 
   // 환경 기반 1차 시나리오
   const envScenario: Record<string, { key: string; label: string; query: string }> = {
@@ -341,14 +311,7 @@ function deriveRecommendations(answers: Record<string, string>): Recommendation[
     dnv: ['DNV OS-B101'],
   };
 
-  // 예산 기반 query 추가
-  const budgetQuery: Record<string, string> = {
-    low: 'cost<10',
-    mid: 'cost<50',
-    high: 'cost<200',
-    premium: '',
-    nolimit: '',
-  };
+  /* R184 — budgetQuery 제거 */
 
   // 1차: 환경 + 하중 우선 결합
   const primaryKey = envEntry?.key || loadEntry?.key || 'lowcost';
@@ -356,7 +319,6 @@ function deriveRecommendations(answers: Record<string, string>): Recommendation[
   const queryParts: string[] = [];
   if (envEntry?.query) queryParts.push(envEntry.query);
   if (loadEntry?.query) queryParts.push(loadEntry.query);
-  if (budget && budgetQuery[budget]) queryParts.push(budgetQuery[budget]);
 
   /* R182 — Lifetime → safety filter. KIC 제거. safety critical 의 경우 σy + El + σf 우선 검증. */
   if (lifetime === 'safety_critical') queryParts.push('σy>400 el>8');
@@ -386,7 +348,7 @@ function deriveRecommendations(answers: Record<string, string>): Recommendation[
   recs.push({
     scenarioKey: primaryKey,
     scenarioLabel: primaryLabel,
-    why: `환경=${env || '-'}, 하중=${load || '-'}, 수명=${lifetime || '-'}, 예산=${budget || '-'}, 인증=${cert || '-'}`,
+    why: `환경=${env || '-'}, 하중=${load || '-'}, 수명=${lifetime || '-'}, 인증=${cert || '-'}`,
     guideChapters,
     query: queryParts.join(' '),
     specs,
@@ -399,22 +361,11 @@ function deriveRecommendations(answers: Record<string, string>): Recommendation[
       scenarioLabel: `${loadEntry.label} (대안)`,
       why: '하중 관점 대안',
       guideChapters,
-      query: [loadEntry.query, budget && budgetQuery[budget]].filter(Boolean).join(' '),
+      query: loadEntry.query,
       specs,
     });
   }
-
-  // Tertiary: 가벼운 alternative (저비용)
-  if (budget === 'low' || budget === 'mid') {
-    recs.push({
-      scenarioKey: 'lowcost',
-      scenarioLabel: '저비용 대안',
-      why: '예산 압박이 가장 큰 경우',
-      guideChapters,
-      query: budgetQuery[budget] || '',
-      specs,
-    });
-  }
+  /* R184 — '저비용 대안' tertiary 제거 (cost step 제거에 따라). */
 
   return recs;
 }
@@ -428,6 +379,31 @@ export default function Wizard() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const recommendations = useMemo(() => deriveRecommendations(answers), [answers]);
   const isComplete = step >= STEPS.length;
+
+  /* R184 — materials.json fetch (한 번만) — result count 표시용. */
+  const [materials, setMaterials] = useState<Material[]>([]);
+  useEffect(() => {
+    let cancelled = false;
+    const base = (import.meta as { env?: { BASE_URL?: string } }).env?.BASE_URL || '/';
+    fetch(`${base}materials.json`).then(r => r.json()).then((data: Material[]) => {
+      if (!cancelled) setMaterials(data);
+    }).catch(() => { /* ignore — count 표시만 영향 */ });
+    return () => { cancelled = true; };
+  }, []);
+
+  /* R184 — 각 recommendation 별 후보 alloy count 계산. */
+  const recCounts = useMemo(() => {
+    if (!materials.length) return recommendations.map(() => null as number | null);
+    return recommendations.map(rec => {
+      if (!rec.query) return materials.length;
+      try {
+        const parsed = parseQuery(rec.query);
+        return applyQuery(materials, parsed).length;
+      } catch {
+        return null;
+      }
+    });
+  }, [materials, recommendations]);
 
   const handleSelect = (val: string) => {
     const id = STEPS[step].id;
@@ -635,7 +611,26 @@ export default function Wizard() {
               <div key={idx} className="rounded-lg border border-border bg-card p-4 hover:border-accent transition-colors">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">{idx === 0 ? '1순위' : idx === 1 ? '2순위' : '3순위'}</p>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <p className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">{idx === 0 ? '1순위' : idx === 1 ? '2순위' : '3순위'}</p>
+                      {/* R184 — 후보 alloy count badge — 색상 으로 narrow 정도 시각화 */}
+                      {recCounts[idx] != null && (() => {
+                        const n = recCounts[idx]!;
+                        const cls = n === 0
+                          ? 'bg-rose-50 text-rose-700 border-rose-300'
+                          : n < 10
+                            ? 'bg-amber-50 text-amber-700 border-amber-300'
+                            : n < 50
+                              ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
+                              : 'bg-blue-50 text-blue-700 border-blue-300';
+                        const label = n === 0 ? '결과 없음 — 조건 완화' : n < 10 ? `${n} 후보 (좁음)` : `${n} 후보`;
+                        return (
+                          <span className={`text-[10px] px-1.5 py-0.5 rounded border font-semibold ${cls}`}>
+                            {label}
+                          </span>
+                        );
+                      })()}
+                    </div>
                     <h2 className="text-base font-bold mt-0.5">{rec.scenarioLabel}</h2>
                     <p className="text-[11px] text-muted-foreground mt-1">시나리오 키: <code className="font-mono text-accent">{rec.scenarioKey}</code></p>
                     {rec.query && (
