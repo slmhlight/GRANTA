@@ -10884,40 +10884,42 @@
       "composition": {
         "Ni": "balance",
         "Cr": "17~21",
-        "Fe": "balance",
-        "Nb": "5~6",
-        "Co": "9",
-        "Al": "1.5",
-        "Ti": "0.7"
+        "Co": "8~10",
+        "Fe": "8~10",
+        "Nb": "5.2~5.8",
+        "Mo": "2.5~3.1",
+        "W": "0.8~1.4",
+        "Al": "1.2~1.7",
+        "Ti": "0.5~1.0"
       },
       "points": [
         [
-          8.18,
+          8.25,
           1100,
           1380,
           18,
-          211,
+          207,
           380,
           11
         ],
         [
-          8.18,
+          8.25,
           1050,
           1320,
           14,
-          211,
+          207,
           360,
           11
         ]
       ],
       "sources": [
         {
-          "label": "ATI — Inconel 718Plus (UNS N07818)",
-          "url": null,
-          "verified": false
+          "label": "ATI 718Plus® Alloy Technical Data Sheet (UNS N07818, VERSION 1 2013)",
+          "url": "https://www.atimetals.com/products/718plus-alloy/",
+          "verified": true
         }
       ],
-      "heat_treatment": "STA — Solution + 2-stage Aged (1040°C / 790°C 8h + 700°C 8h)"
+      "heat_treatment": "STA — Solution 954-982°C 1h + 2-stage Age (788°C 8h, FC to 704°C, hold 8h, AC)"
     },
     {
       "name": "Incoloy 925",
@@ -16024,13 +16026,13 @@
       "composition": {
         "Ni": "balance",
         "Cr": "17~21",
-        "Fe": "8~10",
         "Co": "8~10",
+        "Fe": "8~10",
         "Nb": "5.2~5.8",
         "Mo": "2.5~3.1",
-        "W": "0.9~1.4",
-        "Ti": "0.5~1.0",
-        "Al": "1.2~1.7"
+        "W": "0.8~1.4",
+        "Al": "1.2~1.7",
+        "Ti": "0.5~1.0"
       },
       "points": [
         [
