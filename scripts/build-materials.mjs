@@ -4048,6 +4048,37 @@ try {
   console.log(`R186 — industry_note final cleanup: ${cleaned} entries modified (${capped} significantly truncated)`);
 }
 
+/* R191 — Proprietary alloy manufacturer override.
+ *   Reference data (supplementary loader default) 를 정확한 OEM 으로 교체.
+ *   data/r191-proprietary-alloys.json 의 pattern 매칭 entries 만 적용. */
+try {
+  const r191Raw = JSON.parse(fs.readFileSync(path.join(DATA, 'r191-proprietary-alloys.json'), 'utf8'));
+  const patterns = (r191Raw.patterns || []).map(p => ({ ...p, _rx: new RegExp(p.pattern, 'i') }));
+  let r191Touched = 0;
+  const r191Hits = {};
+  for (const m of all) {
+    if (!m || !m.name) continue;
+    // Only override 'Reference data' or empty manufacturer (curated AM vendors 보존)
+    const mfs = m.manufacturers || [];
+    const isRefOnly = mfs.length === 0 || (mfs.length === 1 && mfs[0] === 'Reference data');
+    if (!isRefOnly) continue;
+    for (const p of patterns) {
+      if (p._rx.test(m.name)) {
+        m.manufacturers = [p.manufacturer];
+        m.manufacturer = p.manufacturer;
+        r191Touched++;
+        r191Hits[p._alloy || p.pattern] = (r191Hits[p._alloy || p.pattern] || 0) + 1;
+        break;
+      }
+    }
+  }
+  console.log(`R191 — proprietary alloy manufacturer override: ${r191Touched} entries matched across ${patterns.length} patterns`);
+  const topHits = Object.entries(r191Hits).sort((a, b) => b[1] - a[1]).slice(0, 12);
+  for (const [alloy, count] of topHits) console.log(`    ${alloy}: ${count} entries`);
+} catch (e) {
+  console.warn('R191 proprietary alloy override skipped:', e.message);
+}
+
 /* R173 Phase B — Range overrides for entries with verified handbook errors.
  *   data/r173-range-overrides.json 의 exact-name 매칭 시 ranges 의 typical/min/max 를 정정값으로 교체.
  *   (sources 와 다르게 정확한 entry name 매칭만 — accidental over-replacement 방지)
