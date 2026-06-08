@@ -305,13 +305,15 @@ export function LoadCard({ svg, name, deflection, moment, common, hint }: { svg:
     <div className="rounded-lg border border-border bg-card p-4">
       <p className="font-bold text-foreground mb-2">{name}</p>
       <div className="bg-muted/30 rounded border border-border/60 p-2 flex items-center justify-center min-h-[88px]">{svg}</div>
+      {/* R189 — label width w-16 (64px) 가 한글 "최대 처짐"/"최대 모멘트" mono 7-8글자 (~84-96px)
+                보다 좁아 줄바꿈 ('최대 처\n트') 발생 → w-20 (80px) 으로 확장. */}
       <div className="mt-3 space-y-1.5">
         <div className="flex items-baseline gap-2 text-[13px]">
-          <span className="font-mono text-accent w-16 flex-shrink-0">최대 처짐</span>
+          <span className="font-mono text-accent w-24 flex-shrink-0 whitespace-nowrap">최대 처짐</span>
           <span className="font-mono text-foreground/90">{deflection}</span>
         </div>
         <div className="flex items-baseline gap-2 text-[13px]">
-          <span className="font-mono text-accent w-16 flex-shrink-0">최대 모멘트</span>
+          <span className="font-mono text-accent w-24 flex-shrink-0 whitespace-nowrap">최대 모멘트</span>
           <span className="font-mono text-foreground/90">{moment}</span>
         </div>
       </div>

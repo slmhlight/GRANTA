@@ -616,6 +616,10 @@ export const IconMaxTemp = () => (
 );
 
 /* 개선된 LoadCard 처짐 곡선 오버레이 (Chapter 4) — 변형 모양·δ_max 표시 */
+/* R189 — Cantilever F + δ_max label 겹침 fix.
+ *   기존: F arrow at x=180 (y=40-76), δ_max indicator at x=170 (y=38-64), δ_max label at x=150 y=76.
+ *         "δ_max" text width ~30px → 150+30=180 = F arrow x=180 → 정확히 겹침.
+ *   변경: δ_max indicator + label 을 보 곡선 아래 위쪽 (x=120, y=55) 으로 이동, F arrow 단독 keep. */
 export const SvgCantileverV2 = () => (
   <svg viewBox="0 0 200 90" className="w-full h-full">
     {wallHatch(20)}
@@ -623,8 +627,8 @@ export const SvgCantileverV2 = () => (
     <path d="M 20 38 Q 110 38 180 64" fill="none" className="stroke-accent" strokeWidth="3" />
     <g className={force} strokeWidth="2.4" fill="none"><line x1="180" y1="40" x2="180" y2="76"/><polyline points="176,70 180,78 184,70"/></g>
     <text x="184" y="58" fontSize="11" className="fill-rose-500" fontFamily="monospace">F</text>
-    <g className="stroke-emerald-600" strokeWidth="1" fill="none"><line x1="170" y1="38" x2="170" y2="64" /><polyline points="167,42 170,38 173,42" /><polyline points="167,60 170,64 173,60" /></g>
-    <text x="150" y="76" fontSize="9" className="fill-emerald-700 font-bold" fontFamily="monospace">δ_max</text>
+    <g className="stroke-emerald-600" strokeWidth="1" fill="none"><line x1="140" y1="38" x2="140" y2="56" /><polyline points="137,42 140,38 143,42" /><polyline points="137,52 140,56 143,52" /></g>
+    <text x="98" y="52" fontSize="9" className="fill-emerald-700 font-bold" fontFamily="monospace">δ_max</text>
     <text x="92" y="86" fontSize="11" className="fill-foreground/70" fontFamily="monospace">L</text>
   </svg>
 );

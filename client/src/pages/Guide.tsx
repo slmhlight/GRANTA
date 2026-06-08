@@ -1221,25 +1221,32 @@ export default function Guide() {
           {/* R68 — Goodman diagram */}
           <div className="rounded-lg border border-border bg-card p-3 my-3">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📐 Goodman diagram — 평균응력 영향</p>
+            {/* R189 — Goodman diagram label 겹침 fix:
+             *   - Soderberg label y=138 (설계점 y=139 겹침) → y=80 (line 상부 위쪽 안전 영역)
+             *   - Goodman label x=290 y=108 그대로 (line 위쪽, OK)
+             *   - Gerber label x=300 y=170 → x=320 y=160 (오른쪽 약간, Goodman 과 거리 확보)
+             *   - 설계점 (170, 135) + label y=139 그대로 (Soderberg 이동 후 충분 공간)
+             *   - "✓ 안전 영역" x=120 → x=80 y=170 → y=160 (좌하단 더 명확)
+             *   - "✗ 파단" x=250 → x=320 y=50 (Goodman label 의 위쪽) */}
             <svg viewBox="0 0 420 220" className="w-full h-auto">
               {/* axes */}
               <line x1="50" y1="180" x2="380" y2="180" stroke="oklch(0.4 0.04 250)" />
               <line x1="50" y1="20" x2="50" y2="180" stroke="oklch(0.4 0.04 250)" />
               {/* Goodman (linear) */}
               <line x1="50" y1="40" x2="370" y2="180" stroke="oklch(0.55 0.12 220)" strokeWidth="2" />
-              <text x="290" y="108" fontSize="11" fill="oklch(0.45 0.12 220)" fontWeight="bold">Goodman (σ_u)</text>
+              <text x="270" y="100" fontSize="11" fill="oklch(0.45 0.12 220)" fontWeight="bold">Goodman (σ_u)</text>
               {/* Soderberg */}
               <line x1="50" y1="40" x2="290" y2="180" stroke="oklch(0.55 0.12 110)" strokeWidth="2" />
-              <text x="220" y="138" fontSize="10" fill="oklch(0.45 0.12 110)" fontWeight="bold">Soderberg (σ_y)</text>
+              <text x="120" y="78" fontSize="10" fill="oklch(0.45 0.12 110)" fontWeight="bold">Soderberg (σ_y)</text>
               {/* Gerber parabolic */}
               <path d="M 50 40 Q 220 90 370 180" fill="none" stroke="oklch(0.55 0.12 30)" strokeWidth="2" strokeDasharray="4 3" />
-              <text x="300" y="170" fontSize="10" fill="oklch(0.45 0.12 30)" fontWeight="bold">Gerber (실험)</text>
+              <text x="320" y="155" fontSize="10" fill="oklch(0.45 0.12 30)" fontWeight="bold">Gerber (실험)</text>
               {/* Design point examples */}
               <circle cx="170" cy="135" r="5" fill="oklch(0.5 0.18 30)" />
               <text x="178" y="139" fontSize="10" fill="oklch(0.4 0.18 30)" fontWeight="bold">설계점 (안전)</text>
               {/* Safe / unsafe zones */}
-              <text x="120" y="170" fontSize="10" fill="oklch(0.45 0.15 145)" fontWeight="bold">✓ 안전 영역</text>
-              <text x="250" y="50" fontSize="10" fill="oklch(0.45 0.18 30)" fontWeight="bold">✗ 파단</text>
+              <text x="75" y="160" fontSize="10" fill="oklch(0.45 0.15 145)" fontWeight="bold">✓ 안전 영역</text>
+              <text x="330" y="48" fontSize="10" fill="oklch(0.45 0.18 30)" fontWeight="bold">✗ 파단</text>
               {/* Labels */}
               <text x="42" y="44" textAnchor="end" fontSize="11" fill="oklch(0.4 0.04 250)">σ_f</text>
               <text x="42" y="184" textAnchor="end" fontSize="11" fill="oklch(0.4 0.04 250)">0</text>
