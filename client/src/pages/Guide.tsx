@@ -326,22 +326,22 @@ export default function Guide() {
         <div className="mt-6 rounded-lg border border-accent/30 bg-accent/5 p-4">
           <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-3 flex items-center gap-1.5"><Compass className="w-3.5 h-3.5" /> 설계 → 재료 선택 의사결정 흐름</p>
           <svg viewBox="0 0 760 200" className="w-full h-auto">
-            {/* 7 단계 박스 */}
+            {/* R188 — sub label 단축 (box 92px width 가독성 확보, AS9100·ISO 13485 → AS9100 / ISO 등). */}
             {[
               { x: 8,   label: '① 요구 정의', sub: '기능·하중·환경', href: '#ch2', n: 5 },
-              { x: 118, label: '② Family 매핑', sub: '경량 → Al/Ti …', href: '#ch10', n: 3 },
-              { x: 228, label: '③ Ashby 좁히기', sub: '필터 + Index M', href: '#ch6', n: 2 },
-              { x: 338, label: '④ Compare', sub: 'CSV / PNG / Radar', href: '#ch6', n: 2 },
-              { x: 448, label: '⑤ 검증', sub: '데이터시트 출처', href: '#ch8', n: 13 },
-              { x: 558, label: '⑥ 시제품 시험', sub: '인장·피로·CT', href: '#ch12', n: 11 },
-              { x: 668, label: '⑦ 인증·양산', sub: 'AS9100·ISO 13485', href: '#ch12', n: 11 },
+              { x: 118, label: '② Family 매핑', sub: '경량→Al/Ti', href: '#ch10', n: 3 },
+              { x: 228, label: '③ Ashby 좁히기', sub: '필터+Index M', href: '#ch6', n: 2 },
+              { x: 338, label: '④ Compare', sub: 'CSV·Radar', href: '#ch6', n: 2 },
+              { x: 448, label: '⑤ 검증', sub: '데이터시트', href: '#ch8', n: 13 },
+              { x: 558, label: '⑥ 시제품 시험', sub: '인장·피로', href: '#ch12', n: 11 },
+              { x: 668, label: '⑦ 인증·양산', sub: 'AS9100·ISO', href: '#ch12', n: 11 },
             ].map((s, i) => (
               <g key={i}>
                 <a href={s.href}>
                   <rect x={s.x} y="58" width="92" height="60" rx="6" fill="oklch(0.99 0.005 250)" stroke="oklch(0.55 0.12 220)" className="hover:fill-accent/10" />
-                  <text x={s.x + 46} y="76" textAnchor="middle" fontSize="10" fontWeight="bold" fill="oklch(0.3 0.04 250)">{s.label}</text>
-                  <text x={s.x + 46} y="92" textAnchor="middle" fontSize="8" fill="oklch(0.5 0.04 250)">{s.sub}</text>
-                  <text x={s.x + 46} y="108" textAnchor="middle" fontSize="7" fill="oklch(0.55 0.12 220)">Ch.{s.n} →</text>
+                  <text x={s.x + 46} y="78" textAnchor="middle" fontSize="11" fontWeight="bold" fill="oklch(0.3 0.04 250)">{s.label}</text>
+                  <text x={s.x + 46} y="94" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">{s.sub}</text>
+                  <text x={s.x + 46} y="110" textAnchor="middle" fontSize="8" fontWeight="bold" fill="oklch(0.55 0.12 220)">Ch.{s.n} →</text>
                 </a>
                 {i < 6 && (
                   <line x1={s.x + 92} y1="88" x2={s.x + 110} y2="88" stroke="oklch(0.55 0.12 220)" strokeWidth="1.5" markerEnd="url(#arrow)" />

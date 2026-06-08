@@ -267,9 +267,9 @@ export const SvgColumn = () => (
 
 /* ─── 큰 교육용 도식 (Chapter 인트로용) ─────────────────────────────────── */
 
-/** 응력-변형률 곡선 — 한 그림으로 σy·UTS·연신율·E 모두 라벨링 */
+/** R188 — viewBox height 200 → 215 (연신율 label y=200 잘림 fix). */
 export const SvgStressStrain = () => (
-  <svg viewBox="0 0 320 200" className="w-full h-full">
+  <svg viewBox="0 0 320 215" className="w-full h-full">
     <g className="stroke-foreground/10" strokeWidth="0.8">
       {[40, 80, 120, 160].map(y => <line key={y} x1="40" y1={y} x2="300" y2={y} />)}
       {[80, 130, 180, 230, 280].map(x => <line key={x} x1={x} y1="20" y2="180" x2={x} />)}
@@ -299,7 +299,7 @@ export const SvgStressStrain = () => (
       <polyline points="44,189 40,192 44,195" />
       <polyline points="256,189 260,192 256,195" />
     </g>
-    <text x="125" y="200" fontSize="10" className="fill-sky-600 font-semibold">연신율 (파단 변형률)</text>
+    <text x="80" y="208" fontSize="10" className="fill-sky-600 font-semibold">연신율 (파단 변형률)</text>
     <text x="55" y="155" fontSize="9" className="fill-foreground/60">탄성</text>
     <text x="115" y="55" fontSize="9" className="fill-foreground/60">소성(가공경화)</text>
     <text x="226" y="55" fontSize="9" className="fill-foreground/60">네킹</text>
@@ -334,8 +334,9 @@ export const SvgBendingStress = () => (
       <line x1="232" y1="130" x2="268" y2="130" /><polyline points="264,126 268,130 264,134" />
       <line x1="232" y1="148" x2="278" y2="148" /><polyline points="274,144 278,148 274,152" />
     </g>
-    <text x="282" y="34" fontSize="9" className="fill-rose-500 font-semibold">σ_max (압축)</text>
-    <text x="282" y="152" fontSize="9" className="fill-sky-500 font-semibold">σ_max (인장)</text>
+    {/* R188 — '압축'/'인장' label x position 282 → 232, textAnchor='middle' 로 변경 (viewBox 320 right edge 잘림 fix). */}
+    <text x="255" y="22" fontSize="9" textAnchor="middle" className="fill-rose-500 font-semibold">σ_max (압축)</text>
+    <text x="255" y="170" fontSize="9" textAnchor="middle" className="fill-sky-500 font-semibold">σ_max (인장)</text>
     <g className="stroke-foreground/60" strokeWidth="1" fill="none">
       <line x1="174" y1="30" x2="178" y2="30" /><line x1="174" y1="90" x2="178" y2="90" /><line x1="176" y1="30" x2="176" y2="90" />
     </g>

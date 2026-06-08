@@ -163,6 +163,11 @@ export function Chapter({ n, id, title, learn, prereq, children }: { n: number; 
   // R187 — 진행률 hook
   const { isRead, toggle } = useReadChapters();
   const read = isRead(id);
+  /* R188 — 학습 완료 chapter 의 'Review' toggle. learn section 을 collapse/expand.
+   * Read 가 false 일 때 항상 expanded (initial 학습 mode).
+   * Read 가 true 일 때 default collapsed (이미 학습 — review 시 expand). */
+  const [reviewOpen, setReviewOpen] = useState(false);
+  const learnVisible = !read || reviewOpen;
   return (
     <section id={id} className="scroll-mt-24 mt-14">
       <div className="border-b-2 border-accent/30 pb-4 mb-5">
@@ -185,24 +190,38 @@ export function Chapter({ n, id, title, learn, prereq, children }: { n: number; 
             {isMobile && (effectiveOpen ? <ChevronDown className="w-4 h-4 text-accent flex-shrink-0 self-center" /> : <ChevronRight className="w-4 h-4 text-accent flex-shrink-0 self-center" />)}
             <h2 className="text-2xl font-bold text-foreground mt-1 tracking-tight">{title}</h2>
           </button>
-          {/* R187 — Mark as read toggle */}
-          <button
-            type="button"
-            onClick={() => toggle(id)}
-            className={`flex-shrink-0 text-[11px] px-2.5 py-1 rounded border font-medium transition-colors ${
-              read
-                ? 'bg-emerald-50 border-emerald-300 text-emerald-700 hover:bg-emerald-100'
-                : 'bg-background border-border text-muted-foreground hover:border-accent hover:text-accent'
-            }`}
-            title={read ? '학습 완료 표시 취소' : '이 chapter 를 학습 완료로 표시 (localStorage 저장)'}
-          >
-            {read ? '✓ 읽음' : '읽음 표시'}
-          </button>
+          {/* R188 — Review toggle (학습 완료 chapter 만) + Mark as read toggle */}
+          <div className="flex-shrink-0 flex items-center gap-1.5">
+            {read && (
+              <button
+                type="button"
+                onClick={() => setReviewOpen(v => !v)}
+                className="text-[11px] px-2.5 py-1 rounded border font-medium transition-colors bg-violet-50 border-violet-300 text-violet-700 hover:bg-violet-100"
+                title="이 chapter 의 학습 목표 다시 보기"
+              >
+                {reviewOpen ? '↑ 핵심 숨기기' : '↓ 핵심 다시 보기'}
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => toggle(id)}
+              className={`text-[11px] px-2.5 py-1 rounded border font-medium transition-colors ${
+                read
+                  ? 'bg-emerald-50 border-emerald-300 text-emerald-700 hover:bg-emerald-100'
+                  : 'bg-background border-border text-muted-foreground hover:border-accent hover:text-accent'
+              }`}
+              title={read ? '학습 완료 표시 취소' : '이 chapter 를 학습 완료로 표시 (localStorage 저장)'}
+            >
+              {read ? '✓ 읽음' : '읽음 표시'}
+            </button>
+          </div>
         </div>
-        {effectiveOpen && (
+        {effectiveOpen && learnVisible && (
           <>
-            <div className="mt-3 rounded-md bg-accent/5 border border-accent/20 px-3 py-2">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1">이 챕터에서 배우는 것</p>
+            <div className={`mt-3 rounded-md border px-3 py-2 ${read ? 'bg-violet-50/50 border-violet-200' : 'bg-accent/5 border-accent/20'}`}>
+              <p className={`text-[11px] font-semibold uppercase tracking-wide mb-1 ${read ? 'text-violet-700' : 'text-accent'}`}>
+                {read ? '핵심 요약 (Review)' : '이 챕터에서 배우는 것'}
+              </p>
               <ul className="list-disc pl-5 text-sm space-y-0.5 text-foreground/85">
                 {learn.map((l, i) => <li key={i}>{l}</li>)}
               </ul>
