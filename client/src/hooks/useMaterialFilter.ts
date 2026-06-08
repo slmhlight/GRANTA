@@ -104,25 +104,24 @@ export function useMaterialFilter(materials: Material[]) {
       );
     }
 
-    /* Process filter — R192 group-based matching.
-     * UI options 4개 (Wrought / Molding / Casting / AM) vs DB 44 distinct process strings
-     * (예: 'Wrought (Q+T)', 'Cold Rolled (TWIP: ...)', 'LPBF', 'DMLS', 'Injection Molding').
-     * 이전: exact match (filters.processes.includes(m.process)) — 'Wrought' 선택해도
-     *      'Wrought (Q+T)' 매칭 X, 'AM' 선택해도 'LPBF/DMLS/SLM' 매칭 X.
-     * 변경: group keyword matching. */
+    /* Process filter — R192/R193 group-based matching.
+     * UI options 5개 (Wrought / Molding / Casting / Powder / AM) vs DB 44 distinct process strings.
+     * R193 — 'Sintered' / 'Powder-Metallurgy' 는 AM 이 아님 (전통 press-and-sinter / MIM).
+     *        AM 에서 분리 + 신규 'Powder' group 신설. */
     if (filters.processes.length > 0) {
       const procGroups: Record<string, string[]> = {
         Wrought: ['wrought', 'cold rolled', 'hot rolled', 'cold drawn', 'hot dip galvani', 'tmcp', 'forged', 'extrusion', 'vacuum refined', 'q+t (heat'],
-        Molding: ['injection', 'compression mold', 'layup'],
+        Molding: ['injection mold', 'compression mold', 'layup'],
         Casting: ['cast'],
-        AM: ['lpbf', 'dmls', 'slm', 'sls', 'fdm', 'powder-metallurgy', 'sintered', 'closed-cell foam', 'am ', 'am('],
+        Powder: ['sintered', 'powder-metallurgy', 'powder metallurgy', 'press-and-sinter', 'mim ', 'metal injection mold'],
+        AM: ['lpbf', 'dmls', 'slm', 'sls', 'fdm', 'closed-cell foam', 'am ', 'am('],
       };
       result = result.filter(m => {
         const p = String(m.process || '').toLowerCase();
         if (!p) return false;
         return filters.processes.some(grp => {
           const keys = procGroups[grp];
-          if (!keys) return p === grp.toLowerCase(); // fallback: exact match for unmapped groups
+          if (!keys) return p === grp.toLowerCase(); // fallback
           return keys.some(k => p.includes(k));
         });
       });

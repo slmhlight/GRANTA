@@ -377,10 +377,11 @@ function ProcessFilter({ allProcesses, selected, onChange }: ProcessFilterProps)
         <div className="px-3 py-2 space-y-2">
           {allProcesses.map(proc => {
             const descriptions: Record<string, string> = {
-              'Wrought': '(Forging, rolling)',
-              'Molding': '(Injection, sintering)',
-              'Casting': '(Casting, die casting)',
-              'AM': '(LPBF, DMLS, SLM, EBM)',
+              'Wrought': '(Forging, rolling, extrusion)',
+              'Molding': '(Injection, compression, layup)',
+              'Casting': '(Sand, die, investment)',
+              'Powder': '(Sintered, MIM, press-and-sinter)',
+              'AM': '(LPBF, DMLS, SLM, EBM, FDM, SLS)',
             };
             return (
               <label key={proc} className="flex items-center gap-2 cursor-pointer">
@@ -973,8 +974,8 @@ export default function FilterSidebar({
   // R51b — leave-one-out narrow 우선, 없으면 (예: 데이터 없음) 기본 전체 범위 사용.
   const nr = (props: Record<string, [number, number] | null> | undefined, key: string, fallback: [number, number] | null) =>
     (props && props[key]) || fallback;
-  // Process 필터를 4개로 단순화
-  const allProcesses = ['Wrought', 'Molding', 'Casting', 'AM'];
+  // Process 필터 — R193: 'Sintered'/'Powder-Metallurgy' 는 AM 이 아니라 Powder (전통 press-and-sinter / MIM). 5 그룹 (Wrought / Molding / Casting / Powder / AM).
+  const allProcesses = ['Wrought', 'Molding', 'Casting', 'Powder', 'AM'];
 
   const densityRange = useMemo(() => getPropertyRange(materials, 'density'), [materials]);
   const yieldStrengthRange = useMemo(() => getPropertyRange(materials, 'yield_strength'), [materials]);
