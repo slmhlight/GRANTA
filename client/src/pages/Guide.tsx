@@ -700,7 +700,7 @@ export default function Guide() {
           {/* 핵심 도식: F-C-O-Free → M */}
           <div className="rounded-lg border border-border bg-card p-3 my-4">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📊 핵심 그림 — 4요소를 모아 성능지수 M 도출</p>
-            <div className="h-[160px]"><SvgFCOF /></div>
+            <div className="h-[260px]"><SvgFCOF /></div>
           </div>
 
           <H3>성능지수(material index) — 왜 거듭제곱이 분수가 될까?</H3>
@@ -930,7 +930,7 @@ export default function Guide() {
           {/* 핵심 도식: 응력-변형률 곡선 — 한 그림으로 σy/UTS/연신율/E 모두 보기 */}
           <div className="rounded-lg border border-border bg-card p-3 my-4">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📊 핵심 그림 — 응력-변형률 곡선 한 장</p>
-            <div className="h-[180px]"><SvgStressStrain /></div>
+            <div className="h-[240px]"><SvgStressStrain /></div>
             <p className="text-[12px] text-muted-foreground mt-2 leading-relaxed">
               인장 시험으로 얻는 이 한 곡선에 <span className="text-emerald-600 font-bold">σy</span>·<span className="text-violet-600 font-bold">UTS</span>·<span className="text-sky-600 font-bold">연신율</span>·<span className="text-amber-600 font-bold">E(탄성 영역의 기울기)</span>가 모두 들어 있습니다. 아래 카드들은 각각의 의미와 일반 범위를 따로 풉니다.
             </p>
@@ -1301,7 +1301,7 @@ export default function Guide() {
           {/* 핵심 도식: 굽힘 응력 분포 + 중립축 */}
           <div className="rounded-lg border border-border bg-card p-3 my-4">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">📊 핵심 그림 — 굽힘 응력 분포와 중립축</p>
-            <div className="h-[180px]"><SvgBendingStress /></div>
+            <div className="h-[240px]"><SvgBendingStress /></div>
             <p className="text-[12px] text-muted-foreground mt-2 leading-relaxed">
               보가 굽혀지면 <span className="text-rose-500 font-bold">위는 압축</span>, <span className="text-sky-500 font-bold">아래는 인장</span>이 됩니다. 중간 어딘가는 응력이 0(<b>중립축</b>). 응력은 중립축에서 거리(<F>c</F>)에 비례해 선형 증가 → 같은 모멘트 <F>M</F>이어도 <F>I</F>가 크면 σ가 작아집니다.
             </p>
@@ -1506,7 +1506,7 @@ export default function Guide() {
         >
           <H3>5.1 비틀림 (원형축)</H3>
           <p className="leading-relaxed">토크 <F>T</F> 가 원형 축에 작용할 때 전단응력은 표면(<F>c = D/2</F>)에서 최대입니다.</p>
-          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[160px]"><SvgTorsion /></div>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[220px]"><SvgTorsion /></div>
           <ul className="list-disc pl-6 mt-1 space-y-1 text-sm leading-relaxed">
             <li>최대 전단응력: <F>τ_max = T·c / J</F> &nbsp;(원형축은 <F>J = π·D⁴/32</F>)</li>
             <li>비틀림각: <F>φ = T·L / (G·J)</F> &nbsp;(<F>G = E / [2(1+ν)]</F>, 금속은 <F>G ≈ 0.38·E</F>)</li>
@@ -1537,12 +1537,12 @@ export default function Guide() {
           <p className="text-sm leading-relaxed">굽힘과 비틀림이 동시에 작용하는 회전축처럼, 축응력 <F>σ_x</F> 와 전단응력 <F>τ</F> 가 같이 있을 때는 등가응력을 σy 와 비교합니다.</p>
           <p className="font-mono text-sm mt-1 bg-muted/40 inline-block px-2 py-1 rounded">σ_eq = √(σ_x² + 3·τ²) ≤ σy / SF</p>
           <p className="text-[12px] mt-1 text-muted-foreground">일반 3축 응력: <F>σ_eq = √[½((σ₁−σ₂)² + (σ₂−σ₃)² + (σ₃−σ₁)²)]</F></p>
-          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[180px]"><SvgMohr /></div>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[240px]"><SvgMohr /></div>
           <p className="text-[12px] text-muted-foreground">응력 요소(좌)의 σ_x·τ 가 작용할 때, 면의 회전에 따른 응력 변화를 <b>Mohr 원</b>(우)으로 시각화합니다. 원의 양 끝이 <b>주응력 σ₁, σ₂</b> 이고 정점이 <b>최대 전단 τ_max</b>.</p>
 
           <H3>5.4 얇은 압력 용기</H3>
           <p className="text-sm leading-relaxed">반경 <F>r</F>, 두께 <F>t</F>, 내압 <F>p</F> (<F>t ≪ r</F>):</p>
-          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[160px]"><SvgPressureVessel /></div>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[220px]"><SvgPressureVessel /></div>
           <ul className="list-disc pl-6 mt-1 text-sm font-mono">
             <li>원주(후프) σ_h = p·r / t &nbsp;<span className="font-sans text-muted-foreground">— 후프 응력이 축응력의 2배</span></li>
             <li>축방향 σ_a = p·r / (2t)</li>

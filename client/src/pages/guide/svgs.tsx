@@ -382,33 +382,40 @@ export const SvgAshbyChart = () => (
   </svg>
 );
 
-/** Function · Constraint · Objective · Free → M 흐름도 */
-export const SvgFCOF = () => (
-  <svg viewBox="0 0 320 160" className="w-full h-full">
-    {[
-      { x: 20, y: 28, color: 'sky', label: '기능 (Function)', sub: '인장재 / 보 / 패널 / 축' },
-      { x: 20, y: 88, color: 'amber', label: '제약 (Constraints)', sub: 'σy ≥ X · 온도 ≥ Y · 공정' },
-      { x: 180, y: 28, color: 'emerald', label: '목적 (Objective)', sub: '무게↓ · 원가↓ · 강성↑' },
-      { x: 180, y: 88, color: 'violet', label: '자유변수 (Free)', sub: '단면적 · 두께 · 재료' },
-    ].map((b, i) => (
-      <g key={i}>
-        <rect x={b.x} y={b.y} width="120" height="48" rx="6" className={`fill-${b.color}-500/10 stroke-${b.color}-500`} strokeWidth="1.5" />
-        <text x={b.x + 8} y={b.y + 18} fontSize="11" className={`fill-${b.color}-700 font-bold`}>{b.label}</text>
-        <text x={b.x + 8} y={b.y + 34} fontSize="9" className="fill-foreground/70 svg-text-bg-sm">{b.sub}</text>
+/** Function · Constraint · Objective · Free → M 흐름도
+ *  R195: inline hex (Tailwind dynamic class purge 회피) + 더 큰 viewBox + 일관 light bg */
+export const SvgFCOF = () => {
+  const cards = [
+    { x: 20,  y: 30,  fill: '#dbeafe', stroke: '#2563eb', textColor: '#1d4ed8', label: '기능 (Function)',     sub: '인장재 / 보 / 패널 / 축' },
+    { x: 20,  y: 110, fill: '#fef3c7', stroke: '#d97706', textColor: '#b45309', label: '제약 (Constraints)',  sub: 'σy ≥ X · 온도 ≥ Y · 공정' },
+    { x: 220, y: 30,  fill: '#d1fae5', stroke: '#059669', textColor: '#047857', label: '목적 (Objective)',    sub: '무게↓ · 원가↓ · 강성↑' },
+    { x: 220, y: 110, fill: '#ede9fe', stroke: '#7c3aed', textColor: '#6d28d9', label: '자유변수 (Free)',     sub: '단면적 · 두께 · 재료' },
+  ];
+  return (
+    <svg viewBox="0 0 420 220" className="w-full h-full">
+      {cards.map((b, i) => (
+        <g key={i}>
+          <rect x={b.x} y={b.y} width="160" height="58" rx="8" fill={b.fill} stroke={b.stroke} strokeWidth="2" />
+          <text x={b.x + 10} y={b.y + 22} fontSize="14" fontWeight="700" fill={b.textColor}>{b.label}</text>
+          <text x={b.x + 10} y={b.y + 42} fontSize="11" fontWeight="600" fill="#374151">{b.sub}</text>
+        </g>
+      ))}
+      {/* connectors → M */}
+      <g stroke="#e11d48" strokeWidth="2" fill="none">
+        <path d="M 180 60  Q 210 70  198 100" />
+        <path d="M 180 140 Q 210 130 198 120" />
+        <path d="M 220 60  Q 210 70  222 100" />
+        <path d="M 220 140 Q 210 130 222 120" />
       </g>
-    ))}
-    <g className="stroke-rose-500" strokeWidth="1.8" fill="none">
-      <path d="M 140 52 Q 160 56 158 76" />
-      <path d="M 140 112 Q 160 108 158 84" />
-      <path d="M 180 52 Q 160 56 162 76" />
-      <path d="M 180 112 Q 160 108 162 84" />
-    </g>
-    <circle cx="160" cy="80" r="14" className="fill-rose-500/15 stroke-rose-500" strokeWidth="2" />
-    <text x="151" y="84" fontSize="13" className="fill-rose-600 font-bold svg-text-bg-sm" fontFamily="monospace">M</text>
-    <rect x="60" y="135" width="200" height="20" rx="4" className="fill-rose-500/10 stroke-rose-500" strokeWidth="1.5" />
-    <text x="74" y="150" fontSize="10" className="fill-rose-700 font-semibold svg-text-bg-sm">자유변수 소거 → 성능지수 M (물성 조합)</text>
-  </svg>
-);
+      {/* M circle */}
+      <circle cx="210" cy="110" r="18" fill="#fce7f3" stroke="#e11d48" strokeWidth="2.5" />
+      <text x="210" y="116" fontSize="18" fontWeight="800" fill="#be123c" fontFamily="monospace" textAnchor="middle">M</text>
+      {/* Bottom result bar */}
+      <rect x="60" y="190" width="300" height="24" rx="6" fill="#fce7f3" stroke="#e11d48" strokeWidth="1.5" />
+      <text x="210" y="207" fontSize="12" fontWeight="700" fill="#be123c" textAnchor="middle">자유변수 소거 → 성능지수 M (물성 조합)</text>
+    </svg>
+  );
+};
 
 /** 비틀림 축 + 단면 전단응력 분포 */
 export const SvgTorsion = () => (
