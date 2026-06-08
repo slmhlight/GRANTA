@@ -113,11 +113,11 @@ const STEPS: Step[] = [
       { value: 'dnv', label: 'DNV (해상)', detail: 'DNV-OS-B101' },
     ],
   },
-  /* R182 — 새 step 6: 기본 물성 수치 입력. 각 input 옆에 bracket 예시 (산업별 typical) 표시. */
+  /* R182/R183 — 새 step 6: 기본 물성 수치 입력. 각 input 옆에 bracket 예시 (산업별 typical) 표시. */
   {
     id: 'properties',
     question: '6. 필요한 기본 물성 (선택)',
-    detail: '수치 입력 시 후보 자동 필터. 예시 alloy 의 값과 비교하여 적정 수준 선택. 모두 비워두면 hint 만 사용.',
+    detail: '필요 수치를 직접 입력하거나, 아래 예시 alloy 의 값을 클릭하여 자동 입력. 모두 비워두면 사전 hint 만 사용.\n\n💡 필요 인장강도를 모르겠다면? — 비슷한 응용 예시를 비교하세요:\n  • 자동차 brackets / 일반 frame → σy ~ 200-350 MPa (AISI 1018 / AA 6061-T6)\n  • 항공 wing / 자전거 frame → σy ~ 350-500 MPa (AA 7075-T6 / Ti-6Al-4V)\n  • 고강도 fastener / spring → σy ~ 800-1200 MPa (4340 Q+T / 17-4 PH H900)\n  • 정밀 도구 / spring wire → σy 1200+ MPa (Maraging / piano wire)',
     guideChapter: { num: 'Ch.4', id: 'ch4', label: '기본 물성 · 단위 · 시험 표준' },
     numerics: [
       {
@@ -154,13 +154,15 @@ const STEPS: Step[] = [
         label: '탄성 계수 E (min)',
         unit: 'GPa',
         placeholder: '예: 70',
+        /* R183 — E ≥ 600 GPa = 3 alloys 만 (Tungsten 단독) → bracket 제거.
+         *        E ≥ 300 GPa = 36 alloys / E ≥ 450 GPa = 12 alloys 로 조정 (≥10 보장). */
         brackets: [
           { value: 3,   label: '일반 polymer (PP, ABS, PVC)' },
           { value: 70,  label: 'Aluminum / Mg 합금' },
           { value: 110, label: 'Brass / Titanium / Cu alloys' },
           { value: 200, label: 'Steel / Stainless / Ni superalloy' },
-          { value: 380, label: 'Al₂O₃ ceramic / SiC' },
-          { value: 600, label: 'Tungsten / W heavy alloy' },
+          { value: 300, label: 'Si₃N₄ / ZTA / WC-Co' },
+          { value: 450, label: 'Al₂O₃ HIP / SiC sintered / B₄C' },
         ],
       },
       {
@@ -484,7 +486,7 @@ export default function Wizard() {
           <div className="rounded-lg border border-border bg-card p-5 shadow-sm">
             <h1 className="text-xl font-bold mb-1">{STEPS[step].question}</h1>
             {STEPS[step].detail && (
-              <p className="text-[13px] text-muted-foreground mb-3">{STEPS[step].detail}</p>
+              <p className="text-[13px] text-muted-foreground mb-3 whitespace-pre-line">{STEPS[step].detail}</p>
             )}
             {STEPS[step].guideChapter && (
               <Link
@@ -515,24 +517,30 @@ export default function Wizard() {
                         onChange={(e) => setAnswers((p) => ({ ...p, [n.key]: e.target.value }))}
                         className="w-full px-3 py-2 text-[14px] border border-border rounded bg-background focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                       />
-                      {/* Bracket 예시 (industrial typical values) */}
-                      <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1">
+                      {/* Bracket 예시 (industrial typical values).
+                       *  R183 — selected state 명확화: exact match 시 강한 accent (ring + bold),
+                       *         ±30% 근접 시 약한 accent border, 그 외 muted. */}
+                      <p className="text-[10px] text-muted-foreground mt-2 mb-1">
+                        ↓ 비슷한 응용을 클릭하면 자동 입력 (직접 입력도 가능)
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
                         {n.brackets.map((b, i) => {
-                          const isClose = !isNaN(numVal) && Math.abs(numVal - b.value) <= b.value * 0.3;
+                          const exactMatch = !isNaN(numVal) && numVal === b.value;
+                          const isClose = !isNaN(numVal) && !exactMatch && Math.abs(numVal - b.value) <= b.value * 0.3;
+                          let cls = 'hover:bg-muted/50 border border-transparent text-muted-foreground hover:text-foreground';
+                          if (exactMatch) cls = 'bg-accent/25 border-2 border-accent ring-2 ring-accent/30 text-foreground font-semibold shadow-sm';
+                          else if (isClose) cls = 'bg-accent/10 border border-accent/60 text-foreground';
                           return (
                             <button
                               key={i}
                               type="button"
                               onClick={() => setAnswers((p) => ({ ...p, [n.key]: String(b.value) }))}
-                              className={`text-left px-2 py-1 rounded text-[10px] flex items-baseline gap-1.5 transition-colors ${
-                                isClose
-                                  ? 'bg-accent/15 border border-accent text-foreground'
-                                  : 'hover:bg-muted/50 border border-transparent text-muted-foreground hover:text-foreground'
-                              }`}
+                              className={`text-left px-2 py-1.5 rounded text-[10.5px] flex items-baseline gap-1.5 transition-all ${cls}`}
                               title={`클릭하면 ${b.value} ${n.unit} 자동 입력`}
                             >
-                              <span className="font-mono font-semibold text-foreground">{b.value}</span>
-                              <span className="opacity-60">— {b.label}</span>
+                              <span className="font-mono font-bold text-foreground min-w-[2.5em]">{b.value}</span>
+                              <span className="opacity-75">— {b.label}</span>
+                              {exactMatch && <span className="ml-auto text-[9px] text-accent font-bold">✓ 선택됨</span>}
                             </button>
                           );
                         })}
