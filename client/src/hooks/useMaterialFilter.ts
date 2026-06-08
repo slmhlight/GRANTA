@@ -104,14 +104,43 @@ export function useMaterialFilter(materials: Material[]) {
       );
     }
 
-    // Process filter
+    /* Process filter — R192 group-based matching.
+     * UI options 4개 (Wrought / Molding / Casting / AM) vs DB 44 distinct process strings
+     * (예: 'Wrought (Q+T)', 'Cold Rolled (TWIP: ...)', 'LPBF', 'DMLS', 'Injection Molding').
+     * 이전: exact match (filters.processes.includes(m.process)) — 'Wrought' 선택해도
+     *      'Wrought (Q+T)' 매칭 X, 'AM' 선택해도 'LPBF/DMLS/SLM' 매칭 X.
+     * 변경: group keyword matching. */
     if (filters.processes.length > 0) {
-      result = result.filter(m => filters.processes.includes(m.process));
+      const procGroups: Record<string, string[]> = {
+        Wrought: ['wrought', 'cold rolled', 'hot rolled', 'cold drawn', 'hot dip galvani', 'tmcp', 'forged', 'extrusion', 'vacuum refined', 'q+t (heat'],
+        Molding: ['injection', 'compression mold', 'layup'],
+        Casting: ['cast'],
+        AM: ['lpbf', 'dmls', 'slm', 'sls', 'fdm', 'powder-metallurgy', 'sintered', 'closed-cell foam', 'am ', 'am('],
+      };
+      result = result.filter(m => {
+        const p = String(m.process || '').toLowerCase();
+        if (!p) return false;
+        return filters.processes.some(grp => {
+          const keys = procGroups[grp];
+          if (!keys) return p === grp.toLowerCase(); // fallback: exact match for unmapped groups
+          return keys.some(k => p.includes(k));
+        });
+      });
     }
 
-    // Manufacturer filter
+    /* Manufacturer filter — R192 array + comma-split support.
+     * AM curated entries 의 manufacturer 가 "GE Additive, EOS, Nikon SLM Solutions, 3D Systems"
+     * 형식 comma-separated string. m.manufacturers 도 array form 으로 같은 content.
+     * 이전: exact match 만 — 'EOS' 선택 시 comma-string 매칭 X.
+     * 변경: array + comma-split flatten 후 any-match. */
     if (filters.manufacturers.length > 0) {
-      result = result.filter(m => filters.manufacturers.includes(m.manufacturer));
+      result = result.filter(m => {
+        const raw = Array.isArray(m.manufacturers) && m.manufacturers.length
+          ? m.manufacturers
+          : (m.manufacturer ? [m.manufacturer] : []);
+        const mfs = raw.flatMap(s => String(s || '').split(',').map(x => x.trim())).filter(Boolean);
+        return filters.manufacturers.some(f => mfs.includes(f));
+      });
     }
 
     // Composition filter (by primary composition)
