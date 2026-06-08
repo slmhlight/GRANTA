@@ -364,4 +364,21 @@
   ::-webkit-scrollbar-thumb:hover {
     background: oklch(0.65 0.03 250);
   }
+
+  /* R190 — SVG text 가독성 helper. paint-order: stroke 로 text 의 외곽에 흰색 stroke 추가하여
+   * 배경 도형 (rect/path) 위에 겹쳐도 가독성 보장. modern 브라우저 universal 지원. */
+  .svg-text-bg {
+    paint-order: stroke;
+    stroke: oklch(1 0 0);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .svg-text-bg-sm {
+    paint-order: stroke;
+    stroke: oklch(1 0 0);
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
 }

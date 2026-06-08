@@ -339,9 +339,9 @@ export default function Guide() {
               <g key={i}>
                 <a href={s.href}>
                   <rect x={s.x} y="58" width="92" height="60" rx="6" fill="oklch(0.99 0.005 250)" stroke="oklch(0.55 0.12 220)" className="hover:fill-accent/10" />
-                  <text x={s.x + 46} y="78" textAnchor="middle" fontSize="11" fontWeight="bold" fill="oklch(0.3 0.04 250)">{s.label}</text>
-                  <text x={s.x + 46} y="94" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">{s.sub}</text>
-                  <text x={s.x + 46} y="110" textAnchor="middle" fontSize="8" fontWeight="bold" fill="oklch(0.55 0.12 220)">Ch.{s.n} →</text>
+                  <text className="svg-text-bg-sm" x={s.x + 46} y="78" textAnchor="middle" fontSize="11" fontWeight="bold" fill="oklch(0.3 0.04 250)">{s.label}</text>
+                  <text className="svg-text-bg-sm" x={s.x + 46} y="94" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">{s.sub}</text>
+                  <text className="svg-text-bg-sm" x={s.x + 46} y="110" textAnchor="middle" fontSize="8" fontWeight="bold" fill="oklch(0.55 0.12 220)">Ch.{s.n} →</text>
                 </a>
                 {i < 6 && (
                   <line x1={s.x + 92} y1="88" x2={s.x + 110} y2="88" stroke="oklch(0.55 0.12 220)" strokeWidth="1.5" markerEnd="url(#arrow)" />
@@ -350,13 +350,13 @@ export default function Guide() {
             ))}
             {/* Feedback loop */}
             <path d="M 700 130 Q 700 170 380 170 Q 60 170 60 130" fill="none" stroke="oklch(0.55 0.12 30 / 0.6)" strokeWidth="1.2" strokeDasharray="4 3" markerEnd="url(#arrowRed)" />
-            <text x="380" y="186" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.12 30)" fontStyle="italic">반복 — 시험 결과로 후보 재조정</text>
+            <text className="svg-text-bg-sm" x="380" y="186" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.12 30)" fontStyle="italic">반복 — 시험 결과로 후보 재조정</text>
             <defs>
               <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 220)" /></marker>
               <marker id="arrowRed" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 30)" /></marker>
             </defs>
-            <text x="380" y="20" textAnchor="middle" fontSize="10" fontWeight="bold" fill="oklch(0.3 0.04 250)">전체 7단계 — 박스 클릭으로 해당 챕터로</text>
-            <text x="380" y="38" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">앱은 ②~④ 단계 자동화. ①·⑤·⑥·⑦ 은 가이드 + 외부 검증.</text>
+            <text className="svg-text-bg-sm" x="380" y="20" textAnchor="middle" fontSize="10" fontWeight="bold" fill="oklch(0.3 0.04 250)">전체 7단계 — 박스 클릭으로 해당 챕터로</text>
+            <text className="svg-text-bg-sm" x="380" y="38" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">앱은 ②~④ 단계 자동화. ①·⑤·⑥·⑦ 은 가이드 + 외부 검증.</text>
           </svg>
         </div>
 
@@ -1193,24 +1193,24 @@ export default function Guide() {
               {[0, 1, 2, 3, 4, 5].map((i) => (
                 <g key={i}>
                   <line x1={50 + i * 80} y1="20" x2={50 + i * 80} y2="180" stroke="oklch(0.92 0.012 250)" />
-                  <text x={50 + i * 80} y="195" textAnchor="middle" fontSize="10" fill="oklch(0.5 0.04 250)">10{['¹', '²', '³', '⁴', '⁵', '⁶'][i]}</text>
+                  <text className="svg-text-bg-sm" x={50 + i * 80} y="195" textAnchor="middle" fontSize="10" fill="oklch(0.5 0.04 250)">10{['¹', '²', '³', '⁴', '⁵', '⁶'][i]}</text>
                 </g>
               ))}
               {/* Steel curve (with endurance limit) */}
               <path d="M 50 30 L 290 110 L 460 110" fill="none" stroke="oklch(0.55 0.12 220)" strokeWidth="2.5" />
-              <text x="460" y="105" textAnchor="end" fontSize="11" fill="oklch(0.45 0.12 220)" fontWeight="bold">강·Ti (σf 한계)</text>
+              <text className="svg-text-bg-sm" x="460" y="105" textAnchor="end" fontSize="11" fill="oklch(0.45 0.12 220)" fontWeight="bold">강·Ti (σf 한계)</text>
               {/* Al curve (no endurance limit, continues down) */}
               <path d="M 50 50 L 460 150" fill="none" stroke="oklch(0.55 0.12 30)" strokeWidth="2.5" />
-              <text x="460" y="160" textAnchor="end" fontSize="11" fill="oklch(0.45 0.12 30)" fontWeight="bold">Al (한계 없음)</text>
+              <text className="svg-text-bg-sm" x="460" y="160" textAnchor="end" fontSize="11" fill="oklch(0.45 0.12 30)" fontWeight="bold">Al (한계 없음)</text>
               {/* Endurance limit dashed line */}
               <line x1="290" y1="110" x2="290" y2="180" stroke="oklch(0.55 0.12 220)" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
-              <text x="290" y="208" textAnchor="middle" fontSize="9" fill="oklch(0.45 0.12 220)">N = 10⁶ (σf)</text>
+              <text className="svg-text-bg-sm" x="290" y="208" textAnchor="middle" fontSize="9" fill="oklch(0.45 0.12 220)">N = 10⁶ (σf)</text>
               {/* Labels */}
-              <text x="255" y="14" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_a (응력 진폭)</text>
-              <text x="255" y="215" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">사이클 수 N</text>
-              <text x="42" y="28" textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">UTS</text>
-              <text x="42" y="115" textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">σf</text>
-              <text x="42" y="180" textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">0</text>
+              <text className="svg-text-bg-sm" x="255" y="14" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_a (응력 진폭)</text>
+              <text className="svg-text-bg-sm" x="255" y="215" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">사이클 수 N</text>
+              <text className="svg-text-bg-sm" x="42" y="28" textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">UTS</text>
+              <text className="svg-text-bg-sm" x="42" y="115" textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">σf</text>
+              <text className="svg-text-bg-sm" x="42" y="180" textAnchor="end" fontSize="9" fill="oklch(0.5 0.04 250)">0</text>
             </svg>
             <p className="text-[11px] text-muted-foreground mt-1 leading-relaxed">강·Ti 는 10⁶ 사이클 이후 σf 한계 — 그 아래는 무한수명. Al·Mg 는 한계 없이 계속 감소 → 사이클 수 명시 必.</p>
           </div>
@@ -1234,26 +1234,26 @@ export default function Guide() {
               <line x1="50" y1="20" x2="50" y2="180" stroke="oklch(0.4 0.04 250)" />
               {/* Goodman (linear) */}
               <line x1="50" y1="40" x2="370" y2="180" stroke="oklch(0.55 0.12 220)" strokeWidth="2" />
-              <text x="270" y="100" fontSize="11" fill="oklch(0.45 0.12 220)" fontWeight="bold">Goodman (σ_u)</text>
+              <text className="svg-text-bg-sm" x="270" y="100" fontSize="11" fill="oklch(0.45 0.12 220)" fontWeight="bold">Goodman (σ_u)</text>
               {/* Soderberg */}
               <line x1="50" y1="40" x2="290" y2="180" stroke="oklch(0.55 0.12 110)" strokeWidth="2" />
-              <text x="120" y="78" fontSize="10" fill="oklch(0.45 0.12 110)" fontWeight="bold">Soderberg (σ_y)</text>
+              <text className="svg-text-bg-sm" x="120" y="78" fontSize="10" fill="oklch(0.45 0.12 110)" fontWeight="bold">Soderberg (σ_y)</text>
               {/* Gerber parabolic */}
               <path d="M 50 40 Q 220 90 370 180" fill="none" stroke="oklch(0.55 0.12 30)" strokeWidth="2" strokeDasharray="4 3" />
-              <text x="320" y="155" fontSize="10" fill="oklch(0.45 0.12 30)" fontWeight="bold">Gerber (실험)</text>
+              <text className="svg-text-bg-sm" x="320" y="155" fontSize="10" fill="oklch(0.45 0.12 30)" fontWeight="bold">Gerber (실험)</text>
               {/* Design point examples */}
               <circle cx="170" cy="135" r="5" fill="oklch(0.5 0.18 30)" />
-              <text x="178" y="139" fontSize="10" fill="oklch(0.4 0.18 30)" fontWeight="bold">설계점 (안전)</text>
+              <text className="svg-text-bg-sm" x="178" y="139" fontSize="10" fill="oklch(0.4 0.18 30)" fontWeight="bold">설계점 (안전)</text>
               {/* Safe / unsafe zones */}
-              <text x="75" y="160" fontSize="10" fill="oklch(0.45 0.15 145)" fontWeight="bold">✓ 안전 영역</text>
-              <text x="330" y="48" fontSize="10" fill="oklch(0.45 0.18 30)" fontWeight="bold">✗ 파단</text>
+              <text className="svg-text-bg-sm" x="75" y="160" fontSize="10" fill="oklch(0.45 0.15 145)" fontWeight="bold">✓ 안전 영역</text>
+              <text className="svg-text-bg-sm" x="330" y="48" fontSize="10" fill="oklch(0.45 0.18 30)" fontWeight="bold">✗ 파단</text>
               {/* Labels */}
-              <text x="42" y="44" textAnchor="end" fontSize="11" fill="oklch(0.4 0.04 250)">σ_f</text>
-              <text x="42" y="184" textAnchor="end" fontSize="11" fill="oklch(0.4 0.04 250)">0</text>
-              <text x="290" y="195" textAnchor="middle" fontSize="11" fill="oklch(0.4 0.04 250)">σ_y</text>
-              <text x="370" y="195" textAnchor="middle" fontSize="11" fill="oklch(0.4 0.04 250)">σ_u</text>
-              <text x="42" y="14" textAnchor="end" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_a</text>
-              <text x="380" y="215" textAnchor="end" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_m  (평균응력)</text>
+              <text className="svg-text-bg-sm" x="42" y="44" textAnchor="end" fontSize="11" fill="oklch(0.4 0.04 250)">σ_f</text>
+              <text className="svg-text-bg-sm" x="42" y="184" textAnchor="end" fontSize="11" fill="oklch(0.4 0.04 250)">0</text>
+              <text className="svg-text-bg-sm" x="290" y="195" textAnchor="middle" fontSize="11" fill="oklch(0.4 0.04 250)">σ_y</text>
+              <text className="svg-text-bg-sm" x="370" y="195" textAnchor="middle" fontSize="11" fill="oklch(0.4 0.04 250)">σ_u</text>
+              <text className="svg-text-bg-sm" x="42" y="14" textAnchor="end" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_a</text>
+              <text className="svg-text-bg-sm" x="380" y="215" textAnchor="end" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_m  (평균응력)</text>
             </svg>
             <p className="text-[11px] text-muted-foreground mt-1 leading-relaxed">설계점 (σ_m, σ_a) 이 직선 아래면 안전. Goodman 가장 일반적, Soderberg 보수적, Gerber 실험 데이터 적합. Compare 패널의 <a href="/" className="text-accent hover:underline">Goodman view</a> 에서 alloy 별 SF 계산 가능.</p>
           </div>
@@ -1634,19 +1634,19 @@ export default function Guide() {
             <svg viewBox="0 0 480 220" className="w-full h-auto">
               {/* Build plate */}
               <rect x="20" y="170" width="200" height="10" fill="oklch(0.6 0.04 250)" />
-              <text x="120" y="200" textAnchor="middle" fontSize="10" fill="oklch(0.4 0.04 250)">빌드 플레이트</text>
+              <text className="svg-text-bg-sm" x="120" y="200" textAnchor="middle" fontSize="10" fill="oklch(0.4 0.04 250)">빌드 플레이트</text>
               {/* Layers stacked */}
               {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
                 <rect key={i} x="80" y={150 - i * 16} width="80" height="14" fill={i % 2 === 0 ? 'oklch(0.85 0.05 90)' : 'oklch(0.82 0.05 90)'} stroke="oklch(0.5 0.05 90)" strokeWidth="0.5" />
               ))}
               {/* Z arrow */}
               <line x1="170" y1="155" x2="170" y2="25" stroke="oklch(0.55 0.18 30)" strokeWidth="2" markerEnd="url(#amArrZ)" />
-              <text x="178" y="100" fontSize="11" fill="oklch(0.4 0.18 30)" fontWeight="bold">Z (빌드 방향)</text>
-              <text x="178" y="115" fontSize="9" fill="oklch(0.4 0.18 30)" fontStyle="italic">σy ↓5-15% · σf ↓30-70%</text>
+              <text className="svg-text-bg-sm" x="178" y="100" fontSize="11" fill="oklch(0.4 0.18 30)" fontWeight="bold">Z (빌드 방향)</text>
+              <text className="svg-text-bg-sm" x="178" y="115" fontSize="9" fill="oklch(0.4 0.18 30)" fontStyle="italic">σy ↓5-15% · σf ↓30-70%</text>
               {/* XY arrow */}
               <line x1="60" y1="80" x2="80" y2="80" stroke="oklch(0.55 0.12 220)" strokeWidth="2" markerEnd="url(#amArrXY)" />
-              <text x="30" y="78" fontSize="11" fill="oklch(0.4 0.12 220)" fontWeight="bold">XY</text>
-              <text x="20" y="92" fontSize="9" fill="oklch(0.4 0.12 220)">(적층면, 우수)</text>
+              <text className="svg-text-bg-sm" x="30" y="78" fontSize="11" fill="oklch(0.4 0.12 220)" fontWeight="bold">XY</text>
+              <text className="svg-text-bg-sm" x="20" y="92" fontSize="9" fill="oklch(0.4 0.12 220)">(적층면, 우수)</text>
               {/* Microstructure: column grains right side */}
               <g stroke="oklch(0.3 0.04 250)" strokeWidth="0.7" fill="none">
                 <rect x="280" y="40" width="160" height="140" fill="oklch(0.95 0.005 250)" stroke="oklch(0.5 0.04 250)" />
@@ -1658,13 +1658,13 @@ export default function Guide() {
                   <line key={i} x1="285" y1={60 + i * 25} x2="435" y2={60 + i * 25} strokeDasharray="2 2" opacity="0.5" />
                 ))}
               </g>
-              <text x="360" y="32" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">미세조직 (단면)</text>
-              <text x="360" y="200" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">column grain ⇂ + 층 경계 ━</text>
+              <text className="svg-text-bg-sm" x="360" y="32" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">미세조직 (단면)</text>
+              <text className="svg-text-bg-sm" x="360" y="200" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)">column grain ⇂ + 층 경계 ━</text>
               <defs>
                 <marker id="amArrZ" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.18 30)" /></marker>
                 <marker id="amArrXY" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 220)" /></marker>
               </defs>
-              <text x="240" y="15" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">AM 빌드 방향 이방성</text>
+              <text className="svg-text-bg-sm" x="240" y="15" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">AM 빌드 방향 이방성</text>
             </svg>
           </div>
           <ul className="list-disc pl-6 mt-1 text-sm leading-relaxed">
@@ -1692,17 +1692,17 @@ export default function Guide() {
               ].map((s, i) => (
                 <g key={i}>
                   <rect x={6 + i * 102} y="36" width="88" height="58" rx="6" fill={s.color} stroke="oklch(0.45 0.04 250)" />
-                  <text x={50 + i * 102} y="58" textAnchor="middle" fontSize="10" fontWeight="bold" fill="oklch(0.25 0.04 250)">{i + 1}. {s.label}</text>
-                  <text x={50 + i * 102} y="72" textAnchor="middle" fontSize="8" fill="oklch(0.4 0.04 250)">{s.sub}</text>
-                  <text x={50 + i * 102} y="88" textAnchor="middle" fontSize="7" fill="oklch(0.5 0.04 250)" fontStyle="italic">
+                  <text className="svg-text-bg-sm" x={50 + i * 102} y="58" textAnchor="middle" fontSize="10" fontWeight="bold" fill="oklch(0.25 0.04 250)">{i + 1}. {s.label}</text>
+                  <text className="svg-text-bg-sm" x={50 + i * 102} y="72" textAnchor="middle" fontSize="8" fill="oklch(0.4 0.04 250)">{s.sub}</text>
+                  <text className="svg-text-bg-sm" x={50 + i * 102} y="88" textAnchor="middle" fontSize="7" fill="oklch(0.5 0.04 250)" fontStyle="italic">
                     {['as-built', '650-815°C', '와이어컷', '1100°C/100MPa', 'alloy 별', 'Ra 0.5-3μm', 'porosity 0.5%'][i]}
                   </text>
                   {i < 6 && <line x1={94 + i * 102} y1="65" x2={108 + i * 102} y2="65" stroke="oklch(0.55 0.12 220)" strokeWidth="1.5" markerEnd="url(#wfArr)" />}
                 </g>
               ))}
               <defs><marker id="wfArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 220)" /></marker></defs>
-              <text x="360" y="20" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">AM 부품 후처리 워크플로우 (7단계)</text>
-              <text x="360" y="115" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)" fontStyle="italic">vendor·alloy·용도에 따라 일부 단계 생략 가능 — 단 항공·의료는 모든 단계 표준</text>
+              <text className="svg-text-bg-sm" x="360" y="20" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">AM 부품 후처리 워크플로우 (7단계)</text>
+              <text className="svg-text-bg-sm" x="360" y="115" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)" fontStyle="italic">vendor·alloy·용도에 따라 일부 단계 생략 가능 — 단 항공·의료는 모든 단계 표준</text>
             </svg>
           </div>
           <div className="overflow-x-auto mt-2">
