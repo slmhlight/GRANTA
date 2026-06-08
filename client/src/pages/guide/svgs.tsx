@@ -349,35 +349,42 @@ export const SvgBendingStress = () => (
   </svg>
 );
 
-/** Ashby 차트 샘플 — 한계선·외피·등지수선·통과 영역 라벨 */
+/** Ashby 차트 샘플 — 한계선·외피·등지수선·통과 영역 라벨
+ *  R196: viewBox 확대, 라벨 위치 분리 (겹침 fix), font size up */
 export const SvgAshbyChart = () => (
-  <svg viewBox="0 0 320 220" className="w-full h-full">
-    <text x="8" y="14" fontSize="10" className="fill-foreground/70 font-semibold svg-text-bg-sm">샘플: ρ vs σy (log–log)</text>
-    <g className="stroke-foreground/70" strokeWidth="1.4" fill="none">
-      <line x1="40" y1="30" x2="40" y2="190" />
-      <line x1="40" y1="190" x2="300" y2="190" />
-      <polyline points="36,38 40,28 44,38" />
-      <polyline points="292,186 302,190 292,194" />
+  <svg viewBox="0 0 480 300" className="w-full h-full">
+    {/* Title */}
+    <text x="14" y="20" fontSize="13" fontWeight="700" fill="#374151">샘플: ρ vs σy (log–log)</text>
+    {/* Axes */}
+    <g stroke="#6b7280" strokeWidth="1.6" fill="none">
+      <line x1="50" y1="40" x2="50" y2="250" />
+      <line x1="50" y1="250" x2="450" y2="250" />
+      <polyline points="46,48 50,38 54,48" />
+      <polyline points="442,246 452,250 442,254" />
     </g>
-    <text x="14" y="34" fontSize="10" className="fill-foreground/70 font-mono svg-text-bg-sm">σy</text>
-    <text x="304" y="190" fontSize="10" className="fill-foreground/70 font-mono svg-text-bg-sm">ρ</text>
-    <line x1="40" y1="110" x2="300" y2="110" className="stroke-amber-500" strokeWidth="1.5" strokeDasharray="5 3" />
-    <text x="240" y="106" fontSize="9" className="fill-amber-600 font-semibold svg-text-bg-sm">σy ≥ 한계 (필터)</text>
-    <ellipse cx="220" cy="160" rx="38" ry="14" className="fill-emerald-500/15 stroke-emerald-600" strokeWidth="1.5" />
-    <text x="200" y="178" fontSize="9" className="fill-emerald-700 svg-text-bg-sm">폴리머</text>
-    <ellipse cx="160" cy="120" rx="28" ry="14" className="fill-amber-500/15 stroke-amber-600" strokeWidth="1.5" />
-    <text x="142" y="138" fontSize="9" className="fill-amber-700 svg-text-bg-sm">알루미늄</text>
-    <ellipse cx="120" cy="78" rx="22" ry="16" className="fill-sky-500/15 stroke-sky-600" strokeWidth="1.5" />
-    <text x="104" y="56" fontSize="9" className="fill-sky-700 svg-text-bg-sm">티타늄</text>
-    <ellipse cx="200" cy="70" rx="34" ry="20" className="fill-violet-500/15 stroke-violet-600" strokeWidth="1.5" />
-    <text x="186" y="48" fontSize="9" className="fill-violet-700 svg-text-bg-sm">강·고합금</text>
-    <line x1="60" y1="180" x2="280" y2="55" className="stroke-rose-500" strokeWidth="2.2" />
-    <polygon points="280,55 274,57 277,63" className="fill-rose-500" />
-    <text x="200" y="80" fontSize="9" className="fill-rose-500 font-bold svg-text-bg-sm">M = σy/ρ ↑ 더 좋음</text>
-    <text x="50" y="48" fontSize="9" className="fill-foreground/70 font-semibold svg-text-bg-sm">통과: 한계선 위 AND 등지수선 위쪽</text>
-    <g fontSize="9" className="fill-foreground/70" fontFamily="monospace">
-      <text className="svg-text-bg-sm" x="58" y="210">─ 한계(제약)</text>
-      <text className="svg-text-bg-sm" x="160" y="210">→ 성능지수 방향</text>
+    <text x="20" y="44" fontSize="14" fontWeight="700" fill="#374151" fontFamily="monospace">σy</text>
+    <text x="458" y="252" fontSize="14" fontWeight="700" fill="#374151" fontFamily="monospace">ρ</text>
+    {/* Constraint line (horizontal) */}
+    <line x1="50" y1="150" x2="450" y2="150" stroke="#d97706" strokeWidth="2" strokeDasharray="6 4" />
+    <text x="324" y="144" fontSize="12" fontWeight="700" fill="#b45309" className="svg-text-bg-sm">σy ≥ 한계 (필터)</text>
+    {/* Material clusters — non-overlapping positions */}
+    <ellipse cx="320" cy="220" rx="50" ry="20" fill="#d1fae5" stroke="#059669" strokeWidth="1.8" />
+    <text x="320" y="226" fontSize="13" fontWeight="700" fill="#047857" textAnchor="middle">폴리머</text>
+    <ellipse cx="220" cy="180" rx="42" ry="18" fill="#fef3c7" stroke="#d97706" strokeWidth="1.8" />
+    <text x="220" y="186" fontSize="13" fontWeight="700" fill="#b45309" textAnchor="middle">알루미늄</text>
+    <ellipse cx="130" cy="115" rx="34" ry="22" fill="#dbeafe" stroke="#2563eb" strokeWidth="1.8" />
+    <text x="130" y="120" fontSize="13" fontWeight="700" fill="#1d4ed8" textAnchor="middle">티타늄</text>
+    <ellipse cx="280" cy="95" rx="50" ry="26" fill="#ede9fe" stroke="#7c3aed" strokeWidth="1.8" />
+    <text x="280" y="100" fontSize="13" fontWeight="700" fill="#6d28d9" textAnchor="middle">강·고합금</text>
+    {/* Performance index arrow (lower-right → upper-left) */}
+    <line x1="90" y1="240" x2="410" y2="60" stroke="#e11d48" strokeWidth="2.6" />
+    <polygon points="410,60 402,64 406,72" fill="#e11d48" />
+    <text x="350" y="56" fontSize="13" fontWeight="700" fill="#be123c" className="svg-text-bg-sm">M = σy/ρ ↑ 더 좋음</text>
+    {/* Legend at bottom */}
+    <g fontSize="11" fontFamily="monospace">
+      <text x="60" y="278" fill="#d97706" fontWeight="700">─ 한계(제약)</text>
+      <text x="200" y="278" fill="#e11d48" fontWeight="700">→ 성능지수 방향</text>
+      <text x="350" y="278" fill="#374151" fontWeight="600">통과 = 두 조건 모두</text>
     </g>
   </svg>
 );
@@ -623,6 +630,115 @@ export const IconMaxTemp = () => (
     <line x1="20" y1="18" x2="56" y2="18" className="stroke-rose-500" strokeDasharray="3 2" strokeWidth="1.2" />
     <text x="58" y="22" fontSize="9" className="fill-rose-500 font-bold svg-text-bg-sm" fontFamily="monospace">한계</text>
     <g className="stroke-foreground/50" strokeWidth="0.8"><line x1="32" y1="12" x2="36" y2="12" /><line x1="32" y1="22" x2="36" y2="22" /><line x1="32" y1="30" x2="36" y2="30" /></g>
+  </svg>
+);
+
+/* ─── R196: 큰 교육용 SVG 추가 (글자 압박 완화) ───────────────────────── */
+
+/** AM 빌드 방향 이방성 — XY vs Z 피로 강도 차이 시각화 */
+export const SvgAMAnisotropy = () => (
+  <svg viewBox="0 0 480 240" className="w-full h-full">
+    <text x="240" y="22" fontSize="14" fontWeight="800" fill="#374151" textAnchor="middle">AM 이방성 — 같은 alloy, 빌드 방향에 따라 피로 강도 차이</text>
+    {/* XY plane 빌드 — 좋은 방향 */}
+    <g>
+      <text x="100" y="50" fontSize="13" fontWeight="700" fill="#047857" textAnchor="middle">XY 방향 빌드 (좋음)</text>
+      <rect x="40" y="60" width="120" height="100" fill="#d1fae5" stroke="#059669" strokeWidth="2" />
+      {/* layers - horizontal */}
+      {[0, 1, 2, 3, 4, 5, 6, 7].map(i => (
+        <line key={i} x1="40" y1={70 + i * 12} x2="160" y2={70 + i * 12} stroke="#059669" strokeWidth="0.6" opacity="0.5" />
+      ))}
+      {/* load arrow - parallel to layers */}
+      <g stroke="#e11d48" strokeWidth="2.5" fill="none">
+        <line x1="20" y1="110" x2="38" y2="110" />
+        <polyline points="34,106 38,110 34,114" />
+        <line x1="162" y1="110" x2="180" y2="110" />
+        <polyline points="166,106 162,110 166,114" />
+      </g>
+      <text x="100" y="180" fontSize="12" fontWeight="700" fill="#e11d48" textAnchor="middle">하중 ∥ layer</text>
+      <text x="100" y="200" fontSize="14" fontWeight="800" fill="#047857" textAnchor="middle">σf ≈ 100%</text>
+      <text x="100" y="218" fontSize="11" fill="#374151" textAnchor="middle">(기준)</text>
+    </g>
+    {/* Z direction build - bad */}
+    <g>
+      <text x="340" y="50" fontSize="13" fontWeight="700" fill="#b45309" textAnchor="middle">Z 방향 빌드 (위험)</text>
+      <rect x="280" y="60" width="120" height="100" fill="#fef3c7" stroke="#d97706" strokeWidth="2" />
+      {/* layers - horizontal still (same build), but load is perpendicular */}
+      {[0, 1, 2, 3, 4, 5, 6, 7].map(i => (
+        <line key={i} x1="280" y1={70 + i * 12} x2="400" y2={70 + i * 12} stroke="#d97706" strokeWidth="0.6" opacity="0.5" />
+      ))}
+      {/* load arrow - perpendicular to layers */}
+      <g stroke="#e11d48" strokeWidth="2.5" fill="none">
+        <line x1="340" y1="40" x2="340" y2="58" />
+        <polyline points="336,54 340,58 344,54" />
+        <line x1="340" y1="162" x2="340" y2="180" />
+        <polyline points="336,176 340,180 344,176" />
+      </g>
+      <text x="340" y="200" fontSize="14" fontWeight="800" fill="#b45309" textAnchor="middle">σf ≈ 30~70%</text>
+      <text x="340" y="218" fontSize="11" fill="#374151" textAnchor="middle">(layer interface 균열)</text>
+    </g>
+  </svg>
+);
+
+/** HIP 처리 효과 — porosity 제거 시각화 */
+export const SvgHIPEffect = () => (
+  <svg viewBox="0 0 480 220" className="w-full h-full">
+    <text x="240" y="22" fontSize="14" fontWeight="800" fill="#374151" textAnchor="middle">HIP (Hot Isostatic Press) — 기공 제거 + 피로 ↑</text>
+    {/* Before — has pores */}
+    <g>
+      <text x="100" y="50" fontSize="13" fontWeight="700" fill="#b45309" textAnchor="middle">As-built (HIP 전)</text>
+      <rect x="30" y="60" width="140" height="100" fill="#fef3c7" stroke="#d97706" strokeWidth="2" />
+      {/* pores - randomized circles */}
+      {[
+        [55, 80, 5], [88, 92, 4], [120, 78, 3.5], [148, 102, 4.5],
+        [65, 125, 3.5], [105, 115, 5.5], [135, 138, 4], [80, 150, 3],
+        [115, 152, 3.5], [50, 105, 3],
+      ].map(([cx, cy, r], i) => (
+        <circle key={i} cx={cx} cy={cy} r={r} fill="#1f2937" opacity="0.7" />
+      ))}
+      <text x="100" y="183" fontSize="11" fill="#b45309" textAnchor="middle">미세 기공 ~1-3% 부피분율</text>
+      <text x="100" y="200" fontSize="13" fontWeight="800" fill="#b45309" textAnchor="middle">피로 강도 ↓ (균열 시발점)</text>
+    </g>
+    {/* Arrow */}
+    <g stroke="#7c3aed" strokeWidth="3" fill="none">
+      <line x1="185" y1="110" x2="290" y2="110" />
+      <polyline points="282,103 290,110 282,117" />
+    </g>
+    <text x="237" y="100" fontSize="13" fontWeight="800" fill="#6d28d9" textAnchor="middle">HIP</text>
+    <text x="237" y="128" fontSize="10" fill="#6d28d9" textAnchor="middle">1100°C / 100MPa</text>
+    {/* After — clean */}
+    <g>
+      <text x="380" y="50" fontSize="13" fontWeight="700" fill="#047857" textAnchor="middle">HIP 후</text>
+      <rect x="310" y="60" width="140" height="100" fill="#d1fae5" stroke="#059669" strokeWidth="2" />
+      <text x="380" y="183" fontSize="11" fill="#047857" textAnchor="middle">기공 0.5% 미만 (압축 소거)</text>
+      <text x="380" y="200" fontSize="13" fontWeight="800" fill="#047857" textAnchor="middle">피로 ↑·연신 ↑·σy 약간 ↓</text>
+    </g>
+  </svg>
+);
+
+/** 안전계수 (Safety Factor) — σy / SF → 허용응력 시각화 */
+export const SvgSafetyFactor = () => (
+  <svg viewBox="0 0 480 220" className="w-full h-full">
+    <text x="240" y="22" fontSize="14" fontWeight="800" fill="#374151" textAnchor="middle">안전계수 — 항복강도 σy 를 SF 로 나눠 허용응력 산정</text>
+    {/* Big bar at top — σy */}
+    <rect x="40" y="50" width="400" height="32" fill="#fef3c7" stroke="#d97706" strokeWidth="2" />
+    <text x="240" y="71" fontSize="14" fontWeight="800" fill="#b45309" textAnchor="middle">σy (재료 항복강도)</text>
+    {/* Safety factor division */}
+    <g stroke="#374151" strokeWidth="1.4" fill="none">
+      <line x1="240" y1="86" x2="240" y2="110" />
+      <line x1="200" y1="100" x2="280" y2="100" />
+      <text x="240" y="124" fontSize="14" fontWeight="800" fill="#374151" textAnchor="middle">÷ SF</text>
+    </g>
+    {/* Allowable stress bar */}
+    <rect x="40" y="140" width="200" height="32" fill="#d1fae5" stroke="#059669" strokeWidth="2" />
+    <text x="140" y="161" fontSize="13" fontWeight="800" fill="#047857" textAnchor="middle">σ_allow (허용응력)</text>
+    {/* Safety margin shaded */}
+    <rect x="240" y="140" width="200" height="32" fill="#fecaca" stroke="#e11d48" strokeWidth="2" strokeDasharray="4 2" />
+    <text x="340" y="161" fontSize="13" fontWeight="700" fill="#be123c" textAnchor="middle">안전 여유 (margin)</text>
+    {/* SF guide */}
+    <g fontSize="11" fill="#374151">
+      <text x="40" y="200" fontWeight="700">SF 기준:</text>
+      <text x="100" y="200">일반 ≥ 2 · 항공 ≥ 1.5 · 압력용기 ≥ 3.5 (ASME) · 인명 안전 ≥ 4</text>
+    </g>
   </svg>
 );
 

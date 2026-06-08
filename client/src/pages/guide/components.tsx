@@ -251,7 +251,7 @@ export function PropCard({ name, unit, icon, intuition, useFor, range }: { name:
           <p className="font-bold text-foreground">{name}</p>
           <p className="font-mono text-[11px] text-accent">{unit}</p>
         </div>
-        {icon && <div className="w-20 h-12 flex-shrink-0 bg-muted/30 rounded border border-border/50 p-1">{icon}</div>}
+        {icon && <div className="w-28 h-20 flex-shrink-0 bg-muted/30 rounded border border-border/50 p-1.5">{icon}</div>}
       </div>
       <p className="text-[13px] leading-relaxed text-foreground/90"><b className="text-accent">물리적 의미:</b> {intuition}</p>
       <p className="text-[12px] mt-2 leading-relaxed text-muted-foreground"><b className="text-foreground/80">관련 설계 요구:</b> {useFor}</p>

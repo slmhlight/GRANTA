@@ -21,6 +21,7 @@ import {
   SvgRect, SvgSquare, SvgCircle, SvgBox, SvgTube, SvgIBeam,
   SvgColumn,
   SvgStressStrain, SvgBendingStress, SvgAshbyChart, SvgFCOF, SvgTorsion, SvgMohr, SvgPressureVessel,
+  SvgAMAnisotropy, SvgHIPEffect, SvgSafetyFactor,
   IconYield, IconUTS, IconElongation, IconE, IconHardness, IconFatigue, IconDensity, IconCTE, IconK, IconMaxTemp,
   SvgCantileverV2, SvgCantileverUDLV2, SvgSimpleCenterV2, SvgSimpleUDLV2, SvgFixedCenterV2, SvgFixedUDLV2,
 } from './guide/svgs';
@@ -729,7 +730,7 @@ export default function Guide() {
 
           <H3>차트 활용 (이 앱과 1:1 매핑)</H3>
           <p className="text-sm leading-relaxed">Ashby 차트는 보통 <b>로그-로그 축</b>에 두 물성을 그립니다. 한계선(필터)·외피(재료군 분포)·등지수선(성능지수 방향)을 함께 보면 좋은 후보가 어디에 모이는지 한눈에 잡힙니다.</p>
-          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[220px]"><SvgAshbyChart /></div>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[320px]"><SvgAshbyChart /></div>
           <p className="text-[12px] text-muted-foreground">위 그림은 ρ vs σy 샘플 — <span className="text-amber-600 font-semibold">한계선(노랑)</span> 위쪽이 σy 제약 통과, <span className="text-rose-500 font-semibold">등지수선(빨강)</span>을 위쪽으로 옮길수록 더 좋은 재료. 둘 다 만족하는 영역에 모인 재료가 최종 후보입니다.</p>
           <div className="overflow-x-auto mt-2">
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
@@ -1083,6 +1084,7 @@ export default function Guide() {
             <p className="mt-1 font-mono text-[13px]">허용응력 = σy / SF &nbsp;→&nbsp; 필요 σy ≥ SF · σ = SF · F / A</p>
             <p className="mt-1 text-muted-foreground">정적·연성 부품은 보통 <F>SF = 1.5~2</F>, 인명·취성·불확실 영역은 더 높게.</p>
           </Note>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[260px]"><SvgSafetyFactor /></div>
           <div className="rounded-lg border border-emerald-400/30 bg-emerald-50/40 p-4 my-4">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-emerald-700 mb-2">📐 워크드 예제 — 인장 부재</p>
             <p className="text-sm text-foreground/85 mb-3">
@@ -1518,7 +1520,7 @@ export default function Guide() {
 
           <H3>5.2 좌굴 (Euler 식) — 가는 기둥의 함정</H3>
           <div className="flex items-start gap-4 mt-2">
-            <div className="w-28 h-28 bg-muted/30 rounded border border-border/60 flex items-center justify-center p-1 flex-shrink-0"><SvgColumn /></div>
+            <div className="w-48 h-40 bg-muted/30 rounded border border-border/60 flex items-center justify-center p-2 flex-shrink-0"><SvgColumn /></div>
             <div className="text-sm leading-relaxed">
               <p>가늘고 긴 기둥은 σy 를 넘기 <b>전에</b> 옆으로 휘어 무너집니다 (좌굴). 임계하중:</p>
               <p className="font-mono text-[13px] mt-1 bg-muted/40 inline-block px-2 py-1 rounded">P_cr = π² · E · I / L_eff²</p>
@@ -1673,36 +1675,38 @@ export default function Guide() {
             <li><b>피로 강도 σf</b>: Z 방향이 XY 의 30~70%, surface roughness + Z-pore 영향</li>
             <li><b>탄성계수 E</b>: 거의 등방 (1~3% 차이)</li>
           </ul>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[280px]"><SvgAMAnisotropy /></div>
           <Note tone="tip">
             <b>실무 팁.</b> 응력이 한 방향이면 XY 평면을 그 방향으로 배치하도록 빌드 방향 설계. 회전 부품·복잡 형상은 <b>HIP 처리로 이방성·기공 동시 감소</b>가 표준.
           </Note>
 
           <H3>8.2 후처리 표준 워크플로우</H3>
+          <div className="rounded-lg border border-border bg-card p-3 my-3 h-[260px]"><SvgHIPEffect /></div>
           {/* R68 — 후처리 7단계 flow 도식 */}
           <div className="rounded-lg border border-border bg-card p-3 my-3 overflow-x-auto">
-            <svg viewBox="0 0 720 130" className="min-w-[680px] h-auto">
+            <svg viewBox="0 0 980 180" className="min-w-[900px] h-auto">
               {[
-                { label: 'AM 빌드', sub: 'as-built', color: 'oklch(0.85 0.05 90)' },
-                { label: '응력 완화', sub: 'Stress relief', color: 'oklch(0.85 0.06 30)' },
-                { label: '분리·서포트 제거', sub: 'wire cut', color: 'oklch(0.85 0.04 250)' },
-                { label: 'HIP', sub: '기공 제거', color: 'oklch(0.85 0.08 220)' },
-                { label: '시효·SA', sub: 'Solution+Aging', color: 'oklch(0.85 0.06 110)' },
-                { label: '기계가공', sub: 'finishing', color: 'oklch(0.85 0.04 250)' },
-                { label: 'CT·NDT', sub: '검사', color: 'oklch(0.85 0.12 145)' },
+                { label: 'AM 빌드', sub: 'as-built', color: 'oklch(0.88 0.06 90)' },
+                { label: '응력 완화', sub: 'Stress relief', color: 'oklch(0.88 0.08 30)' },
+                { label: '분리·서포트 제거', sub: 'wire cut', color: 'oklch(0.88 0.05 250)' },
+                { label: 'HIP', sub: '기공 제거', color: 'oklch(0.88 0.10 220)' },
+                { label: '시효·SA', sub: 'Solution+Aging', color: 'oklch(0.88 0.08 110)' },
+                { label: '기계가공', sub: 'finishing', color: 'oklch(0.88 0.05 250)' },
+                { label: 'CT·NDT', sub: '검사', color: 'oklch(0.88 0.14 145)' },
               ].map((s, i) => (
                 <g key={i}>
-                  <rect x={6 + i * 102} y="36" width="88" height="58" rx="6" fill={s.color} stroke="oklch(0.45 0.04 250)" />
-                  <text className="svg-text-bg-sm" x={50 + i * 102} y="58" textAnchor="middle" fontSize="10" fontWeight="bold" fill="oklch(0.25 0.04 250)">{i + 1}. {s.label}</text>
-                  <text className="svg-text-bg-sm" x={50 + i * 102} y="72" textAnchor="middle" fontSize="8" fill="oklch(0.4 0.04 250)">{s.sub}</text>
-                  <text className="svg-text-bg-sm" x={50 + i * 102} y="88" textAnchor="middle" fontSize="7" fill="oklch(0.5 0.04 250)" fontStyle="italic">
+                  <rect x={10 + i * 138} y="48" width="124" height="84" rx="8" fill={s.color} stroke="oklch(0.35 0.06 250)" strokeWidth="1.5" />
+                  <text x={72 + i * 138} y="76" textAnchor="middle" fontSize="14" fontWeight="800" fill="oklch(0.20 0.04 250)">{i + 1}. {s.label}</text>
+                  <text x={72 + i * 138} y="95" textAnchor="middle" fontSize="11" fontWeight="600" fill="oklch(0.30 0.04 250)">{s.sub}</text>
+                  <text x={72 + i * 138} y="118" textAnchor="middle" fontSize="10" fill="oklch(0.40 0.04 250)" fontStyle="italic" fontFamily="monospace">
                     {['as-built', '650-815°C', '와이어컷', '1100°C/100MPa', 'alloy 별', 'Ra 0.5-3μm', 'porosity 0.5%'][i]}
                   </text>
-                  {i < 6 && <line x1={94 + i * 102} y1="65" x2={108 + i * 102} y2="65" stroke="oklch(0.55 0.12 220)" strokeWidth="1.5" markerEnd="url(#wfArr)" />}
+                  {i < 6 && <line x1={134 + i * 138} y1="88" x2={148 + i * 138} y2="88" stroke="oklch(0.55 0.14 220)" strokeWidth="2.5" markerEnd="url(#wfArr)" />}
                 </g>
               ))}
-              <defs><marker id="wfArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.12 220)" /></marker></defs>
-              <text className="svg-text-bg-sm" x="360" y="20" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">AM 부품 후처리 워크플로우 (7단계)</text>
-              <text className="svg-text-bg-sm" x="360" y="115" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.04 250)" fontStyle="italic">vendor·alloy·용도에 따라 일부 단계 생략 가능 — 단 항공·의료는 모든 단계 표준</text>
+              <defs><marker id="wfArr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="oklch(0.55 0.14 220)" /></marker></defs>
+              <text x="490" y="26" textAnchor="middle" fontSize="15" fill="oklch(0.20 0.04 250)" fontWeight="800">AM 부품 후처리 워크플로우 (7단계)</text>
+              <text x="490" y="158" textAnchor="middle" fontSize="12" fill="oklch(0.40 0.04 250)" fontStyle="italic">vendor·alloy·용도에 따라 일부 단계 생략 가능 — 항공·의료는 모든 단계 표준</text>
             </svg>
           </div>
           <div className="overflow-x-auto mt-2">
