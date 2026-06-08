@@ -13,7 +13,7 @@ import { searchGuide, type GuideIndexEntry } from './guide/index-entries';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 // C1: Guide 페이지 구성요소를 ./guide/{components,svgs}.tsx 로 분리해 파일 사이즈 축소.
-import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario } from './guide/components';
+import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario, useReadChapters } from './guide/components';
 import {
   SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink,
   SvgWear, SvgMedical, SvgCryogenic, SvgElectrical,
@@ -77,6 +77,10 @@ export default function Guide() {
   // R61 #3 — 자주 쓰는 6개만 처음 노출. "더 보기" 로 나머지 10 펼침.
   const [showAllTiles, setShowAllTiles] = useState(false);
   const visibleTiles = showAllTiles ? [...POPULAR_TILES, ...EXTRA_TILES] : POPULAR_TILES;
+  /* R187 — 학습 진행률 (TOC 의 chapter 별 ✓ + 전체 progress bar). */
+  const { isRead: isChapterRead } = useReadChapters();
+  const readCount = TOC.filter(t => isChapterRead(t.id)).length;
+  const readPct = Math.round((readCount / TOC.length) * 100);
   // R66 — Guide 안 검색. sticky bar + dropdown. 결과 click → anchor scroll + chapter open.
   const [searchQ, setSearchQ] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
@@ -186,6 +190,63 @@ export default function Guide() {
             <b className="text-foreground/80">단축키</b>: <kbd className="px-1 py-0.5 rounded bg-muted border border-border font-mono text-[10px]">/</kbd> 검색 · <kbd className="px-1 py-0.5 rounded bg-muted border border-border font-mono text-[10px]">?</kbd> 온보딩 다시 보기 ·
             <span className="ml-1"><b className="text-foreground/80">검색</b>은 약어·구분자 무시(<span className="font-mono">ti6al4v</span>·<span className="font-mono">316l</span>·<span className="font-mono">ss316</span>).</span>
             <span className="ml-1">우측 상단에서 <b>한/EN</b>·<b>SI/Imperial</b> 전환.</span>
+          </p>
+        </div>
+
+        {/* R187 — 학습 path overview (Level 별). 초보 사용자의 첫 진입점.
+         *   초급 → 중급 → 고급 학습 경로 명시. 기존 사용자는 skip 가능. */}
+        <div className="mt-6 rounded-lg border-2 border-accent/30 bg-gradient-to-br from-accent/5 to-violet-50 p-4">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 flex items-center gap-1.5">
+            <GraduationCap className="w-3.5 h-3.5" /> 학습 경로 — 처음이라면 여기서부터
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 mt-3">
+            {/* 초급 */}
+            <div className="rounded-md border border-emerald-300 bg-emerald-50 p-3">
+              <div className="flex items-center gap-1.5 mb-2">
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-600 text-white font-bold">초급</span>
+                <b className="text-sm text-emerald-900">실전 사례로 시작</b>
+              </div>
+              <p className="text-[11px] text-emerald-800/80 leading-relaxed mb-2">
+                "이 부품에 어떤 재료를 써야 하나" 부터 명확히. 16 사례 중 가까운 것 선택 → 자동 필터 적용.
+              </p>
+              <div className="text-[10px] space-y-0.5">
+                <a href="#ch7" className="block text-emerald-700 hover:underline">→ Ch.1 실전 사례 16선</a>
+                <a href="#ch10" className="block text-emerald-700 hover:underline">→ Ch.3 합금 family 매핑</a>
+              </div>
+            </div>
+            {/* 중급 */}
+            <div className="rounded-md border border-violet-300 bg-violet-50 p-3">
+              <div className="flex items-center gap-1.5 mb-2">
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-violet-600 text-white font-bold">중급</span>
+                <b className="text-sm text-violet-900">이론 + 계산</b>
+              </div>
+              <p className="text-[11px] text-violet-800/80 leading-relaxed mb-2">
+                Ashby 선택법, 물성·열처리 사전, 응력·처짐 계산. "왜 그 재료" 의 근거 명확화.
+              </p>
+              <div className="text-[10px] space-y-0.5">
+                <a href="#ch6" className="block text-violet-700 hover:underline">→ Ch.2 Ashby 선택법</a>
+                <a href="#ch1" className="block text-violet-700 hover:underline">→ Ch.4 물성·열처리 사전</a>
+                <a href="#ch2" className="block text-violet-700 hover:underline">→ Ch.5 요구→숫자 변환</a>
+              </div>
+            </div>
+            {/* 고급 */}
+            <div className="rounded-md border border-rose-300 bg-rose-50 p-3">
+              <div className="flex items-center gap-1.5 mb-2">
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-rose-600 text-white font-bold">고급</span>
+                <b className="text-sm text-rose-900">산업 적용</b>
+              </div>
+              <p className="text-[11px] text-rose-800/80 leading-relaxed mb-2">
+                흔한 설계 실수, AM 특화, 인증·시제품 시험, family 기본론. 실무 적용 차원의 깊이.
+              </p>
+              <div className="text-[10px] space-y-0.5">
+                <a href="#ch11" className="block text-rose-700 hover:underline">→ Ch.9 흔한 실수 10선</a>
+                <a href="#ch12" className="block text-rose-700 hover:underline">→ Ch.11 인증·시제품</a>
+                <a href="#ch15" className="block text-rose-700 hover:underline">→ Ch.14 재료 family 기본론</a>
+              </div>
+            </div>
+          </div>
+          <p className="text-[11px] text-muted-foreground mt-3 italic">
+            💡 chapter 별 학습 목표 + 진행률은 본문 상단에 표시. 단축키 <kbd className="px-1 py-0.5 rounded bg-background border border-border font-mono text-[9px]">/</kbd> 으로 chapter 내부 검색 가능.
           </p>
         </div>
 
@@ -299,16 +360,33 @@ export default function Guide() {
           </svg>
         </div>
 
-        {/* 학습 흐름 */}
+        {/* 학습 흐름 — R187: 진행률 indicator 추가 */}
         <div className="mt-6 rounded-lg border border-border bg-card p-4">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-3 flex items-center gap-1.5"><Compass className="w-3.5 h-3.5" /> 추천 목차 (실전 → 이론 순)</p>
+          <div className="flex items-baseline justify-between mb-3 gap-2 flex-wrap">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground flex items-center gap-1.5"><Compass className="w-3.5 h-3.5" /> 추천 목차 (실전 → 이론 순)</p>
+            {/* R187 — 전체 진행률 progress bar */}
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-mono text-foreground">{readCount} / {TOC.length}</span>
+              <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
+                <div className="h-full bg-emerald-500 transition-all" style={{ width: `${readPct}%` }} />
+              </div>
+              <span className="text-[10px] text-muted-foreground">{readPct}%</span>
+            </div>
+          </div>
           <ol className="space-y-1.5">
-            {TOC.map((t) => (
-              <li key={t.id} className="flex items-center gap-2">
-                <span className="text-[10px] w-6 text-center bg-accent/15 text-accent rounded font-bold py-0.5">{t.n}</span>
-                <a href={`#${t.id}`} className="text-sm text-foreground hover:text-accent hover:underline underline-offset-2">{t.label}</a>
-              </li>
-            ))}
+            {TOC.map((t) => {
+              const read = isChapterRead(t.id);
+              return (
+                <li key={t.id} className="flex items-center gap-2">
+                  <span className={`text-[10px] w-6 text-center rounded font-bold py-0.5 ${read ? 'bg-emerald-100 text-emerald-700' : 'bg-accent/15 text-accent'}`}>
+                    {read ? '✓' : t.n}
+                  </span>
+                  <a href={`#${t.id}`} className={`text-sm hover:text-accent hover:underline underline-offset-2 ${read ? 'text-foreground/60' : 'text-foreground'}`}>
+                    {t.label}
+                  </a>
+                </li>
+              );
+            })}
           </ol>
         </div>
 

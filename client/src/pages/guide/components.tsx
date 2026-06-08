@@ -95,9 +95,52 @@ export function Term({ word, children }: { word: string; children: React.ReactNo
   );
 }
 
+/** R187 — Chapter 진행률 indicator helpers (localStorage 'am_guide_read' = chapter id Set). */
+const GUIDE_READ_KEY = 'am_guide_read';
+function loadReadChapters(): Set<string> {
+  if (typeof window === 'undefined') return new Set();
+  try {
+    const raw = window.localStorage.getItem(GUIDE_READ_KEY);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw);
+    return new Set(Array.isArray(arr) ? arr : []);
+  } catch { return new Set(); }
+}
+function saveReadChapters(s: Set<string>) {
+  if (typeof window === 'undefined') return;
+  try { window.localStorage.setItem(GUIDE_READ_KEY, JSON.stringify(Array.from(s))); } catch {}
+}
+/* R187 — Custom event 로 same-window cross-component state sync.
+ * (localStorage 'storage' event 는 다른 window 만 fire 함. 같은 window 의 hook 인스턴스 간 sync 위해 custom event.) */
+const GUIDE_READ_EVENT = 'guide-read-change';
+export function useReadChapters(): { read: Set<string>; toggle: (id: string) => void; isRead: (id: string) => boolean } {
+  const [read, setRead] = useState<Set<string>>(() => loadReadChapters());
+  useEffect(() => {
+    const refresh = () => setRead(loadReadChapters());
+    const onStorage = (e: StorageEvent) => { if (e.key === GUIDE_READ_KEY) refresh(); };
+    window.addEventListener('storage', onStorage);
+    window.addEventListener(GUIDE_READ_EVENT, refresh);
+    return () => {
+      window.removeEventListener('storage', onStorage);
+      window.removeEventListener(GUIDE_READ_EVENT, refresh);
+    };
+  }, []);
+  const toggle = (id: string) => {
+    const next = new Set(loadReadChapters());
+    if (next.has(id)) next.delete(id); else next.add(id);
+    saveReadChapters(next);
+    setRead(next);
+    // Sync 다른 hook 인스턴스
+    window.dispatchEvent(new CustomEvent(GUIDE_READ_EVENT));
+  };
+  const isRead = (id: string) => read.has(id);
+  return { read, toggle, isRead };
+}
+
 /** 챕터 인트로 — 번호 배지 + 제목 + "이 챕터에서 배우는 것" */
 /** R61 #11 — 모바일 (<sm) 에서는 chapter 가 collapsed 시작, 데스크탑은 항상 펼쳐짐.
- *  hash navigation (#ch6 등) 시 해당 챕터 자동 펼침. */
+ *  hash navigation (#ch6 등) 시 해당 챕터 자동 펼침.
+ *  R187 — 학습 진행률 tracking: 'Mark as read' 버튼 + ✓ badge. */
 export function Chapter({ n, id, title, learn, prereq, children }: { n: number; id: string; title: string; learn: string[]; prereq?: React.ReactNode; children?: React.ReactNode }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 639px)').matches);
   useEffect(() => {
@@ -106,7 +149,6 @@ export function Chapter({ n, id, title, learn, prereq, children }: { n: number; 
     mq.addEventListener('change', on);
     return () => mq.removeEventListener('change', on);
   }, []);
-  // 첫 챕터는 펼침, 나머지 모바일 접음. hash 가 본 챕터이면 펼침.
   const [open, setOpen] = useState(() => {
     if (typeof window === 'undefined') return n === 1;
     if (window.location.hash === `#${id}`) return true;
@@ -117,23 +159,46 @@ export function Chapter({ n, id, title, learn, prereq, children }: { n: number; 
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, [id]);
-  // 데스크탑은 항상 펼침
   const effectiveOpen = isMobile ? open : true;
+  // R187 — 진행률 hook
+  const { isRead, toggle } = useReadChapters();
+  const read = isRead(id);
   return (
     <section id={id} className="scroll-mt-24 mt-14">
       <div className="border-b-2 border-accent/30 pb-4 mb-5">
         <div className="flex items-baseline gap-3">
           <span className="text-[10px] tracking-[0.2em] uppercase text-accent font-bold">CHAPTER {n}</span>
+          {/* R187 — Read badge */}
+          {read && (
+            <span className="inline-flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-300 font-semibold">
+              ✓ 학습 완료
+            </span>
+          )}
         </div>
-        <button
-          type="button"
-          onClick={() => isMobile && setOpen(o => !o)}
-          className="sm:cursor-default w-full text-left flex items-baseline gap-2"
-          aria-expanded={effectiveOpen}
-        >
-          {isMobile && (effectiveOpen ? <ChevronDown className="w-4 h-4 text-accent flex-shrink-0 self-center" /> : <ChevronRight className="w-4 h-4 text-accent flex-shrink-0 self-center" />)}
-          <h2 className="text-2xl font-bold text-foreground mt-1 tracking-tight">{title}</h2>
-        </button>
+        <div className="flex items-baseline justify-between gap-3">
+          <button
+            type="button"
+            onClick={() => isMobile && setOpen(o => !o)}
+            className="sm:cursor-default flex-1 text-left flex items-baseline gap-2"
+            aria-expanded={effectiveOpen}
+          >
+            {isMobile && (effectiveOpen ? <ChevronDown className="w-4 h-4 text-accent flex-shrink-0 self-center" /> : <ChevronRight className="w-4 h-4 text-accent flex-shrink-0 self-center" />)}
+            <h2 className="text-2xl font-bold text-foreground mt-1 tracking-tight">{title}</h2>
+          </button>
+          {/* R187 — Mark as read toggle */}
+          <button
+            type="button"
+            onClick={() => toggle(id)}
+            className={`flex-shrink-0 text-[11px] px-2.5 py-1 rounded border font-medium transition-colors ${
+              read
+                ? 'bg-emerald-50 border-emerald-300 text-emerald-700 hover:bg-emerald-100'
+                : 'bg-background border-border text-muted-foreground hover:border-accent hover:text-accent'
+            }`}
+            title={read ? '학습 완료 표시 취소' : '이 chapter 를 학습 완료로 표시 (localStorage 저장)'}
+          >
+            {read ? '✓ 읽음' : '읽음 표시'}
+          </button>
+        </div>
         {effectiveOpen && (
           <>
             <div className="mt-3 rounded-md bg-accent/5 border border-accent/20 px-3 py-2">
