@@ -1,5 +1,18 @@
 {
-  "_note": "R173 — alloy name 패턴 → handbook verified sources + industry_note. build-materials.mjs 의 후처리에서 모든 matching entry 에 비파괴적으로 merge (기존 variants 보존).",
+  "_note": "R173 — alloy name 패턴 → handbook verified sources + industry_note. build-materials.mjs 의 후처리에서 모든 matching entry 에 비파괴적으로 merge.",
+  "_industry_note_guidelines": [
+    "R185 — Industry note 작성 표준 (사용자 노출 텍스트, dev memo 금지):",
+    "  ✓ Alloy designations (AISI / DIN / EN / JIS / KS / UNS) 1줄 — 산업 표준명 매핑",
+    "  ✓ Composition family (예: 'high-Cr (~12%) high-C (1.5%) cold-work tool steel')",
+    "  ✓ Critical property (1-2개, qualitative) — 예: 'excellent wear resistance'",
+    "  ✓ Top applications (3-5개) — punching die / aerospace landing gear 등",
+    "  ✓ Commercial brand 명 (선택) — Bohler K110, Uddeholm Sverker 21",
+    "  ✗ Numeric data 중복 (σy / UTS / HRC / HB) — main material data 와 중복, 제거",
+    "  ✗ Dev note (⚠ entry / MatWeb 표기 / R### 정정 / mock / fake-variant) — build script 자동 strip",
+    "  ✗ R### prefix — build script 자동 strip",
+    "  ✗ HT cycle 상세 (1020°C oil Q + 200°C T) — heat treatment 카드와 중복",
+    "  목표 길이: 1-3 문장, 150-300 chars"
+  ],
   "patches": [
     {
       "_alloy": "AISI 1018",
@@ -144,7 +157,7 @@
         { "label": "Böhler-Uddeholm — D2 / K110 Tool Steel Datasheet", "url": "https://www.uddeholm.com/files/PB_Uddeholm_sverker_21_english.pdf", "verified": true },
         { "label": "DIN EN ISO 4957 — Tool Steels (1.2379)", "url": "https://www.iso.org/standard/76129.html", "verified": false }
       ],
-      "industry_note": "R173 — AISI D2 / DIN 1.2379 / X153CrMoV12 / JIS SKD11 / KS STD11 — high-Cr (~12%) high-C (1.5%) cold-work tool steel. Annealed (delivery): σy 620 / UTS 760 / HB 250. Hardened (1020°C oil Q + 200°C T): HRC 60-62, σy 1900 / UTS 2100. Secondary hardening (520°C T): HRC 58, σy 1700 / UTS 1900. 우수한 wear/dimension 유지력 — punching dies, blanking dies, thread rolls, knife blades. ⚠ entry 의 'Hardened' source 가 MatWeb — AISI 1020 으로 표기되어 있음 (R173 에서 정정 source 추가)."
+      "industry_note": "AISI D2 / DIN 1.2379 / X153CrMoV12 / JIS SKD11 / KS STD11 — high-Cr (~12%) high-C (1.5%) cold-work tool steel. Excellent wear / dimensional stability. Applications: stamping / blanking die (auto body panel), slitter knife, thread-rolling die, cold-header punch, knife blade. Commercial brands: Bohler K110, Uddeholm Sverker 21, Hitachi SLD."
     },
     {
       "_alloy": "AFRP (Kevlar/Twaron)",
