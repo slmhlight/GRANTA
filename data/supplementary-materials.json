@@ -525,9 +525,9 @@
       ],
       "conditions": [
         "Annealed (soft)",
-        "Q + Temper 540°C (HRC 50)",
-        "Q + Temper 540°C (HRC 53)",
-        "Q + Temper 610°C (HRC 44)"
+        "Q+T 540°C (HRC 50)",
+        "Q+T 540°C (HRC 53)",
+        "Q+T 610°C (HRC 44)"
       ],
       "ref_urls": [
         "https://www.bohler.uddeholm.com/global/en/products/tool-steels/hot-work-tool-steels/h13/",
@@ -1248,7 +1248,7 @@
       "industry_note": "Rolled Alloys 의 super-duplex stainless. PREN ≥40 (vs 2507 PREN 41) — 해양 / 사우어 가스 / 화학 plant 표준. Subsea manifold, umbilical tubing, wireline, FGD scrubber, RO desalination, 황산 plant, marine fastener. 600°F (315°C) 초과 시 toughness 급락 (장기 노출 금지)."
     },
     {
-      "name": "Maraging C350 / VascoMax C-350 (ATI 18Ni-9Co cobalt-strengthened)",
+      "name": "Maraging C350 (VascoMax, 18Ni-9Co)",
       "category": "Metal",
       "subcategory": "Maraging Steel",
       "process": "Wrought",
@@ -1283,7 +1283,7 @@
       ],
       "conditions": [
         "Solution annealed 815°C AC (soft 30-35 HRC, formable)",
-        "Aged 480-510°C 3-6h AC (peak strength UTS 2413 MPa, 53-55 HRC)"
+        "Aged 480-510°C / 3-6h AC (peak, HRC 53-55)"
       ],
       "fatigue": [
         700,
@@ -1312,7 +1312,7 @@
           "verified": true
         }
       ],
-      "heat_treatment": "Solution 815°C AC + Aged 482°C 6h AC (peak — UTS 2413 MPa, HRC 53-55)",
+      "heat_treatment": "Solution 815°C AC + Aged 482°C / 6h AC (peak, HRC 53-55)",
       "aliases": [
         "Maraging C350",
         "Maraging 350",
@@ -1378,7 +1378,12 @@
           134
         ]
       ],
-      "conditions": ["O", "H32", "H34", "H111"],
+      "conditions": [
+        "O",
+        "H32",
+        "H34",
+        "H111"
+      ],
       "fatigue": [
         85,
         110,
@@ -1451,9 +1456,9 @@
         ]
       ],
       "conditions": [
-        "Normalized (σy 360-440, UTS 600-740, El 16-26%, HV 180-225)",
-        "Q+T 540°C high-temper (σy 620, UTS 760)",
-        "Q+T 425°C medium-temper (σy 760, UTS 880, peak strength)"
+        "Normalized",
+        "Q+T 540°C (high-temper)",
+        "Q+T 425°C (medium-temper, peak)"
       ],
       "fatigue": [
         260,
@@ -1481,11 +1486,11 @@
           "verified": true
         }
       ],
-      "heat_treatment": "Stressproof (CW + stress-relief 600°C, σy 620 MPa, machinability rating 80%)",
+      "heat_treatment": "Stressproof (CW + stress-relief 600°C, machinability 80%)",
       "industry_note": "Stressproof™ — Niagara LaSalle 의 cold-drawn + 600°C stress-relieved 1144. 모터 shaft, 펌프 shaft, 정밀 fastener, fluid power cylinder rod — 4140 Q+T 대비 가공성 2× (free-machining)."
     },
     {
-      "name": "AISI 301 (cold-rolled high-strength austenitic stainless)",
+      "name": "AISI 301 (cold-rolled HS austenitic)",
       "category": "Metal",
       "subcategory": "Stainless Steel - Austenitic",
       "process": "Wrought",
@@ -1547,11 +1552,11 @@
         ]
       ],
       "conditions": [
-        "Annealed (S30100, σy 205-240, UTS 503-556, El 30-40%)",
-        "1/4 hard (cold-rolled, σy 515-760, UTS 860-1100)",
-        "1/2 hard (cold-rolled, σy 760-965, UTS 1035-1280)",
-        "3/4 hard (cold-rolled, σy 930-1240, UTS 1170-1380)",
-        "Full hard (cold-rolled, σy 965-1380, UTS 1275-1520)"
+        "Annealed (S30100)",
+        "1/4 hard (cold-rolled)",
+        "1/2 hard (cold-rolled)",
+        "3/4 hard (cold-rolled)",
+        "Full hard (cold-rolled)"
       ],
       "fatigue": [
         280,
@@ -1583,7 +1588,7 @@
       "industry_note": "Strain-hardening austenitic stainless — 자동차 spring, structural shape, railway car structure, aircraft skin, kitchen utensil. 304 대비 더 강한 strain-hardening (304 보다 N 더 많음). 1/4-Full hard 까지 cold-rolling 으로 강도 ↑↑. 304 의 가공경화 변종으로 보면 됨."
     },
     {
-      "name": "API 5L X42N + X52M PSL2 (heavy-wall pipeline, normalized/TMCP)",
+      "name": "API 5L X42N / X52M PSL2 (heavy-wall pipeline)",
       "category": "Metal",
       "subcategory": "Microalloyed Steel",
       "process": "Wrought",
@@ -1619,8 +1624,8 @@
         ]
       ],
       "conditions": [
-        "X42N / L290N (normalized, σy 290 MPa min, σu 415 min)",
-        "X52M / L360M (TMCP, σy 360 MPa min, σu 460 min)"
+        "X42N / L290N (normalized)",
+        "X52M / L360M (TMCP)"
       ],
       "fatigue": [
         150,
@@ -2324,7 +2329,7 @@
       "industry_note": "자동차 trim, exhaust manifold inner panel — 430 대비 Mo (0.75-1.25%) + Nb (stabilizer) 로 deep-draw 시 roping/ridging 방지 + 약한 pitting 저항."
     },
     {
-      "name": "AISI 440A (low-C martensitic stainless)",
+      "name": "AISI 440A (low-C martensitic)",
       "category": "Metal",
       "subcategory": "Stainless Steel - Ferritic/Martensitic",
       "process": "Wrought",
@@ -2360,7 +2365,7 @@
       ],
       "conditions": [
         "Annealed (S44002, soft for forming/machining)",
-        "Q+T 200°C peak (HRC 56, knife/bearing application)"
+        "Q+T 200°C (HRC 56, knife/bearing)"
       ],
       "fatigue": [
         400,
@@ -2388,10 +2393,10 @@
           "verified": true
         }
       ],
-      "heat_treatment": "Annealed (soft, HRC ≤22); end-use Q+T HRC 56-58"
+      "heat_treatment": "Annealed (soft); end-use Q+T"
     },
     {
-      "name": "AISI 440B (medium-C martensitic stainless)",
+      "name": "AISI 440B (medium-C martensitic)",
       "category": "Metal",
       "subcategory": "Stainless Steel - Ferritic/Martensitic",
       "process": "Wrought",
@@ -2427,7 +2432,7 @@
       ],
       "conditions": [
         "Annealed (S44003, soft for forming/machining)",
-        "Q+T 200°C peak (HRC 58, cutlery/bearing application)"
+        "Q+T 200°C (HRC 58, cutlery/bearing)"
       ],
       "fatigue": [
         420,
@@ -2455,7 +2460,7 @@
           "verified": true
         }
       ],
-      "heat_treatment": "Annealed (soft, HRC ≤24); end-use Q+T HRC 58-60",
+      "heat_treatment": "Annealed (soft); end-use Q+T",
       "industry_note": "440A 와 440C 의 중간 — 440A 보다 단단, 440C 보다 toughness. 시중 식칼, scalpel blade, bearing race."
     },
     {
@@ -2518,7 +2523,7 @@
       "industry_note": "Heat-resistant ferritic — sulfur-bearing furnace atmosphere, oil refinery, nuclear plants underwater cables. 309/310 austenitic 대비 σ-phase embrittlement 회피 (475°C embrittlement 주의)."
     },
     {
-      "name": "Aluminum 1200 (commercial pure Al)",
+      "name": "AA 1200 (CP Al)",
       "category": "Metal",
       "subcategory": "Aluminum - Pure/Other",
       "process": "Wrought",
@@ -2560,9 +2565,9 @@
         ]
       ],
       "conditions": [
-        "O (Annealed, soft) — σy 38-42 / UTS 86-95 / El 33-38%",
-        "H14 (Half-hard) — σy 95-110 / UTS 105-125 / El 4-6%",
-        "H19 (Extra-hard) — σy 130-150 / UTS 140-160 / El 2-4%"
+        "O (soft)",
+        "H14 (half-hard)",
+        "H19 (extra-hard)"
       ],
       "fatigue": [
         25,
@@ -2687,8 +2692,8 @@
         ]
       ],
       "conditions": [
-        "T4 (Solution + naturally aged) — σy 75-87 / UTS 125-146 / El 16-23%",
-        "T6 (Solution + artificially aged peak) — σy 145-180 / UTS 195-220 / El 10-14%"
+        "T4 (sol. + nat aged)",
+        "T6 (sol. + artificial aged peak)"
       ],
       "fatigue": [
         42,
@@ -4772,9 +4777,33 @@
         "Si": "≤0.10"
       },
       "points": [
-        [7.85, 530, 625, 16, 205, 180, 50],
-        [7.85, 505, 595, 12, 205, 170, 50],
-        [7.85, 560, 660, 20, 205, 200, 50]
+        [
+          7.85,
+          530,
+          625,
+          16,
+          205,
+          180,
+          50
+        ],
+        [
+          7.85,
+          505,
+          595,
+          12,
+          205,
+          170,
+          50
+        ],
+        [
+          7.85,
+          560,
+          660,
+          20,
+          205,
+          200,
+          50
+        ]
       ],
       "industry_note": "R173 — UNS G10450 / JIS S45C / DIN C45. Medium-carbon steel (C 0.45%). 본 entry 는 cold-drawn 기준 (σy 530 MPa). Q+T 가능 — 540°C tempering 시 σy 590, UTS 825, HB 240. 205°C tempering 시 σy 880, UTS 1180, HB 305. 한국 KS D 3752 의 S45C 와 동등. 주요: 일반 기계 축, 기어, 펌프 임펠러, gear.",
       "sources": [
@@ -4809,9 +4838,33 @@
         "S": "≤0.050"
       },
       "points": [
-        [7.87, 370, 440, 15, 205, 130, 52],
-        [7.87, 340, 420, 12, 205, 120, 52],
-        [7.87, 400, 470, 18, 205, 145, 52]
+        [
+          7.87,
+          370,
+          440,
+          15,
+          205,
+          130,
+          52
+        ],
+        [
+          7.87,
+          340,
+          420,
+          12,
+          205,
+          120,
+          52
+        ],
+        [
+          7.87,
+          400,
+          470,
+          18,
+          205,
+          145,
+          52
+        ]
       ],
       "industry_note": "R173 — UNS G10180 / 1018 cold-drawn round bar (handbook standard). σy ≈ 370 MPa (54 ksi), UTS ≈ 440 MPa (64 ksi), HB ≈ 126. As-rolled 동일 grade 는 σy ≈ 295 MPa / El ≈ 25% (현 entry 는 cold-drawn 기준).",
       "sources": [
@@ -6192,7 +6245,7 @@
           "verified": false
         }
       ],
-      "heat_treatment": "Pre-hardened (Q+T HRC 30, mill supplied)"
+      "heat_treatment": "Pre-hardened (Q+T, HRC 30 mill-supplied)"
     },
     {
       "name": "S7 tool steel",
@@ -10336,7 +10389,7 @@
         ]
       ],
       "conditions": [
-        "L450Q/QO (Q+T, σy 450 MPa min, σu 535 MPa min, PSL2 standard)"
+        "L450Q/QO (Q+T, PSL2)"
       ],
       "fatigue": [
         200,
@@ -10395,7 +10448,7 @@
         ]
       ],
       "conditions": [
-        "L485M (TMCP, σy 485 MPa min, σu 570 MPa min)"
+        "L485M (TMCP)"
       ],
       "fatigue": [
         220,
@@ -15415,7 +15468,11 @@
           180
         ]
       ],
-      "conditions": ["O", "T6", "T651"],
+      "conditions": [
+        "O",
+        "T6",
+        "T651"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6082"
       ]
@@ -16532,7 +16589,7 @@
       "industry_note": "Standard for helicopter transmission gears (Apache, Black Hawk), jet-engine accessory gearboxes; AMS 6260 / 6265 (VIM-VAR)."
     },
     {
-      "name": "22MnB5 (USIBOR 1500) — hot-stamped automotive PHS",
+      "name": "22MnB5 (USIBOR 1500)",
       "category": "Metal",
       "subcategory": "Press-Hardening Steel",
       "process": "Wrought",
@@ -16575,9 +16632,9 @@
         ]
       ],
       "conditions": [
-        "High-ductility blank (ferrite-pearlite, pre-stamping σy 400 MPa)",
-        "Austenitized + H2O quenched + AlSi coated (post-PHS, peak martensite, σy 1100)",
-        "Austenitized + H2O quenched uncoated (post-PHS, σy 950)"
+        "High-ductility blank (ferrite-pearlite, pre-stamping)",
+        "Austenitized + H2O quenched + AlSi coated (post-PHS, peak martensite)",
+        "Austenitized + H2O quenched uncoated (post-PHS)"
       ],
       "fatigue": [
         225,
@@ -16975,7 +17032,7 @@
       "industry_note": "ASTM B353 PWR fuel rod cladding (Westinghouse/AREVA); low neutron absorption σa ≈ 0.18 b; superseded for advanced PWR by ZIRLO™ / M5® but still standard. Density 6.56 g/cc, Tm 1850°C, Poisson 0.37 (낮은 ν 으로 hydride blister 대응)."
     },
     {
-      "name": "SA516 Grade 70 / P355N (pressure vessel HSLA)",
+      "name": "SA516 Gr 70 / P355N (pressure vessel)",
       "category": "Metal",
       "subcategory": "Pressure Vessel Steel",
       "process": "Wrought",
@@ -17017,8 +17074,8 @@
         ]
       ],
       "conditions": [
-        "Normalized (min spec, σy 355 MPa)",
-        "Normalized (typical thin section, σy 414 MPa)"
+        "Normalized (min spec)",
+        "Normalized (typical thin section)"
       ],
       "fatigue": [
         200,
@@ -17407,7 +17464,11 @@
           121
         ]
       ],
-      "conditions": ["O", "T62", "T87"],
+      "conditions": [
+        "O",
+        "T62",
+        "T87"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=2219-T87"
       ],
@@ -17970,7 +18031,9 @@
         ]
       ],
       "conditions": [
-        "O", "T351", "T81"
+        "O",
+        "T351",
+        "T81"
       ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202024-T351"
@@ -18020,7 +18083,11 @@
           154
         ]
       ],
-      "conditions": ["O", "T7451", "T74"],
+      "conditions": [
+        "O",
+        "T7451",
+        "T74"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%207050-T7451"
       ],
@@ -18069,7 +18136,7 @@
       "industry_note": "First commercial β-Ti; SR-71 Blackbird airframe (~93% of structure), Lockheed A-12; fast-aging to ω makes precision heat-treat critical; ω-embrittlement at room temp limits modern use."
     },
     {
-      "name": "Pyrowear 53 (Carpenter, AMS 6308) — helicopter transmission gear",
+      "name": "Pyrowear 53 (AMS 6308)",
       "category": "Metal",
       "subcategory": "Case-Hardening Steel",
       "process": "Wrought",
@@ -20871,7 +20938,7 @@
       "industry_note": "POSCO 독자 개발 TWIP steel (Twinning-Induced Plasticity) — 자동차 B-pillar / A-pillar / bumper. UTS 1180 + El 45% (동시 만족 = 무게 감량 + 충돌 안전 trade-off 해결). 18~22% Mn 으로 austenitic 유지 + twin slip mechanism. 현대 IONIQ / 기아 EV6 차체 구조용. 다른 1차 자료: POSCO 백서."
     },
     {
-      "name": "DP980 dual-phase steel (EN HCT980X / VDA 239-100 CR980Y700T-DP)",
+      "name": "DP980 (EN HCT980X) dual-phase",
       "category": "Metal",
       "subcategory": "Advanced High-Strength Steel",
       "process": "Cold Rolled + Continuous Annealed (Dual-Phase: Ferrite + Martensite)",
@@ -20906,8 +20973,8 @@
         ]
       ],
       "conditions": [
-        "Cold-rolled YS600 (typical, σy 600 MPa min, σu 980-1100)",
-        "Cold-rolled YS750 (high-end, σy 750 MPa)"
+        "Cold-rolled YS600 (typical)",
+        "Cold-rolled YS750 (high-end)"
       ],
       "fatigue": [
         308,
@@ -21316,13 +21383,59 @@
         "Mn": "≤0.15"
       },
       "points": [
-        [2.70, 55, 125, 25, 69, 30, 167],
-        [2.70, 145, 240, 22, 69, 65, 167],
-        [2.70, 275, 310, 12, 69, 95, 167],
-        [2.70, 275, 310, 12, 69, 95, 167],
-        [2.70, 240, 270, 13, 69, 88, 167]
+        [
+          2.7,
+          55,
+          125,
+          25,
+          69,
+          30,
+          167
+        ],
+        [
+          2.7,
+          145,
+          240,
+          22,
+          69,
+          65,
+          167
+        ],
+        [
+          2.7,
+          275,
+          310,
+          12,
+          69,
+          95,
+          167
+        ],
+        [
+          2.7,
+          275,
+          310,
+          12,
+          69,
+          95,
+          167
+        ],
+        [
+          2.7,
+          240,
+          270,
+          13,
+          69,
+          88,
+          167
+        ]
       ],
-      "conditions": ["O", "T4", "T6", "T651", "T73"],
+      "conditions": [
+        "O",
+        "T4",
+        "T6",
+        "T651",
+        "T73"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6061",
         "https://www.kaiseraluminum.com/aerospace/alloys/6061/",
@@ -21345,13 +21458,59 @@
         "Mn": "≤0.30"
       },
       "points": [
-        [2.81, 105, 230, 16, 72, 60, 130],
-        [2.81, 505, 570, 11, 72, 150, 130],
-        [2.81, 505, 570, 11, 72, 150, 130],
-        [2.81, 430, 505, 13, 72, 135, 130],
-        [2.81, 470, 540, 13, 72, 145, 130]
+        [
+          2.81,
+          105,
+          230,
+          16,
+          72,
+          60,
+          130
+        ],
+        [
+          2.81,
+          505,
+          570,
+          11,
+          72,
+          150,
+          130
+        ],
+        [
+          2.81,
+          505,
+          570,
+          11,
+          72,
+          150,
+          130
+        ],
+        [
+          2.81,
+          430,
+          505,
+          13,
+          72,
+          135,
+          130
+        ],
+        [
+          2.81,
+          470,
+          540,
+          13,
+          72,
+          145,
+          130
+        ]
       ],
-      "conditions": ["O", "T6", "T651", "T73", "T7351"],
+      "conditions": [
+        "O",
+        "T6",
+        "T651",
+        "T73",
+        "T7351"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA7075",
         "https://www.alcoa.com/products/aluminum/7075-aerospace-alloy",
@@ -21374,13 +21533,59 @@
         "Zn": "≤0.25"
       },
       "points": [
-        [2.78, 75, 185, 20, 73, 47, 121],
-        [2.78, 345, 485, 18, 73, 120, 121],
-        [2.78, 290, 425, 19, 73, 105, 121],
-        [2.78, 395, 470, 10, 73, 130, 121],
-        [2.78, 450, 480, 6, 73, 142, 121]
+        [
+          2.78,
+          75,
+          185,
+          20,
+          73,
+          47,
+          121
+        ],
+        [
+          2.78,
+          345,
+          485,
+          18,
+          73,
+          120,
+          121
+        ],
+        [
+          2.78,
+          290,
+          425,
+          19,
+          73,
+          105,
+          121
+        ],
+        [
+          2.78,
+          395,
+          470,
+          10,
+          73,
+          130,
+          121
+        ],
+        [
+          2.78,
+          450,
+          480,
+          6,
+          73,
+          142,
+          121
+        ]
       ],
-      "conditions": ["O", "T3", "T4", "T6", "T81"],
+      "conditions": [
+        "O",
+        "T3",
+        "T4",
+        "T6",
+        "T81"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2024",
         "Aluminum Association T-Temper System / MMPDS-2018 / Boeing fuselage spec"
@@ -21402,11 +21607,39 @@
         "Zn": "≤0.25"
       },
       "points": [
-        [2.80, 95, 185, 18, 72, 45, 192],
-        [2.80, 290, 425, 20, 72, 105, 192],
-        [2.80, 415, 485, 13, 72, 135, 192]
+        [
+          2.8,
+          95,
+          185,
+          18,
+          72,
+          45,
+          192
+        ],
+        [
+          2.8,
+          290,
+          425,
+          20,
+          72,
+          105,
+          192
+        ],
+        [
+          2.8,
+          415,
+          485,
+          13,
+          72,
+          135,
+          192
+        ]
       ],
-      "conditions": ["O", "T4", "T6"],
+      "conditions": [
+        "O",
+        "T4",
+        "T6"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2014",
         "Aluminum Association T-Temper System / MMPDS-2018"
@@ -21428,11 +21661,39 @@
         "Zn": "≤0.10"
       },
       "points": [
-        [2.70, 50, 90, 25, 69, 25, 200],
-        [2.70, 145, 185, 12, 69, 60, 200],
-        [2.70, 215, 240, 12, 69, 73, 200]
+        [
+          2.7,
+          50,
+          90,
+          25,
+          69,
+          25,
+          200
+        ],
+        [
+          2.7,
+          145,
+          185,
+          12,
+          69,
+          60,
+          200
+        ],
+        [
+          2.7,
+          215,
+          240,
+          12,
+          69,
+          73,
+          200
+        ]
       ],
-      "conditions": ["O", "T5", "T6"],
+      "conditions": [
+        "O",
+        "T5",
+        "T6"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6063",
         "Aluminum Association T-Temper / Sapa extrusion datasheet"
@@ -21453,11 +21714,39 @@
         "Mn": "≤0.10"
       },
       "points": [
-        [2.68, 90, 195, 25, 70, 47, 138],
-        [2.68, 195, 230, 12, 70, 67, 138],
-        [2.68, 215, 260, 10, 70, 73, 138]
+        [
+          2.68,
+          90,
+          195,
+          25,
+          70,
+          47,
+          138
+        ],
+        [
+          2.68,
+          195,
+          230,
+          12,
+          70,
+          67,
+          138
+        ],
+        [
+          2.68,
+          215,
+          260,
+          10,
+          70,
+          73,
+          138
+        ]
       ],
-      "conditions": ["O", "H32", "H34"],
+      "conditions": [
+        "O",
+        "H32",
+        "H34"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5052",
         "Aluminum Association H-Temper System / ASTM B209"
@@ -21479,12 +21768,49 @@
         "Zn": "≤0.25"
       },
       "points": [
-        [2.66, 145, 290, 22, 70, 75, 117],
-        [2.66, 195, 305, 16, 70, 86, 117],
-        [2.66, 215, 315, 12, 70, 90, 117],
-        [2.66, 215, 305, 10, 70, 90, 117]
+        [
+          2.66,
+          145,
+          290,
+          22,
+          70,
+          75,
+          117
+        ],
+        [
+          2.66,
+          195,
+          305,
+          16,
+          70,
+          86,
+          117
+        ],
+        [
+          2.66,
+          215,
+          315,
+          12,
+          70,
+          90,
+          117
+        ],
+        [
+          2.66,
+          215,
+          305,
+          10,
+          70,
+          90,
+          117
+        ]
       ],
-      "conditions": ["O", "H32", "H321", "H116"],
+      "conditions": [
+        "O",
+        "H32",
+        "H321",
+        "H116"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5083",
         "Aluminum Association H-Temper / ASTM B928 (marine grade) / ASTM G67 (NAMLT test)"
@@ -21505,10 +21831,29 @@
         "Si": "≤0.25"
       },
       "points": [
-        [2.69, 90, 220, 22, 70, 50, 134],
-        [2.69, 200, 250, 10, 70, 69, 134]
+        [
+          2.69,
+          90,
+          220,
+          22,
+          70,
+          50,
+          134
+        ],
+        [
+          2.69,
+          200,
+          250,
+          10,
+          70,
+          69,
+          134
+        ]
       ],
-      "conditions": ["O", "H32"],
+      "conditions": [
+        "O",
+        "H32"
+      ],
       "ref_urls": [
         "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5454",
         "Aluminum Association H-Temper / ASTM B928"
