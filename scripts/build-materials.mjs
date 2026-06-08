@@ -3925,7 +3925,34 @@ try {
  *   data/r173-handbook-sources.json 의 alloy-name regex 패턴 매칭 → 모든 matching entry 에
  *   verified handbook sources merge + R173 industry_note prepend.
  *   기존 entries (variants 포함) 보존 — 새 entry 추가하지 않음. CSV variant 흡수 방지.
+ *
+ * R185/R186 — industry_note cleanup 함수 hoist (file-level scope, 전체 entries 적용 가능).
  */
+function stripIndustryDevNotes(s) {
+  return String(s || '')
+    .replace(/⚠[^.。]*\b(?:entry|정정|표기|source|R\d+|mock|fake|drop|dedup|patched|verbatim|MatWeb)\b[^.。]*[.。]\s*/g, '')
+    .replace(/\(\s*R\d+\s*[—–-]?\s*[^)]{1,80}\)\s*/g, '')
+    .replace(/R\d+\s*[—–-]\s*/g, '')
+    .replace(/(?:Annealed|Hardened|Normalized|Q\+T|Aged|Solution|STA|HIP|As-built|As-supplied|Tempered|Cast|AM\s+as-built|Oil-quenched|Water-quenched|Heat-treated|Standard\s+\w+\s+cycle|HT\s+cycle)\b[^.。]*?(?:σy|UTS|HRC|HB|El|HV)\s*\d[^.。]*[.。]\s*/gi, '')
+    .replace(/(?:Standard\s+\w+\s+cycle|HT\s+cycle)[^.。]*\d+°C[^.。]*[.。]\s*/gi, '')
+    .replace(/\([^)]*°C[^)]*(?:oil\s*Q|water\s*Q|WQ|OQ|AC|FC|temper|peak)[^)]*\)\s*/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function capIndustryLength(s) {
+  /* R186 — guideline target 150-300 chars. Hard cap 450 (median + safe margin).
+   * 첫 4 sentence 또는 450 chars 중 먼저 도달하는 한계. */
+  const cleaned = String(s || '').trim();
+  if (cleaned.length <= 450) return cleaned;
+  const sentences = cleaned.match(/[^.。!?\n]+[.。!?\n]?/g) || [cleaned];
+  let out = '';
+  for (const sent of sentences) {
+    if (out.length + sent.length > 450) break;
+    out += sent;
+    if ((out.match(/[.。!?]/g) || []).length >= 4) break;
+  }
+  return out.trim() || cleaned.slice(0, 450).trim();
+}
 try {
   const r173Raw = JSON.parse(fs.readFileSync(path.join(DATA, 'r173-handbook-sources.json'), 'utf8'));
   const patches = r173Raw.patches || [];
@@ -3961,41 +3988,20 @@ try {
       if (patch.industry_note) {
         if (!m.meta) m.meta = {};
         if (!m.meta._r173_note_applied) {
-          /* R185 — industry_note cleanup (broad).
-           *   Dev memo strip:
-           *     - ⚠ entry / source / mock / fake-variant / patched / 정정 / R### / drop / dedup
-           *     - (R### 에서 ...) parenthetical
-           *     - R### — prefix
-           *     - MatWeb 표기 / verbatim
-           *   Verbose strip (사용자 노출에 불필요 — main data 와 중복):
-           *     - "Annealed (delivery): σy 620 / UTS 760 / HB 250." 같은 compound numeric
-           *     - "(1020°C oil Q + 200°C T)" 같은 HT cycle parenthetical
-           *     - "σy 1670 (typical) · UTS 1750 · El 6%" 같은 multi-value */
-          const stripDevNotes = (s) => String(s || '')
-            .replace(/⚠[^.。]*\b(?:entry|정정|표기|source|R\d+|mock|fake|drop|dedup|patched|verbatim|MatWeb)\b[^.。]*[.。]\s*/g, '')
-            .replace(/\(\s*R\d+\s*[—–-]?\s*[^)]{1,80}\)\s*/g, '')
-            .replace(/R\d+\s*[—–-]\s*/g, '')
-            /* compound numeric sentence — HT-cond 시작 또는 명시 cycle/대체 시작 */
-            .replace(/(?:Annealed|Hardened|Normalized|Q\+T|Aged|Solution|STA|HIP|As-built|As-supplied|Tempered|Cast|AM\s+as-built|Oil-quenched|Water-quenched|Heat-treated|Standard\s+\w+\s+cycle|HT\s+cycle)\b[^.。]*?(?:σy|UTS|HRC|HB|El|HV)\s*\d[^.。]*[.。]\s*/gi, '')
-            /* "Standard ... cycle: ..." sentence 도 strip (HT cycle with °C) */
-            .replace(/(?:Standard\s+\w+\s+cycle|HT\s+cycle)[^.。]*\d+°C[^.。]*[.。]\s*/gi, '')
-            /* HT cycle parenthetical "(1020°C oil Q + 200°C T)" strip */
-            .replace(/\([^)]*°C[^)]*(?:oil\s*Q|water\s*Q|WQ|OQ|AC|FC|temper|peak)[^)]*\)\s*/g, '')
-            .replace(/\s+/g, ' ')
-            .trim();
-          const cleanedPatch = stripDevNotes(patch.industry_note);
-          const cleanedExisting = stripDevNotes(m.industry_note);
+          const cleanedPatch = stripIndustryDevNotes(patch.industry_note);
+          const cleanedExisting = stripIndustryDevNotes(m.industry_note);
           /* R185 — Dedup logic:
            *   patch (R173 handbook, curated) 가 표준 source. supplementary 의 verbose 는 fallback.
            *   - substring 관계 (one includes other) → 긴 것 keep
            *   - word overlap > 50% → patch keep (R173 handbook 우선)
            *   - 그 외 → 두 paragraph merge */
+          let merged;
           if (!cleanedExisting) {
-            m.industry_note = cleanedPatch;
+            merged = cleanedPatch;
           } else if (cleanedPatch.includes(cleanedExisting)) {
-            m.industry_note = cleanedPatch;
+            merged = cleanedPatch;
           } else if (cleanedExisting.includes(cleanedPatch)) {
-            m.industry_note = cleanedExisting;
+            merged = cleanedExisting;
           } else {
             // Word overlap check
             const tokenize = (s) => new Set(s.toLowerCase().match(/[a-z가-힣0-9]+/g) || []);
@@ -4005,8 +4011,9 @@ try {
             for (const w of wPatch) if (wExist.has(w)) common++;
             const overlap = common / Math.min(wPatch.size, wExist.size);
             // > 50% overlap → patch only (handbook 우선). 그 외 → merge.
-            m.industry_note = overlap > 0.5 ? cleanedPatch : `${cleanedPatch}\n\n${cleanedExisting}`;
+            merged = overlap > 0.5 ? cleanedPatch : `${cleanedPatch}\n\n${cleanedExisting}`;
           }
+          m.industry_note = capIndustryLength(merged);
           m.meta._r173_note_applied = true;
           r173NotesAdded++;
         }
@@ -4020,6 +4027,25 @@ try {
   }
 } catch (e) {
   console.warn('R173 Phase B handbook patch skipped:', e.message);
+}
+
+/* R186 — Final industry_note cleanup pass. R173 patch 없는 entries (supplementary only) 도
+ *        같은 dev-note strip + length cap 적용. 사용자 노출 일관성 보장. */
+{
+  let cleaned = 0, capped = 0;
+  for (const m of all) {
+    if (!m.industry_note) continue;
+    const before = m.industry_note;
+    const beforeLen = before.length;
+    const stripped = stripIndustryDevNotes(before);
+    const capped2 = capIndustryLength(stripped);
+    if (capped2 !== before) {
+      m.industry_note = capped2;
+      cleaned++;
+      if (capped2.length < beforeLen - 50) capped++;
+    }
+  }
+  console.log(`R186 — industry_note final cleanup: ${cleaned} entries modified (${capped} significantly truncated)`);
 }
 
 /* R173 Phase B — Range overrides for entries with verified handbook errors.

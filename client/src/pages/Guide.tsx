@@ -110,15 +110,7 @@ export default function Guide() {
         <span className="flex md:hidden items-center text-white flex-shrink-0">
           <GraduationCap className="w-4 h-4 text-accent" />
         </span>
-        {/* R144e — Wizard quick link (Guide → 5-step recommend) */}
-        <Link
-          href="/wizard"
-          className="hidden sm:flex items-center gap-1 px-2 py-1 rounded border border-accent/40 text-accent text-[11px] font-medium hover:bg-accent/10 hover:border-accent transition-colors flex-shrink-0"
-          title="설계 문제 → 재료 추천 Wizard (5-step)"
-        >
-          <Compass className="w-3.5 h-3.5" />
-          <span>Wizard</span>
-        </Link>
+        {/* R186 — Wizard 영구 제거. Guide 학습 권장. */}
         <div className="ml-auto relative flex-1 max-w-[280px] sm:max-w-[360px] min-w-0">
           <Search className="w-3.5 h-3.5 absolute left-2 top-1/2 -translate-y-1/2 text-sidebar-foreground/40 pointer-events-none" />
           <input

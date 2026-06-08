@@ -1,6 +1,6 @@
 /*
  * R157b — useMaterialFilter 의 FilterState interface + DEFAULT_FILTERS 분리.
- * 다른 모듈 (Home/ScenarioDialog/Wizard/etc) 이 hook 자체를 import 하지 않고도 type/default 만 가져갈 수 있도록 분리.
+ * 다른 모듈 (Home/ScenarioDialog/etc) 이 hook 자체를 import 하지 않고도 type/default 만 가져갈 수 있도록 분리.
  *
  * Hook 자체 (filter / sort / narrowedRanges 로직) 는 useMaterialFilter.ts 유지.
  */

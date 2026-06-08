@@ -21,7 +21,6 @@ import {
   GitCompareArrows,
   GraduationCap,
   Wrench,
-  Compass,
 } from 'lucide-react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
@@ -277,19 +276,7 @@ export function HomeHeader({
         </TooltipTrigger>
         <TooltipContent side="bottom" className="text-xs">{lang === 'en' ? 'Onboarding tour (5 steps)' : '온보딩 다시 보기 (5단계)'}</TooltipContent>
       </Tooltip>
-      {/* R144e — Design Wizard link */}
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Link
-            href="/wizard"
-            className="h-7 px-2 flex items-center gap-1 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
-          >
-            <Compass className="w-3.5 h-3.5" />
-            <span className="hidden lg:inline">Wizard</span>
-          </Link>
-        </TooltipTrigger>
-        <TooltipContent side="bottom" className="text-xs">설계 문제 → 재료 추천 wizard (5 step, 환경·하중·수명·예산·인증)</TooltipContent>
-      </Tooltip>
+      {/* R186 — Wizard 영구 제거. Guide 학습 권장. */}
       {/* R67 Sprint B — Engineering Tools link. 6 계산기 페이지. */}
       <Tooltip>
         <TooltipTrigger asChild>
