@@ -3,6 +3,11 @@
   "elNegative": [],
   "densityFamily": [
     {
+      "name": "Be-Cu — As-supplied (Wrought)",
+      "density": 1.86,
+      "expected": "7.5-9.5"
+    },
+    {
       "name": "C63020 (Cu-Al-Fe-Ni nickel-iron-aluminum bronze, wrought) — As-extruded (CW307G, CuAl10Fe5Ni5)",
       "density": 7.68,
       "expected": "2.5-3.5"
@@ -598,6 +603,60 @@
       "ratio": "0.84"
     },
     {
+      "name": "AA 2011 — Annealed (Wrought)",
+      "fat": 125,
+      "uts": 165,
+      "ratio": "0.76"
+    },
+    {
+      "name": "AA 6101 — Annealed (Wrought)",
+      "fat": 86,
+      "uts": 89,
+      "ratio": "0.97"
+    },
+    {
+      "name": "AA 6262 — Annealed (Wrought)",
+      "fat": 99,
+      "uts": 120,
+      "ratio": "0.82"
+    },
+    {
+      "name": "AISI 310 — Strain-hardened (Wrought)",
+      "fat": 93,
+      "uts": 860,
+      "ratio": "0.11"
+    },
+    {
+      "name": "H11 — As-supplied (Wrought)",
+      "fat": 576,
+      "uts": 760,
+      "ratio": "0.76"
+    },
+    {
+      "name": "D2 — As-supplied (Wrought)",
+      "fat": 672,
+      "uts": 760,
+      "ratio": "0.88"
+    },
+    {
+      "name": "Niobium — As-supplied (Wrought)",
+      "fat": 240,
+      "uts": 275,
+      "ratio": "0.87"
+    },
+    {
+      "name": "Nb-1Zr — As-supplied (Wrought)",
+      "fat": 288,
+      "uts": 280,
+      "ratio": "1.03"
+    },
+    {
+      "name": "Vanadium — As-supplied (Wrought)",
+      "fat": 432,
+      "uts": 465,
+      "ratio": "0.93"
+    },
+    {
       "name": "Rohacell A PMI structural foam (Evonik aircraft grade) — Rohacell 31A (density 32 kg/m³, σc 0.4 MPa, σt 1.0 MPa)",
       "fat": 2,
       "uts": 0.4,
@@ -646,6 +705,12 @@
       "ratio": "0.94"
     },
     {
+      "name": "UHMWPE — Dyneema/Spectra (UD 0°)",
+      "fat": 1350,
+      "uts": 1500,
+      "ratio": "0.90"
+    },
+    {
       "name": "Honeycomb — Nomex (HRH-10, 48 kg/m³)",
       "fat": 1.13,
       "uts": 1,
@@ -659,6 +724,11 @@
     }
   ],
   "fatigueGtUts": [
+    {
+      "name": "Nb-1Zr — As-supplied (Wrought)",
+      "fat": 288,
+      "uts": 280
+    },
     {
       "name": "Rohacell A PMI structural foam (Evonik aircraft grade) — Rohacell 31A (density 32 kg/m³, σc 0.4 MPa, σt 1.0 MPa)",
       "fat": 2,
@@ -719,11 +789,11 @@
   "ranges": {
     "yield_strength": {
       "min": 0.4,
-      "max": 3700
+      "max": 2900
     },
     "uts": {
       "min": 0.4,
-      "max": 3700
+      "max": 2900
     },
     "density": {
       "min": 0.032,
