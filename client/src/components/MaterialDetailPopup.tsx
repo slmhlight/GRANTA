@@ -19,6 +19,9 @@ export function MaterialDetailPopup({
   favorites,
   onToggleFavorite,
   onSelectMaterial,
+  onPin,
+  isPinned,
+  initialPos,
 }: {
   material: Material | null;
   compareList: string[];
@@ -31,8 +34,13 @@ export function MaterialDetailPopup({
   onToggleFavorite?: (id: string) => void;
   /** R148 — 유사 재료 클릭 시 그 재료로 전환. */
   onSelectMaterial?: (id: string) => void;
+  /** R204 #1 — multi-stack pin */
+  onPin?: (m: Material) => void;
+  isPinned?: boolean;
+  /** R204 #1 — pinned popup 초기 위치 (auto-stagger 용) */
+  initialPos?: { x: number; y: number };
 }) {
-  const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
+  const [pos, setPos] = useState<{ x: number; y: number } | null>(initialPos ?? null);
   const [isDesktop, setIsDesktop] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches
   );
@@ -98,6 +106,8 @@ export function MaterialDetailPopup({
         favorites={favorites}
         onToggleFavorite={onToggleFavorite}
         onSelectMaterial={onSelectMaterial}
+        onPin={onPin}
+        isPinned={isPinned}
       />
     </div>
   );

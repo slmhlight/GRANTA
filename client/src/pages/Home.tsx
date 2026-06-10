@@ -79,6 +79,13 @@ export default function Home() {
     try { localStorage.setItem('am_cards_hint_shown', '1'); } catch { /* ignore */ }
   }, [viewMode]);
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
+  /* R204 #1 — PC desktop multi-popup. Pin 버튼 클릭 시 selectedMaterial → pinnedDetails 로 이동.
+     각 pinned popup 은 독립 위치 + 독립 close. 사용자가 여러 alloy 를 동시 비교 가능. */
+  const [pinnedDetails, setPinnedDetails] = useState<Material[]>([]);
+  const handlePin = useCallback((m: Material) => {
+    setPinnedDetails((prev) => prev.some((x) => x.id === m.id) ? prev : [...prev, m]);
+    setSelectedMaterial(null);
+  }, []);
   /* R101 — 모바일 ashby preview: 첫 클릭 시 작은 floating card 만 표시, 같은 점 두 번째 클릭 시 detail open.
      desktop 은 종전대로 즉시 detail open. previewMaterial 이 차트 위 작은 card 로 렌더링됨. */
   const [previewMaterial, setPreviewMaterial] = useState<Material | null>(null);
@@ -979,7 +986,30 @@ export default function Home() {
             const next = materials.find((m) => m.id === id);
             if (next) setSelectedMaterial(next);
           }}
+          /* R204 #1 — pin: 이 popup 을 별도 stack 으로 분리 (multi-popup) */
+          onPin={handlePin}
+          isPinned={false}
         />
+        {/* R204 #1 — Multi-pinned detail stack (PC desktop). 각 popup 독립 위치 + close. */}
+        {pinnedDetails.map((m, i) => (
+          <MaterialDetailPopup
+            key={m.id}
+            material={materials.find((x) => x.id === m.id) || m}
+            compareList={compareList}
+            onToggleCompare={handleToggleCompare}
+            onClose={() => setPinnedDetails((prev) => prev.filter((x) => x.id !== m.id))}
+            allMaterials={materials}
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
+            onSelectMaterial={(id) => {
+              const next = materials.find((mm) => mm.id === id);
+              if (next) setPinnedDetails((prev) => prev.map((p) => (p.id === m.id ? next : p)));
+            }}
+            isPinned
+            /* stagger 위치: top 100 + i × 40, left 8 + i × 60 (꺾어쌓이는 fan effect) */
+            initialPos={{ x: Math.max(8, Math.min(window.innerWidth - 450, 8 + i * 60)), y: 100 + i * 40 }}
+          />
+        ))}
       </div>
 
       {/* ─── Mobile bottom action bar (sm:hidden) ─── 화면 폭이 좁을 때 상단 헤더가 빠듯하므로

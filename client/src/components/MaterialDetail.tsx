@@ -4,7 +4,7 @@
  * source citations (verified datasheet URLs where available).
  */
 
-import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer, Star, AlertTriangle } from 'lucide-react';
+import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer, Star, AlertTriangle, Pin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -47,6 +47,9 @@ interface MaterialDetailProps {
   onToggleFavorite?: (id: string) => void;
   /** R148 — 유사 재료 추천 클릭 시 해당 material 로 detail panel 전환. */
   onSelectMaterial?: (id: string) => void;
+  /** R204 #1 — PC 에서 detail popup 을 multi-stack. pin 시 floating popup 으로 분리. */
+  onPin?: (m: Material) => void;
+  isPinned?: boolean;
 }
 
 // R157b — fmt → components/material-detail/RangeRow.tsx (export 됨, RangeRow 와 함께 사용).
@@ -93,7 +96,7 @@ const SPEC_BADGE_COLOR: Record<string, { color: string; bg: string }> = {
 // R157b — CompositionDisplay → components/material-detail/CompositionDisplay.tsx 로 이동.
 // R157b — Field → components/material-detail/Field.tsx 로 이동.
 
-export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial }: MaterialDetailProps) {
+export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned }: MaterialDetailProps) {
   const t = useT();
   // R53a — Radar axes + normalize base (localStorage 저장)
   const [radarAxes, setRadarAxes] = useStateRD<RadarAxis[]>(() => {
@@ -161,12 +164,30 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
           </div>
         </div>
         <div className="flex items-start gap-1 flex-shrink-0">
+          {/* R204 #1 — Pin 버튼: 클릭 시 floating multi-popup 으로 분리 (PC desktop 만, 이미 pinned 면 숨김) */}
+          {onPin && floating && !isPinned && (
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onPin(material); }}
+              className="ml-1 p-1 hover:bg-muted rounded transition-colors"
+              title="이 detail 을 별도 popup 으로 핀 (여러 재료 동시 비교 가능)"
+              aria-label="Pin detail panel"
+            >
+              <Pin className="w-4 h-4 text-muted-foreground hover:text-sky-600" />
+            </button>
+          )}
+          {/* Pinned indicator (already in stack) */}
+          {isPinned && (
+            <span className="ml-1 p-1" title="핀 상태 (별도 popup)">
+              <Pin className="w-4 h-4 text-sky-600 fill-sky-100" />
+            </span>
+          )}
           {/* R69 A — 즐겨찾기 ⭐ 토글 */}
           {onToggleFavorite && (
             <button
               type="button"
               onClick={() => onToggleFavorite(material.id)}
-              className="ml-2 p-1 hover:bg-muted rounded transition-colors"
+              className="ml-1 p-1 hover:bg-muted rounded transition-colors"
               title={favorites?.has(material.id) ? '즐겨찾기 해제' : '즐겨찾기 추가'}
               aria-label="Toggle favorite"
             >
