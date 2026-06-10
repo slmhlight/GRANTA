@@ -4,7 +4,7 @@
  * source citations (verified datasheet URLs where available).
  */
 
-import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer, Star } from 'lucide-react';
+import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer, Star, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -30,7 +30,7 @@ import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
-import { useState as useStateRD, type PointerEvent as ReactPointerEvent } from 'react';
+import { useState as useStateRD, useEffect as useEffectRD, type PointerEvent as ReactPointerEvent } from 'react';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
 
 interface MaterialDetailProps {
@@ -51,11 +51,18 @@ interface MaterialDetailProps {
 
 // R157b — fmt → components/material-detail/RangeRow.tsx (export 됨, RangeRow 와 함께 사용).
 
-const TIER_BADGE: Record<string, { label: string; cls: string }> = {
-  curated: { label: 'Curated · multi-vendor', cls: 'bg-accent/15 text-accent border-accent/30' },
-  am_vendor: { label: 'AM vendor data', cls: 'bg-violet-500/15 text-violet-600 border-violet-500/30' },
-  generic: { label: 'Generic reference', cls: 'bg-muted text-muted-foreground border-border' },
-  reference: { label: 'Reference data', cls: 'bg-amber-500/15 text-amber-600 border-amber-500/30' },
+const TIER_BADGE: Record<string, { label: string; cls: string; warn?: boolean; tip?: string }> = {
+  curated:   { label: 'Curated · multi-vendor', cls: 'bg-accent/15 text-accent border-accent/30' },
+  am_vendor: { label: 'AM vendor data',          cls: 'bg-violet-500/15 text-violet-600 border-violet-500/30' },
+  reference: { label: 'Reference data',          cls: 'bg-amber-500/15 text-amber-600 border-amber-500/30' },
+  /* R202 #1 — Generic tier 에 'verify before design' 경고. 일부 entries 는 CSV mock 데이터에서
+     handbook 값으로 R199 override 됐지만 원본 CSV 의 신뢰도 낮음. */
+  generic: {
+    label: 'Generic reference',
+    cls: 'bg-amber-50 text-amber-700 border-amber-300',
+    warn: true,
+    tip: 'Generic tier — 일부 properties 는 CSV-derived (mock 가능). 설계 적용 전 vendor datasheet 로 검증 필수. R199 audit override 적용된 entries 는 신뢰도 ↑.',
+  },
 };
 
 /** R144c — Spec badge colors by issuing organization. */
@@ -106,6 +113,16 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
   const updateAxes = (a: RadarAxis[]) => { setRadarAxes(a); try { localStorage.setItem('am_radar_axes', JSON.stringify(a)); } catch { /* ignore */ } };
   const updateBase = (b: NormalizeBase) => { setRadarBase(b); try { localStorage.setItem('am_radar_base', b); } catch { /* ignore */ } };
 
+  /* R202 #10 — ESC 키로 detail panel 닫기 */
+  useEffectRD(() => {
+    if (!material) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { e.preventDefault(); onClose(); }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [material, onClose]);
+
   if (!material) return null;
 
   const isCompared = compareList.includes(material.id);
@@ -129,7 +146,13 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             <h2 className="text-sm font-bold text-foreground leading-tight">{material.name}</h2>
             <p className="text-xs text-muted-foreground truncate mt-0.5">{material.subcategory}</p>
             {tier && (
-              <span className={`inline-block mt-1.5 text-[10px] px-1.5 py-0.5 rounded border font-medium ${tier.cls}`}>{tier.label}</span>
+              <span
+                className={`inline-flex items-center gap-1 mt-1.5 text-[10px] px-1.5 py-0.5 rounded border font-medium ${tier.cls}`}
+                title={tier.tip}
+              >
+                {tier.warn && <AlertTriangle className="w-3 h-3" />}
+                {tier.label}
+              </span>
             )}
             {/* R144c — Spec badges (AMS / ASTM / UNS …). R160 — popover 로 확장 (클릭 시 org/description/url 표시). */}
             {material.meta?.specs && material.meta.specs.length > 0 && (
@@ -165,7 +188,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
         </div>
 
         <Tabs defaultValue="properties" className="w-full">
-          <TabsList className="w-full justify-start rounded-none border-b border-border/50 bg-transparent p-0 h-auto">
+          <TabsList className="w-full justify-start rounded-none border-b border-border/50 bg-background p-0 h-auto sticky top-0 z-10 shadow-sm">
             <TabsTrigger value="properties" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-accent/5 data-[state=active]:text-accent data-[state=active]:font-semibold px-3 py-2">
               <Layers className="w-3 h-3 mr-1" />{t('detail.properties')}
             </TabsTrigger>

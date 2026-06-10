@@ -900,6 +900,9 @@ export default function Home() {
                 sortKey={sortKey}
                 sortDir={sortDir}
                 onSort={toggleSort}
+                onResetFilters={resetFilters}
+                activeFilterCount={activeFilterCount}
+                searchQuery={filters.search}
               />
             )}
             {viewMode === 'cards' && (

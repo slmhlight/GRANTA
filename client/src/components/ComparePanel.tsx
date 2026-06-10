@@ -321,8 +321,25 @@ ${panel.outerHTML}
     <div data-compare-panel className="flex flex-col h-full bg-card border-l border-border">
       {/* R115 — Header layout 수정. X 닫기를 button group 밖으로 분리하여 모바일에서 항상 보이게 (스크롤 영역 밖). */}
       <div className="flex items-center px-3 sm:px-4 py-2 sm:py-3 border-b border-border bg-muted/30 gap-2 min-w-0">
-        <span className="text-sm font-semibold flex-shrink-0 whitespace-nowrap">
+        <span className="text-sm font-semibold flex-shrink-0 whitespace-nowrap flex items-center gap-1.5">
           {t('compare.title')} <span className="text-xs text-muted-foreground font-normal">({materials.length})</span>
+          {/* R202 #4 — count guidance hint */}
+          {materials.length > 10 && (
+            <span
+              className="text-[10px] text-amber-600 font-medium border border-amber-300 bg-amber-50 px-1.5 py-0.5 rounded-full"
+              title={`${materials.length}개 비교 — Radar 차트 가독성이 떨어집니다 (권장 ≤ 10개). 줄이면 차트가 더 명확해집니다.`}
+            >
+              ⚠ 많음 (권장 ≤ 10)
+            </span>
+          )}
+          {materials.length >= 2 && materials.length <= 10 && viewMode === 'table' && (
+            <span
+              className="text-[10px] text-emerald-600 font-medium hidden md:inline"
+              title="Radar / Goodman 차트로 시각 비교 가능"
+            >
+              💡 차트 모드 시도
+            </span>
+          )}
         </span>
         {/* R121 — overflow-x-auto 대신 flex-wrap. 좁은 panel 폭에서 자동 2줄. radar 버튼 숨겨짐 문제 해결. */}
         <div className="flex flex-wrap items-center gap-1 flex-1 min-w-0 justify-end">
@@ -736,7 +753,14 @@ ${panel.outerHTML}
           </tbody>
         </table>
         {materials.length === 0 && (
-          <p className="text-xs text-muted-foreground italic p-4 text-center">Select materials to compare (up to 30).</p>
+          <div className="flex flex-col items-center justify-center py-8 px-4 gap-3 text-center">
+            <div className="text-3xl opacity-30">📊</div>
+            <div>
+              <p className="text-sm font-semibold text-foreground">비교할 재료를 선택하세요</p>
+              <p className="text-xs text-muted-foreground mt-1.5">테이블/Ashby 차트에서 체크박스 또는 + 버튼으로 추가</p>
+              <p className="text-[11px] text-muted-foreground/80 mt-2">권장: <span className="font-semibold">3~10개</span> (Radar/Goodman 차트 가독성 최적)</p>
+            </div>
+          </div>
         )}
       </div>
       )}

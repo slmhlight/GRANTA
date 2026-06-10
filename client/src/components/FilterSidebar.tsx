@@ -148,12 +148,23 @@ function RangeSlider({ label, unit, min, max, value, onChange }: RangeSliderProp
 interface CategoryFilterProps {
   selected: string[];
   onChange: (v: string[]) => void;
+  /** R202 #3 — pre-count: 전체 materials 중 각 category 의 count */
+  materials: Material[];
 }
 
-function CategoryFilter({ selected, onChange }: CategoryFilterProps) {
+function CategoryFilter({ selected, onChange, materials }: CategoryFilterProps) {
   const [expanded, setExpanded] = useState(true);
   const isActive = selected.length > 0;
   const categories = Object.keys(CATEGORY_COLORS);
+
+  const counts = useMemo(() => {
+    const c: Record<string, number> = {};
+    for (const m of materials) {
+      const cat = m.category || 'Other';
+      c[cat] = (c[cat] || 0) + 1;
+    }
+    return c;
+  }, [materials]);
 
   const toggle = (cat: string) => {
     if (selected.includes(cat)) onChange(selected.filter(s => s !== cat));
@@ -190,7 +201,8 @@ function CategoryFilter({ selected, onChange }: CategoryFilterProps) {
                   className="w-2 h-2 rounded-full flex-shrink-0"
                   style={{ backgroundColor: CATEGORY_COLORS[cat as keyof typeof CATEGORY_COLORS] }}
                 />
-                <span className="text-xs font-medium">{cat}</span>
+                <span className="text-xs font-medium flex-1">{cat}</span>
+                <span className="text-[10px] text-muted-foreground tabular-nums">{counts[cat] || 0}</span>
               </div>
             </label>
           ))}
@@ -346,11 +358,34 @@ interface ProcessFilterProps {
   allProcesses: string[];
   selected: string[];
   onChange: (v: string[]) => void;
+  /** R202 #3 — pre-count: materials 중 각 process group 의 count */
+  materials: Material[];
 }
 
-function ProcessFilter({ allProcesses, selected, onChange }: ProcessFilterProps) {
+/* R202 #3 — useMaterialFilter.ts 의 procGroups 와 동일 매칭. count 계산 용. */
+const PROC_GROUPS: Record<string, string[]> = {
+  Wrought: ['wrought', 'cold rolled', 'hot rolled', 'cold drawn', 'hot dip galvani', 'tmcp', 'forged', 'extrusion', 'vacuum refined', 'q+t (heat'],
+  Molding: ['injection mold', 'compression mold', 'layup'],
+  Casting: ['cast'],
+  Powder:  ['sintered', 'powder-metallurgy', 'powder metallurgy', 'press-and-sinter', 'mim ', 'metal injection mold'],
+  AM:      ['lpbf', 'dmls', 'slm', 'sls', 'fdm', 'closed-cell foam', 'am ', 'am('],
+};
+
+function ProcessFilter({ allProcesses, selected, onChange, materials }: ProcessFilterProps) {
   const [expanded, setExpanded] = useState(false);
   const isActive = selected.length > 0;
+
+  const counts = useMemo(() => {
+    const c: Record<string, number> = {};
+    for (const proc of allProcesses) {
+      const keywords = PROC_GROUPS[proc] || [proc.toLowerCase()];
+      c[proc] = materials.filter(m => {
+        const procs = m.processes || (m.process ? [m.process] : []);
+        return procs.some(p => keywords.some(k => p.toLowerCase().includes(k)));
+      }).length;
+    }
+    return c;
+  }, [materials, allProcesses]);
 
   const toggle = (proc: string) => {
     if (selected.includes(proc)) onChange(selected.filter(s => s !== proc));
@@ -390,9 +425,12 @@ function ProcessFilter({ allProcesses, selected, onChange }: ProcessFilterProps)
                   onCheckedChange={() => toggle(proc)}
                   className="w-3.5 h-3.5 rounded-sm flex-shrink-0 mt-0.5"
                 />
-                <div className="flex-1">
-                  <div className="text-xs font-medium">{proc}</div>
-                  <div className="text-[9px] text-muted-foreground">{descriptions[proc]}</div>
+                <div className="flex-1 flex items-center justify-between gap-2">
+                  <div>
+                    <div className="text-xs font-medium">{proc}</div>
+                    <div className="text-[9px] text-muted-foreground">{descriptions[proc]}</div>
+                  </div>
+                  <span className="text-[10px] text-muted-foreground tabular-nums flex-shrink-0">{counts[proc] || 0}</span>
                 </div>
               </label>
             );
@@ -1082,6 +1120,7 @@ export default function FilterSidebar({
           allProcesses={allProcesses}
           selected={filters.processes}
           onChange={v => updateFilter('processes', v)}
+          materials={materials}
         />
         <HeatTreatmentFilter
           selected={filters.heatTreatments}

@@ -128,8 +128,12 @@ export function MaterialCards({
       </div>
       <div className="flex-1 overflow-y-auto p-3 sm:p-4">
         {materials.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-16 text-muted-foreground">
-            <p className="text-sm font-medium">No materials match the current filters</p>
+          <div className="flex flex-col items-center justify-center py-16 text-muted-foreground gap-3">
+            <div className="text-4xl opacity-30">🔍</div>
+            <div className="text-center">
+              <p className="text-sm font-semibold text-foreground">조건에 맞는 재료가 없습니다</p>
+              <p className="text-xs mt-2 text-muted-foreground/80">Filter 범위를 넓혀보거나 일부 해제하세요</p>
+            </div>
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">

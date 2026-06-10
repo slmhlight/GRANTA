@@ -43,13 +43,13 @@ export function RangeRow({
   /* R125c — fallback chain 단계별 confidence 라벨 차별화:
      handbook (1차자료) → subfamily (3rd, 특정 subcategory, e.g. austenitic) → family (2nd, group)
      → class (1st, category 일반) → derived (다른 물성 유도). 신뢰도 sky → blue → amber → orange → rose 순. */
-  const confBadge: Record<string, { label: string; cls: string; tip: string }> = {
-    measured: { label: `n=${range?.n ?? 0}`, cls: 'text-foreground/50', tip: '실측 데이터 다수' },
-    handbook: { label: '핸드북', cls: 'text-sky-600', tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)' },
-    subfamily: { label: 'sub-fam', cls: 'text-blue-600', tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)' },
-    family: { label: 'family', cls: 'text-cyan-600', tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)' },
-    class: { label: 'class', cls: 'text-amber-600', tip: '1st family / category typical (예: Iron-based 일반 / Polymer 일반)' },
-    derived: { label: '≈UTS', cls: 'text-rose-500', tip: '다른 물성에서 유도 (예: 피로 = UTS·비율)' },
+  const confBadge: Record<string, { label: string; cls: string; tip: string; dot: string }> = {
+    measured:  { label: `n=${range?.n ?? 0}`, cls: 'text-foreground/50', dot: 'bg-emerald-500',  tip: '실측 데이터 다수 (가장 신뢰)' },
+    handbook:  { label: '핸드북',            cls: 'text-sky-600',        dot: 'bg-sky-500',      tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)' },
+    subfamily: { label: 'sub-fam',           cls: 'text-blue-600',       dot: 'bg-blue-500',     tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)' },
+    family:    { label: 'family',            cls: 'text-cyan-600',       dot: 'bg-cyan-500',     tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)' },
+    class:     { label: 'class',             cls: 'text-amber-600',      dot: 'bg-amber-500',    tip: '1st family / category typical (예: Iron-based 일반 / Polymer 일반)' },
+    derived:   { label: '≈UTS',              cls: 'text-rose-500',       dot: 'bg-rose-500',     tip: '다른 물성에서 유도 (예: 피로 = UTS·비율)' },
   };
   const badge = conf ? confBadge[conf] : null;
   /* R129 — fallback 출처/조정 표시 (provenance). hover tooltip 에 fallback chain 명시.
@@ -64,7 +64,16 @@ export function RangeRow({
   const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(typical)}`;
   return (
     <div className="flex items-start justify-between py-1.5 border-b border-border/40 last:border-0">
-      <span className="text-xs text-muted-foreground pt-0.5">{label}</span>
+      <span className="text-xs text-muted-foreground pt-0.5 flex items-center gap-1">
+        {/* R202 #2 — confidence dot (한 눈에 신뢰도 식별) */}
+        {badge && (
+          <span
+            className={`inline-block w-1.5 h-1.5 rounded-full ${badge.dot} flex-shrink-0`}
+            title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}
+          />
+        )}
+        {label}
+      </span>
       <div className="text-right">
         <span className="font-mono text-xs font-medium text-foreground">{typicalStr}</span>
         {!isPrice && <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>}

@@ -629,6 +629,34 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
   return (
     <div className="w-full h-full flex flex-col bg-white overflow-y-auto md:overflow-hidden">
+      {/* R202 #5 — Axis preset chips (자주 사용하는 axis combo 빠른 전환) */}
+      <div className="flex-shrink-0 flex flex-wrap items-center gap-1 px-2 sm:px-3 py-1.5 border-b border-border bg-muted/30">
+        <span className="text-[10px] text-muted-foreground uppercase tracking-wide font-medium flex-shrink-0 mr-1">Quick axes</span>
+        {[
+          { x: 'density',    y: 'yield_strength',         label: 'σy ↔ ρ' },
+          { x: 'density',    y: 'modulus',                label: 'E ↔ ρ' },
+          { x: 'yield_strength', y: 'fracture_toughness', label: 'K_IC ↔ σy' },
+          { x: 'density',    y: 'max_service_temp',       label: 'Tmax ↔ ρ' },
+          { x: 'density',    y: 'thermal_conductivity',   label: 'k ↔ ρ' },
+          { x: 'price_per_kg', y: 'yield_strength',       label: 'σy ↔ price' },
+        ].map(preset => {
+          const active = xProperty === preset.x && yProperty === preset.y;
+          return (
+            <button
+              key={preset.label}
+              type="button"
+              onClick={() => { setXProperty(preset.x); setYProperty(preset.y); setIndexPreset('none'); setConstraints([]); }}
+              className={`text-[10px] sm:text-[11px] px-2 py-0.5 rounded border transition-colors ${
+                active
+                  ? 'bg-accent text-accent-foreground border-accent font-semibold'
+                  : 'bg-background text-muted-foreground border-border hover:bg-accent/10 hover:text-accent hover:border-accent/40'
+              }`}
+            >
+              {preset.label}
+            </button>
+          );
+        })}
+      </div>
       {/* Axis selectors — 메인 노출 유지 (라운드 7에서 popover 로 옮겼다 복구). 각 행: 라벨 + dropdown + log + limit slider.
        *  flex-shrink-0 — 부모 flex-col 에서 toolbar 가 압축돼 overflow 되지 않도록. */}
       <div className="flex-shrink-0 block sm:flex sm:flex-row sm:gap-x-6 px-2 sm:px-3 py-1.5 sm:py-2 border-b border-border space-y-1.5 sm:space-y-0">

@@ -22,6 +22,10 @@ interface MaterialTableProps {
   sortKey: keyof Material;
   sortDir: 'asc' | 'desc';
   onSort: (key: keyof Material) => void;
+  /** R202 #6 — empty state 강화: filter reset / 활성 filter count / 검색어 표시 */
+  onResetFilters?: () => void;
+  activeFilterCount?: number;
+  searchQuery?: string;
 }
 
 const PAGE_SIZE = 50;
@@ -74,6 +78,9 @@ export function MaterialTable({
   sortKey,
   sortDir,
   onSort,
+  onResetFilters,
+  activeFilterCount,
+  searchQuery,
 }: MaterialTableProps) {
   const [page, setPage] = useState(0);
   const totalPages = Math.ceil(materials.length / PAGE_SIZE);
@@ -289,9 +296,31 @@ export function MaterialTable({
         </table>
 
         {materials.length === 0 && (
-          <div className="flex flex-col items-center justify-center py-16 text-muted-foreground">
-            <p className="text-sm font-medium">No materials match the current filters</p>
-            <p className="text-xs mt-1">Try adjusting or resetting your filter criteria</p>
+          <div className="flex flex-col items-center justify-center py-16 text-muted-foreground gap-3">
+            <div className="text-4xl opacity-30">🔍</div>
+            <div className="text-center">
+              <p className="text-sm font-semibold text-foreground">조건에 맞는 재료가 없습니다</p>
+              {searchQuery && (
+                <p className="text-xs mt-1">검색어: <span className="font-mono text-foreground">"{searchQuery}"</span></p>
+              )}
+              {activeFilterCount != null && activeFilterCount > 0 && (
+                <p className="text-xs mt-1">활성 filter <span className="font-semibold text-foreground">{activeFilterCount}</span>개 적용중</p>
+              )}
+              <p className="text-xs mt-2 text-muted-foreground/80">아래 추천 시도:</p>
+              <ul className="text-xs mt-1.5 space-y-0.5 text-muted-foreground/80">
+                <li>• Range slider 범위를 넓혀보세요</li>
+                <li>• Process / Composition filter 일부 해제</li>
+                <li>• 검색어 단순화 (예: "AISI 304" → "304")</li>
+              </ul>
+            </div>
+            {onResetFilters && activeFilterCount != null && activeFilterCount > 0 && (
+              <button
+                onClick={onResetFilters}
+                className="mt-2 px-4 py-1.5 text-xs font-medium bg-accent text-accent-foreground rounded-md hover:bg-accent/90 transition-colors"
+              >
+                모든 filter 초기화
+              </button>
+            )}
           </div>
         )}
       </div>
