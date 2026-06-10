@@ -282,13 +282,13 @@ export function MaterialTable({
                   {/* Manufacturer */}
                   <td className="px-3 py-1.5 text-muted-foreground">{m.manufacturer}</td>
 
-                  {/* Numeric columns */}
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.density, 2)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.yield_strength, 0)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.uts, 0)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.elongation, 1)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.modulus, 0)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.hardness, 0)}</td>
+                  {/* Numeric columns — R203 fix: slim (index.json) 단계에선 top-level 값 없음 → ranges.X.typical fallback */}
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.density ?? m.ranges?.density?.typical ?? null, 2)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.yield_strength ?? m.ranges?.yield_strength?.typical ?? null, 0)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.uts ?? m.ranges?.uts?.typical ?? null, 0)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.elongation ?? m.ranges?.elongation?.typical ?? null, 1)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.modulus ?? m.ranges?.modulus?.typical ?? null, 0)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.hardness ?? m.ranges?.hardness?.typical ?? null, 0)}</td>
                 </tr>
               );
             })}

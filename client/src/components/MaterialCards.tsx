@@ -204,9 +204,12 @@ export function MaterialCards({
                   </div>
 
                   {/* R86 — 사용자 선택 물성 (1~6). bar 있는 것 (σy·UTS·El·HV·E·σf) + value only (ρ·k·Tmax·KIC·$). */}
+                  {/* R203 fix — slim 단계 top-level 값 없음 → ranges.X.typical fallback */}
                   <div className="space-y-1">
                     {activeProps.map((opt) => {
-                      const v = (m as any)[opt.key] as number | null;
+                      const top = (m as any)[opt.key] as number | null | undefined;
+                      const rng = (m.ranges as any)?.[opt.key]?.typical as number | null | undefined;
+                      const v = (typeof top === 'number' ? top : (typeof rng === 'number' ? rng : null));
                       const showBar = ['yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'fatigue_strength'].includes(opt.key);
                       return (
                         <div key={opt.key}>

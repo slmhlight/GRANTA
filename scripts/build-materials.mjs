@@ -4299,10 +4299,23 @@ const slimEntries = all.map(m => {
         const v = r.typical ?? r.min ?? r.max ?? null;
         if (typeof v === 'number' && isFinite(v)) {
           slimRanges[p] = { typical: v, n: r.n || 1 };
+          /* R203 — top-level shortcut 도 slim 에 같이 넣음. consumer (MaterialTable / MaterialCards / sort)
+             가 m.density 같은 direct access 패턴이어서 ranges fallback 없으면 첫 paint 시 "—" 표시. */
+          slim[p] = v;
         }
       }
     }
     if (Object.keys(slimRanges).length) slim.ranges = slimRanges;
+  }
+  /* R203 — non-SLIM_PROPS 도 top-level 으로 가능하면 채움 (sort/filter 용) */
+  const EXTRA_TOP = ['elongation', 'hardness', 'fatigue_strength', 'thermal_conductivity', 'thermal_expansion', 'fracture_toughness', 'impact_strength'];
+  for (const p of EXTRA_TOP) {
+    if (m.ranges && m.ranges[p]) {
+      const v = m.ranges[p].typical ?? m.ranges[p].min ?? m.ranges[p].max ?? null;
+      if (typeof v === 'number' && isFinite(v)) slim[p] = v;
+    } else if (typeof m[p] === 'number' && isFinite(m[p])) {
+      slim[p] = m[p];
+    }
   }
   return slim;
 });
