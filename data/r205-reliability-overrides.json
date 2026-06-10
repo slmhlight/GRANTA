@@ -460,8 +460,20 @@
       },
       "reason": "E17: 합성 mock (432/528) — annealed. [ATI Wah Chang Nb-1Zr]" },
     { "namePattern": "^Niobium-1Zr",
-      "ranges": { "modulus": { "typical": 105, "min": 100, "max": 110, "confidence": "handbook" } },
-      "reason": "E17: E=69 → 105 (Nb base). [ASM Vol.2]" },
+      "ranges": {
+        "modulus": { "typical": 105, "min": 100, "max": 110, "confidence": "handbook" },
+        "max_service_temp": { "typical": 1200, "min": 1100, "max": 1300, "confidence": "handbook" }
+      },
+      "reason": "E17+G8: E=69 → 105 + 중복 base 와 Tmax 모순 (1400 vs 1000) → 1200 통일 (inert/vacuum 기준). [ASM Vol.2 / ATI]" },
+    { "namePattern": "^Nb-1Zr — As-supplied",
+      "ranges": { "max_service_temp": { "typical": 1200, "min": 1100, "max": 1300, "confidence": "handbook" } },
+      "reason": "G8: Tmax 통일 (1000 → 1200)." },
+    { "namePattern": "^C-103 \\(Nb-Hf-Ti\\)|^Niobium C-103",
+      "ranges": {
+        "hardness": { "typical": 140, "min": 120, "max": 170, "confidence": "handbook" },
+        "max_service_temp": { "typical": 1400, "min": 1300, "max": 1480, "confidence": "handbook" }
+      },
+      "reason": "G7: 중복 base HV 모순 (180 vs 90) → annealed ~140 통일 + Tmax 1400 통일. [ATI Wah Chang C-103]" },
     { "namePattern": "^OF Copper C10200$",
       "ranges": {
         "yield_strength": { "typical": 70, "min": 60, "max": 90, "confidence": "handbook" },

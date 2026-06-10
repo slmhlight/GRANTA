@@ -4261,6 +4261,69 @@ try {
   console.log(`R205-P — polymer 내화학성/열가소성 재분류: ${chemN} entries`);
 }
 
+/* R205-R — 파생값 재계산 pass (override 적용 *후* 실행 필수).
+ *   1) stale fatigue: R205 가 UTS 를 정정한 entries 의 σf 가 옛 UTS 기준 유도값으로 남음
+ *      → ratio 비정상 (fat>UTS or fat/UTS>0.8 or <0.12) 시 family ratio 로 재유도.
+ *      cellular (foam/honeycomb) 은 피로 의미 없음 → 제거.
+ *   2) price_per_cm3 = price_per_kg × ρ / 1000 최종 재계산 (alloy-specific price 적용 전 값으로
+ *      계산된 stale 96 entries 정합화). */
+{
+  const typ = (m, k) => { const r = (m.ranges || {})[k]; const v = r?.typical ?? m[k]; return (typeof v === 'number' && isFinite(v)) ? v : null; };
+  let fatFixed = 0, fatDropped = 0, priceFixed = 0;
+  for (const m of all) {
+    // 1) fatigue 재유도
+    const fat = typ(m, 'fatigue_strength');
+    const uts = typ(m, 'uts');
+    if (fat != null && uts != null && uts > 0 && m.category === 'Metal') {
+      const ratio = fat / uts;
+      if (fat > uts || ratio > 0.8 || ratio < 0.12) {
+        if (/foam|honeycomb|cellular/i.test(m.name || '')) {
+          m.ranges.fatigue_strength = null;
+          m.fatigue_strength = null;
+          fatDropped++;
+        } else {
+          const f = m.families || [];
+          const r = f.includes('Titanium-based') ? 0.55 : f.includes('Nickel-based') ? 0.40
+            : (f.includes('Aluminum-based') || f.includes('Copper-based') || f.includes('Magnesium-based')) ? 0.35 : 0.45;
+          const nv = Math.round(uts * r);
+          m.ranges.fatigue_strength = {
+            min: Math.round(nv * 0.85), max: Math.round(nv * 1.15), typical: nv,
+            n: 0, estimated: true, confidence: 'derived',
+            provenance: `R205-R σf≈${r}·UTS 재유도 (UTS 정정 후 stale 값 교체)`,
+          };
+          m.fatigue_strength = nv;
+          fatFixed++;
+        }
+      }
+    }
+    // cellular 비금속 (composite/polymer foam·honeycomb) — fat > UTS 는 무의미 → 제거 (category 무관)
+    if (m.category !== 'Metal' && /foam|honeycomb|aerogel/i.test(m.name || '')) {
+      const f2 = typ(m, 'fatigue_strength'); const u2 = typ(m, 'uts');
+      if (f2 != null && u2 != null && f2 > u2) {
+        m.ranges.fatigue_strength = null; m.fatigue_strength = null; fatDropped++;
+      }
+    }
+    // 2) price_per_cm3 정합화
+    const pk = typ(m, 'price_per_kg');
+    const rho = typ(m, 'density');
+    if (pk != null && rho != null && pk > 0 && rho > 0) {
+      const expect = +(pk * rho / 1000).toFixed(4);
+      const cur = typ(m, 'price_per_cm3');
+      if (cur == null || Math.abs(cur - expect) / expect > 0.02) {
+        if (!m.ranges) m.ranges = {};
+        const conf = m.ranges.price_per_kg?.confidence || 'class';
+        m.ranges.price_per_cm3 = {
+          min: +(expect * 0.85).toFixed(4), max: +(expect * 1.15).toFixed(4), typical: expect,
+          n: 0, estimated: true, confidence: conf, provenance: 'R205-R price_per_kg × ρ 재계산',
+        };
+        m.price_per_cm3 = expect;
+        priceFixed++;
+      }
+    }
+  }
+  console.log(`R205-R — 파생값 재계산: fatigue ${fatFixed} 재유도 + ${fatDropped} cellular 제거 · price_per_cm3 ${priceFixed} 정합화`);
+}
+
 /* R173 Phase B — Name overrides (표기 중복 정리).
  *   data/r173-name-overrides.json 의 from→to 매핑으로 entry name 정규화.
  *   ID 는 변경 X (deeplink 보존). aliases 는 build pipeline 후속 단계에서 재생성. */
