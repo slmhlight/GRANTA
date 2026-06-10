@@ -1,0 +1,80 @@
+{
+  "_note": "R199 — Generic CSV (AM_Materials_DB_enriched.csv) 의 stainless 304/304L/310/316/321/347 + Inconel 100 같은 generic entries 의 mock 값 정정.",
+  "_source": "ASM Handbook Vol.1/4 + MMPDS-08 Sec. 1.5 + Special Metals/Howmet/ATI Wah Chang datasheets",
+  "overrides": [
+    {
+      "namePattern": "^Inconel 100 ",
+      "composition": { "Ni": "balance", "Cr": "10", "Co": "15", "Mo": "3", "Al": "5.5", "Ti": "4.7", "V": "1", "Zr": "0.06", "C": "0.18", "B": "0.014" },
+      "ranges": {
+        "yield_strength": { "typical": 850, "min": 750, "max": 950, "confidence": "handbook" },
+        "uts":            { "typical": 1010, "min": 900, "max": 1100, "confidence": "handbook" },
+        "elongation":     { "typical": 9,   "min": 6,   "max": 12,   "confidence": "handbook" },
+        "modulus":        { "typical": 215, "min": 200, "max": 220, "confidence": "handbook" },
+        "density":        { "typical": 7.75, "min": 7.7, "max": 7.8, "confidence": "handbook" },
+        "max_service_temp": { "typical": 980, "min": 920, "max": 1050, "confidence": "handbook" },
+        "melting_point":  { "typical": 1310, "min": 1290, "max": 1330, "confidence": "handbook" }
+      },
+      "reason": "Howmet IN-100 (UNS N13100, cast γ' Ni superalloy): Ni balance / Cr 10 / Co 15 / Mo 3 / Al 5.5 / Ti 4.7. CSV 의 잘못된 Al=98.5% (Annealed) 또는 Ti=98% (Solution Treated) 또는 Hastelloy-like Ni 58 / Cr 21 / Mo 9 / Co 3.6 (mock) 정정."
+    },
+    {
+      "namePattern": "^AISI 304 ",
+      "ranges": {
+        "yield_strength": { "typical": 205, "min": 170, "max": 280, "confidence": "handbook" },
+        "uts":            { "typical": 515, "min": 480, "max": 620, "confidence": "handbook" },
+        "elongation":     { "typical": 40,  "min": 30,  "max": 60,  "confidence": "handbook" },
+        "hardness":       { "typical": 150, "min": 130, "max": 200, "confidence": "handbook" }
+      },
+      "reason": "AISI 304 annealed: ASM σy 205 MPa / UTS 515 / El 40% / HV 150. CSV 의 180/453/37/191 mock 값 정정."
+    },
+    {
+      "namePattern": "^AISI 304L ",
+      "ranges": {
+        "yield_strength": { "typical": 170, "min": 145, "max": 240, "confidence": "handbook" },
+        "uts":            { "typical": 485, "min": 450, "max": 580, "confidence": "handbook" },
+        "elongation":     { "typical": 40,  "min": 30,  "max": 60,  "confidence": "handbook" },
+        "hardness":       { "typical": 145, "min": 125, "max": 195, "confidence": "handbook" }
+      },
+      "reason": "AISI 304L (low-C, weldable) annealed: ASM σy 170 MPa / UTS 485 / HV 145. CSV 의 149/427/191 mock 정정."
+    },
+    {
+      "namePattern": "^AISI 310 ",
+      "ranges": {
+        "yield_strength": { "typical": 205, "min": 170, "max": 280, "confidence": "handbook" },
+        "uts":            { "typical": 515, "min": 480, "max": 620, "confidence": "handbook" },
+        "elongation":     { "typical": 40,  "min": 30,  "max": 55,  "confidence": "handbook" },
+        "hardness":       { "typical": 170, "min": 145, "max": 220, "confidence": "handbook" }
+      },
+      "reason": "AISI 310 (25Cr-20Ni heat-resistant) annealed: ASM σy 205 / UTS 515 / HV 170. CSV 의 180/453/191 mock 정정."
+    },
+    {
+      "namePattern": "^AISI 316 ",
+      "ranges": {
+        "yield_strength": { "typical": 205, "min": 170, "max": 280, "confidence": "handbook" },
+        "uts":            { "typical": 515, "min": 480, "max": 620, "confidence": "handbook" },
+        "elongation":     { "typical": 40,  "min": 30,  "max": 60,  "confidence": "handbook" },
+        "hardness":       { "typical": 155, "min": 135, "max": 200, "confidence": "handbook" }
+      },
+      "reason": "AISI 316 (Mo-bearing) annealed: ASM σy 205 / UTS 515 / HV 155. CSV 의 180/453/191 mock 정정."
+    },
+    {
+      "namePattern": "^AISI 321 ",
+      "ranges": {
+        "yield_strength": { "typical": 210, "min": 175, "max": 290, "confidence": "handbook" },
+        "uts":            { "typical": 515, "min": 480, "max": 620, "confidence": "handbook" },
+        "elongation":     { "typical": 40,  "min": 30,  "max": 55,  "confidence": "handbook" },
+        "hardness":       { "typical": 160, "min": 140, "max": 200, "confidence": "handbook" }
+      },
+      "reason": "AISI 321 (Ti-stabilized) annealed: ASM σy 210 / UTS 515 / HV 160. CSV 의 180/453/191 mock 정정."
+    },
+    {
+      "namePattern": "^AISI 347 ",
+      "ranges": {
+        "yield_strength": { "typical": 210, "min": 175, "max": 290, "confidence": "handbook" },
+        "uts":            { "typical": 515, "min": 480, "max": 620, "confidence": "handbook" },
+        "elongation":     { "typical": 40,  "min": 30,  "max": 55,  "confidence": "handbook" },
+        "hardness":       { "typical": 160, "min": 140, "max": 200, "confidence": "handbook" }
+      },
+      "reason": "AISI 347 (Nb-stabilized) annealed: ASM σy 210 / UTS 515 / HV 160. CSV 의 동일 mock 정정."
+    }
+  ]
+}

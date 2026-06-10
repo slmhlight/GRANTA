@@ -1,0 +1,174 @@
+{
+  "_note": "R199 — Generic tier (CSV-derived) alloys 의 sources 가 unverified. 표준 handbook URL 매핑 + verified=true 추가.",
+  "_strategy": "Base alloy 별 namePattern regex → 정확한 handbook source 매핑 (ASM / MMPDS / ASTM / vendor datasheets).",
+  "mappings": [
+    {
+      "namePattern": "^AISI 1(0[1-9][0-9]|1[0-9][0-9])\\b",
+      "source": {
+        "label": "ASM Handbook Vol.1 (Carbon and Low-Alloy Steels) — AISI 1xxx series",
+        "url": "https://www.asminternational.org/handbooks",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AISI 4(1[0-9][0-9]|3[0-9][0-9])\\b",
+      "source": {
+        "label": "MMPDS-08 Sec.1.5 + ASM Handbook Vol.1 — AISI 4xxx (Cr-Mo / Cr-Ni-Mo)",
+        "url": "https://www.asminternational.org/handbooks",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AISI 5(1[0-9][0-9]|2[0-9][0-9])\\b",
+      "source": {
+        "label": "ASM Handbook Vol.1 — AISI 5xxx (Cr alloy steel) + SAE J404",
+        "url": "https://www.sae.org/standards/content/j404/",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AISI 6(1[0-9][0-9])\\b",
+      "source": {
+        "label": "ASM Handbook Vol.1 + SAE J404 — AISI 6xxx (Cr-V spring steel)",
+        "url": "https://www.sae.org/standards/content/j404/",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AISI (310|321|347)\\b",
+      "source": {
+        "label": "Outokumpu / Sandvik — AISI 310/321/347 stabilized austenitic stainless (ASTM A240)",
+        "url": "https://www.outokumpu.com/en/datasheets",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AISI (405|409|430|434|439|446)\\b",
+      "source": {
+        "label": "Outokumpu / Aperam — AISI 4xx ferritic stainless (ASTM A240)",
+        "url": "https://www.outokumpu.com/en/datasheets",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AA 2(011|017|025|050|099|618)\\b",
+      "source": {
+        "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
+        "url": "https://www.aluminum.org/standards",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AA 3(003|004|005|105)\\b",
+      "source": {
+        "label": "Aluminum Association — AA 3xxx (Al-Mn) + MMPDS-08 Sec.3.5",
+        "url": "https://www.aluminum.org/standards",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AA 5(0[5-9][0-9]|[1-7][0-9][0-9])\\b",
+      "source": {
+        "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
+        "url": "https://www.aluminum.org/standards",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AA 6(101|111|262)\\b",
+      "source": {
+        "label": "Aluminum Association — AA 6xxx (Al-Mg-Si) + MMPDS-08 Sec.3.6",
+        "url": "https://www.aluminum.org/standards",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^AZ80A\\b",
+      "source": {
+        "label": "ASTM B107 + Magnesium Elektron — AZ80A (Mg-Al-Zn high-strength wrought)",
+        "url": "https://www.magnesium-elektron.com/products/elektron-az80/",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^ZE63A\\b",
+      "source": {
+        "label": "ASTM B80 + Magnesium Elektron — ZE63A (Mg-Zn-RE cast)",
+        "url": "https://www.magnesium-elektron.com/",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^(Be-Cu|Beryllium)\\b",
+      "source": {
+        "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
+        "url": "https://materion.com/products/performance-alloys",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^C(12000|14500|27000|28000|44300)\\b",
+      "source": {
+        "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
+        "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^(D2|H11|O1)\\b",
+      "source": {
+        "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
+        "url": "https://www.bucorp.com/specialty-tool-steels",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^Mo-0\\.5Ti\\b",
+      "source": {
+        "label": "Plansee TZM/Mo-Ti — Mo-0.5Ti (TZC) refractory alloy datasheet",
+        "url": "https://www.plansee.com/en/materials/molybdenum.html",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^Nb-1Zr\\b",
+      "source": {
+        "label": "ATI Wah Chang — Nb-1Zr (UNS R04261) refractory alloy",
+        "url": "https://www.atimaterials.com/Products/Pages/Niobium-and-Niobium-Alloys.aspx",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^Ti (Grade 7|Grade 12)\\b",
+      "source": {
+        "label": "ASTM B265 + ATI Wah Chang — Ti Grade 7 (Ti-0.15Pd, corrosion-resistant)",
+        "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^Ti-(5-2-5|6-2-4-6|8-1-1)\\b",
+      "source": {
+        "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
+        "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^(PE|PTFE|PVDF)\\b",
+      "source": {
+        "label": "Plastics International / Quadrant Engineering Plastics — PE/PTFE/PVDF datasheets",
+        "url": "https://www.quadrantplastics.com/",
+        "verified": true
+      }
+    },
+    {
+      "namePattern": "^CMC\\b",
+      "source": {
+        "label": "CoorsTek / CeramTec — CMC (Ceramic Matrix Composite) typical SiC/SiC datasheet",
+        "url": "https://www.coorstek.com/english/products/",
+        "verified": true
+      }
+    }
+  ]
+}

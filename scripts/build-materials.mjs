@@ -1039,8 +1039,8 @@ const ALLOY_FAT_IMPACT = {
   '5083':  { fatigue: [120, 145, 170], impact: [12, 20, 30] },
   '5086':  { fatigue: [95, 115, 135], impact: [10, 17, 26] },
   '3003':  { fatigue: [40, 50, 60], impact: [25, 40, 60] },
-  '1100':  { fatigue: [30, 40, 50], impact: [30, 50, 70] },
-  '1050':  { fatigue: [25, 35, 45], impact: [35, 55, 80] },
+  'aa1100': { fatigue: [30, 40, 50], impact: [30, 50, 70] },
+  'aa1050': { fatigue: [25, 35, 45], impact: [35, 55, 80] },
   'a356':  { fatigue: [55, 70, 85], impact: [3, 5, 8] },
   'a357':  { fatigue: [60, 75, 90], impact: [3, 5, 8] },
   'alsi10mg': { fatigue: [90, 115, 140], impact: [3, 4, 6] },
@@ -1172,11 +1172,19 @@ const ALLOY_FAT_IMPACT = {
 
 function alloyFatigueImpact(name) {
   if (!name) return null;
-  const lc = String(name).toLowerCase().replace(/[\s\-_(),/]+/g, '');
+  // R199c — base name only (em-dash split) + hybrid match (short key word-boundary, long substring).
+  const baseName = String(name).split(/\s+[—–]\s+/)[0];
+  const orig = baseName.toLowerCase();
+  const lc = orig.replace(/[\s\-_(),/]+/g, '');
   const keys = Object.keys(ALLOY_FAT_IMPACT).sort((a, b) => b.length - a.length);
   for (const k of keys) {
     const kn = k.replace(/[\s\-_(),/]+/g, '');
-    if (lc.includes(kn)) return { ...ALLOY_FAT_IMPACT[k], _key: k };
+    if (kn.length <= 3) {
+      const re = new RegExp('(^|[^a-z0-9])' + kn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[^a-z0-9])', 'i');
+      if (re.test(orig)) return { ...ALLOY_FAT_IMPACT[k], _key: k };
+    } else {
+      if (lc.includes(kn)) return { ...ALLOY_FAT_IMPACT[k], _key: k };
+    }
   }
   return null;
 }
@@ -1191,16 +1199,23 @@ function alloyFatigueImpact(name) {
 
 function alloySpecificPhysicals(name) {
   if (!name) return null;
-  // R199 — Use ONLY base alloy name (before ' — ' / ' – ' delimiter — em-dash w/ spaces).
-  // Avoids false-positive on numeric tokens in HT condition like "1050°C WQ" matching '1050' key.
-  // Do NOT split on plain '-' (alloy names like 'Mo-La', 'Ti-6Al-4V' contain hyphens).
+  // R199c — base name only (em-dash split) + hybrid match.
+  // 회피 1: 'AISI 316L — Annealed (1050°C WQ)' 의 '1050°C' 가 steel '1050' key 매칭 (HT 제외).
+  // 회피 2: 'a2'/'d2' 같은 짧은 키가 'AA 2011' substring 매칭 (word-boundary on original).
+  // 회피 3: 'aa1050' 같은 prefix-key 가 'AA 1050' (공백) 에서 매칭 (normalized substring).
   const baseName = String(name).split(/\s+[—–]\s+/)[0];
-  const lc = baseName.toLowerCase().replace(/[\s\-_(),/]+/g, '');
-  // 정확/부분 매치 — 길이 순 (긴 키 먼저 → "inconel718plus" 가 "inconel718" 보다 먼저).
+  const orig = baseName.toLowerCase();
+  const lc = orig.replace(/[\s\-_(),/]+/g, '');
   const keys = Object.keys(ALLOY_SPECIFIC).sort((a, b) => b.length - a.length);
   for (const k of keys) {
     const kn = k.replace(/[\s\-_(),/]+/g, '');
-    if (lc.includes(kn)) return { ...ALLOY_SPECIFIC[k], _key: k };
+    // 짧은 키 (≤ 3 chars) — word-boundary 필수 (false positive 회피)
+    if (kn.length <= 3) {
+      const re = new RegExp('(^|[^a-z0-9])' + kn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[^a-z0-9])', 'i');
+      if (re.test(orig)) return { ...ALLOY_SPECIFIC[k], _key: k };
+    } else {
+      if (lc.includes(kn)) return { ...ALLOY_SPECIFIC[k], _key: k };
+    }
   }
   return null;
 }
@@ -4117,6 +4132,64 @@ try {
   console.log(`R173 Phase B — range overrides: ${r173RangesApplied}/${overrides.length} entries overridden, ${r173PropsOverridden} properties + ${r173CompositionOverridden} compositions corrected`);
 } catch (e) {
   console.warn('R173 Phase B range overrides skipped:', e.message);
+}
+
+/* R199 — regex-pattern range + composition overrides (multiple entries 일괄 처리).
+ *   data/r199-stainless-overrides.json — CSV mock 값 (304/304L/310/316/321/347 + Inconel 100) 정정. */
+try {
+  const r199Raw = JSON.parse(fs.readFileSync(path.join(DATA, 'r199-stainless-overrides.json'), 'utf8'));
+  const r199Over = r199Raw.overrides || [];
+  let r199Applied = 0;
+  let r199Props = 0;
+  let r199Comps = 0;
+  for (const ov of r199Over) {
+    const re = new RegExp(ov.namePattern);
+    const targets = all.filter(m => re.test(m.name || ''));
+    for (const t of targets) {
+      if (!t.ranges) t.ranges = {};
+      for (const [prop, newRange] of Object.entries(ov.ranges || {})) {
+        // 기존 confidence 가 'measured' 면 override 안 함 (실제 측정값 우선)
+        if (t.ranges[prop]?.confidence === 'measured') continue;
+        t.ranges[prop] = { ...(t.ranges[prop] || {}), ...newRange };
+        if (newRange.typical != null) t[prop] = newRange.typical;
+        r199Props++;
+      }
+      // composition override (Inconel 100 같은 mock 정정)
+      if (ov.composition) {
+        t.composition = { ...ov.composition };
+        r199Comps++;
+      }
+      r199Applied++;
+    }
+  }
+  console.log(`R199 — overrides: ${r199Applied} entries / ${r199Props} props / ${r199Comps} compositions corrected`);
+} catch (e) {
+  console.warn('R199 overrides skipped:', e.message);
+}
+
+/* R199 — source URL verification (handbook URL mapping for generic tier).
+ *   data/r199-source-urls.json — base alloy 별 regex → verified source 추가/교체. */
+try {
+  const r199SrcRaw = JSON.parse(fs.readFileSync(path.join(DATA, 'r199-source-urls.json'), 'utf8'));
+  const mappings = r199SrcRaw.mappings || [];
+  let srcAdded = 0;
+  let srcTouched = new Set();
+  for (const map of mappings) {
+    const re = new RegExp(map.namePattern);
+    const targets = all.filter(m => re.test(m.name || ''));
+    for (const t of targets) {
+      // 이미 verified 인 source 가 있으면 skip
+      if (Array.isArray(t.sources) && t.sources.some(s => s.verified)) continue;
+      if (!Array.isArray(t.sources)) t.sources = [];
+      // unverified sources 는 유지하되 verified handbook source 를 앞에 추가
+      t.sources.unshift({ ...map.source });
+      srcAdded++;
+      srcTouched.add(t.name);
+    }
+  }
+  console.log(`R199 — source URL verification: ${srcAdded} sources added to ${srcTouched.size} entries`);
+} catch (e) {
+  console.warn('R199 source URL overrides skipped:', e.message);
 }
 
 /* R173 Phase B — Name overrides (표기 중복 정리).
