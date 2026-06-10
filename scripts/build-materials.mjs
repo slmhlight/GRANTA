@@ -89,7 +89,10 @@ function familyTags(category, subcategory, composition) {
   const tags = new Set();
   if (category) tags.add(category);
   if (subcategory) tags.add(subcategory);
-  if (category !== 'Polymer') {
+  /* R199 — element family tags 는 Metal 카테고리만 적용.
+     Ceramic (Al₂O₃ 의 dominant element Al → 'Aluminum-based' false-positive 회피),
+     Composite, Polymer 는 element-based family 부적합. */
+  if (category === 'Metal') {
     const fam = (ELEMENT_FAMILY.find(([e]) => e === dominantElement(composition)) || [])[1];
     if (fam) tags.add(fam);
   }
@@ -904,10 +907,10 @@ const ALLOY_SPECIFIC = {
   '13-8 mo': { ec: 2.0, tmax: 425, price: 12, cte: 11.1, poisson: 0.30, cp: 450, melt: 1400, kic: 100 },
   '138mo':   { ec: 2.0, tmax: 425, price: 12, cte: 11.1, poisson: 0.30, cp: 450, melt: 1400, kic: 100 },
   'custom455': { ec: 2.0, tmax: 425, price: 14, cte: 10.3, poisson: 0.30, cp: 450, melt: 1400, kic: 80 },
-  // ─── Aluminum 추가 ───
-  '1050': { ec: 60,  tmax: 200, price: 2.2, cte: 23.5, poisson: 0.33, cp: 902, melt: 657, kic: 60 },
-  '1060': { ec: 61,  tmax: 200, price: 2.3, cte: 23.6, poisson: 0.33, cp: 900, melt: 657, kic: 60 },
-  '1100': { ec: 58,  tmax: 200, price: 2.3, cte: 23.6, poisson: 0.33, cp: 904, melt: 657, kic: 55 },
+  // ─── Aluminum 추가 (R199: 'aa' prefix to disambiguate from Steel '1050'/'1060') ───
+  'aa1050': { ec: 60,  tmax: 200, price: 2.2, cte: 23.5, poisson: 0.33, cp: 902, melt: 657, kic: 60 },
+  'aa1060': { ec: 61,  tmax: 200, price: 2.3, cte: 23.6, poisson: 0.33, cp: 900, melt: 657, kic: 60 },
+  'aa1100': { ec: 58,  tmax: 200, price: 2.3, cte: 23.6, poisson: 0.33, cp: 904, melt: 657, kic: 55 },
   '4047': { ec: 39,  tmax: 175, price: 4.5, cte: 19.3, poisson: 0.33, cp: 920, melt: 576, kic: 20 },
   '5454': { ec: 34,  tmax: 200, price: 3.2, cte: 23.7, poisson: 0.33, cp: 900, melt: 638, kic: 38 },
   '5456': { ec: 28,  tmax: 200, price: 3.4, cte: 23.9, poisson: 0.33, cp: 900, melt: 638, kic: 40 },
@@ -1188,7 +1191,11 @@ function alloyFatigueImpact(name) {
 
 function alloySpecificPhysicals(name) {
   if (!name) return null;
-  const lc = String(name).toLowerCase().replace(/[\s\-_(),/]+/g, '');
+  // R199 — Use ONLY base alloy name (before ' — ' / ' – ' delimiter — em-dash w/ spaces).
+  // Avoids false-positive on numeric tokens in HT condition like "1050°C WQ" matching '1050' key.
+  // Do NOT split on plain '-' (alloy names like 'Mo-La', 'Ti-6Al-4V' contain hyphens).
+  const baseName = String(name).split(/\s+[—–]\s+/)[0];
+  const lc = baseName.toLowerCase().replace(/[\s\-_(),/]+/g, '');
   // 정확/부분 매치 — 길이 순 (긴 키 먼저 → "inconel718plus" 가 "inconel718" 보다 먼저).
   const keys = Object.keys(ALLOY_SPECIFIC).sort((a, b) => b.length - a.length);
   for (const k of keys) {
