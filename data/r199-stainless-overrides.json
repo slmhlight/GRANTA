@@ -75,6 +75,350 @@
         "hardness":       { "typical": 160, "min": 140, "max": 200, "confidence": "handbook" }
       },
       "reason": "AISI 347 (Nb-stabilized) annealed: ASM σy 210 / UTS 515 / HV 160. CSV 의 동일 mock 정정."
+    },
+    {
+      "namePattern": "^AISI 440C ",
+      "composition": { "Fe": "balance", "Cr": "16~18", "C": "0.95~1.20", "Mn": "≤1.0", "Si": "≤1.0", "Mo": "≤0.75" },
+      "ranges": {
+        "yield_strength": { "typical": 480, "min": 410, "max": 720, "confidence": "handbook" },
+        "uts":            { "typical": 760, "min": 720, "max": 970, "confidence": "handbook" },
+        "elongation":     { "typical": 14,  "min": 5,   "max": 18,  "confidence": "handbook" },
+        "hardness":       { "typical": 260, "min": 245, "max": 285, "confidence": "handbook" }
+      },
+      "reason": "AISI 440C annealed (Cr 16-18%, C 0.95-1.20%, balance Fe). ASM Vol.1: σy 480 / UTS 760 / HV 260. Q+T peak 별도 (HRC 60). CSV 의 Al=97.5% / σy=1575 / UTS=1698 mock 정정."
+    },
+    {
+      "namePattern": "^AISI (1010|1015|1018|1020|1025|1030|1035|1040|1045|1050|1060|1080|1095) ",
+      "composition": { "Fe": "balance", "C": "0.10~0.95 (per grade)", "Mn": "0.30~0.90", "P": "≤0.04", "S": "≤0.05" },
+      "ranges": {
+        "modulus":        { "typical": 205, "min": 200, "max": 210, "confidence": "handbook" },
+        "density":        { "typical": 7.85, "min": 7.85, "max": 7.85, "confidence": "handbook" }
+      },
+      "reason": "AISI 10xx (plain carbon steel) — Fe balance + C 0.10-0.95%. CSV 의 Al=97.5-99.5% mock composition 정정. (σy/UTS 는 grade별 differ — 별도 grade entry override)"
+    },
+    {
+      "namePattern": "^AISI 4(130|140|145|150|340) ",
+      "composition": { "Fe": "balance", "C": "0.30~0.50", "Cr": "0.80~1.10", "Mo": "0.15~0.30", "Mn": "0.40~0.90" },
+      "ranges": {
+        "modulus":        { "typical": 205, "min": 200, "max": 210, "confidence": "handbook" },
+        "density":        { "typical": 7.85, "min": 7.85, "max": 7.85, "confidence": "handbook" }
+      },
+      "reason": "AISI 4xxx (Cr-Mo / Cr-Ni-Mo low-alloy steel) — Fe balance + Cr 0.8-1.1 + Mo 0.15-0.3. CSV 의 Al=97.5% mock composition 정정."
+    },
+    {
+      "namePattern": "^AISI 6150 — (Annealed|As-supplied|As-cast)",
+      "composition": { "Fe": "balance", "C": "0.48~0.53", "Cr": "0.80~1.10", "V": "≥0.15", "Mn": "0.70~0.90", "Si": "0.15~0.30" },
+      "ranges": {
+        "yield_strength": { "typical": 480, "min": 410, "max": 620, "confidence": "handbook" },
+        "uts":            { "typical": 670, "min": 620, "max": 760, "confidence": "handbook" },
+        "fatigue_strength": { "typical": 300, "min": 250, "max": 350, "confidence": "handbook" },
+        "modulus":        { "typical": 205, "min": 200, "max": 210, "confidence": "handbook" },
+        "density":        { "typical": 7.85, "min": 7.85, "max": 7.85, "confidence": "handbook" }
+      },
+      "reason": "AISI 6150 Annealed (SAE J404). 1700 mock 은 peak QT 만 적용 — annealed σy 480 / UTS 670."
+    },
+    {
+      "namePattern": "^AISI 6150 — Quenched",
+      "composition": { "Fe": "balance", "C": "0.48~0.53", "Cr": "0.80~1.10", "V": "≥0.15", "Mn": "0.70~0.90" },
+      "ranges": {
+        "yield_strength": { "typical": 1500, "min": 1200, "max": 1700, "confidence": "handbook" },
+        "uts":            { "typical": 1700, "min": 1400, "max": 1900, "confidence": "handbook" },
+        "fatigue_strength": { "typical": 760, "min": 620, "max": 850, "confidence": "handbook" },
+        "modulus":        { "typical": 205, "min": 200, "max": 210, "confidence": "handbook" }
+      },
+      "reason": "AISI 6150 Q+T peak (Cr-V spring steel) — SAE J404."
+    },
+    {
+      "namePattern": "^C17200 ",
+      "composition": { "Cu": "balance", "Be": "1.80~2.00", "Co+Ni": "0.20~0.6", "Fe": "≤0.20", "Al": "≤0.20", "Si": "≤0.20" },
+      "ranges": {
+        "yield_strength": { "typical": 1100, "min": 900, "max": 1300, "confidence": "handbook" },
+        "uts":            { "typical": 1300, "min": 1100, "max": 1450, "confidence": "handbook" },
+        "elongation":     { "typical": 5,   "min": 2,   "max": 10,  "confidence": "handbook" },
+        "hardness":       { "typical": 380, "min": 340, "max": 420, "confidence": "handbook" },
+        "modulus":        { "typical": 128, "min": 124, "max": 132, "confidence": "handbook" },
+        "density":        { "typical": 8.36, "min": 8.34, "max": 8.38, "confidence": "handbook" }
+      },
+      "reason": "C17200 (Be-Cu, CuBe2) — Materion datasheet: peak aged σy 1100 / UTS 1300 / HV 380 / E 128. CSV 의 Al-base mock 정정."
+    },
+    {
+      "namePattern": "^C(11000|12000) ",
+      "composition": { "Cu": "≥99.90", "O": "≤0.04 (ETP) / ≤0.005 (DLP)" },
+      "ranges": {
+        "yield_strength": { "typical": 70,  "min": 50,  "max": 350, "confidence": "handbook" },
+        "uts":            { "typical": 220, "min": 220, "max": 380, "confidence": "handbook" },
+        "elongation":     { "typical": 35,  "min": 5,   "max": 55,  "confidence": "handbook" },
+        "hardness":       { "typical": 50,  "min": 40,  "max": 100, "confidence": "handbook" },
+        "modulus":        { "typical": 110, "min": 110, "max": 120, "confidence": "handbook" },
+        "density":        { "typical": 8.94, "min": 8.94, "max": 8.94, "confidence": "handbook" }
+      },
+      "reason": "ETP Copper (C11000) / DLP Copper (C12000) — Cu ≥99.9%. CDA datasheet: annealed σy 70 / UTS 220 / HV 50 / E 110. CSV 의 Al=99% mock 정정."
+    },
+    {
+      "namePattern": "^C28000 ",
+      "composition": { "Cu": "59~62", "Zn": "balance" },
+      "ranges": {
+        "yield_strength": { "typical": 150, "min": 140, "max": 380, "confidence": "handbook" },
+        "uts":            { "typical": 380, "min": 360, "max": 510, "confidence": "handbook" },
+        "elongation":     { "typical": 45,  "min": 10,  "max": 55,  "confidence": "handbook" },
+        "hardness":       { "typical": 90,  "min": 70,  "max": 160, "confidence": "handbook" },
+        "modulus":        { "typical": 105, "min": 100, "max": 110, "confidence": "handbook" },
+        "density":        { "typical": 8.39, "min": 8.39, "max": 8.39, "confidence": "handbook" }
+      },
+      "reason": "C28000 (Muntz Metal, 60Cu-40Zn brass) — CDA. CSV 의 Al=98.5% mock 정정."
+    },
+    {
+      "namePattern": "^Monel 400 ",
+      "composition": { "Ni": "63~70", "Cu": "28~34", "Fe": "≤2.5", "Mn": "≤2.0", "Si": "≤0.5", "C": "≤0.3" },
+      "ranges": {
+        "yield_strength": { "typical": 240, "min": 170, "max": 690, "confidence": "handbook" },
+        "uts":            { "typical": 550, "min": 480, "max": 760, "confidence": "handbook" },
+        "elongation":     { "typical": 40,  "min": 25,  "max": 60,  "confidence": "handbook" },
+        "hardness":       { "typical": 130, "min": 110, "max": 240, "confidence": "handbook" },
+        "modulus":        { "typical": 179, "min": 175, "max": 185, "confidence": "handbook" },
+        "density":        { "typical": 8.83, "min": 8.80, "max": 8.86, "confidence": "handbook" }
+      },
+      "reason": "Monel 400 (Ni-Cu 67-33, Special Metals SMC-053). Annealed σy 240 / UTS 550. CSV 의 Al=98.5% mock 정정."
+    },
+    {
+      "namePattern": "^Hastelloy C-276 ",
+      "composition": { "Ni": "balance", "Cr": "14.5~16.5", "Mo": "15~17", "Fe": "4~7", "W": "3~4.5", "Co": "≤2.5", "C": "≤0.01" },
+      "ranges": {
+        "yield_strength": { "typical": 355, "min": 290, "max": 690, "confidence": "handbook" },
+        "uts":            { "typical": 790, "min": 690, "max": 1000, "confidence": "handbook" },
+        "elongation":     { "typical": 60,  "min": 40,  "max": 70,  "confidence": "handbook" },
+        "hardness":       { "typical": 195, "min": 160, "max": 230, "confidence": "handbook" },
+        "modulus":        { "typical": 205, "min": 200, "max": 215, "confidence": "handbook" },
+        "density":        { "typical": 8.89, "min": 8.85, "max": 8.93, "confidence": "handbook" }
+      },
+      "reason": "Hastelloy C-276 (UNS N10276, Ni-Cr-Mo-W) — Haynes International datasheet. Annealed σy 355 / UTS 790. CSV 의 Al=98.5% mock 정정."
+    },
+    {
+      "namePattern": "^Inconel 600 ",
+      "composition": { "Ni": "≥72", "Cr": "14~17", "Fe": "6~10", "Mn": "≤1.0", "Si": "≤0.5", "C": "≤0.15" },
+      "ranges": {
+        "yield_strength": { "typical": 240, "min": 170, "max": 345, "confidence": "handbook" },
+        "uts":            { "typical": 620, "min": 550, "max": 760, "confidence": "handbook" },
+        "elongation":     { "typical": 45,  "min": 30,  "max": 55,  "confidence": "handbook" },
+        "hardness":       { "typical": 150, "min": 120, "max": 200, "confidence": "handbook" },
+        "modulus":        { "typical": 207, "min": 200, "max": 215, "confidence": "handbook" },
+        "density":        { "typical": 8.47, "min": 8.42, "max": 8.50, "confidence": "handbook" }
+      },
+      "reason": "Inconel 600 (UNS N06600, Ni-Cr-Fe) — Special Metals SMC-027. Annealed σy 240 / UTS 620. CSV 의 Al=98.5% mock 정정."
+    },
+    {
+      "namePattern": "^Inconel X-750 ",
+      "composition": { "Ni": "≥70", "Cr": "14~17", "Fe": "5~9", "Ti": "2.25~2.75", "Al": "0.4~1.0", "Nb": "0.7~1.2", "Mn": "≤1.0", "C": "≤0.08" },
+      "ranges": {
+        "yield_strength": { "typical": 815, "min": 670, "max": 1100, "confidence": "handbook" },
+        "uts":            { "typical": 1230, "min": 1100, "max": 1400, "confidence": "handbook" },
+        "elongation":     { "typical": 20,  "min": 10,   "max": 30,  "confidence": "handbook" },
+        "hardness":       { "typical": 330, "min": 280, "max": 380, "confidence": "handbook" },
+        "modulus":        { "typical": 214, "min": 207, "max": 220, "confidence": "handbook" },
+        "density":        { "typical": 8.28, "min": 8.25, "max": 8.31, "confidence": "handbook" }
+      },
+      "reason": "Inconel X-750 (UNS N07750, γ' Ni-Cr-Fe + Ti/Al) — Special Metals SMC-067. Peak aged σy 815 / UTS 1230. CSV 의 Al=98.5% mock 정정."
+    },
+    {
+      "namePattern": "^Ti Grade [1-4] ",
+      "composition": { "Ti": "balance", "Fe": "≤0.50", "O": "≤0.40", "C": "≤0.10", "N": "≤0.05", "H": "≤0.015" },
+      "ranges": {
+        "yield_strength": { "typical": 275, "min": 170, "max": 485, "confidence": "handbook" },
+        "uts":            { "typical": 345, "min": 240, "max": 550, "confidence": "handbook" },
+        "elongation":     { "typical": 28,  "min": 15,  "max": 40,  "confidence": "handbook" },
+        "hardness":       { "typical": 200, "min": 120, "max": 265, "confidence": "handbook" },
+        "modulus":        { "typical": 105, "min": 102, "max": 110, "confidence": "handbook" },
+        "density":        { "typical": 4.51, "min": 4.51, "max": 4.51, "confidence": "handbook" },
+        "melting_point":  { "typical": 1668, "min": 1660, "max": 1670, "confidence": "handbook" }
+      },
+      "reason": "CP Ti Grades 1-4 (UNS R50250/R50400/R50550/R50700) — ASTM B265. Annealed σy 170-485 (grade별). CSV 의 Al=98.5% mock 정정."
+    },
+    {
+      "namePattern": "^Ti Grade 7 ",
+      "composition": { "Ti": "balance", "Pd": "0.12~0.25", "Fe": "≤0.30", "O": "≤0.25" },
+      "ranges": {
+        "yield_strength": { "typical": 275, "min": 275, "max": 450, "confidence": "handbook" },
+        "uts":            { "typical": 345, "min": 345, "max": 550, "confidence": "handbook" },
+        "elongation":     { "typical": 20,  "min": 18,  "max": 30,  "confidence": "handbook" },
+        "hardness":       { "typical": 180, "min": 160, "max": 240, "confidence": "handbook" },
+        "modulus":        { "typical": 103, "min": 100, "max": 110, "confidence": "handbook" },
+        "density":        { "typical": 4.51, "min": 4.51, "max": 4.51, "confidence": "handbook" },
+        "melting_point":  { "typical": 1668, "min": 1660, "max": 1670, "confidence": "handbook" }
+      },
+      "reason": "Ti Grade 7 (Ti-0.15Pd, UNS R52400) — ASTM B265, corrosion-resistant. CSV 의 Al=98.5% mock 정정."
+    },
+    {
+      "namePattern": "^Ti-(5-2-5|6-2-4-6|8-1-1) ",
+      "composition": { "Ti": "balance", "Al": "5~8", "V": "1~5", "Mo": "0~4", "Zr": "0~6", "Sn": "0~4" },
+      "ranges": {
+        "yield_strength": { "typical": 950, "min": 800, "max": 1200, "confidence": "handbook" },
+        "uts":            { "typical": 1050, "min": 900, "max": 1300, "confidence": "handbook" },
+        "elongation":     { "typical": 10,  "min": 6,   "max": 15,  "confidence": "handbook" },
+        "modulus":        { "typical": 110, "min": 105, "max": 125, "confidence": "handbook" },
+        "density":        { "typical": 4.50, "min": 4.45, "max": 4.55, "confidence": "handbook" },
+        "melting_point":  { "typical": 1660, "min": 1620, "max": 1690, "confidence": "handbook" }
+      },
+      "reason": "Ti α+β alloys (Ti-5-2-5/6-2-4-6/8-1-1). MMPDS-08 + RTI/ATI Wah Chang datasheets. CSV 의 Al=98.5% mock 정정."
+    },
+    {
+      "namePattern": "^CuNi2SiCr ",
+      "composition": { "Cu": "balance", "Ni": "1.6~2.5", "Si": "0.5~0.8", "Cr": "0.3~0.7" },
+      "ranges": {
+        "yield_strength":   { "typical": 550, "min": 300, "max": 750, "confidence": "handbook" },
+        "uts":              { "typical": 700, "min": 500, "max": 900, "confidence": "handbook" },
+        "elongation":       { "typical": 12,  "min": 6,   "max": 20,  "confidence": "handbook" },
+        "hardness":         { "typical": 200, "min": 130, "max": 280, "confidence": "handbook" },
+        "fatigue_strength": { "typical": 230, "min": 180, "max": 280, "confidence": "handbook" },
+        "modulus":          { "typical": 130, "min": 125, "max": 135, "confidence": "handbook" },
+        "density":          { "typical": 8.85, "min": 8.8, "max": 8.9, "confidence": "handbook" }
+      },
+      "reason": "CuNi2SiCr (C7026/CuNi2.5Si0.8Cr) — Wieland/KME datasheet. Cold-rolled σy 550-650 / UTS 700-850. CSV σy=200/UTS=275 mock 정정."
+    },
+    {
+      "namePattern": "^C(21000|22000|23000) ",
+      "ranges": {
+        "fatigue_strength": { "typical": 95, "min": 70, "max": 130, "confidence": "handbook" }
+      },
+      "reason": "Red Brass (C21000/C22000/C23000) — handbook σf ~95 MPa annealed. CSV의 28-30 mock 정정."
+    },
+    {
+      "namePattern": "^C36000 ",
+      "ranges": {
+        "fatigue_strength": { "typical": 110, "min": 90, "max": 150, "confidence": "handbook" }
+      },
+      "reason": "C36000 Free-cut Brass — handbook σf ~110. CSV의 56 mock 정정."
+    },
+    {
+      "namePattern": "^Silicon Bronze C65500\\b|^C65500 ",
+      "ranges": {
+        "fatigue_strength": { "typical": 130, "min": 100, "max": 170, "confidence": "handbook" }
+      },
+      "reason": "Silicon Bronze C65500 — handbook σf ~130 annealed. CSV 의 51 mock 정정."
+    },
+    {
+      "namePattern": "^Nickel Aluminum Bronze C95800\\b",
+      "ranges": {
+        "fatigue_strength": { "typical": 200, "min": 170, "max": 240, "confidence": "handbook" }
+      },
+      "reason": "Nickel Aluminum Bronze C95800 — handbook σf ~200 cast. CSV 의 95 mock 정정."
+    },
+    {
+      "namePattern": "^Rhenium\\b",
+      "ranges": {
+        "fatigue_strength": { "typical": 320, "min": 250, "max": 400, "confidence": "handbook" }
+      },
+      "reason": "Pure Rhenium — Plansee datasheet σf ~320 (≈0.3·UTS). CSV의 122 mock 정정."
+    },
+    {
+      "namePattern": "^AlSi10Mg — Annealed",
+      "ranges": {
+        "fatigue_strength": { "typical": 80, "min": 60, "max": 110, "confidence": "handbook" }
+      },
+      "reason": "AlSi10Mg Annealed — handbook σf ~80 (≈0.25·UTS). CSV의 46 mock 정정."
+    },
+    {
+      "namePattern": "^AA 7050 — Annealed",
+      "ranges": {
+        "fatigue_strength": { "typical": 130, "min": 100, "max": 170, "confidence": "handbook" }
+      },
+      "reason": "AA 7050-O annealed — handbook σf ~130. CSV의 58 mock 정정."
+    },
+    {
+      "namePattern": "^AISI 310 — Annealed",
+      "ranges": {
+        "fatigue_strength": { "typical": 240, "min": 200, "max": 280, "confidence": "handbook" }
+      },
+      "reason": "AISI 310 Annealed — austenitic stainless σf ~240 (typical 0.47·UTS). CSV의 76 mock 정정."
+    },
+    {
+      "namePattern": "^Maraging 300 \\(UNS K93120, AMS 6514\\) — (Annealed|Solution treated)",
+      "ranges": {
+        "fatigue_strength": { "typical": 460, "min": 380, "max": 540, "confidence": "handbook" }
+      },
+      "reason": "Maraging 300 annealed / solution treated — σf ~460 (peak aged 700+). CSV의 768/816 mock peak값 정정."
+    },
+    {
+      "namePattern": "^AISI 440C — (As-supplied|Quenched)",
+      "ranges": {
+        "fatigue_strength": { "typical": 500, "min": 400, "max": 650, "confidence": "handbook" }
+      },
+      "reason": "AISI 440C Q+T peak (HRC 60) — σf ~500 (bearing application). CSV의 180/260 mock 정정."
+    },
+    {
+      "namePattern": "^AISI 1020 — (Strain-hardened|Annealed)",
+      "ranges": {
+        "yield_strength":   { "typical": 350, "min": 290, "max": 420, "confidence": "handbook" },
+        "uts":              { "typical": 510, "min": 440, "max": 580, "confidence": "handbook" },
+        "fatigue_strength": { "typical": 200, "min": 170, "max": 240, "confidence": "handbook" }
+      },
+      "reason": "AISI 1020 cold-drawn / annealed (ASM Vol.1): σy 350 / UTS 510 / σf 200. CSV mock 정정."
+    },
+    {
+      "namePattern": "^AISI 4130 — (Strain-hardened|Quenched)",
+      "ranges": {
+        "yield_strength":   { "typical": 700, "min": 460, "max": 1100, "confidence": "handbook" },
+        "uts":              { "typical": 850, "min": 670, "max": 1300, "confidence": "handbook" },
+        "fatigue_strength": { "typical": 380, "min": 280, "max": 480, "confidence": "handbook" }
+      },
+      "reason": "AISI 4130 cold-drawn / Q+T (ASM Vol.1, SAE J404): σy 700-1100 / UTS 850-1300 / σf 380. CSV mock 정정."
+    },
+    {
+      "namePattern": "^AISI 410 — (Strain-hardened|Quenched)",
+      "ranges": {
+        "yield_strength":   { "typical": 690, "min": 540, "max": 1100, "confidence": "handbook" },
+        "uts":              { "typical": 860, "min": 760, "max": 1240, "confidence": "handbook" },
+        "fatigue_strength": { "typical": 380, "min": 280, "max": 470, "confidence": "handbook" }
+      },
+      "reason": "AISI 410 Q+T (martensitic stainless): σy 690 / UTS 860 / σf 380. CSV mock 정정."
+    },
+    {
+      "namePattern": "^C12000 — As-supplied",
+      "ranges": {
+        "fatigue_strength": { "typical": 70, "min": 50, "max": 100, "confidence": "handbook" }
+      },
+      "reason": "C12000 (DLP Copper) annealed — σf ~70 MPa. CSV의 25 mock 정정."
+    },
+    {
+      "namePattern": "^C17200 — As-supplied",
+      "ranges": {
+        "fatigue_strength": { "typical": 380, "min": 300, "max": 450, "confidence": "handbook" }
+      },
+      "reason": "C17200 (Be-Cu) aged — σf ~380 MPa (Materion datasheet). CSV의 133 mock 정정."
+    },
+    {
+      "namePattern": "^C75200 ",
+      "ranges": {
+        "fatigue_strength": { "typical": 130, "min": 110, "max": 180, "confidence": "handbook" }
+      },
+      "reason": "C75200 (Nickel Silver 65Cu-18Ni-17Zn) — σf ~130. CSV의 59 mock 정정."
+    },
+    {
+      "namePattern": "^HP 9-4-30 ",
+      "ranges": {
+        "fatigue_strength": { "typical": 540, "min": 450, "max": 620, "confidence": "handbook" }
+      },
+      "reason": "HP 9-4-30 (ultra-high-strength low-alloy steel) — σf ~540 (peak σy=1240, ratio 0.44). CSV의 145 mock 정정."
+    },
+    {
+      "namePattern": "^Armox 600T ",
+      "ranges": {
+        "fatigue_strength": { "typical": 700, "min": 600, "max": 900, "confidence": "handbook" }
+      },
+      "reason": "Armox 600T (armor steel) Q+T — σf ~700 (peak σy ~1700, ratio 0.4). CSV의 220 mock 정정."
+    },
+    {
+      "namePattern": "^AISI H21 ",
+      "ranges": {
+        "fatigue_strength": { "typical": 420, "min": 300, "max": 540, "confidence": "handbook" }
+      },
+      "reason": "AISI H21 (Hot-Work W tool steel) Q+T — σf ~420 (UTS 1620, ratio 0.26 mid). CSV의 84/218 mock 정정."
+    },
+    {
+      "namePattern": "^Ti Grade [34] ",
+      "ranges": {
+        "fatigue_strength": { "typical": 150, "min": 120, "max": 200, "confidence": "handbook" }
+      },
+      "reason": "Ti Grade 3/4 (CP-Ti) annealed — σf ~150 MPa (~0.43·UTS). CSV의 265-275 너무 높음 정정."
     }
   ]
 }

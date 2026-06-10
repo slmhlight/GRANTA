@@ -4148,8 +4148,10 @@ try {
     for (const t of targets) {
       if (!t.ranges) t.ranges = {};
       for (const [prop, newRange] of Object.entries(ov.ranges || {})) {
-        // 기존 confidence 가 'measured' 면 override 안 함 (실제 측정값 우선)
-        if (t.ranges[prop]?.confidence === 'measured') continue;
+        // R199 — generic tier 의 'measured' tag 는 CSV mock 에 spuriously 부여된 경우가 많아
+        //         hand-verified handbook 값을 force override.
+        //         단 reference/curated tier 의 measured 는 보존 (vendor datasheet).
+        if (t.ranges[prop]?.confidence === 'measured' && t.tier !== 'generic' && t.tier !== 'am_vendor') continue;
         t.ranges[prop] = { ...(t.ranges[prop] || {}), ...newRange };
         if (newRange.typical != null) t[prop] = newRange.typical;
         r199Props++;
