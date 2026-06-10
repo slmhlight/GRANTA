@@ -260,7 +260,7 @@ const FAMILIES: AlloyHtFamily[] = [
       },
       't6': {
         code: 'T6',
-        title: 'T6 — peak Mg₂Si precipitation (160°C aged)',
+        title: 'T6 — peak Mg₂Si precipitation (175°C aged)', // R205 F13 — title/process 온도 통일
         process: 'Solution 530°C / WQ → Artificial aging 175°C / 8 h (6061) — Mg₂Si precipitate peak',
         resulting: 'AA 6061-T6: σy 275 MPa · UTS 310 MPa · El 12% · KIC 35 MPa·√m',
         useCase: '구조 frame, 자동차 bumper, 자전거 frame, 의료 walker. 가공·용접·내식 모두 양호.',
@@ -494,7 +494,8 @@ const FAMILIES: AlloyHtFamily[] = [
   // Inconel 718 (UNS N07718) — γ" precipitation
   // ========================================
   {
-    alloyPattern: /inconel\s?718|in[\s-]?718|n07718|alloy\s?718/i,
+    /* R205 F8 — 718Plus 제외 (negative lookahead): 718Plus 는 aging cycle 다름 (788+704°C). */
+    alloyPattern: /inconel\s?718(?!\s?plus)|in[\s-]?718(?!\s?plus)|n07718|alloy\s?718(?!\s?plus)/i,
     familyName: 'Inconel 718 (UNS N07718)',
     conditions: {
       'sta': {
@@ -526,7 +527,7 @@ const FAMILIES: AlloyHtFamily[] = [
         code: 'Solution Treated',
         title: 'Solution Treated only (no aging)',
         process: 'Solution 980°C / 1 h / WQ — γ\" 미형성',
-        resulting: 'σy 770 MPa · UTS 920 MPa · El 50% (formable)',
+        resulting: 'σy 480 MPa · UTS 1000 MPa · El 30-50% (formable)', // R205 F12 — 770 은 과대 (annealed 718 σy ~450-550)
         useCase: 'Forming / welding 전 condition. 후 aging 필요.',
         source: 'AMS 5664',
       },
@@ -534,7 +535,7 @@ const FAMILIES: AlloyHtFamily[] = [
         code: 'Annealed',
         title: 'Annealed (mill product)',
         process: 'Hot-rolled or forged + annealed 980°C',
-        resulting: 'σy 770 MPa · UTS 920 MPa · El 30-50%',
+        resulting: 'σy 450-550 MPa · UTS 900-1000 MPa · El 30-50%', // R205 F12 정정
         useCase: 'Forming / welding before aging.',
         source: 'AMS 5663',
       },
@@ -645,7 +646,7 @@ const FAMILIES: AlloyHtFamily[] = [
       'q+t (single 550°c × 2)': {
         code: 'Q+T 540°C (HRC 50)',
         title: 'Q+T — Tempered 540°C × 2 (HRC 50)',
-        process: '1010°C / OQ → Tempered 540°C / 2 h × 2 (double temper for stability)',
+        process: '1010°C / AQ (air-hardening) → Tempered 540°C / 2 h × 2 (double temper for stability)',
         resulting: 'σy 1380 MPa · UTS 1700 MPa · El 10% · HRC 50 · KIC 24',
         useCase: 'Mold for Al casting (low service temp), forging die — 인성 우선.',
         source: 'AISI H13 / Bohler W302 datasheet',
@@ -653,7 +654,7 @@ const FAMILIES: AlloyHtFamily[] = [
       'q+t (double 540°c × 2)': {
         code: 'Q+T 540°C (HRC 53)',
         title: 'Q+T — Tempered 540°C × 2 (HRC 53, peak)',
-        process: '1020°C / OQ → 540°C / 2 h × 2 (peak hardness)',
+        process: '1020°C / AQ (air-hardening) → 540°C / 2 h × 2 (peak hardness)',
         resulting: 'σy 1450 MPa · UTS 1750 MPa · El 8% · HRC 53 · KIC 24',
         useCase: 'Hot forging die (high), die-casting mold (Al/Mg), extrusion die.',
         source: 'AISI H13 / Granta verified',
@@ -661,7 +662,7 @@ const FAMILIES: AlloyHtFamily[] = [
       'q+t (610°c, softer)': {
         code: 'Q+T 610°C (HRC 44)',
         title: 'Q+T — Tempered 610°C (HRC 44, soft)',
-        process: '1020°C / OQ → Tempered 610°C / 2 h',
+        process: '1020°C / AQ (air-hardening) → Tempered 610°C / 2 h',
         resulting: 'σy 1100 MPa · UTS 1380 MPa · El 13% · HRC 44 · KIC 30',
         useCase: 'Toughness 우선 — shock-resisting tool, punch.',
         source: 'AISI H13',
@@ -681,13 +682,15 @@ const FAMILIES: AlloyHtFamily[] = [
   // 9% Ni A553 LNG (cryogenic)
   // ========================================
   {
-    alloyPattern: /a553|9\s?%?\s?ni|9ni/i,
+    /* R205 F9 — '9ni' 단독 패턴이 'HP 9-4-30 (9Ni-4Co)' 매칭하던 false positive 제거. */
+    alloyPattern: /a553|9\s?%\s?ni|9ni\s?steel|9%\s?nickel/i,
     familyName: 'ASTM A553 9% Ni cryogenic steel',
     conditions: {
       'double-normalized + tempered (dn+t, 770°c/645°c/580°c)': {
         code: 'DN+T (Type I)',
         title: 'Double Normalized + Tempered — DN+T (ASTM A553 Type I)',
-        process: 'Normalized 770°C → Normalized 645°C → Tempered 580°C (3-step)',
+        /* R205 F10 — 온도 정정: 1차 normalize 885-925°C, 2차 760-815°C, temper 540-605°C (이전 770/645/580 은 QLT 와 혼동). */
+        process: '1차 Normalized 900°C → 2차 Normalized 790°C → Tempered 570°C (3-step)',
         resulting: 'σy 585 MPa · UTS 690-825 MPa · El 22% · -196°C Charpy 100J+ · KIC 130',
         useCase: 'LNG storage tank inner shell (Moss / membrane), pressure vessel — IGC code.',
         source: 'ASTM A553 / ASME B&PV Sec.VIII Para UHA-23',
@@ -1091,7 +1094,7 @@ const FAMILIES: AlloyHtFamily[] = [
         resulting: 'HRC 38-45 · σy 540 MPa · UTS 880 MPa · El 1-3% (very low)',
         useCase: 'Valve seat, pump sleeve, hard-facing weld overlay (PTAW), drill bit insert — wear + corrosion 우수.',
         caveat: 'El 1-3% — 충격 부적합. Brittle. 용접 cracking 위험 (Co matrix). Pre-heat 350°C 권장.',
-        source: 'Kennametal Stellite 6 / ASTM A638',
+        source: 'Kennametal Stellite 6 datasheet / AMS 5387', // R205 F14 — A638 은 A286 spec (오인용 정정)
       },
       'ptaw deposit': {
         code: 'PTAW deposit',

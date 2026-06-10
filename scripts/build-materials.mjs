@@ -4194,6 +4194,73 @@ try {
   console.warn('R199 source URL overrides skipped:', e.message);
 }
 
+/* R205 — 신뢰성 전수 audit 정정 loader.
+ *   data/r205-reliability-overrides.json — R199/R201 적용 *후* 실행 (per-condition 세분화 정정).
+ *   지원: ranges (강제) + composition + qual (machinability/weldability/corrosion_resistance) + subcategory. */
+try {
+  const r205Raw = JSON.parse(fs.readFileSync(path.join(DATA, 'r205-reliability-overrides.json'), 'utf8'));
+  const r205Over = r205Raw.overrides || [];
+  let n205 = 0, p205 = 0, q205 = 0, s205 = 0;
+  for (const ov of r205Over) {
+    const re = new RegExp(ov.namePattern);
+    const targets = all.filter(m => re.test(m.name || ''));
+    for (const t of targets) {
+      if (ov.ranges) {
+        if (!t.ranges) t.ranges = {};
+        for (const [prop, newRange] of Object.entries(ov.ranges)) {
+          t.ranges[prop] = { ...(t.ranges[prop] || {}), ...newRange };
+          if (newRange.typical != null) t[prop] = newRange.typical;
+          p205++;
+        }
+      }
+      if (ov.composition) t.composition = { ...ov.composition };
+      if (ov.qual) {
+        if (ov.qual.machinability) t.machinability = ov.qual.machinability;
+        if (ov.qual.weldability) t.weldability = ov.qual.weldability;
+        if (ov.qual.corrosion_resistance) t.corrosion_resistance = ov.qual.corrosion_resistance;
+        q205++;
+      }
+      if (ov.subcategory) { t.subcategory = ov.subcategory; s205++; }
+      n205++;
+    }
+  }
+  console.log(`R205 — reliability overrides: ${n205} entries / ${p205} props / ${q205} qual / ${s205} subcat`);
+} catch (e) {
+  console.warn('R205 reliability overrides skipped:', e.message);
+}
+
+/* R205-P — Polymer 정책: corr → 내화학성 차별화 / weld → 열가소성·열경화성·엘라스토머 분류.
+ *   사용자 정책: "폴리머에 (금속식) corr/weld 적용 X — 내화학성 + 열가소성 분류로 대체."
+ *   내화학성 출처: Plastics Design Library Chemical Resistance + vendor datasheets. */
+{
+  const CHEM_MAP = [
+    [/ptfe|teflon|pfa\b/i, 'Outstanding'],
+    [/peek|pekk|pps\b|fortron|pvdf|pbi|celazole|pctfe|etfe|lcp|vectra|polyimide|vespel|torlon|pai\b|uhmwpe|hdpe|ldpe|\bpe\b|polypropylene|\bpp\b|kepstan|antero|ketaspire/i, 'Excellent'],
+    [/pom|acetal|delrin|hostaform|pa1[12]\b|nylon 1[12]|rilsan|pbt|pet\b|pet-|rynite|psu\b|ppsu|pesu|pes\b|udel|radel|eviva|pei\b|ultem|epoxy|pvc|tpu|silicone|pa46|stanyl|onyx/i, 'Good'],
+    [/pa6\b|pa66|nylon 6|ultramid|zytel|polycarbonate|\bpc\b|lexan|makrolon|pmma|acrylic|plexiglas|abs|asa\b|polystyrene|\bps\b|hips|gpps|petg|pla\b|tritan|eva\b|tpe\b|pvb|pcl|pha\b|polyester resin|polyurethane/i, 'Moderate'],
+  ];
+  const THERMOSET_RE = /epoxy resin|polyester resin|polyurethane \(cast/i;
+  const ELASTOMER_RE = /silicone rubber|tpe\b|tpu\b|eva\b|rubber/i;
+  let chemN = 0;
+  for (const m of all) {
+    if (m.category !== 'Polymer') continue;
+    const key = `${m.name} ${m.subcategory || ''}`;
+    // 내화학성 (corrosion_resistance 필드 재사용 — UI 라벨은 별도)
+    const chem = CHEM_MAP.find(([re]) => re.test(key));
+    m.corrosion_resistance = chem ? chem[1] : 'Good';
+    // 열가소성/열경화성/엘라스토머 분류 (weldability 필드 재사용)
+    if (THERMOSET_RE.test(key)) m.weldability = 'Thermoset';
+    else if (ELASTOMER_RE.test(key)) m.weldability = 'Elastomer';
+    else m.weldability = 'Thermoplastic';
+    // machinability: elastomer 절삭 곤란 / GF·CF-filled 공구마모 ↑
+    if (ELASTOMER_RE.test(key)) m.machinability = 'Poor';
+    else if (/gf\d|cf\b|carbon fiber|glass.fi|gf30|gf40|gf50|scf/i.test(key)) m.machinability = 'Fair';
+    else m.machinability = 'Good';
+    chemN++;
+  }
+  console.log(`R205-P — polymer 내화학성/열가소성 재분류: ${chemN} entries`);
+}
+
 /* R173 Phase B — Name overrides (표기 중복 정리).
  *   data/r173-name-overrides.json 의 from→to 매핑으로 entry name 정규화.
  *   ID 는 변경 X (deeplink 보존). aliases 는 build pipeline 후속 단계에서 재생성. */

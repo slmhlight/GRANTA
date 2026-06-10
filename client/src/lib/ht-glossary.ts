@@ -25,7 +25,8 @@ const ENTRIES: Array<[string[], HtEntry]> = [
   // PH conditions
   [['solution treated', 'sa', 'condition a'], { short: 'Solution Annealed', effect: 'PH 강 출발조건, 시효 전 가공·용접 적합 (σy 낮음, El ↑)' }],
   [['aged', 'precipitation hardened', 'ph'], { short: 'Aged / PH', effect: '시효 경화 — σy·강도 ↑, El ↓' }],
-  [['sta'], { short: 'Solution + Aged', effect: 'Ti 합금 (Ti-6Al-4V 등) 표준 강화 조건' }],
+  /* R205 F5 — STA 는 Ti·PH강·Ni superalloy 모두 사용 — 합금별 cycle 상이 (Ti64: 900-955°C+480-595°C / IN718: 980°C+720/620°C). 특정 합금 언급 제거. */
+  [['sta'], { short: 'Solution + Aged', effect: '용체화 + 시효 강화 — σy ↑ (합금별 cycle 상이, 상세는 합금별 카드 참조)' }],
   // Steel
   [['quenched and tempered', 'q&t', 'qt', 'quenched + tempered'], { short: 'Q & T', effect: '담금질 후 템퍼링 — 강도·인성 균형, 일반 구조강 기본' }],
   [['normalized'], { short: 'Normalized', effect: '균질 미세조직, 응력 완화, σy·연성 모두 중간' }],
@@ -37,10 +38,11 @@ const ENTRIES: Array<[string[], HtEntry]> = [
   // Al / Mg / Cu
   [['t6'], { short: 'T6', effect: 'Al 합금 표준 시효 (peak hardness)' }],
   [['t651'], { short: 'T651', effect: 'T6 + stress-relieved (잔류응력 ↓)' }],
-  [['t73', 't74', 't7'], { short: 'T7', effect: 'Over-aged — 응력부식 ↑, σy 약간 ↓' }],
+  [['t73', 't74', 't7'], { short: 'T7', effect: 'Over-aged — 내응력부식성(SCC 저항) ↑, σy 약간 ↓' }],
   [['t4'], { short: 'T4', effect: 'Solution + 자연시효 — El ↑, σy 중간' }],
   [['o temper', 'temper o', '-o'], { short: 'O', effect: 'Annealed Al — 최대 연성' }],
-  [['h14', 'h18', 'h22', 'h32'], { short: 'H-temper', effect: 'Al cold-work strengthened (변형 경화)' }],
+  /* R205 F7 — DB 에 존재하는 H19/H321/H116/H34/H111 등 키 보강. */
+  [['h14', 'h16', 'h18', 'h19', 'h22', 'h24', 'h32', 'h34', 'h36', 'h111', 'h112', 'h116', 'h321'], { short: 'H-temper', effect: 'Al cold-work strengthened (변형 경화 — 숫자 클수록 hard)' }],
   // Ti
   [['mill annealed', 'ma'], { short: 'Mill Annealed', effect: 'Ti 합금 출발 조건 — α+β 미세조직 균질' }],
   [['beta annealed'], { short: 'β-annealed', effect: 'β-transus 위 균질화, 인성 ↑, El ↓' }],

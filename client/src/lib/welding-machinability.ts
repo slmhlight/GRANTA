@@ -25,7 +25,8 @@
  *    Output: phase (Austenite / Martensite / Ferrite / A+M / A+F / M+F / Mixed)
  *    Source: AWS A3.0 · ASM Vol. 6 (Welding) · Schaeffler 1949.
  *
- * Machinability rating — AISI 1018 = 100% baseline. ASM Vol. 16 (Machining).
+ * Machinability rating — AISI 1212 = 100% baseline (Machining Data Handbook · ASM Vol. 16).
+ *   (R205 정정: 이전 '1018 = 100%' 표기는 오류 — 1018 은 ~70%.)
  */
 
 import type { Material } from './materials';
@@ -53,12 +54,17 @@ export interface CETResult {
   note: string;           // 한 줄 설명
 }
 
+/* R205 F2 — CE 계열 식 (CE_IIW/CET/Pcm) 은 C-Mn / low-alloy 강 전용.
+ * Stainless (Cr 18% → CE 4+ 로 '위험' 오표시) · maraging (Ni 18%) · 고합금은 무의미 → 제외.
+ * Stainless 는 Schaeffler 만 적용. [AWS D1.1 적용범위] */
+const CE_EXCLUDE_RE = /aluminum|copper|titanium|magnesium|nickel|cobalt|refractory|stainless|maraging|zinc|beryllium|controlled expansion|shape memory|zirconium/i;
+
 export function computeCET(material: Material): CETResult | null {
-  // Carbon steel · alloy steel · stainless · tool steel 만 CET 의미 있음. Al/Cu/Ti 합금은 skip.
+  // Carbon steel · alloy steel · tool steel 만 CET 의미 있음 (stainless/maraging 제외 — R205).
   const cat = material.category || '';
   const sub = (material.subcategory || '').toLowerCase();
   if (cat !== 'Metal') return null;
-  if (/aluminum|copper|titanium|magnesium|nickel super|cobalt|refractory/i.test(sub)) return null;
+  if (CE_EXCLUDE_RE.test(sub)) return null;
 
   const comp = material.composition || {};
   const C = pctOf(comp, 'C');
@@ -102,7 +108,7 @@ export function computeCEIIW(material: Material): CEIIWResult | null {
   const cat = material.category || '';
   const sub = (material.subcategory || '').toLowerCase();
   if (cat !== 'Metal') return null;
-  if (/aluminum|copper|titanium|magnesium|nickel super|cobalt|refractory/i.test(sub)) return null;
+  if (CE_EXCLUDE_RE.test(sub)) return null; // R205 F2 — stainless/maraging 등 제외
 
   const comp = material.composition || {};
   const C = pctOf(comp, 'C');
@@ -145,7 +151,7 @@ export function computePcm(material: Material): PcmResult | null {
   const cat = material.category || '';
   const sub = (material.subcategory || '').toLowerCase();
   if (cat !== 'Metal') return null;
-  if (/aluminum|copper|titanium|magnesium|nickel super|cobalt|refractory/i.test(sub)) return null;
+  if (CE_EXCLUDE_RE.test(sub)) return null; // R205 F2 — stainless/maraging 등 제외
 
   const comp = material.composition || {};
   const C = pctOf(comp, 'C');
@@ -308,19 +314,23 @@ export interface MachinabilityResult {
   note: string;
 }
 
-// Family pattern → typical rating. 가장 보편적인 alloy 들 우선 매핑.
+// Family pattern → typical rating (AISI 1212 = 100% 기준, Machining Data Handbook).
+// R205 F3/F4 정정: 1018 은 ~70% (100 아님) · 비연 황동 ~30 · 순동 ~20 (gummy) ·
+//   연질 Al 1xxx/3xxx 는 6061-T6 보다 어려움 (gummy) · refractory 는 W/Ta/Mo 차별.
 const MACHINABILITY: Array<[RegExp, number]> = [
-  [/free.?machining|leaded|12L14|11SMnPb|c36000|brass.*free/i, 100],
-  [/brass|c[34]\d{4}/i, 80],
-  [/aluminum.*1\d{3}|1100|1050/i, 90],
-  [/aluminum.*6\d{3}|6061|6063|6082/i, 70],
-  [/aluminum.*7\d{3}|7075|7050/i, 65],
-  [/aluminum.*2\d{3}|2024|2219/i, 60],
-  [/aluminum.*5\d{3}|5052|5083/i, 75],
-  [/alsi10mg|alsi7mg|aluminum/i, 60],
-  [/copper.*pure|ofhc|c11000|c10100/i, 70],
+  [/free.?machining|leaded|12L14|11SMnPb|c36000|brass.*free|1144|stressproof|c14500|tellurium/i, 100],
+  [/416\b.*stainless|stainless.*416/i, 85],
+  [/aluminum.*2011|6262/i, 90],
+  [/aluminum.*6\d{3}|6061|6063|6082/i, 60],
+  [/aluminum.*7\d{3}|7075|7050/i, 60],
+  [/aluminum.*2\d{3}|2024|2219/i, 65],
+  [/aluminum.*5\d{3}|5052|5083/i, 50],
+  [/aluminum.*1\d{3}|1100\b|aluminum.*3\d{3}/i, 35],
+  [/alsi10mg|alsi7mg|aluminum/i, 55],
+  [/brass|c[34]\d{4}/i, 30],
+  [/copper.*pure|ofhc|c11000|c10100|c10200|c12200/i, 20],
   [/copper.*cr.?zr|cucrzr/i, 55],
-  [/1018|1020|carbon steel.*low|sae 10[12]\d/i, 100],
+  [/1018|1020|carbon steel.*low|sae 10[12]\d/i, 70],
   [/4140|42crmo|42crmo4|scm440/i, 60],
   [/4340|sncm/i, 50],
   [/8620|9310|carburizing/i, 65],
@@ -337,7 +347,10 @@ const MACHINABILITY: Array<[RegExp, number]> = [
   [/cobalt|stellite|cocrmo|l605|f-?75/i, 10],
   [/titanium.*pure|cp.?ti|ti grade [12]/i, 30],
   [/titanium|ti6al4v|ti-6al-4v|ti5-8-5/i, 22],
-  [/refractory|tungsten|tantalum|niobium|molybdenum/i, 18],
+  [/tungsten/i, 8],
+  [/tantalum|niobium/i, 45],
+  [/molybdenum|tzm/i, 35],
+  [/refractory/i, 18],
 ];
 
 export function computeMachinability(material: Material): MachinabilityResult | null {

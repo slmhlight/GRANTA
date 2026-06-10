@@ -49,20 +49,26 @@ describe('computeMachinability rating', () => {
   it('returns null for non-metal', () => {
     expect(computeMachinability(mk({ category: 'Polymer' }))).toBeNull();
   });
-  it('AISI 1018 → 100 (baseline)', () => {
+  /* R205 F3 — 표준 baseline 은 AISI 1212=100%. 1018 은 ~70% (Machining Data Handbook). */
+  it('AISI 1018 → 70 (MDH, 1212=100 기준)', () => {
     const r = computeMachinability(mk({ name: 'AISI 1018', subcategory: 'Carbon Steel' }));
-    expect(r?.rating).toBe(100);
+    expect(r?.rating).toBe(70);
     expect(r?.band).toBe('easy');
+  });
+  it('12L14 free-machining → 100', () => {
+    const r = computeMachinability(mk({ name: '12L14 (free-machining)', subcategory: 'Carbon Steel' }));
+    expect(r?.rating).toBe(100);
   });
   it('Inconel 718 → very hard (≤ 20)', () => {
     const r = computeMachinability(mk({ name: 'Inconel 718', subcategory: 'Nickel Superalloy' }));
     expect(r?.rating).toBeLessThanOrEqual(20);
     expect(r?.band).toBe('very_hard');
   });
-  it('Al 6061 → easy (≥ 70)', () => {
+  /* R205 F4 — 6061-T6 는 MDH ~50-60% (normal). 이전 'easy ≥70' 은 과대. */
+  it('Al 6061 → normal (~60)', () => {
     const r = computeMachinability(mk({ name: '6061 aluminum', subcategory: 'Aluminum' }));
-    expect(r?.rating).toBeGreaterThanOrEqual(70);
-    expect(r?.band).toBe('easy');
+    expect(r?.rating).toBe(60);
+    expect(r?.band).toBe('normal');
   });
   it('Ti-6Al-4V → hard (~22)', () => {
     const r = computeMachinability(mk({ name: 'Ti-6Al-4V', subcategory: 'Titanium' }));
