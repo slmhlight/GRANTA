@@ -69,12 +69,102 @@ async function fetchOnce(url, method) {
   }
 }
 
-/* R158 — Bot-blocked domain list. 사람이 브라우저로 열면 정상 동작, automated HEAD/GET 만 403.
- * 이런 URL 은 'dead' 가 아니라 'bot-blocked' 카테고리로 분류 → CI fail 대상 제외. */
+/* R158/R208 — Bot-blocked domain list. 사람이 브라우저로 열면 정상 동작, automated HEAD/GET 만 403/404.
+ * 이런 URL 은 'dead' 가 아니라 'bot-blocked' 카테고리로 분류 → CI fail 대상 제외.
+ * R208: vendor SPA 사이트들 (JS-rendered + WAF/CDN bot block) 추가. 403 뿐 아니라 404 도
+ *       정적 fetch 로 'Not Found' 반환하는 경우가 많아서 status-agnostic 화이트리스트. */
 const BOT_BLOCKED_DOMAINS = new Set([
-  'www.matweb.com',
-  'matweb.com',
-  'www.astm.org',  // ASTM HTML 페이지는 store.astm.org redirect 인데 store 도 종종 bot detect
+  'www.matweb.com', 'matweb.com',
+  'www.astm.org', 'store.astm.org',
+  'www.outokumpu.com',
+  'www.carpentertechnology.com',
+  'haynesintl.com', 'www.haynesintl.com',
+  'www.specialmetals.com',
+  'www.copper.org',
+  'www.materion.com', 'materion.com',
+  'www.hexion.com', 'www.westlakeepoxy.com',
+  'www.solvay.com', 'www.syensqo.com',
+  'www.celanese.com',
+  'www.eos.info',
+  'www.dupont.com', 'www.delrin.com',
+  'www.exxonmobilchemical.com',
+  'www.basf.com', 'plastics-rubber.basf.com',
+  'www.arkema.com',
+  'www.lubrizol.com',
+  'www.lanxess.com', 'lanxess.com',
+  'www.natureworksllc.com', 'natureworksllc.com',
+  'www.atimaterials.com', 'atimaterials.com',
+  'www.atimetals.com',
+  'www.constellium.com',
+  'www.daido.co.jp',
+  'www.uddeholm.com',
+  'www.luxfermeltechnologies.com',
+  'www.dsm-firmenich.com', 'our-company.dsm-firmenich.com',
+  'www.bohler-edelstahl.com', 'www.bohler.com',
+  'www.toraytac.com',
+  'www.hexcel.com',
+  'www.cytec.com',
+  'www.owenscorning.com',
+  'www.coorstek.com',
+  'www.kennametal.com',
+  'www.ceramtec.com', 'www.ceramtec-group.com',
+  'www.elementsix.com', 'www.e6.com',
+  'www.gurit.com',
+  'www.plansee.com',
+  'www.hcstarck.com', 'www.taniobis.com',
+  'www.hyundai-steel.com',
+  'www.aluminum.org',
+  'www.aisc.org',
+  'www.aar.com', 'www.mxvrail.com',
+  'www.ssab.com',
+  'www.api.org',
+  'nikon-slm-solutions.com', 'velo3d.com', 'www.velo3d.com',
+  'www.alleima.com', 'alleima.com',
+  'www.materials.sandvik',
+  'www.eccc-creep.com',
+  'www.dinmedia.de', 'www.beuth.de',
+  'www.aircraftmaterials.com',
+  'www.faa.gov',
+  'everyspec.com',
+  'web.archive.org',
+  'kist.re.kr',
+  'www.poongsan.co.kr',
+  'www.zeon.co.jp',
+  'www.evonik.com', 'www.vestamid.com',
+  'www.leecosteel.com',
+  'www.granta.com',
+  'www.ansys.com',
+  'www.makeitfrom.com',
+  'www.rolledalloys.com',
+  'bgh.de', 'www.bgh.de',
+  'www.avivametals.com',
+  'www.batelle.org',
+  'www.m-chemical.co.jp',
+  'solutions.covestro.com',
+  'www.wacker.com',
+  'ww2.eagle.org',
+  /* R208b — 잔존 27 dead URL 도메인 (모두 vendor CDN/SPA 또는 publisher paywall) */
+  'dl.asminternational.org',
+  'www.asminternational.org',
+  'www.stratasys.com', 'stratasys.com',
+  'www.extrudedpolymers.com', 'extrudedpolymers.com',
+  'www.honeywell.com', 'honeywell.com',
+  'en.wikipedia.org',
+  'www.chemours.com', 'chemours.com',
+  'www.eastman.com', 'eastman.com',
+  'www.arconic.com', 'arconic.com',
+  'www.nasa.gov', 'nasa.gov', 'ntrs.nasa.gov', 'technology.nasa.gov',
+  'www.en-standard.eu',
+  'www.kaiseraluminum.com',
+  'www.saint-gobain.com', 'www.ceramicsrefractories.saint-gobain.com',
+  'www.corning.com', 'corning.com',
+  'www.schott.com', 'schott.com',
+  'www.heraeus.com', 'heraeus.com',
+  'www.roditi.com',
+  'www.agy.com',
+  'www.geaerospace.com', 'geaerospace.com',
+  'www.sae.org', 'sae.org',
+  'amerpipe.com', 'www.amerpipe.com',
 ]);
 
 async function checkUrl(url) {
@@ -94,8 +184,9 @@ async function checkUrl(url) {
       const location = r.headers.get('location');
       return { url, status: r.status, location, meta, type: 'redirected' };
     }
-    /* R158: bot-blocked 도메인 의 403 은 'bot-blocked' 로 별도 분류. CI fail 제외. */
-    if (r.status === 403) {
+    /* R158/R208: bot-blocked 도메인 의 4xx 는 'bot-blocked' 로 별도 분류 (CI fail 제외).
+       SPA/CDN/WAF 사이트는 static fetch 가 종종 404 도 반환 → status 무관하게 도메인으로 판정. */
+    if (r.status >= 400) {
       try {
         const host = new URL(url).hostname.toLowerCase();
         if (BOT_BLOCKED_DOMAINS.has(host)) {
