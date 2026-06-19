@@ -23,7 +23,9 @@ jobs:
         run: pnpm build:data
       - name: Type check (tsc --noEmit)
         run: pnpm check
-      - name: Run unit tests (vitest)
-        run: pnpm test
+      - name: Run unit tests + coverage (vitest)
+        # R210 — test:cov: lib/hooks 커버리지 임계(보수적) 하향 회귀 차단. 데이터 불변식 테스트는
+        #         위 build:data 산출물(materials.json·build-meta.json)을 읽으므로 순서 의존 OK.
+        run: pnpm test:cov
       - name: Build production bundle
         run: pnpm build

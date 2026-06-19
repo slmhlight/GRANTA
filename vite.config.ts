@@ -33,5 +33,14 @@ export default defineConfig({
     root: path.resolve(import.meta.dirname),  // 테스트는 레포 루트 기준
     include: ['tests/**/*.test.{ts,tsx}'],
     setupFiles: ['./tests/vitest.setup.ts'],
+    // R210 B3 — 커버리지는 순수 로직(lib)·필터 엔진(hooks)만 측정. 컴포넌트/페이지는 제외
+    //   (렌더 테스트 부담 회피). 임계는 보수적으로 — 하향 회귀만 차단.
+    coverage: {
+      provider: 'v8',
+      include: ['client/src/lib/**', 'client/src/hooks/**'],
+      reporter: ['text', 'json-summary'],
+      // 측정값(2026-06 기준 lines/stmts 72% · branches 67% · funcs 67%) 대비 ~7%p 하단.
+      thresholds: { lines: 65, functions: 58, statements: 65, branches: 60 },
+    },
   },
 });

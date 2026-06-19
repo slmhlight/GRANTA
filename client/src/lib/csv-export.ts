@@ -8,7 +8,7 @@ import type { Material } from './materials';
 /**
  * Escape CSV field values
  */
-function escapeCSVField(value: any): string {
+export function escapeCSVField(value: any): string {
   if (value === null || value === undefined) return '';
   const str = String(value);
   if (str.includes(',') || str.includes('"') || str.includes('\n')) {
@@ -104,6 +104,13 @@ function materialToCSVRow(m: Material): string {
 }
 
 /**
+ * Build the full CSV string (header + rows). Pure — no DOM/Blob, testable.
+ */
+export function buildMaterialsCSV(materials: Material[]): string {
+  return [generateCSVHeader(), ...materials.map(materialToCSVRow)].join('\n');
+}
+
+/**
  * Export materials to CSV file
  */
 export function exportMaterialsToCSV(
@@ -115,7 +122,7 @@ export function exportMaterialsToCSV(
     return;
   }
 
-  const csv = [generateCSVHeader(), ...materials.map(materialToCSVRow)].join('\n');
+  const csv = buildMaterialsCSV(materials);
 
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
   const link = document.createElement('a');
