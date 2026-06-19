@@ -156,7 +156,7 @@ export function MaterialTable({
     <div className="flex flex-col h-full">
       {/* Table */}
       <div className="flex-1 overflow-auto">
-        <table className="w-full text-xs border-collapse" style={tableStyle}>
+        <table className="w-full text-xs border-collapse" style={tableStyle} role="grid" aria-label="재료 목록 (행 선택: Enter · 이동: ↑↓)">
           <thead className="sticky top-0 z-10">
             <tr className="bg-muted/80 backdrop-blur-sm border-b-2 border-border">
               {/* Compare checkbox col — R58 header checkbox */}
@@ -219,9 +219,19 @@ export function MaterialTable({
               return (
                 <tr
                   key={m.id}
-                  className={`material-row border-b border-border/40 row-animate ${isSelected ? 'selected' : ''}`}
+                  className={`material-row border-b border-border/40 row-animate focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset ${isSelected ? 'selected' : ''}`}
                   style={{ animationDelay: `${Math.min(i, 20) * 20}ms` }}
                   onClick={() => onSelect(m)}
+                  /* R210 B6 — 키보드 접근성: 행을 tab 이동·Enter/Space 선택 가능하게.
+                     ArrowUp/Down 으로 인접 행 포커스 이동 (table grid 패턴). */
+                  tabIndex={0}
+                  role="row"
+                  aria-selected={isSelected}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(m); }
+                    else if (e.key === 'ArrowDown') { e.preventDefault(); (e.currentTarget.nextElementSibling as HTMLElement | null)?.focus(); }
+                    else if (e.key === 'ArrowUp') { e.preventDefault(); (e.currentTarget.previousElementSibling as HTMLElement | null)?.focus(); }
+                  }}
                 >
                   {/* Compare toggle */}
                   <td className="px-2 py-1.5" onClick={e => { e.stopPropagation(); onToggleCompare(m.id); }}>

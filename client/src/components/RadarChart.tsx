@@ -154,6 +154,8 @@ export function RadarChart({
         preserveAspectRatio="xMidYMid meet"
         style={{ overflow: 'visible' }}
         className="block"
+        role="img"
+        aria-label={`레이더 차트 — ${series.length}개 재료(${series.map((s) => s.name).join(', ')}) 비교, 축: ${axes.map((a) => a.longLabel || a.label).join(' · ')}`}
       >
         {/* Grid rings */}
         {[0.25, 0.5, 0.75, 1.0].map((g, i) => {

@@ -82,7 +82,7 @@ export default function GoodmanChart({ materials, series }: Props) {
         </div>
       )}
 
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full max-w-[640px] h-auto border border-border rounded bg-card">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full max-w-[640px] h-auto border border-border rounded bg-card" role="img" aria-label="Goodman 다이어그램 — 평균응력 대비 교번응력 피로 안전선, 재료별 한계 비교">
         {/* axes */}
         <line x1={mL} y1={H - mB} x2={W - mR} y2={H - mB} stroke="oklch(0.5 0.04 250)" />
         <line x1={mL} y1={mT} x2={mL} y2={H - mB} stroke="oklch(0.5 0.04 250)" />
