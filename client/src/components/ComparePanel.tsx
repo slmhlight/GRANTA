@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
 import type { Material, PropertyRange } from '@/lib/materials';
 import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
-import { familyColor, propColor } from '@/lib/material-colors';
+import { familyColor, propColor, CONFIDENCE, CONFIDENCE_ORDER, type ConfidenceLevel } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
 import { computeMachinability, machiningCostBand, htCostBand, computeCEIIW, computeCET, computePcm } from '@/lib/welding-machinability';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis } from '@/components/RadarChart';
@@ -738,11 +738,8 @@ ${panel.outerHTML}
                       ? Math.max(3, Math.min(100, LOWER_IS_BETTER.has(k) ? invPct : rawPct)) : 0;
                     const barColor = propColor(k);
                     const conf = r?.confidence;
-                    /* R209 C-3 — 6단계 신뢰도 점 색상 (subfamily/family 추가, MaterialDetail confBadge 와 동일). */
-                    const confDot: Record<string, string> = {
-                      measured: '#10b981', handbook: '#0ea5e9', subfamily: '#3b82f6', family: '#06b6d4', class: '#f59e0b', derived: '#f43f5e',
-                    };
-                    const dotColor = conf ? confDot[conf] : null;
+                    /* R210 B5 — 6단계 신뢰도 점 색상은 material-colors.ts CONFIDENCE 단일 소스에서. */
+                    const dotColor = conf ? (CONFIDENCE[conf as ConfidenceLevel]?.hex ?? null) : null;
                     // R40b — price 셀은 formatPrice 로 USD/KRW + kg/lb 자동 변환.
                     const isPrice = /USD\//.test(p.unit || '') || /price/.test(k);
                     const priceUnit: 'kg' | 'cm3' = (p.unit || '').includes('cm³') || (p.unit || '').includes('cm3') || k.includes('cm3') ? 'cm3' : 'kg';
@@ -786,12 +783,12 @@ ${panel.outerHTML}
             </div>
           </div>
         )}
-        {/* R209 C-3 — 신뢰도 점 색상 범례 (Compare 표에 신설). MaterialDetail 과 동일 6단계. */}
+        {/* R210 B5 — 신뢰도 점 색상 범례. CONFIDENCE 단일 소스에서 매핑 (RangeRow·MaterialDetail 과 동일). */}
         {materials.length > 0 && (
           <div className="border-t border-border/40 px-3 py-1.5 text-[10px] flex flex-wrap items-center gap-x-2.5 gap-y-1 text-muted-foreground">
             <span className="font-semibold text-foreground/70">{lang === 'ko' ? '신뢰도' : 'Confidence'}:</span>
-            {[['#10b981', lang === 'ko' ? '실측' : 'measured'], ['#0ea5e9', lang === 'ko' ? '핸드북' : 'handbook'], ['#3b82f6', 'sub-fam'], ['#06b6d4', 'family'], ['#f59e0b', 'class'], ['#f43f5e', lang === 'ko' ? '유도' : 'derived']].map(([c, l]) => (
-              <span key={l} className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: c }} />{l}</span>
+            {CONFIDENCE_ORDER.map((lv) => (
+              <span key={lv} className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: CONFIDENCE[lv].hex }} />{lang === 'ko' ? CONFIDENCE[lv].label : CONFIDENCE[lv].labelEn}</span>
             ))}
           </div>
         )}

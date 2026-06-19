@@ -61,3 +61,20 @@ export const PROP_GROUP: Record<string, keyof typeof GROUP_COLORS> = {
 };
 
 export const propColor = (key: string): string => GROUP_COLORS[PROP_GROUP[key] || 'mechanical'] || '#94A3B8';
+
+/* ────────────────────────────────────────────────────────────────────────
+ * R210 B5 — confidence 6단계 색/라벨/툴팁 단일 진실 소스.
+ * 이전: RangeRow(tailwind class)·ComparePanel(hex)·MaterialDetail/Compare 범례에 각각 하드코딩
+ *       → 한 곳만 바꾸면 범례가 어긋날 위험. hex == 해당 tailwind -500 값으로 일치 유지.
+ * measured.label 은 RangeRow 에서 `n=N` 으로, derived.label/tip 은 property type 별로 override.
+ * ─────────────────────────────────────────────────────────────────────── */
+export type ConfidenceLevel = 'measured' | 'handbook' | 'subfamily' | 'family' | 'class' | 'derived';
+export const CONFIDENCE_ORDER: ConfidenceLevel[] = ['measured', 'handbook', 'subfamily', 'family', 'class', 'derived'];
+export const CONFIDENCE: Record<ConfidenceLevel, { hex: string; twDot: string; twText: string; label: string; labelEn: string; tip: string }> = {
+  measured:  { hex: '#10b981', twDot: 'bg-emerald-500', twText: 'text-foreground/50', label: '실측',    labelEn: 'measured', tip: '실측 데이터 다수 (가장 신뢰)' },
+  handbook:  { hex: '#0ea5e9', twDot: 'bg-sky-500',     twText: 'text-sky-600',       label: '핸드북',  labelEn: 'handbook', tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)' },
+  subfamily: { hex: '#3b82f6', twDot: 'bg-blue-500',    twText: 'text-blue-600',      label: 'sub-fam', labelEn: 'sub-fam',  tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)' },
+  family:    { hex: '#06b6d4', twDot: 'bg-cyan-500',    twText: 'text-cyan-600',      label: 'family',  labelEn: 'family',   tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)' },
+  class:     { hex: '#f59e0b', twDot: 'bg-amber-500',   twText: 'text-amber-600',     label: 'class',   labelEn: 'class',    tip: '1st family / category typical (예: Iron-based 일반 / Polymer 일반)' },
+  derived:   { hex: '#f43f5e', twDot: 'bg-rose-500',    twText: 'text-rose-500',      label: '유도',    labelEn: 'derived',  tip: '다른 물성에서 유도된 값' },
+};

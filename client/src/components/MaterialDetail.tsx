@@ -28,7 +28,7 @@ import { SimilarMaterialsCard } from '@/components/material-detail/SimilarMateri
 /* R177 — Recommendation text renderer (ASCII table → real <table>). */
 import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
-import { familyColor } from '@/lib/material-colors';
+import { familyColor, CONFIDENCE, CONFIDENCE_ORDER } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
 import { useState as useStateRD, useEffect as useEffectRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
@@ -255,15 +255,18 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               </div>
             </div>
             <p className="text-[10px] text-muted-foreground/60 -mt-1">Value = typical · sub-line = min–max across {meta.vendor_count ? `${meta.vendor_count} vendors` : 'conditions'}</p>
-            {/* 신뢰도 뱃지 범례 — R209 C-3: 6단계 전부 표시 (subfamily/family 추가, RangeRow confBadge 와 색 일치) */}
+            {/* 신뢰도 뱃지 범례 — R210 B5: CONFIDENCE 단일 소스에서 매핑 (RangeRow·ComparePanel 과 색 일치). */}
             <div className="rounded border border-border/50 bg-muted/20 p-2 text-[10px] flex flex-wrap gap-x-3 gap-y-1 items-center">
               <span className="text-foreground/70 font-semibold">{t('detail.confidence')}:</span>
-              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" /><span className="text-emerald-700">n=N</span> {t('detail.confidence.measured')}</span>
-              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-500" /><span className="text-sky-600">핸드북</span></span>
-              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500" /><span className="text-blue-600">sub-fam</span></span>
-              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-500" /><span className="text-cyan-600">family</span></span>
-              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500" /><span className="text-amber-600">class</span> {t('detail.confidence.class')}</span>
-              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-rose-500" /><span className="text-rose-500">유도</span> {t('detail.confidence.derived')}</span>
+              {CONFIDENCE_ORDER.map((lv) => (
+                <span key={lv} className="inline-flex items-center gap-1">
+                  <span className={`inline-block w-1.5 h-1.5 rounded-full ${CONFIDENCE[lv].twDot}`} />
+                  <span className={CONFIDENCE[lv].twText}>{lv === 'measured' ? 'n=N' : CONFIDENCE[lv].label}</span>
+                  {lv === 'measured' && <> {t('detail.confidence.measured')}</>}
+                  {lv === 'class' && <> {t('detail.confidence.class')}</>}
+                  {lv === 'derived' && <> {t('detail.confidence.derived')}</>}
+                </span>
+              ))}
               {/* R67 #11 — MMPDS A/B basis 안내 link → Guide datasheet section */}
               <a href="/guide#ch8" className="ml-auto text-accent hover:underline">A/B basis 의미 →</a>
             </div>

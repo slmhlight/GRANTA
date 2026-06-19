@@ -7,6 +7,7 @@
 import type { PropertyRange } from '@/lib/materials';
 import { useLang } from '@/lib/i18n';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
+import { CONFIDENCE, type ConfidenceLevel } from '@/lib/material-colors';
 
 /** 숫자 포맷 helper — 10 미만은 소수 2자리, 10 이상은 1자리, integer 그대로. */
 export const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
@@ -76,15 +77,15 @@ export function RangeRow({
     ? '계산값 — base price × condition/form/grade 배수 적용 (raw price 의 product)'
     : (isFatigueProp ? '피로 한도 = UTS·비율 (Shigley/MMPDS family typical)' : '다른 물성에서 유도된 값');
 
-  const confBadge: Record<string, { label: string; cls: string; tip: string; dot: string }> = {
-    measured:  { label: `n=${range?.n ?? 0}`, cls: 'text-foreground/50', dot: 'bg-emerald-500',  tip: '실측 데이터 다수 (가장 신뢰)' },
-    handbook:  { label: '핸드북',            cls: 'text-sky-600',        dot: 'bg-sky-500',      tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)' },
-    subfamily: { label: 'sub-fam',           cls: 'text-blue-600',       dot: 'bg-blue-500',     tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)' },
-    family:    { label: 'family',            cls: 'text-cyan-600',       dot: 'bg-cyan-500',     tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)' },
-    class:     { label: 'class',             cls: 'text-amber-600',      dot: 'bg-amber-500',    tip: '1st family / category typical (예: Iron-based 일반 / Polymer 일반)' },
-    derived:   { label: derivedLabel,         cls: 'text-rose-500',       dot: 'bg-rose-500',     tip: derivedTip },
-  };
-  const badge = conf ? confBadge[conf] : null;
+  /* R210 B5 — 색/툴팁은 material-colors.ts 의 CONFIDENCE 단일 소스에서. measured 의 라벨은 n=N,
+     derived 의 라벨·툴팁은 property type 별(가격='계산'/피로='≈UTS'/기타='유도')로 override. */
+  const base = conf ? CONFIDENCE[conf as ConfidenceLevel] : null;
+  const badge = base ? {
+    label: conf === 'measured' ? `n=${range?.n ?? 0}` : conf === 'derived' ? derivedLabel : base.label,
+    cls: base.twText,
+    dot: base.twDot,
+    tip: conf === 'derived' ? derivedTip : base.tip,
+  } : null;
   /* R129 — fallback 출처/조정 표시 (provenance). hover tooltip 에 fallback chain 명시.
             예: "alloy:174ph × HT:H1025 (f×0.9, i×1.4)" → 17-4 PH peak 값에서 H1025 condition 조정. */
   const prov = (range as { provenance?: string })?.provenance;
