@@ -28,3 +28,13 @@ declare module 'plotly.js' {
   const Plotly: any;
   export default Plotly;
 }
+
+// R210 B9 — scatter-only 커스텀 번들용 서브패스 모듈 선언.
+declare module 'plotly.js/lib/core' {
+  const Plotly: any;
+  export default Plotly;
+}
+declare module 'plotly.js/lib/scatter' {
+  const scatter: any;
+  export default scatter;
+}

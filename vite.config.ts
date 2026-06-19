@@ -8,6 +8,9 @@ export default defineConfig({
   // For GitHub Pages project sites the app is served from /<repo>/, so the asset
   // base path must match. Set VITE_BASE=/GRANTA/ in CI; defaults to "/" for local dev.
   base: process.env.VITE_BASE || "/",
+  // R210 B9 — plotly.js/lib/core(소스 빌드)의 일부 의존성(has-hover 등)이 Node 의 `global` 을
+  //   참조 → 브라우저 ESM 에 없어 ReferenceError. scatter-only 커스텀 번들을 쓰려면 shim 필요.
+  define: { global: 'globalThis' },
   plugins: [react(), tailwindcss(), jsxLocPlugin()],
   resolve: {
     alias: {

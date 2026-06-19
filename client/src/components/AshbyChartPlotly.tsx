@@ -5,7 +5,7 @@
  * auto-ranging axes that follow the current selection, and a class legend.
  */
 import { useMemo, useState, useEffect, useRef } from 'react';
-import Plot from 'react-plotly.js';
+import Plot from '@/lib/plotly-scatter'; // R210 B9 — scatter-only 번들 (전체판 4.6MB → ~scatter)
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
