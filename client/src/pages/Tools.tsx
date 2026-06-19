@@ -1,11 +1,17 @@
 ﻿/*
  * R67 Sprint B — Engineering Tools.
- * 6 계산기 — Stress concentration Kt / Galvanic / Buckling / CTE mismatch / Hardness / Pressure vessel.
- * 각 카드 = 입력 + 결과 + Guide 챕터 link.
+ * 9 계산기 — Kt / Galvanic / Buckling / CTE mismatch / Hardness / Pressure vessel / Larson-Miller / Mohr / Schaeffler.
+ * 각 카드 = 입력 + 결과 + Guide 챕터 link. 수식은 lib/engineering-calcs.ts (R210 B7).
  */
 import { useState } from 'react';
 import { Link } from 'wouter';
 import { ArrowLeft, Calculator, Zap, BookOpen } from 'lucide-react';
+// R210 B7 — 계산기 수식은 lib/engineering-calcs.ts 순수 함수에서 (테스트 가능). UI 는 그대로.
+import {
+  ktFactor, galvanicDeltaV, galvanicBand, buckling, thermalMismatchStress,
+  hardnessConvert, pressureVesselThickness, larsonMiller, larsonMillerInverseTime,
+  mohrCircle, schaefflerEq,
+} from '@/lib/engineering-calcs';
 
 const W = 'rounded-lg border border-border bg-card p-4';
 const In = 'h-7 px-2 text-[12px] rounded border border-border bg-background focus:outline-none focus:border-accent';
@@ -338,22 +344,8 @@ function KtCalc() {
   const [d, setD] = useState(10);
   const [w, setW] = useState(40);
   const [r, setR] = useState(2);
-  // 근사식 (Pilkey - Peterson's Stress Concentration Factors)
-  let kt = 1;
-  if (shape === 'hole') {
-    // Round hole in infinite plate: 3.0. Finite width correction: Kt = 2 + (1 - d/w)^3
-    const ratio = Math.min(0.95, d / w);
-    kt = 2 + Math.pow(1 - ratio, 3);
-  } else if (shape === 'fillet') {
-    // Stepped shaft / plate with shoulder fillet: 일반 근사
-    const rd = r / d;
-    kt = 1 + 0.65 * Math.pow(rd, -0.4);  // rough
-    kt = Math.max(1.05, Math.min(4.5, kt));
-  } else if (shape === 'sharpCorner') {
-    kt = 5.5; // 거의 무한, 권장값
-  } else if (shape === 'shoulderCut') {
-    kt = 1.8 + 0.3 * Math.max(0, 1 - r / d);
-  }
+  // 근사식 (Pilkey - Peterson's Stress Concentration Factors) — lib/engineering-calcs.
+  const kt = ktFactor(shape, { d, w, r });
   const band = kt < 2 ? 'safe' : kt < 3.5 ? 'caution' : 'danger';
   const color = band === 'safe' ? 'text-emerald-700' : band === 'caution' ? 'text-amber-700' : 'text-rose-700';
   return (
@@ -415,9 +407,9 @@ function GalvanicCalc() {
   const [b, setB] = useState(SERIES[10].name);
   const va = SERIES.find(x => x.name === a)?.v ?? 0;
   const vb = SERIES.find(x => x.name === b)?.v ?? 0;
-  const diff = Math.abs(va - vb);
+  const diff = galvanicDeltaV(va, vb);
   const anode = va < vb ? a : b;
-  const band = diff < 0.15 ? 'safe' : diff < 0.30 ? 'caution' : 'danger';
+  const band = galvanicBand(diff);
   const color = band === 'safe' ? 'text-emerald-700 bg-emerald-50 border-emerald-200' : band === 'caution' ? 'text-amber-700 bg-amber-50 border-amber-200' : 'text-rose-700 bg-rose-50 border-rose-200';
   const advice = band === 'safe'
     ? '안전 — 일반 환경에서 갈바닉 부식 무시 가능.'
@@ -450,19 +442,8 @@ function BucklingCalc() {
   const [E, setE] = useState(200); // GPa
   const [sy, setSy] = useState(250); // MPa
   const [K, setK] = useState(1); // 단부조건
-  const A = Math.PI * (d / 2) ** 2; // mm²
-  const I = Math.PI * Math.pow(d, 4) / 64; // mm⁴
-  const k_r = Math.sqrt(I / A); // 회전 반경 mm
-  const Le = K * L;
-  const slender = Le / k_r;
-  // Critical slenderness ratio: √(2π²E/σy)
-  const lambdaC = Math.sqrt(2 * Math.PI ** 2 * (E * 1e3) / sy);
-  const isEuler = slender > lambdaC;
-  // Euler: Pcr = π²·E·I/Le² (E in GPa·1000 → MPa, output kN)
-  const Pcr_Euler = (Math.PI ** 2 * (E * 1e3) * I) / (Le ** 2) / 1000; // kN
-  // Johnson: Pcr = σy·[1 − σy·(L/k)² / (4π²·E·1e3)]·A
-  const Pcr_Johnson = (sy * (1 - sy * slender ** 2 / (4 * Math.PI ** 2 * E * 1e3)) * A) / 1000; // kN
-  const Pcr = isEuler ? Pcr_Euler : Pcr_Johnson;
+  // 좌굴 — lib/engineering-calcs (Euler/Johnson 자동 선택).
+  const { slenderness: slender, lambdaC, isEuler, Pcr } = buckling({ L, d, E, sy, K });
   const formula = isEuler ? 'Euler (가는 기둥)' : 'Johnson (짧은 기둥)';
   return (
     <div className={W}>
@@ -493,9 +474,8 @@ function CTEMismatch() {
   const [cteB, setCteB] = useState(12); // Steel
   const [dT, setDT] = useState(100);
   const [E, setE] = useState(200); // GPa, 작은 쪽
-  // Free strain difference. 만약 둘 다 같은 길이로 자유 변형하면 Δε = (cteA − cteB) · ΔT
-  const dStrain = (cteA - cteB) * dT * 1e-6;
-  const sigma = dStrain * E * 1000; // GPa→MPa
+  // 열응력 σ ≈ ΔCTE·ΔT·E — lib/engineering-calcs.
+  const sigma = thermalMismatchStress(cteA, cteB, dT, E);
   const band = Math.abs(sigma) < 50 ? 'safe' : Math.abs(sigma) < 200 ? 'caution' : 'danger';
   const color = band === 'safe' ? 'text-emerald-700' : band === 'caution' ? 'text-amber-700' : 'text-rose-700';
   return (
@@ -523,13 +503,8 @@ function CTEMismatch() {
 function HardnessConv() {
   const [scale, setScale] = useState<'HV' | 'HRC' | 'HB'>('HV');
   const [val, setVal] = useState(300);
-  // Approximate conversions (ASTM E140, valid for low/medium carbon steel)
-  let HV = val;
-  if (scale === 'HRC') HV = Math.pow(val / 23.5, 1.7) * 50 + 100; // rough back-calc
-  if (scale === 'HB') HV = val * 1.05;
-  const HRC = HV > 240 ? 23.5 * Math.pow((HV - 100) / 50, 1 / 1.7) : NaN;
-  const HB = HV / 1.05;
-  const UTS = HV * 3.45; // MPa, rough (ASTM A370)
+  // ASTM E140/A370 근사 (탄소·합금강) — lib/engineering-calcs.
+  const { HV, HRC, HB, UTS } = hardnessConvert(scale, val);
   return (
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #7 경도 변환 (HV/HRC/HB)</p>
@@ -558,10 +533,8 @@ function PressureVessel() {
   const [sy, setSy] = useState(250); // MPa
   const [SF, setSF] = useState(3);
   const [shape, setShape] = useState<'cyl' | 'sph'>('cyl');
-  // 얇은 벽 가정
-  const t = shape === 'cyl' ? (p * r * SF) / sy : (p * r * SF) / (2 * sy);
-  // 두꺼운 벽 보정 (Lame): if t/r > 0.1, use Lame's equation
-  const thick = t / r > 0.1;
+  // 얇은 벽 가정 — lib/engineering-calcs. t/r>0.1 이면 두꺼운 벽(Lame) 경고.
+  const { t, thick } = pressureVesselThickness({ p, r, sy, SF, shape });
   return (
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #9 압력 용기 두께</p>
@@ -589,13 +562,11 @@ function LMPCalc() {
   const [T, setT] = useState(600);   // °C
   const [t, setT_h] = useState(1000); // h
   const [C, setC] = useState(20);
-  const Tk = T + 273.15;
-  const LMP = Tk * (C + Math.log10(t)) / 1000; // in 10^3 units
-  // Inverse: same LMP at different T → predict t
+  // Larson-Miller — lib/engineering-calcs. LMP = T(K)·(C+log₁₀ t)/1000.
+  const LMP = larsonMiller(T, t, C);
   const [T2, setT2] = useState(650);
-  const T2k = T2 + 273.15;
-  const log_t2 = (LMP * 1000) / T2k - C;
-  const t2 = Math.pow(10, log_t2);
+  // 같은 LMP 에서 T₂ 의 파단 시간 역산.
+  const t2 = larsonMillerInverseTime(LMP, T2, C);
   return (
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> Larson-Miller parameter (creep 수명)</p>
@@ -650,13 +621,8 @@ function MohrCalc() {
   const [sx, setSx] = useState(100);
   const [sy, setSy] = useState(40);
   const [txy, setTxy] = useState(30);
-  const center = (sx + sy) / 2;
-  const R = Math.sqrt(((sx - sy) / 2) ** 2 + txy ** 2);
-  const s1 = center + R;
-  const s2 = center - R;
-  const tmax = R;
-  // Principal angle
-  const angle = (Math.atan2(2 * txy, sx - sy) * 180 / Math.PI) / 2;
+  // Mohr's circle — lib/engineering-calcs.
+  const { center, R, s1, s2, tauMax: tmax, angleDeg: angle } = mohrCircle(sx, sy, txy);
   // SVG scale
   const sw = 280, sh = 180;
   const cx = sw / 2, cy = sh / 2 + 10;
@@ -718,15 +684,8 @@ function SchaefflerCalc() {
   const [C, setC] = useState(0.05);
   const [N, setN] = useState(0.04);
   const [Mn, setMn] = useState(1.5);
-  const Cr_eq = Cr + Mo + 1.5 * Si + 0.5 * Nb;
-  /* R209 A-12 — 비표준 0.3·Cu 제거 (Schaeffler/DeLong 표준 아님). welding-machinability.ts 와 동일 식. */
-  const Ni_eq = Ni + 30 * C + 30 * N + 0.5 * Mn;
-  // Phase prediction (rough Schaeffler zones)
-  let phase = '';
-  if (Ni_eq > 25) phase = 'γ Austenite';
-  else if (Cr_eq > 25 && Ni_eq < 5) phase = 'α Ferrite';
-  else if (Ni_eq < 8 && Cr_eq > 12) phase = "α' Martensite";
-  else phase = 'A+F (Duplex 영역)';
+  // Schaeffler/DeLong — lib/engineering-calcs (welding-machinability 와 동일 식).
+  const { crEq: Cr_eq, niEq: Ni_eq, phase } = schaefflerEq({ Cr, Ni, Mo, Si, Nb, C, N, Mn });
   // SVG positions: Cr_eq x-axis (0–40), Ni_eq y-axis (0–32)
   // R141a (개정) — 가시성 대폭 ↑: hex 색상 + strokeWidth 3-4 + white halo around lines + 큰 라벨
   const sw = 320, sh = 240;
