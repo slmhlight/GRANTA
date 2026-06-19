@@ -595,10 +595,12 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const config = {
     responsive: true, displaylogo: false,
     displayModeBar: true as const,
-    /* R101 — modeBar 정리: select2d/lasso2d 는 plotly-dist-min 한계로 동작 불능 + toggleSpikelines 는 의미 불명 → 모두 제거.
-       남는 버튼: PNG 저장 · zoom in/out · pan · reset (autoScale2d 는 R90 이전부터 제거 — reset 과 중복). */
+    /* R210 B8 — select2d(box-select) 복원: R101 당시 'plotly-dist-min 한계'로 제거했으나,
+       이제 scatter+core 커스텀 번들(lib/plotly-scatter)이라 box-select 가 동작 → onSelected 발화 →
+       선택 영역을 Compare/Filter 로 보내는 파워 동선이 살아난다. lasso2d 는 fiddly 해 계속 제외.
+       toggleSpikelines/autoScale2d 도 계속 제외(의미 불명·reset 중복). 남는 버튼: 박스선택·PNG·zoom·pan·reset. */
     scrollZoom: true,
-    modeBarButtonsToRemove: ['autoScale2d', 'select2d', 'lasso2d', 'toggleSpikelines'] as Array<'autoScale2d' | 'select2d' | 'lasso2d' | 'toggleSpikelines'>,
+    modeBarButtonsToRemove: ['autoScale2d', 'lasso2d', 'toggleSpikelines'] as Array<'autoScale2d' | 'lasso2d' | 'toggleSpikelines'>,
     toImageButtonOptions: { format: 'png', filename: 'ashby_chart', height: 700, width: 1000, scale: 2 },
     // R90 — 'reset' 만 (이전 'reset+autosize' 는 autosize 가 colored marker bbox 에 맞춰 zoom-in 시켜
     //       index pass 가 3개 등 작을 때 빈 영역처럼 보이는 문제 유발). 'reset' 은 layout 의 range 로 복귀.
