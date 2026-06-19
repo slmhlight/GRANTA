@@ -23,6 +23,9 @@ jobs:
         run: pnpm build:data
       - name: Type check (tsc --noEmit)
         run: pnpm check
+      - name: Lint (eslint — 정책 룰: react-hooks·TDZ·dark: 금지)
+        # R210 — 경고는 비차단(staged 도입). error(rules-of-hooks·no-use-before-define·dark:)만 실패.
+        run: pnpm lint
       - name: Run unit tests + coverage (vitest)
         # R210 — test:cov: lib/hooks 커버리지 임계(보수적) 하향 회귀 차단. 데이터 불변식 테스트는
         #         위 build:data 산출물(materials.json·build-meta.json)을 읽으므로 순서 의존 OK.

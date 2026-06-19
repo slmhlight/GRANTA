@@ -85,6 +85,21 @@ export function QueryAutocomplete({ inputRef, value, onApply, stats, isComposing
     };
   }, [open, recalcPosition, value]);
 
+  /* R210 B11 — handleSelect 를 사용처(키보드 useEffect) 위로 이동 (no-use-before-define).
+     props/state/import 에만 의존하므로 위치 이동 안전. */
+  const handleSelect = (s: Suggestion) => {
+    const el = inputRef.current;
+    if (!el) return;
+    const cursor = el.selectionStart ?? value.length;
+    const { newInput, newCursor } = applySuggestion(value, cursor, s);
+    onApply(newInput, newCursor);
+    /* focus 유지 + cursor 위치 복원 (다음 tick). */
+    requestAnimationFrame(() => {
+      el.focus();
+      el.setSelectionRange(newCursor, newCursor);
+    });
+  };
+
   /* 키보드 nav (desktop). */
   useEffect(() => {
     if (!open) return;
@@ -110,19 +125,6 @@ export function QueryAutocomplete({ inputRef, value, onApply, stats, isComposing
     return () => el.removeEventListener('keydown', onKey);
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, [open, suggestions, activeIdx]);
-
-  const handleSelect = (s: Suggestion) => {
-    const el = inputRef.current;
-    if (!el) return;
-    const cursor = el.selectionStart ?? value.length;
-    const { newInput, newCursor } = applySuggestion(value, cursor, s);
-    onApply(newInput, newCursor);
-    /* focus 유지 + cursor 위치 복원 (다음 tick). */
-    requestAnimationFrame(() => {
-      el.focus();
-      el.setSelectionRange(newCursor, newCursor);
-    });
-  };
 
   if (!open || !position || suggestions.length === 0) return null;
 
