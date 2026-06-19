@@ -4557,6 +4557,8 @@ const buildMeta = {
     Composite: all.filter(m => m.category === 'Composite').length,
   },
   anomalies: anomalies.length,
+  // R210 B2 — severity 분해를 외부에 노출 (불변식 테스트·추세 추적용).
+  anomaliesBySeverity: { high: sevCount.high, med: sevCount.med, low: sevCount.low },
   verifiedSrcMaterials: withVerifiedSrc,
 };
 fs.writeFileSync(path.join(ROOT, 'client', 'public', 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
@@ -4567,3 +4569,11 @@ if (droppedExcluded > 0) console.log(`R134a — Dropped ${droppedExcluded} CSV r
 console.log('am_vendor recovered:', am_vendor.map(m => m.name).join(', '));
 console.log('AA subcategory fixes:', aaFixed, '| subcat mismatch flags:', subcatFlags.length, '| verified-source materials:', withVerifiedSrc);
 console.log('Wrote data/materials.preview.json + data/validation-report.md');
+
+// R210 B2 — 빌드 게이트: high-severity 물리 오류(σy>UTS, min>max 등)가 1건이라도 있으면
+//   빌드 실패시켜 CI/배포를 차단한다. 리포트는 위에서 이미 기록되어 진단 가능.
+//   현재 기준선은 high 0 — 신규 데이터로 high 가 생기면 즉시 드러난다.
+if (sevCount.high > 0) {
+  console.error(`\n❌ BUILD GATE: ${sevCount.high} high-severity anomaly 검출 — data/validation-report.md 의 HIGH severity 섹션 확인 후 수정 필요.`);
+  process.exit(1);
+}
