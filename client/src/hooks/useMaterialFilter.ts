@@ -221,7 +221,7 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.weldability.length) result = result.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
     // R16: RoHS toggle — false (default) 면 통과, true 면 rohs_compliant === false 만 제외 (null/true 유지).
     if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant !== false);
-    // R133b: hideLowConfidence — default true. confidence_tier='low' 제외 (~131건, ~10%).
+    // R133b: hideLowConfidence — default true. confidence_tier='low' 제외 (현재 75건·약 6%; 분포는 build-meta.json 참조).
     if (filters.hideLowConfidence !== false) {
       result = result.filter(m => (m as { confidence_tier?: string }).confidence_tier !== 'low');
     }
