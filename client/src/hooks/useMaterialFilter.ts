@@ -310,23 +310,56 @@ export function useMaterialFilter(materials: Material[]) {
   };
 
   const narrowedRanges = useMemo(() => {
-    // 1) baseSet — non-range filter (category/sub/process/HT/qual/composition/text) 적용
+    // 1) baseSet — non-range filter 적용.
+    //    R209 C-2/C-4/C-5 — 실제 filtered 로직과 정확히 동일하게 맞춤 (이전엔 search/process/manufacturer 가 어긋나
+    //    슬라이더 모집단이 틀림: AM 선택 시 exact-match 로 baseSet=0 붕괴, 검색은 5필드 vs 실제 2필드 등).
     let baseSet = materials;
     if (filters.search.trim()) {
       const q = filters.search.toLowerCase().trim();
       baseSet = baseSet.filter(m =>
         fuzzyContains(m.name.toLowerCase(), q) ||
-        fuzzyContains(m.subcategory.toLowerCase(), q) ||
-        fuzzyContains(m.manufacturer.toLowerCase(), q) ||
-        fuzzyContains(m.process.toLowerCase(), q) ||
         (m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))
       );
+    }
+    if (filters.query && filters.query.trim()) {
+      const parsed = parseQuery(filters.query);
+      if (parsed.constraints.length) baseSet = applyQuery(baseSet, parsed);
+    }
+    if (filters.specs && filters.specs.length) {
+      const wanted = filters.specs.map(s => s.toUpperCase().replace(/\s+/g, ' '));
+      baseSet = baseSet.filter(m => {
+        const specs = (m.meta as { specs?: Array<{ id: string }> })?.specs;
+        return !!specs?.length && specs.some(s => wanted.includes(s.id.toUpperCase().replace(/\s+/g, ' ')));
+      });
     }
     if (filters.categories.length) baseSet = baseSet.filter(m => filters.categories.includes(m.category));
     if (filters.subcategories.length) baseSet = baseSet.filter(m =>
       filters.subcategories.includes(m.subcategory) || (m.families || []).some(f => filters.subcategories.includes(f))
     );
-    if (filters.processes.length) baseSet = baseSet.filter(m => filters.processes.includes(m.process));
+    if (filters.processes.length) {
+      const procGroups: Record<string, string[]> = {
+        Wrought: ['wrought', 'cold rolled', 'hot rolled', 'cold drawn', 'hot dip galvani', 'tmcp', 'forged', 'extrusion', 'vacuum refined', 'q+t (heat'],
+        Molding: ['injection mold', 'compression mold', 'layup'],
+        Casting: ['cast'],
+        Powder: ['sintered', 'powder-metallurgy', 'powder metallurgy', 'press-and-sinter', 'mim ', 'metal injection mold'],
+        AM: ['lpbf', 'dmls', 'slm', 'sls', 'fdm', 'closed-cell foam', 'am ', 'am('],
+      };
+      baseSet = baseSet.filter(m => {
+        const p = String(m.process || '').toLowerCase();
+        if (!p) return false;
+        return filters.processes.some(grp => {
+          const keys = procGroups[grp];
+          if (!keys) return p === grp.toLowerCase();
+          return keys.some(k => p.includes(k));
+        });
+      });
+    }
+    if (filters.manufacturers.length) baseSet = baseSet.filter(m => {
+      const raw = Array.isArray(m.manufacturers) && m.manufacturers.length ? m.manufacturers : (m.manufacturer ? [m.manufacturer] : []);
+      const mfs = raw.flatMap(s => String(s || '').split(',').map(x => x.trim())).filter(Boolean);
+      return filters.manufacturers.some(f => mfs.includes(f));
+    });
+    if (filters.compositions.length) baseSet = baseSet.filter(m => filters.compositions.includes(m.primary_composition || 'Other'));
     if (filters.corrosion.length) baseSet = baseSet.filter(m => m.corrosion_resistance != null && filters.corrosion.includes(String(m.corrosion_resistance)));
     if (filters.machinability.length) baseSet = baseSet.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
     if (filters.weldability.length) baseSet = baseSet.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));

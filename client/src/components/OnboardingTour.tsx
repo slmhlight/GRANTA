@@ -1,6 +1,6 @@
 /*
  * Sprint 2 B1 / R61 — First-visit Onboarding Tour
- * 5-step modal — Search · Filter · Detail · Compare · Quick Start.
+ * 6-step modal — Welcome · Search · Filter · Detail · Compare · Quick Start.
  * Each step has illustrative visual + concise body.
  * localStorage flag 'am_onboarding_done' prevents repeat.
  * Header `?` button (Home.tsx) reopens.
@@ -22,12 +22,12 @@ interface Props {
 
 /* ───────── R61 #8 — Step illustrations (inline SVG, no extra bundle weight) ───────── */
 function IllustWelcome() {
-  // 1040 alloys · 차트 · 사례. KO 모드에서도 영문 fallback 가능.
+  // R209 C-6 — 1,206 entries (1,040 → 정정, 헤더·본문과 일치).
   return (
     <svg viewBox="0 0 200 64" className="w-full h-16">
       <g transform="translate(10 12)">
         <rect width="52" height="40" rx="6" fill="oklch(0.6 0.12 220 / 0.15)" stroke="oklch(0.6 0.12 220)" />
-        <text x="26" y="22" textAnchor="middle" fontSize="14" fontWeight="bold" fill="oklch(0.45 0.12 220)">1,040</text>
+        <text x="26" y="22" textAnchor="middle" fontSize="14" fontWeight="bold" fill="oklch(0.45 0.12 220)">1,206</text>
         <text x="26" y="34" textAnchor="middle" fontSize="7" fill="oklch(0.45 0.12 220)">alloys</text>
       </g>
       <g transform="translate(74 12)">
@@ -157,7 +157,7 @@ const STEPS_KO: StepEntry[] = [
   { icon: Sparkles, illust: IllustWelcome, title: '환영합니다', body: 'AM Materials Explorer 는 1,200+ 합금 데이터베이스 · Ashby 차트 · 16 설계 사례를 한 곳에서. 약 1분이면 둘러보기 완료, 곧장 한 사례로 시작할 수 있어요.\n\n💡 처음이라면 Guide 부터 차근차근 학습하는 것을 권장합니다 — 14 chapter (실전 사례 → 이론 → 산업 적용) 의 학습 경로 가 마련되어 있어요.' },
   { icon: Search, illust: IllustSearch, title: '1. 검색', body: '상단 검색창에서 합금 이름·별칭·공정으로 검색하세요. 구분자·약어도 fuzzy 검색으로 잡힙니다. 예: "ti6al4v", "316l", "ss316".' },
   { icon: SlidersHorizontal, illust: IllustFilter, title: '2. 필터', body: '왼쪽 사이드바에서 카테고리·공정·물성·조성으로 필터링하세요. Granta MI 스타일 — 한 필터가 좁혀지면 다른 필터의 범위도 자동 좁아집니다.' },
-  { icon: MousePointerClick, illust: IllustDetail, title: '3. 상세 보기', body: '재료를 클릭하면 우측에 상세 패널이 열립니다. 측정값 범위(min/max/typical), Radar 차트, Composition, 출처 datasheet URL 까지 확인 가능합니다.' },
+  { icon: MousePointerClick, illust: IllustDetail, title: '3. 상세 보기', body: '재료를 클릭하면 우측에 상세 패널이 열립니다. 물성 범위(min/max/typical)와 각 값의 신뢰도 라벨(measured · handbook · class 추정 · derived 유도), Radar 차트, Composition, 출처 datasheet URL 을 확인하세요.\n\n⚠ 일부 값은 핸드북·family 평균 추정치입니다 — 신뢰도 라벨을 확인하고 설계 전 vendor datasheet 로 검증하세요.' },
   { icon: GitCompareArrows, illust: IllustCompare, title: '4. 비교', body: '"＋" 체크박스로 합금을 추가 (헤더 ＋ 로 페이지 전체 일괄). Compare 탭에서 Radar (≤20)·표·CSV·PNG 로 한꺼번에 비교.' },
   { icon: Rocket, illust: IllustQuickStart, title: '5. 지금 시작', body: '처음이라면 자주 쓰는 4가지 설계 사례 중 하나로 시작해 보세요. 클릭 한 번에 추천 필터·차트가 자동 적용됩니다.', quickStart: true },
 ];
@@ -166,7 +166,7 @@ const STEPS_EN: StepEntry[] = [
   { icon: Sparkles, illust: IllustWelcome, title: 'Welcome', body: 'AM Materials Explorer combines a 1,200+ alloy database, Ashby charts, and 16 design scenarios in one place. The tour takes about a minute — you can also jump straight into one scenario.\n\n💡 If you are new to materials selection, the Guide (14 chapters: case-study → theory → industry application) is the recommended starting point.' },
   { icon: Search, illust: IllustSearch, title: '1. Search', body: 'Search by alloy name, alias, or process in the top search bar. Fuzzy matching handles separators and abbreviations — try "ti6al4v", "316l", or "ss316".' },
   { icon: SlidersHorizontal, illust: IllustFilter, title: '2. Filter', body: 'Use the left sidebar to filter by category, process, properties, or composition. Granta MI-style — narrowing one filter automatically narrows the others.' },
-  { icon: MousePointerClick, illust: IllustDetail, title: '3. Material Detail', body: 'Click a material to open the detail panel on the right. See measurement ranges (min/max/typical), a Radar chart, composition, and verified datasheet URLs.' },
+  { icon: MousePointerClick, illust: IllustDetail, title: '3. Material Detail', body: 'Click a material to open the detail panel on the right. See property ranges (min/max/typical) with a confidence label on each value (measured · handbook · class-estimate · derived), a Radar chart, composition, and datasheet sources.\n\n⚠ Some values are handbook or family-average estimates — check the confidence label and verify against a vendor datasheet before design.' },
   { icon: GitCompareArrows, illust: IllustCompare, title: '4. Compare', body: 'Use the "＋" checkbox to add alloys (header ＋ adds the whole page). The Compare tab gives you Radar overlay (≤20), table, CSV, and PNG export.' },
   { icon: Rocket, illust: IllustQuickStart, title: '5. Start Now', body: 'For a quick first run, pick one of these four common design scenarios — recommended filters and chart axes are applied in one click.', quickStart: true },
 ];

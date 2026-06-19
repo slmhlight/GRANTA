@@ -141,7 +141,7 @@ export function QueryBar({ value, onChange, matchedCount, totalCount }: QueryBar
               ))}
             </ul>
             {/* R167 Phase A — 자연어 한국어 예시 (밀도 8 미만 등). */}
-            <p className="font-semibold mt-3 mb-1">자연어 (한국어)</p>
+            <p className="font-semibold mt-3 mb-1">{t('query.help.naturalKo')}</p>
             <ul className="space-y-0.5 text-[10px] text-foreground/85">
               {QUERY_HELP_NATURAL_EXAMPLES.map((ex) => (
                 <li key={ex}>

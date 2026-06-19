@@ -198,9 +198,13 @@ export function RadarChart({
                 const [x, y] = vertex(i, r * v);
                 // Sprint2 B3 — vertex circle hover tooltip (SVG title — native, lib 의존 0).
                 const rawV = getProp(s.material, ax.key);
-                const tooltip = `${s.name}\n${ax.label}: ${rawV != null ? rawV.toFixed(rawV < 10 ? 2 : 1) : '—'}\n정규화: ${v.toFixed(2)} / 1.00`;
+                /* R209 A-13 — 결측 축은 빈 원(흰 채움 + 색 테두리)으로 구분 (실제 최저값과 0.25 floor 혼동 방지). */
+                const isMissing = rawV == null || !isFinite(rawV) || rawV <= 0;
+                const tooltip = `${s.name}\n${ax.label}: ${!isMissing ? rawV.toFixed(rawV < 10 ? 2 : 1) : '— (데이터 없음)'}\n정규화: ${v.toFixed(2)} / 1.00`;
                 return (
-                  <circle key={`${s.id}-${i}`} cx={x} cy={y} r={2.5} fill={s.color}>
+                  <circle key={`${s.id}-${i}`} cx={x} cy={y} r={2.5}
+                    fill={isMissing ? '#ffffff' : s.color}
+                    stroke={isMissing ? s.color : 'none'} strokeWidth={isMissing ? 1 : 0} strokeDasharray={isMissing ? '1.5 1' : undefined}>
                     <title>{tooltip}</title>
                   </circle>
                 );
@@ -208,11 +212,13 @@ export function RadarChart({
             </g>
           );
         })}
-        {/* Axis labels — R86 짧은 기호. font 11 + semibold 로 시인성 ↑. longLabel 은 <title> 로 hover. */}
+        {/* Axis labels — R86 짧은 기호. font 11 + semibold 로 시인성 ↑. longLabel 은 <title> 로 hover.
+            R209 A-13 — 표시된 모든 alloy 가 결측인 축은 흐림 + ⚠ 로 표식. */}
         {axes.map((ax, i) => {
           const [x, y] = vertex(i, r + 14);
           const align = Math.abs(Math.cos((2 * Math.PI * i) / N - Math.PI / 2)) < 0.2 ? 'middle' :
             Math.cos((2 * Math.PI * i) / N - Math.PI / 2) > 0 ? 'start' : 'end';
+          const allMissing = series.every((s) => { const rv = getProp(s.material, ax.key); return rv == null || !isFinite(rv) || rv <= 0; });
           return (
             <text
               key={ax.key}
@@ -220,16 +226,26 @@ export function RadarChart({
               y={y}
               fontSize={11}
               fontWeight={600}
-              fill="#334155"
+              fill={allMissing ? '#cbd5e1' : '#334155'}
               textAnchor={align}
               dominantBaseline="middle"
             >
-              {ax.label}
-              <title>{ax.longLabel || ax.label}</title>
+              {ax.label}{allMissing ? ' ⚠' : ''}
+              <title>{allMissing ? `${ax.longLabel || ax.label} — 데이터 없음 (0.25 기본점)` : (ax.longLabel || ax.label)}</title>
             </text>
           );
         })}
       </svg>
+      {/* R209 A-13 — 결측 축 안내 캡션 (빈 원/⚠ 표식 의미 설명). */}
+      {(() => {
+        const missingAxes = axes.filter((ax) => series.some((s) => { const rv = getProp(s.material, ax.key); return rv == null || !isFinite(rv) || rv <= 0; }));
+        if (!missingAxes.length) return null;
+        return (
+          <p className="mt-1 text-[9px] text-muted-foreground/80 leading-tight">
+            ⚠ 빈 원·흐린 라벨 = 데이터 없음 (0.25 기본점, 실제 최저값 아님): <span className="font-medium">{missingAxes.map((a) => a.label).join(', ')}</span>
+          </p>
+        );
+      })()}
       {/* Legend (multi-alloy only) */}
       {series.length > 1 && (
         <div className="mt-2 max-h-32 overflow-y-auto space-y-0.5">

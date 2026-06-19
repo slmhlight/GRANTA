@@ -29,6 +29,8 @@ interface ComparePanelProps {
 }
 
 const DEFAULT_COLS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'price_per_kg', 'total_cost_estimate', 'popularity'];
+/* R209 C-1 — '작을수록 우수' 물성 (AshbyChartPlotly PROP_DIR 과 동일). 인-셀 막대를 역전. */
+const LOWER_IS_BETTER = new Set(['density', 'price_per_kg', 'price_per_cm3', 'delivered_price_per_kg', 'total_cost_estimate', 'machining_cost_factor', 'ht_cost_factor']);
 const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
 const typOf = (m: Material, key: string): number | null => {
   const r = (m.ranges || {})[key] as PropertyRange | null | undefined;
@@ -77,14 +79,15 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   const [exporting, setExporting] = useState(false);
   // R53a — Radar view mode (table | radar) + radar axes + focus
   const [viewMode, setViewMode] = useState<'table' | 'radar' | 'goodman'>('table');
+  /* R209 C-10 — Compare 전용 localStorage 키 (Detail 패널의 am_radar_axes 와 분리 → 한쪽 변경이 다른쪽에 전파 안 됨). */
   const [radarAxes, setRadarAxes] = useState<RadarAxis[]>(() => {
-    try { const s = localStorage.getItem('am_radar_axes'); if (s) { const p = JSON.parse(s); if (Array.isArray(p) && p.length >= 3) return p; } } catch { /* ignore */ }
+    try { const s = localStorage.getItem('am_radar_axes_compare'); if (s) { const p = JSON.parse(s); if (Array.isArray(p) && p.length >= 3) return p; } } catch { /* ignore */ }
     return DEFAULT_RADAR_AXES;
   });
   const [focusedId, setFocusedId] = useState<string | null>(null);
   const RADAR_MAX = 20;
   const radarDisabled = materials.length > RADAR_MAX;
-  const updateRadarAxes = (a: RadarAxis[]) => { setRadarAxes(a); try { localStorage.setItem('am_radar_axes', JSON.stringify(a)); } catch { /* ignore */ } };
+  const updateRadarAxes = (a: RadarAxis[]) => { setRadarAxes(a); try { localStorage.setItem('am_radar_axes_compare', JSON.stringify(a)); } catch { /* ignore */ } };
   // PALETTE - 색상 풀
   const COLORS = ['#0066CC', '#dc2626', '#16a34a', '#9333ea', '#ea580c', '#0891b2', '#ca8a04', '#db2777', '#4f46e5', '#65a30d', '#06b6d4', '#a855f7', '#f59e0b', '#ef4444', '#10b981', '#3b82f6', '#f97316', '#8b5cf6', '#22c55e', '#eab308'];
   const [cols, setCols] = useState<string[]>(DEFAULT_COLS);
@@ -102,6 +105,16 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       mx[k] = vals.length ? Math.max(...vals) : 0;
     }
     return mx;
+  }, [materials, selected]);
+  /* R209 C-1 — lower-is-better 막대 역전용 컬럼 최솟값. */
+  const colMinMap = useMemo(() => {
+    const mn: Record<string, number> = {};
+    for (const p of selected) {
+      const k = p.key as string;
+      const vals = materials.map((m) => typOf(m, k)).filter((v): v is number => v != null && v > 0);
+      mn[k] = vals.length ? Math.min(...vals) : 0;
+    }
+    return mn;
   }, [materials, selected]);
 
   const sortedMaterials = useMemo(() => {
@@ -675,7 +688,7 @@ ${panel.outerHTML}
                   onClick={() => onSort(p.key as string)}
                   title={`Sort by ${p.label}`}
                 >
-                  <span className="block whitespace-normal leading-tight">{p.label}<SortIcon k={p.key as string} /></span>
+                  <span className="block whitespace-normal leading-tight">{p.label}{LOWER_IS_BETTER.has(p.key as string) && <span className="text-emerald-600 ml-0.5" title="작을수록 우수 — 막대 역전">↓</span>}<SortIcon k={p.key as string} /></span>
                   <span className="block text-[10px] font-normal text-muted-foreground mt-0.5 whitespace-normal leading-tight">{/USD\//.test(p.unit || '') ? (lang === 'ko' ? `₩${(p.unit || '').replace(/^USD/, '')}` : p.unit) : p.unit}</span>
                 </th>
               ))}
@@ -715,11 +728,19 @@ ${panel.outerHTML}
                     const r = (m.ranges || {})[k] as PropertyRange | null | undefined;
                     const typical = typOf(m, k);
                     const hasRange = !!r && r.max > r.min;
-                    const pct = typical != null && colMax[k] > 0 ? Math.max(3, Math.min(100, (typical / colMax[k]) * 100)) : 0;
+                    /* R209 C-1 — 'lower-is-better' 물성 (밀도·가격·원가)은 막대를 역전.
+                       AshbyChartPlotly PROP_DIR 과 동일 기준. 안 하면 제일 무겁고 비싼 재료가 가장 긴 막대로 보임. */
+                    const colMin = colMinMap[k] ?? 0;
+                    const rawPct = colMax[k] > 0 ? (typical != null ? (typical / colMax[k]) * 100 : 0) : 0;
+                    const invPct = (colMax[k] - colMin) > 0 && typical != null
+                      ? (1 - (typical - colMin) / (colMax[k] - colMin)) * 100 : rawPct;
+                    const pct = typical != null && colMax[k] > 0
+                      ? Math.max(3, Math.min(100, LOWER_IS_BETTER.has(k) ? invPct : rawPct)) : 0;
                     const barColor = propColor(k);
                     const conf = r?.confidence;
+                    /* R209 C-3 — 6단계 신뢰도 점 색상 (subfamily/family 추가, MaterialDetail confBadge 와 동일). */
                     const confDot: Record<string, string> = {
-                      measured: '#94a3b8', handbook: '#0284c7', class: '#d97706', derived: '#f43f5e',
+                      measured: '#10b981', handbook: '#0ea5e9', subfamily: '#3b82f6', family: '#06b6d4', class: '#f59e0b', derived: '#f43f5e',
                     };
                     const dotColor = conf ? confDot[conf] : null;
                     // R40b — price 셀은 formatPrice 로 USD/KRW + kg/lb 자동 변환.
@@ -738,7 +759,10 @@ ${panel.outerHTML}
                               {dotColor && <span className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: dotColor }} title={`신뢰도: ${conf}`} />}
                               <span className="text-right font-mono font-medium text-foreground">{typStr}</span>
                             </div>
-                            <div className="mt-1 h-1.5 w-full bg-muted/40 rounded-sm overflow-hidden">
+                            <div
+                              className="mt-1 h-1.5 w-full bg-muted/40 rounded-sm overflow-hidden"
+                              title={LOWER_IS_BETTER.has(k) ? '막대가 길수록 우수 (작은 값이 좋은 물성 — 역전 표시)' : '막대가 길수록 값이 큼'}
+                            >
                               <div className="h-full rounded-sm" style={{ width: `${pct}%`, background: barColor, opacity: 0.85 }} />
                             </div>
                             {hasRange && <div className="text-[10px] text-muted-foreground text-right font-mono mt-0.5">{minStr}–{maxStr}</div>}
@@ -756,10 +780,19 @@ ${panel.outerHTML}
           <div className="flex flex-col items-center justify-center py-8 px-4 gap-3 text-center">
             <div className="text-3xl opacity-30">📊</div>
             <div>
-              <p className="text-sm font-semibold text-foreground">비교할 재료를 선택하세요</p>
-              <p className="text-xs text-muted-foreground mt-1.5">테이블/Ashby 차트에서 체크박스 또는 + 버튼으로 추가</p>
-              <p className="text-[11px] text-muted-foreground/80 mt-2">권장: <span className="font-semibold">3~10개</span> (Radar/Goodman 차트 가독성 최적)</p>
+              <p className="text-sm font-semibold text-foreground">{lang === 'ko' ? '비교할 재료를 선택하세요' : 'Select materials to compare'}</p>
+              <p className="text-xs text-muted-foreground mt-1.5">{lang === 'ko' ? '테이블/Ashby 차트에서 체크박스 또는 + 버튼으로 추가' : 'Add via checkbox or + button in the table / Ashby chart'}</p>
+              <p className="text-[11px] text-muted-foreground/80 mt-2">{lang === 'ko' ? <>권장: <span className="font-semibold">3~10개</span> (Radar/Goodman 차트 가독성 최적)</> : <>Recommended: <span className="font-semibold">3–10</span> (best for Radar/Goodman charts)</>}</p>
             </div>
+          </div>
+        )}
+        {/* R209 C-3 — 신뢰도 점 색상 범례 (Compare 표에 신설). MaterialDetail 과 동일 6단계. */}
+        {materials.length > 0 && (
+          <div className="border-t border-border/40 px-3 py-1.5 text-[10px] flex flex-wrap items-center gap-x-2.5 gap-y-1 text-muted-foreground">
+            <span className="font-semibold text-foreground/70">{lang === 'ko' ? '신뢰도' : 'Confidence'}:</span>
+            {[['#10b981', lang === 'ko' ? '실측' : 'measured'], ['#0ea5e9', lang === 'ko' ? '핸드북' : 'handbook'], ['#3b82f6', 'sub-fam'], ['#06b6d4', 'family'], ['#f59e0b', 'class'], ['#f43f5e', lang === 'ko' ? '유도' : 'derived']].map(([c, l]) => (
+              <span key={l} className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: c }} />{l}</span>
+            ))}
           </div>
         )}
       </div>

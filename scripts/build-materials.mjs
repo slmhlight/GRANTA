@@ -3057,12 +3057,22 @@ for (const m of all) {
   /* R126 — Fallback range 차별화. handbook 은 정밀 (min=typical=max), 그 외 level 별 spread 적용 → ranges 의 min/max 가 신뢰도 구간 표시.
      handbook: ±0%, subfamily: ±15%, family: ±30%, class: ±50% (단방향 적용 — 음수 보정). */
   const SPREAD_BY_CONF = { handbook: 0, subfamily: 0.15, family: 0.30, class: 0.50, derived: 0.40 };
+  /* R209 A-8 — 음수 불가 물성 (clamp 0 안전). Tg/CTE/온도류는 음수 가능 → clamp 제외. */
+  const NON_NEGATIVE = new Set(['density', 'yield_strength', 'uts', 'modulus', 'elongation', 'hardness',
+    'thermal_conductivity', 'fatigue_strength', 'fracture_toughness', 'price_per_kg', 'price_per_cm3',
+    'electrical_conductivity', 'specific_heat', 'max_service_temp', 'melting_point']);
   const setTyp = (k, v, conf) => {
     if (v == null) return;
     const c = conf || 'class';
     const spread = SPREAD_BY_CONF[c] ?? 0.50;
-    const min = spread > 0 ? Math.max(0, v * (1 - spread)) : v;
-    const max = spread > 0 ? v * (1 + spread) : v;
+    /* R209 A-8 fix: lo/hi 를 min/max 로 안전 정렬. 음수 불가 물성만 0 clamp.
+       이전: v 음수 (Tg) + Math.max(0) 로 min(0) > max(-180) 역전. */
+    let lo = v * (1 - spread);
+    let hi = v * (1 + spread);
+    if (spread <= 0) { lo = v; hi = v; }
+    if (NON_NEGATIVE.has(k)) { lo = Math.max(0, lo); hi = Math.max(0, hi); }
+    const min = Math.min(lo, hi);
+    const max = Math.max(lo, hi);
     m[k] = v;
     m.ranges[k] = { min: +min.toFixed(4), max: +max.toFixed(4), typical: v, n: 0, estimated: c !== 'handbook', confidence: c };
   };
@@ -3817,6 +3827,65 @@ if (impactMinSpecFilled > 0) console.log(`R139b — Impact min_spec annotated: $
    - medium-low: verified=0 + handbook < 6
    - low: verified=0 + safety props 전부 family/class/derived + 대체 anchor 존재
    UI 는 default 로 high+medium 만 표시, "show low-confidence" toggle 로 medium-low+low 노출. */
+/* R209 — source 신뢰성 정규화 helper (A-1 / A-7 / A-10).
+   ⚠️ idempotent — 여러 번 호출해도 안전. R173/R199 source 재주입 후에도 다시 적용해 matweb 등 강등 보장.
+   1차: confidence_tier 산정 직전 (tier 점수 정확화). 2차: 모든 source 조작 후 최종 (재주입분 정리). */
+let _r208Map = null, _r208Downgrade = null;
+function normalizeSources(list, { demoteMock = false } = {}) {
+  if (_r208Map === null) {
+    _r208Map = {}; _r208Downgrade = [];
+    try {
+      const r208 = JSON.parse(fs.readFileSync(path.join(DATA, 'r208-url-replacements.json'), 'utf8'));
+      _r208Map = r208.replacements || {};
+      _r208Downgrade = r208.downgrade_to_unverified || [];
+    } catch { /* optional */ }
+  }
+  const UNTRUSTED_RE = [
+    /matweb\.com\//i,                 // MatWeb 전체 (검색·deep link 모두 2차 집계, vendor 1차 자료 아님)
+    /\/\/[^/]+\/?$/,                  // 도메인 루트만 (granta.com/ 등)
+    /wikipedia\.org/i,                // 위키백과
+    /makeitfrom\.com/i,               // 집계 사이트
+    /\/blog\//i,                      // 블로그 글
+    /aircraftmaterials\.com\/data\/[a-z]+\.html$/i, // 카테고리 인덱스 (개별 시트 아님)
+  ];
+  const isUntrusted = (url) => !!url && (UNTRUSTED_RE.some(re => re.test(url)) || _r208Downgrade.some(p => url.startsWith(p)));
+  const softenLabel = (label, url) => {
+    if (!label) return label;
+    if (/matweb\.com/i.test(url)) return label.replace(/\bdatasheet\b/i, 'MatWeb');
+    return label.replace(/\bDatasheet\b/g, 'Reference').replace(/\bdatasheet\b/g, 'reference').replace(/\bhandbook\b/gi, 'reference');
+  };
+  let replaced = 0, down = 0, mockDemoted = 0;
+  for (const m of list) {
+    if (Array.isArray(m.sources)) {
+      for (const s of m.sources) {
+        if (!s || typeof s.url !== 'string') continue;
+        if (_r208Map[s.url]) { s.url = _r208Map[s.url]; replaced++; }
+        if (s.verified === true && isUntrusted(s.url)) {
+          s.verified = false;
+          if (s.label) s.label = softenLabel(s.label, s.url);
+          down++;
+        }
+      }
+    }
+    /* A-10 — generic tier 의 spurious 'measured' 라벨 강등 (verified datasheet 0개 + n≤1 mock signature). */
+    if (demoteMock && m.tier === 'generic') {
+      const hasVerified = (m.sources || []).some(s => s.verified);
+      if (!hasVerified) {
+        const MEAS_PROPS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity', 'fatigue_strength'];
+        for (const p of MEAS_PROPS) {
+          const r = m.ranges?.[p];
+          if (r && r.confidence === 'measured' && (r.n == null || r.n <= 1)) { r.confidence = 'handbook'; mockDemoted++; }
+        }
+      }
+    }
+  }
+  return { replaced, down, mockDemoted };
+}
+{
+  const r = normalizeSources(all, { demoteMock: true });
+  console.log(`R209 — source 정규화(1차): ${r.replaced} URL 교체 · ${r.down} verified=false 강등 · ${r.mockDemoted} mock-measured→handbook`);
+}
+
 const CONF_W = { measured: 4, handbook: 3, subfamily: 1.5, family: 0.5, class: 0.2, derived: 0.1 };
 const CORE_PROPS_C = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
 const SAFETY_PROPS_C = ['fatigue_strength', 'impact_strength', 'fracture_toughness'];
@@ -4190,6 +4259,9 @@ try {
     }
   }
   console.log(`R199 — source URL verification: ${srcAdded} sources added to ${srcTouched.size} entries`);
+  /* R209 2차 — R173/R199 가 재주입한 matweb·wiki·blog source 를 다시 강등 (idempotent). */
+  const r2 = normalizeSources(all);
+  console.log(`R209 — source 정규화(2차, 재주입분): ${r2.replaced} URL 교체 · ${r2.down} verified=false 강등`);
 } catch (e) {
   console.warn('R199 source URL overrides skipped:', e.message);
 }
@@ -4221,6 +4293,11 @@ try {
         q205++;
       }
       if (ov.subcategory) { t.subcategory = ov.subcategory; s205++; }
+      /* R209 — composition/subcategory override 후 families 재계산 (line 2946 의 stale 태그 교체).
+         손상 조성으로 'Titanium-based' 등 오태깅된 황동/Zr 을 정정 조성 기준으로 재산출. */
+      if (ov.composition || ov.subcategory) {
+        t.families = familyTags(t.category, t.subcategory, t.composition);
+      }
       n205++;
     }
   }
@@ -4311,10 +4388,12 @@ try {
       const cur = typ(m, 'price_per_cm3');
       if (cur == null || Math.abs(cur - expect) / expect > 0.02) {
         if (!m.ranges) m.ranges = {};
-        const conf = m.ranges.price_per_kg?.confidence || 'class';
+        /* R209 A-6 — price_per_cm3 는 price_per_kg × ρ 의 파생값. price_per_kg 의 'measured'
+           confidence 를 상속하면 estimated:true 와 모순 (녹색 dot + n=0 + 실측 tooltip 동시).
+           파생값이므로 항상 'derived' 로 고정. */
         m.ranges.price_per_cm3 = {
           min: +(expect * 0.85).toFixed(4), max: +(expect * 1.15).toFixed(4), typical: expect,
-          n: 0, estimated: true, confidence: conf, provenance: 'R205-R price_per_kg × ρ 재계산',
+          n: 0, estimated: true, confidence: 'derived', provenance: 'R205-R price_per_kg × ρ 재계산',
         };
         m.price_per_cm3 = expect;
         priceFixed++;

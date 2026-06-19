@@ -210,8 +210,11 @@ export function computeSchaeffler(material: Material): SchaefflerResult | null {
   const Mn = pctOf(comp, 'Mn');
   if (Cr === 0 && Ni === 0) return null;
 
+  const N = pctOf(comp, 'N');
   const cr_eq = Cr + Mo + 1.5 * Si + 0.5 * Nb;
-  const ni_eq = Ni + 30 * C + 0.5 * Mn;
+  /* R209 A-12 — Tools.tsx 와 식 통일 (DeLong 계열: N 의 강한 austenite 안정화 반영, 30·N).
+     비표준 0.3·Cu 항은 양쪽 모두 제외. */
+  const ni_eq = Ni + 30 * C + 30 * N + 0.5 * Mn;
 
   /* Phase 분류 — Schaeffler 1949 zones (simplified):
    *   Pure Austenite: Ni_eq > 0.6 × Cr_eq + 8 (대략)
@@ -229,14 +232,19 @@ export function computeSchaeffler(material: Material): SchaefflerResult | null {
   else if (cr_eq < 15 && ni_eq < 8 && ni_eq >= 4) { phase = 'A+M'; note = 'Austenite + Martensite 혼합 — 균열 위험. preheat 권장.'; }
   else if (cr_eq > 18 && ni_eq < 5) { phase = 'F+M'; note = '430/446 류 ferritic — coarse grain → impact 손실. interpass temp ≤ 200°C.'; }
   else if (cr_eq > 24 && ni_eq < 8 + 0.5 * cr_eq) { phase = 'Ferrite'; note = '430 류 fully ferritic. 균열 위험 낮으나 grain growth + 부식 위험.'; }
-  else if (ni_eq > 0.6 * cr_eq + 6) { phase = 'Austenite'; note = '310 류 100% austenite — 균열 위험 매우 낮음. hot cracking 만 주의.'; }
+  /* R209 A-11 — fully-austenite 경계 완화 (0.6→0.55, +6→+5). 310 류(Cr_eq~27/Ni_eq~23)가 A+F 로
+     오판되던 문제 완화. Schaeffler diagram 의 austenite zone 경계 단순화. */
+  else if (ni_eq > 0.55 * cr_eq + 5) { phase = 'Austenite'; note = '310/Nitronic 류 사실상 100% austenite — 균열 위험 낮음. hot cracking(고온균열) 만 주의.'; }
   else {
     // A+F band (가장 일반 — 304/316/Duplex)
     phase = 'A+F';
     // FN (Ferrite Number) 추정 — 304/316 = 5-10%, duplex 2205 = 40-50%
     if (cr_eq > 22) ferrite_pct = Math.min(60, Math.round((cr_eq - 18) * 8));
-    else ferrite_pct = Math.max(3, Math.round((cr_eq - 16) * 4));
-    note = `A+F dual-phase. Ferrite ${ferrite_pct}% (FN ≈ ${ferrite_pct}). σ-phase + hot cracking 회피 — 3-10% ferrite 권장.`;
+    else ferrite_pct = Math.max(0, Math.round((cr_eq - 16) * 4));
+    /* R209 A-11 — ferrite 매우 낮으면 사실상 austenite (304 류 δ-ferrite 미량). 헬프텍스트와 정합. */
+    note = ferrite_pct <= 3
+      ? `거의 완전 austenite (δ-ferrite ${ferrite_pct}% 미량, FN ≈ ${ferrite_pct}). 304 류 — hot cracking 주의 (소량 ferrite 가 오히려 균열 억제).`
+      : `A+F dual-phase. Ferrite ${ferrite_pct}% (FN ≈ ${ferrite_pct}). σ-phase + hot cracking 회피 — 3-10% ferrite 권장.`;
   }
 
   return { cr_eq, ni_eq, phase, ferrite_pct, note };

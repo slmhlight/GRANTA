@@ -166,7 +166,7 @@ export function HomeMobileNav({
             >
               <span className="text-xs font-medium text-foreground/80 flex items-center gap-2">
                 <span className="inline-flex w-4 h-4 rounded-full border border-accent text-[10px] leading-[14px] items-center justify-center font-bold text-accent">?</span>
-                {lang === 'ko' ? '온보딩 다시 보기 (5단계)' : 'Onboarding tour (5 steps)'}
+                {lang === 'ko' ? '온보딩 다시 보기 (6단계)' : 'Onboarding tour (6 steps)'}
               </span>
               <ChevronRight className="w-3 h-3 text-muted-foreground/60" />
             </button>

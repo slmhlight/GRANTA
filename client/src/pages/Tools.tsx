@@ -718,9 +718,9 @@ function SchaefflerCalc() {
   const [C, setC] = useState(0.05);
   const [N, setN] = useState(0.04);
   const [Mn, setMn] = useState(1.5);
-  const [Cu, setCu] = useState(0);
   const Cr_eq = Cr + Mo + 1.5 * Si + 0.5 * Nb;
-  const Ni_eq = Ni + 30 * C + 30 * N + 0.5 * Mn + 0.3 * Cu;
+  /* R209 A-12 — 비표준 0.3·Cu 제거 (Schaeffler/DeLong 표준 아님). welding-machinability.ts 와 동일 식. */
+  const Ni_eq = Ni + 30 * C + 30 * N + 0.5 * Mn;
   // Phase prediction (rough Schaeffler zones)
   let phase = '';
   if (Ni_eq > 25) phase = 'γ Austenite';
@@ -818,7 +818,8 @@ function SchaefflerCalc() {
         <span className="inline-block w-3 h-0.5 bg-[#c2410c] align-middle mx-1"/> Ms=RT (γ↔α′)
       </p>
       <div className="grid grid-cols-3 gap-1 mb-2 text-[11px]">
-        {[{l:'Cr', v:Cr, s:setCr}, {l:'Ni', v:Ni, s:setNi}, {l:'Mo', v:Mo, s:setMo}, {l:'Si', v:Si, s:setSi}, {l:'Nb', v:Nb, s:setNb}, {l:'C', v:C, s:setC}, {l:'N', v:N, s:setN}, {l:'Mn', v:Mn, s:setMn}, {l:'Cu', v:Cu, s:setCu}].map(f => (
+        {/* R209 A-12 — Cu 입력 제거 (Schaeffler/DeLong Ni_eq 에 미포함 → 입력해도 무시되던 혼란 제거) */}
+        {[{l:'Cr', v:Cr, s:setCr}, {l:'Ni', v:Ni, s:setNi}, {l:'Mo', v:Mo, s:setMo}, {l:'Si', v:Si, s:setSi}, {l:'Nb', v:Nb, s:setNb}, {l:'C', v:C, s:setC}, {l:'N', v:N, s:setN}, {l:'Mn', v:Mn, s:setMn}].map(f => (
           <label key={f.l}>
             <span className="text-muted-foreground text-[10px]">{f.l} %</span>
             <input type="number" step="0.1" className={In + ' w-full'} value={f.v} onChange={(e) => f.s(+e.target.value || 0)} />
@@ -908,7 +909,7 @@ export default function Tools() {
               <li><b>경도 변환</b>: ASTM E140-12b (Standard Hardness Conversion Tables for Metals)</li>
               <li><b>압력 용기</b>: ASME Boiler &amp; Pressure Vessel Code Sec.VIII Div.1 · KS B 6750 · PED 2014/68/EU</li>
               <li><b>Creep / Larson-Miller</b>: ASME Sec.II Part D + ASM Vol.19 (Fatigue and Fracture)</li>
-              <li><b>Schaeffler</b>: AWS A3.0 · ASM Vol.6 (Welding) · Schaeffler 1949 original chart</li>
+              <li><b>Schaeffler</b>: AWS A3.0 · ASM Vol.6 (Welding) · Schaeffler 1949 + DeLong (N 30× austenite 보정). Ni_eq = Ni + 30C + 30N + 0.5Mn</li>
             </ul>
           </div>
         </div>

@@ -665,7 +665,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">X</span>
             <Select value={xProperty} onValueChange={(v) => { setXProperty(v); setIndexPreset('none'); setConstraints([]); }}>
               <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
-              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
+              {/* R209 C-12 — X 에서 현재 Y 항목 비활성화 */}
+              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} disabled={o.value === yProperty} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
             </Select>
             <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={xLog} onChange={(e) => setXLog(e.target.checked)} className="accent-accent" />log</label>
           </div>
@@ -676,7 +677,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
             <span className="text-xs font-semibold text-muted-foreground w-3 flex-shrink-0">Y</span>
             <Select value={yProperty} onValueChange={(v) => { setYProperty(v); setIndexPreset('none'); setConstraints([]); }}>
               <SelectTrigger className="h-6 sm:h-7 text-[11px] sm:text-xs flex-1 min-w-0"><SelectValue /></SelectTrigger>
-              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
+              {/* R209 C-12 — Y 에서 현재 X 항목 비활성화 (y=x 무의미 대각선 방지) */}
+              <SelectContent>{PROPERTY_OPTIONS.map((o) => <SelectItem key={o.value} value={o.value} disabled={o.value === xProperty} className="text-xs">{o.label}</SelectItem>)}</SelectContent>
             </Select>
             <label className="flex items-center gap-1 text-[11px] text-muted-foreground cursor-pointer select-none flex-shrink-0"><input type="checkbox" checked={yLog} onChange={(e) => setYLog(e.target.checked)} className="accent-accent" />log</label>
           </div>

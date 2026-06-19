@@ -1160,7 +1160,7 @@ export default function Guide() {
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[28%]">조건</th><th className="p-2 font-semibold">가산</th><th className="p-2 font-semibold">이유</th></tr></thead>
               <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
-                <tr><td className="p-2 font-medium">반복 하중 (피로)</td><td className="p-2 font-mono">× 2 ~ 4</td><td className="p-2">σf ≈ 0.4·σy. 노치·표면 거칠기 영향 포함.</td></tr>
+                <tr><td className="p-2 font-medium">반복 하중 (피로)</td><td className="p-2 font-mono">× 2 ~ 4</td><td className="p-2">σf ≈ 0.4~0.5·UTS (Shigley, 강). 노치·표면 거칠기 영향 포함.</td></tr>
                 <tr><td className="p-2 font-medium">충격 하중</td><td className="p-2 font-mono">× 2 ~ 3</td><td className="p-2">동적 응력 = 정적 응력 × √(낙하높이/처짐) 의 2~3 배 가산.</td></tr>
                 <tr><td className="p-2 font-medium">취성 재료 (tool steel · 세라믹)</td><td className="p-2 font-mono">× 2 ~ 5</td><td className="p-2">변형 경고 없이 파단. Weibull 분포 큰 편차.</td></tr>
                 <tr><td className="p-2 font-medium">고온 (creep 영역)</td><td className="p-2 font-mono">× 1.5 ~ 3</td><td className="p-2">10⁵ h creep rupture stress 별도 적용 + 추가 SF.</td></tr>
@@ -1191,22 +1191,22 @@ export default function Guide() {
               {/* axes */}
               <line x1="50" y1="180" x2="460" y2="180" stroke="oklch(0.4 0.04 250)" />
               <line x1="50" y1="20" x2="50" y2="180" stroke="oklch(0.4 0.04 250)" />
-              {/* gridlines */}
+              {/* gridlines — R209 B-2: knee 가 10⁶ 에 오도록 축을 10²~10⁷ 로. (이전 10¹~10⁶ 에서 knee 가 10⁴ 로 그려져 본문/라벨 10⁶ 과 2 decade 어긋남) */}
               {[0, 1, 2, 3, 4, 5].map((i) => (
                 <g key={i}>
                   <line x1={50 + i * 80} y1="20" x2={50 + i * 80} y2="180" stroke="oklch(0.92 0.012 250)" />
-                  <text className="svg-text-bg-sm" x={50 + i * 80} y="195" textAnchor="middle" fontSize="10" fill="oklch(0.5 0.04 250)">10{['¹', '²', '³', '⁴', '⁵', '⁶'][i]}</text>
+                  <text className="svg-text-bg-sm" x={50 + i * 80} y="195" textAnchor="middle" fontSize="10" fill="oklch(0.5 0.04 250)">10{['²', '³', '⁴', '⁵', '⁶', '⁷'][i]}</text>
                 </g>
               ))}
-              {/* Steel curve (with endurance limit) */}
-              <path d="M 50 30 L 290 110 L 460 110" fill="none" stroke="oklch(0.55 0.12 220)" strokeWidth="2.5" />
+              {/* Steel curve (with endurance limit) — knee at x=370 (10⁶) */}
+              <path d="M 50 30 L 370 110 L 460 110" fill="none" stroke="oklch(0.55 0.12 220)" strokeWidth="2.5" />
               <text className="svg-text-bg-sm" x="460" y="105" textAnchor="end" fontSize="11" fill="oklch(0.45 0.12 220)" fontWeight="bold">강·Ti (σf 한계)</text>
               {/* Al curve (no endurance limit, continues down) */}
               <path d="M 50 50 L 460 150" fill="none" stroke="oklch(0.55 0.12 30)" strokeWidth="2.5" />
               <text className="svg-text-bg-sm" x="460" y="160" textAnchor="end" fontSize="11" fill="oklch(0.45 0.12 30)" fontWeight="bold">Al (한계 없음)</text>
-              {/* Endurance limit dashed line */}
-              <line x1="290" y1="110" x2="290" y2="180" stroke="oklch(0.55 0.12 220)" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
-              <text className="svg-text-bg-sm" x="290" y="208" textAnchor="middle" fontSize="9" fill="oklch(0.45 0.12 220)">N = 10⁶ (σf)</text>
+              {/* Endurance limit dashed line at 10⁶ */}
+              <line x1="370" y1="110" x2="370" y2="180" stroke="oklch(0.55 0.12 220)" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
+              <text className="svg-text-bg-sm" x="370" y="208" textAnchor="middle" fontSize="9" fill="oklch(0.45 0.12 220)">N = 10⁶ (σf)</text>
               {/* Labels */}
               <text className="svg-text-bg-sm" x="255" y="14" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">σ_a (응력 진폭)</text>
               <text className="svg-text-bg-sm" x="255" y="215" textAnchor="middle" fontSize="11" fill="oklch(0.3 0.04 250)" fontWeight="bold">사이클 수 N</text>
@@ -1756,7 +1756,7 @@ export default function Guide() {
             <p className="leading-relaxed">고온 부품 (Inconel 718 750°C, P91 600°C 보일러) 의 수명은 응력·온도·시간 3 변수. Larson-Miller 가 이를 하나의 parameter 로 통합.</p>
             <p className="mt-1 font-mono text-[13px]">LMP = T · (C + log₁₀(t_r))</p>
             <p className="mt-1 text-[12px]">T = 절대온도 (K) · t_r = rupture 시간 (h) · C = 상수 (강 보통 20, Ni 합금 25). 같은 응력의 LMP 가 일정 = master curve. 새 조건 (T', t') 에서 σ 예측 가능.</p>
-            <p className="mt-2 text-[12px] text-muted-foreground">예: P91 의 σ=100 MPa creep rupture 데이터 from ECCC datasheet — LMP ≈ 22,500 (with C=20). 600°C(873K) → t_r = 10^(22500/873 − 20) ≈ 10⁵ h. 650°C 시 → 10⁴ h. 50°C 증가 = 10배 단축.</p>
+            <p className="mt-2 text-[12px] text-muted-foreground">예: P91 의 σ=100 MPa creep rupture 데이터 from ECCC datasheet — LMP ≈ 22,500 (with C=20). 600°C(873K) → t_r = 10^(22500/873 − 20) ≈ 6×10⁵ h. 650°C(923K) → 10^(22500/923 − 20) ≈ 2.4×10⁴ h. 50°C 증가 = 약 20~25배 단축 (지수적 — 일정 배수 아님).</p>
           </Note>
           <Note tone="why" title="Arrhenius equation — 산화·확산 속도">
             <p className="font-mono text-[13px]">k(T) = A · exp(−Q/RT)</p>
@@ -1877,8 +1877,8 @@ export default function Guide() {
             <div className="rounded-lg border border-border bg-card p-4">
               <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">② 우주 — JWST 망원경 mirror</p>
               <p className="text-sm leading-relaxed"><b className="text-foreground">선택:</b> Beryllium (구조) + Au coating (반사) + Si 광학 sensor support.</p>
-              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인:</b> 극저온 (-220 °C) 치수 안정 — Be 는 σy·E·ρ 모두 좋고 CTE 가 작음. mirror 1.32 m 가 6.5 m 까지 가능. 단점: 발암성 분말, 가공 어려움, 비용 $$$ (kg 당 $100k+). 다른 선택지 (Zerodur glass, ULE) 는 우주 환경에서 thermal cycling 깨짐.</p>
-              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">앱에서 재현:</b> 사례 "정밀 마운트" + Modulus ≥ 280 GPa + CTE ≤ 12 → Be 후보 (단, 안전성·비용으로 Invar / CFRP 가 일반적).</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인:</b> 극저온 (-220 °C) 치수 안정 — Be 의 핵심은 <b>높은 비강성(E/ρ ≈ 강의 6배)</b> + 극저온에서 안정적·균일한 CTE + 높은 열전도(빠른 열평형). (CTE 절대값 자체는 ~11 µm/m·K 로 강과 비슷 — 작은 게 강점은 아님). mirror 1.32 m 가 6.5 m 까지 가능. 단점: 발암성 분말, 가공 어려움, 비용 $$$ (kg 당 $100k+). 다른 선택지 (Zerodur glass, ULE) 는 우주 환경 thermal cycling 에서 취성.</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">앱에서 재현:</b> 사례 "정밀 마운트" + Modulus ≥ 280 GPa + 낮은 밀도(비강성 E/ρ) → Be 후보 (단, 안전성·비용으로 Invar / CFRP 가 일반적).</p>
             </div>
 
             <div className="rounded-lg border border-border bg-card p-4">
@@ -1945,7 +1945,7 @@ export default function Guide() {
 
           {/* R64 — 데이터 출처 (Provenance) */}
           <H3>데이터 출처 (Provenance)</H3>
-          <p className="text-sm leading-relaxed">이 앱의 1,040 합금 + 110 폴리머 + 39 세라믹 + 34 복합재 데이터는 다음 출처에서 수집·종합되었습니다.</p>
+          <p className="text-sm leading-relaxed">이 앱의 1,000 금속 + 133 폴리머 + 39 세라믹 + 34 복합재 (총 1,206) 데이터는 다음 출처에서 수집·종합되었습니다.</p>
           <div className="overflow-x-auto mt-2">
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[28%]">출처</th><th className="p-2 font-semibold w-[20%]">유형</th><th className="p-2 font-semibold">담당 범위</th></tr></thead>
@@ -2127,7 +2127,7 @@ export default function Guide() {
             <li><b>4단계 열처리</b> = Annealing (전체 풀림) → Normalizing (공냉 결정립 균질) → Quenching (급랭 Martensite) → Tempering (변태 응력 완화). <F>TTT/CCT/Jominy</F> 곡선으로 경화능 (hardenability) 예측.</li>
             <li><b>Stainless 5 family</b>: ① Austenitic (304/316, FCC, 비자성, 인성 ↑) ② Ferritic (430, BCC, Mg/Cr 자성, 비싼 Ni 회피) ③ Martensitic (410/420, Q+T, 칼날) ④ Duplex (2205, α+γ 혼합, 강도+부식) ⑤ PH (17-4PH H900, 석출 경화).</li>
             <li><b>부식 메커니즘</b> 5: passivation (Cr₂O₃ 막) · pitting (Cl⁻ 침공) · sensitization (450-850°C, Cr 결정립계 carbide) · SCC (응력+환경) · galvanic (이종금속).</li>
-            <li><b>경도 변환</b>: HRC ≈ HV/10 + 5 (대략), HB ≈ HV × 0.95 (단, 700 HV 초과 시 HRC 표만 사용). ASTM E140 표.</li>
+            <li><b>경도 변환</b>: HRC ≈ HV/10 (대략, 글로서리와 통일 — HV 300≈HRC 30, HV 500≈HRC 49, HV 600≈HRC 55), HB ≈ HV × 0.95 (단, 700 HV 초과 시 HRC 표만 사용). 정확값은 ASTM E140 표 (비선형).</li>
             <li><b>한국·일본·EU 매핑</b>: SUS304 (JIS) = STS304 (KS) = AISI 304 = EN 1.4301. SCM440 (JIS/KS) = AISI 4140.</li>
             <li className="text-muted-foreground">출처: ASM Desk Edition Section "Carbon and Alloy Steels" + "Stainless Steels" + ASTM E140 + KS D 3705/3753.</li>
           </ul>

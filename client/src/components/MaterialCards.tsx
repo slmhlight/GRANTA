@@ -17,6 +17,10 @@ interface MaterialCardsProps {
   compareList: string[];
   onSelect: (m: Material) => void;
   onToggleCompare: (id: string) => void;
+  /** R209 C-13 — Table 뷰와 동일한 empty-state (리셋 버튼 + 검색어 echo). */
+  onResetFilters?: () => void;
+  activeFilterCount?: number;
+  searchQuery?: string;
 }
 
 const PAGE_SIZE = 48;
@@ -79,6 +83,9 @@ export function MaterialCards({
   compareList,
   onSelect,
   onToggleCompare,
+  onResetFilters,
+  activeFilterCount,
+  searchQuery,
 }: MaterialCardsProps) {
   const [page, setPage] = useState(0);
   /* R86 — 표시할 물성 선택 (localStorage 영속). */
@@ -132,8 +139,13 @@ export function MaterialCards({
             <div className="text-4xl opacity-30">🔍</div>
             <div className="text-center">
               <p className="text-sm font-semibold text-foreground">조건에 맞는 재료가 없습니다</p>
+              {searchQuery ? <p className="text-xs mt-1.5">검색어: <span className="font-mono text-foreground">"{searchQuery}"</span></p> : null}
+              {activeFilterCount != null && activeFilterCount > 0 ? <p className="text-xs mt-1">활성 filter <span className="font-semibold text-foreground">{activeFilterCount}</span>개 적용중</p> : null}
               <p className="text-xs mt-2 text-muted-foreground/80">Filter 범위를 넓혀보거나 일부 해제하세요</p>
             </div>
+            {onResetFilters && activeFilterCount != null && activeFilterCount > 0 ? (
+              <button onClick={onResetFilters} className="mt-1 px-4 py-1.5 text-xs font-medium bg-accent text-accent-foreground rounded-md hover:bg-accent/90 transition-colors">모든 filter 초기화</button>
+            ) : null}
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">

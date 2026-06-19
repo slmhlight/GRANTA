@@ -589,6 +589,33 @@
       "reason": "L14: Co balance (39%) 합금이 Nickel Superalloy 로 오분류. 188 은 Co-base. [Haynes 188]" },
     { "namePattern": "^Carpenter A-286",
       "subcategory": "Stainless Steel - Austenitic",
-      "reason": "L14: 동일 A-286 이 'A286'(stainless) 과 'Carpenter A-286'(Ni superalloy) 로 분류 불일치. Fe-base PH austenitic (ASTM A638) 으로 통일." }
+      "reason": "L14: 동일 A-286 이 'A286'(stainless) 과 'Carpenter A-286'(Ni superalloy) 로 분류 불일치. Fe-base PH austenitic (ASTM A638) 으로 통일." },
+
+    { "namePattern": "^C26000 — ",
+      "subcategory": "Copper Alloy - Brass",
+      "composition": { "Cu": "68~71.5", "Zn": "balance", "Pb": "≤0.07", "Fe": "≤0.05" },
+      "reason": "A-2 CRITICAL: CSV 컬럼 손상으로 황동에 Ti 98%·Al 98.5% (합계 ~217%, Ti-based 오태깅). C26000 Cartridge Brass = Cu 70 / Zn 30. [CDA C26000 / ASTM B36]" },
+    { "namePattern": "^C27000 — ",
+      "subcategory": "Copper Alloy - Brass",
+      "composition": { "Cu": "63~68.5", "Zn": "balance", "Pb": "≤0.10", "Fe": "≤0.07" },
+      "reason": "A-2 CRITICAL: 동일 손상. C27000 Yellow Brass = Cu 65 / Zn 35. [CDA C27000]" },
+    { "namePattern": "^C44300 — ",
+      "subcategory": "Copper Alloy - Brass",
+      "composition": { "Cu": "70~73", "Zn": "balance", "Sn": "0.8~1.2", "As": "0.02~0.06" },
+      "reason": "A-2 CRITICAL: CSV 손상으로 황동에 Fe 84%·Cr 16% (스테인리스 조성). C44300 Admiralty Brass = Cu 71 / Zn 28 / Sn 1 / As (dezinc 억제). [CDA C44300]" },
+    { "namePattern": "^Zirconium — As-supplied",
+      "composition": { "Zr": "balance", "Hf": "≤4.5", "Fe+Cr": "≤0.2", "O": "≤0.16" },
+      "reason": "A-2 CRITICAL: CSV 손상으로 Ni 60%·Ti 98%·Zr 0% (Zr 합금인데 Zr 누락). 순 Zirconium (R60702) = Zr balance + Hf ≤4.5. [ASTM B550 R60702]" },
+    { "namePattern": "^Zircaloy-2 — As-supplied",
+      "composition": { "Zr": "balance", "Sn": "1.20~1.70", "Fe": "0.07~0.20", "Cr": "0.05~0.15", "Ni": "0.03~0.08", "O": "0.10~0.14" },
+      "reason": "A-2 CRITICAL: 조성 합계 1.75% (Zr 누락). Zircaloy-2 (R60802) = Zr balance + Sn 1.45 + Fe/Cr/Ni 미량. [ASTM B350 R60802]" },
+    { "namePattern": "^Be-Cu — As-supplied",
+      "ranges": {
+        "density": { "typical": 8.25, "min": 8.23, "max": 8.27, "confidence": "handbook" }
+      },
+      "reason": "A-3 CRITICAL: density 1.86 (밀도칸에 Be 중량% 1.85~2.00 오입력). C17200 표준 밀도 8.25 g/cm³. composition 은 R207 에서 이미 정정. [Materion C17200 / ASM Vol.2]" },
+    { "namePattern": "^15-5PH — As-supplied",
+      "composition": { "Fe": "balance", "Cr": "14~15.5", "Ni": "3.5~5.5", "Cu": "2.5~4.5", "Nb": "0.15~0.45", "Mn": "≤1.0", "Si": "≤1.0", "C": "≤0.07" },
+      "reason": "A-4: am_vendor 15-5PH 의 Cu 누락 + Ni 60% 비현실 (Nikon SLM CSV 행 손상). 15-5 PH (S15500) = 석출경화 정의원소 Cu 3.5 포함. [AMS 5659 / R_0250 reference]" }
   ]
 }

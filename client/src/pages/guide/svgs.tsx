@@ -367,19 +367,19 @@ export const SvgAshbyChart = () => (
     {/* Constraint line (horizontal) */}
     <line x1="50" y1="150" x2="450" y2="150" stroke="#d97706" strokeWidth="2" strokeDasharray="6 4" />
     <text x="324" y="144" fontSize="12" fontWeight="700" fill="#b45309" className="svg-text-bg-sm">σy ≥ 한계 (필터)</text>
-    {/* Material clusters — non-overlapping positions */}
-    <ellipse cx="320" cy="220" rx="50" ry="20" fill="#d1fae5" stroke="#059669" strokeWidth="1.8" />
-    <text x="320" y="226" fontSize="13" fontWeight="700" fill="#047857" textAnchor="middle">폴리머</text>
-    <ellipse cx="220" cy="180" rx="42" ry="18" fill="#fef3c7" stroke="#d97706" strokeWidth="1.8" />
-    <text x="220" y="186" fontSize="13" fontWeight="700" fill="#b45309" textAnchor="middle">알루미늄</text>
-    <ellipse cx="130" cy="115" rx="34" ry="22" fill="#dbeafe" stroke="#2563eb" strokeWidth="1.8" />
-    <text x="130" y="120" fontSize="13" fontWeight="700" fill="#1d4ed8" textAnchor="middle">티타늄</text>
-    <ellipse cx="280" cy="95" rx="50" ry="26" fill="#ede9fe" stroke="#7c3aed" strokeWidth="1.8" />
-    <text x="280" y="100" fontSize="13" fontWeight="700" fill="#6d28d9" textAnchor="middle">강·고합금</text>
-    {/* Performance index arrow (lower-right → upper-left) */}
-    <line x1="90" y1="240" x2="410" y2="60" stroke="#e11d48" strokeWidth="2.6" />
-    <polygon points="410,60 402,64 406,72" fill="#e11d48" />
-    <text x="350" y="56" fontSize="13" fontWeight="700" fill="#be123c" className="svg-text-bg-sm">M = σy/ρ ↑ 더 좋음</text>
+    {/* R209 B-1 — Material clusters. X=ρ (오른쪽=고밀도). 실제 밀도순 폴리머<Al<Ti<강 으로 cx 배치. */}
+    <ellipse cx="110" cy="222" rx="44" ry="20" fill="#d1fae5" stroke="#059669" strokeWidth="1.8" />
+    <text x="110" y="228" fontSize="13" fontWeight="700" fill="#047857" textAnchor="middle">폴리머</text>
+    <ellipse cx="195" cy="185" rx="42" ry="18" fill="#fef3c7" stroke="#d97706" strokeWidth="1.8" />
+    <text x="195" y="191" fontSize="13" fontWeight="700" fill="#b45309" textAnchor="middle">알루미늄</text>
+    <ellipse cx="275" cy="118" rx="38" ry="22" fill="#dbeafe" stroke="#2563eb" strokeWidth="1.8" />
+    <text x="275" y="123" fontSize="13" fontWeight="700" fill="#1d4ed8" textAnchor="middle">티타늄</text>
+    <ellipse cx="370" cy="98" rx="52" ry="26" fill="#ede9fe" stroke="#7c3aed" strokeWidth="1.8" />
+    <text x="370" y="103" fontSize="13" fontWeight="700" fill="#6d28d9" textAnchor="middle">강·고합금</text>
+    {/* Performance index arrow — M=σy/ρ ↑ 는 경량·고강도 = 좌상 방향 (고밀도 저강도 우하 → 좌상). */}
+    <line x1="380" y1="232" x2="110" y2="72" stroke="#e11d48" strokeWidth="2.6" />
+    <polygon points="110,72 119,76 116,84" fill="#e11d48" />
+    <text x="150" y="62" fontSize="13" fontWeight="700" fill="#be123c" className="svg-text-bg-sm">M = σy/ρ ↑ 더 좋음</text>
     {/* Legend at bottom */}
     <g fontSize="11" fontFamily="monospace">
       <text x="60" y="278" fill="#d97706" fontWeight="700">─ 한계(제약)</text>

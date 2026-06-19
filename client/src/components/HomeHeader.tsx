@@ -274,7 +274,7 @@ export function HomeHeader({
             ?
           </button>
         </TooltipTrigger>
-        <TooltipContent side="bottom" className="text-xs">{lang === 'en' ? 'Onboarding tour (5 steps)' : '온보딩 다시 보기 (5단계)'}</TooltipContent>
+        <TooltipContent side="bottom" className="text-xs">{lang === 'en' ? 'Onboarding tour (6 steps)' : '온보딩 다시 보기 (6단계)'}</TooltipContent>
       </Tooltip>
       {/* R186 — Wizard 영구 제거. Guide 학습 권장. */}
       {/* R67 Sprint B — Engineering Tools link. 6 계산기 페이지. */}

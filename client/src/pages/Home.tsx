@@ -64,6 +64,8 @@ export default function Home() {
    *  to /?p=... while Home is already mounted (the empty-dep effect missed in-route URL changes). */
   const search = useSearch();
 
+  /** R31 — 언어 (한/영) 번역 헬퍼. R209 C-14: cards-hint toast 가 useEffect 에서 t() 를 쓰므로 선언을 위로 올림. */
+  const t = useT();
   const [viewMode, setViewMode] = useState<ViewMode>('table');
   /** 모바일에서 Table 뷰는 8 컬럼 × 75px = 600px 라 가로 스크롤 필수 — 첫 진입 1 회 Cards 뷰 권장 알림.
    *  localStorage 플래그로 중복 방지. */
@@ -71,13 +73,13 @@ export default function Home() {
     const isMobile = window.matchMedia('(max-width: 640px)').matches;
     if (!isMobile || viewMode !== 'table') return;
     try { if (localStorage.getItem('am_cards_hint_shown')) return; } catch { /* ignore */ }
-    toast('모바일에서는 Cards 뷰가 보기 편함', {
-      description: '가로 스크롤 없이 한 줄씩 — 하단 바의 뷰 토글로 전환.',
+    toast(t('home.cardsHint.title'), {
+      description: t('home.cardsHint.desc'),
       duration: 6000,
-      action: { label: 'Cards 로 전환', onClick: () => setViewMode('cards') },
+      action: { label: t('home.cardsHint.action'), onClick: () => setViewMode('cards') },
     });
     try { localStorage.setItem('am_cards_hint_shown', '1'); } catch { /* ignore */ }
-  }, [viewMode]);
+  }, [viewMode, t]);
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
   /* R204 #1 — PC desktop multi-popup. Pin 버튼 클릭 시 selectedMaterial → pinnedDetails 로 이동.
      각 pinned popup 은 독립 위치 + 독립 close. 사용자가 여러 alloy 를 동시 비교 가능. */
@@ -231,8 +233,7 @@ export default function Home() {
   const [appliedPreset, setAppliedPreset] = useState<{ key: string; label: string; indexHint?: string; suggestedView?: ViewMode; secondaryKey?: string; secondaryLabel?: string } | null>(null);
   const [editingScenario, setEditingScenario] = useState<ScenarioKey | null>(null);
   const [scenarioCompareOpen, setScenarioCompareOpen] = useState(false);
-  /** R31 — 언어 (한/영) + 번역 헬퍼. */
-  const t = useT();
+  /** R31 — 언어 (한/영). t 는 위에서 선언 (R209 C-14). */
   const { lang, setLang } = useLang();
   /** R27 — 단위 시스템 (SI / Imperial). MaterialDetail·Compare 사용. */
   const [unitSystem, setUnitSystemState] = useState<UnitSystem>(() => loadUnitSystem());
@@ -919,6 +920,9 @@ export default function Home() {
                 compareList={compareList}
                 onSelect={handleSelectMaterial}
                 onToggleCompare={handleToggleCompare}
+                onResetFilters={resetFilters}
+                activeFilterCount={activeFilterCount}
+                searchQuery={filters.search}
               />
             )}
             {viewMode === 'ashby' && (

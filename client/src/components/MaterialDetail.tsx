@@ -30,7 +30,7 @@ import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
-import { useState as useStateRD, useEffect as useEffectRD, type PointerEvent as ReactPointerEvent } from 'react';
+import { useState as useStateRD, useEffect as useEffectRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
 
 interface MaterialDetailProps {
@@ -223,6 +223,15 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
 
           {/* Properties */}
           <TabsContent value="properties" className="p-4 space-y-4">
+            {/* R209 C-9 — generic tier 경고를 inline 으로 (title 툴팁은 터치기기에서 안 보임). 행동지침 명시. */}
+            {material.tier === 'generic' && (
+              <div className="rounded-md border border-amber-300 bg-amber-50 px-3 py-2 flex items-start gap-2">
+                <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-[11px] leading-relaxed text-amber-800">
+                  <b>Generic reference</b> — 일부 물성은 자동 집계(CSV-derived) 값입니다. <b>설계 적용 전 vendor datasheet / 핸드북으로 검증</b>하세요. 각 값 옆 신뢰도 점(아래 범례)으로 출처 등급 확인 가능.
+                </p>
+              </div>
+            )}
             {/* R53a — Radar chart (단일 alloy, normalize base 선택). 모바일·데스크탑 가로 정렬. */}
             <div className="rounded border border-border/50 bg-muted/10 p-3 flex flex-col sm:flex-row sm:items-start sm:gap-4">
               <div className="flex-shrink-0">
@@ -246,13 +255,15 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               </div>
             </div>
             <p className="text-[10px] text-muted-foreground/60 -mt-1">Value = typical · sub-line = min–max across {meta.vendor_count ? `${meta.vendor_count} vendors` : 'conditions'}</p>
-            {/* 신뢰도 뱃지 범례 */}
-            <div className="rounded border border-border/50 bg-muted/20 p-2 text-[10px] flex flex-wrap gap-x-3 gap-y-1">
+            {/* 신뢰도 뱃지 범례 — R209 C-3: 6단계 전부 표시 (subfamily/family 추가, RangeRow confBadge 와 색 일치) */}
+            <div className="rounded border border-border/50 bg-muted/20 p-2 text-[10px] flex flex-wrap gap-x-3 gap-y-1 items-center">
               <span className="text-foreground/70 font-semibold">{t('detail.confidence')}:</span>
-              <span><span className="text-foreground/50">n=N</span> {t('detail.confidence.measured')}</span>
-              <span><span className="text-sky-600">handbook</span> {t('detail.confidence.handbook')}</span>
-              <span><span className="text-amber-600">class</span> {t('detail.confidence.class')}</span>
-              <span><span className="text-rose-500">≈UTS</span> {t('detail.confidence.derived')}</span>
+              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" /><span className="text-emerald-700">n=N</span> {t('detail.confidence.measured')}</span>
+              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-500" /><span className="text-sky-600">핸드북</span></span>
+              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500" /><span className="text-blue-600">sub-fam</span></span>
+              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-500" /><span className="text-cyan-600">family</span></span>
+              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500" /><span className="text-amber-600">class</span> {t('detail.confidence.class')}</span>
+              <span className="inline-flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 rounded-full bg-rose-500" /><span className="text-rose-500">유도</span> {t('detail.confidence.derived')}</span>
               {/* R67 #11 — MMPDS A/B basis 안내 link → Guide datasheet section */}
               <a href="/guide#ch8" className="ml-auto text-accent hover:underline">A/B basis 의미 →</a>
             </div>
@@ -273,38 +284,59 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               };
               const mechProps = MECHANICAL_PROPERTIES.filter(filterByCat);
               const physProps = PHYSICAL_PROPERTIES.filter(filterByCat);
+              /* R209 C-16 — 데이터 있는 행 우선, 빈 항목은 접이식 요약으로 묶어 정보 위계 정리.
+                 RangeRow 의 typical 판정과 동일 로직으로 partition. */
+              const hasData = (key: string) => {
+                const r = ranges[key];
+                const fb = material[key as keyof Material];
+                const tv = r?.typical ?? (typeof fb === 'number' ? fb : null);
+                return tv != null;
+              };
+              const renderSection = (icon: ReactNode, title: string, props: typeof mechProps) => {
+                const present = props.filter((p) => hasData(p.key as string));
+                const empty = props.filter((p) => !hasData(p.key as string));
+                return (
+                  <div>
+                    <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1">{icon}{title}</h3>
+                    <div className="space-y-1">
+                      {present.map((prop) => (
+                        <RangeRow key={prop.key} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
+                      ))}
+                    </div>
+                    {empty.length > 0 && (
+                      <details className="mt-1 group">
+                        <summary className="text-[10px] text-muted-foreground/60 cursor-pointer hover:text-muted-foreground list-none flex items-center gap-1 select-none">
+                          <span className="transition-transform group-open:rotate-90">▸</span>
+                          {empty.length}{t('detail.section.noData')}
+                        </summary>
+                        <div className="mt-1 flex flex-wrap gap-x-3 gap-y-0.5 pl-3">
+                          {empty.map((prop) => (
+                            <span key={prop.key} className="text-[10px] text-muted-foreground/50">{prop.label} <span className="font-mono">—</span></span>
+                          ))}
+                        </div>
+                      </details>
+                    )}
+                  </div>
+                );
+              };
               return (
                 <>
-                  <div>
-                    <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><FlaskConical className="w-3 h-3" />Mechanical Properties</h3>
-                    <div className="space-y-1">
-                      {mechProps.map(prop => (
-                        <RangeRow key={prop.key} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Layers className="w-3 h-3" />Physical Properties</h3>
-                    <div className="space-y-1">
-                      {physProps.map(prop => (
-                        <RangeRow key={prop.key} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
-                      ))}
-                    </div>
-                  </div>
+                  {renderSection(<FlaskConical className="w-3 h-3" />, t('detail.section.mechanical'), mechProps)}
+                  {renderSection(<Layers className="w-3 h-3" />, t('detail.section.physical'), physProps)}
                 </>
               );
             })()}
             {COST_PROPERTIES.some(p => material[p.key as keyof Material] != null) && (
               <div>
                 <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1">
-                  <Coins className="w-3 h-3" />Cost
+                  <Coins className="w-3 h-3" />{t('detail.section.cost')}
                   {/* R146 — verified date badge if measured + recent. */}
                   {material.meta?.price_verified_date ? (
                     <span className="text-[10px] font-normal px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200" title={`Source: ${material.meta?.price_verified_source}`}>
                       ✓ verified {material.meta.price_verified_date as string}
                     </span>
                   ) : (
-                    <span className="text-[10px] font-normal text-muted-foreground/60">(handbook estimate)</span>
+                    <span className="text-[10px] font-normal text-muted-foreground/60">{t('detail.section.costEstimate')}</span>
                   )}
                 </h3>
                 <div className="space-y-1">
@@ -347,7 +379,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             )}
             <div>
               <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1">
-                <BookText className="w-3 h-3" />Sources & Datasheets
+                <BookText className="w-3 h-3" />{t('detail.section.sources')}
                 <span className="ml-auto text-[10px] font-normal text-muted-foreground">{sources.length}</span>
               </h3>
               <SourcesList sources={sources} />
