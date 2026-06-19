@@ -1231,6 +1231,16 @@ export function encodeFiltersToParams(f: Partial<FilterState>): string {
   }
   // R49b — boolean toggles
   if (f.rohsOnly) p.set('rohs', '1');
+  // R210 B4 — hideLowConfidence default 는 true. 비-default(false=숨김 해제)일 때만 lc=0 인코딩
+  //   → 구버전 링크(키 부재)는 default(숨김)로 복원되어 하위호환.
+  if (f.hideLowConfidence === false) p.set('lc', '0');
+  // R210 B4 — compositionRanges: 비어있지 않으면 'El:min-max,El:min-max' 로 인코딩 (조성 %는 ≥0).
+  if (f.compositionRanges) {
+    const parts = Object.entries(f.compositionRanges)
+      .filter(([, r]) => Array.isArray(r))
+      .map(([el, r]) => `${el}:${(r as [number, number])[0]}-${(r as [number, number])[1]}`);
+    if (parts.length) p.set('comp', parts.join(','));
+  }
   return p.toString();
 }
 
@@ -1247,5 +1257,19 @@ export function decodeFiltersFromParams(qs: URLSearchParams): Partial<FilterStat
     if (raw) (out as any)[k] = raw.split(',').filter(Boolean);
   }
   if (qs.get('rohs') === '1') (out as any).rohsOnly = true;
+  // R210 B4 — lc=0 → hideLowConfidence false (숨김 해제). 키 부재 시 default(true) 유지.
+  if (qs.get('lc') === '0') (out as any).hideLowConfidence = false;
+  // R210 B4 — comp=El:min-max,... → compositionRanges 복원.
+  const comp = qs.get('comp');
+  if (comp) {
+    const ranges: Record<string, [number, number]> = {};
+    for (const part of comp.split(',')) {
+      const [el, span] = part.split(':');
+      if (!el || !span) continue;
+      const [lo, hi] = span.split('-').map(Number);
+      if (isFinite(lo) && isFinite(hi)) ranges[el] = [lo, hi];
+    }
+    if (Object.keys(ranges).length) (out as any).compositionRanges = ranges;
+  }
   return out;
 }

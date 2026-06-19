@@ -59,7 +59,7 @@ export function useMaterialFilter(materials: Material[]) {
     });
   }, []);
 
-  const filtered = useMemo(() => {
+  const filteredIgnoringConfidence = useMemo(() => {
     let result = materials;
 
     // R180 — Text search 범위를 alloy name + alias 만으로 제한 (사용자 지적: 검색 범위 너무 넓음).
@@ -221,10 +221,8 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.weldability.length) result = result.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
     // R16: RoHS toggle — false (default) 면 통과, true 면 rohs_compliant === false 만 제외 (null/true 유지).
     if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant !== false);
-    // R133b: hideLowConfidence — default true. confidence_tier='low' 제외 (현재 75건·약 6%; 분포는 build-meta.json 참조).
-    if (filters.hideLowConfidence !== false) {
-      result = result.filter(m => (m as { confidence_tier?: string }).confidence_tier !== 'low');
-    }
+    // R210 B4 — hideLowConfidence 는 이 useMemo 밖(filtered)에서 적용. 여기(filteredIgnoringConfidence)는
+    //   숨김 카운트 계산을 위해 confidence 필터를 뺀 모집단을 만든다.
     // R38e: 열처리 다중 선택 — m.heat_treatment 가 선택된 라벨 중 하나로 시작 or 포함 일 때 통과.
     //   현실적이지 않은 조합 (예: SLM 합금 + 단조 후 어닐링) 은 데이터에 없는 시점에서 자동 배제.
     if (filters.heatTreatments && filters.heatTreatments.length) {
@@ -232,8 +230,22 @@ export function useMaterialFilter(materials: Material[]) {
       result = result.filter(m => matchAnyHeatTreatment(String(m.heat_treatment || '').toLowerCase(), wanted));
     }
 
-    // Sort
-    result = [...result].sort((a, b) => {
+    return result;
+  }, [materials, filters]);
+
+  /* R210 B4 — confidence 필터를 마지막에 분리 적용해 '숨겨진 low-confidence 개수'를 노출.
+     hideLowConfidence default true → 숨김. 숨겨진 수를 UI(결과 카운트 줄·빈 상태)에서 opt-in 표시. */
+  const lowConfidenceHiddenCount = useMemo(() => {
+    if (filters.hideLowConfidence === false) return 0;
+    return filteredIgnoringConfidence.filter(m => (m as { confidence_tier?: string }).confidence_tier === 'low').length;
+  }, [filteredIgnoringConfidence, filters.hideLowConfidence]);
+
+  const filtered = useMemo(() => {
+    const result = filters.hideLowConfidence === false
+      ? filteredIgnoringConfidence
+      : filteredIgnoringConfidence.filter(m => (m as { confidence_tier?: string }).confidence_tier !== 'low');
+    // Sort (이전엔 filteredIgnoringConfidence 안에 있었음 — 동작 동일)
+    return [...result].sort((a, b) => {
       const av = a[sortKey];
       const bv = b[sortKey];
       if (av === null || av === undefined) return 1;
@@ -246,9 +258,7 @@ export function useMaterialFilter(materials: Material[]) {
       }
       return sortDir === 'asc' ? cmp : -cmp;
     });
-
-    return result;
-  }, [materials, filters, sortKey, sortDir]);
+  }, [filteredIgnoringConfidence, filters.hideLowConfidence, sortKey, sortDir]);
 
   const activeFilterCount = useMemo(() => {
     let count = 0;
@@ -429,5 +439,6 @@ export function useMaterialFilter(materials: Material[]) {
     toggleSort,
     activeFilterCount,
     narrowedRanges,
+    lowConfidenceHiddenCount,
   };
 }

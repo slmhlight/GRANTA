@@ -50,4 +50,15 @@ describe('share URL 라운드트립', () => {
     expect(decoded).toEqual({ search: 'x' });
     expect('rohsOnly' in decoded).toBe(false);
   });
+
+  it('hideLowConfidence=false(숨김 해제)는 복원됨; true/미설정은 키 부재(default 유지)', () => {
+    expect(roundtrip({ hideLowConfidence: false })).toEqual({ hideLowConfidence: false });
+    // default(true)는 인코딩 안 함 → 구버전 링크 하위호환 (복원 시 default 유지)
+    expect('hideLowConfidence' in roundtrip({ hideLowConfidence: true })).toBe(false);
+  });
+
+  it('compositionRanges 가 손실 없이 복원 (R210 B4)', () => {
+    const f = { compositionRanges: { Fe: [10, 50], Cr: [5, 20] } };
+    expect(roundtrip(f)).toEqual(f);
+  });
 });

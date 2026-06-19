@@ -93,6 +93,25 @@ describe('useMaterialFilter — narrowedRanges leave-one-out', () => {
   });
 });
 
+describe('useMaterialFilter — lowConfidenceHiddenCount (R210 B4)', () => {
+  const withTier: Material[] = [
+    mk({ id: 'h1', name: 'High1', density: 5 } as any),
+    mk({ id: 'lo1', name: 'Low1', density: 5, confidence_tier: 'low' } as any),
+    mk({ id: 'lo2', name: 'Low2', density: 5, confidence_tier: 'low' } as any),
+  ];
+  it('hideLowConfidence ON(default): 숨겨진 low 개수를 보고, filtered 에서 제외', () => {
+    const { result } = renderHook(() => useMaterialFilter(withTier));
+    expect(result.current.lowConfidenceHiddenCount).toBe(2);
+    expect(ids(result.current.filtered)).toEqual(new Set(['h1']));
+  });
+  it('hideLowConfidence OFF: 숨김 0, low 도 표시', () => {
+    const { result } = renderHook(() => useMaterialFilter(withTier));
+    act(() => result.current.updateFilter('hideLowConfidence', false));
+    expect(result.current.lowConfidenceHiddenCount).toBe(0);
+    expect(ids(result.current.filtered)).toEqual(new Set(['h1', 'lo1', 'lo2']));
+  });
+});
+
 describe('useMaterialFilter — activeFilterCount & restoreFilters', () => {
   it('활성 필터 누적 카운트', () => {
     const { result } = renderHook(() => useMaterialFilter(MATS));
