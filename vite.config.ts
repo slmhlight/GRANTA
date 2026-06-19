@@ -27,8 +27,11 @@ export default defineConfig({
   },
   // @ts-expect-error vitest test config (vitest extends vite UserConfig at runtime)
   test: {
+    // 기본 node 환경 (로직 .test.ts — 빠름). 컴포넌트 .test.tsx 는 파일 상단
+    // `// @vitest-environment jsdom` docblock 으로 jsdom 으로 전환.
     environment: 'node',
     root: path.resolve(import.meta.dirname),  // 테스트는 레포 루트 기준
-    include: ['tests/**/*.test.ts'],
+    include: ['tests/**/*.test.{ts,tsx}'],
+    setupFiles: ['./tests/vitest.setup.ts'],
   },
 });
