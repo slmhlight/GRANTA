@@ -108,7 +108,13 @@ function familyTags(category, subcategory, composition) {
 const NUM_PROPS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity', 'fatigue_strength', 'impact_strength'];
 const ELEMENTS = ['C', 'O', 'Fe', 'Cr', 'Ni', 'Mo', 'Mn', 'Si', 'Cu', 'Al', 'Ti', 'V', 'Co', 'W', 'Nb', 'N', 'P', 'S', 'Mg', 'Zn', 'Sn', 'Be', 'Ta', 'La', 'Ce'];
 const AM_PROC = new Set(['LPBF', 'DMLS', 'SLM', 'EBM', 'Binder Jetting', 'SLS', 'MJF', 'DED', 'Powder', 'Directed Energy Deposition']);
-const PROCESS_CANON = { 'Casting': 'Cast', 'Die Casting': 'Cast', 'Sand Casting': 'Cast', 'Investment Casting': 'Cast', 'Cast/Wrought': 'Wrought' };
+/* R213 — DMLS·SLM 은 LPBF 와 동일한 laser powder-bed fusion 공정(벤더 상표명일 뿐) → LPBF 로 canon.
+   비-curated grouping(alloy×process×condition) 에서 같은 alloy×condition 의 DMLS/SLM/LPBF 변종이 하나로 병합됨. */
+const PROCESS_CANON = { 'Casting': 'Cast', 'Die Casting': 'Cast', 'Sand Casting': 'Cast', 'Investment Casting': 'Cast', 'Cast/Wrought': 'Wrought', 'DMLS': 'LPBF', 'SLM': 'LPBF' };
+/* R213 — SLM Solutions 는 2022 Nikon 인수 후 "Nikon SLM Solutions" 로 사명 변경 → 동일 회사 통합.
+   (주의: 공정 'SLM'/머신 'SLM 280' 과 회사 'SLM Solutions' 는 별개 — 회사명만 매핑.) */
+const MANUFACTURER_CANON = { 'SLM Solutions': 'Nikon SLM Solutions' };
+const canonManufacturer = (s) => MANUFACTURER_CANON[s] || s;
 const dbCatToSub = { 'Stainless Steel': 'Stainless Steel', 'Tool Steel': 'Tool Steel', 'Alloy Steel': 'Alloy Steel', 'Maraging Steel': 'Maraging Steel', 'Titanium': 'Titanium', 'Aluminum': 'Aluminum', 'Nickel': 'Nickel Superalloy', 'Cobalt': 'Cobalt-Chrome Alloy', 'Copper': 'Copper', 'Refractory': 'Refractory Metal' };
 
 // vendor/class prefix stripper → true alloy designation
@@ -1601,7 +1607,7 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
   const variants = uniq(g.map(r => r.subcategory));
   if (variants.length > 1) subcatFlags.push({ name: grp.name, variants });
   const tier = grp.hasAm ? 'am_vendor' : 'generic';
-  const manus = uniq(g.map(r => r.manufacturer));
+  const manus = uniq(g.map(r => canonManufacturer(r.manufacturer)));
   const realSrc = uniq(g.map(r => r.source).filter(s => s !== 'Unknown')).map(s => ({ label: s, url: null, verified: false }));
   const resolvedCond = resolveAsSupplied(grp.cond, grp.process);
   /* R112 — Polymer CSV entry 에 family vendor URL 자동 추가 (verified). polymer 94종 의 verified URL 비율 ↑. */
@@ -4439,6 +4445,25 @@ try {
     }
   }
   console.log(`R212b — X-750 soft fatigue ceiling cap (σf≤0.50·UTS): ${capped} entries`);
+}
+
+/* R213 — process/manufacturer 정규화 (전 tier 잔여분).
+ *   비-curated 는 PROCESS_CANON/canonManufacturer 로 grouping 단계에서 이미 LPBF 병합 + 사명 통합됨.
+ *   이 pass 는 curated 등 grouping 을 거치지 않는 entry 의 process(DMLS·SLM→LPBF) 와 manufacturer('SLM Solutions'→'Nikon SLM Solutions') 잔여를 정규화. */
+{
+  const PROC = { DMLS: 'LPBF', SLM: 'LPBF' };
+  let procFixed = 0, mfrFixed = 0;
+  for (const m of all) {
+    if (m.process && PROC[m.process]) { m.process = PROC[m.process]; procFixed++; }
+    if (Array.isArray(m.processes) && m.processes.some((p) => PROC[p])) m.processes = uniq(m.processes.map((p) => PROC[p] || p));
+    if (Array.isArray(m.manufacturers) && m.manufacturers.some((x) => MANUFACTURER_CANON[x])) {
+      m.manufacturers = uniq(m.manufacturers.map(canonManufacturer)); mfrFixed++;
+    }
+    if (typeof m.manufacturer === 'string' && /SLM Solutions/.test(m.manufacturer)) {
+      m.manufacturer = uniq(m.manufacturer.split(/,\s*/).map(canonManufacturer)).join(', ');
+    }
+  }
+  console.log(`R213 — process/manufacturer 정규화(잔여): process ${procFixed}, manufacturer ${mfrFixed}`);
 }
 
 /* R173 Phase B — Name overrides (표기 중복 정리).

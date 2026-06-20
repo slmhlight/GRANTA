@@ -21,7 +21,8 @@ React 19 · Vite 7 · TypeScript · Tailwind CSS 4 · shadcn/ui · **Plotly.js**
 ## Data pipeline
 - Sources (in `data/`): `material_db.json` (46 curated AM alloys) + `AM_Materials_DB_enriched.csv` + `supplementary-materials.json` (~390 reference alloys) + `ceramics-data.json` (39 structural ceramics) + `composites-data.json` (34 composites).
 - Build: `pnpm build:data` → regenerates `client/public/materials.json`, `client/public/build-meta.json` (R69), and `data/validation-report.md`.
-- **1,206 materials** total — live counts in `client/public/build-meta.json` (SSOT). By category: 1,000 Metal · 133 Polymer · 39 Ceramic · 34 Composite. By tier: 99 curated · 5 am_vendor · 275 generic (CSV) · remainder reference (supplementary).
+- **1,204 materials** total — live counts in `client/public/build-meta.json` (SSOT). By category: 998 Metal · 133 Polymer · 39 Ceramic · 34 Composite. By tier: 99 curated · 3 am_vendor · 275 generic (CSV) · remainder reference (supplementary).
+- **Process canon** (R213): DMLS·SLM are vendor names for LPBF → canonicalised to `LPBF` (same alloy×condition AM variants merge). Manufacturer `SLM Solutions` → `Nikon SLM Solutions` (2022 Nikon 인수 사명 변경).
 - **Family-aware data backfill** (Sprint 4):
   - KIC fallback (C2): 814 alloys get a `class`-confidence KIC value from ASM Vol.1·2 family typicals → 82% coverage.
   - Fatigue fallback (C1): 759 alloys get a `derived`-confidence σ_f ≈ k·σ_y (Shigley · k=0.38–0.52 by family) → 89% coverage.
