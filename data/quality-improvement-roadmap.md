@@ -43,11 +43,22 @@
 - 가장 영향력 ↑: **CFRP variants (T300/T700/T800/IM7/M55J/P-100)** — Toray/Hexcel verified datasheet
 - **GFRP variants (E-glass/S-2 glass with epoxy/polyester)** — Owens Corning / AGY verified
 
-#### B. R129 HT multiplier 정확도 검증
+#### B. R129 HT multiplier 정확도 검증 — ✅ R212 해소
 - **Inconel 718 ST vs STA brochure** (R134a 의 7181.pdf + 7182.pdf):
   - Granta Solution Treated: σy 760-800, fatigue 379-485 → 현재 multiplier 0.65× 가정
   - Granta STA peak: σy 1000-1110, fatigue ~470 → 실제 ratio ~0.92
-  - **multiplier 0.65 → 0.80 으로 재calibrate 필요** (R135 작업)
+  - ~~multiplier 0.65 → 0.80 으로 재calibrate 필요~~
+- **R212 결론 (독립 2출처 same-test 검증)**: 석출경화 Ni 의 피로는 시효로 거의 안 오름(인장 ×2.1 ≠ 피로).
+  - SMC-045 Table 31 (동일 forging·R.R.Moore R=-1·1e7): annealed/aged 피로 = 67.5/71.0 ksi → **annealed f=0.951**.
+  - Wang/Yu *Metals* 2018 8(12) (rotating-bend R=-1·1e7): ST 492 / ST+A 461 MPa → f=1.067 (시효가 HCF 를 ~6% **낮춤**).
+  - 0.45·UTS 휴리스틱(f≈0.69) 반증(실측 aged e/UTS≈0.37). → ht-condition.mjs: **annealed 0.60→0.95, solution 0.65→0.92** (as-built 0.80 유지: AM 기공 지배).
+  - 영향: 718/X-750 soft 조건 4 엔트리 피로 +41~58% 교정. tests/ht-condition.test.ts 에 보정값 고정.
+
+#### B-R212b. fatigue>yield crossover 정합 — ✅ 해소 (2출처 grounding)
+- **핵심 발견**: fatigue>yield 는 **soft 조건의 정상 거동** (annealed Cu·austenitic SS·soft Ni 등 **77/1000 metals**) — cyclic hardening 으로 endurance≈/>monotonic yield. *버그 아님*. 따라서 "crossover 제거"가 아니라 *진짜 오류만* 교정.
+- **(1) 718 Annealed (980°C) YS 450→552**: 980°C 는 sub-δ-solvus anneal (δ solvus ~1010-1040°C) → 강도 유지. SMC-045 Table 8 (동일 bar): 1750°F/954°C un-aged YS ~80 ksi(552 MPa), 1950°F/1066°C super-solvus ST YS ~65 ksi(448 MPa). DB 의 450 은 super-solvus 값을 980°C anneal 로 **오표기**한 것 → 552 로 정정 (supplementary-materials.json). 결과 508<552, crossover 해소.
+- **(2) X-750 soft fatigue cap σf≤0.50·UTS** (build-materials.mjs R212b): X-750 는 annealed 시 매우 연함(YS 370, SMC-067 검증). aged endurance 베이스라인 490(=0.40·UTS_aged)이 soft UTS(850)에 적용되며 0.55-0.58·UTS — smooth-specimen R=-1 **물리 상한 ~0.50·UTS 초과**. UTS-relative cap 으로 soft 4 엔트리(annealed·as-supplied·as-cast/forged·strain-hardened) trim, aged X-750(490 on UTS 1230, ceiling 615)는 불변. tests/data-invariants.test.ts 에 불변식 고정.
+- **남은 follow-up**: (a) 다른 f/UTS>0.6 물리 불가 엔트리 — **C10300 (niobium c-103 데이터 오매칭!)·H11·O1·AA 2011·Tantalum·440C** 등 별도 root 버그. (b) cast/SX γ′(IN-100/738/939·MAR-M·CMSX·PWA·René) 를 wrought 보정에서 분리(defect-지배).
 
 #### C. Polymer 신뢰도 (Metal 대비 낮음 — 16-18% measured vs 80% in Curated Metal)
 - 가장 영향 ↑: PVDF Kynar 740 / PEEK Victrex 450G / PTFE / Ultem 9085 / PC Makrolon / ASA / TPU 95A

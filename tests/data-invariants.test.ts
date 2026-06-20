@@ -59,6 +59,21 @@ describe('데이터 산출물 불변식 (materials.json)', () => {
     }
     expect(violations.slice(0, 20)).toEqual([]);
   });
+
+  it('Inconel X-750 fatigue 가 물리 상한(0.50·UTS) 이내 — R212b cap', () => {
+    // soft X-750 는 aged endurance 베이스라인(490)이 soft UTS(850)에 적용되며 0.55-0.58·UTS 로 물리 상한 초과했음.
+    // R212b 가 0.50·UTS 로 cap. aged X-750(490 on UTS 1230 = 0.40)은 ceiling 아래라 불변.
+    const viol: string[] = [];
+    for (const m of materials) {
+      if (!/x-?750/i.test(m.name || '')) continue;
+      const f = m.ranges?.fatigue_strength?.typical;
+      const u = m.ranges?.uts?.typical;
+      if (typeof f === 'number' && typeof u === 'number' && u > 0 && f > Math.round(u * 0.5) + 1) {
+        viol.push(`${m.name}: fatigue ${f} > 0.50·UTS ${Math.round(u * 0.5)}`);
+      }
+    }
+    expect(viol).toEqual([]);
+  });
 });
 
 describe('build-meta.json SSOT 일치 (doc-drift 게이트)', () => {

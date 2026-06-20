@@ -88,8 +88,31 @@ describe('htConditionMultiplier — Ni superalloy', () => {
 
   it('Inconel 718 As-built no age', () => {
     const r = htConditionMultiplier({ name: 'Inconel 718 — As-built' });
+    // AM as-built: 기공/미세결함 지배 → soft 조건이지만 annealed(0.95)로 올리지 않고 보수적 0.80 유지.
     expect(r.f).toBe(0.80);
     expect(r.condTag).toContain('as-built');
+  });
+
+  /* R212 — 석출경화 Ni초합금 fatigue 실측 보정 (Special Metals SMC-045, Inconel 718).
+     시효는 인장(YS ×2.10)은 크게 올리지만 피로는 ×1.05뿐 → soft 조건 피로는 peak 대비 ~0.92-0.95.
+     (이전 0.60/0.65 는 피로를 인장처럼 과소평가.) impact(i)/KIC(k) 는 soft=더 인성↑ 물리값 유지. */
+  it('Inconel 718 annealed — 피로 ~peak (R212: f=0.95, not 0.60)', () => {
+    const r = htConditionMultiplier({ name: 'Inconel 718 — Annealed (980°C/1h AC)' });
+    expect(r.f).toBe(0.95);
+    expect(r.i).toBe(1.50); // annealed 가 더 인성 높음 — 유지
+    expect(r.k).toBe(1.40);
+    expect(r.condTag).toContain('annealed');
+  });
+
+  it('Inconel 718 solution treated — 피로 ~peak (R212: f=0.92, not 0.65)', () => {
+    const r = htConditionMultiplier({ name: 'Inconel 718 — Solution treated (1065°C/1h WQ)' });
+    expect(r.f).toBe(0.92);
+    expect(r.condTag).toContain('solution treated');
+  });
+
+  it('Inconel X-750 annealed — 동일 γ′/γ″ 거동 물리 외삽 (f=0.95)', () => {
+    const r = htConditionMultiplier({ name: 'Inconel X-750 — Annealed (Wrought)' });
+    expect(r.f).toBe(0.95);
   });
 
   it('Inconel 625 solid-solution (HT-insensitive)', () => {

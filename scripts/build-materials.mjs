@@ -4414,6 +4414,34 @@ try {
   console.log(`R205-R — 파생값 재계산: fatigue ${fatFixed} 재유도 + ${fatDropped} cellular 제거 · price_per_cm3 ${priceFixed} 정합화`);
 }
 
+/* R212b — X-750 soft-condition fatigue 물리 ceiling cap (σf ≤ 0.50·UTS).
+ *   X-750 는 annealed 시 매우 연함(YS~370, vs 718 sub-solvus 552). γ′ peak-aged endurance 베이스라인(490 = 0.40·UTS_aged)이
+ *   soft 조건(UTS~850)에 family multiplier 로 적용되면 0.55-0.58·UTS — smooth-specimen R=-1 endurance 물리 상한(~0.50·UTS) 초과.
+ *   fix: UTS-relative cap → soft X-750 만 trim. aged entry(490 on UTS 1230 = 0.40, ceiling 615)는 불변.
+ *   주의: fatigue>yield 자체는 soft 조건의 정상 거동(annealed Cu/SS/Ni 77 metals) — 여기선 *물리 상한*만 강제(YS 와 무관).
+ *   R212 (ht-condition.mjs annealed f=0.95)는 718(sub-solvus anneal 이 강도 유지)에 검증된 값 — 718 은 0.50·UTS 아래라 불변. */
+{
+  const CEIL = 0.50;
+  let capped = 0;
+  for (const m of all) {
+    if (!/x-?750/i.test(m.name || '')) continue;
+    const fr = m.ranges && m.ranges.fatigue_strength;
+    const ut = (m.ranges && m.ranges.uts && m.ranges.uts.typical) || m.uts;
+    if (!fr || !(fr.typical > 0) || !(ut > 0)) continue;
+    const ceil = Math.round(ut * CEIL);
+    if (fr.typical > ceil) {
+      const scale = ceil / fr.typical;
+      fr.min = Math.round(fr.min * scale);
+      fr.max = Math.round(fr.max * scale);
+      fr.typical = ceil;
+      fr.provenance = (fr.provenance ? fr.provenance + ' · ' : '') + 'R212b cap σf≤0.50·UTS (soft X-750 물리 상한)';
+      m.fatigue_strength = ceil;
+      capped++;
+    }
+  }
+  console.log(`R212b — X-750 soft fatigue ceiling cap (σf≤0.50·UTS): ${capped} entries`);
+}
+
 /* R173 Phase B — Name overrides (표기 중복 정리).
  *   data/r173-name-overrides.json 의 from→to 매핑으로 entry name 정규화.
  *   ID 는 변경 X (deeplink 보존). aliases 는 build pipeline 후속 단계에서 재생성. */

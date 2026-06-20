@@ -61,12 +61,26 @@ export function htConditionMultiplier(m) {
   }
 
   // Ni superalloy precipitation hardenable — baseline = STA (solution + aged peak)
+  /* R212 — fatigue multiplier 실측 보정 (Special Metals SMC-045, Inconel 718 brochure).
+     핵심: γ′/γ″ 석출경화는 시효로 인장(YS ×2.10, UTS ×1.49)은 크게 오르지만 피로는 거의 안 오름(×1.05).
+     → soft 조건의 fatigue penalty 를 인장처럼 적용하면 안 됨. annealed/solution 피로는 peak 대비 ~0.92-0.95.
+       (이전 f=0.60/0.65 는 피로를 인장처럼 과소평가 → Goodman UI 에 가짜 피로 절벽.)
+     impact(i)/KIC(k) 는 SMC-045 미커버 → soft=더 인성 높음(i,k>1) 의 기존 물리값 유지.
+     718 만 직접 실측, Waspaloy/René/Udimet 등은 동일 γ′/γ″ 거동의 물리 외삽.
+     ── R212 독립 검증(2 출처, same-test):
+        · SMC-045 Table 31 (제조사, 동일 forging·R.R.Moore R=-1·1e7): annealed 67.5ksi / aged 71.0ksi → f=0.951.
+        · Wang/Yu, Metals 2018 8(12) (저널, rotating-bend R=-1 1e7): ST 492 / ST+A 461 MPa → f=1.067 (시효가 HCF 를 오히려 ~6% 낮춤).
+        → 0.45·UTS 휴리스틱(f≈0.69)은 반증(실측 aged e/UTS≈0.37). f=0.95 는 제조사값에 거의 일치하는 보수적 선택.
+     ── 한계: 단일 family multiplier 는 "annealed" 의 mill-anneal(강)~full-solution(연) 폭을 못 가름.
+        cast/SX γ′(IN-100/738/939·MAR-M·CMSX·PWA·René)는 defect-지배 피로라 본 wrought 보정과 물리가 다름 — 별도 처리 대상(follow-up). */
   if (/inconel\s*7\d{2}|inconel\s*x[\s-]?7\d{2}|inconel\s*939|inconel\s*100|inconel\s*706|waspaloy|nimonic\s*(?:80|90|105|115|263)|udimet|rene\s*\d|cmsx|pwa|mar[\s-]?m|haynes\s*282|haynes\s*214/.test(name)) {
-    if (/annealed(?!.*aged)/.test(combined)) return { f: 0.60, i: 1.50, k: 1.40, condTag: 'annealed' };
-    if (/solution\s*(?:treated|annealed)(?!.*aged)|^solution$/.test(combined)) return { f: 0.65, i: 1.40, k: 1.30, condTag: 'solution treated' };
+    if (/annealed(?!.*aged)/.test(combined)) return { f: 0.95, i: 1.50, k: 1.40, condTag: 'annealed' };
+    if (/solution\s*(?:treated|annealed)(?!.*aged)|^solution$/.test(combined)) return { f: 0.92, i: 1.40, k: 1.30, condTag: 'solution treated' };
     if (/single\s*age|sta\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA single age' };
     if (/double\s*age|dsa\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'DSA double age' };
     if (/aged|peak/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'aged peak' };
+    // as-built (AM): wrought 실측(SMC-045) 적용 불가 — AM 기공/미세결함이 피로를 실제로 낮추므로 보수적 0.80 유지
+    // (즉 soft 조건이지만 annealed 처럼 ~0.95 로 올리지 않음: as-built 피로는 기공 지배).
     if (/as-?built|as-?fab/.test(combined)) return { f: 0.80, i: 1.30, k: 1.20, condTag: 'as-built (no age)' };
     return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA (assumed)' };
   }
