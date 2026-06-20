@@ -21,6 +21,7 @@ import { htCostFactor, priceConditionFactor, priceFormFactor, priceGradePremium 
 import { popularityFor } from './pipeline/enrich/popularity.mjs';
 import { VENDOR_PREFIXES, CLASS_WORDS, alloyOf, aaSubcategory, nameBasedSubcategory, fixSubcategory, conditionClass, isExcludedByName, isExcludedAlloy, EXCLUDED_ALLOY_PATTERNS, EXCLUDED_NAME_PATTERNS, isFakeVariant } from './pipeline/enrich/classification.mjs';
 import { htConditionMultiplier } from './pipeline/enrich/ht-condition.mjs';
+import { matchesAlloyKey } from './pipeline/enrich/alloy-key-match.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -1175,15 +1176,14 @@ function alloyFatigueImpact(name) {
   // R199c — base name only (em-dash split) + hybrid match (short key word-boundary, long substring).
   const baseName = String(name).split(/\s+[—–]\s+/)[0];
   const orig = baseName.toLowerCase();
-  const lc = orig.replace(/[\s\-_(),/]+/g, '');
   const keys = Object.keys(ALLOY_FAT_IMPACT).sort((a, b) => b.length - a.length);
   for (const k of keys) {
     const kn = k.replace(/[\s\-_(),/]+/g, '');
     if (kn.length <= 3) {
       const re = new RegExp('(^|[^a-z0-9])' + kn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[^a-z0-9])', 'i');
       if (re.test(orig)) return { ...ALLOY_FAT_IMPACT[k], _key: k };
-    } else {
-      if (lc.includes(kn)) return { ...ALLOY_FAT_IMPACT[k], _key: k };
+    } else if (matchesAlloyKey(orig, kn)) {
+      return { ...ALLOY_FAT_IMPACT[k], _key: k };
     }
   }
   return null;
@@ -1205,7 +1205,6 @@ function alloySpecificPhysicals(name) {
   // 회피 3: 'aa1050' 같은 prefix-key 가 'AA 1050' (공백) 에서 매칭 (normalized substring).
   const baseName = String(name).split(/\s+[—–]\s+/)[0];
   const orig = baseName.toLowerCase();
-  const lc = orig.replace(/[\s\-_(),/]+/g, '');
   const keys = Object.keys(ALLOY_SPECIFIC).sort((a, b) => b.length - a.length);
   for (const k of keys) {
     const kn = k.replace(/[\s\-_(),/]+/g, '');
@@ -1213,8 +1212,8 @@ function alloySpecificPhysicals(name) {
     if (kn.length <= 3) {
       const re = new RegExp('(^|[^a-z0-9])' + kn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[^a-z0-9])', 'i');
       if (re.test(orig)) return { ...ALLOY_SPECIFIC[k], _key: k };
-    } else {
-      if (lc.includes(kn)) return { ...ALLOY_SPECIFIC[k], _key: k };
+    } else if (matchesAlloyKey(orig, kn)) {
+      return { ...ALLOY_SPECIFIC[k], _key: k };
     }
   }
   return null;
