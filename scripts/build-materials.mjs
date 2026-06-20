@@ -3537,7 +3537,7 @@ function machiningCostFactor(m) {
 const rawUnknownSrc = csvRows.filter(r => r.source === 'Unknown').length;
 const rawCorrosion0 = csvRows.filter(r => r.corrosion_resistance === '0').length;
 const rawFatigueEmpty = csvRows.filter(r => r.fatigue_strength === '').length;
-const withVerifiedSrc = all.filter(m => m.sources.some(s => s.verified)).length;
+let withVerifiedSrc = all.filter(m => m.sources.some(s => s.verified)).length; // R211 — 최종 source 상태(r173/2차 normalize) 후 재계산하므로 let.
 const rangeCov = {};
 for (const p of NUM_PROPS) { const have = all.filter(m => m.ranges[p]).length; const real = all.filter(m => m.ranges[p] && m.ranges[p].max > m.ranges[p].min).length; rangeCov[p] = { have, real }; }
 
@@ -3889,29 +3889,34 @@ function normalizeSources(list, { demoteMock = false } = {}) {
 const CONF_W = { measured: 4, handbook: 3, subfamily: 1.5, family: 0.5, class: 0.2, derived: 0.1 };
 const CORE_PROPS_C = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
 const SAFETY_PROPS_C = ['fatigue_strength', 'impact_strength', 'fracture_toughness'];
-let tierCounts = { high: 0, medium: 0, 'medium-low': 0, low: 0 };
-for (const m of all) {
-  let coreScore = 0, safetyScore = 0, measuredCount = 0, handbookCount = 0;
-  for (const p of CORE_PROPS_C) {
-    const c = m.ranges?.[p]?.confidence;
-    coreScore += CONF_W[c] || 0;
-    if (c === 'measured') measuredCount++;
-    if (c === 'handbook') handbookCount++;
+/* R211 — confidence_tier 계산을 함수화 (verified source 수에 의존하므로 r173 patch + 2차 normalize 후 재계산 필요). */
+function assignConfidenceTiers() {
+  const tc = { high: 0, medium: 0, 'medium-low': 0, low: 0 };
+  for (const m of all) {
+    let coreScore = 0, safetyScore = 0, measuredCount = 0, handbookCount = 0;
+    for (const p of CORE_PROPS_C) {
+      const c = m.ranges?.[p]?.confidence;
+      coreScore += CONF_W[c] || 0;
+      if (c === 'measured') measuredCount++;
+      if (c === 'handbook') handbookCount++;
+    }
+    for (const p of SAFETY_PROPS_C) {
+      const c = m.ranges?.[p]?.confidence;
+      safetyScore += CONF_W[c] || 0;
+    }
+    const verified = (m.sources || []).filter(s => s.verified).length;
+    let tier;
+    if (verified >= 2 || (measuredCount >= 4 && verified >= 1)) tier = 'high';
+    else if (verified >= 1 || (handbookCount >= 6 && safetyScore >= 3)) tier = 'medium';
+    else if (handbookCount >= 4 || safetyScore >= 1.5) tier = 'medium-low';
+    else tier = 'low';
+    m.confidence_tier = tier;
+    tc[tier]++;
   }
-  for (const p of SAFETY_PROPS_C) {
-    const c = m.ranges?.[p]?.confidence;
-    safetyScore += CONF_W[c] || 0;
-  }
-  const verified = (m.sources || []).filter(s => s.verified).length;
-  let tier;
-  if (verified >= 2 || (measuredCount >= 4 && verified >= 1)) tier = 'high';
-  else if (verified >= 1 || (handbookCount >= 6 && safetyScore >= 3)) tier = 'medium';
-  else if (handbookCount >= 4 || safetyScore >= 1.5) tier = 'medium-low';
-  else tier = 'low';
-  m.confidence_tier = tier;
-  tierCounts[tier]++;
+  return tc;
 }
-console.log(`R133b — confidence_tier: high=${tierCounts.high}, medium=${tierCounts.medium}, medium-low=${tierCounts['medium-low']}, low=${tierCounts.low}`);
+let tierCounts = assignConfidenceTiers();
+console.log(`R133b — confidence_tier (1차): high=${tierCounts.high}, medium=${tierCounts.medium}, medium-low=${tierCounts['medium-low']}, low=${tierCounts.low}`);
 
 // R146 — Cost data Q2 2026 verified backfill.
 //   data/cost-verified-q2-2026.json 의 24 alloy 의 시장 단가 → ranges.price_per_kg.confidence='measured' +
@@ -4262,6 +4267,12 @@ try {
   /* R209 2차 — R173/R199 가 재주입한 matweb·wiki·blog source 를 다시 강등 (idempotent). */
   const r2 = normalizeSources(all);
   console.log(`R209 — source 정규화(2차, 재주입분): ${r2.replaced} URL 교체 · ${r2.down} verified=false 강등`);
+
+  /* R211 — r173 patch(+2차 normalize)로 추가/강등된 verified 출처를 반영해 confidence_tier·verified 카운트 최종 재계산.
+     (1차 계산은 r173 patch 이전이라 신규 출처 미반영.) */
+  tierCounts = assignConfidenceTiers();
+  withVerifiedSrc = all.filter(m => m.sources.some(s => s.verified)).length;
+  console.log(`R211 — confidence_tier (최종, r173 반영): high=${tierCounts.high}, medium=${tierCounts.medium}, medium-low=${tierCounts['medium-low']}, low=${tierCounts.low} · verified-src ${withVerifiedSrc}/${all.length}`);
 } catch (e) {
   console.warn('R199 source URL overrides skipped:', e.message);
 }
