@@ -6379,34 +6379,19 @@
       ],
       "heat_treatments": {
         "as_built": {
-          "uts": 365,
-          "uts_z": 360,
-          "ys": 320,
-          "ys_z": 300,
-          "elong": 22.5,
-          "elong_z": 22.5,
-          "hardness_HV": 106.5,
-          "hardness_HRC": null,
-          "hardness_HB": null,
-          "surface_ra_lo": 9,
-          "surface_ra_hi": 21,
-          "surface_ra_um": "9~21",
-          "notes": "AM as-built + artificial aging 325°C × 4h"
-        },
-        "heat-treated": {
           "uts": 375,
           "uts_z": 370,
           "ys": 345,
           "ys_z": 325,
           "elong": 22,
           "elong_z": 23,
-          "hardness_HV": 112,
+          "hardness_HV": 106.5,
           "hardness_HRC": null,
           "hardness_HB": null,
           "surface_ra_lo": 9,
-          "surface_ra_hi": 17,
-          "surface_ra_um": "9~17",
-          "notes": null
+          "surface_ra_hi": 21,
+          "surface_ra_um": "9~21",
+          "notes": "As-printed, no post-process aging (un-aged). Nikon SLM MDS non-heat-treated. Mild XY>Z anisotropy."
         },
         "stress_relieved": {
           "uts": 520,
@@ -6421,22 +6406,7 @@
           "surface_ra_lo": null,
           "surface_ra_hi": null,
           "surface_ra_um": null,
-          "notes": null
-        },
-        "aged": {
-          "uts": 355,
-          "uts_z": 350,
-          "ys": 295,
-          "ys_z": 275,
-          "elong": 23,
-          "elong_z": 22,
-          "hardness_HV": 101,
-          "hardness_HRC": null,
-          "hardness_HB": null,
-          "surface_ra_lo": 15,
-          "surface_ra_hi": 21,
-          "surface_ra_um": "15~21",
-          "notes": null
+          "notes": "325°C/4h artificial aging (Al3(Sc,Zr) precipitation, APWORKS-advised; 3D Systems 'SR' / Nikon 'ANN' / GE 'DA'). The strengthened state. R216."
         }
       },
       "composition_family": "AlScZr_family",
