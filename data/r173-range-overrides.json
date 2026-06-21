@@ -2,6 +2,17 @@
   "_note": "R173 Phase B — 발견된 명백한 데이터 오류 정정 (R173 검증 과정에서 handbook 과 비교 결과). build-materials.mjs 의 후처리에서 entry 이름 정확 매칭 시 ranges 의 typical/min/max 를 overrides 의 값으로 교체. 출처 = ASM Handbook + MMPDS-08.",
   "overrides": [
     {
+      "name": "ZE63A — As-supplied (Wrought)",
+      "ranges": {
+        "density": { "typical": 1.87, "min": 1.84, "max": 1.87, "confidence": "handbook", "n": 1 },
+        "yield_strength": { "typical": 190, "min": 175, "max": 200, "confidence": "handbook", "n": 1 },
+        "uts": { "typical": 300, "min": 290, "max": 310, "confidence": "handbook", "n": 1 },
+        "elongation": { "typical": 10, "min": 7, "max": 12, "confidence": "handbook", "n": 1 },
+        "thermal_conductivity": { "typical": 109, "min": 105, "max": 122, "confidence": "handbook", "n": 1 }
+      },
+      "reason": "R221b — CSV(M_000041~60)가 ZE63A As-Cast/Annealed/T1~T10 등 21개 가짜 HT variant를 합성 inflated UTS(369~447)·낮은 thermal_k(50)·낮은 El(~4.5)로 등록. 대표 entry가 T1 variant(UTS 393.6)를 들고 있어 신규 verified AZoM source(UTS 300)와 모순. 실제 ZE63A-T6: σy~190 / UTS~300 / El~10% / k~109 W/m·K / ρ1.87 (AZoM UNS M16630 + ASM Vol.2)로 정정."
+    },
+    {
       "name": "AA 7075 — Annealed (Wrought)",
       "ranges": {
         "yield_strength": { "typical": 105, "min": 95, "max": 145, "confidence": "handbook", "n": 1 },

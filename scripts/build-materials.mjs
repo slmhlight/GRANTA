@@ -1241,7 +1241,7 @@ function assignPhysicals(m) {
     /* R110 — Polymer Tg (Glass Transition Temperature) family typical. ASM Handbook Vol.21 + IDES Prospector + ISO 11357 (DSC). */
     const tg = has(/ppsu/) ? 220 : has(/pes\b/) ? 225 : has(/peek/) ? 143 : has(/pei|ultem/) ? 217 : has(/pekk/) ? 162
       : has(/psu\b|polysulf/) ? 187 : has(/polycarb|\bpc\b/) ? 147 : has(/pmma|acrylic/) ? 105 : has(/abs/) ? 105
-      : has(/polyamide|nylon|pa1[12]|pa6/) ? 55 : has(/\bpvc\b/) ? 85 : has(/petg/) ? 80 : has(/\bpet\b/) ? 75 : has(/pla/) ? 60 : has(/pps\b/) ? 88
+      : has(/polyamide|nylon|pa1[12]|pa6/) ? 55 : has(/\bpvc\b/) ? 85 : has(/pvdf/) ? -38 : has(/petg/) ? 80 : has(/\bpet\b/) ? 75 : has(/pla/) ? 60 : has(/pps\b/) ? 88
       : has(/pom|acetal/) ? -73 : has(/tpu|elastomer/) ? -30 : has(/\bpp\b|polypro/) ? -10
       : has(/hdpe|ldpe|\bpe\b/) ? -120 : has(/epoxy/) ? 120 : has(/polyester/) ? 110 : has(/vespel|polyimid/) ? 360 : 80;
     return { ec: 0, tmax, price, cte, poisson: 0.40, cp: 1500, melt: null, tg, qual: { corrosion: 'Excellent', machinability: 'Good', weldability: 'N/A' } };
