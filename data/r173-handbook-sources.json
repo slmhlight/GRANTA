@@ -2804,21 +2804,32 @@
       "industry_note": "R173 — ZTA (Zirconia-Toughened Alumina, 10-20% ZrO₂ dispersion in α-Al₂O₃ matrix). Y-PSZ 입자가 alumina matrix 안에서 stress field 받아 tetragonal → monoclinic transformation → crack 흡수. ρ 4.1 / σf 700 / E 350 / KIC 6 (alumina 의 1.3× — toughening). Tmax 1500°C (over T 시 zirconia overaging). Mohs 9. 가공 비싸 ($150+/kg). 의료 hip joint head/ball (CeramTec BIOLOX delta 가 ZTA + Cr/Sr 추가), wear-resistant component (pump, valve), 정밀 ball valve seat. ⚠ entry 의 Tmax 540 은 오류 (handbook 1500°C)."
     },
     {
-      "_alloy": "Foam Core (PMI/PVC/PUR)",
-      "pattern": "^Foam Core\\b|^Rohacell\\b|^Divinycell\\b|^Airex\\b",
+      "_alloy": "Foam Core (general — PMI/PVC/PUR/SAN)",
+      "_r221": "general foam overview note only — 제조사별 source 는 foam-type 별 패치(아래)로 분리(과거엔 Rohacell+Diab 를 모든 foam 에 일괄 부여하는 cross-material 버그).",
+      "pattern": "^Foam Core\\b|^Airex\\b",
+      "industry_note": "R173 — Sandwich panel core foam:\n  • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안.\n  • PVC closed-cell (Divinycell H/HP): ρ 0.06-0.40, σy 1-8 MPa, Tmax 80-130°C. Marine 선체 core 표준.\n  • PUR/PIR: 단열 + 구조 (저비용 RV/요트).\nSandwich panel: shear thru-thickness 우수, bending stiffness × 5-10 boost (skin-core-skin). 항공기 floor panel (Boeing/Airbus), 보트 hull, F1 monocoque inner core, ski/snowboard, wind turbine blade."
+    },
+    {
+      "_alloy": "Divinycell PVC foam (DIAB) — R221 verified",
+      "pattern": "Divinycell",
       "sources": [
         {
-          "label": "Evonik Rohacell PMI Foam Core datasheet",
-          "url": "https://www.rohacell.com/",
-          "verified": true
-        },
-        {
-          "label": "Diab Divinycell PVC Foam Core",
-          "url": "https://www.diabgroup.com/",
+          "label": "DIAB Divinycell H 데이터시트 (rev 26 SI)",
+          "url": "https://diab-media.azureedge.net/eyajkrhd/diab-divinycell-h-may-2026-rev26-si.pdf",
           "verified": true
         }
-      ],
-      "industry_note": "R173 — Sandwich panel core foam:\n  • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안.\n  • PVC closed-cell (Divinycell H/HP): ρ 0.06-0.40, σy 1-8 MPa, Tmax 80-130°C. Marine 선체 core 표준.\n  • PUR/PIR: 단열 + 구조 (저비용 RV/요트).\nSandwich panel: shear thru-thickness 우수, bending stiffness × 5-10 boost (skin-core-skin). 항공기 floor panel (Boeing/Airbus), 보트 hull, F1 monocoque inner core, ski/snowboard, wind turbine blade."
+      ]
+    },
+    {
+      "_alloy": "Rohacell PMI foam (Evonik) — R221",
+      "pattern": "Rohacell",
+      "sources": [
+        {
+          "label": "Evonik Rohacell PMI foam 데이터시트",
+          "url": "https://www.rohacell.com/product/rohacell/",
+          "verified": true
+        }
+      ]
     },
     {
       "_alloy": "AISI 52100 (bearing steel)",
