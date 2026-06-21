@@ -74,6 +74,21 @@ describe('데이터 산출물 불변식 (materials.json)', () => {
     }
     expect(viol).toEqual([]);
   });
+
+  it('금속 fatigue 가 물리 endurance 상한(0.63·UTS) 이내 — R214', () => {
+    // smooth-specimen R=-1 endurance ratio 물리 상한: Ti ~0.6 가 최고, 대부분 ≤0.5. 0.63 절대 ceiling 초과는
+    // hardened baseline 의 soft 조건 오적용 등 비물리값 (R214 가 family-ratio 로 교정). regression 가드.
+    const viol: string[] = [];
+    for (const m of materials) {
+      if (m.category !== 'Metal') continue;
+      const f = m.ranges?.fatigue_strength?.typical;
+      const u = m.ranges?.uts?.typical;
+      if (typeof f === 'number' && typeof u === 'number' && u > 0 && f / u > 0.63) {
+        viol.push(`${m.name}: fatigue/UTS ${(f / u).toFixed(2)} (${f}/${u})`);
+      }
+    }
+    expect(viol).toEqual([]);
+  });
 });
 
 describe('build-meta.json SSOT 일치 (doc-drift 게이트)', () => {

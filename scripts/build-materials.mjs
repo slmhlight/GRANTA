@@ -4466,6 +4466,30 @@ try {
   console.log(`R213 — process/manufacturer 정규화(잔여): process ${procFixed}, manufacturer ${mfrFixed}`);
 }
 
+/* R214 — σf 물리상한 보정: fatigue/UTS 가 family endurance-ratio ceiling 을 초과한 엔트리를
+ *   per-entry 조사(워크플로)로 도출한 교정값으로 덮어씀. 근본원인: hardened/peak baseline 이 soft 조건에
+ *   오적용 · cold-work multiplier overshoot · Cu/Al family ratio 초과 · cast defect-limited · elevated-temp.
+ *   교정값은 physics/handbook 유도라 confidence='derived', estimated=true 로 정직 표기. data/r214-fatigue-overrides.json. */
+{
+  const r214 = JSON.parse(fs.readFileSync(path.join(DATA, 'r214-fatigue-overrides.json'), 'utf8')).overrides;
+  const byName = new Map(all.map((m) => [m.name, m]));
+  let applied = 0; const missed = [];
+  for (const ov of r214) {
+    const m = byName.get(ov.name);
+    if (!m) { missed.push(ov.name); continue; }
+    const v = ov.fatigue;
+    m.ranges.fatigue_strength = {
+      min: Math.round(v * 0.85), max: Math.round(v * 1.15), typical: v, n: 0, estimated: true,
+      confidence: 'derived',
+      provenance: `R214 σf 물리상한 보정 (≈${ov.ratio}·UTS, ${ov.tier}): ${ov.basis}`,
+    };
+    m.fatigue_strength = v;
+    m.fatigue_estimated = true;
+    applied++;
+  }
+  console.log(`R214 — σf 물리상한 보정: ${applied}/${r214.length} 적용${missed.length ? ` · 미매칭 ${missed.length}: ${missed.slice(0, 5).join(' | ')}` : ''}`);
+}
+
 /* R173 Phase B — Name overrides (표기 중복 정리).
  *   data/r173-name-overrides.json 의 from→to 매핑으로 entry name 정규화.
  *   ID 는 변경 X (deeplink 보존). aliases 는 build pipeline 후속 단계에서 재생성. */
