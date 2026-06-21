@@ -150,6 +150,8 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   'detail.properties': { ko: '물성', en: 'Properties' },
   'detail.composition': { ko: '조성', en: 'Composition' },
   'detail.process': { ko: '공정', en: 'Process' },
+  'detail.history': { ko: 'History · 개발 배경', en: 'History & Background' },
+  'detail.history.standard': { ko: '산업 표준 · 규격', en: 'Industry standard' },
   'detail.section.mechanical': { ko: '기계적 물성', en: 'Mechanical Properties' },
   'detail.section.physical': { ko: '물리적 물성', en: 'Physical Properties' },
   'detail.section.cost': { ko: '원가', en: 'Cost' },
