@@ -119,6 +119,30 @@ describe('htConditionMultiplier — Ni superalloy', () => {
     const r = htConditionMultiplier({ name: 'Inconel 625 — Annealed' });
     expect(r.f).toBe(1.00); // solid-solution baseline
   });
+
+  /* R218 — cast/SX γ′ 분리: wrought 718 보정(annealed f=0.95)을 상속하면 안 됨 (defect-지배). */
+  it('MAR-M 247 (cast γ′) solution — wrought 0.95 미적용, cast defect-capped 0.85', () => {
+    const r = htConditionMultiplier({ name: 'MAR-M 247 — Solution treated' });
+    expect(r.f).toBe(0.85);
+    expect(r.condTag).toContain('cast');
+  });
+
+  it('Inconel 738 (cast 7xx) as-cast — defect-limited f=0.80 (cast block)', () => {
+    const r = htConditionMultiplier({ name: 'Inconel 738 (IN738) — As-built' });
+    expect(r.f).toBe(0.80);
+    expect(r.condTag).toContain('as-cast');
+  });
+
+  it('René 80 (cast) HIP — 기공 제거로 피로 ↑ (f=1.10)', () => {
+    const r = htConditionMultiplier({ name: 'Rene 80 — Cast + HIP' });
+    expect(r.f).toBe(1.10);
+  });
+
+  it('Inconel 740H (wrought 7xx) solution — wrought block 유지 (f=0.92, cast 분리에 영향 없음)', () => {
+    const r = htConditionMultiplier({ name: 'Inconel 740H — Solution treated (1135°C)' });
+    expect(r.f).toBe(0.92);
+    expect(r.condTag).toContain('solution treated');
+  });
 });
 
 describe('htConditionMultiplier — Ti-6Al-4V', () => {

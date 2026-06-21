@@ -72,8 +72,10 @@ export function htConditionMultiplier(m) {
         · Wang/Yu, Metals 2018 8(12) (저널, rotating-bend R=-1 1e7): ST 492 / ST+A 461 MPa → f=1.067 (시효가 HCF 를 오히려 ~6% 낮춤).
         → 0.45·UTS 휴리스틱(f≈0.69)은 반증(실측 aged e/UTS≈0.37). f=0.95 는 제조사값에 거의 일치하는 보수적 선택.
      ── 한계: 단일 family multiplier 는 "annealed" 의 mill-anneal(강)~full-solution(연) 폭을 못 가름.
-        cast/SX γ′(IN-100/738/939·MAR-M·CMSX·PWA·René)는 defect-지배 피로라 본 wrought 보정과 물리가 다름 — 별도 처리 대상(follow-up). */
-  if (/inconel\s*7\d{2}|inconel\s*x[\s-]?7\d{2}|inconel\s*939|inconel\s*100|inconel\s*706|waspaloy|nimonic\s*(?:80|90|105|115|263)|udimet|rene\s*\d|cmsx|pwa|mar[\s-]?m|haynes\s*282|haynes\s*214/.test(name)) {
+        cast/SX γ′(IN-100/738/939·MAR-M·CMSX·PWA·René)는 defect-지배 피로라 물리가 달라 R218 에서 별도 block 으로 분리(아래). */
+  // WROUGHT γ″/γ′ PH (718·706·740·783·X-750·Waspaloy·Nimonic·Udimet·Haynes 282/214) — R212 실측 보정 적용 대상.
+  // 7\d{2} 중 cast 7xx(713·738·792)만 lookahead 로 제외 → 아래 cast block 이 선처리. 나머지 7xx 는 wrought.
+  if (/inconel\s*7(?!13|38|92)\d{2}|inconel\s*x[\s-]?7\d{2}|waspaloy|nimonic\s*(?:80|90|105|115|263)|udimet|haynes\s*282|haynes\s*214/.test(name)) {
     if (/annealed(?!.*aged)/.test(combined)) return { f: 0.95, i: 1.50, k: 1.40, condTag: 'annealed' };
     if (/solution\s*(?:treated|annealed)(?!.*aged)|^solution$/.test(combined)) return { f: 0.92, i: 1.40, k: 1.30, condTag: 'solution treated' };
     if (/single\s*age|sta\b/.test(combined)) return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA single age' };
@@ -83,6 +85,17 @@ export function htConditionMultiplier(m) {
     // (즉 soft 조건이지만 annealed 처럼 ~0.95 로 올리지 않음: as-built 피로는 기공 지배).
     if (/as-?built|as-?fab/.test(combined)) return { f: 0.80, i: 1.30, k: 1.20, condTag: 'as-built (no age)' };
     return { f: 1.00, i: 1.00, k: 1.00, condTag: 'STA (assumed)' };
+  }
+
+  /* R218 — CAST / single-crystal γ′ Ni superalloy (IN-100/713/738/792/939·MAR-M·CMSX·PWA·René 80/95/142/N5·DS/SX).
+     wrought 718 보정(R212 f=0.95)과 분리: 주조/단결정 γ′ 피로는 응고결함(수축기공·조대 수지상결정) 지배라 물리가 다름.
+     · HIP: 기공 압착 제거 → 피로 ↑(f>1). · as-cast: defect-limited → ↓. · soft(annealed/solution): wrought 0.95 미적용
+       (결함이 endurance 상한 지배 → ~0.85). 보통 HIP+aged 로 사용(baseline f=1). 단일결정은 방위의존성 추가(여기선 평균). */
+  if (/cmsx|rene\s*n?\d|pwa\s*1?\d|mar[\s-]?m|inconel\s*(?:100|713|738|792|939)|in[\s-]?(?:100|713|738|939)|single[\s-]?crystal|directionally[\s-]?solid|ds[\s-]?cast/.test(name)) {
+    if (/hip\b/.test(combined)) return { f: 1.10, i: 1.05, k: 1.05, condTag: 'HIP densified (cast)' };
+    if (/as-?cast|as-?built|as-?fab/.test(combined)) return { f: 0.80, i: 1.20, k: 1.10, condTag: 'as-cast (defect-limited)' };
+    if (/annealed(?!.*aged)|solution\s*(?:treated|annealed)(?!.*aged)|^solution$/.test(combined)) return { f: 0.85, i: 1.30, k: 1.20, condTag: 'solution (cast, defect-capped)' };
+    return { f: 1.00, i: 1.00, k: 1.00, condTag: 'cast γ′ aged/peak' };
   }
 
   // Ni superalloy solid-solution (Inconel 600/601/617/625/690, Hastelloy, Incoloy) — no real HT effect on fatigue/KIC
