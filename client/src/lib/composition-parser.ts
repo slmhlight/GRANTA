@@ -48,13 +48,17 @@ export function parseCompositionRange(input: string): CompositionRange | null {
   // Try to extract numeric values
   const patterns = [
     // Range patterns: "50~100", "50-100", "50 to 100"
-    { regex: /^([\d.]+)\s*[~\-to]\s*([\d.]+)$/i, type: 'range' },
+    // R222d — separator는 ~ · - · "to"(단어). 기존 [~\-to]는 단일문자 클래스라 "to"를
+    //   't'/'o' 단일문자로만 매칭해 "50 to 100"이 range 분기를 놓치고 fallback에 의존했음.
+    { regex: /^([\d.]+)\s*(?:~|-|to)\s*([\d.]+)$/i, type: 'range' },
     // Comparison patterns: "≤5", "≥95", "<5", ">95"
     { regex: /^([≤<])\s*([\d.]+)$/, type: 'max' },
     { regex: /^([≥>])\s*([\d.]+)$/, type: 'min' },
     // Named patterns: "max 5", "min 50"
-    { regex: /^max\s+([\d.]+)$/i, type: 'max' },
-    { regex: /^min\s+([\d.]+)$/i, type: 'min' },
+    // R222d — 숫자를 match[2]에 두도록 (max)/(min) 캡처 그룹 추가. handler가 match[2]를 읽는데
+    //   기존 named regex는 숫자를 match[1]에 둬서 "max 5"/"min 50"이 NaN을 반환하던 버그.
+    { regex: /^(max)\s+([\d.]+)$/i, type: 'max' },
+    { regex: /^(min)\s+([\d.]+)$/i, type: 'min' },
     // Single value: "50"
     { regex: /^([\d.]+)$/, type: 'exact' },
   ];
