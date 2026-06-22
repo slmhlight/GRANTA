@@ -63,7 +63,7 @@ function polymerVendorURL(subcategory, name) {
   if (s.includes('psu') || s.includes('polysulf')) return { label: 'Solvay Udel PSU', url: 'https://www.solvay.com/en/brands/udel-psu', verified: true };
   if (s.includes('ppsu') || n.includes('ppsu')) return { label: 'Solvay Radel PPSU', url: 'https://www.solvay.com/en/brands/radel-ppsu', verified: true };
   if (s.includes('pes') || n.includes('pes ')) return { label: 'Solvay Veradel PES', url: 'https://www.solvay.com/en/brands/veradel-pes', verified: true };
-  if (s.includes('pps') || n.includes('fortron')) return { label: 'Celanese Fortron PPS', url: 'https://www.celanese.com/products/Fortron-PPS', verified: true };
+  if (s.includes('pps') || n.includes('pps') || n.includes('fortron')) return { label: 'Celanese Fortron PPS', url: 'https://www.celanese.com/products/Fortron-PPS', verified: true };
   if (s.includes('pa12') || n.includes('pa12') || n.includes('nylon 12')) return { label: 'EOS PA 2200 / Arkema Rilsan PA12', url: 'https://www.eos.info/en-us/3d-printing-materials/plastic/polyamide-pa-12-alumide', verified: true };
   if (s.includes('pa66') || n.includes('pa66') || n.includes('nylon 66')) return { label: 'BASF Ultramid PA66', url: 'https://www.basf.com/global/en/products/plastics/engineering-plastics/ultramid.html', verified: true };
   if (s.includes('nylon') || s.includes('polyamide') || s.includes('pa1') || s.includes(' pa')) return { label: 'BASF Ultramid / EOS PA powder', url: 'https://www.eos.info/en-us/3d-printing-materials/plastic', verified: true };
@@ -75,10 +75,10 @@ function polymerVendorURL(subcategory, name) {
   if (s.includes('tpu') || n.includes('tpu')) return { label: 'Lubrizol Estane TPU', url: 'https://www.lubrizol.com/Engineered-Polymers', verified: true };
   if (s.includes('pom') || s.includes('acetal') || n.includes('hostaform') || n.includes('delrin')) return { label: 'Celanese Hostaform / DuPont Delrin POM', url: 'https://www.celanese.com/products/hostaform-pom', verified: true };
   if (s.includes('vespel') || s.includes('polyimid')) return { label: 'DuPont Vespel Polyimide', url: 'https://www.dupont.com/products/vespel-parts-and-shapes.html', verified: true };
-  if (s.includes('epoxy') || n.includes('epoxy')) return { label: 'Hexion Epoxy resins', url: 'https://www.hexion.com/en-us/products/epoxy-resins', verified: true };
+  if ((s.includes('epoxy') || n.includes('epoxy')) && !s.includes('polyester') && !n.includes('polyester')) return { label: 'Hexion Epoxy resins', url: 'https://www.hexion.com/en-us/products/epoxy-resins', verified: true };
   if (s.includes('polyester') || n.includes('polyester')) return { label: 'AOC Vipel polyester resins', url: 'https://aocresins.com/products', verified: true };
   if (s.includes('hdpe') || s.includes('ldpe') || s.includes('pe') && !s.includes('peek')) return { label: 'Dow PE resin product family', url: 'https://www.dow.com/en-us/market/mkt-packaging/sub-pack-flex-pack/resins-for-flex-pack/polyethylene-resins.html', verified: true };
-  if (s.includes('pp') || s.includes('polypro')) return { label: 'ExxonMobil PP product family', url: 'https://www.exxonmobilchemical.com/en/products/polymers-and-plastics/polypropylene', verified: true };
+  if ((s.includes('pp') || s.includes('polypro')) && !/pps|ppsu|psu/.test(s) && !/\bpps\b|\bppsu\b/.test(n)) return { label: 'ExxonMobil PP product family', url: 'https://www.exxonmobilchemical.com/en/products/polymers-and-plastics/polypropylene', verified: true };
   return null;
 }
 // R155b — dedupeSources, mostCommonKnown → scripts/lib/utilities.mjs 로 이동.

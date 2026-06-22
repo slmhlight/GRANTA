@@ -513,7 +513,7 @@
     },
     {
       "_alloy": "Boron Carbide (B4C — armor)",
-      "pattern": "^Boron Carbide\\b|^B4C\\b|^B₄C\\b",
+      "pattern": "^Boron Carbide\\b(?!.*MMC)|^B4C\\b(?!-?Al)|^B₄C\\b(?!-?Al)",
       "sources": [
         {
           "label": "CoorsTek Boron Carbide datasheet",
@@ -1179,7 +1179,8 @@
     },
     {
       "_alloy": "GRCop-42 (NASA Cu-Cr-Nb)",
-      "pattern": "^GRCop[\\s-]?42\\b|^GRCop[\\s-]?84\\b|^Cu-Cr-Nb\\b",
+      "_r223": "GRCop-84 제외: TM-2017-219568은 GRCop-42(Cu-4Cr-2Nb) 전용. GRCop-84는 자체 NTRS 소스 보유.",
+      "pattern": "^GRCop[\\s-]?42\\b|^Cu-Cr-Nb\\b",
       "sources": [
         {
           "label": "NASA TM-2017-219568 — GRCop-42 AM rocket engine",
@@ -1277,11 +1278,6 @@
           "label": "ATI Vanadium technical data",
           "url": "https://www.atimaterials.com/",
           "verified": true
-        },
-        {
-          "label": "ASTM B392 — Niobium and Niobium Alloy Plate (Nb-V)",
-          "url": "https://store.astm.org/b0392-20.html",
-          "verified": false
         }
       ],
       "industry_note": "R173 — Pure Vanadium (V, UNS R63702) — refractory metal. Tm 1910°C, ρ 6.11 g/cc, E 128 GPa. Annealed: σy 730 / UTS 864. Tmax 600°C continuous in air (rapid oxidation above). 핵 fusion reactor first-wall material (V-Cr-Ti alloy — low neutron activation), 자동차 catalytic converter (V₂O₅ catalyst), special steel alloying (HSLA + spring steel — VC carbide). 99.9% pure V 은 ductile, but trace O/N → embrittlement."
@@ -1806,15 +1802,16 @@
     },
     {
       "_alloy": "Haynes 188 (Co superalloy)",
-      "pattern": "^Haynes 188\\b|^L-?605\\b|^Alloy 188\\b|^UNS R30188\\b|^UNS R30605\\b",
+      "_r223": "L605/R30605 제외: Haynes 188 datasheet·AMS 5772는 R30188(Haynes 188) 전용. L605(R30605)의 spec은 AMS 5537/5759 — 자체 Haynes 25/L-605 소스 보유.",
+      "pattern": "^Haynes 188\\b|^Alloy 188\\b|^UNS R30188\\b",
       "sources": [
         {
-          "label": "Haynes International — Haynes 188 / L-605 datasheet",
+          "label": "Haynes International — Haynes 188 datasheet",
           "url": "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HAYNES188alloy",
           "verified": true
         },
         {
-          "label": "AMS 5772 — Haynes 188 (L-605 / Co-Cr-W-Ni)",
+          "label": "AMS 5772 — Haynes 188 (Co-Cr-Ni-W)",
           "url": "https://www.sae.org/standards/content/ams5772/",
           "verified": false
         }
@@ -2456,18 +2453,38 @@
           "label": "ATI VascoMax C-300 / C-350 datasheet",
           "url": "https://www.atimaterials.com/",
           "verified": true
-        },
-        {
-          "label": "AMS 6520 — VascoMax C-350 18Ni-9Co",
-          "url": "https://www.sae.org/standards/content/ams6520/",
-          "verified": false
         }
       ],
       "industry_note": "R173 — ATI VascoMax C-300 (UNS K93120 18Ni-9Co-5Mo-0.7Ti) / C-350 (UNS K93501 18Ni-9Co-3.5Mo-1.6Ti) — Cobalt-strengthened 18Ni maraging. Cobalt 9% 가 standard 250/300 의 7-9% 동등 but with high-Ti for stronger γ' analog precipitate. Solution annealed: σy 970-980 / UTS 1100-1150 / El 12%. Maraged 482°C/6h: C-300 σy 1860 / UTS 2080, C-350 σy 2310 / UTS 2400 (peak strength among maraging). Tmax 480°C continuous. 항공 high-strength fastener, missile case, 폭격 비행기 landing gear. ⚠ entry 의 Tmax 200 은 오류 — handbook 480°C (over-aging 위쪽)."
     },
     {
-      "_alloy": "SUP9 / SUP10 (JIS spring steel)",
-      "pattern": "^SUP9\\b|^SUP10\\b",
+      "_alloy": "Maraging C350 (AMS 6520, C350-only) — R223",
+      "_r223": "AMS 6520은 VascoMax C-350(18Ni-9Co-3.5Mo-1.6Ti) 전용 — shared C300/C350 패치에서 분리. C300은 AMS 6514.",
+      "pattern": "^Maraging C-?350\\b|^VascoMax C-?350\\b",
+      "sources": [
+        {
+          "label": "AMS 6520 — VascoMax C-350 18Ni-9Co",
+          "url": "https://www.sae.org/standards/content/ams6520/",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "_alloy": "SUP10 (JIS Cr-V spring steel) — R223",
+      "_r223": "SUP10 분리 — MatWeb SUP9 링크는 SUP9 전용(SUP10은 Cr-V 별개 grade). SUP10은 자체 OTAI(R211) 소스도 보유.",
+      "pattern": "^SUP10\\b",
+      "sources": [
+        {
+          "label": "JIS G4801 — Spring Steels (SUP9/10/12)",
+          "url": "https://www.jisc.go.jp/",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "_alloy": "SUP9 (JIS Cr-Mn spring steel)",
+      "_r223": "SUP10 제외(위 별도 패치). MatWeb SUP9 링크는 SUP9 전용.",
+      "pattern": "^SUP9\\b",
       "sources": [
         {
           "label": "JIS G4801 — Spring Steels (SUP9/10/12)",

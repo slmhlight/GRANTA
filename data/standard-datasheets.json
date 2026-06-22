@@ -323,7 +323,7 @@
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels"
     },
     {
-      "pattern": "\\b1010\\b|aisi[\\s-]*1010|sae[\\s-]*1010|uns[\\s-]*g10100",
+      "pattern": "(?:aisi|sae)[\\s-]*1010\\b|uns[\\s-]*g10100",
       "label": "MakeItFrom — AISI 1010 / SAE 1010 Carbon Steel",
       "url": "https://www.makeitfrom.com/material-properties/SAE-AISI-1010-G10100-Carbon-Steel"
     },
@@ -343,22 +343,22 @@
       "url": "https://www.atimaterials.com"
     },
     {
-      "pattern": "\\b1018\\b|aisi 1018|sae 1018",
+      "pattern": "(?:aisi|sae)[\\s-]*1018\\b",
       "label": "MatWeb — AISI 1018 carbon steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1018"
     },
     {
-      "pattern": "\\b1020\\b|aisi 1020|sae 1020",
+      "pattern": "(?:aisi|sae)[\\s-]*1020\\b",
       "label": "MatWeb — AISI 1020 carbon steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1020"
     },
     {
-      "pattern": "\\b1045\\b|aisi 1045|sae 1045",
+      "pattern": "(?:aisi|sae)[\\s-]*1045\\b",
       "label": "MatWeb — AISI 1045 carbon steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1045"
     },
     {
-      "pattern": "\\b1050\\b|aisi 1050|sae 1050",
+      "pattern": "(?:aisi|sae)[\\s-]*1050\\b|uns[\\s-]*g10500",
       "label": "MatWeb — AISI 1050 carbon steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1050"
     },
@@ -393,7 +393,7 @@
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+52100"
     },
     {
-      "pattern": "\\b5160\\b|aisi 5160|sup9",
+      "pattern": "\\b5160\\b|aisi 5160",
       "label": "MatWeb — AISI 5160 spring steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+5160"
     },
@@ -493,7 +493,7 @@
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=319+aluminum+cast"
     },
     {
-      "pattern": "\\ba380\\b|^380\\b cast|alsi8cu",
+      "pattern": "^a380\\b|^380\\b cast|alsi8cu",
       "label": "MatWeb — Aluminum 380 die cast",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=380+aluminum+cast"
     },
@@ -508,7 +508,7 @@
       "url": "https://www.apworks.de/scalmalloy"
     },
     {
-      "pattern": "ti[\\s-]?cp[\\s-]?(grade)?[\\s-]?1\\b|titanium grade 1|astm grade 1",
+      "pattern": "ti[\\s-]?cp[\\s-]?(grade)?[\\s-]?1\\b|titanium grade 1\\b|astm grade 1\\b",
       "label": "MatWeb — Titanium Grade 1 (CP)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+1"
     },
@@ -618,7 +618,7 @@
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C71500"
     },
     {
-      "pattern": "\\bc95800\\b|nickel[\\s-]?aluminum bronze|nickel[\\s-]?aluminium bronze|\\bab2\\b",
+      "pattern": "\\bc95800\\b|\\bab2\\b",
       "label": "Copper.org — C95800 Nickel-Aluminum Bronze",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C95800"
     },
@@ -643,7 +643,7 @@
       "url": "https://www.luxfermeltechnologies.com"
     },
     {
-      "pattern": "cocrmo|astm f75|astm f1537|co[\\s-]?28cr[\\s-]?6mo",
+      "pattern": "^(?!.*stellite).*(?:cocrmo|astm f75|astm f1537|co[\\s-]?28cr[\\s-]?6mo)",
       "label": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
       "url": "https://store.astm.org/f0075-18.html"
     },
@@ -688,7 +688,7 @@
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nitinol"
     },
     {
-      "pattern": "maraging|18ni[\\s-]?300|c300\\b|m300\\b|1\\.2709",
+      "pattern": "\\bmaraging[\\s-]?300\\b|18ni[\\s-]?300|vascomax[\\s-]?c-?300|c300\\b|m300\\b|1\\.2709",
       "label": "Carpenter Technology — VascoMax C300 (Maraging 300)",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel"
     },
@@ -703,7 +703,7 @@
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=300M+steel"
     },
     {
-      "pattern": "tungsten|\\bw 99|pure tungsten",
+      "pattern": "\\bw 99|pure tungsten",
       "label": "MatWeb — Pure Tungsten W",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tungsten"
     },
@@ -718,7 +718,7 @@
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Molybdenum"
     },
     {
-      "pattern": "niobium|\\bnb\\b 99|\\bc-?103\\b|nb-hf-ti",
+      "pattern": "niobium(?![\\s-]?1zr)|\\bnb\\b 99|\\bc-?103\\b|nb-hf-ti",
       "label": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Niobium+C-103"
     },
@@ -738,7 +738,7 @@
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Zirconium+705"
     },
     {
-      "pattern": "\\babs\\b(?!.*pa)|acrylonitrile butadiene",
+      "pattern": "\\babs\\b(?!.*(?:pa|steel|hull|dnv|class|shipbuild))|acrylonitrile butadiene",
       "label": "MatWeb — ABS Plastic (general)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ABS+plastic"
     },
