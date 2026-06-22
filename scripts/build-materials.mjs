@@ -3852,6 +3852,9 @@ function normalizeSources(list, { demoteMock = false } = {}) {
     /makeitfrom\.com/i,               // 집계 사이트
     /\/blog\//i,                      // 블로그 글
     /aircraftmaterials\.com\/data\/[a-z]+\.html$/i, // 카테고리 인덱스 (개별 시트 아님)
+    // R222a — 잘못된 Wayback 래퍼: 정상 timestamp 는 14자리(/web/20240115.../). R208 이 만든
+    //   /web/2024/ (4자리, 단순화된 경로) 래퍼는 모두 404 → verified 강등. 14자리 정상 스냅샷은 보존.
+    /web\.archive\.org\/web\/\d{1,13}\//i,
   ];
   const isUntrusted = (url) => !!url && (UNTRUSTED_RE.some(re => re.test(url)) || _r208Downgrade.some(p => url.startsWith(p)));
   const softenLabel = (label, url) => {
