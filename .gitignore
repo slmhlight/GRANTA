@@ -37,3 +37,21 @@ data/validation-report.md
 #         의사 결정 근거 자료로 보관하지만 repo tracking 은 불필요.
 data/hyundai-steel-pt1-ocr.txt
 data/hyundai-steel-pt2-ocr.txt
+
+# R225 — GitHub 정리: 구동에 불필요한 빌드 산출물·중간 자료·OCR·개발 리포트 추적 해제.
+#        모두 빌드/런타임에서 참조하지 않음. git history 에 남고, build:data 가 산출물을 재생성함.
+#        (build:data 가 client/public/materials/ 디렉터리를 mkdir + 5개 shard 재생성)
+client/public/materials/
+data/materials.original.json
+# source datasheet OCR/추출 텍스트 (PDF 원본 보관용, 빌드 비참조)
+data/polymer_pdfs/
+# 개발/감사 일회성 덤프·슬라이스 (빌드 비참조; r205-reliability-overrides.json 등 빌드 입력은 유지됨)
+data/r205-full-dump.json
+data/r205-qual-audit-dump.json
+data/r205-slice-*.json
+data/r211-handbook-sources-collected.json
+data/r199-truth-audit.json
+data/r198-composition-audit.json
+# 개발 과정 리포트·감사 노트 (data/ 최상위 .md/.txt 만; data/general-knowledge/ 문서는 유지)
+data/*.md
+data/*.txt
