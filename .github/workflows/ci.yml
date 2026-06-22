@@ -23,7 +23,7 @@ jobs:
         run: pnpm build:data
       - name: Type check (tsc --noEmit)
         run: pnpm check
-      - name: Lint (eslint — 정책 룰: react-hooks·TDZ·dark: 금지)
+      - name: "Lint (eslint — 정책 룰: react-hooks·TDZ·dark: 금지)"
         # R210 — 경고는 비차단(staged 도입). error(rules-of-hooks·no-use-before-define·dark:)만 실패.
         run: pnpm lint
       - name: Run unit tests + coverage (vitest)
