@@ -159,14 +159,22 @@ export function MaterialCards({
               return (
                 <div
                   key={m.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={m.name}
+                  aria-pressed={isSelected}
                   className={`
                     relative bg-card border rounded-md p-2 sm:p-3 cursor-pointer
                     transition-all duration-150 row-animate
                     hover:shadow-md hover:-translate-y-0.5
+                    focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1
                     ${isSelected ? 'border-accent shadow-sm ring-1 ring-accent/30' : 'border-border hover:border-accent/40'}
                   `}
                   style={{ animationDelay: `${Math.min(i, 30) * 15}ms` }}
                   onClick={() => onSelect(m)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(m); }
+                  }}
                 >
                   {/* Family color band (top) + side stripe */}
                   <div
@@ -180,6 +188,9 @@ export function MaterialCards({
 
                   {/* Compare button */}
                   <button
+                    type="button"
+                    aria-label={isCompare ? `${m.name} 비교에서 제거` : `${m.name} 비교에 추가`}
+                    aria-pressed={isCompare}
                     className={`
                       absolute top-2 right-2 w-5 h-5 rounded border flex items-center justify-center
                       transition-all text-[10px]
