@@ -13,8 +13,7 @@ import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/l
 import { htGlossaryFor } from '@/lib/ht-glossary';
 import { htAlloySpecificFor } from '@/lib/ht-alloy-specific';
 import { computeCET, computeCEIIW, computePcm, computeSchaeffler, computeMachinability, machiningCostBand, htCostBand } from '@/lib/welding-machinability';
-import { TempCurveChart } from '@/components/TempCurveChart';
-import { CreepRuptureChart } from '@/components/CreepRuptureChart';
+/* R222c — recharts(~150KB)는 아래에서 lazy 로드 (elev-temp/creep 데이터 있는 재료의 탭이 열릴 때만). */
 import { recommendedCoatings } from '@/lib/coatings';
 /* R157b — MaterialDetail 의 sub-components 분리. */
 import { SourcesList } from '@/components/material-detail/SourcesList';
@@ -30,8 +29,12 @@ import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor, CONFIDENCE, CONFIDENCE_ORDER } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
-import { useState as useStateRD, useEffect as useEffectRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
+import { useState as useStateRD, useEffect as useEffectRD, lazy as lazyRD, Suspense as SuspenseRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
+
+/* R222c — recharts 차트 lazy 분리 (named export → default 변환). 메인 청크에서 recharts 제거. */
+const TempCurveChart = lazyRD(() => import('@/components/TempCurveChart').then(m => ({ default: m.TempCurveChart })));
+const CreepRuptureChart = lazyRD(() => import('@/components/CreepRuptureChart').then(m => ({ default: m.CreepRuptureChart })));
 
 interface MaterialDetailProps {
   material: Material | null;
@@ -353,7 +356,9 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {material.elevated_temp && material.elevated_temp.length > 0 && (
               <div>
                 <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1"><Thermometer className="w-3 h-3" />{t('detail.tempCurve.title')}</h3>
-                <TempCurveChart series={[{ name: material.name, color: '#0066CC', points: material.elevated_temp }]} mode="single" height={200} />
+                <SuspenseRD fallback={<div className="h-[200px]" />}>
+                  <TempCurveChart series={[{ name: material.name, color: '#0066CC', points: material.elevated_temp }]} mode="single" height={200} />
+                </SuspenseRD>
                 <table className="w-full text-[11px] mt-2">
                   <thead><tr className="text-muted-foreground"><th className="text-left font-normal py-0.5">Temp</th><th className="text-right font-normal">σy (MPa)</th><th className="text-right font-normal">UTS (MPa)</th><th className="text-right font-normal">E (GPa)</th></tr></thead>
                   <tbody>
@@ -376,7 +381,9 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                   <Thermometer className="w-3 h-3" />{t('detail.creep.title')}
                   <span className="ml-auto text-[10px] text-muted-foreground">{material.creep_rupture.length} {t('detail.creep.dataPts')}</span>
                 </h3>
-                <CreepRuptureChart points={material.creep_rupture} height={200} />
+                <SuspenseRD fallback={<div className="h-[200px]" />}>
+                  <CreepRuptureChart points={material.creep_rupture} height={200} />
+                </SuspenseRD>
                 <p className="text-[10px] text-muted-foreground mt-1">{t('detail.creep.source')}</p>
               </div>
             )}
