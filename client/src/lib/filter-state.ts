@@ -45,8 +45,6 @@ export interface FilterState {
   rohsOnly?: boolean;
   /** R38e: 열처리 다중 선택 (As-built/Annealed/Solution/Aged/Q&T/HIP/Normalized/Stress-relieved/...) */
   heatTreatments: string[];
-  /** R133b: low confidence entry (verified=0 + handbook 적은) 숨기기. default ON — honest data 표시. */
-  hideLowConfidence?: boolean;
   /** R144b: multi-constraint DSL (e.g., "σy>500 ρ<5 spec:AMS5662"). search 와 독립. */
   query?: string;
   /** R144c: 표준 spec 으로 필터 (e.g., ['AMS 5662', 'UNS S17400']). */
@@ -90,8 +88,6 @@ export const DEFAULT_FILTERS: FilterState = {
   weldability: [],
   rohsOnly: false,
   heatTreatments: [],
-  // R133b — default ON: confidence_tier='low' entry (~131건, 10%) 숨김. UI 토글로 노출 가능.
-  hideLowConfidence: true,
   query: '',
   specs: [],
 };

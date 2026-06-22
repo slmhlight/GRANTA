@@ -35,9 +35,6 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   // Results / banner
   'results.count': { ko: '결과', en: 'results' },
   'results.clearFilters': { ko: '필터 초기화', en: 'clear filters' },
-  'results.lowConfHidden': { ko: '건 숨김 · 표시', en: ' hidden · show' },
-  'results.lowConfHiddenTip': { ko: '신뢰도 낮은(low) 재료가 기본 숨김 상태입니다. 클릭하면 함께 표시합니다.', en: 'Low-confidence materials are hidden by default. Click to include them.' },
-  'results.lowConfShown': { ko: 'low-confidence 포함 표시 중 · 숨기기', en: 'including low-confidence · hide' },
   'banner.scenarioApplied': { ko: '사례 적용', en: 'Scenario applied' },
   'banner.recommendedIndex': { ko: '권장 Index', en: 'Recommended index' },
   'banner.editAgain': { ko: '다시 편집', en: 'Edit again' },

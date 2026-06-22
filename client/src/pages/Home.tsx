@@ -12,7 +12,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Upload,
-  AlertTriangle,
 } from 'lucide-react';
 import { useSearch } from 'wouter';
 import { Button } from '@/components/ui/button';
@@ -215,7 +214,6 @@ export default function Home() {
     toggleSort,
     activeFilterCount,
     narrowedRanges,
-    lowConfidenceHiddenCount,
   } = useMaterialFilter(materials);
 
   // R154 — Data load 는 useMaterialPool 이 담당. 별도 effect 불필요.
@@ -790,28 +788,6 @@ export default function Home() {
                 </button>
               )}
             </span>
-
-            {/* R210 B4 — low-confidence 숨김 발견성: 기본 숨김된 항목 수를 노출 + 1-클릭 표시.
-                사이드바 토글이 묻혀 있어 사용자가 generic/저신뢰 재료 존재 자체를 모르는 문제 해소. */}
-            {filters.hideLowConfidence !== false && lowConfidenceHiddenCount > 0 && (
-              <button
-                onClick={() => updateFilter('hideLowConfidence', false)}
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-amber-100 text-amber-800 border border-amber-300 hover:bg-amber-200 flex-shrink-0"
-                title={t('results.lowConfHiddenTip')}
-              >
-                <AlertTriangle className="w-2.5 h-2.5" />
-                {lowConfidenceHiddenCount.toLocaleString()}{t('results.lowConfHidden')}
-              </button>
-            )}
-            {filters.hideLowConfidence === false && (
-              <button
-                onClick={() => updateFilter('hideLowConfidence', true)}
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-sky-50 text-sky-700 border border-sky-300 hover:bg-sky-100 flex-shrink-0"
-                title={t('results.lowConfHiddenTip')}
-              >
-                {t('results.lowConfShown')}
-              </button>
-            )}
 
             {/* Active filter chips */}
             <div className="flex flex-wrap gap-1 flex-1">

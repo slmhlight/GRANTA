@@ -1223,13 +1223,6 @@ export default function FilterSidebar({
           <span className="flex-1">RoHS 통과만 (EU 규제)</span>
           <span className="text-[10px] text-muted-foreground">Pb·Cd·Hg</span>
         </label>
-        {/* R133b — Low-confidence entry 표시 토글 (default ON = 숨김). */}
-        <label className="flex items-center gap-2 px-3 py-2 text-xs cursor-pointer select-none hover:bg-muted/40 rounded" title="verified source 없고 fatigue/impact/KIC 가 family/class fallback 인 entry (~131건, 10%) 를 숨깁니다. 솔직한 데이터 표시를 위한 default ON.">
-          <input type="checkbox" checked={filters.hideLowConfidence !== false} onChange={(e) => updateFilter('hideLowConfidence', e.target.checked)} className="accent-accent" />
-          <span className="flex-1">Low-confidence 숨기기 (default ON)</span>
-          <span className="text-[10px] text-muted-foreground">honest</span>
-        </label>
-
         {/* ── 8. Composition Browser (참고용) ── */}
         <SectionGroup label="구성 탐색 · Composition Tree" />
         <CompositionFamilyBrowser
