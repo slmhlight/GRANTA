@@ -20,6 +20,24 @@ const OUT = path.join(ROOT, 'data', 'registry');
 const CATCODE = { Metal: 'MET', Polymer: 'POL', Ceramic: 'CER', Composite: 'CMP' };
 const slug = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
+// P3 — element-family 를 subcategory 기반으로 재도출 (composition 의 Fe="balance" 오태깅 회피;
+//   예: Inconel 718 은 Fe 가 balance 표기지만 base 는 Ni → "Nickel Superalloy" subcat 이 신뢰 신호).
+function subcatElFam(sub) {
+  const s = String(sub || '').toLowerCase();
+  if (/cobalt|stellite|\bl-?605\b/.test(s)) return 'Cobalt-based';
+  if (/nickel|inconel|incoloy|hastelloy|haynes|monel|nimonic|superalloy|waspaloy/.test(s)) return 'Nickel-based';
+  if (/titanium|\bti[\s-]/.test(s)) return 'Titanium-based';
+  if (/alumin/.test(s)) return 'Aluminum-based';
+  if (/magnesium/.test(s)) return 'Magnesium-based';
+  if (/copper|bronze|brass|cupro|cu[\s-]/.test(s)) return 'Copper-based';
+  if (/refractory|tungsten|tantalum|niobium|molybden|rhenium|zirconium/.test(s)) return 'Refractory';
+  if (/zinc/.test(s)) return 'Zinc-based';
+  if (/berylli/.test(s)) return 'Beryllium-based';
+  if (/shape memory|nitinol/.test(s)) return 'Nickel-based';   // Nitinol Ni-Ti
+  if (/steel|iron|ferritic|martensitic|austenitic|duplex|stainless|maraging|invar|kovar|controlled expansion|expansion alloy/.test(s)) return 'Iron-based';
+  return null;
+}
+
 // 1) 현재 1198 entry 로드 (= HTML 기준 entry list)
 const all = [];
 for (const f of ['metal', 'polymer', 'ceramic', 'composite']) {
@@ -65,8 +83,12 @@ for (const m of all) {
   ensure(subId, m.subcategory, 'subcategory', catId).members.push(m.stable_id);
   const abId = baseFamId[baseOf(m.name)];
   ensure(abId, baseOf(m.name), 'alloy-base', subId).members.push(m.stable_id);
-  const elTags = [...new Set((m.families || []).filter(f => /-based$|refractory/i.test(f)).map(t => /refractory/i.test(t) ? 'Refractory' : t))]; // refractory 중복 병합
-  const elIds = elTags.map(t => { const id = `F-EL-${slug(t)}`; ensure(id, t, 'element-family', null).members.push(m.stable_id); return id; });
+  // element-family = dominant composition 원소 (metal 한정). familyTags 의 다중·오태깅 대체.
+  let elIds = [];
+  if (m.category === 'Metal') {
+    const fam = subcatElFam(m.subcategory);
+    if (fam) { const id = `F-EL-${slug(fam)}`; ensure(id, fam, 'element-family', null).members.push(m.stable_id); elIds = [id]; }
+  }
   m._fam = { category: catId, subcategory: subId, alloy_base: abId, element_families: elIds };
 }
 
@@ -126,6 +148,23 @@ for (const cc of fs.readdirSync(entriesRoot)) {
   }
 }
 
+// P3b — 가짜 variant 탐지: 같은 alloy-base 인데 다른 heat_treatment 라벨이 동일 (yld,uts,el) 값
+const recById = new Map(records.map(r => [r.stable_id, r]));
+let fakeBases = 0, fakeEntries = 0; const fakeEx = [];
+for (const f of Object.values(families)) {
+  if (f.kind !== 'alloy-base' || f.members.length < 2) continue;
+  const ms = f.members.map(id => recById.get(id));
+  const byVal = {}; for (const r of ms) { const k = `${r.yield_strength}|${r.uts}|${r.elongation}`; (byVal[k] = byVal[k] || []).push(r); }
+  for (const grp of Object.values(byVal)) {
+    const hts = new Set(grp.map(r => (r.heat_treatment || '').toLowerCase().trim()));
+    if (grp.length >= 2 && hts.size >= 2 && grp[0].yield_strength != null) {
+      fakeBases++; fakeEntries += grp.length;
+      if (fakeEx.length < 8) fakeEx.push(`${f.label.slice(0, 24)} ${grp.length}× (σy${grp[0].yield_strength}/UTS${grp[0].uts}, HT:${[...hts].slice(0, 3).join('|')})`);
+      break;
+    }
+  }
+}
+
 // 7) 통계 출력
 console.log('레지스트리 생성:', records.length, 'entries');
 console.log('category별 ID:', Object.entries(seq).map(([k, v]) => `${k}=${v}`).join(' · '));
@@ -133,6 +172,9 @@ console.log('family:', Object.keys(families).length, '— ' + Object.entries(kin
 console.log('index.json:', Math.round(fs.statSync(path.join(OUT, 'index.json')).size / 1024), 'KB · families.json:', Math.round(fs.statSync(path.join(OUT, 'families.json')).size / 1024), 'KB');
 console.log('per-entry 파일:', records.length, '생성 (data/registry/entries/<cat>/<id>.json)');
 console.log(`라운드트립 검증: ${readBack} 읽음 · 불일치 ${mismatch}`, mismatch ? `❌ 예: ${badEx.join(', ')}` : '✓ 무손실');
+console.log(`\n=== P3 검수: 가짜 variant (같은 alloy-base, 다른 HT 라벨에 동일 σy/UTS/El) ===`);
+console.log(`해당 alloy-base ${fakeBases}개 · entry ${fakeEntries}개:`);
+fakeEx.forEach(e => console.log('  ' + e));
 console.log('\n=== 참조 테이블 index 샘플 1건 ===');
 console.log(JSON.stringify(index.find(e => /316L/.test(e.name)) || index[0], null, 2));
 console.log('\n=== alloy-base family 예시 (multi-condition top 6 = override 단위) ===');
