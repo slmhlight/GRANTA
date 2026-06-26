@@ -47,19 +47,33 @@ for (const m of all) {
 //    - 루트: category (F-MET ...)
 //    - 2단계: subcategory (F-<cc>-<slug>)  parent=category
 //    - 교차: element-family (families[] 의 '-based' 태그 → F-EL-<slug>)
-const families = {}; // id -> {id, label, kind, parent, member_count}
-const ensure = (id, label, kind, parent) => { if (!families[id]) families[id] = { id, label, kind, parent: parent || null, member_count: 0 }; return families[id]; };
+const families = {}; // id -> {id, label, kind, parent, members:[stable_id]}
+const ensure = (id, label, kind, parent) => { if (!families[id]) families[id] = { id, label, kind, parent: parent || null, members: [] }; return families[id]; };
+
+// alloy-base = 이름의 " — " 앞부분 (condition/process 제거). slug 충돌 시 -2,-3 …
+const baseOf = (n) => String(n || '').split(' — ')[0].trim();
+const baseFamId = {}; const usedAb = new Set();
+for (const m of all) {
+  const b = baseOf(m.name);
+  if (!(b in baseFamId)) { let s = slug(b) || 'x'; let id = `F-AB-${s}`, k = 2; while (usedAb.has(id)) id = `F-AB-${s}-${k++}`; usedAb.add(id); baseFamId[b] = id; }
+}
 for (const m of all) {
   const cc = CATCODE[m.category] || 'OTH';
   const catId = `F-${cc}`;
-  ensure(catId, m.category, 'category', null).member_count++;
+  ensure(catId, m.category, 'category', null).members.push(m.stable_id);
   const subId = `F-${cc}-${slug(m.subcategory)}`;
-  ensure(subId, m.subcategory, 'subcategory', catId).member_count++;
-  const elTags = (m.families || []).filter(f => /-based$|refractory/i.test(f));
-  const elIds = [...new Set(elTags.map(t => /refractory/i.test(t) ? 'Refractory' : t))] // refractory 중복 병합
-    .map(t => { const id = `F-EL-${slug(t)}`; ensure(id, t, 'element-family', null).member_count++; return id; });
-  m._fam = { category: catId, subcategory: subId, element_families: elIds };
+  ensure(subId, m.subcategory, 'subcategory', catId).members.push(m.stable_id);
+  const abId = baseFamId[baseOf(m.name)];
+  ensure(abId, baseOf(m.name), 'alloy-base', subId).members.push(m.stable_id);
+  const elTags = [...new Set((m.families || []).filter(f => /-based$|refractory/i.test(f)).map(t => /refractory/i.test(t) ? 'Refractory' : t))]; // refractory 중복 병합
+  const elIds = elTags.map(t => { const id = `F-EL-${slug(t)}`; ensure(id, t, 'element-family', null).members.push(m.stable_id); return id; });
+  m._fam = { category: catId, subcategory: subId, alloy_base: abId, element_families: elIds };
 }
+
+// 수동 custom-family 병합 (series 등 임의 그룹. members=[stable_id]). P4 에서 채움.
+const cfPath = path.join(OUT, 'custom-families.json');
+if (!fs.existsSync(cfPath)) fs.mkdirSync(OUT, { recursive: true }) || fs.writeFileSync(cfPath, JSON.stringify({ _note: '수동 정의 family (예: Inconel-7xx series, AISI-3xx). members=[stable_id...]. 빌드가 family tree 에 병합. P4 에서 series-level override 재키잉 시 채움.', families: [] }, null, 2) + '\n');
+try { for (const cf of (JSON.parse(fs.readFileSync(cfPath, 'utf8')).families || [])) { const n = ensure(cf.id, cf.label, cf.kind || 'custom', cf.parent || null); n.members = [...new Set([...(cf.members || [])])]; } } catch { /* ignore */ }
 
 // 4) per-entry 레코드 = 현재 entry + stable_id + family refs (+ 추적용 legacy_id/origin)
 const ORIGIN = { C: 'curated(material_db)', V: 'am_vendor(csv)', G: 'generic(csv)', R: 'reference(supplementary)', POL: 'polymers-data', CER: 'ceramics-data', CMP: 'composites-data' };
@@ -79,7 +93,14 @@ const index = records.map(r => ({
 // 6) 출력
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify({ count: index.length, generated_from: 'client/public/materials (1198)', entries: index }, null, 2) + '\n');
-fs.writeFileSync(path.join(OUT, 'families.json'), JSON.stringify({ count: Object.keys(families).length, families: Object.values(families).sort((a, b) => a.id.localeCompare(b.id)) }, null, 2) + '\n');
+// families 출력: 모든 노드 member_count. override 재키잉 레벨(alloy-base/element/custom)만 members 목록 포함.
+const famOut = Object.values(families).sort((a, b) => a.id.localeCompare(b.id)).map(f => {
+  const o = { id: f.id, label: f.label, kind: f.kind, parent: f.parent, member_count: f.members.length };
+  if (['alloy-base', 'element-family', 'custom'].includes(f.kind)) o.members = f.members;
+  return o;
+});
+const kindCount = {}; for (const f of famOut) kindCount[f.kind] = (kindCount[f.kind] || 0) + 1;
+fs.writeFileSync(path.join(OUT, 'families.json'), JSON.stringify({ count: famOut.length, kinds: kindCount, families: famOut }, null, 2) + '\n');
 
 // per-entry 파일 전체 생성: data/registry/<catcode>/<stable_id>.json
 const entriesRoot = path.join(OUT, 'entries');
@@ -108,13 +129,13 @@ for (const cc of fs.readdirSync(entriesRoot)) {
 // 7) 통계 출력
 console.log('레지스트리 생성:', records.length, 'entries');
 console.log('category별 ID:', Object.entries(seq).map(([k, v]) => `${k}=${v}`).join(' · '));
-console.log('family:', Object.keys(families).length, '(category', Object.values(families).filter(f => f.kind === 'category').length,
-  '· subcategory', Object.values(families).filter(f => f.kind === 'subcategory').length,
-  '· element', Object.values(families).filter(f => f.kind === 'element-family').length, ')');
+console.log('family:', Object.keys(families).length, '— ' + Object.entries(kindCount).map(([k, v]) => `${k}:${v}`).join(' · '));
 console.log('index.json:', Math.round(fs.statSync(path.join(OUT, 'index.json')).size / 1024), 'KB · families.json:', Math.round(fs.statSync(path.join(OUT, 'families.json')).size / 1024), 'KB');
 console.log('per-entry 파일:', records.length, '생성 (data/registry/entries/<cat>/<id>.json)');
 console.log(`라운드트립 검증: ${readBack} 읽음 · 불일치 ${mismatch}`, mismatch ? `❌ 예: ${badEx.join(', ')}` : '✓ 무손실');
 console.log('\n=== 참조 테이블 index 샘플 1건 ===');
 console.log(JSON.stringify(index.find(e => /316L/.test(e.name)) || index[0], null, 2));
-console.log('\n=== element-family 예시 ===');
-console.log(Object.values(families).filter(f => f.kind === 'element-family').map(f => `${f.id}(${f.member_count})`).join(' · '));
+console.log('\n=== alloy-base family 예시 (multi-condition top 6 = override 단위) ===');
+Object.values(families).filter(f => f.kind === 'alloy-base').sort((a, b) => b.members.length - a.members.length).slice(0, 6)
+  .forEach(f => console.log(`  ${f.id}  (${f.members.length})  members: ${f.members.slice(0, 4).join(',')}${f.members.length > 4 ? '…' : ''}`));
+console.log('element-family:', Object.values(families).filter(f => f.kind === 'element-family').map(f => `${f.id}(${f.members.length})`).join(' · '));
