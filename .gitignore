@@ -55,3 +55,7 @@ data/r198-composition-audit.json
 # 개발 과정 리포트·감사 노트 (data/ 최상위 .md/.txt 만; data/general-knowledge/ 문서는 유지)
 data/*.md
 data/*.txt
+
+# R226 (WIP) — 안정 ID 레지스트리. scripts/build-registry.mjs 로 재생성. 아직 빌드 미연결 병렬
+#   스냅샷이라 8.6MB 중복 커밋 회피. P5 cutover 시 정식 소스로 편입하며 이 줄 제거 예정.
+data/registry/
