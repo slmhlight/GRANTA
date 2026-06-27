@@ -75,12 +75,14 @@ try {
   const rm = (JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'r226-value-corrections.json'), 'utf8')).remove) || {};
   const rmBases = new Set(rm.bases || []);
   const rmHT = new Set((rm.heatTreatments || []).map(s => String(s).toLowerCase().trim()));
+  const rmIds = new Set(rm.ids || []);   // 특정 stable_id 제거 (중복 조건 등) — stable_id 는 위 freeze 에서 이미 할당됨
   const bo = (n) => String(n || '').split(' — ')[0].trim();
   const keptPerBase = {};
   for (const m of all) { const b = bo(m.name); if (rmBases.has(b)) continue; if (!rmHT.has((m.heat_treatment || '').toLowerCase().trim())) keptPerBase[b] = (keptPerBase[b] || 0) + 1; }
   const keep = [];
   for (const m of all) {
     const b = bo(m.name); const ht = (m.heat_treatment || '').toLowerCase().trim();
+    if (rmIds.has(m.stable_id)) { removed++; continue; }                           // 특정 ID 제거 (중복 조건)
     if (rmBases.has(b)) { removed++; continue; }                                   // dup base 전체 제거
     if (rmHT.has(ht) && (keptPerBase[b] || 0) >= 1) { removed++; continue; }        // 합성 조건 제거 (실조건 남는 경우만)
     keep.push(m);
