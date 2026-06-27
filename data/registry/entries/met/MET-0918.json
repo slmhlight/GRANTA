@@ -2,7 +2,7 @@
   "stable_id": "MET-0918",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium-near",
     "alloy_base": "F-AB-ti-6al-2sn-4zr-2mo",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "R_0165_2",
   "name": "Ti-6Al-2Sn-4Zr-2Mo — Solution + Aged (STA)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α / near-α",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -280,5 +280,10 @@
   "total_cost_estimate": 234.47,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

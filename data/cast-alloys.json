@@ -1,0 +1,103 @@
+{
+  "_note": "R226c — 주조 합금 (cast equivalents). 합성 as-cast/forged 제거(R226b) 후 실제 주조 합금을 별도 entry 로 추가. ASTM A351(cast SS)·A216(cast carbon steel)·B367(cast Ti) 검증값. build-materials 가 supRaw 에 합쳐 처리(파생필드 derivation 재사용). related[] = wrought 대응 합금(유사재료 상단 cross-ref). points=[density,σy,uts,El,modulus,hardness,k].",
+  "materials": [
+    {
+      "name": "CF8 (cast 304, ASTM A351)",
+      "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Cast",
+      "heat_treatment": "As-cast (solution annealed)",
+      "related": ["AISI 304"],
+      "aliases": ["ACI CF8", "UNS J92600", "cast 304", "A351 Gr CF8"],
+      "composition": { "Fe": "balance", "Cr": "18~21", "Ni": "8~11", "C": "≤0.08", "Mn": "≤1.5", "Si": "≤2.0" },
+      "points": [[7.75, 205, 485, 35, 195, 150, 16.2]],
+      "sources": [
+        { "label": "ASTM A351/A351M — Castings, Austenitic, for Pressure-Containing Parts", "url": "https://store.astm.org/a0351_a0351m-22.html", "verified": true },
+        { "label": "Alloy Casting Industries — A351 CF8 (austenitic stainless)", "url": "https://www.alloycasting.com/alloys/austenitic-stainless/a351-cf8", "verified": false }
+      ],
+      "industry_note": "ACI CF8 = 주조판 AISI 304 (ASTM A351). 5~20% δ-ferrite 함유(약자성) — wrought 304 는 全 austenite. 밸브·펌프 본체·피팅 등 복잡 형상 주조. σy≥205/UTS≥485 MPa(min). wrought 304 대비 동등 강도, 약간 낮은 연성."
+    },
+    {
+      "name": "CF8M (cast 316, ASTM A351)",
+      "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Cast",
+      "heat_treatment": "As-cast (solution annealed)",
+      "related": ["AISI 316"],
+      "aliases": ["ACI CF8M", "UNS J92900", "cast 316", "A351 Gr CF8M"],
+      "composition": { "Fe": "balance", "Cr": "18~21", "Ni": "9~12", "Mo": "2.0~3.0", "C": "≤0.08", "Mn": "≤1.5", "Si": "≤1.5" },
+      "points": [[7.75, 205, 485, 30, 195, 156, 14.6]],
+      "sources": [
+        { "label": "ASTM A351/A351M — Castings, Austenitic", "url": "https://store.astm.org/a0351_a0351m-22.html", "verified": true },
+        { "label": "Castingquality — CF8M (SS316) casting material", "url": "https://castingquality.com/casting-technology/casting-material/casting-material-stainless-steel-cf8m.html", "verified": false }
+      ],
+      "industry_note": "ACI CF8M = 주조판 AISI 316 (Mo 2~3%, 내공식). ASTM A351, σy≥205/UTS≥485/El≥30%. δ-ferrite 5~20%. 해양·화학 밸브·펌프 본체."
+    },
+    {
+      "name": "CF3 (cast 304L, ASTM A351)",
+      "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Cast",
+      "heat_treatment": "As-cast (solution annealed)",
+      "related": ["AISI 304L"],
+      "aliases": ["ACI CF3", "UNS J92500", "cast 304L", "A351 Gr CF3"],
+      "composition": { "Fe": "balance", "Cr": "17~21", "Ni": "8~12", "C": "≤0.03", "Mn": "≤1.5", "Si": "≤2.0" },
+      "points": [[7.75, 205, 485, 35, 195, 140, 16.2]],
+      "sources": [
+        { "label": "ASTM A351/A351M — Castings, Austenitic", "url": "https://store.astm.org/a0351_a0351m-22.html", "verified": true },
+        { "label": "CFS Foundry — A351 CF3 vs CF3M", "url": "https://www.investmentcastchina.com/astm-a351-cf3-vs-cf3m-stainless-steel-casting/", "verified": false }
+      ],
+      "industry_note": "ACI CF3 = 주조판 304L (저탄소 C≤0.03, 입계부식 저항). ASTM A351, σy≥205/UTS≥485/El≥35%, RA 50%. 용접 후 sensitization 회피."
+    },
+    {
+      "name": "CF3M (cast 316L, ASTM A351)",
+      "category": "Metal", "subcategory": "Stainless Steel - Austenitic", "process": "Cast",
+      "heat_treatment": "As-cast (solution annealed)",
+      "related": ["AISI 316L"],
+      "aliases": ["ACI CF3M", "UNS J92800", "cast 316L", "A351 Gr CF3M"],
+      "composition": { "Fe": "balance", "Cr": "17~21", "Ni": "9~13", "Mo": "2.0~3.0", "C": "≤0.03", "Mn": "≤1.5", "Si": "≤1.5" },
+      "points": [[7.75, 205, 485, 30, 195, 150, 14.6]],
+      "sources": [
+        { "label": "ASTM A351/A351M — Castings, Austenitic", "url": "https://store.astm.org/a0351_a0351m-22.html", "verified": true },
+        { "label": "CFS Foundry — A351 CF3 vs CF3M (Mo, low-C)", "url": "https://www.investmentcastchina.com/astm-a351-cf3-vs-cf3m-stainless-steel-casting/", "verified": false }
+      ],
+      "industry_note": "ACI CF3M = 주조판 316L (Mo 2~3% + 저탄소). ASTM A351, σy≥205/UTS≥485/El≥30%, RA 50%. 화학·해양 용접 부품."
+    },
+    {
+      "name": "WCB (cast carbon steel, ASTM A216)",
+      "category": "Metal", "subcategory": "Carbon Steel", "process": "Cast",
+      "heat_treatment": "As-cast (normalized)",
+      "related": ["AISI 1025"],
+      "aliases": ["ASTM A216 WCB", "UNS J03002", "cast carbon steel"],
+      "composition": { "Fe": "balance", "C": "≤0.30", "Mn": "≤1.00", "Si": "≤0.60", "P": "≤0.035", "S": "≤0.035" },
+      "points": [[7.85, 250, 520, 22, 200, 145, 52]],
+      "sources": [
+        { "label": "ASTM A216/A216M — Steel Castings, Carbon, for Fusion Welding (High-Temp)", "url": "https://store.astm.org/a0216_a0216m-21.html", "verified": true },
+        { "label": "Badger Alloys / iron-foundry — A216 WCB (carbon steel casting)", "url": "https://www.iron-foundry.com/astm-a216-carbon-steel-casting.html", "verified": false }
+      ],
+      "industry_note": "ASTM A216 WCB = 주조 탄소강 (고온 밸브·압력 부품 표준). σy≥250/UTS 485~655 MPa/El≥22%/137HB min. wrought 중탄소강(~1025) 대응. 밸브 본체·플랜지·펌프 케이싱."
+    },
+    {
+      "name": "WCC (cast carbon steel, ASTM A216)",
+      "category": "Metal", "subcategory": "Carbon Steel", "process": "Cast",
+      "heat_treatment": "As-cast (normalized + tempered)",
+      "related": ["AISI 1030"],
+      "aliases": ["ASTM A216 WCC", "UNS J02503", "cast carbon steel"],
+      "composition": { "Fe": "balance", "C": "≤0.25", "Mn": "≤1.20", "Si": "≤0.60", "P": "≤0.035", "S": "≤0.035" },
+      "points": [[7.85, 275, 520, 22, 200, 150, 52]],
+      "sources": [
+        { "label": "ASTM A216/A216M — Steel Castings, Carbon", "url": "https://store.astm.org/a0216_a0216m-21.html", "verified": true },
+        { "label": "Badger Alloys — A216 WCC properties", "url": "https://badgeralloys.com/casting-alloys/carbon-low-alloy-steel/low-carbon-steel/wcc/", "verified": false }
+      ],
+      "industry_note": "ASTM A216 WCC = WCB 대비 C 낮춤(≤0.25)·Mn 높임(≤1.20)·σy 높음(≥275). -29°C 충격시험 필수. 저온~고온 밸브 본체."
+    },
+    {
+      "name": "Ti-6Al-4V Cast (Grade C-5, ASTM B367)",
+      "category": "Metal", "subcategory": "Titanium - α+β", "process": "Cast",
+      "heat_treatment": "Cast + HIP (annealed)",
+      "related": ["Ti-6Al-4V"],
+      "aliases": ["ASTM B367 C-5", "cast Ti-6-4", "UNS R56406", "Grade C-5"],
+      "composition": { "Ti": "balance", "Al": "5.5~6.75", "V": "3.5~4.5", "Fe": "≤0.40", "O": "≤0.20", "C": "≤0.10" },
+      "points": [[4.43, 870, 950, 8, 110, 320, 7.2]],
+      "sources": [
+        { "label": "ASTM B367 — Titanium and Titanium Alloy Castings", "url": "https://store.astm.org/b0367-13r17.html", "verified": true },
+        { "label": "MakeItFrom — Grade C-5 Cast Titanium (Ti-6Al-4V)", "url": "https://www.makeitfrom.com/material-properties/Grade-C-5-Cast-Titanium", "verified": true }
+      ],
+      "industry_note": "ASTM B367 Grade C-5 = 주조 Ti-6Al-4V (투자주조 + HIP). HIP 으로 기공 제거·연성 회복 → near-wrought. σy~870/UTS~950/El~8%(HIP). 항공 복잡형상 브래킷·하우징. as-cast(un-HIP)는 σy~758/UTS~860 min(B367)."
+    }
+  ]
+}

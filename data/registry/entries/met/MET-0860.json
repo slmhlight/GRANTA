@@ -2,7 +2,7 @@
   "stable_id": "MET-0860",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium-near",
     "alloy_base": "F-AB-ta15-ti-6-5al-1mo-1v-2zr",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "C_0088",
   "name": "TA15 (Ti-6.5Al-1Mo-1V-2Zr) — Annealed",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α / near-α",
   "tier": "curated",
   "manufacturers": [
     "BLT"
@@ -297,5 +297,10 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

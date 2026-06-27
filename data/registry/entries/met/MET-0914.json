@@ -2,7 +2,7 @@
   "stable_id": "MET-0914",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium",
     "alloy_base": "F-AB-ti-6-2-4-6",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "G_0070",
   "name": "Ti-6-2-4-6 — Strain-hardened (Wrought)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α+β",
   "tier": "generic",
   "manufacturers": [
     "Generic"
@@ -210,12 +210,12 @@
   ],
   "points": [
     [
-      4.63,
-      1181.7,
-      1252.4,
-      6.48,
+      4.5,
+      1000,
+      1100,
+      10,
       110,
-      363.6,
+      365,
       7.8
     ]
   ],
@@ -281,6 +281,9 @@
         "Sn": "0~4"
       }
     },
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
@@ -319,6 +322,18 @@
     },
     "_basis": "Ti-6246 α/β 냉간가공 비표준 → annealed",
     "_src": "niticu Ti-6246",
-    "points_stale": true
+    "points": {
+      "from": [
+        [
+          4.63,
+          1181.7,
+          1252.4,
+          6.48,
+          110,
+          363.6,
+          7.8
+        ]
+      ]
+    }
   }
 }

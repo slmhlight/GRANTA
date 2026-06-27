@@ -22,17 +22,12 @@ const OUT_MATS = path.join(OUT_PUB, 'materials');
 
 // 1) 레지스트리 entry 로드 → R226 필드 제거 → 원본 entry(+교정) 복원
 const R226_FIELDS = new Set(['stable_id', 'family', 'legacy_id', 'origin', '_corrections']);
-const PROP_ORDER = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity']; // points 축 순서 (build-materials.mjs 와 동일)
 const all = [];
 for (const cc of fs.readdirSync(REG)) {
   for (const fn of fs.readdirSync(path.join(REG, cc))) {
     const rec = JSON.parse(fs.readFileSync(path.join(REG, cc, fn), 'utf8'));
     const entry = {};
-    for (const [k, v] of Object.entries(rec)) if (!R226_FIELDS.has(k)) entry[k] = v;
-    // 값 교정으로 ranges 가 바뀐 entry → points 재생성 (Ashby 차트 일관성). 교정 typical 의 단일 데이터포인트.
-    if (rec._corrections?.points_stale) {
-      entry.points = [PROP_ORDER.map(p => { const v = entry.ranges?.[p]?.typical; return (typeof v === 'number' && isFinite(v)) ? v : null; })];
-    }
+    for (const [k, v] of Object.entries(rec)) if (!R226_FIELDS.has(k)) entry[k] = v;   // points 는 build-registry 가 교정 시 이미 재생성 (레지스트리가 self-consistent)
     all.push(entry);
   }
 }
@@ -128,6 +123,7 @@ const slimEntries = all.map(m => {
   const slim = { id: m.id, name: m.name, category: m.category, subcategory: m.subcategory, popularity: m.popularity, tier: m.tier, confidence_tier: m.confidence_tier };
   if (m.aliases?.length) slim.aliases = m.aliases;
   if (m.families?.length) slim.families = m.families;
+  if (m.related?.length) slim.related = m.related;   // R226c — cross-ref (cast↔wrought, 유사재료 상단 pin)
   if (m.manufacturer) slim.manufacturer = m.manufacturer;
   if (m.process) slim.process = m.process;
   if (m.ranges) {

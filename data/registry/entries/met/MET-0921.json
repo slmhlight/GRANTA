@@ -2,7 +2,7 @@
   "stable_id": "MET-0921",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium",
     "alloy_base": "F-AB-ti-6al-4v-am",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "C_0006",
   "name": "Ti-6Al-4V (AM) — As-built",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α+β",
   "tier": "curated",
   "manufacturers": [
     "3D Systems",
@@ -929,5 +929,10 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

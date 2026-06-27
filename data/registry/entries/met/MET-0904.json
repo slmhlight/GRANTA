@@ -2,7 +2,7 @@
   "stable_id": "MET-0904",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium-near",
     "alloy_base": "F-AB-ti-5-2-5",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "G_0062",
   "name": "Ti-5-2-5 — Aged / solution-treated (Wrought)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α / near-α",
   "tier": "generic",
   "manufacturers": [
     "Generic"
@@ -209,39 +209,12 @@
   ],
   "points": [
     [
-      4.48,
-      1004.4,
-      1080,
-      10.8,
+      4.5,
+      827,
+      861,
+      15,
       110,
-      334.8,
-      7.5
-    ],
-    [
-      4.48,
-      883.5000000000001,
-      950,
-      9.5,
-      110,
-      294.5,
-      7.5
-    ],
-    [
-      4.48,
-      985.8,
-      1060,
-      10.6,
-      110,
-      328.6,
-      7.5
-    ],
-    [
-      4.48,
-      948.6,
-      1020,
-      9.2,
-      110,
-      316.2,
+      330,
       7.5
     ]
   ],
@@ -309,6 +282,9 @@
         "Sn": "0~4"
       }
     },
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
@@ -347,6 +323,45 @@
     },
     "_basis": "Grade6 α 비-열처리 → aged ≈ annealed",
     "_src": "ASTM B265 Gr6",
-    "points_stale": true
+    "points": {
+      "from": [
+        [
+          4.48,
+          1004.4,
+          1080,
+          10.8,
+          110,
+          334.8,
+          7.5
+        ],
+        [
+          4.48,
+          883.5000000000001,
+          950,
+          9.5,
+          110,
+          294.5,
+          7.5
+        ],
+        [
+          4.48,
+          985.8,
+          1060,
+          10.6,
+          110,
+          328.6,
+          7.5
+        ],
+        [
+          4.48,
+          948.6,
+          1020,
+          9.2,
+          110,
+          316.2,
+          7.5
+        ]
+      ]
+    }
   }
 }

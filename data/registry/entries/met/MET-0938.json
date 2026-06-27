@@ -2,7 +2,7 @@
   "stable_id": "MET-0938",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium-near",
     "alloy_base": "F-AB-ti6242-ti-6al-2sn-4zr-2mo",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "C_0070",
   "name": "Ti6242 (Ti-6Al-2Sn-4Zr-2Mo) — As-built",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α / near-α",
   "tier": "curated",
   "manufacturers": [
     "GE Additive"
@@ -337,5 +337,10 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

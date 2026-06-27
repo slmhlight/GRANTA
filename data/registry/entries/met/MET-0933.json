@@ -2,7 +2,7 @@
   "stable_id": "MET-0933",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium-near",
     "alloy_base": "F-AB-ti-8-1-1",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "G_0072",
   "name": "Ti-8-1-1 — Aged / solution-treated (Wrought)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α / near-α",
   "tier": "generic",
   "manufacturers": [
     "Generic"
@@ -210,39 +210,12 @@
   ],
   "points": [
     [
-      4.54,
-      1101.6,
-      1188,
-      10.8,
-      115,
-      356.40000000000003,
-      7.4
-    ],
-    [
-      4.54,
-      969,
-      1045,
-      9.5,
-      115,
-      313.5,
-      7.4
-    ],
-    [
-      4.54,
-      1081.2,
-      1166,
-      10.6,
-      115,
-      349.8,
-      7.4
-    ],
-    [
-      4.54,
-      1040.4,
-      1122,
-      9.2,
-      115,
-      336.6,
+      4.5,
+      910,
+      937,
+      18,
+      110,
+      335,
       7.4
     ]
   ],
@@ -310,6 +283,9 @@
         "Sn": "0~4"
       }
     },
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
@@ -348,6 +324,45 @@
     },
     "_basis": "near-α 시효응답 미미 → aged ≈ annealed",
     "_src": "AZoM R54810",
-    "points_stale": true
+    "points": {
+      "from": [
+        [
+          4.54,
+          1101.6,
+          1188,
+          10.8,
+          115,
+          356.40000000000003,
+          7.4
+        ],
+        [
+          4.54,
+          969,
+          1045,
+          9.5,
+          115,
+          313.5,
+          7.4
+        ],
+        [
+          4.54,
+          1081.2,
+          1166,
+          10.6,
+          115,
+          349.8,
+          7.4
+        ],
+        [
+          4.54,
+          1040.4,
+          1122,
+          9.2,
+          115,
+          336.6,
+          7.4
+        ]
+      ]
+    }
   }
 }

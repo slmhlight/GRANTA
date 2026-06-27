@@ -2,7 +2,7 @@
   "stable_id": "MET-0896",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium",
     "alloy_base": "F-AB-ti-grade-9-ti-3al-2-5v",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "R_0015",
   "name": "Ti Grade 9 (Ti-3Al-2.5V)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α+β",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -332,5 +332,10 @@
     "ASTM B338",
     "Donachie M J (2000) Titanium: A Technical Guide 2nd ed."
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

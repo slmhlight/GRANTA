@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Mill-annealed (ASTM default)",
+  "heat_treatment": "Annealed",
   "ranges": {
     "density": {
       "min": 6.56,
@@ -384,5 +384,13 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "Zircaloy-2 (UNS R60802, Zr-1.5Sn-0.15Fe-0.10Cr-0.05Ni) for BWR / Zircaloy-4 (UNS R60804, Zr-1.5Sn-0.21Fe-0.10Cr, low-Ni) for PWR. Tmax 350-400°C continuous (reactor coolant 300°C standard, accident scenarios 1200°C+). 가장 흔한 nuclear reactor fuel cladding — 한국 핵발전소 / 일본 / 미국 / 프랑스 모두 표준. CANDU reactor: pressure tube 도 Zircaloy. 저 thermal neutron absorption (σ ≈ 0.2 barn — 핵반응 효율)."
+  "industry_note": "Zircaloy-2 (UNS R60802, Zr-1.5Sn-0.15Fe-0.10Cr-0.05Ni) for BWR / Zircaloy-4 (UNS R60804, Zr-1.5Sn-0.21Fe-0.10Cr, low-Ni) for PWR. Tmax 350-400°C continuous (reactor coolant 300°C standard, accident scenarios 1200°C+). 가장 흔한 nuclear reactor fuel cladding — 한국 핵발전소 / 일본 / 미국 / 프랑스 모두 표준. CANDU reactor: pressure tube 도 Zircaloy. 저 thermal neutron absorption (σ ≈ 0.2 barn — 핵반응 효율).",
+  "_corrections": {
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
+  }
 }

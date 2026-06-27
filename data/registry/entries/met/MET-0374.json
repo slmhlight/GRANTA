@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Mill-annealed (ASTM default)",
+  "heat_treatment": "Annealed",
   "ranges": {
     "density": {
       "min": 8.94,
@@ -367,5 +367,13 @@
     "Elkington J B (1865) UK Patent 2,838 \"Improvements in the electrolytic refining of copper\""
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS C11000 / EN CW004A / Cu-ETP — Electrolytic Tough Pitch copper (Cu ≥99.90, O 0.02-0.05 — dissolved 산소가 brittle Cu₂O 형성)."
+  "industry_note": "UNS C11000 / EN CW004A / Cu-ETP — Electrolytic Tough Pitch copper (Cu ≥99.90, O 0.02-0.05 — dissolved 산소가 brittle Cu₂O 형성).",
+  "_corrections": {
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
+  }
 }

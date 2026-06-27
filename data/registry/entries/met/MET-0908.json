@@ -2,7 +2,7 @@
   "stable_id": "MET-0908",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium-near",
     "alloy_base": "F-AB-ti-5-2-5",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "G_0065",
   "name": "Ti-5-2-5 — Strain-hardened (Wrought)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α / near-α",
   "tier": "generic",
   "manufacturers": [
     "Generic"
@@ -209,12 +209,12 @@
   ],
   "points": [
     [
-      4.48,
-      939.3,
-      1010,
-      8.100000000000001,
+      4.5,
+      827,
+      861,
+      15,
       110,
-      313.1,
+      330,
       7.5
     ]
   ],
@@ -279,6 +279,9 @@
         "Sn": "0~4"
       }
     },
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
@@ -317,6 +320,18 @@
     },
     "_basis": "Grade6 α — 냉간가공 비표준 → annealed 기준",
     "_src": "ASTM B265 Gr6",
-    "points_stale": true
+    "points": {
+      "from": [
+        [
+          4.48,
+          939.3,
+          1010,
+          8.100000000000001,
+          110,
+          313.1,
+          7.5
+        ]
+      ]
+    }
   }
 }

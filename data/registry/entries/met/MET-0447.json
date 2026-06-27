@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Mill-annealed (ASTM default)",
+  "heat_treatment": "Annealed",
   "ranges": {
     "density": {
       "min": 8.53,
@@ -368,5 +368,13 @@
     "Mendenhall J H (ed., 1980) Understanding Copper Alloys, Olin Brass"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS C26000 / EN CW505L / CuZn30 — Cartridge Brass 70Cu-30Zn — 가장 흔한 'brass'. Excellent cold workability (deep-drawn cartridge case의 이유). CW (H02): σy 350 / UTS 425. C26800 (Yellow Brass 66Cu-34Zn): O σy 100 / UTS 320 / El 60%, H 1/4: σy 270 / UTS 385. Tmax 200°C. 탄피, 식기, 자동차 radiator core, 악기 (sax/trumpet), 시계 부품. SCC 우려 (NH₃, 해수 + 인장응력)."
+  "industry_note": "UNS C26000 / EN CW505L / CuZn30 — Cartridge Brass 70Cu-30Zn — 가장 흔한 'brass'. Excellent cold workability (deep-drawn cartridge case의 이유). CW (H02): σy 350 / UTS 425. C26800 (Yellow Brass 66Cu-34Zn): O σy 100 / UTS 320 / El 60%, H 1/4: σy 270 / UTS 385. Tmax 200°C. 탄피, 식기, 자동차 radiator core, 악기 (sax/trumpet), 시계 부품. SCC 우려 (NH₃, 해수 + 인장응력).",
+  "_corrections": {
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
+  }
 }

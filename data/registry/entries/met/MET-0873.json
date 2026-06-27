@@ -2,7 +2,7 @@
   "stable_id": "MET-0873",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium-near",
     "alloy_base": "F-AB-ti-grade-12",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "R_0103",
   "name": "Ti Grade 12",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α / near-α",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -298,5 +298,10 @@
       "E": 98
     }
   ],
-  "confidence_tier": "low"
+  "confidence_tier": "low",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

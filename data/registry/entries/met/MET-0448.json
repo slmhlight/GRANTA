@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Mill-annealed (ASTM default)",
+  "heat_treatment": "Annealed",
   "ranges": {
     "density": {
       "min": 8.47,
@@ -349,5 +349,13 @@
   "total_cost_estimate": 7.09,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
+  }
 }

@@ -2,7 +2,7 @@
   "stable_id": "MET-0915",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium",
     "alloy_base": "F-AB-ti-6al-2mo-2nb-2zr-2sn-1-5cr-blt",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "C_0089",
   "name": "Ti-6Al-2Mo-2Nb-2Zr-2Sn-1.5Cr (BLT) — Annealed",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α+β",
   "tier": "curated",
   "manufacturers": [
     "BLT"
@@ -295,5 +295,10 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

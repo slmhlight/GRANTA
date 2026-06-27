@@ -1,17 +1,17 @@
 {
-  "stable_id": "MET-0929",
+  "stable_id": "MET-0999",
   "family": {
     "category": "F-MET",
     "subcategory": "F-MET-titanium",
-    "alloy_base": "F-AB-ti-6al-4v-grade-5",
+    "alloy_base": "F-AB-ti-6al-4v-cast-grade-c-5-astm-b367",
     "element_families": [
       "F-EL-titanium-based"
     ]
   },
-  "legacy_id": "R_0002_2",
+  "legacy_id": "R_0452",
   "origin": "reference(supplementary)",
-  "id": "R_0002_2",
-  "name": "Ti-6Al-4V (Grade 5) — Solution + Aged (STA, 955°C → 540°C/4h)",
+  "id": "R_0452",
+  "name": "Ti-6Al-4V Cast (Grade C-5, ASTM B367)",
   "category": "Metal",
   "subcategory": "Titanium - α+β",
   "tier": "reference",
@@ -20,9 +20,9 @@
   ],
   "machines": [],
   "processes": [
-    "Wrought"
+    "Cast"
   ],
-  "heat_treatment": "Solution + Aged (STA, 955°C → 540°C/4h)",
+  "heat_treatment": "Cast + HIP (annealed)",
   "ranges": {
     "density": {
       "min": 4.43,
@@ -32,71 +32,71 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1100,
-      "max": 1100,
-      "typical": 1100,
+      "min": 870,
+      "max": 870,
+      "typical": 870,
       "n": 1,
       "confidence": "handbook"
     },
     "uts": {
-      "min": 1170,
-      "max": 1170,
-      "typical": 1170,
+      "min": 950,
+      "max": 950,
+      "typical": 950,
       "n": 1,
       "confidence": "handbook"
     },
     "elongation": {
-      "min": 10,
-      "max": 10,
-      "typical": 10,
+      "min": 8,
+      "max": 8,
+      "typical": 8,
       "n": 1,
       "confidence": "handbook"
     },
     "modulus": {
-      "min": 113,
-      "max": 113,
-      "typical": 113,
+      "min": 110,
+      "max": 110,
+      "typical": 110,
       "n": 1,
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 380,
-      "max": 380,
-      "typical": 380,
+      "min": 320,
+      "max": 320,
+      "typical": 320,
       "n": 1,
       "confidence": "handbook"
     },
     "thermal_conductivity": {
-      "min": 6.7,
-      "max": 6.7,
-      "typical": 6.7,
+      "min": 7.2,
+      "max": 7.2,
+      "typical": 7.2,
       "n": 1,
       "confidence": "handbook"
     },
     "fatigue_strength": {
-      "min": 495,
-      "max": 660,
-      "typical": 578,
+      "min": 473,
+      "max": 630,
+      "typical": 551,
       "n": 3,
       "confidence": "handbook",
-      "provenance": "realprops:ti6al4v × HT:STA aged (f×1.1, i×0.9)"
+      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)"
     },
     "impact_strength": {
-      "min": 15,
-      "max": 22,
-      "typical": 18,
+      "min": 19,
+      "max": 26,
+      "typical": 22,
       "n": 3,
       "confidence": "handbook",
-      "provenance": "realprops:ti6al4v × HT:STA aged (f×1.1, i×0.9)"
+      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)"
     },
     "fracture_toughness": {
-      "min": 71.3,
-      "max": 71.3,
-      "typical": 71.3,
+      "min": 78.8,
+      "max": 78.8,
+      "typical": 78.8,
       "n": 0,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "alloy-specific KIC × HT:STA aged (k×0.95)"
+      "provenance": "alloy-specific KIC × HT:HIP densified (k×1.05)"
     },
     "electrical_conductivity": {
       "min": 1,
@@ -171,9 +171,9 @@
       "provenance": "alloy:ti6al4v"
     },
     "delivered_price_per_kg": {
-      "min": 53.29,
-      "max": 53.29,
-      "typical": 53.29,
+      "min": 57.75,
+      "max": 57.75,
+      "typical": 57.75,
       "n": 0,
       "estimated": true,
       "confidence": "derived"
@@ -183,8 +183,9 @@
     "Ti": "balance",
     "Al": "5.5~6.75",
     "V": "3.5~4.5",
-    "Fe": "≤0.3",
-    "O": "≤0.2"
+    "Fe": "≤0.40",
+    "O": "≤0.20",
+    "C": "≤0.10"
   },
   "sources": [
     {
@@ -193,13 +194,13 @@
       "verified": false
     },
     {
-      "label": "MatWeb 3",
-      "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=10d463eb3d3d4ff48fc57e0ad1037434",
-      "verified": false
+      "label": "ASTM B367 — Titanium and Titanium Alloy Castings",
+      "url": "https://store.astm.org/b0367-13r17.html",
+      "verified": true
     },
     {
-      "label": "KIC fallback: AMS 4928 / ASTM F136",
-      "url": null,
+      "label": "MakeItFrom — Grade C-5 Cast Titanium (Ti-6Al-4V)",
+      "url": "https://www.makeitfrom.com/material-properties/Grade-C-5-Cast-Titanium",
       "verified": false
     },
     {
@@ -216,26 +217,30 @@
       "label": "MMPDS-08 Vol.1 — Ti-6Al-4V Chap.5",
       "url": "https://www.mmpds.org/",
       "verified": false
+    },
+    {
+      "label": "MatWeb — Ti-6Al-4V annealed",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=10d463eb3d3d4ff48fc57e0ad1037434",
+      "verified": false
     }
   ],
   "points": [
     [
       4.43,
-      1100,
-      1170,
-      10,
-      113,
-      380,
-      6.7
+      870,
+      950,
+      8,
+      110,
+      320,
+      7.2
     ]
   ],
   "machinability": "Poor",
   "weldability": "Good",
   "corrosion_resistance": "Excellent",
-  "industry_note": "UNS R56400 / ASTM Grade 5 / DIN 3.7165 / GB TC4 / JIS Class 60 / Russian VT6 — 가장 흔한 α+β titanium alloy (Al 5.5-6.75, V 3.5-4.5, Ti bal). Mill 43. β-transus 980-1000°C. max service 350°C continuous (α-stabilizer effect), 600°C short. 항공 fastener, jet engine fan/compressor blade, 의료 임플란트 (Ti grade 5 ELI / Gr23 = lower O/Fe — Grade 23 별도 entry), AM LPBF 표준 (EOS Ti64, SLM Ti6Al4V).",
+  "industry_note": "UNS R56400 / ASTM Grade 5 / DIN 3.7165 / GB TC4 / JIS Class 60 / Russian VT6 — 가장 흔한 α+β titanium alloy (Al 5.5-6.75, V 3.",
   "meta": {
     "reference": true,
-    "condition": "Solution + Aged (STA, 955°C → 540°C/4h)",
     "_r173_note_applied": true,
     "specs": [
       {
@@ -243,27 +248,17 @@
         "org": "AMS"
       },
       {
-        "id": "ASTM F136",
+        "id": "ASTM B367",
         "org": "ASTM"
       }
     ]
   },
-  "fracture_toughness": 71.3,
-  "fatigue_strength": 578,
-  "density": 4.43,
-  "yield_strength": 1100,
-  "uts": 1170,
-  "elongation": 10,
-  "modulus": 113,
-  "hardness": 380,
-  "thermal_conductivity": 6.7,
-  "impact_strength": 18,
-  "manufacturer": "Reference data",
-  "process": "Wrought",
-  "source": "TIMET — Ti-6Al-4V Grade 5 Datasheet",
+  "related": [
+    "Ti-6Al-4V"
+  ],
   "aliases": [
-    "Grade 5",
-    "4h",
+    "Grade C-5",
+    "ASTM B367",
     "UNS R56400",
     "ASTM Grade 5",
     "DIN 3.7165",
@@ -272,9 +267,22 @@
     "JIS Class 60",
     "Russian VT6"
   ],
+  "fracture_toughness": 78.8,
+  "fatigue_strength": 551,
+  "density": 4.43,
+  "yield_strength": 870,
+  "uts": 950,
+  "elongation": 8,
+  "modulus": 110,
+  "hardness": 320,
+  "thermal_conductivity": 7.2,
+  "impact_strength": 22,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "TIMET — Ti-6Al-4V Grade 5 Datasheet",
   "families": [
     "Metal",
-    "Titanium - α+β (Ti-6Al-4V class)",
+    "Titanium - α+β",
     "Titanium-based"
   ],
   "fatigue_estimated": false,
@@ -314,13 +322,15 @@
   "price_per_cm3": 0.155,
   "popularity": 5,
   "machining_cost_factor": 2.2,
-  "ht_cost_factor": 1.6,
-  "price_condition_factor": 1.45,
-  "price_form_factor": 1.05,
+  "ht_cost_factor": 1.75,
+  "price_condition_factor": 1.65,
+  "price_form_factor": 1,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 53.29,
-  "total_cost_estimate": 117.23,
-  "tolerance_class": "IT10-12",
+  "delivered_price_per_kg": 57.75,
+  "total_cost_estimate": 127.05,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "creep_rupture": [
     {
@@ -346,7 +356,7 @@
     "Donachie M J (2000) Titanium: A Technical Guide, ASM",
     "Lütjering G & Williams J C (2007) Titanium, 2nd ed., Springer"
   ],
-  "confidence_tier": "medium",
+  "confidence_tier": "high",
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"

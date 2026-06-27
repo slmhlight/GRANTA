@@ -48,7 +48,7 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
   return (
     <details open className="rounded-lg border-2 border-sky-300 bg-sky-50/50 p-3">
       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-sky-900">
-        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />유사 · 대체 재료 (popularity 순)</span>
+        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />유사 · 대체 재료 (대응 합금 우선 · popularity 순)</span>
         <span className="text-[10px] font-normal opacity-70">top {similar.length}</span>
       </summary>
       <div className="space-y-1.5 mt-2 pt-2 border-t border-sky-300/50">
@@ -66,6 +66,9 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
                 <p className="text-[10px] text-muted-foreground truncate">{s.material.subcategory}</p>
               </div>
               <div className="flex flex-col items-end gap-0.5 flex-shrink-0">
+                {s.crossRef && (
+                  <span className="text-[9px] px-1 rounded bg-violet-100 text-violet-700 border border-violet-300 font-semibold whitespace-nowrap" title="주조↔단조(wrought) 대응 합금 — cross-reference">↔ 대응 합금</span>
+                )}
                 {typeof s.material.popularity === 'number' && (
                   <span className="text-[10px] font-mono text-amber-700">★ {s.material.popularity.toFixed(1)}</span>
                 )}

@@ -2,7 +2,7 @@
   "stable_id": "MET-0898",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium",
     "alloy_base": "F-AB-ti-13v-11cr-3al-b120-vca-1st-gen-titanium",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "R_0364_1",
   "name": "Ti-13V-11Cr-3Al (B120-VCA, 1st-gen β-titanium) — Solution + Aged (480°C/96h, peak strength)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - β",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -269,5 +269,10 @@
   "total_cost_estimate": 105.11,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

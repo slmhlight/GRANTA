@@ -1717,6 +1717,8 @@ if (curatedFakeDropped > 0) {
 
 // supplementary reference materials (web/handbook-verified ranges) — broadens coverage
 const supRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'supplementary-materials.json'), 'utf8')).materials) || [];
+// R226c — 주조 합금 (cast equivalents, CF8/CF8M/WCB/cast Ti 등) 별도 파일 합류. supplementary 로더가 동일 처리(파생필드 derivation 재사용).
+try { const castRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'cast-alloys.json'), 'utf8')).materials) || []; supRaw.push(...castRaw); } catch { /* optional */ }
 // R39 — supplementary loader: `conditions[]` 가 있고 길이가 points 와 같으면 condition 별 row 로 분리.
 //        LPBF-Wrought pair 에서 Wrought 쪽 열처리 다양성 (Annealed / Solution / Aged / Q+T / STA / DSA …)
 //        을 살리기 위함. 없으면 기존 패턴 — 전체 통합 single row.
@@ -1769,6 +1771,7 @@ const supplementary = supRaw
       manufacturers: ['Reference data'], machines: [], processes: [s.process], heat_treatment: extractedHT,
       ranges, composition: s.composition || {}, sources: s.sources || [], points: s.points,
       machinability: null, weldability: null, corrosion_resistance: null, industry_note: s.industry_note || null, meta: { reference: true },
+      ...(s.related ? { related: s.related } : {}), ...(s.aliases ? { aliases: s.aliases } : {}),   // R226c — cross-ref(유사재료 상단) + 별칭 보존
     }];
   });
 // R25 — Ceramic 30종 별도 파일 (data/ceramics-data.json) 에서 로드해 material 형식으로 변환 → all 에 추가.

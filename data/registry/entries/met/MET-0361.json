@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Mill-annealed (ASTM default)",
+  "heat_treatment": "Annealed",
   "ranges": {
     "density": {
       "min": 8.23,
@@ -354,5 +354,13 @@
   "svhc_concerns": [
     "Be 98% — 호흡기 유해 (베릴륨 분진), CMR Cat.1"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
+  }
 }

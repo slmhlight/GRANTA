@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Mill-annealed (ASTM default)",
+  "heat_treatment": "Annealed",
   "ranges": {
     "density": {
       "min": 6.51,
@@ -458,5 +458,13 @@
   ],
   "confidence_tier": "high",
   "industry_note": "Pure Zirconium (UNS R60001, Grade 702) — Hf-free refractory metal. Tm 1855°C, ρ 6.51 g/cc, E 99 GPa. Tmax 400°C continuous in air (above → rapid oxidation). 화학 plant — strong acid (HNO₃, H₂SO₄, HCl) 저항 우수 (Ta 와 비슷), reactor 부품, photographic flash bulb.",
-  "fatigue_estimated": true
+  "fatigue_estimated": true,
+  "_corrections": {
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
+  }
 }

@@ -21,6 +21,8 @@ export interface SimilarMaterial {
   distance: number;
   /** True if shares family / subcategory with input. */
   sharedFamily: boolean;
+  /** R226c — explicit cross-reference (cast↔wrought equivalent). Pinned to top of the list. */
+  crossRef?: boolean;
   /** Property-level percent differences for top-3 most-different. */
   diffs: Array<{ prop: string; label: string; delta: number; unit?: string }>;
 }
@@ -181,6 +183,18 @@ export function findSimilar(
   const pool = sameCategoryOnly ? all.filter(m => m.category === target.category) : all;
   const norms = computeNorms(pool);
 
+  /* R226c — 명시적 cross-ref (cast↔wrought 등). related[] 양방향(target→m, m→target), base-name 정규화 매칭.
+     cross-ref 는 popularity·distance 필터를 우회하고 목록 최상단에 pin. */
+  const relOf = (m: Material): string[] => ((m as Material & { related?: string[] }).related) || [];
+  const normKey = (s: string): string => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const targetKeys = new Set<string>([normKey(baseName(target.name)), ...relOf(target).map(normKey)]);
+  const isCrossRef = (m: Material): boolean => {
+    const mb = normKey(baseName(m.name));
+    if (relOf(target).some(r => normKey(r) === mb)) return true;        // target → m
+    if (relOf(m).some(r => targetKeys.has(normKey(r)))) return true;    // m → target
+    return false;
+  };
+
   const candidates: SimilarMaterial[] = [];
   for (const m of pool) {
     if (m.id === target.id) continue;
@@ -188,16 +202,18 @@ export function findSimilar(
     const baseTarget = baseName(target.name);
     const baseM = baseName(m.name);
     if (baseTarget && baseM && baseTarget === baseM) continue;
-    if (typeof m.popularity === 'number' && m.popularity < minPopularity) continue;
+    const crossRef = isCrossRef(m);
+    if (!crossRef && typeof m.popularity === 'number' && m.popularity < minPopularity) continue;
     const shares = sharesFamily(target, m);
     let d = distance(target, m, norms);
     if (shares) d *= 0.55; // boost same family
-    if (d > maxDistance) continue;
-    candidates.push({ material: m, distance: d, sharedFamily: shares, diffs: diffsFor(target, m) });
+    if (!crossRef && d > maxDistance) continue;
+    candidates.push({ material: m, distance: crossRef ? -1 : d, sharedFamily: shares, crossRef, diffs: diffsFor(target, m) });
   }
 
-  // Sort: popularity DESC (high popular first) → distance ASC
+  // Sort: cross-ref pinned first → popularity DESC → distance ASC
   candidates.sort((a, b) => {
+    if (!!a.crossRef !== !!b.crossRef) return a.crossRef ? -1 : 1;
     const pa = typeof a.material.popularity === 'number' ? a.material.popularity : 0;
     const pb = typeof b.material.popularity === 'number' ? b.material.popularity : 0;
     if (Math.abs(pb - pa) > 0.05) return pb - pa;

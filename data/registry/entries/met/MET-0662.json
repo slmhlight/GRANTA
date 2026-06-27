@@ -216,7 +216,17 @@
       "verified": false
     }
   ],
-  "points": [],
+  "points": [
+    [
+      16.65,
+      165,
+      240,
+      40,
+      186,
+      131,
+      57.5
+    ]
+  ],
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Outstanding",
@@ -318,7 +328,9 @@
     },
     "_basis": "pure Ta wrought annealed 기준값 (As-built→wrought; 공백 채움). fatigue=0.46·UTS (endurance 상한 ≤0.63 준수)",
     "_src": "사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)",
-    "points_stale": true,
+    "points": {
+      "from": []
+    },
     "fields": {
       "name": {
         "from": "Tantalum (Ta) — As-built"

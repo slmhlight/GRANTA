@@ -181,10 +181,11 @@
   },
   "composition": {
     "Fe": "balance",
-    "C": "0.30~0.50",
+    "C": "0.48~0.53",
     "Cr": "0.80~1.10",
-    "Mo": "0.15~0.30",
-    "Mn": "0.40~0.90"
+    "Mo": "0.15~0.25",
+    "Mn": "0.75~1.00",
+    "Si": "0.15~0.35"
   },
   "sources": [
     {
@@ -289,5 +290,16 @@
   "total_cost_estimate": 3.81,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "composition": {
+      "from": {
+        "Fe": "balance",
+        "C": "0.30~0.50",
+        "Cr": "0.80~1.10",
+        "Mo": "0.15~0.30",
+        "Mn": "0.40~0.90"
+      }
+    }
+  }
 }

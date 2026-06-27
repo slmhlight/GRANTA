@@ -68,6 +68,26 @@ for (const m of all) {
 }
 fs.writeFileSync(FREEZE, JSON.stringify({ _note: 'frozen legacy_id→stable_id (R226). 이름/subcat/공정 변경해도 ID 불변; 신규 entry 만 새 ID. 이 파일이 안정 ID 의 권위 소스.', count: Object.keys(freeze).length, map: freeze }, null, 2) + '\n');
 
+// 2b) 제거 (R226b, 사용자 승인): 중복 base + 합성 조건 entry 드롭. base 의 마지막 실조건은 안전상 보존.
+//     freeze 는 위에서 이미 기록 → 제거된 ID 는 reserved(재사용 안 됨). cleanJson 에는 남아있으나 미출력이라 round-trip 무영향.
+let removed = 0;
+try {
+  const rm = (JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'r226-value-corrections.json'), 'utf8')).remove) || {};
+  const rmBases = new Set(rm.bases || []);
+  const rmHT = new Set((rm.heatTreatments || []).map(s => String(s).toLowerCase().trim()));
+  const bo = (n) => String(n || '').split(' — ')[0].trim();
+  const keptPerBase = {};
+  for (const m of all) { const b = bo(m.name); if (rmBases.has(b)) continue; if (!rmHT.has((m.heat_treatment || '').toLowerCase().trim())) keptPerBase[b] = (keptPerBase[b] || 0) + 1; }
+  const keep = [];
+  for (const m of all) {
+    const b = bo(m.name); const ht = (m.heat_treatment || '').toLowerCase().trim();
+    if (rmBases.has(b)) { removed++; continue; }                                   // dup base 전체 제거
+    if (rmHT.has(ht) && (keptPerBase[b] || 0) >= 1) { removed++; continue; }        // 합성 조건 제거 (실조건 남는 경우만)
+    keep.push(m);
+  }
+  all.length = 0; all.push(...keep);
+} catch (e) { console.log('⚠ remove 설정 로드 실패:', e.message); }
+
 // 3) family tree 구성
 //    - 루트: category (F-MET ...)
 //    - 2단계: subcategory (F-<cc>-<slug>)  parent=category
@@ -130,6 +150,18 @@ try {
     const ch = {};
     const compFix = corr.compositionByBase && corr.compositionByBase[baseOf(r.name)];
     if (compFix && r.category === 'Metal') { ch.composition = { from: r.composition ?? null }; r.composition = { ...compFix }; }
+    // subcategory 교정 (Ti 미세조직 재분류 등) — family tree 노드도 이동해 일관성 유지.
+    const subFix = corr.subcategoryByBase && corr.subcategoryByBase[baseOf(r.name)];
+    if (subFix && r.subcategory !== subFix) {
+      ch.subcategory = { from: r.subcategory };
+      const cc = CATCODE[r.category] || 'OTH';
+      const oldNode = r.family && r.family.subcategory;
+      if (oldNode && families[oldNode]) families[oldNode].members = families[oldNode].members.filter(id => id !== r.stable_id);
+      const newNode = `F-${cc}-${slug(subFix)}`;
+      ensure(newNode, subFix, 'subcategory', `F-${cc}`).members.push(r.stable_id);
+      r.family = { ...r.family, subcategory: newNode };
+      r.subcategory = subFix;
+    }
     const rg = corr.ranges && corr.ranges[r.stable_id];
     if (rg) {
       r.ranges = r.ranges ? { ...r.ranges } : {};
@@ -141,7 +173,12 @@ try {
         r[p] = rg[p];   // top-level scalar (MaterialDetail·audit 가 ranges.typical ?? scalar 로 읽음)
       }
       ch._basis = rg.basis; ch._src = rg.src;
-      if (r.points) ch.points_stale = true;   // points[] = CSV 합성 조건값. P5 cutover 시 교정 ranges 로부터 재생성.
+      // points[] = CSV 합성 조건값 → 교정 ranges 로부터 재생성 (레지스트리 자체를 self-consistent 로). 원본은 _corrections.points 보존.
+      if (r.points) {
+        ch.points = { from: r.points };
+        const PO = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
+        r.points = [PO.map(p => { const v = r.ranges && r.ranges[p] && r.ranges[p].typical; return (typeof v === 'number' && isFinite(v)) ? v : null; })];
+      }
     }
     // 비-수치 필드 교정 (name·process·heat_treatment) — 잘못된 라벨/공정 수정. ID 는 freeze 라 불변.
     const fx = corr.fields && corr.fields[r.stable_id];
@@ -149,6 +186,13 @@ try {
       ch.fields = {};
       for (const k of ['name', 'process', 'heat_treatment']) if (fx[k] != null) { ch.fields[k] = { from: (k in r) ? r[k] : null }; r[k] = fx[k]; }
       ch._fbasis = fx.basis; ch._fsrc = fx.src;
+    }
+    // 제거 후 잔존한 mill-annealed(astm default) = 단일조건 alloy → placeholder 라벨을 "Annealed" 로 정직화 (합금 보존).
+    if (/mill-annealed \(astm default\)/i.test(r.heat_treatment || '')) {
+      ch.fields = ch.fields || {};
+      ch.fields.heat_treatment = { from: r.heat_treatment };
+      r.heat_treatment = 'Annealed';
+      ch._fbasis = ch._fbasis || 'mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)';
     }
     if (Object.keys(ch).length) { r._corrections = ch; corrApplied++; }
   }
@@ -195,11 +239,13 @@ for (const cc of fs.readdirSync(entriesRoot)) {
       const c = rec._corrections;
       if (c.composition) { if (c.composition.from == null) delete rec.composition; else rec.composition = c.composition.from; }
       for (const p of Object.keys(c)) {
-        if (['composition', 'fields', '_basis', '_src', 'points_stale'].includes(p) || !c[p] || c[p].had_range === undefined) continue;
+        if (['composition', 'subcategory', 'points', 'fields', '_basis', '_src', 'points_stale'].includes(p) || !c[p] || c[p].had_range === undefined) continue;
         if (c[p].had_range) rec.ranges[p] = (c[p].val_range === undefined ? null : c[p].val_range); else delete rec.ranges[p];
         if (c[p].had_scalar) rec[p] = (c[p].val_scalar === undefined ? null : c[p].val_scalar); else delete rec[p];
       }
       if (c.fields) for (const k of ['name', 'process', 'heat_treatment']) if (c.fields[k]) { if (c.fields[k].from == null) delete rec[k]; else rec[k] = c.fields[k].from; }
+      if (c.subcategory) rec.subcategory = c.subcategory.from;   // Ti 재분류 등 — 원본 subcat 복원
+      if (c.points) rec.points = c.points.from;   // 재생성된 points → 원본(CSV) 복원
     }
     const stripped = Object.fromEntries(Object.entries(rec).filter(([k]) => !ADDED.has(k)));
     const clean = cleanJson.get(rec.legacy_id);
@@ -225,7 +271,7 @@ for (const f of Object.values(families)) {
 }
 
 // 7) 통계 출력
-console.log('레지스트리 생성:', records.length, 'entries');
+console.log('레지스트리 생성:', records.length, 'entries', removed ? `(제거 ${removed}건 — 중복·합성조건)` : '');
 console.log('category별 ID:', Object.entries(seq).map(([k, v]) => `${k}=${v}`).join(' · '));
 console.log('family:', Object.keys(families).length, '— ' + Object.entries(kindCount).map(([k, v]) => `${k}:${v}`).join(' · '));
 console.log('index.json:', Math.round(fs.statSync(path.join(OUT, 'index.json')).size / 1024), 'KB · families.json:', Math.round(fs.statSync(path.join(OUT, 'families.json')).size / 1024), 'KB');

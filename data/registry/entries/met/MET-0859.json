@@ -2,7 +2,7 @@
   "stable_id": "MET-0859",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium",
     "alloy_base": "F-AB-beta-c-ti-3al-8v-6cr-4mo-4zr",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "R_0134",
   "name": "Beta-C (Ti-3Al-8V-6Cr-4Mo-4Zr)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - β",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -294,5 +294,10 @@
   "total_cost_estimate": 151.2,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

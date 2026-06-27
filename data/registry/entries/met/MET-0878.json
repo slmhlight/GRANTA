@@ -2,7 +2,7 @@
   "stable_id": "MET-0878",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium",
     "alloy_base": "F-AB-ti-grade-23",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "G_0291",
   "name": "Ti Grade 23 — Aged / solution-treated (Wrought)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α+β",
   "tier": "generic",
   "manufacturers": [
     "Generic"
@@ -215,40 +215,13 @@
   ],
   "points": [
     [
-      4.51,
-      297,
-      410.4,
-      25.92,
-      103,
-      118.8,
-      21.8
-    ],
-    [
-      4.51,
-      261.25,
-      361,
-      22.8,
-      103,
-      104.5,
-      21.8
-    ],
-    [
-      4.51,
-      291.5,
-      402.8,
-      25.44,
-      103,
-      116.6,
-      21.8
-    ],
-    [
-      4.51,
-      280.5,
-      387.6,
-      22.08,
-      103,
-      112.2,
-      21.8
+      4.43,
+      900,
+      965,
+      10,
+      113,
+      320,
+      6.7
     ]
   ],
   "machinability": "Poor",
@@ -325,6 +298,9 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
@@ -363,6 +339,45 @@
     },
     "_basis": "Ti-6Al-4V ELI STA (solution+age)",
     "_src": "ASTM F136 + AMS Ti-6-4 STA",
-    "points_stale": true
+    "points": {
+      "from": [
+        [
+          4.51,
+          297,
+          410.4,
+          25.92,
+          103,
+          118.8,
+          21.8
+        ],
+        [
+          4.51,
+          261.25,
+          361,
+          22.8,
+          103,
+          104.5,
+          21.8
+        ],
+        [
+          4.51,
+          291.5,
+          402.8,
+          25.44,
+          103,
+          116.6,
+          21.8
+        ],
+        [
+          4.51,
+          280.5,
+          387.6,
+          22.08,
+          103,
+          112.2,
+          21.8
+        ]
+      ]
+    }
   }
 }

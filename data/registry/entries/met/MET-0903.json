@@ -2,7 +2,7 @@
   "stable_id": "MET-0903",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium",
     "alloy_base": "F-AB-ti-15v-3cr-3al-3sn",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "R_0167",
   "name": "Ti-15V-3Cr-3Al-3Sn",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - β",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -281,5 +281,10 @@
   "total_cost_estimate": 66.15,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

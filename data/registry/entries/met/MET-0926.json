@@ -2,7 +2,7 @@
   "stable_id": "MET-0926",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "subcategory": "F-MET-titanium",
     "alloy_base": "F-AB-ti-6al-4v-grade-5",
     "element_families": [
       "F-EL-titanium-based"
@@ -13,7 +13,7 @@
   "id": "R_0002_1",
   "name": "Ti-6Al-4V (Grade 5) — Beta annealed (1050°C AC)",
   "category": "Metal",
-  "subcategory": "Titanium - Pure / CP Grades",
+  "subcategory": "Titanium - α+β",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -345,5 +345,10 @@
     "Donachie M J (2000) Titanium: A Technical Guide, ASM",
     "Lütjering G & Williams J C (2007) Titanium, 2nd ed., Springer"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

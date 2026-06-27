@@ -181,10 +181,10 @@
   },
   "composition": {
     "Ti": "balance",
-    "Fe": "≤0.50",
-    "O": "≤0.40",
-    "C": "≤0.10",
-    "N": "≤0.05",
+    "O": "≤0.18",
+    "Fe": "≤0.20",
+    "C": "≤0.08",
+    "N": "≤0.03",
     "H": "≤0.015"
   },
   "sources": [
@@ -301,5 +301,17 @@
     }
   ],
   "confidence_tier": "medium",
-  "industry_note": "Commercially Pure (CP) Titanium — single-phase α structure (NO precipitation aging, R173 fake-variant 제거). 4 grades by O / Fe interstitial 차이: • Grade 1 (UNS R50250, ASTM Gr 1, Ti≥99.5, O ≤0.18): σy 170-310 / UTS 240-345 / El 24%."
+  "industry_note": "Commercially Pure (CP) Titanium — single-phase α structure (NO precipitation aging, R173 fake-variant 제거). 4 grades by O / Fe interstitial 차이: • Grade 1 (UNS R50250, ASTM Gr 1, Ti≥99.5, O ≤0.18): σy 170-310 / UTS 240-345 / El 24%.",
+  "_corrections": {
+    "composition": {
+      "from": {
+        "Ti": "balance",
+        "Fe": "≤0.50",
+        "O": "≤0.40",
+        "C": "≤0.10",
+        "N": "≤0.05",
+        "H": "≤0.015"
+      }
+    }
+  }
 }
