@@ -253,7 +253,9 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "ASM — AISI 1144 free-machining steel",
-  "aliases": [],
+  "aliases": [
+    "SUM43"
+  ],
   "families": [
     "Metal",
     "Carbon Steel",
@@ -277,5 +279,10 @@
   "total_cost_estimate": 1.13,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

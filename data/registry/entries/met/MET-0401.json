@@ -185,19 +185,14 @@
   },
   "sources": [
     {
-      "label": "Copper.org — C36000 Free-Cutting Brass",
-      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C36000",
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"C36000\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C36000",
-      "verified": false
+      "label": "Copper.org — C36000 Free-Cutting Brass",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C36000",
+      "verified": true
     }
   ],
   "points": [
@@ -317,7 +312,9 @@
   "manufacturer": "Generic",
   "process": "Wrought",
   "source": "Copper.org — C36000 Free-Cutting Brass",
-  "aliases": [],
+  "aliases": [
+    "C3600"
+  ],
   "families": [
     "Metal",
     "Titanium - Pure/Other",
@@ -344,6 +341,28 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper.org — C36000 Free-Cutting Brass",
+          "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C36000",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"C36000\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C36000",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

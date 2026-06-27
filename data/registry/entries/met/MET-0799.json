@@ -189,19 +189,14 @@
   },
   "sources": [
     {
-      "label": "MatWeb — AISI 440C stainless",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+440C",
-      "verified": false
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"AISI 440C\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20440C",
-      "verified": false
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
     },
     {
       "label": "Carpenter Technology — CarTech 440C Stainless 공식 데이터시트 (조성·물리물성·HT·가공성, pdftotext 텍스트 추출 검증; 5쪽 PDF)",
@@ -293,6 +288,40 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — AISI 440C stainless",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+440C",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 440C\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20440C",
+          "verified": false
+        },
+        {
+          "label": "Carpenter Technology — CarTech 440C Stainless 공식 데이터시트 (조성·물리물성·HT·가공성, pdftotext 텍스트 추출 검증; 5쪽 PDF)",
+          "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf",
+          "verified": true
+        },
+        {
+          "label": "Aircraft Materials — Alloy 440C / AISI 440C / AMS 5630 (UNS S44004) 조성+경화/템퍼 인장표·AMS 5630/5618/5880 명기",
+          "url": "https://www.aircraftmaterials.com/data/alstst/440c.html",
+          "verified": false
+        },
+        {
+          "label": "AZoM — Stainless Steel Grade 440C (UNS S44004): ρ·E·HRC·CTE·열전도 풀 물성표",
+          "url": "https://www.azom.com/article.aspx?ArticleID=6846",
+          "verified": true
+        }
+      ]
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {

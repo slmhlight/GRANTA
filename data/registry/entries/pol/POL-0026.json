@@ -162,16 +162,6 @@
       "verified": true
     },
     {
-      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"PEEK GF30\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PEEK%20GF30",
-      "verified": false
-    },
-    {
       "label": "Victrex 450GL30 PEEK GF30 datasheet",
       "url": "https://www.victrex.com/-/media/downloads/datasheets/victrex_tds_450gl30.pdf",
       "verified": true
@@ -445,5 +435,46 @@
       "E": 2.8
     }
   ],
-  "industry_note": "PEEK + 30% Short Glass Fiber (Victrex 450GL30, KetaSpire GF30) — most common reinforced PEEK grade. Tg 143°C, Tm 343°C, max service 250°C continuous, HDT (1.8 MPa) 315°C. σy 155-175 / UTS 175-195 / El 2-3% / E 10-11 GPa / ρ 1.50 g/cc. CF30 대비 약간 lower σy, but lower cost + opaque (off-white). 산업 pump impeller, valve seat, ASTM F2026 implant component (glass fiber not in implants — body fluid contact), aerospace fastener."
+  "industry_note": "PEEK + 30% Short Glass Fiber (Victrex 450GL30, KetaSpire GF30) — most common reinforced PEEK grade. Tg 143°C, Tm 343°C, max service 250°C continuous, HDT (1.8 MPa) 315°C. σy 155-175 / UTS 175-195 / El 2-3% / E 10-11 GPa / ρ 1.50 g/cc. CF30 대비 약간 lower σy, but lower cost + opaque (off-white). 산업 pump impeller, valve seat, ASTM F2026 implant component (glass fiber not in implants — body fluid contact), aerospace fastener.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Victrex PEEK product page",
+          "url": "https://www.victrex.com/en/products",
+          "verified": true
+        },
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"PEEK GF30\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PEEK%20GF30",
+          "verified": false
+        },
+        {
+          "label": "Victrex 450GL30 PEEK GF30 datasheet",
+          "url": "https://www.victrex.com/-/media/downloads/datasheets/victrex_tds_450gl30.pdf",
+          "verified": true
+        },
+        {
+          "label": "Solvay KetaSpire KT-820 GF30 datasheet",
+          "url": "https://www.solvay.com/en/brands/ketaspire-peek",
+          "verified": true
+        },
+        {
+          "label": "Victrex PEEK 450G technical datasheet",
+          "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
+          "verified": true
+        },
+        {
+          "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
+          "url": "https://www.astm.org/f2026-17.html",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -189,24 +189,14 @@
   },
   "sources": [
     {
-      "label": "Aluminum Association — AA 6xxx (Al-Mg-Si) + MMPDS-08 Sec.3.6",
-      "url": "https://www.aluminum.org/standards",
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"AA 6101\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%206101",
-      "verified": false
-    },
-    {
-      "label": "KIC fallback: AA 6xxx Al-Mg-Si",
-      "url": null,
-      "verified": false
+      "label": "Aluminum Association — AA 6xxx (Al-Mg-Si) + MMPDS-08 Sec.3.6",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
     }
   ],
   "points": [
@@ -245,7 +235,9 @@
   "manufacturer": "Generic",
   "process": "Wrought",
   "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-  "aliases": [],
+  "aliases": [
+    "A6101"
+  ],
   "families": [
     "Metal",
     "Aluminum - Si Alloys (6xxx/7xxx)",
@@ -278,6 +270,33 @@
         "Cu": "0.05",
         "Al": "98.5"
       }
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 6xxx (Al-Mg-Si) + MMPDS-08 Sec.3.6",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 6101\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%206101",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
     }
   }
 }

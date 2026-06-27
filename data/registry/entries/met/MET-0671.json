@@ -113,19 +113,9 @@
   },
   "sources": [
     {
-      "label": "ASM Handbook",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Zircaloy-2\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Zircaloy-2",
-      "verified": false
+      "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
     },
     {
       "label": "ATI Wah Chang Zircaloy-2 / -4 reference",
@@ -386,6 +376,45 @@
   "confidence_tier": "high",
   "industry_note": "Zircaloy-2 (UNS R60802, Zr-1.5Sn-0.15Fe-0.10Cr-0.05Ni) for BWR / Zircaloy-4 (UNS R60804, Zr-1.5Sn-0.21Fe-0.10Cr, low-Ni) for PWR. Tmax 350-400°C continuous (reactor coolant 300°C standard, accident scenarios 1200°C+). 가장 흔한 nuclear reactor fuel cladding — 한국 핵발전소 / 일본 / 미국 / 프랑스 모두 표준. CANDU reactor: pressure tube 도 Zircaloy. 저 thermal neutron absorption (σ ≈ 0.2 barn — 핵반응 효율).",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Zircaloy-2\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Zircaloy-2",
+          "verified": false
+        },
+        {
+          "label": "ATI Wah Chang Zircaloy-2 / -4 reference",
+          "url": "https://www.atimaterials.com/",
+          "verified": false
+        },
+        {
+          "label": "ASTM B350 — Zr Alloy Ingots / Bar (Zircaloy-2/-4)",
+          "url": "https://store.astm.org/b0350-20.html",
+          "verified": false
+        },
+        {
+          "label": "AMETEK Superior Tube — Zircaloy 2 (UNS R60802) 데이터시트 (V3.07.23): 조성 Sn/Fe/Cr/Ni·냉간가공 UTS 1035/YS 690 MPa min·신율 20%·HRB 90·ASTM B352/B353",
+          "url": "https://www.superiortube.com/-/media/ameteksuperiortube/files/products/materials/zirconium/stc-alloy-zircaloy-2.pdf",
+          "verified": true
+        },
+        {
+          "label": "ATI — Zirconium Alloys (nuclear) 데이터시트: Zircaloy-2 R60802 조성 + Zircaloy 패밀리 물성표(ρ 6.55·melt 1850°C·E 99.3 GPa·Poisson 0.37·annealed UTS 515-541/YS 380-468 MPa·신율 28-29%)",
+          "url": "https://www.atimaterials.com/Products/Documents/datasheets/zirconium/alloy/Zr_nuke_waste_disposal_v1.pdf",
+          "verified": true
+        }
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

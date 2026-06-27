@@ -249,7 +249,9 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "ASM — M42 cobalt high-speed steel",
-  "aliases": [],
+  "aliases": [
+    "SKH59"
+  ],
   "families": [
     "Metal",
     "Tool Steel",
@@ -276,5 +278,10 @@
   "svhc_concerns": [
     "Co 8% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

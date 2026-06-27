@@ -188,19 +188,14 @@
   },
   "sources": [
     {
-      "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
-      "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel",
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"AISI 410\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20410",
-      "verified": false
+      "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
+      "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel",
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 410 martensitic stainless",
@@ -355,5 +350,36 @@
     "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — martensitic stainless (Cr 11.5-13.5, C 0.08-0.15). 200°C T: σy 1000 / UTS 1350 / HRC 41. Tmax 600°C (over-tempering 위쪽). Cutlery, steam turbine blade, valve stem, oil/gas tubing."
+  "industry_note": "UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — martensitic stainless (Cr 11.5-13.5, C 0.08-0.15). 200°C T: σy 1000 / UTS 1350 / HRC 41. Tmax 600°C (over-tempering 위쪽). Cutlery, steam turbine blade, valve stem, oil/gas tubing.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
+          "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 410\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20410",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol.1 — AISI 410 martensitic stainless",
+          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — 410 Stainless Steel Annealed",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=5fc1ec38b39e405da76e95d20f846ef0",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

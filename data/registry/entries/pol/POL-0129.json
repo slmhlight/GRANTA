@@ -157,16 +157,6 @@
   "composition": {},
   "sources": [
     {
-      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"TPE\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=TPE",
-      "verified": false
-    },
-    {
       "label": "Kraton SEBS / SBS thermoplastic elastomer",
       "url": "https://www.kraton.com/",
       "verified": false
@@ -382,5 +372,31 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "TPE (Thermoplastic Elastomer) — generic class (TPE-S / TPE-O / TPE-V / TPE-A). Most common = TPE-S (SBC, Styrene-Butadiene-Styrene block copolymer). Tg ≈ -30°C, max service 70-120°C (grade dependent). σy 10-30 / UTS 15-30 / El 400-1000% / Shore A 5-95. 일반 rubber 와 다르게 thermoplastic — 재가공 가능 (rubber 보다 lower cost recycling). Toothbrush grip, 어린이 장난감, 의료 grip, 자동차 seal, 가전 cushion, 케이블 jacket."
+  "industry_note": "TPE (Thermoplastic Elastomer) — generic class (TPE-S / TPE-O / TPE-V / TPE-A). Most common = TPE-S (SBC, Styrene-Butadiene-Styrene block copolymer). Tg ≈ -30°C, max service 70-120°C (grade dependent). σy 10-30 / UTS 15-30 / El 400-1000% / Shore A 5-95. 일반 rubber 와 다르게 thermoplastic — 재가공 가능 (rubber 보다 lower cost recycling). Toothbrush grip, 어린이 장난감, 의료 grip, 자동차 seal, 가전 cushion, 케이블 jacket.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"TPE\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=TPE",
+          "verified": false
+        },
+        {
+          "label": "Kraton SEBS / SBS thermoplastic elastomer",
+          "url": "https://www.kraton.com/",
+          "verified": false
+        },
+        {
+          "label": "Mitsubishi Tefabloc TPE-SBC",
+          "url": "https://www.mcc-tef.com/en/",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

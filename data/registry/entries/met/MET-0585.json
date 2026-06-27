@@ -191,19 +191,14 @@
   },
   "sources": [
     {
-      "label": "Special Metals — Inconel Alloy X-750",
-      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf",
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Inconel X-750\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20X-750",
-      "verified": false
+      "label": "Special Metals — Inconel Alloy X-750",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf",
+      "verified": true
     }
   ],
   "points": [
@@ -286,7 +281,8 @@
   "aliases": [
     "UNS N07750",
     "EN 2.4669",
-    "Alloy X-750"
+    "Alloy X-750",
+    "NCF750"
   ],
   "families": [
     "Metal",
@@ -316,5 +312,33 @@
   "svhc_concerns": [
     "Ni 58% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Inconel Alloy X-750",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Inconel X-750\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20X-750",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": [
+        "UNS N07750",
+        "EN 2.4669",
+        "Alloy X-750"
+      ]
+    }
+  }
 }

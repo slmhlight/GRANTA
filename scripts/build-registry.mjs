@@ -162,6 +162,25 @@ try {
       r.family = { ...r.family, subcategory: newNode };
       r.subcategory = subFix;
     }
+    // generic 출처 정리 (R226d) — search-link(MatWeb QuickText·범용검색·위키)·URL 없는 소스 제거(전체 generic;
+    //   MatWeb DataSheet GUID 등 특정 datasheet 는 보존) + 권위 family 출처 보강(sourcesBySubcategory 정의 족보).
+    if (r.tier === 'generic') {
+      const isSearchLink = (s) => !s.url || /quicktext|searchtext=|google\.[a-z.]+\/search|bing\.com\/search|wikipedia/i.test(s.url || '');
+      const kept = (r.sources || []).filter(s => !isSearchLink(s));
+      const su = corr.sourcesBySubcategory && corr.sourcesBySubcategory[r.subcategory];
+      let merged = kept;
+      if (su) { const urls = new Set(kept.map(s => s.url)); merged = [...su.filter(s => !urls.has(s.url)), ...kept]; }
+      if (merged.length === 0) merged = r.sources || [];   // 전부 제거되면 원본 유지 (안전)
+      if (JSON.stringify(merged) !== JSON.stringify(r.sources || [])) { ch.sources = { from: r.sources }; r.sources = merged; }
+    }
+    // 별칭 보강 (R226d 대응합금) — cross-standard 지역명(JIS ADC 등) 추가 → 검색성. aliasesByBase.
+    //   baseOf 는 " — " 만 분리하므로 "A380 (die-cast Al)" 같은 base 도 primary designation("A380")으로 매칭.
+    const al = corr.aliasesByBase && (corr.aliasesByBase[baseOf(r.name)] || corr.aliasesByBase[baseOf(r.name).split(' (')[0].trim()]);
+    if (al) {
+      const existing = r.aliases || [];
+      const merged = [...existing, ...al.filter(a => !existing.includes(a))];
+      if (merged.length !== existing.length) { ch.aliases = { from: r.aliases }; r.aliases = merged; }
+    }
     const rg = corr.ranges && corr.ranges[r.stable_id];
     if (rg) {
       r.ranges = r.ranges ? { ...r.ranges } : {};
@@ -239,13 +258,15 @@ for (const cc of fs.readdirSync(entriesRoot)) {
       const c = rec._corrections;
       if (c.composition) { if (c.composition.from == null) delete rec.composition; else rec.composition = c.composition.from; }
       for (const p of Object.keys(c)) {
-        if (['composition', 'subcategory', 'points', 'fields', '_basis', '_src', 'points_stale'].includes(p) || !c[p] || c[p].had_range === undefined) continue;
+        if (['composition', 'subcategory', 'points', 'sources', 'aliases', 'fields', '_basis', '_src', 'points_stale'].includes(p) || !c[p] || c[p].had_range === undefined) continue;
         if (c[p].had_range) rec.ranges[p] = (c[p].val_range === undefined ? null : c[p].val_range); else delete rec.ranges[p];
         if (c[p].had_scalar) rec[p] = (c[p].val_scalar === undefined ? null : c[p].val_scalar); else delete rec[p];
       }
       if (c.fields) for (const k of ['name', 'process', 'heat_treatment']) if (c.fields[k]) { if (c.fields[k].from == null) delete rec[k]; else rec[k] = c.fields[k].from; }
       if (c.subcategory) rec.subcategory = c.subcategory.from;   // Ti 재분류 등 — 원본 subcat 복원
       if (c.points) rec.points = c.points.from;   // 재생성된 points → 원본(CSV) 복원
+      if (c.sources) rec.sources = c.sources.from;   // generic 출처 업그레이드 → 원본 복원
+      if (c.aliases) { if (c.aliases.from == null) delete rec.aliases; else rec.aliases = c.aliases.from; }   // 별칭 보강 → 원본 복원
     }
     const stripped = Object.fromEntries(Object.entries(rec).filter(([k]) => !ADDED.has(k)));
     const clean = cleanJson.get(rec.legacy_id);

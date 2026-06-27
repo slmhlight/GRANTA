@@ -190,19 +190,14 @@
   },
   "sources": [
     {
-      "label": "Haynes International — Hastelloy C-276 Alloy",
-      "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-c-276-alloy",
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Hastelloy C-276\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Hastelloy%20C-276",
-      "verified": false
+      "label": "Haynes International — Hastelloy C-276 Alloy",
+      "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-c-276-alloy",
+      "verified": true
     }
   ],
   "points": [
@@ -272,5 +267,26 @@
     "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
     "Rebak R B & Crook P (1998) \"Influence of the Environment on the General Corrosion Rate of Ni-Cr-Mo Alloys\", Mater Sci Forum 289-292"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Haynes International — Hastelloy C-276 Alloy",
+          "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-c-276-alloy",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Hastelloy C-276\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Hastelloy%20C-276",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

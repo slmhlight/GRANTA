@@ -171,7 +171,8 @@
   "process": "Wrought (cold-rolled strip)",
   "source": "Datasheet 4",
   "aliases": [
-    "Red Brass 85Cu-15Zn"
+    "Red Brass 85Cu-15Zn",
+    "C2300"
   ],
   "families": [
     "Metal",
@@ -191,5 +192,12 @@
     "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
     "Copper Development Association CDA Pub 144"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "Red Brass 85Cu-15Zn"
+      ]
+    }
+  }
 }

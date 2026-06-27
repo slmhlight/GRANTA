@@ -187,24 +187,14 @@
   },
   "sources": [
     {
-      "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
-      "url": "https://www.bucorp.com/specialty-tool-steels",
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
       "verified": true
     },
     {
-      "label": "ASM Handbook",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"O1\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=O1",
-      "verified": false
+      "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
+      "url": "https://www.bucorp.com/specialty-tool-steels",
+      "verified": true
     }
   ],
   "points": [
@@ -420,7 +410,10 @@
   "manufacturer": "Generic",
   "process": "Wrought",
   "source": "ASM Handbook",
-  "aliases": [],
+  "aliases": [
+    "SKS3",
+    "STS3"
+  ],
   "families": [
     "Metal",
     "Tool Steel",
@@ -447,6 +440,33 @@
   "confidence_tier": "high",
   "fatigue_estimated": true,
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
+          "url": "https://www.bucorp.com/specialty-tool-steels",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"O1\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=O1",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

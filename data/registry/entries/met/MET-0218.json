@@ -748,7 +748,9 @@
   "aliases": [
     "EN AC-43000",
     "EN AC-AlSi10Mg",
-    "DIN 3.2381"
+    "DIN 3.2381",
+    "ADC-3",
+    "A360"
   ],
   "families": [
     "Metal",
@@ -805,5 +807,14 @@
     "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
   ],
   "confidence_tier": "high",
-  "industry_note": "EN AC-43000 / AlSi10Mg / DIN 3.2381 — AM LPBF 표준 알루미늄 (Si 9-11, Mg 0.2-0.45). Cast equiv A360. T6 (530°C SHT + 165°C aging): σy 250 / UTS 360 / El 8% (시멘트네트 dissolve, Mg2Si precip). Stress-relieved (260°C/2h): σy 165 / UTS 280 / El 14% (ductility 우선). Anisotropy: Z (vertical build) 이 XY 대비 σy 약 7% 낮음 (열-축 효과). 항공·자동차·heat exchanger·열교환기."
+  "industry_note": "EN AC-43000 / AlSi10Mg / DIN 3.2381 — AM LPBF 표준 알루미늄 (Si 9-11, Mg 0.2-0.45). Cast equiv A360. T6 (530°C SHT + 165°C aging): σy 250 / UTS 360 / El 8% (시멘트네트 dissolve, Mg2Si precip). Stress-relieved (260°C/2h): σy 165 / UTS 280 / El 14% (ductility 우선). Anisotropy: Z (vertical build) 이 XY 대비 σy 약 7% 낮음 (열-축 효과). 항공·자동차·heat exchanger·열교환기.",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "EN AC-43000",
+        "EN AC-AlSi10Mg",
+        "DIN 3.2381"
+      ]
+    }
+  }
 }

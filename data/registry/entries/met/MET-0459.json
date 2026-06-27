@@ -32,18 +32,18 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 250,
-      "max": 250,
-      "typical": 250,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 345,
+      "typical": 345,
+      "max": 345,
+      "confidence": "handbook",
+      "source": "r226-correction"
     },
     "uts": {
-      "min": 475,
-      "max": 475,
-      "typical": 475,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 485,
+      "typical": 485,
+      "max": 485,
+      "confidence": "handbook",
+      "source": "r226-correction"
     },
     "elongation": {
       "min": 23,
@@ -211,8 +211,8 @@
   "points": [
     [
       7.85,
-      250,
-      475,
+      345,
+      485,
       23,
       200,
       140,
@@ -239,8 +239,8 @@
   },
   "fracture_toughness": 80,
   "density": 7.85,
-  "yield_strength": 250,
-  "uts": 475,
+  "yield_strength": 345,
+  "uts": 485,
   "elongation": 23,
   "modulus": 200,
   "hardness": 140,
@@ -250,7 +250,10 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "Datasheet 1",
-  "aliases": [],
+  "aliases": [
+    "SMA490W (JIS ≈)",
+    "S355J2W (EN ≈)"
+  ],
   "families": [
     "Metal",
     "High-Strength Low-Alloy Steel",
@@ -274,5 +277,49 @@
   "total_cost_estimate": 2.84,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 250,
+        "max": 250,
+        "typical": 250,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 250
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 475,
+        "max": 475,
+        "typical": 475,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 475
+    },
+    "_basis": "ASTM A588 Gr A ≤4in plate 최소 (50ksi/70ksi). DB σy=250 은 A36 항복값 오기(조성·HB 140≈UTS485/3.45 는 정합)",
+    "_src": "ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)",
+    "points": {
+      "from": [
+        [
+          7.85,
+          250,
+          475,
+          23,
+          200,
+          140,
+          50
+        ]
+      ]
+    }
+  }
 }

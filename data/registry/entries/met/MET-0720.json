@@ -189,19 +189,14 @@
   },
   "sources": [
     {
-      "label": "Outokumpu — Stainless Steel 304L (1.4307)",
-      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"AISI 304L\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20304L",
-      "verified": false
+      "label": "Outokumpu — Stainless Steel 304L (1.4307)",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — Stainless Steel Type 304L (ELC)",
@@ -359,5 +354,36 @@
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS S30403 / SUS304L / 1.4307 — 304 의 ELC (C ≤ 0.030%) 변종. Sensitization 회피로 용접 후 PWHT 불필요. σy ≈ 170 / UTS ≈ 485 / El 40% (304 대비 5% 낮은 강도, 더 좋은 weldability). 식품·의약·반도체 super-clean piping (EP polish Ra<0.4) 표준. 08 은 잘못 (정정값: ≤0.030)."
+  "industry_note": "UNS S30403 / SUS304L / 1.4307 — 304 의 ELC (C ≤ 0.030%) 변종. Sensitization 회피로 용접 후 PWHT 불필요. σy ≈ 170 / UTS ≈ 485 / El 40% (304 대비 5% 낮은 강도, 더 좋은 weldability). 식품·의약·반도체 super-clean piping (EP polish Ra<0.4) 표준. 08 은 잘못 (정정값: ≤0.030).",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Outokumpu — Stainless Steel 304L (1.4307)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 304L\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20304L",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol.1 — Stainless Steel Type 304L (ELC)",
+          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — 304L Stainless Steel Annealed",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=fee6b0bb8c1c4cbcaab74a85c8fbfbd5",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

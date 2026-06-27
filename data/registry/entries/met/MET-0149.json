@@ -254,7 +254,8 @@
   "aliases": [
     "UNS A95454",
     "EN AW-5454",
-    "AlMg3Mn"
+    "AlMg3Mn",
+    "A5454"
   ],
   "families": [
     "Metal",
@@ -305,5 +306,14 @@
       "E": 155
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A95454",
+        "EN AW-5454",
+        "AlMg3Mn"
+      ]
+    }
+  }
 }

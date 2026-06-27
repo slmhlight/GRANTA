@@ -109,24 +109,14 @@
   },
   "sources": [
     {
-      "label": "Plansee TZM/Mo-Ti — Mo-0.5Ti (TZC) refractory alloy datasheet",
-      "url": "https://www.plansee.com/en/materials/molybdenum.html",
+      "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Mo-0.5Ti\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Mo-0.5Ti",
-      "verified": false
+      "label": "Plansee TZM/Mo-Ti — Mo-0.5Ti (TZC) refractory alloy datasheet",
+      "url": "https://www.plansee.com/en/materials/molybdenum.html",
+      "verified": true
     }
   ],
   "points": [
@@ -351,6 +341,30 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Plansee TZM/Mo-Ti — Mo-0.5Ti (TZC) refractory alloy datasheet",
+          "url": "https://www.plansee.com/en/materials/molybdenum.html",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Mo-0.5Ti\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Mo-0.5Ti",
+          "verified": false
+        }
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

@@ -187,24 +187,14 @@
   },
   "sources": [
     {
-      "label": "ASTM B265 + ATI Wah Chang — Ti Grade 7 (Ti-0.15Pd, corrosion-resistant)",
-      "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
+      "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Ti Grade 7\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%207",
-      "verified": false
-    },
-    {
-      "label": "KIC fallback: MMPDS-2018 Titanium",
-      "url": null,
-      "verified": false
+      "label": "ASTM B265 + ATI Wah Chang — Ti Grade 7 (Ti-0.15Pd, corrosion-resistant)",
+      "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
+      "verified": true
     }
   ],
   "points": [
@@ -273,5 +263,31 @@
   "total_cost_estimate": 61.24,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASTM B265 + ATI Wah Chang — Ti Grade 7 (Ti-0.15Pd, corrosion-resistant)",
+          "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Ti Grade 7\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%207",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: MMPDS-2018 Titanium",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

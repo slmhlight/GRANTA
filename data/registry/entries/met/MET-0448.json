@@ -188,24 +188,14 @@
   },
   "sources": [
     {
-      "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
-      "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Copper & Copper Alloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"C27000\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C27000",
-      "verified": false
-    },
-    {
-      "label": "KIC fallback: AA 7xxx Al-Zn",
-      "url": null,
-      "verified": false
+      "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
+      "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
+      "verified": true
     }
   ],
   "points": [
@@ -326,7 +316,9 @@
   "manufacturer": "Generic",
   "process": "Wrought",
   "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-  "aliases": [],
+  "aliases": [
+    "C2700"
+  ],
   "families": [
     "Metal",
     "Copper Alloy - Brass"
@@ -351,6 +343,33 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
+          "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"C27000\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C27000",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 7xxx Al-Zn",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

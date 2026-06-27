@@ -184,19 +184,9 @@
   },
   "sources": [
     {
-      "label": "ASM Handbook",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"ZE63A\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ZE63A",
-      "verified": false
+      "label": "ASM Handbook Vol.2 — Magnesium & Magnesium Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
     },
     {
       "label": "MakeItFrom — ZE63A (ZE63A-T6, M16630) Magnesium",
@@ -448,6 +438,35 @@
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"ZE63A\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ZE63A",
+          "verified": false
+        },
+        {
+          "label": "MakeItFrom — ZE63A (ZE63A-T6, M16630) Magnesium",
+          "url": "https://www.makeitfrom.com/material-properties/ZE63A-ZE63A-T6-M16630-Magnesium",
+          "verified": false
+        },
+        {
+          "label": "AZoM — Magnesium ZE63A-T6 합금 (UNS M16630)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=8551",
+          "verified": true
+        }
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

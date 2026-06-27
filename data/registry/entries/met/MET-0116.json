@@ -187,24 +187,14 @@
   },
   "sources": [
     {
-      "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
-      "url": "https://www.aluminum.org/standards",
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"AA 2025\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202025",
-      "verified": false
-    },
-    {
-      "label": "KIC fallback: AA 2xxx Al-Cu",
-      "url": null,
-      "verified": false
+      "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
     }
   ],
   "points": [
@@ -347,5 +337,31 @@
   "total_cost_estimate": 4.08,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 2025\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202025",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 2xxx Al-Cu",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

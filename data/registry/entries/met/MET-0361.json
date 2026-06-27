@@ -110,24 +110,14 @@
   },
   "sources": [
     {
-      "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
-      "url": "https://materion.com/products/performance-alloys",
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Be-Cu\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Be-Cu",
-      "verified": false
+      "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
+      "url": "https://materion.com/products/performance-alloys",
+      "verified": true
     }
   ],
   "points": [
@@ -356,6 +346,30 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
+          "url": "https://materion.com/products/performance-alloys",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Be-Cu\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Be-Cu",
+          "verified": false
+        }
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

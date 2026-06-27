@@ -276,7 +276,9 @@
   "aliases": [
     "ASTM A516-70",
     "SA-516-70",
-    "EN P355GH (~)"
+    "EN P355GH (~)",
+    "SGV480 (JIS ≈)",
+    "SB480 (KS ≈)"
   ],
   "families": [
     "Metal",
@@ -308,5 +310,14 @@
     "NACE MR0175 / ISO 15156",
     "ASM Handbook Vol.1 'Carbon and Alloy Steels for Pressure Vessels'"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "ASTM A516-70",
+        "SA-516-70",
+        "EN P355GH (~)"
+      ]
+    }
+  }
 }

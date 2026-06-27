@@ -188,24 +188,14 @@
   },
   "sources": [
     {
-      "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
-      "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
+      "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Ti-6-2-4-6\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6-2-4-6",
-      "verified": false
-    },
-    {
-      "label": "KIC fallback: MMPDS-2018 Titanium",
-      "url": null,
-      "verified": false
+      "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
+      "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
+      "verified": true
     }
   ],
   "points": [
@@ -284,6 +274,30 @@
     },
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
+          "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Ti-6-2-4-6\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6-2-4-6",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: MMPDS-2018 Titanium",
+          "url": null,
+          "verified": false
+        }
+      ]
     },
     "yield_strength": {
       "had_range": true,

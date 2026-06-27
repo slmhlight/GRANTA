@@ -276,7 +276,9 @@
     "X40CrMoV5-1",
     "JIS SKD61",
     "KS STD61",
-    "AISI H13"
+    "AISI H13",
+    "SKD61",
+    "STD61"
   ],
   "families": [
     "Metal",
@@ -351,5 +353,16 @@
     "Bohler-Uddeholm \"W302 / Orvar Supreme Technical Information\" (2019)",
     "ASTM A681 \"Standard Specification for Tool Steels Alloy\""
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "DIN 1.2344",
+        "X40CrMoV5-1",
+        "JIS SKD61",
+        "KS STD61",
+        "AISI H13"
+      ]
+    }
+  }
 }

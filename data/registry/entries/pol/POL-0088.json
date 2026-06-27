@@ -157,16 +157,6 @@
   "composition": {},
   "sources": [
     {
-      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"HDPE\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=HDPE",
-      "verified": false
-    },
-    {
       "label": "Dow HDPE polyethylene resin product family",
       "url": "https://www.dow.com/en-us/market/mkt-packaging.html",
       "verified": true
@@ -403,5 +393,36 @@
     "Mark J E (1996) Physical Properties of Polymers Handbook, AIP"
   ],
   "confidence_tier": "high",
-  "industry_note": "HDPE (High-Density Polyethylene, ρ 0.94-0.97). Tg ≈ -125°C, Tm 130-137°C, max service 80-100°C continuous. σy 22-30 / UTS 25-35 / El 200-800% / E 0.7-1.4 GPa. PE-100 grade (gas/water 배관 표준): σf 50-year creep ≥ 10 MPa. Water/gas piping (가장 흔한 plastic pipe — KS M3408 / ISO 4427), 화학 plant 탱크, milk/juice 병, 폐기물 통, 어망. Recyclable (PE-2 자원순환). Welding via butt-fusion 표준 (PE 의 가장 흔한 결합)."
+  "industry_note": "HDPE (High-Density Polyethylene, ρ 0.94-0.97). Tg ≈ -125°C, Tm 130-137°C, max service 80-100°C continuous. σy 22-30 / UTS 25-35 / El 200-800% / E 0.7-1.4 GPa. PE-100 grade (gas/water 배관 표준): σf 50-year creep ≥ 10 MPa. Water/gas piping (가장 흔한 plastic pipe — KS M3408 / ISO 4427), 화학 plant 탱크, milk/juice 병, 폐기물 통, 어망. Recyclable (PE-2 자원순환). Welding via butt-fusion 표준 (PE 의 가장 흔한 결합).",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"HDPE\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=HDPE",
+          "verified": false
+        },
+        {
+          "label": "Dow HDPE polyethylene resin product family",
+          "url": "https://www.dow.com/en-us/market/mkt-packaging.html",
+          "verified": true
+        },
+        {
+          "label": "SABIC HDPE resin technical guide",
+          "url": "https://www.sabic.com/en/products/polymers/polyethylene-pe",
+          "verified": true
+        },
+        {
+          "label": "ASTM D4976 — HDPE Pipe-Grade Classification",
+          "url": "https://store.astm.org/d4976-21.html",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

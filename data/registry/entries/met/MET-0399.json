@@ -252,7 +252,8 @@
   "process": "Wrought (cold-rolled strip)",
   "source": "Datasheet 4",
   "aliases": [
-    "Yellow Brass 66Cu-34Zn"
+    "Yellow Brass 66Cu-34Zn",
+    "C2680"
   ],
   "families": [
     "Metal",
@@ -283,5 +284,12 @@
     "Copper Development Association Pub 144",
     "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "Yellow Brass 66Cu-34Zn"
+      ]
+    }
+  }
 }

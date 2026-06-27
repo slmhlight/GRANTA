@@ -157,16 +157,6 @@
   "composition": {},
   "sources": [
     {
-      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"LDPE\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=LDPE",
-      "verified": false
-    },
-    {
       "label": "ExxonMobil LDPE technical resin guide",
       "url": "https://www.exxonmobilchemical.com/en/products/polymers-and-plastics/polyethylene",
       "verified": true
@@ -385,5 +375,31 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "LDPE (Low-Density Polyethylene, ρ 0.91-0.93). Branched structure → lower density + crystallinity. Tg ≈ -110°C, Tm 105-115°C, max service 60-80°C continuous (σy 9-15 / UTS 8-25 / El 100-700% / E 0.15-0.30 GPa. 식품 film/bag (포장지 표준 — 비닐 봉지), 의료 disposable, squeeze 병, 농업 mulch film, cable insulation, ice cream container. Recycling code PE-4."
+  "industry_note": "LDPE (Low-Density Polyethylene, ρ 0.91-0.93). Branched structure → lower density + crystallinity. Tg ≈ -110°C, Tm 105-115°C, max service 60-80°C continuous (σy 9-15 / UTS 8-25 / El 100-700% / E 0.15-0.30 GPa. 식품 film/bag (포장지 표준 — 비닐 봉지), 의료 disposable, squeeze 병, 농업 mulch film, cable insulation, ice cream container. Recycling code PE-4.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"LDPE\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=LDPE",
+          "verified": false
+        },
+        {
+          "label": "ExxonMobil LDPE technical resin guide",
+          "url": "https://www.exxonmobilchemical.com/en/products/polymers-and-plastics/polyethylene",
+          "verified": true
+        },
+        {
+          "label": "Dow LDPE resin product family",
+          "url": "https://www.dow.com/en-us/market/mkt-packaging.html",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

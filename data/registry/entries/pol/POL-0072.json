@@ -157,19 +157,9 @@
   "composition": {},
   "sources": [
     {
-      "label": "DuPont/MatWeb — Nylon 66 (PA66)",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+66",
-      "verified": false
-    },
-    {
       "label": "BASF Ultramid PA66",
       "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
       "verified": true
-    },
-    {
-      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-      "url": null,
-      "verified": false
     },
     {
       "label": "DuPont Zytel PA66 (DTY)",
@@ -395,5 +385,36 @@
     "Smithsonian American History Museum \"Nylon: A Revolution in Textiles\" online exhibit"
   ],
   "confidence_tier": "high",
-  "industry_note": "Nylon 6/6 (Polyhexamethylene adipamide) — semi-crystalline thermoplastic. Tg (dry) ≈ 70°C, Tm ≈ 265°C, HDT (1.8 MPa) ≈ 90°C, max service 100-120°C. σy 70-85 / UTS 75-95 / El 20-60% / E 2.7-3.5 GPa / ρ 1.13-1.15 g/cc (dry-as-molded). 흡습률 3% → 강도 30% 감소 (DAM vs 50% RH). Notched Izod 50-110 J/m. 자동차 intake manifold, 라디에이터 end tank, gear, fastener, 전기 connector. GF30 grade → σy 150-180, E 8-9 GPa (보강재 사용 표준)."
+  "industry_note": "Nylon 6/6 (Polyhexamethylene adipamide) — semi-crystalline thermoplastic. Tg (dry) ≈ 70°C, Tm ≈ 265°C, HDT (1.8 MPa) ≈ 90°C, max service 100-120°C. σy 70-85 / UTS 75-95 / El 20-60% / E 2.7-3.5 GPa / ρ 1.13-1.15 g/cc (dry-as-molded). 흡습률 3% → 강도 30% 감소 (DAM vs 50% RH). Notched Izod 50-110 J/m. 자동차 intake manifold, 라디에이터 end tank, gear, fastener, 전기 connector. GF30 grade → σy 150-180, E 8-9 GPa (보강재 사용 표준).",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "DuPont/MatWeb — Nylon 66 (PA66)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+66",
+          "verified": false
+        },
+        {
+          "label": "BASF Ultramid PA66",
+          "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
+          "verified": true
+        },
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "DuPont Zytel PA66 (DTY)",
+          "url": "https://www.dupont.com/products/zytel-polyamide.html",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — PA66 general",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=a2e79a3469304d109aaf4cb22f3592d9",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

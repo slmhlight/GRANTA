@@ -244,7 +244,8 @@
   "aliases": [
     "UNS N07750",
     "EN 2.4669",
-    "Alloy X-750"
+    "Alloy X-750",
+    "NCF750"
   ],
   "families": [
     "Metal",
@@ -275,6 +276,13 @@
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS N07750",
+        "EN 2.4669",
+        "Alloy X-750"
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "As-built (no post-processing)"

@@ -255,7 +255,8 @@
   "aliases": [
     "UNS A96082",
     "EN AW-6082",
-    "AlSi1MgMn"
+    "AlSi1MgMn",
+    "A6082"
   ],
   "families": [
     "Metal",
@@ -308,5 +309,14 @@
     "ASM Handbook Vol.2 'Properties and Selection: Nonferrous Alloys'",
     "Kaiser Aluminum AA 6082 Technical Data Sheet"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A96082",
+        "EN AW-6082",
+        "AlSi1MgMn"
+      ]
+    }
+  }
 }

@@ -271,7 +271,9 @@
     "DIN 1.2363",
     "X100CrMoV5",
     "JIS SKD12",
-    "AISI A2"
+    "AISI A2",
+    "SKD12",
+    "STD12"
   ],
   "families": [
     "Metal",
@@ -317,5 +319,15 @@
       "E": 180
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "DIN 1.2363",
+        "X100CrMoV5",
+        "JIS SKD12",
+        "AISI A2"
+      ]
+    }
+  }
 }

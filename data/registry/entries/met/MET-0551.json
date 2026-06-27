@@ -260,7 +260,8 @@
   "aliases": [
     "UNS N06601",
     "EN 2.4851",
-    "NiCr23Fe"
+    "NiCr23Fe",
+    "NCF601"
   ],
   "families": [
     "Metal",
@@ -290,5 +291,14 @@
   "svhc_concerns": [
     "Ni 63% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS N06601",
+        "EN 2.4851",
+        "NiCr23Fe"
+      ]
+    }
+  }
 }

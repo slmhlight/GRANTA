@@ -193,24 +193,14 @@
   },
   "sources": [
     {
-      "label": "Howmet IN-100 + Special Metals — Inconel 100 (UNS N13100) cast γ' Ni superalloy datasheet",
-      "url": "https://www.specialmetals.com/documents/technical-bulletins/in-100.pdf",
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Inconel 100\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20100",
-      "verified": false
-    },
-    {
-      "label": "KIC fallback: Cast Ni superalloy",
-      "url": null,
-      "verified": false
+      "label": "Howmet IN-100 + Special Metals — Inconel 100 (UNS N13100) cast γ' Ni superalloy datasheet",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/in-100.pdf",
+      "verified": true
     }
   ],
   "points": [
@@ -325,5 +315,31 @@
   "svhc_concerns": [
     "Ni 58% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Howmet IN-100 + Special Metals — Inconel 100 (UNS N13100) cast γ' Ni superalloy datasheet",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/in-100.pdf",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Inconel 100\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20100",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Cast Ni superalloy",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

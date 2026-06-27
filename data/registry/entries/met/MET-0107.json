@@ -257,7 +257,8 @@
     "UNS A92024",
     "EN AW-2024",
     "AlCu4Mg1",
-    "DIN 3.1355"
+    "DIN 3.1355",
+    "A2024"
   ],
   "families": [
     "Metal",
@@ -310,5 +311,15 @@
     "Alcoa \"Engineering Properties of Wrought 2024\" Tech Bulletin TPF-3R (1973)",
     "Smithsonian National Air & Space Museum \"Junkers J 1\" exhibit notes (https://airandspace.si.edu)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A92024",
+        "EN AW-2024",
+        "AlCu4Mg1",
+        "DIN 3.1355"
+      ]
+    }
+  }
 }

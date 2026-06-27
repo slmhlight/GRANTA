@@ -256,7 +256,8 @@
   "aliases": [
     "UNS A95052",
     "EN AW-5052",
-    "AlMg2.5"
+    "AlMg2.5",
+    "A5052"
   ],
   "families": [
     "Metal",
@@ -314,5 +315,14 @@
     "Mondolfo L F (1976) Aluminum Alloys: Structure and Properties, Butterworths",
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A95052",
+        "EN AW-5052",
+        "AlMg2.5"
+      ]
+    }
+  }
 }

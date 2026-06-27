@@ -242,7 +242,10 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "Datasheet 3",
-  "aliases": [],
+  "aliases": [
+    "SKD5",
+    "STD5"
+  ],
   "families": [
     "Metal",
     "Tool Steel - Hot-Work",
@@ -268,5 +271,10 @@
   "total_cost_estimate": 90.41,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

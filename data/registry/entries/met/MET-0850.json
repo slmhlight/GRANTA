@@ -256,7 +256,11 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "AISC — ASTM A572 Grade 50 HSLA Structural Steel",
-  "aliases": [],
+  "aliases": [
+    "SM490 (JIS/KS ≈)",
+    "S355 (EN ≈)",
+    "Q345 (GB ≈)"
+  ],
   "families": [
     "Metal",
     "Structural Steel",
@@ -280,5 +284,10 @@
   "total_cost_estimate": 3.47,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

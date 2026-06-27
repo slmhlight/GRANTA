@@ -174,7 +174,8 @@
     "Red Brass 90Cu-10Zn",
     "UNS C22000",
     "EN CW502L",
-    "commercial bronze"
+    "commercial bronze",
+    "C2200"
   ],
   "families": [
     "Metal",
@@ -194,5 +195,15 @@
     "ASM Specialty Handbook: Copper and Copper Alloys (2001)",
     "Copper Development Association \"CDA Pub 144 — Standards Handbook\""
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "Red Brass 90Cu-10Zn",
+        "UNS C22000",
+        "EN CW502L",
+        "commercial bronze"
+      ]
+    }
+  }
 }

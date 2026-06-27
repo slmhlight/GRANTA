@@ -265,7 +265,9 @@
   "aliases": [
     "UNS A03800",
     "EN AC-46500",
-    "AlSi8Cu3"
+    "AlSi8Cu3",
+    "ADC-10",
+    "ADC-12"
   ],
   "families": [
     "Metal",
@@ -292,5 +294,14 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A03800",
+        "EN AC-46500",
+        "AlSi8Cu3"
+      ]
+    }
+  }
 }

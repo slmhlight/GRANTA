@@ -157,16 +157,6 @@
   "composition": {},
   "sources": [
     {
-      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"PS\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PS",
-      "verified": false
-    },
-    {
       "label": "INEOS Styrolution GPPS resin",
       "url": "https://www.styrolution.com/",
       "verified": false
@@ -258,6 +248,30 @@
   "confidence_tier": "high",
   "industry_note": "GPPS (General-Purpose Polystyrene) — amorphous brittle clear thermoplastic. Tg 100°C, max service 70-80°C continuous. σy 40-50 / UTS 45-50 / El 1-4% (brittle) / E 3.0-3.5 GPa / ρ 1.04-1.06 g/cc. Refractive 1.59, light transmission 88%. CD case (Compact Disc jewel case), 식음료 cup / 일회용 식기, 의료 Petri dish / lab tube, 가구 toy / 모형. EPS (expanded PS, styrofoam) 는 packaging foam + 단열재. 가장 저렴 thermoplastic ($1.3-1.8/kg).",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"PS\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PS",
+          "verified": false
+        },
+        {
+          "label": "INEOS Styrolution GPPS resin",
+          "url": "https://www.styrolution.com/",
+          "verified": false
+        },
+        {
+          "label": "AZoM — Polystyrene (PS) 물성표",
+          "url": "https://www.azom.com/properties.aspx?ArticleID=798",
+          "verified": true
+        }
+      ]
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {

@@ -253,7 +253,8 @@
     "KS C1020",
     "UNS C10200",
     "OF copper",
-    "EN CW008A"
+    "EN CW008A",
+    "C1020"
   ],
   "families": [
     "Metal",
@@ -279,5 +280,15 @@
   "total_cost_estimate": 12.83,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "KS C1020",
+        "UNS C10200",
+        "OF copper",
+        "EN CW008A"
+      ]
+    }
+  }
 }

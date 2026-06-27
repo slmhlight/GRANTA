@@ -189,19 +189,9 @@
   },
   "sources": [
     {
-      "label": "MatWeb — Aluminum 7050 (aerospace)",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+7050",
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"AA 7050\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%207050",
-      "verified": false
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
     },
     {
       "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (T7451/T7651 인장·물성, PDF 직접 판독)",
@@ -247,7 +237,8 @@
   "source": "MatWeb — Aluminum 7050 (aerospace)",
   "aliases": [
     "UNS A97050",
-    "EN AW-7050"
+    "EN AW-7050",
+    "A7050"
   ],
   "families": [
     "Metal",
@@ -309,6 +300,36 @@
         "Cu": "0.05",
         "Al": "98.5"
       }
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Aluminum 7050 (aerospace)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+7050",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 7050\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%207050",
+          "verified": false
+        },
+        {
+          "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (T7451/T7651 인장·물성, PDF 직접 판독)",
+          "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1016/Kaiser_Aluminum_7050_Sheet_Coil_and_Plate.pdf",
+          "verified": true
+        }
+      ]
+    },
+    "aliases": {
+      "from": [
+        "UNS A97050",
+        "EN AW-7050"
+      ]
     }
   }
 }

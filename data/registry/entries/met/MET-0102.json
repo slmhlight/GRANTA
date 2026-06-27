@@ -251,7 +251,8 @@
   "aliases": [
     "UNS A92014",
     "EN AW-2014",
-    "AlCu4SiMg"
+    "AlCu4SiMg",
+    "A2014"
   ],
   "families": [
     "Metal",
@@ -310,5 +311,14 @@
     "ASM Handbook Vol.2 'Aluminum Cu Alloys 2xxx'",
     "Hatch J E (ed., 1984) Aluminum: Properties and Physical Metallurgy"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A92014",
+        "EN AW-2014",
+        "AlCu4SiMg"
+      ]
+    }
+  }
 }

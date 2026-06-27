@@ -267,7 +267,8 @@
     "UNS G12144",
     "DIN 1.0718",
     "11SMnPb30",
-    "JIS SUM24L"
+    "JIS SUM24L",
+    "SUM24L"
   ],
   "families": [
     "Metal",
@@ -295,5 +296,15 @@
   "svhc_concerns": [
     "RoHS 초과: Pb 0.35% > 0.1%"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS G12144",
+        "DIN 1.0718",
+        "11SMnPb30",
+        "JIS SUM24L"
+      ]
+    }
+  }
 }

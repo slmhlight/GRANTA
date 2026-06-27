@@ -260,7 +260,9 @@
     "DIN 1.1191",
     "C45",
     "JIS S45C",
-    "KS SM45C"
+    "KS SM45C",
+    "S45C",
+    "SM45C"
   ],
   "families": [
     "Metal",
@@ -312,5 +314,16 @@
     "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM",
     "ASTM A29 \"Standard Specification for General Requirements for Steel Bars\""
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS G10450",
+        "DIN 1.1191",
+        "C45",
+        "JIS S45C",
+        "KS SM45C"
+      ]
+    }
+  }
 }

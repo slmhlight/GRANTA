@@ -248,7 +248,9 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "MatWeb — Aluminum 6063 (extrusion)",
-  "aliases": [],
+  "aliases": [
+    "A6063"
+  ],
   "families": [
     "Metal",
     "Aluminum - Si Alloys (6xxx/7xxx)",
@@ -299,5 +301,10 @@
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
     "Saha P K (2000) Aluminum Extrusion Technology, ASM"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

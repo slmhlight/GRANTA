@@ -187,24 +187,14 @@
   },
   "sources": [
     {
-      "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
-      "url": "https://www.aluminum.org/standards",
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"AA 2017\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202017",
-      "verified": false
-    },
-    {
-      "label": "KIC fallback: AA 2xxx Al-Cu",
-      "url": null,
-      "verified": false
+      "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
     }
   ],
   "points": [
@@ -333,7 +323,9 @@
   "manufacturer": "Generic",
   "process": "Wrought",
   "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-  "aliases": [],
+  "aliases": [
+    "A2017"
+  ],
   "families": [
     "Metal",
     "Aluminum - Cu Alloys (2xxx)",
@@ -357,5 +349,34 @@
   "total_cost_estimate": 4.73,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 2017\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202017",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 2xxx Al-Cu",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    }
+  }
 }

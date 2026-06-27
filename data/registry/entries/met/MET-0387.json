@@ -171,7 +171,8 @@
   "process": "Wrought (cold-rolled strip)",
   "source": "Datasheet 4",
   "aliases": [
-    "Red Brass 95Cu-5Zn"
+    "Red Brass 95Cu-5Zn",
+    "C2100"
   ],
   "families": [
     "Metal",
@@ -191,5 +192,12 @@
     "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
     "Copper Development Association \"Standards Handbook: Wrought Copper Alloy Designations\""
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "Red Brass 95Cu-5Zn"
+      ]
+    }
+  }
 }

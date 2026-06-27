@@ -183,24 +183,14 @@
   },
   "sources": [
     {
-      "label": "ATI Wah Chang — Nb-1Zr (UNS R04261) refractory alloy",
-      "url": "https://www.atimaterials.com/Products/Pages/Niobium-and-Niobium-Alloys.aspx",
+      "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Nb-1Zr\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nb-1Zr",
-      "verified": false
+      "label": "ATI Wah Chang — Nb-1Zr (UNS R04261) refractory alloy",
+      "url": "https://www.atimaterials.com/Products/Pages/Niobium-and-Niobium-Alloys.aspx",
+      "verified": true
     }
   ],
   "points": [
@@ -442,6 +432,30 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ATI Wah Chang — Nb-1Zr (UNS R04261) refractory alloy",
+          "url": "https://www.atimaterials.com/Products/Pages/Niobium-and-Niobium-Alloys.aspx",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Nb-1Zr\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nb-1Zr",
+          "verified": false
+        }
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

@@ -235,7 +235,8 @@
   "aliases": [
     "UNS C12200",
     "DHP copper",
-    "EN CW024A"
+    "EN CW024A",
+    "C1220"
   ],
   "families": [
     "Metal",
@@ -261,5 +262,14 @@
   "total_cost_estimate": 11.02,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS C12200",
+        "DHP copper",
+        "EN CW024A"
+      ]
+    }
+  }
 }

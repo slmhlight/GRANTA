@@ -283,7 +283,9 @@
     "A360 Sand",
     "EN AC-43000",
     "EN AC-AlSi10Mg",
-    "DIN 3.2381"
+    "DIN 3.2381",
+    "ADC-3",
+    "A360"
   ],
   "families": [
     "Metal",
@@ -339,5 +341,15 @@
     "EOS GmbH \"EOS Aluminium AlSi10Mg Material Data Sheet\" (2020)",
     "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "A360 Sand",
+        "EN AC-43000",
+        "EN AC-AlSi10Mg",
+        "DIN 3.2381"
+      ]
+    }
+  }
 }

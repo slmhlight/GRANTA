@@ -250,7 +250,9 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "ASM — M4 high-speed steel",
-  "aliases": [],
+  "aliases": [
+    "SKH54"
+  ],
   "families": [
     "Metal",
     "Tool Steel",
@@ -274,5 +276,10 @@
   "total_cost_estimate": 19.37,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

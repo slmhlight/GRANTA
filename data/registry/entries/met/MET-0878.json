@@ -188,19 +188,9 @@
   },
   "sources": [
     {
-      "label": "MatWeb — Titanium Grade 23 ELI (Ti-6Al-4V ELI)",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V+ELI",
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Ti Grade 23\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%2023",
-      "verified": false
+      "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
     },
     {
       "label": "Carpenter Technology — Ti-6Al-4V ELI Datasheet (F136/B348 Gr.23)",
@@ -300,6 +290,35 @@
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Titanium Grade 23 ELI (Ti-6Al-4V ELI)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V+ELI",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Ti Grade 23\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%2023",
+          "verified": false
+        },
+        {
+          "label": "Carpenter Technology — Ti-6Al-4V ELI Datasheet (F136/B348 Gr.23)",
+          "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/Ti_6Al-4V_ELI_Datasheet.pdf",
+          "verified": true
+        },
+        {
+          "label": "AZoM — Grade 23 Ti-6Al-4V ELI (UNS R56401)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=9365",
+          "verified": true
+        }
+      ]
     },
     "yield_strength": {
       "had_range": true,

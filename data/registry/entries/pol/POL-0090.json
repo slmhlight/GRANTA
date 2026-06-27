@@ -157,16 +157,6 @@
   "composition": {},
   "sources": [
     {
-      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"PE\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PE",
-      "verified": false
-    },
-    {
       "label": "AZoM — High Density Polyethylene (HDPE) 데이터시트",
       "url": "https://www.azom.com/article.aspx?ArticleID=421",
       "verified": true
@@ -378,5 +368,26 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"PE\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PE",
+          "verified": false
+        },
+        {
+          "label": "AZoM — High Density Polyethylene (HDPE) 데이터시트",
+          "url": "https://www.azom.com/article.aspx?ArticleID=421",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

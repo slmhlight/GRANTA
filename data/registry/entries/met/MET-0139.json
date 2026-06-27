@@ -263,7 +263,8 @@
   "aliases": [
     "UNS A95083",
     "EN AW-5083",
-    "AlMg4.5Mn0.7"
+    "AlMg4.5Mn0.7",
+    "A5083"
   ],
   "families": [
     "Metal",
@@ -339,5 +340,14 @@
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
     "Searles J L et al. (2001) \"Stress corrosion cracking of sensitized AA5083\", Met Mater Trans A 32(11)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A95083",
+        "EN AW-5083",
+        "AlMg4.5Mn0.7"
+      ]
+    }
+  }
 }

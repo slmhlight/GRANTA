@@ -189,19 +189,14 @@
   },
   "sources": [
     {
-      "label": "Materion — C17200 Beryllium Copper Alloy 25",
-      "url": "https://www.materion.com/products/alloys-and-composites/copper-beryllium/c17200",
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"C17200\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C17200",
-      "verified": false
+      "label": "Materion — C17200 Beryllium Copper Alloy 25",
+      "url": "https://www.materion.com/products/alloys-and-composites/copper-beryllium/c17200",
+      "verified": true
     },
     {
       "label": "Materion C17200 (Alloy 25) datasheet",
@@ -346,7 +341,8 @@
     "EN CW101C",
     "CuBe2",
     "Alloy 25",
-    "Beryllium copper"
+    "Beryllium copper",
+    "C1720"
   ],
   "families": [
     "Metal",
@@ -395,6 +391,44 @@
   "confidence_tier": "high",
   "industry_note": "UNS C17200 / EN CW101C / CuBe2 / Alloy 25 / DIN 2.1247 — precipitation-hardenable Cu-Be alloy (Cu bal, Be 1.8-2.0, Ni+Co 0.20-0.6). 가장 strong copper alloy. TF00 (peak TH04 (CW 37% + IACS 22-25% (steel 보다 5× conductive). Non-sparking — petrochemical / 위험 환경 hand tool, mold pin, electrical contact spring, oil/gas drilling. ⚠ Be dust inhalation 강한 발암성 (NIOSH carcinogen, OSHA PEL 0.2 μg/m³).",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Materion — C17200 Beryllium Copper Alloy 25",
+          "url": "https://www.materion.com/products/alloys-and-composites/copper-beryllium/c17200",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"C17200\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C17200",
+          "verified": false
+        },
+        {
+          "label": "Materion C17200 (Alloy 25) datasheet",
+          "url": "https://materion.com/-/media/files/alloy/datasheets/copper-beryllium/alloy-25-strip-rod.pdf",
+          "verified": true
+        },
+        {
+          "label": "ASTM B194 — CuBe2 plate/sheet/strip/bar",
+          "url": "https://store.astm.org/b0194-15.html",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": [
+        "UNS C17200",
+        "EN CW101C",
+        "CuBe2",
+        "Alloy 25",
+        "Beryllium copper"
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

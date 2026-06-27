@@ -249,7 +249,9 @@
   "process": "Wrought",
   "source": "Böhler-Uddeholm — D2 / K110 Tool Steel",
   "aliases": [
-    "AISI D2"
+    "AISI D2",
+    "SKD11",
+    "STD11"
   ],
   "families": [
     "Metal",
@@ -282,5 +284,12 @@
     "Uddeholm \"Sverker 21 Technical Data Sheet\" (2020)",
     "Bohler-Uddeholm \"K110 Technical Information\" (2019)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "AISI D2"
+      ]
+    }
+  }
 }

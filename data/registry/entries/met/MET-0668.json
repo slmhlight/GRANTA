@@ -110,19 +110,9 @@
   },
   "sources": [
     {
-      "label": "ASM Handbook",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Vanadium\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Vanadium",
-      "verified": false
+      "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
     },
     {
       "label": "ATI Vanadium technical data",
@@ -359,6 +349,35 @@
   "confidence_tier": "high",
   "industry_note": "Pure Vanadium (V, UNS R63702) — refractory metal. Tm 1910°C, ρ 6.11 g/cc, E 128 GPa. Tmax 600°C continuous in air (rapid oxidation above). 핵 fusion reactor first-wall material (V-Cr-Ti alloy — low neutron activation), 자동차 catalytic converter (V₂O₅ catalyst), special steel alloying (HSLA + spring steel — VC carbide). 99.9% pure V 은 ductile, but trace O/N → embrittlement.",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Vanadium\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Vanadium",
+          "verified": false
+        },
+        {
+          "label": "ATI Vanadium technical data",
+          "url": "https://www.atimaterials.com/",
+          "verified": false
+        },
+        {
+          "label": "ATI — Vanadium Technical Data Sheet (v1, 2014): ρ 6.1·melt 1900°C·E 20×10⁶ psi·UTS 29-35 ksi·YS 18-25 ksi·신율 35-60%·Poisson 0.36 (annealed sheet)",
+          "url": "https://www.atimaterials.com/Products/Documents/datasheets/niobium-hafnium-tantalum-vanadium/vanadium/vanadium_v1.pdf",
+          "verified": true
+        }
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

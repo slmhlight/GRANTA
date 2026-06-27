@@ -189,19 +189,14 @@
   },
   "sources": [
     {
-      "label": "Special Metals — Monel Alloy 400",
-      "url": "https://www.rolledalloys.ca/wp-content/uploads/400_Datasheet-rolled-alloys.pdf",
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Monel 400\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Monel%20400",
-      "verified": false
+      "label": "Special Metals — Monel Alloy 400",
+      "url": "https://www.rolledalloys.ca/wp-content/uploads/400_Datasheet-rolled-alloys.pdf",
+      "verified": true
     }
   ],
   "points": [
@@ -240,7 +235,9 @@
   "manufacturer": "Generic",
   "process": "Wrought",
   "source": "Special Metals — Monel Alloy 400",
-  "aliases": [],
+  "aliases": [
+    "NW4400"
+  ],
   "families": [
     "Metal",
     "Nickel Superalloy",
@@ -265,5 +262,29 @@
   "total_cost_estimate": 22.45,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Monel Alloy 400",
+          "url": "https://www.rolledalloys.ca/wp-content/uploads/400_Datasheet-rolled-alloys.pdf",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Monel 400\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Monel%20400",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    }
+  }
 }

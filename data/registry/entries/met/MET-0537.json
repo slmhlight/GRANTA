@@ -262,7 +262,8 @@
     "UNS N08810",
     "EN 1.4958",
     "Alloy 800H",
-    "X10NiCrAlTi32-21"
+    "X10NiCrAlTi32-21",
+    "NCF800"
   ],
   "families": [
     "Metal",
@@ -341,5 +342,15 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS N08810",
+        "EN 1.4958",
+        "Alloy 800H",
+        "X10NiCrAlTi32-21"
+      ]
+    }
+  }
 }

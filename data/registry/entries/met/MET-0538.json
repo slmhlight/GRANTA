@@ -262,7 +262,8 @@
     "UNS N08825",
     "EN 2.4858",
     "Alloy 825",
-    "NiCr21Mo"
+    "NiCr21Mo",
+    "NCF825"
   ],
   "families": [
     "Metal",
@@ -292,5 +293,15 @@
   "svhc_concerns": [
     "Ni 46% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS N08825",
+        "EN 2.4858",
+        "Alloy 825",
+        "NiCr21Mo"
+      ]
+    }
+  }
 }

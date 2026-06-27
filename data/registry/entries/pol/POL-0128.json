@@ -157,16 +157,6 @@
   "composition": {},
   "sources": [
     {
-      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Silicone Rubber\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Silicone%20Rubber",
-      "verified": false
-    },
-    {
       "label": "Wacker Elastosil R Silicone Rubber datasheet",
       "url": "https://www.wacker.com/h/en-us/silicone-rubber-and-silicone-elastomers",
       "verified": true
@@ -401,5 +391,36 @@
     "FDA Title 21 CFR 177.2600"
   ],
   "confidence_tier": "high",
-  "industry_note": "VMQ (Vinyl-Methyl Silicone Rubber) — most common silicone elastomer. σy 6-9 / UTS 7-11 / El 200-700% / Shore A 25-90 / ρ 1.05-1.30 g/cc / E 0."
+  "industry_note": "VMQ (Vinyl-Methyl Silicone Rubber) — most common silicone elastomer. σy 6-9 / UTS 7-11 / El 200-700% / Shore A 25-90 / ρ 1.05-1.30 g/cc / E 0.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Silicone Rubber\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Silicone%20Rubber",
+          "verified": false
+        },
+        {
+          "label": "Wacker Elastosil R Silicone Rubber datasheet",
+          "url": "https://www.wacker.com/h/en-us/silicone-rubber-and-silicone-elastomers",
+          "verified": true
+        },
+        {
+          "label": "Shin-Etsu Silicone Rubber technical guide",
+          "url": "https://www.shinetsusilicone-global.com/",
+          "verified": false
+        },
+        {
+          "label": "ASTM D2000 FE/FK/GE/GK Silicone classification",
+          "url": "https://store.astm.org/d2000-18.html",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

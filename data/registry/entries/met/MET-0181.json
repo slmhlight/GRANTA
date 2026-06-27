@@ -257,7 +257,8 @@
     "UNS A96061",
     "EN AW-6061",
     "AlMg1SiCu",
-    "DIN 3.3211"
+    "DIN 3.3211",
+    "A6061"
   ],
   "families": [
     "Metal",
@@ -316,5 +317,15 @@
     "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A96061",
+        "EN AW-6061",
+        "AlMg1SiCu",
+        "DIN 3.3211"
+      ]
+    }
+  }
 }

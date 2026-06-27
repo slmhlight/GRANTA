@@ -462,7 +462,8 @@
     "UNS N06625",
     "EN 2.4856",
     "NiCr22Mo9Nb",
-    "Alloy 625"
+    "Alloy 625",
+    "NCF625"
   ],
   "families": [
     "Metal",
@@ -545,5 +546,15 @@
     "Special Metals Corp \"Inconel Alloy 625\" Tech Bulletin (2013)",
     "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS N06625",
+        "EN 2.4856",
+        "NiCr22Mo9Nb",
+        "Alloy 625"
+      ]
+    }
+  }
 }

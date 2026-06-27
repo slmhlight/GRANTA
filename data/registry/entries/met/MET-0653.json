@@ -184,19 +184,9 @@
   },
   "sources": [
     {
-      "label": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Niobium+C-103",
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
+      "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
     },
     {
       "label": "WHS Sondermetalle — Data sheet Niobium (Nb, NbZr1): R04200 type1, ρ 8.57·melt 2468°C·E 103 GPa·Rm 125·Rp0.2 75 MPa·A 25%·HV·CTE·k·ASTM B392/B393",
@@ -456,6 +446,40 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Niobium+C-103",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "WHS Sondermetalle — Data sheet Niobium (Nb, NbZr1): R04200 type1, ρ 8.57·melt 2468°C·E 103 GPa·Rm 125·Rp0.2 75 MPa·A 25%·HV·CTE·k·ASTM B392/B393",
+          "url": "https://www.whs-sondermetalle.de/images/pdf/Nb-Niobium.pdf",
+          "verified": true
+        },
+        {
+          "label": "ATI — Niobium (Type 1) product page (UNS R04200, bar/wire 사이즈·forms·machining PDF 링크)",
+          "url": "https://www.atimaterials.com/Products/Pages/niobium-type-1.aspx",
+          "verified": true
+        },
+        {
+          "label": "CBMM/Niobium.tech — The Physical, Mechanical and Irradiation Behavior of Niobium and Nb-base Alloys (순 Nb: ρ 8.57 Mg/m³, melt 2468±10°C; Young's modulus·tensile 그래프)",
+          "url": "https://niobium.tech/-/media/niobiumtech/attachments-biblioteca-tecnica/nt_the-physical-mechanical-and-irradiation-behavior-of-niobium-and-niobium-base-alloys.pdf",
+          "verified": true
+        }
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

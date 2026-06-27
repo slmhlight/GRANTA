@@ -233,7 +233,9 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "Datasheet 2",
-  "aliases": [],
+  "aliases": [
+    "A1200"
+  ],
   "families": [
     "Metal",
     "Aluminum - Pure/Other",
@@ -257,5 +259,10 @@
   "total_cost_estimate": 2.36,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

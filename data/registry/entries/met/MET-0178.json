@@ -271,7 +271,8 @@
   "aliases": [
     "AlSi7Mg",
     "EN AC-42000",
-    "A356 (cast equiv.)"
+    "A356 (cast equiv.)",
+    "AC4C"
   ],
   "families": [
     "Metal",
@@ -322,5 +323,14 @@
     "Polmear I J et al. (2017) Light Alloys: Metallurgy of the Light Metals 5th ed., Butterworth-Heinemann",
     "Aluminum Association \"Aluminum Casting Alloys\""
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "AlSi7Mg",
+        "EN AC-42000",
+        "A356 (cast equiv.)"
+      ]
+    }
+  }
 }

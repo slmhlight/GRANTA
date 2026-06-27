@@ -186,24 +186,14 @@
   },
   "sources": [
     {
-      "label": "Aluminum Association — AA 3xxx (Al-Mn) + MMPDS-08 Sec.3.5",
-      "url": "https://www.aluminum.org/standards",
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "MatWeb — Aluminum 3003",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+3003",
-      "verified": false
-    },
-    {
-      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"AA 3003\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%203003",
-      "verified": false
+      "label": "Aluminum Association — AA 3xxx (Al-Mn) + MMPDS-08 Sec.3.5",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
     }
   ],
   "points": [
@@ -245,7 +235,8 @@
   "aliases": [
     "UNS A93003",
     "EN AW-3003",
-    "AlMn1Cu"
+    "AlMn1Cu",
+    "A3003"
   ],
   "families": [
     "Metal",
@@ -271,5 +262,38 @@
   "total_cost_estimate": 2.41,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 3xxx (Al-Mn) + MMPDS-08 Sec.3.5",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — Aluminum 3003",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+3003",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 3003\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%203003",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": [
+        "UNS A93003",
+        "EN AW-3003",
+        "AlMn1Cu"
+      ]
+    }
+  }
 }

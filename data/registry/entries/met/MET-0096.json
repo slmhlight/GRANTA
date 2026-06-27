@@ -266,7 +266,8 @@
     "AlSi12",
     "A413",
     "EN AC-44000",
-    "A413 (cast equiv.)"
+    "A413 (cast equiv.)",
+    "ADC-1"
   ],
   "families": [
     "Metal",
@@ -293,5 +294,15 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "AlSi12",
+        "A413",
+        "EN AC-44000",
+        "A413 (cast equiv.)"
+      ]
+    }
+  }
 }

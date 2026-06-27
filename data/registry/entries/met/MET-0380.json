@@ -186,24 +186,14 @@
   },
   "sources": [
     {
-      "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
-      "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"C14500\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C14500",
-      "verified": false
-    },
-    {
-      "label": "KIC fallback: ASM Vol.2 Cu alloys general",
-      "url": null,
-      "verified": false
+      "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
+      "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
+      "verified": true
     }
   ],
   "points": [
@@ -350,6 +340,30 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
+          "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"C14500\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C14500",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Cu alloys general",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

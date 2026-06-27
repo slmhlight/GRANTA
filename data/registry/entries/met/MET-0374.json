@@ -185,19 +185,14 @@
   },
   "sources": [
     {
-      "label": "Copper.org — C11000 ETP Copper",
-      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"C11000\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C11000",
-      "verified": false
+      "label": "Copper.org — C11000 ETP Copper",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
+      "verified": true
     },
     {
       "label": "Copper Development Association — C11000 ETP",
@@ -335,7 +330,9 @@
   "manufacturer": "Generic",
   "process": "Wrought",
   "source": "Copper.org — C11000 ETP Copper",
-  "aliases": [],
+  "aliases": [
+    "C1100"
+  ],
   "families": [
     "Metal",
     "Copper - Pure/Other",
@@ -369,6 +366,38 @@
   "confidence_tier": "high",
   "industry_note": "UNS C11000 / EN CW004A / Cu-ETP — Electrolytic Tough Pitch copper (Cu ≥99.90, O 0.02-0.05 — dissolved 산소가 brittle Cu₂O 형성).",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper.org — C11000 ETP Copper",
+          "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"C11000\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C11000",
+          "verified": false
+        },
+        {
+          "label": "Copper Development Association — C11000 ETP",
+          "url": "https://www.copper.org/resources/properties/",
+          "verified": true
+        },
+        {
+          "label": "ASTM B187 — ETP Bus Conductor",
+          "url": "https://store.astm.org/b0187_b0187m-19.html",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    },
     "fields": {
       "heat_treatment": {
         "from": "Mill-annealed (ASTM default)"

@@ -189,19 +189,14 @@
   },
   "sources": [
     {
-      "label": "Special Metals — Inconel Alloy 600",
-      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf",
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"Inconel 600\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20600",
-      "verified": false
+      "label": "Special Metals — Inconel Alloy 600",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf",
+      "verified": true
     }
   ],
   "points": [
@@ -245,7 +240,8 @@
   "aliases": [
     "UNS N06600",
     "EN 2.4816",
-    "Alloy 600"
+    "Alloy 600",
+    "NCF600"
   ],
   "families": [
     "Metal",
@@ -320,5 +316,33 @@
     "AMS 5679 (ERNiCr-3 filler)",
     "Special Metals Corporation 'INCONEL alloy 600' Technical Data Sheet"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Inconel Alloy 600",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Inconel 600\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20600",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": [
+        "UNS N06600",
+        "EN 2.4816",
+        "Alloy 600"
+      ]
+    }
+  }
 }

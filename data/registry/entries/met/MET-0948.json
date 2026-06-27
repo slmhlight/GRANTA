@@ -322,7 +322,9 @@
     "X40CrMoV5-1",
     "JIS SKD61",
     "KS STD61",
-    "AISI H13"
+    "AISI H13",
+    "SKD61",
+    "STD61"
   ],
   "families": [
     "Metal",
@@ -393,5 +395,16 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "DIN 1.2344",
+        "X40CrMoV5-1",
+        "JIS SKD61",
+        "KS STD61",
+        "AISI H13"
+      ]
+    }
+  }
 }

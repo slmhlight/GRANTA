@@ -262,7 +262,9 @@
     "DIN 1.2510",
     "100MnCrW4",
     "JIS SKS3",
-    "AISI O1"
+    "AISI O1",
+    "SKS3",
+    "STS3"
   ],
   "families": [
     "Metal",
@@ -287,5 +289,15 @@
   "total_cost_estimate": 5.81,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "DIN 1.2510",
+        "100MnCrW4",
+        "JIS SKS3",
+        "AISI O1"
+      ]
+    }
+  }
 }

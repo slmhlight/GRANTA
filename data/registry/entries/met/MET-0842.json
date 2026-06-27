@@ -261,7 +261,9 @@
   "process": "Wrought",
   "source": "Datasheet 3",
   "aliases": [
-    "ASTM A992"
+    "ASTM A992",
+    "SN490 (JIS/KS ≈)",
+    "S355 (EN ≈)"
   ],
   "families": [
     "Metal",
@@ -293,5 +295,12 @@
     "AISC \"Steel Construction Manual\" 15th Edition (2017)",
     "NIST \"Northridge Earthquake Investigation Report\" NIST GCR 95-682 (1995)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "ASTM A992"
+      ]
+    }
+  }
 }

@@ -244,7 +244,8 @@
   "aliases": [
     "UNS N02200",
     "EN 2.4066",
-    "Ni 99.6"
+    "Ni 99.6",
+    "NW2200"
   ],
   "families": [
     "Metal",
@@ -274,5 +275,14 @@
   "svhc_concerns": [
     "Ni 99.9% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS N02200",
+        "EN 2.4066",
+        "Ni 99.6"
+      ]
+    }
+  }
 }

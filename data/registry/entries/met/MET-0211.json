@@ -257,7 +257,8 @@
     "UNS A97075",
     "EN AW-7075",
     "AlZn5.5MgCu",
-    "DIN 3.4365"
+    "DIN 3.4365",
+    "A7075"
   ],
   "families": [
     "Metal",
@@ -310,5 +311,15 @@
     "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
     "Polmear I J (2006) Light Alloys: From Traditional Alloys to Nanocrystals, 4th ed., Butterworth-Heinemann"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A97075",
+        "EN AW-7075",
+        "AlZn5.5MgCu",
+        "DIN 3.4365"
+      ]
+    }
+  }
 }

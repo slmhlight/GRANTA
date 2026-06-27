@@ -189,19 +189,14 @@
   },
   "sources": [
     {
-      "label": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
-      "url": "https://www.aksteel.com/our-products/stainless/430-stainless-steel",
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
       "verified": true
     },
     {
-      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-      "url": null,
-      "verified": false
-    },
-    {
-      "label": "MatWeb — search \"AISI 430\"",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20430",
-      "verified": false
+      "label": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
+      "url": "https://www.aksteel.com/our-products/stainless/430-stainless-steel",
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 430 ferritic stainless",
@@ -315,5 +310,36 @@
     "Sedriks A J (1996) Corrosion of Stainless Steels, 2nd ed., Wiley"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — ferritic stainless (Cr 16-18, C ≤ 0.12). Cold-worked (H/H2): σy 275-400. Tmax 815°C continuous (oxidation), 870°C intermittent. Automotive trim, kitchen appliance, dishwasher interior, deep-drawing (가공성은 304보다 우수)."
+  "industry_note": "UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — ferritic stainless (Cr 16-18, C ≤ 0.12). Cold-worked (H/H2): σy 275-400. Tmax 815°C continuous (oxidation), 870°C intermittent. Automotive trim, kitchen appliance, dishwasher interior, deep-drawing (가공성은 304보다 우수).",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
+          "url": "https://www.aksteel.com/our-products/stainless/430-stainless-steel",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 430\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20430",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol.1 — AISI 430 ferritic stainless",
+          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — 430 Stainless Steel Annealed",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1e64ec5f25aa42caa0f86bd86dba0b50",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

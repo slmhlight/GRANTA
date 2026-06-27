@@ -261,7 +261,9 @@
   "aliases": [
     "ASTM A36",
     "EN S275JR",
-    "St37-2"
+    "St37-2",
+    "SS400 (JIS/KS ≈)",
+    "Q235 (GB ≈)"
   ],
   "families": [
     "Metal",
@@ -292,5 +294,14 @@
     "AISC Steel Construction Manual 15th ed. (2017)",
     "Bjorhovde R (2004) \"Development and Use of High Performance Steel\", J Constr Steel Res 60"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "ASTM A36",
+        "EN S275JR",
+        "St37-2"
+      ]
+    }
+  }
 }

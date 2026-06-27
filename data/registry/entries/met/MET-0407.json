@@ -165,7 +165,8 @@
   "process": "Wrought (cold-rolled strip)",
   "source": "Datasheet 2",
   "aliases": [
-    "Nickel Silver 65Cu-18Ni-17Zn"
+    "Nickel Silver 65Cu-18Ni-17Zn",
+    "C7521"
   ],
   "families": [
     "Metal",
@@ -188,5 +189,12 @@
     "Pickering F B (1976) The Metallurgical Evolution of Stainless Steels",
     "Copper Development Association Pub 144"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "Nickel Silver 65Cu-18Ni-17Zn"
+      ]
+    }
+  }
 }
