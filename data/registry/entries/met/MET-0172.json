@@ -1,0 +1,295 @@
+{
+  "stable_id": "MET-0172",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-pure-other",
+    "alloy_base": "F-AB-aa-6005a",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0197",
+  "origin": "reference(supplementary)",
+  "id": "R_0197",
+  "name": "AA 6005A",
+  "category": "Metal",
+  "subcategory": "Aluminum - Pure/Other",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 200,
+      "max": 225,
+      "typical": 225,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 250,
+      "max": 270,
+      "typical": 270,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 12,
+      "typical": 12,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 69,
+      "max": 69,
+      "typical": 69,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 85,
+      "max": 90,
+      "typical": 90,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 190,
+      "max": 190,
+      "typical": 190,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 68,
+      "max": 104,
+      "typical": 86,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 5,
+      "max": 18,
+      "typical": 10,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based"
+    },
+    "fracture_toughness": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6005"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6005"
+    },
+    "thermal_expansion": {
+      "min": 23.4,
+      "max": 23.4,
+      "typical": 23.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6005"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6005"
+    },
+    "specific_heat": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6005"
+    },
+    "melting_point": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6005"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6005"
+    },
+    "price_per_cm3": {
+      "min": 0.0081,
+      "max": 0.0081,
+      "typical": 0.0081,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6005"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.15,
+      "max": 3.15,
+      "typical": 3.15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Si": "0.5~0.9",
+    "Mg": "0.4~0.7"
+  },
+  "sources": [
+    {
+      "label": "ASM — AA 6005A aluminium (T6)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "EN 573-3 / EN 755-2 — AA 6005A wrought extrusion",
+      "url": "https://www.cen.eu/",
+      "verified": false
+    },
+    {
+      "label": "MatWeb — Aluminum 6005A-T6 extrusion",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=b8d536e0b1be4b53a6f1c4cb78ecb6d4",
+      "verified": false
+    },
+    {
+      "label": "Aalco — Aluminium Alloy 6005A-T6 Extrusion datasheet (EN 755-2:2008, 제품형태별 최소 물성)",
+      "url": "https://www.aalco.co.uk/datasheets/Aluminium-Alloy-6005A-T6-Extrusion_157.ashx",
+      "verified": true
+    },
+    {
+      "label": "Modulus Metal — Aluminum 6005A T6 Mechanical Properties (EN AW-6005A)",
+      "url": "https://www.modulusmetal.com/aluminum-6005a-t6-mechanical-properties/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.7,
+      225,
+      270,
+      12,
+      69,
+      90,
+      190
+    ],
+    [
+      2.7,
+      200,
+      250,
+      8,
+      69,
+      85,
+      190
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS A96005 / EN AW-6005A / AlSiMg(A) / DIN 3.3210 — heat-treatable Al-Mg-Si extrusion alloy (Mg 0.4-0.7, Si 0.5-0.9, Mn 0.10-0.50). 6063 의 higher-strength 변종 — high-speed extrusion + medium 강도. T6: σy 225 / UTS 270 / El 8% / HB 95. 광범위 architectural extrusion (curtain wall mullion, sliding door rail, KTX 차체 sidewall extrusion 표준), 자전거 frame, ladder, 신소재 trailer roof.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 30,
+  "fatigue_strength": 86,
+  "density": 2.7,
+  "yield_strength": 225,
+  "uts": 270,
+  "elongation": 12,
+  "modulus": 69,
+  "hardness": 90,
+  "thermal_conductivity": 190,
+  "impact_strength": 10,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — AA 6005A aluminium (T6)",
+  "aliases": [
+    "UNS A96005",
+    "EN AW-6005A",
+    "AlSiMg"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 48,
+  "max_service_temp": 170,
+  "thermal_expansion": 23.4,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0081,
+  "popularity": 3.2,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.15,
+  "total_cost_estimate": 2.84,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

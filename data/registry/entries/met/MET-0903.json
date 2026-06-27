@@ -1,0 +1,285 @@
+{
+  "stable_id": "MET-0903",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-15v-3cr-3al-3sn",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0167",
+  "origin": "reference(supplementary)",
+  "id": "R_0167",
+  "name": "Ti-15V-3Cr-3Al-3Sn",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 4.76,
+      "max": 4.76,
+      "typical": 4.76,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 950,
+      "max": 1000,
+      "typical": 1000,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1050,
+      "max": 1100,
+      "typical": 1100,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 10,
+      "typical": 10,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 340,
+      "max": 360,
+      "typical": 360,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 420,
+      "max": 600,
+      "typical": 520,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 30,
+      "typical": 22,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ti-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 90,
+      "typical": 70,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:MMPDS-2018 Titanium"
+    },
+    "electrical_conductivity": {
+      "min": 0.75,
+      "max": 2.25,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 600,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "thermal_expansion": {
+      "min": 4.4,
+      "max": 13.2,
+      "typical": 8.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "poisson_ratio": {
+      "min": 0.17,
+      "max": 0.51,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "specific_heat": {
+      "min": 280,
+      "max": 840,
+      "typical": 560,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "melting_point": {
+      "min": 825,
+      "max": 2475,
+      "typical": 1650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "price_per_kg": {
+      "min": 17.5,
+      "max": 52.5,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "price_per_cm3": {
+      "min": 0.0833,
+      "max": 0.2499,
+      "typical": 0.1666,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "delivered_price_per_kg": {
+      "min": 36.75,
+      "max": 36.75,
+      "typical": 36.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "V": "14~16",
+    "Cr": "2.5~3.5",
+    "Al": "2.5~3.5",
+    "Sn": "2.5~3.5"
+  },
+  "sources": [
+    {
+      "label": "ASM — Ti-15-3 beta titanium",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: MMPDS-2018 Titanium",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AZoM — Grade Ti 15V-3Cr-3Al-3Sn Alloy (UNS R58153) (Article 9396)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=9396",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.76,
+      1000,
+      1100,
+      10,
+      100,
+      360,
+      8
+    ],
+    [
+      4.76,
+      950,
+      1050,
+      8,
+      100,
+      340,
+      8
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS R58153",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 70,
+  "fatigue_strength": 520,
+  "density": 4.76,
+  "yield_strength": 1000,
+  "uts": 1100,
+  "elongation": 10,
+  "modulus": 100,
+  "hardness": 360,
+  "thermal_conductivity": 8,
+  "impact_strength": 22,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — Ti-15-3 beta titanium",
+  "aliases": [
+    "Ti-15-3",
+    "Ti-15V-3Cr-3Al-3Sn"
+  ],
+  "families": [
+    "Metal",
+    "Titanium",
+    "Titanium-based"
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 400,
+  "thermal_expansion": 8.8,
+  "poisson_ratio": 0.34,
+  "specific_heat": 560,
+  "melting_point": 1650,
+  "price_per_kg": 35,
+  "price_per_cm3": 0.1666,
+  "popularity": 2.8,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 36.75,
+  "total_cost_estimate": 66.15,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

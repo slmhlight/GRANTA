@@ -1,0 +1,275 @@
+{
+  "stable_id": "MET-0962",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-sk5-jis-carbon-tool-steel-0-85-c",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0292_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0292_0",
+  "name": "SK5 (JIS carbon tool steel, 0.85%C) — Annealed",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 7.84,
+      "max": 7.84,
+      "typical": 7.84,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 620,
+      "max": 620,
+      "typical": 620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 190,
+      "max": 190,
+      "typical": 190,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 49,
+      "max": 49,
+      "typical": 49,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 122,
+      "max": 175,
+      "typical": 147,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 16,
+      "max": 100,
+      "typical": 48,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel × HT:spheroidized annealed (i×4)"
+    },
+    "fracture_toughness": {
+      "min": 33,
+      "max": 88,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Tool Steels × HT:spheroidized annealed (k×2.2)"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0399,
+      "max": 0.054,
+      "typical": 0.047,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.43,
+      "max": 6.43,
+      "typical": 6.43,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.8~0.9",
+    "Mn": "≤0.5",
+    "Si": "≤0.35"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20SK5",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SteelJIS — SK85 (구 SK5) datasheet (JIS G4401 조성+207HBW/59HRC)",
+      "url": "http://steeljis.com/jis_steel_datasheet.php?name_id=191",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.84,
+      350,
+      620,
+      21,
+      205,
+      190,
+      49
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Annealed",
+    "specs": [
+      {
+        "id": "JIS G4401",
+        "org": "JIS"
+      }
+    ]
+  },
+  "fracture_toughness": 55,
+  "fatigue_strength": 147,
+  "density": 7.84,
+  "yield_strength": 350,
+  "uts": 620,
+  "elongation": 21,
+  "modulus": 205,
+  "hardness": 190,
+  "thermal_conductivity": 49,
+  "impact_strength": 48,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "0.85%C"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.047,
+  "popularity": 3,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.43,
+  "total_cost_estimate": 6.43,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

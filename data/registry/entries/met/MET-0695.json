@@ -1,0 +1,331 @@
+{
+  "stable_id": "MET-0695",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-304l",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "V_0189",
+  "origin": "am_vendor(csv)",
+  "id": "V_0189",
+  "name": "304L — As-supplied (LPBF)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "3D Systems",
+    "EOS"
+  ],
+  "machines": [],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built (no post-processing)",
+  "ranges": {
+    "density": {
+      "min": 7.95,
+      "max": 7.95,
+      "typical": 7.95,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": null,
+    "elongation": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 190,
+      "max": 190,
+      "typical": 190,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 270,
+      "max": 270,
+      "typical": 270,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 231,
+      "max": 273,
+      "typical": 252,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:304l × HT:as-built (fine columnar) (f×1.05, i×0.95)"
+    },
+    "impact_strength": {
+      "min": 114,
+      "max": 190,
+      "typical": 152,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:304l × HT:as-built (fine columnar) (f×1.05, i×0.95)"
+    },
+    "fracture_toughness": {
+      "min": 209,
+      "max": 209,
+      "typical": 209,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:as-built (fine columnar) (k×0.95)"
+    },
+    "electrical_conductivity": {
+      "min": 2.4,
+      "max": 2.4,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "max_service_temp": {
+      "min": 870,
+      "max": 870,
+      "typical": 870,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "thermal_expansion": {
+      "min": 17.3,
+      "max": 17.3,
+      "typical": 17.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "melting_point": {
+      "min": 1450,
+      "max": 1450,
+      "typical": 1450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "price_per_kg": {
+      "min": 4.5,
+      "max": 6,
+      "typical": 5.2,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "MetalMiner 304/304L flat product 2026-Q2 = $4.50-6.00/kg"
+    },
+    "price_per_cm3": {
+      "min": 0.0351,
+      "max": 0.0475,
+      "typical": 0.0413,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 11.75,
+      "max": 11.75,
+      "typical": 11.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "0.03",
+    "Fe": "71",
+    "Cr": "18",
+    "Ni": "8",
+    "Mn": "2",
+    "Si": "1"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — Stainless Steel 304L (1.4307)",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+      "verified": true
+    },
+    {
+      "label": "3D Systems (AM vendor datasheet)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "EOS (AM vendor datasheet)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.95,
+      420,
+      0,
+      40,
+      190,
+      270,
+      15
+    ],
+    [
+      7.95,
+      420,
+      0,
+      40,
+      190,
+      270,
+      15
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 2,
+    "subcategory_variants": [
+      "Stainless Steel - Austenitic"
+    ],
+    "conditions": [],
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Stainless Steel 304L"
+  },
+  "fracture_toughness": 209,
+  "fatigue_strength": 252,
+  "density": 7.95,
+  "yield_strength": 420,
+  "uts": null,
+  "elongation": 40,
+  "modulus": 190,
+  "hardness": 270,
+  "thermal_conductivity": 15,
+  "impact_strength": 152,
+  "manufacturer": "3D Systems, EOS",
+  "process": "LPBF",
+  "source": "Outokumpu — Stainless Steel 304L (1.4307)",
+  "aliases": [
+    "UNS S30403",
+    "EN 1.4307",
+    "X2CrNi18-9",
+    "JIS SUS304L",
+    "KS STS304L"
+  ],
+  "families": [
+    "Metal",
+    "Stainless - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 250,
+      "uts": 580,
+      "E": 195
+    },
+    {
+      "temp": 300,
+      "ys": 150,
+      "uts": 450,
+      "E": null
+    },
+    {
+      "temp": 500,
+      "ys": 130,
+      "uts": 400,
+      "E": null
+    },
+    {
+      "temp": 600,
+      "ys": 120,
+      "uts": 330,
+      "E": 153
+    }
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17.3,
+  "poisson_ratio": 0.29,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 4.7,
+  "price_per_cm3": 0.0413,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 11.75,
+  "total_cost_estimate": 21.15,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "creep_rupture": [
+    {
+      "temp": 600,
+      "stress": 150,
+      "hours": 1000
+    },
+    {
+      "temp": 700,
+      "stress": 60,
+      "hours": 1000
+    },
+    {
+      "temp": 800,
+      "stress": 20,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "medium"
+}

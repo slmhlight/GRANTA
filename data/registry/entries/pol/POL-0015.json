@@ -1,0 +1,226 @@
+{
+  "stable_id": "POL-0015",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-lcp",
+    "alloy_base": "F-AB-lcp-vectra-a130-ticona-high-flow",
+    "element_families": []
+  },
+  "legacy_id": "R_0317_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0317_1",
+  "name": "LCP Vectra A130 (Ticona, high-flow) — Annealed",
+  "category": "Polymer",
+  "subcategory": "Polymer - LCP",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection-Molded"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 1.61,
+      "max": 1.61,
+      "typical": 1.61,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 185,
+      "max": 185,
+      "typical": 185,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 19,
+      "max": 19,
+      "typical": 19,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.7,
+      "max": 0.7,
+      "typical": 0.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - LCP"
+    },
+    "max_service_temp": {
+      "min": 220,
+      "max": 240,
+      "typical": 230,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - LCP"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - LCP"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - LCP"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - LCP"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - LCP"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - LCP"
+    },
+    "price_per_cm3": {
+      "min": 0.0202,
+      "max": 0.0605,
+      "typical": 0.0403,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - LCP"
+    },
+    "delivered_price_per_kg": {
+      "min": 25.5,
+      "max": 25.5,
+      "typical": 25.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "70.0",
+    "H": "3.4",
+    "O": "26.6"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.celanese.com/products/vectra.html",
+      "verified": true
+    },
+    {
+      "label": "Celanese — Vectra A950 LCP 데이터시트 (Material Data Center)",
+      "url": "https://www.materialdatacenter.com/ms/en/tradenames/Vectra/Celanese/VECTRA+A950/268267e7/2442",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.61,
+      170,
+      185,
+      2.5,
+      19,
+      0,
+      0.7
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Annealed",
+    "polymer": true
+  },
+  "density": 1.61,
+  "yield_strength": 170,
+  "uts": 185,
+  "elongation": 2.5,
+  "modulus": 19,
+  "hardness": null,
+  "thermal_conductivity": 0.7,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection-Molded",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - LCP"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 230,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0403,
+  "popularity": 2,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25.5,
+  "total_cost_estimate": 45.9,
+  "min_wall_thickness": 2,
+  "surface_finish_typical": 50,
+  "tolerance_class": "IT15",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

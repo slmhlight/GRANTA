@@ -1,0 +1,355 @@
+{
+  "stable_id": "MET-0231",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-beryllium-alloy",
+    "alloy_base": "F-AB-beryllium",
+    "element_families": [
+      "F-EL-beryllium-based"
+    ]
+  },
+  "legacy_id": "G_0318",
+  "origin": "generic(csv)",
+  "id": "G_0318",
+  "name": "Beryllium — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Beryllium Alloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 1.85,
+      "max": 1.85,
+      "typical": 1.85,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 342,
+      "max": 414.2,
+      "typical": 364.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 405,
+      "max": 490.5,
+      "typical": 432,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 1.7,
+      "max": 2.18,
+      "typical": 1.92,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 310,
+      "max": 310,
+      "typical": 310,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 135,
+      "max": 163.5,
+      "typical": 144,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 180,
+      "max": 218,
+      "typical": 192,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 11.8,
+      "typical": 10.1,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 75,
+      "typical": 60,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Materion BeCu C17200"
+    },
+    "max_service_temp": {
+      "typical": 700,
+      "min": 600,
+      "max": 800,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Be": "99.5"
+  },
+  "sources": [
+    {
+      "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
+      "url": "https://materion.com/products/performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Beryllium\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Beryllium",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.85,
+      342,
+      405,
+      1.8,
+      310,
+      135,
+      200
+    ],
+    [
+      1.85,
+      387.6,
+      459,
+      1.84,
+      310,
+      153,
+      200
+    ],
+    [
+      1.85,
+      414.2000000000001,
+      490.50000000000006,
+      1.78,
+      310,
+      163.5,
+      200
+    ],
+    [
+      1.85,
+      376.2,
+      445.5,
+      2.18,
+      310,
+      148.5,
+      200
+    ],
+    [
+      1.85,
+      345.8,
+      409.5,
+      2.02,
+      310,
+      136.5,
+      200
+    ],
+    [
+      1.85,
+      357.20000000000005,
+      423,
+      2.08,
+      310,
+      141,
+      200
+    ],
+    [
+      1.85,
+      342,
+      405,
+      1.8,
+      310,
+      135,
+      200
+    ],
+    [
+      1.85,
+      399,
+      472.5,
+      1.7000000000000002,
+      310,
+      157.5,
+      200
+    ],
+    [
+      1.85,
+      372.4,
+      441,
+      1.96,
+      310,
+      147,
+      200
+    ],
+    [
+      1.85,
+      395.2,
+      468,
+      1.88,
+      310,
+      156,
+      200
+    ],
+    [
+      1.85,
+      364.8,
+      432,
+      1.92,
+      310,
+      144,
+      200
+    ],
+    [
+      1.85,
+      361,
+      427.50000000000006,
+      2.1,
+      310,
+      142.5,
+      200
+    ],
+    [
+      1.85,
+      357.20000000000005,
+      423,
+      1.88,
+      310,
+      141,
+      200
+    ],
+    [
+      1.85,
+      353.40000000000003,
+      418.5,
+      1.86,
+      310,
+      139.5,
+      200
+    ],
+    [
+      1.85,
+      399,
+      472.5,
+      2.1,
+      310,
+      157.5,
+      200
+    ],
+    [
+      1.85,
+      353.40000000000003,
+      418.5,
+      1.86,
+      310,
+      139.5,
+      200
+    ],
+    [
+      1.85,
+      410.4,
+      486.00000000000006,
+      1.96,
+      310,
+      162,
+      200
+    ],
+    [
+      1.85,
+      357.20000000000005,
+      423,
+      1.88,
+      310,
+      141,
+      200
+    ],
+    [
+      1.85,
+      345.8,
+      409.5,
+      2.02,
+      310,
+      136.5,
+      200
+    ],
+    [
+      1.85,
+      372.4,
+      441,
+      1.96,
+      310,
+      147,
+      200
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Beryllium Alloy"
+    ],
+    "conditions": [
+      "Be-99.5%"
+    ]
+  },
+  "fracture_toughness": 60,
+  "density": 1.85,
+  "yield_strength": 364.8,
+  "uts": 432,
+  "elongation": 1.92,
+  "modulus": 310,
+  "hardness": 144,
+  "thermal_conductivity": 200,
+  "fatigue_strength": 192,
+  "impact_strength": 10.1,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Beryllium Alloy"
+  ],
+  "popularity": 2.4,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Be 99.5% — 호흡기 유해 (베릴륨 분진), CMR Cat.1"
+  ],
+  "confidence_tier": "high"
+}

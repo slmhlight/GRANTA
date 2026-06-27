@@ -1,0 +1,230 @@
+{
+  "stable_id": "POL-0061",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide",
+    "alloy_base": "F-AB-pa11-alm-pa850",
+    "element_families": []
+  },
+  "legacy_id": "POL_012",
+  "origin": "polymers-data",
+  "id": "POL_012",
+  "name": "PA11 ALM PA850 — SLS Bio-based",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.02,
+      "max": 1.02,
+      "typical": 1.02,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 1.6,
+      "max": 1.6,
+      "typical": 1.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.23,
+      "max": 0.23,
+      "typical": 0.23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 46,
+      "max": 46,
+      "typical": 46,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 188,
+      "max": 188,
+      "typical": 188,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "price_per_cm3": {
+      "min": 0.1326,
+      "max": 0.1326,
+      "typical": 0.1326,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "72.1",
+    "H": "11.5",
+    "N": "7.6",
+    "O": "8.7"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PA11 ALM PA850",
+      "url": "https://www.arkema.com/global/en/products/product-finder/product-viewer/Rilsan-PA11/",
+      "verified": true
+    },
+    {
+      "label": "Applications: 신축성 prototype, 의족·의수, 자동차 fuel line (castor oil 기반 — bio-based)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Rilsan PA11 bio-based (castor oil)",
+      "url": "https://www.extrudedpolymers.com/products/rilsan-pa-11/",
+      "verified": true
+    },
+    {
+      "label": "ALM PA850 (bio-based PA11 SLS powder)",
+      "url": "https://www.alm-llc.com/",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 46,
+    "tm": 188,
+    "hdt_182": 100,
+    "moisture_24h": 0.9,
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "applications": "신축성 prototype, 의족·의수, 자동차 fuel line (castor oil 기반 — bio-based)",
+    "limitations": "PA12 보다 비싸나 충격 ↑ (notched Izod 5×)",
+    "_r173_note_applied": true
+  },
+  "popularity": 4,
+  "density": 1.02,
+  "yield_strength": 48,
+  "uts": 48,
+  "elongation": 50,
+  "modulus": 1.6,
+  "hardness": null,
+  "thermal_conductivity": 0.23,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PA11 ALM PA850",
+  "aliases": [
+    "Rilsan",
+    "Nylon 11"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Polyamide"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.1326,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PA850 은 미국 Arkema (ALM = Arkema Advanced Material) 의 SLS 용 PA11 powder 입니다. PA12 (PA 2200) 가 SLS 시장의 표준이지만 PA12 는 fossil-fuel 유래 (lauryl lactam 의 raw material 이 oil), PA11 은 castor oil (피마자유) 유래 — 100% bio-based polymer 입니다. 1947년 ATOFINA (현 Arkema) 가 PA11 (Rilsan) 의 첫 산업 batch 를 출시했고, 2010년 ALM 이 PA11 의 SLS-grade powder 를 'PA850' 으로 commercial launch 했어요.\n\nPA850 의 특성: bio-based (castor oil → C11 dicarboxylic acid → PA11), σy 50 MPa, UTS 55 MPa, El 50% (PA12 의 2배 — PA11 의 본질적 flexibility), Tm 187°C. SLS print 의 결과는 PA12 와 거의 동등하지만 El 이 훨씬 높아 'flexible part' 응용에 압도적으로 유리.\n\n응용: 의수/의지의 socket interface (인체 contact + flex 필요), 정밀 medical splint, 의료 patient-specific guide (FDA Class I), 자동차 flexible duct, 그리고 sustainable 의식이 강한 brand 의 marketing campaign (Adidas 의 bio-based midsole prototype 등). 가격은 fresh PA850 $80-130/kg 으로 PA12 PA 2200 의 약 2 배. 단점은 PA11 이 PA12 보다 hygroscopic (수분 흡수 1.9% — PA12 의 0.7% 보다 3배 많음) — 보관 + 가공 시 dry-as-molded 유지가 더 까다롭습니다.",
+  "story_refs": [
+    "ALM Arkema PA850 SLS Tech Data",
+    "Rilsan PA11 Tech Bulletin (verified 2024)",
+    "Schmid M (2018) Laser Sintering with Plastics, Hanser"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Nylon 11 (PA11, Polyundecanamide) — castor oil bio-based (Arkema Rilsan, ALM PA850, EOS PA1101). Tm ≈ 188°C, Tg ≈ 46°C, max service 95-100°C continuous. σy 45-50 / UTS 45-55 / El 200-330% (very ductile) / E 1.4-1.7 GPa / ρ 1.01-1.05 g/cc. 흡습률 1.5-2.5% (PA12 와 거의 동등, PA6 의 1/4) — long-term dimensional stability. PA12 의 bio-based 대안. 의료 카테터, 오프쇼어 flexible riser (gas/oil), 자동차 fuel line (PA12 의 bio version), SLS 3D printing (ALM, EOS)."
+}

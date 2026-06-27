@@ -1,0 +1,338 @@
+{
+  "stable_id": "MET-0821",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ph",
+    "alloy_base": "F-AB-15-5-ph-stainless",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0249",
+  "origin": "reference(supplementary)",
+  "id": "R_0249",
+  "name": "15-5 PH Stainless — Wrought, H900",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - PH",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "H900",
+  "ranges": {
+    "density": {
+      "min": 7.78,
+      "max": 7.78,
+      "typical": 7.78,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1100,
+      "max": 1240,
+      "typical": 1170,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1240,
+      "max": 1380,
+      "typical": 1310,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 16,
+      "typical": 14,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 196,
+      "max": 196,
+      "typical": 196,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 360,
+      "max": 400,
+      "typical": 380,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 17.8,
+      "max": 17.8,
+      "typical": 17.8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 480,
+      "max": 600,
+      "typical": 540,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:155ph"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 55,
+      "typical": 40,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:155ph"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "thermal_expansion": {
+      "min": 10.8,
+      "max": 10.8,
+      "typical": 10.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "poisson_ratio": {
+      "min": 0.27,
+      "max": 0.27,
+      "typical": 0.27,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "melting_point": {
+      "min": 1404,
+      "max": 1404,
+      "typical": 1404,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "price_per_kg": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "price_per_cm3": {
+      "min": 0.0545,
+      "max": 0.0545,
+      "typical": 0.0545,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "delivered_price_per_kg": {
+      "min": 9.19,
+      "max": 9.19,
+      "typical": 9.19,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "14~15.5",
+    "Ni": "3.5~5.5",
+    "Cu": "2.5~4.5",
+    "Nb": "0.15~0.45"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — Custom 15-5 PH",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
+      "verified": true
+    },
+    {
+      "label": "AMS 5659 / AK Steel 15-5PH",
+      "url": "https://www.aksteel.com/sites/default/files/2018-01/155PH201706.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 15-5PH H900",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AK Steel — 15-5 PH Stainless Datasheet",
+      "url": "https://www.aksteel.com/sites/default/files/2018-02/15-5-PH-DATA-BULLETIN.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 5659 — 15-5 PH bar / forging",
+      "url": "https://www.sae.org/standards/content/ams5659/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.78,
+      1170,
+      1310,
+      14,
+      196,
+      380,
+      17.8
+    ],
+    [
+      7.78,
+      1100,
+      1240,
+      10,
+      196,
+      360,
+      17.8
+    ],
+    [
+      7.78,
+      1240,
+      1380,
+      16,
+      196,
+      400,
+      17.8
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS S15500 / EN 1.4545 / XM-12 — 17-4 PH 의 'higher toughness' 변종 (Cr 14-15.5, Ni 3.5-5.5, Cu 2.5-4.5). 17-4 와 동등 강도 (H900 σy 1170 / UTS 1310) 이지만 fine-grained ESR melt 로 transverse ductility / KIC 개선. 항공 critical components (Cessna spar/wing fitting), 의료 instrument, AM LPBF (3D Systems LaserForm 15-5PH).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5659",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 80,
+  "fatigue_strength": 540,
+  "density": 7.78,
+  "yield_strength": 1170,
+  "uts": 1310,
+  "elongation": 14,
+  "modulus": 196,
+  "hardness": 380,
+  "thermal_conductivity": 17.8,
+  "impact_strength": 40,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Carpenter Technology — Custom 15-5 PH",
+  "aliases": [
+    "UNS S15500",
+    "EN 1.4545",
+    "XM-12"
+  ],
+  "families": [
+    "Metal",
+    "Stainless - PH",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1170,
+      "uts": 1310,
+      "E": 196
+    },
+    {
+      "temp": 300,
+      "ys": 1010,
+      "uts": 1170,
+      "E": 180
+    },
+    {
+      "temp": 425,
+      "ys": 940,
+      "uts": 1080,
+      "E": null
+    },
+    {
+      "temp": 540,
+      "ys": 760,
+      "uts": 900,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 2.5,
+  "max_service_temp": 315,
+  "thermal_expansion": 10.8,
+  "poisson_ratio": 0.27,
+  "specific_heat": 460,
+  "melting_point": 1404,
+  "price_per_kg": 7,
+  "price_per_cm3": 0.0545,
+  "popularity": 4.07,
+  "machining_cost_factor": 1.5,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 9.19,
+  "total_cost_estimate": 13.78,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 5.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "1962년 미국 Armco Steel 이 17-4 PH (1944) 의 약점 — austenite δ-ferrite 잔류로 가공 방향에 따른 강도 차이 — 를 해결하려고 새 PH stainless 를 시도했어요. Cr 15% + Ni 5% + Cu 4% — Cr 을 17 → 15% 로 줄이고 Ni 를 4 → 5% 로 늘려 δ-ferrite 를 거의 없앤 게 핵심이었죠. 결과 — 17-4 와 동일한 강도 + 약 30% 더 좋은 transverse impact + 통일된 가공성을 얻었습니다.\n\n응용 — 항공 — F-22 의 hydraulic actuator (15-5 가 17-4 보다 isotropy 가 좋아 정밀 forging 에 유리), Boeing 777 의 일부 fastener (Hi-Lok), 우주 — NASA SLS 의 LH2 pump shaft. 군 — M249 SAW 의 일부 internal part. 의료 — Stryker 의 일부 spinal hardware (인체 인장-피로 환경에서 17-4 보다 우수). LPBF 분말로도 인기 — 17-4 PH 다음으로 인기 있는 stainless powder 가 15-5 PH 입니다.\n\n흥미. 17-4 와 15-5 의 family relationship 은 stainless 산업에서 'sister grades' 로 통해요. 같은 시효 단계 (H900, H1025, H1075, H1100, H1150) 를 공유하고, 가격도 비슷하고, 응용 영역도 거의 겹치죠. 다만 'forging direction 의 인성 균일성' 이 결정적인 응용 (대형 항공 단조) 에서는 15-5 가 거의 항상 선택됩니다.",
+  "story_refs": [
+    "ASTM A564 \"Standard Specification for Hot-Rolled and Cold-Finished Age-Hardening Stainless Steel Bars and Shapes\"",
+    "AK Steel \"15-5 PH Stainless Steel Product Data Bulletin\" (2007)",
+    "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
+  ],
+  "confidence_tier": "high"
+}

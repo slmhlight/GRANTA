@@ -1,0 +1,280 @@
+{
+  "stable_id": "POL-0042",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pes",
+    "alloy_base": "F-AB-pesu-polyethersulfone",
+    "element_families": []
+  },
+  "legacy_id": "R_0175",
+  "origin": "reference(supplementary)",
+  "id": "R_0175",
+  "name": "PESU (Polyethersulfone)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PES",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.37,
+      "max": 1.37,
+      "typical": 1.37,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 78,
+      "max": 85,
+      "typical": 85,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 84,
+      "max": 90,
+      "typical": 90,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 40,
+      "typical": 40,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.5,
+      "max": 2.6,
+      "typical": 2.6,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.18,
+      "max": 0.18,
+      "typical": 0.18,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "max_service_temp": {
+      "min": 90,
+      "max": 270,
+      "typical": 180,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "thermal_expansion": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "glass_transition_temp": {
+      "min": 93.5,
+      "max": 280.5,
+      "typical": 187,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "price_per_kg": {
+      "min": 100,
+      "max": 300,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "price_per_cm3": {
+      "min": 0.137,
+      "max": 0.411,
+      "typical": 0.274,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "delivered_price_per_kg": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "73.3",
+    "H": "5.0",
+    "O": "14.5",
+    "S": "7.2"
+  },
+  "sources": [
+    {
+      "label": "BASF — Ultrason E (PESU)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Solvay Veradel PES technical guide",
+      "url": "https://www.syensqo.com/en/product/veradel-pes",
+      "verified": true
+    },
+    {
+      "label": "BASF Ultrason E PESU",
+      "url": "https://www.basf.com/global/en/products/plastics/engineering-plastics/ultrason.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.37,
+      85,
+      90,
+      40,
+      2.6,
+      0,
+      0.18
+    ],
+    [
+      1.37,
+      78,
+      84,
+      25,
+      2.5,
+      0,
+      0.18
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "PES / PESU (Polyethersulfone) — amorphous high-temp sulfone polymer (Solvay Veradel, BASF Ultrason E). Tg 225°C, HDT (1.8 MPa) 200°C, max service 180-200°C continuous. σy 75-95 / UTS 80-100 / El 30-80% / E 2.6 GPa / ρ 1.37 g/cc. 광 투과 (transparent amber). 의료 sterilizable (autoclave, 134°C × 10 cycles), 식품 보존 hot-fill, 항공 인테리어 (UL 94 V-0), 반도체 wafer carrier.",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.37,
+  "yield_strength": 85,
+  "uts": 90,
+  "elongation": 40,
+  "modulus": 2.6,
+  "hardness": null,
+  "thermal_conductivity": 0.18,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "BASF — Ultrason E (PESU)",
+  "aliases": [
+    "Ultrason E",
+    "Polyethersulfone",
+    "PES"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Polysulfone (PSU)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 180,
+  "thermal_expansion": 50,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 187,
+  "price_per_kg": 200,
+  "price_per_cm3": 0.274,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 200,
+  "total_cost_estimate": 140,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 85,
+      "uts": 90,
+      "E": 2.6
+    },
+    {
+      "temp": 100,
+      "ys": 72,
+      "uts": 78,
+      "E": 2.4
+    },
+    {
+      "temp": 150,
+      "ys": 58,
+      "uts": 65,
+      "E": 2
+    },
+    {
+      "temp": 200,
+      "ys": 35,
+      "uts": 40,
+      "E": 1.4
+    },
+    {
+      "temp": 225,
+      "ys": 18,
+      "uts": 22,
+      "E": 0.5
+    }
+  ]
+}

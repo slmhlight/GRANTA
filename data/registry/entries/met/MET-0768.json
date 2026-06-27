@@ -1,0 +1,292 @@
+{
+  "stable_id": "MET-0768",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-duplex",
+    "alloy_base": "F-AB-superduplex-2507-uns-s32750",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0263",
+  "origin": "reference(supplementary)",
+  "id": "R_0263",
+  "name": "Superduplex 2507 (UNS S32750) — Wrought",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Duplex",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 485,
+      "max": 620,
+      "typical": 550,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 750,
+      "max": 880,
+      "typical": 800,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 35,
+      "typical": 25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 310,
+      "typical": 295,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 332,
+      "max": 448,
+      "typical": 390,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.49·UTS, medium): duplex SS ~0.45-0.5·UTS (ASM)"
+    },
+    "impact_strength": {
+      "min": 70,
+      "max": 160,
+      "typical": 110,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:2507"
+    },
+    "fracture_toughness": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.9,
+      "max": 1.9,
+      "typical": 1.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2507"
+    },
+    "max_service_temp": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2507"
+    },
+    "thermal_expansion": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2507"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2507"
+    },
+    "specific_heat": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2507"
+    },
+    "melting_point": {
+      "min": 1450,
+      "max": 1450,
+      "typical": 1450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2507"
+    },
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2507"
+    },
+    "price_per_cm3": {
+      "min": 0.0942,
+      "max": 0.0942,
+      "typical": 0.0942,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2507"
+    },
+    "delivered_price_per_kg": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "24~26",
+    "Ni": "6~8",
+    "Mo": "3~5",
+    "N": "0.24~0.32"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu 2507 SAF / Sandmeyer Duplex",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Rolled Alloys ZERON 100",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      550,
+      800,
+      25,
+      200,
+      295,
+      17
+    ],
+    [
+      7.85,
+      485,
+      750,
+      20,
+      200,
+      280,
+      17
+    ],
+    [
+      7.85,
+      620,
+      880,
+      35,
+      200,
+      310,
+      17
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS S32750",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 110,
+  "density": 7.85,
+  "yield_strength": 550,
+  "uts": 800,
+  "elongation": 25,
+  "modulus": 200,
+  "hardness": 295,
+  "thermal_conductivity": 17,
+  "fatigue_strength": 390,
+  "impact_strength": 110,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Outokumpu 2507 SAF / Sandmeyer Duplex",
+  "aliases": [
+    "UNS S32750",
+    "EN 1.4410",
+    "SAF 2507",
+    "F53"
+  ],
+  "families": [
+    "Metal",
+    "Stainless - Duplex",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 1.9,
+  "max_service_temp": 300,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 480,
+  "melting_point": 1450,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.0942,
+  "popularity": 3.15,
+  "machining_cost_factor": 1.5,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 12.6,
+  "total_cost_estimate": 18.9,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

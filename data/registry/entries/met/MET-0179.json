@@ -1,0 +1,306 @@
+{
+  "stable_id": "MET-0179",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-a356-0-al-si-mg-cast",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0017",
+  "origin": "reference(supplementary)",
+  "id": "R_0017",
+  "name": "A356.0 (Al-Si-Mg cast)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.68,
+      "max": 2.68,
+      "typical": 2.68,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 124,
+      "max": 205,
+      "typical": 186,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 159,
+      "max": 278,
+      "typical": 262,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 8,
+      "typical": 6,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 72.4,
+      "max": 72.4,
+      "typical": 72.4,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 60,
+      "max": 90,
+      "typical": 80,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 151,
+      "max": 151,
+      "typical": 151,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 55,
+      "max": 85,
+      "typical": 70,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 8,
+      "typical": 5,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "fracture_toughness": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 39,
+      "max": 39,
+      "typical": 39,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "max_service_temp": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "thermal_expansion": {
+      "min": 21.5,
+      "max": 21.5,
+      "typical": 21.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "specific_heat": {
+      "min": 963,
+      "max": 963,
+      "typical": 963,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "melting_point": {
+      "min": 615,
+      "max": 615,
+      "typical": 615,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "price_per_kg": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "price_per_cm3": {
+      "min": 0.0094,
+      "max": 0.0094,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a356"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Si": "6.5~7.5",
+    "Mg": "0.25~0.45",
+    "Fe": "≤0.2",
+    "Ti": "≤0.2"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum A356 / AlSi7Mg cast",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A356+aluminum",
+      "verified": false
+    },
+    {
+      "label": "ASM / industry data — A356.0 (T6 / F / T51 tempers)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Aluminum Association handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — A356 cast aluminum",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "Aluminum Association — Cast Designation A356",
+      "url": "https://www.aluminum.org/",
+      "verified": false
+    },
+    {
+      "label": "MatWeb — A356-T6 cast aluminum",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8e3ea3ec01d04bd1bcb3ea91a13e6f4f",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.68,
+      186,
+      262,
+      5,
+      72.4,
+      80,
+      151
+    ],
+    [
+      2.68,
+      124,
+      159,
+      6,
+      72.4,
+      60,
+      151
+    ],
+    [
+      2.68,
+      205,
+      278,
+      8,
+      72.4,
+      90,
+      151
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS A03560 / EN AC-42000 / AlSi7Mg / DIN AC-AlSi7Mg — 가장 흔한 cast aluminum (Si 6.5-7.5, Mg 0.25-0.45, Mn ≤ 0.35). 변종: A356 (sand cast, 0.20 Mg high), A356.2 (low Fe), B356 (low Cu). T6 (T7 (over-자동차 휠 (cast wheel), 엔진 블록 (V6), suspension control arm, mil aircraft structural cast. AlSi10Mg 와 거의 동등 (AM 의 AlSi10Mg ≈ casting 의 A356).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 18,
+  "fatigue_strength": 70,
+  "density": 2.68,
+  "yield_strength": 186,
+  "uts": 262,
+  "elongation": 6,
+  "modulus": 72.4,
+  "hardness": 80,
+  "thermal_conductivity": 151,
+  "impact_strength": 5,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "MatWeb — Aluminum A356 / AlSi7Mg cast",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 39,
+  "max_service_temp": 175,
+  "thermal_expansion": 21.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 963,
+  "melting_point": 615,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0094,
+  "popularity": 4.15,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.5,
+  "total_cost_estimate": 2.1,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "story": "1923년 미국 Aluminum Company of America (Alcoa) 가 sand-cast 용 Al-Si 7% + Mg 0.3% 의 새 합금 'alloy 356' 을 출시합니다 — 이전 Al-Cu 계 cast (alloy 222) 가 quenching crack 으로 시달리던 문제를 Si 7% 의 hypoeutectic 구성과 Mg₂Si 시효 석출로 풀어냈어요. 1954년 IADS 통합 시 A356 (.0 = sand cast / .1 = ingot / .2 = premium) 으로 재명명됐습니다.\n\nA356-T6 (515°C SA + WQ + 155°C/6h 시효) 가 σ_y 200 MPa + El 6% 의 항공 grade 표준이 됐어요. 응용 — 자동차 wheel (BBS, Enkei, Volk Racing 의 모든 forged-look cast wheel), 엔진 cylinder head (Ford EcoBoost, Hyundai Theta), 전동 모터 housing (Tesla Model 3 의 rear motor casing), 항공기 landing-gear truck beam (Boeing 747-8). 1990년대 들어 'squeeze casting' 과 'SSM (semi-solid metal)' 공정으로 cast porosity 가 0.5% 이하로 떨어져 forged 6061 의 90% 성능에 단가는 1/4 — '공기 단조' 의 baseline 이 됐습니다.",
+  "story_refs": [
+    "Mondolfo L F (1976) Aluminum Alloys: Structure and Properties, Butterworths",
+    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+    "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Aluminum Casting",
+    "Sigworth G K & Caceres C H (2005) \"Quality issues in aluminum castings\", AFS Trans 113"
+  ],
+  "confidence_tier": "high"
+}

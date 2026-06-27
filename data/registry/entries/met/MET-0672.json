@@ -1,0 +1,462 @@
+{
+  "stable_id": "MET-0672",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-zirconium",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "G_0324",
+  "origin": "generic(csv)",
+  "id": "G_0324",
+  "name": "Zirconium — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 6.51,
+      "max": 6.51,
+      "typical": 6.51,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 342,
+      "max": 414.2,
+      "typical": 364.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 405,
+      "max": 490.5,
+      "typical": 432,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 17,
+      "max": 21.8,
+      "typical": 19.2,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 99,
+      "max": 99,
+      "typical": 99,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 108,
+      "max": 130.8,
+      "typical": 115.2,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 179,
+      "max": 241,
+      "typical": 210,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.49·UTS, medium): Zr 702 ~0.4-0.5·UTS (Ti 보다 낮음, HCP)"
+    },
+    "impact_strength": {
+      "min": 72,
+      "max": 106.2,
+      "typical": 90.9,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Refractory"
+    },
+    "electrical_conductivity": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Refractory Metal"
+    },
+    "max_service_temp": {
+      "min": 350,
+      "max": 450,
+      "typical": 400,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "1st_family:Refractory Metal"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 34.5,
+      "typical": 23,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Refractory Metal"
+    },
+    "poisson_ratio": {
+      "min": 0.165,
+      "max": 0.495,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Refractory Metal"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 1350,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Refractory Metal"
+    },
+    "melting_point": {
+      "min": 325,
+      "max": 975,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Refractory Metal"
+    },
+    "price_per_kg": {
+      "min": 2,
+      "max": 6,
+      "typical": 4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Refractory Metal"
+    },
+    "price_per_cm3": {
+      "min": 0.013,
+      "max": 0.039,
+      "typical": 0.026,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Refractory Metal"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.2,
+      "max": 4.2,
+      "typical": 4.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Zr": "balance",
+    "Hf": "≤4.5",
+    "Fe+Cr": "≤0.2",
+    "O": "≤0.16"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Zirconium\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Zirconium",
+      "verified": false
+    },
+    {
+      "label": "ATI Wah Chang Pure Zirconium",
+      "url": "https://www.atimaterials.com/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B493 — Pure Zr Forging",
+      "url": "https://store.astm.org/b0493-15.html",
+      "verified": false
+    },
+    {
+      "label": "ATI — Zircadyne 702 and 705 Technical Data Sheet (v1, 2012): R60702 조성·ρ 6.51·melt 1852°C·E 99.2 GPa·Poisson 0.35·annealed UTS 468/YS 321 MPa·ASTM min 379/207·SB551/523/493/550 allowable stress",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/zirconium/alloy/zircadyne_702_705_1_v1.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      6.51,
+      342,
+      405,
+      18,
+      99,
+      108,
+      22
+    ],
+    [
+      6.51,
+      387.6,
+      459,
+      18.4,
+      99,
+      122.4,
+      22
+    ],
+    [
+      6.51,
+      414.2000000000001,
+      490.50000000000006,
+      17.8,
+      99,
+      130.8,
+      22
+    ],
+    [
+      6.51,
+      376.2,
+      445.5,
+      21.8,
+      99,
+      118.8,
+      22
+    ],
+    [
+      6.51,
+      345.8,
+      409.5,
+      20.2,
+      99,
+      109.2,
+      22
+    ],
+    [
+      6.51,
+      357.20000000000005,
+      423,
+      20.8,
+      99,
+      112.8,
+      22
+    ],
+    [
+      6.51,
+      342,
+      405,
+      18,
+      99,
+      108,
+      22
+    ],
+    [
+      6.51,
+      399,
+      472.5,
+      17,
+      99,
+      126,
+      22
+    ],
+    [
+      6.51,
+      372.4,
+      441,
+      19.6,
+      99,
+      117.6,
+      22
+    ],
+    [
+      6.51,
+      395.2,
+      468,
+      18.8,
+      99,
+      124.8,
+      22
+    ],
+    [
+      6.51,
+      364.8,
+      432,
+      19.200000000000003,
+      99,
+      115.2,
+      22
+    ],
+    [
+      6.51,
+      361,
+      427.50000000000006,
+      21,
+      99,
+      114,
+      22
+    ],
+    [
+      6.51,
+      357.20000000000005,
+      423,
+      18.8,
+      99,
+      112.8,
+      22
+    ],
+    [
+      6.51,
+      353.40000000000003,
+      418.5,
+      18.6,
+      99,
+      111.6,
+      22
+    ],
+    [
+      6.51,
+      399,
+      472.5,
+      21,
+      99,
+      126,
+      22
+    ],
+    [
+      6.51,
+      353.40000000000003,
+      418.5,
+      18.6,
+      99,
+      111.6,
+      22
+    ],
+    [
+      6.51,
+      410.4,
+      486.00000000000006,
+      19.6,
+      99,
+      129.60000000000002,
+      22
+    ],
+    [
+      6.51,
+      357.20000000000005,
+      423,
+      18.8,
+      99,
+      112.8,
+      22
+    ],
+    [
+      6.51,
+      345.8,
+      409.5,
+      20.2,
+      99,
+      109.2,
+      22
+    ],
+    [
+      6.51,
+      372.4,
+      441,
+      19.6,
+      99,
+      117.6,
+      22
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Refractory Metal"
+    ],
+    "conditions": [
+      "Zr-99.9%"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B493",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "density": 6.51,
+  "yield_strength": 364.8,
+  "uts": 432,
+  "elongation": 19.2,
+  "modulus": 99,
+  "hardness": 115.2,
+  "thermal_conductivity": 22,
+  "fatigue_strength": 210,
+  "impact_strength": 90.9,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 170,
+  "thermal_expansion": 23,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.026,
+  "popularity": 1.8,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4.2,
+  "total_cost_estimate": 4.2,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 60% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Pure Zirconium (UNS R60001, Grade 702) — Hf-free refractory metal. Tm 1855°C, ρ 6.51 g/cc, E 99 GPa. Tmax 400°C continuous in air (above → rapid oxidation). 화학 plant — strong acid (HNO₃, H₂SO₄, HCl) 저항 우수 (Ta 와 비슷), reactor 부품, photographic flash bulb.",
+  "fatigue_estimated": true
+}

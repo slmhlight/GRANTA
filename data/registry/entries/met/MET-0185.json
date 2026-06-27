@@ -1,0 +1,320 @@
+{
+  "stable_id": "MET-0185",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-6061",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0438_4",
+  "origin": "reference(supplementary)",
+  "id": "R_0438_4",
+  "name": "AA 6061 — T73",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T73",
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 270,
+      "max": 270,
+      "typical": 270,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 69,
+      "max": 69,
+      "typical": 69,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 88,
+      "max": 88,
+      "typical": 88,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 167,
+      "max": 167,
+      "typical": 167,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 70,
+      "max": 86,
+      "typical": 76,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:aa6061 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 27,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:aa6061 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+    },
+    "fracture_toughness": {
+      "min": 40.6,
+      "max": 40.6,
+      "typical": 40.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:T7351/T7451 over-aged SCC-resistant (k×1.4)"
+    },
+    "electrical_conductivity": {
+      "min": 43,
+      "max": 43,
+      "typical": 43,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6061"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6061"
+    },
+    "thermal_expansion": {
+      "min": 23.6,
+      "max": 23.6,
+      "typical": 23.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6061"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6061"
+    },
+    "specific_heat": {
+      "min": 896,
+      "max": 896,
+      "typical": 896,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6061"
+    },
+    "melting_point": {
+      "min": 652,
+      "max": 652,
+      "typical": 652,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6061"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6061"
+    },
+    "price_per_cm3": {
+      "min": 0.0081,
+      "max": 0.0081,
+      "typical": 0.0081,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6061"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.94,
+      "max": 3.94,
+      "typical": 3.94,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Mg": "0.8~1.2",
+    "Si": "0.4~0.8",
+    "Cu": "0.15~0.4",
+    "Cr": "0.04~0.35",
+    "Fe": "≤0.7",
+    "Mn": "≤0.15"
+  },
+  "sources": [
+    {
+      "label": "Arconic/MatWeb — 6061 Aluminum Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=6061+aluminum",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 5",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6061",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 5",
+      "url": "https://www.kaiseraluminum.com/aerospace/alloys/6061/",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum 6xxx (Al-Mg-Si)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "Aluminum Association — 6061 Data Sheet",
+      "url": "https://www.aluminum.org/",
+      "verified": false
+    },
+    {
+      "label": "MatWeb — Aluminum 6061-T6",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1b8c06d0ca7c456694c7777d9e10be5b",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.7,
+      240,
+      270,
+      13,
+      69,
+      88,
+      167
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS A96061 / EN AW-6061 / AlMg1SiCu / DIN 3.3211 — heat-treatable Al-Mg-Si alloy. 가장 흔한 구조용 Al. O (anneal): σy 55 / UTS 124 / El 25%.",
+  "meta": {
+    "reference": true,
+    "condition": "T73",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 40.6,
+  "fatigue_strength": 76,
+  "density": 2.7,
+  "yield_strength": 240,
+  "uts": 270,
+  "elongation": 13,
+  "modulus": 69,
+  "hardness": 88,
+  "thermal_conductivity": 167,
+  "impact_strength": 18,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Arconic/MatWeb — 6061 Aluminum Alloy",
+  "aliases": [
+    "UNS A96061",
+    "EN AW-6061",
+    "AlMg1SiCu",
+    "DIN 3.3211"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 275,
+      "uts": 310,
+      "E": 68.9
+    },
+    {
+      "temp": 150,
+      "ys": 260,
+      "uts": 290,
+      "E": null
+    },
+    {
+      "temp": 200,
+      "ys": 210,
+      "uts": 235,
+      "E": 60
+    },
+    {
+      "temp": 300,
+      "ys": 40,
+      "uts": 60,
+      "E": 50
+    }
+  ],
+  "electrical_conductivity": 43,
+  "max_service_temp": 170,
+  "thermal_expansion": 23.6,
+  "poisson_ratio": 0.33,
+  "specific_heat": 896,
+  "melting_point": 652,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0081,
+  "popularity": 5,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.94,
+  "total_cost_estimate": 2.36,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1935년 미국 Alcoa 의 예일 셔먼 (Yale L. Sherman) 이 Al-Mg-Si 6063 의 조성을 발전시켜 Cu 0.15-0.4% + Cr 0.04-0.35% 를 추가한 합금이 alloy 61S — 1954년 Aluminum Association 의 international designation 통합 시 AA 6061 으로 재명명됐습니다. Cu 첨가로 Mg2Si precipitate 의 nucleation 이 강화되어 동일 열처리에서 6063 대비 σy 가 60% 향상됐죠.\n\n1939-1945년 2차 세계대전 동안 미군 항공기 fuselage frame 의 secondary structural alloy 로 채택되며 항공 응용이 본격화됐고, 1960년대 Reynolds Aluminum 이 trailer/dump truck body 표준으로 도입하면서 일반 산업으로 확산됩니다. T6 열처리 (530°C/1h solution + WQ + 175°C/8h artificial aging) 후 σy 276 MPa / σUTS 310 MPa — 항공·구조용의 균형 잡힌 강도 + 우수한 용접성 (4043/5356 filler) + 압출성 + 내식성 (Cu < 0.4% 라 5xxx 의 SCC 문제 없음) 의 트리오로 'all-purpose Al alloy' 자리에 올랐습니다.\n\n응용 — 자전거 프레임 (Cannondale CAAD, Specialized Allez), Apple MacBook unibody chassis (CNC 가공 후 anodizing — 6061-T6 sheet), Caltrans freeway sign frame, SpaceX Falcon 9 interstage adapter, M16/M4 rifle upper/lower receiver (군용 6061-T6 forging — Colt Mil-Spec), CNC 가공용 plate stock (7075 의 1/3 가격) 까지. 압출·plate·rod·bar·sheet·forging 모든 형태로 공급되며, ASTM B221 (extrusion) / B209 (sheet) / B211 (bar) 표준의 baseline 합금입니다.",
+  "story_refs": [
+    "Hatch J E (ed., 1984) Aluminum: Properties and Physical Metallurgy, ASM",
+    "Mondolfo L F (1976) Aluminum Alloys: Structure and Properties, Butterworths",
+    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+    "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
+  ],
+  "confidence_tier": "high"
+}

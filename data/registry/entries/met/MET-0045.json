@@ -1,0 +1,290 @@
+{
+  "stable_id": "MET-0045",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-aisi-5160-spring",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0118",
+  "origin": "reference(supplementary)",
+  "id": "R_0118",
+  "name": "AISI 5160 (spring)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1380,
+      "max": 1530,
+      "typical": 1450,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1520,
+      "max": 1700,
+      "typical": 1600,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 11,
+      "typical": 9,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 460,
+      "max": 500,
+      "typical": 480,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 46,
+      "max": 46,
+      "typical": 46,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 395,
+      "max": 510,
+      "typical": 450,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "impact_strength": {
+      "min": 22,
+      "max": 45,
+      "typical": 32,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "thermal_expansion": {
+      "min": 12.3,
+      "max": 12.3,
+      "typical": 12.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "specific_heat": {
+      "min": 475,
+      "max": 475,
+      "typical": 475,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "melting_point": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "price_per_kg": {
+      "min": 2.8,
+      "max": 2.8,
+      "typical": 2.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "price_per_cm3": {
+      "min": 0.022,
+      "max": 0.022,
+      "typical": 0.022,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5160"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.08,
+      "max": 3.08,
+      "typical": 3.08,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.56~0.64",
+    "Cr": "0.7~0.9",
+    "Mn": "0.75~1"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — AISI 5xxx (Cr alloy steel) + SAE J404",
+      "url": "https://www.sae.org/standards/content/j404/",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — AISI 5160 spring steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+5160",
+      "verified": false
+    },
+    {
+      "label": "ASM — AISI 5160 spring steel (Q&T)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM spring steel",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1450,
+      1600,
+      9,
+      205,
+      480,
+      46
+    ],
+    [
+      7.85,
+      1380,
+      1520,
+      7,
+      205,
+      460,
+      46
+    ],
+    [
+      7.85,
+      1530,
+      1700,
+      11,
+      205,
+      500,
+      46
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 450,
+  "density": 7.85,
+  "yield_strength": 1450,
+  "uts": 1600,
+  "elongation": 9,
+  "modulus": 205,
+  "hardness": 480,
+  "thermal_conductivity": 46,
+  "impact_strength": 32,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 5160 spring steel",
+  "aliases": [
+    "UNS G51600",
+    "DIN 1.7176",
+    "60Cr3",
+    "JIS SUP9A"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 7.5,
+  "max_service_temp": 425,
+  "thermal_expansion": 12.3,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1430,
+  "price_per_kg": 2.8,
+  "price_per_cm3": 0.022,
+  "popularity": 3.2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.048,
+  "delivered_price_per_kg": 3.08,
+  "total_cost_estimate": 3.08,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,177 @@
+{
+  "stable_id": "CER-0024",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-cordierite-2mgo-2al-o-5sio",
+    "element_families": []
+  },
+  "legacy_id": "CER_014",
+  "origin": "ceramics-data",
+  "id": "CER_014",
+  "name": "Cordierite (2MgO·2Al₂O₃·5SiO₂)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.65,
+      "max": 2.65,
+      "typical": 2.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 49.5,
+      "max": 49.5,
+      "typical": 49.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.0212,
+      "max": 0.0212,
+      "typical": 0.0212,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "8.3",
+    "Al": "18.4",
+    "Si": "24.0",
+    "O": "49.2"
+  },
+  "sources": [
+    {
+      "label": "Applications: 촉매 변환기 honeycomb (자동차 배기), 가열 부품, 인덕션 cooktop 판",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "NGK Insulators Cordierite Honeycomb Ceramic",
+      "url": "https://www.ngk-insulators.com/en/",
+      "verified": true
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "촉매 변환기 honeycomb (자동차 배기), 가열 부품, 인덕션 cooktop 판",
+    "limitations": "낮은 강도, 강도 의존 부품 부적합",
+    "_r173_note_applied": true
+  },
+  "popularity": 3,
+  "density": 2.65,
+  "yield_strength": 110,
+  "uts": 110,
+  "elongation": null,
+  "modulus": 70,
+  "hardness": 700,
+  "thermal_conductivity": 4,
+  "fatigue_strength": 49.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: 촉매 변환기 honeycomb (자동차 배기), 가열 부품, 인덕션 cooktop 판",
+  "aliases": [
+    "2MgO·2Al₂O₃·5SiO₂"
+  ],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0212,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "Cordierite (2MgO·2Al₂O₃·5SiO₂, orthorhombic Cccm) — **lowest CTE silicate ceramic** (1.5-2.5×10⁻⁶/K — Zerodur 의 5×). Tm 1450°C, ρ 2.65 g/cc, σf 70-130, E 70 GPa, KIC 1.5. Tmax 1400°C continuous. **자동차 catalytic converter substrate** (가장 흔한 — NGK / Corning Celcor honeycomb 표준) — exhaust 800°C cycle thermal shock 견딤. Refractory kiln furniture, glass-melting tool, electric stove burner."
+}

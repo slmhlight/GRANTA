@@ -1,0 +1,284 @@
+{
+  "stable_id": "MET-0850",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-structural-steel",
+    "alloy_base": "F-AB-astm-a572-grade-50-hsla-structural",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0116_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0116_1",
+  "name": "ASTM A572 Grade 50 (HSLA structural) — Gr 50 (heavy section)",
+  "category": "Metal",
+  "subcategory": "Structural Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Gr 50 (heavy section)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 345,
+      "max": 345,
+      "typical": 345,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 485,
+      "max": 485,
+      "typical": 485,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 1,
+      "confidence": "handbook",
+      "min_spec_value": 20,
+      "min_spec_source": "ASTM A572/A588 minimum",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 100,
+      "typical": 80,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A572/A588 HSLA"
+    },
+    "electrical_conductivity": {
+      "min": 6.8,
+      "max": 9.2,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "max_service_temp": {
+      "min": 382.5,
+      "max": 517.5,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "specific_heat": {
+      "min": 399.5,
+      "max": 540.5,
+      "typical": 470,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.01,
+      "max": 0.0136,
+      "typical": 0.0118,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.58,
+      "max": 1.58,
+      "typical": 1.58,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "97~98.5",
+    "Mn": "0.6~1.35",
+    "C": "≤0.23",
+    "Nb": "0.005~0.05",
+    "V": "0.01~0.15",
+    "Si": "≤0.4",
+    "Cu": "≤0.2",
+    "P": "≤0.04",
+    "S": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "AISC — ASTM A572 Grade 50 HSLA Structural Steel",
+      "url": "https://www.aisc.org/publications/steel-construction-manual/",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.aisc.org/aisc/publications/steel-construction-manual/",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.leecosteel.com/products/a572-50/",
+      "verified": true
+    },
+    {
+      "label": "ASTM A572 / A572M — HSLA Structural Steel",
+      "url": "https://store.astm.org/a0572_a0572m-21e1.html",
+      "verified": false
+    },
+    {
+      "label": "AISC — A572 Gr 50 structural shape",
+      "url": "https://www.aisc.org/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      345,
+      485,
+      18,
+      200,
+      165,
+      50
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ASTM A572 Grade 50 / EN S355JR / DIN St52-3 — High-Strength Low-Alloy (HSLA) Nb/V/Ti microalloyed structural steel. Composition: C ≤ 0.23, Mn 0.50-1.",
+  "meta": {
+    "reference": true,
+    "condition": "Gr 50 (heavy section)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A572",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 80,
+  "density": 7.85,
+  "yield_strength": 345,
+  "uts": 485,
+  "elongation": 18,
+  "modulus": 200,
+  "hardness": 165,
+  "thermal_conductivity": 50,
+  "fatigue_strength": 210,
+  "impact_strength": 40,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "AISC — ASTM A572 Grade 50 HSLA Structural Steel",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Structural Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 470,
+  "melting_point": 1500,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0118,
+  "popularity": 4.25,
+  "machining_cost_factor": 2.2,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.58,
+  "total_cost_estimate": 3.47,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

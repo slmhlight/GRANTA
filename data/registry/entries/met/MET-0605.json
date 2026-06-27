@@ -1,0 +1,362 @@
+{
+  "stable_id": "MET-0605",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-nimonic-80a",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0014",
+  "origin": "reference(supplementary)",
+  "id": "R_0014",
+  "name": "Nimonic 80A",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Nimonic)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution + Aged (1080°C / 705°C 16h)",
+  "ranges": {
+    "density": {
+      "min": 8.19,
+      "max": 8.19,
+      "typical": 8.19,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 540,
+      "max": 680,
+      "typical": 620,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 930,
+      "max": 1080,
+      "typical": 1000,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 35,
+      "typical": 30,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 222,
+      "max": 222,
+      "typical": 222,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 285,
+      "max": 320,
+      "typical": 300,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 330,
+      "max": 430,
+      "typical": 380,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "impact_strength": {
+      "min": 22,
+      "max": 50,
+      "typical": 35,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "max_service_temp": {
+      "min": 815,
+      "max": 815,
+      "typical": 815,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "thermal_expansion": {
+      "min": 12.7,
+      "max": 12.7,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "specific_heat": {
+      "min": 461,
+      "max": 461,
+      "typical": 461,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "melting_point": {
+      "min": 1370,
+      "max": 1370,
+      "typical": 1370,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "price_per_cm3": {
+      "min": 0.4095,
+      "max": 0.4095,
+      "typical": 0.4095,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic80a"
+    },
+    "delivered_price_per_kg": {
+      "min": 65.63,
+      "max": 65.63,
+      "typical": 65.63,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "18~21",
+    "Ti": "1.8~2.7",
+    "Al": "1~1.8",
+    "Co": "≤2",
+    "Fe": "≤3",
+    "C": "0.04~0.1"
+  },
+  "sources": [
+    {
+      "label": "Special Metals — Nimonic alloy 80A (UNS N07080)",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/nimonic-alloy-80a.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals — Nimonic 80A / 90 reference",
+      "url": "https://www.specialmetals.com/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B637 — Precipitation-Hardening Ni Base Bar (80A/90)",
+      "url": "https://store.astm.org/b0637-22.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.19,
+      620,
+      1000,
+      30,
+      222,
+      300,
+      11
+    ],
+    [
+      8.19,
+      540,
+      930,
+      25,
+      222,
+      285,
+      11
+    ],
+    [
+      8.19,
+      680,
+      1080,
+      35,
+      222,
+      320,
+      11
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "Nimonic series (Special Metals, originally Henry Wiggin): • Nimonic 80A (UNS N07080 / EN 2.4952 / NiCr20TiAl): Ni-19Cr-2.5Ti-1.4Al.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B637",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS N07080",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 70,
+  "fatigue_strength": 380,
+  "density": 8.19,
+  "yield_strength": 620,
+  "uts": 1000,
+  "elongation": 30,
+  "modulus": 222,
+  "hardness": 300,
+  "thermal_conductivity": 11,
+  "impact_strength": 35,
+  "manufacturer": "PCC / Special Metals (Nimonic)",
+  "process": "Wrought",
+  "source": "Special Metals — Nimonic alloy 80A (UNS N07080)",
+  "aliases": [
+    "UNS N07080",
+    "EN 2.4952",
+    "NiCr20TiAl",
+    "Alloy 80A"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 815,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.3,
+  "specific_heat": 461,
+  "melting_point": 1370,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.4095,
+  "popularity": 2.07,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 65.63,
+  "total_cost_estimate": 118.13,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 2% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 780,
+      "uts": 1230,
+      "E": 219
+    },
+    {
+      "temp": 600,
+      "ys": 740,
+      "uts": 1150,
+      "E": 195
+    },
+    {
+      "temp": 750,
+      "ys": 680,
+      "uts": 940,
+      "E": 175
+    },
+    {
+      "temp": 815,
+      "ys": 550,
+      "uts": 700,
+      "E": 165
+    },
+    {
+      "temp": 870,
+      "ys": 250,
+      "uts": 350,
+      "E": 150
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 750,
+      "stress": 280,
+      "hours": 1000
+    },
+    {
+      "temp": 815,
+      "stress": 180,
+      "hours": 1000
+    },
+    {
+      "temp": 870,
+      "stress": 60,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "high"
+}

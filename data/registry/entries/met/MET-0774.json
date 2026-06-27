@@ -1,0 +1,301 @@
+{
+  "stable_id": "MET-0774",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-422-stainless",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0224",
+  "origin": "reference(supplementary)",
+  "id": "R_0224",
+  "name": "422 stainless",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 800,
+      "max": 860,
+      "typical": 860,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 950,
+      "max": 1000,
+      "typical": 1000,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 13,
+      "typical": 13,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 310,
+      "max": 320,
+      "typical": 320,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 24,
+      "max": 24,
+      "typical": 24,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 344,
+      "max": 499,
+      "typical": 430,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (ASM Vol.19 Martensitic SS)"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 80,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Ferritic"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 95,
+      "typical": 65,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Martensitic SS"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "max_service_temp": {
+      "min": 552.5,
+      "max": 747.5,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "thermal_expansion": {
+      "min": 8.67,
+      "max": 11.73,
+      "typical": 10.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "poisson_ratio": {
+      "min": 0.238,
+      "max": 0.322,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "melting_point": {
+      "min": 1258,
+      "max": 1702,
+      "typical": 1480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_kg": {
+      "min": 2.975,
+      "max": 4.025,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0232,
+      "max": 0.0314,
+      "typical": 0.0273,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.68,
+      "max": 3.68,
+      "typical": 3.68,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "11~13",
+    "Ni": "0.5~1",
+    "Mo": "0.75~1.25",
+    "V": "0.15~0.3",
+    "W": "0.75~1.25"
+  },
+  "sources": [
+    {
+      "label": "ASM — 422 martensitic stainless (UNS S42200)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Aircraft Materials — Stainless Steel 422 / AMS 5655 / UNS S42200: 조성+경화/템퍼 인장·경도(293-341 HB)·AMS 5655 등 규격",
+      "url": "https://www.aircraftmaterials.com/data/alstst/422.html",
+      "verified": false
+    },
+    {
+      "label": "AZoM — Stainless Steel Grade 422 (UNS S42200): 조성·ρ 7.8·E 190-210 GPa·Poisson·CTE 11.2·k 풀 물리물성표",
+      "url": "https://www.azom.com/article.aspx?ArticleID=6814",
+      "verified": true
+    },
+    {
+      "label": "Carpenter Technology — 422 Alloy Finder (Type Analysis 조성 텍스트 serve; 인장표는 미게재)",
+      "url": "https://www.carpentertechnology.com/alloy-finder/422",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      860,
+      1000,
+      13,
+      200,
+      320,
+      24
+    ],
+    [
+      7.8,
+      800,
+      950,
+      10,
+      200,
+      310,
+      24
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 5655",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS S42200",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 430,
+  "density": 7.8,
+  "yield_strength": 860,
+  "uts": 1000,
+  "elongation": 13,
+  "modulus": 200,
+  "hardness": 320,
+  "thermal_conductivity": 24,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — 422 martensitic stainless (UNS S42200)",
+  "aliases": [
+    "UNS S42200",
+    "EN 1.4935"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 10.2,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0273,
+  "popularity": 3.3,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.68,
+  "total_cost_estimate": 4.78,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,236 @@
+{
+  "stable_id": "POL-0093",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polystyrene",
+    "alloy_base": "F-AB-hips",
+    "element_families": []
+  },
+  "legacy_id": "R_0179",
+  "origin": "reference(supplementary)",
+  "id": "R_0179",
+  "name": "HIPS",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polystyrene",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.05,
+      "max": 1.05,
+      "typical": 1.05,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 20,
+      "max": 22,
+      "typical": 22,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 25,
+      "max": 28,
+      "typical": 28,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 40,
+      "typical": 40,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 1.9,
+      "max": 2,
+      "typical": 2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.17,
+      "max": 0.17,
+      "typical": 0.17,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "price_per_cm3": {
+      "min": 0.0131,
+      "max": 0.0393,
+      "typical": 0.0262,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "delivered_price_per_kg": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "92.3",
+    "H": "7.7"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — high-impact polystyrene",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "INEOS Styrolution HIPS resin",
+      "url": "https://www.styrolution.com/en/products/standard-styrenics/styron.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.05,
+      22,
+      28,
+      40,
+      2,
+      0,
+      0.17
+    ],
+    [
+      1.05,
+      20,
+      25,
+      30,
+      1.9,
+      0,
+      0.17
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "HIPS (High-Impact Polystyrene) — GPPS + butadiene rubber (5-10% — toughener). Tg 95°C, max service 70-80°C. σy 18-25 / UTS 22-30 / El 30-50% / E 1.8-2.5 GPa / ρ 1.04-1.06 g/cc. GPPS 의 brittleness 해소 (Notched Izod 80-200 J/m vs GPPS 의 20 J/m). 가전 housing (TV/모니터 case), 식품 yogurt cup, 의료 lab tray, 가구 frame, 일회용 일반 plastic. 가격 가장 저렴 ($1.5-2/kg).",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.05,
+  "yield_strength": 22,
+  "uts": 28,
+  "elongation": 40,
+  "modulus": 2,
+  "hardness": null,
+  "thermal_conductivity": 0.17,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Material datasheets — high-impact polystyrene",
+  "aliases": [
+    "High-impact polystyrene"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Polystyrene"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0262,
+  "popularity": 1.04,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1.6,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 40,
+  "total_cost_estimate": 28,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,352 @@
+{
+  "stable_id": "MET-0380",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c14500",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "G_0137",
+  "origin": "generic(csv)",
+  "id": "G_0137",
+  "name": "C14500 — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 8.94,
+      "max": 8.94,
+      "typical": 8.94,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 139.5,
+      "max": 163.5,
+      "typical": 151.5,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 232.5,
+      "max": 272.5,
+      "typical": 252.5,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 28.35,
+      "max": 38.15,
+      "typical": 34.65,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 55.8,
+      "max": 65.4,
+      "typical": 60.6,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 401,
+      "max": 401,
+      "typical": 401,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 42,
+      "max": 64,
+      "typical": 53,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 130,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Cu-based"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c14500"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c14500"
+    },
+    "thermal_expansion": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c14500"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c14500"
+    },
+    "specific_heat": {
+      "min": 385,
+      "max": 385,
+      "typical": 385,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c14500"
+    },
+    "melting_point": {
+      "min": 1083,
+      "max": 1083,
+      "typical": 1083,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c14500"
+    },
+    "price_per_kg": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c14500"
+    },
+    "price_per_cm3": {
+      "min": 0.0983,
+      "max": 0.0983,
+      "typical": 0.0983,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c14500"
+    },
+    "delivered_price_per_kg": {
+      "min": 11.55,
+      "max": 11.55,
+      "typical": 11.55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "O": "0.05",
+    "Cu": "99.5"
+  },
+  "sources": [
+    {
+      "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
+      "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"C14500\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C14500",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cu alloys general",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.94,
+      139.5,
+      232.5,
+      29.050000000000004,
+      110,
+      55.8,
+      401
+    ],
+    [
+      8.94,
+      157.5,
+      262.5,
+      36.75,
+      110,
+      63,
+      401
+    ],
+    [
+      8.94,
+      145.5,
+      242.5,
+      37.45,
+      110,
+      58.2,
+      401
+    ],
+    [
+      8.94,
+      151.5,
+      252.5,
+      28.35,
+      110,
+      60.6,
+      401
+    ],
+    [
+      8.94,
+      153,
+      255,
+      35.7,
+      110,
+      61.2,
+      401
+    ],
+    [
+      8.94,
+      148.5,
+      247.5,
+      34.65,
+      110,
+      59.4,
+      401
+    ],
+    [
+      8.94,
+      148.5,
+      247.5,
+      34.65,
+      110,
+      59.4,
+      401
+    ],
+    [
+      8.94,
+      144,
+      240,
+      33.6,
+      110,
+      57.6,
+      401
+    ],
+    [
+      8.94,
+      163.5,
+      272.5,
+      38.150000000000006,
+      110,
+      65.4,
+      401
+    ],
+    [
+      8.94,
+      153,
+      255,
+      32.2,
+      110,
+      61.2,
+      401
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 10,
+    "subcategory_variants": [
+      "Copper - Pure/Other",
+      "Titanium - Pure/Other"
+    ],
+    "conditions": [
+      "Tellurium Copper"
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 53,
+  "density": 8.94,
+  "yield_strength": 151.5,
+  "uts": 252.5,
+  "elongation": 34.65,
+  "modulus": 110,
+  "hardness": 60.6,
+  "thermal_conductivity": 401,
+  "impact_strength": 80,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Copper - Pure/Other",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 95,
+  "max_service_temp": 250,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.34,
+  "specific_heat": 385,
+  "melting_point": 1083,
+  "price_per_kg": 11,
+  "price_per_cm3": 0.0983,
+  "popularity": 1.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 11.55,
+  "total_cost_estimate": 10.4,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

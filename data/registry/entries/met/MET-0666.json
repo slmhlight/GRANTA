@@ -1,0 +1,456 @@
+{
+  "stable_id": "MET-0666",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-tungsten-heavy-alloy",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "G_0317",
+  "origin": "generic(csv)",
+  "id": "G_0317",
+  "name": "Tungsten Heavy Alloy — As-supplied (Sintered)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 17.15,
+      "max": 17.15,
+      "typical": 17.15,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 900,
+      "max": 1090,
+      "typical": 960,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1080,
+      "max": 1308,
+      "typical": 1152,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 4.25,
+      "max": 5.45,
+      "typical": 4.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 315,
+      "max": 381.5,
+      "typical": 336,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 540,
+      "max": 654,
+      "typical": 576,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "impact_strength": {
+      "min": 24,
+      "max": 35.4,
+      "typical": 30.3,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 31,
+      "max": 31,
+      "typical": 31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "max_service_temp": {
+      "min": 500,
+      "max": 700,
+      "typical": 600,
+      "n": 1,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "specific_heat": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "melting_point": {
+      "min": 3410,
+      "max": 3410,
+      "typical": 3410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_kg": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_cm3": {
+      "min": 1.2005,
+      "max": 1.2005,
+      "typical": 1.2005,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "delivered_price_per_kg": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "5",
+    "Ni": "5",
+    "W": "90"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Tungsten Heavy Alloy\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Tungsten%20Heavy%20Alloy",
+      "verified": false
+    },
+    {
+      "label": "Plansee Densimet W-Ni-Fe Tungsten Heavy Alloy datasheet",
+      "url": "https://www.plansee.com/en/materials/tungsten-heavy-metal.html",
+      "verified": true
+    },
+    {
+      "label": "ASTM B777 — Tungsten Base High-Density Metal",
+      "url": "https://store.astm.org/b0777-15r20.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      17.15,
+      900,
+      1080,
+      4.5,
+      380,
+      315,
+      100
+    ],
+    [
+      17.15,
+      1020,
+      1224,
+      4.6000000000000005,
+      380,
+      357,
+      100
+    ],
+    [
+      17.15,
+      1090,
+      1308,
+      4.45,
+      380,
+      381.5,
+      100
+    ],
+    [
+      17.15,
+      990,
+      1188,
+      5.45,
+      380,
+      346.5,
+      100
+    ],
+    [
+      17.15,
+      910,
+      1092,
+      5.05,
+      380,
+      318.5,
+      100
+    ],
+    [
+      17.15,
+      940,
+      1128,
+      5.2,
+      380,
+      329,
+      100
+    ],
+    [
+      17.15,
+      900,
+      1080,
+      4.5,
+      380,
+      315,
+      100
+    ],
+    [
+      17.15,
+      1050,
+      1260,
+      4.25,
+      380,
+      367.5,
+      100
+    ],
+    [
+      17.15,
+      980,
+      1176,
+      4.9,
+      380,
+      343,
+      100
+    ],
+    [
+      17.15,
+      1040,
+      1248,
+      4.7,
+      380,
+      364,
+      100
+    ],
+    [
+      17.15,
+      960,
+      1152,
+      4.800000000000001,
+      380,
+      336,
+      100
+    ],
+    [
+      17.15,
+      950,
+      1140,
+      5.25,
+      380,
+      332.5,
+      100
+    ],
+    [
+      17.15,
+      940,
+      1128,
+      4.7,
+      380,
+      329,
+      100
+    ],
+    [
+      17.15,
+      930,
+      1116,
+      4.65,
+      380,
+      325.5,
+      100
+    ],
+    [
+      17.15,
+      1050,
+      1260,
+      5.25,
+      380,
+      367.5,
+      100
+    ],
+    [
+      17.15,
+      930,
+      1116,
+      4.65,
+      380,
+      325.5,
+      100
+    ],
+    [
+      17.15,
+      1080,
+      1296,
+      4.9,
+      380,
+      378,
+      100
+    ],
+    [
+      17.15,
+      940,
+      1128,
+      4.7,
+      380,
+      329,
+      100
+    ],
+    [
+      17.15,
+      910,
+      1092,
+      5.05,
+      380,
+      318.5,
+      100
+    ],
+    [
+      17.15,
+      980,
+      1176,
+      4.9,
+      380,
+      343,
+      100
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Refractory Metal"
+    ],
+    "conditions": [
+      "W-90Ni-5Fe"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B777",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 8,
+  "density": 17.15,
+  "yield_strength": 960,
+  "uts": 1152,
+  "elongation": 4.8,
+  "modulus": 380,
+  "hardness": 336,
+  "thermal_conductivity": 100,
+  "fatigue_strength": 576,
+  "impact_strength": 30.3,
+  "manufacturer": "Generic",
+  "process": "Sintered",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory"
+  ],
+  "electrical_conductivity": 31,
+  "max_service_temp": 1700,
+  "thermal_expansion": 4.5,
+  "poisson_ratio": 0.28,
+  "specific_heat": 135,
+  "melting_point": 3410,
+  "price_per_kg": 70,
+  "price_per_cm3": 1.2005,
+  "popularity": 1.42,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 105,
+  "total_cost_estimate": 105,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Tungsten Heavy Alloy (WHA / Densalloy / Mallory 1000) — liquid-phase sintered (LPS) W-Ni-Fe (Class 1-4) or W-Ni-Cu (Class M, non-magnetic). 90-97% W + 3-10% binder. ρ 16.5-18."
+}

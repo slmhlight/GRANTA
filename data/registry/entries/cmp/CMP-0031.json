@@ -1,0 +1,170 @@
+{
+  "stable_id": "CMP-0031",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-metal-matrix",
+    "alloy_base": "F-AB-mmc",
+    "element_families": []
+  },
+  "legacy_id": "CMP_025",
+  "origin": "composites-data",
+  "id": "CMP_025",
+  "name": "MMC — Ti/SiC fiber (15 vol%, UD)",
+  "category": "Composite",
+  "subcategory": "Metal-Matrix",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.85,
+      "max": 3.85,
+      "typical": 3.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 4000,
+      "max": 4000,
+      "typical": 4000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 675,
+      "max": 675,
+      "typical": 675,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 15.4,
+      "max": 15.4,
+      "typical": 15.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Apps: 고온 항공 엔진 부품 (Sigma fiber composites), 압축기 디스크",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "TISICS Ti/SiC fiber MMC reference",
+      "url": "https://www.tisics.co.uk/",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.21 — Titanium MMC",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/21/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "applications": "고온 항공 엔진 부품 (Sigma fiber composites), 압축기 디스크",
+    "limitations": "매우 고가, 가공 다이아몬드 그라인딩",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 2,
+  "density": 3.85,
+  "yield_strength": 1400,
+  "uts": 1500,
+  "elongation": 1.2,
+  "modulus": 220,
+  "hardness": null,
+  "thermal_conductivity": 11,
+  "fatigue_strength": 675,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Apps: 고온 항공 엔진 부품 (Sigma fiber composites), 압축기 디스크",
+  "aliases": [
+    "15 vol%"
+  ],
+  "families": [
+    "Composite",
+    "Metal-Matrix"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 15.4,
+  "rohs_compliant": true,
+  "confidence_tier": "medium-low",
+  "industry_note": "Titanium Matrix Composite — Ti-6Al-4V or Ti Beta-21S + continuous SiC monofilament fiber (Specialty Materials SCS-6, TISICS Sigma SM1140+). UD 0°: σf 1400-1800 / E 200-240 / ρ 3.85-3.9 g/cc (Ti 보다 가벼움). Tmax 600°C continuous (matrix-limited). 우주 jet engine rotor disc (F119/F135 LP turbine bladed-rings BLINGs — F-22 / F-35), 우주 landing gear strut. Cost 매우 비싸 ($5000-10000/kg) — 극한 부품 전용. 가공 매우 어려움 (PCD/CBN tool)."
+}

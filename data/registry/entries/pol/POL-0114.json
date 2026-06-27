@@ -1,0 +1,228 @@
+{
+  "stable_id": "POL-0114",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-ppsu",
+    "alloy_base": "F-AB-radel-r-5000-ppsu-solvay",
+    "element_families": []
+  },
+  "legacy_id": "POL_010",
+  "origin": "polymers-data",
+  "id": "POL_010",
+  "name": "Radel R-5000 (PPSU, Solvay)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PPSU",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.29,
+      "max": 1.29,
+      "typical": 1.29,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.3,
+      "max": 2.3,
+      "typical": 2.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.23,
+      "max": 0.23,
+      "typical": 0.23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 56,
+      "max": 56,
+      "typical": 56,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PPSU"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PPSU"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PPSU"
+    },
+    "price_per_cm3": {
+      "min": 0.0451,
+      "max": 0.0451,
+      "typical": 0.0451,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "78.2",
+    "H": "4.4",
+    "O": "8.7",
+    "S": "8.7"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — Radel R-5000 (PPSU, Solvay)",
+      "url": "https://www.syensqo.com/en/product/radel-ppsu",
+      "verified": true
+    },
+    {
+      "label": "Applications: 고온 의료기기 (steam sterilization 1000회+), 항공기 휘장, 배관 fittings",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 220,
+    "tm": null,
+    "hdt_182": 207,
+    "moisture_24h": 0.4,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "applications": "고온 의료기기 (steam sterilization 1000회+), 항공기 휘장, 배관 fittings",
+    "limitations": "유색 (호박색), 강한 폴리알코올 용제에 약함"
+  },
+  "popularity": 3,
+  "density": 1.29,
+  "yield_strength": 70,
+  "uts": 70,
+  "elongation": 90,
+  "modulus": 2.3,
+  "hardness": null,
+  "thermal_conductivity": 0.23,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — Radel R-5000 (PPSU, Solvay)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PPSU"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0451,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 70,
+      "uts": 70,
+      "E": 2.3
+    },
+    {
+      "temp": 100,
+      "ys": 65,
+      "uts": 65,
+      "E": 2.1
+    },
+    {
+      "temp": 150,
+      "ys": 55,
+      "uts": 55,
+      "E": 1.9
+    },
+    {
+      "temp": 200,
+      "ys": 35,
+      "uts": 35,
+      "E": 1.3
+    }
+  ],
+  "confidence_tier": "medium"
+}

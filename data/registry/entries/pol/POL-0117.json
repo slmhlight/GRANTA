@@ -1,0 +1,225 @@
+{
+  "stable_id": "POL-0117",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-psu",
+    "alloy_base": "F-AB-psu-eviva-basf-clear-psu",
+    "element_families": []
+  },
+  "legacy_id": "R_0318_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0318_0",
+  "name": "PSU Eviva (BASF clear PSU) — Dry as-molded (clear grade)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PSU",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection-Molded"
+  ],
+  "heat_treatment": "Dry as-molded (clear grade)",
+  "ranges": {
+    "density": {
+      "min": 1.24,
+      "max": 1.24,
+      "typical": 1.24,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.26,
+      "max": 0.26,
+      "typical": 0.26,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 170,
+      "typical": 160,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "glass_transition_temp": {
+      "min": 93.5,
+      "max": 280.5,
+      "typical": 187,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "price_per_cm3": {
+      "min": 0.0155,
+      "max": 0.0465,
+      "typical": 0.031,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "73.3",
+    "H": "5.0",
+    "O": "14.5",
+    "S": "7.2"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/eviva.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.24,
+      70,
+      80,
+      60,
+      2.5,
+      0,
+      0.26
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Dry as-molded (clear grade)",
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true
+  },
+  "density": 1.24,
+  "yield_strength": 70,
+  "uts": 80,
+  "elongation": 60,
+  "modulus": 2.5,
+  "hardness": null,
+  "thermal_conductivity": 0.26,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection-Molded",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polysulfone (PSU)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 160,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 187,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.031,
+  "popularity": 3,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 45,
+  "min_wall_thickness": 2,
+  "surface_finish_typical": 50,
+  "tolerance_class": "IT15",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

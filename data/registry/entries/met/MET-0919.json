@@ -1,0 +1,346 @@
+{
+  "stable_id": "MET-0919",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-6al-2sn-4zr-2mo-ti-6242",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0242",
+  "origin": "reference(supplementary)",
+  "id": "R_0242",
+  "name": "Ti-6Al-2Sn-4Zr-2Mo (Ti-6242) — Wrought, Aged",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Aged",
+  "ranges": {
+    "density": {
+      "min": 4.54,
+      "max": 4.54,
+      "typical": 4.54,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 930,
+      "max": 1050,
+      "typical": 990,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 990,
+      "max": 1080,
+      "typical": 1010,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 16,
+      "typical": 13,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 114,
+      "max": 114,
+      "typical": 114,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 330,
+      "max": 360,
+      "typical": 340,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 7.1,
+      "max": 7.1,
+      "typical": 7.1,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 400,
+      "max": 560,
+      "typical": 480,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:ti6242"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 20,
+      "typical": 16,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:ti6242"
+    },
+    "fracture_toughness": {
+      "min": 76,
+      "max": 76,
+      "typical": 76,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 0.9,
+      "max": 0.9,
+      "typical": 0.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6242"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6242"
+    },
+    "thermal_expansion": {
+      "min": 7.7,
+      "max": 7.7,
+      "typical": 7.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6242"
+    },
+    "poisson_ratio": {
+      "min": 0.36,
+      "max": 0.36,
+      "typical": 0.36,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6242"
+    },
+    "specific_heat": {
+      "min": 490,
+      "max": 490,
+      "typical": 490,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6242"
+    },
+    "melting_point": {
+      "min": 1650,
+      "max": 1650,
+      "typical": 1650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6242"
+    },
+    "price_per_kg": {
+      "min": 28,
+      "max": 28,
+      "typical": 28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6242"
+    },
+    "price_per_cm3": {
+      "min": 0.1271,
+      "max": 0.1271,
+      "typical": 0.1271,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6242"
+    },
+    "delivered_price_per_kg": {
+      "min": 36.75,
+      "max": 36.75,
+      "typical": 36.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Al": "5.5~6.5",
+    "Sn": "1.8~2.2",
+    "Zr": "3.6~4.4",
+    "Mo": "1.8~2.2",
+    "Si": "0.06~0.13"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Ti-6Al-2Sn-4Zr-2Mo",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6242",
+      "verified": false
+    },
+    {
+      "label": "Allegheny Technologies Ti-6242 datasheet",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: TIMET Timetal 6242",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "TIMET — TIMETAL 6-2-4-2 (6242) Official Technical Datasheet (TMC-0157, Ti-6Al-2Sn-4Zr-2Mo)",
+      "url": "https://www.timet.com/documents/datasheets/near-alpha-alloys/timetal-6242.pdf",
+      "verified": true
+    },
+    {
+      "label": "TIMET — Datasheets index (near-alpha alloys 목록, 6242 PDF 링크 확인)",
+      "url": "https://www.timet.com/literature/datasheets.html",
+      "verified": true
+    },
+    {
+      "label": "TIMET TIMETAL 6-2-4-2 (lookpolymers/MatWeb 미러 — YS 895 / UTS 1000 / 신율 12% / E 115 GPa, AMS 4919)",
+      "url": "https://lookpolymers.com/polymer_TIMET-TIMETAL-6-2-4-2-Ti-6Al-2Sn-4Zr-2Mo-008Si-Titanium-Alloy.php",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.54,
+      990,
+      1010,
+      13,
+      114,
+      340,
+      7.1
+    ],
+    [
+      4.54,
+      930,
+      990,
+      10,
+      114,
+      330,
+      7.1
+    ],
+    [
+      4.54,
+      1050,
+      1080,
+      16,
+      114,
+      360,
+      7.1
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 4919",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 76,
+  "fatigue_strength": 480,
+  "density": 4.54,
+  "yield_strength": 990,
+  "uts": 1010,
+  "elongation": 13,
+  "modulus": 114,
+  "hardness": 340,
+  "thermal_conductivity": 7.1,
+  "impact_strength": 16,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Ti-6Al-2Sn-4Zr-2Mo",
+  "aliases": [
+    "Ti-6242",
+    "UNS R54620",
+    "Ti-6-2-4-2",
+    "Ti-6Al-2Sn-4Zr-2Mo"
+  ],
+  "families": [
+    "Metal",
+    "Titanium - α+β",
+    "Titanium-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 900,
+      "uts": 1010,
+      "E": 114
+    },
+    {
+      "temp": 200,
+      "ys": 740,
+      "uts": 870,
+      "E": null
+    },
+    {
+      "temp": 400,
+      "ys": 620,
+      "uts": 760,
+      "E": null
+    },
+    {
+      "temp": 540,
+      "ys": 540,
+      "uts": 690,
+      "E": 95
+    }
+  ],
+  "electrical_conductivity": 0.9,
+  "max_service_temp": 540,
+  "thermal_expansion": 7.7,
+  "poisson_ratio": 0.36,
+  "specific_heat": 490,
+  "melting_point": 1650,
+  "price_per_kg": 28,
+  "price_per_cm3": 0.1271,
+  "popularity": 2.07,
+  "machining_cost_factor": 2.2,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 36.75,
+  "total_cost_estimate": 80.85,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "creep_rupture": [
+    {
+      "temp": 480,
+      "stress": 380,
+      "hours": 1000
+    },
+    {
+      "temp": 540,
+      "stress": 250,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "high"
+}

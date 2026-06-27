@@ -1,0 +1,310 @@
+{
+  "stable_id": "MET-0476",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-magnesium-alloy",
+    "alloy_base": "F-AB-ze41-mg",
+    "element_families": [
+      "F-EL-magnesium-based"
+    ]
+  },
+  "legacy_id": "R_0139",
+  "origin": "reference(supplementary)",
+  "id": "R_0139",
+  "name": "ZE41 (Mg)",
+  "category": "Metal",
+  "subcategory": "Magnesium Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.84,
+      "max": 1.84,
+      "typical": 1.84,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 125,
+      "max": 160,
+      "typical": 140,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 195,
+      "max": 220,
+      "typical": 205,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 5,
+      "typical": 3,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 44,
+      "max": 44,
+      "typical": 44,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 65,
+      "max": 80,
+      "typical": 70,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 113,
+      "max": 113,
+      "typical": 113,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 55,
+      "max": 85,
+      "typical": 70,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 8,
+      "typical": 5,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "fracture_toughness": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "thermal_expansion": {
+      "min": 27,
+      "max": 27,
+      "typical": 27,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "poisson_ratio": {
+      "min": 0.35,
+      "max": 0.35,
+      "typical": 0.35,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "specific_heat": {
+      "min": 1020,
+      "max": 1020,
+      "typical": 1020,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "melting_point": {
+      "min": 595,
+      "max": 595,
+      "typical": 595,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "price_per_cm3": {
+      "min": 0.0147,
+      "max": 0.0147,
+      "typical": 0.0147,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ze41"
+    },
+    "delivered_price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "balance",
+    "Zn": "3.5~5",
+    "Zr": "0.4~1",
+    "Ce": "0.75~1.75"
+  },
+  "sources": [
+    {
+      "label": "ASTM B80 — ZE41A magnesium casting alloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Mg alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Luxfer MEL Technologies — Elektron RZ5 / ZE41A casting alloy (ASTM B80 ZE41A-T5, AMS 4439)",
+      "url": "https://www.luxfermeltechnologies.com/elektron-rz5-ze41a/",
+      "verified": true
+    },
+    {
+      "label": "AZoM — Magnesium ZE41A-T5 Alloy (UNS M16410)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=8541",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.84,
+      140,
+      205,
+      3,
+      44,
+      70,
+      113
+    ],
+    [
+      1.84,
+      125,
+      195,
+      2,
+      44,
+      65,
+      113
+    ],
+    [
+      1.84,
+      160,
+      220,
+      5,
+      44,
+      80,
+      113
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Good",
+  "corrosion_resistance": "Moderate",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 4439",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM B80",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS M16410",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 22,
+  "fatigue_strength": 70,
+  "density": 1.84,
+  "yield_strength": 140,
+  "uts": 205,
+  "elongation": 3,
+  "modulus": 44,
+  "hardness": 70,
+  "thermal_conductivity": 113,
+  "impact_strength": 5,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASTM B80 — ZE41A magnesium casting alloy",
+  "aliases": [
+    "UNS M16410",
+    "MgZn4RE1Zr",
+    "ZE41A"
+  ],
+  "families": [
+    "Metal",
+    "Magnesium Alloy",
+    "Magnesium-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 25,
+  "max_service_temp": 200,
+  "thermal_expansion": 27,
+  "poisson_ratio": 0.35,
+  "specific_heat": 1020,
+  "melting_point": 595,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0147,
+  "popularity": 2.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 8,
+  "total_cost_estimate": 7.2,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

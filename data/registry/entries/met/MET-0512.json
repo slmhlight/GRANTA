@@ -1,0 +1,268 @@
+{
+  "stable_id": "MET-0512",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-hastelloy-n-molten-salt-reactor-alloy",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0304_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0304_1",
+  "name": "Hastelloy N (molten-salt reactor alloy) — Aged (704°C/100h)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Haynes International (Hastelloy)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Aged (704°C/100h)",
+  "ranges": {
+    "density": {
+      "min": 8.86,
+      "max": 8.86,
+      "typical": 8.86,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 310,
+      "max": 310,
+      "typical": 310,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 780,
+      "max": 780,
+      "typical": 780,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 218,
+      "max": 218,
+      "typical": 218,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11.8,
+      "max": 11.8,
+      "typical": 11.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 124,
+      "max": 171,
+      "typical": 149,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 1.105,
+      "max": 1.495,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "max_service_temp": {
+      "min": 935,
+      "max": 1265,
+      "typical": 1100,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "thermal_expansion": {
+      "min": 9.52,
+      "max": 12.88,
+      "typical": 11.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "poisson_ratio": {
+      "min": 0.2635,
+      "max": 0.3565,
+      "typical": 0.31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "specific_heat": {
+      "min": 362.95,
+      "max": 491.05,
+      "typical": 427,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "melting_point": {
+      "min": 1164.5,
+      "max": 1575.5,
+      "typical": 1370,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "price_per_kg": {
+      "min": 51,
+      "max": 69,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "price_per_cm3": {
+      "min": 0.4519,
+      "max": 0.6113,
+      "typical": 0.5316,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 78.75,
+      "max": 78.75,
+      "typical": 78.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Mo": "15~18",
+    "Cr": "6.0~8.0",
+    "Fe": "≤5",
+    "Mn": "≤1",
+    "Si": "≤1",
+    "C": "0.04~0.08"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://haynesintl.com/en/alloys/alloy-portfolio/corrosion-resistant-alloys/hastelloy-n/",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Hastelloy%20N",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.86,
+      310,
+      780,
+      45,
+      218,
+      195,
+      11.8
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Aged (704°C/100h)"
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 149,
+  "density": 8.86,
+  "yield_strength": 310,
+  "uts": 780,
+  "elongation": 45,
+  "modulus": 218,
+  "hardness": 195,
+  "thermal_conductivity": 11.8,
+  "impact_strength": 60,
+  "manufacturer": "Haynes International (Hastelloy)",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "100h"
+  ],
+  "families": [
+    "Metal",
+    "Nickel - Hastelloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 1100,
+  "thermal_expansion": 11.2,
+  "poisson_ratio": 0.31,
+  "specific_heat": 427,
+  "melting_point": 1370,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.5316,
+  "popularity": 1.57,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 78.75,
+  "total_cost_estimate": 204.75,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,283 @@
+{
+  "stable_id": "MET-0342",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cobalt-alloy-chrome",
+    "alloy_base": "F-AB-fsx-414",
+    "element_families": [
+      "F-EL-cobalt-based"
+    ]
+  },
+  "legacy_id": "R_0235",
+  "origin": "reference(supplementary)",
+  "id": "R_0235",
+  "name": "FSX-414",
+  "category": "Metal",
+  "subcategory": "Cobalt Alloy - Chrome",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 420,
+      "max": 450,
+      "typical": 450,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 710,
+      "max": 750,
+      "typical": 750,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 10,
+      "typical": 10,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 225,
+      "max": 225,
+      "typical": 225,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 290,
+      "max": 300,
+      "typical": 300,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 180,
+      "max": 248,
+      "typical": 216,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (ASM Vol.2 Co alloys)"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 50,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Co-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 110,
+      "typical": 80,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Cobalt alloys"
+    },
+    "electrical_conductivity": {
+      "min": 0.75,
+      "max": 2.25,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "max_service_temp": {
+      "min": 500,
+      "max": 1500,
+      "typical": 1000,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "thermal_expansion": {
+      "min": 6.25,
+      "max": 18.75,
+      "typical": 12.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "poisson_ratio": {
+      "min": 0.15,
+      "max": 0.45,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "specific_heat": {
+      "min": 210,
+      "max": 630,
+      "typical": 420,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "melting_point": {
+      "min": 665,
+      "max": 1995,
+      "typical": 1330,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "price_per_kg": {
+      "min": 30,
+      "max": 90,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "price_per_cm3": {
+      "min": 0.249,
+      "max": 0.747,
+      "typical": 0.498,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Co": "balance",
+    "Cr": "28~30",
+    "Ni": "9~11",
+    "W": "6.5~7.5"
+  },
+  "sources": [
+    {
+      "label": "ASM — FSX-414 cobalt-base vane alloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (ASM Vol.2 Co alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Polymet — PMET 914 / FSX 414 Technical Datasheet (April 2024)",
+      "url": "https://www.polymet.us/wp-content/uploads/2024/04/Pmet-914.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.3,
+      450,
+      750,
+      10,
+      225,
+      300,
+      13
+    ],
+    [
+      8.3,
+      420,
+      710,
+      7,
+      225,
+      290,
+      13
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 80,
+  "fatigue_strength": 216,
+  "density": 8.3,
+  "yield_strength": 450,
+  "uts": 750,
+  "elongation": 10,
+  "modulus": 225,
+  "hardness": 300,
+  "thermal_conductivity": 13,
+  "impact_strength": 25,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASM — FSX-414 cobalt-base vane alloy",
+  "aliases": [
+    "Co-29Cr-10Ni-7W",
+    "X-40 derivative"
+  ],
+  "families": [
+    "Metal",
+    "Cobalt-Chrome Alloy",
+    "Cobalt-based"
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 1000,
+  "thermal_expansion": 12.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1330,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.498,
+  "popularity": 1.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 60,
+  "total_cost_estimate": 108,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 11% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "medium"
+}

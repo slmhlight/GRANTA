@@ -1,0 +1,202 @@
+{
+  "stable_id": "MET-0413",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-commercial-bronze-c22000",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0162",
+  "origin": "reference(supplementary)",
+  "id": "R_0162",
+  "name": "Commercial Bronze C22000",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.8,
+      "max": 8.8,
+      "typical": 8.8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 70,
+      "max": 110,
+      "typical": 85,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 230,
+      "max": 290,
+      "typical": 255,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 45,
+      "typical": 45,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 115,
+      "max": 115,
+      "typical": 115,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 75,
+      "max": 100,
+      "typical": 100,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 189,
+      "max": 189,
+      "typical": 189,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 84,
+      "max": 126,
+      "typical": 105,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 18,
+      "max": 30,
+      "typical": 24,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 2xxx Al-Cu"
+    },
+    "max_service_temp": {
+      "typical": 200,
+      "min": 150,
+      "max": 250,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Cu": "89~91",
+    "Zn": "balance"
+  },
+  "sources": [
+    {
+      "label": "ASTM B36 — commercial bronze C22000",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 2xxx Al-Cu",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — Red Brass family",
+      "url": "https://www.copper.org/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B36 — Brass Plate, Sheet, Strip, Rolled Bar",
+      "url": "https://store.astm.org/b0036_b0036m-18.html",
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — Alloy C22000 (Commercial Bronze, 90%)",
+      "url": "https://alloys.copper.org/alloy/C22000",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.8,
+      125,
+      290,
+      45,
+      115,
+      75,
+      189
+    ],
+    [
+      8.8,
+      300,
+      360,
+      5,
+      115,
+      100,
+      189
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "Red Brass family (Cu-Zn, lower Zn = redder color, higher corrosion resistance): • C21000 (Gilding Metal, 95Cu-5Zn): O σy 80 / UTS 235 / El 45 — coinage (penny core), bullet jacket, decorative • C22000 (Commercial Bronze, 90Cu-10Zn): O σy 85 / UTS 255 / El 45 — costume jewelry, marine hardware • C23000 (Red Brass, 85Cu-15Zn): O σy 90 / UTS 270 / El 45 — plumbing fitting, heat exchanger tube Work-Tmax 200°C.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B36",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 24,
+  "fatigue_strength": 105,
+  "density": 8.8,
+  "yield_strength": 85,
+  "uts": 255,
+  "elongation": 45,
+  "modulus": 115,
+  "hardness": 100,
+  "thermal_conductivity": 189,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASTM B36 — commercial bronze C22000",
+  "aliases": [
+    "UNS C22000",
+    "EN CW502L",
+    "commercial bronze"
+  ],
+  "families": [
+    "Metal",
+    "Copper"
+  ],
+  "popularity": 3.15,
+  "machining_cost_factor": 1.1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

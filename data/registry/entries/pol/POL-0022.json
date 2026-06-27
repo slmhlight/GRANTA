@@ -1,0 +1,263 @@
+{
+  "stable_id": "POL-0022",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pbt",
+    "alloy_base": "F-AB-pbt-30-gf",
+    "element_families": []
+  },
+  "legacy_id": "POL_034",
+  "origin": "polymers-data",
+  "id": "POL_034",
+  "name": "PBT 30%GF — Glass-fiber reinforced (Crastin/Valox class)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PBT",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.53,
+      "max": 1.53,
+      "typical": 1.53,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 225,
+      "max": 225,
+      "typical": 225,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBT"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBT"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBT"
+    },
+    "price_per_cm3": {
+      "min": 0.0046,
+      "max": 0.0046,
+      "typical": 0.0046,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "65.4",
+    "H": "5.5",
+    "O": "29.1"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PBT 30%GF",
+      "url": "https://www.ansys.com/products/materials/granta-mi",
+      "verified": true
+    },
+    {
+      "label": "Applications: 자동차 under-bonnet, 전기 motor 부품, 정밀 gear, ignition coil bobbin",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SABIC Valox PBT technical datasheet",
+      "url": "https://www.sabic.com/en/products/specialties/valox-resins",
+      "verified": true
+    },
+    {
+      "label": "DuPont Crastin PBT",
+      "url": "https://www.dupont.com/products/crastin-pbt.html",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Polybutylene Terephthalate general",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PBT",
+      "verified": false
+    }
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 40,
+    "tm": 225,
+    "hdt_182": 210,
+    "moisture_24h": 0.07,
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "applications": "자동차 under-bonnet, 전기 motor 부품, 정밀 gear, ignition coil bobbin",
+    "limitations": "가수분해 취약, fiber anisotropy 로 warping, 가공 시 mold wear",
+    "_r173_note_applied": true
+  },
+  "popularity": 4,
+  "density": 1.53,
+  "yield_strength": 135,
+  "uts": 135,
+  "elongation": 3,
+  "modulus": 10,
+  "hardness": null,
+  "thermal_conductivity": 0.3,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PBT 30%GF",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PBT"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1.5,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0046,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PBT 30%GF 는 BASF Ultradur B4300G6 / DuPont Crastin / Celanese Celanex 의 standard 30% glass-fiber 강화 PBT grade 입니다. PBT 의 결정화가 빠른 (PET 의 10배) 장점을 GF 강화로 더 강화한 표준 engineering polymer.\n\n특성: σy 130 MPa, UTS 145 MPa, modulus 9-11 GPa, El 2.5%, Tg 60°C, HDT 215°C, density 1.55 g/cm³. PA66-GF30 과 직접 경쟁하지만 PBT 가 수분 흡수 저항이 우수 (PBT 흡수 < 0.5% 24h vs PA66 흡수 2.5% 24h) → 다습 환경에서 dimensional stability 가 결정적으로 유리.\n\n응용: 자동차 electronics housing (BMW iDrive control panel housing, Mercedes COMAND), 자동차 ignition coil bobbin (다습 환경 → PA66 보다 PBT 우수), 가전 power plug socket housing (Schuko + NEMA plug 의 표준), 자동차 ABS sensor housing, 그리고 산업 motor housing 의 일부 grade. PBT-GF vs PA66-GF 선택: dimension critical 의 다습 환경에서는 PBT-GF, 고-temperature (>200°C) 또는 mechanical load 큰 경우는 PA66-GF. 가격은 PA66-GF30 ($5-7/kg) 보다 약간 비싼 $5-8/kg.",
+  "story_refs": [
+    "BASF Ultradur B4300G6 Tech Data",
+    "DuPont Crastin Tech Data",
+    "Brydson J A (1999) Plastics Materials 7th ed."
+  ],
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 135,
+      "uts": 135,
+      "E": 10
+    },
+    {
+      "temp": 60,
+      "ys": 115,
+      "uts": 115,
+      "E": 9
+    },
+    {
+      "temp": 100,
+      "ys": 80,
+      "uts": 80,
+      "E": 5.5
+    },
+    {
+      "temp": 130,
+      "ys": 50,
+      "uts": 50,
+      "E": 3
+    },
+    {
+      "temp": 150,
+      "ys": 32,
+      "uts": 32,
+      "E": 1.8
+    }
+  ],
+  "industry_note": "PBT (Polybutylene Terephthalate, Valox/Crastin) — semi-crystalline engineering thermoplastic. Tg ≈ 60°C, Tm ≈ 225°C, HDT (1.8 MPa) ≈ 60°C unfilled / 200°C GF30, max service 120°C. σy 55-60 / UTS 60-65 / El 50-200% / E 2."
+}

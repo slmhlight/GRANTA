@@ -1,0 +1,289 @@
+{
+  "stable_id": "MET-0562",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-690",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0095",
+  "origin": "reference(supplementary)",
+  "id": "R_0095",
+  "name": "Inconel 690",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Inconel)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed (1040-1100°C)",
+  "ranges": {
+    "density": {
+      "min": 8.19,
+      "max": 8.19,
+      "typical": 8.19,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 320,
+      "max": 380,
+      "typical": 348,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 690,
+      "max": 760,
+      "typical": 725,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 40,
+      "max": 50,
+      "typical": 45,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 211,
+      "max": 211,
+      "typical": 211,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 180,
+      "max": 210,
+      "typical": 190,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 139,
+      "max": 191,
+      "typical": 167,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 930.75,
+      "max": 1259.25,
+      "typical": 1095,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 11.305,
+      "max": 15.295,
+      "typical": 13.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.272,
+      "max": 0.368,
+      "typical": 0.32,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 377.4,
+      "max": 510.6,
+      "typical": 444,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1198.5,
+      "max": 1621.5,
+      "typical": 1410,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 29.75,
+      "max": 40.25,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.2436,
+      "max": 0.3296,
+      "typical": 0.2866,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 37.49,
+      "max": 37.49,
+      "typical": 37.49,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "27~31",
+    "Fe": "7~11"
+  },
+  "sources": [
+    {
+      "label": "Special Metals — Inconel Alloy 690",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-690.pdf",
+      "verified": true
+    },
+    {
+      "label": "Special Metals — Inconel 690 (UNS N06690)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.19,
+      348,
+      725,
+      45,
+      211,
+      190,
+      13
+    ],
+    [
+      8.19,
+      320,
+      690,
+      40,
+      211,
+      180,
+      13
+    ],
+    [
+      8.19,
+      380,
+      760,
+      50,
+      211,
+      210,
+      13
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS N06690",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 167,
+  "density": 8.19,
+  "yield_strength": 348,
+  "uts": 725,
+  "elongation": 45,
+  "modulus": 211,
+  "hardness": 190,
+  "thermal_conductivity": 13,
+  "impact_strength": 60,
+  "manufacturer": "PCC / Special Metals (Inconel)",
+  "process": "Wrought",
+  "source": "Special Metals — Inconel Alloy 690",
+  "aliases": [
+    "UNS N06690",
+    "EN 2.4642",
+    "NiCr29Fe"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 1095,
+  "thermal_expansion": 13.3,
+  "poisson_ratio": 0.32,
+  "specific_heat": 444,
+  "melting_point": 1410,
+  "price_per_kg": 35,
+  "price_per_cm3": 0.2866,
+  "popularity": 3,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 37.49,
+  "total_cost_estimate": 97.46,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

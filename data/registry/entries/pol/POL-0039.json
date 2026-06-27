@@ -1,0 +1,252 @@
+{
+  "stable_id": "POL-0039",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pekk",
+    "alloy_base": "F-AB-pekk-kepstan-6002-solvay",
+    "element_families": []
+  },
+  "legacy_id": "POL_004",
+  "origin": "polymers-data",
+  "id": "POL_004",
+  "name": "PEKK KEPSTAN 6002 (Solvay)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEKK",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.25,
+      "max": 0.25,
+      "typical": 0.25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 162,
+      "max": 162,
+      "typical": 162,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 305,
+      "max": 305,
+      "typical": 305,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 162,
+      "max": 162,
+      "typical": 162,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK"
+    },
+    "price_per_cm3": {
+      "min": 0.234,
+      "max": 0.234,
+      "typical": 0.234,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "78.0",
+    "H": "4.0",
+    "O": "18.1"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PEKK KEPSTAN 6002 (Solvay)",
+      "url": "https://www.syensqo.com/en/product/kepstan",
+      "verified": true
+    },
+    {
+      "label": "Applications: 항공기 컴포지트 매트릭스, 오일·가스 high-T sealing, FDM/AFP",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Kepstan PEKK datasheet",
+      "url": "https://www.arkema.com/global/en/products/product-finder/product-viewer/Kepstan-PEKK/",
+      "verified": true
+    },
+    {
+      "label": "Solvay NovaSpire PEKK 90/10 datasheet",
+      "url": "https://www.solvay.com/en/brands/novaspire-pekk",
+      "verified": true
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "polymer": true,
+    "tg": 162,
+    "tm": 305,
+    "hdt_182": 162,
+    "moisture_24h": 0.4,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "applications": "항공기 컴포지트 매트릭스, 오일·가스 high-T sealing, FDM/AFP",
+    "limitations": "Tm 305°C — PEEK 보다 가공 쉬움 / 강성 약간 낮음",
+    "_r173_note_applied": true
+  },
+  "popularity": 2,
+  "density": 1.3,
+  "yield_strength": 105,
+  "uts": 105,
+  "elongation": 35,
+  "modulus": 4.5,
+  "hardness": null,
+  "thermal_conductivity": 0.25,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PEKK KEPSTAN 6002 (Solvay)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PEKK"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.234,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 105,
+      "uts": 105,
+      "E": 4.5
+    },
+    {
+      "temp": 100,
+      "ys": 90,
+      "uts": 90,
+      "E": 4
+    },
+    {
+      "temp": 150,
+      "ys": 75,
+      "uts": 75,
+      "E": 3.5
+    },
+    {
+      "temp": 200,
+      "ys": 50,
+      "uts": 50,
+      "E": 2.5
+    },
+    {
+      "temp": 240,
+      "ys": 20,
+      "uts": 20,
+      "E": 1.2
+    }
+  ],
+  "confidence_tier": "high",
+  "industry_note": "PEKK (Polyetherketoneketone) — PAEK family (PEEK + PEKK). PEEK 보다 ether/ketone 비율 다름 (PEEK 60/40, PEKK 50/50) → Tg 162°C (PEEK 143°C) / Tm 305-360°C (T/I ratio 의존). max service 250-260°C continuous (PEEK 와 동등). σy 90-110 / UTS 100-115 / El 25-50% / E 3.8-4.1 GPa / ρ 1.30 g/cc. PEKK-CF (Arkema/Solvay): σy 120-150, E 12-15. **** 항공 AM SLS (3D Systems VICTREX HT, Stratasys NovaSpire), 의료 임플란트 (FDA approved Oxpekk)."
+}

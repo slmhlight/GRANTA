@@ -1,0 +1,301 @@
+{
+  "stable_id": "MET-0431",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-cupronickel-70-30-c71500",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0102",
+  "origin": "reference(supplementary)",
+  "id": "R_0102",
+  "name": "Cupronickel 70/30 (C71500)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.94,
+      "max": 8.94,
+      "typical": 8.94,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 125,
+      "max": 170,
+      "typical": 140,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 350,
+      "max": 415,
+      "typical": 370,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 42,
+      "typical": 35,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 152,
+      "max": 152,
+      "typical": 152,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 90,
+      "max": 110,
+      "typical": 95,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 29,
+      "max": 29,
+      "typical": 29,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 115,
+      "max": 165,
+      "typical": 140,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 180,
+      "typical": 130,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "fracture_toughness": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "max_service_temp": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "thermal_expansion": {
+      "min": 16.2,
+      "max": 16.2,
+      "typical": 16.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "specific_heat": {
+      "min": 377,
+      "max": 377,
+      "typical": 377,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "melting_point": {
+      "min": 1238,
+      "max": 1238,
+      "typical": 1238,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "price_per_kg": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "price_per_cm3": {
+      "min": 0.1967,
+      "max": 0.1967,
+      "typical": 0.1967,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c71500"
+    },
+    "delivered_price_per_kg": {
+      "min": 23.1,
+      "max": 23.1,
+      "typical": 23.1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Ni": "29~33",
+    "Fe": "0.4~1",
+    "Mn": "≤1"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C71500 70-30 Cupronickel",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C71500",
+      "verified": true
+    },
+    {
+      "label": "ASM — Cupronickel 70/30 (UNS C71500)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Copper.org Cu-Ni",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.94,
+      140,
+      370,
+      35,
+      152,
+      95,
+      29
+    ],
+    [
+      8.94,
+      125,
+      350,
+      30,
+      152,
+      90,
+      29
+    ],
+    [
+      8.94,
+      170,
+      415,
+      42,
+      152,
+      110,
+      29
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS C71500",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 90,
+  "fatigue_strength": 140,
+  "density": 8.94,
+  "yield_strength": 140,
+  "uts": 370,
+  "elongation": 35,
+  "modulus": 152,
+  "hardness": 95,
+  "thermal_conductivity": 29,
+  "impact_strength": 130,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Copper.org — C71500 70-30 Cupronickel",
+  "aliases": [
+    "C71500",
+    "UNS C71500",
+    "EN CW354H",
+    "CuNi30Mn1Fe",
+    "70/30 cupronickel"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 4.5,
+  "max_service_temp": 350,
+  "thermal_expansion": 16.2,
+  "poisson_ratio": 0.34,
+  "specific_heat": 377,
+  "melting_point": 1238,
+  "price_per_kg": 22,
+  "price_per_cm3": 0.1967,
+  "popularity": 3,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 23.1,
+  "total_cost_estimate": 20.79,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 33% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "1929년 미해군 사양으로 처음 표준화된 Cu 70% + Ni 30% 합금. 영국에서는 18세기부터 동전 (sixpence, shilling) 용으로 알려진 조성이었지만, 산업 응용은 USN 이 1930년 USS Constellation 의 condenser tube 로 채택하면서 시작됐어요. 해수에서 부식 속도가 0.025 mm/year — 황동 (brass) 의 1/10 수준이라 condenser 수명이 5배로 늘어났거든요.\n\n핵심 응용은 '해수 + 열교환' 입니다. 발전소·정유소·LNG carrier 의 main seawater condenser, MSF (multi-stage flash) 해수 담수화 plant 의 evaporator tube, FPSO 의 produced water cooler, 잠수함의 saltwater cooling loop. 2007년 사우디 Ras Al Khair 의 MSF plant (세계 최대, 1.0 백만 m³/일) condenser tube 880 km 가 모두 C71500 이에요.\n\n부수적 장점도 있죠. 생물 부착 (biofouling) 저항. Cu 이온이 표면에서 천천히 용해되면서 mussel · barnacle 같은 해양 생물의 정착을 막아주거든요. 그래서 boat hull cladding 으로도 인기 — 영국 royal navy 의 18세기 frigate 가 hull 에 Cu sheet 를 붙인 게 그 시초고, 현대에도 일부 superyacht 가 사용합니다.",
+  "story_refs": [
+    "Hudson R M (1996) \"Cupronickel-Aluminum Alloys for Marine Heat Exchanger Service\", Mater Perform 35(3)",
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Copper Development Association \"Cupronickel Alloys for Seawater Service\" Pub TN 31 (2010)"
+  ],
+  "confidence_tier": "high"
+}

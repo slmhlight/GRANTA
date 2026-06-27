@@ -1,0 +1,448 @@
+{
+  "stable_id": "POL-0025",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-peek",
+    "alloy_base": "F-AB-peek",
+    "element_families": []
+  },
+  "legacy_id": "G_0172",
+  "origin": "generic(csv)",
+  "id": "G_0172",
+  "name": "PEEK — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEEK",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.32,
+      "max": 1.32,
+      "typical": 1.32,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 81.9,
+      "max": 98.1,
+      "typical": 87.3,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 91,
+      "max": 109,
+      "typical": 97,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 41,
+      "max": 54.5,
+      "typical": 47,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 3.6,
+      "max": 3.6,
+      "typical": 3.6,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 91,
+      "max": 109,
+      "typical": 97,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.25,
+      "max": 0.25,
+      "typical": 0.25,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK (FDM)"
+    },
+    "max_service_temp": {
+      "min": 125,
+      "max": 375,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 71.5,
+      "max": 214.5,
+      "typical": 143,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK (FDM)"
+    },
+    "price_per_kg": {
+      "min": 75,
+      "max": 110,
+      "typical": 90,
+      "n": 1,
+      "estimated": true,
+      "confidence": "measured",
+      "provenance": "Victrex 450G powder/pellet Q2 2026 (medical grade slightly higher)"
+    },
+    "price_per_cm3": {
+      "min": 0.101,
+      "max": 0.1366,
+      "typical": 0.1188,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Victrex PEEK product page",
+      "url": "https://www.victrex.com/en/products",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"PEEK\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PEEK",
+      "verified": false
+    },
+    {
+      "label": "Victrex PEEK 450G technical datasheet",
+      "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
+      "verified": true
+    },
+    {
+      "label": "Solvay KetaSpire PEEK technical guide",
+      "url": "https://www.solvay.com/en/brands/ketaspire-peek",
+      "verified": true
+    },
+    {
+      "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
+      "url": "https://www.astm.org/f2026-17.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.32,
+      98.1,
+      109,
+      54.50000000000001,
+      3.6,
+      109,
+      0.25
+    ],
+    [
+      1.32,
+      87.3,
+      97,
+      53.5,
+      3.6,
+      97,
+      0.25
+    ],
+    [
+      1.32,
+      88.2,
+      98,
+      44,
+      3.6,
+      98,
+      0.25
+    ],
+    [
+      1.32,
+      85.5,
+      95,
+      52.5,
+      3.6,
+      95,
+      0.25
+    ],
+    [
+      1.32,
+      81.9,
+      91,
+      50.5,
+      3.6,
+      91,
+      0.25
+    ],
+    [
+      1.32,
+      98.1,
+      109,
+      44.5,
+      3.6,
+      109,
+      0.25
+    ],
+    [
+      1.32,
+      85.5,
+      95,
+      52.5,
+      3.6,
+      95,
+      0.25
+    ],
+    [
+      1.32,
+      87.3,
+      97,
+      43.50000000000001,
+      3.6,
+      97,
+      0.25
+    ],
+    [
+      1.32,
+      83.7,
+      93,
+      51.5,
+      3.6,
+      93,
+      0.25
+    ],
+    [
+      1.32,
+      87.3,
+      97,
+      53.5,
+      3.6,
+      97,
+      0.25
+    ],
+    [
+      1.32,
+      82.8,
+      92,
+      41,
+      3.6,
+      92,
+      0.25
+    ],
+    [
+      1.32,
+      84.60000000000001,
+      94,
+      47,
+      3.6,
+      94,
+      0.25
+    ],
+    [
+      1.32,
+      82.8,
+      92,
+      41,
+      3.6,
+      92,
+      0.25
+    ],
+    [
+      1.32,
+      98.1,
+      109,
+      44.5,
+      3.6,
+      109,
+      0.25
+    ],
+    [
+      1.32,
+      98.1,
+      109,
+      44.5,
+      3.6,
+      109,
+      0.25
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon (FDM/SLS)",
+      "Polymer - PEEK (FDM)"
+    ],
+    "conditions": [
+      "Impact Modified",
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "PEEK Victrex 450G",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F2026",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "density": 1.32,
+  "yield_strength": 87.3,
+  "uts": 97,
+  "elongation": 47,
+  "modulus": 3.6,
+  "hardness": 97,
+  "thermal_conductivity": 0.25,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "Victrex PEEK product page",
+  "aliases": [
+    "Victrex PEEK",
+    "PEEK 450G",
+    "Ketron PEEK"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - PEEK (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 250,
+  "thermal_expansion": 50,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 143,
+  "price_per_kg": 400,
+  "price_per_cm3": 0.1188,
+  "popularity": 4.07,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 400,
+  "total_cost_estimate": 520,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PEEK (Polyetheretherketone) 는 1977년 영국 ICI 의 Stuart Rose 가 발견한 semi-crystalline thermoplastic 입니다. Roma 의 후속 commercial launch (1981년 'Victrex PEEK') 가 시장 진입 시점이고, ICI 가 1993년 Victrex 라는 독립 회사로 spin-off 시켰어요. 'Etheretherketone' 은 main chain 에 ether-ether-ketone 의 반복 단위를 의미합니다.\n\nPEEK 의 핵심은 high Tg (143°C) + high Tm (343°C) + chemical resistance + radiation resistance 의 균형입니다. Continuous use 가 250°C 까지 가능 (engineering polymer 중 PI 다음으로 높음), 강한 산성 환경 (98% H₂SO₄, 100% HCl) 에서도 견디고, 감마선 100 Mrad 까지 안정합니다. σy 100 MPa · UTS 100 MPa · modulus 3.8 GPa · El 45% — engineering polymer 중 매우 높은 부류.\n\n응용은 'metal replacement' 의 정점에 있습니다. 의료 implant — spinal cage (Medtronic, NuVasive 의 표준), cranial implant (해골 임플란트의 carbon-PEEK), dental abutment, 그리고 가장 최근 'PEEK heart valve' (Polares Medical) prototype. 항공 산업 — bracket 의 metal replacement (보잉 787 의 일부 cabin bracket), 항공 cable insulation, ducting. 산업 — high-pressure pump seal (Sulzer · ITT 의 표준 seal material), semiconductor wafer carrier (high-purity grade), oil & gas downhole tool (200°C 환경의 pressure compensator). 가격은 $80-110/kg 으로 commodity polymer 의 20배지만 metal replacement 의 가치는 충분합니다. 최근에는 FDM (Stratasys F900, INTAMSYS Funmat HT) 으로 PEEK 3D 프린팅이 가능해져 prototype + customizable medical implant 시장이 확대 중이고, Stratasys 의 Antero PEKK 와 함께 'high-temperature AM polymer' 의 양대 산맥입니다.",
+  "story_refs": [
+    "Rose J B & Staniland P A (1985) US Patent 4,538,007 \"Aromatic polyetherketones\"",
+    "Victrex PEEK 450G Tech Data (revised 2024)",
+    "Kurtz S M (2012) PEEK Biomaterials Handbook, Elsevier"
+  ],
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 100,
+      "uts": 100,
+      "E": 3.8
+    },
+    {
+      "temp": 100,
+      "ys": 85,
+      "uts": 85,
+      "E": 3.4
+    },
+    {
+      "temp": 143,
+      "ys": 70,
+      "uts": 70,
+      "E": 1
+    },
+    {
+      "temp": 200,
+      "ys": 35,
+      "uts": 35,
+      "E": 0.5
+    },
+    {
+      "temp": 250,
+      "ys": 20,
+      "uts": 20,
+      "E": 0.3
+    }
+  ],
+  "industry_note": "PEEK (Polyetheretherketone) — 반결정성 high-performance thermoplastic. Tg ≈ 143°C, Tm ≈ 343°C, HDT (1.8 MPa) ≈ 152°C unfilled / 315°C GF30, max service 250°C continuous (긴 시간), 310°C short-term. σy 90-100 / UTS 95-115 / El 30-50% / E 3.6-3.8 GPa / ρ 1.30-1.32 g/cc. UL 94 V-0 자체 난연. 항공 (Airbus A350 bracket), 의료 임플란트 (ASTM F2026 spinal cage), 반도체 wafer carrier, 오일/가스 seal. 가공 어려움 (cutter 마모) → GF30 / CF30 보강 standard."
+}

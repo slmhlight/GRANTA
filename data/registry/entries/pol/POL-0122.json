@@ -1,0 +1,281 @@
+{
+  "stable_id": "POL-0122",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-ptfe",
+    "alloy_base": "F-AB-ptfe-teflon",
+    "element_families": []
+  },
+  "legacy_id": "R_0078",
+  "origin": "reference(supplementary)",
+  "id": "R_0078",
+  "name": "PTFE (Teflon)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PTFE",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Compression Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.16,
+      "max": 2.16,
+      "typical": 2.16,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 9,
+      "max": 15,
+      "typical": 12,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 20,
+      "max": 31,
+      "typical": 25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 200,
+      "max": 400,
+      "typical": 300,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 0.4,
+      "max": 0.6,
+      "typical": 0.5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.25,
+      "max": 0.25,
+      "typical": 0.25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 260,
+      "typical": 260,
+      "n": 1,
+      "estimated": true,
+      "confidence": "measured",
+      "provenance": "Continuous use temp (Tm=327°C)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "price_per_cm3": {
+      "min": 0.027,
+      "max": 0.081,
+      "typical": 0.054,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "24.0",
+    "F": "76.0"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — PTFE",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AFT Fluorotec — Virgin PTFE 데이터시트",
+      "url": "https://www.fluorotec.com/materials/ptfe/virgin-ptfe/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.16,
+      12,
+      25,
+      300,
+      0.5,
+      0,
+      0.25
+    ],
+    [
+      2.16,
+      9,
+      20,
+      200,
+      0.4,
+      0,
+      0.25
+    ],
+    [
+      2.16,
+      15,
+      31,
+      400,
+      0.6,
+      0,
+      0.25
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": "Bearing, gasket, 화학 plant lining, semiconductor wafer carrier. 최고 내화학성 + 최저 마찰계수.",
+  "meta": {
+    "reference": true,
+    "polymer": true
+  },
+  "density": 2.16,
+  "yield_strength": 12,
+  "uts": 25,
+  "elongation": 300,
+  "modulus": 0.5,
+  "hardness": null,
+  "thermal_conductivity": 0.25,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Compression Molding",
+  "source": "Material datasheets — PTFE",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PTFE"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.054,
+  "popularity": 3,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PTFE (Teflon, Polytetrafluoroethylene) 의 발견은 1938년 미국 DuPont 의 Roy J. Plunkett 이 우연한 실험 사고로 이뤄집니다. Refrigerant 후보로 TFE (tetrafluoroethylene) gas 를 보관하던 cylinder 에서 갑자기 gas 가 사라지고 흰 powder 가 cylinder 벽에 부착되어 있던 거예요. Analysis 해보니 stainless steel cylinder 의 Fe 가 촉매 역할 → autopolymerization (free-radical chain) 으로 TFE 가 PTFE 로 변환된 사실이었습니다.\n\n2차 대전 동안 PTFE 는 'Manhattan Project' 의 비밀 물자 — UF₆ (uranium hexafluoride) 의 enrichment process gasket / seal 로 사용됐어요. UF₆ 가 거의 모든 metal 과 polymer 를 부식시키는데 PTFE 만 안정적이었기 때문이죠. 전후엔 'Teflon' 의 상표명으로 1948년 first commercial 출시. Frypan coating 의 첫 application 은 1956년 프랑스 Marc Grégoire (Tefal/T-fal 창립자) 의 발명.\n\n현대 응용 — Cooking pan coating (Tefal/T-fal, DuPont SilverStone, Calphalon), 화학 plant 의 piping / valve / gasket (HCl 95%, HF 70%, H₂SO₄ 98%, HNO₃ 70% — almost universal chemical resistance, 300°C 까지), aerospace wire insulation (high-temperature aircraft wiring — F-22, B787), medical: vascular graft (Gore-Tex), suture, oxygen delivery system, 반도체: ultra-pure water piping (Daikin / Nichias PFA), 식품 산업의 conveyor lining.\n\n특이점 — 가장 낮은 friction coefficient 0.04, 가장 넓은 chemical resistance, -200 ~ +260°C 의 ultra-wide service T, 단 mechanical strength 부족 (σ 25 MPa, El 200%) + 가공 어려움 (sintering 365°C — melting 안 되고 paste sintering).",
+  "story_refs": [
+    "Plunkett R J (1941) US Patent 2,230,654",
+    "Gore W L (1969) US Patent 3,953,566 (Gore-Tex ePTFE)",
+    "Drobny J G (2014) Technology of Fluoropolymers 2nd ed., CRC Press",
+    "ASTM D1457"
+  ],
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 20,
+      "uts": 25,
+      "E": 0.5
+    },
+    {
+      "temp": 100,
+      "ys": 14,
+      "uts": 18,
+      "E": 0.32
+    },
+    {
+      "temp": 200,
+      "ys": 9,
+      "uts": 12,
+      "E": 0.18
+    },
+    {
+      "temp": 250,
+      "ys": 6,
+      "uts": 9,
+      "E": 0.12
+    },
+    {
+      "temp": 280,
+      "ys": 4,
+      "uts": 6,
+      "E": 0.08
+    }
+  ]
+}

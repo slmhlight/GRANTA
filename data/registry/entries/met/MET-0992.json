@@ -1,0 +1,195 @@
+{
+  "stable_id": "MET-0992",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-zirconium-alloy",
+    "alloy_base": "F-AB-zircaloy-4-r60804",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0343_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0343_0",
+  "name": "Zircaloy-4 (R60804) — PWR fuel cladding — Stress-Relieved Annealed (SRA, ~480°C, cold-worked + SR)",
+  "category": "Metal",
+  "subcategory": "Zirconium Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Stress-Relieved Annealed (SRA, ~480°C, cold-worked + SR)",
+  "ranges": {
+    "density": {
+      "min": 6.56,
+      "max": 6.56,
+      "typical": 6.56,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 680,
+      "max": 680,
+      "typical": 680,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 99.3,
+      "max": 99.3,
+      "typical": 99.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 21.5,
+      "max": 21.5,
+      "typical": 21.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 75,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Westinghouse Zircaloy-4"
+    },
+    "max_service_temp": {
+      "typical": 400,
+      "min": 350,
+      "max": 450,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Zr": "97.56~98.27",
+    "Sn": "1.20~1.70",
+    "Fe": "0.18~0.24",
+    "Cr": "0.07~0.13",
+    "O": "0.10~0.14"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.azom.com/article.aspx?ArticleID=7644",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "ASTM B353 / B811 PWR fuel cladding spec",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "Westinghouse Fuel Mechanical Properties Handbook",
+      "verified": true
+    },
+    {
+      "label": "ATI Wah Chang Zircaloy-2 / -4 reference",
+      "url": "https://www.atimaterials.com/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B350 — Zr Alloy Ingots / Bar (Zircaloy-2/-4)",
+      "url": "https://store.astm.org/b0350-20.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      6.56,
+      540,
+      680,
+      8,
+      99.3,
+      240,
+      21.5
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "Zircaloy-2 (UNS R60802, Zr-1.5Sn-0.15Fe-0.10Cr-0.",
+  "meta": {
+    "reference": true,
+    "condition": "Stress-Relieved Annealed (SRA, ~480°C, cold-worked + SR)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B350",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 55,
+  "density": 6.56,
+  "yield_strength": 540,
+  "uts": 680,
+  "elongation": 8,
+  "modulus": 99.3,
+  "hardness": 240,
+  "thermal_conductivity": 21.5,
+  "fatigue_strength": 150,
+  "impact_strength": 30,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "R60804"
+  ],
+  "families": [
+    "Metal",
+    "Zirconium Alloy"
+  ],
+  "popularity": 1.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

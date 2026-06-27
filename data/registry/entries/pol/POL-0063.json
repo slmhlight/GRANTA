@@ -1,0 +1,273 @@
+{
+  "stable_id": "POL-0063",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide",
+    "alloy_base": "F-AB-pa12-nylon-12",
+    "element_families": []
+  },
+  "legacy_id": "R_0271",
+  "origin": "reference(supplementary)",
+  "id": "R_0271",
+  "name": "PA12 (Nylon 12) — Injection-Molded",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection-Molded"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.02,
+      "max": 1.02,
+      "typical": 1.02,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 40,
+      "max": 55,
+      "typical": 50,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 50,
+      "max": 70,
+      "typical": 60,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 150,
+      "max": 300,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 1.6,
+      "max": 1.6,
+      "typical": 1.6,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 8,
+      "max": 12,
+      "typical": 10,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.25,
+      "max": 0.25,
+      "typical": 0.25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polyamide"
+    },
+    "max_service_temp": {
+      "min": 55,
+      "max": 165,
+      "typical": 110,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polyamide"
+    },
+    "thermal_expansion": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polyamide"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polyamide"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polyamide"
+    },
+    "glass_transition_temp": {
+      "min": 27.5,
+      "max": 82.5,
+      "typical": 55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polyamide"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polyamide"
+    },
+    "price_per_cm3": {
+      "min": 0.0255,
+      "max": 0.0765,
+      "typical": 0.051,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polyamide"
+    },
+    "delivered_price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "73.0",
+    "H": "11.7",
+    "N": "7.1",
+    "O": "8.1"
+  },
+  "sources": [
+    {
+      "label": "EOS/Arkema — PA12 (Nylon 12) for SLS",
+      "url": "https://www.eos.info/3d-printing-materials/polymer/polyamide-pa-12-pa12",
+      "verified": true
+    },
+    {
+      "label": "Evonik Vestamid L PA12 datasheet",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Rilsan PA12 medical grade",
+      "url": "https://www.extrudedpolymers.com/products/rilsan-pa-12/",
+      "verified": true
+    },
+    {
+      "label": "EOS PA 2200 (PA12) Material Data Sheet",
+      "url": "https://www.eos.info/en-us/3d-printing-materials/plastic/polyamide-pa-12-alumide",
+      "verified": true
+    },
+    {
+      "label": "Evonik VESTAMID L (PA12)",
+      "url": "https://www.vestamid.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.02,
+      50,
+      60,
+      200,
+      1.6,
+      10,
+      0.25
+    ],
+    [
+      1.02,
+      40,
+      50,
+      150,
+      1.6,
+      8,
+      0.25
+    ],
+    [
+      1.02,
+      55,
+      70,
+      300,
+      1.6,
+      12,
+      0.25
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "Nylon 12 (Polylauryllactam) — semi-crystalline thermoplastic. Tg ≈ 50°C, Tm ≈ 178°C, HDT (0.46 MPa) ≈ 145°C, **max service 80-100°C continuous** (σy 45-50 / UTS 45-50 / El 200-300% / E 1.5-1.7 GPa / ρ 1.01 g/cc. SLS / MJF 3D printing 의 가장 흔한 폴리머 (EOS PA 2200 = Vestamid L). 의료 카테터, 자동차 fuel line, 케이블 sheath, 화장품 패키지. 흡습률 낮음 (1.5% — PA66 대비 절반).",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "moisture_24h": 1,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.02,
+  "yield_strength": 50,
+  "uts": 60,
+  "elongation": 200,
+  "modulus": 1.6,
+  "hardness": 10,
+  "thermal_conductivity": 0.25,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection-Molded",
+  "source": "EOS/Arkema — PA12 (Nylon 12) for SLS",
+  "aliases": [
+    "Nylon 12",
+    "PA 2200",
+    "Rilsan"
+  ],
+  "families": [
+    "Polymer",
+    "Polyamide"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 110,
+  "thermal_expansion": 90,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 55,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.051,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 50,
+  "total_cost_estimate": 90,
+  "min_wall_thickness": 2,
+  "surface_finish_typical": 50,
+  "tolerance_class": "IT15",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

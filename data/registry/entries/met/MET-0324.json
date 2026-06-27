@@ -1,0 +1,276 @@
+{
+  "stable_id": "MET-0324",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-stkm13b-ks-d-3517-jis-g-3445-machine-structural-cold-drawn-tube",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0412_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0412_0",
+  "name": "STKM13B (KS D 3517 / JIS G 3445, machine structural cold-drawn tube) — Cold drawn (SR, normalized)",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cold Drawn (Mechanical Tube)"
+  ],
+  "heat_treatment": "Cold drawn (SR, normalized)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 510,
+      "max": 510,
+      "typical": 510,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 160,
+      "max": 160,
+      "typical": 160,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 152,
+      "max": 220,
+      "typical": 190,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 9,
+      "max": 36,
+      "typical": 21,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic × HT:cold worked (i×0.6)"
+    },
+    "fracture_toughness": {
+      "min": 44,
+      "max": 76,
+      "typical": 60,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A36 / EN structural × HT:cold worked (k×0.8)"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_kg": {
+      "min": 1.02,
+      "max": 1.38,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.008,
+      "max": 0.0108,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.63,
+      "max": 1.63,
+      "typical": 1.63,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.25",
+    "Si": "≤0.35",
+    "Mn": "0.30~0.90",
+    "P": "≤0.040",
+    "S": "≤0.040"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.hyundai-steel.com/en/products/Pipe.do",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASTM A36 / EN structural",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      380,
+      510,
+      21,
+      210,
+      160,
+      50
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "KS D 3517 기계구조용 강관 — 정밀 기계 부품 / 유압 cylinder / 자동차 propeller shaft / 자전거 frame. Cold drawn → 표면 정도 ↑ + 치수 정도 ↑. SAE 1020 등가. 한국 자전거 (Samchully · Alton) / 운동기구 frame 표준.",
+  "meta": {
+    "reference": true,
+    "condition": "Cold drawn (SR, normalized)",
+    "specs": [
+      {
+        "id": "ASTM A36",
+        "org": "ASTM"
+      },
+      {
+        "id": "JIS G 3445",
+        "org": "JIS"
+      }
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 190,
+  "density": 7.85,
+  "yield_strength": 380,
+  "uts": 510,
+  "elongation": 21,
+  "modulus": 210,
+  "hardness": 160,
+  "thermal_conductivity": 50,
+  "impact_strength": 21,
+  "manufacturer": "Reference data",
+  "process": "Cold Drawn (Mechanical Tube)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "KS D 3517",
+    "JIS G 3445"
+  ],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 3.37,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.63,
+  "total_cost_estimate": 1.46,
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

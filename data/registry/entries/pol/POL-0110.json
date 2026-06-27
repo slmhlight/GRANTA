@@ -1,0 +1,242 @@
+{
+  "stable_id": "POL-0110",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pps",
+    "alloy_base": "F-AB-pps-fortron-1140l4-40-gf-celanese",
+    "element_families": []
+  },
+  "legacy_id": "POL_008",
+  "origin": "polymers-data",
+  "id": "POL_008",
+  "name": "PPS Fortron 1140L4 (40% GF, Celanese)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PPS",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.65,
+      "max": 1.65,
+      "typical": 1.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 14.5,
+      "max": 14.5,
+      "typical": 14.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 270,
+      "max": 270,
+      "typical": 270,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PPS GF"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PPS GF"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PPS GF"
+    },
+    "price_per_cm3": {
+      "min": 0.0198,
+      "max": 0.0198,
+      "typical": 0.0198,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "66.6",
+    "H": "3.7",
+    "S": "29.6"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PPS Fortron 1140L4 (40% GF, Celanese)",
+      "url": "https://www.celanese.com/products/fortron.html",
+      "verified": true
+    },
+    {
+      "label": "Applications: 자동차 throttle body, 전자 커넥터, 워터 펌프 하우징, 가스 배출",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "polymer": true,
+    "tg": 90,
+    "tm": 280,
+    "hdt_182": 270,
+    "moisture_24h": 0.02,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "applications": "자동차 throttle body, 전자 커넥터, 워터 펌프 하우징, 가스 배출",
+    "limitations": "충격 강도 낮음, 결정화 후 brittle"
+  },
+  "popularity": 3,
+  "density": 1.65,
+  "yield_strength": 195,
+  "uts": 195,
+  "elongation": 1.3,
+  "modulus": 14.5,
+  "hardness": null,
+  "thermal_conductivity": 0.3,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PPS Fortron 1140L4 (40% GF, Celanese)",
+  "aliases": [
+    "40% GF"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - PPS GF"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0198,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 190,
+      "uts": 200,
+      "E": 15
+    },
+    {
+      "temp": 88,
+      "ys": 165,
+      "uts": 175,
+      "E": 13
+    },
+    {
+      "temp": 150,
+      "ys": 130,
+      "uts": 140,
+      "E": 8
+    },
+    {
+      "temp": 200,
+      "ys": 95,
+      "uts": 105,
+      "E": 5
+    },
+    {
+      "temp": 240,
+      "ys": 55,
+      "uts": 65,
+      "E": 2.5
+    }
+  ]
+}

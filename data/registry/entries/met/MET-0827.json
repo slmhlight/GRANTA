@@ -1,0 +1,302 @@
+{
+  "stable_id": "MET-0827",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ph",
+    "alloy_base": "F-AB-17-7-ph-uns-s17700-semi-austenitic-ph",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0321_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0321_0",
+  "name": "17-7 PH (UNS S17700, semi-austenitic PH) — Condition A (annealed)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - PH",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Condition A (annealed)",
+  "ranges": {
+    "density": {
+      "min": 7.81,
+      "max": 7.81,
+      "typical": 7.81,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1030,
+      "max": 1030,
+      "typical": 1030,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 204,
+      "max": 204,
+      "typical": 204,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16.4,
+      "max": 16.4,
+      "typical": 16.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 275,
+      "max": 352,
+      "typical": 314,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph × HT:solution annealed (soft) (f×0.55, i×3.5)"
+    },
+    "impact_strength": {
+      "min": 63,
+      "max": 175,
+      "typical": 105,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph × HT:solution annealed (soft) (f×0.55, i×3.5)"
+    },
+    "fracture_toughness": {
+      "min": 97.5,
+      "max": 97.5,
+      "typical": 97.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:solution annealed (soft) (k×1.5)"
+    },
+    "electrical_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "thermal_expansion": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "poisson_ratio": {
+      "min": 0.27,
+      "max": 0.27,
+      "typical": 0.27,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "melting_point": {
+      "min": 1404,
+      "max": 1404,
+      "typical": 1404,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "price_per_kg": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "price_per_cm3": {
+      "min": 0.0586,
+      "max": 0.0586,
+      "typical": 0.0586,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "delivered_price_per_kg": {
+      "min": 8.03,
+      "max": 8.03,
+      "typical": 8.03,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "16~18",
+    "Ni": "6.5~7.75",
+    "Al": "0.75~1.5",
+    "Mn": "≤1",
+    "Si": "≤1",
+    "C": "≤0.09"
+  },
+  "sources": [
+    {
+      "label": "AK Steel/MatWeb — 17-7 PH Stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7+PH",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.aksteel.com/our-products/stainless/17-7-PH",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7%20PH",
+      "verified": false
+    },
+    {
+      "label": "AK Steel — 17-7 PH Stainless Datasheet",
+      "url": "https://www.aksteel.com/sites/default/files/2018-02/17-7-PH-DATA-BULLETIN.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 5528 — 17-7 PH sheet, strip (RH 950)",
+      "url": "https://www.sae.org/standards/content/ams5528/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.81,
+      380,
+      1030,
+      35,
+      204,
+      200,
+      16.4
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS S17700 / EN 1.4568 / X7CrNiAl17-7 / JIS SUS631 — semi-austenitic precipitation-hardening stainless (Cr 16-18, Ni 6.5-7.75, Al 0.",
+  "meta": {
+    "reference": true,
+    "condition": "Condition A (annealed)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5528",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS S17700",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 97.5,
+  "fatigue_strength": 314,
+  "density": 7.81,
+  "yield_strength": 380,
+  "uts": 1030,
+  "elongation": 35,
+  "modulus": 204,
+  "hardness": 200,
+  "thermal_conductivity": 16.4,
+  "impact_strength": 105,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "AK Steel/MatWeb — 17-7 PH Stainless",
+  "aliases": [
+    "UNS S17700",
+    "EN 1.4568",
+    "17-7 PH",
+    "JIS SUS631"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - PH",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 2.5,
+  "max_service_temp": 315,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.27,
+  "specific_heat": 460,
+  "melting_point": 1404,
+  "price_per_kg": 7.5,
+  "price_per_cm3": 0.0586,
+  "popularity": 3,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 8.03,
+  "total_cost_estimate": 8.03,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 7.75% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "1948년 미국 Armco Steel 이 처음 출시한 17-7 PH 는 17-4 PH 와 같은 가족이지만 성격이 완전히 다른 합금입니다. Cr 17% + Ni 7% + Al 1% 의 semi-austenitic 조성이라, solution 상태에서는 austenite (가공성 ↑) 였다가 sub-zero 냉각이나 별도 condition heat treatment 를 거쳐야 비로소 martensite 로 변태하면서 시효경화가 시작되거든요.\n\n이 '이중 인격' 덕분에 17-7 PH 는 sheet · strip · wire 형태의 정밀 부품에서 강점을 보입니다. 가공 단계에서는 부드러우니 복잡한 형상도 잘 만들고, 마지막에 TH1050 또는 RH950 처리로 강도를 끌어올릴 수 있어요.\n\n응용은 항공이 압도적이에요. F-86 Sabre 의 vapor cycle 냉각 코일, B-58 Hustler 의 fuel tank diaphragm, 우주 셔틀 RCS 의 thruster valve spring, 록히드 SR-71 의 일부 사보 와이어 (저온 인성 우수). 최근에는 의료 — Stryker 의 surgical staple wire — 와 산업 vibratory feeder bowl spring 에도 표준입니다. 17-7 의 매력은 '강도와 가공성의 trade-off 를 시간 축으로 분리할 수 있다' 는 점이죠.",
+  "story_refs": [
+    "AK Steel \"17-7 PH Stainless Steel Product Data Bulletin\" (2007)",
+    "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
+    "ASTM A693 \"Standard Specification for Precipitation-Hardening Stainless and Heat-Resisting Steel Plate, Sheet, and Strip\""
+  ],
+  "confidence_tier": "high"
+}

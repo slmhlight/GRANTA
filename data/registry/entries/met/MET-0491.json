@@ -1,0 +1,270 @@
+{
+  "stable_id": "MET-0491",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-microalloyed-steel",
+    "alloy_base": "F-AB-api-5l-x42n-x52m-psl2-heavy-wall-pipeline",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0026_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0026_0",
+  "name": "API 5L X42N / X52M PSL2 (heavy-wall pipeline) — X42N / L290N (normalized)",
+  "category": "Metal",
+  "subcategory": "Microalloyed Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "X42N / L290N (normalized)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 290,
+      "max": 290,
+      "typical": 290,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 415,
+      "max": 415,
+      "typical": 415,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 23,
+      "max": 23,
+      "typical": 23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 95,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:API 5L pipeline"
+    },
+    "electrical_conductivity": {
+      "min": 7.65,
+      "max": 10.35,
+      "typical": 9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Microalloyed Steel"
+    },
+    "max_service_temp": {
+      "min": 382.5,
+      "max": 517.5,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Microalloyed Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.945,
+      "max": 13.455,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Microalloyed Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Microalloyed Steel"
+    },
+    "specific_heat": {
+      "min": 408,
+      "max": 552,
+      "typical": 480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Microalloyed Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Microalloyed Steel"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Microalloyed Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.01,
+      "max": 0.0136,
+      "typical": 0.0118,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Microalloyed Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.65,
+      "max": 1.65,
+      "typical": 1.65,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.18",
+    "Mn": "≤1.45",
+    "Si": "≤0.40",
+    "Nb": "≤0.05",
+    "V": "≤0.07",
+    "Ti": "≤0.04",
+    "P": "≤0.025",
+    "S": "≤0.015"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "API 5L 46th Edition Spec — Line Pipe Grade L290N / L360M",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "American Piping Products — A106 / API 5L X-grade pipeline catalog",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "ASME B31.3 / B31.4 / B31.8 Pipeline Code",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      290,
+      415,
+      23,
+      207,
+      130,
+      45
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "API 5L 의 medium-strength grade. X42N (normalized) — heavy-wall flange, header, manifold; X52M (TMCP) — high-pressure pipeline, sour-service capable. POSCO / Nippon Steel / Tata Steel / U.S. Steel 양산. KOGAS pipeline 표준 일부 채택.",
+  "meta": {
+    "reference": true,
+    "condition": "X42N / L290N (normalized)",
+    "specs": [
+      {
+        "id": "API 5L",
+        "org": "API"
+      }
+    ]
+  },
+  "fracture_toughness": 95,
+  "density": 7.85,
+  "yield_strength": 290,
+  "uts": 415,
+  "elongation": 23,
+  "modulus": 207,
+  "hardness": 130,
+  "thermal_conductivity": 45,
+  "fatigue_strength": 150,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Microalloyed Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 9,
+  "max_service_temp": 450,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 480,
+  "melting_point": 1500,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0118,
+  "popularity": 1.47,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.65,
+  "total_cost_estimate": 1.49,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

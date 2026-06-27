@@ -1,0 +1,319 @@
+{
+  "stable_id": "MET-0748",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-aisi-347",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0221",
+  "origin": "generic(csv)",
+  "id": "G_0221",
+  "name": "AISI 347 — Annealed (Wrought)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 175,
+      "max": 290,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 480,
+      "max": 620,
+      "typical": 515,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 55,
+      "typical": 40,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 193,
+      "max": 193,
+      "typical": 193,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 140,
+      "max": 200,
+      "typical": 160,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16.3,
+      "max": 16.3,
+      "typical": 16.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 230,
+      "max": 290,
+      "typical": 260,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "impact_strength": {
+      "min": 100,
+      "max": 200,
+      "typical": 150,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "fracture_toughness": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.3,
+      "max": 2.3,
+      "typical": 2.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "max_service_temp": {
+      "min": 870,
+      "max": 870,
+      "typical": 870,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "thermal_expansion": {
+      "min": 16.6,
+      "max": 16.6,
+      "typical": 16.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "melting_point": {
+      "min": 1425,
+      "max": 1425,
+      "typical": 1425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "price_per_kg": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "price_per_cm3": {
+      "min": 0.052,
+      "max": 0.052,
+      "typical": 0.052,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:347"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.96,
+      "max": 6.96,
+      "typical": 6.96,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "0.08",
+    "Fe": "70",
+    "Cr": "17",
+    "Ni": "9",
+    "Mn": "2",
+    "Si": "1",
+    "Nb": "0.8"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu / Sandvik — AISI 310/321/347 stabilized austenitic stainless (ASTM A240)",
+      "url": "https://www.outokumpu.com/en/datasheets",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 347\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20347",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8,
+      180.4,
+      453.2,
+      37.2,
+      193,
+      190.96,
+      16.3
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 1,
+    "subcategory_variants": [
+      "Stainless Steel - Austenitic"
+    ],
+    "conditions": [
+      "Annealed"
+    ],
+    "specs": [
+      {
+        "id": "ASTM A240",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 180,
+  "fatigue_strength": 260,
+  "density": 8,
+  "yield_strength": 210,
+  "uts": 515,
+  "elongation": 40,
+  "modulus": 193,
+  "hardness": 160,
+  "thermal_conductivity": 16.3,
+  "impact_strength": 150,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 2.3,
+  "max_service_temp": 870,
+  "thermal_expansion": 16.6,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1425,
+  "price_per_kg": 6.5,
+  "price_per_cm3": 0.052,
+  "popularity": 3.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.96,
+  "total_cost_estimate": 6.96,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 9% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 245,
+      "uts": 620,
+      "E": 200
+    },
+    {
+      "temp": 400,
+      "ys": 160,
+      "uts": 470,
+      "E": 174
+    },
+    {
+      "temp": 600,
+      "ys": 135,
+      "uts": 400,
+      "E": 157
+    },
+    {
+      "temp": 800,
+      "ys": 90,
+      "uts": 230,
+      "E": 135
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 700,
+      "stress": 100,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "medium"
+}

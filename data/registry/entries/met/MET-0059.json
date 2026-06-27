@@ -1,0 +1,301 @@
+{
+  "stable_id": "MET-0059",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-hy-80",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0121",
+  "origin": "reference(supplementary)",
+  "id": "R_0121",
+  "name": "HY-80",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 550,
+      "max": 620,
+      "typical": 550,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 660,
+      "max": 740,
+      "typical": 690,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 22,
+      "typical": 20,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 230,
+      "max": 255,
+      "typical": 240,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 220,
+      "max": 319,
+      "typical": 275,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 100,
+      "typical": 75,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AMS 6415 alloy steel"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.1,
+      "max": 2.1,
+      "typical": 2.1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "2~3.25",
+    "Cr": "1~1.8",
+    "Mo": "0.2~0.6",
+    "C": "≤0.18"
+  },
+  "sources": [
+    {
+      "label": "MIL-S-16216 — HY-80 naval steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Wieland Diversified — HY 80 Steel (MIL-S-16216) 기계적 물성표",
+      "url": "https://www.wieland-diversified.com/hy-80-100-steels/hy-80-steel/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      550,
+      690,
+      20,
+      207,
+      240,
+      35
+    ],
+    [
+      7.85,
+      550,
+      660,
+      18,
+      207,
+      230,
+      35
+    ],
+    [
+      7.85,
+      620,
+      740,
+      22,
+      207,
+      255,
+      35
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      },
+      {
+        "id": "MIL S-16216",
+        "org": "MIL"
+      }
+    ]
+  },
+  "fracture_toughness": 75,
+  "fatigue_strength": 275,
+  "density": 7.85,
+  "yield_strength": 550,
+  "uts": 690,
+  "elongation": 20,
+  "modulus": 207,
+  "hardness": 240,
+  "thermal_conductivity": 35,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MIL-S-16216 — HY-80 naval steel",
+  "aliases": [
+    "MIL-S-16216",
+    "HY-80"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 3.2,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.1,
+  "total_cost_estimate": 1.89,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 3.25% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

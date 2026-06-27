@@ -1,0 +1,272 @@
+{
+  "stable_id": "MET-0283",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-aisi-1144-stressproof-2",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0024_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0024_2",
+  "name": "AISI 1144 Stressproof — Q+T 425°C (medium-temper, peak)",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T 425°C (medium-temper, peak)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 760,
+      "max": 760,
+      "typical": 760,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 80,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AISI carbon steel"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_kg": {
+      "min": 1.02,
+      "max": 1.38,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.008,
+      "max": 0.0108,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.55,
+      "max": 1.55,
+      "typical": 1.55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.40~0.48",
+    "Mn": "1.35~1.65",
+    "S": "0.24~0.33",
+    "P": "≤0.04",
+    "Si": "≤0.10"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "ANSYS Granta — Carbon steel AISI 1144 normalized/Q+T (UNS G11440, BS 212M44)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "AISI 1144 Stressproof (Niagara LaSalle resulfurized free-machining grade)",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AISI carbon steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Resulfurized Carbon Steels (1144)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "Niagara LaSalle Stressproof bar",
+      "url": "https://www.lasallesteel.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      760,
+      880,
+      12,
+      207,
+      280,
+      50
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS G11440 / SAE 1144 / DIN 1.1241 — resulfurized free-machining medium-carbon steel (C 0.40-0.48, Mn 1.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T 425°C (medium-temper, peak)",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 55,
+  "density": 7.85,
+  "yield_strength": 760,
+  "uts": 880,
+  "elongation": 12,
+  "modulus": 207,
+  "hardness": 280,
+  "thermal_conductivity": 50,
+  "fatigue_strength": 350,
+  "impact_strength": 40,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 3.47,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.55,
+  "total_cost_estimate": 1.39,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

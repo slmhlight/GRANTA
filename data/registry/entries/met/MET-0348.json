@@ -1,0 +1,313 @@
+{
+  "stable_id": "MET-0348",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cobalt-alloy-chrome",
+    "alloy_base": "F-AB-stellite-6-cocrw",
+    "element_families": [
+      "F-EL-cobalt-based"
+    ]
+  },
+  "legacy_id": "R_0056",
+  "origin": "reference(supplementary)",
+  "id": "R_0056",
+  "name": "Stellite 6 (CoCrW)",
+  "category": "Metal",
+  "subcategory": "Cobalt Alloy - Chrome",
+  "tier": "reference",
+  "manufacturers": [
+    "Kennametal Stellite"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.44,
+      "max": 8.44,
+      "typical": 8.44,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 500,
+      "max": 580,
+      "typical": 540,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 790,
+      "max": 896,
+      "typical": 830,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 2,
+      "typical": 1.5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 209,
+      "max": 209,
+      "typical": 209,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 400,
+      "max": 440,
+      "typical": 420,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 310,
+      "max": 410,
+      "typical": 360,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 8,
+      "typical": 5,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "fracture_toughness": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "max_service_temp": {
+      "min": 760,
+      "max": 760,
+      "typical": 760,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "thermal_expansion": {
+      "min": 14.2,
+      "max": 14.2,
+      "typical": 14.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "specific_heat": {
+      "min": 423,
+      "max": 423,
+      "typical": 423,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "melting_point": {
+      "min": 1330,
+      "max": 1330,
+      "typical": 1330,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "price_per_kg": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "price_per_cm3": {
+      "min": 0.5064,
+      "max": 0.5064,
+      "typical": 0.5064,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite6"
+    },
+    "delivered_price_per_kg": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Co": "balance",
+    "Cr": "27~32",
+    "W": "4~6",
+    "C": "0.9~1.4",
+    "Ni": "≤3",
+    "Fe": "≤3"
+  },
+  "sources": [
+    {
+      "label": "Kennametal/MatWeb — Stellite 6",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+6",
+      "verified": false
+    },
+    {
+      "label": "Kennametal Stellite — Stellite 6 (UNS R30006)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Kennametal Stellite 6 Alloy — Technical Data (조성·HRC/HV·밀도·UNS·용융)",
+      "url": "https://www.stellite.com/us/en/alloys/stellite/stellite-6-alloy.html",
+      "verified": true
+    },
+    {
+      "label": "Kennametal Stellite 6-AM-K datasheet (LPBF AM: UTS/σy/신율/E H&V·경도·CTE)",
+      "url": "https://s7d2.scene7.com/is/content/Kennametal/stellite-6-am-k_data-sheetpdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.44,
+      540,
+      830,
+      1.5,
+      209,
+      420,
+      14
+    ],
+    [
+      8.44,
+      500,
+      790,
+      1,
+      209,
+      400,
+      14
+    ],
+    [
+      8.44,
+      580,
+      896,
+      2,
+      209,
+      440,
+      14
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS R30006",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 30,
+  "fatigue_strength": 360,
+  "density": 8.44,
+  "yield_strength": 540,
+  "uts": 830,
+  "elongation": 1.5,
+  "modulus": 209,
+  "hardness": 420,
+  "thermal_conductivity": 14,
+  "impact_strength": 5,
+  "manufacturer": "Kennametal Stellite",
+  "process": "Cast",
+  "source": "Kennametal/MatWeb — Stellite 6",
+  "aliases": [
+    "UNS R30006",
+    "Co-28Cr-4W-1C",
+    "CoCr-A"
+  ],
+  "families": [
+    "Metal",
+    "Cobalt-Chrome Alloy",
+    "Cobalt-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 760,
+  "thermal_expansion": 14.2,
+  "poisson_ratio": 0.3,
+  "specific_heat": 423,
+  "melting_point": 1330,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.5064,
+  "popularity": 1.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 60,
+  "total_cost_estimate": 108,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 3% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "1907년 인디애나 코코모 (Kokomo) 의 'Stellite' 발명자 엘우드 헤인즈 (Elwood Haynes) — Haynes-Apperson 자동차 제조사 공동 설립자 — 가 Co-Cr-W 합금이 산화 환경에서도 강도와 경도를 잃지 않는다는 사실을 확인합니다. 라틴어 'stella' (별) 에서 따와 'Stellite' 로 명명했고, 1912년 USPTO 가 1,054,995 'Alloy' 특허를 부여, 1914년 Haynes Stellite Works 를 설립합니다.\n\nStellite 6 (W-rich, ~4-6% W) 는 가장 흔한 grade 로 응용 폭이 정말 넓어요. valve seat (자동차 SI 엔진 exhaust valve seat insert, F1 엔진), 항공 가스터빈 noise suppressor, 외과 칼 (Stryker orthopedic saw blade), 표면 weld overlay (보일러 튜브, pump impeller, 6061 plate 표면 hardfacing) 등. 1차 대전 때 영국 BSA / Vickers 의 weapon 표면 hardfacing 으로 채택됐고, 2차 대전 때는 P-47 의 valve seat 으로 대량 양산됐어요. 현재도 oil & gas drilling tool joint 의 wear band 와 대형 valve trim 의 sealing surface 에 가장 흔히 사용됩니다.",
+  "story_refs": [
+    "Haynes E (1913) US Patent 1,054,995 \"Alloy\"",
+    "Haynes International Inc. corporate history (https://www.haynesintl.com/about/history)",
+    "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,286 @@
+{
+  "stable_id": "MET-0468",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-magnesium-alloy",
+    "alloy_base": "F-AB-az80-mg-al-zn",
+    "element_families": [
+      "F-EL-magnesium-based"
+    ]
+  },
+  "legacy_id": "R_0312_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0312_0",
+  "name": "AZ80 (Mg-Al-Zn) — F (as-extruded)",
+  "category": "Metal",
+  "subcategory": "Magnesium Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "F (as-extruded)",
+  "ranges": {
+    "density": {
+      "min": 1.8,
+      "max": 1.8,
+      "typical": 1.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 290,
+      "max": 290,
+      "typical": 290,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 78,
+      "max": 78,
+      "typical": 78,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 60,
+      "max": 84,
+      "typical": 70,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Mg alloys)"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 8,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Mg-based"
+    },
+    "fracture_toughness": {
+      "min": 12,
+      "max": 25,
+      "typical": 17,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Mg alloys"
+    },
+    "electrical_conductivity": {
+      "min": 25.5,
+      "max": 34.5,
+      "typical": 30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium"
+    },
+    "max_service_temp": {
+      "min": 127.5,
+      "max": 172.5,
+      "typical": 150,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium"
+    },
+    "thermal_expansion": {
+      "min": 22.1,
+      "max": 29.9,
+      "typical": 26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium"
+    },
+    "poisson_ratio": {
+      "min": 0.2975,
+      "max": 0.4025,
+      "typical": 0.35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium"
+    },
+    "specific_heat": {
+      "min": 870.4,
+      "max": 1177.6,
+      "typical": 1024,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium"
+    },
+    "melting_point": {
+      "min": 510,
+      "max": 690,
+      "typical": 600,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium"
+    },
+    "price_per_kg": {
+      "min": 5.525,
+      "max": 7.475,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium"
+    },
+    "price_per_cm3": {
+      "min": 0.0099,
+      "max": 0.0135,
+      "typical": 0.0117,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.83,
+      "max": 6.83,
+      "typical": 6.83,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "balance",
+    "Al": "7.8~9.2",
+    "Zn": "0.2~0.8",
+    "Mn": "≥0.12"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ80",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Mg alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Luxfer MEL Technologies — Elektron AZ80 Extruded Magnesium (E 44 GPa, SG 1.8, ASTM B107-13)",
+      "url": "https://www.luxfermeltechnologies.com/elektron-az80/",
+      "verified": true
+    },
+    {
+      "label": "AZoM — Magnesium AZ80A Alloy (UNS M11800) — 등가 ASTM B107, B91",
+      "url": "https://www.azom.com/article.aspx?ArticleID=9255",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.8,
+      200,
+      290,
+      12,
+      45,
+      65,
+      78
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "F (as-extruded)",
+    "specs": [
+      {
+        "id": "ASTM B107-13",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM B107",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS M11800",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 17,
+  "fatigue_strength": 70,
+  "density": 1.8,
+  "yield_strength": 200,
+  "uts": 290,
+  "elongation": 12,
+  "modulus": 45,
+  "hardness": 65,
+  "thermal_conductivity": 78,
+  "impact_strength": 5,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Magnesium",
+    "Magnesium-based"
+  ],
+  "electrical_conductivity": 30,
+  "max_service_temp": 150,
+  "thermal_expansion": 26,
+  "poisson_ratio": 0.35,
+  "specific_heat": 1024,
+  "melting_point": 600,
+  "price_per_kg": 6.5,
+  "price_per_cm3": 0.0117,
+  "popularity": 2.42,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.83,
+  "total_cost_estimate": 6.14,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,299 @@
+{
+  "stable_id": "MET-0674",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-shape-memory-alloy",
+    "alloy_base": "F-AB-nitinol-niti",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0061",
+  "origin": "reference(supplementary)",
+  "id": "R_0061",
+  "name": "Nitinol (NiTi)",
+  "category": "Metal",
+  "subcategory": "Shape Memory Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Memry / SAES Getters / ATI (multi)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 6.45,
+      "max": 6.45,
+      "typical": 6.45,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 350,
+      "max": 480,
+      "typical": 400,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 830,
+      "max": 960,
+      "typical": 900,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 15,
+      "typical": 12,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 83,
+      "typical": 75,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 330,
+      "max": 380,
+      "typical": 350,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 180,
+      "max": 260,
+      "typical": 220,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 60,
+      "typical": 40,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "electrical_conductivity": {
+      "min": 1.1,
+      "max": 1.1,
+      "typical": 1.1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "max_service_temp": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "thermal_expansion": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "specific_heat": {
+      "min": 322,
+      "max": 322,
+      "typical": 322,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "melting_point": {
+      "min": 1310,
+      "max": 1310,
+      "typical": 1310,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "price_per_kg": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "price_per_cm3": {
+      "min": 1.29,
+      "max": 1.29,
+      "typical": 1.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nitinol"
+    },
+    "fracture_toughness": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "delivered_price_per_kg": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "54.5~57",
+    "Ti": "balance"
+  },
+  "sources": [
+    {
+      "label": "ATI/Memry — Nitinol Shape Memory Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nitinol",
+      "verified": false
+    },
+    {
+      "label": "ASTM F2063 — NiTi shape memory alloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Confluent Medical Technologies — Material Data Sheet: Superelastic Nitinol Alloys (SE508/SE508ELI/SE506/SE510), 'Meets ASTM F2063 requirements'",
+      "url": "https://confluentmedical.com/wp-content/uploads/2020/05/CONF-WDS-V3.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      6.45,
+      400,
+      900,
+      12,
+      75,
+      350,
+      18
+    ],
+    [
+      6.45,
+      350,
+      830,
+      10,
+      70,
+      330,
+      18
+    ],
+    [
+      6.45,
+      480,
+      960,
+      15,
+      83,
+      380,
+      18
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM F2063",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "density": 6.45,
+  "yield_strength": 400,
+  "uts": 900,
+  "elongation": 12,
+  "modulus": 75,
+  "hardness": 350,
+  "thermal_conductivity": 18,
+  "fatigue_strength": 220,
+  "impact_strength": 40,
+  "manufacturer": "Memry / SAES Getters / ATI (multi)",
+  "process": "Wrought",
+  "source": "ATI/Memry — Nitinol Shape Memory Alloy",
+  "aliases": [
+    "NiTi",
+    "ASTM F2063",
+    "Nitinol SE508",
+    "UNS N01555"
+  ],
+  "families": [
+    "Metal",
+    "Shape Memory Alloy",
+    "Titanium-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.1,
+  "max_service_temp": 100,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.33,
+  "specific_heat": 322,
+  "melting_point": 1310,
+  "price_per_kg": 200,
+  "price_per_cm3": 1.29,
+  "fracture_toughness": 35,
+  "popularity": 2,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 210,
+  "total_cost_estimate": 378,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 57% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "1959년 미국 Naval Ordnance Laboratory (NOL, 메릴랜드 White Oak) 의 윌리엄 부엘러 (William Buehler) 가 nuclear submarine 의 nose cone 용 새 합금을 찾던 중 Ni 50at% + Ti 50at% 의 intermetallic 이 일정 온도에서 형상을 기억해 회복하는 (shape memory) 현상을 발견합니다. 프레더릭 왕 (Frederick Wang) 과 함께 1965년 BCC ↔ B19' martensite 의 thermoelastic 변태 메커니즘을 규명, NOL + Ti 의 머리글자로 'Nitinol' 로 명명했어요. 1962년 NOL 의 콘퍼런스 시연에서 구부려진 wire 가 손 열로 펴지는 모습이 '마술 metal' 로 NYT 1면을 장식하기도 했죠.\n\n응용 — 의료 — 1990년대 들어 cardiovascular stent (Cordis Cypher, Boston Scientific 의 모든 PCI stent), 뼈 골절 fixator (Memry MEMOFEX), 치과 교정 wire (3M Unitek 의 most braces wire), 두부 외상 stapler. 항공 — F-14 hydraulic coupling (Raychem CryoFit), 미 Navy USS Constellation 의 anti-vibration mount. 일상 — 안경 frame (Rectangulus, Marchon Flexon), 무선 헤드폰 headband (Bose QuietComfort), 와이파이 안테나 actuator (Apple AirPods Pro) 까지.",
+  "story_refs": [
+    "Buehler W J, Gilfrich J V & Wiley R C (1963) \"Effect of Low-Temperature Phase Changes on the Mechanical Properties of Alloys Near Composition TiNi\", J Appl Phys 34(5)",
+    "Wang F E (1972) US Patent 3,650,873 (US Navy) \"Method of preforming Nitinol\"",
+    "Otsuka K & Wayman C M (eds., 1998) Shape Memory Materials, Cambridge UP",
+    "Duerig T et al. (1990) Engineering Aspects of Shape Memory Alloys, Butterworth-Heinemann"
+  ],
+  "confidence_tier": "high"
+}

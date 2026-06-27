@@ -1,0 +1,322 @@
+{
+  "stable_id": "MET-0474",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-magnesium-alloy",
+    "alloy_base": "F-AB-we43-mg-y-re",
+    "element_families": [
+      "F-EL-magnesium-based"
+    ]
+  },
+  "legacy_id": "R_0110",
+  "origin": "reference(supplementary)",
+  "id": "R_0110",
+  "name": "WE43 (Mg-Y-RE)",
+  "category": "Metal",
+  "subcategory": "Magnesium Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.84,
+      "max": 1.84,
+      "typical": 1.84,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 150,
+      "max": 195,
+      "typical": 165,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 230,
+      "max": 280,
+      "typical": 250,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 5,
+      "typical": 2,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 44,
+      "max": 44,
+      "typical": 44,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 80,
+      "max": 95,
+      "typical": 85,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 51,
+      "max": 51,
+      "typical": 51,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 85,
+      "max": 125,
+      "typical": 105,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 10,
+      "typical": 7,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "fracture_toughness": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "thermal_expansion": {
+      "min": 26.6,
+      "max": 26.6,
+      "typical": 26.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "poisson_ratio": {
+      "min": 0.35,
+      "max": 0.35,
+      "typical": 0.35,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "specific_heat": {
+      "min": 1020,
+      "max": 1020,
+      "typical": 1020,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "melting_point": {
+      "min": 545,
+      "max": 545,
+      "typical": 545,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "price_per_cm3": {
+      "min": 0.046,
+      "max": 0.046,
+      "typical": 0.046,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:we43"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "balance",
+    "Y": "3.7~4.3",
+    "Nd": "2.4~4.4",
+    "Zr": "0.4~1"
+  },
+  "sources": [
+    {
+      "label": "Luxfer Magnesium Elektron — Elektron WE43",
+      "url": "https://www.luxfermeltechnologies.com",
+      "verified": false
+    },
+    {
+      "label": "Magnesium Elektron — WE43 (UNS M18430)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Mg alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Luxfer MEL Technologies — Elektron 43 (WE43) Extruded product page (AMS 4485, ASTM B107/B107M, UNS M18434, MMPDS-08)",
+      "url": "https://www.luxfermeltechnologies.com/elektron-43/",
+      "verified": true
+    },
+    {
+      "label": "AZoM — Magnesium Elektron WE43 Alloy (UNS M18430) — 등가규격 AMS 4427, ASTM B80, MAM 4427",
+      "url": "https://www.azom.com/article.aspx?ArticleID=9279",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.84,
+      165,
+      250,
+      2,
+      44,
+      85,
+      51
+    ],
+    [
+      1.84,
+      150,
+      230,
+      1,
+      44,
+      80,
+      51
+    ],
+    [
+      1.84,
+      195,
+      280,
+      5,
+      44,
+      95,
+      51
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 4485",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 4427",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM B107",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM B80",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS M18430",
+        "org": "UNS"
+      },
+      {
+        "id": "UNS M18434",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 22,
+  "fatigue_strength": 105,
+  "density": 1.84,
+  "yield_strength": 165,
+  "uts": 250,
+  "elongation": 2,
+  "modulus": 44,
+  "hardness": 85,
+  "thermal_conductivity": 51,
+  "impact_strength": 7,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "Luxfer Magnesium Elektron — Elektron WE43",
+  "aliases": [
+    "UNS M18430",
+    "Elektron WE43",
+    "MgY4Nd3"
+  ],
+  "families": [
+    "Metal",
+    "Magnesium Alloy",
+    "Magnesium-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 18,
+  "max_service_temp": 250,
+  "thermal_expansion": 26.6,
+  "poisson_ratio": 0.35,
+  "specific_heat": 1020,
+  "melting_point": 545,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.046,
+  "popularity": 2.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 22.5,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

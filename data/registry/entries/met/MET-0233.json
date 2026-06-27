@@ -1,0 +1,312 @@
+{
+  "stable_id": "MET-0233",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-a516-grade-70",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0117",
+  "origin": "reference(supplementary)",
+  "id": "R_0117",
+  "name": "A516 Grade 70",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 260,
+      "max": 290,
+      "typical": 260,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 460,
+      "max": 620,
+      "typical": 485,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 17,
+      "max": 23,
+      "typical": 21,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 140,
+      "max": 160,
+      "typical": 150,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 52,
+      "max": 52,
+      "typical": 52,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 104,
+      "max": 151,
+      "typical": 130,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 80,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AISI carbon steel"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_kg": {
+      "min": 1.02,
+      "max": 1.38,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.008,
+      "max": 0.0108,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.26,
+      "max": 1.26,
+      "typical": 1.26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.27",
+    "Mn": "0.85~1.2",
+    "Si": "0.15~0.4"
+  },
+  "sources": [
+    {
+      "label": "ASTM A516 Gr.70 — pressure-vessel steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AISI carbon steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASTM A516 / A516M — Pressure Vessel Plate Carbon Steel",
+      "url": "https://store.astm.org/a0516_a0516m-17.html",
+      "verified": false
+    },
+    {
+      "label": "ASME B&PV Sec.II Part A — SA-516 Grade 70",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-ii-materials",
+      "verified": false
+    },
+    {
+      "label": "SSAB — ASTM A516 Grade 70 (압력용기강판 조성+기계적 물성)",
+      "url": "https://www.ssab.com/en-us/brands-and-products/commercial-steel/pressure-vessel/astm-a516/grade-70",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      260,
+      485,
+      21,
+      200,
+      150,
+      52
+    ],
+    [
+      7.85,
+      260,
+      460,
+      17,
+      200,
+      140,
+      52
+    ],
+    [
+      7.85,
+      290,
+      620,
+      23,
+      200,
+      160,
+      52
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ASTM A516 Grade 70 / SA-516-70 / EN P355GH (~) — pressure vessel plate carbon steel for moderate / lower temp service (-29°C). C ≤ 0.27, Mn 0.79-1.30, Si 0.13-0.45 (HIC service grade). σy 260 / UTS 485-620 / El 21% / Charpy V-notch min @ -29°C = 27J. Normalized 권장 (>50 mm 두께). 화학 plant pressure vessel, boiler drum, heat exchanger shell, LPG storage. 한국 KS B0801 KP70 동등.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A516",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 55,
+  "fatigue_strength": 130,
+  "density": 7.85,
+  "yield_strength": 260,
+  "uts": 485,
+  "elongation": 21,
+  "modulus": 200,
+  "hardness": 150,
+  "thermal_conductivity": 52,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASTM A516 Gr.70 — pressure-vessel steel",
+  "aliases": [
+    "ASTM A516-70",
+    "SA-516-70",
+    "EN P355GH (~)"
+  ],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 4,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.26,
+  "total_cost_estimate": 1.13,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "A516 Grade 70 은 ASTM A516 표준의 pressure vessel quality (PVQ) carbon-manganese steel 입니다. 1960년 ASME B&PV Code Section II 에 채택되며 오일·가스 산업의 reactor / boiler / storage tank 의 baseline 으로 자리잡았어요. C 0.27% + Mn 0.85-1.20% + Si 0.13-0.45% 의 단순한 화학 조성이지만, 두꺼운 plate (최대 200 mm) 의 균일한 강도 + impact toughness 가 핵심입니다.\n\nGrade 별 차이는 인장 강도 minimum: A516 Gr 55 (380 MPa), Gr 60 (415), Gr 65 (450), Gr 70 (485 MPa). Gr 70 이 가장 일반적이며 yield 260 MPa min, El 17% min, Charpy V-notch -29°C 27 J min.\n\n응용 — Petrochemical reactor vessel, refinery distillation column (SK Innovation, GS Caltex 의 정유공장), boiler drum (현대중공업 / 두산에너빌리티의 thermal power plant), LNG storage tank (10,000-200,000 m³ class), pulp & paper digester, ammonia synthesis converter. 모든 ASME B&PV Sec.VIII Div.1 / EN 13445 의 pressure vessel 의 표준 plate material 이며, 한국 산업 현장의 'pressure vessel = A516 Gr 70' 등식이 성립합니다.\n\n특이 처리 — Normalized (균질 ferrite-pearlite microstructure, low-T toughness 향상) 가 표준. HIC (Hydrogen-Induced Cracking) 저항성을 위해 sour service 환경은 NACE MR0175 통제 + S < 0.002% 의 low-S 변형 사용.",
+  "story_refs": [
+    "ASTM A516 / A516M",
+    "ASME B&PV Code Section II Part A (SA-516)",
+    "NACE MR0175 / ISO 15156",
+    "ASM Handbook Vol.1 'Carbon and Alloy Steels for Pressure Vessels'"
+  ],
+  "confidence_tier": "high"
+}

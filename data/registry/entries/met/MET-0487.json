@@ -1,0 +1,312 @@
+{
+  "stable_id": "MET-0487",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-maraging-steel",
+    "alloy_base": "F-AB-maraging-c350-vascomax-18ni-9co",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0022_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0022_1",
+  "name": "Maraging C350 (VascoMax, 18Ni-9Co) — Aged 480-510°C / 3-6h AC (peak, HRC 53-55)",
+  "category": "Metal",
+  "subcategory": "Maraging Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Aged 480-510°C / 3-6h AC (peak, HRC 53-55)",
+  "ranges": {
+    "density": {
+      "min": 8.06,
+      "max": 8.06,
+      "typical": 8.06,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 2310,
+      "max": 2310,
+      "typical": 2310,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2413,
+      "max": 2413,
+      "typical": 2413,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 192,
+      "max": 192,
+      "typical": 192,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 580,
+      "max": 580,
+      "typical": 580,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 19.7,
+      "max": 19.7,
+      "typical": 19.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 770,
+      "max": 770,
+      "typical": 770,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 1,
+      "confidence": "handbook",
+      "min_spec_value": 8,
+      "min_spec_source": "ATI C-350 minimum",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 45,
+      "max": 70,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ATI Allegheny Tech Data Sheet"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 510,
+      "typical": 480,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.755,
+      "max": 11.845,
+      "typical": 10.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "specific_heat": {
+      "min": 382.5,
+      "max": 517.5,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "price_per_kg": {
+      "min": 12.75,
+      "max": 17.25,
+      "typical": 15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.1028,
+      "max": 0.139,
+      "typical": 0.1209,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 20.48,
+      "max": 20.48,
+      "typical": 20.48,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "18",
+    "Co": "12",
+    "Mo": "4.6",
+    "Ti": "1.4",
+    "Al": "0.05~0.15",
+    "C": "≤0.03"
+  },
+  "sources": [
+    {
+      "label": "Reference 2",
+      "url": "https://www.atimaterials.com",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "AMS 6520 / AMS 6521 — Maraging 350",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "ATI Technical Data Sheet C-200/250/300/350 (2012)",
+      "verified": true
+    },
+    {
+      "label": "ATI VascoMax C-300 / C-350 reference",
+      "url": "https://www.atimaterials.com/",
+      "verified": false
+    },
+    {
+      "label": "AMS 6520 — VascoMax C-350 18Ni-9Co",
+      "url": "https://www.sae.org/standards/content/ams6520/",
+      "verified": false
+    },
+    {
+      "label": "AK Steel — Maraging 250/300/350 datasheet",
+      "url": "https://www.aksteel.com/sites/default/files/2018-02/MARAGING-DATA-BULLETIN.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 6514 — 18Ni-300 maraging bar/forging",
+      "url": "https://www.sae.org/standards/content/ams6514l/",
+      "verified": false
+    },
+    {
+      "label": "AMS 6512 — 18Ni-250 maraging bar/forging",
+      "url": "https://www.sae.org/standards/content/ams6512f/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.06,
+      2310,
+      2413,
+      6,
+      192,
+      580,
+      19.7
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "ATI VascoMax C-300 (UNS K93120 18Ni-9Co-5Mo-0.7Ti) / C-350 (UNS K93501 18Ni-9Co-3.5Mo-1.6Ti) — Cobalt-strengthened 18Ni maraging.",
+  "meta": {
+    "reference": true,
+    "condition": "Aged 480-510°C / 3-6h AC (peak, HRC 53-55)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 6520",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 6514",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 6512",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 55,
+  "density": 8.06,
+  "yield_strength": 2310,
+  "uts": 2413,
+  "elongation": 6,
+  "modulus": 192,
+  "hardness": 580,
+  "thermal_conductivity": 19.7,
+  "fatigue_strength": 770,
+  "impact_strength": 15,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "18Ni-9Co",
+    "HRC 53-55"
+  ],
+  "families": [
+    "Metal",
+    "Maraging Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 400,
+  "thermal_expansion": 10.3,
+  "poisson_ratio": 0.3,
+  "specific_heat": 450,
+  "melting_point": 1430,
+  "price_per_kg": 15,
+  "price_per_cm3": 0.1209,
+  "popularity": 4.32,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 20.48,
+  "total_cost_estimate": 40.95,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 18% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 12% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

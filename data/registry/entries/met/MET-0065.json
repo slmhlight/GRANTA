@@ -1,0 +1,284 @@
+{
+  "stable_id": "MET-0065",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-scm445-jis-cr-mo-high-strength",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0277_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0277_1",
+  "name": "SCM445 (JIS Cr-Mo high-strength) — Q+T (600°C)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (600°C)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 800,
+      "max": 800,
+      "typical": 800,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 980,
+      "max": 980,
+      "typical": 980,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 290,
+      "max": 290,
+      "typical": 290,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 320,
+      "max": 464,
+      "typical": 400,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 21,
+      "max": 84,
+      "typical": 49,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic × HT:Q+T high-temper (i×1.4)"
+    },
+    "fracture_toughness": {
+      "min": 68.8,
+      "max": 125,
+      "typical": 93.8,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AMS 6415 alloy steel × HT:Q+T high-temper (k×1.25)"
+    },
+    "electrical_conductivity": {
+      "min": 5.95,
+      "max": 8.05,
+      "typical": 7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "max_service_temp": {
+      "min": 361.25,
+      "max": 488.75,
+      "typical": 425,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.455,
+      "max": 14.145,
+      "typical": 12.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "specific_heat": {
+      "min": 403.75,
+      "max": 546.25,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "melting_point": {
+      "min": 1213.8,
+      "max": 1642.2,
+      "typical": 1428,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "price_per_kg": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.02,
+      "max": 0.027,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.87,
+      "max": 3.87,
+      "typical": 3.87,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.43~0.48",
+    "Cr": "0.9~1.2",
+    "Mo": "0.15~0.3",
+    "Mn": "0.6~0.85",
+    "Si": "0.15~0.35"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM445",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SteelJIS — SCM445 (JIS G4053) 조성 데이터시트",
+      "url": "http://steeljis.com/jis_steel_datasheet.php?name_id=22",
+      "verified": true
+    },
+    {
+      "label": "Ju Feng Special Steel — JIS SCM445 (G4105) 조성",
+      "url": "https://www.jfs-steel.com/en/steelDetail/JIS-SCM445/JIS-SCM445-G4105.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      800,
+      980,
+      12,
+      205,
+      290,
+      42
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Q+T (600°C)",
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      },
+      {
+        "id": "JIS G4053",
+        "org": "JIS"
+      }
+    ]
+  },
+  "fracture_toughness": 93.8,
+  "fatigue_strength": 400,
+  "density": 7.85,
+  "yield_strength": 800,
+  "uts": 980,
+  "elongation": 12,
+  "modulus": 205,
+  "hardness": 290,
+  "thermal_conductivity": 42,
+  "impact_strength": 49,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 7,
+  "max_service_temp": 425,
+  "thermal_expansion": 12.3,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1428,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0235,
+  "popularity": 3.27,
+  "machining_cost_factor": 1.1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.87,
+  "total_cost_estimate": 4.26,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

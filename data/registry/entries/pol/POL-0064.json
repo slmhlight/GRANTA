@@ -1,0 +1,267 @@
+{
+  "stable_id": "POL-0064",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide",
+    "alloy_base": "F-AB-pa12-eos-pa-2200",
+    "element_families": []
+  },
+  "legacy_id": "POL_011",
+  "origin": "polymers-data",
+  "id": "POL_011",
+  "name": "PA12 EOS PA 2200 — SLS Standard",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 0.93,
+      "max": 0.93,
+      "typical": 0.93,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 1.7,
+      "max": 1.7,
+      "typical": 1.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.24,
+      "max": 0.24,
+      "typical": 0.24,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 75,
+      "max": 100,
+      "typical": 80,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "price_per_cm3": {
+      "min": 0.1023,
+      "max": 0.1023,
+      "typical": 0.1023,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "73.0",
+    "H": "11.7",
+    "N": "7.1",
+    "O": "8.1"
+  },
+  "sources": [
+    {
+      "label": "EOS/Arkema — PA12 (Nylon 12) for SLS",
+      "url": "https://www.eos.info/3d-printing-materials/polymer/polyamide-pa-12-pa12",
+      "verified": true
+    },
+    {
+      "label": "Datasheet — PA12 EOS PA 2200",
+      "url": "https://www.eos.info/3d-printing-materials/polymer/polyamide-pa-12-pa12",
+      "verified": true
+    },
+    {
+      "label": "Applications: SLS 산업 표준 (의료 가이드, 컨포멀 cooling 채널, 컨슈머 prototype)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Rilsan PA12 medical grade",
+      "url": "https://www.extrudedpolymers.com/products/rilsan-pa-12/",
+      "verified": true
+    },
+    {
+      "label": "EOS PA 2200 (PA12) Material Data Sheet",
+      "url": "https://www.eos.info/en-us/3d-printing-materials/plastic/polyamide-pa-12-alumide",
+      "verified": true
+    },
+    {
+      "label": "Evonik VESTAMID L (PA12)",
+      "url": "https://www.vestamid.com/",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 50,
+    "tm": 180,
+    "hdt_182": 95,
+    "moisture_24h": 0.4,
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "applications": "SLS 산업 표준 (의료 가이드, 컨포멀 cooling 채널, 컨슈머 prototype)",
+    "limitations": "흡습 (poromeric — 4% 수분 흡수 후 강성 30% 손실), UV 시 황변",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 0.93,
+  "yield_strength": 48,
+  "uts": 48,
+  "elongation": 18,
+  "modulus": 1.7,
+  "hardness": null,
+  "thermal_conductivity": 0.24,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "EOS/Arkema — PA12 (Nylon 12) for SLS",
+  "aliases": [
+    "Nylon 12",
+    "PA 2200",
+    "Rilsan"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Polyamide"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.1023,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 48,
+      "uts": 48,
+      "E": 1.7
+    },
+    {
+      "temp": 50,
+      "ys": 40,
+      "uts": 40,
+      "E": 1.4
+    },
+    {
+      "temp": 80,
+      "ys": 25,
+      "uts": 25,
+      "E": 0.9
+    },
+    {
+      "temp": 120,
+      "ys": 10,
+      "uts": 10,
+      "E": 0.3
+    }
+  ],
+  "story": "PA 2200 은 EOS (독일 Electro Optical Systems) 가 SLS (Selective Laser Sintering) 3D 프린팅용으로 commercial launch 한 PA12 powder 입니다. 1990년대 후반 EOSINT P 시스템 (현 EOS P 시리즈) 의 표준 polymer 가 PA 2200 이 되면서 SLS polymer 산업의 'industry standard' 가 됐어요. PA12 base 에 SLS 공정에 최적화된 입자 모양 + 입자 크기 분포 (50-90 μm 평균) 를 가집니다.\n\nPA 2200 print 결과: 밀도 0.93-0.95 g/cm³ (full density 의 93-95%, 약간의 internal porosity), σy 48 MPa, UTS 50 MPa, El 24% (XY), 18% (Z). 이방성이 적은 게 SLS 의 강점입니다 (FDM 보다 훨씬 isotropic). EOS PA 2200 의 powder refresh ratio (재사용 powder 의 fresh 비율) 는 30-50% 가 표준이고 이게 quality 균일성의 핵심.\n\n응용: prototype + functional part — 자동차 prototype (Volkswagen · Audi · BMW 의 일부 custom interior), 의료 의수 / 의지 / orthotic insole (정밀 custom fit), 산업 jig + fixture, 미술 sculpture (대형 작품의 prototype), 그리고 EOS Toolless Production 의 일부 (printed 부품 + tool 동시 제작). 가격은 fresh powder $50-80/kg, recycled blend (refreshed 30%) $30/kg 정도. EOS 의 PA 2200 이 SLS 시장의 70% 이상을 차지하는 게 표준화의 힘을 보여주고, alternative HP MJF (Multi Jet Fusion) 의 HP PA12 도 거의 동일한 base material 입니다.",
+  "story_refs": [
+    "EOS PA 2200 Tech Data",
+    "Goodridge R D et al. (2012) \"Laser sintering of polymers\", Prog Mater Sci 57",
+    "Schmid M (ed., 2018) Laser Sintering with Plastics, Hanser"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Nylon 12 (Polylauryllactam) — semi-crystalline thermoplastic. Tg ≈ 50°C, Tm ≈ 178°C, HDT (0.46 MPa) ≈ 145°C, **max service 80-100°C continuous** (σy 45-50 / UTS 45-50 / El 200-300% / E 1.5-1.7 GPa / ρ 1.01 g/cc. SLS / MJF 3D printing 의 가장 흔한 폴리머 (EOS PA 2200 = Vestamid L). 의료 카테터, 자동차 fuel line, 케이블 sheath, 화장품 패키지. 흡습률 낮음 (1.5% — PA66 대비 절반)."
+}

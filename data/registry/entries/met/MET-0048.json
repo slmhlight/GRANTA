@@ -1,0 +1,295 @@
+{
+  "stable_id": "MET-0048",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-aisi-6150",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0014",
+  "origin": "generic(csv)",
+  "id": "G_0014",
+  "name": "AISI 6150 — As-cast / forged (Wrought)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "As-cast / forged",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 410,
+      "max": 620,
+      "typical": 480,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 620,
+      "max": 760,
+      "typical": 670,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 11.05,
+      "max": 12.35,
+      "typical": 12.35,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 210,
+      "typical": 205,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 180,
+      "max": 230,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 250,
+      "max": 350,
+      "typical": 300,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "max_service_temp": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "thermal_expansion": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "specific_heat": {
+      "min": 476,
+      "max": 476,
+      "typical": 476,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "melting_point": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "price_per_kg": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "price_per_cm3": {
+      "min": 0.0275,
+      "max": 0.0275,
+      "typical": 0.0275,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.82,
+      "max": 3.82,
+      "typical": 3.82,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.48~0.53",
+    "Cr": "0.80~1.10",
+    "V": "≥0.15",
+    "Mn": "0.70~0.90",
+    "Si": "0.15~0.30"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook Vol.1 + SAE J404 — AISI 6xxx (Cr-V spring steel)",
+      "url": "https://www.sae.org/standards/content/j404/",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 6150\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%206150",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      880.0000000000001,
+      1210,
+      11.05,
+      210,
+      341,
+      42
+    ],
+    [
+      7.85,
+      800,
+      1100,
+      12.35,
+      210,
+      310,
+      42
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "meta": {
+    "row_count": 2,
+    "subcategory_variants": [
+      "Alloy Steel"
+    ],
+    "conditions": [
+      "As-Cast",
+      "As-Forged"
+    ],
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 80,
+  "fatigue_strength": 300,
+  "density": 7.85,
+  "yield_strength": 480,
+  "uts": 670,
+  "elongation": 12.35,
+  "modulus": 205,
+  "hardness": 200,
+  "thermal_conductivity": 42,
+  "impact_strength": 35,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+  "aliases": [
+    "UNS G61500",
+    "DIN 1.8159",
+    "51CrV4",
+    "JIS SUP10"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 6.5,
+  "max_service_temp": 480,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 476,
+  "melting_point": 1430,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0275,
+  "popularity": 3.12,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.04,
+  "delivered_price_per_kg": 3.82,
+  "total_cost_estimate": 3.82,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

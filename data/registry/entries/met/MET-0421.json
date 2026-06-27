@@ -1,0 +1,436 @@
+{
+  "stable_id": "MET-0421",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-cucr1zr-cucr2",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "C_0081",
+  "origin": "curated(material_db)",
+  "id": "C_0081",
+  "name": "CuCr1Zr (CuCr2) — As-built",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "curated",
+  "manufacturers": [
+    "3D Systems",
+    "EOS",
+    "Nikon SLM Solutions"
+  ],
+  "machines": [
+    "DMP Flex 350",
+    "M290 1kW",
+    "M400",
+    "SLM 280",
+    "NXG XII 600",
+    "SLM 280 PREC",
+    "SLM 280 PRIM",
+    "NXG XII 600 PRIM"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built",
+  "ranges": {
+    "density": {
+      "min": 8.89,
+      "max": 8.89,
+      "typical": 8.89,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 145,
+      "max": 190,
+      "typical": 175,
+      "n": 27,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 205,
+      "max": 265,
+      "typical": 235,
+      "n": 37,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 36,
+      "max": 60,
+      "typical": 41,
+      "n": 44,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 75,
+      "max": 80,
+      "typical": 79,
+      "n": 7,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 49,
+      "max": 74,
+      "typical": 61,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 130,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Cu-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 75,
+      "typical": 60,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Cu-Cr-Zr / Cu-Ni-Si-Cr family"
+    },
+    "electrical_conductivity": {
+      "min": 68,
+      "max": 92,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "max_service_temp": {
+      "min": 408,
+      "max": 552,
+      "typical": 480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "thermal_expansion": {
+      "min": 14.45,
+      "max": 19.55,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "specific_heat": {
+      "min": 323,
+      "max": 437,
+      "typical": 380,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "melting_point": {
+      "min": 913.75,
+      "max": 1236.25,
+      "typical": 1075,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "price_per_kg": {
+      "min": 21.25,
+      "max": 28.75,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "price_per_cm3": {
+      "min": 0.189,
+      "max": 0.2556,
+      "typical": 0.2223,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 62.5,
+      "max": 62.5,
+      "typical": 62.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Cr": "0.5~1.2",
+    "Zr": "0.03~0.30"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C18150 Copper-Chromium-Zirconium",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C18150",
+      "verified": true
+    },
+    {
+      "label": "Nikon SLM CuCr1Zr MDS 2025-07.1",
+      "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/07/mds5142.pdf",
+      "verified": true
+    },
+    {
+      "label": "3D Systems Certified CuCr1Zr(A) MDS",
+      "url": "https://www.3dsystems.com/sites/default/files/2023-07/3d-systems-certified-cucr1zra-material-datasheet-usen-2023-07-14-a-web_0.pdf",
+      "verified": true
+    },
+    {
+      "label": "Brush Wellman C18150 (Hycon 3 HP) datasheet",
+      "url": "https://materion.com/-/media/files/alloy/datasheets/copper/c18150-elbrodur-cuyc-rolled-datasheet.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASTM B441 — CuCrZr Bar/Rod (C18150)",
+      "url": "https://store.astm.org/b0441-19.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.89,
+      180,
+      260,
+      41,
+      130,
+      79,
+      320
+    ],
+    [
+      8.89,
+      175,
+      225,
+      50,
+      130,
+      79,
+      320
+    ],
+    [
+      8.89,
+      160,
+      210,
+      40,
+      130,
+      null,
+      320
+    ],
+    [
+      8.89,
+      160,
+      210,
+      40,
+      130,
+      null,
+      320
+    ],
+    [
+      8.89,
+      190,
+      265,
+      41,
+      130,
+      80,
+      320
+    ],
+    [
+      8.89,
+      185,
+      235,
+      52,
+      130,
+      80,
+      320
+    ],
+    [
+      8.89,
+      180,
+      260,
+      41,
+      130,
+      79,
+      320
+    ],
+    [
+      8.89,
+      175,
+      225,
+      50,
+      130,
+      79,
+      320
+    ],
+    [
+      8.89,
+      180,
+      260,
+      41,
+      130,
+      79,
+      320
+    ],
+    [
+      8.89,
+      175,
+      225,
+      50,
+      130,
+      79,
+      320
+    ],
+    [
+      8.89,
+      190,
+      265,
+      41,
+      130,
+      80,
+      320
+    ],
+    [
+      8.89,
+      185,
+      235,
+      52,
+      130,
+      80,
+      320
+    ],
+    [
+      8.89,
+      180,
+      260,
+      41,
+      130,
+      75,
+      320
+    ],
+    [
+      8.89,
+      175,
+      225,
+      50,
+      130,
+      75,
+      320
+    ],
+    [
+      8.89,
+      160,
+      215,
+      60,
+      130,
+      79,
+      320
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "applications": "Welding electrodes / Rocket nozzle inserts",
+    "magnetic": "non-magnetic",
+    "melt_C": 1080,
+    "cte": 17.6,
+    "cp": 385,
+    "poisson": 0.34,
+    "vendor_count": 19,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B441",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 61,
+  "density": 8.89,
+  "yield_strength": 175,
+  "uts": 235,
+  "elongation": 41,
+  "modulus": 130,
+  "hardness": 79,
+  "thermal_conductivity": 320,
+  "impact_strength": 80,
+  "manufacturer": "3D Systems, EOS, Nikon SLM Solutions",
+  "process": "LPBF",
+  "source": "Copper.org — C18150 Copper-Chromium-Zirconium",
+  "aliases": [
+    "CuCr2",
+    "UNS C18150",
+    "EN CW106C",
+    "CuCrZr"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 80,
+  "max_service_temp": 480,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 1075,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.2223,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 62.5,
+  "total_cost_estimate": 112.5,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "story": "1940년대 미국 GE 와 독일 Krupp 이 거의 동시에 spot welding electrode 의 표준 자재를 찾던 중 등장한 합금이에요. Cu 99% + Cr 1% + Zr 0.1% — 매우 낮은 합금 함량이지만 Cr 의 시효 석출 (Cu₃Cr 미세 분산) + Zr 의 grain boundary 안정화로 σ_y 350 MPa + 80% IACS (Cu 의 80% 전도성) + 800°C 까지 strength 유지의 균형을 달성했죠.\n\n응용은 자동차 산업의 spot welding 의 절대 표준입니다. 한 대의 자동차에는 4000~6000 개의 spot weld 가 있는데, 그 모든 weld 의 electrode tip 이 CuCr1Zr 이에요. Toyota Camry 의 차체 spot weld electrode, Ford F-150 의 robotic spot weld 의 모든 tip — CuCr1Zr 의 6 mm 끝부분. 한 tip 당 약 2000~3000 weld cycle 후 grinding-renewal 이 필요합니다.\n\n산업 — railway overhead contact wire (전철·KTX 의 catenary wire — Cu 의 wear + 강도가 동시에 필요), 산업용 motor brush, 산업 heat exchanger (고온 + 부식 환경의 tube). UNS C18150 (Cu-Cr-Zr) 과 C18200 (Cu-Cr) 의 두 grade 가 ASTM B105 표준이에요.",
+  "story_refs": [
+    "ASTM B105 \"Standard Specification for Hard-Drawn Copper Alloy Wires for Electric Conductors\"",
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Copper Development Association \"Resistance Welding Electrode Materials\" Pub TN 28 (2010)"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS C18150 / EN CW106C / CuCr1Zr / DIN 2.1293 — precipitation-hardened Cu alloy (Cr 0.5-1.5, Zr 0.03-0.30, Cu bal). 우수한 thermal/electrical conductivity (IACS 80%) + moderate strength. AM LPBF Tmax 480°C. Resistance welding electrode tip, EDM electrode, motor rotor bar, fusion reactor (ITER divertor cooling), NASA rocket engine combustion chamber. AM LPBF for rocket nozzle (Ti-CuCrZr brazing 대안)."
+}

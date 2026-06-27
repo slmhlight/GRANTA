@@ -1,0 +1,296 @@
+{
+  "stable_id": "MET-0603",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-nimonic-105",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0153",
+  "origin": "reference(supplementary)",
+  "id": "R_0153",
+  "name": "Nimonic 105",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Nimonic)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution + Aged (1150°C / 850°C 8h + 700°C 16h)",
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 730,
+      "max": 770,
+      "typical": 770,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1080,
+      "max": 1130,
+      "typical": 1130,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 25,
+      "typical": 25,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 222,
+      "max": 222,
+      "typical": 222,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 320,
+      "max": 340,
+      "typical": 340,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 308,
+      "max": 424,
+      "typical": 370,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic105"
+    },
+    "max_service_temp": {
+      "min": 870,
+      "max": 870,
+      "typical": 870,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic105"
+    },
+    "thermal_expansion": {
+      "min": 12.7,
+      "max": 12.7,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic105"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic105"
+    },
+    "specific_heat": {
+      "min": 461,
+      "max": 461,
+      "typical": 461,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic105"
+    },
+    "melting_point": {
+      "min": 1340,
+      "max": 1340,
+      "typical": 1340,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic105"
+    },
+    "price_per_kg": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic105"
+    },
+    "price_per_cm3": {
+      "min": 0.64,
+      "max": 0.64,
+      "typical": 0.64,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:nimonic105"
+    },
+    "delivered_price_per_kg": {
+      "min": 109.2,
+      "max": 109.2,
+      "typical": 109.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Co": "18~22",
+    "Cr": "14~15.7",
+    "Mo": "4.5~5.5",
+    "Al": "4.5~4.9",
+    "Ti": "0.9~1.5"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Nimonic 105",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nimonic+105",
+      "verified": false
+    },
+    {
+      "label": "Special Metals — Nimonic 105 (UNS N13021)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals — NIMONIC alloy 105 (W.Nr. 2.4634) Technical Bulletin (BS HR 3 조성 + Table 7 인장)",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/nimonic-alloy-105.pdf",
+      "verified": true
+    },
+    {
+      "label": "AZoM — Super Alloy Nimonic 105 (RT UTS/YS/신율 cross-check)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=7812",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8,
+      770,
+      1130,
+      25,
+      222,
+      340,
+      11
+    ],
+    [
+      8,
+      730,
+      1080,
+      20,
+      222,
+      320,
+      11
+    ]
+  ],
+  "machinability": "Very Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS N13021",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 370,
+  "density": 8,
+  "yield_strength": 770,
+  "uts": 1130,
+  "elongation": 25,
+  "modulus": 222,
+  "hardness": 340,
+  "thermal_conductivity": 11,
+  "impact_strength": 60,
+  "manufacturer": "PCC / Special Metals (Nimonic)",
+  "process": "Wrought",
+  "source": "MatWeb — Nimonic 105",
+  "aliases": [
+    "UNS N13021",
+    "Alloy 105"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.2,
+  "max_service_temp": 870,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.3,
+  "specific_heat": 461,
+  "melting_point": 1340,
+  "price_per_kg": 80,
+  "price_per_cm3": 0.64,
+  "popularity": 2.07,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 109.2,
+  "total_cost_estimate": 196.56,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 22% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

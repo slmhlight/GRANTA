@@ -1,0 +1,278 @@
+{
+  "stable_id": "MET-0121",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-lithium",
+    "alloy_base": "F-AB-aa-2050-al-cu-li-3rd-gen",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0385_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0385_1",
+  "name": "AA 2050 (Al-Cu-Li, 3rd-gen) — Airbus A380 wing — T84 (heavy plate, peak σy)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Lithium",
+  "tier": "reference",
+  "manufacturers": [
+    "Constellium (Airware)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T84 (heavy plate, peak σy)",
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 485,
+      "max": 485,
+      "typical": 485,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 530,
+      "max": 530,
+      "typical": 530,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 76,
+      "max": 76,
+      "typical": 76,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 146,
+      "max": 223,
+      "typical": 184,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 5,
+      "max": 18,
+      "typical": 10,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based"
+    },
+    "fracture_toughness": {
+      "min": 28,
+      "max": 28,
+      "typical": 28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 38,
+      "max": 38,
+      "typical": 38,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2050"
+    },
+    "max_service_temp": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2050"
+    },
+    "thermal_expansion": {
+      "min": 21.7,
+      "max": 21.7,
+      "typical": 21.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2050"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2050"
+    },
+    "specific_heat": {
+      "min": 875,
+      "max": 875,
+      "typical": 875,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2050"
+    },
+    "melting_point": {
+      "min": 627,
+      "max": 627,
+      "typical": 627,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2050"
+    },
+    "price_per_kg": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2050"
+    },
+    "price_per_cm3": {
+      "min": 0.054,
+      "max": 0.054,
+      "typical": 0.054,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2050"
+    },
+    "delivered_price_per_kg": {
+      "min": 28.67,
+      "max": 28.67,
+      "typical": 28.67,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Cu": "3.2~3.9",
+    "Li": "0.70~1.30",
+    "Mg": "0.20~0.60",
+    "Ag": "0.20~0.70",
+    "Mn": "0.20~0.50",
+    "Zr": "0.06~0.14",
+    "Zn": "≤0.25"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.constellium.com/products/aerospace",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.7,
+      485,
+      530,
+      11,
+      76,
+      170,
+      95
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Constellium AIRWARE; A380 lower wing skin, A350 fuselage frame, A220 wing rib; 6% mass save vs 2024-T351 with higher KIC; quench-insensitive thick-section T84 ageing.",
+  "meta": {
+    "reference": true,
+    "condition": "T84 (heavy plate, peak σy)"
+  },
+  "fracture_toughness": 28,
+  "fatigue_strength": 184,
+  "density": 2.7,
+  "yield_strength": 485,
+  "uts": 530,
+  "elongation": 11,
+  "modulus": 76,
+  "hardness": 170,
+  "thermal_conductivity": 95,
+  "impact_strength": 10,
+  "manufacturer": "Constellium (Airware)",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "3rd-gen",
+    "UNS A03800",
+    "EN AC-46500",
+    "AlSi8Cu3"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum Alloy",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 38,
+  "max_service_temp": 175,
+  "thermal_expansion": 21.7,
+  "poisson_ratio": 0.33,
+  "specific_heat": 875,
+  "melting_point": 627,
+  "price_per_kg": 20,
+  "price_per_cm3": 0.054,
+  "popularity": 3.2,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.3,
+  "delivered_price_per_kg": 28.67,
+  "total_cost_estimate": 25.8,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "2004년 프랑스 Pechiney (현 Constellium) 가 Airbus A380 super-jumbo 의 wing skin 무게 감량을 목표로 개발한 3세대 Al-Li 합금. Cu 3.5% + Li 1.0% + Mg 0.4% + Ag 0.4% + Mn 0.35% + Zr 0.1% — 2 세대 Al-Li (8090, 2090) 의 anisotropy + low fracture toughness 문제를 해결한 게 핵심이었어요.\n\n결과 — AA 2024-T351 대비 6% 가볍고 KIC 가 25% 높은 'damage-tolerance Al-Li'. A380 의 lower wing skin 표면적 약 800 m² 가 AA 2050 으로 채택되면서, 한 대 당 약 1.5 ton 의 무게 감량 → 연료 효율 ~3% 향상. 같은 시기 Airbus A350 의 fuselage frame 일부, 그리고 단일 통로 신예 A220 (Bombardier CSeries 의 후신) 의 wing rib 도 AA 2050 입니다.\n\nConstellium 의 AIRWARE 라는 상품명으로도 알려져 있어요. T84 temper (solution + 5% stretched + 시효) 가 σ_y 460 MPa + El 12% — Al-Li 의 한계를 넘어선 균형 잡힌 합금이죠. quench-insensitive 특성 덕분에 두꺼운 plate (≥ 50 mm) 의 단조 forge 부품에서도 균일한 강도가 나오는 게 큰 장점.",
+  "story_refs": [
+    "Lequeu P H et al. (2010) \"Engineering for the Future: Weight Saving and Cost Reduction through the Introduction of New Third Generation Al-Li Alloys\", Mater Sci Forum 638-642",
+    "Warner T (2006) \"Recently-Developed Aluminium Solutions for Aerospace Applications\", Mater Sci Forum 519-521",
+    "Constellium \"AIRWARE Technology Brochure\" (2018)"
+  ],
+  "confidence_tier": "medium"
+}

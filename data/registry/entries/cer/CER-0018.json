@@ -1,0 +1,177 @@
+{
+  "stable_id": "CER-0018",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-nitride",
+    "alloy_base": "F-AB-cbn-cubic-boron-nitride-sintered",
+    "element_families": []
+  },
+  "legacy_id": "CER_027",
+  "origin": "ceramics-data",
+  "id": "CER_027",
+  "name": "CBN (cubic Boron Nitride, sintered)",
+  "category": "Ceramic",
+  "subcategory": "Nitride",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.48,
+      "max": 3.48,
+      "typical": 3.48,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 720,
+      "max": 720,
+      "typical": 720,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 4500,
+      "max": 4500,
+      "typical": 4500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 1200,
+      "max": 1200,
+      "typical": 1200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 585,
+      "max": 585,
+      "typical": 585,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 4.176,
+      "max": 4.176,
+      "typical": 4.176,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "B": "43.6",
+    "N": "56.4"
+  },
+  "sources": [
+    {
+      "label": "Applications: 철계 가공 절삭공구 (다이아몬드 대체 — Fe 친화성 없음)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Element Six CBN technical data",
+      "url": "https://www.e6.com/",
+      "verified": false
+    },
+    {
+      "label": "Sumitomo Electric Sumiboron CBN",
+      "url": "https://www.sumitomoelectric.com/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "철계 가공 절삭공구 (다이아몬드 대체 — Fe 친화성 없음)",
+    "_r173_note_applied": true
+  },
+  "popularity": 2,
+  "density": 3.48,
+  "yield_strength": 1300,
+  "uts": 1300,
+  "elongation": null,
+  "modulus": 720,
+  "hardness": 4500,
+  "thermal_conductivity": 200,
+  "fatigue_strength": 585,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: 철계 가공 절삭공구 (다이아몬드 대체 — Fe 친화성 없음)",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Nitride"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 4.176,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "c-BN (cubic Boron Nitride, sphalerite structure) — 2nd hardest material (Diamond 다음). ρ 3.48 g/cc, σf 800-1500, E 720 GPa, Mohs 9.9. Tmax 1300°C in air (vs Diamond 700°C — c-BN 우월 for ferrous machining). Sumitomo Sumiboron / Element Six CBN500. Sintered CBN (PCBN) inserts for 자동차 transmission gear 가공, 베어링 race 마무리, hard-turning replace grinding. Cost $300-800/insert."
+}

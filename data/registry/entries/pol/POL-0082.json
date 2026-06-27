@@ -1,0 +1,255 @@
+{
+  "stable_id": "POL-0082",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polycarbonate",
+    "alloy_base": "F-AB-pc-lexan-101r-sabic",
+    "element_families": []
+  },
+  "legacy_id": "POL_019",
+  "origin": "polymers-data",
+  "id": "POL_019",
+  "name": "PC Lexan 101R (SABIC)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polycarbonate",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.4,
+      "max": 2.4,
+      "typical": 2.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.2,
+      "max": 0.2,
+      "typical": 0.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 68,
+      "max": 68,
+      "typical": 68,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 115,
+      "max": 115,
+      "typical": 115,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 145,
+      "max": 145,
+      "typical": 145,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "price_per_cm3": {
+      "min": 0.0048,
+      "max": 0.0048,
+      "typical": 0.0048,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "75.6",
+    "H": "5.5",
+    "O": "18.9"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PC Lexan 101R (SABIC)",
+      "url": "https://www.sabic.com/en/products/specialties/lexan-resins/lexan-resin-101r",
+      "verified": true
+    },
+    {
+      "label": "Applications: 투명 안전 시트, 헬멧 visor, 의료 housing, 광학 디스크, 전자 housing",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SABIC LEXAN 101R / 121R / EXL / FXD datasheet",
+      "url": "https://www.sabic.com/en/products/specialties/lexan-resins/lexan-resin",
+      "verified": true
+    },
+    {
+      "label": "Covestro Makrolon 2407 / 2658 / 3108 datasheet",
+      "url": "https://solutions.covestro.com/en/products/makrolon",
+      "verified": true
+    },
+    {
+      "label": "SABIC LEXAN PC resin technical guide",
+      "url": "https://www.sabic.com/en/products/specialties/lexan-resins",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Polycarbonate (PC) general",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=501acbb63cbc4f748faa7490884cdbca",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "polymer": true,
+    "tg": 145,
+    "tm": null,
+    "hdt_182": 130,
+    "moisture_24h": 0.15,
+    "flame_ul94": "V-2",
+    "uv_resistance": "Fair",
+    "applications": "투명 안전 시트, 헬멧 visor, 의료 housing, 광학 디스크, 전자 housing",
+    "limitations": "Notch 민감 (notched Izod 70 J/m, unnotched 8.5 kJ/m²), 일부 솔벤트 ESC",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 1.2,
+  "yield_strength": 65,
+  "uts": 65,
+  "elongation": 110,
+  "modulus": 2.4,
+  "hardness": null,
+  "thermal_conductivity": 0.2,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PC Lexan 101R (SABIC)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polycarbonate"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0048,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 65,
+      "uts": 65,
+      "E": 2.4
+    },
+    {
+      "temp": 80,
+      "ys": 55,
+      "uts": 55,
+      "E": 2.2
+    },
+    {
+      "temp": 120,
+      "ys": 35,
+      "uts": 35,
+      "E": 1.8
+    },
+    {
+      "temp": 145,
+      "ys": 10,
+      "uts": 10,
+      "E": 0.5
+    }
+  ],
+  "story": "1953년 11월, 독일 Bayer 의 헤르만 슈넬 (Hermann Schnell) 이 phosgene + bisphenol-A 의 계면 중합으로 polycarbonate 를 발견합니다. 거의 동시에 미국 GE 의 다니엘 폭스 (Daniel Fox) — 1953년 12월 — 도 동일 polymer 를 다른 경로 (transesterification) 로 합성. 두 회사가 1955년 합의를 거쳐 Bayer 가 'Makrolon', GE 가 'Lexan' 으로 평행 상표 출시.\n\nPC 의 혁신은 Izod impact strength 600 J/m 의 절대적 내충격성 — glass 의 250배 — 와 92% 광 투과율의 조합이에요. 1962년 미 공군 F-4 Phantom 의 canopy 가 PMMA 에서 PC 로 전환되며 첫 무기체계 채택, 이후 1972년 동독 베를린 장벽의 watchtower bullet-proof glass, 1980년대 CD (compact disc, Philips/Sony) 의 substrate, 1990년대 baby bottle / water cooler bottle (BPA 논란 전), 2000년대 안전 헬멧 (NHTSA standard) / 자동차 헤드램프 외장 / 스마트폰 case 의 backbone 폴리머가 됐습니다. 단, BPA monomer 잔류 우려로 2011년 EU 와 캐나다가 baby bottle 사용을 금지했죠.",
+  "story_refs": [
+    "Schnell H (1956) DE Patent 971,790 (Bayer) \"Process for the production of high-molecular-weight thermoplastic polycarbonates\"",
+    "Brunelle D J & Korn M R (eds., 2005) Advances in Polycarbonates, ACS Symposium Series 898",
+    "Eaton R R & Crowther G P (2005) Bisphenol A: Health, Safety and the Environment, Wiley"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Polycarbonate grades by molecular weight (MW): • Low MW (Lexan 101R 12 MFR, Makrolon 2407): σy 65 / E 2.4 / Tmax 115°C — injection molding ease, thin-wall • Standard MW (Lexan 121R 9 MFR, Makrolon 2858): σy 62-65 / Tmax 115-127°C — general purpose • High MW (Lexan EXL 3 MFR, Makrolon 3108): σy 67 / E 2.4 / Tmax 127°C — tough grade, optical, riot shield, bullet-resistant glazing 낮은 MW → easier 가공, lower 강도. 광 투과 90%, refractive index 1.586."
+}

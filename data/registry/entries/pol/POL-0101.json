@@ -1,0 +1,245 @@
+{
+  "stable_id": "POL-0101",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pom",
+    "alloy_base": "F-AB-pom-c-hostaform-copolymer-acetal",
+    "element_families": []
+  },
+  "legacy_id": "R_0316_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0316_0",
+  "name": "POM-C (Hostaform, copolymer acetal) — Dry as-molded",
+  "category": "Polymer",
+  "subcategory": "Polymer - POM",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection-Molded"
+  ],
+  "heat_treatment": "Dry as-molded",
+  "ranges": {
+    "density": {
+      "min": 1.41,
+      "max": 1.41,
+      "typical": 1.41,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 62,
+      "max": 62,
+      "typical": 62,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 68,
+      "max": 68,
+      "typical": 68,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.31,
+      "max": 0.31,
+      "typical": 0.31,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "glass_transition_temp": {
+      "min": -109.5,
+      "max": -36.5,
+      "typical": -73,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0176,
+      "max": 0.0528,
+      "typical": 0.0352,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "40.0",
+    "H": "6.7",
+    "O": "53.3"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — POM (Acetal)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=POM+acetal",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.celanese.com/products/hostaform.html",
+      "verified": true
+    },
+    {
+      "label": "DuPont Delrin POM technical guide",
+      "url": "https://www.dupont.com/products/delrin-acetal-homopolymer.html",
+      "verified": true
+    },
+    {
+      "label": "Celanese Hostaform POM copolymer",
+      "url": "https://www.celanese.com/products/hostaform-pom",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — POM Homopolymer",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1c4f97da0d8d4c3a8bf6b3d1c9c3e6e3",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.41,
+      62,
+      68,
+      40,
+      2.7,
+      0,
+      0.31
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "POM (Polyoxymethylene, Acetal). Homopolymer (Delrin 500) vs Copolymer (Hostaform C). Tm 165-175°C, HDT (1.8 MPa) ≈ 100°C, max service 80-100°C continuous, 100-120°C intermittent. Homo: σy 70 / UTS 75 / El 35% / E 3.2 GPa / Notched Izod 75 J/m. Copo: σy 65 / UTS 70 / El 40% / E 2.7 GPa. 낮은 마찰계수 (μ=0.20), 우수한 wear, 치수 안정성. Gear, bearing, snap-fit, fuel system parts. 흡습률 0.2-0.4% (Nylon 대비 매우 낮음).",
+  "meta": {
+    "reference": true,
+    "condition": "Dry as-molded",
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.2,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.41,
+  "yield_strength": 62,
+  "uts": 68,
+  "elongation": 40,
+  "modulus": 2.7,
+  "hardness": null,
+  "thermal_conductivity": 0.31,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection-Molded",
+  "source": "MatWeb — POM (Acetal)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Acetal (POM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": -73,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0352,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 45,
+  "min_wall_thickness": 2,
+  "surface_finish_typical": 50,
+  "tolerance_class": "IT15",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

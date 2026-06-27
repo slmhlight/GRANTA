@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build:data": "node scripts/build-materials.mjs",
+    "build:data": "node scripts/build-from-registry.mjs",
+    "build:registry": "node scripts/build-materials.mjs && node scripts/build-registry.mjs",
+    "audit:registry": "node scripts/audit-registry.mjs",
     "audit:sample": "node scripts/audit-random-sample.mjs",
     "verify:urls": "node scripts/verify-datasheet-urls.mjs",
     "verify:guide": "node scripts/verify-guide-links.mjs",

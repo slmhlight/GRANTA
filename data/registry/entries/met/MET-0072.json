@@ -1,0 +1,324 @@
+{
+  "stable_id": "MET-0072",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel-case-hardening",
+    "alloy_base": "F-AB-aisi-9310-vim-var",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0335_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0335_1",
+  "name": "AISI 9310 (VIM-VAR) — aerospace transmission gear — Q+T core only",
+  "category": "Metal",
+  "subcategory": "Alloy Steel - Case Hardening",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T core only",
+  "ranges": {
+    "density": {
+      "min": 7.84,
+      "max": 7.84,
+      "typical": 7.84,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1250,
+      "max": 1250,
+      "typical": 1250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 360,
+      "max": 360,
+      "typical": 360,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 39,
+      "max": 39,
+      "typical": 39,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 415,
+      "max": 545,
+      "typical": 480,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 80,
+      "typical": 60,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "electrical_conductivity": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "thermal_expansion": {
+      "min": 11.9,
+      "max": 11.9,
+      "typical": 11.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "specific_heat": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "melting_point": {
+      "min": 1425,
+      "max": 1425,
+      "typical": 1425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "price_per_kg": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "price_per_cm3": {
+      "min": 0.0314,
+      "max": 0.0314,
+      "typical": 0.0314,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9310"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.17,
+      "max": 5.17,
+      "typical": 5.17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "3.0~3.5",
+    "Cr": "1.0~1.4",
+    "Mo": "0.08~0.15",
+    "Mn": "0.45~0.65",
+    "C": "0.08~0.13",
+    "Si": "0.15~0.30"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 9310 gear steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+9310",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%209310",
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AMS 6260 — AISI 9310 bar/forging (premium VIM-VAR)",
+      "url": "https://www.sae.org/standards/content/ams6260/",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.4 — 9310 carburized gear",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/17/chapter-abstract/204984/Steel-Heat-Treating-Fundamentals",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.84,
+      1100,
+      1250,
+      15,
+      205,
+      360,
+      39
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS G93106 / AISI 9310 (VIM-VAR triple-melt) — Ni-Cr-Mo aerospace carburizing steel (C 0.07-0.13, Ni 3.0-3.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T core only",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 6260",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fatigue_strength": 480,
+  "density": 7.84,
+  "yield_strength": 1100,
+  "uts": 1250,
+  "elongation": 15,
+  "modulus": 205,
+  "hardness": 360,
+  "thermal_conductivity": 39,
+  "impact_strength": 60,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 9310 gear steel",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Case-Hardening Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 6.5,
+  "max_service_temp": 425,
+  "thermal_expansion": 11.9,
+  "poisson_ratio": 0.29,
+  "specific_heat": 470,
+  "melting_point": 1425,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.0314,
+  "fracture_toughness": 100,
+  "popularity": 1.57,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.17,
+  "total_cost_estimate": 5.17,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 3.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 220,
+      "uts": 550,
+      "E": 200
+    },
+    {
+      "temp": 600,
+      "ys": 120,
+      "uts": 410,
+      "E": 158
+    },
+    {
+      "temp": 800,
+      "ys": 100,
+      "uts": 270,
+      "E": 138
+    },
+    {
+      "temp": 1000,
+      "ys": 60,
+      "uts": 140,
+      "E": 115
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 900,
+      "stress": 35,
+      "hours": 1000
+    },
+    {
+      "temp": 1000,
+      "stress": 20,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "medium"
+}

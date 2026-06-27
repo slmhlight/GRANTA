@@ -1,0 +1,290 @@
+{
+  "stable_id": "MET-0360",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-aluminum-bronze-c61400",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0233",
+  "origin": "reference(supplementary)",
+  "id": "R_0233",
+  "name": "Aluminum Bronze C61400",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.89,
+      "max": 7.89,
+      "typical": 7.89,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 240,
+      "max": 310,
+      "typical": 310,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 550,
+      "max": 585,
+      "typical": 585,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 32,
+      "typical": 32,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 150,
+      "max": 160,
+      "typical": 160,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 56,
+      "max": 56,
+      "typical": 56,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 93,
+      "max": 143,
+      "typical": 118,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 130,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Cu-based"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 40,
+      "typical": 32,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 6xxx Al-Mg-Si"
+    },
+    "electrical_conductivity": {
+      "min": 12.75,
+      "max": 17.25,
+      "typical": 15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "max_service_temp": {
+      "min": 212.5,
+      "max": 287.5,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "thermal_expansion": {
+      "min": 14.875,
+      "max": 20.125,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "specific_heat": {
+      "min": 323,
+      "max": 437,
+      "typical": 380,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "melting_point": {
+      "min": 841.5,
+      "max": 1138.5,
+      "typical": 990,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "price_per_kg": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "price_per_cm3": {
+      "min": 0.0805,
+      "max": 0.1089,
+      "typical": 0.0947,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "delivered_price_per_kg": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Al": "6~8",
+    "Fe": "1.5~3.5"
+  },
+  "sources": [
+    {
+      "label": "ASTM B169 — aluminium bronze C61400",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — Alloy C61400 (Aluminum Bronze D)",
+      "url": "https://alloys.copper.org/alloy/C61400",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.89,
+      240,
+      550,
+      32,
+      110,
+      150,
+      56
+    ],
+    [
+      7.89,
+      310,
+      585,
+      25,
+      110,
+      160,
+      56
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM B169",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 32,
+  "fatigue_strength": 118,
+  "density": 7.89,
+  "yield_strength": 310,
+  "uts": 585,
+  "elongation": 32,
+  "modulus": 110,
+  "hardness": 160,
+  "thermal_conductivity": 56,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASTM B169 — aluminium bronze C61400",
+  "aliases": [
+    "UNS C61400",
+    "EN CW307G(~)",
+    "aluminium bronze D"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 15,
+  "max_service_temp": 250,
+  "thermal_expansion": 17.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 990,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.0947,
+  "popularity": 3.15,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 12.6,
+  "total_cost_estimate": 7.56,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1856년 프랑스 티시에 (Tissier) 형제가 Cu-Al 8-10% 의 합금을 처음 보고 — 발색이 24K 금에 가까워 1869년 파리 만국박람회에서 'L'or des pauvres' (가난한 자의 금) 로 전시됐죠. 1차 대전 영국 해군이 Cu 9% Al + 2% Fe + 3% Ni 의 nickel-aluminum bronze (NAB, C95800) 로 발전시켜 'Sea-cure' alloy 로 명명했고요. C61400 (Cu-7Al-2Fe) 은 그 wrought 변형입니다.\n\n응용 — 해상 — 잠수함 propeller (영국 Astute class, 미국 Virginia class 모두 NAB cast), oil tanker 의 ballast 펌프 impeller, 해상 platform 의 boat lift, Caterpillar dump truck bushing, Westinghouse turbine 발전기의 blade fillet, 시멘트 mixer drum 의 inlet wear ring, Big Ben 시계의 tower bell stand, 영국 1971년 발행 50 pence 동전. 부식 저항 + 마모 + 비-자성 (mine detector 안전) + 비-sparking (가스 안전 — petroleum refinery 의 hammer) 의 만능성을 보여주는 합금입니다.",
+  "story_refs": [
+    "Tissier J P & N (1856) Comptes Rendus 42",
+    "Meigh H J (2000) Cast and Wrought Aluminium Bronzes: Properties, Processes and Structure, IOM Communications",
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
+  ],
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,360 @@
+{
+  "stable_id": "MET-0520",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-hastelloy-x",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0256",
+  "origin": "reference(supplementary)",
+  "id": "R_0256",
+  "name": "Hastelloy X — Wrought, Annealed",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Haynes International (Hastelloy)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 8.22,
+      "max": 8.22,
+      "typical": 8.22,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 310,
+      "max": 420,
+      "typical": 360,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 725,
+      "max": 860,
+      "typical": 785,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 35,
+      "max": 55,
+      "typical": 43,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 185,
+      "max": 210,
+      "typical": 195,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 9.1,
+      "max": 9.1,
+      "typical": 9.1,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 255,
+      "max": 325,
+      "typical": 290,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:hastelloyx"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 140,
+      "typical": 110,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:hastelloyx"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyx"
+    },
+    "max_service_temp": {
+      "min": 1200,
+      "max": 1200,
+      "typical": 1200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyx"
+    },
+    "thermal_expansion": {
+      "min": 13.9,
+      "max": 13.9,
+      "typical": 13.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyx"
+    },
+    "poisson_ratio": {
+      "min": 0.31,
+      "max": 0.31,
+      "typical": 0.31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyx"
+    },
+    "specific_heat": {
+      "min": 461,
+      "max": 461,
+      "typical": 461,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyx"
+    },
+    "melting_point": {
+      "min": 1290,
+      "max": 1290,
+      "typical": 1290,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyx"
+    },
+    "price_per_kg": {
+      "min": 55,
+      "max": 95,
+      "typical": 75,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Haynes International HX bar Q2 2026"
+    },
+    "price_per_cm3": {
+      "min": 0.524,
+      "max": 0.709,
+      "typical": 0.6165,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 53.55,
+      "max": 53.55,
+      "typical": 53.55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "20.5~23",
+    "Fe": "17~20",
+    "Mo": "8~10",
+    "Co": "0.5~2.5",
+    "W": "0.2~1"
+  },
+  "sources": [
+    {
+      "label": "Haynes International — Hastelloy X",
+      "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-x-alloy",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Haynes International",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Haynes International — Hastelloy X datasheet",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HASTELLOYXalloy",
+      "verified": true
+    },
+    {
+      "label": "AMS 5536 — Hastelloy X sheet/strip",
+      "url": "https://www.sae.org/standards/content/ams5536/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.22,
+      360,
+      785,
+      43,
+      205,
+      195,
+      9.1
+    ],
+    [
+      8.22,
+      310,
+      725,
+      35,
+      205,
+      185,
+      9.1
+    ],
+    [
+      8.22,
+      420,
+      860,
+      55,
+      205,
+      210,
+      9.1
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS N06002 / EN 2.4665 / NiCr22Fe18Mo / Alloy X (Haynes) — solid-solution-strengthened Ni-Cr-Fe-Mo (Ni 47, Cr 20-23, Fe 17-20, Mo 8-10, Co 0.5-2.5, W 0.2-1.0). Excellent high-T oxidation up to 1200°C + workability + weldability (γ'-free solid solution → no SAC). σy 360-555 / UTS 690-820 / El 40-50%. AM LPBF 가스 터빈 combustor liner (F100, GE90, RR Trent 시리즈), 항공 afterburner, 산업 furnace muffle (1200°C continuous), AM LPBF 표준.",
+  "meta": {
+    "reference": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Hastelloy X",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5536",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 290,
+  "density": 8.22,
+  "yield_strength": 360,
+  "uts": 785,
+  "elongation": 43,
+  "modulus": 205,
+  "hardness": 195,
+  "thermal_conductivity": 9.1,
+  "impact_strength": 110,
+  "manufacturer": "Haynes International (Hastelloy)",
+  "process": "Wrought",
+  "source": "Haynes International — Hastelloy X",
+  "aliases": [
+    "UNS N06002",
+    "EN 2.4665",
+    "NiCr22Fe18Mo",
+    "Alloy X",
+    "GH3536"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 360,
+      "uts": 785,
+      "E": 205
+    },
+    {
+      "temp": 540,
+      "ys": 260,
+      "uts": 620,
+      "E": null
+    },
+    {
+      "temp": 760,
+      "ys": 220,
+      "uts": 415,
+      "E": null
+    },
+    {
+      "temp": 870,
+      "ys": 180,
+      "uts": 275,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 1200,
+  "thermal_expansion": 13.9,
+  "poisson_ratio": 0.31,
+  "specific_heat": 461,
+  "melting_point": 1290,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.6165,
+  "popularity": 3.15,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 53.55,
+  "total_cost_estimate": 139.23,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 2.5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "creep_rupture": [
+    {
+      "temp": 760,
+      "stress": 140,
+      "hours": 1000
+    },
+    {
+      "temp": 870,
+      "stress": 70,
+      "hours": 1000
+    },
+    {
+      "temp": 980,
+      "stress": 35,
+      "hours": 1000
+    }
+  ],
+  "story": "1954년 Haynes International 의 프랭크 플로린 (Frank Floreen) 과 로이 데커 (Roy Decker) — 5년 뒤 Maraging steel 도 발명한 그 두 사람! — 이 가스터빈 combustor 용 새 합금을 만들고자 했어요. 1100°C 영역에서 산화 저항이 좋으면서도 잘 용접되는 합금이 필요했던 거죠. 그들이 내놓은 답이 Ni 47% + Cr 22% + Fe 18% + Mo 9% + Co 1.5% 의 Hastelloy X 였습니다.\n\nHastelloy X 의 의의는 '잠시 1200°C 까지 견디는데 용접까지 잘 된다' 는 점이었어요. Inconel 600 보다 고온 강도가 30% 높고, 318L 보다 산화 저항이 5배 좋으면서, MIG/TIG 용접에 별다른 후처리도 필요 없었거든요.\n\n가스터빈 산업의 표준이 되면서 1960년대 GE J79 (F-104, F-4 Phantom), P&W J57 (B-52 Stratofortress) 의 combustor liner 가 모두 Hastelloy X 였고요. 우주 — Apollo Lunar Module 의 descent engine combustion chamber, RS-25 (SSME) 의 일부 후단 nozzle extension, NASA Artemis Orion 의 service module RCS thruster — 까지 60+ 년 동안 변함없이 쓰이고 있습니다. LPBF 분말로도 GE Catalyst 엔진의 heat exchanger 같은 데 들어가요.",
+  "story_refs": [
+    "Haynes International \"Hastelloy X Alloy Brochure\" (2020)",
+    "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,297 @@
+{
+  "stable_id": "MET-0867",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-cp-gr3-astm-b265-grade-3",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0306_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0306_1",
+  "name": "Ti CP Gr3 (ASTM B265 Grade 3) — Cold-worked + Stress-relieved",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Cold-worked + Stress-relieved",
+  "ranges": {
+    "density": {
+      "min": 4.51,
+      "max": 4.51,
+      "typical": 4.51,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 520,
+      "max": 520,
+      "typical": 520,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 193,
+      "max": 276,
+      "typical": 239,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 30,
+      "typical": 22,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ti-based",
+      "min_spec_value": 17,
+      "min_spec_source": "ASTM F136 ELI minimum (vs typical 24 J)",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 90,
+      "typical": 70,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:MMPDS-2018 Titanium"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "max_service_temp": {
+      "min": 255,
+      "max": 345,
+      "typical": 300,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "thermal_expansion": {
+      "min": 7.31,
+      "max": 9.89,
+      "typical": 8.6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "specific_heat": {
+      "min": 442,
+      "max": 598,
+      "typical": 520,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "melting_point": {
+      "min": 1415.25,
+      "max": 1914.75,
+      "typical": 1665,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "price_per_kg": {
+      "min": 21.25,
+      "max": 28.75,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "price_per_cm3": {
+      "min": 0.0959,
+      "max": 0.1297,
+      "typical": 0.1128,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "delivered_price_per_kg": {
+      "min": 29.66,
+      "max": 29.66,
+      "typical": 29.66,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Fe": "≤0.3",
+    "O": "≤0.35",
+    "N": "≤0.05",
+    "C": "≤0.08"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%203",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: MMPDS-2018 Titanium",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AZoM — Grade 3 Unalloyed Ti (\"Pure\") 65A (UNS R50550) (Article 9415)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=9415",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.51,
+      460,
+      520,
+      16,
+      105,
+      220,
+      16
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Cold-worked + Stress-relieved",
+    "specs": [
+      {
+        "id": "ASTM B265",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS R50550",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 70,
+  "fatigue_strength": 239,
+  "density": 4.51,
+  "yield_strength": 460,
+  "uts": 520,
+  "elongation": 16,
+  "modulus": 105,
+  "hardness": 220,
+  "thermal_conductivity": 16,
+  "impact_strength": 22,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "ASTM B265 Grade 3"
+  ],
+  "families": [
+    "Metal",
+    "Titanium",
+    "Titanium-based"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 300,
+  "thermal_expansion": 8.6,
+  "poisson_ratio": 0.34,
+  "specific_heat": 520,
+  "melting_point": 1665,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.1128,
+  "popularity": 3.03,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 29.66,
+  "total_cost_estimate": 26.7,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 380,
+      "uts": 450,
+      "E": 105
+    },
+    {
+      "temp": 200,
+      "ys": 280,
+      "uts": 350,
+      "E": 100
+    }
+  ],
+  "confidence_tier": "medium"
+}

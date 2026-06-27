@@ -1,0 +1,299 @@
+{
+  "stable_id": "POL-0030",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-peek-cf",
+    "alloy_base": "F-AB-peek-cf-carbon-fiber",
+    "element_families": []
+  },
+  "legacy_id": "R_0184",
+  "origin": "reference(supplementary)",
+  "id": "R_0184",
+  "name": "PEEK-CF (carbon fiber)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEEK CF",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "FDM"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.41,
+      "max": 1.41,
+      "typical": 1.41,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 120,
+      "max": 130,
+      "typical": 130,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 135,
+      "max": 145,
+      "typical": 145,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 2,
+      "typical": 2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 12,
+      "max": 13,
+      "typical": 13,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.4,
+      "max": 0.4,
+      "typical": 0.4,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "max_service_temp": {
+      "min": 125,
+      "max": 375,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "thermal_expansion": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "glass_transition_temp": {
+      "min": 71.5,
+      "max": 214.5,
+      "typical": 143,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "price_per_kg": {
+      "min": 75,
+      "max": 110,
+      "typical": 90,
+      "n": 1,
+      "estimated": true,
+      "confidence": "measured",
+      "provenance": "Victrex 450G powder/pellet Q2 2026 (medical grade slightly higher)"
+    },
+    "price_per_cm3": {
+      "min": 0.1079,
+      "max": 0.1459,
+      "typical": 0.1269,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "79.2",
+    "H": "4.2",
+    "O": "16.7"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — carbon-fibre PEEK (FDM)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Solvay KetaSpire KT-820 SCF30 datasheet",
+      "url": "https://www.solvay.com/en/brands/ketaspire-peek",
+      "verified": true
+    },
+    {
+      "label": "Victrex 450CA30 PEEK CF30 reference",
+      "url": "https://www.victrex.com/",
+      "verified": false
+    },
+    {
+      "label": "Victrex PEEK 450G technical datasheet",
+      "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
+      "verified": true
+    },
+    {
+      "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
+      "url": "https://www.astm.org/f2026-17.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.41,
+      130,
+      145,
+      2,
+      13,
+      0,
+      0.4
+    ],
+    [
+      1.41,
+      120,
+      135,
+      1,
+      12,
+      0,
+      0.4
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "PEEK + 30% Short Carbon Fiber (Victrex 450CA30, KetaSpire SCF30). Tg 143°C, Tm 343°C, max service 250°C continuous, HDT (1.8 MPa) 305°C. σy 230-270 / UTS 230-270 / El 1.5-2.5% / E 22-25 GPa / ρ 1.40-1.42 g/cc. Tensile strength 30% 증가, E 6× 증가 (unfilled PEEK 대비). 자동차 thrust washer, 의료 surgical instrument (autoclave-compatible), 항공기 fastener cap, 오일/가스 wellhead seal. ⚠ 짧은 카본 섬유 — 광 transmission 없음 (검정색).",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "PEEK Victrex 450G",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F2026",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "density": 1.41,
+  "yield_strength": 130,
+  "uts": 145,
+  "elongation": 2,
+  "modulus": 13,
+  "hardness": null,
+  "thermal_conductivity": 0.4,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "FDM",
+  "source": "Material datasheets — carbon-fibre PEEK (FDM)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Carbon-Fiber Reinforced"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 250,
+  "thermal_expansion": 50,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 143,
+  "price_per_kg": 400,
+  "price_per_cm3": 0.1269,
+  "popularity": 1,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 400,
+  "total_cost_estimate": 520,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PEEK (Polyetheretherketone) 는 1977년 영국 ICI 의 Stuart Rose 가 발견한 semi-crystalline thermoplastic 입니다. Roma 의 후속 commercial launch (1981년 'Victrex PEEK') 가 시장 진입 시점이고, ICI 가 1993년 Victrex 라는 독립 회사로 spin-off 시켰어요. 'Etheretherketone' 은 main chain 에 ether-ether-ketone 의 반복 단위를 의미합니다.\n\nPEEK 의 핵심은 high Tg (143°C) + high Tm (343°C) + chemical resistance + radiation resistance 의 균형입니다. Continuous use 가 250°C 까지 가능 (engineering polymer 중 PI 다음으로 높음), 강한 산성 환경 (98% H₂SO₄, 100% HCl) 에서도 견디고, 감마선 100 Mrad 까지 안정합니다. σy 100 MPa · UTS 100 MPa · modulus 3.8 GPa · El 45% — engineering polymer 중 매우 높은 부류.\n\n응용은 'metal replacement' 의 정점에 있습니다. 의료 implant — spinal cage (Medtronic, NuVasive 의 표준), cranial implant (해골 임플란트의 carbon-PEEK), dental abutment, 그리고 가장 최근 'PEEK heart valve' (Polares Medical) prototype. 항공 산업 — bracket 의 metal replacement (보잉 787 의 일부 cabin bracket), 항공 cable insulation, ducting. 산업 — high-pressure pump seal (Sulzer · ITT 의 표준 seal material), semiconductor wafer carrier (high-purity grade), oil & gas downhole tool (200°C 환경의 pressure compensator). 가격은 $80-110/kg 으로 commodity polymer 의 20배지만 metal replacement 의 가치는 충분합니다. 최근에는 FDM (Stratasys F900, INTAMSYS Funmat HT) 으로 PEEK 3D 프린팅이 가능해져 prototype + customizable medical implant 시장이 확대 중이고, Stratasys 의 Antero PEKK 와 함께 'high-temperature AM polymer' 의 양대 산맥입니다.",
+  "story_refs": [
+    "Rose J B & Staniland P A (1985) US Patent 4,538,007 \"Aromatic polyetherketones\"",
+    "Victrex PEEK 450G Tech Data (revised 2024)",
+    "Kurtz S M (2012) PEEK Biomaterials Handbook, Elsevier"
+  ],
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 230,
+      "uts": 230,
+      "E": 23
+    },
+    {
+      "temp": 100,
+      "ys": 200,
+      "uts": 200,
+      "E": 21
+    },
+    {
+      "temp": 143,
+      "ys": 165,
+      "uts": 165,
+      "E": 14
+    },
+    {
+      "temp": 200,
+      "ys": 130,
+      "uts": 130,
+      "E": 10
+    },
+    {
+      "temp": 250,
+      "ys": 85,
+      "uts": 85,
+      "E": 6
+    }
+  ]
+}

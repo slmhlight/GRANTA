@@ -56,6 +56,6 @@ data/r198-composition-audit.json
 data/*.md
 data/*.txt
 
-# R226 (WIP) — 안정 ID 레지스트리. scripts/build-registry.mjs 로 재생성. 아직 빌드 미연결 병렬
-#   스냅샷이라 8.6MB 중복 커밋 회피. P5 cutover 시 정식 소스로 편입하며 이 줄 제거 예정.
-data/registry/
+# R226 P5 cutover — 레지스트리가 SSOT (committed). build:data(build-from-registry.mjs)가 읽음.
+#   entries/index/families/custom-families 는 소스로 커밋. 생성 산출물(감사 리포트)만 무시.
+data/registry/audit-report.md

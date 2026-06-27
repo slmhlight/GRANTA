@@ -1,0 +1,298 @@
+{
+  "stable_id": "MET-0694",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-254-smo-s31254",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0063",
+  "origin": "reference(supplementary)",
+  "id": "R_0063",
+  "name": "254 SMO (S31254)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "ATI (Allegheny Technologies)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 280,
+      "max": 340,
+      "typical": 300,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 650,
+      "max": 720,
+      "typical": 680,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 35,
+      "max": 45,
+      "typical": 40,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 200,
+      "max": 230,
+      "typical": 210,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 280,
+      "max": 360,
+      "typical": 320,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "impact_strength": {
+      "min": 110,
+      "max": 220,
+      "typical": 165,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "fracture_toughness": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.6,
+      "max": 1.6,
+      "typical": 1.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "max_service_temp": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "thermal_expansion": {
+      "min": 16.1,
+      "max": 16.1,
+      "typical": 16.1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "melting_point": {
+      "min": 1320,
+      "max": 1320,
+      "typical": 1320,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "price_per_cm3": {
+      "min": 0.2,
+      "max": 0.2,
+      "typical": 0.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "delivered_price_per_kg": {
+      "min": 26.25,
+      "max": 26.25,
+      "typical": 26.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "19.5~20.5",
+    "Ni": "17.5~18.5",
+    "Mo": "6~6.5",
+    "N": "0.18~0.22",
+    "Cu": "0.5~1"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — 254 SMO Super Austenitic",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/254-smo",
+      "verified": true
+    },
+    {
+      "label": "Outokumpu — 254 SMO super-austenitic (UNS S31254)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Outokumpu 254 SMO",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8,
+      300,
+      680,
+      40,
+      195,
+      210,
+      13
+    ],
+    [
+      8,
+      280,
+      650,
+      35,
+      195,
+      200,
+      13
+    ],
+    [
+      8,
+      340,
+      720,
+      45,
+      195,
+      230,
+      13
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS S31254",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 250,
+  "fatigue_strength": 320,
+  "density": 8,
+  "yield_strength": 300,
+  "uts": 680,
+  "elongation": 40,
+  "modulus": 195,
+  "hardness": 210,
+  "thermal_conductivity": 13,
+  "impact_strength": 165,
+  "manufacturer": "ATI (Allegheny Technologies)",
+  "process": "Wrought",
+  "source": "Outokumpu — 254 SMO Super Austenitic",
+  "aliases": [
+    "S31254",
+    "UNS S31254",
+    "EN 1.4547",
+    "254 SMO"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.6,
+  "max_service_temp": 400,
+  "thermal_expansion": 16.1,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1320,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.2,
+  "popularity": 2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 26.25,
+  "total_cost_estimate": 26.25,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 18.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

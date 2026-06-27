@@ -19,15 +19,17 @@ React 19 · Vite 7 · TypeScript · Tailwind CSS 4 · shadcn/ui · **Plotly.js**
 > Note: in the current agent environment the **preview screenshot tool times out** even when the app is healthy — verify via `preview_eval` / DOM probes / `preview_console_logs` instead.
 
 ## Data pipeline
-- Sources (in `data/`): `material_db.json` (46 curated AM alloys) + `AM_Materials_DB_enriched.csv` + `supplementary-materials.json` (~390 reference alloys) + `ceramics-data.json` (39 structural ceramics) + `composites-data.json` (34 composites).
-- Build: `pnpm build:data` → regenerates `client/public/materials.json`, `client/public/build-meta.json` (R69), and `data/validation-report.md`.
+- **Registry SSOT** (R226 cutover): `data/registry/entries/<cat>/<id>.json` (1198 per-entry, committed) = source of truth. Stable IDs (`MET/POL/CER/CMP-NNNN`) frozen in `data/registry-id-freeze.json` (legacy_id→stable_id; 이름·subcat·공정 변경에도 불변). 값·조성·필드 교정은 `data/r226-value-corrections.json` (ID-키, datasheet 인용)에 모으고 `build-registry.mjs`가 적용 — 원본은 entry `_corrections`에 보존 (round-trip이 "무손실+문서화교정" 증명).
+- **Build**: `pnpm build:data` (`build-from-registry.mjs`) → 레지스트리 읽어 `client/public/materials.json` + shards(`materials/{cat}.json`·slim `index.json`) + `build-meta.json` 생성. 교정 entry는 points 재생성.
+- **Regenerate registry** (소스 대변경 시 수동): `pnpm build:registry` = `build-materials.mjs`(6 소스 + ~890 name-regex override + derived) → shards → `build-registry.mjs`(stable ID·family tree·교정 적용). 890 override는 **live path에서 은퇴** — 레지스트리 재생성 입력으로만 잔존. 데이터 검수: `pnpm audit:registry` (물리 불가능·공정상태 SOFT↔HARD 교차충돌).
+- Upstream sources (`data/`, build:registry 입력): `material_db.json` + `AM_Materials_DB_enriched.csv` (generic 조건별 값은 합성 — memory/project_csv_generic_fabrication 참조) + `supplementary-materials.json` + `ceramics-data.json` + `composites-data.json`.
 - **1,198 materials** total — live counts in `client/public/build-meta.json` (SSOT). By category: 992 Metal · 133 Polymer · 39 Ceramic · 34 Composite. By tier: 99 curated · 3 am_vendor · 275 generic (CSV) · remainder reference (supplementary).
 - **Process canon** (R213): DMLS·SLM are vendor names for LPBF → canonicalised to `LPBF` (same alloy×condition AM variants merge). Manufacturer `SLM Solutions` → `Nikon SLM Solutions` (2022 Nikon 인수 사명 변경).
 - **Family-aware data backfill** (Sprint 4):
   - KIC fallback (C2): 814 alloys get a `class`-confidence KIC value from ASM Vol.1·2 family typicals → 82% coverage.
   - Fatigue fallback (C1): 759 alloys get a `derived`-confidence σ_f ≈ k·σ_y (Shigley · k=0.38–0.52 by family) → 89% coverage.
   - Elevated-temp & creep curves (C3): 30+ alloys (Inconel 617/625/718/X-750/Waspaloy, Haynes 230, Hastelloy X, Ti-6Al-4V, 17-4 PH, P91, 800H, CoCrMo, etc).
-- **Anomaly detection**: 159 anomalies (high 0 / med 0 / low 159) per `build-meta.json` (R71 B excluded 17 specialty Ni superalloys: Monel · single-crystal CMSX/Rene/PWA · ODS · low-CTE Inconel-783).
+- **Anomaly detection**: `build:data`(build-from-registry)가 **최종 데이터** 기준 검출 → 2 (high 0 / med 0 / low 2) per `build-meta.json`. (구 `build-materials.mjs`는 소스 부착 전 검출로 ~159 과다집계 — cutover가 정합. 테스트는 `anomaliesBySeverity.high===0`만 게이트.)
 - Material schema: `{id, name, category, subcategory, process, manufacturer, composition, ranges, sources[{label,url,verified}], tier, points[], elevated_temp?[], creep_rupture?[], meta}`.
 
 ## Layout
@@ -39,7 +41,7 @@ React 19 · Vite 7 · TypeScript · Tailwind CSS 4 · shadcn/ui · **Plotly.js**
   - `components/` — AshbyChartPlotly · ComparePanel (Table/Radar/Goodman views + best-pick + weighted score + PDF print) · MaterialDetail (Properties/Composition/Process tabs with elev-temp/creep curves, machinability/CET, HT glossary, confidence legend, favorite star) · GoodmanChart · RadarChart · OnboardingTour (6-step welcome) · ScenarioDialog (with apply-preview) · FilterSidebar · MaterialTable (bulk-select header) · ErrorBoundary (network/TDZ classification).
   - `lib/` — `materials.ts` (types + property metadata) · `composition-*.ts` · `ht-glossary.ts` (26 HT conditions) · `welding-machinability.ts` (CET + machinability) · `i18n.tsx` (KO/EN) · `unit-convert.ts` (SI/Imperial).
 - `server/index.ts` — tiny Express static server for production builds + security headers (CSP, X-Content-Type-Options, etc).
-- `scripts/` — `build-materials.mjs` (data pipeline) · `verify-datasheet-urls.mjs` (`pnpm verify:urls`) · `verify-guide-links.mjs` (`pnpm verify:guide`).
+- `scripts/` — `build-from-registry.mjs` (**`build:data`** — 레지스트리→산출물) · `build-materials.mjs`+`build-registry.mjs` (**`build:registry`** — 6소스→레지스트리 재생성) · `audit-registry.mjs` (`audit:registry`) · `verify-datasheet-urls.mjs` (`pnpm verify:urls`) · `verify-guide-links.mjs` (`pnpm verify:guide`).
 - `tests/` — vitest: `cross-sections.test.ts` · `welding-machinability.test.ts` · `ht-glossary.test.ts` · `fuzzy-search.test.ts` (47 tests).
 - `.github/workflows/ci.yml` — GitHub Actions: pnpm install → check → test → build on push/PR to main.
 

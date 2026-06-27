@@ -1,0 +1,279 @@
+{
+  "stable_id": "MET-0383",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c19400-cufep",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0161",
+  "origin": "reference(supplementary)",
+  "id": "R_0161",
+  "name": "C19400 (CuFeP)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.91,
+      "max": 8.91,
+      "typical": 8.91,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 280,
+      "max": 310,
+      "typical": 310,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 350,
+      "max": 380,
+      "typical": 380,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 10,
+      "typical": 10,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 121,
+      "max": 121,
+      "typical": 121,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 110,
+      "max": 120,
+      "typical": 120,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 260,
+      "max": 260,
+      "typical": 260,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 87,
+      "max": 130,
+      "typical": 109,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 130,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Cu-based"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 55,
+      "typical": 55,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c19400"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c19400"
+    },
+    "thermal_expansion": {
+      "min": 17.1,
+      "max": 17.1,
+      "typical": 17.1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c19400"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c19400"
+    },
+    "specific_heat": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c19400"
+    },
+    "melting_point": {
+      "min": 1080,
+      "max": 1080,
+      "typical": 1080,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c19400"
+    },
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c19400"
+    },
+    "price_per_cm3": {
+      "min": 0.1069,
+      "max": 0.1069,
+      "typical": 0.1069,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c19400"
+    },
+    "delivered_price_per_kg": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Fe": "2.1~2.6",
+    "P": "0.015~0.15",
+    "Zn": "0.05~0.2"
+  },
+  "sources": [
+    {
+      "label": "ASM — C19400 high-conductivity copper",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cu alloys general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — Alloy C19400 (Copper-Iron CuFeP)",
+      "url": "https://alloys.copper.org/alloy/C19400",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.91,
+      310,
+      380,
+      10,
+      121,
+      120,
+      260
+    ],
+    [
+      8.91,
+      280,
+      350,
+      8,
+      121,
+      110,
+      260
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 55,
+  "fatigue_strength": 109,
+  "density": 8.91,
+  "yield_strength": 310,
+  "uts": 380,
+  "elongation": 10,
+  "modulus": 121,
+  "hardness": 120,
+  "thermal_conductivity": 260,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — C19400 high-conductivity copper",
+  "aliases": [
+    "UNS C19400",
+    "CuFe2P"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 65,
+  "max_service_temp": 250,
+  "thermal_expansion": 17.1,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 1080,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.1069,
+  "popularity": 1.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 12.6,
+  "total_cost_estimate": 11.34,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,242 @@
+{
+  "stable_id": "POL-0121",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-ptfe",
+    "alloy_base": "F-AB-pfa",
+    "element_families": []
+  },
+  "legacy_id": "R_0176",
+  "origin": "reference(supplementary)",
+  "id": "R_0176",
+  "name": "PFA",
+  "category": "Polymer",
+  "subcategory": "Polymer - PTFE",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.15,
+      "max": 2.15,
+      "typical": 2.15,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 12,
+      "max": 14,
+      "typical": 14,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 25,
+      "max": 28,
+      "typical": 28,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 250,
+      "max": 300,
+      "typical": 300,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 0.6,
+      "max": 0.65,
+      "typical": 0.65,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.19,
+      "max": 0.19,
+      "typical": 0.19,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "max_service_temp": {
+      "min": 240,
+      "max": 280,
+      "typical": 260,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "price_per_cm3": {
+      "min": 0.0268,
+      "max": 0.0805,
+      "typical": 0.0537,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "24.0",
+    "F": "76.0"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — PFA fluoropolymer",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Chemours Teflon PFA datasheet",
+      "url": "https://www.chemours.com/en/brands/teflon",
+      "verified": true
+    },
+    {
+      "label": "Daikin Neoflon PFA technical guide",
+      "url": "https://www.daikin.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.15,
+      14,
+      28,
+      300,
+      0.65,
+      0,
+      0.19
+    ],
+    [
+      2.15,
+      12,
+      25,
+      250,
+      0.6,
+      0,
+      0.19
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": "PFA (Perfluoroalkoxy, Chemours Teflon PFA / Daikin Neoflon AP / Solvay Hyflon MFA) — fluoropolymer family (PTFE + ether linkage → 가공 가능). Tg ≈ -10°C, Tm 305°C, max service 260°C continuous (PTFE 와 동등). σy 12-15 / UTS 25-30 / El 300-400% / E 0.5-0.7 GPa / ρ 2.15 g/cc. Lowest friction (μ=0.05), best chemical resistance (모든 acid/base/solvent). 화학 plant lining (반응기 / 파이프 / 펌프), 반도체 super-clean tubing, FDA 식품 접촉, 의료 카테터 (CV catheter coating).",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 2.15,
+  "yield_strength": 14,
+  "uts": 28,
+  "elongation": 300,
+  "modulus": 0.65,
+  "hardness": null,
+  "thermal_conductivity": 0.19,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Material datasheets — PFA fluoropolymer",
+  "aliases": [
+    "Perfluoroalkoxy",
+    "Teflon PFA"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - PTFE"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0537,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

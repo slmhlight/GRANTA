@@ -1,0 +1,269 @@
+{
+  "stable_id": "POL-0029",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-peek-cf",
+    "alloy_base": "F-AB-peek-victrex-450ca30-30-carbon-fiber",
+    "element_families": []
+  },
+  "legacy_id": "POL_001",
+  "origin": "polymers-data",
+  "id": "POL_001",
+  "name": "PEEK Victrex 450CA30 (30% Carbon Fiber)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEEK CF",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.41,
+      "max": 1.41,
+      "typical": 1.41,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 23,
+      "max": 23,
+      "typical": 23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1.6,
+      "max": 1.6,
+      "typical": 1.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.95,
+      "max": 0.95,
+      "typical": 0.95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 260,
+      "max": 260,
+      "typical": 260,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 75,
+      "max": 110,
+      "typical": 90,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "Victrex 450G powder/pellet Q2 2026 (medical grade slightly higher)"
+    },
+    "glass_transition_temp": {
+      "min": 143,
+      "max": 143,
+      "typical": 143,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 343,
+      "max": 343,
+      "typical": 343,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK CF"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK CF"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK CF"
+    },
+    "price_per_cm3": {
+      "min": 0.1079,
+      "max": 0.1459,
+      "typical": 0.1269,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    }
+  },
+  "composition": {
+    "C": "79.2",
+    "H": "4.2",
+    "O": "16.7"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PEEK Victrex 450CA30 (30% Carbon Fiber)",
+      "url": "https://www.victrex.com/-/media/downloads/datasheets/victrex_tds_450ca30.pdf",
+      "verified": true
+    },
+    {
+      "label": "Applications: 항공기 브래킷, 펌프 임펠러, 베어링 cage, 정밀 기계 부품 (저 CTE)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Victrex PEEK 450G technical datasheet",
+      "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
+      "verified": true
+    },
+    {
+      "label": "Solvay KetaSpire PEEK technical guide",
+      "url": "https://www.solvay.com/en/brands/ketaspire-peek",
+      "verified": true
+    },
+    {
+      "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
+      "url": "https://www.astm.org/f2026-17.html",
+      "verified": false
+    }
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "polymer": true,
+    "tg": 143,
+    "tm": 343,
+    "hdt_182": 315,
+    "moisture_24h": 0.06,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "applications": "항공기 브래킷, 펌프 임펠러, 베어링 cage, 정밀 기계 부품 (저 CTE)",
+    "limitations": "이방성 (강축/약축 비 3:1), 표면 거칠음, 가공 시 dust 위험",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "PEEK Victrex 450G",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F2026",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 4.15,
+  "density": 1.41,
+  "yield_strength": 230,
+  "uts": 230,
+  "elongation": 1.6,
+  "modulus": 23,
+  "hardness": null,
+  "thermal_conductivity": 0.95,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PEEK Victrex 450CA30 (30% Carbon Fiber)",
+  "aliases": [
+    "30% Carbon Fiber"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - PEEK CF"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.1269,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 230,
+      "uts": 230,
+      "E": 23
+    },
+    {
+      "temp": 150,
+      "ys": 200,
+      "uts": 200,
+      "E": 22
+    },
+    {
+      "temp": 200,
+      "ys": 160,
+      "uts": 160,
+      "E": 18
+    },
+    {
+      "temp": 250,
+      "ys": 100,
+      "uts": 100,
+      "E": 12
+    }
+  ],
+  "story": "PEEK Victrex 450CA30 은 base PEEK (Victrex 450G) 에 30 wt% chopped carbon fiber 를 강화한 grade 입니다. 1990년대 Victrex 가 'CA' (Carbon-fiber Augmented) prefix 로 commercial launch 했고, 30% 가 표준이지만 60% (CA60) grade 도 존재합니다.\n\nCF 30% 강화의 결과: σy 230 MPa (base PEEK 의 2.3배), modulus 20 GPa (base 의 5배 이상), σ_compress 280 MPa, El 2-3% (base 의 1/10 — brittle). CF 의 longitudinal 강화가 압도적이고 transverse 는 base PEEK 와 유사. 또한 CF 는 thermal conductivity 를 0.25 → 0.7 W/m·K 로 약 3배 강화시키고 (heat dissipation 개선), EMI shielding 도 가능 (CF 가 electrical conductive).\n\n응용은 'metal replacement' 의 정점에 있습니다. 항공 bracket (Boeing 787 의 일부 cabin bracket — Ti 대신 PEEK-CF30 으로 무게 50% 감소), 자동차 high-temp housing (Audi · BMW 의 일부 turbo housing 인접 사용), oil & gas downhole tool (200°C+ 의 pressure compensator), 의료 spinal implant cage (CF 가 X-ray opaque 이어서 imaging 가능), 산업 pump seal 의 일부 grade, 그리고 EV 충전 high-power connector 의 housing. 단점은 가격 ($120-170/kg) 과 CF 의 abrasive sliding wear (sliding 응용에는 PEEK + PTFE filled 가 검토됨).",
+  "story_refs": [
+    "Victrex 450CA30 (PEEK-CF30) Tech Data",
+    "Kurtz S M (2012) PEEK Biomaterials Handbook, Elsevier",
+    "Friedrich K (2018) \"Polymer composites for tribological applications\", Adv Indust Eng Polym Res 1"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "PEEK (Polyetheretherketone) — 반결정성 high-performance thermoplastic. Tg ≈ 143°C, Tm ≈ 343°C, HDT (1.8 MPa) ≈ 152°C unfilled / 315°C GF30, max service 250°C continuous (긴 시간), 310°C short-term. σy 90-100 / UTS 95-115 / El 30-50% / E 3.6-3.8 GPa / ρ 1.30-1.32 g/cc. UL 94 V-0 자체 난연. 항공 (Airbus A350 bracket), 의료 임플란트 (ASTM F2026 spinal cage), 반도체 wafer carrier, 오일/가스 seal. 가공 어려움 (cutter 마모) → GF30 / CF30 보강 standard."
+}

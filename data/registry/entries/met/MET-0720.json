@@ -1,0 +1,363 @@
+{
+  "stable_id": "MET-0720",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-aisi-304l",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0199",
+  "origin": "generic(csv)",
+  "id": "G_0199",
+  "name": "AISI 304L — Strain-hardened (Wrought)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Strain-hardened",
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 480,
+      "max": 700,
+      "typical": 480,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 830,
+      "max": 960,
+      "typical": 830,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 25,
+      "typical": 12,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 193,
+      "max": 193,
+      "typical": 193,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 220,
+      "max": 310,
+      "typical": 240,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16.3,
+      "max": 16.3,
+      "typical": 16.3,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 308,
+      "max": 364,
+      "typical": 336,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:304l × HT:cold worked (f×1.4, i×0.5)"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 100,
+      "typical": 80,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:304l × HT:cold worked (f×1.4, i×0.5)"
+    },
+    "fracture_toughness": {
+      "min": 143,
+      "max": 143,
+      "typical": 143,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:cold worked (k×0.65)"
+    },
+    "electrical_conductivity": {
+      "min": 2.4,
+      "max": 2.4,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "max_service_temp": {
+      "min": 870,
+      "max": 870,
+      "typical": 870,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "thermal_expansion": {
+      "min": 17.3,
+      "max": 17.3,
+      "typical": 17.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "melting_point": {
+      "min": 1450,
+      "max": 1450,
+      "typical": 1450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304l"
+    },
+    "price_per_kg": {
+      "min": 4.5,
+      "max": 6,
+      "typical": 5.2,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "MetalMiner 304/304L flat product 2026-Q2 = $4.50-6.00/kg"
+    },
+    "price_per_cm3": {
+      "min": 0.0354,
+      "max": 0.0478,
+      "typical": 0.0416,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.33,
+      "max": 5.33,
+      "typical": 5.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "18~20",
+    "Ni": "8~12",
+    "C": "≤0.03",
+    "Mn": "≤2.0",
+    "Si": "≤0.75"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — Stainless Steel 304L (1.4307)",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 304L\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20304L",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Stainless Steel Type 304L (ELC)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — 304L Stainless Steel Annealed",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=fee6b0bb8c1c4cbcaab74a85c8fbfbd5",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8,
+      146.2,
+      417.1,
+      32.4,
+      193,
+      186.62,
+      16.3
+    ],
+    [
+      8,
+      193.8,
+      552.9,
+      43.6,
+      193,
+      247.38,
+      16.3
+    ],
+    [
+      8,
+      183.6,
+      523.8000000000001,
+      41.2,
+      193,
+      234.36,
+      16.3
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 3,
+    "subcategory_variants": [
+      "Stainless Steel - Austenitic"
+    ],
+    "conditions": [
+      "As-Rolled",
+      "Cold Rolled",
+      "Hot Rolled"
+    ],
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Stainless Steel 304L",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 143,
+  "fatigue_strength": 336,
+  "density": 8,
+  "yield_strength": 480,
+  "uts": 830,
+  "elongation": 12,
+  "modulus": 193,
+  "hardness": 240,
+  "thermal_conductivity": 16.3,
+  "impact_strength": 80,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "Outokumpu — Stainless Steel 304L (1.4307)",
+  "aliases": [
+    "UNS S30403",
+    "EN 1.4307",
+    "X2CrNi18-9",
+    "JIS SUS304L",
+    "KS STS304L"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 250,
+      "uts": 580,
+      "E": 195
+    },
+    {
+      "temp": 300,
+      "ys": 150,
+      "uts": 450,
+      "E": null
+    },
+    {
+      "temp": 500,
+      "ys": 130,
+      "uts": 400,
+      "E": null
+    },
+    {
+      "temp": 600,
+      "ys": 120,
+      "uts": 330,
+      "E": 153
+    }
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17.3,
+  "poisson_ratio": 0.29,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 4.7,
+  "price_per_cm3": 0.0416,
+  "popularity": 5,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.33,
+  "total_cost_estimate": 6.93,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "creep_rupture": [
+    {
+      "temp": 600,
+      "stress": 150,
+      "hours": 1000
+    },
+    {
+      "temp": 700,
+      "stress": 60,
+      "hours": 1000
+    },
+    {
+      "temp": 800,
+      "stress": 20,
+      "hours": 1000
+    }
+  ],
+  "story": "304L 은 1962년 미국 Combustion Engineering 이 304 의 sensitization 문제를 풀기 위해 carbon 함량을 ≤0.03% 로 낮춘 ELC (Extra-Low-Carbon) 변형입니다. 304 가 가진 모든 부식 환경 적응성은 그대로 살리면서, 용접 그대로 PWHT (post-weld heat treatment) 없이 바로 service 가능한 합금이 된 거죠. 사실상 '용접하는 304' 의 기준이 됐어요.\n\n응용은 304 와 거의 동일하면서도 용접 의존도가 높은 분야에 특화돼 있습니다. 식품 공정 라인 (uno-pasteurized milk, beer brewery 의 용접 tank), 의료 surgical tray, 화학 plant 의 jacketed reactor, 반도체 super-clean piping (EP-finished, 표면 Ra < 0.4 μm), HVAC ductwork, 대형 outdoor 조각상 (시카고 Anish Kapoor 의 'Cloud Gate' 가 304L 의 12-mm sheet 168장을 용접해서 만든 것). 단점은 carbon 감소로 σ_y 가 304 대비 약 5% 낮다는 점입니다.",
+  "story_refs": [
+    "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
+    "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2",
+    "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS S30403 / SUS304L / 1.4307 — 304 의 ELC (C ≤ 0.030%) 변종. Sensitization 회피로 용접 후 PWHT 불필요. σy ≈ 170 / UTS ≈ 485 / El 40% (304 대비 5% 낮은 강도, 더 좋은 weldability). 식품·의약·반도체 super-clean piping (EP polish Ra<0.4) 표준. 08 은 잘못 (정정값: ≤0.030)."
+}

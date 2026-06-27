@@ -1,0 +1,184 @@
+{
+  "stable_id": "CER-0029",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-sapphire-single-crystal-al-o",
+    "element_families": []
+  },
+  "legacy_id": "CER_025",
+  "origin": "ceramics-data",
+  "id": "CER_025",
+  "name": "Sapphire (single-crystal Al₂O₃)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.98,
+      "max": 3.98,
+      "typical": 3.98,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 690,
+      "max": 690,
+      "typical": 690,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 690,
+      "max": 690,
+      "typical": 690,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 345,
+      "max": 345,
+      "typical": 345,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 2300,
+      "max": 2300,
+      "typical": 2300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1800,
+      "max": 1800,
+      "typical": 1800,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 310.5,
+      "max": 310.5,
+      "typical": 310.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 2.388,
+      "max": 2.388,
+      "typical": 2.388,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "52.9",
+    "O": "47.1"
+  },
+  "sources": [
+    {
+      "label": "Applications: 고급 시계 윈도우, 스캐너 윈도우, LED 기재, 광학 lens (UV-IR)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Rubicon Technology Sapphire wafer reference",
+      "url": "https://www.rubicontechnology.com/",
+      "verified": false
+    },
+    {
+      "label": "ASTM F1041 — Sapphire bearing standard",
+      "url": "https://store.astm.org/f1041-19.html",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "고급 시계 윈도우, 스캐너 윈도우, LED 기재, 광학 lens (UV-IR)",
+    "limitations": "다이아몬드급 가공 — 고가",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F1041",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 2,
+  "density": 3.98,
+  "yield_strength": 690,
+  "uts": 690,
+  "elongation": null,
+  "modulus": 345,
+  "hardness": 2300,
+  "thermal_conductivity": 42,
+  "fatigue_strength": 310.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: 고급 시계 윈도우, 스캐너 윈도우, LED 기재, 광학 lens (UV-IR)",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 2.388,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "Single-crystal α-Al₂O₃ (Sapphire — same as ruby/sapphire gem). Czochralski / Kyropoulos / EFG (Edge-defined Film-fed Growth — Saint-Gobain) 가공. ρ 3.98 g/cc, σf 400-1000 (orientation-dependent), E 345-435 GPa (a-axis 345, c-axis 435), KIC 2."
+}

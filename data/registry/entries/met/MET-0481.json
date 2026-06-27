@@ -1,0 +1,313 @@
+{
+  "stable_id": "MET-0481",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-maraging-steel",
+    "alloy_base": "F-AB-maraging-250-uns-k92890",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0005_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0005_1",
+  "name": "Maraging 250 (UNS K92890) — Maraged 482°C/6h (peak strength)",
+  "category": "Metal",
+  "subcategory": "Maraging Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Maraged 482°C/6h (peak strength)",
+  "ranges": {
+    "density": {
+      "min": 7.92,
+      "max": 7.92,
+      "typical": 7.92,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1810,
+      "max": 1810,
+      "typical": 1810,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1870,
+      "max": 1870,
+      "typical": 1870,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 188,
+      "max": 188,
+      "typical": 188,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 510,
+      "max": 510,
+      "typical": 510,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 19.9,
+      "max": 19.9,
+      "typical": 19.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 600,
+      "max": 720,
+      "typical": 660,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging250"
+    },
+    "impact_strength": {
+      "min": 20,
+      "max": 48,
+      "typical": 32,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging250",
+      "min_spec_value": 18,
+      "min_spec_source": "AMS 6512 minimum (vs ASM Vol.4 typical 32 J)",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 85,
+      "max": 85,
+      "typical": 85,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging250"
+    },
+    "max_service_temp": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging250"
+    },
+    "thermal_expansion": {
+      "min": 9.8,
+      "max": 9.8,
+      "typical": 9.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging250"
+    },
+    "poisson_ratio": {
+      "min": 0.32,
+      "max": 0.32,
+      "typical": 0.32,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging250"
+    },
+    "specific_heat": {
+      "min": 490,
+      "max": 490,
+      "typical": 490,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging250"
+    },
+    "melting_point": {
+      "min": 1440,
+      "max": 1440,
+      "typical": 1440,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging250"
+    },
+    "price_per_kg": {
+      "min": 35,
+      "max": 65,
+      "typical": 48,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "ATI VascoMax C-250 bar Q2 2026 (Co 7% premium)"
+    },
+    "price_per_cm3": {
+      "min": 0.3232,
+      "max": 0.4372,
+      "typical": 0.3802,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 18.38,
+      "max": 18.38,
+      "typical": 18.38,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "66~71",
+    "Ni": "17~19",
+    "Co": "7~8.5",
+    "Mo": "4.6~5.2",
+    "Ti": "0.3~0.6",
+    "Al": "0.05~0.15"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "ANSYS Granta — Maraging 250 maraged at 482°C (UNS K92890, AMS 6512)",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=maraging+250",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 6512 / ATI",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AK Steel — Maraging 250/300/350 datasheet",
+      "url": "https://www.aksteel.com/sites/default/files/2018-02/MARAGING-DATA-BULLETIN.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 6514 — 18Ni-300 maraging bar/forging",
+      "url": "https://www.sae.org/standards/content/ams6514l/",
+      "verified": false
+    },
+    {
+      "label": "AMS 6512 — 18Ni-250 maraging bar/forging",
+      "url": "https://www.sae.org/standards/content/ams6512f/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.92,
+      1810,
+      1870,
+      5,
+      188,
+      510,
+      19.9
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "18Ni Maraging (Co-Mo-Ti precipitation): 250 (UNS K92890, low Co), 300 (UNS K93120 / DIN 1.2709, AMS 6514), 350 (UNS K93501) — number = 0.2% YS in ksi. Composition: Ni 17-19, Co 7-11, Mo 3-5, Ti 0.2-1.7, C ≤ 0.03. MarAM LPBF 의 표준 high-strength steel (EOS MS1 = 300, Markforged Spec 1.2709). 항공·금형·로켓 부품. ⚠ Maraging 은 Carbon-free → Q+T 가 아니라 'mar-aging' 인 special process. C-free 이라 다른 강과 본질적으로 다름.",
+  "meta": {
+    "reference": true,
+    "condition": "Maraged 482°C/6h (peak strength)",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Maraging 250",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 6512",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 6514",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS K92890",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 85,
+  "density": 7.92,
+  "yield_strength": 1810,
+  "uts": 1870,
+  "elongation": 5,
+  "modulus": 188,
+  "hardness": 510,
+  "thermal_conductivity": 19.9,
+  "fatigue_strength": 660,
+  "impact_strength": 32,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "UNS K92890"
+  ],
+  "families": [
+    "Metal",
+    "Maraging Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 3,
+  "max_service_temp": 480,
+  "thermal_expansion": 9.8,
+  "poisson_ratio": 0.32,
+  "specific_heat": 490,
+  "melting_point": 1440,
+  "price_per_kg": 14,
+  "price_per_cm3": 0.3802,
+  "popularity": 4.32,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 18.38,
+  "total_cost_estimate": 36.75,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 19% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 8.5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "story": "Maraging steel 의 'mar' 는 martensite, 'aging' 은 시효 처리를 뜻합니다. 1959년 미국 INCO (International Nickel) 의 Clarence Bieber 가 18% Ni 마텐사이트 모재에 Co + Mo + Ti 를 시효처리로 석출시키면 일반 강과는 다른 새 강화 메커니즘이 생긴다는 걸 발견했어요. 보통 강은 C 를 탄화물로 굳혀 강도를 내지만, 마레이징은 C 를 거의 안 쓰고 (≤0.03%) intermetallic compound (Ni₃Mo, Ni₃Ti) 를 석출시켜 강화합니다.\n\nMaraging 250 (UNS K92890, AMS 6512) 은 18Ni-7Co-5Mo-0.4Ti 조성으로 UTS 1750 MPa 이상을 내는 ultra-high strength steel 의 표준입니다. 482°C / 3h 표준 시효로 σy 1670, UTS 1750 정도, 6h peak 시효면 1810 / 1870 까지 올라가죠. 250 의 강점은 단조·용접·가공 단계에서는 soft annealed (σy 760) 상태로 두고 마지막에 단순한 air-cool 시효만 하면 굳어진다는 점이에요. 보통 Q&T 강처럼 quench distortion 걱정이 없어 정밀 부품에 이상적입니다.\n\n실 응용은 항공·우주에 집중돼 있습니다. Polaris·Trident 미사일 case (외경 2.4m 크기에서 wall 6mm 압력 견딤), 항공기 landing gear (Lockheed C-5 Galaxy), 우주 발사체 SRB 의 case (Space Shuttle SRB 의 일부 segment), 정밀 punch / die / coining tool (US Mint 의 동전 type), F1 의 reciprocating valve. 한 가지 단점은 Co 의 가격 변동에 단가가 많이 흔들린다는 점이고, 그래서 Co-free Maraging (Sandvik Nanoflex) 같은 변형도 개발됐습니다.",
+  "story_refs": [
+    "Bieber C (1960) US Patent 2,955,934 \"Heat treatment of maraging steels\"",
+    "Floreen S (1968) \"The Physical Metallurgy of Maraging Steels\", Met Rev 13",
+    "AMS 6512 (SAE 2017) \"Steel, Maraging 250\"",
+    "Sha W & Guo Z (2009) Maraging Steels, Woodhead Publishing"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,314 @@
+{
+  "stable_id": "MET-0214",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-7075",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0439_4",
+  "origin": "reference(supplementary)",
+  "id": "R_0439_4",
+  "name": "AA 7075 — T7351",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T7351",
+  "ranges": {
+    "density": {
+      "min": 2.81,
+      "max": 2.81,
+      "typical": 2.81,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 72,
+      "max": 72,
+      "typical": 72,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 145,
+      "max": 145,
+      "typical": 145,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 109,
+      "max": 140,
+      "typical": 124,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:aa7075 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 18,
+      "typical": 12,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:aa7075 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+    },
+    "fracture_toughness": {
+      "min": 36.4,
+      "max": 36.4,
+      "typical": 36.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:T7351/T7451 over-aged SCC-resistant (k×1.4)"
+    },
+    "electrical_conductivity": {
+      "min": 33,
+      "max": 33,
+      "typical": 33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7075"
+    },
+    "max_service_temp": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7075"
+    },
+    "thermal_expansion": {
+      "min": 23.4,
+      "max": 23.4,
+      "typical": 23.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7075"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7075"
+    },
+    "specific_heat": {
+      "min": 960,
+      "max": 960,
+      "typical": 960,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7075"
+    },
+    "melting_point": {
+      "min": 635,
+      "max": 635,
+      "typical": 635,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7075"
+    },
+    "price_per_kg": {
+      "min": 5.5,
+      "max": 5.5,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7075"
+    },
+    "price_per_cm3": {
+      "min": 0.0155,
+      "max": 0.0155,
+      "typical": 0.0155,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7075"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.94,
+      "max": 7.94,
+      "typical": 7.94,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Zn": "5.1~6.1",
+    "Mg": "2.1~2.9",
+    "Cu": "1.2~2.0",
+    "Cr": "0.18~0.28",
+    "Fe": "≤0.5",
+    "Mn": "≤0.30"
+  },
+  "sources": [
+    {
+      "label": "Arconic/MatWeb — 7075 Aluminum Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=7075+aluminum",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 5",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA7075",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 5",
+      "url": "https://www.alcoa.com/products/aluminum/7075-aerospace-alloy",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum 7xxx (Al-Zn-Mg-Cu)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "Aluminum Association — 7075 Data Sheet",
+      "url": "https://www.aluminum.org/",
+      "verified": false
+    },
+    {
+      "label": "MatWeb — Aluminum 7075-T6",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=4f19a42be94546b686bbf43f79c51b7d",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.81,
+      470,
+      540,
+      13,
+      72,
+      145,
+      130
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "UNS A97075 / EN AW-7075 / AlZn5.5MgCu / DIN 3.4365 — heat-treatable Al-Zn-Mg-Cu (Zn 5.1-6.",
+  "meta": {
+    "reference": true,
+    "condition": "T7351",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 36.4,
+  "fatigue_strength": 124,
+  "density": 2.81,
+  "yield_strength": 470,
+  "uts": 540,
+  "elongation": 13,
+  "modulus": 72,
+  "hardness": 145,
+  "thermal_conductivity": 130,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Arconic/MatWeb — 7075 Aluminum Alloy",
+  "aliases": [
+    "UNS A97075",
+    "EN AW-7075",
+    "AlZn5.5MgCu",
+    "DIN 3.4365"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 505,
+      "uts": 570,
+      "E": 71.7
+    },
+    {
+      "temp": 150,
+      "ys": 400,
+      "uts": 455,
+      "E": null
+    },
+    {
+      "temp": 200,
+      "ys": 215,
+      "uts": 260,
+      "E": 65
+    }
+  ],
+  "electrical_conductivity": 33,
+  "max_service_temp": 120,
+  "thermal_expansion": 23.4,
+  "poisson_ratio": 0.33,
+  "specific_heat": 960,
+  "melting_point": 635,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.0155,
+  "popularity": 4.25,
+  "machining_cost_factor": 0.8,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.1,
+  "delivered_price_per_kg": 7.94,
+  "total_cost_estimate": 6.35,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1936년 일본 Sumitomo Metal 의 이가라시 이사무 (Igarashi Isamu) 가 Cu, Mg, Zn 의 양상 합금 (ESD 합금) 을 처음 시연합니다. 1943년 미국 Alcoa 가 비밀리에 연구한 X-7075 가 거의 동일한 조성 — Cu 1.6% + Mg 2.5% + Zn 5.6% + Cr 0.23%. 1943-44년 일본 미쯔비시 A6M5b Zero 전투기 후기 모델의 후방 동체 longeron 으로 사용된 게 첫 공중 비행 application — 동급 강도 Duralumin (2024) 보다 25% 더 가벼웠어요. 이게 당시 일본 항공 산업의 자존심이기도 했고요.\n\n전후 미국이 Alcoa 의 X-7075 를 1949년 Boeing B-47 Stratojet 의 wing skin 에 채택해 첫 미국 양산화에 성공합니다. 그 뒤로는 항공·우주의 표준이 됐어요. 군용 — F-15 / F-16 fuselage frame, Bell UH-1H Huey 의 rotor mast, M16 rifle 의 lower receiver. 민간 — Apple MacBook Pro 16\" unibody (2018-), 자전거 핸들바 (Cannondale CAAD), 산악 자전거 frame, F1 wheel hub, Atlanta Olympic 휠체어 마라톤 racer 등.\n\n약점은 SCC (응력 부식 균열) 민감성입니다. T6 peak strength 시효에서는 표면에 GP zone 의 미세 결정이 형성되는데, 이게 chlorine 환경에서 균열 핵의 출발점이 되거든요. 해결책은 T7351 overaged temper — 강도 5% 손실 + SCC 안정성. 항공 spec 에서는 거의 항상 T7351 이 적용됩니다. 7075 는 Al-Li 의 등장 (2090, 2099, 2050) 과 함께 일부 응용에서 대체되지만, 'Al 의 highest σ_y' 자리는 70+ 년 동안 그대로입니다.",
+  "story_refs": [
+    "Igarashi I (1936) 住友金属研究レポート 7-3",
+    "Alcoa Research Memo M-194 (1943) \"Aluminum Alloy 7075\"",
+    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+    "Polmear I J (2006) Light Alloys: From Traditional Alloys to Nanocrystals, 4th ed., Butterworth-Heinemann"
+  ],
+  "confidence_tier": "high"
+}

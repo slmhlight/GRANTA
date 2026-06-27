@@ -1,0 +1,184 @@
+{
+  "stable_id": "CER-0028",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-quartz-single-crystal-sio",
+    "element_families": []
+  },
+  "legacy_id": "CER_029",
+  "origin": "ceramics-data",
+  "id": "CER_029",
+  "name": "Quartz (Single-crystal SiO₂)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.65,
+      "max": 2.65,
+      "typical": 2.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 573,
+      "max": 573,
+      "typical": 573,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 0.85,
+      "max": 0.85,
+      "typical": 0.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 22.5,
+      "max": 22.5,
+      "typical": 22.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 1.06,
+      "max": 1.06,
+      "typical": 1.06,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Si": "46.7",
+    "O": "53.3"
+  },
+  "sources": [
+    {
+      "label": "Applications: 압전 진동자 (시계·MEMS), QCM 센서, 광학 편광 부품",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — Single-crystal Quartz",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Quartz%20single%20crystal",
+      "verified": false
+    },
+    {
+      "label": "Roditi International Quartz technical guide",
+      "url": "https://www.roditi.com/SingleCrystal/Quartz/Properties.html",
+      "verified": true
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "압전 진동자 (시계·MEMS), QCM 센서, 광학 편광 부품",
+    "limitations": "573°C α→β 상전이 (균열 위험)",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 2.65,
+  "yield_strength": 50,
+  "uts": 50,
+  "elongation": null,
+  "modulus": 95,
+  "hardness": 1100,
+  "thermal_conductivity": 10,
+  "fatigue_strength": 22.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: 압전 진동자 (시계·MEMS), QCM 센서, 광학 편광 부품",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 1.06,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "Quartz (crystalline SiO₂) 의 공학적 사용은 1880년 프랑스 Pierre 와 Jacques Curie 형제의 piezoelectric effect 발견이 시작입니다. 그들은 quartz 단결정에 mechanical stress 를 가하면 electrical voltage 가 발생함을 증명했고, 이게 모든 quartz oscillator 산업의 기초가 됐어요. 1921년 미국 Bell Labs 의 Walter Cady 가 quartz crystal oscillator 의 첫 실용 form 을 발표했고, 1927년 Warren Marrison 이 첫 'quartz clock' 을 만들었습니다.\n\nQuartz 의 단결정은 piezoelectric (응력 → 전압, 전압 → 응력) + ultra-low loss (Q factor 100,000 이상) + thermal stability (특정 cut 각도에서 CTE 가 0) 의 조합으로 시간 측정 + 주파수 생성의 표준입니다. AT-cut, BT-cut, SC-cut 등 결정 방향에 따라 다양한 응용.\n\n응용: 모든 디지털 시계 + clock 의 시간 기준 (Casio · Seiko 의 quartz watch 가 1969년 이후 mechanical watch 를 거의 대체), 휴대폰 + computer 의 system clock (32.768 kHz 또는 26 MHz quartz crystal), GPS 위성의 일부 frequency reference, ULTRASONIC transducer (의료 ultrasound, 산업 cleaning), QCM (quartz crystal microbalance, 나노 그램 단위 mass 측정). 천연 quartz crystal 도 있지만 거의 모든 산업 quartz 는 hydrothermal growth (autoclave 에서 SiO₂ 용액 단결정 성장) 로 만든 합성 단결정입니다. 가격은 raw crystal $10-30/kg 인데 정밀 cut + polish 부품 ($100-500 per piece) 으로 끝나면 매우 비싸집니다.",
+  "story_refs": [
+    "Curie J & Curie P (1880) \"Développement par compression de l'électricité polaire dans les cristaux hémièdres\", Bull Soc Min France 3",
+    "Cady W G (1922) \"The Piezo-Electric Resonator\", Proc IRE 10",
+    "Brice J C (1985) \"Crystals for Quartz Resonators\", Rev Mod Phys 57"
+  ],
+  "confidence_tier": "medium",
+  "industry_note": "α-Quartz (trigonal, P3₂21, single-crystal SiO₂) — natural form (Brazil) 또는 hydrothermally grown (Sawyer, Toyo). ρ 2.65 g/cc, **α→β transition 573°C** (Tmax 자료의 의미 — 이 온도 위에서 더 이상 piezoelectric 안 됨), Tm 1670°C (β-cristobalite 형태). σf 50 MPa, E 95 GPa (anisotropic: a-axis 87, c-axis 105), CTE 14."
+}

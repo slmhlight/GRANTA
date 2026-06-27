@@ -1,0 +1,361 @@
+{
+  "stable_id": "MET-0668",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-vanadium",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "G_0323",
+  "origin": "generic(csv)",
+  "id": "G_0323",
+  "name": "Vanadium — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 6.11,
+      "max": 6.11,
+      "typical": 6.11,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 320,
+      "max": 420,
+      "typical": 360,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 420,
+      "max": 520,
+      "typical": 465,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 32,
+      "typical": 25,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 128,
+      "max": 128,
+      "typical": 128,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 252,
+      "max": 305.2,
+      "typical": 268.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 31,
+      "max": 31,
+      "typical": 31,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 178,
+      "max": 240,
+      "typical": 209,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R σf≈0.45·UTS 재유도 (UTS 정정 후 stale 값 교체)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 59,
+      "typical": 50.5,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Refractory"
+    },
+    "max_service_temp": {
+      "typical": 600,
+      "min": 500,
+      "max": 700,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "V": "99.9"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Vanadium\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Vanadium",
+      "verified": false
+    },
+    {
+      "label": "ATI Vanadium technical data",
+      "url": "https://www.atimaterials.com/",
+      "verified": false
+    },
+    {
+      "label": "ATI — Vanadium Technical Data Sheet (v1, 2014): ρ 6.1·melt 1900°C·E 20×10⁶ psi·UTS 29-35 ksi·YS 18-25 ksi·신율 35-60%·Poisson 0.36 (annealed sheet)",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/niobium-hafnium-tantalum-vanadium/vanadium/vanadium_v1.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      6.11,
+      684,
+      810,
+      9,
+      128,
+      252,
+      31
+    ],
+    [
+      6.11,
+      775.2,
+      918,
+      9.2,
+      128,
+      285.6,
+      31
+    ],
+    [
+      6.11,
+      828.4000000000001,
+      981,
+      8.9,
+      128,
+      305.20000000000005,
+      31
+    ],
+    [
+      6.11,
+      752.4,
+      891,
+      10.9,
+      128,
+      277.2,
+      31
+    ],
+    [
+      6.11,
+      691.6,
+      819,
+      10.1,
+      128,
+      254.8,
+      31
+    ],
+    [
+      6.11,
+      714.4000000000001,
+      846,
+      10.4,
+      128,
+      263.2,
+      31
+    ],
+    [
+      6.11,
+      684,
+      810,
+      9,
+      128,
+      252,
+      31
+    ],
+    [
+      6.11,
+      798,
+      945,
+      8.5,
+      128,
+      294,
+      31
+    ],
+    [
+      6.11,
+      744.8,
+      882,
+      9.8,
+      128,
+      274.4,
+      31
+    ],
+    [
+      6.11,
+      790.4,
+      936,
+      9.4,
+      128,
+      291.2,
+      31
+    ],
+    [
+      6.11,
+      729.6,
+      864,
+      9.6,
+      128,
+      268.8,
+      31
+    ],
+    [
+      6.11,
+      722,
+      855.0000000000001,
+      10.5,
+      128,
+      266,
+      31
+    ],
+    [
+      6.11,
+      714.4000000000001,
+      846,
+      9.4,
+      128,
+      263.2,
+      31
+    ],
+    [
+      6.11,
+      706.8000000000001,
+      837,
+      9.3,
+      128,
+      260.40000000000003,
+      31
+    ],
+    [
+      6.11,
+      798,
+      945,
+      10.5,
+      128,
+      294,
+      31
+    ],
+    [
+      6.11,
+      706.8000000000001,
+      837,
+      9.3,
+      128,
+      260.40000000000003,
+      31
+    ],
+    [
+      6.11,
+      820.8000000000001,
+      972,
+      9.8,
+      128,
+      302.40000000000003,
+      31
+    ],
+    [
+      6.11,
+      714.4000000000001,
+      846,
+      9.4,
+      128,
+      263.2,
+      31
+    ],
+    [
+      6.11,
+      691.6,
+      819,
+      10.1,
+      128,
+      254.8,
+      31
+    ],
+    [
+      6.11,
+      744.8,
+      882,
+      9.8,
+      128,
+      274.4,
+      31
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Refractory Metal"
+    ],
+    "conditions": [
+      "V-99.9%"
+    ],
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 35,
+  "density": 6.11,
+  "yield_strength": 360,
+  "uts": 465,
+  "elongation": 25,
+  "modulus": 128,
+  "hardness": 268.8,
+  "thermal_conductivity": 31,
+  "fatigue_strength": 209,
+  "impact_strength": 50.5,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "popularity": 1.8,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "Pure Vanadium (V, UNS R63702) — refractory metal. Tm 1910°C, ρ 6.11 g/cc, E 128 GPa. Tmax 600°C continuous in air (rapid oxidation above). 핵 fusion reactor first-wall material (V-Cr-Ti alloy — low neutron activation), 자동차 catalytic converter (V₂O₅ catalyst), special steel alloying (HSLA + spring steel — VC carbide). 99.9% pure V 은 ductile, but trace O/N → embrittlement."
+}

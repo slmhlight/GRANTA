@@ -1,0 +1,266 @@
+{
+  "stable_id": "MET-0831",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ph",
+    "alloy_base": "F-AB-custom-455-carpenter-ph-stainless",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0322_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0322_1",
+  "name": "Custom 455 (Carpenter PH stainless) — H900 (peak-aged)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - PH",
+  "tier": "reference",
+  "manufacturers": [
+    "Carpenter Technology"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "H900 (peak-aged)",
+  "ranges": {
+    "density": {
+      "min": 7.81,
+      "max": 7.81,
+      "typical": 7.81,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1620,
+      "max": 1620,
+      "typical": 1620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1720,
+      "max": 1720,
+      "typical": 1720,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 774,
+      "max": 774,
+      "typical": 774,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 50,
+      "typical": 30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:PH stainless"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom455"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom455"
+    },
+    "thermal_expansion": {
+      "min": 10.3,
+      "max": 10.3,
+      "typical": 10.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom455"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom455"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom455"
+    },
+    "melting_point": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom455"
+    },
+    "price_per_kg": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom455"
+    },
+    "price_per_cm3": {
+      "min": 0.1093,
+      "max": 0.1093,
+      "typical": 0.1093,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom455"
+    },
+    "delivered_price_per_kg": {
+      "min": 20.58,
+      "max": 20.58,
+      "typical": 20.58,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "11~12.5",
+    "Ni": "7.5~9.5",
+    "Ti": "0.8~1.4",
+    "Cu": "1.5~2.5",
+    "Nb": "0.1~0.5"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.carpentertechnology.com/alloy-finder/custom-455",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 PH SS general",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.81,
+      1620,
+      1720,
+      8,
+      200,
+      480,
+      17
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "H900 (peak-aged)"
+  },
+  "fracture_toughness": 80,
+  "density": 7.81,
+  "yield_strength": 1620,
+  "uts": 1720,
+  "elongation": 8,
+  "modulus": 200,
+  "hardness": 480,
+  "thermal_conductivity": 17,
+  "fatigue_strength": 774,
+  "impact_strength": 30,
+  "manufacturer": "Carpenter Technology",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Stainless Steel - PH",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 2,
+  "max_service_temp": 425,
+  "thermal_expansion": 10.3,
+  "poisson_ratio": 0.3,
+  "specific_heat": 450,
+  "melting_point": 1400,
+  "price_per_kg": 14,
+  "price_per_cm3": 0.1093,
+  "popularity": 3.07,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1.5,
+  "price_condition_factor": 1.4,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 20.58,
+  "total_cost_estimate": 26.75,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 9.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "medium"
+}

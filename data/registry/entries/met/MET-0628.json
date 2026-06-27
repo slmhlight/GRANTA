@@ -1,0 +1,276 @@
+{
+  "stable_id": "MET-0628",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-pressure-vessel-steel",
+    "alloy_base": "F-AB-astm-a537-class-2-cryogenic",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0388_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0388_1",
+  "name": "ASTM A537 Class 2 (cryogenic) — Q+T heavy plate (≥40 mm)",
+  "category": "Metal",
+  "subcategory": "Pressure Vessel Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T heavy plate (≥40 mm)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 580,
+      "max": 580,
+      "typical": 580,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 47,
+      "max": 47,
+      "typical": 47,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 261,
+      "max": 261,
+      "typical": 261,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 75,
+      "max": 120,
+      "typical": 90,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASME SA-516 pressure vessel"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.58,
+      "max": 2.58,
+      "typical": 2.58,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.24",
+    "Mn": "1.20~1.50",
+    "Si": "0.15~0.50",
+    "Cu": "≤0.35",
+    "Ni": "≤0.25",
+    "Cr": "≤0.25",
+    "Mo": "≤0.08",
+    "Nb+V": "micro"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://store.astm.org/a0537_a0537m-20.html",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASME SA-516 pressure vessel",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      450,
+      580,
+      20,
+      210,
+      205,
+      47
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Refrigerated LPG / NH₃ atmospheric storage spheres (Statoil Mongstad, Shell), refrigerated LNG carrier deck cargo tank, propane bullets; ASME Sec VIII Div 1 / IIA-3.8; CVN ≥27 J at -45°C.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T heavy plate (≥40 mm)",
+    "specs": [
+      {
+        "id": "ASTM A537",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASME SA-516",
+        "org": "ASME"
+      }
+    ]
+  },
+  "fracture_toughness": 90,
+  "density": 7.85,
+  "yield_strength": 450,
+  "uts": 580,
+  "elongation": 20,
+  "modulus": 210,
+  "hardness": 205,
+  "thermal_conductivity": 47,
+  "fatigue_strength": 261,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "≥40 mm"
+  ],
+  "families": [
+    "Metal",
+    "Pressure Vessel Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.58,
+  "total_cost_estimate": 2.32,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

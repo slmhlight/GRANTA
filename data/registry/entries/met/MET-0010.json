@@ -1,0 +1,282 @@
+{
+  "stable_id": "MET-0010",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-20mncr5-din-case-hardening",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0281_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0281_1",
+  "name": "20MnCr5 (DIN case-hardening) — Direct-hardened",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Direct-hardened",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1180,
+      "max": 1180,
+      "typical": 1180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 352,
+      "max": 510,
+      "typical": 440,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 100,
+      "typical": 75,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AMS 6415 alloy steel"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Alloy Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.1,
+      "max": 2.1,
+      "typical": 2.1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.17~0.22",
+    "Mn": "1.1~1.4",
+    "Cr": "1.0~1.3",
+    "Si": "≤0.4"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=20MnCr5",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Hascelik — 20MnCr5 (1.7147 / SAE 5120) DIN EN 10084 조성+기계적 물성",
+      "url": "https://hascelik.com/eng/20mncr5-material-1-7147-sae-aisi-5120",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      880,
+      1180,
+      12,
+      205,
+      350,
+      42
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Direct-hardened",
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      },
+      {
+        "id": "EN 10084",
+        "org": "EN"
+      }
+    ]
+  },
+  "fracture_toughness": 75,
+  "fatigue_strength": 440,
+  "density": 7.85,
+  "yield_strength": 880,
+  "uts": 1180,
+  "elongation": 12,
+  "modulus": 205,
+  "hardness": 350,
+  "thermal_conductivity": 42,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "DIN 1.7147",
+    "20MnCr5",
+    "JIS SMnC420"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 3.23,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.1,
+  "total_cost_estimate": 1.89,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

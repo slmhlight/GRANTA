@@ -1,0 +1,306 @@
+{
+  "stable_id": "MET-0654",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-niobium-c-103",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0066",
+  "origin": "reference(supplementary)",
+  "id": "R_0066",
+  "name": "Niobium C-103",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Plansee + ATI Wah Chang (dual)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.85,
+      "max": 8.85,
+      "typical": 8.85,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 280,
+      "max": 345,
+      "typical": 310,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 380,
+      "max": 450,
+      "typical": 415,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 30,
+      "typical": 25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 120,
+      "max": 170,
+      "typical": 140,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 38,
+      "max": 38,
+      "typical": 38,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 110,
+      "max": 170,
+      "typical": 140,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 75,
+      "typical": 50,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "fracture_toughness": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "max_service_temp": {
+      "min": 1300,
+      "max": 1480,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "thermal_expansion": {
+      "min": 7.3,
+      "max": 7.3,
+      "typical": 7.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "poisson_ratio": {
+      "min": 0.4,
+      "max": 0.4,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "specific_heat": {
+      "min": 265,
+      "max": 265,
+      "typical": 265,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "melting_point": {
+      "min": 2477,
+      "max": 2477,
+      "typical": 2477,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "price_per_kg": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "price_per_cm3": {
+      "min": 1.062,
+      "max": 1.062,
+      "typical": 1.062,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "delivered_price_per_kg": {
+      "min": 126,
+      "max": 126,
+      "typical": 126,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Nb": "balance",
+    "Hf": "10",
+    "Ti": "1"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Niobium+C-103",
+      "verified": false
+    },
+    {
+      "label": "ASM — Niobium C-103 (Nb-10Hf-1Ti)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ATI Niobium C-103 datasheet",
+      "url": "https://www.atimaterials.com/Products/Pages/ati-c103.aspx",
+      "verified": true
+    },
+    {
+      "label": "ASTM B654 — Niobium Alloy Plate/Sheet/Strip/Foil (C-103)",
+      "url": "https://store.astm.org/b0654-22.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.85,
+      310,
+      415,
+      25,
+      95,
+      180,
+      38
+    ],
+    [
+      8.85,
+      280,
+      380,
+      20,
+      95,
+      170,
+      38
+    ],
+    [
+      8.85,
+      345,
+      450,
+      30,
+      95,
+      195,
+      38
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS R04295 / Niobium C-103 / Nb-10Hf-1Ti — high-strength refractory alloy (Nb 88 bal, Hf 10, Ti 1, Zr 0.7). Hf+Ti 첨가로 σy 2× boost (pure Nb 대비) + Hf-Nb solid solution oxidation 저항. Tmax 1400-1500°C (silicide coating 도포 시 oxidation 저항). 우주 rocket nozzle / RCS thruster (Atlas V Centaur engine nozzle), satellite thermal radiator, hypersonic leading edge. ⚠ 매우 비싸 ($1000-2000/kg) — 우주만 사용. Plansee, ATI 의 공급.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B654",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 30,
+  "fatigue_strength": 140,
+  "density": 8.85,
+  "yield_strength": 310,
+  "uts": 415,
+  "elongation": 25,
+  "modulus": 95,
+  "hardness": 140,
+  "thermal_conductivity": 38,
+  "impact_strength": 50,
+  "manufacturer": "Plansee + ATI Wah Chang (dual)",
+  "process": "Wrought",
+  "source": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
+  "aliases": [
+    "Nb-10Hf-1Ti",
+    "UNS R04295",
+    "Niobium C-103"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal",
+    "Refractory"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 12,
+  "max_service_temp": 1400,
+  "thermal_expansion": 7.3,
+  "poisson_ratio": 0.4,
+  "specific_heat": 265,
+  "melting_point": 2477,
+  "price_per_kg": 120,
+  "price_per_cm3": 1.062,
+  "popularity": 2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 126,
+  "total_cost_estimate": 126,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1956년 미국 Du Pont 의 R W 버크먼 (Buckman) 과 R G 테스터 (Tester) 가 우주 시대의 새 도전 — '1500°C 영역의 노즐 재료' — 를 풀려고 한 결과물이 Niobium C-103 입니다. Nb 90% + Hf 10% + Ti 1% 의 조성으로, 1700°C 까지 σ_UTS 100 MPa 를 유지하면서 가공이 가능했죠.\n\nC-103 의 가장 상징적 응용은 액체 로켓 엔진 nozzle 입니다. 1967년 Apollo Lunar Module 의 ascent engine (Bell Aerospace) 의 nozzle 이 C-103 — 달 표면에서 이륙해 사령선과 도킹할 때 단 한 번 작동했지만, 그게 우주인의 생존을 결정했어요. 우주 셔틀 OMS (Orbital Maneuvering System) 엔진의 thrust chamber 도 C-103 silicide-coated 였습니다.\n\n현재도 우주 응용에서 거의 전유에 가까워요. Merlin (Falcon 9 Stage 2), Aerojet AR-22 (X-37B), Northrop Grumman BT-4 (HTV-2), Rocket Lab Curie (Electron 의 kick stage) … 단점은 Nb 자체가 1300°C 이상에서 산화 폭발이라, 표면에 disilicide (NbSi₂) 코팅이 필수입니다. 코팅 손상 + 산화 사고가 NASA Mariner 4 (1965) 에 있었고, 그 이후로 dual-layer coating + ground inspection 가 strict 합니다.",
+  "story_refs": [
+    "Buckman R W (2000) \"New Applications for Tantalum and Tantalum Alloys\", JOM 52(3)",
+    "Wojcik C C (1995) \"Process Optimization for C-103 Niobium Nozzle Fabrication\", AIAA 95-2811",
+    "ATI Wah Chang \"C-103 Niobium Alloy Data Sheet\" (2018)"
+  ],
+  "confidence_tier": "high"
+}

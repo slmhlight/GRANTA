@@ -1,0 +1,201 @@
+{
+  "stable_id": "CER-0032",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-yttria-stabilized-zirconia-ysz-8-mol",
+    "element_families": []
+  },
+  "legacy_id": "CER_028",
+  "origin": "ceramics-data",
+  "id": "CER_028",
+  "name": "Yttria-Stabilized Zirconia (YSZ, 8 mol%)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 5.9,
+      "max": 5.9,
+      "typical": 5.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 2.2,
+      "max": 2.2,
+      "typical": 2.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 10.5,
+      "max": 10.5,
+      "typical": 10.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 157.5,
+      "max": 157.5,
+      "typical": 157.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.767,
+      "max": 0.767,
+      "typical": 0.767,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Zr": "74.0",
+    "O": "26.0"
+  },
+  "sources": [
+    {
+      "label": "Applications: Thermal Barrier Coating (가스 터빈 블레이드), SOFC 전해질, 산소 센서",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Treibacher Industrie Y2O3 high-purity reference",
+      "url": "https://www.treibacher.com/",
+      "verified": false
+    },
+    {
+      "label": "CoorsTek DURA-Z Zirconia datasheet",
+      "url": "https://www.coorstek.com/english/materials/ceramics/zirconia/",
+      "verified": true
+    },
+    {
+      "label": "Tosoh TZ-3Y-E Y-TZP datasheet",
+      "url": "https://www.tosoh.com/our-products/advanced-materials/zirconia-powders",
+      "verified": true
+    },
+    {
+      "label": "ASTM F1873 — Y-TZP Surgical Implants",
+      "url": "https://store.astm.org/f1873-21.html",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "Thermal Barrier Coating (가스 터빈 블레이드), SOFC 전해질, 산소 센서",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F1873",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 4,
+  "density": 5.9,
+  "yield_strength": 350,
+  "uts": 350,
+  "elongation": null,
+  "modulus": 210,
+  "hardness": 1300,
+  "thermal_conductivity": 2.2,
+  "fatigue_strength": 157.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: Thermal Barrier Coating (가스 터빈 블레이드), SOFC 전해질, 산소 센서",
+  "aliases": [
+    "8 mol%"
+  ],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.767,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "Yttria-Stabilized Zirconia (YSZ) 는 1970년대 영국 Magnesium Elektron 의 Ron Garvie (zirconia transformation toughening 의 창시자) 와 함께 발견된 zirconia 의 표준 stabilized form 입니다. ZrO₂ 에 Y₂O₃ 7-8% 를 첨가하면 cubic 또는 partially stabilized tetragonal phase 가 room temperature 에서 stable 해져 monoclinic 변태가 일어나지 않아요. 'transformation toughening' 의 mechanism 을 더 안정적으로 활용할 수 있는 form 입니다.\n\nYSZ 의 두 가지 main form: 8YSZ (Y₂O₃ 8 mol%, fully stabilized cubic, KIC 2-3 MPa·√m — 강도는 낮음) vs 3YSZ 또는 Y-TZP (Y₂O₃ 3 mol%, tetragonal polycrystal, KIC 6-10 MPa·√m — 강도가 우수). 응용에 따라 선택이 갈립니다.\n\n3YSZ (Y-TZP) 응용: dental crown (모든 CAD/CAM zirconia crown 의 표준 — Nobel Biocare, Straumann, Dentsply 의 dental zirconia), 의료 ball head (인공 hip femoral head — BIOLOX delta 의 일부 grade), 정밀 ceramic tool, 그리고 wear-resistant component. 8YSZ 응용: jet engine thermal barrier coating (TBC) — Inconel 단지에 plasma-sprayed 8YSZ coating 으로 hot section blade 표면 thermal protection. GE LEAP-1A · Pratt & Whitney F135 · RR Trent XWB 모두 8YSZ TBC 가 들어가요. 산소 sensor (자동차 lambda sensor 의 핵심 — engine 의 air-fuel ratio 측정), SOFC (solid oxide fuel cell) 의 electrolyte. 가격은 dental grade $200-500/kg (구획화된 piece 으로), TBC powder $30-50/kg.",
+  "story_refs": [
+    "Garvie R C et al. (1975) \"Ceramic Steel?\", Nature 258 (foundational paper)",
+    "Hannink R H J et al. (2000) \"Transformation Toughening in Zirconia\", J Am Ceram Soc 83",
+    "Padture N P et al. (2002) \"Thermal Barrier Coatings\", Science 296"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Y₂O₃ (Yttrium oxide, cubic bixbyite structure) — high-T refractory oxide. Tm 2410°C, ρ 5.03 g/cc, σf 130-200, E 170 GPa, KIC 2. Tmax 2200°C inert."
+}

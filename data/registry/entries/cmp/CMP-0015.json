@@ -1,0 +1,196 @@
+{
+  "stable_id": "CMP-0015",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-carbon-epoxy",
+    "alloy_base": "F-AB-cfrp",
+    "element_families": []
+  },
+  "legacy_id": "CMP_002",
+  "origin": "composites-data",
+  "id": "CMP_002",
+  "name": "CFRP — T800/Epoxy (UD 0°)",
+  "category": "Composite",
+  "subcategory": "Carbon-Epoxy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.58,
+      "max": 1.58,
+      "typical": 1.58,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 2900,
+      "max": 2900,
+      "typical": 2900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2900,
+      "max": 2900,
+      "typical": 2900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 0.4,
+      "max": 0.4,
+      "typical": 0.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 1.8,
+      "max": 1.8,
+      "typical": 1.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 1305,
+      "max": 1305,
+      "typical": 1305,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.2054,
+      "max": 0.2054,
+      "typical": 0.2054,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Toray — CFRP — T800/Epoxy (UD 0°)",
+      "url": "https://www.toraytac.com/product-explorer/",
+      "verified": true
+    },
+    {
+      "label": "Apps: 항공 1차 구조 (스파, 길이재), F1 모노코크",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Toray T300/T700/T800/M40J carbon fiber datasheet",
+      "url": "https://www.toraycma.com/products/carbon-fiber/",
+      "verified": true
+    },
+    {
+      "label": "Hexcel HexPly 8552 / 3501-6 / IM7 prepreg reference",
+      "url": "https://www.hexcel.com/",
+      "verified": false
+    },
+    {
+      "label": "Hexcel HexTow IM7 / IM9 carbon fiber datasheet",
+      "url": "https://www.hexcel.com/Products/Industries/Aerospace/Commercial-Aerospace",
+      "verified": true
+    },
+    {
+      "label": "Hexcel HexPly carbon/epoxy prepreg datasheet",
+      "url": "https://www.hexcel.com/Products/Industries",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook Vol.1 — CFRP",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/14/chapter-abstract/204970/Properties-of-Carbon-Fiber-Reinforced-Polymers",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "ply_direction": "UD 0°",
+    "fiber_vf": 0.62,
+    "applications": "항공 1차 구조 (스파, 길이재), F1 모노코크",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 4,
+  "density": 1.58,
+  "yield_strength": 2900,
+  "uts": 2900,
+  "elongation": 1.8,
+  "modulus": 165,
+  "hardness": null,
+  "thermal_conductivity": 6,
+  "fatigue_strength": 1305,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Toray — CFRP — T800/Epoxy (UD 0°)",
+  "aliases": [],
+  "families": [
+    "Composite",
+    "Carbon-Epoxy"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.2054,
+  "rohs_compliant": true,
+  "story": "T800 carbon fiber 는 1976년 일본 Toray 가 PAN (polyacrylonitrile) precursor 의 stabilization → carbonization → graphitization 공정을 최적화해 σ_UTS 5.5 GPa + E 285 GPa 의 intermediate-modulus fiber 를 양산화한 결과예요 — 1980년대 IM (intermediate modulus) 등급의 표준으로 자리잡았습니다. 1985년 Hercules (현 ATK) 의 IM7 (US 표준) 과 Toray 의 T800 이 양강 구도로 전 세계 항공 prepreg 시장을 양분.\n\n응용 — Boeing 787 Dreamliner 의 fuselage barrel 50% / wing 50% (Toray 가 단독 공급), Airbus A350 XWB 의 wing 의 outer skin / center wing box, F-22 / F-35 의 vertical tail / horizontal stabilizer. 우주 — SpaceX Falcon 9 의 helium COPV (Composite Overwrapped Pressure Vessel, payload fairing 도 T800/Cyanate), Blue Origin New Shepard 의 crew capsule. 민간 — F1 모노코크 (FIA 2014 표준), 일부 항공 — Boeing 777X 의 folding wingtip, Mercedes-Benz EQS 의 일부 트렁크 lid 도 T800 prepreg autoclave 입니다.",
+  "story_refs": [
+    "Toray Industries Inc. \"T800S Carbon Fiber Technical Data\" (2021 revision)",
+    "Chung D D L (1994) Carbon Fiber Composites, Butterworth-Heinemann",
+    "Hexcel \"HexTow IM7 Data Sheet\" (2024) (대응 미국 표준)",
+    "Soutis C (2005) \"Fibre reinforced composites in aircraft construction\", Prog Aerosp Sci 41"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "CFRP UD 0° (Vf 60% standard) tensile values: • **T300/Epoxy**: σf 1800 / E 130 — 기본급 (Boeing 737/787 boards) • **T700SC/Epoxy**: σf 2400 / E 135 — sporting goods (자전거 frame, 골프 shaft) • **T800/Epoxy**: σf 2900 / E 165 — 항공 wing primary (B787 wing box partial) • **IM7/8552 (Hexcel HexPly)**: σf 2820 / E 164 — 항공 표준 prepreg (F-35 wing, Boeing 787 fuselage barrel) • **IM9/8552**: σf 3000 / E 170 — F-22 / F-35 inlet duct • **M40J/Cyanate Ester**: σf"
+}

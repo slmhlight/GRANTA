@@ -1,0 +1,379 @@
+{
+  "stable_id": "MET-0335",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cobalt-alloy-chrome",
+    "alloy_base": "F-AB-cocr-cocrmo",
+    "element_families": [
+      "F-EL-cobalt-based"
+    ]
+  },
+  "legacy_id": "C_0034",
+  "origin": "curated(material_db)",
+  "id": "C_0034",
+  "name": "CoCr (CoCrMo) — Heat-Treated",
+  "category": "Metal",
+  "subcategory": "Cobalt Alloy - Chrome",
+  "tier": "curated",
+  "manufacturers": [
+    "3D Systems",
+    "GE Additive",
+    "EOS"
+  ],
+  "machines": [
+    "ProX DMP 320",
+    "M2 cusing",
+    "M2 Series 5",
+    "DMP Flex 350",
+    "EOS M 290",
+    "EOS M 300-4",
+    "M Line (400W)",
+    "M Line (1kW)"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Heat-Treated",
+  "ranges": {
+    "density": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 630,
+      "max": 850,
+      "typical": 670,
+      "n": 7,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1130,
+      "max": 1290,
+      "typical": 1190,
+      "n": 7,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 16,
+      "max": 32,
+      "typical": 28,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 344,
+      "max": 408,
+      "typical": 344,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 350,
+      "max": 550,
+      "typical": 450,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:cocrmo"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:cocrmo"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "max_service_temp": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "thermal_expansion": {
+      "min": 12.5,
+      "max": 12.5,
+      "typical": 12.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "specific_heat": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "melting_point": {
+      "min": 1370,
+      "max": 1370,
+      "typical": 1370,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "price_per_kg": {
+      "min": 65,
+      "max": 115,
+      "typical": 85,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Carpenter BioDur CCM F75 cast Q2 2026 (medical grade)"
+    },
+    "price_per_cm3": {
+      "min": 0.5997,
+      "max": 0.8113,
+      "typical": 0.7055,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Co": "balance",
+    "Cr": "27.0~30.0",
+    "Mo": "5.0~7.0",
+    "Ni": "≤0.50",
+    "C": "≤0.16",
+    "Fe": "≤0.75"
+  },
+  "sources": [
+    {
+      "label": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
+      "url": "https://store.astm.org/f0075-18.html",
+      "verified": true
+    },
+    {
+      "label": "Nikon SLM CoCr28Mo6 MDS 2023-04.1",
+      "url": "https://nikon-slm-solutions.com/materials/cobalt/",
+      "verified": true
+    },
+    {
+      "label": "3D Systems LaserForm CoCrF75(A) MDS",
+      "url": "https://www.3dsystems.com/sites/default/files/2017-03/3D-Systems_LaserForm_CoCrF75%28A%29_DATASHEET_USEN_2017.03.13_WEB.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.3,
+      850,
+      1230,
+      16,
+      230,
+      344,
+      13
+    ],
+    [
+      8.3,
+      795,
+      1200,
+      23,
+      230,
+      344,
+      13
+    ],
+    [
+      8.3,
+      795,
+      1290,
+      16,
+      230,
+      408,
+      13
+    ],
+    [
+      8.3,
+      640,
+      1130,
+      28,
+      230,
+      344,
+      13
+    ],
+    [
+      8.3,
+      630,
+      1140,
+      32,
+      230,
+      344,
+      13
+    ],
+    [
+      8.3,
+      670,
+      1190,
+      28,
+      230,
+      null,
+      13
+    ],
+    [
+      8.3,
+      660,
+      1190,
+      30,
+      230,
+      null,
+      13
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "applications": "Dental / Medical implants / Machining tools",
+    "magnetic": "weakly magnetic",
+    "melt_C": 1380,
+    "cte": 13.6,
+    "cp": 450,
+    "poisson": 0.3,
+    "vendor_count": 12,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "anisotropy_reduced": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "CoCrMo F75",
+    "specs": [
+      {
+        "id": "ASTM F75",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 450,
+  "density": 8.3,
+  "yield_strength": 670,
+  "uts": 1190,
+  "elongation": 28,
+  "modulus": 230,
+  "hardness": 344,
+  "thermal_conductivity": 13,
+  "impact_strength": 50,
+  "manufacturer": "3D Systems, GE Additive, EOS",
+  "process": "LPBF",
+  "source": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
+  "aliases": [
+    "CoCrMo",
+    "ASTM F75",
+    "UNS R30075",
+    "Co-28Cr-6Mo"
+  ],
+  "families": [
+    "Metal",
+    "Cobalt Chrome",
+    "Cobalt-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 450,
+      "uts": 655,
+      "E": 230
+    },
+    {
+      "temp": 540,
+      "ys": 380,
+      "uts": 560,
+      "E": null
+    },
+    {
+      "temp": 760,
+      "ys": 280,
+      "uts": 420,
+      "E": null
+    },
+    {
+      "temp": 870,
+      "ys": 180,
+      "uts": 280,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 600,
+  "thermal_expansion": 12.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1370,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.7055,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 150,
+  "total_cost_estimate": 270,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,256 @@
+{
+  "stable_id": "POL-0035",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pei-ultem",
+    "alloy_base": "F-AB-ultem-9085",
+    "element_families": []
+  },
+  "legacy_id": "POL_003",
+  "origin": "polymers-data",
+  "id": "POL_003",
+  "name": "ULTEM 9085 — Aerospace Flame-Retardant",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEI/ULTEM",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.34,
+      "max": 1.34,
+      "typical": 1.34,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 71,
+      "max": 71,
+      "typical": 71,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 71,
+      "max": 71,
+      "typical": 71,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.2,
+      "max": 0.2,
+      "typical": 0.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 67,
+      "max": 67,
+      "typical": 67,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 186,
+      "max": 186,
+      "typical": 186,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 153,
+      "max": 153,
+      "typical": 153,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM"
+    },
+    "price_per_cm3": {
+      "min": 0.2948,
+      "max": 0.2948,
+      "typical": 0.2948,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "75.0",
+    "H": "4.1",
+    "N": "4.7",
+    "O": "16.2"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — ULTEM 9085",
+      "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/ultem-9085/",
+      "verified": true
+    },
+    {
+      "label": "Applications: Stratasys FDM 항공기 인테리어 (FAR 25.853), 군용 내부 부품",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SABIC ULTEM 9085 resin technical guide",
+      "url": "https://www.sabic.com/en/products/specialties/ultem-resins",
+      "verified": true
+    },
+    {
+      "label": "Stratasys ULTEM 9085 FDM material data",
+      "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/ultem-9085-resin/",
+      "verified": true
+    },
+    {
+      "label": "FAR 25.853 — Aviation Flammability (PEI 9085 compliant)",
+      "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-25",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 186,
+    "tm": null,
+    "hdt_182": 153,
+    "moisture_24h": 0.2,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "applications": "Stratasys FDM 항공기 인테리어 (FAR 25.853), 군용 내부 부품",
+    "limitations": "FDM 빌드 방향에 따라 강도 차이 (Z 방향 50% 손실)",
+    "_r173_note_applied": true
+  },
+  "popularity": 4.15,
+  "density": 1.34,
+  "yield_strength": 71,
+  "uts": 71,
+  "elongation": 7,
+  "modulus": 2.5,
+  "hardness": null,
+  "thermal_conductivity": 0.2,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — ULTEM 9085",
+  "aliases": [
+    "PEI",
+    "ULTEM 9085",
+    "SABIC ULTEM"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - PEI/ULTEM"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.2948,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 71,
+      "uts": 71,
+      "E": 2.5
+    },
+    {
+      "temp": 100,
+      "ys": 62,
+      "uts": 62,
+      "E": 2.3
+    },
+    {
+      "temp": 150,
+      "ys": 45,
+      "uts": 45,
+      "E": 2
+    },
+    {
+      "temp": 180,
+      "ys": 18,
+      "uts": 18,
+      "E": 0.8
+    }
+  ],
+  "story": "ULTEM 9085 는 Sabic 의 PEI 의 'flame-retardant + smoke + toxicity' (FST) grade 입니다. PEI base 에 brominated flame retardant 를 첨가해 FAR 25.853 (Federal Aviation Regulation, 항공기 cabin material 의 화재 안전 기준) 통과가 가능한 grade. 1990년대 GE Plastics 가 commercial launch 했고, Stratasys 가 2007년 FDM 3D 프린팅 filament 의 첫 항공-qualified 재료로 채택했어요.\n\n특성: Tg 186°C (base PEI 217°C 보다 약간 낮음, 화재 처리제 영향) · σy 65-85 MPa · modulus 2.4 GPa · El 5-7%. FST 등급은 OSU (Ohio State University) heat release < 65 kW·min/m² (FAR 25.853 한도), 발연 (smoke) < 200 OSU NBS, toxicity 도 통과. Stratasys FDM print 의 결과는 anisotropic 이지만 항공 part 의 spec 이 정해진 isotropic value 보다 보수적으로 사용됩니다.\n\n응용: 항공기 cabin 내부 ducting (Airbus A350, Boeing 787, F-35), 항공기 brackets + spacer, 화재 안전 요구 의료 device (휴대용 portable ventilator 의 일부 housing), 군용 응급 의료 kit case. Stratasys 의 첫 항공 인증 (Boeing F-18 fighter ducting, 2014) 으로 'FDM Ultem 9085 가 항공 production 가능' 이라는 분기점을 만든 게 화제였고, 그 이후 Lockheed Martin · Boeing · Airbus 의 일부 low-volume cabin part 가 FDM 으로 print 되고 있습니다.",
+  "story_refs": [
+    "Sabic Ultem 9085 Tech Data",
+    "Stratasys Ultem 9085 Material Data Sheet (verified 2024)",
+    "FAR 25.853 \"Compartment Interiors\"",
+    "Bourell D L et al. (2017) \"Materials for AM\", CIRP Annals 66"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "ULTEM 9085 — PEI/PC blend (FST = Flame/Smoke/Toxicity rated). Tg ≈ 186°C, HDT (1.8 MPa) ≈ 153°C, max service 170°C continuous. σy 71-78 / UTS 71-83 / El 5-7% (lower 보다 unfilled 9085) / E 2.2-2.5 GPa / ρ 1.34 g/cc. FAR 25.853 (aircraft interior flammability) 및 FAA 항공기 인증 — Boeing/Airbus 의 항공 interior parts (overhead bin, ducting). Stratasys FDM 의 항공 grade (1010 대신 9085 가 항공 표준). 가공 시 280-320°C 압출."
+}

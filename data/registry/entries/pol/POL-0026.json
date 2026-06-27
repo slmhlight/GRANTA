@@ -1,0 +1,449 @@
+{
+  "stable_id": "POL-0026",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-peek",
+    "alloy_base": "F-AB-peek-gf30",
+    "element_families": []
+  },
+  "legacy_id": "G_0184",
+  "origin": "generic(csv)",
+  "id": "G_0184",
+  "name": "PEEK GF30 — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEEK",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 145.6,
+      "max": 174.4,
+      "typical": 155.2,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 163.8,
+      "max": 196.2,
+      "typical": 174.6,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 9.84,
+      "max": 13.08,
+      "typical": 11.28,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 127.4,
+      "max": 152.6,
+      "typical": 135.8,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK GF (FDM)"
+    },
+    "max_service_temp": {
+      "min": 125,
+      "max": 375,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK GF (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK GF (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK GF (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK GF (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 71.5,
+      "max": 214.5,
+      "typical": 143,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK GF (FDM)"
+    },
+    "price_per_kg": {
+      "min": 75,
+      "max": 110,
+      "typical": 90,
+      "n": 1,
+      "estimated": true,
+      "confidence": "measured",
+      "provenance": "Victrex 450G powder/pellet Q2 2026 (medical grade slightly higher)"
+    },
+    "price_per_cm3": {
+      "min": 0.1148,
+      "max": 0.1552,
+      "typical": 0.135,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Victrex PEEK product page",
+      "url": "https://www.victrex.com/en/products",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"PEEK GF30\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PEEK%20GF30",
+      "verified": false
+    },
+    {
+      "label": "Victrex 450GL30 PEEK GF30 datasheet",
+      "url": "https://www.victrex.com/-/media/downloads/datasheets/victrex_tds_450gl30.pdf",
+      "verified": true
+    },
+    {
+      "label": "Solvay KetaSpire KT-820 GF30 datasheet",
+      "url": "https://www.solvay.com/en/brands/ketaspire-peek",
+      "verified": true
+    },
+    {
+      "label": "Victrex PEEK 450G technical datasheet",
+      "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
+      "verified": true
+    },
+    {
+      "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
+      "url": "https://www.astm.org/f2026-17.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.5,
+      174.4,
+      196.2,
+      13.080000000000002,
+      10,
+      152.60000000000002,
+      0.3
+    ],
+    [
+      1.5,
+      155.2,
+      174.6,
+      12.84,
+      10,
+      135.79999999999998,
+      0.3
+    ],
+    [
+      1.5,
+      156.8,
+      176.4,
+      10.56,
+      10,
+      137.2,
+      0.3
+    ],
+    [
+      1.5,
+      152,
+      171,
+      12.6,
+      10,
+      133,
+      0.3
+    ],
+    [
+      1.5,
+      145.6,
+      163.8,
+      12.12,
+      10,
+      127.4,
+      0.3
+    ],
+    [
+      1.5,
+      174.4,
+      196.2,
+      10.68,
+      10,
+      152.60000000000002,
+      0.3
+    ],
+    [
+      1.5,
+      152,
+      171,
+      12.6,
+      10,
+      133,
+      0.3
+    ],
+    [
+      1.5,
+      155.2,
+      174.6,
+      10.44,
+      10,
+      135.79999999999998,
+      0.3
+    ],
+    [
+      1.5,
+      148.8,
+      167.4,
+      12.36,
+      10,
+      130.20000000000002,
+      0.3
+    ],
+    [
+      1.5,
+      155.2,
+      174.6,
+      12.84,
+      10,
+      135.79999999999998,
+      0.3
+    ],
+    [
+      1.5,
+      147.20000000000002,
+      165.6,
+      9.84,
+      10,
+      128.8,
+      0.3
+    ],
+    [
+      1.5,
+      150.4,
+      169.20000000000002,
+      11.28,
+      10,
+      131.6,
+      0.3
+    ],
+    [
+      1.5,
+      147.20000000000002,
+      165.6,
+      9.84,
+      10,
+      128.8,
+      0.3
+    ],
+    [
+      1.5,
+      174.4,
+      196.2,
+      10.68,
+      10,
+      152.60000000000002,
+      0.3
+    ],
+    [
+      1.5,
+      174.4,
+      196.2,
+      10.68,
+      10,
+      152.60000000000002,
+      0.3
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon GF (FDM)",
+      "Polymer - PEEK GF (FDM)"
+    ],
+    "conditions": [
+      "Impact Modified",
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "PEEK Victrex 450G",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F2026",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "density": 1.5,
+  "yield_strength": 155.2,
+  "uts": 174.6,
+  "elongation": 11.28,
+  "modulus": 10,
+  "hardness": 135.8,
+  "thermal_conductivity": 0.3,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "Victrex PEEK product page",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PEEK GF (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 250,
+  "thermal_expansion": 50,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 143,
+  "price_per_kg": 400,
+  "price_per_cm3": 0.135,
+  "popularity": 4.07,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 400,
+  "total_cost_estimate": 520,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PEEK GF30 (Victrex 450GL30) 은 base PEEK 에 30 wt% glass fiber 를 강화한 form 입니다. 1985년 Victrex 가 'reinforced grade' 으로 출시했고 GF + CF 두 가지 강화 grade 가 동시에 시장에 나왔어요. GF (glass fiber) 강화는 stiffness + dimensional stability 가 핵심 목적이고, CF (carbon fiber) 강화는 strength + EMI shielding + thermal conductivity 가 핵심입니다.\n\nPEEK base σy 100 → GF30 강화 후 160-180 MPa, modulus 3.8 → 11-13 GPa. 강화량이 PA6-GF30 보다 더 큰 이유는 PEEK matrix 와 GF 사이의 interface bonding 이 PA6-GF 보다 우수하기 때문이에요 (PEEK 의 화학적 inert 특성이 GF 표면의 silane coupling agent 와 더 잘 반응합니다). Tg 도 143°C → ~160°C (강화), HDT 는 152°C → 315°C.\n\n응용: 항공 bracket (Boeing 787 cabin 내부의 metal-replacement bracket), 자동차 high-temperature housing (engine 근방 electronics housing), oil & gas downhole tool 의 sealing assembly (200°C+ 환경), 산업 pump seal (Sulzer 의 high-pressure mechanical seal), semiconductor wafer chuck assembly 의 일부, 그리고 의료 surgical instrument handle (autoclave + gamma sterilizable). 가격은 base PEEK ($90/kg) 대비 GF30 ($110-130/kg) 으로 30% 비싸지만 강도가 2배라 가공 후 부품 단가는 오히려 비슷합니다. 단점은 GF 가 abrasive sliding 부위에서 마모를 일으켜 PEEK CF30 (Victrex 450CA30) 또는 PEEK + PTFE filled 변형이 sliding 응용에서 검토됩니다.",
+  "story_refs": [
+    "Victrex 450GL30 (PEEK-GF30) Tech Data",
+    "Kurtz S M (2012) PEEK Biomaterials Handbook, Elsevier",
+    "Brydson J A (1999) Plastics Materials 7th ed."
+  ],
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 160,
+      "uts": 160,
+      "E": 11
+    },
+    {
+      "temp": 100,
+      "ys": 145,
+      "uts": 145,
+      "E": 10
+    },
+    {
+      "temp": 143,
+      "ys": 130,
+      "uts": 130,
+      "E": 6
+    },
+    {
+      "temp": 200,
+      "ys": 95,
+      "uts": 95,
+      "E": 4.5
+    },
+    {
+      "temp": 250,
+      "ys": 55,
+      "uts": 55,
+      "E": 2.8
+    }
+  ],
+  "industry_note": "PEEK + 30% Short Glass Fiber (Victrex 450GL30, KetaSpire GF30) — most common reinforced PEEK grade. Tg 143°C, Tm 343°C, max service 250°C continuous, HDT (1.8 MPa) 315°C. σy 155-175 / UTS 175-195 / El 2-3% / E 10-11 GPa / ρ 1.50 g/cc. CF30 대비 약간 lower σy, but lower cost + opaque (off-white). 산업 pump impeller, valve seat, ASTM F2026 implant component (glass fiber not in implants — body fluid contact), aerospace fastener."
+}

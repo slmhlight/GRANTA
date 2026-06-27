@@ -1,0 +1,291 @@
+{
+  "stable_id": "MET-0013",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-31crmov9-nitriding-standard",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0293_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0293_2",
+  "name": "31CrMoV9 (nitriding standard) — Nitrided (case 900~1100 HV)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Nitrided (case 900~1100 HV)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 950,
+      "max": 950,
+      "typical": 950,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1180,
+      "max": 1180,
+      "typical": 1180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 950,
+      "max": 950,
+      "typical": 950,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 380,
+      "max": 551,
+      "typical": 475,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 100,
+      "typical": 75,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AMS 6415 alloy steel"
+    },
+    "electrical_conductivity": {
+      "min": 5.95,
+      "max": 8.05,
+      "typical": 7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "max_service_temp": {
+      "min": 361.25,
+      "max": 488.75,
+      "typical": 425,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.455,
+      "max": 14.145,
+      "typical": 12.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "specific_heat": {
+      "min": 403.75,
+      "max": 546.25,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "melting_point": {
+      "min": 1213.8,
+      "max": 1642.2,
+      "typical": 1428,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "price_per_kg": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.02,
+      "max": 0.027,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.1,
+      "max": 4.1,
+      "typical": 4.1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.27~0.34",
+    "Cr": "2.3~2.7",
+    "Mo": "0.15~0.25",
+    "V": "0.1~0.2",
+    "Mn": "0.4~0.7",
+    "Si": "≤0.4"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=31CrMoV9",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SteelNumber — 31CrMoV9 / 1.8519 (EN 10085 두께별 Rm/Rp0.2/신율/Charpy)",
+      "url": "https://www.steelnumber.com/en/steel_composition_eu.php?name_id=662",
+      "verified": true
+    },
+    {
+      "label": "MakeItFrom — EN 1.8519 (31CrMoV9) Nitriding Steel (Q&T 대표 물성)",
+      "url": "https://www.makeitfrom.com/material-properties/EN-1.8519-31CrMoV9-Nitriding-Steel",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      950,
+      1180,
+      9,
+      210,
+      950,
+      42
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Nitrided (case 900~1100 HV)",
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      },
+      {
+        "id": "EN 10085",
+        "org": "EN"
+      },
+      {
+        "id": "EN 1.8519",
+        "org": "EN"
+      }
+    ]
+  },
+  "fracture_toughness": 75,
+  "fatigue_strength": 475,
+  "density": 7.85,
+  "yield_strength": 950,
+  "uts": 1180,
+  "elongation": 9,
+  "modulus": 210,
+  "hardness": 950,
+  "thermal_conductivity": 42,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [
+    "case 900~1100 HV"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 7,
+  "max_service_temp": 425,
+  "thermal_expansion": 12.3,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1428,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0235,
+  "popularity": 3.2,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4.1,
+  "total_cost_estimate": 3.69,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

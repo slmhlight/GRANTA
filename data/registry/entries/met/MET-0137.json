@@ -1,0 +1,318 @@
+{
+  "stable_id": "MET-0137",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-mg-alloys-5xxx",
+    "alloy_base": "F-AB-aa-5083",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0444_3",
+  "origin": "reference(supplementary)",
+  "id": "R_0444_3",
+  "name": "AA 5083 — H116",
+  "category": "Metal",
+  "subcategory": "Aluminum - Mg Alloys (5xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "H116",
+  "ranges": {
+    "density": {
+      "min": 2.66,
+      "max": 2.66,
+      "typical": 2.66,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 215,
+      "max": 215,
+      "typical": 215,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 305,
+      "max": 305,
+      "typical": 305,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 117,
+      "max": 117,
+      "typical": 117,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 120,
+      "max": 170,
+      "typical": 145,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 30,
+      "typical": 20,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 29,
+      "max": 29,
+      "typical": 29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "thermal_expansion": {
+      "min": 23.8,
+      "max": 23.8,
+      "typical": 23.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "specific_heat": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "melting_point": {
+      "min": 638,
+      "max": 638,
+      "typical": 638,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "price_per_kg": {
+      "min": 3.2,
+      "max": 3.2,
+      "typical": 3.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "price_per_cm3": {
+      "min": 0.0085,
+      "max": 0.0085,
+      "typical": 0.0085,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5083"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.36,
+      "max": 3.36,
+      "typical": 3.36,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Mg": "4.0~4.9",
+    "Mn": "0.4~1.0",
+    "Cr": "0.05~0.25",
+    "Fe": "≤0.4",
+    "Si": "≤0.4",
+    "Zn": "≤0.25"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum 5083 (marine)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+5083",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 4",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5083",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 4",
+      "url": "Aluminum Association H-Temper / ASTM B928 (marine grade) / ASTM G67 (NAMLT test)",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum 5083 marine grade",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Aluminum 5083-H321",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=7da14fc6a09b4e15a72fc4a06a3aae62",
+      "verified": false
+    },
+    {
+      "label": "ASTM B928 — Marine Grade Aluminum Sheet 5083",
+      "url": "https://store.astm.org/b0928_b0928m-21a.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.66,
+      215,
+      305,
+      10,
+      70,
+      90,
+      117
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS A95083 / EN AW-5083 / AlMg4.5Mn0.7 — non-heat-treatable Al-Mg marine grade (Mg 4.0-4.",
+  "meta": {
+    "reference": true,
+    "condition": "H116",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B928",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 40,
+  "fatigue_strength": 145,
+  "density": 2.66,
+  "yield_strength": 215,
+  "uts": 305,
+  "elongation": 10,
+  "modulus": 70,
+  "hardness": 90,
+  "thermal_conductivity": 117,
+  "impact_strength": 20,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Aluminum 5083 (marine)",
+  "aliases": [
+    "UNS A95083",
+    "EN AW-5083",
+    "AlMg4.5Mn0.7"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Mg Alloys (5xxx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 29,
+  "max_service_temp": 200,
+  "thermal_expansion": 23.8,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 638,
+  "price_per_kg": 3.2,
+  "price_per_cm3": 0.0085,
+  "popularity": 4.35,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.36,
+  "total_cost_estimate": 3.02,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 145,
+      "uts": 290,
+      "E": 70
+    },
+    {
+      "temp": 200,
+      "ys": 100,
+      "uts": 200,
+      "E": 64
+    },
+    {
+      "temp": 300,
+      "ys": 60,
+      "uts": 120,
+      "E": 58
+    }
+  ],
+  "story": "1957년 미국 Alcoa 의 R W Fink 가 Mg 4.5% + Mn 0.7% + Cr 0.15% 조성으로 marine 환경에 강한 새 5xxx 합금을 개발하면서 AA 5083 이 등장합니다. 이전 5052 (Mg 2.5%) 의 강도 한계를 거의 두 배 (σ_y 145 → 230 MPa) 로 끌어올리면서 해수 SCC 저항을 그대로 유지한 게 핵심이었어요.\n\n응용은 marine 의 모든 곳이에요. 어선 hull (Bertram, Boston Whaler 의 high-end 모델), 잠수정 (이전 Russian Mir + USS Trieste 의 외부 frame), LNG carrier 의 inner tank (−163°C 까지 fully toughness 유지, IMO IGC code 표준), 군용 — M2 Bradley IFV 의 ballistic 보강 (aluminum armor), 미해군 LCS class 의 superstructure. 자동차에서는 Audi A8 의 일부 frame member, Tesla Roadster 1세대의 frame — 'high-strength 5xxx' 자리의 default 입니다.\n\n약점도 있어요. Mg 4.5% 는 65°C 이상에서 β-phase (Al₃Mg₂) 가 입계에 석출하면서 IGC (입계 부식) sensitization 이 일어날 수 있죠. 그래서 marine 응용에서도 dewpoint condensation 등 표면 온도가 60°C 를 넘는 곳에는 H116 / H321 같은 special-temper grade 를 별도로 사용합니다.",
+  "story_refs": [
+    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+    "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
+    "Searles J L et al. (2001) \"Stress corrosion cracking of sensitized AA5083\", Met Mater Trans A 32(11)"
+  ],
+  "confidence_tier": "high"
+}

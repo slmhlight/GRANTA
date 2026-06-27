@@ -1,0 +1,271 @@
+{
+  "stable_id": "MET-0502",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-grx-810-nasa-ods-ni-superalloy",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0301_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0301_1",
+  "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF + Solution + Aged",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "NASA (GRX-810)"
+  ],
+  "machines": [],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "LPBF + Solution + Aged",
+  "ranges": {
+    "density": {
+      "min": 8.4,
+      "max": 8.4,
+      "typical": 8.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 820,
+      "max": 820,
+      "typical": 820,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1240,
+      "max": 1240,
+      "typical": 1240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 496,
+      "max": 496,
+      "typical": 496,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Ni-based σf≈0.4·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "electrical_conductivity": {
+      "min": 0.91,
+      "max": 1.69,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 630,
+      "max": 1170,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 9.1,
+      "max": 16.9,
+      "typical": 13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.21,
+      "max": 0.39,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 308,
+      "max": 572,
+      "typical": 440,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 945,
+      "max": 1755,
+      "typical": 1350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 42,
+      "max": 78,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.3528,
+      "max": 0.6552,
+      "typical": 0.504,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "30~34",
+    "W": "13~15",
+    "Co": "5~7",
+    "Al": "3~5",
+    "Y2O3": "0.4~0.6"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.nasa.gov/news-release/nasa-invention-superalloy-can-withstand-extreme-temperatures",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=GRX-810",
+      "verified": false
+    },
+    {
+      "label": "NASA GRX-810 ODS superalloy press release",
+      "url": "https://www.nasa.gov/feature/glenn/2023/nasa-s-grx-810-3d-printable-alloy-strengthens-heat-resistant-alloys",
+      "verified": true
+    },
+    {
+      "label": "Smith et al. — GRX-810 microstructure (Acta Materialia 2023)",
+      "url": "https://doi.org/10.1016/j.actamat.2023.118887",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.4,
+      820,
+      1240,
+      15,
+      200,
+      400,
+      11
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "NASA Glenn GRX-810 (2023 개발) — Y₂O₃ ODS (Oxide Dispersion Strengthened) Ni superalloy for LPBF AM. Composition: Ni bal, Cr 20.4, Co 19.6, W 4.0, Al 1.3, Ti 1.8, Mo 0.4, C 0.06, B 0.005, Y₂O₃ 0.5 vol%. LPBF + Inconel 625 + ODS particle → strength ~2× boost at 1100°C. 우주 RS-25 turbopump, 항공 jet engine combustor (next-gen H2 fuel), 항공 augmentor liner. AM-exclusive — wrought 형태 미존재.",
+  "meta": {
+    "reference": true,
+    "condition": "LPBF + Solution + Aged",
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "_r173_note_applied": true
+  },
+  "density": 8.4,
+  "yield_strength": 820,
+  "uts": 1240,
+  "elongation": 15,
+  "modulus": 200,
+  "hardness": 400,
+  "thermal_conductivity": 11,
+  "fatigue_strength": 496,
+  "impact_strength": 60,
+  "manufacturer": "NASA (GRX-810)",
+  "process": "LPBF",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 900,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 440,
+  "melting_point": 1350,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.504,
+  "popularity": 2.37,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 195,
+  "total_cost_estimate": 351,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 7% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,270 @@
+{
+  "stable_id": "POL-0077",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide-gf",
+    "alloy_base": "F-AB-pa6-gf-glass-fiber",
+    "element_families": []
+  },
+  "legacy_id": "R_0181",
+  "origin": "reference(supplementary)",
+  "id": "R_0181",
+  "name": "PA6-GF (glass fiber)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide GF",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.36,
+      "max": 1.36,
+      "typical": 1.36,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 100,
+      "max": 110,
+      "typical": 110,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 120,
+      "max": 130,
+      "typical": 130,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 3,
+      "max": 4,
+      "typical": 4,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 6.5,
+      "max": 7,
+      "typical": 7,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.35,
+      "max": 0.35,
+      "typical": 0.35,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Glass-Fiber Reinforced"
+    },
+    "max_service_temp": {
+      "min": 55,
+      "max": 165,
+      "typical": 110,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Glass-Fiber Reinforced"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Glass-Fiber Reinforced"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Glass-Fiber Reinforced"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Glass-Fiber Reinforced"
+    },
+    "glass_transition_temp": {
+      "min": 27.5,
+      "max": 82.5,
+      "typical": 55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Glass-Fiber Reinforced"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Glass-Fiber Reinforced"
+    },
+    "price_per_cm3": {
+      "min": 0.017,
+      "max": 0.051,
+      "typical": 0.034,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Glass-Fiber Reinforced"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "63.7",
+    "H": "9.8",
+    "N": "12.4",
+    "O": "14.1"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Nylon 6 (PA6)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+6",
+      "verified": false
+    },
+    {
+      "label": "Material datasheets — 30% glass-filled nylon 6",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "BASF Ultramid B (PA6) technical guide",
+      "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
+      "verified": true
+    },
+    {
+      "label": "Lanxess Durethan PA6",
+      "url": "https://lanxess.com/en/Products-and-Solutions/Products/D/DURETHAN-B-30-S",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — PA6 general engineering",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PA6",
+      "verified": false
+    },
+    {
+      "label": "BASF Ultramid B3WG6 (PA6 GF30) reference",
+      "url": "https://www.basf.com/",
+      "verified": false
+    },
+    {
+      "label": "Tepex E-glass woven fabric reinforced PA6 (LANXESS)",
+      "url": "https://lanxess.com/en/Products-and-Solutions/Products/T/Tepex",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.36,
+      110,
+      130,
+      4,
+      7,
+      0,
+      0.35
+    ],
+    [
+      1.36,
+      100,
+      120,
+      3,
+      6.5,
+      0,
+      0.35
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Nylon 6 (PA6, Polycaprolactam) — semi-crystalline thermoplastic. Tg (dry) ≈ 60°C, Tm ≈ 220°C, HDT (1.8 MPa) ≈ 70°C unfilled, max service 110°C. σy 70-85 / UTS 70-95 / El 30-200% / E 2.7-3.3 GPa / ρ 1.13-1.14 g/cc. 흡습률 9-10% (PA66 의 3× — most water-absorbent common polymer) → 강도 30% 감소 (DAM vs RH50%). 가공 쉬움 (Tm 낮음 vs PA66). 자동차 trim, 카펫 섬유, 어망, 의류 fiber, 일반 enclosure. GF30 grade σy 100-145 / E 7-9 (자동차 underhood).",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "moisture_24h": 2.5,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.36,
+  "yield_strength": 110,
+  "uts": 130,
+  "elongation": 4,
+  "modulus": 7,
+  "hardness": null,
+  "thermal_conductivity": 0.35,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "MatWeb — Nylon 6 (PA6)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Glass-Fiber Reinforced"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 110,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 55,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.034,
+  "popularity": 5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PA6-GF 의 일반 표기 (보통 PA6-GF30 또는 GF15, GF50 으로 specific) 는 Nylon 6 의 glass-fiber reinforced grade 입니다. R149 에서 별도 entry 로 'Nylon 6 GF30' 도 있지만 'PA6-GF' 는 generic 표기에 가깝습니다. 1955년 Owens-Corning 의 chopped strand mat 기술이 PA6 강화 가능성을 처음 입증했고, 이후 BASF / DSM / Lanxess 가 다양한 GF 함량 grade 를 상품화했어요.\n\nGF 함량별 특성: GF15 (15%) 는 mild strength 강화 + 가공성 우수, GF30 은 표준 strength-stiffness 균형, GF50 (50%) 은 거의 metal 수준의 강성 (15 GPa) 이지만 가공 cycle 이 길고 viscosity 가 높아 mold flow 어려움. GF65 (65%) 는 극도 강화이지만 거의 사용 불가능 수준의 가공성.\n\n응용은 자동차 + 산업 polymer 의 표준입니다. 자동차 engine intake manifold (BMW B58 engine 의 intake plenum), gear shifter housing (Mercedes Benz 6-speed manual 의 일부), EV charging connector housing (CCS combo plug), 자전거 derailleur cage, 산업 pump housing, 그리고 power tool body (Bosch / Makita / Milwaukee). PA6 의 흡수성 (8% max) 이 강화 후 1/3 로 줄어 dimensional stability 가 결정적으로 개선되어 'metal replacement' 의 표준 응용이 됐어요. 단점은 GF 의 anisotropy + flow direction 으로 인한 mold 설계의 복잡성, 그리고 GF 의 마모성.",
+  "story_refs": [
+    "BASF Ultramid B3WG6 (PA6-GF30) Tech Data Sheet",
+    "Lanxess Durethan BKV30 Tech Data",
+    "Kohan M I (1995) Nylon Plastics Handbook"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,184 @@
+{
+  "stable_id": "CMP-0002",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-aramid-epoxy",
+    "alloy_base": "F-AB-afk",
+    "element_families": []
+  },
+  "legacy_id": "CMP_012",
+  "origin": "composites-data",
+  "id": "CMP_012",
+  "name": "AFK — Kevlar 49/Epoxy (UD 0°)",
+  "category": "Composite",
+  "subcategory": "Aramid-Epoxy",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.34,
+      "max": 1.4,
+      "typical": 1.38,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1100,
+      "max": 1400,
+      "typical": 1250,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1100,
+      "max": 1400,
+      "typical": 1250,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 68,
+      "max": 78,
+      "typical": 75,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.5,
+      "max": 0.5,
+      "typical": 0.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": -2,
+      "max": -2,
+      "typical": -2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 1.8,
+      "max": 2.4,
+      "typical": 2,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 621,
+      "max": 621,
+      "typical": 621,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.1242,
+      "max": 0.1242,
+      "typical": 0.1242,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": [
+    [
+      "Aramid (DuPont Kevlar 49 UD, 60 vol%)",
+      "60"
+    ],
+    [
+      "Epoxy (40 vol%)",
+      "40"
+    ]
+  ],
+  "sources": [
+    {
+      "label": "Apps: 방탄 패널, 헬멧 (Mod-IV), 케이블 보강, 산업 호스",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "DuPont Kevlar fiber technical guide",
+      "url": "https://www.dupont.com/brands/kevlar.html",
+      "verified": true
+    },
+    {
+      "label": "Teijin Twaron aramid fiber",
+      "url": "https://www.teijinaramid.com/en/products/twaron/",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook Vol.1 — Aramid Composites",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/14/chapter-abstract/204970/Aramid-Fiber-Composites",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "ply_direction": "UD 0°",
+    "fiber_vf": 0.6,
+    "applications": "방탄 패널, 헬멧 (Mod-IV), 케이블 보강, 산업 호스",
+    "limitations": "압축 강도 280MPa (인장의 20%), 표면 흡습",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 3,
+  "density": 1.38,
+  "yield_strength": 1380,
+  "uts": 1380,
+  "elongation": 1.8,
+  "modulus": 76,
+  "hardness": null,
+  "thermal_conductivity": 0.5,
+  "fatigue_strength": 621,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Apps: 방탄 패널, 헬멧 (Mod-IV), 케이블 보강, 산업 호스",
+  "aliases": [],
+  "families": [
+    "Composite",
+    "Aramid-Epoxy"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.1242,
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "AFRP / AFK (Aramid Fiber Reinforced Polymer) — para-aramid polymer (DuPont Kevlar, Teijin Twaron, Honeywell GoldShield)."
+}

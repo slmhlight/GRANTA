@@ -1,0 +1,184 @@
+{
+  "stable_id": "CER-0039",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-uhtc",
+    "alloy_base": "F-AB-zirconium-diboride-zrb-uhtc",
+    "element_families": []
+  },
+  "legacy_id": "CER_034",
+  "origin": "ceramics-data",
+  "id": "CER_034",
+  "name": "Zirconium Diboride (ZrB₂, UHTC)",
+  "category": "Ceramic",
+  "subcategory": "UHTC",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 360,
+      "max": 360,
+      "typical": 360,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 360,
+      "max": 360,
+      "typical": 360,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 510,
+      "max": 510,
+      "typical": 510,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 2300,
+      "max": 2300,
+      "typical": 2300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 6.8,
+      "max": 6.8,
+      "typical": 6.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 2200,
+      "max": 2200,
+      "typical": 2200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": {
+      "min": 3245,
+      "max": 3245,
+      "typical": 3245,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 800,
+      "max": 800,
+      "typical": 800,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 162,
+      "max": 162,
+      "typical": 162,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 4.8,
+      "max": 4.8,
+      "typical": 4.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Zr": "80.8",
+    "B": "19.2"
+  },
+  "sources": [
+    {
+      "label": "Applications: 극초음속 비행체 nose tip, 로켓 throat, 용탕 측정 thermo well",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Saint-Gobain ZrB₂ technical data",
+      "url": "https://www.refractories.saint-gobain.com/",
+      "verified": false
+    },
+    {
+      "label": "Fahrenholtz et al. — UHTC review (J. Eur. Ceram. Soc. 2007)",
+      "url": "https://doi.org/10.1016/j.jeurceramsoc.2006.07.006",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "극초음속 비행체 nose tip, 로켓 throat, 용탕 측정 thermo well",
+    "limitations": "공기 中 1100°C 이상 ZrO₂+B₂O₃ 형성 — SiC 첨가로 보호 스케일",
+    "_r173_note_applied": true
+  },
+  "popularity": 1,
+  "density": 6,
+  "yield_strength": 360,
+  "uts": 360,
+  "elongation": null,
+  "modulus": 510,
+  "hardness": 2300,
+  "thermal_conductivity": 60,
+  "fatigue_strength": 162,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: 극초음속 비행체 nose tip, 로켓 throat, 용탕 측정 thermo well",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "UHTC"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 4.8,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "ZrB₂ (Zirconium Diboride, hexagonal AlB₂-type) — sister UHTC of HfB₂ (lower cost). Tm 3245°C, ρ 6.10 g/cc (HfB₂ 의 55% — 가벼움 advantage). σf 360-450 / E 510 / KIC 3.5 / Tmax 2200°C inert. ZrB₂-SiC composite oxidation 저항 1700°C+. Hypersonic leading edge (DARPA Falcon HTV-2), refractory crucible (molten metal contact), 우주 thermal protection. SPS sintering 표준."
+}

@@ -1,0 +1,468 @@
+{
+  "stable_id": "MET-0471",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-magnesium-alloy",
+    "alloy_base": "F-AB-az91d",
+    "element_families": [
+      "F-EL-magnesium-based"
+    ]
+  },
+  "legacy_id": "G_0311",
+  "origin": "generic(csv)",
+  "id": "G_0311",
+  "name": "AZ91D — As-supplied (Cast)",
+  "category": "Metal",
+  "subcategory": "Magnesium Alloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "As-cast/forged (no temper)",
+  "ranges": {
+    "density": {
+      "min": 1.81,
+      "max": 1.81,
+      "typical": 1.81,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 144,
+      "max": 174.4,
+      "typical": 153.6,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 207,
+      "max": 250.7,
+      "typical": 220.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 2.55,
+      "max": 3.27,
+      "typical": 2.88,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 72,
+      "max": 87.2,
+      "typical": 76.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 51,
+      "max": 51,
+      "typical": 51,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 90,
+      "max": 109,
+      "typical": 96,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 17.7,
+      "typical": 15.15,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az91"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az91"
+    },
+    "thermal_expansion": {
+      "min": 26,
+      "max": 26,
+      "typical": 26,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az91"
+    },
+    "poisson_ratio": {
+      "min": 0.35,
+      "max": 0.35,
+      "typical": 0.35,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az91"
+    },
+    "specific_heat": {
+      "min": 1024,
+      "max": 1024,
+      "typical": 1024,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az91"
+    },
+    "melting_point": {
+      "min": 595,
+      "max": 595,
+      "typical": 595,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az91"
+    },
+    "price_per_kg": {
+      "min": 5.5,
+      "max": 5.5,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az91"
+    },
+    "price_per_cm3": {
+      "min": 0.01,
+      "max": 0.01,
+      "typical": 0.01,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az91"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.5,
+      "max": 5.5,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "9",
+    "Mg": "90",
+    "Zn": "1"
+  },
+  "sources": [
+    {
+      "label": "Luxfer/Magnesium Elektron — AZ91D Magnesium",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ91D+magnesium",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Magnesium AZ91D die-casting alloy",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205013/Magnesium-Alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — AZ91D Magnesium Alloy",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=ed0e6d6dec324a8eafaff5571ee6f4b3",
+      "verified": false
+    },
+    {
+      "label": "ASTM B94 — Mg Die-Casting Alloy AZ91D",
+      "url": "https://store.astm.org/b0094-21.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.81,
+      144,
+      207,
+      2.7,
+      45,
+      72,
+      51
+    ],
+    [
+      1.81,
+      163.2,
+      234.6,
+      2.76,
+      45,
+      81.6,
+      51
+    ],
+    [
+      1.81,
+      174.4,
+      250.7,
+      2.67,
+      45,
+      87.2,
+      51
+    ],
+    [
+      1.81,
+      158.4,
+      227.7,
+      3.2700000000000005,
+      45,
+      79.2,
+      51
+    ],
+    [
+      1.81,
+      145.6,
+      209.3,
+      3.03,
+      45,
+      72.8,
+      51
+    ],
+    [
+      1.81,
+      150.4,
+      216.2,
+      3.12,
+      45,
+      75.2,
+      51
+    ],
+    [
+      1.81,
+      144,
+      207,
+      2.7,
+      45,
+      72,
+      51
+    ],
+    [
+      1.81,
+      168,
+      241.5,
+      2.5500000000000003,
+      45,
+      84,
+      51
+    ],
+    [
+      1.81,
+      156.8,
+      225.4,
+      2.94,
+      45,
+      78.4,
+      51
+    ],
+    [
+      1.81,
+      166.4,
+      239.2,
+      2.8200000000000003,
+      45,
+      83.2,
+      51
+    ],
+    [
+      1.81,
+      153.6,
+      220.8,
+      2.8800000000000003,
+      45,
+      76.8,
+      51
+    ],
+    [
+      1.81,
+      152,
+      218.50000000000003,
+      3.1500000000000004,
+      45,
+      76,
+      51
+    ],
+    [
+      1.81,
+      150.4,
+      216.2,
+      2.8200000000000003,
+      45,
+      75.2,
+      51
+    ],
+    [
+      1.81,
+      148.8,
+      213.9,
+      2.79,
+      45,
+      74.4,
+      51
+    ],
+    [
+      1.81,
+      168,
+      241.5,
+      3.1500000000000004,
+      45,
+      84,
+      51
+    ],
+    [
+      1.81,
+      148.8,
+      213.9,
+      2.79,
+      45,
+      74.4,
+      51
+    ],
+    [
+      1.81,
+      172.8,
+      248.4,
+      2.94,
+      45,
+      86.4,
+      51
+    ],
+    [
+      1.81,
+      150.4,
+      216.2,
+      2.8200000000000003,
+      45,
+      75.2,
+      51
+    ],
+    [
+      1.81,
+      145.6,
+      209.3,
+      3.03,
+      45,
+      72.8,
+      51
+    ],
+    [
+      1.81,
+      156.8,
+      225.4,
+      2.94,
+      45,
+      78.4,
+      51
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Magnesium Alloy"
+    ],
+    "conditions": [
+      "Mg-9Al-1Zn"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B94",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 18,
+  "density": 1.81,
+  "yield_strength": 153.6,
+  "uts": 220.8,
+  "elongation": 2.88,
+  "modulus": 45,
+  "hardness": 76.8,
+  "thermal_conductivity": 51,
+  "fatigue_strength": 96,
+  "impact_strength": 15.15,
+  "manufacturer": "Generic",
+  "process": "Cast",
+  "source": "Luxfer/Magnesium Elektron — AZ91D Magnesium",
+  "aliases": [
+    "UNS M11916",
+    "MgAl9Zn1"
+  ],
+  "families": [
+    "Metal",
+    "Magnesium Alloy",
+    "Magnesium-based"
+  ],
+  "electrical_conductivity": 25,
+  "max_service_temp": 150,
+  "thermal_expansion": 26,
+  "poisson_ratio": 0.35,
+  "specific_heat": 1024,
+  "melting_point": 595,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.01,
+  "popularity": 3.92,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.5,
+  "total_cost_estimate": 4.95,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "story": "1933년 미국 Dow Chemical 이 AZ31 (Mg-Al 3%) 의 cast 변형으로 Al 9% + Zn 1% 의 합금을 출시했어요 — die-cast 의 fluidity 와 die-soldering 저항을 동시에 풀려고 한 결과물이었죠. 1950년대 들어 'D' suffix 가 추가되며 (Al 7.5~9.7% 의 tight 한 범위로 spec) AZ91D 가 자동차 die-cast 의 default 자리에 올랐습니다.\n\n응용 — 자동차 — VW Beetle 의 transmission case (1938-2003, AZ91D 의 가장 유명한 응용), Audi A8 의 ZF transmission housing (2003-), BMW i8 의 일부 내부 chassis. 가전 — Sony α7 mirrorless camera body, Apple iPad 1세대의 internal frame (저전류 응용). 자동차 — 핸들 column lock, gear shift housing, seat frame.\n\n흥미. AZ91D 의 die-cast 공정에서는 mold (steel) 와 molten Mg 사이의 'soldering' (mutual adhesion) 이 큰 issue 였어요. Al 9% 가 정확히 이를 회피하는 비율 — 너무 적으면 (예: AZ31) die 에 붙고, 너무 많으면 (예: AM50) 강도가 떨어집니다. 1933년 Dow 의 발견이 60년이 지나도 정확한 비율로 자리잡은 셈이죠.",
+  "story_refs": [
+    "Avedesian M M & Baker H (eds., 1999) ASM Specialty Handbook: Magnesium and Magnesium Alloys",
+    "ASTM B94 \"Standard Specification for Magnesium-Alloy Die Castings\"",
+    "Friedrich H E & Mordike B L (eds., 2006) Magnesium Technology, Springer"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS M11916 / ASTM AZ91D / MgAl9Zn1 — magnesium die-casting alloy (Al 8.3-9.7, Zn 0.35-1.0, Mn ≥ 0.15, Cu ≤ 0.025). 가장 흔한 cast Mg (high-pressure die casting 표준). As-81 g/cc. T6 (200°C 16h Tmax 150°C continuous (creep limit). 자동차 transmission case, steering wheel core, oil pan, 노트북 housing, drill case. AZ91D 의 'D' = high-purity (low Fe/Ni/Cu for galvanic corrosion 회피). 가공 시 lubricant flammable — Mg shaving 발화 위험."
+}

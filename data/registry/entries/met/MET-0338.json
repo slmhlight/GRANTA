@@ -1,0 +1,323 @@
+{
+  "stable_id": "MET-0338",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cobalt-alloy-chrome",
+    "alloy_base": "F-AB-cocrmo-astm-f1537",
+    "element_families": [
+      "F-EL-cobalt-based"
+    ]
+  },
+  "legacy_id": "R_0006_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0006_0",
+  "name": "CoCrMo (ASTM F1537) — Hot-rolled bar",
+  "category": "Metal",
+  "subcategory": "Cobalt Alloy - Chrome",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Hot-rolled bar",
+  "ranges": {
+    "density": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 590,
+      "max": 590,
+      "typical": 590,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 14.2,
+      "max": 14.2,
+      "typical": 14.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 350,
+      "max": 550,
+      "typical": 450,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:cocrmo"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:cocrmo"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "max_service_temp": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "thermal_expansion": {
+      "min": 12.5,
+      "max": 12.5,
+      "typical": 12.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "specific_heat": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "melting_point": {
+      "min": 1370,
+      "max": 1370,
+      "typical": 1370,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "price_per_kg": {
+      "min": 65,
+      "max": 115,
+      "typical": 85,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Carpenter BioDur CCM F75 cast Q2 2026 (medical grade)"
+    },
+    "price_per_cm3": {
+      "min": 0.5997,
+      "max": 0.8113,
+      "typical": 0.7055,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 63,
+      "max": 63,
+      "typical": 63,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Co": "balance",
+    "Cr": "26~30",
+    "Mo": "5~7",
+    "Mn": "≤1",
+    "Si": "≤1",
+    "C": "≤0.35"
+  },
+  "sources": [
+    {
+      "label": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
+      "url": "https://store.astm.org/f0075-18.html",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://store.astm.org/f1537-20.html",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Carpenter — CoCrMo alloy technical guide",
+      "url": "https://www.carpentertechnology.com/blog/cobalt-chrome-alloys",
+      "verified": false
+    },
+    {
+      "label": "ISO 5832-12 — Wrought Co-Cr-Mo implant",
+      "url": "https://www.iso.org/standard/61349.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.3,
+      590,
+      1100,
+      20,
+      230,
+      380,
+      14.2
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS R30075 (cast F75) / R31537 (wrought F1537) / ISO 5832-12 — biomedical Co-28Cr-6Mo alloy. Wrought Hot-rolled bar: σy 590 / UTS 1100 / El 20%. Cold-worked (wire): σy 825 / UTS 1240 / El 15%. Tmax 600°C continuous. 가장 흔한 의료 임플란트 (artificial hip head / knee femoral component / dental crown), AM LPBF (EOS Cobalt-Chrome SP2 = ASTM F75). 매우 wear-resistant + 부식 저항.",
+  "meta": {
+    "reference": true,
+    "condition": "Hot-rolled bar",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "CoCrMo F75",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F1537",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM F75",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 450,
+  "density": 8.3,
+  "yield_strength": 590,
+  "uts": 1100,
+  "elongation": 20,
+  "modulus": 230,
+  "hardness": 380,
+  "thermal_conductivity": 14.2,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
+  "aliases": [
+    "ASTM F1537"
+  ],
+  "families": [
+    "Metal",
+    "Cobalt Alloy - Chrome",
+    "Cobalt-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 450,
+      "uts": 655,
+      "E": 230
+    },
+    {
+      "temp": 540,
+      "ys": 380,
+      "uts": 560,
+      "E": null
+    },
+    {
+      "temp": 760,
+      "ys": 280,
+      "uts": 420,
+      "E": null
+    },
+    {
+      "temp": 870,
+      "ys": 180,
+      "uts": 280,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 600,
+  "thermal_expansion": 12.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1370,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.7055,
+  "popularity": 4.25,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 63,
+  "total_cost_estimate": 113.4,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "CoCrMo (Cobalt-Chromium-Molybdenum) 합금의 출발점은 1907년 미국 Elwood Haynes 의 Stellite 발견까지 거슬러 올라갑니다. Haynes 는 자동차 부품 절삭공구를 만들다가 Co + Cr 의 carbide 가 매우 단단한 wear-resistant 표면을 만든다는 걸 발견했고, 1912년 'Stellite 1' 을 출시했어요. 1930년대 의료용으로의 응용은 미국 Charles Venable 가 1936년 Vitallium 이라는 이름으로 Co-Cr-Mo 28-6-5 를 dental + hip 임플란트에 처음 쓰면서 시작됐습니다.\n\n오늘날 CoCrMo 의 의료 표준은 ASTM F75 (투자주조, as-cast) 와 F1537 (열간단조, wrought) 두 가지입니다. F75 는 σy 450-520 MPa · UTS 665-800 으로 cast 그대로 hip implant stem 에 쓰이고, F1537 은 1230°C 가열-급랭 처리로 σy 700 / UTS 1000 MPa 까지 끌어올린 wrought grade 입니다. 둘 다 γ-Co (FCC) matrix + M₂₃C₆ carbide 가 핵심 미세조직이에요.\n\n응용은 명확합니다. 인공 hip 관절 stem + cup (Zimmer Biomet, DePuy Synthes, Stryker 의 표준 stem 재료), 인공 knee 관절 femoral component, dental crown framework, 척추 implant rod. ASTM F75 는 1980년대까지 hip 표준이었지만 wear debris 의 metal-on-metal 마찰 문제로 최근에는 ceramic-on-ceramic (alumina, ZTA) 짝으로 점점 대체되고 있어요. 그래도 deep stem (cement-fixed long stem) 과 외과용 instrument 에서 여전히 압도적입니다. 흥미로운 점은 같은 CoCrMo 가 jet engine combustor 의 hot section 부품 (Haynes 188, Stellite 31) 으로도 쓰이는데, 이는 의료 grade 와는 carbon 함량이 다릅니다 (의료 0.05%, 항공 0.5%).",
+  "story_refs": [
+    "Haynes E (1913) US Patent 1,057,423 \"Metal Alloy\"",
+    "Venable C S et al. (1937) \"The Effects on Bone of the Presence of Metals\", Ann Surg 105",
+    "ASTM F75 / F1537 standards",
+    "Niinomi M (2008) \"Mechanical biocompatibilities of titanium alloys for biomedical applications\", J Mech Behav Biomed Mater 1"
+  ],
+  "confidence_tier": "high"
+}

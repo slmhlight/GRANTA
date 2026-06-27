@@ -1,0 +1,271 @@
+{
+  "stable_id": "MET-0664",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-tungsten-w-99-95-pure",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0298_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0298_1",
+  "name": "Tungsten (W 99.95% pure) — Cold-worked (heavy)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Cold-worked (heavy)",
+  "ranges": {
+    "density": {
+      "min": 19.25,
+      "max": 19.25,
+      "typical": 19.25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 980,
+      "max": 980,
+      "typical": 980,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1380,
+      "max": 1380,
+      "typical": 1380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 411,
+      "max": 411,
+      "typical": 411,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 430,
+      "max": 430,
+      "typical": 430,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 173,
+      "max": 173,
+      "typical": 173,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 200,
+      "max": 360,
+      "typical": 280,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "impact_strength": {
+      "min": 2,
+      "max": 8,
+      "typical": 4,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "fracture_toughness": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 31,
+      "max": 31,
+      "typical": 31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "max_service_temp": {
+      "min": 1700,
+      "max": 1700,
+      "typical": 1700,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "specific_heat": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "melting_point": {
+      "min": 3410,
+      "max": 3410,
+      "typical": 3410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_kg": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_cm3": {
+      "min": 1.3475,
+      "max": 1.3475,
+      "typical": 1.3475,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "delivered_price_per_kg": {
+      "min": 79.38,
+      "max": 79.38,
+      "typical": 79.38,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "W": "≥99.95"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Tungsten W",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tungsten",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.plansee.com/en/materials/tungsten.html",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Tungsten%20pure",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      19.25,
+      980,
+      1380,
+      2,
+      411,
+      430,
+      173
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Cold-worked (heavy)"
+  },
+  "fracture_toughness": 8,
+  "fatigue_strength": 280,
+  "density": 19.25,
+  "yield_strength": 980,
+  "uts": 1380,
+  "elongation": 2,
+  "modulus": 411,
+  "hardness": 430,
+  "thermal_conductivity": 173,
+  "impact_strength": 4,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Pure Tungsten W",
+  "aliases": [
+    "W 99.95% pure",
+    "W",
+    "Pure tungsten 99.95",
+    "EN 2.4060"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal",
+    "Refractory"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 31,
+  "max_service_temp": 1700,
+  "thermal_expansion": 4.5,
+  "poisson_ratio": 0.28,
+  "specific_heat": 135,
+  "melting_point": 3410,
+  "price_per_kg": 70,
+  "price_per_cm3": 1.3475,
+  "popularity": 1.83,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 79.38,
+  "total_cost_estimate": 142.88,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1908년 미국 GE 의 윌리엄 데이비드 쿨리지 (William David Coolidge) 가 ductile tungsten — '구부릴 수 있는 텅스텐' — 의 제법을 발견하면서 산업이 시작됐어요. 원래 W 는 brittle 해서 가공이 불가능했는데, 쿨리지가 swaging (단조성 가공) 으로 결정립을 미세화하면 ductile 해진다는 사실을 알아낸 거죠. 1913년 그의 발견으로 incandescent 전구의 filament 가 carbon → tungsten 으로 전환되면서 '에디슨 전구' 가 진정한 의미의 lightbulb 가 됐습니다.\n\nTungsten 의 매력은 단연 melting point 3422°C — 모든 금속 중 최고예요. 19.25 g/cm³ 의 밀도 (Pb 의 1.7배), σ_y 750 MPa 의 상온 강도, 4.5 × 10⁻⁶/K 의 매우 낮은 CTE.\n\n응용은 크게 네 갈래입니다. (1) 전자 방출 — X-ray tube 의 anode, 반도체 e-beam lithography 의 source, mass spectrometer 의 filament. (2) 군용 — Kinetic Energy penetrator (M829A4 의 sabot core, long-rod 관통체. 우라늄 대체용), helicopter rotor balance weight. (3) 우주 — 인공위성의 angular momentum wheel, RTG 의 radiation shield. (4) 일상 — F1 brake disc heat sink, 다트 weight, Apple Watch Series 5+ 의 일부 internal radiation shield. 단점은 brittle (KIC 9 MPa√m) — 충격에 약해 항상 ductile metal 안에 묻혀 쓰입니다.",
+  "story_refs": [
+    "Coolidge W D (1913) US Patent 1,082,933 \"Tungsten and method of making the same for use as filaments\"",
+    "Lassner E & Schubert W D (1999) Tungsten: Properties, Chemistry, Technology of the Element, Alloys, and Chemical Compounds, Springer",
+    "Davis J R (ed., 1998) ASM Specialty Handbook: Heat-Resistant Materials"
+  ],
+  "confidence_tier": "medium"
+}

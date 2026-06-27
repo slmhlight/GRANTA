@@ -1,0 +1,317 @@
+{
+  "stable_id": "MET-0249",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-aisi-1020",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0092",
+  "origin": "generic(csv)",
+  "id": "G_0092",
+  "name": "AISI 1020 — Strain-hardened (Wrought)",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Strain-hardened",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 290,
+      "max": 420,
+      "typical": 350,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 440,
+      "max": 580,
+      "typical": 510,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 29.16,
+      "max": 39.24,
+      "typical": 37.08,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 210,
+      "typical": 205,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 81.7,
+      "max": 108.3,
+      "typical": 102.6,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 51,
+      "max": 51,
+      "typical": 51,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 170,
+      "max": 240,
+      "typical": 200,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:1020 × HT:cold worked (f×1.25, i×0.6)"
+    },
+    "impact_strength": {
+      "min": 33,
+      "max": 66,
+      "typical": 48,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:1020 × HT:cold worked (f×1.25, i×0.6)"
+    },
+    "fracture_toughness": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:cold worked (k×0.8)"
+    },
+    "electrical_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "thermal_expansion": {
+      "min": 11.7,
+      "max": 11.7,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "specific_heat": {
+      "min": 486,
+      "max": 486,
+      "typical": 486,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "melting_point": {
+      "min": 1515,
+      "max": 1515,
+      "typical": 1515,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "price_per_kg": {
+      "min": 0.9,
+      "max": 0.9,
+      "typical": 0.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "price_per_cm3": {
+      "min": 0.0071,
+      "max": 0.0071,
+      "typical": 0.0071,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "delivered_price_per_kg": {
+      "min": 0.98,
+      "max": 0.98,
+      "typical": 0.98,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.18~0.23",
+    "Mn": "0.30~0.60",
+    "P": "≤0.04",
+    "S": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 1020 carbon steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1020",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 1020\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%201020",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 1020",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — AISI 1020 cold rolled steel",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=10b74ebc27344380ab16b1b69f1cffbb",
+      "verified": false
+    },
+    {
+      "label": "ASTM A29 / A29M — Carbon and Alloy Steel Bars",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      176.3,
+      283.8,
+      29.16,
+      210,
+      81.7,
+      51
+    ],
+    [
+      7.85,
+      233.7,
+      376.2,
+      39.24,
+      210,
+      108.3,
+      51
+    ],
+    [
+      7.85,
+      221.4,
+      356.40000000000003,
+      37.08,
+      210,
+      102.6,
+      51
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "meta": {
+    "row_count": 3,
+    "subcategory_variants": [
+      "Carbon Steel"
+    ],
+    "conditions": [
+      "As-Rolled",
+      "Cold Rolled",
+      "Hot Rolled"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A29",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 48,
+  "fatigue_strength": 200,
+  "density": 7.85,
+  "yield_strength": 350,
+  "uts": 510,
+  "elongation": 37.08,
+  "modulus": 205,
+  "hardness": 102.6,
+  "thermal_conductivity": 51,
+  "impact_strength": 48,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 1020 carbon steel",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 16,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1515,
+  "price_per_kg": 0.9,
+  "price_per_cm3": 0.0071,
+  "popularity": 5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 0.96,
+  "delivered_price_per_kg": 0.98,
+  "total_cost_estimate": 0.98,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1020 은 1018 보다 carbon 이 0.02% 더 높은 (0.18~0.23%) plain carbon steel 로, 1911년 SAE 표준 등재 이후 자동차 산업의 'general purpose carbon steel' baseline 으로 자리잡았어요. 1018 보다 σ_y 가 약 5% 높지만 용접성은 다소 낮습니다 (carbon equivalent CE 가 살짝 증가).\n\n응용 — 자동차 axle 단조 (rough forging blank), 농기계 shaft, 차고 도어 spring frame, 산업 펌프 base plate, 미국 ASME / API standard 의 pressure vessel raw stock, 콘크리트 reinforcing rebar (Grade 40 → 1020 변형). 가장 흔한 '강철' 그대로의 모습이라고 보면 됩니다.",
+  "story_refs": [
+    "SAE J403 \"Chemical Composition of SAE Carbon Steels\"",
+    "ASTM A29 \"Standard Specification for General Requirements for Steel Bars\"",
+    "Krauss G (2015) Steels: Processing, Structure, and Performance, ASM"
+  ],
+  "confidence_tier": "medium",
+  "industry_note": "UNS G10200 / DIN C22 / JIS S22C — plain low-carbon steel (C 0.18~0.23%). Cold drawn: σy ≈ 350 / UTS 420 / HB 121. Hot rolled: σy 205 / UTS 380 / El 25%. Plain carbon → PH/Aging 불가. Q+T 효과 미미 (low carbon). 가장 흔한 ASTM A29 carbon steel — 기계 부품, 볼트."
+}

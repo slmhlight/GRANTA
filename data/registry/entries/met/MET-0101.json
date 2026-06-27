@@ -1,0 +1,314 @@
+{
+  "stable_id": "MET-0101",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-cu-alloys-2xxx",
+    "alloy_base": "F-AB-aa-2014",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0441_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0441_1",
+  "name": "AA 2014 — T4",
+  "category": "Metal",
+  "subcategory": "Aluminum - Cu Alloys (2xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T4",
+  "ranges": {
+    "density": {
+      "min": 2.8,
+      "max": 2.8,
+      "typical": 2.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 290,
+      "max": 290,
+      "typical": 290,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 72,
+      "max": 72,
+      "typical": 72,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 192,
+      "max": 192,
+      "typical": 192,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 88,
+      "max": 112,
+      "typical": 100,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:2014 × HT:T4 solution + naturally aged (f×0.8, i×1.4)"
+    },
+    "impact_strength": {
+      "min": 7,
+      "max": 21,
+      "typical": 13,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:2014 × HT:T4 solution + naturally aged (f×0.8, i×1.4)"
+    },
+    "fracture_toughness": {
+      "min": 29.7,
+      "max": 29.7,
+      "typical": 29.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:T4 solution + naturally aged (k×1.35)"
+    },
+    "electrical_conductivity": {
+      "min": 38,
+      "max": 38,
+      "typical": 38,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2014"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2014"
+    },
+    "thermal_expansion": {
+      "min": 22.5,
+      "max": 22.5,
+      "typical": 22.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2014"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2014"
+    },
+    "specific_heat": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2014"
+    },
+    "melting_point": {
+      "min": 638,
+      "max": 638,
+      "typical": 638,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2014"
+    },
+    "price_per_kg": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2014"
+    },
+    "price_per_cm3": {
+      "min": 0.0126,
+      "max": 0.0126,
+      "typical": 0.0126,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2014"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.96,
+      "max": 4.96,
+      "typical": 4.96,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Cu": "3.9~5.0",
+    "Si": "0.5~1.2",
+    "Mg": "0.2~0.8",
+    "Mn": "0.4~1.2",
+    "Fe": "≤0.7",
+    "Zn": "≤0.25"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum 2014",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+2014",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2014",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "Aluminum Association T-Temper System / MMPDS-2018",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum 2014 Al-Cu-Si-Mg",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "MMPDS-08 — AA 2014 (T6/T651/T6510)",
+      "url": "https://www.mmpds.org/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.8,
+      290,
+      425,
+      20,
+      72,
+      105,
+      192
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "UNS A92014 / EN AW-2014 / AlCu4SiMg / DIN 3.1255 — heat-treatable Al-Cu-Si-Mg (Cu 3.9-5.0, Si 0.",
+  "meta": {
+    "reference": true,
+    "condition": "T4",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 29.7,
+  "fatigue_strength": 100,
+  "density": 2.8,
+  "yield_strength": 290,
+  "uts": 425,
+  "elongation": 20,
+  "modulus": 72,
+  "hardness": 105,
+  "thermal_conductivity": 192,
+  "impact_strength": 13,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Aluminum 2014",
+  "aliases": [
+    "UNS A92014",
+    "EN AW-2014",
+    "AlCu4SiMg"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Cu Alloys (2xxx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 38,
+  "max_service_temp": 150,
+  "thermal_expansion": 22.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 880,
+  "melting_point": 638,
+  "price_per_kg": 4.5,
+  "price_per_cm3": 0.0126,
+  "popularity": 3,
+  "machining_cost_factor": 0.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.05,
+  "delivered_price_per_kg": 4.96,
+  "total_cost_estimate": 3.97,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 414,
+      "uts": 483,
+      "E": 72
+    },
+    {
+      "temp": 100,
+      "ys": 380,
+      "uts": 450,
+      "E": 70
+    },
+    {
+      "temp": 200,
+      "ys": 180,
+      "uts": 220,
+      "E": 64
+    },
+    {
+      "temp": 300,
+      "ys": 60,
+      "uts": 90,
+      "E": 56
+    }
+  ],
+  "story": "AA 2014 는 1928년 미국 ALCOA (Aluminum Company of America) 의 alloy 14S 으로 개발 — Al-Cu-Si-Mg 합금 중 가장 강도가 높은 forge-grade Al alloy 였습니다. Cu 4.4% + Si 1.0% + Mg 0.5% + Mn 0.8% 의 조성에서 Cu 가 강도, Si 가 weldability (hot crack 완화), Mn 가 grain refinement 역할.\n\n역사 — 2차 대전 동안 미군 항공기 wing 구조 forging 의 standard 였어요. P-38 Lightning, P-51 Mustang, P-47 Thunderbolt 의 wing root / fuselage frame, 영국 RAF Spitfire 의 일부 frame. 전후엔 일반 항공으로 확산 — Cessna / Beechcraft / Piper 의 single-engine aircraft 의 main spar. 1960년대 AA 2024 와 7075 의 등장으로 점차 application 이 줄었지만, weldability 가 2024 보다 우수해 truck chassis / 군용 trailer 등 weld-fabrication 부품으로 잔존.\n\n현대 응용 — Howitzer / artillery 시스템의 carriage 구조 (M777 howitzer 의 sub-component), truck frame (heavy-duty military), tank suspension torsion bar housing (M1 Abrams 일부), 산악 자전거 일부 frame (Trek 2014-T6 spec model). 일반 산업 응용은 7075-T6 / 2024-T3 보다 적지만 forge-grade Al 에서 strength + weldability 균형이 필요한 응용에서 여전히 사용됩니다.\n\nHT — T4 (sol. + nat aged, σy 290) / T6 (sol. + art aged 170°C/10h, σy 415) / T651 (T6 + stretched). T6 strength 가 7075 보다 약간 낮지만 (415 vs 505 MPa) weldability 가 우수.",
+  "story_refs": [
+    "AMS 4127 (AA 2014 forging)",
+    "AMS 4029 (AA 2014 sheet)",
+    "ASM Handbook Vol.2 'Aluminum Cu Alloys 2xxx'",
+    "Hatch J E (ed., 1984) Aluminum: Properties and Physical Metallurgy"
+  ],
+  "confidence_tier": "high"
+}

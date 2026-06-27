@@ -1,0 +1,336 @@
+{
+  "stable_id": "MET-0896",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-grade-9-ti-3al-2-5v",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0015",
+  "origin": "reference(supplementary)",
+  "id": "R_0015",
+  "name": "Ti Grade 9 (Ti-3Al-2.5V)",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 4.48,
+      "max": 4.48,
+      "typical": 4.48,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 450,
+      "max": 585,
+      "typical": 500,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 590,
+      "max": 690,
+      "typical": 620,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 18,
+      "typical": 15,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 290,
+      "max": 320,
+      "typical": 300,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 210,
+      "max": 300,
+      "typical": 260,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 30,
+      "typical": 22,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ti-based"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti3al2.5v"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti3al2.5v"
+    },
+    "thermal_expansion": {
+      "min": 9.5,
+      "max": 9.5,
+      "typical": 9.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti3al2.5v"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti3al2.5v"
+    },
+    "specific_heat": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti3al2.5v"
+    },
+    "melting_point": {
+      "min": 1650,
+      "max": 1650,
+      "typical": 1650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti3al2.5v"
+    },
+    "price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti3al2.5v"
+    },
+    "price_per_cm3": {
+      "min": 0.224,
+      "max": 0.224,
+      "typical": 0.224,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti3al2.5v"
+    },
+    "delivered_price_per_kg": {
+      "min": 52.5,
+      "max": 52.5,
+      "typical": 52.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Al": "2.5~3.5",
+    "V": "2~3",
+    "Fe": "≤0.25",
+    "O": "≤0.15"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Titanium Grade 9 (Ti-3Al-2.5V)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+9",
+      "verified": false
+    },
+    {
+      "label": "ASTM B338 / Aircraft Materials — Ti 3-2.5 (Grade 9)",
+      "url": "https://www.aircraftmaterials.com/data/titanium.html",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: MMPDS-2018 Titanium",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Smiths High Performance — Ti 3Al 2.5V (Grade 9) Technical Datasheet (AMS 4944 CWSR: UTS 860 / YS 725 / 신율 10% / E 100 GPa, PDF 직접 판독)",
+      "url": "https://www.smithshp.com/assets/pdf/titanium/ti3-al-2.5v-grade-9-titanium-english.pdf",
+      "verified": true
+    },
+    {
+      "label": "AZoM — Grade 9 Ti-3Al-2.5V (UNS R56320) (annealed: YS 530 / UTS 620 / 신율 20% / E 100 GPa, ASTM·AMS 목록)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=9337",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.48,
+      500,
+      620,
+      15,
+      100,
+      300,
+      8.3
+    ],
+    [
+      4.48,
+      450,
+      590,
+      18,
+      100,
+      290,
+      8.3
+    ],
+    [
+      4.48,
+      585,
+      690,
+      15,
+      100,
+      320,
+      8.3
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 4944",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM B338",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS R56320",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 260,
+  "density": 4.48,
+  "yield_strength": 500,
+  "uts": 620,
+  "elongation": 15,
+  "modulus": 100,
+  "hardness": 300,
+  "thermal_conductivity": 8.3,
+  "impact_strength": 22,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Titanium Grade 9 (Ti-3Al-2.5V)",
+  "aliases": [
+    "Ti-3Al-2.5V",
+    "UNS R56320",
+    "ASTM Grade 9",
+    "GB TC9"
+  ],
+  "families": [
+    "Metal",
+    "Titanium",
+    "Titanium-based"
+  ],
+  "electrical_conductivity": 2,
+  "max_service_temp": 315,
+  "thermal_expansion": 9.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 540,
+  "melting_point": 1650,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.224,
+  "popularity": 3,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 52.5,
+  "total_cost_estimate": 47.25,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 620,
+      "uts": 700,
+      "E": 100
+    },
+    {
+      "temp": 200,
+      "ys": 480,
+      "uts": 580,
+      "E": 95
+    },
+    {
+      "temp": 300,
+      "ys": 380,
+      "uts": 480,
+      "E": 90
+    }
+  ],
+  "story": "Ti Grade 9 (Ti-3Al-2.5V, UNS R56320) 는 1960년대 미국 Titanium Metals Corporation (TIMET) 이 Ti-6Al-4V (Grade 5) 와 CP-Ti 사이의 'medium-strength weldable Ti' 로 개발한 α+β alloy 입니다. Al 3% + V 2.5% 의 조성이 cold-formability + welding 가능성을 보존하면서 CP-Ti 보다 약 50% 강도를 얻어요.\n\n응용 — Mountain bike / racing bike frame 의 high-end model. 1985년 미국 Litespeed 가 첫 Ti Gr9 bicycle frame 을 출시했고 1990-2000년대 Lynskey, Moots, Seven Cycles, Eriksen 의 hand-built frame 의 표준이 됐어요. 항공기 hydraulic line + fuel line tubing (Boeing 737 / Airbus A320 의 일부 sub-system), aerospace seamless tubing (AMS 4943 / 4944), medical surgical instrument (orthopedic drill bit).\n\n특이점은 cold-formability — CP-Ti 와 비슷한 cold-bend 가 가능하면서 (mandrel 직경 4t bend pass), Ti-6Al-4V 의 50% 강도를 얻는 점입니다. Wing spar 같은 high-stress 부품에는 부적합하지만, tubing / sheet / strut 같은 medium-stress + complex-form 부품에서 우위. 또 다른 특이점은 weldability — 6-4 보다 우수해 항공 sub-system tubing 의 welded joint 에 표준 사용됩니다.\n\nHT — Annealed (704-790°C / AC, σy 485 / σUTS 620 MPa, El 15%) 또는 STA (sol. + aged, σy 760 / σUTS 860 MPa, El 10%).",
+  "story_refs": [
+    "AMS 4943 / AMS 4944",
+    "ASTM B338",
+    "Donachie M J (2000) Titanium: A Technical Guide 2nd ed."
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,308 @@
+{
+  "stable_id": "MET-0959",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-s7-tool-steel",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0109",
+  "origin": "reference(supplementary)",
+  "id": "R_0109",
+  "name": "S7 tool steel",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (HRC 56-58, 940°C austenitize + 200°C temper)",
+  "ranges": {
+    "density": {
+      "min": 7.83,
+      "max": 7.83,
+      "typical": 7.83,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1380,
+      "max": 1550,
+      "typical": 1450,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1950,
+      "max": 2200,
+      "typical": 2100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 9,
+      "typical": 7,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 540,
+      "max": 580,
+      "typical": 560,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 507,
+      "max": 725,
+      "typical": 609,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:s7"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:s7"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 11.5,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:s7"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:s7"
+    },
+    "specific_heat": {
+      "min": 461,
+      "max": 461,
+      "typical": 461,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:s7"
+    },
+    "melting_point": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:s7"
+    },
+    "price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:s7"
+    },
+    "price_per_cm3": {
+      "min": 0.0626,
+      "max": 0.0626,
+      "typical": 0.0626,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:s7"
+    },
+    "delivered_price_per_kg": {
+      "min": 10.33,
+      "max": 10.33,
+      "typical": 10.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.45~0.55",
+    "Cr": "3~3.5",
+    "Mo": "1.3~1.8"
+  },
+  "sources": [
+    {
+      "label": "ASM — S7 shock-resisting tool steel (UNS T41907)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Bohler-Uddeholm COMPAX AISI S7 datasheet (composition, compressive yield, E, CTE, Charpy)",
+      "url": "https://www.lookpolymers.com/polymer_Bohler-Uddeholm-COMPAX-AISI-S7-MOLD-QUALITY-Cold-Work-Steel.php",
+      "verified": true
+    },
+    {
+      "label": "S7 (DIN 1.2357 / 50CrMoV13-1) composition + working/annealed hardness",
+      "url": "https://us.abrams-industries.com/steel/tool-steel/s7",
+      "verified": true
+    },
+    {
+      "label": "S7 shock-resisting tool steel technical data (composition, annealed HB, tempering)",
+      "url": "https://www.hudsontoolsteel.com/technical-data/steelS7",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.83,
+      1450,
+      2100,
+      7,
+      207,
+      560,
+      30
+    ],
+    [
+      7.83,
+      1380,
+      1950,
+      5,
+      207,
+      540,
+      30
+    ],
+    [
+      7.83,
+      1550,
+      2200,
+      9,
+      207,
+      580,
+      30
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "DIN 1.2357",
+        "org": "DIN"
+      },
+      {
+        "id": "UNS T41907",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 609,
+  "density": 7.83,
+  "yield_strength": 1450,
+  "uts": 2100,
+  "elongation": 7,
+  "modulus": 207,
+  "hardness": 560,
+  "thermal_conductivity": 30,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — S7 shock-resisting tool steel (UNS T41907)",
+  "aliases": [
+    "UNS T41907",
+    "S7 shock-resisting"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 461,
+  "melting_point": 1430,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0626,
+  "popularity": 3.07,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 10.33,
+  "total_cost_estimate": 10.33,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,399 @@
+{
+  "stable_id": "POL-0072",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide-gf",
+    "alloy_base": "F-AB-nylon-66-gf30",
+    "element_families": []
+  },
+  "legacy_id": "G_0183",
+  "origin": "generic(csv)",
+  "id": "G_0183",
+  "name": "Nylon 66 GF30 — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide GF",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.37,
+      "max": 1.37,
+      "typical": 1.37,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 141.1,
+      "max": 169,
+      "typical": 150.4,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 159.3,
+      "max": 190.8,
+      "typical": 169.8,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 5.74,
+      "max": 7.63,
+      "typical": 6.58,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 8.5,
+      "max": 8.5,
+      "typical": 8.5,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 122.9,
+      "max": 147.2,
+      "typical": 131,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "max_service_temp": {
+      "min": 55,
+      "max": 165,
+      "typical": 110,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 27.5,
+      "max": 82.5,
+      "typical": 55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0343,
+      "max": 0.1028,
+      "typical": 0.0685,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "DuPont/MatWeb — Nylon 66 (PA66)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+66",
+      "verified": false
+    },
+    {
+      "label": "BASF Ultramid PA66",
+      "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "DuPont Zytel PA66 (DTY)",
+      "url": "https://www.dupont.com/products/zytel-polyamide.html",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — PA66 general",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=a2e79a3469304d109aaf4cb22f3592d9",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.37,
+      150.35,
+      169.75,
+      7.49,
+      8.5,
+      130.95,
+      0.29
+    ],
+    [
+      1.37,
+      151.9,
+      171.5,
+      6.16,
+      8.5,
+      132.3,
+      0.29
+    ],
+    [
+      1.37,
+      147.25,
+      166.25,
+      7.35,
+      8.5,
+      128.25,
+      0.29
+    ],
+    [
+      1.37,
+      141.05,
+      159.25,
+      7.07,
+      8.5,
+      122.85,
+      0.29
+    ],
+    [
+      1.37,
+      168.95000000000002,
+      190.75,
+      6.23,
+      8.5,
+      147.15,
+      0.29
+    ],
+    [
+      1.37,
+      147.25,
+      166.25,
+      7.35,
+      8.5,
+      128.25,
+      0.29
+    ],
+    [
+      1.37,
+      150.35,
+      169.75,
+      6.090000000000001,
+      8.5,
+      130.95,
+      0.29
+    ],
+    [
+      1.37,
+      144.15,
+      162.75,
+      7.21,
+      8.5,
+      125.55,
+      0.29
+    ],
+    [
+      1.37,
+      168.95000000000002,
+      190.75,
+      7.630000000000001,
+      8.5,
+      147.15,
+      0.29
+    ],
+    [
+      1.37,
+      150.35,
+      169.75,
+      7.49,
+      8.5,
+      130.95,
+      0.29
+    ],
+    [
+      1.37,
+      142.6,
+      161,
+      5.74,
+      8.5,
+      124.2,
+      0.29
+    ],
+    [
+      1.37,
+      145.70000000000002,
+      164.5,
+      6.58,
+      8.5,
+      126.9,
+      0.29
+    ],
+    [
+      1.37,
+      142.6,
+      161,
+      5.74,
+      8.5,
+      124.2,
+      0.29
+    ],
+    [
+      1.37,
+      168.95000000000002,
+      190.75,
+      6.23,
+      8.5,
+      147.15,
+      0.29
+    ],
+    [
+      1.37,
+      168.95000000000002,
+      190.75,
+      6.23,
+      8.5,
+      147.15,
+      0.29
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon GF (FDM)"
+    ],
+    "conditions": [
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Impact Modified",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "moisture_24h": 2.8,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.37,
+  "yield_strength": 150.4,
+  "uts": 169.8,
+  "elongation": 6.58,
+  "modulus": 8.5,
+  "hardness": 131,
+  "thermal_conductivity": 0.29,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "DuPont/MatWeb — Nylon 66 (PA66)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Nylon GF (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 110,
+  "thermal_expansion": 90,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 55,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.0685,
+  "popularity": 5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 50,
+  "total_cost_estimate": 35,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1935년 2월 28일, DuPont 의 월리스 흄 캐러더스 (Wallace Hume Carothers) 가 Wilmington 실험실에서 hexamethylene diamine 과 adipic acid 를 reflux 시켜 처음 만든 polyamide 66 (HMDA + AA, 둘 다 carbon 6 → 66) — 인류 최초의 합성 섬유였어요. 'Nylon' 이라는 명칭은 DuPont 마케팅 부서가 'Nuron' (no-run, 올 풀림 없음) → 'Nilon' → 끝에 -on 을 붙인 형태로 합의됐고, 1939년 New York World's Fair 에서 'Nylons' (스타킹) 으로 데뷔하자마자 첫날 4백만 켤레가 매진됐다는 전설이 있죠.\n\n2차 대전 동안 모든 미군 낙하산이 nylon 66 (이전엔 silk) 으로 바뀌었고, 전후 1953년부터는 monomers 가 caprolactam (PA6, IG Farben 1938) 과 분리돼 PA66 (DuPont, BASF) / PA6 (Toray, Honeywell) 의 양강 구도로 자리잡았어요. 엔지니어링 grade 로는 σ_y 80 MPa, T_m 263°C — 자동차 인테이크 매니폴드 (Ford EcoBoost, Bosch), 라디에이터 엔드탱크 (Behr), 전기 커넥터 하우징 (TE Connectivity), 키친 식기, 산업 케이블 타이의 표준이 됐습니다. 흡수율 1.2% 에 따른 dimensional 변화가 한계이지만 GF30/35 강화 grade (Zytel 70G35) 가 그걸 보완해 줍니다.",
+  "story_refs": [
+    "Carothers W H (1938) US Patent 2,130,948 \"Diamine-dicarboxylic acid salt and process of preparing same\"",
+    "Hounshell D A & Smith J K (1988) Science and Corporate Strategy: DuPont R&D, 1902-1980, Cambridge UP",
+    "Kohan M I (1995) Nylon Plastics Handbook, Hanser",
+    "Smithsonian American History Museum \"Nylon: A Revolution in Textiles\" online exhibit"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Nylon 6/6 (Polyhexamethylene adipamide) — semi-crystalline thermoplastic. Tg (dry) ≈ 70°C, Tm ≈ 265°C, HDT (1.8 MPa) ≈ 90°C, max service 100-120°C. σy 70-85 / UTS 75-95 / El 20-60% / E 2.7-3.5 GPa / ρ 1.13-1.15 g/cc (dry-as-molded). 흡습률 3% → 강도 30% 감소 (DAM vs 50% RH). Notched Izod 50-110 J/m. 자동차 intake manifold, 라디에이터 end tank, gear, fastener, 전기 connector. GF30 grade → σy 150-180, E 8-9 GPa (보강재 사용 표준)."
+}

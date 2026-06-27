@@ -1,0 +1,203 @@
+{
+  "stable_id": "CMP-0030",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-metal-matrix",
+    "alloy_base": "F-AB-mmc",
+    "element_families": []
+  },
+  "legacy_id": "CMP_024",
+  "origin": "composites-data",
+  "id": "CMP_024",
+  "name": "MMC — Al 6061/SiC particulate (15 vol%)",
+  "category": "Composite",
+  "subcategory": "Metal-Matrix",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.85,
+      "max": 2.85,
+      "typical": 2.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 440,
+      "max": 440,
+      "typical": 440,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 90,
+      "max": 110,
+      "typical": 97,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:aa6061"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 18,
+      "typical": 12,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:aa6061"
+    },
+    "price_per_cm3": {
+      "min": 0.0998,
+      "max": 0.0998,
+      "typical": 0.0998,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Apps: 자동차 브레이크 디스크 (Lotus·F1), 우주 부품, 우주 거울 기재",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MC-21 DURALCAN Al/SiC MMC reference",
+      "url": "https://www.mc-21inc.com/",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.21 — Composite Materials",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/21/chapter-abstract/204993/Metal-Matrix-Composites",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "applications": "자동차 브레이크 디스크 (Lotus·F1), 우주 부품, 우주 거울 기재",
+    "limitations": "가공 어려움 (SiC 입자 마모), 용접 부적합",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 2.45,
+  "density": 2.85,
+  "yield_strength": 380,
+  "uts": 440,
+  "elongation": 5,
+  "modulus": 95,
+  "hardness": null,
+  "thermal_conductivity": 150,
+  "fatigue_strength": 97,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Apps: 자동차 브레이크 디스크 (Lotus·F1), 우주 부품, 우주 거울 기재",
+  "aliases": [
+    "15 vol%"
+  ],
+  "families": [
+    "Composite",
+    "Metal-Matrix"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 275,
+      "uts": 310,
+      "E": 68.9
+    },
+    {
+      "temp": 150,
+      "ys": 260,
+      "uts": 290,
+      "E": null
+    },
+    {
+      "temp": 200,
+      "ys": 210,
+      "uts": 235,
+      "E": 60
+    },
+    {
+      "temp": 300,
+      "ys": 40,
+      "uts": 60,
+      "E": 50
+    }
+  ],
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0998,
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "Aluminum Matrix Composite (MMC) — Al 6061 / 7075 / 2024 + SiC particulate (10-25 vol%). DURALCAN F3S.20S (Al-Si + 20% SiC). σy 380-500 / UTS 450-600 / El 1-5% (brittle increase with SiC) / E 95-120 GPa (Al 의 1.4×). 자동차 brake rotor (Porsche / Audi 일부 모델 — 6061 + 20% SiC, 50% weight reduction vs cast iron), 자전거 frame, F1 piston liner. ⚠ 가공 어려움 — PCD (Diamond) tool 만 가능 (SiC particle → tool wear). 가격 일반 Al 의 5-10×."
+}

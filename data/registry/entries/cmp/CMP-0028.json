@@ -1,0 +1,199 @@
+{
+  "stable_id": "CMP-0028",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-honeycomb",
+    "alloy_base": "F-AB-honeycomb",
+    "element_families": []
+  },
+  "legacy_id": "CMP_023",
+  "origin": "composites-data",
+  "id": "CMP_023",
+  "name": "Honeycomb — Al 5052 (49 kg/m³)",
+  "category": "Composite",
+  "subcategory": "Honeycomb",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 0.048,
+      "max": 0.05,
+      "typical": 0.049,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "Hexcel HexWeb CR III 1/8-5052-.001 datasheet"
+    },
+    "yield_strength": {
+      "min": 0.62,
+      "max": 0.72,
+      "typical": 0.69,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 0.62,
+      "max": 0.72,
+      "typical": 0.69,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "Bare compression strength (W direction), ASTM C365"
+    },
+    "modulus": {
+      "min": 0.24,
+      "max": 0.28,
+      "typical": 0.26,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "ASTM C297 flatwise tension modulus"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 23,
+      "max": 23,
+      "typical": 23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 0.8,
+      "max": 0.8,
+      "typical": 0.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": {
+      "min": 20,
+      "max": 40,
+      "typical": 30,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:aa5052"
+    },
+    "price_per_cm3": {
+      "min": 0.0017,
+      "max": 0.0017,
+      "typical": 0.0017,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": [
+    [
+      "Aluminum (Al 5052-H39)",
+      "100"
+    ]
+  ],
+  "sources": [
+    {
+      "label": "Apps: 항공기 객실 바닥, 위성 패널, 자동차 충격 흡수",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Hexcel HexWeb Al / Nomex Honeycomb datasheet",
+      "url": "https://www.hexcel.com/Products/Aerospace/IHoneycomb",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook Vol.1 — Sandwich Structures",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/14/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "applications": "항공기 객실 바닥, 위성 패널, 자동차 충격 흡수",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 3.25,
+  "density": 0.049,
+  "yield_strength": 1.7,
+  "uts": 1.7,
+  "elongation": 0.8,
+  "modulus": 0.5,
+  "hardness": null,
+  "thermal_conductivity": 4,
+  "fatigue_strength": null,
+  "impact_strength": 30,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Apps: 항공기 객실 바닥, 위성 패널, 자동차 충격 흡수",
+  "aliases": [
+    "49 kg"
+  ],
+  "families": [
+    "Composite",
+    "Honeycomb"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 195,
+      "uts": 230
+    },
+    {
+      "temp": 100,
+      "ys": 185,
+      "uts": 220
+    },
+    {
+      "temp": 200,
+      "ys": 165,
+      "uts": 195
+    },
+    {
+      "temp": 300,
+      "ys": 70,
+      "uts": 95
+    }
+  ],
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0017,
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "Honeycomb sandwich core variants: • **Al 5052 (Hexcel HexWeb CR III)**: ρ 32-130 kg/m³, σc compression 0.5-9 MPa, σs shear 0.4-7 MPa, Tmax 200°C — 항공 floor panel, helicopter blade, 위성 truss. • **Nomex (DuPont aramid honeycomb HRH-10)**: ρ 32-144 kg/m³, σc 0."
+}

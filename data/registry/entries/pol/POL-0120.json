@@ -1,0 +1,253 @@
+{
+  "stable_id": "POL-0120",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-ptfe",
+    "alloy_base": "F-AB-pctfe",
+    "element_families": []
+  },
+  "legacy_id": "R_0177",
+  "origin": "reference(supplementary)",
+  "id": "R_0177",
+  "name": "PCTFE",
+  "category": "Polymer",
+  "subcategory": "Polymer - PTFE",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.12,
+      "max": 2.12,
+      "typical": 2.12,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 32,
+      "max": 35,
+      "typical": 35,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 37,
+      "max": 40,
+      "typical": 40,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 100,
+      "max": 150,
+      "typical": 150,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 1.2,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.22,
+      "max": 0.22,
+      "typical": 0.22,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 200,
+      "typical": 175,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "price_per_cm3": {
+      "min": 0.0265,
+      "max": 0.0795,
+      "typical": 0.053,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PTFE"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "24.0",
+    "F": "76.0"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — PCTFE (Kel-F)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "3M Kel-F 81 PCTFE reference (legacy / Daikin Neoflon CTFE)",
+      "url": "https://www.daikin.com/",
+      "verified": false
+    },
+    {
+      "label": "ASTM D1430 — PCTFE Standard",
+      "url": "https://store.astm.org/d1430-13.html",
+      "verified": false
+    },
+    {
+      "label": "Daikin — NEOFLON PCTFE M-300H 데이터시트 (tds-m-300h-E)",
+      "url": "https://www.daikinchemicals.com/library/pb_common/pdf/tds/Fluoropolymers/NEOFLON_PCTFE/tds-m-300h-E_ver01_Mar_2018.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.12,
+      35,
+      40,
+      150,
+      1.3,
+      0,
+      0.22
+    ],
+    [
+      2.12,
+      32,
+      37,
+      100,
+      1.2,
+      0,
+      0.22
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": "PCTFE (Polychlorotrifluoroethylene, 3M Kel-F 81 legacy / Daikin Neoflon CTFE / Honeywell Aclar) — fluoropolymer with Cl substituent. Tg 80°C, Tm 215°C, max service 175°C continuous, **cryogenic -240°C 까지 ductile** (가장 wide-T fluoropolymer). σy 30-40 / UTS 35-45 / El 100-200% / E 1.3-1.5 GPa. Aerospace cryogenic O₂ / LH₂ valve seat (NASA Space Shuttle 엔진), 의약 blister pack (수분 차단 최고급 — Aclar PCTFE film), 화학 plant gauge window.",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM D1430",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "density": 2.12,
+  "yield_strength": 35,
+  "uts": 40,
+  "elongation": 150,
+  "modulus": 1.3,
+  "hardness": null,
+  "thermal_conductivity": 0.22,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Material datasheets — PCTFE (Kel-F)",
+  "aliases": [
+    "Kel-F",
+    "Polychlorotrifluoroethylene"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - PTFE"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.053,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,308 @@
+{
+  "stable_id": "MET-0786",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-aisi-430",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0264",
+  "origin": "generic(csv)",
+  "id": "G_0264",
+  "name": "AISI 430 — As-cast / forged (Wrought)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "As-cast / forged",
+  "ranges": {
+    "density": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 275,
+      "max": 302.5,
+      "typical": 302.5,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 415,
+      "max": 456.5,
+      "typical": 456.5,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 17,
+      "max": 19,
+      "typical": 19,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 187,
+      "max": 205.7,
+      "typical": 205.7,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 24.8,
+      "max": 24.8,
+      "typical": 24.8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 130,
+      "max": 195,
+      "typical": 163,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:430 × HT:as-cast/forged (no temper) (f×0.65, i×1.8)"
+    },
+    "impact_strength": {
+      "min": 72,
+      "max": 162,
+      "typical": 108,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:430 × HT:as-cast/forged (no temper) (f×0.65, i×1.8)"
+    },
+    "fracture_toughness": {
+      "min": 104,
+      "max": 104,
+      "typical": 104,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:as-cast/forged (no temper) (k×1.3)"
+    },
+    "electrical_conductivity": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:430"
+    },
+    "max_service_temp": {
+      "min": 815,
+      "max": 815,
+      "typical": 815,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:430"
+    },
+    "thermal_expansion": {
+      "min": 10.4,
+      "max": 10.4,
+      "typical": 10.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:430"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:430"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:430"
+    },
+    "melting_point": {
+      "min": 1480,
+      "max": 1480,
+      "typical": 1480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:430"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:430"
+    },
+    "price_per_cm3": {
+      "min": 0.0232,
+      "max": 0.0232,
+      "typical": 0.0232,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:430"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.15,
+      "max": 3.15,
+      "typical": 3.15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "0.12",
+    "Fe": "84",
+    "Cr": "16",
+    "Mn": "1",
+    "Si": "1"
+  },
+  "sources": [
+    {
+      "label": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
+      "url": "https://www.aksteel.com/our-products/stainless/430-stainless-steel",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 430\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20430",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — AISI 430 ferritic stainless",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — 430 Stainless Steel Annealed",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1e64ec5f25aa42caa0f86bd86dba0b50",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.75,
+      302.5,
+      456.50000000000006,
+      17,
+      200,
+      205.7,
+      24.8
+    ],
+    [
+      7.75,
+      275,
+      415,
+      19,
+      200,
+      187,
+      24.8
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 2,
+    "subcategory_variants": [
+      "Stainless Steel - Ferritic/Martensitic"
+    ],
+    "conditions": [
+      "As-Cast",
+      "As-Forged"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "UNS S43000",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 104,
+  "fatigue_strength": 163,
+  "density": 7.75,
+  "yield_strength": 302.5,
+  "uts": 456.5,
+  "elongation": 19,
+  "modulus": 200,
+  "hardness": 205.7,
+  "thermal_conductivity": 24.8,
+  "impact_strength": 108,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
+  "aliases": [
+    "UNS S43000",
+    "EN 1.4016",
+    "X6Cr17",
+    "JIS SUS430"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 3.5,
+  "max_service_temp": 815,
+  "thermal_expansion": 10.4,
+  "poisson_ratio": 0.3,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0232,
+  "popularity": 4.27,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.15,
+  "total_cost_estimate": 2.84,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "430 은 carbon 을 ≤ 0.12% 로 낮추고 Cr 16~18% 만 넣은 ferritic stainless 로, 410 의 cousin 이지만 성격이 완전히 다른 합금입니다. 가열-냉각해도 martensite 가 생기지 않아 항상 ferrite 100% — 그래서 'soft, ductile, weldable' stainless 가 되었고, 1929년 미국 ASTM 이 표준화했어요.\n\n430 의 매력은 가격입니다. 304 보다 약 30% 가격으로 mild 환경 부식 저항 + magnetic property + 우수한 deep drawing 의 균형을 얻을 수 있거든요. 응용 — 자동차 exhaust system muffler / catalytic converter housing (Toyota, 현대), kitchen sink (Kohler, 한국 대림), 가정용 dishwasher inner liner (LG, 삼성), 가전 inner panel (전자 oven), 식기 (cheap-end 식당 spoon, fork).\n\n단점은 Ni 가 없어 austenitic stainless 의 SCC + chloride 저항이 없다는 점 — 그래서 outdoor + chloride 환경에서는 여전히 304/316 이 필요합니다. 그래도 '인테리어 stainless' 시장의 80% 가 430 — 우리가 부엌에서 매일 만지는 stainless 의 대부분이 이 합금이에요.",
+  "story_refs": [
+    "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
+    "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
+    "Sedriks A J (1996) Corrosion of Stainless Steels, 2nd ed., Wiley"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — ferritic stainless (Cr 16-18, C ≤ 0.12). Cold-worked (H/H2): σy 275-400. Tmax 815°C continuous (oxidation), 870°C intermittent. Automotive trim, kitchen appliance, dishwasher interior, deep-drawing (가공성은 304보다 우수)."
+}

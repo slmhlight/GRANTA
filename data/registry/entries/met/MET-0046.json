@@ -1,0 +1,338 @@
+{
+  "stable_id": "MET-0046",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-aisi-52100-bearing",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0107",
+  "origin": "reference(supplementary)",
+  "id": "R_0107",
+  "name": "AISI 52100 (bearing)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.81,
+      "max": 7.81,
+      "typical": 7.81,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1600,
+      "max": 1900,
+      "typical": 1750,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1900,
+      "max": 2200,
+      "typical": 2050,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 2,
+      "typical": 1,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 660,
+      "max": 740,
+      "typical": 700,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 700,
+      "max": 1015,
+      "typical": 875,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 15,
+      "max": 30,
+      "typical": 22,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:52100 bearing"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "max_service_temp": {
+      "min": 408,
+      "max": 552,
+      "typical": 480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.455,
+      "max": 14.145,
+      "typical": 12.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "specific_heat": {
+      "min": 403.75,
+      "max": 546.25,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "melting_point": {
+      "min": 1210.4,
+      "max": 1637.6,
+      "typical": 1424,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "price_per_kg": {
+      "min": 3.4,
+      "max": 4.6,
+      "typical": 4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0265,
+      "max": 0.0359,
+      "typical": 0.0312,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.2,
+      "max": 4.2,
+      "typical": 4.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.98~1.1",
+    "Cr": "1.3~1.6",
+    "Mn": "0.25~0.45"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 52100 bearing steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+52100",
+      "verified": false
+    },
+    {
+      "label": "ASM — AISI 52100 bearing steel (UNS G52986, hardened)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: 52100 bearing",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — AISI 52100 bearing steel",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — AISI 52100 fully hardened bearing",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=4a25fc0eebbc4d8caef0d7d1bd6a4dad",
+      "verified": false
+    },
+    {
+      "label": "ASTM A295 — High-Carbon Bearing Steel",
+      "url": "https://store.astm.org/a0295_a0295m-20.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.81,
+      1750,
+      2050,
+      1,
+      210,
+      700,
+      45
+    ],
+    [
+      7.81,
+      1600,
+      1900,
+      1,
+      210,
+      660,
+      45
+    ],
+    [
+      7.81,
+      1900,
+      2200,
+      2,
+      210,
+      740,
+      45
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS G52986 / DIN 1.3505 / 100Cr6 / JIS SUJ2 / EN31 — high-C low-Cr bearing steel (C 0.95-1.10, Cr 1.30-1.60, Mn 0.25-0.45). 845°C oil Q + 150°C T (typical bearing temper): HRC 60-62, σy 1750 / UTS 2050. Fatigue σf 700-900 MPa (R=-1, 10^7), 우수한 wear / contact fatigue (rolling element bearing 표준 selection). Tmax 480°C (그 위에선 over-tempering 시작). 모든 rolling element bearing (ball, roller, taper) — 99% 가 52100. Through-hardened (no case).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A295",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS G52986",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 22,
+  "fatigue_strength": 875,
+  "density": 7.81,
+  "yield_strength": 1750,
+  "uts": 2050,
+  "elongation": 1,
+  "modulus": 210,
+  "hardness": 700,
+  "thermal_conductivity": 45,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 52100 bearing steel",
+  "aliases": [
+    "UNS G52986",
+    "DIN 1.3505",
+    "100Cr6",
+    "JIS SUJ2",
+    "EN31"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 480,
+  "thermal_expansion": 12.3,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1424,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.0312,
+  "popularity": 4.35,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4.2,
+  "total_cost_estimate": 4.2,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1700,
+      "uts": 2000,
+      "E": 210
+    },
+    {
+      "temp": 200,
+      "ys": 1500,
+      "uts": 1850,
+      "E": 200
+    },
+    {
+      "temp": 400,
+      "ys": 1100,
+      "uts": 1400,
+      "E": 180
+    }
+  ],
+  "story": "1898년 독일 SKF 의 창립자 스벤 빙크비스트 (Sven Wingquist) 가 ball bearing 의 표준 재료를 찾던 중 high-carbon chromium steel — 1% C + 1.5% Cr — 의 마법을 발견합니다. 후에 미국 AISI 가 52100 (UNS G52986) 으로 표준화한 합금이죠. quench + 160°C tempering 후 σ_UTS 2300 MPa + HRC 62 + 매우 낮은 inclusion 함량 — 회전 마찰 환경에서 '10⁹ cycle 의 무한 수명' 을 달성하는 합금입니다.\n\n응용은 정말 많아요. 모든 자동차의 wheel bearing (BMW, Toyota, 현대 자동차), 산업 모터의 deep groove ball bearing (SKF, FAG, Timken, NSK 의 표준 grade), 풍력 발전기의 main shaft bearing (Sumitomo MGB, Romax 의 표준), 컴퓨터 hard disk 의 spindle bearing (sealed for clean room operations), 산업 grinder spindle bearing 까지.\n\n흥미로운 진화가 있어요. 2000년대 들어 hybrid bearing — 외륜·내륜은 52100, 볼은 Si₃N₄ ceramic — 이 등장했죠. 이유는 5만 RPM 이상에서 ball 의 원심력으로 race 마모가 가속되는데, ceramic ball (3.2 g/cm³, 52100 의 40%) 이면 그 force 가 절반 이하가 되거든요. F1 의 엔진 spindle bearing, MTU 의 jet engine bearing, ASML 의 wafer scanner stage bearing 이 hybrid 입니다. 52100 자체는 100+ 년 동안 형상만 진화하고 조성은 그대로 — '한 합금이 그만큼 완벽' 한 셈이죠.",
+  "story_refs": [
+    "Voskamp A P (1985) \"Material Response to Rolling Contact Loading\", ASME J Trib 107",
+    "SAE J404 \"Chemical Compositions of SAE Alloy Steels\"",
+    "Bhadeshia H K D H (2012) \"Steels for Bearings\", Prog Mater Sci 57(2)",
+    "SKF Group \"Bearing Steels: 52100\" Tech Bulletin (2018)"
+  ],
+  "confidence_tier": "high"
+}

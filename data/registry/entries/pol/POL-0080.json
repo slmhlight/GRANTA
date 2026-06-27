@@ -1,0 +1,400 @@
+{
+  "stable_id": "POL-0080",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polycarbonate",
+    "alloy_base": "F-AB-pc",
+    "element_families": []
+  },
+  "legacy_id": "G_0170",
+  "origin": "generic(csv)",
+  "id": "G_0170",
+  "name": "PC — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polycarbonate",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 56.42,
+      "max": 67.58,
+      "typical": 60.14,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 59.15,
+      "max": 70.85,
+      "typical": 63.05,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 82,
+      "max": 109,
+      "typical": 94,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 2.3,
+      "max": 2.3,
+      "typical": 2.3,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 80.08,
+      "max": 95.92,
+      "typical": 85.36,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.2,
+      "max": 0.2,
+      "typical": 0.2,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "max_service_temp": {
+      "min": 57.5,
+      "max": 172.5,
+      "typical": 115,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "thermal_expansion": {
+      "min": 35,
+      "max": 105,
+      "typical": 70,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "glass_transition_temp": {
+      "min": 73.5,
+      "max": 220.5,
+      "typical": 147,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "price_per_kg": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "price_per_cm3": {
+      "min": 0.024,
+      "max": 0.072,
+      "typical": 0.048,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polycarbonate"
+    },
+    "delivered_price_per_kg": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "SABIC LEXAN PC",
+      "url": "https://www.sabic.com/en/products/specialties/lexan-resins",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"PC\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PC",
+      "verified": false
+    },
+    {
+      "label": "Covestro Makrolon PC datasheet",
+      "url": "https://solutions.covestro.com/en/products/makrolon",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Polycarbonate (PC) general",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=501acbb63cbc4f748faa7490884cdbca",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.2,
+      67.58,
+      70.85000000000001,
+      109,
+      2.3,
+      95.92,
+      0.2
+    ],
+    [
+      1.2,
+      67.58,
+      70.85000000000001,
+      89,
+      2.3,
+      95.92,
+      0.2
+    ],
+    [
+      1.2,
+      60.14,
+      63.05,
+      107,
+      2.3,
+      85.36,
+      0.2
+    ],
+    [
+      1.2,
+      60.76,
+      63.7,
+      88,
+      2.3,
+      86.24,
+      0.2
+    ],
+    [
+      1.2,
+      58.900000000000006,
+      61.75000000000001,
+      105,
+      2.3,
+      83.60000000000001,
+      0.2
+    ],
+    [
+      1.2,
+      56.42,
+      59.15,
+      101,
+      2.3,
+      80.08,
+      0.2
+    ],
+    [
+      1.2,
+      67.58,
+      70.85000000000001,
+      89,
+      2.3,
+      95.92,
+      0.2
+    ],
+    [
+      1.2,
+      58.900000000000006,
+      61.75000000000001,
+      105,
+      2.3,
+      83.60000000000001,
+      0.2
+    ],
+    [
+      1.2,
+      60.14,
+      63.05,
+      87.00000000000001,
+      2.3,
+      85.36,
+      0.2
+    ],
+    [
+      1.2,
+      57.66,
+      60.45,
+      103,
+      2.3,
+      81.84,
+      0.2
+    ],
+    [
+      1.2,
+      60.14,
+      63.05,
+      107,
+      2.3,
+      85.36,
+      0.2
+    ],
+    [
+      1.2,
+      57.04,
+      59.8,
+      82,
+      2.3,
+      80.96000000000001,
+      0.2
+    ],
+    [
+      1.2,
+      58.28,
+      61.1,
+      94,
+      2.3,
+      82.72,
+      0.2
+    ],
+    [
+      1.2,
+      57.04,
+      59.8,
+      82,
+      2.3,
+      80.96000000000001,
+      0.2
+    ],
+    [
+      1.2,
+      67.58,
+      70.85000000000001,
+      89,
+      2.3,
+      95.92,
+      0.2
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon (FDM/SLS)",
+      "Polymer - Photopolymer Resin (SLA)",
+      "Polymer - Polycarbonate"
+    ],
+    "conditions": [
+      "Impact Modified",
+      "Toughened",
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "V-2",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.15,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.2,
+  "yield_strength": 60.14,
+  "uts": 63.05,
+  "elongation": 94,
+  "modulus": 2.3,
+  "hardness": 85.36,
+  "thermal_conductivity": 0.2,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "SABIC LEXAN PC",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polycarbonate"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 115,
+  "thermal_expansion": 70,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 147,
+  "price_per_kg": 40,
+  "price_per_cm3": 0.048,
+  "popularity": 5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 40,
+  "total_cost_estimate": 28,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1953년 11월, 독일 Bayer 의 헤르만 슈넬 (Hermann Schnell) 이 phosgene + bisphenol-A 의 계면 중합으로 polycarbonate 를 발견합니다. 거의 동시에 미국 GE 의 다니엘 폭스 (Daniel Fox) — 1953년 12월 — 도 동일 polymer 를 다른 경로 (transesterification) 로 합성. 두 회사가 1955년 합의를 거쳐 Bayer 가 'Makrolon', GE 가 'Lexan' 으로 평행 상표 출시.\n\nPC 의 혁신은 Izod impact strength 600 J/m 의 절대적 내충격성 — glass 의 250배 — 와 92% 광 투과율의 조합이에요. 1962년 미 공군 F-4 Phantom 의 canopy 가 PMMA 에서 PC 로 전환되며 첫 무기체계 채택, 이후 1972년 동독 베를린 장벽의 watchtower bullet-proof glass, 1980년대 CD (compact disc, Philips/Sony) 의 substrate, 1990년대 baby bottle / water cooler bottle (BPA 논란 전), 2000년대 안전 헬멧 (NHTSA standard) / 자동차 헤드램프 외장 / 스마트폰 case 의 backbone 폴리머가 됐습니다. 단, BPA monomer 잔류 우려로 2011년 EU 와 캐나다가 baby bottle 사용을 금지했죠.",
+  "story_refs": [
+    "Schnell H (1956) DE Patent 971,790 (Bayer) \"Process for the production of high-molecular-weight thermoplastic polycarbonates\"",
+    "Brunelle D J & Korn M R (eds., 2005) Advances in Polycarbonates, ACS Symposium Series 898",
+    "Eaton R R & Crowther G P (2005) Bisphenol A: Health, Safety and the Environment, Wiley"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Polycarbonate (Lexan/Makrolon) — 비결정성 투명 thermoplastic. Tg ≈ 145°C, HDT (1.8 MPa) ≈ 130°C. σy 60-70 / UTS 60-72 / El 90-130% / E 2.2-2.4 GPa / ρ 1.20 g/cc. 90%+ 광투과율, refractive index 1.586. Notched Izod 600-900 J/m (가장 강한 thermoplastic 의 하나). 안전 헬멧·방탄·CD/DVD·의료 housing·자동차 헤드램프 렌즈. UV 노출 시 황변 — UV-stabilized grade 필요."
+}

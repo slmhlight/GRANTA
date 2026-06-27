@@ -1,0 +1,226 @@
+{
+  "stable_id": "POL-0044",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pet",
+    "alloy_base": "F-AB-pet-semi-crystalline",
+    "element_families": []
+  },
+  "legacy_id": "POL_035",
+  "origin": "polymers-data",
+  "id": "POL_035",
+  "name": "PET Semi-Crystalline — Engineering grade (Rynite/Arnite class)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PET",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.385,
+      "max": 1.385,
+      "typical": 1.385,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 67.5,
+      "max": 67.5,
+      "typical": 67.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 72.5,
+      "max": 72.5,
+      "typical": 72.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.93,
+      "max": 2.93,
+      "typical": 2.93,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.21,
+      "max": 0.21,
+      "typical": 0.21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 77.5,
+      "max": 77.5,
+      "typical": 77.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 106,
+      "max": 106,
+      "typical": 106,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 1.43,
+      "max": 1.43,
+      "typical": 1.43,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 74,
+      "max": 74,
+      "typical": 74,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 260,
+      "max": 260,
+      "typical": 260,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 84,
+      "max": 84,
+      "typical": 84,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PET"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PET"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PET"
+    },
+    "price_per_cm3": {
+      "min": 0.002,
+      "max": 0.002,
+      "typical": 0.002,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "62.5",
+    "H": "4.2",
+    "O": "33.3"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PET Semi-Crystalline",
+      "url": "https://www.ansys.com/products/materials/granta-mi",
+      "verified": true
+    },
+    {
+      "label": "Applications: 전기 connector, 자동차 wiper / grille, 산업 strapping, 식품 bottle, capacitor film",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "DuPont Rynite PET-GF technical datasheet",
+      "url": "https://www.dupont.com/products/rynite-pet-thermoplastic-polyester.html",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — PET Semi-Crystalline general",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PET",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 74,
+    "tm": 260,
+    "hdt_182": 84,
+    "moisture_24h": 0.15,
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "applications": "전기 connector, 자동차 wiper / grille, 산업 strapping, 식품 bottle, capacitor film",
+    "limitations": "가수분해 취약, brittle 저온 (<0°C), 사출 mold 어려움",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 1.385,
+  "yield_strength": 67.5,
+  "uts": 72.5,
+  "elongation": 35,
+  "modulus": 2.93,
+  "hardness": null,
+  "thermal_conductivity": 0.21,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PET Semi-Crystalline",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PET"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.002,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PET Semi-Crystalline 은 일반 PET (Whinfield-Dickson 1941) 의 가열-결정화 form 입니다. Amorphous PET (음료수 bottle 의 transparent form) 와 차이는 가공 시 결정화를 induce 해 (mold temperature 100-110°C, holding 후 분리) 결정도 30-40% 까지 올린 form 이에요. 결과적으로 σy 와 thermal stability 가 amorphous form 보다 우수.\n\nSemi-crystalline PET 특성: σy 70-90 MPa (amorphous 의 1.5배), modulus 3 GPa, El 30-50%, Tg 80°C, Tm 250-260°C, continuous use 120-140°C. 가공 cycle 이 amorphous PET 보다 길지만 결과 부품의 strength 와 dimensional stability 가 우수.\n\n응용: 자동차 wiring harness terminal (electrical connector pin housing), 가전 high-temp wire insulation, 의료 X-ray cassette 의 일부 grade, 산업 electrical insulator (변압기 + 모터 권선 사이의 layer insulator), 그리고 식품 처리 plant 의 일부 high-temp 부속. 음료 bottle 의 amorphous PET 와는 다른 응용 영역이고, semi-crystalline 의 응용은 PBT 와 일부 겹치지만 PBT 보다 가격이 약간 저렴해 commodity 응용에 적합. PA6-GF / PBT-GF 의 cheaper alternative 로 검토됩니다.",
+  "story_refs": [
+    "Whinfield J R & Dickson J T (1941) UK Patent 578,079",
+    "Brydson J A (1999) Plastics Materials 7th ed.",
+    "Mark H F (ed., 2014) Encyclopedia of Polymer Science and Technology Vol.7"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "PET (Polyethylene Terephthalate, semi-crystalline thermoplastic). Tg ≈ 75°C, Tm ≈ 245°C, HDT (1.8 MPa) ≈ 105°C unfilled, max service 100-130°C. Unfilled: σy 60-70 / UTS 60-75 / El 30-70% / E 2."
+}

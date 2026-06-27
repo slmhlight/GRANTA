@@ -1,0 +1,287 @@
+{
+  "stable_id": "MET-0581",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-783-low-cte-ni-co-superalloy",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0300_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0300_0",
+  "name": "Inconel 783 (Low-CTE Ni-Co superalloy) — Solution annealed (1120°C)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Inconel)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution annealed (1120°C)",
+  "ranges": {
+    "density": {
+      "min": 7.81,
+      "max": 7.81,
+      "typical": 7.81,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 800,
+      "max": 800,
+      "typical": 800,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16.6,
+      "max": 16.6,
+      "typical": 16.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 320,
+      "max": 440,
+      "typical": 384,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 45,
+      "max": 150,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy × HT:annealed (i×1.5)"
+    },
+    "fracture_toughness": {
+      "min": 98,
+      "max": 182,
+      "typical": 140,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general × HT:annealed (k×1.4)"
+    },
+    "electrical_conductivity": {
+      "min": 0.91,
+      "max": 1.69,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 630,
+      "max": 1170,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 9.1,
+      "max": 16.9,
+      "typical": 13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.21,
+      "max": 0.39,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 308,
+      "max": 572,
+      "typical": 440,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 945,
+      "max": 1755,
+      "typical": 1350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 42,
+      "max": 78,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.328,
+      "max": 0.6092,
+      "typical": 0.4686,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 78.75,
+      "max": 78.75,
+      "typical": 78.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "26~30",
+    "Co": "33~37",
+    "Fe": "24~28",
+    "Al": "5.0~6.0",
+    "Nb": "2.5~3.5",
+    "Cr": "2.5~3.5",
+    "Ti": "0.1~0.4"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-783.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals — Inconel 783 Technical Bulletin",
+      "url": "https://www.specialmetals.com/",
+      "verified": false
+    },
+    {
+      "label": "AMS 5953 — Inconel 783 bar/forging",
+      "url": "https://www.sae.org/standards/content/ams5953/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.81,
+      800,
+      1100,
+      25,
+      165,
+      320,
+      16.6
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS R30783 / Inconel 783 — controlled-expansion Ni-Co-Fe-Al γ' precipitation-strengthened superalloy (Ni 28, Co 34, Fe 27.5, Al 5.5, Cr 3.2, Nb 3.",
+  "meta": {
+    "reference": true,
+    "condition": "Solution annealed (1120°C)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5953",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 140,
+  "fatigue_strength": 384,
+  "density": 7.81,
+  "yield_strength": 800,
+  "uts": 1100,
+  "elongation": 25,
+  "modulus": 165,
+  "hardness": 320,
+  "thermal_conductivity": 16.6,
+  "impact_strength": 90,
+  "manufacturer": "PCC / Special Metals (Inconel)",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Cobalt-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 900,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 440,
+  "melting_point": 1350,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.4686,
+  "popularity": 2.3,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 78.75,
+  "total_cost_estimate": 204.75,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 30% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 37% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "medium"
+}

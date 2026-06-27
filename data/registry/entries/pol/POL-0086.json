@@ -1,0 +1,268 @@
+{
+  "stable_id": "POL-0086",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polycarbonate",
+    "alloy_base": "F-AB-polycarbonate-pc",
+    "element_families": []
+  },
+  "legacy_id": "R_0273",
+  "origin": "reference(supplementary)",
+  "id": "R_0273",
+  "name": "Polycarbonate (PC) — Injection-Molded",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polycarbonate",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection-Molded"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 55,
+      "max": 75,
+      "typical": 65,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 62,
+      "max": 80,
+      "typical": 70,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 80,
+      "max": 130,
+      "typical": 100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 2.4,
+      "max": 2.4,
+      "typical": 2.4,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 15,
+      "max": 21,
+      "typical": 18,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.2,
+      "max": 0.2,
+      "typical": 0.2,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polycarbonate"
+    },
+    "max_service_temp": {
+      "min": 57.5,
+      "max": 172.5,
+      "typical": 115,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polycarbonate"
+    },
+    "thermal_expansion": {
+      "min": 35,
+      "max": 105,
+      "typical": 70,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polycarbonate"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polycarbonate"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polycarbonate"
+    },
+    "glass_transition_temp": {
+      "min": 73.5,
+      "max": 220.5,
+      "typical": 147,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polycarbonate"
+    },
+    "price_per_kg": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polycarbonate"
+    },
+    "price_per_cm3": {
+      "min": 0.024,
+      "max": 0.072,
+      "typical": 0.048,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polycarbonate"
+    },
+    "delivered_price_per_kg": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "75.6",
+    "H": "5.5",
+    "O": "18.9"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Polycarbonate (PC)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Polycarbonate",
+      "verified": false
+    },
+    {
+      "label": "Sabic Lexan PC datasheet",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SABIC LEXAN PC resin technical guide",
+      "url": "https://www.sabic.com/en/products/specialties/lexan-resins",
+      "verified": true
+    },
+    {
+      "label": "Covestro Makrolon PC datasheet",
+      "url": "https://solutions.covestro.com/en/products/makrolon",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Polycarbonate (PC) general",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=501acbb63cbc4f748faa7490884cdbca",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.2,
+      65,
+      70,
+      100,
+      2.4,
+      18,
+      0.2
+    ],
+    [
+      1.2,
+      55,
+      62,
+      80,
+      2.4,
+      15,
+      0.2
+    ],
+    [
+      1.2,
+      75,
+      80,
+      130,
+      2.4,
+      21,
+      0.2
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Polycarbonate (Lexan/Makrolon) — 비결정성 투명 thermoplastic. Tg ≈ 145°C, HDT (1.8 MPa) ≈ 130°C. σy 60-70 / UTS 60-72 / El 90-130% / E 2.2-2.4 GPa / ρ 1.20 g/cc. 90%+ 광투과율, refractive index 1.586. Notched Izod 600-900 J/m (가장 강한 thermoplastic 의 하나). 안전 헬멧·방탄·CD/DVD·의료 housing·자동차 헤드램프 렌즈. UV 노출 시 황변 — UV-stabilized grade 필요.",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-2",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.15,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.2,
+  "yield_strength": 65,
+  "uts": 70,
+  "elongation": 100,
+  "modulus": 2.4,
+  "hardness": 18,
+  "thermal_conductivity": 0.2,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection-Molded",
+  "source": "MatWeb — Polycarbonate (PC)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polycarbonate"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 115,
+  "thermal_expansion": 70,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 147,
+  "price_per_kg": 40,
+  "price_per_cm3": 0.048,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 40,
+  "total_cost_estimate": 72,
+  "min_wall_thickness": 2,
+  "surface_finish_typical": 50,
+  "tolerance_class": "IT15",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

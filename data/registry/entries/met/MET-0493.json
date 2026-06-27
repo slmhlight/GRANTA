@@ -1,0 +1,297 @@
+{
+  "stable_id": "MET-0493",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-allvac-718plus-high-temp-718-variant",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0324_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0324_1",
+  "name": "Allvac 718Plus (high-temp 718 variant) — Sol. + Double-aged (full STA)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "ATI (Allegheny Technologies)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Sol. + Double-aged (full STA)",
+  "ranges": {
+    "density": {
+      "min": 8.28,
+      "max": 8.28,
+      "typical": 8.28,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1180,
+      "max": 1180,
+      "typical": 1180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 209,
+      "max": 209,
+      "typical": 209,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 410,
+      "max": 410,
+      "typical": 410,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11.4,
+      "max": 11.4,
+      "typical": 11.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 450,
+      "max": 620,
+      "typical": 535,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:inconel718"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 50,
+      "typical": 40,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:inconel718"
+    },
+    "electrical_conductivity": {
+      "min": 0.91,
+      "max": 1.69,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 650,
+      "max": 750,
+      "typical": 704,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 9.1,
+      "max": 16.9,
+      "typical": 13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.21,
+      "max": 0.39,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 308,
+      "max": 572,
+      "typical": 440,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 945,
+      "max": 1755,
+      "typical": 1350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 42,
+      "max": 78,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.3478,
+      "max": 0.6458,
+      "typical": 0.4968,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 91.35,
+      "max": 91.35,
+      "typical": 91.35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "17~21",
+    "Co": "8~10",
+    "Fe": "8~10",
+    "Nb": "5.2~5.8",
+    "Mo": "2.5~3.1",
+    "W": "0.8~1.4",
+    "Al": "1.2~1.7",
+    "Ti": "0.5~1.0"
+  },
+  "sources": [
+    {
+      "label": "Reference 2",
+      "url": "https://www.atimaterials.com",
+      "verified": false
+    },
+    {
+      "label": "ATI Allvac 718Plus (UNS N07818) Technical Bulletin",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/nickel-cobalt/Ni-Co-Cr-Mo-W/ati_718plus_alloy_data.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 5945 / 5946 — 718Plus bar/forging",
+      "url": "https://www.sae.org/standards/content/ams5945/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.28,
+      1180,
+      1430,
+      18,
+      209,
+      410,
+      11.4
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS N07818 / ATI Allvac 718Plus — Ni-base superalloy, Inconel 718 의 'modernized' 변종 (Ni 50-55, Cr 17-21, Fe ≤9, Co 8-10, Mo 2.5-3.1, W 0.8-1.4, Nb 5.4-5.8, Al 1.4-1.7, Ti 0.5-1.0). 718 의 γ'' precipitate + γ' precipitate (Co + W 첨가) → service temp 718 의 650°C → 718Plus 의 704°C 까지 상승. 항공 jet engine high-pressure turbine disc / shaft / casing. Cost 718 의 1.5×.",
+  "meta": {
+    "reference": true,
+    "condition": "Sol. + Double-aged (full STA)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5945",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS N07818",
+        "org": "UNS"
+      }
+    ]
+  },
+  "density": 8.28,
+  "yield_strength": 1180,
+  "uts": 1430,
+  "elongation": 18,
+  "modulus": 209,
+  "hardness": 410,
+  "thermal_conductivity": 11.4,
+  "fatigue_strength": 535,
+  "impact_strength": 40,
+  "manufacturer": "ATI (Allegheny Technologies)",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "high-temp 718 variant"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1100,
+      "uts": 1280
+    },
+    {
+      "temp": 540,
+      "ys": 1010,
+      "uts": 1150
+    },
+    {
+      "temp": 650,
+      "ys": 950,
+      "uts": 1110
+    },
+    {
+      "temp": 760,
+      "ys": 870,
+      "uts": 950
+    }
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 704,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 440,
+  "melting_point": 1350,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.4968,
+  "popularity": 2.37,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 91.35,
+  "total_cost_estimate": 164.43,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "medium"
+}

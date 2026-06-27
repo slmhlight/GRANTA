@@ -1,0 +1,326 @@
+{
+  "stable_id": "MET-0178",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-a356-alsi7mg",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0268",
+  "origin": "reference(supplementary)",
+  "id": "R_0268",
+  "name": "A356 (AlSi7Mg) — Cast T6 (Standard)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "T6",
+  "ranges": {
+    "density": {
+      "min": 2.68,
+      "max": 2.68,
+      "typical": 2.68,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 170,
+      "max": 240,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 250,
+      "max": 320,
+      "typical": 280,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 4,
+      "max": 9,
+      "typical": 6,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 72,
+      "max": 72,
+      "typical": 72,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 70,
+      "max": 82,
+      "typical": 75,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 151,
+      "max": 151,
+      "typical": 151,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 80,
+      "max": 120,
+      "typical": 100,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:alsi7mg"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 8,
+      "typical": 6,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:alsi7mg"
+    },
+    "fracture_toughness": {
+      "min": 19,
+      "max": 19,
+      "typical": 19,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi7mg"
+    },
+    "max_service_temp": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi7mg"
+    },
+    "thermal_expansion": {
+      "min": 21.5,
+      "max": 21.5,
+      "typical": 21.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi7mg"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi7mg"
+    },
+    "specific_heat": {
+      "min": 920,
+      "max": 920,
+      "typical": 920,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi7mg"
+    },
+    "melting_point": {
+      "min": 615,
+      "max": 615,
+      "typical": 615,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi7mg"
+    },
+    "price_per_kg": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi7mg"
+    },
+    "price_per_cm3": {
+      "min": 0.0241,
+      "max": 0.0241,
+      "typical": 0.0241,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi7mg"
+    },
+    "delivered_price_per_kg": {
+      "min": 11.25,
+      "max": 11.25,
+      "typical": 11.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Si": "6.5~7.5",
+    "Mg": "0.25~0.45",
+    "Fe": "≤0.2",
+    "Ti": "≤0.2"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum A356 / AlSi7Mg cast",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A356+aluminum",
+      "verified": false
+    },
+    {
+      "label": "A356-T6 / Aluminum Association Standards",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: EOS AlSi10Mg cast",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — A356 cast aluminum",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "Aluminum Association — Cast Designation A356",
+      "url": "https://www.aluminum.org/",
+      "verified": false
+    },
+    {
+      "label": "MatWeb — A356-T6 cast aluminum",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8e3ea3ec01d04bd1bcb3ea91a13e6f4f",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.68,
+      200,
+      280,
+      6,
+      72,
+      75,
+      151
+    ],
+    [
+      2.68,
+      170,
+      250,
+      4,
+      72,
+      70,
+      151
+    ],
+    [
+      2.68,
+      240,
+      320,
+      9,
+      72,
+      82,
+      151
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS A03560 / EN AC-42000 / AlSi7Mg / DIN AC-AlSi7Mg — 가장 흔한 cast aluminum (Si 6.5-7.5, Mg 0.25-0.45, Mn ≤ 0.35). 변종: A356 (sand cast, 0.20 Mg high), A356.2 (low Fe), B356 (low Cu). T6 (T7 (over-자동차 휠 (cast wheel), 엔진 블록 (V6), suspension control arm, mil aircraft structural cast. AlSi10Mg 와 거의 동등 (AM 의 AlSi10Mg ≈ casting 의 A356).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 19,
+  "fatigue_strength": 100,
+  "density": 2.68,
+  "yield_strength": 200,
+  "uts": 280,
+  "elongation": 6,
+  "modulus": 72,
+  "hardness": 75,
+  "thermal_conductivity": 151,
+  "impact_strength": 6,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "MatWeb — Aluminum A356 / AlSi7Mg cast",
+  "aliases": [
+    "AlSi7Mg",
+    "EN AC-42000",
+    "A356 (cast equiv.)"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Cast (3xx/4xx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 250,
+      "uts": 320
+    },
+    {
+      "temp": 150,
+      "ys": 200,
+      "uts": 260
+    },
+    {
+      "temp": 200,
+      "ys": 140,
+      "uts": 190
+    }
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 175,
+  "thermal_expansion": 21.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 920,
+  "melting_point": 615,
+  "price_per_kg": 9,
+  "price_per_cm3": 0.0241,
+  "popularity": 4.15,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 11.25,
+  "total_cost_estimate": 6.75,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "story": "A356 (또는 AlSi7Mg, EN AC-42100) 은 7% Si + 0.3% Mg 의 cast aluminum 합금입니다. 1929년 미국 Aluminum Company of America (현 Alcoa) 의 Junius Edwards 가 'Alcoa 356' 이라는 이름으로 출시했고, 이후 ASTM B26 / B108 의 표준 cast aluminum grade 가 됐어요. Si 7% 의 eutectic 첨가로 fluidity 가 우수하고 (Si 가 mold 내부 흐름을 도움), Mg 0.3% 가 Mg₂Si precipitate 로 시효 강화 메커니즘을 제공합니다.\n\nT6 시효 후 σy 220 MPa · UTS 275 MPa · El 8-10% — sand-cast 또는 permanent-mold cast aluminum 의 표준 strength 수준입니다. Cost ($3-5/kg) + machinability + weldability 의 균형이 우수해 고급 cast aluminum 의 'workhorse' 가 됐어요.\n\n응용: 자동차 cylinder head (Audi · BMW 의 일부 small-displacement engine 의 head), 자동차 wheel (저렴한 cast aluminum wheel — 1980년대 이후 대부분), 항공기 oxygen mask reservoir, 의료 portable ventilator 의 housing, 그리고 자동차 transmission 의 일부 casing (Toyota AISIN AA80 의 일부 grade). 더 고급 cast aluminum 합금은 A357 (Mg 0.7%, 더 높은 σy) 또는 A201 (Cu 4.5%, aerospace grade) 이고, 더 저렴한 commodity 는 A380 (Si 8% + Cu 3.5%, die-cast).",
+  "story_refs": [
+    "ASTM B26 / B108 \"Standard Specification for Aluminum-Alloy Sand / Permanent Mold Castings\"",
+    "Polmear I J et al. (2017) Light Alloys: Metallurgy of the Light Metals 5th ed., Butterworth-Heinemann",
+    "Aluminum Association \"Aluminum Casting Alloys\""
+  ],
+  "confidence_tier": "high"
+}

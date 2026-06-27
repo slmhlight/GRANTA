@@ -1,0 +1,235 @@
+{
+  "stable_id": "POL-0010",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-eva",
+    "alloy_base": "F-AB-eva",
+    "element_families": []
+  },
+  "legacy_id": "R_0191",
+  "origin": "reference(supplementary)",
+  "id": "R_0191",
+  "name": "EVA",
+  "category": "Polymer",
+  "subcategory": "Polymer - EVA",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 0.94,
+      "max": 0.94,
+      "typical": 0.94,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 6,
+      "max": 8,
+      "typical": 8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 14,
+      "max": 18,
+      "typical": 18,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 500,
+      "max": 700,
+      "typical": 700,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 0.015,
+      "max": 0.02,
+      "typical": 0.02,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - EVA"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - EVA"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - EVA"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - EVA"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - EVA"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - EVA"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - EVA"
+    },
+    "price_per_cm3": {
+      "min": 0.0118,
+      "max": 0.0353,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - EVA"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "68.5",
+    "H": "8.6",
+    "O": "22.8"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — ethylene-vinyl acetate",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Dow ELVAX EVA technical guide",
+      "url": "https://www.dow.com/en-us/market/mkt-packaging.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      0.94,
+      8,
+      18,
+      700,
+      0.02,
+      0,
+      0.3
+    ],
+    [
+      0.94,
+      6,
+      14,
+      500,
+      0.015,
+      0,
+      0.3
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Elastomer",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "EVA (Ethylene-Vinyl Acetate copolymer) — VA 함량 5-40% (lower = flexible HDPE-like, higher = flexible). Tg ≈ -45°C, Tm 65-100°C grade depend. σy 4-10 / UTS 8-25 / El 600-900% / E 0.01-0.1 GPa / Shore A 70-90. Shoe sole midsole (Nike Air Max), solar panel encapsulant (가장 흔한 PV cell encapsulation — Tedlar/EVA/glass laminate), 의료 IV bag, 식음료 hot-melt adhesive. 부유성 (수영장 noodle), foam 형성 가능.",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 0.94,
+  "yield_strength": 8,
+  "uts": 18,
+  "elongation": 700,
+  "modulus": 0.02,
+  "hardness": null,
+  "thermal_conductivity": 0.3,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Material datasheets — ethylene-vinyl acetate",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - EVA"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0235,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

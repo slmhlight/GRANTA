@@ -1,0 +1,209 @@
+{
+  "stable_id": "MET-0643",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-hafnium",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0140",
+  "origin": "reference(supplementary)",
+  "id": "R_0140",
+  "name": "Hafnium",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 13.31,
+      "max": 13.31,
+      "typical": 13.31,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 220,
+      "max": 270,
+      "typical": 240,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 415,
+      "max": 480,
+      "typical": 445,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 30,
+      "typical": 25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 78,
+      "max": 78,
+      "typical": 78,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 170,
+      "max": 195,
+      "typical": 180,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 23,
+      "max": 23,
+      "typical": 23,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 84,
+      "max": 120,
+      "typical": 101,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.2 Refractory)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Refractory"
+    },
+    "max_service_temp": {
+      "typical": 800,
+      "min": 700,
+      "max": 900,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Hf": "97~100",
+    "Zr": "≤3"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Hafnium Hf",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Hafnium",
+      "verified": false
+    },
+    {
+      "label": "ASTM B776 — hafnium (UNS R02001)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ATI Wah Chang Hafnium technical data",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/refractory/hafnium/ATI-Hafnium.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASTM B776 — Hafnium / Hafnium Alloy Bar/Wire",
+      "url": "https://store.astm.org/b0776-15.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      13.31,
+      240,
+      445,
+      25,
+      78,
+      180,
+      23
+    ],
+    [
+      13.31,
+      220,
+      415,
+      20,
+      78,
+      170,
+      23
+    ],
+    [
+      13.31,
+      270,
+      480,
+      30,
+      78,
+      195,
+      23
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "Pure Hafnium (Hf, UNS R02001) — refractory metal (Zr 동족, but ~600× higher neutron absorption cross-section). Tm 2233°C, ρ 13.31 g/cc, E 78 GPa. Tmax 800°C continuous (HfO₂ formation). 핵 reactor control rod (submarine reactor — Hf 의 thermal neutron capture σ ≈ 105 barn vs Zr 의 0.2 barn), 항공기 jet engine HP turbine vane (Re + Hf doped CMSX-4/10 SX), 플라즈마 cutting torch electrode tip.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B776",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS R02001",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 101,
+  "density": 13.31,
+  "yield_strength": 240,
+  "uts": 445,
+  "elongation": 25,
+  "modulus": 78,
+  "hardness": 180,
+  "thermal_conductivity": 23,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Pure Hafnium Hf",
+  "aliases": [
+    "Hf",
+    "UNS R02001"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "popularity": 1.8,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

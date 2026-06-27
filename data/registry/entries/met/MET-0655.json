@@ -1,0 +1,293 @@
+{
+  "stable_id": "MET-0655",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-niobium-1zr",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0237",
+  "origin": "reference(supplementary)",
+  "id": "R_0237",
+  "name": "Niobium-1Zr",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.6,
+      "max": 8.6,
+      "typical": 8.6,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 125,
+      "max": 140,
+      "typical": 140,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 220,
+      "max": 240,
+      "typical": 240,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 25,
+      "typical": 25,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 100,
+      "max": 110,
+      "typical": 105,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 75,
+      "max": 80,
+      "typical": 80,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 94,
+      "max": 126,
+      "typical": 110,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.46·UTS, low): soft Nb-1Zr ~0.46·UTS (refractory BCC, sparse)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 75,
+      "typical": 50,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "fracture_toughness": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "max_service_temp": {
+      "min": 1100,
+      "max": 1300,
+      "typical": 1200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "thermal_expansion": {
+      "min": 7.3,
+      "max": 7.3,
+      "typical": 7.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "poisson_ratio": {
+      "min": 0.4,
+      "max": 0.4,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "specific_heat": {
+      "min": 265,
+      "max": 265,
+      "typical": 265,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "melting_point": {
+      "min": 2477,
+      "max": 2477,
+      "typical": 2477,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "price_per_kg": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "price_per_cm3": {
+      "min": 1.032,
+      "max": 1.032,
+      "typical": 1.032,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "delivered_price_per_kg": {
+      "min": 126,
+      "max": 126,
+      "typical": 126,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Nb": "balance",
+    "Zr": "1"
+  },
+  "sources": [
+    {
+      "label": "ASM — Nb-1Zr niobium alloy (UNS R04251)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "WHS Sondermetalle — Data sheet Niobium (Nb, NbZr1): NbZr1 R04251 type3(reactor)/R04261 type4(commercial), Zr 0.8-1.0%·ASTM B392/B393/B394 명기",
+      "url": "https://www.whs-sondermetalle.de/images/pdf/Nb-Niobium.pdf",
+      "verified": true
+    },
+    {
+      "label": "CBMM/Niobium.tech — Nb and Nb-base Alloys 기술보고서: Nb-1Zr ρ 8.66 g/cm³·용융 2400°C·재결정·인장(σy/UTS) 거동 표/그래프",
+      "url": "https://niobium.tech/-/media/niobiumtech/attachments-biblioteca-tecnica/nt_the-physical-mechanical-and-irradiation-behavior-of-niobium-and-niobium-base-alloys.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.6,
+      140,
+      240,
+      25,
+      69,
+      80,
+      50
+    ],
+    [
+      8.6,
+      125,
+      220,
+      20,
+      69,
+      75,
+      50
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM B392",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS R04251",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 30,
+  "fatigue_strength": 110,
+  "density": 8.6,
+  "yield_strength": 140,
+  "uts": 240,
+  "elongation": 25,
+  "modulus": 105,
+  "hardness": 80,
+  "thermal_conductivity": 50,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — Nb-1Zr niobium alloy (UNS R04251)",
+  "aliases": [
+    "UNS R04251",
+    "Nb-1Zr"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal",
+    "Refractory"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 12,
+  "max_service_temp": 1200,
+  "thermal_expansion": 7.3,
+  "poisson_ratio": 0.4,
+  "specific_heat": 265,
+  "melting_point": 2477,
+  "price_per_kg": 120,
+  "price_per_cm3": 1.032,
+  "popularity": 2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 126,
+  "total_cost_estimate": 126,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

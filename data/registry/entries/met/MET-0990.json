@@ -1,0 +1,195 @@
+{
+  "stable_id": "MET-0990",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-zirconium-alloy",
+    "alloy_base": "F-AB-zircaloy-4-r60804",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0343_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0343_2",
+  "name": "Zircaloy-4 (R60804) — PWR fuel cladding — Partial RXA",
+  "category": "Metal",
+  "subcategory": "Zirconium Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Partial RXA",
+  "ranges": {
+    "density": {
+      "min": 6.56,
+      "max": 6.56,
+      "typical": 6.56,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 99.3,
+      "max": 99.3,
+      "typical": 99.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 21.5,
+      "max": 21.5,
+      "typical": 21.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 75,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Westinghouse Zircaloy-4"
+    },
+    "max_service_temp": {
+      "typical": 400,
+      "min": 350,
+      "max": 450,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Zr": "97.56~98.27",
+    "Sn": "1.20~1.70",
+    "Fe": "0.18~0.24",
+    "Cr": "0.07~0.13",
+    "O": "0.10~0.14"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.azom.com/article.aspx?ArticleID=7644",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "ASTM B353 / B811 PWR fuel cladding spec",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "Westinghouse Fuel Mechanical Properties Handbook",
+      "verified": true
+    },
+    {
+      "label": "ATI Wah Chang Zircaloy-2 / -4 reference",
+      "url": "https://www.atimaterials.com/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B350 — Zr Alloy Ingots / Bar (Zircaloy-2/-4)",
+      "url": "https://store.astm.org/b0350-20.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      6.56,
+      480,
+      600,
+      15,
+      99.3,
+      220,
+      21.5
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "Zircaloy-2 (UNS R60802, Zr-1.5Sn-0.15Fe-0.10Cr-0.",
+  "meta": {
+    "reference": true,
+    "condition": "Partial RXA",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B350",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 55,
+  "density": 6.56,
+  "yield_strength": 480,
+  "uts": 600,
+  "elongation": 15,
+  "modulus": 99.3,
+  "hardness": 220,
+  "thermal_conductivity": 21.5,
+  "fatigue_strength": 210,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [
+    "R60804"
+  ],
+  "families": [
+    "Metal",
+    "Zirconium Alloy"
+  ],
+  "popularity": 1.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

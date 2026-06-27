@@ -1,0 +1,397 @@
+{
+  "stable_id": "MET-0948",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-h13",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "C_0004",
+  "origin": "curated(material_db)",
+  "id": "C_0004",
+  "name": "H13 — Heat-Treated",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "curated",
+  "manufacturers": [
+    "EOS",
+    "GE Additive",
+    "Nikon SLM Solutions"
+  ],
+  "machines": [
+    "M290",
+    "M2 Series 5",
+    "SLM 280 PREC",
+    "SLM 280 PRIM (Argon)",
+    "SLM 280 PRIM (Nitrogen)",
+    "SLM 280 PROD"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Heat-Treated",
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1380,
+      "max": 1540,
+      "typical": 1485,
+      "n": 14,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1725,
+      "max": 1890,
+      "typical": 1840,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 11.5,
+      "typical": 9,
+      "n": 22,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 555,
+      "max": 570,
+      "typical": 560,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 28.6,
+      "max": 28.6,
+      "typical": 28.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 550,
+      "max": 690,
+      "typical": 620,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:h13"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 25,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:h13"
+    },
+    "fracture_toughness": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "thermal_expansion": {
+      "min": 12.5,
+      "max": 12.5,
+      "typical": 12.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "melting_point": {
+      "min": 1427,
+      "max": 1427,
+      "typical": 1427,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "price_per_kg": {
+      "min": 5.5,
+      "max": 9,
+      "typical": 7,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Bohler W302 / Schmolz+Bickenbach H13 bar Q2 2026"
+    },
+    "price_per_cm3": {
+      "min": 0.0464,
+      "max": 0.0628,
+      "typical": 0.0546,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "4.75~5.50",
+    "Mo": "1.10~1.75",
+    "V": "0.80~1.20",
+    "Si": "0.80~1.20",
+    "C": "0.32~0.45"
+  },
+  "sources": [
+    {
+      "label": "Böhler-Uddeholm — H13 / W302 Tool Steel",
+      "url": "https://www.bohler.com/en/products/w302",
+      "verified": true
+    },
+    {
+      "label": "Nikon SLM H13 MDS 2026-02",
+      "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/MDS_H13_2026-02.1_EN.pdf",
+      "verified": true
+    },
+    {
+      "label": "EOS Tool Steels",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/tool-steel",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      1472.5,
+      1840,
+      10,
+      200,
+      555,
+      28.6
+    ],
+    [
+      7.8,
+      1485,
+      1815,
+      11.5,
+      200,
+      555,
+      28.6
+    ],
+    [
+      7.8,
+      1530,
+      1885,
+      9,
+      200,
+      560,
+      28.6
+    ],
+    [
+      7.8,
+      1540,
+      1890,
+      6,
+      200,
+      560,
+      28.6
+    ],
+    [
+      7.8,
+      1445,
+      1840,
+      10,
+      200,
+      555,
+      28.6
+    ],
+    [
+      7.8,
+      1485,
+      1850,
+      8,
+      200,
+      555,
+      28.6
+    ],
+    [
+      7.8,
+      1500,
+      1840,
+      9,
+      200,
+      570,
+      28.6
+    ],
+    [
+      7.8,
+      1495,
+      1815,
+      6,
+      200,
+      570,
+      28.6
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "applications": "Hot-work dies / Injection molds / Extrusion dies",
+    "magnetic": "ferromagnetic",
+    "melt_C": 1454,
+    "cte": 11.5,
+    "cp": 460,
+    "poisson": 0.3,
+    "vendor_count": 10,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "H13 tool steel"
+  },
+  "fracture_toughness": 30,
+  "fatigue_strength": 620,
+  "density": 7.8,
+  "yield_strength": 1485,
+  "uts": 1840,
+  "elongation": 9,
+  "modulus": 200,
+  "hardness": 560,
+  "thermal_conductivity": 28.6,
+  "impact_strength": 18,
+  "manufacturer": "EOS, GE Additive, Nikon SLM Solutions",
+  "process": "LPBF",
+  "source": "Böhler-Uddeholm — H13 / W302 Tool Steel",
+  "aliases": [
+    "DIN 1.2344",
+    "X40CrMoV5-1",
+    "JIS SKD61",
+    "KS STD61",
+    "AISI H13"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1380,
+      "uts": 1560,
+      "E": 210
+    },
+    {
+      "temp": 425,
+      "ys": 1100,
+      "uts": 1280,
+      "E": null
+    },
+    {
+      "temp": 540,
+      "ys": 900,
+      "uts": 1050,
+      "E": null
+    },
+    {
+      "temp": 650,
+      "ys": 600,
+      "uts": 720,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 540,
+  "thermal_expansion": 12.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1427,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0546,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 20,
+  "total_cost_estimate": 36,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "creep_rupture": [
+    {
+      "temp": 600,
+      "stress": 500,
+      "hours": 1000
+    },
+    {
+      "temp": 700,
+      "stress": 250,
+      "hours": 100
+    },
+    {
+      "temp": 700,
+      "stress": 180,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "high"
+}

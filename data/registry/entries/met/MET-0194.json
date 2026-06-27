@@ -1,0 +1,283 @@
+{
+  "stable_id": "MET-0194",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-6101",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "G_0028",
+  "origin": "generic(csv)",
+  "id": "G_0028",
+  "name": "AA 6101 — Annealed (Wrought)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 25,
+      "max": 40,
+      "typical": 28,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 80,
+      "max": 110,
+      "typical": 89,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 35,
+      "typical": 30,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 69,
+      "max": 69,
+      "typical": 69,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 22,
+      "max": 32,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 205,
+      "max": 226,
+      "typical": 218,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 26,
+      "max": 36,
+      "typical": 31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R σf≈0.35·UTS 재유도 (UTS 정정 후 stale 값 교체)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 54,
+      "typical": 30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based × HT:O (annealed soft, fallback derived from T6) (i×3)"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:O (annealed soft, fallback derived from T6) (k×2)"
+    },
+    "electrical_conductivity": {
+      "min": 57,
+      "max": 57,
+      "typical": 57,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6101"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6101"
+    },
+    "thermal_expansion": {
+      "min": 23.4,
+      "max": 23.4,
+      "typical": 23.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6101"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6101"
+    },
+    "specific_heat": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6101"
+    },
+    "melting_point": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6101"
+    },
+    "price_per_kg": {
+      "min": 3.1,
+      "max": 3.1,
+      "typical": 3.1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6101"
+    },
+    "price_per_cm3": {
+      "min": 0.0084,
+      "max": 0.0084,
+      "typical": 0.0084,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6101"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.32,
+      "max": 3.32,
+      "typical": 3.32,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Mg": "0.35~0.8",
+    "Si": "0.30~0.7",
+    "Fe": "≤0.50"
+  },
+  "sources": [
+    {
+      "label": "Aluminum Association — AA 6xxx (Al-Mg-Si) + MMPDS-08 Sec.3.6",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AA 6101\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%206101",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.7,
+      225.6,
+      263.2,
+      13.16,
+      69,
+      79.9,
+      167
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 1,
+    "subcategory_variants": [
+      "Aluminum - Cu Alloys (2xxx)"
+    ],
+    "conditions": [
+      "O (Annealed"
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 31,
+  "density": 2.7,
+  "yield_strength": 28,
+  "uts": 89,
+  "elongation": 30,
+  "modulus": 69,
+  "hardness": 25,
+  "thermal_conductivity": 218,
+  "impact_strength": 30,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 57,
+  "max_service_temp": 170,
+  "thermal_expansion": 23.4,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 3.1,
+  "price_per_cm3": 0.0084,
+  "popularity": 3.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.32,
+  "total_cost_estimate": 2.99,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "_corrections": {
+    "composition": {
+      "from": {
+        "Fe": "0.4",
+        "Si": "0.3",
+        "Cu": "0.05",
+        "Al": "98.5"
+      }
+    }
+  }
+}

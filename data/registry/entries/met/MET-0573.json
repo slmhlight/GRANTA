@@ -1,0 +1,385 @@
+{
+  "stable_id": "MET-0573",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-718plus",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0213",
+  "origin": "reference(supplementary)",
+  "id": "R_0213",
+  "name": "Inconel 718Plus",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Inconel)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "STA — Solution 954-982°C 1h + 2-stage Age (788°C 8h, FC to 704°C, hold 8h, AC)",
+  "ranges": {
+    "density": {
+      "min": 8.25,
+      "max": 8.25,
+      "typical": 8.25,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1050,
+      "max": 1100,
+      "typical": 1100,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1320,
+      "max": 1380,
+      "typical": 1380,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 14,
+      "max": 18,
+      "typical": 18,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 360,
+      "max": 380,
+      "typical": 380,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 450,
+      "max": 620,
+      "typical": 535,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 50,
+      "typical": 40,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718",
+      "min_spec_value": 27,
+      "min_spec_source": "AMS 5662 minimum (vs ASM 40 J typical)",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718plus"
+    },
+    "max_service_temp": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718plus"
+    },
+    "thermal_expansion": {
+      "min": 12.8,
+      "max": 12.8,
+      "typical": 12.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718plus"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718plus"
+    },
+    "specific_heat": {
+      "min": 435,
+      "max": 435,
+      "typical": 435,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718plus"
+    },
+    "melting_point": {
+      "min": 1336,
+      "max": 1336,
+      "typical": 1336,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718plus"
+    },
+    "price_per_kg": {
+      "min": 50,
+      "max": 95,
+      "typical": 70,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Special Metals SMC-045 IN718 bar 2026-Q2 (Ni base 100/lb avg)"
+    },
+    "price_per_cm3": {
+      "min": 0.4909,
+      "max": 0.6641,
+      "typical": 0.5775,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 83.74,
+      "max": 83.74,
+      "typical": 83.74,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "17~21",
+    "Co": "8~10",
+    "Fe": "8~10",
+    "Nb": "5.2~5.8",
+    "Mo": "2.5~3.1",
+    "W": "0.8~1.4",
+    "Al": "1.2~1.7",
+    "Ti": "0.5~1.0"
+  },
+  "sources": [
+    {
+      "label": "ATI Allvac — Inconel 718Plus (improved 718 with cobalt)",
+      "url": "https://www.atimaterials.com",
+      "verified": false
+    },
+    {
+      "label": "ATI 718Plus® Alloy Technical Data Sheet (UNS N07818, VERSION 1 2013)",
+      "url": "https://www.atimetals.com/products/718plus-alloy/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Special Metals SMC-045 Inconel 718",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ATI Allvac 718Plus (UNS N07818) Technical Bulletin",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/nickel-cobalt/Ni-Co-Cr-Mo-W/ati_718plus_alloy_data.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 5945 / 5946 — 718Plus bar/forging",
+      "url": "https://www.sae.org/standards/content/ams5945/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.25,
+      1100,
+      1380,
+      18,
+      207,
+      380,
+      11
+    ],
+    [
+      8.25,
+      1050,
+      1320,
+      14,
+      207,
+      360,
+      11
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS N07818 / ATI Allvac 718Plus — Ni-base superalloy, Inconel 718 의 'modernized' 변종 (Ni 50-55, Cr 17-21, Fe ≤9, Co 8-10, Mo 2.5-3.1, W 0.8-1.4, Nb 5.4-5.8, Al 1.4-1.7, Ti 0.5-1.0). 718 의 γ'' precipitate + γ' precipitate (Co + W 첨가) → service temp 718 의 650°C → 718Plus 의 704°C 까지 상승. 항공 jet engine high-pressure turbine disc / shaft / casing. Cost 718 의 1.5×.",
+  "meta": {
+    "reference": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Inconel 718",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5945",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS N07818",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 105,
+  "fatigue_strength": 535,
+  "density": 8.25,
+  "yield_strength": 1100,
+  "uts": 1380,
+  "elongation": 18,
+  "modulus": 207,
+  "hardness": 380,
+  "thermal_conductivity": 11,
+  "impact_strength": 40,
+  "manufacturer": "PCC / Special Metals (Inconel)",
+  "process": "Wrought",
+  "source": "ATI Allvac — Inconel 718Plus (improved 718 with cobalt)",
+  "aliases": [
+    "UNS N07818",
+    "ATI 718Plus"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.2,
+  "max_service_temp": 700,
+  "thermal_expansion": 12.8,
+  "poisson_ratio": 0.29,
+  "specific_heat": 435,
+  "melting_point": 1336,
+  "price_per_kg": 55,
+  "price_per_cm3": 0.5775,
+  "popularity": 5,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 83.74,
+  "total_cost_estimate": 217.72,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1100,
+      "uts": 1280,
+      "E": 200
+    },
+    {
+      "temp": 200,
+      "ys": 1050,
+      "uts": 1230,
+      "E": 192
+    },
+    {
+      "temp": 400,
+      "ys": 1020,
+      "uts": 1180,
+      "E": 178
+    },
+    {
+      "temp": 600,
+      "ys": 980,
+      "uts": 1110,
+      "E": 168
+    },
+    {
+      "temp": 650,
+      "ys": 950,
+      "uts": 1050,
+      "E": 162
+    },
+    {
+      "temp": 760,
+      "ys": 760,
+      "uts": 850,
+      "E": 145
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 650,
+      "stress": 700,
+      "hours": 100
+    },
+    {
+      "temp": 650,
+      "stress": 620,
+      "hours": 1000
+    },
+    {
+      "temp": 650,
+      "stress": 540,
+      "hours": 10000
+    },
+    {
+      "temp": 700,
+      "stress": 480,
+      "hours": 1000
+    },
+    {
+      "temp": 760,
+      "stress": 410,
+      "hours": 100
+    },
+    {
+      "temp": 760,
+      "stress": 310,
+      "hours": 1000
+    }
+  ],
+  "story": "2000년 미국 Allvac (현 ATI Allvac) 의 카오 웨이디 (Wei-Di Cao) 가 Inconel 718 (1959) 의 한계 — 700°C 이상에서 γ\" 가 가속 coarsening 으로 강도 손실 — 을 풀려고 시도한 합금이 718Plus 입니다. 718 의 Nb 5% + Mo 3% 에 Al 1.5% + Ti 0.7% + Co 9% 를 더해 γ\" + γ' 의 dual-precipitate 구조를 만들었어요. 결과 — 718 의 응고 균열 저항을 유지하면서 사용 온도를 50~100°C 끌어올린 (740°C 영역까지) 새 합금이 됐죠.\n\n응용 — Pratt & Whitney F135 (F-35) 의 일부 component, GE LEAP-1A 의 일부 hot section (FOD 보호 위치), Rolls-Royce Trent XWB 의 일부 disc — 모든 차세대 엔진의 718 대체 후보로 자리잡았어요. 우주 — NASA Artemis Orion 의 일부 thermal-cycling component, SpaceX Raptor 의 일부 injector.\n\n흥미. 718Plus 는 'evolution by alloying' 의 모범 예입니다. 718 (1959) → IN-718Plus (2000) → AD730 (2010, French ONERA) → 차세대 candidate (2020+) 의 진화 계보가 있는데, 모두 'γ\" 가속 coarsening' 이라는 한 가지 mechanism 을 풀어내는 시도들이에요. 한 합금의 한 가지 한계가 60년에 걸쳐 4~5 세대의 변형을 만들어내는 흥미로운 합금 가족이죠.",
+  "story_refs": [
+    "Cao W D & Kennedy R L (2004) \"Role of Chemistry in 718-type Alloys – Allvac 718Plus Alloy Development\", Superalloys 2004",
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP",
+    "ATI Allvac \"Allvac 718Plus Alloy Technical Data\" (2014)"
+  ],
+  "confidence_tier": "high"
+}

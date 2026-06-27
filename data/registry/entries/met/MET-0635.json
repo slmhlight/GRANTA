@@ -1,0 +1,280 @@
+{
+  "stable_id": "MET-0635",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-rail-steel",
+    "alloy_base": "F-AB-r260-rail-steel-uic-860-en-13674-1",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0369_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0369_2",
+  "name": "R260 Rail Steel (UIC 860 / EN 13674-1) — railway head — Premium HP HHT (heavy haul)",
+  "category": "Metal",
+  "subcategory": "Rail Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Premium HP HHT (heavy haul)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1175,
+      "max": 1175,
+      "typical": 1175,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 370,
+      "max": 370,
+      "typical": 370,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 528.75,
+      "max": 528.75,
+      "typical": 528.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:BS EN 13674 Rail"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.1,
+      "max": 2.1,
+      "typical": 2.1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.62~0.80",
+    "Mn": "0.70~1.20",
+    "Si": "0.15~0.58",
+    "P": "≤0.025",
+    "S": "≤0.025"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.en-standard.eu/csn-en-13674-1-railway-applications-track-rail-part-1-vignole-railway-rails-46-kg-m-and-above/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: BS EN 13674 Rail",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      650,
+      1175,
+      9,
+      207,
+      370,
+      50
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UIC 860 / EN 13674-1 standard rail head, profiles 60E1 / 60E2 / 54E1; KORAIL / DB / SNCF / JR mainline; surface RCF (rolling-contact fatigue) life governed by HHT depth ≥15 mm.",
+  "meta": {
+    "reference": true,
+    "condition": "Premium HP HHT (heavy haul)",
+    "specs": [
+      {
+        "id": "EN 13674-1",
+        "org": "EN"
+      },
+      {
+        "id": "EN 13674",
+        "org": "EN"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "density": 7.85,
+  "yield_strength": 650,
+  "uts": 1175,
+  "elongation": 9,
+  "modulus": 207,
+  "hardness": 370,
+  "thermal_conductivity": 50,
+  "fatigue_strength": 528.75,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [
+    "UIC 860",
+    "EN 13674-1"
+  ],
+  "families": [
+    "Metal",
+    "Rail Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.1,
+  "total_cost_estimate": 1.89,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1960년대 UIC (Union Internationale des Chemins de fer, 국제 철도 연합) 가 처음 standardize 한 합금. 이전엔 각 나라 (영국 BS 11, 미국 AREMA, 일본 JIS E1101) 의 rail steel 이 다 달랐는데, EU 통합 + ISO 호환을 위해 1971년 UIC 860 코드로 통합됐어요. R260 (R = Rail, 260 = HBW typical 260) 이 mainline 의 default grade 가 됐습니다.\n\nR260 의 비결은 fully pearlitic 미세조직 + 충분한 carbon (0.60~0.82%) 이에요. 차륜과의 contact 영역에서 RCF (rolling contact fatigue, 회전 접촉 피로) 가 하루 100만 cycle 발생하는데, fine pearlite 가 그 cycle 을 millions 번 받아내면서도 표면이 work-hardening 으로 추가 강화됩니다.\n\n응용 — KTX / SRT 의 고속선 (시속 300+ km), TGV (프랑스), Shinkansen (일본), HSR (스페인 RENFE AVE), ICE (독일 DB) — 모든 고속 철도의 main line. 호주 BHP iron ore line (Pilbara, 38 t/axle 의 heavy-haul 표준), 미국 BNSF coal line, 중국 China Railway 의 trunk line … heavy-haul 영역은 R350HT (head-hardened, HBW 350) 으로 진화했지만 baseline 은 항상 R260. EU 의 EN 13674-1 표준이 글로벌 reference 가 되어 있어요.",
+  "story_refs": [
+    "EN 13674-1 (2017) \"Railway applications - Track - Rail - Part 1: Vignole railway rails 46 kg/m and above\"",
+    "Kalousek J & Magel E (2008) \"Optimising the wheel/rail system\", Railway Gazette Int",
+    "Cannon D F et al. (2003) \"Rail defects: an overview\", Fatigue Fract Eng Mater Struct 26(10)"
+  ],
+  "confidence_tier": "medium"
+}

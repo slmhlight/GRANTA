@@ -1,0 +1,352 @@
+{
+  "stable_id": "MET-0739",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-aisi-316l-wrought",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0003_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0003_1",
+  "name": "AISI 316L (Wrought) — Cold-worked (50% red.)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Cold-worked (50% red.)",
+  "ranges": {
+    "density": {
+      "min": 7.99,
+      "max": 7.99,
+      "typical": 7.99,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 690,
+      "max": 690,
+      "typical": 690,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 760,
+      "max": 760,
+      "typical": 760,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16.3,
+      "max": 16.3,
+      "typical": 16.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 240,
+      "max": 270,
+      "typical": 255,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:316l"
+    },
+    "impact_strength": {
+      "min": 100,
+      "max": 180,
+      "typical": 140,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:316l"
+    },
+    "fracture_toughness": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.3,
+      "max": 2.3,
+      "typical": 2.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "max_service_temp": {
+      "min": 870,
+      "max": 870,
+      "typical": 870,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "thermal_expansion": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "melting_point": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "price_per_kg": {
+      "min": 5.5,
+      "max": 7,
+      "typical": 6.2,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "LME nickel base 2026-Q2 avg $16,800/t + spec premium → 316L bar 약 $5.5-7/kg (varies by section)"
+    },
+    "price_per_cm3": {
+      "min": 0.0421,
+      "max": 0.0569,
+      "typical": 0.0495,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.58,
+      "max": 6.58,
+      "typical": 6.58,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "16~18",
+    "Ni": "10~14",
+    "Mo": "2~3",
+    "C": "≤0.03",
+    "Mn": "≤2",
+    "Si": "≤1"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — Stainless Steel 316L (1.4404)",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.aksteel.com/our-products/stainless/316-316L",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 316/316L",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Stainless Steel Type 316L (ELC)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — 316L Stainless Steel Annealed",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1336be6d0c594b55afb5ca8bf1f3e042",
+      "verified": false
+    },
+    {
+      "label": "ASTM F138 — Stainless Steel for Surgical Implants",
+      "url": "https://store.astm.org/f0138-19.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.99,
+      690,
+      760,
+      12,
+      200,
+      280,
+      16.3
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS S31603 / SUS316L / 1.4404 — 316 의 ELC (C ≤ 0.030%). Sensitization 회피 + Mo 보유 → 의료 임플란트 (ASTM F138 pacemaker / orthopedic), 반도체 super-clean, FPSO 표준. AM LPBF 의 가장 흔한 stainless. σy ≈ 170 / UTS ≈ 485 / El 40%.",
+  "meta": {
+    "reference": true,
+    "condition": "Cold-worked (50% red.)",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Stainless Steel 316L",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F138",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 200,
+  "fatigue_strength": 255,
+  "density": 7.99,
+  "yield_strength": 690,
+  "uts": 760,
+  "elongation": 12,
+  "modulus": 200,
+  "hardness": 280,
+  "thermal_conductivity": 16.3,
+  "impact_strength": 140,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Outokumpu — Stainless Steel 316L (1.4404)",
+  "aliases": [
+    "50% red.",
+    "UNS S31603",
+    "EN 1.4404",
+    "X2CrNiMo17-12-2",
+    "JIS SUS316L",
+    "KS STS316L",
+    "GB 022Cr17Ni12Mo2"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 290,
+      "uts": 580,
+      "E": 200
+    },
+    {
+      "temp": 300,
+      "ys": 190,
+      "uts": 480,
+      "E": null
+    },
+    {
+      "temp": 500,
+      "ys": 150,
+      "uts": 430,
+      "E": null
+    },
+    {
+      "temp": 600,
+      "ys": 140,
+      "uts": 360,
+      "E": 156
+    }
+  ],
+  "electrical_conductivity": 2.3,
+  "max_service_temp": 870,
+  "thermal_expansion": 16,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1400,
+  "price_per_kg": 5.8,
+  "price_per_cm3": 0.0495,
+  "popularity": 5,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.58,
+  "total_cost_estimate": 8.55,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 14% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "creep_rupture": [
+    {
+      "temp": 650,
+      "stress": 100,
+      "hours": 1000
+    },
+    {
+      "temp": 750,
+      "stress": 50,
+      "hours": 1000
+    },
+    {
+      "temp": 850,
+      "stress": 20,
+      "hours": 1000
+    }
+  ],
+  "story": "316L 은 1962년 미국 Combustion Engineering 이 316 (1929) 의 sensitization 문제 — 450~850°C 영역에서 Cr₂₃C₆ 가 입계에 석출해 IGC (입계 부식) 가 일어나는 — 를 풀려고 carbon 함량을 ≤ 0.03% 로 낮춘 ELC (Extra-Low-Carbon) 변형이에요. 316 의 marine + chloride 부식 저항을 유지하면서 용접 후 PWHT 없이 바로 service 가능한 합금이 된 거죠.\n\n응용은 정말 폭넓어요. 의료 — ASTM F138 ELC 316LVM (Vacuum Melted) 의 정형외과 nail / screw / plate, 외과 surgical instrument (Mayo Clinic 표준), pacemaker case. 화학 — 화학 plant 의 jacketed reactor + pump + valve, 펄프·종이 산업의 chemical pump (Goulds 3196 의 일부 grade). 식품 — 와인 발효조 (Mondavi, La Tâche), beer brewery (Heineken, Sapporo) 의 tank + piping. 해상 — FPSO 의 무수 수송관 + 해상 platform handrail. 반도체 — super-clean piping (EP-finished 316L, 표면 Ra < 0.4 μm — TSMC, 삼성 5 nm fab 의 process gas line).\n\nAM 에서도 인기 1순위. EOS 의 EOS Stainless Steel 316L, SLM Solutions, GE Additive Concept Laser 의 standard powder. 2010년대 들어 LPBF AM 의 가장 흔한 stainless powder 가 316L 이고, GE H-class 가스터빈의 후단 nozzle, NASA RAMPT 의 일부 cooling channel, 의료 임플란트 (FDA Class III orthopedic) 까지 폭넓게 쓰입니다.",
+  "story_refs": [
+    "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
+    "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
+    "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,251 @@
+{
+  "stable_id": "POL-0133",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-uhmwpe",
+    "alloy_base": "F-AB-uhmwpe",
+    "element_families": []
+  },
+  "legacy_id": "R_0145",
+  "origin": "reference(supplementary)",
+  "id": "R_0145",
+  "name": "UHMWPE",
+  "category": "Polymer",
+  "subcategory": "Polymer - UHMWPE",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Compression Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 0.94,
+      "max": 0.94,
+      "typical": 0.94,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 18,
+      "max": 25,
+      "typical": 21,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 35,
+      "max": 48,
+      "typical": 40,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 300,
+      "max": 450,
+      "typical": 350,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 0.6,
+      "max": 0.8,
+      "typical": 0.7,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.42,
+      "max": 0.42,
+      "typical": 0.42,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "price_per_cm3": {
+      "min": 0.0118,
+      "max": 0.0353,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "85.6",
+    "H": "14.4"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — UHMWPE",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "DSM Dyneema SK75/SK78/SK99 datasheet",
+      "url": "https://www.dsm.com/dyneema/en_US/home.html",
+      "verified": true
+    },
+    {
+      "label": "Honeywell Spectra fiber datasheet",
+      "url": "https://www.honeywell.com/us/en/products/services/spectra-fiber",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      0.94,
+      21,
+      40,
+      350,
+      0.7,
+      0,
+      0.42
+    ],
+    [
+      0.94,
+      18,
+      35,
+      300,
+      0.6,
+      0,
+      0.42
+    ],
+    [
+      0.94,
+      25,
+      48,
+      450,
+      0.8,
+      0,
+      0.42
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UHMWPE (Ultra-High Molecular Weight Polyethylene, MW > 3M Da). DSM Dyneema SK75/SK78/SK99, Honeywell Spectra 900/1000/2000. **Gel-spun + ultra-drawn** → 80-90% crystalline (vs HDPE 의 60%) → 가장 strong fiber/weight ratio. σf fiber 3.",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 0.94,
+  "yield_strength": 21,
+  "uts": 40,
+  "elongation": 350,
+  "modulus": 0.7,
+  "hardness": null,
+  "thermal_conductivity": 0.42,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Compression Molding",
+  "source": "Material datasheets — UHMWPE",
+  "aliases": [
+    "PE-UHMW",
+    "UHMW polyethylene"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Polyethylene"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0235,
+  "popularity": 2,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

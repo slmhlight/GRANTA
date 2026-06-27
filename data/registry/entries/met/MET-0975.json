@@ -1,0 +1,272 @@
+{
+  "stable_id": "MET-0975",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel-hot-work",
+    "alloy_base": "F-AB-aisi-h21-hot-work-tungsten-tool",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0381_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0381_0",
+  "name": "AISI H21 (Hot-Work Tungsten tool) — Annealed",
+  "category": "Metal",
+  "subcategory": "Tool Steel - Hot-Work",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 690,
+      "max": 690,
+      "typical": 690,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 27,
+      "max": 27,
+      "typical": 27,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 300,
+      "max": 540,
+      "typical": 420,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten × HT:spheroidized annealed (f×0.3, i×4)"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 32,
+      "typical": 16,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten × HT:spheroidized annealed (f×0.3, i×4)"
+    },
+    "fracture_toughness": {
+      "min": 17.6,
+      "max": 17.6,
+      "typical": 17.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:spheroidized annealed (k×2.2)"
+    },
+    "electrical_conductivity": {
+      "min": 31,
+      "max": 31,
+      "typical": 31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 650,
+      "typical": 600,
+      "n": 1,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "specific_heat": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "melting_point": {
+      "min": 3410,
+      "max": 3410,
+      "typical": 3410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_kg": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_cm3": {
+      "min": 0.581,
+      "max": 0.581,
+      "typical": 0.581,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "delivered_price_per_kg": {
+      "min": 74.97,
+      "max": 74.97,
+      "typical": 74.97,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.26~0.35",
+    "Cr": "3.0~3.75",
+    "W": "8.50~10.0",
+    "V": "0.30~0.60",
+    "Mn": "0.15~0.45",
+    "Si": "0.15~0.50"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20H21",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Bohler-Uddeholm H13",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AZoM — H21 Tool Steel (Tungsten Hot-Work) (조성+40~55 HRC+규격)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=6199",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.3,
+      690,
+      880,
+      16,
+      207,
+      240,
+      27
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Heavy forging die for hot-forged steel & superalloy (turbine disc preform), Al extrusion die mandrel, hot-header punch, hot-shear blade; 9% W maintains hot-hardness HV ≥ 400 to 650°C (vs H13 limit ~580°C).",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed"
+  },
+  "fracture_toughness": 17.6,
+  "fatigue_strength": 420,
+  "density": 8.3,
+  "yield_strength": 690,
+  "uts": 880,
+  "elongation": 16,
+  "modulus": 207,
+  "hardness": 240,
+  "thermal_conductivity": 27,
+  "impact_strength": 16,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Tool Steel - Hot-Work",
+    "Iron-based",
+    "Tool Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 31,
+  "max_service_temp": 1700,
+  "thermal_expansion": 4.5,
+  "poisson_ratio": 0.28,
+  "specific_heat": 135,
+  "melting_point": 3410,
+  "price_per_kg": 70,
+  "price_per_cm3": 0.581,
+  "popularity": 2.9,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 74.97,
+  "total_cost_estimate": 74.97,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

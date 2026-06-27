@@ -1,0 +1,274 @@
+{
+  "stable_id": "MET-0591",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-ma754-ods",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0225",
+  "origin": "reference(supplementary)",
+  "id": "R_0225",
+  "name": "MA754 (ODS)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Recrystallization Annealed (γ′-free, ODS strengthening)",
+  "ranges": {
+    "density": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 550,
+      "max": 585,
+      "typical": 585,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 920,
+      "max": 965,
+      "typical": 965,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 20,
+      "typical": 20,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 290,
+      "max": 300,
+      "typical": 300,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 368,
+      "max": 386,
+      "typical": 386,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Ni-based σf≈0.4·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "electrical_conductivity": {
+      "min": 0.91,
+      "max": 1.69,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 630,
+      "max": 1170,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 9.1,
+      "max": 16.9,
+      "typical": 13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.21,
+      "max": 0.39,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 308,
+      "max": 572,
+      "typical": 440,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 945,
+      "max": 1755,
+      "typical": 1350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 42,
+      "max": 78,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.3486,
+      "max": 0.6474,
+      "typical": 0.498,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 64.26,
+      "max": 64.26,
+      "typical": 64.26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "20",
+    "Fe": "≤1",
+    "Ti": "0.5",
+    "Al": "0.3"
+  },
+  "sources": [
+    {
+      "label": "Special Metals — MA754 oxide-dispersion-strengthened (UNS N07754)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals — INCONEL alloy MA754 공식 데이터시트 (Publication SMC-040, ©2004; 조성·물리물성·Young's modulus표·인장/응력파단 그래프, pdftotext 텍스트 추출 검증)",
+      "url": "http://specialmetals.ir/images/technical_info/nickel-base-alloy/Inconel-alloy-MA754.pdf",
+      "verified": true
+    },
+    {
+      "label": "LookPolymers (MatWeb 미러) — Special Metals INCONEL Alloy MA754: 조성·ρ 8.55·실온/550°C 인장(UTS 950/σy 570 MPa)·CTE 'Data provided by manufacturer Special Metals'",
+      "url": "https://www.lookpolymers.com/polymer_Special-Metals-INCONEL-Alloy-MA-754.php",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.3,
+      585,
+      965,
+      20,
+      150,
+      300,
+      13
+    ],
+    [
+      8.3,
+      550,
+      920,
+      15,
+      150,
+      290,
+      13
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS N07754",
+        "org": "UNS"
+      }
+    ]
+  },
+  "density": 8.3,
+  "yield_strength": 585,
+  "uts": 965,
+  "elongation": 20,
+  "modulus": 150,
+  "hardness": 300,
+  "thermal_conductivity": 13,
+  "fatigue_strength": 386,
+  "impact_strength": 60,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Special Metals — MA754 oxide-dispersion-strengthened (UNS N07754)",
+  "aliases": [
+    "UNS N07754",
+    "Alloy MA754 ODS"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 900,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 440,
+  "melting_point": 1350,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.498,
+  "popularity": 2.3,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 64.26,
+  "total_cost_estimate": 115.67,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

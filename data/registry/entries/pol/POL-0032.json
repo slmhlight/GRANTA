@@ -1,0 +1,295 @@
+{
+  "stable_id": "POL-0032",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pei-ultem",
+    "alloy_base": "F-AB-ultem-1010",
+    "element_families": []
+  },
+  "legacy_id": "POL_002",
+  "origin": "polymers-data",
+  "id": "POL_002",
+  "name": "ULTEM 1010 — Industrial Grade",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEI/ULTEM",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.27,
+      "max": 1.27,
+      "typical": 1.27,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 3.6,
+      "max": 3.6,
+      "typical": 3.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.22,
+      "max": 0.22,
+      "typical": 0.22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 11.7,
+      "max": 11.7,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "max_service_temp": {
+      "min": 180,
+      "max": 215,
+      "typical": 200,
+      "n": 1,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "price_per_kg": {
+      "min": 0.8,
+      "max": 0.8,
+      "typical": 0.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "glass_transition_temp": {
+      "min": 217,
+      "max": 217,
+      "typical": 217,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "specific_heat": {
+      "min": 481,
+      "max": 481,
+      "typical": 481,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "melting_point": {
+      "min": 1520,
+      "max": 1520,
+      "typical": 1520,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "price_per_cm3": {
+      "min": 0.001,
+      "max": 0.001,
+      "typical": 0.001,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "delivered_price_per_kg": {
+      "min": 0.8,
+      "max": 0.8,
+      "typical": 0.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "75.0",
+    "H": "4.1",
+    "N": "4.7",
+    "O": "16.2"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — ULTEM 1010",
+      "url": "https://www.sabic.com/en/products/specialties/ultem-resins/ultem-resin-1010",
+      "verified": true
+    },
+    {
+      "label": "Applications: FDA·NSF 인증 식품·의료 부품, 항공 인테리어, 전기 절연체",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SABIC ULTEM 1010 resin technical guide",
+      "url": "https://www.sabic.com/en/products/specialties/ultem-resins",
+      "verified": true
+    },
+    {
+      "label": "Stratasys ULTEM 1010 FDM material data",
+      "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/ultem-1010-resin/",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Ultem 1010 PEI Injection",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1a4f5c6e7f8a9b0c1d2e3f4a5b6c7d8e",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 217,
+    "tm": null,
+    "hdt_182": 200,
+    "moisture_24h": 0.25,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "applications": "FDA·NSF 인증 식품·의료 부품, 항공 인테리어, 전기 절연체",
+    "limitations": "Tg 217°C 부근 강도 급감, 일부 chlorinated solvent 에 약함",
+    "_r173_note_applied": true
+  },
+  "popularity": 4.15,
+  "density": 1.27,
+  "yield_strength": 110,
+  "uts": 110,
+  "elongation": 60,
+  "modulus": 3.6,
+  "hardness": null,
+  "thermal_conductivity": 0.22,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — ULTEM 1010",
+  "aliases": [
+    "PEI",
+    "ULTEM 1010",
+    "SABIC"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - PEI/ULTEM"
+  ],
+  "electrical_conductivity": 16,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 481,
+  "melting_point": 1520,
+  "price_per_kg": 0.8,
+  "price_per_cm3": 0.001,
+  "fracture_toughness": 65,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 0.8,
+  "total_cost_estimate": 1.04,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 110,
+      "uts": 110,
+      "E": 3.6
+    },
+    {
+      "temp": 100,
+      "ys": 95,
+      "uts": 95,
+      "E": 3.4
+    },
+    {
+      "temp": 150,
+      "ys": 75,
+      "uts": 75,
+      "E": 3
+    },
+    {
+      "temp": 200,
+      "ys": 35,
+      "uts": 35,
+      "E": 1.5
+    }
+  ],
+  "story": "ULTEM 1010 은 Sabic 의 PEI (Ultem 1000 series) 중 unfilled, transparent, high-purity grade 입니다. 의료 + 식품 contact 용으로 USP Class VI + ISO 10993 + FDA contact 인증을 받은 grade 이며, Stratasys 가 2014년 자사의 FDM 3D 프린팅 filament 로 채택해 'Ultem 1010' 이 항공 / 의료 AM 의 표준 high-temp 재료가 됐어요.\n\n특성: base Ultem 1000 과 거의 동일하지만 추가로 식품/의료 안전성 인증. Tg 217°C · σy 105 MPa · UTS 115 MPa · modulus 3.2 GPa · El 60-80%. Continuous use 170-180°C. Stratasys FDM print 결과는 부분적으로 anisotropic — Z-축 (build direction) 의 strength 가 X/Y 의 70% 정도.\n\n응용: Stratasys Fortus 450mc + Fortus 900mc 의 표준 high-temp filament. 항공기 ducting (커스텀 ducting 의 prototype + low-volume production), 의료 surgical guide + sterilizable instrument handle (autoclave + EtO + gamma 모두 가능), 자동차 motorsport prototype, 그리고 식품 처리 plant 의 일부 contact 부속. 가격은 Stratasys cartridge $300+ /kg 이라 일반 polymer 대비 매우 비싸지만 metal 대체 + custom geometry 가 가능한 게 매력. 비교 grade Ultem 9085 는 flame-retardant 인증으로 항공 cabin 응용 (FAR 25.853), 1010 은 식품/의료 인증으로 의료 응용에 특화.",
+  "story_refs": [
+    "Sabic Ultem 1010 Tech Data",
+    "Stratasys Ultem 1010 Material Data Sheet (verified 2024)",
+    "Aw J et al. (2018) \"FDM of Ultem 1010 for Medical Applications\", Rapid Prototyping J 24"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "ULTEM 1010 — Polyetherimide (PEI) homopolymer, unfilled. Tg ≈ 217°C, HDT (1.8 MPa) ≈ 213°C, **max service 200°C continuous** (σy 95-110 / UTS 105-110 / El 60-90% / E 3.2-3.6 GPa / ρ 1.27 g/cc. UL 94 V-0 자체 난연 (chemical structure 의 imide 그룹). 우수한 hydrolysis 저항 (repeat steam autoclave 가능). Stratasys FDM (1010 = 산업용, FAA Approved). 식품 접촉 (FDA), 의료 sterilizable, 반도체 wafer carrier, 항공 인테리어. 가공 시 380-410°C 압출 필요."
+}

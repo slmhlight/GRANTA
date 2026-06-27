@@ -1,0 +1,341 @@
+{
+  "stable_id": "MET-0734",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-aisi-316",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0211",
+  "origin": "generic(csv)",
+  "id": "G_0211",
+  "name": "AISI 316 — Strain-hardened (Wrought)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Strain-hardened",
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 515,
+      "max": 760,
+      "typical": 515,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 860,
+      "max": 1000,
+      "typical": 860,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 25,
+      "typical": 12,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 193,
+      "max": 193,
+      "typical": 193,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 230,
+      "max": 320,
+      "typical": 250,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16.3,
+      "max": 16.3,
+      "typical": 16.3,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 336,
+      "max": 378,
+      "typical": 357,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:316l × HT:cold worked (f×1.4, i×0.5)"
+    },
+    "impact_strength": {
+      "min": 50,
+      "max": 90,
+      "typical": 70,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:316l × HT:cold worked (f×1.4, i×0.5)"
+    },
+    "fracture_toughness": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:cold worked (k×0.65)"
+    },
+    "electrical_conductivity": {
+      "min": 2.3,
+      "max": 2.3,
+      "typical": 2.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316"
+    },
+    "max_service_temp": {
+      "min": 870,
+      "max": 870,
+      "typical": 870,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316"
+    },
+    "thermal_expansion": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316"
+    },
+    "melting_point": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316"
+    },
+    "price_per_kg": {
+      "min": 5.5,
+      "max": 5.5,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316"
+    },
+    "price_per_cm3": {
+      "min": 0.044,
+      "max": 0.044,
+      "typical": 0.044,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.24,
+      "max": 6.24,
+      "typical": 6.24,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "0.08",
+    "Fe": "68",
+    "Cr": "17",
+    "Ni": "10",
+    "Mo": "2.5",
+    "Mn": "2",
+    "Si": "1"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 316 stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+316+stainless",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 316\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20316",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Stainless Steel Type 316",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — 316 Stainless Steel Annealed",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=9a76c52a5c544eb5b4cd66f4d62ba2e6",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8,
+      176.3,
+      442.9,
+      32.4,
+      193,
+      186.62,
+      16.3
+    ],
+    [
+      8,
+      233.7,
+      587.0999999999999,
+      43.6,
+      193,
+      247.38,
+      16.3
+    ],
+    [
+      8,
+      221.4,
+      556.2,
+      41.2,
+      193,
+      234.36,
+      16.3
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 3,
+    "subcategory_variants": [
+      "Stainless Steel - Austenitic"
+    ],
+    "conditions": [
+      "As-Rolled",
+      "Cold Rolled",
+      "Hot Rolled"
+    ],
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 130,
+  "fatigue_strength": 357,
+  "density": 8,
+  "yield_strength": 515,
+  "uts": 860,
+  "elongation": 12,
+  "modulus": 193,
+  "hardness": 250,
+  "thermal_conductivity": 16.3,
+  "impact_strength": 70,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 316 stainless",
+  "aliases": [
+    "UNS S31600",
+    "EN 1.4401",
+    "X5CrNiMo17-12-2",
+    "JIS SUS316",
+    "KS STS316"
+  ],
+  "families": [
+    "Metal",
+    "Stainless - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 290,
+      "uts": 580
+    },
+    {
+      "temp": 300,
+      "ys": 190,
+      "uts": 480
+    },
+    {
+      "temp": 500,
+      "ys": 150,
+      "uts": 430
+    },
+    {
+      "temp": 600,
+      "ys": 140,
+      "uts": 360
+    }
+  ],
+  "electrical_conductivity": 2.3,
+  "max_service_temp": 870,
+  "thermal_expansion": 16,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1400,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.044,
+  "popularity": 5,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.24,
+  "total_cost_estimate": 8.11,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 10% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "1929년경, 304 의 한계 — 해수나 염수 환경에서의 부식 — 를 풀어보려는 시도가 미국과 독일에서 거의 동시에 이뤄집니다. 304 의 18-8 (Cr-Ni) 조성에 Mo 2~3% 를 추가하면 어떨까? 라는 발상이었죠. Mo 가 만드는 MoO₄²⁻ 음이온이 Cl⁻ 의 부동태 침투를 막아주는 게 핵심이었어요. 이렇게 등장한 AISI 316 은 60~80°C 의 염수 환경까지 안정적인 부식 저항을 보여 'Marine grade' 로 불리며 1934년 American Iron and Steel Institute (AISI) 첫 publication 에 등록되고, 이후 ASTM A240 표준에 등재됩니다.\n\n1960년대에 한 번 더 진화합니다. carbon 을 ≤0.03% 로 떨어뜨린 ELC (Extra Low Carbon) 변형 — 316L 이 표준화됐고, 용접 후 별다른 후처리 없이 바로 쓸 수 있는 합금으로 자리잡았어요. 입계 부식 (sensitization — Cr₂₃C₆ 의 grain boundary 석출) 위험이 거의 없어, 모든 용접 식품·화학·바이오 응용의 기준선이 됩니다.\n\n응용 범위가 정말 넓습니다. 해상 platform 의 hand-railing, 식품 가공 라인 (요리도구, 맥주 양조 탱크, 와인 발효조), 의료 임플란트 (ASTM F138 ELC 316LVM 정형외과 bone plate/screw), 펄프·종이 산업 펌프, FPSO seawater piping, 반도체 super-clean piping (EP polish Ra<0.4 μm). 2010년대 들어서는 AM (LPBF, EBM) 의 인기 분말 중 하나가 되어 GE Aviation 의 항공 부품, Stryker/Zimmer 의 의료 implant prototype, EOS·SLM Solutions 의 standard powder bed grade 까지 폭넓게 쓰입니다.",
+  "story_refs": [
+    "Pickering F B (1976) \"The Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2",
+    "ASM Handbook Vol.1A \"Properties and Selection: Irons, Steels and High-Performance Alloys\"",
+    "Mathy J (2001) \"Stainless Steels in Architecture\", Nickel Institute Publication"
+  ],
+  "confidence_tier": "medium",
+  "industry_note": "UNS S31600 / SUS316 / 1.4401 — 304 + 2~3% Mo. Cl⁻ 환경 내식성 비약 향상 (MoO4²⁻ 가 Cl⁻ 차단). σy ≈ 240 / UTS ≈ 550 / El 50% / KIC 150-200 (handbook). max service 870°C. Marine grade / 해상 platform / 식품·의료·FPSO·반도체 piping."
+}

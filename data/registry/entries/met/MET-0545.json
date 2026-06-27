@@ -1,0 +1,472 @@
+{
+  "stable_id": "MET-0545",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-100",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "G_0061",
+  "origin": "generic(csv)",
+  "id": "G_0061",
+  "name": "Inconel 100 — As-supplied (Cast)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "As-cast/forged (no temper)",
+  "ranges": {
+    "density": {
+      "min": 7.7,
+      "max": 7.8,
+      "typical": 7.75,
+      "n": 21,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 750,
+      "max": 950,
+      "typical": 850,
+      "n": 21,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 900,
+      "max": 1100,
+      "typical": 1010,
+      "n": 21,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 12,
+      "typical": 9,
+      "n": 21,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 220,
+      "typical": 215,
+      "n": 21,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 342,
+      "max": 414.2,
+      "typical": 364.8,
+      "n": 21,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 21,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 340,
+      "max": 460,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.4·UTS, medium): cast Ni superalloy 기공 defect-limited ~0.4·UTS"
+    },
+    "impact_strength": {
+      "min": 32,
+      "max": 47.2,
+      "typical": 40.4,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 44,
+      "max": 82.5,
+      "typical": 60.5,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Cast Ni superalloy × HT:as-cast (defect-limited) (k×1.1)"
+    },
+    "electrical_conductivity": {
+      "min": 0.91,
+      "max": 1.69,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 920,
+      "max": 1050,
+      "typical": 980,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 9.1,
+      "max": 16.9,
+      "typical": 13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.21,
+      "max": 0.39,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 308,
+      "max": 572,
+      "typical": 440,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1290,
+      "max": 1330,
+      "typical": 1310,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 42,
+      "max": 78,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.3255,
+      "max": 0.6045,
+      "typical": 0.465,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "10",
+    "Co": "15",
+    "Mo": "3",
+    "Al": "5.5",
+    "Ti": "4.7",
+    "V": "1",
+    "Zr": "0.06",
+    "C": "0.18",
+    "B": "0.014"
+  },
+  "sources": [
+    {
+      "label": "Howmet IN-100 + Special Metals — Inconel 100 (UNS N13100) cast γ' Ni superalloy datasheet",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/in-100.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Inconel 100\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20100",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.75,
+      1199,
+      1504.2,
+      8.72,
+      200,
+      414.2000000000001,
+      13
+    ],
+    [
+      7.75,
+      1242,
+      1305,
+      7.2,
+      200,
+      342,
+      13
+    ],
+    [
+      7.75,
+      1407.6,
+      1479,
+      7.36,
+      200,
+      387.6,
+      13
+    ],
+    [
+      7.75,
+      1504.2,
+      1580.5000000000002,
+      7.12,
+      200,
+      414.2000000000001,
+      13
+    ],
+    [
+      7.75,
+      1366.2,
+      1435.5,
+      8.72,
+      200,
+      376.2,
+      13
+    ],
+    [
+      7.75,
+      1255.8,
+      1319.5,
+      8.08,
+      200,
+      345.8,
+      13
+    ],
+    [
+      7.75,
+      1297.2,
+      1363,
+      8.32,
+      200,
+      357.20000000000005,
+      13
+    ],
+    [
+      7.75,
+      1242,
+      1305,
+      7.2,
+      200,
+      342,
+      13
+    ],
+    [
+      7.75,
+      1449,
+      1522.5,
+      6.800000000000001,
+      200,
+      399,
+      13
+    ],
+    [
+      7.75,
+      1352.4,
+      1421,
+      7.84,
+      200,
+      372.4,
+      13
+    ],
+    [
+      7.75,
+      1435.2,
+      1508,
+      7.52,
+      200,
+      395.2,
+      13
+    ],
+    [
+      7.75,
+      1324.8,
+      1392,
+      7.680000000000001,
+      200,
+      364.8,
+      13
+    ],
+    [
+      7.75,
+      1311,
+      1377.5,
+      8.4,
+      200,
+      361,
+      13
+    ],
+    [
+      7.75,
+      1297.2,
+      1363,
+      7.52,
+      200,
+      357.20000000000005,
+      13
+    ],
+    [
+      7.75,
+      1283.4,
+      1348.5,
+      7.44,
+      200,
+      353.40000000000003,
+      13
+    ],
+    [
+      7.75,
+      1449,
+      1522.5,
+      8.4,
+      200,
+      399,
+      13
+    ],
+    [
+      7.75,
+      1283.4,
+      1348.5,
+      7.44,
+      200,
+      353.40000000000003,
+      13
+    ],
+    [
+      7.75,
+      1490.4,
+      1566,
+      7.84,
+      200,
+      410.4,
+      13
+    ],
+    [
+      7.75,
+      1297.2,
+      1363,
+      7.52,
+      200,
+      357.20000000000005,
+      13
+    ],
+    [
+      7.75,
+      1255.8,
+      1319.5,
+      8.08,
+      200,
+      345.8,
+      13
+    ],
+    [
+      7.75,
+      1352.4,
+      1421,
+      7.84,
+      200,
+      372.4,
+      13
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 21,
+    "subcategory_variants": [
+      "Aluminum - Pure/Other",
+      "Nickel Superalloy"
+    ],
+    "conditions": [
+      "Stress Relief",
+      "Ni-10Co-13Cr-12.5Al-8.5Ti"
+    ],
+    "specs": [
+      {
+        "id": "UNS N13100",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 60.5,
+  "density": 7.75,
+  "yield_strength": 850,
+  "uts": 1010,
+  "elongation": 9,
+  "modulus": 215,
+  "hardness": 364.8,
+  "thermal_conductivity": 13,
+  "fatigue_strength": 400,
+  "impact_strength": 40.4,
+  "manufacturer": "Generic",
+  "process": "Cast",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 980,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 440,
+  "melting_point": 1310,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.465,
+  "popularity": 2.22,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 60,
+  "total_cost_estimate": 156,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 58% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "medium",
+  "fatigue_estimated": true
+}

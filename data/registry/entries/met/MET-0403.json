@@ -1,0 +1,265 @@
+{
+  "stable_id": "MET-0403",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c51900-phosphor-bronze-6sn-pb-1",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0421_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0421_0",
+  "name": "C51900 (Phosphor Bronze 6Sn, PB-1) — Annealed (Annealed)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought (cold-rolled strip)"
+  ],
+  "heat_treatment": "Annealed (Annealed)",
+  "ranges": {
+    "density": {
+      "min": 8.86,
+      "max": 8.86,
+      "typical": 8.86,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 55,
+      "max": 82,
+      "typical": 68,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 130,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Cu-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 110,
+      "typical": 80,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Cu alloys general"
+    },
+    "electrical_conductivity": {
+      "min": 12.75,
+      "max": 17.25,
+      "typical": 15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "max_service_temp": {
+      "min": 212.5,
+      "max": 287.5,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "thermal_expansion": {
+      "min": 14.875,
+      "max": 20.125,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "specific_heat": {
+      "min": 323,
+      "max": 437,
+      "typical": 380,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "melting_point": {
+      "min": 841.5,
+      "max": 1138.5,
+      "typical": 990,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "price_per_kg": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "price_per_cm3": {
+      "min": 0.0904,
+      "max": 0.1222,
+      "typical": 0.1063,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 14.69,
+      "max": 14.69,
+      "typical": 14.69,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Sn": "5.5~7.0",
+    "P": "0.03~0.35",
+    "Pb": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.poongsan.co.kr/eng/business/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cu alloys general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.86,
+      195,
+      380,
+      50,
+      110,
+      90,
+      110
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "풍산 KS D 5506 인청동 (Phosphor Bronze) 표준. 6% Sn → spring 용 탄성 + 부식 저항. connector 핀 / spring contact / 마모 베어링 / EV 모터 commutator brush. P 가 deoxidizer 역할 + 미세 P-bronze 강화. 한국 KEC / 한국단자 / Foxconn 커넥터 OEM.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed (Annealed)"
+  },
+  "fracture_toughness": 80,
+  "fatigue_strength": 68,
+  "density": 8.86,
+  "yield_strength": 195,
+  "uts": 380,
+  "elongation": 50,
+  "modulus": 110,
+  "hardness": 90,
+  "thermal_conductivity": 110,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Wrought (cold-rolled strip)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "Phosphor Bronze 6Sn",
+    "PB-1"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 15,
+  "max_service_temp": 250,
+  "thermal_expansion": 17.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 990,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.1063,
+  "popularity": 3.15,
+  "machining_cost_factor": 1.1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 14.69,
+  "total_cost_estimate": 16.16,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

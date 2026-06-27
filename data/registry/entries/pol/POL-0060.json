@@ -1,0 +1,253 @@
+{
+  "stable_id": "POL-0060",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide",
+    "alloy_base": "F-AB-pa11-rilsan",
+    "element_families": []
+  },
+  "legacy_id": "R_0147",
+  "origin": "reference(supplementary)",
+  "id": "R_0147",
+  "name": "PA11 (Rilsan)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "SLS"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.03,
+      "max": 1.03,
+      "typical": 1.03,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 40,
+      "max": 50,
+      "typical": 45,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 50,
+      "max": 60,
+      "typical": 55,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 80,
+      "max": 150,
+      "typical": 100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 1.3,
+      "max": 1.5,
+      "typical": 1.4,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon (FDM/SLS)"
+    },
+    "max_service_temp": {
+      "min": 55,
+      "max": 165,
+      "typical": 110,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon (FDM/SLS)"
+    },
+    "thermal_expansion": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon (FDM/SLS)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon (FDM/SLS)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon (FDM/SLS)"
+    },
+    "glass_transition_temp": {
+      "min": 27.5,
+      "max": 82.5,
+      "typical": 55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon (FDM/SLS)"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon (FDM/SLS)"
+    },
+    "price_per_cm3": {
+      "min": 0.0257,
+      "max": 0.0772,
+      "typical": 0.0515,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon (FDM/SLS)"
+    },
+    "delivered_price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "72.1",
+    "H": "11.5",
+    "N": "7.6",
+    "O": "8.7"
+  },
+  "sources": [
+    {
+      "label": "Arkema — Rilsan PA11 (SLS)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Rilsan PA11 bio-based (castor oil)",
+      "url": "https://www.extrudedpolymers.com/products/rilsan-pa-11/",
+      "verified": true
+    },
+    {
+      "label": "ALM PA850 (bio-based PA11 SLS powder)",
+      "url": "https://www.alm-llc.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.03,
+      45,
+      55,
+      100,
+      1.4,
+      0,
+      0.28
+    ],
+    [
+      1.03,
+      40,
+      50,
+      80,
+      1.3,
+      0,
+      0.28
+    ],
+    [
+      1.03,
+      50,
+      60,
+      150,
+      1.5,
+      0,
+      0.28
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "Nylon 11 (PA11, Polyundecanamide) — castor oil bio-based (Arkema Rilsan, ALM PA850, EOS PA1101). Tm ≈ 188°C, Tg ≈ 46°C, max service 95-100°C continuous. σy 45-50 / UTS 45-55 / El 200-330% (very ductile) / E 1.4-1.7 GPa / ρ 1.01-1.05 g/cc. 흡습률 1.5-2.5% (PA12 와 거의 동등, PA6 의 1/4) — long-term dimensional stability. PA12 의 bio-based 대안. 의료 카테터, 오프쇼어 flexible riser (gas/oil), 자동차 fuel line (PA12 의 bio version), SLS 3D printing (ALM, EOS).",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.03,
+  "yield_strength": 45,
+  "uts": 55,
+  "elongation": 100,
+  "modulus": 1.4,
+  "hardness": null,
+  "thermal_conductivity": 0.28,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "SLS",
+  "source": "Arkema — Rilsan PA11 (SLS)",
+  "aliases": [
+    "Rilsan",
+    "Nylon 11"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Nylon (FDM/SLS)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 110,
+  "thermal_expansion": 90,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 55,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.0515,
+  "popularity": 3.5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 50,
+  "total_cost_estimate": 35,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

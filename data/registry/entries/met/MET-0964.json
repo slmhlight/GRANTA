@@ -1,0 +1,289 @@
+{
+  "stable_id": "MET-0964",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-sk85-ks-d-3751-jis-g-4401-carbon-tool-steel-0-85-c",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0425_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0425_0",
+  "name": "SK85 (KS D 3751 / JIS G 4401, carbon tool steel 0.85%C) — Q+T (780°C WQ + 200°C T, full hard)",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought (Q+T)"
+  ],
+  "heat_treatment": "Q+T (780°C WQ + 200°C T, full hard)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 580,
+      "max": 580,
+      "typical": 580,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 800,
+      "max": 800,
+      "typical": 800,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 800,
+      "max": 800,
+      "typical": 800,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 203,
+      "max": 290,
+      "typical": 244,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 15,
+      "max": 40,
+      "typical": 25,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Tool Steels"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.04,
+      "max": 0.0542,
+      "typical": 0.0471,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.80~0.90",
+    "Si": "0.10~0.35",
+    "Mn": "0.10~0.50",
+    "P": "≤0.030",
+    "S": "≤0.030"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.kssa.co.kr/standard/KS_D_3751",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 10xx series",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A29 / A29M — Carbon Steel Bars 1030-1080",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      580,
+      800,
+      8,
+      200,
+      800,
+      45
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Plain carbon steels (medium-high C): • 1030 (UNS G10300, C 0.28-0.34) JIS S30C — σy 350-440, axles, bolts, levers • 1040 (UNS G10400, C 0.37-0.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T (780°C WQ + 200°C T, full hard)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A29",
+        "org": "ASTM"
+      },
+      {
+        "id": "JIS G 4401",
+        "org": "JIS"
+      }
+    ]
+  },
+  "fracture_toughness": 25,
+  "fatigue_strength": 244,
+  "density": 7.85,
+  "yield_strength": 580,
+  "uts": 800,
+  "elongation": 8,
+  "modulus": 200,
+  "hardness": 800,
+  "thermal_conductivity": 45,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought (Q+T)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "KS D 3751",
+    "JIS G 4401",
+    "carbon tool steel 0.85%C"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0471,
+  "popularity": 3.07,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.75,
+  "total_cost_estimate": 7.75,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

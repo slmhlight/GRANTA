@@ -1,0 +1,166 @@
+{
+  "stable_id": "CER-0016",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-glass-ceramic",
+    "alloy_base": "F-AB-porcelain-hard-electrical-grade",
+    "element_families": []
+  },
+  "legacy_id": "CER_016",
+  "origin": "ceramics-data",
+  "id": "CER_016",
+  "name": "Porcelain (Hard, electrical grade)",
+  "category": "Ceramic",
+  "subcategory": "Glass-ceramic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.4,
+      "max": 2.4,
+      "typical": 2.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 29.25,
+      "max": 29.25,
+      "typical": 29.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.0096,
+      "max": 0.0096,
+      "typical": 0.0096,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "24.3",
+    "Si": "25.3",
+    "O": "50.4"
+  },
+  "sources": [
+    {
+      "label": "Applications: 고압 송전 절연체, 일반 자기 부품",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "고압 송전 절연체, 일반 자기 부품"
+  },
+  "popularity": 3,
+  "density": 2.4,
+  "yield_strength": 65,
+  "uts": 65,
+  "elongation": null,
+  "modulus": 70,
+  "hardness": 700,
+  "thermal_conductivity": 1.5,
+  "fatigue_strength": 29.25,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: 고압 송전 절연체, 일반 자기 부품",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Glass-ceramic"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0096,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

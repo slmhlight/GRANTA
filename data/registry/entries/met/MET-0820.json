@@ -1,0 +1,290 @@
+{
+  "stable_id": "MET-0820",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-stainless-steel-420-martensitic",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "C_0090",
+  "origin": "curated(material_db)",
+  "id": "C_0090",
+  "name": "Stainless Steel 420 (martensitic) — Hardened",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "curated",
+  "manufacturers": [
+    "BLT"
+  ],
+  "machines": [
+    "BLT (any)"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Hardened",
+  "ranges": {
+    "density": {
+      "min": 7.74,
+      "max": 7.74,
+      "typical": 7.74,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "typical": 1600,
+      "min": 1480,
+      "max": 1720,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "typical": 1750,
+      "min": 1620,
+      "max": 1880,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "typical": 8,
+      "min": 5,
+      "max": 12,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 588,
+      "max": 588,
+      "typical": 588,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 24.9,
+      "max": 24.9,
+      "typical": 24.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 360,
+      "max": 460,
+      "typical": 410,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 30,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "fracture_toughness": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "max_service_temp": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "thermal_expansion": {
+      "min": 10.3,
+      "max": 10.3,
+      "typical": 10.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "melting_point": {
+      "min": 1480,
+      "max": 1480,
+      "typical": 1480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "price_per_kg": {
+      "min": 3.7,
+      "max": 3.7,
+      "typical": 3.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "price_per_cm3": {
+      "min": 0.0286,
+      "max": 0.0286,
+      "typical": 0.0286,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "delivered_price_per_kg": {
+      "min": 9.25,
+      "max": 9.25,
+      "typical": 9.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.15~0.40",
+    "Cr": "12.0~14.0",
+    "Mn": "≤1.0",
+    "Si": "≤1.0",
+    "P": "≤0.04",
+    "S": "≤0.03"
+  },
+  "sources": [
+    {
+      "label": "AK Steel — 420 Stainless Steel",
+      "url": "https://www.aksteel.com/our-products/stainless/420-stainless-steel",
+      "verified": true
+    },
+    {
+      "label": "BLT",
+      "url": "https://www.xa-blt.com/en/powder/420/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "applications": "Cutlery / Surgical instruments / Mold tooling (hardenable)",
+    "magnetic": "ferromagnetic",
+    "melt_C": 1450,
+    "cte": 10.3,
+    "cp": 460,
+    "poisson": 0.28,
+    "vendor_count": 1,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 30,
+  "density": 7.74,
+  "yield_strength": 1600,
+  "uts": 1750,
+  "elongation": 8,
+  "modulus": 200,
+  "hardness": 588,
+  "thermal_conductivity": 24.9,
+  "fatigue_strength": 410,
+  "impact_strength": 18,
+  "manufacturer": "BLT",
+  "process": "LPBF",
+  "source": "AK Steel — 420 Stainless Steel",
+  "aliases": [
+    "UNS S42000",
+    "EN 1.4021",
+    "JIS SUS420J2",
+    "KS STS420J2"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 10.3,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.7,
+  "price_per_cm3": 0.0286,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 9.25,
+  "total_cost_estimate": 16.65,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1480,
+      "uts": 1720,
+      "E": 200
+    },
+    {
+      "temp": 200,
+      "ys": 1330,
+      "uts": 1570,
+      "E": 192
+    },
+    {
+      "temp": 400,
+      "ys": 1100,
+      "uts": 1300,
+      "E": 174
+    }
+  ],
+  "confidence_tier": "high"
+}

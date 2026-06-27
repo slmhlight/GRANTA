@@ -1,0 +1,266 @@
+{
+  "stable_id": "POL-0028",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-peek-cf",
+    "alloy_base": "F-AB-peek-solvay-ketaspire-kt-820-scf30",
+    "element_families": []
+  },
+  "legacy_id": "POL_020",
+  "origin": "polymers-data",
+  "id": "POL_020",
+  "name": "PEEK Solvay KetaSpire KT-820 SCF30",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEEK CF",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.42,
+      "max": 1.42,
+      "typical": 1.42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 270,
+      "max": 270,
+      "typical": 270,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 270,
+      "max": 270,
+      "typical": 270,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1.4,
+      "max": 1.4,
+      "typical": 1.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.92,
+      "max": 0.92,
+      "typical": 0.92,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 260,
+      "max": 260,
+      "typical": 260,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 75,
+      "max": 110,
+      "typical": 90,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "Victrex 450G powder/pellet Q2 2026 (medical grade slightly higher)"
+    },
+    "glass_transition_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 343,
+      "max": 343,
+      "typical": 343,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK CF"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK CF"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK CF"
+    },
+    "price_per_cm3": {
+      "min": 0.1086,
+      "max": 0.147,
+      "typical": 0.1278,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    }
+  },
+  "composition": {
+    "C": "79.2",
+    "H": "4.2",
+    "O": "16.7"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PEEK Solvay KetaSpire KT-820 SCF30",
+      "url": "https://www.syensqo.com/en/product/ketaspire-peek",
+      "verified": true
+    },
+    {
+      "label": "Applications: 다운홀 oil & gas tools, sliding parts (낮은 마찰), 항공기 베어링",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Victrex PEEK 450G technical datasheet",
+      "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
+      "verified": true
+    },
+    {
+      "label": "Solvay KetaSpire PEEK technical guide",
+      "url": "https://www.solvay.com/en/brands/ketaspire-peek",
+      "verified": true
+    },
+    {
+      "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
+      "url": "https://www.astm.org/f2026-17.html",
+      "verified": false
+    }
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "polymer": true,
+    "tg": 150,
+    "tm": 343,
+    "hdt_182": 320,
+    "moisture_24h": 0.06,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "applications": "다운홀 oil & gas tools, sliding parts (낮은 마찰), 항공기 베어링",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "PEEK Victrex 450G",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F2026",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 4.15,
+  "density": 1.42,
+  "yield_strength": 270,
+  "uts": 270,
+  "elongation": 1.4,
+  "modulus": 22,
+  "hardness": null,
+  "thermal_conductivity": 0.92,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PEEK Solvay KetaSpire KT-820 SCF30",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PEEK CF"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.1278,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 270,
+      "uts": 270,
+      "E": 22
+    },
+    {
+      "temp": 150,
+      "ys": 240,
+      "uts": 240,
+      "E": 21
+    },
+    {
+      "temp": 200,
+      "ys": 200,
+      "uts": 200,
+      "E": 17
+    },
+    {
+      "temp": 250,
+      "ys": 130,
+      "uts": 130,
+      "E": 11
+    }
+  ],
+  "story": "KetaSpire KT-820 SCF30 은 Solvay 의 PEEK + 30 wt% short carbon fiber 강화 grade 입니다. Solvay 가 2010년대 PEEK 시장 진입을 위해 launch 한 KetaSpire 시리즈는 Victrex PEEK 의 alternative 로 marketing 됐고, SCF30 (Short Carbon Fiber 30%) 은 Victrex 의 450CA30 의 equivalent 입니다.\n\n특성: σy 230 MPa, UTS 250 MPa, modulus 21 GPa, El 2-3%, Tg 143°C, HDT 320°C, max service 250°C. Victrex 450CA30 과 거의 동일한 spec 이지만 Solvay 의 KetaSpire 는 약간 더 high molecular weight 인 base PEEK 를 사용해 fatigue resistance 가 미세하게 우수한 것으로 알려져 있어요.\n\n응용: 항공 metal-replacement bracket (Boeing 787 의 일부 cabin bracket, Airbus A350 의 일부 secondary structure), 의료 spinal cage + interbody implant (Medtronic, Stryker 의 CF-PEEK spine implant 의 일부), 자동차 high-load underhood bracket, 산업 high-pressure pump seal 의 일부 grade, 그리고 oil & gas downhole tool 의 일부 sealing assembly. 가격은 Victrex 450CA30 과 거의 동등 ($110-150/kg). Solvay 의 시장 점유는 Victrex 의 약 1/3 정도이지만 항공 / 의료 의 specific customer (특히 Medtronic, Boeing 등) 가 dual-source 전략으로 채택하면서 안정 성장 중입니다.",
+  "story_refs": [
+    "Solvay KetaSpire KT-820 SCF30 Tech Data",
+    "Kurtz S M (2012) PEEK Biomaterials Handbook, Elsevier",
+    "Friedrich K (2018) \"Polymer composites for tribological applications\""
+  ],
+  "confidence_tier": "high",
+  "industry_note": "PEEK (Polyetheretherketone) — 반결정성 high-performance thermoplastic. Tg ≈ 143°C, Tm ≈ 343°C, HDT (1.8 MPa) ≈ 152°C unfilled / 315°C GF30, max service 250°C continuous (긴 시간), 310°C short-term. σy 90-100 / UTS 95-115 / El 30-50% / E 3.6-3.8 GPa / ρ 1.30-1.32 g/cc. UL 94 V-0 자체 난연. 항공 (Airbus A350 bracket), 의료 임플란트 (ASTM F2026 spinal cage), 반도체 wafer carrier, 오일/가스 seal. 가공 어려움 (cutter 마모) → GF30 / CF30 보강 standard."
+}

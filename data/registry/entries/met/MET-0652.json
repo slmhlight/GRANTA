@@ -1,0 +1,444 @@
+{
+  "stable_id": "MET-0652",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-nb-1zr",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "G_0322",
+  "origin": "generic(csv)",
+  "id": "G_0322",
+  "name": "Nb-1Zr — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 8.6,
+      "max": 8.6,
+      "typical": 8.6,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 130,
+      "max": 220,
+      "typical": 150,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 250,
+      "max": 340,
+      "typical": 280,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15.3,
+      "max": 19.62,
+      "typical": 17.28,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 126,
+      "max": 152.6,
+      "typical": 134.4,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 52,
+      "max": 52,
+      "typical": 52,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 107,
+      "max": 145,
+      "typical": 126,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R σf≈0.45·UTS 재유도 (UTS 정정 후 stale 값 교체)"
+    },
+    "impact_strength": {
+      "min": 68,
+      "max": 100.3,
+      "typical": 85.85,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Refractory"
+    },
+    "electrical_conductivity": {
+      "min": 15.5,
+      "max": 46.5,
+      "typical": 31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "max_service_temp": {
+      "min": 1100,
+      "max": 1300,
+      "typical": 1200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Refractory Metal"
+    },
+    "thermal_expansion": {
+      "min": 3.65,
+      "max": 10.95,
+      "typical": 7.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "poisson_ratio": {
+      "min": 0.15,
+      "max": 0.45,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "specific_heat": {
+      "min": 132.5,
+      "max": 397.5,
+      "typical": 265,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "melting_point": {
+      "min": 1238.5,
+      "max": 3715.5,
+      "typical": 2477,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "price_per_kg": {
+      "min": 35,
+      "max": 105,
+      "typical": 70,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "price_per_cm3": {
+      "min": 0.301,
+      "max": 0.903,
+      "typical": 0.602,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "delivered_price_per_kg": {
+      "min": 73.5,
+      "max": 73.5,
+      "typical": 73.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Nb": "99"
+  },
+  "sources": [
+    {
+      "label": "ATI Wah Chang — Nb-1Zr (UNS R04261) refractory alloy",
+      "url": "https://www.atimaterials.com/Products/Pages/Niobium-and-Niobium-Alloys.aspx",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Nb-1Zr\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nb-1Zr",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.6,
+      405,
+      495,
+      16.2,
+      105,
+      126,
+      52
+    ],
+    [
+      8.6,
+      459,
+      561,
+      16.560000000000002,
+      105,
+      142.8,
+      52
+    ],
+    [
+      8.6,
+      490.50000000000006,
+      599.5,
+      16.02,
+      105,
+      152.60000000000002,
+      52
+    ],
+    [
+      8.6,
+      445.5,
+      544.5,
+      19.62,
+      105,
+      138.6,
+      52
+    ],
+    [
+      8.6,
+      409.5,
+      500.5,
+      18.18,
+      105,
+      127.4,
+      52
+    ],
+    [
+      8.6,
+      423,
+      517,
+      18.72,
+      105,
+      131.6,
+      52
+    ],
+    [
+      8.6,
+      405,
+      495,
+      16.2,
+      105,
+      126,
+      52
+    ],
+    [
+      8.6,
+      472.5,
+      577.5,
+      15.3,
+      105,
+      147,
+      52
+    ],
+    [
+      8.6,
+      441,
+      539,
+      17.64,
+      105,
+      137.2,
+      52
+    ],
+    [
+      8.6,
+      468,
+      572,
+      16.92,
+      105,
+      145.6,
+      52
+    ],
+    [
+      8.6,
+      432,
+      528,
+      17.28,
+      105,
+      134.4,
+      52
+    ],
+    [
+      8.6,
+      427.50000000000006,
+      522.5,
+      18.9,
+      105,
+      133,
+      52
+    ],
+    [
+      8.6,
+      423,
+      517,
+      16.92,
+      105,
+      131.6,
+      52
+    ],
+    [
+      8.6,
+      418.5,
+      511.5,
+      16.740000000000002,
+      105,
+      130.20000000000002,
+      52
+    ],
+    [
+      8.6,
+      472.5,
+      577.5,
+      18.9,
+      105,
+      147,
+      52
+    ],
+    [
+      8.6,
+      418.5,
+      511.5,
+      16.740000000000002,
+      105,
+      130.20000000000002,
+      52
+    ],
+    [
+      8.6,
+      486.00000000000006,
+      594,
+      17.64,
+      105,
+      151.20000000000002,
+      52
+    ],
+    [
+      8.6,
+      423,
+      517,
+      16.92,
+      105,
+      131.6,
+      52
+    ],
+    [
+      8.6,
+      409.5,
+      500.5,
+      18.18,
+      105,
+      127.4,
+      52
+    ],
+    [
+      8.6,
+      441,
+      539,
+      17.64,
+      105,
+      137.2,
+      52
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Refractory Metal"
+    ],
+    "conditions": [
+      "Niobium-Zirconium"
+    ],
+    "specs": [
+      {
+        "id": "UNS R04261",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "density": 8.6,
+  "yield_strength": 150,
+  "uts": 280,
+  "elongation": 17.28,
+  "modulus": 105,
+  "hardness": 134.4,
+  "thermal_conductivity": 52,
+  "fatigue_strength": 126,
+  "impact_strength": 85.85,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory Metal",
+    "Refractory"
+  ],
+  "electrical_conductivity": 31,
+  "max_service_temp": 1200,
+  "thermal_expansion": 7.3,
+  "poisson_ratio": 0.3,
+  "specific_heat": 265,
+  "melting_point": 2477,
+  "price_per_kg": 70,
+  "price_per_cm3": 0.602,
+  "popularity": 1.8,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 73.5,
+  "total_cost_estimate": 66.15,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,178 @@
+{
+  "stable_id": "CMP-0018",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-composite-ceramic-metal",
+    "alloy_base": "F-AB-b4c-al-mmc-boron-carbide-al-armor",
+    "element_families": []
+  },
+  "legacy_id": "R_0320_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0320_0",
+  "name": "B4C-Al MMC (boron carbide / Al armor) — Pressed + sintered (B4C 20%)",
+  "category": "Composite",
+  "subcategory": "Composite - Ceramic-Metal",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Powder-Metallurgy"
+  ],
+  "heat_treatment": "Pressed + sintered (B4C 20%)",
+  "ranges": {
+    "density": {
+      "min": 2.55,
+      "max": 2.65,
+      "typical": 2.6,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "Sonometric / Saint-Gobain B4C-Al armor tile datasheet"
+    },
+    "yield_strength": {
+      "min": 380,
+      "max": 430,
+      "typical": 405,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 420,
+      "max": 480,
+      "typical": 450,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "ASTM C1161 4-point bending (typical B4C-Al MMC)"
+    },
+    "elongation": {
+      "min": 1.5,
+      "max": 3.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 95,
+      "max": 110,
+      "typical": 100,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": null,
+    "max_service_temp": {
+      "min": 350,
+      "max": 450,
+      "typical": 400,
+      "confidence": "measured",
+      "n": 1
+    }
+  },
+  "composition": [
+    [
+      "B4C particle (20 vol%, 80-150 μm)",
+      "20"
+    ],
+    [
+      "Al matrix (Al-Mg-Si 6061)",
+      "80"
+    ]
+  ],
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=B4C%20aluminum%20composite",
+      "verified": false
+    },
+    {
+      "label": "Allvac / Coalition Resources B4C-Al ceramic armor",
+      "url": "https://www.aerospaceandmilitaryusa.com/",
+      "verified": false
+    },
+    {
+      "label": "MIL-DTL-46032E — Boron Carbide Armor Insert",
+      "url": "https://www.dla.mil/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.55,
+      220,
+      300,
+      4,
+      110,
+      280,
+      90
+    ]
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "industry_note": "B₄C-Al MMC — sintered B₄C (60-80 vol%) + Al infiltration. ρ 2.5-2.6 g/cc (alumina armor 의 65% — 매우 가벼움).",
+  "meta": {
+    "reference": true,
+    "condition": "Pressed + sintered (B4C 20%)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "MIL DTL-46032E",
+        "org": "MIL"
+      }
+    ]
+  },
+  "density": 2.55,
+  "yield_strength": 220,
+  "uts": 300,
+  "elongation": 4,
+  "modulus": 110,
+  "hardness": 280,
+  "thermal_conductivity": 90,
+  "fatigue_strength": 135,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Powder-Metallurgy",
+  "source": "Datasheet 1",
+  "aliases": [
+    "B4C 20%"
+  ],
+  "families": [
+    "Composite",
+    "Composite - Ceramic-Metal"
+  ],
+  "fatigue_estimated": true,
+  "popularity": 2,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "low"
+}

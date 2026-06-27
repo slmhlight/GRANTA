@@ -1,0 +1,397 @@
+{
+  "stable_id": "MET-0381",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c17200",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "G_0138",
+  "origin": "generic(csv)",
+  "id": "G_0138",
+  "name": "C17200 — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 8.34,
+      "max": 8.38,
+      "typical": 8.36,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 900,
+      "max": 1300,
+      "typical": 1100,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1100,
+      "max": 1450,
+      "typical": 1300,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 10,
+      "typical": 5,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 124,
+      "max": 132,
+      "typical": 128,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 340,
+      "max": 420,
+      "typical": 380,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 111,
+      "max": 111,
+      "typical": 111,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 300,
+      "max": 450,
+      "typical": 380,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200 × HT:TB00 solution annealed (f×0.35, i×3.5)"
+    },
+    "impact_strength": {
+      "min": 53,
+      "max": 140,
+      "typical": 88,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200 × HT:TB00 solution annealed (f×0.35, i×3.5)"
+    },
+    "fracture_toughness": {
+      "min": 126,
+      "max": 126,
+      "typical": 126,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:TB00 solution annealed (k×1.8)"
+    },
+    "electrical_conductivity": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "thermal_expansion": {
+      "min": 17.5,
+      "max": 17.5,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "specific_heat": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "melting_point": {
+      "min": 980,
+      "max": 980,
+      "typical": 980,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "price_per_kg": {
+      "min": 75,
+      "max": 130,
+      "typical": 95,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Materion C17200 bar Q2 2026 (Be 2% premium)"
+    },
+    "price_per_cm3": {
+      "min": 0.6751,
+      "max": 0.9133,
+      "typical": 0.7942,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Be": "1.80~2.00",
+    "Co+Ni": "0.20~0.6",
+    "Fe": "≤0.20",
+    "Al": "≤0.20",
+    "Si": "≤0.20"
+  },
+  "sources": [
+    {
+      "label": "Materion — C17200 Beryllium Copper Alloy 25",
+      "url": "https://www.materion.com/products/alloys-and-composites/copper-beryllium/c17200",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"C17200\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C17200",
+      "verified": false
+    },
+    {
+      "label": "Materion C17200 (Alloy 25) datasheet",
+      "url": "https://materion.com/-/media/files/alloy/datasheets/copper-beryllium/alloy-25-strip-rod.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASTM B194 — CuBe2 plate/sheet/strip/bar",
+      "url": "https://store.astm.org/b0194-15.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.26,
+      1088.1,
+      1218.3,
+      1.66,
+      128,
+      353.40000000000003,
+      111
+    ],
+    [
+      8.26,
+      1228.5,
+      1375.5,
+      2.1,
+      128,
+      399,
+      111
+    ],
+    [
+      8.26,
+      1134.9,
+      1270.7,
+      2.14,
+      128,
+      368.6,
+      111
+    ],
+    [
+      8.26,
+      1181.7,
+      1323.1,
+      1.62,
+      128,
+      383.8,
+      111
+    ],
+    [
+      8.26,
+      1193.4,
+      1336.2,
+      2.04,
+      128,
+      387.6,
+      111
+    ],
+    [
+      8.26,
+      1158.3,
+      1296.9,
+      1.98,
+      128,
+      376.2,
+      111
+    ],
+    [
+      8.26,
+      1158.3,
+      1296.9,
+      1.98,
+      128,
+      376.2,
+      111
+    ],
+    [
+      8.26,
+      1123.2,
+      1257.6,
+      1.92,
+      128,
+      364.8,
+      111
+    ],
+    [
+      8.26,
+      1275.3000000000002,
+      1427.9,
+      2.18,
+      128,
+      414.2000000000001,
+      111
+    ],
+    [
+      8.26,
+      1193.4,
+      1336.2,
+      1.84,
+      128,
+      387.6,
+      111
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 10,
+    "subcategory_variants": [
+      "Copper - Pure/Other",
+      "Titanium - Pure/Other"
+    ],
+    "conditions": [
+      "Beryllium Copper"
+    ],
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Beryllium Copper C17200",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B194",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 126,
+  "fatigue_strength": 380,
+  "density": 8.36,
+  "yield_strength": 1100,
+  "uts": 1300,
+  "elongation": 5,
+  "modulus": 128,
+  "hardness": 380,
+  "thermal_conductivity": 111,
+  "impact_strength": 88,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "Materion — C17200 Beryllium Copper Alloy 25",
+  "aliases": [
+    "UNS C17200",
+    "EN CW101C",
+    "CuBe2",
+    "Alloy 25",
+    "Beryllium copper"
+  ],
+  "families": [
+    "Metal",
+    "Copper - Pure/Other",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 22,
+  "max_service_temp": 200,
+  "thermal_expansion": 17.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 980,
+  "price_per_kg": 40,
+  "price_per_cm3": 0.7942,
+  "popularity": 3,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 42,
+  "total_cost_estimate": 37.8,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1100,
+      "uts": 1280,
+      "E": 128
+    },
+    {
+      "temp": 200,
+      "ys": 900,
+      "uts": 1100,
+      "E": 124
+    },
+    {
+      "temp": 300,
+      "ys": 600,
+      "uts": 800,
+      "E": 115
+    }
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS C17200 / EN CW101C / CuBe2 / Alloy 25 / DIN 2.1247 — precipitation-hardenable Cu-Be alloy (Cu bal, Be 1.8-2.0, Ni+Co 0.20-0.6). 가장 strong copper alloy. TF00 (peak TH04 (CW 37% + IACS 22-25% (steel 보다 5× conductive). Non-sparking — petrochemical / 위험 환경 hand tool, mold pin, electrical contact spring, oil/gas drilling. ⚠ Be dust inhalation 강한 발암성 (NIOSH carcinogen, OSHA PEL 0.2 μg/m³)."
+}

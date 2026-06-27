@@ -1,0 +1,359 @@
+{
+  "stable_id": "MET-0704",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-a286",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0098",
+  "origin": "reference(supplementary)",
+  "id": "R_0098",
+  "name": "A286",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.94,
+      "max": 7.94,
+      "typical": 7.94,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 550,
+      "max": 640,
+      "typical": 590,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 860,
+      "max": 950,
+      "typical": 895,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 28,
+      "typical": 25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 201,
+      "max": 201,
+      "typical": 201,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 310,
+      "typical": 290,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 350,
+      "max": 480,
+      "typical": 420,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:a286"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 60,
+      "typical": 45,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:a286"
+    },
+    "fracture_toughness": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a286"
+    },
+    "max_service_temp": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a286"
+    },
+    "thermal_expansion": {
+      "min": 16.7,
+      "max": 16.7,
+      "typical": 16.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a286"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a286"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a286"
+    },
+    "melting_point": {
+      "min": 1395,
+      "max": 1395,
+      "typical": 1395,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a286"
+    },
+    "price_per_kg": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a286"
+    },
+    "price_per_cm3": {
+      "min": 0.1112,
+      "max": 0.1112,
+      "typical": 0.1112,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a286"
+    },
+    "delivered_price_per_kg": {
+      "min": 14.7,
+      "max": 14.7,
+      "typical": 14.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "24~27",
+    "Cr": "13.5~16",
+    "Ti": "1.9~2.35",
+    "Mo": "1~1.5"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — Pyromet Alloy A-286",
+      "url": "https://www.carpentertechnology.com/alloy-finder/a-286",
+      "verified": true
+    },
+    {
+      "label": "ASM — A-286 iron-base superalloy (UNS S66286)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals — A286 Technical Bulletin (SMC-058)",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-a-286.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 5737 — A-286 bar, forging, ring (STA)",
+      "url": "https://www.sae.org/standards/content/ams5737/",
+      "verified": false
+    },
+    {
+      "label": "ASTM A638 — Precipitation-Hardening Iron Base Alloy",
+      "url": "https://store.astm.org/a0638_a0638m-13r19.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.94,
+      590,
+      895,
+      25,
+      201,
+      290,
+      12
+    ],
+    [
+      7.94,
+      550,
+      860,
+      20,
+      201,
+      280,
+      12
+    ],
+    [
+      7.94,
+      640,
+      950,
+      28,
+      201,
+      310,
+      12
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS S66286 / EN 1.4980 / NiCr20Co18Ti / AMS 5737 / Incoloy A-286 — Fe-base γ' precipitation-hardenable austenitic alloy (Fe bal, Ni 24-27, Cr 13.5-16, Ti 1.9-2.35, Mo 1-1.5, V 0.1-0.5, Al 0.35 max). γ' = Ni₃(Al,Ti) coherent precipitate. Volkswagen turbo wheel, jet engine afterburner liner / blade (700°C), space rocket bolts, oil/gas downhole tool. Cost Ni-superalloy 의 1/3 — Fe-base 가 매우 저렴.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5737",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM A638",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS S66286",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 110,
+  "fatigue_strength": 420,
+  "density": 7.94,
+  "yield_strength": 590,
+  "uts": 895,
+  "elongation": 25,
+  "modulus": 201,
+  "hardness": 290,
+  "thermal_conductivity": 12,
+  "impact_strength": 45,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Carpenter Technology — Pyromet Alloy A-286",
+  "aliases": [
+    "UNS S66286",
+    "EN 1.4980",
+    "A-286",
+    "AMS 5737"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 590,
+      "uts": 895,
+      "E": 201
+    },
+    {
+      "temp": 540,
+      "ys": 520,
+      "uts": 790,
+      "E": null
+    },
+    {
+      "temp": 650,
+      "ys": 480,
+      "uts": 690,
+      "E": null
+    },
+    {
+      "temp": 760,
+      "ys": 280,
+      "uts": 410,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 2,
+  "max_service_temp": 700,
+  "thermal_expansion": 16.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1395,
+  "price_per_kg": 14,
+  "price_per_cm3": 0.1112,
+  "popularity": 3,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 14.7,
+  "total_cost_estimate": 14.7,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 27% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "creep_rupture": [
+    {
+      "temp": 650,
+      "stress": 290,
+      "hours": 1000
+    },
+    {
+      "temp": 730,
+      "stress": 170,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "high"
+}

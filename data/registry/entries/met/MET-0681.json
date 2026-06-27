@@ -1,0 +1,281 @@
+{
+  "stable_id": "MET-0681",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-spring-steel",
+    "alloy_base": "F-AB-chrome-silicon-astm-a401",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0355_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0355_0",
+  "name": "Chrome-Silicon (ASTM A401) — valve-spring oil-tempered — Oil-Tempered (as-supplied)",
+  "category": "Metal",
+  "subcategory": "Spring Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought (oil-tempered)"
+  ],
+  "heat_treatment": "Oil-Tempered (as-supplied)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1450,
+      "max": 1450,
+      "typical": 1450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1620,
+      "max": 1620,
+      "typical": 1620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 46,
+      "max": 46,
+      "typical": 46,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 729,
+      "max": 729,
+      "typical": 729,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 85,
+      "typical": 65,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM spring steel"
+    },
+    "electrical_conductivity": {
+      "min": 6.375,
+      "max": 8.625,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "max_service_temp": {
+      "min": 408,
+      "max": 552,
+      "typical": 480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "specific_heat": {
+      "min": 405.45,
+      "max": 548.55,
+      "typical": 477,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "price_per_kg": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.02,
+      "max": 0.027,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.15,
+      "max": 3.15,
+      "typical": 3.15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.51~0.59",
+    "Si": "1.20~1.60",
+    "Mn": "0.40~0.70",
+    "Cr": "0.60~0.80",
+    "P": "≤0.025",
+    "S": "≤0.025"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ASTM%20A401",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM spring steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASTM A401 / A401M — Chrome-Silicon Wire for Springs",
+      "url": "https://store.astm.org/a0401_a0401m-19.html",
+      "verified": false
+    },
+    {
+      "label": "Optimum Spring — Chrome Silicon ASTM A401 Spring Wire Properties (UTS·E·G·HRC·조성)",
+      "url": "https://optimumspring.com/technical_resources/materials/steel_alloys/chrome_silicon_401_spring_wire.aspx",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1450,
+      1620,
+      9,
+      207,
+      460,
+      46
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ASTM A401 Chrome-Silicon valve spring wire (C 0.51-0.59, Si 1.20-1.",
+  "meta": {
+    "reference": true,
+    "condition": "Oil-Tempered (as-supplied)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A401",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "density": 7.85,
+  "yield_strength": 1450,
+  "uts": 1620,
+  "elongation": 9,
+  "modulus": 207,
+  "hardness": 460,
+  "thermal_conductivity": 46,
+  "fatigue_strength": 729,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought (oil-tempered)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "ASTM A401"
+  ],
+  "families": [
+    "Metal",
+    "Spring Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 7.5,
+  "max_service_temp": 480,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 477,
+  "melting_point": 1430,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0235,
+  "popularity": 1.57,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.15,
+  "total_cost_estimate": 3.15,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

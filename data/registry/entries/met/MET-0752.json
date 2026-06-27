@@ -1,0 +1,300 @@
+{
+  "stable_id": "MET-0752",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-al-6xn",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0092",
+  "origin": "reference(supplementary)",
+  "id": "R_0092",
+  "name": "AL-6XN",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "ATI (Allegheny Technologies)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.06,
+      "max": 8.06,
+      "typical": 8.06,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 290,
+      "max": 340,
+      "typical": 310,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 655,
+      "max": 720,
+      "typical": 690,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 35,
+      "max": 45,
+      "typical": 40,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 200,
+      "max": 230,
+      "typical": 210,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 109,
+      "max": 155,
+      "typical": 130,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 180,
+      "typical": 130,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Austenitic"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 200,
+      "typical": 140,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Austenitic SS"
+    },
+    "electrical_conductivity": {
+      "min": 2.04,
+      "max": 2.76,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "max_service_temp": {
+      "min": 739.5,
+      "max": 1000.5,
+      "typical": 870,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "thermal_expansion": {
+      "min": 14.45,
+      "max": 19.55,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "specific_heat": {
+      "min": 425,
+      "max": 575,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "melting_point": {
+      "min": 1232.5,
+      "max": 1667.5,
+      "typical": 1450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_kg": {
+      "min": 4.675,
+      "max": 6.325,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0377,
+      "max": 0.0509,
+      "typical": 0.0443,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.78,
+      "max": 5.78,
+      "typical": 5.78,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "20~22",
+    "Ni": "23.5~25.5",
+    "Mo": "6~7",
+    "N": "0.18~0.25"
+  },
+  "sources": [
+    {
+      "label": "ATI — AL-6XN Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AL-6XN",
+      "verified": false
+    },
+    {
+      "label": "ATI — AL-6XN super-austenitic (UNS N08367)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AL6XN (UNS N08367) — Calico Metal Alloys (ASME SB-688 최소값)",
+      "url": "https://www.calicometal.com/materials/al6xn.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.06,
+      310,
+      690,
+      40,
+      195,
+      210,
+      12
+    ],
+    [
+      8.06,
+      290,
+      655,
+      35,
+      195,
+      200,
+      12
+    ],
+    [
+      8.06,
+      340,
+      720,
+      45,
+      195,
+      230,
+      12
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS N08367",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 140,
+  "fatigue_strength": 130,
+  "density": 8.06,
+  "yield_strength": 310,
+  "uts": 690,
+  "elongation": 40,
+  "modulus": 195,
+  "hardness": 210,
+  "thermal_conductivity": 12,
+  "impact_strength": 130,
+  "manufacturer": "ATI (Allegheny Technologies)",
+  "process": "Wrought",
+  "source": "ATI — AL-6XN Alloy",
+  "aliases": [
+    "UNS N08367",
+    "EN 1.4529",
+    "AL-6XN"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.0443,
+  "popularity": 2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.78,
+  "total_cost_estimate": 5.78,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 25.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

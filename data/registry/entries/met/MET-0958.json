@@ -1,0 +1,308 @@
+{
+  "stable_id": "MET-0958",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-p20-mold-steel",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0108",
+  "origin": "reference(supplementary)",
+  "id": "R_0108",
+  "name": "P20 mold steel",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Pre-hardened (Q+T, HRC 30 mill-supplied)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 800,
+      "max": 930,
+      "typical": 860,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 960,
+      "max": 1080,
+      "typical": 1000,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 13,
+      "max": 19,
+      "typical": 16,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 290,
+      "max": 320,
+      "typical": 300,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 29,
+      "max": 29,
+      "typical": 29,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 340,
+      "max": 420,
+      "typical": 380,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 60,
+      "typical": 45,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "thermal_expansion": {
+      "min": 12.7,
+      "max": 12.7,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "melting_point": {
+      "min": 1426,
+      "max": 1426,
+      "typical": 1426,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "price_per_kg": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "price_per_cm3": {
+      "min": 0.0353,
+      "max": 0.0353,
+      "typical": 0.0353,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:p20"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.81,
+      "max": 5.81,
+      "typical": 5.81,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.28~0.4",
+    "Cr": "1.4~2",
+    "Mo": "0.3~0.55",
+    "Mn": "0.6~1"
+  },
+  "sources": [
+    {
+      "label": "Böhler-Uddeholm — P20 / M238 Mould Steel",
+      "url": "https://www.bohler-edelstahl.com/en/products/m238/",
+      "verified": true
+    },
+    {
+      "label": "ASM — P20 mold steel (DIN 1.2311)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Böhler-Uddeholm — Impax Supreme P20 reference",
+      "url": "https://www.uddeholm.com/",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Tool Steels: P20 mold",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204965/Tool-Steels",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      860,
+      1000,
+      16,
+      205,
+      300,
+      29
+    ],
+    [
+      7.85,
+      800,
+      960,
+      13,
+      205,
+      290,
+      29
+    ],
+    [
+      7.85,
+      930,
+      1080,
+      19,
+      205,
+      320,
+      29
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "AISI P20 / DIN 1.2311 / 40CrMnMo7 — pre-hardened mold steel (C 0.28-0.40, Cr 1.4-2.0, Mo 0.30-0.55). Delivery state: Pre-hardened 의 의미: 별도 HT 불필요로 mold 직접 가공 가능 (post-HT 의 dimensional change 회피). Mirror polish, EDM 가공 가능. 플라스틱 injection mold, die casting mold (low-melting alloys: Zn, Pb), forging die preform. Mod 변종 (1.2738) 은 S 추가로 machinability 향상.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "DIN 1.2311",
+        "org": "DIN"
+      }
+    ]
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 380,
+  "density": 7.85,
+  "yield_strength": 860,
+  "uts": 1000,
+  "elongation": 16,
+  "modulus": 205,
+  "hardness": 300,
+  "thermal_conductivity": 29,
+  "impact_strength": 45,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Böhler-Uddeholm — P20 / M238 Mould Steel",
+  "aliases": [
+    "DIN 1.2311",
+    "40CrMnMo7",
+    "P20"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 5,
+  "max_service_temp": 425,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1426,
+  "price_per_kg": 4.5,
+  "price_per_cm3": 0.0353,
+  "popularity": 4.22,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.81,
+  "total_cost_estimate": 5.23,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1936년 미국 Bethlehem Steel 이 plastic injection mold 산업의 표준 자재로 출시한 합금이에요. Cr 1.6% + Mn 1.0% + Mo 0.4% + C 0.4% 의 조성으로 pre-hardened (HRC 30~36) 상태로 출하 — 사용자가 별도 열처리 없이 가공 후 바로 mold 로 사용 가능한 게 혁명적이었죠. 1941년 AISI P20 (UNS T51620) 으로 표준화됐습니다.\n\nP20 의 의의는 '사출금형 제조의 생산성 혁명' 이에요. 이전엔 mold 가공 → quench + temper → 변형 보정 가공의 3 단계가 필요했는데, P20 은 가공 → 끝. mold 제조 시간이 50% 단축되면서 plastic 산업이 폭발적으로 확산됐죠.\n\n응용 — 사출금형의 약 70% 가 P20 또는 그 변형 (NAK80, 718H — pre-hardened 4140) 입니다. 가전 제품 (LG, 삼성의 가전 plastic case), 자동차 interior (dashboard, bumper), 식품 용기 (Tupperware, Coca-Cola plastic bottle 제조 mold), 의료 device housing, 사출 plastic toy (LEGO mold 는 더 hard 한 STAVAX 사용). 한국 두산공작기계의 KP4, Bohler M238, Uddeholm Impax Supreme 도 P20 변형이에요.",
+  "story_refs": [
+    "Roberts G A, Krauss G & Kennedy R (1998) Tool Steels 5th ed., ASM",
+    "ASTM A681 \"Standard Specification for Tool Steels Alloy\"",
+    "Bohler-Uddeholm \"M238 Technical Information\" (2019)"
+  ],
+  "confidence_tier": "high"
+}

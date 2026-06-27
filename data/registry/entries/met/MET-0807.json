@@ -1,0 +1,279 @@
+{
+  "stable_id": "MET-0807",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-ma956-ods-fecral",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0226",
+  "origin": "reference(supplementary)",
+  "id": "R_0226",
+  "name": "MA956 (ODS FeCrAl)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.2,
+      "max": 7.2,
+      "typical": 7.2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 330,
+      "max": 360,
+      "typical": 360,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 480,
+      "max": 510,
+      "typical": 510,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 14,
+      "max": 18,
+      "typical": 18,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 211,
+      "max": 211,
+      "typical": 211,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 240,
+      "max": 250,
+      "typical": 250,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 144,
+      "max": 209,
+      "typical": 180,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (ASM Vol.19 Martensitic SS)"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 80,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Ferritic"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 95,
+      "typical": 65,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Martensitic SS"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "max_service_temp": {
+      "min": 552.5,
+      "max": 747.5,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "thermal_expansion": {
+      "min": 8.67,
+      "max": 11.73,
+      "typical": 10.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "poisson_ratio": {
+      "min": 0.238,
+      "max": 0.322,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "melting_point": {
+      "min": 1258,
+      "max": 1702,
+      "typical": 1480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_kg": {
+      "min": 2.975,
+      "max": 4.025,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0214,
+      "max": 0.029,
+      "typical": 0.0252,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.68,
+      "max": 3.68,
+      "typical": 3.68,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "20",
+    "Al": "4.5",
+    "Ti": "0.5"
+  },
+  "sources": [
+    {
+      "label": "ASM — MA956 oxide-dispersion-strengthened FeCrAl",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals — INCOLOY alloy MA956 공식 데이터시트 (Publication SMC-008, ©2004; 조성·물리물성·인장/크리프 그래프, pdftotext 텍스트 추출 검증)",
+      "url": "http://specialmetals.ir/images/technical_info/Fer-base/Incoloy-alloy-MA956.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.2,
+      360,
+      510,
+      18,
+      211,
+      250,
+      11
+    ],
+    [
+      7.2,
+      330,
+      480,
+      14,
+      211,
+      240,
+      11
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 180,
+  "density": 7.2,
+  "yield_strength": 360,
+  "uts": 510,
+  "elongation": 18,
+  "modulus": 211,
+  "hardness": 250,
+  "thermal_conductivity": 11,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — MA956 oxide-dispersion-strengthened FeCrAl",
+  "aliases": [
+    "Alloy MA956",
+    "FeCrAlY ODS"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 10.2,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0252,
+  "popularity": 3.3,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.68,
+  "total_cost_estimate": 3.68,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

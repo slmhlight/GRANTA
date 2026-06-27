@@ -1,0 +1,296 @@
+{
+  "stable_id": "MET-0847",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-structural-steel",
+    "alloy_base": "F-AB-astm-a36-structural-carbon-steel",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0115_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0115_0",
+  "name": "ASTM A36 (structural carbon steel) — As-rolled (minimum spec)",
+  "category": "Metal",
+  "subcategory": "Structural Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "As-rolled (minimum spec)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 475,
+      "max": 475,
+      "typical": 475,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 23,
+      "max": 23,
+      "typical": 23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 206,
+      "max": 206,
+      "typical": 206,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 95,
+      "typical": 75,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A36 / EN structural"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "price_per_kg": {
+      "min": 0.8,
+      "max": 1.3,
+      "typical": 1,
+      "n": 1,
+      "estimated": true,
+      "confidence": "measured",
+      "provenance": "HRC MetalMiner 2026-Q2 = $700-900/short ton"
+    },
+    "price_per_cm3": {
+      "min": 0.0066,
+      "max": 0.009,
+      "typical": 0.0078,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.26,
+      "max": 1.26,
+      "typical": 1.26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "97.8~99.2",
+    "Mn": "0.6~1.2",
+    "Cu": "0.2",
+    "Si": "≤0.4",
+    "C": "≤0.29",
+    "S": "≤0.05",
+    "P": "≤0.04"
+  },
+  "sources": [
+    {
+      "label": "AISC / MakeItFrom — ASTM A36 Structural Carbon Steel",
+      "url": "https://www.makeitfrom.com/material-properties/ASTM-A36-SS400-S275-Structural-Carbon-Steel",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Structural steel, ASTM A36 (UNS K02600, as rolled)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.aisc.org/aisc/publications/steel-construction-manual/",
+      "verified": true
+    },
+    {
+      "label": "AISC Steel Construction Manual — ASTM A36",
+      "url": "https://www.aisc.org/publications/",
+      "verified": false
+    },
+    {
+      "label": "ASTM A36 / A36M — Structural Steel",
+      "url": "https://store.astm.org/a0036_a0036m-19.html",
+      "verified": false
+    },
+    {
+      "label": "MatWeb — ASTM A36 Steel",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=d1844977c5c8440cb9a3a967f8909c3a",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      250,
+      475,
+      23,
+      206,
+      135,
+      50
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ASTM A36 / SAE 1018 (~) / DIN S235JR / JIS SS400 / KS SS400 — mild structural carbon steel (C ≤ 0.26, Mn ≤ 1.03). σy 250 MPa min (thickness 8-100 mm), UTS 400-550 MPa (대부분 약 450 MPa), El 23% min (200mm gage), HB 119-159.",
+  "meta": {
+    "reference": true,
+    "condition": "As-rolled (minimum spec)",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "ASTM A36 carbon steel",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A36",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 75,
+  "density": 7.85,
+  "yield_strength": 250,
+  "uts": 475,
+  "elongation": 23,
+  "modulus": 206,
+  "hardness": 135,
+  "thermal_conductivity": 50,
+  "fatigue_strength": 165,
+  "impact_strength": 25,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "AISC / MakeItFrom — ASTM A36 Structural Carbon Steel",
+  "aliases": [
+    "ASTM A36",
+    "EN S275JR",
+    "St37-2"
+  ],
+  "families": [
+    "Metal",
+    "Structural Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0078,
+  "popularity": 5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.26,
+  "total_cost_estimate": 1.13,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "ASTM A36 는 미국에서 가장 흔히 쓰이는 carbon structural steel 의 grade designation 입니다. 1960년 ASTM 이 발행한 'Standard Specification for Carbon Structural Steel' 이 원본이고, σy 250 MPa (36 ksi, 그래서 A36) · UTS 400-550 · El 20% 의 minimum spec 을 보장합니다. Carbon 0.26% 이하 + Mn 약 0.8-1.0% 로 가장 단순한 ferritic-pearlitic 미세조직을 가져요.\n\n건축의 거의 모든 일반 구조용 steel 이 A36 입니다. I-beam (W shape), H-pile, angle iron, channel iron, square / rectangular tubing, plate. 미국에서만 연간 4천만 톤의 A36 가 생산되며 이는 전체 carbon steel 생산의 30% 이상을 차지해요. 가격이 가장 저렴하고 (~$0.8-1.3/kg) machining + welding + bending 모두 쉬워서 '명확한 이유가 없으면 A36 부터 검토' 가 mechanical engineer 의 기본 자세입니다.\n\n실제 응용은 무한합니다. 빌딩 frame (300m+ skyscraper 의 일부 column, 보 — A36 또는 high-strength A992), 다리 (golden gate bridge 의 주요 stiffener, suspension cable 안의 wire 는 high-strength carbon steel), 자동차 chassis frame (트럭 ladder frame), 산업 storage tank, 일반 기계 frame, 그리고 사실상 모든 ' 산업 metal cabinet · workbench · 부품 holder ' . 단점은 부식 저항이 없어 도장 또는 galvanizing 이 필수, 그리고 σy 250 MPa 이 한계라 high-load 또는 light-weight 응용에는 A992 (σy 345) 또는 A572 Grade 50 / 65 가 검토됩니다.",
+  "story_refs": [
+    "ASTM A36 / A36M \"Standard Specification for Carbon Structural Steel\"",
+    "AISC Steel Construction Manual 15th ed. (2017)",
+    "Bjorhovde R (2004) \"Development and Use of High Performance Steel\", J Constr Steel Res 60"
+  ],
+  "confidence_tier": "high"
+}

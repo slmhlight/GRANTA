@@ -1,0 +1,181 @@
+{
+  "stable_id": "CER-0008",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-carbide",
+    "alloy_base": "F-AB-titanium-carbide-tic-99",
+    "element_families": []
+  },
+  "legacy_id": "CER_031",
+  "origin": "ceramics-data",
+  "id": "CER_031",
+  "name": "Titanium Carbide (TiC, 99%)",
+  "category": "Ceramic",
+  "subcategory": "Carbide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 4.93,
+      "max": 4.93,
+      "typical": 4.93,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 260,
+      "max": 260,
+      "typical": 260,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 260,
+      "max": 260,
+      "typical": 260,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 2900,
+      "max": 2900,
+      "typical": 2900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 7.7,
+      "max": 7.7,
+      "typical": 7.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": {
+      "min": 3160,
+      "max": 3160,
+      "typical": 3160,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 117,
+      "max": 117,
+      "typical": 117,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.4437,
+      "max": 0.4437,
+      "typical": 0.4437,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "79.9",
+    "C": "20.1"
+  },
+  "sources": [
+    {
+      "label": "Applications: Cermet 절삭공구 (TiC-Ni-Mo), 마모 코팅 (PVD/CVD), 항공 탱크 라이닝",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "CoorsTek TiC ceramic technical data",
+      "url": "https://www.coorstek.com/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "Cermet 절삭공구 (TiC-Ni-Mo), 마모 코팅 (PVD/CVD), 항공 탱크 라이닝",
+    "limitations": "공기 中 800°C 산화 (TiO₂ 형성). WC 보다 brittle.",
+    "_r173_note_applied": true
+  },
+  "popularity": 2,
+  "density": 4.93,
+  "yield_strength": 260,
+  "uts": 260,
+  "elongation": null,
+  "modulus": 450,
+  "hardness": 2900,
+  "thermal_conductivity": 21,
+  "fatigue_strength": 117,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: Cermet 절삭공구 (TiC-Ni-Mo), 마모 코팅 (PVD/CVD), 항공 탱크 라이닝",
+  "aliases": [
+    "99%"
+  ],
+  "families": [
+    "Ceramic",
+    "Carbide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.4437,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "TiC (Titanium Carbide, NaCl structure) — Tm 3140°C, ρ 4.93 g/cc, σf 260-310, E 450 GPa, KIC 3, HV 28-32 GPa. Tmax 1400°C inert. WC-Co cutting tool 의 alloying (TiC, TaC 추가 → 1500°C wear 보존, Ti(C,N) 코팅 표준). Cermet (TiC + Ni-Mo binder) cutting tool — high-speed steel 가공 표준. TiC-particle reinforced steel (Hardide coating). 우주 ablative heat shield mid-layer."
+}

@@ -1,0 +1,366 @@
+{
+  "stable_id": "MET-0798",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-aisi-440c",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0274",
+  "origin": "generic(csv)",
+  "id": "G_0274",
+  "name": "AISI 440C — Aged / solution-treated (Wrought)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Aged / solution-treated",
+  "ranges": {
+    "density": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1900,
+      "typical": 1900,
+      "max": 1900,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "uts": {
+      "min": 1970,
+      "typical": 1970,
+      "max": 1970,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "elongation": {
+      "min": 2,
+      "typical": 2,
+      "max": 2,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 245,
+      "max": 285,
+      "typical": 260,
+      "n": 4,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 350,
+      "max": 450,
+      "typical": 400,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 14,
+      "typical": 8,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "fracture_toughness": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "max_service_temp": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "thermal_expansion": {
+      "min": 10.2,
+      "max": 10.2,
+      "typical": 10.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "melting_point": {
+      "min": 1480,
+      "max": 1480,
+      "typical": 1480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "price_per_kg": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "price_per_cm3": {
+      "min": 0.0349,
+      "max": 0.0349,
+      "typical": 0.0349,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.91,
+      "max": 5.91,
+      "typical": 5.91,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "16~18",
+    "C": "0.95~1.20",
+    "Mn": "≤1.0",
+    "Si": "≤1.0",
+    "Mo": "≤0.75"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 440C stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+440C",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 440C\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20440C",
+      "verified": false
+    },
+    {
+      "label": "Carpenter Technology — CarTech 440C Stainless 공식 데이터시트 (조성·물리물성·HT·가공성, pdftotext 텍스트 추출 검증; 5쪽 PDF)",
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf",
+      "verified": true
+    },
+    {
+      "label": "Aircraft Materials — Alloy 440C / AISI 440C / AMS 5630 (UNS S44004) 조성+경화/템퍼 인장표·AMS 5630/5618/5880 명기",
+      "url": "https://www.aircraftmaterials.com/data/alstst/440c.html",
+      "verified": false
+    },
+    {
+      "label": "AZoM — Stainless Steel Grade 440C (UNS S44004): ρ·E·HRC·CTE·열전도 풀 물성표",
+      "url": "https://www.azom.com/article.aspx?ArticleID=6846",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.75,
+      1825.8,
+      1968.6,
+      2.14,
+      210,
+      550.8,
+      25
+    ],
+    [
+      7.75,
+      1700.5,
+      1833.5,
+      1.6,
+      210,
+      513,
+      25
+    ],
+    [
+      7.75,
+      1825.8,
+      1968.6,
+      1.74,
+      210,
+      550.8,
+      25
+    ],
+    [
+      7.75,
+      1736.3,
+      1872.1,
+      1.64,
+      210,
+      523.8,
+      25
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 4,
+    "subcategory_variants": [
+      "Stainless Steel - Ferritic/Martensitic"
+    ],
+    "conditions": [
+      "Aged (150°C",
+      "Aged (200°C",
+      "Precipitation Hardened",
+      "Solution Treated"
+    ],
+    "specs": [
+      {
+        "id": "AMS 5630",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS S44004",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 22,
+  "fatigue_strength": 400,
+  "density": 7.75,
+  "yield_strength": 1900,
+  "uts": 1970,
+  "elongation": 2,
+  "modulus": 210,
+  "hardness": 260,
+  "thermal_conductivity": 25,
+  "impact_strength": 8,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 440C stainless",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 2.5,
+  "max_service_temp": 480,
+  "thermal_expansion": 10.2,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 4.5,
+  "price_per_cm3": 0.0349,
+  "popularity": 3.37,
+  "machining_cost_factor": 1.5,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.91,
+  "total_cost_estimate": 8.86,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 410,
+        "max": 720,
+        "typical": 480,
+        "n": 4,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 480
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 720,
+        "max": 970,
+        "typical": 760,
+        "n": 4,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 760
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 5,
+        "max": 18,
+        "typical": 14,
+        "n": 4,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 14
+    },
+    "_basis": "440C 경화+템퍼 (HRC58-60)",
+    "_src": "CarTech 440C datasheet (UTS max 1970)",
+    "points_stale": true
+  }
+}

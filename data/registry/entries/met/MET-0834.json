@@ -1,0 +1,286 @@
+{
+  "stable_id": "MET-0834",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ph",
+    "alloy_base": "F-AB-custom-465",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0065_3",
+  "origin": "reference(supplementary)",
+  "id": "R_0065_3",
+  "name": "Custom 465 — H 1025 (552°C/4h aged)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - PH",
+  "tier": "reference",
+  "manufacturers": [
+    "Carpenter Technology"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "H 1025 (552°C/4h aged)",
+  "ranges": {
+    "density": {
+      "min": 7.84,
+      "max": 7.84,
+      "typical": 7.84,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1413,
+      "max": 1413,
+      "typical": 1413,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1517,
+      "max": 1517,
+      "typical": 1517,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 196,
+      "max": 196,
+      "typical": 196,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 506,
+      "max": 506,
+      "typical": 506,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 19.37,
+      "max": 19.37,
+      "typical": 19.37,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 620,
+      "max": 820,
+      "typical": 720,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 56,
+      "typical": 30,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "fracture_toughness": {
+      "min": 104,
+      "max": 104,
+      "typical": 104,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "max_service_temp": {
+      "min": 482,
+      "max": 482,
+      "typical": 482,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "thermal_expansion": {
+      "min": 10.3,
+      "max": 10.3,
+      "typical": 10.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "specific_heat": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "melting_point": {
+      "min": 1428,
+      "max": 1428,
+      "typical": 1428,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "price_per_cm3": {
+      "min": 0.0941,
+      "max": 0.0941,
+      "typical": 0.0941,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:custom465"
+    },
+    "delivered_price_per_kg": {
+      "min": 15.75,
+      "max": 15.75,
+      "typical": 15.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "11~12.5",
+    "Ni": "10.75~11.25",
+    "Ti": "1.5~1.8",
+    "Mo": "0.75~1.25",
+    "Mn": "≤0.25",
+    "Si": "≤0.25",
+    "C": "≤0.02"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 4",
+      "url": "https://www.carpentertechnology.com/alloy-finder/custom-465",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 4",
+      "url": "Carpenter Custom 465 datasheet (AMS 5936, ASTM A564, MMPDS-01)",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Carpenter Custom 465 (H950)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AMS 5936 — Custom 465 bar/forging",
+      "url": "https://www.sae.org/standards/content/ams5936/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.84,
+      1413,
+      1517,
+      15,
+      196,
+      506,
+      19.37
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS S46500 / Carpenter Custom 465 — high-strength martensitic precipitation-hardening stainless (Cr 11-12, Ni 10.7-11.3, Mo 0.75-1.25, Ti 1.5-1.8). Stronger than 17-4 PH 또는 Custom 455. H 950 (peak strength, 510°C/4h): σy 1669 / UTS 1765 / El 8% / HRC 51. H 975: σy 1620 / UTS 1703 / HRC 50. H 1000: σy 1560 / UTS 1640 / HRC 47. Tmax 482°C. 항공기 landing gear (high-strength PH version of 17-4), missile component, sport firearm component.",
+  "meta": {
+    "reference": true,
+    "condition": "H 1025 (552°C/4h aged)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5936",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 104,
+  "density": 7.84,
+  "yield_strength": 1413,
+  "uts": 1517,
+  "elongation": 15,
+  "modulus": 196,
+  "hardness": 506,
+  "thermal_conductivity": 19.37,
+  "fatigue_strength": 720,
+  "impact_strength": 30,
+  "manufacturer": "Carpenter Technology",
+  "process": "Wrought",
+  "source": "Datasheet 4",
+  "aliases": [
+    "UNS S46500",
+    "Carpenter Custom 465"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - PH",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 2.5,
+  "max_service_temp": 482,
+  "thermal_expansion": 10.3,
+  "poisson_ratio": 0.28,
+  "specific_heat": 480,
+  "melting_point": 1428,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.0941,
+  "popularity": 3.07,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 15.75,
+  "total_cost_estimate": 15.75,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 11.25% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

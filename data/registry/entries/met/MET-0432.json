@@ -1,0 +1,295 @@
+{
+  "stable_id": "MET-0432",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-cupronickel-90-10-c70600",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0101",
+  "origin": "reference(supplementary)",
+  "id": "R_0101",
+  "name": "Cupronickel 90/10 (C70600)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.94,
+      "max": 8.94,
+      "typical": 8.94,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 90,
+      "max": 140,
+      "typical": 105,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 275,
+      "max": 320,
+      "typical": 290,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 42,
+      "typical": 35,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 75,
+      "max": 90,
+      "typical": 80,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 110,
+      "max": 160,
+      "typical": 135,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "impact_strength": {
+      "min": 70,
+      "max": 160,
+      "typical": 115,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "fracture_toughness": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "max_service_temp": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "thermal_expansion": {
+      "min": 17.1,
+      "max": 17.1,
+      "typical": 17.1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "specific_heat": {
+      "min": 377,
+      "max": 377,
+      "typical": 377,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "melting_point": {
+      "min": 1149,
+      "max": 1149,
+      "typical": 1149,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "price_per_kg": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "price_per_cm3": {
+      "min": 0.1341,
+      "max": 0.1341,
+      "typical": 0.1341,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c70600"
+    },
+    "delivered_price_per_kg": {
+      "min": 15.75,
+      "max": 15.75,
+      "typical": 15.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Ni": "9~11",
+    "Fe": "1~1.8",
+    "Mn": "≤1"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C70600 90-10 Cupronickel",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C70600",
+      "verified": true
+    },
+    {
+      "label": "ASM — Cupronickel 90/10 (UNS C70600)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Copper.org Cu-Ni",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.94,
+      105,
+      290,
+      35,
+      135,
+      80,
+      40
+    ],
+    [
+      8.94,
+      90,
+      275,
+      30,
+      135,
+      75,
+      40
+    ],
+    [
+      8.94,
+      140,
+      320,
+      42,
+      135,
+      90,
+      40
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS C70600",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 90,
+  "fatigue_strength": 135,
+  "density": 8.94,
+  "yield_strength": 105,
+  "uts": 290,
+  "elongation": 35,
+  "modulus": 135,
+  "hardness": 80,
+  "thermal_conductivity": 40,
+  "impact_strength": 115,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Copper.org — C70600 90-10 Cupronickel",
+  "aliases": [
+    "C70600",
+    "UNS C70600",
+    "EN CW352H",
+    "CuNi10Fe1Mn",
+    "90/10 cupronickel"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 9,
+  "max_service_temp": 350,
+  "thermal_expansion": 17.1,
+  "poisson_ratio": 0.34,
+  "specific_heat": 377,
+  "melting_point": 1149,
+  "price_per_kg": 15,
+  "price_per_cm3": 0.1341,
+  "popularity": 3,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 15.75,
+  "total_cost_estimate": 14.18,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 11% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

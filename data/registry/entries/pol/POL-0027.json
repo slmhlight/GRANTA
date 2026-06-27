@@ -1,0 +1,283 @@
+{
+  "stable_id": "POL-0027",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-peek",
+    "alloy_base": "F-AB-peek-victrex-450g",
+    "element_families": []
+  },
+  "legacy_id": "POL_000",
+  "origin": "polymers-data",
+  "id": "POL_000",
+  "name": "PEEK Victrex 450G — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEEK",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 3.7,
+      "max": 3.7,
+      "typical": 3.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.25,
+      "max": 0.25,
+      "typical": 0.25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 47,
+      "max": 47,
+      "typical": 47,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 75,
+      "max": 110,
+      "typical": 90,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "Victrex 450G powder/pellet Q2 2026 (medical grade slightly higher)"
+    },
+    "glass_transition_temp": {
+      "min": 143,
+      "max": 143,
+      "typical": 143,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 343,
+      "max": 343,
+      "typical": 343,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 152,
+      "max": 152,
+      "typical": 152,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEEK"
+    },
+    "price_per_cm3": {
+      "min": 0.0994,
+      "max": 0.1346,
+      "typical": 0.117,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    }
+  },
+  "composition": {
+    "C": "79.2",
+    "H": "4.2",
+    "O": "16.7"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PEEK Victrex 450G",
+      "url": "https://www.victrex.com/-/media/downloads/datasheets/victrex_tds_450g.pdf",
+      "verified": true
+    },
+    {
+      "label": "Applications: 항공기 인테리어, 의료 임플란트 (척추 cage), 반도체 wafer carrier, 오일·가스 sealing",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASTM D6262 — PEEK injection molding tensile",
+      "url": "https://store.astm.org/d6262-17.html",
+      "verified": false
+    },
+    {
+      "label": "Victrex PEEK 450G technical datasheet",
+      "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
+      "verified": true
+    },
+    {
+      "label": "Solvay KetaSpire PEEK technical guide",
+      "url": "https://www.solvay.com/en/brands/ketaspire-peek",
+      "verified": true
+    },
+    {
+      "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
+      "url": "https://www.astm.org/f2026-17.html",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "polymer": true,
+    "tg": 143,
+    "tm": 343,
+    "hdt_182": 152,
+    "moisture_24h": 0.5,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "applications": "항공기 인테리어, 의료 임플란트 (척추 cage), 반도체 wafer carrier, 오일·가스 sealing",
+    "limitations": "고가 (~$95/kg), 가공 시 결정화 제어 필요, 자외선 약함",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "PEEK Victrex 450G",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM D6262",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM F2026",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 4.07,
+  "density": 1.3,
+  "yield_strength": 100,
+  "uts": 100,
+  "elongation": 45,
+  "modulus": 3.7,
+  "hardness": null,
+  "thermal_conductivity": 0.25,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PEEK Victrex 450G",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PEEK"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.117,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 100,
+      "uts": 100,
+      "E": 3.7
+    },
+    {
+      "temp": 100,
+      "ys": 85,
+      "uts": 85,
+      "E": 3.5
+    },
+    {
+      "temp": 150,
+      "ys": 70,
+      "uts": 70,
+      "E": 3.3
+    },
+    {
+      "temp": 200,
+      "ys": 50,
+      "uts": 50,
+      "E": 2.5
+    },
+    {
+      "temp": 250,
+      "ys": 20,
+      "uts": 20,
+      "E": 1.5
+    }
+  ],
+  "story": "1978년 영국 ICI (Imperial Chemical Industries) Wilton 연구소의 존 로즈 (John Rose) 와 P A 스태닐랜드 (Staniland) 가 difluorobenzophenone + hydroquinone 의 nucleophilic substitution 으로 polyetheretherketone 을 합성합니다 — 처음에는 핵 발전소의 고온 와이어 절연재로 개발 계획이었어요. 1986년 ICI 가 Plastics Division 을 spin-off 해 Victrex 로 분리하면서 PEEK 가 본격 상품화됐죠.\n\nT_m 343°C 의 결정성 polymer 로 ULTEM (Tg 217°C) 위 영역을 채우면서 200~260°C 의 연속 사용 온도, 99% 의 화학적 비활성 (강산, 강알칼리, 모든 일반 유기용제), 식품 등급 인증을 모두 보유하고 있어요 — 의료 척추 cage / pedicle screw (FDA Class III implant 표준), 반도체 wafer carrier, 오일·가스 다운홀 sealing, 자동차 ABS 펌프 piston ring, F1 F-duct actuator. 2016년 Apple iPhone 7 의 OLED 디스플레이 internal carrier 도 PEEK CF30 — 휴대폰 내부에서도 사용됐어요. 단점은 $95/kg 의 가격과 매우 느린 결정화 (등온 결정화 350°C/30 min) — 사출 성형 mold 가공 시간이 PP 의 3배입니다.",
+  "story_refs": [
+    "Attwood T E et al. (1981) \"Synthesis and properties of polyaryletherketones\", Polymer 22(8)",
+    "ICI UK Patent 1,569,602 (1976) \"Aromatic ether ketone polymers\"",
+    "Kemmish D (2017) Update on the Technology and Applications of Polyaryletherketones, Smithers Rapra",
+    "Victrex PLC Annual Report 2023 (https://www.victrex.com/investors)"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Victrex 450G — Victrex 의 baseline unfilled PEEK granule (medium MFR for injection molding). Tg 143°C, Tm 343°C, max service 250°C continuous, 315°C short-term. σy 100 / UTS 100 / El 30-50% / E 3.7 GPa / ρ 1.30 g/cc. UL 94 V-0 자체 난연 (limiting oxygen index 35%). 가공 시 ~370°C 압출, 결정화 후 dimensional 안정. 의료 임플란트 (ASTM F2026 spinal cage), 산업 기어/베어링, 반도체 wafer carrier, 오일 well-head seal."
+}

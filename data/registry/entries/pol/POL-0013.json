@@ -1,0 +1,244 @@
+{
+  "stable_id": "POL-0013",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-foam-pmi",
+    "alloy_base": "F-AB-rohacell-a-pmi-structural-foam-evonik-aircraft-grade",
+    "element_families": []
+  },
+  "legacy_id": "R_0031_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0031_2",
+  "name": "Rohacell A PMI structural foam (Evonik aircraft grade) — Rohacell 71A (density 75 kg/m³, σc 1.5 MPa, σt 2.8 MPa)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Foam (PMI)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Closed-cell foam"
+  ],
+  "heat_treatment": "Rohacell 71A (density 75 kg/m³, σc 1.5 MPa, σt 2.8 MPa)",
+  "ranges": {
+    "density": {
+      "min": 0.075,
+      "max": 0.075,
+      "typical": 0.075,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 0.092,
+      "max": 0.092,
+      "typical": 0.092,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": null,
+    "fatigue_strength": null,
+    "impact_strength": {
+      "min": 1,
+      "max": 4,
+      "typical": 2,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:rohacell"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Foam (PMI)"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Foam (PMI)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Foam (PMI)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Foam (PMI)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Foam (PMI)"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Foam (PMI)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Foam (PMI)"
+    },
+    "price_per_cm3": {
+      "min": 0.0009,
+      "max": 0.0029,
+      "typical": 0.0019,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Foam (PMI)"
+    },
+    "delivered_price_per_kg": {
+      "min": 26.25,
+      "max": 26.25,
+      "typical": 26.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "61.8",
+    "H": "7.3",
+    "N": "14.4",
+    "O": "16.5"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.rohacell.com/product/rohacell/",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "Evonik ROHACELL A Product Information (April 2022, 243400 EN)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "MIL-PRF-32125 / CMS / Boeing BMS aerospace foam spec",
+      "verified": true
+    },
+    {
+      "label": "Evonik Rohacell A / IG / WF PMI foam reference",
+      "url": "https://www.rohacell.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      0.075,
+      1.5,
+      1.5,
+      3,
+      0.092,
+      null,
+      null
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "Rohacell A (Evonik PMI foam, A = Autoclave-grade) — Polymethacrylimide closed-cell rigid foam. ρ 0.02-0.30 g/cc (very low), σy 0.",
+  "meta": {
+    "reference": true,
+    "condition": "Rohacell 71A (density 75 kg/m³, σc 1.5 MPa, σt 2.8 MPa)",
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 0.075,
+  "yield_strength": 1.5,
+  "uts": 1.5,
+  "elongation": 3,
+  "modulus": 0.092,
+  "hardness": null,
+  "thermal_conductivity": null,
+  "fatigue_strength": null,
+  "impact_strength": 2,
+  "manufacturer": "Reference data",
+  "process": "Closed-cell foam",
+  "source": "Datasheet 3",
+  "aliases": [
+    "density 75 kg",
+    "σc 1.5 MPa",
+    "σt 2.8 MPa"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Foam (PMI)"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0019,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 26.25,
+  "total_cost_estimate": 18.38,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

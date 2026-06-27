@@ -1,0 +1,174 @@
+{
+  "stable_id": "CMP-0004",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-bulk-molding",
+    "alloy_base": "F-AB-pmc",
+    "element_families": []
+  },
+  "legacy_id": "CMP_028",
+  "origin": "composites-data",
+  "id": "CMP_028",
+  "name": "PMC — SMC (Sheet Molding Compound, glass 30%)",
+  "category": "Composite",
+  "subcategory": "Bulk-Molding",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.9,
+      "max": 1.9,
+      "typical": 1.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.5,
+      "max": 0.5,
+      "typical": 0.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 49.5,
+      "max": 49.5,
+      "typical": 49.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.0057,
+      "max": 0.0057,
+      "typical": 0.0057,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Apps: 자동차 hood·trunk lid·panels (FRP large parts), 인프라 패널",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Continental Structural Plastics SMC technical",
+      "url": "https://www.cspresins.com/",
+      "verified": false
+    },
+    {
+      "label": "Magna International SMC body panel",
+      "url": "https://www.magna.com/",
+      "verified": false
+    },
+    {
+      "label": "JLON Composite — SMC (Sheet Molding Compound) JL-6006, 30-33% glass",
+      "url": "https://www.jloncomposite.com/sheet-moulding-compound-SMC.html",
+      "verified": true
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "applications": "자동차 hood·trunk lid·panels (FRP large parts), 인프라 패널",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 3,
+  "density": 1.9,
+  "yield_strength": 90,
+  "uts": 110,
+  "elongation": 1.5,
+  "modulus": 13,
+  "hardness": null,
+  "thermal_conductivity": 0.5,
+  "fatigue_strength": 49.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Apps: 자동차 hood·trunk lid·panels (FRP large parts), 인프라 패널",
+  "aliases": [
+    "glass 30%"
+  ],
+  "families": [
+    "Composite",
+    "Bulk-Molding"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0057,
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "SMC (Sheet Molding Compound) — polyester / vinyl ester resin + 25-30% chopped glass fiber (25mm length) + CaCO₃ filler + low-profile additive (LPA). Compression molded (matched die, 150-160°C, 10-50 MPa). σf 80-110, σy 70-90, E 11-15 GPa, ρ 1.85-1."
+}

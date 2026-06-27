@@ -1,0 +1,185 @@
+{
+  "stable_id": "CMP-0026",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-glass-epoxy",
+    "alloy_base": "F-AB-gfrp",
+    "element_families": []
+  },
+  "legacy_id": "CMP_010",
+  "origin": "composites-data",
+  "id": "CMP_010",
+  "name": "GFRP — S-2 Glass/Epoxy (UD 0°)",
+  "category": "Composite",
+  "subcategory": "Glass-Epoxy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1700,
+      "max": 1700,
+      "typical": 1700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1700,
+      "max": 1700,
+      "typical": 1700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.45,
+      "max": 0.45,
+      "typical": 0.45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 765,
+      "max": 765,
+      "typical": 765,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.07,
+      "max": 0.07,
+      "typical": 0.07,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "AGY — GFRP — S-2 Glass/Epoxy (UD 0°)",
+      "url": "https://www.agy.com/products/",
+      "verified": true
+    },
+    {
+      "label": "Apps: 헬리콥터 로터 블레이드 (rotor blade torsion box), 압력용기",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Owens Corning E-glass / S-2 glass fiber data",
+      "url": "https://www.owenscorning.com/en-us/composites",
+      "verified": true
+    },
+    {
+      "label": "Hexcel HexPly epoxy prepreg datasheets",
+      "url": "https://www.hexcel.com/Products/Industries",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook Vol.1 — Composites: GFRP",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/14/chapter-abstract/204970/Properties-of-Glass-Fiber-Reinforced-Polymers",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "ply_direction": "UD 0°",
+    "fiber_vf": 0.6,
+    "applications": "헬리콥터 로터 블레이드 (rotor blade torsion box), 압력용기",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 2,
+  "yield_strength": 1700,
+  "uts": 1700,
+  "elongation": 3.5,
+  "modulus": 60,
+  "hardness": null,
+  "thermal_conductivity": 0.45,
+  "fatigue_strength": 765,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "AGY — GFRP — S-2 Glass/Epoxy (UD 0°)",
+  "aliases": [],
+  "families": [
+    "Composite",
+    "Glass-Epoxy"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.07,
+  "rohs_compliant": true,
+  "story": "GFRP (Glass Fiber Reinforced Polymer) 는 1932년 미국 Owens-Illinois 의 Games Slayter 가 우연한 발견으로 처음 만들어집니다. 그가 glass 용해로에 압축공기를 잘못 분사해 fine glass wool 이 생기는 걸 본 게 시작이었어요. 1935년 Owens-Corning 이 설립되며 E-glass fiber 가 상업화됐고, 2차 세계대전 중 미국 해군 PT-boat 의 레이돔과 안테나 부품에 처음 본격 사용됐습니다.\n\nGFRP 의 매력은 단순합니다. 가격이 CFRP 의 1/5 (E-glass fiber $2-3/kg, prepreg $15-30/kg), 강성은 1/3 수준이지만 강도는 비슷하고 충격 내성과 절연성에서 훨씬 우수합니다. E-glass 가 가장 보편적이고, 더 높은 강도가 필요하면 S-glass / S-2 glass (Owens-Corning), 알칼리 내성이 필요하면 AR-glass 가 선택돼요.\n\n응용은 거의 무한합니다. 풍력 blade (Vestas, Siemens Gamesa 의 70-100m 길이 blade), 보트 hull (1947년 Carl Lindemann 의 첫 FRP 보트부터 시작해서 oggj 거의 모든 레저 보트), 화학 plant pressure vessel (필라멘트 winding 으로 만든 acid storage tank), 자동차 leaf spring (Chevy Corvette 1981년 model 부터), PCB substrate (FR-4 = E-glass + 에폭시), 그리고 옥외 안테나 radome. 단점은 longitudinal CTE 가 carbon fiber 의 음수와 달리 양수 (5-6 × 10⁻⁶/K) 이고 modulus 가 낮다는 점입니다.",
+  "story_refs": [
+    "Slayter G (1933) US Patent 2,041,277 \"Method and Apparatus for Making Glass Wool\"",
+    "Loewenstein K L (1993) The Manufacturing Technology of Continuous Glass Fibres 3rd ed., Elsevier",
+    "ASM Handbook Vol.21 Composites Section 5 Glass Fibers"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "GFRP (Glass Fiber Reinforced Polymer). E-glass (가장 흔함, 저렴, σf fiber 3.4 GPa) / S-2 glass (고강도, σf fiber 4.9 GPa, 30% 강성↑)."
+}

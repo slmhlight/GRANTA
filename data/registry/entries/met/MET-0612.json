@@ -1,0 +1,288 @@
+{
+  "stable_id": "MET-0612",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-rene-n5",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0149",
+  "origin": "reference(supplementary)",
+  "id": "R_0149",
+  "name": "Rene N5",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "GE Aviation (Rene)"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "Solution + 2-stage Aged (1300°C / 1080°C 6h + 870°C 20h) — single crystal",
+  "ranges": {
+    "density": {
+      "min": 8.53,
+      "max": 8.87,
+      "typical": 8.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 900,
+      "max": 950,
+      "typical": 950,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1050,
+      "max": 1100,
+      "typical": 1100,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8.8,
+      "max": 11.2,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 400,
+      "max": 420,
+      "typical": 420,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 380,
+      "max": 523,
+      "typical": 456,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:GE Aviation Single Crystal"
+    },
+    "electrical_conductivity": {
+      "min": 1.105,
+      "max": 1.495,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 935,
+      "max": 1265,
+      "typical": 1100,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 10.795,
+      "max": 14.605,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 357,
+      "max": 483,
+      "typical": 420,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1113.5,
+      "max": 1506.5,
+      "typical": 1310,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 255,
+      "max": 345,
+      "typical": 300,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 2.2006,
+      "max": 2.9773,
+      "typical": 2.589,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 1740,
+      "max": 1740,
+      "typical": 1740,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "7",
+    "Co": "8",
+    "W": "5",
+    "Re": "3",
+    "Al": "6.2",
+    "Ta": "7",
+    "Mo": "2"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Rene N5 single crystal",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+N5",
+      "verified": false
+    },
+    {
+      "label": "GE / ASM — Rene N5 single-crystal superalloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: GE Aviation Single Crystal",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Neway AeroTech — Rene N5 single-crystal casting 물성 데이터시트",
+      "url": "https://www.newayaerotech.com/services/single-crystal-casting/rene-n5",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.63,
+      950,
+      1100,
+      14,
+      130,
+      400,
+      11
+    ],
+    [
+      8.63,
+      900,
+      1050,
+      16,
+      130,
+      420,
+      11
+    ]
+  ],
+  "machinability": "Very Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 456,
+  "density": 8.63,
+  "yield_strength": 950,
+  "uts": 1100,
+  "elongation": 16,
+  "modulus": 130,
+  "hardness": 420,
+  "thermal_conductivity": 11,
+  "impact_strength": 60,
+  "manufacturer": "GE Aviation (Rene)",
+  "process": "Cast",
+  "source": "MatWeb — Rene N5 single crystal",
+  "aliases": [
+    "Rene N5",
+    "CMSX-4 class SX"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 1100,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1310,
+  "price_per_kg": 300,
+  "price_per_cm3": 2.589,
+  "popularity": 2.37,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1,
+  "price_grade_premium": 4,
+  "delivered_price_per_kg": 1740,
+  "total_cost_estimate": 3132,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 8% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "medium"
+}

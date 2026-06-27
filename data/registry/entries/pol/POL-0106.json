@@ -1,0 +1,234 @@
+{
+  "stable_id": "POL-0106",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pp-fdm",
+    "alloy_base": "F-AB-pp-homopolymer",
+    "element_families": []
+  },
+  "legacy_id": "POL_031",
+  "origin": "polymers-data",
+  "id": "POL_031",
+  "name": "PP Homopolymer — Clarified/Nucleated (Borealis/Total class)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PP (FDM)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 0.905,
+      "max": 0.905,
+      "typical": 0.905,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 36.7,
+      "max": 36.7,
+      "typical": 36.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 42.5,
+      "max": 42.5,
+      "typical": 42.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 1.69,
+      "max": 1.69,
+      "typical": 1.69,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 56,
+      "max": 56,
+      "typical": 56,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.22,
+      "max": 0.22,
+      "typical": 0.22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 38,
+      "max": 38,
+      "typical": 38,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": -15,
+      "max": -5,
+      "typical": -10,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "melting_point": {
+      "min": 164.5,
+      "max": 164.5,
+      "typical": 164.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 58,
+      "max": 58,
+      "typical": 58,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0023,
+      "max": 0.0023,
+      "typical": 0.0023,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "85.6",
+    "H": "14.4"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PP Homopolymer",
+      "url": "https://www.ansys.com/products/materials/granta-mi",
+      "verified": true
+    },
+    {
+      "label": "Applications: 포장 container, 식품 packaging, 자동차 internal trim, 가전 housing, 의료 syringe",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ExxonMobil PP product family",
+      "url": "https://www.exxonmobilchemical.com/en/products/polymers",
+      "verified": true
+    },
+    {
+      "label": "SABIC PP resin technical guide",
+      "url": "https://www.sabic.com/en/products/polymers/polypropylene-pp",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Polypropylene Homopolymer",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=e7e3e89ab5ab441b8e7a8c8e0b7c3e6e",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "polymer": true,
+    "tg": -10,
+    "tm": 164.5,
+    "hdt_182": 58,
+    "moisture_24h": 0.15,
+    "flame_ul94": "HB",
+    "uv_resistance": "Poor",
+    "applications": "포장 container, 식품 packaging, 자동차 internal trim, 가전 housing, 의료 syringe",
+    "limitations": "UV 취약, 강산화제·강산 취약, 저온 brittle (<-10°C)",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 0.905,
+  "yield_strength": 36.7,
+  "uts": 42.5,
+  "elongation": 56,
+  "modulus": 1.69,
+  "hardness": null,
+  "thermal_conductivity": 0.22,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PP Homopolymer",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PP (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": -10,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0023,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1954년 3월, 이탈리아 Milan Polytechnic 의 줄리오 나타 (Giulio Natta) 가 카를 치글러 (Karl Ziegler) 의 1953년 Ti-Al 카탈리스트 (Ziegler catalyst) 를 propene 에 적용해 처음으로 isotactic polypropylene 을 합성합니다 — Ziegler 의 polyethylene 발견과 함께 1963년 노벨 화학상을 공동 수상하게 되죠. Montecatini 가 1957년 'Moplen' 으로 상업화한 뒤 1960년대 들어 자동차 범퍼·계측기 하우징·식품 용기 (Tupperware) 까지 폭발적으로 보급됐어요.\n\nPP 의 의의는 결정성 (X_c ~60%) + 낮은 밀도 (0.91 g/cm³, 모든 commodity 폴리머 중 최소) + 99% 의 chain-scission-free 재활용 가능성 — 현재 세계 폴리머 시장 2위 (PE 다음 ≈ 80 Mt/y) 의 거대 시장입니다. 가장 흔한 응용: 자동차 범퍼 (BMW, Toyota, 현대), 의자 (IKEA), 약병 cap, microwaveable 식품 용기 (CPP), 의료 syringe (단, Tg -20°C → low-temp 취성 한계). GF30 강화 변형은 자동차 cooling fan 과 dishwasher impeller 의 표준이고요.",
+  "story_refs": [
+    "Natta G (1955) \"Une nouvelle classe de polymères d'α-oléfines ayant une régularité de structure exceptionnelle\", J Polym Sci 16",
+    "Natta G (1963) Nobel Lecture \"From the Stereospecific Polymerization to the Asymmetric Autocatalytic Synthesis of Macromolecules\"",
+    "Pasquini N (ed., 2005) Polypropylene Handbook, Hanser",
+    "Moore E P (ed., 1996) Polypropylene Handbook: Polymerization, Characterization, Properties, Processing, Applications, Hanser"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Polypropylene (PP). Homopolymer vs Random Copolymer (RCP) vs Block Copolymer (BCP). Tg ≈ -10°C (cold-brittle), Tm 160-170°C, HDT (0.46 MPa) ≈ 100°C, max service 100-120°C. Homo: σy 33-38 / UTS 35-40 / El 100-600% / E 1.4-1.6 GPa / ρ 0.90 g/cc (가장 가벼운 thermoplastic). 화학 약품 저항 우수 (산/알칼리). 자동차 bumper (BCP), 마이크로파 ware, 식품 용기, 의료 disposable (주사기, IV 백). 저온 충격 약점 → BCP 또는 EPDM 첨가."
+}

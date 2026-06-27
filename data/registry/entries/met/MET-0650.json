@@ -1,0 +1,273 @@
+{
+  "stable_id": "MET-0650",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-molybdenum-mo-99-95-pure",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0295_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0295_2",
+  "name": "Molybdenum (Mo 99.95% pure) — Cold-worked",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Cold-worked",
+  "ranges": {
+    "density": {
+      "min": 10.22,
+      "max": 10.22,
+      "typical": 10.22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 750,
+      "max": 750,
+      "typical": 750,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 324,
+      "max": 324,
+      "typical": 324,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 290,
+      "max": 290,
+      "typical": 290,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 142,
+      "max": 142,
+      "typical": 142,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 140,
+      "max": 260,
+      "typical": 200,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 28,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "fracture_toughness": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "max_service_temp": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "thermal_expansion": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "poisson_ratio": {
+      "min": 0.32,
+      "max": 0.32,
+      "typical": 0.32,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "specific_heat": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "melting_point": {
+      "min": 2620,
+      "max": 2620,
+      "typical": 2620,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "price_per_kg": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "price_per_cm3": {
+      "min": 0.8176,
+      "max": 0.8176,
+      "typical": 0.8176,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:molybdenum"
+    },
+    "delivered_price_per_kg": {
+      "min": 90.72,
+      "max": 90.72,
+      "typical": 90.72,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mo": "≥99.95"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Molybdenum / TZM",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Molybdenum",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.plansee.com/en/materials/molybdenum.html",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Molybdenum%20pure",
+      "verified": false
+    },
+    {
+      "label": "ASTM B387 — Molybdenum Bar/Rod/Wire",
+      "url": "https://store.astm.org/b0387-18.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      10.22,
+      750,
+      880,
+      12,
+      324,
+      290,
+      142
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "Pure Molybdenum (99.95% +, UNS R03600) — refractory metal. Tm 2623°C, ρ 10.22 g/cc, E 324 GPa. Stress-relieved CW: σy 690 / UTS 825. Tmax 1400°C inert (oxidizes >300°C air → MoO₃ vapor). 우주 thermal heat shield, X-ray tube anode, semiconductor furnace boat, electrode (alkali metal cell), high-T electrical contact. 한국 일진머트리얼즈 / Plansee 의 공급.",
+  "meta": {
+    "reference": true,
+    "condition": "Cold-worked",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B387",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 18,
+  "fatigue_strength": 200,
+  "density": 10.22,
+  "yield_strength": 750,
+  "uts": 880,
+  "elongation": 12,
+  "modulus": 324,
+  "hardness": 290,
+  "thermal_conductivity": 142,
+  "impact_strength": 18,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Pure Molybdenum / TZM",
+  "aliases": [
+    "Mo 99.95% pure"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 30,
+  "max_service_temp": 1400,
+  "thermal_expansion": 5,
+  "poisson_ratio": 0.32,
+  "specific_heat": 250,
+  "melting_point": 2620,
+  "price_per_kg": 80,
+  "price_per_cm3": 0.8176,
+  "popularity": 1.83,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 90.72,
+  "total_cost_estimate": 90.72,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

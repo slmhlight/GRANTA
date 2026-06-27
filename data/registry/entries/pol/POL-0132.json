@@ -1,0 +1,262 @@
+{
+  "stable_id": "POL-0132",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-tpu",
+    "alloy_base": "F-AB-tpu-95a",
+    "element_families": []
+  },
+  "legacy_id": "R_0054",
+  "origin": "reference(supplementary)",
+  "id": "R_0054",
+  "name": "TPU (95A)",
+  "category": "Polymer",
+  "subcategory": "Polymer - TPU",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "FDM"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 6,
+      "max": 10,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 28,
+      "max": 40,
+      "typical": 35,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 400,
+      "max": 580,
+      "typical": 500,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 0.025,
+      "max": 0.035,
+      "typical": 0.03,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.2,
+      "max": 0.2,
+      "typical": 0.2,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - TPU (FDM)"
+    },
+    "max_service_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - TPU (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - TPU (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - TPU (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - TPU (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": -45,
+      "max": -15,
+      "typical": -30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - TPU (FDM)"
+    },
+    "price_per_kg": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - TPU (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.024,
+      "max": 0.072,
+      "typical": 0.048,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - TPU (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "62.7",
+    "H": "8.0",
+    "N": "5.9",
+    "O": "23.4"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — TPU 95A (FDM)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Lubrizol Estane TPU datasheet",
+      "url": "https://www.lubrizol.com/engineered-polymers",
+      "verified": true
+    },
+    {
+      "label": "BASF Elastollan TPU technical guide",
+      "url": "https://plastics-rubber.basf.com/global/en/performance_polymers/products/elastollan.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.2,
+      8,
+      35,
+      500,
+      0.03,
+      0,
+      0.2
+    ],
+    [
+      1.2,
+      6,
+      28,
+      400,
+      0.025,
+      0,
+      0.2
+    ],
+    [
+      1.2,
+      10,
+      40,
+      580,
+      0.035,
+      0,
+      0.2
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Elastomer",
+  "corrosion_resistance": "Good",
+  "industry_note": "TPU (Thermoplastic Polyurethane). Ester (TPU-ES, oil-resistant) vs Ether (TPU-ET, hydrolysis-resistant) types. Tg ≈ -50°C, max service 80-100°C continuous. σy 20-50 / UTS 30-60 / El 300-800% / Shore A 70-95 / Shore D 50-75 / E 0.005-0.30 GPa (range 매우 wide). 의료 hose / 카테터, sportswear (자켓 코팅), Phone case (Apple/Samsung), 자전거 saddle, 자동차 timing belt cover, 산업 conveyor belt. AM FDM filament (NinjaFlex).",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "moisture_24h": 0.4,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.2,
+  "yield_strength": 8,
+  "uts": 35,
+  "elongation": 500,
+  "modulus": 0.03,
+  "hardness": null,
+  "thermal_conductivity": 0.2,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "FDM",
+  "source": "Material datasheets — TPU 95A (FDM)",
+  "aliases": [
+    "95A"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - TPU (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 80,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": -30,
+  "price_per_kg": 40,
+  "price_per_cm3": 0.048,
+  "popularity": 3.5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 40,
+  "total_cost_estimate": 28,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "TPU (Thermoplastic Polyurethane) 의 역사는 1937년 독일 IG Farben (현재 Bayer / Covestro) 의 Otto Bayer 가 polyurethane chemistry 를 발견하면서 시작됩니다. Diisocyanate (TDI / MDI) + polyol (polyester / polyether) 의 addition polymerization 으로 polyurethane 을 합성한 후, hard segment (urethane) + soft segment (polyol) 의 block copolymer 구조에서 hard segment 가 thermo-reversible 가교 역할을 하는 게 핵심 — 가열 시 hard segment 가 풀리고 cooling 시 다시 결정화되어 thermoplastic processing 이 가능해요.\n\n응용 — Footwear (가장 큰 시장): Nike Air sole insert, Adidas Boost foam (TPU expanded bead), Vans / Converse 의 sole rubber alternative, 등산화 outsole. 자동차 — instrument panel skin, dashboard cover, exterior body panel, brake hose outer protective sleeve, air bag cover. 의료 — catheter (urological catheter, IV catheter 의 PVC-free alternative), wound dressing, surgical drape, blood bag tubing. 산업 — cable insulation (industrial robot cable), conveyor belt cover, hydraulic seal (low-T 응용), 가전 — appliance cover.\n\n특이점 — TPU 의 grade range 가 매우 넓음. Shore A 60 (soft, similar to rubber band) ~ Shore D 75 (hard, similar to ABS). Polyester-based TPU (mechanical strength ↑, hydrolysis 약함) vs Polyether-based TPU (hydrolysis 저항 ↑, 외관 stability) 의 2가지 main category. 가격은 ABS 의 약 1.5-2배 ($4-6/kg).\n\n2015년 이후 새로운 mega-application — Carbon (formerly Carbon3D) 의 DLP 3D printing TPU resin (Carbon's EPU 41), Stratasys F123 series 의 TPU filament. Footwear midsole 의 lattice-structure 3D printing 으로 customized geometry 의 stiffness gradient 가능 — Adidas 4DFWD 의 sole 이 commercial 첫 사례.",
+  "story_refs": [
+    "Bayer O (1937) German Patent 728,981 (DRP)",
+    "Hepburn C (1992) Polyurethane Elastomers 2nd ed., Elsevier",
+    "Mark H F (ed., 2014) Encyclopedia of Polymer Science and Technology Vol.13",
+    "ASTM D7745"
+  ],
+  "confidence_tier": "high"
+}

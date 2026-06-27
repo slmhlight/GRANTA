@@ -1,0 +1,199 @@
+{
+  "stable_id": "CER-0033",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-zirconia-mg-psz-partially-stabilized",
+    "element_families": []
+  },
+  "legacy_id": "CER_003",
+  "origin": "ceramics-data",
+  "id": "CER_003",
+  "name": "Zirconia (Mg-PSZ, partially stabilized)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 5.74,
+      "max": 5.74,
+      "typical": 5.74,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1200,
+      "max": 1200,
+      "typical": 1200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 9.8,
+      "max": 9.8,
+      "typical": 9.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 55,
+      "max": 55,
+      "typical": 55,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 270,
+      "max": 270,
+      "typical": 270,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.3157,
+      "max": 0.3157,
+      "typical": 0.3157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Zr": "74.0",
+    "O": "26.0"
+  },
+  "sources": [
+    {
+      "label": "CoorsTek — Zirconia (Mg-PSZ, partially stabilized)",
+      "url": "https://www.coorstek.com/en/materials/zirconia/",
+      "verified": true
+    },
+    {
+      "label": "Applications: 고온 다이, 압출 다이, 와이어 다이",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "CoorsTek DURA-Z Zirconia datasheet",
+      "url": "https://www.coorstek.com/english/materials/ceramics/zirconia/",
+      "verified": true
+    },
+    {
+      "label": "Tosoh TZ-3Y-E Y-TZP datasheet",
+      "url": "https://www.tosoh.com/our-products/advanced-materials/zirconia-powders",
+      "verified": true
+    },
+    {
+      "label": "ASTM F1873 — Y-TZP Surgical Implants",
+      "url": "https://store.astm.org/f1873-21.html",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "고온 다이, 압출 다이, 와이어 다이",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F1873",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 4,
+  "density": 5.74,
+  "yield_strength": 600,
+  "uts": 600,
+  "elongation": null,
+  "modulus": 200,
+  "hardness": 1200,
+  "thermal_conductivity": 2.5,
+  "fatigue_strength": 270,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "CoorsTek — Zirconia (Mg-PSZ, partially stabilized)",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.3157,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "Zirconia (ZrO₂) 의 공학 ceramic 으로의 발견은 1972년 호주 CSIRO 의 Ronald Garvie 와 Patrick Nicholson 이 'Ceramic Steel' 이라는 별명을 붙인 PSZ (Partially Stabilized Zirconia) 개발이 시작입니다. 순수 ZrO₂ 는 1170°C 와 2370°C 에서 결정 구조가 monoclinic → tetragonal → cubic 으로 변하면서 부피가 ±4% 변해 가공한 부품이 다 깨졌어요. Garvie 가 Y₂O₃ 또는 MgO 또는 CaO 를 도핑하면 이 transformation 을 메탈처럼 'transformation toughening' 으로 활용할 수 있다는 걸 발견했습니다.\n\nZrO₂ 의 KIC 가 10-15 MPa·√m — 일반 alumina (3-4) 의 3-4 배입니다. 균열이 진행할 때 균열 끝의 응력장이 tetragonal → monoclinic 변태를 induce 해 부피가 4% 증가하면서 균열을 닫아버리는 메커니즘이에요. 'ceramic 의 강철' 이라는 별명이 여기서 나왔습니다.\n\n응용: dental crown (CAD/CAM 기반 zirconia crown 이 2010년대 이후 표준), 인공 hip femoral head (BIOLOX delta — ZTA, 알루미나-지르코니아 composite, hip 의 'ball'), TBC (thermal barrier coating) — jet engine turbine blade 표면의 YSZ coating (Y 7-8% stabilized zirconia) 이 blade 의 cooling 효율 + creep 수명을 결정적으로 늘립니다, 정밀 가공 ceramic tool (textile thread guide), 산소 sensor (자동차 lambda sensor 의 YSZ 전해질). 가격은 alumina ($10/kg) 의 5 배 ($50-100/kg) 이지만 hip implant + dental 시장에서 비용 정당화가 충분합니다.",
+  "story_refs": [
+    "Garvie R C, Hannink R H J, & Pascoe R T (1975) \"Ceramic Steel?\", Nature 258",
+    "Hannink R H J, Kelly P M, & Muddle B C (2000) \"Transformation Toughening in Zirconia-Containing Ceramics\", J Am Ceram Soc 83",
+    "Chevalier J (2006) \"What future for zirconia as a biomaterial?\", Biomaterials 27"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Zirconia 변종: • Y-TZP (3 mol% Y₂O₃ stabilized tetragonal, Tosoh TZ-3Y-E): σf 1200 / E 200 / ρ 6.05 / KIC 8.0 / Tmax 1000°C . Transformation toughening — 가장 toughest ceramic."
+}

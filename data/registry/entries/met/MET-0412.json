@@ -1,0 +1,272 @@
+{
+  "stable_id": "MET-0412",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c95820-cu-al-fe-ni-nickel-aluminum-bronze",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0030_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0030_0",
+  "name": "C95820 (Cu-Al-Fe-Ni nickel-aluminum bronze) — As-cast (CC333G / CuAl10Fe5Ni4)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "As-cast (CC333G / CuAl10Fe5Ni4)",
+  "ranges": {
+    "density": {
+      "min": 7.6,
+      "max": 7.6,
+      "typical": 7.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 275,
+      "max": 275,
+      "typical": 275,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 670,
+      "max": 670,
+      "typical": 670,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 112,
+      "max": 112,
+      "typical": 112,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 160,
+      "max": 160,
+      "typical": 160,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 41,
+      "max": 41,
+      "typical": 41,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 5xxx Al-Mg"
+    },
+    "electrical_conductivity": {
+      "min": 12.75,
+      "max": 17.25,
+      "typical": 15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "max_service_temp": {
+      "min": 212.5,
+      "max": 287.5,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "thermal_expansion": {
+      "min": 14.875,
+      "max": 20.125,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "specific_heat": {
+      "min": 323,
+      "max": 437,
+      "typical": 380,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "melting_point": {
+      "min": 841.5,
+      "max": 1138.5,
+      "typical": 990,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "price_per_kg": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "price_per_cm3": {
+      "min": 0.0775,
+      "max": 0.1049,
+      "typical": 0.0912,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper Alloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "77.4~82.5",
+    "Al": "9~10",
+    "Ni": "4.5~5.8",
+    "Fe": "4~5",
+    "Mn": "≤1.5",
+    "Zn": "≤0.2",
+    "Si": "≤0.1",
+    "Pb": "≤0.02",
+    "Sn": "≤0.02"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Bronze CuAl10Fe5Ni5 C95820 cast (UNS C95820, EN CC333G, ISO CuAl10Fe5Ni4)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C95820",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 5xxx Al-Mg",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.6,
+      275,
+      670,
+      16,
+      112,
+      160,
+      41
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "Cu-Ni-Al bronze (NAB) — heavy gear, paper-making roll, glass-molding tooling, propeller (marine). Saltwater corrosion + cavitation 우수 — 잠수함 hull / ship propeller / marine fastener. C95500 의 Mn-fortified 변종 (Mn 1.5%) 으로 strength + ductility 균형 ↑. EN CC333G / JIS AlBC3 등가.",
+  "meta": {
+    "reference": true,
+    "condition": "As-cast (CC333G / CuAl10Fe5Ni4)"
+  },
+  "fracture_toughness": 35,
+  "density": 7.6,
+  "yield_strength": 275,
+  "uts": 670,
+  "elongation": 16,
+  "modulus": 112,
+  "hardness": 160,
+  "thermal_conductivity": 41,
+  "fatigue_strength": 240,
+  "impact_strength": 10,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "Datasheet 1",
+  "aliases": [
+    "CC333G",
+    "CuAl10Fe5Ni4"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 15,
+  "max_service_temp": 250,
+  "thermal_expansion": 17.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 990,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.0912,
+  "popularity": 3.07,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 12,
+  "total_cost_estimate": 7.2,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 5.8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

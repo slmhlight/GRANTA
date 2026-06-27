@@ -1,0 +1,171 @@
+{
+  "stable_id": "CMP-0020",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-foam-polymer",
+    "alloy_base": "F-AB-foam-core",
+    "element_families": []
+  },
+  "legacy_id": "CMP_019",
+  "origin": "composites-data",
+  "id": "CMP_019",
+  "name": "Foam Core — PMI (Rohacell 110 IG)",
+  "category": "Composite",
+  "subcategory": "Foam-Polymer",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 0.11,
+      "max": 0.11,
+      "typical": 0.11,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 0.18,
+      "max": 0.18,
+      "typical": 0.18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.034,
+      "max": 0.034,
+      "typical": 0.034,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 1.35,
+      "max": 1.35,
+      "typical": 1.35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.033,
+      "max": 0.033,
+      "typical": 0.033,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Evonik ROHACELL — Foam Core — PMI (Rohacell 110 IG)",
+      "url": "https://www.rohacell.com/product/rohacell/",
+      "verified": true
+    },
+    {
+      "label": "Apps: 고밀도 항공 샌드위치 코어, 헬리콥터 부품",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "applications": "고밀도 항공 샌드위치 코어, 헬리콥터 부품",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 4,
+  "density": 0.11,
+  "yield_strength": 3,
+  "uts": 3,
+  "elongation": 3,
+  "modulus": 0.18,
+  "hardness": null,
+  "thermal_conductivity": 0.034,
+  "fatigue_strength": 1.35,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Evonik ROHACELL — Foam Core — PMI (Rohacell 110 IG)",
+  "aliases": [
+    "Rohacell 110 IG"
+  ],
+  "families": [
+    "Composite",
+    "Foam-Polymer"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.033,
+  "rohs_compliant": true,
+  "story": "Foam core sandwich panel 의 발상은 1820년대 자연계의 관찰에서 시작됩니다. 새의 뼈 (skin + spongy interior) 와 식물 줄기 (tough outer + light core) 의 cross-section 이 같은 무게로 최대 굽힘 강성을 내는 구조라는 걸 알아낸 사람은 1849년 영국 수학자 William John Macquorn Rankine 이에요. 그가 'I-beam 의 web 을 foam 으로 대체하면 자른 무게가 같아도 굽힘 강성은 5-10 배' 임을 수학으로 증명했습니다.\n\n실제 항공 적용은 1940년대 영국 De Havilland Mosquito 폭격기에서 시작됐어요. Mosquito 의 fuselage 는 plywood + balsa core + plywood sandwich 였고, 이게 metal fuselage 대비 무게 30% 감소 + 강성 동등이라는 결과를 냈습니다. 1950년대 이후 합성 foam (PMI Rohacell — Evonik 1959, PVC Divinycell — Diab 1960, SAN Corecell — Gurit 1970) 이 등장하면서 marine + 항공 + 풍력 산업의 표준이 됐어요.\n\nFoam core 의 핵심은 face skin (carbon / glass laminate) 과 core 의 stiffness mismatch 입니다. Skin 이 인장·압축을 받고, core 는 전단만 받습니다. PMI Rohacell 71 IG (밀도 71 kg/m³, 압축 강도 1.5 MPa) 와 같은 closed-cell foam 이 marine sandwich 의 표준이고, BMW i3 의 carbon cabin (2013) 의 일부 panel 도 PVC foam core 입니다. 응용은 풍력 blade (전체 길이의 50% 이상이 sandwich), 보트 hull (J/24, Hobie Cat 의 cabin), 항공 floor panel (Boeing 787 의 일부), 우주 발사체의 fairing inner panel (SpaceX Falcon 9 의 일부), F1 의 nose cone. 단점은 화재 (PVC 의 HCl 방출, PMI 의 가격), 흡수 (open-cell foam 의 수분 침투), 그리고 fatigue (반복 굽힘에 의한 core 의 shear failure) 입니다.",
+  "story_refs": [
+    "Rankine W J M (1858) Applied Mechanics",
+    "Allen H G (1969) Analysis and Design of Structural Sandwich Panels, Pergamon",
+    "Zenkert D (1995) An Introduction to Sandwich Construction, EMAS",
+    "Evonik Rohacell datasheet (verified 2024)"
+  ],
+  "confidence_tier": "medium",
+  "industry_note": "Sandwich panel core foam: • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안."
+}

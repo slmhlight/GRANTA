@@ -1,0 +1,275 @@
+{
+  "stable_id": "MET-0680",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-spring-steel",
+    "alloy_base": "F-AB-aisi-9260-si-mn-leaf-spring",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0379_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0379_1",
+  "name": "AISI 9260 (Si-Mn leaf spring) — Q+T (575°C T, balanced)",
+  "category": "Metal",
+  "subcategory": "Spring Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (575°C T, balanced)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 410,
+      "max": 410,
+      "typical": 410,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 47,
+      "max": 47,
+      "typical": 47,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 550,
+      "max": 690,
+      "typical": 620,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 28,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "thermal_expansion": {
+      "min": 11.8,
+      "max": 11.8,
+      "typical": 11.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "specific_heat": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "melting_point": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "price_per_cm3": {
+      "min": 0.0235,
+      "max": 0.0235,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9260"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.87,
+      "max": 3.87,
+      "typical": 3.87,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.55~0.65",
+    "Mn": "0.70~1.00",
+    "Si": "1.80~2.20",
+    "P": "≤0.035",
+    "S": "≤0.040"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%209260",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM spring steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MakeItFrom — SAE-AISI 9260 (G92600) Silicon Steel (annealed 조성+기계적 물성)",
+      "url": "https://www.makeitfrom.com/material-properties/SAE-AISI-9260-G92600-Silicon-Steel",
+      "verified": false
+    },
+    {
+      "label": "steel-grades.com — AISI 9260 (조건별 Rp0.2 533/Rm 679 MPa·243 HBW)",
+      "url": "https://www.steel-grades.com/Steel-Grades/Carbon-Steel/AISI-9260.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1100,
+      1300,
+      10,
+      207,
+      410,
+      47
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Heavy-truck multi-leaf and parabolic leaf spring (Hino, Tata, Volvo FH), agricultural plough disc (John Deere), military trailer; 2% Si retards tempering softening, σ_relax low to 230°C.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T (575°C T, balanced)"
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 620,
+  "density": 7.85,
+  "yield_strength": 1100,
+  "uts": 1300,
+  "elongation": 10,
+  "modulus": 207,
+  "hardness": 410,
+  "thermal_conductivity": 47,
+  "impact_strength": 18,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Spring Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 7,
+  "max_service_temp": 425,
+  "thermal_expansion": 11.8,
+  "poisson_ratio": 0.29,
+  "specific_heat": 480,
+  "melting_point": 1430,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0235,
+  "popularity": 1.57,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.87,
+  "total_cost_estimate": 3.87,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

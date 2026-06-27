@@ -1,0 +1,280 @@
+{
+  "stable_id": "MET-0289",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-s35c-jis-medium-carbon-0-35",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0280_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0280_1",
+  "name": "S35C (JIS medium-carbon 0.35%) — Normalized",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Normalized",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 365,
+      "max": 365,
+      "typical": 365,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 570,
+      "max": 570,
+      "typical": 570,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 52,
+      "max": 52,
+      "typical": 52,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 146,
+      "max": 212,
+      "typical": 183,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 17.3,
+      "max": 69,
+      "typical": 40.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic × HT:normalized (i×1.15)"
+    },
+    "fracture_toughness": {
+      "min": 44,
+      "max": 88,
+      "typical": 60.5,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AISI carbon steel × HT:normalized (k×1.1)"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_kg": {
+      "min": 1.02,
+      "max": 1.38,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.008,
+      "max": 0.0108,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.32,
+      "max": 1.32,
+      "typical": 1.32,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.32~0.38",
+    "Mn": "0.6~0.9",
+    "Si": "0.15~0.35"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20S35C",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AISI carbon steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Steel Pro Group — JIS G4051 S35C (standard/+QT 기계적 물성 + 조성)",
+      "url": "https://steelprogroup.com/mold-steel/s35c/",
+      "verified": true
+    },
+    {
+      "label": "SteelJIS — S35C (JIS G4051) 조성 데이터시트",
+      "url": "http://steeljis.com/jis_steel_datasheet.php?name_id=238",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      365,
+      570,
+      20,
+      205,
+      170,
+      52
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Normalized",
+    "specs": [
+      {
+        "id": "JIS G4051",
+        "org": "JIS"
+      }
+    ]
+  },
+  "fracture_toughness": 60.5,
+  "fatigue_strength": 183,
+  "density": 7.85,
+  "yield_strength": 365,
+  "uts": 570,
+  "elongation": 20,
+  "modulus": 205,
+  "hardness": 170,
+  "thermal_conductivity": 52,
+  "impact_strength": 40.3,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "JIS medium-carbon 0.35%"
+  ],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 3.37,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.32,
+  "total_cost_estimate": 1.19,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

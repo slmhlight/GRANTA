@@ -1,0 +1,176 @@
+{
+  "stable_id": "CMP-0019",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-composite-ceramic-metal",
+    "alloy_base": "F-AB-b4c-al-mmc-boron-carbide-al-armor",
+    "element_families": []
+  },
+  "legacy_id": "R_0320_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0320_1",
+  "name": "B4C-Al MMC (boron carbide / Al armor) — Pressed + sintered (B4C 40%)",
+  "category": "Composite",
+  "subcategory": "Composite - Ceramic-Metal",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Powder-Metallurgy"
+  ],
+  "heat_treatment": "Pressed + sintered (B4C 40%)",
+  "ranges": {
+    "density": {
+      "min": 2.45,
+      "max": 2.55,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 440,
+      "max": 510,
+      "typical": 480,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 480,
+      "max": 550,
+      "typical": 520,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 0.8,
+      "max": 1.8,
+      "typical": 1.2,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 130,
+      "max": 150,
+      "typical": 140,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 153,
+      "max": 153,
+      "typical": 153,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": null,
+    "max_service_temp": {
+      "min": 350,
+      "max": 450,
+      "typical": 400,
+      "confidence": "measured",
+      "n": 1
+    }
+  },
+  "composition": [
+    [
+      "B4C particle (40 vol%)",
+      "40"
+    ],
+    [
+      "Al matrix (Al-Mg-Si)",
+      "60"
+    ]
+  ],
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=B4C%20aluminum%20composite",
+      "verified": false
+    },
+    {
+      "label": "Allvac / Coalition Resources B4C-Al ceramic armor",
+      "url": "https://www.aerospaceandmilitaryusa.com/",
+      "verified": false
+    },
+    {
+      "label": "MIL-DTL-46032E — Boron Carbide Armor Insert",
+      "url": "https://www.dla.mil/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.55,
+      250,
+      340,
+      2,
+      115,
+      320,
+      90
+    ]
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "industry_note": "B₄C-Al MMC — sintered B₄C (60-80 vol%) + Al infiltration. ρ 2.5-2.6 g/cc (alumina armor 의 65% — 매우 가벼움).",
+  "meta": {
+    "reference": true,
+    "condition": "Pressed + sintered (B4C 40%)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "MIL DTL-46032E",
+        "org": "MIL"
+      }
+    ]
+  },
+  "density": 2.55,
+  "yield_strength": 250,
+  "uts": 340,
+  "elongation": 2,
+  "modulus": 115,
+  "hardness": 320,
+  "thermal_conductivity": 90,
+  "fatigue_strength": 153,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Powder-Metallurgy",
+  "source": "Datasheet 2",
+  "aliases": [
+    "B4C 40%"
+  ],
+  "families": [
+    "Composite",
+    "Composite - Ceramic-Metal"
+  ],
+  "fatigue_estimated": true,
+  "popularity": 2,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "low"
+}

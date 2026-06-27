@@ -1,0 +1,272 @@
+{
+  "stable_id": "MET-0976",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel-hot-work",
+    "alloy_base": "F-AB-aisi-h21-hot-work-tungsten-tool",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0381_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0381_1",
+  "name": "AISI H21 (Hot-Work Tungsten tool) — Q+T (1175°C oil Q + 620°C T, room temp peak)",
+  "category": "Metal",
+  "subcategory": "Tool Steel - Hot-Work",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (1175°C oil Q + 620°C T, room temp peak)",
+  "ranges": {
+    "density": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1380,
+      "max": 1380,
+      "typical": 1380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1620,
+      "max": 1620,
+      "typical": 1620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 525,
+      "max": 525,
+      "typical": 525,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 300,
+      "max": 540,
+      "typical": 420,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten × HT:Q+T high-temper (softer) (f×0.78, i×1.5)"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 12,
+      "typical": 6,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten × HT:Q+T high-temper (softer) (f×0.78, i×1.5)"
+    },
+    "fracture_toughness": {
+      "min": 10.4,
+      "max": 10.4,
+      "typical": 10.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:Q+T high-temper (softer) (k×1.3)"
+    },
+    "electrical_conductivity": {
+      "min": 31,
+      "max": 31,
+      "typical": 31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "max_service_temp": {
+      "min": 1700,
+      "max": 1700,
+      "typical": 1700,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "specific_heat": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "melting_point": {
+      "min": 3410,
+      "max": 3410,
+      "typical": 3410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_kg": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_cm3": {
+      "min": 0.581,
+      "max": 0.581,
+      "typical": 0.581,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "delivered_price_per_kg": {
+      "min": 90.41,
+      "max": 90.41,
+      "typical": 90.41,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.26~0.35",
+    "Cr": "3.0~3.75",
+    "W": "8.50~10.0",
+    "V": "0.30~0.60",
+    "Mn": "0.15~0.45",
+    "Si": "0.15~0.50"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20H21",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Bohler-Uddeholm H13",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AZoM — H21 Tool Steel (Tungsten Hot-Work) (조성+40~55 HRC+규격)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=6199",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.3,
+      1380,
+      1620,
+      9,
+      207,
+      525,
+      25
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Heavy forging die for hot-forged steel & superalloy (turbine disc preform), Al extrusion die mandrel, hot-header punch, hot-shear blade; 9% W maintains hot-hardness HV ≥ 400 to 650°C (vs H13 limit ~580°C).",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T (1175°C oil Q + 620°C T, room temp peak)"
+  },
+  "fracture_toughness": 10.4,
+  "fatigue_strength": 420,
+  "density": 8.3,
+  "yield_strength": 1380,
+  "uts": 1620,
+  "elongation": 9,
+  "modulus": 207,
+  "hardness": 525,
+  "thermal_conductivity": 25,
+  "impact_strength": 6,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Tool Steel - Hot-Work",
+    "Iron-based",
+    "Tool Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 31,
+  "max_service_temp": 1700,
+  "thermal_expansion": 4.5,
+  "poisson_ratio": 0.28,
+  "specific_heat": 135,
+  "melting_point": 3410,
+  "price_per_kg": 70,
+  "price_per_cm3": 0.581,
+  "popularity": 2.97,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 90.41,
+  "total_cost_estimate": 90.41,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

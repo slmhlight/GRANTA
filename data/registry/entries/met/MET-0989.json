@@ -1,0 +1,191 @@
+{
+  "stable_id": "MET-0989",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-zinc-alloy",
+    "alloy_base": "F-AB-zamak-3-zinc",
+    "element_families": [
+      "F-EL-zinc-based"
+    ]
+  },
+  "legacy_id": "R_0084",
+  "origin": "reference(supplementary)",
+  "id": "R_0084",
+  "name": "Zamak 3 (Zinc)",
+  "category": "Metal",
+  "subcategory": "Zinc Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 6.6,
+      "max": 6.6,
+      "typical": 6.6,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 200,
+      "max": 240,
+      "typical": 220,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 260,
+      "max": 300,
+      "typical": 280,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 13,
+      "typical": 10,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 96,
+      "max": 96,
+      "typical": 96,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 75,
+      "max": 90,
+      "typical": 82,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 113,
+      "max": 113,
+      "typical": 113,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 117,
+      "max": 135,
+      "typical": 126,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": null,
+    "max_service_temp": {
+      "typical": 95,
+      "min": 80,
+      "max": 110,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Zn": "balance",
+    "Al": "3.5~4.3",
+    "Mg": "0.02~0.05"
+  },
+  "sources": [
+    {
+      "label": "ASTM B86 — Zamak 3 zinc die-casting alloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Nathan Trotter & Co. — Zamak 3 Technical Data Sheet (Chemical spec: Ingot ASTM B240 / Die Cast ASTM B86; mechanical UTS 41 ksi / YS 32 ksi / elong 10% / Brinell 82)",
+      "url": "https://nathantrotter.com/wp-content/uploads/2020/06/Zamak-3-TDS.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      6.6,
+      220,
+      280,
+      10,
+      96,
+      82,
+      113
+    ],
+    [
+      6.6,
+      200,
+      260,
+      7,
+      96,
+      75,
+      113
+    ],
+    [
+      6.6,
+      240,
+      300,
+      13,
+      96,
+      90,
+      113
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM B86",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM B240",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "density": 6.6,
+  "yield_strength": 220,
+  "uts": 280,
+  "elongation": 10,
+  "modulus": 96,
+  "hardness": 82,
+  "thermal_conductivity": 113,
+  "fatigue_strength": 126,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASTM B86 — Zamak 3 zinc die-casting alloy",
+  "aliases": [
+    "UNS Z33520",
+    "ZnAl4",
+    "EN ZL0410 (ZP3)",
+    "Mazak 3"
+  ],
+  "families": [
+    "Metal",
+    "Zinc Alloy"
+  ],
+  "fatigue_estimated": true,
+  "popularity": 2.4,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

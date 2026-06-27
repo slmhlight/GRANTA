@@ -1,0 +1,502 @@
+{
+  "stable_id": "MET-0953",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-maraging-steel-1-2709-ms1-m300-m789",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "C_0074",
+  "origin": "curated(material_db)",
+  "id": "C_0074",
+  "name": "Maraging Steel (1.2709/MS1/M300/M789) — As-built",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "curated",
+  "manufacturers": [
+    "Nikon SLM Solutions",
+    "3D Systems",
+    "EOS",
+    "GE Additive",
+    "Velo3D"
+  ],
+  "machines": [
+    "SLM 280",
+    "NXG XII 600",
+    "ProX DMP 320",
+    "M290-5",
+    "M300-4",
+    "M400-5",
+    "M290-4",
+    "M2 Series 5",
+    "EOS M 290",
+    "EOS M 300-4",
+    "EOS M 400-4",
+    "EOS M 400-1",
+    "DMP Flex 350",
+    "Sapphire (1kW)"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built",
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 600,
+      "max": 2040,
+      "typical": 990,
+      "n": 33,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 995,
+      "max": 2120,
+      "typical": 1180,
+      "n": 43,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 18,
+      "typical": 13,
+      "n": 53,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 321,
+      "max": 358,
+      "typical": 347,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 14.2,
+      "max": 14.2,
+      "typical": 14.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 600,
+      "max": 700,
+      "typical": 650,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:maraging"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 25,
+      "typical": 20,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:maraging"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 6.2,
+      "max": 6.2,
+      "typical": 6.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "thermal_expansion": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "specific_heat": {
+      "min": 472,
+      "max": 472,
+      "typical": 472,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "melting_point": {
+      "min": 1425,
+      "max": 1425,
+      "typical": 1425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "price_per_cm3": {
+      "min": 0.064,
+      "max": 0.064,
+      "typical": 0.064,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "17.0~19.0",
+    "Co": "8.5~9.5",
+    "Mo": "4.5~5.2",
+    "Ti": "0.6~0.8",
+    "Al": "0.05~0.15"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — VascoMax C300 (Maraging 300)",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
+      "verified": true
+    },
+    {
+      "label": "Nikon SLM 1.2709 MDS 2026-04.1",
+      "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/MDS_1.2709_2026-04.1_EN.pdf",
+      "verified": true
+    },
+    {
+      "label": "Renishaw TDS - Renishaw Maraging Steel M300",
+      "url": "https://www.renishaw.com/en/material-datasheet-maraging-steel-m300--17862",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8,
+      1000,
+      1230,
+      15,
+      180,
+      347,
+      14.2
+    ],
+    [
+      8,
+      1090,
+      1220,
+      12,
+      180,
+      347,
+      14.2
+    ],
+    [
+      8,
+      1000,
+      1250,
+      16,
+      180,
+      355,
+      14.2
+    ],
+    [
+      8,
+      1055,
+      1240,
+      13,
+      180,
+      355,
+      14.2
+    ],
+    [
+      8,
+      985,
+      1175,
+      15,
+      180,
+      358,
+      14.2
+    ],
+    [
+      8,
+      977,
+      1160,
+      12,
+      180,
+      358,
+      14.2
+    ],
+    [
+      8,
+      960,
+      1190,
+      15,
+      180,
+      339,
+      14.2
+    ],
+    [
+      8,
+      915,
+      1135,
+      12,
+      180,
+      339,
+      14.2
+    ],
+    [
+      8,
+      1080,
+      1230,
+      13,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      1090,
+      1220,
+      13,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      2030,
+      2100,
+      3,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      2000,
+      2100,
+      2,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      2040,
+      2120,
+      4,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      1990,
+      2110,
+      3,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      2030,
+      2100,
+      2,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      2000,
+      2100,
+      2,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      820,
+      1115,
+      15,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      1095,
+      1180,
+      13.5,
+      180,
+      null,
+      14.2
+    ],
+    [
+      8,
+      610,
+      1015,
+      15,
+      180,
+      321,
+      14.2
+    ],
+    [
+      8,
+      660,
+      1015,
+      15,
+      180,
+      321,
+      14.2
+    ],
+    [
+      8,
+      800,
+      1015,
+      18,
+      180,
+      null,
+      14.2
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "applications": "Injection molds / Tooling / Aerospace parts",
+    "magnetic": "ferromagnetic",
+    "melt_C": 1413,
+    "cte": 10.3,
+    "cp": 450,
+    "poisson": 0.3,
+    "vendor_count": 25,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 650,
+  "density": 8,
+  "yield_strength": 990,
+  "uts": 1180,
+  "elongation": 13,
+  "modulus": 180,
+  "hardness": 347,
+  "thermal_conductivity": 14.2,
+  "impact_strength": 20,
+  "manufacturer": "Nikon SLM Solutions, 3D Systems, EOS, GE Additive, Velo3D",
+  "process": "LPBF",
+  "source": "Carpenter Technology — VascoMax C300 (Maraging 300)",
+  "aliases": [
+    "1.2709",
+    "MS1",
+    "M300",
+    "M789",
+    "18Ni-300",
+    "DIN 1.2709",
+    "UNS K93120"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1900,
+      "uts": 1950
+    },
+    {
+      "temp": 300,
+      "ys": 1700,
+      "uts": 1800
+    },
+    {
+      "temp": 450,
+      "ys": 1500,
+      "uts": 1600
+    }
+  ],
+  "electrical_conductivity": 6.2,
+  "max_service_temp": 425,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 472,
+  "melting_point": 1425,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.064,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 45,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 19% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 9.5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

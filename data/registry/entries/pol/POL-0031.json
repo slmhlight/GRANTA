@@ -1,0 +1,419 @@
+{
+  "stable_id": "POL-0031",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pei-ultem",
+    "alloy_base": "F-AB-pei",
+    "element_families": []
+  },
+  "legacy_id": "G_0173",
+  "origin": "generic(csv)",
+  "id": "G_0173",
+  "name": "PEI — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEI/ULTEM",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.27,
+      "max": 1.27,
+      "typical": 1.27,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 91,
+      "max": 109,
+      "typical": 97,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 100.1,
+      "max": 119.9,
+      "typical": 106.7,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 49.2,
+      "max": 65.4,
+      "typical": 56.4,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 3.6,
+      "max": 3.6,
+      "typical": 3.6,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 95.55,
+      "max": 114.5,
+      "typical": 101.9,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.22,
+      "max": 0.22,
+      "typical": 0.22,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM (FDM)"
+    },
+    "max_service_temp": {
+      "min": 85,
+      "max": 255,
+      "typical": 170,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 108.5,
+      "max": 325.5,
+      "typical": 217,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM (FDM)"
+    },
+    "price_per_kg": {
+      "min": 100,
+      "max": 300,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.127,
+      "max": 0.381,
+      "typical": 0.254,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEI/ULTEM (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "SABIC ULTEM resin",
+      "url": "https://www.sabic.com/en/products/specialties/ultem-resins",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"PEI\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PEI",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.27,
+      109,
+      119.9,
+      65.4,
+      3.6,
+      114.45,
+      0.22
+    ],
+    [
+      1.27,
+      97,
+      106.7,
+      64.2,
+      3.6,
+      101.85,
+      0.22
+    ],
+    [
+      1.27,
+      98,
+      107.8,
+      52.8,
+      3.6,
+      102.9,
+      0.22
+    ],
+    [
+      1.27,
+      95,
+      104.5,
+      63,
+      3.6,
+      99.75,
+      0.22
+    ],
+    [
+      1.27,
+      91,
+      100.1,
+      60.6,
+      3.6,
+      95.55,
+      0.22
+    ],
+    [
+      1.27,
+      109,
+      119.9,
+      53.4,
+      3.6,
+      114.45,
+      0.22
+    ],
+    [
+      1.27,
+      95,
+      104.5,
+      63,
+      3.6,
+      99.75,
+      0.22
+    ],
+    [
+      1.27,
+      97,
+      106.7,
+      52.2,
+      3.6,
+      101.85,
+      0.22
+    ],
+    [
+      1.27,
+      93,
+      102.3,
+      61.8,
+      3.6,
+      97.65,
+      0.22
+    ],
+    [
+      1.27,
+      97,
+      106.7,
+      64.2,
+      3.6,
+      101.85,
+      0.22
+    ],
+    [
+      1.27,
+      92,
+      101.2,
+      49.2,
+      3.6,
+      96.6,
+      0.22
+    ],
+    [
+      1.27,
+      94,
+      103.4,
+      56.400000000000006,
+      3.6,
+      98.7,
+      0.22
+    ],
+    [
+      1.27,
+      92,
+      101.2,
+      49.2,
+      3.6,
+      96.6,
+      0.22
+    ],
+    [
+      1.27,
+      109,
+      119.9,
+      53.4,
+      3.6,
+      114.45,
+      0.22
+    ],
+    [
+      1.27,
+      109,
+      119.9,
+      53.4,
+      3.6,
+      114.45,
+      0.22
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon (FDM/SLS)",
+      "Polymer - PEI/ULTEM (FDM)"
+    ],
+    "conditions": [
+      "Impact Modified",
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true
+  },
+  "density": 1.27,
+  "yield_strength": 97,
+  "uts": 106.7,
+  "elongation": 56.4,
+  "modulus": 3.6,
+  "hardness": 101.9,
+  "thermal_conductivity": 0.22,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "SABIC ULTEM resin",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PEI/ULTEM (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 170,
+  "thermal_expansion": 50,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 217,
+  "price_per_kg": 200,
+  "price_per_cm3": 0.254,
+  "popularity": 4.07,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 200,
+  "total_cost_estimate": 140,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PEI (Polyetherimide) 는 1982년 미국 General Electric 의 Robert Bonner 가 발견한 amorphous high-performance thermoplastic 입니다. 1985년 GE Plastics 가 'Ultem 1000' 이라는 trade name 으로 commercial launch 했고, 이후 GE Plastics 가 Sabic 으로 매각 (2007) 되며 현재는 Sabic Ultem 으로 판매됩니다.\n\nPEI 의 핵심은 high Tg (217°C) + amorphous (결정 X) + transparent + electrical insulation 의 균형입니다. PEEK 와 비교하면 Tg 는 PEI 가 75°C 높지만 (217 vs 143), continuous use 는 PEI 가 170-180°C 로 PEEK (250) 보다 낮습니다. 그러나 PEI 는 amorphous 라 가공이 PEEK 보다 훨씬 쉽고 (사출 가공 cycle 1/2), 가격도 PEEK 의 1/2 ($35-55/kg) 입니다.\n\n응용: 항공 cabin interior — FAR 25.853 (flammability + smoke + toxicity) 통과 polymer 의 표준 (American Airlines, Delta 등의 좌석 backshell, tray table, overhead bin). 의료 sterilizable instrument handle (autoclave + gamma 모두 가능), 의료 device 의 transparent component (혈액 분석기 chamber, MRI gradient coil bobbin), 그리고 전자 connector + circuit board (high-voltage transformer bobbin, RF connector body). FDM 3D 프린팅 분야의 표준 high-temperature filament — Stratasys 의 Fortus 450mc 의 Ultem 1010 / Ultem 9085 가 항공 / 군용 prototype + production 의 표준입니다. 가격이 PEEK 의 1/2 이면서 80% 이상의 thermal performance 를 내는 게 매력입니다.",
+  "story_refs": [
+    "Bonner R W (1965) US Patent 3,847,867 \"Polyetherimides\"",
+    "Sabic Ultem 1000 Tech Data (verified 2024)",
+    "Brydson J A (1999) Plastics Materials 7th ed."
+  ],
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 105,
+      "uts": 115,
+      "E": 3.2
+    },
+    {
+      "temp": 100,
+      "ys": 95,
+      "uts": 105,
+      "E": 3
+    },
+    {
+      "temp": 150,
+      "ys": 80,
+      "uts": 90,
+      "E": 2.7
+    },
+    {
+      "temp": 200,
+      "ys": 55,
+      "uts": 65,
+      "E": 2
+    },
+    {
+      "temp": 217,
+      "ys": 40,
+      "uts": 50,
+      "E": 1.2
+    }
+  ]
+}

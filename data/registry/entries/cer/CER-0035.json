@@ -1,0 +1,253 @@
+{
+  "stable_id": "CER-0035",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-zta-zirconia-toughened-alumina-10-20-zro",
+    "element_families": []
+  },
+  "legacy_id": "CER_030",
+  "origin": "ceramics-data",
+  "id": "CER_030",
+  "name": "ZTA (Zirconia-Toughened Alumina, 10-20% ZrO₂)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 4.1,
+      "max": 4.1,
+      "typical": 4.1,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1700,
+      "max": 1700,
+      "typical": 1700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 11.7,
+      "max": 11.7,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "max_service_temp": {
+      "min": 1300,
+      "max": 1600,
+      "typical": 1500,
+      "n": 1,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "specific_heat": {
+      "min": 486,
+      "max": 486,
+      "typical": 486,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "melting_point": {
+      "min": 1515,
+      "max": 1515,
+      "typical": 1515,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "price_per_kg": {
+      "min": 0.9,
+      "max": 0.9,
+      "typical": 0.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "electrical_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "fracture_toughness": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 200,
+      "max": 260,
+      "typical": 230,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "impact_strength": {
+      "min": 55,
+      "max": 110,
+      "typical": 80,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "price_per_cm3": {
+      "min": 0.0037,
+      "max": 0.0037,
+      "typical": 0.0037,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1020"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.35,
+      "max": 1.35,
+      "typical": 1.35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Zr": "74.0",
+    "O": "26.0"
+  },
+  "sources": [
+    {
+      "label": "CoorsTek — ZTA (Zirconia-Toughened Alumina, 10-20% ZrO₂)",
+      "url": "https://www.coorstek.com/en/materials/alumina/",
+      "verified": true
+    },
+    {
+      "label": "Applications: 고하중 절삭 인서트, 의료 임플란트 헤드 (ISO 6474-2), 와이어 다이",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "CoorsTek ZTA reference",
+      "url": "https://www.coorstek.com/",
+      "verified": false
+    },
+    {
+      "label": "Kyocera ZTA technical bulletin",
+      "url": "https://global.kyocera.com/prdct/fc/",
+      "verified": true
+    }
+  ],
+  "machinability": "Very Poor",
+  "weldability": "N/A",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "고하중 절삭 인서트, 의료 임플란트 헤드 (ISO 6474-2), 와이어 다이",
+    "_r173_note_applied": true
+  },
+  "popularity": 4,
+  "density": 4.1,
+  "yield_strength": 700,
+  "uts": 700,
+  "elongation": null,
+  "modulus": 350,
+  "hardness": 1700,
+  "thermal_conductivity": 22,
+  "fatigue_strength": 230,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "CoorsTek — ZTA (Zirconia-Toughened Alumina, 10-20% ZrO₂)",
+  "aliases": [
+    "10-20% ZrO₂"
+  ],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 16,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1515,
+  "price_per_kg": 0.9,
+  "price_per_cm3": 0.0037,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.35,
+  "total_cost_estimate": 0,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "ZTA (Zirconia-Toughened Alumina) 는 1970년대 호주 CSIRO 의 Ron Garvie 와 동료들이 발견한 alumina + zirconia 복합 ceramic 입니다. Pure alumina (KIC 3-4) 의 brittleness 를 보완하기 위해 미세 ZrO₂ 입자 (15-25 vol%) 를 분산시켜 transformation toughening mechanism 으로 KIC 를 6-8 MPa·√m 까지 끌어올린 form 이에요.\n\nZTA 의 메커니즘: alumina matrix 안에 분산된 tetragonal ZrO₂ 입자가 균열 진행 시 균열 끝의 응력장이 tetragonal → monoclinic 변태를 induce 해 부피가 4% 증가하면서 균열을 닫음. Pure ZrO₂ 보다는 toughening 효과가 작지만 alumina 의 cost + hardness 를 그대로 유지하면서 인성을 강화할 수 있어요.\n\n응용: 의료 implant ball head — BIOLOX delta (CeramTec) 가 가장 유명한 brand. 이건 Al₂O₃ matrix + ZrO₂ 25 vol% + Cr₂O₃ 흔적 + SrAl₁₂O₁₉ platelet 의 다중 강화 ceramic. 인공 hip 의 28mm/32mm/36mm femoral head 가 거의 모두 BIOLOX delta — pure alumina 의 brittle 한 'BIOLOX forte' 를 대체했어요. 그 외 응용: 산업 grinding media (ball mill 의 grinding ball), wear-resistant pump impeller, 정밀 cutting tool 의 일부 grade, 그리고 일반 ceramic armor (BIOLOX 가 의료 표준이지만 산업 grade ZTA 가 lighter armor 에도 쓰입니다).",
+  "story_refs": [
+    "Garvie R C et al. (1975) \"Ceramic Steel?\", Nature 258",
+    "CeramTec BIOLOX delta Tech Data",
+    "Stevens R (1986) \"Zirconia and Zirconia Ceramics\", 2nd ed., Magnesium Elektron Publ"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "ZTA (Zirconia-Toughened Alumina, 10-20% ZrO₂ dispersion in α-Al₂O₃ matrix). Y-PSZ 입자가 alumina matrix 안에서 stress field 받아 tetragonal → monoclinic transformation → crack 흡수. ρ 4.1 / σf 700 / E 350 / KIC 6 (alumina 의 1.3× — toughening). Tmax 1500°C (over T 시 zirconia overaging). Mohs 9. 가공 비싸 ($150+/kg). 의료 hip joint head/ball (CeramTec BIOLOX delta 가 ZTA + Cr/Sr 추가), wear-resistant component (pump, valve), 정밀 ball valve seat."
+}

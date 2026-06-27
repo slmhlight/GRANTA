@@ -1,0 +1,254 @@
+{
+  "stable_id": "MET-0287",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-hot-dip-zn-mg-al-coated-steel-3-mg-4-al-ternary-coating",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0426_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0426_0",
+  "name": "Hot-dip Zn-Mg-Al coated steel (3% Mg, 4% Al ternary coating) — Cold rolled + PosMAC 3.0 coating (Z140-Z275 equivalent)",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Hot Dip Galvanized (Zn-Mg-Al ternary coating)"
+  ],
+  "heat_treatment": "Cold rolled + PosMAC 3.0 coating (Z140-Z275 equivalent)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 140,
+      "max": 203,
+      "typical": 175,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 40,
+      "max": 80,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AISI carbon steel"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_kg": {
+      "min": 1.02,
+      "max": 1.38,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.008,
+      "max": 0.0108,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.36,
+      "max": 1.36,
+      "typical": 1.36,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance (substrate)",
+    "Coating": "Zn ~93% · Mg 3% · Al 4% (PosMAC 3.0)"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000005.jsp",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AISI carbon steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      350,
+      470,
+      22,
+      200,
+      150,
+      48
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "POSCO 독자 개발 (특허) 3원계 Zn-Mg-Al 도금 강판. 부식 저항 SGCC (Zn-only) 대비 5~10배 ↑ — Mg/Al 첨가로 산화막 안정화. 한국 건축 외장 / 태양광 module frame / 자동차 underbody (현대·기아) / 풍력 tower 외장. EN 표기 ZM 도금과 유사. POSCO 매출의 highest-margin coated product.",
+  "meta": {
+    "reference": true,
+    "condition": "Cold rolled + PosMAC 3.0 coating (Z140-Z275 equivalent)"
+  },
+  "fracture_toughness": 55,
+  "fatigue_strength": 175,
+  "density": 7.85,
+  "yield_strength": 350,
+  "uts": 470,
+  "elongation": 22,
+  "modulus": 200,
+  "hardness": 150,
+  "thermal_conductivity": 48,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Hot Dip Galvanized (Zn-Mg-Al ternary coating)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "3% Mg",
+    "4% Al ternary coating",
+    "Z140-Z275 equivalent"
+  ],
+  "families": [
+    "Metal",
+    "Carbon Steel"
+  ],
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 3.4,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.36,
+  "total_cost_estimate": 1.22,
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,286 @@
+{
+  "stable_id": "MET-0618",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-pipeline-steel",
+    "alloy_base": "F-AB-api-5l-x65-l450-psl2-line-pipe",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0202_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0202_0",
+  "name": "API 5L X65 / L450 PSL2 (line pipe) — L450Q/QO (Q+T, PSL2)",
+  "category": "Metal",
+  "subcategory": "Pipeline Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "L450Q/QO (Q+T, PSL2)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 535,
+      "max": 535,
+      "typical": 535,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 1,
+      "confidence": "handbook",
+      "min_spec_value": 40,
+      "min_spec_source": "API 5L PSL2 minimum",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 95,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:API 5L pipeline"
+    },
+    "electrical_conductivity": {
+      "min": 7.65,
+      "max": 10.35,
+      "typical": 9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "max_service_temp": {
+      "min": 382.5,
+      "max": 517.5,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.945,
+      "max": 13.455,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "specific_heat": {
+      "min": 408,
+      "max": 552,
+      "typical": 480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.01,
+      "max": 0.0136,
+      "typical": 0.0118,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.94,
+      "max": 1.94,
+      "typical": 1.94,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.18",
+    "Mn": "≤1.45",
+    "Si": "≤0.40",
+    "Nb": "≤0.05",
+    "V": "≤0.07",
+    "Ti": "≤0.04",
+    "P": "≤0.025",
+    "S": "≤0.015"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "API 5L Spec 46th Edition — Line Pipe (PSL1, PSL2, Sour Service)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "Octalsteel API 5L pipe specification datasheet",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: API 5L pipeline",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "API Spec 5L — Line Pipe (Edition 46, 2018)",
+      "url": "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5l",
+      "verified": false
+    },
+    {
+      "label": "ISO 3183 — Petroleum and natural gas industries — Steel pipe",
+      "url": "https://www.iso.org/standard/64030.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      450,
+      535,
+      18,
+      210,
+      180,
+      45
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "API 5L X65 / L450 PSL2 (Product Specification Level 2) — Nb-V-Ti microalloyed HSLA pipeline steel (C ≤ 0.16, Mn ≤ 1.65). TMCP (Thermo-Mechanical Controlled Process) or Q+T condition.",
+  "meta": {
+    "reference": true,
+    "condition": "L450Q/QO (Q+T, PSL2)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "API 5L",
+        "org": "API"
+      }
+    ]
+  },
+  "fracture_toughness": 95,
+  "density": 7.85,
+  "yield_strength": 450,
+  "uts": 535,
+  "elongation": 18,
+  "modulus": 210,
+  "hardness": 180,
+  "thermal_conductivity": 45,
+  "fatigue_strength": 200,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "PSL2"
+  ],
+  "families": [
+    "Metal",
+    "Pipeline Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 9,
+  "max_service_temp": 450,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 480,
+  "melting_point": 1500,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0118,
+  "popularity": 1.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.94,
+  "total_cost_estimate": 1.74,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

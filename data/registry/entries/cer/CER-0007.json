@@ -1,0 +1,257 @@
+{
+  "stable_id": "CER-0007",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-carbide",
+    "alloy_base": "F-AB-tantalum-carbide-tac-refractory",
+    "element_families": []
+  },
+  "legacy_id": "CER_032",
+  "origin": "ceramics-data",
+  "id": "CER_032",
+  "name": "Tantalum Carbide (TaC, refractory)",
+  "category": "Ceramic",
+  "subcategory": "Carbide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 14.5,
+      "max": 14.5,
+      "typical": 14.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1700,
+      "max": 1700,
+      "typical": 1700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "max_service_temp": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "specific_heat": {
+      "min": 140,
+      "max": 140,
+      "typical": 140,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "melting_point": {
+      "min": 3017,
+      "max": 3017,
+      "typical": 3017,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "price_per_kg": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "electrical_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "fracture_toughness": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 140,
+      "max": 220,
+      "typical": 180,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 75,
+      "typical": 50,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "price_per_cm3": {
+      "min": 3.625,
+      "max": 3.625,
+      "typical": 3.625,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "delivered_price_per_kg": {
+      "min": 375,
+      "max": 375,
+      "typical": 375,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ta": "93.8",
+    "C": "6.2"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Tantalum Ta",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tantalum",
+      "verified": false
+    },
+    {
+      "label": "Applications: 로켓 노즐 throat, 핵 분야 thermal couple sheath, 초고온 도가니",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Plansee TaC technical data",
+      "url": "https://www.plansee.com/en/materials/refractory-metals/composites.html",
+      "verified": true
+    },
+    {
+      "label": "Plansee Tantalum technical data",
+      "url": "https://www.plansee.com/en/materials/tantalum.html",
+      "verified": true
+    },
+    {
+      "label": "ASTM B708 — Tantalum/Tantalum Alloy Sheet/Plate/Strip",
+      "url": "https://store.astm.org/b0708-15.html",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "로켓 노즐 throat, 핵 분야 thermal couple sheath, 초고온 도가니",
+    "limitations": "고가 (Ta 원료), 가공 매우 어려움",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B708",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 2,
+  "density": 14.5,
+  "yield_strength": 350,
+  "uts": 350,
+  "elongation": null,
+  "modulus": 470,
+  "hardness": 1700,
+  "thermal_conductivity": 22,
+  "fatigue_strength": 180,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "MatWeb — Pure Tantalum Ta",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Carbide"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 13,
+  "max_service_temp": 1500,
+  "thermal_expansion": 6.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 140,
+  "melting_point": 3017,
+  "price_per_kg": 250,
+  "price_per_cm3": 3.625,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 375,
+  "total_cost_estimate": 0,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "TaC (Tantalum Carbide, NaCl structure) — Tm 3880°C (가장 high-Tm carbide 의 하나 — HfC 와 비슷). ρ 14.5 g/cc (dense — W heavy alloy 와 비슷), σf 300-400, E 470 GPa. Tmax 1500°C inert. WC 보다 wear superior — 코팅 표준 (TaC 코팅 ball end mill). TaC + HfC ternary (4:1 ratio) 는 가장 high-Tm 알려진 (4200°C). 우주 hypersonic leading edge (X-43A scramjet inlet), nuclear thermal rocket throat (fuel temperature 2600°C+)."
+}

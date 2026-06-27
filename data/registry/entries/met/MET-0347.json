@@ -1,0 +1,280 @@
+{
+  "stable_id": "MET-0347",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cobalt-alloy-chrome",
+    "alloy_base": "F-AB-stellite-3",
+    "element_families": [
+      "F-EL-cobalt-based"
+    ]
+  },
+  "legacy_id": "R_0234",
+  "origin": "reference(supplementary)",
+  "id": "R_0234",
+  "name": "Stellite 3",
+  "category": "Metal",
+  "subcategory": "Cobalt Alloy - Chrome",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.39,
+      "max": 8.39,
+      "typical": 8.39,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 650,
+      "max": 690,
+      "typical": 690,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 850,
+      "max": 900,
+      "typical": 900,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 540,
+      "max": 560,
+      "typical": 560,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 276,
+      "max": 380,
+      "typical": 331,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (ASM Vol.2 Co alloys)"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 50,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Co-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 110,
+      "typical": 80,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Cobalt alloys"
+    },
+    "electrical_conductivity": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cobalt-Chrome Alloy"
+    },
+    "max_service_temp": {
+      "min": 646,
+      "max": 874,
+      "typical": 760,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cobalt-Chrome Alloy"
+    },
+    "thermal_expansion": {
+      "min": 12.07,
+      "max": 16.33,
+      "typical": 14.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cobalt-Chrome Alloy"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cobalt-Chrome Alloy"
+    },
+    "specific_heat": {
+      "min": 359.55,
+      "max": 486.45,
+      "typical": 423,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cobalt-Chrome Alloy"
+    },
+    "melting_point": {
+      "min": 1130.5,
+      "max": 1529.5,
+      "typical": 1330,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cobalt-Chrome Alloy"
+    },
+    "price_per_kg": {
+      "min": 51,
+      "max": 69,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cobalt-Chrome Alloy"
+    },
+    "price_per_cm3": {
+      "min": 0.4279,
+      "max": 0.5789,
+      "typical": 0.5034,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cobalt-Chrome Alloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Co": "balance",
+    "Cr": "30~33",
+    "W": "11~14",
+    "C": "2.2~2.7"
+  },
+  "sources": [
+    {
+      "label": "Kennametal Stellite — Stellite 3 hardfacing",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (ASM Vol.2 Co alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Kennametal Stellite — Stellite 3 Alloy Technical Data (official)",
+      "url": "https://www.stellite.com/us/en/alloys/stellite/stellite-3-alloy.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.39,
+      690,
+      900,
+      1,
+      230,
+      560,
+      14
+    ],
+    [
+      8.39,
+      650,
+      850,
+      1,
+      230,
+      540,
+      14
+    ]
+  ],
+  "machinability": "Very Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 80,
+  "fatigue_strength": 331,
+  "density": 8.39,
+  "yield_strength": 690,
+  "uts": 900,
+  "elongation": 1,
+  "modulus": 230,
+  "hardness": 560,
+  "thermal_conductivity": 14,
+  "impact_strength": 25,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "Kennametal Stellite — Stellite 3 hardfacing",
+  "aliases": [
+    "UNS R30103",
+    "Co-31Cr-12.5W"
+  ],
+  "families": [
+    "Metal",
+    "Cobalt-Chrome Alloy",
+    "Cobalt-based"
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 760,
+  "thermal_expansion": 14.2,
+  "poisson_ratio": 0.3,
+  "specific_heat": 423,
+  "melting_point": 1330,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.5034,
+  "popularity": 1.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 60,
+  "total_cost_estimate": 108,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

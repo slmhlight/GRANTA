@@ -1,0 +1,252 @@
+{
+  "stable_id": "POL-0038",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pekk",
+    "alloy_base": "F-AB-pekk",
+    "element_families": []
+  },
+  "legacy_id": "R_0077",
+  "origin": "reference(supplementary)",
+  "id": "R_0077",
+  "name": "PEKK",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEKK",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "FDM"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.28,
+      "max": 1.28,
+      "typical": 1.28,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 80,
+      "max": 100,
+      "typical": 90,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 92,
+      "max": 110,
+      "typical": 100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 14,
+      "typical": 10,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 3.5,
+      "max": 4.1,
+      "typical": 3.8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.25,
+      "max": 0.25,
+      "typical": 0.25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK (FDM)"
+    },
+    "max_service_temp": {
+      "min": 230,
+      "max": 260,
+      "typical": 250,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - PEKK (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 81,
+      "max": 243,
+      "typical": 162,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK (FDM)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.016,
+      "max": 0.048,
+      "typical": 0.032,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "78.0",
+    "H": "4.0",
+    "O": "18.1"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — PEKK (high-performance)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Kepstan PEKK datasheet",
+      "url": "https://www.arkema.com/global/en/products/product-finder/product-viewer/Kepstan-PEKK/",
+      "verified": true
+    },
+    {
+      "label": "Solvay NovaSpire PEKK 90/10 datasheet",
+      "url": "https://www.solvay.com/en/brands/novaspire-pekk",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.28,
+      90,
+      100,
+      10,
+      3.8,
+      0,
+      0.25
+    ],
+    [
+      1.28,
+      80,
+      92,
+      6,
+      3.5,
+      0,
+      0.25
+    ],
+    [
+      1.28,
+      100,
+      110,
+      14,
+      4.1,
+      0,
+      0.25
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "PEKK (Polyetherketoneketone) — PAEK family (PEEK + PEKK). PEEK 보다 ether/ketone 비율 다름 (PEEK 60/40, PEKK 50/50) → Tg 162°C (PEEK 143°C) / Tm 305-360°C (T/I ratio 의존). max service 250-260°C continuous (PEEK 와 동등). σy 90-110 / UTS 100-115 / El 25-50% / E 3.8-4.1 GPa / ρ 1.30 g/cc. PEKK-CF (Arkema/Solvay): σy 120-150, E 12-15. **** 항공 AM SLS (3D Systems VICTREX HT, Stratasys NovaSpire), 의료 임플란트 (FDA approved Oxpekk).",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.28,
+  "yield_strength": 90,
+  "uts": 100,
+  "elongation": 10,
+  "modulus": 3.8,
+  "hardness": null,
+  "thermal_conductivity": 0.25,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "FDM",
+  "source": "Material datasheets — PEKK (high-performance)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PEKK (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 162,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.032,
+  "popularity": 2,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 32.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,296 @@
+{
+  "stable_id": "MET-0766",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-zeron-100",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0212",
+  "origin": "reference(supplementary)",
+  "id": "R_0212",
+  "name": "Zeron 100",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 520,
+      "max": 550,
+      "typical": 550,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 720,
+      "max": 750,
+      "typical": 750,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 25,
+      "typical": 25,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 270,
+      "max": 290,
+      "typical": 290,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 14.7,
+      "max": 14.7,
+      "typical": 14.7,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 280,
+      "max": 360,
+      "typical": 320,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 150,
+      "typical": 100,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100",
+      "min_spec_value": 100,
+      "min_spec_source": "NACE ISO 15156 minimum",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "thermal_expansion": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "poisson_ratio": {
+      "min": 0.32,
+      "max": 0.32,
+      "typical": 0.32,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "melting_point": {
+      "min": 1410,
+      "max": 1410,
+      "typical": 1410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "price_per_cm3": {
+      "min": 0.0936,
+      "max": 0.0936,
+      "typical": 0.0936,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "delivered_price_per_kg": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "24~26",
+    "Ni": "6~8",
+    "Mo": "3~4",
+    "W": "0.5~1",
+    "N": "0.2~0.3"
+  },
+  "sources": [
+    {
+      "label": "Rolled Alloys — Zeron 100 super duplex (UNS S32760)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Rolled Alloys ZERON 100",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Zeron 100, Super Duplex (UNS S32760) — Mega Mex",
+      "url": "https://megamex.com/zeron-100/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      550,
+      750,
+      25,
+      200,
+      290,
+      14.7
+    ],
+    [
+      7.8,
+      520,
+      720,
+      20,
+      200,
+      270,
+      14.7
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS S32760",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 320,
+  "density": 7.8,
+  "yield_strength": 550,
+  "uts": 750,
+  "elongation": 25,
+  "modulus": 200,
+  "hardness": 290,
+  "thermal_conductivity": 14.7,
+  "impact_strength": 100,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Rolled Alloys — Zeron 100 super duplex (UNS S32760)",
+  "aliases": [
+    "UNS S32760",
+    "EN 1.4501",
+    "F55"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 315,
+  "thermal_expansion": 12.6,
+  "poisson_ratio": 0.32,
+  "specific_heat": 460,
+  "melting_point": 1410,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.0936,
+  "popularity": 3.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 12.6,
+  "total_cost_estimate": 12.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "medium"
+}

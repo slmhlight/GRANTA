@@ -1,0 +1,306 @@
+{
+  "stable_id": "MET-0506",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-hastelloy-c-22",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0257",
+  "origin": "reference(supplementary)",
+  "id": "R_0257",
+  "name": "Hastelloy C-22 — Wrought, Solution-Annealed",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Haynes International (Hastelloy)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution-Annealed",
+  "ranges": {
+    "density": {
+      "min": 8.69,
+      "max": 8.69,
+      "typical": 8.69,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 370,
+      "max": 470,
+      "typical": 415,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 760,
+      "max": 860,
+      "typical": 800,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 55,
+      "max": 72,
+      "typical": 62,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 206,
+      "max": 206,
+      "typical": 206,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 210,
+      "max": 235,
+      "typical": 220,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 10.1,
+      "max": 10.1,
+      "typical": 10.1,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 166,
+      "max": 228,
+      "typical": 199,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 1.105,
+      "max": 1.495,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 935,
+      "max": 1265,
+      "typical": 1100,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 9.52,
+      "max": 12.88,
+      "typical": 11.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.2635,
+      "max": 0.3565,
+      "typical": 0.31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 362.95,
+      "max": 491.05,
+      "typical": 427,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1164.5,
+      "max": 1575.5,
+      "typical": 1370,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 51,
+      "max": 69,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.4432,
+      "max": 0.5996,
+      "typical": 0.5214,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 78.75,
+      "max": 78.75,
+      "typical": 78.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "20~22.5",
+    "Mo": "12.5~14.5",
+    "W": "2.5~3.5",
+    "Fe": "2~6",
+    "Co": "≤2.5"
+  },
+  "sources": [
+    {
+      "label": "Haynes International — Hastelloy C-22",
+      "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-c-22-alloy",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Haynes International — Hastelloy C-22 datasheet",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio_/Corrosion-resistant-Alloys/HASTELLOY-C-22-Alloy",
+      "verified": true
+    },
+    {
+      "label": "AMS 5750 — Hastelloy C-22 sheet/strip",
+      "url": "https://www.sae.org/standards/content/ams5750/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.69,
+      415,
+      800,
+      62,
+      206,
+      220,
+      10.1
+    ],
+    [
+      8.69,
+      370,
+      760,
+      55,
+      206,
+      210,
+      10.1
+    ],
+    [
+      8.69,
+      470,
+      860,
+      72,
+      206,
+      235,
+      10.1
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": "UNS N06022 / EN 2.4602 / NiCr21Mo14W / Alloy C-22 (Haynes) — best general-purpose Ni-Cr-Mo corrosion alloy (Ni bal, Cr 20-22.5, Mo 12.5-14.5, W 2.5-3.5, Fe 2-6). 'C-family' Hastelloy 중 oxidizing acid + chloride pitting 저항 가장 우수 (HCl/Cl2/HF/HNO3). 화학 plant — chlorine reactor, HF/Cl₂ ducting, FGD scrubber stack, petrochemical 폐기물 burner. AM LPBF 의 표준 high-corrosion superalloy.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5750",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 199,
+  "density": 8.69,
+  "yield_strength": 415,
+  "uts": 800,
+  "elongation": 62,
+  "modulus": 206,
+  "hardness": 220,
+  "thermal_conductivity": 10.1,
+  "impact_strength": 60,
+  "manufacturer": "Haynes International (Hastelloy)",
+  "process": "Wrought",
+  "source": "Haynes International — Hastelloy C-22",
+  "aliases": [
+    "UNS N06022",
+    "EN 2.4602",
+    "Alloy C-22"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 1100,
+  "thermal_expansion": 11.2,
+  "poisson_ratio": 0.31,
+  "specific_heat": 427,
+  "melting_point": 1370,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.5214,
+  "popularity": 3,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 78.75,
+  "total_cost_estimate": 204.75,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 2.5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

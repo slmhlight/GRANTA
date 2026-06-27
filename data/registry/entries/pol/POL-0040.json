@@ -1,0 +1,243 @@
+{
+  "stable_id": "POL-0040",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pekk-cf",
+    "alloy_base": "F-AB-pekk-cf-carbon-fiber",
+    "element_families": []
+  },
+  "legacy_id": "R_0185",
+  "origin": "reference(supplementary)",
+  "id": "R_0185",
+  "name": "PEKK-CF (carbon fiber)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEKK CF",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "FDM"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.4,
+      "max": 1.4,
+      "typical": 1.4,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 110,
+      "max": 120,
+      "typical": 120,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 125,
+      "max": 135,
+      "typical": 135,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 2,
+      "typical": 2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 11,
+      "max": 12,
+      "typical": 12,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.35,
+      "max": 0.35,
+      "typical": 0.35,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "max_service_temp": {
+      "min": 230,
+      "max": 260,
+      "typical": 250,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "glass_transition_temp": {
+      "min": 81,
+      "max": 243,
+      "typical": 162,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "price_per_cm3": {
+      "min": 0.0175,
+      "max": 0.0525,
+      "typical": 0.035,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "78.0",
+    "H": "4.0",
+    "O": "18.1"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — carbon-fibre PEKK (FDM)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Kepstan PEKK datasheet",
+      "url": "https://www.arkema.com/global/en/products/product-finder/product-viewer/Kepstan-PEKK/",
+      "verified": true
+    },
+    {
+      "label": "Solvay NovaSpire PEKK 90/10 datasheet",
+      "url": "https://www.solvay.com/en/brands/novaspire-pekk",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.4,
+      120,
+      135,
+      2,
+      12,
+      0,
+      0.35
+    ],
+    [
+      1.4,
+      110,
+      125,
+      1,
+      11,
+      0,
+      0.35
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "PEKK (Polyetherketoneketone) — PAEK family (PEEK + PEKK). PEEK 보다 ether/ketone 비율 다름 (PEEK 60/40, PEKK 50/50) → Tg 162°C (PEEK 143°C) / Tm 305-360°C (T/I ratio 의존). max service 250-260°C continuous (PEEK 와 동등). σy 90-110 / UTS 100-115 / El 25-50% / E 3.8-4.1 GPa / ρ 1.30 g/cc. PEKK-CF (Arkema/Solvay): σy 120-150, E 12-15. **** 항공 AM SLS (3D Systems VICTREX HT, Stratasys NovaSpire), 의료 임플란트 (FDA approved Oxpekk).",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.4,
+  "yield_strength": 120,
+  "uts": 135,
+  "elongation": 2,
+  "modulus": 12,
+  "hardness": null,
+  "thermal_conductivity": 0.35,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "FDM",
+  "source": "Material datasheets — carbon-fibre PEKK (FDM)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Carbon-Fiber Reinforced"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 162,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.035,
+  "popularity": 2,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 32.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

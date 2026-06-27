@@ -1,0 +1,240 @@
+{
+  "stable_id": "POL-0019",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pbi",
+    "alloy_base": "F-AB-pbi-celazole",
+    "element_families": []
+  },
+  "legacy_id": "R_0193",
+  "origin": "reference(supplementary)",
+  "id": "R_0193",
+  "name": "PBI (Celazole)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PBI",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Compression Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 150,
+      "max": 160,
+      "typical": 160,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 150,
+      "max": 160,
+      "typical": 160,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 3,
+      "typical": 3,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 5.7,
+      "max": 5.9,
+      "typical": 5.9,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.41,
+      "max": 0.41,
+      "typical": 0.41,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBI"
+    },
+    "max_service_temp": {
+      "min": 260,
+      "max": 350,
+      "typical": 300,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - PBI"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBI"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBI"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBI"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBI"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBI"
+    },
+    "price_per_cm3": {
+      "min": 0.0163,
+      "max": 0.0488,
+      "typical": 0.0325,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBI"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "77.9",
+    "H": "3.9",
+    "N": "18.2"
+  },
+  "sources": [
+    {
+      "label": "Celanese — Celazole PBI",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Celanese Celazole PBI U-60 technical guide",
+      "url": "https://www.celanese.com/products/Celazole-PBI",
+      "verified": true
+    },
+    {
+      "label": "PBI Performance Products reference",
+      "url": "https://pbipolymer.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.3,
+      160,
+      160,
+      3,
+      5.9,
+      0,
+      0.41
+    ],
+    [
+      1.3,
+      150,
+      150,
+      2,
+      5.7,
+      0,
+      0.41
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "PBI (Polybenzimidazole, Celazole U-60) — **가장 high-T continuous-use thermoplastic** (Tg 427°C, no Tm — amorphous heterocyclic aromatic). σy 160 / UTS 160 / El 1-3% (brittle) / E 5.9 GPa / ρ 1.30 g/cc.",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.3,
+  "yield_strength": 160,
+  "uts": 160,
+  "elongation": 3,
+  "modulus": 5.9,
+  "hardness": null,
+  "thermal_conductivity": 0.41,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Compression Molding",
+  "source": "Celanese — Celazole PBI",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PBI"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0325,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,341 @@
+{
+  "stable_id": "MET-0967",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-tool-steel-h13",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0008_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0008_2",
+  "name": "Tool Steel H13 — Q+T 540°C (HRC 53)",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T 540°C (HRC 53)",
+  "ranges": {
+    "density": {
+      "min": 7.77,
+      "max": 7.77,
+      "typical": 7.77,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1690,
+      "max": 1690,
+      "typical": 1690,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2040,
+      "max": 2040,
+      "typical": 2040,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 216,
+      "max": 216,
+      "typical": 216,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 580,
+      "max": 580,
+      "typical": 580,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 27,
+      "max": 27,
+      "typical": 27,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 550,
+      "max": 690,
+      "typical": 620,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:h13"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 25,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:h13"
+    },
+    "fracture_toughness": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "thermal_expansion": {
+      "min": 12.5,
+      "max": 12.5,
+      "typical": 12.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "melting_point": {
+      "min": 1427,
+      "max": 1427,
+      "typical": 1427,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:h13"
+    },
+    "price_per_kg": {
+      "min": 5.5,
+      "max": 9,
+      "typical": 7,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Bohler W302 / Schmolz+Bickenbach H13 bar Q2 2026"
+    },
+    "price_per_cm3": {
+      "min": 0.0462,
+      "max": 0.0626,
+      "typical": 0.0544,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 10.33,
+      "max": 10.33,
+      "typical": 10.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "88.9~92",
+    "Cr": "4.75~5.5",
+    "Mo": "1.1~1.75",
+    "V": "0.8~1.25",
+    "Si": "0.8~1.2",
+    "C": "0.32~0.45",
+    "Mn": "0.2~0.6"
+  },
+  "sources": [
+    {
+      "label": "Böhler-Uddeholm — H13 / W302 Tool Steel",
+      "url": "https://www.bohler.com/en/products/w302",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.bohler.uddeholm.com/global/en/products/tool-steels/hot-work-tool-steels/h13/",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "ANSYS Granta — AISI H13 (UNS T20813, EN X40CrMoV5-1) hot work tool steel",
+      "verified": true
+    },
+    {
+      "label": "Böhler-Uddeholm — H13 / Orvar Supreme / W302 datasheet",
+      "url": "https://www.uddeholm.com/files/PB_Uddeholm_orvar_supreme_english.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Tool Steels: H13 hot-work",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204965/Tool-Steels",
+      "verified": true
+    },
+    {
+      "label": "AISI 6F2 / NADCA #207 — H13 properties standard",
+      "url": "https://www.nadca.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.77,
+      1690,
+      2040,
+      8.3,
+      216,
+      580,
+      27
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "AISI H13 / DIN 1.2344 / X40CrMoV5-1 / JIS SKD61 / KS STD61 — Cr-Mo-V hot-work tool steel (C 0.32-0.45, Cr 4.75-5.5, Mo 1.1-1.75, V 0.8-1.2). (HRC 50 580°C T): σy 1610 / UTS 1940. : σy 1690 / UTS 2040. Tmax 540°C continuous. 우수한 thermal fatigue 저항 — die casting die, hot extrusion die, hot forging die. AM LPBF 의 표준 hot-work tool steel.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T 540°C (HRC 53)",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "H13 tool steel",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 30,
+  "fatigue_strength": 620,
+  "density": 7.77,
+  "yield_strength": 1690,
+  "uts": 2040,
+  "elongation": 8.3,
+  "modulus": 216,
+  "hardness": 580,
+  "thermal_conductivity": 27,
+  "impact_strength": 18,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Böhler-Uddeholm — H13 / W302 Tool Steel",
+  "aliases": [
+    "HRC 53",
+    "DIN 1.2344",
+    "X40CrMoV5-1",
+    "JIS SKD61",
+    "KS STD61",
+    "AISI H13"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1380,
+      "uts": 1560,
+      "E": 210
+    },
+    {
+      "temp": 425,
+      "ys": 1100,
+      "uts": 1280,
+      "E": null
+    },
+    {
+      "temp": 540,
+      "ys": 900,
+      "uts": 1050,
+      "E": null
+    },
+    {
+      "temp": 650,
+      "ys": 600,
+      "uts": 720,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 540,
+  "thermal_expansion": 12.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1427,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0544,
+  "popularity": 4.42,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 10.33,
+  "total_cost_estimate": 20.66,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "creep_rupture": [
+    {
+      "temp": 600,
+      "stress": 500,
+      "hours": 1000
+    },
+    {
+      "temp": 700,
+      "stress": 250,
+      "hours": 100
+    },
+    {
+      "temp": 700,
+      "stress": 180,
+      "hours": 1000
+    }
+  ],
+  "story": "H13 (AISI H13 / DIN 1.2344 / JIS SKD61) 은 1942년 미국 Bethlehem Steel 이 hot-work tool steel 의 표준으로 정립한 5% Cr + 1% Mo + 1% V + 0.4% C 합금입니다. 'H' 는 hot-work, '13' 은 grade 번호죠. 그 이전 hot-work tool steel 의 표준이었던 H11 (Mo 1.5%) 보다 V 함량을 늘려 secondary hardening 을 강화해 600°C 이상 high-temp tempering 에서도 hardness 가 유지되도록 했어요.\n\nH13 의 매력은 thermal fatigue resistance 입니다. die-casting mold 가 알루미늄 용탕 (700°C) 과 금형 표면 사이에서 매 cycle ΔT ~ 600°C 의 열충격을 받는데, H13 의 secondary hardening 미세조직 (M₂₃C₆ / MC carbide) 이 이 cycle 에서 hardness 유지가 가능합니다. 표준 Q+T 는 1010°C 오일 quench + 540°C double temper 로 HRC 50 (인성 우선) 또는 540°C × 2 peak temper 로 HRC 53 (강도 우선).\n\n주요 응용: 알루미늄 die-casting mold (Tesla Cybertruck 의 megacasting 한 변 6m+ mold), Mg/Zn die-casting mold, hot extrusion die (Al 6063 윈도우 frame extrusion), hot forging die (자동차 connecting rod forging), 그리고 wider 응용으로 plastic injection mold 중 abrasion 우려 부분 (PEEK GF30, 유리섬유 강화 polymer 용 cavity). H13 의 단점은 인성 KIC 24 MPa·√m 로 낮다는 점인데, 충격 부하가 있으면 H11 또는 P20 를 검토합니다. 최근에는 LPBF 분말로도 가공되어 conformal cooling channel 이 있는 mold 제작이 가능해졌고 (예: SLM Solutions H13 powder), 일반 EDM 가공 대비 cycle time 30% 단축 + die life 2배 효과를 봅니다.",
+  "story_refs": [
+    "AISI Tool Steel Classification, originally published 1942",
+    "Roberts G A et al. (1998) Tool Steels 5th ed., ASM",
+    "Bohler W302 (H13) Tech Data Sheet",
+    "ASTM A681 \"Standard Specification for Tool Steels Alloy\""
+  ],
+  "confidence_tier": "high"
+}

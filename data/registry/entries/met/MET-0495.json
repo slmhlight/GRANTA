@@ -1,0 +1,285 @@
+{
+  "stable_id": "MET-0495",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-cmsx-10-single-crystal-ni-superalloy",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0303_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0303_1",
+  "name": "CMSX-10 (single-crystal Ni superalloy) — Single-crystal + Aged (1080°C/4h + 870°C/16h)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Cannon-Muskegon (CMSX)"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "Single-crystal + Aged (1080°C/4h + 870°C/16h)",
+  "ranges": {
+    "density": {
+      "min": 9.05,
+      "max": 9.05,
+      "typical": 9.05,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1050,
+      "max": 1050,
+      "typical": 1050,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1230,
+      "max": 1230,
+      "typical": 1230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 124,
+      "max": 124,
+      "typical": 124,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 430,
+      "max": 430,
+      "typical": 430,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11.5,
+      "max": 11.5,
+      "typical": 11.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 492,
+      "max": 492,
+      "typical": 492,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Ni-based σf≈0.4·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 24,
+      "max": 24,
+      "typical": 24,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx10"
+    },
+    "max_service_temp": {
+      "min": 1150,
+      "max": 1150,
+      "typical": 1150,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx10"
+    },
+    "thermal_expansion": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx10"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx10"
+    },
+    "specific_heat": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx10"
+    },
+    "melting_point": {
+      "min": 1320,
+      "max": 1320,
+      "typical": 1320,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx10"
+    },
+    "price_per_kg": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx10"
+    },
+    "price_per_cm3": {
+      "min": 3.62,
+      "max": 3.62,
+      "typical": 3.62,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx10"
+    },
+    "delivered_price_per_kg": {
+      "min": 2320,
+      "max": 2320,
+      "typical": 2320,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "1.8~2.2",
+    "Co": "2.8~3.2",
+    "W": "4.8~5.2",
+    "Mo": "0.3~0.5",
+    "Re": "5.8~6.2",
+    "Ta": "7.8~8.4",
+    "Al": "5.5~6.0",
+    "Ti": "0.1~0.3",
+    "Hf": "0.02~0.06"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=CMSX-10",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: GE Aviation Single Crystal",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Cannon-Muskegon CMSX-10 single-crystal datasheet",
+      "url": "https://cannonmuskegon.com/products/single-crystal-superalloys",
+      "verified": true
+    },
+    {
+      "label": "Reed RC, The Superalloys (Cambridge 2006) Chap.6",
+      "url": "https://www.cambridge.org/core/books/superalloys/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      9.05,
+      1050,
+      1230,
+      15,
+      124,
+      430,
+      11.5
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "CMSX-10 (Cannon-Muskegon, 3rd-gen Ni-base single-crystal superalloy). Composition: Ni bal, Cr 2-3, Co 3-6, Mo 0.4, W 5-6, Ta 8-10, Re 6, Al 5.7-5.8, Ti 0.2. 6% Re 가 CMSX-4 (3% Re) 대비 +25°C creep capability. SX 캐스팅 후 At 982°C: σf creep rupture ~250 MPa, 1000h. 항공 jet engine HP turbine blade (CFM LEAP-1A/B, GEnx, Trent XWB). 가격 ~$500-700/kg + casting cost 추가 (직류 응고 + grain selector 성공률 80%). 한국에서 일진글로벌 또는 KIMM 가 비슷한 합금 개발.",
+  "meta": {
+    "reference": true,
+    "condition": "Single-crystal + Aged (1080°C/4h + 870°C/16h)",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 24,
+  "density": 9.05,
+  "yield_strength": 1050,
+  "uts": 1230,
+  "elongation": 15,
+  "modulus": 124,
+  "hardness": 430,
+  "thermal_conductivity": 11.5,
+  "fatigue_strength": 492,
+  "impact_strength": 60,
+  "manufacturer": "Cannon-Muskegon (CMSX)",
+  "process": "Cast",
+  "source": "Datasheet 2",
+  "aliases": [
+    "16h"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 1150,
+  "thermal_expansion": 12.6,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1320,
+  "price_per_kg": 400,
+  "price_per_cm3": 3.62,
+  "popularity": 4.07,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1,
+  "price_grade_premium": 4,
+  "delivered_price_per_kg": 2320,
+  "total_cost_estimate": 4176,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 3.2% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "medium"
+}

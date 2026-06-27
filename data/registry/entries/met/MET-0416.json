@@ -1,0 +1,276 @@
+{
+  "stable_id": "MET-0416",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-copper-cr-zr-alloy-c18100-cucr1zr-h-c-copper",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0058_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0058_0",
+  "name": "Copper-Cr-Zr alloy C18100 (CuCr1Zr, h.c. copper) — wp — Solution heat-treated + precipitation hardened",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "wp — Solution heat-treated + precipitation hardened",
+  "ranges": {
+    "density": {
+      "min": 8.94,
+      "max": 8.94,
+      "typical": 8.94,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 247,
+      "max": 247,
+      "typical": 247,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 412,
+      "max": 412,
+      "typical": 412,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 26,
+      "max": 26,
+      "typical": 26,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 125,
+      "max": 125,
+      "typical": 125,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 121,
+      "max": 121,
+      "typical": 121,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 385,
+      "max": 385,
+      "typical": 385,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 100,
+      "max": 140,
+      "typical": 120,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "impact_strength": {
+      "min": 17,
+      "max": 25,
+      "typical": 19,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "fracture_toughness": {
+      "min": 47,
+      "max": 47,
+      "typical": 47,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 87,
+      "max": 87,
+      "typical": 87,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "max_service_temp": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "thermal_expansion": {
+      "min": 16.85,
+      "max": 16.85,
+      "typical": 16.85,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "poisson_ratio": {
+      "min": 0.345,
+      "max": 0.345,
+      "typical": 0.345,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "specific_heat": {
+      "min": 390,
+      "max": 390,
+      "typical": 390,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "melting_point": {
+      "min": 1080,
+      "max": 1080,
+      "typical": 1080,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "price_per_kg": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "price_per_cm3": {
+      "min": 0.0894,
+      "max": 0.0894,
+      "typical": 0.0894,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18100"
+    },
+    "delivered_price_per_kg": {
+      "min": 13.65,
+      "max": 13.65,
+      "typical": 13.65,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "98.7~99.5",
+    "Cr": "0.4~1",
+    "Zr": "0.08~0.2",
+    "Mg": "0.03~0.06"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C18150 Copper-Chromium-Zirconium",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C18150",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Cu-Cr-Zr / Cu-Ni-Si-Cr family",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.94,
+      247,
+      412,
+      26,
+      125,
+      121,
+      385
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "wp — Solution heat-treated + precipitation hardened"
+  },
+  "fracture_toughness": 47,
+  "fatigue_strength": 120,
+  "density": 8.94,
+  "yield_strength": 247,
+  "uts": 412,
+  "elongation": 26,
+  "modulus": 125,
+  "hardness": 121,
+  "thermal_conductivity": 385,
+  "impact_strength": 19,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Copper.org — C18150 Copper-Chromium-Zirconium",
+  "aliases": [
+    "CuCr1Zr",
+    "UNS C18100",
+    "EN CW106C",
+    "Elbrodur",
+    "UNS C18150",
+    "CuCrZr"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 87,
+  "max_service_temp": 350,
+  "thermal_expansion": 16.85,
+  "poisson_ratio": 0.345,
+  "specific_heat": 390,
+  "melting_point": 1080,
+  "price_per_kg": 10,
+  "price_per_cm3": 0.0894,
+  "popularity": 4,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 13.65,
+  "total_cost_estimate": 12.29,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "C18100 (CuCr1Zr, copper-chromium-zirconium) 은 1937년 미국 General Electric 의 R.R. Hosford 가 개발한 high-conductivity copper-base precipitation-hardening alloy 입니다. Cr 0.5-1.0% + Zr 0.05-0.25% 가 첨가되면 Cu-rich matrix 에 Cr-Zr precipitate 가 시효 (450-500°C, 2-4h) 로 석출하면서 σy 가 OFHC copper (70 MPa) 의 5-7 배 (500 MPa) 로 올라가요. 그러면서 electrical conductivity 는 80% IACS 이상을 유지합니다 — 이건 일반 copper alloy 에서 매우 보기 힘든 조합입니다.\n\nC18100 의 변형 (CDA C18150) 은 1965년 미국 Olin Brass 가 추가로 0.08% Mg 를 첨가해 더 높은 thermal stability 를 낸 형태이고, 둘 다 'precision precipitation-hardenable copper' 의 표준이 됐어요.\n\n응용은 high-current + high-thermal-stability 가 필요한 영역에 집중돼 있습니다. Resistance welding tip + electrode (자동차 차체 spot welding 의 standard 5-mm tip), CERN LHC 의 superconducting magnet busbar contact, 군용 leaser cooling assembly 의 high-current connector, semiconductor lead frame 의 일부 grade, 그리고 정밀 EDM electrode 의 일부 (graphite EDM 대비 surface finish 가 우수). 가격은 $25-40/kg 으로 OFHC copper ($10/kg) 의 2-4 배지만 thermal cycling 의 수명이 OFHC 대비 10 배 이상 길어 cost-of-ownership 은 오히려 낮은 경우가 많습니다.",
+  "story_refs": [
+    "Hosford R R (1939) US Patent 2,159,329 \"Copper-Chromium Alloy\"",
+    "ASM Handbook Vol.2 \"Properties and Selection: Nonferrous Alloys\"",
+    "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys"
+  ],
+  "confidence_tier": "medium"
+}

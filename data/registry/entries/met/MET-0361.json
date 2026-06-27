@@ -1,0 +1,358 @@
+{
+  "stable_id": "MET-0361",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-be-cu",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "G_0319",
+  "origin": "generic(csv)",
+  "id": "G_0319",
+  "name": "Be-Cu — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 8.23,
+      "max": 8.27,
+      "typical": 8.25,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 965,
+      "max": 1140,
+      "typical": 1050,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1170,
+      "max": 1300,
+      "typical": 1235,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 5,
+      "typical": 3,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 124,
+      "max": 132,
+      "typical": 128,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 342,
+      "max": 414.2,
+      "typical": 364.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 630,
+      "max": 763,
+      "typical": 672,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "impact_strength": {
+      "min": 16,
+      "max": 23.6,
+      "typical": 20.2,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 75,
+      "typical": 60,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Materion BeCu C17200"
+    },
+    "max_service_temp": {
+      "typical": 200,
+      "min": 150,
+      "max": 250,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Be": "1.85~2.00",
+    "Co+Ni": "0.2~0.6"
+  },
+  "sources": [
+    {
+      "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
+      "url": "https://materion.com/products/performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Be-Cu\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Be-Cu",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.86,
+      1179,
+      1305,
+      1.8,
+      310,
+      342,
+      180
+    ],
+    [
+      1.86,
+      1336.2,
+      1479,
+      1.84,
+      310,
+      387.6,
+      180
+    ],
+    [
+      1.86,
+      1427.9,
+      1580.5000000000002,
+      1.78,
+      310,
+      414.2000000000001,
+      180
+    ],
+    [
+      1.86,
+      1296.9,
+      1435.5,
+      2.18,
+      310,
+      376.2,
+      180
+    ],
+    [
+      1.86,
+      1192.1,
+      1319.5,
+      2.02,
+      310,
+      345.8,
+      180
+    ],
+    [
+      1.86,
+      1231.4,
+      1363,
+      2.08,
+      310,
+      357.20000000000005,
+      180
+    ],
+    [
+      1.86,
+      1179,
+      1305,
+      1.8,
+      310,
+      342,
+      180
+    ],
+    [
+      1.86,
+      1375.5,
+      1522.5,
+      1.7000000000000002,
+      310,
+      399,
+      180
+    ],
+    [
+      1.86,
+      1283.8,
+      1421,
+      1.96,
+      310,
+      372.4,
+      180
+    ],
+    [
+      1.86,
+      1362.4,
+      1508,
+      1.88,
+      310,
+      395.2,
+      180
+    ],
+    [
+      1.86,
+      1257.6,
+      1392,
+      1.92,
+      310,
+      364.8,
+      180
+    ],
+    [
+      1.86,
+      1244.5,
+      1377.5,
+      2.1,
+      310,
+      361,
+      180
+    ],
+    [
+      1.86,
+      1231.4,
+      1363,
+      1.88,
+      310,
+      357.20000000000005,
+      180
+    ],
+    [
+      1.86,
+      1218.3,
+      1348.5,
+      1.86,
+      310,
+      353.40000000000003,
+      180
+    ],
+    [
+      1.86,
+      1375.5,
+      1522.5,
+      2.1,
+      310,
+      399,
+      180
+    ],
+    [
+      1.86,
+      1218.3,
+      1348.5,
+      1.86,
+      310,
+      353.40000000000003,
+      180
+    ],
+    [
+      1.86,
+      1414.8000000000002,
+      1566,
+      1.96,
+      310,
+      410.4,
+      180
+    ],
+    [
+      1.86,
+      1231.4,
+      1363,
+      1.88,
+      310,
+      357.20000000000005,
+      180
+    ],
+    [
+      1.86,
+      1192.1,
+      1319.5,
+      2.02,
+      310,
+      345.8,
+      180
+    ],
+    [
+      1.86,
+      1283.8,
+      1421,
+      1.96,
+      310,
+      372.4,
+      180
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Beryllium Alloy"
+    ],
+    "conditions": [
+      "Be-2Cu"
+    ]
+  },
+  "fracture_toughness": 60,
+  "density": 8.25,
+  "yield_strength": 1050,
+  "uts": 1235,
+  "elongation": 3,
+  "modulus": 310,
+  "hardness": 364.8,
+  "thermal_conductivity": 180,
+  "fatigue_strength": 672,
+  "impact_strength": 20.2,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Copper Alloy",
+    "Copper-based"
+  ],
+  "popularity": 2.4,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Be 98% — 호흡기 유해 (베릴륨 분진), CMR Cat.1"
+  ],
+  "confidence_tier": "high"
+}

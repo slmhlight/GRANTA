@@ -1,0 +1,290 @@
+{
+  "stable_id": "MET-0760",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-sae-21-4n-ncf3",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0349_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0349_0",
+  "name": "SAE 21-4N (NCF3) — automotive exhaust valve — Solution Treated (1175°C WQ)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Forged"
+  ],
+  "heat_treatment": "Solution Treated (1175°C WQ)",
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 510,
+      "max": 510,
+      "typical": 510,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 196,
+      "max": 196,
+      "typical": 196,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 330,
+      "max": 430,
+      "typical": 380,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 130,
+      "typical": 90,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "fracture_toughness": {
+      "min": 140,
+      "max": 140,
+      "typical": 140,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "max_service_temp": {
+      "min": 815,
+      "max": 815,
+      "typical": 815,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "thermal_expansion": {
+      "min": 18.4,
+      "max": 18.4,
+      "typical": 18.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "melting_point": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "price_per_cm3": {
+      "min": 0.0936,
+      "max": 0.0936,
+      "typical": 0.0936,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:sae21-4n"
+    },
+    "delivered_price_per_kg": {
+      "min": 17.25,
+      "max": 17.25,
+      "typical": 17.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "20~22",
+    "Ni": "3.5~5.0",
+    "Mn": "8~10",
+    "N": "0.35~0.50",
+    "C": "0.45~0.55",
+    "Si": "≤0.25"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=21-4N",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Carpenter 21-4N NACE 7-7",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "DIN EN 10090 — Valve Steels (X53CrMnNiN21-9 = 21-4N)",
+      "url": "https://www.dinmedia.de/en/standard/din-en-10090/",
+      "verified": false
+    },
+    {
+      "label": "Super Alloy 21-4N Valve Steel (X53CrMnNiN21-9) — AZoM",
+      "url": "https://www.azom.com/article.aspx?ArticleID=7648",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      510,
+      880,
+      30,
+      196,
+      320,
+      14
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "SAE 21-4N / DIN X53CrMnNiN21-9 / JIS NCF3 — Cr-Mn-Ni-N austenitic valve steel (Cr 20-22, Mn 8-10, Ni 3.5-5.5, N 0.4-0.",
+  "meta": {
+    "reference": true,
+    "condition": "Solution Treated (1175°C WQ)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "EN 10090",
+        "org": "EN"
+      }
+    ]
+  },
+  "fracture_toughness": 140,
+  "fatigue_strength": 380,
+  "density": 7.8,
+  "yield_strength": 510,
+  "uts": 880,
+  "elongation": 30,
+  "modulus": 196,
+  "hardness": 320,
+  "thermal_conductivity": 14,
+  "impact_strength": 90,
+  "manufacturer": "Reference data",
+  "process": "Forged",
+  "source": "Datasheet 1",
+  "aliases": [
+    "NCF3"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 2,
+  "max_service_temp": 815,
+  "thermal_expansion": 18.4,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1400,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.0936,
+  "popularity": 3.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.15,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 17.25,
+  "total_cost_estimate": 17.25,
+  "tolerance_class": "IT12-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "medium"
+}

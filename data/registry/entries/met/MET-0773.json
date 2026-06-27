@@ -1,0 +1,313 @@
+{
+  "stable_id": "MET-0773",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-416-stainless",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0122",
+  "origin": "reference(supplementary)",
+  "id": "R_0122",
+  "name": "416 stainless",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.64,
+      "max": 7.96,
+      "typical": 7.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 620,
+      "max": 760,
+      "typical": 690,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 760,
+      "max": 900,
+      "typical": 825,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 15,
+      "typical": 12,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 250,
+      "max": 280,
+      "typical": 260,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 276,
+      "max": 400,
+      "typical": 345,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (ASM Vol.19 Martensitic SS)"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 80,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Ferritic"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 95,
+      "typical": 65,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Martensitic SS"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "max_service_temp": {
+      "min": 552.5,
+      "max": 747.5,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "thermal_expansion": {
+      "min": 8.67,
+      "max": 11.73,
+      "typical": 10.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "poisson_ratio": {
+      "min": 0.238,
+      "max": 0.322,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "melting_point": {
+      "min": 1258,
+      "max": 1702,
+      "typical": 1480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_kg": {
+      "min": 2.975,
+      "max": 4.025,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0229,
+      "max": 0.0309,
+      "typical": 0.0269,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.68,
+      "max": 3.68,
+      "typical": 3.68,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "12~14",
+    "S": "0.15~0.35"
+  },
+  "sources": [
+    {
+      "label": "ASM — 416 free-machining stainless (UNS S41600)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Aircraft Materials — Stainless Steel 416 / Alloy 416 / UNS S41600: 조성(Type 1/2)+경화/템퍼온도별 인장표(σy/UTS/신율/RA/HB)",
+      "url": "https://www.aircraftmaterials.com/data/alstst/416.html",
+      "verified": false
+    },
+    {
+      "label": "Aircraft Materials — 416 Bar Stock List: AMS 5610(어닐바)·EMS 537(HT바)·ASTM A582·QQ-S-764 등 규격 매핑(조성/물성 없음, 규격 추적용)",
+      "url": "https://www.aircraftmaterials.com/data/alstst/416stock.html",
+      "verified": false
+    },
+    {
+      "label": "AZoM — Stainless Steel Grade 416 (UNS S41600) 데이터시트",
+      "url": "https://www.azom.com/article.aspx?ArticleID=971",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.7,
+      690,
+      825,
+      12,
+      200,
+      260,
+      25
+    ],
+    [
+      7.7,
+      620,
+      760,
+      10,
+      200,
+      250,
+      25
+    ],
+    [
+      7.7,
+      760,
+      900,
+      15,
+      200,
+      280,
+      25
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 5610",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM A582",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS S41600",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 345,
+  "density": 7.7,
+  "yield_strength": 690,
+  "uts": 825,
+  "elongation": 12,
+  "modulus": 200,
+  "hardness": 260,
+  "thermal_conductivity": 25,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — 416 free-machining stainless (UNS S41600)",
+  "aliases": [
+    "UNS S41600",
+    "EN 1.4005",
+    "X12CrS13",
+    "JIS SUS416"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 10.2,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0269,
+  "popularity": 3.3,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.68,
+  "total_cost_estimate": 4.78,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,309 @@
+{
+  "stable_id": "MET-0149",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-mg-alloys-5xxx",
+    "alloy_base": "F-AB-aa-5454-marine",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0023_3",
+  "origin": "reference(supplementary)",
+  "id": "R_0023_3",
+  "name": "AA 5454 (marine) — H111",
+  "category": "Metal",
+  "subcategory": "Aluminum - Mg Alloys (5xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "H111",
+  "ranges": {
+    "density": {
+      "min": 2.69,
+      "max": 2.69,
+      "typical": 2.69,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 71.8,
+      "max": 71.8,
+      "typical": 71.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 134,
+      "max": 134,
+      "typical": 134,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 50,
+      "max": 76,
+      "typical": 63,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 7,
+      "max": 25.2,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based × HT:H111/H112 as-fabricated (i×1.4)"
+    },
+    "fracture_toughness": {
+      "min": 45.6,
+      "max": 45.6,
+      "typical": 45.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:H111/H112 as-fabricated (k×1.2)"
+    },
+    "electrical_conductivity": {
+      "min": 34,
+      "max": 34,
+      "typical": 34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5454"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5454"
+    },
+    "thermal_expansion": {
+      "min": 23.7,
+      "max": 23.7,
+      "typical": 23.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5454"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5454"
+    },
+    "specific_heat": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5454"
+    },
+    "melting_point": {
+      "min": 638,
+      "max": 638,
+      "typical": 638,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5454"
+    },
+    "price_per_kg": {
+      "min": 3.2,
+      "max": 3.2,
+      "typical": 3.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5454"
+    },
+    "price_per_cm3": {
+      "min": 0.0086,
+      "max": 0.0086,
+      "typical": 0.0086,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5454"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.36,
+      "max": 3.36,
+      "typical": 3.36,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Mg": "2.4~3.0",
+    "Mn": "0.5~1.0",
+    "Cr": "0.05~0.20",
+    "Si": "≤0.25",
+    "Fe": "≤0.40",
+    "Cu": "≤0.10",
+    "Zn": "≤0.25",
+    "Ti": "≤0.20"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 4",
+      "url": "ANSYS Granta — Aluminum 5454 (UNS A95454, EN AW-5454, AlMg3Mn)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 4",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 5083 marine",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum 5454 marine grade",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Aluminum 5454-O / H32",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=db0d5e16f7574e4abf9c80e5fc18ccb3",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.69,
+      165,
+      240,
+      14,
+      71.8,
+      65,
+      134
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS A95454 / EN AW-5454 / AlMg3Mn — non-heat-treatable Al-Mg-Mn (Mg 2.4-3.0, Mn 0.5-1.",
+  "meta": {
+    "reference": true,
+    "condition": "H111",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 45.6,
+  "fatigue_strength": 63,
+  "density": 2.69,
+  "yield_strength": 165,
+  "uts": 240,
+  "elongation": 14,
+  "modulus": 71.8,
+  "hardness": 65,
+  "thermal_conductivity": 134,
+  "impact_strength": 14,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 4",
+  "aliases": [
+    "UNS A95454",
+    "EN AW-5454",
+    "AlMg3Mn"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Mg Alloys (5xxx)",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 34,
+  "max_service_temp": 200,
+  "thermal_expansion": 23.7,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 638,
+  "price_per_kg": 3.2,
+  "price_per_cm3": 0.0086,
+  "popularity": 3.3,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.36,
+  "total_cost_estimate": 3.02,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1400,
+      "uts": 1700,
+      "E": 207
+    },
+    {
+      "temp": 400,
+      "ys": 1100,
+      "uts": 1380,
+      "E": 188
+    },
+    {
+      "temp": 540,
+      "ys": 900,
+      "uts": 1100,
+      "E": 170
+    },
+    {
+      "temp": 600,
+      "ys": 700,
+      "uts": 900,
+      "E": 155
+    }
+  ],
+  "confidence_tier": "high"
+}

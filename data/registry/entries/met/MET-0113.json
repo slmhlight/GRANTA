@@ -1,0 +1,321 @@
+{
+  "stable_id": "MET-0113",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-cu-alloys-2xxx",
+    "alloy_base": "F-AB-aa-2024-t351-aerospace",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0362_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0362_2",
+  "name": "AA 2024-T351 (aerospace) — T81",
+  "category": "Metal",
+  "subcategory": "Aluminum - Cu Alloys (2xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T81",
+  "ranges": {
+    "density": {
+      "min": 2.78,
+      "max": 2.78,
+      "typical": 2.78,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 73,
+      "max": 73,
+      "typical": 73,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 145,
+      "max": 145,
+      "typical": 145,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 130,
+      "max": 167,
+      "typical": 149,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:2024 × HT:T81 CW + aged peak (f×1.08, i×0.9)"
+    },
+    "impact_strength": {
+      "min": 5,
+      "max": 14,
+      "typical": 8,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:2024 × HT:T81 CW + aged peak (f×1.08, i×0.9)"
+    },
+    "fracture_toughness": {
+      "min": 23.8,
+      "max": 23.8,
+      "typical": 23.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:T81 CW + aged peak (k×0.95)"
+    },
+    "electrical_conductivity": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2024"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2024"
+    },
+    "thermal_expansion": {
+      "min": 22.9,
+      "max": 22.9,
+      "typical": 22.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2024"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2024"
+    },
+    "specific_heat": {
+      "min": 875,
+      "max": 875,
+      "typical": 875,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2024"
+    },
+    "melting_point": {
+      "min": 638,
+      "max": 638,
+      "typical": 638,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2024"
+    },
+    "price_per_kg": {
+      "min": 6,
+      "max": 9,
+      "typical": 7.2,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Constellium 2024 T3 sheet Q2 2026"
+    },
+    "price_per_cm3": {
+      "min": 0.017,
+      "max": 0.023,
+      "typical": 0.02,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.51,
+      "max": 5.51,
+      "typical": 5.51,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Cu": "3.8~4.9",
+    "Mg": "1.2~1.8",
+    "Mn": "0.30~0.90",
+    "Fe": "≤0.50",
+    "Si": "≤0.50"
+  },
+  "sources": [
+    {
+      "label": "Arconic — 2024 Aluminum Alloy",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=2024+aluminum",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202024-T351",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 2024-T351",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum 2xxx (Al-Cu)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "MMPDS-08 — Aluminum 2024 (T3/T351/T81)",
+      "url": "https://www.mmpds.org/",
+      "verified": false
+    },
+    {
+      "label": "MatWeb — Aluminum 2024-T3",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=57483b4d782940faaf12964a1821fb61",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.78,
+      450,
+      480,
+      6,
+      73,
+      145,
+      130
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "UNS A92024 / EN AW-2024 / AlCu4Mg1 / DIN 3.1355 — heat-treatable Al-Cu-Mg (Cu 3.8-4.9, Mg 1.",
+  "meta": {
+    "reference": true,
+    "condition": "T81",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "AA 2024-T3",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 23.8,
+  "fatigue_strength": 149,
+  "density": 2.78,
+  "yield_strength": 450,
+  "uts": 480,
+  "elongation": 6,
+  "modulus": 73,
+  "hardness": 145,
+  "thermal_conductivity": 130,
+  "impact_strength": 8,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Arconic — 2024 Aluminum Alloy",
+  "aliases": [
+    "UNS A92024",
+    "EN AW-2024",
+    "AlCu4Mg1",
+    "DIN 3.1355"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum Alloy",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 30,
+  "max_service_temp": 150,
+  "thermal_expansion": 22.9,
+  "poisson_ratio": 0.33,
+  "specific_heat": 875,
+  "melting_point": 638,
+  "price_per_kg": 5,
+  "price_per_cm3": 0.02,
+  "popularity": 4.15,
+  "machining_cost_factor": 0.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.05,
+  "delivered_price_per_kg": 5.51,
+  "total_cost_estimate": 4.41,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 345,
+      "uts": 483,
+      "E": 73
+    },
+    {
+      "temp": 100,
+      "ys": 320,
+      "uts": 450,
+      "E": 71
+    },
+    {
+      "temp": 200,
+      "ys": 220,
+      "uts": 290,
+      "E": 65
+    },
+    {
+      "temp": 300,
+      "ys": 85,
+      "uts": 130,
+      "E": 56
+    }
+  ],
+  "story": "1909년 독일 Düren 의 Dürener Metallwerke 에서 알프레드 빌름 (Alfred Wilm) 이 우연히 한 발견에서 모든 게 시작됩니다. Al-4%Cu 합금을 quench 한 뒤 며칠 방치해 놓았더니 강도가 두 배로 올라간 거예요. 이게 인류가 처음으로 'precipitation hardening' 이라는 메커니즘을 인지한 순간이었어요. Wilm 은 이걸 'Duralumin' 으로 상표화했고, 1909년 9월에는 세계 최초의 all-metal 항공기 Junkers J 1 의 동체로 사용됩니다. 1차 대전 동안에는 Zeppelin LZ 시리즈 비행선의 frame 으로도 대량 채택됐죠.\n\n1931년 미국 Alcoa 가 여기에 Mg 0.5% 를 추가해 더 안정한 시효 거동을 가진 X-2024 를 개발 → 1944년 AA 2024 로 표준화됐습니다. T351 temper (solution + 1.5% stretched + 자연 시효) 가 σ_y 325 MPa + 항피로 strength 의 sweet spot 으로, fuselage skin 의 디폴트로 자리잡았어요.\n\nBoeing 707 (1957) 부터 737 / 747 / 757, Airbus A320 family 의 모든 외피, MD-80, 콩코드 (1969-2003) 의 hull 거의 전체가 2024 — '비행기는 곧 2024' 라는 말까지 있을 정도였죠. 단, Cu 4% 가 galvanic + SCC + 부식에 약해서 표면에 Alclad (pure Al 5% cladding) 를 입혀 보호하는 게 표준이에요. 3세대 Al-Li (2050 등) 가 등장하면서 점차 대체되고 있지만, 50+ 년 동안 항공 산업의 main material 이었습니다.",
+  "story_refs": [
+    "Wilm A (1911) \"Physikalisch-metallurgische Untersuchungen über magnesiumhaltige Aluminiumlegierungen\", Metallurgie 8",
+    "Polmear I J (2006) Light Alloys, 4th ed., Butterworth-Heinemann",
+    "Alcoa \"Engineering Properties of Wrought 2024\" Tech Bulletin TPF-3R (1973)",
+    "Smithsonian National Air & Space Museum \"Junkers J 1\" exhibit notes (https://airandspace.si.edu)"
+  ],
+  "confidence_tier": "medium"
+}

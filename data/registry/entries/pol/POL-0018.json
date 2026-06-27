@@ -1,0 +1,247 @@
+{
+  "stable_id": "POL-0018",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pai",
+    "alloy_base": "F-AB-pai-torlon",
+    "element_families": []
+  },
+  "legacy_id": "R_0141",
+  "origin": "reference(supplementary)",
+  "id": "R_0141",
+  "name": "PAI (Torlon)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PAI",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.42,
+      "max": 1.42,
+      "typical": 1.42,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 100,
+      "max": 120,
+      "typical": 110,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 128.3,
+      "max": 147.7,
+      "typical": 138,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8.8,
+      "max": 11.2,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 4.4,
+      "max": 4.6,
+      "typical": 4.5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.26,
+      "max": 0.26,
+      "typical": 0.26,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PAI"
+    },
+    "max_service_temp": {
+      "min": 240,
+      "max": 275,
+      "typical": 260,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - PAI"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PAI"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PAI"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PAI"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PAI"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PAI"
+    },
+    "price_per_cm3": {
+      "min": 0.0177,
+      "max": 0.0532,
+      "typical": 0.0355,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PAI"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "68.2",
+    "H": "3.1",
+    "N": "10.6",
+    "O": "18.2"
+  },
+  "sources": [
+    {
+      "label": "Solvay — Torlon PAI",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Ensinger — Torlon 4203 PAI 데이터시트",
+      "url": "https://www.ensinger-pc.com/injection-molding-materials/our-plastic-stock-shapes/torlon-4203-polyamide-imide/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.42,
+      110,
+      150,
+      12,
+      4.5,
+      0,
+      0.26
+    ],
+    [
+      1.42,
+      100,
+      140,
+      8,
+      4.4,
+      0,
+      0.26
+    ],
+    [
+      1.42,
+      120,
+      160,
+      15,
+      4.6,
+      0,
+      0.26
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "polymer": true
+  },
+  "density": 1.42,
+  "yield_strength": 110,
+  "uts": 150,
+  "elongation": 12,
+  "modulus": 4.5,
+  "hardness": null,
+  "thermal_conductivity": 0.26,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Solvay — Torlon PAI",
+  "aliases": [
+    "Torlon",
+    "Polyamide-imide"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - PAI"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 260,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0355,
+  "popularity": 2,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

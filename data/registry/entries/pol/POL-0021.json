@@ -1,0 +1,235 @@
+{
+  "stable_id": "POL-0021",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pbt",
+    "alloy_base": "F-AB-pbt-general-purpose",
+    "element_families": []
+  },
+  "legacy_id": "POL_033",
+  "origin": "polymers-data",
+  "id": "POL_033",
+  "name": "PBT (general purpose) — Unfilled engineering grade",
+  "category": "Polymer",
+  "subcategory": "Polymer - PBT",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.34,
+      "max": 1.34,
+      "typical": 1.34,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 58,
+      "max": 58,
+      "typical": 58,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 58,
+      "max": 58,
+      "typical": 58,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.46,
+      "max": 2.46,
+      "typical": 2.46,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.27,
+      "max": 0.27,
+      "typical": 0.27,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 134,
+      "max": 134,
+      "typical": 134,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 32,
+      "max": 32,
+      "typical": 32,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 225,
+      "max": 225,
+      "typical": 225,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 67,
+      "max": 67,
+      "typical": 67,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBT"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBT"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PBT"
+    },
+    "price_per_cm3": {
+      "min": 0.0034,
+      "max": 0.0034,
+      "typical": 0.0034,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "65.4",
+    "H": "5.5",
+    "O": "29.1"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PBT (general purpose)",
+      "url": "https://www.ansys.com/products/materials/granta-mi",
+      "verified": true
+    },
+    {
+      "label": "Applications: 전기 connector / socket, 자동차 ECU 부품, 가전 switch, 광학 reflector",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SABIC Valox PBT technical datasheet",
+      "url": "https://www.sabic.com/en/products/specialties/valox-resins",
+      "verified": true
+    },
+    {
+      "label": "DuPont Crastin PBT",
+      "url": "https://www.dupont.com/products/crastin-pbt.html",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Polybutylene Terephthalate general",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PBT",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 32,
+    "tm": 225,
+    "hdt_182": 67,
+    "moisture_24h": 0.085,
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "applications": "전기 connector / socket, 자동차 ECU 부품, 가전 switch, 광학 reflector",
+    "limitations": "가수분해 취약, Tg 낮음 → 고온 변형, mold shrinkage 크고 warping",
+    "_r173_note_applied": true
+  },
+  "popularity": 4,
+  "density": 1.34,
+  "yield_strength": 58,
+  "uts": 58,
+  "elongation": 175,
+  "modulus": 2.46,
+  "hardness": null,
+  "thermal_conductivity": 0.27,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PBT (general purpose)",
+  "aliases": [
+    "Valox",
+    "Crastin",
+    "Polybutylene terephthalate"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - PBT"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0034,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PBT (Polybutylene Terephthalate) 는 1970년대 미국 Celanese 와 독일 Bayer 가 거의 동시에 개발한 'fast-crystallizing thermoplastic polyester' 입니다. PET (1941년 DuPont, 음료수 병의 표준) 의 결정화가 느린 단점을 보완하기 위해 ethylene glycol 을 butylene glycol 로 교체하면서 결정화 시간이 PET 의 1/10 로 줄었어요. 1972년 Celanese Celanex (현 Celanese Ticona) 와 1974년 Bayer Pocan 이 상품화됐습니다.\n\nPBT 의 매력은 빠른 결정화 + 우수한 dimensional stability + electrical insulation + chemical resistance 의 균형입니다. 일반 PBT 의 Tg 는 60°C · Tm 220-230°C 로 PET 보다 낮지만 30-45% glass fiber 강화 시 σy 110-130 MPa, UTS 130-150 MPa 까지 올라가요. 사출 cycle 이 PET 의 1/3 정도라 대량 생산 부품에 적합합니다.\n\n응용: 자동차 electronics housing (BMW iDrive control panel housing), 가전 전원 plug + outlet housing (Schuko plug 의 표준 PBT GF30), 충전 connector (Tesla supercharger plug 의 housing), 자동차 ignition coil bobbin, 가스 fired stove 의 thermocouple connector, 의료 X-ray cassette 의 일부 grade, 그리고 toy industry 의 high-quality model (Mattel Matchbox / Hot Wheels 의 plastic body 일부). 단점은 hydrolysis (가수분해) 에 약해 80°C + 다습 환경 (특히 80°C-95% RH) 의 장기 노출 시 분해되어 brittle 화 됩니다. 이 문제 때문에 자동차 underhood 의 어려운 위치 (transmission 근방 90°C 이상) 에는 PA66-GF (Zytel) 로 대체됩니다.",
+  "story_refs": [
+    "Whinfield J R & Dickson J T (1941) UK Patent 578,079 \"Polymeric Linear Terephthalic Esters\"",
+    "Mark H F (ed., 2014) Encyclopedia of Polymer Science and Technology Vol.7",
+    "Brydson J A (1999) Plastics Materials 7th ed., Butterworth-Heinemann"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "PBT (Polybutylene Terephthalate, Valox/Crastin) — semi-crystalline engineering thermoplastic. Tg ≈ 60°C, Tm ≈ 225°C, HDT (1.8 MPa) ≈ 60°C unfilled / 200°C GF30, max service 120°C. σy 55-60 / UTS 60-65 / El 50-200% / E 2."
+}

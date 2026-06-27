@@ -1,0 +1,286 @@
+{
+  "stable_id": "MET-0167",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-pure-other",
+    "alloy_base": "F-AB-aa-1100",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "G_0055",
+  "origin": "generic(csv)",
+  "id": "G_0055",
+  "name": "AA 1100 — Annealed (Wrought)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Pure/Other",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 2.71,
+      "max": 2.71,
+      "typical": 2.71,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 32.9,
+      "max": 32.9,
+      "typical": 32.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 84.6,
+      "max": 84.6,
+      "typical": 84.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 32.9,
+      "max": 32.9,
+      "typical": 32.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 69,
+      "max": 69,
+      "typical": 69,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 28.2,
+      "max": 28.2,
+      "typical": 28.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 222,
+      "max": 222,
+      "typical": 222,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 12,
+      "max": 20,
+      "typical": 16,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+    },
+    "impact_strength": {
+      "min": 90,
+      "max": 210,
+      "typical": 150,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+    },
+    "fracture_toughness": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:O (annealed soft, fallback derived from T6) (k×2)"
+    },
+    "electrical_conductivity": {
+      "min": 58,
+      "max": 58,
+      "typical": 58,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100"
+    },
+    "thermal_expansion": {
+      "min": 23.6,
+      "max": 23.6,
+      "typical": 23.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100"
+    },
+    "specific_heat": {
+      "min": 904,
+      "max": 904,
+      "typical": 904,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100"
+    },
+    "melting_point": {
+      "min": 657,
+      "max": 657,
+      "typical": 657,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100"
+    },
+    "price_per_kg": {
+      "min": 2.3,
+      "max": 2.3,
+      "typical": 2.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100"
+    },
+    "price_per_cm3": {
+      "min": 0.0062,
+      "max": 0.0062,
+      "typical": 0.0062,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1100"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.46,
+      "max": 2.46,
+      "typical": 2.46,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "0.35",
+    "Mn": "0.05",
+    "Si": "0.13",
+    "Cu": "0.05",
+    "Al": "99"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum 1100",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+1100",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AA 1100\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%201100",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum 1100 commercial purity",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Aluminum 1100-O Annealed",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=c089b0d61a564f3aa42b59b3b51c4f4c",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.71,
+      32.9,
+      84.60000000000001,
+      32.9,
+      69,
+      28.200000000000003,
+      222
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 1,
+    "subcategory_variants": [
+      "Aluminum - Pure/Other"
+    ],
+    "conditions": [
+      "O (Annealed"
+    ],
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 110,
+  "fatigue_strength": 16,
+  "density": 2.71,
+  "yield_strength": 32.9,
+  "uts": 84.6,
+  "elongation": 32.9,
+  "modulus": 69,
+  "hardness": 28.2,
+  "thermal_conductivity": 222,
+  "impact_strength": 150,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "MatWeb — Aluminum 1100",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Pure/Other",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 58,
+  "max_service_temp": 200,
+  "thermal_expansion": 23.6,
+  "poisson_ratio": 0.33,
+  "specific_heat": 904,
+  "melting_point": 657,
+  "price_per_kg": 2.3,
+  "price_per_cm3": 0.0062,
+  "popularity": 3.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.46,
+  "total_cost_estimate": 2.22,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "AA 1100 은 99.0% 의 commercial pure Al 으로, 1925년 미국 Alcoa 가 alloy 2S 로 출시한 게 시작이에요. 1954년 IADS 통합 시 AA 1100 으로 재명명됐고요. 합금 원소 없이 거의 pure Al — σ_y 105 MPa 의 매우 낮은 강도지만 가공성·용접성·전기 전도성·열 전도성 모두 최상급입니다.\n\n응용 — Foil — 알루미늄 호일 (식품 packaging), 캔 음료 옆면 (Coca-Cola, Pepsi 캔의 외피는 3104 H19, top end 는 5182 H19, 그러나 일부는 1100), 가정용 cookware (frying pan, 압력 cooker), 산업 — heat exchanger fin (라디에이터, condenser), 전기 — bus bar (transformer 의 connection, 가격 대비 효율), 케이블 외피 (overhead transmission line 의 conductor). 한국 LS 전선의 ACSR (Aluminum Conductor Steel Reinforced) 의 외부 strand 가 1100 변형이에요.\n\n흥미. 1100 의 가장 큰 산업적 의의는 'recycled aluminum 의 default destination' 이에요. 전 세계 aluminum 재활용량 (~30 Mt/y) 의 약 절반이 1100 grade 로 재가공됩니다. 이유는 합금 원소가 거의 없어 어떤 source 의 scrap (음료 캔, 호일, 가전) 이라도 sorting 없이 melting → 1100 으로 만들 수 있기 때문이죠. 'circular economy 의 base alloy' 라고 보면 됩니다.",
+  "story_refs": [
+    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+    "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
+    "Schwarz H J & Hatch J E (1984) Aluminum: Properties and Physical Metallurgy, ASM"
+  ],
+  "confidence_tier": "medium",
+  "industry_note": "UNS A91100 / EN AW-1100 / Al99.0Cu / DIN 3.0205 — Commercial-Purity (CP) Al 99.0% (vs 1050 의 99.5%). Non-heat-treatable, R173 fake-variant 제거. O temper: σy 35 / UTS 90 / El 35%. H14 (1/4 hard CW): σy 105 / UTS 124 / El 9%. H18 (full hard): σy 152 / UTS 165 / El 5%. IACS 59% (가장 흔한 architectural conductor). 화학 plant tank lining, 식품 contact, decorative trim, household kitchenware (foil, pot). 가공 매우 easy (annealed). (handbook H14 σy 105)."
+}

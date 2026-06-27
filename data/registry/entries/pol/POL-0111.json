@@ -1,0 +1,381 @@
+{
+  "stable_id": "POL-0111",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pps",
+    "alloy_base": "F-AB-pps-gf40",
+    "element_families": []
+  },
+  "legacy_id": "G_0186",
+  "origin": "generic(csv)",
+  "id": "G_0186",
+  "name": "PPS GF40 — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PPS",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.65,
+      "max": 1.65,
+      "typical": 1.65,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 127.4,
+      "max": 152.6,
+      "typical": 135.8,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 136.5,
+      "max": 163.5,
+      "typical": 145.5,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 1.64,
+      "max": 2.18,
+      "typical": 1.88,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 136.5,
+      "max": 163.5,
+      "typical": 145.5,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.25,
+      "max": 0.25,
+      "typical": 0.25,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP GF (FDM)"
+    },
+    "max_service_temp": {
+      "min": 220,
+      "max": 260,
+      "typical": 240,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - PP GF (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP GF (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP GF (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP GF (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 44,
+      "max": 132,
+      "typical": 88,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP GF (FDM)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP GF (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0207,
+      "max": 0.062,
+      "typical": 0.0413,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP GF (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Celanese Fortron PPS",
+      "url": "https://www.celanese.com/products/Fortron-PPS",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"PPS GF40\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PPS%20GF40",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.65,
+      152.60000000000002,
+      163.5,
+      2.18,
+      10,
+      163.5,
+      0.25
+    ],
+    [
+      1.65,
+      135.79999999999998,
+      145.5,
+      2.14,
+      10,
+      145.5,
+      0.25
+    ],
+    [
+      1.65,
+      137.2,
+      147,
+      1.76,
+      10,
+      147,
+      0.25
+    ],
+    [
+      1.65,
+      133,
+      142.5,
+      2.1,
+      10,
+      142.5,
+      0.25
+    ],
+    [
+      1.65,
+      127.4,
+      136.5,
+      2.02,
+      10,
+      136.5,
+      0.25
+    ],
+    [
+      1.65,
+      152.60000000000002,
+      163.5,
+      1.78,
+      10,
+      163.5,
+      0.25
+    ],
+    [
+      1.65,
+      133,
+      142.5,
+      2.1,
+      10,
+      142.5,
+      0.25
+    ],
+    [
+      1.65,
+      135.79999999999998,
+      145.5,
+      1.7400000000000002,
+      10,
+      145.5,
+      0.25
+    ],
+    [
+      1.65,
+      130.20000000000002,
+      139.5,
+      2.06,
+      10,
+      139.5,
+      0.25
+    ],
+    [
+      1.65,
+      135.79999999999998,
+      145.5,
+      2.14,
+      10,
+      145.5,
+      0.25
+    ],
+    [
+      1.65,
+      128.8,
+      138,
+      1.64,
+      10,
+      138,
+      0.25
+    ],
+    [
+      1.65,
+      131.6,
+      141,
+      1.88,
+      10,
+      141,
+      0.25
+    ],
+    [
+      1.65,
+      128.8,
+      138,
+      1.64,
+      10,
+      138,
+      0.25
+    ],
+    [
+      1.65,
+      152.60000000000002,
+      163.5,
+      1.78,
+      10,
+      163.5,
+      0.25
+    ],
+    [
+      1.65,
+      152.60000000000002,
+      163.5,
+      1.78,
+      10,
+      163.5,
+      0.25
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon GF (FDM)",
+      "Polymer - PP GF (FDM)"
+    ],
+    "conditions": [
+      "Impact Modified",
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true
+  },
+  "density": 1.65,
+  "yield_strength": 135.8,
+  "uts": 145.5,
+  "elongation": 1.88,
+  "modulus": 10,
+  "hardness": 145.5,
+  "thermal_conductivity": 0.25,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "Celanese Fortron PPS",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PP GF (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 100,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 88,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0413,
+  "popularity": 2.92,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

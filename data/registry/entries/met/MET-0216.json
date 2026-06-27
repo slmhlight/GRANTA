@@ -1,0 +1,268 @@
+{
+  "stable_id": "MET-0216",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-7475-al-zn-mg-cu-high-toughness",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0311_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0311_1",
+  "name": "AA 7475 (Al-Zn-Mg-Cu, high-toughness) — T7351 (over-aged, SCC-resistant)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T7351 (over-aged, SCC-resistant)",
+  "ranges": {
+    "density": {
+      "min": 2.81,
+      "max": 2.81,
+      "typical": 2.81,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 415,
+      "max": 415,
+      "typical": 415,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 142,
+      "max": 142,
+      "typical": 142,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 125,
+      "max": 191,
+      "typical": 158,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 7.5,
+      "max": 27,
+      "typical": 15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based × HT:T7351/T7451 over-aged SCC-resistant (i×1.5)"
+    },
+    "fracture_toughness": {
+      "min": 28,
+      "max": 44.8,
+      "typical": 36.4,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 7xxx Al-Zn × HT:T7351/T7451 over-aged SCC-resistant (k×1.4)"
+    },
+    "electrical_conductivity": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Zn Alloys (7xxx)"
+    },
+    "max_service_temp": {
+      "min": 85,
+      "max": 255,
+      "typical": 170,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Zn Alloys (7xxx)"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 34.5,
+      "typical": 23,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Zn Alloys (7xxx)"
+    },
+    "poisson_ratio": {
+      "min": 0.165,
+      "max": 0.495,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Zn Alloys (7xxx)"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 1350,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Zn Alloys (7xxx)"
+    },
+    "melting_point": {
+      "min": 325,
+      "max": 975,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Zn Alloys (7xxx)"
+    },
+    "price_per_kg": {
+      "min": 2,
+      "max": 6,
+      "typical": 4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Zn Alloys (7xxx)"
+    },
+    "price_per_cm3": {
+      "min": 0.0056,
+      "max": 0.0168,
+      "typical": 0.0112,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Zn Alloys (7xxx)"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.09,
+      "max": 6.09,
+      "typical": 6.09,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Zn": "5.2~6.2",
+    "Mg": "1.9~2.6",
+    "Cu": "1.2~1.9",
+    "Cr": "0.18~0.25"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA7475",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 7xxx Al-Zn",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7175/7475 Technical Data (T651/T7351/T7651 인장, PDF 직접 판독)",
+      "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1018/Kaiser_Aluminum_7175-7475_Sheet_Coil_and_Plate.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.81,
+      415,
+      480,
+      13,
+      70,
+      135,
+      142
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "T7351 (over-aged, SCC-resistant)"
+  },
+  "fracture_toughness": 36.4,
+  "fatigue_strength": 158,
+  "density": 2.81,
+  "yield_strength": 415,
+  "uts": 480,
+  "elongation": 13,
+  "modulus": 70,
+  "hardness": 135,
+  "thermal_conductivity": 142,
+  "impact_strength": 15,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Zn Alloys (7xxx)",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 170,
+  "thermal_expansion": 23,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.0112,
+  "popularity": 3.27,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.09,
+  "total_cost_estimate": 5.48,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

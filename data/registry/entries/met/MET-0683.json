@@ -1,0 +1,299 @@
+{
+  "stable_id": "MET-0683",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-spring-steel",
+    "alloy_base": "F-AB-music-wire-astm-a228",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0354_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0354_0",
+  "name": "Music Wire (ASTM A228) — piano-wire spring — As-drawn Ø0.8 mm (smallest, highest σ_UTS)",
+  "category": "Metal",
+  "subcategory": "Spring Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought (cold-drawn)"
+  ],
+  "heat_treatment": "As-drawn Ø0.8 mm (smallest, highest σ_UTS)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 2100,
+      "max": 2100,
+      "typical": 2100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2400,
+      "max": 2400,
+      "typical": 2400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 49,
+      "max": 49,
+      "typical": 49,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 1080,
+      "max": 1080,
+      "typical": 1080,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 85,
+      "typical": 65,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM spring steel"
+    },
+    "electrical_conductivity": {
+      "min": 6.375,
+      "max": 8.625,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "max_service_temp": {
+      "min": 408,
+      "max": 552,
+      "typical": 480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "specific_heat": {
+      "min": 405.45,
+      "max": 548.55,
+      "typical": 477,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "price_per_kg": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.02,
+      "max": 0.027,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.78,
+      "max": 3.78,
+      "typical": 3.78,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.70~1.00",
+    "Mn": "0.20~0.60",
+    "Si": "0.10~0.30",
+    "P": "≤0.025",
+    "S": "≤0.025"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ASTM%20A228",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM spring steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MakeItFrom — ASTM A228 (SWP-A, K08500) Music Wire (조성+기계적 물성)",
+      "url": "https://www.makeitfrom.com/material-properties/ASTM-A228-SWP-A-K08500-Music-Wire",
+      "verified": false
+    },
+    {
+      "label": "Acxess Spring — Music Wire Spring Properties (ASTM A228 UTS 범위·E·G·HRC·Tmax)",
+      "url": "https://www.acxesspring.com/music-wire-spring-properties.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      2100,
+      2400,
+      2,
+      207,
+      600,
+      49
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ASTM A228 high-carbon patented cold-drawn; static & cyclic compression springs (clock, valve, retractable pen); piano string. Size-dependent strength per Schubert.",
+  "meta": {
+    "reference": true,
+    "condition": "As-drawn Ø0.8 mm (smallest, highest σ_UTS)",
+    "specs": [
+      {
+        "id": "ASTM A228",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "density": 7.85,
+  "yield_strength": 2100,
+  "uts": 2400,
+  "elongation": 2,
+  "modulus": 207,
+  "hardness": 600,
+  "thermal_conductivity": 49,
+  "fatigue_strength": 1080,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought (cold-drawn)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "ASTM A228"
+  ],
+  "families": [
+    "Metal",
+    "Spring Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 7.5,
+  "max_service_temp": 480,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 477,
+  "melting_point": 1430,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0235,
+  "popularity": 1.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.78,
+  "total_cost_estimate": 3.78,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1860,
+      "uts": 2070,
+      "E": 210
+    },
+    {
+      "temp": 200,
+      "ys": 1700,
+      "uts": 1900,
+      "E": 200
+    },
+    {
+      "temp": 400,
+      "ys": 1380,
+      "uts": 1620,
+      "E": 180
+    }
+  ],
+  "confidence_tier": "medium"
+}

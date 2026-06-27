@@ -1,0 +1,240 @@
+{
+  "stable_id": "POL-0123",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pvb",
+    "alloy_base": "F-AB-pvb",
+    "element_families": []
+  },
+  "legacy_id": "R_0192",
+  "origin": "reference(supplementary)",
+  "id": "R_0192",
+  "name": "PVB",
+  "category": "Polymer",
+  "subcategory": "Polymer - PVB",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Extrusion"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.08,
+      "max": 1.08,
+      "typical": 1.08,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 18,
+      "max": 20,
+      "typical": 20,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 21,
+      "max": 23,
+      "typical": 23,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 150,
+      "max": 200,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 1.6,
+      "max": 1.8,
+      "typical": 1.8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.2,
+      "max": 0.2,
+      "typical": 0.2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVB"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVB"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVB"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVB"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVB"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVB"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVB"
+    },
+    "price_per_cm3": {
+      "min": 0.0135,
+      "max": 0.0405,
+      "typical": 0.027,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVB"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "67.6",
+    "H": "9.9",
+    "O": "22.5"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — polyvinyl butyral",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Eastman Saflex PVB technical guide",
+      "url": "https://www.eastman.com/Markets/Saflex/Pages/Overview.aspx",
+      "verified": true
+    },
+    {
+      "label": "Kuraray Trosifol PVB",
+      "url": "https://www.trosifol.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.08,
+      20,
+      23,
+      200,
+      1.8,
+      0,
+      0.2
+    ],
+    [
+      1.08,
+      18,
+      21,
+      150,
+      1.6,
+      0,
+      0.2
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "PVB (Polyvinyl Butyral) — laminated safety glass interlayer (가장 흔한 application: 자동차 windshield). Tg 12-19°C (rubbery at RT, glass at low-T), max service 70-80°C. σy 18-25 / UTS 20-25 / El 200-300% / E 1.5-2.0 GPa. 광 transmission 90%+. Sandwiched between two glass sheets → impact 시 fragments adhere (없으면 깨진 유리 fragment fly). 자동차 windshield (FMVSS 205), 건축 hurricane-impact window (FBC TAS 203), 박물관 bullet-resistant display. Recycling 어려움.",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.08,
+  "yield_strength": 20,
+  "uts": 23,
+  "elongation": 200,
+  "modulus": 1.8,
+  "hardness": null,
+  "thermal_conductivity": 0.2,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Extrusion",
+  "source": "Material datasheets — polyvinyl butyral",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PVB"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.027,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

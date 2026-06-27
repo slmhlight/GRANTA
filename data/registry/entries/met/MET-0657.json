@@ -1,0 +1,291 @@
+{
+  "stable_id": "MET-0657",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-ta-10w",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0173",
+  "origin": "reference(supplementary)",
+  "id": "R_0173",
+  "name": "Ta-10W",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 16.8,
+      "max": 16.8,
+      "typical": 16.8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 440,
+      "max": 480,
+      "typical": 480,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 580,
+      "max": 620,
+      "typical": 620,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 20,
+      "typical": 20,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 240,
+      "max": 250,
+      "typical": 250,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 54,
+      "max": 54,
+      "typical": 54,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 168,
+      "max": 240,
+      "typical": 202,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.2 Refractory)"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 50,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Refractory"
+    },
+    "electrical_conductivity": {
+      "min": 15.5,
+      "max": 46.5,
+      "typical": 31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "max_service_temp": {
+      "min": 500,
+      "max": 1500,
+      "typical": 1000,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "thermal_expansion": {
+      "min": 2.75,
+      "max": 8.25,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "poisson_ratio": {
+      "min": 0.15,
+      "max": 0.45,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "specific_heat": {
+      "min": 100,
+      "max": 300,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "melting_point": {
+      "min": 1300,
+      "max": 3900,
+      "typical": 2600,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "price_per_kg": {
+      "min": 35,
+      "max": 105,
+      "typical": 70,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "price_per_cm3": {
+      "min": 0.588,
+      "max": 1.764,
+      "typical": 1.176,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Refractory Metal"
+    },
+    "delivered_price_per_kg": {
+      "min": 73.5,
+      "max": 73.5,
+      "typical": 73.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ta": "balance",
+    "W": "9~11"
+  },
+  "sources": [
+    {
+      "label": "ASTM B708 — Ta-10W tantalum alloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ATI — Ta10W Technical Data Sheet (2013): 조성 9-11%W·ρ 16.9·melt 3035°C·BHN 185-210·recrystallized RT UTS 80ksi/YTS 70-89ksi·신율 20-40%·stress-relieved 표·CTE·열전도",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/niobium-hafnium-tantalum-vanadium/tantalum/ati_Ta10W_v5.pdf",
+      "verified": true
+    },
+    {
+      "label": "WHS Sondermetalle — Data Sheet Tantalum (Ta, TaW2.5, TaW10): Ta90W10 R05255 vacuum arc-melt 명기·ASTM B364/B365/B708/B521",
+      "url": "https://www.whs-sondermetalle.de/images/pdf/Ta-Tantalum.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      16.8,
+      480,
+      620,
+      20,
+      200,
+      250,
+      54
+    ],
+    [
+      16.8,
+      440,
+      580,
+      15,
+      200,
+      240,
+      54
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM B708",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM B364",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 202,
+  "density": 16.8,
+  "yield_strength": 480,
+  "uts": 620,
+  "elongation": 20,
+  "modulus": 200,
+  "hardness": 250,
+  "thermal_conductivity": 54,
+  "impact_strength": 25,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASTM B708 — Ta-10W tantalum alloy",
+  "aliases": [
+    "UNS R05252",
+    "Ta-10W"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal",
+    "Refractory"
+  ],
+  "electrical_conductivity": 31,
+  "max_service_temp": 1000,
+  "thermal_expansion": 5.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 200,
+  "melting_point": 2600,
+  "price_per_kg": 70,
+  "price_per_cm3": 1.176,
+  "popularity": 1.8,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 73.5,
+  "total_cost_estimate": 73.5,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

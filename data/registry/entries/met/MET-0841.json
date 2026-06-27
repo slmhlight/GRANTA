@@ -1,0 +1,472 @@
+{
+  "stable_id": "MET-0841",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ph",
+    "alloy_base": "F-AB-stainless-steel-17-4ph-cr-ph",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "C_0079",
+  "origin": "curated(material_db)",
+  "id": "C_0079",
+  "name": "Stainless Steel 17-4PH (CR-PH) — H900",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - PH",
+  "tier": "curated",
+  "manufacturers": [
+    "3D Systems",
+    "EOS",
+    "GE Additive",
+    "Nikon SLM Solutions"
+  ],
+  "machines": [
+    "ProX DMP 320",
+    "M290",
+    "M400-4",
+    "M300-4",
+    "M2 cusing",
+    "SLM 280",
+    "M290-4",
+    "DMP Flex 350",
+    "M2 Series 5"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "H900",
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 855,
+      "max": 1360,
+      "typical": 1240,
+      "n": 22,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 915,
+      "max": 1460,
+      "typical": 1360,
+      "n": 26,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 18,
+      "typical": 13,
+      "n": 34,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 197,
+      "max": 197,
+      "typical": 197,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 288,
+      "max": 303,
+      "typical": 295.5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 550,
+      "max": 650,
+      "typical": 600,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:174ph"
+    },
+    "impact_strength": {
+      "min": 20,
+      "max": 40,
+      "typical": 30,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:174ph"
+    },
+    "fracture_toughness": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "thermal_expansion": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "poisson_ratio": {
+      "min": 0.27,
+      "max": 0.27,
+      "typical": 0.27,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "melting_point": {
+      "min": 1404,
+      "max": 1404,
+      "typical": 1404,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "price_per_kg": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "price_per_cm3": {
+      "min": 0.0507,
+      "max": 0.0507,
+      "typical": 0.0507,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "delivered_price_per_kg": {
+      "min": 20.31,
+      "max": 20.31,
+      "typical": 20.31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "15.0~17.5",
+    "Ni": "3.0~5.0",
+    "Cu": "3.0~5.0",
+    "Nb": "0.15~0.45",
+    "Mn": "≤1.0",
+    "Si": "≤1.0",
+    "C": "≤0.07"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — Custom 630 (17-4 PH)",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
+      "verified": true
+    },
+    {
+      "label": "Nikon SLM 17-4PH MDS 2026-02",
+      "url": "https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf",
+      "verified": true
+    },
+    {
+      "label": "EOS Stainless Steel",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/stainless-steel",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      1235,
+      1360,
+      14,
+      197,
+      295.5,
+      16
+    ],
+    [
+      7.8,
+      1240,
+      1355,
+      13.5,
+      197,
+      295.5,
+      16
+    ],
+    [
+      7.8,
+      1280,
+      1450,
+      11,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1260,
+      1380,
+      12,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1240,
+      1360,
+      14,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1240,
+      1360,
+      14,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1230,
+      1355,
+      14,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1240,
+      1360,
+      13,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1240,
+      1360,
+      13,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1245,
+      1350,
+      13,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1180,
+      1360,
+      14,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1190,
+      1350,
+      14,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1207,
+      1349,
+      10.7,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      1240,
+      1371,
+      10.5,
+      197,
+      null,
+      16
+    ],
+    [
+      7.8,
+      895,
+      1000,
+      18,
+      197,
+      288,
+      16
+    ],
+    [
+      7.8,
+      855,
+      915,
+      15,
+      197,
+      288,
+      16
+    ],
+    [
+      7.8,
+      1285,
+      1425,
+      13,
+      197,
+      303,
+      16
+    ],
+    [
+      7.8,
+      1295,
+      1430,
+      12,
+      197,
+      303,
+      16
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "applications": "Aerospace / Engineering / Industrial parts",
+    "magnetic": "ferromagnetic",
+    "melt_C": 1430,
+    "cte": 11,
+    "cp": 460,
+    "poisson": 0.27,
+    "vendor_count": 19,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 90,
+  "fatigue_strength": 600,
+  "density": 7.8,
+  "yield_strength": 1240,
+  "uts": 1360,
+  "elongation": 13,
+  "modulus": 197,
+  "hardness": 295.5,
+  "thermal_conductivity": 16,
+  "impact_strength": 30,
+  "manufacturer": "3D Systems, EOS, GE Additive, Nikon SLM Solutions",
+  "process": "LPBF",
+  "source": "Carpenter Technology — Custom 630 (17-4 PH)",
+  "aliases": [
+    "UNS S17400",
+    "EN 1.4542",
+    "AISI 630",
+    "JIS SUS630",
+    "KS STS630"
+  ],
+  "families": [
+    "Metal",
+    "PH Stainless",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1100,
+      "uts": 1190,
+      "E": 200
+    },
+    {
+      "temp": 300,
+      "ys": 950,
+      "uts": 1050,
+      "E": 184
+    },
+    {
+      "temp": 425,
+      "ys": 880,
+      "uts": 1000,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 2.5,
+  "max_service_temp": 315,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.27,
+  "specific_heat": 460,
+  "melting_point": 1404,
+  "price_per_kg": 6.5,
+  "price_per_cm3": 0.0507,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 20.31,
+  "total_cost_estimate": 36.56,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

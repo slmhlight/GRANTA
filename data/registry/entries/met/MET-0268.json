@@ -1,0 +1,332 @@
+{
+  "stable_id": "MET-0268",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-aisi-1050",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0117",
+  "origin": "generic(csv)",
+  "id": "G_0117",
+  "name": "AISI 1050 — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 5,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 343.1,
+      "max": 416.1,
+      "typical": 405.2,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 587.5,
+      "max": 712.5,
+      "typical": 693.7,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 11.85,
+      "max": 16.35,
+      "typical": 15.9,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 210,
+      "typical": 205,
+      "n": 5,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 178.6,
+      "max": 216.6,
+      "typical": 210.9,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 257,
+      "max": 333,
+      "typical": 295,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:1050 × HT:annealed/as-cast (f×0.95, i×1.2)"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 26,
+      "typical": 17,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:1050 × HT:annealed/as-cast (f×0.95, i×1.2)"
+    },
+    "fracture_toughness": {
+      "min": 49.5,
+      "max": 49.5,
+      "typical": 49.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:annealed/as-cast (k×1.1)"
+    },
+    "electrical_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1050"
+    },
+    "max_service_temp": {
+      "min": 400,
+      "max": 450,
+      "typical": 425,
+      "n": 1,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1050"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 11.5,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1050"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1050"
+    },
+    "specific_heat": {
+      "min": 486,
+      "max": 486,
+      "typical": 486,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1050"
+    },
+    "melting_point": {
+      "min": 1495,
+      "max": 1495,
+      "typical": 1495,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1050"
+    },
+    "price_per_kg": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1050"
+    },
+    "price_per_cm3": {
+      "min": 0.0102,
+      "max": 0.0102,
+      "typical": 0.0102,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1050"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.33,
+      "max": 1.33,
+      "typical": 1.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.48~0.55",
+    "Mn": "0.60~0.90",
+    "P": "≤0.04",
+    "S": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 1050 carbon steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1050",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 1050\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%201050",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 10xx series",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A29 / A29M — Carbon Steel Bars 1030-1080",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      405.15,
+      693.7499999999999,
+      15.9,
+      210,
+      210.9,
+      50
+    ],
+    [
+      7.85,
+      379.6,
+      650,
+      11.85,
+      210,
+      197.6,
+      50
+    ],
+    [
+      7.85,
+      405.15,
+      693.7499999999999,
+      14.4,
+      210,
+      210.9,
+      50
+    ],
+    [
+      7.85,
+      416.1,
+      712.4999999999999,
+      16.349999999999998,
+      210,
+      216.6,
+      50
+    ],
+    [
+      7.85,
+      343.1,
+      587.5,
+      16.349999999999998,
+      210,
+      178.6,
+      50
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "meta": {
+    "row_count": 5,
+    "subcategory_variants": [
+      "Carbon Steel"
+    ],
+    "conditions": [
+      "Austenitic",
+      "Ferritic",
+      "Martensitic",
+      "Stress Relief",
+      "Stress Relieved"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A29",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 49.5,
+  "fatigue_strength": 295,
+  "density": 7.85,
+  "yield_strength": 405.2,
+  "uts": 693.7,
+  "elongation": 15.9,
+  "modulus": 205,
+  "hardness": 210.9,
+  "thermal_conductivity": 50,
+  "impact_strength": 17,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 1050 carbon steel",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1495,
+  "price_per_kg": 1.3,
+  "price_per_cm3": 0.0102,
+  "popularity": 4,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 0.975,
+  "delivered_price_per_kg": 1.33,
+  "total_cost_estimate": 1.33,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "AISI 1050 은 C 0.48-0.55% 의 plain medium-carbon steel 로, JIS S50C / S45C 와 거의 동일한 화학 조성을 가집니다 (한국 KS D 3752 의 SM50C). 1018 (C 0.18%) 보다 강도가 약 2배 높고 (Q+T 후 σy 580-620 MPa), spring 으로 쓸 수 있을 정도의 hardenability 를 가져요.\n\n응용 — 자동차 axle shaft, propeller shaft, gear blank (annealed 상태로 machining → carburizing 또는 induction-hardening), machine tool spindle, leaf spring (heavier-duty applications), railway car coupling 등. 일본 JIS S45C/S50C 는 한국 기계 산업에서 가장 흔한 medium-carbon 합금으로, 자동차 부품, 산업 기계, 농기계의 baseline shaft material 입니다.\n\nHT 표준 — Normalized (HRC 18-25) 가 일반적이고, 더 높은 강도가 필요하면 Q+T (austenitize 830°C → oil quench → temper 540°C, HRC 28-33). Induction hardening 으로 표면만 HRC 55+ 까지 경화하는 surface-hardened shaft 가 자동차 부품의 표준 처리입니다.",
+  "story_refs": [
+    "ASTM A29 / A29M",
+    "SAE J403 / JIS G 4051 / KS D 3752",
+    "ASM Handbook Vol.1 'Carbon and Alloy Steels'"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Plain carbon steels (medium-high C): • 1030 (UNS G10300, C 0.28-0.34) JIS S30C — σy 350-440, axles, bolts, levers • 1040 (UNS G10400, C 0.37-0.44) JIS S40C — σy 415-470, automotive shaft, gear • 1050 (UNS G10500, C 0.48-0.55) JIS S50C — σy 415-580, machine spindle, chisel • 1080 (UNS G10800, C 0.75-0.88) JIS SK85 / near-eutectoid — σy 525-690, hammer, wrench, blade Q+T 효과 carbon 함량에 비례: 1030 미미 → 1080 효과 큼."
+}

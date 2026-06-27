@@ -1,0 +1,312 @@
+{
+  "stable_id": "MET-0485",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-maraging-steel",
+    "alloy_base": "F-AB-maraging-300-uns-k93120-ams-6514",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0004_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0004_1",
+  "name": "Maraging 300 (UNS K93120, AMS 6514) — Solution treated (820°C/1h AC)",
+  "category": "Metal",
+  "subcategory": "Maraging Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution treated (820°C/1h AC)",
+  "ranges": {
+    "density": {
+      "min": 8.1,
+      "max": 8.1,
+      "typical": 8.1,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 760,
+      "max": 760,
+      "typical": 760,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1000,
+      "max": 1000,
+      "typical": 1000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 190,
+      "max": 190,
+      "typical": 190,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 310,
+      "max": 310,
+      "typical": 310,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 25.5,
+      "max": 25.5,
+      "typical": 25.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 380,
+      "max": 540,
+      "typical": 460,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook",
+      "min_spec_value": 12,
+      "min_spec_source": "AMS 6514 minimum",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 116,
+      "max": 116,
+      "typical": 116,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:solution treated (k×1.45)"
+    },
+    "electrical_conductivity": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging300"
+    },
+    "max_service_temp": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging300"
+    },
+    "thermal_expansion": {
+      "min": 10.1,
+      "max": 10.1,
+      "typical": 10.1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging300"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging300"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging300"
+    },
+    "melting_point": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:maraging300"
+    },
+    "price_per_kg": {
+      "min": 50,
+      "max": 85,
+      "typical": 65,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "ATI VascoMax C-300 bar Q2 2026 (Co 9% premium)"
+    },
+    "price_per_cm3": {
+      "min": 0.4475,
+      "max": 0.6055,
+      "typical": 0.5265,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "18~19",
+    "Co": "8.5~9.5",
+    "Mo": "4.6~5.2",
+    "Ti": "0.55~0.8",
+    "Al": "0.05~0.15"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — VascoMax C300 (Maraging 300)",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "ANSYS Granta — Maraging steel 300 maraged at 482°C (UNS K93120, AMS 6514, K93120)",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=maraging+300",
+      "verified": false
+    },
+    {
+      "label": "AK Steel — Maraging 250/300/350 datasheet",
+      "url": "https://www.aksteel.com/sites/default/files/2018-02/MARAGING-DATA-BULLETIN.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 6514 — 18Ni-300 maraging bar/forging",
+      "url": "https://www.sae.org/standards/content/ams6514l/",
+      "verified": false
+    },
+    {
+      "label": "AMS 6512 — 18Ni-250 maraging bar/forging",
+      "url": "https://www.sae.org/standards/content/ams6512f/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.1,
+      760,
+      1000,
+      17,
+      190,
+      310,
+      25.5
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "18Ni Maraging (Co-Mo-Ti precipitation): 250 (UNS K92890, low Co), 300 (UNS K93120 / DIN 1.2709, AMS 6514), 350 (UNS K93501) — number = 0.2% YS in ksi. Composition: Ni 17-19, Co 7-11, Mo 3-5, Ti 0.2-1.7, C ≤ 0.03. MarAM LPBF 의 표준 high-strength steel (EOS MS1 = 300, Markforged Spec 1.2709). 항공·금형·로켓 부품. ⚠ Maraging 은 Carbon-free → Q+T 가 아니라 'mar-aging' 인 special process. C-free 이라 다른 강과 본질적으로 다름.",
+  "meta": {
+    "reference": true,
+    "condition": "Solution treated (820°C/1h AC)",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Maraging 300",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 6514",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 6512",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS K93120",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 116,
+  "density": 8.1,
+  "yield_strength": 760,
+  "uts": 1000,
+  "elongation": 17,
+  "modulus": 190,
+  "hardness": 310,
+  "thermal_conductivity": 25.5,
+  "fatigue_strength": 460,
+  "impact_strength": 18,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Carpenter Technology — VascoMax C300 (Maraging 300)",
+  "aliases": [
+    "UNS K93120",
+    "AMS 6514",
+    "1h AC"
+  ],
+  "families": [
+    "Metal",
+    "Maraging Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 480,
+  "thermal_expansion": 10.1,
+  "poisson_ratio": 0.3,
+  "specific_heat": 450,
+  "melting_point": 1430,
+  "price_per_kg": 16,
+  "price_per_cm3": 0.5265,
+  "popularity": 4.25,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 21,
+  "total_cost_estimate": 42,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 19% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 9.5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "story": "Maraging 300 (UNS K93120, AMS 6514) 은 1962년 INCO 가 250 grade 의 Co 를 7% → 9% 로, Mo 를 5% → 5% 그대로 유지하면서 Ti 를 0.4% → 0.7% 로 올려 만든 변형입니다. 시효 후 UTS 가 250 의 1750 → 1960~2030 MPa 로 13% 이상 올라가면서 같은 air-cool 시효 + 0.05% C 이하의 weldability 는 그대로 유지했어요. 항공·우주 OEM 의 표준 ultra-high strength steel 이 됐습니다.\n\n핵심은 Co 의 역할입니다. Co 자체는 강화에 직접 기여하지 않지만 Mo 의 고용도를 낮춰 Mo 가 Ni₃Mo 석출에 더 많이 참여하도록 유도해 σy 를 끌어올립니다. 280 ksi (1930 MPa) 강도와 KIC 80 MPa·√m 의 인성 균형이 다른 어떤 강에서도 보기 힘든 조합이에요.\n\n주요 응용: NASA Saturn V 의 LH₂ 탱크 일부, F-14 Tomcat / F-15 Eagle landing gear, ICBM (Minuteman III, Trident II D5) motor case, 잠수정 deep-submergence 외피, 우주 셔틀 SRB case 의 일부, 그리고 F1 의 push-rod·crankshaft. 흥미로운 사실은 1985년 Special Metals 가 Iraq 원자력 농축 원심분리기에 Maraging 300 이 쓰일 가능성 때문에 export 제한을 받았다는 점이에요 (Saddam 의 Project Petrochemical-3). 지금도 일부 국가에는 export 제한 품목입니다.",
+  "story_refs": [
+    "AMS 6514 (SAE 2017) \"Steel, Bars, Maraging 18% Ni\"",
+    "Decker R F & Floreen S (1988) \"Maraging Steels — The First 30 Years\", Maraging Steels Symposium",
+    "Sha W & Guo Z (2009) Maraging Steels",
+    "ATI VascoMax C-300 datasheet"
+  ],
+  "confidence_tier": "high"
+}

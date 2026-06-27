@@ -1,0 +1,359 @@
+{
+  "stable_id": "MET-0941",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-cm55-tool-steel",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "C_0069",
+  "origin": "curated(material_db)",
+  "id": "C_0069",
+  "name": "CM55 Tool Steel — Heat-Treated",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "curated",
+  "manufacturers": [
+    "EOS"
+  ],
+  "machines": [
+    "EOS M 290",
+    "M290 CM55"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Heat-Treated",
+  "ranges": {
+    "density": {
+      "min": 7.65,
+      "max": 7.65,
+      "typical": 7.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1700,
+      "max": 1740,
+      "typical": 1725,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 2010,
+      "max": 2040,
+      "typical": 2030,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 2.5,
+      "max": 4,
+      "typical": 3.2,
+      "n": 14,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 595,
+      "max": 595,
+      "typical": 595,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 604,
+      "max": 863,
+      "typical": 725,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 15,
+      "max": 40,
+      "typical": 25,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Tool Steels"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.039,
+      "max": 0.0528,
+      "typical": 0.0459,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.50~0.60",
+    "Cr": "≤4.0",
+    "Mo": "≤2.0",
+    "V": "≤1.0",
+    "Si": "≤1.0",
+    "Mn": "≤1.0",
+    "composition": "EOS proprietary high-C tool-steel formulation"
+  },
+  "sources": [
+    {
+      "label": "EOS MDS summary — toolsteel cm55",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-toolsteel-cm55",
+      "verified": true
+    },
+    {
+      "label": "EOS",
+      "url": "https://www.eos.info/3d-printing-materials/metal/tool-steel/eos-toolsteel-cm55",
+      "verified": true
+    },
+    {
+      "label": "EOS",
+      "url": "https://www.eos.info/metal-solutions/data-sheets/toolsteel/pds-eos-toolsteel-cm55-eos-m-290-40-80um",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.65,
+      1725,
+      2030,
+      3.2,
+      210,
+      595,
+      20
+    ],
+    [
+      7.65,
+      1715,
+      2020,
+      3.2,
+      210,
+      595,
+      20
+    ],
+    [
+      7.65,
+      1740,
+      2040,
+      4,
+      210,
+      595,
+      20
+    ],
+    [
+      7.65,
+      1730,
+      2030,
+      4,
+      210,
+      595,
+      20
+    ],
+    [
+      7.65,
+      1710,
+      2020,
+      2.5,
+      210,
+      595,
+      20
+    ],
+    [
+      7.65,
+      1700,
+      2010,
+      2.5,
+      210,
+      595,
+      20
+    ],
+    [
+      7.65,
+      1740,
+      2040,
+      4,
+      210,
+      null,
+      20
+    ],
+    [
+      7.65,
+      1730,
+      2030,
+      4,
+      210,
+      null,
+      20
+    ],
+    [
+      7.65,
+      1710,
+      2020,
+      2.5,
+      210,
+      null,
+      20
+    ],
+    [
+      7.65,
+      1700,
+      2010,
+      2.5,
+      210,
+      null,
+      20
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "meta": {
+    "applications": "EOS CM55 — high-hardness tool steel for cutting tools and wear-critical inserts",
+    "magnetic": "ferromagnetic",
+    "melt_C": 1450,
+    "cte": 11.5,
+    "cp": 460,
+    "poisson": 0.3,
+    "vendor_count": 4,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 25,
+  "fatigue_strength": 725,
+  "density": 7.65,
+  "yield_strength": 1725,
+  "uts": 2030,
+  "elongation": 3.2,
+  "modulus": 210,
+  "hardness": 595,
+  "thermal_conductivity": 20,
+  "impact_strength": 12,
+  "manufacturer": "EOS",
+  "process": "LPBF",
+  "source": "EOS MDS summary — toolsteel cm55",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0459,
+  "popularity": 3,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 15,
+  "total_cost_estimate": 27,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

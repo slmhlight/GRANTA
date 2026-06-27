@@ -1,0 +1,298 @@
+{
+  "stable_id": "MET-0330",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cast-iron",
+    "alloy_base": "F-AB-gray-cast-iron-class-30",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0082",
+  "origin": "reference(supplementary)",
+  "id": "R_0082",
+  "name": "Gray Cast Iron (Class 30)",
+  "category": "Metal",
+  "subcategory": "Cast Iron",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.2,
+      "max": 7.2,
+      "typical": 7.2,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 180,
+      "max": 210,
+      "typical": 195,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 200,
+      "max": 235,
+      "typical": 214,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 0.5,
+      "max": 1,
+      "typical": 1,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 90,
+      "max": 110,
+      "typical": 100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 200,
+      "max": 230,
+      "typical": 210,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 46,
+      "max": 46,
+      "typical": 46,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 90,
+      "max": 105.75,
+      "typical": 96.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A536 ductile iron"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "max_service_temp": {
+      "min": 340,
+      "max": 460,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "thermal_expansion": {
+      "min": 9.35,
+      "max": 12.65,
+      "typical": 11,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "poisson_ratio": {
+      "min": 0.221,
+      "max": 0.299,
+      "typical": 0.26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "melting_point": {
+      "min": 1020,
+      "max": 1380,
+      "typical": 1200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "price_per_cm3": {
+      "min": 0.0092,
+      "max": 0.0124,
+      "typical": 0.0108,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "3~3.5",
+    "Si": "1.8~2.4"
+  },
+  "sources": [
+    {
+      "label": "ASM — gray cast iron Class 30",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASTM A536 ductile iron",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Penticton Foundry — Gray Iron ASTM A48 Class 30 Data Sheet (UTS·압축·경도·조성)",
+      "url": "https://www.pentictonfoundry.com/news/gray-iron-astm-a48-class-30/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.2,
+      195,
+      214,
+      1,
+      100,
+      210,
+      46
+    ],
+    [
+      7.2,
+      180,
+      200,
+      0.5,
+      90,
+      200,
+      46
+    ],
+    [
+      7.2,
+      210,
+      235,
+      1,
+      110,
+      230,
+      46
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM A536",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM A48",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "density": 7.2,
+  "yield_strength": 195,
+  "uts": 214,
+  "elongation": 1,
+  "modulus": 100,
+  "hardness": 210,
+  "thermal_conductivity": 46,
+  "fatigue_strength": 96.3,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASM — gray cast iron Class 30",
+  "aliases": [
+    "Class 30",
+    "ASTM A48 Class 30",
+    "EN-GJL-200",
+    "DIN GG20",
+    "JIS FC200"
+  ],
+  "families": [
+    "Metal",
+    "Cast Iron",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 5,
+  "max_service_temp": 400,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.26,
+  "specific_heat": 460,
+  "melting_point": 1200,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0108,
+  "popularity": 3.3,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.5,
+  "total_cost_estimate": 1.35,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

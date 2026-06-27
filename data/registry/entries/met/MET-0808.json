@@ -1,0 +1,361 @@
+{
+  "stable_id": "MET-0808",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-ph13-8-mo",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0089",
+  "origin": "reference(supplementary)",
+  "id": "R_0089",
+  "name": "PH13-8 Mo",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.76,
+      "max": 7.76,
+      "typical": 7.76,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1340,
+      "max": 1480,
+      "typical": 1410,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1450,
+      "max": 1590,
+      "typical": 1520,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 12,
+      "typical": 10,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 203,
+      "max": 203,
+      "typical": 203,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 450,
+      "max": 490,
+      "typical": 470,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 564,
+      "max": 818,
+      "typical": 705,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (ASM Vol.19 Martensitic SS)"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 80,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Ferritic"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:13-8 mo"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:13-8 mo"
+    },
+    "thermal_expansion": {
+      "min": 11.1,
+      "max": 11.1,
+      "typical": 11.1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:13-8 mo"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:13-8 mo"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:13-8 mo"
+    },
+    "melting_point": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:13-8 mo"
+    },
+    "price_per_kg": {
+      "min": 5.5,
+      "max": 9,
+      "typical": 7,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Bohler W302 / Schmolz+Bickenbach H13 bar Q2 2026"
+    },
+    "price_per_cm3": {
+      "min": 0.0462,
+      "max": 0.0624,
+      "typical": 0.0543,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "12.25~13.25",
+    "Ni": "7.5~8.5",
+    "Mo": "2~2.5",
+    "Al": "0.9~1.35"
+  },
+  "sources": [
+    {
+      "label": "ASM — PH13-8Mo (UNS S13800, H1000)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Bohler-Uddeholm H13",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Carpenter Technology — 13-8Mo (S13800, AMS 5629) 공식 데이터시트 (PDF, 인장·경도표 텍스트 추출 검증)",
+      "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/13-8Mo_Datasheet.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.76,
+      1410,
+      1520,
+      10,
+      203,
+      470,
+      14
+    ],
+    [
+      7.76,
+      1340,
+      1450,
+      8,
+      203,
+      450,
+      14
+    ],
+    [
+      7.76,
+      1480,
+      1590,
+      12,
+      203,
+      490,
+      14
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "H13 tool steel",
+    "specs": [
+      {
+        "id": "AMS 5629",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS S13800",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 705,
+  "density": 7.76,
+  "yield_strength": 1410,
+  "uts": 1520,
+  "elongation": 10,
+  "modulus": 203,
+  "hardness": 470,
+  "thermal_conductivity": 14,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — PH13-8Mo (UNS S13800, H1000)",
+  "aliases": [
+    "UNS S13800",
+    "EN 1.4534",
+    "PH13-8Mo"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "electrical_conductivity": 2,
+  "max_service_temp": 425,
+  "thermal_expansion": 11.1,
+  "poisson_ratio": 0.3,
+  "specific_heat": 450,
+  "melting_point": 1400,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.0543,
+  "popularity": 3.3,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 12.6,
+  "total_cost_estimate": 25.2,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 8.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1500,
+      "uts": 1850,
+      "E": 210
+    },
+    {
+      "temp": 200,
+      "ys": 1380,
+      "uts": 1750,
+      "E": 200
+    },
+    {
+      "temp": 400,
+      "ys": 1240,
+      "uts": 1500,
+      "E": 185
+    },
+    {
+      "temp": 500,
+      "ys": 1100,
+      "uts": 1300,
+      "E": 170
+    },
+    {
+      "temp": 600,
+      "ys": 850,
+      "uts": 1000,
+      "E": 150
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 600,
+      "stress": 500,
+      "hours": 1000
+    },
+    {
+      "temp": 700,
+      "stress": 250,
+      "hours": 100
+    },
+    {
+      "temp": 700,
+      "stress": 180,
+      "hours": 1000
+    }
+  ],
+  "story": "1965년 미국 Armco Steel 이 17-4 PH 의 한계 (σ_y 1240 MPa) 를 넘는 새 PH stainless 를 시도하면서 등장한 합금. Cr 12.7% + Ni 8% + Mo 2.2% + Al 1.1% 의 조성으로, Al 의 NiAl 시효 석출이 17-4 의 ε-Cu 보다 더 미세하고 균일해서 σ_y 1380 MPa 까지 도달합니다.\n\n17-4 PH 가 'general purpose' 라면 PH 13-8 Mo 는 'high-strength precision' 자리를 차지했어요. 항공 — F-15/16/18 의 hydraulic actuator rod, AH-64 Apache 의 rotor blade pitch shaft, Boeing 777 의 wing slat actuator. 우주 — NASA SLS 의 hydraulic system, SpaceX Falcon 9 의 grid-fin actuator. 핵 — PWR 의 control rod drive shaft (Westinghouse).\n\n의료에서도 인기 — Stryker 의 spinal fixation rod, Zimmer 의 trauma plate 가 표준입니다. 부식 저항이 17-4 PH 보다 4배 좋아서 (Mo 첨가 효과) 인체 평생 체류가 가능해요. 단점은 가격 — 18-8 stainless 의 4배. 그래도 '강도 × 부식 저항 × 가공성' 의 균형을 따라잡을 합금이 별로 없어서 1970년대부터 항공 페스너의 표준으로 굳어졌습니다.",
+  "story_refs": [
+    "ASTM A564 \"Standard Specification for Hot-Rolled and Cold-Finished Age-Hardening Stainless Steel Bars and Shapes\"",
+    "AK Steel \"PH 13-8 Mo Stainless Steel Product Data Bulletin\" (2007)",
+    "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
+  ],
+  "confidence_tier": "high"
+}

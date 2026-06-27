@@ -1,0 +1,248 @@
+{
+  "stable_id": "POL-0108",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-ppa-gf",
+    "alloy_base": "F-AB-ppa-gf45-amodel-a-1145-hs-solvay-automotive-ht",
+    "element_families": []
+  },
+  "legacy_id": "POL_023",
+  "origin": "polymers-data",
+  "id": "POL_023",
+  "name": "PPA-GF45 Amodel A-1145 HS (Solvay, automotive HT)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PPA GF",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.65,
+      "max": 1.65,
+      "typical": 1.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.35,
+      "max": 0.35,
+      "typical": 0.35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 125,
+      "max": 125,
+      "typical": 125,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 313,
+      "max": 313,
+      "typical": 313,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 295,
+      "max": 295,
+      "typical": 295,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PPA GF"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PPA GF"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PPA GF"
+    },
+    "price_per_cm3": {
+      "min": 0.0149,
+      "max": 0.0149,
+      "typical": 0.0149,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "68.8",
+    "H": "6.6",
+    "N": "11.5",
+    "O": "13.1"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PPA-GF45 Amodel A-1145 HS (Solvay, automotive HT)",
+      "url": "https://www.syensqo.com/en/product/amodel-ppa",
+      "verified": true
+    },
+    {
+      "label": "Applications: 자동차 트랜스미션 thrust washer, EV 인버터 busbar housing, 엔진 oil pan, 워터펌프 임펠러 (PA66 한계 초과 시), LED 헤드램프 reflector",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Solvay Amodel A-1145 HS PPA-GF45 datasheet",
+      "url": "https://www.solvay.com/en/brands/amodel-ppa",
+      "verified": true
+    }
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 125,
+    "tm": 313,
+    "hdt_182": 295,
+    "moisture_24h": 0.3,
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "applications": "자동차 트랜스미션 thrust washer, EV 인버터 busbar housing, 엔진 oil pan, 워터펌프 임펠러 (PA66 한계 초과 시), LED 헤드램프 reflector",
+    "limitations": "PA66 보다 흡습 적으나 hot-glycol 환경에서 ester hydrolysis, 가공 mold temp 140-150°C 필요 (high)",
+    "_r173_note_applied": true
+  },
+  "popularity": 1,
+  "density": 1.65,
+  "yield_strength": 240,
+  "uts": 240,
+  "elongation": 1.5,
+  "modulus": 16,
+  "hardness": null,
+  "thermal_conductivity": 0.35,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PPA-GF45 Amodel A-1145 HS (Solvay, automotive HT)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PPA GF"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0149,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 235,
+      "uts": 250,
+      "E": 16
+    },
+    {
+      "temp": 100,
+      "ys": 200,
+      "uts": 215,
+      "E": 14
+    },
+    {
+      "temp": 150,
+      "ys": 165,
+      "uts": 180,
+      "E": 11
+    },
+    {
+      "temp": 200,
+      "ys": 110,
+      "uts": 125,
+      "E": 6.5
+    },
+    {
+      "temp": 250,
+      "ys": 55,
+      "uts": 70,
+      "E": 3
+    }
+  ],
+  "industry_note": "PPA (Polyphthalamide) + 45% Glass Fiber — Solvay Amodel A-1145 HS. PPA = aromatic polyamide (PA66 의 backbone + terephthalate/isophthalate units → high-T + low-moisture). Tg 130°C, Tm 290-310°C, HDT (1.8 MPa) 285°C, max service 170-180°C continuous."
+}

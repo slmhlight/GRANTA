@@ -1,0 +1,300 @@
+{
+  "stable_id": "MET-0932",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-6al-7nb",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0069",
+  "origin": "reference(supplementary)",
+  "id": "R_0069",
+  "name": "Ti-6Al-7Nb",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 4.52,
+      "max": 4.52,
+      "typical": 4.52,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 760,
+      "max": 850,
+      "typical": 800,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 860,
+      "max": 950,
+      "typical": 900,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 15,
+      "typical": 12,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 97.65,
+      "max": 112.35,
+      "typical": 105,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 300,
+      "max": 340,
+      "typical": 320,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 336,
+      "max": 480,
+      "typical": 416,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 30,
+      "typical": 22,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ti-based"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al7nb"
+    },
+    "max_service_temp": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al7nb"
+    },
+    "thermal_expansion": {
+      "min": 8.6,
+      "max": 8.6,
+      "typical": 8.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al7nb"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al7nb"
+    },
+    "specific_heat": {
+      "min": 520,
+      "max": 520,
+      "typical": 520,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al7nb"
+    },
+    "melting_point": {
+      "min": 1660,
+      "max": 1660,
+      "typical": 1660,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al7nb"
+    },
+    "price_per_kg": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al7nb"
+    },
+    "price_per_cm3": {
+      "min": 0.3616,
+      "max": 0.3616,
+      "typical": 0.3616,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al7nb"
+    },
+    "delivered_price_per_kg": {
+      "min": 84,
+      "max": 84,
+      "typical": 84,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Al": "5.5~6.5",
+    "Nb": "6.5~7.5"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Ti-6Al-7Nb (ASTM F1295)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-7Nb",
+      "verified": false
+    },
+    {
+      "label": "ASTM F1295 — Ti-6Al-7Nb (medical)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: MMPDS-2018 Titanium",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Aircraft Materials — Titanium Alloy 6Al-7Nb (ASTM F1295) 데이터시트",
+      "url": "https://www.aircraftmaterials.com/data/titanium/ti-6al-7nb.html",
+      "verified": false
+    },
+    {
+      "label": "ACNIS — Ti-6Al-7Nb 데이터시트 (FT009, ASTM F1295 / ISO 5832-11)",
+      "url": "https://acnis-usa.com/wp-content/uploads/2020/06/UK-TA6VNb7_-FT009.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.52,
+      800,
+      900,
+      12,
+      110,
+      320,
+      7
+    ],
+    [
+      4.52,
+      760,
+      860,
+      10,
+      110,
+      300,
+      7
+    ],
+    [
+      4.52,
+      850,
+      950,
+      15,
+      110,
+      340,
+      7
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM F1295",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 416,
+  "density": 4.52,
+  "yield_strength": 800,
+  "uts": 900,
+  "elongation": 12,
+  "modulus": 110,
+  "hardness": 320,
+  "thermal_conductivity": 7,
+  "impact_strength": 22,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Ti-6Al-7Nb (ASTM F1295)",
+  "aliases": [
+    "UNS R56700",
+    "ASTM F1295",
+    "Ti-6Al-7Nb",
+    "Protasul-100"
+  ],
+  "families": [
+    "Metal",
+    "Titanium",
+    "Titanium-based"
+  ],
+  "electrical_conductivity": 1,
+  "max_service_temp": 350,
+  "thermal_expansion": 8.6,
+  "poisson_ratio": 0.34,
+  "specific_heat": 520,
+  "melting_point": 1660,
+  "price_per_kg": 80,
+  "price_per_cm3": 0.3616,
+  "popularity": 2.8,
+  "machining_cost_factor": 2.2,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 84,
+  "total_cost_estimate": 184.8,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

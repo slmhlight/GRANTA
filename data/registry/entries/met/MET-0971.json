@@ -1,0 +1,286 @@
+{
+  "stable_id": "MET-0971",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel-cold-work",
+    "alloy_base": "F-AB-d2-tool-steel-aisi-d2-cold-work-die",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0380_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0380_2",
+  "name": "D2 Tool Steel (AISI D2, cold-work die) — Hardened (520°C T, secondary hardening peak)",
+  "category": "Metal",
+  "subcategory": "Tool Steel - Cold-Work",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Hardened (520°C T, secondary hardening peak)",
+  "ranges": {
+    "density": {
+      "min": 7.7,
+      "max": 7.7,
+      "typical": 7.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1700,
+      "max": 1700,
+      "typical": 1700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1900,
+      "max": 1900,
+      "typical": 1900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 550,
+      "max": 690,
+      "typical": 620,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "impact_strength": {
+      "min": 5,
+      "max": 15,
+      "typical": 9,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "fracture_toughness": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "thermal_expansion": {
+      "min": 12.2,
+      "max": 12.2,
+      "typical": 12.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "specific_heat": {
+      "min": 461,
+      "max": 461,
+      "typical": 461,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "melting_point": {
+      "min": 1421,
+      "max": 1421,
+      "typical": 1421,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "price_per_kg": {
+      "min": 9.5,
+      "max": 9.5,
+      "typical": 9.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "price_per_cm3": {
+      "min": 0.0732,
+      "max": 0.0732,
+      "typical": 0.0732,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "delivered_price_per_kg": {
+      "min": 11.27,
+      "max": 11.27,
+      "typical": 11.27,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "1.40~1.60",
+    "Cr": "11.0~13.0",
+    "Mo": "0.70~1.20",
+    "V": "0.50~1.10",
+    "Mn": "≤0.60",
+    "Si": "≤0.60"
+  },
+  "sources": [
+    {
+      "label": "Böhler-Uddeholm — D2 / K110 Tool Steel",
+      "url": "https://www.bohler-edelstahl.com/en/products/k110/",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.uddeholm.com/en/products/uddeholm-sverker-21/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Tool Steels: D2 cold-work",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204965/Tool-Steels",
+      "verified": true
+    },
+    {
+      "label": "DIN EN ISO 4957 — Tool Steels (1.2379)",
+      "url": "https://www.iso.org/standard/76129.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.7,
+      1700,
+      1900,
+      4,
+      207,
+      600,
+      20
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "AISI D2 / DIN 1.2379 / X153CrMoV12 / JIS SKD11 / KS STD11 — high-Cr (~12%) high-C (1.5%) cold-work tool steel. Excellent wear / dimensional stability. Applications: stamping / blanking die (auto body panel), slitter knife, thread-rolling die, cold-header punch, knife blade. Commercial brands: Bohler K110, Uddeholm Sverker 21, Hitachi SLD.",
+  "meta": {
+    "reference": true,
+    "condition": "Hardened (520°C T, secondary hardening peak)",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 18,
+  "fatigue_strength": 620,
+  "density": 7.7,
+  "yield_strength": 1700,
+  "uts": 1900,
+  "elongation": 4,
+  "modulus": 207,
+  "hardness": 600,
+  "thermal_conductivity": 20,
+  "impact_strength": 9,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Böhler-Uddeholm — D2 / K110 Tool Steel",
+  "aliases": [
+    "AISI D2"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel - Cold-Work",
+    "Iron-based",
+    "Tool Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 4,
+  "max_service_temp": 540,
+  "thermal_expansion": 12.2,
+  "poisson_ratio": 0.29,
+  "specific_heat": 461,
+  "melting_point": 1421,
+  "price_per_kg": 9.5,
+  "price_per_cm3": 0.0732,
+  "popularity": 3.03,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 11.27,
+  "total_cost_estimate": 22.54,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1920년대 미국 Vasco Wear 가 cold-work die 의 절대적 표준을 찾던 중 등장한 합금. C 1.5% + Cr 12% + V 1% — high-carbon high-chromium 의 극단으로, quench 후 secondary hardening (520°C T) 으로 σ_UTS 2100 MPa + HV 650 + 균일한 M₇C₃ 카바이드 분산을 얻습니다. 1932년 AISI 가 D2 (UNS T30402) 로 표준화하면서 이름이 정해졌어요.\n\nD2 가 풀어주는 문제는 '정확한 형상으로 수십만 번 펀칭' 이에요. 자동차 차체 stamping press 에서 하루 8시간 동안 cycles 10000회 — 1년이면 200만 cycles. 그 사이 die 의 형상이 0.05 mm 도 변하면 안 되거든요. D2 는 Cr 의 산화 저항 + carbide 의 abrasion 저항 + 안정한 tempering 으로 1년 service 후도 형상을 유지합니다.\n\n각 메이커가 자체 grade 로 부르지만 본질은 모두 D2 — Bohler 의 K110, Uddeholm 의 Sverker 21, 일본 Hitachi 의 SLD, 한국 두산 (현 두산공작기계) 의 KD11. 응용 — 자동차 stamping (현대차 G80 의 hood die), thread roll, slitter knife, cold-header punch, kitchen 칼날 (Bohler K110 의 high-end folder knife), 산업 cutting tool. 데스크탑 fabrication 에서도 매우 인기가 높아요.",
+  "story_refs": [
+    "Roberts G, Krauss G & Kennedy R (1998) Tool Steels 5th ed., ASM",
+    "Uddeholm \"Sverker 21 Technical Data Sheet\" (2020)",
+    "Bohler-Uddeholm \"K110 Technical Information\" (2019)"
+  ],
+  "confidence_tier": "high"
+}

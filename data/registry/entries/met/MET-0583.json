@@ -1,0 +1,364 @@
+{
+  "stable_id": "MET-0583",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-939-in939",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "C_0060",
+  "origin": "curated(material_db)",
+  "id": "C_0060",
+  "name": "Inconel 939 (IN939) — As-built",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "curated",
+  "manufacturers": [
+    "EOS"
+  ],
+  "machines": [
+    "EOS M 290",
+    "EOS M 400-4"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built",
+  "ranges": {
+    "density": {
+      "min": 8.16,
+      "max": 8.16,
+      "typical": 8.16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 740,
+      "max": 880,
+      "typical": 880,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1090,
+      "max": 1160,
+      "typical": 1160,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 24,
+      "max": 28,
+      "typical": 24,
+      "n": 8,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 327,
+      "max": 327,
+      "typical": 327,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 9.8,
+      "max": 9.8,
+      "typical": 9.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 304,
+      "max": 384,
+      "typical": 344,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:inconel939 × HT:as-cast (defect-limited) (f×0.8, i×1.2)"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 24,
+      "typical": 17,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:inconel939 × HT:as-cast (defect-limited) (f×0.8, i×1.2)"
+    },
+    "fracture_toughness": {
+      "min": 44,
+      "max": 82.5,
+      "typical": 60.5,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Cast Ni superalloy × HT:as-cast (defect-limited) (k×1.1)"
+    },
+    "electrical_conductivity": {
+      "min": 1.105,
+      "max": 1.495,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Alloy"
+    },
+    "max_service_temp": {
+      "min": 892.5,
+      "max": 1207.5,
+      "typical": 1050,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Alloy"
+    },
+    "thermal_expansion": {
+      "min": 10.795,
+      "max": 14.605,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Alloy"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Alloy"
+    },
+    "specific_heat": {
+      "min": 361.25,
+      "max": 488.75,
+      "typical": 425,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Alloy"
+    },
+    "melting_point": {
+      "min": 1122,
+      "max": 1518,
+      "typical": 1320,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Alloy"
+    },
+    "price_per_kg": {
+      "min": 170,
+      "max": 230,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Alloy"
+    },
+    "price_per_cm3": {
+      "min": 1.3872,
+      "max": 1.8768,
+      "typical": 1.632,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Alloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "22.0~22.5",
+    "Co": "18.0~19.0",
+    "W": "1.8~2.2",
+    "Nb": "0.9~1.1",
+    "Ta": "1.3~1.5",
+    "Al": "1.8~2.0",
+    "Ti": "3.6~3.8",
+    "C": "0.13~0.17",
+    "B": "0.008~0.012",
+    "Zr": "0.08~0.10"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Inconel 939",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+939",
+      "verified": false
+    },
+    {
+      "label": "EOS MDS summary — nickelalloy in939",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-nickelalloy-in939",
+      "verified": true
+    },
+    {
+      "label": "Special Metals — IN939 cast superalloy",
+      "url": "https://www.specialmetals.com/",
+      "verified": false
+    },
+    {
+      "label": "Heliyon (Elsevier, open access) — A systematic review of Inconel 939 alloy parts development via AM (조성 Table 1 + cast/HT 인장)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10862689/",
+      "verified": true
+    },
+    {
+      "label": "Regent Steel — IN939/Inconel 939 datasheet (조성 + as-cast/heat-treated 인장 + rupture vs temp)",
+      "url": "https://www.regentsteel.com/in939.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.16,
+      880,
+      1160,
+      24,
+      207,
+      327,
+      9.8
+    ],
+    [
+      8.16,
+      740,
+      1090,
+      28,
+      207,
+      327,
+      9.8
+    ],
+    [
+      8.16,
+      880,
+      1160,
+      24,
+      207,
+      327,
+      9.8
+    ],
+    [
+      8.16,
+      740,
+      1090,
+      28,
+      207,
+      327,
+      9.8
+    ],
+    [
+      8.16,
+      880,
+      1160,
+      24,
+      207,
+      null,
+      9.8
+    ],
+    [
+      8.16,
+      740,
+      1090,
+      28,
+      207,
+      null,
+      9.8
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "applications": "High-temperature turbine vanes (cast Ni-Cr-Co superalloy, hot corrosion resistant)",
+    "magnetic": "non-magnetic",
+    "melt_C": 1315,
+    "cte": 12.2,
+    "cp": 420,
+    "poisson": 0.3,
+    "vendor_count": 4,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 60.5,
+  "fatigue_strength": 344,
+  "density": 8.16,
+  "yield_strength": 880,
+  "uts": 1160,
+  "elongation": 24,
+  "modulus": 207,
+  "hardness": 327,
+  "thermal_conductivity": 9.8,
+  "impact_strength": 17,
+  "manufacturer": "EOS",
+  "process": "LPBF",
+  "source": "MatWeb — Inconel 939",
+  "aliases": [
+    "IN939"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Alloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 800,
+      "uts": 1050
+    },
+    {
+      "temp": 540,
+      "ys": 760,
+      "uts": 1000
+    },
+    {
+      "temp": 760,
+      "ys": 720,
+      "uts": 950
+    },
+    {
+      "temp": 870,
+      "ys": 620,
+      "uts": 800
+    }
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 1050,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.3,
+  "specific_heat": 425,
+  "melting_point": 1320,
+  "price_per_kg": 200,
+  "price_per_cm3": 1.632,
+  "popularity": 1.92,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 500,
+  "total_cost_estimate": 900,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 19% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

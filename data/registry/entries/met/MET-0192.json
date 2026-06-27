@@ -1,0 +1,312 @@
+{
+  "stable_id": "MET-0192",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-6082-eu-extrusion",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0310_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0310_2",
+  "name": "AA 6082 (EU extrusion) — T651",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T651",
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 295,
+      "max": 295,
+      "typical": 295,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 340,
+      "max": 340,
+      "typical": 340,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 85,
+      "max": 110,
+      "typical": 96,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 20,
+      "typical": 13,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "fracture_toughness": {
+      "min": 31,
+      "max": 31,
+      "typical": 31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "thermal_expansion": {
+      "min": 23.4,
+      "max": 23.4,
+      "typical": 23.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "specific_heat": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "melting_point": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "price_per_cm3": {
+      "min": 0.0081,
+      "max": 0.0081,
+      "typical": 0.0081,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6082"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.94,
+      "max": 3.94,
+      "typical": 3.94,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Mg": "0.6~1.2",
+    "Si": "0.7~1.3",
+    "Mn": "0.4~1.0",
+    "Fe": "≤0.5",
+    "Cr": "≤0.25"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum 6082",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+6082",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6082",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 6061-T6",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — AA 6082 EU/KR structural Al",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Aluminum 6082-T6",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=fad29be6e64d4e95a241690f1f6e1eb7",
+      "verified": false
+    },
+    {
+      "label": "EN 573-3 — Wrought Aluminum 6082 (EN AW-6082)",
+      "url": "https://www.cen.eu/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.7,
+      295,
+      340,
+      8,
+      70,
+      110,
+      180
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS A96082 / EN AW-6082 / AlSi1MgMn / DIN 3.2315 — heat-treatable Al-Mg-Si (Mg 0.6-1.2, Si 0.7-1.3, Mn 0.40-1.0). 6061 의 EU/KR/JP 대응 — Mn 첨가로 grain control 우수. O temper: σy 60 / UTS 130. T6 (peak): σy 250-310 / UTS 295-340 / El 8-10%. 구조용 Al 표준 (EU 항공·교량·건축 frame), 자동차 chassis, 자전거 frame, 해양 ferry deck plate.",
+  "meta": {
+    "reference": true,
+    "condition": "T651",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 31,
+  "fatigue_strength": 96,
+  "density": 2.7,
+  "yield_strength": 295,
+  "uts": 340,
+  "elongation": 8,
+  "modulus": 70,
+  "hardness": 110,
+  "thermal_conductivity": 180,
+  "impact_strength": 13,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Aluminum 6082",
+  "aliases": [
+    "UNS A96082",
+    "EN AW-6082",
+    "AlSi1MgMn"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Mg-Si Alloys (6xxx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 50,
+  "max_service_temp": 170,
+  "thermal_expansion": 23.4,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0081,
+  "popularity": 4,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.94,
+  "total_cost_estimate": 3.54,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 250,
+      "uts": 290,
+      "E": 70
+    },
+    {
+      "temp": 100,
+      "ys": 230,
+      "uts": 270,
+      "E": 67
+    },
+    {
+      "temp": 200,
+      "ys": 130,
+      "uts": 170,
+      "E": 60
+    }
+  ],
+  "story": "AA 6082 는 1972년 EU Aluminum Association 이 표준화한 medium-strength Al-Mg-Si 합금입니다. Mg 0.6-1.2% + Si 0.7-1.3% + Mn 0.4-1.0% 의 조성으로, 미국 6061 (Mg 1.0% + Si 0.6%) 보다 Mn 함량이 약간 높아 grain refinement 와 corrosion resistance 가 우수해요. 한국 KS D 6705 의 AA 6082 가 동일 표준입니다.\n\n응용은 EU 시장 중심의 structural extrusion / sheet. 자동차 frame (Volvo XC60 / S90 의 일부 cross-member), 자전거 frame (Cannondale / Trek 의 EU spec), 트럭 trailer chassis (Schmitz Cargobull 의 EU 표준 trailer), 철도 차체 (Stadler / Talgo 의 alpine train), 해양 plate (passenger ferry, 작은 yacht), 사다리 (DIN EN 131 표준 ladder), 산업용 conveyor frame, 가로등 mast. EU 의 6xxx Al 표준은 6082 가 차지하고, 미국·아시아는 6061 — 동일 응용이지만 시장 우선순위가 다른 케이스입니다.\n\nHT 표준 — T6 (sol. 530°C/WQ + aged 175°C/8h, σy 250 / σUTS 295 MPa) 가 가장 일반적. T651 (T6 + stretched, residual stress < 30 MPa) 은 정밀 가공 부품 용. 압출 시 T5 (cooling from extrusion + aged) 도 가능 — 6063 와 유사한 cost-saving option. Weldability 는 6061 와 비슷 — ER4043 / ER5356 filler + HAZ softening 60% 손실의 동일 issue.",
+  "story_refs": [
+    "EN 573-3",
+    "BS EN 485-2",
+    "ASM Handbook Vol.2 'Properties and Selection: Nonferrous Alloys'",
+    "Kaiser Aluminum AA 6082 Technical Data Sheet"
+  ],
+  "confidence_tier": "medium"
+}

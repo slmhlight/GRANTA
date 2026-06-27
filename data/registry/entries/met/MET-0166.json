@@ -1,0 +1,371 @@
+{
+  "stable_id": "MET-0166",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-pure-other",
+    "alloy_base": "F-AB-aa-1050",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "G_0051",
+  "origin": "generic(csv)",
+  "id": "G_0051",
+  "name": "AA 1050 — Strain-hardened (Wrought)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Pure/Other",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Strain-hardened",
+  "ranges": {
+    "density": {
+      "min": 2.71,
+      "max": 2.71,
+      "typical": 2.71,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 31.5,
+      "max": 38.15,
+      "typical": 33.95,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 76.5,
+      "max": 92.65,
+      "typical": 82.45,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 28,
+      "max": 33.6,
+      "typical": 31.15,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 69,
+      "max": 69,
+      "typical": 69,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 25.2,
+      "max": 30.52,
+      "typical": 27.16,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 222,
+      "max": 222,
+      "typical": 222,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 25,
+      "max": 45,
+      "typical": 35,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "impact_strength": {
+      "min": 35,
+      "max": 80,
+      "typical": 55,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "thermal_expansion": {
+      "min": 23.5,
+      "max": 23.5,
+      "typical": 23.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "specific_heat": {
+      "min": 902,
+      "max": 902,
+      "typical": 902,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "melting_point": {
+      "min": 657,
+      "max": 657,
+      "typical": 657,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "price_per_kg": {
+      "min": 2.2,
+      "max": 2.2,
+      "typical": 2.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "price_per_cm3": {
+      "min": 0.006,
+      "max": 0.006,
+      "typical": 0.006,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.49,
+      "max": 2.49,
+      "typical": 2.49,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "0.4",
+    "Mn": "0.05",
+    "Si": "0.25",
+    "Cu": "0.05",
+    "Al": "99.5"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AA 1050\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%201050",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 1xxx CP Al",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Pure Aluminum 1xxx",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "EN 573-3 — AA 1050A (EN AW-1050A)",
+      "url": "https://www.cen.eu/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.71,
+      31.5,
+      76.5,
+      31.5,
+      69,
+      25.2,
+      222
+    ],
+    [
+      2.71,
+      38.150000000000006,
+      92.65,
+      31.15,
+      69,
+      30.520000000000003,
+      222
+    ],
+    [
+      2.71,
+      31.5,
+      76.5,
+      28,
+      69,
+      25.2,
+      222
+    ],
+    [
+      2.71,
+      36.75,
+      89.25,
+      29.750000000000004,
+      69,
+      29.4,
+      222
+    ],
+    [
+      2.71,
+      33.25,
+      80.75,
+      33.25,
+      69,
+      26.6,
+      222
+    ],
+    [
+      2.71,
+      33.6,
+      81.6,
+      33.6,
+      69,
+      26.88,
+      222
+    ],
+    [
+      2.71,
+      33.95,
+      82.45,
+      30.450000000000003,
+      69,
+      27.16,
+      222
+    ],
+    [
+      2.71,
+      35.7,
+      86.7,
+      32.2,
+      69,
+      28.56,
+      222
+    ],
+    [
+      2.71,
+      36.75,
+      89.25,
+      29.750000000000004,
+      69,
+      29.4,
+      222
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 9,
+    "subcategory_variants": [
+      "Aluminum - Pure/Other"
+    ],
+    "conditions": [
+      "H12",
+      "H14",
+      "H16",
+      "H18",
+      "H19",
+      "H22",
+      "H24",
+      "H26",
+      "H28"
+    ],
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 35,
+  "density": 2.71,
+  "yield_strength": 33.95,
+  "uts": 82.45,
+  "elongation": 31.15,
+  "modulus": 69,
+  "hardness": 27.16,
+  "thermal_conductivity": 222,
+  "impact_strength": 55,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+  "aliases": [
+    "UNS A91050",
+    "EN AW-1050A",
+    "Al99.5"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Pure/Other",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 60,
+  "max_service_temp": 200,
+  "thermal_expansion": 23.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 902,
+  "melting_point": 657,
+  "price_per_kg": 2.2,
+  "price_per_cm3": 0.006,
+  "popularity": 4.03,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.49,
+  "total_cost_estimate": 2.25,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "AA 1050 은 commercially pure aluminum (99.50% Al min) — 1xxx 시리즈의 baseline 입니다. Fe + Si 가 unintentional impurity 로 < 0.50% 잔존하지만 Cu / Mn / Mg / Cr / Zn 는 거의 없어요 (각 < 0.05%). 이 high-purity 조성이 전기 전도도와 부식 저항의 비결입니다.\n\n응용 — Electrical busbar / conductor (변전소 high-voltage busbar, transformer winding), 식품 가공 (cooking pot, 김치 fermenter inner liner), chemical storage tank (HNO₃ 95% storage — Al 의 self-passivation Al₂O₃ 가 acid 와 반응 않음), heat exchanger fin (HVAC system 의 air-to-air heat exchanger), reflective optics (search-light reflector, solar concentrator), decorative trim (anodized exterior cladding). 1050 의 전기 전도도는 62% IACS — 무게 비교 시 동의 약 2배 효율로 long-distance transmission line 의 standard 가 됐어요.\n\nHT 가능성은 제한적 — non-heat-treatable (Mg-Si 도 Cu 도 충분치 않음). Strain-hardening (H12 ~ H18) 으로만 강도 향상 가능. O (annealed) σy 28 MPa / σUTS 75 MPa, H18 (full hard) σy 145 MPa / σUTS 160 MPa. Weldability 우수 — 표준 ER1100 filler 또는 base self-filler 사용. 산업 응용 시 가장 가격 효율적인 Al alloy (가격 약 2.4 USD/kg).",
+  "story_refs": [
+    "ASTM B209",
+    "EN 573-3",
+    "ASM Handbook Vol.2 'Aluminum Pure Grades 1xxx'",
+    "Hatch J E (ed., 1984) Aluminum: Properties and Physical Metallurgy"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS A91050 / EN AW-1050A / Al99.5 / DIN Al99.5 — 99.5% pure aluminum (non-heat-treatable, R173 fake-variant 제거). O temper: σy 35 / UTS 75 / El 39%. H14 (work-H18 (full hard): σy 145 / UTS 160. 전기 conductor (IACS 60% — Cu의 60%), 화학 plant tank lining, food packaging foil (요구르트 lid, beer can lid). 의도된 variant 보존: O / H14 / H18. 다만 typical H 14 가 σy 105 라 약간 low."
+}

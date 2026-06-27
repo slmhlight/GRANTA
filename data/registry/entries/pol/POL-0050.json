@@ -1,0 +1,259 @@
+{
+  "stable_id": "POL-0050",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pla",
+    "alloy_base": "F-AB-pla",
+    "element_families": []
+  },
+  "legacy_id": "R_0051",
+  "origin": "reference(supplementary)",
+  "id": "R_0051",
+  "name": "PLA",
+  "category": "Polymer",
+  "subcategory": "Polymer - PLA",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "FDM"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.24,
+      "max": 1.24,
+      "typical": 1.24,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 45,
+      "max": 55,
+      "typical": 50,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 50,
+      "max": 60,
+      "typical": 55,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 3,
+      "max": 6,
+      "typical": 5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 3.3,
+      "max": 3.6,
+      "typical": 3.5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.13,
+      "max": 0.13,
+      "typical": 0.13,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PLA (FDM)"
+    },
+    "max_service_temp": {
+      "min": 27.5,
+      "max": 82.5,
+      "typical": 55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PLA (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PLA (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PLA (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PLA (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 30,
+      "max": 90,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PLA (FDM)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PLA (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0155,
+      "max": 0.0465,
+      "typical": 0.031,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PLA (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "50.0",
+    "H": "5.6",
+    "O": "44.4"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — PLA (FDM)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "NatureWorks Ingeo PLA technical guide",
+      "url": "https://natureworksllc.com/Products",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Polylactic Acid (PLA)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PLA",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.24,
+      50,
+      55,
+      5,
+      3.5,
+      0,
+      0.13
+    ],
+    [
+      1.24,
+      45,
+      50,
+      3,
+      3.3,
+      0,
+      0.13
+    ],
+    [
+      1.24,
+      55,
+      60,
+      6,
+      3.6,
+      0,
+      0.13
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "PLA (Polylactic Acid) — bio-based, biodegradable, semi-crystalline thermoplastic. Tg ≈ 60°C, Tm ≈ 175°C, HDT (0.46 MPa) ≈ 55-65°C unannealed (annealing 으로 100°C 가능), max service 50-55°C. σy 50-65 / UTS 50-70 / El 2-6% (brittle) / E 2.7-3.5 GPa / ρ 1.24 g/cc. 3D printing FDM 의 가장 흔한 filament (압출 200°C, 베드 60°C) — 낮은 휘발성·warping 적음. 식품 패키지, 의료 봉합사, 화장품 캡슐.",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.5,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.24,
+  "yield_strength": 50,
+  "uts": 55,
+  "elongation": 5,
+  "modulus": 3.5,
+  "hardness": null,
+  "thermal_conductivity": 0.13,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "FDM",
+  "source": "Material datasheets — PLA (FDM)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PLA (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 55,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 60,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.031,
+  "popularity": 3.5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1932년 DuPont 의 월리스 캐러더스 (Nylon 66 발명자) 가 lactic acid 의 ring-opening polymerization 으로 처음 polylactic acid 를 합성했지만 분자량이 낮아 상품화에는 실패했어요. 1989년 Cargill 의 팻 그루버 (Pat Gruber) 가 corn starch fermentation → lactic acid → lactide cyclic dimer → ring-opening polymerization 의 economical 공정을 완성, 1997년 Cargill + Dow 의 joint venture 인 NatureWorks 가 'Ingeo' 라는 상표로 첫 상업 생산을 시작합니다.\n\nPLA 의 사회적 의의는 corn / sugarcane 같은 농업 원료 100% 의 bio-source + 산업 퇴비 (60°C, 6 주) 조건에서 완전 분해 가능한 최초의 메인스트림 폴리머라는 점이에요. 2010년대 데스크탑 3D 프린팅 (MakerBot, Prusa, Bambu Lab) 에서 가장 흔한 필라멘트로 — low T_m 175°C 라 일반 hotend 로도 잘 출력되고 warping 도 거의 없거든요. Coca-Cola PlantBottle, 스타벅스 disposable cup lid, 미국 Whole Foods food container, 의료 PLA-PGA biodegradable suture (Vicryl) 와 stent. 단점은 Tg 60°C — 자동차 dashboard 처럼 햇볕에 직사되는 환경에서는 쉽게 변형됩니다.",
+  "story_refs": [
+    "Carothers W H et al. (1932) J Am Chem Soc 54 \"Studies of polymerization and ring formation\"",
+    "Garlotta D (2001) \"A literature review of poly(lactic acid)\", J Polym Environ 9(2)",
+    "Gruber P R & O'Brien M (2002) \"Polylactides: NatureWorks PLA\", in Biopolymers Vol 4, Wiley-VCH",
+    "NatureWorks LLC corporate history (https://www.natureworksllc.com)"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,335 @@
+{
+  "stable_id": "MET-0826",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ph",
+    "alloy_base": "F-AB-17-4-ph-uns-s17400",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0009_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0009_0",
+  "name": "17-4 PH (UNS S17400) — H900",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - PH",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "H900",
+  "ranges": {
+    "density": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1170,
+      "max": 1170,
+      "typical": 1170,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1310,
+      "max": 1310,
+      "typical": 1310,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 415,
+      "max": 415,
+      "typical": 415,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 18.4,
+      "max": 18.4,
+      "typical": 18.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 550,
+      "max": 650,
+      "typical": 600,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:174ph"
+    },
+    "impact_strength": {
+      "min": 20,
+      "max": 40,
+      "typical": 30,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:174ph"
+    },
+    "fracture_toughness": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "thermal_expansion": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "poisson_ratio": {
+      "min": 0.27,
+      "max": 0.27,
+      "typical": 0.27,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "melting_point": {
+      "min": 1404,
+      "max": 1404,
+      "typical": 1404,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:174ph"
+    },
+    "price_per_kg": {
+      "min": 14,
+      "max": 22,
+      "typical": 18,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Carpenter Technology 17-4 PH bar Q2 2026 list price"
+    },
+    "price_per_cm3": {
+      "min": 0.1186,
+      "max": 0.1604,
+      "typical": 0.1395,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 8.53,
+      "max": 8.53,
+      "typical": 8.53,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "15~17.5",
+    "Ni": "3~5",
+    "Cu": "3~5",
+    "Mn": "≤1",
+    "Si": "≤1",
+    "C": "≤0.07",
+    "Nb": "0.15~0.45"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — Custom 630 (17-4 PH)",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.aksteel.com/our-products/stainless/17-4-ph",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=14a0d4d2c8074bb0baadfb56dd5f3a08",
+      "verified": false
+    },
+    {
+      "label": "AK Steel — 17-4 PH Stainless Datasheet",
+      "url": "https://www.aksteel.com/sites/default/files/2018-02/17-4-PH-DATA-BULLETIN.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 5643 — 17-4 PH bar, wire, forging",
+      "url": "https://www.sae.org/standards/content/ams5643/",
+      "verified": false
+    },
+    {
+      "label": "ASTM A693 — Precipitation-Hardening Stainless",
+      "url": "https://store.astm.org/a0693-16r22.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.75,
+      1170,
+      1310,
+      10,
+      200,
+      415,
+      18.4
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS S17400 / EN 1.4542 / X5CrNiCuNb16-4 / AISI 630 / JIS SUS630 / KS STS630 — martensitic precipitation-hardening stainless. Cr 15-17, Ni 3-5, Cu 3-5, Nb 0.15-0.",
+  "meta": {
+    "reference": true,
+    "condition": "H900",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Stainless Steel 17-4 PH",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5643",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM A693",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS S17400",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 90,
+  "fatigue_strength": 600,
+  "density": 7.75,
+  "yield_strength": 1170,
+  "uts": 1310,
+  "elongation": 10,
+  "modulus": 200,
+  "hardness": 415,
+  "thermal_conductivity": 18.4,
+  "impact_strength": 30,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Carpenter Technology — Custom 630 (17-4 PH)",
+  "aliases": [
+    "UNS S17400",
+    "EN 1.4542",
+    "AISI 630",
+    "JIS SUS630",
+    "KS STS630"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - PH",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1100,
+      "uts": 1190,
+      "E": 200
+    },
+    {
+      "temp": 300,
+      "ys": 950,
+      "uts": 1050,
+      "E": 184
+    },
+    {
+      "temp": 425,
+      "ys": 880,
+      "uts": 1000,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 2.5,
+  "max_service_temp": 315,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.27,
+  "specific_heat": 460,
+  "melting_point": 1404,
+  "price_per_kg": 6.5,
+  "price_per_cm3": 0.1395,
+  "popularity": 4.42,
+  "machining_cost_factor": 1.5,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 8.53,
+  "total_cost_estimate": 12.8,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "1944년 미국 Armco Steel Corporation (현 AK Steel) 의 윌리엄 머피 (William J Murphy) 가 austenitic 304 의 부식 저항과 martensitic 410 의 강도를 결합한 precipitation-hardening stainless 를 처음 선보였습니다. Cr 17% + Ni 4% + Cu 4% — 처음엔 austenite 상태로 solution treated 되었다가, 480~620°C 시효처리 시 ε-Cu (face-centered cubic Cu cluster) 가 martensite 매트릭스에서 석출하면서 σ_y 1100~1380 MPa 까지 강화되는 합금이죠.\n\nH900 (480°C/1h), H925, H1025, H1075, H1100, H1150 의 6개 시효 단계가 강도-인성 trade-off 를 fine-tuning 해 줍니다. 응용은 정말 다양해요. 항공 — Boeing 777 landing gear retract actuator, 우주 — Falcon 9 grid-fin actuator, 군용 — M16 rifle bolt carrier 일부, M1 Abrams 의 gun loader chain link, 핵발전소 — valve stem (PWR primary), 의료 — surgical instrument (Mayo Clinic ortho 표준), 보석 — Rolex Yacht-Master II 의 일부 부품. 1989년 EOS 가 LPBF 의 첫 stainless powder 로 17-4 PH 를 선택한 이후, 현재까지 AM 의 메인 합금으로도 자리하고 있습니다.",
+  "story_refs": [
+    "Murphy W J (1944) US Patent 2,432,832 (Armco) \"Stainless precipitation-hardening alloy\"",
+    "AK Steel \"17-4 PH Stainless Steel Product Data Bulletin\" (2007)",
+    "Nakkalil R et al. (1993) \"Microstructural Evolution During Aging of 17-4 PH Stainless Steel\", Met Trans A 24A"
+  ],
+  "confidence_tier": "high"
+}

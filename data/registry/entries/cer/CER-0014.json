@@ -1,0 +1,184 @@
+{
+  "stable_id": "CER-0014",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-glass-ceramic",
+    "alloy_base": "F-AB-lithium-aluminosilicate-glass-ceramic-las",
+    "element_families": []
+  },
+  "legacy_id": "CER_020",
+  "origin": "ceramics-data",
+  "id": "CER_020",
+  "name": "Lithium Aluminosilicate (Glass-ceramic, LAS)",
+  "category": "Ceramic",
+  "subcategory": "Glass-ceramic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 88,
+      "max": 88,
+      "typical": 88,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 1.7,
+      "max": 1.7,
+      "typical": 1.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 0.1,
+      "max": 0.1,
+      "typical": 0.1,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 800,
+      "max": 800,
+      "typical": 800,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 49.5,
+      "max": 49.5,
+      "typical": 49.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.625,
+      "max": 0.625,
+      "typical": 0.625,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Si": "46.7",
+    "O": "53.3"
+  },
+  "sources": [
+    {
+      "label": "Applications: Zerodur (망원경 거울 기재), Ceran (인덕션 cooktop), 광학 fiber 케이블 부품",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Schott Zerodur LAS glass-ceramic datasheet",
+      "url": "https://www.schott.com/en-int/products/zerodur-p1000269",
+      "verified": true
+    },
+    {
+      "label": "Corning ULE / similar LAS glass-ceramics",
+      "url": "https://www.corning.com/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "Zerodur (망원경 거울 기재), Ceran (인덕션 cooktop), 광학 fiber 케이블 부품",
+    "limitations": "고가 (Zerodur)",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 2.5,
+  "yield_strength": 110,
+  "uts": 110,
+  "elongation": null,
+  "modulus": 88,
+  "hardness": 700,
+  "thermal_conductivity": 1.7,
+  "fatigue_strength": 49.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: Zerodur (망원경 거울 기재), Ceran (인덕션 cooktop), 광학 fiber 케이블 부품",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Glass-ceramic"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.625,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "Lithium aluminosilicate (LAS, Li₂O·Al₂O₃·SiO₂) 는 1968년 미국 Corning 의 S. Donald Stookey 가 'pyroceramic' (또는 glass-ceramic) 의 표준으로 발견한 controlled crystallization glass 입니다. Stookey 는 1957년 Pyroceram (코닝의 첫 glass-ceramic) 을 발견했고, LAS 는 그 진화형으로 thermal expansion 이 거의 0 (~0.2 × 10⁻⁶/K) 인 β-spodumene crystal phase 가 형성되도록 nucleating agent (TiO₂, ZrO₂) 를 첨가했어요.\n\nLAS 의 핵심은 thermal expansion 이 거의 0 이라 thermal shock 에 거의 면역이라는 점입니다. 1100°C 가열 후 물에 담가도 깨지지 않고 (fused silica 와 같은 수준), 0 ↔ 700°C cycling 도 OK. 또 미세 crystal (1 μm 이하) 이 분산되어 있어 transparent (LAS-S, transparent) 또는 opaque (LAS-O, opaque) 두 form 모두 가능.\n\n응용: cooktop glass (Schott 의 'Ceran', Corning 의 'EuroKera' — 거의 모든 induction + radiant cooktop 의 상단 glass), 가스 cookware (Corning CorningWare 의 일부 grade — 직접 화염에 올려도 OK), 망원경 mirror substrate (Schott 의 'Zerodur' 가 LAS 의 대표 grade — ESO VLT 4×8.2m primary mirror, Keck Observatory 10m segmented mirror, ELT 39m 의 798 hexagonal segment 모두 Zerodur 기반), space telescope 의 일부 ground-based observatory, EUV 리소그래피 wafer stage (CTE ~ 0 → ASML EUV scanner 의 reticle stage substrate), 정밀 광학 부품 (CTE 가 0 이라 dimension 안정).",
+  "story_refs": [
+    "Stookey S D (1959) US Patent 2,920,971 \"Method of Making Ceramics and Product Thereof\"",
+    "Schott Ceran Tech Data",
+    "Beall G H (1992) \"Design and Properties of Glass-Ceramics\", Annu Rev Mater Sci 22"
+  ],
+  "confidence_tier": "medium",
+  "industry_note": "Lithium Aluminosilicate (LAS) glass-ceramic (Zerodur by Schott, Clearceram-Z by Ohara). Crystal phase: β-quartz solid solution (Li₂O·Al₂O₃·SiO₂). CTE 0.02 ± 0.05 ppm/°C (20-100°C) — 사실상 zero. σf 110 / E 88 / ρ 2.5 / Tmax 800°C continuous, 1000°C short. 대형 telescope mirror substrate (VLT, ELT, JWST mirror substrate — 8m diameter Zerodur), wafer stepper precision mirror, EUV lithography reticle (~$5M each). 매우 비싼 ($500-2000/kg)."
+}

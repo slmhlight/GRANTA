@@ -1,0 +1,322 @@
+{
+  "stable_id": "MET-0906",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-5-2-5",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "G_0064",
+  "origin": "generic(csv)",
+  "id": "G_0064",
+  "name": "Ti-5-2-5 — As-cast / forged (Wrought)",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "As-cast / forged",
+  "ranges": {
+    "density": {
+      "min": 4.45,
+      "max": 4.55,
+      "typical": 4.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 827,
+      "typical": 827,
+      "max": 827,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "uts": {
+      "min": 861,
+      "typical": 861,
+      "max": 861,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "elongation": {
+      "min": 15,
+      "typical": 15,
+      "max": 15,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "modulus": {
+      "min": 105,
+      "max": 125,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 310,
+      "max": 350,
+      "typical": 330,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 371,
+      "max": 530,
+      "typical": 459,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 50,
+      "typical": 30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:PH stainless"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti525"
+    },
+    "max_service_temp": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti525"
+    },
+    "thermal_expansion": {
+      "min": 8.1,
+      "max": 8.1,
+      "typical": 8.1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti525"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti525"
+    },
+    "specific_heat": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti525"
+    },
+    "melting_point": {
+      "min": 1620,
+      "max": 1690,
+      "typical": 1660,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti525"
+    },
+    "price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti525"
+    },
+    "price_per_cm3": {
+      "min": 0.224,
+      "max": 0.224,
+      "typical": 0.224,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti525"
+    },
+    "delivered_price_per_kg": {
+      "min": 52.5,
+      "max": 52.5,
+      "typical": 52.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Al": "4~6",
+    "Sn": "2~3"
+  },
+  "sources": [
+    {
+      "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
+      "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Ti-5-2-5\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-5-2-5",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: TIMET beta Ti",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      4.48,
+      883.5000000000001,
+      950,
+      9.5,
+      110,
+      294.5,
+      7.5
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 1,
+    "subcategory_variants": [
+      "Titanium - Alpha-Beta"
+    ],
+    "conditions": [
+      "As-Forged"
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 459,
+  "density": 4.5,
+  "yield_strength": 827,
+  "uts": 861,
+  "elongation": 15,
+  "modulus": 110,
+  "hardness": 330,
+  "thermal_conductivity": 7.5,
+  "impact_strength": 30,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Titanium - Alpha-Beta",
+    "Titanium-based"
+  ],
+  "electrical_conductivity": 1,
+  "max_service_temp": 480,
+  "thermal_expansion": 8.1,
+  "poisson_ratio": 0.34,
+  "specific_heat": 540,
+  "melting_point": 1660,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.224,
+  "popularity": 2.72,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 52.5,
+  "total_cost_estimate": 94.5,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "_corrections": {
+    "composition": {
+      "from": {
+        "Ti": "balance",
+        "Al": "5~8",
+        "V": "1~5",
+        "Mo": "0~4",
+        "Zr": "0~6",
+        "Sn": "0~4"
+      }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 800,
+        "max": 1200,
+        "typical": 950,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 950
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 900,
+        "max": 1300,
+        "typical": 1050,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1050
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 6,
+        "max": 15,
+        "typical": 10,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 10
+    },
+    "_basis": "Grade6 α as-forged ≈ annealed",
+    "_src": "ASTM B265 Gr6",
+    "points_stale": true
+  }
+}

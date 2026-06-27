@@ -1,0 +1,259 @@
+{
+  "stable_id": "POL-0068",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide",
+    "alloy_base": "F-AB-pa66-ultramid-a3k-basf",
+    "element_families": []
+  },
+  "legacy_id": "POL_017",
+  "origin": "polymers-data",
+  "id": "POL_017",
+  "name": "PA66 Ultramid A3K (BASF)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.14,
+      "max": 1.14,
+      "typical": 1.14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 85,
+      "max": 85,
+      "typical": 85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 85,
+      "max": 85,
+      "typical": 85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 3.3,
+      "max": 3.3,
+      "typical": 3.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.26,
+      "max": 0.26,
+      "typical": 0.26,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 100,
+      "max": 130,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 263,
+      "max": 263,
+      "typical": 263,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 75,
+      "max": 75,
+      "typical": 75,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "price_per_cm3": {
+      "min": 0.0046,
+      "max": 0.0046,
+      "typical": 0.0046,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "63.7",
+    "H": "9.8",
+    "N": "12.4",
+    "O": "14.1"
+  },
+  "sources": [
+    {
+      "label": "DuPont/MatWeb — Nylon 66 (PA66)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+66",
+      "verified": false
+    },
+    {
+      "label": "Datasheet — PA66 Ultramid A3K (BASF)",
+      "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
+      "verified": true
+    },
+    {
+      "label": "Applications: 자동차 underhood (intake manifold), 산업 기어, 전기 plug, 빈 패스너",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "DuPont Zytel PA66 (DTY)",
+      "url": "https://www.dupont.com/products/zytel-polyamide.html",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — PA66 general",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=a2e79a3469304d109aaf4cb22f3592d9",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "polymer": true,
+    "tg": 60,
+    "tm": 263,
+    "hdt_182": 75,
+    "moisture_24h": 2.5,
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "applications": "자동차 underhood (intake manifold), 산업 기어, 전기 plug, 빈 패스너",
+    "limitations": "흡습 큼 (2.5% 24h, 평형 7-8%) — 강성 50% 손실",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 1.14,
+  "yield_strength": 85,
+  "uts": 85,
+  "elongation": 30,
+  "modulus": 3.3,
+  "hardness": null,
+  "thermal_conductivity": 0.26,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "DuPont/MatWeb — Nylon 66 (PA66)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polyamide"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0046,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 85,
+      "uts": 85,
+      "E": 3.3
+    },
+    {
+      "temp": 60,
+      "ys": 70,
+      "uts": 70,
+      "E": 2.5
+    },
+    {
+      "temp": 100,
+      "ys": 40,
+      "uts": 40,
+      "E": 1.3
+    },
+    {
+      "temp": 150,
+      "ys": 18,
+      "uts": 18,
+      "E": 0.5
+    }
+  ],
+  "story": "Ultramid A3K 는 BASF 의 PA66 (Nylon 6,6) unfilled, easy-flow grade 입니다. BASF 는 1968년 'Ultramid' brand 로 PA6 와 PA66 의 commercial polymer 라인을 출시했고, 'A3K' 는 PA66 의 medium viscosity, 다목적 사출 grade 를 의미. PA66 의 'A' 는 BASF 의 PA66 family 표기.\n\nPA66 vs PA6: PA66 의 Tm 260°C 가 PA6 의 220°C 보다 40°C 높아 high-temperature 응용에 유리. σy 85 MPa, UTS 85 MPa, El 50% — engineering polymer 중 strength 와 toughness 의 균형이 우수. 흡수성은 PA6 (8%) 보다 낮은 6%.\n\n응용: 자동차 underhood (Volkswagen · BMW · Mercedes 의 표준 engine compartment polymer — coolant tank, radiator end-cap, fan blade 의 일부), 산업 gear (high-load gear), 자전거 chain link 의 일부 (특정 brand 의 일부 chain plate), 식품 cookware utensil (식기 spatula, ladle), 그리고 군용 helmet 의 일부 layer (combat helmet 의 inner layer 의 일부). PA66 vs PA6 선택: 가격 (PA66 $4-5/kg, PA6 $3/kg) + 흡수 + Tm 의 trade-off 입니다. PA6 가 가격 / 가공 cycle 의 우위, PA66 가 thermal stability + 흡수 저항의 우위.",
+  "story_refs": [
+    "BASF Ultramid A3K Tech Data Sheet",
+    "Kohan M I (1995) Nylon Plastics Handbook, Hanser",
+    "Brydson J A (1999) Plastics Materials 7th ed."
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Nylon 6/6 (Polyhexamethylene adipamide) — semi-crystalline thermoplastic. Tg (dry) ≈ 70°C, Tm ≈ 265°C, HDT (1.8 MPa) ≈ 90°C, max service 100-120°C. σy 70-85 / UTS 75-95 / El 20-60% / E 2.7-3.5 GPa / ρ 1.13-1.15 g/cc (dry-as-molded). 흡습률 3% → 강도 30% 감소 (DAM vs 50% RH). Notched Izod 50-110 J/m. 자동차 intake manifold, 라디에이터 end tank, gear, fastener, 전기 connector. GF30 grade → σy 150-180, E 8-9 GPa (보강재 사용 표준).",
+  "max_service_temp": 110
+}

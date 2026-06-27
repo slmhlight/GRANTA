@@ -1,0 +1,262 @@
+{
+  "stable_id": "MET-0669",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-w-la-lanthanated-tungsten-wla",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0299_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0299_1",
+  "name": "W-La (Lanthanated tungsten, WLa) — Cold-worked",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Plansee"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Cold-worked",
+  "ranges": {
+    "density": {
+      "min": 19.18,
+      "max": 19.18,
+      "typical": 19.18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1050,
+      "max": 1050,
+      "typical": 1050,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1450,
+      "max": 1450,
+      "typical": 1450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 411,
+      "max": 411,
+      "typical": 411,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 200,
+      "max": 360,
+      "typical": 280,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "impact_strength": {
+      "min": 2,
+      "max": 8,
+      "typical": 4,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "fracture_toughness": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 31,
+      "max": 31,
+      "typical": 31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "max_service_temp": {
+      "min": 1700,
+      "max": 1700,
+      "typical": 1700,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "specific_heat": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "melting_point": {
+      "min": 3410,
+      "max": 3410,
+      "typical": 3410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_kg": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_cm3": {
+      "min": 1.3426,
+      "max": 1.3426,
+      "typical": 1.3426,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "delivered_price_per_kg": {
+      "min": 79.38,
+      "max": 79.38,
+      "typical": 79.38,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "W": "balance",
+    "La2O3": "0.9~1.2"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.plansee.com/en/materials/tungsten.html",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      19.18,
+      1050,
+      1450,
+      3,
+      411,
+      450,
+      165
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Good",
+  "industry_note": "Plansee W-La (2.0 wt% La₂O₃ dispersion-doped W) — replaces thoriated W (ThO₂ — radioactive). La₂O₃ pinpoint particle → recrystallization 1900°C (pure W 의 1400°C 대비 +500°C). σy 760-1100 / UTS 1000-1400 / E 411 GPa. Tmax 2000°C inert atmosphere (in air > 300°C → WO₃ rapid oxidation). 사용: TIG welding electrode (GTAW 표준 — green/gold tip color), 가스 discharge lamp, vacuum X-ray tube cathode, ion source filament. 일반 W 보다 ductile + arc starting 우수.",
+  "meta": {
+    "reference": true,
+    "condition": "Cold-worked",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 8,
+  "fatigue_strength": 280,
+  "density": 19.18,
+  "yield_strength": 1050,
+  "uts": 1450,
+  "elongation": 3,
+  "modulus": 411,
+  "hardness": 450,
+  "thermal_conductivity": 165,
+  "impact_strength": 4,
+  "manufacturer": "Plansee",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory Metal",
+    "Refractory"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 31,
+  "max_service_temp": 1700,
+  "thermal_expansion": 4.5,
+  "poisson_ratio": 0.28,
+  "specific_heat": 135,
+  "melting_point": 3410,
+  "price_per_kg": 70,
+  "price_per_cm3": 1.3426,
+  "popularity": 1.83,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 79.38,
+  "total_cost_estimate": 142.88,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

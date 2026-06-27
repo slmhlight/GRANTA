@@ -1,0 +1,172 @@
+{
+  "stable_id": "CER-0036",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-silicate",
+    "alloy_base": "F-AB-forsterite-mg-sio-electronic-substrate",
+    "element_families": []
+  },
+  "legacy_id": "CER_038",
+  "origin": "ceramics-data",
+  "id": "CER_038",
+  "name": "Forsterite (Mg₂SiO₄, electronic substrate)",
+  "category": "Ceramic",
+  "subcategory": "Silicate",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.21,
+      "max": 3.21,
+      "typical": 3.21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 750,
+      "max": 750,
+      "typical": 750,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": {
+      "min": 1890,
+      "max": 1890,
+      "typical": 1890,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 40.5,
+      "max": 40.5,
+      "typical": 40.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.0578,
+      "max": 0.0578,
+      "typical": 0.0578,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "34.6",
+    "Si": "20.0",
+    "O": "45.5"
+  },
+  "sources": [
+    {
+      "label": "Applications: MW telecom 부품 (low loss tan δ), 진공관 절연체, 5G mmWave 부품",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "MW telecom 부품 (low loss tan δ), 진공관 절연체, 5G mmWave 부품"
+  },
+  "popularity": 2,
+  "density": 3.21,
+  "yield_strength": 90,
+  "uts": 90,
+  "elongation": null,
+  "modulus": 150,
+  "hardness": 750,
+  "thermal_conductivity": 4.5,
+  "fatigue_strength": 40.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: MW telecom 부품 (low loss tan δ), 진공관 절연체, 5G mmWave 부품",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Silicate"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0578,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

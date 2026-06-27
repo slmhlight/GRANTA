@@ -1,0 +1,386 @@
+{
+  "stable_id": "POL-0129",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-tpe",
+    "alloy_base": "F-AB-tpe",
+    "element_families": []
+  },
+  "legacy_id": "G_0180",
+  "origin": "generic(csv)",
+  "id": "G_0180",
+  "name": "TPE — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - TPE",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.05,
+      "max": 1.05,
+      "typical": 1.05,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 18.2,
+      "max": 21.8,
+      "typical": 19.4,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 22.75,
+      "max": 27.25,
+      "typical": 24.25,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 410,
+      "max": 545,
+      "typical": 470,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 0.05,
+      "max": 0.05,
+      "typical": 0.05,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 63.7,
+      "max": 76.3,
+      "typical": 67.9,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.2,
+      "max": 0.2,
+      "typical": 0.2,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "price_per_cm3": {
+      "min": 0.0131,
+      "max": 0.0393,
+      "typical": 0.0262,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"TPE\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=TPE",
+      "verified": false
+    },
+    {
+      "label": "Kraton SEBS / SBS thermoplastic elastomer",
+      "url": "https://www.kraton.com/",
+      "verified": false
+    },
+    {
+      "label": "Mitsubishi Tefabloc TPE-SBC",
+      "url": "https://www.mcc-tef.com/en/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.05,
+      21.8,
+      27.250000000000004,
+      545,
+      0.05,
+      76.30000000000001,
+      0.2
+    ],
+    [
+      1.05,
+      21.8,
+      27.250000000000004,
+      445,
+      0.05,
+      76.30000000000001,
+      0.2
+    ],
+    [
+      1.05,
+      19.4,
+      24.25,
+      535,
+      0.05,
+      67.89999999999999,
+      0.2
+    ],
+    [
+      1.05,
+      19.6,
+      24.5,
+      440,
+      0.05,
+      68.6,
+      0.2
+    ],
+    [
+      1.05,
+      19,
+      23.75,
+      525,
+      0.05,
+      66.5,
+      0.2
+    ],
+    [
+      1.05,
+      18.2,
+      22.75,
+      505,
+      0.05,
+      63.7,
+      0.2
+    ],
+    [
+      1.05,
+      21.8,
+      27.250000000000004,
+      445,
+      0.05,
+      76.30000000000001,
+      0.2
+    ],
+    [
+      1.05,
+      19,
+      23.75,
+      525,
+      0.05,
+      66.5,
+      0.2
+    ],
+    [
+      1.05,
+      19.4,
+      24.25,
+      435.00000000000006,
+      0.05,
+      67.89999999999999,
+      0.2
+    ],
+    [
+      1.05,
+      18.6,
+      23.25,
+      515,
+      0.05,
+      65.10000000000001,
+      0.2
+    ],
+    [
+      1.05,
+      19.4,
+      24.25,
+      535,
+      0.05,
+      67.89999999999999,
+      0.2
+    ],
+    [
+      1.05,
+      18.4,
+      23,
+      410.00000000000006,
+      0.05,
+      64.4,
+      0.2
+    ],
+    [
+      1.05,
+      18.8,
+      23.5,
+      470.00000000000006,
+      0.05,
+      65.8,
+      0.2
+    ],
+    [
+      1.05,
+      18.4,
+      23,
+      410.00000000000006,
+      0.05,
+      64.4,
+      0.2
+    ],
+    [
+      1.05,
+      21.8,
+      27.250000000000004,
+      445,
+      0.05,
+      76.30000000000001,
+      0.2
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Elastomer",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon (FDM/SLS)",
+      "Polymer - Photopolymer Resin (SLA)",
+      "Polymer - Polyethylene"
+    ],
+    "conditions": [
+      "Impact Modified",
+      "Toughened",
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "UV Stabilized"
+    ],
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.05,
+  "yield_strength": 19.4,
+  "uts": 24.25,
+  "elongation": 470,
+  "modulus": 0.05,
+  "hardness": 67.9,
+  "thermal_conductivity": 0.2,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polyethylene"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0262,
+  "popularity": 3.92,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "TPE (Thermoplastic Elastomer) — generic class (TPE-S / TPE-O / TPE-V / TPE-A). Most common = TPE-S (SBC, Styrene-Butadiene-Styrene block copolymer). Tg ≈ -30°C, max service 70-120°C (grade dependent). σy 10-30 / UTS 15-30 / El 400-1000% / Shore A 5-95. 일반 rubber 와 다르게 thermoplastic — 재가공 가능 (rubber 보다 lower cost recycling). Toothbrush grip, 어린이 장난감, 의료 grip, 자동차 seal, 가전 cushion, 케이블 jacket."
+}

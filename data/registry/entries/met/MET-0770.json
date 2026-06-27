@@ -1,0 +1,310 @@
+{
+  "stable_id": "MET-0770",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-15-7-ph",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0155",
+  "origin": "reference(supplementary)",
+  "id": "R_0155",
+  "name": "15-7 PH",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1310,
+      "max": 1380,
+      "typical": 1380,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1346.6,
+      "max": 1549.4,
+      "typical": 1448,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 7,
+      "typical": 7,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 440,
+      "max": 460,
+      "typical": 460,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 552,
+      "max": 800,
+      "typical": 690,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (ASM Vol.19 Martensitic SS)"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 80,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Ferritic"
+    },
+    "fracture_toughness": {
+      "min": 35,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 PH SS general"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "max_service_temp": {
+      "min": 552.5,
+      "max": 747.5,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "thermal_expansion": {
+      "min": 8.67,
+      "max": 11.73,
+      "typical": 10.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "poisson_ratio": {
+      "min": 0.238,
+      "max": 0.322,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "melting_point": {
+      "min": 1258,
+      "max": 1702,
+      "typical": 1480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_kg": {
+      "min": 2.975,
+      "max": 4.025,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0232,
+      "max": 0.0314,
+      "typical": 0.0273,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.68,
+      "max": 3.68,
+      "typical": 3.68,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "14~16",
+    "Ni": "6.5~7.75",
+    "Mo": "2~3",
+    "Al": "0.75~1.5"
+  },
+  "sources": [
+    {
+      "label": "AK Steel — 15-7 PH (UNS S15700, RH950)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 PH SS general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AK Steel — PH 15-7 Mo Stainless Reference",
+      "url": "https://www.aksteel.com/",
+      "verified": false
+    },
+    {
+      "label": "AMS 5520 — 15-7 PH (PH 15-7 Mo) sheet/strip",
+      "url": "https://www.sae.org/standards/content/ams5520/",
+      "verified": false
+    },
+    {
+      "label": "Aircraft Materials — PH 15-7 Mo Stainless (AMS 5520 / UNS S15700): 조성+Condition A/TH1050/RH950/C/CH900 인장·경도 풀 조건표",
+      "url": "https://www.aircraftmaterials.com/data/alstst/15-7.html",
+      "verified": false
+    },
+    {
+      "label": "AK Steel — PH 15-7 Mo Stainless 제품 데이터시트 (UNS S15700, AMS 5520)",
+      "url": "https://www.spacematdb.com/spacemat/manudatasheets/15-7_Mo_Data_Sheet.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      1380,
+      1550,
+      7,
+      200,
+      460,
+      16
+    ],
+    [
+      7.8,
+      1310,
+      1480,
+      5,
+      200,
+      440,
+      16
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS S15700 / EN 1.4532 / X8CrNiMoAl15-7-2 — 17-7 PH 의 Mo-enhanced 변종 (Mo 2-3% 추가 for higher service temp 650°C). RH 950: σy 1380 / UTS 1550 / El 6%. Tmax 650°C continuous (17-7 PH 의 315°C 대비 2× 향상). 항공 jet engine secondary structural / 미사일 actuator, high-T spring.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5520",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS S15700",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 690,
+  "density": 7.8,
+  "yield_strength": 1380,
+  "uts": 1550,
+  "elongation": 7,
+  "modulus": 200,
+  "hardness": 460,
+  "thermal_conductivity": 16,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "AK Steel — 15-7 PH (UNS S15700, RH950)",
+  "aliases": [
+    "UNS S15700",
+    "EN 1.4568",
+    "15-7 PH"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 10.2,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0273,
+  "popularity": 3.3,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.68,
+  "total_cost_estimate": 3.68,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 7.75% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,363 @@
+{
+  "stable_id": "MET-0523",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-haynes-230",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0011",
+  "origin": "reference(supplementary)",
+  "id": "R_0011",
+  "name": "Haynes 230",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Haynes International"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution Annealed (1230°C WQ) — standard mill product",
+  "ranges": {
+    "density": {
+      "min": 8.97,
+      "max": 8.97,
+      "typical": 8.97,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 310,
+      "max": 450,
+      "typical": 390,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 760,
+      "max": 910,
+      "typical": 860,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 42,
+      "max": 50,
+      "typical": 48,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 211,
+      "max": 211,
+      "typical": 211,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 190,
+      "max": 240,
+      "typical": 210,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 8.9,
+      "max": 8.9,
+      "typical": 8.9,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 250,
+      "max": 350,
+      "typical": 300,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:haynes230"
+    },
+    "impact_strength": {
+      "min": 50,
+      "max": 90,
+      "typical": 70,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:haynes230"
+    },
+    "fracture_toughness": {
+      "min": 75,
+      "max": 75,
+      "typical": 75,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes230"
+    },
+    "max_service_temp": {
+      "min": 1149,
+      "max": 1149,
+      "typical": 1149,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes230"
+    },
+    "thermal_expansion": {
+      "min": 12.7,
+      "max": 12.7,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes230"
+    },
+    "poisson_ratio": {
+      "min": 0.31,
+      "max": 0.31,
+      "typical": 0.31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes230"
+    },
+    "specific_heat": {
+      "min": 397,
+      "max": 397,
+      "typical": 397,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes230"
+    },
+    "melting_point": {
+      "min": 1290,
+      "max": 1290,
+      "typical": 1290,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes230"
+    },
+    "price_per_kg": {
+      "min": 60,
+      "max": 110,
+      "typical": 85,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Haynes International H230 bar Q2 2026"
+    },
+    "price_per_cm3": {
+      "min": 0.6481,
+      "max": 0.8769,
+      "typical": 0.7625,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "20~24",
+    "W": "13~15",
+    "Mo": "1~3",
+    "Fe": "≤3",
+    "Co": "≤5",
+    "Mn": "0.3~1",
+    "Si": "0.25~0.75",
+    "C": "0.05~0.15"
+  },
+  "sources": [
+    {
+      "label": "Haynes International — Haynes 230 Alloy",
+      "url": "https://haynesintl.com/en/alloys/alloy/haynes-230-alloy",
+      "verified": true
+    },
+    {
+      "label": "Haynes International / Aircraft Materials — Haynes 230 (N06230)",
+      "url": "https://www.aircraftmaterials.com/data/nickel/230.html",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Haynes International",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Haynes International — Haynes 230 datasheet",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HAYNES230alloy",
+      "verified": true
+    },
+    {
+      "label": "ASTM B435 — Ni-Cr-W-Mo alloy plate/sheet",
+      "url": "https://store.astm.org/b0435-17.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.97,
+      390,
+      860,
+      48,
+      211,
+      95,
+      8.9
+    ],
+    [
+      8.97,
+      310,
+      760,
+      42,
+      211,
+      90,
+      8.9
+    ],
+    [
+      8.97,
+      450,
+      910,
+      50,
+      211,
+      100,
+      8.9
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS N06230 / EN 2.4733 / NiCr22W14Mo — solid-solution-strengthened Ni-Cr-W-Mo alloy (Ni 57 bal, Cr 22, W 14, Mo 2, Co ≤5, Fe ≤3, Mn 0.5, Si 0.4, La 0.005-0.05). La 첨가로 oxide layer adhesion 우수. AM LPBF 가스 터빈 combustor liner, transition piece (현재 ME 가스 터빈 표준), 산업 furnace fixture, 항공 nozzle.",
+  "meta": {
+    "reference": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Haynes 230",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B435",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 75,
+  "fatigue_strength": 300,
+  "density": 8.97,
+  "yield_strength": 390,
+  "uts": 860,
+  "elongation": 48,
+  "modulus": 211,
+  "hardness": 210,
+  "thermal_conductivity": 8.9,
+  "impact_strength": 70,
+  "manufacturer": "Haynes International",
+  "process": "Wrought",
+  "source": "Haynes International — Haynes 230 Alloy",
+  "aliases": [
+    "UNS N06230",
+    "EN 2.4733",
+    "NiCr22W14Mo",
+    "Alloy 230"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 390,
+      "uts": 860,
+      "E": 211
+    },
+    {
+      "temp": 760,
+      "ys": 285,
+      "uts": 575,
+      "E": null
+    },
+    {
+      "temp": 870,
+      "ys": 250,
+      "uts": 420,
+      "E": null
+    },
+    {
+      "temp": 980,
+      "ys": 180,
+      "uts": 280,
+      "E": 130
+    }
+  ],
+  "electrical_conductivity": 1,
+  "max_service_temp": 1149,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.31,
+  "specific_heat": 397,
+  "melting_point": 1290,
+  "price_per_kg": 80,
+  "price_per_cm3": 0.7625,
+  "popularity": 3.15,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 105,
+  "total_cost_estimate": 273,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "creep_rupture": [
+    {
+      "temp": 800,
+      "stress": 165,
+      "hours": 100
+    },
+    {
+      "temp": 900,
+      "stress": 90,
+      "hours": 1000
+    },
+    {
+      "temp": 1000,
+      "stress": 35,
+      "hours": 1000
+    }
+  ],
+  "story": "Haynes 230 은 1984년 미국 Cabot Corporation (현재 Haynes International, Indiana 주 Kokomo) 이 개발한 Ni-Cr-W-Mo solid-solution superalloy 입니다. Ni 57% + Cr 22% + W 14% + Mo 2% + La 0.02% 의 조성에서 La (lanthanum) 가 핵심 — 0.02% 의 미량 첨가만으로 oxide-stabilization 이 일어나 1000-1200°C 의 cyclic oxidation 환경에서 다른 Ni alloy (Inconel 617, Hastelloy X) 보다 훨씬 안정적입니다.\n\n응용 — A-USC (Advanced Ultra-Supercritical) steam turbine 의 700°C+ steam header (한국 두산에너빌리티의 GE 9HA gas turbine combustor liner), industrial gas turbine 의 combustor / transition piece, 화학 plant 의 ethylene cracking furnace tube (1100°C service), 항공 엔진 afterburner duct (F119 / F135 engine), 우주 추진 시스템, 유리 furnace 의 melting tank component. 1100°C 의 stress-rupture 1000h 강도가 25 MPa.\n\nWelding 우수 (γ' Vf < 5%) — ERNiCrWMo-1 (AMS 5839) matching filler. Pre-heat 미요, inter-pass < 175°C. PWHT 1050°C / 1h / AC (homogenization). 1980년대 후반부터 Inconel 617 의 더 안정적 대체로 자리잡았고, 한국 한국전력기술 (KOPEC) 의 차세대 boiler design 에서 standard high-T 부품 material 로 spec 됩니다.",
+  "story_refs": [
+    "AMS 5878 (Haynes 230 sheet)",
+    "AMS 5839 (Haynes 230 filler)",
+    "Haynes International 'HAYNES 230 alloy Technical Data Sheet' (revised 2017)",
+    "Klarstrom D L (1995) 'A New Nickel-Based Superalloy for High-Temperature Applications', J Mater Eng Performance 4"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,371 @@
+{
+  "stable_id": "MET-0374",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c11000",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "G_0135",
+  "origin": "generic(csv)",
+  "id": "G_0135",
+  "name": "C11000 — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 8.94,
+      "max": 8.94,
+      "typical": 8.94,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 50,
+      "max": 350,
+      "typical": 70,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 220,
+      "max": 380,
+      "typical": 220,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 55,
+      "typical": 35,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 120,
+      "typical": 110,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 40,
+      "max": 100,
+      "typical": 50,
+      "n": 10,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 401,
+      "max": 401,
+      "typical": 401,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 70,
+      "max": 110,
+      "typical": 90,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 140,
+      "typical": 100,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "thermal_expansion": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "specific_heat": {
+      "min": 385,
+      "max": 385,
+      "typical": 385,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "melting_point": {
+      "min": 1083,
+      "max": 1083,
+      "typical": 1083,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "price_per_kg": {
+      "min": 9.5,
+      "max": 9.5,
+      "typical": 9.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "price_per_cm3": {
+      "min": 0.0851,
+      "max": 0.0851,
+      "typical": 0.0851,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "delivered_price_per_kg": {
+      "min": 9.97,
+      "max": 9.97,
+      "typical": 9.97,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "≥99.90",
+    "O": "≤0.04 (ETP) / ≤0.005 (DLP)"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C11000 ETP Copper",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"C11000\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C11000",
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — C11000 ETP",
+      "url": "https://www.copper.org/resources/properties/",
+      "verified": true
+    },
+    {
+      "label": "ASTM B187 — ETP Bus Conductor",
+      "url": "https://store.astm.org/b0187_b0187m-19.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.96,
+      65.10000000000001,
+      186,
+      37.35,
+      110,
+      37.2,
+      401
+    ],
+    [
+      8.96,
+      73.5,
+      210,
+      47.25,
+      110,
+      42,
+      401
+    ],
+    [
+      8.96,
+      67.89999999999999,
+      194,
+      48.150000000000006,
+      110,
+      38.8,
+      401
+    ],
+    [
+      8.96,
+      70.7,
+      202,
+      36.45,
+      110,
+      40.4,
+      401
+    ],
+    [
+      8.96,
+      71.4,
+      204,
+      45.9,
+      110,
+      40.8,
+      401
+    ],
+    [
+      8.96,
+      69.3,
+      198,
+      44.55,
+      110,
+      39.6,
+      401
+    ],
+    [
+      8.96,
+      69.3,
+      198,
+      44.55,
+      110,
+      39.6,
+      401
+    ],
+    [
+      8.96,
+      67.2,
+      192,
+      43.2,
+      110,
+      38.4,
+      401
+    ],
+    [
+      8.96,
+      76.30000000000001,
+      218.00000000000003,
+      49.05,
+      110,
+      43.6,
+      401
+    ],
+    [
+      8.96,
+      71.4,
+      204,
+      41.4,
+      110,
+      40.8,
+      401
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 10,
+    "subcategory_variants": [
+      "Copper - Pure/Other",
+      "Titanium - Pure/Other"
+    ],
+    "conditions": [
+      "Pure Copper"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B187",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 90,
+  "density": 8.94,
+  "yield_strength": 70,
+  "uts": 220,
+  "elongation": 35,
+  "modulus": 110,
+  "hardness": 50,
+  "thermal_conductivity": 401,
+  "impact_strength": 100,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "Copper.org — C11000 ETP Copper",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Copper - Pure/Other",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 100,
+  "max_service_temp": 250,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.34,
+  "specific_heat": 385,
+  "melting_point": 1083,
+  "price_per_kg": 9.5,
+  "price_per_cm3": 0.0851,
+  "popularity": 4.15,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 9.97,
+  "total_cost_estimate": 8.98,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "C11000 (Electrolytic Tough Pitch, ETP) Cu 는 1865년 영국 제임스 엘킹턴 (James Elkington) 이 전해 정련 공정을 발명한 직후부터 표준 conductor 자리에 올랐어요. 99.90% Cu + 200~400 ppm 산소 (소량의 Cu₂O 입자 형태로 결정 boundary 에 분포 → P, S 같은 불순물을 oxide 로 트랩핑) 가 ETP 의 비결입니다.\n\n응용 — 전기 — 송전선 (이중선·고전압 grid), 모터 권선 (Tesla Model 3 의 rear motor 가 Cu rotor), 변압기 권선, 통신 케이블 (CAT-6 Ethernet), 빌딩 — 지붕 (Buckingham Palace, Statue of Liberty 의 패티나 표면), 가스 배관 (LP gas indoor piping), 가구 — kitchen 동냄비. 1960년대 H₂ 분위기 annealing 시 H + O → H₂O 입계 균열 ('hydrogen embrittlement') 이 발견되면서 진공 / 수소 분위기 응용은 oxygen-free OFE (C10100) 또는 OFHC (C10200) 로 전환됐죠.",
+  "story_refs": [
+    "ASTM B187 / B187M \"Standard Specification for Copper, Bus Bar, Rod, and Shapes\"",
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Elkington J B (1865) UK Patent 2,838 \"Improvements in the electrolytic refining of copper\""
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS C11000 / EN CW004A / Cu-ETP — Electrolytic Tough Pitch copper (Cu ≥99.90, O 0.02-0.05 — dissolved 산소가 brittle Cu₂O 형성)."
+}

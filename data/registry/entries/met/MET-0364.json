@@ -1,0 +1,318 @@
+{
+  "stable_id": "MET-0364",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-beryllium-copper-c17200-cube2",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0057_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0057_1",
+  "name": "Beryllium Copper C17200 (CuBe2) — TH04 — cold rolled 37% + peak age hardened (high strength)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Materion (BeCu)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "TH04 — cold rolled 37% + peak age hardened (high strength)",
+  "ranges": {
+    "density": {
+      "min": 8.25,
+      "max": 8.25,
+      "typical": 8.25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1050,
+      "max": 1050,
+      "typical": 1050,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1235,
+      "max": 1235,
+      "typical": 1235,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 132,
+      "max": 132,
+      "typical": 132,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 341,
+      "max": 495,
+      "typical": 418,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200 × HT:TH04 CW+aged (high strength) (f×1.1, i×0.4)"
+    },
+    "impact_strength": {
+      "min": 6,
+      "max": 16,
+      "typical": 10,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200 × HT:TH04 CW+aged (high strength) (f×1.1, i×0.4)"
+    },
+    "fracture_toughness": {
+      "min": 52.5,
+      "max": 52.5,
+      "typical": 52.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:TH04 CW+aged (high strength) (k×0.75)"
+    },
+    "electrical_conductivity": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "thermal_expansion": {
+      "min": 17.5,
+      "max": 17.5,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "specific_heat": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "melting_point": {
+      "min": 980,
+      "max": 980,
+      "typical": 980,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c17200"
+    },
+    "price_per_kg": {
+      "min": 75,
+      "max": 130,
+      "typical": 95,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Materion C17200 bar Q2 2026 (Be 2% premium)"
+    },
+    "price_per_cm3": {
+      "min": 0.6661,
+      "max": 0.9013,
+      "typical": 0.7837,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 47.46,
+      "max": 47.46,
+      "typical": 47.46,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "97~98",
+    "Be": "1.8~2",
+    "Co": "0.1~0.2",
+    "Ni": "0.1~0.2"
+  },
+  "sources": [
+    {
+      "label": "Materion — C17200 Beryllium Copper Alloy 25",
+      "url": "https://www.materion.com/products/alloys-and-composites/copper-beryllium/c17200",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 7xxx Al-Zn",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Materion C17200 (Alloy 25) datasheet",
+      "url": "https://materion.com/-/media/files/alloy/datasheets/copper-beryllium/alloy-25-strip-rod.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASTM B194 — CuBe2 plate/sheet/strip/bar",
+      "url": "https://store.astm.org/b0194-15.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.25,
+      1050,
+      1235,
+      3.5,
+      132,
+      400,
+      95
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS C17200 / EN CW101C / CuBe2 / Alloy 25 / DIN 2.1247 — precipitation-hardenable Cu-Be alloy (Cu bal, Be 1.8-2.0, Ni+Co 0.20-0.6). 가장 strong copper alloy. TF00 (peak TH04 (CW 37% + IACS 22-25% (steel 보다 5× conductive). Non-sparking — petrochemical / 위험 환경 hand tool, mold pin, electrical contact spring, oil/gas drilling. ⚠ Be dust inhalation 강한 발암성 (NIOSH carcinogen, OSHA PEL 0.2 μg/m³).",
+  "meta": {
+    "reference": true,
+    "condition": "TH04 — cold rolled 37% + peak age hardened (high strength)",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Beryllium Copper C17200",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B194",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 52.5,
+  "fatigue_strength": 418,
+  "density": 8.25,
+  "yield_strength": 1050,
+  "uts": 1235,
+  "elongation": 3.5,
+  "modulus": 132,
+  "hardness": 400,
+  "thermal_conductivity": 95,
+  "impact_strength": 10,
+  "manufacturer": "Materion (BeCu)",
+  "process": "Wrought",
+  "source": "Materion — C17200 Beryllium Copper Alloy 25",
+  "aliases": [
+    "CuBe2",
+    "UNS C17200",
+    "EN CW101C",
+    "Alloy 25",
+    "Beryllium copper"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 22,
+  "max_service_temp": 200,
+  "thermal_expansion": 17.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 980,
+  "price_per_kg": 40,
+  "price_per_cm3": 0.7837,
+  "popularity": 3.07,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 47.46,
+  "total_cost_estimate": 42.71,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Be 2% — 호흡기 유해 (베릴륨 분진), CMR Cat.1",
+    "Co 0.2% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1100,
+      "uts": 1280,
+      "E": 128
+    },
+    {
+      "temp": 200,
+      "ys": 900,
+      "uts": 1100,
+      "E": 124
+    },
+    {
+      "temp": 300,
+      "ys": 600,
+      "uts": 800,
+      "E": 115
+    }
+  ],
+  "story": "1932년 미국 Brush Beryllium Company (현 Materion) 의 화학자 찰스 소이어 (Charles Sawyer) 가 Cu 에 Be 2% 정도를 첨가해 시효 경화시키면 인장강도가 1380 MPa 까지 올라간다는 사실을 발견합니다. 비슷한 시기 BeCu 가 전기 전도도 22% IACS, σ_y 1100 MPa — 강도와 전도성을 동시에 갖춘 거의 유일한 합금이라는 점도 명확해졌어요.\n\n가장 유명한 응용은 '비-스파크 (non-sparking)' 도구입니다. BeCu 망치, 렌치, 스크루드라이버는 강한 충격에도 불꽃이 튀지 않아 폭발 위험이 있는 정유 refinery, 가스 plant, 광산에서 표준이에요. NASA 의 Apollo 우주복 zipper 의 metal pull 도 BeCu — 산소 풍부 환경에서 스파크가 발생하지 않도록 한 거죠.\n\n항공·우주에서는 spring contact, bushing, bearing race 의 단골입니다. 보잉 787 의 landing gear hinge bushing, 우주 셔틀 RMS robot arm joint, Hubble 망원경의 secondary mirror gimbal 같은 정밀 movement 부품에 쓰여요. 단점은 Be 가루 흡입 시 chronic beryllium disease (CBD) — 그래서 가공 공정에서 엄격한 환기와 봉인이 필수입니다.",
+  "story_refs": [
+    "Sawyer C B (1932) US Patent 1,907,757 (Brush Beryllium) \"Copper-beryllium alloy\"",
+    "Materion Corp \"Alloy 25 (C17200) Technical Data Sheet\" (2022)",
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
+  ],
+  "confidence_tier": "high"
+}

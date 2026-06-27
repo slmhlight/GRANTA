@@ -1,0 +1,413 @@
+{
+  "stable_id": "POL-0071",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide-gf",
+    "alloy_base": "F-AB-nylon-6-gf30",
+    "element_families": []
+  },
+  "legacy_id": "G_0182",
+  "origin": "generic(csv)",
+  "id": "G_0182",
+  "name": "Nylon 6 GF30 — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide GF",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.37,
+      "max": 1.37,
+      "typical": 1.37,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 145.6,
+      "max": 174.4,
+      "typical": 155.2,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 163.8,
+      "max": 196.2,
+      "typical": 174.6,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 6.56,
+      "max": 8.72,
+      "typical": 7.52,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 118.3,
+      "max": 141.7,
+      "typical": 126.1,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "max_service_temp": {
+      "min": 55,
+      "max": 165,
+      "typical": 110,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 27.5,
+      "max": 82.5,
+      "typical": 55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0343,
+      "max": 0.1028,
+      "typical": 0.0685,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Nylon GF (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "MatWeb — Nylon 6 (PA6)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+6",
+      "verified": false
+    },
+    {
+      "label": "BASF Ultramid / EOS PA powder",
+      "url": "https://www.eos.info/3d-printing-materials/polymer",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "BASF Ultramid B (PA6) technical guide",
+      "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
+      "verified": true
+    },
+    {
+      "label": "Lanxess Durethan PA6",
+      "url": "https://lanxess.com/en/Products-and-Solutions/Products/D/DURETHAN-B-30-S",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — PA6 general engineering",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PA6",
+      "verified": false
+    },
+    {
+      "label": "BASF Ultramid B3WG6 (PA6 GF30) reference",
+      "url": "https://www.basf.com/",
+      "verified": false
+    },
+    {
+      "label": "Tepex E-glass woven fabric reinforced PA6 (LANXESS)",
+      "url": "https://lanxess.com/en/Products-and-Solutions/Products/T/Tepex",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.37,
+      155.2,
+      174.6,
+      8.56,
+      8,
+      126.1,
+      0.3
+    ],
+    [
+      1.37,
+      156.8,
+      176.4,
+      7.04,
+      8,
+      127.4,
+      0.3
+    ],
+    [
+      1.37,
+      152,
+      171,
+      8.4,
+      8,
+      123.5,
+      0.3
+    ],
+    [
+      1.37,
+      145.6,
+      163.8,
+      8.08,
+      8,
+      118.3,
+      0.3
+    ],
+    [
+      1.37,
+      174.4,
+      196.2,
+      7.12,
+      8,
+      141.70000000000002,
+      0.3
+    ],
+    [
+      1.37,
+      152,
+      171,
+      8.4,
+      8,
+      123.5,
+      0.3
+    ],
+    [
+      1.37,
+      155.2,
+      174.6,
+      6.960000000000001,
+      8,
+      126.1,
+      0.3
+    ],
+    [
+      1.37,
+      148.8,
+      167.4,
+      8.24,
+      8,
+      120.9,
+      0.3
+    ],
+    [
+      1.37,
+      174.4,
+      196.2,
+      8.72,
+      8,
+      141.70000000000002,
+      0.3
+    ],
+    [
+      1.37,
+      155.2,
+      174.6,
+      8.56,
+      8,
+      126.1,
+      0.3
+    ],
+    [
+      1.37,
+      147.20000000000002,
+      165.6,
+      6.5600000000000005,
+      8,
+      119.6,
+      0.3
+    ],
+    [
+      1.37,
+      150.4,
+      169.20000000000002,
+      7.52,
+      8,
+      122.2,
+      0.3
+    ],
+    [
+      1.37,
+      147.20000000000002,
+      165.6,
+      6.5600000000000005,
+      8,
+      119.6,
+      0.3
+    ],
+    [
+      1.37,
+      174.4,
+      196.2,
+      7.12,
+      8,
+      141.70000000000002,
+      0.3
+    ],
+    [
+      1.37,
+      174.4,
+      196.2,
+      7.12,
+      8,
+      141.70000000000002,
+      0.3
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon GF (FDM)"
+    ],
+    "conditions": [
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Impact Modified",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "moisture_24h": 2.5,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.37,
+  "yield_strength": 155.2,
+  "uts": 174.6,
+  "elongation": 7.52,
+  "modulus": 8,
+  "hardness": 126.1,
+  "thermal_conductivity": 0.3,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "MatWeb — Nylon 6 (PA6)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Nylon GF (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 110,
+  "thermal_expansion": 90,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 55,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.0685,
+  "popularity": 4.92,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 50,
+  "total_cost_estimate": 35,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "Nylon 6 GF30 은 PA6 base 에 30% 의 chopped glass fiber 를 반죽한 fiber-reinforced thermoplastic 입니다. 1955년 미국 Owens-Corning 이 'chopped strand mat' 의 PA6 강화 가능성을 발표한 게 시작이고, 1965년 BASF / DuPont 이 본격 상품화했어요. Glass fiber (E-glass, 3-mm chopped) 가 사출 흐름에 정렬되어 isotropic 이 아닌 anisotropic 강화 효과를 냅니다.\n\nPA6 base 의 σy 70 MPa, modulus 2.5 GPa 가 GF30 강화 시 σy 130-160 MPa, modulus 8-10 GPa 로 거의 2-3 배 강화됩니다. 또한 PA6 base 의 흡수에 따른 dimension 변화도 GF30 강화 시 1.5% → 0.5% 로 1/3 줄어들어 dimensional stability 가 결정적으로 개선돼요. Tg 와 HDT 도 60°C → 200°C 로 향상.\n\n응용: 자동차 engine intake manifold (BMW · Mercedes 의 표준 underhood polymer), gear shifter housing, EV charging connector 의 housing (CCS / CHAdeMO 충전 plug), 자전거 derailleur cage, 공구 housing (Bosch / Makita 의 cordless drill 의 main shell), 그리고 가전 motor housing (washing machine drum bearing housing). 단점은 GF 가 마모성을 갖는 점 — sliding 부속에는 PA6-GF 대신 PA6 + PTFE filled 또는 acetal (POM) 이 검토됩니다. 가격은 base PA6 ($3/kg) → GF30 강화 ($4-5/kg) 이지만 강도가 거의 2 배인데 가격은 30% 만 올라가서 cost-effective 한 'metal replacement' 의 표준 polymer 가 됐어요.",
+  "story_refs": [
+    "Brydson J A (1999) Plastics Materials 7th ed., Butterworth-Heinemann",
+    "BASF Ultramid B3WG6 (PA6-GF30) Tech Data Sheet",
+    "Kohan M I (1995) Nylon Plastics Handbook"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Nylon 6 (PA6, Polycaprolactam) — semi-crystalline thermoplastic. Tg (dry) ≈ 60°C, Tm ≈ 220°C, HDT (1.8 MPa) ≈ 70°C unfilled, max service 110°C. σy 70-85 / UTS 70-95 / El 30-200% / E 2.7-3.3 GPa / ρ 1.13-1.14 g/cc. 흡습률 9-10% (PA66 의 3× — most water-absorbent common polymer) → 강도 30% 감소 (DAM vs RH50%). 가공 쉬움 (Tm 낮음 vs PA66). 자동차 trim, 카펫 섬유, 어망, 의류 fiber, 일반 enclosure. GF30 grade σy 100-145 / E 7-9 (자동차 underhood)."
+}

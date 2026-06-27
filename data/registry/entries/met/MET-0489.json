@@ -1,0 +1,248 @@
+{
+  "stable_id": "MET-0489",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-microalloyed-steel",
+    "alloy_base": "F-AB-38mnvs6-microalloyed-forging",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0374_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0374_0",
+  "name": "38MnVS6 (microalloyed forging) — automotive crankshaft — As-Forged (controlled cooled, no Q+T)",
+  "category": "Metal",
+  "subcategory": "Microalloyed Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Forged"
+  ],
+  "heat_treatment": "As-Forged (controlled cooled, no Q+T)",
+  "ranges": {
+    "density": {
+      "min": 7.84,
+      "max": 7.84,
+      "typical": 7.84,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 580,
+      "max": 580,
+      "typical": 580,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 396,
+      "max": 396,
+      "typical": 396,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Microalloyed Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Microalloyed Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Microalloyed Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Microalloyed Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Microalloyed Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Microalloyed Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Microalloyed Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Microalloyed Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.83,
+      "max": 2.83,
+      "typical": 2.83,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.34~0.41",
+    "Mn": "1.20~1.60",
+    "V": "0.08~0.20",
+    "Si": "0.15~0.80",
+    "S": "0.020~0.060",
+    "Cr": "≤0.30"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://bgh.de/en/materials/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.84,
+      580,
+      880,
+      12,
+      210,
+      280,
+      42
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "BMW B57, VW EA288, MAN D2868 crankshaft & connecting rod standard; V-microalloyed pearlite-ferrite from forge heat saves ~50% cost vs 4140 Q+T (no separate heat-treat); free-machining S-modification (BY-mark).",
+  "meta": {
+    "reference": true,
+    "condition": "As-Forged (controlled cooled, no Q+T)"
+  },
+  "density": 7.84,
+  "yield_strength": 580,
+  "uts": 880,
+  "elongation": 12,
+  "modulus": 210,
+  "hardness": 280,
+  "thermal_conductivity": 42,
+  "fatigue_strength": 396,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Forged",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Microalloyed Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.15,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.83,
+  "total_cost_estimate": 2.55,
+  "tolerance_class": "IT12-14",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

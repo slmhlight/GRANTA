@@ -1,0 +1,420 @@
+{
+  "stable_id": "POL-0041",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pes",
+    "alloy_base": "F-AB-pes",
+    "element_families": []
+  },
+  "legacy_id": "G_0174",
+  "origin": "generic(csv)",
+  "id": "G_0174",
+  "name": "PES — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PES",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.37,
+      "max": 1.37,
+      "typical": 1.37,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 68.25,
+      "max": 81.75,
+      "typical": 72.75,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 77.35,
+      "max": 92.65,
+      "typical": 82.45,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 41,
+      "max": 54.5,
+      "typical": 47,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 2.6,
+      "max": 2.6,
+      "typical": 2.6,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 86.45,
+      "max": 103.6,
+      "typical": 92.15,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.24,
+      "max": 0.24,
+      "typical": 0.24,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PES (FDM)"
+    },
+    "max_service_temp": {
+      "min": 90,
+      "max": 270,
+      "typical": 180,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PES (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PES (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PES (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PES (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 112.5,
+      "max": 337.5,
+      "typical": 225,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PES (FDM)"
+    },
+    "price_per_kg": {
+      "min": 100,
+      "max": 300,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PES (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.137,
+      "max": 0.411,
+      "typical": 0.274,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PES (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Solvay Veradel PES",
+      "url": "https://www.syensqo.com/en/product/veradel-pes",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"PES\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PES",
+      "verified": false
+    },
+    {
+      "label": "BASF Ultrason E PESU",
+      "url": "https://www.basf.com/global/en/products/plastics/engineering-plastics/ultrason.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.37,
+      81.75,
+      92.65,
+      54.50000000000001,
+      2.6,
+      103.55,
+      0.24
+    ],
+    [
+      1.37,
+      72.75,
+      82.45,
+      53.5,
+      2.6,
+      92.15,
+      0.24
+    ],
+    [
+      1.37,
+      73.5,
+      83.3,
+      44,
+      2.6,
+      93.1,
+      0.24
+    ],
+    [
+      1.37,
+      71.25,
+      80.75,
+      52.5,
+      2.6,
+      90.25,
+      0.24
+    ],
+    [
+      1.37,
+      68.25,
+      77.35000000000001,
+      50.5,
+      2.6,
+      86.45,
+      0.24
+    ],
+    [
+      1.37,
+      81.75,
+      92.65,
+      44.5,
+      2.6,
+      103.55,
+      0.24
+    ],
+    [
+      1.37,
+      71.25,
+      80.75,
+      52.5,
+      2.6,
+      90.25,
+      0.24
+    ],
+    [
+      1.37,
+      72.75,
+      82.45,
+      43.50000000000001,
+      2.6,
+      92.15,
+      0.24
+    ],
+    [
+      1.37,
+      69.75,
+      79.05,
+      51.5,
+      2.6,
+      88.35000000000001,
+      0.24
+    ],
+    [
+      1.37,
+      72.75,
+      82.45,
+      53.5,
+      2.6,
+      92.15,
+      0.24
+    ],
+    [
+      1.37,
+      69,
+      78.2,
+      41,
+      2.6,
+      87.4,
+      0.24
+    ],
+    [
+      1.37,
+      70.5,
+      79.9,
+      47,
+      2.6,
+      89.30000000000001,
+      0.24
+    ],
+    [
+      1.37,
+      69,
+      78.2,
+      41,
+      2.6,
+      87.4,
+      0.24
+    ],
+    [
+      1.37,
+      81.75,
+      92.65,
+      44.5,
+      2.6,
+      103.55,
+      0.24
+    ],
+    [
+      1.37,
+      81.75,
+      92.65,
+      44.5,
+      2.6,
+      103.55,
+      0.24
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon (FDM/SLS)",
+      "Polymer - PES (FDM)"
+    ],
+    "conditions": [
+      "Impact Modified",
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.37,
+  "yield_strength": 72.75,
+  "uts": 82.45,
+  "elongation": 47,
+  "modulus": 2.6,
+  "hardness": 92.15,
+  "thermal_conductivity": 0.24,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "Solvay Veradel PES",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PES (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 180,
+  "thermal_expansion": 50,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 225,
+  "price_per_kg": 200,
+  "price_per_cm3": 0.274,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 200,
+  "total_cost_estimate": 140,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 84,
+      "uts": 90,
+      "E": 2.6
+    },
+    {
+      "temp": 100,
+      "ys": 70,
+      "uts": 75,
+      "E": 2.4
+    },
+    {
+      "temp": 150,
+      "ys": 55,
+      "uts": 60,
+      "E": 2
+    },
+    {
+      "temp": 200,
+      "ys": 38,
+      "uts": 42,
+      "E": 1.5
+    },
+    {
+      "temp": 220,
+      "ys": 20,
+      "uts": 25,
+      "E": 0.6
+    }
+  ],
+  "industry_note": "PES / PESU (Polyethersulfone) — amorphous high-temp sulfone polymer (Solvay Veradel, BASF Ultrason E). Tg 225°C, HDT (1.8 MPa) 200°C, max service 180-200°C continuous. σy 75-95 / UTS 80-100 / El 30-80% / E 2.6 GPa / ρ 1.37 g/cc. 광 투과 (transparent amber). 의료 sterilizable (autoclave, 134°C × 10 cycles), 식품 보존 hot-fill, 항공 인테리어 (UL 94 V-0), 반도체 wafer carrier."
+}

@@ -1,0 +1,278 @@
+{
+  "stable_id": "MET-0950",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-m4-tool-steel-hss",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0207",
+  "origin": "reference(supplementary)",
+  "id": "R_0207",
+  "name": "M4 tool steel (HSS)",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (HRC 64-66, 1230°C austenitize + 550°C triple temper)",
+  "ranges": {
+    "density": {
+      "min": 7.97,
+      "max": 7.97,
+      "typical": 7.97,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1950,
+      "max": 2100,
+      "typical": 2100,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2350,
+      "max": 2500,
+      "typical": 2500,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 2,
+      "typical": 2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 217,
+      "max": 217,
+      "typical": 217,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 720,
+      "max": 750,
+      "typical": 750,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 24,
+      "max": 24,
+      "typical": 24,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 735,
+      "max": 1050,
+      "typical": 882,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:m4"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:m4"
+    },
+    "thermal_expansion": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:m4"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:m4"
+    },
+    "specific_heat": {
+      "min": 458,
+      "max": 458,
+      "typical": 458,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:m4"
+    },
+    "melting_point": {
+      "min": 1427,
+      "max": 1427,
+      "typical": 1427,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:m4"
+    },
+    "price_per_kg": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:m4"
+    },
+    "price_per_cm3": {
+      "min": 0.1196,
+      "max": 0.1196,
+      "typical": 0.1196,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:m4"
+    },
+    "delivered_price_per_kg": {
+      "min": 19.37,
+      "max": 19.37,
+      "typical": 19.37,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "1.3",
+    "Cr": "4",
+    "W": "5.5",
+    "Mo": "4.5",
+    "V": "4"
+  },
+  "sources": [
+    {
+      "label": "ASM — M4 high-speed steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Crucible PM tool steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Hudson Tool Steel — CPM Rex M4 HC Technical Data (조성+템퍼링)",
+      "url": "https://www.hudsontoolsteel.com/technical-data/steelC4",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.97,
+      2100,
+      2500,
+      2,
+      217,
+      750,
+      24
+    ],
+    [
+      7.97,
+      1950,
+      2350,
+      1,
+      217,
+      720,
+      24
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 17,
+  "fatigue_strength": 882,
+  "density": 7.97,
+  "yield_strength": 2100,
+  "uts": 2500,
+  "elongation": 2,
+  "modulus": 217,
+  "hardness": 750,
+  "thermal_conductivity": 24,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — M4 high-speed steel",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 4,
+  "max_service_temp": 540,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.29,
+  "specific_heat": 458,
+  "melting_point": 1427,
+  "price_per_kg": 15,
+  "price_per_cm3": 0.1196,
+  "popularity": 3.07,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 19.37,
+  "total_cost_estimate": 19.37,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

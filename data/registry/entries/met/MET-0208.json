@@ -1,0 +1,301 @@
+{
+  "stable_id": "MET-0208",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-7050-t7451-aerospace-thick-plate",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0363_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0363_1",
+  "name": "AA 7050-T7451 (aerospace thick plate) — T7451",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T7451",
+  "ranges": {
+    "density": {
+      "min": 2.83,
+      "max": 2.83,
+      "typical": 2.83,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 525,
+      "max": 525,
+      "typical": 525,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 71.7,
+      "max": 71.7,
+      "typical": 71.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 154,
+      "max": 154,
+      "typical": 154,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 98,
+      "max": 129,
+      "typical": 113,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:7050 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 21,
+      "typical": 14,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:7050 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+    },
+    "fracture_toughness": {
+      "min": 44.8,
+      "max": 44.8,
+      "typical": 44.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:T7351/T7451 over-aged SCC-resistant (k×1.4)"
+    },
+    "electrical_conductivity": {
+      "min": 41,
+      "max": 41,
+      "typical": 41,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "max_service_temp": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "thermal_expansion": {
+      "min": 23.5,
+      "max": 23.5,
+      "typical": 23.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "specific_heat": {
+      "min": 860,
+      "max": 860,
+      "typical": 860,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "melting_point": {
+      "min": 635,
+      "max": 635,
+      "typical": 635,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "price_per_kg": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "price_per_cm3": {
+      "min": 0.0198,
+      "max": 0.0198,
+      "typical": 0.0198,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "delivered_price_per_kg": {
+      "min": 8.09,
+      "max": 8.09,
+      "typical": 8.09,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Zn": "5.7~6.7",
+    "Mg": "1.9~2.6",
+    "Cu": "2.0~2.6",
+    "Zr": "0.08~0.15",
+    "Mn": "≤0.10",
+    "Cr": "≤0.04"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum 7050 (aerospace)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+7050",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%207050-T7451",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Aluminum Association AA 7075-T651",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (T7451/T7651 인장·물성, PDF 직접 판독)",
+      "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1016/Kaiser_Aluminum_7050_Sheet_Coil_and_Plate.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.83,
+      470,
+      525,
+      10,
+      71.7,
+      165,
+      154
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Standard for thick aircraft forgings & plate ≥ 50 mm: F/A-18, F-22, F-35 main spars; Boeing 777 wing rib; lower SCC sensitivity than 7075 makes T7451 preferred for thick-section.",
+  "meta": {
+    "reference": true,
+    "condition": "T7451"
+  },
+  "fracture_toughness": 44.8,
+  "fatigue_strength": 113,
+  "density": 2.83,
+  "yield_strength": 470,
+  "uts": 525,
+  "elongation": 10,
+  "modulus": 71.7,
+  "hardness": 165,
+  "thermal_conductivity": 154,
+  "impact_strength": 14,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Aluminum 7050 (aerospace)",
+  "aliases": [
+    "UNS A97050",
+    "EN AW-7050"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum Alloy",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 41,
+  "max_service_temp": 120,
+  "thermal_expansion": 23.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 860,
+  "melting_point": 635,
+  "price_per_kg": 7,
+  "price_per_cm3": 0.0198,
+  "popularity": 3,
+  "machining_cost_factor": 0.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.1,
+  "delivered_price_per_kg": 8.09,
+  "total_cost_estimate": 6.47,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 470,
+      "uts": 540,
+      "E": 71.7
+    },
+    {
+      "temp": 100,
+      "ys": 420,
+      "uts": 490,
+      "E": 69
+    },
+    {
+      "temp": 200,
+      "ys": 270,
+      "uts": 320,
+      "E": 64
+    }
+  ],
+  "story": "AA 7050 은 1971년 미국 ALCOA 가 'X7050' 으로 시제 개발 후 1975년 표준화한 thick-section aerospace Al alloy 입니다. AA 7075 의 약점 — short-transverse 방향의 SCC 위험 + 두꺼운 plate 의 cooling rate 불균일 — 을 보완하기 위해 Cr 을 제거하고 Zr 0.10-0.15% 첨가, Mg 함량을 약간 낮춰 hardenability + thick-section uniformity 를 개선했어요.\n\n구조적 차이 — 7075: Zn 5.6% + Mg 2.5% + Cu 1.6% + Cr 0.23%. 7050: Zn 6.2% + Mg 2.25% + Cu 2.3% + Zr 0.12%. Cr 제거 + Zr 추가가 fine grain + uniform precipitation 을 보장해, 50-200 mm 두께 plate 의 균일한 강도를 얻을 수 있게 됐습니다.\n\n응용 — Thick aerospace plate 의 표준. Boeing 777 / 787 / 747-8 의 wing skin 일부 thick section, Lockheed Martin F-22 의 main wing spar (forging 형태 T7452), Lockheed C-5 / C-17 의 main landing gear support frame, Airbus A380 / A350 의 thick wing rib, Boeing 737NG / MAX 의 main spar. AM (LPBF) 분말로도 사용 (EOS / Concept Laser 의 7050 분말).\n\nT74 / T7451 / T7452 over-aged temper 가 표준 — 7075 의 T651 와 동일 강도 (σy 460-470 MPa) + 약 100배 향상된 SCC 저항. 가격은 7075 의 약 1.5배.",
+  "story_refs": [
+    "AMS 4050 / AMS 4108 (AA 7050 plate)",
+    "AMS 4076 (AA 7050 forging T7452)",
+    "ASM Handbook Vol.2 'Aluminum Zn Alloys 7xxx'",
+    "Hatch J E (ed., 1984)"
+  ],
+  "confidence_tier": "medium"
+}

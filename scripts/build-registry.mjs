@@ -47,19 +47,26 @@ for (const f of ['metal', 'polymer', 'ceramic', 'composite']) {
 // 변형 전 깨끗한 원본 스냅샷 (라운드트립 검증 기준)
 const cleanJson = new Map(all.map(m => [m.id, JSON.stringify(m)]));
 
-// 2) 결정적 순서로 정렬 후 frozen 안정 ID 부여 (category 내 seq).
-//    정렬 기준: category → subcategory → name (초기 1회 freeze; 이후엔 레지스트리에 저장돼 불변).
+// 2) frozen 안정 ID. data/registry-id-freeze.json (legacy_id→stable_id) 가 권위 소스 —
+//    이름·subcategory·공정을 바꿔도 ID 불변. 없으면 결정적 정렬(cat→subcat→name)로 1회 생성·저장.
+//    (정렬은 신규 entry ID 할당의 결정성을 위해서만 유지; 기존 ID 는 freeze 가 지배.)
 all.sort((a, b) =>
   (a.category || '').localeCompare(b.category || '') ||
   (a.subcategory || '').localeCompare(b.subcategory || '') ||
   (a.name || '').localeCompare(b.name || ''));
 
+const FREEZE = path.join(ROOT, 'data', 'registry-id-freeze.json');
+let freeze = {};
+try { freeze = JSON.parse(fs.readFileSync(FREEZE, 'utf8')).map || {}; } catch { /* 최초 생성 */ }
 const seq = {};
+for (const sid of Object.values(freeze)) { const [cc, n] = sid.split('-'); seq[cc] = Math.max(seq[cc] || 0, parseInt(n, 10)); }
+let newIds = 0;
 for (const m of all) {
   const cc = CATCODE[m.category] || 'OTH';
-  seq[cc] = (seq[cc] || 0) + 1;
-  m.stable_id = `${cc}-${String(seq[cc]).padStart(4, '0')}`;
+  if (freeze[m.id]) { m.stable_id = freeze[m.id]; }
+  else { seq[cc] = (seq[cc] || 0) + 1; m.stable_id = `${cc}-${String(seq[cc]).padStart(4, '0')}`; freeze[m.id] = m.stable_id; newIds++; }
 }
+fs.writeFileSync(FREEZE, JSON.stringify({ _note: 'frozen legacy_id→stable_id (R226). 이름/subcat/공정 변경해도 ID 불변; 신규 entry 만 새 ID. 이 파일이 안정 ID 의 권위 소스.', count: Object.keys(freeze).length, map: freeze }, null, 2) + '\n');
 
 // 3) family tree 구성
 //    - 루트: category (F-MET ...)
@@ -106,6 +113,47 @@ const records = all.map(m => {
   return { stable_id: m.stable_id, family: _fam, legacy_id: legacy, origin, ...rest };
 });
 
+// 4b) 무손실 검증 — 교정 적용 전 faithful 복사본이 원본과 동일한지 (in-memory).
+const ADDED0 = ['stable_id', 'family', 'legacy_id', 'origin'];
+let faithMiss = 0; const faithEx = [];
+for (const r of records) {
+  const stripped = Object.fromEntries(Object.entries(r).filter(([k]) => !ADDED0.includes(k)));
+  if (JSON.stringify(stripped) !== cleanJson.get(r.legacy_id)) { faithMiss++; if (faithEx.length < 3) faithEx.push(r.stable_id); }
+}
+
+// 4c) R226 P4 — ID-키 값 교정 (가짜 variant 실제값; data/r226-value-corrections.json).
+//     원본값을 _corrections 에 보존 → 라운드트립이 "무손실 + 문서화된 교정"임을 증명.
+let corrApplied = 0;
+try {
+  const corr = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'r226-value-corrections.json'), 'utf8'));
+  for (const r of records) {
+    const ch = {};
+    const compFix = corr.compositionByBase && corr.compositionByBase[baseOf(r.name)];
+    if (compFix && r.category === 'Metal') { ch.composition = { from: r.composition ?? null }; r.composition = { ...compFix }; }
+    const rg = corr.ranges && corr.ranges[r.stable_id];
+    if (rg) {
+      r.ranges = r.ranges ? { ...r.ranges } : {};
+      for (const p of Object.keys(rg)) {
+        if (p === 'basis' || p === 'src' || typeof rg[p] !== 'number') continue;   // 임의 수치 prop (yield/uts/elongation/fatigue_strength …)
+        // had_* 로 "키 없음" vs "키 있고 값 null" 구분 (revert 정확성).
+        ch[p] = { had_range: (p in r.ranges), val_range: r.ranges[p], had_scalar: (p in r), val_scalar: r[p] };
+        r.ranges[p] = { min: rg[p], typical: rg[p], max: rg[p], confidence: 'handbook', source: 'r226-correction' };
+        r[p] = rg[p];   // top-level scalar (MaterialDetail·audit 가 ranges.typical ?? scalar 로 읽음)
+      }
+      ch._basis = rg.basis; ch._src = rg.src;
+      if (r.points) ch.points_stale = true;   // points[] = CSV 합성 조건값. P5 cutover 시 교정 ranges 로부터 재생성.
+    }
+    // 비-수치 필드 교정 (name·process·heat_treatment) — 잘못된 라벨/공정 수정. ID 는 freeze 라 불변.
+    const fx = corr.fields && corr.fields[r.stable_id];
+    if (fx) {
+      ch.fields = {};
+      for (const k of ['name', 'process', 'heat_treatment']) if (fx[k] != null) { ch.fields[k] = { from: (k in r) ? r[k] : null }; r[k] = fx[k]; }
+      ch._fbasis = fx.basis; ch._fsrc = fx.src;
+    }
+    if (Object.keys(ch).length) { r._corrections = ch; corrApplied++; }
+  }
+} catch (e) { console.log('⚠ 교정 로드 실패:', e.message); }
+
 // 5) 참조 테이블(index) — slim
 const index = records.map(r => ({
   stable_id: r.stable_id, name: r.name, category: r.category, subcategory: r.subcategory,
@@ -134,14 +182,25 @@ for (const r of records) {
   fs.writeFileSync(path.join(dir, `${r.stable_id}.json`), JSON.stringify(r, null, 2) + '\n');
 }
 
-// 무손실 라운드트립 검증: 파일을 모두 다시 읽어 재구성 → 원본(현재 entry)과 핵심 필드 deep-equal
-const ADDED = new Set(['stable_id', 'family', 'legacy_id', 'origin']);
+// 무손실 라운드트립 검증: 파일을 다시 읽어 _corrections 를 되돌린 뒤 원본(현재 entry)과 deep-equal.
+//   → "무손실 + 문서화된 교정만 적용"임을 증명 (교정 외 어떤 변형도 없음).
+const ADDED = new Set(['stable_id', 'family', 'legacy_id', 'origin', '_corrections']);
 let readBack = 0, mismatch = 0; const badEx = [];
 for (const cc of fs.readdirSync(entriesRoot)) {
   for (const fn of fs.readdirSync(path.join(entriesRoot, cc))) {
     const rec = JSON.parse(fs.readFileSync(path.join(entriesRoot, cc, fn), 'utf8'));
     readBack++;
-    // record 에서 추가 필드 제거 → 원본과 동일해야 함 (stable_id 는 ...rest 에도 있으나 ADDED 로 제거됨)
+    // 교정 되돌려 원본 재구성
+    if (rec._corrections) {
+      const c = rec._corrections;
+      if (c.composition) { if (c.composition.from == null) delete rec.composition; else rec.composition = c.composition.from; }
+      for (const p of Object.keys(c)) {
+        if (['composition', 'fields', '_basis', '_src', 'points_stale'].includes(p) || !c[p] || c[p].had_range === undefined) continue;
+        if (c[p].had_range) rec.ranges[p] = (c[p].val_range === undefined ? null : c[p].val_range); else delete rec.ranges[p];
+        if (c[p].had_scalar) rec[p] = (c[p].val_scalar === undefined ? null : c[p].val_scalar); else delete rec[p];
+      }
+      if (c.fields) for (const k of ['name', 'process', 'heat_treatment']) if (c.fields[k]) { if (c.fields[k].from == null) delete rec[k]; else rec[k] = c.fields[k].from; }
+    }
     const stripped = Object.fromEntries(Object.entries(rec).filter(([k]) => !ADDED.has(k)));
     const clean = cleanJson.get(rec.legacy_id);
     if (!clean || JSON.stringify(stripped) !== clean) { mismatch++; if (badEx.length < 3) badEx.push(rec.stable_id + '/' + (rec.legacy_id || '?')); }
@@ -171,7 +230,9 @@ console.log('category별 ID:', Object.entries(seq).map(([k, v]) => `${k}=${v}`).
 console.log('family:', Object.keys(families).length, '— ' + Object.entries(kindCount).map(([k, v]) => `${k}:${v}`).join(' · '));
 console.log('index.json:', Math.round(fs.statSync(path.join(OUT, 'index.json')).size / 1024), 'KB · families.json:', Math.round(fs.statSync(path.join(OUT, 'families.json')).size / 1024), 'KB');
 console.log('per-entry 파일:', records.length, '생성 (data/registry/entries/<cat>/<id>.json)');
-console.log(`라운드트립 검증: ${readBack} 읽음 · 불일치 ${mismatch}`, mismatch ? `❌ 예: ${badEx.join(', ')}` : '✓ 무손실');
+console.log(`무손실(교정 전) faithful 검증: 불일치 ${faithMiss}`, faithMiss ? `❌ ${faithEx.join(',')}` : '✓');
+console.log(`값 교정 적용: ${corrApplied} entry (data/r226-value-corrections.json, stable_id 키)`);
+console.log(`라운드트립(교정 복원 후) 검증: ${readBack} 읽음 · 불일치 ${mismatch}`, mismatch ? `❌ 예: ${badEx.join(', ')}` : '✓ 무손실+문서화교정');
 console.log(`\n=== P3 검수: 가짜 variant (같은 alloy-base, 다른 HT 라벨에 동일 σy/UTS/El) ===`);
 console.log(`해당 alloy-base ${fakeBases}개 · entry ${fakeEntries}개:`);
 fakeEx.forEach(e => console.log('  ' + e));

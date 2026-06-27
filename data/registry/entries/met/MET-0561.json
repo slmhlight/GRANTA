@@ -1,0 +1,285 @@
+{
+  "stable_id": "MET-0561",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-686",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0215",
+  "origin": "reference(supplementary)",
+  "id": "R_0215",
+  "name": "Inconel 686",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Inconel)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution Annealed (1120°C WQ)",
+  "ranges": {
+    "density": {
+      "min": 8.73,
+      "max": 8.73,
+      "typical": 8.73,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 330,
+      "max": 350,
+      "typical": 350,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 730,
+      "max": 760,
+      "typical": 760,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 55,
+      "max": 60,
+      "typical": 60,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 220,
+      "max": 230,
+      "typical": 230,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 140,
+      "max": 193,
+      "typical": 168,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "max_service_temp": {
+      "min": 930.75,
+      "max": 1259.25,
+      "typical": 1095,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "thermal_expansion": {
+      "min": 11.305,
+      "max": 15.295,
+      "typical": 13.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "poisson_ratio": {
+      "min": 0.272,
+      "max": 0.368,
+      "typical": 0.32,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "specific_heat": {
+      "min": 377.4,
+      "max": 510.6,
+      "typical": 444,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "melting_point": {
+      "min": 1198.5,
+      "max": 1621.5,
+      "typical": 1410,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "price_per_kg": {
+      "min": 29.75,
+      "max": 40.25,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "price_per_cm3": {
+      "min": 0.2597,
+      "max": 0.3513,
+      "typical": 0.3055,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel - Hastelloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 45.94,
+      "max": 45.94,
+      "typical": 45.94,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "19~23",
+    "Mo": "15~17",
+    "W": "3~4.4"
+  },
+  "sources": [
+    {
+      "label": "Special Metals — Inconel 686 (UNS N06686)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals — INCONEL alloy 686 Technical Bulletin (SMC-024, ©2005, Table 1 조성 + Table 5 인장)",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-686.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.73,
+      350,
+      760,
+      60,
+      210,
+      230,
+      9
+    ],
+    [
+      8.73,
+      330,
+      730,
+      55,
+      210,
+      220,
+      9
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS N06686",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 168,
+  "density": 8.73,
+  "yield_strength": 350,
+  "uts": 760,
+  "elongation": 60,
+  "modulus": 210,
+  "hardness": 230,
+  "thermal_conductivity": 9,
+  "impact_strength": 60,
+  "manufacturer": "PCC / Special Metals (Inconel)",
+  "process": "Wrought",
+  "source": "Special Metals — Inconel 686 (UNS N06686)",
+  "aliases": [
+    "UNS N06686",
+    "Alloy 686"
+  ],
+  "families": [
+    "Metal",
+    "Nickel - Hastelloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 1095,
+  "thermal_expansion": 13.3,
+  "poisson_ratio": 0.32,
+  "specific_heat": 444,
+  "melting_point": 1410,
+  "price_per_kg": 35,
+  "price_per_cm3": 0.3055,
+  "popularity": 3,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 45.94,
+  "total_cost_estimate": 119.44,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

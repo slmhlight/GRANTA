@@ -1,0 +1,266 @@
+{
+  "stable_id": "MET-0796",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-aisi-440b-medium-c-martensitic",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0039_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0039_0",
+  "name": "AISI 440B (medium-C martensitic) — Annealed (S44003, soft for forming/machining)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed (S44003, soft for forming/machining)",
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 740,
+      "max": 740,
+      "typical": 740,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 24,
+      "max": 24,
+      "typical": 24,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 64,
+      "max": 152,
+      "typical": 104,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Martensitic SS × HT:fully annealed (soft) (k×1.6)"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "max_service_temp": {
+      "min": 552.5,
+      "max": 747.5,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "thermal_expansion": {
+      "min": 8.67,
+      "max": 11.73,
+      "typical": 10.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "poisson_ratio": {
+      "min": 0.238,
+      "max": 0.322,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "melting_point": {
+      "min": 1258,
+      "max": 1702,
+      "typical": 1480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_kg": {
+      "min": 2.975,
+      "max": 4.025,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0232,
+      "max": 0.0314,
+      "typical": 0.0273,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.93,
+      "max": 3.93,
+      "typical": 3.93,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "16~18",
+    "Mo": "≤0.75",
+    "Mn": "≤1",
+    "Si": "≤1",
+    "C": "0.75~0.95",
+    "P": "≤0.04",
+    "S": "≤0.03"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Stainless steel, martensitic, AISI 440B annealed (UNS S44003)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.crucible.com/eselector/product.aspx?StlName=440B",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      425,
+      740,
+      18,
+      200,
+      230,
+      24
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "440A 와 440C 의 중간 — 440A 보다 단단, 440C 보다 toughness. 시중 식칼, scalpel blade, bearing race.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed (S44003, soft for forming/machining)"
+  },
+  "fracture_toughness": 104,
+  "density": 7.8,
+  "yield_strength": 425,
+  "uts": 740,
+  "elongation": 18,
+  "modulus": 200,
+  "hardness": 230,
+  "thermal_conductivity": 24,
+  "fatigue_strength": 420,
+  "impact_strength": 8,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "S44003"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 10.2,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0273,
+  "popularity": 3.3,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.07,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.93,
+  "total_cost_estimate": 3.93,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

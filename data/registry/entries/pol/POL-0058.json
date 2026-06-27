@@ -1,0 +1,239 @@
+{
+  "stable_id": "POL-0058",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide",
+    "alloy_base": "F-AB-onyx-cf-nylon",
+    "element_families": []
+  },
+  "legacy_id": "R_0187",
+  "origin": "reference(supplementary)",
+  "id": "R_0187",
+  "name": "Onyx (CF nylon)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "FDM"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.18,
+      "max": 1.18,
+      "typical": 1.18,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 33,
+      "max": 36,
+      "typical": 36,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 37,
+      "max": 40,
+      "typical": 40,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 25,
+      "typical": 25,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.2,
+      "max": 2.4,
+      "typical": 2.4,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.25,
+      "max": 0.25,
+      "typical": 0.25,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "max_service_temp": {
+      "min": 55,
+      "max": 165,
+      "typical": 110,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "thermal_expansion": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "glass_transition_temp": {
+      "min": 27.5,
+      "max": 82.5,
+      "typical": 55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "price_per_cm3": {
+      "min": 0.0295,
+      "max": 0.0885,
+      "typical": 0.059,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "delivered_price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "63.7",
+    "H": "9.8",
+    "N": "12.4",
+    "O": "14.1"
+  },
+  "sources": [
+    {
+      "label": "Markforged — Onyx (micro carbon-filled nylon)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Markforged Onyx material datasheet",
+      "url": "https://markforged.com/materials/plastics/onyx",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.18,
+      36,
+      40,
+      25,
+      2.4,
+      0,
+      0.25
+    ],
+    [
+      1.18,
+      33,
+      37,
+      18,
+      2.2,
+      0,
+      0.25
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "Markforged Onyx — micro-carbon-fiber filled Nylon (PA + 20% chopped CF). Markforged proprietary FDM filament. Tg 50°C, max service 110°C continuous (HDT 145°C). σy 36 / UTS 40 / El 25% / E 2.",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.18,
+  "yield_strength": 36,
+  "uts": 40,
+  "elongation": 25,
+  "modulus": 2.4,
+  "hardness": null,
+  "thermal_conductivity": 0.25,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "FDM",
+  "source": "Markforged — Onyx (micro carbon-filled nylon)",
+  "aliases": [
+    "Markforged Onyx",
+    "micro-carbon nylon"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Carbon-Fiber Reinforced"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 110,
+  "thermal_expansion": 90,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 55,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.059,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 50,
+  "total_cost_estimate": 35,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

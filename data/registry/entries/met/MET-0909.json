@@ -1,0 +1,309 @@
+{
+  "stable_id": "MET-0909",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-5553-ti-5al-5v-5mo-3cr",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0019",
+  "origin": "reference(supplementary)",
+  "id": "R_0019",
+  "name": "Ti-5553 (Ti-5Al-5V-5Mo-3Cr)",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 4.65,
+      "max": 4.65,
+      "typical": 4.65,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1050,
+      "max": 1200,
+      "typical": 1140,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1180,
+      "max": 1310,
+      "typical": 1250,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 10,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 340,
+      "max": 380,
+      "typical": 360,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 580,
+      "max": 740,
+      "typical": 660,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 25,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 0.9,
+      "max": 0.9,
+      "typical": 0.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "thermal_expansion": {
+      "min": 9.4,
+      "max": 9.4,
+      "typical": 9.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "specific_heat": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "melting_point": {
+      "min": 1650,
+      "max": 1650,
+      "typical": 1650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "price_per_kg": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "price_per_cm3": {
+      "min": 0.372,
+      "max": 0.372,
+      "typical": 0.372,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti5553"
+    },
+    "delivered_price_per_kg": {
+      "min": 84,
+      "max": 84,
+      "typical": 84,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Al": "4.4~5.7",
+    "V": "4~5.5",
+    "Mo": "4~5.5",
+    "Cr": "2.5~3.5",
+    "Fe": "0.3~0.5"
+  },
+  "sources": [
+    {
+      "label": "Industry data — Ti-5553 (solution + aged)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: TIMET beta Ti",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Neway AeroTech — Ti-5Al-5V-5Mo-3Cr (Ti5553) 물성표 (UTS 1200~1300, YS 1100~1200, 신율 ~10%, 35~40 HRC, E 115 GPa)",
+      "url": "https://www.newayaerotech.com/services/equiaxed-crystal-casting/ti-5al-5v-5mo-3cr-ti5553",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.65,
+      1140,
+      1250,
+      8,
+      110,
+      360,
+      7
+    ],
+    [
+      4.65,
+      1050,
+      1180,
+      10,
+      110,
+      340,
+      7
+    ],
+    [
+      4.65,
+      1200,
+      1310,
+      6,
+      110,
+      380,
+      7
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 660,
+  "density": 4.65,
+  "yield_strength": 1140,
+  "uts": 1250,
+  "elongation": 8,
+  "modulus": 110,
+  "hardness": 360,
+  "thermal_conductivity": 7,
+  "impact_strength": 18,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Industry data — Ti-5553 (solution + aged)",
+  "aliases": [
+    "Ti-5Al-5V-5Mo-3Cr"
+  ],
+  "families": [
+    "Metal",
+    "Titanium",
+    "Titanium-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 0.9,
+  "max_service_temp": 315,
+  "thermal_expansion": 9.4,
+  "poisson_ratio": 0.34,
+  "specific_heat": 540,
+  "melting_point": 1650,
+  "price_per_kg": 80,
+  "price_per_cm3": 0.372,
+  "popularity": 2.8,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 84,
+  "total_cost_estimate": 151.2,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1240,
+      "uts": 1310,
+      "E": 113
+    },
+    {
+      "temp": 200,
+      "ys": 1100,
+      "uts": 1190,
+      "E": 108
+    },
+    {
+      "temp": 400,
+      "ys": 920,
+      "uts": 1000,
+      "E": 100
+    }
+  ],
+  "confidence_tier": "high"
+}

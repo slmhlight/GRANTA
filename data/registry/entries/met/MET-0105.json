@@ -1,0 +1,351 @@
+{
+  "stable_id": "MET-0105",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-cu-alloys-2xxx",
+    "alloy_base": "F-AB-aa-2017",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "G_0021",
+  "origin": "generic(csv)",
+  "id": "G_0021",
+  "name": "AA 2017 — Strain-hardened (Wrought)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Cu Alloys (2xxx)",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Strain-hardened",
+  "ranges": {
+    "density": {
+      "min": 2.77,
+      "max": 2.77,
+      "typical": 2.77,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 243,
+      "max": 294.3,
+      "typical": 261.9,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 342,
+      "max": 414.2,
+      "typical": 368.6,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 17.6,
+      "max": 21.12,
+      "typical": 19.58,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 72,
+      "max": 72,
+      "typical": 72,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 94.5,
+      "max": 114.5,
+      "typical": 101.9,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 121,
+      "max": 121,
+      "typical": 121,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 79,
+      "max": 120,
+      "typical": 100,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 5.5,
+      "max": 19.8,
+      "typical": 11,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based × HT:strain-hardened (fallback) (i×1.1)"
+    },
+    "fracture_toughness": {
+      "min": 18.9,
+      "max": 31.5,
+      "typical": 25.2,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 2xxx Al-Cu × HT:strain-hardened (fallback) (k×1.05)"
+    },
+    "electrical_conductivity": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
+    },
+    "max_service_temp": {
+      "min": 85,
+      "max": 255,
+      "typical": 170,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 34.5,
+      "typical": 23,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
+    },
+    "poisson_ratio": {
+      "min": 0.165,
+      "max": 0.495,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 1350,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
+    },
+    "melting_point": {
+      "min": 325,
+      "max": 975,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
+    },
+    "price_per_kg": {
+      "min": 2,
+      "max": 6,
+      "typical": 4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
+    },
+    "price_per_cm3": {
+      "min": 0.0056,
+      "max": 0.0167,
+      "typical": 0.0111,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.54,
+      "max": 4.54,
+      "typical": 4.54,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mn": "0.7",
+    "Cu": "4",
+    "Al": "93.5",
+    "Mg": "0.5"
+  },
+  "sources": [
+    {
+      "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AA 2017\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202017",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 2xxx Al-Cu",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.77,
+      243,
+      342,
+      19.8,
+      72,
+      94.5,
+      121
+    ],
+    [
+      2.77,
+      294.3,
+      414.2000000000001,
+      19.58,
+      72,
+      114.45,
+      121
+    ],
+    [
+      2.77,
+      243,
+      342,
+      17.6,
+      72,
+      94.5,
+      121
+    ],
+    [
+      2.77,
+      283.5,
+      399,
+      18.700000000000003,
+      72,
+      110.25,
+      121
+    ],
+    [
+      2.77,
+      256.5,
+      361,
+      20.9,
+      72,
+      99.75,
+      121
+    ],
+    [
+      2.77,
+      259.2,
+      364.8,
+      21.12,
+      72,
+      100.8,
+      121
+    ],
+    [
+      2.77,
+      261.9,
+      368.6,
+      19.14,
+      72,
+      101.85,
+      121
+    ],
+    [
+      2.77,
+      275.4,
+      387.6,
+      20.24,
+      72,
+      107.1,
+      121
+    ],
+    [
+      2.77,
+      283.5,
+      399,
+      18.700000000000003,
+      72,
+      110.25,
+      121
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Poor",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 9,
+    "subcategory_variants": [
+      "Aluminum - Cu Alloys (2xxx)"
+    ],
+    "conditions": [
+      "H12",
+      "H14",
+      "H16",
+      "H18",
+      "H19",
+      "H22",
+      "H24",
+      "H26",
+      "H28"
+    ]
+  },
+  "fracture_toughness": 25.2,
+  "fatigue_strength": 100,
+  "density": 2.77,
+  "yield_strength": 261.9,
+  "uts": 368.6,
+  "elongation": 19.58,
+  "modulus": 72,
+  "hardness": 101.9,
+  "thermal_conductivity": 121,
+  "impact_strength": 11,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Cu Alloys (2xxx)",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 170,
+  "thermal_expansion": 23,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.0111,
+  "popularity": 3.33,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4.54,
+  "total_cost_estimate": 4.08,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

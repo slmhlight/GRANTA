@@ -1,0 +1,399 @@
+{
+  "stable_id": "POL-0001",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-abs",
+    "alloy_base": "F-AB-abs",
+    "element_families": []
+  },
+  "legacy_id": "G_0161",
+  "origin": "generic(csv)",
+  "id": "G_0161",
+  "name": "ABS — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - ABS",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.05,
+      "max": 1.05,
+      "typical": 1.05,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 31.85,
+      "max": 38.15,
+      "typical": 33.95,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 36.4,
+      "max": 43.6,
+      "typical": 38.8,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 16.4,
+      "max": 21.8,
+      "typical": 18.8,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 2.3,
+      "max": 2.3,
+      "typical": 2.3,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 68.25,
+      "max": 81.75,
+      "typical": 72.75,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.19,
+      "max": 0.19,
+      "typical": 0.19,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ABS (FDM)"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ABS (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 35,
+      "max": 105,
+      "typical": 70,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ABS (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ABS (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ABS (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 52.5,
+      "max": 157.5,
+      "typical": 105,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ABS (FDM)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ABS (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0131,
+      "max": 0.0393,
+      "typical": 0.0262,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ABS (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "MatWeb — ABS Plastic (general)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ABS+plastic",
+      "verified": false
+    },
+    {
+      "label": "SABIC CYCOLAC ABS",
+      "url": "https://www.sabic.com/en/products/specialties/cycolac-resin",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — Acrylonitrile Butadiene Styrene (ABS)",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=eb7a78f5948d481c9493a67f0d089646",
+      "verified": false
+    },
+    {
+      "label": "ASM Engineered Materials Handbook Vol.2 — ABS",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/9/chapter-abstract/204979/Acrylonitrile-Butadiene-Styrene-ABS",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.05,
+      33.95,
+      38.8,
+      21.4,
+      2.3,
+      72.75,
+      0.19
+    ],
+    [
+      1.05,
+      34.3,
+      39.2,
+      17.6,
+      2.3,
+      73.5,
+      0.19
+    ],
+    [
+      1.05,
+      33.25,
+      38,
+      21,
+      2.3,
+      71.25,
+      0.19
+    ],
+    [
+      1.05,
+      31.85,
+      36.4,
+      20.2,
+      2.3,
+      68.25,
+      0.19
+    ],
+    [
+      1.05,
+      38.150000000000006,
+      43.6,
+      17.8,
+      2.3,
+      81.75,
+      0.19
+    ],
+    [
+      1.05,
+      33.25,
+      38,
+      21,
+      2.3,
+      71.25,
+      0.19
+    ],
+    [
+      1.05,
+      33.95,
+      38.8,
+      17.400000000000002,
+      2.3,
+      72.75,
+      0.19
+    ],
+    [
+      1.05,
+      32.550000000000004,
+      37.2,
+      20.6,
+      2.3,
+      69.75,
+      0.19
+    ],
+    [
+      1.05,
+      38.150000000000006,
+      43.6,
+      21.8,
+      2.3,
+      81.75,
+      0.19
+    ],
+    [
+      1.05,
+      33.95,
+      38.8,
+      21.4,
+      2.3,
+      72.75,
+      0.19
+    ],
+    [
+      1.05,
+      32.2,
+      36.8,
+      16.400000000000002,
+      2.3,
+      69,
+      0.19
+    ],
+    [
+      1.05,
+      32.9,
+      37.6,
+      18.8,
+      2.3,
+      70.5,
+      0.19
+    ],
+    [
+      1.05,
+      32.2,
+      36.8,
+      16.400000000000002,
+      2.3,
+      69,
+      0.19
+    ],
+    [
+      1.05,
+      38.150000000000006,
+      43.6,
+      17.8,
+      2.3,
+      81.75,
+      0.19
+    ],
+    [
+      1.05,
+      38.150000000000006,
+      43.6,
+      17.8,
+      2.3,
+      81.75,
+      0.19
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - ABS (FDM)"
+    ],
+    "conditions": [
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Impact Modified",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "HB",
+    "uv_resistance": "Poor",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.05,
+  "yield_strength": 33.95,
+  "uts": 38.8,
+  "elongation": 18.8,
+  "modulus": 2.3,
+  "hardness": 72.75,
+  "thermal_conductivity": 0.19,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "MatWeb — ABS Plastic (general)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - ABS (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 70,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 105,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0262,
+  "popularity": 5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1948년 미국 Borg-Warner 의 칼빈 칼훈 (Calvin Calhoun) 이 polybutadiene 라텍스에 styrene-acrylonitrile (SAN) 을 그래프트 중합해 'Marbon Cycolac' 으로 상품화한 게 ABS 의 시작이에요. ABS 의 천재성은 SAN matrix 의 강성·내약품성과 polybutadiene rubber 의 충격 흡수를 phase-separated morphology 로 결합한 것 — 단일 polymer 가 따라잡을 수 없는 강성/충격 균형을 만들었습니다.\n\n전후 호황기와 함께 폭발적으로 확산됐어요 — 1950년대 자동차 dashboard (Chrysler), 60년대 진공 청소기 housing (Hoover), 70년대 LEGO 블록 (덴마크 Billund 공장, 1963년부터 ABS 채택), 80년대 PC monitor enclosure (IBM 5150), 90년대 텔레폰 핸드셋. 1989년 미국 Stratasys 의 스콧 크럼프 (Scott Crump) 가 FDM (Fused Deposition Modeling) 을 발명할 때 첫 사용 폴리머가 바로 ABS 였어요. 현재도 데스크탑 3D 프린팅의 가장 흔한 필라멘트, MakerBot Replicator 와 Bambu Lab X1C 의 standard 입니다.",
+  "story_refs": [
+    "Calhoun C R & Saunders J E (1953) US Patent 2,656,335 (Borg-Warner) \"Method of preparing latex of butadiene polymers\"",
+    "Whelan T (1994) Polymer Technology Dictionary, Chapman & Hall",
+    "Crump S S (1992) US Patent 5,121,329 \"Apparatus and method for creating three-dimensional objects\"",
+    "LEGO Group corporate history 1963 ABS transition (https://www.lego.com/aboutus/lego-history)"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "ABS (Acrylonitrile Butadiene Styrene) — 사출 성형 표준 폴리머. Tg ≈ 100°C, max use 80-90°C. σy 35-50 / UTS 38-49 / El 15-30% / E 2.0-2.6 GPa / ρ 1.04-1.06 g/cc. Notched Izod 200-450 J/m (impact 우수). 일반 가전, 자동차 인테리어, LEGO 블록, 3D printing FDM 표준 (압출 250°C, 베드 100°C). UV 노출 시 변색 — 외부 사용 시 painted/coated 필요."
+}

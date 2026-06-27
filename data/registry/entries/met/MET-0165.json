@@ -1,0 +1,291 @@
+{
+  "stable_id": "MET-0165",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-pure-other",
+    "alloy_base": "F-AB-aa-1050",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "G_0052",
+  "origin": "generic(csv)",
+  "id": "G_0052",
+  "name": "AA 1050 — Annealed (Wrought)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Pure/Other",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 2.71,
+      "max": 2.71,
+      "typical": 2.71,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 32.9,
+      "max": 32.9,
+      "typical": 32.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 79.9,
+      "max": 79.9,
+      "typical": 79.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 32.9,
+      "max": 32.9,
+      "typical": 32.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 69,
+      "max": 69,
+      "typical": 69,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 26.32,
+      "max": 26.32,
+      "typical": 26.32,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 222,
+      "max": 222,
+      "typical": 222,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 13,
+      "max": 23,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050 × HT:fully annealed (f×0.5, i×2.5)"
+    },
+    "impact_strength": {
+      "min": 88,
+      "max": 200,
+      "typical": 138,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050 × HT:fully annealed (f×0.5, i×2.5)"
+    },
+    "fracture_toughness": {
+      "min": 108,
+      "max": 108,
+      "typical": 108,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:fully annealed (k×1.8)"
+    },
+    "electrical_conductivity": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "thermal_expansion": {
+      "min": 23.5,
+      "max": 23.5,
+      "typical": 23.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "specific_heat": {
+      "min": 902,
+      "max": 902,
+      "typical": 902,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "melting_point": {
+      "min": 657,
+      "max": 657,
+      "typical": 657,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "price_per_kg": {
+      "min": 2.2,
+      "max": 2.2,
+      "typical": 2.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "price_per_cm3": {
+      "min": 0.006,
+      "max": 0.006,
+      "typical": 0.006,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:aa1050"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.36,
+      "max": 2.36,
+      "typical": 2.36,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "0.4",
+    "Mn": "0.05",
+    "Si": "0.25",
+    "Cu": "0.05",
+    "Al": "99.5"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AA 1050\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%201050",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 1xxx CP Al",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Pure Aluminum 1xxx",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "EN 573-3 — AA 1050A (EN AW-1050A)",
+      "url": "https://www.cen.eu/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.71,
+      32.9,
+      79.9,
+      32.9,
+      69,
+      26.32,
+      222
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 1,
+    "subcategory_variants": [
+      "Aluminum - Pure/Other"
+    ],
+    "conditions": [
+      "O (Annealed"
+    ],
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 108,
+  "fatigue_strength": 18,
+  "density": 2.71,
+  "yield_strength": 32.9,
+  "uts": 79.9,
+  "elongation": 32.9,
+  "modulus": 69,
+  "hardness": 26.32,
+  "thermal_conductivity": 222,
+  "impact_strength": 138,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+  "aliases": [
+    "UNS A91050",
+    "EN AW-1050A",
+    "Al99.5"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Pure/Other",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 60,
+  "max_service_temp": 200,
+  "thermal_expansion": 23.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 902,
+  "melting_point": 657,
+  "price_per_kg": 2.2,
+  "price_per_cm3": 0.006,
+  "popularity": 4,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.36,
+  "total_cost_estimate": 2.12,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "AA 1050 은 commercially pure aluminum (99.50% Al min) — 1xxx 시리즈의 baseline 입니다. Fe + Si 가 unintentional impurity 로 < 0.50% 잔존하지만 Cu / Mn / Mg / Cr / Zn 는 거의 없어요 (각 < 0.05%). 이 high-purity 조성이 전기 전도도와 부식 저항의 비결입니다.\n\n응용 — Electrical busbar / conductor (변전소 high-voltage busbar, transformer winding), 식품 가공 (cooking pot, 김치 fermenter inner liner), chemical storage tank (HNO₃ 95% storage — Al 의 self-passivation Al₂O₃ 가 acid 와 반응 않음), heat exchanger fin (HVAC system 의 air-to-air heat exchanger), reflective optics (search-light reflector, solar concentrator), decorative trim (anodized exterior cladding). 1050 의 전기 전도도는 62% IACS — 무게 비교 시 동의 약 2배 효율로 long-distance transmission line 의 standard 가 됐어요.\n\nHT 가능성은 제한적 — non-heat-treatable (Mg-Si 도 Cu 도 충분치 않음). Strain-hardening (H12 ~ H18) 으로만 강도 향상 가능. O (annealed) σy 28 MPa / σUTS 75 MPa, H18 (full hard) σy 145 MPa / σUTS 160 MPa. Weldability 우수 — 표준 ER1100 filler 또는 base self-filler 사용. 산업 응용 시 가장 가격 효율적인 Al alloy (가격 약 2.4 USD/kg).",
+  "story_refs": [
+    "ASTM B209",
+    "EN 573-3",
+    "ASM Handbook Vol.2 'Aluminum Pure Grades 1xxx'",
+    "Hatch J E (ed., 1984) Aluminum: Properties and Physical Metallurgy"
+  ],
+  "confidence_tier": "medium",
+  "industry_note": "UNS A91050 / EN AW-1050A / Al99.5 / DIN Al99.5 — 99.5% pure aluminum (non-heat-treatable, R173 fake-variant 제거). O temper: σy 35 / UTS 75 / El 39%. H14 (work-H18 (full hard): σy 145 / UTS 160. 전기 conductor (IACS 60% — Cu의 60%), 화학 plant tank lining, food packaging foil (요구르트 lid, beer can lid). 의도된 variant 보존: O / H14 / H18. 다만 typical H 14 가 σy 105 라 약간 low."
+}

@@ -1,0 +1,280 @@
+{
+  "stable_id": "MET-0623",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-pipeline-steel",
+    "alloy_base": "F-AB-api-5l-x70-psl2-gas-transmission-pipeline",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0359_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0359_1",
+  "name": "API 5L X70 PSL2 (Gas-transmission pipeline) — TMCP + accelerated cooled (heavy wall, > 25 mm)",
+  "category": "Metal",
+  "subcategory": "Pipeline Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "TMCP + accelerated cooled (heavy wall, > 25 mm)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 510,
+      "max": 510,
+      "typical": 510,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 225,
+      "max": 225,
+      "typical": 225,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 270,
+      "max": 270,
+      "typical": 270,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic",
+      "min_spec_value": 40,
+      "min_spec_source": "API 5L PSL2 minimum",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 95,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:API 5L pipeline"
+    },
+    "electrical_conductivity": {
+      "min": 7.65,
+      "max": 10.35,
+      "typical": 9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "max_service_temp": {
+      "min": 382.5,
+      "max": 517.5,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.945,
+      "max": 13.455,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "specific_heat": {
+      "min": 408,
+      "max": 552,
+      "typical": 480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.01,
+      "max": 0.0136,
+      "typical": 0.0118,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pipeline Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.65,
+      "max": 1.65,
+      "typical": 1.65,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Mn": "1.4~1.8",
+    "C": "≤0.10",
+    "Si": "≤0.45",
+    "Nb": "0.04~0.10",
+    "V+Ti": "≤0.15",
+    "P": "≤0.020",
+    "S": "≤0.010"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5l",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: API 5L pipeline",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      510,
+      600,
+      18,
+      207,
+      225,
+      50
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Long-distance gas trunkline workhorse (West-East China, Nord Stream, TANAP); CTOD ≥ 0.25 mm at -20°C for arrest of running brittle fracture.",
+  "meta": {
+    "reference": true,
+    "condition": "TMCP + accelerated cooled (heavy wall, > 25 mm)",
+    "specs": [
+      {
+        "id": "API 5L",
+        "org": "API"
+      }
+    ]
+  },
+  "fracture_toughness": 95,
+  "density": 7.85,
+  "yield_strength": 510,
+  "uts": 600,
+  "elongation": 18,
+  "modulus": 207,
+  "hardness": 225,
+  "thermal_conductivity": 50,
+  "fatigue_strength": 270,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "> 25 mm"
+  ],
+  "families": [
+    "Metal",
+    "Pipeline Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 9,
+  "max_service_temp": 450,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 480,
+  "melting_point": 1500,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0118,
+  "popularity": 1.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.65,
+  "total_cost_estimate": 1.49,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1973년 알래스카 횡단 송유관 (Trans-Alaska Pipeline System, TAPS) 의 자재 선정이 송유관 표준화의 분기점이 됐어요. 영하 50°C 의 극저온, M7 지진 지대, 영구동토 (permafrost) 융해 위험 — 이 모든 환경을 동시에 만족해야 했거든요. 일본 신일본제철 (현 Nippon Steel) 이 TMCP (Thermo-Mechanical Controlled Processing) 기술로 σ_y 485 MPa + CVN ≥ 100 J at -40°C 의 새 강 X70 을 개발해 TAPS 의 1287 km 의 80% 가 X70.\n\nTAPS 의 성공 이후 X70 은 글로벌 송유관·가스 transmission 표준으로 확산됐어요. 2001-2003년 중국 西气东输 (서기동수) 4200 km — 신장에서 상하이까지 가스 송유관 — 의 90% 가 X70. 2010년대의 러시아 Nord Stream 1+2 (1224 km × 2), 트랜스-튀르키예 TANAP (1850 km), 호주 Northern Gas Pipeline (622 km) … 모두 X70 PSL2 grade.\n\nPSL2 sub-grade 의 특별함은 'CTOD ≥ 0.25 mm at -20°C' 의 인성 요구예요. running brittle fracture — 한 군데서 시작된 균열이 음속으로 전파되어 수십 km 의 송유관을 한 번에 파괴하는 catastrophic failure — 를 회피하기 위한 spec. 1986년 캐나다 Athabasca pipeline 에서 X65 의 brittle fracture 가 발생해 13 km 의 송유관이 한 번에 깨졌던 사고가 이 spec 의 trigger 였습니다.",
+  "story_refs": [
+    "API 5L (Current Edition) \"Specification for Line Pipe\"",
+    "Hillenbrand H G & Gräf M (2000) \"High-Strength Line Pipe Steels for Polar Service\", Pipeline Technology Conference",
+    "Liessem A et al. (2004) \"Production Experience of Heavy Wall X70 Line Pipe\", J Iron Steel Res Int 11(5)"
+  ],
+  "confidence_tier": "medium"
+}

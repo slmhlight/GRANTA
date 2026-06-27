@@ -1,0 +1,324 @@
+{
+  "stable_id": "MET-0705",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-aisi-254-smo",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "C_0065",
+  "origin": "curated(material_db)",
+  "id": "C_0065",
+  "name": "AISI 254 SMO — As-built",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "curated",
+  "manufacturers": [
+    "EOS"
+  ],
+  "machines": [
+    "M290-4",
+    "M290-6"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built",
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 360,
+      "max": 660,
+      "typical": 510,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 660,
+      "max": 800,
+      "typical": 730,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 48,
+      "typical": 42,
+      "n": 8,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 280,
+      "max": 360,
+      "typical": 320,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "impact_strength": {
+      "min": 110,
+      "max": 220,
+      "typical": 165,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "fracture_toughness": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.6,
+      "max": 1.6,
+      "typical": 1.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "max_service_temp": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "thermal_expansion": {
+      "min": 16.1,
+      "max": 16.1,
+      "typical": 16.1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "melting_point": {
+      "min": 1320,
+      "max": 1320,
+      "typical": 1320,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "price_per_cm3": {
+      "min": 0.2,
+      "max": 0.2,
+      "typical": 0.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:254smo"
+    },
+    "delivered_price_per_kg": {
+      "min": 62.5,
+      "max": 62.5,
+      "typical": 62.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "19.5~20.5",
+    "Ni": "17.5~18.5",
+    "Mo": "6.0~6.5",
+    "N": "0.18~0.22",
+    "Cu": "0.50~1.00",
+    "C": "≤0.020",
+    "Si": "≤0.80",
+    "Mn": "≤1.00",
+    "P": "≤0.030",
+    "S": "≤0.010"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — 254 SMO Super Austenitic",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/254-smo",
+      "verified": true
+    },
+    {
+      "label": "EOS MDS summary — stainlesssteel 254",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-254",
+      "verified": true
+    },
+    {
+      "label": "Outokumpu — 254 SMO datasheet",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/254-smo",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8,
+      510,
+      750,
+      36.5,
+      200,
+      null,
+      14
+    ],
+    [
+      8,
+      470,
+      695,
+      42,
+      200,
+      null,
+      14
+    ],
+    [
+      8,
+      360,
+      700,
+      43,
+      200,
+      null,
+      14
+    ],
+    [
+      8,
+      360,
+      660,
+      48,
+      200,
+      null,
+      14
+    ],
+    [
+      8,
+      660,
+      800,
+      30,
+      200,
+      null,
+      14
+    ],
+    [
+      8,
+      580,
+      730,
+      36,
+      200,
+      null,
+      14
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Outstanding",
+  "meta": {
+    "applications": "Super-austenitic stainless — seawater/chloride service, desalination, chemical processing (UNS S31254)",
+    "magnetic": "non-magnetic",
+    "melt_C": 1355,
+    "cte": 16.5,
+    "cp": 500,
+    "poisson": 0.3,
+    "vendor_count": 2,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 250,
+  "fatigue_strength": 320,
+  "density": 8,
+  "yield_strength": 510,
+  "uts": 730,
+  "elongation": 42,
+  "modulus": 200,
+  "hardness": null,
+  "thermal_conductivity": 14,
+  "impact_strength": 165,
+  "manufacturer": "EOS",
+  "process": "LPBF",
+  "source": "Outokumpu — 254 SMO Super Austenitic",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Stainless Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.6,
+  "max_service_temp": 400,
+  "thermal_expansion": 16.1,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1320,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.2,
+  "popularity": 1.92,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 62.5,
+  "total_cost_estimate": 112.5,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 18.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

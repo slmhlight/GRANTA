@@ -1,0 +1,283 @@
+{
+  "stable_id": "MET-0522",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-haynes-214",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0255",
+  "origin": "reference(supplementary)",
+  "id": "R_0255",
+  "name": "Haynes 214 — Wrought",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Haynes International"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution Annealed (1175°C)",
+  "ranges": {
+    "density": {
+      "min": 8.05,
+      "max": 8.05,
+      "typical": 8.05,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 500,
+      "max": 620,
+      "typical": 555,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 860,
+      "max": 1010,
+      "typical": 935,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 38,
+      "max": 60,
+      "typical": 50,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 218,
+      "max": 218,
+      "typical": 218,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 235,
+      "max": 260,
+      "typical": 245,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 222,
+      "max": 305,
+      "typical": 266,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 45,
+      "max": 150,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy × HT:annealed (i×1.5)"
+    },
+    "fracture_toughness": {
+      "min": 98,
+      "max": 182,
+      "typical": 140,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general × HT:annealed (k×1.4)"
+    },
+    "electrical_conductivity": {
+      "min": 0.85,
+      "max": 1.15,
+      "typical": 1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 976.65,
+      "max": 1321.35,
+      "typical": 1149,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 10.795,
+      "max": 14.605,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.2635,
+      "max": 0.3565,
+      "typical": 0.31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 337.45,
+      "max": 456.55,
+      "typical": 397,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1096.5,
+      "max": 1483.5,
+      "typical": 1290,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 68,
+      "max": 92,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.5474,
+      "max": 0.7406,
+      "typical": 0.644,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "15~17",
+    "Al": "4~5",
+    "Fe": "2~4",
+    "Y": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "Haynes International — Haynes 214",
+      "url": "https://haynesintl.com/en/alloys/alloy/haynes-214-alloy",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.05,
+      555,
+      935,
+      50,
+      218,
+      245,
+      10
+    ],
+    [
+      8.05,
+      500,
+      860,
+      38,
+      218,
+      235,
+      10
+    ],
+    [
+      8.05,
+      620,
+      1010,
+      60,
+      218,
+      260,
+      10
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 140,
+  "fatigue_strength": 266,
+  "density": 8.05,
+  "yield_strength": 555,
+  "uts": 935,
+  "elongation": 50,
+  "modulus": 218,
+  "hardness": 245,
+  "thermal_conductivity": 10,
+  "impact_strength": 90,
+  "manufacturer": "Haynes International",
+  "process": "Wrought",
+  "source": "Haynes International — Haynes 214",
+  "aliases": [
+    "UNS N07214"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1,
+  "max_service_temp": 1149,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.31,
+  "specific_heat": 397,
+  "melting_point": 1290,
+  "price_per_kg": 80,
+  "price_per_cm3": 0.644,
+  "popularity": 2,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 105,
+  "total_cost_estimate": 273,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

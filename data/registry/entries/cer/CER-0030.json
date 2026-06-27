@@ -1,0 +1,166 @@
+{
+  "stable_id": "CER-0030",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-steatite-soapstone-mgsio",
+    "element_families": []
+  },
+  "legacy_id": "CER_015",
+  "origin": "ceramics-data",
+  "id": "CER_015",
+  "name": "Steatite (Soapstone, MgSiO₃)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1200,
+      "max": 1200,
+      "typical": 1200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 58.5,
+      "max": 58.5,
+      "typical": 58.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.0135,
+      "max": 0.0135,
+      "typical": 0.0135,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "24.2",
+    "Si": "28.0",
+    "O": "47.8"
+  },
+  "sources": [
+    {
+      "label": "Applications: 전기 절연체 (히터 코어, 소켓), 저가 산업 절연",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "전기 절연체 (히터 코어, 소켓), 저가 산업 절연"
+  },
+  "popularity": 3,
+  "density": 2.7,
+  "yield_strength": 130,
+  "uts": 130,
+  "elongation": null,
+  "modulus": 100,
+  "hardness": 600,
+  "thermal_conductivity": 2.5,
+  "fatigue_strength": 58.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: 전기 절연체 (히터 코어, 소켓), 저가 산업 절연",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0135,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,192 @@
+{
+  "stable_id": "MET-0410",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c75200-nickel-silver-65cu-18ni-17zn-german-silver",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0422_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0422_2",
+  "name": "C75200 (Nickel Silver 65Cu-18Ni-17Zn, German Silver) — H (Full-Hard)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought (cold-rolled strip)"
+  ],
+  "heat_treatment": "H (Full-Hard)",
+  "ranges": {
+    "density": {
+      "min": 8.73,
+      "max": 8.73,
+      "typical": 8.73,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 125,
+      "max": 125,
+      "typical": 125,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 110,
+      "max": 180,
+      "typical": 130,
+      "n": 0,
+      "confidence": "handbook",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 5xxx Al-Mg"
+    }
+  },
+  "composition": {
+    "Cu": "63~66",
+    "Ni": "16.5~19.5",
+    "Zn": "balance",
+    "Pb": "≤0.05",
+    "Mn": "≤0.50"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.poongsan.co.kr/eng/business/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 5xxx Al-Mg",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — C75200 65Cu-18Ni-17Zn",
+      "url": "https://www.copper.org/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B122 — Nickel Silver Plate/Sheet",
+      "url": "https://store.astm.org/b0122_b0122m-16.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.73,
+      540,
+      600,
+      8,
+      125,
+      170,
+      105
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS C75200 / EN CW410J / CuNi18Zn20 — Nickel Silver (German Silver — Ni 가 silver-white 색을 내지만 실은 Cu base, Ag 없음). O 1/2H: σy 380 / UTS 510. Full Hard (H08): σy 540 / UTS 650. Tmax 200°C.",
+  "meta": {
+    "reference": true,
+    "condition": "H (Full-Hard)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B122",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 130,
+  "density": 8.73,
+  "yield_strength": 540,
+  "uts": 600,
+  "elongation": 8,
+  "modulus": 125,
+  "hardness": 170,
+  "thermal_conductivity": 105,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Wrought (cold-rolled strip)",
+  "source": "Datasheet 3",
+  "aliases": [
+    "Nickel Silver 65Cu-18Ni-17Zn"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy"
+  ],
+  "popularity": 4.25,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 19.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "C75200 (nickel silver, 65-18-17) 은 Cu-18% Ni-17% Zn 합금이지만 이름에 'silver' 가 들어가도 실제로는 은이 한 톨도 없습니다. 18세기 독일 광부들이 광석에서 발견한 'kupfernickel' (구리-니켈 광석) 을 정련하다가 우연히 발견한 이 합금이 은처럼 보였고, 19세기 초 독일 Gebrüder Henninger 가 'German silver' 로 상품화했어요. UNS 번호의 C7 prefix 는 Cu-Ni 합금 (cupronickel) 계열을 의미하지만 Zn 17% 가 함께 들어가서 색상이 silver-white 가 됩니다.\n\nNi 18% 가 핵심 — α-Cu matrix 에 Ni 가 완전 고용되어 색상이 흰색이 되고 부식 저항 + machinability 가 brass 수준으로 올라갑니다. σy 100 annealed → 480 half-hard 정도로 cold-work 강화가 가능하고, 가공·표면처리·polish 가 stainless 보다 훨씬 쉬워서 jewelry · 표창 · 표창의 base material 로 표준입니다.\n\n응용: 표창 metal (military medal, sport trophy 의 nickel silver coating 의 base), 시계 case (Patek Philippe · Vacheron Constantin 의 일부 entry-level model), spectacle frame (안경테, 1880년대 표준이었음), 의류 zipper · 단추, 음악 instrument key 부속 (saxophone · clarinet 의 key), 시계 mechanism 의 일부 plate (German watchmaking 의 'Glashütte plate'), 그리고 dental bridge framework (의료 grade C75200). 'German silver' 라는 이름이 marketing 으로 통해도 ISO 표시는 NiAg18 (DIN) 또는 C75200 (UNS) 입니다.",
+  "story_refs": [
+    "ASTM B151 \"Standard Specification for Copper-Nickel-Zinc Alloy\"",
+    "Pickering F B (1976) The Metallurgical Evolution of Stainless Steels",
+    "Copper Development Association Pub 144"
+  ],
+  "confidence_tier": "medium"
+}

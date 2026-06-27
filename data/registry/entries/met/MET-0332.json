@@ -1,0 +1,347 @@
+{
+  "stable_id": "MET-0332",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cobalt-alloy",
+    "alloy_base": "F-AB-cocrmo-astm-f75",
+    "element_families": [
+      "F-EL-cobalt-based"
+    ]
+  },
+  "legacy_id": "R_0245",
+  "origin": "reference(supplementary)",
+  "id": "R_0245",
+  "name": "CoCrMo (ASTM F75) — Cast (Investment)",
+  "category": "Metal",
+  "subcategory": "Cobalt Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 410,
+      "max": 520,
+      "typical": 450,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 600,
+      "max": 750,
+      "typical": 655,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 12,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 340,
+      "max": 380,
+      "typical": 360,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 196,
+      "max": 265,
+      "typical": 230,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.35·UTS, medium): as-cast F75 endurance ~200-300MPa (조대결정/기공)"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:cocrmo"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "max_service_temp": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "thermal_expansion": {
+      "min": 12.5,
+      "max": 12.5,
+      "typical": 12.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "specific_heat": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "melting_point": {
+      "min": 1370,
+      "max": 1370,
+      "typical": 1370,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cocrmo"
+    },
+    "price_per_kg": {
+      "min": 65,
+      "max": 115,
+      "typical": 85,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Carpenter BioDur CCM F75 cast Q2 2026 (medical grade)"
+    },
+    "price_per_cm3": {
+      "min": 0.5997,
+      "max": 0.8113,
+      "typical": 0.7055,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Co": "balance",
+    "Cr": "27~30",
+    "Mo": "5~7",
+    "Ni": "≤1",
+    "Fe": "≤0.75",
+    "C": "≤0.35"
+  },
+  "sources": [
+    {
+      "label": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
+      "url": "https://store.astm.org/f0075-18.html",
+      "verified": true
+    },
+    {
+      "label": "ASTM F75 / Carpenter datasheet",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASTM F1537 — Wrought Co-28Cr-6Mo Implants",
+      "url": "https://store.astm.org/f1537-20.html",
+      "verified": false
+    },
+    {
+      "label": "Carpenter — CoCrMo alloy technical guide",
+      "url": "https://www.carpentertechnology.com/blog/cobalt-chrome-alloys",
+      "verified": false
+    },
+    {
+      "label": "ISO 5832-12 — Wrought Co-Cr-Mo implant",
+      "url": "https://www.iso.org/standard/61349.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.3,
+      450,
+      655,
+      8,
+      240,
+      360,
+      14
+    ],
+    [
+      8.3,
+      410,
+      600,
+      6,
+      240,
+      340,
+      14
+    ],
+    [
+      8.3,
+      520,
+      750,
+      12,
+      240,
+      380,
+      14
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS R30075 (cast F75) / R31537 (wrought F1537) / ISO 5832-12 — biomedical Co-28Cr-6Mo alloy. Wrought Hot-rolled bar: σy 590 / UTS 1100 / El 20%. Cold-worked (wire): σy 825 / UTS 1240 / El 15%. Tmax 600°C continuous. 가장 흔한 의료 임플란트 (artificial hip head / knee femoral component / dental crown), AM LPBF (EOS Cobalt-Chrome SP2 = ASTM F75). 매우 wear-resistant + 부식 저항.",
+  "meta": {
+    "reference": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "CoCrMo F75",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F75",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM F1537",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 230,
+  "density": 8.3,
+  "yield_strength": 450,
+  "uts": 655,
+  "elongation": 8,
+  "modulus": 240,
+  "hardness": 360,
+  "thermal_conductivity": 14,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
+  "aliases": [
+    "ASTM F75"
+  ],
+  "families": [
+    "Metal",
+    "Cobalt-based"
+  ],
+  "fatigue_estimated": true,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 450,
+      "uts": 655,
+      "E": 230
+    },
+    {
+      "temp": 540,
+      "ys": 380,
+      "uts": 560,
+      "E": null
+    },
+    {
+      "temp": 760,
+      "ys": 280,
+      "uts": 420,
+      "E": null
+    },
+    {
+      "temp": 870,
+      "ys": 180,
+      "uts": 280,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 600,
+  "thermal_expansion": 12.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1370,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.7055,
+  "popularity": 4.25,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 60,
+  "total_cost_estimate": 108,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "story": "1929년 미국의 한 치과의사가 '인체에 거의 반응하지 않는 금속' 을 찾던 중 Co 65% + Cr 28% + Mo 6% 조성의 합금이 답이라는 사실을 발견합니다. 1932년 치과의사 찰스 베너블 (Charles Venable) 이 이 합금을 임상에서 검증하며 'Vitallium' 이라는 상품명으로 의료 임플란트의 첫 표준이 됐죠.\n\n1937년 Earl Bohlman 박사가 첫 hip arthroplasty 에 Vitallium 인공 대퇴골을 이식한 게 정형외과 임플란트의 출발이었어요. 2차 대전 동안에는 군의관들이 부상병의 broken jaw 재건에 Vitallium plate 를 활용하며 응급 의료의 표준으로 확산됐고요.\n\n1976년 ASTM 이 이 합금을 cast 형태 F75, 1991년에 wrought 형태 F1537 로 표준화합니다. 현재도 hip replacement 의 femoral stem (Stryker Accolade, Zimmer M/L Taper), knee tibial tray (Zimmer NexGen), dental crown (Dentsply Sirona), heart valve frame (Edwards SAPIEN) 같은 평생 인체 체류 부품의 기준 재료예요. Cr 산화막의 자기-치유 + Co 매트릭스의 항피로 — 100년이 지나도 인체에서 그대로 견디는 셈입니다.",
+  "story_refs": [
+    "Venable C S, Stuck W G & Beach A (1937) \"The effects on bone of the presence of metals: based upon electrolysis. An experimental study\", Ann Surg 105(6)",
+    "ASTM F75 \"Standard Specification for Cobalt-28 Chromium-6 Molybdenum Alloy Castings for Surgical Implants\"",
+    "Davis J R (ed., 2003) Handbook of Materials for Medical Devices, ASM International",
+    "Marti A (2000) \"Cobalt-base alloys used in bone surgery\", Injury 31 Suppl 4"
+  ],
+  "confidence_tier": "high"
+}

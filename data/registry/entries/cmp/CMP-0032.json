@@ -1,0 +1,181 @@
+{
+  "stable_id": "CMP-0032",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-polyethylene-epoxy",
+    "alloy_base": "F-AB-uhmwpe",
+    "element_families": []
+  },
+  "legacy_id": "CMP_015",
+  "origin": "composites-data",
+  "id": "CMP_015",
+  "name": "UHMWPE — Dyneema/Spectra (UD 0°)",
+  "category": "Composite",
+  "subcategory": "Polyethylene-Epoxy",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 0.97,
+      "max": 1,
+      "typical": 0.98,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "DSM Dyneema SK99 datasheet (verified 2024)"
+    },
+    "yield_strength": {
+      "min": 1000,
+      "max": 1500,
+      "typical": 1200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1200,
+      "max": 1800,
+      "typical": 1500,
+      "n": 1,
+      "confidence": "handbook",
+      "provenance": "DSM Dyneema SK99 / Honeywell Spectra 2000"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 140,
+      "typical": 128,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.4,
+      "max": 0.4,
+      "typical": 0.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": -12,
+      "max": -12,
+      "typical": -12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 80,
+      "max": 100,
+      "typical": 90,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "PE melting limit"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 3,
+      "max": 3.8,
+      "typical": 3.5,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 1350,
+      "max": 1350,
+      "typical": 1350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.2425,
+      "max": 0.2425,
+      "typical": 0.2425,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": [
+    [
+      "UHMWPE fiber (Dyneema SK99 or Spectra 2000)",
+      "100"
+    ]
+  ],
+  "sources": [
+    {
+      "label": "Apps: 최고급 방탄 (Level IV plate), 등반·낚시 rope, 의료 sutures",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "DSM Dyneema SK75/SK78/SK99 datasheet",
+      "url": "https://www.dsm.com/dyneema/en_US/home.html",
+      "verified": true
+    },
+    {
+      "label": "Honeywell Spectra fiber datasheet",
+      "url": "https://www.honeywell.com/us/en/products/services/spectra-fiber",
+      "verified": true
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "ply_direction": "UD 0°",
+    "fiber_vf": 0.6,
+    "applications": "최고급 방탄 (Level IV plate), 등반·낚시 rope, 의료 sutures",
+    "limitations": "80°C 이상 creep, 접착 어려움",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 3,
+  "density": 0.97,
+  "yield_strength": 1200,
+  "uts": 1500,
+  "elongation": 3.5,
+  "modulus": 120,
+  "hardness": null,
+  "thermal_conductivity": 0.4,
+  "fatigue_strength": 1350,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Apps: 최고급 방탄 (Level IV plate), 등반·낚시 rope, 의료 sutures",
+  "aliases": [
+    "PE-UHMW",
+    "UHMW polyethylene"
+  ],
+  "families": [
+    "Composite",
+    "Polyethylene-Epoxy"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.2425,
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "UHMWPE (Ultra-High Molecular Weight Polyethylene, MW > 3M Da). DSM Dyneema SK75/SK78/SK99, Honeywell Spectra 900/1000/2000. **Gel-spun + ultra-drawn** → 80-90% crystalline (vs HDPE 의 60%) → 가장 strong fiber/weight ratio. σf fiber 3."
+}

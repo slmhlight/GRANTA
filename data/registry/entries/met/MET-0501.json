@@ -1,0 +1,268 @@
+{
+  "stable_id": "MET-0501",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-cp-nickel-ni-200",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0259",
+  "origin": "reference(supplementary)",
+  "id": "R_0259",
+  "name": "CP-Nickel (Ni 200) — Wrought, Annealed",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 8.89,
+      "max": 8.89,
+      "typical": 8.89,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 110,
+      "max": 180,
+      "typical": 148,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 400,
+      "max": 530,
+      "typical": 462,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 40,
+      "max": 55,
+      "typical": 47,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 100,
+      "max": 125,
+      "typical": 110,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 70.3,
+      "max": 70.3,
+      "typical": 70.3,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 160,
+      "max": 212,
+      "typical": 184.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Ni-based σf≈0.4·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "electrical_conductivity": {
+      "min": 0.65,
+      "max": 1.95,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Nickel-based"
+    },
+    "max_service_temp": {
+      "min": 290,
+      "max": 340,
+      "typical": 315,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "1st_family:Nickel-based"
+    },
+    "thermal_expansion": {
+      "min": 6.5,
+      "max": 19.5,
+      "typical": 13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Nickel-based"
+    },
+    "poisson_ratio": {
+      "min": 0.15,
+      "max": 0.45,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Nickel-based"
+    },
+    "specific_heat": {
+      "min": 220,
+      "max": 660,
+      "typical": 440,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Nickel-based"
+    },
+    "melting_point": {
+      "min": 675,
+      "max": 2025,
+      "typical": 1350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Nickel-based"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 75,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Nickel-based"
+    },
+    "price_per_cm3": {
+      "min": 0.2223,
+      "max": 0.6667,
+      "typical": 0.4445,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Nickel-based"
+    },
+    "delivered_price_per_kg": {
+      "min": 53.55,
+      "max": 53.55,
+      "typical": 53.55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "≥99.0",
+    "Mn": "≤0.35",
+    "C": "≤0.15",
+    "Cu": "≤0.25",
+    "Fe": "≤0.4",
+    "Si": "≤0.35"
+  },
+  "sources": [
+    {
+      "label": "Special Metals Ni 200/201 datasheet",
+      "url": "http://web.archive.org/web/20240714185430/https://www.specialmetals.com/documents/technical-bulletins/nickel-200.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.89,
+      148,
+      462,
+      47,
+      207,
+      110,
+      70.3
+    ],
+    [
+      8.89,
+      110,
+      400,
+      40,
+      207,
+      100,
+      70.3
+    ],
+    [
+      8.89,
+      180,
+      530,
+      55,
+      207,
+      125,
+      70.3
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "density": 8.89,
+  "yield_strength": 148,
+  "uts": 462,
+  "elongation": 47,
+  "modulus": 207,
+  "hardness": 110,
+  "thermal_conductivity": 70.3,
+  "fatigue_strength": 184.8,
+  "impact_strength": 60,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Special Metals Ni 200/201 datasheet",
+  "aliases": [
+    "Ni 200",
+    "Nickel 200",
+    "UNS N02200"
+  ],
+  "families": [
+    "Metal",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 315,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 440,
+  "melting_point": 1350,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.4445,
+  "popularity": 1.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 53.55,
+  "total_cost_estimate": 96.39,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

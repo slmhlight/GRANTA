@@ -1,0 +1,267 @@
+{
+  "stable_id": "MET-0129",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-lithium",
+    "alloy_base": "F-AB-aa-2196-al-li-t8511",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0201_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0201_0",
+  "name": "AA 2196 (Al-Li T8511) — T8511 (Solution + stretched + CW + Aged peak, extrusion 0.06-0.145 inch)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Lithium",
+  "tier": "reference",
+  "manufacturers": [
+    "Constellium (Airware)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T8511 (Solution + stretched + CW + Aged peak, extrusion 0.06-0.145 inch)",
+  "ranges": {
+    "density": {
+      "min": 2.65,
+      "max": 2.65,
+      "typical": 2.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 78,
+      "max": 78,
+      "typical": 78,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 160,
+      "max": 160,
+      "typical": 160,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 45,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:FAA DOT/TC-18/21 Al-Li"
+    },
+    "electrical_conductivity": {
+      "min": 25.5,
+      "max": 34.5,
+      "typical": 30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "max_service_temp": {
+      "min": 148.75,
+      "max": 201.25,
+      "typical": 175,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "thermal_expansion": {
+      "min": 19.125,
+      "max": 25.875,
+      "typical": 22.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "poisson_ratio": {
+      "min": 0.2805,
+      "max": 0.3795,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "specific_heat": {
+      "min": 743.75,
+      "max": 1006.25,
+      "typical": 875,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "melting_point": {
+      "min": 542.3,
+      "max": 733.7,
+      "typical": 638,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "price_per_cm3": {
+      "min": 0.0135,
+      "max": 0.0183,
+      "typical": 0.0159,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "delivered_price_per_kg": {
+      "min": 8.19,
+      "max": 8.19,
+      "typical": 8.19,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Cu": "2.5~3.3",
+    "Li": "1.4~2.1",
+    "Mg": "0.25~0.8",
+    "Ag": "0.25~0.6",
+    "Mn": "≤0.35",
+    "Zr": "0.04~0.25",
+    "Si": "≤0.12",
+    "Fe": "≤0.15"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "DOT/FAA/TC-18/21 V1 — Al-Li 2196-T8511 case study (FAA WJHTC, March 2020)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "Constellium Airware Al-Li 2196 extrusion datasheet",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.65,
+      540,
+      600,
+      7,
+      78,
+      160,
+      95
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Higher Li (1.4-2.1%) vs 2198 — 더 가벼움 (8% 절감) + 압출 grade. Airbus A350 lower wing skin stringer, floor beam I/Z extrusion. MMPDS Vol.1 2010 등록.",
+  "meta": {
+    "reference": true,
+    "condition": "T8511 (Solution + stretched + CW + Aged peak, extrusion 0.06-0.145 inch)"
+  },
+  "fracture_toughness": 35,
+  "density": 2.65,
+  "yield_strength": 540,
+  "uts": 600,
+  "elongation": 7,
+  "modulus": 78,
+  "hardness": 160,
+  "thermal_conductivity": 95,
+  "fatigue_strength": 180,
+  "impact_strength": 10,
+  "manufacturer": "Constellium (Airware)",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "Al-Li T8511",
+    "extrusion 0.06-0.145 inch"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Lithium",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 30,
+  "max_service_temp": 175,
+  "thermal_expansion": 22.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 875,
+  "melting_point": 638,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0159,
+  "popularity": 3.27,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 8.19,
+  "total_cost_estimate": 7.37,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

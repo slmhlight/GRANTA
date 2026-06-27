@@ -1,0 +1,340 @@
+{
+  "stable_id": "MET-0453",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-heat-resistant-steel",
+    "alloy_base": "F-AB-grade-91-p91-9cr-1movnb",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0330_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0330_0",
+  "name": "Grade 91 (P91, 9Cr-1MoVNb) — Normalized 1040°C + Tempered 760°C (ASTM A335 P91)",
+  "category": "Metal",
+  "subcategory": "Heat-Resistant Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Normalized 1040°C + Tempered 760°C (ASTM A335 P91)",
+  "ranges": {
+    "density": {
+      "min": 7.77,
+      "max": 7.77,
+      "typical": 7.77,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 415,
+      "max": 415,
+      "typical": 415,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 585,
+      "max": 585,
+      "typical": 585,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 218,
+      "max": 218,
+      "typical": 218,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 215,
+      "max": 215,
+      "typical": 215,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 28.3,
+      "max": 28.3,
+      "typical": 28.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 263.25,
+      "max": 263.25,
+      "typical": 263.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 24,
+      "max": 96,
+      "typical": 56,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic × HT:normalized (i×1.6)"
+    },
+    "fracture_toughness": {
+      "min": 112,
+      "max": 182,
+      "typical": 140,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASME B&PV Sec.II heat-resistant × HT:normalized (k×1.4)"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Heat-Resistant Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Heat-Resistant Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Heat-Resistant Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Heat-Resistant Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Heat-Resistant Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Heat-Resistant Steel"
+    },
+    "price_per_kg": {
+      "min": 1.02,
+      "max": 1.38,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Heat-Resistant Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0079,
+      "max": 0.0107,
+      "typical": 0.0093,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Heat-Resistant Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.55,
+      "max": 1.55,
+      "typical": 1.55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "8~9.5",
+    "Mo": "0.85~1.05",
+    "V": "0.18~0.25",
+    "Nb": "0.06~0.10",
+    "C": "0.08~0.12",
+    "Mn": "0.30~0.60",
+    "Si": "0.20~0.50",
+    "N": "0.030~0.070",
+    "Ni": "≤0.40"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.eccc-creep.com/datasheets/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASME B&PV Sec.II heat-resistant",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASTM A335 / A335M — Seamless Ferritic Alloy-Steel Pipe (P91)",
+      "url": "https://store.astm.org/a0335_a0335m-23a.html",
+      "verified": false
+    },
+    {
+      "label": "EPRI P91 Steel Guidelines (2013)",
+      "url": "https://www.epri.com/research/products/000000003002000080",
+      "verified": false
+    },
+    {
+      "label": "ASME B&PV Sec.II — Material Properties for SA-335 P91",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-ii-materials",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.77,
+      415,
+      585,
+      20,
+      218,
+      215,
+      28.3
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ASME SA-335 P91 / ASTM Grade 91 / EN X10CrMoVNb9-1 / DIN 1.4903 — modified 9Cr-1Mo-V-Nb steel (C 0.08-0.12, Cr 8-9.",
+  "meta": {
+    "reference": true,
+    "condition": "Normalized 1040°C + Tempered 760°C (ASTM A335 P91)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A335",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 140,
+  "density": 7.77,
+  "yield_strength": 415,
+  "uts": 585,
+  "elongation": 20,
+  "modulus": 218,
+  "hardness": 215,
+  "thermal_conductivity": 28.3,
+  "fatigue_strength": 263.25,
+  "impact_strength": 56,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "P91",
+    "9Cr-1MoVNb",
+    "ASTM A335 P91"
+  ],
+  "families": [
+    "Metal",
+    "Heat-Resistant Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0093,
+  "popularity": 4.07,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.55,
+  "total_cost_estimate": 1.39,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 480,
+      "uts": 660,
+      "E": 218
+    },
+    {
+      "temp": 300,
+      "ys": 420,
+      "uts": 620,
+      "E": 200
+    },
+    {
+      "temp": 500,
+      "ys": 360,
+      "uts": 530,
+      "E": 180
+    },
+    {
+      "temp": 600,
+      "ys": 260,
+      "uts": 360,
+      "E": 165
+    },
+    {
+      "temp": 650,
+      "ys": 220,
+      "uts": 250,
+      "E": 155
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 550,
+      "stress": 210,
+      "hours": 100000
+    },
+    {
+      "temp": 600,
+      "stress": 100,
+      "hours": 100000
+    },
+    {
+      "temp": 650,
+      "stress": 50,
+      "hours": 100000
+    }
+  ],
+  "confidence_tier": "medium"
+}

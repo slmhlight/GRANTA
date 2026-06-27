@@ -1,0 +1,327 @@
+{
+  "stable_id": "MET-0711",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-aisi-302-general-purpose-austenitic-stainless-higher-c-304",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0028_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0028_0",
+  "name": "AISI 302 (general-purpose austenitic stainless, higher-C 304) — Solution annealed (S30200, EN 1.4319, X10CrNi18-8, SUS302)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution annealed (S30200, EN 1.4319, X10CrNi18-8, SUS302)",
+  "ranges": {
+    "density": {
+      "min": 7.91,
+      "max": 7.91,
+      "typical": 7.91,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 234,
+      "max": 234,
+      "typical": 234,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 565,
+      "max": 565,
+      "typical": 565,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 193,
+      "max": 193,
+      "typical": 193,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 184,
+      "max": 184,
+      "typical": 184,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 220,
+      "max": 260,
+      "typical": 240,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:304l"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.4,
+      "max": 2.4,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304"
+    },
+    "max_service_temp": {
+      "min": 870,
+      "max": 870,
+      "typical": 870,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304"
+    },
+    "thermal_expansion": {
+      "min": 17.3,
+      "max": 17.3,
+      "typical": 17.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304"
+    },
+    "melting_point": {
+      "min": 1450,
+      "max": 1450,
+      "typical": 1450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304"
+    },
+    "price_per_kg": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304"
+    },
+    "price_per_cm3": {
+      "min": 0.0356,
+      "max": 0.0356,
+      "typical": 0.0356,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:304"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.85,
+      "max": 6.85,
+      "typical": 6.85,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "67.7~75",
+    "Cr": "17~19",
+    "Ni": "8~10",
+    "Mn": "≤2",
+    "Si": "≤1",
+    "C": "≤0.15",
+    "P": "≤0.045",
+    "S": "≤0.03"
+  },
+  "sources": [
+    {
+      "label": "AK Steel/Outokumpu — Stainless Steel 304 (1.4301)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+304+stainless",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Stainless steel austenitic AISI 302 annealed (UNS S30200, EN 1.4319)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Stainless 302 (higher-C 304)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — 302 Stainless Steel Annealed",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=4fa2c1a8cf3e419eaab8a39c9d4ce2a4",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.91,
+      234,
+      565,
+      50,
+      193,
+      184,
+      16
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS S30200 / EN 1.4319 / X10CrNi18-8 / JIS SUS302 — general-purpose austenitic stainless (Cr 17-19, Ni 8-10, C ≤ 0.15 — 304 의 high-C 변종). Spring temper (CW): σy 1280 / UTS 1480 (피아노선·스프링 와이어 표준). max service 870°C. Austenitic → Q+T 불가 (Ms ≈ -100°C).",
+  "meta": {
+    "reference": true,
+    "condition": "Solution annealed (S30200, EN 1.4319, X10CrNi18-8, SUS302)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "EN 1.4319",
+        "org": "EN"
+      }
+    ]
+  },
+  "fracture_toughness": 220,
+  "density": 7.91,
+  "yield_strength": 234,
+  "uts": 565,
+  "elongation": 50,
+  "modulus": 193,
+  "hardness": 184,
+  "thermal_conductivity": 16,
+  "fatigue_strength": 240,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "AK Steel/Outokumpu — Stainless Steel 304 (1.4301)",
+  "aliases": [
+    "higher-C 304",
+    "S30200",
+    "EN 1.4319",
+    "X10CrNi18-8",
+    "SUS302",
+    "UNS S30400",
+    "EN 1.4301",
+    "X5CrNi18-10",
+    "JIS SUS304",
+    "KS STS304"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 250,
+      "uts": 580
+    },
+    {
+      "temp": 300,
+      "ys": 150,
+      "uts": 450
+    },
+    {
+      "temp": 500,
+      "ys": 130,
+      "uts": 400
+    },
+    {
+      "temp": 600,
+      "ys": 120,
+      "uts": 330
+    }
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17.3,
+  "poisson_ratio": 0.29,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 4.5,
+  "price_per_cm3": 0.0356,
+  "popularity": 5,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.85,
+  "total_cost_estimate": 8.91,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 10% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "AISI 302 는 austenitic stainless steel 중 304 의 'older sibling' 입니다. 1925년 ASTM 이 304 (Cr 18% + Ni 8% + C 0.08% max) 를 표준화하면서 그 직전의 high-C variant 를 302 (Cr 17-19% + Ni 8-10% + C 0.15% max) 로 designation 했어요. C 함량이 304 의 2배 가까이 높아서 cold-working 시 σy 가 더 빨리 올라가는 게 특징입니다.\n\n302 의 매력은 cold-work hardening 이 다른 austenitic 보다 강하다는 점입니다. Annealed σy 200 MPa → cold-worked half-hard 800 MPa → full-hard 1200 MPa. 304 의 ½ hard 가 700 MPa 인 데 비해 302 는 800 MPa 까지 가능. 이 때문에 austenitic spring steel 산업의 표준으로 자리잡았어요.\n\n응용: stainless spring wire (Smalley wave spring 의 일부 grade — 302 cold-drawn wire 가 austenitic spring 의 baseline), 정밀 wire form spring (전자 connector spring contact), surgical instrument 의 일부 (외과 retractor 의 spring 부분 — autoclave 환경 호환), 그리고 식기 cutlery (302 의 일반 forks/knives — 304 보다 cheaper). 단점은 C 함량이 높아 용접 후 sensitization (450-850°C 에서 Cr₂₃C₆ 입계 석출) 위험이 크다는 점. 그래서 용접 필요 응용은 304 또는 304L (C ≤ 0.03%) 로 대체됩니다.",
+  "story_refs": [
+    "ASTM A276 / A580 stainless bar/wire spec",
+    "Pickering F B (1976) The Metallurgical Evolution of Stainless Steels",
+    "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
+  ],
+  "confidence_tier": "high"
+}

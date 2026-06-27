@@ -1,0 +1,188 @@
+{
+  "stable_id": "CER-0004",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-carbide",
+    "alloy_base": "F-AB-diamond-cvd-synthetic",
+    "element_families": []
+  },
+  "legacy_id": "CER_026",
+  "origin": "ceramics-data",
+  "id": "CER_026",
+  "name": "Diamond (CVD synthetic)",
+  "category": "Ceramic",
+  "subcategory": "Carbide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.52,
+      "max": 3.52,
+      "typical": 3.52,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 2000,
+      "max": 2000,
+      "typical": 2000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2000,
+      "max": 2000,
+      "typical": 2000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 1050,
+      "max": 1050,
+      "typical": 1050,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 10000,
+      "max": 10000,
+      "typical": 10000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 2200,
+      "max": 2200,
+      "typical": 2200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 8000,
+      "max": 8000,
+      "typical": 8000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 28.16,
+      "max": 28.16,
+      "typical": 28.16,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "100.0"
+  },
+  "sources": [
+    {
+      "label": "Element Six — Diamond (CVD synthetic)",
+      "url": "https://www.e6.com/en/applications",
+      "verified": true
+    },
+    {
+      "label": "Applications: 절삭공구 (PCD inserts), 광학 윈도우 (적외), 열 확산기 (전력반도체)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Element Six CVD Diamond reference",
+      "url": "https://www.e6.com/",
+      "verified": false
+    },
+    {
+      "label": "Diamond Materials TM-100 CVD diamond",
+      "url": "https://www.diamond-materials.com/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "절삭공구 (PCD inserts), 광학 윈도우 (적외), 열 확산기 (전력반도체)",
+    "limitations": "공기 中 700°C 이상 → CO₂ 변환. Fe 와 친화성으로 강 절삭 부적합.",
+    "_r173_note_applied": true
+  },
+  "popularity": 2,
+  "density": 3.52,
+  "yield_strength": 2000,
+  "uts": 2000,
+  "elongation": null,
+  "modulus": 1050,
+  "hardness": 10000,
+  "thermal_conductivity": 2200,
+  "fatigue_strength": 900,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Element Six — Diamond (CVD synthetic)",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Carbide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1.5,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 28.16,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "Synthetic Diamond — CVD (Chemical Vapor Deposition, e.g. Element Six MWPECVD) or HPHT (High-Pressure High-Temperature, GE / De Beers). Cubic (sp³)."
+}

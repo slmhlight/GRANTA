@@ -1,0 +1,351 @@
+{
+  "stable_id": "MET-0016",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-42crmo4",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "C_0064",
+  "origin": "curated(material_db)",
+  "id": "C_0064",
+  "name": "42CrMo4 — As-built",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "curated",
+  "manufacturers": [
+    "EOS"
+  ],
+  "machines": [],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1170,
+      "max": 1170,
+      "typical": 1170,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1230,
+      "max": 1230,
+      "typical": 1230,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 42.7,
+      "max": 42.7,
+      "typical": 42.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 289,
+      "max": 391,
+      "typical": 340,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:4140 × HT:as-built (no Q+T) (f×0.85, i×0.9)"
+    },
+    "impact_strength": {
+      "min": 36,
+      "max": 63,
+      "typical": 50,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:4140 × HT:as-built (no Q+T) (f×0.85, i×0.9)"
+    },
+    "fracture_toughness": {
+      "min": 50.6,
+      "max": 92,
+      "typical": 69,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AMS 6415 alloy steel × HT:as-built (no Q+T) (k×0.92)"
+    },
+    "electrical_conductivity": {
+      "min": 5.95,
+      "max": 8.05,
+      "typical": 7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "max_service_temp": {
+      "min": 361.25,
+      "max": 488.75,
+      "typical": 425,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.455,
+      "max": 14.145,
+      "typical": 12.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "specific_heat": {
+      "min": 403.75,
+      "max": 546.25,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "melting_point": {
+      "min": 1213.8,
+      "max": 1642.2,
+      "typical": 1428,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "price_per_kg": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.02,
+      "max": 0.027,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Alloy Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.38~0.45",
+    "Si": "≤0.40",
+    "Mn": "0.60~0.90",
+    "Cr": "0.90~1.20",
+    "Mo": "0.15~0.30",
+    "P": "≤0.025",
+    "S": "≤0.035"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 4140 / DIN 1.7225 (42CrMo4)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+4140",
+      "verified": false
+    },
+    {
+      "label": "EOS MDS summary — steel 42crmo4",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-steel-42crmo4",
+      "verified": true
+    },
+    {
+      "label": "DIN EN 10083-3 — Quenched & tempered steels",
+      "url": "https://www.dinmedia.de/en/standard/din-en-10083-3/",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Cr-Mo Steels: 4140",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — AISI 4140 Q+T",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=fd0a82eb691f4be08b2bf5d04eee9f97",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1170,
+      1230,
+      11,
+      210,
+      null,
+      42.7
+    ],
+    [
+      7.85,
+      1170,
+      1230,
+      11,
+      210,
+      null,
+      42.7
+    ],
+    [
+      7.85,
+      1170,
+      1230,
+      11,
+      210,
+      null,
+      42.7
+    ],
+    [
+      7.85,
+      1170,
+      1230,
+      11,
+      210,
+      null,
+      42.7
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "meta": {
+    "applications": "Medium-C low-alloy steel (AISI 4140) — shafts, gears, high-stress structural parts",
+    "magnetic": "ferromagnetic",
+    "melt_C": 1450,
+    "cte": 12.2,
+    "cp": 473,
+    "poisson": 0.28,
+    "vendor_count": 1,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "EN 10083-3",
+        "org": "EN"
+      },
+      {
+        "id": "DIN 1.7225",
+        "org": "DIN"
+      }
+    ]
+  },
+  "fracture_toughness": 69,
+  "fatigue_strength": 340,
+  "density": 7.85,
+  "yield_strength": 1170,
+  "uts": 1230,
+  "elongation": 11,
+  "modulus": 210,
+  "hardness": null,
+  "thermal_conductivity": 42.7,
+  "impact_strength": 50,
+  "manufacturer": "EOS",
+  "process": "LPBF",
+  "source": "MatWeb — AISI 4140 / DIN 1.7225 (42CrMo4)",
+  "aliases": [
+    "AISI 4140",
+    "UNS G41400",
+    "DIN 1.7225",
+    "JIS SCM440"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 655,
+      "uts": 850
+    },
+    {
+      "temp": 200,
+      "ys": 600,
+      "uts": 790
+    },
+    {
+      "temp": 425,
+      "ys": 520,
+      "uts": 710
+    },
+    {
+      "temp": 540,
+      "ys": 380,
+      "uts": 540
+    }
+  ],
+  "electrical_conductivity": 7,
+  "max_service_temp": 425,
+  "thermal_expansion": 12.3,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1428,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0235,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.5,
+  "total_cost_estimate": 13.5,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "story": "42CrMo4 는 미국 AISI 4140 (1923 SAE 표준) 의 유럽 표준 명칭으로, 1971년 DIN 17200 (현 EN 10083-3) 으로 표준화됐어요. 1.0% Cr + 0.20% Mo + 0.40% C — 동일한 조성, 동일한 응용, 동일한 'general purpose Cr-Mo' 의 위상을 가진 합금이죠.\n\n자동차·트럭 의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. Mo 0.2% 가 tempering brittleness (350-450°C 영역에서 P, S 가 입계 석출) 를 억제하면서 Cr 1% 의 경화능으로 ø100 mm 두께까지 균일한 σ_y 700+ MPa 가 나옵니다. EU 산업의 단조 blank 의 약 25% 가 42CrMo4 입니다.",
+  "story_refs": [
+    "EN 10083-3 \"Steels for quenching and tempering - Part 3: Technical delivery conditions for alloy steels\"",
+    "Bhadeshia H K D H & Honeycombe R W K (2017) Steels: Microstructure and Properties, 4th ed., Butterworth-Heinemann",
+    "DIN 17200 (1987 superseded by EN 10083)"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS G41400 / DIN 1.7225 (42CrMo4) / JIS SCM440 / KS SCM440 — Cr-Mo low-alloy steel (C 0.38-0.43, Cr 0.8-1.1, Mo 0.15-0.25). Crank shafts, gears, axles, ASTM A193 B7 bolts. AM LPBF 의 표준 high-strength steel."
+}

@@ -1,0 +1,292 @@
+{
+  "stable_id": "MET-0175",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-pure-other",
+    "alloy_base": "F-AB-al5x1-al-x",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "C_0062",
+  "origin": "curated(material_db)",
+  "id": "C_0062",
+  "name": "Al5x1 (Al-X) — As-built",
+  "category": "Metal",
+  "subcategory": "Aluminum - Pure/Other",
+  "tier": "curated",
+  "manufacturers": [
+    "EOS"
+  ],
+  "machines": [
+    "M290-4"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built",
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 380,
+      "max": 385,
+      "typical": 385,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 415,
+      "max": 415,
+      "typical": 415,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 14.5,
+      "max": 14.5,
+      "typical": 14.5,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 75,
+      "max": 75,
+      "typical": 75,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 116,
+      "max": 177,
+      "typical": 146,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 4.8,
+      "max": 17.1,
+      "typical": 9.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based × HT:as-built (fine grain) (i×0.95)"
+    },
+    "fracture_toughness": {
+      "min": 22,
+      "max": 40,
+      "typical": 30,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Aluminum Association handbook"
+    },
+    "electrical_conductivity": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum"
+    },
+    "max_service_temp": {
+      "min": 85,
+      "max": 255,
+      "typical": 170,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 34.5,
+      "typical": 23,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum"
+    },
+    "poisson_ratio": {
+      "min": 0.165,
+      "max": 0.495,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 1350,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum"
+    },
+    "melting_point": {
+      "min": 325,
+      "max": 975,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum"
+    },
+    "price_per_kg": {
+      "min": 2,
+      "max": 6,
+      "typical": 4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum"
+    },
+    "price_per_cm3": {
+      "min": 0.0054,
+      "max": 0.0162,
+      "typical": 0.0108,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum"
+    },
+    "delivered_price_per_kg": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "composition": "EOS proprietary high-strength Al-X formulation"
+  },
+  "sources": [
+    {
+      "label": "EOS MDS summary — aluminium al5x1",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-aluminium-al5x1",
+      "verified": true
+    },
+    {
+      "label": "EOS",
+      "url": "https://www.eos.info/metal-solutions/data-sheets/aluminium/pds-eos-aluminium-al5x1-eos-m-290-40um",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Aluminum Association handbook",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.7,
+      385,
+      415,
+      14.5,
+      75,
+      null,
+      130
+    ],
+    [
+      2.7,
+      380,
+      415,
+      14.5,
+      75,
+      null,
+      130
+    ],
+    [
+      2.7,
+      385,
+      415,
+      14.5,
+      75,
+      null,
+      130
+    ],
+    [
+      2.7,
+      380,
+      415,
+      14.5,
+      75,
+      null,
+      130
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "applications": "EOS proprietary high-strength aluminum alloy for LPBF",
+    "magnetic": "non-magnetic",
+    "melt_C": 640,
+    "cte": 23.5,
+    "cp": 870,
+    "poisson": 0.33,
+    "vendor_count": 1,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 30,
+  "fatigue_strength": 146,
+  "density": 2.7,
+  "yield_strength": 385,
+  "uts": 415,
+  "elongation": 14.5,
+  "modulus": 75,
+  "hardness": null,
+  "thermal_conductivity": 130,
+  "impact_strength": 9.5,
+  "manufacturer": "EOS",
+  "process": "LPBF",
+  "source": "EOS MDS summary — aluminium al5x1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 170,
+  "thermal_expansion": 23,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.0108,
+  "popularity": 3.12,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 10,
+  "total_cost_estimate": 18,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

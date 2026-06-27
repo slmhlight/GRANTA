@@ -1,0 +1,277 @@
+{
+  "stable_id": "POL-0124",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pvc",
+    "alloy_base": "F-AB-pvc-rigid",
+    "element_families": []
+  },
+  "legacy_id": "R_0072",
+  "origin": "reference(supplementary)",
+  "id": "R_0072",
+  "name": "PVC (rigid)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PVC",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Extrusion"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.4,
+      "max": 1.4,
+      "typical": 1.4,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 40,
+      "max": 50,
+      "typical": 45,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 48,
+      "max": 58,
+      "typical": 52,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 52.8,
+      "max": 67.2,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.8,
+      "max": 3.2,
+      "typical": 3,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.16,
+      "max": 0.16,
+      "typical": 0.16,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVC"
+    },
+    "max_service_temp": {
+      "min": 60,
+      "max": 75,
+      "typical": 65,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - PVC"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVC"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVC"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVC"
+    },
+    "glass_transition_temp": {
+      "min": 42.5,
+      "max": 127.5,
+      "typical": 85,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVC"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVC"
+    },
+    "price_per_cm3": {
+      "min": 0.0175,
+      "max": 0.0525,
+      "typical": 0.035,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVC"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "38.4",
+    "H": "4.8",
+    "Cl": "56.7"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — PVC plastic",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PVC",
+      "verified": false
+    },
+    {
+      "label": "MakeItFrom — Rigid uPVC/PVC-U (R221 검증: ρ1.40·k0.16 정확 일치; commodity 집계 도메인이라 verified 강등)",
+      "url": "https://www.makeitfrom.com/material-properties/Unplasticized-Rigid-Polyvinyl-Chloride-uPVC-PVC-U",
+      "verified": false
+    },
+    {
+      "label": "Material datasheets — rigid PVC",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — Rigid PVC (uPVC)",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=7dcbe9d6c2a6492487f56ddc09ad8775",
+      "verified": false
+    },
+    {
+      "label": "ASTM D1784 — Rigid PVC Compounds and CPVC",
+      "url": "https://store.astm.org/d1784-20.html",
+      "verified": false
+    },
+    {
+      "label": "AZoM — Unplasticised PVC (UPVC / rigid PVC) 물성",
+      "url": "https://www.azom.com/article.aspx?ArticleID=770",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.4,
+      45,
+      52,
+      40,
+      3,
+      0,
+      0.16
+    ],
+    [
+      1.4,
+      40,
+      48,
+      20,
+      2.8,
+      0,
+      0.16
+    ],
+    [
+      1.4,
+      50,
+      58,
+      60,
+      3.2,
+      0,
+      0.16
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "PVC (Polyvinyl Chloride). Rigid (uPVC, ASTM D1784 Class 12454-B / Type I) — 가장 흔한 grade. Tg ≈ 85°C, max service 60-70°C. σy 40-55 / UTS 50-60 / El 40-80% / E 2.7-3.3 GPa / ρ 1.38-1.42 g/cc. 자체 난연 (chlorine 함유, UL 94 V-0). 자체 화학 저항 우수. 배관 (PVC pipe — 1억 톤/년 시장), 윈도우 프레임, 의료 IV bag (plasticized), 전기 절연 wire jacket. 가공 시 thermal degradation 발생 → 안정제 (Sn, Ca-Zn) 필수.",
+  "meta": {
+    "reference": true,
+    "polymer": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM D1784",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "density": 1.4,
+  "yield_strength": 45,
+  "uts": 52,
+  "elongation": 40,
+  "modulus": 3,
+  "hardness": null,
+  "thermal_conductivity": 0.16,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Extrusion",
+  "source": "MatWeb — PVC plastic",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PVC"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 65,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 85,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.035,
+  "popularity": 5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1872년 독일 오이겐 바우만 (Eugen Baumann) 이 vinyl chloride monomer 를 햇볕에 노출하자 흰색 가루로 변하는 것을 처음 관찰했지만 상품화에는 실패했어요. 1926년 미국 BF Goodrich 의 월도 시몬 (Waldo Semon) 이 plasticizer (DEHP) 를 가해 가공 가능한 PVC compound 를 개발하면서 'Geon' 으로 상품화 — Semon 의 핵심 통찰은 '순수 PVC 는 너무 brittle 하고 가공이 어렵다 → DEHP 같은 plasticizer 가 modular property tuning 을 가능하게 한다' 는 점이었습니다.\n\n응용 — 1930년대 자동차 dashboard rubber → PVC 전환 (GM), 40년대 와이어 절연 (군용 케이블), 50년대 LP 음반 (RCA Victor), 60년대 의료 IV bag (Travenol, 현 Baxter), 70년대 PVC 수도관 (Eagan Plastics 의 SCH 40 표준), 80년대 신용카드 (Visa, MC), 90년대 창호 sash (Anderson, Pella), 2000년대 Apple 의 USB 케이블 외피, 의료 blood bag (transfusion). 의료 응용 시장만 연 $25 B. 단, DEHP 의 endocrine disruption 우려로 EU REACH 가 일부 응용을 제한 — 2015년 EU 가 어린이 장난감의 DEHP 농도 0.1% 미만을 의무화했어요.",
+  "story_refs": [
+    "Baumann E (1872) Liebigs Ann Chem 163 \"Vorläufige Mittheilung über den Vinylchlorid\"",
+    "Semon W L (1933) US Patent 1,929,453 (BF Goodrich) \"Synthetic rubber-like composition and method of making same\"",
+    "Wickson E J (ed., 1993) Handbook of Polyvinyl Chloride Formulating, Wiley",
+    "Wilkes C E, Summers J W & Daniels C A (eds., 2005) PVC Handbook, Hanser"
+  ],
+  "confidence_tier": "high"
+}

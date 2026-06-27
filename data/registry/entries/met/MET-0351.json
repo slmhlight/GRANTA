@@ -1,0 +1,308 @@
+{
+  "stable_id": "MET-0351",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cobalt-alloy-chromium",
+    "alloy_base": "F-AB-haynes-188",
+    "element_families": [
+      "F-EL-cobalt-based"
+    ]
+  },
+  "legacy_id": "R_0131",
+  "origin": "reference(supplementary)",
+  "id": "R_0131",
+  "name": "Haynes 188",
+  "category": "Metal",
+  "subcategory": "Cobalt Alloy - Chromium",
+  "tier": "reference",
+  "manufacturers": [
+    "Haynes International"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution Annealed (1175°C WQ)",
+  "ranges": {
+    "density": {
+      "min": 8.98,
+      "max": 8.98,
+      "typical": 8.98,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 420,
+      "max": 500,
+      "typical": 464,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 910,
+      "max": 1010,
+      "typical": 960,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 50,
+      "max": 60,
+      "typical": 56,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 232,
+      "max": 232,
+      "typical": 232,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 240,
+      "max": 270,
+      "typical": 250,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 230,
+      "max": 330,
+      "typical": 280,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "impact_strength": {
+      "min": 55,
+      "max": 110,
+      "typical": 80,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "max_service_temp": {
+      "min": 1095,
+      "max": 1095,
+      "typical": 1095,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "thermal_expansion": {
+      "min": 13.3,
+      "max": 13.3,
+      "typical": 13.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "poisson_ratio": {
+      "min": 0.31,
+      "max": 0.31,
+      "typical": 0.31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "specific_heat": {
+      "min": 405,
+      "max": 405,
+      "typical": 405,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "melting_point": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "price_per_kg": {
+      "min": 85,
+      "max": 85,
+      "typical": 85,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "price_per_cm3": {
+      "min": 0.7633,
+      "max": 0.7633,
+      "typical": 0.7633,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:haynes188"
+    },
+    "delivered_price_per_kg": {
+      "min": 111.56,
+      "max": 111.56,
+      "typical": 111.56,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Co": "balance",
+    "Cr": "20~24",
+    "Ni": "20~24",
+    "W": "13~16"
+  },
+  "sources": [
+    {
+      "label": "Haynes International — Haynes 188 Alloy",
+      "url": "https://haynesintl.com/en/alloys/alloy/haynes-188-alloy",
+      "verified": true
+    },
+    {
+      "label": "Haynes International — Haynes 188 (UNS R30188, Co-base)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Haynes International",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Haynes International — Haynes 188 datasheet",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HAYNES188alloy",
+      "verified": true
+    },
+    {
+      "label": "AMS 5772 — Haynes 188 (Co-Cr-Ni-W)",
+      "url": "https://www.sae.org/standards/content/ams5772/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.98,
+      464,
+      960,
+      56,
+      232,
+      250,
+      10
+    ],
+    [
+      8.98,
+      420,
+      910,
+      50,
+      232,
+      240,
+      10
+    ],
+    [
+      8.98,
+      500,
+      1010,
+      60,
+      232,
+      270,
+      10
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS R30188 (Haynes 188) / UNS R30605 (L-605, Haynes 25) / Co-22Cr-22Ni-14W — Co-Cr-Ni-W solid-solution-strengthened cobalt superalloy. Composition Co bal, Cr 20-24, Ni 20-24, W 13-16, Mn 1.25, La 0.03-0.15. Sheet for combustor liner (가장 흔한 application — F100, RM12 engine combustor). CMSX-4 같은 SX Ni 보다 lower strength 이지만 sulfidation 저항 우수 (해상 환경).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5772",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS R30188",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 70,
+  "fatigue_strength": 280,
+  "density": 8.98,
+  "yield_strength": 464,
+  "uts": 960,
+  "elongation": 56,
+  "modulus": 232,
+  "hardness": 250,
+  "thermal_conductivity": 10,
+  "impact_strength": 80,
+  "manufacturer": "Haynes International",
+  "process": "Wrought",
+  "source": "Haynes International — Haynes 188 Alloy",
+  "aliases": [
+    "UNS R30188",
+    "Co-22Cr-22Ni-14W",
+    "Alloy 188"
+  ],
+  "families": [
+    "Metal",
+    "Cobalt Alloy - Chromium",
+    "Cobalt-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1,
+  "max_service_temp": 1095,
+  "thermal_expansion": 13.3,
+  "poisson_ratio": 0.31,
+  "specific_heat": 405,
+  "melting_point": 1300,
+  "price_per_kg": 85,
+  "price_per_cm3": 0.7633,
+  "popularity": 2,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 111.56,
+  "total_cost_estimate": 290.06,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 24% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

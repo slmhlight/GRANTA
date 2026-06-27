@@ -1,0 +1,325 @@
+{
+  "stable_id": "MET-0765",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-superduplex-stainless",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "C_0067",
+  "origin": "curated(material_db)",
+  "id": "C_0067",
+  "name": "Superduplex Stainless — Heat-Treated",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "curated",
+  "manufacturers": [
+    "EOS"
+  ],
+  "machines": [
+    "EOS M 290"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Heat-Treated",
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 560,
+      "max": 580,
+      "typical": 570,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 860,
+      "max": 870,
+      "typical": 870,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 33,
+      "max": 35,
+      "typical": 34,
+      "n": 8,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 14.6,
+      "max": 14.6,
+      "typical": 14.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 387,
+      "max": 391.5,
+      "typical": 391.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Rolled Alloys ZERON 100"
+    },
+    "electrical_conductivity": {
+      "min": 1.7,
+      "max": 2.3,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "max_service_temp": {
+      "min": 255,
+      "max": 345,
+      "typical": 300,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "thermal_expansion": {
+      "min": 11.05,
+      "max": 14.95,
+      "typical": 13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "specific_heat": {
+      "min": 425,
+      "max": 575,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "melting_point": {
+      "min": 1245.25,
+      "max": 1684.75,
+      "typical": 1465,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "price_per_kg": {
+      "min": 6.8,
+      "max": 9.2,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.053,
+      "max": 0.0718,
+      "typical": 0.0624,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "24.0~26.0",
+    "Ni": "6.0~8.0",
+    "Mo": "3.0~5.0",
+    "N": "0.24~0.32",
+    "Cu": "≤1.0",
+    "W": "≤1.0",
+    "C": "≤0.030",
+    "Si": "≤0.80",
+    "Mn": "≤1.20",
+    "P": "≤0.035",
+    "S": "≤0.020"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — Super Duplex 2507 (1.4410)",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
+      "verified": true
+    },
+    {
+      "label": "EOS MDS summary — stainlesssteel superduplex",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-superduplex",
+      "verified": true
+    },
+    {
+      "label": "Sandvik SAF 2507 datasheet",
+      "url": "https://www.alleima.com/en/products-and-services/tube/sanmac-tube/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      575,
+      870,
+      33.5,
+      200,
+      null,
+      14.6
+    ],
+    [
+      7.8,
+      560,
+      860,
+      34.5,
+      200,
+      null,
+      14.6
+    ],
+    [
+      7.8,
+      580,
+      870,
+      34,
+      200,
+      null,
+      14.6
+    ],
+    [
+      7.8,
+      560,
+      860,
+      34,
+      200,
+      null,
+      14.6
+    ],
+    [
+      7.8,
+      570,
+      870,
+      33,
+      200,
+      null,
+      14.6
+    ],
+    [
+      7.8,
+      560,
+      860,
+      35,
+      200,
+      null,
+      14.6
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "applications": "Superduplex (UNS S32750 / SAF 2507) — offshore, chemical, marine — high strength + chloride pitting resistance",
+    "magnetic": "ferromagnetic",
+    "melt_C": 1345,
+    "cte": 13,
+    "cp": 480,
+    "poisson": 0.3,
+    "vendor_count": 4,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 100,
+  "density": 7.8,
+  "yield_strength": 570,
+  "uts": 870,
+  "elongation": 34,
+  "modulus": 200,
+  "hardness": null,
+  "thermal_conductivity": 14.6,
+  "fatigue_strength": 391.5,
+  "impact_strength": 35,
+  "manufacturer": "EOS",
+  "process": "LPBF",
+  "source": "Outokumpu — Super Duplex 2507 (1.4410)",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Stainless Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 2,
+  "max_service_temp": 300,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1465,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0624,
+  "popularity": 3.15,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 20,
+  "total_cost_estimate": 36,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

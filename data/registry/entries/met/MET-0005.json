@@ -1,0 +1,269 @@
+{
+  "stable_id": "MET-0005",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-advanced-high-strength-steel",
+    "alloy_base": "F-AB-dp980-en-hct980x-dual-phase",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0430_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0430_1",
+  "name": "DP980 (EN HCT980X) dual-phase — Cold-rolled YS750 (high-end)",
+  "category": "Metal",
+  "subcategory": "Advanced High-Strength Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cold Rolled + Continuous Annealed (Dual-Phase: Ferrite + Martensite)"
+  ],
+  "heat_treatment": "Cold-rolled YS750 (high-end)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 750,
+      "max": 750,
+      "typical": 750,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 221,
+      "max": 221,
+      "typical": 221,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 323,
+      "max": 323,
+      "typical": 323,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 338,
+      "max": 338,
+      "typical": 338,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 1,
+      "confidence": "handbook",
+      "min_spec_value": 25,
+      "min_spec_source": "AHSS minimum (vs typical 40 J)",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hct980x"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hct980x"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 11.5,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hct980x"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hct980x"
+    },
+    "specific_heat": {
+      "min": 475,
+      "max": 475,
+      "typical": 475,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hct980x"
+    },
+    "melting_point": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hct980x"
+    },
+    "price_per_kg": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hct980x"
+    },
+    "price_per_cm3": {
+      "min": 0.0094,
+      "max": 0.0094,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hct980x"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.56,
+      "max": 1.56,
+      "typical": 1.56,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "90.7~97.3",
+    "C": "0.06~0.23",
+    "Mn": "0.4~2.9",
+    "Si": "0.4~1.4",
+    "Al": "1.8~2.2",
+    "Cr+Mo": "≤2",
+    "Nb+Ti+V": "≤0.5",
+    "B": "≤0.005"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "ANSYS Granta — Dual phase steel YS600 cold rolled (EN 10336:2007 HCT980X, EN 1.0944)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "ArcelorMittal DP 980 LCE Y600 / World Auto Steel DP 700/1000",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      750,
+      1100,
+      10,
+      221,
+      323,
+      50
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "POSCO DP980 (Dual-Phase 980) — 자동차 outer body / door inner / B-pillar inner. UTS 980 + El 12% — TRIP 보다 cold-formable. ArcelorMittal Usibor 1500 / TKS DP980 등가. 현대·기아 / Toyota / GM 표준 AHSS (Advanced High Strength Steel). 충돌 흡수 zone front/rear rail + crush can + rocker reinforcement.",
+  "meta": {
+    "reference": true,
+    "condition": "Cold-rolled YS750 (high-end)"
+  },
+  "fracture_toughness": 90,
+  "density": 7.85,
+  "yield_strength": 750,
+  "uts": 1100,
+  "elongation": 10,
+  "modulus": 221,
+  "hardness": 323,
+  "thermal_conductivity": 50,
+  "fatigue_strength": 338,
+  "impact_strength": 40,
+  "manufacturer": "Reference data",
+  "process": "Cold Rolled + Continuous Annealed (Dual-Phase: Ferrite + Martensite)",
+  "source": "Datasheet 2",
+  "aliases": [
+    "EN HCT980X"
+  ],
+  "families": [
+    "Metal",
+    "Advanced High-Strength Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 7,
+  "max_service_temp": 250,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 475,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 3,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.56,
+  "total_cost_estimate": 1.4,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,400 @@
+{
+  "stable_id": "POL-0105",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pp",
+    "alloy_base": "F-AB-pp",
+    "element_families": []
+  },
+  "legacy_id": "G_0176",
+  "origin": "generic(csv)",
+  "id": "G_0176",
+  "name": "PP — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PP",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 0.9,
+      "max": 0.9,
+      "typical": 0.9,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 29.12,
+      "max": 34.88,
+      "typical": 31.04,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 31.85,
+      "max": 38.15,
+      "typical": 33.95,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 328,
+      "max": 436,
+      "typical": 376,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 63.7,
+      "max": 76.3,
+      "typical": 67.9,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.12,
+      "max": 0.12,
+      "typical": 0.12,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "max_service_temp": {
+      "min": 50,
+      "max": 150,
+      "typical": 100,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": -15,
+      "max": -5,
+      "typical": -10,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0112,
+      "max": 0.0338,
+      "typical": 0.0225,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PP (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "ExxonMobil PP product family",
+      "url": "https://www.exxonmobilchemical.com/en/products/polymers",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"PP\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PP",
+      "verified": false
+    },
+    {
+      "label": "SABIC PP resin technical guide",
+      "url": "https://www.sabic.com/en/products/polymers/polypropylene-pp",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Polypropylene Homopolymer",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=e7e3e89ab5ab441b8e7a8c8e0b7c3e6e",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      0.9,
+      34.88,
+      38.150000000000006,
+      436.00000000000006,
+      1.5,
+      76.30000000000001,
+      0.12
+    ],
+    [
+      0.9,
+      31.04,
+      33.95,
+      428,
+      1.5,
+      67.89999999999999,
+      0.12
+    ],
+    [
+      0.9,
+      31.36,
+      34.3,
+      352,
+      1.5,
+      68.6,
+      0.12
+    ],
+    [
+      0.9,
+      30.4,
+      33.25,
+      420,
+      1.5,
+      66.5,
+      0.12
+    ],
+    [
+      0.9,
+      29.12,
+      31.85,
+      404,
+      1.5,
+      63.7,
+      0.12
+    ],
+    [
+      0.9,
+      34.88,
+      38.150000000000006,
+      356,
+      1.5,
+      76.30000000000001,
+      0.12
+    ],
+    [
+      0.9,
+      30.4,
+      33.25,
+      420,
+      1.5,
+      66.5,
+      0.12
+    ],
+    [
+      0.9,
+      31.04,
+      33.95,
+      348.00000000000006,
+      1.5,
+      67.89999999999999,
+      0.12
+    ],
+    [
+      0.9,
+      29.76,
+      32.550000000000004,
+      412,
+      1.5,
+      65.10000000000001,
+      0.12
+    ],
+    [
+      0.9,
+      31.04,
+      33.95,
+      428,
+      1.5,
+      67.89999999999999,
+      0.12
+    ],
+    [
+      0.9,
+      29.44,
+      32.2,
+      328,
+      1.5,
+      64.4,
+      0.12
+    ],
+    [
+      0.9,
+      30.08,
+      32.9,
+      376,
+      1.5,
+      65.8,
+      0.12
+    ],
+    [
+      0.9,
+      29.44,
+      32.2,
+      328,
+      1.5,
+      64.4,
+      0.12
+    ],
+    [
+      0.9,
+      34.88,
+      38.150000000000006,
+      356,
+      1.5,
+      76.30000000000001,
+      0.12
+    ],
+    [
+      0.9,
+      34.88,
+      38.150000000000006,
+      356,
+      1.5,
+      76.30000000000001,
+      0.12
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon (FDM/SLS)",
+      "Polymer - PP (FDM)"
+    ],
+    "conditions": [
+      "Impact Modified",
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "HB",
+    "uv_resistance": "Poor",
+    "moisture_24h": 0.02,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 0.9,
+  "yield_strength": 31.04,
+  "uts": 33.95,
+  "elongation": 376,
+  "modulus": 1.5,
+  "hardness": 67.9,
+  "thermal_conductivity": 0.12,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "ExxonMobil PP product family",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PP (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 100,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": -10,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0225,
+  "popularity": 5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1954년 3월, 이탈리아 Milan Polytechnic 의 줄리오 나타 (Giulio Natta) 가 카를 치글러 (Karl Ziegler) 의 1953년 Ti-Al 카탈리스트 (Ziegler catalyst) 를 propene 에 적용해 처음으로 isotactic polypropylene 을 합성합니다 — Ziegler 의 polyethylene 발견과 함께 1963년 노벨 화학상을 공동 수상하게 되죠. Montecatini 가 1957년 'Moplen' 으로 상업화한 뒤 1960년대 들어 자동차 범퍼·계측기 하우징·식품 용기 (Tupperware) 까지 폭발적으로 보급됐어요.\n\nPP 의 의의는 결정성 (X_c ~60%) + 낮은 밀도 (0.91 g/cm³, 모든 commodity 폴리머 중 최소) + 99% 의 chain-scission-free 재활용 가능성 — 현재 세계 폴리머 시장 2위 (PE 다음 ≈ 80 Mt/y) 의 거대 시장입니다. 가장 흔한 응용: 자동차 범퍼 (BMW, Toyota, 현대), 의자 (IKEA), 약병 cap, microwaveable 식품 용기 (CPP), 의료 syringe (단, Tg -20°C → low-temp 취성 한계). GF30 강화 변형은 자동차 cooling fan 과 dishwasher impeller 의 표준이고요.",
+  "story_refs": [
+    "Natta G (1955) \"Une nouvelle classe de polymères d'α-oléfines ayant une régularité de structure exceptionnelle\", J Polym Sci 16",
+    "Natta G (1963) Nobel Lecture \"From the Stereospecific Polymerization to the Asymmetric Autocatalytic Synthesis of Macromolecules\"",
+    "Pasquini N (ed., 2005) Polypropylene Handbook, Hanser",
+    "Moore E P (ed., 1996) Polypropylene Handbook: Polymerization, Characterization, Properties, Processing, Applications, Hanser"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Polypropylene (PP). Homopolymer vs Random Copolymer (RCP) vs Block Copolymer (BCP). Tg ≈ -10°C (cold-brittle), Tm 160-170°C, HDT (0.46 MPa) ≈ 100°C, max service 100-120°C. Homo: σy 33-38 / UTS 35-40 / El 100-600% / E 1.4-1.6 GPa / ρ 0.90 g/cc (가장 가벼운 thermoplastic). 화학 약품 저항 우수 (산/알칼리). 자동차 bumper (BCP), 마이크로파 ware, 식품 용기, 의료 disposable (주사기, IV 백). 저온 충격 약점 → BCP 또는 EPDM 첨가."
+}

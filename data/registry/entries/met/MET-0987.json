@@ -1,0 +1,259 @@
+{
+  "stable_id": "MET-0987",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-wear-resistant-steel",
+    "alloy_base": "F-AB-hardox-450-ssab-abrasion-resistant",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0378_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0378_1",
+  "name": "Hardox 450 (SSAB abrasion-resistant) — Q+T thin plate (≤10 mm, higher BHN)",
+  "category": "Metal",
+  "subcategory": "Wear-Resistant Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "SSAB (Hardox)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T thin plate (≤10 mm, higher BHN)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1250,
+      "max": 1250,
+      "typical": 1250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1450,
+      "max": 1450,
+      "typical": 1450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 475,
+      "max": 475,
+      "typical": 475,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 38,
+      "max": 38,
+      "typical": 38,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 652.5,
+      "max": 652.5,
+      "typical": 652.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.58,
+      "max": 2.58,
+      "typical": 2.58,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.21",
+    "Si": "0.70",
+    "Mn": "1.60",
+    "B": "0.005",
+    "Cr": "0.50",
+    "Mo": "0.25",
+    "Ni": "0.25",
+    "P": "≤0.025",
+    "S": "≤0.010"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.ssab.com/products/brands/hardox",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1250,
+      1450,
+      9,
+      207,
+      475,
+      38
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "SSAB proprietary; standard for dump-truck haul body (Komatsu HD785-7, Cat 793F), excavator bucket liner (Cat 6020B), feeder pan, crusher hopper, dredger cutter; 3× abrasion life of mild S275.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T thin plate (≤10 mm, higher BHN)"
+  },
+  "density": 7.85,
+  "yield_strength": 1250,
+  "uts": 1450,
+  "elongation": 9,
+  "modulus": 207,
+  "hardness": 475,
+  "thermal_conductivity": 38,
+  "fatigue_strength": 652.5,
+  "impact_strength": 35,
+  "manufacturer": "SSAB (Hardox)",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "≤10 mm"
+  ],
+  "families": [
+    "Metal",
+    "Wear-Resistant Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.58,
+  "total_cost_estimate": 2.32,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1974년 스웨덴 SSAB Oxelösund (Oxelösund Iron Works) 가 광업 industry 의 wear plate 시장을 노리고 시작한 브랜드. 당시 wear plate 의 표준은 abrasion-resistant cast iron (NIHARD) 이었는데, hard 하지만 brittle 해서 충격을 받으면 부서지는 게 문제였어요. SSAB 의 해법은 'Q+T low-alloy steel' — Cr+Mo+B microalloy 의 martensite + 100% 의 균일한 hardenability + 인성 보존이었습니다.\n\nHardox 400 → 450 → 500 → 550 → 600 의 BHN grade 별로 라인업이 확장되면서 '광업의 wear plate = Hardox' 라는 인식이 굳어졌어요. 1980년대 Komatsu HD785 dump truck body, 1990년대 Caterpillar 793F mining truck haul body, 2000년대 BHP iron ore train coupling box, 2010년대 EU 광업 hammer mill liner — Hardox 가 거의 전부.\n\nHardox 450 (HBW 425~475) 이 가장 인기 grade 입니다. 충격 + abrasion 의 균형이 가장 좋거든요. 응용 예 — Volvo A30/A40 articulated dump truck haul body, John Deere 1810E forwarder grapple, JCB 540 telehandler bucket, 한국 두산 DX380LC 굴착기의 bucket liner. SSAB 매출의 60% 이상이 Hardox 라인 — '한 산업이 한 brand 와 거의 동의어' 가 된 가장 극단적인 예입니다.",
+  "story_refs": [
+    "SSAB \"Hardox 450 Brochure\" (2020) (https://www.ssab.com/en/brands-and-products/hardox)",
+    "Mishnaevsky L Jr (2003) \"Three-dimensional numerical analysis of the role of microstructural inhomogeneity in damage and failure\", Comput Mater Sci 27(4)",
+    "SSAB Corporate History 1878-2018"
+  ],
+  "confidence_tier": "medium"
+}

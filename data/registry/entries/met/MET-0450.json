@@ -1,0 +1,289 @@
+{
+  "stable_id": "MET-0450",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy-pure",
+    "alloy_base": "F-AB-ofe-copper-c10100-oxygen-free-electronic",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0328_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0328_0",
+  "name": "OFE Copper C10100 (oxygen-free electronic) — Annealed (O60)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy - Pure",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed (O60)",
+  "ranges": {
+    "density": {
+      "min": 8.94,
+      "max": 8.94,
+      "typical": 8.94,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 117,
+      "max": 117,
+      "typical": 117,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 391,
+      "max": 391,
+      "typical": 391,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 70,
+      "max": 110,
+      "typical": 90,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 140,
+      "typical": 100,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 101,
+      "max": 101,
+      "typical": 101,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "thermal_expansion": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "specific_heat": {
+      "min": 385,
+      "max": 385,
+      "typical": 385,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "melting_point": {
+      "min": 1083,
+      "max": 1083,
+      "typical": 1083,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "price_per_cm3": {
+      "min": 0.1073,
+      "max": 0.1073,
+      "typical": 0.1073,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10100"
+    },
+    "delivered_price_per_kg": {
+      "min": 12.85,
+      "max": 12.85,
+      "typical": 12.85,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "≥99.99"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C10100 Oxygen-Free Electronic Copper",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C10100",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C10100",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AISI carbon steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — OFE C10100",
+      "url": "https://www.copper.org/resources/properties/",
+      "verified": true
+    },
+    {
+      "label": "ASTM F68 — Oxygen-Free Copper",
+      "url": "https://store.astm.org/f0068-22.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.94,
+      70,
+      220,
+      50,
+      117,
+      50,
+      391
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "OFE (C10100, Cu ≥ 99.99%, O ≤ 0.0005 — semicon grade) vs OFHC (C10200, Cu ≥ 99.95%, O ≤ 0.001 — commercial grade) / EN CW009A or CW008A. Cold-rolled (H04): σy 300 / UTS 345. ETP (C11000) 대비 O 함량 매우 낮음 → hydrogen embrittlement 회피 + high-vacuum (UHV) outgassing 회피. 반도체 vacuum chamber, particle accelerator beampipe, RF cavity (CERN, ITER), cryogenic equipment, audio (high-end speaker wire), 전기 contact.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed (O60)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F68",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 90,
+  "density": 8.94,
+  "yield_strength": 70,
+  "uts": 220,
+  "elongation": 50,
+  "modulus": 117,
+  "hardness": 50,
+  "thermal_conductivity": 391,
+  "impact_strength": 100,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Copper.org — C10100 Oxygen-Free Electronic Copper",
+  "aliases": [
+    "O60",
+    "UNS C10100",
+    "OFE copper",
+    "EN CW009A",
+    "oxygen-free"
+  ],
+  "families": [
+    "Metal",
+    "Copper - Pure/Other",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 101,
+  "max_service_temp": 250,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.34,
+  "specific_heat": 385,
+  "melting_point": 1083,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.1073,
+  "popularity": 4.15,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 12.85,
+  "total_cost_estimate": 11.57,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "OFE (Oxygen-Free Electronic) Copper C10100 은 미국 ASTM 의 'oxygen-free copper for electronic use' 표준입니다. Cu 함량 99.99% 이상 + O 함량 5 ppm 이하 (일반 OFHC 의 1/10) + 모든 잔류 impurity 합계 25 ppm 이하의 ultra-pure copper 입니다. 1960년대 미국 Bell Labs 가 초고진공 (UHV) 시스템의 outgassing 문제를 해결하려고 spec 을 정의했어요.\n\nOFE 의 매력은 vacuum + electronic + cryogenic 환경에서의 안정성입니다. 일반 ETP copper (C11000) 는 O 가 약 200 ppm 들어가서 가열 시 Cu₂O 가 환원되어 H₂O 가스를 방출하지만, OFE 는 ppm 수준 O 라 UHV 환경에서 outgassing 이 거의 없어요. 또 IACS 100% (international annealed copper standard 의 conductivity reference) 를 보장합니다.\n\n응용: 입자가속기 RF cavity (CERN LHC 의 일부 cavity 안쪽), 우주 발사체 vacuum chamber 의 inner lining, semiconductor MBE / MOCVD chamber 의 일부 부속, audiophile speaker cable + interconnect (고가 model 의 표준 conductor), 정밀 thermocouple sheath, 그리고 cryogenic instrument 의 thermal anchor. OFE 는 또한 7N (99.99999%) 까지 더 정제된 grade 가 있고, 그건 audio 시장에서 '6N copper' 같은 marketing 표현으로 나옵니다 (사실 Bell Labs 의 OFE 도 6N 이지만 ASTM 표기는 C10100).",
+  "story_refs": [
+    "ASTM B170 \"Standard Specification for Oxygen-Free Electrolytic Copper\"",
+    "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Murr L E (2015) Handbook of Materials Structures, Properties, Processing and Performance, Springer"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,295 @@
+{
+  "stable_id": "MET-0497",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-cmsx-4",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0148",
+  "origin": "reference(supplementary)",
+  "id": "R_0148",
+  "name": "CMSX-4",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Cannon-Muskegon (CMSX)"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "Solution + 2-stage Aged (1320°C / 1140°C 6h + 870°C 20h) — single crystal",
+  "ranges": {
+    "density": {
+      "min": 8.7,
+      "max": 8.7,
+      "typical": 8.7,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 900,
+      "max": 950,
+      "typical": 950,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1050,
+      "max": 1100,
+      "typical": 1100,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 18,
+      "typical": 18,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 125,
+      "max": 125,
+      "typical": 125,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 400,
+      "max": 420,
+      "typical": 420,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 420,
+      "max": 560,
+      "typical": 490,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 18,
+      "typical": 13,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "max_service_temp": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "thermal_expansion": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "specific_heat": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "melting_point": {
+      "min": 1320,
+      "max": 1320,
+      "typical": 1320,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "price_per_kg": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "price_per_cm3": {
+      "min": 2.61,
+      "max": 2.61,
+      "typical": 2.61,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:cmsx4"
+    },
+    "delivered_price_per_kg": {
+      "min": 1740,
+      "max": 1740,
+      "typical": 1740,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "6.5",
+    "Co": "9",
+    "W": "6",
+    "Re": "3",
+    "Al": "5.6",
+    "Ta": "6.5",
+    "Ti": "1"
+  },
+  "sources": [
+    {
+      "label": "Wikipedia — CMSX-4 single crystal superalloy",
+      "url": "https://en.wikipedia.org/wiki/CMSX",
+      "verified": false
+    },
+    {
+      "label": "Cannon-Muskegon — CMSX-4 single-crystal superalloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: GE Aviation Single Crystal",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Cannon-Muskegon CMSX-4 single-crystal datasheet",
+      "url": "https://cannonmuskegon.com/products/single-crystal-superalloys",
+      "verified": true
+    },
+    {
+      "label": "Reed RC, The Superalloys (Cambridge 2006) Ch.6",
+      "url": "https://www.cambridge.org/core/books/superalloys/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.7,
+      950,
+      1100,
+      15,
+      125,
+      400,
+      11
+    ],
+    [
+      8.7,
+      900,
+      1050,
+      18,
+      125,
+      420,
+      11
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "CMSX-4 (Cannon-Muskegon) — 2nd-gen Ni-base single-crystal superalloy. Composition: Ni bal, Cr 6.5, Co 9.0, Mo 0.6, W 6.0, Ta 6.5, Re 3.0, Al 5.6, Ti 1.0, Hf 0.1. 3% Re 가 1st-gen (CMSX-2) 대비 +25°C creep capability. SX cast (directional solidification → grain selector → single crystal). σy 950 / UTS 1100 (RT). At 1000°C creep rupture 100h: ~250 MPa. Tmax 1100°C. CFM56, GE90, GEnx, Trent series HP turbine blade. ~$200/kg + cast cost.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 25,
+  "density": 8.7,
+  "yield_strength": 950,
+  "uts": 1100,
+  "elongation": 18,
+  "modulus": 125,
+  "hardness": 420,
+  "thermal_conductivity": 11,
+  "fatigue_strength": 490,
+  "impact_strength": 13,
+  "manufacturer": "Cannon-Muskegon (CMSX)",
+  "process": "Cast",
+  "source": "Wikipedia — CMSX-4 single crystal superalloy",
+  "aliases": [
+    "CMSX-4",
+    "2nd-gen single crystal"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 1100,
+  "thermal_expansion": 12.6,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1320,
+  "price_per_kg": 300,
+  "price_per_cm3": 2.61,
+  "popularity": 2.37,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1,
+  "price_grade_premium": 4,
+  "delivered_price_per_kg": 1740,
+  "total_cost_estimate": 3132,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 9% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "medium"
+}

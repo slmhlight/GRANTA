@@ -1,0 +1,290 @@
+{
+  "stable_id": "MET-0852",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-structural-steel",
+    "alloy_base": "F-AB-s275jr-en-10025-2-eu-basic-structural",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0387_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0387_0",
+  "name": "S275JR (EN 10025-2, EU basic structural) — As-Rolled (+AR, EN 10025-2)",
+  "category": "Metal",
+  "subcategory": "Structural Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "As-Rolled (+AR, EN 10025-2)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 275,
+      "max": 275,
+      "typical": 275,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 410,
+      "max": 410,
+      "typical": 410,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 23,
+      "max": 23,
+      "typical": 23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 145,
+      "max": 145,
+      "typical": 145,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 53,
+      "max": 53,
+      "typical": 53,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 184.5,
+      "max": 184.5,
+      "typical": 184.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 95,
+      "typical": 75,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A36 / EN structural"
+    },
+    "electrical_conductivity": {
+      "min": 6.8,
+      "max": 9.2,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "max_service_temp": {
+      "min": 382.5,
+      "max": 517.5,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "specific_heat": {
+      "min": 399.5,
+      "max": 540.5,
+      "typical": 470,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.01,
+      "max": 0.0136,
+      "typical": 0.0118,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.58,
+      "max": 1.58,
+      "typical": 1.58,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.21",
+    "Mn": "≤1.50",
+    "Si": "≤0.40",
+    "P": "≤0.035",
+    "S": "≤0.035",
+    "N": "≤0.012",
+    "Cu": "≤0.55"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.en-standard.eu/csn-en-10025-2-hot-rolled-products-of-structural-steels/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASTM A36 / EN structural",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASTM A992 / A992M — Wide-Flange Beam Steel",
+      "url": "https://store.astm.org/a0992_a0992m-20.html",
+      "verified": false
+    },
+    {
+      "label": "EN 10025-2 — Hot-Rolled Non-Alloy Structural (S275JR)",
+      "url": "https://www.cen.eu/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      275,
+      410,
+      23,
+      210,
+      145,
+      53
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Wide-flange / structural carbon steel: • **A992** (US, replaces A36 + A572-50 for W-section): σy 345-450 / UTS 450-620 / El 21%. Yield ratio (σy/UTS) ≤ 0.85 — seismic ductility. American Institute of Steel Construction (AISC) hot-rolled W-shape 표준.",
+  "meta": {
+    "reference": true,
+    "condition": "As-Rolled (+AR, EN 10025-2)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A36",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM A992",
+        "org": "ASTM"
+      },
+      {
+        "id": "EN 10025-2",
+        "org": "EN"
+      }
+    ]
+  },
+  "fracture_toughness": 75,
+  "density": 7.85,
+  "yield_strength": 275,
+  "uts": 410,
+  "elongation": 23,
+  "modulus": 210,
+  "hardness": 145,
+  "thermal_conductivity": 53,
+  "fatigue_strength": 184.5,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "EN 10025-2"
+  ],
+  "families": [
+    "Metal",
+    "Structural Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 470,
+  "melting_point": 1500,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0118,
+  "popularity": 1.42,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.58,
+  "total_cost_estimate": 1.42,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,242 @@
+{
+  "stable_id": "POL-0094",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polystyrene",
+    "alloy_base": "F-AB-polystyrene-gpps",
+    "element_families": []
+  },
+  "legacy_id": "R_0195",
+  "origin": "reference(supplementary)",
+  "id": "R_0195",
+  "name": "Polystyrene (GPPS)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polystyrene",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.05,
+      "max": 1.05,
+      "typical": 1.05,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 40,
+      "max": 45,
+      "typical": 45,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 46,
+      "max": 50,
+      "typical": 50,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 2,
+      "typical": 2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 3,
+      "max": 3.2,
+      "typical": 3.2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.14,
+      "max": 0.14,
+      "typical": 0.14,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "glass_transition_temp": {
+      "min": 44,
+      "max": 132,
+      "typical": 88,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "price_per_cm3": {
+      "min": 0.0131,
+      "max": 0.0393,
+      "typical": 0.0262,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polystyrene"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "92.3",
+    "H": "7.7"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — general-purpose polystyrene",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "INEOS Styrolution GPPS resin",
+      "url": "https://www.styrolution.com/",
+      "verified": false
+    },
+    {
+      "label": "AZoM — Polystyrene (general-purpose PS) 데이터시트",
+      "url": "https://www.azom.com/article.aspx?ArticleID=798",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.05,
+      45,
+      50,
+      2,
+      3.2,
+      0,
+      0.14
+    ],
+    [
+      1.05,
+      40,
+      46,
+      1,
+      3,
+      0,
+      0.14
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "GPPS (General-Purpose Polystyrene) — amorphous brittle clear thermoplastic. Tg 100°C, max service 70-80°C continuous. σy 40-50 / UTS 45-50 / El 1-4% (brittle) / E 3.0-3.5 GPa / ρ 1.04-1.06 g/cc. Refractive 1.59, light transmission 88%. CD case (Compact Disc jewel case), 식음료 cup / 일회용 식기, 의료 Petri dish / lab tube, 가구 toy / 모형. EPS (expanded PS, styrofoam) 는 packaging foam + 단열재. 가장 저렴 thermoplastic ($1.3-1.8/kg).",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.05,
+  "yield_strength": 45,
+  "uts": 50,
+  "elongation": 2,
+  "modulus": 3.2,
+  "hardness": null,
+  "thermal_conductivity": 0.14,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Material datasheets — general-purpose polystyrene",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polystyrene"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 88,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0262,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

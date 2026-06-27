@@ -1,0 +1,208 @@
+{
+  "stable_id": "CER-0017",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-nitride",
+    "alloy_base": "F-AB-aluminum-nitride-aln",
+    "element_families": []
+  },
+  "legacy_id": "CER_010",
+  "origin": "ceramics-data",
+  "id": "CER_010",
+  "name": "Aluminum Nitride (AlN)",
+  "category": "Ceramic",
+  "subcategory": "Nitride",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.26,
+      "max": 3.26,
+      "typical": 3.26,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": {
+      "min": 0.23,
+      "max": 0.23,
+      "typical": 0.23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "specific_heat": {
+      "min": 740,
+      "max": 740,
+      "typical": 740,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.7172,
+      "max": 0.7172,
+      "typical": 0.7172,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "65.8",
+    "N": "34.2"
+  },
+  "sources": [
+    {
+      "label": "CeramTec — Aluminum Nitride (AlN)",
+      "url": "https://www.ceramtec.com/en/industries/medical/",
+      "verified": true
+    },
+    {
+      "label": "Applications: 전력반도체 기재, LED 모듈, 마이크로파 패키징 (열전도 + 절연)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "CoorsTek Aluminum Nitride datasheet",
+      "url": "https://www.coorstek.com/english/materials/ceramics/aluminum-nitride/",
+      "verified": true
+    },
+    {
+      "label": "Sumitomo Electric AlN ceramic data",
+      "url": "https://www.sumitomoelectric.com/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "전력반도체 기재, LED 모듈, 마이크로파 패키징 (열전도 + 절연)",
+    "limitations": "수분에 약함 (서서히 가수분해 → AlOOH)",
+    "_r173_note_applied": true
+  },
+  "popularity": 3,
+  "density": 3.26,
+  "yield_strength": 300,
+  "uts": 300,
+  "elongation": null,
+  "modulus": 320,
+  "hardness": 1100,
+  "thermal_conductivity": 180,
+  "fatigue_strength": 135,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "CeramTec — Aluminum Nitride (AlN)",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Nitride"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.7172,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "AlN (Aluminum Nitride) 은 1862년 독일 Friedrich Briegleb 와 Geuther 가 처음 합성한 ceramic 으로, 1980년대 일본 Sumitomo Electric / Tokuyama Soda 가 첫 high-purity sintered AlN powder 의 상업 생산을 시작하면서 본격적인 산업 활용이 가능해졌습니다. Hexagonal wurtzite 구조의 covalent ceramic 으로, 가장 큰 매력은 thermal conductivity 170-200 W/m·K — 일반 Al₂O₃ (25-30 W/m·K) 의 7-8배 + electrical insulating (10¹⁴ Ω·cm).\n\nAlN 의 'thermal conductor + electrical insulator' 조합이 power electronics 의 critical 응용을 가능케 해요. 응용 — Power semiconductor substrate (IGBT 모듈의 DBC — Direct Bonded Copper substrate, Infineon / Mitsubishi / Toshiba 의 hybrid IGBT module), LED package substrate (high-brightness LED 의 thermal management, 1995년 Nichia 의 first blue LED 의 substrate 가 AlN), high-power RF amplifier substrate (cellular base station 의 GaN amplifier substrate), 5G mmWave RF module substrate, 자동차 EV inverter (Tesla / Hyundai IONIQ / BYD 의 SiC module substrate).\n\n특이 가공 — Sintering: liquid-phase sintering (Y₂O₃ 또는 CaO 첨가, 1750-1900°C, N₂ atmosphere). HIP'd AlN density 99.5%+. 가격은 Al₂O₃ 의 약 5-10배 ($25-50/kg sintered piece) — high-end application 한정. 표면 metallization (Mo-Mn paste 또는 active brazing) 후 Cu 또는 Ag 와 bonding 가능해 DBC substrate 로 사용.",
+  "story_refs": [
+    "Briegleb F & Geuther A (1862) Justus Liebigs Annalen der Chemie 123",
+    "Geguzin Y E (1980) 'Aluminium Nitride: Properties and Applications', Mater Sci Eng",
+    "Sumitomo Electric AlN Technical Data Sheet",
+    "Selvaduray G & Sheet L (1993) Mater Sci Tech 9"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "AlN (Aluminum Nitride, wurtzite structure) — high-thermal-conductivity ceramic insulator. ρ 3.26 g/cc, σf 270-350, E 320 GPa, KIC 3, Mohs 7. **Thermal conductivity 170-200 W/m·K** (Al 의 80%, BeO 의 80%, but non-toxic vs BeO 1A carcinogen)."
+}

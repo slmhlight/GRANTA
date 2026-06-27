@@ -1,0 +1,278 @@
+{
+  "stable_id": "MET-0845",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-structural-steel",
+    "alloy_base": "F-AB-api-2h-grade-50-offshore-platform-jacket",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0386_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0386_1",
+  "name": "API 2H Grade 50 (offshore platform jacket) — Q+T (heavy section ≥75 mm)",
+  "category": "Metal",
+  "subcategory": "Structural Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (heavy section ≥75 mm)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 520,
+      "max": 520,
+      "typical": 520,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 234,
+      "max": 234,
+      "typical": 234,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic",
+      "min_spec_value": 20,
+      "min_spec_source": "ASTM A572/A588 minimum",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 95,
+      "typical": 75,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A36 / EN structural"
+    },
+    "electrical_conductivity": {
+      "min": 6.8,
+      "max": 9.2,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "max_service_temp": {
+      "min": 382.5,
+      "max": 517.5,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "specific_heat": {
+      "min": 399.5,
+      "max": 540.5,
+      "typical": 470,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.01,
+      "max": 0.0136,
+      "typical": 0.0118,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Structural Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.94,
+      "max": 1.94,
+      "typical": 1.94,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.18",
+    "Mn": "1.20~1.60",
+    "Si": "0.15~0.50",
+    "Nb+V+Ti": "micro",
+    "P": "≤0.025",
+    "S": "≤0.012",
+    "Cu+Cr+Ni+Mo": "micro"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.api.org/products-and-services/standards",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASTM A36 / EN structural",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      380,
+      520,
+      20,
+      210,
+      175,
+      50
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Offshore jacket leg, brace, can / chord node (Shell Mars / Mensa, Statoil Snorre, BP Atlantis); North Sea / GoM CTOD ≥ 0.25 mm at -10°C; ASTM-equiv A572 Gr.50 with tighter CVN.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T (heavy section ≥75 mm)",
+    "specs": [
+      {
+        "id": "ASTM A36",
+        "org": "ASTM"
+      },
+      {
+        "id": "API 2H",
+        "org": "API"
+      }
+    ]
+  },
+  "fracture_toughness": 75,
+  "density": 7.85,
+  "yield_strength": 380,
+  "uts": 520,
+  "elongation": 20,
+  "modulus": 210,
+  "hardness": 175,
+  "thermal_conductivity": 50,
+  "fatigue_strength": 234,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "heavy section ≥75 mm"
+  ],
+  "families": [
+    "Metal",
+    "Structural Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 470,
+  "melting_point": 1500,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0118,
+  "popularity": 1.82,
+  "machining_cost_factor": 2.2,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.94,
+  "total_cost_estimate": 4.26,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

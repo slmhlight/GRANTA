@@ -1,0 +1,286 @@
+{
+  "stable_id": "MET-0202",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-6463-architectural-extrusion",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0043_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0043_1",
+  "name": "AA 6463 (architectural extrusion) — T6 (sol. + artificial aged peak)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T6 (sol. + artificial aged peak)",
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 172,
+      "max": 172,
+      "typical": 172,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 74,
+      "max": 74,
+      "typical": 74,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 209,
+      "max": 209,
+      "typical": 209,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 52,
+      "max": 52,
+      "typical": 52,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 40,
+      "typical": 32,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 6xxx Al-Mg-Si"
+    },
+    "electrical_conductivity": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Pure/Other"
+    },
+    "max_service_temp": {
+      "min": 85,
+      "max": 255,
+      "typical": 170,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Pure/Other"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 34.5,
+      "typical": 23,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Pure/Other"
+    },
+    "poisson_ratio": {
+      "min": 0.165,
+      "max": 0.495,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Pure/Other"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 1350,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Pure/Other"
+    },
+    "melting_point": {
+      "min": 325,
+      "max": 975,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Pure/Other"
+    },
+    "price_per_kg": {
+      "min": 2,
+      "max": 6,
+      "typical": 4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Pure/Other"
+    },
+    "price_per_cm3": {
+      "min": 0.0054,
+      "max": 0.0162,
+      "typical": 0.0108,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Pure/Other"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.46,
+      "max": 5.46,
+      "typical": 5.46,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "97.9~99.4",
+    "Mg": "0.45~0.9",
+    "Si": "0.2~0.6",
+    "Cu": "≤0.2",
+    "Fe": "≤0.15",
+    "Mn": "≤0.05",
+    "Zn": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "ANSYS Granta — Aluminum, 6463, T4 / T6 (UNS A96463, EN AW-6463, EN AW-Al Mg0.7Si(B))",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MakeItFrom — 6463-T6 Aluminum (property table)",
+      "url": "https://www.makeitfrom.com/material-properties/6463-T6-Aluminum",
+      "verified": false
+    },
+    {
+      "label": "MakeItFrom — 6463 (AlMg0.7Si(B), A96463) Aluminum 합금 개요(UNS/EN 지정)",
+      "url": "https://www.makeitfrom.com/material-properties/6463-AlMg0.7SiB-A96463-Aluminum/",
+      "verified": false
+    },
+    {
+      "label": "AZoM — Aluminium 6463 Alloy (UNS A96463) 데이터시트",
+      "url": "https://www.azom.com/article.aspx?ArticleID=6649",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.7,
+      172,
+      207,
+      12,
+      74,
+      60,
+      209
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "Architectural extrusion grade — door/window frames, decorative trim, building cladding. 6063 의 저 Fe 변종 (≤0.15%) 으로 표면 brilliance 강화 (광택 anodizing). 한국 채택: 일부 high-end 건축 외장.",
+  "meta": {
+    "reference": true,
+    "condition": "T6 (sol. + artificial aged peak)",
+    "specs": [
+      {
+        "id": "UNS A96463",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 32,
+  "density": 2.7,
+  "yield_strength": 172,
+  "uts": 207,
+  "elongation": 12,
+  "modulus": 74,
+  "hardness": 60,
+  "thermal_conductivity": 209,
+  "fatigue_strength": 52,
+  "impact_strength": 18,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "UNS A96463",
+    "EN AW-6463"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Pure/Other",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 170,
+  "thermal_expansion": 23,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.0108,
+  "popularity": 3.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.46,
+  "total_cost_estimate": 4.91,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

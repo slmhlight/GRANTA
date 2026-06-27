@@ -1,0 +1,268 @@
+{
+  "stable_id": "MET-0656",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-rhenium",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0238",
+  "origin": "reference(supplementary)",
+  "id": "R_0238",
+  "name": "Rhenium",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 270,
+      "max": 290,
+      "typical": 290,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1000,
+      "max": 1070,
+      "typical": 1070,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 25,
+      "typical": 25,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 463,
+      "max": 463,
+      "typical": 463,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 240,
+      "max": 250,
+      "typical": 250,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 250,
+      "max": 400,
+      "typical": 320,
+      "n": 0,
+      "confidence": "handbook",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.2 Refractory)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rhenium"
+    },
+    "max_service_temp": {
+      "min": 2000,
+      "max": 2000,
+      "typical": 2000,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rhenium"
+    },
+    "thermal_expansion": {
+      "min": 6.6,
+      "max": 6.6,
+      "typical": 6.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rhenium"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rhenium"
+    },
+    "specific_heat": {
+      "min": 137,
+      "max": 137,
+      "typical": 137,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rhenium"
+    },
+    "melting_point": {
+      "min": 3186,
+      "max": 3186,
+      "typical": 3186,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rhenium"
+    },
+    "price_per_kg": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rhenium"
+    },
+    "price_per_cm3": {
+      "min": 31.5,
+      "max": 31.5,
+      "typical": 31.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rhenium"
+    },
+    "delivered_price_per_kg": {
+      "min": 1575,
+      "max": 1575,
+      "typical": 1575,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Re": "99~100"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Rhenium Re",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Rhenium",
+      "verified": false
+    },
+    {
+      "label": "Plansee / ASM — pure rhenium",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Plansee Rhenium technical data",
+      "url": "https://www.plansee.com/en/materials/rhenium.html",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      21,
+      290,
+      1070,
+      25,
+      463,
+      250,
+      48
+    ],
+    [
+      21,
+      270,
+      1000,
+      20,
+      463,
+      240,
+      48
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Good",
+  "industry_note": "Rhenium (Re, UNS R05502) — most refractory pure metal after W. Tm 3186°C, ρ 21.0 g/cc (W 다음으로 dense). σy 290 / UTS 1070 / E 463 GPa. No DBTT (RT ductile, unique among refractory). Tmax 2000°C inert. **매우 희귀 + 비싸** ($5000-8000/kg, 연 60톤 생산만). 사용: Ni superalloy 의 alloying (CMSX-4 3% Re, CMSX-10 6% Re — γ' coarsening 억제), turbine blade, Re-W alloy (CW filament — incandescent lamp 정밀 thermocouple), Pt-Re catalyst (정유 reforming).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 25,
+  "fatigue_strength": 320,
+  "density": 21,
+  "yield_strength": 290,
+  "uts": 1070,
+  "elongation": 25,
+  "modulus": 463,
+  "hardness": 250,
+  "thermal_conductivity": 48,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Pure Rhenium Re",
+  "aliases": [
+    "Re",
+    "pure rhenium"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "electrical_conductivity": 7.5,
+  "max_service_temp": 2000,
+  "thermal_expansion": 6.6,
+  "poisson_ratio": 0.3,
+  "specific_heat": 137,
+  "melting_point": 3186,
+  "price_per_kg": 1500,
+  "price_per_cm3": 31.5,
+  "popularity": 1.8,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1575,
+  "total_cost_estimate": 2835,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

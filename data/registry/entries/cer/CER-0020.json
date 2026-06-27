@@ -1,0 +1,208 @@
+{
+  "stable_id": "CER-0020",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-nitride",
+    "alloy_base": "F-AB-silicon-nitride-si-n-hip-d",
+    "element_families": []
+  },
+  "legacy_id": "CER_004",
+  "origin": "ceramics-data",
+  "id": "CER_004",
+  "name": "Silicon Nitride (Si₃N₄, HIP'd)",
+  "category": "Ceramic",
+  "subcategory": "Nitride",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.21,
+      "max": 3.21,
+      "typical": 3.21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 3.2,
+      "max": 3.2,
+      "typical": 3.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": {
+      "min": 0.27,
+      "max": 0.27,
+      "typical": 0.27,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "specific_heat": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 1900,
+      "max": 1900,
+      "typical": 1900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 405,
+      "max": 405,
+      "typical": 405,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.5778,
+      "max": 0.5778,
+      "typical": 0.5778,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Si": "60.1",
+    "N": "39.9"
+  },
+  "sources": [
+    {
+      "label": "CeramTec — Silicon Nitride (Si₃N₄, HIP'd)",
+      "url": "https://www.ceramtec.com/en/industries/",
+      "verified": true
+    },
+    {
+      "label": "Applications: 베어링 볼 (롤링 베어링 hybrid), 절삭 인서트, 디젤 엔진 글로 플러그, 터빈 로터",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "CoorsTek Silicon Nitride (SiNitride) datasheet",
+      "url": "https://www.coorstek.com/english/materials/ceramics/silicon-nitride/",
+      "verified": true
+    },
+    {
+      "label": "Kyocera Silicon Nitride (SN-220C/235P) datasheet",
+      "url": "https://global.kyocera.com/prdct/fc/",
+      "verified": true
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "베어링 볼 (롤링 베어링 hybrid), 절삭 인서트, 디젤 엔진 글로 플러그, 터빈 로터",
+    "limitations": "고가, 가공 어려움 (다이아몬드 그라인딩 필수)",
+    "_r173_note_applied": true
+  },
+  "popularity": 3.04,
+  "density": 3.21,
+  "yield_strength": 900,
+  "uts": 900,
+  "elongation": null,
+  "modulus": 320,
+  "hardness": 1500,
+  "thermal_conductivity": 30,
+  "fatigue_strength": 405,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "CeramTec — Silicon Nitride (Si₃N₄, HIP'd)",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Nitride"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1.6,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.5778,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "1955년 영국 Cambridge 의 루카스 (Lucas) 와 조지프 럼스든 (Joseph Lumsden) 이 chemical vapor deposition (CVD) Si₃N₄ 박막을 처음 시연한 뒤, 1972년 Ford Motor Co. 의 앤서니 에반스 (Anthony Evans) 와 돈 비더호른 (Don Wiederhorn) 이 자동차 가스 터빈용 hot-pressed Si₃N₄ 부품을 시도했어요. 미국 DARPA 가 1976-1990년 'Ceramic Turbine Engine Demonstration' 프로젝트에 $200M 을 투입했죠. AlliedSignal, GTE, Norton 의 공동 연구로 1985년 NBD200 / SN282 hot isostatic pressed grade 가 표준화됐어요.\n\nT_max 1400°C, HV 1500, KIC 7 MPa√m, low density 3.2 g/cm³, low CTE 3.2 × 10⁻⁶/K — 모든 ceramic 중 thermal shock 저항 1위. 응용 — 디젤 엔진 glow plug (Bosch DuraSpeed, Beru), 자동차 turbocharger 의 hot-side bearing (NTN, Schaeffler), 항공 가스 터빈 nozzle (GE F414 의 일부 vane), CNC 공작기계 spindle bearing ball (CSC, NSK 의 hybrid bearing), 의료 hip-knee 임플란트 ball head (CeramTec Biolox Delta 의 일부 grade), 반도체 wafer chuck / lift pin (Lam Research, AMAT). Apple Mac Pro 의 일부 thermal interface 도 Si₃N₄ — 거의 모든 '고온 + 충격' 동시 응용의 표준입니다.",
+  "story_refs": [
+    "Lumsden J (1957) Trans Faraday Soc 53 \"The chemical vapour deposition of Si₃N₄\"",
+    "Riley F L (2000) \"Silicon nitride and related materials\", J Am Ceram Soc 83(2)",
+    "Petzow G & Herrmann M (2002) \"Silicon Nitride Ceramics\", Struct Bond 102",
+    "DARPA \"Ceramic Engine Demonstration Project Final Report\" (1990)"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Si₃N₄ (Silicon Nitride) — covalent ceramic. 변종: • Sintered (SSN, pressureless): σf 600-800 / E 290 / KIC 6.5 / Tmax 1300°C • HIP'd (Hot Isostatic Press): σf 800-1000 / E 310-320 / KIC 8 / Tmax 1400°C — 가장 high-Q • Reaction-bonded (RBSN): σf 200-300 / E 200 / lower density • Sintered Reaction-Bonded (SRBSN): σf 600-800 ρ 3.17-3."
+}

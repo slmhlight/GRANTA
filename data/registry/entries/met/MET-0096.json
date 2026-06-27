@@ -1,0 +1,297 @@
+{
+  "stable_id": "MET-0096",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-cast-3xx-4xx",
+    "alloy_base": "F-AB-al12si-alsi12-a413",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0267",
+  "origin": "reference(supplementary)",
+  "id": "R_0267",
+  "name": "Al12Si (AlSi12, A413) — Cast",
+  "category": "Metal",
+  "subcategory": "Aluminum - Cast (3xx/4xx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.66,
+      "max": 2.66,
+      "typical": 2.66,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 70,
+      "max": 110,
+      "typical": 90,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 140,
+      "max": 190,
+      "typical": 160,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 5,
+      "typical": 3,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 55,
+      "max": 68,
+      "typical": 60,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 137,
+      "max": 137,
+      "typical": 137,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 27,
+      "max": 41,
+      "typical": 34,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 5,
+      "max": 18,
+      "typical": 10,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based"
+    },
+    "fracture_toughness": {
+      "min": 12,
+      "max": 25,
+      "typical": 18,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:EOS AlSi10Mg cast"
+    },
+    "electrical_conductivity": {
+      "min": 25.5,
+      "max": 34.5,
+      "typical": 30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Cast (3xx/4xx)"
+    },
+    "max_service_temp": {
+      "min": 148.75,
+      "max": 201.25,
+      "typical": 175,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Cast (3xx/4xx)"
+    },
+    "thermal_expansion": {
+      "min": 18.275,
+      "max": 24.725,
+      "typical": 21.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Cast (3xx/4xx)"
+    },
+    "poisson_ratio": {
+      "min": 0.2805,
+      "max": 0.3795,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Cast (3xx/4xx)"
+    },
+    "specific_heat": {
+      "min": 816,
+      "max": 1104,
+      "typical": 960,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Cast (3xx/4xx)"
+    },
+    "melting_point": {
+      "min": 510,
+      "max": 690,
+      "typical": 600,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Cast (3xx/4xx)"
+    },
+    "price_per_kg": {
+      "min": 2.975,
+      "max": 4.025,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Cast (3xx/4xx)"
+    },
+    "price_per_cm3": {
+      "min": 0.0079,
+      "max": 0.0107,
+      "typical": 0.0093,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Cast (3xx/4xx)"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Si": "11~13",
+    "Fe": "≤1.0",
+    "Cu": "≤0.1",
+    "Mg": "≤0.1"
+  },
+  "sources": [
+    {
+      "label": "A413 / AlSi12 — Alcotec / Aluminum Assoc.",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: EOS AlSi10Mg cast",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MakeItFrom — 413.0 (A04130, S12B) Cast Aluminum (property table)",
+      "url": "https://www.makeitfrom.com/material-properties/413.0-A04130-S12B-Cast-Aluminum",
+      "verified": false
+    },
+    {
+      "label": "Sunrise Metal — AlSi12 (A413) aluminium casting alloy 데이터시트",
+      "url": "https://www.sunrise-metal.com/aluminum-alloy-alsi12/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.66,
+      90,
+      160,
+      3,
+      70,
+      60,
+      137
+    ],
+    [
+      2.66,
+      70,
+      140,
+      2,
+      70,
+      55,
+      137
+    ],
+    [
+      2.66,
+      110,
+      190,
+      5,
+      70,
+      68,
+      137
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 18,
+  "fatigue_strength": 34,
+  "density": 2.66,
+  "yield_strength": 90,
+  "uts": 160,
+  "elongation": 3,
+  "modulus": 70,
+  "hardness": 60,
+  "thermal_conductivity": 137,
+  "impact_strength": 10,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "A413 / AlSi12 — Alcotec / Aluminum Assoc.",
+  "aliases": [
+    "AlSi12",
+    "A413",
+    "EN AC-44000",
+    "A413 (cast equiv.)"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Cast (3xx/4xx)",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 30,
+  "max_service_temp": 175,
+  "thermal_expansion": 21.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 960,
+  "melting_point": 600,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0093,
+  "popularity": 3,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.5,
+  "total_cost_estimate": 2.1,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

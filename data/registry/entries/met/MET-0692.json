@@ -1,0 +1,304 @@
+{
+  "stable_id": "MET-0692",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-2304-lean-duplex",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0124",
+  "origin": "reference(supplementary)",
+  "id": "R_0124",
+  "name": "2304 lean duplex",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 420,
+      "max": 490,
+      "typical": 450,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 620,
+      "max": 700,
+      "typical": 650,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 30,
+      "typical": 25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 240,
+      "max": 270,
+      "typical": 250,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 158,
+      "max": 225,
+      "typical": 189,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 180,
+      "typical": 130,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Austenitic"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 150,
+      "typical": 110,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Duplex SS"
+    },
+    "electrical_conductivity": {
+      "min": 2.04,
+      "max": 2.76,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "max_service_temp": {
+      "min": 739.5,
+      "max": 1000.5,
+      "typical": 870,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "thermal_expansion": {
+      "min": 14.45,
+      "max": 19.55,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "specific_heat": {
+      "min": 425,
+      "max": 575,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "melting_point": {
+      "min": 1232.5,
+      "max": 1667.5,
+      "typical": 1450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_kg": {
+      "min": 4.675,
+      "max": 6.325,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0365,
+      "max": 0.0493,
+      "typical": 0.0429,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.78,
+      "max": 5.78,
+      "typical": 5.78,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "21.5~24.5",
+    "Ni": "3~5.5",
+    "Mo": "0.05~0.6",
+    "N": "0.05~0.2"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — 2304 lean duplex (UNS S32304)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Duplex SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "EN 1.4362 / Lean Duplex UNS S32304 / EDX 2304 — Sverdrup Steel",
+      "url": "https://www.sverdrupsteel.com/material/duplex-super-duplex/alloy-1-4362-lean-duplex-uns-s32304-edx-2304/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      450,
+      650,
+      25,
+      200,
+      250,
+      17
+    ],
+    [
+      7.8,
+      420,
+      620,
+      20,
+      200,
+      240,
+      17
+    ],
+    [
+      7.8,
+      490,
+      700,
+      30,
+      200,
+      270,
+      17
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "EN 1.4362",
+        "org": "EN"
+      },
+      {
+        "id": "UNS S32304",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 110,
+  "fatigue_strength": 189,
+  "density": 7.8,
+  "yield_strength": 450,
+  "uts": 650,
+  "elongation": 25,
+  "modulus": 200,
+  "hardness": 250,
+  "thermal_conductivity": 17,
+  "impact_strength": 130,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Outokumpu — 2304 lean duplex (UNS S32304)",
+  "aliases": [
+    "UNS S32304",
+    "EN 1.4362",
+    "SAF 2304"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.0429,
+  "popularity": 3.15,
+  "machining_cost_factor": 1.5,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.78,
+  "total_cost_estimate": 8.66,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 5.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

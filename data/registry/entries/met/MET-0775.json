@@ -1,0 +1,311 @@
+{
+  "stable_id": "MET-0775",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-431-stainless",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0123",
+  "origin": "reference(supplementary)",
+  "id": "R_0123",
+  "name": "431 stainless",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.7,
+      "max": 7.7,
+      "typical": 7.7,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 850,
+      "max": 980,
+      "typical": 900,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1050,
+      "max": 1200,
+      "typical": 1100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 16,
+      "typical": 13,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 330,
+      "max": 380,
+      "typical": 350,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 360,
+      "max": 522,
+      "typical": 450,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (ASM Vol.19 Martensitic SS)"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 80,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Ferritic"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 95,
+      "typical": 65,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Martensitic SS"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "max_service_temp": {
+      "min": 552.5,
+      "max": 747.5,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "thermal_expansion": {
+      "min": 8.67,
+      "max": 11.73,
+      "typical": 10.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "poisson_ratio": {
+      "min": 0.238,
+      "max": 0.322,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "melting_point": {
+      "min": 1258,
+      "max": 1702,
+      "typical": 1480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_kg": {
+      "min": 2.975,
+      "max": 4.025,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0229,
+      "max": 0.0309,
+      "typical": 0.0269,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.68,
+      "max": 3.68,
+      "typical": 3.68,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "15~17",
+    "Ni": "1.25~2.5"
+  },
+  "sources": [
+    {
+      "label": "ASM — 431 martensitic stainless (UNS S43100)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Aircraft Materials — Alloy 431 / AMS 5628 / UNS S43100: 조성+경화/템퍼 인장표·AMS 5628 명기·ASTM A276/A484 등 규격",
+      "url": "https://www.aircraftmaterials.com/data/alstst/431.html",
+      "verified": false
+    },
+    {
+      "label": "AZoM — Stainless Steel Grade 431 (UNS S43100): ρ·E·CTE + 어닐/템퍼 인장표(ASTM A276 인용)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=1023",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.7,
+      900,
+      1100,
+      13,
+      200,
+      350,
+      20
+    ],
+    [
+      7.7,
+      850,
+      1050,
+      10,
+      200,
+      330,
+      20
+    ],
+    [
+      7.7,
+      980,
+      1200,
+      16,
+      200,
+      380,
+      20
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 5628",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM A276",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS S43100",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 450,
+  "density": 7.7,
+  "yield_strength": 900,
+  "uts": 1100,
+  "elongation": 13,
+  "modulus": 200,
+  "hardness": 350,
+  "thermal_conductivity": 20,
+  "impact_strength": 50,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — 431 martensitic stainless (UNS S43100)",
+  "aliases": [
+    "UNS S43100",
+    "EN 1.4057",
+    "X17CrNi16-2",
+    "JIS SUS431"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 10.2,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0269,
+  "popularity": 3.3,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.68,
+  "total_cost_estimate": 4.78,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 2.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

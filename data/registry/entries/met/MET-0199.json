@@ -1,0 +1,359 @@
+{
+  "stable_id": "MET-0199",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-6262",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "G_0030",
+  "origin": "generic(csv)",
+  "id": "G_0030",
+  "name": "AA 6262 — Strain-hardened (Wrought)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Strain-hardened",
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 248.4,
+      "max": 300.8,
+      "typical": 267.7,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 279,
+      "max": 337.9,
+      "typical": 300.7,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 13.6,
+      "max": 16.32,
+      "typical": 15.13,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 69,
+      "max": 69,
+      "typical": 69,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 85.5,
+      "max": 103.6,
+      "typical": 92.15,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 167,
+      "max": 167,
+      "typical": 167,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 80,
+      "max": 123,
+      "typical": 102,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 5.5,
+      "max": 19.8,
+      "typical": 11,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based × HT:strain-hardened (fallback) (i×1.1)"
+    },
+    "fracture_toughness": {
+      "min": 26.3,
+      "max": 26.3,
+      "typical": 26.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:strain-hardened (fallback) (k×1.05)"
+    },
+    "electrical_conductivity": {
+      "min": 44,
+      "max": 44,
+      "typical": 44,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6262"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6262"
+    },
+    "thermal_expansion": {
+      "min": 23.4,
+      "max": 23.4,
+      "typical": 23.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6262"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6262"
+    },
+    "specific_heat": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6262"
+    },
+    "melting_point": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6262"
+    },
+    "price_per_kg": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6262"
+    },
+    "price_per_cm3": {
+      "min": 0.0095,
+      "max": 0.0095,
+      "typical": 0.0095,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6262"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.97,
+      "max": 3.97,
+      "typical": 3.97,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Si": "0.6",
+    "Cu": "0.3",
+    "Al": "97.5",
+    "Mg": "1"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AA 6262\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%206262",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — AA 6262 free-machining alloy",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "Aluminum Association — 6262 Data Sheet",
+      "url": "https://www.aluminum.org/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.7,
+      248.4,
+      279,
+      15.3,
+      69,
+      85.5,
+      167
+    ],
+    [
+      2.7,
+      300.84000000000003,
+      337.90000000000003,
+      15.13,
+      69,
+      103.55,
+      167
+    ],
+    [
+      2.7,
+      248.4,
+      279,
+      13.6,
+      69,
+      85.5,
+      167
+    ],
+    [
+      2.7,
+      289.8,
+      325.5,
+      14.45,
+      69,
+      99.75,
+      167
+    ],
+    [
+      2.7,
+      262.20000000000005,
+      294.5,
+      16.150000000000002,
+      69,
+      90.25,
+      167
+    ],
+    [
+      2.7,
+      264.96,
+      297.6,
+      16.32,
+      69,
+      91.2,
+      167
+    ],
+    [
+      2.7,
+      267.72,
+      300.7,
+      14.790000000000004,
+      69,
+      92.15,
+      167
+    ],
+    [
+      2.7,
+      281.52,
+      316.2,
+      15.64,
+      69,
+      96.9,
+      167
+    ],
+    [
+      2.7,
+      289.8,
+      325.5,
+      14.45,
+      69,
+      99.75,
+      167
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 9,
+    "subcategory_variants": [
+      "Aluminum - Cu Alloys (2xxx)"
+    ],
+    "conditions": [
+      "H12",
+      "H14",
+      "H16",
+      "H18",
+      "H19",
+      "H22",
+      "H24",
+      "H26",
+      "H28"
+    ],
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 26.3,
+  "fatigue_strength": 102,
+  "density": 2.7,
+  "yield_strength": 267.7,
+  "uts": 300.7,
+  "elongation": 15.13,
+  "modulus": 69,
+  "hardness": 92.15,
+  "thermal_conductivity": 167,
+  "impact_strength": 11,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 44,
+  "max_service_temp": 170,
+  "thermal_expansion": 23.4,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0095,
+  "popularity": 3.53,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.97,
+  "total_cost_estimate": 3.57,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "UNS A96262 / EN AW-6262 / AlMg1SiPb — 6061 의 Bi/Pb-added free-machining 변종 (Pb 0.40-0.70, Bi 0.50-0.70 — chip breaker). T6: σy 240-275 / UTS 270-310 / El 10%. Machinability rating 90 (6061 의 70 대비 +30%). CNC turning high-volume 부품 (fittings, valves, pump body, fasteners). RoHS 우려 — Pb 함량 → EU 전자기기 사용 제한."
+}

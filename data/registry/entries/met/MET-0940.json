@@ -1,0 +1,321 @@
+{
+  "stable_id": "MET-0940",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-a2-tool-steel",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0119",
+  "origin": "reference(supplementary)",
+  "id": "R_0119",
+  "name": "A2 tool steel",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (HRC 60, 960°C austenitize + 175°C temper)",
+  "ranges": {
+    "density": {
+      "min": 7.86,
+      "max": 7.86,
+      "typical": 7.86,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1300,
+      "max": 1450,
+      "typical": 1380,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1550,
+      "max": 1700,
+      "typical": 1620,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 10,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 203,
+      "max": 203,
+      "typical": 203,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 580,
+      "max": 620,
+      "typical": 600,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 24,
+      "max": 24,
+      "typical": 24,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 550,
+      "max": 690,
+      "typical": 620,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 22,
+      "typical": 14,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "fracture_toughness": {
+      "min": 28,
+      "max": 28,
+      "typical": 28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "thermal_expansion": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "melting_point": {
+      "min": 1427,
+      "max": 1427,
+      "typical": 1427,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "price_per_kg": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "price_per_cm3": {
+      "min": 0.0511,
+      "max": 0.0511,
+      "typical": 0.0511,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a2"
+    },
+    "delivered_price_per_kg": {
+      "min": 8.39,
+      "max": 8.39,
+      "typical": 8.39,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.95~1.05",
+    "Cr": "4.75~5.5",
+    "Mo": "0.9~1.4"
+  },
+  "sources": [
+    {
+      "label": "ASM — A2 air-hardening tool steel (DIN 1.2363)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Bohler-Uddeholm AISI A2 Cold Work Tool Steel datasheet (full property tables)",
+      "url": "https://www.lookpolymers.com/polymer_Bohler-Uddeholm-AISI-A2-Cold-Work-Tool-Steel.php",
+      "verified": true
+    },
+    {
+      "label": "A2 tool steel technical data (composition, annealed HB, density, E, tempering range)",
+      "url": "https://www.hudsontoolsteel.com/technical-data/steelA2",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.86,
+      1380,
+      1620,
+      8,
+      203,
+      600,
+      24
+    ],
+    [
+      7.86,
+      1300,
+      1550,
+      5,
+      203,
+      580,
+      24
+    ],
+    [
+      7.86,
+      1450,
+      1700,
+      10,
+      203,
+      620,
+      24
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "DIN 1.2363",
+        "org": "DIN"
+      }
+    ]
+  },
+  "fracture_toughness": 28,
+  "fatigue_strength": 620,
+  "density": 7.86,
+  "yield_strength": 1380,
+  "uts": 1620,
+  "elongation": 8,
+  "modulus": 203,
+  "hardness": 600,
+  "thermal_conductivity": 24,
+  "impact_strength": 14,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — A2 air-hardening tool steel (DIN 1.2363)",
+  "aliases": [
+    "DIN 1.2363",
+    "X100CrMoV5",
+    "JIS SKD12",
+    "AISI A2"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 4.5,
+  "max_service_temp": 540,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1427,
+  "price_per_kg": 6.5,
+  "price_per_cm3": 0.0511,
+  "popularity": 3.07,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 8.39,
+  "total_cost_estimate": 8.39,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1860,
+      "uts": 2070,
+      "E": 210
+    },
+    {
+      "temp": 200,
+      "ys": 1700,
+      "uts": 1900,
+      "E": 200
+    },
+    {
+      "temp": 400,
+      "ys": 1380,
+      "uts": 1620,
+      "E": 180
+    }
+  ],
+  "confidence_tier": "high"
+}

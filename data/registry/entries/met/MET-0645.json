@@ -1,0 +1,169 @@
+{
+  "stable_id": "MET-0645",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-mo-la-lanthanum-doped-mo-mola",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0296_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0296_0",
+  "name": "Mo-La (Lanthanum-doped Mo, MoLa) — Annealed (1100°C)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed (1100°C)",
+  "ranges": {
+    "density": {
+      "min": 10.2,
+      "max": 10.2,
+      "typical": 10.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 168,
+      "max": 240,
+      "typical": 202,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.2 Refractory)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 40,
+      "max": 65,
+      "typical": 50,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 1xxx CP Al"
+    },
+    "max_service_temp": {
+      "typical": 1900,
+      "min": 1700,
+      "max": 2100,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Mo": "balance",
+    "La2O3": "0.3~1.0"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.plansee.com/en/materials/molybdenum.html",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 1xxx CP Al",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      10.2,
+      480,
+      600,
+      30,
+      320,
+      240,
+      130
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "Plansee Mo-La (0.7 wt% La₂O₃ dispersion-doped Mo) — high-temp creep + recrystallization resistance. La₂O₃ pinpoint particle → grain boundary 안정 → 재결정 T 1700°C (pure Mo 의 1100°C 대비 +600°C). σy 480 / UTS 600 (annealed) / E 320 / Tmax 1900°C continuous. 사용: H₂ furnace heating element, 진공 furnace hot zone, ion source, X-ray rotating anode, glass melting elec. 일반 Mo 보다 30% premium.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed (1100°C)",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 202,
+  "density": 10.2,
+  "yield_strength": 480,
+  "uts": 600,
+  "elongation": 30,
+  "modulus": 320,
+  "hardness": 240,
+  "thermal_conductivity": 130,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "popularity": 1.8,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

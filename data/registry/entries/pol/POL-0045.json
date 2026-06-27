@@ -1,0 +1,226 @@
+{
+  "stable_id": "POL-0045",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pet",
+    "alloy_base": "F-AB-pet-gf30-rynite-530-dupont-industrial-gear",
+    "element_families": []
+  },
+  "legacy_id": "POL_022",
+  "origin": "polymers-data",
+  "id": "POL_022",
+  "name": "PET-GF30 Rynite 530 (DuPont, industrial gear)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PET",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.56,
+      "max": 1.56,
+      "typical": 1.56,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 158,
+      "max": 158,
+      "typical": 158,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 158,
+      "max": 158,
+      "typical": 158,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 140,
+      "max": 140,
+      "typical": 140,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 3.8,
+      "max": 3.8,
+      "typical": 3.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 255,
+      "max": 255,
+      "typical": 255,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PET GF"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PET GF"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PET GF"
+    },
+    "price_per_cm3": {
+      "min": 0.0059,
+      "max": 0.0059,
+      "typical": 0.0059,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "62.5",
+    "H": "4.2",
+    "O": "33.3"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PET-GF30 Rynite 530 (DuPont, industrial gear)",
+      "url": "https://www.dupont.com/products/rynite.html",
+      "verified": true
+    },
+    {
+      "label": "Applications: 산업 기어 (모터 감속기, 출력 1~10 kW), 펌프 임펠러, 자동차 워셔 펌프, 전기 커넥터 하우징 (Tyco/TE), 헤어드라이어 핫 housing, 토스터 외장",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "DuPont Rynite PET-GF technical datasheet",
+      "url": "https://www.dupont.com/products/rynite-pet-thermoplastic-polyester.html",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — PET Semi-Crystalline general",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PET",
+      "verified": false
+    }
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 80,
+    "tm": 255,
+    "hdt_182": 230,
+    "moisture_24h": 0.2,
+    "flame_ul94": "HB",
+    "uv_resistance": "Poor",
+    "applications": "산업 기어 (모터 감속기, 출력 1~10 kW), 펌프 임펠러, 자동차 워셔 펌프, 전기 커넥터 하우징 (Tyco/TE), 헤어드라이어 핫 housing, 토스터 외장",
+    "limitations": "Hydrolysis at 80+°C in humid, GF aspect-ratio break-down → 사출 게이트 위치 critical, anisotropic shrink",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 1.56,
+  "yield_strength": 158,
+  "uts": 158,
+  "elongation": 2.5,
+  "modulus": 11,
+  "hardness": null,
+  "thermal_conductivity": 0.3,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PET-GF30 Rynite 530 (DuPont, industrial gear)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PET GF"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0059,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "Rynite 530 은 DuPont 의 PET-based + 30% glass fiber 강화 engineering polymer 입니다. DuPont 의 'Rynite' brand 는 PET 와 PBT 의 thermoplastic polyester 시리즈이고, '530' 은 base resin + GF30 강화 의 표준 grade.\n\nPET 의 결정화가 느린 단점이 GF 강화로 더 악화되어 (GF 가 crystallization 을 더 늦춤) 사출 cycle 이 PBT-GF30 보다 길다는 단점이 있지만, GF 강화 후의 σy 와 modulus 가 더 높습니다. σy 160 MPa, UTS 180 MPa, modulus 12 GPa, El 3%, HDT 230°C.\n\n응용: 자동차 underhood structural component (BMW · Mercedes 의 일부 engine cover, intake plenum 의 일부 grade), 가전 power tool housing 의 high-load grade, 산업 electrical insulator 의 일부, 그리고 자전거 derailleur housing. PBT-GF30 의 대체로 검토되지만 사출 cycle + cost 가 약간 불리하므로 specific 응용 (특정 chemical resistance, thermal stability) 이 필요한 경우에만 PET-GF 가 채택됩니다.",
+  "story_refs": [
+    "DuPont Rynite 530 Tech Data Sheet",
+    "Brydson J A (1999) Plastics Materials 7th ed.",
+    "Awaja F & Pavel D (2005) \"Recycling of PET\", Eur Polym J 41"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "PET (Polyethylene Terephthalate, semi-crystalline thermoplastic). Tg ≈ 75°C, Tm ≈ 245°C, HDT (1.8 MPa) ≈ 105°C unfilled, max service 100-130°C. Unfilled: σy 60-70 / UTS 60-75 / El 30-70% / E 2."
+}

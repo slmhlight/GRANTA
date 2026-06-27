@@ -1,0 +1,205 @@
+{
+  "stable_id": "CER-0038",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-uhtc",
+    "alloy_base": "F-AB-hafnium-diboride-hfb-uhtc",
+    "element_families": []
+  },
+  "legacy_id": "CER_035",
+  "origin": "ceramics-data",
+  "id": "CER_035",
+  "name": "Hafnium Diboride (HfB₂, UHTC)",
+  "category": "Ceramic",
+  "subcategory": "UHTC",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 11.2,
+      "max": 11.2,
+      "typical": 11.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 2900,
+      "max": 2900,
+      "typical": 2900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 7.6,
+      "max": 7.6,
+      "typical": 7.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 2300,
+      "max": 2300,
+      "typical": 2300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": {
+      "min": 3380,
+      "max": 3380,
+      "typical": 3380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 5500,
+      "max": 5500,
+      "typical": 5500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 157.5,
+      "max": 157.5,
+      "typical": 157.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 61.6,
+      "max": 61.6,
+      "typical": 61.6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Hf": "89.2",
+    "B": "10.8"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Hafnium Hf",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Hafnium",
+      "verified": false
+    },
+    {
+      "label": "Applications: 재진입체 sharp leading edge, 핵 cladding, MHD 발전 전극",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AFRL UHTC HfB₂-SiC composite study",
+      "url": "https://apps.dtic.mil/sti/citations/ADA445478",
+      "verified": false
+    },
+    {
+      "label": "ASM Engineered Materials Handbook Vol.4",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/18/chapter-abstract/204993/Engineering-Ceramics",
+      "verified": false
+    },
+    {
+      "label": "ATI Wah Chang Hafnium technical data",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/refractory/hafnium/ATI-Hafnium.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASTM B776 — Hafnium / Hafnium Alloy Bar/Wire",
+      "url": "https://store.astm.org/b0776-15.html",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "재진입체 sharp leading edge, 핵 cladding, MHD 발전 전극",
+    "limitations": "ZrB₂ 보다 더 고가, 산화 보호 SiC 필수",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B776",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 1,
+  "density": 11.2,
+  "yield_strength": 350,
+  "uts": 350,
+  "elongation": null,
+  "modulus": 480,
+  "hardness": 2900,
+  "thermal_conductivity": 105,
+  "fatigue_strength": 157.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "MatWeb — Pure Hafnium Hf",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "UHTC"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 61.6,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "HfB₂ (Hafnium Diboride, hexagonal AlB₂-type) — Ultra-High Temperature Ceramic. Tm 3380°C, ρ 11.2 g/cc. σf 350-400 / E 480 / KIC 4.5 / Tmax 2300°C inert (oxidation 1700°C+ → HfO₂ 보호 layer). Thermal conductivity 105 W/m·K (가장 conductive UHTC). HfB₂-SiC composite (30% SiC) 은 oxidation 저항 boost. 항공 hypersonic leading edge, 군용 missile nose tip, 우주 RCS thruster nozzle insert. Hot-press 또는 SPS (Spark Plasma Sinter) 가공."
+}

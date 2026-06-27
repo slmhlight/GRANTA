@@ -1,0 +1,198 @@
+{
+  "stable_id": "CER-0025",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-magnesia-mgo-99",
+    "element_families": []
+  },
+  "legacy_id": "CER_012",
+  "origin": "ceramics-data",
+  "id": "CER_012",
+  "name": "Magnesia (MgO, 99%)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.58,
+      "max": 3.58,
+      "typical": 3.58,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 270,
+      "max": 270,
+      "typical": 270,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 700,
+      "max": 700,
+      "typical": 700,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 13.5,
+      "max": 13.5,
+      "typical": 13.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1900,
+      "max": 1900,
+      "typical": 1900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": {
+      "min": 0.18,
+      "max": 0.18,
+      "typical": 0.18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "specific_heat": {
+      "min": 940,
+      "max": 940,
+      "typical": 940,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 2852,
+      "max": 2852,
+      "typical": 2852,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.0895,
+      "max": 0.0895,
+      "typical": 0.0895,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "60.3",
+    "O": "39.7"
+  },
+  "sources": [
+    {
+      "label": "AZoM — Magnesia (MgO, 99%)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=54",
+      "verified": true
+    },
+    {
+      "label": "Applications: 고온 도가니, 열전대 보호관, 분광 윈도우 (IR)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "고온 도가니, 열전대 보호관, 분광 윈도우 (IR)",
+    "limitations": "물에 반응 (수산화)"
+  },
+  "popularity": 2,
+  "density": 3.58,
+  "yield_strength": 100,
+  "uts": 100,
+  "elongation": null,
+  "modulus": 270,
+  "hardness": 700,
+  "thermal_conductivity": 60,
+  "fatigue_strength": 45,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "AZoM — Magnesia (MgO, 99%)",
+  "aliases": [
+    "99%"
+  ],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0895,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "Magnesia (MgO, magnesium oxide) 는 가장 오래된 refractory ceramic 중 하나로, 19세기 초 dolomite (CaMg(CO₃)₂) 의 calcination 으로 처음 산업화됐습니다. Tm 2852°C — Al₂O₃ (2072°C), SiC (2730°C) 보다 높아 고온 refractory 의 절대 표준입니다. 자연계에서 periclase 광물 (Mg-rich 화성암) 또는 brucite Mg(OH)₂ → calcination 으로 추출돼요.\n\n응용 — Steelmaking refractory: BOF (Basic Oxygen Furnace) lining, EAF (Electric Arc Furnace) roof + sidewall, ladle refractory (포항제철 + 현대제철 + 동국제강의 모든 secondary refining lining). 한국 강철 산업 의 magnesia brick 사용량 약 30만톤/년. Cement kiln refractory (현대 cement, Ssangyong cement 의 rotary kiln lining), copper smelter refractory (LS-Nikko 의 smelter 부분), Glass furnace upper part (lower part 는 zirconia-mullite), 비철금속 melting (Al smelter, brass furnace).\n\n특이 응용 — MgO 가 약알칼리성이고 산성 환경 (실리카 slag) 과 반응 → basic refractory 로 분류됩니다. 'basic refractory' 의 가장 중요한 표준. Al₂O₃ + spinel (MgAl₂O₄) 첨가로 더 안정성 향상 — Magnesia-spinel brick 이 현대 cement kiln 의 표준 (chrome-magnesia brick 의 Cr-VI 환경 우려 회피).\n\n전자 응용 — MgO 가 single crystal grade (CMP grade) 로 약 99.99% purity 가 가능, MRAM (Magnetic RAM) 의 tunneling barrier (Tunnel-MR junction 의 MgO single-crystal layer ~ 1-2 nm), single-crystal substrate for HEMT 의 일부 sub-application 에 사용 — high-purity electronic-grade MgO 가격 $500-2000/kg 의 specialty 시장.",
+  "story_refs": [
+    "Norton F H (1968) Refractories 4th ed., McGraw-Hill",
+    "ASTM C71",
+    "Lee W E & Moore R E (1998) J Am Ceram Soc 81",
+    "Yuan H et al. (2008) J Phys D: Appl Phys 41"
+  ],
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,289 @@
+{
+  "stable_id": "MET-0462",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-low-alloy-steel-cryogenic-ni",
+    "alloy_base": "F-AB-9-ni-steel-astm-a553-type-i",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0346_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0346_0",
+  "name": "9% Ni Steel (ASTM A553 Type I) — LNG tank — Type I (9% Ni) Double-Normalized + Tempered (DN+T, 770°C/645°C/580°C)",
+  "category": "Metal",
+  "subcategory": "Low-Alloy Steel - Cryogenic Ni",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Type I (9% Ni) Double-Normalized + Tempered (DN+T, 770°C/645°C/580°C)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 585,
+      "max": 585,
+      "typical": 585,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 690,
+      "max": 690,
+      "typical": 690,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 1,
+      "confidence": "handbook",
+      "min_spec_value": 100,
+      "min_spec_source": "ASTM A553 Type I minimum at -196°C (vs typical 130 J)",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a553"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a553"
+    },
+    "thermal_expansion": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a553"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a553"
+    },
+    "specific_heat": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a553"
+    },
+    "melting_point": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a553"
+    },
+    "price_per_kg": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a553"
+    },
+    "price_per_cm3": {
+      "min": 0.0393,
+      "max": 0.0393,
+      "typical": 0.0393,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a553"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.46,
+      "max": 6.46,
+      "typical": 6.46,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "8.50~9.50",
+    "Mn": "≤0.90",
+    "C": "≤0.13",
+    "Si": "0.15~0.40",
+    "P": "≤0.025",
+    "S": "≤0.025"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "ASTM A553/A553M-17 Standard Spec for Pressure Vessel Plates, Q+T 7/8/9% Nickel",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://energy-steel.com/product/astm-a553-a553m-7ni-8ni-9ni-steel-plates-for-pressure-vessel/",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "ASME Sec VIII Div 1 Para UHA-23 / IGC Code",
+      "verified": true
+    },
+    {
+      "label": "ASTM A553 / A553M — 8% & 9% Ni Cryogenic Pressure Vessel",
+      "url": "https://store.astm.org/a0553_a0553m-22.html",
+      "verified": false
+    },
+    {
+      "label": "Nippon Steel — 9% Ni LNG tank plate reference",
+      "url": "https://www.nipponsteel.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      585,
+      690,
+      22,
+      200,
+      230,
+      30
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ASTM A553 Type I (9% Ni) / Type III (7% Ni) — Ni-bearing cryogenic carbon steel (Ni 8.5-9.5 / 6.5-7.",
+  "meta": {
+    "reference": true,
+    "condition": "Type I (9% Ni) Double-Normalized + Tempered (DN+T, 770°C/645°C/580°C)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A553",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 130,
+  "density": 7.85,
+  "yield_strength": 585,
+  "uts": 690,
+  "elongation": 22,
+  "modulus": 200,
+  "hardness": 230,
+  "thermal_conductivity": 30,
+  "fatigue_strength": 240,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "ASTM A553 Type I",
+    "9% Ni"
+  ],
+  "families": [
+    "Metal",
+    "Low-Alloy Steel - Cryogenic Ni",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 7,
+  "max_service_temp": 200,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 470,
+  "melting_point": 1430,
+  "price_per_kg": 5,
+  "price_per_cm3": 0.0393,
+  "popularity": 1.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.46,
+  "total_cost_estimate": 5.81,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 9.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

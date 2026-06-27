@@ -1,0 +1,251 @@
+{
+  "stable_id": "POL-0091",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyimide",
+    "alloy_base": "F-AB-polyimide-vespel",
+    "element_families": []
+  },
+  "legacy_id": "R_0142",
+  "origin": "reference(supplementary)",
+  "id": "R_0142",
+  "name": "Polyimide (Vespel)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyimide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Compression Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.43,
+      "max": 1.43,
+      "typical": 1.43,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 68,
+      "max": 82,
+      "typical": 75,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 80,
+      "max": 95,
+      "typical": 86,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 6.6,
+      "max": 8.4,
+      "typical": 7.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 3,
+      "max": 3.2,
+      "typical": 3.1,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.35,
+      "max": 0.35,
+      "typical": 0.35,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyimide"
+    },
+    "max_service_temp": {
+      "min": 260,
+      "max": 300,
+      "typical": 288,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - Polyimide"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyimide"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyimide"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyimide"
+    },
+    "glass_transition_temp": {
+      "min": 180,
+      "max": 540,
+      "typical": 360,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyimide"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyimide"
+    },
+    "price_per_cm3": {
+      "min": 0.0179,
+      "max": 0.0536,
+      "typical": 0.0357,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyimide"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "69.1",
+    "H": "2.6",
+    "N": "7.3",
+    "O": "20.9"
+  },
+  "sources": [
+    {
+      "label": "DuPont — Vespel SP-1 polyimide",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "DuPont — Vespel SP-1 Polyimide 데이터시트 (VPE-A10861-00-B0614)",
+      "url": "https://www.dupont.com/content/dam/dupont/amer/us/en/vespel/public/documents/en/VPE-A10861-00-B0614.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.43,
+      75,
+      86,
+      7,
+      3.1,
+      0,
+      0.35
+    ],
+    [
+      1.43,
+      68,
+      80,
+      5,
+      3,
+      0,
+      0.35
+    ],
+    [
+      1.43,
+      82,
+      95,
+      9,
+      3.2,
+      0,
+      0.35
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true
+  },
+  "density": 1.43,
+  "yield_strength": 75,
+  "uts": 86,
+  "elongation": 7,
+  "modulus": 3.1,
+  "hardness": null,
+  "thermal_conductivity": 0.35,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Compression Molding",
+  "source": "DuPont — Vespel SP-1 polyimide",
+  "aliases": [
+    "Vespel",
+    "PI",
+    "Kapton"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Polyimide"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 288,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 360,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0357,
+  "popularity": 2,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

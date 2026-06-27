@@ -1,0 +1,230 @@
+{
+  "stable_id": "POL-0053",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pmma",
+    "alloy_base": "F-AB-pmma-cast-acrylic-sheet-plexiglas-perspex-class",
+    "element_families": []
+  },
+  "legacy_id": "POL_025",
+  "origin": "polymers-data",
+  "id": "POL_025",
+  "name": "PMMA Cast acrylic sheet (Plexiglas/Perspex class)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PMMA",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.19,
+      "max": 1.19,
+      "typical": 1.19,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 75,
+      "max": 75,
+      "typical": 75,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 75,
+      "max": 75,
+      "typical": 75,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 2.8,
+      "max": 2.8,
+      "typical": 2.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.18,
+      "max": 0.18,
+      "typical": 0.18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 126,
+      "max": 126,
+      "typical": 126,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 108,
+      "max": 108,
+      "typical": 108,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 99,
+      "max": 99,
+      "typical": 99,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PMMA (Acrylic)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PMMA (Acrylic)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PMMA (Acrylic)"
+    },
+    "price_per_cm3": {
+      "min": 0.003,
+      "max": 0.003,
+      "typical": 0.003,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "60.0",
+    "H": "8.1",
+    "O": "32.0"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — PMMA (Acrylic)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PMMA",
+      "verified": false
+    },
+    {
+      "label": "Datasheet — PMMA Cast acrylic sheet (Plexiglas/Perspex class)",
+      "url": "https://www.ansys.com/products/materials/granta-mi",
+      "verified": true
+    },
+    {
+      "label": "Applications: 광학 glazing, 항공기 canopy, sky light, sign, 의료 syringe",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Plexiglas PMMA technical datasheet",
+      "url": "https://www.plexiglas.com/en/products",
+      "verified": true
+    },
+    {
+      "label": "Mitsubishi Acrypet PMMA",
+      "url": "https://www.m-chemical.co.jp/en/products/departments/mcc/acrypet/",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — PMMA general",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=632572aeef2a4224b5ac8fbd4f1b6f77",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "polymer": true,
+    "tg": 108,
+    "tm": null,
+    "hdt_182": 99,
+    "moisture_24h": 0.3,
+    "flame_ul94": "HB",
+    "uv_resistance": "Excellent",
+    "applications": "광학 glazing, 항공기 canopy, sky light, sign, 의료 syringe",
+    "limitations": "성형 불가 (cast sheet), 균열·craze 취약, 가공 시 polish 필요",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 1.19,
+  "yield_strength": 75,
+  "uts": 75,
+  "elongation": 4.5,
+  "modulus": 2.8,
+  "hardness": null,
+  "thermal_conductivity": 0.18,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "MatWeb — PMMA (Acrylic)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PMMA (Acrylic)"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.003,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1928년 영국 ICI 의 존 크로퍼드 (John Crawford) 가 메틸 메타크릴레이트 (MMA) 의 첨가중합을 처음 시연했고, 1933년 독일 Röhm & Haas 의 오토 룀 (Otto Röhm) 이 산업 규모 생산공정을 완성하면서 'Plexiglas' 라는 상표로 출시했어요. 미국에서는 1936년 DuPont 과 Röhm & Haas (PA) 사이의 패권 다툼 끝에 'Lucite' / 'Plexiglas' 가 평행 상표로 정착했습니다.\n\n2차 대전이 PMMA 의 운명을 결정했어요 — 1941년 Battle of Britain 에서 영국 Spitfire 의 캐노피가 박살나는 일이 잦자 미국 PA Plexiglas 가 모든 동맹국 전투기에 공급됐고, 종전 후 미군 잉여 PMMA 가 1945년부터 의료기기 (artificial eye, contact lens) 와 도로 표지판으로 쏟아져 나오면서 일반 시장으로 확산. 현재는 항공기 윈드실드 (F-16, Cessna, Cirrus SR22; MIL-PRF-25690), Apple Store 천장 라이트박스, 박물관 디스플레이 케이스, LCD 광학 가이드, 수족관 윈도우 (Atlanta Aquarium 의 7.4 × 3.7 m 패널) 같은 가장 흔히 쓰이는 광학 폴리머 자리에 있어요. Tg 105°C 위에서 viscoelastic flow → 정밀 핫스탬핑도 가능합니다.",
+  "story_refs": [
+    "Crawford J W C (1934) UK Patent 405,699 \"Production of methyl methacrylate polymers\"",
+    "Röhm O (1933) DE Patent 656,642 \"Verfahren zur Herstellung organischer Glaser\"",
+    "American Chemical Society (2019) \"PMMA: 90 Years of an Optically Clear Polymer\" educational resource",
+    "Andrady A L (2003) Plastics and the Environment, Wiley"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "PMMA (Polymethylmethacrylate, Acrylic, Plexiglas) — 비결정성 투명 thermoplastic. Tg ≈ 105°C. σy 55-77 / UTS 55-80 / El 2-10% (brittle) / E 2.4-3.3 GPa / ρ 1.19 g/cc. 92%+ 광투과율 (PC 보다 우수), 내후성 우수 (UV stable, 황변 안 함). 항공기 canopy (Plexiglas G), 자동차 테일램프, 수족관, 광학 부품, sneeze guard. 깨질 수 있음 → 안전 영역엔 PC. Cast > Injection grade (분자량 및 강성)."
+}

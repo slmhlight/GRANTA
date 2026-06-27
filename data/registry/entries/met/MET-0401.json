@@ -1,0 +1,346 @@
+{
+  "stable_id": "MET-0401",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c36000",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "G_0280",
+  "origin": "generic(csv)",
+  "id": "G_0280",
+  "name": "C36000 — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 8.53,
+      "max": 8.53,
+      "typical": 8.53,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 288.3,
+      "max": 337.9,
+      "typical": 313.1,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 353.4,
+      "max": 414.2,
+      "typical": 383.8,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 12.15,
+      "max": 16.35,
+      "typical": 14.85,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 97,
+      "max": 97,
+      "typical": 97,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 88.35,
+      "max": 103.6,
+      "typical": 95.95,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 121,
+      "max": 121,
+      "typical": 121,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 90,
+      "max": 150,
+      "typical": 110,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+    },
+    "impact_strength": {
+      "min": 53,
+      "max": 158,
+      "typical": 98,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:annealed (austenitic) (k×1.5)"
+    },
+    "electrical_conductivity": {
+      "min": 26,
+      "max": 26,
+      "typical": 26,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000"
+    },
+    "thermal_expansion": {
+      "min": 20.5,
+      "max": 20.5,
+      "typical": 20.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000"
+    },
+    "specific_heat": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000"
+    },
+    "melting_point": {
+      "min": 885,
+      "max": 885,
+      "typical": 885,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000"
+    },
+    "price_per_kg": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000"
+    },
+    "price_per_cm3": {
+      "min": 0.064,
+      "max": 0.064,
+      "typical": 0.064,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c36000"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.88,
+      "max": 7.88,
+      "typical": 7.88,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "61",
+    "Zn": "37"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C36000 Free-Cutting Brass",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C36000",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"C36000\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C36000",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.53,
+      288.3,
+      353.40000000000003,
+      12.45,
+      97,
+      88.35000000000001,
+      121
+    ],
+    [
+      8.53,
+      325.5,
+      399,
+      15.75,
+      97,
+      99.75,
+      121
+    ],
+    [
+      8.53,
+      300.7,
+      368.6,
+      16.05,
+      97,
+      92.15,
+      121
+    ],
+    [
+      8.53,
+      313.1,
+      383.8,
+      12.15,
+      97,
+      95.95,
+      121
+    ],
+    [
+      8.53,
+      316.2,
+      387.6,
+      15.3,
+      97,
+      96.9,
+      121
+    ],
+    [
+      8.53,
+      306.9,
+      376.2,
+      14.85,
+      97,
+      94.05,
+      121
+    ],
+    [
+      8.53,
+      306.9,
+      376.2,
+      14.85,
+      97,
+      94.05,
+      121
+    ],
+    [
+      8.53,
+      316.2,
+      387.6,
+      13.8,
+      97,
+      96.9,
+      121
+    ],
+    [
+      8.53,
+      297.6,
+      364.8,
+      14.4,
+      97,
+      91.2,
+      121
+    ],
+    [
+      8.53,
+      337.90000000000003,
+      414.2000000000001,
+      16.35,
+      97,
+      103.55,
+      121
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Poor",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 10,
+    "subcategory_variants": [
+      "Titanium - Pure/Other"
+    ],
+    "conditions": [
+      "Free Cutting Brass"
+    ]
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 110,
+  "density": 8.53,
+  "yield_strength": 313.1,
+  "uts": 383.8,
+  "elongation": 14.85,
+  "modulus": 97,
+  "hardness": 95.95,
+  "thermal_conductivity": 121,
+  "impact_strength": 98,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "Copper.org — C36000 Free-Cutting Brass",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Titanium - Pure/Other",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 26,
+  "max_service_temp": 200,
+  "thermal_expansion": 20.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 380,
+  "melting_point": 885,
+  "price_per_kg": 7.5,
+  "price_per_cm3": 0.064,
+  "popularity": 2.8,
+  "machining_cost_factor": 0.5,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.88,
+  "total_cost_estimate": 3.94,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

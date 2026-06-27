@@ -1,0 +1,450 @@
+{
+  "stable_id": "MET-0477",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-magnesium-alloy",
+    "alloy_base": "F-AB-ze63a",
+    "element_families": [
+      "F-EL-magnesium-based"
+    ]
+  },
+  "legacy_id": "G_0313",
+  "origin": "generic(csv)",
+  "id": "G_0313",
+  "name": "ZE63A — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Magnesium Alloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 1.84,
+      "max": 1.87,
+      "typical": 1.87,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 175,
+      "max": 200,
+      "typical": 190,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 290,
+      "max": 310,
+      "typical": 300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 12,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 94.5,
+      "max": 114.5,
+      "typical": 100.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 105,
+      "max": 122,
+      "typical": 109,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 153,
+      "max": 185.3,
+      "typical": 163.2,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "impact_strength": {
+      "min": 17.6,
+      "max": 25.96,
+      "typical": 22.22,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 12,
+      "max": 25,
+      "typical": 17,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Mg alloys"
+    },
+    "electrical_conductivity": {
+      "min": 16.5,
+      "max": 49.5,
+      "typical": 33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Magnesium Alloy"
+    },
+    "max_service_temp": {
+      "min": 60,
+      "max": 180,
+      "typical": 120,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Magnesium Alloy"
+    },
+    "thermal_expansion": {
+      "min": 13,
+      "max": 39,
+      "typical": 26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Magnesium Alloy"
+    },
+    "poisson_ratio": {
+      "min": 0.175,
+      "max": 0.525,
+      "typical": 0.35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Magnesium Alloy"
+    },
+    "specific_heat": {
+      "min": 510,
+      "max": 1530,
+      "typical": 1020,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Magnesium Alloy"
+    },
+    "melting_point": {
+      "min": 310,
+      "max": 930,
+      "typical": 620,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Magnesium Alloy"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Magnesium Alloy"
+    },
+    "price_per_cm3": {
+      "min": 0.0095,
+      "max": 0.0129,
+      "typical": 0.0112,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.3,
+      "max": 6.3,
+      "typical": 6.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "91",
+    "Zn": "6",
+    "La": "1",
+    "Ce": "2"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"ZE63A\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ZE63A",
+      "verified": false
+    },
+    {
+      "label": "MakeItFrom — ZE63A (ZE63A-T6, M16630) Magnesium",
+      "url": "https://www.makeitfrom.com/material-properties/ZE63A-ZE63A-T6-M16630-Magnesium",
+      "verified": false
+    },
+    {
+      "label": "AZoM — Magnesium ZE63A-T6 합금 (UNS M16630)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=8551",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.82,
+      279,
+      369,
+      4.5,
+      45,
+      94.5,
+      50
+    ],
+    [
+      1.82,
+      316.2,
+      418.2,
+      4.6000000000000005,
+      45,
+      107.1,
+      50
+    ],
+    [
+      1.82,
+      337.90000000000003,
+      446.9,
+      4.45,
+      45,
+      114.45,
+      50
+    ],
+    [
+      1.82,
+      306.9,
+      405.9,
+      5.45,
+      45,
+      103.95,
+      50
+    ],
+    [
+      1.82,
+      282.1,
+      373.1,
+      5.05,
+      45,
+      95.55,
+      50
+    ],
+    [
+      1.82,
+      291.40000000000003,
+      385.4,
+      5.2,
+      45,
+      98.7,
+      50
+    ],
+    [
+      1.82,
+      279,
+      369,
+      4.5,
+      45,
+      94.5,
+      50
+    ],
+    [
+      1.82,
+      325.5,
+      430.5,
+      4.25,
+      45,
+      110.25,
+      50
+    ],
+    [
+      1.82,
+      303.8,
+      401.8,
+      4.9,
+      45,
+      102.9,
+      50
+    ],
+    [
+      1.82,
+      322.40000000000003,
+      426.4,
+      4.7,
+      45,
+      109.2,
+      50
+    ],
+    [
+      1.82,
+      297.6,
+      393.6,
+      4.800000000000001,
+      45,
+      100.8,
+      50
+    ],
+    [
+      1.82,
+      294.5,
+      389.5,
+      5.25,
+      45,
+      99.75,
+      50
+    ],
+    [
+      1.82,
+      291.40000000000003,
+      385.4,
+      4.7,
+      45,
+      98.7,
+      50
+    ],
+    [
+      1.82,
+      288.3,
+      381.3,
+      4.65,
+      45,
+      97.65,
+      50
+    ],
+    [
+      1.82,
+      325.5,
+      430.5,
+      5.25,
+      45,
+      110.25,
+      50
+    ],
+    [
+      1.82,
+      288.3,
+      381.3,
+      4.65,
+      45,
+      97.65,
+      50
+    ],
+    [
+      1.82,
+      334.8,
+      442.8,
+      4.9,
+      45,
+      113.4,
+      50
+    ],
+    [
+      1.82,
+      291.40000000000003,
+      385.4,
+      4.7,
+      45,
+      98.7,
+      50
+    ],
+    [
+      1.82,
+      282.1,
+      373.1,
+      5.05,
+      45,
+      95.55,
+      50
+    ],
+    [
+      1.82,
+      303.8,
+      401.8,
+      4.9,
+      45,
+      102.9,
+      50
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Magnesium Alloy"
+    ],
+    "conditions": [
+      "Mg-6Zn-3RE"
+    ],
+    "specs": [
+      {
+        "id": "UNS M16630",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 17,
+  "density": 1.82,
+  "yield_strength": 297.6,
+  "uts": 393.6,
+  "elongation": 4.8,
+  "modulus": 45,
+  "hardness": 100.8,
+  "thermal_conductivity": 50,
+  "fatigue_strength": 163.2,
+  "impact_strength": 22.22,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Magnesium Alloy",
+    "Magnesium-based"
+  ],
+  "electrical_conductivity": 33,
+  "max_service_temp": 120,
+  "thermal_expansion": 26,
+  "poisson_ratio": 0.35,
+  "specific_heat": 1020,
+  "melting_point": 620,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0112,
+  "popularity": 2.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.3,
+  "total_cost_estimate": 6.3,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

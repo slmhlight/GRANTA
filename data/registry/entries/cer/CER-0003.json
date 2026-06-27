@@ -1,0 +1,190 @@
+{
+  "stable_id": "CER-0003",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-carbide",
+    "alloy_base": "F-AB-boron-carbide-b-c",
+    "element_families": []
+  },
+  "legacy_id": "CER_011",
+  "origin": "ceramics-data",
+  "id": "CER_011",
+  "name": "Boron Carbide (B₄C)",
+  "category": "Ceramic",
+  "subcategory": "Carbide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.52,
+      "max": 2.52,
+      "typical": 2.52,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 3000,
+      "max": 3000,
+      "typical": 3000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 27,
+      "max": 27,
+      "typical": 27,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 5.5,
+      "max": 5.5,
+      "typical": 5.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 157.5,
+      "max": 157.5,
+      "typical": 157.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.882,
+      "max": 0.882,
+      "typical": 0.882,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "B": "78.3",
+    "C": "21.7"
+  },
+  "sources": [
+    {
+      "label": "3M — Boron Carbide (B₄C)",
+      "url": "https://www.3m.com/3M/en_US/p/d/b40065023/",
+      "verified": true
+    },
+    {
+      "label": "Applications: 방탄 패널 (가장 가벼운 ballistic ceramic), 핵중성자 흡수, 연마재",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "CoorsTek Boron Carbide datasheet",
+      "url": "https://www.coorstek.com/english/materials/ceramics/boron-carbide/",
+      "verified": true
+    },
+    {
+      "label": "Saint-Gobain Hexoloy B₄C",
+      "url": "https://www.ceramicsrefractories.saint-gobain.com/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "방탄 패널 (가장 가벼운 ballistic ceramic), 핵중성자 흡수, 연마재",
+    "limitations": "충격 취약, KIC 매우 낮음",
+    "_r173_note_applied": true
+  },
+  "popularity": 2,
+  "density": 2.52,
+  "yield_strength": 350,
+  "uts": 350,
+  "elongation": null,
+  "modulus": 460,
+  "hardness": 3000,
+  "thermal_conductivity": 27,
+  "fatigue_strength": 157.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "3M — Boron Carbide (B₄C)",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Carbide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.882,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "Boron Carbide (B₄C) 은 1899년 프랑스 Henri Moissan 이 carbon arc furnace 에서 처음 합성한 super-hard ceramic 으로, 1934년 Norton (현재 Saint-Gobain) 이 industrial-scale 생산을 시작하면서 본격 활용됐습니다. Hardness 약 30 GPa (3,000 HV) — diamond (80-100 GPa) + c-BN (50-60 GPa) 에 이은 3번째로 단단한 commercial material 이에요. Density 2.52 g/cc — Al 보다 가벼움.\n\n핵심 응용 — Body armor / vehicle armor (가장 큰 시장). 미군 SAPI plate (Small Arms Protective Insert, 2003년 이라크전 이후 1단계 표준), Interceptor body armor, ESAPI (Enhanced SAPI) 의 strike-face ceramic 이 B₄C. 7.62 mm AP (Armor-Piercing) round (NATO 표준) 의 차단이 가능하면서 무게 (3.2-4.5 kg per plate) 가 SiC armor 보다 가벼움 — soldier 의 mobility 우수. Vehicle: M2A3 Bradley APC 의 enhanced armor, MRAP vehicle 의 add-on. 한국 SS-201 body armor 의 ceramic plate 가 B₄C.\n\n비-armor 응용 — Nuclear control rod absorber (B-10 의 thermal neutron absorption cross-section 3837 barns, BWR / PWR 의 control rod material), abrasive blasting media (lapping media for hard surfaces, B₄C powder $50-100/kg), grinding wheel (super-hard ceramic grinding), nozzle (sand-blasting nozzle, water-jet nozzle — wear-resistant), 일부 cutting tool grade.\n\n가공 어려움 — Sintering 매우 까다로움 (covalent bonding strong → 2200°C+ pressure-assisted sintering 필요). HIP (200 MPa, 2150°C, Ar) 또는 hot-pressing (graphite die, vacuum, 35 MPa) 표준. 가격 — Armor plate $400-1000 per piece. Bulk powder $100-300/kg.",
+  "story_refs": [
+    "Moissan H (1899) 'Sur le Bore Pur', Comptes Rendus 128",
+    "Norton Company 'Norbide Boron Carbide Technical Data'",
+    "Thévenot F (1990) J Eur Ceram Soc 6",
+    "Suri A K (2010) Int Mater Rev 55"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "B₄C (Boron Carbide, rhombohedral B₁₂C₃) — 3rd hardest material (Diamond > c-BN > B₄C). ρ 2.52 g/cc (very light), σf 280-410, E 460 GPa, Mohs 9.3."
+}

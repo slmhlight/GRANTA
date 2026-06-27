@@ -1,0 +1,279 @@
+{
+  "stable_id": "MET-0590",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-x-750",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "G_0158",
+  "origin": "generic(csv)",
+  "id": "G_0158",
+  "name": "Inconel X-750 — Strain-hardened (Wrought)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Strain-hardened",
+  "ranges": {
+    "density": {
+      "min": 8.25,
+      "max": 8.31,
+      "typical": 8.28,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 420,
+      "max": 580,
+      "typical": 470,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 870,
+      "max": 1060,
+      "typical": 950,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 35,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 220,
+      "typical": 214,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 380,
+      "typical": 330,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 12.3,
+      "max": 12.3,
+      "typical": 12.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 417,
+      "max": 533,
+      "typical": 475,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750 · R212b cap σf≤0.50·UTS (soft X-750 물리 상한)"
+    },
+    "impact_strength": {
+      "min": 20,
+      "max": 55,
+      "typical": 35,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750"
+    },
+    "max_service_temp": {
+      "min": 815,
+      "max": 815,
+      "typical": 815,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750"
+    },
+    "thermal_expansion": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750"
+    },
+    "specific_heat": {
+      "min": 431,
+      "max": 431,
+      "typical": 431,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750"
+    },
+    "melting_point": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750"
+    },
+    "price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750"
+    },
+    "price_per_cm3": {
+      "min": 0.414,
+      "max": 0.414,
+      "typical": 0.414,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel x-750"
+    },
+    "delivered_price_per_kg": {
+      "min": 56.7,
+      "max": 56.7,
+      "typical": 56.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "≥70",
+    "Cr": "14~17",
+    "Fe": "5~9",
+    "Ti": "2.25~2.75",
+    "Al": "0.4~1.0",
+    "Nb": "0.7~1.2",
+    "Mn": "≤1.0",
+    "C": "≤0.08"
+  },
+  "sources": [
+    {
+      "label": "Special Metals — Inconel Alloy X-750",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Inconel X-750\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20X-750",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.28,
+      1181.7,
+      1393.8,
+      9.72,
+      210,
+      383.8,
+      12.3
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 1,
+    "subcategory_variants": [
+      "Nickel - Inconel Superalloy"
+    ],
+    "conditions": [
+      "As-Rolled"
+    ]
+  },
+  "fracture_toughness": 80,
+  "fatigue_strength": 475,
+  "density": 8.28,
+  "yield_strength": 470,
+  "uts": 950,
+  "elongation": 25,
+  "modulus": 214,
+  "hardness": 330,
+  "thermal_conductivity": 12.3,
+  "impact_strength": 35,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "Special Metals — Inconel Alloy X-750",
+  "aliases": [
+    "UNS N07750",
+    "EN 2.4669",
+    "Alloy X-750"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 815,
+  "thermal_expansion": 12.6,
+  "poisson_ratio": 0.3,
+  "specific_heat": 431,
+  "melting_point": 1400,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.414,
+  "popularity": 2.03,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 56.7,
+  "total_cost_estimate": 147.42,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 58% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "medium"
+}

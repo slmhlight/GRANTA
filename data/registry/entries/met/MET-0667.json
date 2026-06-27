@@ -1,0 +1,287 @@
+{
+  "stable_id": "MET-0667",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-tzm-mo-alloy",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0111",
+  "origin": "reference(supplementary)",
+  "id": "R_0111",
+  "name": "TZM (Mo alloy)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Plansee"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 10.2,
+      "max": 10.2,
+      "typical": 10.2,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 500,
+      "max": 620,
+      "typical": 560,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 620,
+      "max": 740,
+      "typical": 680,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 30,
+      "typical": 25,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 230,
+      "max": 270,
+      "typical": 250,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 126,
+      "max": 126,
+      "typical": 126,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 220,
+      "max": 340,
+      "typical": 280,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 28,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "fracture_toughness": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "max_service_temp": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "thermal_expansion": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "poisson_ratio": {
+      "min": 0.32,
+      "max": 0.32,
+      "typical": 0.32,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "specific_heat": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "melting_point": {
+      "min": 2620,
+      "max": 2620,
+      "typical": 2620,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "price_per_kg": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "price_per_cm3": {
+      "min": 1.02,
+      "max": 1.02,
+      "typical": 1.02,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tzm"
+    },
+    "delivered_price_per_kg": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mo": "balance",
+    "Ti": "0.4~0.55",
+    "Zr": "0.06~0.12"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Molybdenum / TZM",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Molybdenum",
+      "verified": false
+    },
+    {
+      "label": "Plansee — TZM molybdenum alloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Glemco — Molybdenum TZM (Mo Alloy 364) datasheet: 조성·ρ 10.16·UTS 965/YS 860 MPa·신율 10%·E 325 GPa·CTE·열전도 118·용융 2620°C (spacematdb 호스트)",
+      "url": "https://www.spacematdb.com/spacemat/manudatasheets/Moly_TZM%20364.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      10.2,
+      560,
+      680,
+      25,
+      320,
+      250,
+      126
+    ],
+    [
+      10.2,
+      500,
+      620,
+      20,
+      320,
+      230,
+      126
+    ],
+    [
+      10.2,
+      620,
+      740,
+      30,
+      320,
+      270,
+      126
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 18,
+  "fatigue_strength": 280,
+  "density": 10.2,
+  "yield_strength": 560,
+  "uts": 680,
+  "elongation": 25,
+  "modulus": 320,
+  "hardness": 250,
+  "thermal_conductivity": 126,
+  "impact_strength": 18,
+  "manufacturer": "Plansee",
+  "process": "Wrought",
+  "source": "MatWeb — Pure Molybdenum / TZM",
+  "aliases": [
+    "Mo-0.5Ti-0.08Zr",
+    "Molybdenum TZM",
+    "UNS R03640"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 30,
+  "max_service_temp": 1400,
+  "thermal_expansion": 5,
+  "poisson_ratio": 0.32,
+  "specific_heat": 250,
+  "melting_point": 2620,
+  "price_per_kg": 100,
+  "price_per_cm3": 1.02,
+  "popularity": 2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 105,
+  "total_cost_estimate": 105,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

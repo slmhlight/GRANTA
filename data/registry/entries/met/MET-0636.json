@@ -1,0 +1,274 @@
+{
+  "stable_id": "MET-0636",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-rail-steel",
+    "alloy_base": "F-AB-rail-steel-r260-bs-en-13674-1-standard-rail",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0204_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0204_0",
+  "name": "Rail Steel R260 (BS EN 13674-1 standard rail) — Hot-rolled + air cooled (pearlitic, HBW 260-300)",
+  "category": "Metal",
+  "subcategory": "Rail Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Hot-rolled + air cooled (pearlitic, HBW 260-300)",
+  "ranges": {
+    "density": {
+      "min": 7.83,
+      "max": 7.83,
+      "typical": 7.83,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 510,
+      "max": 510,
+      "typical": 510,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:BS EN 13674 Rail"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Rail Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.21,
+      "max": 2.21,
+      "typical": 2.21,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.62~0.80",
+    "Mn": "0.70~1.20",
+    "Si": "0.15~0.58",
+    "P": "≤0.030",
+    "S": "≤0.030"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "BS EN 13674-1:2011 Railway applications — Rail Part 1: Vignole railway rails 46 kg/m and above",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "Nippon Steel Rail Catalog R260 / UIC60",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: BS EN 13674 Rail",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.83,
+      510,
+      880,
+      10,
+      207,
+      280,
+      50
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "유럽 / 한국 (KORAIL) 표준 mainline rail (Vignole profile UIC60 60.21 kg/m). 고탄소 pearlite 조직 → wear resistance + ductility 균형. HBW 260-300, σu 880 MPa min, El 10% min. R350HT 대비 toughness ↑ but wear ↓.",
+  "meta": {
+    "reference": true,
+    "condition": "Hot-rolled + air cooled (pearlitic, HBW 260-300)",
+    "specs": [
+      {
+        "id": "EN 13674-1",
+        "org": "EN"
+      },
+      {
+        "id": "EN 13674",
+        "org": "EN"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "density": 7.83,
+  "yield_strength": 510,
+  "uts": 880,
+  "elongation": 10,
+  "modulus": 207,
+  "hardness": 280,
+  "thermal_conductivity": 50,
+  "fatigue_strength": 320,
+  "impact_strength": 10,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "BS EN 13674-1 standard rail",
+    "HBW 260-300"
+  ],
+  "families": [
+    "Metal",
+    "Rail Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.21,
+  "total_cost_estimate": 1.98,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

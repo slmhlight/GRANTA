@@ -1,0 +1,299 @@
+{
+  "stable_id": "MET-0897",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-10v-2fe-3al",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0104",
+  "origin": "reference(supplementary)",
+  "id": "R_0104",
+  "name": "Ti-10V-2Fe-3Al",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 4.65,
+      "max": 4.65,
+      "typical": 4.65,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1050,
+      "max": 1170,
+      "typical": 1100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1120,
+      "max": 1250,
+      "typical": 1170,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 10,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 340,
+      "max": 380,
+      "typical": 360,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 462,
+      "max": 660,
+      "typical": 572,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 30,
+      "typical": 22,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ti-based"
+    },
+    "fracture_toughness": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti10v2fe3al"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti10v2fe3al"
+    },
+    "thermal_expansion": {
+      "min": 8.7,
+      "max": 8.7,
+      "typical": 8.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti10v2fe3al"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti10v2fe3al"
+    },
+    "specific_heat": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti10v2fe3al"
+    },
+    "melting_point": {
+      "min": 1605,
+      "max": 1605,
+      "typical": 1605,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti10v2fe3al"
+    },
+    "price_per_kg": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti10v2fe3al"
+    },
+    "price_per_cm3": {
+      "min": 0.372,
+      "max": 0.372,
+      "typical": 0.372,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti10v2fe3al"
+    },
+    "delivered_price_per_kg": {
+      "min": 84,
+      "max": 84,
+      "typical": 84,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "V": "9~11",
+    "Fe": "1.6~2.2",
+    "Al": "2.6~3.4"
+  },
+  "sources": [
+    {
+      "label": "ASM — Ti-10-2-3 beta titanium (UNS R58010)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: TIMET beta Ti",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Aerospace Specification Metals — TIMETAL 10-2-3 (Ti-10V-2Fe-3Al), Aged Billet/Bar per AMS 4984 (data provided by TIMET)",
+      "url": "https://www.aerospacemetals.com/wp-content/uploads/2023/06/TIMETAL%C2%AE-10-2-3-Titanium-Alloy-Ti-10V-2Fe-3Al-Aged-Billet-Bar-per-ASTM-4984.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.65,
+      1100,
+      1170,
+      8,
+      110,
+      360,
+      8
+    ],
+    [
+      4.65,
+      1050,
+      1120,
+      6,
+      110,
+      340,
+      8
+    ],
+    [
+      4.65,
+      1170,
+      1250,
+      10,
+      110,
+      380,
+      8
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 4984",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS R58010",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 45,
+  "fatigue_strength": 572,
+  "density": 4.65,
+  "yield_strength": 1100,
+  "uts": 1170,
+  "elongation": 8,
+  "modulus": 110,
+  "hardness": 360,
+  "thermal_conductivity": 8,
+  "impact_strength": 22,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — Ti-10-2-3 beta titanium (UNS R58010)",
+  "aliases": [
+    "UNS R58010",
+    "Ti-10-2-3",
+    "Ti-10V-2Fe-3Al"
+  ],
+  "families": [
+    "Metal",
+    "Titanium",
+    "Titanium-based"
+  ],
+  "electrical_conductivity": 1.2,
+  "max_service_temp": 315,
+  "thermal_expansion": 8.7,
+  "poisson_ratio": 0.34,
+  "specific_heat": 540,
+  "melting_point": 1605,
+  "price_per_kg": 80,
+  "price_per_cm3": 0.372,
+  "popularity": 2.8,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 84,
+  "total_cost_estimate": 151.2,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

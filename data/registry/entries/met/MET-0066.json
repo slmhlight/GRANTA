@@ -1,0 +1,319 @@
+{
+  "stable_id": "MET-0066",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel-case-hardening",
+    "alloy_base": "F-AB-20mncr5",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "C_0063",
+  "origin": "curated(material_db)",
+  "id": "C_0063",
+  "name": "20MnCr5 — As-built",
+  "category": "Metal",
+  "subcategory": "Alloy Steel - Case Hardening",
+  "tier": "curated",
+  "manufacturers": [
+    "EOS"
+  ],
+  "machines": [
+    "M290-4",
+    "M400-4"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1270,
+      "max": 1280,
+      "typical": 1270,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1490,
+      "max": 1490,
+      "typical": 1490,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 9,
+      "typical": 8.5,
+      "n": 8,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 670.5,
+      "max": 670.5,
+      "typical": 670.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Case-hardening Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Case-hardening Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Case-hardening Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Case-hardening Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Case-hardening Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Case-hardening Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Case-hardening Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Case-hardening Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.17~0.22",
+    "Si": "≤0.40",
+    "Mn": "1.10~1.40",
+    "Cr": "1.00~1.30",
+    "P": "≤0.025",
+    "S": "≤0.035"
+  },
+  "sources": [
+    {
+      "label": "EOS MDS summary — case hardening steel 20mncr5",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-case-hardening-steel-20mncr5",
+      "verified": true
+    },
+    {
+      "label": "DIN EN 10084 — Case-hardening steels",
+      "url": "https://www.dinmedia.de/en/standard/din-en-10084/",
+      "verified": true
+    },
+    {
+      "label": "EOS",
+      "url": "https://www.eos.info/metal-solutions/data-sheets/other-steels/pds-eos-casehardeningsteel-20mncr5-eos-m-290-40-80um",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1270,
+      1490,
+      8.5,
+      210,
+      null,
+      42
+    ],
+    [
+      7.85,
+      1275,
+      1490,
+      8.5,
+      210,
+      null,
+      42
+    ],
+    [
+      7.85,
+      1270,
+      1490,
+      9,
+      210,
+      null,
+      42
+    ],
+    [
+      7.85,
+      1280,
+      1490,
+      9,
+      210,
+      null,
+      42
+    ],
+    [
+      7.85,
+      1270,
+      1490,
+      8,
+      210,
+      null,
+      42
+    ],
+    [
+      7.85,
+      1270,
+      1490,
+      8,
+      210,
+      null,
+      42
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "meta": {
+    "applications": "Case-hardening steel — gears, shafts, automotive transmission parts (DIN EN 10084 / AISI 5120)",
+    "magnetic": "ferromagnetic",
+    "melt_C": 1475,
+    "cte": 11.5,
+    "cp": 460,
+    "poisson": 0.3,
+    "vendor_count": 2,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "specs": [
+      {
+        "id": "EN 10084",
+        "org": "EN"
+      }
+    ]
+  },
+  "density": 7.85,
+  "yield_strength": 1270,
+  "uts": 1490,
+  "elongation": 8.5,
+  "modulus": 210,
+  "hardness": null,
+  "thermal_conductivity": 42,
+  "fatigue_strength": 670.5,
+  "impact_strength": 35,
+  "manufacturer": "EOS",
+  "process": "LPBF",
+  "source": "EOS MDS summary — case hardening steel 20mncr5",
+  "aliases": [
+    "DIN 1.7147",
+    "20MnCr5",
+    "JIS SMnC420"
+  ],
+  "families": [
+    "Metal",
+    "Case-hardening Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.42,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5,
+  "total_cost_estimate": 9,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

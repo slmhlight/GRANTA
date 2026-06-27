@@ -1,0 +1,283 @@
+{
+  "stable_id": "MET-0369",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c10200-oxygen-free-copper-ks-c1020",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0282_3",
+  "origin": "reference(supplementary)",
+  "id": "R_0282_3",
+  "name": "C10200 (Oxygen-Free Copper, KS C1020) — H (Full-Hard)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought (cold-rolled strip)"
+  ],
+  "heat_treatment": "H (Full-Hard)",
+  "ranges": {
+    "density": {
+      "min": 8.94,
+      "max": 8.94,
+      "typical": 8.94,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 330,
+      "max": 330,
+      "typical": 330,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 117,
+      "max": 117,
+      "typical": 117,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 391,
+      "max": 391,
+      "typical": 391,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 70,
+      "max": 110,
+      "typical": 90,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 140,
+      "typical": 100,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 101,
+      "max": 101,
+      "typical": 101,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "thermal_expansion": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "specific_heat": {
+      "min": 385,
+      "max": 385,
+      "typical": 385,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "melting_point": {
+      "min": 1083,
+      "max": 1083,
+      "typical": 1083,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "price_per_kg": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "price_per_cm3": {
+      "min": 0.0983,
+      "max": 0.0983,
+      "typical": 0.0983,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c10200"
+    },
+    "delivered_price_per_kg": {
+      "min": 14.26,
+      "max": 14.26,
+      "typical": 14.26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "≥99.99",
+    "O": "≤0.001"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C10200 Oxygen-Free Copper",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C10200",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 4",
+      "url": "https://www.poongsan.co.kr/eng/business/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AISI carbon steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — OFE C10100",
+      "url": "https://www.copper.org/resources/properties/",
+      "verified": true
+    },
+    {
+      "label": "ASTM F68 — Oxygen-Free Copper",
+      "url": "https://store.astm.org/f0068-22.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.94,
+      320,
+      330,
+      5,
+      117,
+      130,
+      391
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "OFE (C10100, Cu ≥ 99.99%, O ≤ 0.0005 — semicon grade) vs OFHC (C10200, Cu ≥ 99.95%, O ≤ 0.",
+  "meta": {
+    "reference": true,
+    "condition": "H (Full-Hard)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F68",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 90,
+  "density": 8.94,
+  "yield_strength": 320,
+  "uts": 330,
+  "elongation": 5,
+  "modulus": 117,
+  "hardness": 130,
+  "thermal_conductivity": 391,
+  "impact_strength": 100,
+  "manufacturer": "Reference data",
+  "process": "Wrought (cold-rolled strip)",
+  "source": "Copper.org — C10200 Oxygen-Free Copper",
+  "aliases": [
+    "KS C1020",
+    "UNS C10200",
+    "OF copper",
+    "EN CW008A"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 101,
+  "max_service_temp": 250,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.34,
+  "specific_heat": 385,
+  "melting_point": 1083,
+  "price_per_kg": 11,
+  "price_per_cm3": 0.0983,
+  "popularity": 3,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 14.26,
+  "total_cost_estimate": 12.83,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

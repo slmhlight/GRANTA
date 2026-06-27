@@ -1,0 +1,277 @@
+{
+  "stable_id": "MET-0074",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel-case-hardening",
+    "alloy_base": "F-AB-pyrowear-53-ams-6308",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0365_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0365_2",
+  "name": "Pyrowear 53 (AMS 6308) — Case-Carburized 0.6~1.0 mm + Q+T (case HV 740, core HV 360)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel - Case Hardening",
+  "tier": "reference",
+  "manufacturers": [
+    "Carpenter Technology (Pyrowear)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Case-Carburized 0.6~1.0 mm + Q+T (case HV 740, core HV 360)",
+  "ranges": {
+    "density": {
+      "min": 7.79,
+      "max": 7.79,
+      "typical": 7.79,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1200,
+      "max": 1200,
+      "typical": 1200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1350,
+      "max": 1350,
+      "typical": 1350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 740,
+      "max": 740,
+      "typical": 740,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 607.5,
+      "max": 607.5,
+      "typical": 607.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 12.8,
+      "max": 51,
+      "typical": 29.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic × HT:carburized case (i×0.85)"
+    },
+    "fracture_toughness": {
+      "min": 22.5,
+      "max": 36,
+      "typical": 28.8,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 6xxx Al-Mg-Si × HT:carburized case (k×0.9)"
+    },
+    "electrical_conductivity": {
+      "min": 5.95,
+      "max": 8.05,
+      "typical": 7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Case-Hardening Steel"
+    },
+    "max_service_temp": {
+      "min": 361.25,
+      "max": 488.75,
+      "typical": 425,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Case-Hardening Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.115,
+      "max": 13.685,
+      "typical": 11.9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Case-Hardening Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Case-Hardening Steel"
+    },
+    "specific_heat": {
+      "min": 405.45,
+      "max": 548.55,
+      "typical": 477,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Case-Hardening Steel"
+    },
+    "melting_point": {
+      "min": 1212.95,
+      "max": 1641.05,
+      "typical": 1427,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Case-Hardening Steel"
+    },
+    "price_per_kg": {
+      "min": 2.975,
+      "max": 4.025,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Case-Hardening Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0232,
+      "max": 0.0314,
+      "typical": 0.0273,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Case-Hardening Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.96,
+      "max": 4.96,
+      "typical": 4.96,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "1.00",
+    "Ni": "2.00",
+    "Mo": "3.25",
+    "Cu": "2.00",
+    "V": "0.10",
+    "C": "0.10",
+    "Mn": "0.35",
+    "Si": "1.00"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.79,
+      1200,
+      1350,
+      12,
+      205,
+      740,
+      22
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "AMS 6308; UH-60 Black Hawk, AH-64 Apache, CH-47 Chinook main rotor gearbox standard; retains case strength to 315°C (vs. 9310 limit ~150°C) for loss-of-lube survival.",
+  "meta": {
+    "reference": true,
+    "condition": "Case-Carburized 0.6~1.0 mm + Q+T (case HV 740, core HV 360)",
+    "specs": [
+      {
+        "id": "AMS 6308",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 28.8,
+  "density": 7.79,
+  "yield_strength": 1200,
+  "uts": 1350,
+  "elongation": 12,
+  "modulus": 205,
+  "hardness": 740,
+  "thermal_conductivity": 22,
+  "fatigue_strength": 607.5,
+  "impact_strength": 29.8,
+  "manufacturer": "Carpenter Technology (Pyrowear)",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [
+    "AMS 6308",
+    "case HV 740",
+    "core HV 360"
+  ],
+  "families": [
+    "Metal",
+    "Case-Hardening Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 7,
+  "max_service_temp": 425,
+  "thermal_expansion": 11.9,
+  "poisson_ratio": 0.29,
+  "specific_heat": 477,
+  "melting_point": 1427,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0273,
+  "popularity": 1.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.5,
+  "price_condition_factor": 1.35,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4.96,
+  "total_cost_estimate": 4.47,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "medium"
+}

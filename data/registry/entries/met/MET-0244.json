@@ -1,0 +1,294 @@
+{
+  "stable_id": "MET-0244",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-aisi-1018",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0080",
+  "origin": "reference(supplementary)",
+  "id": "R_0080",
+  "name": "AISI 1018",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Cold Drawn",
+  "ranges": {
+    "density": {
+      "min": 7.87,
+      "max": 7.87,
+      "typical": 7.87,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 340,
+      "max": 400,
+      "typical": 370,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 420,
+      "max": 470,
+      "typical": 440,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 18,
+      "typical": 15,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 120,
+      "max": 145,
+      "typical": 130,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 52,
+      "max": 52,
+      "typical": 52,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 187,
+      "max": 253,
+      "typical": 220,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.5·UTS, high): cold-drawn 1018 textbook 0.5·UTS"
+    },
+    "impact_strength": {
+      "min": 36,
+      "max": 78,
+      "typical": 54,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:1018 × HT:cold worked (f×1.25, i×0.6)"
+    },
+    "fracture_toughness": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:cold worked (k×0.8)"
+    },
+    "electrical_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1018"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1018"
+    },
+    "thermal_expansion": {
+      "min": 11.7,
+      "max": 11.7,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1018"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1018"
+    },
+    "specific_heat": {
+      "min": 486,
+      "max": 486,
+      "typical": 486,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1018"
+    },
+    "melting_point": {
+      "min": 1515,
+      "max": 1515,
+      "typical": 1515,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1018"
+    },
+    "price_per_kg": {
+      "min": 0.9,
+      "max": 0.9,
+      "typical": 0.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1018"
+    },
+    "price_per_cm3": {
+      "min": 0.0071,
+      "max": 0.0071,
+      "typical": 0.0071,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1018"
+    },
+    "delivered_price_per_kg": {
+      "min": 0.98,
+      "max": 0.98,
+      "typical": 0.98,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.15~0.20",
+    "Mn": "0.60~0.90",
+    "P": "≤0.040",
+    "S": "≤0.050"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 1018 carbon steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1018",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 (10th ed) — Carbon and Low-Alloy Steels: 1018",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — AISI 1018 cold drawn round bar",
+      "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=3a9cc570fbb24d119f08db22a53e2421",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.87,
+      370,
+      440,
+      15,
+      205,
+      130,
+      52
+    ],
+    [
+      7.87,
+      340,
+      420,
+      12,
+      205,
+      120,
+      52
+    ],
+    [
+      7.87,
+      400,
+      470,
+      18,
+      205,
+      145,
+      52
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS G10180 / DIN 1.0453 / JIS S20C — plain low-carbon steel (C 0.15~0.20%). Cold drawn round bar: σy ≈ 370 MPa, UTS ≈ 440 MPa, HB ≈ 126, El ≈ 15%. Hot-rolled: σy ≈ 220 MPa / El ≈ 25%. Plain carbon → PH/Aging 불가 . 주요: 구조용 볼트, 기계 부품, 일반강 표준.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 48,
+  "fatigue_strength": 220,
+  "density": 7.87,
+  "yield_strength": 370,
+  "uts": 440,
+  "elongation": 15,
+  "modulus": 205,
+  "hardness": 130,
+  "thermal_conductivity": 52,
+  "impact_strength": 54,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 1018 carbon steel",
+  "aliases": [
+    "UNS G10180",
+    "DIN 1.0453",
+    "JIS S20C",
+    "C18"
+  ],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 16,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1515,
+  "price_per_kg": 0.9,
+  "price_per_cm3": 0.0071,
+  "popularity": 5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 0.959,
+  "delivered_price_per_kg": 0.98,
+  "total_cost_estimate": 0.98,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "20세기 초 미국 SAE (Society of Automotive Engineers) 가 자동차 부품 표준화를 위해 1911년 처음 numbering system 을 발표합니다. 1XXX 시리즈를 plain carbon steel 로 지정하고, 마지막 두 자리는 ≈ 100 × carbon% 를 표시하기로 한 거죠. 즉 1018 = 0.18% C, 1020 = 0.20% C, 1045 = 0.45% C. 1941년 AISI (American Iron & Steel Institute) 가 SAE 의 numbering 을 채택하면서 'AISI/SAE 1018' 형식이 현행 표준으로 정착됐습니다.\n\n1018 은 저탄소 (C 0.15-0.20%) mild steel 로 ferrite-pearlite 미세조직 + 거의 무한 ductility 가 특징. Cold drawn round bar 기준 σy 370 MPa / σUTS 440 MPa / El 15%. Annealed 는 σy 235 / σUTS 365 / El 35%. 절삭 가공성 (machinability rating) 70% 정도 — 1144 free-machining (S 첨가) 보다는 낮지만 plain carbon 중 baseline. 용접성은 plain carbon 중 최고 (carbon equivalent 0.22, no preheat needed).\n\n응용 — 자동차 변속기 shaft (carburized + Q+T 후 사용), 농기계 axle, 산업 컨베이어 frame, 일반 fastener (low-strength bolt/nut), 단조 raw stock, machining stock (CNC 가공용 round bar 표준). 건축 W-shape (H-beam) 은 ASTM A992 (yield 345 MPa) 또는 A36 (yield 250 MPa, C ≤ 0.26%) — 1018 자체보다 약간 high-C 인 별도 grade 사용. 1018/1020 은 일반 carbon steel bar 분야의 가장 흔한 grade — JIS S20C / DIN 1.0453 (C18) 와 거의 동등.",
+  "story_refs": [
+    "SAE J403 (current rev.) \"Chemical Composition of SAE Carbon Steels\"",
+    "AISI Bar Steel Products Committee (1999) \"Carbon Steel Bars: 1018, 1020\"",
+    "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM"
+  ],
+  "confidence_tier": "high"
+}

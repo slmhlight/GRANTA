@@ -1,0 +1,183 @@
+{
+  "stable_id": "CER-0002",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-bioceramic",
+    "alloy_base": "F-AB-hydroxyapatite-ca-po-oh",
+    "element_families": []
+  },
+  "legacy_id": "CER_022",
+  "origin": "ceramics-data",
+  "id": "CER_022",
+  "name": "Hydroxyapatite (Ca₁₀(PO₄)₆(OH)₂)",
+  "category": "Ceramic",
+  "subcategory": "Bioceramic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.16,
+      "max": 3.16,
+      "typical": 3.16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1200,
+      "max": 1200,
+      "typical": 1200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.3792,
+      "max": 0.3792,
+      "typical": 0.3792,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ca": "100.0"
+  },
+  "sources": [
+    {
+      "label": "Applications: 골이식재, 임플란트 코팅 (Ti 위), 치과 충전재",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Sigma-Aldrich Hydroxyapatite datasheet",
+      "url": "https://www.sigmaaldrich.com/US/en",
+      "verified": false
+    },
+    {
+      "label": "ASTM F1185 — HA Surgical Implant",
+      "url": "https://store.astm.org/f1185-03r14.html",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "골이식재, 임플란트 코팅 (Ti 위), 치과 충전재",
+    "limitations": "낮은 강도 — 하중 부담 부품 부적합 (코팅용)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F1185",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 2,
+  "density": 3.16,
+  "yield_strength": 100,
+  "uts": 100,
+  "elongation": null,
+  "modulus": 100,
+  "hardness": 500,
+  "thermal_conductivity": 1.3,
+  "fatigue_strength": 45,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: 골이식재, 임플란트 코팅 (Ti 위), 치과 충전재",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Bioceramic"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.3792,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "HA (Hydroxyapatite, Ca₁₀(PO₄)₆(OH)₂, hexagonal P6₃/m) — bone main mineral component (인체 뼈의 65% by weight). Tm 1670°C (decomposes), ρ 3.16 g/cc, σf 80-120, E 80-120 GPa (bone E 18-25 와 비슷). Tmax 1200°C."
+}

@@ -1,0 +1,310 @@
+{
+  "stable_id": "MET-0144",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-mg-alloys-5xxx",
+    "alloy_base": "F-AB-aa-5182-al-mg-high-mg",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0309_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0309_2",
+  "name": "AA 5182 (Al-Mg high-Mg) — H321 (strain-hardened + stabilized)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Mg Alloys (5xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "H321 (strain-hardened + stabilized)",
+  "ranges": {
+    "density": {
+      "min": 2.65,
+      "max": 2.65,
+      "typical": 2.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 285,
+      "max": 285,
+      "typical": 285,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 360,
+      "max": 360,
+      "typical": 360,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 123,
+      "max": 123,
+      "typical": 123,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 86,
+      "max": 131,
+      "typical": 108,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 4.8,
+      "max": 17.1,
+      "typical": 9.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based × HT:H321 strain + stabilized (i×0.95)"
+    },
+    "fracture_toughness": {
+      "min": 105,
+      "max": 210,
+      "typical": 147,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Austenitic SS × HT:H321 strain + stabilized (k×1.05)"
+    },
+    "electrical_conductivity": {
+      "min": 25.5,
+      "max": 34.5,
+      "typical": 30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 230,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
+    },
+    "thermal_expansion": {
+      "min": 20.23,
+      "max": 27.37,
+      "typical": 23.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
+    },
+    "poisson_ratio": {
+      "min": 0.2805,
+      "max": 0.3795,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
+    },
+    "specific_heat": {
+      "min": 765,
+      "max": 1035,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
+    },
+    "melting_point": {
+      "min": 542.3,
+      "max": 733.7,
+      "typical": 638,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
+    },
+    "price_per_kg": {
+      "min": 2.72,
+      "max": 3.68,
+      "typical": 3.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
+    },
+    "price_per_cm3": {
+      "min": 0.0072,
+      "max": 0.0098,
+      "typical": 0.0085,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.8,
+      "max": 3.8,
+      "typical": 3.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Mg": "4.0~5.0",
+    "Mn": "0.2~0.5"
+  },
+  "sources": [
+    {
+      "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
+    },
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5182",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.65,
+      285,
+      360,
+      8,
+      70,
+      105,
+      123
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "H321 (strain-hardened + stabilized)"
+  },
+  "fracture_toughness": 147,
+  "fatigue_strength": 108,
+  "density": 2.65,
+  "yield_strength": 285,
+  "uts": 360,
+  "elongation": 8,
+  "modulus": 70,
+  "hardness": 105,
+  "thermal_conductivity": 123,
+  "impact_strength": 9.5,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Mg Alloys (5xxx)",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 30,
+  "max_service_temp": 200,
+  "thermal_expansion": 23.8,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 638,
+  "price_per_kg": 3.2,
+  "price_per_cm3": 0.0085,
+  "popularity": 3.33,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.8,
+  "total_cost_estimate": 3.42,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 240,
+      "uts": 600,
+      "E": 200
+    },
+    {
+      "temp": 200,
+      "ys": 180,
+      "uts": 510,
+      "E": 191
+    },
+    {
+      "temp": 400,
+      "ys": 150,
+      "uts": 470,
+      "E": 175
+    },
+    {
+      "temp": 600,
+      "ys": 130,
+      "uts": 410,
+      "E": 158
+    },
+    {
+      "temp": 800,
+      "ys": 90,
+      "uts": 250,
+      "E": 135
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 650,
+      "stress": 130,
+      "hours": 1000
+    },
+    {
+      "temp": 800,
+      "stress": 35,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "medium"
+}

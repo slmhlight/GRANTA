@@ -1,0 +1,308 @@
+{
+  "stable_id": "MET-0710",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-aisi-301-cold-rolled-hs-austenitic",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0025_4",
+  "origin": "reference(supplementary)",
+  "id": "R_0025_4",
+  "name": "AISI 301 (cold-rolled HS austenitic) — Full hard (cold-rolled)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Full hard (cold-rolled)",
+  "ranges": {
+    "density": {
+      "min": 7.92,
+      "max": 7.92,
+      "typical": 7.92,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1380,
+      "max": 1380,
+      "typical": 1380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1520,
+      "max": 1520,
+      "typical": 1520,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 15.5,
+      "max": 15.5,
+      "typical": 15.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 483,
+      "max": 690,
+      "typical": 580,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 90,
+      "typical": 65,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Austenitic × HT:cold worked (i×0.5)"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 130,
+      "typical": 91,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Austenitic SS × HT:cold worked (k×0.65)"
+    },
+    "electrical_conductivity": {
+      "min": 2.04,
+      "max": 2.76,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "max_service_temp": {
+      "min": 739.5,
+      "max": 1000.5,
+      "typical": 870,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "thermal_expansion": {
+      "min": 14.45,
+      "max": 19.55,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "specific_heat": {
+      "min": 425,
+      "max": 575,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "melting_point": {
+      "min": 1232.5,
+      "max": 1667.5,
+      "typical": 1450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_kg": {
+      "min": 4.675,
+      "max": 6.325,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0371,
+      "max": 0.0501,
+      "typical": 0.0436,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.24,
+      "max": 6.24,
+      "typical": 6.24,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "16~18",
+    "Ni": "6~8",
+    "Mn": "≤2",
+    "Si": "≤1",
+    "C": "≤0.15",
+    "P": "≤0.045",
+    "S": "≤0.03"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 5",
+      "url": "ANSYS Granta — Stainless steel austenitic AISI 301 (UNS S30100, EN 1.4310, X10CrNi18-8)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 5",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — AISI 301 cold-rolled high-strength",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "AK Steel 301 Stainless reference",
+      "url": "https://www.aksteel.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.92,
+      1380,
+      1520,
+      4,
+      175,
+      470,
+      15.5
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS S30100 / EN 1.4310 / X10CrNi17-7 / JIS SUS301 — lower-Ni (6-8%) austenitic for cold-work strengthening. CW 1/4 hard: σy 760 / UTS 860 / El 25%. CW Full Hard (H08): σy 1380 / UTS 1620 / El 10% (austenitic 중 가장 high-strength).",
+  "meta": {
+    "reference": true,
+    "condition": "Full hard (cold-rolled)",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 91,
+  "fatigue_strength": 580,
+  "density": 7.92,
+  "yield_strength": 1380,
+  "uts": 1520,
+  "elongation": 4,
+  "modulus": 175,
+  "hardness": 470,
+  "thermal_conductivity": 15.5,
+  "impact_strength": 65,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 5",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.0436,
+  "popularity": 3.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.24,
+  "total_cost_estimate": 6.24,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 275,
+      "uts": 760,
+      "E": 193
+    },
+    {
+      "temp": 200,
+      "ys": 200,
+      "uts": 660,
+      "E": 184
+    },
+    {
+      "temp": 400,
+      "ys": 165,
+      "uts": 550,
+      "E": 168
+    },
+    {
+      "temp": 600,
+      "ys": 140,
+      "uts": 440,
+      "E": 150
+    }
+  ],
+  "confidence_tier": "high"
+}

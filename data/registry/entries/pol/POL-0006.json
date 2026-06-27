@@ -1,0 +1,258 @@
+{
+  "stable_id": "POL-0006",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-elastomer-hnbr",
+    "alloy_base": "F-AB-hnbr",
+    "element_families": []
+  },
+  "legacy_id": "POL_038",
+  "origin": "polymers-data",
+  "id": "POL_038",
+  "name": "HNBR — Hydrogenated Nitrile Butadiene Rubber",
+  "category": "Polymer",
+  "subcategory": "Polymer - Elastomer HNBR",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 0.95,
+      "max": 0.95,
+      "typical": 0.95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 28,
+      "max": 28,
+      "typical": 28,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 0.008,
+      "max": 0.008,
+      "typical": 0.008,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.26,
+      "max": 0.26,
+      "typical": 0.26,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": -45,
+      "max": -15,
+      "typical": -30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer HNBR"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer HNBR"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer HNBR"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer HNBR"
+    },
+    "price_per_cm3": {
+      "min": 0.0152,
+      "max": 0.0152,
+      "typical": 0.0152,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "82.7",
+    "H": "10.4",
+    "N": "6.9"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — HNBR",
+      "url": "https://lanxess.com/en/products-and-solutions/products/t/therban",
+      "verified": true
+    },
+    {
+      "label": "Applications: 자동차 timing belt · accessory belt (Gates Carbon Drive), 유공압 dynamic seal (200 bar+), 오일·가스 downhole seal (H₂S sour environment, NACE MR0175), 항공 engine oil seal, EV motor sealing (high-T fluid)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Zeon Therban HNBR technical guide",
+      "url": "https://www.zeon.co.jp/en/business/enterprise/specialty-elastomer/therban",
+      "verified": true
+    },
+    {
+      "label": "ASTM D2000 M-line HNBR classification",
+      "url": "https://store.astm.org/d2000-18.html",
+      "verified": false
+    }
+  ],
+  "machinability": "Poor",
+  "weldability": "Elastomer",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": -20,
+    "tm": null,
+    "hdt_182": null,
+    "moisture_24h": 0.8,
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "applications": "자동차 timing belt · accessory belt (Gates Carbon Drive), 유공압 dynamic seal (200 bar+), 오일·가스 downhole seal (H₂S sour environment, NACE MR0175), 항공 engine oil seal, EV motor sealing (high-T fluid)",
+    "limitations": "NBR 의 2-3 배 가격 ($14-20/kg), Tg -20°C 로 NBR low-ACN 보다 저온성 떨어짐, 일부 강한 polar solvent (ketone, aromatic HC) 부적합, 가공 시 sulfur cure 대신 peroxide cure 필수",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM D2000",
+        "org": "ASTM"
+      },
+      {
+        "id": "NACE MR0175",
+        "org": "NACE"
+      }
+    ]
+  },
+  "popularity": 4,
+  "density": 0.95,
+  "yield_strength": 22,
+  "uts": 28,
+  "elongation": 350,
+  "modulus": 0.008,
+  "hardness": null,
+  "thermal_conductivity": 0.26,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — HNBR",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Elastomer HNBR"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": -30,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0152,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "HNBR (Hydrogenated Nitrile Butadiene Rubber) 은 1980년대 후반 독일 Bayer (현재 ARLANXEO / Lanxess) 가 개발한 NBR 의 hydrogenated 변형입니다. NBR 의 butadiene unit 의 잔여 이중결합 (C=C) 을 catalyst-assisted hydrogenation 으로 95-99% 포화시킨 게 핵심 — 이중결합이 없어지면 oxidation / ozone / UV 공격이 차단되어 작동 온도 한계가 NBR 의 100°C 에서 150-160°C 까지 올라가요.\n\n응용 — 자동차 timing belt (1990년대 후반 Goodyear / Gates 의 first HNBR belt 채택, 현재 모든 OEM 의 표준 timing belt 재료), automatic transmission oil seal, oil pump seal, 엔진 valve cover gasket (Ford / GM / Toyota 의 OEM spec), oilfield drilling mud seal (deepwater 의 130°C+ 환경), aerospace fuel line seal. 자동차 timing belt market 의 약 80% 가 HNBR 로, 그 안정성이 100,000 km 의 belt 수명을 가능케 했습니다.\n\n특이 처리 — HNBR 은 ACN (acrylonitrile) 함량과 hydrogenation level 의 2가지 parameter 로 spec 됩니다. ACN 17-18% / 95% 수소화 = 일반 자동차 belt spec. ACN 33-36% / 99% 수소화 = oilfield / 고가 aerospace. Peroxide cure (Bayer 의 표준 cure) 가 일반적이며 sulfur cure 도 가능 — peroxide cure 가 더 높은 thermal stability 제공.",
+  "story_refs": [
+    "Severe G (1990) 'HNBR — A New Rubber for Higher Performance', Rubber & Plastics News",
+    "Hofmann W (1989) Rubber Technology Handbook",
+    "ARLANXEO Therban Technical Manual",
+    "ASTM D2000"
+  ],
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": -20,
+      "ys": 25,
+      "uts": 32,
+      "E": 0.012
+    },
+    {
+      "temp": 23,
+      "ys": 22,
+      "uts": 28,
+      "E": 0.008
+    },
+    {
+      "temp": 100,
+      "ys": 18,
+      "uts": 22,
+      "E": 0.006
+    },
+    {
+      "temp": 130,
+      "ys": 14,
+      "uts": 17,
+      "E": 0.005
+    },
+    {
+      "temp": 150,
+      "ys": 10,
+      "uts": 13,
+      "E": 0.004
+    }
+  ],
+  "industry_note": "HNBR (Hydrogenated Acrylonitrile Butadiene Rubber). NBR (Buna-N) 의 hydrogenation → 잔존 C=C 결합 제거 → 우수한 heat / ozone / oil 저항. σy 22 / UTS 28 / El 200-500% (elastomer — hyperelastic) / Shore A 65-90 / ρ 0.95."
+}

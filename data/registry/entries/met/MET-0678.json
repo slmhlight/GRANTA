@@ -1,0 +1,294 @@
+{
+  "stable_id": "MET-0678",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-shipbuilding-steel",
+    "alloy_base": "F-AB-eh36-shipbuilding-steel-abs-dnv-kr-lr-class",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0431_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0431_0",
+  "name": "EH36 shipbuilding steel (ABS / DNV / KR / LR class) — Normalized / TMCP (E grade = Charpy at -40°C ≥ 27J transverse)",
+  "category": "Metal",
+  "subcategory": "Shipbuilding Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Normalized / TMCP (E grade = Charpy at -40°C ≥ 27J transverse)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 355,
+      "max": 355,
+      "typical": 355,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 555,
+      "max": 555,
+      "typical": 555,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 206,
+      "max": 206,
+      "typical": 206,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 27,
+      "max": 27,
+      "typical": 27,
+      "n": 1,
+      "confidence": "handbook",
+      "min_spec_value": 27,
+      "min_spec_source": "ABS class minimum at -40°C (vs typical 70 J)",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:eh36"
+    },
+    "max_service_temp": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:eh36"
+    },
+    "thermal_expansion": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:eh36"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:eh36"
+    },
+    "specific_heat": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:eh36"
+    },
+    "melting_point": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:eh36"
+    },
+    "price_per_kg": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:eh36"
+    },
+    "price_per_cm3": {
+      "min": 0.0118,
+      "max": 0.0118,
+      "typical": 0.0118,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:eh36"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.52,
+      "max": 2.52,
+      "typical": 2.52,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.18",
+    "Mn": "0.9~1.6",
+    "Si": "0.10~0.50",
+    "Cu": "≤0.35",
+    "Cr": "≤0.20",
+    "Ni": "≤0.40",
+    "Mo": "≤0.08",
+    "Nb": "≤0.05",
+    "V": "≤0.10",
+    "Ti": "≤0.02",
+    "P": "≤0.025",
+    "S": "≤0.020"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.octalmetals.com/ah36-dh36-eh36-shipbuilding-steel-plate/",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "ABS / DNV-GL / KR / LR Rules for Building and Classing Steel Vessels Part 2 — Materials",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "ASTM A131 / A131M-19 Standard Spec for Structural Steel for Ships",
+      "verified": true
+    },
+    {
+      "label": "ABS (American Bureau of Shipping) Rules — Hull Steel Grade",
+      "url": "https://ww2.eagle.org/",
+      "verified": false
+    },
+    {
+      "label": "DNV-OS-B101 — Shipbuilding Steel Plate",
+      "url": "https://www.dnv.com/",
+      "verified": false
+    },
+    {
+      "label": "KR Korean Register — Ship Steel Grade Standards",
+      "url": "https://www.krs.co.kr/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      355,
+      555,
+      21,
+      206,
+      175,
+      40
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Shipbuilding HSLA grades (Class society certified): • AH36 — 0°C Charpy V-notch ≥34J (long. dir.) • DH36 — -20°C Charpy ≥34J (cold-water service) • **EH36** — -40°C Charpy ≥34J (Arctic / LNG) • FH36 — -60°C Charpy ≥34J (정밀 Arctic, ice-class) N+T condition: σy 355 / UTS 490-630 / El 21%. Tmax 450°C continuous.",
+  "meta": {
+    "reference": true,
+    "condition": "Normalized / TMCP (E grade = Charpy at -40°C ≥ 27J transverse)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "DNV OS-B101",
+        "org": "DNV"
+      }
+    ]
+  },
+  "fracture_toughness": 110,
+  "density": 7.85,
+  "yield_strength": 355,
+  "uts": 555,
+  "elongation": 21,
+  "modulus": 206,
+  "hardness": 175,
+  "thermal_conductivity": 40,
+  "fatigue_strength": 180,
+  "impact_strength": 27,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Shipbuilding Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 470,
+  "melting_point": 1500,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0118,
+  "popularity": 1.99,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.65,
+  "price_condition_factor": 1.6,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.52,
+  "total_cost_estimate": 2.27,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

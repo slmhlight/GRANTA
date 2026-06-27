@@ -1,0 +1,234 @@
+{
+  "stable_id": "POL-0037",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pekk",
+    "alloy_base": "F-AB-antero-800na-stratasys-pekk",
+    "element_families": []
+  },
+  "legacy_id": "POL_007",
+  "origin": "polymers-data",
+  "id": "POL_007",
+  "name": "Antero 800NA (Stratasys PEKK)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEKK",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.27,
+      "max": 1.27,
+      "typical": 1.27,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.23,
+      "max": 0.23,
+      "typical": 0.23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 950,
+      "max": 950,
+      "typical": 950,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 160,
+      "max": 160,
+      "typical": 160,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 305,
+      "max": 305,
+      "typical": 305,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 153,
+      "max": 153,
+      "typical": 153,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PEKK"
+    },
+    "price_per_cm3": {
+      "min": 1.2065,
+      "max": 1.2065,
+      "typical": 1.2065,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "78.0",
+    "H": "4.0",
+    "O": "18.1"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — Antero 800NA (Stratasys PEKK)",
+      "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/antero-800na/",
+      "verified": true
+    },
+    {
+      "label": "Applications: 위성/우주 outgassing (TML<0.1%), 의료·항공 prototyping",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "polymer": true,
+    "tg": 160,
+    "tm": 305,
+    "hdt_182": 153,
+    "moisture_24h": 0.2,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "applications": "위성/우주 outgassing (TML<0.1%), 의료·항공 prototyping",
+    "limitations": "매우 고가 (FDM 시스템 전용), Z 방향 강도 약함"
+  },
+  "popularity": 2,
+  "density": 1.27,
+  "yield_strength": 90,
+  "uts": 90,
+  "elongation": 5,
+  "modulus": 3.5,
+  "hardness": null,
+  "thermal_conductivity": 0.23,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — Antero 800NA (Stratasys PEKK)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PEKK"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 1.2065,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 90,
+      "uts": 90,
+      "E": 3.5
+    },
+    {
+      "temp": 100,
+      "ys": 78,
+      "uts": 78,
+      "E": 3.2
+    },
+    {
+      "temp": 150,
+      "ys": 60,
+      "uts": 60,
+      "E": 2.7
+    },
+    {
+      "temp": 200,
+      "ys": 35,
+      "uts": 35,
+      "E": 1.6
+    }
+  ],
+  "confidence_tier": "medium"
+}

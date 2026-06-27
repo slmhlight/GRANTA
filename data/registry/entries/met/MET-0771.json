@@ -1,0 +1,310 @@
+{
+  "stable_id": "MET-0771",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-17-7-ph",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0088",
+  "origin": "reference(supplementary)",
+  "id": "R_0088",
+  "name": "17-7 PH",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.81,
+      "max": 7.81,
+      "typical": 7.81,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1380,
+      "max": 1500,
+      "typical": 1450,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1580,
+      "max": 1700,
+      "typical": 1650,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 4,
+      "max": 9,
+      "typical": 6,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 460,
+      "max": 500,
+      "typical": 480,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 500,
+      "max": 640,
+      "typical": 570,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "impact_strength": {
+      "min": 18,
+      "max": 50,
+      "typical": 30,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "thermal_expansion": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "poisson_ratio": {
+      "min": 0.27,
+      "max": 0.27,
+      "typical": 0.27,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "melting_point": {
+      "min": 1404,
+      "max": 1404,
+      "typical": 1404,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "price_per_kg": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "price_per_cm3": {
+      "min": 0.0586,
+      "max": 0.0586,
+      "typical": 0.0586,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:177ph"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.88,
+      "max": 7.88,
+      "typical": 7.88,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "16~18",
+    "Ni": "6.5~7.75",
+    "Al": "0.75~1.5"
+  },
+  "sources": [
+    {
+      "label": "AK Steel/MatWeb — 17-7 PH Stainless",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7+PH",
+      "verified": false
+    },
+    {
+      "label": "AK Steel — 17-7 PH (UNS S17700, RH950)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 PH SS general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AK Steel — 17-7 PH Stainless Datasheet",
+      "url": "https://www.aksteel.com/sites/default/files/2018-02/17-7-PH-DATA-BULLETIN.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 5528 — 17-7 PH sheet, strip (RH 950)",
+      "url": "https://www.sae.org/standards/content/ams5528/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.81,
+      1450,
+      1650,
+      6,
+      200,
+      480,
+      16
+    ],
+    [
+      7.81,
+      1380,
+      1580,
+      4,
+      200,
+      460,
+      16
+    ],
+    [
+      7.81,
+      1500,
+      1700,
+      9,
+      200,
+      500,
+      16
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS S17700 / EN 1.4568 / X7CrNiAl17-7 / JIS SUS631 — semi-austenitic precipitation-hardening stainless (Cr 16-18, Ni 6.5-7.75, Al 0.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5528",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS S17700",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 570,
+  "density": 7.81,
+  "yield_strength": 1450,
+  "uts": 1650,
+  "elongation": 6,
+  "modulus": 200,
+  "hardness": 480,
+  "thermal_conductivity": 16,
+  "impact_strength": 30,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "AK Steel/MatWeb — 17-7 PH Stainless",
+  "aliases": [
+    "UNS S17700",
+    "EN 1.4568",
+    "17-7 PH",
+    "JIS SUS631"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 2.5,
+  "max_service_temp": 315,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.27,
+  "specific_heat": 460,
+  "melting_point": 1404,
+  "price_per_kg": 7.5,
+  "price_per_cm3": 0.0586,
+  "popularity": 3.3,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.88,
+  "total_cost_estimate": 7.88,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 7.75% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

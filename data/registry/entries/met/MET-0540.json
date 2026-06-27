@@ -1,0 +1,287 @@
+{
+  "stable_id": "MET-0540",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-incoloy-909",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0227",
+  "origin": "reference(supplementary)",
+  "id": "R_0227",
+  "name": "Incoloy 909",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Incoloy)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution + Aged (980°C / 720°C 8h + 620°C 8h)",
+  "ranges": {
+    "density": {
+      "min": 8.3,
+      "max": 8.3,
+      "typical": 8.3,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 980,
+      "max": 1035,
+      "typical": 1035,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1250,
+      "max": 1310,
+      "typical": 1310,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 15,
+      "typical": 15,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 159,
+      "max": 159,
+      "typical": 159,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 360,
+      "max": 380,
+      "typical": 380,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 562.5,
+      "max": 589.5,
+      "typical": 589.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 1.19,
+      "max": 1.61,
+      "typical": 1.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 500,
+      "max": 580,
+      "typical": 540,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 12.24,
+      "max": 16.56,
+      "typical": 14.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1164.5,
+      "max": 1575.5,
+      "typical": 1370,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 29.75,
+      "max": 40.25,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.2469,
+      "max": 0.3341,
+      "typical": 0.2905,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 47.77,
+      "max": 47.77,
+      "typical": 47.77,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "38",
+    "Co": "13",
+    "Nb": "4.7",
+    "Ti": "1.5"
+  },
+  "sources": [
+    {
+      "label": "Special Metals — Incoloy 909 controlled-expansion superalloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals — INCOLOY alloy 909 (UNS N19909) Technical Bulletin (Table 1 조성 + Table 5 age-hardened 인장)",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-909.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.3,
+      1035,
+      1310,
+      15,
+      159,
+      380,
+      14
+    ],
+    [
+      8.3,
+      980,
+      1250,
+      12,
+      159,
+      360,
+      14
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Moderate",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS N19909",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "density": 8.3,
+  "yield_strength": 1035,
+  "uts": 1310,
+  "elongation": 15,
+  "modulus": 159,
+  "hardness": 380,
+  "thermal_conductivity": 14,
+  "fatigue_strength": 589.5,
+  "impact_strength": 35,
+  "manufacturer": "PCC / Special Metals (Incoloy)",
+  "process": "Wrought",
+  "source": "Special Metals — Incoloy 909 controlled-expansion superalloy",
+  "aliases": [
+    "UNS N19909",
+    "Alloy 909"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Iron-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 1.4,
+  "max_service_temp": 1100,
+  "thermal_expansion": 14.4,
+  "poisson_ratio": 0.34,
+  "specific_heat": 460,
+  "melting_point": 1370,
+  "price_per_kg": 35,
+  "price_per_cm3": 0.2905,
+  "popularity": 2.37,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 47.77,
+  "total_cost_estimate": 47.77,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 38% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 13% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "medium"
+}

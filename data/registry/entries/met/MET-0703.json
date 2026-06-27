@@ -1,0 +1,337 @@
+{
+  "stable_id": "MET-0703",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-904l-n08904",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0064",
+  "origin": "reference(supplementary)",
+  "id": "R_0064",
+  "name": "904L (N08904)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 200,
+      "max": 250,
+      "typical": 220,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 490,
+      "max": 550,
+      "typical": 520,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 35,
+      "max": 45,
+      "typical": 40,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 190,
+      "max": 190,
+      "typical": 190,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 170,
+      "max": 200,
+      "typical": 180,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 230,
+      "max": 310,
+      "typical": 270,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "impact_strength": {
+      "min": 110,
+      "max": 220,
+      "typical": 165,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "fracture_toughness": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.7,
+      "max": 1.7,
+      "typical": 1.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "max_service_temp": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "thermal_expansion": {
+      "min": 15.3,
+      "max": 15.3,
+      "typical": 15.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "melting_point": {
+      "min": 1380,
+      "max": 1380,
+      "typical": 1380,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "price_per_kg": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "price_per_cm3": {
+      "min": 0.144,
+      "max": 0.144,
+      "typical": 0.144,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:904l"
+    },
+    "delivered_price_per_kg": {
+      "min": 18.9,
+      "max": 18.9,
+      "typical": 18.9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "19~23",
+    "Ni": "23~28",
+    "Mo": "4~5",
+    "Cu": "1~2"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — 904L Super Austenitic",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/904l",
+      "verified": true
+    },
+    {
+      "label": "ASTM B625 — 904L super-austenitic (UNS N08904)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Outokumpu 904L technical datasheet",
+      "url": "https://www.outokumpu.com/en/products/904l",
+      "verified": true
+    },
+    {
+      "label": "ASTM B677 — UNS N08904 Seamless Tube",
+      "url": "https://store.astm.org/b0677-21.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8,
+      220,
+      520,
+      40,
+      190,
+      180,
+      12
+    ],
+    [
+      8,
+      200,
+      490,
+      35,
+      190,
+      170,
+      12
+    ],
+    [
+      8,
+      250,
+      550,
+      45,
+      190,
+      200,
+      12
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": "UNS N08904 / EN 1.4539 / X1NiCrMoCu25-20-5 / 2RK65 — super-austenitic stainless (Ni 24-26, Cr 19-23, Mo 4-5, Cu 1-2). High-Ni + Mo + Cu → 우수한 H₂SO₄ (sulfuric acid) 저항 (904L 의 'L' = ELC). Tmax 400°C (sensitization 회피). 화학 plant H₂SO₄ pump / 농축 HNO₃ tank, chloride 환경 super-austenitic tubing, FGD 탈황장치 (석탄 화력 발전 SOx scrubber).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B625",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM B677",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS N08904",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 250,
+  "fatigue_strength": 270,
+  "density": 8,
+  "yield_strength": 220,
+  "uts": 520,
+  "elongation": 40,
+  "modulus": 190,
+  "hardness": 180,
+  "thermal_conductivity": 12,
+  "impact_strength": 165,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Outokumpu — 904L Super Austenitic",
+  "aliases": [
+    "N08904",
+    "UNS N08904",
+    "EN 1.4539",
+    "X1NiCrMoCu25-20-5",
+    "2RK65"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.7,
+  "max_service_temp": 400,
+  "thermal_expansion": 15.3,
+  "poisson_ratio": 0.3,
+  "specific_heat": 460,
+  "melting_point": 1380,
+  "price_per_kg": 18,
+  "price_per_cm3": 0.144,
+  "popularity": 3.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 18.9,
+  "total_cost_estimate": 18.9,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 28% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 220,
+      "uts": 540,
+      "E": 195
+    },
+    {
+      "temp": 400,
+      "ys": 140,
+      "uts": 420,
+      "E": 175
+    },
+    {
+      "temp": 600,
+      "ys": 110,
+      "uts": 350,
+      "E": 155
+    }
+  ],
+  "confidence_tier": "high"
+}

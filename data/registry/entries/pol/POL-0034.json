@@ -1,0 +1,320 @@
+{
+  "stable_id": "POL-0034",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pei-ultem",
+    "alloy_base": "F-AB-ultem-1010-pei-2",
+    "element_families": []
+  },
+  "legacy_id": "R_0270",
+  "origin": "reference(supplementary)",
+  "id": "R_0270",
+  "name": "Ultem 1010 (PEI) — Injection-Molded",
+  "category": "Polymer",
+  "subcategory": "Polymer - PEI/ULTEM",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection-Molded"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.27,
+      "max": 1.27,
+      "typical": 1.27,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 58,
+      "max": 75,
+      "typical": 65,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 72,
+      "max": 90,
+      "typical": 81,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 40,
+      "max": 90,
+      "typical": 65,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 2.78,
+      "max": 2.78,
+      "typical": 2.78,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 16,
+      "max": 20,
+      "typical": 18,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.22,
+      "max": 0.22,
+      "typical": 0.22,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "max_service_temp": {
+      "min": 180,
+      "max": 215,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "thermal_expansion": {
+      "min": 11.7,
+      "max": 11.7,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "specific_heat": {
+      "min": 481,
+      "max": 481,
+      "typical": 481,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "melting_point": {
+      "min": 1520,
+      "max": 1520,
+      "typical": 1520,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "price_per_kg": {
+      "min": 0.8,
+      "max": 0.8,
+      "typical": 0.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "price_per_cm3": {
+      "min": 0.001,
+      "max": 0.001,
+      "typical": 0.001,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1010"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "glass_transition_temp": {
+      "min": 108.5,
+      "max": 325.5,
+      "typical": 217,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polyetherimide"
+    },
+    "delivered_price_per_kg": {
+      "min": 0.8,
+      "max": 0.8,
+      "typical": 0.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "78",
+    "H": "4.5",
+    "N": "2.5",
+    "O": "15"
+  },
+  "sources": [
+    {
+      "label": "Sabic Ultem 1010 resin datasheet",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SABIC ULTEM 1010 resin technical guide",
+      "url": "https://www.sabic.com/en/products/specialties/ultem-resins",
+      "verified": true
+    },
+    {
+      "label": "Stratasys ULTEM 1010 FDM material data",
+      "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/ultem-1010-resin/",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Ultem 1010 PEI Injection",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1a4f5c6e7f8a9b0c1d2e3f4a5b6c7d8e",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.27,
+      65,
+      81,
+      65,
+      2.78,
+      18,
+      0.22
+    ],
+    [
+      1.27,
+      58,
+      72,
+      40,
+      2.78,
+      16,
+      0.22
+    ],
+    [
+      1.27,
+      75,
+      90,
+      90,
+      2.78,
+      20,
+      0.22
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "ULTEM 1010 — Polyetherimide (PEI) homopolymer, unfilled. Tg ≈ 217°C, HDT (1.8 MPa) ≈ 213°C, **max service 200°C continuous** (σy 95-110 / UTS 105-110 / El 60-90% / E 3.2-3.6 GPa / ρ 1.27 g/cc. UL 94 V-0 자체 난연 (chemical structure 의 imide 그룹). 우수한 hydrolysis 저항 (repeat steam autoclave 가능). Stratasys FDM (1010 = 산업용, FAA Approved). 식품 접촉 (FDA), 의료 sterilizable, 반도체 wafer carrier, 항공 인테리어. 가공 시 380-410°C 압출 필요.",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.27,
+  "yield_strength": 65,
+  "uts": 81,
+  "elongation": 65,
+  "modulus": 2.78,
+  "hardness": 18,
+  "thermal_conductivity": 0.22,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection-Molded",
+  "source": "Sabic Ultem 1010 resin datasheet",
+  "aliases": [
+    "PEI",
+    "ULTEM 1010",
+    "SABIC"
+  ],
+  "families": [
+    "Polymer",
+    "Polyetherimide"
+  ],
+  "electrical_conductivity": 16,
+  "max_service_temp": 200,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 481,
+  "melting_point": 1520,
+  "price_per_kg": 0.8,
+  "price_per_cm3": 0.001,
+  "fracture_toughness": 65,
+  "glass_transition_temp": 217,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 0.8,
+  "total_cost_estimate": 1.44,
+  "min_wall_thickness": 2,
+  "surface_finish_typical": 50,
+  "tolerance_class": "IT15",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 110,
+      "uts": 110,
+      "E": 3.6
+    },
+    {
+      "temp": 100,
+      "ys": 95,
+      "uts": 95,
+      "E": 3.4
+    },
+    {
+      "temp": 150,
+      "ys": 75,
+      "uts": 75,
+      "E": 3
+    },
+    {
+      "temp": 200,
+      "ys": 35,
+      "uts": 35,
+      "E": 1.5
+    }
+  ],
+  "story": "ULTEM 1010 은 Sabic 의 PEI (Ultem 1000 series) 중 unfilled, transparent, high-purity grade 입니다. 의료 + 식품 contact 용으로 USP Class VI + ISO 10993 + FDA contact 인증을 받은 grade 이며, Stratasys 가 2014년 자사의 FDM 3D 프린팅 filament 로 채택해 'Ultem 1010' 이 항공 / 의료 AM 의 표준 high-temp 재료가 됐어요.\n\n특성: base Ultem 1000 과 거의 동일하지만 추가로 식품/의료 안전성 인증. Tg 217°C · σy 105 MPa · UTS 115 MPa · modulus 3.2 GPa · El 60-80%. Continuous use 170-180°C. Stratasys FDM print 결과는 부분적으로 anisotropic — Z-축 (build direction) 의 strength 가 X/Y 의 70% 정도.\n\n응용: Stratasys Fortus 450mc + Fortus 900mc 의 표준 high-temp filament. 항공기 ducting (커스텀 ducting 의 prototype + low-volume production), 의료 surgical guide + sterilizable instrument handle (autoclave + EtO + gamma 모두 가능), 자동차 motorsport prototype, 그리고 식품 처리 plant 의 일부 contact 부속. 가격은 Stratasys cartridge $300+ /kg 이라 일반 polymer 대비 매우 비싸지만 metal 대체 + custom geometry 가 가능한 게 매력. 비교 grade Ultem 9085 는 flame-retardant 인증으로 항공 cabin 응용 (FAR 25.853), 1010 은 식품/의료 인증으로 의료 응용에 특화.",
+  "story_refs": [
+    "Sabic Ultem 1010 Tech Data",
+    "Stratasys Ultem 1010 Material Data Sheet (verified 2024)",
+    "Aw J et al. (2018) \"FDM of Ultem 1010 for Medical Applications\", Rapid Prototyping J 24"
+  ],
+  "confidence_tier": "high"
+}

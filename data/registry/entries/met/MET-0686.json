@@ -1,0 +1,283 @@
+{
+  "stable_id": "MET-0686",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-spring-steel",
+    "alloy_base": "F-AB-sup10-jis-cr-v-spring-steel",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0290_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0290_1",
+  "name": "SUP10 (JIS Cr-V spring steel) — Q+T (380°C)",
+  "category": "Metal",
+  "subcategory": "Spring Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (380°C)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1320,
+      "max": 1320,
+      "typical": 1320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1420,
+      "max": 1420,
+      "typical": 1420,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 430,
+      "max": 430,
+      "typical": 430,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 46,
+      "max": 46,
+      "typical": 46,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 639,
+      "max": 639,
+      "typical": 639,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 12.8,
+      "max": 51,
+      "typical": 29.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic × HT:Q+T 380°C full spring (i×0.85)"
+    },
+    "fracture_toughness": {
+      "min": 45,
+      "max": 76.5,
+      "typical": 58.5,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM spring steel × HT:Q+T 380°C full spring (k×0.9)"
+    },
+    "electrical_conductivity": {
+      "min": 6.375,
+      "max": 8.625,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "max_service_temp": {
+      "min": 408,
+      "max": 552,
+      "typical": 480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "thermal_expansion": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "specific_heat": {
+      "min": 405.45,
+      "max": 548.55,
+      "typical": 477,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "price_per_kg": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.02,
+      "max": 0.027,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Spring Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.87,
+      "max": 3.87,
+      "typical": 3.87,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.47~0.55",
+    "Mn": "0.65~0.95",
+    "Cr": "0.8~1.1",
+    "V": "0.15~0.25",
+    "Si": "0.15~0.35"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SUP10",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM spring steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "JIS G4801 — Spring Steels (SUP9/10/12)",
+      "url": "https://www.jisc.go.jp/",
+      "verified": false
+    },
+    {
+      "label": "OTAI Special Steel — SUP10 Spring Steel (JIS G4801, 6150/51CrV4) 조성+Q&T 물성",
+      "url": "https://otaisteel.com/products/spring-steel-sup10/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1320,
+      1420,
+      7,
+      207,
+      430,
+      46
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Q+T (380°C)",
+    "specs": [
+      {
+        "id": "JIS G4801",
+        "org": "JIS"
+      }
+    ]
+  },
+  "fracture_toughness": 58.5,
+  "density": 7.85,
+  "yield_strength": 1320,
+  "uts": 1420,
+  "elongation": 7,
+  "modulus": 207,
+  "hardness": 430,
+  "thermal_conductivity": 46,
+  "fatigue_strength": 639,
+  "impact_strength": 29.8,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Spring Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 7.5,
+  "max_service_temp": 480,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 477,
+  "melting_point": 1430,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0235,
+  "popularity": 1.57,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.87,
+  "total_cost_estimate": 3.87,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "SUP10 은 JIS G 4801 의 Cr-V (chrome-vanadium) spring steel 표준입니다. 1965년 일본 신일본제철과 고베제강이 미국 AISI 6150 의 일본 equivalent 로 채택했어요. C 0.45-0.55% + Cr 0.8-1.1% + V 0.15-0.30% 의 carbon-alloy spring steel 로, 미국 5160 (Cr-only) 과 AISI 9260 (Si-only) 의 중간 strength + toughness 영역을 차지합니다.\n\nSUP10 의 V 함량 0.2% 가 핵심입니다. V 는 austenitizing 시 미세 VC carbide 가 입계에 석출해 grain refinement 효과를 내고, 동시에 secondary hardening 으로 temperature 안정성을 올립니다. Q+T 표준 (850°C oil quench + 450°C temper) 으로 σy 1300-1500 MPa, Charpy 30 J 의 spring 표준을 냅니다.\n\n응용: 자동차 coil spring (Toyota Camry · Honda Accord 의 일부 model 의 strut spring), motorcycle coil spring (Honda CB · Yamaha YZF 의 fork spring), 산업 valve spring (passenger car engine 의 intake/exhaust valve spring 의 일부), 정밀 die spring (mold spring), 그리고 농기계 leaf spring. SUP10 의 매력은 fatigue strength (200 MPa, 10⁷ cycle) 와 가격 ($2-3/kg) 의 균형이고, 같은 등급의 Cr-Si spring steel SUP12 (Si 1.45%) 대비 V 첨가의 secondary hardening 효과로 350°C 이상의 환경 노출에서도 σy 손실이 적다는 점이 강점입니다.",
+  "story_refs": [
+    "JIS G 4801 (2018) \"Spring Steels\"",
+    "ASM Specialty Handbook \"Carbon and Alloy Steels\" (1996)",
+    "Yamada Y (2007) Materials for Springs, Springer"
+  ],
+  "confidence_tier": "medium"
+}

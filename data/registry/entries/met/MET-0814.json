@@ -1,0 +1,294 @@
+{
+  "stable_id": "MET-0814",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-ss420-uns-s42000",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0332_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0332_2",
+  "name": "SS420 (UNS S42000) — cutlery, surgical, nozzle — Hardened (1010°C oil Q + 150°C temper)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Hardened (1010°C oil Q + 150°C temper)",
+  "ranges": {
+    "density": {
+      "min": 7.74,
+      "max": 7.74,
+      "typical": 7.74,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1620,
+      "max": 1620,
+      "typical": 1620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1830,
+      "max": 1830,
+      "typical": 1830,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 580,
+      "max": 580,
+      "typical": 580,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 24.9,
+      "max": 24.9,
+      "typical": 24.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 648,
+      "max": 940,
+      "typical": 810,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (ASM Vol.19 Martensitic SS)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 95,
+      "typical": 65,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Martensitic SS"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Martensitic"
+    },
+    "max_service_temp": {
+      "min": 552.5,
+      "max": 747.5,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Martensitic"
+    },
+    "thermal_expansion": {
+      "min": 8.67,
+      "max": 11.73,
+      "typical": 10.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Martensitic"
+    },
+    "poisson_ratio": {
+      "min": 0.238,
+      "max": 0.322,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Martensitic"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Martensitic"
+    },
+    "melting_point": {
+      "min": 1258,
+      "max": 1702,
+      "typical": 1480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Martensitic"
+    },
+    "price_per_kg": {
+      "min": 2.975,
+      "max": 4.025,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Martensitic"
+    },
+    "price_per_cm3": {
+      "min": 0.023,
+      "max": 0.0312,
+      "typical": 0.0271,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Martensitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.86,
+      "max": 3.86,
+      "typical": 3.86,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "12~14",
+    "C": "0.15~0.40",
+    "Mn": "≤1.0",
+    "Si": "≤1.0",
+    "P": "≤0.04",
+    "S": "≤0.03"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.aksteel.com/sites/default/files/2018-01/420201706.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.74,
+      1620,
+      1830,
+      6,
+      200,
+      580,
+      24.9
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "ASTM A276 standard for cutlery, surgical instruments, dental/surgical scalpels, sand-blast nozzles, gauge blocks.",
+  "meta": {
+    "reference": true,
+    "condition": "Hardened (1010°C oil Q + 150°C temper)",
+    "specs": [
+      {
+        "id": "UNS S42000",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 810,
+  "density": 7.74,
+  "yield_strength": 1620,
+  "uts": 1830,
+  "elongation": 6,
+  "modulus": 200,
+  "hardness": 580,
+  "thermal_conductivity": 24.9,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [
+    "UNS S42000"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 10.2,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0271,
+  "popularity": 3.33,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.86,
+  "total_cost_estimate": 3.86,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1480,
+      "uts": 1720,
+      "E": 200
+    },
+    {
+      "temp": 200,
+      "ys": 1330,
+      "uts": 1570,
+      "E": 192
+    },
+    {
+      "temp": 400,
+      "ys": 1100,
+      "uts": 1300,
+      "E": 174
+    }
+  ],
+  "confidence_tier": "medium"
+}

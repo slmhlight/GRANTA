@@ -1,0 +1,309 @@
+{
+  "stable_id": "MET-0227",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-armor-steel",
+    "alloy_base": "F-AB-armox-600t-ssab-armor-steel",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0345_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0345_0",
+  "name": "Armox 600T (SSAB armor steel) — Q+T 600 HBW (typical mid-spec)",
+  "category": "Metal",
+  "subcategory": "Armor Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T 600 HBW (typical mid-spec)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2000,
+      "max": 2000,
+      "typical": 2000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 605,
+      "max": 605,
+      "typical": 605,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 600,
+      "max": 900,
+      "typical": 700,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:inconel600"
+    },
+    "impact_strength": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 45,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:SSAB Armox armor steel"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Armor Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Armor Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Armor Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Armor Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Armor Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Armor Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Armor Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Armor Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.58,
+      "max": 2.58,
+      "typical": 2.58,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "≤3.0",
+    "Cr": "≤1.5",
+    "Mn": "≤1.0",
+    "Si": "≤0.7",
+    "Mo": "≤0.7",
+    "C": "≤0.47",
+    "B": "≤0.005",
+    "P": "≤0.015",
+    "S": "≤0.005"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.ssab.com/en-us/brands-and-products/armox/product-offer/armox-600t",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "SSAB Armox 600T Brochure (HBW 570-640, plate 4-20mm)",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: SSAB Armox armor steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SSAB Armox technical brochure",
+      "url": "https://www.ssab.com/products/brands/armox",
+      "verified": true
+    },
+    {
+      "label": "MIL-DTL-46100E — High-Hardness Armor Plate",
+      "url": "https://www.dla.mil/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1500,
+      2000,
+      7,
+      210,
+      605,
+      25
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "SSAB Armox family — quenched ultra-high-hardness wrought armor steel. Grades: Armox 370T (370 HBW), 440T (440 HBW), 500T (500 HBW), 600T (600 HBW — 최고 hardness wrought armor). 600T: σy 1500 / UTS 1900-2050 / HB 570-640 / Charpy V @ -40°C ≥ 12J. NIJ Level IV ballistic protection (.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T 600 HBW (typical mid-spec)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "MIL DTL-46100E",
+        "org": "MIL"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "density": 7.85,
+  "yield_strength": 1500,
+  "uts": 2000,
+  "elongation": 7,
+  "modulus": 210,
+  "hardness": 605,
+  "thermal_conductivity": 25,
+  "fatigue_strength": 700,
+  "impact_strength": 8,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Armor Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 310,
+      "uts": 660
+    },
+    {
+      "temp": 540,
+      "ys": 200,
+      "uts": 580
+    },
+    {
+      "temp": 760,
+      "ys": 180,
+      "uts": 340
+    },
+    {
+      "temp": 870,
+      "ys": 95,
+      "uts": 190
+    }
+  ],
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.57,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.58,
+  "total_cost_estimate": 2.58,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 3% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

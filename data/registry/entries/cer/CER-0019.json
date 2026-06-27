@@ -1,0 +1,184 @@
+{
+  "stable_id": "CER-0019",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-nitride",
+    "alloy_base": "F-AB-sialon-sialon",
+    "element_families": []
+  },
+  "legacy_id": "CER_021",
+  "origin": "ceramics-data",
+  "id": "CER_021",
+  "name": "Sialon (β-SiAlON)",
+  "category": "Ceramic",
+  "subcategory": "Nitride",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.25,
+      "max": 3.25,
+      "typical": 3.25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 750,
+      "max": 750,
+      "typical": 750,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 750,
+      "max": 750,
+      "typical": 750,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 290,
+      "max": 290,
+      "typical": 290,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 337.5,
+      "max": 337.5,
+      "typical": 337.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.4225,
+      "max": 0.4225,
+      "typical": 0.4225,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Si": "39.8",
+    "Al": "19.1",
+    "O": "11.3",
+    "N": "29.8"
+  },
+  "sources": [
+    {
+      "label": "Kennametal — Sialon (β-SiAlON)",
+      "url": "https://www.kennametal.com/us/en/products/wear-protection/wear-parts",
+      "verified": true
+    },
+    {
+      "label": "Applications: 절삭공구 (주철·고온합금 가공), 용접 노즐, 베어링",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Kyocera SiAlON (SN-87) datasheet",
+      "url": "https://global.kyocera.com/prdct/fc/",
+      "verified": true
+    },
+    {
+      "label": "Saint-Gobain Syalon (β-SiAlON)",
+      "url": "https://www.ceramicsrefractories.saint-gobain.com/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "절삭공구 (주철·고온합금 가공), 용접 노즐, 베어링",
+    "_r173_note_applied": true
+  },
+  "popularity": 2,
+  "density": 3.25,
+  "yield_strength": 750,
+  "uts": 750,
+  "elongation": null,
+  "modulus": 290,
+  "hardness": 1500,
+  "thermal_conductivity": 21,
+  "fatigue_strength": 337.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Kennametal — Sialon (β-SiAlON)",
+  "aliases": [],
+  "families": [
+    "Ceramic",
+    "Nitride"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.4225,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "β-SiAlON (Si₃N₄ + Al₂O₃ + AlN solid solution) — sintering 우수 + Si₃N₄ properties 유지. ρ 3.20-3.30 g/cc, σf 650-900, E 280-300, KIC 5-7. Tmax 1400°C continuous in air (Si₃N₄ 와 비슷 oxidation 저항). 가공 cost Si₃N₄ 보다 낮음 (lower sintering T). 절삭 공구 insert (gray cast iron 가공 표준 — Si₃N₄/SiAlON tool 가 carbide 대비 4× life), 자동차 valve seat, molten Al 처리 furnace 부품, glass forming."
+}

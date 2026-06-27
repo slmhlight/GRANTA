@@ -1,0 +1,274 @@
+{
+  "stable_id": "MET-0319",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-sm570-ks-d-3515-tmcp-ultra-high-strength-weldable-structural-steel-20-c-charpy",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0419_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0419_0",
+  "name": "SM570 (KS D 3515, TMCP ultra-high-strength weldable structural steel, -20°C Charpy) — As-rolled / TMCP, Charpy 47J @ -20°C",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Hot Rolled (Plate / Section)"
+  ],
+  "heat_treatment": "As-rolled / TMCP, Charpy 47J @ -20°C",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 620,
+      "max": 620,
+      "typical": 620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 47,
+      "max": 47,
+      "typical": 47,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 184,
+      "max": 267,
+      "typical": 230,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 95,
+      "typical": 75,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A36 / EN structural"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_kg": {
+      "min": 1.02,
+      "max": 1.38,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.008,
+      "max": 0.0108,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.18",
+    "Si": "≤0.55",
+    "Mn": "≤1.70",
+    "P": "≤0.025",
+    "S": "≤0.025",
+    "Nb": "≤0.05",
+    "V": "≤0.10"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.hyundai-steel.com/en/products/Plate.do",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASTM A36 / EN structural",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      460,
+      620,
+      17,
+      210,
+      195,
+      47
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "KS D 3515 초고강도 + 저온. 한국 해양 / 풍력 tower / 초고층 frame. CE ≤ 0.44%, Pcm ≤ 0.28%. TMCP (Thermomechanical Controlled Process) 압연으로 제조. EN S460ML 등가.",
+  "meta": {
+    "reference": true,
+    "condition": "As-rolled / TMCP, Charpy 47J @ -20°C",
+    "specs": [
+      {
+        "id": "ASTM A36",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 75,
+  "fatigue_strength": 230,
+  "density": 7.85,
+  "yield_strength": 460,
+  "uts": 620,
+  "elongation": 17,
+  "modulus": 210,
+  "hardness": 195,
+  "thermal_conductivity": 47,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Hot Rolled (Plate / Section)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "KS D 3515"
+  ],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 3.32,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.08,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.3,
+  "total_cost_estimate": 1.17,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

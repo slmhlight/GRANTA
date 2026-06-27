@@ -1,0 +1,398 @@
+{
+  "stable_id": "POL-0047",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-petg",
+    "alloy_base": "F-AB-petg",
+    "element_families": []
+  },
+  "legacy_id": "G_0187",
+  "origin": "generic(csv)",
+  "id": "G_0187",
+  "name": "PETG — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PETG",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 1.27,
+      "max": 1.27,
+      "typical": 1.27,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 45.5,
+      "max": 54.5,
+      "typical": 48.5,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 50.05,
+      "max": 59.95,
+      "typical": 53.35,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 41,
+      "max": 54.5,
+      "typical": 47,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 2.3,
+      "max": 2.3,
+      "typical": 2.3,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 77.35,
+      "max": 92.65,
+      "typical": 82.45,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.24,
+      "max": 0.24,
+      "typical": 0.24,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PETG (FDM)"
+    },
+    "max_service_temp": {
+      "min": 35,
+      "max": 105,
+      "typical": 70,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PETG (FDM)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PETG (FDM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PETG (FDM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PETG (FDM)"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PETG (FDM)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PETG (FDM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0159,
+      "max": 0.0477,
+      "typical": 0.0318,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PETG (FDM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Eastman Tritan / Polyclear PETG",
+      "url": "https://www.eastman.com/en/products/product-detail/77003116/tritan-copolyester",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"PETG\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PETG",
+      "verified": false
+    },
+    {
+      "label": "SK Chemicals SKYGREEN PETG",
+      "url": "https://www.skchemicals.com/eng/",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — PETG general",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=4de1c85bb946406a86c52b688e3810d0",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.27,
+      48.5,
+      53.35,
+      53.5,
+      2.3,
+      82.45,
+      0.24
+    ],
+    [
+      1.27,
+      49,
+      53.9,
+      44,
+      2.3,
+      83.3,
+      0.24
+    ],
+    [
+      1.27,
+      47.5,
+      52.25000000000001,
+      52.5,
+      2.3,
+      80.75,
+      0.24
+    ],
+    [
+      1.27,
+      45.5,
+      50.05,
+      50.5,
+      2.3,
+      77.35000000000001,
+      0.24
+    ],
+    [
+      1.27,
+      54.50000000000001,
+      59.95,
+      44.5,
+      2.3,
+      92.65,
+      0.24
+    ],
+    [
+      1.27,
+      47.5,
+      52.25000000000001,
+      52.5,
+      2.3,
+      80.75,
+      0.24
+    ],
+    [
+      1.27,
+      48.5,
+      53.35,
+      43.50000000000001,
+      2.3,
+      82.45,
+      0.24
+    ],
+    [
+      1.27,
+      46.5,
+      51.150000000000006,
+      51.5,
+      2.3,
+      79.05,
+      0.24
+    ],
+    [
+      1.27,
+      54.50000000000001,
+      59.95,
+      54.50000000000001,
+      2.3,
+      92.65,
+      0.24
+    ],
+    [
+      1.27,
+      48.5,
+      53.35,
+      53.5,
+      2.3,
+      82.45,
+      0.24
+    ],
+    [
+      1.27,
+      46,
+      50.6,
+      41,
+      2.3,
+      78.2,
+      0.24
+    ],
+    [
+      1.27,
+      47,
+      51.7,
+      47,
+      2.3,
+      79.9,
+      0.24
+    ],
+    [
+      1.27,
+      46,
+      50.6,
+      41,
+      2.3,
+      78.2,
+      0.24
+    ],
+    [
+      1.27,
+      54.50000000000001,
+      59.95,
+      44.5,
+      2.3,
+      92.65,
+      0.24
+    ],
+    [
+      1.27,
+      54.50000000000001,
+      59.95,
+      44.5,
+      2.3,
+      92.65,
+      0.24
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - PETG (FDM)"
+    ],
+    "conditions": [
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Impact Modified",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "Toughened",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "moisture_24h": 0.2,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.27,
+  "yield_strength": 48.5,
+  "uts": 53.35,
+  "elongation": 47,
+  "modulus": 2.3,
+  "hardness": 82.45,
+  "thermal_conductivity": 0.24,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "Eastman Tritan / Polyclear PETG",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PETG (FDM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 70,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0318,
+  "popularity": 5,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1953년 영국 ICI 의 존 윈필드 (John Whinfield) 와 제임스 딕슨 (James Dickson) 이 terephthalic acid + ethylene glycol 의 transesterification 으로 polyethylene terephthalate (PET) 를 발견 — 같은 해 미국 DuPont 이 fiber grade 로 'Dacron' 을 출시했고, 결정성이 너무 높아 사출용으로는 부적합한 것이 PET 의 한계였어요. 1980년대 Eastman Chemical 이 1,4-cyclohexanedimethanol (CHDM) 을 ethylene glycol 일부 대체해 결정화를 방해함으로써 완전한 amorphous → 광학적으로 투명하고 사출 가능한 변형 — 이것이 PETG (G = glycol-modified) 입니다.\n\nPETG 의 의의는 PET 의 화학 내성 + Polycarbonate 의 광학 투명성 + 사출 성형성을 한 polymer 에 모은 거예요. Tg 80°C 로 dishwasher 안전한 음료 컵 (Starbucks 의 reusable cup), 의료 진단 cuvette (POC 키트), 데스크탑 FDM 3D 프린팅의 표준 (ABS 보다 warping 적음, PLA 보다 충격에 강함 — Prusa MK3 / Bambu Lab X1C 의 표준 필라멘트). 2000년대 들어 Coca-Cola·Pepsi 의 squeeze bottle, 슈퍼 hard-pack 카드 패키지 (Apple iPhone box 의 plastic tray) 까지 확산됐습니다.",
+  "story_refs": [
+    "Whinfield J R & Dickson J T (1946) UK Patent 578,079 (ICI) \"Improvements relating to the manufacture of highly polymeric substances\"",
+    "Eastman Chemical \"Tritan Copolyester Technical Information\" (2005)",
+    "Demirel B, Yaras A, Elcicek H (2011) \"Crystallization Behavior of PET Materials\", Balikesir University Journal of Science"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "PETG (Polyethylene Terephthalate Glycol-modified) — 비결정성 (cyclohexanedimethanol modifier 로 결정화 방지) 투명 thermoplastic. Tg ≈ 80°C, max service 60-70°C. σy 45-55 / UTS 50-55 / El 40-100% / E 2.0-2.3 GPa / ρ 1.27 g/cc. PMMA 대비 내충격 우수, PC 대비 가공 쉬움. 3D printing FDM 의 가장 흔한 transparent filament (압출 230°C, 베드 70°C). 의료 패키지 (γ-sterilizable), 음료 병, 식품 디스플레이, 진공 성형."
+}

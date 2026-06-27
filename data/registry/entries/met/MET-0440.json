@@ -1,0 +1,310 @@
+{
+  "stable_id": "MET-0440",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-naval-brass-c46400",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0136",
+  "origin": "reference(supplementary)",
+  "id": "R_0136",
+  "name": "Naval Brass C46400",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.41,
+      "max": 8.41,
+      "typical": 8.41,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 150,
+      "max": 360,
+      "typical": 170,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 370,
+      "max": 450,
+      "typical": 400,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 45,
+      "typical": 40,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 100,
+      "max": 130,
+      "typical": 110,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 116,
+      "max": 116,
+      "typical": 116,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 130,
+      "max": 180,
+      "typical": 155,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 70,
+      "typical": 45,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 26,
+      "max": 26,
+      "typical": 26,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "thermal_expansion": {
+      "min": 21.2,
+      "max": 21.2,
+      "typical": 21.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "specific_heat": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "melting_point": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "price_per_cm3": {
+      "min": 0.0673,
+      "max": 0.0673,
+      "typical": 0.0673,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c46400"
+    },
+    "delivered_price_per_kg": {
+      "min": 8.4,
+      "max": 8.4,
+      "typical": 8.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "59~62",
+    "Zn": "balance",
+    "Sn": "0.5~1"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C46400 Naval Brass (UNS C46400)",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C46400",
+      "verified": true
+    },
+    {
+      "label": "ASTM B21 — naval brass C46400",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — C46400 Naval Brass",
+      "url": "https://www.copper.org/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B21 — Naval Brass Bar",
+      "url": "https://store.astm.org/b0021_b0021m-22.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.41,
+      170,
+      400,
+      40,
+      100,
+      110,
+      116
+    ],
+    [
+      8.41,
+      150,
+      370,
+      30,
+      100,
+      100,
+      116
+    ],
+    [
+      8.41,
+      360,
+      450,
+      45,
+      100,
+      130,
+      116
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS C46400 / EN CW712R / CuZn38Sn1 — naval brass (Cu 59-62, Sn 0.5-1.0, rest Zn). Sn 첨가로 dezincification 저항 (마린 환경). Half-hard (H02): σy 365 / UTS 470. Tmax 200°C. 해상 valve / propeller shaft / pump impeller, ship hull fitting, decorative architectural hardware. 의장학적 / 자동차 emblem (gold 색 — αβ duplex).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B21",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS C46400",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 155,
+  "density": 8.41,
+  "yield_strength": 170,
+  "uts": 400,
+  "elongation": 40,
+  "modulus": 100,
+  "hardness": 110,
+  "thermal_conductivity": 116,
+  "impact_strength": 45,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Copper.org — C46400 Naval Brass (UNS C46400)",
+  "aliases": [
+    "UNS C46400",
+    "EN CW712R",
+    "CuZn38Sn1",
+    "naval brass"
+  ],
+  "families": [
+    "Metal",
+    "Copper"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 26,
+  "max_service_temp": 200,
+  "thermal_expansion": 21.2,
+  "poisson_ratio": 0.33,
+  "specific_heat": 380,
+  "melting_point": 900,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0673,
+  "popularity": 4.15,
+  "machining_cost_factor": 0.5,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 8.4,
+  "total_cost_estimate": 4.2,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1881년 영국 해군이 19세기 sail ship 에서 steam-driven ironclad 로 전환하면서, 해수 환경의 fitting 자재 — propeller shaft, valve seat — 의 부식 문제가 심각해졌어요. 영국 Vickers 가 통상 brass (70/30 Cartridge) 에 Sn 1% 를 추가한 alloy 가 60/40 brass + Sn 1% — 이게 'Naval Brass' (UNS C46400) 의 등장 배경입니다. Sn 의 dezincification 억제로 해수에서 30년 사용이 가능해졌죠.\n\n응용 — 해수 propeller shaft (작은 선박), 해수 valve seat (펌프, condenser), boat hull fastener (bolt, nut, washer — 해군 sailor 가 'silicon bronze' 만큼 자주 부르는 자재), 산업 condenser tube plate (해수 condenser 의 tube + plate 의 plate 부분), 영국 royal navy 의 mine 도. Big Ben 의 bell mounting bracket 도 Naval Brass — 100+ 년이 지나도 부식 없이 견디고 있어요.\n\n특이한 사실. 영국·미국·유럽의 yacht 들 사이에 'Naval Brass turnbuckle 은 항상 sailors 가 자기 손으로 잠근다' 는 전통이 있어요. 이유는 Naval Brass 가 60/40 알파-베타 brass 라 ductile + machinable 해서 hand-tightening 시 thread 가 자연스럽게 burnish 되면서 grip 이 강해지기 때문이죠. 100년 전 sailors 의 superstition 같지만 실제로 metallurgy 적으로 맞는 이야기입니다.",
+  "story_refs": [
+    "ASTM B21 \"Standard Specification for Naval Brass Rod, Bar, and Shapes\"",
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Copper Development Association \"Brasses for Marine Service\" Pub TN 26 (2010)"
+  ],
+  "confidence_tier": "high"
+}

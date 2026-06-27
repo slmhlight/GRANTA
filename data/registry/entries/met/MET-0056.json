@@ -1,0 +1,289 @@
+{
+  "stable_id": "MET-0056",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-hp-9-4-30-9ni-4co-0-3c",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0373_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0373_0",
+  "name": "HP 9-4-30 (9Ni-4Co-0.3C) — aircraft landing gear — Annealed (650°C)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Forged"
+  ],
+  "heat_treatment": "Annealed (650°C)",
+  "ranges": {
+    "density": {
+      "min": 7.78,
+      "max": 7.78,
+      "typical": 7.78,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1000,
+      "max": 1000,
+      "typical": 1000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1240,
+      "max": 1240,
+      "typical": 1240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 28,
+      "max": 28,
+      "typical": 28,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 450,
+      "max": 620,
+      "typical": 540,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni × HT:fully annealed (f×0.5, i×2.5)"
+    },
+    "impact_strength": {
+      "min": 200,
+      "max": 500,
+      "typical": 325,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni × HT:fully annealed (f×0.5, i×2.5)"
+    },
+    "fracture_toughness": {
+      "min": 234,
+      "max": 234,
+      "typical": 234,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:fully annealed (k×1.8)"
+    },
+    "electrical_conductivity": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni"
+    },
+    "thermal_expansion": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni"
+    },
+    "specific_heat": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni"
+    },
+    "melting_point": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni"
+    },
+    "price_per_kg": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni"
+    },
+    "price_per_cm3": {
+      "min": 0.0389,
+      "max": 0.0389,
+      "typical": 0.0389,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:9ni"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.86,
+      "max": 5.86,
+      "typical": 5.86,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "7.00~8.00",
+    "Co": "4.25~4.75",
+    "Mo": "0.90~1.10",
+    "Cr": "0.90~1.10",
+    "V": "0.06~0.12",
+    "C": "0.29~0.34",
+    "Mn": "0.10~0.35",
+    "Si": "≤0.20"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=HP%209-4-30",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASTM A553 9% Ni LNG",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AircraftMaterials.com — Aircraft Steel 9-4-30 Vac Melt (AMS 6526) 조성+기계적 물성",
+      "url": "https://www.aircraftmaterials.com/data/alstst/9-4-30.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.78,
+      1000,
+      1240,
+      14,
+      200,
+      380,
+      28
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "F-14 / F-15 / F-16 / F/A-18 main landing gear, missile housing; Co-Ni martensite with secondary M₂C carbide gives σ_UTS 1620 MPa + KIC 110 MPa√m (vs 300M 60 MPa√m); AMS 6526.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed (650°C)",
+    "specs": [
+      {
+        "id": "AMS 6526",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM A553",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 234,
+  "fatigue_strength": 540,
+  "density": 7.78,
+  "yield_strength": 1000,
+  "uts": 1240,
+  "elongation": 14,
+  "modulus": 200,
+  "hardness": 380,
+  "thermal_conductivity": 28,
+  "impact_strength": 325,
+  "manufacturer": "Reference data",
+  "process": "Forged",
+  "source": "Datasheet 1",
+  "aliases": [
+    "9Ni-4Co-0.3C"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 7,
+  "max_service_temp": 200,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 470,
+  "melting_point": 1430,
+  "price_per_kg": 5,
+  "price_per_cm3": 0.0389,
+  "popularity": 3.2,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.15,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.86,
+  "total_cost_estimate": 5.28,
+  "tolerance_class": "IT12-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 4.75% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "medium"
+}

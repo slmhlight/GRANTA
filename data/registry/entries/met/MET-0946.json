@@ -1,0 +1,474 @@
+{
+  "stable_id": "MET-0946",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-h11",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0314",
+  "origin": "generic(csv)",
+  "id": "G_0314",
+  "name": "H11 — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 360,
+      "max": 470,
+      "typical": 400,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 700,
+      "max": 850,
+      "typical": 760,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10.2,
+      "max": 13.08,
+      "typical": 11.52,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 190,
+      "max": 240,
+      "typical": 210,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 323,
+      "max": 437,
+      "typical": 380,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.5·UTS, high): soft mill-annealed; 576 은 hardened H11 baseline 오적용 (Shigley 0.5·UTS)"
+    },
+    "impact_strength": {
+      "min": 36,
+      "max": 53.1,
+      "typical": 45.45,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 33,
+      "max": 88,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Tool Steels × HT:spheroidized annealed (k×2.2)"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0395,
+      "max": 0.0535,
+      "typical": 0.0465,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.3,
+      "max": 6.3,
+      "typical": 6.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "93.1",
+    "Cr": "5",
+    "Mo": "1.5",
+    "V": "0.4"
+  },
+  "sources": [
+    {
+      "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
+      "url": "https://www.bucorp.com/specialty-tool-steels",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"H11\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=H11",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.75,
+      900,
+      1170,
+      10.8,
+      210,
+      342,
+      25
+    ],
+    [
+      7.75,
+      1020,
+      1326,
+      11.04,
+      210,
+      387.6,
+      25
+    ],
+    [
+      7.75,
+      1090,
+      1417,
+      10.68,
+      210,
+      414.2000000000001,
+      25
+    ],
+    [
+      7.75,
+      990,
+      1287,
+      13.080000000000002,
+      210,
+      376.2,
+      25
+    ],
+    [
+      7.75,
+      910,
+      1183,
+      12.12,
+      210,
+      345.8,
+      25
+    ],
+    [
+      7.75,
+      940,
+      1222,
+      12.48,
+      210,
+      357.20000000000005,
+      25
+    ],
+    [
+      7.75,
+      900,
+      1170,
+      10.8,
+      210,
+      342,
+      25
+    ],
+    [
+      7.75,
+      1050,
+      1365,
+      10.2,
+      210,
+      399,
+      25
+    ],
+    [
+      7.75,
+      980,
+      1274,
+      11.76,
+      210,
+      372.4,
+      25
+    ],
+    [
+      7.75,
+      1040,
+      1352,
+      11.28,
+      210,
+      395.2,
+      25
+    ],
+    [
+      7.75,
+      960,
+      1248,
+      11.52,
+      210,
+      364.8,
+      25
+    ],
+    [
+      7.75,
+      950,
+      1235,
+      12.6,
+      210,
+      361,
+      25
+    ],
+    [
+      7.75,
+      940,
+      1222,
+      11.28,
+      210,
+      357.20000000000005,
+      25
+    ],
+    [
+      7.75,
+      930,
+      1209,
+      11.16,
+      210,
+      353.40000000000003,
+      25
+    ],
+    [
+      7.75,
+      1050,
+      1365,
+      12.6,
+      210,
+      399,
+      25
+    ],
+    [
+      7.75,
+      930,
+      1209,
+      11.16,
+      210,
+      353.40000000000003,
+      25
+    ],
+    [
+      7.75,
+      1080,
+      1404,
+      11.76,
+      210,
+      410.4,
+      25
+    ],
+    [
+      7.75,
+      940,
+      1222,
+      11.28,
+      210,
+      357.20000000000005,
+      25
+    ],
+    [
+      7.75,
+      910,
+      1183,
+      12.12,
+      210,
+      345.8,
+      25
+    ],
+    [
+      7.75,
+      980,
+      1274,
+      11.76,
+      210,
+      372.4,
+      25
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Tool Steel"
+    ],
+    "conditions": [
+      "Fe-5Cr-1.5Mo-0.4V"
+    ],
+    "specs": [
+      {
+        "id": "ASTM A681",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 55,
+  "density": 7.75,
+  "yield_strength": 400,
+  "uts": 760,
+  "elongation": 11.52,
+  "modulus": 210,
+  "hardness": 210,
+  "thermal_conductivity": 25,
+  "fatigue_strength": 380,
+  "impact_strength": 45.45,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0465,
+  "popularity": 2.9,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.3,
+  "total_cost_estimate": 6.3,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1400,
+      "uts": 1700,
+      "E": 207
+    },
+    {
+      "temp": 400,
+      "ys": 1100,
+      "uts": 1380,
+      "E": 188
+    },
+    {
+      "temp": 540,
+      "ys": 900,
+      "uts": 1100,
+      "E": 170
+    },
+    {
+      "temp": 600,
+      "ys": 700,
+      "uts": 900,
+      "E": 155
+    }
+  ],
+  "confidence_tier": "high",
+  "fatigue_estimated": true
+}

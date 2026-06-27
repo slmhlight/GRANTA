@@ -1,0 +1,279 @@
+{
+  "stable_id": "MET-0629",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-pressure-vessel-steel",
+    "alloy_base": "F-AB-sa508-grade-3-class-1",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0342_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0342_0",
+  "name": "SA508 Grade 3 Class 1 — reactor pressure vessel — Q+T (austenitized 880°C, tempered 650°C)",
+  "category": "Metal",
+  "subcategory": "Pressure Vessel Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Forged"
+  ],
+  "heat_treatment": "Q+T (austenitized 880°C, tempered 650°C)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 620,
+      "max": 620,
+      "typical": 620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 41,
+      "max": 41,
+      "typical": 41,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 279,
+      "max": 279,
+      "typical": 279,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 75,
+      "max": 120,
+      "typical": 90,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASME SA-516 pressure vessel"
+    },
+    "electrical_conductivity": {
+      "min": 2.04,
+      "max": 2.76,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pressure Vessel Steel"
+    },
+    "max_service_temp": {
+      "min": 739.5,
+      "max": 1000.5,
+      "typical": 870,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pressure Vessel Steel"
+    },
+    "thermal_expansion": {
+      "min": 14.45,
+      "max": 19.55,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pressure Vessel Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pressure Vessel Steel"
+    },
+    "specific_heat": {
+      "min": 425,
+      "max": 575,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pressure Vessel Steel"
+    },
+    "melting_point": {
+      "min": 1232.5,
+      "max": 1667.5,
+      "typical": 1450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pressure Vessel Steel"
+    },
+    "price_per_kg": {
+      "min": 4.675,
+      "max": 6.325,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pressure Vessel Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0367,
+      "max": 0.0497,
+      "typical": 0.0432,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Pressure Vessel Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.78,
+      "max": 7.78,
+      "typical": 7.78,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Mn": "1.20~1.50",
+    "Ni": "0.40~1.00",
+    "Mo": "0.45~0.60",
+    "Cr": "≤0.25",
+    "C": "0.15~0.25",
+    "Si": "0.15~0.40",
+    "V": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SA508%20Grade%203",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASME SA-516 pressure vessel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Total Materia — SA-508 Grade 3 Class 1 (ASME): Properties, Composition. 공개 표시 Tensile Strength 550–725 MPa (항복/신율 등 추가물성은 무료 가입 필요)",
+      "url": "https://www.totalmateria.com/en-us/material/1457603",
+      "verified": true
+    },
+    {
+      "label": "NFI Steel — SA-508 Gr.3 Cl.1 Forgings: 화학조성표 (C ≤0.20, Mn 1.00-1.50, P ≤0.025, S ≤0.010, Ni 3.00-4.00, Cr ≤1.00, Mo ≤0.70, Cu ≤0.50)",
+      "url": "https://www.nfisteel.com/sa-508-gr3-cl1/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      450,
+      620,
+      22,
+      210,
+      200,
+      41
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "PWR reactor pressure vessel forgings (head, shell, nozzle), steam generator channel head; ASME Sec III NB; KEPIC-MN; tracks ΔRTNDT for embrittlement.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T (austenitized 880°C, tempered 650°C)",
+    "specs": [
+      {
+        "id": "ASME SA-516",
+        "org": "ASME"
+      }
+    ]
+  },
+  "fracture_toughness": 90,
+  "density": 7.85,
+  "yield_strength": 450,
+  "uts": 620,
+  "elongation": 22,
+  "modulus": 210,
+  "hardness": 200,
+  "thermal_conductivity": 41,
+  "fatigue_strength": 279,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Forged",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Pressure Vessel Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.0432,
+  "popularity": 1.57,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.15,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.78,
+  "total_cost_estimate": 7.78,
+  "tolerance_class": "IT12-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

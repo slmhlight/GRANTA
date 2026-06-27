@@ -1,0 +1,336 @@
+{
+  "stable_id": "MET-0662",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-tantalum-ta",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "C_0071",
+  "origin": "curated(material_db)",
+  "id": "C_0071",
+  "name": "Tantalum (Ta) — Wrought, Annealed",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "curated",
+  "manufacturers": [
+    "GE Additive"
+  ],
+  "machines": [
+    "M2 Series 5"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 16.65,
+      "max": 16.65,
+      "typical": 16.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 165,
+      "typical": 165,
+      "max": 165,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "uts": {
+      "min": 240,
+      "typical": 240,
+      "max": 240,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "elongation": {
+      "min": 40,
+      "typical": 40,
+      "max": 40,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "modulus": {
+      "min": 186,
+      "max": 186,
+      "typical": 186,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 131,
+      "max": 131,
+      "typical": 131,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 57.5,
+      "max": 57.5,
+      "typical": 57.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 110,
+      "typical": 110,
+      "max": 110,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 75,
+      "typical": 50,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "max_service_temp": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "thermal_expansion": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "specific_heat": {
+      "min": 140,
+      "max": 140,
+      "typical": 140,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "melting_point": {
+      "min": 3017,
+      "max": 3017,
+      "typical": 3017,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "price_per_kg": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "price_per_cm3": {
+      "min": 4.1625,
+      "max": 4.1625,
+      "typical": 4.1625,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tantalum"
+    },
+    "delivered_price_per_kg": {
+      "min": 625,
+      "max": 625,
+      "typical": 625,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ta": "≥99.95",
+    "O": "≤0.020",
+    "N": "≤0.010",
+    "C": "≤0.010",
+    "H": "≤0.0010",
+    "Fe": "≤0.005",
+    "Nb": "≤0.030"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Tantalum Ta",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tantalum",
+      "verified": false
+    },
+    {
+      "label": "GE Additive M2 Tantalum CMDS",
+      "url": "https://www.colibriumadditive.com/sites/default/files/M2SERIES5_Ta_400W_CMDS_20241106_RevA.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASTM B708 — Tantalum and tantalum alloy",
+      "url": "https://store.astm.org/b0708-21.html",
+      "verified": true
+    },
+    {
+      "label": "Plansee Tantalum technical data",
+      "url": "https://www.plansee.com/en/materials/tantalum.html",
+      "verified": true
+    },
+    {
+      "label": "ASTM B708 — Tantalum/Tantalum Alloy Sheet/Plate/Strip",
+      "url": "https://store.astm.org/b0708-15.html",
+      "verified": false
+    }
+  ],
+  "points": [],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Outstanding",
+  "meta": {
+    "applications": "Pure tantalum — chemical processing equipment (acid-resistant), medical implants, capacitors, high-temperature furnace parts",
+    "magnetic": "paramagnetic",
+    "melt_C": 3017,
+    "cte": 6.3,
+    "cp": 140,
+    "poisson": 0.34,
+    "vendor_count": 1,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B708",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 25,
+  "density": 16.65,
+  "yield_strength": 165,
+  "uts": 240,
+  "elongation": 40,
+  "modulus": 186,
+  "hardness": 131,
+  "thermal_conductivity": 57.5,
+  "fatigue_strength": 110,
+  "impact_strength": 50,
+  "manufacturer": "GE Additive",
+  "process": "Wrought",
+  "source": "MatWeb — Pure Tantalum Ta",
+  "aliases": [
+    "Ta",
+    "UNS R05200"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal",
+    "Refractory"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 13,
+  "max_service_temp": 1500,
+  "thermal_expansion": 6.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 140,
+  "melting_point": 3017,
+  "price_per_kg": 250,
+  "price_per_cm3": 4.1625,
+  "popularity": 1.92,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 625,
+  "total_cost_estimate": 1125,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "UNS R05200 (unalloyed Ta) / UNS R05252 (Ta-10W high-strength) / EN 2.4060 — refractory metal (Tm 3017°C, ρ 16.65 g/cc). Excellent corrosion resistance — all acids except HF + fuming H₂SO₄ (matches Pt/glass tier).",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": null,
+      "had_scalar": true,
+      "val_scalar": null
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": null,
+      "had_scalar": true,
+      "val_scalar": null
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": null,
+      "had_scalar": true,
+      "val_scalar": null
+    },
+    "fatigue_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 140,
+        "max": 220,
+        "typical": 180,
+        "n": 3,
+        "confidence": "handbook",
+        "provenance": "alloy:tantalum"
+      },
+      "had_scalar": true,
+      "val_scalar": 180
+    },
+    "_basis": "pure Ta wrought annealed 기준값 (As-built→wrought; 공백 채움). fatigue=0.46·UTS (endurance 상한 ≤0.63 준수)",
+    "_src": "사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)",
+    "points_stale": true,
+    "fields": {
+      "name": {
+        "from": "Tantalum (Ta) — As-built"
+      },
+      "process": {
+        "from": "LPBF"
+      },
+      "heat_treatment": {
+        "from": "As-built"
+      }
+    },
+    "_fbasis": "As-built(AM) 공정을 wrought 로 전환 (사용자 지시). 이름·공정·HT 정합 + 기준값.",
+    "_fsrc": "사용자 지시"
+  }
+}

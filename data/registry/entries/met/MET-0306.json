@@ -1,0 +1,267 @@
+{
+  "stable_id": "MET-0306",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-shn275-ks-d-3866-seismic-h-section",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0389_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0389_0",
+  "name": "SHN275 (KS D 3866, seismic H-section) — As-rolled (Yield Ratio ≤85%)",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Hot Rolled (H-Section)"
+  ],
+  "heat_treatment": "As-rolled (Yield Ratio ≤85%)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 335,
+      "max": 335,
+      "typical": 335,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 465,
+      "max": 465,
+      "typical": 465,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 140,
+      "max": 140,
+      "typical": 140,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 134,
+      "max": 194,
+      "typical": 168,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 80,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AISI carbon steel"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_kg": {
+      "min": 1.02,
+      "max": 1.38,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.008,
+      "max": 0.0108,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "≤0.20",
+    "Si": "≤0.40",
+    "Mn": "≥2.5×C",
+    "P": "≤0.035",
+    "S": "≤0.030"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.hyundai-steel.com/en/products/Section.do",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AISI carbon steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      335,
+      465,
+      21,
+      210,
+      140,
+      50
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "KS D 3866 내진 건축구조용 H형강 (한국 자체 표준). 항복비 (YR=YS/UTS) ≤ 85% 강제 → 항복 후 가공경화 여유 확보, 내진 ductility 핵심. Charpy 27J @ 0°C. CE ≤ 0.36%, Pcm ≤ 0.25%. 한국 고층 건축·내진 brace 표준. JIS G 3136 SN275 와 동일 base.",
+  "meta": {
+    "reference": true,
+    "condition": "As-rolled (Yield Ratio ≤85%)"
+  },
+  "fracture_toughness": 55,
+  "fatigue_strength": 168,
+  "density": 7.85,
+  "yield_strength": 335,
+  "uts": 465,
+  "elongation": 21,
+  "modulus": 210,
+  "hardness": 140,
+  "thermal_conductivity": 50,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Hot Rolled (H-Section)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "KS D 3866",
+    "Yield Ratio ≤85%"
+  ],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 3.32,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.08,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.3,
+  "total_cost_estimate": 1.17,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

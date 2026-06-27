@@ -1,0 +1,283 @@
+{
+  "stable_id": "MET-0456",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-heat-resistant-steel",
+    "alloy_base": "F-AB-sa213-t22-2-25cr-1mo",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0340_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0340_1",
+  "name": "SA213 T22 (2.25Cr-1Mo) — boiler superheater tube — Normalized 950°C + Tempered 720°C",
+  "category": "Metal",
+  "subcategory": "Heat-Resistant Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Normalized 950°C + Tempered 720°C",
+  "ranges": {
+    "density": {
+      "min": 7.86,
+      "max": 7.86,
+      "typical": 7.86,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 28,
+      "max": 28,
+      "typical": 28,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 36.7,
+      "max": 36.7,
+      "typical": 36.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 202.5,
+      "max": 202.5,
+      "typical": 202.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASME B&PV Sec.II heat-resistant"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.58,
+      "max": 2.58,
+      "typical": 2.58,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "1.90~2.60",
+    "Mo": "0.87~1.13",
+    "Mn": "0.30~0.60",
+    "Si": "≤0.50",
+    "C": "≤0.15"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.eccc-creep.com/datasheets/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASME B&PV Sec.II heat-resistant",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.86,
+      250,
+      450,
+      28,
+      207,
+      165,
+      36.7
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ASME SA-213/A335 P22 boiler/header workhorse; subcritical & supercritical fossil plants, refinery reactor walls (H2 service per API 941 Nelson curve).",
+  "meta": {
+    "reference": true,
+    "condition": "Normalized 950°C + Tempered 720°C"
+  },
+  "fracture_toughness": 100,
+  "density": 7.86,
+  "yield_strength": 250,
+  "uts": 450,
+  "elongation": 28,
+  "modulus": 207,
+  "hardness": 165,
+  "thermal_conductivity": 36.7,
+  "fatigue_strength": 202.5,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "2.25Cr-1Mo"
+  ],
+  "families": [
+    "Metal",
+    "Heat-Resistant Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.58,
+  "total_cost_estimate": 2.32,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1860,
+      "uts": 2070,
+      "E": 210
+    },
+    {
+      "temp": 200,
+      "ys": 1700,
+      "uts": 1900,
+      "E": 200
+    },
+    {
+      "temp": 400,
+      "ys": 1380,
+      "uts": 1620,
+      "E": 180
+    }
+  ],
+  "confidence_tier": "medium"
+}

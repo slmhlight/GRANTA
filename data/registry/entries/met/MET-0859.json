@@ -1,0 +1,298 @@
+{
+  "stable_id": "MET-0859",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-beta-c-ti-3al-8v-6cr-4mo-4zr",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0134",
+  "origin": "reference(supplementary)",
+  "id": "R_0134",
+  "name": "Beta-C (Ti-3Al-8V-6Cr-4Mo-4Zr)",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 4.82,
+      "max": 4.82,
+      "typical": 4.82,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1050,
+      "max": 1170,
+      "typical": 1100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1150,
+      "max": 1280,
+      "typical": 1200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 9,
+      "typical": 7,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 360,
+      "max": 400,
+      "typical": 380,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 462,
+      "max": 660,
+      "typical": 572,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 30,
+      "typical": 22,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ti-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 90,
+      "typical": 70,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:MMPDS-2018 Titanium"
+    },
+    "electrical_conductivity": {
+      "min": 0.85,
+      "max": 1.15,
+      "typical": 1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "max_service_temp": {
+      "min": 267.75,
+      "max": 362.25,
+      "typical": 315,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "thermal_expansion": {
+      "min": 7.65,
+      "max": 10.35,
+      "typical": 9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "specific_heat": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "melting_point": {
+      "min": 1377,
+      "max": 1863,
+      "typical": 1620,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "price_per_kg": {
+      "min": 68,
+      "max": 92,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "price_per_cm3": {
+      "min": 0.3278,
+      "max": 0.4434,
+      "typical": 0.3856,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Titanium"
+    },
+    "delivered_price_per_kg": {
+      "min": 84,
+      "max": 84,
+      "typical": 84,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "V": "7.5~8.5",
+    "Cr": "5.5~6.5",
+    "Mo": "3.5~4.5",
+    "Zr": "3.5~4.5",
+    "Al": "3~4"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Ti Beta-C (Ti-3-8-6-4-4)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti+Beta+C",
+      "verified": false
+    },
+    {
+      "label": "ASM — Beta-C titanium (UNS R58640)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: MMPDS-2018 Titanium",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ATI — ATI 38-644 (Beta C, UNS R58640) Beta Titanium Alloy Technical Data Sheet (v1, 2011)",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/titanium/alloyed/ati_38-644_tds_en_v1.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.82,
+      1100,
+      1200,
+      7,
+      100,
+      380,
+      8
+    ],
+    [
+      4.82,
+      1050,
+      1150,
+      5,
+      100,
+      360,
+      8
+    ],
+    [
+      4.82,
+      1170,
+      1280,
+      9,
+      100,
+      400,
+      8
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS R58640",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 70,
+  "fatigue_strength": 572,
+  "density": 4.82,
+  "yield_strength": 1100,
+  "uts": 1200,
+  "elongation": 7,
+  "modulus": 100,
+  "hardness": 380,
+  "thermal_conductivity": 8,
+  "impact_strength": 22,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Ti Beta-C (Ti-3-8-6-4-4)",
+  "aliases": [
+    "Ti-3Al-8V-6Cr-4Mo-4Zr",
+    "UNS R58640",
+    "Ti-3-8-6-4-4",
+    "Ti Beta-C",
+    "ATI 38-6-44"
+  ],
+  "families": [
+    "Metal",
+    "Titanium",
+    "Titanium-based"
+  ],
+  "electrical_conductivity": 1,
+  "max_service_temp": 315,
+  "thermal_expansion": 9,
+  "poisson_ratio": 0.34,
+  "specific_heat": 540,
+  "melting_point": 1620,
+  "price_per_kg": 80,
+  "price_per_cm3": 0.3856,
+  "popularity": 2.8,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 84,
+  "total_cost_estimate": 151.2,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

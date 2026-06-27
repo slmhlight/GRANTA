@@ -1,0 +1,449 @@
+{
+  "stable_id": "MET-0944",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-d2",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0315",
+  "origin": "generic(csv)",
+  "id": "G_0315",
+  "name": "D2 — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 430,
+      "max": 560,
+      "typical": 480,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 700,
+      "max": 850,
+      "typical": 760,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 14,
+      "max": 24,
+      "typical": 18,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 200,
+      "max": 255,
+      "typical": 220,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 291,
+      "max": 393,
+      "typical": 342,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R σf≈0.45·UTS 재유도 (UTS 정정 후 stale 값 교체)"
+    },
+    "impact_strength": {
+      "min": 16,
+      "max": 23.6,
+      "typical": 20.2,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 39.6,
+      "max": 39.6,
+      "typical": 39.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:spheroidized annealed (k×2.2)"
+    },
+    "electrical_conductivity": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "thermal_expansion": {
+      "min": 12.2,
+      "max": 12.2,
+      "typical": 12.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "specific_heat": {
+      "min": 461,
+      "max": 461,
+      "typical": 461,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "melting_point": {
+      "min": 1421,
+      "max": 1421,
+      "typical": 1421,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "price_per_kg": {
+      "min": 9.5,
+      "max": 9.5,
+      "typical": 9.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "price_per_cm3": {
+      "min": 0.0736,
+      "max": 0.0736,
+      "typical": 0.0736,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d2"
+    },
+    "delivered_price_per_kg": {
+      "min": 9.97,
+      "max": 9.97,
+      "typical": 9.97,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "0.5",
+    "Fe": "85.5",
+    "Cr": "12",
+    "Mo": "1",
+    "V": "1"
+  },
+  "sources": [
+    {
+      "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
+      "url": "https://www.bucorp.com/specialty-tool-steels",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"D2\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=D2",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.75,
+      1242,
+      1489.5,
+      1.8,
+      210,
+      423,
+      25
+    ],
+    [
+      7.75,
+      1407.6,
+      1688.1,
+      1.84,
+      210,
+      479.4,
+      25
+    ],
+    [
+      7.75,
+      1504.2,
+      1803.95,
+      1.78,
+      210,
+      512.3000000000001,
+      25
+    ],
+    [
+      7.75,
+      1366.2,
+      1638.45,
+      2.18,
+      210,
+      465.3,
+      25
+    ],
+    [
+      7.75,
+      1255.8,
+      1506.05,
+      2.02,
+      210,
+      427.7,
+      25
+    ],
+    [
+      7.75,
+      1297.2,
+      1555.7,
+      2.08,
+      210,
+      441.8,
+      25
+    ],
+    [
+      7.75,
+      1242,
+      1489.5,
+      1.8,
+      210,
+      423,
+      25
+    ],
+    [
+      7.75,
+      1449,
+      1737.75,
+      1.7000000000000002,
+      210,
+      493.5,
+      25
+    ],
+    [
+      7.75,
+      1352.4,
+      1621.9,
+      1.96,
+      210,
+      460.6,
+      25
+    ],
+    [
+      7.75,
+      1435.2,
+      1721.2,
+      1.88,
+      210,
+      488.8,
+      25
+    ],
+    [
+      7.75,
+      1324.8,
+      1588.8,
+      1.92,
+      210,
+      451.2,
+      25
+    ],
+    [
+      7.75,
+      1311,
+      1572.25,
+      2.1,
+      210,
+      446.50000000000006,
+      25
+    ],
+    [
+      7.75,
+      1297.2,
+      1555.7,
+      1.88,
+      210,
+      441.8,
+      25
+    ],
+    [
+      7.75,
+      1283.4,
+      1539.15,
+      1.86,
+      210,
+      437.1,
+      25
+    ],
+    [
+      7.75,
+      1449,
+      1737.75,
+      2.1,
+      210,
+      493.5,
+      25
+    ],
+    [
+      7.75,
+      1283.4,
+      1539.15,
+      1.86,
+      210,
+      437.1,
+      25
+    ],
+    [
+      7.75,
+      1490.4,
+      1787.4,
+      1.96,
+      210,
+      507.6,
+      25
+    ],
+    [
+      7.75,
+      1297.2,
+      1555.7,
+      1.88,
+      210,
+      441.8,
+      25
+    ],
+    [
+      7.75,
+      1255.8,
+      1506.05,
+      2.02,
+      210,
+      427.7,
+      25
+    ],
+    [
+      7.75,
+      1352.4,
+      1621.9,
+      1.96,
+      210,
+      460.6,
+      25
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Tool Steel"
+    ],
+    "conditions": [
+      "Fe-12Cr-1Mo-1V"
+    ],
+    "specs": [
+      {
+        "id": "ASTM A681",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 39.6,
+  "density": 7.75,
+  "yield_strength": 480,
+  "uts": 760,
+  "elongation": 18,
+  "modulus": 210,
+  "hardness": 220,
+  "thermal_conductivity": 25,
+  "fatigue_strength": 342,
+  "impact_strength": 20.2,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 4,
+  "max_service_temp": 540,
+  "thermal_expansion": 12.2,
+  "poisson_ratio": 0.29,
+  "specific_heat": 461,
+  "melting_point": 1421,
+  "price_per_kg": 9.5,
+  "price_per_cm3": 0.0736,
+  "popularity": 3,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 9.97,
+  "total_cost_estimate": 19.95,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

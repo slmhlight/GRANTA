@@ -1,0 +1,263 @@
+{
+  "stable_id": "POL-0070",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide-cf",
+    "alloy_base": "F-AB-pa12-cf-eos-hp-3-carbon-fiber-pa-sls",
+    "element_families": []
+  },
+  "legacy_id": "POL_014",
+  "origin": "polymers-data",
+  "id": "POL_014",
+  "name": "PA12-CF EOS HP 3 (Carbon-Fiber PA, SLS)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide CF",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.06,
+      "max": 1.06,
+      "typical": 1.06,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 76,
+      "max": 76,
+      "typical": 76,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 76,
+      "max": 76,
+      "typical": 76,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 5.2,
+      "max": 5.2,
+      "typical": 5.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 4.4,
+      "max": 4.4,
+      "typical": 4.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide CF"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide CF"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide CF"
+    },
+    "price_per_cm3": {
+      "min": 0.2332,
+      "max": 0.2332,
+      "typical": 0.2332,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "73.0",
+    "H": "11.7",
+    "N": "7.1",
+    "O": "8.1"
+  },
+  "sources": [
+    {
+      "label": "EOS/Arkema — PA12 (Nylon 12) for SLS",
+      "url": "https://www.eos.info/3d-printing-materials/polymer/polyamide-pa-12-pa12",
+      "verified": true
+    },
+    {
+      "label": "Datasheet — PA12-CF EOS HP 3 (Carbon-Fiber PA, SLS)",
+      "url": "https://www.eos.info/3d-printing-materials/polymer/pa-1101-cf",
+      "verified": true
+    },
+    {
+      "label": "Applications: 경량 구조 brackets, 드론 frame, 자동차 air-duct, EV charging port",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Rilsan PA12 medical grade",
+      "url": "https://www.extrudedpolymers.com/products/rilsan-pa-12/",
+      "verified": true
+    },
+    {
+      "label": "EOS PA 2200 (PA12) Material Data Sheet",
+      "url": "https://www.eos.info/en-us/3d-printing-materials/plastic/polyamide-pa-12-alumide",
+      "verified": true
+    },
+    {
+      "label": "Evonik VESTAMID L (PA12)",
+      "url": "https://www.vestamid.com/",
+      "verified": false
+    }
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 50,
+    "tm": 180,
+    "hdt_182": 165,
+    "moisture_24h": 0.35,
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "applications": "경량 구조 brackets, 드론 frame, 자동차 air-duct, EV charging port",
+    "limitations": "이방성 (FDM은 더 큼), 표면 거칠음 (CF 노출)",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 1.06,
+  "yield_strength": 76,
+  "uts": 76,
+  "elongation": 4.4,
+  "modulus": 5.2,
+  "hardness": null,
+  "thermal_conductivity": 0.34,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "EOS/Arkema — PA12 (Nylon 12) for SLS",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polyamide CF"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.2332,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 76,
+      "uts": 76,
+      "E": 5.2
+    },
+    {
+      "temp": 80,
+      "ys": 60,
+      "uts": 60,
+      "E": 4
+    },
+    {
+      "temp": 120,
+      "ys": 30,
+      "uts": 30,
+      "E": 1.8
+    },
+    {
+      "temp": 150,
+      "ys": 12,
+      "uts": 12,
+      "E": 0.7
+    }
+  ],
+  "story": "PA12-CF (또는 EOS PA-CF) 는 EOS 의 carbon-fiber reinforced PA12 SLS powder 입니다. PA 2200 base 에 chopped carbon fiber (3-5 mm 길이) 를 0.1-1% 혼합한 grade 로 'HP 3' 는 EOS 의 'high-performance' grade 3 의 표기. 2014년 EOS 가 commercial launch 했고, FDM 의 PEEK-CF 와 함께 'CF-reinforced AM polymer' 의 양대 산맥이 됐어요.\n\n특성: σy 70 MPa (base PA12 의 1.5배), UTS 76 MPa, modulus 5.5 GPa (base 의 1.7배), El 12% (base 의 1/2 — CF brittleness), thermal conductivity 0.4 W/m·K (base 의 1.5배 → heat dissipation 약간 개선). CF anisotropy 가 SLS 의 random orientation 때문에 FDM 의 highly aligned CF 보다 작아 거의 isotropic 강화 효과.\n\n응용: 자동차 prototype + low-volume production (BMW · Audi 의 일부 metal-replacement bracket prototype), 정밀 measurement jig (CF 의 low CTE → dimensional stable), 산업 dimensionally critical fixture, 그리고 EV charging connector housing (열 전도 + 강도). 가격은 fresh $100-150/kg 으로 PA 2200 ($50-80/kg) 의 2 배. PA12-CF 의 EMI shielding 도 일부 응용에서 매력 (CF 가 electrical conductive).",
+  "story_refs": [
+    "EOS PA-CF Tech Data",
+    "Yan C et al. (2011) \"Preparation, characterisation and processing of carbon fibre/polyamide-12 composites\", Compos Sci Technol 71",
+    "Schmid M (2018) Laser Sintering with Plastics, Hanser"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Nylon 12 (Polylauryllactam) — semi-crystalline thermoplastic. Tg ≈ 50°C, Tm ≈ 178°C, HDT (0.46 MPa) ≈ 145°C, **max service 80-100°C continuous** (σy 45-50 / UTS 45-50 / El 200-300% / E 1.5-1.7 GPa / ρ 1.01 g/cc. SLS / MJF 3D printing 의 가장 흔한 폴리머 (EOS PA 2200 = Vestamid L). 의료 카테터, 자동차 fuel line, 케이블 sheath, 화장품 패키지. 흡습률 낮음 (1.5% — PA66 대비 절반)."
+}

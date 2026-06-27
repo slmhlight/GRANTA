@@ -1,0 +1,302 @@
+{
+  "stable_id": "MET-0873",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-grade-12",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0103",
+  "origin": "reference(supplementary)",
+  "id": "R_0103",
+  "name": "Ti Grade 12",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 4.51,
+      "max": 4.51,
+      "typical": 4.51,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 345,
+      "max": 420,
+      "typical": 380,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 480,
+      "max": 540,
+      "typical": 500,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 22,
+      "typical": 18,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 103,
+      "max": 103,
+      "typical": 103,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 210,
+      "max": 240,
+      "typical": 220,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 19,
+      "max": 19,
+      "typical": 19,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 160,
+      "max": 228,
+      "typical": 198,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 30,
+      "typical": 22,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ti-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 90,
+      "typical": 70,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:MMPDS-2018 Titanium"
+    },
+    "electrical_conductivity": {
+      "min": 0.75,
+      "max": 2.25,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 600,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "thermal_expansion": {
+      "min": 4.4,
+      "max": 13.2,
+      "typical": 8.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "poisson_ratio": {
+      "min": 0.17,
+      "max": 0.51,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "specific_heat": {
+      "min": 280,
+      "max": 840,
+      "typical": 560,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "melting_point": {
+      "min": 825,
+      "max": 2475,
+      "typical": 1650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "price_per_kg": {
+      "min": 17.5,
+      "max": 52.5,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "price_per_cm3": {
+      "min": 0.0789,
+      "max": 0.2367,
+      "typical": 0.1578,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium"
+    },
+    "delivered_price_per_kg": {
+      "min": 36.75,
+      "max": 36.75,
+      "typical": 36.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Mo": "0.2~0.4",
+    "Ni": "0.6~0.9"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Titanium Grade 12",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+12",
+      "verified": false
+    },
+    {
+      "label": "ASTM Grade 12 — Ti-0.3Mo-0.8Ni (UNS R53400)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: MMPDS-2018 Titanium",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      4.51,
+      380,
+      500,
+      18,
+      103,
+      220,
+      19
+    ],
+    [
+      4.51,
+      345,
+      480,
+      15,
+      103,
+      210,
+      19
+    ],
+    [
+      4.51,
+      420,
+      540,
+      22,
+      103,
+      240,
+      19
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS R53400",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 70,
+  "fatigue_strength": 198,
+  "density": 4.51,
+  "yield_strength": 380,
+  "uts": 500,
+  "elongation": 18,
+  "modulus": 103,
+  "hardness": 220,
+  "thermal_conductivity": 19,
+  "impact_strength": 22,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Titanium Grade 12",
+  "aliases": [
+    "UNS R53400",
+    "ASTM Grade 12",
+    "Ti-0.3Mo-0.8Ni"
+  ],
+  "families": [
+    "Metal",
+    "Titanium",
+    "Titanium-based"
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 400,
+  "thermal_expansion": 8.8,
+  "poisson_ratio": 0.34,
+  "specific_heat": 560,
+  "melting_point": 1650,
+  "price_per_kg": 35,
+  "price_per_cm3": 0.1578,
+  "popularity": 3,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 36.75,
+  "total_cost_estimate": 66.15,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 170,
+      "uts": 240,
+      "E": 103
+    },
+    {
+      "temp": 200,
+      "ys": 130,
+      "uts": 190,
+      "E": 98
+    }
+  ],
+  "confidence_tier": "low"
+}

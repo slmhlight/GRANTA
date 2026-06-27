@@ -1,0 +1,369 @@
+{
+  "stable_id": "MET-0569",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-718",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0000_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0000_2",
+  "name": "Inconel 718 — Solution + Single age (STA)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Inconel)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution + Single age (STA)",
+  "ranges": {
+    "density": {
+      "min": 8.19,
+      "max": 8.19,
+      "typical": 8.19,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1280,
+      "max": 1280,
+      "typical": 1280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11.4,
+      "max": 11.4,
+      "typical": 11.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 450,
+      "max": 620,
+      "typical": 535,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:inconel718"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 50,
+      "typical": 40,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:inconel718",
+      "min_spec_value": 27,
+      "min_spec_source": "AMS 5662 minimum (vs ASM 40 J typical)",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718"
+    },
+    "max_service_temp": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718"
+    },
+    "thermal_expansion": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718"
+    },
+    "specific_heat": {
+      "min": 435,
+      "max": 435,
+      "typical": 435,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718"
+    },
+    "melting_point": {
+      "min": 1336,
+      "max": 1336,
+      "typical": 1336,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel718"
+    },
+    "price_per_kg": {
+      "min": 50,
+      "max": 95,
+      "typical": 70,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Special Metals SMC-045 IN718 bar 2026-Q2 (Ni base 100/lb avg)"
+    },
+    "price_per_cm3": {
+      "min": 0.4873,
+      "max": 0.6593,
+      "typical": 0.5733,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 76.13,
+      "max": 76.13,
+      "typical": 76.13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "50~55",
+    "Cr": "17~21",
+    "Fe": "balance",
+    "Nb": "4.75~5.5",
+    "Mo": "2.8~3.3",
+    "Ti": "0.65~1.15",
+    "Al": "0.2~0.8",
+    "C": "≤0.08"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Special Metals SMC-045 Inconel 718",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AMS 5662 — Inconel 718 wrought solution-aged bar/forging",
+      "url": "https://www.sae.org/standards/content/ams5662m/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B637 — Precipitation-Hardening Ni-base Bar (718)",
+      "url": "https://store.astm.org/b0637-22.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.19,
+      1100,
+      1280,
+      18,
+      200,
+      380,
+      11.4
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS N07718 / EN 2.4668 / AMS 5662 / GH4169 / NC19FeNb — Ni-base γ'' precipitation-hardened superalloy (Ni 50-55, Cr 17-21, Fe bal, Nb 4.75-5.5, Mo 2.8-3.3, Ti 0.65-1.15, Al 0.2-0.8). Service temp 650°C (γ'' decomposes >680°C). AM LPBF 의 가장 흔한 superalloy — turbine disks, combustor liners, rocket engine thrust chambers, oil/gas wellhead.",
+  "meta": {
+    "reference": true,
+    "condition": "Solution + Single age (STA)",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Inconel 718",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5662",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM B637",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 535,
+  "density": 8.19,
+  "yield_strength": 1100,
+  "uts": 1280,
+  "elongation": 18,
+  "modulus": 200,
+  "hardness": 380,
+  "thermal_conductivity": 11.4,
+  "impact_strength": 40,
+  "manufacturer": "PCC / Special Metals (Inconel)",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [
+    "UNS N07718",
+    "EN 2.4668",
+    "Alloy 718",
+    "AMS 5662",
+    "GH4169",
+    "NC19FeNb"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Iron-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1100,
+      "uts": 1280,
+      "E": 200
+    },
+    {
+      "temp": 540,
+      "ys": 1010,
+      "uts": 1150,
+      "E": null
+    },
+    {
+      "temp": 650,
+      "ys": 950,
+      "uts": 1110,
+      "E": 162
+    },
+    {
+      "temp": 760,
+      "ys": 870,
+      "uts": 950,
+      "E": 145
+    }
+  ],
+  "electrical_conductivity": 1.2,
+  "max_service_temp": 650,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.29,
+  "specific_heat": 435,
+  "melting_point": 1336,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.5733,
+  "popularity": 5,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 76.13,
+  "total_cost_estimate": 197.93,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 55% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "creep_rupture": [
+    {
+      "temp": 650,
+      "stress": 700,
+      "hours": 100
+    },
+    {
+      "temp": 650,
+      "stress": 620,
+      "hours": 1000
+    },
+    {
+      "temp": 650,
+      "stress": 540,
+      "hours": 10000
+    },
+    {
+      "temp": 700,
+      "stress": 480,
+      "hours": 1000
+    },
+    {
+      "temp": 760,
+      "stress": 410,
+      "hours": 100
+    },
+    {
+      "temp": 760,
+      "stress": 310,
+      "hours": 1000
+    }
+  ],
+  "story": "1950년대 후반 미국 INCO (International Nickel Company) 의 허버트 아이젤슈타인 (Herbert L. Eiselstein) 이 풀고 싶었던 골치 아픈 문제가 하나 있었습니다. 당시 주류였던 superalloy Waspaloy 가 용접만 했다 하면 응고 균열 (strain-age cracking) 을 일으킨다는 거였죠. γ' (Ni₃(Al,Ti)) 시효가 너무 빨라, 용접 열을 받는 동안 균열이 먼저 자라버리는 게 원인이었습니다.\n\n그가 1959년에 내놓은 해법은 의외로 간단했어요. Nb 5 wt% 와 Mo 3 wt% 를 더해 γ\" — BCT 결정의 Ni₃Nb — 라는 새 석출상을 만들면 시효 속도가 충분히 느려진다는 점을 알아낸 겁니다. γ\" 는 650~700°C 까지 안정하면서 응고 시간 창이 넓어, 단조와 용접이 모두 가능한 superalloy 가 처음 등장하게 됐죠. 1962년 US Patent 3,046,108 으로 등록되며 이게 우리가 아는 Inconel 718 입니다.\n\n그 뒤로 60여 년 동안 718 은 거의 모든 제트엔진의 주요 부품으로 들어갔습니다. 보잉 747 의 P&W JT9D, 블랙호크 헬기의 GE T700, F/A-18 의 F404, 737NG 의 CFM56 — 어디든 압축기 디스크와 1단 블레이드가 718 이었어요. 우주 셔틀 SSME 의 turbopump housing, SpaceX Merlin·Raptor 의 injector body, NASA 의 다수 우주 추진 시스템 부품 — 사실상 '항공·우주 가스터빈 강도의 대명사' 가 된 합금입니다.\n\n최근에는 LPBF 분말로도 가장 흔히 쓰여, GE LEAP-1A 의 연료 노즐 (2015 첫 commercial AM Ni part), SpaceX SuperDraco 추력기 chamber, Aurora UAV 의 turbine wheel 까지 모두 718 의 3D 프린팅입니다. STA (Solution + Double Aging, 980°C/1h + 720°C/8h + 620°C/8h) 의 표준 cycle 로 σy 1180 MPa / σUTS 1310 MPa 의 wrought-grade 강도를 회복할 수 있어 AM 분말의 first choice 자리에 올랐어요.",
+  "story_refs": [
+    "Eiselstein H L (1965) ASTM STP 369 \"Advances in the Technology of Stainless Steels and Related Alloys\"",
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP",
+    "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide 2nd ed., ASM",
+    "Special Metals \"Inconel Alloy 718\" Tech Bulletin (revised 2007)"
+  ],
+  "confidence_tier": "medium"
+}

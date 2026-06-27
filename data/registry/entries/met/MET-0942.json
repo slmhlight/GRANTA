@@ -1,0 +1,294 @@
+{
+  "stable_id": "MET-0942",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-cpm-3v",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0120",
+  "origin": "reference(supplementary)",
+  "id": "R_0120",
+  "name": "CPM 3V",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (HRC 58-60, 1100°C austenitize + 550°C temper)",
+  "ranges": {
+    "density": {
+      "min": 7.83,
+      "max": 7.87,
+      "typical": 7.85,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1400,
+      "max": 1600,
+      "typical": 1500,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1800,
+      "max": 2000,
+      "typical": 1900,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 3,
+      "max": 7,
+      "typical": 5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 580,
+      "max": 620,
+      "typical": 600,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 525,
+      "max": 750,
+      "typical": 630,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 15,
+      "max": 40,
+      "typical": 25,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Tool Steels"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.04,
+      "max": 0.0542,
+      "typical": 0.0471,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.8",
+    "Cr": "7.5",
+    "V": "2.75",
+    "Mo": "1.3"
+  },
+  "sources": [
+    {
+      "label": "Crucible — CPM 3V powder-metallurgy tool steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Crucible CPM 3V datasheet",
+      "url": "https://www.crucible.com/eselector/prodbyapp/tooling/cpm3v.html",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.1 — PM Tool Steels",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204965/Tool-Steels",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.46,
+      1500,
+      1900,
+      5,
+      207,
+      600,
+      21
+    ],
+    [
+      7.46,
+      1400,
+      1800,
+      3,
+      207,
+      580,
+      21
+    ],
+    [
+      7.46,
+      1600,
+      2000,
+      7,
+      207,
+      620,
+      21
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Crucible CPM 3V (Powder Metallurgy tool steel) — 'high impact' grade (C 0.80, Cr 7.5, V 2.75, Mo 1.3, Mn 0.4, Si 0.9). PM process → fine isotropic carbide distribution (vs ingot cast 의 dendritic) → 매우 high toughness with high wear. Tmax 550°C. 칼 (Bark River, Spyderco knife), 도검, 충격 hammer tool, blanking die for hard sheet, mechanical chiseling tool. 통상 D2/A2 보다 +30% toughness (충격 우수).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 25,
+  "fatigue_strength": 630,
+  "density": 7.85,
+  "yield_strength": 1500,
+  "uts": 1900,
+  "elongation": 5,
+  "modulus": 207,
+  "hardness": 600,
+  "thermal_conductivity": 21,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Crucible — CPM 3V powder-metallurgy tool steel",
+  "aliases": [
+    "Crucible CPM 3V",
+    "PM tool steel"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0471,
+  "popularity": 3.07,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.75,
+  "total_cost_estimate": 15.5,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

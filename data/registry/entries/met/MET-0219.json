@@ -1,0 +1,343 @@
+{
+  "stable_id": "MET-0219",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-alsi10mg",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0269",
+  "origin": "reference(supplementary)",
+  "id": "R_0269",
+  "name": "AlSi10Mg — Cast (A360 Sand/Permanent-Mold)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.68,
+      "max": 2.68,
+      "typical": 2.68,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 110,
+      "max": 160,
+      "typical": 130,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 210,
+      "max": 280,
+      "typical": 240,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 7,
+      "typical": 4,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 71,
+      "max": 71,
+      "typical": 71,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 72,
+      "max": 90,
+      "typical": 80,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 90,
+      "max": 140,
+      "typical": 115,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:alsi10mg"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 5,
+      "typical": 4,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:alsi10mg"
+    },
+    "fracture_toughness": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "max_service_temp": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "thermal_expansion": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "specific_heat": {
+      "min": 920,
+      "max": 920,
+      "typical": 920,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "melting_point": {
+      "min": 614,
+      "max": 614,
+      "typical": 614,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "price_per_kg": {
+      "min": 0.8,
+      "max": 1.3,
+      "typical": 1,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "HRC MetalMiner 2026-Q2 = $700-900/short ton"
+    },
+    "price_per_cm3": {
+      "min": 0.0023,
+      "max": 0.0031,
+      "typical": 0.0027,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Si": "9~11",
+    "Mg": "0.25~0.5",
+    "Fe": "≤1.0"
+  },
+  "sources": [
+    {
+      "label": "EOS — AlSi10Mg for DMLS/LPBF",
+      "url": "https://www.eos.info/metal-solutions/metal-materials",
+      "verified": true
+    },
+    {
+      "label": "A360/AlSi10Mg cast / Aluminum Assoc.",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASTM A36 / EN structural",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "EOS — AlSi10Mg material data sheet",
+      "url": "https://www.eos.info/en-us/3d-printing-materials/metals/aluminum/eos-aluminium-alsi10mg",
+      "verified": true
+    },
+    {
+      "label": "ASTM F3318 / ISO/ASTM 52907 — AM Powder Aluminum AlSi10Mg",
+      "url": "https://www.astm.org/f3318-18.html",
+      "verified": false
+    },
+    {
+      "label": "Aluminum Association — AlSi10Mg cast (~A360)",
+      "url": "https://www.aluminum.org/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.68,
+      130,
+      240,
+      4,
+      71,
+      80,
+      150
+    ],
+    [
+      2.68,
+      110,
+      210,
+      2,
+      71,
+      72,
+      150
+    ],
+    [
+      2.68,
+      160,
+      280,
+      7,
+      71,
+      90,
+      150
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "EN AC-43000 / AlSi10Mg / DIN 3.2381 — AM LPBF 표준 알루미늄 (Si 9-11, Mg 0.2-0.45). Cast equiv A360. T6 (530°C SHT + 165°C aging): σy 250 / UTS 360 / El 8% (시멘트네트 dissolve, Mg2Si precip). Stress-relieved (260°C/2h): σy 165 / UTS 280 / El 14% (ductility 우선). Anisotropy: Z (vertical build) 이 XY 대비 σy 약 7% 낮음 (열-축 효과). 항공·자동차·heat exchanger·열교환기.",
+  "meta": {
+    "reference": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "ASTM A36 carbon steel",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A36",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM F3318",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 18,
+  "fatigue_strength": 115,
+  "density": 2.68,
+  "yield_strength": 130,
+  "uts": 240,
+  "elongation": 4,
+  "modulus": 71,
+  "hardness": 80,
+  "thermal_conductivity": 150,
+  "impact_strength": 4,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "EOS — AlSi10Mg for DMLS/LPBF",
+  "aliases": [
+    "A360 Sand",
+    "EN AC-43000",
+    "EN AC-AlSi10Mg",
+    "DIN 3.2381"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Cast (3xx/4xx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 230,
+      "uts": 360
+    },
+    {
+      "temp": 150,
+      "ys": 180,
+      "uts": 270
+    },
+    {
+      "temp": 200,
+      "ys": 120,
+      "uts": 180
+    },
+    {
+      "temp": 250,
+      "ys": 70,
+      "uts": 110
+    }
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 175,
+  "thermal_expansion": 21,
+  "poisson_ratio": 0.33,
+  "specific_heat": 920,
+  "melting_point": 614,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0027,
+  "popularity": 5,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 8,
+  "total_cost_estimate": 4.8,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "story": "AlSi10Mg 는 1960년대부터 사용된 알루미늄 die-casting 합금 A360.0 / A413.0 (Al-Si-Mg eutectic family, EN AC-43000) 계열에서 진화한 조성입니다. Si 10% 가 Al-Si eutectic (12.6%) 에 근접해 fluidity 가 우수 → 복잡한 thin-wall casting 가능. Mg 0.2-0.45% 가 T6 시효처리 (530°C SHT + WQ + 175°C/3h aging) 시 Mg₂Si precipitate 를 형성해 σy 240 MPa / σUTS 360 MPa / El 8% 의 균형을 달성합니다.\n\n2010년대 들어 metal AM (LPBF, DMLS) 시장이 본격적으로 열리면서 AlSi10Mg 가 metal 3D 프린팅의 default Al 분말 자리에 올랐어요. 이유는 첫째, gas atomization 이 비교적 쉽고 (다른 high-strength Al 합금은 oxide 형성으로 atomization 어려움), 둘째, LPBF 의 빠른 열 사이클이 자연스럽게 fine Si network microstructure 를 만들어 as-built σy 가 단조 6061-T6 (276 MPa) 의 약 90% 수준 (240 MPa) 에 도달하기 때문입니다.\n\n응용 — 자동차 light-weight bracket / heat exchanger (Audi/BMW 의 일부 motorsport 부품), 항공 ECS (Environmental Control System) / antenna mount, F1 차의 일부 cooling duct 와 ducting (FSAE / Formula Student 표준), 의료 dental implant mount, 우주 satellite truss / mounting bracket. EOS 의 EOS Aluminum AlSi10Mg, SLM Solutions 의 AlSi10Mg, GE Additive Concept Laser 의 AlSi10Mg-A — 사실상 모든 metal AM vendor 의 표준 Al grade 입니다. ⚠ DED (Optomec LENS 등) 에는 wire feedstock 사용 — AlSi10Mg DED 는 wire 형태로 변환됨.",
+  "story_refs": [
+    "Aboulkhair N T et al. (2019) \"3D printing of Aluminium alloys: Additive Manufacturing of Aluminium alloys using selective laser melting\", Prog Mater Sci 106",
+    "EOS GmbH \"EOS Aluminium AlSi10Mg Material Data Sheet\" (2020)",
+    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
+  ],
+  "confidence_tier": "high"
+}

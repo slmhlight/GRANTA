@@ -1,0 +1,287 @@
+{
+  "stable_id": "MET-0397",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c26800-yellow-brass-66cu-34zn",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0288_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0288_1",
+  "name": "C26800 (Yellow Brass 66Cu-34Zn) — 1/4H",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought (cold-rolled strip)"
+  ],
+  "heat_treatment": "1/4H",
+  "ranges": {
+    "density": {
+      "min": 8.47,
+      "max": 8.47,
+      "typical": 8.47,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 270,
+      "max": 270,
+      "typical": 270,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 385,
+      "max": 385,
+      "typical": 385,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 121,
+      "max": 121,
+      "typical": 121,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 120,
+      "max": 180,
+      "typical": 150,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "impact_strength": {
+      "min": 35,
+      "max": 90,
+      "typical": 60,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 27,
+      "max": 27,
+      "typical": 27,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "thermal_expansion": {
+      "min": 20.3,
+      "max": 20.3,
+      "typical": 20.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "specific_heat": {
+      "min": 375,
+      "max": 375,
+      "typical": 375,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "melting_point": {
+      "min": 905,
+      "max": 905,
+      "typical": 905,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "price_per_kg": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "price_per_cm3": {
+      "min": 0.0593,
+      "max": 0.0593,
+      "typical": 0.0593,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26800"
+    },
+    "delivered_price_per_kg": {
+      "min": 9.07,
+      "max": 9.07,
+      "typical": 9.07,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "64~68",
+    "Zn": "balance",
+    "Pb": "≤0.07",
+    "Fe": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.poongsan.co.kr/eng/business/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — C26000 70/30 cartridge brass",
+      "url": "https://www.copper.org/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B19 — Cartridge Brass Sheet/Plate",
+      "url": "https://store.astm.org/b0019-22.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.47,
+      270,
+      385,
+      35,
+      110,
+      100,
+      121
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS C26000 / EN CW505L / CuZn30 — Cartridge Brass 70Cu-30Zn — 가장 흔한 'brass'. Excellent cold workability (deep-drawn cartridge case의 이유). CW (H02): σy 350 / UTS 425. C26800 (Yellow Brass 66Cu-34Zn): O σy 100 / UTS 320 / El 60%, H 1/4: σy 270 / UTS 385.",
+  "meta": {
+    "reference": true,
+    "condition": "1/4H",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B19",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 50,
+  "fatigue_strength": 150,
+  "density": 8.47,
+  "yield_strength": 270,
+  "uts": 385,
+  "elongation": 35,
+  "modulus": 110,
+  "hardness": 100,
+  "thermal_conductivity": 121,
+  "impact_strength": 60,
+  "manufacturer": "Reference data",
+  "process": "Wrought (cold-rolled strip)",
+  "source": "Datasheet 2",
+  "aliases": [
+    "Yellow Brass 66Cu-34Zn"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 27,
+  "max_service_temp": 200,
+  "thermal_expansion": 20.3,
+  "poisson_ratio": 0.33,
+  "specific_heat": 375,
+  "melting_point": 905,
+  "price_per_kg": 7,
+  "price_per_cm3": 0.0593,
+  "popularity": 4.15,
+  "machining_cost_factor": 0.5,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 9.07,
+  "total_cost_estimate": 4.54,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "C26800 (yellow brass, 66-34) 은 Cu-34% Zn 합금이지만 보통 '65-35' 또는 'yellow brass' 라고 부릅니다. Zn 함량이 높아 α + β 두 상이 혼재하고 σy 가 cartridge brass 보다 약간 더 높아요. 1830년대 영국 Birmingham 의 'spangle' 산업 (자동차 / 건축 / 가구의 yellow brass 부속) 에서 표준이 됐습니다.\n\n색상은 진한 노란색 (밝은 금색) 이고, σy 90 annealed → 380 half-hard 까지 강화 가능. Zn 함량이 dezincification 한계 (15%) 보다 훨씬 높아 해수 / 염화물 환경에서는 inhibited yellow brass (admiralty brass C44300, As 첨가) 가 대신 쓰입니다.\n\n주요 응용: 기관총 5.56 NATO (.223 Remington), 7.62 NATO (.308) cartridge case (군 표준 brass case), 자동차 radiator core (1960년대까지 yellow brass radiator 가 표준), 일반 plumbing fixture (faucet body), 건축 hardware (door knob, hinge), 일반 musical instrument (saxophone body 의 일부, trumpet bell). Cartridge case 응용이 가장 critical 한데, 7000 rpm 의 reload cycle 에서도 split 없이 견디는 능력이 yellow brass 의 본질입니다.",
+  "story_refs": [
+    "ASTM B36 / B134 / B135",
+    "Copper Development Association Pub 144",
+    "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys"
+  ],
+  "confidence_tier": "medium"
+}

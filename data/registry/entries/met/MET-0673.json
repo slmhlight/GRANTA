@@ -1,0 +1,195 @@
+{
+  "stable_id": "MET-0673",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-zirconium-705",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0174",
+  "origin": "reference(supplementary)",
+  "id": "R_0174",
+  "name": "Zirconium 705",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 6.64,
+      "max": 6.64,
+      "typical": 6.64,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 350,
+      "max": 380,
+      "typical": 380,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 520,
+      "max": 550,
+      "typical": 550,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 16,
+      "max": 20,
+      "typical": 20,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 190,
+      "max": 200,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 133,
+      "max": 190,
+      "typical": 160,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.2 Refractory)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Refractory"
+    },
+    "max_service_temp": {
+      "typical": 450,
+      "min": 400,
+      "max": 500,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Zr": "balance",
+    "Nb": "2~3",
+    "Hf": "≤4.5"
+  },
+  "sources": [
+    {
+      "label": "ATI — Zirconium 705 (Zr-2.5Nb)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Zirconium+705",
+      "verified": false
+    },
+    {
+      "label": "ASTM B551 — Zirconium 705 (Zr-2.5Nb, UNS R60705)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ATI — Zircadyne 702 and 705 Technical Data Sheet (v1, 2012): R60705 조성(Nb 2-3%)·E 94.7 GPa·melt 1840°C·annealed UTS 615/YS 506 MPa·ASTM min 552/379·SB551/523/493/550",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/zirconium/alloy/zircadyne_702_705_1_v1.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      6.64,
+      380,
+      550,
+      20,
+      95,
+      200,
+      17
+    ],
+    [
+      6.64,
+      350,
+      520,
+      16,
+      95,
+      190,
+      17
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM B551",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS R60705",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 160,
+  "density": 6.64,
+  "yield_strength": 380,
+  "uts": 550,
+  "elongation": 20,
+  "modulus": 95,
+  "hardness": 200,
+  "thermal_conductivity": 17,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ATI — Zirconium 705 (Zr-2.5Nb)",
+  "aliases": [
+    "UNS R60705",
+    "Zr-2.5Nb"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "popularity": 1.8,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

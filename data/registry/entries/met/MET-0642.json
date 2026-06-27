@@ -1,0 +1,199 @@
+{
+  "stable_id": "MET-0642",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-chromium-pure",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0216",
+  "origin": "reference(supplementary)",
+  "id": "R_0216",
+  "name": "Chromium (pure)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.19,
+      "max": 7.19,
+      "typical": 7.19,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 260,
+      "max": 280,
+      "typical": 280,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 360,
+      "max": 380,
+      "typical": 380,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 279,
+      "max": 279,
+      "typical": 279,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 110,
+      "max": 120,
+      "typical": 120,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 94,
+      "max": 94,
+      "typical": 94,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 98,
+      "max": 140,
+      "typical": 118,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.2 Refractory)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Refractory"
+    },
+    "max_service_temp": {
+      "typical": 950,
+      "min": 900,
+      "max": 1000,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Cr": "99~100"
+  },
+  "sources": [
+    {
+      "label": "ASM — pure chromium",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Eckart pure Chromium technical data",
+      "url": "https://www.eckart.net/",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Pure Chromium (refractory)",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205017/Refractory-Metals",
+      "verified": false
+    },
+    {
+      "label": "ESPI Metals — Chromium technical data (ASM 계열): ρ 7.19·melt 1875°C·BCC·E 248 GPa(20°C)·UTS 83 MPa(20°C)·YS 131 MPa(300°C)·CTE 6.2e-6/K",
+      "url": "https://www.espimetals.com/index.php/technical-data/63-Chromium",
+      "verified": true
+    },
+    {
+      "label": "AZoM (Granta Design data) — Chromium (Cr) >99%: ρ 7.1-7.2·E 245-285 GPa·UTS 370-760 MPa·Poisson 0.2-0.22·CTE 6-7e-6/K·k 84-94 W/m·K·경도 2000-2700 MPa",
+      "url": "https://www.azom.com/properties.aspx?ArticleID=594",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.19,
+      280,
+      380,
+      1,
+      279,
+      120,
+      94
+    ],
+    [
+      7.19,
+      260,
+      360,
+      1,
+      279,
+      110,
+      94
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "Pure Chromium (Cr, UNS R20007) — refractory metal. Tm 1907°C, ρ 7.19 g/cc, E 279 GPa, BCC. Brittle at RT (DBTT ≈ 300°C — hot-working only). Tmax 950°C continuous (above which oxidation). Stainless steel + nickel superalloy 의 alloying element 표준 (chromia Cr₂O₃ 표면 passive). Chrome-plating (decorative + wear). 우주 ablative heat shield interlayer.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 118,
+  "density": 7.19,
+  "yield_strength": 280,
+  "uts": 380,
+  "elongation": 1,
+  "modulus": 279,
+  "hardness": 120,
+  "thermal_conductivity": 94,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — pure chromium",
+  "aliases": [
+    "Cr",
+    "pure chromium"
+  ],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "popularity": 1.8,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

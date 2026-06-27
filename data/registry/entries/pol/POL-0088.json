@@ -1,0 +1,407 @@
+{
+  "stable_id": "POL-0088",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyethylene",
+    "alloy_base": "F-AB-hdpe",
+    "element_families": []
+  },
+  "legacy_id": "G_0166",
+  "origin": "generic(csv)",
+  "id": "G_0166",
+  "name": "HDPE — As-supplied (Injection Molding)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyethylene",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": "As-supplied",
+  "ranges": {
+    "density": {
+      "min": 0.96,
+      "max": 0.96,
+      "typical": 0.96,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 22.75,
+      "max": 27.25,
+      "typical": 24.25,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 27.3,
+      "max": 32.7,
+      "typical": 29.1,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 328,
+      "max": 436,
+      "typical": 376,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 59.15,
+      "max": 70.85,
+      "typical": 63.05,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.48,
+      "max": 0.48,
+      "typical": 0.48,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "glass_transition_temp": {
+      "min": -180,
+      "max": -60,
+      "typical": -120,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "price_per_cm3": {
+      "min": 0.012,
+      "max": 0.036,
+      "typical": 0.024,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyethylene"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"HDPE\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=HDPE",
+      "verified": false
+    },
+    {
+      "label": "Dow HDPE polyethylene resin product family",
+      "url": "https://www.dow.com/en-us/market/mkt-packaging.html",
+      "verified": true
+    },
+    {
+      "label": "SABIC HDPE resin technical guide",
+      "url": "https://www.sabic.com/en/products/polymers/polyethylene-pe",
+      "verified": true
+    },
+    {
+      "label": "ASTM D4976 — HDPE Pipe-Grade Classification",
+      "url": "https://store.astm.org/d4976-21.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      0.96,
+      27.250000000000004,
+      32.7,
+      436.00000000000006,
+      1,
+      70.85000000000001,
+      0.48
+    ],
+    [
+      0.96,
+      27.250000000000004,
+      32.7,
+      356,
+      1,
+      70.85000000000001,
+      0.48
+    ],
+    [
+      0.96,
+      24.25,
+      29.1,
+      428,
+      1,
+      63.05,
+      0.48
+    ],
+    [
+      0.96,
+      24.5,
+      29.4,
+      352,
+      1,
+      63.7,
+      0.48
+    ],
+    [
+      0.96,
+      23.75,
+      28.500000000000004,
+      420,
+      1,
+      61.75000000000001,
+      0.48
+    ],
+    [
+      0.96,
+      22.75,
+      27.3,
+      404,
+      1,
+      59.15,
+      0.48
+    ],
+    [
+      0.96,
+      27.250000000000004,
+      32.7,
+      356,
+      1,
+      70.85000000000001,
+      0.48
+    ],
+    [
+      0.96,
+      23.75,
+      28.500000000000004,
+      420,
+      1,
+      61.75000000000001,
+      0.48
+    ],
+    [
+      0.96,
+      24.25,
+      29.1,
+      348.00000000000006,
+      1,
+      63.05,
+      0.48
+    ],
+    [
+      0.96,
+      23.25,
+      27.9,
+      412,
+      1,
+      60.45,
+      0.48
+    ],
+    [
+      0.96,
+      24.25,
+      29.1,
+      428,
+      1,
+      63.05,
+      0.48
+    ],
+    [
+      0.96,
+      23,
+      27.6,
+      328,
+      1,
+      59.8,
+      0.48
+    ],
+    [
+      0.96,
+      23.5,
+      28.200000000000003,
+      376,
+      1,
+      61.1,
+      0.48
+    ],
+    [
+      0.96,
+      23,
+      27.6,
+      328,
+      1,
+      59.8,
+      0.48
+    ],
+    [
+      0.96,
+      27.250000000000004,
+      32.7,
+      356,
+      1,
+      70.85000000000001,
+      0.48
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Nylon (FDM/SLS)",
+      "Polymer - Photopolymer Resin (SLA)",
+      "Polymer - Polyethylene"
+    ],
+    "conditions": [
+      "Impact Modified",
+      "Toughened",
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "UV Stabilized"
+    ],
+    "flame_ul94": "HB",
+    "uv_resistance": "Poor",
+    "moisture_24h": 0.01,
+    "polymer": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM D4976",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "density": 0.96,
+  "yield_strength": 24.25,
+  "uts": 29.1,
+  "elongation": 376,
+  "modulus": 1,
+  "hardness": 63.05,
+  "thermal_conductivity": 0.48,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Injection Molding",
+  "source": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polyethylene"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": -120,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.024,
+  "popularity": 3.92,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "HDPE (High-Density Polyethylene) 는 1953년 독일 Karl Ziegler (Max Planck Institute for Coal Research, 1963년 노벨화학상) 가 Ziegler catalyst (TiCl₄ + Al(C₂H₅)₃) 를 사용해 ethylene 의 정확한 linear polymerization 을 가능케 한 발견에서 출발합니다. 이전의 LDPE (Low-Density Polyethylene, 1933년 ICI 에서 발견) 는 branched chain (가지 많음) 이라 density 0.91-0.94 g/cc, 강도 낮음. HDPE 는 거의 linear chain (가지 거의 없음) 이라 density 0.94-0.97 + 결정도 70-80% + 강도 약 2배 향상.\n\nZiegler catalyst 발견 후 1955년 BASF, Hoechst (현재 Celanese), Hercules (현재 LyondellBasell), Phillips Petroleum 이 거의 동시에 상업화. Phillips Petroleum 의 chromium-based catalyst (Phillips catalyst, 1953-1955) 가 HDPE 의 두 번째 main process 가 됐어요. 한국 — LG 화학 / 한화솔루션 / SK 종합화학 / 롯데화학이 모두 HDPE 생산.\n\n응용 — Pipe (water distribution, sewer line, gas line), bottle (laundry detergent, motor oil container, milk jug — 식품접촉 FDA 통과), industrial container (drum, IBC tote), HDPE film (shopping bag, garbage bag), kayak / sup board (rotomolding), playground equipment, 산업 cutting board, 의료 cleanroom liner, 매립지 liner (geomembrane — HDPE 1.5-3mm 두께가 표준).\n\n특이 응용 — UHMWPE (Ultra-High Molecular Weight PE, MW > 3 million g/mol) 은 HDPE 의 special grade 로, 의료 hip / knee implant 의 bearing surface (1962년 Sir John Charnley 의 first hip implant), 방탄 sheet (Dyneema / Spectra 의 ultra-strong fiber 가 UHMWPE), 산업 wear-resistant plate (mining chute liner).",
+  "story_refs": [
+    "Ziegler K (1953) German Patent 973,626",
+    "Phillips Petroleum (1955) US Patent 2,825,721 (Phillips Cr catalyst)",
+    "ASTM D4976",
+    "Mark J E (1996) Physical Properties of Polymers Handbook, AIP"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "HDPE (High-Density Polyethylene, ρ 0.94-0.97). Tg ≈ -125°C, Tm 130-137°C, max service 80-100°C continuous. σy 22-30 / UTS 25-35 / El 200-800% / E 0.7-1.4 GPa. PE-100 grade (gas/water 배관 표준): σf 50-year creep ≥ 10 MPa. Water/gas piping (가장 흔한 plastic pipe — KS M3408 / ISO 4427), 화학 plant 탱크, milk/juice 병, 폐기물 통, 어망. Recyclable (PE-2 자원순환). Welding via butt-fusion 표준 (PE 의 가장 흔한 결합)."
+}

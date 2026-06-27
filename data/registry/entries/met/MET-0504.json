@@ -1,0 +1,306 @@
+{
+  "stable_id": "MET-0504",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-hastelloy-b-2",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0099",
+  "origin": "reference(supplementary)",
+  "id": "R_0099",
+  "name": "Hastelloy B-2",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Haynes International (Hastelloy)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution Annealed (1066°C WQ)",
+  "ranges": {
+    "density": {
+      "min": 9.22,
+      "max": 9.22,
+      "typical": 9.22,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 370,
+      "max": 440,
+      "typical": 400,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 800,
+      "max": 900,
+      "typical": 850,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 45,
+      "max": 55,
+      "typical": 50,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 217,
+      "max": 217,
+      "typical": 217,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 220,
+      "max": 250,
+      "typical": 230,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 310,
+      "max": 410,
+      "typical": 360,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "impact_strength": {
+      "min": 55,
+      "max": 110,
+      "typical": 80,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.4,
+      "max": 1.4,
+      "typical": 1.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "max_service_temp": {
+      "min": 700,
+      "max": 820,
+      "typical": 760,
+      "n": 1,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "thermal_expansion": {
+      "min": 10.4,
+      "max": 10.4,
+      "typical": 10.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "poisson_ratio": {
+      "min": 0.31,
+      "max": 0.31,
+      "typical": 0.31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "specific_heat": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "melting_point": {
+      "min": 1370,
+      "max": 1370,
+      "typical": 1370,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "price_per_kg": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "price_per_cm3": {
+      "min": 0.5993,
+      "max": 0.5993,
+      "typical": 0.5993,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:hastelloyb2"
+    },
+    "delivered_price_per_kg": {
+      "min": 85.31,
+      "max": 85.31,
+      "typical": 85.31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Mo": "26~30",
+    "Fe": "≤2",
+    "Cr": "≤1"
+  },
+  "sources": [
+    {
+      "label": "Haynes International — Hastelloy B-2 Alloy",
+      "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-b-2-alloy",
+      "verified": true
+    },
+    {
+      "label": "Haynes — Hastelloy B-2 (UNS N10665)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Haynes International — Hastelloy B-2 / B-3 datasheet",
+      "url": "https://haynesintl.com/alloys/alloy-portfolio_/Corrosion-resistant-Alloys/HASTELLOYB-3alloy",
+      "verified": true
+    },
+    {
+      "label": "AMS 5396 — Hastelloy B-2 sheet/strip",
+      "url": "https://www.sae.org/standards/content/ams5396/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      9.22,
+      400,
+      850,
+      50,
+      217,
+      230,
+      11
+    ],
+    [
+      9.22,
+      370,
+      800,
+      45,
+      217,
+      220,
+      11
+    ],
+    [
+      9.22,
+      440,
+      900,
+      55,
+      217,
+      250,
+      11
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Outstanding",
+  "industry_note": "UNS N10665 (Hastelloy B-2) / N10675 (B-3) — Ni-28Mo solid-solution-strengthened (Cr ≤ 1.0, Fe ≤ 2.0). Outstanding HCl (all concentration) / H₂SO₄ (low O₂) / H₃PO₄ 저항 — best Ni alloy for reducing acid environment.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5396",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS N10665",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 360,
+  "density": 9.22,
+  "yield_strength": 400,
+  "uts": 850,
+  "elongation": 50,
+  "modulus": 217,
+  "hardness": 230,
+  "thermal_conductivity": 11,
+  "impact_strength": 80,
+  "manufacturer": "Haynes International (Hastelloy)",
+  "process": "Wrought",
+  "source": "Haynes International — Hastelloy B-2 Alloy",
+  "aliases": [
+    "UNS N10665",
+    "EN 2.4617",
+    "Alloy B-2"
+  ],
+  "families": [
+    "Metal",
+    "Nickel - Hastelloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.4,
+  "max_service_temp": 540,
+  "thermal_expansion": 10.4,
+  "poisson_ratio": 0.31,
+  "specific_heat": 380,
+  "melting_point": 1370,
+  "price_per_kg": 65,
+  "price_per_cm3": 0.5993,
+  "popularity": 1.5,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 85.31,
+  "total_cost_estimate": 221.81,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

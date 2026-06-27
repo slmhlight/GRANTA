@@ -1,0 +1,180 @@
+{
+  "stable_id": "CER-0031",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-yttria-y-o-99-99",
+    "element_families": []
+  },
+  "legacy_id": "CER_037",
+  "origin": "ceramics-data",
+  "id": "CER_037",
+  "name": "Yttria (Y₂O₃, 99.99%)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 5.03,
+      "max": 5.03,
+      "typical": 5.03,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 720,
+      "max": 720,
+      "typical": 720,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 13.6,
+      "max": 13.6,
+      "typical": 13.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 8.1,
+      "max": 8.1,
+      "typical": 8.1,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 2200,
+      "max": 2200,
+      "typical": 2200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": {
+      "min": 2425,
+      "max": 2425,
+      "typical": 2425,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 58.5,
+      "max": 58.5,
+      "typical": 58.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 1.006,
+      "max": 1.006,
+      "typical": 1.006,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Y": "78.7",
+    "O": "21.3"
+  },
+  "sources": [
+    {
+      "label": "Applications: 반도체 etching chamber 코팅 (Cl/F 플라즈마 저항), YAG 레이저 도가니, ZrO₂ 안정화제",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Treibacher Industrie Y2O3 high-purity reference",
+      "url": "https://www.treibacher.com/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "반도체 etching chamber 코팅 (Cl/F 플라즈마 저항), YAG 레이저 도가니, ZrO₂ 안정화제",
+    "_r173_note_applied": true
+  },
+  "popularity": 2,
+  "density": 5.03,
+  "yield_strength": 130,
+  "uts": 130,
+  "elongation": null,
+  "modulus": 170,
+  "hardness": 720,
+  "thermal_conductivity": 13.6,
+  "fatigue_strength": 58.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Applications: 반도체 etching chamber 코팅 (Cl/F 플라즈마 저항), YAG 레이저 도가니, ZrO₂ 안정화제",
+  "aliases": [
+    "99.99%"
+  ],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 1.006,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "industry_note": "Y₂O₃ (Yttrium oxide, cubic bixbyite structure) — high-T refractory oxide. Tm 2410°C, ρ 5.03 g/cc, σf 130-200, E 170 GPa, KIC 2. Tmax 2200°C inert."
+}

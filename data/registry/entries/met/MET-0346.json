@@ -1,0 +1,345 @@
+{
+  "stable_id": "MET-0346",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cobalt-alloy-chrome",
+    "alloy_base": "F-AB-stellite-21-cocrmo",
+    "element_families": [
+      "F-EL-cobalt-based"
+    ]
+  },
+  "legacy_id": "R_0106",
+  "origin": "reference(supplementary)",
+  "id": "R_0106",
+  "name": "Stellite 21 (CoCrMo)",
+  "category": "Metal",
+  "subcategory": "Cobalt Alloy - Chrome",
+  "tier": "reference",
+  "manufacturers": [
+    "Kennametal Stellite"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.34,
+      "max": 8.34,
+      "typical": 8.34,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 470,
+      "max": 560,
+      "typical": 510,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 690,
+      "max": 790,
+      "typical": 730,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 12,
+      "typical": 9,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 330,
+      "max": 380,
+      "typical": 350,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 285,
+      "max": 385,
+      "typical": 335,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite21"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 12,
+      "typical": 7,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite21"
+    },
+    "fracture_toughness": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite21"
+    },
+    "max_service_temp": {
+      "min": 760,
+      "max": 760,
+      "typical": 760,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite21"
+    },
+    "thermal_expansion": {
+      "min": 14.2,
+      "max": 14.2,
+      "typical": 14.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite21"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite21"
+    },
+    "specific_heat": {
+      "min": 423,
+      "max": 423,
+      "typical": 423,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite21"
+    },
+    "melting_point": {
+      "min": 1330,
+      "max": 1330,
+      "typical": 1330,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:stellite21"
+    },
+    "price_per_kg": {
+      "min": 65,
+      "max": 115,
+      "typical": 85,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Carpenter BioDur CCM F75 cast Q2 2026 (medical grade)"
+    },
+    "price_per_cm3": {
+      "min": 0.6026,
+      "max": 0.8152,
+      "typical": 0.7089,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 55,
+      "max": 55,
+      "typical": 55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Co": "balance",
+    "Cr": "26~29",
+    "Mo": "5~6",
+    "Ni": "2~3",
+    "C": "0.2~0.35"
+  },
+  "sources": [
+    {
+      "label": "Kennametal/MatWeb — Stellite 21",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+21",
+      "verified": false
+    },
+    {
+      "label": "Kennametal Stellite — Stellite 21 (UNS R30021)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Kennametal Stellite 21 reference",
+      "url": "https://www.stellite.com/",
+      "verified": false
+    },
+    {
+      "label": "ASTM F75 — Cast Co-Cr-Mo (Stellite 21 = cast variant)",
+      "url": "https://store.astm.org/f0075-18.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.34,
+      510,
+      730,
+      9,
+      230,
+      350,
+      14
+    ],
+    [
+      8.34,
+      470,
+      690,
+      6,
+      230,
+      330,
+      14
+    ],
+    [
+      8.34,
+      560,
+      790,
+      12,
+      230,
+      380,
+      14
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS R30021 / Stellite 21 / Co-28Cr-6Mo + 0.25C — cast cobalt-base wear-resistant alloy. ASTM F75 의 wrought 와 동일 chem (Stellite 21 은 cast version). σy 510 / UTS 730 / El 14% (cast). Tmax 760°C. 우수한 wear (galling/sliding 저항), 고온 oxidation 저항. 의료 임플란트 (cast hip femoral stem, ASTM F75 = Stellite 21), industrial 베어링, hard-facing overlay (welded onto valve seat), engine valve face. 일반 Stellite 6 (Co-28Cr-4W-1.1C) 대비 lower wear but higher impact.",
+  "meta": {
+    "reference": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "CoCrMo F75",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F75",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS R30021",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 335,
+  "density": 8.34,
+  "yield_strength": 510,
+  "uts": 730,
+  "elongation": 9,
+  "modulus": 230,
+  "hardness": 350,
+  "thermal_conductivity": 14,
+  "impact_strength": 7,
+  "manufacturer": "Kennametal Stellite",
+  "process": "Cast",
+  "source": "Kennametal/MatWeb — Stellite 21",
+  "aliases": [
+    "UNS R30021",
+    "Co-28Cr-6Mo",
+    "Stellite 21"
+  ],
+  "families": [
+    "Metal",
+    "Cobalt-Chrome Alloy",
+    "Cobalt-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 760,
+  "thermal_expansion": 14.2,
+  "poisson_ratio": 0.3,
+  "specific_heat": 423,
+  "melting_point": 1330,
+  "price_per_kg": 55,
+  "price_per_cm3": 0.7089,
+  "popularity": 4.25,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 55,
+  "total_cost_estimate": 99,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 3% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 500,
+      "uts": 800,
+      "E": 230
+    },
+    {
+      "temp": 200,
+      "ys": 460,
+      "uts": 760,
+      "E": 220
+    },
+    {
+      "temp": 400,
+      "ys": 420,
+      "uts": 700,
+      "E": 200
+    },
+    {
+      "temp": 600,
+      "ys": 400,
+      "uts": 600,
+      "E": 180
+    }
+  ],
+  "story": "1930년 미국 Haynes Stellite Works 의 엘우드 헤인즈 (Elwood Haynes) 가 Stellite 6 의 후속으로 Mo 5.5% + Cr 27% + Co bal 의 새 변형을 출시했어요 — W 대신 Mo 를 쓰면서 corrosion 저항 (특히 acid 환경) 이 6 보다 좋아졌고 가공성도 더 좋아진 합금이었죠. 1934년 미국 J O Eden 의 'Vitallium' 으로 의료 응용이 시작된 게 의료 표준 자리에 오른 계기였습니다.\n\n응용 — 의료 — hip replacement (Stryker Accolade II 의 일부 grade), knee replacement, dental crown 의 일부 grade. 항공 — 가스 터빈 의 burner shroud (GE T700 의 일부), 우주 — Apollo Lunar Module 의 일부 hot-section vane. 산업 — chemical plant 의 corrosion-resistant pump (Goulds Type 3196 의 일부 grade), oil & gas 의 H₂S 환경 valve seat (Stellite 6 의 cousin 이지만 sour service 에서 우수).\n\nStellite 6 (W-rich, hardfacing) 과 Stellite 21 (Mo-rich, biomedical + corrosion) 의 양강 구도가 cobalt alloy 의 분류 기준이 됐어요. 6 은 마모, 21 은 부식 + 의료 — 한 가지 응용에 한 가지 grade 가 거의 정해져 있습니다.",
+  "story_refs": [
+    "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
+    "Davis J R (ed., 2003) Handbook of Materials for Medical Devices, ASM International",
+    "Crook P & Caudill R L (1986) \"Wear Resistance of Cobalt-Base Alloys\", Wear 111(2)"
+  ],
+  "confidence_tier": "medium-low"
+}

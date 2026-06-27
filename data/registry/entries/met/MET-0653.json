@@ -1,0 +1,458 @@
+{
+  "stable_id": "MET-0653",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-niobium",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "G_0321",
+  "origin": "generic(csv)",
+  "id": "G_0321",
+  "name": "Niobium — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 8.57,
+      "max": 8.57,
+      "typical": 8.57,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 105,
+      "max": 240,
+      "typical": 150,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 240,
+      "max": 330,
+      "typical": 275,
+      "n": 20,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 17,
+      "max": 21.8,
+      "typical": 19.2,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 108,
+      "max": 130.8,
+      "typical": 115.2,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 54,
+      "max": 54,
+      "typical": 54,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 105,
+      "max": 143,
+      "typical": 124,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R σf≈0.45·UTS 재유도 (UTS 정정 후 stale 값 교체)"
+    },
+    "impact_strength": {
+      "min": 64,
+      "max": 94.4,
+      "typical": 80.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "max_service_temp": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "thermal_expansion": {
+      "min": 7.3,
+      "max": 7.3,
+      "typical": 7.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "poisson_ratio": {
+      "min": 0.4,
+      "max": 0.4,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "specific_heat": {
+      "min": 265,
+      "max": 265,
+      "typical": 265,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "melting_point": {
+      "min": 2477,
+      "max": 2477,
+      "typical": 2477,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "price_per_kg": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "price_per_cm3": {
+      "min": 1.0284,
+      "max": 1.0284,
+      "typical": 1.0284,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:niobium"
+    },
+    "delivered_price_per_kg": {
+      "min": 126,
+      "max": 126,
+      "typical": 126,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Nb": "99.9"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Niobium+C-103",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "WHS Sondermetalle — Data sheet Niobium (Nb, NbZr1): R04200 type1, ρ 8.57·melt 2468°C·E 103 GPa·Rm 125·Rp0.2 75 MPa·A 25%·HV·CTE·k·ASTM B392/B393",
+      "url": "https://www.whs-sondermetalle.de/images/pdf/Nb-Niobium.pdf",
+      "verified": true
+    },
+    {
+      "label": "ATI — Niobium (Type 1) product page (UNS R04200, bar/wire 사이즈·forms·machining PDF 링크)",
+      "url": "https://www.atimaterials.com/Products/Pages/niobium-type-1.aspx",
+      "verified": true
+    },
+    {
+      "label": "CBMM/Niobium.tech — The Physical, Mechanical and Irradiation Behavior of Niobium and Nb-base Alloys (순 Nb: ρ 8.57 Mg/m³, melt 2468±10°C; Young's modulus·tensile 그래프)",
+      "url": "https://niobium.tech/-/media/niobiumtech/attachments-biblioteca-tecnica/nt_the-physical-mechanical-and-irradiation-behavior-of-niobium-and-niobium-base-alloys.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.57,
+      342,
+      405,
+      18,
+      105,
+      108,
+      54
+    ],
+    [
+      8.57,
+      387.6,
+      459,
+      18.4,
+      105,
+      122.4,
+      54
+    ],
+    [
+      8.57,
+      414.2000000000001,
+      490.50000000000006,
+      17.8,
+      105,
+      130.8,
+      54
+    ],
+    [
+      8.57,
+      376.2,
+      445.5,
+      21.8,
+      105,
+      118.8,
+      54
+    ],
+    [
+      8.57,
+      345.8,
+      409.5,
+      20.2,
+      105,
+      109.2,
+      54
+    ],
+    [
+      8.57,
+      357.20000000000005,
+      423,
+      20.8,
+      105,
+      112.8,
+      54
+    ],
+    [
+      8.57,
+      342,
+      405,
+      18,
+      105,
+      108,
+      54
+    ],
+    [
+      8.57,
+      399,
+      472.5,
+      17,
+      105,
+      126,
+      54
+    ],
+    [
+      8.57,
+      372.4,
+      441,
+      19.6,
+      105,
+      117.6,
+      54
+    ],
+    [
+      8.57,
+      395.2,
+      468,
+      18.8,
+      105,
+      124.8,
+      54
+    ],
+    [
+      8.57,
+      364.8,
+      432,
+      19.200000000000003,
+      105,
+      115.2,
+      54
+    ],
+    [
+      8.57,
+      361,
+      427.50000000000006,
+      21,
+      105,
+      114,
+      54
+    ],
+    [
+      8.57,
+      357.20000000000005,
+      423,
+      18.8,
+      105,
+      112.8,
+      54
+    ],
+    [
+      8.57,
+      353.40000000000003,
+      418.5,
+      18.6,
+      105,
+      111.6,
+      54
+    ],
+    [
+      8.57,
+      399,
+      472.5,
+      21,
+      105,
+      126,
+      54
+    ],
+    [
+      8.57,
+      353.40000000000003,
+      418.5,
+      18.6,
+      105,
+      111.6,
+      54
+    ],
+    [
+      8.57,
+      410.4,
+      486.00000000000006,
+      19.6,
+      105,
+      129.60000000000002,
+      54
+    ],
+    [
+      8.57,
+      357.20000000000005,
+      423,
+      18.8,
+      105,
+      112.8,
+      54
+    ],
+    [
+      8.57,
+      345.8,
+      409.5,
+      20.2,
+      105,
+      109.2,
+      54
+    ],
+    [
+      8.57,
+      372.4,
+      441,
+      19.6,
+      105,
+      117.6,
+      54
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Refractory Metal"
+    ],
+    "conditions": [
+      "Nb-99.9%"
+    ],
+    "specs": [
+      {
+        "id": "ASTM B392",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS R04200",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 30,
+  "density": 8.57,
+  "yield_strength": 150,
+  "uts": 275,
+  "elongation": 19.2,
+  "modulus": 105,
+  "hardness": 115.2,
+  "thermal_conductivity": 54,
+  "fatigue_strength": 124,
+  "impact_strength": 80.8,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory"
+  ],
+  "electrical_conductivity": 12,
+  "max_service_temp": 1400,
+  "thermal_expansion": 7.3,
+  "poisson_ratio": 0.4,
+  "specific_heat": 265,
+  "melting_point": 2477,
+  "price_per_kg": 120,
+  "price_per_cm3": 1.0284,
+  "popularity": 2,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 126,
+  "total_cost_estimate": 113.4,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

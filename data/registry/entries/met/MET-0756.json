@@ -1,0 +1,297 @@
+{
+  "stable_id": "MET-0756",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-nitronic-50",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0090",
+  "origin": "reference(supplementary)",
+  "id": "R_0090",
+  "name": "Nitronic 50",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.88,
+      "max": 7.88,
+      "typical": 7.88,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 380,
+      "max": 450,
+      "typical": 415,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 760,
+      "max": 880,
+      "typical": 825,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 40,
+      "typical": 35,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 193,
+      "max": 193,
+      "typical": 193,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 230,
+      "max": 270,
+      "typical": 250,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 145,
+      "max": 208,
+      "typical": 174,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 180,
+      "typical": 130,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Austenitic"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 200,
+      "typical": 140,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Austenitic SS"
+    },
+    "electrical_conductivity": {
+      "min": 2.04,
+      "max": 2.76,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "max_service_temp": {
+      "min": 739.5,
+      "max": 1000.5,
+      "typical": 870,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "thermal_expansion": {
+      "min": 14.45,
+      "max": 19.55,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "specific_heat": {
+      "min": 425,
+      "max": 575,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "melting_point": {
+      "min": 1232.5,
+      "max": 1667.5,
+      "typical": 1450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_kg": {
+      "min": 4.675,
+      "max": 6.325,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0368,
+      "max": 0.0498,
+      "typical": 0.0433,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.78,
+      "max": 5.78,
+      "typical": 5.78,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "20.5~23.5",
+    "Ni": "11.5~13.5",
+    "Mn": "4~6",
+    "Mo": "1.5~3",
+    "N": "0.2~0.4"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — Nitronic 50",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
+      "verified": true
+    },
+    {
+      "label": "ASM — Nitronic 50 (UNS S20910)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.88,
+      415,
+      825,
+      35,
+      193,
+      250,
+      16
+    ],
+    [
+      7.88,
+      380,
+      760,
+      30,
+      193,
+      230,
+      16
+    ],
+    [
+      7.88,
+      450,
+      880,
+      40,
+      193,
+      270,
+      16
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS S20910",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 140,
+  "fatigue_strength": 174,
+  "density": 7.88,
+  "yield_strength": 415,
+  "uts": 825,
+  "elongation": 35,
+  "modulus": 193,
+  "hardness": 250,
+  "thermal_conductivity": 16,
+  "impact_strength": 130,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Carpenter Technology — Nitronic 50",
+  "aliases": [
+    "UNS S20910",
+    "XM-19",
+    "EN 1.3964",
+    "22Cr-13Ni-5Mn"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.0433,
+  "popularity": 3.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.78,
+  "total_cost_estimate": 5.78,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 13.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

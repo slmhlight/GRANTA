@@ -1,0 +1,250 @@
+{
+  "stable_id": "MET-0452",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-electrical-steel",
+    "alloy_base": "F-AB-cgo-0-27-mm-grain-oriented-electrical-steel-3-2-si-goss-texture",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0434_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0434_0",
+  "name": "CGO 0.27 mm grain-oriented electrical steel (3.2% Si, Goss texture) — Cold rolled + final annealed (Goss orientation)",
+  "category": "Metal",
+  "subcategory": "Electrical Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cold Rolled + Grain Orientation (Goss texture)"
+  ],
+  "heat_treatment": "Cold rolled + final annealed (Goss orientation)",
+  "ranges": {
+    "density": {
+      "min": 7.65,
+      "max": 7.65,
+      "typical": 7.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 290,
+      "max": 290,
+      "typical": 290,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 340,
+      "max": 340,
+      "typical": 340,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 19,
+      "max": 19,
+      "typical": 19,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 153,
+      "max": 153,
+      "typical": 153,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "electrical_conductivity": {
+      "min": 7.65,
+      "max": 10.35,
+      "typical": 9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "max_service_temp": {
+      "min": 382.5,
+      "max": 517.5,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.945,
+      "max": 13.455,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "specific_heat": {
+      "min": 408,
+      "max": 552,
+      "typical": 480,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0098,
+      "max": 0.0132,
+      "typical": 0.0115,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.03,
+      "max": 2.03,
+      "typical": 2.03,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Si": "3.0~3.2",
+    "C": "≤0.003",
+    "Mn": "≤0.10",
+    "P": "≤0.020",
+    "S": "≤0.010",
+    "Al": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000002.jsp",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.65,
+      290,
+      340,
+      8,
+      200,
+      130,
+      19
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "POSCO CGO 0.27 mm — 변압기 core 표준. 3.0~3.2% Si → 전기저항 ↑ + magnetostriction ↓ + Goss orientation (110)[001]. 한국 효성 / LS전선 변압기 / Mitsubishi Heavy Industries HVDC convertor. 손실 ~0.85 W/kg @ 1.7 T 50Hz. 기존 자재 대비 efficiency 5~10% ↑.",
+  "meta": {
+    "reference": true,
+    "condition": "Cold rolled + final annealed (Goss orientation)"
+  },
+  "density": 7.65,
+  "yield_strength": 290,
+  "uts": 340,
+  "elongation": 8,
+  "modulus": 200,
+  "hardness": 130,
+  "thermal_conductivity": 19,
+  "fatigue_strength": 153,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Cold Rolled + Grain Orientation (Goss texture)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "3.2% Si"
+  ],
+  "families": [
+    "Metal",
+    "Electrical Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 9,
+  "max_service_temp": 450,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 480,
+  "melting_point": 1500,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0115,
+  "popularity": 1.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.03,
+  "total_cost_estimate": 1.83,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

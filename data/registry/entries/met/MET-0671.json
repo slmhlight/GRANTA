@@ -1,0 +1,388 @@
+{
+  "stable_id": "MET-0671",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-zircaloy-2",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "G_0325",
+  "origin": "generic(csv)",
+  "id": "G_0325",
+  "name": "Zircaloy-2 — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 6.56,
+      "max": 6.56,
+      "typical": 6.56,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 373.5,
+      "max": 452.4,
+      "typical": 398.4,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 468,
+      "max": 566.8,
+      "typical": 499.2,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 15.3,
+      "max": 19.62,
+      "typical": 17.28,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 99,
+      "max": 99,
+      "typical": 99,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 126,
+      "max": 152.6,
+      "typical": 134.4,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 252,
+      "max": 305.2,
+      "typical": 268.8,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "impact_strength": {
+      "min": 76,
+      "max": 112.1,
+      "typical": 95.95,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Refractory"
+    },
+    "max_service_temp": {
+      "typical": 400,
+      "min": 350,
+      "max": 450,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Zr": "balance",
+    "Sn": "1.20~1.70",
+    "Fe": "0.07~0.20",
+    "Cr": "0.05~0.15",
+    "Ni": "0.03~0.08",
+    "O": "0.10~0.14"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Zircaloy-2\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Zircaloy-2",
+      "verified": false
+    },
+    {
+      "label": "ATI Wah Chang Zircaloy-2 / -4 reference",
+      "url": "https://www.atimaterials.com/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B350 — Zr Alloy Ingots / Bar (Zircaloy-2/-4)",
+      "url": "https://store.astm.org/b0350-20.html",
+      "verified": false
+    },
+    {
+      "label": "AMETEK Superior Tube — Zircaloy 2 (UNS R60802) 데이터시트 (V3.07.23): 조성 Sn/Fe/Cr/Ni·냉간가공 UTS 1035/YS 690 MPa min·신율 20%·HRB 90·ASTM B352/B353",
+      "url": "https://www.superiortube.com/-/media/ameteksuperiortube/files/products/materials/zirconium/stc-alloy-zircaloy-2.pdf",
+      "verified": true
+    },
+    {
+      "label": "ATI — Zirconium Alloys (nuclear) 데이터시트: Zircaloy-2 R60802 조성 + Zircaloy 패밀리 물성표(ρ 6.55·melt 1850°C·E 99.3 GPa·Poisson 0.37·annealed UTS 515-541/YS 380-468 MPa·신율 28-29%)",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/zirconium/alloy/Zr_nuke_waste_disposal_v1.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      6.56,
+      373.5,
+      468,
+      16.2,
+      99,
+      126,
+      22
+    ],
+    [
+      6.56,
+      423.3,
+      530.4,
+      16.560000000000002,
+      99,
+      142.8,
+      22
+    ],
+    [
+      6.56,
+      452.35,
+      566.8000000000001,
+      16.02,
+      99,
+      152.60000000000002,
+      22
+    ],
+    [
+      6.56,
+      410.85,
+      514.8,
+      19.62,
+      99,
+      138.6,
+      22
+    ],
+    [
+      6.56,
+      377.65,
+      473.2,
+      18.18,
+      99,
+      127.4,
+      22
+    ],
+    [
+      6.56,
+      390.1,
+      488.8,
+      18.72,
+      99,
+      131.6,
+      22
+    ],
+    [
+      6.56,
+      373.5,
+      468,
+      16.2,
+      99,
+      126,
+      22
+    ],
+    [
+      6.56,
+      435.75,
+      546,
+      15.3,
+      99,
+      147,
+      22
+    ],
+    [
+      6.56,
+      406.7,
+      509.6,
+      17.64,
+      99,
+      137.2,
+      22
+    ],
+    [
+      6.56,
+      431.6,
+      540.8000000000001,
+      16.92,
+      99,
+      145.6,
+      22
+    ],
+    [
+      6.56,
+      398.4,
+      499.2,
+      17.28,
+      99,
+      134.4,
+      22
+    ],
+    [
+      6.56,
+      394.25,
+      494.00000000000006,
+      18.9,
+      99,
+      133,
+      22
+    ],
+    [
+      6.56,
+      390.1,
+      488.8,
+      16.92,
+      99,
+      131.6,
+      22
+    ],
+    [
+      6.56,
+      385.9500000000001,
+      483.6,
+      16.740000000000002,
+      99,
+      130.20000000000002,
+      22
+    ],
+    [
+      6.56,
+      435.75,
+      546,
+      18.9,
+      99,
+      147,
+      22
+    ],
+    [
+      6.56,
+      385.9500000000001,
+      483.6,
+      16.740000000000002,
+      99,
+      130.20000000000002,
+      22
+    ],
+    [
+      6.56,
+      448.2000000000001,
+      561.6,
+      17.64,
+      99,
+      151.20000000000002,
+      22
+    ],
+    [
+      6.56,
+      390.1,
+      488.8,
+      16.92,
+      99,
+      131.6,
+      22
+    ],
+    [
+      6.56,
+      377.65,
+      473.2,
+      18.18,
+      99,
+      127.4,
+      22
+    ],
+    [
+      6.56,
+      406.7,
+      509.6,
+      17.64,
+      99,
+      137.2,
+      22
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Refractory Metal"
+    ],
+    "conditions": [
+      "Zr-1.5Sn-0.15Fe-0.1Cr"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B350",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM B352",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS R60802",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "density": 6.56,
+  "yield_strength": 398.4,
+  "uts": 499.2,
+  "elongation": 17.28,
+  "modulus": 99,
+  "hardness": 134.4,
+  "thermal_conductivity": 22,
+  "fatigue_strength": 268.8,
+  "impact_strength": 95.95,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "popularity": 1.8,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "Zircaloy-2 (UNS R60802, Zr-1.5Sn-0.15Fe-0.10Cr-0.05Ni) for BWR / Zircaloy-4 (UNS R60804, Zr-1.5Sn-0.21Fe-0.10Cr, low-Ni) for PWR. Tmax 350-400°C continuous (reactor coolant 300°C standard, accident scenarios 1200°C+). 가장 흔한 nuclear reactor fuel cladding — 한국 핵발전소 / 일본 / 미국 / 프랑스 모두 표준. CANDU reactor: pressure tube 도 Zircaloy. 저 thermal neutron absorption (σ ≈ 0.2 barn — 핵반응 효율)."
+}

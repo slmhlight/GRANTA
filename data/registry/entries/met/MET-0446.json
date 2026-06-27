@@ -1,0 +1,303 @@
+{
+  "stable_id": "MET-0446",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-silicon-bronze-c65500",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0137",
+  "origin": "reference(supplementary)",
+  "id": "R_0137",
+  "name": "Silicon Bronze C65500",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.53,
+      "max": 8.53,
+      "typical": 8.53,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 130,
+      "max": 400,
+      "typical": 145,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 370,
+      "max": 460,
+      "typical": 390,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 40,
+      "max": 60,
+      "typical": 55,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 100,
+      "max": 130,
+      "typical": 110,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 36,
+      "max": 36,
+      "typical": 36,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 100,
+      "max": 170,
+      "typical": 130,
+      "n": 0,
+      "confidence": "handbook",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 130,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Cu-based"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 5xxx Al-Mg"
+    },
+    "electrical_conductivity": {
+      "min": 12.75,
+      "max": 17.25,
+      "typical": 15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "max_service_temp": {
+      "min": 212.5,
+      "max": 287.5,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "thermal_expansion": {
+      "min": 14.875,
+      "max": 20.125,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "specific_heat": {
+      "min": 323,
+      "max": 437,
+      "typical": 380,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "melting_point": {
+      "min": 841.5,
+      "max": 1138.5,
+      "typical": 990,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "price_per_kg": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "price_per_cm3": {
+      "min": 0.087,
+      "max": 0.1178,
+      "typical": 0.1024,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "delivered_price_per_kg": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Si": "2.8~3.8",
+    "Mn": "0.5~1.3"
+  },
+  "sources": [
+    {
+      "label": "ASTM B98 — silicon bronze C65500",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 5xxx Al-Mg",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — Alloy C65500 (High-Silicon Bronze A)",
+      "url": "https://alloys.copper.org/alloy/C65500",
+      "verified": true
+    },
+    {
+      "label": "AZoM — High Silicon Bronze UNS C65500",
+      "url": "https://www.azom.com/article.aspx?ArticleID=6441",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.53,
+      145,
+      390,
+      55,
+      105,
+      110,
+      36
+    ],
+    [
+      8.53,
+      130,
+      370,
+      40,
+      105,
+      100,
+      36
+    ],
+    [
+      8.53,
+      400,
+      460,
+      60,
+      105,
+      130,
+      36
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM B98",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS C65500",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 130,
+  "density": 8.53,
+  "yield_strength": 145,
+  "uts": 390,
+  "elongation": 55,
+  "modulus": 105,
+  "hardness": 110,
+  "thermal_conductivity": 36,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASTM B98 — silicon bronze C65500",
+  "aliases": [
+    "UNS C65500",
+    "EN CW116C",
+    "CuSi3Mn1",
+    "silicon bronze"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 15,
+  "max_service_temp": 250,
+  "thermal_expansion": 17.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 990,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.1024,
+  "popularity": 3.15,
+  "machining_cost_factor": 1.1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 12.6,
+  "total_cost_estimate": 13.86,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

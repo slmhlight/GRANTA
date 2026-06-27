@@ -1,0 +1,273 @@
+{
+  "stable_id": "MET-0658",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-ta-2-5w-tantalum-tungsten-alloy",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "R_0327_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0327_0",
+  "name": "Ta-2.5W (tantalum-tungsten alloy) — Annealed",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 16.8,
+      "max": 16.8,
+      "typical": 16.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 345,
+      "max": 345,
+      "typical": 345,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 54,
+      "max": 54,
+      "typical": 54,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 132,
+      "max": 178,
+      "typical": 155,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R σf≈0.45·UTS 재유도 (UTS 정정 후 stale 값 교체)"
+    },
+    "impact_strength": {
+      "min": 2,
+      "max": 8,
+      "typical": 4,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "fracture_toughness": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 31,
+      "max": 31,
+      "typical": 31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "max_service_temp": {
+      "min": 1700,
+      "max": 1700,
+      "typical": 1700,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "specific_heat": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "melting_point": {
+      "min": 3410,
+      "max": 3410,
+      "typical": 3410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_kg": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_cm3": {
+      "min": 1.176,
+      "max": 1.176,
+      "typical": 1.176,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "delivered_price_per_kg": {
+      "min": 74.97,
+      "max": 74.97,
+      "typical": 74.97,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ta": "balance",
+    "W": "2.0~3.5"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Pure Tantalum Ta",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tantalum",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ta-2.5W",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Refractory",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "WHS Sondermetalle — Data Sheet Tantalum (Ta, TaW2.5, TaW10): Ta97.5W2.5 R05252 vacuum arc-melt 명기·ASTM B364/B365/B708/B521·물성표(Ta col)",
+      "url": "https://www.whs-sondermetalle.de/images/pdf/Ta-Tantalum.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      16.8,
+      240,
+      345,
+      25,
+      200,
+      130,
+      54
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "Annealed",
+    "specs": [
+      {
+        "id": "ASTM B364",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 8,
+  "fatigue_strength": 155,
+  "density": 16.8,
+  "yield_strength": 240,
+  "uts": 345,
+  "elongation": 25,
+  "modulus": 200,
+  "hardness": 130,
+  "thermal_conductivity": 54,
+  "impact_strength": 4,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Pure Tantalum Ta",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory Metal",
+    "Refractory"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 31,
+  "max_service_temp": 1700,
+  "thermal_expansion": 4.5,
+  "poisson_ratio": 0.28,
+  "specific_heat": 135,
+  "melting_point": 3410,
+  "price_per_kg": 70,
+  "price_per_cm3": 1.176,
+  "popularity": 2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 74.97,
+  "total_cost_estimate": 74.97,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

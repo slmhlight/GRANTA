@@ -1,0 +1,342 @@
+{
+  "stable_id": "MET-0699",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-316ln",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0223",
+  "origin": "reference(supplementary)",
+  "id": "R_0223",
+  "name": "316LN",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 270,
+      "max": 290,
+      "typical": 290,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 570,
+      "max": 600,
+      "typical": 600,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 40,
+      "max": 45,
+      "typical": 45,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 193,
+      "max": 193,
+      "typical": 193,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 170,
+      "max": 180,
+      "typical": 180,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 220,
+      "max": 270,
+      "typical": 250,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "impact_strength": {
+      "min": 110,
+      "max": 220,
+      "typical": 165,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "fracture_toughness": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.3,
+      "max": 2.3,
+      "typical": 2.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "max_service_temp": {
+      "min": 870,
+      "max": 870,
+      "typical": 870,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "thermal_expansion": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "melting_point": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:316l"
+    },
+    "price_per_kg": {
+      "min": 5.5,
+      "max": 7,
+      "typical": 6.2,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "LME nickel base 2026-Q2 avg $16,800/t + spec premium → 316L bar 약 $5.5-7/kg (varies by section)"
+    },
+    "price_per_cm3": {
+      "min": 0.0422,
+      "max": 0.057,
+      "typical": 0.0496,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.09,
+      "max": 6.09,
+      "typical": 6.09,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "16~18",
+    "Ni": "10~14",
+    "Mo": "2~3",
+    "N": "0.1~0.16"
+  },
+  "sources": [
+    {
+      "label": "ASM — 316LN nitrogen-strengthened stainless (UNS S31653)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Grade 316LN (UNS S31653) — AZoM",
+      "url": "https://www.azom.com/article.aspx?ArticleID=8261",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8,
+      290,
+      600,
+      45,
+      193,
+      180,
+      16
+    ],
+    [
+      8,
+      270,
+      570,
+      40,
+      193,
+      170,
+      16
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Stainless Steel 316L",
+    "specs": [
+      {
+        "id": "UNS S31653",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 200,
+  "fatigue_strength": 250,
+  "density": 8,
+  "yield_strength": 290,
+  "uts": 600,
+  "elongation": 45,
+  "modulus": 193,
+  "hardness": 180,
+  "thermal_conductivity": 16,
+  "impact_strength": 165,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — 316LN nitrogen-strengthened stainless (UNS S31653)",
+  "aliases": [
+    "UNS S31653",
+    "EN 1.4429"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 2.3,
+  "max_service_temp": 870,
+  "thermal_expansion": 16,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1400,
+  "price_per_kg": 5.8,
+  "price_per_cm3": 0.0496,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.09,
+  "total_cost_estimate": 7.92,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 14% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 220,
+      "uts": 550,
+      "E": 200
+    },
+    {
+      "temp": 200,
+      "ys": 170,
+      "uts": 480,
+      "E": 191
+    },
+    {
+      "temp": 400,
+      "ys": 140,
+      "uts": 430,
+      "E": 174
+    },
+    {
+      "temp": 600,
+      "ys": 115,
+      "uts": 370,
+      "E": 156
+    },
+    {
+      "temp": 800,
+      "ys": 80,
+      "uts": 220,
+      "E": 132
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 650,
+      "stress": 100,
+      "hours": 1000
+    },
+    {
+      "temp": 750,
+      "stress": 50,
+      "hours": 1000
+    },
+    {
+      "temp": 850,
+      "stress": 20,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "medium"
+}

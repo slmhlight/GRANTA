@@ -1,0 +1,182 @@
+{
+  "stable_id": "CMP-0017",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-ceramic-matrix",
+    "alloy_base": "F-AB-cmc",
+    "element_families": []
+  },
+  "legacy_id": "CMP_026",
+  "origin": "composites-data",
+  "id": "CMP_026",
+  "name": "CMC — SiC/SiC (CVI processed)",
+  "category": "Composite",
+  "subcategory": "Ceramic-Matrix",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.6,
+      "max": 2.8,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "GE Aviation SiC/SiC CMC datasheet (CFM LEAP-1A turbine shroud)"
+    },
+    "yield_strength": {
+      "min": 350,
+      "max": 500,
+      "typical": 420,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 350,
+      "max": 500,
+      "typical": 420,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 220,
+      "max": 280,
+      "typical": 250,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1300,
+      "max": 1450,
+      "typical": 1400,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 8000,
+      "max": 8000,
+      "typical": 8000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 0.4,
+      "max": 0.7,
+      "typical": 0.5,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 157.5,
+      "max": 157.5,
+      "typical": 157.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 21.6,
+      "max": 21.6,
+      "typical": 21.6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": [
+    [
+      "SiC fiber (Hi-Nicalon Type S or Tyranno SA, 40 vol%)",
+      "40"
+    ],
+    [
+      "SiC matrix (CVI deposited, 50 vol%)",
+      "50"
+    ],
+    [
+      "Porosity (10 vol%)",
+      "10"
+    ]
+  ],
+  "sources": [
+    {
+      "label": "Apps: 차세대 가스 터빈 hot section (GE9X 엔진 turbine shroud), 핵 fuel cladding",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "GE Aviation CMC technology",
+      "url": "https://www.geaerospace.com/ceramic-matrix-composite",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook Vol.4 — CMC SiC/SiC",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/18/",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "applications": "차세대 가스 터빈 hot section (GE9X 엔진 turbine shroud), 핵 fuel cladding",
+    "limitations": "고가, 가공 다이아몬드 grind, 매트릭스 cracking 모니터링",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "_r173_note_applied": true
+  },
+  "popularity": 2,
+  "density": 2.7,
+  "yield_strength": 250,
+  "uts": 350,
+  "elongation": 1,
+  "modulus": 230,
+  "hardness": null,
+  "thermal_conductivity": 18,
+  "fatigue_strength": 157.5,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Apps: 차세대 가스 터빈 hot section (GE9X 엔진 turbine shroud), 핵 fuel cladding",
+  "aliases": [],
+  "families": [
+    "Composite",
+    "Ceramic-Matrix"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 21.6,
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "SiC/SiC CMC (Ceramic Matrix Composite) — SiC fiber (Hi-Nicalon S, Tyranno SA3) + CVI / PIP / MI matrix densification. σf 350-450 / E 200-250 / KIC 25 (Al₂O₃ 의 5× — fiber bridging) / ρ 2.7-2.9 g/cc."
+}

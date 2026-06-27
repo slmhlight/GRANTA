@@ -1,0 +1,351 @@
+{
+  "stable_id": "MET-0554",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-625",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0001_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0001_0",
+  "name": "Inconel 625 — Annealed (980°C AC)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Inconel)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed (980°C AC)",
+  "ranges": {
+    "density": {
+      "min": 8.44,
+      "max": 8.44,
+      "typical": 8.44,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 415,
+      "max": 415,
+      "typical": 415,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 830,
+      "max": 830,
+      "typical": 830,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 9.8,
+      "max": 9.8,
+      "typical": 9.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 350,
+      "max": 480,
+      "typical": 415,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:inconel625"
+    },
+    "impact_strength": {
+      "min": 50,
+      "max": 90,
+      "typical": 70,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:inconel625"
+    },
+    "fracture_toughness": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel625"
+    },
+    "max_service_temp": {
+      "min": 815,
+      "max": 815,
+      "typical": 815,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel625"
+    },
+    "thermal_expansion": {
+      "min": 12.8,
+      "max": 12.8,
+      "typical": 12.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel625"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel625"
+    },
+    "specific_heat": {
+      "min": 410,
+      "max": 410,
+      "typical": 410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel625"
+    },
+    "melting_point": {
+      "min": 1350,
+      "max": 1350,
+      "typical": 1350,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel625"
+    },
+    "price_per_kg": {
+      "min": 55,
+      "max": 110,
+      "typical": 80,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "Special Metals SMC-063 IN625 bar Q2 2026"
+    },
+    "price_per_cm3": {
+      "min": 0.5739,
+      "max": 0.7765,
+      "typical": 0.6752,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 58.91,
+      "max": 58.91,
+      "typical": 58.91,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "≥58",
+    "Cr": "20~23",
+    "Mo": "8~10",
+    "Nb": "3.15~4.15",
+    "Fe": "≤5",
+    "Co": "≤1"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Special Metals Inconel 625",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AMS 5599 — Inconel 625 sheet/strip annealed",
+      "url": "https://www.sae.org/standards/content/ams5599/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B443 — Ni-Cr-Mo-Cb Plate/Sheet (625)",
+      "url": "https://store.astm.org/b0443-19.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.44,
+      415,
+      830,
+      42,
+      207,
+      180,
+      9.8
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS N06625 / EN 2.4856 / NiCr22Mo9Nb / Alloy 625 — Ni-base solid-solution-strengthened superalloy (Ni ≥58, Cr 20-23, Mo 8-10, Fe ≤5, Nb+Ta 3.15-4.15). Solution-strengthened (no aging required). 우수한 oxidation 저항 1100°C + chloride pitting/SCC 저항. AM LPBF 해수 환경 valve / piping (FPSO topside), aerospace afterburner liner, nuclear reactor 부품, AM LPBF 의 standard nickel superalloy.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed (980°C AC)",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Inconel 625",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5599",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM B443",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 110,
+  "fatigue_strength": 415,
+  "density": 8.44,
+  "yield_strength": 415,
+  "uts": 830,
+  "elongation": 42,
+  "modulus": 207,
+  "hardness": 180,
+  "thermal_conductivity": 9.8,
+  "impact_strength": 70,
+  "manufacturer": "PCC / Special Metals (Inconel)",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "UNS N06625",
+    "EN 2.4856",
+    "NiCr22Mo9Nb",
+    "Alloy 625"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 490,
+      "uts": 930,
+      "E": 207
+    },
+    {
+      "temp": 540,
+      "ys": 410,
+      "uts": 780,
+      "E": null
+    },
+    {
+      "temp": 650,
+      "ys": 400,
+      "uts": 760,
+      "E": null
+    },
+    {
+      "temp": 815,
+      "ys": 330,
+      "uts": 550,
+      "E": 154
+    }
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 815,
+  "thermal_expansion": 12.8,
+  "poisson_ratio": 0.3,
+  "specific_heat": 410,
+  "melting_point": 1350,
+  "price_per_kg": 55,
+  "price_per_cm3": 0.6752,
+  "popularity": 4.25,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 58.91,
+  "total_cost_estimate": 153.15,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 1% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "creep_rupture": [
+    {
+      "temp": 650,
+      "stress": 450,
+      "hours": 1000
+    },
+    {
+      "temp": 760,
+      "stress": 240,
+      "hours": 1000
+    },
+    {
+      "temp": 800,
+      "stress": 200,
+      "hours": 100
+    },
+    {
+      "temp": 900,
+      "stress": 100,
+      "hours": 1000
+    }
+  ],
+  "story": "1968년 INCO 의 허버트 아이젤슈타인 (Inconel 718 의 발명자와 동일 인물!) 이 Inconel 600 (1932, 월터 크래프츠) 에 Mo 9% + Nb 3.5% 를 추가, solid-solution + carbide hardening 으로 σ_y 415 MPa + 980°C 까지 산화 저항을 갖는 새 합금 'Inconel 625' 를 출시합니다. 처음 응용은 supercritical steam pipe 였지만, 곧 oil & gas 와 해양으로 확산됐어요.\n\n응용 — PWR 핵발전소의 steam generator U-tube (Mitsubishi APR1400 일부), oil & gas 의 sour wellhead component (Shell Mensa), 해수 desalination plant 의 multi-effect evaporator tube, 우주 — SpaceX Merlin / Raptor 엔진의 fuel manifold (LPBF 인쇄), GE LEAP-1A 엔진 fuel nozzle 의 일부, NASA Artemis Orion 의 ESM thrust frame. AM (LPBF) 에서도 표준 powder 중 하나로, 718 다음으로 인기가 높은 합금입니다.",
+  "story_refs": [
+    "Eiselstein H L & Tillack D J (1991) \"The Invention and Definition of Alloy 625\", Superalloys 718, 625 and Various Derivatives, TMS",
+    "Special Metals Corp \"Inconel Alloy 625\" Tech Bulletin (2013)",
+    "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM"
+  ],
+  "confidence_tier": "medium"
+}

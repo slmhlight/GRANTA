@@ -1,0 +1,331 @@
+{
+  "stable_id": "MET-0274",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-aisi-1080",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0124",
+  "origin": "generic(csv)",
+  "id": "G_0124",
+  "name": "AISI 1080 — Quenched / tempered (Wrought)",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Quenched / tempered",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 5,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 640,
+      "max": 820,
+      "typical": 700,
+      "n": 5,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 900,
+      "max": 1120,
+      "typical": 980,
+      "n": 5,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 9.4,
+      "max": 10.2,
+      "typical": 10,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 210,
+      "typical": 205,
+      "n": 5,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 270,
+      "max": 340,
+      "typical": 290,
+      "n": 5,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 228,
+      "max": 331,
+      "typical": 285,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 80,
+      "typical": 55,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AISI carbon steel"
+    },
+    "electrical_conductivity": {
+      "min": 11.9,
+      "max": 16.1,
+      "typical": 14,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "max_service_temp": {
+      "min": 459,
+      "max": 621,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "specific_heat": {
+      "min": 413.1,
+      "max": 558.9,
+      "typical": 486,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "melting_point": {
+      "min": 1275,
+      "max": 1725,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_kg": {
+      "min": 1.02,
+      "max": 1.38,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.008,
+      "max": 0.0108,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Carbon Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.47,
+      "max": 1.47,
+      "typical": 1.47,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.75~0.88",
+    "Mn": "0.60~0.90",
+    "P": "≤0.04",
+    "S": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 1080\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%201080",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AISI carbon steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 10xx series",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A29 / A29M — Carbon Steel Bars 1030-1080",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      502.85,
+      685.3,
+      9.4,
+      210,
+      209.15,
+      50
+    ],
+    [
+      7.85,
+      491.55,
+      669.9,
+      10.2,
+      210,
+      204.45,
+      50
+    ],
+    [
+      7.85,
+      570.65,
+      777.7,
+      9.6,
+      210,
+      237.35,
+      50
+    ],
+    [
+      7.85,
+      604.5500000000001,
+      823.9000000000001,
+      10.2,
+      210,
+      251.45,
+      50
+    ],
+    [
+      7.85,
+      593.25,
+      808.5,
+      10,
+      210,
+      246.75,
+      50
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "meta": {
+    "row_count": 5,
+    "subcategory_variants": [
+      "Carbon Steel"
+    ],
+    "conditions": [
+      "Normalized",
+      "Quenched",
+      "Tempered (200°C",
+      "Tempered (400°C",
+      "Tempered (600°C"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A29",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 55,
+  "fatigue_strength": 285,
+  "density": 7.85,
+  "yield_strength": 700,
+  "uts": 980,
+  "elongation": 10,
+  "modulus": 205,
+  "hardness": 290,
+  "thermal_conductivity": 50,
+  "impact_strength": 35,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1500,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 4.07,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.3,
+  "price_condition_factor": 1.18,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 0.99,
+  "delivered_price_per_kg": 1.47,
+  "total_cost_estimate": 1.47,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "AISI 1080 은 C 0.75-0.88% 의 eutectoid carbon steel — Fe-C 상태도의 eutectoid composition (C 0.77%) 부근에서 austenite 가 거의 100% pearlite 로 변환됩니다. 이 미세조직이 high-strength wire 의 비밀이에요.\n\n역사적 응용은 piano wire / music wire 입니다. 1820년대 Krupp 이 처음 cold-drawn high-C wire 를 만들었고, 1860년대 Paris 의 Pleyel piano 와 New York Steinway piano 가 1080 wire 를 채용하면서 표준이 됐죠. 인장 강도가 cold-drawn 후 2000-3000 MPa 까지 도달 — 가는 직경 (0.5-1.5 mm) 의 piano 현이 200 kg 의 인장 하중을 견디는 비결입니다.\n\n현대 응용 — Knife blade (특히 일본 도검 yasugi-hagane 백탄소강), high-strength spring (valve spring, suspension spring), high-strength wire (steel cord for radial tire, suspension bridge cable). cold-work 으로 강도를 얻는 합금이라 welding 어려움.",
+  "story_refs": [
+    "ASTM A228 'Steel Wire, Music Spring Quality'",
+    "ASTM A29 / SAE J403",
+    "ASM Handbook Vol.1 'Carbon Steel Wires'"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Plain carbon steels (medium-high C): • 1030 (UNS G10300, C 0.28-0.34) JIS S30C — σy 350-440, axles, bolts, levers • 1040 (UNS G10400, C 0.37-0.44) JIS S40C — σy 415-470, automotive shaft, gear • 1050 (UNS G10500, C 0.48-0.55) JIS S50C — σy 415-580, machine spindle, chisel • 1080 (UNS G10800, C 0.75-0.88) JIS SK85 / near-eutectoid — σy 525-690, hammer, wrench, blade Q+T 효과 carbon 함량에 비례: 1030 미미 → 1080 효과 큼."
+}

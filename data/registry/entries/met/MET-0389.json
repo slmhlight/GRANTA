@@ -1,0 +1,198 @@
+{
+  "stable_id": "MET-0389",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c22000-red-brass-90cu-10zn-commercial-bronze",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0286_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0286_1",
+  "name": "C22000 (Red Brass 90Cu-10Zn, Commercial Bronze) — 1/4H",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought (cold-rolled strip)"
+  ],
+  "heat_treatment": "1/4H",
+  "ranges": {
+    "density": {
+      "min": 8.8,
+      "max": 8.8,
+      "typical": 8.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 305,
+      "max": 305,
+      "typical": 305,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 115,
+      "max": 115,
+      "typical": 115,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 189,
+      "max": 189,
+      "typical": 189,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 70,
+      "max": 130,
+      "typical": 95,
+      "n": 0,
+      "confidence": "handbook",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 18,
+      "max": 30,
+      "typical": 24,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 2xxx Al-Cu"
+    },
+    "max_service_temp": {
+      "typical": 200,
+      "min": 150,
+      "max": 250,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Cu": "89~91",
+    "Zn": "balance",
+    "Pb": "≤0.05",
+    "Fe": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.poongsan.co.kr/eng/business/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 2xxx Al-Cu",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — Red Brass family",
+      "url": "https://www.copper.org/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B36 — Brass Plate, Sheet, Strip, Rolled Bar",
+      "url": "https://store.astm.org/b0036_b0036m-18.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.8,
+      210,
+      305,
+      30,
+      115,
+      90,
+      189
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "Red Brass family (Cu-Zn, lower Zn = redder color, higher corrosion resistance): • C21000 (Gilding Metal, 95Cu-5Zn): O σy 80 / UTS 235 / El 45 — coinage (penny core), bullet jacket, decorative • C22000 (Commercial Bronze, 90Cu-10Zn): O σy 85 / UTS 255 / El 45 — costume jewelry, marine hardware • C23000 (Red Brass, 85Cu-15Zn): O σy 90 / UTS 270 / El 45 — plumbing fitting, heat exchanger tube Work-Tmax 200°C.",
+  "meta": {
+    "reference": true,
+    "condition": "1/4H",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B36",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 24,
+  "fatigue_strength": 95,
+  "density": 8.8,
+  "yield_strength": 210,
+  "uts": 305,
+  "elongation": 30,
+  "modulus": 115,
+  "hardness": 90,
+  "thermal_conductivity": 189,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Wrought (cold-rolled strip)",
+  "source": "Datasheet 2",
+  "aliases": [
+    "Red Brass 90Cu-10Zn",
+    "UNS C22000",
+    "EN CW502L",
+    "commercial bronze"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy"
+  ],
+  "popularity": 4.15,
+  "machining_cost_factor": 0.5,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "C22000 (commercial bronze, 90-10) 은 Cu-10% Zn 합금이지만 이름이 'bronze' 인 이유는 색상이 단단한 청동을 닮았기 때문이지 실제로는 brass 계열 입니다 (bronze 는 Cu-Sn). UNS 표기는 C2 (brass) 인데 trade name 만 bronze 인 거죠. 1850년대 영국 Birmingham 에서 단추 · 보석 · 자동차 휘장 industry 의 표준이었습니다.\n\nZn 10% 가 들어가면서 OFHC copper 보다 σy 가 약간 (75→95 MPa annealed) 올라가고 색상이 짙은 금색이 됩니다. C21000 보다 더 진한 노란-갈색이라 'red brass' 또는 'jewelry bronze' 로 시장에서 통합니다. 가공성은 여전히 우수해 deep drawing, spinning, coining, brazing 모두 잘 됩니다.\n\n응용: 자동차 emblem · grille (BMW propeller logo 가 historically C22000), Ford / GM 의 chrome trim 의 base material, 시계 case (Casio · Citizen 의 일부 모델), 의류 단추 · 지퍼, 군용 표창패 · 메달, 건축 vehicle (창호 hinge + lockset 의 일부). 색상이 짙고 깊어 décor + jewelry 응용이 압도적이고, σy 는 낮아 구조용 부품으로는 부적합합니다.",
+  "story_refs": [
+    "ASTM B36 / B134",
+    "ASM Specialty Handbook: Copper and Copper Alloys (2001)",
+    "Copper Development Association \"CDA Pub 144 — Standards Handbook\""
+  ],
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,316 @@
+{
+  "stable_id": "MET-0441",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-nickel-aluminum-bronze-c95800",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0068",
+  "origin": "reference(supplementary)",
+  "id": "R_0068",
+  "name": "Nickel Aluminum Bronze C95800",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.64,
+      "max": 7.64,
+      "typical": 7.64,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 230,
+      "max": 280,
+      "typical": 250,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 620,
+      "max": 690,
+      "typical": 650,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 18,
+      "typical": 15,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 180,
+      "max": 210,
+      "typical": 190,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 170,
+      "max": 240,
+      "typical": 200,
+      "n": 0,
+      "confidence": "handbook",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 130,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Cu-based"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AA 5xxx Al-Mg"
+    },
+    "electrical_conductivity": {
+      "min": 12.75,
+      "max": 17.25,
+      "typical": 15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "max_service_temp": {
+      "min": 212.5,
+      "max": 287.5,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "thermal_expansion": {
+      "min": 14.875,
+      "max": 20.125,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "specific_heat": {
+      "min": 323,
+      "max": 437,
+      "typical": 380,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "melting_point": {
+      "min": 841.5,
+      "max": 1138.5,
+      "typical": 990,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "price_per_kg": {
+      "min": 10.2,
+      "max": 13.8,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "price_per_cm3": {
+      "min": 0.0779,
+      "max": 0.1055,
+      "typical": 0.0917,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "delivered_price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Al": "8.5~9.5",
+    "Fe": "3.5~4.5",
+    "Ni": "4~5",
+    "Mn": "0.8~1.5"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C95800 Nickel-Aluminum Bronze",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C95800",
+      "verified": true
+    },
+    {
+      "label": "ASTM B148 — Nickel Aluminum Bronze (C95800)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AA 5xxx Al-Mg",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — C95800 NAB",
+      "url": "https://www.copper.org/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B148 — Aluminum-Bronze Castings",
+      "url": "https://store.astm.org/b0148-18.html",
+      "verified": false
+    },
+    {
+      "label": "DNV-OS-D101 — Marine NAB propeller cast",
+      "url": "https://www.dnv.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.64,
+      250,
+      650,
+      15,
+      120,
+      190,
+      42
+    ],
+    [
+      7.64,
+      230,
+      620,
+      12,
+      120,
+      180,
+      42
+    ],
+    [
+      7.64,
+      280,
+      690,
+      18,
+      120,
+      210,
+      42
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS C95800 / EN CC333G / CuAl9Ni5Fe4Mn1 — Nickel-Aluminum Bronze (NAB) cast (Cu 79-82, Al 8.5-9.5, Fe 3.5-4.5, Ni 4.0-5.0, Mn 0.8-1.5). 우수한 cavitation erosion 저항 + marine corrosion 저항. As-Tmax 250°C. Marine ship propeller (가장 흔한 propeller — 청동 propeller 의 60%+), 해상 pump impeller, valve / seawater piping, oil platform riser hub. Cu base 라 anti-fouling (marine growth resistance).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B148",
+        "org": "ASTM"
+      },
+      {
+        "id": "DNV OS-D101",
+        "org": "DNV"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 200,
+  "density": 7.64,
+  "yield_strength": 250,
+  "uts": 650,
+  "elongation": 15,
+  "modulus": 120,
+  "hardness": 190,
+  "thermal_conductivity": 42,
+  "impact_strength": 80,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "Copper.org — C95800 Nickel-Aluminum Bronze",
+  "aliases": [
+    "UNS C95800",
+    "EN CC333G",
+    "AB2",
+    "Nickel-Aluminium Bronze"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 15,
+  "max_service_temp": 250,
+  "thermal_expansion": 17.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 990,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.0917,
+  "popularity": 3.15,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 12,
+  "total_cost_estimate": 7.2,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

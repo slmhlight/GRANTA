@@ -1,0 +1,330 @@
+{
+  "stable_id": "MET-0030",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-aisi-4340-sncm439-jis-ni-cr-mo",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0278_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0278_0",
+  "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Annealed",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 415,
+      "max": 530,
+      "typical": 470,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 700,
+      "max": 810,
+      "typical": 745,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 190,
+      "max": 280,
+      "typical": 235,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:4340 × HT:fully annealed (f×0.5, i×2.5)"
+    },
+    "impact_strength": {
+      "min": 50,
+      "max": 125,
+      "typical": 88,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:4340 × HT:fully annealed (f×0.5, i×2.5)"
+    },
+    "fracture_toughness": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:fully annealed (k×1.8)"
+    },
+    "electrical_conductivity": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4340"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4340"
+    },
+    "thermal_expansion": {
+      "min": 12.3,
+      "max": 12.3,
+      "typical": 12.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4340"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4340"
+    },
+    "specific_heat": {
+      "min": 475,
+      "max": 475,
+      "typical": 475,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4340"
+    },
+    "melting_point": {
+      "min": 1425,
+      "max": 1425,
+      "typical": 1425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4340"
+    },
+    "price_per_kg": {
+      "min": 1.8,
+      "max": 3.2,
+      "typical": 2.4,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "MetalMiner alloy bar Q2 2026 (4340 standard mill product)"
+    },
+    "price_per_cm3": {
+      "min": 0.016,
+      "max": 0.0216,
+      "typical": 0.0188,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.82,
+      "max": 4.82,
+      "typical": 4.82,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.36~0.43",
+    "Ni": "1.6~2.0",
+    "Cr": "0.6~1.0",
+    "Mo": "0.15~0.3",
+    "Mn": "0.6~0.9",
+    "Si": "0.15~0.35"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 4340 / DIN 1.6582",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+4340",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SNCM439",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%204340",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — AISI 4340 high-strength Ni-Cr-Mo",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MMPDS-08 — AISI 4340 (200/260 ksi UTS)",
+      "url": "https://www.mmpds.org/",
+      "verified": false
+    },
+    {
+      "label": "AMS 6415 — 4340 bar/forging",
+      "url": "https://www.sae.org/standards/content/ams6415v/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      540,
+      780,
+      22,
+      205,
+      220,
+      42
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS G43400 / DIN 1.6582 / 34CrNiMo6 / JIS SNCM439 / EN24 — Ni-Cr-Mo high-strength steel (Ni 1.65-2.0, Cr 0.7-0.9, Mo 0.20-0.30, C 0.38-0.43). Aircraft landing gear, propeller shaft, drive shaft, gun barrel.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed",
+    "price_verified_date": "2026-04",
+    "price_verified_source": "AISI 4340 alloy steel",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      },
+      {
+        "id": "DIN 1.6582",
+        "org": "DIN"
+      }
+    ]
+  },
+  "fracture_toughness": 135,
+  "fatigue_strength": 235,
+  "density": 7.85,
+  "yield_strength": 540,
+  "uts": 780,
+  "elongation": 22,
+  "modulus": 205,
+  "hardness": 220,
+  "thermal_conductivity": 42,
+  "impact_strength": 88,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 4340 / DIN 1.6582",
+  "aliases": [
+    "AISI 4340 equiv.",
+    "UNS G43400",
+    "DIN 1.6582",
+    "34CrNiMo6",
+    "JIS SNCM439"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1240,
+      "uts": 1380,
+      "E": 200
+    },
+    {
+      "temp": 300,
+      "ys": 1100,
+      "uts": 1240,
+      "E": null
+    },
+    {
+      "temp": 425,
+      "ys": 1000,
+      "uts": 1100,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 6.5,
+  "max_service_temp": 425,
+  "thermal_expansion": 12.3,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1425,
+  "price_per_kg": 4.5,
+  "price_per_cm3": 0.0188,
+  "popularity": 4.25,
+  "machining_cost_factor": 1.1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4.82,
+  "total_cost_estimate": 5.3,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "SNCM439 는 JIS G 4053 의 'Nickel-Chromium-Molybdenum steel No.439' 인데, 미국 AISI 4340 의 일본 equivalent 입니다. C 0.4% + Ni 1.8% + Cr 0.8% + Mo 0.25% 라는 Ni-Cr-Mo 합금강의 가장 표준적 조성이에요. 1934년 미국 Republic Steel 이 AISI 4340 을 항공 landing gear 용으로 처음 표준화했고, 일본 신일본제철·고베제강이 1950년대 후반에 SNCM439 로 라이센스 생산을 시작했습니다.\n\n4340 / SNCM439 의 핵심은 Ni 가 페라이트 강도에 기여하면서 동시에 인성도 올려준다는 점입니다. Cr-Mo 만 있는 합금 (AISI 4140) 대비 Ni 1.8% 가 추가되면 KIC 가 60 → 90 MPa·√m 으로 50% 이상 올라가요. Q+T 표준 (845°C 오일 quench + 540°C temper) 으로 σy 850-1000 MPa · UTS 1000-1200 + KIC 90 + Charpy 50 J 의 균형을 냅니다.\n\n응용: 항공 landing gear (Boeing 747 의 truck beam, 모든 commercial jet 의 oleo strut), 자동차 crankshaft (BMW M-series, Toyota 2JZ-GTE), 정밀 reduction gear 의 input shaft, 군용 차량 (M1 Abrams) 의 axle, 산업 forging die backing block, 그리고 reciprocating engine 의 connecting rod (forged 4340 이 racing engine 표준). 4340 / SNCM439 가 80년 동안 'high-strength engineering steel 의 산업 표준' 자리를 지키는 이유는 단조 + Q+T 후의 σy / KIC / weldability / cost 의 균형이 다른 어떤 alloy steel 도 못 따라잡기 때문이에요. 단점은 인장강도 1200 MPa 이상이 필요한 super-critical 부품에는 부적합 (4340 의 한계), 그래서 그 영역은 300M (Ni 2.5% + Si 1.6%) 또는 Aermet 100 (Co 13%) 같은 prestige alloy 가 잠식합니다.",
+  "story_refs": [
+    "JIS G 4053 \"Low-alloyed steels for machine structural use\"",
+    "ASM Handbook Vol.1 \"Properties and Selection: Irons, Steels\"",
+    "Krauss G (2015) Steels: Processing, Structure, and Performance 2nd ed., ASM",
+    "AMS 6415 (SAE) \"Steel, Bars, Forgings, and Tubing 0.80Cr-1.8Ni-0.25Mo (0.38-0.43C)\""
+  ],
+  "confidence_tier": "medium"
+}

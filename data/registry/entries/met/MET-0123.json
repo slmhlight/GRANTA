@@ -1,0 +1,274 @@
+{
+  "stable_id": "MET-0123",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-lithium",
+    "alloy_base": "F-AB-aa-2090-al-li-cu",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0308_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0308_0",
+  "name": "AA 2090 (Al-Li-Cu) — T3",
+  "category": "Metal",
+  "subcategory": "Aluminum - Lithium",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T3",
+  "ranges": {
+    "density": {
+      "min": 2.59,
+      "max": 2.59,
+      "typical": 2.59,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 440,
+      "max": 440,
+      "typical": 440,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 76,
+      "max": 76,
+      "typical": 76,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 88,
+      "max": 88,
+      "typical": 88,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 106,
+      "max": 140,
+      "typical": 123,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:2090 × HT:T3 solution + CW + naturally aged (f×0.85, i×1.3)"
+    },
+    "impact_strength": {
+      "min": 5,
+      "max": 17,
+      "typical": 10,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:2090 × HT:T3 solution + CW + naturally aged (f×0.85, i×1.3)"
+    },
+    "fracture_toughness": {
+      "min": 36.4,
+      "max": 36.4,
+      "typical": 36.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:T3 solution + CW + naturally aged (k×1.3)"
+    },
+    "electrical_conductivity": {
+      "min": 39,
+      "max": 39,
+      "typical": 39,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2090"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2090"
+    },
+    "thermal_expansion": {
+      "min": 21.5,
+      "max": 21.5,
+      "typical": 21.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2090"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2090"
+    },
+    "specific_heat": {
+      "min": 920,
+      "max": 920,
+      "typical": 920,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2090"
+    },
+    "melting_point": {
+      "min": 625,
+      "max": 625,
+      "typical": 625,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2090"
+    },
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2090"
+    },
+    "price_per_cm3": {
+      "min": 0.0311,
+      "max": 0.0311,
+      "typical": 0.0311,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2090"
+    },
+    "delivered_price_per_kg": {
+      "min": 16.38,
+      "max": 16.38,
+      "typical": 16.38,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Li": "1.9~2.6",
+    "Cu": "2.4~3.0",
+    "Zr": "0.08~0.15"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2090",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AZoM — Aluminum 2090 Alloy (UNS A92090), 2090-T83 Mechanical Properties",
+      "url": "https://www.azom.com/article.aspx?ArticleID=8715",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.59,
+      280,
+      440,
+      7,
+      76,
+      130,
+      88
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "T3",
+    "specs": [
+      {
+        "id": "UNS A92090",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 36.4,
+  "fatigue_strength": 123,
+  "density": 2.59,
+  "yield_strength": 280,
+  "uts": 440,
+  "elongation": 7,
+  "modulus": 76,
+  "hardness": 130,
+  "thermal_conductivity": 88,
+  "impact_strength": 10,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Lithium",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 39,
+  "max_service_temp": 150,
+  "thermal_expansion": 21.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 920,
+  "melting_point": 625,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.0311,
+  "popularity": 3.2,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.3,
+  "delivered_price_per_kg": 16.38,
+  "total_cost_estimate": 14.74,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

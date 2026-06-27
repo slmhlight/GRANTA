@@ -1,0 +1,264 @@
+{
+  "stable_id": "MET-0325",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-twip1180-steel-twinning-induced-plasticity-high-mn-austenitic-ahss",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0429_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0429_0",
+  "name": "TWIP1180 steel (Twinning-Induced Plasticity, high-Mn austenitic AHSS) — Annealed (Austenitic, fully recrystallized)",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cold Rolled (TWIP: Twinning-Induced Plasticity)"
+  ],
+  "heat_treatment": "Annealed (Austenitic, fully recrystallized)",
+  "ranges": {
+    "density": {
+      "min": 7.95,
+      "max": 7.95,
+      "typical": 7.95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 580,
+      "max": 580,
+      "typical": 580,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1180,
+      "max": 1180,
+      "typical": 1180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 300,
+      "max": 400,
+      "typical": 350,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 95,
+      "typical": 65,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "max_service_temp": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "thermal_expansion": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "specific_heat": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "melting_point": {
+      "min": 1450,
+      "max": 1450,
+      "typical": 1450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "price_per_cm3": {
+      "min": 0.0239,
+      "max": 0.0239,
+      "typical": 0.0239,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:twip1180"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.85,
+      "max": 3.85,
+      "typical": 3.85,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Mn": "18~22",
+    "C": "0.5~0.6",
+    "Al": "≤2",
+    "Si": "≤0.3"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Crucible PM tool steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.95,
+      580,
+      1180,
+      45,
+      195,
+      280,
+      14
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "POSCO 독자 개발 TWIP steel (Twinning-Induced Plasticity) — 자동차 B-pillar / A-pillar / bumper. UTS 1180 + El 45% (동시 만족 = 무게 감량 + 충돌 안전 trade-off 해결). 18~22% Mn 으로 austenitic 유지 + twin slip mechanism. 현대 IONIQ / 기아 EV6 차체 구조용. 다른 1차 자료: POSCO 백서.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed (Austenitic, fully recrystallized)"
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 350,
+  "density": 7.95,
+  "yield_strength": 580,
+  "uts": 1180,
+  "elongation": 45,
+  "modulus": 195,
+  "hardness": 280,
+  "thermal_conductivity": 14,
+  "impact_strength": 65,
+  "manufacturer": "Reference data",
+  "process": "Cold Rolled (TWIP: Twinning-Induced Plasticity)",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 7,
+  "max_service_temp": 300,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.3,
+  "specific_heat": 470,
+  "melting_point": 1450,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0239,
+  "popularity": 3.4,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.07,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.85,
+  "total_cost_estimate": 3.85,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

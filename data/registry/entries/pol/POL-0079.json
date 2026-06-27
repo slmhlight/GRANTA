@@ -1,0 +1,263 @@
+{
+  "stable_id": "POL-0079",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide-gf",
+    "alloy_base": "F-AB-pa66-gf30-zytel-70g30-dupont",
+    "element_families": []
+  },
+  "legacy_id": "POL_018",
+  "origin": "polymers-data",
+  "id": "POL_018",
+  "name": "PA66-GF30 Zytel 70G30 (DuPont)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide GF",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.36,
+      "max": 1.36,
+      "typical": 1.36,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 9.5,
+      "max": 9.5,
+      "typical": 9.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 28,
+      "max": 28,
+      "typical": 28,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 262,
+      "max": 262,
+      "typical": 262,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide GF"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide GF"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide GF"
+    },
+    "price_per_cm3": {
+      "min": 0.0082,
+      "max": 0.0082,
+      "typical": 0.0082,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "63.7",
+    "H": "9.8",
+    "N": "12.4",
+    "O": "14.1"
+  },
+  "sources": [
+    {
+      "label": "DuPont/MatWeb — Nylon 66 (PA66)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+66",
+      "verified": false
+    },
+    {
+      "label": "Datasheet — PA66-GF30 Zytel 70G30 (DuPont)",
+      "url": "https://www.dupont.com/products/zytel.html",
+      "verified": true
+    },
+    {
+      "label": "Applications: 자동차 intake manifold, 전동 공구 하우징, 펌프 임펠러",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "BASF Ultramid PA66 technical guide",
+      "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
+      "verified": true
+    },
+    {
+      "label": "DuPont Zytel PA66 (DTY)",
+      "url": "https://www.dupont.com/products/zytel-polyamide.html",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — PA66 general",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=a2e79a3469304d109aaf4cb22f3592d9",
+      "verified": false
+    }
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "polymer": true,
+    "tg": 60,
+    "tm": 262,
+    "hdt_182": 250,
+    "moisture_24h": 1.4,
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "applications": "자동차 intake manifold, 전동 공구 하우징, 펌프 임펠러",
+    "limitations": "흡습 영향 (강성 30% 손실 at 50%RH), 이방성",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 1.36,
+  "yield_strength": 175,
+  "uts": 175,
+  "elongation": 3.5,
+  "modulus": 9.5,
+  "hardness": null,
+  "thermal_conductivity": 0.28,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "DuPont/MatWeb — Nylon 66 (PA66)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polyamide GF"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0082,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 175,
+      "uts": 175,
+      "E": 9.5
+    },
+    {
+      "temp": 100,
+      "ys": 130,
+      "uts": 130,
+      "E": 6.5
+    },
+    {
+      "temp": 150,
+      "ys": 85,
+      "uts": 85,
+      "E": 4.5
+    },
+    {
+      "temp": 200,
+      "ys": 35,
+      "uts": 35,
+      "E": 2.2
+    }
+  ],
+  "story": "Zytel 70G30 은 DuPont 의 PA66 + 30% glass fiber 강화 grade 입니다. DuPont 는 1939년 첫 PA66 (Wallace Carothers 의 발명) 의 commercial launch 후 'Zytel' brand 로 모든 PA66 응용 grade 를 분류했고, '70G30' 의 70 은 PA66, G 는 glass fiber, 30 은 30 wt% 강화를 의미합니다.\n\n특성: σy 165 MPa (base PA66 의 2배), UTS 200 MPa, modulus 10 GPa (base 의 3배), El 3% (base 의 1/15 — GF brittleness), Tg 65°C, HDT @ 1.82 MPa 250°C (base PA66 의 70°C 의 3배 이상). GF anisotropy 가 mold flow direction 으로 정렬되어 strength 의 방향 의존성이 있음.\n\n응용: 자동차 engine intake manifold (BMW · Audi · Toyota 의 표준 underhood plastic — 1990년대 이후 aluminum intake manifold 의 80% 가 PA66-GF30 으로 대체), 산업 chain saw housing (Stihl · Husqvarna 의 표준), 가전 washing machine outer drum 의 일부 grade, 자동차 fan blade (cooling fan), 그리고 power tool housing 의 일부. 가격은 base PA66 $4/kg → GF30 강화 후 $5-7/kg 으로 30% 인상되지만 strength 가 2배인 효과적 metal replacement 의 표준 polymer 입니다.",
+  "story_refs": [
+    "DuPont Zytel 70G30 Tech Data Sheet",
+    "Kohan M I (1995) Nylon Plastics Handbook",
+    "Brydson J A (1999) Plastics Materials 7th ed."
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Nylon 6/6 (Polyhexamethylene adipamide) — semi-crystalline thermoplastic. Tg (dry) ≈ 70°C, Tm ≈ 265°C, HDT (1.8 MPa) ≈ 90°C, max service 100-120°C. σy 70-85 / UTS 75-95 / El 20-60% / E 2.7-3.5 GPa / ρ 1.13-1.15 g/cc (dry-as-molded). 흡습률 3% → 강도 30% 감소 (DAM vs 50% RH). Notched Izod 50-110 J/m. 자동차 intake manifold, 라디에이터 end tank, gear, fastener, 전기 connector. GF30 grade → σy 150-180, E 8-9 GPa (보강재 사용 표준)."
+}

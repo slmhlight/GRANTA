@@ -1,0 +1,408 @@
+{
+  "stable_id": "MET-0429",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-cuni30-copper-nickel-70-30",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "C_0055",
+  "origin": "curated(material_db)",
+  "id": "C_0055",
+  "name": "CuNi30 (Copper-Nickel 70/30) — Heat-Treated",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "curated",
+  "manufacturers": [
+    "3D Systems",
+    "EOS",
+    "Nikon SLM Solutions",
+    "Velo3D"
+  ],
+  "machines": [
+    "DMP Flex 350",
+    "M290",
+    "M400-1",
+    "NXG XII 600",
+    "EOS M 290",
+    "EOS M 400-1",
+    "Sapphire (500W) basic"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Heat-Treated",
+  "ranges": {
+    "density": {
+      "min": 8.94,
+      "max": 8.94,
+      "typical": 8.94,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 295,
+      "max": 560,
+      "typical": 431,
+      "n": 18,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 420,
+      "max": 700,
+      "typical": 564,
+      "n": 22,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 22,
+      "max": 39,
+      "typical": 29.1,
+      "n": 28,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 154,
+      "max": 185,
+      "typical": 174,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 29,
+      "max": 29,
+      "typical": 29,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 121,
+      "max": 181,
+      "typical": 151,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 130,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Cu-based"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Copper.org Cu-Ni"
+    },
+    "electrical_conductivity": {
+      "min": 5.95,
+      "max": 8.05,
+      "typical": 7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "max_service_temp": {
+      "min": 297.5,
+      "max": 402.5,
+      "typical": 350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "thermal_expansion": {
+      "min": 14.025,
+      "max": 18.975,
+      "typical": 16.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "specific_heat": {
+      "min": 323,
+      "max": 437,
+      "typical": 380,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "melting_point": {
+      "min": 994.5,
+      "max": 1345.5,
+      "typical": 1170,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "price_per_kg": {
+      "min": 15.3,
+      "max": 20.7,
+      "typical": 18,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "price_per_cm3": {
+      "min": 0.1368,
+      "max": 0.185,
+      "typical": 0.1609,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Copper"
+    },
+    "delivered_price_per_kg": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Ni": "29~32",
+    "Fe": "0.4~1.0",
+    "Mn": "0.5~1.5"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C71500 70-30 Cupronickel",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C71500",
+      "verified": true
+    },
+    {
+      "label": "Nikon SLM CuNi30 MDS 2026-03.1",
+      "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/MDS_CuNi30_2026-03_1_EN.pdf",
+      "verified": true
+    },
+    {
+      "label": "3D Systems Certified CuNi30(A) MDS",
+      "url": "https://www.3dsystems.com/sites/default/files/2024-09/3d-systems-certified-cuni30-a-mds-a4-us-rev-b.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.94,
+      560,
+      700,
+      22,
+      130,
+      174,
+      29
+    ],
+    [
+      8.94,
+      500,
+      610,
+      28,
+      130,
+      174,
+      29
+    ],
+    [
+      8.94,
+      420,
+      500,
+      30,
+      130,
+      185,
+      29
+    ],
+    [
+      8.94,
+      370,
+      450,
+      35,
+      130,
+      185,
+      29
+    ],
+    [
+      8.94,
+      410,
+      470,
+      30,
+      130,
+      185,
+      29
+    ],
+    [
+      8.94,
+      370,
+      420,
+      34,
+      130,
+      185,
+      29
+    ],
+    [
+      8.94,
+      365,
+      505,
+      32,
+      130,
+      154,
+      29
+    ],
+    [
+      8.94,
+      310,
+      450,
+      39,
+      130,
+      154,
+      29
+    ],
+    [
+      8.94,
+      560,
+      700,
+      22,
+      130,
+      174,
+      29
+    ],
+    [
+      8.94,
+      500,
+      610,
+      28,
+      130,
+      174,
+      29
+    ],
+    [
+      8.94,
+      560,
+      700,
+      22,
+      130,
+      174,
+      29
+    ],
+    [
+      8.94,
+      500,
+      610,
+      28,
+      130,
+      174,
+      29
+    ],
+    [
+      8.94,
+      454,
+      606,
+      27.1,
+      130,
+      null,
+      29
+    ],
+    [
+      8.94,
+      431,
+      564,
+      29.1,
+      130,
+      null,
+      29
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "applications": "Offshore / defense / oil and gas / marine",
+    "magnetic": "non-magnetic",
+    "melt_C": 1170,
+    "cte": 16,
+    "cp": 376,
+    "poisson": 0.32,
+    "vendor_count": 11,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 151,
+  "density": 8.94,
+  "yield_strength": 431,
+  "uts": 564,
+  "elongation": 29.1,
+  "modulus": 130,
+  "hardness": 174,
+  "thermal_conductivity": 29,
+  "impact_strength": 80,
+  "manufacturer": "3D Systems, EOS, Nikon SLM Solutions, Velo3D",
+  "process": "LPBF",
+  "source": "Copper.org — C71500 70-30 Cupronickel",
+  "aliases": [
+    "Copper-Nickel 70",
+    "30",
+    "UNS C71500",
+    "CuNi30Mn1Fe",
+    "CW354H"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 7,
+  "max_service_temp": 350,
+  "thermal_expansion": 16.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 1170,
+  "price_per_kg": 18,
+  "price_per_cm3": 0.1609,
+  "popularity": 3,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 45,
+  "total_cost_estimate": 81,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 32% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

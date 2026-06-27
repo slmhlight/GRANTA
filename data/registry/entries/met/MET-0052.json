@@ -1,0 +1,297 @@
+{
+  "stable_id": "MET-0052",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-aisi-8740",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0220",
+  "origin": "reference(supplementary)",
+  "id": "R_0220",
+  "name": "AISI 8740",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 830,
+      "max": 950,
+      "typical": 950,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 950,
+      "max": 1050,
+      "typical": 1050,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 13,
+      "max": 16,
+      "typical": 16,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 300,
+      "max": 320,
+      "typical": 320,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 44,
+      "max": 44,
+      "typical": 44,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 415,
+      "max": 535,
+      "typical": 475,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 6.8,
+      "max": 6.8,
+      "typical": 6.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "thermal_expansion": {
+      "min": 11.9,
+      "max": 11.9,
+      "typical": 11.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "specific_heat": {
+      "min": 477,
+      "max": 477,
+      "typical": 477,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "melting_point": {
+      "min": 1427,
+      "max": 1427,
+      "typical": 1427,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "price_per_kg": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "price_per_cm3": {
+      "min": 0.0314,
+      "max": 0.0314,
+      "typical": 0.0314,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8740"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.2,
+      "max": 4.2,
+      "typical": 4.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.38~0.43",
+    "Ni": "0.4~0.7",
+    "Cr": "0.4~0.6",
+    "Mo": "0.2~0.3"
+  },
+  "sources": [
+    {
+      "label": "ASM — AISI 8740 (Q&T)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — AISI 8740 Ni-Cr-Mo",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "AMS 6322 — AISI 8740 bar (heat-treated)",
+      "url": "https://www.sae.org/standards/content/ams6322/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      950,
+      1050,
+      16,
+      205,
+      320,
+      44
+    ],
+    [
+      7.85,
+      830,
+      950,
+      13,
+      205,
+      300,
+      44
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS G87400 / DIN 1.6546 — Ni-Cr-Mo low-alloy steel (C 0.38-0.43, Ni 0.40-0.70, Cr 0.40-0.60, Mo 0.20-0.30). 4140 보다 약간 더 hardenable (Ni 첨가). Tmax 425°C. 항공 gear, shaft, axle (보다 expensive 4340 대안), 농기계 power transmission. 자동차 lower-cost fatigue duty alloy steel.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 6322",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 80,
+  "fatigue_strength": 475,
+  "density": 7.85,
+  "yield_strength": 950,
+  "uts": 1050,
+  "elongation": 16,
+  "modulus": 205,
+  "hardness": 320,
+  "thermal_conductivity": 44,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — AISI 8740 (Q&T)",
+  "aliases": [
+    "UNS G87400",
+    "AISI 8740",
+    "DIN 1.6546"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 6.8,
+  "max_service_temp": 425,
+  "thermal_expansion": 11.9,
+  "poisson_ratio": 0.29,
+  "specific_heat": 477,
+  "melting_point": 1427,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.0314,
+  "popularity": 3.2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4.2,
+  "total_cost_estimate": 4.2,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

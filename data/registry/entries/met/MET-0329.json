@@ -1,0 +1,293 @@
+{
+  "stable_id": "MET-0329",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cast-iron",
+    "alloy_base": "F-AB-ductile-iron-65-45-12",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0083",
+  "origin": "reference(supplementary)",
+  "id": "R_0083",
+  "name": "Ductile Iron 65-45-12",
+  "category": "Metal",
+  "subcategory": "Cast Iron",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.1,
+      "max": 7.1,
+      "typical": 7.1,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 290,
+      "max": 340,
+      "typical": 310,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 430,
+      "max": 480,
+      "typical": 450,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 15,
+      "typical": 12,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 160,
+      "max": 185,
+      "typical": 170,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 36,
+      "max": 36,
+      "typical": 36,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 193.5,
+      "max": 216,
+      "typical": 202.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A536 ductile iron"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "max_service_temp": {
+      "min": 340,
+      "max": 460,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "thermal_expansion": {
+      "min": 9.35,
+      "max": 12.65,
+      "typical": 11,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "poisson_ratio": {
+      "min": 0.221,
+      "max": 0.299,
+      "typical": 0.26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "melting_point": {
+      "min": 1020,
+      "max": 1380,
+      "typical": 1200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "price_per_cm3": {
+      "min": 0.009,
+      "max": 0.0122,
+      "typical": 0.0106,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "3.4~3.8",
+    "Si": "2.2~2.8",
+    "Mg": "0.03~0.05"
+  },
+  "sources": [
+    {
+      "label": "ASTM A536 — ductile iron 65-45-12",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASTM A536 ductile iron",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Dura-Bar — 65-45-12 Ferritic Ductile Iron (ASTM A536, as-cast 조성+기계적 물성)",
+      "url": "https://www.dura-bar.com/products/ductile-iron/65-45-12",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.1,
+      310,
+      450,
+      12,
+      165,
+      170,
+      36
+    ],
+    [
+      7.1,
+      290,
+      430,
+      10,
+      165,
+      160,
+      36
+    ],
+    [
+      7.1,
+      340,
+      480,
+      15,
+      165,
+      185,
+      36
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM A536",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "density": 7.1,
+  "yield_strength": 310,
+  "uts": 450,
+  "elongation": 12,
+  "modulus": 165,
+  "hardness": 170,
+  "thermal_conductivity": 36,
+  "fatigue_strength": 202.5,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASTM A536 — ductile iron 65-45-12",
+  "aliases": [
+    "ASTM A536 65-45-12",
+    "EN-GJS-450-10",
+    "DIN GGG-50"
+  ],
+  "families": [
+    "Metal",
+    "Cast Iron",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 5,
+  "max_service_temp": 400,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.26,
+  "specific_heat": 460,
+  "melting_point": 1200,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0106,
+  "popularity": 3.3,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.5,
+  "total_cost_estimate": 1.35,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

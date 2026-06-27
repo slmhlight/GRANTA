@@ -1,0 +1,284 @@
+{
+  "stable_id": "MET-0521",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-haynes-214",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "C_0093",
+  "origin": "curated(material_db)",
+  "id": "C_0093",
+  "name": "Haynes 214",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "curated",
+  "manufacturers": [
+    "Velo3D"
+  ],
+  "machines": [
+    "Sapphire (310W)",
+    "Sapphire (500W)"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "AM (combined)",
+  "ranges": {
+    "density": {
+      "min": 8.05,
+      "max": 8.05,
+      "typical": 8.05,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 640,
+      "max": 687,
+      "typical": 680,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 955,
+      "max": 985,
+      "typical": 975,
+      "n": 6,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 34,
+      "max": 37.5,
+      "typical": 35.8,
+      "n": 8,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 218,
+      "max": 218,
+      "typical": 218,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 12.4,
+      "max": 12.4,
+      "typical": 12.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 272,
+      "max": 374,
+      "typical": 326,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 0.85,
+      "max": 1.15,
+      "typical": 1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 976.65,
+      "max": 1321.35,
+      "typical": 1149,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 10.795,
+      "max": 14.605,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.2635,
+      "max": 0.3565,
+      "typical": 0.31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 337.45,
+      "max": 456.55,
+      "typical": 397,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1096.5,
+      "max": 1483.5,
+      "typical": 1290,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 68,
+      "max": 92,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.5474,
+      "max": 0.7406,
+      "typical": 0.644,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "15.0~17.0",
+    "Al": "4.0~5.0",
+    "Fe": "2.0~4.0",
+    "Mn": "≤0.5",
+    "Si": "≤0.2",
+    "C": "0.04~0.10",
+    "Zr": "≤0.10"
+  },
+  "sources": [
+    {
+      "label": "Haynes International — Haynes 214 Alloy",
+      "url": "https://haynesintl.com/en/alloys/alloy/haynes-214-alloy",
+      "verified": true
+    },
+    {
+      "label": "Velo3D",
+      "url": "https://www.velo3d.com/material-data-sheets/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.05,
+      646,
+      960,
+      37.5,
+      218,
+      null,
+      12.4
+    ],
+    [
+      8.05,
+      687,
+      985,
+      35.8,
+      218,
+      null,
+      12.4
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Outstanding",
+  "meta": {
+    "applications": "High-T oxidation resistance >955°C / rocket engine pre-burner & combustion sections / heat treating fixtures / furnace rolls",
+    "magnetic": "non-magnetic",
+    "melt_C": 1399,
+    "cte": 13.6,
+    "cp": 485,
+    "poisson": 0.32,
+    "vendor_count": 2,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 326,
+  "density": 8.05,
+  "yield_strength": 680,
+  "uts": 975,
+  "elongation": 35.8,
+  "modulus": 218,
+  "hardness": null,
+  "thermal_conductivity": 12.4,
+  "impact_strength": 60,
+  "manufacturer": "Velo3D",
+  "process": "LPBF",
+  "source": "Haynes International — Haynes 214 Alloy",
+  "aliases": [
+    "UNS N07214"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1,
+  "max_service_temp": 1149,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.31,
+  "specific_heat": 397,
+  "melting_point": 1290,
+  "price_per_kg": 80,
+  "price_per_cm3": 0.644,
+  "popularity": 2,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 200,
+  "total_cost_estimate": 360,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

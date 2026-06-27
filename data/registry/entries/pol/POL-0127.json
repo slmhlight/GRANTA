@@ -1,0 +1,248 @@
+{
+  "stable_id": "POL-0127",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pvdf",
+    "alloy_base": "F-AB-pvdf-kynar-740-arkema-solvay-fluorinated-homopolymer",
+    "element_families": []
+  },
+  "legacy_id": "POL_036",
+  "origin": "polymers-data",
+  "id": "POL_036",
+  "name": "PVDF Kynar 740 (Arkema/Solvay, fluorinated homopolymer)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PVDF",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.78,
+      "max": 1.78,
+      "typical": 1.78,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 1.8,
+      "max": 1.8,
+      "typical": 1.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.18,
+      "max": 0.18,
+      "typical": 0.18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 132,
+      "max": 132,
+      "typical": 132,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 32,
+      "max": 32,
+      "typical": 32,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": -57,
+      "max": -19,
+      "typical": -38,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVDF"
+    },
+    "melting_point": {
+      "min": 168,
+      "max": 168,
+      "typical": 168,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVDF"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVDF"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - PVDF"
+    },
+    "price_per_cm3": {
+      "min": 0.057,
+      "max": 0.057,
+      "typical": 0.057,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "37.5",
+    "H": "3.1",
+    "F": "59.3"
+  },
+  "sources": [
+    {
+      "label": "Datasheet — PVDF Kynar 740 (Arkema/Solvay, fluorinated homopolymer)",
+      "url": "https://www.arkema.com/global/en/products/product-finder/range-viewer/Kynar-PVDF-fluoropolymer-resins/",
+      "verified": true
+    },
+    {
+      "label": "Applications: 화학 plant valve / pump / piping / tank lining, 반도체 high-purity wafer carrier, lithium battery binder (LiB cathode/anode), photovoltaic backsheet, architectural cladding (Kynar 500 coatings), NSF/ANSI 61 음용수 application",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema — Kynar PVDF resin 물성 (제조사)",
+      "url": "https://hpp.arkema.com/en/product-families/kynar-fluoropolymer-family/contact-physical-and-mechanical-properties/",
+      "verified": true
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "polymer": true,
+    "tg": -40,
+    "tm": 168,
+    "hdt_182": 110,
+    "moisture_24h": 0.03,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Excellent",
+    "applications": "화학 plant valve / pump / piping / tank lining, 반도체 high-purity wafer carrier, lithium battery binder (LiB cathode/anode), photovoltaic backsheet, architectural cladding (Kynar 500 coatings), NSF/ANSI 61 음용수 application",
+    "limitations": "고가 ($30/kg+), Tg -40°C 저온 brittle 가능, 가공 시 HF gas 발생 risk (>400°C), bond/print 시 surface 전처리 필요"
+  },
+  "popularity": 3,
+  "density": 1.78,
+  "yield_strength": 50,
+  "uts": 50,
+  "elongation": 50,
+  "modulus": 1.8,
+  "hardness": null,
+  "thermal_conductivity": 0.18,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Datasheet — PVDF Kynar 740 (Arkema/Solvay, fluorinated homopolymer)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - PVDF"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": -38,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1.5,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.057,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "elevated_temp": [
+    {
+      "temp": 23,
+      "ys": 50,
+      "uts": 50,
+      "E": 1.9
+    },
+    {
+      "temp": 80,
+      "ys": 38,
+      "uts": 40,
+      "E": 1.5
+    },
+    {
+      "temp": 110,
+      "ys": 28,
+      "uts": 30,
+      "E": 1.1
+    },
+    {
+      "temp": 140,
+      "ys": 18,
+      "uts": 22,
+      "E": 0.7
+    },
+    {
+      "temp": 160,
+      "ys": 8,
+      "uts": 12,
+      "E": 0.35
+    }
+  ]
+}

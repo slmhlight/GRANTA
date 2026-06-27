@@ -1,0 +1,285 @@
+{
+  "stable_id": "MET-0594",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-mar-m-247",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0366_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0366_1",
+  "name": "MAR-M 247 — aerospace blade & turbo wheel — Directionally Solidified (DS, columnar grain)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Martin Marietta legacy / multi-source"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "Directionally Solidified (DS, columnar grain)",
+  "ranges": {
+    "density": {
+      "min": 8.55,
+      "max": 8.55,
+      "typical": 8.55,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1050,
+      "max": 1050,
+      "typical": 1050,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 365,
+      "max": 365,
+      "typical": 365,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Ni-based σf≈0.4·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "electrical_conductivity": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:marm247"
+    },
+    "max_service_temp": {
+      "min": 1050,
+      "max": 1050,
+      "typical": 1050,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:marm247"
+    },
+    "thermal_expansion": {
+      "min": 12.7,
+      "max": 12.7,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:marm247"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:marm247"
+    },
+    "specific_heat": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:marm247"
+    },
+    "melting_point": {
+      "min": 1310,
+      "max": 1310,
+      "typical": 1310,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:marm247"
+    },
+    "price_per_kg": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:marm247"
+    },
+    "price_per_cm3": {
+      "min": 2.1375,
+      "max": 2.1375,
+      "typical": 2.1375,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:marm247"
+    },
+    "fracture_toughness": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "delivered_price_per_kg": {
+      "min": 525,
+      "max": 525,
+      "typical": 525,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Co": "10.0",
+    "Cr": "8.4",
+    "W": "10.0",
+    "Ta": "3.0",
+    "Al": "5.5",
+    "Ti": "1.0",
+    "Mo": "0.70",
+    "Hf": "1.5",
+    "C": "0.16",
+    "B": "0.015",
+    "Zr": "0.05"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=MAR-M%20247",
+      "verified": false
+    },
+    {
+      "label": "TMS Superalloys 1984 — Properties of Cast MAR-M-247 for Turbine Blisk Applications (Kaufman/GE, Grainex+HIP 인장·creep)",
+      "url": "https://www.tms.org/superalloys/10.7449/1984/Superalloys_1984_43_52.pdf",
+      "verified": true
+    },
+    {
+      "label": "Markforged — M247 Nickel Superalloy Binder Jetting Material Datasheet (REV 1.0, as-sintered+HIP)",
+      "url": "https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/PX100/M247NickelSuperalloy.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.55,
+      900,
+      1050,
+      8,
+      200,
+      365,
+      12
+    ]
+  ],
+  "machinability": "Very Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "Standard cast nickel for GE F404/F414 turbine blade (1st-2nd stage), automotive racing turbocharger wheel (F1, Le Mans, WRC), industrial GT first-stage; γ' volume ~62% provides creep strength to 950°C.",
+  "meta": {
+    "reference": true,
+    "condition": "Directionally Solidified (DS, columnar grain)"
+  },
+  "density": 8.55,
+  "yield_strength": 900,
+  "uts": 1050,
+  "elongation": 8,
+  "modulus": 200,
+  "hardness": 365,
+  "thermal_conductivity": 12,
+  "fatigue_strength": 420,
+  "impact_strength": 60,
+  "manufacturer": "Martin Marietta legacy / multi-source",
+  "process": "Cast",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 1050,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1310,
+  "price_per_kg": 250,
+  "price_per_cm3": 2.1375,
+  "fracture_toughness": 30,
+  "popularity": 2.3,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1,
+  "price_grade_premium": 2,
+  "delivered_price_per_kg": 525,
+  "total_cost_estimate": 945,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "story": "1971년 미국 Martin Marietta (현 Lockheed Martin) 가 MAR-M 200 series 의 후속으로 개발한 cast nickel superalloy. Ni 60% + Co 10% + Cr 8% + W 10% + Ta 3% + Al 5.5% + Ti 1% + Mo 0.7% + Hf 1.5% — γ' 부피분율 약 62% 의 매우 무거운 화학 조성으로 1000°C 영역까지 σ_y 870 MPa 를 유지합니다. Hf 가 grain boundary 의 카바이드 형상을 굵게 만들어 creep 저항을 추가로 끌어올린 게 특징이죠.\n\n응용은 가스터빈 블레이드의 표준이 됐어요. GE F404 (F/A-18) 의 1단 터빈 블레이드, GE F414 (Super Hornet) 의 HP 터빈, P&W F100 (F-15/F-16) 의 일부 블레이드, GE LM2500 (LCS 호위함 / Arleigh Burke 구축함의 추진 가스터빈) 의 1-2단 블레이드. 자동차에서는 F1 의 터보차저 휠 (Mercedes-AMG, Ferrari), Le Mans LMP1 의 hot-side wheel, 호주 V8 Supercars 의 일부 터보 휠 — 'racing 의 표준' 으로 자리잡았어요.\n\n흥미로운 사실. MAR-M 247 의 DS (Directionally Solidified, 일방향 응고) 변형은 길이방향 결정립을 모두 한 방향으로 정렬해 transverse 입계가 없어요. 이게 LCF (저주기 피로) 수명을 5~10배 늘려주거든요. 1985년 GE T700 (Black Hawk 엔진) 의 1단 블레이드부터 DS 가 도입됐고, 현재는 CC (conventional cast) vs DS vs SX (single crystal) 의 3 단계 진화로 매우 hot 한 응용에는 SX 변형 (CMSX-4) 이 쓰입니다.",
+  "story_refs": [
+    "Martin Marietta Corp Tech Memo (1971) \"MAR-M 247 Alloy Development\"",
+    "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM",
+    "Sims C T, Stoloff N S & Hagel W C (eds., 1987) Superalloys II, Wiley"
+  ],
+  "confidence_tier": "high"
+}

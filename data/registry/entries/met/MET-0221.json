@@ -1,0 +1,574 @@
+{
+  "stable_id": "MET-0221",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-alsi10mg",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "C_0017",
+  "origin": "curated(material_db)",
+  "id": "C_0017",
+  "name": "AlSi10Mg — Stress-relieved",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "curated",
+  "manufacturers": [
+    "GE Additive",
+    "EOS",
+    "Nikon SLM Solutions",
+    "3D Systems",
+    "BLT"
+  ],
+  "machines": [
+    "M2 cusing",
+    "M400-4",
+    "M290",
+    "SLM 280",
+    "SLM 500",
+    "NXG XII 600",
+    "M300-4",
+    "M400-9",
+    "M290-1",
+    "X Line 2000R",
+    "DMP Flex 350",
+    "ProX DMP 320",
+    "DMP Flex 350 Triple",
+    "DMP Factory 500",
+    "BLT (any)"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Stress-relieved",
+  "ranges": {
+    "density": {
+      "min": 2.67,
+      "max": 2.67,
+      "typical": 2.67,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 120,
+      "max": 200,
+      "typical": 165,
+      "n": 48,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 250,
+      "max": 320,
+      "typical": 280,
+      "n": 70,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 22.4,
+      "typical": 14,
+      "n": 82,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 75,
+      "max": 75,
+      "typical": 75,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 114,
+      "max": 126,
+      "typical": 120,
+      "n": 7,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 90,
+      "max": 140,
+      "typical": 115,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:alsi10mg"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 5,
+      "typical": 4,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:alsi10mg"
+    },
+    "fracture_toughness": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "max_service_temp": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "thermal_expansion": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "specific_heat": {
+      "min": 920,
+      "max": 920,
+      "typical": 920,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "melting_point": {
+      "min": 614,
+      "max": 614,
+      "typical": 614,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "price_per_cm3": {
+      "min": 0.0214,
+      "max": 0.0214,
+      "typical": 0.0214,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:alsi10mg"
+    },
+    "delivered_price_per_kg": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Si": "9.0~11.0",
+    "Mg": "0.20~0.45",
+    "Fe": "≤0.55",
+    "Mn": "≤0.45",
+    "Cu": "≤0.05",
+    "Zn": "≤0.10"
+  },
+  "sources": [
+    {
+      "label": "EOS — AlSi10Mg for DMLS/LPBF",
+      "url": "https://www.eos.info/metal-solutions/metal-materials",
+      "verified": true
+    },
+    {
+      "label": "Nikon SLM AlSi10Mg MDS 2026-01.1",
+      "url": "https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_AlSi10Mg_2026-01.1_EN.pdf",
+      "verified": true
+    },
+    {
+      "label": "EOS AlSi10Mg",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/aluminium",
+      "verified": true
+    },
+    {
+      "label": "EOS — AlSi10Mg material data sheet",
+      "url": "https://www.eos.info/en-us/3d-printing-materials/metals/aluminum/eos-aluminium-alsi10mg",
+      "verified": true
+    },
+    {
+      "label": "ASTM F3318 / ISO/ASTM 52907 — AM Powder Aluminum AlSi10Mg",
+      "url": "https://www.astm.org/f3318-18.html",
+      "verified": false
+    },
+    {
+      "label": "Aluminum Association — AlSi10Mg cast (~A360)",
+      "url": "https://www.aluminum.org/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.67,
+      155,
+      277.5,
+      15.5,
+      75,
+      120,
+      130
+    ],
+    [
+      2.67,
+      157.5,
+      282.5,
+      11.5,
+      75,
+      120,
+      130
+    ],
+    [
+      2.67,
+      175,
+      290,
+      16,
+      75,
+      121,
+      130
+    ],
+    [
+      2.67,
+      175,
+      295,
+      13,
+      75,
+      121,
+      130
+    ],
+    [
+      2.67,
+      165,
+      280,
+      17,
+      75,
+      126,
+      130
+    ],
+    [
+      2.67,
+      165,
+      285,
+      14,
+      75,
+      126,
+      130
+    ],
+    [
+      2.67,
+      145,
+      275,
+      14,
+      75,
+      120,
+      130
+    ],
+    [
+      2.67,
+      150,
+      280,
+      10,
+      75,
+      120,
+      130
+    ],
+    [
+      2.67,
+      130,
+      260,
+      15,
+      75,
+      114,
+      130
+    ],
+    [
+      2.67,
+      140,
+      270,
+      10,
+      75,
+      114,
+      130
+    ],
+    [
+      2.67,
+      145,
+      275,
+      14,
+      75,
+      120,
+      130
+    ],
+    [
+      2.67,
+      150,
+      280,
+      10,
+      75,
+      120,
+      130
+    ],
+    [
+      2.67,
+      130,
+      260,
+      15,
+      75,
+      114,
+      130
+    ],
+    [
+      2.67,
+      140,
+      270,
+      10,
+      75,
+      114,
+      130
+    ],
+    [
+      2.67,
+      185,
+      290,
+      16.7,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      185,
+      300,
+      15.7,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      170,
+      285,
+      13.9,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      160,
+      290,
+      12.9,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      185,
+      290,
+      16.7,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      185,
+      300,
+      15.7,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      170,
+      285,
+      13.9,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      160,
+      290,
+      12.9,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      175,
+      285,
+      18.7,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      175,
+      295,
+      11.9,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      170,
+      290,
+      17.5,
+      75,
+      null,
+      130
+    ],
+    [
+      2.67,
+      180,
+      300,
+      13.3,
+      75,
+      null,
+      130
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "applications": "Aerospace / Automotive lightweight structures",
+    "magnetic": "non-magnetic",
+    "melt_C": 570,
+    "cte": 21,
+    "cp": 910,
+    "poisson": 0.33,
+    "vendor_count": 49,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F3318",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 18,
+  "fatigue_strength": 115,
+  "density": 2.67,
+  "yield_strength": 165,
+  "uts": 280,
+  "elongation": 14,
+  "modulus": 75,
+  "hardness": 120,
+  "thermal_conductivity": 130,
+  "impact_strength": 4,
+  "manufacturer": "GE Additive, EOS, Nikon SLM Solutions, 3D Systems, BLT",
+  "process": "LPBF",
+  "source": "EOS — AlSi10Mg for DMLS/LPBF",
+  "aliases": [
+    "EN AC-43000",
+    "EN AC-AlSi10Mg",
+    "DIN 3.2381"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 230,
+      "uts": 360
+    },
+    {
+      "temp": 150,
+      "ys": 180,
+      "uts": 270
+    },
+    {
+      "temp": 200,
+      "ys": 120,
+      "uts": 180
+    },
+    {
+      "temp": 250,
+      "ys": 70,
+      "uts": 110
+    }
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 175,
+  "thermal_expansion": 21,
+  "poisson_ratio": 0.33,
+  "specific_heat": 920,
+  "melting_point": 614,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0214,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 20,
+  "total_cost_estimate": 36,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "story": "AlSi10Mg 는 1960년대부터 사용된 알루미늄 die-casting 합금 A360.0 / A413.0 (Al-Si-Mg eutectic family, EN AC-43000) 계열에서 진화한 조성입니다. Si 10% 가 Al-Si eutectic (12.6%) 에 근접해 fluidity 가 우수 → 복잡한 thin-wall casting 가능. Mg 0.2-0.45% 가 T6 시효처리 (530°C SHT + WQ + 175°C/3h aging) 시 Mg₂Si precipitate 를 형성해 σy 240 MPa / σUTS 360 MPa / El 8% 의 균형을 달성합니다.\n\n2010년대 들어 metal AM (LPBF, DMLS) 시장이 본격적으로 열리면서 AlSi10Mg 가 metal 3D 프린팅의 default Al 분말 자리에 올랐어요. 이유는 첫째, gas atomization 이 비교적 쉽고 (다른 high-strength Al 합금은 oxide 형성으로 atomization 어려움), 둘째, LPBF 의 빠른 열 사이클이 자연스럽게 fine Si network microstructure 를 만들어 as-built σy 가 단조 6061-T6 (276 MPa) 의 약 90% 수준 (240 MPa) 에 도달하기 때문입니다.\n\n응용 — 자동차 light-weight bracket / heat exchanger (Audi/BMW 의 일부 motorsport 부품), 항공 ECS (Environmental Control System) / antenna mount, F1 차의 일부 cooling duct 와 ducting (FSAE / Formula Student 표준), 의료 dental implant mount, 우주 satellite truss / mounting bracket. EOS 의 EOS Aluminum AlSi10Mg, SLM Solutions 의 AlSi10Mg, GE Additive Concept Laser 의 AlSi10Mg-A — 사실상 모든 metal AM vendor 의 표준 Al grade 입니다. ⚠ DED (Optomec LENS 등) 에는 wire feedstock 사용 — AlSi10Mg DED 는 wire 형태로 변환됨.",
+  "story_refs": [
+    "Aboulkhair N T et al. (2019) \"3D printing of Aluminium alloys: Additive Manufacturing of Aluminium alloys using selective laser melting\", Prog Mater Sci 106",
+    "EOS GmbH \"EOS Aluminium AlSi10Mg Material Data Sheet\" (2020)",
+    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
+  ],
+  "confidence_tier": "high"
+}

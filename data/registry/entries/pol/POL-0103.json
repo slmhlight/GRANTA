@@ -1,0 +1,250 @@
+{
+  "stable_id": "POL-0103",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-pom",
+    "alloy_base": "F-AB-pom-h-delrin-homopolymer-acetal",
+    "element_families": []
+  },
+  "legacy_id": "R_0315_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0315_0",
+  "name": "POM-H (Delrin, homopolymer acetal) — Dry as-molded (Delrin 100/500)",
+  "category": "Polymer",
+  "subcategory": "Polymer - POM",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection-Molded"
+  ],
+  "heat_treatment": "Dry as-molded (Delrin 100/500)",
+  "ranges": {
+    "density": {
+      "min": 1.41,
+      "max": 1.43,
+      "typical": 1.42,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "DuPont Delrin 150 datasheet"
+    },
+    "yield_strength": {
+      "min": 65,
+      "max": 75,
+      "typical": 70,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 65,
+      "max": 75,
+      "typical": 70,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "DuPont Delrin 150 ISO 527"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 75,
+      "typical": 40,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 2.8,
+      "max": 3.2,
+      "typical": 3.1,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.31,
+      "max": 0.31,
+      "typical": 0.31,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "max_service_temp": {
+      "min": 90,
+      "max": 105,
+      "typical": 100,
+      "n": 1,
+      "estimated": true,
+      "confidence": "measured",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "glass_transition_temp": {
+      "min": -109.5,
+      "max": -36.5,
+      "typical": -73,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "price_per_cm3": {
+      "min": 0.0177,
+      "max": 0.0532,
+      "typical": 0.0355,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Acetal (POM)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "40.0",
+    "H": "6.7",
+    "O": "53.3"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — POM (Acetal)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=POM+acetal",
+      "verified": false
+    },
+    {
+      "label": "Reference 1",
+      "url": "https://www.delrin.com",
+      "verified": false
+    },
+    {
+      "label": "DuPont Delrin POM technical guide",
+      "url": "https://www.dupont.com/products/delrin-acetal-homopolymer.html",
+      "verified": true
+    },
+    {
+      "label": "Celanese Hostaform POM copolymer",
+      "url": "https://www.celanese.com/products/hostaform-pom",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — POM Homopolymer",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1c4f97da0d8d4c3a8bf6b3d1c9c3e6e3",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.42,
+      70,
+      75,
+      35,
+      3.1,
+      0,
+      0.31
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "POM (Polyoxymethylene, Acetal). Homopolymer (Delrin 500) vs Copolymer (Hostaform C). Tm 165-175°C, HDT (1.8 MPa) ≈ 100°C, max service 80-100°C continuous, 100-120°C intermittent.",
+  "meta": {
+    "reference": true,
+    "condition": "Dry as-molded (Delrin 100/500)",
+    "flame_ul94": "HB",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.2,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.42,
+  "yield_strength": 70,
+  "uts": 75,
+  "elongation": 35,
+  "modulus": 3.1,
+  "hardness": null,
+  "thermal_conductivity": 0.31,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection-Molded",
+  "source": "MatWeb — POM (Acetal)",
+  "aliases": [
+    "Delrin 100",
+    "500"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Acetal (POM)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": -73,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0355,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 45,
+  "min_wall_thickness": 2,
+  "surface_finish_typical": 50,
+  "tolerance_class": "IT15",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

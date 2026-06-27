@@ -1,0 +1,298 @@
+{
+  "stable_id": "MET-0350",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cobalt-alloy-chrome",
+    "alloy_base": "F-AB-ultimet",
+    "element_families": [
+      "F-EL-cobalt-based"
+    ]
+  },
+  "legacy_id": "R_0132",
+  "origin": "reference(supplementary)",
+  "id": "R_0132",
+  "name": "Ultimet",
+  "category": "Metal",
+  "subcategory": "Cobalt Alloy - Chrome",
+  "tier": "reference",
+  "manufacturers": [
+    "Haynes International (Ultimet)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.47,
+      "max": 8.47,
+      "typical": 8.47,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 490,
+      "max": 570,
+      "typical": 530,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 980,
+      "max": 1080,
+      "typical": 1030,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 24,
+      "max": 32,
+      "typical": 28,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 228,
+      "max": 228,
+      "typical": 228,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 290,
+      "max": 320,
+      "typical": 300,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 212,
+      "max": 292,
+      "typical": 254,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (ASM Vol.2 Co alloys)"
+    },
+    "impact_strength": {
+      "min": 10,
+      "max": 50,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Co-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 110,
+      "typical": 80,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Cobalt alloys"
+    },
+    "electrical_conductivity": {
+      "min": 0.75,
+      "max": 2.25,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "max_service_temp": {
+      "min": 500,
+      "max": 1500,
+      "typical": 1000,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "thermal_expansion": {
+      "min": 6.25,
+      "max": 18.75,
+      "typical": 12.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "poisson_ratio": {
+      "min": 0.15,
+      "max": 0.45,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "specific_heat": {
+      "min": 210,
+      "max": 630,
+      "typical": 420,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "melting_point": {
+      "min": 665,
+      "max": 1995,
+      "typical": 1330,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "price_per_kg": {
+      "min": 30,
+      "max": 90,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "price_per_cm3": {
+      "min": 0.2541,
+      "max": 0.7623,
+      "typical": 0.5082,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Cobalt-Chrome Alloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 63,
+      "max": 63,
+      "typical": 63,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Co": "balance",
+    "Cr": "26",
+    "Ni": "9",
+    "Mo": "5",
+    "Fe": "3",
+    "W": "2"
+  },
+  "sources": [
+    {
+      "label": "Haynes International — Ultimet (UNS R31233)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (ASM Vol.2 Co alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Haynes International — ULTIMET alloy Principal Features (official datasheet, H-2082E, ©2020)",
+      "url": "https://haynesintl.com/wp-content/uploads/2024/08/ultimet.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.47,
+      530,
+      1030,
+      28,
+      228,
+      300,
+      11
+    ],
+    [
+      8.47,
+      490,
+      980,
+      24,
+      228,
+      290,
+      11
+    ],
+    [
+      8.47,
+      570,
+      1080,
+      32,
+      228,
+      320,
+      11
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS R31233",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 80,
+  "fatigue_strength": 254,
+  "density": 8.47,
+  "yield_strength": 530,
+  "uts": 1030,
+  "elongation": 28,
+  "modulus": 228,
+  "hardness": 300,
+  "thermal_conductivity": 11,
+  "impact_strength": 25,
+  "manufacturer": "Haynes International (Ultimet)",
+  "process": "Wrought",
+  "source": "Haynes International — Ultimet (UNS R31233)",
+  "aliases": [
+    "UNS R31233",
+    "Co-26Cr-9Ni-5Mo"
+  ],
+  "families": [
+    "Metal",
+    "Cobalt-Chrome Alloy",
+    "Cobalt-based"
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 1000,
+  "thermal_expansion": 12.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1330,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.5082,
+  "popularity": 1.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 63,
+  "total_cost_estimate": 113.4,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 9% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

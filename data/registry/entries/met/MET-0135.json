@@ -1,0 +1,318 @@
+{
+  "stable_id": "MET-0135",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-mg-alloys-5xxx",
+    "alloy_base": "F-AB-aa-5052",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0443_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0443_2",
+  "name": "AA 5052 — H34",
+  "category": "Metal",
+  "subcategory": "Aluminum - Mg Alloys (5xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "H34",
+  "ranges": {
+    "density": {
+      "min": 2.68,
+      "max": 2.68,
+      "typical": 2.68,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 215,
+      "max": 215,
+      "typical": 215,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 260,
+      "max": 260,
+      "typical": 260,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 73,
+      "max": 73,
+      "typical": 73,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 138,
+      "max": 138,
+      "typical": 138,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 99,
+      "max": 135,
+      "typical": 117,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.45·UTS, high): 5xxx temper-insensitive ~117MPa(17ksi) plateau (ALCOA/ASM 실측)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 30,
+      "typical": 23,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:aa5052 × HT:H16-H19/H34 3/4-full hard (f×1.15, i×0.75)"
+    },
+    "fracture_toughness": {
+      "min": 32.3,
+      "max": 32.3,
+      "typical": 32.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:H16-H19/H34 3/4-full hard (k×0.85)"
+    },
+    "electrical_conductivity": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5052"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5052"
+    },
+    "thermal_expansion": {
+      "min": 23.8,
+      "max": 23.8,
+      "typical": 23.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5052"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5052"
+    },
+    "specific_heat": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5052"
+    },
+    "melting_point": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5052"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5052"
+    },
+    "price_per_cm3": {
+      "min": 0.008,
+      "max": 0.008,
+      "typical": 0.008,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:5052"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.15,
+      "max": 3.15,
+      "typical": 3.15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Mg": "2.2~2.8",
+    "Cr": "0.15~0.35",
+    "Fe": "≤0.4",
+    "Si": "≤0.25",
+    "Mn": "≤0.10"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum 5052",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+5052",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5052",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "Aluminum Association H-Temper System / ASTM B209",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum 5xxx (Al-Mg)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "Aluminum Association — 5052 Data Sheet",
+      "url": "https://www.aluminum.org/sites/default/files/2021-11/TeachingTheStudents.pdf",
+      "verified": false
+    },
+    {
+      "label": "MatWeb — Aluminum 5052-H32",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=96d768abbb6f427c81d52c6c9335fcd0",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.68,
+      215,
+      260,
+      10,
+      70,
+      73,
+      138
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS A95052 / EN AW-5052 / AlMg2.5 / DIN 3.3523 — non-heat-treatable Al-Mg alloy (Mg 2.2-2.",
+  "meta": {
+    "reference": true,
+    "condition": "H34",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 32.3,
+  "fatigue_strength": 117,
+  "density": 2.68,
+  "yield_strength": 215,
+  "uts": 260,
+  "elongation": 10,
+  "modulus": 70,
+  "hardness": 73,
+  "thermal_conductivity": 138,
+  "impact_strength": 23,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Aluminum 5052",
+  "aliases": [
+    "UNS A95052",
+    "EN AW-5052",
+    "AlMg2.5"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Mg Alloys (5xxx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": true,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 195,
+      "uts": 230,
+      "E": 70
+    },
+    {
+      "temp": 100,
+      "ys": 185,
+      "uts": 220,
+      "E": 68
+    },
+    {
+      "temp": 200,
+      "ys": 165,
+      "uts": 195,
+      "E": 64
+    },
+    {
+      "temp": 300,
+      "ys": 70,
+      "uts": 95,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 35,
+  "max_service_temp": 200,
+  "thermal_expansion": 23.8,
+  "poisson_ratio": 0.33,
+  "specific_heat": 880,
+  "melting_point": 650,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.008,
+  "popularity": 5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.15,
+  "total_cost_estimate": 2.84,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1929년 Alcoa 의 에드거 H. 딕스 주니어 (Edgar H. Dix Jr.) 가 Al-Mg 2.5% 에 Cr 0.15-0.35% 를 첨가하면 cold-rolled 상태에서도 SCC (응력 부식 균열) 면역을 유지하면서 H32/H34 temper 의 강도를 안정적으로 보존할 수 있음을 확인합니다. 이전 5005 (Al-Mg 0.8%) 의 강도 한계와 5083 (Al-Mg 4.5%) 의 SCC 우려 사이의 sweet spot 을 찾은 결과였죠 (1944년 AIME Trans 156 에 발표).\n\n비열처리 가공경화 합금이라 시효처리 없이 H32 (1/4 hard) / H34 (1/2 hard) / H38 (full hard) temper 로 바로 사용합니다. H32 기준 σy 195 MPa / σUTS 230 MPa / El 12%. 해수 환경에서 부식 속도 0.02 mm/year 로 일정 (passive Al₂O₃ + Cr 추가로 pitting 회피), 양극산화 (anodizing) 후 표면 강도 + 내식성 boost.\n\n응용 — marine fuel tank (소형 보트 알루미늄 연료 탱크 표준 — Bayliner, Boston Whaler 일부 모델), 가전 backsplash (스테인리스 대안), 자동차 fuel tank, 산업 cargo container, 항공 ducting (non-structural), 알루미늄 가구 (Knoll, Herman Miller frame). ASTM B209 (sheet) / B221 (extrusion) 표준 — marine grade 의 대표.",
+  "story_refs": [
+    "Dix E H Jr. (1944) Trans AIME 156 \"Aluminum Alloy of High Resistance to Marine Atmosphere\"",
+    "Mondolfo L F (1976) Aluminum Alloys: Structure and Properties, Butterworths",
+    "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
+  ],
+  "confidence_tier": "high"
+}

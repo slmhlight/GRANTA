@@ -1,0 +1,266 @@
+{
+  "stable_id": "MET-0458",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-heat-resistant-steel",
+    "alloy_base": "F-AB-sa336-f22v-class-3-v-modified-2-25cr-1mo",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0357_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0357_1",
+  "name": "SA336 F22V Class 3 (V-modified 2.25Cr-1Mo) — hydroprocessing reactor — Q+T + Post-Weld HT (705°C/30h)",
+  "category": "Metal",
+  "subcategory": "Heat-Resistant Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Forged"
+  ],
+  "heat_treatment": "Q+T + Post-Weld HT (705°C/30h)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 490,
+      "max": 490,
+      "typical": 490,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 620,
+      "max": 620,
+      "typical": 620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 215,
+      "max": 215,
+      "typical": 215,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 36,
+      "max": 36,
+      "typical": 36,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 279,
+      "max": 279,
+      "typical": 279,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASME B&PV Sec.II heat-resistant"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.83,
+      "max": 2.83,
+      "typical": 2.83,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "2.0~2.5",
+    "Mo": "0.90~1.10",
+    "V": "0.25~0.35",
+    "Cb": "0.030~0.070",
+    "C": "0.11~0.15",
+    "Mn": "0.30~0.60",
+    "Si": "≤0.10"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://store.astm.org/a0336_a0336m-22.html",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASME B&PV Sec.II heat-resistant",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      490,
+      620,
+      16,
+      207,
+      215,
+      36
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Heavy-wall hydroprocessing reactor (hydrocracker, hydrotreater) shells per API 934-A; V/Cb stable carbides retard creep & H₂ disbonding (Nelson curve > P22 base).",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T + Post-Weld HT (705°C/30h)"
+  },
+  "fracture_toughness": 100,
+  "density": 7.85,
+  "yield_strength": 490,
+  "uts": 620,
+  "elongation": 16,
+  "modulus": 207,
+  "hardness": 215,
+  "thermal_conductivity": 36,
+  "fatigue_strength": 279,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Forged",
+  "source": "Datasheet 2",
+  "aliases": [
+    "V-modified 2.25Cr-1Mo",
+    "30h"
+  ],
+  "families": [
+    "Metal",
+    "Heat-Resistant Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.15,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.83,
+  "total_cost_estimate": 2.55,
+  "tolerance_class": "IT12-14",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

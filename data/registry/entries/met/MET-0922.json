@@ -1,0 +1,447 @@
+{
+  "stable_id": "MET-0922",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-6al-4v-am",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "C_0010",
+  "origin": "curated(material_db)",
+  "id": "C_0010",
+  "name": "Ti-6Al-4V (AM) — Heat-Treated",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "curated",
+  "manufacturers": [
+    "3D Systems",
+    "GE Additive",
+    "EOS",
+    "Nikon SLM Solutions",
+    "BLT",
+    "Velo3D"
+  ],
+  "machines": [
+    "DMP Flex 100",
+    "DMP Flex 350",
+    "M2 cusing",
+    "M290",
+    "M400-4",
+    "M300-4",
+    "M290-3",
+    "M290-6",
+    "M400-3",
+    "M4 Onyx",
+    "M290-4",
+    "M290-8",
+    "M2 Series 5",
+    "M Line",
+    "X Line 2000R",
+    "SLM 500 PROD",
+    "SLM 280 PREC",
+    "SLM 280 PRIM",
+    "SLM 280 PROD",
+    "SLM 500 PREC",
+    "SLM 500 PRIM",
+    "NXG XII 600 PRIM",
+    "NXG XII 600 PROD",
+    "NXG XII 600 PROD+",
+    "BLT (any)",
+    "Sapphire (500W)",
+    "M2 Series 5 (400W coarse)",
+    "M2 Series 5 (1kW)"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Heat-Treated",
+  "ranges": {
+    "density": {
+      "min": 4.43,
+      "max": 4.43,
+      "typical": 4.43,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 940,
+      "max": 1085,
+      "typical": 1010,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1050,
+      "max": 1240,
+      "typical": 1090,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 14,
+      "max": 15,
+      "typical": 15,
+      "n": 14,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 114,
+      "max": 114,
+      "typical": 114,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 365,
+      "max": 365,
+      "typical": 365,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 6.7,
+      "max": 6.7,
+      "typical": 6.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 450,
+      "max": 600,
+      "typical": 525,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:ti6al4v"
+    },
+    "impact_strength": {
+      "min": 17,
+      "max": 24,
+      "typical": 20,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:ti6al4v"
+    },
+    "fracture_toughness": {
+      "min": 75,
+      "max": 75,
+      "typical": 75,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "max_service_temp": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "thermal_expansion": {
+      "min": 8.9,
+      "max": 8.9,
+      "typical": 8.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "specific_heat": {
+      "min": 526,
+      "max": 526,
+      "typical": 526,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "melting_point": {
+      "min": 1660,
+      "max": 1660,
+      "typical": 1660,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "price_per_kg": {
+      "min": 28,
+      "max": 55,
+      "typical": 38,
+      "n": 1,
+      "estimated": false,
+      "confidence": "measured",
+      "provenance": "TIMET Ti-6Al-4V bar Q2 2026 + Ti sponge spot price ($14/kg base)"
+    },
+    "price_per_cm3": {
+      "min": 0.1431,
+      "max": 0.1935,
+      "typical": 0.1683,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 87.5,
+      "max": 87.5,
+      "typical": 87.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Al": "5.5~6.75",
+    "V": "3.5~4.5",
+    "O": "≤0.20",
+    "Fe": "≤0.40",
+    "C": "≤0.08",
+    "N": "≤0.05",
+    "H": "≤0.015"
+  },
+  "sources": [
+    {
+      "label": "TIMET — Ti-6Al-4V Grade 5 MatWeb",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V",
+      "verified": false
+    },
+    {
+      "label": "Nikon SLM Ti6Al4V Gr23",
+      "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/11/mds5137.pdf",
+      "verified": true
+    },
+    {
+      "label": "EOS Titanium",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/titanium",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.43,
+      1085,
+      1240,
+      14,
+      114,
+      365,
+      6.7
+    ],
+    [
+      4.43,
+      1020,
+      1110,
+      14,
+      114,
+      365,
+      6.7
+    ],
+    [
+      4.43,
+      940,
+      1050,
+      14,
+      114,
+      null,
+      6.7
+    ],
+    [
+      4.43,
+      980,
+      1050,
+      15,
+      114,
+      null,
+      6.7
+    ],
+    [
+      4.43,
+      1000,
+      1100,
+      15,
+      114,
+      null,
+      6.7
+    ],
+    [
+      4.43,
+      1020,
+      1110,
+      15,
+      114,
+      null,
+      6.7
+    ],
+    [
+      4.43,
+      990,
+      1090,
+      15,
+      114,
+      null,
+      6.7
+    ],
+    [
+      4.43,
+      1010,
+      1090,
+      14,
+      114,
+      null,
+      6.7
+    ],
+    [
+      4.43,
+      990,
+      1090,
+      15,
+      114,
+      null,
+      6.7
+    ],
+    [
+      4.43,
+      1010,
+      1090,
+      14,
+      114,
+      null,
+      6.7
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "applications": "Aerospace / Medical implants / Motorsports",
+    "magnetic": "non-magnetic",
+    "melt_C": 1660,
+    "cte": 9,
+    "cp": 560,
+    "poisson": 0.34,
+    "vendor_count": 57,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "anisotropy_reduced": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Ti6Al4V (Gr5, Gr23)"
+  },
+  "fracture_toughness": 75,
+  "fatigue_strength": 525,
+  "density": 4.43,
+  "yield_strength": 1010,
+  "uts": 1090,
+  "elongation": 15,
+  "modulus": 114,
+  "hardness": 365,
+  "thermal_conductivity": 6.7,
+  "impact_strength": 20,
+  "manufacturer": "3D Systems, GE Additive, EOS, Nikon SLM Solutions, BLT, Velo3D",
+  "process": "LPBF",
+  "source": "TIMET — Ti-6Al-4V Grade 5 Datasheet",
+  "aliases": [
+    "Gr5",
+    "Gr23",
+    "UNS R56400",
+    "ASTM Grade 5",
+    "DIN 3.7165",
+    "Gr23 ELI (R56407)",
+    "GB TC4",
+    "JIS Class 60",
+    "Russian VT6"
+  ],
+  "families": [
+    "Metal",
+    "Titanium",
+    "Titanium-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 880,
+      "uts": 950,
+      "E": 113
+    },
+    {
+      "temp": 200,
+      "ys": 710,
+      "uts": 820,
+      "E": 110
+    },
+    {
+      "temp": 400,
+      "ys": 560,
+      "uts": 670,
+      "E": 100
+    },
+    {
+      "temp": 500,
+      "ys": 470,
+      "uts": 570,
+      "E": 92
+    }
+  ],
+  "electrical_conductivity": 1,
+  "max_service_temp": 350,
+  "thermal_expansion": 8.9,
+  "poisson_ratio": 0.34,
+  "specific_heat": 526,
+  "melting_point": 1660,
+  "price_per_kg": 35,
+  "price_per_cm3": 0.1683,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 87.5,
+  "total_cost_estimate": 157.5,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "creep_rupture": [
+    {
+      "temp": 450,
+      "stress": 350,
+      "hours": 100
+    },
+    {
+      "temp": 450,
+      "stress": 280,
+      "hours": 1000
+    },
+    {
+      "temp": 500,
+      "stress": 200,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "high"
+}

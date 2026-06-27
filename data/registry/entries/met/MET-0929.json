@@ -1,0 +1,350 @@
+{
+  "stable_id": "MET-0929",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-6al-4v-grade-5",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "R_0002_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0002_2",
+  "name": "Ti-6Al-4V (Grade 5) — Solution + Aged (STA, 955°C → 540°C/4h)",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution + Aged (STA, 955°C → 540°C/4h)",
+  "ranges": {
+    "density": {
+      "min": 4.43,
+      "max": 4.43,
+      "typical": 4.43,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1170,
+      "max": 1170,
+      "typical": 1170,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 113,
+      "max": 113,
+      "typical": 113,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 6.7,
+      "max": 6.7,
+      "typical": 6.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 495,
+      "max": 660,
+      "typical": 578,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:ti6al4v × HT:STA aged (f×1.1, i×0.9)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 22,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:ti6al4v × HT:STA aged (f×1.1, i×0.9)"
+    },
+    "fracture_toughness": {
+      "min": 71.3,
+      "max": 71.3,
+      "typical": 71.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:STA aged (k×0.95)"
+    },
+    "electrical_conductivity": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "max_service_temp": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "thermal_expansion": {
+      "min": 8.9,
+      "max": 8.9,
+      "typical": 8.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "specific_heat": {
+      "min": 526,
+      "max": 526,
+      "typical": 526,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "melting_point": {
+      "min": 1660,
+      "max": 1660,
+      "typical": 1660,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "price_per_kg": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "price_per_cm3": {
+      "min": 0.155,
+      "max": 0.155,
+      "typical": 0.155,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:ti6al4v"
+    },
+    "delivered_price_per_kg": {
+      "min": 53.29,
+      "max": 53.29,
+      "typical": 53.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Al": "5.5~6.75",
+    "V": "3.5~4.5",
+    "Fe": "≤0.3",
+    "O": "≤0.2"
+  },
+  "sources": [
+    {
+      "label": "TIMET — Ti-6Al-4V Grade 5 MatWeb",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=10d463eb3d3d4ff48fc57e0ad1037434",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 4928 / ASTM F136",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Ti-6Al-4V (α+β titanium)",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205020/Titanium-Alloys",
+      "verified": true
+    },
+    {
+      "label": "AMS 4928 — Ti-6Al-4V annealed bar",
+      "url": "https://www.sae.org/standards/content/ams4928v/",
+      "verified": false
+    },
+    {
+      "label": "MMPDS-08 Vol.1 — Ti-6Al-4V Chap.5",
+      "url": "https://www.mmpds.org/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      4.43,
+      1100,
+      1170,
+      10,
+      113,
+      380,
+      6.7
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS R56400 / ASTM Grade 5 / DIN 3.7165 / GB TC4 / JIS Class 60 / Russian VT6 — 가장 흔한 α+β titanium alloy (Al 5.5-6.75, V 3.5-4.5, Ti bal). Mill 43. β-transus 980-1000°C. max service 350°C continuous (α-stabilizer effect), 600°C short. 항공 fastener, jet engine fan/compressor blade, 의료 임플란트 (Ti grade 5 ELI / Gr23 = lower O/Fe — Grade 23 별도 entry), AM LPBF 표준 (EOS Ti64, SLM Ti6Al4V).",
+  "meta": {
+    "reference": true,
+    "condition": "Solution + Aged (STA, 955°C → 540°C/4h)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 4928",
+        "org": "AMS"
+      },
+      {
+        "id": "ASTM F136",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 71.3,
+  "fatigue_strength": 578,
+  "density": 4.43,
+  "yield_strength": 1100,
+  "uts": 1170,
+  "elongation": 10,
+  "modulus": 113,
+  "hardness": 380,
+  "thermal_conductivity": 6.7,
+  "impact_strength": 18,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "TIMET — Ti-6Al-4V Grade 5 Datasheet",
+  "aliases": [
+    "Grade 5",
+    "4h",
+    "UNS R56400",
+    "ASTM Grade 5",
+    "DIN 3.7165",
+    "Gr23 ELI (R56407)",
+    "GB TC4",
+    "JIS Class 60",
+    "Russian VT6"
+  ],
+  "families": [
+    "Metal",
+    "Titanium - α+β (Ti-6Al-4V class)",
+    "Titanium-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 880,
+      "uts": 950,
+      "E": 113
+    },
+    {
+      "temp": 200,
+      "ys": 710,
+      "uts": 820,
+      "E": 110
+    },
+    {
+      "temp": 400,
+      "ys": 560,
+      "uts": 670,
+      "E": 100
+    },
+    {
+      "temp": 500,
+      "ys": 470,
+      "uts": 570,
+      "E": 92
+    }
+  ],
+  "electrical_conductivity": 1,
+  "max_service_temp": 350,
+  "thermal_expansion": 8.9,
+  "poisson_ratio": 0.34,
+  "specific_heat": 526,
+  "melting_point": 1660,
+  "price_per_kg": 35,
+  "price_per_cm3": 0.155,
+  "popularity": 5,
+  "machining_cost_factor": 2.2,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 53.29,
+  "total_cost_estimate": 117.23,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "creep_rupture": [
+    {
+      "temp": 450,
+      "stress": 350,
+      "hours": 100
+    },
+    {
+      "temp": 450,
+      "stress": 280,
+      "hours": 1000
+    },
+    {
+      "temp": 500,
+      "stress": 200,
+      "hours": 1000
+    }
+  ],
+  "story": "1940년, 룩셈부르크 출신 화학자 윌리엄 저스틴 크롤 (William Justin Kroll) 이 Mg 환원으로 sponge titanium 의 산업 공정을 완성합니다 (Kroll process, US Patent 2,205,854). 그로부터 14년 뒤인 1954년 미국 Battelle Memorial Institute (오하이오 콜럼버스) 의 스탠리 아브코비츠 (Stanley Abkowitz) 와 R J 셔먼 (Sherman) 이 새 도전에 나서요. Al 6% (α 안정화) + V 4% (β 안정화) 의 비율로 α+β 양상 합금을 만들어보자는 시도였죠. 결과는 단연 압도적 — 1956년 USAF 의 SR-71 후보 합금 평가에서 Ti-6Al-4V 가 1위로 선정됐습니다.\n\nTi-6Al-4V (또는 Ti64) 가 차지하는 위상은 그야말로 압도적이에요. 전 세계 Ti 사용량의 약 56% 가 이 한 합금이거든요. F-22 / F-35 fuselage frame, Boeing 787 의 landing gear (ELI 변형), GE GE9X 의 fan disc, SpaceX Merlin 엔진 valve body, 의료 — ASTM F136 / F1472 의 hip stem 과 dental implant 전체 시장의 80%, Apple Watch Series 7 Edition case, F1 차의 suspension wishbone … 어디든 '비강도 (σ_y/ρ ≈ 200 km) + 부식 저항' 이 필요하면 Ti64 가 답.\n\nAM (LPBF, EBM) 에서도 가장 인기 분말이에요. 이유? atomization 이 비교적 쉽고, post-HIP + STA 처리로 단조 수준의 강도를 회복할 수 있어서죠. SpaceX Raptor 의 일부 valve, Aurora UAV 의 mounting bracket, NASA Artemis Orion 의 RCS thruster bracket 까지 — 모두 Ti64 LPBF. 약점은 oxygen 흡수예요 — 700°C 이상에서 표면이 빠르게 산화되니까, hot work 도 진공 또는 inert gas 환경이 필수입니다.",
+  "story_refs": [
+    "Kroll W J (1940) US Patent 2,205,854 \"Method for manufacturing titanium and alloys thereof\"",
+    "Boyer R R, Welsch G & Collings E W (1994) Materials Properties Handbook: Titanium Alloys, ASM",
+    "Donachie M J (2000) Titanium: A Technical Guide, ASM",
+    "Lütjering G & Williams J C (2007) Titanium, 2nd ed., Springer"
+  ],
+  "confidence_tier": "medium"
+}

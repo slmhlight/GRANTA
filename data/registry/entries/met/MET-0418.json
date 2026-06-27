@@ -1,0 +1,325 @@
+{
+  "stable_id": "MET-0418",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-cu-pure",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "C_0036",
+  "origin": "curated(material_db)",
+  "id": "C_0036",
+  "name": "Cu (Pure) — Heat-Treated",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "curated",
+  "manufacturers": [
+    "EOS"
+  ],
+  "machines": [
+    "M290",
+    "M290 1kW CuCP"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "Heat-Treated",
+  "ranges": {
+    "density": {
+      "min": 8.96,
+      "max": 8.96,
+      "typical": 8.96,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 117,
+      "max": 117,
+      "typical": 117,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 50,
+      "max": 76,
+      "typical": 63,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 130,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Cu-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 110,
+      "typical": 80,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Cu alloys general"
+    },
+    "electrical_conductivity": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Copper"
+    },
+    "max_service_temp": {
+      "min": 100,
+      "max": 300,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Copper"
+    },
+    "thermal_expansion": {
+      "min": 8.75,
+      "max": 26.25,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Copper"
+    },
+    "poisson_ratio": {
+      "min": 0.17,
+      "max": 0.51,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Copper"
+    },
+    "specific_heat": {
+      "min": 192.5,
+      "max": 577.5,
+      "typical": 385,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Copper"
+    },
+    "melting_point": {
+      "min": 541.5,
+      "max": 1624.5,
+      "typical": 1083,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Copper"
+    },
+    "price_per_kg": {
+      "min": 4.5,
+      "max": 13.5,
+      "typical": 9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Copper"
+    },
+    "price_per_cm3": {
+      "min": 0.0403,
+      "max": 0.1209,
+      "typical": 0.0806,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Copper"
+    },
+    "delivered_price_per_kg": {
+      "min": 22.5,
+      "max": 22.5,
+      "typical": 22.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "≥99.95",
+    "O": "≤0.04"
+  },
+  "sources": [
+    {
+      "label": "EOS Copper Cu PDS - M290 20μm",
+      "url": "https://www.eos.info/metal-solutions/data-sheets/copper/pds-eos-copper-cu-eos-m-290-20um",
+      "verified": true
+    },
+    {
+      "label": "EOS Copper CuCP PDS - M290 1kW 40μm",
+      "url": "https://www.eos.info/metal-solutions/data-sheets/copper/pds-eos-copper-cucp-eos-m-290-1kw-40um",
+      "verified": true
+    },
+    {
+      "label": "EOS MDS summary — copper cu",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-copper-cu",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.96,
+      180,
+      200,
+      5,
+      117,
+      null,
+      380
+    ],
+    [
+      8.96,
+      180,
+      200,
+      5,
+      117,
+      null,
+      380
+    ],
+    [
+      8.96,
+      180,
+      200,
+      5,
+      117,
+      null,
+      380
+    ],
+    [
+      8.96,
+      180,
+      200,
+      5,
+      117,
+      null,
+      380
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "applications": "Electrical / Heat exchangers / RF antennas",
+    "magnetic": "non-magnetic",
+    "melt_C": 1083,
+    "cte": 17.5,
+    "cp": 385,
+    "poisson": 0.34,
+    "vendor_count": 3,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수."
+  },
+  "fracture_toughness": 80,
+  "fatigue_strength": 63,
+  "density": 8.96,
+  "yield_strength": 180,
+  "uts": 200,
+  "elongation": 5,
+  "modulus": 117,
+  "hardness": null,
+  "thermal_conductivity": 380,
+  "impact_strength": 80,
+  "manufacturer": "EOS",
+  "process": "LPBF",
+  "source": "EOS Copper Cu PDS - M290 20μm",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "electrical_conductivity": 90,
+  "max_service_temp": 200,
+  "thermal_expansion": 17.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 385,
+  "melting_point": 1083,
+  "price_per_kg": 9,
+  "price_per_cm3": 0.0806,
+  "popularity": 1.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 22.5,
+  "total_cost_estimate": 40.5,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 70,
+      "uts": 220,
+      "E": 117
+    },
+    {
+      "temp": 100,
+      "ys": 60,
+      "uts": 200,
+      "E": 113
+    },
+    {
+      "temp": 200,
+      "ys": 50,
+      "uts": 170,
+      "E": 107
+    },
+    {
+      "temp": 300,
+      "ys": 40,
+      "uts": 140,
+      "E": 100
+    },
+    {
+      "temp": 400,
+      "ys": 30,
+      "uts": 110,
+      "E": 90
+    }
+  ],
+  "confidence_tier": "high"
+}

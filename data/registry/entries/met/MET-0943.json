@@ -1,0 +1,279 @@
+{
+  "stable_id": "MET-0943",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-cpm-s30v",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0209",
+  "origin": "reference(supplementary)",
+  "id": "R_0209",
+  "name": "CPM S30V",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (HRC 60-61, 1080°C austenitize + 200°C temper)",
+  "ranges": {
+    "density": {
+      "min": 7.47,
+      "max": 7.47,
+      "typical": 7.47,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1700,
+      "max": 1800,
+      "typical": 1800,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1900,
+      "max": 2000,
+      "typical": 2000,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 2,
+      "typical": 2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 226,
+      "max": 226,
+      "typical": 226,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 580,
+      "max": 600,
+      "typical": 600,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 630,
+      "max": 900,
+      "typical": 756,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 10,
+      "max": 22,
+      "typical": 15,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Crucible PM tool steel"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0381,
+      "max": 0.0515,
+      "typical": 0.0448,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "1.45",
+    "Cr": "14",
+    "V": "4",
+    "Mo": "2"
+  },
+  "sources": [
+    {
+      "label": "Crucible — CPM S30V stainless tool/knife steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Crucible PM tool steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Hudson Tool Steel — CPM S30V Technical Data (조성+HRC+템퍼표+충격)",
+      "url": "https://www.hudsontoolsteel.com/technical-data/steelCPMS30V",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.47,
+      1800,
+      2000,
+      2,
+      226,
+      600,
+      20
+    ],
+    [
+      7.47,
+      1700,
+      1900,
+      1,
+      226,
+      580,
+      20
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 15,
+  "fatigue_strength": 756,
+  "density": 7.47,
+  "yield_strength": 1800,
+  "uts": 2000,
+  "elongation": 2,
+  "modulus": 226,
+  "hardness": 600,
+  "thermal_conductivity": 20,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Crucible — CPM S30V stainless tool/knife steel",
+  "aliases": [
+    "CPM S30V",
+    "UNS S30V"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0448,
+  "popularity": 3.07,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.75,
+  "total_cost_estimate": 15.5,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

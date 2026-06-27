@@ -1,0 +1,307 @@
+{
+  "stable_id": "MET-0419",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-cucr1zr-c18150",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0260",
+  "origin": "reference(supplementary)",
+  "id": "R_0260",
+  "name": "CuCr1Zr (C18150) — Wrought, Aged",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Aged",
+  "ranges": {
+    "density": {
+      "min": 8.89,
+      "max": 8.89,
+      "typical": 8.89,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 230,
+      "max": 320,
+      "typical": 270,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 370,
+      "max": 450,
+      "typical": 410,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 25,
+      "typical": 18,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 120,
+      "max": 140,
+      "typical": 130,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 128,
+      "max": 173,
+      "typical": 150,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.37·UTS, medium): aged CuCrZr HCF ~110-160MPa@1e7 (~0.37·UTS)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 100,
+      "typical": 70,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c18150"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18150"
+    },
+    "max_service_temp": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18150"
+    },
+    "thermal_expansion": {
+      "min": 17.6,
+      "max": 17.6,
+      "typical": 17.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18150"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18150"
+    },
+    "specific_heat": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18150"
+    },
+    "melting_point": {
+      "min": 1075,
+      "max": 1075,
+      "typical": 1075,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18150"
+    },
+    "price_per_kg": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18150"
+    },
+    "price_per_cm3": {
+      "min": 0.16,
+      "max": 0.16,
+      "typical": 0.16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c18150"
+    },
+    "delivered_price_per_kg": {
+      "min": 23.63,
+      "max": 23.63,
+      "typical": 23.63,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Cr": "0.5~1.5",
+    "Zr": "0.05~0.25"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C18150 Copper-Chromium-Zirconium",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C18150",
+      "verified": true
+    },
+    {
+      "label": "C18150 CuCrZr — Aviva Metals",
+      "url": "https://www.avivametals.com/products/copper-and-copper-alloys",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Cu-Cr-Zr / Cu-Ni-Si-Cr family",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Brush Wellman C18150 (Hycon 3 HP) datasheet",
+      "url": "https://materion.com/-/media/files/alloy/datasheets/copper/c18150-elbrodur-cuyc-rolled-datasheet.pdf",
+      "verified": true
+    },
+    {
+      "label": "ASTM B441 — CuCrZr Bar/Rod (C18150)",
+      "url": "https://store.astm.org/b0441-19.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.89,
+      270,
+      410,
+      18,
+      130,
+      130,
+      320
+    ],
+    [
+      8.89,
+      230,
+      370,
+      12,
+      130,
+      120,
+      320
+    ],
+    [
+      8.89,
+      320,
+      450,
+      25,
+      130,
+      140,
+      320
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS C18150 / EN CW106C / CuCr1Zr / DIN 2.1293 — precipitation-hardened Cu alloy (Cr 0.5-1.5, Zr 0.03-0.30, Cu bal). 우수한 thermal/electrical conductivity (IACS 80%) + moderate strength. AM LPBF Tmax 480°C. Resistance welding electrode tip, EDM electrode, motor rotor bar, fusion reactor (ITER divertor cooling), NASA rocket engine combustion chamber. AM LPBF for rocket nozzle (Ti-CuCrZr brazing 대안).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B441",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 150,
+  "density": 8.89,
+  "yield_strength": 270,
+  "uts": 410,
+  "elongation": 18,
+  "modulus": 130,
+  "hardness": 130,
+  "thermal_conductivity": 320,
+  "impact_strength": 70,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Copper.org — C18150 Copper-Chromium-Zirconium",
+  "aliases": [
+    "C18150",
+    "UNS C18150",
+    "EN CW106C",
+    "CuCrZr"
+  ],
+  "families": [
+    "Metal",
+    "Copper-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 80,
+  "max_service_temp": 350,
+  "thermal_expansion": 17.6,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 1075,
+  "price_per_kg": 18,
+  "price_per_cm3": 0.16,
+  "popularity": 4.07,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 23.63,
+  "total_cost_estimate": 21.26,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1940년대 미국 GE 와 독일 Krupp 이 거의 동시에 spot welding electrode 의 표준 자재를 찾던 중 등장한 합금이에요. Cu 99% + Cr 1% + Zr 0.1% — 매우 낮은 합금 함량이지만 Cr 의 시효 석출 (Cu₃Cr 미세 분산) + Zr 의 grain boundary 안정화로 σ_y 350 MPa + 80% IACS (Cu 의 80% 전도성) + 800°C 까지 strength 유지의 균형을 달성했죠.\n\n응용은 자동차 산업의 spot welding 의 절대 표준입니다. 한 대의 자동차에는 4000~6000 개의 spot weld 가 있는데, 그 모든 weld 의 electrode tip 이 CuCr1Zr 이에요. Toyota Camry 의 차체 spot weld electrode, Ford F-150 의 robotic spot weld 의 모든 tip — CuCr1Zr 의 6 mm 끝부분. 한 tip 당 약 2000~3000 weld cycle 후 grinding-renewal 이 필요합니다.\n\n산업 — railway overhead contact wire (전철·KTX 의 catenary wire — Cu 의 wear + 강도가 동시에 필요), 산업용 motor brush, 산업 heat exchanger (고온 + 부식 환경의 tube). UNS C18150 (Cu-Cr-Zr) 과 C18200 (Cu-Cr) 의 두 grade 가 ASTM B105 표준이에요.",
+  "story_refs": [
+    "ASTM B105 \"Standard Specification for Hard-Drawn Copper Alloy Wires for Electric Conductors\"",
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Copper Development Association \"Resistance Welding Electrode Materials\" Pub TN 28 (2010)"
+  ],
+  "confidence_tier": "high"
+}

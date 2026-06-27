@@ -1,0 +1,289 @@
+{
+  "stable_id": "MET-0945",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-d3-tool-steel",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0221",
+  "origin": "reference(supplementary)",
+  "id": "R_0221",
+  "name": "D3 tool steel",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (HRC 60, 980°C austenitize + 180°C temper)",
+  "ranges": {
+    "density": {
+      "min": 7.7,
+      "max": 7.7,
+      "typical": 7.7,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1300,
+      "max": 1400,
+      "typical": 1400,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1800,
+      "max": 1900,
+      "typical": 1900,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 2,
+      "typical": 2,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 720,
+      "max": 740,
+      "typical": 740,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 490,
+      "max": 700,
+      "typical": 588,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 15,
+      "max": 40,
+      "typical": 25,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Tool Steels"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0393,
+      "max": 0.0531,
+      "typical": 0.0462,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "2.0~2.35",
+    "Cr": "11~13.5"
+  },
+  "sources": [
+    {
+      "label": "ASM — D3 cold-work tool steel (DIN 1.2080)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "OTAI/astmsteel — D3 (1.2080/X210Cr12/SKD1) (ASTM A681·DIN·JIS 조성+58~64 HRC)",
+      "url": "https://www.astmsteel.com/product/d3-cold-work-steel-1-2080-x210cr12-skd1/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.7,
+      1400,
+      1900,
+      2,
+      210,
+      740,
+      20
+    ],
+    [
+      7.7,
+      1300,
+      1800,
+      1,
+      210,
+      720,
+      20
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM A681",
+        "org": "ASTM"
+      },
+      {
+        "id": "DIN 1.2080",
+        "org": "DIN"
+      }
+    ]
+  },
+  "fracture_toughness": 25,
+  "fatigue_strength": 588,
+  "density": 7.7,
+  "yield_strength": 1400,
+  "uts": 1900,
+  "elongation": 2,
+  "modulus": 210,
+  "hardness": 740,
+  "thermal_conductivity": 20,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — D3 cold-work tool steel (DIN 1.2080)",
+  "aliases": [
+    "DIN 1.2080",
+    "X210Cr12",
+    "JIS SKD1",
+    "AISI D3"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0462,
+  "popularity": 3.07,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.75,
+  "total_cost_estimate": 13.95,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

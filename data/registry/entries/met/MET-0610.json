@@ -1,0 +1,288 @@
+{
+  "stable_id": "MET-0610",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-rene-80-cast-ni-turbine-superalloy",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0302_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0302_1",
+  "name": "Rene 80 (cast Ni turbine superalloy) — Cast + HIP + Aged",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "GE Aviation (Rene legacy)"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "Cast + HIP + Aged",
+  "ranges": {
+    "density": {
+      "min": 8.16,
+      "max": 8.16,
+      "typical": 8.16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 385,
+      "max": 385,
+      "typical": 385,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 385,
+      "max": 517,
+      "typical": 451,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80 × HT:HIP densified (cast) (f×1.1, i×1.05)"
+    },
+    "impact_strength": {
+      "min": 16,
+      "max": 32,
+      "typical": 23,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80 × HT:HIP densified (cast) (f×1.1, i×1.05)"
+    },
+    "fracture_toughness": {
+      "min": 31.5,
+      "max": 31.5,
+      "typical": 31.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:HIP densified (cast) (k×1.05)"
+    },
+    "electrical_conductivity": {
+      "min": 1.3,
+      "max": 1.3,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80"
+    },
+    "max_service_temp": {
+      "min": 950,
+      "max": 950,
+      "typical": 950,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80"
+    },
+    "thermal_expansion": {
+      "min": 12.7,
+      "max": 12.7,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80"
+    },
+    "specific_heat": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80"
+    },
+    "melting_point": {
+      "min": 1310,
+      "max": 1310,
+      "typical": 1310,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80"
+    },
+    "price_per_kg": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80"
+    },
+    "price_per_cm3": {
+      "min": 1.632,
+      "max": 1.632,
+      "typical": 1.632,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:rene80"
+    },
+    "delivered_price_per_kg": {
+      "min": 660,
+      "max": 660,
+      "typical": 660,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "13~15",
+    "Co": "9~10",
+    "Mo": "3.5~4.5",
+    "W": "3.5~4.5",
+    "Al": "2.8~3.2",
+    "Ti": "4.7~5.1"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 2",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene%2080",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals — Rene 80 Technical Bulletin",
+      "url": "https://www.specialmetals.com/",
+      "verified": false
+    },
+    {
+      "label": "GE Aviation Rene 80 (legacy CF6, F404 turbine blade)",
+      "url": "https://www.geaviation.com/",
+      "verified": false
+    },
+    {
+      "label": "Neway AeroTech — Rene 80 (equiaxed crystal casting) 조성+물성 페이지",
+      "url": "https://www.newayaerotech.com/services/equiaxed-crystal-casting/rene-80",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.16,
+      880,
+      1100,
+      6,
+      210,
+      385,
+      11
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "Rene 80 — GE Aviation 의 conventional (polycrystalline) cast Ni-base γ' precipitation-hardened superalloy. Composition: Ni bal, Cr 13.7-14.3, Co 9.",
+  "meta": {
+    "reference": true,
+    "condition": "Cast + HIP + Aged",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 31.5,
+  "fatigue_strength": 451,
+  "density": 8.16,
+  "yield_strength": 880,
+  "uts": 1100,
+  "elongation": 6,
+  "modulus": 210,
+  "hardness": 385,
+  "thermal_conductivity": 11,
+  "impact_strength": 23,
+  "manufacturer": "GE Aviation (Rene legacy)",
+  "process": "Cast",
+  "source": "Datasheet 2",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 950,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.3,
+  "specific_heat": 420,
+  "melting_point": 1310,
+  "price_per_kg": 200,
+  "price_per_cm3": 1.632,
+  "popularity": 2.37,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.75,
+  "price_condition_factor": 1.65,
+  "price_form_factor": 1,
+  "price_grade_premium": 2,
+  "delivered_price_per_kg": 660,
+  "total_cost_estimate": 1188,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "medium"
+}

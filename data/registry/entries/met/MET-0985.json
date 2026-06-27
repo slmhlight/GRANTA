@@ -1,0 +1,276 @@
+{
+  "stable_id": "MET-0985",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-wear-resistant-steel",
+    "alloy_base": "F-AB-hadfield-manganese-steel-mn13-astm-a128-grade-b",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0361_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0361_2",
+  "name": "Hadfield Manganese Steel (Mn13, ASTM A128 Grade B) — WT + In-service work-hardened (impact-loaded, 5 mm depth)",
+  "category": "Metal",
+  "subcategory": "Wear-Resistant Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "WT + In-service work-hardened (impact-loaded, 5 mm depth)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 550,
+      "max": 550,
+      "typical": 550,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 495,
+      "max": 495,
+      "typical": 495,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Wear-Resistant Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.1,
+      "max": 2.1,
+      "typical": 2.1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Mn": "11~14",
+    "C": "1.10~1.40",
+    "Si": "≤1.0",
+    "P": "≤0.07"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "https://store.astm.org/a0128_a0128m-19.html",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.1 — Hadfield Manganese Steel",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Hadfield Mn 13 austenitic",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Hadfield",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      480,
+      1100,
+      18,
+      200,
+      550,
+      13
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Hadfield Manganese Steel (Mn13 / ASTM A128 Grade B) — austenitic Mn-steel (C 1.05-1.35, Mn 11.5-14.",
+  "meta": {
+    "reference": true,
+    "condition": "WT + In-service work-hardened (impact-loaded, 5 mm depth)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A128",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "density": 7.85,
+  "yield_strength": 480,
+  "uts": 1100,
+  "elongation": 18,
+  "modulus": 200,
+  "hardness": 550,
+  "thermal_conductivity": 13,
+  "fatigue_strength": 495,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "Datasheet 3",
+  "aliases": [
+    "Mn13",
+    "ASTM A128 Grade B",
+    "5 mm depth"
+  ],
+  "families": [
+    "Metal",
+    "Wear-Resistant Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.53,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.1,
+  "total_cost_estimate": 3.78,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "story": "1882년 영국 셰필드 (Sheffield), 19세의 로버트 애벗 해드필드 (Robert Abbott Hadfield) 가 부친의 Hecla Works 에서 13% Mn (당시 표준은 1% 미만) 의 새 steel 을 water-quench 했더니 brittle 한 줄 알았던 강이 오히려 work-hardening 으로 단단해지는 현상을 발견합니다 — 1883년 영국 특허 200/1883 으로 출원, 'Manganese Steel' 또는 'Hadfield's Steel' 로 명명됐어요. 인류 최초의 alloy steel 입니다.\n\nHadfield 가 발견한 매커니즘은 γ (austenite) → ε-martensite + 변형 쌍정 (deformation twin) 의 응력 유발 변태 — 충격 시 표면이 자체적으로 HV 200 → HV 550 으로 두 배 단단해지는 거예요. 응용 — jaw / cone crusher 의 mantle (BHP 광업의 Komatsu PC8000 buckets, Vale Carajás iron mine), 철도 frog / crossing (KTX / Shinkansen 의 switch point), 굴착기 bucket teeth, dragline excavator 의 rope sheave, anti-magnetic 군용 ship turret (γ-austenite 가 non-magnetic 이라 자기 mine 안전), 미 NY 주 Sing Sing 교도소의 전기의자 머리 띠.",
+  "story_refs": [
+    "Hadfield R A (1883) UK Patent 200/1883 \"Manganese-steel\"",
+    "Hadfield R A (1888) \"Hadfield's Manganese Steel\", Proc Inst Civil Eng 93",
+    "Davis J R (ed., 1995) ASM Specialty Handbook: Carbon and Alloy Steels",
+    "Bhadeshia H K D H (2017) Steels: Microstructure and Properties, 4th ed., Butterworth-Heinemann"
+  ],
+  "confidence_tier": "high"
+}

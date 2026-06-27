@@ -1,0 +1,305 @@
+{
+  "stable_id": "MET-0209",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-7068",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0198",
+  "origin": "reference(supplementary)",
+  "id": "R_0198",
+  "name": "AA 7068",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.85,
+      "max": 2.85,
+      "typical": 2.85,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 560,
+      "max": 600,
+      "typical": 600,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 610,
+      "max": 640,
+      "typical": 640,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 7,
+      "max": 9,
+      "typical": 9,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 73,
+      "max": 73,
+      "typical": 73,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 180,
+      "max": 190,
+      "typical": 190,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 190,
+      "max": 190,
+      "typical": 190,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 180,
+      "max": 276,
+      "typical": 228,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 5,
+      "max": 18,
+      "typical": 10,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based"
+    },
+    "fracture_toughness": {
+      "min": 24,
+      "max": 24,
+      "typical": 24,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 38,
+      "max": 38,
+      "typical": 38,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7068"
+    },
+    "max_service_temp": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7068"
+    },
+    "thermal_expansion": {
+      "min": 23.5,
+      "max": 23.5,
+      "typical": 23.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7068"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7068"
+    },
+    "specific_heat": {
+      "min": 875,
+      "max": 875,
+      "typical": 875,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7068"
+    },
+    "melting_point": {
+      "min": 632,
+      "max": 632,
+      "typical": 632,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7068"
+    },
+    "price_per_kg": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7068"
+    },
+    "price_per_cm3": {
+      "min": 0.0513,
+      "max": 0.0513,
+      "typical": 0.0513,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7068"
+    },
+    "delivered_price_per_kg": {
+      "min": 20.79,
+      "max": 20.79,
+      "typical": 20.79,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Zn": "7.3~8.3",
+    "Mg": "2.2~3",
+    "Cu": "1.6~2.4"
+  },
+  "sources": [
+    {
+      "label": "ASM — AA 7068 high-strength aluminium (T6511)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Aluminum Association AA 7075-T651",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Kaiser Aluminum 7068 technical reference",
+      "url": "https://www.kaiseraluminum.com/",
+      "verified": false
+    },
+    {
+      "label": "AMS 4332 — Aluminum 7068-T6511 bar",
+      "url": "https://www.sae.org/standards/content/ams4332/",
+      "verified": false
+    },
+    {
+      "label": "Kaiser/Tennalum 7068 T6, T6511 Rod & Bar datasheet (mechanical properties)",
+      "url": "https://www.lookpolymers.com/polymer_Kaiser-7068-T6-T6511-Rod-Bar.php",
+      "verified": true
+    },
+    {
+      "label": "Smiths Metal Centres — 7068 Aluminium Alloy overview (AMS 4331, yield up to 700 MPa; full property table only in linked PDF)",
+      "url": "https://www.smithmetal.com/7068.htm",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.85,
+      600,
+      640,
+      9,
+      73,
+      190,
+      190
+    ],
+    [
+      2.85,
+      560,
+      610,
+      7,
+      73,
+      180,
+      190
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "UNS A97068 / EN AW-7068 / AlZn8MgCu — heat-treatable Al-Zn-Mg-Cu — **가장 강한 wrought aluminum** (Zn 7.3-8.3, Mg 2.2-3.0, Cu 1.6-2.4, Zr 0.05-0.15). 7075 보다 +15% 강도. T6/T6511 (peak): σy 605-640 / UTS 640-680 / El 9% / HB 200. T7 (over-Tmax 120°C continuous. Cost 7075 의 1.5-2×. 미사일 body, MK19 grenade launcher receiver, sniper 라이플 bolt carrier, 경기용 baseball bat (banned BBCOR — too high COR).",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 4332",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 4331",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 24,
+  "fatigue_strength": 228,
+  "density": 2.85,
+  "yield_strength": 600,
+  "uts": 640,
+  "elongation": 9,
+  "modulus": 73,
+  "hardness": 190,
+  "thermal_conductivity": 190,
+  "impact_strength": 10,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASM — AA 7068 high-strength aluminium (T6511)",
+  "aliases": [
+    "UNS A97068",
+    "EN AW-7068"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 38,
+  "max_service_temp": 120,
+  "thermal_expansion": 23.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 875,
+  "melting_point": 632,
+  "price_per_kg": 18,
+  "price_per_cm3": 0.0513,
+  "popularity": 3.2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.1,
+  "delivered_price_per_kg": 20.79,
+  "total_cost_estimate": 20.79,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

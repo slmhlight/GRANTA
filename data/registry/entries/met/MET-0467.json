@@ -1,0 +1,316 @@
+{
+  "stable_id": "MET-0467",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-magnesium-alloy",
+    "alloy_base": "F-AB-az31b-magnesium",
+    "element_families": [
+      "F-EL-magnesium-based"
+    ]
+  },
+  "legacy_id": "R_0047",
+  "origin": "reference(supplementary)",
+  "id": "R_0047",
+  "name": "AZ31B Magnesium",
+  "category": "Metal",
+  "subcategory": "Magnesium Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.77,
+      "max": 1.77,
+      "typical": 1.77,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 150,
+      "max": 220,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 245,
+      "max": 290,
+      "typical": 260,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 16,
+      "typical": 15,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 60,
+      "max": 80,
+      "typical": 73,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 96,
+      "max": 96,
+      "typical": 96,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 55,
+      "max": 95,
+      "typical": 75,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 8,
+      "typical": 5,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "fracture_toughness": {
+      "min": 28,
+      "max": 28,
+      "typical": 28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 32,
+      "max": 32,
+      "typical": 32,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 150,
+      "typical": 150,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "thermal_expansion": {
+      "min": 26,
+      "max": 26,
+      "typical": 26,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "poisson_ratio": {
+      "min": 0.35,
+      "max": 0.35,
+      "typical": 0.35,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "specific_heat": {
+      "min": 1024,
+      "max": 1024,
+      "typical": 1024,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "melting_point": {
+      "min": 632,
+      "max": 632,
+      "typical": 632,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "price_per_kg": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "price_per_cm3": {
+      "min": 0.0124,
+      "max": 0.0124,
+      "typical": 0.0124,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:az31b"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.35,
+      "max": 7.35,
+      "typical": 7.35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "balance",
+    "Al": "2.5~3.5",
+    "Zn": "0.6~1.4",
+    "Mn": "≥0.2"
+  },
+  "sources": [
+    {
+      "label": "Luxfer/Magnesium Elektron — AZ31B Magnesium",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ31B+magnesium",
+      "verified": false
+    },
+    {
+      "label": "ASM — AZ31B (UNS M11311)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Mg alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Magnesium AZ31B",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205013/Magnesium-Alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — AZ31B-O Magnesium Alloy",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=4b97b5f0b1d6411a90b6f8c75e2fa5c1",
+      "verified": false
+    },
+    {
+      "label": "ASTM B90 / B107 — Mg Sheet / Tube AZ31B",
+      "url": "https://store.astm.org/b0090_b0090m-15r19.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.77,
+      200,
+      260,
+      15,
+      45,
+      73,
+      96
+    ],
+    [
+      1.77,
+      150,
+      245,
+      12,
+      45,
+      60,
+      96
+    ],
+    [
+      1.77,
+      220,
+      290,
+      16,
+      45,
+      80,
+      96
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS M11311 / ASTM AZ31B / MgAl3Zn1 — wrought magnesium (Al 2.5-3.5, Zn 0.6-1.4, Mn ≥ 0.2). O temper: σy 105 / UTS 220 / El 12%. H24 (cold-rolled + part ρ 1.77 g/cc (Al 의 65%). E 45 GPa (강성 낮음 — 같은 강도 대비 thicker section). 자동차 dashboard/scaffolding (소형 차량 weight 절감), 노트북 magnesium housing, 자전거 frame (low cost), 군용 helmet liner. Tmax 150°C continuous (creep 약점). 가공 시 lubricant flammability — Mg shaving fire 위험.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B90",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS M11311",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 28,
+  "fatigue_strength": 75,
+  "density": 1.77,
+  "yield_strength": 200,
+  "uts": 260,
+  "elongation": 15,
+  "modulus": 45,
+  "hardness": 73,
+  "thermal_conductivity": 96,
+  "impact_strength": 5,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Luxfer/Magnesium Elektron — AZ31B Magnesium",
+  "aliases": [
+    "UNS M11311",
+    "EN MgAl3Zn1",
+    "ISO MgAl3Zn1A"
+  ],
+  "families": [
+    "Metal",
+    "Magnesium Alloy",
+    "Magnesium-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 32,
+  "max_service_temp": 150,
+  "thermal_expansion": 26,
+  "poisson_ratio": 0.35,
+  "specific_heat": 1024,
+  "melting_point": 632,
+  "price_per_kg": 7,
+  "price_per_cm3": 0.0124,
+  "popularity": 4,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.35,
+  "total_cost_estimate": 6.62,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1933년 미국 Dow Chemical 의 허버트 다우 (Herbert Dow) 와 Alcoa 의 영국 자회사가 Mg-Al 3% + Zn 1% 합금을 처음 표준화했어요. H24 (rolled + partial annealed) sheet 로 1939년부터 미국 Beechcraft 의 항공기 cowling 에 사용됐죠. AZ 명명법은 A = Aluminum, Z = Zinc, 숫자는 wt% 표시 — 1948년 ASTM B107 으로 표준 등재됐습니다.\n\nMg 합금의 위상은 독특해요 — 1.74 g/cm³의 가장 가벼운 구조 금속 (Al 2.7 의 65%), σ_y 200 MPa. HCP 결정구조 때문에 cold workability 가 낮은 게 한계지만, 200°C+ 의 hot rolling 으로 sheet 제조는 가능합니다. 응용 — VW Beetle 의 transmission case (1938-2003, Mg 가 100%), Boeing 747 의 cockpit 내부 floor panel, MacBook Pro 의 내부 chassis (M1 모델 일부), Sony α7 mirrorless camera body, 항공기 일반 wheel, 자동차 steering wheel armature. 한계는 부식 (galvanic + 자체적 Mg 의 anodic 반응) — 그래서 차체 외부 응용은 매우 제한적입니다.",
+  "story_refs": [
+    "ASTM B107 / B107M \"Standard Specification for Magnesium-Alloy Extruded Bars, Rods, Profiles, Tubes, and Wire\"",
+    "Avedesian M M & Baker H (eds., 1999) ASM Specialty Handbook: Magnesium and Magnesium Alloys",
+    "Friedrich H E & Mordike B L (eds., 2006) Magnesium Technology: Metallurgy, Design Data, Applications, Springer"
+  ],
+  "confidence_tier": "high"
+}

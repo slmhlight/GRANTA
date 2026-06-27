@@ -1,0 +1,264 @@
+{
+  "stable_id": "CER-0009",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-carbide",
+    "alloy_base": "F-AB-tungsten-carbide-wc-co-12",
+    "element_families": []
+  },
+  "legacy_id": "CER_009",
+  "origin": "ceramics-data",
+  "id": "CER_009",
+  "name": "Tungsten Carbide (WC-Co, 12%)",
+  "category": "Ceramic",
+  "subcategory": "Carbide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 14.2,
+      "max": 14.2,
+      "typical": 14.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1750,
+      "max": 1750,
+      "typical": 1750,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1750,
+      "max": 1750,
+      "typical": 1750,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 580,
+      "max": 580,
+      "typical": 580,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1350,
+      "max": 1350,
+      "typical": 1350,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "max_service_temp": {
+      "min": 700,
+      "max": 850,
+      "typical": 750,
+      "n": 1,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "specific_heat": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "melting_point": {
+      "min": 3410,
+      "max": 3410,
+      "typical": 3410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_kg": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "electrical_conductivity": {
+      "min": 31,
+      "max": 31,
+      "typical": 31,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "fracture_toughness": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 200,
+      "max": 360,
+      "typical": 280,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "impact_strength": {
+      "min": 2,
+      "max": 8,
+      "typical": 4,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "price_per_cm3": {
+      "min": 0.994,
+      "max": 0.994,
+      "typical": 0.994,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:tungsten"
+    },
+    "delivered_price_per_kg": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "W": "93.9",
+    "C": "6.1"
+  },
+  "sources": [
+    {
+      "label": "Kennametal — Tungsten Carbide (WC-Co, 12%)",
+      "url": "https://www.kennametal.com/us/en/products/wear-protection/wear-parts",
+      "verified": true
+    },
+    {
+      "label": "Applications: 충격 하중 절삭공구, 광산 비트, 내마모 부품",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Kennametal WC-Co cemented carbide grades",
+      "url": "https://www.kennametal.com/us/en/about-us/material-science.html",
+      "verified": true
+    },
+    {
+      "label": "Sandvik Coromant Carbide grades reference",
+      "url": "https://www.sandvik.coromant.com/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B777 — Tungsten Heavy Alloy",
+      "url": "https://store.astm.org/b0777-15r20.html",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "충격 하중 절삭공구, 광산 비트, 내마모 부품",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B777",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 5,
+  "density": 14.2,
+  "yield_strength": 1750,
+  "uts": 1750,
+  "elongation": null,
+  "modulus": 580,
+  "hardness": 1350,
+  "thermal_conductivity": 65,
+  "fatigue_strength": 280,
+  "impact_strength": 4,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "Kennametal — Tungsten Carbide (WC-Co, 12%)",
+  "aliases": [
+    "12%"
+  ],
+  "families": [
+    "Ceramic",
+    "Carbide"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 31,
+  "max_service_temp": 1700,
+  "thermal_expansion": 4.5,
+  "poisson_ratio": 0.28,
+  "specific_heat": 135,
+  "melting_point": 3410,
+  "price_per_kg": 70,
+  "price_per_cm3": 0.994,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 105,
+  "total_cost_estimate": 0,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "Tungsten Carbide (WC) 의 cemented carbide 형태는 1923년 독일 Osram 의 Karl Schröter 가 발견한 cobalt-binder sintering 공정이 시작입니다. 1925년 Krupp 이 'Widia' (Wie Diamant = 다이아몬드 같은) 이라는 상표로 시장 출시했고, GE 가 미국에서 1928년 'Carboloy' 라는 이름으로 상품화했어요. 이게 현대 cemented carbide industry 의 시작입니다.\n\nWC 의 메커니즘은 단순합니다. WC 단결정 (Mohs 9, HV 2400) 입자를 6-20% Co metal binder 가 둘러싸 sintering 으로 결합합니다. 이렇게 만든 WC-Co 의 경도는 HRC 70-75, σ_compress 5000 MPa, KIC 10-20 MPa·√m 의 압도적 강도 + 약간의 인성을 갖습니다. Co 함량으로 hardness vs toughness 균형을 조절해요 (6% Co → 매우 단단·brittle, 20% Co → 부드럽지만 tough).\n\n응용: cutting tool — turning insert, milling cutter, drill bit (전 세계 절삭공구 시장의 90% 이상이 WC-Co), 광산 drill bit (rock drilling 의 button bit), 자동차 stamping die (high-volume sheet metal forming die), 정밀 micro mold (시계 watch 부품 forming), wear-resistant coating (HVOF spray WC-Co coating on landing gear), 그리고 ammunition penetrator (군용 KE penetrator 의 일부 grade, depleted uranium 대안). 정밀 측정 분야의 표준 reference block (Mitutoyo / Carl Zeiss 의 calibration block) 도 WC-Co 입니다. 가격은 $40-80/kg 이지만 cutting tool life 가 HSS 의 5-10 배라 cost-of-ownership 은 압도적으로 유리합니다.",
+  "story_refs": [
+    "Schröter K (1925) German Patent 420,689 \"Process for Making Hard Metal Alloys\"",
+    "Schubert W D, Lassner E, & Böhlke W (2010) Tungsten 4th ed., Springer",
+    "Roebuck B (2018) Cemented Carbides Handbook, NPL"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "WC-Co cemented carbide (cobalt binder). 6 wt% Co (K10): σf 2200 / E 630 / ρ 14.9 / HV 1700 / Tmax 1700°C (Co melt T) — 가장 hard + wear-resistant. 12 wt% Co (K30): σf 1750 / E 580 / ρ 14.2 / HV 1300 — tougher, less hard. 24% Co — 충격 우수. Mohs ~9. 가공 (sintered HIP). Cutting tool insert (lathe/mill), die (wire drawing, can-forming), rock drill bit, ball valve seat, 군용 KE penetrator core (W heavy alloy variant). ⚠ Co inhalation 발암성 (NIOSH carcinogen)."
+}

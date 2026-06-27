@@ -1,0 +1,372 @@
+{
+  "stable_id": "MET-0447",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy-brass",
+    "alloy_base": "F-AB-c26000",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "G_0131",
+  "origin": "generic(csv)",
+  "id": "G_0131",
+  "name": "C26000 — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy - Brass",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 8.53,
+      "max": 8.53,
+      "typical": 8.53,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 139.5,
+      "max": 163.5,
+      "typical": 151.5,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 316.2,
+      "max": 370.6,
+      "typical": 343.4,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 55.08,
+      "max": 74.12,
+      "typical": 67.32,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 97,
+      "max": 97,
+      "typical": 97,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 69.75,
+      "max": 81.75,
+      "typical": 75.75,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 121,
+      "max": 121,
+      "typical": 121,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 46,
+      "max": 66,
+      "typical": 56,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+    },
+    "impact_strength": {
+      "min": 140,
+      "max": 350,
+      "typical": 245,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+    },
+    "fracture_toughness": {
+      "min": 82.5,
+      "max": 82.5,
+      "typical": 82.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:annealed (austenitic) (k×1.5)"
+    },
+    "electrical_conductivity": {
+      "min": 28,
+      "max": 28,
+      "typical": 28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000"
+    },
+    "thermal_expansion": {
+      "min": 19.9,
+      "max": 19.9,
+      "typical": 19.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000"
+    },
+    "specific_heat": {
+      "min": 375,
+      "max": 375,
+      "typical": 375,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000"
+    },
+    "melting_point": {
+      "min": 915,
+      "max": 915,
+      "typical": 915,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000"
+    },
+    "price_per_kg": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000"
+    },
+    "price_per_cm3": {
+      "min": 0.064,
+      "max": 0.064,
+      "typical": 0.064,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c26000"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.88,
+      "max": 7.88,
+      "typical": 7.88,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "68~71.5",
+    "Zn": "balance",
+    "Pb": "≤0.07",
+    "Fe": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C26000 Cartridge Brass",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C26000",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"C26000\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C26000",
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — C26000 70/30 cartridge brass",
+      "url": "https://www.copper.org/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B19 — Cartridge Brass Sheet/Plate",
+      "url": "https://store.astm.org/b0019-22.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.53,
+      139.5,
+      316.2,
+      56.440000000000005,
+      97,
+      69.75,
+      121
+    ],
+    [
+      8.53,
+      157.5,
+      357,
+      71.4,
+      97,
+      78.75,
+      121
+    ],
+    [
+      8.53,
+      145.5,
+      329.8,
+      72.76,
+      97,
+      72.75,
+      121
+    ],
+    [
+      8.53,
+      151.5,
+      343.4,
+      55.080000000000005,
+      97,
+      75.75,
+      121
+    ],
+    [
+      8.53,
+      153,
+      346.8,
+      69.36,
+      97,
+      76.5,
+      121
+    ],
+    [
+      8.53,
+      148.5,
+      336.6,
+      67.32,
+      97,
+      74.25,
+      121
+    ],
+    [
+      8.53,
+      148.5,
+      336.6,
+      67.32,
+      97,
+      74.25,
+      121
+    ],
+    [
+      8.53,
+      144,
+      326.4,
+      65.28,
+      97,
+      72,
+      121
+    ],
+    [
+      8.53,
+      163.5,
+      370.6,
+      74.12,
+      97,
+      81.75,
+      121
+    ],
+    [
+      8.53,
+      153,
+      346.8,
+      62.56,
+      97,
+      76.5,
+      121
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 10,
+    "subcategory_variants": [
+      "Copper - Brass (Cu-Zn)",
+      "Titanium - Pure/Other"
+    ],
+    "conditions": [
+      "Cartridge Brass"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B19",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 82.5,
+  "fatigue_strength": 56,
+  "density": 8.53,
+  "yield_strength": 151.5,
+  "uts": 343.4,
+  "elongation": 67.32,
+  "modulus": 97,
+  "hardness": 75.75,
+  "thermal_conductivity": 121,
+  "impact_strength": 245,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "Copper.org — C26000 Cartridge Brass",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Copper Alloy - Brass"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 28,
+  "max_service_temp": 200,
+  "thermal_expansion": 19.9,
+  "poisson_ratio": 0.33,
+  "specific_heat": 375,
+  "melting_point": 915,
+  "price_per_kg": 7.5,
+  "price_per_cm3": 0.064,
+  "popularity": 4.15,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.88,
+  "total_cost_estimate": 7.09,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1882년 미국 Federal Cartridge 가 탄피 (cartridge case) 의 표준 합금으로 채택한 70% Cu + 30% Zn 의 α-brass. Zn 30% 가 정확히 cold-work 의 극한 한계 — 한 번의 deep-drawing 으로 brass strip 이 탄피 모양으로 변형되면서도 균열이 안 가는 sweet spot 이었어요. 1925년 ASTM B36 으로 표준화됐고, UNS C26000 으로 등재됐죠.\n\n응용은 군용·산업 일대. 군용 탄피 — M16 의 5.56×45 NATO, M2 Browning 의 .50 BMG, M240 의 7.62×51 NATO — 모두 C26000. 산업 — 가스라이터의 fuel chamber, 전자관 envelope, 음향 wind instrument (트럼펫, 트럼본의 bell 부분 — 음향적 brilliance 가 70/30 의 특징입니다), pen body (Cross 펜의 일부 grade), 라디에이터의 core tube. 한국 풍산 (Poongsan) 이 글로벌 cartridge brass 의 약 20% 를 점유 — 한국이 cartridge case 산업의 강자 중 하나예요.\n\n흥미. cartridge brass 의 일관 deep-drawing 공정은 '15 단계 이상의 cup-drawing + 중간 annealing' 의 매우 정교한 manufacturing process 이고, scrap 회수율이 95% 가 넘는 모범적 closed-loop 산업입니다. 한 발의 탄피가 결국 다시 탄피로 돌아오는 거죠.",
+  "story_refs": [
+    "ASTM B36 \"Standard Specification for Brass Plate, Sheet, Strip, And Rolled Bar\"",
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Mendenhall J H (ed., 1980) Understanding Copper Alloys, Olin Brass"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS C26000 / EN CW505L / CuZn30 — Cartridge Brass 70Cu-30Zn — 가장 흔한 'brass'. Excellent cold workability (deep-drawn cartridge case의 이유). CW (H02): σy 350 / UTS 425. C26800 (Yellow Brass 66Cu-34Zn): O σy 100 / UTS 320 / El 60%, H 1/4: σy 270 / UTS 385. Tmax 200°C. 탄피, 식기, 자동차 radiator core, 악기 (sax/trumpet), 시계 부품. SCC 우려 (NH₃, 해수 + 인장응력)."
+}

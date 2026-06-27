@@ -1,0 +1,304 @@
+{
+  "stable_id": "MET-0982",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel-mold",
+    "alloy_base": "F-AB-stavax-esr-uddeholm-aisi-420-mod",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0353_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0353_0",
+  "name": "STAVAX ESR (Uddeholm, ≈ AISI 420 mod) — corrosion-resistant mold — Soft Annealed (delivery)",
+  "category": "Metal",
+  "subcategory": "Tool Steel - Mold",
+  "tier": "reference",
+  "manufacturers": [
+    "Uddeholm (voestalpine)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Soft Annealed (delivery)",
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 760,
+      "max": 760,
+      "typical": 760,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 230,
+      "max": 230,
+      "typical": 230,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 108,
+      "max": 138,
+      "typical": 123,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:420 × HT:spheroidized annealed (f×0.3, i×4)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 120,
+      "typical": 72,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:420 × HT:spheroidized annealed (f×0.3, i×4)"
+    },
+    "fracture_toughness": {
+      "min": 66,
+      "max": 66,
+      "typical": 66,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:spheroidized annealed (k×2.2)"
+    },
+    "electrical_conductivity": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "max_service_temp": {
+      "min": 500,
+      "max": 580,
+      "typical": 540,
+      "n": 1,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "thermal_expansion": {
+      "min": 10.3,
+      "max": 10.3,
+      "typical": 10.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "melting_point": {
+      "min": 1480,
+      "max": 1480,
+      "typical": 1480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "price_per_kg": {
+      "min": 3.7,
+      "max": 3.7,
+      "typical": 3.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "price_per_cm3": {
+      "min": 0.0289,
+      "max": 0.0289,
+      "typical": 0.0289,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:420"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.96,
+      "max": 3.96,
+      "typical": 3.96,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "13.6",
+    "C": "0.38",
+    "Mn": "0.50",
+    "Si": "0.90",
+    "V": "0.30"
+  },
+  "sources": [
+    {
+      "label": "AK Steel — 420 Stainless Steel",
+      "url": "https://www.aksteel.com/our-products/stainless/420-stainless-steel",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.uddeholm.com/en/products/uddeholm-stavax-esr/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Bohler M333 Isoplast — comparable PH stainless mold steel",
+      "url": "https://www.bohler.at/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      540,
+      760,
+      14,
+      200,
+      230,
+      25
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Uddeholm Stavax ESR / DIN 1.2083 mod / X40Cr14 — corrosion-resistant ESR (Electroslag Remelted) mold steel (C 0.38, Cr 13.6, Si 0.",
+  "meta": {
+    "reference": true,
+    "condition": "Soft Annealed (delivery)",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 66,
+  "fatigue_strength": 123,
+  "density": 7.8,
+  "yield_strength": 540,
+  "uts": 760,
+  "elongation": 14,
+  "modulus": 200,
+  "hardness": 230,
+  "thermal_conductivity": 25,
+  "impact_strength": 72,
+  "manufacturer": "Uddeholm (voestalpine)",
+  "process": "Wrought",
+  "source": "AK Steel — 420 Stainless Steel",
+  "aliases": [
+    "≈ AISI 420 mod",
+    "UNS S42000",
+    "EN 1.4021",
+    "JIS SUS420J2",
+    "KS STS420J2"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel - Mold",
+    "Iron-based",
+    "Tool Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 10.3,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.7,
+  "price_per_cm3": 0.0289,
+  "popularity": 4.35,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.96,
+  "total_cost_estimate": 3.96,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1480,
+      "uts": 1720,
+      "E": 200
+    },
+    {
+      "temp": 200,
+      "ys": 1330,
+      "uts": 1570,
+      "E": 192
+    },
+    {
+      "temp": 400,
+      "ys": 1100,
+      "uts": 1300,
+      "E": 174
+    }
+  ],
+  "story": "STAVAX ESR 은 Uddeholm (현 voestalpine Group) 의 plastic mold-grade stainless tool steel 입니다. Original 발표는 1972년 스웨덴 Uddeholm Tooling 으로, AISI 420 (13% Cr martensitic stainless tool steel) 의 ESR (Electroslag Remelting, 전극용해 정련) variant 입니다. ESR 공정은 inclusion (산화물 · 황화물 비금속 개재물) 을 1/10 수준으로 낮춰 polish 표면이 거울 같은 수준 (Ra < 0.05 μm) 까지 가능해집니다.\n\nSTAVAX ESR 은 13% Cr + 0.5% Si + 0.4% Mn + 0.38% C 의 martensitic stainless 입니다. Q+T 후 HRC 48-52 hardness 와 함께 stainless 의 부식 저항 + ESR 의 polish ability + plastic mold 의 abrasion resistance 를 모두 갖춘 hybrid 입니다. Q+T 표준은 1030°C oil quench + 350°C double temper.\n\n응용은 plastic injection mold 의 '거울 표면' 이 필요한 cavity 입니다. CD/DVD pressing mold (0.7 μm pit 을 정확히 transfer), 광학 lens mold (안경 lens, 카메라 lens), 의료 syringe / catheter mold, 일반 소비재 의 transparent component (transparent ABS housing), 그리고 자동차 headlamp lens mold (acrylic 또는 polycarbonate 의 광학 cavity). STAVAX ESR 가격은 $25-35/kg 으로 일반 P20 mold steel ($8/kg) 대비 3-4 배이지만 corrosion 환경 (산성 또는 chloride 함유 resin) 의 mold 수명을 10 배 이상 늘립니다.",
+  "story_refs": [
+    "Uddeholm STAVAX ESR Tech Data (revised 2018)",
+    "Boyer H F & Gall T L (1985) Metals Handbook Desk Edition, ASM",
+    "Roberts G A et al. (1998) Tool Steels 5th ed., ASM"
+  ],
+  "confidence_tier": "high"
+}

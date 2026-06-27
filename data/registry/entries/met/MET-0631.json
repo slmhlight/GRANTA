@@ -1,0 +1,287 @@
+{
+  "stable_id": "MET-0631",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-pressure-vessel-steel",
+    "alloy_base": "F-AB-sa516-gr-70-p355n-pressure-vessel",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0344_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0344_0",
+  "name": "SA516 Gr 70 / P355N (pressure vessel) — Normalized (min spec)",
+  "category": "Metal",
+  "subcategory": "Pressure Vessel Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Normalized (min spec)",
+  "ranges": {
+    "density": {
+      "min": 7.78,
+      "max": 7.78,
+      "typical": 7.78,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 355,
+      "max": 355,
+      "typical": 355,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 490,
+      "max": 490,
+      "typical": 490,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 206,
+      "max": 206,
+      "typical": 206,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 155,
+      "max": 155,
+      "typical": 155,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 75,
+      "max": 120,
+      "typical": 90,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASME SA-516 pressure vessel"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0109,
+      "max": 0.0203,
+      "typical": 0.0156,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.21,
+      "max": 2.21,
+      "typical": 2.21,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "96.1~99.1",
+    "Mn": "0.9~1.7",
+    "Al": "0.02",
+    "Si": "≤0.4",
+    "C": "≤0.16",
+    "Ni": "≤0.5",
+    "Cr": "≤0.3",
+    "Cu": "≤0.3",
+    "V": "≤0.1",
+    "Mo": "≤0.08",
+    "Nb": "≤0.05",
+    "Ti": "≤0.04",
+    "P": "≤0.025",
+    "S": "≤0.02",
+    "N": "≤0.02"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — HSLA P355N/NH normalized (UNS K02700, ASME SA516 Gr70)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "ASTM A516/A516M Spec for Pressure Vessel Plates, Carbon Steel",
+      "verified": true
+    },
+    {
+      "label": "ASTM A516 / A516M — Pressure Vessel Plate Carbon Steel",
+      "url": "https://store.astm.org/a0516_a0516m-17.html",
+      "verified": false
+    },
+    {
+      "label": "ASME B&PV Sec.II Part A — SA-516 Grade 70",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-ii-materials",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.78,
+      355,
+      490,
+      22,
+      206,
+      155,
+      40
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ASTM A516 Grade 70 / SA-516-70 / EN P355GH (~) — pressure vessel plate carbon steel for moderate / lower temp service (-29°C). C ≤ 0.27, Mn 0.79-1.",
+  "meta": {
+    "reference": true,
+    "condition": "Normalized (min spec)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A516",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 90,
+  "density": 7.78,
+  "yield_strength": 355,
+  "uts": 490,
+  "elongation": 22,
+  "modulus": 206,
+  "hardness": 155,
+  "thermal_conductivity": 40,
+  "fatigue_strength": 200,
+  "impact_strength": 60,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Pressure Vessel Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0156,
+  "popularity": 3.97,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.21,
+  "total_cost_estimate": 1.98,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

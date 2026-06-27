@@ -1,0 +1,287 @@
+{
+  "stable_id": "MET-0541",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-incoloy-925",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0214",
+  "origin": "reference(supplementary)",
+  "id": "R_0214",
+  "name": "Incoloy 925",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Incoloy)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution + Aged (1010°C / 730°C 8h + 620°C 8h)",
+  "ranges": {
+    "density": {
+      "min": 8.08,
+      "max": 8.08,
+      "typical": 8.08,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 690,
+      "max": 740,
+      "typical": 740,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1110,
+      "max": 1170,
+      "typical": 1170,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 25,
+      "typical": 25,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 300,
+      "max": 320,
+      "typical": 320,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 499.5,
+      "max": 526.5,
+      "typical": 526.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 1.19,
+      "max": 1.61,
+      "typical": 1.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 500,
+      "max": 590,
+      "typical": 540,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 12.24,
+      "max": 16.56,
+      "typical": 14.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.289,
+      "max": 0.391,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1164.5,
+      "max": 1575.5,
+      "typical": 1370,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 29.75,
+      "max": 40.25,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.2404,
+      "max": 0.3252,
+      "typical": 0.2828,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 47.77,
+      "max": 47.77,
+      "typical": 47.77,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "42~46",
+    "Fe": "balance",
+    "Cr": "19.5~22.5",
+    "Mo": "2.5~3.5",
+    "Cu": "1.5~3",
+    "Ti": "1.9~2.4"
+  },
+  "sources": [
+    {
+      "label": "Special Metals — Incoloy Alloy 925",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-925.pdf",
+      "verified": true
+    },
+    {
+      "label": "Special Metals — Incoloy 925 (UNS N09925)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.08,
+      740,
+      1170,
+      25,
+      200,
+      320,
+      11
+    ],
+    [
+      8.08,
+      690,
+      1110,
+      20,
+      200,
+      300,
+      11
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS N09925",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "density": 8.08,
+  "yield_strength": 740,
+  "uts": 1170,
+  "elongation": 25,
+  "modulus": 200,
+  "hardness": 320,
+  "thermal_conductivity": 11,
+  "fatigue_strength": 526.5,
+  "impact_strength": 35,
+  "manufacturer": "PCC / Special Metals (Incoloy)",
+  "process": "Wrought",
+  "source": "Special Metals — Incoloy Alloy 925",
+  "aliases": [
+    "UNS N09925",
+    "Alloy 925"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Iron-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 1.4,
+  "max_service_temp": 540,
+  "thermal_expansion": 14.4,
+  "poisson_ratio": 0.34,
+  "specific_heat": 460,
+  "melting_point": 1370,
+  "price_per_kg": 35,
+  "price_per_cm3": 0.2828,
+  "popularity": 2.37,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 47.77,
+  "total_cost_estimate": 47.77,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 46% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "medium"
+}

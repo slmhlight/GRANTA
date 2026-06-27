@@ -1,0 +1,310 @@
+{
+  "stable_id": "MET-0445",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-phosphor-bronze-c51000",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0085",
+  "origin": "reference(supplementary)",
+  "id": "R_0085",
+  "name": "Phosphor Bronze C51000",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.86,
+      "max": 8.86,
+      "typical": 8.86,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 130,
+      "max": 180,
+      "typical": 145,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 310,
+      "max": 380,
+      "typical": 340,
+      "n": 3,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 40,
+      "typical": 30,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 140,
+      "max": 165,
+      "typical": 150,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 69,
+      "max": 69,
+      "typical": 69,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 111,
+      "max": 150,
+      "typical": 130,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.38·UTS, high): Cu ~UTS/3 (ASM); spring bronze 상단 ~0.38"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 70,
+      "typical": 45,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c51000"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 55,
+      "typical": 55,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c51000"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c51000"
+    },
+    "thermal_expansion": {
+      "min": 17.6,
+      "max": 17.6,
+      "typical": 17.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c51000"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c51000"
+    },
+    "specific_heat": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c51000"
+    },
+    "melting_point": {
+      "min": 1027,
+      "max": 1027,
+      "typical": 1027,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c51000"
+    },
+    "price_per_kg": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c51000"
+    },
+    "price_per_cm3": {
+      "min": 0.0975,
+      "max": 0.0975,
+      "typical": 0.0975,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c51000"
+    },
+    "delivered_price_per_kg": {
+      "min": 11.55,
+      "max": 11.55,
+      "typical": 11.55,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Sn": "4.2~5.8",
+    "P": "0.03~0.35"
+  },
+  "sources": [
+    {
+      "label": "ASTM B103 — phosphor bronze C51000",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Cu alloys general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — Alloy C51000 (Phosphor Bronze 5% A)",
+      "url": "https://alloys.copper.org/alloy/C51000",
+      "verified": true
+    },
+    {
+      "label": "National Bronze Mfg. — C51000 Phosphor Bronze 5% A datasheet (PDF)",
+      "url": "https://www.nationalbronze.com/pdfs/C51000.pdf",
+      "verified": true
+    },
+    {
+      "label": "AZoM — Phosphor Bronze Copper Alloy UNS C51000",
+      "url": "https://www.azom.com/article.aspx?ArticleID=6415",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.86,
+      350,
+      450,
+      30,
+      110,
+      150,
+      69
+    ],
+    [
+      8.86,
+      320,
+      420,
+      20,
+      110,
+      140,
+      69
+    ],
+    [
+      8.86,
+      390,
+      500,
+      40,
+      110,
+      165,
+      69
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM B103",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS C51000",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 55,
+  "fatigue_strength": 130,
+  "density": 8.86,
+  "yield_strength": 145,
+  "uts": 340,
+  "elongation": 30,
+  "modulus": 110,
+  "hardness": 150,
+  "thermal_conductivity": 69,
+  "impact_strength": 45,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASTM B103 — phosphor bronze C51000",
+  "aliases": [
+    "UNS C51000",
+    "EN CW451K",
+    "CuSn5",
+    "PB1 phosphor bronze"
+  ],
+  "families": [
+    "Metal",
+    "Copper",
+    "Copper-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 15,
+  "max_service_temp": 200,
+  "thermal_expansion": 17.6,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 1027,
+  "price_per_kg": 11,
+  "price_per_cm3": 0.0975,
+  "popularity": 3.15,
+  "machining_cost_factor": 1.1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 11.55,
+  "total_cost_estimate": 12.71,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

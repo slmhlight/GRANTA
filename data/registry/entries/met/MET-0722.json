@@ -1,0 +1,268 @@
+{
+  "stable_id": "MET-0722",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-aisi-304l-sts304-ulc",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0437_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0437_0",
+  "name": "AISI 304L / STS304 ULC — Annealed (1050°C WQ)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Vacuum Refined (VOD/AOD)"
+  ],
+  "heat_treatment": "Annealed (1050°C WQ) + ULC refining",
+  "ranges": {
+    "density": {
+      "min": 7.93,
+      "max": 7.93,
+      "typical": 7.93,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 550,
+      "max": 550,
+      "typical": 550,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 55,
+      "max": 55,
+      "typical": 55,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 193,
+      "max": 193,
+      "typical": 193,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 165,
+      "max": 165,
+      "typical": 165,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 77,
+      "max": 110,
+      "typical": 92,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 180,
+      "max": 260,
+      "typical": 220,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 304/304L"
+    },
+    "electrical_conductivity": {
+      "min": 2.04,
+      "max": 2.76,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "max_service_temp": {
+      "min": 800,
+      "max": 925,
+      "typical": 870,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "thermal_expansion": {
+      "min": 14.45,
+      "max": 19.55,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "specific_heat": {
+      "min": 425,
+      "max": 575,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "melting_point": {
+      "min": 1232.5,
+      "max": 1667.5,
+      "typical": 1450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "price_per_kg": {
+      "min": 4.675,
+      "max": 6.325,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0371,
+      "max": 0.0501,
+      "typical": 0.0436,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.89,
+      "max": 5.89,
+      "typical": 5.89,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "18.0~20.0",
+    "Ni": "8.0~10.0",
+    "C": "≤0.015",
+    "Mn": "≤2.0",
+    "Si": "≤1.0"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 1",
+      "url": "https://kist.re.kr/eng/index.do",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 304/304L",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.93,
+      220,
+      550,
+      55,
+      193,
+      165,
+      16
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "KIST + POSCO 공동개발 ULC stainless — C ≤ 0.015 (304L 의 1/2). 반도체 wafer carrier / 의료 implant (인공관절 long-term) / 항공 우주 high-purity. 한국재료연구원 (KIST) 표준 spec.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed (1050°C WQ) + ULC refining"
+  },
+  "fracture_toughness": 220,
+  "fatigue_strength": 92,
+  "density": 7.93,
+  "yield_strength": 220,
+  "uts": 550,
+  "elongation": 55,
+  "modulus": 193,
+  "hardness": 165,
+  "thermal_conductivity": 16,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Vacuum Refined (VOD/AOD)",
+  "source": "Datasheet 1",
+  "aliases": [
+    "C ≤ 0.015"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.0436,
+  "popularity": 4,
+  "machining_cost_factor": 1.3,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.07,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.89,
+  "total_cost_estimate": 7.65,
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 10% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "medium"
+}

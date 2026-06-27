@@ -1,0 +1,333 @@
+{
+  "stable_id": "MET-0536",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-haynes-282",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0254",
+  "origin": "reference(supplementary)",
+  "id": "R_0254",
+  "name": "Haynes 282 — Wrought, Aged",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Haynes International"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Aged",
+  "ranges": {
+    "density": {
+      "min": 8.27,
+      "max": 8.27,
+      "typical": 8.27,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 690,
+      "max": 800,
+      "typical": 730,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1050,
+      "max": 1180,
+      "typical": 1110,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 28,
+      "max": 40,
+      "typical": 32,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 217,
+      "max": 217,
+      "typical": 217,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 280,
+      "max": 310,
+      "typical": 290,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 9.5,
+      "max": 9.5,
+      "typical": 9.5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 400,
+      "max": 550,
+      "typical": 475,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:haynes282"
+    },
+    "impact_strength": {
+      "min": 50,
+      "max": 110,
+      "typical": 80,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:haynes282"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 120,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Haynes International"
+    },
+    "electrical_conductivity": {
+      "min": 0.85,
+      "max": 1.15,
+      "typical": 1,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 976.65,
+      "max": 1321.35,
+      "typical": 1149,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 10.795,
+      "max": 14.605,
+      "typical": 12.7,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.2635,
+      "max": 0.3565,
+      "typical": 0.31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 337.45,
+      "max": 456.55,
+      "typical": 397,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1096.5,
+      "max": 1483.5,
+      "typical": 1290,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 95,
+      "max": 165,
+      "typical": 130,
+      "n": 1,
+      "estimated": true,
+      "confidence": "measured",
+      "provenance": "Haynes International H282 bar Q2 2026 (γ' Co premium)"
+    },
+    "price_per_cm3": {
+      "min": 0.9138,
+      "max": 1.2364,
+      "typical": 1.0751,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "19~20.5",
+    "Co": "9~11",
+    "Mo": "8~9",
+    "Ti": "1.9~2.4",
+    "Al": "1.4~1.8"
+  },
+  "sources": [
+    {
+      "label": "Haynes International — Haynes 282",
+      "url": "https://haynesintl.com/en/alloys/alloy/haynes-282-alloy",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Haynes International",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AMS 5951 — Haynes 282 bar/forging STA",
+      "url": "https://www.sae.org/standards/content/ams5951/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.27,
+      730,
+      1110,
+      32,
+      217,
+      290,
+      9.5
+    ],
+    [
+      8.27,
+      690,
+      1050,
+      28,
+      217,
+      280,
+      9.5
+    ],
+    [
+      8.27,
+      800,
+      1180,
+      40,
+      217,
+      310,
+      9.5
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "UNS N07208 / Haynes 282 — modern γ' precipitation-strengthened wrought Ni superalloy (Ni bal, Cr 19-20, Co 10, Mo 8.5, Al 1.5, Ti 2.1, Fe ≤1.5 max, B 0.005, C 0.06). Better creep + weldability than Waspaloy / R-41 / 263 (lower γ' vol fraction → no strain-age cracking). Tmax 1149°C. 가장 advanced wrought Ni superalloy (2005 개발) — supercritical CO2 power cycle (Allam cycle), 항공 LPT casing, 가스 터빈 transition piece. AM LPBF: σy 623-915 (as-built/aged).",
+  "meta": {
+    "reference": true,
+    "price_verified_date": "2026-04",
+    "price_verified_source": "Haynes 282",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5951",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 475,
+  "density": 8.27,
+  "yield_strength": 730,
+  "uts": 1110,
+  "elongation": 32,
+  "modulus": 217,
+  "hardness": 290,
+  "thermal_conductivity": 9.5,
+  "impact_strength": 80,
+  "manufacturer": "Haynes International",
+  "process": "Wrought",
+  "source": "Haynes International — Haynes 282",
+  "aliases": [
+    "UNS N07208"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 715,
+      "uts": 1147
+    },
+    {
+      "temp": 538,
+      "ys": 649,
+      "uts": 991
+    },
+    {
+      "temp": 649,
+      "ys": 643,
+      "uts": 1048
+    },
+    {
+      "temp": 760,
+      "ys": 628,
+      "uts": 856
+    },
+    {
+      "temp": 871,
+      "ys": 507,
+      "uts": 566
+    },
+    {
+      "temp": 927,
+      "ys": 310,
+      "uts": 359
+    }
+  ],
+  "electrical_conductivity": 1,
+  "max_service_temp": 1149,
+  "thermal_expansion": 12.7,
+  "poisson_ratio": 0.31,
+  "specific_heat": 397,
+  "melting_point": 1290,
+  "price_per_kg": 80,
+  "price_per_cm3": 1.0751,
+  "popularity": 2.07,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 105,
+  "total_cost_estimate": 273,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 11% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

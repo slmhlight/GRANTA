@@ -1,0 +1,344 @@
+{
+  "stable_id": "MET-0552",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-617",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0094",
+  "origin": "reference(supplementary)",
+  "id": "R_0094",
+  "name": "Inconel 617",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Inconel)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution Annealed (1175°C)",
+  "ranges": {
+    "density": {
+      "min": 8.36,
+      "max": 8.36,
+      "typical": 8.36,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 320,
+      "max": 390,
+      "typical": 350,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 720,
+      "max": 800,
+      "typical": 755,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 50,
+      "max": 60,
+      "typical": 55,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 211,
+      "max": 211,
+      "typical": 211,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 190,
+      "max": 220,
+      "typical": 200,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 320,
+      "max": 410,
+      "typical": 365,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 130,
+      "typical": 95,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "fracture_toughness": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.4,
+      "max": 1.4,
+      "typical": 1.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "max_service_temp": {
+      "min": 1095,
+      "max": 1095,
+      "typical": 1095,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "thermal_expansion": {
+      "min": 13.3,
+      "max": 13.3,
+      "typical": 13.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "specific_heat": {
+      "min": 419,
+      "max": 419,
+      "typical": 419,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "melting_point": {
+      "min": 1360,
+      "max": 1360,
+      "typical": 1360,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "price_per_cm3": {
+      "min": 0.418,
+      "max": 0.418,
+      "typical": 0.418,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:inconel617"
+    },
+    "delivered_price_per_kg": {
+      "min": 65.63,
+      "max": 65.63,
+      "typical": 65.63,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "20~24",
+    "Co": "10~15",
+    "Mo": "8~10",
+    "Al": "0.8~1.5"
+  },
+  "sources": [
+    {
+      "label": "Special Metals — Inconel Alloy 617",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-617.pdf",
+      "verified": true
+    },
+    {
+      "label": "Special Metals — Inconel 617 (UNS N06617)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.36,
+      350,
+      755,
+      55,
+      211,
+      200,
+      13
+    ],
+    [
+      8.36,
+      320,
+      720,
+      50,
+      211,
+      190,
+      13
+    ],
+    [
+      8.36,
+      390,
+      800,
+      60,
+      211,
+      220,
+      13
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS N06617",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 110,
+  "fatigue_strength": 365,
+  "density": 8.36,
+  "yield_strength": 350,
+  "uts": 755,
+  "elongation": 55,
+  "modulus": 211,
+  "hardness": 200,
+  "thermal_conductivity": 13,
+  "impact_strength": 95,
+  "manufacturer": "PCC / Special Metals (Inconel)",
+  "process": "Wrought",
+  "source": "Special Metals — Inconel Alloy 617",
+  "aliases": [
+    "UNS N06617",
+    "EN 2.4663",
+    "NiCr23Co12Mo"
+  ],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 1.4,
+  "max_service_temp": 1095,
+  "thermal_expansion": 13.3,
+  "poisson_ratio": 0.3,
+  "specific_heat": 419,
+  "melting_point": 1360,
+  "price_per_kg": 50,
+  "price_per_cm3": 0.418,
+  "popularity": 3,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 65.63,
+  "total_cost_estimate": 170.63,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 15% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 350,
+      "uts": 760,
+      "E": 211
+    },
+    {
+      "temp": 400,
+      "ys": 240,
+      "uts": 700,
+      "E": 198
+    },
+    {
+      "temp": 600,
+      "ys": 220,
+      "uts": 670,
+      "E": 184
+    },
+    {
+      "temp": 800,
+      "ys": 200,
+      "uts": 540,
+      "E": 168
+    },
+    {
+      "temp": 1000,
+      "ys": 110,
+      "uts": 180,
+      "E": 145
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 800,
+      "stress": 90,
+      "hours": 1000
+    },
+    {
+      "temp": 900,
+      "stress": 50,
+      "hours": 1000
+    },
+    {
+      "temp": 1000,
+      "stress": 25,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "high"
+}

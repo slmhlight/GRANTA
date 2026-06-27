@@ -1,0 +1,319 @@
+{
+  "stable_id": "MET-0767",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-duplex",
+    "alloy_base": "F-AB-2205-duplex-stainless",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0016",
+  "origin": "reference(supplementary)",
+  "id": "R_0016",
+  "name": "2205 Duplex Stainless",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Duplex",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 450,
+      "max": 550,
+      "typical": 510,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 655,
+      "max": 770,
+      "typical": 700,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 35,
+      "typical": 30,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 190,
+      "max": 190,
+      "typical": 190,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 250,
+      "max": 290,
+      "typical": 270,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 19,
+      "max": 19,
+      "typical": 19,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 240,
+      "max": 320,
+      "typical": 280,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:2205"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 160,
+      "typical": 120,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:2205"
+    },
+    "fracture_toughness": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2205"
+    },
+    "max_service_temp": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2205"
+    },
+    "thermal_expansion": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2205"
+    },
+    "poisson_ratio": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2205"
+    },
+    "specific_heat": {
+      "min": 500,
+      "max": 500,
+      "typical": 500,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2205"
+    },
+    "melting_point": {
+      "min": 1465,
+      "max": 1465,
+      "typical": 1465,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2205"
+    },
+    "price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2205"
+    },
+    "price_per_cm3": {
+      "min": 0.0624,
+      "max": 0.0624,
+      "typical": 0.0624,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:2205"
+    },
+    "delivered_price_per_kg": {
+      "min": 8.4,
+      "max": 8.4,
+      "typical": 8.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "22~23",
+    "Ni": "4.5~6.5",
+    "Mo": "3~3.5",
+    "N": "0.14~0.2",
+    "Mn": "≤2",
+    "Si": "≤1"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — Duplex 2205 (1.4462)",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2205",
+      "verified": true
+    },
+    {
+      "label": "Rolled Alloys — 2205 Duplex (UNS S32205) datasheet",
+      "url": "https://www.rolledalloys.com/alloys/duplex-stainless-steels/2205/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Duplex SS",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      450,
+      655,
+      25,
+      190,
+      250,
+      19
+    ],
+    [
+      7.8,
+      550,
+      770,
+      30,
+      190,
+      290,
+      19
+    ],
+    [
+      7.8,
+      510,
+      700,
+      35,
+      190,
+      270,
+      19
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "UNS S32205",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 110,
+  "density": 7.8,
+  "yield_strength": 510,
+  "uts": 700,
+  "elongation": 30,
+  "modulus": 190,
+  "hardness": 270,
+  "thermal_conductivity": 19,
+  "fatigue_strength": 280,
+  "impact_strength": 120,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Outokumpu — Duplex 2205 (1.4462)",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Stainless Steel - Duplex",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 480,
+      "uts": 700,
+      "E": 200
+    },
+    {
+      "temp": 100,
+      "ys": 410,
+      "uts": 650,
+      "E": null
+    },
+    {
+      "temp": 200,
+      "ys": 360,
+      "uts": 630,
+      "E": 191
+    },
+    {
+      "temp": 300,
+      "ys": 330,
+      "uts": 610,
+      "E": 184
+    }
+  ],
+  "electrical_conductivity": 2,
+  "max_service_temp": 300,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1465,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0624,
+  "popularity": 3.15,
+  "machining_cost_factor": 1.5,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 8.4,
+  "total_cost_estimate": 12.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 6.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

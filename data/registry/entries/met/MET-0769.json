@@ -1,0 +1,297 @@
+{
+  "stable_id": "MET-0769",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-duplex",
+    "alloy_base": "F-AB-zeron-100-uns-s32760-super-duplex-stainless",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0021_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0021_0",
+  "name": "ZERON 100 (UNS S32760, super-duplex stainless) — Solution annealed (W.Nr. 1.4501, ASTM A 240 Gr F55, PREN ≥40)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Duplex",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution annealed (W.Nr. 1.4501, ASTM A 240 Gr F55, PREN ≥40)",
+  "ranges": {
+    "density": {
+      "min": 7.83,
+      "max": 7.83,
+      "typical": 7.83,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 552,
+      "max": 552,
+      "typical": 552,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 752,
+      "max": 752,
+      "typical": 752,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 13,
+      "max": 13,
+      "typical": 13,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 1,
+      "confidence": "handbook",
+      "min_spec_value": 100,
+      "min_spec_source": "NACE ISO 15156 minimum",
+      "spec_type": "typical"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "thermal_expansion": {
+      "min": 12.6,
+      "max": 12.6,
+      "typical": 12.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "poisson_ratio": {
+      "min": 0.32,
+      "max": 0.32,
+      "typical": 0.32,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "melting_point": {
+      "min": 1410,
+      "max": 1410,
+      "typical": 1410,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "price_per_cm3": {
+      "min": 0.094,
+      "max": 0.094,
+      "typical": 0.094,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:zeron100"
+    },
+    "delivered_price_per_kg": {
+      "min": 18.27,
+      "max": 18.27,
+      "typical": 18.27,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "6~8",
+    "Cr": "24~26",
+    "Mo": "3~4",
+    "Mn": "≤1",
+    "Cu": "0.5~1",
+    "W": "0.5~1",
+    "Si": "≤1",
+    "N": "0.2~0.3",
+    "C": "≤0.03",
+    "P": "≤0.03",
+    "S": "≤0.01"
+  },
+  "sources": [
+    {
+      "label": "Outokumpu — Super Duplex 2507 (1.4410)",
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "https://www.rolledalloys.com/alloys/duplex-stainless-steels/zeron-100/",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "ASTM A 240 / A 276 / A 789 / A 790 Gr F55 / S32760",
+      "verified": true
+    },
+    {
+      "label": "Zeron 100, Super Duplex (UNS S32760) — Mega Mex",
+      "url": "https://megamex.com/zeron-100/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.83,
+      552,
+      752,
+      25,
+      200,
+      250,
+      13
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "Rolled Alloys 의 super-duplex stainless. PREN ≥40 (vs 2507 PREN 41) — 해양 / 사우어 가스 / 화학 plant 표준. Subsea manifold, umbilical tubing, wireline, FGD scrubber, RO desalination, 황산 plant, marine fastener. 600°F (315°C) 초과 시 toughness 급락 (장기 노출 금지).",
+  "meta": {
+    "reference": true,
+    "condition": "Solution annealed (W.Nr. 1.4501, ASTM A 240 Gr F55, PREN ≥40)",
+    "specs": [
+      {
+        "id": "ASTM A 240",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS S32760",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "density": 7.83,
+  "yield_strength": 552,
+  "uts": 752,
+  "elongation": 25,
+  "modulus": 200,
+  "hardness": 250,
+  "thermal_conductivity": 13,
+  "fatigue_strength": 280,
+  "impact_strength": 60,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Outokumpu — Super Duplex 2507 (1.4410)",
+  "aliases": [
+    "UNS S32760",
+    "W.Nr. 1.4501",
+    "ASTM A 240 Gr F55",
+    "PREN ≥40",
+    "EN 1.4501",
+    "F55"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Duplex",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 315,
+  "thermal_expansion": 12.6,
+  "poisson_ratio": 0.32,
+  "specific_heat": 460,
+  "melting_point": 1410,
+  "price_per_kg": 12,
+  "price_per_cm3": 0.094,
+  "popularity": 3.15,
+  "machining_cost_factor": 1.5,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.45,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 18.27,
+  "total_cost_estimate": 27.41,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

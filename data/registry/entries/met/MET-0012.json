@@ -1,0 +1,308 @@
+{
+  "stable_id": "MET-0012",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-300m",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0045",
+  "origin": "reference(supplementary)",
+  "id": "R_0045",
+  "name": "300M",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 7.83,
+      "max": 7.83,
+      "typical": 7.83,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1400,
+      "max": 1620,
+      "typical": 1520,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1800,
+      "max": 2000,
+      "typical": 1930,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 12,
+      "typical": 10,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 540,
+      "max": 580,
+      "typical": 560,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 35,
+      "max": 35,
+      "typical": 35,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 690,
+      "max": 850,
+      "typical": 770,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "impact_strength": {
+      "min": 12,
+      "max": 25,
+      "typical": 18,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 6.2,
+      "max": 6.2,
+      "typical": 6.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "thermal_expansion": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "specific_heat": {
+      "min": 472,
+      "max": 472,
+      "typical": 472,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "melting_point": {
+      "min": 1425,
+      "max": 1425,
+      "typical": 1425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "price_per_kg": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "price_per_cm3": {
+      "min": 0.0626,
+      "max": 0.0626,
+      "typical": 0.0626,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:300m"
+    },
+    "delivered_price_per_kg": {
+      "min": 8.4,
+      "max": 8.4,
+      "typical": 8.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "1.65~2",
+    "Cr": "0.7~0.95",
+    "Si": "1.45~1.8",
+    "Mo": "0.3~0.5",
+    "C": "0.4~0.46"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — 300M ultra-high strength steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=300M+steel",
+      "verified": false
+    },
+    {
+      "label": "ASM / AMS 6417 — 300M (quenched & tempered)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SSA Corp — 300M (4340 MOD) AMS 6417/6419 UNS K44220 datasheet (composition + mech + HT)",
+      "url": "https://www.ssa-corp.com/en/300M-4340-MOD_AMS-6417-UNSK44220.php",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.83,
+      1520,
+      1930,
+      10,
+      205,
+      560,
+      35
+    ],
+    [
+      7.83,
+      1400,
+      1800,
+      8,
+      205,
+      540,
+      35
+    ],
+    [
+      7.83,
+      1620,
+      2000,
+      12,
+      205,
+      580,
+      35
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 6417",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS K44220",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 770,
+  "density": 7.83,
+  "yield_strength": 1520,
+  "uts": 1930,
+  "elongation": 10,
+  "modulus": 205,
+  "hardness": 560,
+  "thermal_conductivity": 35,
+  "impact_strength": 18,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — 300M ultra-high strength steel",
+  "aliases": [
+    "UNS K44220",
+    "300M",
+    "35NiCrMoV"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 6.2,
+  "max_service_temp": 425,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 472,
+  "melting_point": 1425,
+  "price_per_kg": 8,
+  "price_per_cm3": 0.0626,
+  "popularity": 2,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 8.4,
+  "total_cost_estimate": 8.4,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

@@ -1,0 +1,285 @@
+{
+  "stable_id": "MET-0414",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-copper-pure-c11000",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0262",
+  "origin": "reference(supplementary)",
+  "id": "R_0262",
+  "name": "Copper (Pure, C11000) — Wrought, Annealed",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 8.94,
+      "max": 8.94,
+      "typical": 8.94,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 55,
+      "max": 90,
+      "typical": 70,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 195,
+      "max": 250,
+      "typical": 220,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 35,
+      "max": 55,
+      "typical": 45,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 117,
+      "max": 117,
+      "typical": 117,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 42,
+      "max": 60,
+      "typical": 50,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 391,
+      "max": 391,
+      "typical": 391,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 70,
+      "max": 110,
+      "typical": 90,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 140,
+      "typical": 100,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 65,
+      "typical": 65,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "max_service_temp": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "thermal_expansion": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "specific_heat": {
+      "min": 385,
+      "max": 385,
+      "typical": 385,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "melting_point": {
+      "min": 1083,
+      "max": 1083,
+      "typical": 1083,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "price_per_kg": {
+      "min": 9.5,
+      "max": 9.5,
+      "typical": 9.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "price_per_cm3": {
+      "min": 0.0849,
+      "max": 0.0849,
+      "typical": 0.0849,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:c11000"
+    },
+    "delivered_price_per_kg": {
+      "min": 10.67,
+      "max": 10.67,
+      "typical": 10.67,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "≥99.9",
+    "O": "≤0.04"
+  },
+  "sources": [
+    {
+      "label": "Copper.org — C11000 ETP Copper",
+      "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
+      "verified": true
+    },
+    {
+      "label": "C11000 ETP Copper / Copper Development Assoc.",
+      "url": "https://www.copper.org/resources/properties/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AA 1xxx CP Al",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.94,
+      70,
+      220,
+      45,
+      117,
+      50,
+      391
+    ],
+    [
+      8.94,
+      55,
+      195,
+      35,
+      117,
+      42,
+      391
+    ],
+    [
+      8.94,
+      90,
+      250,
+      55,
+      117,
+      60,
+      391
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 65,
+  "fatigue_strength": 90,
+  "density": 8.94,
+  "yield_strength": 70,
+  "uts": 220,
+  "elongation": 45,
+  "modulus": 117,
+  "hardness": 50,
+  "thermal_conductivity": 391,
+  "impact_strength": 100,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Copper.org — C11000 ETP Copper",
+  "aliases": [
+    "C11000"
+  ],
+  "families": [
+    "Metal",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 100,
+  "max_service_temp": 250,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.34,
+  "specific_heat": 385,
+  "melting_point": 1083,
+  "price_per_kg": 9.5,
+  "price_per_cm3": 0.0849,
+  "popularity": 4.15,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.07,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 10.67,
+  "total_cost_estimate": 9.61,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "Copper (Cu) 의 인류 사용은 BC 9000년 전 중동 (현 이라크 북부 Tepe Sialk) 의 천연 native copper hammer-formed jewelry 에서 시작합니다. BC 3500년 청동기 시대 (Bronze Age) 의 시작은 Cu + Sn (~10%) 의 bronze alloy 가 광범위하게 사용되면서 청동기 시대의 도구·무기·공예가 인류 문명의 한 단계를 정의한 시기였어요. 현대 metallurgy 에서 'copper' 는 pure 또는 거의 pure Cu 를 의미합니다.\n\n순수 Cu 의 매력은 electrical conductivity (100% IACS, 모든 금속 중 silver 다음으로 높음) + thermal conductivity (390 W/m·K, 거의 silver 와 동급) + ductility + corrosion resistance (atmospheric environment 에서 patina 형성 후 안정) 의 균형입니다. σy 가 annealed 70 MPa 로 낮지만 cold-work 으로 380 MPa 까지 강화 가능.\n\n분류: ETP (Electrolytic Tough Pitch, C11000) — 가장 흔한 일반 전기용. OFHC (C10200) — 산소 함량 < 10 ppm, 진공·전자 응용. OFE (C10100) — 산소 < 5 ppm, ultra-pure 응용. 응용은 무한합니다: 전선 (전 세계 전선의 50% 이상이 Cu, 나머지는 Al), motor winding, plumbing pipe (1950년대 이후 미국 plumbing 표준), 가전 PCB trace, 자동차 starter motor + alternator, 산업 busbar (변압기 + 발전소의 high-current 도체), 그리고 우주 발사체 + 항공기의 lightning protection bonding. 가격은 LME 거래 기준 $9-10/kg (2026 Q2), 글로벌 산업 표준 commodity 금속입니다.",
+  "story_refs": [
+    "Cohen M (1980) The Copper Industry — A History",
+    "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "ASTM B187 \"Standard Specification for Copper Bus Bar\""
+  ],
+  "confidence_tier": "high"
+}

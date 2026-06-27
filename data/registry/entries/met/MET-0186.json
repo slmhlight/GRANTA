@@ -1,0 +1,303 @@
+{
+  "stable_id": "MET-0186",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-6063",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0442_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0442_0",
+  "name": "AA 6063 — Annealed",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 69,
+      "max": 69,
+      "typical": 69,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 22,
+      "max": 32,
+      "typical": 27,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:6063 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+    },
+    "impact_strength": {
+      "min": 36,
+      "max": 84,
+      "typical": 54,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:6063 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+    },
+    "fracture_toughness": {
+      "min": 64,
+      "max": 64,
+      "typical": 64,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:O (annealed soft, fallback derived from T6) (k×2)"
+    },
+    "electrical_conductivity": {
+      "min": 53,
+      "max": 53,
+      "typical": 53,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6063"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 170,
+      "typical": 170,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6063"
+    },
+    "thermal_expansion": {
+      "min": 23.4,
+      "max": 23.4,
+      "typical": 23.4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6063"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6063"
+    },
+    "specific_heat": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6063"
+    },
+    "melting_point": {
+      "min": 655,
+      "max": 655,
+      "typical": 655,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6063"
+    },
+    "price_per_kg": {
+      "min": 2.8,
+      "max": 2.8,
+      "typical": 2.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6063"
+    },
+    "price_per_cm3": {
+      "min": 0.0076,
+      "max": 0.0076,
+      "typical": 0.0076,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6063"
+    },
+    "delivered_price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Mg": "0.45~0.9",
+    "Si": "0.2~0.6",
+    "Fe": "≤0.35",
+    "Cr": "≤0.10",
+    "Cu": "≤0.10",
+    "Zn": "≤0.10"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum 6063 (extrusion)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+6063",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6063",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 1",
+      "url": "Aluminum Association T-Temper / Sapa extrusion datasheet",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum 6063 (Al-Mg-Si extrusion)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — Aluminum 6063-T5",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8a6dca5d7ff643feb5cb1d8a7e8b2843",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.7,
+      50,
+      90,
+      25,
+      69,
+      25,
+      200
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "UNS A96063 / EN AW-6063 / AlMg0.7Si / DIN 3.3206 — heat-treatable Al-Mg-Si (Mg 0.45-0.",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 64,
+  "fatigue_strength": 27,
+  "density": 2.7,
+  "yield_strength": 50,
+  "uts": 90,
+  "elongation": 25,
+  "modulus": 69,
+  "hardness": 25,
+  "thermal_conductivity": 200,
+  "impact_strength": 54,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — Aluminum 6063 (extrusion)",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 53,
+  "max_service_temp": 170,
+  "thermal_expansion": 23.4,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 655,
+  "price_per_kg": 2.8,
+  "price_per_cm3": 0.0076,
+  "popularity": 4.25,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3,
+  "total_cost_estimate": 1.8,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 145,
+      "uts": 185,
+      "E": 68
+    },
+    {
+      "temp": 100,
+      "ys": 140,
+      "uts": 180,
+      "E": 65
+    },
+    {
+      "temp": 200,
+      "ys": 75,
+      "uts": 100,
+      "E": 58
+    }
+  ],
+  "story": "1935년 미국 Alcoa 가 6061 의 변형으로 Cu 와 Cr 을 줄인 alloy 63S 를 출시했어요 — 6061 보다 약간 약하지만 압출성이 훨씬 좋고 표면 마감 (anodizing) 도 더 매끄러운 합금이었죠. 1954년 IADS 통합 시 AA 6063 으로 재명명됐습니다.\n\n6063 의 매력은 '모든 압출의 default' 라는 점이에요. T5 (수냉 air-quench + 자연 시효) 또는 T6 (water-quench + 인공 시효) 상태로 σ_y 145~215 MPa — 적당한 강도 + 우수한 압출성 + 깔끔한 surface anodizing 의 3박자입니다.\n\n응용 — 창호 frame (한국 LG Hausys, KCC 의 알루미늄 새시의 표준 합금), curtain wall (전 세계 모든 high-rise 의 외관 frame), 가정용 air-conditioner heat exchanger 의 fin, automobile heat exchanger (라디에이터, condenser fin), 자전거 frame (entry-level), Apple Mac mini 의 외관 chassis (anodized clear), 가구 — IKEA 의 일부 알루미늄 다리. 매년 세계 알루미늄 압출 생산량의 약 60% 가 6063 — '비행기는 2024/7075, 자동차는 6061, 압출은 6063' 이라는 말이 통하는 합금입니다.",
+  "story_refs": [
+    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+    "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
+    "Saha P K (2000) Aluminum Extrusion Technology, ASM"
+  ],
+  "confidence_tier": "high"
+}

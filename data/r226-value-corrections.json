@@ -1,0 +1,62 @@
+{
+  "_meta": {
+    "r": "R226 P4 — 가짜 variant 실제값 도출 (공정상태 매핑 모델)",
+    "model": "조건을 공정상태별 실제값에 매핑. soft(annealed/as-cast·forged/mill-annealed)=annealed값; hard(aged/STA/hardened)=실제 강화값. 합금이 비-열처리·비-냉간가공이면 hard 라벨=annealed(아티팩트, 값 정상).",
+    "note": "CSV generic Ti α/β 3종은 placeholder 조성 + 가짜값이었음 — datasheet 검증값으로 조성·물성 동시 교정.",
+    "applied_by": "scripts/build-registry.mjs (stable_id 키)",
+    "schema": "compositionByBase: base 이름→조성객체 / ranges: stable_id→{yield_strength,uts,elongation,basis,src}"
+  },
+  "compositionByBase": {
+    "Ti-5-2-5":   { "Ti": "balance", "Al": "4~6", "Sn": "2~3" },
+    "Ti-6-2-4-6": { "Ti": "balance", "Al": "5.5~6.5", "Sn": "1.75~2.25", "Zr": "3.5~4.5", "Mo": "5.5~6.5" },
+    "Ti-8-1-1":   { "Ti": "balance", "Al": "7.35~8.35", "Mo": "0.75~1.25", "V": "0.75~1.25" },
+    "AA 6101":    { "Al": "balance", "Mg": "0.35~0.8", "Si": "0.30~0.7", "Fe": "≤0.50" },
+    "AA 7050":    { "Al": "balance", "Zn": "5.7~6.7", "Mg": "1.9~2.6", "Cu": "2.0~2.6", "Zr": "0.08~0.15" }
+  },
+  "ranges": {
+    "MET-0905": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Ti-5Al-2.5Sn Grade6 α annealed (열처리 불가)", "src": "ASTM B265 Gr6 · alloysintl Ti 5-2.5" },
+    "MET-0906": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α as-forged ≈ annealed", "src": "ASTM B265 Gr6" },
+    "MET-0907": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α mill-annealed = annealed", "src": "ASTM B265 Gr6" },
+    "MET-0904": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α 비-열처리 → aged ≈ annealed", "src": "ASTM B265 Gr6" },
+    "MET-0908": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α — 냉간가공 비표준 → annealed 기준", "src": "ASTM B265 Gr6" },
+
+    "MET-0911": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6Al-2Sn-4Zr-6Mo annealed", "src": "niticu Ti-6246 datasheet (≥1000σy/1100-1300UTS)" },
+    "MET-0912": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6246 as-forged ≈ annealed", "src": "niticu Ti-6246" },
+    "MET-0913": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6246 mill-annealed = annealed", "src": "niticu Ti-6246" },
+    "MET-0914": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6246 α/β 냉간가공 비표준 → annealed", "src": "niticu Ti-6246" },
+    "MET-0910": { "yield_strength": 1105, "uts": 1200, "elongation": 10, "basis": "Ti-6246 STA (solution+age) — bi-modal σy1105", "src": "WTCP Ti-6246 (titanium.org) + niticu" },
+
+    "MET-0934": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "Ti-8Al-1Mo-1V near-α duplex annealed", "src": "AZoM UNS R54810" },
+    "MET-0935": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "Ti-8-1-1 as-forged ≈ annealed", "src": "AZoM R54810" },
+    "MET-0936": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "Ti-8-1-1 mill-annealed = annealed", "src": "AZoM R54810" },
+    "MET-0933": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "near-α 시효응답 미미 → aged ≈ annealed", "src": "AZoM R54810" },
+    "MET-0937": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "near-α 냉간가공 비표준 → annealed", "src": "AZoM R54810" },
+
+    "MET-0878": { "yield_strength": 900, "uts": 965, "elongation": 10, "basis": "Ti-6Al-4V ELI STA (solution+age)", "src": "ASTM F136 + AMS Ti-6-4 STA" },
+
+    "MET-0799": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "440C annealed (HBW207, σy448)", "src": "Atlas/AZoM 440C datasheet" },
+    "MET-0800": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "440C as-forged ≈ annealed", "src": "Atlas 440C" },
+    "MET-0801": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "440C mill-annealed = annealed", "src": "Atlas 440C" },
+    "MET-0803": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "마르텐사이트 — 냉간가공 안 함 → annealed", "src": "Atlas 440C" },
+    "MET-0798": { "yield_strength": 1900, "uts": 1970, "elongation": 2, "basis": "440C 경화+템퍼 (HRC58-60)", "src": "CarTech 440C datasheet (UTS max 1970)" },
+
+    "POL-0095": { "yield_strength": 46, "uts": 50, "basis": "GPPS σy~46/UTS~50 — R221c 가 UTS 만 42 로 낮춰 σy>UTS 발생, 교정", "src": "MakeItFrom/BPF GPPS (yield 36-46, tensile 40-60)" },
+    "POL-0049": { "yield_strength": 28, "uts": 35, "basis": "PHB σy~28/UTS~35 — σy35>UTS30 물리 불가능 교정", "src": "ScienceDirect PHB overview (tensile 30-35)" },
+
+    "MET-0662": { "yield_strength": 165, "uts": 240, "elongation": 40, "fatigue_strength": 110, "basis": "pure Ta wrought annealed 기준값 (As-built→wrought; 공백 채움). fatigue=0.46·UTS (endurance 상한 ≤0.63 준수)", "src": "사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)" }
+  },
+  "fields": {
+    "MET-0588": {
+      "heat_treatment": "Precipitation-aged (AMS 5670 equiv)",
+      "basis": "815/1230 = aged X-750 (datasheet 확인, AMS 5670 typical σy115ksi/UTS170ksi min ~ 137ksi/192ksi). 'As-built (no post-processing)' 라벨은 야금학적 불가 — γ'-합금은 시효 없이 이 강도 도달 불가. 값 유지, 라벨만 aged 로 교정.",
+      "src": "Special Metals SMC-067 INCONEL X-750 datasheet (사용자 첨부)"
+    },
+    "MET-0662": {
+      "name": "Tantalum (Ta) — Wrought, Annealed",
+      "process": "Wrought",
+      "heat_treatment": "Annealed",
+      "basis": "As-built(AM) 공정을 wrought 로 전환 (사용자 지시). 이름·공정·HT 정합 + 기준값.",
+      "src": "사용자 지시"
+    }
+  }
+}

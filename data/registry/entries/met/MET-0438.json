@@ -1,0 +1,270 @@
+{
+  "stable_id": "MET-0438",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-narloy-z-cu-3ag-0-5zr",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0382_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0382_2",
+  "name": "NARLOY-Z (Cu-3Ag-0.5Zr) — SSME chamber — Solution + Aged, tested at 500°C (creep regime)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "NASA (NARLOY)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution + Aged, tested at 500°C (creep regime)",
+  "ranges": {
+    "density": {
+      "min": 8.92,
+      "max": 8.92,
+      "typical": 8.92,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 290,
+      "max": 290,
+      "typical": 290,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 30,
+      "typical": 30,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 124,
+      "max": 124,
+      "typical": 124,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 316,
+      "max": 316,
+      "typical": 316,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 80,
+      "max": 130,
+      "typical": 105,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 95,
+      "typical": 65,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 88,
+      "max": 88,
+      "typical": 88,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "thermal_expansion": {
+      "min": 17.5,
+      "max": 17.5,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "specific_heat": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "melting_point": {
+      "min": 1080,
+      "max": 1080,
+      "typical": 1080,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "price_per_kg": {
+      "min": 350,
+      "max": 350,
+      "typical": 350,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "price_per_cm3": {
+      "min": 3.122,
+      "max": 3.122,
+      "typical": 3.122,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:narloy-z"
+    },
+    "delivered_price_per_kg": {
+      "min": 477.75,
+      "max": 477.75,
+      "typical": 477.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Ag": "2.9~3.2",
+    "Zr": "0.40~0.60"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "https://ntrs.nasa.gov/api/citations/19920002923/downloads/19920002923.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: NASA TM-86932 Narloy-Z",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.92,
+      240,
+      290,
+      30,
+      124,
+      95,
+      316
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "Space Shuttle Main Engine (SSME / RS-25) main combustion chamber liner with cooling channels (LH2 regenerative); RS-25E on SLS Block 1B, Aerojet RL10C; Zr stabilizes grain boundary at 800K + Ag for high thermal-k.",
+  "meta": {
+    "reference": true,
+    "condition": "Solution + Aged, tested at 500°C (creep regime)"
+  },
+  "fracture_toughness": 70,
+  "fatigue_strength": 105,
+  "density": 8.92,
+  "yield_strength": 240,
+  "uts": 290,
+  "elongation": 30,
+  "modulus": 124,
+  "hardness": 95,
+  "thermal_conductivity": 316,
+  "impact_strength": 65,
+  "manufacturer": "NASA (NARLOY)",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [
+    "Cu-3Ag-0.5Zr"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy",
+    "Copper-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 88,
+  "max_service_temp": 540,
+  "thermal_expansion": 17.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 380,
+  "melting_point": 1080,
+  "price_per_kg": 350,
+  "price_per_cm3": 3.122,
+  "popularity": 3.07,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 477.75,
+  "total_cost_estimate": 429.98,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1965년 미국 Rocketdyne (현 Aerojet Rocketdyne) 의 R&D 팀이 우주 셔틀 메인 엔진 (SSME) 의 main combustion chamber cooling channel 자재를 개발하면서 등장한 합금. Cu 96% + Ag 3% + Zr 0.5% — Ag 가 dispersion strengthening, Zr 가 grain boundary 안정화. 결과 — 100°C 의 thermal-k 316 W/m·K (Cu 의 80% 유지) + 1 atm 의 cryogenic LH2 와 3000°C 의 연소 가스 사이 wall 의 thermal management 가 가능해진 거죠.\n\nSSME 의 main combustion chamber 안쪽에는 390개의 milled channel 이 있어요. 각 채널은 1.3 mm × 4 mm 크기로 LH2 가 흐르면서 wall 을 cool 합니다. NARLOY-Z 가 이 채널 자체이고, 외부에는 stainless steel jacket 이 덮여서 high-pressure containment. 한 번의 발사 동안 7000만 BTU/s 의 heat flux 를 견디는 거죠.\n\n1981년 첫 STS-1 발사부터 2011년 마지막 STS-135 까지 30년 동안 NARLOY-Z chamber 는 변함없이 그대로였어요. 현재도 RS-25E (SLS Block 1B 의 main engine) 의 combustion chamber 는 NARLOY-Z 변형. 차세대로는 GRCop-84 (NASA 의 dispersion-strengthened Cu-Cr-Nb) 가 대체 중이지만, 우주 main engine 자재로 60년 가까이 채택되어 온 합금입니다.",
+  "story_refs": [
+    "NASA Marshall Space Flight Center \"NARLOY-Z: A Copper Alloy for High Heat Flux Applications\" Tech Memo TM-100371 (1988)",
+    "Esposito J J & Zabora R F (1975) \"Thrust Chamber Life Prediction\", NASA CR-134806",
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
+  ],
+  "confidence_tier": "medium"
+}

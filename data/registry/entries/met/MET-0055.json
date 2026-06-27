@@ -1,0 +1,273 @@
+{
+  "stable_id": "MET-0055",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-d6ac-ultra-high-strength-low-alloy",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0372_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0372_2",
+  "name": "D6AC (Ultra-High Strength Low-Alloy) — missile motor case — Q+T (425°C standard temper, balance of strength + toughness)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (425°C standard temper, balance of strength + toughness)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1800,
+      "max": 1800,
+      "typical": 1800,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 11,
+      "max": 11,
+      "typical": 11,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 550,
+      "max": 550,
+      "typical": 550,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 36,
+      "max": 36,
+      "typical": 36,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 620,
+      "max": 770,
+      "typical": 695,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 60,
+      "typical": 45,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "thermal_expansion": {
+      "min": 11.8,
+      "max": 11.8,
+      "typical": 11.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "specific_heat": {
+      "min": 470,
+      "max": 470,
+      "typical": 470,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "melting_point": {
+      "min": 1425,
+      "max": 1425,
+      "typical": 1425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "price_per_kg": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "price_per_cm3": {
+      "min": 0.0471,
+      "max": 0.0471,
+      "typical": 0.0471,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:d6ac"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "0.90~1.20",
+    "Ni": "0.40~0.70",
+    "Mo": "0.90~1.10",
+    "V": "0.05~0.10",
+    "C": "0.42~0.48",
+    "Mn": "0.60~0.90",
+    "Si": "0.15~0.30"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=D6AC",
+      "verified": false
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "https://www.batelle.org/mmpds",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1500,
+      1800,
+      11,
+      207,
+      550,
+      36
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Minuteman III / Peacekeeper / Trident D-5 second-stage solid-rocket motor case; F-111 wing pivot fitting; B-1B main landing gear; high σ_y/ρ for filament-wound replacement reservoir.",
+  "meta": {
+    "reference": true,
+    "condition": "Q+T (425°C standard temper, balance of strength + toughness)",
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 695,
+  "density": 7.85,
+  "yield_strength": 1500,
+  "uts": 1800,
+  "elongation": 11,
+  "modulus": 207,
+  "hardness": 550,
+  "thermal_conductivity": 36,
+  "impact_strength": 45,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 6.5,
+  "max_service_temp": 425,
+  "thermal_expansion": 11.8,
+  "poisson_ratio": 0.29,
+  "specific_heat": 470,
+  "melting_point": 1425,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0471,
+  "popularity": 3.27,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.75,
+  "total_cost_estimate": 6.97,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

@@ -1,0 +1,368 @@
+{
+  "stable_id": "MET-0878",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-grade-23",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "G_0291",
+  "origin": "generic(csv)",
+  "id": "G_0291",
+  "name": "Ti Grade 23 — Aged / solution-treated (Wrought)",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Aged / solution-treated",
+  "ranges": {
+    "density": {
+      "min": 4.43,
+      "max": 4.43,
+      "typical": 4.43,
+      "n": 4,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 900,
+      "typical": 900,
+      "max": 900,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "uts": {
+      "min": 965,
+      "typical": 965,
+      "max": 965,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "elongation": {
+      "min": 10,
+      "typical": 10,
+      "max": 10,
+      "confidence": "handbook",
+      "source": "r226-correction"
+    },
+    "modulus": {
+      "min": 110,
+      "max": 115,
+      "typical": 113,
+      "n": 4,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 300,
+      "max": 350,
+      "typical": 320,
+      "n": 4,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 6.5,
+      "max": 7,
+      "typical": 6.7,
+      "n": 4,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 122,
+      "max": 175,
+      "typical": 152,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 30,
+      "typical": 22,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ti-based"
+    },
+    "fracture_toughness": {
+      "min": 55,
+      "max": 95,
+      "typical": 75,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AMS 4928 / ASTM F136"
+    },
+    "electrical_conductivity": {
+      "min": 0.75,
+      "max": 2.25,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 400,
+      "typical": 350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "thermal_expansion": {
+      "min": 4.4,
+      "max": 13.2,
+      "typical": 8.8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "poisson_ratio": {
+      "min": 0.17,
+      "max": 0.51,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "specific_heat": {
+      "min": 280,
+      "max": 840,
+      "typical": 560,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "melting_point": {
+      "min": 1650,
+      "max": 1670,
+      "typical": 1660,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "price_per_kg": {
+      "min": 17.5,
+      "max": 52.5,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "price_per_cm3": {
+      "min": 0.0789,
+      "max": 0.2367,
+      "typical": 0.1578,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "delivered_price_per_kg": {
+      "min": 45.94,
+      "max": 45.94,
+      "typical": 45.94,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Al": "5.5~6.5",
+    "V": "3.5~4.5",
+    "Fe": "≤0.25",
+    "O": "≤0.13"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Titanium Grade 23 ELI (Ti-6Al-4V ELI)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V+ELI",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Ti Grade 23\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%2023",
+      "verified": false
+    },
+    {
+      "label": "Carpenter Technology — Ti-6Al-4V ELI Datasheet (F136/B348 Gr.23)",
+      "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/Ti_6Al-4V_ELI_Datasheet.pdf",
+      "verified": true
+    },
+    {
+      "label": "AZoM — Grade 23 Ti-6Al-4V ELI (UNS R56401)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=9365",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      4.51,
+      297,
+      410.4,
+      25.92,
+      103,
+      118.8,
+      21.8
+    ],
+    [
+      4.51,
+      261.25,
+      361,
+      22.8,
+      103,
+      104.5,
+      21.8
+    ],
+    [
+      4.51,
+      291.5,
+      402.8,
+      25.44,
+      103,
+      116.6,
+      21.8
+    ],
+    [
+      4.51,
+      280.5,
+      387.6,
+      22.08,
+      103,
+      112.2,
+      21.8
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 4,
+    "subcategory_variants": [
+      "Titanium - Pure/Other"
+    ],
+    "conditions": [
+      "Aged (480°C",
+      "Aged (550°C",
+      "Aged (650°C",
+      "Solution Treated"
+    ],
+    "specs": [
+      {
+        "id": "UNS R56401",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 75,
+  "fatigue_strength": 152,
+  "density": 4.43,
+  "yield_strength": 900,
+  "uts": 965,
+  "elongation": 10,
+  "modulus": 113,
+  "hardness": 320,
+  "thermal_conductivity": 6.7,
+  "impact_strength": 22,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "MatWeb — Titanium Grade 23 ELI (Ti-6Al-4V ELI)",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Titanium - Pure / CP Grades",
+    "Titanium-based"
+  ],
+  "electrical_conductivity": 1.5,
+  "max_service_temp": 350,
+  "thermal_expansion": 8.8,
+  "poisson_ratio": 0.34,
+  "specific_heat": 560,
+  "melting_point": 1660,
+  "price_per_kg": 35,
+  "price_per_cm3": 0.1578,
+  "popularity": 3.07,
+  "machining_cost_factor": 2.2,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 45.94,
+  "total_cost_estimate": 101.06,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 275,
+      "uts": 345,
+      "E": 105
+    },
+    {
+      "temp": 200,
+      "ys": 180,
+      "uts": 250,
+      "E": 100
+    }
+  ],
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 760,
+        "max": 875,
+        "typical": 790,
+        "n": 4,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 790
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 825,
+        "max": 930,
+        "typical": 860,
+        "n": 4,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 860
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 10,
+        "max": 18,
+        "typical": 15,
+        "n": 4,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 15
+    },
+    "_basis": "Ti-6Al-4V ELI STA (solution+age)",
+    "_src": "ASTM F136 + AMS Ti-6-4 STA",
+    "points_stale": true
+  }
+}

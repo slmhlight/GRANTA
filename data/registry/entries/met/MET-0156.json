@@ -1,0 +1,351 @@
+{
+  "stable_id": "MET-0156",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-mn-alloys-3xxx",
+    "alloy_base": "F-AB-aa-3004",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "G_0039",
+  "origin": "generic(csv)",
+  "id": "G_0039",
+  "name": "AA 3004 — Strain-hardened (Wrought)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Mn Alloys (3xxx)",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Strain-hardened",
+  "ranges": {
+    "density": {
+      "min": 2.72,
+      "max": 2.72,
+      "typical": 2.72,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 112.5,
+      "max": 136.3,
+      "typical": 121.3,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 166.5,
+      "max": 201.7,
+      "typical": 179.5,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 16,
+      "max": 19.2,
+      "typical": 17.8,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 49.5,
+      "max": 59.95,
+      "typical": 53.35,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 191,
+      "max": 191,
+      "typical": 191,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 36,
+      "max": 56,
+      "typical": 46,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 5.5,
+      "max": 19.8,
+      "typical": 11,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based × HT:strain-hardened (fallback) (i×1.1)"
+    },
+    "fracture_toughness": {
+      "min": 23.1,
+      "max": 42,
+      "typical": 31.5,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Aluminum Association handbook × HT:strain-hardened (fallback) (k×1.05)"
+    },
+    "electrical_conductivity": {
+      "min": 42.5,
+      "max": 57.5,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 230,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
+    },
+    "thermal_expansion": {
+      "min": 19.72,
+      "max": 26.68,
+      "typical": 23.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
+    },
+    "poisson_ratio": {
+      "min": 0.2805,
+      "max": 0.3795,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
+    },
+    "specific_heat": {
+      "min": 759.05,
+      "max": 1026.95,
+      "typical": 893,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
+    },
+    "melting_point": {
+      "min": 561,
+      "max": 759,
+      "typical": 660,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
+    },
+    "price_per_kg": {
+      "min": 2.125,
+      "max": 2.875,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
+    },
+    "price_per_cm3": {
+      "min": 0.0058,
+      "max": 0.0078,
+      "typical": 0.0068,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.84,
+      "max": 2.84,
+      "typical": 2.84,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mn": "1.2",
+    "Cu": "0.1",
+    "Al": "97.6",
+    "Mg": "1"
+  },
+  "sources": [
+    {
+      "label": "Aluminum Association — AA 3xxx (Al-Mn) + MMPDS-08 Sec.3.5",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AA 3004\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%203004",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Aluminum Association handbook",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.72,
+      112.5,
+      166.5,
+      18,
+      70,
+      49.5,
+      191
+    ],
+    [
+      2.72,
+      136.25,
+      201.65,
+      17.8,
+      70,
+      59.95,
+      191
+    ],
+    [
+      2.72,
+      112.5,
+      166.5,
+      16,
+      70,
+      49.5,
+      191
+    ],
+    [
+      2.72,
+      131.25,
+      194.25,
+      17,
+      70,
+      57.75,
+      191
+    ],
+    [
+      2.72,
+      118.75,
+      175.75,
+      19,
+      70,
+      52.25000000000001,
+      191
+    ],
+    [
+      2.72,
+      120,
+      177.6,
+      19.200000000000003,
+      70,
+      52.8,
+      191
+    ],
+    [
+      2.72,
+      121.25,
+      179.45,
+      17.400000000000002,
+      70,
+      53.35,
+      191
+    ],
+    [
+      2.72,
+      127.5,
+      188.7,
+      18.4,
+      70,
+      56.1,
+      191
+    ],
+    [
+      2.72,
+      131.25,
+      194.25,
+      17,
+      70,
+      57.75,
+      191
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 9,
+    "subcategory_variants": [
+      "Aluminum - Mn Alloys (3xxx)"
+    ],
+    "conditions": [
+      "H12",
+      "H14",
+      "H16",
+      "H18",
+      "H19",
+      "H22",
+      "H24",
+      "H26",
+      "H28"
+    ]
+  },
+  "fracture_toughness": 31.5,
+  "fatigue_strength": 46,
+  "density": 2.72,
+  "yield_strength": 121.3,
+  "uts": 179.5,
+  "elongation": 17.8,
+  "modulus": 70,
+  "hardness": 53.35,
+  "thermal_conductivity": 191,
+  "impact_strength": 11,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Aluminum - Mn Alloys (3xxx)",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 50,
+  "max_service_temp": 200,
+  "thermal_expansion": 23.2,
+  "poisson_ratio": 0.33,
+  "specific_heat": 893,
+  "melting_point": 660,
+  "price_per_kg": 2.5,
+  "price_per_cm3": 0.0068,
+  "popularity": 3.03,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.84,
+  "total_cost_estimate": 2.55,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

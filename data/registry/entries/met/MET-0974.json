@@ -1,0 +1,279 @@
+{
+  "stable_id": "MET-0974",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel-high-speed",
+    "alloy_base": "F-AB-m50-ams-6491-t11350",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0334_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0334_2",
+  "name": "M50 (AMS 6491, T11350) — aircraft engine bearing — Hardened (VIM-VAR, max hardness)",
+  "category": "Metal",
+  "subcategory": "Tool Steel - High-Speed",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Hardened (VIM-VAR, max hardness)",
+  "ranges": {
+    "density": {
+      "min": 7.92,
+      "max": 7.92,
+      "typical": 7.92,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 2000,
+      "max": 2000,
+      "typical": 2000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2400,
+      "max": 2400,
+      "typical": 2400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 820,
+      "max": 820,
+      "typical": 820,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 19,
+      "max": 19,
+      "typical": 19,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 700,
+      "max": 1000,
+      "typical": 840,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 15,
+      "max": 40,
+      "typical": 25,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Tool Steels"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - High-Speed"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - High-Speed"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - High-Speed"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - High-Speed"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - High-Speed"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - High-Speed"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - High-Speed"
+    },
+    "price_per_cm3": {
+      "min": 0.0404,
+      "max": 0.0546,
+      "typical": 0.0475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - High-Speed"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.62,
+      "max": 6.62,
+      "typical": 6.62,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "4.0~4.25",
+    "Mo": "4.0~4.5",
+    "V": "0.9~1.1",
+    "C": "0.77~0.85",
+    "W": "0.20~0.30",
+    "Mn": "≤0.35"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=M50%20tool%20steel",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Böhler Edelstahl — R250 (M50/1.3551/AMS 6491) 조성 (WebFetch 확인)",
+      "url": "https://www.bohler-edelstahl.com/en/products/r250/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.92,
+      2000,
+      2400,
+      2,
+      207,
+      820,
+      19
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Standard for jet-engine mainshaft bearings (J57, F100/F110, GE90 family); AMS 6491 / 6490; replaced by M50-NiL for case-carb variant.",
+  "meta": {
+    "reference": true,
+    "condition": "Hardened (VIM-VAR, max hardness)",
+    "specs": [
+      {
+        "id": "AMS 6491",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 25,
+  "fatigue_strength": 840,
+  "density": 7.92,
+  "yield_strength": 2000,
+  "uts": 2400,
+  "elongation": 2,
+  "modulus": 207,
+  "hardness": 820,
+  "thermal_conductivity": 19,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [
+    "AMS 6491"
+  ],
+  "families": [
+    "Metal",
+    "Tool Steel - High-Speed",
+    "Iron-based",
+    "Tool Steel"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0475,
+  "popularity": 2.93,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.62,
+  "total_cost_estimate": 6.62,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

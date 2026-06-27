@@ -1,0 +1,318 @@
+{
+  "stable_id": "MET-0355",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-controlled-expansion-invar-kovar",
+    "alloy_base": "F-AB-invar-36-fe-36ni",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0251",
+  "origin": "reference(supplementary)",
+  "id": "R_0251",
+  "name": "Invar 36 (Fe-36Ni) — Wrought, Annealed",
+  "category": "Metal",
+  "subcategory": "Controlled Expansion (Invar/Kovar)",
+  "tier": "reference",
+  "manufacturers": [
+    "Imphy Alloys + Carpenter (dual)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 8.05,
+      "max": 8.05,
+      "typical": 8.05,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 240,
+      "max": 320,
+      "typical": 280,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 450,
+      "max": 540,
+      "typical": 490,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 45,
+      "typical": 38,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 141,
+      "max": 141,
+      "typical": 141,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 150,
+      "max": 170,
+      "typical": 160,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 10.4,
+      "max": 10.4,
+      "typical": 10.4,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 180,
+      "max": 260,
+      "typical": 220,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "impact_strength": {
+      "min": 60,
+      "max": 130,
+      "typical": 90,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "fracture_toughness": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "thermal_expansion": {
+      "min": 1.6,
+      "max": 1.6,
+      "typical": 1.6,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "specific_heat": {
+      "min": 515,
+      "max": 515,
+      "typical": 515,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "melting_point": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "price_per_kg": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "price_per_cm3": {
+      "min": 0.1449,
+      "max": 0.1449,
+      "typical": 0.1449,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:invar36"
+    },
+    "delivered_price_per_kg": {
+      "min": 19.28,
+      "max": 19.28,
+      "typical": 19.28,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "35~36.5",
+    "C": "≤0.1",
+    "Mn": "≤0.6"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — Invar 36",
+      "url": "https://www.carpentertechnology.com/alloy-finder/invar-36",
+      "verified": true
+    },
+    {
+      "label": "Carpenter Invar 36 datasheet",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Carpenter Invar 36 / Kovar",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Carpenter Invar 36 / Free-Cut Invar datasheet",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM F1684 — Iron-Nickel Low-Expansion Alloys",
+      "url": "https://store.astm.org/f1684-23.html",
+      "verified": false
+    },
+    {
+      "label": "VDM Pernifer 36 reference",
+      "url": "https://www.vdm-metals.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.05,
+      280,
+      490,
+      38,
+      141,
+      160,
+      10.4
+    ],
+    [
+      8.05,
+      240,
+      450,
+      30,
+      141,
+      150,
+      10.4
+    ],
+    [
+      8.05,
+      320,
+      540,
+      45,
+      141,
+      170,
+      10.4
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "UNS K93600 / EN 1.3912 / FeNi36 / Nilo 36 / Pernifer 36 / KS HY36 — Fe-36Ni austenitic low-expansion alloy (Ni 35.0-37.0, C ≤ 0.10, rest Fe). **CTE 1.3×10⁻⁶/K (20-100°C)** — 모든 금속 중 가장 낮은 CTE. Curie 230°C — 그 위에서 CTE 가 정상 Fe-Ni 수준으로 급증 (Tmax 200°C 의 의미). σy 280 / UTS 480 / El 35%. AM LPBF 정밀 광학 (LIGO mirror mount), CFRP autoclave tooling, LNG storage tank, 정밀 측정 기구. Cobalt 32-34% 변종 (Super-Invar) 는 CTE 0.6 더 낮음.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F1684",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 110,
+  "density": 8.05,
+  "yield_strength": 280,
+  "uts": 490,
+  "elongation": 38,
+  "modulus": 141,
+  "hardness": 160,
+  "thermal_conductivity": 10.4,
+  "fatigue_strength": 220,
+  "impact_strength": 90,
+  "manufacturer": "Imphy Alloys + Carpenter (dual)",
+  "process": "Wrought",
+  "source": "Carpenter Technology — Invar 36",
+  "aliases": [
+    "Fe-36Ni",
+    "UNS K93600",
+    "EN 1.3912",
+    "FeNi36",
+    "Nilo 36"
+  ],
+  "families": [
+    "Metal",
+    "Iron-Nickel (Invar)",
+    "Iron-based",
+    "Superalloy"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 2,
+  "max_service_temp": 200,
+  "thermal_expansion": 1.6,
+  "poisson_ratio": 0.29,
+  "specific_heat": 515,
+  "melting_point": 1430,
+  "price_per_kg": 18,
+  "price_per_cm3": 0.1449,
+  "popularity": 4.15,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 19.28,
+  "total_cost_estimate": 19.28,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 36.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "story": "Invar (Inv-ar, invariable 의 약자) 는 1896년 프랑스 Charles Édouard Guillaume 이 발견한 신기한 합금입니다. Fe 64% + Ni 36% 조성에서 thermal expansion 이 거의 0 (1.2 × 10⁻⁶/K, 강의 1/10) 인 게 핵심인데, 이는 magnetostriction (자기변형) 이 thermal expansion 을 정확히 상쇄하는 'Invar effect' 라는 양자역학 현상 때문입니다. Guillaume 은 이 발견으로 1920년 Nobel Physics Prize 를 받았어요.\n\nInvar 36 (UNS K93600) 의 응용은 dimensional stability 가 critical 한 모든 영역입니다. 정밀 측정기기 — Mitutoyo, Carl Zeiss 의 일부 reference block + slip gauge 의 base material (CTE 가 0 에 가까워 temperature 변화에 무관한 dimension). 정밀 시계 — Patek Philippe · Lange & Söhne 의 escapement spring 의 일부 (1920년대 시계 산업의 표준 spring). 우주 망원경 — JWST (제임스 웹 우주 망원경) 의 secondary mirror support truss (cryogenic 환경 -200°C 에서 dimension 유지). LNG 운반선 — 멤브레인 tank 의 inner barrier (LNG -163°C 와 외기 +30°C 사이의 thermal cycling 에서 dimension stability 유지, GTT Mark III + No.96 mem 의 핵심). 광섬유 telescope mount + radio telescope dish 의 일부.\n\n단점은 σy 240 MPa 로 보통 구조 strength 가 낮고 가격이 비쌈 ($25-50/kg, Ni 36% 함량 때문). 또 Invar effect 가 230°C 이상에서 사라져 high-temp 응용 불가. 그래서 high-temp dimensional stability 가 필요하면 Super-Invar (Fe-Ni-Co), 또는 Kovar (Fe-Ni-Co, 17 × 10⁻⁶/K, glass-metal seal) 같은 variant 가 검토됩니다.",
+  "story_refs": [
+    "Guillaume C É (1897) \"Recherches sur les aciers au nickel\", J Phys 6 (Iron-Nickel alloy research)",
+    "Special Metals Pernifer 36 (Invar) Tech Data",
+    "Nakamura Y et al. (1976) \"Invar Effect in Fe-Ni Alloys\", Physica B&C 86-88"
+  ],
+  "confidence_tier": "high"
+}

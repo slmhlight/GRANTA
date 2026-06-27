@@ -1,0 +1,329 @@
+{
+  "stable_id": "MET-0781",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-aisi-410",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "G_0240",
+  "origin": "generic(csv)",
+  "id": "G_0240",
+  "name": "AISI 410 — As-cast / forged (Wrought)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "As-cast / forged",
+  "ranges": {
+    "density": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 275,
+      "max": 302.5,
+      "typical": 302.5,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 415,
+      "max": 456.5,
+      "typical": 456.5,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 17,
+      "max": 19,
+      "typical": 19,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 187,
+      "max": 205.7,
+      "typical": 205.7,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 24.8,
+      "max": 24.8,
+      "typical": 24.8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 221,
+      "max": 273,
+      "typical": 247,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:410 × HT:as-cast/forged (no temper) (f×0.65, i×1.8)"
+    },
+    "impact_strength": {
+      "min": 27,
+      "max": 81,
+      "typical": 50,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:410 × HT:as-cast/forged (no temper) (f×0.65, i×1.8)"
+    },
+    "fracture_toughness": {
+      "min": 52,
+      "max": 52,
+      "typical": 52,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:as-cast/forged (no temper) (k×1.3)"
+    },
+    "electrical_conductivity": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:410"
+    },
+    "max_service_temp": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:410"
+    },
+    "thermal_expansion": {
+      "min": 9.9,
+      "max": 9.9,
+      "typical": 9.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:410"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:410"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:410"
+    },
+    "melting_point": {
+      "min": 1480,
+      "max": 1480,
+      "typical": 1480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:410"
+    },
+    "price_per_kg": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:410"
+    },
+    "price_per_cm3": {
+      "min": 0.0271,
+      "max": 0.0271,
+      "typical": 0.0271,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:410"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.68,
+      "max": 3.68,
+      "typical": 3.68,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "0.15",
+    "Fe": "87",
+    "Cr": "12",
+    "Mn": "1",
+    "Si": "1"
+  },
+  "sources": [
+    {
+      "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
+      "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AISI 410\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20410",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — AISI 410 martensitic stainless",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — 410 Stainless Steel Annealed",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=5fc1ec38b39e405da76e95d20f846ef0",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.75,
+      302.5,
+      456.50000000000006,
+      17,
+      200,
+      205.7,
+      24.8
+    ],
+    [
+      7.75,
+      275,
+      415,
+      19,
+      200,
+      187,
+      24.8
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 2,
+    "subcategory_variants": [
+      "Stainless Steel - Ferritic/Martensitic"
+    ],
+    "conditions": [
+      "As-Cast",
+      "As-Forged"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "UNS S41000",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 52,
+  "fatigue_strength": 247,
+  "density": 7.75,
+  "yield_strength": 302.5,
+  "uts": 456.5,
+  "elongation": 19,
+  "modulus": 200,
+  "hardness": 205.7,
+  "thermal_conductivity": 24.8,
+  "impact_strength": 50,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
+  "aliases": [
+    "UNS S41000",
+    "EN 1.4006",
+    "X12Cr13",
+    "JIS SUS410",
+    "KS STS410"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Ferritic/Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 3,
+  "max_service_temp": 650,
+  "thermal_expansion": 9.9,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0271,
+  "popularity": 4.27,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 3.68,
+  "total_cost_estimate": 3.68,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 500,
+      "uts": 660,
+      "E": 200
+    },
+    {
+      "temp": 300,
+      "ys": 380,
+      "uts": 540,
+      "E": 184
+    },
+    {
+      "temp": 500,
+      "ys": 240,
+      "uts": 380,
+      "E": 165
+    }
+  ],
+  "story": "1903년 영국 셰필드 (Sheffield) 의 해리 브리얼리 (Harry Brearley) 가 총포 강의 부식 저항을 연구하던 중 우연히 발견한 Cr 12~14% steel 이 martensitic stainless 의 첫 발견이었어요. 1913년 Brearley's 'Rustless Steel' 로 발표됐고, 1925년 AISI 가 type 410 으로 표준화 — 18-8 (304) 와 함께 stainless steel 의 두 가지 큰 family 의 한 축이 됐죠.\n\n410 의 핵심은 carbon 0.15% + Cr 12% 의 자기-quenching martensitic 조성이에요. 빠르게 식히면 austenite → martensite 변태가 일어나면서 σ_y 850 MPa 의 강도가 나오는데, 동시에 Cr 12% 의 부동태로 mild 부식 환경에서는 안정적입니다.\n\n응용 — 밸브 trim (API 6A trim 8/8A, 가장 흔한 trim spec), 펌프 impeller (해수 펌프), 칼날 (cutlery — Wüsthof, 헨켈의 entry-level), 산업 turbine blade (저온단), 항공 fastener (12% Cr 부동태로 mild stress corrosion 회피). 자동차 엔진 valve 일부도 410 변형 (SUH 1, SUH 3) 입니다. 한국 KS 의 STS 410, 일본 SUS 410, EU 의 X20Cr13 모두 동일 합금이에요.",
+  "story_refs": [
+    "Brearley H (1913) UK Patent 23,498/1913 \"Improvements in the Manufacture of Iron and Steel Alloys\"",
+    "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
+    "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — martensitic stainless (Cr 11.5-13.5, C 0.08-0.15). 200°C T: σy 1000 / UTS 1350 / HRC 41. Tmax 600°C (over-tempering 위쪽). Cutlery, steam turbine blade, valve stem, oil/gas tubing."
+}

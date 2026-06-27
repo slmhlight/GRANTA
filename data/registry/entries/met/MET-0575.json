@@ -1,0 +1,343 @@
+{
+  "stable_id": "MET-0575",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-738lc",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0252",
+  "origin": "reference(supplementary)",
+  "id": "R_0252",
+  "name": "Inconel 738LC — Cast (Investment)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Inconel)"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "HIP 1175°C / 4h / 100MPa Ar → 솔루션 1120°C / 2h, 공냉 → 시효 845°C / 24h, 공냉 (표준 IN738 사이클)",
+  "ranges": {
+    "density": {
+      "min": 8.11,
+      "max": 8.11,
+      "typical": 8.11,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 870,
+      "max": 1030,
+      "typical": 950,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1050,
+      "max": 1230,
+      "typical": 1130,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 3,
+      "max": 7,
+      "typical": 5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 300,
+      "max": 340,
+      "typical": 320,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 11.5,
+      "max": 11.5,
+      "typical": 11.5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 380,
+      "max": 523,
+      "typical": 456,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 0.91,
+      "max": 1.69,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 630,
+      "max": 1170,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 9.1,
+      "max": 16.9,
+      "typical": 13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.21,
+      "max": 0.39,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 308,
+      "max": 572,
+      "typical": 440,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 945,
+      "max": 1755,
+      "typical": 1350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 42,
+      "max": 78,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.3406,
+      "max": 0.6326,
+      "typical": 0.4866,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "15.7~16.3",
+    "Co": "8.0~9.0",
+    "Ti": "3.2~3.7",
+    "Al": "3.2~3.7",
+    "W": "2.4~2.8",
+    "Mo": "1.5~2.0",
+    "Ta": "1.5~2.0"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Inconel 738LC",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+738LC",
+      "verified": false
+    },
+    {
+      "label": "IN738LC reference (PCC / Cannon-Muskegon)",
+      "url": "https://en.wikipedia.org/wiki/Inconel",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "METU MSc thesis — IN 738 LC Microstructure Optimization (Table 1.3 조성, INCO[21] 인용)",
+      "url": "https://etd.lib.metu.edu.tr/upload/12622106/index.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.11,
+      950,
+      1130,
+      5,
+      205,
+      320,
+      11.5
+    ],
+    [
+      8.11,
+      870,
+      1050,
+      3,
+      205,
+      300,
+      11.5
+    ],
+    [
+      8.11,
+      1030,
+      1230,
+      7,
+      205,
+      340,
+      11.5
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 456,
+  "density": 8.11,
+  "yield_strength": 950,
+  "uts": 1130,
+  "elongation": 5,
+  "modulus": 205,
+  "hardness": 320,
+  "thermal_conductivity": 11.5,
+  "impact_strength": 60,
+  "manufacturer": "PCC / Special Metals (Inconel)",
+  "process": "Cast",
+  "source": "MatWeb — Inconel 738LC",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 900,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 440,
+  "melting_point": 1350,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.4866,
+  "popularity": 2,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 60,
+  "total_cost_estimate": 156,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 9% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 950,
+      "uts": 1095,
+      "E": 200
+    },
+    {
+      "temp": 600,
+      "ys": 870,
+      "uts": 980,
+      "E": 169
+    },
+    {
+      "temp": 800,
+      "ys": 760,
+      "uts": 850,
+      "E": 145
+    },
+    {
+      "temp": 900,
+      "ys": 580,
+      "uts": 660,
+      "E": 130
+    },
+    {
+      "temp": 1000,
+      "ys": 350,
+      "uts": 400,
+      "E": 110
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 850,
+      "stress": 350,
+      "hours": 100
+    },
+    {
+      "temp": 900,
+      "stress": 200,
+      "hours": 1000
+    },
+    {
+      "temp": 1000,
+      "stress": 100,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "high"
+}

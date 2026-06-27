@@ -1,0 +1,310 @@
+{
+  "stable_id": "MET-0068",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel-case-hardening",
+    "alloy_base": "F-AB-aisi-8620-case-hardening",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0368_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0368_2",
+  "name": "AISI 8620 (case-hardening) — Case-Carburized + Q+T (case HV 720, core HV 360)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel - Case Hardening",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Case-Carburized + Q+T (case HV 720, core HV 360)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1100,
+      "max": 1100,
+      "typical": 1100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 720,
+      "max": 720,
+      "typical": 720,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 47,
+      "max": 47,
+      "typical": 47,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 303,
+      "max": 418,
+      "typical": 358,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:8620 × HT:carburized case (f×1.1, i×0.85)"
+    },
+    "impact_strength": {
+      "min": 34,
+      "max": 68,
+      "typical": 51,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:8620 × HT:carburized case (f×1.1, i×0.85)"
+    },
+    "electrical_conductivity": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8620"
+    },
+    "max_service_temp": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8620"
+    },
+    "thermal_expansion": {
+      "min": 11.9,
+      "max": 11.9,
+      "typical": 11.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8620"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8620"
+    },
+    "specific_heat": {
+      "min": 477,
+      "max": 477,
+      "typical": 477,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8620"
+    },
+    "melting_point": {
+      "min": 1427,
+      "max": 1427,
+      "typical": 1427,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8620"
+    },
+    "price_per_kg": {
+      "min": 2.7,
+      "max": 2.7,
+      "typical": 2.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8620"
+    },
+    "price_per_cm3": {
+      "min": 0.0212,
+      "max": 0.0212,
+      "typical": 0.0212,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:8620"
+    },
+    "fracture_toughness": {
+      "min": 54,
+      "max": 54,
+      "typical": 54,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:carburized case (k×0.9)"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.9,
+      "max": 3.9,
+      "typical": 3.9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "0.40~0.70",
+    "Cr": "0.40~0.60",
+    "Mo": "0.15~0.25",
+    "Mn": "0.70~0.90",
+    "C": "0.18~0.23",
+    "Si": "0.15~0.35"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 8620 carburizing steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+8620",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%208620",
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — AISI 8620 case-hardening",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — AISI 8620 carburized gear steel",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8b6c66cdaf0f4f37b8b3fea7b9cb6ea0",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      1100,
+      1300,
+      12,
+      205,
+      720,
+      47
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS G86200 / DIN 1.6523 / 21NiCrMo2 / JIS SNCM220 / EN13 — Ni-Cr-Mo case-hardening steel (C 0.18-0.23, Ni 0.",
+  "meta": {
+    "reference": true,
+    "condition": "Case-Carburized + Q+T (case HV 720, core HV 360)",
+    "_r173_note_applied": true
+  },
+  "fatigue_strength": 358,
+  "density": 7.85,
+  "yield_strength": 1100,
+  "uts": 1300,
+  "elongation": 12,
+  "modulus": 205,
+  "hardness": 720,
+  "thermal_conductivity": 47,
+  "impact_strength": 51,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 8620 carburizing steel",
+  "aliases": [
+    "case HV 720",
+    "core HV 360",
+    "UNS G86200",
+    "DIN 1.6523",
+    "21NiCrMo2",
+    "JIS SNCM220"
+  ],
+  "families": [
+    "Metal",
+    "Case-Hardening Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 7,
+  "max_service_temp": 400,
+  "thermal_expansion": 11.9,
+  "poisson_ratio": 0.29,
+  "specific_heat": 477,
+  "melting_point": 1427,
+  "price_per_kg": 2.7,
+  "price_per_cm3": 0.0212,
+  "fracture_toughness": 54,
+  "popularity": 4.32,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.5,
+  "price_condition_factor": 1.35,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.02,
+  "delivered_price_per_kg": 3.9,
+  "total_cost_estimate": 3.51,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 360,
+      "uts": 540,
+      "E": 200
+    },
+    {
+      "temp": 200,
+      "ys": 320,
+      "uts": 500,
+      "E": 191
+    },
+    {
+      "temp": 400,
+      "ys": 270,
+      "uts": 430,
+      "E": 174
+    }
+  ],
+  "story": "AISI 8620 은 미국 SAE-AISI 의 'carburizing grade alloy steel' 표준입니다. C 0.18-0.23% + Ni 0.4-0.7% + Cr 0.4-0.6% + Mo 0.15-0.25% 의 low-carbon alloy steel 로, carburizing (case hardening) 후의 '표면 hard + 코어 tough' 의 dual-property gear/shaft 표준입니다. 1930년대 미국 자동차 산업의 transmission gear 표준이 8620 으로 통일됐어요.\n\n8620 의 핵심은 carburizing 가능한 조성입니다. Surface 에 C 를 0.9-1.1% 까지 침투시켜 (boost carburizing) HRC 58-62 의 굳은 표면을 만들고, 코어는 C 0.18-0.23% 로 그대로 둬서 KIC 90 MPa·√m, Charpy 60 J 이 유지됩니다. Heat treatment 표준은 920°C carburize → 850°C oil quench → 175°C low temper. 결과는 surface HRC 60 / case 1 mm + core HRC 25 의 dual structure.\n\n응용: 자동차 transmission gear (특히 differential ring gear · pinion), planetary gear set (BMW · Mercedes 의 8-speed automatic 의 일부 gear), 산업 reducer gear (Sumitomo · SEW 의 cycloidal reducer), 그리고 산업 chain pin · cam · roller. 8620 의 매력은 cost ($1.8-3.2/kg) + carburizing 가능 + 가공성의 균형입니다. 더 높은 강도가 필요하면 8822 (C 0.22%, Mo 0.35%), 또는 9310 (Ni 3.25%, Cr 1.2%) 이 검토됩니다. 흥미로운 사실은 1986년 NASA Space Shuttle 의 main engine turbopump bearing 의 일부가 9310 carburized steel 이었고, 8620 의 후속 variant 가 우주 propulsion 에 진입한 케이스라는 점입니다.",
+  "story_refs": [
+    "AISI/SAE J404 (2017) \"Chemical Compositions of SAE Alloy Steels\"",
+    "ASM Heat Treater's Guide 2nd ed. (1995)",
+    "Krauss G (2015) Steels: Processing, Structure, and Performance 2nd ed., ASM"
+  ],
+  "confidence_tier": "medium"
+}

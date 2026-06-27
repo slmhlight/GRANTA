@@ -1,0 +1,340 @@
+{
+  "stable_id": "MET-0486",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-maraging-steel",
+    "alloy_base": "F-AB-maraging-c300-18ni-300",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0247",
+  "origin": "reference(supplementary)",
+  "id": "R_0247",
+  "name": "Maraging C300 (18Ni-300) — Wrought, Aged",
+  "category": "Metal",
+  "subcategory": "Maraging Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Aged",
+  "ranges": {
+    "density": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1790,
+      "max": 1950,
+      "typical": 1860,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 1830,
+      "max": 2000,
+      "typical": 1930,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 11,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 190,
+      "max": 190,
+      "typical": 190,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 560,
+      "max": 610,
+      "typical": 580,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 14.2,
+      "max": 14.2,
+      "typical": 14.2,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 600,
+      "max": 700,
+      "typical": 650,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:maraging"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 25,
+      "typical": 20,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:maraging"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 90,
+      "typical": 80,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:AMS 6514 / ATI"
+    },
+    "electrical_conductivity": {
+      "min": 2.55,
+      "max": 3.45,
+      "typical": 3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 510,
+      "typical": 480,
+      "n": 1,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.755,
+      "max": 11.845,
+      "typical": 10.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "specific_heat": {
+      "min": 382.5,
+      "max": 517.5,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "price_per_kg": {
+      "min": 12.75,
+      "max": 17.25,
+      "typical": 15,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.102,
+      "max": 0.138,
+      "typical": 0.12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Maraging Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 19.69,
+      "max": 19.69,
+      "typical": 19.69,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "18~19",
+    "Co": "8.5~9.5",
+    "Mo": "4.6~5.2",
+    "Ti": "0.5~0.8"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — VascoMax C300 (Maraging 300)",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
+      "verified": true
+    },
+    {
+      "label": "AK Steel / ASM Handbook — Maraging C300",
+      "url": "https://www.aksteel.com/sites/default/files/2018-01/CT300.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: AMS 6514 / ATI",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ATI VascoMax C-300 / C-350 reference",
+      "url": "https://www.atimaterials.com/",
+      "verified": false
+    },
+    {
+      "label": "AK Steel — Maraging 250/300/350 datasheet",
+      "url": "https://www.aksteel.com/sites/default/files/2018-02/MARAGING-DATA-BULLETIN.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 6514 — 18Ni-300 maraging bar/forging",
+      "url": "https://www.sae.org/standards/content/ams6514l/",
+      "verified": false
+    },
+    {
+      "label": "AMS 6512 — 18Ni-250 maraging bar/forging",
+      "url": "https://www.sae.org/standards/content/ams6512f/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8,
+      1860,
+      1930,
+      8,
+      190,
+      580,
+      14.2
+    ],
+    [
+      8,
+      1790,
+      1830,
+      6,
+      190,
+      560,
+      14.2
+    ],
+    [
+      8,
+      1950,
+      2000,
+      11,
+      190,
+      610,
+      14.2
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "ATI VascoMax C-300 (UNS K93120 18Ni-9Co-5Mo-0.7Ti) / C-350 (UNS K93501 18Ni-9Co-3.5Mo-1.6Ti) — Cobalt-strengthened 18Ni maraging. Cobalt 9% 가 standard 250/300 의 7-9% 동등 but with high-Ti for stronger γ' analog precipitate. MarTmax 480°C continuous. 항공 high-strength fastener, missile case, 폭격 비행기 landing gear.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 6514",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 6512",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 80,
+  "density": 8,
+  "yield_strength": 1860,
+  "uts": 1930,
+  "elongation": 8,
+  "modulus": 190,
+  "hardness": 580,
+  "thermal_conductivity": 14.2,
+  "fatigue_strength": 650,
+  "impact_strength": 20,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Carpenter Technology — VascoMax C300 (Maraging 300)",
+  "aliases": [
+    "18Ni-300"
+  ],
+  "families": [
+    "Metal",
+    "Maraging Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1900,
+      "uts": 1950
+    },
+    {
+      "temp": 300,
+      "ys": 1700,
+      "uts": 1800
+    },
+    {
+      "temp": 450,
+      "ys": 1500,
+      "uts": 1600
+    }
+  ],
+  "electrical_conductivity": 3,
+  "max_service_temp": 400,
+  "thermal_expansion": 10.3,
+  "poisson_ratio": 0.3,
+  "specific_heat": 450,
+  "melting_point": 1430,
+  "price_per_kg": 15,
+  "price_per_cm3": 0.12,
+  "popularity": 4.32,
+  "machining_cost_factor": 2,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 19.69,
+  "total_cost_estimate": 39.38,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 19% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 9.5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "story": "Maraging C300 은 Maraging 300 (UNS K93120, 1959 INCO Decker/Floreen 발명) 의 commercial grade 명칭으로, Vasco (현 Vacuumelt) / Allvac / Latrobe Specialty Steel 같은 미국 specialty mill 의 자체 brand name 입니다. 'C' 는 Commercial 또는 carbon-related minor 변형의 표시.\n\n조성과 응용은 Maraging 300 과 거의 동일해요 — Ni 18% + Co 9% + Mo 5% + Ti 0.7% 의 carbon-free martensite + 480°C aging 으로 σ_y 2000 MPa 의 ultra-high strength + KIC 100 MPa√m 의 인성 균형. 응용 — Falcon 9 의 second-stage interstage forging, NASA Hubble repair mission hand tool, 미사일 motor case (Tomahawk, Trident D-5), Callaway 골프 driver face plate, F1 gearbox shaft 일부.\n\nAM (LPBF) 에서도 EOS 의 EOS MaragingSteel MS1 (= C300 변형) 으로 가장 인기 있는 high-strength tool steel 분말 자리에 있어요. 사출금형의 conformal cooling channel, 자동차 stamping die 의 customizable insert, F1 의 핵심 brackets — 모두 MS1 LPBF + post-age 의 조합. Maraging 300 family 의 응용 범위가 매년 확장되는 중이에요.",
+  "story_refs": [
+    "Decker R F, Eash J T, Goldman A J (1962) \"18% Nickel Maraging Steel\", Trans ASM 55",
+    "Sha W & Guo Z (2009) Maraging Steels: Modelling of Microstructure, Properties and Applications, Woodhead Publishing",
+    "EOS GmbH \"EOS MaragingSteel MS1 Material Data Sheet\" (2020)"
+  ],
+  "confidence_tier": "high"
+}

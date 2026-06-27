@@ -1,0 +1,213 @@
+{
+  "stable_id": "CER-0022",
+  "family": {
+    "category": "F-CER",
+    "subcategory": "F-CER-oxide",
+    "alloy_base": "F-AB-alumina-al-o-96",
+    "element_families": []
+  },
+  "legacy_id": "CER_001",
+  "origin": "ceramics-data",
+  "id": "CER_001",
+  "name": "Alumina (Al₂O₃, 96%)",
+  "category": "Ceramic",
+  "subcategory": "Oxide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Sintered"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 3.72,
+      "max": 3.72,
+      "typical": 3.72,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 1400,
+      "max": 1400,
+      "typical": 1400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 24,
+      "max": 24,
+      "typical": 24,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 8.2,
+      "max": 8.2,
+      "typical": 8.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1500,
+      "max": 1500,
+      "typical": 1500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": {
+      "min": 0.23,
+      "max": 0.23,
+      "typical": 0.23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "specific_heat": {
+      "min": 880,
+      "max": 880,
+      "typical": 880,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "fracture_toughness": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 99,
+      "max": 99,
+      "typical": 99,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.0446,
+      "max": 0.0446,
+      "typical": 0.0446,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "52.9",
+    "O": "47.1"
+  },
+  "sources": [
+    {
+      "label": "CoorsTek — Alumina (Al₂O₃, 96%)",
+      "url": "https://www.coorstek.com/en/materials/alumina/",
+      "verified": true
+    },
+    {
+      "label": "Applications: 산업 베어링, 절삭공구 (저가), 분쇄 미디어",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "CoorsTek Alumina (AD-995 / AD-96) datasheet",
+      "url": "https://www.coorstek.com/english/materials/ceramics/alumina/",
+      "verified": true
+    },
+    {
+      "label": "Kyocera Alumina Engineering Ceramic data",
+      "url": "https://global.kyocera.com/prdct/fc/",
+      "verified": true
+    },
+    {
+      "label": "ASTM C773 — Alumina Compressive Strength",
+      "url": "https://store.astm.org/c0773-88r22.html",
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "ceramic": true,
+    "applications": "산업 베어링, 절삭공구 (저가), 분쇄 미디어",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM C773",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 4,
+  "density": 3.72,
+  "yield_strength": 220,
+  "uts": 220,
+  "elongation": null,
+  "modulus": 300,
+  "hardness": 1400,
+  "thermal_conductivity": 24,
+  "fatigue_strength": 99,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Sintered",
+  "source": "CoorsTek — Alumina (Al₂O₃, 96%)",
+  "aliases": [
+    "96%"
+  ],
+  "families": [
+    "Ceramic",
+    "Oxide"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.5,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0446,
+  "min_wall_thickness": 1.5,
+  "surface_finish_typical": 3.2,
+  "tolerance_class": "IT12-13",
+  "rohs_compliant": true,
+  "story": "Alumina (Al₂O₃) 의 공학 ceramic 사용은 1907년 미국 Carborundum Company (Acheson 의 SiC 회사와 동일 회사) 가 emery 의 대체로 fused alumina abrasive 를 출시한 게 시작입니다. 1937년 독일 Siemens 가 'Sintox' 라는 sintered alumina 를 commercial launch 했고, 1960년대 이후 전 세계 ceramic 산업의 표준 oxide 가 됐어요.\n\nAl₂O₃ 의 매력은 cost 효율 + 화학적 안정성 + 표준화 의 균형입니다. 가격 $5-15/kg 으로 ceramic 중에서 매우 저렴하면서 (zirconia 의 1/10) MOR (modulus of rupture) 300-450 MPa, hardness HRA 90+, melting point 2050°C, dielectric breakdown 14 kV/mm 의 거의 모든 ceramic 응용에 적합한 기본 spec 을 제공합니다. KIC 3-4 MPa·√m 으로 brittle 한 게 가장 큰 단점.\n\n응용: spark plug insulator (BMW NGK · Bosch 의 모든 spark plug 의 white center insulator), 산업 grinding wheel (sintered alumina abrasive), kiln furniture (도자기 굽는 furnace 의 setter), 정밀 cutting tool (turning insert 의 일부 grade, 특히 ceramic-coated carbide), wear-resistant component (pump impeller liner, sand-blast nozzle), 의료 dental crown + bridge 의 일부 (저-end grade), EV battery 의 separator coating (Al₂O₃-coated polymer separator), 그리고 semiconductor wafer chuck (high-purity alumina). 가장 광범위한 응용은 spark plug 인데, 전 세계 연간 200억 개의 spark plug 가 모두 alumina insulator 를 갖습니다.",
+  "story_refs": [
+    "Munro R G (1997) \"Evaluated Material Properties for a Sintered Alpha-Alumina\", J Am Ceram Soc 80",
+    "Dorre E & Hubner H (1984) Alumina: Processing, Properties, and Applications, Springer",
+    "Auerkari P (1996) Mechanical and Physical Properties of Engineering Alumina Ceramics, VTT"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Alumina (α-Al₂O₃, corundum) — most common engineering ceramic. Purity 96% (CoorsTek AD-96) vs 99.5% (AD-995) vs 99.9% (AD-998)."
+}

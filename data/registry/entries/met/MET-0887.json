@@ -1,0 +1,315 @@
+{
+  "stable_id": "MET-0887",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-titanium-pure-cp-grades",
+    "alloy_base": "F-AB-ti-grade-4",
+    "element_families": [
+      "F-EL-titanium-based"
+    ]
+  },
+  "legacy_id": "G_0302",
+  "origin": "generic(csv)",
+  "id": "G_0302",
+  "name": "Ti Grade 4 — Annealed (Wrought)",
+  "category": "Metal",
+  "subcategory": "Titanium - Pure / CP Grades",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 4.51,
+      "max": 4.51,
+      "typical": 4.51,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 480,
+      "max": 560,
+      "typical": 480,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 550,
+      "max": 680,
+      "typical": 550,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 15,
+      "max": 25,
+      "typical": 15,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 102,
+      "max": 110,
+      "typical": 105,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 230,
+      "max": 280,
+      "typical": 253,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 21.8,
+      "max": 21.8,
+      "typical": 21.8,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 120,
+      "max": 200,
+      "typical": 150,
+      "n": 0,
+      "confidence": "handbook",
+      "provenance": "family:σf≈0.52·σy (MMPDS-2018 Titanium)"
+    },
+    "impact_strength": {
+      "min": 5,
+      "max": 18,
+      "typical": 10,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based"
+    },
+    "fracture_toughness": {
+      "min": 50,
+      "max": 90,
+      "typical": 70,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:MMPDS-2018 Titanium"
+    },
+    "electrical_conductivity": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "max_service_temp": {
+      "min": 300,
+      "max": 400,
+      "typical": 315,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 34.5,
+      "typical": 23,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "poisson_ratio": {
+      "min": 0.165,
+      "max": 0.495,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 1350,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "melting_point": {
+      "min": 1660,
+      "max": 1670,
+      "typical": 1668,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "price_per_kg": {
+      "min": 2,
+      "max": 6,
+      "typical": 4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "price_per_cm3": {
+      "min": 0.009,
+      "max": 0.027,
+      "typical": 0.018,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Titanium - Pure/Other"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.28,
+      "max": 4.28,
+      "typical": 4.28,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ti": "balance",
+    "Fe": "≤0.50",
+    "O": "≤0.40",
+    "C": "≤0.10",
+    "N": "≤0.05",
+    "H": "≤0.015"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Ti Grade 4\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%204",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: MMPDS-2018 Titanium",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.2 — CP Titanium grades 1-4",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205020/Titanium-Alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM B348 — Titanium / Ti Alloy Bar/Billet (Grade 1-4)",
+      "url": "https://store.astm.org/b0348_b0348m-21e1.html",
+      "verified": false
+    },
+    {
+      "label": "MatWeb — Titanium Grade 2 Annealed",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8b32f4f7d4a04a6a8a82dfc4d35aebab",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      4.51,
+      451.05,
+      511.5,
+      14.94,
+      103,
+      148.8,
+      21.8
+    ],
+    [
+      4.51,
+      509.25,
+      577.5,
+      15.3,
+      103,
+      168,
+      21.8
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 2,
+    "subcategory_variants": [
+      "Titanium - Pure/Other"
+    ],
+    "conditions": [
+      "Annealed",
+      "Partially Annealed"
+    ],
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B348",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 70,
+  "fatigue_strength": 150,
+  "density": 4.51,
+  "yield_strength": 480,
+  "uts": 550,
+  "elongation": 15,
+  "modulus": 105,
+  "hardness": 253,
+  "thermal_conductivity": 21.8,
+  "impact_strength": 10,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Titanium - Pure/Other",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 315,
+  "thermal_expansion": 23,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 1668,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.018,
+  "popularity": 3,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4.28,
+  "total_cost_estimate": 4.28,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 480,
+      "uts": 550,
+      "E": 108
+    },
+    {
+      "temp": 200,
+      "ys": 350,
+      "uts": 430,
+      "E": 102
+    }
+  ],
+  "confidence_tier": "medium",
+  "industry_note": "Commercially Pure (CP) Titanium — single-phase α structure (NO precipitation aging, R173 fake-variant 제거). 4 grades by O / Fe interstitial 차이: • Grade 1 (UNS R50250, ASTM Gr 1, Ti≥99.5, O ≤0.18): σy 170-310 / UTS 240-345 / El 24%."
+}

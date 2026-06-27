@@ -1,0 +1,339 @@
+{
+  "stable_id": "MET-0822",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ph",
+    "alloy_base": "F-AB-15-5ph",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "V_0160",
+  "origin": "am_vendor(csv)",
+  "id": "V_0160",
+  "name": "15-5PH — As-supplied (LPBF)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - PH",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Nikon SLM Solutions",
+    "EOS"
+  ],
+  "machines": [],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built (no post-processing)",
+  "ranges": {
+    "density": {
+      "min": 7.8,
+      "max": 7.8,
+      "typical": 7.8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 1090,
+      "max": 1110,
+      "typical": 1100,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": null,
+    "elongation": {
+      "min": 9,
+      "max": 9.2,
+      "typical": 9,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 188,
+      "max": 189,
+      "typical": 189,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 400,
+      "max": 405,
+      "typical": 400,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 11,
+      "max": 11.2,
+      "typical": 11.2,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 442,
+      "max": 552,
+      "typical": 497,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:155ph × HT:as-built martensitic (f×0.92, i×1.3)"
+    },
+    "impact_strength": {
+      "min": 33,
+      "max": 72,
+      "typical": 52,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "realprops:155ph × HT:as-built martensitic (f×0.92, i×1.3)"
+    },
+    "fracture_toughness": {
+      "min": 88,
+      "max": 88,
+      "typical": 88,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:as-built martensitic (k×1.1)"
+    },
+    "electrical_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 315,
+      "typical": 315,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "thermal_expansion": {
+      "min": 10.8,
+      "max": 10.8,
+      "typical": 10.8,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "poisson_ratio": {
+      "min": 0.27,
+      "max": 0.27,
+      "typical": 0.27,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "melting_point": {
+      "min": 1404,
+      "max": 1404,
+      "typical": 1404,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "price_per_kg": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "price_per_cm3": {
+      "min": 0.0546,
+      "max": 0.0546,
+      "typical": 0.0546,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:155ph"
+    },
+    "delivered_price_per_kg": {
+      "min": 17.5,
+      "max": 17.5,
+      "typical": 17.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "14~15.5",
+    "Ni": "3.5~5.5",
+    "Cu": "2.5~4.5",
+    "Nb": "0.15~0.45",
+    "Mn": "≤1.0",
+    "Si": "≤1.0",
+    "C": "≤0.07"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — Custom 15-5 PH",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
+      "verified": true
+    },
+    {
+      "label": "Nikon SLM Solutions (AM vendor datasheet)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "EOS (AM vendor datasheet)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AK Steel — 15-5 PH Stainless Datasheet",
+      "url": "https://www.aksteel.com/sites/default/files/2018-02/15-5-PH-DATA-BULLETIN.pdf",
+      "verified": true
+    },
+    {
+      "label": "AMS 5659 — 15-5 PH bar / forging",
+      "url": "https://www.sae.org/standards/content/ams5659/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.8,
+      1090,
+      0,
+      9,
+      189,
+      400,
+      11.2
+    ],
+    [
+      7.8,
+      1100,
+      0,
+      9,
+      188,
+      400,
+      11
+    ],
+    [
+      7.8,
+      1110,
+      0,
+      9.2,
+      189,
+      405,
+      11.2
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "row_count": 3,
+    "subcategory_variants": [
+      "Nickel - Other Superalloy",
+      "Stainless Steel - Austenitic"
+    ],
+    "conditions": [],
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5659",
+        "org": "AMS"
+      }
+    ]
+  },
+  "fracture_toughness": 88,
+  "fatigue_strength": 497,
+  "density": 7.8,
+  "yield_strength": 1100,
+  "uts": null,
+  "elongation": 9,
+  "modulus": 189,
+  "hardness": 400,
+  "thermal_conductivity": 11.2,
+  "impact_strength": 52,
+  "manufacturer": "Nikon SLM Solutions, EOS",
+  "process": "LPBF",
+  "source": "Carpenter Technology — Custom 15-5 PH",
+  "aliases": [
+    "UNS S15500",
+    "EN 1.4545",
+    "XM-12"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - PH",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "elevated_temp": [
+    {
+      "temp": 20,
+      "ys": 1170,
+      "uts": 1310,
+      "E": 196
+    },
+    {
+      "temp": 300,
+      "ys": 1010,
+      "uts": 1170,
+      "E": 180
+    },
+    {
+      "temp": 425,
+      "ys": 940,
+      "uts": 1080,
+      "E": null
+    },
+    {
+      "temp": 540,
+      "ys": 760,
+      "uts": 900,
+      "E": null
+    }
+  ],
+  "electrical_conductivity": 2.5,
+  "max_service_temp": 315,
+  "thermal_expansion": 10.8,
+  "poisson_ratio": 0.27,
+  "specific_heat": 460,
+  "melting_point": 1404,
+  "price_per_kg": 7,
+  "price_per_cm3": 0.0546,
+  "popularity": 3.5,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 17.5,
+  "total_cost_estimate": 31.5,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 60% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "UNS S15500 / EN 1.4545 / XM-12 — 17-4 PH 의 'higher toughness' 변종 (Cr 14-15.5, Ni 3.5-5.5, Cu 2.5-4.5). 17-4 와 동등 강도 (H900 σy 1170 / UTS 1310) 이지만 fine-grained ESR melt 로 transverse ductility / KIC 개선. 항공 critical components (Cessna spar/wing fitting), 의료 instrument, AM LPBF (3D Systems LaserForm 15-5PH)."
+}

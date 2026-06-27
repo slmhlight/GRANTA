@@ -1,0 +1,195 @@
+{
+  "stable_id": "MET-0395",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-c23000-red-brass-85cu-15zn",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "R_0287_3",
+  "origin": "reference(supplementary)",
+  "id": "R_0287_3",
+  "name": "C23000 (Red Brass 85Cu-15Zn) — H (Full-Hard)",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought (cold-rolled strip)"
+  ],
+  "heat_treatment": "H (Full-Hard)",
+  "ranges": {
+    "density": {
+      "min": 8.75,
+      "max": 8.75,
+      "typical": 8.75,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 380,
+      "max": 380,
+      "typical": 380,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 430,
+      "max": 430,
+      "typical": 430,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 115,
+      "max": 115,
+      "typical": 115,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 145,
+      "max": 145,
+      "typical": 145,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 159,
+      "max": 159,
+      "typical": 159,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 70,
+      "max": 130,
+      "typical": 95,
+      "n": 0,
+      "confidence": "handbook",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Cu alloys)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 30,
+      "max": 56.3,
+      "typical": 41.3,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Copper.org Brass × HT:H08/H10 hard (k×0.75)"
+    },
+    "max_service_temp": {
+      "typical": 175,
+      "min": 150,
+      "max": 200,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Cu": "84~86",
+    "Zn": "balance",
+    "Pb": "≤0.05",
+    "Fe": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 4",
+      "url": "https://www.poongsan.co.kr/eng/business/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Copper.org Brass",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Copper Development Association — Red Brass family",
+      "url": "https://www.copper.org/",
+      "verified": false
+    },
+    {
+      "label": "ASTM B36 — Brass Plate, Sheet, Strip, Rolled Bar",
+      "url": "https://store.astm.org/b0036_b0036m-18.html",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.75,
+      380,
+      430,
+      8,
+      115,
+      145,
+      159
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "Red Brass family (Cu-Zn, lower Zn = redder color, higher corrosion resistance): • C21000 (Gilding Metal, 95Cu-5Zn): O σy 80 / UTS 235 / El 45 — coinage (penny core), bullet jacket, decorative • C22000 (Commercial Bronze, 90Cu-10Zn): O σy 85 / UTS 255 / El 45 — costume jewelry, marine hardware • C23000 (Red Brass, 85Cu-15Zn): O σy 90 / UTS 270 / El 45 — plumbing fitting, heat exchanger tube Work-Tmax 200°C.",
+  "meta": {
+    "reference": true,
+    "condition": "H (Full-Hard)",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM B36",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 41.3,
+  "fatigue_strength": 95,
+  "density": 8.75,
+  "yield_strength": 380,
+  "uts": 430,
+  "elongation": 8,
+  "modulus": 115,
+  "hardness": 145,
+  "thermal_conductivity": 159,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Wrought (cold-rolled strip)",
+  "source": "Datasheet 4",
+  "aliases": [
+    "Red Brass 85Cu-15Zn"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy"
+  ],
+  "popularity": 4.15,
+  "machining_cost_factor": 0.5,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.2,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "C23000 (red brass, 85-15) 은 Cu-15% Zn 합금으로 'Bristol red brass' 또는 'Rich Low' brass 로도 불립니다. 1860년대 영국 Bristol 의 brass 산업에서 발달했고, 이후 미국 Waterbury (Connecticut) 의 American Brass Company 가 대량 생산했어요. Zn 15% 가 들어가면서 dezincification (Zn 만 선택적 부식으로 떨어지는 현상) 위험이 살짝 시작되지만 As 0.05% 또는 Sb 첨가로 inhibit 됩니다.\n\n색상은 C22000 보다 더 짙고 짙은 적금색이라 'red brass' 라는 이름이 붙었어요. σy 는 annealed 75 → half-hard 350 MPa 정도로 코퍼 대비 강도가 충분히 올라가서 산업 piping 에 쓸 만합니다. 1950년대 미국 건축업의 plumbing 표준 brass pipe (DWV — drain, waste, vent line) 가 C23000 으로 만들어졌어요.\n\n응용: 건축 plumbing 파이프 (DWV pipe), 화학 plant 의 condenser tube (해수 환경에서 dezincification 저항), 압력 게이지 case, 자동차 thermostat housing, 화재 hose nozzle (소방 hose 의 metal coupling), 그리고 organ pipe (church organ 의 reed pipe). 흥미로운 점은 19세기 영국 산업혁명 때 C23000 spinning 공정이 영국에서 미국으로 이전된 게 'Yankee brass industry' 의 시작이었다는 사실입니다.",
+  "story_refs": [
+    "ASTM B43 \"Standard Specification for Seamless Red Brass Pipe\"",
+    "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Copper Development Association CDA Pub 144"
+  ],
+  "confidence_tier": "medium"
+}

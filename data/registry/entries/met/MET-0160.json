@@ -1,0 +1,391 @@
+{
+  "stable_id": "MET-0160",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-mn-alloys-3xxx",
+    "alloy_base": "F-AB-aa-3105",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "G_0045",
+  "origin": "generic(csv)",
+  "id": "G_0045",
+  "name": "AA 3105 — Strain-hardened (Wrought)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Mn Alloys (3xxx)",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Strain-hardened",
+  "ranges": {
+    "density": {
+      "min": 2.71,
+      "max": 2.71,
+      "typical": 2.71,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 72,
+      "max": 87.2,
+      "typical": 77.6,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 117,
+      "max": 141.7,
+      "typical": 126.1,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 22.4,
+      "max": 26.88,
+      "typical": 24.92,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 36,
+      "max": 43.6,
+      "typical": 38.8,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 191,
+      "max": 191,
+      "typical": 191,
+      "n": 9,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 27,
+      "max": 39,
+      "typical": 33,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 90,
+      "typical": 65,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Austenitic × HT:cold worked (i×0.5)"
+    },
+    "fracture_toughness": {
+      "min": 65,
+      "max": 130,
+      "typical": 91,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Austenitic SS × HT:cold worked (k×0.65)"
+    },
+    "electrical_conductivity": {
+      "min": 42.5,
+      "max": 57.5,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless - Austenitic"
+    },
+    "max_service_temp": {
+      "min": 170,
+      "max": 230,
+      "typical": 200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless - Austenitic"
+    },
+    "thermal_expansion": {
+      "min": 19.72,
+      "max": 26.68,
+      "typical": 23.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless - Austenitic"
+    },
+    "poisson_ratio": {
+      "min": 0.2805,
+      "max": 0.3795,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless - Austenitic"
+    },
+    "specific_heat": {
+      "min": 759.05,
+      "max": 1026.95,
+      "typical": 893,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless - Austenitic"
+    },
+    "melting_point": {
+      "min": 561,
+      "max": 759,
+      "typical": 660,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless - Austenitic"
+    },
+    "price_per_kg": {
+      "min": 2.125,
+      "max": 2.875,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless - Austenitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0058,
+      "max": 0.0078,
+      "typical": 0.0068,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless - Austenitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.84,
+      "max": 2.84,
+      "typical": 2.84,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mn": "0.8",
+    "Cu": "0.1",
+    "Al": "98",
+    "Mg": "0.8"
+  },
+  "sources": [
+    {
+      "label": "Aluminum Association — AA 3xxx (Al-Mn) + MMPDS-08 Sec.3.5",
+      "url": "https://www.aluminum.org/standards",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AA 3105\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%203105",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.71,
+      72,
+      117,
+      25.2,
+      70,
+      36,
+      191
+    ],
+    [
+      2.71,
+      87.2,
+      141.70000000000002,
+      24.92,
+      70,
+      43.6,
+      191
+    ],
+    [
+      2.71,
+      72,
+      117,
+      22.4,
+      70,
+      36,
+      191
+    ],
+    [
+      2.71,
+      84,
+      136.5,
+      23.800000000000004,
+      70,
+      42,
+      191
+    ],
+    [
+      2.71,
+      76,
+      123.5,
+      26.6,
+      70,
+      38,
+      191
+    ],
+    [
+      2.71,
+      76.8,
+      124.8,
+      26.880000000000003,
+      70,
+      38.4,
+      191
+    ],
+    [
+      2.71,
+      77.6,
+      126.1,
+      24.360000000000003,
+      70,
+      38.8,
+      191
+    ],
+    [
+      2.71,
+      81.6,
+      132.6,
+      25.76,
+      70,
+      40.8,
+      191
+    ],
+    [
+      2.71,
+      84,
+      136.5,
+      23.800000000000004,
+      70,
+      42,
+      191
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 9,
+    "subcategory_variants": [
+      "Aluminum - Mn Alloys (3xxx)"
+    ],
+    "conditions": [
+      "H12",
+      "H14",
+      "H16",
+      "H18",
+      "H19",
+      "H22",
+      "H24",
+      "H26",
+      "H28"
+    ]
+  },
+  "fracture_toughness": 91,
+  "fatigue_strength": 33,
+  "density": 2.71,
+  "yield_strength": 77.6,
+  "uts": 126.1,
+  "elongation": 24.92,
+  "modulus": 70,
+  "hardness": 38.8,
+  "thermal_conductivity": 191,
+  "impact_strength": 65,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Stainless - Austenitic",
+    "Aluminum-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "electrical_conductivity": 50,
+  "max_service_temp": 200,
+  "thermal_expansion": 23.2,
+  "poisson_ratio": 0.33,
+  "specific_heat": 893,
+  "melting_point": 660,
+  "price_per_kg": 2.5,
+  "price_per_cm3": 0.0068,
+  "popularity": 1.53,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.84,
+  "total_cost_estimate": 2.55,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 220,
+      "uts": 550,
+      "E": 200
+    },
+    {
+      "temp": 600,
+      "ys": 120,
+      "uts": 410,
+      "E": 158
+    },
+    {
+      "temp": 800,
+      "ys": 100,
+      "uts": 270,
+      "E": 138
+    },
+    {
+      "temp": 1000,
+      "ys": 60,
+      "uts": 140,
+      "E": 115
+    }
+  ],
+  "creep_rupture": [
+    {
+      "temp": 900,
+      "stress": 35,
+      "hours": 1000
+    },
+    {
+      "temp": 1000,
+      "stress": 20,
+      "hours": 1000
+    }
+  ],
+  "confidence_tier": "high"
+}

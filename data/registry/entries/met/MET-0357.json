@@ -1,0 +1,315 @@
+{
+  "stable_id": "MET-0357",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-controlled-expansion-invar-kovar",
+    "alloy_base": "F-AB-kovar-fenico",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0060",
+  "origin": "reference(supplementary)",
+  "id": "R_0060",
+  "name": "Kovar (FeNiCo)",
+  "category": "Metal",
+  "subcategory": "Controlled Expansion (Invar/Kovar)",
+  "tier": "reference",
+  "manufacturers": [
+    "Imphy Alloys + Carpenter (dual)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 8.36,
+      "max": 8.36,
+      "typical": 8.36,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 310,
+      "max": 370,
+      "typical": 340,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 480,
+      "max": 560,
+      "typical": 520,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 25,
+      "max": 35,
+      "typical": 30,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 138,
+      "max": 138,
+      "typical": 138,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 150,
+      "max": 175,
+      "typical": 160,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 17,
+      "max": 17,
+      "typical": 17,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 170,
+      "max": 250,
+      "typical": 210,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "impact_strength": {
+      "min": 40,
+      "max": 95,
+      "typical": 65,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "max_service_temp": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "thermal_expansion": {
+      "min": 5.5,
+      "max": 5.5,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "specific_heat": {
+      "min": 433,
+      "max": 433,
+      "typical": 433,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "melting_point": {
+      "min": 1450,
+      "max": 1450,
+      "typical": 1450,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "price_per_cm3": {
+      "min": 0.209,
+      "max": 0.209,
+      "typical": 0.209,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:kovar"
+    },
+    "delivered_price_per_kg": {
+      "min": 26.25,
+      "max": 26.25,
+      "typical": 26.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Ni": "29",
+    "Co": "17"
+  },
+  "sources": [
+    {
+      "label": "Carpenter Technology — Kovar (ASTM F15)",
+      "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM F15 — Kovar / UNS K94610",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Carpenter Invar 36 / Kovar",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASTM F15 — Iron-Nickel-Cobalt Sealing Alloys (Kovar)",
+      "url": "https://store.astm.org/f0015-04r20.html",
+      "verified": false
+    },
+    {
+      "label": "VDM Pernifer 2918 (Kovar equiv.) reference",
+      "url": "https://www.vdm-metals.com/",
+      "verified": false
+    },
+    {
+      "label": "Carpenter Kovar / Glass-Sealing Alloy reference",
+      "url": "https://www.carpentertechnology.com/blog/kovar-alloy",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.36,
+      340,
+      520,
+      30,
+      138,
+      160,
+      17
+    ],
+    [
+      8.36,
+      310,
+      480,
+      25,
+      138,
+      150,
+      17
+    ],
+    [
+      8.36,
+      370,
+      560,
+      35,
+      138,
+      175,
+      17
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "UNS K94610 / ASTM F15 / Nilo K / Pernifer 2918 — Fe-29Ni-17Co glass-to-metal sealing alloy. **CTE 5.5×10⁻⁶/K (20-450°C)** — borosilicate glass (Corning 7740 Pyrex) 와 동일 → hermetic seal. σy 340 / UTS 520 / El 30% / E 138 GPa / ρ 8.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM F15",
+        "org": "ASTM"
+      },
+      {
+        "id": "UNS K94610",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 70,
+  "density": 8.36,
+  "yield_strength": 340,
+  "uts": 520,
+  "elongation": 30,
+  "modulus": 138,
+  "hardness": 160,
+  "thermal_conductivity": 17,
+  "fatigue_strength": 210,
+  "impact_strength": 65,
+  "manufacturer": "Imphy Alloys + Carpenter (dual)",
+  "process": "Wrought",
+  "source": "Carpenter Technology — Kovar (ASTM F15)",
+  "aliases": [
+    "UNS K94610",
+    "ASTM F15",
+    "NiCo29Co18",
+    "Nilo K",
+    "Pernifer 2918"
+  ],
+  "families": [
+    "Metal",
+    "Controlled Expansion Alloy",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 3,
+  "max_service_temp": 450,
+  "thermal_expansion": 5.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 433,
+  "melting_point": 1450,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.209,
+  "popularity": 2.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 26.25,
+  "total_cost_estimate": 26.25,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 29% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
+    "Co 17% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

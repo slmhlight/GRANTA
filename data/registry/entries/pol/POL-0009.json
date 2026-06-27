@@ -1,0 +1,246 @@
+{
+  "stable_id": "POL-0009",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-etfe",
+    "alloy_base": "F-AB-etfe",
+    "element_families": []
+  },
+  "legacy_id": "R_0146",
+  "origin": "reference(supplementary)",
+  "id": "R_0146",
+  "name": "ETFE",
+  "category": "Polymer",
+  "subcategory": "Polymer - ETFE",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.7,
+      "max": 1.7,
+      "typical": 1.7,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 20,
+      "max": 25,
+      "typical": 22,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 38,
+      "max": 46,
+      "typical": 42,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 250,
+      "max": 400,
+      "typical": 300,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 0.8,
+      "max": 1,
+      "typical": 0.9,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.24,
+      "max": 0.24,
+      "typical": 0.24,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ETFE"
+    },
+    "max_service_temp": {
+      "min": 140,
+      "max": 165,
+      "typical": 150,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - ETFE"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ETFE"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ETFE"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ETFE"
+    },
+    "glass_transition_temp": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ETFE"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ETFE"
+    },
+    "price_per_cm3": {
+      "min": 0.0213,
+      "max": 0.0638,
+      "typical": 0.0425,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - ETFE"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "37.5",
+    "H": "3.1",
+    "F": "59.3"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — ETFE (Tefzel)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AGC Chemicals — Fluon ETFE 기술자료 (Tables 6/9/18)",
+      "url": "https://agcce.com/wp-content/uploads/2023/10/FluonETFE.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.7,
+      22,
+      42,
+      300,
+      0.9,
+      0,
+      0.24
+    ],
+    [
+      1.7,
+      20,
+      38,
+      250,
+      0.8,
+      0,
+      0.24
+    ],
+    [
+      1.7,
+      25,
+      46,
+      400,
+      1,
+      0,
+      0.24
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Excellent",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "polymer": true
+  },
+  "density": 1.7,
+  "yield_strength": 22,
+  "uts": 42,
+  "elongation": 300,
+  "modulus": 0.9,
+  "hardness": null,
+  "thermal_conductivity": 0.24,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Material datasheets — ETFE (Tefzel)",
+  "aliases": [
+    "Tefzel",
+    "Ethylene tetrafluoroethylene"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - ETFE"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 150,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 80,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0425,
+  "popularity": 3,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

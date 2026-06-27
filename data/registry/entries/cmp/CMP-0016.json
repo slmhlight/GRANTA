@@ -1,0 +1,176 @@
+{
+  "stable_id": "CMP-0016",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-ceramic-matrix",
+    "alloy_base": "F-AB-cmc",
+    "element_families": []
+  },
+  "legacy_id": "CMP_027",
+  "origin": "composites-data",
+  "id": "CMP_027",
+  "name": "CMC — Al₂O₃/Al₂O₃ (Oxide-oxide)",
+  "category": "Composite",
+  "subcategory": "Ceramic-Matrix",
+  "tier": "am_vendor",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 2.5,
+      "max": 2.8,
+      "typical": 2.65,
+      "n": 1,
+      "confidence": "measured",
+      "provenance": "COI Ceramics Nextel 610 Oxide-Oxide CMC datasheet"
+    },
+    "yield_strength": {
+      "min": 200,
+      "max": 280,
+      "typical": 230,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 200,
+      "max": 280,
+      "typical": 230,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 75,
+      "max": 90,
+      "typical": 80,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 1100,
+      "max": 1300,
+      "typical": 1200,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 3500,
+      "max": 3500,
+      "typical": 3500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 0.25,
+      "max": 0.4,
+      "typical": 0.3,
+      "n": 1,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 7.8838,
+      "max": 10.6662,
+      "typical": 9.275,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R205-R price_per_kg × ρ 재계산"
+    }
+  },
+  "composition": [
+    [
+      "Alumina fiber (Nextel 610 또는 720, 35 vol%)",
+      "35"
+    ],
+    [
+      "Alumina matrix (35 vol%)",
+      "35"
+    ],
+    [
+      "Porosity (30 vol%)",
+      "30"
+    ]
+  ],
+  "sources": [
+    {
+      "label": "CoorsTek / CeramTec — CMC (Ceramic Matrix Composite) typical SiC/SiC datasheet",
+      "url": "https://www.coorstek.com/english/products/",
+      "verified": true
+    },
+    {
+      "label": "Apps: 가스 터빈 연소기 라이너 (Solar Turbines), 산업 furnace 부품",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "applications": "가스 터빈 연소기 라이너 (Solar Turbines), 산업 furnace 부품",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20)."
+  },
+  "popularity": 2,
+  "density": 2.8,
+  "yield_strength": 200,
+  "uts": 300,
+  "elongation": 0.8,
+  "modulus": 130,
+  "hardness": null,
+  "thermal_conductivity": 1.5,
+  "fatigue_strength": 135,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Apps: 가스 터빈 연소기 라이너 (Solar Turbines), 산업 furnace 부품",
+  "aliases": [],
+  "families": [
+    "Composite",
+    "Ceramic-Matrix"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 9.275,
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "Jet engine combustor liner (GE GEnx, Rolls-Royce Trent XWB 의 일부 hot section), 군용 missile thermal protection. Carbon-based CMC 보다 산화 환경에서 우수."
+}

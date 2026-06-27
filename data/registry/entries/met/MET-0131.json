@@ -1,0 +1,276 @@
+{
+  "stable_id": "MET-0131",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-lithium",
+    "alloy_base": "F-AB-aa-8090-al-li-1st-gen",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0307_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0307_0",
+  "name": "AA 8090 (Al-Li, 1st-gen) — T3 (sol. + cold-worked)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Lithium",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "T3 (sol. + cold-worked)",
+  "ranges": {
+    "density": {
+      "min": 2.54,
+      "max": 2.54,
+      "typical": 2.54,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 290,
+      "max": 290,
+      "typical": 290,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 415,
+      "max": 415,
+      "typical": 415,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 77,
+      "max": 77,
+      "typical": 77,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 105,
+      "max": 105,
+      "typical": 105,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 87,
+      "max": 133,
+      "typical": 110,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 5,
+      "max": 18,
+      "typical": 10,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 45,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:FAA DOT/TC-18/21 Al-Li"
+    },
+    "electrical_conductivity": {
+      "min": 25.5,
+      "max": 34.5,
+      "typical": 30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "max_service_temp": {
+      "min": 148.75,
+      "max": 201.25,
+      "typical": 175,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "thermal_expansion": {
+      "min": 19.125,
+      "max": 25.875,
+      "typical": 22.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "poisson_ratio": {
+      "min": 0.2805,
+      "max": 0.3795,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "specific_heat": {
+      "min": 743.75,
+      "max": 1006.25,
+      "typical": 875,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "melting_point": {
+      "min": 542.3,
+      "max": 733.7,
+      "typical": 638,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "price_per_cm3": {
+      "min": 0.0129,
+      "max": 0.0175,
+      "typical": 0.0152,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Aluminum - Lithium"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.12,
+      "max": 7.12,
+      "typical": 7.12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Li": "2.3~2.7",
+    "Cu": "1.0~1.6",
+    "Mg": "0.6~1.3",
+    "Zr": "0.04~0.16"
+  },
+  "sources": [
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA8090",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AZoM — Aluminum 8090 Alloy (UNS A98090), Mechanical Properties (T8151)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=8789",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.54,
+      290,
+      415,
+      8,
+      77,
+      130,
+      105
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Moderate",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "condition": "T3 (sol. + cold-worked)",
+    "specs": [
+      {
+        "id": "UNS A98090",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 35,
+  "fatigue_strength": 110,
+  "density": 2.54,
+  "yield_strength": 290,
+  "uts": 415,
+  "elongation": 8,
+  "modulus": 77,
+  "hardness": 130,
+  "thermal_conductivity": 105,
+  "impact_strength": 10,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 1",
+  "aliases": [
+    "1st-gen"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Lithium",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 30,
+  "max_service_temp": 175,
+  "thermal_expansion": 22.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 875,
+  "melting_point": 638,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0152,
+  "popularity": 3.23,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.12,
+  "total_cost_estimate": 6.41,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

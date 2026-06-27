@@ -1,0 +1,316 @@
+{
+  "stable_id": "MET-0265",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-aisi-1045",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0079",
+  "origin": "reference(supplementary)",
+  "id": "R_0079",
+  "name": "AISI 1045",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Cold Drawn",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 505,
+      "max": 560,
+      "typical": 530,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 595,
+      "max": 660,
+      "typical": 625,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 20,
+      "typical": 16,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 170,
+      "max": 200,
+      "typical": 180,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 264,
+      "max": 357,
+      "typical": 310,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.5·UTS, high): cold-drawn 1045 rotating-bend ~290-310 (handbook)"
+    },
+    "impact_strength": {
+      "min": 7,
+      "max": 17,
+      "typical": 11,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:1045 × HT:cold worked (f×1.25, i×0.6)"
+    },
+    "fracture_toughness": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:cold worked (k×0.8)"
+    },
+    "electrical_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1045"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1045"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 11.5,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1045"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1045"
+    },
+    "specific_heat": {
+      "min": 486,
+      "max": 486,
+      "typical": 486,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1045"
+    },
+    "melting_point": {
+      "min": 1495,
+      "max": 1495,
+      "typical": 1495,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1045"
+    },
+    "price_per_kg": {
+      "min": 1.2,
+      "max": 1.2,
+      "typical": 1.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1045"
+    },
+    "price_per_cm3": {
+      "min": 0.0094,
+      "max": 0.0094,
+      "typical": 0.0094,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1045"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.32,
+      "max": 1.32,
+      "typical": 1.32,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.43~0.50",
+    "Mn": "0.60~0.90",
+    "P": "≤0.040",
+    "S": "≤0.050",
+    "Si": "≤0.10"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 1045 carbon steel",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1045",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — AISI 1045 medium-carbon steel",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MatWeb — AISI 1045 cold drawn round bar",
+      "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=cbe4fd0a73cf4690853935f52d910784",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      530,
+      625,
+      16,
+      205,
+      180,
+      50
+    ],
+    [
+      7.85,
+      505,
+      595,
+      12,
+      205,
+      170,
+      50
+    ],
+    [
+      7.85,
+      560,
+      660,
+      20,
+      205,
+      200,
+      50
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS G10450 / JIS S45C / DIN C45 / KS D 3752 — medium-carbon steel (C 0.43~0.50%). Cold drawn: σy 530 / UTS 625. 205°C temper σy 880 / UTS 1180 / HB 305. 한국 표준 S45C 와 동등. 기계 축·기어·임펠러.",
+  "meta": {
+    "reference": true,
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 40,
+  "fatigue_strength": 310,
+  "density": 7.85,
+  "yield_strength": 530,
+  "uts": 625,
+  "elongation": 16,
+  "modulus": 205,
+  "hardness": 180,
+  "thermal_conductivity": 50,
+  "impact_strength": 11,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 1045 carbon steel",
+  "aliases": [
+    "UNS G10450",
+    "DIN 1.1191",
+    "C45",
+    "JIS S45C",
+    "KS SM45C"
+  ],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 14,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 486,
+  "melting_point": 1495,
+  "price_per_kg": 1.2,
+  "price_per_cm3": 0.0094,
+  "popularity": 5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.08,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 0.972,
+  "delivered_price_per_kg": 1.32,
+  "total_cost_estimate": 1.32,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 410,
+      "uts": 565,
+      "E": 200
+    },
+    {
+      "temp": 200,
+      "ys": 350,
+      "uts": 510,
+      "E": 192
+    },
+    {
+      "temp": 400,
+      "ys": 240,
+      "uts": 360,
+      "E": 175
+    }
+  ],
+  "story": "AISI 1045 는 carbon 0.43~0.50% 의 medium-carbon plain steel 로, 1911년 SAE numbering 표준화 직후부터 'general purpose machinery steel' 자리에 올랐어요. 0.45% C 는 normalized 상태로 σ_y 530 MPa + El 16% — 1018 (0.18% C) 의 약 1.5배 강도이면서도 가공성은 여전히 양호한 sweet spot 이거든요.\n\n응용 — 자동차 axle shaft (Hyundai/Kia), 산업 펌프 shaft, gear blank (induction-hardened 후 case 만 강하게), bolt blank (Grade 5 / 8.8), 머시너리 base plate, 농기계 fork tine, 산업 hydraulic ram. 한국 KS D 3752 의 S45C, 독일 DIN EN 10083 의 C45, 일본 JIS G 4051 의 S45C 모두 동일 합금이에요 — 자동차·기계 산업의 단조 blank 의 절반 정도가 1045 / S45C / C45 입니다.\n\n흥미. 1045 는 'flame-hardenable medium carbon' 의 typical example 이에요. 표면을 산소-아세틸렌 torch 로 빨갛게 달군 후 물 분사로 quench 하면 surface 만 HRC 55 의 martensite 가 되고 안쪽은 ductile pearlite 가 유지됩니다. 자동차 cam shaft 의 cam lobe 표면 hardening 이 이 기술의 가장 흔한 응용이죠.",
+  "story_refs": [
+    "SAE J403 \"Chemical Composition of SAE Carbon Steels\"",
+    "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM",
+    "ASTM A29 \"Standard Specification for General Requirements for Steel Bars\""
+  ],
+  "confidence_tier": "high"
+}

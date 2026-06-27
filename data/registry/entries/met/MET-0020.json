@@ -1,0 +1,301 @@
+{
+  "stable_id": "MET-0020",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-aisi-4130-scm430-jis-cr-mo",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0275_0",
+  "origin": "reference(supplementary)",
+  "id": "R_0275_0",
+  "name": "AISI 4130 / SCM430 (JIS Cr-Mo) — Annealed",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Annealed",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 320,
+      "max": 415,
+      "typical": 360,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 520,
+      "max": 670,
+      "typical": 560,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 205,
+      "max": 205,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 218,
+      "max": 248,
+      "typical": 233,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:4130 × HT:fully annealed (f×0.5, i×2.5)"
+    },
+    "impact_strength": {
+      "min": 63,
+      "max": 113,
+      "typical": 88,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:4130 × HT:fully annealed (f×0.5, i×2.5)"
+    },
+    "fracture_toughness": {
+      "min": 162,
+      "max": 162,
+      "typical": 162,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:fully annealed (k×1.8)"
+    },
+    "electrical_conductivity": {
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4130"
+    },
+    "max_service_temp": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4130"
+    },
+    "thermal_expansion": {
+      "min": 12.2,
+      "max": 12.2,
+      "typical": 12.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4130"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4130"
+    },
+    "specific_heat": {
+      "min": 477,
+      "max": 477,
+      "typical": 477,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4130"
+    },
+    "melting_point": {
+      "min": 1432,
+      "max": 1432,
+      "typical": 1432,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4130"
+    },
+    "price_per_kg": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4130"
+    },
+    "price_per_cm3": {
+      "min": 0.0235,
+      "max": 0.0235,
+      "typical": 0.0235,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:4130"
+    },
+    "delivered_price_per_kg": {
+      "min": 3.31,
+      "max": 3.31,
+      "typical": 3.31,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.28~0.33",
+    "Cr": "0.9~1.2",
+    "Mo": "0.15~0.3",
+    "Mn": "0.6~0.85",
+    "Si": "0.15~0.35"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — AISI 4130 / DIN 1.7218",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+4130",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 1",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM430",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol.1 — AISI 4130 Cr-Mo aerospace",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "MMPDS-08 — AISI 4130 normalized + tempered",
+      "url": "https://www.mmpds.org/",
+      "verified": false
+    },
+    {
+      "label": "AMS 6345 — 4130 sheet, strip, plate",
+      "url": "https://www.sae.org/standards/content/ams6345/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      460,
+      690,
+      20,
+      205,
+      200,
+      42
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "UNS G41300 / DIN 1.7218 / 25CrMo4 / JIS SCM430 / KS SCM430 / EN16 — Cr-Mo low-alloy steel (C 0.28-0.33, Cr 0.8-1.1, Mo 0.15-0.25). Aircraft tubing (welded tube frame), airframe weldment, motorcycle frame, pressure vessel. 아주 좋은 weldability — GTAW/SMAW (preheat 100°C, PWHT 500°C).",
+  "meta": {
+    "reference": true,
+    "condition": "Annealed",
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      },
+      {
+        "id": "AMS 6345",
+        "org": "AMS"
+      },
+      {
+        "id": "DIN 1.7218",
+        "org": "DIN"
+      }
+    ]
+  },
+  "fracture_toughness": 162,
+  "fatigue_strength": 233,
+  "density": 7.85,
+  "yield_strength": 460,
+  "uts": 690,
+  "elongation": 20,
+  "modulus": 205,
+  "hardness": 200,
+  "thermal_conductivity": 42,
+  "impact_strength": 88,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "MatWeb — AISI 4130 / DIN 1.7218",
+  "aliases": [
+    "AISI 4130 equiv.",
+    "UNS G41300",
+    "DIN 1.7218",
+    "25CrMo4",
+    "JIS SCM430"
+  ],
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 7.5,
+  "max_service_temp": 425,
+  "thermal_expansion": 12.2,
+  "poisson_ratio": 0.29,
+  "specific_heat": 477,
+  "melting_point": 1432,
+  "price_per_kg": 3,
+  "price_per_cm3": 0.0235,
+  "popularity": 4,
+  "machining_cost_factor": 1.1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.02,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.03,
+  "delivered_price_per_kg": 3.31,
+  "total_cost_estimate": 3.64,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

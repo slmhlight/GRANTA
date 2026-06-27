@@ -1,0 +1,389 @@
+{
+  "stable_id": "POL-0087",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyester",
+    "alloy_base": "F-AB-polyester-resin",
+    "element_families": []
+  },
+  "legacy_id": "G_0165",
+  "origin": "generic(csv)",
+  "id": "G_0165",
+  "name": "Polyester Resin — As-supplied (Cast)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyester",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "As-cast/forged (no temper)",
+  "ranges": {
+    "density": {
+      "min": 1.15,
+      "max": 1.15,
+      "typical": 1.15,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 59.15,
+      "max": 70.85,
+      "typical": 63.05,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 63.7,
+      "max": 76.3,
+      "typical": 67.9,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 1.64,
+      "max": 2.18,
+      "typical": 1.88,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 81.9,
+      "max": 98.1,
+      "typical": 87.3,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 0.19,
+      "max": 0.19,
+      "typical": 0.19,
+      "n": 15,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Epoxy/Thermoset Resin"
+    },
+    "max_service_temp": {
+      "min": 45,
+      "max": 135,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Epoxy/Thermoset Resin"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Epoxy/Thermoset Resin"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Epoxy/Thermoset Resin"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Epoxy/Thermoset Resin"
+    },
+    "glass_transition_temp": {
+      "min": 60,
+      "max": 180,
+      "typical": 120,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Epoxy/Thermoset Resin"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Epoxy/Thermoset Resin"
+    },
+    "price_per_cm3": {
+      "min": 0.0143,
+      "max": 0.043,
+      "typical": 0.0287,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Epoxy/Thermoset Resin"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "AOC Vipel polyester resins",
+      "url": "https://aocresins.com/products",
+      "verified": true
+    },
+    {
+      "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Polyester Resin\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Polyester%20Resin",
+      "verified": false
+    },
+    {
+      "label": "Reichhold POLYLITE Polyester",
+      "url": "https://www.reichhold.com/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      1.15,
+      63.05,
+      67.89999999999999,
+      2.14,
+      3,
+      87.3,
+      0.19
+    ],
+    [
+      1.15,
+      63.7,
+      68.6,
+      1.76,
+      3,
+      88.2,
+      0.19
+    ],
+    [
+      1.15,
+      61.75000000000001,
+      66.5,
+      2.1,
+      3,
+      85.5,
+      0.19
+    ],
+    [
+      1.15,
+      59.15,
+      63.7,
+      2.02,
+      3,
+      81.9,
+      0.19
+    ],
+    [
+      1.15,
+      70.85000000000001,
+      76.30000000000001,
+      1.78,
+      3,
+      98.1,
+      0.19
+    ],
+    [
+      1.15,
+      61.75000000000001,
+      66.5,
+      2.1,
+      3,
+      85.5,
+      0.19
+    ],
+    [
+      1.15,
+      63.05,
+      67.89999999999999,
+      1.7400000000000002,
+      3,
+      87.3,
+      0.19
+    ],
+    [
+      1.15,
+      60.45,
+      65.10000000000001,
+      2.06,
+      3,
+      83.7,
+      0.19
+    ],
+    [
+      1.15,
+      63.05,
+      67.89999999999999,
+      2.14,
+      3,
+      87.3,
+      0.19
+    ],
+    [
+      1.15,
+      59.8,
+      64.4,
+      1.64,
+      3,
+      82.8,
+      0.19
+    ],
+    [
+      1.15,
+      61.1,
+      65.8,
+      1.88,
+      3,
+      84.60000000000001,
+      0.19
+    ],
+    [
+      1.15,
+      59.8,
+      64.4,
+      1.64,
+      3,
+      82.8,
+      0.19
+    ],
+    [
+      1.15,
+      70.85000000000001,
+      76.30000000000001,
+      1.78,
+      3,
+      98.1,
+      0.19
+    ],
+    [
+      1.15,
+      70.85000000000001,
+      76.30000000000001,
+      2.18,
+      3,
+      98.1,
+      0.19
+    ],
+    [
+      1.15,
+      70.85000000000001,
+      76.30000000000001,
+      1.78,
+      3,
+      98.1,
+      0.19
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoset",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 15,
+    "subcategory_variants": [
+      "Polymer - Epoxy/Thermoset Resin",
+      "Polymer - Nylon (FDM/SLS)",
+      "Polymer - Photopolymer Resin (SLA)"
+    ],
+    "conditions": [
+      "Carbon Filled",
+      "Chemical Resistant",
+      "FDA Grade",
+      "Flame Retardant",
+      "Flexible",
+      "Glass Filled",
+      "Heat Resistant",
+      "High Flow",
+      "Medical Grade",
+      "Mineral Filled",
+      "Reinforced",
+      "Standard",
+      "UV Stabilized",
+      "Impact Modified",
+      "Toughened"
+    ],
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "moisture_24h": 0.3,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.15,
+  "yield_strength": 63.05,
+  "uts": 67.9,
+  "elongation": 1.88,
+  "modulus": 3,
+  "hardness": 87.3,
+  "thermal_conductivity": 0.19,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Generic",
+  "process": "Cast",
+  "source": "AOC Vipel polyester resins",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Epoxy/Thermoset Resin"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 90,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 120,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0287,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "UPR (Unsaturated Polyester Resin, 일반적으로 styrene monomer 35% with maleic/fumaric/isophthalic backbone). MEKP catalyst cure. σy 55-75 / UTS 60-85 / El 1-2% (brittle) / E 3.0-3.5 GPa. Tg 80-110°C. Glass / polyester composite (가장 흔한 GRP/FRP — boat hull, RV roof, septic tank, 스키), Buick LeSabre dashboard, 욕조 / 샤워 bath stall, 광케이블 conduit. Epoxy 보다 저가 (~$2/kg), shrinkage 더 큼 (~7%), water absorption 더 많음 (~0.5%)."
+}

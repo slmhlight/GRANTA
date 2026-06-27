@@ -1,0 +1,240 @@
+{
+  "stable_id": "POL-0065",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polyamide",
+    "alloy_base": "F-AB-pa12-eos-pa1101-bio-pa-sls",
+    "element_families": []
+  },
+  "legacy_id": "POL_013",
+  "origin": "polymers-data",
+  "id": "POL_013",
+  "name": "PA12 EOS PA1101 (Bio-PA, SLS)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polyamide",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.01,
+      "max": 1.01,
+      "typical": 1.01,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 48,
+      "max": 48,
+      "typical": 48,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 1.6,
+      "max": 1.6,
+      "typical": 1.6,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 0.23,
+      "max": 0.23,
+      "typical": 0.23,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 90,
+      "max": 90,
+      "typical": 90,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "price_per_kg": {
+      "min": 140,
+      "max": 140,
+      "typical": 140,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "glass_transition_temp": {
+      "min": 42,
+      "max": 42,
+      "typical": 42,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "melting_point": {
+      "min": 188,
+      "max": 188,
+      "typical": 188,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hdt_182": {
+      "min": 95,
+      "max": 95,
+      "typical": 95,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polyamide"
+    },
+    "price_per_cm3": {
+      "min": 0.1414,
+      "max": 0.1414,
+      "typical": 0.1414,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "73.0",
+    "H": "11.7",
+    "N": "7.1",
+    "O": "8.1"
+  },
+  "sources": [
+    {
+      "label": "EOS/Arkema — PA12 (Nylon 12) for SLS",
+      "url": "https://www.eos.info/3d-printing-materials/polymer/polyamide-pa-12-pa12",
+      "verified": true
+    },
+    {
+      "label": "Datasheet — PA12 EOS PA1101 (Bio-PA, SLS)",
+      "url": "https://www.eos.info/3d-printing-materials/polymer/pa-1101",
+      "verified": true
+    },
+    {
+      "label": "Applications: 탄력성 brackets, 항공기 내장 (FAR 25.853 가능), 의료 보조기구",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Arkema Rilsan PA12 medical grade",
+      "url": "https://www.extrudedpolymers.com/products/rilsan-pa-12/",
+      "verified": true
+    },
+    {
+      "label": "EOS PA 2200 (PA12) Material Data Sheet",
+      "url": "https://www.eos.info/en-us/3d-printing-materials/plastic/polyamide-pa-12-alumide",
+      "verified": true
+    },
+    {
+      "label": "Evonik VESTAMID L (PA12)",
+      "url": "https://www.vestamid.com/",
+      "verified": false
+    }
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "polymer": true,
+    "tg": 42,
+    "tm": 188,
+    "hdt_182": 95,
+    "moisture_24h": 1,
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "applications": "탄력성 brackets, 항공기 내장 (FAR 25.853 가능), 의료 보조기구",
+    "_r173_note_applied": true
+  },
+  "popularity": 5,
+  "density": 1.01,
+  "yield_strength": 48,
+  "uts": 48,
+  "elongation": 45,
+  "modulus": 1.6,
+  "hardness": null,
+  "thermal_conductivity": 0.23,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "EOS/Arkema — PA12 (Nylon 12) for SLS",
+  "aliases": [
+    "Nylon 12",
+    "PA 2200",
+    "Rilsan"
+  ],
+  "families": [
+    "Polymer",
+    "Polymer - Polyamide"
+  ],
+  "electrical_conductivity": 0,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.1414,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "PA1101 은 EOS 의 PA11 (bio-based) SLS powder 입니다. 사실상 EOS 가 ALM 의 PA850 의 alternative 로 자체 개발한 PA11 grade 이고, 2018년 commercial launch 됐어요. 표기 'PA1101' 의 1101 은 PA11 (carbon-11 polymer) 의 type 1 grade 를 의미.\n\n특성: bio-based (피마자유 유래 PA11) · σy 47 MPa · UTS 52 MPa · El 47% (XY) · Tm 187°C. PA850 (ALM) 과 거의 동일하지만 EOS 의 EOSINT P 시스템에 powder bed 균일성이 최적화되어 있습니다. EOS 의 'Performance Polymer' 시리즈로 분류되며 PA12 PA 2200 의 flexible alternative 로 marketing 됩니다.\n\n응용: 의수/의지 (high-flex 의 prosthetic socket — Otto Bock 의 일부 custom socket), 자동차 flexible duct (Volkswagen · BMW 의 prototype + low-volume), 의료 patient-specific guide (FDA Class I — 임시 사용), 미술 sculpture 의 flexible 부분, sport 의류 prototype (custom shoe midsole, Adidas Futurecraft 의 일부 prototype generation). 가격은 fresh $80-110/kg, refreshed (30% blend) $50/kg. PA11 시장 점유율은 PA12 보다 작지만 (전체 SLS polymer 시장의 10-15%) bio-based ESG 의식의 확산으로 점진적으로 성장 중입니다.",
+  "story_refs": [
+    "EOS PA1101 Tech Data",
+    "Rilsan PA11 Tech Bulletin",
+    "Goodridge R D et al. (2012) \"Laser sintering of polymers\", Prog Mater Sci 57"
+  ],
+  "confidence_tier": "high",
+  "industry_note": "Nylon 12 (Polylauryllactam) — semi-crystalline thermoplastic. Tg ≈ 50°C, Tm ≈ 178°C, HDT (0.46 MPa) ≈ 145°C, **max service 80-100°C continuous** (σy 45-50 / UTS 45-50 / El 200-300% / E 1.5-1.7 GPa / ρ 1.01 g/cc. SLS / MJF 3D printing 의 가장 흔한 폴리머 (EOS PA 2200 = Vestamid L). 의료 카테터, 자동차 fuel line, 케이블 sheath, 화장품 패키지. 흡습률 낮음 (1.5% — PA66 대비 절반)."
+}

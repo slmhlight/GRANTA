@@ -1,0 +1,166 @@
+{
+  "stable_id": "CMP-0033",
+  "family": {
+    "category": "F-CMP",
+    "subcategory": "F-CMP-wood",
+    "alloy_base": "F-AB-natural-composite",
+    "element_families": []
+  },
+  "legacy_id": "CMP_017",
+  "origin": "composites-data",
+  "id": "CMP_017",
+  "name": "Natural Composite — Balsa (parallel to grain)",
+  "category": "Composite",
+  "subcategory": "Wood",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Layup"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 0.16,
+      "max": 0.16,
+      "typical": 0.16,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 13.4,
+      "max": 15.4,
+      "typical": 14.4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.05,
+      "max": 0.05,
+      "typical": 0.05,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_expansion": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "max_service_temp": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "poisson_ratio": null,
+    "specific_heat": null,
+    "melting_point": null,
+    "price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "electrical_conductivity": null,
+    "elongation": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 11.25,
+      "max": 11.25,
+      "typical": 11.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "price_per_cm3": {
+      "min": 0.0019,
+      "max": 0.0019,
+      "typical": 0.0019,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {},
+  "sources": [
+    {
+      "label": "Apps: 모형 항공기, 풍력 블레이드 코어, 보트 데크 코어",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "CoreLite — BALSASUD end-grain balsa core 데이터시트 (ASTM C271/C297/C365/C273)",
+      "url": "https://www.corelitecomposites.com/files/BALSASUD%20Core%20Data%20Sheet.pdf",
+      "verified": true
+    }
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "meta": {
+    "composite": true,
+    "anisotropic": true,
+    "applications": "모형 항공기, 풍력 블레이드 코어, 보트 데크 코어",
+    "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "specs": [
+      {
+        "id": "ASTM C271",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "popularity": 3,
+  "density": 0.16,
+  "yield_strength": 14,
+  "uts": 25,
+  "elongation": 1,
+  "modulus": 3.5,
+  "hardness": null,
+  "thermal_conductivity": 0.05,
+  "fatigue_strength": 11.25,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Layup",
+  "source": "Apps: 모형 항공기, 풍력 블레이드 코어, 보트 데크 코어",
+  "aliases": [],
+  "families": [
+    "Composite",
+    "Wood"
+  ],
+  "fatigue_estimated": true,
+  "machining_cost_factor": null,
+  "ht_cost_factor": null,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "price_per_cm3": 0.0019,
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

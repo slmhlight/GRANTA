@@ -1,0 +1,295 @@
+{
+  "stable_id": "MET-0466",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-magnesium-alloy",
+    "alloy_base": "F-AB-am60-mg",
+    "element_families": [
+      "F-EL-magnesium-based"
+    ]
+  },
+  "legacy_id": "R_0138",
+  "origin": "reference(supplementary)",
+  "id": "R_0138",
+  "name": "AM60 (Mg)",
+  "category": "Metal",
+  "subcategory": "Magnesium Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.8,
+      "max": 1.8,
+      "typical": 1.8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 115,
+      "max": 145,
+      "typical": 130,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 220,
+      "max": 260,
+      "typical": 240,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 6,
+      "max": 13,
+      "typical": 8,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 60,
+      "max": 70,
+      "typical": 65,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 62,
+      "max": 62,
+      "typical": 62,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 39,
+      "max": 55,
+      "typical": 46,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.35·σy (ASM Vol.2 Mg alloys)"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 8,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Mg-based"
+    },
+    "fracture_toughness": {
+      "min": 12,
+      "max": 25,
+      "typical": 17,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Mg alloys"
+    },
+    "electrical_conductivity": {
+      "min": 24.65,
+      "max": 33.35,
+      "typical": 29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium Alloy"
+    },
+    "max_service_temp": {
+      "min": 127.5,
+      "max": 172.5,
+      "typical": 150,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium Alloy"
+    },
+    "thermal_expansion": {
+      "min": 22.1,
+      "max": 29.9,
+      "typical": 26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium Alloy"
+    },
+    "poisson_ratio": {
+      "min": 0.2975,
+      "max": 0.4025,
+      "typical": 0.35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium Alloy"
+    },
+    "specific_heat": {
+      "min": 870.4,
+      "max": 1177.6,
+      "typical": 1024,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium Alloy"
+    },
+    "melting_point": {
+      "min": 505.75,
+      "max": 684.25,
+      "typical": 595,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium Alloy"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium Alloy"
+    },
+    "price_per_cm3": {
+      "min": 0.0092,
+      "max": 0.0124,
+      "typical": 0.0108,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Magnesium Alloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Mg": "balance",
+    "Al": "5.5~6.5",
+    "Mn": "0.24~0.6"
+  },
+  "sources": [
+    {
+      "label": "ASTM B94 — AM60B magnesium die-casting alloy",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: ASM Vol.2 Mg alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AZoM — Magnesium AM60B Cast Alloy (M10602)",
+      "url": "https://www.azom.com/article.aspx?ArticleID=9237",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.8,
+      130,
+      240,
+      8,
+      45,
+      65,
+      62
+    ],
+    [
+      1.8,
+      115,
+      220,
+      6,
+      45,
+      60,
+      62
+    ],
+    [
+      1.8,
+      145,
+      260,
+      13,
+      45,
+      70,
+      62
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM B94",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "fracture_toughness": 17,
+  "fatigue_strength": 46,
+  "density": 1.8,
+  "yield_strength": 130,
+  "uts": 240,
+  "elongation": 8,
+  "modulus": 45,
+  "hardness": 65,
+  "thermal_conductivity": 62,
+  "impact_strength": 5,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASTM B94 — AM60B magnesium die-casting alloy",
+  "aliases": [
+    "UNS M10600",
+    "MgAl6Mn",
+    "AM60B"
+  ],
+  "families": [
+    "Metal",
+    "Magnesium Alloy",
+    "Magnesium-based"
+  ],
+  "electrical_conductivity": 29,
+  "max_service_temp": 150,
+  "thermal_expansion": 26,
+  "poisson_ratio": 0.35,
+  "specific_heat": 1024,
+  "melting_point": 595,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0108,
+  "popularity": 2.5,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6,
+  "total_cost_estimate": 5.4,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

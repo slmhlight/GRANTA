@@ -1,0 +1,353 @@
+{
+  "stable_id": "MET-0644",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-refractory-metal",
+    "alloy_base": "F-AB-mo-0-5ti",
+    "element_families": [
+      "F-EL-refractory"
+    ]
+  },
+  "legacy_id": "G_0320",
+  "origin": "generic(csv)",
+  "id": "G_0320",
+  "name": "Mo-0.5Ti — As-supplied (Wrought)",
+  "category": "Metal",
+  "subcategory": "Refractory Metal",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Mill-annealed (ASTM default)",
+  "ranges": {
+    "density": {
+      "min": 10.25,
+      "max": 10.25,
+      "typical": 10.25,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 684,
+      "max": 828.4,
+      "typical": 729.6,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 810,
+      "max": 981,
+      "typical": 864,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 3.4,
+      "max": 4.36,
+      "typical": 3.84,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 330,
+      "max": 330,
+      "typical": 330,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 270,
+      "max": 327,
+      "typical": 288,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 405,
+      "max": 490.5,
+      "typical": 432,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "impact_strength": {
+      "min": 20,
+      "max": 29.5,
+      "typical": 25.25,
+      "n": 20,
+      "confidence": "measured"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.2 Refractory"
+    },
+    "max_service_temp": {
+      "typical": 1700,
+      "min": 1500,
+      "max": 1900,
+      "confidence": "handbook",
+      "n": 1
+    }
+  },
+  "composition": {
+    "Mo": "99.5",
+    "Ti": "0.5"
+  },
+  "sources": [
+    {
+      "label": "Plansee TZM/Mo-Ti — Mo-0.5Ti (TZC) refractory alloy datasheet",
+      "url": "https://www.plansee.com/en/materials/molybdenum.html",
+      "verified": true
+    },
+    {
+      "label": "ASM Handbook",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"Mo-0.5Ti\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Mo-0.5Ti",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      10.25,
+      684,
+      810,
+      3.6,
+      330,
+      270,
+      135
+    ],
+    [
+      10.25,
+      775.2,
+      918,
+      3.68,
+      330,
+      306,
+      135
+    ],
+    [
+      10.25,
+      828.4000000000001,
+      981,
+      3.56,
+      330,
+      327,
+      135
+    ],
+    [
+      10.25,
+      752.4,
+      891,
+      4.36,
+      330,
+      297,
+      135
+    ],
+    [
+      10.25,
+      691.6,
+      819,
+      4.04,
+      330,
+      273,
+      135
+    ],
+    [
+      10.25,
+      714.4000000000001,
+      846,
+      4.16,
+      330,
+      282,
+      135
+    ],
+    [
+      10.25,
+      684,
+      810,
+      3.6,
+      330,
+      270,
+      135
+    ],
+    [
+      10.25,
+      798,
+      945,
+      3.4000000000000004,
+      330,
+      315,
+      135
+    ],
+    [
+      10.25,
+      744.8,
+      882,
+      3.92,
+      330,
+      294,
+      135
+    ],
+    [
+      10.25,
+      790.4,
+      936,
+      3.76,
+      330,
+      312,
+      135
+    ],
+    [
+      10.25,
+      729.6,
+      864,
+      3.84,
+      330,
+      288,
+      135
+    ],
+    [
+      10.25,
+      722,
+      855.0000000000001,
+      4.2,
+      330,
+      285,
+      135
+    ],
+    [
+      10.25,
+      714.4000000000001,
+      846,
+      3.76,
+      330,
+      282,
+      135
+    ],
+    [
+      10.25,
+      706.8000000000001,
+      837,
+      3.72,
+      330,
+      279,
+      135
+    ],
+    [
+      10.25,
+      798,
+      945,
+      4.2,
+      330,
+      315,
+      135
+    ],
+    [
+      10.25,
+      706.8000000000001,
+      837,
+      3.72,
+      330,
+      279,
+      135
+    ],
+    [
+      10.25,
+      820.8000000000001,
+      972,
+      3.92,
+      330,
+      324,
+      135
+    ],
+    [
+      10.25,
+      714.4000000000001,
+      846,
+      3.76,
+      330,
+      282,
+      135
+    ],
+    [
+      10.25,
+      691.6,
+      819,
+      4.04,
+      330,
+      273,
+      135
+    ],
+    [
+      10.25,
+      744.8,
+      882,
+      3.92,
+      330,
+      294,
+      135
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "meta": {
+    "row_count": 20,
+    "subcategory_variants": [
+      "Refractory Metal"
+    ],
+    "conditions": [
+      "Molybdenum-Titanium"
+    ]
+  },
+  "fracture_toughness": 35,
+  "density": 10.25,
+  "yield_strength": 729.6,
+  "uts": 864,
+  "elongation": 3.84,
+  "modulus": 330,
+  "hardness": 288,
+  "thermal_conductivity": 135,
+  "fatigue_strength": 432,
+  "impact_strength": 25.25,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "ASM Handbook",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Refractory Metal"
+  ],
+  "popularity": 1.8,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

@@ -1,0 +1,288 @@
+{
+  "stable_id": "MET-0614",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-udimet-720li-low-interstitial-p-m-disc",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0367_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0367_2",
+  "name": "Udimet 720Li (low-interstitial, P/M disc) — S+S+A + tested 700°C (hot strength)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "PCC / Special Metals (Udimet)"
+  ],
+  "machines": [],
+  "processes": [
+    "Forged"
+  ],
+  "heat_treatment": "S+S+A + tested 700°C (hot strength)",
+  "ranges": {
+    "density": {
+      "min": 8.06,
+      "max": 8.06,
+      "typical": 8.06,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1000,
+      "max": 1000,
+      "typical": 1000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 11.5,
+      "max": 11.5,
+      "typical": 11.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 400,
+      "max": 550,
+      "typical": 480,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 1.105,
+      "max": 1.495,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 739.5,
+      "max": 1000.5,
+      "typical": 870,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 10.625,
+      "max": 14.375,
+      "typical": 12.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 371.45,
+      "max": 502.55,
+      "typical": 437,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 1139,
+      "max": 1541,
+      "typical": 1340,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 76.5,
+      "max": 103.5,
+      "typical": 90,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.6166,
+      "max": 0.8342,
+      "typical": 0.7254,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 108.67,
+      "max": 108.67,
+      "typical": 108.67,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "16.0",
+    "Co": "14.7",
+    "Mo": "3.0",
+    "W": "1.25",
+    "Al": "2.5",
+    "Ti": "5.0",
+    "C": "0.025",
+    "B": "0.015",
+    "Zr": "0.03"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Udimet 720",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Udimet+720",
+      "verified": false
+    },
+    {
+      "label": "MatWeb 3",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Udimet%20720Li",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Special Metals UDIMET alloy 720 Nickel Base Alloy datasheet (조성 + 1000h rupture strength)",
+      "url": "https://www.lookpolymers.com/polymer_Special-Metals-UDIMET-alloy-720-Nickel-Base-Alloy.php",
+      "verified": true
+    },
+    {
+      "label": "TMS Superalloys 2000 — Characteristics and Properties of As-HIP P/M Alloy 720 (인장·creep·LCF)",
+      "url": "https://www.tms.org/superalloys/10.7449/2000/Superalloys_2000_135_142.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.06,
+      1000,
+      1300,
+      12,
+      220,
+      420,
+      11.5
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Poor",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "Rolls-Royce Trent 500/700/800/900 HP & IP turbine disc; Pratt&Whitney F119/F135; γ' ~45% balances creep, LCF and burst margin at 650-700°C; Li (Low-Interstitial) variant minimizes B/C for forgeability.",
+  "meta": {
+    "reference": true,
+    "condition": "S+S+A + tested 700°C (hot strength)"
+  },
+  "fracture_toughness": 100,
+  "fatigue_strength": 480,
+  "density": 8.06,
+  "yield_strength": 1000,
+  "uts": 1300,
+  "elongation": 12,
+  "modulus": 220,
+  "hardness": 420,
+  "thermal_conductivity": 11.5,
+  "impact_strength": 60,
+  "manufacturer": "PCC / Special Metals (Udimet)",
+  "process": "Forged",
+  "source": "MatWeb — Udimet 720",
+  "aliases": [],
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 870,
+  "thermal_expansion": 12.5,
+  "poisson_ratio": 0.3,
+  "specific_heat": 437,
+  "melting_point": 1340,
+  "price_per_kg": 90,
+  "price_per_cm3": 0.7254,
+  "popularity": 2,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.15,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 108.67,
+  "total_cost_estimate": 282.56,
+  "tolerance_class": "IT12-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 14.7% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "story": "1965년 미국 Special Metals (당시 Cyclops Industries) 가 항공 가스터빈 디스크 용 새 P/M (Powder Metallurgy) 합금을 개발하면서 등장한 Udimet 720. 1985년 영국 Rolls-Royce 의 요구로 carbon 과 boron 을 더 낮춘 Li (Low-Interstitial) 변형이 나오면서 단조성이 향상됐어요 — 이게 Udimet 720Li 입니다. Ni 55% + Cr 16% + Co 14.7% + Mo 3% + W 1.25% + Al 2.5% + Ti 5% — γ' 부피분율 약 45% 로 creep / LCF / burst margin 의 균형이 가장 좋은 조성이죠.\n\nRolls-Royce Trent 시리즈 — Trent 500 (A340-500/600), Trent 700 (A330), Trent 800 (777), Trent 900 (A380) — 의 HP 와 IP 터빈 디스크가 모두 Udimet 720Li 입니다. Pratt & Whitney F119 (F-22) 와 F135 (F-35) 의 일부 디스크도 720Li 변형. 600~700°C 영역의 LCF 수명이 Inconel 718 의 약 5배 — 그게 차세대 엔진 디스크 채택의 결정적 이유였어요.\n\n흥미로운 점은 제조 공정이에요. VIM-VAR (Vacuum Induction Melting + Vacuum Arc Remelting) 으로 청정도를 극대화한 뒤 isothermal forging — 모든 단조 공정이 1100°C 의 isothermal die 안에서 진행돼 미세조직이 균일해집니다. 한 번의 disc 단조에 4시간 이상 — 그래서 가격이 Inconel 718 의 약 8배 (~$700/kg) 인데, 그 자리를 차지할 합금이 별로 없어요.",
+  "story_refs": [
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP",
+    "Mitchell A (2005) \"Melting, Casting and Forging Problems in Titanium Alloys\", Mater Sci Eng A 392",
+    "Special Metals Corp \"Udimet 720Li Technical Data\" (2014)"
+  ],
+  "confidence_tier": "high"
+}

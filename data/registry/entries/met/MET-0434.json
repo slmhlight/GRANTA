@@ -1,0 +1,312 @@
+{
+  "stable_id": "MET-0434",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-copper-alloy",
+    "alloy_base": "F-AB-grcop-42-cu-cr-nb",
+    "element_families": [
+      "F-EL-copper-based"
+    ]
+  },
+  "legacy_id": "C_0072",
+  "origin": "curated(material_db)",
+  "id": "C_0072",
+  "name": "GRCop-42 (Cu-Cr-Nb) — As-built",
+  "category": "Metal",
+  "subcategory": "Copper Alloy",
+  "tier": "curated",
+  "manufacturers": [
+    "3D Systems",
+    "Velo3D"
+  ],
+  "machines": [
+    "DMP Flex 350",
+    "Sapphire (1kW)"
+  ],
+  "processes": [
+    "LPBF"
+  ],
+  "heat_treatment": "As-built",
+  "ranges": {
+    "density": {
+      "min": 8.76,
+      "max": 8.76,
+      "typical": 8.76,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 360,
+      "max": 360,
+      "typical": 360,
+      "n": 4,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 33,
+      "max": 33,
+      "typical": 33,
+      "n": 5,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 280,
+      "max": 280,
+      "typical": 280,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 128,
+      "max": 173,
+      "typical": 150,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.42·UTS, medium): Cu ceiling ~0.4-0.45·UTS; Cr2Nb dispersoid 미상승 (NASA)"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 70,
+      "typical": 45,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:grcop42"
+    },
+    "fracture_toughness": {
+      "min": 60,
+      "max": 60,
+      "typical": 60,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 78,
+      "max": 78,
+      "typical": 78,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:grcop42"
+    },
+    "max_service_temp": {
+      "min": 800,
+      "max": 800,
+      "typical": 800,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:grcop42"
+    },
+    "thermal_expansion": {
+      "min": 16.5,
+      "max": 16.5,
+      "typical": 16.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:grcop42"
+    },
+    "poisson_ratio": {
+      "min": 0.34,
+      "max": 0.34,
+      "typical": 0.34,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:grcop42"
+    },
+    "specific_heat": {
+      "min": 385,
+      "max": 385,
+      "typical": 385,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:grcop42"
+    },
+    "melting_point": {
+      "min": 1080,
+      "max": 1080,
+      "typical": 1080,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:grcop42"
+    },
+    "price_per_kg": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:grcop42"
+    },
+    "price_per_cm3": {
+      "min": 2.19,
+      "max": 2.19,
+      "typical": 2.19,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:grcop42"
+    },
+    "delivered_price_per_kg": {
+      "min": 625,
+      "max": 625,
+      "typical": 625,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Cu": "balance",
+    "Cr": "~3.3 (4 at%)",
+    "Nb": "~3.0 (2 at%)"
+  },
+  "sources": [
+    {
+      "label": "3D Systems Certified GRCop-42 datasheet",
+      "url": "https://www.3dsystems.com/sites/default/files/2023-07/3d-systems-certified-grcop-42a-datasheet-usen-2023-07-14-a-web.pdf",
+      "verified": true
+    },
+    {
+      "label": "NASA TM-2019-220056 — GRCop-42",
+      "url": "https://ntrs.nasa.gov/citations/20190032615",
+      "verified": true
+    },
+    {
+      "label": "Velo3D",
+      "url": "https://www.velo3d.com/material-data-sheets/",
+      "verified": true
+    },
+    {
+      "label": "NASA TM-2017-219568 — GRCop-42 AM rocket engine",
+      "url": "https://ntrs.nasa.gov/citations/20170002953",
+      "verified": true
+    },
+    {
+      "label": "NASA Glenn GRCop technology brief",
+      "url": "https://technology.nasa.gov/patent/LEW-TOPS-114",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      8.76,
+      195,
+      360,
+      33,
+      130,
+      null,
+      280
+    ],
+    [
+      8.76,
+      195,
+      360,
+      33,
+      130,
+      null,
+      280
+    ],
+    [
+      8.76,
+      195,
+      360,
+      33,
+      130,
+      null,
+      280
+    ],
+    [
+      8.76,
+      195,
+      360,
+      33,
+      130,
+      null,
+      280
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "meta": {
+    "applications": "NASA-developed high-conductivity Cu-Cr-Nb alloy — rocket-engine combustion chamber liners, regenerative cooling channels",
+    "magnetic": "non-magnetic",
+    "melt_C": 1080,
+    "cte": 17.1,
+    "cp": 380,
+    "poisson": 0.34,
+    "vendor_count": 2,
+    "anisotropy": true,
+    "anisotropic": true,
+    "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
+    "_r173_note_applied": true
+  },
+  "fracture_toughness": 60,
+  "fatigue_strength": 150,
+  "density": 8.76,
+  "yield_strength": 195,
+  "uts": 360,
+  "elongation": 33,
+  "modulus": 130,
+  "hardness": null,
+  "thermal_conductivity": 280,
+  "impact_strength": 45,
+  "manufacturer": "3D Systems, Velo3D",
+  "process": "LPBF",
+  "source": "3D Systems Certified GRCop-42 datasheet",
+  "aliases": [
+    "Cu-4Cr-2Nb",
+    "NASA GRCop-42"
+  ],
+  "families": [
+    "Metal",
+    "Copper Alloy",
+    "Copper-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 78,
+  "max_service_temp": 800,
+  "thermal_expansion": 16.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 385,
+  "melting_point": 1080,
+  "price_per_kg": 250,
+  "price_per_cm3": 2.19,
+  "popularity": 1.92,
+  "machining_cost_factor": 1.8,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 2.5,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 625,
+  "total_cost_estimate": 1125,
+  "min_wall_thickness": 0.4,
+  "surface_finish_typical": 12,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "industry_note": "NASA Glenn GRCop-42 (Cu-4Cr-2Nb at%) — dispersion-strengthened Cu alloy. Cr₂Nb intermetallic particles (~3 μm) → 고온 강도 유지 (650-800°C 까지). σy 195-415 / UTS 360-540 / El 25% / IACS 78% / Tmax 800°C continuous. AM LPBF 표준 — Aerojet Rocketdyne RL-10 thrust chamber, SpaceX Raptor / Merlin 일부 부품, NASA SLS RS-25 (Space Shuttle 엔진 후속). GRCop-84 (높은 Cr/Nb) 는 더 강도 우수, but cost ↑."
+}

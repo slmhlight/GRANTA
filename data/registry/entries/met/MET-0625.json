@@ -1,0 +1,264 @@
+{
+  "stable_id": "MET-0625",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-press-hardening-steel",
+    "alloy_base": "F-AB-22mnb5-usibor-1500",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0336_2",
+  "origin": "reference(supplementary)",
+  "id": "R_0336_2",
+  "name": "22MnB5 (USIBOR 1500) — Austenitized + H2O quenched uncoated (post-PHS)",
+  "category": "Metal",
+  "subcategory": "Press-Hardening Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "ArcelorMittal (Usibor)"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Austenitized + H2O quenched uncoated (post-PHS)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 950,
+      "max": 950,
+      "typical": 950,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1300,
+      "max": 1300,
+      "typical": 1300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 8,
+      "max": 8,
+      "typical": 8,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 410,
+      "max": 410,
+      "typical": 410,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 32,
+      "max": 32,
+      "typical": 32,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 295,
+      "max": 295,
+      "typical": 295,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "impact_strength": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 140,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:22MnB5 USIBOR hot-stamped"
+    },
+    "electrical_conductivity": {
+      "min": 2.04,
+      "max": 2.76,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Press-Hardening Steel"
+    },
+    "max_service_temp": {
+      "min": 739.5,
+      "max": 1000.5,
+      "typical": 870,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Press-Hardening Steel"
+    },
+    "thermal_expansion": {
+      "min": 14.45,
+      "max": 19.55,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Press-Hardening Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Press-Hardening Steel"
+    },
+    "specific_heat": {
+      "min": 425,
+      "max": 575,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Press-Hardening Steel"
+    },
+    "melting_point": {
+      "min": 1232.5,
+      "max": 1667.5,
+      "typical": 1450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Press-Hardening Steel"
+    },
+    "price_per_kg": {
+      "min": 4.675,
+      "max": 6.325,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Press-Hardening Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0367,
+      "max": 0.0497,
+      "typical": 0.0432,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Press-Hardening Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 6.06,
+      "max": 6.06,
+      "typical": 6.06,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Mn": "1.10~1.40",
+    "C": "0.20~0.25",
+    "B": "0.002~0.005",
+    "Cr": "0.11~0.34",
+    "Si": "0.10~0.40",
+    "Ti": "0.020~0.05"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 3",
+      "url": "ANSYS Granta — Press hardening steel 22MnB5 (BS EN 10083-3:2006), high ductility + austenized & H2O quenched (coated/uncoated)",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "https://automotive.arcelormittal.com/products/flat/PHS/usibor_ductibor",
+      "verified": true
+    },
+    {
+      "label": "Datasheet 3",
+      "url": "ArcelorMittal Ductibor 500 P / Krupp 22MnB5 datasheet",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      950,
+      1300,
+      8,
+      210,
+      410,
+      32
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Industry standard for hot-stamped (press-hardened) B-pillar, door-impact beam, bumper beam, side member; Al-Si coated for high-temp oxidation. KIC pre-PHS 44 MPa√m → post-PHS 122-176 MPa√m (3× ↑ via martensite refinement). 한국 채택: 현대·기아 차체 PHS 부품 (Sonata, Avante, EV6 등).",
+  "meta": {
+    "reference": true,
+    "condition": "Austenitized + H2O quenched uncoated (post-PHS)"
+  },
+  "fracture_toughness": 100,
+  "density": 7.85,
+  "yield_strength": 950,
+  "uts": 1300,
+  "elongation": 8,
+  "modulus": 210,
+  "hardness": 410,
+  "thermal_conductivity": 32,
+  "fatigue_strength": 295,
+  "impact_strength": 25,
+  "manufacturer": "ArcelorMittal (Usibor)",
+  "process": "Wrought",
+  "source": "Datasheet 3",
+  "aliases": [
+    "USIBOR 1500"
+  ],
+  "families": [
+    "Metal",
+    "Press-Hardening Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.0432,
+  "popularity": 1.5,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.6,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 6.06,
+  "total_cost_estimate": 6.06,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

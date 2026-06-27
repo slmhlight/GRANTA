@@ -1,0 +1,244 @@
+{
+  "stable_id": "POL-0084",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-polycarbonate",
+    "alloy_base": "F-AB-pc-cf-carbon-fiber",
+    "element_families": []
+  },
+  "legacy_id": "R_0182",
+  "origin": "reference(supplementary)",
+  "id": "R_0182",
+  "name": "PC-CF (carbon fiber)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Polycarbonate",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "FDM"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.22,
+      "max": 1.22,
+      "typical": 1.22,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 82,
+      "max": 90,
+      "typical": 90,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 100,
+      "max": 110,
+      "typical": 110,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 3,
+      "max": 4,
+      "typical": 4,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 7,
+      "max": 7.5,
+      "typical": 7.5,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.3,
+      "max": 0.3,
+      "typical": 0.3,
+      "n": 2,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "max_service_temp": {
+      "min": 57.5,
+      "max": 172.5,
+      "typical": 115,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "thermal_expansion": {
+      "min": 35,
+      "max": 105,
+      "typical": 70,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "glass_transition_temp": {
+      "min": 73.5,
+      "max": 220.5,
+      "typical": 147,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "price_per_kg": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "price_per_cm3": {
+      "min": 0.0244,
+      "max": 0.0732,
+      "typical": 0.0488,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Carbon-Fiber Reinforced"
+    },
+    "delivered_price_per_kg": {
+      "min": 40,
+      "max": 40,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "75.6",
+    "H": "5.5",
+    "O": "18.9"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — carbon-fibre polycarbonate (FDM)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "SABIC LEXAN EXL CF datasheet",
+      "url": "https://www.sabic.com/en/products/specialties/lexan-resins",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.22,
+      90,
+      110,
+      4,
+      7.5,
+      0,
+      0.3
+    ],
+    [
+      1.22,
+      82,
+      100,
+      3,
+      7,
+      0,
+      0.3
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Moderate",
+  "industry_note": "Polycarbonate + 20-30% Short Carbon Fiber. PC base 의 toughness + CF 의 stiffness 결합. Tg 145°C, max service 115-125°C continuous. σy 80-110 / UTS 100-130 / El 3-5% / E 6-9 GPa / ρ 1.34-1.40 g/cc. UV-resistant (PC base — auto headlamp grade). 항공 인테리어, 자동차 lighting, 의료 housing (autoclave-compatible), 군용 visor (PC + CF). FDM filament 표준 (XYZprinting 7600D).",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-2",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.15,
+    "polymer": true,
+    "_r173_note_applied": true
+  },
+  "density": 1.22,
+  "yield_strength": 90,
+  "uts": 110,
+  "elongation": 4,
+  "modulus": 7.5,
+  "hardness": null,
+  "thermal_conductivity": 0.3,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "FDM",
+  "source": "Material datasheets — carbon-fibre polycarbonate (FDM)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Carbon-Fiber Reinforced"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 115,
+  "thermal_expansion": 70,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 147,
+  "price_per_kg": 40,
+  "price_per_cm3": 0.0488,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 40,
+  "total_cost_estimate": 28,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "story": "1953년 11월, 독일 Bayer 의 헤르만 슈넬 (Hermann Schnell) 이 phosgene + bisphenol-A 의 계면 중합으로 polycarbonate 를 발견합니다. 거의 동시에 미국 GE 의 다니엘 폭스 (Daniel Fox) — 1953년 12월 — 도 동일 polymer 를 다른 경로 (transesterification) 로 합성. 두 회사가 1955년 합의를 거쳐 Bayer 가 'Makrolon', GE 가 'Lexan' 으로 평행 상표 출시.\n\nPC 의 혁신은 Izod impact strength 600 J/m 의 절대적 내충격성 — glass 의 250배 — 와 92% 광 투과율의 조합이에요. 1962년 미 공군 F-4 Phantom 의 canopy 가 PMMA 에서 PC 로 전환되며 첫 무기체계 채택, 이후 1972년 동독 베를린 장벽의 watchtower bullet-proof glass, 1980년대 CD (compact disc, Philips/Sony) 의 substrate, 1990년대 baby bottle / water cooler bottle (BPA 논란 전), 2000년대 안전 헬멧 (NHTSA standard) / 자동차 헤드램프 외장 / 스마트폰 case 의 backbone 폴리머가 됐습니다. 단, BPA monomer 잔류 우려로 2011년 EU 와 캐나다가 baby bottle 사용을 금지했죠.",
+  "story_refs": [
+    "Schnell H (1956) DE Patent 971,790 (Bayer) \"Process for the production of high-molecular-weight thermoplastic polycarbonates\"",
+    "Brunelle D J & Korn M R (eds., 2005) Advances in Polycarbonates, ACS Symposium Series 898",
+    "Eaton R R & Crowther G P (2005) Bisphenol A: Health, Safety and the Environment, Wiley"
+  ],
+  "confidence_tier": "medium"
+}

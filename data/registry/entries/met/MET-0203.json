@@ -1,0 +1,397 @@
+{
+  "stable_id": "MET-0203",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-aa-7050",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "G_0035",
+  "origin": "generic(csv)",
+  "id": "G_0035",
+  "name": "AA 7050 — Aged / solution-treated (Wrought)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "generic",
+  "manufacturers": [
+    "Generic"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Aged / solution-treated",
+  "ranges": {
+    "density": {
+      "min": 2.83,
+      "max": 2.83,
+      "typical": 2.83,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 403.2,
+      "max": 474.9,
+      "typical": 439,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 459,
+      "max": 540.6,
+      "typical": 499.8,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 10.4,
+      "max": 13.26,
+      "typical": 12.74,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 72,
+      "max": 72,
+      "typical": 72,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "hardness": {
+      "min": 126,
+      "max": 148.4,
+      "typical": 137.2,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "thermal_conductivity": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 10,
+      "confidence": "measured"
+    },
+    "fatigue_strength": {
+      "min": 119,
+      "max": 157,
+      "typical": 138,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:7050 × HT:mixed aged/solution-treated CSV-generic (fallback midpoint) (f×0.95, i×1.1)"
+    },
+    "impact_strength": {
+      "min": 6,
+      "max": 15,
+      "typical": 10,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:7050 × HT:mixed aged/solution-treated CSV-generic (fallback midpoint) (f×0.95, i×1.1)"
+    },
+    "fracture_toughness": {
+      "min": 35.2,
+      "max": 35.2,
+      "typical": 35.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:mixed aged/solution-treated CSV-generic (fallback midpoint) (k×1.1)"
+    },
+    "electrical_conductivity": {
+      "min": 41,
+      "max": 41,
+      "typical": 41,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "max_service_temp": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "thermal_expansion": {
+      "min": 23.5,
+      "max": 23.5,
+      "typical": 23.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "specific_heat": {
+      "min": 860,
+      "max": 860,
+      "typical": 860,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "melting_point": {
+      "min": 635,
+      "max": 635,
+      "typical": 635,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "price_per_kg": {
+      "min": 7,
+      "max": 7,
+      "typical": 7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "price_per_cm3": {
+      "min": 0.0198,
+      "max": 0.0198,
+      "typical": 0.0198,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:7050"
+    },
+    "delivered_price_per_kg": {
+      "min": 10.11,
+      "max": 10.11,
+      "typical": 10.11,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Zn": "5.7~6.7",
+    "Mg": "1.9~2.6",
+    "Cu": "2.0~2.6",
+    "Zr": "0.08~0.15"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum 7050 (aerospace)",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+7050",
+      "verified": false
+    },
+    {
+      "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "MatWeb — search \"AA 7050\"",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%207050",
+      "verified": false
+    },
+    {
+      "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (T7451/T7651 인장·물성, PDF 직접 판독)",
+      "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1016/Kaiser_Aluminum_7050_Sheet_Coil_and_Plate.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.83,
+      452.48,
+      515.1,
+      11.83,
+      72,
+      141.4,
+      130
+    ],
+    [
+      2.83,
+      443.52,
+      504.9,
+      12.87,
+      72,
+      138.6,
+      130
+    ],
+    [
+      2.83,
+      421.12,
+      479.4,
+      10.920000000000002,
+      72,
+      131.6,
+      130
+    ],
+    [
+      2.83,
+      425.6,
+      484.50000000000006,
+      11.05,
+      72,
+      133,
+      130
+    ],
+    [
+      2.83,
+      407.68,
+      464.1,
+      13.13,
+      72,
+      127.4,
+      130
+    ],
+    [
+      2.83,
+      439.04,
+      499.8,
+      12.74,
+      72,
+      137.2,
+      130
+    ],
+    [
+      2.83,
+      456.96,
+      520.2,
+      13.26,
+      72,
+      142.8,
+      130
+    ],
+    [
+      2.83,
+      412.16,
+      469.2000000000001,
+      13.26,
+      72,
+      128.8,
+      130
+    ],
+    [
+      2.83,
+      474.88,
+      540.6,
+      12.48,
+      72,
+      148.4,
+      130
+    ],
+    [
+      2.83,
+      403.2,
+      459,
+      10.4,
+      72,
+      126,
+      130
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Poor",
+  "corrosion_resistance": "Moderate",
+  "meta": {
+    "row_count": 10,
+    "subcategory_variants": [
+      "Aluminum - Cu Alloys (2xxx)"
+    ],
+    "conditions": [
+      "T1",
+      "T10",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "T8",
+      "T9"
+    ]
+  },
+  "fracture_toughness": 35.2,
+  "fatigue_strength": 138,
+  "density": 2.83,
+  "yield_strength": 439,
+  "uts": 499.8,
+  "elongation": 12.74,
+  "modulus": 72,
+  "hardness": 137.2,
+  "thermal_conductivity": 130,
+  "impact_strength": 10,
+  "manufacturer": "Generic",
+  "process": "Wrought",
+  "source": "MatWeb — Aluminum 7050 (aerospace)",
+  "aliases": [
+    "UNS A97050",
+    "EN AW-7050"
+  ],
+  "families": [
+    "Metal",
+    "Aluminum - Si Alloys (6xxx/7xxx)"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 41,
+  "max_service_temp": 120,
+  "thermal_expansion": 23.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 860,
+  "melting_point": 635,
+  "price_per_kg": 7,
+  "price_per_cm3": 0.0198,
+  "popularity": 3.07,
+  "machining_cost_factor": 0.8,
+  "ht_cost_factor": 1.35,
+  "price_condition_factor": 1.25,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.1,
+  "delivered_price_per_kg": 10.11,
+  "total_cost_estimate": 8.09,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 470,
+      "uts": 540,
+      "E": 71.7
+    },
+    {
+      "temp": 100,
+      "ys": 420,
+      "uts": 490,
+      "E": 69
+    },
+    {
+      "temp": 200,
+      "ys": 270,
+      "uts": 320,
+      "E": 64
+    }
+  ],
+  "story": "AA 7050 은 1971년 미국 ALCOA 가 'X7050' 으로 시제 개발 후 1975년 표준화한 thick-section aerospace Al alloy 입니다. AA 7075 의 약점 — short-transverse 방향의 SCC 위험 + 두꺼운 plate 의 cooling rate 불균일 — 을 보완하기 위해 Cr 을 제거하고 Zr 0.10-0.15% 첨가, Mg 함량을 약간 낮춰 hardenability + thick-section uniformity 를 개선했어요.\n\n구조적 차이 — 7075: Zn 5.6% + Mg 2.5% + Cu 1.6% + Cr 0.23%. 7050: Zn 6.2% + Mg 2.25% + Cu 2.3% + Zr 0.12%. Cr 제거 + Zr 추가가 fine grain + uniform precipitation 을 보장해, 50-200 mm 두께 plate 의 균일한 강도를 얻을 수 있게 됐습니다.\n\n응용 — Thick aerospace plate 의 표준. Boeing 777 / 787 / 747-8 의 wing skin 일부 thick section, Lockheed Martin F-22 의 main wing spar (forging 형태 T7452), Lockheed C-5 / C-17 의 main landing gear support frame, Airbus A380 / A350 의 thick wing rib, Boeing 737NG / MAX 의 main spar. AM (LPBF) 분말로도 사용 (EOS / Concept Laser 의 7050 분말).\n\nT74 / T7451 / T7452 over-aged temper 가 표준 — 7075 의 T651 와 동일 강도 (σy 460-470 MPa) + 약 100배 향상된 SCC 저항. 가격은 7075 의 약 1.5배.",
+  "story_refs": [
+    "AMS 4050 / AMS 4108 (AA 7050 plate)",
+    "AMS 4076 (AA 7050 forging T7452)",
+    "ASM Handbook Vol.2 'Aluminum Zn Alloys 7xxx'",
+    "Hatch J E (ed., 1984)"
+  ],
+  "confidence_tier": "high",
+  "_corrections": {
+    "composition": {
+      "from": {}
+    }
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "stable_id": "MET-0818",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-ferritic-martensitic",
+    "alloy_base": "F-AB-ss440c-uns-s44004",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0333_1",
+  "origin": "reference(supplementary)",
+  "id": "R_0333_1",
+  "name": "SS440C (UNS S44004) — premium bearing & blade — Hardened (1010°C oil Q + 150°C T)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Ferritic/Martensitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Hardened (1010°C oil Q + 150°C T)",
+  "ranges": {
+    "density": {
+      "min": 7.65,
+      "max": 7.65,
+      "typical": 7.65,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 1900,
+      "max": 1900,
+      "typical": 1900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2030,
+      "max": 2030,
+      "typical": 2030,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 200,
+      "typical": 200,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 580,
+      "max": 580,
+      "typical": 580,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 24.2,
+      "max": 24.2,
+      "typical": 24.2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 350,
+      "max": 450,
+      "typical": 400,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 14,
+      "typical": 8,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "fracture_toughness": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "max_service_temp": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "thermal_expansion": {
+      "min": 10.2,
+      "max": 10.2,
+      "typical": 10.2,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "poisson_ratio": {
+      "min": 0.28,
+      "max": 0.28,
+      "typical": 0.28,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "specific_heat": {
+      "min": 460,
+      "max": 460,
+      "typical": 460,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "melting_point": {
+      "min": 1480,
+      "max": 1480,
+      "typical": 1480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "price_per_kg": {
+      "min": 4.5,
+      "max": 4.5,
+      "typical": 4.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "price_per_cm3": {
+      "min": 0.0344,
+      "max": 0.0344,
+      "typical": 0.0344,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:440c"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.96,
+      "max": 4.96,
+      "typical": 4.96,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "16~18",
+    "C": "0.95~1.20",
+    "Mo": "≤0.75",
+    "Mn": "≤1.0",
+    "Si": "≤1.0"
+  },
+  "sources": [
+    {
+      "label": "Datasheet 2",
+      "url": "https://www.aksteel.com/sites/default/files/2018-01/440a440b440c201706.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.65,
+      1900,
+      2030,
+      2,
+      200,
+      580,
+      24.2
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "ASTM A276 high-carbon Cr SS for rolling-element bearings (knife-edge balls), valves, surgical instruments, premium kitchen knives.",
+  "meta": {
+    "reference": true,
+    "condition": "Hardened (1010°C oil Q + 150°C T)",
+    "specs": [
+      {
+        "id": "UNS S44004",
+        "org": "UNS"
+      }
+    ]
+  },
+  "fracture_toughness": 22,
+  "fatigue_strength": 400,
+  "density": 7.65,
+  "yield_strength": 1900,
+  "uts": 2030,
+  "elongation": 2,
+  "modulus": 200,
+  "hardness": 580,
+  "thermal_conductivity": 24.2,
+  "impact_strength": 8,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Datasheet 2",
+  "aliases": [
+    "UNS S44004"
+  ],
+  "families": [
+    "Metal",
+    "Stainless Steel - Martensitic",
+    "Iron-based",
+    "Stainless Steel"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 2.5,
+  "max_service_temp": 480,
+  "thermal_expansion": 10.2,
+  "poisson_ratio": 0.28,
+  "specific_heat": 460,
+  "melting_point": 1480,
+  "price_per_kg": 4.5,
+  "price_per_cm3": 0.0344,
+  "popularity": 3.33,
+  "machining_cost_factor": 1.5,
+  "ht_cost_factor": 1.15,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4.96,
+  "total_cost_estimate": 7.44,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

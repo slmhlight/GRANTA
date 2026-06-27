@@ -1,0 +1,247 @@
+{
+  "stable_id": "POL-0115",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-psu",
+    "alloy_base": "F-AB-polysulfone-psu",
+    "element_families": []
+  },
+  "legacy_id": "R_0074",
+  "origin": "reference(supplementary)",
+  "id": "R_0074",
+  "name": "Polysulfone (PSU)",
+  "category": "Polymer",
+  "subcategory": "Polymer - PSU",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Injection Molding"
+  ],
+  "heat_treatment": null,
+  "ranges": {
+    "density": {
+      "min": 1.24,
+      "max": 1.24,
+      "typical": 1.24,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "yield_strength": {
+      "min": 65,
+      "max": 75,
+      "typical": 70,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "uts": {
+      "min": 70,
+      "max": 80,
+      "typical": 75,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "elongation": {
+      "min": 30,
+      "max": 70,
+      "typical": 50,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "modulus": {
+      "min": 2.4,
+      "max": 2.6,
+      "typical": 2.5,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.26,
+      "max": 0.26,
+      "typical": 0.26,
+      "n": 3,
+      "confidence": "measured"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "max": 170,
+      "typical": 160,
+      "n": 0,
+      "estimated": true,
+      "confidence": "handbook",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "glass_transition_temp": {
+      "min": 93.5,
+      "max": 280.5,
+      "typical": 187,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "price_per_cm3": {
+      "min": 0.0155,
+      "max": 0.0465,
+      "typical": 0.031,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Polysulfone (PSU)"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "73.3",
+    "H": "5.0",
+    "O": "14.5",
+    "S": "7.2"
+  },
+  "sources": [
+    {
+      "label": "Material datasheets — Polysulfone (Udel)",
+      "url": null,
+      "verified": false
+    },
+    {
+      "label": "AZoM/Goodfellow — Polysulphone (PSU) 물성",
+      "url": "https://www.azom.com/article.aspx?ArticleID=812",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.24,
+      70,
+      75,
+      50,
+      2.5,
+      0,
+      0.26
+    ],
+    [
+      1.24,
+      65,
+      70,
+      30,
+      2.4,
+      0,
+      0.26
+    ],
+    [
+      1.24,
+      75,
+      80,
+      70,
+      2.6,
+      0,
+      0.26
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": null,
+  "meta": {
+    "reference": true,
+    "flame_ul94": "V-0",
+    "uv_resistance": "Fair",
+    "moisture_24h": 0.3,
+    "polymer": true
+  },
+  "density": 1.24,
+  "yield_strength": 70,
+  "uts": 75,
+  "elongation": 50,
+  "modulus": 2.5,
+  "hardness": null,
+  "thermal_conductivity": 0.26,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Injection Molding",
+  "source": "Material datasheets — Polysulfone (Udel)",
+  "aliases": [],
+  "families": [
+    "Polymer",
+    "Polymer - Polysulfone (PSU)"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 160,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": 187,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.031,
+  "popularity": 3,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}
