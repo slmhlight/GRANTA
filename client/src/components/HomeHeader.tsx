@@ -161,11 +161,11 @@ export function HomeHeader({
         </TooltipTrigger>
         <TooltipContent side="bottom" className="text-xs">
           <div className="space-y-0.5 font-mono">
-            <div className="flex justify-between gap-3"><span className="text-foreground/70">Metal</span><span>{metalCount.toLocaleString()}</span></div>
-            <div className="flex justify-between gap-3"><span className="text-foreground/70">Polymer</span><span>{polymerCount.toLocaleString()}</span></div>
-            <div className="flex justify-between gap-3"><span className="text-foreground/70">Ceramic</span><span>{ceramicCount}</span></div>
-            <div className="flex justify-between gap-3"><span className="text-foreground/70">Composite</span><span>{compositeCount}</span></div>
-            <div className="flex justify-between gap-3 pt-0.5 border-t border-border/30 mt-0.5"><span className="text-foreground/70">AM process</span><span>{amCount}</span></div>
+            <div className="flex justify-between gap-3"><span className="text-background/70">Metal</span><span>{metalCount.toLocaleString()}</span></div>
+            <div className="flex justify-between gap-3"><span className="text-background/70">Polymer</span><span>{polymerCount.toLocaleString()}</span></div>
+            <div className="flex justify-between gap-3"><span className="text-background/70">Ceramic</span><span>{ceramicCount}</span></div>
+            <div className="flex justify-between gap-3"><span className="text-background/70">Composite</span><span>{compositeCount}</span></div>
+            <div className="flex justify-between gap-3 pt-0.5 border-t border-border/30 mt-0.5"><span className="text-background/70">AM process</span><span>{amCount}</span></div>
           </div>
         </TooltipContent>
       </Tooltip>
