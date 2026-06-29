@@ -165,6 +165,16 @@ const BOT_BLOCKED_DOMAINS = new Set([
   'www.geaerospace.com', 'geaerospace.com',
   'www.sae.org', 'sae.org',
   'amerpipe.com', 'www.amerpipe.com',
+  /* R226d — URL체크 메일 dead 오분류 해소: 브라우저/WebFetch 로 LIVE 콘텐츠 확인된 안티봇 datasheet 사이트.
+   *   steeljis(S55C 조성 반환)·espimetals(Chromium ρ7.19/E248)·stellite(Stellite 3 Co-Cr-W)·aalco(6005A) — 자동 HEAD/GET 만 403/404. */
+  'steeljis.com', 'www.steeljis.com',
+  'www.espimetals.com', 'espimetals.com',
+  'www.stellite.com', 'stellite.com',
+  'www.aalco.co.uk', 'aalco.co.uk',
+  /* 전수 verify 에서 추가 검출된 LIVE 안티봇 (WebFetch 콘텐츠 확인): regentsteel(IN939 조성)·sunrise-metal(AlSi12)·shspecialsteel(AAR M-107 PDF 719KB) */
+  'www.regentsteel.com', 'regentsteel.com',
+  'www.sunrise-metal.com', 'sunrise-metal.com',
+  'shspecialsteel.com', 'www.shspecialsteel.com',
 ]);
 
 async function checkUrl(url) {
