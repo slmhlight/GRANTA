@@ -210,30 +210,18 @@
   },
   "ranges": {
     "MET-0459": { "yield_strength": 345, "uts": 485, "basis": "ASTM A588 Gr A ≤4in plate 최소 (50ksi/70ksi). DB σy=250 은 A36 항복값 오기(조성·HB 140≈UTS485/3.45 는 정합)", "src": "ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)" },
-    "MET-0905": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Ti-5Al-2.5Sn Grade6 α annealed (열처리 불가)", "src": "ASTM B265 Gr6 · alloysintl Ti 5-2.5" },
-    "MET-0906": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α as-forged ≈ annealed", "src": "ASTM B265 Gr6" },
-    "MET-0907": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α mill-annealed = annealed", "src": "ASTM B265 Gr6" },
-    "MET-0904": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α 비-열처리 → aged ≈ annealed", "src": "ASTM B265 Gr6" },
+    "MET-0905": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Ti-5Al-2.5Sn Grade6 α annealed (열처리 불가)", "src": "ASTM B265 Gr6 · alloysintl Ti 5-2.5" },    "MET-0904": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α 비-열처리 → aged ≈ annealed", "src": "ASTM B265 Gr6" },
     "MET-0908": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α — 냉간가공 비표준 → annealed 기준", "src": "ASTM B265 Gr6" },
 
-    "MET-0911": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6Al-2Sn-4Zr-6Mo annealed", "src": "niticu Ti-6246 datasheet (≥1000σy/1100-1300UTS)" },
-    "MET-0912": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6246 as-forged ≈ annealed", "src": "niticu Ti-6246" },
-    "MET-0913": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6246 mill-annealed = annealed", "src": "niticu Ti-6246" },
-    "MET-0914": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6246 α/β 냉간가공 비표준 → annealed", "src": "niticu Ti-6246" },
+    "MET-0911": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6Al-2Sn-4Zr-6Mo annealed", "src": "niticu Ti-6246 datasheet (≥1000σy/1100-1300UTS)" },    "MET-0914": { "yield_strength": 1000, "uts": 1100, "elongation": 10, "basis": "Ti-6246 α/β 냉간가공 비표준 → annealed", "src": "niticu Ti-6246" },
     "MET-0910": { "yield_strength": 1105, "uts": 1200, "elongation": 10, "basis": "Ti-6246 STA (solution+age) — bi-modal σy1105", "src": "WTCP Ti-6246 (titanium.org) + niticu" },
 
-    "MET-0934": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "Ti-8Al-1Mo-1V near-α duplex annealed", "src": "AZoM UNS R54810" },
-    "MET-0935": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "Ti-8-1-1 as-forged ≈ annealed", "src": "AZoM R54810" },
-    "MET-0936": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "Ti-8-1-1 mill-annealed = annealed", "src": "AZoM R54810" },
-    "MET-0933": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "near-α 시효응답 미미 → aged ≈ annealed", "src": "AZoM R54810" },
+    "MET-0934": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "Ti-8Al-1Mo-1V near-α duplex annealed", "src": "AZoM UNS R54810" },    "MET-0933": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "near-α 시효응답 미미 → aged ≈ annealed", "src": "AZoM R54810" },
     "MET-0937": { "yield_strength": 910, "uts": 937, "elongation": 18, "basis": "near-α 냉간가공 비표준 → annealed", "src": "AZoM R54810" },
 
     "MET-0878": { "yield_strength": 900, "uts": 965, "elongation": 10, "basis": "Ti-6Al-4V ELI STA (solution+age)", "src": "ASTM F136 + AMS Ti-6-4 STA" },
 
-    "MET-0799": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "440C annealed (HBW207, σy448)", "src": "Atlas/AZoM 440C datasheet" },
-    "MET-0800": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "440C as-forged ≈ annealed", "src": "Atlas 440C" },
-    "MET-0801": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "440C mill-annealed = annealed", "src": "Atlas 440C" },
-    "MET-0803": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "마르텐사이트 — 냉간가공 안 함 → annealed", "src": "Atlas 440C" },
+    "MET-0799": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "440C annealed (HBW207, σy448)", "src": "Atlas/AZoM 440C datasheet" },    "MET-0803": { "yield_strength": 450, "uts": 760, "elongation": 14, "basis": "마르텐사이트 — 냉간가공 안 함 → annealed", "src": "Atlas 440C" },
     "MET-0798": { "yield_strength": 1900, "uts": 1970, "elongation": 2, "basis": "440C 경화+템퍼 (HRC58-60)", "src": "CarTech 440C datasheet (UTS max 1970)" },
 
     "POL-0095": { "yield_strength": 46, "uts": 50, "basis": "GPPS σy~46/UTS~50 — R221c 가 UTS 만 42 로 낮춰 σy>UTS 발생, 교정", "src": "MakeItFrom/BPF GPPS (yield 36-46, tensile 40-60)" },
