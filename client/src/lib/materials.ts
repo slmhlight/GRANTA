@@ -156,6 +156,8 @@ export interface MaterialSource {
   label: string;
   url: string | null;
   verified: boolean;
+  /** R226e/D3 — 출처 권위 등급 (build-from-registry 도출). */
+  authority?: 'standard' | 'handbook' | 'manufacturer' | 'aggregator' | 'other';
 }
 
 export interface PropertyMeta {
