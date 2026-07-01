@@ -41,7 +41,7 @@ import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { ScenarioCompareSheet } from '@/components/ScenarioCompareSheet';
 import OnboardingTour from '@/components/OnboardingTour';
 import type { FilterState } from '@/hooks/useMaterialFilter';
-import { SHOP_ALIAS_DICT } from '@/lib/shop-alias-dict';
+import { resolveDirectHit } from '@/lib/direct-hit';   // R226e/C4 — 추출된 direct-hit 검색 (normalize·extractTokens·shop-dict 포함)
 import { loadUnitSystem, saveUnitSystem, type UnitSystem } from '@/lib/unit-convert';
 import { useT, useLang } from '@/lib/i18n';
 
@@ -371,19 +371,6 @@ export default function Home() {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [importResult, setImportResult] = useState<{ matched: { name: string; matchedTo: string }[]; unmatched: string[] } | null>(null);
   const [importName, setImportName] = useState('');
-  const normalize = (s: string) => s.toLowerCase().replace(/[\s\-_.()/]+/g, '');
-  /** 입력 문자열에서 등급 토큰(숫자 + 짧은 영문) 추출 — '304-SS', 'SUS304', '304L SS' 모두 [304] 가 핵심.
-   *  최소 3자 이상 토큰만 (단발 'A' 같은 잡음 제외). */
-  const extractTokens = (s: string): string[] => {
-    const tokens: string[] = [];
-    const re = /[a-z0-9]+/g; let m;
-    const lower = s.toLowerCase();
-    while ((m = re.exec(lower))) {
-      const t = m[0];
-      if (t.length >= 3 || /^\d{2,}/.test(t)) tokens.push(t); // 숫자 2+자리는 키 등급일 가능성
-    }
-    return tokens;
-  };
   const matchMaterials = useCallback((queries: string[]) => {
     if (!materials.length) return { matched: [], unmatched: [...queries] };
     const matched: { id: string; name: string; matchedTo: string }[] = [];
@@ -391,45 +378,7 @@ export default function Home() {
     for (const raw of queries) {
       const q = raw.trim();
       if (!q) continue;
-      const nq = normalize(q);
-      // 1단계: 입력에 매칭되는 동의어 후보 묶음 (입력 자체 + shop alias dict 확장)
-      const queries2 = [nq, ...(SHOP_ALIAS_DICT[nq] ?? []).map(normalize)];
-      let hit: Material | null = null;
-      // 2단계: 정확일치
-      for (const m of materials) {
-        const candidates = [m.name, ...(m.aliases || [])].map(normalize);
-        if (queries2.some(q2 => candidates.includes(q2))) { hit = m; break; }
-      }
-      // 3단계: startsWith
-      if (!hit) {
-        for (const m of materials) {
-          const candidates = [m.name, ...(m.aliases || [])].map(normalize);
-          if (queries2.some(q2 => candidates.some(c => c.startsWith(q2)))) { hit = m; break; }
-        }
-      }
-      // 4단계: 부분일치
-      if (!hit) {
-        for (const m of materials) {
-          const candidates = [m.name, ...(m.aliases || [])].map(normalize);
-          if (queries2.some(q2 => candidates.some(c => c.includes(q2)))) { hit = m; break; }
-        }
-      }
-      // 5단계: 토큰 기반 — 등급 번호(304/316/6061/7075/4140 등) 가 양쪽에 모두 있으면 매칭.
-      //  보수적: 입력 토큰 ≥ 1 개와 후보 토큰이 모두 일치 (작은 문자열 false positive 회피).
-      if (!hit) {
-        const qTokens = extractTokens(q);
-        if (qTokens.length) {
-          for (const m of materials) {
-            const candidates = [m.name, ...(m.aliases || [])];
-            for (const c of candidates) {
-              const cTokens = extractTokens(c);
-              // 입력 토큰 모두가 후보 토큰에 들어 있으면 매칭
-              if (qTokens.every(qt => cTokens.includes(qt))) { hit = m; break; }
-            }
-            if (hit) break;
-          }
-        }
-      }
+      const hit = resolveDirectHit(q, materials);
       if (hit) matched.push({ id: hit.id, name: hit.name, matchedTo: q });
       else unmatched.push(q);
     }
