@@ -863,9 +863,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       {/* Chart — 모바일 min-h 50vh (이전 60vh 는 bottom bar 와 겹침). 데스크탑은 flex-1 자동. */}
       <div className="flex-1 min-h-[50vh] md:min-h-0 p-1 sm:p-2">
         <Plot
-          data={data as any}
-          layout={layout as any}
-          config={config as any}
+          data={data}
+          layout={layout}
+          config={config}
           useResizeHandler
           style={{ width: '100%', height: '100%' }}
           onClick={(e: any) => {
