@@ -107,3 +107,5 @@ fs.writeFileSync('data/registry/audit-report.md', lines.join('\n') + '\n');
 console.log('총 오류:', total, '건 · 검토완료(아티팩트):', rev.length, '건');
 for (const k of order) console.log(`  ${k.padEnd(24)} ${(findings[k] || []).length}`);
 console.log(`  ${'I2_reviewed(비오류)'.padEnd(24)} ${rev.length}`);
+// R226f/축2b — 게이트화: 오류 존재 시 exit 1 (HT↔값 공정상태 교차충돌 I2 포함). tests/audit-registry-gate 가 CI 상설화.
+if (total > 0) { console.error(`❌ audit:registry 오류 ${total}건 — data/registry/audit-report.md 확인`); process.exit(1); }
