@@ -32,3 +32,26 @@ export function improveLabel(s) {
   const dom = url.replace(/^https?:\/\//i, '').replace(/^www\./i, '').split('/')[0].toLowerCase();
   return { ...s, label: PUBLISHER[dom] || `${dom} datasheet` };
 }
+
+/*
+ * R226e/D3 — 출처 권위 등급 도출. 신뢰도: standard > handbook > manufacturer > aggregator > other.
+ * URL 도메인·라벨 토큰으로 분류(값 SSOT 불변, presentation). UI 가 provenance 품질 표기·정렬에 활용.
+ */
+const AUTH = {
+  standard: { dom: /store\.astm\.org|asme\.org|sae\.org|jisc\.go\.jp|en-standard\.eu|api\.org|aisc\.org|everyspec\.com|dinmedia\.de|beuth\.de/i,
+              lbl: /\bASTM\b|\bASME\b|\bSAE\b|\bJIS\b|\bEN ?\d|\bISO\b|\bMIL-|\bAMS \d|\bMMPDS\b|\bAPI \d|\bDIN\b|\bAAR\b|\bUNS\b/i },
+  handbook: { dom: /asminternational\.org|batelle\.org|ntrs\.nasa\.gov|nasa\.gov|eccc-creep\.com/i,
+              lbl: /ASM Handbook|MMPDS|Battelle|NASA|ECCC|\bhandbook\b/i },
+  aggregator: { dom: /matweb\.com|azom\.com|makeitfrom\.com|lookpolymers|specialchem|ulprospector|wikipedia/i,
+                lbl: /MatWeb|AZoM|MakeItFrom|Wikipedia|QuickText/i },
+};
+/** 출처 권위 등급: 'standard' | 'handbook' | 'manufacturer' | 'aggregator' | 'other'. */
+export function sourceAuthority(s) {
+  const url = s.url || '', lbl = s.label || '';
+  if (/\bfallback\b|estimated|derived|baseline/i.test(lbl)) return 'other';   // 파생값 provenance 마커 (표준 아님)
+  if (AUTH.standard.dom.test(url) || AUTH.standard.lbl.test(lbl)) return 'standard';
+  if (AUTH.handbook.dom.test(url) || AUTH.handbook.lbl.test(lbl)) return 'handbook';
+  if (AUTH.aggregator.dom.test(url) || AUTH.aggregator.lbl.test(lbl)) return 'aggregator';
+  if (/^https?:\/\//i.test(url)) return 'manufacturer';   // 그 외 실 URL = 벤더 datasheet
+  return 'other';   // url 없는 인용·fallback
+}

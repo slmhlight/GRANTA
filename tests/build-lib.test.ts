@@ -3,7 +3,7 @@
  * 이전엔 build 스크립트 내부에 인라인 정의되어 vitest 커버리지 0 이던 로직을 lib 모듈로 추출 후 테스트.
  */
 import { describe, it, expect } from 'vitest';
-import { improveLabel } from '../scripts/lib/source-labels.mjs';
+import { improveLabel, sourceAuthority } from '../scripts/lib/source-labels.mjs';
 import { detectAnomalies } from '../scripts/lib/anomalies.mjs';
 
 describe('improveLabel — 출처 라벨 도출', () => {
@@ -60,5 +60,26 @@ describe('detectAnomalies — 공유 anomaly 검출', () => {
     expect(verified.some(x => x.kind.includes('Carbon Steel σy/UTS'))).toBe(false);
     const unverified = detectAnomalies([mk({ tier: 'generic', sources: [{ verified: false }], ...R({ yield_strength: 495, uts: 500 }) })]);
     expect(unverified.some(x => x.kind.includes('Carbon Steel σy/UTS'))).toBe(true);
+  });
+});
+
+describe('sourceAuthority — 출처 권위 등급 (D3)', () => {
+  it('ASTM url → standard', () => {
+    expect(sourceAuthority({ label: 'ASTM A588', url: 'https://store.astm.org/a0588.html' })).toBe('standard');
+  });
+  it('ASM Handbook 라벨 → handbook', () => {
+    expect(sourceAuthority({ label: 'ASM Handbook Vol.1', url: 'https://www.asminternational.org/x' })).toBe('handbook');
+  });
+  it('MatWeb → aggregator', () => {
+    expect(sourceAuthority({ label: 'MatWeb datasheet', url: 'https://www.matweb.com/x' })).toBe('aggregator');
+  });
+  it('벤더 URL → manufacturer', () => {
+    expect(sourceAuthority({ label: 'SSAB datasheet', url: 'https://www.ssab.com/x' })).toBe('manufacturer');
+  });
+  it('url 없는 fallback → other', () => {
+    expect(sourceAuthority({ label: 'Fatigue fallback: σf ≈ 0.5·σy (Shigley)' })).toBe('other');
+  });
+  it('fallback 라벨은 ASTM 언급해도 other (표준 아님)', () => {
+    expect(sourceAuthority({ label: 'KIC fallback: ASTM A572/A588 HSLA' })).toBe('other');
   });
 });
