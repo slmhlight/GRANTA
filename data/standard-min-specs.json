@@ -1,0 +1,28 @@
+{
+  "_note": "R226f/축2a — 표준 최소값 테이블 (A/B-basis 의 spec-min 시드, 축4a). 이름에 규격·grade 를 인용한 entry 는 적합성 주장 -> 해당 규격 min 을 충족해야 함 (tests/standard-min-specs.test.ts 가 게이트, 허용오차 -2%). A588 형 오염(σy 를 타 합금 값으로 오기)을 '인용 표준만으로' 잡는 일반해 — golden-values(entry 별 bound)와 달리 패턴 단위로 확장. 값은 각 표준의 최소 요구치(MPa).",
+  "specs": [
+    { "pattern": "ASTM A36", "std": "ASTM A36/A36M", "min": { "yield_strength": 250, "uts": 400 } },
+    { "pattern": "ASTM A572 Grade 50", "std": "ASTM A572/A572M Gr50", "min": { "yield_strength": 345, "uts": 450 } },
+    { "pattern": "ASTM A588", "std": "ASTM A588/A588M (≤4in)", "min": { "yield_strength": 345, "uts": 485 } },
+    { "pattern": "A516 Grade 70", "std": "ASTM A516/A516M Gr70", "min": { "yield_strength": 260, "uts": 485 } },
+    { "pattern": "A992", "std": "ASTM A992/A992M", "min": { "yield_strength": 345, "uts": 450 } },
+    { "pattern": "API 5L X42N / X52M", "std": "API 5L PSL2 X42N (복합 entry 하한)", "min": { "yield_strength": 290, "uts": 415 } },
+    { "pattern": "API 5L X65", "std": "API 5L PSL2 X65", "min": { "yield_strength": 450, "uts": 535 } },
+    { "pattern": "API 5L X70", "std": "API 5L PSL2 X70", "min": { "yield_strength": 485, "uts": 570 } },
+    { "pattern": "API 5L X80", "std": "API 5L PSL2 X80", "min": { "yield_strength": 555, "uts": 625 } },
+    { "pattern": "WCB (cast carbon steel", "std": "ASTM A216 WCB", "min": { "yield_strength": 250, "uts": 485 } },
+    { "pattern": "WCC (cast carbon steel", "std": "ASTM A216 WCC", "min": { "yield_strength": 275, "uts": 485 } },
+    { "pattern": "CF8 (cast 304", "std": "ASTM A351 CF8", "min": { "yield_strength": 205, "uts": 485 } },
+    { "pattern": "CF8M (cast 316", "std": "ASTM A351 CF8M", "min": { "yield_strength": 205, "uts": 485 } },
+    { "pattern": "CF3 (cast 304L", "std": "ASTM A351 CF3", "min": { "yield_strength": 205, "uts": 485 } },
+    { "pattern": "CF3M (cast 316L", "std": "ASTM A351 CF3M", "min": { "yield_strength": 205, "uts": 485 } },
+    { "pattern": "Ti-6Al-4V Cast (Grade C-5", "std": "ASTM B367 C-5", "min": { "yield_strength": 758, "uts": 860 } },
+    { "pattern": "AMS 5662", "std": "AMS 5662 (IN718 STA)", "min": { "yield_strength": 1034, "uts": 1276 } },
+    { "pattern": "Ti Grade 1", "std": "ASTM B265 Gr1", "min": { "yield_strength": 170, "uts": 240 } },
+    { "pattern": "Ti Grade 2", "std": "ASTM B265 Gr2", "min": { "yield_strength": 275, "uts": 345 } },
+    { "pattern": "Ti Grade 3", "std": "ASTM B265 Gr3", "min": { "yield_strength": 380, "uts": 450 } },
+    { "pattern": "Ti Grade 4", "std": "ASTM B265 Gr4", "min": { "yield_strength": 483, "uts": 550 } },
+    { "pattern": "Ti Grade 23", "std": "ASTM B265 Gr23 (ELI)", "min": { "yield_strength": 759, "uts": 828 } },
+    { "pattern": "H900", "std": "ASTM A564 H900 (17-4/15-5 PH)", "min": { "yield_strength": 1170, "uts": 1310 } }
+  ]
+}

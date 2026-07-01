@@ -39,11 +39,11 @@
       "confidence": "measured"
     },
     "uts": {
-      "min": 1170,
-      "max": 1310,
-      "typical": 1241,
-      "n": 3,
-      "confidence": "measured"
+      "min": 1276,
+      "typical": 1276,
+      "max": 1276,
+      "confidence": "handbook",
+      "source": "r226-correction"
     },
     "elongation": {
       "min": 10,
@@ -222,28 +222,10 @@
     [
       8.19,
       1034,
-      1241,
+      1276,
       12,
       200,
       380,
-      11.4
-    ],
-    [
-      8.19,
-      1000,
-      1170,
-      10,
-      200,
-      360,
-      11.4
-    ],
-    [
-      8.19,
-      1100,
-      1310,
-      17,
-      200,
-      400,
       11.4
     ]
   ],
@@ -271,7 +253,7 @@
   "fatigue_strength": 535,
   "density": 8.19,
   "yield_strength": 1034,
-  "uts": 1241,
+  "uts": 1276,
   "elongation": 12,
   "modulus": 200,
   "hardness": 380,
@@ -392,6 +374,51 @@
         "Alloy 718",
         "GH4169",
         "NC19FeNb"
+      ]
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1170,
+        "max": 1310,
+        "typical": 1241,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 1241
+    },
+    "_basis": "이름이 AMS 5662 를 주장 — UTS typ 1241 은 spec-min 1276 미달(집계에 비-5662 조건 혼입 의심; σy typ 1034 는 spec-min 정합). spec-min 으로 보수 교정 (min-spec 게이트 발견)",
+    "_src": "AMS 5662 RT 최소: YS 150ksi(1034) / UTS 185ksi(1276)",
+    "points": {
+      "from": [
+        [
+          8.19,
+          1034,
+          1241,
+          12,
+          200,
+          380,
+          11.4
+        ],
+        [
+          8.19,
+          1000,
+          1170,
+          10,
+          200,
+          360,
+          11.4
+        ],
+        [
+          8.19,
+          1100,
+          1310,
+          17,
+          200,
+          400,
+          11.4
+        ]
       ]
     }
   }
