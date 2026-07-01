@@ -1,14 +1,21 @@
 declare module 'react-plotly.js' {
   import { ComponentType } from 'react';
 
+  /* R226e/C3 — Plotly 이벤트 최소 타입 (chart 가 실제 접근하는 필드만). 전체 Plotly 타입은 @types/plotly.js 도입 시 확장. */
+  interface PlotlyPoint { customdata?: unknown; pointIndex?: number; pointNumber?: number; curveNumber?: number; x?: unknown; y?: unknown; }
+  interface PlotlyEvent { points?: PlotlyPoint[]; range?: Record<string, unknown>; }
+
   interface PlotProps {
-    data: any[];
-    layout?: any;
-    config?: any;
-    onClick?: (data: any) => void;
-    onHover?: (data: any) => void;
-    onUnhover?: (data: any) => void;
-    onRelayout?: (data: any) => void;
+    data: any[];         // trace 배열 — Plotly 미타입(@types/plotly.js 없음), 의도적 any
+    layout?: any;        // Plotly layout — 동상
+    config?: any;        // Plotly config — 동상
+    useResizeHandler?: boolean;
+    onClick?: (data: PlotlyEvent) => void;
+    onHover?: (data: PlotlyEvent) => void;
+    onUnhover?: (data: PlotlyEvent) => void;
+    onSelected?: (data: PlotlyEvent | undefined) => void;
+    onDeselect?: () => void;
+    onRelayout?: (data: Record<string, unknown>) => void;
     style?: React.CSSProperties;
     className?: string;
   }

@@ -386,7 +386,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       const cc = envelopeBy === 'category' ? (CATEGORY_COLORS[m.category] || '#64748b') : classOf(m).color;
       if (!hullByClass.has(ck)) hullByClass.set(ck, { color: cc, pts: [] });
       const g = hullByClass.get(ck)!;
-      const raw = (((m as any).points || []) as number[][]);
+      const raw = (m.points || []);
       if (xi >= 0 && yi >= 0 && raw.length) {
         for (const t of raw) { const x = t[xi], y = t[yi]; if (x > 0 && y > 0) g.pts.push([L(x), L(y)]); }
       } else {
