@@ -37,6 +37,18 @@ describe('registry 무결성 (S1)', () => {
     expect(bad).toEqual([]);
   });
 
+  it('ID fingerprint (R226f): freeze.fp 가 모든 entry 의 부여시점 name 과 일치 (positional legacy_id 오염 게이트)', () => {
+    const fp = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'registry-id-freeze.json'), 'utf8')).fp as Record<string, string>;
+    expect(fp && Object.keys(fp).length, 'fp 블록 존재').toBeTruthy();
+    const bad: string[] = [];
+    for (const m of all) {
+      // fp 는 교정 전(build-materials 출력) 이름 — name 교정 entry 는 _corrections.fields.name.from 이 원본
+      const expected = m._corrections?.fields?.name?.from ?? m.name;
+      if (fp[m.legacy_id] !== expected) bad.push(`${m.legacy_id}: fp="${fp[m.legacy_id]}" ≠ "${expected}"`);
+    }
+    expect(bad.slice(0, 8)).toEqual([]);
+  });
+
   it('stable_id 형식 + 필수 필드', () => {
     const bad = all.filter((m) => !/^(MET|POL|CER|CMP)-\d{4}$/.test(m.stable_id || '') || !(m.id && m.name && m.category && m.legacy_id));
     expect(bad.map((m) => m.stable_id)).toEqual([]);

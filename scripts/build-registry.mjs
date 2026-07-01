@@ -56,17 +56,34 @@ all.sort((a, b) =>
   (a.name || '').localeCompare(b.name || ''));
 
 const FREEZE = path.join(ROOT, 'data', 'registry-id-freeze.json');
-let freeze = {};
-try { freeze = JSON.parse(fs.readFileSync(FREEZE, 'utf8')).map || {}; } catch { /* 최초 생성 */ }
+let freeze = {}, fp = {};
+try { const fz = JSON.parse(fs.readFileSync(FREEZE, 'utf8')); freeze = fz.map || {}; fp = fz.fp || {}; } catch { /* 최초 생성 */ }
 const seq = {};
 for (const sid of Object.values(freeze)) { const [cc, n] = sid.split('-'); seq[cc] = Math.max(seq[cc] || 0, parseInt(n, 10)); }
 let newIds = 0;
+// R226f — identity fingerprint 게이트: legacy_id 는 positional(C_/G_/R_/CER_… 소스 순서 기반)이라
+//   상류 배열 "중간 삽입" 시 이후 id 가 전부 밀려 stable_id 가 다른 재료에 조용히 붙을 수 있음(append-only 만 안전).
+//   freeze.fp 에 부여 시점의 name 을 기록 → 재생성 시 불일치면 하드 실패(수동 확인 강제).
+//   의도된 이름 변경이면: freeze 의 fp 에서 해당 legacy_id 키만 삭제 후 재실행(재기록됨).
+const fpBad = [];
 for (const m of all) {
   const cc = CATCODE[m.category] || 'OTH';
-  if (freeze[m.id]) { m.stable_id = freeze[m.id]; }
-  else { seq[cc] = (seq[cc] || 0) + 1; m.stable_id = `${cc}-${String(seq[cc]).padStart(4, '0')}`; freeze[m.id] = m.stable_id; newIds++; }
+  if (freeze[m.id]) {
+    m.stable_id = freeze[m.id];
+    if (fp[m.id] != null && fp[m.id] !== m.name) fpBad.push(`${m.id}→${m.stable_id}: "${fp[m.id]}" ≠ "${m.name}"`);
+    if (fp[m.id] == null) fp[m.id] = m.name;   // 구 freeze(fp 없음) 마이그레이션 — 현재 이름 기록
+  } else {
+    seq[cc] = (seq[cc] || 0) + 1; m.stable_id = `${cc}-${String(seq[cc]).padStart(4, '0')}`;
+    freeze[m.id] = m.stable_id; fp[m.id] = m.name; newIds++;
+  }
 }
-fs.writeFileSync(FREEZE, JSON.stringify({ _note: 'frozen legacy_id→stable_id (R226). 이름/subcat/공정 변경해도 ID 불변; 신규 entry 만 새 ID. 이 파일이 안정 ID 의 권위 소스.', count: Object.keys(freeze).length, map: freeze }, null, 2) + '\n');
+if (fpBad.length) {
+  console.error(`❌ ID FINGERPRINT 불일치 ${fpBad.length}건 — legacy_id 가 다른 재료를 가리킴 (상류 중간 삽입/개명?).`);
+  fpBad.slice(0, 10).forEach(x => console.error('  ' + x));
+  console.error('  의도된 개명이면 data/registry-id-freeze.json 의 fp 에서 해당 키 삭제 후 재실행. 중간 삽입이면 상류를 append-only 로 수정.');
+  process.exit(1);
+}
+fs.writeFileSync(FREEZE, JSON.stringify({ _note: 'frozen legacy_id→stable_id (R226). 이름/subcat/공정 변경해도 ID 불변; 신규 entry 만 새 ID. 이 파일이 안정 ID 의 권위 소스. fp = 부여 시점 name fingerprint (R226f — positional legacy_id 오염 게이트).', count: Object.keys(freeze).length, map: freeze, fp }, null, 2) + '\n');
 
 // 2b) 제거 (R226b, 사용자 승인): 중복 base + 합성 조건 entry 드롭. base 의 마지막 실조건은 안전상 보존.
 //     freeze 는 위에서 이미 기록 → 제거된 ID 는 reserved(재사용 안 됨). cleanJson 에는 남아있으나 미출력이라 round-trip 무영향.
