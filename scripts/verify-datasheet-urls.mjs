@@ -45,11 +45,13 @@ for (const m of materials) {
 const urls = Array.from(urlSet).slice(0, MAX);
 console.log(`Checking ${urls.length} unique verified URLs (concurrent ${CONCURRENT})...`);
 
-const results = { ok: [], redirected: [], dead: [], error: [], 'bot-blocked': [] };
+const results = { ok: [], redirected: [], dead: [], error: [], 'bot-blocked': [], 'bot-blocked-candidate': [] };
 
 /* R158 — 403/405 시 GET 으로 재시도. MatWeb 등 일부 사이트가 HEAD 요청을 차단함. */
 const UA = 'Mozilla/5.0 (compatible; GRANTA-link-check/1.1; +https://github.com/slmhlight/GRANTA)';
-async function fetchOnce(url, method) {
+/* R226e/D4 — 실제 브라우저 UA. bot UA 로 4xx 인데 이 UA 로 200 이면 안티봇 후보(자동 검출 → 화이트리스트 권장). */
+const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+async function fetchOnce(url, method, ua = UA) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15000);
   try {
@@ -58,7 +60,7 @@ async function fetchOnce(url, method) {
       redirect: 'manual',
       signal: controller.signal,
       headers: {
-        'User-Agent': UA,
+        'User-Agent': ua,
         'Accept': 'text/html,application/xhtml+xml,application/pdf,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
       },
@@ -204,7 +206,14 @@ async function checkUrl(url) {
         }
       } catch { /* URL parse 실패 */ }
     }
-    if (r.status >= 400) return { url, status: r.status, meta, type: 'dead' };
+    if (r.status >= 400) {
+      /* R226e/D4 — dead 처리 전 실제 브라우저 UA 로 재시도. 200 이면 안티봇 후보(수동 WebFetch 불필요, 화이트리스트 추가 권장). */
+      try {
+        const br = await fetchOnce(url, 'GET', BROWSER_UA);
+        if (br.status >= 200 && br.status < 300) return { url, status: r.status, browserStatus: br.status, meta, type: 'bot-blocked-candidate' };
+      } catch { /* 브라우저 UA 재시도 실패 → 진짜 dead */ }
+      return { url, status: r.status, meta, type: 'dead' };
+    }
     return { url, status: r.status, meta, type: 'error' };
   } catch (err) {
     return { url, error: err.message, meta: urlMeta.get(url), type: 'error' };
@@ -235,6 +244,7 @@ console.log(`OK          ${results.ok.length}`);
 console.log(`Redirected  ${results.redirected.length}`);
 console.log(`Dead        ${results.dead.length}`);
 console.log(`Bot-blocked ${results['bot-blocked'].length}`);
+console.log(`Bot-candidate ${results['bot-blocked-candidate'].length}  (browser-UA 200 — 화이트리스트 추가 권장)`);
 console.log(`Error       ${results.error.length}`);
 
 // Markdown report
@@ -243,7 +253,7 @@ rep.push('# Datasheet URL Health Report', '');
 rep.push(`Generated: ${new Date().toISOString().slice(0, 10)}`);
 rep.push(`Total unique verified URLs checked: ${urls.length}`);
 rep.push('');
-rep.push('## Summary', `- OK (200): **${results.ok.length}**`, `- Redirected: ${results.redirected.length}`, `- Dead (4xx/5xx): **${results.dead.length}**`, `- Bot-blocked (브라우저는 정상, 자동 fetch 만 403): ${results['bot-blocked'].length}`, `- Network error / timeout: ${results.error.length}`, '');
+rep.push('## Summary', `- OK (200): **${results.ok.length}**`, `- Redirected: ${results.redirected.length}`, `- Dead (4xx/5xx): **${results.dead.length}**`, `- Bot-blocked (브라우저는 정상, 자동 fetch 만 403): ${results['bot-blocked'].length}`, `- Bot-candidate (자동검출 — 화이트리스트 추가 권장): **${results['bot-blocked-candidate'].length}**`, `- Network error / timeout: ${results.error.length}`, '');
 if (results.dead.length > 0) {
   rep.push('## Dead URLs (urgent)');
   rep.push('| URL | Status | First alloy | Uses |', '|---|---|---|---|');
@@ -254,6 +264,12 @@ if (results.redirected.length > 0) {
   rep.push('## Redirected (update recommended)');
   rep.push('| Original | Status | New location | First alloy |', '|---|---|---|---|');
   for (const r of results.redirected) rep.push(`| ${r.url} | ${r.status} | ${r.location || '?'} | ${r.meta.firstAlloy} |`);
+  rep.push('');
+}
+if (results['bot-blocked-candidate'].length > 0) {
+  rep.push('## Bot-blocked candidates (자동검출 — bot-UA 4xx 이나 browser-UA 200; BOT_BLOCKED_DOMAINS 추가 권장)');
+  rep.push('| URL | bot | browser | First alloy | Uses |', '|---|---|---|---|---|');
+  for (const r of results['bot-blocked-candidate']) rep.push(`| ${r.url} | ${r.status} | ${r.browserStatus} | ${r.meta.firstAlloy} | ${r.meta.count} |`);
   rep.push('');
 }
 if (results['bot-blocked'].length > 0) {
