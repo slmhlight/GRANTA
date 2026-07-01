@@ -171,27 +171,9 @@
       1.43,
       75,
       86,
-      7,
+      7.5,
       3.1,
-      0,
-      0.35
-    ],
-    [
-      1.43,
-      68,
-      80,
-      5,
-      3,
-      0,
-      0.35
-    ],
-    [
-      1.43,
-      82,
-      95,
-      9,
-      3.2,
-      0,
+      null,
       0.35
     ]
   ],
@@ -247,5 +229,39 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          1.43,
+          75,
+          86,
+          7,
+          3.1,
+          0,
+          0.35
+        ],
+        [
+          1.43,
+          68,
+          80,
+          5,
+          3,
+          0,
+          0.35
+        ],
+        [
+          1.43,
+          82,
+          95,
+          9,
+          3.2,
+          0,
+          0.35
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

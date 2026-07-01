@@ -137,18 +137,9 @@
   "points": [
     [
       8.8,
-      125,
-      290,
+      85,
+      255,
       45,
-      115,
-      75,
-      189
-    ],
-    [
-      8.8,
-      300,
-      360,
-      5,
       115,
       100,
       189
@@ -198,5 +189,30 @@
   "price_grade_premium": 1,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.8,
+          125,
+          290,
+          45,
+          115,
+          75,
+          189
+        ],
+        [
+          8.8,
+          300,
+          360,
+          5,
+          115,
+          100,
+          189
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

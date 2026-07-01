@@ -224,47 +224,11 @@
   "points": [
     [
       8.85,
-      461,
+      480,
       574,
       27.5,
       89,
-      180,
-      41
-    ],
-    [
-      8.85,
-      480.5,
-      577,
-      27.5,
-      89,
-      180,
-      41
-    ],
-    [
-      8.85,
-      461,
-      574,
-      28,
-      89,
-      null,
-      41
-    ],
-    [
-      8.85,
-      461,
-      574,
-      28,
-      89,
-      null,
-      41
-    ],
-    [
-      8.85,
-      500,
-      580,
-      27,
-      89,
-      180,
+      140,
       41
     ]
   ],
@@ -339,5 +303,57 @@
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "UNS R04295 / Niobium C-103 / Nb-10Hf-1Ti — high-strength refractory alloy (Nb 88 bal, Hf 10, Ti 1, Zr 0.7). Hf+Ti 첨가로 σy 2× boost (pure Nb 대비) + Hf-Nb solid solution oxidation 저항. Tmax 1400-1500°C (silicide coating 도포 시 oxidation 저항). 우주 rocket nozzle / RCS thruster (Atlas V Centaur engine nozzle), satellite thermal radiator, hypersonic leading edge. ⚠ 매우 비싸 ($1000-2000/kg) — 우주만 사용. Plansee, ATI 의 공급."
+  "industry_note": "UNS R04295 / Niobium C-103 / Nb-10Hf-1Ti — high-strength refractory alloy (Nb 88 bal, Hf 10, Ti 1, Zr 0.7). Hf+Ti 첨가로 σy 2× boost (pure Nb 대비) + Hf-Nb solid solution oxidation 저항. Tmax 1400-1500°C (silicide coating 도포 시 oxidation 저항). 우주 rocket nozzle / RCS thruster (Atlas V Centaur engine nozzle), satellite thermal radiator, hypersonic leading edge. ⚠ 매우 비싸 ($1000-2000/kg) — 우주만 사용. Plansee, ATI 의 공급.",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.85,
+          461,
+          574,
+          27.5,
+          89,
+          180,
+          41
+        ],
+        [
+          8.85,
+          480.5,
+          577,
+          27.5,
+          89,
+          180,
+          41
+        ],
+        [
+          8.85,
+          461,
+          574,
+          28,
+          89,
+          null,
+          41
+        ],
+        [
+          8.85,
+          461,
+          574,
+          28,
+          89,
+          null,
+          41
+        ],
+        [
+          8.85,
+          500,
+          580,
+          27,
+          89,
+          180,
+          41
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

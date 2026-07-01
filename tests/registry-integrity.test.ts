@@ -77,6 +77,26 @@ describe('registry 무결성 (S1)', () => {
     expect(bad).toEqual([]);
   });
 
-  // NOTE: points[0] ↔ ranges.typical 는 자기정합 불변식이 아님 (357 Metal entry 가 다중행 points —
-  //   points[0]=한 조건, ranges.typical=집계). Ashby(points) vs 표(ranges) 정합은 별도 감사 대상.
+  it('points ⊆ ranges [min,max] (±2% tol) — 표와 Ashby 가 같은 이야기 (R226e 4d resync 게이트)', () => {
+    // 다중행 points 는 조건별 원시값이라 typical 과 다를 수 있으나, ranges [min,max] 밖이면 stale
+    // (상류 range override 후 미재생성 — 예: Be-Cu points=순수 Be 값). build-registry 4d 가 재생성해야 함.
+    const PO = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
+    const tol = (v: number) => Math.max(Math.abs(v) * 0.02, 0.51);
+    const bad: string[] = [];
+    for (const m of all) {
+      if (!Array.isArray(m.points) || !m.points.length || !m.ranges) continue;
+      for (let i = 0; i < PO.length; i++) {
+        const r = m.ranges[PO[i]];
+        if (!r || r.min == null || r.max == null) continue;
+        for (const row of m.points) {
+          const v = row && row[i];
+          if (typeof v === 'number' && isFinite(v) && (v < r.min - tol(r.min) || v > r.max + tol(r.max))) {
+            bad.push(`${m.stable_id} ${PO[i]} ${v} ∉ [${r.min},${r.max}]`);
+            break;
+          }
+        }
+      }
+    }
+    expect(bad.slice(0, 12)).toEqual([]);
+  });
 });

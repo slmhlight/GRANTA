@@ -213,16 +213,7 @@
       24,
       103,
       150,
-      17
-    ],
-    [
-      4.51,
-      140,
-      220,
-      20,
-      103,
-      140,
-      17
+      20.6
     ]
   ],
   "machinability": "Poor",
@@ -293,5 +284,30 @@
       "E": 98
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          4.51,
+          170,
+          240,
+          24,
+          103,
+          150,
+          17
+        ],
+        [
+          4.51,
+          140,
+          220,
+          20,
+          103,
+          140,
+          17
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

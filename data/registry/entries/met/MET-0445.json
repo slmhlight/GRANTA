@@ -220,29 +220,11 @@
   "points": [
     [
       8.86,
-      350,
-      450,
+      145,
+      340,
       30,
       110,
       150,
-      69
-    ],
-    [
-      8.86,
-      320,
-      420,
-      20,
-      110,
-      140,
-      69
-    ],
-    [
-      8.86,
-      390,
-      500,
-      40,
-      110,
-      165,
       69
     ]
   ],
@@ -306,5 +288,39 @@
   "total_cost_estimate": 12.71,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.86,
+          350,
+          450,
+          30,
+          110,
+          150,
+          69
+        ],
+        [
+          8.86,
+          320,
+          420,
+          20,
+          110,
+          140,
+          69
+        ],
+        [
+          8.86,
+          390,
+          500,
+          40,
+          110,
+          165,
+          69
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

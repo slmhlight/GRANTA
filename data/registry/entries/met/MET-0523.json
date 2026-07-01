@@ -224,25 +224,7 @@
       860,
       48,
       211,
-      95,
-      8.9
-    ],
-    [
-      8.97,
-      310,
-      760,
-      42,
-      211,
-      90,
-      8.9
-    ],
-    [
-      8.97,
-      450,
-      910,
-      50,
-      211,
-      100,
+      210,
       8.9
     ]
   ],
@@ -359,5 +341,39 @@
     "Haynes International 'HAYNES 230 alloy Technical Data Sheet' (revised 2017)",
     "Klarstrom D L (1995) 'A New Nickel-Based Superalloy for High-Temperature Applications', J Mater Eng Performance 4"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.97,
+          390,
+          860,
+          48,
+          211,
+          95,
+          8.9
+        ],
+        [
+          8.97,
+          310,
+          760,
+          42,
+          211,
+          90,
+          8.9
+        ],
+        [
+          8.97,
+          450,
+          910,
+          50,
+          211,
+          100,
+          8.9
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

@@ -207,15 +207,6 @@
       220,
       45,
       117,
-      50,
-      339
-    ],
-    [
-      8.94,
-      320,
-      345,
-      6,
-      117,
       95,
       339
     ]
@@ -269,5 +260,30 @@
   "total_cost_estimate": 9.45,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.94,
+          70,
+          220,
+          45,
+          117,
+          50,
+          339
+        ],
+        [
+          8.94,
+          320,
+          345,
+          6,
+          117,
+          95,
+          339
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

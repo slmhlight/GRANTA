@@ -190,27 +190,9 @@
       1.4,
       45,
       52,
-      40,
-      3,
-      0,
-      0.16
-    ],
-    [
-      1.4,
-      40,
-      48,
-      20,
-      2.8,
-      0,
-      0.16
-    ],
-    [
-      1.4,
-      50,
-      58,
       60,
-      3.2,
-      0,
+      3,
+      null,
       0.16
     ]
   ],
@@ -273,5 +255,39 @@
     "Wickson E J (ed., 1993) Handbook of Polyvinyl Chloride Formulating, Wiley",
     "Wilkes C E, Summers J W & Daniels C A (eds., 2005) PVC Handbook, Hanser"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          1.4,
+          45,
+          52,
+          40,
+          3,
+          0,
+          0.16
+        ],
+        [
+          1.4,
+          40,
+          48,
+          20,
+          2.8,
+          0,
+          0.16
+        ],
+        [
+          1.4,
+          50,
+          58,
+          60,
+          3.2,
+          0,
+          0.16
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

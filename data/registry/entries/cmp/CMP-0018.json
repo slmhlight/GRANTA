@@ -120,11 +120,11 @@
   ],
   "points": [
     [
-      2.55,
-      220,
-      300,
-      4,
-      110,
+      2.6,
+      405,
+      450,
+      2.5,
+      100,
       280,
       90
     ]
@@ -174,5 +174,21 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "low"
+  "confidence_tier": "low",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          2.55,
+          220,
+          300,
+          4,
+          110,
+          280,
+          90
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

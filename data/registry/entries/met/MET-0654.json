@@ -218,25 +218,7 @@
       415,
       25,
       95,
-      180,
-      38
-    ],
-    [
-      8.85,
-      280,
-      380,
-      20,
-      95,
-      170,
-      38
-    ],
-    [
-      8.85,
-      345,
-      450,
-      30,
-      95,
-      195,
+      140,
       38
     ]
   ],
@@ -302,5 +284,39 @@
     "Wojcik C C (1995) \"Process Optimization for C-103 Niobium Nozzle Fabrication\", AIAA 95-2811",
     "ATI Wah Chang \"C-103 Niobium Alloy Data Sheet\" (2018)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.85,
+          310,
+          415,
+          25,
+          95,
+          180,
+          38
+        ],
+        [
+          8.85,
+          280,
+          380,
+          20,
+          95,
+          170,
+          38
+        ],
+        [
+          8.85,
+          345,
+          450,
+          30,
+          95,
+          195,
+          38
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

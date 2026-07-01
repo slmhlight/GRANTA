@@ -215,6 +215,28 @@ try {
       r.heat_treatment = 'Annealed';
       ch._fbasis = ch._fbasis || 'mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)';
     }
+    // 4d) points ↔ ranges 정합 (R226e) — 상류 range override(R173/R199/R205/R221 등)가 ranges 를 교정했지만
+    //     points 가 stale 원시(CSV 합성·오염)행으로 남은 entry 99건 (예: Be-Cu points=순수 Be 값 ρ1.86·E310,
+    //     AISI 5140 Annealed points σy624.8=합성 vs ranges 260~340=실제). 표(ranges)와 Ashby(points)가 다른
+    //     이야기를 하지 않도록 typical 단일행으로 재생성. ch.points 추적 → round-trip 무손실.
+    if (!ch.points && Array.isArray(r.points) && r.points.length && r.ranges) {
+      const PO = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
+      const tol = (v) => Math.max(Math.abs(v) * 0.02, 0.51);
+      let stale = false;
+      for (let i = 0; i < PO.length && !stale; i++) {
+        const rr = r.ranges[PO[i]];
+        if (!rr || rr.min == null || rr.max == null) continue;
+        for (const row of r.points) {
+          const v = row && row[i];
+          if (typeof v === 'number' && isFinite(v) && (v < rr.min - tol(rr.min) || v > rr.max + tol(rr.max))) { stale = true; break; }
+        }
+      }
+      if (stale) {
+        ch.points = { from: r.points };
+        ch._points_resync = 'points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성';
+        r.points = [PO.map(p => { const v = r.ranges[p] && r.ranges[p].typical; return (typeof v === 'number' && isFinite(v)) ? v : null; })];
+      }
+    }
     if (Object.keys(ch).length) { r._corrections = ch; corrApplied++; }
   }
 } catch (e) { console.log('⚠ 교정 로드 실패:', e.message); }
