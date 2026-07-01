@@ -189,6 +189,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys (Al-Li)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Datasheet 1",
       "url": "DOT/FAA/TC-18/21 V1 — Al-Li 2198-T8 case study (FAA WJHTC, March 2020)",
       "verified": true
@@ -263,5 +268,26 @@
   "total_cost_estimate": 7.37,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "DOT/FAA/TC-18/21 V1 — Al-Li 2198-T8 case study (FAA WJHTC, March 2020)",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "Constellium Airware Al-Li 2198 sheet datasheet",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -5,6 +5,7 @@
 import { describe, it, expect } from 'vitest';
 import { improveLabel, sourceAuthority } from '../scripts/lib/source-labels.mjs';
 import { detectAnomalies } from '../scripts/lib/anomalies.mjs';
+import { extractUNS } from '../scripts/lib/uns.mjs';
 
 describe('improveLabel — 출처 라벨 도출', () => {
   it('placeholder + 매핑된 도메인 → publisher 라벨, url 유지', () => {
@@ -81,5 +82,20 @@ describe('sourceAuthority — 출처 권위 등급 (D3)', () => {
   });
   it('fallback 라벨은 ASTM 언급해도 other (표준 아님)', () => {
     expect(sourceAuthority({ label: 'KIC fallback: ASTM A572/A588 HSLA' })).toBe('other');
+  });
+});
+
+describe('extractUNS — UNS 정규 필드 (축4c)', () => {
+  it('이름 "UNS N07718" → N07718', () => {
+    expect(extractUNS({ name: 'Inconel 718 (UNS N07718, AMS 5662)' })).toEqual(['N07718']);
+  });
+  it('별칭 bare 코드 + 중복 제거·정렬', () => {
+    expect(extractUNS({ name: 'X', aliases: ['S17400', 'UNS S17400', 'AISI 630'] })).toEqual(['S17400']);
+  });
+  it('meta.specs org=UNS', () => {
+    expect(extractUNS({ name: 'X', meta: { specs: [{ id: 'UNS A03800', org: 'UNS' }] } })).toEqual(['A03800']);
+  });
+  it('UNS 없으면 빈 배열 (부품번호 오탐 없음)', () => {
+    expect(extractUNS({ name: 'PA12 GF50', aliases: ['B12345-XL'] })).toEqual([]);
   });
 });

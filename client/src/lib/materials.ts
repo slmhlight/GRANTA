@@ -115,6 +115,8 @@ export interface Material {
   fatigue_estimated?: boolean;
   /** R226e/C3 — 데이터 포인트 행렬 [density, σy, uts, El, modulus, hardness, k] × 조건 (Ashby envelope·chart 용). */
   points?: number[][];
+  /** R226f/축4c — UNS 정규 코드 (별칭·이름·specs 에서 빌드가 도출; 외부 시스템 연동 키). */
+  uns?: string[];
   /** R75 — 개발 역사·스토리·실제 사용례 (markdown 가능, 다단락). data/material-stories.json 에서 base name 으로 주입. */
   story?: string | null;
   /** R75 — story 의 출처 (저자/특허/표준/handbook). 각 entry 는 markdown link 가능. */

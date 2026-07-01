@@ -16,6 +16,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectAnomalies } from './lib/anomalies.mjs';   // R226e — 공유 모듈 (중복 제거)
 import { improveLabel, sourceAuthority } from './lib/source-labels.mjs';   // R226e — 출처 라벨 도출 + 권위 등급
+import { extractUNS } from './lib/uns.mjs';   // R226f/축4c — UNS 정규 필드
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const REG = path.join(ROOT, 'data', 'registry', 'entries');
@@ -37,6 +38,8 @@ for (const cc of fs.readdirSync(REG)) {
 // 1b) 출처 라벨 정리 (R226d/R226e) — placeholder 라벨("Datasheet N"·"MatWeb N") → URL 도메인 서술 라벨. lib/source-labels.mjs improveLabel 사용.
 let relabeled = 0;
 for (const m of all) if (m.sources) m.sources = m.sources.map(s => { const ns = improveLabel(s); if (ns !== s) relabeled++; return { ...ns, authority: sourceAuthority(ns) }; });   // D3 — 권위 등급 부착
+// R226f/축4c — UNS 정규 필드 (별칭·이름·specs 에서 도출; 외부 연동 키)
+for (const m of all) { const u = extractUNS(m); if (u.length) m.uns = u; }
 
 // 원본 build 순서 재구성 (curated→am_vendor→generic→supplementary→ceramics→composites→polymers).
 //   legacy_id 의 prefix 그룹 → 전체 numeric tuple (R_NNNN_C 의 condition suffix 포함) 로 정렬.
@@ -68,6 +71,7 @@ const slimEntries = all.map(m => {
   if (m.aliases?.length) slim.aliases = m.aliases;
   if (m.families?.length) slim.families = m.families;
   if (m.related?.length) slim.related = m.related;   // R226c — cross-ref (cast↔wrought, 유사재료 상단 pin)
+  if (m.uns?.length) slim.uns = m.uns;               // R226f/축4c — UNS 정규 필드 (외부 연동·검색)
   if (m.manufacturer) slim.manufacturer = m.manufacturer;
   if (m.process) slim.process = m.process;
   if (m.ranges) {
@@ -106,6 +110,9 @@ const buildMeta = {
   anomalies: anomalies.length,
   anomaliesBySeverity: { high: sevCount.high, med: sevCount.med, low: sevCount.low },
   verifiedSrcMaterials: withVerifiedSrc,
+  // R226f/축4b — provenance KPI (DATA-STRATEGY 축1: standard+handbook ≥ 50% 목표 추적)
+  authorityDistribution: (() => { const d = {}; for (const m of all) for (const s of m.sources || []) d[s.authority] = (d[s.authority] || 0) + 1; return d; })(),
+  unsMaterials: all.filter(m => m.uns?.length).length,
   source: 'registry (R226 P5)',
 };
 fs.writeFileSync(path.join(OUT_PUB, 'build-meta.json'), JSON.stringify(buildMeta, null, 2));

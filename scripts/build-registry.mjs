@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { sourceAuthority } from './lib/source-labels.mjs';   // R226f/축1a — weak-provenance(aggregator/other-only) 판정
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUB = path.join(ROOT, 'client', 'public', 'materials');
@@ -183,9 +184,11 @@ try {
     }
     // generic 출처 정리 (R226d) — search-link(MatWeb QuickText·범용검색·위키)·URL 없는 소스 제거(전체 generic;
     //   MatWeb DataSheet GUID 등 특정 datasheet 는 보존) + 권위 family 출처 보강(sourcesBySubcategory 정의 족보).
-    if (r.tier === 'generic') {
+    // R226f/축1a — 보강 대상 확장: generic 외에도 aggregator/other-only(권위 출처 전무) entry 는 족보 출처 append.
+    const weakProv = (r.sources || []).length > 0 && (r.sources || []).every(s => ['aggregator', 'other'].includes(sourceAuthority(s)));
+    if (r.tier === 'generic' || weakProv) {
       const isSearchLink = (s) => !s.url || /quicktext|searchtext=|google\.[a-z.]+\/search|bing\.com\/search|wikipedia/i.test(s.url || '');
-      const kept = (r.sources || []).filter(s => !isSearchLink(s));
+      const kept = r.tier === 'generic' ? (r.sources || []).filter(s => !isSearchLink(s)) : (r.sources || []);   // search-link 제거는 generic 만 (기존 semantics 보존)
       const su = corr.sourcesBySubcategory && corr.sourcesBySubcategory[r.subcategory];
       let merged = kept;
       if (su) { const urls = new Set(kept.map(s => s.url)); merged = [...su.filter(s => !urls.has(s.url)), ...kept]; }
