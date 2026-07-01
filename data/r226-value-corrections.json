@@ -128,6 +128,27 @@
     ],
     "Beryllium Alloy": [
       { "label": "ASM Handbook Vol.2 — Beryllium & Beryllium Alloys", "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials", "verified": true }
+    ],
+    "Polymer - PSU": [
+      { "label": "Syensqo (Solvay) — Udel PSU polysulfone (official)", "url": "https://www.syensqo.com/en/brands/udel-psu", "verified": true }
+    ],
+    "Polymer - PPSU": [
+      { "label": "Syensqo (Solvay) — Radel PPSU polyphenylsulfone (official)", "url": "https://www.syensqo.com/en/brands/radel-ppsu", "verified": true }
+    ],
+    "Polymer - PET": [
+      { "label": "Indorama Ventures — PET resins (세계 최대 PET 제조사, official)", "url": "https://www.indoramaventures.com/en/our-products/pet", "verified": true }
+    ],
+    "Polymer - Polyethylene": [
+      { "label": "LyondellBasell — HDPE resins (official product family)", "url": "https://www.lyondellbasell.com/en/our-solutions/products/polymers/resin-type/hdpe/", "verified": true }
+    ],
+    "Oxide": [
+      { "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses", "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/", "verified": true }
+    ],
+    "Glass-ceramic": [
+      { "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses", "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/", "verified": true }
+    ],
+    "Silicate": [
+      { "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses", "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/", "verified": true }
     ]
   },
   "_alias_note": "R226d 대응합금 — cross-standard 지역명(JIS/KS) 보강 → 검색·식별성. 누적 gap 해소: die-cast Al(ADC)·Carbon Steel(S_C/SM_C)·Aluminum(JIS A)·Copper(JIS C 4자리)·Tool Steel(SKD/STD·SKH)·Inconel(NCF). 한국 사용자 위해 KS 병기(SM45C·STD11 등). AlSi10Mg≈ADC-3(Al-Si-Mg)·A380≈ADC-10(Al-Si-Cu). 1018/1080/1095·P20·M50 등 깨끗한 JIS 대응 없는 것은 제외. structural steel 은 표준간 근사 대응(다른 규격·유사 grade)이라 '≈' 마커 명기 — A36≈SS400/Q235·A572Gr50≈SM490/S355/Q345·A992≈SN490/S355·A516Gr70≈SGV480/SB480·A588GrA≈SMA490W/S355J2W. A588 은 σy 250(A36 오기)→345 교정 후 weathering cross-ref 추가(ranges MET-0459).",
@@ -221,7 +242,7 @@
   },
   "ranges": {
     "MET-0459": { "yield_strength": 345, "uts": 485, "basis": "ASTM A588 Gr A ≤4in plate 최소 (50ksi/70ksi). DB σy=250 은 A36 항복값 오기(조성·HB 140≈UTS485/3.45 는 정합)", "src": "ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)" },
-    "MET-0571": { "uts": 1276, "basis": "이름이 AMS 5662 를 주장 — UTS typ 1241 은 spec-min 1276 미달(집계에 비-5662 조건 혼입 의심; σy typ 1034 는 spec-min 정합). spec-min 으로 보수 교정 (min-spec 게이트 발견)", "src": "AMS 5662 RT 최소: YS 150ksi(1034) / UTS 185ksi(1276)" },
+    "MET-0571": { "uts": 1276, "basis_kind": "min_spec", "basis": "이름이 AMS 5662 를 주장 — UTS typ 1241 은 spec-min 1276 미달(집계에 비-5662 조건 혼입 의심; σy typ 1034 는 spec-min 정합). spec-min 으로 보수 교정 (min-spec 게이트 발견)", "src": "AMS 5662 RT 최소: YS 150ksi(1034) / UTS 185ksi(1276)" },
     "MET-0905": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Ti-5Al-2.5Sn Grade6 α annealed (열처리 불가)", "src": "ASTM B265 Gr6 · alloysintl Ti 5-2.5" },    "MET-0904": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α 비-열처리 → aged ≈ annealed", "src": "ASTM B265 Gr6" },
     "MET-0908": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α — 냉간가공 비표준 → annealed 기준", "src": "ASTM B265 Gr6" },
 

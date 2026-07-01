@@ -127,6 +127,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
+      "verified": true
+    },
+    {
       "label": "Applications: MW telecom 부품 (low loss tan δ), 진공관 절연체, 5G mmWave 부품",
       "url": null,
       "verified": false
@@ -168,5 +173,16 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: MW telecom 부품 (low loss tan δ), 진공관 절연체, 5G mmWave 부품",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -155,6 +155,11 @@
   },
   "sources": [
     {
+      "label": "Indorama Ventures — PET resins (세계 최대 PET 제조사, official)",
+      "url": "https://www.indoramaventures.com/en/our-products/pet",
+      "verified": true
+    },
+    {
       "label": "AZoM — PET/PETP 물성 (R221 검증: ρ1.38·E2.8GPa·k0.24 in-range)",
       "url": "https://www.azom.com/article.aspx?ArticleID=2047",
       "verified": true
@@ -236,5 +241,21 @@
     "Brydson J A (1999) Plastics Materials 7th ed.",
     "Awaja F & Pavel D (2005) \"Recycling of PET\", Eur Polym J 41"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AZoM — PET/PETP 물성 (R221 검증: ρ1.38·E2.8GPa·k0.24 in-range)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=2047",
+          "verified": true
+        },
+        {
+          "label": "Material datasheets — PET",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

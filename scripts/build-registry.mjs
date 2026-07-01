@@ -210,7 +210,9 @@ try {
         if (p === 'basis' || p === 'src' || typeof rg[p] !== 'number') continue;   // 임의 수치 prop (yield/uts/elongation/fatigue_strength …)
         // had_* 로 "키 없음" vs "키 있고 값 null" 구분 (revert 정확성).
         ch[p] = { had_range: (p in r.ranges), val_range: r.ranges[p], had_scalar: (p in r), val_scalar: r[p] };
-        r.ranges[p] = { min: rg[p], typical: rg[p], max: rg[p], confidence: 'handbook', source: 'r226-correction' };
+        // R226g/축1b — per-property 인용: 기존 스키마의 provenance(R129, UI tooltip 노출)에 교정 출처(src)를 스탬프.
+        //   spec-min 교정(basis_kind)은 basis 필드(R139b 'min_spec')로 의미 명시 — A/B-basis(축4a) 실사용 시작.
+        r.ranges[p] = { min: rg[p], typical: rg[p], max: rg[p], confidence: 'handbook', provenance: rg.src ? `교정: ${rg.src}` : 'r226-correction', ...(rg.basis_kind ? { basis: rg.basis_kind } : {}) };
         r[p] = rg[p];   // top-level scalar (MaterialDetail·audit 가 ranges.typical ?? scalar 로 읽음)
       }
       ch._basis = rg.basis; ch._src = rg.src;

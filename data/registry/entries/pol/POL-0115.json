@@ -156,6 +156,11 @@
   },
   "sources": [
     {
+      "label": "Syensqo (Solvay) — Udel PSU polysulfone (official)",
+      "url": "https://www.syensqo.com/en/brands/udel-psu",
+      "verified": true
+    },
+    {
       "label": "Material datasheets — Polysulfone (Udel)",
       "url": null,
       "verified": false
@@ -243,5 +248,21 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Material datasheets — Polysulfone (Udel)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AZoM/Goodfellow — Polysulphone (PSU) 물성",
+          "url": "https://www.azom.com/article.aspx?ArticleID=812",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

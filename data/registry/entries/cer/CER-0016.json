@@ -121,6 +121,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
+      "verified": true
+    },
+    {
       "label": "Applications: 고압 송전 절연체, 일반 자기 부품",
       "url": null,
       "verified": false
@@ -162,5 +167,16 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: 고압 송전 절연체, 일반 자기 부품",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }
