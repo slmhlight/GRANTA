@@ -1,0 +1,282 @@
+{
+  "stable_id": "MET-1000",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-adc12-a383-die-cast-al-si-cu",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0453",
+  "origin": "reference(supplementary)",
+  "id": "R_0453",
+  "name": "ADC12 / A383 (die-cast Al-Si-Cu)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "As-cast (high-pressure die-cast, F)",
+  "ranges": {
+    "density": {
+      "min": 2.74,
+      "max": 2.74,
+      "typical": 2.74,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 160,
+      "max": 160,
+      "typical": 160,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 310,
+      "max": 310,
+      "typical": 310,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 71,
+      "max": 71,
+      "typical": 71,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 75,
+      "max": 75,
+      "typical": 75,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 96,
+      "max": 96,
+      "typical": 96,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 48,
+      "max": 74,
+      "typical": 61,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": {
+      "min": 8.5,
+      "max": 30.6,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Al-based × HT:as-cast / forged (no T-temper) (i×1.7)"
+    },
+    "fracture_toughness": {
+      "min": 30.8,
+      "max": 56,
+      "typical": 42,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Aluminum Association handbook × HT:as-cast / forged (no T-temper) (k×1.4)"
+    },
+    "electrical_conductivity": {
+      "min": 20,
+      "max": 60,
+      "typical": 40,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+    },
+    "max_service_temp": {
+      "min": 85,
+      "max": 255,
+      "typical": 170,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+    },
+    "thermal_expansion": {
+      "min": 11.5,
+      "max": 34.5,
+      "typical": 23,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+    },
+    "poisson_ratio": {
+      "min": 0.165,
+      "max": 0.495,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+    },
+    "specific_heat": {
+      "min": 450,
+      "max": 1350,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+    },
+    "melting_point": {
+      "min": 325,
+      "max": 975,
+      "typical": 650,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+    },
+    "price_per_kg": {
+      "min": 2,
+      "max": 6,
+      "typical": 4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+    },
+    "price_per_cm3": {
+      "min": 0.0055,
+      "max": 0.0165,
+      "typical": 0.011,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+    },
+    "delivered_price_per_kg": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Si": "9.5~11.5",
+    "Cu": "2.0~3.0",
+    "Fe": "≤1.3",
+    "Zn": "≤1.0",
+    "Mg": "≤0.3",
+    "Mn": "≤0.5"
+  },
+  "sources": [
+    {
+      "label": "Sunrise Metal — A383 (ADC12) die-cast datasheet",
+      "url": "https://www.sunrise-metal.com/aluminum-alloy-a383/",
+      "verified": true
+    },
+    {
+      "label": "JIS H 5302 — Aluminium alloy die castings (ADC12)",
+      "url": "https://www.jisc.go.jp/",
+      "verified": false
+    },
+    {
+      "label": "Gabrian — A383 aluminum alloy (ADC12) properties",
+      "url": "https://www.gabrian.com/a383-aluminum-alloy-adc12/",
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      2.74,
+      160,
+      310,
+      2.5,
+      71,
+      75,
+      96
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Good",
+  "corrosion_resistance": "Good",
+  "industry_note": "JIS ADC12 = ANSI A383 (Al-Si10.5-Cu2.5 고압 die-cast). 일본·아시아 die-cast 물량 최다 합금 — 자동차 케이스·하우징·브래킷. UTS ~310/σy ~160/El 1.5~3%/75HB (F). A380 대비 Si 높아 유동성 우수·박육 주조 유리. R226f: 별칭 근사(A380≈ADC-12)로 커버하던 것을 실엔트리로 승격. (주: append-only — 이 파일 중간 삽입은 legacy_id 를 밀어 fp 게이트가 차단함.)",
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "JIS H 5302",
+        "org": "JIS"
+      }
+    ]
+  },
+  "related": [
+    "A380"
+  ],
+  "aliases": [
+    "ADC12",
+    "JIS ADC12",
+    "A383",
+    "UNS A03830",
+    "ADC-12",
+    "AC-46100"
+  ],
+  "fracture_toughness": 42,
+  "fatigue_strength": 61,
+  "density": 2.74,
+  "yield_strength": 160,
+  "uts": 310,
+  "elongation": 2.5,
+  "modulus": 71,
+  "hardness": 75,
+  "thermal_conductivity": 96,
+  "impact_strength": 17,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "Sunrise Metal — A383 (ADC12) die-cast datasheet",
+  "families": [
+    "Metal",
+    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum-based"
+  ],
+  "electrical_conductivity": 40,
+  "max_service_temp": 170,
+  "thermal_expansion": 23,
+  "poisson_ratio": 0.33,
+  "specific_heat": 900,
+  "melting_point": 650,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.011,
+  "popularity": 3.42,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 4,
+  "total_cost_estimate": 2.4,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

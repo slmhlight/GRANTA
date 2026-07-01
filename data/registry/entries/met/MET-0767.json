@@ -260,7 +260,12 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "Outokumpu — Duplex 2205 (1.4462)",
-  "aliases": [],
+  "aliases": [
+    "UNS S32205",
+    "UNS S31803",
+    "1.4462",
+    "SAF 2205"
+  ],
   "families": [
     "Metal",
     "Stainless Steel - Duplex",
@@ -315,5 +320,10 @@
   "svhc_concerns": [
     "Ni 6.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

@@ -2951,7 +2951,9 @@ for (const m of all) {
       .slice(0, 3);
   }
   m.source = m.sources[0]?.label ?? null;
-  m.aliases = aliasesFor(m.name);
+  // R226f — 명시 aliases(supplementary/cast-alloys 의 s.aliases) 보존 + name-regex 생성분 병합.
+  //   이전: 무조건 덮어써서 R226c 의 명시 별칭 전파(ACI CF8·UNS J92600·ADC12 등)가 조용히 소실되던 잠복 버그.
+  m.aliases = [...new Set([...(m.aliases || []), ...aliasesFor(m.name)])];
   m.families = familyTags(m.category, m.subcategory, m.composition);
   const q = qualFor(m.name);
   if (q) { m.machinability = m.machinability || q.machinability; m.weldability = m.weldability || q.weldability; m.corrosion_resistance = m.corrosion_resistance || q.corrosion; }

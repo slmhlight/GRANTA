@@ -98,6 +98,21 @@
         { "label": "MakeItFrom — Grade C-5 Cast Titanium (Ti-6Al-4V)", "url": "https://www.makeitfrom.com/material-properties/Grade-C-5-Cast-Titanium", "verified": true }
       ],
       "industry_note": "ASTM B367 Grade C-5 = 주조 Ti-6Al-4V (투자주조 + HIP). HIP 으로 기공 제거·연성 회복 → near-wrought. σy~870/UTS~950/El~8%(HIP). 항공 복잡형상 브래킷·하우징. as-cast(un-HIP)는 σy~758/UTS~860 min(B367)."
+    },
+    {
+      "name": "ADC12 / A383 (die-cast Al-Si-Cu)",
+      "category": "Metal", "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)", "process": "Cast",
+      "heat_treatment": "As-cast (high-pressure die-cast, F)",
+      "related": ["A380"],
+      "aliases": ["ADC12", "JIS ADC12", "A383", "UNS A03830", "ADC-12", "AC-46100"],
+      "composition": { "Al": "balance", "Si": "9.5~11.5", "Cu": "2.0~3.0", "Fe": "≤1.3", "Zn": "≤1.0", "Mg": "≤0.3", "Mn": "≤0.5" },
+      "points": [[2.74, 160, 310, 2.5, 71, 75, 96]],
+      "sources": [
+        { "label": "JIS H 5302 — Aluminium alloy die castings (ADC12)", "url": "https://www.jisc.go.jp/", "verified": false },
+        { "label": "Sunrise Metal — A383 (ADC12) die-cast datasheet", "url": "https://www.sunrise-metal.com/aluminum-alloy-a383/", "verified": true },
+        { "label": "Gabrian — A383 aluminum alloy (ADC12) properties", "url": "https://www.gabrian.com/a383-aluminum-alloy-adc12/", "verified": false }
+      ],
+      "industry_note": "JIS ADC12 = ANSI A383 (Al-Si10.5-Cu2.5 고압 die-cast). 일본·아시아 die-cast 물량 최다 합금 — 자동차 케이스·하우징·브래킷. UTS ~310/σy ~160/El 1.5~3%/75HB (F). A380 대비 Si 높아 유동성 우수·박육 주조 유리. R226f: 별칭 근사(A380≈ADC-12)로 커버하던 것을 실엔트리로 승격. (주: append-only — 이 파일 중간 삽입은 legacy_id 를 밀어 fp 게이트가 차단함.)"
     }
   ]
 }

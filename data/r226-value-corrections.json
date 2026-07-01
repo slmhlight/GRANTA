@@ -132,7 +132,7 @@
   },
   "_alias_note": "R226d 대응합금 — cross-standard 지역명(JIS/KS) 보강 → 검색·식별성. 누적 gap 해소: die-cast Al(ADC)·Carbon Steel(S_C/SM_C)·Aluminum(JIS A)·Copper(JIS C 4자리)·Tool Steel(SKD/STD·SKH)·Inconel(NCF). 한국 사용자 위해 KS 병기(SM45C·STD11 등). AlSi10Mg≈ADC-3(Al-Si-Mg)·A380≈ADC-10(Al-Si-Cu). 1018/1080/1095·P20·M50 등 깨끗한 JIS 대응 없는 것은 제외. structural steel 은 표준간 근사 대응(다른 규격·유사 grade)이라 '≈' 마커 명기 — A36≈SS400/Q235·A572Gr50≈SM490/S355/Q345·A992≈SN490/S355·A516Gr70≈SGV480/SB480·A588GrA≈SMA490W/S355J2W. A588 은 σy 250(A36 오기)→345 교정 후 weathering cross-ref 추가(ranges MET-0459).",
   "aliasesByBase": {
-    "A380": ["ADC-10", "ADC-12"],
+    "A380": ["ADC-10"],
     "Al12Si": ["ADC-1"],
     "AlSi10Mg": ["ADC-3", "A360"],
     "A356": ["AC4C"],
@@ -215,7 +215,9 @@
     "ASTM A572 Grade 50": ["SM490 (JIS/KS ≈)", "S355 (EN ≈)", "Q345 (GB ≈)"],
     "A992": ["SN490 (JIS/KS ≈)", "S355 (EN ≈)"],
     "A516 Grade 70": ["SGV480 (JIS ≈)", "SB480 (KS ≈)"],
-    "ASTM A588 Grade A": ["SMA490W (JIS ≈)", "S355J2W (EN ≈)"]
+    "ASTM A588 Grade A": ["SMA490W (JIS ≈)", "S355J2W (EN ≈)"],
+    "2205 Duplex Stainless": ["UNS S32205", "UNS S31803", "1.4462", "SAF 2205"],
+    "Superduplex 2507": ["1.4410", "SAF 2507"]
   },
   "ranges": {
     "MET-0459": { "yield_strength": 345, "uts": 485, "basis": "ASTM A588 Gr A ≤4in plate 최소 (50ksi/70ksi). DB σy=250 은 A36 항복값 오기(조성·HB 140≈UTS485/3.45 는 정합)", "src": "ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)" },

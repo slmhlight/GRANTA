@@ -258,7 +258,8 @@
     "UNS S32750",
     "EN 1.4410",
     "SAF 2507",
-    "F53"
+    "F53",
+    "1.4410"
   ],
   "families": [
     "Metal",
@@ -288,5 +289,15 @@
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS S32750",
+        "EN 1.4410",
+        "SAF 2507",
+        "F53"
+      ]
+    }
+  }
 }
