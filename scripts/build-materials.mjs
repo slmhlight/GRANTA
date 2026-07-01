@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { num, baseName, norm, round, smartRound, rangeFrom, uniq, mostCommon, mostCommonKnown, dedupeSources, dominantElement } from './pipeline/utilities.mjs';
 import { htCostFactor, priceConditionFactor, priceFormFactor, priceGradePremium } from './pipeline/enrich/factors.mjs';
 import { popularityFor } from './pipeline/enrich/popularity.mjs';
+import { detectAnomalies } from './lib/anomalies.mjs';   // R226e — 공유 모듈 (build-from-registry 와 중복 제거)
 import { VENDOR_PREFIXES, CLASS_WORDS, alloyOf, aaSubcategory, nameBasedSubcategory, fixSubcategory, conditionClass, isExcludedByName, isExcludedAlloy, EXCLUDED_ALLOY_PATTERNS, EXCLUDED_NAME_PATTERNS, isFakeVariant } from './pipeline/enrich/classification.mjs';
 import { htConditionMultiplier } from './pipeline/enrich/ht-condition.mjs';
 import { matchesAlloyKey } from './pipeline/enrich/alloy-key-match.mjs';
@@ -3603,97 +3604,7 @@ rep.push('');
 //   High: σy > UTS, density / E / hardness 음수 또는 비현실적
 //   Med: elongation / poisson / CTE 범위 위반, sources 누락 (verified 합금)
 //   Low: aged condition 의 σy 가 annealed 보다 낮음, range 가 단일 값
-function detectAnomalies(all) {
-  const out = [];
-  const push = (sev, kind, m, detail) => out.push({ severity: sev, kind, id: m.id, name: m.name, detail });
-  const typ = (m, k) => (m.ranges && m.ranges[k]) ? m.ranges[k].typical : null;
-  // R48a — category-aware 임계값. 폴리머/엘라스토머 elongation > 1000% 정상, CFRP·AFK CTE 음수 정상, Diamond HV ~10000 정상.
-  for (const m of all) {
-    const cat = m.category || 'Metal';
-    const sy = typ(m, 'yield_strength'), uts = typ(m, 'uts');
-    if (sy != null && uts != null && sy > uts * 1.02) push('high', 'σy > UTS', m, `σy ${sy} > UTS ${uts}`);
-
-    // R50b/R51c — family-aware σy/UTS ratio + modulus 범위 검사.
-    // R51c: verified datasheet URL 있는 alloy 는 family 임계 skip (신뢰 출처 우선).
-    const hasVerifiedSource = m.sources && m.sources.some(s => s.verified);
-    if (sy != null && uts != null && uts > 0 && !hasVerifiedSource) {
-      const ratio = sy / uts;
-      const sub = String(m.subcategory || '');
-      if (cat === 'Metal') {
-        if (ratio > 1.01) push('high', 'σy/UTS > 1.01 (data error)', m, `${ratio.toFixed(2)} (σy=${sy}, UTS=${uts})`);
-        else if (/Stainless Steel - Austenitic/.test(sub) && (ratio < 0.20 || ratio > 0.95))
-          push('med', 'Austenitic SS σy/UTS out of [0.20, 0.95]', m, `${ratio.toFixed(2)}`);
-        else if (/Carbon Steel/.test(sub) && (ratio < 0.35 || ratio > 0.95))
-          push('low', 'Carbon Steel σy/UTS out of [0.35, 0.95]', m, `${ratio.toFixed(2)}`);
-        else if (/Nickel Superalloy/.test(sub) && ratio > 0.99)
-          push('med', 'Ni Superalloy σy/UTS > 0.99 (suspect)', m, `${ratio.toFixed(2)}`);
-        else if (/Maraging/.test(sub) && ratio > 1.00)
-          push('low', 'Maraging σy/UTS > 1.00', m, `${ratio.toFixed(2)}`);
-        else if (/Titanium - α\+β/.test(sub) && (ratio < 0.75 || ratio > 0.99))
-          push('low', 'Ti α+β σy/UTS out of [0.75, 0.99]', m, `${ratio.toFixed(2)}`);
-        else if (/Tool Steel/.test(sub) && ratio > 0.99)
-          push('low', 'Tool Steel σy/UTS > 0.99', m, `${ratio.toFixed(2)}`);
-      }
-      if (cat === 'Polymer' && ratio > 1.05) push('med', 'Polymer σy > UTS × 1.05', m, `${ratio.toFixed(2)}`);
-    }
-
-    const dens = typ(m, 'density');
-    if (dens != null && (dens <= 0 || dens > 25)) push('high', 'density out of range', m, `${dens} g/cm³`);
-    const E = typ(m, 'modulus');
-    // 폴리머는 E ~0.0005 GPa (gel) 부터, silicone 0.005 GPa. 양의 값이면 OK. 음수·0 또는 > 1500 만 high.
-    if (E != null && (E <= 0 || E > 1500)) push('high', 'modulus out of range', m, `${E} GPa`);
-    // R50b/R51c — family-aware E typical 범위. verified 출처 있으면 skip.
-    if (E != null && cat === 'Metal' && !hasVerifiedSource) {
-      const sub = String(m.subcategory || '');
-      // R51c — 임계 미세 완화 (β-Ti / Maraging / Cu-Be 포함 위해).
-      if (/^Aluminum/.test(sub) && (E < 55 || E > 85)) push('low', 'Aluminum E out of [55, 85] GPa', m, `${E}`);
-      else if (/^Titanium/.test(sub) && (E < 85 || E > 135)) push('low', 'Titanium E out of [85, 135] GPa', m, `${E}`);
-      else if (/Stainless Steel|Carbon Steel|Alloy Steel|Tool Steel|Maraging/.test(sub) && (E < 175 || E > 225)) push('low', 'Steel family E out of [175, 225] GPa', m, `${E}`);
-      // R71 B — Monel(Ni-Cu) · single-crystal(SX) · low-CTE Ni-Co (Inconel 783, Incoloy 909) · ODS 는 특수 합금 →
-      //   E threshold 다름. 정상 분류이므로 anomaly 제외.
-      else if (/Nickel Superalloy/.test(sub) && !/monel|cmsx|rene n|pwa14|ma754|ods|incoloy 909|inconel 783|single-crystal/i.test(m.name) && (E < 185 || E > 235)) push('low', 'Ni Superalloy E out of [185, 235] GPa', m, `${E}`);
-      else if (/^Copper Alloy/.test(sub) && (E < 95 || E > 145)) push('low', 'Cu Alloy E out of [95, 145] GPa', m, `${E}`);
-      else if (/Magnesium/.test(sub) && (E < 40 || E > 50)) push('low', 'Mg E out of [40, 50] GPa', m, `${E}`);
-    }
-    if (sy != null && sy < 0) push('high', 'σy negative', m, `${sy}`);
-    if (uts != null && uts < 0) push('high', 'UTS negative', m, `${uts}`);
-
-    const HV = typ(m, 'hardness');
-    // Ceramic (Diamond 10000 / cBN 4500 / SiC 2800 / WC 1300 / Al2O3 1600) 정상. Metal 은 ~2000 상한.
-    const hvCap = cat === 'Ceramic' ? 12000 : (cat === 'Composite' ? 1000 : 5000);
-    if (HV != null && (HV < 0 || HV > hvCap)) push('high', `hardness out of range (${cat})`, m, `${HV} HV`);
-
-    const el = typ(m, 'elongation');
-    // 폴리머/엘라스토머/composite 매트릭스 elongation 1000% 까지 정상 (silicone gel 700%, EVA 700%, UHMWPE 350%).
-    const elCap = (cat === 'Polymer' || cat === 'Composite') ? 1500 : 200;
-    if (el != null && (el < 0 || el > elCap)) push('med', `elongation out of range (${cat})`, m, `${el}%`);
-
-    const nu = typ(m, 'poisson_ratio');
-    if (nu != null && (nu <= 0 || nu > 0.5)) push('med', 'poisson_ratio out of range', m, `${nu}`);
-
-    const cte = typ(m, 'thermal_expansion');
-    // CFRP (UD 0°) 음수 CTE 정상 — fiber Pitch P-100 CTE ≈ -1.4. composite 만 음수 허용.
-    if (cte != null) {
-      // UHMWPE fiber (Dyneema/Spectra) 음수 CTE -12 정상 — composite 범위 ±15 까지 허용
-      if (cat === 'Composite') { if (cte < -15 || cte > 250) push('med', 'CTE out of composite range', m, `${cte}`); }
-      else if (cte < 0 || cte > 250) push('med', 'CTE out of range', m, `${cte} ×10⁻⁶/K`);
-    }
-
-    const tk = typ(m, 'thermal_conductivity');
-    if (tk != null && (tk < 0 || tk > 3000)) push('med', 'thermal_conductivity out of range', m, `${tk} W/m·K`);
-
-    if (m.tier === 'curated' && (!m.sources || m.sources.length === 0)) push('med', 'curated alloy without sources', m, '');
-    if (m.tier !== 'reference' && m.sources && !m.sources.some(s => s.verified)) push('low', 'no verified source URL', m, '');
-
-    if (m.popularity != null && (m.popularity < 1 || m.popularity > 5)) push('high', 'popularity out of [1,5]', m, `${m.popularity}`);
-
-    for (const propKey of ['yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'density']) {
-      const r = m.ranges && m.ranges[propKey];
-      if (r && r.min != null && r.max != null && r.min > r.max) push('high', `${propKey}: min > max`, m, `${r.min} > ${r.max}`);
-    }
-  }
-  return out;
-}
+// R226e — detectAnomalies 는 ./lib/anomalies.mjs 로 이동(공유). 여기 호출부는 소스 부착 전이라 과다집계(문서화된 timing 차이).
 const anomalies = detectAnomalies(all);
 const sevCount = { high: 0, med: 0, low: 0 };
 const byKind = {};
