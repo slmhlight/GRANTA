@@ -12,7 +12,7 @@ import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
 import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
 import { htGlossaryFor } from '@/lib/ht-glossary';
 import { htAlloySpecificFor } from '@/lib/ht-alloy-specific';
-import { computeCET, computeCEIIW, computePcm, computeSchaeffler, computeMachinability, machiningCostBand, htCostBand } from '@/lib/welding-machinability';
+import { computeCET, computeCEIIW, computePcm, computeSchaeffler, computeMachinability, machiningCostBand, htCostBand, computePolymerMachinability } from '@/lib/welding-machinability';
 /* R222c — recharts(~150KB)는 아래에서 lazy 로드 (elev-temp/creep 데이터 있는 재료의 탭이 열릴 때만). */
 import { recommendedCoatings } from '@/lib/coatings';
 /* R157b — MaterialDetail 의 sub-components 분리. */
@@ -416,6 +416,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               const mach = computeMachinability(material);
               // R125 — Ceramic / Composite 에서 가공·HT 카드 hide (Si3N4 등 가공 불가 재료에 부적절한 카드 제거)
               const machCost = machiningCostBand(material.machining_cost_factor, material.category);
+              // R226i — 폴리머는 금속 tool-life 모델 대신 카테고리 전용 정성 절삭성
+              const polyMach = computePolymerMachinability(material);
               const htCost = htCostBand(material.ht_cost_factor, material.category);
               const cet = computeCET(material);
               const ce_iiw = computeCEIIW(material);
@@ -424,7 +426,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               /* R173 — Metal 이고 weldability rating 있으면 (quantitative metric 없어도) 카드 표시.
                  AA 7075/Ti-6Al-4V/Inconel 718 등 비철금속이 CE_IIW 미적용이라 weldability 카드 누락 fix. */
               const hasWeldFallback = material.category === 'Metal' && !!material.weldability;
-              if (!mach && !machCost && !htCost && !cet && !ce_iiw && !pcm && !sch && !hasWeldFallback) return null;
+              if (!mach && !machCost && !polyMach && !htCost && !cet && !ce_iiw && !pcm && !sch && !hasWeldFallback) return null;
               const bandColor = (b: string) => ({
                 easy: 'text-emerald-700 bg-emerald-50 border-emerald-300',
                 normal: 'text-foreground bg-muted/40 border-border',
@@ -443,12 +445,12 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               return (
                 <div className="grid grid-cols-1 gap-3">
                   {/* 카드 1 — 절삭성 + 가공비 통합 (default open) */}
-                  {(mach || machCost) && (
-                    <details className={`rounded-lg border-2 p-3 ${bandColor((machCost?.band || mach?.band) as string)}`}>
+                  {(mach || machCost || polyMach) && (
+                    <details className={`rounded-lg border-2 p-3 ${bandColor((polyMach?.band || machCost?.band || mach?.band) as string)}`}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5"><Wrench className="w-3.5 h-3.5" />Machinability · 절삭성</span>
                         <span className="text-[10px] font-normal opacity-70">
-                          {mach && `${mach.rating}%`}{machCost && ` · ×${machCost.factor.toFixed(2)}`} · <b>{(machCost?.label || mach?.label)}</b>
+                          {mach && `${mach.rating}%`}{machCost && ` · ×${machCost.factor.toFixed(2)}`}{(mach || machCost) && ' · '}<b>{(polyMach?.label || machCost?.label || mach?.label)}</b>
                         </span>
                       </summary>
                       <div className="space-y-1.5 text-[12px] mt-2 pt-2 border-t border-current/15">
@@ -466,8 +468,17 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         )}
                         {mach && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{mach.note}</p>}
                         {machCost && machCost.band !== mach?.band && <p className="text-[11px] leading-relaxed text-foreground/80">{machCost.note}</p>}
-                        {/* R175/R176/R177 — Machinability alloy-specific ⚠ 주의사항 + 가공 방법
+                        {/* R226i — 폴리머 전용 정성 절삭성 (금속 rating/가공비 대신) */}
+                        {polyMach && (
+                          <div className="flex items-baseline justify-between gap-2">
+                            <b>절삭성 (정성)</b>
+                            <span className="font-mono"><b>{polyMach.label}</b></span>
+                          </div>
+                        )}
+                        {polyMach && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{polyMach.note}</p>}
+                        {/* R175/R176/R177 — Machinability alloy-specific ⚠ 주의사항 + 가공 방법 (금속 전용)
                             R177: RecText 로 ASCII table → real <table> 변환 */}
+                        {material.category === 'Metal' && (
                         <div className="mt-2 pt-2 border-t border-current/15">
                           <p className="text-[11px] font-semibold leading-relaxed mb-1">⚠ 가공 주의사항 / 권장 방법:</p>
                           <RecText className="text-[11px] leading-relaxed">
@@ -530,8 +541,13 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                               '⚠ Refractory Metal (W / Mo / Ta / Nb / Re)\nNuclear, aerospace, 반도체, 정밀 instrument 응용.\nRT brittle (DBTT > 0°C 일부 grade) — chipping 위험 매우 큼.\n\n【권장 방법】\n• Tool: carbide insert with negative rake\n  - Tungsten: cBN tool 권장 (carbide wear 빠름)\n  - Mo / TZM: carbide 가능 (TiAlN coating)\n  - Ta / Nb: carbide insert 가능\n• Cutting speed:\n  - W: 5-15 m/min (CBN)\n  - Mo: 20-40 m/min (carbide)\n  - Ta / Nb: 30-50 m/min\n• Coolant: dry 또는 minimum (water-based 가능)\n• Feed rate: 0.05-0.15 mm/rev (slow)\n• Depth of cut: 0.1-0.3 mm (small)\n\n【⚠ 주의 1 — Chipping 위험】\nRefractory metal 의 RT brittleness:\n• W: DBTT 300°C — RT 매우 brittle\n• Mo: DBTT 0°C — RT 약간 brittle\n• Ta / Nb: DBTT < -100°C — RT ductile (가공 안전)\n\nPositive rake 사용 시 (일반 가공):\n• Cutting edge 의 압축 응력 부족\n• Surface chipping (표면 작은 균열)\n• Tool 의 micro chipping (tip 손상)\n\n【권장 대응】\n• Negative rake angle (-5 ~ -10°)\n  - 압축 응력 증가\n  - Chipping 회피\n• Small depth of cut (0.1-0.3 mm)\n• Slow feed rate (0.05-0.15 mm/rev)\n• Sharp tool edge\n\n【⚠ 주의 2 — Grinding 권장 (특히 W)】\nW 의 가공 어려움 (RT brittle + abrasive):\n• CNC machining: 매우 limited (small section only)\n• Grinding 가 표준 방법:\n  - cBN wheel (CBN grain in vitreous bond)\n  - Diamond wheel (precision finishing)\n  - Wet grinding (heat 회피)\n• 응용:\n  - W heavy alloy (Ni-Fe matrix): carbide 가능\n  - Pure W: grinding only\n  - W-La: grinding only\n\n【표준】\nASM Vol.16 (Machining refractory) · ASTM B777 (W heavy alloy)'}
                           </RecText>
                         </div>
+                        )}
                         <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
-                          <b>출처 / 기준</b>: ASM Handbook Vol.16 Machining · ISO 3685 (tool life) · AISI 1018 = rating 100% · raw 단가 × cost factor = 가공 후 추정 단가 (vendor 견적과 ±20-30% 차이).
+                          {material.category === 'Polymer' ? (
+                            <><b>출처 / 기준</b>: ASM Handbook Vol.16 (Machining of Plastics·Composites) · 제조사 가공 가이드(Ensinger·Curbell·Quadrant) · 정성 평가(수치 rating 아님) — 금속 tool-life(ISO 3685·AISI baseline)·가공비 인자 미적용.</>
+                          ) : (
+                            <><b>출처 / 기준</b>: ASM Handbook Vol.16 Machining · ISO 3685 (tool life) · AISI 1212 = rating 100% 기준 · raw 단가 × cost factor = 가공 후 추정 단가 (vendor 견적과 ±20-30% 차이).</>
+                          )}
                         </p>
                       </div>
                     </details>

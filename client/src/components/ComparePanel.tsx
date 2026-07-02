@@ -13,7 +13,7 @@ import type { Material, PropertyRange } from '@/lib/materials';
 import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import { familyColor, propColor, CONFIDENCE, CONFIDENCE_ORDER, type ConfidenceLevel } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
-import { computeMachinability, machiningCostBand, htCostBand, computeCEIIW, computeCET, computePcm } from '@/lib/welding-machinability';
+import { computeMachinability, machiningCostBand, htCostBand, computeCEIIW, computeCET, computePcm, computePolymerMachinability } from '@/lib/welding-machinability';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis } from '@/components/RadarChart';
 import GoodmanChart from '@/components/GoodmanChart';
 // R21: Compare 패널에서 온도-강도 그래프 제거. MaterialDetail 의 단일 차트만 유지.
@@ -569,7 +569,9 @@ ${panel.outerHTML}
             const ce = computeCEIIW(m);
             const cet = computeCET(m);
             const pcm = computePcm(m);
-            machBand = machC?.band || mach?.band || null;
+            // R226i — 폴리머는 카테고리 전용 정성 절삭성 band
+            const poly = computePolymerMachinability(m);
+            machBand = machC?.band || mach?.band || poly?.band || null;
             htBand = ht?.band || null;
             const wb = [ce?.band, cet?.band, pcm?.band].filter(Boolean) as string[];
             weldBand = wb.includes('high') ? 'high' : wb.includes('med') ? 'med' : wb.length ? 'low' : null;

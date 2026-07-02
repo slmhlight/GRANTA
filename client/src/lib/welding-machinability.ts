@@ -262,9 +262,9 @@ export interface CostFactorResult {
 
 /** Machining cost factor (raw 단가 × machining factor = 가공 후 단가). 1.0 = 표준 강.
  *  R125: Ceramic / Composite 은 절삭 자체가 적용 안 됨 (grinding 등 별도 공정) → null 반환.
- *  Polymer 는 사출/FDM 등 process 별로 절삭 의미 다르나 일단 표시 유지. */
+ *  R226i: Polymer 는 금속 tool-life 모델(ISO 3685·AISI baseline)이 무의미 → computePolymerMachinability 로 분리, 여기선 null. */
 export function machiningCostBand(factor: number | null | undefined, category?: string | null): CostFactorResult | null {
-  if (category === 'Ceramic' || category === 'Composite') return null;
+  if (category === 'Ceramic' || category === 'Composite' || category === 'Polymer') return null;
   if (factor == null || !isFinite(factor) || factor <= 0) return null;
   const f = factor;
   const pct = Math.round((f - 1) * 100);
@@ -379,4 +379,72 @@ export function computeMachinability(material: Material): MachinabilityResult | 
     }
   }
   return null;
+}
+
+/* ───────── Polymer machinability (R226i) ─────────
+ * 폴리머는 금속의 ISO 3685 tool-life · AISI baseline rating 모델이 무의미하다.
+ * 절삭력 자체는 낮으나 실제 가공성을 지배하는 요인이 전혀 다르다:
+ *   (1) 발열/용융 (낮은 열전도·낮은 Tg → 예리한 공구·냉각 필수)
+ *   (2) 연질·저모듈러스 → 거미상(gummy) chip·처짐
+ *   (3) 유리/탄소 섬유·미네랄 필러 → 공구 마모 (초경·PCD)
+ *   (4) 취성 비정질(아크릴/스티렌) → 크랙·치핑
+ * 정성 평가 (수치 rating 아님) — 제조사 가공 가이드·ASM Vol.16(Machining of Plastics) 기준. */
+export interface PolymerMachResult {
+  band: 'easy' | 'normal' | 'hard';
+  label: string;
+  note: string;
+}
+
+/* 선언적 패밀리 테이블 — 위에서부터 첫 매칭 (필러·라미네이트가 최우선, 그 다음 열경화/폼/탄성체/연질/취성). */
+const POLYMER_MACHINABILITY: Array<{ re: RegExp; band: PolymerMachResult['band']; label: string; note: string }> = [
+  {
+    // 유리/탄소 섬유·미네랄 강화 + 라미네이트 — 마모성 (최우선: PP-GF 등이 연질보다 먼저 잡히도록)
+    re: /glass.?fib|carbon.?fib|\b(?:gf|cf|scf)\s*-?\s*\d{2,3}\b|\bgf\b|\bcf\b|-gf\b|-cf\b|\d{2}\s*%?\s*(?:gf|cf|glass|carbon)|reinforc|woven fabric|laminate|\bonyx\b/i,
+    band: 'hard', label: '주의 (마모성 필러)',
+    note: '유리·탄소 섬유(또는 미네랄) 강화 — 절삭력은 낮으나 필러가 공구를 강하게 마모시킨다. 초경(carbide) 또는 PCD/다이아몬드 공구·낮은 이송, 섬유 분진 집진 필수. 라미네이트는 층간 박리(delamination) 방지 위해 예리한 공구.',
+  },
+  {
+    // 열경화성 캐스트 수지 (에폭시/폴리에스터/페놀릭) — 분말상·취성·유해분진
+    re: /epoxy|thermoset|phenolic|melamine|bakelite|polyester resin|resin.*cast|cast.*resin/i,
+    band: 'hard', label: '열경화 (분진·취성)',
+    note: '열경화성 수지 — 재용융 불가, chip 이 분말상(마모성·유해분진). 초경 공구·강력 집진, 취성 크랙 방지 위해 예리한 공구·낮은 이송.',
+  },
+  {
+    // 구조 발포체 (PMI Rohacell) — 저밀도·연질·crumbly
+    re: /\bfoam\b|rohacell|\bpmi\b/i,
+    band: 'normal', label: '발포체 (연질·분진)',
+    note: '저밀도 구조 발포체 — 매우 낮은 절삭력이나 부스러짐·분진 발생. 예리한 공구·낮은 클램프압(압착 변형 방지)·집진, 목공용 고속 공구로 가공 용이.',
+  },
+  {
+    // 탄성체/고무 — 절삭 부적합
+    re: /\btpu\b|\btpe\b|elastomer|silicone|rubber|\bnbr\b|hnbr|\beva\b|polyurethane|urethane/i,
+    band: 'hard', label: '탄성체 (절삭 부적합)',
+    note: '탄성체/고무 — 낮은 강성으로 절삭 시 변형·찢김. 통상 절단(die-cut)·워터젯·성형으로 가공. 부득이 절삭 시 극예리 블레이드·저온(cryo) 고정, 표준 CNC 부적합.',
+  },
+  {
+    // 연질·저Tg 열가소성 (PE/PP/PTFE·플루오로/PLA/PETG) — gummy chip + 발열/용융
+    re: /ptfe|teflon|\bpfa\b|\bfep\b|pctfe|polyethylen|uhmw|hdpe|ldpe|\bpe\b|polypropylen|\bpp\b|\bpla\b|\bpcl\b|\bpha\b|petg|\bpvb\b/i,
+    band: 'normal', label: '연질 (거미상 chip)',
+    note: '연질·저모듈러스(또는 저Tg) — 절삭력은 매우 낮으나 chip 이 거미상(gummy)으로 늘어지고 발열 시 용융. 예리한 공구·큰 positive rake, 저속·공기(또는 미스트) 냉각, 얇은 벽 처짐 지지.',
+  },
+  {
+    // 취성 비정질 (아크릴·스티렌) — 크랙·치핑·크레이징
+    re: /pmma|acrylic|plexiglas|perspex|polystyren|\bps\b|gpps|hips/i,
+    band: 'normal', label: '취성 (크랙·치핑)',
+    note: '경질이나 취성 — 과열·과이송 시 크랙·치핑·크레이징(crazing). 예리한 공구·낮은 이송·충분한 냉각, 잔류응력 완화 위해 어닐링 후 가공 권장.',
+  },
+];
+
+/** 폴리머 절삭성 정성 평가 (category==='Polymer' 만). 패밀리 미매칭 시 강성 엔지니어링 열가소성(우수)으로 기본 처리. */
+export function computePolymerMachinability(material: Material): PolymerMachResult | null {
+  if (material.category !== 'Polymer') return null;
+  const key = `${material.subcategory || ''} ${material.name || ''}`;
+  for (const t of POLYMER_MACHINABILITY) {
+    if (t.re.test(key)) return { band: t.band, label: t.label, note: t.note };
+  }
+  // 기본 — 강성 엔지니어링 열가소성 (POM/PBT/PA·unfilled/PC/PEEK/PEI/PSU/PPS/PET/PEKK/PAI/PBI/PVDF/LCP/PI)
+  return {
+    band: 'easy', label: '우수 (강성 열가소성)',
+    note: '강성 엔지니어링 열가소성 — 황동에 준하는 우수한 절삭성(깨끗한 chip·양호한 표면). 단 발열/용융 방지 위해 공구를 예리하게 유지(절삭유 또는 공기 냉각), 얇은 단면은 지지. 흡습 폴리머(나일론 등)는 조건에 따라 치수 변동 주의.',
+  };
 }
