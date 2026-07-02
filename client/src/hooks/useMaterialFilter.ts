@@ -71,6 +71,7 @@ export function useMaterialFilter(materials: Material[]) {
       result = result.filter(m => {
         if (fuzzyContains(m.name.toLowerCase(), q)) return true;
         if ((m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))) return true;
+        if ((m.uns || []).some(u => fuzzyContains(u.toLowerCase(), q))) return true;   // R226h/P3-8 — UNS 정규 코드 검색 ("N07718")
         return false;
       });
     }
@@ -317,7 +318,8 @@ export function useMaterialFilter(materials: Material[]) {
       const q = filters.search.toLowerCase().trim();
       baseSet = baseSet.filter(m =>
         fuzzyContains(m.name.toLowerCase(), q) ||
-        (m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))
+        (m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q)) ||
+        (m.uns || []).some(u => fuzzyContains(u.toLowerCase(), q))   // R226h/P3-8 — 위 본검색과 동일 (모집단 일치 원칙 R209)
       );
     }
     if (filters.query && filters.query.trim()) {

@@ -242,6 +242,8 @@
   },
   "ranges": {
     "MET-0459": { "yield_strength": 345, "uts": 485, "basis": "ASTM A588 Gr A ≤4in plate 최소 (50ksi/70ksi). DB σy=250 은 A36 항복값 오기(조성·HB 140≈UTS485/3.45 는 정합)", "src": "ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)" },
+    "MET-0785": { "yield_strength": 310, "uts": 480, "elongation": 25, "basis": "430 annealed — DB 242/365 는 A240 min(205/450)의 UTS 미달 오염 (min-spec 확장 스윕 발견). AK Steel typical 로 교정", "src": "ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)" },
+    "MET-0788": { "yield_strength": 380, "uts": 500, "basis": "430 strain-hardened — DB 297/448 은 annealed 수준 + A240 min 미달. cold-worked 하한으로 교정", "src": "AK Steel 430 (cold-rolled YS 380~500 / UTS 480~586)" },
     "MET-0478": { "yield_strength": 285, "uts": 350, "basis": "ZK60A-T5 압출 typical — DB 195/305 는 AMS 4352 spec-min(TYS 230/UTS 310)조차 미달하는 오염값 (golden 확장 probe 발견)", "src": "ASM Handbook Vol.2 — ZK60A-T5 extruded (TYS 285 / UTS 350) · MatWeb ZK60A-T5" },
     "MET-0571": { "uts": 1276, "basis_kind": "min_spec", "basis": "이름이 AMS 5662 를 주장 — UTS typ 1241 은 spec-min 1276 미달(집계에 비-5662 조건 혼입 의심; σy typ 1034 는 spec-min 정합). spec-min 으로 보수 교정 (min-spec 게이트 발견)", "src": "AMS 5662 RT 최소: YS 150ksi(1034) / UTS 185ksi(1276)" },
     "MET-0905": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Ti-5Al-2.5Sn Grade6 α annealed (열처리 불가)", "src": "ASTM B265 Gr6 · alloysintl Ti 5-2.5" },    "MET-0904": { "yield_strength": 827, "uts": 861, "elongation": 15, "basis": "Grade6 α 비-열처리 → aged ≈ annealed", "src": "ASTM B265 Gr6" },

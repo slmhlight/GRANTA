@@ -6,11 +6,12 @@ import { describe, it, expect } from 'vitest';
 import { resolveDirectHit, normalize, extractTokens } from '@/lib/direct-hit';
 import type { Material } from '@/lib/materials';
 
-const mk = (id: string, name: string, aliases: string[] = []): Material => ({ id, name, aliases } as Material);
+const mk = (id: string, name: string, aliases: string[] = [], uns: string[] = []): Material => ({ id, name, aliases, uns } as Material);
 const MATS = [
-  mk('304', 'AISI 304', ['SUS304', '1.4301']),
+  mk('304', 'AISI 304', ['SUS304', '1.4301'], ['S30400']),
   mk('6061', 'AA 6061', ['A6061']),
   mk('a588', 'ASTM A588 Grade A', ['SS400 (JIS/KS ≈)']),
+  mk('718', 'Inconel 718', [], ['N07718']),
 ];
 
 describe('resolveDirectHit (C4)', () => {
@@ -26,6 +27,10 @@ describe('resolveDirectHit (C4)', () => {
   });
   it('shop-alias 확장 (sus304 → 304)', () => {
     expect(resolveDirectHit('sus304', MATS)?.id).toBe('304');
+  });
+  it('UNS 코드 direct-hit (R226h/P3-8) — "N07718" → Inconel 718', () => {
+    expect(resolveDirectHit('N07718', MATS)?.id).toBe('718');
+    expect(resolveDirectHit('s30400', MATS)?.id).toBe('304');
   });
   it('매칭 없음 → null', () => {
     expect(resolveDirectHit('zzzznotexist', MATS)).toBeNull();

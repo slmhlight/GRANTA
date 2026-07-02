@@ -28,20 +28,19 @@ export function resolveDirectHit(query: string, materials: Material[]): Material
   const nq = normalize(q);
   // 입력 자체 + shop alias dict 확장
   const queries2 = [nq, ...(SHOP_ALIAS_DICT[nq] ?? []).map(normalize)];
+  // R226h/P3-8 — 후보에 UNS 정규 코드 포함 ("N07718" direct-hit)
+  const candsOf = (m: Material) => [m.name, ...(m.aliases || []), ...(m.uns || [])].map(normalize);
   // 2단계: 정확일치
   for (const m of materials) {
-    const candidates = [m.name, ...(m.aliases || [])].map(normalize);
-    if (queries2.some(q2 => candidates.includes(q2))) return m;
+    if (queries2.some(q2 => candsOf(m).includes(q2))) return m;
   }
   // 3단계: startsWith
   for (const m of materials) {
-    const candidates = [m.name, ...(m.aliases || [])].map(normalize);
-    if (queries2.some(q2 => candidates.some(c => c.startsWith(q2)))) return m;
+    if (queries2.some(q2 => candsOf(m).some(c => c.startsWith(q2)))) return m;
   }
   // 4단계: 부분일치
   for (const m of materials) {
-    const candidates = [m.name, ...(m.aliases || [])].map(normalize);
-    if (queries2.some(q2 => candidates.some(c => c.includes(q2)))) return m;
+    if (queries2.some(q2 => candsOf(m).some(c => c.includes(q2)))) return m;
   }
   // 5단계: 토큰 기반 (입력 토큰 모두가 후보 토큰에 포함 — 작은 문자열 false positive 회피)
   const qTokens = extractTokens(q);

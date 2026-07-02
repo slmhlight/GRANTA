@@ -41,6 +41,19 @@ for (const m of all) if (m.sources) m.sources = m.sources.map(s => { const ns = 
 // R226f/축4c — UNS 정규 필드 (별칭·이름·specs 에서 도출; 외부 연동 키)
 for (const m of all) { const u = extractUNS(m); if (u.length) m.uns = u; }
 
+// R226h/축4a — A/B-basis 일괄 도출: min-spec 테이블(standard-min-specs.json) 매칭 entry 의
+//   typical 이 spec-min ±2% 이면 ranges[p].basis='min_spec' (R139b 필드; "표준 최소 보증값"임을 명시 — presentation).
+const MINSPECS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'standard-min-specs.json'), 'utf8')).specs || []; } catch { return []; } })();
+let basisStamped = 0;
+for (const m of all) {
+  const sp = MINSPECS.find(s => (m.name || '').includes(s.pattern));
+  if (!sp) continue;
+  for (const [prop, min] of Object.entries(sp.min)) {
+    const r = m.ranges?.[prop];
+    if (r && typeof r.typical === 'number' && Math.abs(r.typical - min) <= min * 0.02 && !r.basis) { r.basis = 'min_spec'; basisStamped++; }
+  }
+}
+
 // 원본 build 순서 재구성 (curated→am_vendor→generic→supplementary→ceramics→composites→polymers).
 //   legacy_id 의 prefix 그룹 → 전체 numeric tuple (R_NNNN_C 의 condition suffix 포함) 로 정렬.
 const ORDER = ['C', 'V', 'G', 'R', 'CER', 'CMP', 'POL'];
