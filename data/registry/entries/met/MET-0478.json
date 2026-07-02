@@ -32,18 +32,18 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 195,
-      "max": 195,
-      "typical": 195,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 285,
+      "typical": 285,
+      "max": 285,
+      "confidence": "handbook",
+      "provenance": "교정: ASM Handbook Vol.2 — ZK60A-T5 extruded (TYS 285 / UTS 350) · MatWeb ZK60A-T5"
     },
     "uts": {
-      "min": 305,
-      "max": 305,
-      "typical": 305,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 350,
+      "typical": 350,
+      "max": 350,
+      "confidence": "handbook",
+      "provenance": "교정: ASM Handbook Vol.2 — ZK60A-T5 extruded (TYS 285 / UTS 350) · MatWeb ZK60A-T5"
     },
     "elongation": {
       "min": 11,
@@ -210,8 +210,8 @@
   "points": [
     [
       1.83,
-      195,
-      305,
+      285,
+      350,
       11,
       45,
       60,
@@ -235,8 +235,8 @@
   "fracture_toughness": 24,
   "fatigue_strength": 68,
   "density": 1.83,
-  "yield_strength": 195,
-  "uts": 305,
+  "yield_strength": 285,
+  "uts": 350,
   "elongation": 11,
   "modulus": 45,
   "hardness": 60,
@@ -269,5 +269,46 @@
   "total_cost_estimate": 14.74,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 195,
+        "max": 195,
+        "typical": 195,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 195
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 305,
+        "max": 305,
+        "typical": 305,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 305
+    },
+    "_basis": "ZK60A-T5 압출 typical — DB 195/305 는 AMS 4352 spec-min(TYS 230/UTS 310)조차 미달하는 오염값 (golden 확장 probe 발견)",
+    "_src": "ASM Handbook Vol.2 — ZK60A-T5 extruded (TYS 285 / UTS 350) · MatWeb ZK60A-T5",
+    "points": {
+      "from": [
+        [
+          1.83,
+          195,
+          305,
+          11,
+          45,
+          60,
+          121
+        ]
+      ]
+    }
+  }
 }

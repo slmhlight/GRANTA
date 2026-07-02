@@ -12,7 +12,7 @@ import path from 'node:path';
 const all: any[] = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'client', 'public', 'materials.json'), 'utf8'));
 const V = (m: any, k: string) => m.ranges?.[k]?.typical;
 
-type G = { name: string; ht?: string; y?: [number, number]; u?: [number, number]; d?: [number, number]; yMax?: number };
+type G = { name: string; ht?: string; y?: [number, number]; u?: [number, number]; d?: [number, number]; e?: [number, number]; yMax?: number };
 const GOLDEN: G[] = [
   { name: 'A588 Grade A', y: [330, 360], u: [475, 510], d: [7.75, 7.95] },   // ← A588 오염 방어 (σy 250 오기 재발 차단)
   { name: 'ASTM A36', y: [235, 270], d: [7.75, 7.95] },
@@ -67,6 +67,47 @@ const GOLDEN: G[] = [
   { name: 'AlSi10Mg', ht: 'As-built', y: [210, 290], u: [380, 480], d: [2.6, 2.72] },
   { name: 'AISI 316L (AM)', ht: 'As-built', y: [440, 600], u: [540, 720] },
   { name: 'H13', ht: 'Harden', y: [1250, 1550], u: [1420, 1750] },                // 44-48 HRC Q&T
+
+  // ── R226g tranche 3 (51 → 89): 탄소강 어닐드 사다리·Ni 초합금·Cu 계열·폴리머(밀도 앵커)·세라믹(ρ/E 앵커) ──
+  { name: 'AISI 1010', ht: 'Anneal', y: [140, 220], u: [255, 340] },
+  { name: 'AISI 1015', ht: 'Anneal', y: [150, 230], u: [260, 345] },
+  { name: 'AISI 1025', ht: 'Anneal', y: [175, 250], u: [280, 380] },
+  { name: 'AISI 1030', ht: 'Anneal', y: [200, 280], u: [300, 400] },
+  { name: 'AISI 1050', ht: 'Anneal', y: [280, 400], u: [490, 660] },
+  { name: 'AISI 1080', ht: 'Anneal', y: [350, 560], u: [580, 770] },              // 펄라이트강 소스 산포 커버
+  { name: 'AISI 1095', ht: 'Anneal', y: [380, 600], u: [640, 840] },
+  { name: 'AISI 8620', ht: 'Anneal', y: [310, 400], u: [480, 600] },
+  { name: 'AISI 9310', y: [400, 520], u: [560, 700] },
+  { name: 'HY-80', y: [530, 620], u: [620, 760] },                                // MIL-S-16216 YS min 550
+  { name: 'AISI 347', ht: 'Anneal', y: [185, 250], u: [480, 580] },
+  { name: 'SS420', ht: 'harden', y: [1350, 1700], u: [1550, 1900] },              // ~52HRC
+  { name: 'PH13-8', y: [1350, 1480], u: [1450, 1590] },                           // H950 1410/1520
+  { name: 'AA 6082', ht: 'T6', y: [235, 290], u: [280, 330] },
+  { name: 'AA 7475', ht: 'T7351', y: [370, 460], u: [440, 530] },
+  { name: 'Waspaloy', ht: 'aged', y: [730, 880], u: [1180, 1380] },
+  { name: 'Hastelloy X', ht: 'Anneal', y: [280, 400], u: [650, 800], d: [8.15, 8.3] },
+  { name: 'Nimonic 80A', y: [560, 700], u: [900, 1100] },
+  { name: 'Rene 41', y: [950, 1150], u: [1300, 1520] },
+  { name: 'Incoloy 901', y: [800, 980], u: [1080, 1300] },
+  { name: 'C36000', y: [270, 360], u: [340, 430], d: [8.4, 8.6] },                // free-cutting brass H02
+  { name: 'C46400', y: [150, 220], u: [360, 450] },                               // naval brass ann
+  { name: 'C63000', y: [320, 520], u: [660, 820] },                               // NAB
+  { name: 'C93200', y: [110, 150], u: [215, 270], d: [8.85, 9.0] },               // SAE 660 125/240
+  { name: 'C95400', y: [185, 260], u: [480, 590] },                               // B148 min 205/515
+  { name: 'WE43', y: [145, 200], u: [220, 280], d: [1.8, 1.87] },
+  { name: 'ZK60', ht: 'T5', y: [255, 320], u: [330, 380] },                       // ← 오염 교정 검증 (was 195/305)
+  { name: 'Zircaloy-4', y: [480, 620], u: [620, 760], d: [6.5, 6.6] },            // CWSR 연료피복
+  { name: 'Invar 36', y: [280, 420], u: [380, 500], d: [8.0, 8.2] },              // AM as-built
+  { name: 'Molybdenum', y: [340, 470], u: [470, 590], d: [10.1, 10.3] },
+  { name: 'PEEK', ht: 'As-supplied', y: [80, 105], u: [90, 115], d: [1.28, 1.34] },
+  { name: 'Polycarbonate', y: [55, 70], u: [60, 78], d: [1.18, 1.22] },
+  { name: 'PTFE', y: [8, 16], u: [18, 36], d: [2.1, 2.25] },
+  { name: 'Acetal (POM)', y: [58, 75], u: [62, 82], d: [1.39, 1.44] },
+  { name: 'PEI', ht: 'As-supplied', y: [90, 112], u: [98, 118], d: [1.25, 1.29] },
+  { name: 'Silicon Carbide', d: [3.0, 3.22], e: [370, 460] },
+  { name: 'Silicon Nitride', d: [3.15, 3.35], e: [290, 330] },
+  { name: 'Zirconia (Y-TZP', d: [5.95, 6.15], e: [195, 215] },
+  { name: 'Tungsten Carbide (WC-Co', d: [14.5, 15.3], e: [580, 660] },
 ];
 
 describe('golden-values 회귀 (D1) — 표준값 대조', () => {
@@ -75,9 +116,9 @@ describe('golden-values 회귀 (D1) — 표준값 대조', () => {
       const matches = all.filter((m) => (m.name || '').includes(g.name) && (!g.ht || (m.heat_treatment || '').toLowerCase().includes(g.ht.toLowerCase())));
       expect(matches.length, `${g.name} 매칭 entry`).toBeGreaterThan(0);
       const inR = (v: any, r?: [number, number]) => !r || (typeof v === 'number' && v >= r[0] && v <= r[1]);
-      if (g.y || g.u || g.d) {
-        const ok = matches.some((m) => inR(V(m, 'yield_strength'), g.y) && inR(V(m, 'uts'), g.u) && inR(V(m, 'density'), g.d));
-        const seen = matches.slice(0, 3).map((m) => `σy${V(m, 'yield_strength')}/uts${V(m, 'uts')}/ρ${V(m, 'density')}`).join(' , ');
+      if (g.y || g.u || g.d || g.e) {
+        const ok = matches.some((m) => inR(V(m, 'yield_strength'), g.y) && inR(V(m, 'uts'), g.u) && inR(V(m, 'density'), g.d) && inR(V(m, 'modulus'), g.e));
+        const seen = matches.slice(0, 3).map((m) => `σy${V(m, 'yield_strength')}/uts${V(m, 'uts')}/ρ${V(m, 'density')}/E${V(m, 'modulus')}`).join(' , ');
         expect(ok, `${g.name}: 표준 범위 만족 조건 없음 (실제 ${seen})`).toBe(true);
       }
       if (g.yMax != null) {
