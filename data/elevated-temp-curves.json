@@ -1,0 +1,4 @@
+{
+  "_note": "R226g/축3d — elevated-temp/creep 곡선 외부 확장 테이블 (build-materials 동결 유지 — 여기만 편집). 매칭: entry name substring(lowercase). 형식: curves[\"<substring>\"] = { elevated_temp: [{temp(°C), ys(MPa), uts(MPa), E?(GPa)}...], creep_rupture?: [{temp, stress, hours}...], src: \"인용(필수 권장)\" }. 값 정책: 검증된 datasheet/핸드북 수치만 — 미검증 근사 금지. 후보 우선순위: docs/COVERAGE-GAPS.md §3 (인기≥4.0 곡선부재 44종). 인라인 ELEV_DATA 보유 entry 는 불변(인라인 우선).",
+  "curves": {}
+}

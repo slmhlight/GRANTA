@@ -6,6 +6,7 @@ import { describe, it, expect } from 'vitest';
 import { improveLabel, sourceAuthority } from '../scripts/lib/source-labels.mjs';
 import { detectAnomalies } from '../scripts/lib/anomalies.mjs';
 import { extractUNS } from '../scripts/lib/uns.mjs';
+import { attachElevCurves } from '../scripts/lib/elev-curves.mjs';
 
 describe('improveLabel — 출처 라벨 도출', () => {
   it('placeholder + 매핑된 도메인 → publisher 라벨, url 유지', () => {
@@ -97,5 +98,26 @@ describe('extractUNS — UNS 정규 필드 (축4c)', () => {
   });
   it('UNS 없으면 빈 배열 (부품번호 오탐 없음)', () => {
     expect(extractUNS({ name: 'PA12 GF50', aliases: ['B12345-XL'] })).toEqual([]);
+  });
+});
+
+describe('attachElevCurves — 외부 곡선 확장 파이프 (축3d)', () => {
+  const T = { 'monel 400': { elevated_temp: [{ temp: 20, ys: 240, uts: 550 }, { temp: 427, ys: 190, uts: 500 }], src: 'test-src' } };
+  it('substring 매칭 → 곡선 부착 + meta 인용', () => {
+    const m: any = { name: 'Monel 400 — Annealed (Wrought)' };
+    expect(attachElevCurves(m, T)).toBe(true);
+    expect(m.elevated_temp.length).toBe(2);
+    expect(m.meta.elev_curve_src).toBe('test-src');
+  });
+  it('기존 곡선 보유 entry 는 불변 (인라인 우선)', () => {
+    const own = [{ temp: 20, ys: 111, uts: 222 }];
+    const m: any = { name: 'Monel 400', elevated_temp: own };
+    expect(attachElevCurves(m, T)).toBe(false);
+    expect(m.elevated_temp).toBe(own);
+  });
+  it('비매칭 → no-op', () => {
+    const m: any = { name: 'AISI 304' };
+    expect(attachElevCurves(m, T)).toBe(false);
+    expect(m.elevated_temp).toBeUndefined();
   });
 });

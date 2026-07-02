@@ -20,6 +20,7 @@ import { num, baseName, norm, round, smartRound, rangeFrom, uniq, mostCommon, mo
 import { htCostFactor, priceConditionFactor, priceFormFactor, priceGradePremium } from './pipeline/enrich/factors.mjs';
 import { popularityFor } from './pipeline/enrich/popularity.mjs';
 import { detectAnomalies } from './lib/anomalies.mjs';   // R226e — 공유 모듈 (build-from-registry 와 중복 제거)
+import { attachElevCurves } from './lib/elev-curves.mjs';   // R226g — 외부 elev-temp 곡선 확장 파이프
 import { VENDOR_PREFIXES, CLASS_WORDS, alloyOf, aaSubcategory, nameBasedSubcategory, fixSubcategory, conditionClass, isExcludedByName, isExcludedAlloy, EXCLUDED_ALLOY_PATTERNS, EXCLUDED_NAME_PATTERNS, isFakeVariant } from './pipeline/enrich/classification.mjs';
 import { htConditionMultiplier } from './pipeline/enrich/ht-condition.mjs';
 import { matchesAlloyKey } from './pipeline/enrich/alloy-key-match.mjs';
@@ -2916,6 +2917,9 @@ const ELEV_DATA = {
     ],
   },
 };
+// R226g/축3d — 외부 곡선 테이블 (모듈 스코프 1회 로드; 없으면 빈 테이블 — 파이프는 no-op).
+let EXT_CURVES = {};
+try { EXT_CURVES = JSON.parse(fs.readFileSync(path.join(DATA, 'elevated-temp-curves.json'), 'utf8')).curves || {}; } catch { /* optional */ }
 function injectTempCurves(m) {
   if (!m || !m.name) return;
   const n = String(m.name).toLowerCase();
@@ -3241,6 +3245,9 @@ for (const m of all) {
   }
   // R20 — 핵심 Ni 초합금 5종에 elevated_temp (σy/UTS/E vs T) + creep_rupture 데이터 주입.
   injectTempCurves(m);
+  // R226g/축3d — 외부 곡선 테이블(data/elevated-temp-curves.json) 병합 (인라인 ELEV_DATA 우선, 없는 entry 만).
+  //   build-materials 동결 원칙: 이후 곡선 확장은 JSON + lib 만 편집.
+  attachElevCurves(m, EXT_CURVES);
 }
 
 // (R20 ELEV_DATA + injectTempCurves 는 loop 전으로 이동됨 — const hoisting 미지원으로 TDZ 회피)
