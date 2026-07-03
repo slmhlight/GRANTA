@@ -325,31 +325,35 @@ export interface MachinabilityResult {
 // Family pattern → typical rating (AISI 1212 = 100% 기준, Machining Data Handbook).
 // R205 F3/F4 정정: 1018 은 ~70% (100 아님) · 비연 황동 ~30 · 순동 ~20 (gummy) ·
 //   연질 Al 1xxx/3xxx 는 6061-T6 보다 어려움 (gummy) · refractory 는 W/Ta/Mo 차별.
+// R226i 견고성: (1) grade 지정번호(1018·430·303 등)를 단어경계(\b)로 앵커 — EN 번호(1.4303→430)·
+//   인접 grade(SCM4xx→m4·PH13-8→h13) 의 숫자/토큰 부분매칭 오분류 차단. (2) 매칭 전 machiningKey 가
+//   조건절 측정치(1100°C·900 HV 등)를 제거 — 온도·경도 숫자가 grade 번호로 오인되는 것 방지.
 const MACHINABILITY: Array<[RegExp, number]> = [
+  [/\b303\b|sus\s?303|1\.?4305|303se/i, 78],                 // 자유절삭 austenitic (100 baseline 아님 · MDH ~78)
   [/free.?machining|leaded|12L14|11SMnPb|c36000|brass.*free|1144|stressproof|c14500|tellurium/i, 100],
   [/416\b.*stainless|stainless.*416/i, 85],
-  [/aluminum.*2011|6262/i, 90],
-  [/aluminum.*6\d{3}|6061|6063|6082/i, 60],
-  [/aluminum.*7\d{3}|7075|7050/i, 60],
-  [/aluminum.*2\d{3}|2024|2219/i, 65],
-  [/aluminum.*5\d{3}|5052|5083/i, 50],
-  [/aluminum.*1\d{3}|1100\b|aluminum.*3\d{3}/i, 35],
+  [/aluminum.*2011|\b6262\b/i, 90],
+  [/aluminum.*6\d{3}|\b6061\b|\b6063\b|\b6082\b/i, 60],
+  [/aluminum.*7\d{3}|\b7075\b|\b7050\b/i, 60],
+  [/aluminum.*2\d{3}|\b2024\b|\b2219\b/i, 65],
+  [/aluminum.*5\d{3}|\b5052\b|\b5083\b/i, 50],
+  [/aluminum.*1\d{3}|\b1100\b|aluminum.*3\d{3}/i, 35],
   [/alsi10mg|alsi7mg|aluminum/i, 55],
   [/brass|c[34]\d{4}/i, 30],
   [/copper.*pure|ofhc|c11000|c10100|c10200|c12200/i, 20],
   [/copper.*cr.?zr|cucrzr/i, 55],
-  [/1018|1020|carbon steel.*low|sae 10[12]\d/i, 70],
-  [/4140|42crmo|42crmo4|scm440/i, 60],
+  [/\b1018\b|\b1020\b|carbon steel.*low|sae 10[12]\d/i, 70],
+  [/\b413[05]\b|4140|42crmo|42crmo4|scm4[1345]\d|31crmov/i, 60],   // 4130/4135/SCM4xx Cr-Mo 계
   [/4340|sncm/i, 50],
   [/8620|9310|carburizing/i, 65],
   [/52100|100cr6|bearing steel/i, 40],
   [/maraging/i, 45],
-  [/tool steel|d2|d3|h13|h11|m2|m4|skd|cpm/i, 35],
-  [/stainless.*ferritic|409|430|439/i, 55],
-  [/stainless.*martensitic|410|420|440/i, 45],
-  [/stainless.*austenitic|304|316l?|309|310|321/i, 40],
-  [/stainless.*ph|17-?4|15-?5|13-?8|custom 465/i, 35],
-  [/stainless.*duplex|2205|2507/i, 30],
+  [/tool steel|\bd2\b|\bd3\b|\bh1[13]\b|\bm[24]\b|skd|cpm/i, 35],   // d2/d3/h13/h11/m2/m4 단어경계 (SCM4xx·PH13 오매칭 방지)
+  [/stainless.*ph|17-?4|15-?5|13-?8|custom 465/i, 35],             // PH 특정 grade — ferritic/martensitic subcat 매칭보다 우선
+  [/stainless.*ferritic|\b409\b|\b430\b|\b439\b/i, 55],             // \b: EN 1.4303·UNS 부분매칭 방지
+  [/stainless.*martensitic|\b410\b|\b420\b|\b440[a-c]?\b/i, 45],
+  [/stainless.*austenitic|\b304l?\b|\b316l?\b|\b309\b|\b310s?\b|\b321\b/i, 40],
+  [/stainless.*duplex|\b2205\b|\b2507\b/i, 30],
   [/nickel.*super|inconel 718|inconel 625|inconel 600|hastelloy|nimonic|waspaloy|udimet|rene|incoloy 800/i, 15],
   [/inconel 617|haynes 230|hastelloy x|haynes 282/i, 12],
   [/cobalt|stellite|cocrmo|l605|f-?75/i, 10],
@@ -357,13 +361,21 @@ const MACHINABILITY: Array<[RegExp, number]> = [
   [/titanium|ti6al4v|ti-6al-4v|ti5-8-5/i, 22],
   [/tungsten/i, 8],
   [/tantalum|niobium/i, 45],
-  [/molybdenum|tzm/i, 35],
+  [/molybdenum|tzm|mo-?la|moly/i, 35],
   [/refractory/i, 18],
 ];
 
+/* 절삭성 매칭 키 — subcategory + name 에서 측정치 토큰(온도·경도·응력)을 제거.
+ * "Solution treated (1100°C)" 의 1100 이 Al 1xxx grade 로, "1020°C" 가 carbon steel 1020 으로,
+ * "case 900~1100 HV" 의 1100 이 Al 로 오분류되던 문제 방지 (grade 번호는 단위를 동반하지 않음). */
+function machiningKey(material: Material): string {
+  return `${material.subcategory || ''} ${material.name || ''}`
+    .replace(/\d+(?:[.,]\d+)?\s*(?:°\s*[cf]?|h(?:v|rc|rb|ra|b)|[mg]pa|ksi)\b/gi, ' ');
+}
+
 export function computeMachinability(material: Material): MachinabilityResult | null {
   if (material.category !== 'Metal') return null;
-  const key = `${material.subcategory || ''} ${material.name}`;
+  const key = machiningKey(material);
   for (const [rx, r] of MACHINABILITY) {
     if (rx.test(key)) {
       const band: MachinabilityResult['band'] =
@@ -438,7 +450,7 @@ const POLYMER_MACHINABILITY: Array<{ re: RegExp; band: PolymerMachResult['band']
 /** 폴리머 절삭성 정성 평가 (category==='Polymer' 만). 패밀리 미매칭 시 강성 엔지니어링 열가소성(우수)으로 기본 처리. */
 export function computePolymerMachinability(material: Material): PolymerMachResult | null {
   if (material.category !== 'Polymer') return null;
-  const key = `${material.subcategory || ''} ${material.name || ''}`;
+  const key = machiningKey(material);
   for (const t of POLYMER_MACHINABILITY) {
     if (t.re.test(key)) return { band: t.band, label: t.label, note: t.note };
   }

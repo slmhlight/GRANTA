@@ -544,7 +544,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         )}
                         <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
                           {material.category === 'Polymer' ? (
-                            <><b>출처 / 기준</b>: ASM Handbook Vol.16 (Machining of Plastics·Composites) · 제조사 가공 가이드(Ensinger·Curbell·Quadrant) · 정성 평가(수치 rating 아님) — 금속 tool-life(ISO 3685·AISI baseline)·가공비 인자 미적용.</>
+                            <><b>출처 / 기준</b>: 플라스틱 절삭 가공 지침 — 엔지니어링 플라스틱 제조사 가공 가이드(Ensinger · Curbell Plastics · Mitsubishi Chemical Advanced Materials/구 Quadrant 등). 정성 평가(수치 rating 없음).</>
                           ) : (
                             <><b>출처 / 기준</b>: ASM Handbook Vol.16 Machining · ISO 3685 (tool life) · AISI 1212 = rating 100% 기준 · raw 단가 × cost factor = 가공 후 추정 단가 (vendor 견적과 ±20-30% 차이).</>
                           )}
