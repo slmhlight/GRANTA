@@ -10,6 +10,8 @@ import type { Material } from '@/lib/materials';
 import profilesData from '../../../data/process-profiles.json';
 import guidanceData from '../../../data/machining-guidance.json';
 import insightsData from '../../../data/selection-insights.json';
+import htGuidanceData from '../../../data/ht-guidance.json';
+import weldGuidanceData from '../../../data/welding-guidance.json';
 
 export interface MachinabilityResult {
   rating: number;
@@ -70,6 +72,33 @@ export function resolveMachiningGuidance(m: Material): string | null {
 /** 절삭성 출처 라벨 (카테고리별). */
 export function machinabilitySources(m: Material): string[] {
   return m.category === 'Polymer' ? MACH_SOURCES.polymer : MACH_SOURCES.metal;
+}
+
+interface GuidanceBlock { pattern: string; field: string; nonferrous_only?: boolean; text: string }
+const HT_GUIDANCE = (htGuidanceData as any).blocks as Record<string, GuidanceBlock>;
+const WELD_GUIDANCE = (weldGuidanceData as any).blocks as Record<string, GuidanceBlock>;
+
+/** HT 주의사항 가이드 (R226k) — name-키(m.profiles.htg) + 조건 클래스(hip/case) 블록의 배열.
+ *  구 인라인에서는 매칭 블록이 모두 연결 표시됐던 의미를 배열로 보존 (예: Ti STA + HIP). */
+export function resolveHtGuidanceTexts(m: Material): string[] {
+  const out: string[] = [];
+  const htg = m.profiles?.htg;
+  if (htg && HT_GUIDANCE[htg]) out.push(HT_GUIDANCE[htg].text);
+  const htc = m.profiles?.htc;
+  if (htc === 'hip' && HT_GUIDANCE['hip']) out.push(HT_GUIDANCE['hip'].text);
+  if (htc === 'case' && HT_GUIDANCE['case']) out.push(HT_GUIDANCE['case'].text);
+  return out;
+}
+
+/** 합금별 용접 권고 (R226k) — m.profiles.wg 조회. nonferrous_only 블록은 CE 지표가 없을 때만
+ *  (구 !weldWorst 가드 의미 보존 — CE 강은 정량 지표+권고절차가 이미 표시됨). */
+export function resolveWeldGuidance(m: Material, hasCeMetrics: boolean): string | null {
+  const wg = m.profiles?.wg;
+  if (!wg) return null;
+  const b = WELD_GUIDANCE[wg];
+  if (!b) return null;
+  if (b.nonferrous_only && hasCeMetrics) return null;
+  return b.text;
 }
 
 /** 재료 선택 인사이트 그룹 (E9 — when-to-use). */

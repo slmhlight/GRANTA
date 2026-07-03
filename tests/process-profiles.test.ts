@@ -53,6 +53,14 @@ describe('process-profile-assignments 무결성', () => {
     const bad = Object.entries(A).filter(([, a]) => a.ht && !HT_FAMILY_NAMES.has(a.ht));
     expect(bad.map(([id, a]) => `${id}:${a.ht}`)).toEqual([]);
   });
+  it('htg/wg 키는 가이드 콘텐츠에 정의됨 (R226k)', () => {
+    const HTG = readJ('data/ht-guidance.json').blocks as Record<string, any>;
+    const WGB = readJ('data/welding-guidance.json').blocks as Record<string, any>;
+    const badH = Object.entries(A).filter(([, a]) => a.htg && !HTG[a.htg]);
+    const badW = Object.entries(A).filter(([, a]) => a.wg && !WGB[a.wg]);
+    expect(badH.map(([id, a]) => `${id}:${a.htg}`)).toEqual([]);
+    expect(badW.map(([id, a]) => `${id}:${a.wg}`)).toEqual([]);
+  });
   it('insight 키는 selection-insights 에 정의됨 + 모든 그룹이 실제 사용됨 (죽은 콘텐츠 방지)', () => {
     const used = new Set(Object.values(A).map((a: any) => a.insight).filter(Boolean));
     const badRef = [...used].filter(k => !INSIGHTS[k as string]);

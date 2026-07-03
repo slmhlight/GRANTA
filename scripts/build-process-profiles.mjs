@@ -34,6 +34,15 @@ if (htFamilies.length < 25) {
   process.exit(1);
 }
 
+// 1b) HT·용접 가이드 블록 매처 (R226k — 패턴 SSOT = 콘텐츠 JSON 자체; field=name 만 할당 대상)
+const loadBlocks = (file) => Object.entries(JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8')).blocks)
+  .filter(([, b]) => b.field === 'name')
+  .map(([key, b]) => ({ key, re: new RegExp(b.pattern, 'i') }));
+const HTG = loadBlocks('ht-guidance.json');
+const WG = loadBlocks('welding-guidance.json');
+const stripMeas = (s) => String(s || '').replace(/\d+(?:[.,]\d+)?\s*(?:°\s*[cf]?|h(?:v|rc|rb|ra|b)|[mg]pa|ksi)\b/gi, ' ');
+const firstKey = (list, name) => { for (const b of list) if (b.re.test(name)) return b.key; return null; };
+
 // 2) 레지스트리 전 entry 분류
 const assignments = {};
 let count = 0;
@@ -52,6 +61,12 @@ for (const cc of fs.readdirSync(REG)) {
     if (rec.category === 'Metal') {
       const htf = classifyHtFamily(rec.name, htFamilies);
       if (htf) a.ht = htf;
+      // R226k — HT 주의사항·용접 권고 가이드 키 (구 인라인 name-regex 83블록의 빌드타임 대체)
+      const nm = stripMeas(rec.name);
+      const htg = firstKey(HTG, nm);
+      if (htg) a.htg = htg;
+      const wg = firstKey(WG, nm);
+      if (wg) a.wg = wg;
     }
     const ins = classifyInsightGroup(rec.category, rec.subcategory);
     if (ins) a.insight = ins;
