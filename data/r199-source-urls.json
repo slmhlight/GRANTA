@@ -3,180 +3,391 @@
   "_strategy": "Base alloy 별 namePattern regex → 정확한 handbook source 매핑 (ASM / MMPDS / ASTM / vendor datasheets).",
   "mappings": [
     {
-      "namePattern": "^AISI 1(0[1-9][0-9]|1[0-9][0-9])\\b",
       "source": {
         "label": "ASM Handbook Vol.1 (Carbon and Low-Alloy Steels) — AISI 1xxx series",
         "url": "https://www.asminternational.org/handbooks",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0234",
+        "MET-0237",
+        "MET-0238",
+        "MET-0239",
+        "MET-0242",
+        "MET-0243",
+        "MET-0244",
+        "MET-0245",
+        "MET-0248",
+        "MET-0249",
+        "MET-0250",
+        "MET-0253",
+        "MET-0254",
+        "MET-0255",
+        "MET-0258",
+        "MET-0259",
+        "MET-0260",
+        "MET-0263",
+        "MET-0264",
+        "MET-0265",
+        "MET-0266",
+        "MET-0269",
+        "MET-0270",
+        "MET-0271",
+        "MET-0274",
+        "MET-0275",
+        "MET-0276",
+        "MET-0279",
+        "MET-0280",
+        "MET-0281",
+        "MET-0282",
+        "MET-0283",
+        "MET-0284",
+        "MET-1004",
+        "MET-1005",
+        "MET-1006",
+        "MET-1007",
+        "MET-1008",
+        "MET-1009",
+        "MET-1010"
+      ],
+      "_namePattern_ref": "^AISI 1(0[1-9][0-9]|1[0-9][0-9])\\b"
     },
     {
-      "namePattern": "^AISI 4(1[0-9][0-9]|3[0-9][0-9])\\b",
       "source": {
         "label": "MMPDS-08 Sec.1.5 + ASM Handbook Vol.1 — AISI 4xxx (Cr-Mo / Cr-Ni-Mo)",
         "url": "https://www.asminternational.org/handbooks",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0023",
+        "MET-0024",
+        "MET-0025",
+        "MET-0026",
+        "MET-0027",
+        "MET-0028",
+        "MET-0029",
+        "MET-0086",
+        "MET-0089",
+        "MET-0090"
+      ],
+      "_namePattern_ref": "^AISI 4(1[0-9][0-9]|3[0-9][0-9])\\b"
     },
     {
-      "namePattern": "^AISI 5(1[0-9][0-9]|2[0-9][0-9])\\b",
       "source": {
         "label": "ASM Handbook Vol.1 — AISI 5xxx (Cr alloy steel) + SAE J404",
         "url": "https://www.sae.org/standards/content/j404/",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0034",
+        "MET-0035",
+        "MET-0038",
+        "MET-0039",
+        "MET-0040",
+        "MET-0043",
+        "MET-0044",
+        "MET-0045",
+        "MET-1001",
+        "MET-1002"
+      ],
+      "_namePattern_ref": "^AISI 5(1[0-9][0-9]|2[0-9][0-9])\\b"
     },
     {
-      "namePattern": "^AISI 6(1[0-9][0-9])\\b",
       "source": {
         "label": "ASM Handbook Vol.1 + SAE J404 — AISI 6xxx (Cr-V spring steel)",
         "url": "https://www.sae.org/standards/content/j404/",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0047",
+        "MET-0050",
+        "MET-0051",
+        "MET-1003"
+      ],
+      "_namePattern_ref": "^AISI 6(1[0-9][0-9])\\b"
     },
     {
-      "namePattern": "^AISI (310|321|347)\\b",
       "source": {
         "label": "Outokumpu / Sandvik — AISI 310/321/347 stabilized austenitic stainless (ASTM A240)",
         "url": "https://www.outokumpu.com/en/datasheets",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0727",
+        "MET-0730",
+        "MET-0744",
+        "MET-0747",
+        "MET-0748",
+        "MET-0751"
+      ],
+      "_namePattern_ref": "^AISI (310|321|347)\\b"
     },
     {
-      "namePattern": "^AISI (405|409|430|434|439|446)\\b",
       "source": {
         "label": "Outokumpu / Aperam — AISI 4xx ferritic stainless (ASTM A240)",
         "url": "https://www.outokumpu.com/en/datasheets",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0776",
+        "MET-0779",
+        "MET-0785",
+        "MET-0788",
+        "MET-0789",
+        "MET-0792",
+        "MET-0804"
+      ],
+      "_namePattern_ref": "^AISI (405|409|430|434|439|446)\\b"
     },
     {
-      "namePattern": "^AA 2(011|017|025|050|099|618)\\b",
       "source": {
         "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
         "url": "https://www.aluminum.org/standards",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0097",
+        "MET-0098",
+        "MET-0099",
+        "MET-0103",
+        "MET-0104",
+        "MET-0105",
+        "MET-0114",
+        "MET-0115",
+        "MET-0116",
+        "MET-0120",
+        "MET-0121",
+        "MET-0122",
+        "MET-0125",
+        "MET-0126"
+      ],
+      "_namePattern_ref": "^AA 2(011|017|025|050|099|618)\\b"
     },
     {
-      "namePattern": "^AA 3(003|004|005|105)\\b",
       "source": {
         "label": "Aluminum Association — AA 3xxx (Al-Mn) + MMPDS-08 Sec.3.5",
         "url": "https://www.aluminum.org/standards",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0153",
+        "MET-0154",
+        "MET-0155",
+        "MET-0156",
+        "MET-0157",
+        "MET-0158",
+        "MET-0159",
+        "MET-0160"
+      ],
+      "_namePattern_ref": "^AA 3(003|004|005|105)\\b"
     },
     {
-      "namePattern": "^AA 5(0[5-9][0-9]|[1-7][0-9][0-9])\\b",
       "source": {
         "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
         "url": "https://www.aluminum.org/standards",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0133",
+        "MET-0134",
+        "MET-0135",
+        "MET-0136",
+        "MET-0137",
+        "MET-0138",
+        "MET-0139",
+        "MET-0140",
+        "MET-0141",
+        "MET-0142",
+        "MET-0143",
+        "MET-0144",
+        "MET-0145",
+        "MET-0146",
+        "MET-0147",
+        "MET-0148",
+        "MET-0149",
+        "MET-0150",
+        "MET-0151",
+        "MET-0152"
+      ],
+      "_namePattern_ref": "^AA 5(0[5-9][0-9]|[1-7][0-9][0-9])\\b"
     },
     {
-      "namePattern": "^AA 6(101|111|262)\\b",
       "source": {
         "label": "Aluminum Association — AA 6xxx (Al-Mg-Si) + MMPDS-08 Sec.3.6",
         "url": "https://www.aluminum.org/standards",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0193",
+        "MET-0194",
+        "MET-0195",
+        "MET-0197",
+        "MET-0198",
+        "MET-0199"
+      ],
+      "_namePattern_ref": "^AA 6(101|111|262)\\b"
     },
     {
-      "namePattern": "^AZ80A\\b",
       "source": {
         "label": "ASTM B107 + Magnesium Elektron — AZ80A (Mg-Al-Zn high-strength wrought)",
         "url": "https://www.magnesium-elektron.com/products/elektron-az80/",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0470"
+      ],
+      "_namePattern_ref": "^AZ80A\\b"
     },
     {
-      "namePattern": "^ZE63A\\b",
       "source": {
         "label": "ASTM B80 + Magnesium Elektron — ZE63A (Mg-Zn-RE cast)",
         "url": "https://www.magnesium-elektron.com/",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0477"
+      ],
+      "_namePattern_ref": "^ZE63A\\b"
     },
     {
-      "namePattern": "^(Be-Cu|Beryllium)\\b",
       "source": {
         "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
         "url": "https://materion.com/products/performance-alloys",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0231",
+        "MET-0361",
+        "MET-0363",
+        "MET-0364"
+      ],
+      "_namePattern_ref": "^(Be-Cu|Beryllium)\\b"
     },
     {
-      "namePattern": "^C(12000|14500|27000|28000|44300)\\b",
       "source": {
         "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
         "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0375",
+        "MET-0380",
+        "MET-0400",
+        "MET-0448",
+        "MET-0449"
+      ],
+      "_namePattern_ref": "^C(12000|14500|27000|28000|44300)\\b"
     },
     {
-      "namePattern": "^(D2|H11|O1)\\b",
       "source": {
         "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
         "url": "https://www.bucorp.com/specialty-tool-steels",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0944",
+        "MET-0946",
+        "MET-0956",
+        "MET-0957",
+        "MET-0969",
+        "MET-0970",
+        "MET-0971"
+      ],
+      "_namePattern_ref": "^(D2|H11|O1)\\b"
     },
     {
-      "namePattern": "^Mo-0\\.5Ti\\b",
       "source": {
         "label": "Plansee TZM/Mo-Ti — Mo-0.5Ti (TZC) refractory alloy datasheet",
         "url": "https://www.plansee.com/en/materials/molybdenum.html",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0644"
+      ],
+      "_namePattern_ref": "^Mo-0\\.5Ti\\b"
     },
     {
-      "namePattern": "^Nb-1Zr\\b",
       "source": {
         "label": "ATI Wah Chang — Nb-1Zr (UNS R04261) refractory alloy",
         "url": "https://www.atimaterials.com/Products/Pages/Niobium-and-Niobium-Alloys.aspx",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0652"
+      ],
+      "_namePattern_ref": "^Nb-1Zr\\b"
     },
     {
-      "namePattern": "^Ti Grade 7\\b",
       "source": {
         "label": "ASTM B265 + ATI Wah Chang — Ti Grade 7 (Ti-0.15Pd, corrosion-resistant)",
         "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0891",
+        "MET-0892",
+        "MET-0895"
+      ],
+      "_namePattern_ref": "^Ti Grade 7\\b"
     },
     {
-      "namePattern": "^Ti-(5-2-5|6-2-4-6|8-1-1)\\b",
       "source": {
         "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
         "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0904",
+        "MET-0905",
+        "MET-0908",
+        "MET-0910",
+        "MET-0911",
+        "MET-0914",
+        "MET-0933",
+        "MET-0934",
+        "MET-0937"
+      ],
+      "_namePattern_ref": "^Ti-(5-2-5|6-2-4-6|8-1-1)\\b"
     },
     {
-      "namePattern": "^(PE|PTFE|PVDF)\\b",
       "source": {
         "label": "Plastics International / Quadrant Engineering Plastics — PE/PTFE/PVDF datasheets",
         "url": "https://www.quadrantplastics.com/",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "POL-0090",
+        "POL-0122",
+        "POL-0126",
+        "POL-0127"
+      ],
+      "_namePattern_ref": "^(PE|PTFE|PVDF)\\b"
     },
     {
-      "namePattern": "^CMC\\b",
       "source": {
         "label": "CoorsTek / CeramTec — CMC (Ceramic Matrix Composite) typical SiC/SiC datasheet",
         "url": "https://www.coorstek.com/english/products/",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "CMP-0016",
+        "CMP-0017"
+      ],
+      "_namePattern_ref": "^CMC\\b"
     },
     {
-      "namePattern": "^Inconel 100 ",
       "source": {
         "label": "Howmet IN-100 + Special Metals — Inconel 100 (UNS N13100) cast γ' Ni superalloy datasheet",
         "url": "https://www.specialmetals.com/documents/technical-bulletins/in-100.pdf",
         "verified": true
-      }
+      },
+      "stableIds": [
+        "MET-0542",
+        "MET-0543",
+        "MET-0545",
+        "MET-0546"
+      ],
+      "_namePattern_ref": "^Inconel 100 "
     }
   ]
 }

@@ -2,620 +2,2574 @@
   "_note": "R205 — DB 신뢰성 전수 audit 정정. 유형: A(분류) C(condition 차별) D(정성등급) E(수치). R199 loader 확장판 (qualitative + subcategory + 강제 override 지원). R199/R201 적용 후 실행되어 세분화 정정.",
   "_reference": "ASM Handbook Vol.1/2/4/6/13 · MMPDS-08 · ASTM A240/A666/B265/F136 · Machining Data Handbook · AWS D1.1 · CDA · vendor datasheets (EOS/Carpenter/Special Metals/Haynes/Materion/Elgiloy/TIMET)",
   "overrides": [
-
-    { "namePattern": "^AISI 4340 — .*\\(Wrought\\)", "subcategory": "Alloy Steel - Ni-Cr-Mo",
-      "qual": { "weldability": "Poor" },
-      "reason": "A1+D3: CSV 가 stainless 로 오분류. 4340 weld CE≈0.8 → Poor (preheat+PWHT 필수). [SAE J404 / AWS D1.1]" },
-    { "namePattern": "^AISI 4130 — .*\\(Wrought\\)", "subcategory": "Alloy Steel - Cr-Mo",
-      "qual": { "weldability": "Good" },
-      "reason": "A1+D4: stainless 오분류 + weld Excellent 과대 (preheat 권장 CE~0.55). [SAE J404]" },
-    { "namePattern": "^AISI 4140 — .*\\(Wrought\\)", "subcategory": "Alloy Steel - Cr-Mo",
-      "reason": "A1: stainless 오분류." },
-    { "namePattern": "^AISI 4150 — .*\\(Wrought\\)", "subcategory": "Alloy Steel - Cr-Mo",
-      "qual": { "machinability": "Fair", "weldability": "Fair" },
-      "reason": "A1+D5: stainless 오분류 + Annealed cond 만 mach Exce/weld Good 불일치 (4150 rating ~40%). [MDH]" },
-    { "namePattern": "^Invar 36 \\(Fe-36Ni\\) — (As-built|Heat-Treated)", "subcategory": "Controlled Expansion Alloy",
-      "reason": "A2: Invar 는 Cr 없음 — stainless 아님. wrought Invar 와 동일 분류로 통일. [ASTM F1684]" },
-    { "namePattern": "^Stainless Steel 415", "subcategory": "Stainless Steel - Ferritic/Martensitic",
-      "reason": "A: S41500 martensitic stainless 가 steel 로 분류됨." },
-    { "namePattern": "^Stainless Steel 420 \\(martensitic\\)", "subcategory": "Stainless Steel - Ferritic/Martensitic",
-      "ranges": {
-        "yield_strength": { "typical": 1600, "min": 1480, "max": 1720, "confidence": "handbook" },
-        "uts":            { "typical": 1750, "min": 1620, "max": 1880, "confidence": "handbook" },
-        "elongation":     { "typical": 8, "min": 5, "max": 12, "confidence": "handbook" }
+    {
+      "subcategory": "Alloy Steel - Ni-Cr-Mo",
+      "qual": {
+        "weldability": "Poor"
       },
-      "reason": "A+E26: 분류 + σy/UTS/El null 누락 (HV 588 = HRC 55 hardened 에 맞는 값 보강). [ASM Vol.1 420 hardened]" },
-
-    { "namePattern": "^AISI 440C — Quenched / tempered",
-      "ranges": {
-        "yield_strength":   { "typical": 1900, "min": 1790, "max": 1970, "confidence": "handbook" },
-        "uts":              { "typical": 1960, "min": 1860, "max": 2030, "confidence": "handbook" },
-        "elongation":       { "typical": 2, "min": 1, "max": 4, "confidence": "handbook" },
-        "hardness":         { "typical": 580, "min": 560, "max": 640, "confidence": "handbook" },
-        "fatigue_strength": { "typical": 500, "min": 400, "max": 650, "confidence": "handbook" }
+      "reason": "A1+D3: CSV 가 stainless 로 오분류. 4340 weld CE≈0.8 → Poor (preheat+PWHT 필수). [SAE J404 / AWS D1.1]",
+      "stableIds": [],
+      "_namePattern_ref": "^AISI 4340 — .*\\(Wrought\\)"
+    },
+    {
+      "subcategory": "Alloy Steel - Cr-Mo",
+      "qual": {
+        "weldability": "Good"
       },
-      "reason": "C2: R201 override 가 Q+T 까지 annealed 값 (480/760) 으로 flatten. Q+T = HRC 58-60. [ASM Vol.1]" },
-
-    { "namePattern": "^Ti Grade 23 — ",
-      "composition": { "Ti": "balance", "Al": "5.5~6.5", "V": "3.5~4.5", "Fe": "≤0.25", "O": "≤0.13" },
-      "ranges": {
-        "yield_strength": { "typical": 790, "min": 760, "max": 875, "confidence": "handbook" },
-        "uts":            { "typical": 860, "min": 825, "max": 930, "confidence": "handbook" },
-        "elongation":     { "typical": 15, "min": 10, "max": 18, "confidence": "handbook" },
-        "modulus":        { "typical": 113, "min": 110, "max": 115, "confidence": "handbook" },
-        "hardness":       { "typical": 320, "min": 300, "max": 350, "confidence": "handbook" },
-        "density":        { "typical": 4.43, "min": 4.43, "max": 4.43, "confidence": "handbook" },
-        "thermal_conductivity": { "typical": 6.7, "min": 6.5, "max": 7.0, "confidence": "handbook" },
-        "max_service_temp": { "typical": 350, "min": 315, "max": 400, "confidence": "handbook" },
-        "melting_point":  { "typical": 1660, "min": 1650, "max": 1670, "confidence": "handbook" }
+      "reason": "A1+D4: stainless 오분류 + weld Excellent 과대 (preheat 권장 CE~0.55). [SAE J404]",
+      "stableIds": [],
+      "_namePattern_ref": "^AISI 4130 — .*\\(Wrought\\)"
+    },
+    {
+      "subcategory": "Alloy Steel - Cr-Mo",
+      "reason": "A1: stainless 오분류.",
+      "stableIds": [],
+      "_namePattern_ref": "^AISI 4140 — .*\\(Wrought\\)"
+    },
+    {
+      "subcategory": "Alloy Steel - Cr-Mo",
+      "qual": {
+        "machinability": "Fair",
+        "weldability": "Fair"
       },
-      "qual": { "machinability": "Poor", "weldability": "Good", "corrosion_resistance": "Excellent" },
-      "reason": "C17 CRITICAL: Grade 23 = Ti-6Al-4V ELI 인데 CP-Ti 값 (275/345) 박힘. 2.8× 오차. [ASTM F136 / AMS 4931]" },
-    { "namePattern": "^Ti Grade 1 — ",
+      "reason": "A1+D5: stainless 오분류 + Annealed cond 만 mach Exce/weld Good 불일치 (4150 rating ~40%). [MDH]",
+      "stableIds": [
+        "MET-0086",
+        "MET-0089",
+        "MET-0090"
+      ],
+      "_namePattern_ref": "^AISI 4150 — .*\\(Wrought\\)"
+    },
+    {
+      "subcategory": "Controlled Expansion Alloy",
+      "reason": "A2: Invar 는 Cr 없음 — stainless 아님. wrought Invar 와 동일 분류로 통일. [ASTM F1684]",
+      "stableIds": [
+        "MET-0358",
+        "MET-0359"
+      ],
+      "_namePattern_ref": "^Invar 36 \\(Fe-36Ni\\) — (As-built|Heat-Treated)"
+    },
+    {
+      "subcategory": "Stainless Steel - Ferritic/Martensitic",
+      "reason": "A: S41500 martensitic stainless 가 steel 로 분류됨.",
+      "stableIds": [
+        "MET-0819"
+      ],
+      "_namePattern_ref": "^Stainless Steel 415"
+    },
+    {
+      "subcategory": "Stainless Steel - Ferritic/Martensitic",
       "ranges": {
-        "yield_strength": { "typical": 170, "min": 138, "max": 240, "confidence": "handbook" },
-        "uts":            { "typical": 240, "min": 240, "max": 310, "confidence": "handbook" },
-        "elongation":     { "typical": 28, "min": 24, "max": 37, "confidence": "handbook" },
-        "hardness":       { "typical": 120, "min": 110, "max": 150, "confidence": "handbook" },
-        "max_service_temp": { "typical": 315, "min": 300, "max": 400, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 1600,
+          "min": 1480,
+          "max": 1720,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 1750,
+          "min": 1620,
+          "max": 1880,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 8,
+          "min": 5,
+          "max": 12,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C16: R201 이 Grade 2 값으로 flatten. Gr1 = 최연질 CP-Ti. + Tmax 170/300 불일치 통일. [ASTM B265]" },
-    { "namePattern": "^Ti Grade 2 — ",
-      "ranges": { "max_service_temp": { "typical": 315, "min": 300, "max": 400, "confidence": "handbook" } },
-      "reason": "E12: Tmax 통일." },
-    { "namePattern": "^Ti Grade 3 — ",
+      "reason": "A+E26: 분류 + σy/UTS/El null 누락 (HV 588 = HRC 55 hardened 에 맞는 값 보강). [ASM Vol.1 420 hardened]",
+      "stableIds": [
+        "MET-0820"
+      ],
+      "_namePattern_ref": "^Stainless Steel 420 \\(martensitic\\)"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 380, "min": 380, "max": 450, "confidence": "handbook" },
-        "uts":            { "typical": 450, "min": 450, "max": 550, "confidence": "handbook" },
-        "elongation":     { "typical": 18, "min": 18, "max": 28, "confidence": "handbook" },
-        "hardness":       { "typical": 225, "min": 200, "max": 250, "confidence": "handbook" },
-        "max_service_temp": { "typical": 315, "min": 300, "max": 400, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 1900,
+          "min": 1790,
+          "max": 1970,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 1960,
+          "min": 1860,
+          "max": 2030,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 2,
+          "min": 1,
+          "max": 4,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 580,
+          "min": 560,
+          "max": 640,
+          "confidence": "handbook"
+        },
+        "fatigue_strength": {
+          "typical": 500,
+          "min": 400,
+          "max": 650,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C16: Grade 2 값 flatten 정정. [ASTM B265]" },
-    { "namePattern": "^Ti Grade 4 — ",
+      "reason": "C2: R201 override 가 Q+T 까지 annealed 값 (480/760) 으로 flatten. Q+T = HRC 58-60. [ASM Vol.1]",
+      "stableIds": [
+        "MET-0802"
+      ],
+      "_namePattern_ref": "^AISI 440C — Quenched / tempered"
+    },
+    {
+      "composition": {
+        "Ti": "balance",
+        "Al": "5.5~6.5",
+        "V": "3.5~4.5",
+        "Fe": "≤0.25",
+        "O": "≤0.13"
+      },
       "ranges": {
-        "yield_strength": { "typical": 480, "min": 480, "max": 560, "confidence": "handbook" },
-        "uts":            { "typical": 550, "min": 550, "max": 680, "confidence": "handbook" },
-        "elongation":     { "typical": 15, "min": 15, "max": 25, "confidence": "handbook" },
-        "hardness":       { "typical": 253, "min": 230, "max": 280, "confidence": "handbook" },
-        "max_service_temp": { "typical": 315, "min": 300, "max": 400, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 790,
+          "min": 760,
+          "max": 875,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 860,
+          "min": 825,
+          "max": 930,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 15,
+          "min": 10,
+          "max": 18,
+          "confidence": "handbook"
+        },
+        "modulus": {
+          "typical": 113,
+          "min": 110,
+          "max": 115,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 320,
+          "min": 300,
+          "max": 350,
+          "confidence": "handbook"
+        },
+        "density": {
+          "typical": 4.43,
+          "min": 4.43,
+          "max": 4.43,
+          "confidence": "handbook"
+        },
+        "thermal_conductivity": {
+          "typical": 6.7,
+          "min": 6.5,
+          "max": 7,
+          "confidence": "handbook"
+        },
+        "max_service_temp": {
+          "typical": 350,
+          "min": 315,
+          "max": 400,
+          "confidence": "handbook"
+        },
+        "melting_point": {
+          "typical": 1660,
+          "min": 1650,
+          "max": 1670,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C16: Grade 2 값 flatten 정정. [ASTM B265]" },
-    { "namePattern": "^Ti Grade 7 — ",
-      "ranges": { "max_service_temp": { "typical": 315, "min": 300, "max": 400, "confidence": "handbook" } },
-      "qual": { "machinability": "Good", "corrosion_resistance": "Excellent" },
-      "reason": "E12+C: Tmax 170/300 불일치 + 2 conds mach=Exce/corr=Good mock 통일. [ASTM B265 Gr7]" },
-    { "namePattern": "^Ti-6Al-2Sn-4Zr-2Mo — (Alpha-beta|Beta annealed)",
-      "ranges": { "max_service_temp": { "typical": 480, "min": 450, "max": 540, "confidence": "handbook" } },
-      "reason": "E13: 6242 는 고온 Ti 대표 (~540°C 사용). wrought 315 너무 낮음. [TIMET 6242]" },
-    { "namePattern": "^Ti-5-2-5 — ",
-      "ranges": { "hardness": { "typical": 330, "min": 310, "max": 350, "confidence": "handbook" } },
-      "reason": "C18: σy flatten 후 HV mock (294-338) 잔존 통일." },
-    { "namePattern": "^Ti-6-2-4-6 — ",
-      "ranges": { "hardness": { "typical": 365, "min": 340, "max": 390, "confidence": "handbook" } },
-      "qual": { "machinability": "Poor", "corrosion_resistance": "Excellent" },
-      "reason": "C18: HV mock + 2 conds mach=Exce/corr=Good 불일치 통일." },
-    { "namePattern": "^Ti-8-1-1 — ",
-      "ranges": { "hardness": { "typical": 335, "min": 315, "max": 360, "confidence": "handbook" } },
-      "reason": "C18: HV mock 통일." },
-    { "namePattern": "^Ti CP Gr2 — Heat-Treated",
-      "ranges": { "hardness": { "typical": 180, "min": 160, "max": 210, "confidence": "handbook" } },
-      "reason": "E24: HV=5 불가능 값." },
-
-    { "namePattern": "^AISI 304 — Strain-hardened",
+      "qual": {
+        "machinability": "Poor",
+        "weldability": "Good",
+        "corrosion_resistance": "Excellent"
+      },
+      "reason": "C17 CRITICAL: Grade 23 = Ti-6Al-4V ELI 인데 CP-Ti 값 (275/345) 박힘. 2.8× 오차. [ASTM F136 / AMS 4931]",
+      "stableIds": [
+        "MET-0878",
+        "MET-0879",
+        "MET-0882"
+      ],
+      "_namePattern_ref": "^Ti Grade 23 — "
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 515, "min": 515, "max": 760, "confidence": "handbook" },
-        "uts":            { "typical": 860, "min": 860, "max": 1000, "confidence": "handbook" },
-        "elongation":     { "typical": 12, "min": 10, "max": 25, "confidence": "handbook" },
-        "hardness":       { "typical": 250, "min": 230, "max": 320, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 170,
+          "min": 138,
+          "max": 240,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 240,
+          "min": 240,
+          "max": 310,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 28,
+          "min": 24,
+          "max": 37,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 120,
+          "min": 110,
+          "max": 150,
+          "confidence": "handbook"
+        },
+        "max_service_temp": {
+          "typical": 315,
+          "min": 300,
+          "max": 400,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C1: R199 가 annealed 값으로 flatten. 1/4H 급 복원. [ASTM A666]" },
-    { "namePattern": "^AISI 304L — Strain-hardened",
+      "reason": "C16: R201 이 Grade 2 값으로 flatten. Gr1 = 최연질 CP-Ti. + Tmax 170/300 불일치 통일. [ASTM B265]",
+      "stableIds": [
+        "MET-0868",
+        "MET-0871"
+      ],
+      "_namePattern_ref": "^Ti Grade 1 — "
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 480, "min": 480, "max": 700, "confidence": "handbook" },
-        "uts":            { "typical": 830, "min": 830, "max": 960, "confidence": "handbook" },
-        "elongation":     { "typical": 12, "min": 10, "max": 25, "confidence": "handbook" },
-        "hardness":       { "typical": 240, "min": 220, "max": 310, "confidence": "handbook" }
+        "max_service_temp": {
+          "typical": 315,
+          "min": 300,
+          "max": 400,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C1: 동일 (L grade 약간 낮음). [ASTM A666]" },
-    { "namePattern": "^AISI (310|316|321|347) — Strain-hardened",
+      "reason": "E12: Tmax 통일.",
+      "stableIds": [
+        "MET-0874",
+        "MET-0877"
+      ],
+      "_namePattern_ref": "^Ti Grade 2 — "
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 515, "min": 515, "max": 760, "confidence": "handbook" },
-        "uts":            { "typical": 860, "min": 860, "max": 1000, "confidence": "handbook" },
-        "elongation":     { "typical": 12, "min": 10, "max": 25, "confidence": "handbook" },
-        "hardness":       { "typical": 250, "min": 230, "max": 320, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 380,
+          "min": 380,
+          "max": 450,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 450,
+          "min": 450,
+          "max": 550,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 18,
+          "min": 18,
+          "max": 28,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 225,
+          "min": 200,
+          "max": 250,
+          "confidence": "handbook"
+        },
+        "max_service_temp": {
+          "typical": 315,
+          "min": 300,
+          "max": 400,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C1: 동일 flatten 정정. [ASTM A666]" },
-
-    { "namePattern": "^AISI 1040 — Quenched / tempered",
+      "reason": "C16: Grade 2 값 flatten 정정. [ASTM B265]",
+      "stableIds": [
+        "MET-0883",
+        "MET-0886"
+      ],
+      "_namePattern_ref": "^Ti Grade 3 — "
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 590, "min": 540, "max": 700, "confidence": "handbook" },
-        "uts":            { "typical": 860, "min": 780, "max": 980, "confidence": "handbook" },
-        "hardness":       { "typical": 250, "min": 230, "max": 290, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 480,
+          "min": 480,
+          "max": 560,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 550,
+          "min": 550,
+          "max": 680,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 15,
+          "min": 15,
+          "max": 25,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 253,
+          "min": 230,
+          "max": 280,
+          "confidence": "handbook"
+        },
+        "max_service_temp": {
+          "typical": 315,
+          "min": 300,
+          "max": 400,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C4: Q+T mock (313/571) 이 annealed 보다 낮음. [ASM Vol.1 1040 Q+T 540°C]" },
-    { "namePattern": "^AISI 1050 — Quenched / tempered",
+      "reason": "C16: Grade 2 값 flatten 정정. [ASTM B265]",
+      "stableIds": [
+        "MET-0887",
+        "MET-0890"
+      ],
+      "_namePattern_ref": "^Ti Grade 4 — "
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 580, "min": 530, "max": 690, "confidence": "handbook" },
-        "uts":            { "typical": 830, "min": 760, "max": 960, "confidence": "handbook" },
-        "hardness":       { "typical": 245, "min": 225, "max": 285, "confidence": "handbook" }
+        "max_service_temp": {
+          "typical": 315,
+          "min": 300,
+          "max": 400,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C4: Q+T mock 정정. [ASM Vol.1]" },
-    { "namePattern": "^AISI 1080 — Quenched / tempered",
+      "qual": {
+        "machinability": "Good",
+        "corrosion_resistance": "Excellent"
+      },
+      "reason": "E12+C: Tmax 170/300 불일치 + 2 conds mach=Exce/corr=Good mock 통일. [ASTM B265 Gr7]",
+      "stableIds": [
+        "MET-0891",
+        "MET-0892",
+        "MET-0895"
+      ],
+      "_namePattern_ref": "^Ti Grade 7 — "
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 700, "min": 640, "max": 820, "confidence": "handbook" },
-        "uts":            { "typical": 980, "min": 900, "max": 1120, "confidence": "handbook" },
-        "hardness":       { "typical": 290, "min": 270, "max": 340, "confidence": "handbook" }
+        "max_service_temp": {
+          "typical": 480,
+          "min": 450,
+          "max": 540,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C4: Q+T mock 정정. [ASM Vol.1]" },
-    { "namePattern": "^AISI 1095 — Quenched / tempered",
+      "reason": "E13: 6242 는 고온 Ti 대표 (~540°C 사용). wrought 315 너무 낮음. [TIMET 6242]",
+      "stableIds": [
+        "MET-0916",
+        "MET-0917"
+      ],
+      "_namePattern_ref": "^Ti-6Al-2Sn-4Zr-2Mo — (Alpha-beta|Beta annealed)"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 770, "min": 700, "max": 900, "confidence": "handbook" },
-        "uts":            { "typical": 1100, "min": 1000, "max": 1290, "confidence": "handbook" },
-        "hardness":       { "typical": 330, "min": 300, "max": 390, "confidence": "handbook" }
+        "hardness": {
+          "typical": 330,
+          "min": 310,
+          "max": 350,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C4: Q+T mock 정정. [ASM Vol.1 1095 Q+T]" },
-    { "namePattern": "^AISI 1020 — Quenched / tempered",
+      "reason": "C18: σy flatten 후 HV mock (294-338) 잔존 통일.",
+      "stableIds": [
+        "MET-0904",
+        "MET-0905",
+        "MET-0908"
+      ],
+      "_namePattern_ref": "^Ti-5-2-5 — "
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 440, "min": 400, "max": 520, "confidence": "handbook" },
-        "uts":            { "typical": 590, "min": 540, "max": 660, "confidence": "handbook" }
+        "hardness": {
+          "typical": 365,
+          "min": 340,
+          "max": 390,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C6: Q+T (207/333) < Annealed (350/510) 방향 모순. [ASM Vol.1 1020 WQ+T]" },
-    { "namePattern": "^AISI 1020 — (As-cast / forged|As-supplied)",
+      "qual": {
+        "machinability": "Poor",
+        "corrosion_resistance": "Excellent"
+      },
+      "reason": "C18: HV mock + 2 conds mach=Exce/corr=Good 불일치 통일.",
+      "stableIds": [
+        "MET-0910",
+        "MET-0911",
+        "MET-0914"
+      ],
+      "_namePattern_ref": "^Ti-6-2-4-6 — "
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 330, "min": 290, "max": 390, "confidence": "handbook" },
-        "uts":            { "typical": 470, "min": 420, "max": 540, "confidence": "handbook" }
+        "hardness": {
+          "typical": 335,
+          "min": 315,
+          "max": 360,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C6: 잔존 mock (225/363) 정합화." },
-    { "namePattern": "^AISI 5140 — Annealed",
+      "reason": "C18: HV mock 통일.",
+      "stableIds": [
+        "MET-0933",
+        "MET-0934",
+        "MET-0937"
+      ],
+      "_namePattern_ref": "^Ti-8-1-1 — "
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 290, "min": 260, "max": 340, "confidence": "handbook" },
-        "uts":            { "typical": 570, "min": 520, "max": 640, "confidence": "handbook" },
-        "elongation":     { "typical": 22, "min": 18, "max": 28, "confidence": "handbook" },
-        "hardness":       { "typical": 170, "min": 155, "max": 195, "confidence": "handbook" }
+        "hardness": {
+          "typical": 180,
+          "min": 160,
+          "max": 210,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C5: Annealed 에 Q+T 급 (625/880) — 방향 반전. [ASM Vol.1 5140 annealed]" },
-    { "namePattern": "^AISI 5130 — Quenched / tempered",
+      "reason": "E24: HV=5 불가능 값.",
+      "stableIds": [
+        "MET-0863"
+      ],
+      "_namePattern_ref": "^Ti CP Gr2 — Heat-Treated"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 790, "min": 720, "max": 900, "confidence": "handbook" },
-        "uts":            { "typical": 940, "min": 860, "max": 1060, "confidence": "handbook" },
-        "hardness":       { "typical": 280, "min": 255, "max": 320, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 515,
+          "min": 515,
+          "max": 760,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 860,
+          "min": 860,
+          "max": 1000,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 12,
+          "min": 10,
+          "max": 25,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 250,
+          "min": 230,
+          "max": 320,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C4: Q+T mock (419/566) 너무 낮음. [ASM Vol.1 5130 Q+T]" },
-    { "namePattern": "^AISI 6150 — (As-cast / forged|Strain-hardened)",
+      "reason": "C1: R199 가 annealed 값으로 flatten. 1/4H 급 복원. [ASTM A666]",
+      "stableIds": [
+        "MET-0716"
+      ],
+      "_namePattern_ref": "^AISI 304 — Strain-hardened"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 480, "min": 410, "max": 620, "confidence": "handbook" },
-        "uts":            { "typical": 670, "min": 620, "max": 760, "confidence": "handbook" },
-        "hardness":       { "typical": 200, "min": 180, "max": 230, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 480,
+          "min": 480,
+          "max": 700,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 830,
+          "min": 830,
+          "max": 960,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 12,
+          "min": 10,
+          "max": 25,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 240,
+          "min": 220,
+          "max": 310,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C7: R201 부작용 — σy 정정됐지만 HV mock (334-341) 잔존 + Strain-hardened 미정정. annealed 급 통일. [SAE J404]" },
-    { "namePattern": "^AISI 6150 — (Annealed|As-supplied)",
-      "ranges": { "hardness": { "typical": 200, "min": 180, "max": 230, "confidence": "handbook" } },
-      "reason": "C7: HV mock 272-344 → annealed ~200." },
-
-    { "namePattern": "^AA 2011 — Annealed",
+      "reason": "C1: 동일 (L grade 약간 낮음). [ASTM A666]",
+      "stableIds": [
+        "MET-0720"
+      ],
+      "_namePattern_ref": "^AISI 304L — Strain-hardened"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 97, "min": 85, "max": 125, "confidence": "handbook" },
-        "uts":            { "typical": 165, "min": 150, "max": 200, "confidence": "handbook" },
-        "elongation":     { "typical": 18, "min": 15, "max": 25, "confidence": "handbook" },
-        "hardness":       { "typical": 45, "min": 40, "max": 60, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 515,
+          "min": 515,
+          "max": 760,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 860,
+          "min": 860,
+          "max": 1000,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 12,
+          "min": 10,
+          "max": 25,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 250,
+          "min": 230,
+          "max": 320,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C12: Annealed 에 T-temper 급 (329/451). 2011-O. [AA Teal Sheets]" },
-    { "namePattern": "^AA 2017 — Annealed",
+      "reason": "C1: 동일 flatten 정정. [ASTM A666]",
+      "stableIds": [
+        "MET-0730",
+        "MET-0734",
+        "MET-0747",
+        "MET-0751"
+      ],
+      "_namePattern_ref": "^AISI (310|316|321|347) — Strain-hardened"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 70, "min": 60, "max": 95, "confidence": "handbook" },
-        "uts":            { "typical": 180, "min": 165, "max": 220, "confidence": "handbook" },
-        "elongation":     { "typical": 22, "min": 18, "max": 28, "confidence": "handbook" },
-        "hardness":       { "typical": 45, "min": 40, "max": 60, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 590,
+          "min": 540,
+          "max": 700,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 860,
+          "min": 780,
+          "max": 980,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 250,
+          "min": 230,
+          "max": 290,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C12: 2017-O. [AA]" },
-    { "namePattern": "^AA 2025 — Annealed",
+      "reason": "C4: Q+T mock (313/571) 이 annealed 보다 낮음. [ASM Vol.1 1040 Q+T 540°C]",
+      "stableIds": [
+        "MET-0263"
+      ],
+      "_namePattern_ref": "^AISI 1040 — Quenched / tempered"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 110, "min": 95, "max": 140, "confidence": "handbook" },
-        "uts":            { "typical": 220, "min": 200, "max": 260, "confidence": "handbook" },
-        "elongation":     { "typical": 18, "min": 15, "max": 24, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 580,
+          "min": 530,
+          "max": 690,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 830,
+          "min": 760,
+          "max": 960,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 245,
+          "min": 225,
+          "max": 285,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C12: 2025-O. [AA]" },
-    { "namePattern": "^AA 7050 — Annealed",
+      "reason": "C4: Q+T mock 정정. [ASM Vol.1]",
+      "stableIds": [
+        "MET-0269"
+      ],
+      "_namePattern_ref": "^AISI 1050 — Quenched / tempered"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 120, "min": 100, "max": 160, "confidence": "handbook" },
-        "uts":            { "typical": 220, "min": 200, "max": 260, "confidence": "handbook" },
-        "elongation":     { "typical": 14, "min": 12, "max": 18, "confidence": "handbook" },
-        "hardness":       { "typical": 60, "min": 50, "max": 75, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 700,
+          "min": 640,
+          "max": 820,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 980,
+          "min": 900,
+          "max": 1120,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 290,
+          "min": 270,
+          "max": 340,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C12: 7050-O (DB 421/479 = T74 급). [AA]" },
-    { "namePattern": "^AA 6101 — Annealed",
+      "reason": "C4: Q+T mock 정정. [ASM Vol.1]",
+      "stableIds": [
+        "MET-0274"
+      ],
+      "_namePattern_ref": "^AISI 1080 — Quenched / tempered"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 28, "min": 25, "max": 40, "confidence": "handbook" },
-        "uts":            { "typical": 89, "min": 80, "max": 110, "confidence": "handbook" },
-        "elongation":     { "typical": 30, "min": 25, "max": 35, "confidence": "handbook" },
-        "hardness":       { "typical": 25, "min": 22, "max": 32, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 770,
+          "min": 700,
+          "max": 900,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 1100,
+          "min": 1000,
+          "max": 1290,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 330,
+          "min": 300,
+          "max": 390,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C12: 6101-O. [AA]" },
-    { "namePattern": "^AA 6262 — Annealed",
+      "reason": "C4: Q+T mock 정정. [ASM Vol.1 1095 Q+T]",
+      "stableIds": [
+        "MET-0279"
+      ],
+      "_namePattern_ref": "^AISI 1095 — Quenched / tempered"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 60, "min": 50, "max": 85, "confidence": "handbook" },
-        "uts":            { "typical": 120, "min": 105, "max": 150, "confidence": "handbook" },
-        "elongation":     { "typical": 25, "min": 20, "max": 30, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 440,
+          "min": 400,
+          "max": 520,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 590,
+          "min": 540,
+          "max": 660,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C12: 6262-O. [AA]" },
-    { "namePattern": "^AA 6101",
-      "ranges": { "thermal_conductivity": { "typical": 218, "min": 205, "max": 226, "confidence": "handbook" } },
-      "reason": "E23: 전기 bus bar 합금 (57% IACS) k 167 → 218. [AA 6101-T61]" },
-
-    { "namePattern": "^Inconel X-750 — (Annealed|As-supplied \\(Wrought\\)|As-cast / forged)",
+      "reason": "C6: Q+T (207/333) < Annealed (350/510) 방향 모순. [ASM Vol.1 1020 WQ+T]",
+      "stableIds": [
+        "MET-0248"
+      ],
+      "_namePattern_ref": "^AISI 1020 — Quenched / tempered"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 370, "min": 330, "max": 470, "confidence": "handbook" },
-        "uts":            { "typical": 850, "min": 780, "max": 950, "confidence": "handbook" },
-        "elongation":     { "typical": 40, "min": 30, "max": 50, "confidence": "handbook" },
-        "hardness":       { "typical": 180, "min": 160, "max": 220, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 330,
+          "min": 290,
+          "max": 390,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 470,
+          "min": 420,
+          "max": 540,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C14: 5 conds 가 aged 값 (815/1230) flatten. annealed 복원. [Special Metals SMC-067]" },
-    { "namePattern": "^Inconel X-750 — Strain-hardened",
+      "reason": "C6: 잔존 mock (225/363) 정합화.",
+      "stableIds": [],
+      "_namePattern_ref": "^AISI 1020 — (As-cast / forged|As-supplied)"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 470, "min": 420, "max": 580, "confidence": "handbook" },
-        "uts":            { "typical": 950, "min": 870, "max": 1060, "confidence": "handbook" },
-        "elongation":     { "typical": 25, "min": 18, "max": 35, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 290,
+          "min": 260,
+          "max": 340,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 570,
+          "min": 520,
+          "max": 640,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 22,
+          "min": 18,
+          "max": 28,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 170,
+          "min": 155,
+          "max": 195,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C14: CW 차별값." },
-    { "namePattern": "^Monel 400 — Strain-hardened",
+      "reason": "C5: Annealed 에 Q+T 급 (625/880) — 방향 반전. [ASM Vol.1 5140 annealed]",
+      "stableIds": [
+        "MET-0040"
+      ],
+      "_namePattern_ref": "^AISI 5140 — Annealed"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 585, "min": 520, "max": 690, "confidence": "handbook" },
-        "uts":            { "typical": 690, "min": 620, "max": 760, "confidence": "handbook" },
-        "elongation":     { "typical": 22, "min": 15, "max": 30, "confidence": "handbook" },
-        "hardness":       { "typical": 200, "min": 180, "max": 240, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 790,
+          "min": 720,
+          "max": 900,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 940,
+          "min": 860,
+          "max": 1060,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 280,
+          "min": 255,
+          "max": 320,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C15: cold-drawn Monel 400. [Special Metals SMC-053]" },
-    { "namePattern": "^Hastelloy C-276 — Strain-hardened",
+      "reason": "C4: Q+T mock (419/566) 너무 낮음. [ASM Vol.1 5130 Q+T]",
+      "stableIds": [
+        "MET-0038"
+      ],
+      "_namePattern_ref": "^AISI 5130 — Quenched / tempered"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 690, "min": 620, "max": 800, "confidence": "handbook" },
-        "uts":            { "typical": 950, "min": 870, "max": 1060, "confidence": "handbook" },
-        "elongation":     { "typical": 30, "min": 20, "max": 40, "confidence": "handbook" },
-        "hardness":       { "typical": 280, "min": 250, "max": 330, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 480,
+          "min": 410,
+          "max": 620,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 670,
+          "min": 620,
+          "max": 760,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 200,
+          "min": 180,
+          "max": 230,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C15: CW 차별값. [Haynes C-276]" },
-    { "namePattern": "^Inconel 600 — Strain-hardened",
+      "reason": "C7: R201 부작용 — σy 정정됐지만 HV mock (334-341) 잔존 + Strain-hardened 미정정. annealed 급 통일. [SAE J404]",
+      "stableIds": [
+        "MET-0051"
+      ],
+      "_namePattern_ref": "^AISI 6150 — (As-cast / forged|Strain-hardened)"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 550, "min": 480, "max": 690, "confidence": "handbook" },
-        "uts":            { "typical": 800, "min": 720, "max": 900, "confidence": "handbook" },
-        "elongation":     { "typical": 20, "min": 12, "max": 30, "confidence": "handbook" },
-        "hardness":       { "typical": 220, "min": 195, "max": 270, "confidence": "handbook" }
+        "hardness": {
+          "typical": 200,
+          "min": 180,
+          "max": 230,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C15: CW 차별값. [Special Metals SMC-027]" },
-
-    { "namePattern": "^12L14",
-      "qual": { "weldability": "Poor" },
-      "reason": "D6 CRITICAL: Pb+S free-machining — 용접 hot-crack 최악. Excellent → Poor 방향 반전. [AWS]" },
-    { "namePattern": "^Grade 91 \\(P91",
-      "qual": { "weldability": "Poor", "machinability": "Good" },
-      "reason": "D10 CRITICAL: P91 Type IV cracking — 엄격 preheat/PWHT. [EPRI P91 guideline]" },
-    { "namePattern": "^416 stainless",
-      "qual": { "machinability": "Excellent" },
-      "reason": "D1: free-machining martensitic 대표 (~85%). [Carpenter 416 / MDH]" },
-    { "namePattern": "^AISI 317 |^317L",
-      "qual": { "corrosion_resistance": "Excellent" },
-      "reason": "D2: Outstanding 은 6Mo 급 전용. 317 (3-4% Mo) 은 Excellent. [ASM Vol.13B]" },
-    { "namePattern": "^AISI 4340 / SNCM439",
-      "qual": { "weldability": "Poor" },
-      "reason": "D3: 4340 계열 동일. [AWS]" },
-    { "namePattern": "^AISI 4130 / SCM430",
-      "qual": { "weldability": "Good" },
-      "reason": "D4: Excellent 과대. [AWS]" },
-    { "namePattern": "^AISI 1095",
-      "qual": { "machinability": "Fair", "weldability": "Poor" },
-      "reason": "D7: 0.95%C — rating ~45%, 용접균열 위험. [MDH / AWS]" },
-    { "namePattern": "^S55C",
-      "qual": { "machinability": "Good", "weldability": "Fair" },
-      "reason": "D8/D9: 0.55%C — CE 높음. [AWS D1.1]" },
-    { "namePattern": "^S35C",
-      "qual": { "weldability": "Good" },
-      "reason": "D8: 0.35%C → Good. [AWS]" },
-    { "namePattern": "^TWIP1180",
-      "qual": { "corrosion_resistance": "Poor", "weldability": "Fair" },
-      "reason": "D11/D12 CRITICAL: 고Mn 강 — 탄소강보다 부식 취약 + LME/편석 용접 문제. [POSCO TWIP]" },
-    { "namePattern": "^22MnB5 \\(USIBOR 1500\\) — Austenitized",
-      "qual": { "corrosion_resistance": "Moderate" },
-      "reason": "D13: AlSi 코팅은 스탬핑 산화방지용 — service 내식 Excellent 과대. [ArcelorMittal Usibor]" },
-    { "namePattern": "^SA508 Grade 3",
-      "qual": { "corrosion_resistance": "Poor" },
-      "reason": "D14: RPV 강은 Poor (내면 stainless clad). condition 간 Exce/Poor 불일치 통일." },
-    { "namePattern": "^SD(600|700) \\(KS D 3504",
-      "qual": { "weldability": "Fair" },
-      "reason": "D15: 고강도 철근 CE 높음 — 용접 제한. [KS D 3504]" },
-    { "namePattern": "^AISI 10(15|25|30) — Annealed",
-      "qual": { "corrosion_resistance": "Poor" },
-      "reason": "D16: 탄소강 corr=Poor 일괄 (Annealed 만 Excellent mock)." },
-    { "namePattern": "^AISI 10(10|15|20|25|30) — ",
-      "qual": { "machinability": "Good" },
-      "reason": "D17: 저탄소 연질 gummy ~55% → Good (Excellent 과대). [MDH]" },
-    { "namePattern": "^AA 2011 — ",
-      "qual": { "weldability": "Poor" },
-      "reason": "D18 CRITICAL: Pb-Bi free-machining Al — 용접성 최악. [AA]" },
-    { "namePattern": "^AA 20(17|25) — ",
-      "qual": { "weldability": "Poor" },
-      "reason": "D19: Al-Cu hot-crack family. [AA]" },
-    { "namePattern": "^AA (1050|1100) — |^AA 1200 \\(CP Al\\)|^AA 3(004|005|105) — ",
-      "qual": { "machinability": "Fair" },
-      "reason": "D20: 연질 gummy Al (AA rating D-E) — Excellent 방향 오류. [MDH Al ratings]" },
-    { "namePattern": "^C44300",
-      "qual": { "corrosion_resistance": "Excellent" },
-      "reason": "D21 CRITICAL: Admiralty Brass — 해수 콘덴서 전용 (As 첨가). Poor → Excellent 방향 반전. [CDA]" },
-    { "namePattern": "^C12000",
-      "qual": { "machinability": "Poor" },
-      "reason": "D22: DLP 순동 gummy ~20%. [CDA/MDH]" },
-    { "namePattern": "^C14500",
-      "qual": { "machinability": "Excellent" },
-      "reason": "D23: Te-Cu free-machining copper (85-90%). [CDA C14500]" },
-    { "namePattern": "^C2(6000|7000|8000) — |^Naval Brass C46400",
-      "qual": { "machinability": "Fair" },
-      "reason": "D24: 비연 황동 ~30%. [MDH]" },
-    { "namePattern": "^C36000",
-      "qual": { "weldability": "Poor" },
-      "reason": "D25: Pb 3%. [CDA]" },
-    { "namePattern": "^Silicon Bronze C65500",
-      "qual": { "weldability": "Excellent" },
-      "reason": "D26: Cu 합금 중 용접성 최고 (filler 사용). [CDA welding guide]" },
-    { "namePattern": "^(C11000|OFHC Copper|OFE Copper|OF Copper|DHP Copper|Copper \\(Pure|Cu \\(Pure)",
-      "qual": { "machinability": "Poor" },
-      "reason": "D27: 순동 gummy ~20%. [MDH]" },
-    { "namePattern": "^C10[23]00 \\(",
-      "qual": { "machinability": "Poor" },
-      "reason": "D27: KS OF/DLP 순동 세트 동일. [MDH]" },
-    { "namePattern": "^Waspaloy",
-      "qual": { "weldability": "Poor" },
-      "reason": "D28: strain-age cracking. [ASM Vol.6]" },
-    { "namePattern": "^Inconel 713C",
-      "qual": { "weldability": "Poor" },
-      "reason": "D28: 비용접 cast γ'. [ASM Vol.6]" },
-    { "namePattern": "^Nickel 200|^CP-Nickel",
-      "qual": { "machinability": "Fair", "weldability": "Good" },
-      "reason": "D29: 동일 재료 (Ni 200) 의 등급 불일치 통일. [Special Metals]" },
-    { "namePattern": "^ZTA \\(Zirconia-Toughened",
-      "qual": { "machinability": "Very Poor", "weldability": "N/A" },
-      "reason": "D33 CRITICAL: 세라믹 — 연삭만 가능, 용접 불가. Exce/Exce 정반대. [CoorsTek]" },
-    { "namePattern": "^AZ91D — |^AZ80A — ",
-      "qual": { "corrosion_resistance": "Moderate" },
-      "reason": "E25: corr='Fair' scale 위반 → Moderate." },
-    { "namePattern": "^H11 — As-supplied",
-      "qual": { "corrosion_resistance": "Moderate" },
+      "reason": "C7: HV mock 272-344 → annealed ~200.",
+      "stableIds": [
+        "MET-0047"
+      ],
+      "_namePattern_ref": "^AISI 6150 — (Annealed|As-supplied)"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 400, "min": 360, "max": 470, "confidence": "handbook" },
-        "uts":            { "typical": 760, "min": 700, "max": 850, "confidence": "handbook" },
-        "hardness":       { "typical": 210, "min": 190, "max": 240, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 97,
+          "min": 85,
+          "max": 125,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 165,
+          "min": 150,
+          "max": 200,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 18,
+          "min": 15,
+          "max": 25,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 45,
+          "min": 40,
+          "max": 60,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E25+C10: scale 위반 + mid-mock (960/1248) → annealed. [ASM Vol.1 H11 annealed]" },
-    { "namePattern": "^D2 — As-supplied",
+      "reason": "C12: Annealed 에 T-temper 급 (329/451). 2011-O. [AA Teal Sheets]",
+      "stableIds": [
+        "MET-0098"
+      ],
+      "_namePattern_ref": "^AA 2011 — Annealed"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 480, "min": 430, "max": 560, "confidence": "handbook" },
-        "uts":            { "typical": 760, "min": 700, "max": 850, "confidence": "handbook" },
-        "elongation":     { "typical": 18, "min": 14, "max": 24, "confidence": "handbook" },
-        "hardness":       { "typical": 220, "min": 200, "max": 255, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 70,
+          "min": 60,
+          "max": 95,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 180,
+          "min": 165,
+          "max": 220,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 22,
+          "min": 18,
+          "max": 28,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 45,
+          "min": 40,
+          "max": 60,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C8: mid-mock (1325/1589/El 1.9) — annealed 도 hardened 도 아님 → annealed (mill 공급 상태). [ASM Vol.1 D2 annealed]" },
-    { "namePattern": "^O1 — As-supplied",
+      "reason": "C12: 2017-O. [AA]",
+      "stableIds": [
+        "MET-0104"
+      ],
+      "_namePattern_ref": "^AA 2017 — Annealed"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 400, "min": 350, "max": 470, "confidence": "handbook" },
-        "uts":            { "typical": 655, "min": 600, "max": 740, "confidence": "handbook" },
-        "elongation":     { "typical": 24, "min": 18, "max": 30, "confidence": "handbook" },
-        "hardness":       { "typical": 190, "min": 170, "max": 220, "confidence": "handbook" },
-        "thermal_conductivity": { "typical": 33, "min": 31, "max": 36, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 110,
+          "min": 95,
+          "max": 140,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 220,
+          "min": 200,
+          "max": 260,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 18,
+          "min": 15,
+          "max": 24,
+          "confidence": "handbook"
+        }
       },
-      "reason": "C9: mid-mock → annealed + k 50 → 33. [ASM Vol.1 O1]" },
-    { "namePattern": "^AA 7475",
-      "qual": { "machinability": "Good" },
-      "reason": "D: 7475 = 7075 급 mach Good (Excellent 과대). [MDH]" },
-
-    { "namePattern": "^Haynes 230",
-      "ranges": { "hardness": { "typical": 210, "min": 190, "max": 240, "confidence": "handbook" } },
-      "reason": "E6: HV 88-105 = HRB 를 HV 로 오기. 실제 HV ~210 (HRB 95). [Haynes 230 datasheet]" },
-    { "namePattern": "^CP-Nickel",
-      "ranges": { "max_service_temp": { "typical": 315, "min": 290, "max": 340, "confidence": "handbook" } },
-      "reason": "E7: Ni 200 한계 315°C (graphitization). 900/800 → 315. [ASTM B162]" },
-    { "namePattern": "^Incoloy 901",
-      "ranges": { "max_service_temp": { "typical": 600, "min": 560, "max": 650, "confidence": "handbook" } },
-      "reason": "E8: γ' 합금 (718급) — 1100 불가. [Special Metals 901]" },
-    { "namePattern": "^Incoloy 925",
-      "ranges": { "max_service_temp": { "typical": 540, "min": 500, "max": 590, "confidence": "handbook" } },
-      "reason": "E9: γ' Ni-Fe-Cr — 1100 불가. [Special Metals 925]" },
-    { "namePattern": "^Elgiloy",
-      "ranges": { "max_service_temp": { "typical": 450, "min": 400, "max": 500, "confidence": "handbook" } },
-      "reason": "E10: spring 합금 850°F 한계. [Elgiloy Specialty Metals]" },
-    { "namePattern": "^MP159",
-      "ranges": { "max_service_temp": { "typical": 595, "min": 540, "max": 650, "confidence": "handbook" } },
-      "reason": "E11: 595°C 설계 합금. [Carpenter MP159]" },
-    { "namePattern": "^Allvac 718Plus",
-      "ranges": { "max_service_temp": { "typical": 704, "min": 650, "max": 750, "confidence": "handbook" } },
-      "reason": "G4: Inconel 718Plus entry (700) 와 모순 (900). 718+55°C = 704. [ATI 718Plus]" },
-    { "namePattern": "^UHMWPE — Dyneema",
+      "reason": "C12: 2025-O. [AA]",
+      "stableIds": [
+        "MET-0115"
+      ],
+      "_namePattern_ref": "^AA 2025 — Annealed"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 1200, "min": 1000, "max": 1500, "confidence": "handbook" },
-        "uts":            { "typical": 1500, "min": 1200, "max": 1800, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 120,
+          "min": 100,
+          "max": 160,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 220,
+          "min": 200,
+          "max": 260,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 14,
+          "min": 12,
+          "max": 18,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 60,
+          "min": 50,
+          "max": 75,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E19: 3700 = 섬유 단독값. UD laminate ~1.2-1.8 GPa. [DSM Dyneema HB]" },
-    { "namePattern": "^Be-Cu — As-supplied",
+      "reason": "C12: 7050-O (DB 421/479 = T74 급). [AA]",
+      "stableIds": [
+        "MET-0204"
+      ],
+      "_namePattern_ref": "^AA 7050 — Annealed"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 28,
+          "min": 25,
+          "max": 40,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 89,
+          "min": 80,
+          "max": 110,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 30,
+          "min": 25,
+          "max": 35,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 25,
+          "min": 22,
+          "max": 32,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "C12: 6101-O. [AA]",
+      "stableIds": [
+        "MET-0194"
+      ],
+      "_namePattern_ref": "^AA 6101 — Annealed"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 60,
+          "min": 50,
+          "max": 85,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 120,
+          "min": 105,
+          "max": 150,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 25,
+          "min": 20,
+          "max": 30,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "C12: 6262-O. [AA]",
+      "stableIds": [
+        "MET-0198"
+      ],
+      "_namePattern_ref": "^AA 6262 — Annealed"
+    },
+    {
+      "ranges": {
+        "thermal_conductivity": {
+          "typical": 218,
+          "min": 205,
+          "max": 226,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E23: 전기 bus bar 합금 (57% IACS) k 167 → 218. [AA 6101-T61]",
+      "stableIds": [
+        "MET-0193",
+        "MET-0194",
+        "MET-0195"
+      ],
+      "_namePattern_ref": "^AA 6101"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 370,
+          "min": 330,
+          "max": 470,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 850,
+          "min": 780,
+          "max": 950,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 40,
+          "min": 30,
+          "max": 50,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 180,
+          "min": 160,
+          "max": 220,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "C14: 5 conds 가 aged 값 (815/1230) flatten. annealed 복원. [Special Metals SMC-067]",
+      "stableIds": [
+        "MET-0586"
+      ],
+      "_namePattern_ref": "^Inconel X-750 — (Annealed|As-supplied \\(Wrought\\)|As-cast / forged)"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 470,
+          "min": 420,
+          "max": 580,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 950,
+          "min": 870,
+          "max": 1060,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 25,
+          "min": 18,
+          "max": 35,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "C14: CW 차별값.",
+      "stableIds": [
+        "MET-0590"
+      ],
+      "_namePattern_ref": "^Inconel X-750 — Strain-hardened"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 585,
+          "min": 520,
+          "max": 690,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 690,
+          "min": 620,
+          "max": 760,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 22,
+          "min": 15,
+          "max": 30,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 200,
+          "min": 180,
+          "max": 240,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "C15: cold-drawn Monel 400. [Special Metals SMC-053]",
+      "stableIds": [
+        "MET-0598"
+      ],
+      "_namePattern_ref": "^Monel 400 — Strain-hardened"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 690,
+          "min": 620,
+          "max": 800,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 950,
+          "min": 870,
+          "max": 1060,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 30,
+          "min": 20,
+          "max": 40,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 280,
+          "min": 250,
+          "max": 330,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "C15: CW 차별값. [Haynes C-276]",
+      "stableIds": [
+        "MET-0510"
+      ],
+      "_namePattern_ref": "^Hastelloy C-276 — Strain-hardened"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 550,
+          "min": 480,
+          "max": 690,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 800,
+          "min": 720,
+          "max": 900,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 20,
+          "min": 12,
+          "max": 30,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 220,
+          "min": 195,
+          "max": 270,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "C15: CW 차별값. [Special Metals SMC-027]",
+      "stableIds": [
+        "MET-0550"
+      ],
+      "_namePattern_ref": "^Inconel 600 — Strain-hardened"
+    },
+    {
+      "qual": {
+        "weldability": "Poor"
+      },
+      "reason": "D6 CRITICAL: Pb+S free-machining — 용접 hot-crack 최악. Excellent → Poor 방향 반전. [AWS]",
+      "stableIds": [
+        "MET-0232"
+      ],
+      "_namePattern_ref": "^12L14"
+    },
+    {
+      "qual": {
+        "weldability": "Poor",
+        "machinability": "Good"
+      },
+      "reason": "D10 CRITICAL: P91 Type IV cracking — 엄격 preheat/PWHT. [EPRI P91 guideline]",
+      "stableIds": [
+        "MET-0453",
+        "MET-0454"
+      ],
+      "_namePattern_ref": "^Grade 91 \\(P91"
+    },
+    {
+      "qual": {
+        "machinability": "Excellent"
+      },
+      "reason": "D1: free-machining martensitic 대표 (~85%). [Carpenter 416 / MDH]",
+      "stableIds": [
+        "MET-0773"
+      ],
+      "_namePattern_ref": "^416 stainless"
+    },
+    {
+      "qual": {
+        "corrosion_resistance": "Excellent"
+      },
+      "reason": "D2: Outstanding 은 6Mo 급 전용. 317 (3-4% Mo) 은 Excellent. [ASM Vol.13B]",
+      "stableIds": [
+        "MET-0700",
+        "MET-0743"
+      ],
+      "_namePattern_ref": "^AISI 317 |^317L"
+    },
+    {
+      "qual": {
+        "weldability": "Poor"
+      },
+      "reason": "D3: 4340 계열 동일. [AWS]",
+      "stableIds": [],
+      "_namePattern_ref": "^AISI 4340 / SNCM439"
+    },
+    {
+      "qual": {
+        "weldability": "Good"
+      },
+      "reason": "D4: Excellent 과대. [AWS]",
+      "stableIds": [],
+      "_namePattern_ref": "^AISI 4130 / SCM430"
+    },
+    {
+      "qual": {
+        "machinability": "Fair",
+        "weldability": "Poor"
+      },
+      "reason": "D7: 0.95%C — rating ~45%, 용접균열 위험. [MDH / AWS]",
+      "stableIds": [
+        "MET-0276",
+        "MET-0279",
+        "MET-0280"
+      ],
+      "_namePattern_ref": "^AISI 1095"
+    },
+    {
+      "qual": {
+        "machinability": "Good",
+        "weldability": "Fair"
+      },
+      "reason": "D8/D9: 0.55%C — CE 높음. [AWS D1.1]",
+      "stableIds": [
+        "MET-0291",
+        "MET-0292",
+        "MET-0293"
+      ],
+      "_namePattern_ref": "^S55C"
+    },
+    {
+      "qual": {
+        "weldability": "Good"
+      },
+      "reason": "D8: 0.35%C → Good. [AWS]",
+      "stableIds": [
+        "MET-0288",
+        "MET-0289",
+        "MET-0290"
+      ],
+      "_namePattern_ref": "^S35C"
+    },
+    {
+      "qual": {
+        "corrosion_resistance": "Poor",
+        "weldability": "Fair"
+      },
+      "reason": "D11/D12 CRITICAL: 고Mn 강 — 탄소강보다 부식 취약 + LME/편석 용접 문제. [POSCO TWIP]",
+      "stableIds": [
+        "MET-0325"
+      ],
+      "_namePattern_ref": "^TWIP1180"
+    },
+    {
+      "qual": {
+        "corrosion_resistance": "Moderate"
+      },
+      "reason": "D13: AlSi 코팅은 스탬핑 산화방지용 — service 내식 Excellent 과대. [ArcelorMittal Usibor]",
+      "stableIds": [
+        "MET-0624",
+        "MET-0625"
+      ],
+      "_namePattern_ref": "^22MnB5 \\(USIBOR 1500\\) — Austenitized"
+    },
+    {
+      "qual": {
+        "corrosion_resistance": "Poor"
+      },
+      "reason": "D14: RPV 강은 Poor (내면 stainless clad). condition 간 Exce/Poor 불일치 통일.",
+      "stableIds": [
+        "MET-0629",
+        "MET-0630"
+      ],
+      "_namePattern_ref": "^SA508 Grade 3"
+    },
+    {
+      "qual": {
+        "weldability": "Fair"
+      },
+      "reason": "D15: 고강도 철근 CE 높음 — 용접 제한. [KS D 3504]",
+      "stableIds": [
+        "MET-0301",
+        "MET-0302"
+      ],
+      "_namePattern_ref": "^SD(600|700) \\(KS D 3504"
+    },
+    {
+      "qual": {
+        "corrosion_resistance": "Poor"
+      },
+      "reason": "D16: 탄소강 corr=Poor 일괄 (Annealed 만 Excellent mock).",
+      "stableIds": [
+        "MET-0239",
+        "MET-0250",
+        "MET-0255"
+      ],
+      "_namePattern_ref": "^AISI 10(15|25|30) — Annealed"
+    },
+    {
+      "qual": {
+        "machinability": "Good"
+      },
+      "reason": "D17: 저탄소 연질 gummy ~55% → Good (Excellent 과대). [MDH]",
+      "stableIds": [
+        "MET-0234",
+        "MET-0237",
+        "MET-0238",
+        "MET-0239",
+        "MET-0242",
+        "MET-0243",
+        "MET-0245",
+        "MET-0248",
+        "MET-0249",
+        "MET-0250",
+        "MET-0253",
+        "MET-0254",
+        "MET-0255",
+        "MET-0258",
+        "MET-0259",
+        "MET-1004",
+        "MET-1005",
+        "MET-1006",
+        "MET-1007"
+      ],
+      "_namePattern_ref": "^AISI 10(10|15|20|25|30) — "
+    },
+    {
+      "qual": {
+        "weldability": "Poor"
+      },
+      "reason": "D18 CRITICAL: Pb-Bi free-machining Al — 용접성 최악. [AA]",
+      "stableIds": [
+        "MET-0097",
+        "MET-0098",
+        "MET-0099"
+      ],
+      "_namePattern_ref": "^AA 2011 — "
+    },
+    {
+      "qual": {
+        "weldability": "Poor"
+      },
+      "reason": "D19: Al-Cu hot-crack family. [AA]",
+      "stableIds": [
+        "MET-0103",
+        "MET-0104",
+        "MET-0105",
+        "MET-0114",
+        "MET-0115",
+        "MET-0116"
+      ],
+      "_namePattern_ref": "^AA 20(17|25) — "
+    },
+    {
+      "qual": {
+        "machinability": "Fair"
+      },
+      "reason": "D20: 연질 gummy Al (AA rating D-E) — Excellent 방향 오류. [MDH Al ratings]",
+      "stableIds": [
+        "MET-0155",
+        "MET-0156",
+        "MET-0157",
+        "MET-0158",
+        "MET-0159",
+        "MET-0160",
+        "MET-0165",
+        "MET-0166",
+        "MET-0167",
+        "MET-0168",
+        "MET-0169",
+        "MET-0170",
+        "MET-0171"
+      ],
+      "_namePattern_ref": "^AA (1050|1100) — |^AA 1200 \\(CP Al\\)|^AA 3(004|005|105) — "
+    },
+    {
+      "qual": {
+        "corrosion_resistance": "Excellent"
+      },
+      "reason": "D21 CRITICAL: Admiralty Brass — 해수 콘덴서 전용 (As 첨가). Poor → Excellent 방향 반전. [CDA]",
+      "stableIds": [
+        "MET-0449"
+      ],
+      "_namePattern_ref": "^C44300"
+    },
+    {
+      "qual": {
+        "machinability": "Poor"
+      },
+      "reason": "D22: DLP 순동 gummy ~20%. [CDA/MDH]",
+      "stableIds": [
+        "MET-0375"
+      ],
+      "_namePattern_ref": "^C12000"
+    },
+    {
+      "qual": {
+        "machinability": "Excellent"
+      },
+      "reason": "D23: Te-Cu free-machining copper (85-90%). [CDA C14500]",
+      "stableIds": [
+        "MET-0380"
+      ],
+      "_namePattern_ref": "^C14500"
+    },
+    {
+      "qual": {
+        "machinability": "Fair"
+      },
+      "reason": "D24: 비연 황동 ~30%. [MDH]",
+      "stableIds": [
+        "MET-0400",
+        "MET-0440",
+        "MET-0447",
+        "MET-0448"
+      ],
+      "_namePattern_ref": "^C2(6000|7000|8000) — |^Naval Brass C46400"
+    },
+    {
+      "qual": {
+        "weldability": "Poor"
+      },
+      "reason": "D25: Pb 3%. [CDA]",
+      "stableIds": [
+        "MET-0401"
+      ],
+      "_namePattern_ref": "^C36000"
+    },
+    {
+      "qual": {
+        "weldability": "Excellent"
+      },
+      "reason": "D26: Cu 합금 중 용접성 최고 (filler 사용). [CDA welding guide]",
+      "stableIds": [
+        "MET-0446"
+      ],
+      "_namePattern_ref": "^Silicon Bronze C65500"
+    },
+    {
+      "qual": {
+        "machinability": "Poor"
+      },
+      "reason": "D27: 순동 gummy ~20%. [MDH]",
+      "stableIds": [
+        "MET-0374",
+        "MET-0414",
+        "MET-0417",
+        "MET-0418",
+        "MET-0433",
+        "MET-0443",
+        "MET-0444",
+        "MET-0450",
+        "MET-0451"
+      ],
+      "_namePattern_ref": "^(C11000|OFHC Copper|OFE Copper|OF Copper|DHP Copper|Copper \\(Pure|Cu \\(Pure)"
+    },
+    {
+      "qual": {
+        "machinability": "Poor"
+      },
+      "reason": "D27: KS OF/DLP 순동 세트 동일. [MDH]",
+      "stableIds": [
+        "MET-0366",
+        "MET-0367",
+        "MET-0368",
+        "MET-0369",
+        "MET-0370",
+        "MET-0371",
+        "MET-0372",
+        "MET-0373"
+      ],
+      "_namePattern_ref": "^C10[23]00 \\("
+    },
+    {
+      "qual": {
+        "weldability": "Poor"
+      },
+      "reason": "D28: strain-age cracking. [ASM Vol.6]",
+      "stableIds": [
+        "MET-0617"
+      ],
+      "_namePattern_ref": "^Waspaloy"
+    },
+    {
+      "qual": {
+        "weldability": "Poor"
+      },
+      "reason": "D28: 비용접 cast γ'. [ASM Vol.6]",
+      "stableIds": [
+        "MET-0564"
+      ],
+      "_namePattern_ref": "^Inconel 713C"
+    },
+    {
+      "qual": {
+        "machinability": "Fair",
+        "weldability": "Good"
+      },
+      "reason": "D29: 동일 재료 (Ni 200) 의 등급 불일치 통일. [Special Metals]",
+      "stableIds": [
+        "MET-0498",
+        "MET-0499",
+        "MET-0500",
+        "MET-0501",
+        "MET-0602"
+      ],
+      "_namePattern_ref": "^Nickel 200|^CP-Nickel"
+    },
+    {
+      "qual": {
+        "machinability": "Very Poor",
+        "weldability": "N/A"
+      },
+      "reason": "D33 CRITICAL: 세라믹 — 연삭만 가능, 용접 불가. Exce/Exce 정반대. [CoorsTek]",
+      "stableIds": [
+        "CER-0035"
+      ],
+      "_namePattern_ref": "^ZTA \\(Zirconia-Toughened"
+    },
+    {
+      "qual": {
+        "corrosion_resistance": "Moderate"
+      },
+      "reason": "E25: corr='Fair' scale 위반 → Moderate.",
+      "stableIds": [
+        "MET-0470",
+        "MET-0471"
+      ],
+      "_namePattern_ref": "^AZ91D — |^AZ80A — "
+    },
+    {
+      "qual": {
+        "corrosion_resistance": "Moderate"
+      },
+      "ranges": {
+        "yield_strength": {
+          "typical": 400,
+          "min": 360,
+          "max": 470,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 760,
+          "min": 700,
+          "max": 850,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 210,
+          "min": 190,
+          "max": 240,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E25+C10: scale 위반 + mid-mock (960/1248) → annealed. [ASM Vol.1 H11 annealed]",
+      "stableIds": [
+        "MET-0946"
+      ],
+      "_namePattern_ref": "^H11 — As-supplied"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 480,
+          "min": 430,
+          "max": 560,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 760,
+          "min": 700,
+          "max": 850,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 18,
+          "min": 14,
+          "max": 24,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 220,
+          "min": 200,
+          "max": 255,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "C8: mid-mock (1325/1589/El 1.9) — annealed 도 hardened 도 아님 → annealed (mill 공급 상태). [ASM Vol.1 D2 annealed]",
+      "stableIds": [
+        "MET-0944"
+      ],
+      "_namePattern_ref": "^D2 — As-supplied"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 400,
+          "min": 350,
+          "max": 470,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 655,
+          "min": 600,
+          "max": 740,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 24,
+          "min": 18,
+          "max": 30,
+          "confidence": "handbook"
+        },
+        "hardness": {
+          "typical": 190,
+          "min": 170,
+          "max": 220,
+          "confidence": "handbook"
+        },
+        "thermal_conductivity": {
+          "typical": 33,
+          "min": 31,
+          "max": 36,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "C9: mid-mock → annealed + k 50 → 33. [ASM Vol.1 O1]",
+      "stableIds": [
+        "MET-0956"
+      ],
+      "_namePattern_ref": "^O1 — As-supplied"
+    },
+    {
+      "qual": {
+        "machinability": "Good"
+      },
+      "reason": "D: 7475 = 7075 급 mach Good (Excellent 과대). [MDH]",
+      "stableIds": [
+        "MET-0215",
+        "MET-0216"
+      ],
+      "_namePattern_ref": "^AA 7475"
+    },
+    {
+      "ranges": {
+        "hardness": {
+          "typical": 210,
+          "min": 190,
+          "max": 240,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E6: HV 88-105 = HRB 를 HV 로 오기. 실제 HV ~210 (HRB 95). [Haynes 230 datasheet]",
+      "stableIds": [
+        "MET-0523",
+        "MET-0524",
+        "MET-0525",
+        "MET-0526"
+      ],
+      "_namePattern_ref": "^Haynes 230"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 315,
+          "min": 290,
+          "max": 340,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E7: Ni 200 한계 315°C (graphitization). 900/800 → 315. [ASTM B162]",
+      "stableIds": [
+        "MET-0498",
+        "MET-0499",
+        "MET-0500",
+        "MET-0501"
+      ],
+      "_namePattern_ref": "^CP-Nickel"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 600,
+          "min": 560,
+          "max": 650,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E8: γ' 합금 (718급) — 1100 불가. [Special Metals 901]",
+      "stableIds": [
+        "MET-0539"
+      ],
+      "_namePattern_ref": "^Incoloy 901"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 540,
+          "min": 500,
+          "max": 590,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E9: γ' Ni-Fe-Cr — 1100 불가. [Special Metals 925]",
+      "stableIds": [
+        "MET-0541"
+      ],
+      "_namePattern_ref": "^Incoloy 925"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 450,
+          "min": 400,
+          "max": 500,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E10: spring 합금 850°F 한계. [Elgiloy Specialty Metals]",
+      "stableIds": [
+        "MET-0341"
+      ],
+      "_namePattern_ref": "^Elgiloy"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 595,
+          "min": 540,
+          "max": 650,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E11: 595°C 설계 합금. [Carpenter MP159]",
+      "stableIds": [
+        "MET-0344"
+      ],
+      "_namePattern_ref": "^MP159"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 704,
+          "min": 650,
+          "max": 750,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "G4: Inconel 718Plus entry (700) 와 모순 (900). 718+55°C = 704. [ATI 718Plus]",
+      "stableIds": [
+        "MET-0493",
+        "MET-0494"
+      ],
+      "_namePattern_ref": "^Allvac 718Plus"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 1200,
+          "min": 1000,
+          "max": 1500,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 1500,
+          "min": 1200,
+          "max": 1800,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E19: 3700 = 섬유 단독값. UD laminate ~1.2-1.8 GPa. [DSM Dyneema HB]",
+      "stableIds": [
+        "CMP-0032"
+      ],
+      "_namePattern_ref": "^UHMWPE — Dyneema"
+    },
+    {
       "subcategory": "Copper Alloy",
       "ranges": {
-        "yield_strength": { "typical": 1050, "min": 965, "max": 1140, "confidence": "handbook" },
-        "uts":            { "typical": 1235, "min": 1170, "max": 1300, "confidence": "handbook" },
-        "elongation":     { "typical": 3, "min": 2, "max": 5, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 1050,
+          "min": 965,
+          "max": 1140,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 1235,
+          "min": 1170,
+          "max": 1300,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 3,
+          "min": 2,
+          "max": 5,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E16: spec max 초과 (1258/1392) → TH04 상한 + Cu 합금 분류. [Materion C17200]" },
-    { "namePattern": "^Vanadium — As-supplied",
+      "reason": "E16: spec max 초과 (1258/1392) → TH04 상한 + Cu 합금 분류. [Materion C17200]",
+      "stableIds": [
+        "MET-0361"
+      ],
+      "_namePattern_ref": "^Be-Cu — As-supplied"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 360, "min": 320, "max": 420, "confidence": "handbook" },
-        "uts":            { "typical": 465, "min": 420, "max": 520, "confidence": "handbook" },
-        "elongation":     { "typical": 25, "min": 20, "max": 32, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 360,
+          "min": 320,
+          "max": 420,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 465,
+          "min": 420,
+          "max": 520,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 25,
+          "min": 20,
+          "max": 32,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E18: 합성 mock (730/864) — annealed 순 V. [ASM Vol.2]" },
-    { "namePattern": "^Niobium — As-supplied",
+      "reason": "E18: 합성 mock (730/864) — annealed 순 V. [ASM Vol.2]",
+      "stableIds": [
+        "MET-0668"
+      ],
+      "_namePattern_ref": "^Vanadium — As-supplied"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 150, "min": 105, "max": 240, "confidence": "handbook" },
-        "uts":            { "typical": 275, "min": 240, "max": 330, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 150,
+          "min": 105,
+          "max": 240,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 275,
+          "min": 240,
+          "max": 330,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E18: 합성 mock (365/432) — annealed 순 Nb. [ATI Wah Chang]" },
-    { "namePattern": "^Nb-1Zr — As-supplied",
+      "reason": "E18: 합성 mock (365/432) — annealed 순 Nb. [ATI Wah Chang]",
+      "stableIds": [
+        "MET-0653"
+      ],
+      "_namePattern_ref": "^Niobium — As-supplied"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 150, "min": 130, "max": 220, "confidence": "handbook" },
-        "uts":            { "typical": 280, "min": 250, "max": 340, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 150,
+          "min": 130,
+          "max": 220,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 280,
+          "min": 250,
+          "max": 340,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E17: 합성 mock (432/528) — annealed. [ATI Wah Chang Nb-1Zr]" },
-    { "namePattern": "^Niobium-1Zr",
+      "reason": "E17: 합성 mock (432/528) — annealed. [ATI Wah Chang Nb-1Zr]",
+      "stableIds": [
+        "MET-0652"
+      ],
+      "_namePattern_ref": "^Nb-1Zr — As-supplied"
+    },
+    {
       "ranges": {
-        "modulus": { "typical": 105, "min": 100, "max": 110, "confidence": "handbook" },
-        "max_service_temp": { "typical": 1200, "min": 1100, "max": 1300, "confidence": "handbook" }
+        "modulus": {
+          "typical": 105,
+          "min": 100,
+          "max": 110,
+          "confidence": "handbook"
+        },
+        "max_service_temp": {
+          "typical": 1200,
+          "min": 1100,
+          "max": 1300,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E17+G8: E=69 → 105 + 중복 base 와 Tmax 모순 (1400 vs 1000) → 1200 통일 (inert/vacuum 기준). [ASM Vol.2 / ATI]" },
-    { "namePattern": "^Nb-1Zr — As-supplied",
-      "ranges": { "max_service_temp": { "typical": 1200, "min": 1100, "max": 1300, "confidence": "handbook" } },
-      "reason": "G8: Tmax 통일 (1000 → 1200)." },
-    { "namePattern": "^C-103 \\(Nb-Hf-Ti\\)|^Niobium C-103",
+      "reason": "E17+G8: E=69 → 105 + 중복 base 와 Tmax 모순 (1400 vs 1000) → 1200 통일 (inert/vacuum 기준). [ASM Vol.2 / ATI]",
+      "stableIds": [
+        "MET-0655"
+      ],
+      "_namePattern_ref": "^Niobium-1Zr"
+    },
+    {
       "ranges": {
-        "hardness": { "typical": 140, "min": 120, "max": 170, "confidence": "handbook" },
-        "max_service_temp": { "typical": 1400, "min": 1300, "max": 1480, "confidence": "handbook" }
+        "max_service_temp": {
+          "typical": 1200,
+          "min": 1100,
+          "max": 1300,
+          "confidence": "handbook"
+        }
       },
-      "reason": "G7: 중복 base HV 모순 (180 vs 90) → annealed ~140 통일 + Tmax 1400 통일. [ATI Wah Chang C-103]" },
-    { "namePattern": "^OF Copper C10200$",
+      "reason": "G8: Tmax 통일 (1000 → 1200).",
+      "stableIds": [
+        "MET-0652"
+      ],
+      "_namePattern_ref": "^Nb-1Zr — As-supplied"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 70, "min": 60, "max": 90, "confidence": "handbook" },
-        "uts":            { "typical": 220, "min": 200, "max": 250, "confidence": "handbook" }
+        "hardness": {
+          "typical": 140,
+          "min": 120,
+          "max": 170,
+          "confidence": "handbook"
+        },
+        "max_service_temp": {
+          "typical": 1400,
+          "min": 1300,
+          "max": 1480,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E14: hard σy (330) + annealed El (45) 혼합 mock → annealed. [CDA]" },
-    { "namePattern": "^DHP Copper C12200$",
+      "reason": "G7: 중복 base HV 모순 (180 vs 90) → annealed ~140 통일 + Tmax 1400 통일. [ATI Wah Chang C-103]",
+      "stableIds": [
+        "MET-0640",
+        "MET-0641",
+        "MET-0654"
+      ],
+      "_namePattern_ref": "^C-103 \\(Nb-Hf-Ti\\)|^Niobium C-103"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 70, "min": 60, "max": 90, "confidence": "handbook" },
-        "uts":            { "typical": 220, "min": 200, "max": 250, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 70,
+          "min": 60,
+          "max": 90,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 220,
+          "min": 200,
+          "max": 250,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E14: 동일. [CDA]" },
-    { "namePattern": "^Commercial Bronze C22000$",
+      "reason": "E14: hard σy (330) + annealed El (45) 혼합 mock → annealed. [CDA]",
+      "stableIds": [
+        "MET-0443"
+      ],
+      "_namePattern_ref": "^OF Copper C10200$"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 85, "min": 70, "max": 110, "confidence": "handbook" },
-        "uts":            { "typical": 255, "min": 230, "max": 290, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 70,
+          "min": 60,
+          "max": 90,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 220,
+          "min": 200,
+          "max": 250,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E14: 동일. [CDA]" },
-    { "namePattern": "^Phosphor Bronze C51000",
+      "reason": "E14: 동일. [CDA]",
+      "stableIds": [
+        "MET-0433"
+      ],
+      "_namePattern_ref": "^DHP Copper C12200$"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 145, "min": 130, "max": 180, "confidence": "handbook" },
-        "uts":            { "typical": 340, "min": 310, "max": 380, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 85,
+          "min": 70,
+          "max": 110,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 255,
+          "min": 230,
+          "max": 290,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E15: mid-mock (350/450) → annealed. [CDA C51000]" },
-    { "namePattern": "^CPM 3V",
-      "ranges": { "density": { "typical": 7.85, "min": 7.83, "max": 7.87, "confidence": "handbook" } },
-      "reason": "E2: ρ 7.46 → 7.85. [Crucible CPM 3V]" },
-    { "namePattern": "^CX \\(PH Tool Stainless\\) — As-built",
+      "reason": "E14: 동일. [CDA]",
+      "stableIds": [
+        "MET-0413"
+      ],
+      "_namePattern_ref": "^Commercial Bronze C22000$"
+    },
+    {
       "ranges": {
-        "yield_strength": { "typical": 1050, "min": 990, "max": 1110, "confidence": "handbook" },
-        "uts":            { "typical": 1150, "min": 1090, "max": 1210, "confidence": "handbook" },
-        "elongation":     { "typical": 14, "min": 11, "max": 17, "confidence": "handbook" }
+        "yield_strength": {
+          "typical": 145,
+          "min": 130,
+          "max": 180,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 340,
+          "min": 310,
+          "max": 380,
+          "confidence": "handbook"
+        }
       },
-      "reason": "E1: as-built 에 aged 값 (1600/1700). EOS CX as-built ~1050/1150. [EOS CX MDS]" },
-    { "namePattern": "^PAI \\(Torlon\\)",
-      "ranges": { "max_service_temp": { "typical": 260, "min": 240, "max": 275, "confidence": "handbook" } },
-      "reason": "E20: 90 → 260 (최고급 고온 폴리머). [Solvay Torlon]" },
-    { "namePattern": "^Polyimide \\(Vespel\\)",
-      "ranges": { "max_service_temp": { "typical": 288, "min": 260, "max": 300, "confidence": "handbook" } },
-      "reason": "E20: 90 → 288. [DuPont Vespel SP-1]" },
-    { "namePattern": "^LCP$|^LCP Vectra",
-      "ranges": { "max_service_temp": { "typical": 230, "min": 220, "max": 240, "confidence": "handbook" } },
-      "reason": "E20: 90 → 230 (HDT 271). [Celanese Vectra]" },
-    { "namePattern": "^PPSU \\(Radel\\)",
-      "ranges": { "max_service_temp": { "typical": 180, "min": 170, "max": 190, "confidence": "handbook" } },
-      "reason": "E20: 90 → 180. [Solvay Radel]" },
-    { "namePattern": "^Polysulfone \\(PSU\\)|^PSU Eviva",
-      "ranges": { "max_service_temp": { "typical": 160, "min": 150, "max": 170, "confidence": "handbook" } },
-      "reason": "E20: 90 → 160. [Solvay Udel]" },
-    { "namePattern": "^ETFE",
-      "ranges": { "max_service_temp": { "typical": 150, "min": 140, "max": 165, "confidence": "handbook" } },
-      "reason": "E20: 90 → 150. [Chemours Tefzel]" },
-    { "namePattern": "^PBT$",
-      "ranges": { "max_service_temp": { "typical": 130, "min": 120, "max": 140, "confidence": "handbook" } },
-      "reason": "E20: 90 → 130. [Celanese Crastin]" },
-    { "namePattern": "^PCL \\(polycaprolactone\\)",
-      "ranges": { "max_service_temp": { "typical": 45, "min": 40, "max": 50, "confidence": "handbook" } },
-      "reason": "E20 물리 불가: Tmax 90 > Tm 60. → 45. [Perstorp Capa]" },
-    { "namePattern": "^Ultem 1010 \\(PEI\\) — Injection-Molded",
-      "ranges": { "max_service_temp": { "typical": 200, "min": 180, "max": 215, "confidence": "handbook" } },
-      "reason": "E21: R173 잔존 Tmax 540 → 200. [SABIC ULTEM 1010]" },
-    { "namePattern": "^PA46 \\(Stanyl",
-      "ranges": { "max_service_temp": { "typical": 170, "min": 150, "max": 190, "confidence": "handbook" } },
-      "reason": "E22: 110 → 170 (별도 PA46 entry 와 통일). [DSM Stanyl]" },
-    { "namePattern": "^PA66 Ultramid",
-      "ranges": { "max_service_temp": { "typical": 110, "min": 100, "max": 130, "confidence": "handbook" } },
-      "reason": "E20: 90 → 110. [BASF Ultramid]" },
-    { "namePattern": "^PVC \\(rigid\\)",
-      "ranges": { "max_service_temp": { "typical": 65, "min": 60, "max": 75, "confidence": "handbook" } },
-      "reason": "E20: 90 → 65 (rigid PVC HDT ~70). [minor]" },
-
-    { "namePattern": "^(9% Ni Steel \\(ASTM A553|ASTM A553 Type)",
+      "reason": "E15: mid-mock (350/450) → annealed. [CDA C51000]",
+      "stableIds": [
+        "MET-0445"
+      ],
+      "_namePattern_ref": "^Phosphor Bronze C51000"
+    },
+    {
+      "ranges": {
+        "density": {
+          "typical": 7.85,
+          "min": 7.83,
+          "max": 7.87,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E2: ρ 7.46 → 7.85. [Crucible CPM 3V]",
+      "stableIds": [
+        "MET-0942"
+      ],
+      "_namePattern_ref": "^CPM 3V"
+    },
+    {
+      "ranges": {
+        "yield_strength": {
+          "typical": 1050,
+          "min": 990,
+          "max": 1110,
+          "confidence": "handbook"
+        },
+        "uts": {
+          "typical": 1150,
+          "min": 1090,
+          "max": 1210,
+          "confidence": "handbook"
+        },
+        "elongation": {
+          "typical": 14,
+          "min": 11,
+          "max": 17,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E1: as-built 에 aged 값 (1600/1700). EOS CX as-built ~1050/1150. [EOS CX MDS]",
+      "stableIds": [
+        "MET-0838"
+      ],
+      "_namePattern_ref": "^CX \\(PH Tool Stainless\\) — As-built"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 260,
+          "min": 240,
+          "max": 275,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20: 90 → 260 (최고급 고온 폴리머). [Solvay Torlon]",
+      "stableIds": [
+        "POL-0018"
+      ],
+      "_namePattern_ref": "^PAI \\(Torlon\\)"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 288,
+          "min": 260,
+          "max": 300,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20: 90 → 288. [DuPont Vespel SP-1]",
+      "stableIds": [
+        "POL-0091"
+      ],
+      "_namePattern_ref": "^Polyimide \\(Vespel\\)"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 230,
+          "min": 220,
+          "max": 240,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20: 90 → 230 (HDT 271). [Celanese Vectra]",
+      "stableIds": [
+        "POL-0014",
+        "POL-0015",
+        "POL-0016"
+      ],
+      "_namePattern_ref": "^LCP$|^LCP Vectra"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 180,
+          "min": 170,
+          "max": 190,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20: 90 → 180. [Solvay Radel]",
+      "stableIds": [
+        "POL-0112"
+      ],
+      "_namePattern_ref": "^PPSU \\(Radel\\)"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 160,
+          "min": 150,
+          "max": 170,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20: 90 → 160. [Solvay Udel]",
+      "stableIds": [
+        "POL-0115",
+        "POL-0116",
+        "POL-0117"
+      ],
+      "_namePattern_ref": "^Polysulfone \\(PSU\\)|^PSU Eviva"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 150,
+          "min": 140,
+          "max": 165,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20: 90 → 150. [Chemours Tefzel]",
+      "stableIds": [
+        "POL-0009"
+      ],
+      "_namePattern_ref": "^ETFE"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 130,
+          "min": 120,
+          "max": 140,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20: 90 → 130. [Celanese Crastin]",
+      "stableIds": [
+        "POL-0020"
+      ],
+      "_namePattern_ref": "^PBT$"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 45,
+          "min": 40,
+          "max": 50,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20 물리 불가: Tmax 90 > Tm 60. → 45. [Perstorp Capa]",
+      "stableIds": [
+        "POL-0023"
+      ],
+      "_namePattern_ref": "^PCL \\(polycaprolactone\\)"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 200,
+          "min": 180,
+          "max": 215,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E21: R173 잔존 Tmax 540 → 200. [SABIC ULTEM 1010]",
+      "stableIds": [
+        "POL-0034"
+      ],
+      "_namePattern_ref": "^Ultem 1010 \\(PEI\\) — Injection-Molded"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 170,
+          "min": 150,
+          "max": 190,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E22: 110 → 170 (별도 PA46 entry 와 통일). [DSM Stanyl]",
+      "stableIds": [
+        "POL-0066",
+        "POL-0067"
+      ],
+      "_namePattern_ref": "^PA46 \\(Stanyl"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 110,
+          "min": 100,
+          "max": 130,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20: 90 → 110. [BASF Ultramid]",
+      "stableIds": [
+        "POL-0068"
+      ],
+      "_namePattern_ref": "^PA66 Ultramid"
+    },
+    {
+      "ranges": {
+        "max_service_temp": {
+          "typical": 65,
+          "min": 60,
+          "max": 75,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "E20: 90 → 65 (rigid PVC HDT ~70). [minor]",
+      "stableIds": [
+        "POL-0124"
+      ],
+      "_namePattern_ref": "^PVC \\(rigid\\)"
+    },
+    {
       "subcategory": "Low-Alloy Steel - Cryogenic Ni",
-      "reason": "L2: 9Ni 강이 stainless 로 오분류 (Cr 없음 — 극저온 Ni 강). [ASTM A553]" },
-    { "namePattern": "^CGO 0\\.27",
+      "reason": "L2: 9Ni 강이 stainless 로 오분류 (Cr 없음 — 극저온 Ni 강). [ASTM A553]",
+      "stableIds": [
+        "MET-0462",
+        "MET-0463",
+        "MET-0464",
+        "MET-0465"
+      ],
+      "_namePattern_ref": "^(9% Ni Steel \\(ASTM A553|ASTM A553 Type)"
+    },
+    {
       "subcategory": "Electrical Steel",
-      "reason": "L2: 방향성 전기강판이 stainless 로 오분류. [KS C 2553]" },
-    { "namePattern": "^AISI 304L — ",
-      "composition": { "Fe": "balance", "Cr": "18~20", "Ni": "8~12", "C": "≤0.03", "Mn": "≤2.0", "Si": "≤0.75" },
-      "reason": "L3: L grade 인데 C=0.08 (304 조성이 복사됨). 304L = C ≤0.03. [ASTM A240]" },
-    { "namePattern": "^AISI 1010 — ",
-      "composition": { "Fe": "balance", "C": "0.08~0.13", "Mn": "0.30~0.60", "P": "≤0.04", "S": "≤0.05" },
-      "reason": "L12: R199 공용 조성 'C 0.10~0.95' 가 평균 0.525 로 파싱 → 1010 실제 C 0.08-0.13. [SAE J403]" },
-    { "namePattern": "^AISI 1015 — ",
-      "composition": { "Fe": "balance", "C": "0.13~0.18", "Mn": "0.30~0.60", "P": "≤0.04", "S": "≤0.05" },
-      "reason": "L12: 1015 C 0.13-0.18. [SAE J403]" },
-    { "namePattern": "^AISI 1020 — ",
-      "composition": { "Fe": "balance", "C": "0.18~0.23", "Mn": "0.30~0.60", "P": "≤0.04", "S": "≤0.05" },
-      "reason": "L12: 1020 C 0.18-0.23. [SAE J403]" },
-    { "namePattern": "^AISI 1025 — ",
-      "composition": { "Fe": "balance", "C": "0.22~0.28", "Mn": "0.30~0.60", "P": "≤0.04", "S": "≤0.05" },
-      "reason": "L12: 1025 C 0.22-0.28. [SAE J403]" },
-    { "namePattern": "^AISI 1030 — ",
-      "composition": { "Fe": "balance", "C": "0.28~0.34", "Mn": "0.60~0.90", "P": "≤0.04", "S": "≤0.05" },
-      "reason": "L12: 1030 C 0.28-0.34. [SAE J403]" },
-    { "namePattern": "^AISI 1040 — ",
-      "composition": { "Fe": "balance", "C": "0.37~0.44", "Mn": "0.60~0.90", "P": "≤0.04", "S": "≤0.05" },
-      "reason": "L12: 1040 C 0.37-0.44. [SAE J403]" },
-    { "namePattern": "^AISI 1050 — ",
-      "composition": { "Fe": "balance", "C": "0.48~0.55", "Mn": "0.60~0.90", "P": "≤0.04", "S": "≤0.05" },
-      "reason": "L12: 1050 C 0.48-0.55. [SAE J403]" },
-    { "namePattern": "^AISI 1080 — ",
-      "composition": { "Fe": "balance", "C": "0.75~0.88", "Mn": "0.60~0.90", "P": "≤0.04", "S": "≤0.05" },
-      "reason": "L12: 1080 C 0.75-0.88. [SAE J403]" },
-    { "namePattern": "^AISI 1095 — ",
-      "composition": { "Fe": "balance", "C": "0.90~1.03", "Mn": "0.30~0.50", "P": "≤0.04", "S": "≤0.05" },
-      "reason": "L12: 1095 C 0.90-1.03. [SAE J403]" },
-    { "namePattern": "^Be-Cu — As-supplied",
-      "composition": { "Cu": "balance", "Be": "1.85~2.00", "Co+Ni": "0.2~0.6" },
-      "reason": "L14 CRITICAL: 조성 스왑 (Cu=2, Be=98 — Be 98% 는 베릴륨 금속). C17200 = Cu balance + Be ~1.9. [Materion]" },
-    { "namePattern": "^Haynes 188",
-      "subcategory": "Cobalt Alloy - Chromium",
-      "reason": "L14: Co balance (39%) 합금이 Nickel Superalloy 로 오분류. 188 은 Co-base. [Haynes 188]" },
-    { "namePattern": "^Carpenter A-286",
-      "subcategory": "Stainless Steel - Austenitic",
-      "reason": "L14: 동일 A-286 이 'A286'(stainless) 과 'Carpenter A-286'(Ni superalloy) 로 분류 불일치. Fe-base PH austenitic (ASTM A638) 으로 통일." },
-
-    { "namePattern": "^C26000 — ",
-      "subcategory": "Copper Alloy - Brass",
-      "composition": { "Cu": "68~71.5", "Zn": "balance", "Pb": "≤0.07", "Fe": "≤0.05" },
-      "reason": "A-2 CRITICAL: CSV 컬럼 손상으로 황동에 Ti 98%·Al 98.5% (합계 ~217%, Ti-based 오태깅). C26000 Cartridge Brass = Cu 70 / Zn 30. [CDA C26000 / ASTM B36]" },
-    { "namePattern": "^C27000 — ",
-      "subcategory": "Copper Alloy - Brass",
-      "composition": { "Cu": "63~68.5", "Zn": "balance", "Pb": "≤0.10", "Fe": "≤0.07" },
-      "reason": "A-2 CRITICAL: 동일 손상. C27000 Yellow Brass = Cu 65 / Zn 35. [CDA C27000]" },
-    { "namePattern": "^C44300 — ",
-      "subcategory": "Copper Alloy - Brass",
-      "composition": { "Cu": "70~73", "Zn": "balance", "Sn": "0.8~1.2", "As": "0.02~0.06" },
-      "reason": "A-2 CRITICAL: CSV 손상으로 황동에 Fe 84%·Cr 16% (스테인리스 조성). C44300 Admiralty Brass = Cu 71 / Zn 28 / Sn 1 / As (dezinc 억제). [CDA C44300]" },
-    { "namePattern": "^Zirconium — As-supplied",
-      "composition": { "Zr": "balance", "Hf": "≤4.5", "Fe+Cr": "≤0.2", "O": "≤0.16" },
-      "reason": "A-2 CRITICAL: CSV 손상으로 Ni 60%·Ti 98%·Zr 0% (Zr 합금인데 Zr 누락). 순 Zirconium (R60702) = Zr balance + Hf ≤4.5. [ASTM B550 R60702]" },
-    { "namePattern": "^Zircaloy-2 — As-supplied",
-      "composition": { "Zr": "balance", "Sn": "1.20~1.70", "Fe": "0.07~0.20", "Cr": "0.05~0.15", "Ni": "0.03~0.08", "O": "0.10~0.14" },
-      "reason": "A-2 CRITICAL: 조성 합계 1.75% (Zr 누락). Zircaloy-2 (R60802) = Zr balance + Sn 1.45 + Fe/Cr/Ni 미량. [ASTM B350 R60802]" },
-    { "namePattern": "^Be-Cu — As-supplied",
-      "ranges": {
-        "density": { "typical": 8.25, "min": 8.23, "max": 8.27, "confidence": "handbook" }
+      "reason": "L2: 방향성 전기강판이 stainless 로 오분류. [KS C 2553]",
+      "stableIds": [
+        "MET-0452"
+      ],
+      "_namePattern_ref": "^CGO 0\\.27"
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "Cr": "18~20",
+        "Ni": "8~12",
+        "C": "≤0.03",
+        "Mn": "≤2.0",
+        "Si": "≤0.75"
       },
-      "reason": "A-3 CRITICAL: density 1.86 (밀도칸에 Be 중량% 1.85~2.00 오입력). C17200 표준 밀도 8.25 g/cm³. composition 은 R207 에서 이미 정정. [Materion C17200 / ASM Vol.2]" },
-    { "namePattern": "^15-5PH — As-supplied",
-      "composition": { "Fe": "balance", "Cr": "14~15.5", "Ni": "3.5~5.5", "Cu": "2.5~4.5", "Nb": "0.15~0.45", "Mn": "≤1.0", "Si": "≤1.0", "C": "≤0.07" },
-      "reason": "A-4: am_vendor 15-5PH 의 Cu 누락 + Ni 60% 비현실 (Nikon SLM CSV 행 손상). 15-5 PH (S15500) = 석출경화 정의원소 Cu 3.5 포함. [AMS 5659 / R_0250 reference]" }
+      "reason": "L3: L grade 인데 C=0.08 (304 조성이 복사됨). 304L = C ≤0.03. [ASTM A240]",
+      "stableIds": [
+        "MET-0717",
+        "MET-0720"
+      ],
+      "_namePattern_ref": "^AISI 304L — "
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "C": "0.08~0.13",
+        "Mn": "0.30~0.60",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "reason": "L12: R199 공용 조성 'C 0.10~0.95' 가 평균 0.525 로 파싱 → 1010 실제 C 0.08-0.13. [SAE J403]",
+      "stableIds": [
+        "MET-0234",
+        "MET-0237",
+        "MET-0238"
+      ],
+      "_namePattern_ref": "^AISI 1010 — "
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "C": "0.13~0.18",
+        "Mn": "0.30~0.60",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "reason": "L12: 1015 C 0.13-0.18. [SAE J403]",
+      "stableIds": [
+        "MET-0239",
+        "MET-0242",
+        "MET-0243",
+        "MET-1004",
+        "MET-1005"
+      ],
+      "_namePattern_ref": "^AISI 1015 — "
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "C": "0.18~0.23",
+        "Mn": "0.30~0.60",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "reason": "L12: 1020 C 0.18-0.23. [SAE J403]",
+      "stableIds": [
+        "MET-0245",
+        "MET-0248",
+        "MET-0249",
+        "MET-1006",
+        "MET-1007"
+      ],
+      "_namePattern_ref": "^AISI 1020 — "
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "C": "0.22~0.28",
+        "Mn": "0.30~0.60",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "reason": "L12: 1025 C 0.22-0.28. [SAE J403]",
+      "stableIds": [
+        "MET-0250",
+        "MET-0253",
+        "MET-0254"
+      ],
+      "_namePattern_ref": "^AISI 1025 — "
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "C": "0.28~0.34",
+        "Mn": "0.60~0.90",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "reason": "L12: 1030 C 0.28-0.34. [SAE J403]",
+      "stableIds": [
+        "MET-0255",
+        "MET-0258",
+        "MET-0259"
+      ],
+      "_namePattern_ref": "^AISI 1030 — "
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "C": "0.37~0.44",
+        "Mn": "0.60~0.90",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "reason": "L12: 1040 C 0.37-0.44. [SAE J403]",
+      "stableIds": [
+        "MET-0260",
+        "MET-0263",
+        "MET-0264"
+      ],
+      "_namePattern_ref": "^AISI 1040 — "
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "C": "0.48~0.55",
+        "Mn": "0.60~0.90",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "reason": "L12: 1050 C 0.48-0.55. [SAE J403]",
+      "stableIds": [
+        "MET-0266",
+        "MET-0269",
+        "MET-0270"
+      ],
+      "_namePattern_ref": "^AISI 1050 — "
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "C": "0.75~0.88",
+        "Mn": "0.60~0.90",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "reason": "L12: 1080 C 0.75-0.88. [SAE J403]",
+      "stableIds": [
+        "MET-0271",
+        "MET-0274",
+        "MET-0275"
+      ],
+      "_namePattern_ref": "^AISI 1080 — "
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "C": "0.90~1.03",
+        "Mn": "0.30~0.50",
+        "P": "≤0.04",
+        "S": "≤0.05"
+      },
+      "reason": "L12: 1095 C 0.90-1.03. [SAE J403]",
+      "stableIds": [
+        "MET-0276",
+        "MET-0279",
+        "MET-0280"
+      ],
+      "_namePattern_ref": "^AISI 1095 — "
+    },
+    {
+      "composition": {
+        "Cu": "balance",
+        "Be": "1.85~2.00",
+        "Co+Ni": "0.2~0.6"
+      },
+      "reason": "L14 CRITICAL: 조성 스왑 (Cu=2, Be=98 — Be 98% 는 베릴륨 금속). C17200 = Cu balance + Be ~1.9. [Materion]",
+      "stableIds": [
+        "MET-0361"
+      ],
+      "_namePattern_ref": "^Be-Cu — As-supplied"
+    },
+    {
+      "subcategory": "Cobalt Alloy - Chromium",
+      "reason": "L14: Co balance (39%) 합금이 Nickel Superalloy 로 오분류. 188 은 Co-base. [Haynes 188]",
+      "stableIds": [
+        "MET-0351"
+      ],
+      "_namePattern_ref": "^Haynes 188"
+    },
+    {
+      "subcategory": "Stainless Steel - Austenitic",
+      "reason": "L14: 동일 A-286 이 'A286'(stainless) 과 'Carpenter A-286'(Ni superalloy) 로 분류 불일치. Fe-base PH austenitic (ASTM A638) 으로 통일.",
+      "stableIds": [
+        "MET-0753",
+        "MET-0754",
+        "MET-0755"
+      ],
+      "_namePattern_ref": "^Carpenter A-286"
+    },
+    {
+      "subcategory": "Copper Alloy - Brass",
+      "composition": {
+        "Cu": "68~71.5",
+        "Zn": "balance",
+        "Pb": "≤0.07",
+        "Fe": "≤0.05"
+      },
+      "reason": "A-2 CRITICAL: CSV 컬럼 손상으로 황동에 Ti 98%·Al 98.5% (합계 ~217%, Ti-based 오태깅). C26000 Cartridge Brass = Cu 70 / Zn 30. [CDA C26000 / ASTM B36]",
+      "stableIds": [
+        "MET-0447"
+      ],
+      "_namePattern_ref": "^C26000 — "
+    },
+    {
+      "subcategory": "Copper Alloy - Brass",
+      "composition": {
+        "Cu": "63~68.5",
+        "Zn": "balance",
+        "Pb": "≤0.10",
+        "Fe": "≤0.07"
+      },
+      "reason": "A-2 CRITICAL: 동일 손상. C27000 Yellow Brass = Cu 65 / Zn 35. [CDA C27000]",
+      "stableIds": [
+        "MET-0448"
+      ],
+      "_namePattern_ref": "^C27000 — "
+    },
+    {
+      "subcategory": "Copper Alloy - Brass",
+      "composition": {
+        "Cu": "70~73",
+        "Zn": "balance",
+        "Sn": "0.8~1.2",
+        "As": "0.02~0.06"
+      },
+      "reason": "A-2 CRITICAL: CSV 손상으로 황동에 Fe 84%·Cr 16% (스테인리스 조성). C44300 Admiralty Brass = Cu 71 / Zn 28 / Sn 1 / As (dezinc 억제). [CDA C44300]",
+      "stableIds": [
+        "MET-0449"
+      ],
+      "_namePattern_ref": "^C44300 — "
+    },
+    {
+      "composition": {
+        "Zr": "balance",
+        "Hf": "≤4.5",
+        "Fe+Cr": "≤0.2",
+        "O": "≤0.16"
+      },
+      "reason": "A-2 CRITICAL: CSV 손상으로 Ni 60%·Ti 98%·Zr 0% (Zr 합금인데 Zr 누락). 순 Zirconium (R60702) = Zr balance + Hf ≤4.5. [ASTM B550 R60702]",
+      "stableIds": [
+        "MET-0672"
+      ],
+      "_namePattern_ref": "^Zirconium — As-supplied"
+    },
+    {
+      "composition": {
+        "Zr": "balance",
+        "Sn": "1.20~1.70",
+        "Fe": "0.07~0.20",
+        "Cr": "0.05~0.15",
+        "Ni": "0.03~0.08",
+        "O": "0.10~0.14"
+      },
+      "reason": "A-2 CRITICAL: 조성 합계 1.75% (Zr 누락). Zircaloy-2 (R60802) = Zr balance + Sn 1.45 + Fe/Cr/Ni 미량. [ASTM B350 R60802]",
+      "stableIds": [
+        "MET-0671"
+      ],
+      "_namePattern_ref": "^Zircaloy-2 — As-supplied"
+    },
+    {
+      "ranges": {
+        "density": {
+          "typical": 8.25,
+          "min": 8.23,
+          "max": 8.27,
+          "confidence": "handbook"
+        }
+      },
+      "reason": "A-3 CRITICAL: density 1.86 (밀도칸에 Be 중량% 1.85~2.00 오입력). C17200 표준 밀도 8.25 g/cm³. composition 은 R207 에서 이미 정정. [Materion C17200 / ASM Vol.2]",
+      "stableIds": [
+        "MET-0361"
+      ],
+      "_namePattern_ref": "^Be-Cu — As-supplied"
+    },
+    {
+      "composition": {
+        "Fe": "balance",
+        "Cr": "14~15.5",
+        "Ni": "3.5~5.5",
+        "Cu": "2.5~4.5",
+        "Nb": "0.15~0.45",
+        "Mn": "≤1.0",
+        "Si": "≤1.0",
+        "C": "≤0.07"
+      },
+      "reason": "A-4: am_vendor 15-5PH 의 Cu 누락 + Ni 60% 비현실 (Nikon SLM CSV 행 손상). 15-5 PH (S15500) = 석출경화 정의원소 Cu 3.5 포함. [AMS 5659 / R_0250 reference]",
+      "stableIds": [
+        "MET-0822"
+      ],
+      "_namePattern_ref": "^15-5PH — As-supplied"
+    }
   ]
 }

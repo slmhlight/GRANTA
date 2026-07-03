@@ -4141,7 +4141,30 @@ try {
   console.warn('R173 Phase B range overrides skipped:', e.message);
 }
 
-/* R199 — regex-pattern range + composition overrides (multiple entries 일괄 처리).
+/* R226p — override 대상 매칭을 name-regex 에서 **stable Material ID** 로 전환.
+ *   freeze(legacy_id→stable_id) 로 각 entry 의 stable_id 를 조회, override 의 stableIds[] 와 매칭.
+ *   원위치(derivation 前) 유지 → 순서·값 완전 보존, name-regex over-match 원천 제거. */
+const R226P_FREEZE = (() => { try { return JSON.parse(fs.readFileSync(path.join(DATA, 'registry-id-freeze.json'), 'utf8')).map || {}; } catch { return {}; } })();
+const sidOf = (m) => R226P_FREEZE[m.id];
+/* R226P_CAPTURE=1 이면 _namePattern_ref(구 regex)로 매칭하며 그 시점의 stable_id 를 기록 —
+ * 마이그레이션이 override 실행 시점의 정확한 매칭 집합을 확정하는 용도(rename 이전 이름 기준). */
+const R226P_CAPTURE = process.env.R226P_CAPTURE;
+const R226P_captured = {};
+const matchByStableIds = (ov) => {
+  if (R226P_CAPTURE && ov._namePattern_ref) {
+    const re = new RegExp(ov._namePattern_ref);
+    const targets = all.filter(m => re.test(m.name || ''));
+    R226P_captured[ov._namePattern_ref] = [...new Set(targets.map(sidOf).filter(Boolean))].sort();
+    return targets;
+  }
+  const s = new Set(ov.stableIds || []);
+  return s.size ? all.filter(m => s.has(sidOf(m))) : [];
+};
+if (process.env.R226P_CAPTURE) process.on('exit', () => {
+  try { fs.writeFileSync(path.join(DATA, '..', 'r226p-captured.json'), JSON.stringify(R226P_captured, null, 1)); } catch { /* noop */ }
+});
+
+/* R199 — stable_id 기반 range + composition overrides (R226p: 구 regex namePattern → stableIds).
  *   data/r199-stainless-overrides.json — CSV mock 값 (304/304L/310/316/321/347 + Inconel 100) 정정. */
 try {
   const r199Raw = JSON.parse(fs.readFileSync(path.join(DATA, 'r199-stainless-overrides.json'), 'utf8'));
@@ -4150,8 +4173,7 @@ try {
   let r199Props = 0;
   let r199Comps = 0;
   for (const ov of r199Over) {
-    const re = new RegExp(ov.namePattern);
-    const targets = all.filter(m => re.test(m.name || ''));
+    const targets = matchByStableIds(ov);
     for (const t of targets) {
       if (!t.ranges) t.ranges = {};
       for (const [prop, newRange] of Object.entries(ov.ranges || {})) {
@@ -4184,8 +4206,7 @@ try {
   let srcAdded = 0;
   let srcTouched = new Set();
   for (const map of mappings) {
-    const re = new RegExp(map.namePattern);
-    const targets = all.filter(m => re.test(m.name || ''));
+    const targets = matchByStableIds(map);   // R226p — stable_id 매칭
     for (const t of targets) {
       // 이미 verified 인 source 가 있으면 skip
       if (Array.isArray(t.sources) && t.sources.some(s => s.verified)) continue;
@@ -4218,8 +4239,7 @@ try {
   const r205Over = r205Raw.overrides || [];
   let n205 = 0, p205 = 0, q205 = 0, s205 = 0;
   for (const ov of r205Over) {
-    const re = new RegExp(ov.namePattern);
-    const targets = all.filter(m => re.test(m.name || ''));
+    const targets = matchByStableIds(ov);   // R226p — stable_id 매칭
     for (const t of targets) {
       if (ov.ranges) {
         if (!t.ranges) t.ranges = {};
