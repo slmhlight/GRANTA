@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 602,
-      "typical": 602,
-      "max": 602,
-      "confidence": "handbook",
-      "provenance": "교정: Ansys Granta MI — AISI 304 1/4 hard (사용자 제공 R226m) · ASTM A666 (1/4 Hard temper)"
+      "min": 603,
+      "max": 603,
+      "typical": 603,
+      "n": 1,
+      "confidence": "handbook"
     },
     "uts": {
       "min": 945,
-      "typical": 945,
       "max": 945,
-      "confidence": "handbook",
-      "provenance": "교정: Ansys Granta MI — AISI 304 1/4 hard (사용자 제공 R226m) · ASTM A666 (1/4 Hard temper)"
+      "typical": 945,
+      "n": 1,
+      "confidence": "handbook"
     },
     "elongation": {
-      "min": 18,
-      "typical": 18,
-      "max": 18,
-      "confidence": "handbook",
-      "provenance": "교정: Ansys Granta MI — AISI 304 1/4 hard (사용자 제공 R226m) · ASTM A666 (1/4 Hard temper)"
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
     },
     "modulus": {
       "min": 197,
@@ -60,9 +60,9 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 130,
-      "max": 200,
-      "typical": 150,
+      "min": 310,
+      "max": 310,
+      "typical": 310,
       "n": 1,
       "confidence": "handbook"
     },
@@ -223,11 +223,11 @@
   "points": [
     [
       8,
-      602,
+      603,
       945,
-      18,
+      20,
       197,
-      150,
+      310,
       15.5
     ]
   ],
@@ -259,11 +259,11 @@
   "fracture_toughness": 220,
   "fatigue_strength": 240,
   "density": 8,
-  "yield_strength": 602,
+  "yield_strength": 603,
   "uts": 945,
-  "elongation": 18,
+  "elongation": 20,
   "modulus": 197,
-  "hardness": 150,
+  "hardness": 310,
   "thermal_conductivity": 15.5,
   "impact_strength": 160,
   "manufacturer": "Reference data",
@@ -327,58 +327,5 @@
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
     "Cobb H M (2010) The History of Stainless Steel, ASM International"
   ],
-  "confidence_tier": "high",
-  "_corrections": {
-    "yield_strength": {
-      "had_range": true,
-      "val_range": {
-        "min": 170,
-        "max": 280,
-        "typical": 205,
-        "n": 1,
-        "confidence": "handbook"
-      },
-      "had_scalar": true,
-      "val_scalar": 205
-    },
-    "uts": {
-      "had_range": true,
-      "val_range": {
-        "min": 480,
-        "max": 620,
-        "typical": 515,
-        "n": 1,
-        "confidence": "handbook"
-      },
-      "had_scalar": true,
-      "val_scalar": 515
-    },
-    "elongation": {
-      "had_range": true,
-      "val_range": {
-        "min": 30,
-        "max": 60,
-        "typical": 40,
-        "n": 1,
-        "confidence": "handbook"
-      },
-      "had_scalar": true,
-      "val_scalar": 40
-    },
-    "_basis": "AISI 304 1/4 Hard 신규 entry — legacy override 가 annealed(205/515)로 덮음. Granta 1/4 hard 복원 (ASTM A666 1/4H: YS≥515/UTS≥860)",
-    "_src": "Ansys Granta MI — AISI 304 1/4 hard (사용자 제공 R226m) · ASTM A666 (1/4 Hard temper)",
-    "points": {
-      "from": [
-        [
-          8,
-          603,
-          945,
-          20,
-          197,
-          310,
-          15.5
-        ]
-      ]
-    }
-  }
+  "confidence_tier": "high"
 }

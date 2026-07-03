@@ -8,7 +8,7 @@
  *   2. Distance metric: 정규화된 log-space Euclidean distance across 8 핵심 property
  *      (yield, uts, modulus, density, hardness, max_service_temp, fatigue, price)
  *   3. Boost: 같은 family 멤버 (subcategory · families[]) → distance ×0.55
- *   4. Filter: distance < 1.5 + 자기 자신 제외 (R226m: popularity 게이트 폐기)
+ *   4. Filter: distance < 1.5 + 자기 자신 제외 + **상대 인기도**(R226n: 후보 popularity ≥ 현재−1.0) — 절대 게이트 아님
  *   5. Sort: cross-ref pin → **distance ASC** (R226m: popularity 정렬 폐기 — 물성 가까운 순) → top 10
  *
  * Output: { material, distance, sharedFamily, propertyDiffs }
@@ -174,16 +174,20 @@ function diffsFor(a: Material, b: Material): Array<{ prop: string; label: string
  * Find top-N similar materials.
  * @param target - 입력 material
  * @param all - 전체 material pool
- * @param opts - { topN: 10, maxDistance: 1.5, minPopularity: 0, sameCategoryOnly: true }
+ * @param opts - { topN: 10, maxDistance: 1.5, minPopularity: 0, maxPopularityDrop: 1.0, sameCategoryOnly: true }
+ * R226n — maxPopularityDrop: 순위는 물성 거리로만(popularity 무관), 단 후보 자격은 **상대 인기도 필터** —
+ *   후보 popularity 가 (현재 재료 popularity − maxPopularityDrop) 미만이면 배제. 절대 임계 아님.
+ *   즉 인기 재료를 볼 때 훨씬 덜 쓰이는 재료가 추천되는 것을 막되(±1.0 창), 자체가 니치인 재료는 관대.
  */
 export function findSimilar(
   target: Material,
   all: Material[],
-  opts: { topN?: number; maxDistance?: number; minPopularity?: number; sameCategoryOnly?: boolean } = {},
+  opts: { topN?: number; maxDistance?: number; minPopularity?: number; maxPopularityDrop?: number | null; sameCategoryOnly?: boolean } = {},
 ): SimilarMaterial[] {
-  const { topN = 10, maxDistance = 1.5, minPopularity = 0, sameCategoryOnly = true } = opts;
+  const { topN = 10, maxDistance = 1.5, minPopularity = 0, maxPopularityDrop = 1.0, sameCategoryOnly = true } = opts;
   const pool = sameCategoryOnly ? all.filter(m => m.category === target.category) : all;
   const norms = computeNorms(pool);
+  const targetPop = typeof target.popularity === 'number' ? target.popularity : null;
 
   /* R226c — 명시적 cross-ref (cast↔wrought 등). related[] 양방향(target→m, m→target), base-name 정규화 매칭.
      cross-ref 는 popularity·distance 필터를 우회하고 목록 최상단에 pin. */
@@ -205,7 +209,11 @@ export function findSimilar(
     const baseM = baseName(m.name);
     if (baseTarget && baseM && baseTarget === baseM) continue;
     const crossRef = isCrossRef(m);
-    if (!crossRef && typeof m.popularity === 'number' && m.popularity < minPopularity) continue;
+    if (!crossRef) {
+      if (typeof m.popularity === 'number' && m.popularity < minPopularity) continue; // 절대 하한 (기본 0 = off, 명시 전달 시만)
+      // R226n — 상대 인기도 필터: 현재 재료보다 maxPopularityDrop 이상 덜 쓰이는 재료는 배제.
+      if (targetPop != null && maxPopularityDrop != null && typeof m.popularity === 'number' && m.popularity < targetPop - maxPopularityDrop) continue;
+    }
     const shares = sharesFamily(target, m);
     let d = distance(target, m, norms);
     if (shares) d *= 0.55; // boost same family

@@ -74,6 +74,23 @@ describe('findSimilar', () => {
     }
   });
 
+  it('R226n — 상대 인기도 필터 (현재보다 1.0↓ 재료 배제, 절대값 아님)', () => {
+    // 인기도 5.0 재료 A, 이웃: B(4.5, 통과) · C(3.9, 배제 <4.0) · D(4.0, 경계 통과)
+    const hi = M({ id: 'A', name: 'Alloy A', popularity: 5.0, subcategory: 'X', ranges: { yield_strength: { typical: 500, n: 1 }, density: { typical: 7.8, n: 1 } } });
+    const near = M({ id: 'B', name: 'Alloy B', popularity: 4.5, subcategory: 'X', ranges: { yield_strength: { typical: 510, n: 1 }, density: { typical: 7.8, n: 1 } } });
+    const drop = M({ id: 'C', name: 'Alloy C', popularity: 3.9, subcategory: 'X', ranges: { yield_strength: { typical: 505, n: 1 }, density: { typical: 7.8, n: 1 } } });
+    const edge = M({ id: 'D', name: 'Alloy D', popularity: 4.0, subcategory: 'X', ranges: { yield_strength: { typical: 508, n: 1 }, density: { typical: 7.8, n: 1 } } });
+    const r = findSimilar(hi, [hi, near, drop, edge]);
+    const ids = r.map((s) => s.material.id);
+    expect(ids).toContain('B');
+    expect(ids).toContain('D');       // 4.0 == 5.0-1.0 경계 → 통과
+    expect(ids).not.toContain('C');   // 3.9 < 4.0 → 배제
+    // 니치 재료(현재 자체가 저인기)면 관대: 인기 1.5 재료의 이웃 1.2 는 통과
+    const niche = M({ id: 'N', name: 'Niche', popularity: 1.5, subcategory: 'X', ranges: { yield_strength: { typical: 500, n: 1 }, density: { typical: 7.8, n: 1 } } });
+    const nb = M({ id: 'NB', name: 'Niche B', popularity: 1.2, subcategory: 'X', ranges: { yield_strength: { typical: 505, n: 1 }, density: { typical: 7.8, n: 1 } } });
+    expect(findSimilar(niche, [niche, nb]).map((s) => s.material.id)).toContain('NB');
+  });
+
   it('respects sameCategoryOnly default', () => {
     const polymer = M({ id: 'peek', name: 'PEEK', category: 'Polymer', popularity: 5 });
     const metalTarget = pool[0];

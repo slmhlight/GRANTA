@@ -26,43 +26,43 @@
   "ranges": {
     "density": {
       "min": 8.8,
-      "max": 8.86,
-      "typical": 8.83,
+      "max": 8.8,
+      "typical": 8.8,
       "n": 1,
       "confidence": "handbook"
     },
     "yield_strength": {
       "min": 760,
-      "typical": 760,
       "max": 760,
-      "confidence": "handbook",
-      "provenance": "교정: Ansys Granta MI — Nickel-copper alloy MONEL 400 hard(spring temper) (사용자 제공 R226l, UNS N04400)"
+      "typical": 760,
+      "n": 1,
+      "confidence": "handbook"
     },
     "uts": {
-      "min": 827,
-      "typical": 827,
-      "max": 827,
-      "confidence": "handbook",
-      "provenance": "교정: Ansys Granta MI — Nickel-copper alloy MONEL 400 hard(spring temper) (사용자 제공 R226l, UNS N04400)"
+      "min": 828,
+      "max": 828,
+      "typical": 828,
+      "n": 1,
+      "confidence": "handbook"
     },
     "elongation": {
       "min": 8.5,
-      "typical": 8.5,
       "max": 8.5,
-      "confidence": "handbook",
-      "provenance": "교정: Ansys Granta MI — Nickel-copper alloy MONEL 400 hard(spring temper) (사용자 제공 R226l, UNS N04400)"
+      "typical": 8.5,
+      "n": 1,
+      "confidence": "handbook"
     },
     "modulus": {
-      "min": 175,
-      "max": 185,
+      "min": 179,
+      "max": 179,
       "typical": 179,
       "n": 1,
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 110,
-      "max": 240,
-      "typical": 130,
+      "min": 350,
+      "max": 350,
+      "typical": 350,
       "n": 1,
       "confidence": "handbook"
     },
@@ -181,11 +181,12 @@
   },
   "composition": {
     "Ni": "63~70",
+    "C": "0~0.3",
     "Cu": "28~34",
-    "Fe": "≤2.5",
-    "Mn": "≤2.0",
-    "Si": "≤0.5",
-    "C": "≤0.3"
+    "Fe": "0~2.5",
+    "Mn": "0~2",
+    "S": "0~0.024",
+    "Si": "0~0.5"
   },
   "sources": [
     {
@@ -205,12 +206,12 @@
   ],
   "points": [
     [
-      8.83,
+      8.8,
       760,
-      827,
+      828,
       8.5,
       179,
-      130,
+      350,
       21.8
     ]
   ],
@@ -223,12 +224,12 @@
   },
   "fracture_toughness": 102,
   "fatigue_strength": 276,
-  "density": 8.83,
+  "density": 8.8,
   "yield_strength": 760,
-  "uts": 827,
+  "uts": 828,
   "elongation": 8.5,
   "modulus": 179,
-  "hardness": 130,
+  "hardness": 350,
   "thermal_conductivity": 21.8,
   "impact_strength": 105,
   "manufacturer": "PCC / Special Metals (Monel)",
@@ -269,57 +270,6 @@
   "_corrections": {
     "aliases": {
       "from": []
-    },
-    "yield_strength": {
-      "had_range": true,
-      "val_range": {
-        "min": 170,
-        "max": 690,
-        "typical": 240,
-        "n": 1,
-        "confidence": "handbook"
-      },
-      "had_scalar": true,
-      "val_scalar": 240
-    },
-    "uts": {
-      "had_range": true,
-      "val_range": {
-        "min": 480,
-        "max": 760,
-        "typical": 550,
-        "n": 1,
-        "confidence": "handbook"
-      },
-      "had_scalar": true,
-      "val_scalar": 550
-    },
-    "elongation": {
-      "had_range": true,
-      "val_range": {
-        "min": 25,
-        "max": 60,
-        "typical": 40,
-        "n": 1,
-        "confidence": "handbook"
-      },
-      "had_scalar": true,
-      "val_scalar": 40
-    },
-    "_basis": "Monel 400 hard(spring temper) 신규 entry — 레거시 generic name-override 가 annealed 값(240/550)으로 덮은 것을 datasheet 값으로 복원 (hard temper: ys 620~900/UTS 690~965/El 2~15 의 midpoint)",
-    "_src": "Ansys Granta MI — Nickel-copper alloy MONEL 400 hard(spring temper) (사용자 제공 R226l, UNS N04400)",
-    "points": {
-      "from": [
-        [
-          8.8,
-          760,
-          828,
-          8.5,
-          179,
-          350,
-          21.8
-        ]
-      ]
     }
   }
 }

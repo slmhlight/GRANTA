@@ -160,7 +160,7 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
           );
         })}
         <p className="text-[10px] text-muted-foreground mt-2 leading-snug">
-          같은 카테고리 · <b>물성 log-distance 가까운 순 top {similar.length}</b> (인기도 무관, 같은 family +45% 가중).
+          같은 카테고리 · <b>물성 log-distance 가까운 순 top {similar.length}</b> (순위는 인기도 무관, 같은 family +45% 가중 · 단 현재 재료보다 인기도 1.0↓ 재료는 제외).
           <span className="font-mono text-sky-700">≈</span>=물성 거리(낮을수록 유사). 클릭 시 이동.{' '}
           <span className="text-amber-800 font-semibold">↗ 배지</span>=물성은 가까우나 <b>통상 용도가 다른 계열</b> —
           진짜 대체 후보 탐색에 활용. <span className="text-emerald-700">초록</span>&lt;10% ·{' '}

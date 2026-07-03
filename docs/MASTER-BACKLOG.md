@@ -16,6 +16,7 @@
 | A4 | 연 1회 전수 오염 스윕 (4-튜플·물리정합·약한 provenance — A588 방법론) | ○ 2027Q1 | A: 의심 0 or 전건 판정. R: 스윕 노이즈 / M: 자동검출→수동판정 2단계 유지 |
 | A5 | 파생값→실측 대체 (KIC class 814·fatigue derived 759) | ⏸ | E: COVERAGE-GAPS §1 상위 10 의 실측 datasheet 확보(SUP9/10·C350·P91·52100). A: confidence 'class/derived'→'handbook'+인용. R: 논문값 산포 / M: 표준·핸드북 우선, 논문은 복수 일치 시 |
 | A6 | HT 라벨↔값 상태 심화 (audit I2 확장: 조건별 기대비율 검사) | ○ | A: audit 신규 룰 + 오탐 <5% 후 게이트化. R: 합금별 예외 다수 / M: REVIEWED 화이트리스트 선행 |
+| A8 | 생성자 name-regex 오염 근본 차단 (R199 조건접미사 over-match) | ✅ R226n | `^AISI 304 ` 등이 temper 변형 datasheet 를 annealed 로 덮던 것 → `(?!.*(Hard\|Cold-worked))` lookahead. redundant 교정 3(Monel/304 temper) 제거·golden 앵커 고정. 잔여: 타 base 의 유사 over-match 스윕 |
 | A7 | 공정평가 카테고리 정합 (금속 모델 오적용 차단) | ✅ R226i (폴리머) | E: 카테고리별 물리 모델 분리 필요성 확인. A: 금속 전용 지표(machiningCostBand·ISO3685·AISI baseline·CE 계열)가 비금속에 노출 안 됨 + 카테고리 전용 모델 제공. R: 세라믹/복합 절삭성 미제공 잔존 / M: 세라믹=grinding, 복합=별도 — 별도 항목(B5)에서 검토. 폴리머는 computePolymerMachinability(선언적 lib 테이블)로 분리 |
 
 ## B. 데이터 커버리지 (선별 확장)
