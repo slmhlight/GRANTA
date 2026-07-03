@@ -55,7 +55,7 @@ override 는 build-materials 에서 **파생값(KIC·fatigue·points) 계산 전
 | **0** ✅ | 런타임 분류 ID화(R226j/k)·R199 over-match 차단(R226n)·문구(R226o) | — | 완료 | — |
 | **1** ✅ R226p | R199-stainless·R199-urls·R205 name-regex → **stable_id 매칭**(원위치 유지, freeze[m.id] 조회) | — | 완료: 라이브 `new RegExp(namePattern)`=0 · **value-diff 0**(baseline byte-동일) · 게이트(override-stableids: 실재 ID·namePattern 없음) · phantom(제거 entry) ID 218 정리 | 해결: 원위치라 derivation 순서 보존 → 파생 stale 없음. rename-timing 은 R226P_CAPTURE 로 R199-time 정확매칭 확정 |
 | **2** ✅ R226p | R173-range·R214 exact-name → stable_id 매칭 | — | 완료: 라이브 `m.name===ov.name`·`byName.get` 제거 · value-diff 0 · 게이트 확장 · helper 를 최초 사용 지점 앞으로 이동 | 저위험(exact) |
-| **3** | 메타(R191·sources·names) ID화 | — | 출처/manufacturer 불변 | 저위험(값 아님) |
+| **3** ✅ R226p | R173-handbook-sources·R191-proprietary regex('i') → stable_id 매칭 | — | 완료: 라이브 override-로더 name-regex 0 · value-diff 0(출처·manufacturer 포함) · 게이트 5파일 | R191 first-match 순서 보존(pattern별 stableId set) |
 | **4** | 인라인 분류(austenitic impact·foam·subcat 정규화) → 명시 필드 or 빌드타임 assignments | — | subcategory/impact 불변 | family tree 영향 / audit K룰 |
 | **5** | coatings 런타임 regex → 빌드타임 coating-applicability classifier + `m.profiles.coatings` (machinability 선례) | — | 추천 코팅 동등 · 런타임 regex 0 | 코팅 매칭 재현 / 스냅샷 테스트 |
 | **6**(선택) | ~890 aliasesFor/qualFor → per-entry alias/quality 필드 · process-classify assignments 확정 후 소스 regex 은퇴 | Phase1-5 완료 | 별칭/tier 불변 · 빌드 regex 최소화 | 최대 규모 / 기회주의 |

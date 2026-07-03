@@ -7,146 +7,591 @@
     "Generic grade (AISI 1018, AA 6061 등) 는 추가 금지 — Generic 유지"
   ],
   "patterns": [
-    { "_alloy": "Custom 455 (S45500, Carpenter premium PH)",
-      "pattern": "^Custom\\s?455\\b|s45500", "manufacturer": "Carpenter Technology" },
-    { "_alloy": "Custom 465 (S46500, Carpenter premium PH)",
-      "pattern": "^Custom\\s?465\\b|s46500", "manufacturer": "Carpenter Technology" },
-    { "_alloy": "Custom 475 (Carpenter)",
-      "pattern": "^Custom\\s?475\\b", "manufacturer": "Carpenter Technology" },
-    { "_alloy": "AerMet 100/310/340 (Carpenter ultra-high strength)",
-      "pattern": "^AerMet\\s?(100|310|340)\\b|aermet ?100", "manufacturer": "Carpenter Technology (AerMet)" },
-    { "_alloy": "BioDur (Carpenter medical)",
-      "pattern": "^BioDur\\b", "manufacturer": "Carpenter Technology (BioDur)" },
-    { "_alloy": "VascoMax C-200/250/300/350 (Carpenter Maraging)",
-      "pattern": "^VascoMax|^Vasco-?Max|vascomax c-?\\d{3}", "manufacturer": "Carpenter Technology (VascoMax)" },
-    { "_alloy": "Pyromet 720 / A-286 (Carpenter γ' PH)",
-      "pattern": "^Pyromet\\b", "manufacturer": "Carpenter Technology (Pyromet)" },
-    { "_alloy": "Pyrowear 53 (Carpenter helicopter gear)",
-      "pattern": "^Pyrowear\\b", "manufacturer": "Carpenter Technology (Pyrowear)" },
-
-    { "_alloy": "Inconel® (PCC/Special Metals brand — all Inconel grades)",
-      "pattern": "^Inconel\\s?\\d|^IN[\\s-]?\\d{3}\\b|^Alloy\\s?(?:600|601|625|718|X-?750|617|690|693|725|740)\\b",
-      "manufacturer": "PCC / Special Metals (Inconel)" },
-    { "_alloy": "Incoloy® (PCC/Special Metals brand)",
-      "pattern": "^Incoloy\\s?\\d", "manufacturer": "PCC / Special Metals (Incoloy)" },
-    { "_alloy": "Monel® / Monel K-500 (PCC/Special Metals brand)",
-      "pattern": "^Monel\\b", "manufacturer": "PCC / Special Metals (Monel)" },
-    { "_alloy": "Nimonic® (PCC/Special Metals brand)",
-      "pattern": "^Nimonic\\b", "manufacturer": "PCC / Special Metals (Nimonic)" },
-    { "_alloy": "Udimet® (originally PCC, now multiple)",
-      "pattern": "^Udimet\\b|^U-?720", "manufacturer": "PCC / Special Metals (Udimet)" },
-
-    { "_alloy": "Hastelloy® C/B/X (Haynes brand)",
-      "pattern": "^Hastelloy\\b", "manufacturer": "Haynes International (Hastelloy)" },
-    { "_alloy": "Haynes® 25/188/214/230/242/282/556/HR-120/HR-160",
-      "pattern": "^Haynes\\s?\\d|^Haynes\\s?HR", "manufacturer": "Haynes International" },
-    { "_alloy": "Ultimet® (Haynes Co-base)",
-      "pattern": "^Ultimet\\b", "manufacturer": "Haynes International (Ultimet)" },
-    { "_alloy": "L-605 (Haynes 25 / Co-base, AMS 5759 — Haynes + multi)",
-      "pattern": "^L-?605\\b", "manufacturer": "Haynes International (L-605)" },
-
-    { "_alloy": "Waspaloy® (PCC + Haynes dual)",
-      "pattern": "^Waspaloy\\b", "manufacturer": "PCC + Haynes International (dual)" },
-
-    { "_alloy": "Inconel 718Plus / ATI 718Plus (ATI proprietary)",
-      "pattern": "718\\s?Plus|^IN718Plus|^IN-?718Plus", "manufacturer": "ATI (Allegheny Technologies)" },
-    { "_alloy": "ATI 425® Ti (Ti-4Al-2.5V-1.5Fe-0.25O)",
-      "pattern": "^ATI\\s?425\\b", "manufacturer": "ATI (Allegheny Technologies)" },
-    { "_alloy": "AL-6XN® (S31254 superaustenitic) — ATI",
-      "pattern": "^AL-?6XN\\b|s31254", "manufacturer": "ATI (Allegheny Technologies)" },
-    { "_alloy": "ATI 2003 / 2102 (lean duplex)",
-      "pattern": "^ATI\\s?(2003|2102)\\b", "manufacturer": "ATI (Allegheny Technologies)" },
-
-    { "_alloy": "Stavax® ESR (420 mod, Uddeholm)",
-      "pattern": "^Stavax\\b|stavax ?esr", "manufacturer": "Uddeholm (voestalpine)" },
-    { "_alloy": "Sverker® 21 / Sverker® 3 (Uddeholm D2)",
-      "pattern": "^Sverker\\b", "manufacturer": "Uddeholm (voestalpine)" },
-    { "_alloy": "Vanadis® PM series (Uddeholm)",
-      "pattern": "^Vanadis\\b", "manufacturer": "Uddeholm (voestalpine)" },
-    { "_alloy": "Caldie® / Calmax® / Toolox® (Uddeholm/SSAB)",
-      "pattern": "^Caldie\\b|^Calmax\\b|^Toolox\\b", "manufacturer": "Uddeholm / SSAB (voestalpine)" },
-    { "_alloy": "Bohler M390/M398/M400 (PM tool steel)",
-      "pattern": "^Bohler\\s?M\\s?(390|398|400)\\b|^M\\s?(390|398)\\b", "manufacturer": "Bohler (voestalpine)" },
-    { "_alloy": "Bohler K110 (D2) / N360 / N700",
-      "pattern": "^Bohler\\s?K\\s?110\\b|^K\\s?110\\b|^Bohler\\s?N\\s?(360|700)\\b", "manufacturer": "Bohler (voestalpine)" },
-    { "_alloy": "NAK80 (Daido pre-hardened mold)",
-      "pattern": "^NAK\\s?80\\b", "manufacturer": "Daido Steel" },
-
-    { "_alloy": "SAF 2507® super duplex (Sandvik/Alleima)",
-      "pattern": "^SAF\\s?(2507|2304|2205)\\b|saf-?2507", "manufacturer": "Sandvik / Alleima" },
-    { "_alloy": "Sanicro® series (Sandvik/Alleima Ni)",
-      "pattern": "^Sanicro\\b", "manufacturer": "Sandvik / Alleima" },
-
-    { "_alloy": "LDX 2101® lean duplex (Outokumpu)",
-      "pattern": "^LDX\\s?2101\\b|outokumpu", "manufacturer": "Outokumpu" },
-    { "_alloy": "Forta® series (Outokumpu duplex)",
-      "pattern": "^Forta\\b", "manufacturer": "Outokumpu (Forta)" },
-    { "_alloy": "254 SMO® (ATI + Outokumpu dual S31254)",
-      "pattern": "^254\\s?SMO\\b", "manufacturer": "ATI + Outokumpu (dual)" },
-    { "_alloy": "654 SMO® (Outokumpu super-austenitic)",
-      "pattern": "^654\\s?SMO\\b", "manufacturer": "Outokumpu (654 SMO)" },
-
-    { "_alloy": "Beryllium Copper C17200 (Materion major)",
-      "pattern": "^C17200\\b|^BeCu\\b|beryllium copper", "manufacturer": "Materion (BeCu)" },
-    { "_alloy": "ToughMet® (Cu-Ni-Sn, Materion)",
-      "pattern": "^ToughMet\\b", "manufacturer": "Materion (ToughMet)" },
-    { "_alloy": "AlBeMet® (Al-Be MMC, Materion)",
-      "pattern": "^AlBeMet\\b", "manufacturer": "Materion (AlBeMet)" },
-    { "_alloy": "Beryllium pure (Materion + Ulba Metallurgical)",
-      "pattern": "^Beryllium\\b|^Pure Be\\b", "manufacturer": "Materion + Ulba (dual)" },
-
-    { "_alloy": "TZM (Mo-0.5Ti-0.08Zr, Plansee dominant)",
-      "pattern": "^TZM\\b", "manufacturer": "Plansee" },
-    { "_alloy": "WL10 (W-1%La2O3, Plansee)",
-      "pattern": "^WL\\s?10\\b|^W-?La\\b", "manufacturer": "Plansee" },
-    { "_alloy": "C-103 (Nb-10Hf-1Ti, Plansee + ATI Wah Chang)",
-      "pattern": "^C-?103\\b|^Niobium\\s?C-?103", "manufacturer": "Plansee + ATI Wah Chang (dual)" },
-
-    { "_alloy": "Scalmalloy® (Al-Mg-Sc-Zr, APWorks/Airbus)",
-      "pattern": "^Scalmalloy\\b", "manufacturer": "APWorks (Airbus subsidiary)" },
-
-    { "_alloy": "Airware® 2050/2196/2198 Al-Li (Constellium)",
-      "pattern": "^Airware\\b|^AA\\s?(2050|2196|2198)\\b", "manufacturer": "Constellium (Airware)" },
-    { "_alloy": "AA 2099 / 2199 Al-Li (Arconic)",
-      "pattern": "^AA\\s?(2099|2199)\\b", "manufacturer": "Arconic (Al-Li)" },
-
-    { "_alloy": "AD730® / ADUR (Aubert & Duval Ni superalloy)",
-      "pattern": "^AD\\s?730\\b|^ADUR\\b", "manufacturer": "Aubert & Duval (Eramet)" },
-
-    { "_alloy": "GRCop-42 / GRCop-84 (NASA Glenn Cu-Cr-Nb)",
-      "pattern": "^GRCop", "manufacturer": "NASA Glenn Research Center" },
-    { "_alloy": "NARLOY-Z (NASA SSME chamber)",
-      "pattern": "^NARLOY", "manufacturer": "NASA (NARLOY)" },
-    { "_alloy": "GRX-810 (NASA ODS Ni superalloy)",
-      "pattern": "^GRX-?810\\b", "manufacturer": "NASA (GRX-810)" },
-
-    { "_alloy": "CMSX-4/10 (Cannon-Muskegon SX Ni)",
-      "pattern": "^CMSX-?\\d", "manufacturer": "Cannon-Muskegon (CMSX)" },
-    { "_alloy": "Rene N5 / N6 / 142 (GE Aviation proprietary)",
-      "pattern": "^Rene\\s?N[56]\\b|^Rene\\s?142\\b", "manufacturer": "GE Aviation (Rene)" },
-    { "_alloy": "Rene 41 / 80 / 88 / 95 / 104 (GE legacy)",
-      "pattern": "^Rene\\s?(41|80|88|95|104)\\b", "manufacturer": "GE Aviation (Rene legacy)" },
-    { "_alloy": "PWA 1480/1484 (Pratt & Whitney SX Ni)",
-      "pattern": "^PWA\\s?14\\d{2}\\b", "manufacturer": "Pratt & Whitney (PWA)" },
-    { "_alloy": "MAR-M 247 / 246 (Martin Marietta legacy, now multi)",
-      "pattern": "^MAR-?M\\s?\\d", "manufacturer": "Martin Marietta legacy / multi-source" },
-
-    { "_alloy": "MP35N (SPS Technologies + Carpenter dual)",
-      "pattern": "^MP35N\\b", "manufacturer": "SPS Technologies + Carpenter (dual)" },
-    { "_alloy": "Elgiloy (Elgin Specialty Metals)",
-      "pattern": "^Elgiloy\\b", "manufacturer": "Elgin Specialty Metals" },
-    { "_alloy": "Nitinol (NiTi shape-memory — Memry/SAES Getters/ATI dual)",
-      "pattern": "^Nitinol\\b|^NiTi\\s?(?:50|55)", "manufacturer": "Memry / SAES Getters / ATI (multi)" },
-
-    { "_alloy": "Stellite® 6/12/21 (Kennametal Stellite division)",
-      "pattern": "^Stellite\\s?(6|12|21)\\b", "manufacturer": "Kennametal Stellite" },
-
-    { "_alloy": "Invar® 36 / Kovar® (Imphy Alloys + Carpenter dual)",
-      "pattern": "^Invar\\s?36\\b|^Kovar\\b|fe-?ni36", "manufacturer": "Imphy Alloys + Carpenter (dual)" },
-
-    { "_alloy": "HARDOX® (SSAB abrasion-resistant)",
-      "pattern": "^Hardox\\s?\\d", "manufacturer": "SSAB (Hardox)" },
-    { "_alloy": "USIBOR® 1500 (ArcelorMittal hot-stamped)",
-      "pattern": "^USIBOR|^22MnB5\\b", "manufacturer": "ArcelorMittal (Usibor)" }
+    {
+      "_alloy": "Custom 455 (S45500, Carpenter premium PH)",
+      "manufacturer": "Carpenter Technology",
+      "_namePattern_ref": "^Custom\\s?455\\b|s45500",
+      "stableIds": [
+        "MET-0830",
+        "MET-0831",
+        "MET-0832"
+      ]
+    },
+    {
+      "_alloy": "Custom 465 (S46500, Carpenter premium PH)",
+      "manufacturer": "Carpenter Technology",
+      "_namePattern_ref": "^Custom\\s?465\\b|s46500",
+      "stableIds": [
+        "MET-0833",
+        "MET-0834",
+        "MET-0835",
+        "MET-0836",
+        "MET-0837"
+      ]
+    },
+    {
+      "_alloy": "Custom 475 (Carpenter)",
+      "manufacturer": "Carpenter Technology",
+      "_namePattern_ref": "^Custom\\s?475\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "AerMet 100/310/340 (Carpenter ultra-high strength)",
+      "manufacturer": "Carpenter Technology (AerMet)",
+      "_namePattern_ref": "^AerMet\\s?(100|310|340)\\b|aermet ?100",
+      "stableIds": [
+        "MET-0017",
+        "MET-0018",
+        "MET-0019"
+      ]
+    },
+    {
+      "_alloy": "BioDur (Carpenter medical)",
+      "manufacturer": "Carpenter Technology (BioDur)",
+      "_namePattern_ref": "^BioDur\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "VascoMax C-200/250/300/350 (Carpenter Maraging)",
+      "manufacturer": "Carpenter Technology (VascoMax)",
+      "_namePattern_ref": "^VascoMax|^Vasco-?Max|vascomax c-?\\d{3}",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Pyromet 720 / A-286 (Carpenter γ' PH)",
+      "manufacturer": "Carpenter Technology (Pyromet)",
+      "_namePattern_ref": "^Pyromet\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Pyrowear 53 (Carpenter helicopter gear)",
+      "manufacturer": "Carpenter Technology (Pyrowear)",
+      "_namePattern_ref": "^Pyrowear\\b",
+      "stableIds": [
+        "MET-0073",
+        "MET-0074",
+        "MET-0075"
+      ]
+    },
+    {
+      "_alloy": "Inconel® (PCC/Special Metals brand — all Inconel grades)",
+      "manufacturer": "PCC / Special Metals (Inconel)",
+      "_namePattern_ref": "^Inconel\\s?\\d|^IN[\\s-]?\\d{3}\\b|^Alloy\\s?(?:600|601|625|718|X-?750|617|690|693|725|740)\\b",
+      "stableIds": [
+        "MET-0542",
+        "MET-0543",
+        "MET-0545",
+        "MET-0546",
+        "MET-0547",
+        "MET-0550",
+        "MET-0551",
+        "MET-0552",
+        "MET-0553",
+        "MET-0554",
+        "MET-0555",
+        "MET-0556",
+        "MET-0557",
+        "MET-0558",
+        "MET-0559",
+        "MET-0560",
+        "MET-0561",
+        "MET-0562",
+        "MET-0563",
+        "MET-0564",
+        "MET-0565",
+        "MET-0566",
+        "MET-0567",
+        "MET-0568",
+        "MET-0569",
+        "MET-0570",
+        "MET-0571",
+        "MET-0572",
+        "MET-0573",
+        "MET-0574",
+        "MET-0575",
+        "MET-0576",
+        "MET-0577",
+        "MET-0578",
+        "MET-0579",
+        "MET-0580",
+        "MET-0581",
+        "MET-0582",
+        "MET-0583",
+        "MET-0584"
+      ]
+    },
+    {
+      "_alloy": "Incoloy® (PCC/Special Metals brand)",
+      "manufacturer": "PCC / Special Metals (Incoloy)",
+      "_namePattern_ref": "^Incoloy\\s?\\d",
+      "stableIds": [
+        "MET-0537",
+        "MET-0538",
+        "MET-0539",
+        "MET-0540",
+        "MET-0541"
+      ]
+    },
+    {
+      "_alloy": "Monel® / Monel K-500 (PCC/Special Metals brand)",
+      "manufacturer": "PCC / Special Metals (Monel)",
+      "_namePattern_ref": "^Monel\\b",
+      "stableIds": [
+        "MET-0595",
+        "MET-0598",
+        "MET-0599",
+        "MET-0600",
+        "MET-0601",
+        "MET-1011"
+      ]
+    },
+    {
+      "_alloy": "Nimonic® (PCC/Special Metals brand)",
+      "manufacturer": "PCC / Special Metals (Nimonic)",
+      "_namePattern_ref": "^Nimonic\\b",
+      "stableIds": [
+        "MET-0603",
+        "MET-0604",
+        "MET-0605",
+        "MET-0606"
+      ]
+    },
+    {
+      "_alloy": "Udimet® (originally PCC, now multiple)",
+      "manufacturer": "PCC / Special Metals (Udimet)",
+      "_namePattern_ref": "^Udimet\\b|^U-?720",
+      "stableIds": [
+        "MET-0613",
+        "MET-0614",
+        "MET-0615",
+        "MET-0616"
+      ]
+    },
+    {
+      "_alloy": "Hastelloy® C/B/X (Haynes brand)",
+      "manufacturer": "Haynes International (Hastelloy)",
+      "_namePattern_ref": "^Hastelloy\\b",
+      "stableIds": [
+        "MET-0504",
+        "MET-0505",
+        "MET-0506",
+        "MET-0507",
+        "MET-0510",
+        "MET-0511",
+        "MET-0512",
+        "MET-0513",
+        "MET-0514",
+        "MET-0515",
+        "MET-0516",
+        "MET-0517",
+        "MET-0518",
+        "MET-0519",
+        "MET-0520"
+      ]
+    },
+    {
+      "_alloy": "Haynes® 25/188/214/230/242/282/556/HR-120/HR-160",
+      "manufacturer": "Haynes International",
+      "_namePattern_ref": "^Haynes\\s?\\d|^Haynes\\s?HR",
+      "stableIds": [
+        "MET-0351",
+        "MET-0521",
+        "MET-0522",
+        "MET-0523",
+        "MET-0524",
+        "MET-0525",
+        "MET-0526",
+        "MET-0527",
+        "MET-0528",
+        "MET-0529",
+        "MET-0530",
+        "MET-0531",
+        "MET-0532",
+        "MET-0533",
+        "MET-0534",
+        "MET-0535",
+        "MET-0536"
+      ]
+    },
+    {
+      "_alloy": "Ultimet® (Haynes Co-base)",
+      "manufacturer": "Haynes International (Ultimet)",
+      "_namePattern_ref": "^Ultimet\\b",
+      "stableIds": [
+        "MET-0350"
+      ]
+    },
+    {
+      "_alloy": "L-605 (Haynes 25 / Co-base, AMS 5759 — Haynes + multi)",
+      "manufacturer": "Haynes International (L-605)",
+      "_namePattern_ref": "^L-?605\\b",
+      "stableIds": [
+        "MET-0343"
+      ]
+    },
+    {
+      "_alloy": "Waspaloy® (PCC + Haynes dual)",
+      "manufacturer": "PCC + Haynes International (dual)",
+      "_namePattern_ref": "^Waspaloy\\b",
+      "stableIds": [
+        "MET-0617"
+      ]
+    },
+    {
+      "_alloy": "Inconel 718Plus / ATI 718Plus (ATI proprietary)",
+      "manufacturer": "ATI (Allegheny Technologies)",
+      "_namePattern_ref": "718\\s?Plus|^IN718Plus|^IN-?718Plus",
+      "stableIds": [
+        "MET-0493",
+        "MET-0494",
+        "MET-0573"
+      ]
+    },
+    {
+      "_alloy": "ATI 425® Ti (Ti-4Al-2.5V-1.5Fe-0.25O)",
+      "manufacturer": "ATI (Allegheny Technologies)",
+      "_namePattern_ref": "^ATI\\s?425\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "AL-6XN® (S31254 superaustenitic) — ATI",
+      "manufacturer": "ATI (Allegheny Technologies)",
+      "_namePattern_ref": "^AL-?6XN\\b|s31254",
+      "stableIds": [
+        "MET-0694",
+        "MET-0752"
+      ]
+    },
+    {
+      "_alloy": "ATI 2003 / 2102 (lean duplex)",
+      "manufacturer": "ATI (Allegheny Technologies)",
+      "_namePattern_ref": "^ATI\\s?(2003|2102)\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Stavax® ESR (420 mod, Uddeholm)",
+      "manufacturer": "Uddeholm (voestalpine)",
+      "_namePattern_ref": "^Stavax\\b|stavax ?esr",
+      "stableIds": [
+        "MET-0980",
+        "MET-0981",
+        "MET-0982"
+      ]
+    },
+    {
+      "_alloy": "Sverker® 21 / Sverker® 3 (Uddeholm D2)",
+      "manufacturer": "Uddeholm (voestalpine)",
+      "_namePattern_ref": "^Sverker\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Vanadis® PM series (Uddeholm)",
+      "manufacturer": "Uddeholm (voestalpine)",
+      "_namePattern_ref": "^Vanadis\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Caldie® / Calmax® / Toolox® (Uddeholm/SSAB)",
+      "manufacturer": "Uddeholm / SSAB (voestalpine)",
+      "_namePattern_ref": "^Caldie\\b|^Calmax\\b|^Toolox\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Bohler M390/M398/M400 (PM tool steel)",
+      "manufacturer": "Bohler (voestalpine)",
+      "_namePattern_ref": "^Bohler\\s?M\\s?(390|398|400)\\b|^M\\s?(390|398)\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Bohler K110 (D2) / N360 / N700",
+      "manufacturer": "Bohler (voestalpine)",
+      "_namePattern_ref": "^Bohler\\s?K\\s?110\\b|^K\\s?110\\b|^Bohler\\s?N\\s?(360|700)\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "NAK80 (Daido pre-hardened mold)",
+      "manufacturer": "Daido Steel",
+      "_namePattern_ref": "^NAK\\s?80\\b",
+      "stableIds": [
+        "MET-0978",
+        "MET-0979"
+      ]
+    },
+    {
+      "_alloy": "SAF 2507® super duplex (Sandvik/Alleima)",
+      "manufacturer": "Sandvik / Alleima",
+      "_namePattern_ref": "^SAF\\s?(2507|2304|2205)\\b|saf-?2507",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Sanicro® series (Sandvik/Alleima Ni)",
+      "manufacturer": "Sandvik / Alleima",
+      "_namePattern_ref": "^Sanicro\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "LDX 2101® lean duplex (Outokumpu)",
+      "manufacturer": "Outokumpu",
+      "_namePattern_ref": "^LDX\\s?2101\\b|outokumpu",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Forta® series (Outokumpu duplex)",
+      "manufacturer": "Outokumpu (Forta)",
+      "_namePattern_ref": "^Forta\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "254 SMO® (ATI + Outokumpu dual S31254)",
+      "manufacturer": "ATI + Outokumpu (dual)",
+      "_namePattern_ref": "^254\\s?SMO\\b",
+      "stableIds": [
+        "MET-0694"
+      ]
+    },
+    {
+      "_alloy": "654 SMO® (Outokumpu super-austenitic)",
+      "manufacturer": "Outokumpu (654 SMO)",
+      "_namePattern_ref": "^654\\s?SMO\\b",
+      "stableIds": [
+        "MET-0702"
+      ]
+    },
+    {
+      "_alloy": "Beryllium Copper C17200 (Materion major)",
+      "manufacturer": "Materion (BeCu)",
+      "_namePattern_ref": "^C17200\\b|^BeCu\\b|beryllium copper",
+      "stableIds": [
+        "MET-0363",
+        "MET-0364",
+        "MET-0381"
+      ]
+    },
+    {
+      "_alloy": "ToughMet® (Cu-Ni-Sn, Materion)",
+      "manufacturer": "Materion (ToughMet)",
+      "_namePattern_ref": "^ToughMet\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "AlBeMet® (Al-Be MMC, Materion)",
+      "manufacturer": "Materion (AlBeMet)",
+      "_namePattern_ref": "^AlBeMet\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "Beryllium pure (Materion + Ulba Metallurgical)",
+      "manufacturer": "Materion + Ulba (dual)",
+      "_namePattern_ref": "^Beryllium\\b|^Pure Be\\b",
+      "stableIds": [
+        "MET-0231",
+        "MET-0363",
+        "MET-0364"
+      ]
+    },
+    {
+      "_alloy": "TZM (Mo-0.5Ti-0.08Zr, Plansee dominant)",
+      "manufacturer": "Plansee",
+      "_namePattern_ref": "^TZM\\b",
+      "stableIds": [
+        "MET-0667"
+      ]
+    },
+    {
+      "_alloy": "WL10 (W-1%La2O3, Plansee)",
+      "manufacturer": "Plansee",
+      "_namePattern_ref": "^WL\\s?10\\b|^W-?La\\b",
+      "stableIds": [
+        "MET-0669",
+        "MET-0670"
+      ]
+    },
+    {
+      "_alloy": "C-103 (Nb-10Hf-1Ti, Plansee + ATI Wah Chang)",
+      "manufacturer": "Plansee + ATI Wah Chang (dual)",
+      "_namePattern_ref": "^C-?103\\b|^Niobium\\s?C-?103",
+      "stableIds": [
+        "MET-0640",
+        "MET-0641",
+        "MET-0654"
+      ]
+    },
+    {
+      "_alloy": "Scalmalloy® (Al-Mg-Sc-Zr, APWorks/Airbus)",
+      "manufacturer": "APWorks (Airbus subsidiary)",
+      "_namePattern_ref": "^Scalmalloy\\b",
+      "stableIds": [
+        "MET-0176",
+        "MET-0177"
+      ]
+    },
+    {
+      "_alloy": "Airware® 2050/2196/2198 Al-Li (Constellium)",
+      "manufacturer": "Constellium (Airware)",
+      "_namePattern_ref": "^Airware\\b|^AA\\s?(2050|2196|2198)\\b",
+      "stableIds": [
+        "MET-0121",
+        "MET-0122",
+        "MET-0129",
+        "MET-0130"
+      ]
+    },
+    {
+      "_alloy": "AA 2099 / 2199 Al-Li (Arconic)",
+      "manufacturer": "Arconic (Al-Li)",
+      "_namePattern_ref": "^AA\\s?(2099|2199)\\b",
+      "stableIds": [
+        "MET-0125",
+        "MET-0126"
+      ]
+    },
+    {
+      "_alloy": "AD730® / ADUR (Aubert & Duval Ni superalloy)",
+      "manufacturer": "Aubert & Duval (Eramet)",
+      "_namePattern_ref": "^AD\\s?730\\b|^ADUR\\b",
+      "stableIds": []
+    },
+    {
+      "_alloy": "GRCop-42 / GRCop-84 (NASA Glenn Cu-Cr-Nb)",
+      "manufacturer": "NASA Glenn Research Center",
+      "_namePattern_ref": "^GRCop",
+      "stableIds": [
+        "MET-0434",
+        "MET-0435",
+        "MET-0436"
+      ]
+    },
+    {
+      "_alloy": "NARLOY-Z (NASA SSME chamber)",
+      "manufacturer": "NASA (NARLOY)",
+      "_namePattern_ref": "^NARLOY",
+      "stableIds": [
+        "MET-0437",
+        "MET-0438",
+        "MET-0439"
+      ]
+    },
+    {
+      "_alloy": "GRX-810 (NASA ODS Ni superalloy)",
+      "manufacturer": "NASA (GRX-810)",
+      "_namePattern_ref": "^GRX-?810\\b",
+      "stableIds": [
+        "MET-0502",
+        "MET-0503"
+      ]
+    },
+    {
+      "_alloy": "CMSX-4/10 (Cannon-Muskegon SX Ni)",
+      "manufacturer": "Cannon-Muskegon (CMSX)",
+      "_namePattern_ref": "^CMSX-?\\d",
+      "stableIds": [
+        "MET-0495",
+        "MET-0496",
+        "MET-0497"
+      ]
+    },
+    {
+      "_alloy": "Rene N5 / N6 / 142 (GE Aviation proprietary)",
+      "manufacturer": "GE Aviation (Rene)",
+      "_namePattern_ref": "^Rene\\s?N[56]\\b|^Rene\\s?142\\b",
+      "stableIds": [
+        "MET-0612"
+      ]
+    },
+    {
+      "_alloy": "Rene 41 / 80 / 88 / 95 / 104 (GE legacy)",
+      "manufacturer": "GE Aviation (Rene legacy)",
+      "_namePattern_ref": "^Rene\\s?(41|80|88|95|104)\\b",
+      "stableIds": [
+        "MET-0608",
+        "MET-0609",
+        "MET-0610"
+      ]
+    },
+    {
+      "_alloy": "PWA 1480/1484 (Pratt & Whitney SX Ni)",
+      "manufacturer": "Pratt & Whitney (PWA)",
+      "_namePattern_ref": "^PWA\\s?14\\d{2}\\b",
+      "stableIds": [
+        "MET-0607"
+      ]
+    },
+    {
+      "_alloy": "MAR-M 247 / 246 (Martin Marietta legacy, now multi)",
+      "manufacturer": "Martin Marietta legacy / multi-source",
+      "_namePattern_ref": "^MAR-?M\\s?\\d",
+      "stableIds": [
+        "MET-0592",
+        "MET-0593",
+        "MET-0594"
+      ]
+    },
+    {
+      "_alloy": "MP35N (SPS Technologies + Carpenter dual)",
+      "manufacturer": "SPS Technologies + Carpenter (dual)",
+      "_namePattern_ref": "^MP35N\\b",
+      "stableIds": [
+        "MET-0352",
+        "MET-0353",
+        "MET-0354"
+      ]
+    },
+    {
+      "_alloy": "Elgiloy (Elgin Specialty Metals)",
+      "manufacturer": "Elgin Specialty Metals",
+      "_namePattern_ref": "^Elgiloy\\b",
+      "stableIds": [
+        "MET-0341"
+      ]
+    },
+    {
+      "_alloy": "Nitinol (NiTi shape-memory — Memry/SAES Getters/ATI dual)",
+      "manufacturer": "Memry / SAES Getters / ATI (multi)",
+      "_namePattern_ref": "^Nitinol\\b|^NiTi\\s?(?:50|55)",
+      "stableIds": [
+        "MET-0674"
+      ]
+    },
+    {
+      "_alloy": "Stellite® 6/12/21 (Kennametal Stellite division)",
+      "manufacturer": "Kennametal Stellite",
+      "_namePattern_ref": "^Stellite\\s?(6|12|21)\\b",
+      "stableIds": [
+        "MET-0345",
+        "MET-0346",
+        "MET-0348"
+      ]
+    },
+    {
+      "_alloy": "Invar® 36 / Kovar® (Imphy Alloys + Carpenter dual)",
+      "manufacturer": "Imphy Alloys + Carpenter (dual)",
+      "_namePattern_ref": "^Invar\\s?36\\b|^Kovar\\b|fe-?ni36",
+      "stableIds": [
+        "MET-0355",
+        "MET-0356",
+        "MET-0357",
+        "MET-0358",
+        "MET-0359"
+      ]
+    },
+    {
+      "_alloy": "HARDOX® (SSAB abrasion-resistant)",
+      "manufacturer": "SSAB (Hardox)",
+      "_namePattern_ref": "^Hardox\\s?\\d",
+      "stableIds": [
+        "MET-0986",
+        "MET-0987"
+      ]
+    },
+    {
+      "_alloy": "USIBOR® 1500 (ArcelorMittal hot-stamped)",
+      "manufacturer": "ArcelorMittal (Usibor)",
+      "_namePattern_ref": "^USIBOR|^22MnB5\\b",
+      "stableIds": [
+        "MET-0624",
+        "MET-0625",
+        "MET-0626"
+      ]
+    }
   ]
 }

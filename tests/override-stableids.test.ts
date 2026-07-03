@@ -17,6 +17,8 @@ const FILES: Array<[string, string]> = [
   ['data/r199-stainless-overrides.json', 'overrides'],
   ['data/r199-source-urls.json', 'mappings'],
   ['data/r205-reliability-overrides.json', 'overrides'],
+  ['data/r173-handbook-sources.json', 'patches'],       // R226p Phase 3
+  ['data/r191-proprietary-alloys.json', 'patterns'],    // R226p Phase 3
 ];
 // 단수 stableId (구 exact-name) 파일 — R226p Phase 2
 const SINGLE_FILES: Array<[string, string]> = [
