@@ -4108,9 +4108,40 @@ try {
   console.warn('R191 proprietary alloy override skipped:', e.message);
 }
 
+/* R226p — override 대상 매칭을 name-regex/exact-name 에서 **stable Material ID** 로 전환.
+ *   freeze(legacy_id→stable_id) 로 각 entry 의 stable_id 조회, override 의 stableIds[]/stableId 와 매칭.
+ *   원위치(derivation 前) 유지 → 순서·값 완전 보존, name 매칭의 over-match·rename 취약성 제거.
+ *   (R173-range·R199·R205 가 이 helper 를 쓰므로 여기 = 최초 사용 지점 앞에 정의.) */
+const R226P_FREEZE = (() => { try { return JSON.parse(fs.readFileSync(path.join(DATA, 'registry-id-freeze.json'), 'utf8')).map || {}; } catch { return {}; } })();
+const sidOf = (m) => R226P_FREEZE[m.id];
+const R226P_CAPTURE = process.env.R226P_CAPTURE;   // 마이그레이션 시점 정확매칭 캡처(구 name 기준, rename 이전)
+const R226P_captured = {};
+const matchByStableIds = (ov) => {
+  if (R226P_CAPTURE && ov._namePattern_ref) {
+    const re = new RegExp(ov._namePattern_ref);
+    const targets = all.filter(m => re.test(m.name || ''));
+    R226P_captured[ov._namePattern_ref] = [...new Set(targets.map(sidOf).filter(Boolean))].sort();
+    return targets;
+  }
+  const s = new Set(ov.stableIds || []);
+  return s.size ? all.filter(m => s.has(sidOf(m))) : [];
+};
+const matchByStableId = (ov) => {   // 단일 exact-name override(R173-range·R214)
+  const nm = ov._name_ref ?? ov.name;
+  if (R226P_CAPTURE && nm) {
+    const t = all.find(m => m.name === nm);
+    R226P_captured['name:' + nm] = t ? (sidOf(t) || null) : null;
+    return t;
+  }
+  return ov.stableId ? all.find(m => sidOf(m) === ov.stableId) : undefined;
+};
+if (process.env.R226P_CAPTURE) process.on('exit', () => {
+  try { fs.writeFileSync(path.join(DATA, '..', 'r226p-captured.json'), JSON.stringify(R226P_captured, null, 1)); } catch { /* noop */ }
+});
+
 /* R173 Phase B — Range overrides for entries with verified handbook errors.
- *   data/r173-range-overrides.json 의 exact-name 매칭 시 ranges 의 typical/min/max 를 정정값으로 교체.
- *   (sources 와 다르게 정확한 entry name 매칭만 — accidental over-replacement 방지)
+ *   data/r173-range-overrides.json 의 stable_id 매칭 시 ranges 의 typical/min/max 를 정정값으로 교체.
+ *   (sources 와 다르게 정확한 entry 매칭만 — accidental over-replacement 방지)
  */
 try {
   const r173RangesRaw = JSON.parse(fs.readFileSync(path.join(DATA, 'r173-range-overrides.json'), 'utf8'));
@@ -4119,9 +4150,9 @@ try {
   let r173PropsOverridden = 0;
   let r173CompositionOverridden = 0;
   for (const ov of overrides) {
-    const target = all.find(m => m.name === ov.name);
+    const target = matchByStableId(ov);   // R226p — stable_id 매칭 (구 exact-name)
     if (!target) {
-      console.warn(`  ⚠ R173 range override target not found: ${ov.name}`);
+      if (process.env.R226P_CAPTURE) console.warn(`  ⚠ R173 range override target not found: ${ov.name}`);
       continue;
     }
     if (!target.ranges) target.ranges = {};
@@ -4140,29 +4171,6 @@ try {
 } catch (e) {
   console.warn('R173 Phase B range overrides skipped:', e.message);
 }
-
-/* R226p — override 대상 매칭을 name-regex 에서 **stable Material ID** 로 전환.
- *   freeze(legacy_id→stable_id) 로 각 entry 의 stable_id 를 조회, override 의 stableIds[] 와 매칭.
- *   원위치(derivation 前) 유지 → 순서·값 완전 보존, name-regex over-match 원천 제거. */
-const R226P_FREEZE = (() => { try { return JSON.parse(fs.readFileSync(path.join(DATA, 'registry-id-freeze.json'), 'utf8')).map || {}; } catch { return {}; } })();
-const sidOf = (m) => R226P_FREEZE[m.id];
-/* R226P_CAPTURE=1 이면 _namePattern_ref(구 regex)로 매칭하며 그 시점의 stable_id 를 기록 —
- * 마이그레이션이 override 실행 시점의 정확한 매칭 집합을 확정하는 용도(rename 이전 이름 기준). */
-const R226P_CAPTURE = process.env.R226P_CAPTURE;
-const R226P_captured = {};
-const matchByStableIds = (ov) => {
-  if (R226P_CAPTURE && ov._namePattern_ref) {
-    const re = new RegExp(ov._namePattern_ref);
-    const targets = all.filter(m => re.test(m.name || ''));
-    R226P_captured[ov._namePattern_ref] = [...new Set(targets.map(sidOf).filter(Boolean))].sort();
-    return targets;
-  }
-  const s = new Set(ov.stableIds || []);
-  return s.size ? all.filter(m => s.has(sidOf(m))) : [];
-};
-if (process.env.R226P_CAPTURE) process.on('exit', () => {
-  try { fs.writeFileSync(path.join(DATA, '..', 'r226p-captured.json'), JSON.stringify(R226P_captured, null, 1)); } catch { /* noop */ }
-});
 
 /* R199 — stable_id 기반 range + composition overrides (R226p: 구 regex namePattern → stableIds).
  *   data/r199-stainless-overrides.json — CSV mock 값 (304/304L/310/316/321/347 + Inconel 100) 정정. */
@@ -4420,10 +4428,9 @@ try {
  *   교정값은 physics/handbook 유도라 confidence='derived', estimated=true 로 정직 표기. data/r214-fatigue-overrides.json. */
 {
   const r214 = JSON.parse(fs.readFileSync(path.join(DATA, 'r214-fatigue-overrides.json'), 'utf8')).overrides;
-  const byName = new Map(all.map((m) => [m.name, m]));
   let applied = 0; const missed = [];
   for (const ov of r214) {
-    const m = byName.get(ov.name);
+    const m = matchByStableId(ov);   // R226p — stable_id 매칭 (구 exact-name)
     if (!m) { missed.push(ov.name); continue; }
     const v = ov.fatigue;
     m.ranges.fatigue_strength = {
