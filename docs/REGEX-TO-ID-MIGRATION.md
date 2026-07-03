@@ -28,9 +28,17 @@
 | 6 | R173 sources / R199 urls | `r173-handbook-sources.json`·`r199-source-urls.json` | regex | 출처 |
 | 7 | R173 names | `r173-name-overrides.json` | name | 이름 재작성 |
 
-**분류 (구조 — subcategory/family/derivation 결정)**:
-| 8 | 인라인 감지 | build-materials 내 | `/\b304\b.../`·`foam|honeycomb`·`x-?750`·폴리머 subcat 정규화 테이블 | impact/foam/파생 |
+**값 변조 — 인라인/substring (R226o 감사 후 추가 발견)**:
+| 4b | R146 cost | `cost-verified-q2-2026.json` | name-substring(`match_substring`) | price_per_kg (measured) |
+| 4c | 인라인 파생-보정 | build-materials 내 | `/\b304\b.../`(austenitic impact)·`foam|honeycomb|cellular/aerogel`(fatigue drop)·`x-?750`(fatigue cap) | impact/fatigue 값 |
+
+**분류 (구조 — subcategory/family/derivation 결정; 값 변조 아님 → classifier, 동결+게이트로 봉쇄)**:
+| 8 | 폴리머 subcat 정규화 | `POLY_SUB_RULES` (build-materials) | name-regex 테이블 40룰 | subcategory |
+| 8b | 금속 subcat 정규화 | `normalizeMetalSubcategory` (build-materials) | name-regex(`NAME_BASED_OVERRIDE`+`METAL_SUB_RULES`) | subcategory |
+| 8c | AM 이방성 note | `isHipped` (build-materials) | name+heat_treatment 조건 파싱 | meta.anisotropy_note (텍스트) |
 | 9 | aliasesFor/qualFor | build-materials 내 | ~890 name-regex | 별칭 + 품질 tier |
+
+> **classifier vs override 판정(핵심)**: #8·8b 는 process-classify.mjs(A-3)와 동형 — **분류를 부여**(신규 entry 포함)하지 값을 변조하지 않는다. 출력(subcategory)은 레지스트리에 동결·커밋되고 런타임은 재실행 안 함(K_comp_subcat_mismatch 감사 + round-trip 게이트). ID화(동결값 echo)하면 신규 폴리머/금속 분류 불능이 되므로 **classifier 로 유지**가 옳다(값-override 만 ID화). #8c 는 조건 문자열 파싱(ht-matcher 계열, 텍스트 note) — 유지.
 
 ### A-3. 빌드타임 분류기 — `scripts/lib/process-classify.mjs` (R226j)
 - name-regex 이지만 **1회 부트스트랩** → 커밋된 `process-profile-assignments.json`(stable_id 키) + parity 게이트. **런타임 미접촉**, 교정은 `process-profile-overrides.json`(ID+src).
@@ -56,7 +64,7 @@ override 는 build-materials 에서 **파생값(KIC·fatigue·points) 계산 전
 | **1** ✅ R226p | R199-stainless·R199-urls·R205 name-regex → **stable_id 매칭**(원위치 유지, freeze[m.id] 조회) | — | 완료: 라이브 `new RegExp(namePattern)`=0 · **value-diff 0**(baseline byte-동일) · 게이트(override-stableids: 실재 ID·namePattern 없음) · phantom(제거 entry) ID 218 정리 | 해결: 원위치라 derivation 순서 보존 → 파생 stale 없음. rename-timing 은 R226P_CAPTURE 로 R199-time 정확매칭 확정 |
 | **2** ✅ R226p | R173-range·R214 exact-name → stable_id 매칭 | — | 완료: 라이브 `m.name===ov.name`·`byName.get` 제거 · value-diff 0 · 게이트 확장 · helper 를 최초 사용 지점 앞으로 이동 | 저위험(exact) |
 | **3** ✅ R226p | R173-handbook-sources·R191-proprietary regex('i') → stable_id 매칭 | — | 완료: 라이브 override-로더 name-regex 0 · value-diff 0(출처·manufacturer 포함) · 게이트 5파일 | R191 first-match 순서 보존(pattern별 stableId set) |
-| **4** | 인라인 분류(austenitic impact·foam·subcat 정규화) → 명시 필드 or 빌드타임 assignments | — | subcategory/impact 불변 | family tree 영향 / audit K룰 |
+| **4** ✅ R226p | 인라인 **값-변조** name-regex/substring → stable_id: austenitic impact·foam/cellular fatigue·X-750 cap(`r226p-inline-overrides.json`) + R146 cost `match_substring`(`cost-verified-q2-2026.json` stableIds) | — | 완료: 라이브 인라인 regex 0 · **value-diff 0**(전 1129 deep-equal) · registry drift 0 · 게이트(override-stableids +Phase4) · austenitic/metal-foam 은 dead-branch(공집합) 확인. **classifier(subcat 정규화·isHipped)는 값-변조 아님 → 유지**(위 판정) | 해결: 원위치 유지·capture 로 정확집합·phantom 필터 |
 | **5** ✅ R226p | coatings 런타임 regex → 빌드타임 coating-applicability classifier(`scripts/lib/coatings-classify.mjs`) + `m.profiles.coatings`(빌드 스탬프) | — | 완료: 런타임 `new RegExp(c.substrateMatch)` 제거 · **behavior identical**(profiles.coatings=regex 오라클·최종 추천 리스트 전 1129 재료 동일) · 게이트(`coatings-id.test.ts` 4 checks) | 해결: 구 호출부가 name+process 만 넘겼으므로 subcat 없는 concat 로 정확 재현. 'all' 코팅은 런타임 유지 |
 | **6**(선택) | ~890 aliasesFor/qualFor → per-entry alias/quality 필드 · process-classify assignments 확정 후 소스 regex 은퇴 | Phase1-5 완료 | 별칭/tier 불변 · 빌드 regex 최소화 | 최대 규모 / 기회주의 |
 

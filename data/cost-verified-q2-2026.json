@@ -16,159 +16,454 @@
       "수시 변동 — quarterly 갱신 필요. R146 cron 으로 자동화 후보."
     ]
   },
-
   "prices": {
     "Stainless Steel 316L": {
-      "match_substring": "316l",
-      "price_per_kg": { "min": 5.5, "max": 7.0, "typical": 6.2, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 5.5,
+        "max": 7,
+        "typical": 6.2,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "LME nickel base 2026-Q2 avg $16,800/t + spec premium → 316L bar 약 $5.5-7/kg (varies by section)"
+      "provenance": "LME nickel base 2026-Q2 avg $16,800/t + spec premium → 316L bar 약 $5.5-7/kg (varies by section)",
+      "_match_substring_ref": "316l",
+      "stableIds": [
+        "MET-0699",
+        "MET-0735",
+        "MET-0736",
+        "MET-0737",
+        "MET-0738",
+        "MET-0739",
+        "MET-0740",
+        "MET-0741",
+        "MET-0742",
+        "MET-0996"
+      ]
     },
     "Stainless Steel 304L": {
-      "match_substring": "304l",
-      "price_per_kg": { "min": 4.5, "max": 6.0, "typical": 5.2, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 4.5,
+        "max": 6,
+        "typical": 5.2,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "MetalMiner 304/304L flat product 2026-Q2 = $4.50-6.00/kg"
+      "provenance": "MetalMiner 304/304L flat product 2026-Q2 = $4.50-6.00/kg",
+      "_match_substring_ref": "304l",
+      "stableIds": [
+        "MET-0695",
+        "MET-0717",
+        "MET-0720",
+        "MET-0721",
+        "MET-0723",
+        "MET-0995",
+        "MET-1015"
+      ]
     },
     "Stainless Steel 17-4 PH": {
-      "match_substring": "17-4 ph",
-      "price_per_kg": { "min": 14, "max": 22, "typical": 18, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 14,
+        "max": 22,
+        "typical": 18,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Carpenter Technology 17-4 PH bar Q2 2026 list price"
+      "provenance": "Carpenter Technology 17-4 PH bar Q2 2026 list price",
+      "_match_substring_ref": "17-4 ph",
+      "stableIds": [
+        "MET-0823",
+        "MET-0824",
+        "MET-0825",
+        "MET-0826"
+      ]
     },
     "Inconel 718": {
-      "match_substring": "inconel 718",
-      "price_per_kg": { "min": 50, "max": 95, "typical": 70, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 50,
+        "max": 95,
+        "typical": 70,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Special Metals SMC-045 IN718 bar 2026-Q2 (Ni base 100/lb avg)"
+      "provenance": "Special Metals SMC-045 IN718 bar 2026-Q2 (Ni base 100/lb avg)",
+      "_match_substring_ref": "inconel 718",
+      "stableIds": [
+        "MET-0565",
+        "MET-0566",
+        "MET-0567",
+        "MET-0568",
+        "MET-0569",
+        "MET-0570",
+        "MET-0571",
+        "MET-0572",
+        "MET-0573"
+      ]
     },
     "Inconel 625": {
-      "match_substring": "inconel 625",
-      "price_per_kg": { "min": 55, "max": 110, "typical": 80, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 55,
+        "max": 110,
+        "typical": 80,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Special Metals SMC-063 IN625 bar Q2 2026"
+      "provenance": "Special Metals SMC-063 IN625 bar Q2 2026",
+      "_match_substring_ref": "inconel 625",
+      "stableIds": [
+        "MET-0553",
+        "MET-0554",
+        "MET-0555",
+        "MET-0556",
+        "MET-0557",
+        "MET-0558",
+        "MET-0559",
+        "MET-0560"
+      ]
     },
     "Inconel 600": {
-      "match_substring": "inconel 600",
-      "price_per_kg": { "min": 35, "max": 60, "typical": 45, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 35,
+        "max": 60,
+        "typical": 45,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Special Metals SMC-027 IN600 bar Q2 2026"
+      "provenance": "Special Metals SMC-027 IN600 bar Q2 2026",
+      "_match_substring_ref": "inconel 600",
+      "stableIds": [
+        "MET-0547",
+        "MET-0550"
+      ]
     },
     "Hastelloy X": {
-      "match_substring": "hastelloy x",
-      "price_per_kg": { "min": 55, "max": 95, "typical": 75, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 55,
+        "max": 95,
+        "typical": 75,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Haynes International HX bar Q2 2026"
+      "provenance": "Haynes International HX bar Q2 2026",
+      "_match_substring_ref": "hastelloy x",
+      "stableIds": [
+        "MET-0514",
+        "MET-0515",
+        "MET-0516",
+        "MET-0517",
+        "MET-0518",
+        "MET-0519",
+        "MET-0520"
+      ]
     },
     "Haynes 230": {
-      "match_substring": "haynes 230",
-      "price_per_kg": { "min": 60, "max": 110, "typical": 85, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 60,
+        "max": 110,
+        "typical": 85,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Haynes International H230 bar Q2 2026"
+      "provenance": "Haynes International H230 bar Q2 2026",
+      "_match_substring_ref": "haynes 230",
+      "stableIds": [
+        "MET-0523",
+        "MET-0524",
+        "MET-0525",
+        "MET-0526"
+      ]
     },
     "Haynes 282": {
-      "match_substring": "haynes 282",
-      "price_per_kg": { "min": 95, "max": 165, "typical": 130, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 95,
+        "max": 165,
+        "typical": 130,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Haynes International H282 bar Q2 2026 (γ' Co premium)"
+      "provenance": "Haynes International H282 bar Q2 2026 (γ' Co premium)",
+      "_match_substring_ref": "haynes 282",
+      "stableIds": [
+        "MET-0527",
+        "MET-0528",
+        "MET-0529",
+        "MET-0530",
+        "MET-0531",
+        "MET-0532",
+        "MET-0533",
+        "MET-0534",
+        "MET-0535",
+        "MET-0536"
+      ]
     },
     "Ti6Al4V (Gr5, Gr23)": {
-      "match_substring": "ti6al4v",
-      "price_per_kg": { "min": 28, "max": 55, "typical": 38, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 28,
+        "max": 55,
+        "typical": 38,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "TIMET Ti-6Al-4V bar Q2 2026 + Ti sponge spot price ($14/kg base)"
+      "provenance": "TIMET Ti-6Al-4V bar Q2 2026 + Ti sponge spot price ($14/kg base)",
+      "_match_substring_ref": "ti6al4v",
+      "stableIds": [
+        "MET-0920",
+        "MET-0921",
+        "MET-0922",
+        "MET-0923",
+        "MET-0924"
+      ]
     },
     "AA 6061-T6": {
-      "match_substring": "aa 6061-t6",
-      "price_per_kg": { "min": 3.5, "max": 5.5, "typical": 4.3, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 3.5,
+        "max": 5.5,
+        "typical": 4.3,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "LME Al $2,400/t + 6xxx midwest premium Q2 2026"
+      "provenance": "LME Al $2,400/t + 6xxx midwest premium Q2 2026",
+      "_match_substring_ref": "aa 6061-t6",
+      "stableIds": []
     },
     "AA 7075-T6": {
-      "match_substring": "7075-t6",
-      "price_per_kg": { "min": 6.5, "max": 11.0, "typical": 8.5, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 6.5,
+        "max": 11,
+        "typical": 8.5,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Constellium 7075 T6 plate Q2 2026 aerospace premium"
+      "provenance": "Constellium 7075 T6 plate Q2 2026 aerospace premium",
+      "_match_substring_ref": "7075-t6",
+      "stableIds": []
     },
     "AA 2024-T3": {
-      "match_substring": "2024-t3",
-      "price_per_kg": { "min": 6.0, "max": 9.0, "typical": 7.2, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 6,
+        "max": 9,
+        "typical": 7.2,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Constellium 2024 T3 sheet Q2 2026"
+      "provenance": "Constellium 2024 T3 sheet Q2 2026",
+      "_match_substring_ref": "2024-t3",
+      "stableIds": [
+        "MET-0112"
+      ]
     },
     "ASTM A36 carbon steel": {
-      "match_substring": "a36",
-      "price_per_kg": { "min": 0.8, "max": 1.3, "typical": 1.0, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 0.8,
+        "max": 1.3,
+        "typical": 1,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "HRC MetalMiner 2026-Q2 = $700-900/short ton"
+      "provenance": "HRC MetalMiner 2026-Q2 = $700-900/short ton",
+      "_match_substring_ref": "a36",
+      "stableIds": [
+        "MET-0219",
+        "MET-0847",
+        "MET-0848",
+        "MET-0849"
+      ]
     },
     "AISI 4340 alloy steel": {
-      "match_substring": "4340",
-      "price_per_kg": { "min": 1.8, "max": 3.2, "typical": 2.4, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 1.8,
+        "max": 3.2,
+        "typical": 2.4,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "MetalMiner alloy bar Q2 2026 (4340 standard mill product)"
+      "provenance": "MetalMiner alloy bar Q2 2026 (4340 standard mill product)",
+      "_match_substring_ref": "4340",
+      "stableIds": [
+        "MET-0030",
+        "MET-0031",
+        "MET-0032",
+        "MET-0033"
+      ]
     },
     "Maraging 250": {
-      "match_substring": "maraging 250",
-      "price_per_kg": { "min": 35, "max": 65, "typical": 48, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 35,
+        "max": 65,
+        "typical": 48,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "ATI VascoMax C-250 bar Q2 2026 (Co 7% premium)"
+      "provenance": "ATI VascoMax C-250 bar Q2 2026 (Co 7% premium)",
+      "_match_substring_ref": "maraging 250",
+      "stableIds": [
+        "MET-0480",
+        "MET-0481"
+      ]
     },
     "Maraging 300": {
-      "match_substring": "maraging 300",
-      "price_per_kg": { "min": 50, "max": 85, "typical": 65, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 50,
+        "max": 85,
+        "typical": 65,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "ATI VascoMax C-300 bar Q2 2026 (Co 9% premium)"
+      "provenance": "ATI VascoMax C-300 bar Q2 2026 (Co 9% premium)",
+      "_match_substring_ref": "maraging 300",
+      "stableIds": [
+        "MET-0482",
+        "MET-0483",
+        "MET-0484",
+        "MET-0485"
+      ]
     },
     "H13 tool steel": {
-      "match_substring": "h13",
-      "price_per_kg": { "min": 5.5, "max": 9.0, "typical": 7.0, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 5.5,
+        "max": 9,
+        "typical": 7,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Bohler W302 / Schmolz+Bickenbach H13 bar Q2 2026"
+      "provenance": "Bohler W302 / Schmolz+Bickenbach H13 bar Q2 2026",
+      "_match_substring_ref": "h13",
+      "stableIds": [
+        "MET-0808",
+        "MET-0947",
+        "MET-0948",
+        "MET-0949",
+        "MET-0965",
+        "MET-0966",
+        "MET-0967",
+        "MET-0968"
+      ]
     },
     "Beryllium Copper C17200": {
-      "match_substring": "c17200",
-      "price_per_kg": { "min": 75, "max": 130, "typical": 95, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 75,
+        "max": 130,
+        "typical": 95,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Materion C17200 bar Q2 2026 (Be 2% premium)"
+      "provenance": "Materion C17200 bar Q2 2026 (Be 2% premium)",
+      "_match_substring_ref": "c17200",
+      "stableIds": [
+        "MET-0363",
+        "MET-0364",
+        "MET-0381"
+      ]
     },
     "PEEK Victrex 450G": {
-      "match_substring": "peek",
-      "price_per_kg": { "min": 75, "max": 110, "typical": 90, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 75,
+        "max": 110,
+        "typical": 90,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Victrex 450G powder/pellet Q2 2026 (medical grade slightly higher)"
+      "provenance": "Victrex 450G powder/pellet Q2 2026 (medical grade slightly higher)",
+      "_match_substring_ref": "peek",
+      "stableIds": [
+        "POL-0024",
+        "POL-0025",
+        "POL-0026",
+        "POL-0027",
+        "POL-0028",
+        "POL-0029",
+        "POL-0030"
+      ]
     },
     "PEI Ultem 1000": {
-      "match_substring": "ultem 1000",
-      "price_per_kg": { "min": 35, "max": 55, "typical": 42, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 35,
+        "max": 55,
+        "typical": 42,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Sabic Ultem 1000 pellet Q2 2026"
+      "provenance": "Sabic Ultem 1000 pellet Q2 2026",
+      "_match_substring_ref": "ultem 1000",
+      "stableIds": []
     },
     "CFRP IM7/8552": {
-      "match_substring": "im7/8552",
-      "price_per_kg": { "min": 200, "max": 320, "typical": 250, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 200,
+        "max": 320,
+        "typical": 250,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Hexcel HexPly IM7/8552 prepreg Q2 2026 (raw IM7 fiber ~$60/kg + 8552 resin)"
+      "provenance": "Hexcel HexPly IM7/8552 prepreg Q2 2026 (raw IM7 fiber ~$60/kg + 8552 resin)",
+      "_match_substring_ref": "im7/8552",
+      "stableIds": [
+        "CMP-0008"
+      ]
     },
     "CFRP T700/Epoxy": {
-      "match_substring": "t700",
-      "price_per_kg": { "min": 80, "max": 140, "typical": 100, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 80,
+        "max": 140,
+        "typical": 100,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Toray T700SC tow Q2 2026 + 250F epoxy prepreg"
+      "provenance": "Toray T700SC tow Q2 2026 + 250F epoxy prepreg",
+      "_match_substring_ref": "t700",
+      "stableIds": [
+        "CMP-0014"
+      ]
     },
     "CoCrMo F75": {
-      "match_substring": "cocrmo",
-      "price_per_kg": { "min": 65, "max": 115, "typical": 85, "confidence": "measured" },
+      "price_per_kg": {
+        "min": 65,
+        "max": 115,
+        "typical": 85,
+        "confidence": "measured"
+      },
       "price_verified_date": "2026-04",
-      "provenance": "Carpenter BioDur CCM F75 cast Q2 2026 (medical grade)"
+      "provenance": "Carpenter BioDur CCM F75 cast Q2 2026 (medical grade)",
+      "_match_substring_ref": "cocrmo",
+      "stableIds": [
+        "MET-0331",
+        "MET-0332",
+        "MET-0333",
+        "MET-0334",
+        "MET-0335",
+        "MET-0336",
+        "MET-0337",
+        "MET-0338",
+        "MET-0339",
+        "MET-0340",
+        "MET-0346"
+      ]
     }
   },
-
   "am_powder_premium": {
     "_note": "AM powder 는 동일 alloy 의 wrought bar 대비 +150~250% premium. atomization 비용 + powder yield 손실.",
-    "316L LPBF powder": { "raw": "Stainless Steel 316L", "premium_factor": 4.5, "typical_per_kg": 28, "provenance": "EOS / SLM Solutions 316L 2026-OEM list price" },
-    "17-4 PH LPBF powder": { "raw": "Stainless Steel 17-4 PH", "premium_factor": 3.0, "typical_per_kg": 55, "provenance": "EOS NickelAlloy 17-4PH" },
-    "IN718 LPBF powder": { "raw": "Inconel 718", "premium_factor": 3.5, "typical_per_kg": 245, "provenance": "EOS NickelAlloy IN718 + Special Metals AM grade" },
-    "Ti-6-4 LPBF powder": { "raw": "Ti6Al4V (Gr5, Gr23)", "premium_factor": 3.8, "typical_per_kg": 145, "provenance": "EOS Ti64 Gr5 + Gr23 ELI premium" }
+    "316L LPBF powder": {
+      "raw": "Stainless Steel 316L",
+      "premium_factor": 4.5,
+      "typical_per_kg": 28,
+      "provenance": "EOS / SLM Solutions 316L 2026-OEM list price"
+    },
+    "17-4 PH LPBF powder": {
+      "raw": "Stainless Steel 17-4 PH",
+      "premium_factor": 3,
+      "typical_per_kg": 55,
+      "provenance": "EOS NickelAlloy 17-4PH"
+    },
+    "IN718 LPBF powder": {
+      "raw": "Inconel 718",
+      "premium_factor": 3.5,
+      "typical_per_kg": 245,
+      "provenance": "EOS NickelAlloy IN718 + Special Metals AM grade"
+    },
+    "Ti-6-4 LPBF powder": {
+      "raw": "Ti6Al4V (Gr5, Gr23)",
+      "premium_factor": 3.8,
+      "typical_per_kg": 145,
+      "provenance": "EOS Ti64 Gr5 + Gr23 ELI premium"
+    }
   }
 }

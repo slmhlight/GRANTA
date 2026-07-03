@@ -1,0 +1,43 @@
+{
+ "_note": "R226p Phase 4 — build-materials.mjs 인라인 값-변조 name-regex 의 stable_id 이관. _namePattern_ref/_reI 는 문서·캡처 전용(R226P_CAPTURE=1 로 재생성). stableIds 가 live 매칭 키. 값 SSOT 아님 — 어느 재료에 파생-보정을 적용할지의 '대상 집합'일 뿐(behavior identical).",
+ "austenitic_impact": {
+  "_desc": "subcategory 에 'austenitic' 없어도 이름에 304/316/321/347 있으면 Stainless Austenitic impact typical 적용(fallback). sub.includes('austenitic') OR 이 집합.",
+  "_namePattern_ref": "\\b304\\b|\\b316\\b|\\b321\\b|\\b347\\b",
+  "_reI": false,
+  "stableIds": []
+ },
+ "cellular_metal_fatigue": {
+  "_desc": "금속 foam/honeycomb/cellular — ratio 이상 시 fatigue 제거(피로 무의미).",
+  "_namePattern_ref": "foam|honeycomb|cellular",
+  "_reI": true,
+  "stableIds": []
+ },
+ "cellular_nonmetal_fatigue": {
+  "_desc": "비금속 foam/honeycomb/aerogel — fat>UTS 시 fatigue 제거.",
+  "_namePattern_ref": "foam|honeycomb|aerogel",
+  "_reI": true,
+  "stableIds": [
+   "CER-0001",
+   "CMP-0020",
+   "CMP-0021",
+   "CMP-0022",
+   "CMP-0023",
+   "CMP-0028",
+   "CMP-0029",
+   "POL-0011",
+   "POL-0012",
+   "POL-0013"
+  ]
+ },
+ "x750_fatigue_cap": {
+  "_desc": "Inconel X-750 — soft 조건 σf ≤ 0.50·UTS 물리 상한 cap.",
+  "_namePattern_ref": "x-?750",
+  "_reI": true,
+  "stableIds": [
+   "MET-0585",
+   "MET-0586",
+   "MET-0588",
+   "MET-0590"
+  ]
+ }
+}

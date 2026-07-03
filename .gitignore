@@ -59,3 +59,6 @@ data/*.txt
 # R226 P5 cutover — 레지스트리가 SSOT (committed). build:data(build-from-registry.mjs)가 읽음.
 #   entries/index/families/custom-families 는 소스로 커밋. 생성 산출물(감사 리포트)만 무시.
 data/registry/audit-report.md
+
+# R226p — build-materials 의 R226P_CAPTURE=1 모드 산출(구 name-regex→stable_id 재캡처용). 일회성.
+r226p-captured.json

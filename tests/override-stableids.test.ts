@@ -27,12 +27,47 @@ const SINGLE_FILES: Array<[string, string]> = [
 ];
 
 describe('R226p — override name-regex → stable_id', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'scripts', 'build-materials.mjs'), 'utf8');
+
   it('build-materials 라이브 경로에 new RegExp(namePattern) / exact-name find 매칭 없음', () => {
-    const src = fs.readFileSync(path.join(ROOT, 'scripts', 'build-materials.mjs'), 'utf8');
     expect(src.match(/new RegExp\((?:ov|map)\.namePattern\)/g) || []).toEqual([]);
     // R173-range·R214 의 구 exact-name 매칭도 제거됨 (stable_id 매칭으로 대체)
     expect(src.match(/all\.find\(m => m\.name === ov\.name\)/g) || []).toEqual([]);
     expect(src.match(/byName\.get\(ov\.name\)/g) || []).toEqual([]);
+  });
+
+  it('Phase 4 — 인라인 값-변조 name-regex/substring 라이브 잔재 없음 (nameHit/stableIds 로 대체)', () => {
+    // 구 인라인 regex 리터럴이 소스에서 완전히 제거됨 (이제 JSON _namePattern_ref 에만 존재)
+    expect(src.includes('/\\b304\\b|\\b316\\b|\\b321\\b|\\b347\\b/.test')).toBe(false);
+    expect(src.includes('/foam|honeycomb|cellular/i.test(m.name')).toBe(false);
+    expect(src.includes('/foam|honeycomb|aerogel/i.test(m.name')).toBe(false);
+    expect(src.includes('/x-?750/i.test(m.name')).toBe(false);
+    // 4개 인라인 블록이 nameHit(stable_id) 사용
+    for (const k of ['austenitic_impact', 'cellular_metal_fatigue', 'cellular_nonmetal_fatigue', 'x750_fatigue_cap'])
+      expect(src.includes(`nameHit('${k}'`)).toBe(true);
+    // R146 cost 는 stableIds 매칭 (구 name.includes(sub) 라이브 루프 제거)
+    expect(src.includes('new Set(info.stableIds')).toBe(true);
+  });
+
+  it('data/r226p-inline-overrides.json — 모든 stableId 실재 + _namePattern_ref 보존', () => {
+    const doc = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'r226p-inline-overrides.json'), 'utf8'));
+    const stale: string[] = [];
+    for (const [k, v] of Object.entries<any>(doc)) {
+      if (k.startsWith('_')) continue;
+      expect(typeof v._namePattern_ref).toBe('string');   // 캡처·문서용 regex 참조 보존
+      for (const sid of (v.stableIds || [])) if (!regIds.has(sid)) stale.push(sid);
+    }
+    expect(stale).toEqual([]);
+  });
+
+  it('data/cost-verified-q2-2026.json — stableIds 매칭 (활성 match_substring 없음)', () => {
+    const doc = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'cost-verified-q2-2026.json'), 'utf8'));
+    const stale: string[] = [];
+    for (const info of Object.values<any>(doc.prices || {})) {
+      expect(info.match_substring).toBeUndefined();   // _match_substring_ref 로 이동
+      for (const sid of (info.stableIds || [])) if (!regIds.has(sid)) stale.push(sid);
+    }
+    expect(stale).toEqual([]);
   });
 
   for (const [rel, key] of FILES) {

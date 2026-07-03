@@ -1939,6 +1939,57 @@ function loadPolymersAsMaterials() {
 const polymers_extra = loadPolymersAsMaterials();
 const all = [...curatedFiltered, ...am_vendor, ...generic, ...supplementary, ...ceramics, ...composites, ...polymers_extra];
 
+/* R226p — override/파생-보정 대상 매칭을 name-regex/exact-name/substring 에서 **stable Material ID** 로 전환.
+ *   freeze(legacy_id→stable_id) 로 각 entry 의 stable_id 조회, override 의 stableIds[]/stableId 와 매칭.
+ *   원위치(derivation 前) 유지 → 순서·값 완전 보존, name 매칭의 over-match·rename 취약성 제거.
+ *   `all` 정의 직후에 둠 — 인라인 값-보정(austenitic impact·cost·foam·X-750) + override 로더
+ *   (R173-src·R191·R173-range·R199·R205·R214) 가 모두 이 helper 사용. */
+const R226P_FREEZE = (() => { try { return JSON.parse(fs.readFileSync(path.join(DATA, 'registry-id-freeze.json'), 'utf8')).map || {}; } catch { return {}; } })();
+const sidOf = (m) => R226P_FREEZE[m.id];
+const R226P_CAPTURE = process.env.R226P_CAPTURE;   // 마이그레이션 시점 정확매칭 캡처(구 name 기준, rename 이전)
+const R226P_captured = {};
+const matchByStableIds = (ov) => {
+  if (R226P_CAPTURE && ov._namePattern_ref) {
+    const re = new RegExp(ov._namePattern_ref, ov._reI ? 'i' : '');   // 구 블록의 flag 보존('i' 여부)
+    const targets = all.filter(m => re.test(m.name || ''));
+    R226P_captured[ov._namePattern_ref] = [...new Set(targets.map(sidOf).filter(Boolean))].sort();
+    return targets;
+  }
+  const s = new Set(ov.stableIds || []);
+  return s.size ? all.filter(m => s.has(sidOf(m))) : [];
+};
+const matchByStableId = (ov) => {   // 단일 exact-name override(R173-range·R214)
+  const nm = ov._name_ref ?? ov.name;
+  if (R226P_CAPTURE && nm) {
+    const t = all.find(m => m.name === nm);
+    R226P_captured['name:' + nm] = t ? (sidOf(t) || null) : null;
+    return t;
+  }
+  return ov.stableId ? all.find(m => sidOf(m) === ov.stableId) : undefined;
+};
+/* Phase 4 — 인라인 값-보정용 per-entry 이름-매칭 대체. live: stable_id 집합 멤버십.
+ *   capture: 구 regex 를 실행시점에 평가하고 매칭 entry 의 sid 를 누적(rename-timing 정확). */
+const R226P_INLINE = (() => { try { return JSON.parse(fs.readFileSync(path.join(DATA, 'r226p-inline-overrides.json'), 'utf8')); } catch { return {}; } })();
+const R226P_inlineSets = {};
+for (const [k, v] of Object.entries(R226P_INLINE)) if (v && v.stableIds) R226P_inlineSets[k] = new Set(v.stableIds);
+const R226P_inlineCap = {};
+const nameHit = (key, m) => {
+  const v = R226P_INLINE[key];
+  if (R226P_CAPTURE && v && v._namePattern_ref) {
+    const re = new RegExp(v._namePattern_ref, v._reI ? 'i' : '');
+    const hit = re.test(m.name || '');
+    if (hit) { const s = sidOf(m); if (s) (R226P_inlineCap[key] ||= new Set()).add(s); }
+    return hit;
+  }
+  return (R226P_inlineSets[key] || new Set()).has(sidOf(m));
+};
+if (process.env.R226P_CAPTURE) process.on('exit', () => {
+  try {
+    for (const [k, s] of Object.entries(R226P_inlineCap)) R226P_captured['inline:' + k] = [...s].sort();
+    fs.writeFileSync(path.join(DATA, '..', 'r226p-captured.json'), JSON.stringify(R226P_captured, null, 1));
+  } catch { /* noop */ }
+});
+
 // ───────── Sprint 4 C2 — Fracture toughness (KIC) family-typical fallback ─────────
 // 현재 covered 39/1038 (3.8%) — fracture-critical alloy 선정 정밀화 위해 family typical 채움.
 // 출처: ASM Handbook Vol. 1 (Steels) + Vol. 2 (Nonferrous) + MMPDS-2018 + Special Metals.
@@ -3037,7 +3088,7 @@ for (const m of all) {
     const sub = String(m.subcategory || '').toLowerCase();
     let imp = null;
     let subTag = null;
-    if (sub.includes('austenitic') || /\b304\b|\b316\b|\b321\b|\b347\b/.test(m.name || '')) { imp = [80, 130, 180]; subTag = 'Stainless Austenitic'; }
+    if (sub.includes('austenitic') || nameHit('austenitic_impact', m)) { imp = [80, 130, 180]; subTag = 'Stainless Austenitic'; }   // R226p Phase 4 — 구 /\b304|316|321|347\b/ → stable_id
     else if (sub.includes('ferritic')) { imp = [25, 50, 80]; subTag = 'Stainless Ferritic'; }
     else if (sub.includes('martensitic') || sub.includes('tool')) { imp = [4, 12, 25]; subTag = 'Martensitic/Tool steel'; }
     else if (sub.includes('ph') || sub.includes('precipitation')) { imp = [15, 30, 50]; subTag = 'PH stainless'; }
@@ -3859,10 +3910,18 @@ try {
   const costEntries = Object.entries(costRaw.prices || {});
   let priceUpgraded = 0;
   for (const [alloyKey, info] of costEntries) {
-    const sub = info.match_substring.toLowerCase();
-    // Apply to all material whose name contains the substring (e.g., '316l' → '316L — Annealed', 'as-built', etc.)
-    for (const m of all) {
-      if (!m.name || !m.name.toLowerCase().includes(sub)) continue;
+    // R226p Phase 4 — 구 name-substring(match_substring) → stable_id 집합 매칭.
+    //   verified 시장 단가는 명시 ID 로 대상 고정(rename·오매칭 취약성 제거). capture 로 stableIds 재생성.
+    let targets;
+    if (R226P_CAPTURE) {
+      const sub = String(info.match_substring || '').toLowerCase();
+      targets = all.filter(m => m.name && m.name.toLowerCase().includes(sub));
+      R226P_captured['cost:' + alloyKey] = [...new Set(targets.map(sidOf).filter(Boolean))].sort();
+    } else {
+      const s = new Set(info.stableIds || []);
+      targets = s.size ? all.filter(m => s.has(sidOf(m))) : [];
+    }
+    for (const m of targets) {
       if (!m.ranges) m.ranges = {};
       const cur = m.ranges.price_per_kg || {};
       m.ranges.price_per_kg = {
@@ -3982,37 +4041,6 @@ function capIndustryLength(s) {
   }
   return out.trim() || cleaned.slice(0, 450).trim();
 }
-
-/* R226p — override 대상 매칭을 name-regex/exact-name 에서 **stable Material ID** 로 전환.
- *   freeze(legacy_id→stable_id) 로 각 entry 의 stable_id 조회, override 의 stableIds[]/stableId 와 매칭.
- *   원위치(derivation 前) 유지 → 순서·값 완전 보존, name 매칭의 over-match·rename 취약성 제거.
- *   (R173-src·R191·R173-range·R199·R205·R214 가 사용 — 최초 사용 지점 앞에 정의.) */
-const R226P_FREEZE = (() => { try { return JSON.parse(fs.readFileSync(path.join(DATA, 'registry-id-freeze.json'), 'utf8')).map || {}; } catch { return {}; } })();
-const sidOf = (m) => R226P_FREEZE[m.id];
-const R226P_CAPTURE = process.env.R226P_CAPTURE;   // 마이그레이션 시점 정확매칭 캡처(구 name 기준, rename 이전)
-const R226P_captured = {};
-const matchByStableIds = (ov) => {
-  if (R226P_CAPTURE && ov._namePattern_ref) {
-    const re = new RegExp(ov._namePattern_ref, ov._reI ? 'i' : '');   // 구 블록의 flag 보존('i' 여부)
-    const targets = all.filter(m => re.test(m.name || ''));
-    R226P_captured[ov._namePattern_ref] = [...new Set(targets.map(sidOf).filter(Boolean))].sort();
-    return targets;
-  }
-  const s = new Set(ov.stableIds || []);
-  return s.size ? all.filter(m => s.has(sidOf(m))) : [];
-};
-const matchByStableId = (ov) => {   // 단일 exact-name override(R173-range·R214)
-  const nm = ov._name_ref ?? ov.name;
-  if (R226P_CAPTURE && nm) {
-    const t = all.find(m => m.name === nm);
-    R226P_captured['name:' + nm] = t ? (sidOf(t) || null) : null;
-    return t;
-  }
-  return ov.stableId ? all.find(m => sidOf(m) === ov.stableId) : undefined;
-};
-if (process.env.R226P_CAPTURE) process.on('exit', () => {
-  try { fs.writeFileSync(path.join(DATA, '..', 'r226p-captured.json'), JSON.stringify(R226P_captured, null, 1)); } catch { /* noop */ }
-});
 
 try {
   const r173Raw = JSON.parse(fs.readFileSync(path.join(DATA, 'r173-handbook-sources.json'), 'utf8'));
@@ -4334,7 +4362,7 @@ try {
     if (fat != null && uts != null && uts > 0 && m.category === 'Metal') {
       const ratio = fat / uts;
       if (fat > uts || ratio > 0.8 || ratio < 0.12) {
-        if (/foam|honeycomb|cellular/i.test(m.name || '')) {
+        if (nameHit('cellular_metal_fatigue', m)) {   // R226p Phase 4 — 구 /foam|honeycomb|cellular/i → stable_id
           m.ranges.fatigue_strength = null;
           m.fatigue_strength = null;
           fatDropped++;
@@ -4354,7 +4382,7 @@ try {
       }
     }
     // cellular 비금속 (composite/polymer foam·honeycomb) — fat > UTS 는 무의미 → 제거 (category 무관)
-    if (m.category !== 'Metal' && /foam|honeycomb|aerogel/i.test(m.name || '')) {
+    if (m.category !== 'Metal' && nameHit('cellular_nonmetal_fatigue', m)) {   // R226p Phase 4 — 구 /foam|honeycomb|aerogel/i → stable_id
       const f2 = typ(m, 'fatigue_strength'); const u2 = typ(m, 'uts');
       if (f2 != null && u2 != null && f2 > u2) {
         m.ranges.fatigue_strength = null; m.fatigue_strength = null; fatDropped++;
@@ -4393,7 +4421,7 @@ try {
   const CEIL = 0.50;
   let capped = 0;
   for (const m of all) {
-    if (!/x-?750/i.test(m.name || '')) continue;
+    if (!nameHit('x750_fatigue_cap', m)) continue;   // R226p Phase 4 — 구 /x-?750/i → stable_id
     const fr = m.ranges && m.ranges.fatigue_strength;
     const ut = (m.ranges && m.ranges.uts && m.ranges.uts.typical) || m.uts;
     if (!fr || !(fr.typical > 0) || !(ut > 0)) continue;
