@@ -83,7 +83,7 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
   return (
     <details open className="rounded-lg border-2 border-sky-300 bg-sky-50/50 p-3">
       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-sky-900">
-        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />유사 · 대체 재료 (물성 가까운 순 · <span className="text-amber-700">주로 …용</span>=보통 다른 분야 재료)</span>
+        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />유사 · 대체 재료 <span className="font-normal opacity-60">(물성 가까운 순)</span></span>
         <span className="text-[10px] font-normal opacity-70">top {similar.length}</span>
       </summary>
       <div className="space-y-1.5 mt-2 pt-2 border-t border-sky-300/50">
