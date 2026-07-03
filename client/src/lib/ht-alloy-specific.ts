@@ -45,7 +45,7 @@ export interface AlloyHtFamily {
   conditions: { [htCode: string]: AlloyHtDescription };
 }
 
-const FAMILIES: AlloyHtFamily[] = [
+export const FAMILIES: AlloyHtFamily[] = [
   // ========================================
   // 17-4 PH (UNS S17400)
   // ========================================
@@ -1267,20 +1267,28 @@ const GENERIC_AGED_HT_RE = /^aged($|\s|\s*\/|-)|^sta\b|peak\s*ag(ed|ing)|solutio
 
 /**
  * Lookup alloy-specific HT description.
- * @param materialName 재료 이름 (e.g., "17-4 PH (UNS S17400) — H900")
+ *
+ * R226j/C6 — family 식별은 빌드 스탬프 m.profiles.ht (stable_id 기반 familyName) 로만 한다.
+ * 이전의 name-regex(alloyPattern) 런타임 스캔은 제거 — alloyPattern 은 빌드타임 분류기
+ * (build-process-profiles.mjs 가 이 파일을 파싱) 의 부트스트랩 입력으로만 쓰인다.
+ * 조건(code) 해석은 구조 필드 heat_treatment 우선 + 이름 내 코드 토큰 (family 확정 후) 유지.
+ *
+ * @param materialName 재료 이름 (조건 코드 fallback 탐색용, e.g., "17-4 PH — H900")
  * @param heatTreatment heat_treatment 필드 (optional, e.g., "H900")
- * @returns Alloy-specific HT description or undefined if no match
+ * @param familyName m.profiles.ht — 빌드가 할당한 familyName (없으면 undefined 반환)
  */
 export function htAlloySpecificFor(
   materialName: string,
   heatTreatment?: string | null,
+  familyName?: string | null,
 ): { family: AlloyHtFamily; description: AlloyHtDescription } | undefined {
   const nameStr = NORMALIZE(materialName);
-  if (!nameStr) return undefined;
+  if (!nameStr || !familyName) return undefined;
   const htStr = NORMALIZE(heatTreatment || '');
 
-  for (const family of FAMILIES) {
-    if (!family.alloyPattern.test(materialName)) continue;
+  const fam = FAMILIES.find(f => f.familyName === familyName);
+  if (!fam) return undefined;
+  for (const family of [fam]) {
     // Try heat_treatment field first
     if (htStr) {
       for (const [code, desc] of Object.entries(family.conditions)) {

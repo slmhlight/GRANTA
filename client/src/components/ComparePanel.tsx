@@ -13,7 +13,8 @@ import type { Material, PropertyRange } from '@/lib/materials';
 import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import { familyColor, propColor, CONFIDENCE, CONFIDENCE_ORDER, type ConfidenceLevel } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
-import { computeMachinability, machiningCostBand, htCostBand, computeCEIIW, computeCET, computePcm, computePolymerMachinability } from '@/lib/welding-machinability';
+import { machiningCostBand, htCostBand, computeCEIIW, computeCET, computePcm } from '@/lib/welding-machinability';
+import { resolveMachinability, resolvePolymerMachinability } from '@/lib/process-guidance';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis } from '@/components/RadarChart';
 import GoodmanChart from '@/components/GoodmanChart';
 // R21: Compare 패널에서 온도-강도 그래프 제거. MaterialDetail 의 단일 차트만 유지.
@@ -562,7 +563,7 @@ ${panel.outerHTML}
           let htBand: string | null = null;
           let weldBand: string | null = null;
           try {
-            const mach = computeMachinability(m);
+            const mach = resolveMachinability(m);   // R226j — m.profiles 조회 (regex 없음)
             // R125 — Ceramic/Composite 에서 가공·HT band null 반환
             const machC = machiningCostBand(m.machining_cost_factor, m.category);
             const ht = htCostBand(m.ht_cost_factor, m.category);
@@ -570,7 +571,7 @@ ${panel.outerHTML}
             const cet = computeCET(m);
             const pcm = computePcm(m);
             // R226i — 폴리머는 카테고리 전용 정성 절삭성 band
-            const poly = computePolymerMachinability(m);
+            const poly = resolvePolymerMachinability(m);
             machBand = machC?.band || mach?.band || poly?.band || null;
             htBand = ht?.band || null;
             const wb = [ce?.band, cet?.band, pcm?.band].filter(Boolean) as string[];

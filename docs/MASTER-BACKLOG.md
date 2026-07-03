@@ -37,6 +37,7 @@
 | C3 | confidence 산출 공식 명문화 (n×authority→tier) | ○ | A: 문서화된 규칙 + build 재현. R: 기존 tier 와 충돌 / M: 신규 필드로 병행 후 교체 |
 | C4 | UNS 정규화 심화 (432종 → 누락 도출·역인덱스) | ✅ 1차 / ○ | 확대: name 에만 있는 UNS 스캔 리포트 |
 | C5 | 국제 별칭 2차 (EN 번호계 1.xxxx·GB·GOST) | ○ | E: 족보별 대응표 검증. R: 근사대응 오해 / M: '≈' 마커 정책 유지 |
+| C6 | 공정 가이드 Material ID 기반 전면 개편 (런타임 regex 제거) | ✅ R226j | 절삭성·용접성 모델·HT family·인사이트를 build:profiles 분류기(1회) → assignments(stable_id 키, 커밋) → m.profiles 스탬프 → 클라이언트 순수 조회. 게이트: 전 entry 할당·키 parity·stale 검출·가족-band 감사·회귀 앵커. 교정 = overrides(src 필수). R: 분류기-콘텐츠 드리프트 / M: parity 테스트 + build 게이트 이중 봉쇄. 확장(커버리지 76%→↑)은 overrides 로 안전 |
 
 ## D. 검증 인프라·자동화
 
@@ -60,6 +61,8 @@
 | E6 | 대응합금(related/≈별칭) 탐색 뷰 (cross-standard 브라우저) | ○ | R: 범위 확대 / M: 상세패널 카드 1개로 한정 |
 | E7 | 조건(temper) 매트릭스 뷰 (base 별 조건 커버리지 시각화) | ○ 원거리 | B2 진행 후 가치 상승 |
 | E8 | 고온 설계 보조 (elev-temp 곡선 보간·허용응력 표시) | ⏸ B1 종속 | R: 설계값 오용 / M: "typical, 설계용 아님" 명시 |
+| E9 | 재료 선택 인사이트 (when-to-use) | ✅ 1차 R226j / ○ 확장 | 17 그룹·96 시나리오 (selection-insights.json, 출처 포함) — 상세패널 물성탭 카드 + 현재 재료 강조. 확장 E: 그룹별 시나리오 보강·엔지니어 검토. R: 관행 서술의 과일반화 / M: "일반 관행 요약, 설계 검증 대체 안 함" 명시 + 출처 필수 |
+| E10 | 조건(variation)별 공정 노트 확장 (현 26 조합) | ▶ | condition_notes 'mach|htc' 조합 — 신규 조합은 근거와 함께 추가. R: 조건 오적용 / M: htc 분류는 구조 필드 기반 + parity 게이트 |
 
 ## F. 코드 품질 (지속)
 

@@ -56,15 +56,13 @@ export interface CETResult {
 
 /* R205 F2 — CE 계열 식 (CE_IIW/CET/Pcm) 은 C-Mn / low-alloy 강 전용.
  * Stainless (Cr 18% → CE 4+ 로 '위험' 오표시) · maraging (Ni 18%) · 고합금은 무의미 → 제외.
- * Stainless 는 Schaeffler 만 적용. [AWS D1.1 적용범위] */
-const CE_EXCLUDE_RE = /aluminum|copper|titanium|magnesium|nickel|cobalt|refractory|stainless|maraging|zinc|beryllium|controlled expansion|shape memory|zirconium/i;
+ * Stainless 는 Schaeffler 만 적용. [AWS D1.1 적용범위]
+ * R226j/C6 — 적격성 판단을 런타임 subcategory-regex 에서 빌드 스탬프 m.profiles.weld
+ * ('ce'|'schaeffler'|'none', stable_id 기반 process-profile-assignments.json) 로 전환. */
 
 export function computeCET(material: Material): CETResult | null {
-  // Carbon steel · alloy steel · tool steel 만 CET 의미 있음 (stainless/maraging 제외 — R205).
-  const cat = material.category || '';
-  const sub = (material.subcategory || '').toLowerCase();
-  if (cat !== 'Metal') return null;
-  if (CE_EXCLUDE_RE.test(sub)) return null;
+  // CE 계열은 C-Mn/저합금강 전용 — 빌드가 stable_id 별로 판정한 weld 모델을 조회 (R226j).
+  if (material.profiles?.weld !== 'ce') return null;
 
   const comp = material.composition || {};
   const C = pctOf(comp, 'C');
@@ -105,10 +103,7 @@ export interface CEIIWResult {
 }
 
 export function computeCEIIW(material: Material): CEIIWResult | null {
-  const cat = material.category || '';
-  const sub = (material.subcategory || '').toLowerCase();
-  if (cat !== 'Metal') return null;
-  if (CE_EXCLUDE_RE.test(sub)) return null; // R205 F2 — stainless/maraging 등 제외
+  if (material.profiles?.weld !== 'ce') return null; // R226j — 빌드 판정 weld 모델 조회 (R205 F2 대체)
 
   const comp = material.composition || {};
   const C = pctOf(comp, 'C');
@@ -148,10 +143,7 @@ export interface PcmResult {
 }
 
 export function computePcm(material: Material): PcmResult | null {
-  const cat = material.category || '';
-  const sub = (material.subcategory || '').toLowerCase();
-  if (cat !== 'Metal') return null;
-  if (CE_EXCLUDE_RE.test(sub)) return null; // R205 F2 — stainless/maraging 등 제외
+  if (material.profiles?.weld !== 'ce') return null; // R226j — 빌드 판정 weld 모델 조회 (R205 F2 대체)
 
   const comp = material.composition || {};
   const C = pctOf(comp, 'C');
@@ -194,11 +186,8 @@ export interface SchaefflerResult {
 }
 
 export function computeSchaeffler(material: Material): SchaefflerResult | null {
-  const cat = material.category || '';
-  const sub = (material.subcategory || '').toLowerCase();
-  if (cat !== 'Metal') return null;
-  // Schaeffler 는 stainless 용접 weld metal phase 예측. Iron-based stainless 만.
-  if (!/stainless|austenitic|ferritic|martensitic|duplex|ph/i.test(sub) && !/\bs(?:s|us|ts)\s*\d/i.test(material.name || '')) return null;
+  // Schaeffler 는 stainless 용접 weld metal phase 예측 — 빌드 판정 weld 모델 조회 (R226j).
+  if (material.profiles?.weld !== 'schaeffler') return null;
 
   const comp = material.composition || {};
   const Cr = pctOf(comp, 'Cr');
@@ -313,150 +302,6 @@ export function htCostBand(factor: number | null | undefined, category?: string 
   };
 }
 
-/* ───────── Machinability rating ───────── */
-
-export interface MachinabilityResult {
-  rating: number;        // 0-110 (1018 = 100, 황동 일부 > 100)
-  band: 'easy' | 'normal' | 'hard' | 'very_hard';
-  label: string;
-  note: string;
-}
-
-// Family pattern → typical rating (AISI 1212 = 100% 기준, Machining Data Handbook).
-// R205 F3/F4 정정: 1018 은 ~70% (100 아님) · 비연 황동 ~30 · 순동 ~20 (gummy) ·
-//   연질 Al 1xxx/3xxx 는 6061-T6 보다 어려움 (gummy) · refractory 는 W/Ta/Mo 차별.
-// R226i 견고성: (1) grade 지정번호(1018·430·303 등)를 단어경계(\b)로 앵커 — EN 번호(1.4303→430)·
-//   인접 grade(SCM4xx→m4·PH13-8→h13) 의 숫자/토큰 부분매칭 오분류 차단. (2) 매칭 전 machiningKey 가
-//   조건절 측정치(1100°C·900 HV 등)를 제거 — 온도·경도 숫자가 grade 번호로 오인되는 것 방지.
-const MACHINABILITY: Array<[RegExp, number]> = [
-  [/\b303\b|sus\s?303|1\.?4305|303se/i, 78],                 // 자유절삭 austenitic (100 baseline 아님 · MDH ~78)
-  [/free.?machining|leaded|12L14|11SMnPb|c36000|brass.*free|1144|stressproof|c14500|tellurium/i, 100],
-  [/416\b.*stainless|stainless.*416/i, 85],
-  [/aluminum.*2011|\b6262\b/i, 90],
-  [/aluminum.*6\d{3}|\b6061\b|\b6063\b|\b6082\b/i, 60],
-  [/aluminum.*7\d{3}|\b7075\b|\b7050\b/i, 60],
-  [/aluminum.*2\d{3}|\b2024\b|\b2219\b/i, 65],
-  [/aluminum.*5\d{3}|\b5052\b|\b5083\b/i, 50],
-  [/aluminum.*1\d{3}|\b1100\b|aluminum.*3\d{3}/i, 35],
-  [/alsi10mg|alsi7mg|aluminum/i, 55],
-  [/brass|c[34]\d{4}/i, 30],
-  [/copper.*pure|ofhc|c11000|c10100|c10200|c12200/i, 20],
-  [/copper.*cr.?zr|cucrzr/i, 55],
-  [/\b1018\b|\b1020\b|carbon steel.*low|sae 10[12]\d/i, 70],
-  [/\b413[05]\b|4140|42crmo|42crmo4|scm4[1345]\d|31crmov/i, 60],   // 4130/4135/SCM4xx Cr-Mo 계
-  [/4340|sncm/i, 50],
-  [/8620|9310|carburizing/i, 65],
-  [/52100|100cr6|bearing steel/i, 40],
-  [/maraging/i, 45],
-  [/tool steel|\bd2\b|\bd3\b|\bh1[13]\b|\bm[24]\b|skd|cpm/i, 35],   // d2/d3/h13/h11/m2/m4 단어경계 (SCM4xx·PH13 오매칭 방지)
-  [/stainless.*ph|17-?4|15-?5|13-?8|custom 465/i, 35],             // PH 특정 grade — ferritic/martensitic subcat 매칭보다 우선
-  [/stainless.*ferritic|\b409\b|\b430\b|\b439\b/i, 55],             // \b: EN 1.4303·UNS 부분매칭 방지
-  [/stainless.*martensitic|\b410\b|\b420\b|\b440[a-c]?\b/i, 45],
-  [/stainless.*austenitic|\b304l?\b|\b316l?\b|\b309\b|\b310s?\b|\b321\b/i, 40],
-  [/stainless.*duplex|\b2205\b|\b2507\b/i, 30],
-  [/nickel.*super|inconel 718|inconel 625|inconel 600|hastelloy|nimonic|waspaloy|udimet|rene|incoloy 800/i, 15],
-  [/inconel 617|haynes 230|hastelloy x|haynes 282/i, 12],
-  [/cobalt|stellite|cocrmo|l605|f-?75/i, 10],
-  [/titanium.*pure|cp.?ti|ti grade [12]/i, 30],
-  [/titanium|ti6al4v|ti-6al-4v|ti5-8-5/i, 22],
-  [/tungsten/i, 8],
-  [/tantalum|niobium/i, 45],
-  [/molybdenum|tzm|mo-?la|moly/i, 35],
-  [/refractory/i, 18],
-];
-
-/* 절삭성 매칭 키 — subcategory + name 에서 측정치 토큰(온도·경도·응력)을 제거.
- * "Solution treated (1100°C)" 의 1100 이 Al 1xxx grade 로, "1020°C" 가 carbon steel 1020 으로,
- * "case 900~1100 HV" 의 1100 이 Al 로 오분류되던 문제 방지 (grade 번호는 단위를 동반하지 않음). */
-function machiningKey(material: Material): string {
-  return `${material.subcategory || ''} ${material.name || ''}`
-    .replace(/\d+(?:[.,]\d+)?\s*(?:°\s*[cf]?|h(?:v|rc|rb|ra|b)|[mg]pa|ksi)\b/gi, ' ');
-}
-
-export function computeMachinability(material: Material): MachinabilityResult | null {
-  if (material.category !== 'Metal') return null;
-  const key = machiningKey(material);
-  for (const [rx, r] of MACHINABILITY) {
-    if (rx.test(key)) {
-      const band: MachinabilityResult['band'] =
-        r >= 70 ? 'easy' : r >= 40 ? 'normal' : r >= 20 ? 'hard' : 'very_hard';
-      const label = { easy: '우수', normal: '보통', hard: '어려움', very_hard: '매우 어려움' }[band];
-      const note = {
-        easy: '표준 절삭 — Carbide / HSS 공구, 절삭유 일반.',
-        normal: 'Carbide 공구, 충분한 절삭유, 가공시간 ~1.5x.',
-        hard: 'Coated carbide (TiAlN), 낮은 속도, 절삭시간 ~2.5x.',
-        very_hard: 'CBN / ceramic 공구, 강력 절삭유 또는 cryo. 가공시간 4-8x.',
-      }[band];
-      return { rating: r, band, label, note };
-    }
-  }
-  return null;
-}
-
-/* ───────── Polymer machinability (R226i) ─────────
- * 폴리머는 금속의 ISO 3685 tool-life · AISI baseline rating 모델이 무의미하다.
- * 절삭력 자체는 낮으나 실제 가공성을 지배하는 요인이 전혀 다르다:
- *   (1) 발열/용융 (낮은 열전도·낮은 Tg → 예리한 공구·냉각 필수)
- *   (2) 연질·저모듈러스 → 거미상(gummy) chip·처짐
- *   (3) 유리/탄소 섬유·미네랄 필러 → 공구 마모 (초경·PCD)
- *   (4) 취성 비정질(아크릴/스티렌) → 크랙·치핑
- * 정성 평가 (수치 rating 아님) — 제조사 가공 가이드·ASM Vol.16(Machining of Plastics) 기준. */
-export interface PolymerMachResult {
-  band: 'easy' | 'normal' | 'hard';
-  label: string;
-  note: string;
-}
-
-/* 선언적 패밀리 테이블 — 위에서부터 첫 매칭 (필러·라미네이트가 최우선, 그 다음 열경화/폼/탄성체/연질/취성). */
-const POLYMER_MACHINABILITY: Array<{ re: RegExp; band: PolymerMachResult['band']; label: string; note: string }> = [
-  {
-    // 유리/탄소 섬유·미네랄 강화 + 라미네이트 — 마모성 (최우선: PP-GF 등이 연질보다 먼저 잡히도록)
-    re: /glass.?fib|carbon.?fib|\b(?:gf|cf|scf)\s*-?\s*\d{2,3}\b|\bgf\b|\bcf\b|-gf\b|-cf\b|\d{2}\s*%?\s*(?:gf|cf|glass|carbon)|reinforc|woven fabric|laminate|\bonyx\b/i,
-    band: 'hard', label: '주의 (마모성 필러)',
-    note: '유리·탄소 섬유(또는 미네랄) 강화 — 절삭력은 낮으나 필러가 공구를 강하게 마모시킨다. 초경(carbide) 또는 PCD/다이아몬드 공구·낮은 이송, 섬유 분진 집진 필수. 라미네이트는 층간 박리(delamination) 방지 위해 예리한 공구.',
-  },
-  {
-    // 열경화성 캐스트 수지 (에폭시/폴리에스터/페놀릭) — 분말상·취성·유해분진
-    re: /epoxy|thermoset|phenolic|melamine|bakelite|polyester resin|resin.*cast|cast.*resin/i,
-    band: 'hard', label: '열경화 (분진·취성)',
-    note: '열경화성 수지 — 재용융 불가, chip 이 분말상(마모성·유해분진). 초경 공구·강력 집진, 취성 크랙 방지 위해 예리한 공구·낮은 이송.',
-  },
-  {
-    // 구조 발포체 (PMI Rohacell) — 저밀도·연질·crumbly
-    re: /\bfoam\b|rohacell|\bpmi\b/i,
-    band: 'normal', label: '발포체 (연질·분진)',
-    note: '저밀도 구조 발포체 — 매우 낮은 절삭력이나 부스러짐·분진 발생. 예리한 공구·낮은 클램프압(압착 변형 방지)·집진, 목공용 고속 공구로 가공 용이.',
-  },
-  {
-    // 탄성체/고무 — 절삭 부적합
-    re: /\btpu\b|\btpe\b|elastomer|silicone|rubber|\bnbr\b|hnbr|\beva\b|polyurethane|urethane/i,
-    band: 'hard', label: '탄성체 (절삭 부적합)',
-    note: '탄성체/고무 — 낮은 강성으로 절삭 시 변형·찢김. 통상 절단(die-cut)·워터젯·성형으로 가공. 부득이 절삭 시 극예리 블레이드·저온(cryo) 고정, 표준 CNC 부적합.',
-  },
-  {
-    // 연질·저Tg 열가소성 (PE/PP/PTFE·플루오로/PLA/PETG) — gummy chip + 발열/용융
-    re: /ptfe|teflon|\bpfa\b|\bfep\b|pctfe|polyethylen|uhmw|hdpe|ldpe|\bpe\b|polypropylen|\bpp\b|\bpla\b|\bpcl\b|\bpha\b|petg|\bpvb\b/i,
-    band: 'normal', label: '연질 (거미상 chip)',
-    note: '연질·저모듈러스(또는 저Tg) — 절삭력은 매우 낮으나 chip 이 거미상(gummy)으로 늘어지고 발열 시 용융. 예리한 공구·큰 positive rake, 저속·공기(또는 미스트) 냉각, 얇은 벽 처짐 지지.',
-  },
-  {
-    // 취성 비정질 (아크릴·스티렌) — 크랙·치핑·크레이징
-    re: /pmma|acrylic|plexiglas|perspex|polystyren|\bps\b|gpps|hips/i,
-    band: 'normal', label: '취성 (크랙·치핑)',
-    note: '경질이나 취성 — 과열·과이송 시 크랙·치핑·크레이징(crazing). 예리한 공구·낮은 이송·충분한 냉각, 잔류응력 완화 위해 어닐링 후 가공 권장.',
-  },
-];
-
-/** 폴리머 절삭성 정성 평가 (category==='Polymer' 만). 패밀리 미매칭 시 강성 엔지니어링 열가소성(우수)으로 기본 처리. */
-export function computePolymerMachinability(material: Material): PolymerMachResult | null {
-  if (material.category !== 'Polymer') return null;
-  const key = machiningKey(material);
-  for (const t of POLYMER_MACHINABILITY) {
-    if (t.re.test(key)) return { band: t.band, label: t.label, note: t.note };
-  }
-  // 기본 — 강성 엔지니어링 열가소성 (POM/PBT/PA·unfilled/PC/PEEK/PEI/PSU/PPS/PET/PEKK/PAI/PBI/PVDF/LCP/PI)
-  return {
-    band: 'easy', label: '우수 (강성 열가소성)',
-    note: '강성 엔지니어링 열가소성 — 황동에 준하는 우수한 절삭성(깨끗한 chip·양호한 표면). 단 발열/용융 방지 위해 공구를 예리하게 유지(절삭유 또는 공기 냉각), 얇은 단면은 지지. 흡습 폴리머(나일론 등)는 조건에 따라 치수 변동 주의.',
-  };
-}
+/* R226j/C6 — 절삭성 rating (금속 name-regex 테이블)·폴리머 절삭성 테이블은 제거됨.
+ * 해석은 @/lib/process-guidance (resolveMachinability·resolvePolymerMachinability — m.profiles 조회),
+ * 분류는 빌드타임 scripts/lib/process-classify.mjs → data/process-profile-assignments.json (stable_id 키). */

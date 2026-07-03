@@ -24,15 +24,41 @@ const OUT_PUB = process.argv[2] ? path.resolve(process.argv[2]) : path.join(ROOT
 const OUT_MATS = path.join(OUT_PUB, 'materials');
 
 // 1) 레지스트리 entry 로드 → R226 필드 제거 → 원본 entry(+교정) 복원
+// R226j/C6 — 공정 프로파일 할당 (stable_id 키) 을 m.profiles 로 스탬프. 런타임 regex 추론 제거의 핵심.
+const PROFILE_ASSIGN = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'process-profile-assignments.json'), 'utf8')).assignments;
+const PROFILES_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'process-profiles.json'), 'utf8'));
+const INSIGHTS_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'selection-insights.json'), 'utf8'));
 const R226_FIELDS = new Set(['stable_id', 'family', 'legacy_id', 'origin', '_corrections']);
 const all = [];
+const profileGateErrors = [];
+const seenSids = new Set();
 for (const cc of fs.readdirSync(REG)) {
   for (const fn of fs.readdirSync(path.join(REG, cc))) {
     const rec = JSON.parse(fs.readFileSync(path.join(REG, cc, fn), 'utf8'));
     const entry = {};
     for (const [k, v] of Object.entries(rec)) if (!R226_FIELDS.has(k)) entry[k] = v;   // points 는 build-registry 가 교정 시 이미 재생성 (레지스트리가 self-consistent)
+    seenSids.add(rec.stable_id);
+    const a = PROFILE_ASSIGN[rec.stable_id];
+    if (!a) {
+      profileGateErrors.push(`할당 누락: ${rec.stable_id} (${rec.name}) — pnpm build:profiles 재실행 필요`);
+    } else {
+      // 키 유효성 (콘텐츠 parity)
+      if (a.mach && !PROFILES_CONTENT.machinability.metal[a.mach] && !PROFILES_CONTENT.machinability.polymer[a.mach])
+        profileGateErrors.push(`mach 키 미정의: ${rec.stable_id} → ${a.mach}`);
+      if (a.weld && !PROFILES_CONTENT.weld_models[a.weld])
+        profileGateErrors.push(`weld 키 미정의: ${rec.stable_id} → ${a.weld}`);
+      if (a.insight && !INSIGHTS_CONTENT.groups[a.insight])
+        profileGateErrors.push(`insight 키 미정의: ${rec.stable_id} → ${a.insight}`);
+      if (Object.keys(a).length) entry.profiles = a;
+    }
     all.push(entry);
   }
+}
+for (const sid of Object.keys(PROFILE_ASSIGN)) if (!seenSids.has(sid)) profileGateErrors.push(`stale 할당 (레지스트리에 없는 ID): ${sid}`);
+if (profileGateErrors.length) {
+  console.error(`❌ BUILD GATE (process profiles): ${profileGateErrors.length}건`);
+  profileGateErrors.slice(0, 15).forEach(e => console.error('  ' + e));
+  process.exit(1);
 }
 
 // 1b) 출처 라벨 정리 (R226d/R226e) — placeholder 라벨("Datasheet N"·"MatWeb N") → URL 도메인 서술 라벨. lib/source-labels.mjs improveLabel 사용.

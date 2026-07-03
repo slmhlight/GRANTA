@@ -1,8 +1,11 @@
 /*
- * R71 Sprint E — Unit tests for welding-machinability lib (CET + Machinability rating).
+ * R71 Sprint E → R226j/C6 재작성 — 용접성(CET 물리식 + weld 모델 게이트) · 절삭성(ID 프로파일 해석).
+ * 분류(name→프로파일)는 빌드타임 (scripts/lib/process-classify.mjs → assignments) — 그 검증은
+ * machinability-robustness.test.ts (실 데이터) + process-profiles.test.ts (parity 게이트).
  */
 import { describe, it, expect } from 'vitest';
-import { computeCET, computeMachinability, computePolymerMachinability, machiningCostBand } from '../client/src/lib/welding-machinability';
+import { computeCET, computeSchaeffler, machiningCostBand } from '../client/src/lib/welding-machinability';
+import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote, resolveMachiningGuidance, resolveInsights, insightPickMatches, machinabilitySources } from '../client/src/lib/process-guidance';
 import type { Material } from '../client/src/lib/materials';
 
 function mk(over: Partial<Material>): Material {
@@ -14,124 +17,121 @@ function mk(over: Partial<Material>): Material {
   } as Material;
 }
 
-describe('computeCET (IIW Doc IX-1086-87)', () => {
-  it('returns null for non-metal categories', () => {
-    expect(computeCET(mk({ category: 'Polymer' }))).toBeNull();
-    expect(computeCET(mk({ category: 'Ceramic' }))).toBeNull();
-    expect(computeCET(mk({ category: 'Composite' }))).toBeNull();
+describe('computeCET (IIW Doc IX-1086-87) — weld 모델 게이트 (R226j)', () => {
+  it('profiles.weld !== ce → null (비철·스테인리스·프로파일 없음)', () => {
+    expect(computeCET(mk({ profiles: { weld: 'none' } }))).toBeNull();
+    expect(computeCET(mk({ profiles: { weld: 'schaeffler' } }))).toBeNull();
+    expect(computeCET(mk({}))).toBeNull();   // 스탬프 없음 = 안전한 null
   });
-  it('returns null for Al / Cu / Ti / Mg / Ni superalloy', () => {
-    expect(computeCET(mk({ subcategory: 'Aluminum - 6xxx' }))).toBeNull();
-    expect(computeCET(mk({ subcategory: 'Copper Alloy' }))).toBeNull();
-    expect(computeCET(mk({ subcategory: 'Titanium' }))).toBeNull();
-    expect(computeCET(mk({ subcategory: 'Nickel Superalloy' }))).toBeNull();
-  });
-  it('returns low CET for plain mild steel (1018-like)', () => {
+  it('weld=ce + mild steel 조성 → low band', () => {
     const r = computeCET(mk({
-      subcategory: 'Carbon Steel',
+      profiles: { weld: 'ce' },
       composition: { Fe: 'balance', C: '0.18', Mn: '0.7', Si: '0.2' } as any,
     }));
     expect(r).not.toBeNull();
     expect(r!.cet).toBeLessThan(0.4);
     expect(r!.band).toBe('low');
   });
-  it('returns medium CET for 4140-like (Cr-Mo alloy steel)', () => {
+  it('weld=ce + 4140 조성 → CET > 0.4', () => {
     const r = computeCET(mk({
-      subcategory: 'Alloy Steel',
+      profiles: { weld: 'ce' },
       composition: { Fe: 'balance', C: '0.4', Mn: '0.85', Cr: '1.0', Mo: '0.2', Si: '0.25' } as any,
     }));
-    expect(r).not.toBeNull();
     expect(r!.cet).toBeGreaterThan(0.4);
   });
 });
 
-describe('computeMachinability rating', () => {
-  it('returns null for non-metal', () => {
-    expect(computeMachinability(mk({ category: 'Polymer' }))).toBeNull();
+describe('computeSchaeffler — weld 모델 게이트', () => {
+  it('weld=schaeffler + 304 조성 → phase 산출', () => {
+    const r = computeSchaeffler(mk({
+      profiles: { weld: 'schaeffler' },
+      composition: { Cr: '18.5', Ni: '9', C: '0.05', Mn: '1.5', Si: '0.5' } as any,
+    }));
+    expect(r).not.toBeNull();
+    expect(r!.cr_eq).toBeGreaterThan(18);
   });
-  /* R205 F3 — 표준 baseline 은 AISI 1212=100%. 1018 은 ~70% (Machining Data Handbook). */
-  it('AISI 1018 → 70 (MDH, 1212=100 기준)', () => {
-    const r = computeMachinability(mk({ name: 'AISI 1018', subcategory: 'Carbon Steel' }));
-    expect(r?.rating).toBe(70);
-    expect(r?.band).toBe('easy');
-  });
-  it('12L14 free-machining → 100', () => {
-    const r = computeMachinability(mk({ name: '12L14 (free-machining)', subcategory: 'Carbon Steel' }));
-    expect(r?.rating).toBe(100);
-  });
-  it('Inconel 718 → very hard (≤ 20)', () => {
-    const r = computeMachinability(mk({ name: 'Inconel 718', subcategory: 'Nickel Superalloy' }));
-    expect(r?.rating).toBeLessThanOrEqual(20);
-    expect(r?.band).toBe('very_hard');
-  });
-  /* R205 F4 — 6061-T6 는 MDH ~50-60% (normal). 이전 'easy ≥70' 은 과대. */
-  it('Al 6061 → normal (~60)', () => {
-    const r = computeMachinability(mk({ name: '6061 aluminum', subcategory: 'Aluminum' }));
-    expect(r?.rating).toBe(60);
-    expect(r?.band).toBe('normal');
-  });
-  it('Ti-6Al-4V → hard (~22)', () => {
-    const r = computeMachinability(mk({ name: 'Ti-6Al-4V', subcategory: 'Titanium' }));
-    expect(r?.rating).toBeGreaterThanOrEqual(18);
-    expect(r?.rating).toBeLessThanOrEqual(30);
+  it('weld=ce → null (탄소강에 Schaeffler 미적용)', () => {
+    expect(computeSchaeffler(mk({ profiles: { weld: 'ce' }, composition: { Cr: '1', Ni: '0.5' } as any }))).toBeNull();
   });
 });
 
-/* R226i — 폴리머는 금속 tool-life 모델(ISO 3685·AISI baseline) 미적용.
- * machiningCostBand 는 Polymer 에서 null, 대신 computePolymerMachinability 정성 평가. */
-describe('polymer machinability separation (R226i / A7)', () => {
-  const pm = (name: string, sub = '') =>
-    computePolymerMachinability(mk({ category: 'Polymer', name, subcategory: sub }));
+describe('resolveMachinability — ID 프로파일 조회 (regex 없음)', () => {
+  it('mach=carbon-low → 70 easy · crmo → 60 · ni-super → 15 very_hard', () => {
+    expect(resolveMachinability(mk({ profiles: { mach: 'carbon-low' } }))?.rating).toBe(70);
+    expect(resolveMachinability(mk({ profiles: { mach: 'carbon-low' } }))?.band).toBe('easy');
+    expect(resolveMachinability(mk({ profiles: { mach: 'crmo' } }))?.rating).toBe(60);
+    const ni = resolveMachinability(mk({ profiles: { mach: 'ni-super' } }));
+    expect(ni?.rating).toBe(15);
+    expect(ni?.band).toBe('very_hard');
+  });
+  it('프로파일 없음 → null (안전) · 비금속 → null', () => {
+    expect(resolveMachinability(mk({}))).toBeNull();
+    expect(resolveMachinability(mk({ category: 'Polymer', profiles: { mach: 'pol-rigid' } }))).toBeNull();
+  });
+  it('미정의 키 → null (콘텐츠 parity 는 별도 게이트)', () => {
+    expect(resolveMachinability(mk({ profiles: { mach: 'no-such-key' } }))).toBeNull();
+  });
+});
 
-  it('machiningCostBand → null for Polymer (금속 가공비 인자 미노출)', () => {
+describe('resolvePolymerMachinability — 폴리머 클래스 (Ensinger·Quadrant 검증)', () => {
+  const pm = (mach: string) => resolvePolymerMachinability(mk({ category: 'Polymer', profiles: { mach } }));
+  it('pol-filled → hard 마모성 필러', () => {
+    expect(pm('pol-filled')?.band).toBe('hard');
+    expect(pm('pol-filled')?.label).toContain('필러');
+  });
+  it('pol-amorphous → ESC 절삭유 주의 (Quadrant 원문 확증 신규 클래스)', () => {
+    const r = pm('pol-amorphous');
+    expect(r?.band).toBe('easy');
+    expect(r?.note).toContain('stress-cracking');
+  });
+  it('pol-rigid → easy · pol-elastomer → hard · pol-soft → normal', () => {
+    expect(pm('pol-rigid')?.band).toBe('easy');
+    expect(pm('pol-elastomer')?.band).toBe('hard');
+    expect(pm('pol-soft')?.band).toBe('normal');
+  });
+  it('금속 → null', () => {
+    expect(resolvePolymerMachinability(mk({ profiles: { mach: 'pol-rigid' } }))).toBeNull();
+  });
+});
+
+describe('machiningCostBand — 카테고리 가드 유지', () => {
+  it('Polymer/Ceramic/Composite → null · Metal → band', () => {
     expect(machiningCostBand(0.7, 'Polymer')).toBeNull();
-    expect(machiningCostBand(0.7, 'Metal')).not.toBeNull(); // 금속은 유지
+    expect(machiningCostBand(0.7, 'Ceramic')).toBeNull();
+    expect(machiningCostBand(0.7, 'Metal')?.band).toBe('easy');
   });
-  it('computePolymerMachinability → null for non-Polymer', () => {
-    expect(computePolymerMachinability(mk({ category: 'Metal', name: 'AISI 1018' }))).toBeNull();
-  });
+});
 
-  it('강성 엔지니어링 열가소성 (PBT/POM/PC/PEEK/PPS) → easy 우수', () => {
-    for (const [n, s] of [['PBT (general purpose) — Unfilled', 'Polymer - PBT'],
-                          ['POM Delrin 500', 'Polymer - POM'],
-                          ['Polycarbonate (PC)', 'Polymer - Polycarbonate'],
-                          ['PEEK Victrex 450G', 'Polymer - PEEK'],
-                          ['PPS — As-supplied', 'Polymer - PPS']] as const) {
-      const r = pm(n, s);
-      expect(r?.band, n).toBe('easy');
-    }
+describe('조건(variation)별 노트 + 가이드 + 인사이트 (R226j)', () => {
+  it('ni-super|aged → 시효 시퀀스 노트 · soft 는 다른 노트 (조건 분화)', () => {
+    const aged = resolveConditionNote(mk({ profiles: { mach: 'ni-super', htc: 'aged' } }));
+    const soft = resolveConditionNote(mk({ profiles: { mach: 'ni-super', htc: 'soft' } }));
+    expect(aged).toContain('시효');
+    expect(soft).toContain('가공 적기');
+    expect(aged).not.toBe(soft);
   });
-  it('유리/탄소 섬유 강화 → hard 마모성 필러 (연질/기본보다 우선)', () => {
-    expect(pm('PBT 30%GF', 'Polymer - PBT')?.band).toBe('hard');
-    expect(pm('PA12-GF30', 'Polymer - Polyamide GF')?.label).toContain('필러');
-    expect(pm('PEEK-CF (carbon fiber)', 'Polymer - PEEK CF')?.band).toBe('hard');
-    expect(pm('PP-GF30 — As-supplied', 'Polymer - PP GF (FDM)')?.band).toBe('hard'); // 연질 아님
-    expect(pm('PPS Fortron 1140L4 (40% GF)', 'Polymer - PPS')?.band).toBe('hard');
+  it('htc 없으면 null', () => {
+    expect(resolveConditionNote(mk({ profiles: { mach: 'ni-super' } }))).toBeNull();
   });
-  it('연질·저Tg (PTFE/HDPE/PP/PETG) → normal 거미상', () => {
-    expect(pm('PTFE (Teflon)', 'Polymer - PTFE')?.label).toContain('거미상');
-    expect(pm('HDPE — As-supplied', 'Polymer - Polyethylene')?.band).toBe('normal');
-    expect(pm('PP — As-supplied', 'Polymer - PP')?.band).toBe('normal');
-    expect(pm('PETG', 'Polymer - PETG')?.band).toBe('normal');
+  it('가이드 — ti-alloy → titanium 가이드 (발화 경고 포함)', () => {
+    const g = resolveMachiningGuidance(mk({ profiles: { mach: 'ti-alloy' } }));
+    expect(g).toContain('Ti');
+    expect(g).toContain('발화');
   });
-  it('취성 비정질 (PMMA/PS) → normal 취성', () => {
-    expect(pm('PMMA Cast acrylic sheet', 'Polymer - PMMA')?.label).toContain('취성');
-    expect(pm('PS — As-supplied', 'Polymer - Polystyrene')?.label).toContain('취성');
+  it('인사이트 — stainless 그룹 + 현재 재료 강조 매칭', () => {
+    const m = mk({ name: 'AISI 316L (Wrought) — Annealed', profiles: { insight: 'stainless' } });
+    const ins = resolveInsights(m);
+    expect(ins?.title).toContain('스테인리스');
+    const pick316 = ins!.picks.find(p => p.use.includes('316'));
+    expect(pick316).toBeTruthy();
+    expect(insightPickMatches(m, pick316!)).toBe(true);
+    const pick430 = ins!.picks.find(p => p.use.includes('430'));
+    expect(insightPickMatches(m, pick430!)).toBe(false);
   });
-  it('탄성체 (TPU/Silicone/NBR) → hard 절삭 부적합', () => {
-    expect(pm('TPU (95A)', 'Polymer - TPU')?.label).toContain('탄성체');
-    expect(pm('Silicone Rubber', 'Polymer - Silicone Rubber')?.band).toBe('hard');
-  });
-  it('열경화 캐스트 수지 (Epoxy) → hard 분진·취성', () => {
-    expect(pm('Epoxy Resin — As-supplied (Cast)', 'Polymer - Epoxy/Thermoset')?.label).toContain('열경화');
-  });
-  it('PMI 구조 발포체 (Rohacell) → normal 발포체', () => {
-    expect(pm('Rohacell A PMI structural foam — Rohacell 51A', 'Polymer - Foam (PMI)')?.label).toContain('발포체');
-  });
-  it('금속 tool-life 문구를 반환하지 않음 (저탄소강/free-machining/ISO 3685/AISI 미포함)', () => {
-    for (const n of ['PBT', 'PTFE (Teflon)', 'PA12-GF30', 'TPU (95A)']) {
-      const note = pm(n)?.note || '';
-      expect(note).not.toMatch(/저탄소강|free-?machining|1018|1212|ISO 3685/i);
-    }
+  it('출처 — 카테고리별 분리 (폴리머에 금속 표준 없음)', () => {
+    const polySrc = machinabilitySources(mk({ category: 'Polymer' })).join(' ');
+    expect(polySrc).toContain('Ensinger');
+    expect(polySrc).not.toMatch(/ISO 3685|1212/);
+    expect(machinabilitySources(mk({})).join(' ')).toContain('Machining Data Handbook');
   });
 });

@@ -1,0 +1,5768 @@
+{
+ "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
+ "entries": 1113,
+ "ht_families_parsed": 34,
+ "assignments": {
+  "CER-0001": {},
+  "CER-0002": {},
+  "CER-0003": {},
+  "CER-0004": {},
+  "CER-0005": {},
+  "CER-0006": {},
+  "CER-0007": {},
+  "CER-0008": {},
+  "CER-0009": {},
+  "CER-0010": {},
+  "CER-0011": {},
+  "CER-0012": {},
+  "CER-0013": {},
+  "CER-0014": {},
+  "CER-0015": {},
+  "CER-0016": {},
+  "CER-0017": {},
+  "CER-0018": {},
+  "CER-0019": {},
+  "CER-0020": {},
+  "CER-0021": {},
+  "CER-0022": {},
+  "CER-0023": {},
+  "CER-0024": {},
+  "CER-0025": {},
+  "CER-0026": {},
+  "CER-0027": {},
+  "CER-0028": {},
+  "CER-0029": {},
+  "CER-0030": {},
+  "CER-0031": {},
+  "CER-0032": {},
+  "CER-0033": {},
+  "CER-0034": {},
+  "CER-0035": {},
+  "CER-0036": {},
+  "CER-0037": {},
+  "CER-0038": {},
+  "CER-0039": {},
+  "CMP-0001": {},
+  "CMP-0002": {},
+  "CMP-0003": {},
+  "CMP-0004": {},
+  "CMP-0005": {},
+  "CMP-0006": {},
+  "CMP-0007": {},
+  "CMP-0008": {},
+  "CMP-0009": {},
+  "CMP-0010": {},
+  "CMP-0011": {},
+  "CMP-0012": {},
+  "CMP-0013": {},
+  "CMP-0014": {},
+  "CMP-0015": {},
+  "CMP-0016": {},
+  "CMP-0017": {},
+  "CMP-0018": {},
+  "CMP-0019": {},
+  "CMP-0020": {},
+  "CMP-0021": {},
+  "CMP-0022": {},
+  "CMP-0023": {},
+  "CMP-0024": {},
+  "CMP-0025": {},
+  "CMP-0026": {},
+  "CMP-0027": {},
+  "CMP-0028": {},
+  "CMP-0029": {},
+  "CMP-0030": {},
+  "CMP-0031": {},
+  "CMP-0032": {},
+  "CMP-0033": {},
+  "CMP-0034": {},
+  "MET-0001": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0002": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0003": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0004": {
+   "weld": "ce",
+   "ht": "AHSS DP980 (Dual-Phase, ferrite + martensite)",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0005": {
+   "weld": "ce",
+   "ht": "AHSS DP980 (Dual-Phase, ferrite + martensite)",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0006": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "case",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0007": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0008": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0009": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "case",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0010": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0011": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0012": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0013": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "case",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0014": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0015": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0016": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "as-built",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0017": {
+   "weld": "ce",
+   "htc": "aged",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0018": {
+   "weld": "ce",
+   "htc": "aged",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0019": {
+   "weld": "ce",
+   "htc": "aged",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0020": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0021": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0022": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0023": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0024": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0025": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0026": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0027": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0028": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0029": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0030": {
+   "mach": "nicrmo",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0031": {
+   "mach": "nicrmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0032": {
+   "mach": "nicrmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0033": {
+   "mach": "nicrmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0034": {
+   "weld": "ce",
+   "htc": "aged",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0035": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0038": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0039": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0040": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0043": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0044": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0045": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0046": {
+   "mach": "bearing",
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0047": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0050": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0051": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0052": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0053": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0054": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0055": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0056": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0057": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0058": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0059": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0060": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "case",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0061": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0062": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0063": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0064": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0065": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0066": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "as-built",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0067": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0068": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "case",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0069": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0070": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0071": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "case",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0072": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0073": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0074": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "case",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0075": {
+   "mach": "case-hard",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0086": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0089": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0090": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0096": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0097": {
+   "mach": "al-fm",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0098": {
+   "mach": "al-fm",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0099": {
+   "mach": "al-fm",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0100": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0101": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0102": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0103": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0104": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0105": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0106": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0107": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0108": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0109": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0110": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0112": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0114": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0115": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0116": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0117": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0118": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0119": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+   "insight": "aluminum"
+  },
+  "MET-0120": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0121": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0122": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0123": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0124": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0125": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0126": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0127": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0128": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0129": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0130": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0131": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "aluminum"
+  },
+  "MET-0132": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0133": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0134": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0135": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0136": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0137": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0138": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0139": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0140": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0141": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0142": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0143": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "aluminum"
+  },
+  "MET-0144": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0145": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0146": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0147": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0148": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0149": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0150": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0151": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0152": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0153": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0154": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0155": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0156": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0157": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0158": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0159": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0160": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0161": {
+   "mach": "al-2xxx",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "aluminum"
+  },
+  "MET-0162": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "aluminum"
+  },
+  "MET-0163": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0164": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0165": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0166": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0167": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0168": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0169": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0170": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "aluminum"
+  },
+  "MET-0171": {
+   "mach": "al-soft",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "aluminum"
+  },
+  "MET-0172": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0173": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "aluminum"
+  },
+  "MET-0174": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0175": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "aluminum"
+  },
+  "MET-0176": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "aluminum"
+  },
+  "MET-0177": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0178": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0179": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0180": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0181": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0182": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0183": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0184": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0185": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0186": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0187": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0188": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0189": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0190": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0191": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0192": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0193": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0194": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0195": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0196": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+   "insight": "aluminum"
+  },
+  "MET-0197": {
+   "mach": "al-fm",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0198": {
+   "mach": "al-fm",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "aluminum"
+  },
+  "MET-0199": {
+   "mach": "al-fm",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "aluminum"
+  },
+  "MET-0200": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0201": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0202": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0203": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0204": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0205": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "htc": "qt",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0206": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0207": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0208": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0209": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0210": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0211": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0212": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0213": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0214": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+   "insight": "aluminum"
+  },
+  "MET-0215": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "MET-0216": {
+   "mach": "al-7xxx",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum"
+  },
+  "MET-0217": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0218": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "as-built",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0219": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0220": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0221": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0222": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "as-built",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0223": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0224": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0225": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "insight": "aluminum"
+  },
+  "MET-0226": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0227": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0228": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0229": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0230": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0231": {
+   "mach": "becu",
+   "weld": "none",
+   "htc": "soft"
+  },
+  "MET-0232": {
+   "mach": "fm-steel",
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0233": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0234": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0237": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0238": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0239": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0242": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0243": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0244": {
+   "mach": "carbon-low",
+   "weld": "ce",
+   "htc": "cold",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0245": {
+   "mach": "carbon-low",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0248": {
+   "mach": "carbon-low",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0249": {
+   "mach": "carbon-low",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0250": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0253": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0254": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0255": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0258": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0259": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0260": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0263": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0264": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0265": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "cold",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0266": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0269": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0270": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0271": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0274": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0275": {
+   "mach": "carbon-medhigh",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0276": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0279": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0280": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0281": {
+   "mach": "fm-steel",
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0282": {
+   "mach": "fm-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0283": {
+   "mach": "fm-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0284": {
+   "mach": "fm-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0285": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0286": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0287": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0288": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0289": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0290": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0291": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0292": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0293": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0294": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0295": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0296": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0297": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0298": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0299": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0300": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0301": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0302": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0303": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0304": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0305": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0306": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0307": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0308": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0309": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0310": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0311": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0312": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0313": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0314": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0315": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0316": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0317": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0318": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0319": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0320": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0321": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0322": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0323": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0324": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0325": {
+   "weld": "ce",
+   "htc": "soft",
+   "ht": "AHSS TWIP1180 (TWinning Induced Plasticity, ~22 Mn)",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0326": {
+   "mach": "crmo",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0327": {
+   "weld": "none",
+   "htc": "qt"
+  },
+  "MET-0328": {
+   "weld": "none"
+  },
+  "MET-0329": {
+   "weld": "none"
+  },
+  "MET-0330": {
+   "weld": "none"
+  },
+  "MET-0331": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0332": {
+   "mach": "cobalt",
+   "weld": "none",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0333": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0334": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "as-built",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0335": {
+   "mach": "cobalt",
+   "weld": "none",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0336": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "hip",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0337": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "cold",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0338": {
+   "mach": "cobalt",
+   "weld": "none",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0339": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0340": {
+   "mach": "cobalt",
+   "weld": "none",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0341": {
+   "mach": "cobalt",
+   "weld": "none",
+   "insight": "cobalt"
+  },
+  "MET-0342": {
+   "mach": "cobalt",
+   "weld": "none",
+   "insight": "cobalt"
+  },
+  "MET-0343": {
+   "mach": "cobalt",
+   "weld": "none",
+   "ht": "Stellite 6 (UNS R30006, Co-Cr-W-C wear-resistant)",
+   "insight": "cobalt"
+  },
+  "MET-0344": {
+   "mach": "cobalt",
+   "weld": "none",
+   "insight": "cobalt"
+  },
+  "MET-0345": {
+   "mach": "cobalt",
+   "weld": "none",
+   "insight": "cobalt"
+  },
+  "MET-0346": {
+   "mach": "cobalt",
+   "weld": "none",
+   "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+   "insight": "cobalt"
+  },
+  "MET-0347": {
+   "mach": "cobalt",
+   "weld": "none",
+   "insight": "cobalt"
+  },
+  "MET-0348": {
+   "mach": "cobalt",
+   "weld": "none",
+   "ht": "Stellite 6 (UNS R30006, Co-Cr-W-C wear-resistant)",
+   "insight": "cobalt"
+  },
+  "MET-0349": {
+   "mach": "cobalt",
+   "weld": "none",
+   "ht": "Stellite 6 (UNS R30006, Co-Cr-W-C wear-resistant)",
+   "insight": "cobalt"
+  },
+  "MET-0350": {
+   "mach": "cobalt",
+   "weld": "none",
+   "insight": "cobalt"
+  },
+  "MET-0351": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "cobalt"
+  },
+  "MET-0352": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "cobalt"
+  },
+  "MET-0353": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "cobalt"
+  },
+  "MET-0354": {
+   "mach": "cobalt",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "cobalt"
+  },
+  "MET-0355": {
+   "weld": "none",
+   "htc": "soft"
+  },
+  "MET-0356": {
+   "weld": "none"
+  },
+  "MET-0357": {
+   "weld": "none"
+  },
+  "MET-0358": {
+   "weld": "none",
+   "htc": "as-built"
+  },
+  "MET-0359": {
+   "weld": "none"
+  },
+  "MET-0360": {
+   "mach": "al-6xxx",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0361": {
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0362": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0363": {
+   "mach": "becu",
+   "weld": "none",
+   "htc": "qt",
+   "ht": "BeCu C17200 (CuBe2, UNS C17200)",
+   "insight": "copper"
+  },
+  "MET-0364": {
+   "mach": "becu",
+   "weld": "none",
+   "htc": "qt",
+   "ht": "BeCu C17200 (CuBe2, UNS C17200)",
+   "insight": "copper"
+  },
+  "MET-0365": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0366": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0367": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0368": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0369": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0370": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0371": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0372": {
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0373": {
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0374": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0375": {
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0376": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0377": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0378": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0379": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0380": {
+   "mach": "fm-steel",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0381": {
+   "mach": "becu",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "BeCu C17200 (CuBe2, UNS C17200)",
+   "insight": "copper"
+  },
+  "MET-0382": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0383": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0384": {
+   "mach": "brass",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0385": {
+   "mach": "brass",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0386": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0387": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0388": {
+   "mach": "brass",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0389": {
+   "mach": "brass",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0390": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0391": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0392": {
+   "mach": "brass",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0393": {
+   "mach": "brass",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0394": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0395": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0396": {
+   "mach": "brass",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0397": {
+   "mach": "brass",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0398": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0399": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0400": {
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0401": {
+   "mach": "fm-steel",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0402": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0403": {
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0404": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0405": {
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0406": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0407": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0408": {
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0409": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0410": {
+   "weld": "none",
+   "htc": "cold",
+   "insight": "copper"
+  },
+  "MET-0411": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0412": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0413": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0414": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0415": {
+   "mach": "cu-crzr",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "copper"
+  },
+  "MET-0416": {
+   "mach": "cu-crzr",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "copper"
+  },
+  "MET-0417": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "copper"
+  },
+  "MET-0418": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0419": {
+   "mach": "cu-crzr",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "copper"
+  },
+  "MET-0420": {
+   "mach": "cu-crzr",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "copper"
+  },
+  "MET-0421": {
+   "mach": "cu-crzr",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "copper"
+  },
+  "MET-0422": {
+   "mach": "cu-crzr",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0423": {
+   "weld": "none",
+   "htc": "aged",
+   "insight": "copper"
+  },
+  "MET-0424": {
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "copper"
+  },
+  "MET-0425": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0426": {
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0427": {
+   "mach": "cuni",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0428": {
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "copper"
+  },
+  "MET-0429": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0430": {
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0431": {
+   "mach": "cuni",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0432": {
+   "mach": "cuni",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0433": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0434": {
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "copper"
+  },
+  "MET-0435": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0436": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0437": {
+   "weld": "none",
+   "htc": "aged",
+   "insight": "copper"
+  },
+  "MET-0438": {
+   "weld": "none",
+   "htc": "aged",
+   "insight": "copper"
+  },
+  "MET-0439": {
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0440": {
+   "mach": "brass",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0441": {
+   "mach": "al-5xxx",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0442": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0443": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0444": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0445": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0446": {
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0447": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0448": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0449": {
+   "mach": "brass",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0450": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "copper"
+  },
+  "MET-0451": {
+   "mach": "cu-pure",
+   "weld": "none",
+   "insight": "copper"
+  },
+  "MET-0452": {
+   "weld": "none",
+   "htc": "soft"
+  },
+  "MET-0453": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0454": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0455": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0456": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0457": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0458": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0459": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0460": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0461": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0462": {
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "ASTM A553 9% Ni cryogenic steel",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0463": {
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "ASTM A553 9% Ni cryogenic steel",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0464": {
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "ASTM A553 9% Ni cryogenic steel",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0465": {
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "ASTM A553 9% Ni cryogenic steel",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0466": {
+   "mach": "magnesium",
+   "weld": "none",
+   "insight": "magnesium"
+  },
+  "MET-0467": {
+   "mach": "magnesium",
+   "weld": "none",
+   "ht": "Magnesium AZ31 (Mg-3Al-1Zn, wrought sheet 표준)",
+   "insight": "magnesium"
+  },
+  "MET-0468": {
+   "mach": "magnesium",
+   "weld": "none",
+   "ht": "Magnesium AZ31 (Mg-3Al-1Zn, wrought sheet 표준)",
+   "insight": "magnesium"
+  },
+  "MET-0469": {
+   "mach": "magnesium",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Magnesium AZ31 (Mg-3Al-1Zn, wrought sheet 표준)",
+   "insight": "magnesium"
+  },
+  "MET-0470": {
+   "mach": "magnesium",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "magnesium"
+  },
+  "MET-0471": {
+   "mach": "magnesium",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "magnesium"
+  },
+  "MET-0472": {
+   "mach": "magnesium",
+   "weld": "none",
+   "insight": "magnesium"
+  },
+  "MET-0473": {
+   "mach": "magnesium",
+   "weld": "none",
+   "insight": "magnesium"
+  },
+  "MET-0474": {
+   "mach": "magnesium",
+   "weld": "none",
+   "ht": "Magnesium WE43 (Mg-Y-Nd-Zr, aerospace + biodegradable)",
+   "insight": "magnesium"
+  },
+  "MET-0475": {
+   "mach": "magnesium",
+   "weld": "none",
+   "ht": "Magnesium WE43 (Mg-Y-Nd-Zr, aerospace + biodegradable)",
+   "insight": "magnesium"
+  },
+  "MET-0476": {
+   "mach": "magnesium",
+   "weld": "none",
+   "insight": "magnesium"
+  },
+  "MET-0477": {
+   "mach": "magnesium",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "magnesium"
+  },
+  "MET-0478": {
+   "mach": "magnesium",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "magnesium"
+  },
+  "MET-0479": {
+   "mach": "magnesium",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "magnesium"
+  },
+  "MET-0480": {
+   "mach": "maraging",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Maraging 250 / VascoMax C-250 (18Ni-7Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0481": {
+   "mach": "maraging",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Maraging 250 / VascoMax C-250 (18Ni-7Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0482": {
+   "mach": "maraging",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0483": {
+   "mach": "maraging",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0484": {
+   "mach": "maraging",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0485": {
+   "mach": "maraging",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0486": {
+   "mach": "maraging",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0487": {
+   "mach": "maraging",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Maraging 350 / ATI C-350 (18Ni-12Co)",
+   "insight": "tool-steel"
+  },
+  "MET-0488": {
+   "mach": "maraging",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Maraging 350 / ATI C-350 (18Ni-12Co)",
+   "insight": "tool-steel"
+  },
+  "MET-0489": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0490": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0491": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "structural-steel"
+  },
+  "MET-0492": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0493": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0494": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0495": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0496": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0497": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0498": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "ni-superalloy"
+  },
+  "MET-0499": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0500": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0501": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0502": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0503": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "ni-superalloy"
+  },
+  "MET-0504": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0505": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0506": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0507": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0510": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "ni-superalloy"
+  },
+  "MET-0511": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0512": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0513": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0514": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0515": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "as-built",
+   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0516": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0517": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0518": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0519": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0520": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0521": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0522": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0523": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Haynes 230 (UNS N06230, Ni-Cr-W-Mo)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0524": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "as-built",
+   "ht": "Haynes 230 (UNS N06230, Ni-Cr-W-Mo)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0525": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Haynes 230 (UNS N06230, Ni-Cr-W-Mo)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0526": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Haynes 230 (UNS N06230, Ni-Cr-W-Mo)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0527": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0528": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "as-built",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0529": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0530": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0531": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0532": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0533": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0534": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0535": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0536": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0537": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0538": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0539": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0540": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0541": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0542": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0543": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0545": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "ni-superalloy"
+  },
+  "MET-0546": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "ni-superalloy"
+  },
+  "MET-0547": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 600 (UNS N06600, Ni-Cr-Fe solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0550": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "qt",
+   "ht": "Inconel 600 (UNS N06600, Ni-Cr-Fe solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0551": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0552": {
+   "mach": "ni-super-solidsol",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 617 (UNS N06617, Ni-Cr-Co-Mo)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0553": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0554": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0555": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "as-built",
+   "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0556": {
+   "mach": "ni-super",
+   "weld": "none",
+   "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0557": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0558": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0559": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0560": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0561": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0562": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0563": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0564": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0565": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 718 (UNS N07718)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0566": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "as-built",
+   "ht": "Inconel 718 (UNS N07718)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0567": {
+   "mach": "ni-super",
+   "weld": "none",
+   "ht": "Inconel 718 (UNS N07718)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0568": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 718 (UNS N07718)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0569": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Inconel 718 (UNS N07718)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0570": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Inconel 718 (UNS N07718)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0571": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Inconel 718 (UNS N07718)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0572": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Inconel 718 (UNS N07718)",
+   "insight": "ni-superalloy"
+  },
+  "MET-0573": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0574": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "ni-superalloy"
+  },
+  "MET-0575": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "hip",
+   "insight": "ni-superalloy"
+  },
+  "MET-0576": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0577": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0578": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0579": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0580": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0581": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0582": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "hip",
+   "insight": "ni-superalloy"
+  },
+  "MET-0583": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "ni-superalloy"
+  },
+  "MET-0584": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0585": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0586": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0588": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0590": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "ni-superalloy"
+  },
+  "MET-0591": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0592": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0593": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0594": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0595": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0598": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "ni-superalloy"
+  },
+  "MET-0599": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0600": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "ni-superalloy"
+  },
+  "MET-0601": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0602": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0603": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0604": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0605": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0606": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0607": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0608": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0609": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0610": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0611": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0612": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0613": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0614": {
+   "mach": "ni-super",
+   "weld": "none",
+   "insight": "ni-superalloy"
+  },
+  "MET-0615": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0616": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "ni-superalloy"
+  },
+  "MET-0617": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "ni-superalloy"
+  },
+  "MET-0618": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0619": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "structural-steel"
+  },
+  "MET-0620": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0621": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0622": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0623": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0624": {
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "22MnB5 / USIBOR 1500 PHS (ArcelorMittal)",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0625": {
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "22MnB5 / USIBOR 1500 PHS (ArcelorMittal)",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0626": {
+   "weld": "ce",
+   "ht": "22MnB5 / USIBOR 1500 PHS (ArcelorMittal)",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0627": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0628": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0629": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0630": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0631": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "structural-steel"
+  },
+  "MET-0632": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "structural-steel"
+  },
+  "MET-0633": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0634": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0635": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0636": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0637": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0638": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0639": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0640": {
+   "mach": "refractory",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "refractory"
+  },
+  "MET-0641": {
+   "mach": "refractory",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0642": {
+   "mach": "refractory",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0643": {
+   "mach": "refractory",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0644": {
+   "mach": "refractory",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0645": {
+   "mach": "moly",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0646": {
+   "mach": "moly",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0647": {
+   "mach": "moly",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0648": {
+   "mach": "moly",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0649": {
+   "mach": "moly",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0650": {
+   "mach": "moly",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "refractory"
+  },
+  "MET-0651": {
+   "mach": "moly",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0652": {
+   "mach": "refractory",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0653": {
+   "mach": "ta-nb",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0654": {
+   "mach": "ta-nb",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0655": {
+   "mach": "ta-nb",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0656": {
+   "mach": "refractory",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0657": {
+   "mach": "refractory",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0658": {
+   "mach": "tungsten",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0659": {
+   "mach": "tungsten",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "refractory"
+  },
+  "MET-0661": {
+   "mach": "ta-nb",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0662": {
+   "mach": "ta-nb",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0663": {
+   "mach": "tungsten",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0664": {
+   "mach": "tungsten",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "refractory"
+  },
+  "MET-0665": {
+   "mach": "tungsten",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0666": {
+   "mach": "tungsten",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0667": {
+   "mach": "moly",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0668": {
+   "mach": "refractory",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0669": {
+   "mach": "tungsten",
+   "weld": "none",
+   "htc": "cold",
+   "insight": "refractory"
+  },
+  "MET-0670": {
+   "mach": "tungsten",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0671": {
+   "mach": "refractory",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0672": {
+   "mach": "refractory",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "refractory"
+  },
+  "MET-0673": {
+   "mach": "refractory",
+   "weld": "none",
+   "insight": "refractory"
+  },
+  "MET-0674": {
+   "weld": "none"
+  },
+  "MET-0675": {
+   "weld": "ce",
+   "htc": "soft",
+   "ht": "Shipbuilding steel AH36 / DH36 / EH36 (IACS grade)",
+   "insight": "structural-steel"
+  },
+  "MET-0676": {
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "Shipbuilding steel AH36 / DH36 / EH36 (IACS grade)",
+   "insight": "structural-steel"
+  },
+  "MET-0677": {
+   "weld": "ce",
+   "ht": "Shipbuilding steel AH36 / DH36 / EH36 (IACS grade)",
+   "insight": "structural-steel"
+  },
+  "MET-0678": {
+   "weld": "ce",
+   "htc": "soft",
+   "ht": "Shipbuilding steel AH36 / DH36 / EH36 (IACS grade)",
+   "insight": "structural-steel"
+  },
+  "MET-0679": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0680": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0681": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0682": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0683": {
+   "weld": "ce",
+   "htc": "cold",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0684": {
+   "weld": "ce",
+   "htc": "cold",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0685": {
+   "weld": "ce",
+   "htc": "cold",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0686": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0687": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0688": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0689": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0690": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0691": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0692": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0693": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0694": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0695": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "as-built",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0696": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0697": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0698": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0699": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0700": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0701": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0702": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0703": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0704": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0705": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "as-built",
+   "insight": "stainless"
+  },
+  "MET-0706": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0707": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0708": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0709": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0710": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "cold",
+   "insight": "stainless"
+  },
+  "MET-0711": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0712": {
+   "mach": "ss-303",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0713": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0716": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0717": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0720": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0721": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0722": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0723": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0724": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0725": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0726": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0727": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0730": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0731": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0734": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0735": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0736": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "as-built",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0737": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0738": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0739": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "cold",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0740": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0741": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0742": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0743": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0744": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0747": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0748": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0751": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0752": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0753": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless"
+  },
+  "MET-0754": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless"
+  },
+  "MET-0755": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0756": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0757": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0758": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless"
+  },
+  "MET-0759": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless"
+  },
+  "MET-0760": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0761": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0762": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless"
+  },
+  "MET-0763": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0764": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "as-built",
+   "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
+   "insight": "stainless"
+  },
+  "MET-0765": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
+   "insight": "stainless"
+  },
+  "MET-0766": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
+   "insight": "stainless"
+  },
+  "MET-0767": {
+   "mach": "ss-duplex",
+   "weld": "schaeffler",
+   "ht": "Duplex SS 2205 (UNS S32205 / S31803, 22Cr-5Ni-3Mo)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0768": {
+   "mach": "ss-duplex",
+   "weld": "schaeffler",
+   "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0769": {
+   "mach": "ss-duplex",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0770": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0771": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0772": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0773": {
+   "mach": "ss-416",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0774": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0775": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0776": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0779": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0780": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0783": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0784": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0785": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0788": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0789": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0792": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0793": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0794": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0795": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0796": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0797": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0798": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless"
+  },
+  "MET-0799": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0802": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0803": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0804": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0805": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0806": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0807": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0808": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0809": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0810": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0811": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0812": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0813": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0814": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0815": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0816": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless"
+  },
+  "MET-0817": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0818": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0819": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "insight": "stainless"
+  },
+  "MET-0820": {
+   "mach": "ss-ferritic",
+   "weld": "schaeffler",
+   "htc": "qt",
+   "insight": "stainless"
+  },
+  "MET-0821": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "15-5 PH stainless (UNS S15500, XM-12)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0822": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "as-built",
+   "ht": "15-5 PH stainless (UNS S15500, XM-12)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0823": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "17-4 PH stainless (UNS S17400)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0824": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "17-4 PH stainless (UNS S17400)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0825": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "17-4 PH stainless (UNS S17400)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0826": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "17-4 PH stainless (UNS S17400)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0827": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless-highperf"
+  },
+  "MET-0828": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless-highperf"
+  },
+  "MET-0829": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless-highperf"
+  },
+  "MET-0830": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "insight": "stainless-highperf"
+  },
+  "MET-0831": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless-highperf"
+  },
+  "MET-0832": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "insight": "stainless-highperf"
+  },
+  "MET-0833": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "Custom 465 PH stainless (UNS S46500, Carpenter)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0834": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "Custom 465 PH stainless (UNS S46500, Carpenter)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0835": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "Custom 465 PH stainless (UNS S46500, Carpenter)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0836": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "Custom 465 PH stainless (UNS S46500, Carpenter)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0837": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "Custom 465 PH stainless (UNS S46500, Carpenter)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0838": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "as-built",
+   "insight": "stainless-highperf"
+  },
+  "MET-0839": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "as-built",
+   "ht": "17-4 PH stainless (UNS S17400)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0840": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "17-4 PH stainless (UNS S17400)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0841": {
+   "mach": "ss-ph",
+   "weld": "schaeffler",
+   "htc": "aged",
+   "ht": "17-4 PH stainless (UNS S17400)",
+   "insight": "stainless-highperf"
+  },
+  "MET-0842": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0843": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0844": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0845": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0846": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0847": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0848": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0849": {
+   "mach": "carbon-low",
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0850": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0851": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0852": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0853": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "structural-steel"
+  },
+  "MET-0854": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "structural-steel"
+  },
+  "MET-0855": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0856": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0857": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "structural-steel"
+  },
+  "MET-0858": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0859": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0860": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0861": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0862": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "titanium"
+  },
+  "MET-0863": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0864": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "hip",
+   "insight": "titanium"
+  },
+  "MET-0865": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0866": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0867": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0868": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0871": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "titanium"
+  },
+  "MET-0872": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0873": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0874": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0877": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "titanium"
+  },
+  "MET-0878": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0879": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0882": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "qt",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0883": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0886": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "titanium"
+  },
+  "MET-0887": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0890": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "titanium"
+  },
+  "MET-0891": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "titanium"
+  },
+  "MET-0892": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0895": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "titanium"
+  },
+  "MET-0896": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0897": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0898": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "titanium"
+  },
+  "MET-0899": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0900": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "titanium"
+  },
+  "MET-0901": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "titanium"
+  },
+  "MET-0902": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "titanium"
+  },
+  "MET-0903": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0904": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "titanium"
+  },
+  "MET-0905": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0908": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "titanium"
+  },
+  "MET-0909": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0910": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "titanium"
+  },
+  "MET-0911": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0914": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "titanium"
+  },
+  "MET-0915": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0916": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0917": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0918": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "titanium"
+  },
+  "MET-0919": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "titanium"
+  },
+  "MET-0920": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0921": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "as-built",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0922": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0923": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "hip",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0924": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0925": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0926": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0927": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0928": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0929": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0930": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0931": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-0932": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "insight": "titanium"
+  },
+  "MET-0933": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "titanium"
+  },
+  "MET-0934": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0937": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "qt",
+   "insight": "titanium"
+  },
+  "MET-0938": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "as-built",
+   "insight": "titanium"
+  },
+  "MET-0939": {
+   "mach": "ti-cp",
+   "weld": "none",
+   "htc": "soft",
+   "insight": "titanium"
+  },
+  "MET-0940": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0941": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "insight": "tool-steel"
+  },
+  "MET-0942": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0943": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0944": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "tool-steel"
+  },
+  "MET-0945": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0946": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "tool-steel"
+  },
+  "MET-0947": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "as-built",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0948": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0949": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0950": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0951": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0952": {
+   "mach": "maraging",
+   "weld": "ce",
+   "htc": "aged",
+   "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0953": {
+   "mach": "maraging",
+   "weld": "ce",
+   "htc": "as-built",
+   "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0954": {
+   "mach": "maraging",
+   "weld": "ce",
+   "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0955": {
+   "mach": "maraging",
+   "weld": "ce",
+   "htc": "soft",
+   "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+   "insight": "tool-steel"
+  },
+  "MET-0956": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "tool-steel"
+  },
+  "MET-0957": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0958": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0959": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0960": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "tool-steel"
+  },
+  "MET-0961": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0962": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "tool-steel"
+  },
+  "MET-0963": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0964": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0965": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0966": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0967": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0968": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0969": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "tool-steel"
+  },
+  "MET-0970": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0971": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0972": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "tool-steel"
+  },
+  "MET-0973": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0974": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0975": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0976": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0977": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+   "insight": "tool-steel"
+  },
+  "MET-0978": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0979": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "aged",
+   "insight": "tool-steel"
+  },
+  "MET-0980": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0981": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel"
+  },
+  "MET-0982": {
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "tool-steel"
+  },
+  "MET-0983": {
+   "weld": "ce",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0984": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0985": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0986": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0987": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0988": {
+   "weld": "ce",
+   "insight": "structural-steel"
+  },
+  "MET-0989": {
+   "weld": "none"
+  },
+  "MET-0990": {
+   "weld": "none"
+  },
+  "MET-0991": {
+   "weld": "none",
+   "htc": "soft"
+  },
+  "MET-0992": {
+   "weld": "none",
+   "htc": "soft"
+  },
+  "MET-0993": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0994": {
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-0995": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0996": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0997": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-0998": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "insight": "stainless"
+  },
+  "MET-0999": {
+   "mach": "ti-alloy",
+   "weld": "none",
+   "htc": "soft",
+   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+   "insight": "titanium"
+  },
+  "MET-1000": {
+   "mach": "al-cast-am",
+   "weld": "none",
+   "insight": "aluminum"
+  },
+  "POL-0001": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0002": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0003": {
+   "mach": "pol-amorphous",
+   "insight": "pol-engineering"
+  },
+  "POL-0004": {
+   "mach": "pol-amorphous",
+   "insight": "pol-engineering"
+  },
+  "POL-0005": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0006": {
+   "mach": "pol-elastomer",
+   "insight": "pol-elastomer"
+  },
+  "POL-0007": {
+   "mach": "pol-elastomer",
+   "insight": "pol-elastomer"
+  },
+  "POL-0008": {
+   "mach": "pol-thermoset",
+   "htc": "qt",
+   "insight": "pol-commodity"
+  },
+  "POL-0009": {
+   "mach": "pol-rigid",
+   "insight": "pol-fluoro"
+  },
+  "POL-0010": {
+   "mach": "pol-elastomer",
+   "insight": "pol-commodity"
+  },
+  "POL-0011": {
+   "mach": "pol-foam"
+  },
+  "POL-0012": {
+   "mach": "pol-foam"
+  },
+  "POL-0013": {
+   "mach": "pol-foam"
+  },
+  "POL-0014": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0015": {
+   "mach": "pol-rigid",
+   "htc": "soft",
+   "insight": "pol-highperf"
+  },
+  "POL-0016": {
+   "mach": "pol-filled",
+   "insight": "pol-highperf"
+  },
+  "POL-0017": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0018": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0019": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0020": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0021": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0022": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0023": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0024": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0025": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0026": {
+   "mach": "pol-filled",
+   "insight": "pol-highperf"
+  },
+  "POL-0027": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0028": {
+   "mach": "pol-filled",
+   "insight": "pol-highperf"
+  },
+  "POL-0029": {
+   "mach": "pol-filled",
+   "insight": "pol-highperf"
+  },
+  "POL-0030": {
+   "mach": "pol-filled",
+   "insight": "pol-highperf"
+  },
+  "POL-0031": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0032": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0033": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0034": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0035": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0036": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0037": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0038": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0039": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0040": {
+   "mach": "pol-filled",
+   "insight": "pol-highperf"
+  },
+  "POL-0041": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0042": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0043": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0044": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0045": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0046": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0047": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0048": {
+   "mach": "pol-filled",
+   "insight": "pol-commodity"
+  },
+  "POL-0049": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0050": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0051": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0052": {
+   "mach": "pol-brittle",
+   "insight": "pol-engineering"
+  },
+  "POL-0053": {
+   "mach": "pol-brittle",
+   "insight": "pol-engineering"
+  },
+  "POL-0054": {
+   "mach": "pol-brittle",
+   "insight": "pol-engineering"
+  },
+  "POL-0055": {
+   "mach": "pol-brittle",
+   "insight": "pol-engineering"
+  },
+  "POL-0056": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0057": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0058": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0059": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0060": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0061": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0062": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0063": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0064": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0065": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0066": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0067": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0068": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0069": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0070": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0071": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0072": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0073": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0074": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0075": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0076": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0077": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0078": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0079": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0080": {
+   "mach": "pol-amorphous",
+   "insight": "pol-engineering"
+  },
+  "POL-0081": {
+   "mach": "pol-amorphous",
+   "insight": "pol-engineering"
+  },
+  "POL-0082": {
+   "mach": "pol-amorphous",
+   "insight": "pol-engineering"
+  },
+  "POL-0083": {
+   "mach": "pol-amorphous",
+   "insight": "pol-engineering"
+  },
+  "POL-0084": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0085": {
+   "mach": "pol-amorphous",
+   "insight": "pol-engineering"
+  },
+  "POL-0086": {
+   "mach": "pol-amorphous",
+   "insight": "pol-engineering"
+  },
+  "POL-0087": {
+   "mach": "pol-thermoset",
+   "htc": "qt",
+   "insight": "pol-commodity"
+  },
+  "POL-0088": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0089": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0090": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0091": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0092": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0093": {
+   "mach": "pol-brittle",
+   "insight": "pol-commodity"
+  },
+  "POL-0094": {
+   "mach": "pol-brittle",
+   "insight": "pol-commodity"
+  },
+  "POL-0095": {
+   "mach": "pol-brittle",
+   "insight": "pol-commodity"
+  },
+  "POL-0096": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0097": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0098": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0099": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0100": {
+   "mach": "pol-rigid",
+   "htc": "soft",
+   "insight": "pol-engineering"
+  },
+  "POL-0101": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0102": {
+   "mach": "pol-rigid",
+   "htc": "soft",
+   "insight": "pol-engineering"
+  },
+  "POL-0103": {
+   "mach": "pol-rigid",
+   "insight": "pol-engineering"
+  },
+  "POL-0104": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0105": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0106": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0107": {
+   "mach": "pol-filled",
+   "insight": "pol-commodity"
+  },
+  "POL-0108": {
+   "mach": "pol-filled",
+   "insight": "pol-engineering"
+  },
+  "POL-0109": {
+   "mach": "pol-rigid",
+   "insight": "pol-highperf"
+  },
+  "POL-0110": {
+   "mach": "pol-filled",
+   "insight": "pol-highperf"
+  },
+  "POL-0111": {
+   "mach": "pol-filled",
+   "insight": "pol-highperf"
+  },
+  "POL-0112": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0113": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0114": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0115": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0116": {
+   "mach": "pol-amorphous",
+   "htc": "soft",
+   "insight": "pol-highperf"
+  },
+  "POL-0117": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0118": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0119": {
+   "mach": "pol-amorphous",
+   "insight": "pol-highperf"
+  },
+  "POL-0120": {
+   "mach": "pol-soft",
+   "insight": "pol-fluoro"
+  },
+  "POL-0121": {
+   "mach": "pol-soft",
+   "insight": "pol-fluoro"
+  },
+  "POL-0122": {
+   "mach": "pol-soft",
+   "insight": "pol-fluoro"
+  },
+  "POL-0123": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  },
+  "POL-0124": {
+   "mach": "pol-rigid",
+   "insight": "pol-commodity"
+  },
+  "POL-0125": {
+   "mach": "pol-rigid",
+   "insight": "pol-commodity"
+  },
+  "POL-0126": {
+   "mach": "pol-rigid",
+   "insight": "pol-fluoro"
+  },
+  "POL-0127": {
+   "mach": "pol-rigid",
+   "insight": "pol-fluoro"
+  },
+  "POL-0128": {
+   "mach": "pol-elastomer",
+   "insight": "pol-elastomer"
+  },
+  "POL-0129": {
+   "mach": "pol-elastomer",
+   "insight": "pol-elastomer"
+  },
+  "POL-0130": {
+   "mach": "pol-elastomer",
+   "insight": "pol-elastomer"
+  },
+  "POL-0131": {
+   "mach": "pol-elastomer",
+   "insight": "pol-elastomer"
+  },
+  "POL-0132": {
+   "mach": "pol-elastomer",
+   "insight": "pol-elastomer"
+  },
+  "POL-0133": {
+   "mach": "pol-soft",
+   "insight": "pol-commodity"
+  }
+ }
+}

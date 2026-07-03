@@ -8,7 +8,8 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { computeMachinability, computePolymerMachinability, machiningCostBand } from '../client/src/lib/welding-machinability';
+import { machiningCostBand } from '../client/src/lib/welding-machinability';
+import { resolveMachinability as computeMachinability, resolvePolymerMachinability as computePolymerMachinability } from '../client/src/lib/process-guidance';
 import type { Material } from '../client/src/lib/materials';
 
 const all: Material[] = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'client', 'public', 'materials.json'), 'utf8'));

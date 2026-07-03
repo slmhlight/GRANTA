@@ -117,6 +117,16 @@ export interface Material {
   points?: number[][];
   /** R226f/축4c — UNS 정규 코드 (별칭·이름·specs 에서 빌드가 도출; 외부 시스템 연동 키). */
   uns?: string[];
+  /** R226j/C6 — 공정 프로파일 할당 (stable_id 기반, 빌드 스탬프 — 런타임 name-regex 추론 제거).
+   *  mach: 절삭성 프로파일 키 (data/process-profiles.json) · weld: 용접성 모델(ce|schaeffler|none)
+   *  ht: HT family (ht-alloy-specific.ts familyName) · htc: 조건 클래스 · insight: 선택 인사이트 그룹 */
+  profiles?: {
+    mach?: string;
+    weld?: 'ce' | 'schaeffler' | 'none';
+    ht?: string;
+    htc?: string;
+    insight?: string;
+  };
   /** R75 — 개발 역사·스토리·실제 사용례 (markdown 가능, 다단락). data/material-stories.json 에서 base name 으로 주입. */
   story?: string | null;
   /** R75 — story 의 출처 (저자/특허/표준/handbook). 각 entry 는 markdown link 가능. */
