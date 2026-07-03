@@ -156,17 +156,20 @@
     {
       "label": "Material datasheets — general-purpose polystyrene",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "INEOS Styrolution GPPS resin",
       "url": "https://www.styrolution.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "AZoM — Polystyrene (general-purpose PS) 데이터시트",
       "url": "https://www.azom.com/article.aspx?ArticleID=798",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -238,5 +241,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-brittle",
+    "insight": "pol-commodity"
+  }
 }

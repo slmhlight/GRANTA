@@ -193,22 +193,26 @@
     {
       "label": "EOS MDS summary — stainlesssteel cx",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-cx",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS",
       "url": "https://www.eos.info/metal-solutions/data-sheets/stainlesssteel/pds-eos-stainlesssteel-cx-eos-m-290-30um",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS",
       "url": "https://www.eos.info/metal-solutions/data-sheets/stainlesssteel/pds-eos-stainlesssteel-cx-eos-m-290-40-80um",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS CX (martensitic PH stainless for AM) datasheet",
       "url": "https://www.eos.info/en-us/3d-printing-materials/metals/stainless-tool-corrosion-resistant-steel",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -284,65 +288,10 @@
   ],
   "confidence_tier": "high",
   "industry_note": "EOS CX — proprietary PH tool stainless steel for LPBF AM (Cr 12, Ni 9, C 0.04, Ti 1, Al — Custom 465-class chemistry). Tmax 315°C. 산업 mold inserts (conformal cooling channel), aerospace tool insert, 의료 surgical instrument. AM LPBF 특화 — wrought 형태 미존재.",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          7.7,
-          1600,
-          1700,
-          6,
-          200,
-          null,
-          14
-        ],
-        [
-          7.7,
-          1600,
-          1685,
-          5,
-          200,
-          null,
-          14
-        ],
-        [
-          7.7,
-          1590,
-          1700,
-          6.5,
-          200,
-          null,
-          14
-        ],
-        [
-          7.7,
-          1600,
-          1680,
-          5.5,
-          200,
-          null,
-          14
-        ],
-        [
-          7.7,
-          1610,
-          1700,
-          5.5,
-          200,
-          null,
-          14
-        ],
-        [
-          7.7,
-          1600,
-          1690,
-          4.5,
-          200,
-          null,
-          14
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "htc": "as-built",
+    "insight": "stainless-highperf"
   }
 }

@@ -192,19 +192,22 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "Hyundai Steel datasheet",
       "url": "https://www.hyundai-steel.com/en/products/HRC.do",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASTM A572/A588 HSLA",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -271,5 +274,9 @@
   "total_cost_estimate": 1.17,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "insight": "carbon-alloy-steel"
+  }
 }

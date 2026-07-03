@@ -190,22 +190,26 @@
     {
       "label": "ASM — 316Ti stabilised austenitic stainless (UNS S31635)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "316Ti / 1.4571 / S31635 Mechanical Properties — Abrams Industries",
       "url": "https://us.abrams-industries.com/steel/stainless-steel/316ti",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -297,5 +301,13 @@
   "svhc_concerns": [
     "Ni 14% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S31635"
+  ]
 }

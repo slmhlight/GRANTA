@@ -189,24 +189,28 @@
   },
   "sources": [
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SUP9",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Ferritic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "JIS G4801 — Spring Steels (SUP9/10/12)",
       "url": "https://www.jisc.go.jp/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "OTAI Special Steel — SUP9A Spring Steel (JIS G4801) 조성+Q&T 기계적 물성",
       "url": "https://www.otaisteel.com/products/spring-steel-sup9a/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -279,5 +283,10 @@
     "KS D 3701 \"Spring Steels\"",
     "Yamada Y (ed., 2007) Materials for Springs, Springer"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "carbon-alloy-steel"
+  }
 }

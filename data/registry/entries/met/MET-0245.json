@@ -32,18 +32,18 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 290,
-      "max": 420,
-      "typical": 350,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 295,
+      "typical": 295,
+      "max": 295,
+      "confidence": "handbook",
+      "provenance": "교정: Ansys Granta MI — Carbon steel AISI 1020 annealed (사용자 제공 R226l) · ASM Vol.1 1020 annealed (σy 295/UTS 395)"
     },
     "uts": {
-      "min": 440,
-      "max": 580,
-      "typical": 510,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 395,
+      "typical": 395,
+      "max": 395,
+      "confidence": "handbook",
+      "provenance": "교정: Ansys Granta MI — Carbon steel AISI 1020 annealed (사용자 제공 R226l) · ASM Vol.1 1020 annealed (σy 295/UTS 395)"
     },
     "elongation": {
       "min": 33.48,
@@ -190,29 +190,33 @@
     {
       "label": "ASTM A108 — Cold-Finished Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0108-18.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 1020",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — AISI 1020 cold rolled steel",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=10b74ebc27344380ab16b1b69f1cffbb",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM A29 / A29M — Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
     [
       7.85,
-      350,
-      510,
+      295,
+      395,
       33.48,
       205,
       83.6,
@@ -241,8 +245,8 @@
   "fracture_toughness": 66,
   "fatigue_strength": 200,
   "density": 7.85,
-  "yield_strength": 350,
-  "uts": 510,
+  "yield_strength": 295,
+  "uts": 395,
   "elongation": 33.48,
   "modulus": 205,
   "hardness": 83.6,
@@ -287,57 +291,110 @@
   ],
   "confidence_tier": "medium",
   "industry_note": "UNS G10200 / DIN C22 / JIS S22C — plain low-carbon steel (C 0.18~0.23%). Cold drawn: σy ≈ 350 / UTS 420 / HB 121. Hot rolled: σy 205 / UTS 380 / El 25%. Plain carbon → PH/Aging 불가. Q+T 효과 미미 (low carbon). 가장 흔한 ASTM A29 carbon steel — 기계 부품, 볼트.",
+  "profiles": {
+    "mach": "carbon-low",
+    "weld": "ce",
+    "htc": "soft",
+    "wg": "w01-aisi",
+    "insight": "carbon-alloy-steel"
+  },
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "E": 212.6,
+      "ys": 271
+    },
+    {
+      "temp": 100,
+      "E": 209.6,
+      "ys": 255
+    },
+    {
+      "temp": 200,
+      "E": 204.4,
+      "ys": 227
+    },
+    {
+      "temp": 300,
+      "E": 196.9,
+      "ys": 203
+    },
+    {
+      "temp": 450,
+      "E": 181.4,
+      "ys": 175
+    },
+    {
+      "temp": 550,
+      "E": 168.5,
+      "ys": 141
+    },
+    {
+      "temp": 650,
+      "E": 153.5,
+      "ys": 78
+    },
+    {
+      "temp": 750,
+      "E": 136.3
+    },
+    {
+      "temp": 850,
+      "E": 125.6
+    },
+    {
+      "temp": 1000,
+      "E": 116.3
+    },
+    {
+      "temp": 1150,
+      "E": 106.1
+    },
+    {
+      "temp": 1200,
+      "E": 102.8
+    }
+  ],
+  "elevated_temp_src": "Ansys Granta MI — Carbon steel, AISI 1020, annealed (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)",
   "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "MatWeb — AISI 1020 carbon steel",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1020",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 1020\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%201020",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 1020",
-          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-          "verified": true
-        },
-        {
-          "label": "MatWeb — AISI 1020 cold rolled steel",
-          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=10b74ebc27344380ab16b1b69f1cffbb",
-          "verified": false
-        },
-        {
-          "label": "ASTM A29 / A29M — Carbon and Alloy Steel Bars",
-          "url": "https://store.astm.org/a0029_a0029m-20.html",
-          "verified": false
-        }
-      ]
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 295,
+        "typical": 295,
+        "max": 295,
+        "confidence": "handbook",
+        "provenance": "교정: Ansys Granta MI — Carbon steel AISI 1020 annealed (사용자 제공 R226l) · ASM Vol.1 1020 annealed (σy 295/UTS 395)"
+      },
+      "had_scalar": true,
+      "val_scalar": 295
     },
-    "aliases": {
-      "from": []
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 395,
+        "typical": 395,
+        "max": 395,
+        "confidence": "handbook",
+        "provenance": "교정: Ansys Granta MI — Carbon steel AISI 1020 annealed (사용자 제공 R226l) · ASM Vol.1 1020 annealed (σy 295/UTS 395)"
+      },
+      "had_scalar": true,
+      "val_scalar": 395
     },
+    "_basis": "AISI 1020 annealed — DB 350/510 은 annealed 대역(265~325/355~435) 초과 — cold-drawn 값 혼입 오염. ASM annealed typical 로 교정",
+    "_src": "Ansys Granta MI — Carbon steel AISI 1020 annealed (사용자 제공 R226l) · ASM Vol.1 1020 annealed (σy 295/UTS 395)",
     "points": {
       "from": [
         [
           7.85,
-          180.4,
-          290.4,
+          295,
+          395,
           33.48,
-          210,
+          205,
           83.6,
           51
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }

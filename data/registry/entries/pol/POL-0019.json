@@ -157,17 +157,20 @@
     {
       "label": "Celanese — Celazole PBI",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Celanese Celazole PBI U-60 technical guide",
       "url": "https://www.celanese.com/products/Celazole-PBI",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "PBI Performance Products reference",
       "url": "https://pbipolymer.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -236,5 +239,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-highperf"
+  }
 }

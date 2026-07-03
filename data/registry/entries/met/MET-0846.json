@@ -195,14 +195,16 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "API standard",
       "url": "https://www.api.org/products-and-services/standards",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASTM A36 / EN structural",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -272,5 +274,9 @@
   "total_cost_estimate": 3.47,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "insight": "structural-steel"
+  }
 }

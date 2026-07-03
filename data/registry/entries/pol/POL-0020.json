@@ -157,22 +157,26 @@
     {
       "label": "Material datasheets — PBT (Valox/Crastin)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SABIC Valox PBT technical datasheet",
       "url": "https://www.sabic.com/en/products/specialties/valox-resins",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "DuPont Crastin PBT",
       "url": "https://www.dupont.com/products/crastin-pbt.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — Polybutylene Terephthalate general",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PBT",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -260,5 +264,9 @@
     "Mark H F (ed., 2014) Encyclopedia of Polymer Science and Technology Vol.7",
     "Brydson J A (1999) Plastics Materials 7th ed., Butterworth-Heinemann"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-engineering"
+  }
 }

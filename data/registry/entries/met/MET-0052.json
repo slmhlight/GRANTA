@@ -190,27 +190,32 @@
     {
       "label": "ASM — AISI 8740 (Q&T)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 8740 Ni-Cr-Mo",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "AMS 6322 — AISI 8740 bar (heat-treated)",
       "url": "https://www.sae.org/standards/content/ams6322/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -293,5 +298,12 @@
   "total_cost_estimate": 4.2,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "insight": "carbon-alloy-steel"
+  },
+  "uns": [
+    "G87400"
+  ]
 }

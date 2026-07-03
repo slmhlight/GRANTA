@@ -188,22 +188,26 @@
     {
       "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
       "url": "https://www.aluminum.org/standards",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "MatWeb 2",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5182",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: AA 5xxx Al-Mg",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -262,5 +266,11 @@
   "total_cost_estimate": 3.27,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "al-5xxx",
+    "weld": "none",
+    "htc": "cold",
+    "insight": "aluminum"
+  }
 }

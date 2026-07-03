@@ -159,12 +159,14 @@
     {
       "label": "AOC Vipel polyester resins",
       "url": "https://aocresins.com/products",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Reichhold POLYLITE Polyester",
       "url": "https://www.reichhold.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -376,30 +378,9 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "UPR (Unsaturated Polyester Resin, 일반적으로 styrene monomer 35% with maleic/fumaric/isophthalic backbone). MEKP catalyst cure. σy 55-75 / UTS 60-85 / El 1-2% (brittle) / E 3.0-3.5 GPa. Tg 80-110°C. Glass / polyester composite (가장 흔한 GRP/FRP — boat hull, RV roof, septic tank, 스키), Buick LeSabre dashboard, 욕조 / 샤워 bath stall, 광케이블 conduit. Epoxy 보다 저가 (~$2/kg), shrinkage 더 큼 (~7%), water absorption 더 많음 (~0.5%).",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "AOC Vipel polyester resins",
-          "url": "https://aocresins.com/products",
-          "verified": true
-        },
-        {
-          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Polyester Resin\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Polyester%20Resin",
-          "verified": false
-        },
-        {
-          "label": "Reichhold POLYLITE Polyester",
-          "url": "https://www.reichhold.com/",
-          "verified": false
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "pol-thermoset",
+    "htc": "qt",
+    "insight": "pol-commodity"
   }
 }

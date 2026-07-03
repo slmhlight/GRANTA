@@ -158,17 +158,20 @@
     {
       "label": "Material datasheets — TPU 95A (FDM)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Lubrizol Estane TPU datasheet",
       "url": "https://www.lubrizol.com/engineered-polymers",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "BASF Elastollan TPU technical guide",
       "url": "https://plastics-rubber.basf.com/global/en/performance_polymers/products/elastollan.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -258,5 +261,9 @@
     "Mark H F (ed., 2014) Encyclopedia of Polymer Science and Technology Vol.13",
     "ASTM D7745"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-elastomer",
+    "insight": "pol-elastomer"
+  }
 }

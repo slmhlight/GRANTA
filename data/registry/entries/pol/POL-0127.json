@@ -153,17 +153,20 @@
     {
       "label": "Datasheet — PVDF Kynar 740 (Arkema/Solvay, fluorinated homopolymer)",
       "url": "https://www.arkema.com/global/en/products/product-finder/range-viewer/Kynar-PVDF-fluoropolymer-resins/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: 화학 plant valve / pump / piping / tank lining, 반도체 high-purity wafer carrier, lithium battery binder (LiB cathode/anode), photovoltaic backsheet, architectural cladding (Kynar 500 coatings), NSF/ANSI 61 음용수 application",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Arkema — Kynar PVDF resin 물성 (제조사)",
       "url": "https://hpp.arkema.com/en/product-families/kynar-fluoropolymer-family/contact-physical-and-mechanical-properties/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "machinability": "Good",
@@ -244,5 +247,9 @@
       "uts": 12,
       "E": 0.35
     }
-  ]
+  ],
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-fluoro"
+  }
 }

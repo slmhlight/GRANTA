@@ -191,17 +191,20 @@
     {
       "label": "MatWeb — AISI 1018 carbon steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1018",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASM Handbook Vol.1 (10th ed) — Carbon and Low-Alloy Steels: 1018",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — AISI 1018 cold drawn round bar",
       "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=3a9cc570fbb24d119f08db22a53e2421",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -290,5 +293,15 @@
     "AISI Bar Steel Products Committee (1999) \"Carbon Steel Bars: 1018, 1020\"",
     "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "carbon-low",
+    "weld": "ce",
+    "htc": "cold",
+    "wg": "w01-aisi",
+    "insight": "carbon-alloy-steel"
+  },
+  "uns": [
+    "G10180"
+  ]
 }

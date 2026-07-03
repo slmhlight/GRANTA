@@ -192,14 +192,16 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "ASTM standard",
       "url": "https://store.astm.org/a0336_a0336m-22.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASME B&PV Sec.II heat-resistant",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -261,5 +263,10 @@
   "total_cost_estimate": 2.55,
   "tolerance_class": "IT12-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "carbon-alloy-steel"
+  }
 }

@@ -192,32 +192,37 @@
     {
       "label": "Carpenter Technology — VascoMax C300 (Maraging 300)",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Maraging steel 300 maraged at 482°C (UNS K93120, AMS 6514, K93120)",
-      "verified": true
+      "label": "ANSYS Granta — Maraging steel 300 maraged at 482°C (UNS K93120, AMS 6514, K93120)",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=maraging+300",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "AK Steel — Maraging 250/300/350 datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/MARAGING-DATA-BULLETIN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 6514 — 18Ni-300 maraging bar/forging",
       "url": "https://www.sae.org/standards/content/ams6514l/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "AMS 6512 — 18Ni-250 maraging bar/forging",
       "url": "https://www.sae.org/standards/content/ams6512f/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -307,5 +312,17 @@
     "Sha W & Guo Z (2009) Maraging Steels",
     "ATI VascoMax C-300 datasheet"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "maraging",
+    "weld": "none",
+    "htc": "soft",
+    "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+    "htg": "h06-maraging",
+    "wg": "w68-maraging",
+    "insight": "tool-steel"
+  },
+  "uns": [
+    "K93120"
+  ]
 }

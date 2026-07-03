@@ -190,12 +190,14 @@
     {
       "label": "ASM Handbook Vol.2 — AA 6262 free-machining alloy",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Aluminum Association — 6262 Data Sheet",
       "url": "https://www.aluminum.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -351,35 +353,11 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "UNS A96262 / EN AW-6262 / AlMg1SiPb — 6061 의 Bi/Pb-added free-machining 변종 (Pb 0.40-0.70, Bi 0.50-0.70 — chip breaker). T6: σy 240-275 / UTS 270-310 / El 10%. Machinability rating 90 (6061 의 70 대비 +30%). CNC turning high-volume 부품 (fittings, valves, pump body, fasteners). RoHS 우려 — Pb 함량 → EU 전자기기 사용 제한.",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AA 6262\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%206262",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: AA 6xxx Al-Mg-Si",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol.2 — AA 6262 free-machining alloy",
-          "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-          "verified": true
-        },
-        {
-          "label": "Aluminum Association — 6262 Data Sheet",
-          "url": "https://www.aluminum.org/",
-          "verified": false
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "al-fm",
+    "weld": "none",
+    "htc": "aged",
+    "htg": "h02-aa",
+    "insight": "aluminum"
   }
 }

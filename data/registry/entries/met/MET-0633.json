@@ -190,14 +190,16 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
+      "label": "EN standard",
       "url": "https://www.en-standard.eu/csn-en-13674-1-railway-applications-track-rail-part-1-vignole-railway-rails-46-kg-m-and-above/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: BS EN 13674 Rail",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -276,5 +278,10 @@
     "Kalousek J & Magel E (2008) \"Optimising the wheel/rail system\", Railway Gazette Int",
     "Cannon D F et al. (2003) \"Rail defects: an overview\", Fatigue Fract Eng Mater Struct 26(10)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "structural-steel"
+  }
 }

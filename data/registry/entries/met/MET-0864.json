@@ -193,17 +193,20 @@
     {
       "label": "Nikon SLM Titanium catalog",
       "url": "https://nikon-slm-solutions.com/materials/titanium/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS Titanium",
       "url": "https://www.eos.info/metal-solutions/metal-materials/titanium",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS MDS summary — titanium ticp grade 2",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-titanium-ticp-grade-2",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -322,5 +325,14 @@
       "E": 90
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ti-cp",
+    "weld": "none",
+    "htc": "hip",
+    "insight": "titanium"
+  },
+  "uns": [
+    "R50400"
+  ]
 }

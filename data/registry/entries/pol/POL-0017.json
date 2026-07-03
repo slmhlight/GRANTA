@@ -158,12 +158,14 @@
     {
       "label": "DSM — Stanyl PA46",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "DSM Stanyl PA46 technical guide",
       "url": "https://www.dsm.com/engineering-materials/en_US/products/stanyl.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -235,5 +237,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-engineering"
+  }
 }

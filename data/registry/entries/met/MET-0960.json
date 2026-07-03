@@ -187,24 +187,28 @@
   },
   "sources": [
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20SK4",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SteelJIS — SK95 (구 SK4) datasheet (JIS G4401 조성+207HBW/61HRC)",
       "url": "http://steeljis.com/jis_steel_datasheet.php?name_id=189",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -271,5 +275,11 @@
   "total_cost_estimate": 6.43,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "soft",
+    "insight": "tool-steel"
+  }
 }

@@ -194,17 +194,20 @@
     {
       "label": "Outokumpu — Super Duplex 2507 (1.4410)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS MDS summary — stainlesssteel superduplex",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-superduplex",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Sandvik SAF 2507 datasheet",
       "url": "https://www.alleima.com/en/products-and-services/tube/sanmac-tube/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -321,5 +324,11 @@
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
+    "insight": "stainless"
+  }
 }

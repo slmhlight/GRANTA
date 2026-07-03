@@ -191,22 +191,24 @@
     {
       "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys (Al-Li)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
-      "label": "Datasheet 1",
-      "url": "DOT/FAA/TC-18/21 V1 — Al-Li 2196-T8511 case study (FAA WJHTC, March 2020)",
-      "verified": true
+      "label": "DOT/FAA/TC-18/21 V1 — Al-Li 2196-T8511 case study (FAA WJHTC, March 2020)",
+      "verified": true,
+      "authority": "other"
     },
     {
-      "label": "Datasheet 1",
-      "url": "Constellium Airware Al-Li 2196 extrusion datasheet",
-      "verified": true
+      "label": "Constellium Airware Al-Li 2196 extrusion datasheet",
+      "verified": true,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -269,25 +271,12 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Datasheet 1",
-          "url": "DOT/FAA/TC-18/21 V1 — Al-Li 2196-T8511 case study (FAA WJHTC, March 2020)",
-          "verified": true
-        },
-        {
-          "label": "Datasheet 1",
-          "url": "Constellium Airware Al-Li 2196 extrusion datasheet",
-          "verified": true
-        },
-        {
-          "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
-          "url": null,
-          "verified": false
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "al-2xxx",
+    "weld": "none",
+    "htc": "aged",
+    "htg": "h02-aa",
+    "wg": "w17-aa",
+    "insight": "aluminum"
   }
 }

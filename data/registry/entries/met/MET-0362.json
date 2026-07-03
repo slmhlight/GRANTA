@@ -189,27 +189,32 @@
     {
       "label": "ASTM B584 — bearing bronze C93200 (SAE 660)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cu alloys general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Copper Development Association — Alloy C93200 (High-Leaded Tin Bronze)",
       "url": "https://alloys.copper.org/alloy/C93200",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Wieland Concast — C93200 Leaded Tin Bronze (C932 / SAE 660) datasheet",
       "url": "https://www.concast.com/c93200.php",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -291,5 +296,12 @@
   "svhc_concerns": [
     "RoHS 초과: Pb 8% > 0.1%"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "none",
+    "insight": "copper"
+  },
+  "uns": [
+    "C93200"
+  ]
 }

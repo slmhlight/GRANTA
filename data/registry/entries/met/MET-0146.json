@@ -190,29 +190,33 @@
   },
   "sources": [
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5454",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 1",
-      "url": "Aluminum Association H-Temper / ASTM B928",
-      "verified": true
+      "label": "Aluminum Association H-Temper / ASTM B928",
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: AA 5083 marine",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 5454 marine grade",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — Aluminum 5454-O / H32",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=db0d5e16f7574e4abf9c80e5fc18ccb3",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -278,13 +282,14 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS A95454",
-        "EN AW-5454",
-        "AlMg3Mn"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "al-5xxx",
+    "weld": "none",
+    "htc": "soft",
+    "wg": "w18-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A95454"
+  ]
 }

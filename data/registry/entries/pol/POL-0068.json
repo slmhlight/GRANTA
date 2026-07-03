@@ -152,27 +152,32 @@
     {
       "label": "DuPont/MatWeb — Nylon 66 (PA66)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+66",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Datasheet — PA66 Ultramid A3K (BASF)",
       "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: 자동차 underhood (intake manifold), 산업 기어, 전기 plug, 빈 패스너",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "DuPont Zytel PA66 (DTY)",
       "url": "https://www.dupont.com/products/zytel-polyamide.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — PA66 general",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=a2e79a3469304d109aaf4cb22f3592d9",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "machinability": "Good",
@@ -255,5 +260,9 @@
   ],
   "confidence_tier": "high",
   "industry_note": "Nylon 6/6 (Polyhexamethylene adipamide) — semi-crystalline thermoplastic. Tg (dry) ≈ 70°C, Tm ≈ 265°C, HDT (1.8 MPa) ≈ 90°C, max service 100-120°C. σy 70-85 / UTS 75-95 / El 20-60% / E 2.7-3.5 GPa / ρ 1.13-1.15 g/cc (dry-as-molded). 흡습률 3% → 강도 30% 감소 (DAM vs 50% RH). Notched Izod 50-110 J/m. 자동차 intake manifold, 라디에이터 end tank, gear, fastener, 전기 connector. GF30 grade → σy 150-180, E 8-9 GPa (보강재 사용 표준).",
-  "max_service_temp": 110
+  "max_service_temp": 110,
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-engineering"
+  }
 }

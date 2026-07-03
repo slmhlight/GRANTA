@@ -190,24 +190,28 @@
   },
   "sources": [
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ASTM%20A228",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: ASM spring steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "MakeItFrom — ASTM A228 (SWP-A, K08500) Music Wire (조성+기계적 물성)",
       "url": "https://www.makeitfrom.com/material-properties/ASTM-A228-SWP-A-K08500-Music-Wire",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "Acxess Spring — Music Wire Spring Properties (ASTM A228 UTS 범위·E·G·HRC·Tmax)",
       "url": "https://www.acxesspring.com/music-wire-spring-properties.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -295,5 +299,10 @@
       "E": 180
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "cold",
+    "insight": "carbon-alloy-steel"
+  }
 }

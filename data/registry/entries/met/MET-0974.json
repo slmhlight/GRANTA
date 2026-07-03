@@ -190,24 +190,28 @@
   },
   "sources": [
     {
-      "label": "MatWeb 3",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=M50%20tool%20steel",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Böhler Edelstahl — R250 (M50/1.3551/AMS 6491) 조성 (WebFetch 확인)",
       "url": "https://www.bohler-edelstahl.com/en/products/r250/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -275,5 +279,11 @@
   "total_cost_estimate": 6.62,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "tool-steel"
+  }
 }

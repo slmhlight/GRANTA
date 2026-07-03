@@ -157,17 +157,20 @@
     {
       "label": "Material datasheets — PLA (FDM)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "NatureWorks Ingeo PLA technical guide",
       "url": "https://natureworksllc.com/applications/3d-printing",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — Polylactic Acid (PLA)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PLA",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -255,5 +258,9 @@
     "Gruber P R & O'Brien M (2002) \"Polylactides: NatureWorks PLA\", in Biopolymers Vol 4, Wiley-VCH",
     "NatureWorks LLC corporate history (https://www.natureworksllc.com)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-soft",
+    "insight": "pol-commodity"
+  }
 }

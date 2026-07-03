@@ -192,27 +192,32 @@
     {
       "label": "AK Steel/MatWeb — 17-7 PH Stainless",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7+PH",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 1",
+      "label": "AK Steel (Cleveland-Cliffs) datasheet",
       "url": "https://www.aksteel.com/our-products/stainless/17-7-PH",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7%20PH",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "AK Steel — 17-7 PH Stainless Datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/17-7-PH-DATA-BULLETIN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5528 — 17-7 PH sheet, strip (RH 950)",
       "url": "https://www.sae.org/standards/content/ams5528/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -298,5 +303,16 @@
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
     "ASTM A693 \"Standard Specification for Precipitation-Hardening Stainless and Heat-Resisting Steel Plate, Sheet, and Strip\""
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "htg": "h03-17",
+    "wg": "w09-17",
+    "insight": "stainless-highperf"
+  },
+  "uns": [
+    "S17700"
+  ]
 }

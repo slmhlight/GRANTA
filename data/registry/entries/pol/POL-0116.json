@@ -156,9 +156,10 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
+      "label": "BASF datasheet",
       "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/eviva.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -221,5 +222,10 @@
   "surface_finish_typical": 50,
   "tolerance_class": "IT15",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-amorphous",
+    "htc": "soft",
+    "insight": "pol-highperf"
+  }
 }

@@ -212,27 +212,32 @@
     {
       "label": "Special Metals — Inconel Alloy 625",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Nikon SLM IN625 MDS 2024-06.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/02/mds5127.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "3D Systems LaserForm Ni625(A) MDS",
       "url": "https://www.3dsystems.com/sites/default/files/2023-12/3d-systems-laserform-ni625a-mds-letter-us-revb-web.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5599 — Inconel 625 sheet/strip annealed",
       "url": "https://www.sae.org/standards/content/ams5599/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ASTM B443 — Ni-Cr-Mo-Cb Plate/Sheet (625)",
       "url": "https://store.astm.org/b0443-19.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -647,14 +652,15 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS N06625 / EN 2.4856 / NiCr22Mo9Nb / Alloy 625 — Ni-base solid-solution-strengthened superalloy (Ni ≥58, Cr 20-23, Mo 8-10, Fe ≤5, Nb+Ta 3.15-4.15). Solution-strengthened (no aging required). 우수한 oxidation 저항 1100°C + chloride pitting/SCC 저항. AM LPBF 해수 환경 valve / piping (FPSO topside), aerospace afterburner liner, nuclear reactor 부품, AM LPBF 의 standard nickel superalloy.",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS N06625",
-        "EN 2.4856",
-        "NiCr22Mo9Nb",
-        "Alloy 625"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "as-built",
+    "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+    "wg": "w26-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06625"
+  ]
 }

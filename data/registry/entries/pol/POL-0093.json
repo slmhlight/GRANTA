@@ -156,12 +156,14 @@
     {
       "label": "Material datasheets — high-impact polystyrene",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "INEOS Styrolution HIPS resin",
       "url": "https://www.styrolution.com/en/products/standard-styrenics/styron.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -232,5 +234,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-brittle",
+    "insight": "pol-commodity"
+  }
 }

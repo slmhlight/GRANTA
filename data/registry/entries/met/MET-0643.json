@@ -106,27 +106,32 @@
     {
       "label": "MatWeb — Pure Hafnium Hf",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Hafnium",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM B776 — hafnium (UNS R02001)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ATI Wah Chang Hafnium technical data",
       "url": "https://www.atimaterials.com/Products/Documents/datasheets/refractory/hafnium/ATI-Hafnium.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B776 — Hafnium / Hafnium Alloy Bar/Wire",
       "url": "https://store.astm.org/b0776-15.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -205,5 +210,14 @@
   "price_grade_premium": 1,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "refractory",
+    "weld": "none",
+    "wg": "w64-hafniumb",
+    "insight": "refractory"
+  },
+  "uns": [
+    "R02001"
+  ]
 }

@@ -212,32 +212,38 @@
     {
       "label": "EOS — AlSi10Mg for DMLS/LPBF",
       "url": "https://www.eos.info/metal-solutions/metal-materials",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Nikon SLM AlSi10Mg MDS 2026-01.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_AlSi10Mg_2026-01.1_EN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS AlSi10Mg",
       "url": "https://www.eos.info/metal-solutions/metal-materials/aluminium",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS — AlSi10Mg material data sheet",
       "url": "https://www.eos.info/en-us/3d-printing-materials/metals/aluminum/eos-aluminium-alsi10mg",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM F3318 / ISO/ASTM 52907 — AM Powder Aluminum AlSi10Mg",
       "url": "https://www.astm.org/f3318-18.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "Aluminum Association — AlSi10Mg cast (~A360)",
       "url": "https://www.aluminum.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -808,13 +814,13 @@
   ],
   "confidence_tier": "high",
   "industry_note": "EN AC-43000 / AlSi10Mg / DIN 3.2381 — AM LPBF 표준 알루미늄 (Si 9-11, Mg 0.2-0.45). Cast equiv A360. T6 (530°C SHT + 165°C aging): σy 250 / UTS 360 / El 8% (시멘트네트 dissolve, Mg2Si precip). Stress-relieved (260°C/2h): σy 165 / UTS 280 / El 14% (ductility 우선). Anisotropy: Z (vertical build) 이 XY 대비 σy 약 7% 낮음 (열-축 효과). 항공·자동차·heat exchanger·열교환기.",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "EN AC-43000",
-        "EN AC-AlSi10Mg",
-        "DIN 3.2381"
-      ]
-    }
+  "profiles": {
+    "mach": "al-cast-am",
+    "weld": "none",
+    "htc": "as-built",
+    "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+    "htg": "h02-aa",
+    "wg": "w21-alsi10mg",
+    "insight": "aluminum"
   }
 }

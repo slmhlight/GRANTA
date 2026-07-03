@@ -193,14 +193,16 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "ASTM standard",
       "url": "https://store.astm.org/a0537_a0537m-20.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASME SA-516 pressure vessel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -272,5 +274,10 @@
   "total_cost_estimate": 2.32,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "structural-steel"
+  }
 }

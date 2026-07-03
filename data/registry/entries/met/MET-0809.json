@@ -192,17 +192,20 @@
     {
       "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
       "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
+      "label": "AK Steel (Cleveland-Cliffs) datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-01/410201706.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20410",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -290,5 +293,14 @@
       "E": 165
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ferritic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S41000"
+  ]
 }

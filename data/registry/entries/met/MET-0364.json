@@ -189,27 +189,32 @@
     {
       "label": "Materion — C17200 Beryllium Copper Alloy 25",
       "url": "https://www.materion.com/products/alloys-and-composites/copper-beryllium/c17200",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: AA 7xxx Al-Zn",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Materion C17200 (Alloy 25) datasheet",
       "url": "https://materion.com/-/media/files/alloy/datasheets/copper-beryllium/alloy-25-strip-rod.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B194 — CuBe2 plate/sheet/strip/bar",
       "url": "https://store.astm.org/b0194-15.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -314,5 +319,16 @@
     "Materion Corp \"Alloy 25 (C17200) Technical Data Sheet\" (2022)",
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "becu",
+    "weld": "none",
+    "htc": "qt",
+    "ht": "BeCu C17200 (CuBe2, UNS C17200)",
+    "wg": "w70-berylliumb",
+    "insight": "copper"
+  },
+  "uns": [
+    "C17200"
+  ]
 }

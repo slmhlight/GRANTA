@@ -194,17 +194,20 @@
     {
       "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Pratt & Whitney / ASM — PWA1484 single-crystal superalloy",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: GE Aviation Single Crystal",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -282,20 +285,12 @@
     "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
   "confidence_tier": "medium-low",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Pratt & Whitney / ASM — PWA1484 single-crystal superalloy",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: GE Aviation Single Crystal",
-          "url": null,
-          "verified": false
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "htg": "h05-waspaloy",
+    "wg": "w38-cmsx",
+    "insight": "ni-superalloy"
   }
 }

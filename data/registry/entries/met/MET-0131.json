@@ -188,24 +188,28 @@
   },
   "sources": [
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA8090",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AZoM — Aluminum 8090 Alloy (UNS A98090), Mechanical Properties (T8151)",
       "url": "https://www.azom.com/article.aspx?ArticleID=8789",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -272,5 +276,15 @@
   "total_cost_estimate": 6.41,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "al-cast-am",
+    "weld": "none",
+    "htc": "cold",
+    "wg": "w17-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A98090"
+  ]
 }

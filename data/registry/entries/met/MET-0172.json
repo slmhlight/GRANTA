@@ -189,37 +189,44 @@
     {
       "label": "ASM — AA 6005A aluminium (T6)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: AA 6xxx Al-Mg-Si",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "EN 573-3 / EN 755-2 — AA 6005A wrought extrusion",
       "url": "https://www.cen.eu/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "MatWeb — Aluminum 6005A-T6 extrusion",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=b8d536e0b1be4b53a6f1c4cb78ecb6d4",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Aalco — Aluminium Alloy 6005A-T6 Extrusion datasheet (EN 755-2:2008, 제품형태별 최소 물성)",
       "url": "https://www.aalco.co.uk/datasheets/Aluminium-Alloy-6005A-T6-Extrusion_157.ashx",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "Modulus Metal — Aluminum 6005A T6 Mechanical Properties (EN AW-6005A)",
       "url": "https://www.modulusmetal.com/aluminum-6005a-t6-mechanical-properties/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -291,5 +298,15 @@
   "total_cost_estimate": 2.84,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-6xxx",
+    "weld": "none",
+    "htg": "h02-aa",
+    "wg": "w19-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A96005"
+  ]
 }

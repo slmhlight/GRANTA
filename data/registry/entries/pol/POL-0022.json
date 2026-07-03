@@ -151,27 +151,32 @@
     {
       "label": "Datasheet — PBT 30%GF",
       "url": "https://www.ansys.com/products/materials/granta-mi",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: 자동차 under-bonnet, 전기 motor 부품, 정밀 gear, ignition coil bobbin",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SABIC Valox PBT technical datasheet",
       "url": "https://www.sabic.com/en/products/specialties/valox-resins",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "DuPont Crastin PBT",
       "url": "https://www.dupont.com/products/crastin-pbt.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — Polybutylene Terephthalate general",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PBT",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "machinability": "Fair",
@@ -259,5 +264,9 @@
       "E": 1.8
     }
   ],
-  "industry_note": "PBT (Polybutylene Terephthalate, Valox/Crastin) — semi-crystalline engineering thermoplastic. Tg ≈ 60°C, Tm ≈ 225°C, HDT (1.8 MPa) ≈ 60°C unfilled / 200°C GF30, max service 120°C. σy 55-60 / UTS 60-65 / El 50-200% / E 2."
+  "industry_note": "PBT (Polybutylene Terephthalate, Valox/Crastin) — semi-crystalline engineering thermoplastic. Tg ≈ 60°C, Tm ≈ 225°C, HDT (1.8 MPa) ≈ 60°C unfilled / 200°C GF30, max service 120°C. σy 55-60 / UTS 60-65 / El 50-200% / E 2.",
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-engineering"
+  }
 }

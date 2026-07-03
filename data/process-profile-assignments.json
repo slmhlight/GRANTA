@@ -1,6 +1,6 @@
 {
  "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
- "entries": 1113,
+ "entries": 1124,
  "ht_families_parsed": 34,
  "assignments": {
   "CER-0001": {},
@@ -5920,6 +5920,69 @@
    "mach": "al-cast-am",
    "weld": "none",
    "insight": "aluminum"
+  },
+  "MET-1001": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1002": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1003": {
+   "weld": "ce",
+   "htc": "soft",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1004": {
+   "weld": "ce",
+   "wg": "w01-aisi",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1005": {
+   "weld": "ce",
+   "htc": "soft",
+   "wg": "w01-aisi",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1006": {
+   "mach": "carbon-low",
+   "weld": "ce",
+   "wg": "w01-aisi",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1007": {
+   "mach": "carbon-low",
+   "weld": "ce",
+   "htc": "soft",
+   "wg": "w01-aisi",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1008": {
+   "weld": "ce",
+   "htc": "soft",
+   "wg": "w01-aisi",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1009": {
+   "weld": "ce",
+   "wg": "w01-aisi",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1010": {
+   "weld": "ce",
+   "htc": "soft",
+   "wg": "w01-aisi",
+   "insight": "carbon-alloy-steel"
+  },
+  "MET-1011": {
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "qt",
+   "wg": "w39-monel",
+   "insight": "ni-superalloy"
   },
   "POL-0001": {
    "mach": "pol-rigid",

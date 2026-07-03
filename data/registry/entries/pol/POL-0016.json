@@ -155,14 +155,16 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "Celanese datasheet",
       "url": "https://www.celanese.com/products/vectra.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Celanese — Vectra A950 LCP 데이터시트 (Material Data Center)",
       "url": "https://www.materialdatacenter.com/ms/en/tradenames/Vectra/Celanese/VECTRA+A950/268267e7/2442",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -224,5 +226,9 @@
   "surface_finish_typical": 50,
   "tolerance_class": "IT15",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-highperf"
+  }
 }

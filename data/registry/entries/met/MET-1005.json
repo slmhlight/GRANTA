@@ -1,0 +1,339 @@
+{
+  "stable_id": "MET-1005",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-carbon-steel",
+    "alloy_base": "F-AB-aisi-1015",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0454",
+  "origin": "reference(supplementary)",
+  "id": "R_0454",
+  "name": "AISI 1015 — Normalized (Wrought)",
+  "category": "Metal",
+  "subcategory": "Carbon Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Normalized",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 328,
+      "max": 328,
+      "typical": 328,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 425,
+      "max": 425,
+      "typical": 425,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 37,
+      "max": 37,
+      "typical": 37,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 200,
+      "max": 210,
+      "typical": 205,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 128,
+      "max": 128,
+      "typical": 128,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 52,
+      "max": 52,
+      "typical": 52,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 131,
+      "max": 190,
+      "typical": 164,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.5·σy (Shigley's Mechanical Engineering Design)"
+    },
+    "impact_strength": {
+      "min": 17.3,
+      "max": 69,
+      "typical": 40.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic × HT:normalized (i×1.15)"
+    },
+    "fracture_toughness": {
+      "min": 66,
+      "max": 66,
+      "typical": 66,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:normalized (k×1.1)"
+    },
+    "electrical_conductivity": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1015"
+    },
+    "max_service_temp": {
+      "min": 540,
+      "max": 540,
+      "typical": 540,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1015"
+    },
+    "thermal_expansion": {
+      "min": 11.7,
+      "max": 11.7,
+      "typical": 11.7,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1015"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1015"
+    },
+    "specific_heat": {
+      "min": 482,
+      "max": 482,
+      "typical": 482,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1015"
+    },
+    "melting_point": {
+      "min": 1520,
+      "max": 1520,
+      "typical": 1520,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1015"
+    },
+    "price_per_kg": {
+      "min": 0.9,
+      "max": 0.9,
+      "typical": 0.9,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1015"
+    },
+    "price_per_cm3": {
+      "min": 0.0071,
+      "max": 0.0071,
+      "typical": 0.0071,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:1015"
+    },
+    "delivered_price_per_kg": {
+      "min": 0.95,
+      "max": 0.95,
+      "typical": 0.95,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.13~0.18",
+    "Mn": "0.30~0.60",
+    "P": "≤0.04",
+    "S": "≤0.05"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true,
+      "authority": "handbook"
+    },
+    {
+      "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": true,
+      "authority": "standard"
+    },
+    {
+      "label": "ASTM A108 — Cold-Finished Carbon and Alloy Steel Bars",
+      "url": "https://store.astm.org/a0108-18.html",
+      "verified": true,
+      "authority": "standard"
+    },
+    {
+      "label": "Ansys Granta MI — Carbon steel, AISI 1015, normalized (Materials Data for Simulation datasheet, 사용자 제공 R226l)",
+      "verified": true,
+      "authority": "other"
+    },
+    {
+      "label": "KIC fallback: AISI carbon steel",
+      "url": null,
+      "verified": false,
+      "authority": "other"
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false,
+      "authority": "other"
+    }
+  ],
+  "points": [
+    [
+      7.9,
+      328,
+      425,
+      37,
+      210,
+      128,
+      52
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Excellent",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Ansys Granta MI 검증 datasheet (Carbon steel, AISI 1015, normalized, UNS G10150).",
+  "meta": {
+    "reference": true
+  },
+  "fracture_toughness": 66,
+  "fatigue_strength": 164,
+  "density": 7.85,
+  "yield_strength": 328,
+  "uts": 425,
+  "elongation": 37,
+  "modulus": 205,
+  "hardness": 128,
+  "thermal_conductivity": 52,
+  "impact_strength": 40.3,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Ansys Granta MI — Carbon steel, AISI 1015, normalized (Materials Data for Simulation datasheet, 사용자 제공 R226l)",
+  "aliases": [
+    "S15C",
+    "SM15C"
+  ],
+  "families": [
+    "Metal",
+    "Carbon Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 16,
+  "max_service_temp": 540,
+  "thermal_expansion": 11.7,
+  "poisson_ratio": 0.29,
+  "specific_heat": 482,
+  "melting_point": 1520,
+  "price_per_kg": 0.9,
+  "price_per_cm3": 0.0071,
+  "popularity": 3.37,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 0.957,
+  "delivered_price_per_kg": 0.95,
+  "total_cost_estimate": 0.95,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "soft",
+    "wg": "w01-aisi",
+    "insight": "carbon-alloy-steel"
+  },
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "E": 212.6
+    },
+    {
+      "temp": 50,
+      "E": 211.7
+    },
+    {
+      "temp": 150,
+      "E": 207.5
+    },
+    {
+      "temp": 300,
+      "E": 196.9
+    },
+    {
+      "temp": 450,
+      "E": 181.4
+    },
+    {
+      "temp": 600,
+      "E": 161.4
+    },
+    {
+      "temp": 750,
+      "E": 136.3
+    },
+    {
+      "temp": 850,
+      "E": 125.6
+    },
+    {
+      "temp": 1000,
+      "E": 116.3
+    },
+    {
+      "temp": 1150,
+      "E": 106.1
+    },
+    {
+      "temp": 1200,
+      "E": 102.8
+    }
+  ],
+  "elevated_temp_src": "Ansys Granta MI — Carbon steel, AISI 1015, normalized (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+}

@@ -36,7 +36,8 @@
       "max": 250,
       "typical": 250,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 520,
@@ -191,17 +192,20 @@
     {
       "label": "ASTM A216/A216M — Steel Castings, Carbon, for Fusion Welding (High-Temp)",
       "url": "https://store.astm.org/a0216_a0216m-21.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "Badger Alloys / iron-foundry — A216 WCB (carbon steel casting)",
       "url": "https://www.iron-foundry.com/astm-a216-carbon-steel-casting.html",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -295,5 +299,13 @@
       "E": 180
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "soft",
+    "insight": "carbon-alloy-steel"
+  },
+  "uns": [
+    "J03002"
+  ]
 }

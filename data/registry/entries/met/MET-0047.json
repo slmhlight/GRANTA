@@ -46,11 +46,11 @@
       "confidence": "handbook"
     },
     "elongation": {
-      "min": 12.09,
-      "max": 12.09,
-      "typical": 12.09,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 23,
+      "typical": 23,
+      "max": 23,
+      "confidence": "handbook",
+      "provenance": "교정: Ansys Granta MI — Low alloy steel AISI 6150 annealed (사용자 제공 R226l: El 18~28) · ASM Vol.1 6150 annealed El ~23%"
     },
     "modulus": {
       "min": 200,
@@ -191,17 +191,20 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.1 + SAE J404 — AISI 6xxx (Cr-V spring steel)",
       "url": "https://www.sae.org/standards/content/j404/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -209,7 +212,7 @@
       7.85,
       480,
       670,
-      12.09,
+      23,
       205,
       200,
       42
@@ -238,7 +241,7 @@
   "density": 7.85,
   "yield_strength": 480,
   "uts": 670,
-  "elongation": 12.09,
+  "elongation": 23,
   "modulus": 205,
   "hardness": 200,
   "thermal_conductivity": 42,
@@ -277,44 +280,96 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "ASM Handbook Vol.1 + SAE J404 — AISI 6xxx (Cr-V spring steel)",
-          "url": "https://www.sae.org/standards/content/j404/",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 6150\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%206150",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: AMS 6415 alloy steel",
-          "url": null,
-          "verified": false
-        }
-      ]
+  "profiles": {
+    "weld": "ce",
+    "htc": "soft",
+    "insight": "carbon-alloy-steel"
+  },
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "E": 208.3
     },
+    {
+      "temp": 50,
+      "E": 207.5
+    },
+    {
+      "temp": 150,
+      "E": 202.8
+    },
+    {
+      "temp": 250,
+      "E": 196.3
+    },
+    {
+      "temp": 400,
+      "E": 183.7
+    },
+    {
+      "temp": 500,
+      "E": 172
+    },
+    {
+      "temp": 600,
+      "E": 158.2
+    },
+    {
+      "temp": 700,
+      "E": 142.7
+    },
+    {
+      "temp": 800,
+      "E": 127.1
+    },
+    {
+      "temp": 900,
+      "E": 120.7
+    },
+    {
+      "temp": 1000,
+      "E": 114.1
+    },
+    {
+      "temp": 1100,
+      "E": 107.5
+    },
+    {
+      "temp": 1200,
+      "E": 100.8
+    }
+  ],
+  "elevated_temp_src": "Ansys Granta MI — Low alloy steel, AISI 6150, annealed (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)",
+  "uns": [
+    "G61500"
+  ],
+  "_corrections": {
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 23,
+        "typical": 23,
+        "max": 23,
+        "confidence": "handbook",
+        "provenance": "교정: Ansys Granta MI — Low alloy steel AISI 6150 annealed (사용자 제공 R226l: El 18~28) · ASM Vol.1 6150 annealed El ~23%"
+      },
+      "had_scalar": true,
+      "val_scalar": 23
+    },
+    "_basis": "AISI 6150 annealed — DB El 12.1% 는 annealed 대역(18~28) 미달 (Q+T 값 혼입 의심). σy/UTS 는 대역 내 → El 만 교정",
+    "_src": "Ansys Granta MI — Low alloy steel AISI 6150 annealed (사용자 제공 R226l: El 18~28) · ASM Vol.1 6150 annealed El ~23%",
     "points": {
       "from": [
         [
           7.85,
-          704,
-          968,
-          12.09,
-          210,
-          272.8,
+          480,
+          670,
+          23,
+          205,
+          200,
           42
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }

@@ -190,17 +190,20 @@
     {
       "label": "Special Metals — Inconel Alloy 617",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-617.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Special Metals — Inconel 617 (UNS N06617)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -340,5 +343,16 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super-solidsol",
+    "weld": "none",
+    "htc": "soft",
+    "ht": "Inconel 617 (UNS N06617, Ni-Cr-Co-Mo)",
+    "wg": "w26-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06617"
+  ]
 }

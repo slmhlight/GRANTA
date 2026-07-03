@@ -191,12 +191,14 @@
     {
       "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Special Metals — Inconel Alloy 600",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -314,46 +316,15 @@
     "Special Metals Corporation 'INCONEL alloy 600' Technical Data Sheet"
   ],
   "confidence_tier": "medium",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Special Metals — Inconel Alloy 600",
-          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Inconel 600\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20600",
-          "verified": false
-        }
-      ]
-    },
-    "aliases": {
-      "from": [
-        "UNS N06600",
-        "EN 2.4816",
-        "Alloy 600"
-      ]
-    },
-    "points": {
-      "from": [
-        [
-          8.47,
-          288.3,
-          641.7,
-          24.9,
-          214,
-          148.8,
-          14.7
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "soft",
+    "ht": "Inconel 600 (UNS N06600, Ni-Cr-Fe solid solution)",
+    "wg": "w26-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06600"
+  ]
 }

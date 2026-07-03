@@ -188,27 +188,32 @@
     {
       "label": "ASM — Nb-1Zr niobium alloy (UNS R04251)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "WHS Sondermetalle — Data sheet Niobium (Nb, NbZr1): NbZr1 R04251 type3(reactor)/R04261 type4(commercial), Zr 0.8-1.0%·ASTM B392/B393/B394 명기",
       "url": "https://www.whs-sondermetalle.de/images/pdf/Nb-Niobium.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "CBMM/Niobium.tech — Nb and Nb-base Alloys 기술보고서: Nb-1Zr ρ 8.66 g/cm³·용융 2400°C·재결정·인장(σy/UTS) 거동 표/그래프",
       "url": "https://niobium.tech/-/media/niobiumtech/attachments-biblioteca-tecnica/nt_the-physical-mechanical-and-irradiation-behavior-of-niobium-and-niobium-base-alloys.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -281,29 +286,13 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          8.6,
-          140,
-          240,
-          25,
-          69,
-          80,
-          50
-        ],
-        [
-          8.6,
-          125,
-          220,
-          20,
-          69,
-          75,
-          50
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "ta-nb",
+    "weld": "none",
+    "wg": "w61-niobiumb",
+    "insight": "refractory"
+  },
+  "uns": [
+    "R04251"
+  ]
 }

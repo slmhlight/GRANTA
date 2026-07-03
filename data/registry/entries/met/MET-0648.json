@@ -187,17 +187,20 @@
     {
       "label": "MatWeb — Pure Molybdenum / TZM",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Molybdenum",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 2",
+      "label": "Plansee datasheet",
       "url": "https://www.plansee.com/en/materials/molybdenum.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -259,5 +262,11 @@
   "total_cost_estimate": 90.72,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "moly",
+    "weld": "none",
+    "wg": "w60-molybdenumb",
+    "insight": "refractory"
+  }
 }

@@ -190,22 +190,26 @@
     {
       "label": "MIL-S-16216 — HY-80 naval steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Wieland Diversified — HY 80 Steel (MIL-S-16216) 기계적 물성표",
       "url": "https://www.wieland-diversified.com/hy-80-100-steels/hy-80-steel/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -297,5 +301,9 @@
   "svhc_concerns": [
     "Ni 3.25% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "ce",
+    "insight": "carbon-alloy-steel"
+  }
 }

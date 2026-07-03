@@ -189,24 +189,27 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, austenitic, AISI 303 annealed (UNS S30300, EN 1.4305, JIS SUS303)",
-      "verified": true
+      "label": "ANSYS Granta — Stainless steel, austenitic, AISI 303 annealed (UNS S30300, EN 1.4305, JIS SUS303)",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
+      "label": "Outokumpu datasheet",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 303 resulfurized free-machining",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     }
   ],
   "points": [
@@ -281,5 +284,14 @@
   "svhc_concerns": [
     "Ni 10% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-303",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S30300"
+  ]
 }

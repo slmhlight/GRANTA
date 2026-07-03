@@ -188,27 +188,32 @@
     {
       "label": "Carpenter Technology — Custom 15-5 PH",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Nikon SLM Solutions (AM vendor datasheet)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "EOS (AM vendor datasheet)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AK Steel — 15-5 PH Stainless Datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/15-5-PH-DATA-BULLETIN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5659 — 15-5 PH bar / forging",
       "url": "https://www.sae.org/standards/content/ams5659/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -335,5 +340,17 @@
     "Ni 60% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS S15500 / EN 1.4545 / XM-12 — 17-4 PH 의 'higher toughness' 변종 (Cr 14-15.5, Ni 3.5-5.5, Cu 2.5-4.5). 17-4 와 동등 강도 (H900 σy 1170 / UTS 1310) 이지만 fine-grained ESR melt 로 transverse ductility / KIC 개선. 항공 critical components (Cessna spar/wing fitting), 의료 instrument, AM LPBF (3D Systems LaserForm 15-5PH)."
+  "industry_note": "UNS S15500 / EN 1.4545 / XM-12 — 17-4 PH 의 'higher toughness' 변종 (Cr 14-15.5, Ni 3.5-5.5, Cu 2.5-4.5). 17-4 와 동등 강도 (H900 σy 1170 / UTS 1310) 이지만 fine-grained ESR melt 로 transverse ductility / KIC 개선. 항공 critical components (Cessna spar/wing fitting), 의료 instrument, AM LPBF (3D Systems LaserForm 15-5PH).",
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "htc": "as-built",
+    "ht": "15-5 PH stainless (UNS S15500, XM-12)",
+    "htg": "h03-17",
+    "wg": "w09-17",
+    "insight": "stainless-highperf"
+  },
+  "uns": [
+    "S15500"
+  ]
 }

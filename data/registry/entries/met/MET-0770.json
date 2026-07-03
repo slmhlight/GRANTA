@@ -190,37 +190,44 @@
     {
       "label": "AK Steel — 15-7 PH (UNS S15700, RH950)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 PH SS general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AK Steel — PH 15-7 Mo Stainless Reference",
       "url": "https://www.aksteel.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5520 — 15-7 PH (PH 15-7 Mo) sheet/strip",
       "url": "https://www.sae.org/standards/content/ams5520/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "Aircraft Materials — PH 15-7 Mo Stainless (AMS 5520 / UNS S15700): 조성+Condition A/TH1050/RH950/C/CH900 인장·경도 풀 조건표",
       "url": "https://www.aircraftmaterials.com/data/alstst/15-7.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "AK Steel — PH 15-7 Mo Stainless 제품 데이터시트 (UNS S15700, AMS 5520)",
       "url": "https://www.spacematdb.com/spacemat/manudatasheets/15-7_Mo_Data_Sheet.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -306,5 +313,15 @@
   "svhc_concerns": [
     "Ni 7.75% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "htg": "h03-17",
+    "wg": "w09-17",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S15700"
+  ]
 }

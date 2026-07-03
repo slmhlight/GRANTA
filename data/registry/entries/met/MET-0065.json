@@ -189,29 +189,34 @@
   },
   "sources": [
     {
-      "label": "MatWeb 2",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM445",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SteelJIS — SCM445 (JIS G4053) 조성 데이터시트",
       "url": "http://steeljis.com/jis_steel_datasheet.php?name_id=22",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "Ju Feng Special Steel — JIS SCM445 (G4105) 조성",
       "url": "https://www.jfs-steel.com/en/steelDetail/JIS-SCM445/JIS-SCM445-G4105.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -280,5 +285,13 @@
   "total_cost_estimate": 4.26,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "crmo",
+    "weld": "ce",
+    "htc": "qt",
+    "htg": "h01-aisi",
+    "wg": "w03-aisi",
+    "insight": "carbon-alloy-steel"
+  }
 }

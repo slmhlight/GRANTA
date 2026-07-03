@@ -196,17 +196,20 @@
     {
       "label": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
       "url": "https://store.astm.org/f0075-18.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "Nikon SLM CoCr28Mo6 MDS 2023-04.1",
       "url": "https://nikon-slm-solutions.com/materials/cobalt/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "3D Systems LaserForm CoCrF75(A) MDS",
       "url": "https://www.3dsystems.com/sites/default/files/2017-03/3D-Systems_LaserForm_CoCrF75%28A%29_DATASHEET_USEN_2017.03.13_WEB.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -342,5 +345,15 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "cobalt",
+    "weld": "none",
+    "htc": "hip",
+    "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
+    "insight": "cobalt"
+  },
+  "uns": [
+    "R30075"
+  ]
 }

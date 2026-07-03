@@ -157,12 +157,14 @@
     {
       "label": "Material datasheets — ethylene-vinyl acetate",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Dow ELVAX EVA technical guide",
       "url": "https://www.dow.com/en-us/market/mkt-packaging.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -231,5 +233,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-elastomer",
+    "insight": "pol-commodity"
+  }
 }

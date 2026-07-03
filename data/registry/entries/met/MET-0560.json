@@ -190,27 +190,32 @@
     {
       "label": "Special Metals — Inconel 625",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: Special Metals Inconel 625",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AMS 5599 — Inconel 625 sheet/strip annealed",
       "url": "https://www.sae.org/standards/content/ams5599/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ASTM B443 — Ni-Cr-Mo-Cb Plate/Sheet (625)",
       "url": "https://store.astm.org/b0443-19.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -367,15 +372,15 @@
     "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "AMS 5666",
-        "UNS N06625",
-        "EN 2.4856",
-        "NiCr22Mo9Nb",
-        "Alloy 625"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "soft",
+    "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
+    "wg": "w26-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06625"
+  ]
 }

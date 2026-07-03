@@ -22,7 +22,7 @@
 
 | # | 항목 | 상태 | Entry / Accept / 리스크·완화 |
 |---|---|---|---|
-| B1 | elev-temp/creep 캠페인 (후보 44 → 목표 60종) | ⏸ **착수기준 확정** | E: **수치 테이블 제공 datasheet 확보** (그래프만은 불가 — Monel 400 판정 전례; 사용자 PDF 제공 시 즉시: X-750 전례). A: elevated-temp-curves.json 수록(src 필수)+차트 렌더. R: 그래프 digitize 유혹 / M: 원칙 1 명문화 완료 |
+| B1 | elev-temp/creep 캠페인 (후보 44 → 목표 60종) | ▶ R226l +14 | E 갱신: 수치 테이블 **또는 Granta PDF 벡터 그래프**(사용자 승인 R226l — 결정적 좌표 추출 + 23°C 앵커 검증 필수, 눈대중 digitize 는 여전히 금지). A: elevated-temp-curves.json **by_id**(stable_id 키) 수록+차트 렌더. R226l: E(T) 14 entry (σy 7·UTS 2 동시) 부착 |
 | B2 | 조건 축 확장 (단일조건 고인기 74 base — 7050 T73 계열 등) | ○ | E: 조건별 검증값. A: append-only 추가 + fp/golden green. R: 중간삽입 / M: fp 게이트 |
 | B3 | 주조·특수 공정 커버리지 2차 (AC4C 실엔트리·A356-T7·투자주조 SS) | ○ | E: B26/JIS H5202 검증값. A: cast-alloys append + cross-ref |
 | B4 | 폴리머 grade 세분화 (PEEK 450G/GF30·PC grade 등 — 현 base 단일) | ○ | E: 제조사 TDS. R: grade 폭발 / M: 인기 상위 5 폴리머만, grade ≤3 |
@@ -63,6 +63,7 @@
 | E8 | 고온 설계 보조 (elev-temp 곡선 보간·허용응력 표시) | ⏸ B1 종속 | R: 설계값 오용 / M: "typical, 설계용 아님" 명시 |
 | E9 | 재료 선택 인사이트 (when-to-use) | ✅ 1차 R226j / ○ 확장 | 17 그룹·96 시나리오 (selection-insights.json, 출처 포함) — 상세패널 물성탭 카드 + 현재 재료 강조. 확장 E: 그룹별 시나리오 보강·엔지니어 검토. R: 관행 서술의 과일반화 / M: "일반 관행 요약, 설계 검증 대체 안 함" 명시 + 출처 필수 |
 | E10 | 조건(variation)별 공정 노트 확장 (현 26 조합) | ▶ | condition_notes 'mach|htc' 조합 — 신규 조합은 근거와 함께 추가. R: 조건 오적용 / M: htc 분류는 구조 필드 기반 + parity 게이트 |
+| E11 | 유사재료 × 인사이트 융합 (decisionContext) | ✅ 1차 R226l / ○ 확장 | 유사 후보에 "이 대체가 유리한 경우"(같은 그룹의 후보 전용 시나리오) + 절삭성 rating 델타 — 전부 m.profiles ID 조회. 확장: 용접성·비용·HT 관점 델타, 후보간 순위화. R: 시나리오 미매칭 시 무표시(안전) / M: 인사이트 시나리오 확충(E9)과 자동 연동 |
 
 ## F. 코드 품질 (지속)
 

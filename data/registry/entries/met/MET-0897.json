@@ -190,22 +190,26 @@
     {
       "label": "ASM — Ti-10-2-3 beta titanium (UNS R58010)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: TIMET beta Ti",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Aerospace Specification Metals — TIMETAL 10-2-3 (Ti-10V-2Fe-3Al), Aged Billet/Bar per AMS 4984 (data provided by TIMET)",
       "url": "https://www.aerospacemetals.com/wp-content/uploads/2023/06/TIMETAL%C2%AE-10-2-3-Titanium-Alloy-Ti-10V-2Fe-3Al-Aged-Billet-Bar-per-ASTM-4984.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -296,9 +300,14 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    }
-  }
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "htg": "h08-beta",
+    "wg": "w25-beta",
+    "insight": "titanium"
+  },
+  "uns": [
+    "R58010"
+  ]
 }

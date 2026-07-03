@@ -201,27 +201,32 @@
     {
       "label": "Haynes International — Hastelloy X Alloy",
       "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-x-alloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Nikon SLM Hastelloy X MDS 2023-04.1",
       "url": "https://nikon-slm-solutions.com/materials/nickel/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "3D Systems Certified HX(A) MDS",
       "url": "https://www.3dsystems.com/sites/default/files/2023-12/3d-systems-certifiedhxa-mds-letter-us-revb-web.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Haynes International — Hastelloy X datasheet",
       "url": "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HASTELLOYXalloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5536 — Hastelloy X sheet/strip",
       "url": "https://www.sae.org/standards/content/ams5536/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -449,5 +454,16 @@
     "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS N06002 / EN 2.4665 / NiCr22Fe18Mo / Alloy X (Haynes) — solid-solution-strengthened Ni-Cr-Fe-Mo (Ni 47, Cr 20-23, Fe 17-20, Mo 8-10, Co 0.5-2.5, W 0.2-1.0). Excellent high-T oxidation up to 1200°C + workability + weldability (γ'-free solid solution → no SAC). σy 360-555 / UTS 690-820 / El 40-50%. AM LPBF 가스 터빈 combustor liner (F100, GE90, RR Trent 시리즈), 항공 afterburner, 산업 furnace muffle (1200°C continuous), AM LPBF 표준."
+  "industry_note": "UNS N06002 / EN 2.4665 / NiCr22Fe18Mo / Alloy X (Haynes) — solid-solution-strengthened Ni-Cr-Fe-Mo (Ni 47, Cr 20-23, Fe 17-20, Mo 8-10, Co 0.5-2.5, W 0.2-1.0). Excellent high-T oxidation up to 1200°C + workability + weldability (γ'-free solid solution → no SAC). σy 360-555 / UTS 690-820 / El 40-50%. AM LPBF 가스 터빈 combustor liner (F100, GE90, RR Trent 시리즈), 항공 afterburner, 산업 furnace muffle (1200°C continuous), AM LPBF 표준.",
+  "profiles": {
+    "mach": "ni-super-solidsol",
+    "weld": "none",
+    "htc": "as-built",
+    "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+    "wg": "w32-hastelloy",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06002"
+  ]
 }

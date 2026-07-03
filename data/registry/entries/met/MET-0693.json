@@ -191,27 +191,32 @@
     {
       "label": "Outokumpu — 253 MA heat-resistant stainless (UNS S30815)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Grade 253MA (UNS S30815) — AZoM",
       "url": "https://www.azom.com/article.aspx?ArticleID=959",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "UNS S30815 (253 MA) — MakeItFrom (교차확인)",
       "url": "https://www.makeitfrom.com/material-properties/UNS-S30815-253-MA-Stainless-Steel",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -302,5 +307,13 @@
   "svhc_concerns": [
     "Ni 12% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S30815"
+  ]
 }

@@ -189,27 +189,32 @@
     {
       "label": "Magnesium Elektron — WE54",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Mg alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AZoM — Magnesium Elektron WE54 Alloy (UNS M18410) — 등가규격 AMS 4426, ASTM B80 WE54A-T6",
       "url": "https://www.azom.com/article.aspx?ArticleID=9280",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "MakeItFrom — WE54A (M18410) Magnesium (σ0.2·UTS·A·E·ρ)",
       "url": "https://www.makeitfrom.com/material-properties/WE54A-M18410-Magnesium",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -295,5 +300,16 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "magnesium",
+    "weld": "none",
+    "ht": "Magnesium WE43 (Mg-Y-Nd-Zr, aerospace + biodegradable)",
+    "htg": "h09-azd",
+    "wg": "w48-we43b",
+    "insight": "magnesium"
+  },
+  "uns": [
+    "M18410"
+  ]
 }

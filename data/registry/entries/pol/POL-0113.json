@@ -145,17 +145,20 @@
     {
       "label": "Datasheet — PPSU Radel R-5100 (Solvay)",
       "url": "https://www.syensqo.com/en/product/radel-ppsu",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: Hot/cold-water plumbing fitting (Aquatherm/Vexel), aircraft interior (lavatory/galley), 의료 surgical tray (autoclave 1000+ cycles), 식품 service tray (steam clean)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AZoM/Goodfellow — Polyphenylsulphone (PPSU) 물성",
       "url": "https://www.azom.com/article.aspx?ArticleID=2260",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     }
   ],
   "machinability": "Good",
@@ -235,5 +238,9 @@
       "uts": 22,
       "E": 0.5
     }
-  ]
+  ],
+  "profiles": {
+    "mach": "pol-amorphous",
+    "insight": "pol-highperf"
+  }
 }

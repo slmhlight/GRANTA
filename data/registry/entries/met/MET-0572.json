@@ -43,7 +43,8 @@
       "max": 1280,
       "typical": 1280,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "elongation": {
       "min": 12,
@@ -202,27 +203,31 @@
     {
       "label": "Special Metals — Inconel Alloy 718",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 1",
+      "label": "High Temp Metals",
       "url": "https://www.hightempmetals.com/techdata/hitempInconel718data.php",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 1",
-      "url": "Special Metals SMC-045 Inconel 718 technical bulletin",
-      "verified": true
+      "label": "Special Metals SMC-045 Inconel 718 technical bulletin",
+      "verified": true,
+      "authority": "other"
     },
     {
       "label": "AMS 5662 — Inconel 718 wrought solution-aged bar/forging",
       "url": "https://www.sae.org/standards/content/ams5662m/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ASTM B637 — Precipitation-Hardening Ni-base Bar (718)",
       "url": "https://store.astm.org/b0637-22.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -378,17 +383,16 @@
     "Special Metals \"Inconel Alloy 718\" Tech Bulletin (revised 2007)"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS N07718",
-        "AMS 5662 STA spec",
-        "AMS 5662",
-        "EN 2.4668",
-        "Alloy 718",
-        "GH4169",
-        "NC19FeNb"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "ht": "Inconel 718 (UNS N07718)",
+    "htg": "h04-inconel",
+    "wg": "w27-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07718"
+  ]
 }

@@ -193,14 +193,16 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "Carpenter Technology datasheet",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: AA 6xxx Al-Mg-Si",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -271,5 +273,11 @@
   "svhc_concerns": [
     "Ni 2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "case-hard",
+    "weld": "ce",
+    "htc": "soft",
+    "insight": "carbon-alloy-steel"
+  }
 }

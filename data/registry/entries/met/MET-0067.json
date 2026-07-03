@@ -192,27 +192,32 @@
     {
       "label": "MatWeb — AISI 8620 carburizing steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+8620",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%208620",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 8620 case-hardening",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — AISI 8620 carburized gear steel",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8b6c66cdaf0f4f37b8b3fea7b9cb6ea0",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -304,5 +309,15 @@
     "ASM Heat Treater's Guide 2nd ed. (1995)",
     "Krauss G (2015) Steels: Processing, Structure, and Performance 2nd ed., ASM"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "case-hard",
+    "weld": "ce",
+    "htc": "soft",
+    "htg": "h01-aisi",
+    "insight": "carbon-alloy-steel"
+  },
+  "uns": [
+    "G86200"
+  ]
 }

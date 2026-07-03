@@ -192,17 +192,20 @@
     {
       "label": "Carpenter Technology — MP35N Multiphase Alloy",
       "url": "https://www.carpentertechnology.com/alloy-finder/mp35n",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 3",
+      "label": "SPS Technologies",
       "url": "https://www.spsfasteners.com/wp-content/uploads/MP35N-Fastener-Material-Datasheet.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 3",
+      "label": "Carpenter Technology datasheet",
       "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/MP35N.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -274,5 +277,15 @@
   "svhc_concerns": [
     "Ni 37% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "cobalt",
+    "weld": "none",
+    "htc": "aged",
+    "wg": "w45-mp35n",
+    "insight": "cobalt"
+  },
+  "uns": [
+    "R30035"
+  ]
 }

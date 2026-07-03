@@ -36,14 +36,16 @@
       "max": 170,
       "typical": 170,
       "n": 2,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 220,
       "max": 240,
       "typical": 240,
       "n": 2,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "elongation": {
       "min": 20,
@@ -187,22 +189,26 @@
     {
       "label": "ASTM Grade 11 — Ti-0.15Pd (UNS R52250)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASTM B265 Ti Gr11",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AZoM — Grade 11 Ti-0.15Pd (UNS R52250) 데이터시트",
       "url": "https://www.azom.com/article.aspx?ArticleID=9397",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -285,29 +291,12 @@
     }
   ],
   "confidence_tier": "medium",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          4.51,
-          170,
-          240,
-          24,
-          103,
-          150,
-          17
-        ],
-        [
-          4.51,
-          140,
-          220,
-          20,
-          103,
-          140,
-          17
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "ti-cp",
+    "weld": "none",
+    "insight": "titanium"
+  },
+  "uns": [
+    "R52250"
+  ]
 }

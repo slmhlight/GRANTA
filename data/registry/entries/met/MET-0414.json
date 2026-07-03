@@ -187,17 +187,20 @@
     {
       "label": "Copper.org — C11000 ETP Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "C11000 ETP Copper / Copper Development Assoc.",
       "url": "https://www.copper.org/resources/properties/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: AA 1xxx CP Al",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -281,5 +284,14 @@
     "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
     "ASTM B187 \"Standard Specification for Copper Bus Bar\""
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "cu-pure",
+    "weld": "none",
+    "htc": "soft",
+    "insight": "copper"
+  },
+  "uns": [
+    "C11000"
+  ]
 }

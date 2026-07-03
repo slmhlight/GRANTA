@@ -189,37 +189,44 @@
     {
       "label": "Carpenter Technology — VascoMax C300 (Maraging 300)",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AK Steel / ASM Handbook — Maraging C300",
       "url": "https://www.aksteel.com/sites/default/files/2018-01/CT300.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "KIC fallback: AMS 6514 / ATI",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ATI VascoMax C-300 / C-350 reference",
       "url": "https://www.atimaterials.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "AK Steel — Maraging 250/300/350 datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/MARAGING-DATA-BULLETIN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 6514 — 18Ni-300 maraging bar/forging",
       "url": "https://www.sae.org/standards/content/ams6514l/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "AMS 6512 — 18Ni-250 maraging bar/forging",
       "url": "https://www.sae.org/standards/content/ams6512f/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -336,5 +343,14 @@
     "Sha W & Guo Z (2009) Maraging Steels: Modelling of Microstructure, Properties and Applications, Woodhead Publishing",
     "EOS GmbH \"EOS MaragingSteel MS1 Material Data Sheet\" (2020)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "maraging",
+    "weld": "none",
+    "htc": "aged",
+    "ht": "Maraging 300 / VascoMax C-300 (18Ni-9Co-5Mo)",
+    "htg": "h06-maraging",
+    "wg": "w68-maraging",
+    "insight": "tool-steel"
+  }
 }

@@ -203,32 +203,38 @@
     {
       "label": "MatWeb — Aluminum A356 / AlSi7Mg cast",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A356+aluminum",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Nikon SLM Solutions F357 MDS 2024-06.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/02/mds5125.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "GE Additive M2 Series 5 AlSi7Mg CMDS",
       "url": "https://www.colibriumadditive.com/sites/default/files/M2SERIES5_AlSi7Mg_400W_CMDS_20241113_RevG.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM Handbook Vol.2 — A356 cast aluminum",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Aluminum Association — Cast Designation A356",
       "url": "https://www.aluminum.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — A356-T6 cast aluminum",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8e3ea3ec01d04bd1bcb3ea91a13e6f4f",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -536,5 +542,14 @@
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "UNS A03560 / EN AC-42000 / AlSi7Mg / DIN AC-AlSi7Mg — 가장 흔한 cast aluminum (Si 6.5-7.5, Mg 0.25-0.45, Mn ≤ 0.35). 변종: A356 (sand cast, 0.20 Mg high), A356.2 (low Fe), B356 (low Cu). T6 (T7 (over-자동차 휠 (cast wheel), 엔진 블록 (V6), suspension control arm, mil aircraft structural cast. AlSi10Mg 와 거의 동등 (AM 의 AlSi10Mg ≈ casting 의 A356)."
+  "industry_note": "UNS A03560 / EN AC-42000 / AlSi7Mg / DIN AC-AlSi7Mg — 가장 흔한 cast aluminum (Si 6.5-7.5, Mg 0.25-0.45, Mn ≤ 0.35). 변종: A356 (sand cast, 0.20 Mg high), A356.2 (low Fe), B356 (low Cu). T6 (T7 (over-자동차 휠 (cast wheel), 엔진 블록 (V6), suspension control arm, mil aircraft structural cast. AlSi10Mg 와 거의 동등 (AM 의 AlSi10Mg ≈ casting 의 A356).",
+  "profiles": {
+    "mach": "al-cast-am",
+    "weld": "none",
+    "htc": "as-built",
+    "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+    "htg": "h02-aa",
+    "wg": "w21-alsi10mg",
+    "insight": "aluminum"
+  }
 }

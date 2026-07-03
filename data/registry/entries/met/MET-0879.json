@@ -190,17 +190,20 @@
     {
       "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Carpenter Technology — Ti-6Al-4V ELI Datasheet (F136/B348 Gr.23)",
       "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/Ti_6Al-4V_ELI_Datasheet.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AZoM — Grade 23 Ti-6Al-4V ELI (UNS R56401)",
       "url": "https://www.azom.com/article.aspx?ArticleID=9365",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -285,61 +288,16 @@
     }
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    },
-    "sources": {
-      "from": [
-        {
-          "label": "MatWeb — Titanium Grade 23 ELI (Ti-6Al-4V ELI)",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V+ELI",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Ti Grade 23\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%2023",
-          "verified": false
-        },
-        {
-          "label": "Carpenter Technology — Ti-6Al-4V ELI Datasheet (F136/B348 Gr.23)",
-          "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/Ti_6Al-4V_ELI_Datasheet.pdf",
-          "verified": true
-        },
-        {
-          "label": "AZoM — Grade 23 Ti-6Al-4V ELI (UNS R56401)",
-          "url": "https://www.azom.com/article.aspx?ArticleID=9365",
-          "verified": true
-        }
-      ]
-    },
-    "points": {
-      "from": [
-        [
-          4.51,
-          255.75,
-          353.40000000000003,
-          19.92,
-          103,
-          102.3,
-          21.8
-        ],
-        [
-          4.51,
-          288.75,
-          399,
-          20.4,
-          103,
-          115.5,
-          21.8
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "htc": "soft",
+    "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
+    "htg": "h07-ti",
+    "wg": "w24-ti",
+    "insight": "titanium"
+  },
+  "uns": [
+    "R56401"
+  ]
 }

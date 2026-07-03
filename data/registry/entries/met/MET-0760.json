@@ -190,29 +190,34 @@
   },
   "sources": [
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=21-4N",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: Carpenter 21-4N NACE 7-7",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "DIN EN 10090 — Valve Steels (X53CrMnNiN21-9 = 21-4N)",
       "url": "https://www.dinmedia.de/en/standard/din-en-10090/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "Super Alloy 21-4N Valve Steel (X53CrMnNiN21-9) — AZoM",
       "url": "https://www.azom.com/article.aspx?ArticleID=7648",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -286,5 +291,11 @@
   "svhc_concerns": [
     "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "insight": "stainless"
+  }
 }

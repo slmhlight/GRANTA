@@ -156,12 +156,14 @@
     {
       "label": "Material datasheets — PTFE",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AFT Fluorotec — Virgin PTFE 데이터시트",
       "url": "https://www.fluorotec.com/materials/ptfe/virgin-ptfe/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -277,5 +279,9 @@
       "uts": 6,
       "E": 0.08
     }
-  ]
+  ],
+  "profiles": {
+    "mach": "pol-soft",
+    "insight": "pol-fluoro"
+  }
 }

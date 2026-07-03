@@ -190,32 +190,38 @@
     {
       "label": "ASM — S7 shock-resisting tool steel (UNS T41907)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Bohler-Uddeholm COMPAX AISI S7 datasheet (composition, compressive yield, E, CTE, Charpy)",
       "url": "https://www.lookpolymers.com/polymer_Bohler-Uddeholm-COMPAX-AISI-S7-MOLD-QUALITY-Cold-Work-Steel.php",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     },
     {
       "label": "S7 (DIN 1.2357 / 50CrMoV13-1) composition + working/annealed hardness",
       "url": "https://us.abrams-industries.com/steel/tool-steel/s7",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "S7 shock-resisting tool steel technical data (composition, annealed HB, tempering)",
       "url": "https://www.hudsontoolsteel.com/technical-data/steelS7",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -304,5 +310,15 @@
   "total_cost_estimate": 10.33,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "qt",
+    "wg": "w10-h1",
+    "insight": "tool-steel"
+  },
+  "uns": [
+    "T41907"
+  ]
 }

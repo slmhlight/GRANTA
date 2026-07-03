@@ -189,17 +189,20 @@
     {
       "label": "Special Metals — Inconel Alloy 601",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-601.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Special Metals — Inconel 601 (UNS N06601)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -292,13 +295,14 @@
     "Ni 63% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS N06601",
-        "EN 2.4851",
-        "NiCr23Fe"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "soft",
+    "wg": "w26-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06601"
+  ]
 }

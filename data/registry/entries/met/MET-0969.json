@@ -192,27 +192,32 @@
     {
       "label": "Böhler-Uddeholm — D2 / K110 Tool Steel",
       "url": "https://www.bohler-edelstahl.com/en/products/k110/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 1",
+      "label": "Uddeholm datasheet",
       "url": "https://www.uddeholm.com/en/products/uddeholm-sverker-21/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Handbook Vol.1 — Tool Steels: D2 cold-work",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204965/Tool-Steels",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "DIN EN ISO 4957 — Tool Steels (1.2379)",
       "url": "https://www.iso.org/standard/76129.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -285,11 +290,34 @@
     "Bohler-Uddeholm \"K110 Technical Information\" (2019)"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "AISI D2"
-      ]
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "soft",
+    "wg": "w10-h1",
+    "insight": "tool-steel"
+  },
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "E": 209.8
+    },
+    {
+      "temp": 100,
+      "E": 206.5
+    },
+    {
+      "temp": 200,
+      "E": 200.1
+    },
+    {
+      "temp": 300,
+      "E": 191.2
+    },
+    {
+      "temp": 400,
+      "E": 180
     }
-  }
+  ],
+  "elevated_temp_src": "Ansys Granta MI — Tool steel, chromium alloy high carbon, AISI D2 (cold work) (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
 }

@@ -190,34 +190,40 @@
   },
   "sources": [
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202195",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "MakeItFrom — 2195 (2195-T8) Aluminum, mechanical properties",
       "url": "https://www.makeitfrom.com/material-properties/2195-2195-T8-Aluminum",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Light Metal Age — The Evolution of Constellium Al-Li Alloys for Space Launch and Crew Module Applications (Constellium 기고)",
       "url": "https://www.lightmetalage.com/news/industry-news/aerospace/article-the-evolution-of-constellium-al-li-alloys-for-space-launch-and-crew-module-applications/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "NASA NTRS — Development of Aluminum-Lithium 2195 Gores by the Stretch Forming Process (20140011717)",
       "url": "https://ntrs.nasa.gov/citations/20140011717",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     }
   ],
   "points": [
@@ -285,5 +291,12 @@
     "Pickens J R et al. (1989) \"Al-(4.5-6.3)Cu-1.3Li-0.4Ag-0.4Mg-0.14Zr alloy Weldalite 049\", Aluminum-Lithium Alloys V, MCEP",
     "NASA SLS Reference Vehicle Documentation (https://www.nasa.gov/exploration/systems/sls)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-2xxx",
+    "weld": "none",
+    "htc": "aged",
+    "htg": "h02-aa",
+    "insight": "aluminum"
+  }
 }

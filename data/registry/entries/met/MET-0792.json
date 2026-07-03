@@ -191,17 +191,20 @@
     {
       "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "Outokumpu / Aperam — AISI 4xx ferritic stainless (ASTM A240)",
       "url": "https://www.outokumpu.com/en/datasheets",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -292,30 +295,10 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Outokumpu / Aperam — AISI 4xx ferritic stainless (ASTM A240)",
-          "url": "https://www.outokumpu.com/en/datasheets",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 434\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20434",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: ASM Vol.1 Martensitic SS",
-          "url": null,
-          "verified": false
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "ss-ferritic",
+    "weld": "schaeffler",
+    "htc": "qt",
+    "insight": "stainless"
   }
 }

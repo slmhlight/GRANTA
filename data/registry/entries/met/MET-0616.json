@@ -195,27 +195,32 @@
     {
       "label": "MatWeb — Udimet 720",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Udimet+720",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Udimet%20720Li",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Special Metals UDIMET alloy 720 Nickel Base Alloy datasheet (조성 + 1000h rupture strength)",
       "url": "https://www.lookpolymers.com/polymer_Special-Metals-UDIMET-alloy-720-Nickel-Base-Alloy.php",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     },
     {
       "label": "TMS Superalloys 2000 — Characteristics and Properties of As-HIP P/M Alloy 720 (인장·creep·LCF)",
       "url": "https://www.tms.org/superalloys/10.7449/2000/Superalloys_2000_135_142.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -284,5 +289,13 @@
     "Mitchell A (2005) \"Melting, Casting and Forging Problems in Titanium Alloys\", Mater Sci Eng A 392",
     "Special Metals Corp \"Udimet 720Li Technical Data\" (2014)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "soft",
+    "htg": "h05-waspaloy",
+    "wg": "w37-waspaloyb",
+    "insight": "ni-superalloy"
+  }
 }

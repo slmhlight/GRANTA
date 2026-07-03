@@ -203,27 +203,32 @@
     {
       "label": "MatWeb — Inconel 738LC",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+738LC",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "EOS MDS summary — nickelalloy in738",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-nickelalloy-in738",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Special Metals — Inconel 738 reference",
       "url": "https://web.archive.org/web/2024/https://www.specialmetals.com/documents/technical-bulletins/inconel-738.pdf",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "Cannon-Muskegon IN-738 / IN-738LC reference",
       "url": "https://cannonmuskegon.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "Reed RC, The Superalloys (Cambridge 2006) Ch.5",
       "url": "https://www.cambridge.org/core/books/superalloys/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -389,5 +394,12 @@
     }
   ],
   "confidence_tier": "medium",
-  "industry_note": "Inconel 738 / IN-738LC (Cannon-Muskegon) — vacuum-cast Ni-base γ' precipitation-hardened superalloy (Ni bal, Cr 16, Co 8.5, Mo 1.75, W 2.6, Ta 1.75, Nb 0.9, Al 3.4, Ti 3.4, B/Zr trace, C 0.11 (LC=0.10 low-C)). γ' ≈ 43 vol%. Investment Tmax 980°C continuous (oxidation 우수 — Cr 16% high). 산업 가스 터빈 first-stage blade (Siemens SGT-700/750, GE 7HA.02, Westinghouse W501F). 1965년 GE 개발."
+  "industry_note": "Inconel 738 / IN-738LC (Cannon-Muskegon) — vacuum-cast Ni-base γ' precipitation-hardened superalloy (Ni bal, Cr 16, Co 8.5, Mo 1.75, W 2.6, Ta 1.75, Nb 0.9, Al 3.4, Ti 3.4, B/Zr trace, C 0.11 (LC=0.10 low-C)). γ' ≈ 43 vol%. Investment Tmax 980°C continuous (oxidation 우수 — Cr 16% high). 산업 가스 터빈 first-stage blade (Siemens SGT-700/750, GE 7HA.02, Westinghouse W501F). 1965년 GE 개발.",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "as-built",
+    "wg": "w30-inconel",
+    "insight": "ni-superalloy"
+  }
 }

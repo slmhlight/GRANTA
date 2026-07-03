@@ -36,14 +36,16 @@
       "max": 450,
       "typical": 450,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 535,
       "max": 535,
       "typical": 535,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "elongation": {
       "min": 18,
@@ -192,29 +194,32 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "API 5L Spec 46th Edition — Line Pipe (PSL1, PSL2, Sour Service)",
-      "verified": true
+      "label": "API 5L Spec 46th Edition — Line Pipe (PSL1, PSL2, Sour Service)",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
-      "url": "Octalsteel API 5L pipe specification datasheet",
-      "verified": true
+      "label": "Octalsteel API 5L pipe specification datasheet",
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: API 5L pipeline",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "API Spec 5L — Line Pipe (Edition 46, 2018)",
       "url": "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5l",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ISO 3183 — Petroleum and natural gas industries — Steel pipe",
       "url": "https://www.iso.org/standard/64030.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -282,5 +287,11 @@
   "total_cost_estimate": 1.74,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "wg": "w11-api",
+    "insight": "structural-steel"
+  }
 }

@@ -190,22 +190,26 @@
     {
       "label": "Elgiloy Specialty Metals — Elgiloy (UNS R30003)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (ASM Vol.2 Co alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Elgiloy Specialty Metals — Wire Elgiloy R30003 datasheet (official, APR 2024)",
       "url": "https://www.elgiloy.com/wp-content/uploads/2024/04/Wire_Elgiloy_R30003_APR2024.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -285,5 +289,14 @@
   "svhc_concerns": [
     "Ni 16% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "cobalt",
+    "weld": "none",
+    "wg": "w45-mp35n",
+    "insight": "cobalt"
+  },
+  "uns": [
+    "R30003"
+  ]
 }

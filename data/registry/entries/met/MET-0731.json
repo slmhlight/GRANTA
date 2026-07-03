@@ -36,14 +36,16 @@
       "max": 280,
       "typical": 205,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 480,
       "max": 620,
       "typical": 515,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "elongation": {
       "min": 30,
@@ -192,17 +194,20 @@
     {
       "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.1 — Stainless Steel Type 316",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — 316 Stainless Steel Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=9a76c52a5c544eb5b4cd66f4d62ba2e6",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -308,49 +313,15 @@
   ],
   "confidence_tier": "medium",
   "industry_note": "UNS S31600 / SUS316 / 1.4401 — 304 + 2~3% Mo. Cl⁻ 환경 내식성 비약 향상 (MoO4²⁻ 가 Cl⁻ 차단). σy ≈ 240 / UTS ≈ 550 / El 50% / KIC 150-200 (handbook). max service 870°C. Marine grade / 해상 platform / 식품·의료·FPSO·반도체 piping.",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "MatWeb — AISI 316 stainless",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+316+stainless",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 316\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20316",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol.1 — Stainless Steel Type 316",
-          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-          "verified": true
-        },
-        {
-          "label": "MatWeb — 316 Stainless Steel Annealed",
-          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=9a76c52a5c544eb5b4cd66f4d62ba2e6",
-          "verified": false
-        }
-      ]
-    },
-    "points": {
-      "from": [
-        [
-          8,
-          180.4,
-          453.2,
-          37.2,
-          193,
-          190.96,
-          16.3
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+    "wg": "w05-aisi",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S31600"
+  ]
 }

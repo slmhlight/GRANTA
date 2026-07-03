@@ -70,7 +70,7 @@ const GOLDEN: G[] = [
 
   // ── R226g tranche 3 (51 → 89): 탄소강 어닐드 사다리·Ni 초합금·Cu 계열·폴리머(밀도 앵커)·세라믹(ρ/E 앵커) ──
   { name: 'AISI 1010', ht: 'Anneal', y: [140, 220], u: [255, 340] },
-  { name: 'AISI 1015', ht: 'Anneal', y: [150, 230], u: [260, 345] },
+  { name: 'AISI 1015', ht: 'Anneal', y: [255, 315], u: [345, 430] },   // R226l 재캘리브레이션 — 구 bound 는 오염값(167/286) 기준. ASM annealed 284/386 + Granta MI 255~315/345~430
   { name: 'AISI 1025', ht: 'Anneal', y: [175, 250], u: [280, 380] },
   { name: 'AISI 1030', ht: 'Anneal', y: [200, 280], u: [300, 400] },
   { name: 'AISI 1050', ht: 'Anneal', y: [280, 400], u: [490, 660] },

@@ -193,22 +193,26 @@
     {
       "label": "MatWeb — Rene 88DT",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+88DT",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "GE / ASM — Rene 88DT turbine-disc superalloy",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Google Patents WO2014058491A2 — Nickel-based superalloy (R88DT 조성 범위)",
       "url": "https://patents.google.com/patent/WO2014058491A2/en",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -282,5 +286,12 @@
   "svhc_concerns": [
     "Co 13% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "wg": "w37-waspaloyb",
+    "insight": "ni-superalloy"
+  }
 }

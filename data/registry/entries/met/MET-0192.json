@@ -191,32 +191,38 @@
     {
       "label": "MatWeb — Aluminum 6082",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+6082",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "MatWeb 3",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6082",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: AA 6061-T6",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Handbook Vol.2 — AA 6082 EU/KR structural Al",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — Aluminum 6082-T6",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=fad29be6e64d4e95a241690f1f6e1eb7",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "EN 573-3 — Wrought Aluminum 6082 (EN AW-6082)",
       "url": "https://www.cen.eu/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -310,13 +316,15 @@
     "Kaiser Aluminum AA 6082 Technical Data Sheet"
   ],
   "confidence_tier": "medium",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS A96082",
-        "EN AW-6082",
-        "AlSi1MgMn"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "al-6xxx",
+    "weld": "none",
+    "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
+    "htg": "h02-aa",
+    "wg": "w19-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A96082"
+  ]
 }

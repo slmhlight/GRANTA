@@ -190,12 +190,14 @@
     {
       "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
       "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -259,91 +261,68 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "htc": "qt",
+    "insight": "titanium"
+  },
   "_corrections": {
     "composition": {
       "from": {
         "Ti": "balance",
-        "Al": "5~8",
-        "V": "1~5",
-        "Mo": "0~4",
-        "Zr": "0~6",
-        "Sn": "0~4"
+        "Al": "7.35~8.35",
+        "Mo": "0.75~1.25",
+        "V": "0.75~1.25"
       }
-    },
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    },
-    "sources": {
-      "from": [
-        {
-          "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
-          "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Ti-8-1-1\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-8-1-1",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: TIMET beta Ti",
-          "url": null,
-          "verified": false
-        }
-      ]
     },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 800,
-        "max": 1200,
-        "typical": 950,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 910,
+        "typical": 910,
+        "max": 910,
+        "confidence": "handbook",
+        "provenance": "교정: AZoM R54810"
       },
       "had_scalar": true,
-      "val_scalar": 950
+      "val_scalar": 910
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 900,
-        "max": 1300,
-        "typical": 1050,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 937,
+        "typical": 937,
+        "max": 937,
+        "confidence": "handbook",
+        "provenance": "교정: AZoM R54810"
       },
       "had_scalar": true,
-      "val_scalar": 1050
+      "val_scalar": 937
     },
     "elongation": {
       "had_range": true,
       "val_range": {
-        "min": 6,
-        "max": 15,
-        "typical": 10,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 18,
+        "typical": 18,
+        "max": 18,
+        "confidence": "handbook",
+        "provenance": "교정: AZoM R54810"
       },
       "had_scalar": true,
-      "val_scalar": 10
+      "val_scalar": 18
     },
     "_basis": "near-α 냉간가공 비표준 → annealed",
     "_src": "AZoM R54810",
     "points": {
       "from": [
         [
-          4.54,
-          1030.2,
-          1111,
-          8.100000000000001,
-          115,
-          333.3,
+          4.5,
+          910,
+          937,
+          18,
+          110,
+          335,
           7.4
         ]
       ]

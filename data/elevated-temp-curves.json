@@ -1,4 +1,693 @@
 {
-  "_note": "R226g/축3d — elevated-temp/creep 곡선 외부 확장 테이블 (build-materials 동결 유지 — 여기만 편집). 매칭: entry name substring(lowercase). 형식: curves[\"<substring>\"] = { elevated_temp: [{temp(°C), ys(MPa), uts(MPa), E?(GPa)}...], creep_rupture?: [{temp, stress, hours}...], src: \"인용(필수 권장)\" }. 값 정책: 검증된 datasheet/핸드북 수치만 — 미검증 근사 금지. 후보 우선순위: docs/COVERAGE-GAPS.md §3 (인기≥4.0 곡선부재 44종). 인라인 ELEV_DATA 보유 entry 는 불변(인라인 우선).",
-  "curves": {}
+ "_note": "R226g/축3d — elevated-temp/creep 곡선 외부 확장 테이블 (build-materials 동결 유지 — 여기만 편집). 매칭: entry name substring(lowercase). 형식: curves[\"<substring>\"] = { elevated_temp: [{temp(°C), ys(MPa), uts(MPa), E?(GPa)}...], creep_rupture?: [{temp, stress, hours}...], src: \"인용(필수 권장)\" }. 값 정책: 검증된 datasheet/핸드북 수치만 — 미검증 근사 금지. 후보 우선순위: docs/COVERAGE-GAPS.md §3 (인기≥4.0 곡선부재 44종). 인라인 ELEV_DATA 보유 entry 는 불변(인라인 우선).",
+ "curves": {},
+ "_note_by_id": "R226l — stable_id 키 곡선 (build-from-registry 가 entry.elevated_temp 부재 시 부착; ID 기반 — 이름 매칭 없음). 출처: Ansys Granta MI datasheet (사용자 제공 PDF, 벡터 좌표 추출 — 23°C 앵커 검증). E-only 곡선 허용 (TempCurveChart 필드 옵션).",
+ "by_id": {
+  "MET-0239": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 212.6
+    },
+    {
+     "temp": 50,
+     "E": 211.7
+    },
+    {
+     "temp": 150,
+     "E": 207.5
+    },
+    {
+     "temp": 300,
+     "E": 196.9
+    },
+    {
+     "temp": 450,
+     "E": 181.4
+    },
+    {
+     "temp": 600,
+     "E": 161.4
+    },
+    {
+     "temp": 750,
+     "E": 136.3
+    },
+    {
+     "temp": 850,
+     "E": 125.6
+    },
+    {
+     "temp": 1000,
+     "E": 116.3
+    },
+    {
+     "temp": 1150,
+     "E": 106.1
+    },
+    {
+     "temp": 1200,
+     "E": 102.8
+    }
+   ],
+   "src": "Ansys Granta MI — Carbon steel, AISI 1015, annealed (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-1005": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 212.6
+    },
+    {
+     "temp": 50,
+     "E": 211.7
+    },
+    {
+     "temp": 150,
+     "E": 207.5
+    },
+    {
+     "temp": 300,
+     "E": 196.9
+    },
+    {
+     "temp": 450,
+     "E": 181.4
+    },
+    {
+     "temp": 600,
+     "E": 161.4
+    },
+    {
+     "temp": 750,
+     "E": 136.3
+    },
+    {
+     "temp": 850,
+     "E": 125.6
+    },
+    {
+     "temp": 1000,
+     "E": 116.3
+    },
+    {
+     "temp": 1150,
+     "E": 106.1
+    },
+    {
+     "temp": 1200,
+     "E": 102.8
+    }
+   ],
+   "src": "Ansys Granta MI — Carbon steel, AISI 1015, normalized (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-0245": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 212.6,
+     "ys": 271
+    },
+    {
+     "temp": 100,
+     "E": 209.6,
+     "ys": 255
+    },
+    {
+     "temp": 200,
+     "E": 204.4,
+     "ys": 227
+    },
+    {
+     "temp": 300,
+     "E": 196.9,
+     "ys": 203
+    },
+    {
+     "temp": 450,
+     "E": 181.4,
+     "ys": 175
+    },
+    {
+     "temp": 550,
+     "E": 168.5,
+     "ys": 141
+    },
+    {
+     "temp": 650,
+     "E": 153.5,
+     "ys": 78
+    },
+    {
+     "temp": 750,
+     "E": 136.3
+    },
+    {
+     "temp": 850,
+     "E": 125.6
+    },
+    {
+     "temp": 1000,
+     "E": 116.3
+    },
+    {
+     "temp": 1150,
+     "E": 106.1
+    },
+    {
+     "temp": 1200,
+     "E": 102.8
+    }
+   ],
+   "src": "Ansys Granta MI — Carbon steel, AISI 1020, annealed (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-1007": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 212.6
+    },
+    {
+     "temp": 50,
+     "E": 211.7
+    },
+    {
+     "temp": 150,
+     "E": 207.5
+    },
+    {
+     "temp": 300,
+     "E": 196.9
+    },
+    {
+     "temp": 450,
+     "E": 181.4
+    },
+    {
+     "temp": 600,
+     "E": 161.4
+    },
+    {
+     "temp": 750,
+     "E": 136.3
+    },
+    {
+     "temp": 850,
+     "E": 125.6
+    },
+    {
+     "temp": 1000,
+     "E": 116.3
+    },
+    {
+     "temp": 1150,
+     "E": 106.1
+    },
+    {
+     "temp": 1200,
+     "E": 102.8
+    }
+   ],
+   "src": "Ansys Granta MI — Carbon steel, AISI 1020, normalized (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-1006": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 212.6
+    },
+    {
+     "temp": 50,
+     "E": 211.7
+    },
+    {
+     "temp": 150,
+     "E": 207.5
+    },
+    {
+     "temp": 300,
+     "E": 196.9
+    },
+    {
+     "temp": 450,
+     "E": 181.4
+    },
+    {
+     "temp": 600,
+     "E": 161.4
+    },
+    {
+     "temp": 750,
+     "E": 136.3
+    },
+    {
+     "temp": 850,
+     "E": 125.6
+    },
+    {
+     "temp": 1000,
+     "E": 116.3
+    },
+    {
+     "temp": 1150,
+     "E": 106.1
+    },
+    {
+     "temp": 1200,
+     "E": 102.8
+    }
+   ],
+   "src": "Ansys Granta MI — Carbon steel, AISI 1020, as rolled (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-0047": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 208.3
+    },
+    {
+     "temp": 50,
+     "E": 207.5
+    },
+    {
+     "temp": 150,
+     "E": 202.8
+    },
+    {
+     "temp": 250,
+     "E": 196.3
+    },
+    {
+     "temp": 400,
+     "E": 183.7
+    },
+    {
+     "temp": 500,
+     "E": 172
+    },
+    {
+     "temp": 600,
+     "E": 158.2
+    },
+    {
+     "temp": 700,
+     "E": 142.7
+    },
+    {
+     "temp": 800,
+     "E": 127.1
+    },
+    {
+     "temp": 900,
+     "E": 120.7
+    },
+    {
+     "temp": 1000,
+     "E": 114.1
+    },
+    {
+     "temp": 1100,
+     "E": 107.5
+    },
+    {
+     "temp": 1200,
+     "E": 100.8
+    }
+   ],
+   "src": "Ansys Granta MI — Low alloy steel, AISI 6150, annealed (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-0970": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 209.8
+    },
+    {
+     "temp": 100,
+     "E": 206.5
+    },
+    {
+     "temp": 200,
+     "E": 200.1
+    },
+    {
+     "temp": 300,
+     "E": 191.2
+    },
+    {
+     "temp": 400,
+     "E": 180
+    }
+   ],
+   "src": "Ansys Granta MI — Tool steel, chromium alloy high carbon, AISI D2 (cold work) (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-0969": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 209.8
+    },
+    {
+     "temp": 100,
+     "E": 206.5
+    },
+    {
+     "temp": 200,
+     "E": 200.1
+    },
+    {
+     "temp": 300,
+     "E": 191.2
+    },
+    {
+     "temp": 400,
+     "E": 180
+    }
+   ],
+   "src": "Ansys Granta MI — Tool steel, chromium alloy high carbon, AISI D2 (cold work) (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-0847": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 212.6,
+     "ys": 249
+    },
+    {
+     "temp": 100,
+     "E": 209.5,
+     "ys": 221
+    },
+    {
+     "temp": 200,
+     "E": 204,
+     "ys": 200
+    },
+    {
+     "temp": 300,
+     "E": 196.6,
+     "ys": 185
+    },
+    {
+     "temp": 400,
+     "E": 187.6,
+     "ys": 170
+    },
+    {
+     "temp": 500,
+     "E": 175.6,
+     "ys": 146
+    },
+    {
+     "temp": 600,
+     "E": 161.5,
+     "ys": 109
+    },
+    {
+     "temp": 700,
+     "E": 145.7,
+     "ys": 56
+    },
+    {
+     "temp": 800,
+     "E": 129.8
+    },
+    {
+     "temp": 900,
+     "E": 123.2
+    },
+    {
+     "temp": 1000,
+     "E": 116.4
+    },
+    {
+     "temp": 1100,
+     "E": 109.7
+    },
+    {
+     "temp": 1200,
+     "E": 102.9
+    }
+   ],
+   "src": "Ansys Granta MI — Structural steel, ASTM A36 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-0849": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 212.6,
+     "ys": 249
+    },
+    {
+     "temp": 100,
+     "E": 209.5,
+     "ys": 221
+    },
+    {
+     "temp": 200,
+     "E": 204,
+     "ys": 200
+    },
+    {
+     "temp": 300,
+     "E": 196.6,
+     "ys": 185
+    },
+    {
+     "temp": 400,
+     "E": 187.6,
+     "ys": 170
+    },
+    {
+     "temp": 500,
+     "E": 175.6,
+     "ys": 146
+    },
+    {
+     "temp": 600,
+     "E": 161.5,
+     "ys": 109
+    },
+    {
+     "temp": 700,
+     "E": 145.7,
+     "ys": 56
+    },
+    {
+     "temp": 800,
+     "E": 129.8
+    },
+    {
+     "temp": 900,
+     "E": 123.2
+    },
+    {
+     "temp": 1000,
+     "E": 116.4
+    },
+    {
+     "temp": 1100,
+     "E": 109.7
+    },
+    {
+     "temp": 1200,
+     "E": 102.9
+    }
+   ],
+   "src": "Ansys Granta MI — Structural steel, ASTM A36 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-0848": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 212.6,
+     "ys": 249
+    },
+    {
+     "temp": 100,
+     "E": 209.5,
+     "ys": 221
+    },
+    {
+     "temp": 200,
+     "E": 204,
+     "ys": 200
+    },
+    {
+     "temp": 300,
+     "E": 196.6,
+     "ys": 185
+    },
+    {
+     "temp": 400,
+     "E": 187.6,
+     "ys": 170
+    },
+    {
+     "temp": 500,
+     "E": 175.6,
+     "ys": 146
+    },
+    {
+     "temp": 600,
+     "E": 161.5,
+     "ys": 109
+    },
+    {
+     "temp": 700,
+     "E": 145.7,
+     "ys": 56
+    },
+    {
+     "temp": 800,
+     "E": 129.8
+    },
+    {
+     "temp": 900,
+     "E": 123.2
+    },
+    {
+     "temp": 1000,
+     "E": 116.4
+    },
+    {
+     "temp": 1100,
+     "E": 109.7
+    },
+    {
+     "temp": 1200,
+     "E": 102.9
+    }
+   ],
+   "src": "Ansys Granta MI — Structural steel, ASTM A36 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-0829": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 200.5,
+     "ys": 1031,
+     "uts": 1219
+    },
+    {
+     "temp": 150,
+     "E": 191,
+     "ys": 959,
+     "uts": 1142
+    },
+    {
+     "temp": 250,
+     "E": 184.8,
+     "ys": 913,
+     "uts": 1083
+    },
+    {
+     "temp": 350,
+     "E": 180.8,
+     "ys": 862,
+     "uts": 1032
+    },
+    {
+     "temp": 450,
+     "E": 169.5,
+     "ys": 670,
+     "uts": 845
+    },
+    {
+     "temp": 550,
+     "E": 136.9,
+     "ys": 387,
+     "uts": 433
+    }
+   ],
+   "src": "Ansys Granta MI — Stainless steel, semi-austenitic, 17-7PH, TH1050 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-0507": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 204.7,
+     "ys": 359
+    },
+    {
+     "temp": 100,
+     "E": 200.6,
+     "ys": 310
+    },
+    {
+     "temp": 200,
+     "E": 194.9,
+     "ys": 268
+    },
+    {
+     "temp": 300,
+     "E": 189.4,
+     "ys": 245
+    },
+    {
+     "temp": 400,
+     "E": 183.7,
+     "ys": 228
+    },
+    {
+     "temp": 550,
+     "E": 175.2
+    }
+   ],
+   "src": "Ansys Granta MI — Nickel-Mo-Cr alloy, HASTELLOY C-276 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  },
+  "MET-1011": {
+   "elevated_temp": [
+    {
+     "temp": 25,
+     "E": 186.7,
+     "ys": 698
+    },
+    {
+     "temp": 100,
+     "E": 183.8,
+     "ys": 718
+    },
+    {
+     "temp": 200,
+     "E": 180.4,
+     "ys": 725
+    },
+    {
+     "temp": 300,
+     "E": 177,
+     "ys": 702
+    },
+    {
+     "temp": 400,
+     "E": 173.3,
+     "ys": 642
+    },
+    {
+     "temp": 500,
+     "E": 168.2,
+     "ys": 571
+    },
+    {
+     "temp": 600,
+     "E": 161,
+     "ys": 515
+    },
+    {
+     "temp": 700,
+     "E": 151.4,
+     "ys": 319
+    },
+    {
+     "temp": 800,
+     "E": 138.1
+    },
+    {
+     "temp": 850,
+     "E": 130
+    }
+   ],
+   "src": "Ansys Granta MI — Nickel-copper alloy, MONEL 400, hard (spring temper) (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  }
+ }
 }

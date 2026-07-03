@@ -190,37 +190,44 @@
     {
       "label": "ASM — AA 7068 high-strength aluminium (T6511)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: Aluminum Association AA 7075-T651",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Kaiser Aluminum 7068 technical reference",
       "url": "https://www.kaiseraluminum.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 4332 — Aluminum 7068-T6511 bar",
       "url": "https://www.sae.org/standards/content/ams4332/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "Kaiser/Tennalum 7068 T6, T6511 Rod & Bar datasheet (mechanical properties)",
       "url": "https://www.lookpolymers.com/polymer_Kaiser-7068-T6-T6511-Rod-Bar.php",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     },
     {
       "label": "Smiths Metal Centres — 7068 Aluminium Alloy overview (AMS 4331, yield up to 700 MPa; full property table only in linked PDF)",
       "url": "https://www.smithmetal.com/7068.htm",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -301,5 +308,16 @@
   "total_cost_estimate": 20.79,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-7xxx",
+    "weld": "none",
+    "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+    "htg": "h02-aa",
+    "wg": "w20-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A97068"
+  ]
 }

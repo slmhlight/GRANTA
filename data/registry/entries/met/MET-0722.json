@@ -189,19 +189,22 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "KIST",
       "url": "https://kist.re.kr/eng/index.do",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 304/304L",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -264,5 +267,13 @@
   "svhc_concerns": [
     "Ni 10% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+    "wg": "w05-aisi",
+    "insight": "stainless"
+  }
 }

@@ -106,32 +106,38 @@
     {
       "label": "ASTM B36 — commercial bronze C22000",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: AA 2xxx Al-Cu",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Copper Development Association — Red Brass family",
       "url": "https://www.copper.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B36 — Brass Plate, Sheet, Strip, Rolled Bar",
       "url": "https://store.astm.org/b0036_b0036m-18.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "Copper Development Association — Alloy C22000 (Commercial Bronze, 90%)",
       "url": "https://alloys.copper.org/alloy/C22000",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -190,29 +196,11 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          8.8,
-          125,
-          290,
-          45,
-          115,
-          75,
-          189
-        ],
-        [
-          8.8,
-          300,
-          360,
-          5,
-          115,
-          100,
-          189
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "weld": "none",
+    "insight": "copper"
+  },
+  "uns": [
+    "C22000"
+  ]
 }

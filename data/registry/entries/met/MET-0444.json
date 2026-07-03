@@ -186,27 +186,32 @@
     {
       "label": "Copper.org — C10100 Oxygen-Free Electronic Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C10100",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM — OFHC copper C10100 (UNS C10100)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Copper Development Association — OFE C10100",
       "url": "https://www.copper.org/resources/properties/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM F68 — Oxygen-Free Copper",
       "url": "https://store.astm.org/f0068-22.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -305,5 +310,14 @@
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
     "Coolidge W D (1923) US Patent 1,082,933 \"Tungsten and method of making the same for use as filaments\""
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "cu-pure",
+    "weld": "none",
+    "wg": "w50-c10",
+    "insight": "copper"
+  },
+  "uns": [
+    "C10100"
+  ]
 }

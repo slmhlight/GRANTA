@@ -189,24 +189,27 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
+      "label": "Carpenter Technology datasheet",
       "url": "https://www.carpentertechnology.com/alloy-finder/custom-465",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 2",
-      "url": "Carpenter Custom 465 datasheet (AMS 5936, ASTM A564, MMPDS-01)",
-      "verified": true
+      "label": "Carpenter Custom 465 datasheet (AMS 5936, ASTM A564, MMPDS-01)",
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Carpenter Custom 465 (H950)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AMS 5936 — Custom 465 bar/forging",
       "url": "https://www.sae.org/standards/content/ams5936/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -279,5 +282,17 @@
   "svhc_concerns": [
     "Ni 11.25% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "htc": "aged",
+    "ht": "Custom 465 PH stainless (UNS S46500, Carpenter)",
+    "htg": "h03-17",
+    "wg": "w09-17",
+    "insight": "stainless-highperf"
+  },
+  "uns": [
+    "S46500"
+  ]
 }

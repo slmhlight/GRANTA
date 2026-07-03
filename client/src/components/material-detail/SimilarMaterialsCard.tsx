@@ -2,14 +2,15 @@
  * R161 — Similar / alternative materials card with reason chips.
  * Composition tab 안에 위치 (R161 요구), 각 추천 재료에 "왜 비슷한가" 설명 chip 추가.
  *
- * 변경:
- *  - "same family" 배지 → 항상 표시
- *  - 가격 ↓ / 강도 ↑ / 무게 ↓ 등 dominant trade-off 한 줄 요약 chip 추가
- *  - 기존 property delta chips 유지 (정량 차이)
+ * R226l — 유사재료(물성 거리) × 선택 인사이트(용도 관행) 융합:
+ *  후보가 현재 재료와 같은 인사이트 그룹이면, 후보에만 해당하는 when-to-use 시나리오를
+ *  "이 대체가 유리한 경우" 로 표시 — 조성/물성 유사도만으로는 답할 수 없는 '언제 갈아타는가' 를
+ *  ID 기반(m.profiles.insight + 대표지정명 매칭)으로 제공. 절삭성 rating 델타도 함께 (공정 관점).
  */
-import { Layers } from 'lucide-react';
+import { Layers, Lightbulb } from 'lucide-react';
 import type { Material } from '@/lib/materials';
 import { findSimilar, type SimilarMaterial } from '@/lib/similar-materials';
+import { resolveInsights, insightPickMatches, resolveMachinability, resolvePolymerMachinability } from '@/lib/process-guidance';
 
 interface SimilarMaterialsCardProps {
   material: Material;
@@ -42,6 +43,30 @@ function synthesizeReason(s: SimilarMaterial): string {
   return parts.join(' · ');
 }
 
+/** R226l — 후보별 결정 컨텍스트 (전부 m.profiles 조회 — regex 없음). export = 유닛테스트 대상. */
+export function decisionContext(cur: Material, cand: Material): { whenLine: string | null; machChip: string | null } {
+  let whenLine: string | null = null;
+  const curIns = resolveInsights(cur);
+  if (curIns && cand.profiles?.insight && cand.profiles.insight === cur.profiles?.insight) {
+    // 같은 인사이트 그룹: 후보에는 해당하고 현재에는 해당하지 않는 시나리오 = 갈아탈 이유
+    const pick = curIns.picks.find(p => insightPickMatches(cand, p) && !insightPickMatches(cur, p));
+    if (pick) whenLine = `${pick.when} → ${pick.use}`;
+  } else if (cand.profiles?.insight && cand.profiles.insight !== cur.profiles?.insight) {
+    const candIns = resolveInsights(cand);
+    if (candIns) whenLine = `다른 계열 — ${candIns.title}`;
+  }
+  let machChip: string | null = null;
+  const m1 = resolveMachinability(cur);
+  const m2 = resolveMachinability(cand);
+  if (m1 && m2 && m1.rating !== m2.rating) machChip = `절삭성 ${m1.rating}%→${m2.rating}%`;
+  else {
+    const p1 = resolvePolymerMachinability(cur);
+    const p2 = resolvePolymerMachinability(cand);
+    if (p1 && p2 && p1.label !== p2.label) machChip = `절삭성 ${p1.label}→${p2.label}`;
+  }
+  return { whenLine, machChip };
+}
+
 export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial, topN = 5 }: SimilarMaterialsCardProps) {
   const similar = findSimilar(material, allMaterials, { topN });
   if (!similar.length) return null;
@@ -52,7 +77,9 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
         <span className="text-[10px] font-normal opacity-70">top {similar.length}</span>
       </summary>
       <div className="space-y-1.5 mt-2 pt-2 border-t border-sky-300/50">
-        {similar.map((s) => (
+        {similar.map((s) => {
+          const ctx = decisionContext(material, s.material);
+          return (
           <button
             key={s.material.id}
             type="button"
@@ -81,9 +108,21 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
             <div className="mt-1 text-[10px] text-sky-800/90 bg-sky-100/60 rounded px-1.5 py-0.5 inline-block">
               {synthesizeReason(s)}
             </div>
-            {/* 정량 delta chips. */}
-            {s.diffs.length > 0 && (
+            {/* R226l — 인사이트 융합: 언제 이 대체가 유리한가 (같은 그룹 시나리오) / 다른 계열 표시 */}
+            {ctx.whenLine && (
+              <div className="mt-1 text-[10px] text-indigo-800 bg-indigo-50 border border-indigo-200 rounded px-1.5 py-0.5 flex items-start gap-1">
+                <Lightbulb className="w-3 h-3 flex-shrink-0 mt-[1px]" />
+                <span className="leading-snug">{ctx.whenLine}</span>
+              </div>
+            )}
+            {/* 정량 delta chips (+R226l 절삭성 델타 — 공정 관점). */}
+            {(s.diffs.length > 0 || ctx.machChip) && (
               <div className="flex flex-wrap gap-1 mt-1">
+                {ctx.machChip && (
+                  <span className="text-[9.5px] px-1.5 py-0.5 rounded font-mono bg-violet-50 text-violet-700 border border-violet-200" title="절삭성 rating 변화 (AISI 1212=100 기준, 공정 프로파일)">
+                    {ctx.machChip}
+                  </span>
+                )}
                 {s.diffs.map((d) => (
                   <span
                     key={d.prop}
@@ -100,11 +139,13 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
               </div>
             )}
           </button>
-        ))}
+          );
+        })}
         <p className="text-[10px] text-muted-foreground mt-2 leading-snug">
           같은 카테고리 + property log-distance &lt; 1.5 + popularity ≥ 3.0 + 같은 family +50% boost.
           클릭하면 해당 재료로 이동. <span className="text-emerald-700">초록</span>=&lt;10% 차이 ·{' '}
-          <span className="text-amber-700">노랑</span>=&lt;30% · <span className="text-rose-700">빨강</span>=≥30%.
+          <span className="text-amber-700">노랑</span>=&lt;30% · <span className="text-rose-700">빨강</span>=≥30%.{' '}
+          <span className="text-indigo-700">💡 줄</span> = 선택 인사이트 융합 — 이 대체가 유리한 용도 시나리오 (아래 인사이트 카드와 연동).
         </p>
       </div>
     </details>

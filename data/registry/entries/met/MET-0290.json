@@ -187,29 +187,34 @@
   },
   "sources": [
     {
-      "label": "MatWeb 3",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20S35C",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Steel Pro Group — JIS G4051 S35C (standard/+QT 기계적 물성 + 조성)",
       "url": "https://steelprogroup.com/mold-steel/s35c/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "SteelJIS — S35C (JIS G4051) 조성 데이터시트",
       "url": "http://steeljis.com/jis_steel_datasheet.php?name_id=238",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -276,5 +281,10 @@
   "total_cost_estimate": 1.39,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "carbon-alloy-steel"
+  }
 }

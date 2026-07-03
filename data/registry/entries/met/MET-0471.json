@@ -186,22 +186,26 @@
     {
       "label": "ASM Handbook Vol.2 — Magnesium & Magnesium Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ASM Handbook Vol.2 — Magnesium AZ91D die-casting alloy",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205013/Magnesium-Alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — AZ91D Magnesium Alloy",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=ed0e6d6dec324a8eafaff5571ee6f4b3",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM B94 — Mg Die-Casting Alloy AZ91D",
       "url": "https://store.astm.org/b0094-21.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -455,40 +459,15 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS M11916 / ASTM AZ91D / MgAl9Zn1 — magnesium die-casting alloy (Al 8.3-9.7, Zn 0.35-1.0, Mn ≥ 0.15, Cu ≤ 0.025). 가장 흔한 cast Mg (high-pressure die casting 표준). As-81 g/cc. T6 (200°C 16h Tmax 150°C continuous (creep limit). 자동차 transmission case, steering wheel core, oil pan, 노트북 housing, drill case. AZ91D 의 'D' = high-purity (low Fe/Ni/Cu for galvanic corrosion 회피). 가공 시 lubricant flammable — Mg shaving 발화 위험.",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Luxfer/Magnesium Elektron — AZ91D Magnesium",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ91D+magnesium",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol.2 — Magnesium AZ91D die-casting alloy",
-          "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205013/Magnesium-Alloys",
-          "verified": true
-        },
-        {
-          "label": "MatWeb — AZ91D Magnesium Alloy",
-          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=ed0e6d6dec324a8eafaff5571ee6f4b3",
-          "verified": false
-        },
-        {
-          "label": "ASTM B94 — Mg Die-Casting Alloy AZ91D",
-          "url": "https://store.astm.org/b0094-21.html",
-          "verified": false
-        }
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "magnesium",
+    "weld": "none",
+    "htc": "qt",
+    "htg": "h09-azd",
+    "wg": "w47-az91d",
+    "insight": "magnesium"
+  },
+  "uns": [
+    "M11916"
+  ]
 }

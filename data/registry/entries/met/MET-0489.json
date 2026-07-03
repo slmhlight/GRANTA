@@ -183,9 +183,10 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "BGH Edelstahl datasheet",
       "url": "https://bgh.de/en/materials/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -244,5 +245,10 @@
   "total_cost_estimate": 2.55,
   "tolerance_class": "IT12-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "structural-steel"
+  }
 }

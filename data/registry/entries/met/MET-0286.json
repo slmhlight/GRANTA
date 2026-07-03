@@ -36,14 +36,16 @@
       "max": 555,
       "typical": 555,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 625,
       "max": 625,
       "typical": 625,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "elongation": {
       "min": 25,
@@ -193,19 +195,22 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "POSCO datasheet",
       "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000003.jsp",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: API 5L pipeline",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -270,5 +275,10 @@
   "total_cost_estimate": 1.22,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "wg": "w11-api",
+    "insight": "carbon-alloy-steel"
+  }
 }

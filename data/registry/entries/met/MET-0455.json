@@ -190,14 +190,16 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "ECCC creep data",
       "url": "https://www.eccc-creep.com/datasheets/",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "KIC fallback: ASME B&PV Sec.II heat-resistant",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -279,5 +281,10 @@
       "E": 180
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "soft",
+    "insight": "carbon-alloy-steel"
+  }
 }

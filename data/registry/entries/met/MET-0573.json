@@ -197,27 +197,32 @@
     {
       "label": "ATI Allvac — Inconel 718Plus (improved 718 with cobalt)",
       "url": "https://www.atimaterials.com",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "ATI 718Plus® Alloy Technical Data Sheet (UNS N07818, VERSION 1 2013)",
       "url": "https://www.atimetals.com/products/718plus-alloy/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Special Metals SMC-045 Inconel 718",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ATI Allvac 718Plus (UNS N07818) Technical Bulletin",
       "url": "https://www.atimaterials.com/Products/Documents/datasheets/nickel-cobalt/Ni-Co-Cr-Mo-W/ati_718plus_alloy_data.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "AMS 5945 / 5946 — 718Plus bar/forging",
       "url": "https://www.sae.org/standards/content/ams5945/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -381,5 +386,16 @@
     "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP",
     "ATI Allvac \"Allvac 718Plus Alloy Technical Data\" (2014)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "htg": "h04-inconel",
+    "wg": "w28-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07818"
+  ]
 }

@@ -186,17 +186,20 @@
     {
       "label": "MatWeb — Pure Tungsten W",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tungsten",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 3",
+      "label": "Plansee datasheet",
       "url": "https://www.plansee.com/en/materials/tungsten.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "MatWeb 3",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Tungsten%20pure",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -267,5 +270,12 @@
     "Lassner E & Schubert W D (1999) Tungsten: Properties, Chemistry, Technology of the Element, Alloys, and Chemical Compounds, Springer",
     "Davis J R (ed., 1998) ASM Specialty Handbook: Heat-Resistant Materials"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "tungsten",
+    "weld": "none",
+    "htc": "soft",
+    "wg": "w59-tungstenb",
+    "insight": "refractory"
+  }
 }

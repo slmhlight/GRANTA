@@ -159,12 +159,14 @@
     {
       "label": "Lubrizol Estane TPU",
       "url": "https://www.lubrizol.com/engineered-polymers",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "BASF Elastollan TPU technical guide",
       "url": "https://plastics-rubber.basf.com/global/en/performance_polymers/products/elastollan.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -382,30 +384,8 @@
   ],
   "confidence_tier": "high",
   "industry_note": "TPU (Thermoplastic Polyurethane). Ester (TPU-ES, oil-resistant) vs Ether (TPU-ET, hydrolysis-resistant) types. Tg ≈ -50°C, max service 80-100°C continuous. σy 20-50 / UTS 30-60 / El 300-800% / Shore A 70-95 / Shore D 50-75 / E 0.005-0.30 GPa (range 매우 wide). 의료 hose / 카테터, sportswear (자켓 코팅), Phone case (Apple/Samsung), 자전거 saddle, 자동차 timing belt cover, 산업 conveyor belt. AM FDM filament (NinjaFlex).",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Lubrizol Estane TPU",
-          "url": "https://www.lubrizol.com/engineered-polymers",
-          "verified": true
-        },
-        {
-          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"TPU\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=TPU",
-          "verified": false
-        },
-        {
-          "label": "BASF Elastollan TPU technical guide",
-          "url": "https://plastics-rubber.basf.com/global/en/performance_polymers/products/elastollan.html",
-          "verified": true
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "pol-elastomer",
+    "insight": "pol-elastomer"
   }
 }

@@ -191,22 +191,26 @@
     {
       "label": "ASM — PH13-8Mo (UNS S13800, H1000)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Bohler-Uddeholm H13",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Carpenter Technology — 13-8Mo (S13800, AMS 5629) 공식 데이터시트 (PDF, 인장·경도표 텍스트 추출 검증)",
       "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/13-8Mo_Datasheet.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -357,5 +361,13 @@
     "AK Steel \"PH 13-8 Mo Stainless Steel Product Data Bulletin\" (2007)",
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S13800"
+  ]
 }

@@ -188,24 +188,28 @@
   },
   "sources": [
     {
-      "label": "MatWeb 2",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA7475",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: AA 7xxx Al-Zn",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7175/7475 Technical Data (T651/T7351/T7651 인장, PDF 직접 판독)",
       "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1018/Kaiser_Aluminum_7175-7475_Sheet_Coil_and_Plate.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -264,5 +268,12 @@
   "total_cost_estimate": 5.48,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "al-7xxx",
+    "weld": "none",
+    "htc": "aged",
+    "htg": "h02-aa",
+    "insight": "aluminum"
+  }
 }

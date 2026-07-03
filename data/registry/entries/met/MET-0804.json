@@ -189,19 +189,21 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, ferritic, AISI 446 annealed (UNS S44600, EN 1.4749)",
-      "verified": true
+      "label": "ANSYS Granta — Stainless steel, ferritic, AISI 446 annealed (UNS S44600, EN 1.4749)",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
+      "label": "ATI datasheet",
       "url": "https://www.alleghenytechnologies.com/products/products-by-grade/?grade=446",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -272,5 +274,15 @@
   "total_cost_estimate": 5.11,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ferritic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "wg": "w07-aisi",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S44600"
+  ]
 }

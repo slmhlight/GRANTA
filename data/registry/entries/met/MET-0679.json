@@ -189,29 +189,34 @@
   },
   "sources": [
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%209260",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: ASM spring steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "MakeItFrom — SAE-AISI 9260 (G92600) Silicon Steel (annealed 조성+기계적 물성)",
       "url": "https://www.makeitfrom.com/material-properties/SAE-AISI-9260-G92600-Silicon-Steel",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "steel-grades.com — AISI 9260 (조건별 Rp0.2 533/Rm 679 MPa·243 HBW)",
       "url": "https://www.steel-grades.com/Steel-Grades/Carbon-Steel/AISI-9260.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -271,5 +276,11 @@
   "total_cost_estimate": 3.87,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "htg": "h01-aisi",
+    "insight": "carbon-alloy-steel"
+  }
 }

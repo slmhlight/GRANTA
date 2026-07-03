@@ -191,17 +191,20 @@
     {
       "label": "Outokumpu — 254 SMO Super Austenitic",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/254-smo",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Outokumpu — 254 SMO super-austenitic (UNS S31254)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Outokumpu 254 SMO",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -294,5 +297,13 @@
   "svhc_concerns": [
     "Ni 18.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S31254"
+  ]
 }

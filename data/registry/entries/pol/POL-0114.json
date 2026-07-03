@@ -145,12 +145,14 @@
     {
       "label": "Datasheet — Radel R-5000 (PPSU, Solvay)",
       "url": "https://www.syensqo.com/en/product/radel-ppsu",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: 고온 의료기기 (steam sterilization 1000회+), 항공기 휘장, 배관 fittings",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "machinability": "Good",
@@ -224,5 +226,9 @@
       "E": 1.3
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-amorphous",
+    "insight": "pol-highperf"
+  }
 }

@@ -191,17 +191,20 @@
     {
       "label": "Special Metals — Inconel Alloy 740H",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Special Metals — Inconel 740H (A-USC superalloy)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -275,5 +278,14 @@
   "svhc_concerns": [
     "Co 20% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07740"
+  ]
 }

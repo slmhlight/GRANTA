@@ -157,27 +157,32 @@
     {
       "label": "MatWeb — Polycarbonate (PC)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Polycarbonate",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Material datasheets — Polycarbonate (FDM/molded)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SABIC LEXAN PC resin technical guide",
       "url": "https://www.sabic.com/en/products/specialties/lexan-resins",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Covestro Makrolon PC datasheet",
       "url": "https://solutions.covestro.com/en/products/makrolon",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — Polycarbonate (PC) general",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=501acbb63cbc4f748faa7490884cdbca",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -258,5 +263,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-amorphous",
+    "insight": "pol-engineering"
+  }
 }

@@ -190,32 +190,38 @@
     {
       "label": "MatWeb — Aluminum A356 / AlSi7Mg cast",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A356+aluminum",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASM / industry data — A356.0 (T6 / F / T51 tempers)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: Aluminum Association handbook",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Handbook Vol.2 — A356 cast aluminum",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Aluminum Association — Cast Designation A356",
       "url": "https://www.aluminum.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — A356-T6 cast aluminum",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8e3ea3ec01d04bd1bcb3ea91a13e6f4f",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -302,5 +308,13 @@
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Aluminum Casting",
     "Sigworth G K & Caceres C H (2005) \"Quality issues in aluminum castings\", AFS Trans 113"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-cast-am",
+    "weld": "none",
+    "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+    "htg": "h02-aa",
+    "wg": "w21-alsi10mg",
+    "insight": "aluminum"
+  }
 }

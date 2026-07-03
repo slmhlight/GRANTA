@@ -1,0 +1,303 @@
+{
+  "stable_id": "MET-1003",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-alloy-steel",
+    "alloy_base": "F-AB-aisi-6150",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0463",
+  "origin": "reference(supplementary)",
+  "id": "R_0463",
+  "name": "AISI 6150 — Normalized (Wrought)",
+  "category": "Metal",
+  "subcategory": "Alloy Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Normalized",
+  "ranges": {
+    "density": {
+      "min": 7.9,
+      "max": 7.9,
+      "typical": 7.9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 615,
+      "max": 615,
+      "typical": 615,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 943,
+      "max": 943,
+      "typical": 943,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 207,
+      "max": 207,
+      "typical": 207,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 276,
+      "max": 276,
+      "typical": 276,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 45,
+      "max": 45,
+      "typical": 45,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 301,
+      "max": 392,
+      "typical": 347,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:6150 × HT:normalized (f×0.7, i×1.8)"
+    },
+    "impact_strength": {
+      "min": 45,
+      "max": 90,
+      "typical": 63,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:6150 × HT:normalized (f×0.7, i×1.8)"
+    },
+    "fracture_toughness": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC × HT:normalized (k×1.5)"
+    },
+    "electrical_conductivity": {
+      "min": 6.5,
+      "max": 6.5,
+      "typical": 6.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "max_service_temp": {
+      "min": 480,
+      "max": 480,
+      "typical": 480,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "thermal_expansion": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "poisson_ratio": {
+      "min": 0.29,
+      "max": 0.29,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "specific_heat": {
+      "min": 476,
+      "max": 476,
+      "typical": 476,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "melting_point": {
+      "min": 1430,
+      "max": 1430,
+      "typical": 1430,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "price_per_kg": {
+      "min": 3.5,
+      "max": 3.5,
+      "typical": 3.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "price_per_cm3": {
+      "min": 0.0277,
+      "max": 0.0277,
+      "typical": 0.0277,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:6150"
+    },
+    "delivered_price_per_kg": {
+      "min": 4.01,
+      "max": 4.01,
+      "typical": 4.01,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.48~0.53",
+    "Cr": "0.8~1.1",
+    "Mn": "0.7~0.9",
+    "P": "0~0.035",
+    "S": "0~0.04",
+    "Si": "0.15~0.35",
+    "V": "0.15"
+  },
+  "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true,
+      "authority": "handbook"
+    },
+    {
+      "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": true,
+      "authority": "standard"
+    },
+    {
+      "label": "Ansys Granta MI — Low alloy steel, AISI 6150, normalized (Materials Data for Simulation datasheet, 사용자 제공 R226l)",
+      "verified": true,
+      "authority": "other"
+    },
+    {
+      "label": "KIC fallback: AMS 6415 alloy steel",
+      "url": null,
+      "verified": false,
+      "authority": "other"
+    },
+    {
+      "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+      "url": null,
+      "verified": false,
+      "authority": "other"
+    }
+  ],
+  "points": [
+    [
+      7.9,
+      615,
+      943,
+      22,
+      207,
+      276,
+      45
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Fair",
+  "corrosion_resistance": "Poor",
+  "industry_note": "Ansys Granta MI 검증 datasheet (Low alloy steel, AISI 6150, normalized, UNS G61500, H61500, K15048, K15047). Granta 추정치(*): k — 참고 신뢰도.",
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 6415",
+        "org": "AMS"
+      }
+    ]
+  },
+  "related": [
+    "SUP10"
+  ],
+  "aliases": [
+    "SUP10 (JIS/KS ≈)",
+    "UNS G61500",
+    "DIN 1.8159",
+    "51CrV4",
+    "JIS SUP10"
+  ],
+  "fracture_toughness": 120,
+  "fatigue_strength": 347,
+  "density": 7.9,
+  "yield_strength": 615,
+  "uts": 943,
+  "elongation": 22,
+  "modulus": 207,
+  "hardness": 276,
+  "thermal_conductivity": 45,
+  "impact_strength": 63,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Ansys Granta MI — Low alloy steel, AISI 6150, normalized (Materials Data for Simulation datasheet, 사용자 제공 R226l)",
+  "families": [
+    "Metal",
+    "Alloy Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 6.5,
+  "max_service_temp": 480,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 476,
+  "melting_point": 1430,
+  "price_per_kg": 3.5,
+  "price_per_cm3": 0.0277,
+  "popularity": 3.17,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.1,
+  "price_condition_factor": 1.05,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1.04,
+  "delivered_price_per_kg": 4.01,
+  "total_cost_estimate": 4.01,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "soft",
+    "insight": "carbon-alloy-steel"
+  },
+  "uns": [
+    "G61500"
+  ]
+}

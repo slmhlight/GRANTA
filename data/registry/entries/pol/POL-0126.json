@@ -157,12 +157,14 @@
     {
       "label": "Material datasheets — PVDF (Kynar)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Arkema — Kynar PVDF resin 물성 (제조사)",
       "url": "https://hpp.arkema.com/en/product-families/kynar-fluoropolymer-family/contact-physical-and-mechanical-properties/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -239,5 +241,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-fluoro"
+  }
 }

@@ -179,12 +179,14 @@
     {
       "label": "Special Metals — Nickel 200/201",
       "url": "http://web.archive.org/web/20240714185430/https://www.specialmetals.com/documents/technical-bulletins/nickel-200.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Special Metals — Nickel 200 (UNS N02200)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -276,13 +278,13 @@
     "Ni 99.9% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS N02200",
-        "EN 2.4066",
-        "Ni 99.6"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "soft",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N02200"
+  ]
 }

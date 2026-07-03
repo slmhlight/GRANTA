@@ -192,27 +192,32 @@
     {
       "label": "MatWeb — Inconel 939",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+939",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "IN939 reference / Inconel 939 paper",
       "url": "https://en.wikipedia.org/wiki/Inconel",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Heliyon (Elsevier, open access) — A systematic review of Inconel 939 alloy parts development via AM (조성 Table 1 + cast/HT 인장)",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10862689/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Regent Steel — IN939/Inconel 939 datasheet (조성 + as-cast/heat-treated 인장 + rupture vs temp)",
       "url": "https://www.regentsteel.com/in939.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -319,5 +324,12 @@
   "svhc_concerns": [
     "Co 20% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "hip",
+    "wg": "w30-inconel",
+    "insight": "ni-superalloy"
+  }
 }

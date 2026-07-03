@@ -192,17 +192,20 @@
     {
       "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "Outokumpu / Sandvik — AISI 310/321/347 stabilized austenitic stainless (ASTM A240)",
       "url": "https://www.outokumpu.com/en/datasheets",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -317,62 +320,11 @@
     }
   ],
   "confidence_tier": "medium",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Outokumpu / Sandvik — AISI 310/321/347 stabilized austenitic stainless (ASTM A240)",
-          "url": "https://www.outokumpu.com/en/datasheets",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 310\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20310",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: ASM Vol.1 Austenitic SS",
-          "url": null,
-          "verified": false
-        }
-      ]
-    },
-    "points": {
-      "from": [
-        [
-          7.75,
-          176.3,
-          442.9,
-          32.4,
-          193,
-          186.62,
-          16.3
-        ],
-        [
-          7.75,
-          233.7,
-          587.0999999999999,
-          43.6,
-          193,
-          247.38,
-          16.3
-        ],
-        [
-          7.75,
-          221.4,
-          556.2,
-          41.2,
-          193,
-          234.36,
-          16.3
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htc": "qt",
+    "wg": "w05-aisi",
+    "insight": "stainless"
   }
 }

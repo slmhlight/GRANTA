@@ -157,27 +157,32 @@
     {
       "label": "Material datasheets — carbon-fibre PEEK (FDM)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Solvay KetaSpire KT-820 SCF30 datasheet",
       "url": "https://www.solvay.com/en/brands/ketaspire-peek",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Victrex 450CA30 PEEK CF30 reference",
       "url": "https://www.victrex.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "Victrex PEEK 450G technical datasheet",
       "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
       "url": "https://www.astm.org/f2026-17.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -295,5 +300,9 @@
       "uts": 85,
       "E": 6
     }
-  ]
+  ],
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-highperf"
+  }
 }

@@ -192,27 +192,32 @@
     {
       "label": "Haynes International — Hastelloy C-22 Alloy",
       "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-c-22-alloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Velo3D",
       "url": "https://www.velo3d.com/material-data-sheets/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS",
       "url": "https://www.eos.info/metal-solutions/data-sheets/nickel-alloys/pds-eos-nickelalloy-c22-eos-m-290-40-80um",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Haynes International — Hastelloy C-22 datasheet",
       "url": "https://haynesintl.com/alloys/alloy-portfolio_/Corrosion-resistant-Alloys/HASTELLOY-C-22-Alloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5750 — Hastelloy C-22 sheet/strip",
       "url": "https://www.sae.org/standards/content/ams5750/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -342,5 +347,14 @@
     "Co 2.5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS N06022 / EN 2.4602 / NiCr21Mo14W / Alloy C-22 (Haynes) — best general-purpose Ni-Cr-Mo corrosion alloy (Ni bal, Cr 20-22.5, Mo 12.5-14.5, W 2.5-3.5, Fe 2-6). 'C-family' Hastelloy 중 oxidizing acid + chloride pitting 저항 가장 우수 (HCl/Cl2/HF/HNO3). 화학 plant — chlorine reactor, HF/Cl₂ ducting, FGD scrubber stack, petrochemical 폐기물 burner. AM LPBF 의 표준 high-corrosion superalloy."
+  "industry_note": "UNS N06022 / EN 2.4602 / NiCr21Mo14W / Alloy C-22 (Haynes) — best general-purpose Ni-Cr-Mo corrosion alloy (Ni bal, Cr 20-22.5, Mo 12.5-14.5, W 2.5-3.5, Fe 2-6). 'C-family' Hastelloy 중 oxidizing acid + chloride pitting 저항 가장 우수 (HCl/Cl2/HF/HNO3). 화학 plant — chlorine reactor, HF/Cl₂ ducting, FGD scrubber stack, petrochemical 폐기물 burner. AM LPBF 의 표준 high-corrosion superalloy.",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "wg": "w31-hastelloy",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06022"
+  ]
 }

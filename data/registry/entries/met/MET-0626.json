@@ -187,19 +187,20 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Press hardening steel 22MnB5 (BS EN 10083-3:2006), high ductility + austenized & H2O quenched (coated/uncoated)",
-      "verified": true
+      "label": "ANSYS Granta — Press hardening steel 22MnB5 (BS EN 10083-3:2006), high ductility + austenized & H2O quenched (coated/uncoated)",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
+      "label": "ArcelorMittal datasheet",
       "url": "https://automotive.arcelormittal.com/products/flat/PHS/usibor_ductibor",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 1",
-      "url": "ArcelorMittal Ductibor 500 P / Krupp 22MnB5 datasheet",
-      "verified": true
+      "label": "ArcelorMittal Ductibor 500 P / Krupp 22MnB5 datasheet",
+      "verified": true,
+      "authority": "other"
     }
   ],
   "points": [
@@ -260,5 +261,10 @@
   "total_cost_estimate": 1.98,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "ce",
+    "ht": "22MnB5 / USIBOR 1500 PHS (ArcelorMittal)",
+    "insight": "carbon-alloy-steel"
+  }
 }

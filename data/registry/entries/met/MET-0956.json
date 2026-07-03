@@ -189,12 +189,14 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
       "url": "https://www.bucorp.com/specialty-tool-steels",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -268,224 +270,11 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "fatigue_estimated": true,
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
-          "url": "https://www.bucorp.com/specialty-tool-steels",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"O1\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=O1",
-          "verified": false
-        }
-      ]
-    },
-    "aliases": {
-      "from": []
-    },
-    "fields": {
-      "heat_treatment": {
-        "from": "Mill-annealed (ASTM default)"
-      }
-    },
-    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)",
-    "points": {
-      "from": [
-        [
-          7.85,
-          774,
-          990,
-          13.5,
-          210,
-          315,
-          50
-        ],
-        [
-          7.85,
-          877.2,
-          1122,
-          13.8,
-          210,
-          357,
-          50
-        ],
-        [
-          7.85,
-          937.4,
-          1199,
-          13.35,
-          210,
-          381.5,
-          50
-        ],
-        [
-          7.85,
-          851.4,
-          1089,
-          16.35,
-          210,
-          346.5,
-          50
-        ],
-        [
-          7.85,
-          782.6,
-          1001,
-          15.15,
-          210,
-          318.5,
-          50
-        ],
-        [
-          7.85,
-          808.4000000000001,
-          1034,
-          15.6,
-          210,
-          329,
-          50
-        ],
-        [
-          7.85,
-          774,
-          990,
-          13.5,
-          210,
-          315,
-          50
-        ],
-        [
-          7.85,
-          903,
-          1155,
-          12.750000000000002,
-          210,
-          367.5,
-          50
-        ],
-        [
-          7.85,
-          842.8,
-          1078,
-          14.7,
-          210,
-          343,
-          50
-        ],
-        [
-          7.85,
-          894.4,
-          1144,
-          14.1,
-          210,
-          364,
-          50
-        ],
-        [
-          7.85,
-          825.6,
-          1056,
-          14.4,
-          210,
-          336,
-          50
-        ],
-        [
-          7.85,
-          817.0000000000001,
-          1045,
-          15.75,
-          210,
-          332.5,
-          50
-        ],
-        [
-          7.85,
-          808.4000000000001,
-          1034,
-          14.1,
-          210,
-          329,
-          50
-        ],
-        [
-          7.85,
-          799.8000000000001,
-          1023,
-          13.95,
-          210,
-          325.5,
-          50
-        ],
-        [
-          7.85,
-          903,
-          1155,
-          15.75,
-          210,
-          367.5,
-          50
-        ],
-        [
-          7.85,
-          799.8000000000001,
-          1023,
-          13.95,
-          210,
-          325.5,
-          50
-        ],
-        [
-          7.85,
-          928.8,
-          1188,
-          14.7,
-          210,
-          378,
-          50
-        ],
-        [
-          7.85,
-          808.4000000000001,
-          1034,
-          14.1,
-          210,
-          329,
-          50
-        ],
-        [
-          7.85,
-          782.6,
-          1001,
-          15.15,
-          210,
-          318.5,
-          50
-        ],
-        [
-          7.85,
-          842.8,
-          1078,
-          14.7,
-          210,
-          343,
-          50
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "soft",
+    "wg": "w10-h1",
+    "insight": "tool-steel"
   }
 }

@@ -192,27 +192,32 @@
     {
       "label": "Haynes International — Waspaloy Alloy",
       "url": "https://haynesintl.com/en/alloys/alloy/waspaloy-alloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM / AMS 5544 — Waspaloy (solution + aged)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Special Metals — Waspaloy Technical Bulletin",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-waspaloy.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5704 — Waspaloy bar/forging STA",
       "url": "https://www.sae.org/standards/content/ams5704/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -360,5 +365,16 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "htg": "h05-waspaloy",
+    "wg": "w37-waspaloyb",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07001"
+  ]
 }

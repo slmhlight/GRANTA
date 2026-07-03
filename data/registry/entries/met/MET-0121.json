@@ -192,19 +192,22 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
+      "label": "Constellium datasheet",
       "url": "https://www.constellium.com/products/aerospace",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -274,5 +277,14 @@
     "Warner T (2006) \"Recently-Developed Aluminium Solutions for Aerospace Applications\", Mater Sci Forum 519-521",
     "Constellium \"AIRWARE Technology Brochure\" (2018)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "al-2xxx",
+    "weld": "none",
+    "htg": "h02-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A03800"
+  ]
 }

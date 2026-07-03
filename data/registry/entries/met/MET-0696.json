@@ -188,22 +188,26 @@
     {
       "label": "ASM — 309S heat-resistant stainless (UNS S30908)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Grade 309S (UNS S30908) — AZoM",
       "url": "https://www.azom.com/article.aspx?ArticleID=6797",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -285,5 +289,13 @@
   "svhc_concerns": [
     "Ni 15% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S30908"
+  ]
 }

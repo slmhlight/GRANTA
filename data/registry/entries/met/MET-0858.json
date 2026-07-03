@@ -189,27 +189,32 @@
     {
       "label": "ASM — Beta-21S (Ti-15Mo-3Nb-3Al)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "TIMET — TIMETAL 21S (Ti-15Mo-3Nb-3Al-.2Si) Metastable Beta Alloy 공식 데이터시트 (TMC-0168)",
       "url": "https://www.timet.com/assets/local/documents/datasheets/metastablebetaalloys/21S.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AZoM — Grade 21 Ti-15Mo-2.7Nb-3Al-0.25Si Alloy (UNS R58210) (Article 9395)",
       "url": "https://www.azom.com/article.aspx?ArticleID=9395",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -286,9 +291,14 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    }
-  }
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "htg": "h08-beta",
+    "wg": "w25-beta",
+    "insight": "titanium"
+  },
+  "uns": [
+    "R58210"
+  ]
 }

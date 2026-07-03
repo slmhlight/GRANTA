@@ -186,17 +186,20 @@
     {
       "label": "Copper.org — C10200 Oxygen-Free Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C10200",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM — oxygen-free copper C10200",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -260,29 +263,12 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          8.94,
-          70,
-          220,
-          45,
-          117,
-          50,
-          391
-        ],
-        [
-          8.94,
-          330,
-          350,
-          8,
-          117,
-          100,
-          391
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "cu-pure",
+    "weld": "none",
+    "insight": "copper"
+  },
+  "uns": [
+    "C10200"
+  ]
 }

@@ -189,22 +189,26 @@
     {
       "label": "ASM — MA956 oxide-dispersion-strengthened FeCrAl",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Special Metals — INCOLOY alloy MA956 공식 데이터시트 (Publication SMC-008, ©2004; 조성·물리물성·인장/크리프 그래프, pdftotext 텍스트 추출 검증)",
       "url": "http://specialmetals.ir/images/technical_info/Fer-base/Incoloy-alloy-MA956.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -275,5 +279,10 @@
   "total_cost_estimate": 3.68,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ss-ferritic",
+    "weld": "schaeffler",
+    "insight": "stainless"
+  }
 }

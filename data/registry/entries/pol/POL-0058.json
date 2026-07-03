@@ -158,12 +158,14 @@
     {
       "label": "Markforged — Onyx (micro carbon-filled nylon)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Markforged Onyx material datasheet",
       "url": "https://markforged.com/materials/plastics/onyx",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -235,5 +237,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-engineering"
+  }
 }

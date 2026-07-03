@@ -190,22 +190,26 @@
     {
       "label": "ASTM A681 + Crucible/Bohler-Uddeholm — D2/H11/O1 tool steel datasheet",
       "url": "https://www.bucorp.com/specialty-tool-steels",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM — O1 oil-hardening tool steel (DIN 1.2510)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -290,14 +294,11 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "DIN 1.2510",
-        "100MnCrW4",
-        "JIS SKS3",
-        "AISI O1"
-      ]
-    }
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "qt",
+    "wg": "w10-h1",
+    "insight": "tool-steel"
   }
 }

@@ -190,12 +190,14 @@
     {
       "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (T7451/T7651 인장·물성, PDF 직접 판독)",
       "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1016/Kaiser_Aluminum_7050_Sheet_Coil_and_Plate.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -380,39 +382,27 @@
     "Hatch J E (ed., 1984)"
   ],
   "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-7xxx",
+    "weld": "none",
+    "htc": "aged",
+    "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+    "htg": "h02-aa",
+    "wg": "w20-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A97050"
+  ],
   "_corrections": {
     "composition": {
-      "from": {}
-    },
-    "sources": {
-      "from": [
-        {
-          "label": "MatWeb — Aluminum 7050 (aerospace)",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+7050",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AA 7050\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%207050",
-          "verified": false
-        },
-        {
-          "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (T7451/T7651 인장·물성, PDF 직접 판독)",
-          "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1016/Kaiser_Aluminum_7050_Sheet_Coil_and_Plate.pdf",
-          "verified": true
-        }
-      ]
-    },
-    "aliases": {
-      "from": [
-        "UNS A97050",
-        "EN AW-7050"
-      ]
+      "from": {
+        "Al": "balance",
+        "Zn": "5.7~6.7",
+        "Mg": "1.9~2.6",
+        "Cu": "2.0~2.6",
+        "Zr": "0.08~0.15"
+      }
     }
   }
 }

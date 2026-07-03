@@ -190,14 +190,16 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "WorldAutoSteel (AHSS)",
       "url": "https://www.worldautosteel.org/ahss-application-guidelines-update-begins/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: AHSS family",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -257,5 +259,9 @@
   "total_cost_estimate": 1.42,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "insight": "carbon-alloy-steel"
+  }
 }

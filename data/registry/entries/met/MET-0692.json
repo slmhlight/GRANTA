@@ -190,22 +190,26 @@
     {
       "label": "Outokumpu — 2304 lean duplex (UNS S32304)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Duplex SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "EN 1.4362 / Lean Duplex UNS S32304 / EDX 2304 — Sverdrup Steel",
       "url": "https://www.sverdrupsteel.com/material/duplex-super-duplex/alloy-1-4362-lean-duplex-uns-s32304-edx-2304/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -300,5 +304,13 @@
   "svhc_concerns": [
     "Ni 5.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S32304"
+  ]
 }

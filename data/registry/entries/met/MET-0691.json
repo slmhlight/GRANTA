@@ -191,24 +191,28 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "Korea steel datasheet",
       "url": "https://www.kssa.co.kr/standard/KS_D_3701",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Ferritic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "JIS G4801 — Spring Steels (SUP9/10/12)",
       "url": "https://www.jisc.go.jp/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "MatWeb — SUP9 spring steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SUP9",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -288,5 +292,10 @@
     "KS D 3701 \"Spring Steels\"",
     "Yamada Y (ed., 2007) Materials for Springs, Springer"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "carbon-alloy-steel"
+  }
 }

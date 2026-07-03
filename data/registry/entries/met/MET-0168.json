@@ -190,12 +190,14 @@
     {
       "label": "ASM Handbook Vol.2 — Aluminum 1100 commercial purity",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — Aluminum 1100-O Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=c089b0d61a564f3aa42b59b3b51c4f4c",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -350,38 +352,11 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS A91100 / EN AW-1100 / Al99.0Cu / DIN 3.0205 — Commercial-Purity (CP) Al 99.0% (vs 1050 의 99.5%). Non-heat-treatable, R173 fake-variant 제거. O temper: σy 35 / UTS 90 / El 35%. H14 (1/4 hard CW): σy 105 / UTS 124 / El 9%. H18 (full hard): σy 152 / UTS 165 / El 5%. IACS 59% (가장 흔한 architectural conductor). 화학 plant tank lining, 식품 contact, decorative trim, household kitchenware (foil, pot). 가공 매우 easy (annealed). (handbook H14 σy 105).",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "MatWeb — Aluminum 1100",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+1100",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AA 1100\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%201100",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol.2 — Aluminum 1100 commercial purity",
-          "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-          "verified": true
-        },
-        {
-          "label": "MatWeb — Aluminum 1100-O Annealed",
-          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=c089b0d61a564f3aa42b59b3b51c4f4c",
-          "verified": false
-        }
-      ]
-    },
-    "aliases": {
-      "from": []
-    }
+  "profiles": {
+    "mach": "al-soft",
+    "weld": "none",
+    "htc": "qt",
+    "wg": "w13-aa",
+    "insight": "aluminum"
   }
 }

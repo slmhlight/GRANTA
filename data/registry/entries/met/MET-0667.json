@@ -188,22 +188,26 @@
     {
       "label": "MatWeb — Pure Molybdenum / TZM",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Molybdenum",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Plansee — TZM molybdenum alloy",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Glemco — Molybdenum TZM (Mo Alloy 364) datasheet: 조성·ρ 10.16·UTS 965/YS 860 MPa·신율 10%·E 325 GPa·CTE·열전도 118·용융 2620°C (spacematdb 호스트)",
       "url": "https://www.spacematdb.com/spacemat/manudatasheets/Moly_TZM%20364.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -283,5 +287,14 @@
   "total_cost_estimate": 105,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "moly",
+    "weld": "none",
+    "wg": "w60-molybdenumb",
+    "insight": "refractory"
+  },
+  "uns": [
+    "R03640"
+  ]
 }

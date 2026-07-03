@@ -189,12 +189,14 @@
     {
       "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
       "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -259,100 +261,67 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "htc": "soft",
+    "insight": "titanium"
+  },
   "_corrections": {
     "composition": {
       "from": {
         "Ti": "balance",
-        "Al": "5~8",
-        "V": "1~5",
-        "Mo": "0~4",
-        "Zr": "0~6",
-        "Sn": "0~4"
+        "Al": "4~6",
+        "Sn": "2~3"
       }
-    },
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    },
-    "sources": {
-      "from": [
-        {
-          "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
-          "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Ti-5-2-5\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-5-2-5",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: TIMET beta Ti",
-          "url": null,
-          "verified": false
-        }
-      ]
     },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 800,
-        "max": 1200,
-        "typical": 950,
-        "n": 2,
-        "confidence": "handbook"
+        "min": 827,
+        "typical": 827,
+        "max": 827,
+        "confidence": "handbook",
+        "provenance": "교정: ASTM B265 Gr6 · alloysintl Ti 5-2.5"
       },
       "had_scalar": true,
-      "val_scalar": 950
+      "val_scalar": 827
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 900,
-        "max": 1300,
-        "typical": 1050,
-        "n": 2,
-        "confidence": "handbook"
+        "min": 861,
+        "typical": 861,
+        "max": 861,
+        "confidence": "handbook",
+        "provenance": "교정: ASTM B265 Gr6 · alloysintl Ti 5-2.5"
       },
       "had_scalar": true,
-      "val_scalar": 1050
+      "val_scalar": 861
     },
     "elongation": {
       "had_range": true,
       "val_range": {
-        "min": 6,
+        "min": 15,
+        "typical": 15,
         "max": 15,
-        "typical": 10,
-        "n": 2,
-        "confidence": "handbook"
+        "confidence": "handbook",
+        "provenance": "교정: ASTM B265 Gr6 · alloysintl Ti 5-2.5"
       },
       "had_scalar": true,
-      "val_scalar": 10
+      "val_scalar": 15
     },
     "_basis": "Ti-5Al-2.5Sn Grade6 α annealed (열처리 불가)",
     "_src": "ASTM B265 Gr6 · alloysintl Ti 5-2.5",
     "points": {
       "from": [
         [
-          4.48,
-          864.9000000000001,
-          930,
-          8.3,
+          4.5,
+          827,
+          861,
+          15,
           110,
-          288.3,
-          7.5
-        ],
-        [
-          4.48,
-          976.5,
-          1050,
-          8.5,
-          110,
-          325.5,
+          330,
           7.5
         ]
       ]

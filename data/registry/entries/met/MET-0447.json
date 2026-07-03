@@ -189,22 +189,26 @@
     {
       "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Copper & Copper Alloys)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Copper.org — C26000 Cartridge Brass",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C26000",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Copper Development Association — C26000 70/30 cartridge brass",
       "url": "https://www.copper.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B19 — Cartridge Brass Sheet/Plate",
       "url": "https://store.astm.org/b0019-22.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -366,44 +370,11 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS C26000 / EN CW505L / CuZn30 — Cartridge Brass 70Cu-30Zn — 가장 흔한 'brass'. Excellent cold workability (deep-drawn cartridge case의 이유). CW (H02): σy 350 / UTS 425. C26800 (Yellow Brass 66Cu-34Zn): O σy 100 / UTS 320 / El 60%, H 1/4: σy 270 / UTS 385. Tmax 200°C. 탄피, 식기, 자동차 radiator core, 악기 (sax/trumpet), 시계 부품. SCC 우려 (NH₃, 해수 + 인장응력).",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Copper.org — C26000 Cartridge Brass",
-          "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C26000",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"C26000\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C26000",
-          "verified": false
-        },
-        {
-          "label": "Copper Development Association — C26000 70/30 cartridge brass",
-          "url": "https://www.copper.org/",
-          "verified": false
-        },
-        {
-          "label": "ASTM B19 — Cartridge Brass Sheet/Plate",
-          "url": "https://store.astm.org/b0019-22.html",
-          "verified": false
-        }
-      ]
-    },
-    "aliases": {
-      "from": []
-    },
-    "fields": {
-      "heat_treatment": {
-        "from": "Mill-annealed (ASTM default)"
-      }
-    },
-    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
+  "profiles": {
+    "mach": "brass",
+    "weld": "none",
+    "htc": "soft",
+    "wg": "w54-c26000",
+    "insight": "copper"
   }
 }

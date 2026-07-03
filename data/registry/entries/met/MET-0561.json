@@ -189,22 +189,26 @@
     {
       "label": "Special Metals — Inconel 686 (UNS N06686)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Special Metals — INCONEL alloy 686 Technical Bulletin (SMC-024, ©2005, Table 1 조성 + Table 5 인장)",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-686.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -281,5 +285,14 @@
   "total_cost_estimate": 119.44,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "soft",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06686"
+  ]
 }

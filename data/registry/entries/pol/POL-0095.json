@@ -159,12 +159,14 @@
     {
       "label": "INEOS Styrolution GPPS resin",
       "url": "https://www.styrolution.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "AZoM — Polystyrene (PS) 물성표",
       "url": "https://www.azom.com/properties.aspx?ArticleID=798",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -247,54 +249,34 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "GPPS (General-Purpose Polystyrene) — amorphous brittle clear thermoplastic. Tg 100°C, max service 70-80°C continuous. σy 40-50 / UTS 45-50 / El 1-4% (brittle) / E 3.0-3.5 GPa / ρ 1.04-1.06 g/cc. Refractive 1.59, light transmission 88%. CD case (Compact Disc jewel case), 식음료 cup / 일회용 식기, 의료 Petri dish / lab tube, 가구 toy / 모형. EPS (expanded PS, styrofoam) 는 packaging foam + 단열재. 가장 저렴 thermoplastic ($1.3-1.8/kg).",
+  "profiles": {
+    "mach": "pol-brittle",
+    "insight": "pol-commodity"
+  },
   "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"PS\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PS",
-          "verified": false
-        },
-        {
-          "label": "INEOS Styrolution GPPS resin",
-          "url": "https://www.styrolution.com/",
-          "verified": false
-        },
-        {
-          "label": "AZoM — Polystyrene (PS) 물성표",
-          "url": "https://www.azom.com/properties.aspx?ArticleID=798",
-          "verified": true
-        }
-      ]
-    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 43.68,
-        "max": 52.32,
-        "typical": 46.56,
-        "n": 15,
-        "confidence": "measured"
+        "min": 46,
+        "typical": 46,
+        "max": 46,
+        "confidence": "handbook",
+        "provenance": "교정: MakeItFrom/BPF GPPS (yield 36-46, tensile 40-60)"
       },
       "had_scalar": true,
-      "val_scalar": 46.56
+      "val_scalar": 46
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 39.1,
-        "max": 44.9,
-        "typical": 42,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 50,
+        "typical": 50,
+        "max": 50,
+        "confidence": "handbook",
+        "provenance": "교정: MakeItFrom/BPF GPPS (yield 36-46, tensile 40-60)"
       },
       "had_scalar": true,
-      "val_scalar": 48.5
+      "val_scalar": 50
     },
     "_basis": "GPPS σy~46/UTS~50 — R221c 가 UTS 만 42 로 낮춰 σy>UTS 발생, 교정",
     "_src": "MakeItFrom/BPF GPPS (yield 36-46, tensile 40-60)",
@@ -302,137 +284,11 @@
       "from": [
         [
           1.05,
-          52.32000000000001,
-          54.50000000000001,
-          1.6350000000000002,
-          3.3,
-          87.2,
-          0.13
-        ],
-        [
-          1.05,
-          52.32000000000001,
-          54.50000000000001,
-          1.335,
-          3.3,
-          87.2,
-          0.13
-        ],
-        [
-          1.05,
-          46.56,
-          48.5,
-          1.605,
-          3.3,
-          77.6,
-          0.13
-        ],
-        [
-          1.05,
-          47.04,
-          49,
-          1.32,
-          3.3,
-          78.4,
-          0.13
-        ],
-        [
-          1.05,
-          45.6,
-          47.5,
-          1.5750000000000002,
-          3.3,
-          76,
-          0.13
-        ],
-        [
-          1.05,
-          43.68,
-          45.5,
-          1.515,
-          3.3,
-          72.8,
-          0.13
-        ],
-        [
-          1.05,
-          52.32000000000001,
-          54.50000000000001,
-          1.335,
-          3.3,
-          87.2,
-          0.13
-        ],
-        [
-          1.05,
-          45.6,
-          47.5,
-          1.5750000000000002,
-          3.3,
-          76,
-          0.13
-        ],
-        [
-          1.05,
-          46.56,
-          48.5,
-          1.3050000000000002,
-          3.3,
-          77.6,
-          0.13
-        ],
-        [
-          1.05,
-          44.64,
-          46.5,
-          1.545,
-          3.3,
-          74.4,
-          0.13
-        ],
-        [
-          1.05,
-          46.56,
-          48.5,
-          1.605,
-          3.3,
-          77.6,
-          0.13
-        ],
-        [
-          1.05,
-          44.16,
           46,
-          1.23,
-          3.3,
-          73.60000000000001,
-          0.13
-        ],
-        [
-          1.05,
-          45.120000000000005,
-          47,
+          50,
           1.41,
           3.3,
-          75.2,
-          0.13
-        ],
-        [
-          1.05,
-          44.16,
-          46,
-          1.23,
-          3.3,
-          73.60000000000001,
-          0.13
-        ],
-        [
-          1.05,
-          52.32000000000001,
-          54.50000000000001,
-          1.335,
-          3.3,
-          87.2,
+          77.6,
           0.13
         ]
       ]

@@ -191,27 +191,32 @@
     {
       "label": "ASTM A108 — Cold-Finished Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0108-18.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "MakeItFrom — AISI 1010 / SAE 1010 Carbon Steel",
       "url": "https://www.makeitfrom.com/material-properties/SAE-AISI-1010-G10100-Carbon-Steel",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.1 — Plain carbon steel 1010",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — AISI 1010 Carbon Steel",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=025d4a04c2c640c9b0eaaef28318d761",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM A29 / A29M — Carbon Steel Bars",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -312,43 +317,10 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS G10100 / SAE 1010 / DIN C10 / JIS S10C — extra-low carbon steel (C 0.08-0.13%). Hot rolled: σy 180 / UTS 325 / El 28%. Cold drawn: σy 305 / UTS 365 / El 20% / HB 105. Plain very-low-carbon → Q+T 효과 거의 없음 (martensite 생성 양 미미). Drawing / forming 강 — 자동차 panel·containers·deep-drawn parts·wire·tube·rivet. Carburizing 으로 표면 경화 가능.",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "MakeItFrom — AISI 1010 / SAE 1010 Carbon Steel",
-          "url": "https://www.makeitfrom.com/material-properties/SAE-AISI-1010-G10100-Carbon-Steel",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 1010\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%201010",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol.1 — Plain carbon steel 1010",
-          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-          "verified": true
-        },
-        {
-          "label": "MatWeb — AISI 1010 Carbon Steel",
-          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=025d4a04c2c640c9b0eaaef28318d761",
-          "verified": false
-        },
-        {
-          "label": "ASTM A29 / A29M — Carbon Steel Bars",
-          "url": "https://store.astm.org/a0029_a0029m-20.html",
-          "verified": false
-        }
-      ]
-    },
-    "aliases": {
-      "from": []
-    }
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "wg": "w01-aisi",
+    "insight": "carbon-alloy-steel"
   }
 }

@@ -191,32 +191,38 @@
     {
       "label": "ASM — 422 martensitic stainless (UNS S42200)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Aircraft Materials — Stainless Steel 422 / AMS 5655 / UNS S42200: 조성+경화/템퍼 인장·경도(293-341 HB)·AMS 5655 등 규격",
       "url": "https://www.aircraftmaterials.com/data/alstst/422.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "AZoM — Stainless Steel Grade 422 (UNS S42200): 조성·ρ 7.8·E 190-210 GPa·Poisson·CTE 11.2·k 풀 물리물성표",
       "url": "https://www.azom.com/article.aspx?ArticleID=6814",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "Carpenter Technology — 422 Alloy Finder (Type Analysis 조성 텍스트 serve; 인장표는 미게재)",
       "url": "https://www.carpentertechnology.com/alloy-finder/422",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -297,5 +303,14 @@
   "total_cost_estimate": 4.78,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ferritic",
+    "weld": "schaeffler",
+    "wg": "w06-aisi",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S42200"
+  ]
 }

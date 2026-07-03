@@ -100,12 +100,14 @@
     {
       "label": "ASTM B86 — Zamak 3 zinc die-casting alloy",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "Nathan Trotter & Co. — Zamak 3 Technical Data Sheet (Chemical spec: Ingot ASTM B240 / Die Cast ASTM B86; mechanical UTS 41 ksi / YS 32 ksi / elong 10% / Brinell 82)",
       "url": "https://nathantrotter.com/wp-content/uploads/2020/06/Zamak-3-TDS.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -187,5 +189,12 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "none",
+    "wg": "w71-zamak"
+  },
+  "uns": [
+    "Z33520"
+  ]
 }

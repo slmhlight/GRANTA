@@ -190,17 +190,20 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.1 + SAE J404 — AISI 6xxx (Cr-V spring steel)",
       "url": "https://www.sae.org/standards/content/j404/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -278,62 +281,12 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "ASM Handbook Vol.1 + SAE J404 — AISI 6xxx (Cr-V spring steel)",
-          "url": "https://www.sae.org/standards/content/j404/",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 6150\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%206150",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: AMS 6415 alloy steel",
-          "url": null,
-          "verified": false
-        }
-      ]
-    },
-    "points": {
-      "from": [
-        [
-          7.85,
-          688,
-          946,
-          10.53,
-          210,
-          266.6,
-          42
-        ],
-        [
-          7.85,
-          912,
-          1254,
-          14.169999999999998,
-          210,
-          353.4,
-          42
-        ],
-        [
-          7.85,
-          864,
-          1188,
-          13.39,
-          210,
-          334.8,
-          42
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "carbon-alloy-steel"
+  },
+  "uns": [
+    "G61500"
+  ]
 }

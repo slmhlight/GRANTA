@@ -178,27 +178,32 @@
     {
       "label": "Datasheet — ULTEM 1010",
       "url": "https://www.sabic.com/en/products/specialties/ultem-resins/ultem-resin-1010",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: FDA·NSF 인증 식품·의료 부품, 항공 인테리어, 전기 절연체",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SABIC ULTEM 1010 resin technical guide",
       "url": "https://www.sabic.com/en/products/specialties/ultem-resins",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Stratasys ULTEM 1010 FDM material data",
       "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/ultem-1010-resin/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — Ultem 1010 PEI Injection",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1a4f5c6e7f8a9b0c1d2e3f4a5b6c7d8e",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "machinability": "Good",
@@ -291,5 +296,9 @@
     "Aw J et al. (2018) \"FDM of Ultem 1010 for Medical Applications\", Rapid Prototyping J 24"
   ],
   "confidence_tier": "high",
-  "industry_note": "ULTEM 1010 — Polyetherimide (PEI) homopolymer, unfilled. Tg ≈ 217°C, HDT (1.8 MPa) ≈ 213°C, **max service 200°C continuous** (σy 95-110 / UTS 105-110 / El 60-90% / E 3.2-3.6 GPa / ρ 1.27 g/cc. UL 94 V-0 자체 난연 (chemical structure 의 imide 그룹). 우수한 hydrolysis 저항 (repeat steam autoclave 가능). Stratasys FDM (1010 = 산업용, FAA Approved). 식품 접촉 (FDA), 의료 sterilizable, 반도체 wafer carrier, 항공 인테리어. 가공 시 380-410°C 압출 필요."
+  "industry_note": "ULTEM 1010 — Polyetherimide (PEI) homopolymer, unfilled. Tg ≈ 217°C, HDT (1.8 MPa) ≈ 213°C, **max service 200°C continuous** (σy 95-110 / UTS 105-110 / El 60-90% / E 3.2-3.6 GPa / ρ 1.27 g/cc. UL 94 V-0 자체 난연 (chemical structure 의 imide 그룹). 우수한 hydrolysis 저항 (repeat steam autoclave 가능). Stratasys FDM (1010 = 산업용, FAA Approved). 식품 접촉 (FDA), 의료 sterilizable, 반도체 wafer carrier, 항공 인테리어. 가공 시 380-410°C 압출 필요.",
+  "profiles": {
+    "mach": "pol-amorphous",
+    "insight": "pol-highperf"
+  }
 }

@@ -192,32 +192,37 @@
     {
       "label": "MatWeb — Aluminum 5083 (marine)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+5083",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "MatWeb 2",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5083",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 2",
-      "url": "Aluminum Association H-Temper / ASTM B928 (marine grade) / ASTM G67 (NAMLT test)",
-      "verified": true
+      "label": "Aluminum Association H-Temper / ASTM B928 (marine grade) / ASTM G67 (NAMLT test)",
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 5083 marine grade",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — Aluminum 5083-H321",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=7da14fc6a09b4e15a72fc4a06a3aae62",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM B928 — Marine Grade Aluminum Sheet 5083",
       "url": "https://store.astm.org/b0928_b0928m-21a.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -316,13 +321,13 @@
     "Searles J L et al. (2001) \"Stress corrosion cracking of sensitized AA5083\", Met Mater Trans A 32(11)"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS A95083",
-        "EN AW-5083",
-        "AlMg4.5Mn0.7"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "al-5xxx",
+    "weld": "none",
+    "wg": "w18-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A95083"
+  ]
 }

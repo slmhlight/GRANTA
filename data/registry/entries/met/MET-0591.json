@@ -183,17 +183,20 @@
     {
       "label": "Special Metals — MA754 oxide-dispersion-strengthened (UNS N07754)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "Special Metals — INCONEL alloy MA754 공식 데이터시트 (Publication SMC-040, ©2004; 조성·물리물성·Young's modulus표·인장/응력파단 그래프, pdftotext 텍스트 추출 검증)",
       "url": "http://specialmetals.ir/images/technical_info/nickel-base-alloy/Inconel-alloy-MA754.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "LookPolymers (MatWeb 미러) — Special Metals INCONEL Alloy MA754: 조성·ρ 8.55·실온/550°C 인장(UTS 950/σy 570 MPa)·CTE 'Data provided by manufacturer Special Metals'",
       "url": "https://www.lookpolymers.com/polymer_Special-Metals-INCONEL-Alloy-MA-754.php",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -270,5 +273,14 @@
   "total_cost_estimate": 115.67,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "soft",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07754"
+  ]
 }

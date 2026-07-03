@@ -182,17 +182,20 @@
     {
       "label": "EOS MDS summary — case hardening steel 20mncr5",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-case-hardening-steel-20mncr5",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "DIN EN 10084 — Case-hardening steels",
       "url": "https://www.dinmedia.de/en/standard/din-en-10084/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "EOS",
       "url": "https://www.eos.info/metal-solutions/data-sheets/other-steels/pds-eos-casehardeningsteel-20mncr5-eos-m-290-40-80um",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -315,5 +318,11 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "case-hard",
+    "weld": "ce",
+    "htc": "as-built",
+    "insight": "carbon-alloy-steel"
+  }
 }

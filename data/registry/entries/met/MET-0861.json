@@ -187,17 +187,20 @@
     {
       "label": "BLT",
       "url": "https://www.xa-blt.com/en/powder/cp-ti-grade1/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -309,5 +312,14 @@
       "E": 98
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ti-cp",
+    "weld": "none",
+    "htc": "soft",
+    "insight": "titanium"
+  },
+  "uns": [
+    "R50250"
+  ]
 }

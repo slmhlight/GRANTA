@@ -189,19 +189,19 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
-      "url": "API 5L 46th Edition Spec — Line Pipe Grade L290N / L360M",
-      "verified": true
+      "label": "API 5L 46th Edition Spec — Line Pipe Grade L290N / L360M",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 2",
-      "url": "American Piping Products — A106 / API 5L X-grade pipeline catalog",
-      "verified": true
+      "label": "American Piping Products — A106 / API 5L X-grade pipeline catalog",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 2",
-      "url": "ASME B31.3 / B31.4 / B31.8 Pipeline Code",
-      "verified": true
+      "label": "ASME B31.3 / B31.4 / B31.8 Pipeline Code",
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -266,5 +266,10 @@
   "total_cost_estimate": 1.42,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "ce",
+    "wg": "w11-api",
+    "insight": "structural-steel"
+  }
 }

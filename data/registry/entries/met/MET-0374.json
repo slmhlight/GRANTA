@@ -187,22 +187,26 @@
     {
       "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Copper.org — C11000 ETP Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Copper Development Association — C11000 ETP",
       "url": "https://www.copper.org/resources/properties/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B187 — ETP Bus Conductor",
       "url": "https://store.astm.org/b0187_b0187m-19.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -284,139 +288,11 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS C11000 / EN CW004A / Cu-ETP — Electrolytic Tough Pitch copper (Cu ≥99.90, O 0.02-0.05 — dissolved 산소가 brittle Cu₂O 형성).",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Copper.org — C11000 ETP Copper",
-          "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"C11000\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C11000",
-          "verified": false
-        },
-        {
-          "label": "Copper Development Association — C11000 ETP",
-          "url": "https://www.copper.org/resources/properties/",
-          "verified": true
-        },
-        {
-          "label": "ASTM B187 — ETP Bus Conductor",
-          "url": "https://store.astm.org/b0187_b0187m-19.html",
-          "verified": false
-        }
-      ]
-    },
-    "aliases": {
-      "from": []
-    },
-    "fields": {
-      "heat_treatment": {
-        "from": "Mill-annealed (ASTM default)"
-      }
-    },
-    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)",
-    "points": {
-      "from": [
-        [
-          8.96,
-          65.10000000000001,
-          186,
-          37.35,
-          110,
-          37.2,
-          401
-        ],
-        [
-          8.96,
-          73.5,
-          210,
-          47.25,
-          110,
-          42,
-          401
-        ],
-        [
-          8.96,
-          67.89999999999999,
-          194,
-          48.150000000000006,
-          110,
-          38.8,
-          401
-        ],
-        [
-          8.96,
-          70.7,
-          202,
-          36.45,
-          110,
-          40.4,
-          401
-        ],
-        [
-          8.96,
-          71.4,
-          204,
-          45.9,
-          110,
-          40.8,
-          401
-        ],
-        [
-          8.96,
-          69.3,
-          198,
-          44.55,
-          110,
-          39.6,
-          401
-        ],
-        [
-          8.96,
-          69.3,
-          198,
-          44.55,
-          110,
-          39.6,
-          401
-        ],
-        [
-          8.96,
-          67.2,
-          192,
-          43.2,
-          110,
-          38.4,
-          401
-        ],
-        [
-          8.96,
-          76.30000000000001,
-          218.00000000000003,
-          49.05,
-          110,
-          43.6,
-          401
-        ],
-        [
-          8.96,
-          71.4,
-          204,
-          41.4,
-          110,
-          40.8,
-          401
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "cu-pure",
+    "weld": "none",
+    "htc": "soft",
+    "wg": "w50-c10",
+    "insight": "copper"
   }
 }

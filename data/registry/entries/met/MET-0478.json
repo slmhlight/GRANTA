@@ -187,24 +187,28 @@
   },
   "sources": [
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ZK60",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Mg alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AZoM — Magnesium ZK60A Alloy (M16600) — extruded, ASTM B107/B91",
       "url": "https://www.azom.com/article.aspx?ArticleID=6710",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -270,30 +274,38 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
+  "profiles": {
+    "mach": "magnesium",
+    "weld": "none",
+    "htc": "aged",
+    "htg": "h09-azd",
+    "wg": "w49-zk60",
+    "insight": "magnesium"
+  },
   "_corrections": {
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 195,
-        "max": 195,
-        "typical": 195,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 285,
+        "typical": 285,
+        "max": 285,
+        "confidence": "handbook",
+        "provenance": "교정: ASM Handbook Vol.2 — ZK60A-T5 extruded (TYS 285 / UTS 350) · MatWeb ZK60A-T5"
       },
       "had_scalar": true,
-      "val_scalar": 195
+      "val_scalar": 285
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 305,
-        "max": 305,
-        "typical": 305,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 350,
+        "typical": 350,
+        "max": 350,
+        "confidence": "handbook",
+        "provenance": "교정: ASM Handbook Vol.2 — ZK60A-T5 extruded (TYS 285 / UTS 350) · MatWeb ZK60A-T5"
       },
       "had_scalar": true,
-      "val_scalar": 305
+      "val_scalar": 350
     },
     "_basis": "ZK60A-T5 압출 typical — DB 195/305 는 AMS 4352 spec-min(TYS 230/UTS 310)조차 미달하는 오염값 (golden 확장 probe 발견)",
     "_src": "ASM Handbook Vol.2 — ZK60A-T5 extruded (TYS 285 / UTS 350) · MatWeb ZK60A-T5",
@@ -301,8 +313,8 @@
       "from": [
         [
           1.83,
-          195,
-          305,
+          285,
+          350,
           11,
           45,
           60,

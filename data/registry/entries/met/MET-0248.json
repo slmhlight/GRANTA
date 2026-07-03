@@ -190,22 +190,26 @@
     {
       "label": "ASTM A108 — Cold-Finished Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0108-18.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 1020",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — AISI 1020 cold rolled steel",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=10b74ebc27344380ab16b1b69f1cffbb",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM A29 / A29M — Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -291,93 +295,11 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS G10200 / DIN C22 / JIS S22C — plain low-carbon steel (C 0.18~0.23%). Cold drawn: σy ≈ 350 / UTS 420 / HB 121. Hot rolled: σy 205 / UTS 380 / El 25%. Plain carbon → PH/Aging 불가. Q+T 효과 미미 (low carbon). 가장 흔한 ASTM A29 carbon steel — 기계 부품, 볼트.",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "MatWeb — AISI 1020 carbon steel",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1020",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 1020\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%201020",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 1020",
-          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-          "verified": true
-        },
-        {
-          "label": "MatWeb — AISI 1020 cold rolled steel",
-          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=10b74ebc27344380ab16b1b69f1cffbb",
-          "verified": false
-        },
-        {
-          "label": "ASTM A29 / A29M — Carbon and Alloy Steel Bars",
-          "url": "https://store.astm.org/a0029_a0029m-20.html",
-          "verified": false
-        }
-      ]
-    },
-    "aliases": {
-      "from": []
-    },
-    "points": {
-      "from": [
-        [
-          7.85,
-          182.45,
-          293.7,
-          33.84,
-          210,
-          84.55,
-          51
-        ],
-        [
-          7.85,
-          178.35,
-          287.1,
-          36.72,
-          210,
-          82.65,
-          51
-        ],
-        [
-          7.85,
-          207.05,
-          333.3,
-          34.56,
-          210,
-          95.95,
-          51
-        ],
-        [
-          7.85,
-          219.35,
-          353.1,
-          36.72,
-          210,
-          101.65,
-          51
-        ],
-        [
-          7.85,
-          215.25,
-          346.5,
-          36,
-          210,
-          99.75,
-          51
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "carbon-low",
+    "weld": "ce",
+    "htc": "qt",
+    "wg": "w01-aisi",
+    "insight": "carbon-alloy-steel"
   }
 }

@@ -157,32 +157,38 @@
     {
       "label": "MatWeb — PVC plastic",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PVC",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Material datasheets — rigid PVC",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "MakeItFrom — Rigid uPVC/PVC-U (R221 검증: ρ1.40·k0.16 정확 일치; commodity 집계 도메인이라 verified 강등)",
       "url": "https://www.makeitfrom.com/material-properties/Unplasticized-Rigid-Polyvinyl-Chloride-uPVC-PVC-U",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "MatWeb — Rigid PVC (uPVC)",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=7dcbe9d6c2a6492487f56ddc09ad8775",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM D1784 — Rigid PVC Compounds and CPVC",
       "url": "https://store.astm.org/d1784-20.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "AZoM — Unplasticised PVC (UPVC / rigid PVC) 물성",
       "url": "https://www.azom.com/article.aspx?ArticleID=770",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -256,38 +262,8 @@
     "Wilkes C E, Summers J W & Daniels C A (eds., 2005) PVC Handbook, Hanser"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          1.4,
-          45,
-          52,
-          40,
-          3,
-          0,
-          0.16
-        ],
-        [
-          1.4,
-          40,
-          48,
-          20,
-          2.8,
-          0,
-          0.16
-        ],
-        [
-          1.4,
-          50,
-          58,
-          60,
-          3.2,
-          0,
-          0.16
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-commodity"
   }
 }

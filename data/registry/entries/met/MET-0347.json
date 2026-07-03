@@ -189,22 +189,26 @@
     {
       "label": "Kennametal Stellite — Stellite 3 hardfacing",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (ASM Vol.2 Co alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Kennametal Stellite — Stellite 3 Alloy Technical Data (official)",
       "url": "https://www.stellite.com/us/en/alloys/stellite/stellite-3-alloy.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -276,5 +280,13 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "cobalt",
+    "weld": "none",
+    "insight": "cobalt"
+  },
+  "uns": [
+    "R30103"
+  ]
 }

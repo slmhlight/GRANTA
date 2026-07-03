@@ -195,17 +195,20 @@
     {
       "label": "Nikon SLM A2024-RAM2C MDS 2024-06.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/mds5146.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "3D Systems Certified A6061-RAM2(A) MDS (related Al-RAM2 alloy)",
       "url": "https://www.3dsystems.com/sites/default/files/2024-07/3d-systems-certified-a6061-ram2-a-mds-letter-us-web.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: AA 6061-T6",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -363,5 +366,11 @@
       "E": 50
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-6xxx",
+    "weld": "none",
+    "htc": "aged",
+    "insight": "aluminum"
+  }
 }

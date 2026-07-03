@@ -190,27 +190,32 @@
     {
       "label": "ASM / CDA — C95400 aluminum bronze",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: AA 5xxx Al-Mg",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Copper Development Association — Alloy C95400 (Aluminum Bronze)",
       "url": "https://alloys.copper.org/alloy/C95400",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Copper Alloys Ltd — C95400 (CuAl11Fe4) cast aluminium bronze datasheet",
       "url": "https://copperalloys.net/alloys/c95400/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -292,5 +297,10 @@
   "svhc_concerns": [
     "Ni 1.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-cast-am",
+    "weld": "none",
+    "insight": "copper"
+  }
 }

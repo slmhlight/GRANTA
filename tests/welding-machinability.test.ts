@@ -128,6 +128,17 @@ describe('조건(variation)별 노트 + 가이드 + 인사이트 (R226j)', () =>
     const pick430 = ins!.picks.find(p => p.use.includes('430'));
     expect(insightPickMatches(m, pick430!)).toBe(false);
   });
+  it('융합 (R226l) — 718 STA vs 625: 같은 그룹에서 후보 전용 시나리오 → whenLine + 절삭성 델타', async () => {
+    const { decisionContext } = await import('../client/src/components/material-detail/SimilarMaterialsCard');
+    const cur = mk({ name: 'Inconel 718 — Solution + Single age (STA)', profiles: { insight: 'ni-superalloy', mach: 'ni-super' } });
+    const cand = mk({ name: 'Inconel 625 — Solution treated', profiles: { insight: 'ni-superalloy', mach: 'ni-super-solidsol' } });
+    const ctx = decisionContext(cur, cand);
+    expect(ctx.whenLine).toContain('Inconel 625');       // 625 전용 시나리오 (650-980°C/부식)
+    expect(ctx.machChip).toBe('절삭성 15%→12%');
+    // 다른 그룹: 계열 안내
+    const ti = mk({ name: 'Ti-6Al-4V', profiles: { insight: 'titanium', mach: 'ti-alloy' } });
+    expect(decisionContext(cur, ti).whenLine).toContain('다른 계열');
+  });
   it('출처 — 카테고리별 분리 (폴리머에 금속 표준 없음)', () => {
     const polySrc = machinabilitySources(mk({ category: 'Polymer' })).join(' ');
     expect(polySrc).toContain('Ensinger');

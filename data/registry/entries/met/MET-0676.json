@@ -193,29 +193,34 @@
   },
   "sources": [
     {
-      "label": "Datasheet 3",
+      "label": "ABS (Bureau of Shipping)",
       "url": "https://ww2.eagle.org/en/rules-and-resources/rules-and-guides.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ABS/DNV class shipbuilding",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ABS (American Bureau of Shipping) Rules — Hull Steel Grade",
       "url": "https://ww2.eagle.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "DNV-OS-B101 — Shipbuilding Steel Plate",
       "url": "https://www.dnv.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "KR Korean Register — Ship Steel Grade Standards",
       "url": "https://www.krs.co.kr/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -292,5 +297,11 @@
   "total_cost_estimate": 1.74,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "ht": "Shipbuilding steel AH36 / DH36 / EH36 (IACS grade)",
+    "insight": "structural-steel"
+  }
 }

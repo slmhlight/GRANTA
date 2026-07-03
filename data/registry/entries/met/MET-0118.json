@@ -190,24 +190,28 @@
   },
   "sources": [
     {
-      "label": "MatWeb 2",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=2219-T87",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: AA 2024-T351",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "MakeItFrom — 2219-T87 Aluminum (property table, UNS A92219)",
       "url": "https://www.makeitfrom.com/material-properties/2219-T87-Aluminum",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -279,13 +283,15 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS A92219",
-        "EN AW-2219",
-        "AlCu6Mn"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "al-2xxx",
+    "weld": "none",
+    "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+    "htg": "h02-aa",
+    "wg": "w16-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A92219"
+  ]
 }

@@ -36,14 +36,16 @@
       "max": 345,
       "typical": 345,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 450,
       "max": 450,
       "typical": 450,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "elongation": {
       "min": 21,
@@ -194,27 +196,32 @@
     {
       "label": "AISC — ASTM A572 Grade 50 HSLA Structural Steel",
       "url": "https://www.aisc.org/publications/steel-construction-manual/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
+      "label": "AISC steel construction",
       "url": "https://www.aisc.org/aisc/publications/steel-construction-manual/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
+      "label": "Leeco Steel",
       "url": "https://www.leecosteel.com/products/a572-50/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM A572 / A572M — HSLA Structural Steel",
       "url": "https://store.astm.org/a0572_a0572m-21e1.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "AISC — A572 Gr 50 structural shape",
       "url": "https://www.aisc.org/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -285,9 +292,8 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": []
-    }
+  "profiles": {
+    "weld": "ce",
+    "insight": "structural-steel"
   }
 }

@@ -188,32 +188,38 @@
     {
       "label": "Carpenter Technology — Kovar (ASTM F15)",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASTM F15 — Kovar / UNS K94610",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Carpenter Invar 36 / Kovar",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASTM F15 — Iron-Nickel-Cobalt Sealing Alloys (Kovar)",
       "url": "https://store.astm.org/f0015-04r20.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "VDM Pernifer 2918 (Kovar equiv.) reference",
       "url": "https://www.vdm-metals.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "Carpenter Kovar / Glass-Sealing Alloy reference",
       "url": "https://www.carpentertechnology.com/blog/kovar-alloy",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -311,5 +317,12 @@
     "Ni 29% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
     "Co 17% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "none",
+    "wg": "w67-invar"
+  },
+  "uns": [
+    "K94610"
+  ]
 }

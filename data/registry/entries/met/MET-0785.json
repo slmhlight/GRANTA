@@ -190,22 +190,26 @@
     {
       "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
       "url": "https://www.aksteel.com/our-products/stainless/430-stainless-steel",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 430 ferritic stainless",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — 430 Stainless Steel Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1e64ec5f25aa42caa0f86bd86dba0b50",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -290,71 +294,52 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — ferritic stainless (Cr 16-18, C ≤ 0.12). Cold-worked (H/H2): σy 275-400. Tmax 815°C continuous (oxidation), 870°C intermittent. Automotive trim, kitchen appliance, dishwasher interior, deep-drawing (가공성은 304보다 우수).",
+  "profiles": {
+    "mach": "ss-ferritic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "wg": "w07-aisi",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S43000"
+  ],
   "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
-          "url": "https://www.aksteel.com/our-products/stainless/430-stainless-steel",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 430\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20430",
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol.1 — AISI 430 ferritic stainless",
-          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-          "verified": true
-        },
-        {
-          "label": "MatWeb — 430 Stainless Steel Annealed",
-          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1e64ec5f25aa42caa0f86bd86dba0b50",
-          "verified": false
-        }
-      ]
-    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 242,
-        "max": 242,
-        "typical": 242,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 310,
+        "typical": 310,
+        "max": 310,
+        "confidence": "handbook",
+        "provenance": "교정: ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)"
       },
       "had_scalar": true,
-      "val_scalar": 242
+      "val_scalar": 310
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 365.2,
-        "max": 365.2,
-        "typical": 365.2,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 480,
+        "typical": 480,
+        "max": 480,
+        "confidence": "handbook",
+        "provenance": "교정: ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)"
       },
       "had_scalar": true,
-      "val_scalar": 365.2
+      "val_scalar": 480
     },
     "elongation": {
       "had_range": true,
       "val_range": {
-        "min": 18.6,
-        "max": 18.6,
-        "typical": 18.6,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 25,
+        "typical": 25,
+        "max": 25,
+        "confidence": "handbook",
+        "provenance": "교정: ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)"
       },
       "had_scalar": true,
-      "val_scalar": 18.6
+      "val_scalar": 25
     },
     "_basis": "430 annealed — DB 242/365 는 A240 min(205/450)의 UTS 미달 오염 (min-spec 확장 스윕 발견). AK Steel typical 로 교정",
     "_src": "ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)",
@@ -362,11 +347,11 @@
       "from": [
         [
           7.75,
-          242,
-          365.2,
-          18.6,
+          310,
+          480,
+          25,
           200,
-          164.56,
+          164.6,
           24.8
         ]
       ]

@@ -123,12 +123,14 @@
     {
       "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
       "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Applications: 전기 절연체 (히터 코어, 소켓), 저가 산업 절연",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "machinability": null,
@@ -167,16 +169,5 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Applications: 전기 절연체 (히터 코어, 소켓), 저가 산업 절연",
-          "url": null,
-          "verified": false
-        }
-      ]
-    }
-  }
+  "confidence_tier": "medium"
 }

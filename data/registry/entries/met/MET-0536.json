@@ -190,22 +190,26 @@
     {
       "label": "Haynes International — Haynes 282",
       "url": "https://haynesintl.com/en/alloys/alloy/haynes-282-alloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: Haynes International",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AMS 5951 — Haynes 282 bar/forging STA",
       "url": "https://www.sae.org/standards/content/ams5951/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -329,5 +333,16 @@
   "svhc_concerns": [
     "Co 11% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super-solidsol",
+    "weld": "none",
+    "htc": "aged",
+    "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
+    "wg": "w35-haynes",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07208"
+  ]
 }

@@ -156,22 +156,26 @@
     {
       "label": "Material datasheets — PCTFE (Kel-F)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "3M Kel-F 81 PCTFE reference (legacy / Daikin Neoflon CTFE)",
       "url": "https://www.daikin.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM D1430 — PCTFE Standard",
       "url": "https://store.astm.org/d1430-13.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "Daikin — NEOFLON PCTFE M-300H 데이터시트 (tds-m-300h-E)",
       "url": "https://www.daikinchemicals.com/library/pb_common/pdf/tds/Fluoropolymers/NEOFLON_PCTFE/tds-m-300h-E_ver01_Mar_2018.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -249,5 +253,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-soft",
+    "insight": "pol-fluoro"
+  }
 }

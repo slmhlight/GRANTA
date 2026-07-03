@@ -151,12 +151,14 @@
     {
       "label": "Datasheet — Antero 800NA (Stratasys PEKK)",
       "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/antero-800na/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: 위성/우주 outgassing (TML<0.1%), 의료·항공 prototyping",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "machinability": "Good",
@@ -230,5 +232,9 @@
       "E": 1.6
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-highperf"
+  }
 }

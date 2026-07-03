@@ -191,27 +191,32 @@
     {
       "label": "Kennametal/MatWeb — Stellite 6",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+6",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Kennametal Stellite — Stellite 6 (UNS R30006)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Kennametal Stellite 6 Alloy — Technical Data (조성·HRC/HV·밀도·UNS·용융)",
       "url": "https://www.stellite.com/us/en/alloys/stellite/stellite-6-alloy.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "Kennametal Stellite 6-AM-K datasheet (LPBF AM: UTS/σy/신율/E H&V·경도·CTE)",
       "url": "https://s7d2.scene7.com/is/content/Kennametal/stellite-6-am-k_data-sheetpdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -309,5 +314,15 @@
     "Haynes International Inc. corporate history (https://www.haynesintl.com/about/history)",
     "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "cobalt",
+    "weld": "none",
+    "ht": "Stellite 6 (UNS R30006, Co-Cr-W-C wear-resistant)",
+    "wg": "w44-stellite",
+    "insight": "cobalt"
+  },
+  "uns": [
+    "R30006"
+  ]
 }

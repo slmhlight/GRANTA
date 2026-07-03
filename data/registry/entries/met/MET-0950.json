@@ -192,22 +192,26 @@
     {
       "label": "ASM — M4 high-speed steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: Crucible PM tool steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Hudson Tool Steel — CPM Rex M4 HC Technical Data (조성+템퍼링)",
       "url": "https://www.hudsontoolsteel.com/technical-data/steelC4",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -277,9 +281,11 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "aliases": {
-      "from": []
-    }
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "qt",
+    "wg": "w10-h1",
+    "insight": "tool-steel"
   }
 }

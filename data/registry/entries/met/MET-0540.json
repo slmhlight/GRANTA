@@ -191,17 +191,20 @@
     {
       "label": "Special Metals — Incoloy 909 controlled-expansion superalloy",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Special Metals — INCOLOY alloy 909 (UNS N19909) Technical Bulletin (Table 1 조성 + Table 5 age-hardened 인장)",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-909.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -283,5 +286,15 @@
     "Ni 38% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
     "Co 13% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "wg": "w42-incoloy",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N19909"
+  ]
 }

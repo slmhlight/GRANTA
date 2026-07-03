@@ -186,9 +186,10 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
+      "label": "SSAB datasheet",
       "url": "https://www.ssab.com/products/brands/hardox",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -255,5 +256,10 @@
     "Mishnaevsky L Jr (2003) \"Three-dimensional numerical analysis of the role of microstructural inhomogeneity in damage and failure\", Comput Mater Sci 27(4)",
     "SSAB Corporate History 1878-2018"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "carbon-alloy-steel"
+  }
 }

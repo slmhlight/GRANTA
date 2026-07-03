@@ -190,22 +190,26 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASTM A108 — Cold-Finished Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0108-18.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.1 (Carbon and Low-Alloy Steels) — AISI 1xxx series",
       "url": "https://www.asminternational.org/handbooks",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     }
   ],
   "points": [
@@ -290,30 +294,9 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "ASM Handbook Vol.1 (Carbon and Low-Alloy Steels) — AISI 1xxx series",
-          "url": "https://www.asminternational.org/handbooks",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"AISI 1095\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%201095",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: AISI carbon steel",
-          "url": null,
-          "verified": false
-        }
-      ]
-    }
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "carbon-alloy-steel"
   }
 }

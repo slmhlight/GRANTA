@@ -190,22 +190,26 @@
     {
       "label": "ASM — C19400 high-conductivity copper",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cu alloys general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Copper Development Association — Alloy C19400 (Copper-Iron CuFeP)",
       "url": "https://alloys.copper.org/alloy/C19400",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -275,5 +279,12 @@
   "total_cost_estimate": 11.34,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "none",
+    "insight": "copper"
+  },
+  "uns": [
+    "C19400"
+  ]
 }

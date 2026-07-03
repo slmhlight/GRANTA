@@ -188,17 +188,20 @@
     {
       "label": "Special Metals — Monel Alloy K-500",
       "url": "https://web.archive.org/web/20251116140636/https://www.specialmetals.com/documents/technical-bulletins/monel-alloy-k-500.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Nikon SLM K-500 MDS 2025-05.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/02/mds5129.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS NickelAlloy K500 MDS",
       "url": "https://www.eos.info/var/assets/05-datasheet-images/Assets_MDS_Metal/EOS_NickelAlloy_K500/Material_DataSheet_EOS_NickelAlloyK500_en.pdf?v=9",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -320,5 +323,15 @@
   "svhc_concerns": [
     "Ni 70% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htg": "h04-inconel",
+    "wg": "w40-monel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N05500"
+  ]
 }

@@ -191,22 +191,26 @@
     {
       "label": "Haynes International — Ultimet (UNS R31233)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (ASM Vol.2 Co alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Haynes International — ULTIMET alloy Principal Features (official datasheet, H-2082E, ©2020)",
       "url": "https://haynesintl.com/wp-content/uploads/2024/08/ultimet.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -294,5 +298,14 @@
   "svhc_concerns": [
     "Ni 9% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "cobalt",
+    "weld": "none",
+    "wg": "w45-mp35n",
+    "insight": "cobalt"
+  },
+  "uns": [
+    "R31233"
+  ]
 }

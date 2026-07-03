@@ -185,12 +185,14 @@
     {
       "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ATI Wah Chang — Nb-1Zr (UNS R04261) refractory alloy",
       "url": "https://www.atimaterials.com/Products/Pages/Niobium-and-Niobium-Alloys.aspx",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -260,221 +262,14 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "ATI Wah Chang — Nb-1Zr (UNS R04261) refractory alloy",
-          "url": "https://www.atimaterials.com/Products/Pages/Niobium-and-Niobium-Alloys.aspx",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Nb-1Zr\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nb-1Zr",
-          "verified": false
-        }
-      ]
-    },
-    "fields": {
-      "heat_treatment": {
-        "from": "Mill-annealed (ASTM default)"
-      }
-    },
-    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)",
-    "points": {
-      "from": [
-        [
-          8.6,
-          405,
-          495,
-          16.2,
-          105,
-          126,
-          52
-        ],
-        [
-          8.6,
-          459,
-          561,
-          16.560000000000002,
-          105,
-          142.8,
-          52
-        ],
-        [
-          8.6,
-          490.50000000000006,
-          599.5,
-          16.02,
-          105,
-          152.60000000000002,
-          52
-        ],
-        [
-          8.6,
-          445.5,
-          544.5,
-          19.62,
-          105,
-          138.6,
-          52
-        ],
-        [
-          8.6,
-          409.5,
-          500.5,
-          18.18,
-          105,
-          127.4,
-          52
-        ],
-        [
-          8.6,
-          423,
-          517,
-          18.72,
-          105,
-          131.6,
-          52
-        ],
-        [
-          8.6,
-          405,
-          495,
-          16.2,
-          105,
-          126,
-          52
-        ],
-        [
-          8.6,
-          472.5,
-          577.5,
-          15.3,
-          105,
-          147,
-          52
-        ],
-        [
-          8.6,
-          441,
-          539,
-          17.64,
-          105,
-          137.2,
-          52
-        ],
-        [
-          8.6,
-          468,
-          572,
-          16.92,
-          105,
-          145.6,
-          52
-        ],
-        [
-          8.6,
-          432,
-          528,
-          17.28,
-          105,
-          134.4,
-          52
-        ],
-        [
-          8.6,
-          427.50000000000006,
-          522.5,
-          18.9,
-          105,
-          133,
-          52
-        ],
-        [
-          8.6,
-          423,
-          517,
-          16.92,
-          105,
-          131.6,
-          52
-        ],
-        [
-          8.6,
-          418.5,
-          511.5,
-          16.740000000000002,
-          105,
-          130.20000000000002,
-          52
-        ],
-        [
-          8.6,
-          472.5,
-          577.5,
-          18.9,
-          105,
-          147,
-          52
-        ],
-        [
-          8.6,
-          418.5,
-          511.5,
-          16.740000000000002,
-          105,
-          130.20000000000002,
-          52
-        ],
-        [
-          8.6,
-          486.00000000000006,
-          594,
-          17.64,
-          105,
-          151.20000000000002,
-          52
-        ],
-        [
-          8.6,
-          423,
-          517,
-          16.92,
-          105,
-          131.6,
-          52
-        ],
-        [
-          8.6,
-          409.5,
-          500.5,
-          18.18,
-          105,
-          127.4,
-          52
-        ],
-        [
-          8.6,
-          441,
-          539,
-          17.64,
-          105,
-          137.2,
-          52
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "refractory",
+    "weld": "none",
+    "htc": "soft",
+    "wg": "w61-niobiumb",
+    "insight": "refractory"
+  },
+  "uns": [
+    "R04261"
+  ]
 }

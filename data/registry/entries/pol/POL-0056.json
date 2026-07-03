@@ -159,17 +159,20 @@
     {
       "label": "BASF Ultramid / EOS PA powder",
       "url": "https://www.eos.info/3d-printing-materials/polymer",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "BASF Ultramid B (PA6) technical guide",
       "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Lanxess Durethan PA6",
       "url": "https://lanxess.com/en/Products-and-Solutions/Products/D/DURETHAN-B-30-S",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -385,40 +388,8 @@
   ],
   "confidence_tier": "high",
   "industry_note": "Nylon 6 (PA6, Polycaprolactam) — semi-crystalline thermoplastic. Tg (dry) ≈ 60°C, Tm ≈ 220°C, HDT (1.8 MPa) ≈ 70°C unfilled, max service 110°C. σy 70-85 / UTS 70-95 / El 30-200% / E 2.7-3.3 GPa / ρ 1.13-1.14 g/cc. 흡습률 9-10% (PA66 의 3× — most water-absorbent common polymer) → 강도 30% 감소 (DAM vs RH50%). 가공 쉬움 (Tm 낮음 vs PA66). 자동차 trim, 카펫 섬유, 어망, 의류 fiber, 일반 enclosure. GF30 grade σy 100-145 / E 7-9 (자동차 underhood).",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "MatWeb — Nylon 6 (PA6)",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nylon+6",
-          "verified": false
-        },
-        {
-          "label": "BASF Ultramid / EOS PA powder",
-          "url": "https://www.eos.info/3d-printing-materials/polymer",
-          "verified": true
-        },
-        {
-          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "BASF Ultramid B (PA6) technical guide",
-          "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/ultramid.html",
-          "verified": true
-        },
-        {
-          "label": "Lanxess Durethan PA6",
-          "url": "https://lanxess.com/en/Products-and-Solutions/Products/D/DURETHAN-B-30-S",
-          "verified": true
-        },
-        {
-          "label": "MatWeb — PA6 general engineering",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PA6",
-          "verified": false
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-engineering"
   }
 }

@@ -192,14 +192,16 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "EN standard",
       "url": "https://www.en-standard.eu/csn-en-10025-6-hot-rolled-products-of-structural-steels-part-6-technical-delivery-conditions-for-flat-products-of-high-yield-strength-structural-steels-in-the-quenched-and-tempered-condition/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASTM A36 / EN structural",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -274,5 +276,10 @@
   "svhc_concerns": [
     "Ni 2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "structural-steel"
+  }
 }

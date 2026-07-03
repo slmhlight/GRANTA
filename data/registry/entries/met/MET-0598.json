@@ -191,12 +191,14 @@
     {
       "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Special Metals — Monel Alloy 400",
       "url": "https://www.rolledalloys.ca/wp-content/uploads/400_Datasheet-rolled-alloys.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -263,42 +265,11 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Special Metals — Monel Alloy 400",
-          "url": "https://www.rolledalloys.ca/wp-content/uploads/400_Datasheet-rolled-alloys.pdf",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Monel 400\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Monel%20400",
-          "verified": false
-        }
-      ]
-    },
-    "aliases": {
-      "from": []
-    },
-    "points": {
-      "from": [
-        [
-          8.8,
-          171.7,
-          484.8,
-          24.3,
-          180,
-          121.2,
-          21.8
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "qt",
+    "wg": "w39-monel",
+    "insight": "ni-superalloy"
   }
 }

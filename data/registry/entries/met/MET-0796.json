@@ -188,19 +188,21 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, martensitic, AISI 440B annealed (UNS S44003)",
-      "verified": true
+      "label": "ANSYS Granta — Stainless steel, martensitic, AISI 440B annealed (UNS S44003)",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
+      "label": "Crucible Industries datasheet",
       "url": "https://www.crucible.com/eselector/product.aspx?StlName=440B",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -262,5 +264,14 @@
   "total_cost_estimate": 3.93,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ferritic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S44003"
+  ]
 }

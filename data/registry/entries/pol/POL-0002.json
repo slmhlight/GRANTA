@@ -156,22 +156,26 @@
     {
       "label": "MatWeb — ABS Plastic (general)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ABS+plastic",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Material datasheets — carbon-fibre ABS (FDM)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Markforged Onyx (15% short CF nylon-ABS blend) datasheet",
       "url": "https://markforged.com/materials/plastics/onyx",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — ABS-CF 20-30% Short Carbon Fiber",
       "url": "https://www.matweb.com/",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -250,5 +254,9 @@
     "Crump S S (1992) US Patent 5,121,329 \"Apparatus and method for creating three-dimensional objects\"",
     "LEGO Group corporate history 1963 ABS transition (https://www.lego.com/aboutus/lego-history)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-engineering"
+  }
 }

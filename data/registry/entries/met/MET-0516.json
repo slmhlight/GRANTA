@@ -195,27 +195,32 @@
     {
       "label": "Haynes International — Hastelloy X Alloy",
       "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-x-alloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Nikon SLM Hastelloy X MDS 2023-04.1",
       "url": "https://nikon-slm-solutions.com/materials/nickel/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "3D Systems Certified HX(A) MDS",
       "url": "https://www.3dsystems.com/sites/default/files/2023-12/3d-systems-certifiedhxa-mds-letter-us-revb-web.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Haynes International — Hastelloy X datasheet",
       "url": "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HASTELLOYXalloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5536 — Hastelloy X sheet/strip",
       "url": "https://www.sae.org/standards/content/ams5536/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -379,5 +384,15 @@
     "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
     "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super-solidsol",
+    "weld": "none",
+    "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+    "wg": "w32-hastelloy",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06002"
+  ]
 }

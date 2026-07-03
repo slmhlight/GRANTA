@@ -186,17 +186,20 @@
     {
       "label": "Outokumpu — Stainless Steel 304L (1.4307)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "3D Systems (AM vendor datasheet)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "EOS (AM vendor datasheet)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -327,5 +330,16 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htc": "as-built",
+    "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+    "wg": "w05-aisi",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S30403"
+  ]
 }

@@ -187,17 +187,20 @@
     {
       "label": "Copper.org — C12200 DHP Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C12200",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM — DHP copper C12200 (plumbing)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: AA 2xxx Al-Cu",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -261,29 +264,12 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          8.94,
-          70,
-          220,
-          45,
-          117,
-          50,
-          339
-        ],
-        [
-          8.94,
-          320,
-          345,
-          6,
-          117,
-          95,
-          339
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "cu-pure",
+    "weld": "none",
+    "insight": "copper"
+  },
+  "uns": [
+    "C12200"
+  ]
 }

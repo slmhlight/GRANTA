@@ -192,27 +192,32 @@
     {
       "label": "AK Steel/MatWeb — 17-7 PH Stainless",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7+PH",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 2",
+      "label": "AK Steel (Cleveland-Cliffs) datasheet",
       "url": "https://www.aksteel.com/our-products/stainless/17-7-PH",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "MatWeb 2",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7%20PH",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "AK Steel — 17-7 PH Stainless Datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/17-7-PH-DATA-BULLETIN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5528 — 17-7 PH sheet, strip (RH 950)",
       "url": "https://www.sae.org/standards/content/ams5528/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -298,5 +303,55 @@
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
     "ASTM A693 \"Standard Specification for Precipitation-Hardening Stainless and Heat-Resisting Steel Plate, Sheet, and Strip\""
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "htc": "aged",
+    "htg": "h03-17",
+    "wg": "w09-17",
+    "insight": "stainless-highperf"
+  },
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "E": 200.5,
+      "ys": 1031,
+      "uts": 1219
+    },
+    {
+      "temp": 150,
+      "E": 191,
+      "ys": 959,
+      "uts": 1142
+    },
+    {
+      "temp": 250,
+      "E": 184.8,
+      "ys": 913,
+      "uts": 1083
+    },
+    {
+      "temp": 350,
+      "E": 180.8,
+      "ys": 862,
+      "uts": 1032
+    },
+    {
+      "temp": 450,
+      "E": 169.5,
+      "ys": 670,
+      "uts": 845
+    },
+    {
+      "temp": 550,
+      "E": 136.9,
+      "ys": 387,
+      "uts": 433
+    }
+  ],
+  "elevated_temp_src": "Ansys Granta MI — Stainless steel, semi-austenitic, 17-7PH, TH1050 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)",
+  "uns": [
+    "S17700"
+  ]
 }

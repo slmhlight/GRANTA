@@ -156,17 +156,20 @@
     {
       "label": "Material datasheets — PFA fluoropolymer",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Chemours Teflon PFA datasheet",
       "url": "https://www.chemours.com/en/brands/teflon",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Daikin Neoflon PFA technical guide",
       "url": "https://www.daikin.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -238,5 +241,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-soft",
+    "insight": "pol-fluoro"
+  }
 }

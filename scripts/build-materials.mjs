@@ -1721,6 +1721,8 @@ if (curatedFakeDropped > 0) {
 const supRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'supplementary-materials.json'), 'utf8')).materials) || [];
 // R226c — 주조 합금 (cast equivalents, CF8/CF8M/WCB/cast Ti 등) 별도 파일 합류. supplementary 로더가 동일 처리(파생필드 derivation 재사용).
 try { const castRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'cast-alloys.json'), 'utf8')).materials) || []; supRaw.push(...castRaw); } catch { /* optional */ }
+// R226l — Ansys Granta MI datasheet 검증 entry (사용자 제공 PDF) 합류 — cast-alloys 와 동일 처리.
+try { const grantaRaw = (JSON.parse(fs.readFileSync(path.join(DATA, 'granta-datasheets.json'), 'utf8')).materials) || []; supRaw.push(...grantaRaw); } catch { /* optional */ }
 // R39 — supplementary loader: `conditions[]` 가 있고 길이가 points 와 같으면 condition 별 row 로 분리.
 //        LPBF-Wrought pair 에서 Wrought 쪽 열처리 다양성 (Annealed / Solution / Aged / Q+T / STA / DSA …)
 //        을 살리기 위함. 없으면 기존 패턴 — 전체 통합 single row.

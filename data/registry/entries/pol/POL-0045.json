@@ -151,22 +151,26 @@
     {
       "label": "Datasheet — PET-GF30 Rynite 530 (DuPont, industrial gear)",
       "url": "https://www.dupont.com/products/rynite.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: 산업 기어 (모터 감속기, 출력 1~10 kW), 펌프 임펠러, 자동차 워셔 펌프, 전기 커넥터 하우징 (Tyco/TE), 헤어드라이어 핫 housing, 토스터 외장",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "DuPont Rynite PET-GF technical datasheet",
       "url": "https://www.dupont.com/products/rynite-pet-thermoplastic-polyester.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — PET Semi-Crystalline general",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PET",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "machinability": "Fair",
@@ -222,5 +226,9 @@
     "Awaja F & Pavel D (2005) \"Recycling of PET\", Eur Polym J 41"
   ],
   "confidence_tier": "high",
-  "industry_note": "PET (Polyethylene Terephthalate, semi-crystalline thermoplastic). Tg ≈ 75°C, Tm ≈ 245°C, HDT (1.8 MPa) ≈ 105°C unfilled, max service 100-130°C. Unfilled: σy 60-70 / UTS 60-75 / El 30-70% / E 2."
+  "industry_note": "PET (Polyethylene Terephthalate, semi-crystalline thermoplastic). Tg ≈ 75°C, Tm ≈ 245°C, HDT (1.8 MPa) ≈ 105°C unfilled, max service 100-130°C. Unfilled: σy 60-70 / UTS 60-75 / El 30-70% / E 2.",
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-engineering"
+  }
 }

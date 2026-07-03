@@ -195,12 +195,14 @@
     {
       "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Howmet IN-100 + Special Metals — Inconel 100 (UNS N13100) cast γ' Ni superalloy datasheet",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/in-100.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -280,80 +282,14 @@
     "Ni 58% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
   "confidence_tier": "medium",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Howmet IN-100 + Special Metals — Inconel 100 (UNS N13100) cast γ' Ni superalloy datasheet",
-          "url": "https://www.specialmetals.com/documents/technical-bulletins/in-100.pdf",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Inconel 100\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20100",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: Cast Ni superalloy",
-          "url": null,
-          "verified": false
-        }
-      ]
-    },
-    "points": {
-      "from": [
-        [
-          7.75,
-          1166,
-          1462.8000000000002,
-          8.48,
-          200,
-          402.8,
-          13
-        ],
-        [
-          7.75,
-          1111,
-          1393.8,
-          7.28,
-          200,
-          383.8,
-          13
-        ],
-        [
-          7.75,
-          1100,
-          1380,
-          6.4,
-          200,
-          380,
-          13
-        ],
-        [
-          7.75,
-          1177,
-          1476.6,
-          7.760000000000001,
-          200,
-          406.6,
-          13
-        ],
-        [
-          7.75,
-          1122,
-          1407.6,
-          7.36,
-          200,
-          387.6,
-          13
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "wg": "w30-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N13100"
+  ]
 }

@@ -100,29 +100,34 @@
   },
   "sources": [
     {
-      "label": "Datasheet 3",
+      "label": "Poongsan datasheet",
       "url": "https://www.poongsan.co.kr/eng/business/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: AA 5xxx Al-Mg",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Copper Development Association — C75200 65Cu-18Ni-17Zn",
       "url": "https://www.copper.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B122 — Nickel Silver Plate/Sheet",
       "url": "https://store.astm.org/b0122_b0122m-16.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -190,11 +195,10 @@
     "Copper Development Association Pub 144"
   ],
   "confidence_tier": "medium",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "Nickel Silver 65Cu-18Ni-17Zn"
-      ]
-    }
+  "profiles": {
+    "weld": "none",
+    "htc": "cold",
+    "wg": "w56-c75200",
+    "insight": "copper"
   }
 }

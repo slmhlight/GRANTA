@@ -194,22 +194,26 @@
     {
       "label": "Rolled Alloys — Zeron 100 super duplex (UNS S32760)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Rolled Alloys ZERON 100",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Zeron 100, Super Duplex (UNS S32760) — Mega Mex",
       "url": "https://megamex.com/zeron-100/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -292,5 +296,15 @@
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
+    "wg": "w08-duplex",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S32760"
+  ]
 }

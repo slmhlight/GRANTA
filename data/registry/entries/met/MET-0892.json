@@ -36,14 +36,16 @@
       "max": 450,
       "typical": 275,
       "n": 2,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 345,
       "max": 550,
       "typical": 345,
       "n": 2,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "elongation": {
       "min": 18,
@@ -189,12 +191,14 @@
     {
       "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys (properties & selection)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ASTM B265 + ATI Wah Chang — Ti Grade 7 (Ti-0.15Pd, corrosion-resistant)",
       "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -265,53 +269,11 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "ASTM B265 + ATI Wah Chang — Ti Grade 7 (Ti-0.15Pd, corrosion-resistant)",
-          "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Ti Grade 7\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%207",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: MMPDS-2018 Titanium",
-          "url": null,
-          "verified": false
-        }
-      ]
-    },
-    "points": {
-      "from": [
-        [
-          4.51,
-          353.40000000000003,
-          418.5,
-          16.6,
-          103,
-          120.9,
-          21.8
-        ],
-        [
-          4.51,
-          399,
-          472.5,
-          17,
-          103,
-          136.5,
-          21.8
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "ti-cp",
+    "weld": "none",
+    "htc": "soft",
+    "wg": "w24-ti",
+    "insight": "titanium"
   }
 }

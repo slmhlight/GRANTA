@@ -185,17 +185,20 @@
     {
       "label": "Reference 2",
       "url": "https://www.atimaterials.com",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "ATI Allvac 718Plus (UNS N07818) Technical Bulletin",
       "url": "https://www.atimaterials.com/Products/Documents/datasheets/nickel-cobalt/Ni-Co-Cr-Mo-W/ati_718plus_alloy_data.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "AMS 5945 / 5946 — 718Plus bar/forging",
       "url": "https://www.sae.org/standards/content/ams5945/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -293,5 +296,14 @@
   "svhc_concerns": [
     "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07818"
+  ]
 }

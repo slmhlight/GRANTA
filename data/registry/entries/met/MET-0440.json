@@ -188,27 +188,32 @@
     {
       "label": "Copper.org — C46400 Naval Brass (UNS C46400)",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C46400",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASTM B21 — naval brass C46400",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: AA 6xxx Al-Mg-Si",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Copper Development Association — C46400 Naval Brass",
       "url": "https://www.copper.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B21 — Naval Brass Bar",
       "url": "https://store.astm.org/b0021_b0021m-22.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -306,5 +311,14 @@
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
     "Copper Development Association \"Brasses for Marine Service\" Pub TN 26 (2010)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "brass",
+    "weld": "none",
+    "wg": "w54-c26000",
+    "insight": "copper"
+  },
+  "uns": [
+    "C46400"
+  ]
 }

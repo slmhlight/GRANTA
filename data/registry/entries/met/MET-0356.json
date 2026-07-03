@@ -187,32 +187,38 @@
     {
       "label": "Carpenter Technology — Invar 36",
       "url": "https://www.carpentertechnology.com/alloy-finder/invar-36",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM — Invar 36 / UNS K93600 controlled expansion",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Carpenter Invar 36 / Kovar",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Carpenter Invar 36 / Free-Cut Invar datasheet",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM F1684 — Iron-Nickel Low-Expansion Alloys",
       "url": "https://store.astm.org/f1684-23.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "VDM Pernifer 36 reference",
       "url": "https://www.vdm-metals.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -315,5 +321,12 @@
     "Sahoo A et al. (2020) \"A review on the development of Invar and Elinvar alloys\", Mater Sci Tech 36(15)",
     "ASM Handbook Vol.2 \"Properties and Selection: Nonferrous Alloys and Special-Purpose Materials\""
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "none",
+    "wg": "w67-invar"
+  },
+  "uns": [
+    "K93600"
+  ]
 }

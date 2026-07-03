@@ -189,27 +189,32 @@
     {
       "label": "MatWeb — Ti-6Al-7Nb (ASTM F1295)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-7Nb",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ASTM F1295 — Ti-6Al-7Nb (medical)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Aircraft Materials — Titanium Alloy 6Al-7Nb (ASTM F1295) 데이터시트",
       "url": "https://www.aircraftmaterials.com/data/titanium/ti-6al-7nb.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ACNIS — Ti-6Al-7Nb 데이터시트 (FT009, ASTM F1295 / ISO 5832-11)",
       "url": "https://acnis-usa.com/wp-content/uploads/2020/06/UK-TA6VNb7_-FT009.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -297,9 +302,14 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    }
-  }
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "htg": "h07-ti",
+    "wg": "w24-ti",
+    "insight": "titanium"
+  },
+  "uns": [
+    "R56700"
+  ]
 }

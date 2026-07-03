@@ -199,17 +199,20 @@
     {
       "label": "APWORKS — Scalmalloy datasheet",
       "url": "https://www.apworks.de/scalmalloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Nikon SLM Scalmalloy MDS 2024-11.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/mds5143.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "3D Systems Certified Scalmalloy(A) MDS",
       "url": "https://www.3dsystems.com/sites/default/files/2022-02/3d-systems-certified-scalmalloy%28a%29-datasheet-usen-2022-02-23-a-print.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -327,5 +330,11 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-cast-am",
+    "weld": "none",
+    "htc": "as-built",
+    "insight": "aluminum"
+  }
 }

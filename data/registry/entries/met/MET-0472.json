@@ -189,22 +189,26 @@
     {
       "label": "ASTM B80 — EZ33A magnesium casting alloy",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Mg alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AZoM — Magnesium EZ33A-T5 Alloy (UNS M12330) — ASTM B80/B199/B403",
       "url": "https://www.azom.com/article.aspx?ArticleID=8585",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -286,5 +290,14 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "magnesium",
+    "weld": "none",
+    "wg": "w49-zk60",
+    "insight": "magnesium"
+  },
+  "uns": [
+    "M12330"
+  ]
 }

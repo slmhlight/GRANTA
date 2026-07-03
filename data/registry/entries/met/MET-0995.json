@@ -36,14 +36,16 @@
       "max": 205,
       "typical": 205,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 485,
       "max": 485,
       "typical": 485,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "basis": "min_spec"
     },
     "elongation": {
       "min": 35,
@@ -191,17 +193,20 @@
     {
       "label": "Outokumpu — Stainless Steel 304L (1.4307)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM A351/A351M — Castings, Austenitic",
       "url": "https://store.astm.org/a0351_a0351m-22.html",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "CFS Foundry — A351 CF3 vs CF3M",
       "url": "https://www.investmentcastchina.com/astm-a351-cf3-vs-cf3m-stainless-steel-casting/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -332,5 +337,16 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+    "insight": "stainless"
+  },
+  "uns": [
+    "J92500",
+    "S30403"
+  ]
 }

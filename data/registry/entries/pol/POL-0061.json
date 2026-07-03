@@ -152,22 +152,26 @@
     {
       "label": "Datasheet — PA11 ALM PA850",
       "url": "https://www.arkema.com/global/en/products/product-finder/product-viewer/Rilsan-PA11/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: 신축성 prototype, 의족·의수, 자동차 fuel line (castor oil 기반 — bio-based)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Arkema Rilsan PA11 bio-based (castor oil)",
       "url": "https://www.extrudedpolymers.com/products/rilsan-pa-11/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ALM PA850 (bio-based PA11 SLS powder)",
       "url": "https://www.alm-llc.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "machinability": "Good",
@@ -226,5 +230,9 @@
     "Schmid M (2018) Laser Sintering with Plastics, Hanser"
   ],
   "confidence_tier": "high",
-  "industry_note": "Nylon 11 (PA11, Polyundecanamide) — castor oil bio-based (Arkema Rilsan, ALM PA850, EOS PA1101). Tm ≈ 188°C, Tg ≈ 46°C, max service 95-100°C continuous. σy 45-50 / UTS 45-55 / El 200-330% (very ductile) / E 1.4-1.7 GPa / ρ 1.01-1.05 g/cc. 흡습률 1.5-2.5% (PA12 와 거의 동등, PA6 의 1/4) — long-term dimensional stability. PA12 의 bio-based 대안. 의료 카테터, 오프쇼어 flexible riser (gas/oil), 자동차 fuel line (PA12 의 bio version), SLS 3D printing (ALM, EOS)."
+  "industry_note": "Nylon 11 (PA11, Polyundecanamide) — castor oil bio-based (Arkema Rilsan, ALM PA850, EOS PA1101). Tm ≈ 188°C, Tg ≈ 46°C, max service 95-100°C continuous. σy 45-50 / UTS 45-55 / El 200-330% (very ductile) / E 1.4-1.7 GPa / ρ 1.01-1.05 g/cc. 흡습률 1.5-2.5% (PA12 와 거의 동등, PA6 의 1/4) — long-term dimensional stability. PA12 의 bio-based 대안. 의료 카테터, 오프쇼어 flexible riser (gas/oil), 자동차 fuel line (PA12 의 bio version), SLS 3D printing (ALM, EOS).",
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-engineering"
+  }
 }

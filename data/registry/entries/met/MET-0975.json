@@ -192,27 +192,32 @@
     {
       "label": "ASM Handbook Vol.1 — Tool Steels (hot-work H-series)",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20H21",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: Bohler-Uddeholm H13",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AZoM — H21 Tool Steel (Tungsten Hot-Work) (조성+40~55 HRC+규격)",
       "url": "https://www.azom.com/article.aspx?ArticleID=6199",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -277,33 +282,11 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "MatWeb 1",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20H21",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: Bohler-Uddeholm H13",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "AZoM — H21 Tool Steel (Tungsten Hot-Work) (조성+40~55 HRC+규격)",
-          "url": "https://www.azom.com/article.aspx?ArticleID=6199",
-          "verified": true
-        }
-      ]
-    },
-    "aliases": {
-      "from": []
-    }
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "soft",
+    "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+    "insight": "tool-steel"
   }
 }

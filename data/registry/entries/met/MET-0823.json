@@ -193,32 +193,38 @@
     {
       "label": "Carpenter Technology — Custom 630 (17-4 PH)",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 2",
+      "label": "AK Steel (Cleveland-Cliffs) datasheet",
       "url": "https://www.aksteel.com/our-products/stainless/17-4-ph",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "MatWeb 2",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=14a0d4d2c8074bb0baadfb56dd5f3a08",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "AK Steel — 17-4 PH Stainless Datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/17-4-PH-DATA-BULLETIN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5643 — 17-4 PH bar, wire, forging",
       "url": "https://www.sae.org/standards/content/ams5643/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ASTM A693 — Precipitation-Hardening Stainless",
       "url": "https://store.astm.org/a0693-16r22.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -331,5 +337,17 @@
     "AK Steel \"17-4 PH Stainless Steel Product Data Bulletin\" (2007)",
     "Nakkalil R et al. (1993) \"Microstructural Evolution During Aging of 17-4 PH Stainless Steel\", Met Trans A 24A"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "htc": "aged",
+    "ht": "17-4 PH stainless (UNS S17400)",
+    "htg": "h03-17",
+    "wg": "w09-17",
+    "insight": "stainless-highperf"
+  },
+  "uns": [
+    "S17400"
+  ]
 }

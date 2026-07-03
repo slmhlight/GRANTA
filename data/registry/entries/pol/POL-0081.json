@@ -144,32 +144,38 @@
     {
       "label": "Datasheet — PC High Viscosity",
       "url": "https://www.ansys.com/products/materials/granta-mi",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Applications: 방탄 glazing, 헬멧, drone 부품, 충격 흡수 panel, 전기차 부품",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SABIC LEXAN 101R / 121R / EXL / FXD datasheet",
       "url": "https://www.sabic.com/en/products/specialties/lexan-resins/lexan-resin",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Covestro Makrolon 2407 / 2658 / 3108 datasheet",
       "url": "https://solutions.covestro.com/en/products/makrolon",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "SABIC LEXAN PC resin technical guide",
       "url": "https://www.sabic.com/en/products/specialties/lexan-resins",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — Polycarbonate (PC) general",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=501acbb63cbc4f748faa7490884cdbca",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "machinability": "Good",
@@ -225,5 +231,9 @@
     "Eaton R R & Crowther G P (2005) Bisphenol A: Health, Safety and the Environment, Wiley"
   ],
   "confidence_tier": "high",
-  "industry_note": "Polycarbonate grades by molecular weight (MW): • Low MW (Lexan 101R 12 MFR, Makrolon 2407): σy 65 / E 2.4 / Tmax 115°C — injection molding ease, thin-wall • Standard MW (Lexan 121R 9 MFR, Makrolon 2858): σy 62-65 / Tmax 115-127°C — general purpose • High MW (Lexan EXL 3 MFR, Makrolon 3108): σy 67 / E 2.4 / Tmax 127°C — tough grade, optical, riot shield, bullet-resistant glazing 낮은 MW → easier 가공, lower 강도. 광 투과 90%, refractive index 1.586."
+  "industry_note": "Polycarbonate grades by molecular weight (MW): • Low MW (Lexan 101R 12 MFR, Makrolon 2407): σy 65 / E 2.4 / Tmax 115°C — injection molding ease, thin-wall • Standard MW (Lexan 121R 9 MFR, Makrolon 2858): σy 62-65 / Tmax 115-127°C — general purpose • High MW (Lexan EXL 3 MFR, Makrolon 3108): σy 67 / E 2.4 / Tmax 127°C — tough grade, optical, riot shield, bullet-resistant glazing 낮은 MW → easier 가공, lower 강도. 광 투과 90%, refractive index 1.586.",
+  "profiles": {
+    "mach": "pol-amorphous",
+    "insight": "pol-engineering"
+  }
 }

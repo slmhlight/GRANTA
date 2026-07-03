@@ -159,17 +159,20 @@
     {
       "label": "ExxonMobil PP product family",
       "url": "https://www.exxonmobilchemical.com/en/products/polymers",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "SABIC STAMAX 30YK270 (PP-LGF30) datasheet",
       "url": "https://www.sabic.com/en/products/polymers/polypropylene-pp",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Borealis Daplen EE001AI (PP-GF30)",
       "url": "https://www.borealisgroup.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -387,35 +390,8 @@
   ],
   "confidence_tier": "high",
   "industry_note": "Polypropylene + 30% glass fiber. Short fiber (1-2mm) vs Long fiber (10-25mm, LGF = better strength). PP-SGF30: σy 60-80 / UTS 70-95 / E 4-6 GPa / ρ 1.10. PP-LGF30 (STAMAX): σy 80-100 / UTS 90-110 / E 6-8 GPa. HDT (1.8 MPa) 150°C (PP unfilled 의 50°C 대비 boost). 가벼움 (PA-GF 의 80% density) + 화학 저항 + 가격 우수 → 자동차 instrument panel carrier, 자동차 battery tray, washing machine drum housing, 가전 외장. Recyclable (vs thermoset GF composite).",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "ExxonMobil PP product family",
-          "url": "https://www.exxonmobilchemical.com/en/products/polymers",
-          "verified": true
-        },
-        {
-          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"PP-GF30\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PP-GF30",
-          "verified": false
-        },
-        {
-          "label": "SABIC STAMAX 30YK270 (PP-LGF30) datasheet",
-          "url": "https://www.sabic.com/en/products/polymers/polypropylene-pp",
-          "verified": true
-        },
-        {
-          "label": "Borealis Daplen EE001AI (PP-GF30)",
-          "url": "https://www.borealisgroup.com/",
-          "verified": false
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-commodity"
   }
 }

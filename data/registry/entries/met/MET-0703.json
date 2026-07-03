@@ -36,7 +36,8 @@
       "max": 250,
       "typical": 220,
       "n": 3,
-      "confidence": "measured"
+      "confidence": "measured",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 490,
@@ -190,27 +191,32 @@
     {
       "label": "Outokumpu — 904L Super Austenitic",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/904l",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B625 — 904L super-austenitic (UNS N08904)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Outokumpu 904L technical datasheet",
       "url": "https://www.outokumpu.com/en/products/904l",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B677 — UNS N08904 Seamless Tube",
       "url": "https://store.astm.org/b0677-21.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -333,5 +339,13 @@
       "E": 155
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "insight": "stainless"
+  },
+  "uns": [
+    "N08904"
+  ]
 }

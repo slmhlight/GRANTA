@@ -188,29 +188,32 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
-      "url": "DOT/FAA/TC-18/21 V1 — Material Characterization of Aluminum Lithium Alloys (March 2020)",
-      "verified": true
+      "label": "DOT/FAA/TC-18/21 V1 — Material Characterization of Aluminum Lithium Alloys (March 2020)",
+      "verified": true,
+      "authority": "other"
     },
     {
-      "label": "Datasheet 2",
-      "url": "Arconic Airware Al-Li 2099 (Constellium / Arconic supplied)",
-      "verified": true
+      "label": "Arconic Airware Al-Li 2099 (Constellium / Arconic supplied)",
+      "verified": true,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Arconic Airware 2099 Al-Li datasheet",
       "url": "https://www.arconic.com/products-services/airware",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 4458 — Aluminum 2099 Al-Li T83 extrusion",
       "url": "https://www.sae.org/standards/content/ams4458/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -279,5 +282,15 @@
   "total_cost_estimate": 24.57,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-2xxx",
+    "weld": "none",
+    "htg": "h02-aa",
+    "wg": "w17-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A92099"
+  ]
 }

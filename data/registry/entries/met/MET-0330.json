@@ -189,17 +189,20 @@
     {
       "label": "ASM — gray cast iron Class 30",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: ASTM A536 ductile iron",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Penticton Foundry — Gray Iron ASTM A48 Class 30 Data Sheet (UTS·압축·경도·조성)",
       "url": "https://www.pentictonfoundry.com/news/gray-iron-astm-a48-class-30/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -294,5 +297,9 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "none",
+    "wg": "w12-gray"
+  }
 }

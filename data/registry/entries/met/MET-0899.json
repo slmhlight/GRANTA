@@ -191,27 +191,32 @@
     {
       "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys (β alloys)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
-      "label": "MatWeb 1",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=15a1e9bfb95e4e98a85fc3afebbf0ba2",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AZoM — Grade Ti-13V-11Cr-3Al Alloy (Article 9423)",
       "url": "https://www.azom.com/article.aspx?ArticleID=9423",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -275,33 +280,11 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    },
-    "sources": {
-      "from": [
-        {
-          "label": "MatWeb 1",
-          "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=15a1e9bfb95e4e98a85fc3afebbf0ba2",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: MMPDS-2018 Titanium",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "AZoM — Grade Ti-13V-11Cr-3Al Alloy (Article 9423)",
-          "url": "https://www.azom.com/article.aspx?ArticleID=9423",
-          "verified": true
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "htc": "soft",
+    "wg": "w25-beta",
+    "insight": "titanium"
   }
 }

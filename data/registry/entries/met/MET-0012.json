@@ -191,22 +191,26 @@
     {
       "label": "MatWeb — 300M ultra-high strength steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=300M+steel",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASM / AMS 6417 — 300M (quenched & tempered)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SSA Corp — 300M (4340 MOD) AMS 6417/6419 UNS K44220 datasheet (composition + mech + HT)",
       "url": "https://www.ssa-corp.com/en/300M-4340-MOD_AMS-6417-UNSK44220.php",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -304,5 +308,12 @@
   "svhc_concerns": [
     "Ni 2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "ce",
+    "insight": "carbon-alloy-steel"
+  },
+  "uns": [
+    "K44220"
+  ]
 }

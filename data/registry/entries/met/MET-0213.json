@@ -192,32 +192,38 @@
     {
       "label": "Arconic/MatWeb — 7075 Aluminum Alloy",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=7075+aluminum",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "MatWeb 4",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA7075",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 4",
+      "label": "Alcoa datasheet",
       "url": "https://www.alcoa.com/products/aluminum/7075-aerospace-alloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 7xxx (Al-Zn-Mg-Cu)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Aluminum Association — 7075 Data Sheet",
       "url": "https://www.aluminum.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — Aluminum 7075-T6",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=4f19a42be94546b686bbf43f79c51b7d",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -312,14 +318,16 @@
     "Polmear I J (2006) Light Alloys: From Traditional Alloys to Nanocrystals, 4th ed., Butterworth-Heinemann"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS A97075",
-        "EN AW-7075",
-        "AlZn5.5MgCu",
-        "DIN 3.4365"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "al-7xxx",
+    "weld": "none",
+    "htc": "aged",
+    "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
+    "htg": "h02-aa",
+    "wg": "w20-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A97075"
+  ]
 }

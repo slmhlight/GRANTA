@@ -157,12 +157,14 @@
     {
       "label": "Material datasheets — carbon-fibre polycarbonate (FDM)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SABIC LEXAN EXL CF datasheet",
       "url": "https://www.sabic.com/en/products/specialties/lexan-resins",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -240,5 +242,9 @@
     "Brunelle D J & Korn M R (eds., 2005) Advances in Polycarbonates, ACS Symposium Series 898",
     "Eaton R R & Crowther G P (2005) Bisphenol A: Health, Safety and the Environment, Wiley"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-engineering"
+  }
 }

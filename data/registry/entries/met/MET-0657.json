@@ -187,27 +187,32 @@
     {
       "label": "ASTM B708 — Ta-10W tantalum alloy",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ATI — Ta10W Technical Data Sheet (2013): 조성 9-11%W·ρ 16.9·melt 3035°C·BHN 185-210·recrystallized RT UTS 80ksi/YTS 70-89ksi·신율 20-40%·stress-relieved 표·CTE·열전도",
       "url": "https://www.atimaterials.com/Products/Documents/datasheets/niobium-hafnium-tantalum-vanadium/tantalum/ati_Ta10W_v5.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "WHS Sondermetalle — Data Sheet Tantalum (Ta, TaW2.5, TaW10): Ta90W10 R05255 vacuum arc-melt 명기·ASTM B364/B365/B708/B521",
       "url": "https://www.whs-sondermetalle.de/images/pdf/Ta-Tantalum.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -287,5 +292,14 @@
   "total_cost_estimate": 73.5,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "refractory",
+    "weld": "none",
+    "wg": "w58-tantalumb",
+    "insight": "refractory"
+  },
+  "uns": [
+    "R05252"
+  ]
 }

@@ -190,29 +190,34 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
+      "label": "Special Metals datasheet",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-783.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Special Metals — Inconel 783 Technical Bulletin",
       "url": "https://www.specialmetals.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5953 — Inconel 783 bar/forging",
       "url": "https://www.sae.org/standards/content/ams5953/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -285,5 +290,11 @@
     "Ni 30% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
     "Co 37% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "insight": "ni-superalloy"
+  }
 }

@@ -190,22 +190,26 @@
     {
       "label": "Kennametal/MatWeb — Stellite 12",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+12",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Kennametal Stellite — Stellite 12 hardfacing",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Kennametal Stellite — Stellite 12 Alloy Technical Data (official)",
       "url": "https://www.stellite.com/us/en/alloys/stellite/stellite-12-alloy.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -286,5 +290,14 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "cobalt",
+    "weld": "none",
+    "wg": "w44-stellite",
+    "insight": "cobalt"
+  },
+  "uns": [
+    "R30012"
+  ]
 }

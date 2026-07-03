@@ -190,19 +190,22 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "EverySpec (MIL-SPEC)",
       "url": "https://everyspec.com/MIL-SPECS/MIL-SPECS-MIL-S/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -282,5 +285,10 @@
     "Czyryca E J (1990) \"Development of Low-Carbon, Copper-Strengthened HSLA Steel Plate for Naval Ship Construction\", David Taylor Research Center DTRC/SME-90-04",
     "Czyryca E J et al. (1990) \"Development and Certification of HSLA-100 Steel for Naval Ship Construction\", Naval Eng J 102(3)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "structural-steel"
+  }
 }

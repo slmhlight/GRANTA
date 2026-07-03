@@ -159,7 +159,8 @@
     {
       "label": "SABIC ULTEM resin",
       "url": "https://www.sabic.com/en/products/specialties/ultem-resins",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -406,25 +407,8 @@
       "E": 1.2
     }
   ],
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "SABIC ULTEM resin",
-          "url": "https://www.sabic.com/en/products/specialties/ultem-resins",
-          "verified": true
-        },
-        {
-          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"PEI\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PEI",
-          "verified": false
-        }
-      ]
-    }
+  "profiles": {
+    "mach": "pol-amorphous",
+    "insight": "pol-highperf"
   }
 }

@@ -186,29 +186,32 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
-      "url": "ANSYS Granta — Carbon steel AISI 1144 normalized/Q+T (UNS G11440, BS 212M44)",
-      "verified": true
+      "label": "ANSYS Granta — Carbon steel AISI 1144 normalized/Q+T (UNS G11440, BS 212M44)",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 2",
-      "url": "AISI 1144 Stressproof (Niagara LaSalle resulfurized free-machining grade)",
-      "verified": true
+      "label": "AISI 1144 Stressproof (Niagara LaSalle resulfurized free-machining grade)",
+      "verified": true,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Handbook Vol.1 — Resulfurized Carbon Steels (1144)",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Niagara LaSalle Stressproof bar",
       "url": "https://www.lasallesteel.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -268,5 +271,11 @@
   "total_cost_estimate": 1.39,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "fm-steel",
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "carbon-alloy-steel"
+  }
 }

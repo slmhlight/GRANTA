@@ -191,32 +191,38 @@
     {
       "label": "Böhler-Uddeholm — H13 / W302 Tool Steel",
       "url": "https://www.bohler.com/en/products/w302",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AISI H13 / Bohler W302",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: Bohler-Uddeholm H13",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Böhler-Uddeholm — H13 / Orvar Supreme / W302 datasheet",
       "url": "https://www.uddeholm.com/files/PB_Uddeholm_orvar_supreme_english.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM Handbook Vol.1 — Tool Steels: H13 hot-work",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204965/Tool-Steels",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "AISI 6F2 / NADCA #207 — H13 properties standard",
       "url": "https://www.nadca.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -354,15 +360,12 @@
     "ASTM A681 \"Standard Specification for Tool Steels Alloy\""
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "DIN 1.2344",
-        "X40CrMoV5-1",
-        "JIS SKD61",
-        "KS STD61",
-        "AISI H13"
-      ]
-    }
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "qt",
+    "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
+    "wg": "w10-h1",
+    "insight": "tool-steel"
   }
 }

@@ -193,17 +193,20 @@
     {
       "label": "Reference 1",
       "url": "https://www.mxvrail.com",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: BS EN 13674 Rail",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AAR Manual of Standards & Recommended Practices — M-107/M-208 'Wheels, Carbon Steel' (Implemented 07/2009): Table 8.1 화학요건 + Table 10.1 림 Brinell 경도(Class C 321-363 BHN)",
       "url": "https://shspecialsteel.com/wp-content/uploads/2020/01/AAR_M-107-for-Train-Wheels-of-carbon_steel.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -277,5 +280,10 @@
     "Stone D H et al. (1989) \"Heavy-Haul Heavy-Wheel Load Service\", AAR Research Report R-714",
     "Marich S (2006) \"Wheel-rail interaction\", Tech Report TR 1051, Australasian Centre for Rail Innovation"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "structural-steel"
+  }
 }

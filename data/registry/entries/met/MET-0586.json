@@ -193,12 +193,14 @@
     {
       "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Special Metals — Inconel Alloy X-750",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -269,46 +271,14 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Special Metals — Inconel Alloy X-750",
-          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Inconel X-750\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20X-750",
-          "verified": false
-        }
-      ]
-    },
-    "aliases": {
-      "from": [
-        "UNS N07750",
-        "EN 2.4669",
-        "Alloy X-750"
-      ]
-    },
-    "points": {
-      "from": [
-        [
-          8.28,
-          1088.1,
-          1283.4,
-          9.96,
-          210,
-          353.40000000000003,
-          12.3
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
-  }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "soft",
+    "wg": "w29-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07750"
+  ]
 }

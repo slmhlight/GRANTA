@@ -189,27 +189,32 @@
     {
       "label": "AK Steel/MatWeb — 17-7 PH Stainless",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7+PH",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "AK Steel — 17-7 PH (UNS S17700, RH950)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 PH SS general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AK Steel — 17-7 PH Stainless Datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/17-7-PH-DATA-BULLETIN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5528 — 17-7 PH sheet, strip (RH 950)",
       "url": "https://www.sae.org/standards/content/ams5528/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -306,5 +311,15 @@
   "svhc_concerns": [
     "Ni 7.75% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "htg": "h03-17",
+    "wg": "w09-17",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S17700"
+  ]
 }

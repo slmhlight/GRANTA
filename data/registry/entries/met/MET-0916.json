@@ -191,27 +191,32 @@
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "TIMET — TIMETAL 6-2-4-2 (6242) Official Technical Datasheet (TMC-0157, Ti-6Al-2Sn-4Zr-2Mo)",
       "url": "https://www.timet.com/documents/datasheets/near-alpha-alloys/timetal-6242.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "TIMET — Datasheets index (near-alpha alloys 목록, 6242 PDF 링크 확인)",
       "url": "https://www.timet.com/literature/datasheets.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "TIMET TIMETAL 6-2-4-2 (lookpolymers/MatWeb 미러 — YS 895 / UTS 1000 / 신율 12% / E 115 GPa, AMS 4919)",
       "url": "https://lookpolymers.com/polymer_TIMET-TIMETAL-6-2-4-2-Ti-6Al-2Sn-4Zr-2Mo-008Si-Titanium-Alloy.php",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -281,9 +286,13 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    }
-  }
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "htc": "soft",
+    "insight": "titanium"
+  },
+  "uns": [
+    "R54620"
+  ]
 }

@@ -192,17 +192,20 @@
     {
       "label": "Special Metals — Inconel Alloy 706",
       "url": "https://www.yumpu.com/en/document/view/31873591/inconel-alloy-706-special-metals-corporation",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Special Metals — Inconel 706 (UNS N09706)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -318,5 +321,14 @@
       "E": 162
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N09706"
+  ]
 }

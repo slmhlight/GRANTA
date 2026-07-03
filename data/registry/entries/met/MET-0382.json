@@ -190,27 +190,32 @@
     {
       "label": "AZoM — Copper Alloy UNS C18000 (CuNiSiCr) Properties",
       "url": "https://www.azom.com/article.aspx?ArticleID=6323",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Cu-Cr-Zr / Cu-Ni-Si-Cr family",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Materion C18000 / Hycon 3 HP reference",
       "url": "https://materion.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "Copper Development Association — C18000",
       "url": "https://www.copper.org/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -288,5 +293,14 @@
     "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
     "NGK Insulators 'C18000 Tech Information'"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "none",
+    "htg": "h10-c17200",
+    "wg": "w51-c1",
+    "insight": "copper"
+  },
+  "uns": [
+    "C18000"
+  ]
 }

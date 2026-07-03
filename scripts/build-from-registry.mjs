@@ -26,6 +26,9 @@ const OUT_MATS = path.join(OUT_PUB, 'materials');
 // 1) 레지스트리 entry 로드 → R226 필드 제거 → 원본 entry(+교정) 복원
 // R226j/C6 — 공정 프로파일 할당 (stable_id 키) 을 m.profiles 로 스탬프. 런타임 regex 추론 제거의 핵심.
 const PROFILE_ASSIGN = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'process-profile-assignments.json'), 'utf8')).assignments;
+// R226l/B1 — 고온 곡선 by_id (stable_id 키 — 이름 매칭 없음). 인라인 elevated_temp 보유 entry 는 불변(인라인 우선).
+const ET_BY_ID = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'elevated-temp-curves.json'), 'utf8')).by_id || {}; } catch { return {}; } })();
+let etAttached = 0;
 const PROFILES_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'process-profiles.json'), 'utf8'));
 const INSIGHTS_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'selection-insights.json'), 'utf8'));
 const R226_FIELDS = new Set(['stable_id', 'family', 'legacy_id', 'origin', '_corrections']);
@@ -51,10 +54,19 @@ for (const cc of fs.readdirSync(REG)) {
         profileGateErrors.push(`insight 키 미정의: ${rec.stable_id} → ${a.insight}`);
       if (Object.keys(a).length) entry.profiles = a;
     }
+    // R226l — by_id 고온 곡선 부착 (인라인 보유 시 불변)
+    const et = ET_BY_ID[rec.stable_id];
+    if (et && !(entry.elevated_temp && entry.elevated_temp.length)) {
+      entry.elevated_temp = et.elevated_temp;
+      if (et.src) entry.elevated_temp_src = et.src;
+      etAttached++;
+    }
     all.push(entry);
   }
 }
 for (const sid of Object.keys(PROFILE_ASSIGN)) if (!seenSids.has(sid)) profileGateErrors.push(`stale 할당 (레지스트리에 없는 ID): ${sid}`);
+for (const sid of Object.keys(ET_BY_ID)) if (!seenSids.has(sid)) profileGateErrors.push(`stale 곡선 by_id (레지스트리에 없는 ID): ${sid}`);
+if (etAttached) console.log(`  R226l 고온곡선 by_id 부착: ${etAttached}`);
 if (profileGateErrors.length) {
   console.error(`❌ BUILD GATE (process profiles): ${profileGateErrors.length}건`);
   profileGateErrors.slice(0, 15).forEach(e => console.error('  ' + e));

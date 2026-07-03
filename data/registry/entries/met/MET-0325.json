@@ -188,19 +188,22 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "POSCO datasheet",
       "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: Crucible PM tool steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -260,5 +263,12 @@
   "total_cost_estimate": 3.85,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "soft",
+    "ht": "AHSS TWIP1180 (TWinning Induced Plasticity, ~22 Mn)",
+    "wg": "w17-aa",
+    "insight": "carbon-alloy-steel"
+  }
 }

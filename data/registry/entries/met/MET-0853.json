@@ -192,24 +192,28 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
+      "label": "EN standard",
       "url": "https://www.en-standard.eu/csn-en-10025-2-hot-rolled-products-of-structural-steels/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASTM A36 / EN structural",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASTM A992 / A992M — Wide-Flange Beam Steel",
       "url": "https://store.astm.org/a0992_a0992m-20.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "EN 10025-2 — Hot-Rolled Non-Alloy Structural (S275JR)",
       "url": "https://www.cen.eu/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -286,5 +290,11 @@
   "total_cost_estimate": 1.56,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "ce",
+    "htc": "soft",
+    "wg": "w01-aisi",
+    "insight": "structural-steel"
+  }
 }

@@ -192,17 +192,20 @@
     {
       "label": "MatWeb — AISI 1045 carbon steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1045",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 1045 medium-carbon steel",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — AISI 1045 cold drawn round bar",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=cbe4fd0a73cf4690853935f52d910784",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -315,15 +318,15 @@
     "ASTM A29 \"Standard Specification for General Requirements for Steel Bars\""
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS G10450",
-        "DIN 1.1191",
-        "C45",
-        "JIS S45C",
-        "KS SM45C"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "carbon-medhigh",
+    "weld": "ce",
+    "htc": "cold",
+    "htg": "h01-aisi",
+    "wg": "w02-aisi",
+    "insight": "carbon-alloy-steel"
+  },
+  "uns": [
+    "G10450"
+  ]
 }

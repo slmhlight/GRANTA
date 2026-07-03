@@ -191,22 +191,26 @@
     {
       "label": "ASM — M42 cobalt high-speed steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: Crucible PM tool steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Hudson Tool Steel — M42 Tool Steel Technical Data (조성+68~70 HRC)",
       "url": "https://www.hudsontoolsteel.com/technical-data/steelM4",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -279,9 +283,10 @@
     "Co 8% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
   "confidence_tier": "medium",
-  "_corrections": {
-    "aliases": {
-      "from": []
-    }
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "tool-steel"
   }
 }

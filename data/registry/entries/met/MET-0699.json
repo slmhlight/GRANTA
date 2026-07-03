@@ -190,22 +190,26 @@
     {
       "label": "ASM — 316LN nitrogen-strengthened stainless (UNS S31653)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Grade 316LN (UNS S31653) — AZoM",
       "url": "https://www.azom.com/article.aspx?ArticleID=8261",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -338,5 +342,14 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "wg": "w05-aisi",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S31653"
+  ]
 }

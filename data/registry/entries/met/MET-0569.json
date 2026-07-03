@@ -194,29 +194,34 @@
   },
   "sources": [
     {
-      "label": "Datasheet 3",
+      "label": "Special Metals datasheet",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: Special Metals SMC-045 Inconel 718",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AMS 5662 — Inconel 718 wrought solution-aged bar/forging",
       "url": "https://www.sae.org/standards/content/ams5662m/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ASTM B637 — Precipitation-Hardening Ni-base Bar (718)",
       "url": "https://store.astm.org/b0637-22.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -367,16 +372,16 @@
     "Special Metals \"Inconel Alloy 718\" Tech Bulletin (revised 2007)"
   ],
   "confidence_tier": "medium",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS N07718",
-        "EN 2.4668",
-        "Alloy 718",
-        "AMS 5662",
-        "GH4169",
-        "NC19FeNb"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "ht": "Inconel 718 (UNS N07718)",
+    "htg": "h04-inconel",
+    "wg": "w27-inconel",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07718"
+  ]
 }

@@ -188,17 +188,20 @@
     {
       "label": "MatWeb — Titanium Grade 12",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+12",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM Grade 12 — Ti-0.3Mo-0.8Ni (UNS R53400)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -299,9 +302,13 @@
     }
   ],
   "confidence_tier": "low",
-  "_corrections": {
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    }
-  }
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "wg": "w24-ti",
+    "insight": "titanium"
+  },
+  "uns": [
+    "R53400"
+  ]
 }

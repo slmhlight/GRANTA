@@ -193,19 +193,21 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "Metals USA",
       "url": "https://www.metalsusa.com/a588-grade-steel/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 1",
-      "url": "ASTM A588/A588M-19 Standard Spec for HSLA Structural Steel with Atmospheric Corrosion Resistance",
-      "verified": true
+      "label": "ASTM A588/A588M-19 Standard Spec for HSLA Structural Steel with Atmospheric Corrosion Resistance",
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASTM A572/A588 HSLA",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -278,33 +280,36 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
+  "profiles": {
+    "weld": "ce",
+    "insight": "structural-steel"
+  },
   "_corrections": {
-    "aliases": {
-      "from": []
-    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 250,
-        "max": 250,
-        "typical": 250,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 345,
+        "typical": 345,
+        "max": 345,
+        "confidence": "handbook",
+        "provenance": "교정: ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)",
+        "basis": "min_spec"
       },
       "had_scalar": true,
-      "val_scalar": 250
+      "val_scalar": 345
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 475,
-        "max": 475,
-        "typical": 475,
-        "n": 1,
-        "confidence": "handbook"
+        "min": 485,
+        "typical": 485,
+        "max": 485,
+        "confidence": "handbook",
+        "provenance": "교정: ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)",
+        "basis": "min_spec"
       },
       "had_scalar": true,
-      "val_scalar": 475
+      "val_scalar": 485
     },
     "_basis": "ASTM A588 Gr A ≤4in plate 최소 (50ksi/70ksi). DB σy=250 은 A36 항복값 오기(조성·HB 140≈UTS485/3.45 는 정합)",
     "_src": "ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)",
@@ -312,8 +317,8 @@
       "from": [
         [
           7.85,
-          250,
-          475,
+          345,
+          485,
           23,
           200,
           140,

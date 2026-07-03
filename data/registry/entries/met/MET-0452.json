@@ -183,9 +183,10 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "POSCO datasheet",
       "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000002.jsp",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -246,5 +247,9 @@
   "total_cost_estimate": 1.83,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "weld": "none",
+    "htc": "soft"
+  }
 }

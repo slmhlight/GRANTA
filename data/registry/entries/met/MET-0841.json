@@ -206,17 +206,20 @@
     {
       "label": "Carpenter Technology — Custom 630 (17-4 PH)",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Nikon SLM 17-4PH MDS 2026-02",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS Stainless Steel",
       "url": "https://www.eos.info/metal-solutions/metal-materials/stainless-steel",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -468,5 +471,15 @@
   "svhc_concerns": [
     "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ph",
+    "weld": "schaeffler",
+    "htc": "aged",
+    "ht": "17-4 PH stainless (UNS S17400)",
+    "insight": "stainless-highperf"
+  },
+  "uns": [
+    "S17400"
+  ]
 }

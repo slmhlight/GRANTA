@@ -36,14 +36,16 @@
       "max": 290,
       "typical": 260,
       "n": 3,
-      "confidence": "measured"
+      "confidence": "measured",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 460,
       "max": 620,
       "typical": 485,
       "n": 3,
-      "confidence": "measured"
+      "confidence": "measured",
+      "basis": "min_spec"
     },
     "elongation": {
       "min": 17,
@@ -189,32 +191,38 @@
     {
       "label": "ASTM A516 Gr.70 — pressure-vessel steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASTM A516 / A516M — Pressure Vessel Plate Carbon Steel",
       "url": "https://store.astm.org/a0516_a0516m-17.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ASME B&PV Sec.II Part A — SA-516 Grade 70",
       "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-ii-materials",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "SSAB — ASTM A516 Grade 70 (압력용기강판 조성+기계적 물성)",
       "url": "https://www.ssab.com/en-us/brands-and-products/commercial-steel/pressure-vessel/astm-a516/grade-70",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -311,13 +319,8 @@
     "ASM Handbook Vol.1 'Carbon and Alloy Steels for Pressure Vessels'"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "ASTM A516-70",
-        "SA-516-70",
-        "EN P355GH (~)"
-      ]
-    }
+  "profiles": {
+    "weld": "ce",
+    "insight": "carbon-alloy-steel"
   }
 }

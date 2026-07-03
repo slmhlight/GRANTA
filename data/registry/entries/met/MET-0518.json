@@ -190,29 +190,33 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "Haynes International datasheet",
       "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-x-alloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — HASTELLOY X solution treated (UNS N06002, AMS 5536)",
-      "verified": true
+      "label": "ANSYS Granta — HASTELLOY X solution treated (UNS N06002, AMS 5536)",
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Haynes International",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Haynes International — Hastelloy X datasheet",
       "url": "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HASTELLOYXalloy",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5536 — Hastelloy X sheet/strip",
       "url": "https://www.sae.org/standards/content/ams5536/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -341,5 +345,16 @@
     "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
     "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super-solidsol",
+    "weld": "none",
+    "htc": "soft",
+    "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
+    "wg": "w32-hastelloy",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N06002"
+  ]
 }

@@ -158,17 +158,20 @@
     {
       "label": "BASF — Ultrason E (PESU)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Solvay Veradel PES technical guide",
       "url": "https://www.syensqo.com/en/product/veradel-pes",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "BASF Ultrason E PESU",
       "url": "https://www.basf.com/global/en/products/plastics/engineering-plastics/ultrason.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -276,5 +279,9 @@
       "uts": 22,
       "E": 0.5
     }
-  ]
+  ],
+  "profiles": {
+    "mach": "pol-amorphous",
+    "insight": "pol-highperf"
+  }
 }

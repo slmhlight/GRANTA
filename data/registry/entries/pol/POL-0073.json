@@ -159,27 +159,32 @@
     {
       "label": "EOS/Arkema — PA12 (Nylon 12) for SLS",
       "url": "https://www.eos.info/3d-printing-materials/polymer/polyamide-pa-12-pa12",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "MatWeb 2",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PA12%20GF50",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Arkema Rilsan PA12 medical grade",
       "url": "https://www.extrudedpolymers.com/products/rilsan-pa-12/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS PA 2200 (PA12) Material Data Sheet",
       "url": "https://www.eos.info/en-us/3d-printing-materials/plastic/polyamide-pa-12-alumide",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Evonik VESTAMID L (PA12)",
       "url": "https://www.vestamid.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -249,20 +254,8 @@
   "tolerance_class": "IT15",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          1.41,
-          110,
-          140,
-          2,
-          10.5,
-          0,
-          0.32
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-engineering"
   }
 }

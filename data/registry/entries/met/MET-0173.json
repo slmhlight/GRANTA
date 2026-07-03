@@ -195,17 +195,20 @@
     {
       "label": "Nikon SLM Aheadd CP1 MDS 2025-8.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/mds5144.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Velo3D",
       "url": "https://www.velo3d.com/material-data-sheets/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: Aluminum Association handbook",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -336,5 +339,11 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "al-cast-am",
+    "weld": "none",
+    "htc": "as-built",
+    "insight": "aluminum"
+  }
 }

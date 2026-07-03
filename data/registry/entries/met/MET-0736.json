@@ -211,32 +211,38 @@
     {
       "label": "Outokumpu — Stainless Steel 316L (1.4404)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Nikon SLM 316L MDS 2026-01.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_316L_2026-01.1_EN.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS Stainless Steel",
       "url": "https://www.eos.info/metal-solutions/metal-materials/stainless-steel",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM Handbook Vol.1 — Stainless Steel Type 316L (ELC)",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — 316L Stainless Steel Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1336be6d0c594b55afb5ca8bf1f3e042",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM F138 — Stainless Steel for Surgical Implants",
       "url": "https://store.astm.org/f0138-19.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -671,5 +677,16 @@
     "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS S31603 / SUS316L / 1.4404 — 316 의 ELC (C ≤ 0.030%). Sensitization 회피 + Mo 보유 → 의료 임플란트 (ASTM F138 pacemaker / orthopedic), 반도체 super-clean, FPSO 표준. AM LPBF 의 가장 흔한 stainless. σy ≈ 170 / UTS ≈ 485 / El 40%."
+  "industry_note": "UNS S31603 / SUS316L / 1.4404 — 316 의 ELC (C ≤ 0.030%). Sensitization 회피 + Mo 보유 → 의료 임플란트 (ASTM F138 pacemaker / orthopedic), 반도체 super-clean, FPSO 표준. AM LPBF 의 가장 흔한 stainless. σy ≈ 170 / UTS ≈ 485 / El 40%.",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htc": "as-built",
+    "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+    "wg": "w05-aisi",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S31603"
+  ]
 }

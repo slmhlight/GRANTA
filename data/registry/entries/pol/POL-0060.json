@@ -158,17 +158,20 @@
     {
       "label": "Arkema — Rilsan PA11 (SLS)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Arkema Rilsan PA11 bio-based (castor oil)",
       "url": "https://www.extrudedpolymers.com/products/rilsan-pa-11/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ALM PA850 (bio-based PA11 SLS powder)",
       "url": "https://www.alm-llc.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -249,5 +252,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-engineering"
+  }
 }

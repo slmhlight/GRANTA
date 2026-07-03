@@ -190,32 +190,38 @@
     {
       "label": "Carpenter Technology — Pyromet Alloy A-286",
       "url": "https://www.carpentertechnology.com/alloy-finder/a-286",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASM — A-286 iron-base superalloy (UNS S66286)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Special Metals — A286 Technical Bulletin (SMC-058)",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-a-286.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "AMS 5737 — A-286 bar, forging, ring (STA)",
       "url": "https://www.sae.org/standards/content/ams5737/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "ASTM A638 — Precipitation-Hardening Iron Base Alloy",
       "url": "https://store.astm.org/a0638_a0638m-13r19.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -355,5 +361,15 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htg": "h04-inconel",
+    "wg": "w41-a",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S66286"
+  ]
 }

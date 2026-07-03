@@ -191,17 +191,20 @@
     {
       "label": "AK Steel — 420 Stainless Steel",
       "url": "https://www.aksteel.com/our-products/stainless/420-stainless-steel",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "BLT",
       "url": "https://www.xa-blt.com/en/powder/420/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [],
@@ -286,5 +289,15 @@
       "E": 174
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-ferritic",
+    "weld": "schaeffler",
+    "htc": "qt",
+    "wg": "w06-aisi",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S42000"
+  ]
 }

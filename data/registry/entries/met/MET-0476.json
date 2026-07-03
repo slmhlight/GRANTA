@@ -189,27 +189,32 @@
     {
       "label": "ASTM B80 — ZE41A magnesium casting alloy",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Mg alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Luxfer MEL Technologies — Elektron RZ5 / ZE41A casting alloy (ASTM B80 ZE41A-T5, AMS 4439)",
       "url": "https://www.luxfermeltechnologies.com/elektron-rz5-ze41a/",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "AZoM — Magnesium ZE41A-T5 Alloy (UNS M16410)",
       "url": "https://www.azom.com/article.aspx?ArticleID=8541",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -306,5 +311,14 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "magnesium",
+    "weld": "none",
+    "wg": "w49-zk60",
+    "insight": "magnesium"
+  },
+  "uns": [
+    "M16410"
+  ]
 }

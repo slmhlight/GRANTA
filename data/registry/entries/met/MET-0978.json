@@ -193,17 +193,20 @@
     {
       "label": "Böhler-Uddeholm — P20 / M238 Mould Steel",
       "url": "https://www.bohler-edelstahl.com/en/products/m238/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 1",
+      "label": "Daido Steel datasheet",
       "url": "https://www.daido.co.jp/en/products/plastic_mold/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -268,5 +271,12 @@
   "svhc_concerns": [
     "Ni 3% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "qt",
+    "wg": "w10-h1",
+    "insight": "tool-steel"
+  }
 }

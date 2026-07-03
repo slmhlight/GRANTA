@@ -191,17 +191,20 @@
     {
       "label": "Special Metals — Inconel Alloy 751",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-751.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Special Metals — Inconel 751 (UNS N07751)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -287,5 +290,14 @@
   "total_cost_estimate": 237.51,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ni-super",
+    "weld": "none",
+    "htc": "aged",
+    "insight": "ni-superalloy"
+  },
+  "uns": [
+    "N07751"
+  ]
 }

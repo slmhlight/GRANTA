@@ -157,27 +157,32 @@
     {
       "label": "MatWeb — POM (Acetal)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=POM+acetal",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "Reference 2",
       "url": "https://www.delrin.com",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "DuPont Delrin POM technical guide",
       "url": "https://www.dupont.com/products/delrin-acetal-homopolymer.html",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Celanese Hostaform POM copolymer",
       "url": "https://www.celanese.com/products/hostaform-pom",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — POM Homopolymer",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1c4f97da0d8d4c3a8bf6b3d1c9c3e6e3",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -241,5 +246,10 @@
   "surface_finish_typical": 50,
   "tolerance_class": "IT15",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-rigid",
+    "htc": "soft",
+    "insight": "pol-engineering"
+  }
 }

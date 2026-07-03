@@ -191,29 +191,33 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "SSAB datasheet",
       "url": "https://www.ssab.com/en-us/brands-and-products/armox/product-offer/armox-600t",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 1",
-      "url": "SSAB Armox 600T Brochure (HBW 570-640, plate 4-20mm)",
-      "verified": true
+      "label": "SSAB Armox 600T Brochure (HBW 570-640, plate 4-20mm)",
+      "verified": true,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: SSAB Armox armor steel",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "SSAB Armox technical brochure",
       "url": "https://www.ssab.com/products/brands/armox",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "MIL-DTL-46100E — High-Hardness Armor Plate",
       "url": "https://www.dla.mil/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -305,5 +309,10 @@
   "svhc_concerns": [
     "Ni 3% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "ce",
+    "htc": "qt",
+    "insight": "structural-steel"
+  }
 }

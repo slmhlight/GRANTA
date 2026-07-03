@@ -189,19 +189,21 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, austenitic, AISI 317 annealed (UNS S31700)",
-      "verified": true
+      "label": "ANSYS Granta — Stainless steel, austenitic, AISI 317 annealed (UNS S31700)",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
+      "label": "Outokumpu datasheet",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -274,5 +276,14 @@
   "svhc_concerns": [
     "Ni 15% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "insight": "stainless"
+  },
+  "uns": [
+    "S31700"
+  ]
 }

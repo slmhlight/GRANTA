@@ -192,32 +192,37 @@
     {
       "label": "MatWeb — Aluminum 5052",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+5052",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "MatWeb 3",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5052",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 3",
-      "url": "Aluminum Association H-Temper System / ASTM B209",
-      "verified": true
+      "label": "Aluminum Association H-Temper System / ASTM B209",
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 5xxx (Al-Mg)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "Aluminum Association — 5052 Data Sheet",
       "url": "https://www.aluminum.org/sites/default/files/2021-11/TeachingTheStudents.pdf",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "MatWeb — Aluminum 5052-H32",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=96d768abbb6f427c81d52c6c9335fcd0",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     }
   ],
   "points": [
@@ -316,13 +321,13 @@
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS A95052",
-        "EN AW-5052",
-        "AlMg2.5"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "al-5xxx",
+    "weld": "none",
+    "wg": "w18-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A95052"
+  ]
 }

@@ -107,22 +107,26 @@
     {
       "label": "ATI — Zirconium 705 (Zr-2.5Nb)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Zirconium+705",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM B551 — Zirconium 705 (Zr-2.5Nb, UNS R60705)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ATI — Zircadyne 702 and 705 Technical Data Sheet (v1, 2012): R60705 조성(Nb 2-3%)·E 94.7 GPa·melt 1840°C·annealed UTS 615/YS 506 MPa·ASTM min 552/379·SB551/523/493/550",
       "url": "https://www.atimaterials.com/Products/Documents/datasheets/zirconium/alloy/zircadyne_702_705_1_v1.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -191,5 +195,14 @@
   "price_grade_premium": 1,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "refractory",
+    "weld": "none",
+    "wg": "w66-zirconiumb",
+    "insight": "refractory"
+  },
+  "uns": [
+    "R60705"
+  ]
 }

@@ -184,17 +184,20 @@
     {
       "label": "EOS Copper Cu PDS - M290 20μm",
       "url": "https://www.eos.info/metal-solutions/data-sheets/copper/pds-eos-copper-cu-eos-m-290-20um",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS Copper CuCP PDS - M290 1kW 40μm",
       "url": "https://www.eos.info/metal-solutions/data-sheets/copper/pds-eos-copper-cucp-eos-m-290-1kw-40um",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS MDS summary — copper cu",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-copper-cu",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -321,5 +324,10 @@
       "E": 90
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "cu-pure",
+    "weld": "none",
+    "insight": "copper"
+  }
 }

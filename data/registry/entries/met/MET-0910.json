@@ -190,12 +190,14 @@
     {
       "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
       "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
-      "verified": true
+      "verified": true,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -263,76 +265,54 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ti-alloy",
+    "weld": "none",
+    "htc": "aged",
+    "insight": "titanium"
+  },
   "_corrections": {
     "composition": {
       "from": {
         "Ti": "balance",
-        "Al": "5~8",
-        "V": "1~5",
-        "Mo": "0~4",
-        "Zr": "0~6",
-        "Sn": "0~4"
+        "Al": "5.5~6.5",
+        "Sn": "1.75~2.25",
+        "Zr": "3.5~4.5",
+        "Mo": "5.5~6.5"
       }
-    },
-    "subcategory": {
-      "from": "Titanium - Pure / CP Grades"
-    },
-    "sources": {
-      "from": [
-        {
-          "label": "MMPDS-08 + RTI/ATI Wah Chang — Ti α+β / β alloys",
-          "url": "https://www.atimaterials.com/Products/Pages/titanium.aspx",
-          "verified": true
-        },
-        {
-          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "MatWeb — search \"Ti-6-2-4-6\"",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6-2-4-6",
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: MMPDS-2018 Titanium",
-          "url": null,
-          "verified": false
-        }
-      ]
     },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 800,
-        "max": 1200,
-        "typical": 950,
-        "n": 4,
-        "confidence": "handbook"
+        "min": 1105,
+        "typical": 1105,
+        "max": 1105,
+        "confidence": "handbook",
+        "provenance": "교정: WTCP Ti-6246 (titanium.org) + niticu"
       },
       "had_scalar": true,
-      "val_scalar": 950
+      "val_scalar": 1105
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 900,
-        "max": 1300,
-        "typical": 1050,
-        "n": 4,
-        "confidence": "handbook"
+        "min": 1200,
+        "typical": 1200,
+        "max": 1200,
+        "confidence": "handbook",
+        "provenance": "교정: WTCP Ti-6246 (titanium.org) + niticu"
       },
       "had_scalar": true,
-      "val_scalar": 1050
+      "val_scalar": 1200
     },
     "elongation": {
       "had_range": true,
       "val_range": {
-        "min": 6,
-        "max": 15,
+        "min": 10,
         "typical": 10,
-        "n": 4,
-        "confidence": "handbook"
+        "max": 10,
+        "confidence": "handbook",
+        "provenance": "교정: WTCP Ti-6246 (titanium.org) + niticu"
       },
       "had_scalar": true,
       "val_scalar": 10
@@ -342,39 +322,12 @@
     "points": {
       "from": [
         [
-          4.63,
-          1263.6,
-          1339.2,
-          8.64,
+          4.5,
+          1105,
+          1200,
+          10,
           110,
-          388.8,
-          7.8
-        ],
-        [
-          4.63,
-          1111.5,
-          1178,
-          7.6,
-          110,
-          342,
-          7.8
-        ],
-        [
-          4.63,
-          1240.2,
-          1314.4,
-          8.48,
-          110,
-          381.6,
-          7.8
-        ],
-        [
-          4.63,
-          1193.4,
-          1264.8,
-          7.36,
-          110,
-          367.2,
+          365,
           7.8
         ]
       ]

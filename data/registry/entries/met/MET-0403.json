@@ -187,19 +187,22 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "Poongsan datasheet",
       "url": "https://www.poongsan.co.kr/eng/business/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cu alloys general",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -263,12 +266,9 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "Phosphor Bronze 6Sn",
-        "PB-1"
-      ]
-    }
+  "profiles": {
+    "weld": "none",
+    "htc": "soft",
+    "insight": "copper"
   }
 }

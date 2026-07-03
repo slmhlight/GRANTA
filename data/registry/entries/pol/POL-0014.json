@@ -157,12 +157,14 @@
     {
       "label": "Material datasheets — LCP (Vectra)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Celanese — Vectra A950 LCP 데이터시트 (Material Data Center)",
       "url": "https://www.materialdatacenter.com/ms/en/tradenames/Vectra/Celanese/VECTRA+A950/268267e7/2442",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -226,38 +228,8 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          1.4,
-          110,
-          130,
-          3,
-          11,
-          0,
-          0.3
-        ],
-        [
-          1.4,
-          100,
-          120,
-          2,
-          10,
-          0,
-          0.3
-        ],
-        [
-          1.4,
-          120,
-          145,
-          5,
-          12,
-          0,
-          0.3
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-highperf"
   }
 }

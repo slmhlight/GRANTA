@@ -157,12 +157,14 @@
     {
       "label": "Material datasheets — ETFE (Tefzel)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "AGC Chemicals — Fluon ETFE 기술자료 (Tables 6/9/18)",
       "url": "https://agcce.com/wp-content/uploads/2023/10/FluonETFE.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -242,5 +244,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-fluoro"
+  }
 }

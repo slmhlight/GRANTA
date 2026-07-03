@@ -196,17 +196,20 @@
     {
       "label": "EOS MDS summary — toolsteel cm55",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-toolsteel-cm55",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS",
       "url": "https://www.eos.info/3d-printing-materials/metal/tool-steel/eos-toolsteel-cm55",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "EOS",
       "url": "https://www.eos.info/metal-solutions/data-sheets/toolsteel/pds-eos-toolsteel-cm55-eos-m-290-40-80um",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -355,5 +358,10 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "insight": "tool-steel"
+  }
 }

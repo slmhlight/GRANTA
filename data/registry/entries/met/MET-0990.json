@@ -112,29 +112,32 @@
   },
   "sources": [
     {
-      "label": "Datasheet 3",
+      "label": "AZoM materials",
       "url": "https://www.azom.com/article.aspx?ArticleID=7644",
-      "verified": true
+      "verified": true,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 3",
-      "url": "ASTM B353 / B811 PWR fuel cladding spec",
-      "verified": true
+      "label": "ASTM B353 / B811 PWR fuel cladding spec",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 3",
-      "url": "Westinghouse Fuel Mechanical Properties Handbook",
-      "verified": true
+      "label": "Westinghouse Fuel Mechanical Properties Handbook",
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "ATI Wah Chang Zircaloy-2 / -4 reference",
       "url": "https://www.atimaterials.com/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM B350 — Zr Alloy Ingots / Bar (Zircaloy-2/-4)",
       "url": "https://store.astm.org/b0350-20.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -191,5 +194,12 @@
   "price_grade_premium": 1,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "none",
+    "wg": "w66-zirconiumb"
+  },
+  "uns": [
+    "R60804"
+  ]
 }

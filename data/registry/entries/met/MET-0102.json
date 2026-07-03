@@ -192,27 +192,31 @@
     {
       "label": "MatWeb — Aluminum 2014",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+2014",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "MatWeb 3",
+      "label": "MatWeb datasheet",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2014",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
-      "label": "Datasheet 3",
-      "url": "Aluminum Association T-Temper System / MMPDS-2018",
-      "verified": true
+      "label": "Aluminum Association T-Temper System / MMPDS-2018",
+      "verified": true,
+      "authority": "standard"
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 2014 Al-Cu-Si-Mg",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MMPDS-08 — AA 2014 (T6/T651/T6510)",
       "url": "https://www.mmpds.org/",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -312,13 +316,16 @@
     "Hatch J E (ed., 1984) Aluminum: Properties and Physical Metallurgy"
   ],
   "confidence_tier": "high",
-  "_corrections": {
-    "aliases": {
-      "from": [
-        "UNS A92014",
-        "EN AW-2014",
-        "AlCu4SiMg"
-      ]
-    }
-  }
+  "profiles": {
+    "mach": "al-2xxx",
+    "weld": "none",
+    "htc": "aged",
+    "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
+    "htg": "h02-aa",
+    "wg": "w14-aa",
+    "insight": "aluminum"
+  },
+  "uns": [
+    "A92014"
+  ]
 }

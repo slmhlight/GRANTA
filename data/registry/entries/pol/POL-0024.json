@@ -157,22 +157,26 @@
     {
       "label": "Victrex / ASM Engineering Plastics — PEEK",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Victrex PEEK 450G technical datasheet",
       "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Solvay KetaSpire PEEK technical guide",
       "url": "https://www.solvay.com/en/brands/ketaspire-peek",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
       "url": "https://www.astm.org/f2026-17.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -303,5 +307,9 @@
       "uts": 18,
       "E": 0.25
     }
-  ]
+  ],
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-highperf"
+  }
 }

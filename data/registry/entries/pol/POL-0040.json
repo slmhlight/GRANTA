@@ -157,17 +157,20 @@
     {
       "label": "Material datasheets — carbon-fibre PEKK (FDM)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Arkema Kepstan PEKK datasheet",
       "url": "https://www.arkema.com/global/en/products/product-finder/product-viewer/Kepstan-PEKK/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "Solvay NovaSpire PEKK 90/10 datasheet",
       "url": "https://www.solvay.com/en/brands/novaspire-pekk",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -239,5 +242,9 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "pol-filled",
+    "insight": "pol-highperf"
+  }
 }

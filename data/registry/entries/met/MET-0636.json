@@ -186,19 +186,20 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "BS EN 13674-1:2011 Railway applications — Rail Part 1: Vignole railway rails 46 kg/m and above",
-      "verified": true
+      "label": "BS EN 13674-1:2011 Railway applications — Rail Part 1: Vignole railway rails 46 kg/m and above",
+      "verified": true,
+      "authority": "standard"
     },
     {
-      "label": "Datasheet 1",
-      "url": "Nippon Steel Rail Catalog R260 / UIC60",
-      "verified": true
+      "label": "Nippon Steel Rail Catalog R260 / UIC60",
+      "verified": true,
+      "authority": "other"
     },
     {
       "label": "KIC fallback: BS EN 13674 Rail",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -270,5 +271,9 @@
   "total_cost_estimate": 1.98,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "weld": "ce",
+    "insight": "structural-steel"
+  }
 }

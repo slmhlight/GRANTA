@@ -189,32 +189,38 @@
     {
       "label": "Luxfer/Magnesium Elektron — AZ31B Magnesium",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ31B+magnesium",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASM — AZ31B (UNS M11311)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     },
     {
       "label": "KIC fallback: ASM Vol.2 Mg alloys",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "ASM Handbook Vol.2 — Magnesium AZ31B",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205013/Magnesium-Alloys",
-      "verified": true
+      "verified": true,
+      "authority": "handbook"
     },
     {
       "label": "MatWeb — AZ31B-O Magnesium Alloy",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=4b97b5f0b1d6411a90b6f8c75e2fa5c1",
-      "verified": false
+      "verified": false,
+      "authority": "aggregator"
     },
     {
       "label": "ASTM B90 / B107 — Mg Sheet / Tube AZ31B",
       "url": "https://store.astm.org/b0090_b0090m-15r19.html",
-      "verified": false
+      "verified": false,
+      "authority": "standard"
     }
   ],
   "points": [
@@ -312,5 +318,16 @@
     "Avedesian M M & Baker H (eds., 1999) ASM Specialty Handbook: Magnesium and Magnesium Alloys",
     "Friedrich H E & Mordike B L (eds., 2006) Magnesium Technology: Metallurgy, Design Data, Applications, Springer"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "magnesium",
+    "weld": "none",
+    "ht": "Magnesium AZ31 (Mg-3Al-1Zn, wrought sheet 표준)",
+    "htg": "h09-azd",
+    "wg": "w46-az31",
+    "insight": "magnesium"
+  },
+  "uns": [
+    "M11311"
+  ]
 }

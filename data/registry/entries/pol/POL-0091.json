@@ -158,12 +158,14 @@
     {
       "label": "DuPont — Vespel SP-1 polyimide",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "DuPont — Vespel SP-1 Polyimide 데이터시트 (VPE-A10861-00-B0614)",
       "url": "https://www.dupont.com/content/dam/dupont/amer/us/en/vespel/public/documents/en/VPE-A10861-00-B0614.pdf",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -230,38 +232,8 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "_corrections": {
-    "points": {
-      "from": [
-        [
-          1.43,
-          75,
-          86,
-          7,
-          3.1,
-          0,
-          0.35
-        ],
-        [
-          1.43,
-          68,
-          80,
-          5,
-          3,
-          0,
-          0.35
-        ],
-        [
-          1.43,
-          82,
-          95,
-          9,
-          3.2,
-          0,
-          0.35
-        ]
-      ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  "profiles": {
+    "mach": "pol-rigid",
+    "insight": "pol-highperf"
   }
 }

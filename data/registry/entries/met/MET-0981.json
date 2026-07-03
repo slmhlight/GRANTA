@@ -191,22 +191,26 @@
     {
       "label": "AK Steel — 420 Stainless Steel",
       "url": "https://www.aksteel.com/our-products/stainless/420-stainless-steel",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
-      "label": "Datasheet 2",
+      "label": "Uddeholm datasheet",
       "url": "https://www.uddeholm.com/en/products/uddeholm-stavax-esr/",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Bohler M333 Isoplast — comparable PH stainless mold steel",
       "url": "https://www.bohler.at/",
-      "verified": false
+      "verified": false,
+      "authority": "manufacturer"
     }
   ],
   "points": [
@@ -300,5 +304,15 @@
     "Boyer H F & Gall T L (1985) Metals Handbook Desk Edition, ASM",
     "Roberts G A et al. (1998) Tool Steels 5th ed., ASM"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "profiles": {
+    "mach": "tool-steel",
+    "weld": "ce",
+    "htc": "qt",
+    "wg": "w10-h1",
+    "insight": "tool-steel"
+  },
+  "uns": [
+    "S42000"
+  ]
 }

@@ -189,19 +189,22 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
+      "label": "POSCO datasheet",
       "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000001.jsp",
-      "verified": true
+      "verified": true,
+      "authority": "manufacturer"
     },
     {
       "label": "KIC fallback: ASM Vol.1 304/304L",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false
+      "verified": false,
+      "authority": "other"
     }
   ],
   "points": [
@@ -318,5 +321,13 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "profiles": {
+    "mach": "ss-austenitic",
+    "weld": "schaeffler",
+    "htc": "soft",
+    "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+    "wg": "w05-aisi",
+    "insight": "stainless"
+  }
 }
