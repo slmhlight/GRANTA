@@ -55,6 +55,7 @@ for (const cc of fs.readdirSync(REG)) {
       if (Object.keys(a).length) {
         const p = { ...a };
         if (p.cts) { p.coatings = p.cts; delete p.cts; }   // R226p Phase 5 — cts(할당 키) → coatings(런타임 필드)
+        if (p.colorf) { p.colorFamily = p.colorf; delete p.colorf; }   // R226p Phase 5b — colorf → colorFamily
         entry.profiles = p;
       }
     }

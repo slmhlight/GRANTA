@@ -11,6 +11,7 @@
 ### A-1. 런타임(클라이언트) — 분류 regex 거의 소거됨
 - ✅ **제거 완료**: 절삭성 rating·폴리머 절삭성·용접성 모델(ce/schaeffler/none)·HT family·선택 인사이트 → 전부 `m.profiles` ID 조회 (R226j/k).
 - ✅ **제거 완료(Phase 5, R226p)**: `client/src/lib/coatings.ts` `recommendedCoatings` — 구 `substrateMatch` name-regex 를 빌드 스탬프 `m.profiles.coatings`(coatings-classify.mjs) 조회로 전환. 런타임 regex 0.
+- ✅ **제거 완료(Phase 5b, R226p — R226o 감사 누락분)**: `client/src/lib/material-colors.ts` `classOf` — family-color 를 name-regex(CLASSES.test)로 판정하던 **런타임 분류**를 빌드 스탬프 `m.profiles.colorFamily`(color-classify.mjs) 조회로 전환. CLASSES 는 순수 데이터(key·color·category|pattern)로 축소, 런타임 정규식 0. (구 A-1 감사가 놓친 유일한 런타임 분류 regex — 전수 재점검에서 발견.)
 - 🟢 **정당(유지)**: 검색·파싱 — `direct-hit`·`query-dsl`·`query-autocomplete`·`spec-matcher`·`composition-parser`·`ht-matcher`. 사용자 입력/조성 문자열 파싱이지 재료 분류가 아님.
 - 🟡 **경계(유지 검토)**: `ht-alloy-specific.ts` 조건코드(H900/T6) 토큰 매칭 — **family 는 이미 `m.profiles.ht` 로 ID 선택**됨, 남은 건 조건 코드 파싱뿐. 낮은 위험.
 
@@ -66,6 +67,7 @@ override 는 build-materials 에서 **파생값(KIC·fatigue·points) 계산 전
 | **3** ✅ R226p | R173-handbook-sources·R191-proprietary regex('i') → stable_id 매칭 | — | 완료: 라이브 override-로더 name-regex 0 · value-diff 0(출처·manufacturer 포함) · 게이트 5파일 | R191 first-match 순서 보존(pattern별 stableId set) |
 | **4** ✅ R226p | 인라인 **값-변조** name-regex/substring → stable_id: austenitic impact·foam/cellular fatigue·X-750 cap(`r226p-inline-overrides.json`) + R146 cost `match_substring`(`cost-verified-q2-2026.json` stableIds) | — | 완료: 라이브 인라인 regex 0 · **value-diff 0**(전 1129 deep-equal) · registry drift 0 · 게이트(override-stableids +Phase4) · austenitic/metal-foam 은 dead-branch(공집합) 확인. **classifier(subcat 정규화·isHipped)는 값-변조 아님 → 유지**(위 판정) | 해결: 원위치 유지·capture 로 정확집합·phantom 필터 |
 | **5** ✅ R226p | coatings 런타임 regex → 빌드타임 coating-applicability classifier(`scripts/lib/coatings-classify.mjs`) + `m.profiles.coatings`(빌드 스탬프) | — | 완료: 런타임 `new RegExp(c.substrateMatch)` 제거 · **behavior identical**(profiles.coatings=regex 오라클·최종 추천 리스트 전 1129 재료 동일) · 게이트(`coatings-id.test.ts` 4 checks) | 해결: 구 호출부가 name+process 만 넘겼으므로 subcat 없는 concat 로 정확 재현. 'all' 코팅은 런타임 유지 |
+| **5b** ✅ R226p | family-color 런타임 regex(`material-colors.ts classOf`) → 빌드타임 color classifier(`scripts/lib/color-classify.mjs`) + `m.profiles.colorFamily`(빌드 스탬프) | — | 완료: 런타임 `new RegExp`/`.test` 제거·CLASSES 순수데이터화 · **behavior identical**(stamp=verbatim 오라클 전 1129 색 동일·colorFamily 외 필드 deep-diff 0) · 게이트(`color-family.test.ts` 4 checks + golden anchor) | R226o 감사 누락분 — 전수 재점검에서 발견 |
 | **6**(선택) | ~890 aliasesFor/qualFor → per-entry alias/quality 필드 · process-classify assignments 확정 후 소스 regex 은퇴 | Phase1-5 완료 | 별칭/tier 불변 · 빌드 regex 최소화 | 최대 규모 / 기회주의 |
 
 **공통 게이트(매 Phase)**: `build:registry` round-trip 불일치 0 · `golden-values` green · `audit:registry` 0 · **값 diff 스크립트로 전후 동일 확인** · tsc/lint/test green.

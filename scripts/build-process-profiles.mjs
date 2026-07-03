@@ -15,6 +15,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifyMachinability, classifyWeldModel, classifyHtClass, classifyHtFamily, classifyInsightGroup } from './lib/process-classify.mjs';
 import { parseCoatings, classifyCoatings } from './lib/coatings-classify.mjs';
+import { parseColorClasses, classifyColorKey } from './lib/color-classify.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const REG = path.join(ROOT, 'data', 'registry', 'entries');
@@ -48,6 +49,10 @@ const firstKey = (list, name) => { for (const b of list) if (b.re.test(name)) re
 const COATING_DEFS = parseCoatings(path.join(ROOT, 'client', 'src', 'lib', 'coatings.ts'));
 if (COATING_DEFS.length < 20) { console.error(`❌ coatings.ts 파싱 실패 — ${COATING_DEFS.length}개만 추출`); process.exit(1); }
 
+// R226p Phase 5b — family-color 분류기 (client/src/lib/material-colors.ts CLASSES 파싱)
+const COLOR_CLASSES = parseColorClasses(path.join(ROOT, 'client', 'src', 'lib', 'material-colors.ts'));
+if (COLOR_CLASSES.length < 10) { console.error(`❌ material-colors.ts CLASSES 파싱 실패 — ${COLOR_CLASSES.length}개만 추출`); process.exit(1); }
+
 // 2) 레지스트리 전 entry 분류
 const assignments = {};
 let count = 0;
@@ -60,6 +65,9 @@ for (const cc of fs.readdirSync(REG)) {
     // R226p Phase 5 — 코팅 적용성 (구 런타임 recommendedCoatings regex 대체; 구 호출부 입력 재현: name/process)
     const cts = classifyCoatings(COATING_DEFS, rec.category, rec.name, rec.process);
     if (cts.length) a.cts = cts;
+    // R226p Phase 5b — family-color key (구 런타임 classOf regex 대체). 'Other'는 스탬프 생략(런타임 기본값).
+    const colorf = classifyColorKey(COLOR_CLASSES, rec.subcategory, rec.name, rec.category);
+    if (colorf && colorf !== 'Other') a.colorf = colorf;
     const mach = classifyMachinability(rec.category, rec.name, rec.subcategory);
     if (mach) a.mach = mach;
     const weld = classifyWeldModel(rec.category, rec.subcategory);

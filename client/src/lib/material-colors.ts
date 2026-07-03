@@ -5,34 +5,42 @@
  */
 import type { Material } from './materials';
 
-// 순서 중요: CSV 데이터의 subcategory 가 잘못 입력된 경우(예: Inconel 100 의 subcategory 가
-// "Aluminum - Pure/Other"로 잘못 들어가 있음)를 우회하기 위해 BRAND/구체적인 키워드를
-// 일반적인 "alumin" 같은 패턴보다 먼저 검사. Polymer / Ceramic / Composite 은 category 기반
-// (R101: name regex 가 "Alumina" 를 "alumin" 으로 잘못 매칭해 Aluminum family 로 분류된 버그 fix).
-export const CLASSES: Array<{ key: string; color: string; test: (s: string, cat: string) => boolean }> = [
-  { key: 'Polymer', color: '#16A34A', test: (_s, cat) => cat === 'Polymer' },
-  /* R179 — Ceramic color: #0EA5E9 (sky) → #DC2626 (red-600). 사용자 지적: Al 과 너무 비슷.
-   *        Ceramic = ceramic kiln fire imagery. distinct from Al/Cu/Ti family. */
-  { key: 'Ceramic', color: '#DC2626', test: (_s, cat) => cat === 'Ceramic' },
-  { key: 'Composite', color: '#A855F7', test: (_s, cat) => cat === 'Composite' },
-  { key: 'Nickel', color: '#8B5CF6', test: (s) => /\bnickel\b|inconel|hastelloy|haynes|monel|\binvar\b|kovar|cm247|nimonic|waspaloy|\brene\b|nitinol|incoloy|udimet|cp-nickel|ni 200|a-?286|pyromet/.test(s) },
-  { key: 'Cobalt', color: '#EC4899', test: (s) => /cobalt|cocr|stellite|mp35n|elgiloy|haynes 188|haynes 25|l-?605/.test(s) },
-  /* R179 — Titanium regex 에 zirconium / zircaloy / hafnium 추가 (group 4 transition metal, chemistry 유사). */
-  { key: 'Titanium', color: '#06B6D4', test: (s) => /\btitan|\bti\b|ti6|ti-6|ti5|ti cp|ti6242|ta15|\bbeta-2|zirconium|zircaloy|zr-?2|\bhafnium\b|\bhf\b/.test(s) },
+/* R226p Phase 5b — family-color 분류를 **Material ID 기반**으로 전환: 런타임 name-regex 제거.
+ * CLASSES 는 이제 순수 **데이터**(key·color·category|pattern) — pattern 은 빌드 분류기
+ * (scripts/lib/color-classify.mjs)만 실행하고, 결과 key 를 `m.profiles.colorFamily` 로 스탬프한다.
+ * 런타임 classOf 는 그 key 를 CLASS_COLOR 로 조회만 한다(정규식 미실행). 순서·색 완전 불변
+ * (tests/color-family 가 stamp === 분류기 오라클 게이트).
+ *
+ * 순서 중요(빌드 분류기가 이 순서로 first-match): BRAND/구체 키워드를 일반 "alumin" 앞에.
+ * Polymer/Ceramic/Composite 은 category 기반(R101: "Alumina"→"alumin" 오매칭 방지). */
+export const CLASSES: Array<{ key: string; color: string; category?: string; pattern?: string }> = [
+  { key: 'Polymer', color: '#16A34A', category: 'Polymer' },
+  /* R179 — Ceramic color: #0EA5E9 (sky) → #DC2626 (red-600). 사용자 지적: Al 과 너무 비슷. */
+  { key: 'Ceramic', color: '#DC2626', category: 'Ceramic' },
+  { key: 'Composite', color: '#A855F7', category: 'Composite' },
+  { key: 'Nickel', color: '#8B5CF6', pattern: '\\bnickel\\b|inconel|hastelloy|haynes|monel|\\binvar\\b|kovar|cm247|nimonic|waspaloy|\\brene\\b|nitinol|incoloy|udimet|cp-nickel|ni 200|a-?286|pyromet' },
+  { key: 'Cobalt', color: '#EC4899', pattern: 'cobalt|cocr|stellite|mp35n|elgiloy|haynes 188|haynes 25|l-?605' },
+  /* R179 — Titanium regex 에 zirconium / zircaloy / hafnium 추가 (group 4 transition metal). */
+  { key: 'Titanium', color: '#06B6D4', pattern: '\\btitan|\\bti\\b|ti6|ti-6|ti5|ti cp|ti6242|ta15|\\bbeta-2|zirconium|zircaloy|zr-?2|\\bhafnium\\b|\\bhf\\b' },
   /* R179 — Refractory regex 에 beryllium / vanadium / chromium 추가. */
-  { key: 'Refractory', color: '#475569', test: (s) => /refract|tungsten|tantal|niobium|molybden|c-103|rhenium|\bnb\b|\btzm\b|beryllium|\bvanadium\b|pure cr|pure chromium/.test(s) },
-  { key: 'Copper', color: '#D97706', test: (s) => /\bcopper\b|bronze|brass|cuni|cucr|grcop|beryllium copper|becu|\bcu\b|c1\d{4}|c2\d{4}|c3\d{4}|c4\d{4}|c5\d{4}|c6\d{4}|c7\d{4}|c8\d{4}|c9\d{4}|narloy/.test(s) },
-  /* R180 — Magnesium regex 매우 specific 화. 이전 \bmg\b 가 'Al-Mg-Si' 같은 composition string 의 'Mg' 매칭 →
-   *        AA 5xxx/6xxx 의 family color 오류 (R180 user 지적). Fix: Mg alloy designation 또는 'magnesium' 단어만. */
-  { key: 'Magnesium', color: '#0D9488', test: (s) => /\bmagnes|^az\d|^we\d|^zk\d|^am[\s-]?\d|^ez33|^hk31|^elektron|^zamak|magnesium alloy|mg alloy/.test(s) },
-  { key: 'Steel', color: '#3B82F6', test: (s) => /steel|maraging|stainless|aisi|aheadd|superduplex|duplex|chromoly|42crmo|20mncr|\biron\b|sus\d|sncm|scm\d|s45c|sm\d{2}c|sphc|saph|spfh|astm a\d|api 5l|\bsteel\b/.test(s) },
-  { key: 'Aluminum', color: '#F59E0B', test: (s) => /alumin(?!a)|\bal\b|aa\s*\d|alsi|a356|a357|a360|a380|a413|scalmalloy|a205|a20x|a356-rs|\bautoaa|6xxx|7xxx|2xxx|5xxx/.test(s) },
+  { key: 'Refractory', color: '#475569', pattern: 'refract|tungsten|tantal|niobium|molybden|c-103|rhenium|\\bnb\\b|\\btzm\\b|beryllium|\\bvanadium\\b|pure cr|pure chromium' },
+  { key: 'Copper', color: '#D97706', pattern: '\\bcopper\\b|bronze|brass|cuni|cucr|grcop|beryllium copper|becu|\\bcu\\b|c1\\d{4}|c2\\d{4}|c3\\d{4}|c4\\d{4}|c5\\d{4}|c6\\d{4}|c7\\d{4}|c8\\d{4}|c9\\d{4}|narloy' },
+  /* R180 — Magnesium regex 매우 specific 화(\bmg\b 가 'Al-Mg-Si' 매칭하던 버그 fix). */
+  { key: 'Magnesium', color: '#0D9488', pattern: '\\bmagnes|^az\\d|^we\\d|^zk\\d|^am[\\s-]?\\d|^ez33|^hk31|^elektron|^zamak|magnesium alloy|mg alloy' },
+  { key: 'Steel', color: '#3B82F6', pattern: 'steel|maraging|stainless|aisi|aheadd|superduplex|duplex|chromoly|42crmo|20mncr|\\biron\\b|sus\\d|sncm|scm\\d|s45c|sm\\d{2}c|sphc|saph|spfh|astm a\\d|api 5l|\\bsteel\\b' },
+  { key: 'Aluminum', color: '#F59E0B', pattern: 'alumin(?!a)|\\bal\\b|aa\\s*\\d|alsi|a356|a357|a360|a380|a413|scalmalloy|a205|a20x|a356-rs|\\bautoaa|6xxx|7xxx|2xxx|5xxx' },
 ];
 
+/** color key → hex. CLASSES + 'Other' 폴백. */
+export const CLASS_COLOR: Record<string, string> = {
+  ...Object.fromEntries(CLASSES.map((c) => [c.key, c.color])),
+  Other: '#94A3B8',
+};
+
+/** 재료 family 분류/색 — **빌드 스탬프**(m.profiles.colorFamily) 조회. 런타임 regex 없음. */
 export function classOf(m: Material): { key: string; color: string } {
-  const s = `${m.subcategory || ''} ${m.name || ''}`.toLowerCase();
-  for (const c of CLASSES) if (c.test(s, m.category)) return { key: c.key, color: c.color };
-  return { key: 'Other', color: '#94A3B8' };
+  const key = m.profiles?.colorFamily || 'Other';
+  return { key, color: CLASS_COLOR[key] || CLASS_COLOR.Other };
 }
 
 /** 재료의 family 색 — UI 어디서나 일관되게 사용. 비어 있으면 회색 폴백. */
