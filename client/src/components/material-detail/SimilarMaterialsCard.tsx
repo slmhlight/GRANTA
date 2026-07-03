@@ -10,7 +10,7 @@
 import { Layers, Lightbulb } from 'lucide-react';
 import type { Material } from '@/lib/materials';
 import { findSimilar, type SimilarMaterial } from '@/lib/similar-materials';
-import { resolveInsights, insightPickMatches, resolveMachinability, resolvePolymerMachinability } from '@/lib/process-guidance';
+import { resolveInsights, insightPickMatches, resolveMachinability, resolvePolymerMachinability, insightGroupLabel } from '@/lib/process-guidance';
 
 interface SimilarMaterialsCardProps {
   material: Material;
@@ -59,11 +59,12 @@ export function decisionContext(cur: Material, cand: Material): {
     const pick = curIns.picks.find(p => insightPickMatches(cand, p) && !insightPickMatches(cur, p));
     if (pick) whenLine = `${pick.when} → ${pick.use}`;
   } else if (crossGroup && candIns) {
-    // 다른 용도 계열: 이 후보가 통상 쓰이는 대표 시나리오를 안내 (배지가 그룹명을 이미 표시)
+    // 다른 쓰임새: 이 후보가 통상 쓰이는 대표 시나리오를 안내 (배지가 분야를 표시)
     const own = candIns.picks.find(p => insightPickMatches(cand, p));
-    whenLine = own ? `주 용도: ${own.when}` : `다른 용도 계열`;
+    whenLine = own ? `이 재료의 통상 용도: ${own.when}` : null;
   }
-  const candGroupTitle = candIns ? candIns.title.replace(/\s*선택$/, '') : null;
+  // R226o — 짧은 그룹 라벨 (긴 title 대신). 배지·툴팁용.
+  const candGroupTitle = insightGroupLabel(candG) ?? (candIns ? candIns.title.replace(/\s*선택.*$/, '') : null);
   let machChip: string | null = null;
   const m1 = resolveMachinability(cur);
   const m2 = resolveMachinability(cand);
@@ -82,7 +83,7 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
   return (
     <details open className="rounded-lg border-2 border-sky-300 bg-sky-50/50 p-3">
       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-sky-900">
-        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />유사 · 대체 재료 (물성 가까운 순 · <span className="text-amber-700">↗</span>=다른 용도 계열)</span>
+        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />유사 · 대체 재료 (물성 가까운 순 · <span className="text-amber-700">주로 …용</span>=보통 다른 분야 재료)</span>
         <span className="text-[10px] font-normal opacity-70">top {similar.length}</span>
       </summary>
       <div className="space-y-1.5 mt-2 pt-2 border-t border-sky-300/50">
@@ -100,10 +101,10 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-1.5 flex-wrap">
                   <p className="text-[12px] font-semibold text-foreground group-hover:text-sky-700 truncate">{s.material.name}</p>
-                  {/* R226m — 다른 용도(인사이트) 계열이면 한눈에 배지로 (amber). 같은 계열은 배지 없음(노이즈 감소). */}
+                  {/* R226o — 물성은 비슷하지만 통상 다른 분야에 쓰는 재료면 amber 배지로 한눈에. 같은 분야면 배지 없음. */}
                   {ctx.crossGroup && ctx.candGroupTitle && (
-                    <span className="text-[9px] px-1 rounded bg-amber-100 text-amber-800 border border-amber-300 font-semibold whitespace-nowrap flex items-center gap-0.5" title={`다른 용도 계열: ${ctx.candGroupTitle} — 물성은 가까우나 통상 용도가 다름`}>
-                      <Lightbulb className="w-2.5 h-2.5" />↗ {ctx.candGroupTitle}
+                    <span className="text-[9px] px-1 rounded bg-amber-100 text-amber-800 border border-amber-300 font-semibold whitespace-nowrap flex items-center gap-0.5" title={`물성은 비슷하지만 보통 '${ctx.candGroupTitle}' 분야에 쓰는 재료 — 단순 유사가 아니라 쓰임새가 다름. 대체 시 용도 적합성 확인.`}>
+                      <Lightbulb className="w-2.5 h-2.5" />주로 {ctx.candGroupTitle}용
                     </span>
                   )}
                 </div>
@@ -162,8 +163,8 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
         <p className="text-[10px] text-muted-foreground mt-2 leading-snug">
           같은 카테고리 · <b>물성 log-distance 가까운 순 top {similar.length}</b> (순위는 인기도 무관, 같은 family +45% 가중 · 단 현재 재료보다 인기도 1.0↓ 재료는 제외).
           <span className="font-mono text-sky-700">≈</span>=물성 거리(낮을수록 유사). 클릭 시 이동.{' '}
-          <span className="text-amber-800 font-semibold">↗ 배지</span>=물성은 가까우나 <b>통상 용도가 다른 계열</b> —
-          진짜 대체 후보 탐색에 활용. <span className="text-emerald-700">초록</span>&lt;10% ·{' '}
+          <span className="text-amber-800 font-semibold">주로 …용 배지</span>=물성은 가깝지만 <b>보통 다른 분야에 쓰는 재료</b>(예: 스테인리스를 보는데 물성 비슷한 Ni합금) —
+          쓰임새가 달라 대체 시 용도 적합성 확인 필요. <span className="text-emerald-700">초록</span>&lt;10% ·{' '}
           <span className="text-amber-700">노랑</span>&lt;30% · <span className="text-rose-700">빨강</span>≥30% 물성차 ·{' '}
           <span className="text-indigo-700">💡</span>=용도 시나리오(인사이트 융합).
         </p>

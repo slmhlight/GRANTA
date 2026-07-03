@@ -34,6 +34,17 @@ const MACH_SOURCES = (profilesData as any).machinability.sources as { metal: str
 const GUIDANCE = (guidanceData as any).guidance as Record<string, string>;
 const INSIGHT_GROUPS = (insightsData as any).groups as Record<string, InsightGroup>;
 
+/** R226o — 인사이트(용도) 그룹의 짧은 라벨 — 배지·비교용 (긴 title 대신). key = m.profiles.insight. */
+export const INSIGHT_GROUP_LABEL: Record<string, string> = {
+  'structural-steel': '구조용 강', 'carbon-alloy-steel': '탄소·합금강', 'stainless': '스테인리스',
+  'stainless-highperf': '고성능 스테인리스', 'aluminum': '알루미늄', 'titanium': '티타늄',
+  'ni-superalloy': 'Ni 초내열합금', 'cobalt': '코발트 합금', 'copper': '구리 합금',
+  'magnesium': '마그네슘', 'tool-steel': '공구강', 'refractory': '내화금속',
+  'pol-highperf': '고성능 폴리머', 'pol-engineering': '엔지니어링 폴리머', 'pol-commodity': '범용 폴리머',
+  'pol-elastomer': '탄성체', 'pol-fluoro': '불소수지',
+};
+export const insightGroupLabel = (key?: string | null): string | null => (key ? (INSIGHT_GROUP_LABEL[key] ?? null) : null);
+
 /** 금속 절삭성 — m.profiles.mach 조회 (프로파일 없으면 null = 카드 미표시). */
 export function resolveMachinability(m: Material): MachinabilityResult | null {
   if (m.category !== 'Metal') return null;

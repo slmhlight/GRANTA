@@ -140,8 +140,8 @@ describe('조건(variation)별 노트 + 가이드 + 인사이트 (R226j)', () =>
     const ti = mk({ name: 'Ti-6Al-4V', profiles: { insight: 'titanium', mach: 'ti-alloy' } });
     const tctx = decisionContext(cur, ti);
     expect(tctx.crossGroup).toBe(true);
-    expect(tctx.candGroupTitle).toContain('티타늄');
-    expect(tctx.whenLine).toContain('주 용도');
+    expect(tctx.candGroupTitle).toBe('티타늄');            // R226o — 짧은 그룹 라벨
+    expect(tctx.whenLine).toContain('통상 용도');           // "이 재료의 통상 용도: ..."
   });
   it('출처 — 카테고리별 분리 (폴리머에 금속 표준 없음)', () => {
     const polySrc = machinabilitySources(mk({ category: 'Polymer' })).join(' ');
