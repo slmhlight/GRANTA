@@ -891,9 +891,9 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 <p className="text-[10px] text-muted-foreground mt-1">{t('detail.regulated.note')}</p>
               </div>
             )}
-            {/* R17: 권장 후공정 — material 의 process + name 패턴 매칭 */}
+            {/* R17: 권장 후공정 — Material ID 기반(빌드 스탬프 profiles.coatings; R226p Phase 5) */}
             {(() => {
-              const recs = recommendedCoatings({ category: material.category, name: material.name, process: material.process }, 3);
+              const recs = recommendedCoatings(material, 3);
               if (!recs.length) return null;
               return (
                 <div className="mt-3 rounded border border-accent/30 bg-accent/5 p-2.5">

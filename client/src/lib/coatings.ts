@@ -420,23 +420,21 @@ export const COATINGS: Coating[] = [
   },
 ];
 
-/** Material 에서 추천 후공정 N개 반환 — 카테고리/공정/이름 패턴 매칭.
- *  R41: alloy-specific match (3+점) ≫ 'all' match (1점) — 'all' 매칭이 alloy-specific 매칭을 가리지 않게.
+/** Material 에서 추천 후공정 N개 반환 — **Material ID 기반**(R226p Phase 5): 런타임 regex 제거.
+ *  alloy-specific 매칭 coating id 집합은 빌드가 `m.profiles.coatings` 로 스탬프(coatings-classify.mjs).
+ *  'all' 코팅은 substrateMatch==='all' 로 런타임 판별(재료 무관). 점수/정렬/보너스는 불변.
  */
-export function recommendedCoatings(m: { category?: string; name?: string; process?: string; subcategory?: string }, max = 3): Coating[] {
+export function recommendedCoatings(m: { category?: string; profiles?: { coatings?: string[] } }, max = 3): Coating[] {
   const cat = m.category;
-  const nameLower = String(m.name || '').toLowerCase();
-  const procLower = String(m.process || '').toLowerCase();
-  const subLower = String(m.subcategory || '').toLowerCase();
-  const concat = nameLower + ' ' + procLower + ' ' + subLower;
+  const matched = new Set(m.profiles?.coatings || []);
   const scored: { coating: Coating; score: number }[] = [];
   for (const c of COATINGS) {
     if (cat && !c.applicableTo.includes(cat as any) && !c.applicableTo.includes('All')) continue;
     let score = 0;
     if (c.substrateMatch === 'all') {
       score = 0.5; // R41: 'all' 매칭은 fallback 으로만 — alloy-specific 매칭과 경쟁 안 함.
-    } else if (new RegExp(c.substrateMatch, 'i').test(concat)) {
-      score = 10; // 명시적 alloy 매칭 — 최우선
+    } else if (matched.has(c.id)) {
+      score = 10; // 명시적 alloy 매칭 (빌드 스탬프) — 최우선
     } else {
       continue; // 비매칭 — skip
     }

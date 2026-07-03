@@ -129,6 +129,8 @@ export interface Material {
     /** R226k — HT 주의사항 가이드 키 (ht-guidance.json) · 합금별 용접 권고 키 (welding-guidance.json) */
     htg?: string;
     wg?: string;
+    /** R226p Phase 5 — alloy-specific 매칭 coating id 집합 (coatings.ts recommendedCoatings; 빌드 스탬프) */
+    coatings?: string[];
   };
   /** R75 — 개발 역사·스토리·실제 사용례 (markdown 가능, 다단락). data/material-stories.json 에서 base name 으로 주입. */
   story?: string | null;

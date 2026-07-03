@@ -52,7 +52,11 @@ for (const cc of fs.readdirSync(REG)) {
         profileGateErrors.push(`weld 키 미정의: ${rec.stable_id} → ${a.weld}`);
       if (a.insight && !INSIGHTS_CONTENT.groups[a.insight])
         profileGateErrors.push(`insight 키 미정의: ${rec.stable_id} → ${a.insight}`);
-      if (Object.keys(a).length) entry.profiles = a;
+      if (Object.keys(a).length) {
+        const p = { ...a };
+        if (p.cts) { p.coatings = p.cts; delete p.cts; }   // R226p Phase 5 — cts(할당 키) → coatings(런타임 필드)
+        entry.profiles = p;
+      }
     }
     // R226l/R226m — by_id 고온 곡선 부착. R226m: by_id 는 datasheet 검증(벡터+앵커) 이므로
     // 파생 백필 인라인보다 우선 → override (SS410 처럼 인라인이 조건-무관 generic 오류인 경우 교정).
