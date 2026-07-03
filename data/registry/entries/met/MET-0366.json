@@ -187,32 +187,27 @@
     {
       "label": "Copper.org — C10200 Oxygen-Free Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C10200",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "Poongsan datasheet",
+      "label": "Datasheet 3",
       "url": "https://www.poongsan.co.kr/eng/business/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Copper Development Association — OFE C10100",
       "url": "https://www.copper.org/resources/properties/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM F68 — Oxygen-Free Copper",
       "url": "https://store.astm.org/f0068-22.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -286,13 +281,14 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "cu-pure",
-    "weld": "none",
-    "htc": "cold",
-    "insight": "copper"
-  },
-  "uns": [
-    "C10200"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "KS C1020",
+        "UNS C10200",
+        "OF copper",
+        "EN CW008A"
+      ]
+    }
+  }
 }

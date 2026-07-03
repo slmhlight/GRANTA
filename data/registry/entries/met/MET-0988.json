@@ -193,34 +193,29 @@
   },
   "sources": [
     {
-      "label": "Hyundai Steel datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.hyundai-steel.com/en/products/HRC.do",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASTM A572/A588 HSLA",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KS D 3542 — Atmospheric Corrosion-Resistant Hot-Rolled Steel (SPA-H)",
       "url": "https://www.kssn.net/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "JIS G 3125 — Superior Atmospheric Corrosion-Resistant Steel",
       "url": "https://www.jisc.go.jp/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "US Steel COR-TEN reference",
       "url": "https://www.ussteel.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -294,9 +289,5 @@
   "total_cost_estimate": 1.46,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "insight": "structural-steel"
-  }
+  "confidence_tier": "medium"
 }

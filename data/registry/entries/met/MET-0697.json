@@ -188,26 +188,22 @@
     {
       "label": "ASM — 310S heat-resistant stainless (UNS S31008)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Grade 310S (UNS S31008) — AZoM",
       "url": "https://www.azom.com/article.aspx?ArticleID=6798",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -327,13 +323,5 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S31008"
-  ]
+  "confidence_tier": "medium"
 }

@@ -186,21 +186,19 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Aluminum, commercial purity, 1200 (O/H14/H19) (UNS A91200, EN AW-1200, JIS H4120)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Aluminum, commercial purity, 1200 (O/H14/H19) (UNS A91200, EN AW-1200, JIS H4120)",
+      "verified": true
     },
     {
-      "label": "Aluminum Association",
+      "label": "Datasheet 1",
       "url": "https://www.aluminum.org/standards",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AA 1xxx CP Al",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -262,10 +260,9 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-soft",
-    "weld": "none",
-    "htc": "soft",
-    "insight": "aluminum"
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
   }
 }

@@ -187,22 +187,19 @@
   },
   "sources": [
     {
-      "label": "NASA technical report",
+      "label": "Datasheet 1",
       "url": "https://ntrs.nasa.gov/citations/20140003291",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cu alloys general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -270,10 +267,5 @@
     "Gradl P R et al. (2017) \"Additive Manufacturing of Liquid Rocket Engine Combustion Devices\", AIAA 2017-4670",
     "NASA RAMPT Program Technical Summary (2020)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "none",
-    "wg": "w51-c1",
-    "insight": "copper"
-  }
+  "confidence_tier": "medium"
 }

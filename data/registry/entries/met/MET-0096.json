@@ -190,32 +190,27 @@
     {
       "label": "A413 / AlSi12 — Alcotec / Aluminum Assoc.",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: EOS AlSi10Mg cast",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "MakeItFrom — 413.0 (A04130, S12B) Cast Aluminum (property table)",
       "url": "https://www.makeitfrom.com/material-properties/413.0-A04130-S12B-Cast-Aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Sunrise Metal — AlSi12 (A413) aluminium casting alloy 데이터시트",
       "url": "https://www.sunrise-metal.com/aluminum-alloy-alsi12/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -300,10 +295,14 @@
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-cast-am",
-    "weld": "none",
-    "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
-    "insight": "aluminum"
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "AlSi12",
+        "A413",
+        "EN AC-44000",
+        "A413 (cast equiv.)"
+      ]
+    }
   }
 }

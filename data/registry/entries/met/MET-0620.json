@@ -36,16 +36,14 @@
       "max": 450,
       "typical": 450,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "uts": {
       "min": 535,
       "max": 535,
       "typical": 535,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "elongation": {
       "min": 22,
@@ -197,22 +195,19 @@
   },
   "sources": [
     {
-      "label": "API standard",
+      "label": "Datasheet 1",
       "url": "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5l",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: API 5L pipeline",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ISO 3183 — Petroleum and natural gas industries — Steel pipe",
       "url": "https://www.iso.org/standard/64030.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -279,10 +274,5 @@
   "total_cost_estimate": 1.42,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "wg": "w11-api",
-    "insight": "structural-steel"
-  }
+  "confidence_tier": "medium"
 }

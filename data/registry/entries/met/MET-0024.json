@@ -191,26 +191,22 @@
     {
       "label": "MMPDS-08 Sec.1.5 + ASM Handbook Vol.1 — AISI 4xxx (Cr-Mo / Cr-Ni-Mo)",
       "url": "https://www.asminternational.org/handbooks",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM435",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -276,11 +272,5 @@
   "total_cost_estimate": 3.97,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "crmo",
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

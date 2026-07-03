@@ -189,32 +189,27 @@
     {
       "label": "Copper.org — C18150 Copper-Chromium-Zirconium",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C18150",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "C18150 CuCrZr — Aviva Metals",
       "url": "https://www.avivametals.com/products/copper-and-copper-alloys",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: Cu-Cr-Zr / Cu-Ni-Si-Cr family",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Brush Wellman C18150 (Hycon 3 HP) datasheet",
       "url": "https://materion.com/-/media/files/alloy/datasheets/copper/c18150-elbrodur-cuyc-rolled-datasheet.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B441 — CuCrZr Bar/Rod (C18150)",
       "url": "https://store.astm.org/b0441-19.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -308,14 +303,5 @@
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
     "Copper Development Association \"Resistance Welding Electrode Materials\" Pub TN 28 (2010)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "cu-crzr",
-    "weld": "none",
-    "htc": "aged",
-    "insight": "copper"
-  },
-  "uns": [
-    "C18150"
-  ]
+  "confidence_tier": "high"
 }

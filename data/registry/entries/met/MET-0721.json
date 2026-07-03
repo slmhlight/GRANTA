@@ -191,32 +191,27 @@
     {
       "label": "Outokumpu — Stainless Steel 304L (1.4307)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM A240 / Outokumpu 304L",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 304/304L",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — Stainless Steel Type 304L (ELC)",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — 304L Stainless Steel Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=fee6b0bb8c1c4cbcaab74a85c8fbfbd5",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -361,16 +356,5 @@
     "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "htc": "soft",
-    "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
-    "wg": "w05-aisi",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S30403"
-  ]
+  "confidence_tier": "high"
 }

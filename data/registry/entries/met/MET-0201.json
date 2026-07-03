@@ -187,39 +187,34 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Aluminum, 6463, T4 / T6 (UNS A96463, EN AW-6463, EN AW-Al Mg0.7Si(B))",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Aluminum, 6463, T4 / T6 (UNS A96463, EN AW-6463, EN AW-Al Mg0.7Si(B))",
+      "verified": true
     },
     {
-      "label": "Aluminum Association",
+      "label": "Datasheet 1",
       "url": "https://www.aluminum.org/standards",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AA 6xxx Al-Mg-Si",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "MakeItFrom — 6463-T6 Aluminum (property table)",
       "url": "https://www.makeitfrom.com/material-properties/6463-T6-Aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "MakeItFrom — 6463 (AlMg0.7Si(B), A96463) Aluminum 합금 개요(UNS/EN 지정)",
       "url": "https://www.makeitfrom.com/material-properties/6463-AlMg0.7SiB-A96463-Aluminum/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "AZoM — Aluminium 6463 Alloy (UNS A96463) 데이터시트",
       "url": "https://www.azom.com/article.aspx?ArticleID=6649",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -287,15 +282,5 @@
   "total_cost_estimate": 4.91,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-6xxx",
-    "weld": "none",
-    "htc": "aged",
-    "htg": "h02-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A96463"
-  ]
+  "confidence_tier": "high"
 }

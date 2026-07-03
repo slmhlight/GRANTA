@@ -197,37 +197,32 @@
     {
       "label": "TIMET — Ti-6Al-4V Grade 5 MatWeb",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "AZoM materials",
+      "label": "Datasheet 2",
       "url": "https://www.azom.com/article.aspx?ArticleID=9365",
-      "verified": true,
-      "authority": "aggregator"
+      "verified": true
     },
     {
-      "label": "ASTM F136 — Wrought Ti-6Al-4V ELI for Surgical Implants",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 2",
+      "url": "ASTM F136 — Wrought Ti-6Al-4V ELI for Surgical Implants",
+      "verified": true
     },
     {
       "label": "ASTM F136 — Ti-6Al-4V ELI for Surgical Implants",
       "url": "https://www.astm.org/f0136-13r21e01.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "AMS 4930 — Ti-6Al-4V ELI bar/forging",
       "url": "https://www.sae.org/standards/content/ams4930/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "MMPDS-08 Vol.1 — Ti-6Al-4V ELI (Grade 23)",
       "url": "https://www.mmpds.org/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -362,17 +357,9 @@
     "Lütjering G & Williams J C (2007) Titanium, 2nd ed., Springer"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "htc": "aged",
-    "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
-    "htg": "h07-ti",
-    "wg": "w23-ti",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R56400",
-    "R56401"
-  ]
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

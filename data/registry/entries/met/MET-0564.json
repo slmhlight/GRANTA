@@ -191,26 +191,22 @@
     {
       "label": "MatWeb — Inconel 713C",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+713C",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM / cast superalloy data — IN-713C",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Sandvik Osprey 713C — AM superalloy powder (조성)",
       "url": "https://www.metalpowder.sandvik/en/products/metal-powder-alloys/superalloys/osprey-713c/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -293,14 +289,5 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "wg": "w30-inconel",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N07713"
-  ]
+  "confidence_tier": "high"
 }

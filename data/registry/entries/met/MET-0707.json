@@ -188,33 +188,29 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Stainless steel austenitic AISI 301 (UNS S30100, EN 1.4310, X10CrNi18-8)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 2",
+      "url": "ANSYS Granta — Stainless steel austenitic AISI 301 (UNS S30100, EN 1.4310, X10CrNi18-8)",
+      "verified": true
     },
     {
-      "label": "Outokumpu datasheet",
+      "label": "Datasheet 2",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 301 cold-rolled high-strength",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "AK Steel 301 Stainless reference",
       "url": "https://www.aksteel.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -305,11 +301,5 @@
       "E": 150
     }
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "wg": "w05-aisi",
-    "insight": "stainless"
-  }
+  "confidence_tier": "high"
 }

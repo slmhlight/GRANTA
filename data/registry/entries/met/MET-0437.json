@@ -186,22 +186,19 @@
   },
   "sources": [
     {
-      "label": "NASA technical report",
+      "label": "Datasheet 2",
       "url": "https://ntrs.nasa.gov/api/citations/19920002923/downloads/19920002923.pdf",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "KIC fallback: NASA TM-86932 Narloy-Z",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -270,10 +267,5 @@
     "Esposito J J & Zabora R F (1975) \"Thrust Chamber Life Prediction\", NASA CR-134806",
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "none",
-    "htc": "aged",
-    "insight": "copper"
-  }
+  "confidence_tier": "medium"
 }

@@ -191,20 +191,17 @@
     {
       "label": "Carpenter Technology — Nitronic 50",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASM — Nitronic 50 (UNS S20910)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -296,13 +293,5 @@
   "svhc_concerns": [
     "Ni 13.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S20910"
-  ]
+  "confidence_tier": "high"
 }

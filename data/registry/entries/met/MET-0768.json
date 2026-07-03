@@ -36,16 +36,14 @@
       "max": 620,
       "typical": 550,
       "n": 3,
-      "confidence": "measured",
-      "basis": "min_spec"
+      "confidence": "measured"
     },
     "uts": {
       "min": 750,
       "max": 880,
       "typical": 800,
       "n": 3,
-      "confidence": "measured",
-      "basis": "min_spec"
+      "confidence": "measured"
     },
     "elongation": {
       "min": 20,
@@ -193,14 +191,12 @@
     {
       "label": "Outokumpu 2507 SAF / Sandmeyer Duplex",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: Rolled Alloys ZERON 100",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -294,13 +290,14 @@
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-duplex",
-    "weld": "schaeffler",
-    "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
-    "insight": "stainless-highperf"
-  },
-  "uns": [
-    "S32750"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS S32750",
+        "EN 1.4410",
+        "SAF 2507",
+        "F53"
+      ]
+    }
+  }
 }

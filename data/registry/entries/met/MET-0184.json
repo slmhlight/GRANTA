@@ -192,38 +192,32 @@
     {
       "label": "Arconic/MatWeb — 6061 Aluminum Alloy",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=6061+aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 4",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA6061",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "Kaiser Aluminum datasheet",
+      "label": "Datasheet 4",
       "url": "https://www.kaiseraluminum.com/aerospace/alloys/6061/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 6xxx (Al-Mg-Si)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Aluminum Association — 6061 Data Sheet",
       "url": "https://www.aluminum.org/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "MatWeb — Aluminum 6061-T6",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1b8c06d0ca7c456694c7777d9e10be5b",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -324,15 +318,14 @@
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-6xxx",
-    "weld": "none",
-    "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
-    "htg": "h02-aa",
-    "wg": "w19-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A96061"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A96061",
+        "EN AW-6061",
+        "AlMg1SiCu",
+        "DIN 3.3211"
+      ]
+    }
+  }
 }

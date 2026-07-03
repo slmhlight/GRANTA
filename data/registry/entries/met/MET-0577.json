@@ -191,22 +191,19 @@
   },
   "sources": [
     {
-      "label": "Special Metals datasheet",
+      "label": "Datasheet 2",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -273,14 +270,5 @@
   "svhc_concerns": [
     "Co 21% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N07740"
-  ]
+  "confidence_tier": "medium"
 }

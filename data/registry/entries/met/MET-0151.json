@@ -190,33 +190,29 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Aluminum 5454 (UNS A95454, EN AW-5454, AlMg3Mn)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 3",
+      "url": "ANSYS Granta — Aluminum 5454 (UNS A95454, EN AW-5454, AlMg3Mn)",
+      "verified": true
     },
     {
-      "label": "Aluminum Association",
+      "label": "Datasheet 3",
       "url": "https://www.aluminum.org/standards",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AA 5083 marine",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 5454 marine grade",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — Aluminum 5454-O / H32",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=db0d5e16f7574e4abf9c80e5fc18ccb3",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -282,13 +278,13 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-5xxx",
-    "weld": "none",
-    "wg": "w18-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A95454"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A95454",
+        "EN AW-5454",
+        "AlMg3Mn"
+      ]
+    }
+  }
 }

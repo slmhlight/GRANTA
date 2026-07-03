@@ -190,32 +190,27 @@
     {
       "label": "Böhler-Uddeholm — P20 / M238 Mould Steel",
       "url": "https://www.bohler-edelstahl.com/en/products/m238/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASM — P20 mold steel (DIN 1.2311)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Böhler-Uddeholm — Impax Supreme P20 reference",
       "url": "https://www.uddeholm.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — Tool Steels: P20 mold",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204965/Tool-Steels",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     }
   ],
   "points": [
@@ -309,11 +304,5 @@
     "ASTM A681 \"Standard Specification for Tool Steels Alloy\"",
     "Bohler-Uddeholm \"M238 Technical Information\" (2019)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "tool-steel",
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "tool-steel"
-  }
+  "confidence_tier": "high"
 }

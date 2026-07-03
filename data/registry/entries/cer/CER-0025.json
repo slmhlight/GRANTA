@@ -140,20 +140,17 @@
     {
       "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
       "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "AZoM — Magnesia (MgO, 99%)",
       "url": "https://www.azom.com/article.aspx?ArticleID=54",
-      "verified": true,
-      "authority": "aggregator"
+      "verified": true
     },
     {
       "label": "Applications: 고온 도가니, 열전대 보호관, 분광 윈도우 (IR)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "machinability": null,
@@ -202,5 +199,21 @@
     "Lee W E & Moore R E (1998) J Am Ceram Soc 81",
     "Yuan H et al. (2008) J Phys D: Appl Phys 41"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AZoM — Magnesia (MgO, 99%)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=54",
+          "verified": true
+        },
+        {
+          "label": "Applications: 고온 도가니, 열전대 보호관, 분광 윈도우 (IR)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

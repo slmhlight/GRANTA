@@ -1,6 +1,6 @@
 {
  "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
- "entries": 1124,
+ "entries": 1129,
  "ht_families_parsed": 34,
  "assignments": {
   "CER-0001": {},
@@ -5983,6 +5983,44 @@
    "htc": "qt",
    "wg": "w39-monel",
    "insight": "ni-superalloy"
+  },
+  "MET-1012": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "wg": "w05-aisi",
+   "insight": "stainless"
+  },
+  "MET-1013": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "cold",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "wg": "w05-aisi",
+   "insight": "stainless"
+  },
+  "MET-1014": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "cold",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "wg": "w05-aisi",
+   "insight": "stainless"
+  },
+  "MET-1015": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
+   "insight": "stainless"
+  },
+  "MET-1016": {
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "htc": "soft",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
+   "wg": "w05-aisi",
+   "insight": "stainless"
   },
   "POL-0001": {
    "mach": "pol-rigid",

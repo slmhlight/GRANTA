@@ -186,26 +186,22 @@
     {
       "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "WHS Sondermetalle — Data sheet Niobium (Nb, NbZr1): R04200 type1, ρ 8.57·melt 2468°C·E 103 GPa·Rm 125·Rp0.2 75 MPa·A 25%·HV·CTE·k·ASTM B392/B393",
       "url": "https://www.whs-sondermetalle.de/images/pdf/Nb-Niobium.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ATI — Niobium (Type 1) product page (UNS R04200, bar/wire 사이즈·forms·machining PDF 링크)",
       "url": "https://www.atimaterials.com/Products/Pages/niobium-type-1.aspx",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "CBMM/Niobium.tech — The Physical, Mechanical and Irradiation Behavior of Niobium and Nb-base Alloys (순 Nb: ρ 8.57 Mg/m³, melt 2468±10°C; Young's modulus·tensile 그래프)",
       "url": "https://niobium.tech/-/media/niobiumtech/attachments-biblioteca-tecnica/nt_the-physical-mechanical-and-irradiation-behavior-of-niobium-and-niobium-base-alloys.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -278,14 +274,231 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ta-nb",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w61-niobiumb",
-    "insight": "refractory"
-  },
-  "uns": [
-    "R04200"
-  ]
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Niobium+C-103",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "WHS Sondermetalle — Data sheet Niobium (Nb, NbZr1): R04200 type1, ρ 8.57·melt 2468°C·E 103 GPa·Rm 125·Rp0.2 75 MPa·A 25%·HV·CTE·k·ASTM B392/B393",
+          "url": "https://www.whs-sondermetalle.de/images/pdf/Nb-Niobium.pdf",
+          "verified": true
+        },
+        {
+          "label": "ATI — Niobium (Type 1) product page (UNS R04200, bar/wire 사이즈·forms·machining PDF 링크)",
+          "url": "https://www.atimaterials.com/Products/Pages/niobium-type-1.aspx",
+          "verified": true
+        },
+        {
+          "label": "CBMM/Niobium.tech — The Physical, Mechanical and Irradiation Behavior of Niobium and Nb-base Alloys (순 Nb: ρ 8.57 Mg/m³, melt 2468±10°C; Young's modulus·tensile 그래프)",
+          "url": "https://niobium.tech/-/media/niobiumtech/attachments-biblioteca-tecnica/nt_the-physical-mechanical-and-irradiation-behavior-of-niobium-and-niobium-base-alloys.pdf",
+          "verified": true
+        }
+      ]
+    },
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)",
+    "points": {
+      "from": [
+        [
+          8.57,
+          342,
+          405,
+          18,
+          105,
+          108,
+          54
+        ],
+        [
+          8.57,
+          387.6,
+          459,
+          18.4,
+          105,
+          122.4,
+          54
+        ],
+        [
+          8.57,
+          414.2000000000001,
+          490.50000000000006,
+          17.8,
+          105,
+          130.8,
+          54
+        ],
+        [
+          8.57,
+          376.2,
+          445.5,
+          21.8,
+          105,
+          118.8,
+          54
+        ],
+        [
+          8.57,
+          345.8,
+          409.5,
+          20.2,
+          105,
+          109.2,
+          54
+        ],
+        [
+          8.57,
+          357.20000000000005,
+          423,
+          20.8,
+          105,
+          112.8,
+          54
+        ],
+        [
+          8.57,
+          342,
+          405,
+          18,
+          105,
+          108,
+          54
+        ],
+        [
+          8.57,
+          399,
+          472.5,
+          17,
+          105,
+          126,
+          54
+        ],
+        [
+          8.57,
+          372.4,
+          441,
+          19.6,
+          105,
+          117.6,
+          54
+        ],
+        [
+          8.57,
+          395.2,
+          468,
+          18.8,
+          105,
+          124.8,
+          54
+        ],
+        [
+          8.57,
+          364.8,
+          432,
+          19.200000000000003,
+          105,
+          115.2,
+          54
+        ],
+        [
+          8.57,
+          361,
+          427.50000000000006,
+          21,
+          105,
+          114,
+          54
+        ],
+        [
+          8.57,
+          357.20000000000005,
+          423,
+          18.8,
+          105,
+          112.8,
+          54
+        ],
+        [
+          8.57,
+          353.40000000000003,
+          418.5,
+          18.6,
+          105,
+          111.6,
+          54
+        ],
+        [
+          8.57,
+          399,
+          472.5,
+          21,
+          105,
+          126,
+          54
+        ],
+        [
+          8.57,
+          353.40000000000003,
+          418.5,
+          18.6,
+          105,
+          111.6,
+          54
+        ],
+        [
+          8.57,
+          410.4,
+          486.00000000000006,
+          19.6,
+          105,
+          129.60000000000002,
+          54
+        ],
+        [
+          8.57,
+          357.20000000000005,
+          423,
+          18.8,
+          105,
+          112.8,
+          54
+        ],
+        [
+          8.57,
+          345.8,
+          409.5,
+          20.2,
+          105,
+          109.2,
+          54
+        ],
+        [
+          8.57,
+          372.4,
+          441,
+          19.6,
+          105,
+          117.6,
+          54
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

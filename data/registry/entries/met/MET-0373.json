@@ -185,22 +185,19 @@
   },
   "sources": [
     {
-      "label": "Poongsan datasheet",
+      "label": "Datasheet 4",
       "url": "https://www.poongsan.co.kr/eng/business/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cu alloys general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -259,10 +256,5 @@
   "total_cost_estimate": 14,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "none",
-    "htc": "cold",
-    "insight": "copper"
-  }
+  "confidence_tier": "medium"
 }

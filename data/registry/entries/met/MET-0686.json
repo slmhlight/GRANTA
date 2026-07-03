@@ -190,28 +190,24 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SUP10",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM spring steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "JIS G4801 — Spring Steels (SUP9/10/12)",
       "url": "https://www.jisc.go.jp/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "OTAI Special Steel — SUP10 Spring Steel (JIS G4801, 6150/51CrV4) 조성+Q&T 물성",
       "url": "https://otaisteel.com/products/spring-steel-sup10/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -283,10 +279,5 @@
     "ASM Specialty Handbook \"Carbon and Alloy Steels\" (1996)",
     "Yamada Y (2007) Materials for Springs, Springer"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

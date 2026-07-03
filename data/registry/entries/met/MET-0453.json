@@ -194,34 +194,29 @@
   },
   "sources": [
     {
-      "label": "ECCC creep data",
+      "label": "Datasheet 1",
       "url": "https://www.eccc-creep.com/datasheets/",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASME B&PV Sec.II heat-resistant",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASTM A335 / A335M — Seamless Ferritic Alloy-Steel Pipe (P91)",
       "url": "https://store.astm.org/a0335_a0335m-23a.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "EPRI P91 Steel Guidelines (2013)",
       "url": "https://www.epri.com/research/products/000000003002000080",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASME B&PV Sec.II — Material Properties for SA-335 P91",
       "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-ii-materials",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -341,10 +336,5 @@
       "hours": 100000
     }
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

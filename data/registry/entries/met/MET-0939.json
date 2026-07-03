@@ -185,21 +185,19 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Titanium, alpha alloy, Ti-0.2Pd (grade 11, UNS R52250)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Titanium, alpha alloy, Ti-0.2Pd (grade 11, UNS R52250)",
+      "verified": true
     },
     {
-      "label": "TIMET datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.timetal.com/products/titanium-products/grade-11/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASTM B265 Ti Gr11",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -272,11 +270,5 @@
   "total_cost_estimate": 86.51,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ti-cp",
-    "weld": "none",
-    "htc": "soft",
-    "insight": "titanium"
-  }
+  "confidence_tier": "high"
 }

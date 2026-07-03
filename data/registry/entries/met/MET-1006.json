@@ -190,37 +190,31 @@
     {
       "label": "MatWeb — AISI 1020 carbon steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+1020",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Ansys Granta MI — Carbon steel, AISI 1020, as rolled (Materials Data for Simulation datasheet, 사용자 제공 R226l)",
-      "verified": true,
-      "authority": "other"
+      "verified": true
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 1020",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — AISI 1020 cold rolled steel",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=10b74ebc27344380ab16b1b69f1cffbb",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASTM A29 / A29M — Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -296,57 +290,9 @@
     "Krauss G (2015) Steels: Processing, Structure, and Performance, ASM"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "carbon-low",
-    "weld": "ce",
-    "wg": "w01-aisi",
-    "insight": "carbon-alloy-steel"
-  },
-  "elevated_temp": [
-    {
-      "temp": 25,
-      "E": 212.6
-    },
-    {
-      "temp": 50,
-      "E": 211.7
-    },
-    {
-      "temp": 150,
-      "E": 207.5
-    },
-    {
-      "temp": 300,
-      "E": 196.9
-    },
-    {
-      "temp": 450,
-      "E": 181.4
-    },
-    {
-      "temp": 600,
-      "E": 161.4
-    },
-    {
-      "temp": 750,
-      "E": 136.3
-    },
-    {
-      "temp": 850,
-      "E": 125.6
-    },
-    {
-      "temp": 1000,
-      "E": 116.3
-    },
-    {
-      "temp": 1150,
-      "E": 106.1
-    },
-    {
-      "temp": 1200,
-      "E": 102.8
+  "_corrections": {
+    "aliases": {
+      "from": []
     }
-  ],
-  "elevated_temp_src": "Ansys Granta MI — Carbon steel, AISI 1020, as rolled (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  }
 }

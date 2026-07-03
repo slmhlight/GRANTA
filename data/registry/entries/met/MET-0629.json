@@ -192,28 +192,24 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SA508%20Grade%203",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASME SA-516 pressure vessel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Total Materia — SA-508 Grade 3 Class 1 (ASME): Properties, Composition. 공개 표시 Tensile Strength 550–725 MPa (항복/신율 등 추가물성은 무료 가입 필요)",
       "url": "https://www.totalmateria.com/en-us/material/1457603",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "NFI Steel — SA-508 Gr.3 Cl.1 Forgings: 화학조성표 (C ≤0.20, Mn 1.00-1.50, P ≤0.025, S ≤0.010, Ni 3.00-4.00, Cr ≤1.00, Mo ≤0.70, Cu ≤0.50)",
       "url": "https://www.nfisteel.com/sa-508-gr3-cl1/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -279,10 +275,5 @@
   "total_cost_estimate": 7.78,
   "tolerance_class": "IT12-14",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "structural-steel"
-  }
+  "confidence_tier": "high"
 }

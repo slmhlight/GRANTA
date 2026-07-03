@@ -187,20 +187,17 @@
     {
       "label": "Copper.org — C12200 DHP Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C12200",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "Poongsan datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.poongsan.co.kr/eng/business/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AA 2xxx Al-Cu",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -266,13 +263,13 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "cu-pure",
-    "weld": "none",
-    "htc": "soft",
-    "insight": "copper"
-  },
-  "uns": [
-    "C12200"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS C12200",
+        "DHP copper",
+        "EN CW024A"
+      ]
+    }
+  }
 }

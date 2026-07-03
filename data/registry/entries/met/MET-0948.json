@@ -200,20 +200,17 @@
     {
       "label": "Böhler-Uddeholm — H13 / W302 Tool Steel",
       "url": "https://www.bohler.com/en/products/w302",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Nikon SLM H13 MDS 2026-02",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/MDS_H13_2026-02.1_EN.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "EOS Tool Steels",
       "url": "https://www.eos.info/metal-solutions/metal-materials/tool-steel",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -399,11 +396,15 @@
     }
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "tool-steel",
-    "weld": "ce",
-    "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
-    "wg": "w10-h1",
-    "insight": "tool-steel"
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "DIN 1.2344",
+        "X40CrMoV5-1",
+        "JIS SKD61",
+        "KS STD61",
+        "AISI H13"
+      ]
+    }
   }
 }

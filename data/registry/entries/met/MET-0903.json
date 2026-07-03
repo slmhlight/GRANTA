@@ -190,26 +190,22 @@
     {
       "label": "ASM — Ti-15-3 beta titanium",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AZoM — Grade Ti 15V-3Cr-3Al-3Sn Alloy (UNS R58153) (Article 9396)",
       "url": "https://www.azom.com/article.aspx?ArticleID=9396",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -286,12 +282,9 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R58153"
-  ]
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

@@ -191,26 +191,22 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASTM A108 — Cold-Finished Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0108-18.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 (Carbon and Low-Alloy Steels) — AISI 1xxx series",
       "url": "https://www.asminternational.org/handbooks",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     }
   ],
   "points": [
@@ -277,95 +273,69 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "htc": "soft",
-    "wg": "w01-aisi",
-    "insight": "carbon-alloy-steel"
-  },
-  "elevated_temp": [
-    {
-      "temp": 25,
-      "E": 212.6
-    },
-    {
-      "temp": 50,
-      "E": 211.7
-    },
-    {
-      "temp": 150,
-      "E": 207.5
-    },
-    {
-      "temp": 300,
-      "E": 196.9
-    },
-    {
-      "temp": 450,
-      "E": 181.4
-    },
-    {
-      "temp": 600,
-      "E": 161.4
-    },
-    {
-      "temp": 750,
-      "E": 136.3
-    },
-    {
-      "temp": 850,
-      "E": 125.6
-    },
-    {
-      "temp": 1000,
-      "E": 116.3
-    },
-    {
-      "temp": 1150,
-      "E": 106.1
-    },
-    {
-      "temp": 1200,
-      "E": 102.8
-    }
-  ],
-  "elevated_temp_src": "Ansys Granta MI — Carbon steel, AISI 1015, annealed (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook Vol.1 (Carbon and Low-Alloy Steels) — AISI 1xxx series",
+          "url": "https://www.asminternational.org/handbooks",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 1015\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%201015",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AISI carbon steel",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 285,
-        "typical": 285,
-        "max": 285,
-        "confidence": "handbook",
-        "provenance": "교정: Ansys Granta MI — Carbon steel AISI 1015 annealed (사용자 제공 R226l) · ASM Vol.1 1015 annealed (σy 284/UTS 386/El 37)"
+        "min": 167.2,
+        "max": 167.2,
+        "typical": 167.2,
+        "n": 1,
+        "confidence": "handbook"
       },
       "had_scalar": true,
-      "val_scalar": 285
+      "val_scalar": 167.2
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 385,
-        "typical": 385,
-        "max": 385,
-        "confidence": "handbook",
-        "provenance": "교정: Ansys Granta MI — Carbon steel AISI 1015 annealed (사용자 제공 R226l) · ASM Vol.1 1015 annealed (σy 284/UTS 386/El 37)"
+        "min": 286,
+        "max": 286,
+        "typical": 286,
+        "n": 1,
+        "confidence": "handbook"
       },
       "had_scalar": true,
-      "val_scalar": 385
+      "val_scalar": 286
     },
     "elongation": {
       "had_range": true,
       "val_range": {
-        "min": 37,
-        "typical": 37,
-        "max": 37,
-        "confidence": "handbook",
-        "provenance": "교정: Ansys Granta MI — Carbon steel AISI 1015 annealed (사용자 제공 R226l) · ASM Vol.1 1015 annealed (σy 284/UTS 386/El 37)"
+        "min": 26.04,
+        "max": 26.04,
+        "typical": 26.04,
+        "n": 1,
+        "confidence": "handbook"
       },
       "had_scalar": true,
-      "val_scalar": 37
+      "val_scalar": 26.04
     },
     "_basis": "AISI 1015 annealed — DB 167/286/26 은 annealed 1015 표준 대비 과소(1008급 오염). Granta 밴드 255~315/345~430/29~45 midpoint 로 교정",
     "_src": "Ansys Granta MI — Carbon steel AISI 1015 annealed (사용자 제공 R226l) · ASM Vol.1 1015 annealed (σy 284/UTS 386/El 37)",
@@ -373,10 +343,10 @@
       "from": [
         [
           7.85,
-          285,
-          385,
-          37,
-          205,
+          167.2,
+          286,
+          26.04,
+          210,
           83.6,
           50
         ]

@@ -197,38 +197,34 @@
   },
   "sources": [
     {
-      "label": "Octal Metals",
+      "label": "Datasheet 1",
       "url": "https://www.octalmetals.com/ah36-dh36-eh36-shipbuilding-steel-plate/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "ABS / DNV-GL / KR / LR Rules for Building and Classing Steel Vessels Part 2 — Materials",
-      "verified": true,
-      "authority": "other"
+      "label": "Datasheet 1",
+      "url": "ABS / DNV-GL / KR / LR Rules for Building and Classing Steel Vessels Part 2 — Materials",
+      "verified": true
     },
     {
-      "label": "ASTM A131 / A131M-19 Standard Spec for Structural Steel for Ships",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ASTM A131 / A131M-19 Standard Spec for Structural Steel for Ships",
+      "verified": true
     },
     {
       "label": "ABS (American Bureau of Shipping) Rules — Hull Steel Grade",
       "url": "https://ww2.eagle.org/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "DNV-OS-B101 — Shipbuilding Steel Plate",
       "url": "https://www.dnv.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "KR Korean Register — Ship Steel Grade Standards",
       "url": "https://www.krs.co.kr/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -294,11 +290,5 @@
   "total_cost_estimate": 2.27,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "soft",
-    "ht": "Shipbuilding steel AH36 / DH36 / EH36 (IACS grade)",
-    "insight": "structural-steel"
-  }
+  "confidence_tier": "high"
 }

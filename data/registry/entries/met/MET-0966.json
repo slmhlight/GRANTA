@@ -192,37 +192,32 @@
     {
       "label": "Böhler-Uddeholm — H13 / W302 Tool Steel",
       "url": "https://www.bohler.com/en/products/w302",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "Böhler-Uddeholm datasheet",
+      "label": "Datasheet 2",
       "url": "https://www.bohler.uddeholm.com/global/en/products/tool-steels/hot-work-tool-steels/h13/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "ANSYS Granta — AISI H13 (UNS T20813, EN X40CrMoV5-1) hot work tool steel",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 2",
+      "url": "ANSYS Granta — AISI H13 (UNS T20813, EN X40CrMoV5-1) hot work tool steel",
+      "verified": true
     },
     {
       "label": "Böhler-Uddeholm — H13 / Orvar Supreme / W302 datasheet",
       "url": "https://www.uddeholm.com/files/PB_Uddeholm_orvar_supreme_english.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — Tool Steels: H13 hot-work",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204965/Tool-Steels",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "AISI 6F2 / NADCA #207 — H13 properties standard",
       "url": "https://www.nadca.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -345,12 +340,16 @@
     "ASTM A681 \"Standard Specification for Tool Steels Alloy\""
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "tool-steel",
-    "weld": "ce",
-    "htc": "qt",
-    "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
-    "wg": "w10-h1",
-    "insight": "tool-steel"
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "HRC 50",
+        "DIN 1.2344",
+        "X40CrMoV5-1",
+        "JIS SKD61",
+        "KS STD61",
+        "AISI H13"
+      ]
+    }
   }
 }

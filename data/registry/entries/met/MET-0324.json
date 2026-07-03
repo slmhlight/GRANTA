@@ -189,22 +189,19 @@
   },
   "sources": [
     {
-      "label": "Hyundai Steel datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.hyundai-steel.com/en/products/Pipe.do",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASTM A36 / EN structural",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -275,10 +272,5 @@
   "delivered_price_per_kg": 1.63,
   "total_cost_estimate": 1.46,
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "htc": "soft",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

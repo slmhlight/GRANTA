@@ -189,32 +189,27 @@
     {
       "label": "Haynes International — Haynes 188 Alloy",
       "url": "https://haynesintl.com/en/alloys/alloy/haynes-188-alloy",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Haynes International — Haynes 188 (UNS R30188, Co-base)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: Haynes International",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Haynes International — Haynes 188 datasheet",
       "url": "https://haynesintl.com/alloys/alloy-portfolio_/High-temperature-Alloys/HAYNES188alloy",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AMS 5772 — Haynes 188 (Co-Cr-Ni-W)",
       "url": "https://www.sae.org/standards/content/ams5772/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -309,15 +304,5 @@
   "svhc_concerns": [
     "Ni 24% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "cobalt",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w36-haynes",
-    "insight": "cobalt"
-  },
-  "uns": [
-    "R30188"
-  ]
+  "confidence_tier": "high"
 }

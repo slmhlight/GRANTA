@@ -191,26 +191,22 @@
     {
       "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
       "url": "https://www.aksteel.com/our-products/stainless/430-stainless-steel",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 430 ferritic stainless",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — 430 Stainless Steel Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1e64ec5f25aa42caa0f86bd86dba0b50",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -297,40 +293,59 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — ferritic stainless (Cr 16-18, C ≤ 0.12). Cold-worked (H/H2): σy 275-400. Tmax 815°C continuous (oxidation), 870°C intermittent. Automotive trim, kitchen appliance, dishwasher interior, deep-drawing (가공성은 304보다 우수).",
-  "profiles": {
-    "mach": "ss-ferritic",
-    "weld": "schaeffler",
-    "htc": "qt",
-    "wg": "w07-aisi",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S43000"
-  ],
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AK Steel — 430 Stainless Steel (ferritic, UNS S43000)",
+          "url": "https://www.aksteel.com/our-products/stainless/430-stainless-steel",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 430\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20430",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol.1 — AISI 430 ferritic stainless",
+          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — 430 Stainless Steel Annealed",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1e64ec5f25aa42caa0f86bd86dba0b50",
+          "verified": false
+        }
+      ]
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 380,
-        "typical": 380,
-        "max": 380,
-        "confidence": "handbook",
-        "provenance": "교정: AK Steel 430 (cold-rolled YS 380~500 / UTS 480~586)"
+        "min": 236.5,
+        "max": 313.5,
+        "typical": 297,
+        "n": 3,
+        "confidence": "measured"
       },
       "had_scalar": true,
-      "val_scalar": 380
+      "val_scalar": 297
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 500,
-        "typical": 500,
-        "max": 500,
-        "confidence": "handbook",
-        "provenance": "교정: AK Steel 430 (cold-rolled YS 380~500 / UTS 480~586)"
+        "min": 356.9,
+        "max": 473.1,
+        "typical": 448.2,
+        "n": 3,
+        "confidence": "measured"
       },
       "had_scalar": true,
-      "val_scalar": 500
+      "val_scalar": 448.2
     },
     "_basis": "430 strain-hardened — DB 297/448 은 annealed 수준 + A240 min 미달. cold-worked 하한으로 교정",
     "_src": "AK Steel 430 (cold-rolled YS 380~500 / UTS 480~586)",
@@ -338,11 +353,29 @@
       "from": [
         [
           7.75,
-          380,
-          500,
+          236.5,
+          356.9,
+          16.2,
+          200,
+          160.82,
+          24.8
+        ],
+        [
+          7.75,
+          313.5,
+          473.1,
+          21.8,
+          200,
+          213.18,
+          24.8
+        ],
+        [
+          7.75,
+          297,
+          448.2000000000001,
           20.6,
           200,
-          202,
+          201.96,
           24.8
         ]
       ]

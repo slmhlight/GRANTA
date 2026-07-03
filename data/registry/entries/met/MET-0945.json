@@ -188,26 +188,22 @@
     {
       "label": "ASM — D3 cold-work tool steel (DIN 1.2080)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "OTAI/astmsteel — D3 (1.2080/X210Cr12/SKD1) (ASTM A681·DIN·JIS 조성+58~64 HRC)",
       "url": "https://www.astmsteel.com/product/d3-cold-work-steel-1-2080-x210cr12-skd1/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -292,11 +288,14 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "tool-steel",
-    "weld": "ce",
-    "htc": "qt",
-    "wg": "w10-h1",
-    "insight": "tool-steel"
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "DIN 1.2080",
+        "X210Cr12",
+        "JIS SKD1",
+        "AISI D3"
+      ]
+    }
   }
 }

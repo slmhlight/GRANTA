@@ -190,20 +190,17 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 + SAE J404 — AISI 6xxx (Cr-V spring steel)",
       "url": "https://www.sae.org/standards/content/j404/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -283,12 +280,80 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
-  },
-  "uns": [
-    "G61500"
-  ]
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook Vol.1 + SAE J404 — AISI 6xxx (Cr-V spring steel)",
+          "url": "https://www.sae.org/standards/content/j404/",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 6150\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%206150",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AMS 6415 alloy steel",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "points": {
+      "from": [
+        [
+          7.85,
+          712,
+          979,
+          12.22,
+          210,
+          275.9,
+          42
+        ],
+        [
+          7.85,
+          696,
+          957,
+          13.26,
+          210,
+          269.7,
+          42
+        ],
+        [
+          7.85,
+          808,
+          1111,
+          12.48,
+          210,
+          313.1,
+          42
+        ],
+        [
+          7.85,
+          856,
+          1177,
+          13.26,
+          210,
+          331.70000000000005,
+          42
+        ],
+        [
+          7.85,
+          840,
+          1155,
+          13,
+          210,
+          325.5,
+          42
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

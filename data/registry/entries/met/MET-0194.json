@@ -191,14 +191,12 @@
     {
       "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Aluminum Association — AA 6xxx (Al-Mg-Si) + MMPDS-08 Sec.3.6",
       "url": "https://www.aluminum.org/standards",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -264,22 +262,55 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "al-6xxx",
-    "weld": "none",
-    "htc": "soft",
-    "htg": "h02-aa",
-    "wg": "w19-aa",
-    "insight": "aluminum"
-  },
   "_corrections": {
     "composition": {
       "from": {
-        "Al": "balance",
-        "Mg": "0.35~0.8",
-        "Si": "0.30~0.7",
-        "Fe": "≤0.50"
+        "Fe": "0.4",
+        "Si": "0.3",
+        "Cu": "0.05",
+        "Al": "98.5"
       }
-    }
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 6xxx (Al-Mg-Si) + MMPDS-08 Sec.3.6",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 6101\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%206101",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    },
+    "points": {
+      "from": [
+        [
+          2.7,
+          225.6,
+          263.2,
+          13.16,
+          69,
+          79.9,
+          167
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

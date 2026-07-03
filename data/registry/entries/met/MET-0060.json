@@ -189,22 +189,19 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM415",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "JIS standard",
+      "label": "Datasheet 3",
       "url": "https://www.jisc.go.jp/eng/index.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -271,11 +268,5 @@
   "total_cost_estimate": 4.68,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "crmo",
-    "weld": "ce",
-    "htc": "case",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

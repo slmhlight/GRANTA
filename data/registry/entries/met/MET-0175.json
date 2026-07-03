@@ -183,20 +183,17 @@
     {
       "label": "EOS MDS summary — aluminium al5x1",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-aluminium-al5x1",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "EOS",
       "url": "https://www.eos.info/metal-solutions/data-sheets/aluminium/pds-eos-aluminium-al5x1-eos-m-290-40um",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: Aluminum Association handbook",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -291,11 +288,5 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-cast-am",
-    "weld": "none",
-    "htc": "as-built",
-    "insight": "aluminum"
-  }
+  "confidence_tier": "high"
 }

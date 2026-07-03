@@ -65,13 +65,12 @@ describe('findSimilar', () => {
     expect(r.every((s) => s.material.id !== 'low-pop')).toBe(true);
   });
 
-  it('sorts by popularity DESC first', () => {
+  it('R226m — sorts by property distance ASC (popularity 정렬 폐기)', () => {
     const target = pool[0];
     const r = findSimilar(target, pool);
-    for (let i = 1; i < r.length; i++) {
-      const prev = r[i - 1].material.popularity || 0;
-      const cur = r[i].material.popularity || 0;
-      expect(prev).toBeGreaterThanOrEqual(cur - 0.05);
+    const real = r.filter((s) => !s.crossRef); // cross-ref(distance=-1)은 상단 pin
+    for (let i = 1; i < real.length; i++) {
+      expect(real[i].distance).toBeGreaterThanOrEqual(real[i - 1].distance - 1e-6);
     }
   });
 

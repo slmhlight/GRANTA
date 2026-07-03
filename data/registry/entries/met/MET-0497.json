@@ -193,32 +193,27 @@
     {
       "label": "Wikipedia — CMSX-4 single crystal superalloy",
       "url": "https://en.wikipedia.org/wiki/CMSX",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Cannon-Muskegon — CMSX-4 single-crystal superalloy",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: GE Aviation Single Crystal",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Cannon-Muskegon CMSX-4 single-crystal datasheet",
       "url": "https://cannonmuskegon.com/products/single-crystal-superalloys",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Reed RC, The Superalloys (Cambridge 2006) Ch.6",
       "url": "https://www.cambridge.org/core/books/superalloys/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -296,13 +291,5 @@
   "svhc_concerns": [
     "Co 9% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "htg": "h05-waspaloy",
-    "wg": "w38-cmsx",
-    "insight": "ni-superalloy"
-  }
+  "confidence_tier": "medium"
 }

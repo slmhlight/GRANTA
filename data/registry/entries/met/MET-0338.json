@@ -191,32 +191,27 @@
     {
       "label": "ASTM F75 / F1537 — Cobalt-Chromium-Molybdenum Implant",
       "url": "https://store.astm.org/f0075-18.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
-      "label": "ASTM standard",
+      "label": "Datasheet 1",
       "url": "https://store.astm.org/f1537-20.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Carpenter — CoCrMo alloy technical guide",
       "url": "https://www.carpentertechnology.com/blog/cobalt-chrome-alloys",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ISO 5832-12 — Wrought Co-Cr-Mo implant",
       "url": "https://www.iso.org/standard/61349.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -324,12 +319,5 @@
     "ASTM F75 / F1537 standards",
     "Niinomi M (2008) \"Mechanical biocompatibilities of titanium alloys for biomedical applications\", J Mech Behav Biomed Mater 1"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "cobalt",
-    "weld": "none",
-    "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
-    "wg": "w43-cocrmo",
-    "insight": "cobalt"
-  }
+  "confidence_tier": "high"
 }

@@ -156,14 +156,12 @@
     {
       "label": "Material datasheets — ASA (FDM)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "colorFabb — ASA 3D printing filament 데이터시트 (v1.0)",
       "url": "https://colorfabb.com/media/datasheets/tds/colorfabb/TDS_E_ColorFabb_ASA.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -240,9 +238,5 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "pol-rigid",
-    "insight": "pol-engineering"
-  }
+  "confidence_tier": "high"
 }

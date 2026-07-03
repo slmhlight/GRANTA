@@ -158,14 +158,12 @@
     {
       "label": "Reference 2",
       "url": "https://www.dsm-firmenich.com",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "DSM Stanyl PA46 technical guide",
       "url": "https://www.dsm.com/engineering-materials/en_US/products/stanyl.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -233,9 +231,5 @@
   "surface_finish_typical": 50,
   "tolerance_class": "IT15",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "pol-rigid",
-    "insight": "pol-engineering"
-  }
+  "confidence_tier": "medium"
 }

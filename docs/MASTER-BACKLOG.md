@@ -63,7 +63,8 @@
 | E8 | 고온 설계 보조 (elev-temp 곡선 보간·허용응력 표시) | ⏸ B1 종속 | R: 설계값 오용 / M: "typical, 설계용 아님" 명시 |
 | E9 | 재료 선택 인사이트 (when-to-use) | ✅ 1차 R226j / ○ 확장 | 17 그룹·96 시나리오 (selection-insights.json, 출처 포함) — 상세패널 물성탭 카드 + 현재 재료 강조. 확장 E: 그룹별 시나리오 보강·엔지니어 검토. R: 관행 서술의 과일반화 / M: "일반 관행 요약, 설계 검증 대체 안 함" 명시 + 출처 필수 |
 | E10 | 조건(variation)별 공정 노트 확장 (현 26 조합) | ▶ | condition_notes 'mach|htc' 조합 — 신규 조합은 근거와 함께 추가. R: 조건 오적용 / M: htc 분류는 구조 필드 기반 + parity 게이트 |
-| E11 | 유사재료 × 인사이트 융합 (decisionContext) | ✅ 1차 R226l / ○ 확장 | 유사 후보에 "이 대체가 유리한 경우"(같은 그룹의 후보 전용 시나리오) + 절삭성 rating 델타 — 전부 m.profiles ID 조회. 확장: 용접성·비용·HT 관점 델타, 후보간 순위화. R: 시나리오 미매칭 시 무표시(안전) / M: 인사이트 시나리오 확충(E9)과 자동 연동 |
+| E11 | 유사재료 × 인사이트 융합 (decisionContext) | ✅ R226l·R226m / ○ 확장 | R226m: **popularity 정렬·필터 폐기 → 물성 log-distance 순 top10**, 다른 인사이트(용도) 그룹 후보는 amber **↗ 배지**로 한눈에 + 주용도 안내, distance(≈) 표기. 전부 m.profiles ID 조회. 확장: 그룹 다양성 슬롯 예약·용접/비용 델타. R: 동일 그룹이 클러스터 지배 시 타그룹 미노출 / M: distance-sort 로 타그룹-근접 후보 억제 해제(배지로 강조) |
+| D6 | 상류 조건-라벨 비결정성 (supplementary 무라벨 다-point → fp flip) | ○ | Tantalum(Ta) 3-point 무-conditions 가 build-materials 에서 비결정 라벨링 → C_0071 fp 간헐 flip (R226l·R226m 재발, 값 오염 아님·benign). E: 재현 스크립트. A: supplementary 무라벨 다-point 에 conditions[] 부여 or ID-assign 결정화. R: 중간삽입 유발 / M: append-only |
 
 ## F. 코드 품질 (지속)
 

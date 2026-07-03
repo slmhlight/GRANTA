@@ -187,28 +187,24 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ZK60",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Mg alloys",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AZoM — Magnesium ZK60A Alloy (M16600) — extruded, ASTM B107/B91",
       "url": "https://www.azom.com/article.aspx?ArticleID=6710",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -273,13 +269,5 @@
   "total_cost_estimate": 14.74,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "magnesium",
-    "weld": "none",
-    "htc": "aged",
-    "htg": "h09-azd",
-    "wg": "w49-zk60",
-    "insight": "magnesium"
-  }
+  "confidence_tier": "medium"
 }

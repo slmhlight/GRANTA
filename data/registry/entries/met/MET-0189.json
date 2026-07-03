@@ -189,32 +189,27 @@
     {
       "label": "MatWeb — Aluminum 6063 (extrusion)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+6063",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Aluminum Association — 6063 (T5/T6 tempers)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: AA 6061-T6",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 6063 (Al-Mg-Si extrusion)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — Aluminum 6063-T5",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8a6dca5d7ff643feb5cb1d8a7e8b2843",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -321,12 +316,9 @@
     "Saha P K (2000) Aluminum Extrusion Technology, ASM"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-6xxx",
-    "weld": "none",
-    "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
-    "htg": "h02-aa",
-    "wg": "w19-aa",
-    "insight": "aluminum"
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
   }
 }

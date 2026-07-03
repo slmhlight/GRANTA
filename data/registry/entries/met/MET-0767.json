@@ -192,20 +192,17 @@
     {
       "label": "Outokumpu — Duplex 2205 (1.4462)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2205",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Rolled Alloys — 2205 Duplex (UNS S32205) datasheet",
       "url": "https://www.rolledalloys.com/alloys/duplex-stainless-steels/2205/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 Duplex SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -324,15 +321,9 @@
     "Ni 6.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-duplex",
-    "weld": "schaeffler",
-    "ht": "Duplex SS 2205 (UNS S32205 / S31803, 22Cr-5Ni-3Mo)",
-    "wg": "w08-duplex",
-    "insight": "stainless-highperf"
-  },
-  "uns": [
-    "S31803",
-    "S32205"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

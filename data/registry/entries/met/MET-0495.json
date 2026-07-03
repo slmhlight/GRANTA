@@ -195,28 +195,24 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=CMSX-10",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: GE Aviation Single Crystal",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Cannon-Muskegon CMSX-10 single-crystal datasheet",
       "url": "https://cannonmuskegon.com/products/single-crystal-superalloys",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Reed RC, The Superalloys (Cambridge 2006) Chap.6",
       "url": "https://www.cambridge.org/core/books/superalloys/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -285,13 +281,5 @@
   "svhc_concerns": [
     "Co 3.2% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "htg": "h05-waspaloy",
-    "wg": "w38-cmsx",
-    "insight": "ni-superalloy"
-  }
+  "confidence_tier": "medium"
 }

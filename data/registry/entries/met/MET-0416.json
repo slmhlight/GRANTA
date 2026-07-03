@@ -189,20 +189,17 @@
     {
       "label": "Copper.org — C18150 Copper-Chromium-Zirconium",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C18150",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: Cu-Cr-Zr / Cu-Ni-Si-Cr family",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -275,15 +272,5 @@
     "ASM Handbook Vol.2 \"Properties and Selection: Nonferrous Alloys\"",
     "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "cu-crzr",
-    "weld": "none",
-    "htc": "aged",
-    "insight": "copper"
-  },
-  "uns": [
-    "C18100",
-    "C18150"
-  ]
+  "confidence_tier": "medium"
 }

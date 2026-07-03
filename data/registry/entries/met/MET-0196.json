@@ -189,21 +189,19 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Aluminum, 6151, T6 (UNS A96151, EN AW-6151, JIS A6151)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Aluminum, 6151, T6 (UNS A96151, EN AW-6151, JIS A6151)",
+      "verified": true
     },
     {
-      "label": "Aluminum Association",
+      "label": "Datasheet 1",
       "url": "https://www.aluminum.org/standards",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AA 6xxx Al-Mg-Si",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -262,14 +260,5 @@
   "total_cost_estimate": 4.91,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-6xxx",
-    "weld": "none",
-    "htc": "aged",
-    "ht": "AA 6xxx Al-Mg-Si (6061, 6063, 6082, 6151)",
-    "htg": "h02-aa",
-    "wg": "w19-aa",
-    "insight": "aluminum"
-  }
+  "confidence_tier": "high"
 }

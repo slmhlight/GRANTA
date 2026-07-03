@@ -188,28 +188,24 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=20MnCr5",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Hascelik — 20MnCr5 (1.7147 / SAE 5120) DIN EN 10084 조성+기계적 물성",
       "url": "https://hascelik.com/eng/20mncr5-material-1-7147-sae-aisi-5120",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -283,11 +279,5 @@
   "total_cost_estimate": 4.3,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "case-hard",
-    "weld": "ce",
-    "htc": "case",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

@@ -192,32 +192,27 @@
     {
       "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "Carpenter Technology — CarTech 440C Stainless 공식 데이터시트 (조성·물리물성·HT·가공성, pdftotext 텍스트 추출 검증; 5쪽 PDF)",
       "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Aircraft Materials — Alloy 440C / AISI 440C / AMS 5630 (UNS S44004) 조성+경화/템퍼 인장표·AMS 5630/5618/5880 명기",
       "url": "https://www.aircraftmaterials.com/data/alstst/440c.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "AZoM — Stainless Steel Grade 440C (UNS S44004): ρ·E·HRC·CTE·열전도 풀 물성표",
       "url": "https://www.azom.com/article.aspx?ArticleID=6846",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -295,36 +290,61 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-ferritic",
-    "weld": "schaeffler",
-    "htc": "qt",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S44004"
-  ],
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — AISI 440C stainless",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+440C",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 440C\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20440C",
+          "verified": false
+        },
+        {
+          "label": "Carpenter Technology — CarTech 440C Stainless 공식 데이터시트 (조성·물리물성·HT·가공성, pdftotext 텍스트 추출 검증; 5쪽 PDF)",
+          "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf",
+          "verified": true
+        },
+        {
+          "label": "Aircraft Materials — Alloy 440C / AISI 440C / AMS 5630 (UNS S44004) 조성+경화/템퍼 인장표·AMS 5630/5618/5880 명기",
+          "url": "https://www.aircraftmaterials.com/data/alstst/440c.html",
+          "verified": false
+        },
+        {
+          "label": "AZoM — Stainless Steel Grade 440C (UNS S44004): ρ·E·HRC·CTE·열전도 풀 물성표",
+          "url": "https://www.azom.com/article.aspx?ArticleID=6846",
+          "verified": true
+        }
+      ]
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 450,
-        "typical": 450,
-        "max": 450,
-        "confidence": "handbook",
-        "provenance": "교정: Atlas 440C"
+        "min": 410,
+        "max": 720,
+        "typical": 480,
+        "n": 3,
+        "confidence": "handbook"
       },
       "had_scalar": true,
-      "val_scalar": 450
+      "val_scalar": 480
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 760,
+        "min": 720,
+        "max": 970,
         "typical": 760,
-        "max": 760,
-        "confidence": "handbook",
-        "provenance": "교정: Atlas 440C"
+        "n": 3,
+        "confidence": "handbook"
       },
       "had_scalar": true,
       "val_scalar": 760
@@ -332,11 +352,11 @@
     "elongation": {
       "had_range": true,
       "val_range": {
-        "min": 14,
+        "min": 5,
+        "max": 18,
         "typical": 14,
-        "max": 14,
-        "confidence": "handbook",
-        "provenance": "교정: Atlas 440C"
+        "n": 3,
+        "confidence": "handbook"
       },
       "had_scalar": true,
       "val_scalar": 14
@@ -347,11 +367,29 @@
       "from": [
         [
           7.75,
-          450,
-          760,
-          14,
+          1539.4,
+          1659.8,
+          1.62,
           210,
-          260,
+          464.4,
+          25
+        ],
+        [
+          7.75,
+          2040.6,
+          2200.2,
+          2.18,
+          210,
+          615.5999999999999,
+          25
+        ],
+        [
+          7.75,
+          1933.2,
+          2084.4,
+          2.06,
+          210,
+          583.2,
           25
         ]
       ]

@@ -189,21 +189,19 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Bronze CuAl10Fe5Ni5 C95820 cast (UNS C95820, EN CC333G, ISO CuAl10Fe5Ni4)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Bronze CuAl10Fe5Ni5 C95820 cast (UNS C95820, EN CC333G, ISO CuAl10Fe5Ni4)",
+      "verified": true
     },
     {
-      "label": "Copper Development Association",
+      "label": "Datasheet 1",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C95820",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AA 5xxx Al-Mg",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -270,10 +268,5 @@
   "svhc_concerns": [
     "Ni 5.8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-cast-am",
-    "weld": "none",
-    "insight": "copper"
-  }
+  "confidence_tier": "high"
 }

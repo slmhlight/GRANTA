@@ -110,14 +110,12 @@
     {
       "label": "ASM Handbook Vol.2 — Beryllium & Beryllium Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
       "url": "https://materion.com/products/performance-alloys",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -344,10 +342,36 @@
     "Be 99.5% — 호흡기 유해 (베릴륨 분진), CMR Cat.1"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "becu",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w70-berylliumb"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
+          "url": "https://materion.com/products/performance-alloys",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Beryllium\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Beryllium",
+          "verified": false
+        }
+      ]
+    },
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
   }
 }

@@ -158,14 +158,12 @@
     {
       "label": "Solvay — Torlon PAI",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Ensinger — Torlon 4203 PAI 데이터시트",
       "url": "https://www.ensinger-pc.com/injection-molding-materials/our-plastic-stock-shapes/torlon-4203-polyamide-imide/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -228,8 +226,38 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "pol-rigid",
-    "insight": "pol-highperf"
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          1.42,
+          110,
+          150,
+          12,
+          4.5,
+          0,
+          0.26
+        ],
+        [
+          1.42,
+          100,
+          140,
+          8,
+          4.4,
+          0,
+          0.26
+        ],
+        [
+          1.42,
+          120,
+          160,
+          15,
+          4.6,
+          0,
+          0.26
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

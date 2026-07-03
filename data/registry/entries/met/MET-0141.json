@@ -188,14 +188,12 @@
     {
       "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
       "url": "https://www.aluminum.org/standards",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -342,11 +340,33 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-5xxx",
-    "weld": "none",
-    "htc": "qt",
-    "wg": "w18-aa",
-    "insight": "aluminum"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 5086\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%205086",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 5xxx Al-Mg",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    }
   }
 }

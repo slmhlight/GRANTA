@@ -159,20 +159,17 @@
     {
       "label": "SABIC CYCOLAC ABS",
       "url": "https://www.sabic.com/en/products/specialties/cycolac-resin",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "MatWeb — Acrylonitrile Butadiene Styrene (ABS)",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=eb7a78f5948d481c9493a67f0d089646",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM Engineered Materials Handbook Vol.2 — ABS",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/9/chapter-abstract/204979/Acrylonitrile-Butadiene-Styrene-ABS",
-      "verified": false,
-      "authority": "handbook"
+      "verified": false
     }
   ],
   "points": [
@@ -389,8 +386,35 @@
   ],
   "confidence_tier": "high",
   "industry_note": "ABS (Acrylonitrile Butadiene Styrene) — 사출 성형 표준 폴리머. Tg ≈ 100°C, max use 80-90°C. σy 35-50 / UTS 38-49 / El 15-30% / E 2.0-2.6 GPa / ρ 1.04-1.06 g/cc. Notched Izod 200-450 J/m (impact 우수). 일반 가전, 자동차 인테리어, LEGO 블록, 3D printing FDM 표준 (압출 250°C, 베드 100°C). UV 노출 시 변색 — 외부 사용 시 painted/coated 필요.",
-  "profiles": {
-    "mach": "pol-rigid",
-    "insight": "pol-engineering"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — ABS Plastic (general)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ABS+plastic",
+          "verified": false
+        },
+        {
+          "label": "SABIC CYCOLAC ABS",
+          "url": "https://www.sabic.com/en/products/specialties/cycolac-resin",
+          "verified": true
+        },
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — Acrylonitrile Butadiene Styrene (ABS)",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=eb7a78f5948d481c9493a67f0d089646",
+          "verified": false
+        },
+        {
+          "label": "ASM Engineered Materials Handbook Vol.2 — ABS",
+          "url": "https://dl.asminternational.org/handbooks/edited-volume/9/chapter-abstract/204979/Acrylonitrile-Butadiene-Styrene-ABS",
+          "verified": false
+        }
+      ]
+    }
   }
 }

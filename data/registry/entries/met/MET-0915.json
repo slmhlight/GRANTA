@@ -190,20 +190,17 @@
     {
       "label": "BLT",
       "url": "https://www.xa-blt.com/en/powder/ti-6al-2mo-2nb-2zr-2sn-1-5cr/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -299,10 +296,9 @@
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "htc": "soft",
-    "insight": "titanium"
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
   }
 }

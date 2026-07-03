@@ -190,14 +190,12 @@
     {
       "label": "ASM Handbook Vol.2 — Pure Aluminum 1xxx",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "EN 573-3 — AA 1050A (EN AW-1050A)",
       "url": "https://www.cen.eu/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -356,14 +354,42 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS A91050 / EN AW-1050A / Al99.5 / DIN Al99.5 — 99.5% pure aluminum (non-heat-treatable, R173 fake-variant 제거). O temper: σy 35 / UTS 75 / El 39%. H14 (work-H18 (full hard): σy 145 / UTS 160. 전기 conductor (IACS 60% — Cu의 60%), 화학 plant tank lining, food packaging foil (요구르트 lid, beer can lid). 의도된 variant 보존: O / H14 / H18. 다만 typical H 14 가 σy 105 라 약간 low.",
-  "profiles": {
-    "mach": "al-soft",
-    "weld": "none",
-    "htc": "qt",
-    "wg": "w13-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A91050"
-  ]
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 1050\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%201050",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 1xxx CP Al",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol.2 — Pure Aluminum 1xxx",
+          "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+          "verified": true
+        },
+        {
+          "label": "EN 573-3 — AA 1050A (EN AW-1050A)",
+          "url": "https://www.cen.eu/",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": [
+        "UNS A91050",
+        "EN AW-1050A",
+        "Al99.5"
+      ]
+    }
+  }
 }

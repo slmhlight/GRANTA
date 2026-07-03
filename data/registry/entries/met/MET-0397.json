@@ -187,34 +187,29 @@
   },
   "sources": [
     {
-      "label": "Poongsan datasheet",
+      "label": "Datasheet 2",
       "url": "https://www.poongsan.co.kr/eng/business/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AA 6xxx Al-Mg-Si",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Copper Development Association — C26000 70/30 cartridge brass",
       "url": "https://www.copper.org/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASTM B19 — Cartridge Brass Sheet/Plate",
       "url": "https://store.astm.org/b0019-22.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -290,10 +285,11 @@
     "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys"
   ],
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "brass",
-    "weld": "none",
-    "wg": "w54-c26000",
-    "insight": "copper"
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "Yellow Brass 66Cu-34Zn"
+      ]
+    }
   }
 }

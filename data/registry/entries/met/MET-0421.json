@@ -199,32 +199,27 @@
     {
       "label": "Copper.org — C18150 Copper-Chromium-Zirconium",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C18150",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Nikon SLM CuCr1Zr MDS 2025-07.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/07/mds5142.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "3D Systems Certified CuCr1Zr(A) MDS",
       "url": "https://www.3dsystems.com/sites/default/files/2023-07/3d-systems-certified-cucr1zra-material-datasheet-usen-2023-07-14-a-web_0.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Brush Wellman C18150 (Hycon 3 HP) datasheet",
       "url": "https://materion.com/-/media/files/alloy/datasheets/copper/c18150-elbrodur-cuyc-rolled-datasheet.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B441 — CuCrZr Bar/Rod (C18150)",
       "url": "https://store.astm.org/b0441-19.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -437,14 +432,5 @@
     "Copper Development Association \"Resistance Welding Electrode Materials\" Pub TN 28 (2010)"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS C18150 / EN CW106C / CuCr1Zr / DIN 2.1293 — precipitation-hardened Cu alloy (Cr 0.5-1.5, Zr 0.03-0.30, Cu bal). 우수한 thermal/electrical conductivity (IACS 80%) + moderate strength. AM LPBF Tmax 480°C. Resistance welding electrode tip, EDM electrode, motor rotor bar, fusion reactor (ITER divertor cooling), NASA rocket engine combustion chamber. AM LPBF for rocket nozzle (Ti-CuCrZr brazing 대안).",
-  "profiles": {
-    "mach": "cu-crzr",
-    "weld": "none",
-    "htc": "as-built",
-    "insight": "copper"
-  },
-  "uns": [
-    "C18150"
-  ]
+  "industry_note": "UNS C18150 / EN CW106C / CuCr1Zr / DIN 2.1293 — precipitation-hardened Cu alloy (Cr 0.5-1.5, Zr 0.03-0.30, Cu bal). 우수한 thermal/electrical conductivity (IACS 80%) + moderate strength. AM LPBF Tmax 480°C. Resistance welding electrode tip, EDM electrode, motor rotor bar, fusion reactor (ITER divertor cooling), NASA rocket engine combustion chamber. AM LPBF for rocket nozzle (Ti-CuCrZr brazing 대안)."
 }

@@ -192,39 +192,34 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Maraging 250 maraged at 482°C (UNS K92890, AMS 6512)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Maraging 250 maraged at 482°C (UNS K92890, AMS 6512)",
+      "verified": true
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=maraging+250",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AMS 6512 / ATI",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AK Steel — Maraging 250/300/350 datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/MARAGING-DATA-BULLETIN.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AMS 6514 — 18Ni-300 maraging bar/forging",
       "url": "https://www.sae.org/standards/content/ams6514l/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "AMS 6512 — 18Ni-250 maraging bar/forging",
       "url": "https://www.sae.org/standards/content/ams6512f/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -314,17 +309,5 @@
     "AMS 6512 (SAE 2017) \"Steel, Maraging 250\"",
     "Sha W & Guo Z (2009) Maraging Steels, Woodhead Publishing"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "maraging",
-    "weld": "none",
-    "htc": "aged",
-    "ht": "Maraging 250 / VascoMax C-250 (18Ni-7Co-5Mo)",
-    "htg": "h06-maraging",
-    "wg": "w68-maraging",
-    "insight": "tool-steel"
-  },
-  "uns": [
-    "K92890"
-  ]
+  "confidence_tier": "high"
 }

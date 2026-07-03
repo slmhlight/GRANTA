@@ -198,20 +198,17 @@
     {
       "label": "MatWeb — Ti-6Al-2Sn-4Zr-2Mo",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6242",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "GE Additive M2 Ti6242 CMDS",
       "url": "https://www.colibriumadditive.com/sites/default/files/M2SERIES5_Ti6242_400W_CMDS_20241108_RevA.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AMS 4975 — Ti-6Al-2Sn-4Zr-2Mo titanium alloy",
       "url": "https://www.sae.org/standards/ams4975-titanium-alloy-bars-6al-2sn-4zr-2mo-solution-precipitation-heat-treated",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -341,13 +338,9 @@
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "htc": "as-built",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R54620"
-  ]
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

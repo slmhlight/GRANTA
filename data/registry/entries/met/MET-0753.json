@@ -190,16 +190,14 @@
   },
   "sources": [
     {
-      "label": "Carpenter Technology datasheet",
+      "label": "Datasheet 3",
       "url": "https://www.carpentertechnology.com/alloy-finder/a-286",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A286",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -308,14 +306,5 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "htc": "aged",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S66286"
-  ]
+  "confidence_tier": "medium"
 }

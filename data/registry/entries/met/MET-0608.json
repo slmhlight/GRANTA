@@ -192,32 +192,27 @@
     {
       "label": "MatWeb — Rene 41",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+41",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM / AMS 5545 — Rene 41 (aged)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Special Metals — UDIMET alloy R41 (UNS N07041) Technical Bulletin (SMC-108, ©2004, AMS 5712)",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/udimet-alloy-r41.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "Rolled Alloys — René 41 Data Sheet (Bulletin 1141USe, heat-treated sheet 인장·rupture 표)",
       "url": "https://www.rolledalloys.com/wp-content/uploads/RENE-41_Data-sheet-rolled-alloys.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -354,16 +349,5 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "htg": "h05-waspaloy",
-    "wg": "w37-waspaloyb",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N07041"
-  ]
+  "confidence_tier": "high"
 }

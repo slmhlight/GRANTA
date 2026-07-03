@@ -159,20 +159,17 @@
     {
       "label": "SABIC CYCOLAC ABS",
       "url": "https://www.sabic.com/en/products/specialties/cycolac-resin",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "SABIC CYCOLOY PC/ABS blend",
       "url": "https://www.sabic.com/en/products/specialties/cycoloy-resin",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASM Engineered Materials Handbook Vol.2 — Polymer Blends",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/9/chapter-abstract/204979/Polymer-Blends",
-      "verified": false,
-      "authority": "handbook"
+      "verified": false
     }
   ],
   "points": [
@@ -389,8 +386,40 @@
   ],
   "confidence_tier": "high",
   "industry_note": "Polycarbonate/ABS alloy (PC 50-70%, ABS 30-50%). PC 의 강성/내열 + ABS 의 가공성·내충격 결합. σy 40-50 / UTS 50-60 / El 20-40% / E 2.4-2.8 GPa / HDT 110-130°C. 자동차 dashboard, 휴대폰 케이스, 의료 housing. UL 94 V-0 grade 가능 (난연).",
-  "profiles": {
-    "mach": "pol-amorphous",
-    "insight": "pol-engineering"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — ABS Plastic (general)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ABS+plastic",
+          "verified": false
+        },
+        {
+          "label": "SABIC CYCOLAC ABS",
+          "url": "https://www.sabic.com/en/products/specialties/cycolac-resin",
+          "verified": true
+        },
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "SABIC CYCOLOY PC/ABS blend",
+          "url": "https://www.sabic.com/en/products/specialties/cycoloy-resin",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — PC/ABS blend",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PC%2FABS",
+          "verified": false
+        },
+        {
+          "label": "ASM Engineered Materials Handbook Vol.2 — Polymer Blends",
+          "url": "https://dl.asminternational.org/handbooks/edited-volume/9/chapter-abstract/204979/Polymer-Blends",
+          "verified": false
+        }
+      ]
+    }
   }
 }

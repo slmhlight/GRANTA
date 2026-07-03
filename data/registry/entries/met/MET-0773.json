@@ -188,38 +188,32 @@
     {
       "label": "ASM — 416 free-machining stainless (UNS S41600)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Aircraft Materials — Stainless Steel 416 / Alloy 416 / UNS S41600: 조성(Type 1/2)+경화/템퍼온도별 인장표(σy/UTS/신율/RA/HB)",
       "url": "https://www.aircraftmaterials.com/data/alstst/416.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "Aircraft Materials — 416 Bar Stock List: AMS 5610(어닐바)·EMS 537(HT바)·ASTM A582·QQ-S-764 등 규격 매핑(조성/물성 없음, 규격 추적용)",
       "url": "https://www.aircraftmaterials.com/data/alstst/416stock.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "AZoM — Stainless Steel Grade 416 (UNS S41600) 데이터시트",
       "url": "https://www.azom.com/article.aspx?ArticleID=971",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -315,14 +309,5 @@
   "total_cost_estimate": 4.78,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-416",
-    "weld": "schaeffler",
-    "wg": "w06-aisi",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S41600"
-  ]
+  "confidence_tier": "high"
 }

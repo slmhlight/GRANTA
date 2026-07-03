@@ -192,20 +192,17 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 5xxx (Cr alloy steel) + SAE J404",
       "url": "https://www.sae.org/standards/content/j404/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -279,9 +276,80 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook Vol.1 — AISI 5xxx (Cr alloy steel) + SAE J404",
+          "url": "https://www.sae.org/standards/content/j404/",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 5130\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%205130",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AMS 6415 alloy steel",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "points": {
+      "from": [
+        [
+          7.85,
+          369.35,
+          498.4,
+          23.5,
+          210,
+          151.3,
+          42
+        ],
+        [
+          7.85,
+          361.05,
+          487.2,
+          25.5,
+          210,
+          147.9,
+          42
+        ],
+        [
+          7.85,
+          419.15,
+          565.6,
+          24,
+          210,
+          171.7,
+          42
+        ],
+        [
+          7.85,
+          444.05,
+          599.2,
+          25.5,
+          210,
+          181.9,
+          42
+        ],
+        [
+          7.85,
+          435.75,
+          588,
+          25,
+          210,
+          178.5,
+          42
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

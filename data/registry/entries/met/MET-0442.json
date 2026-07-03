@@ -189,20 +189,17 @@
     {
       "label": "ASTM B150 — nickel-aluminium bronze C63000",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: Aluminum Association handbook",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -283,12 +280,5 @@
   "svhc_concerns": [
     "Ni 5.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "none",
-    "insight": "copper"
-  },
-  "uns": [
-    "C63000"
-  ]
+  "confidence_tier": "medium"
 }

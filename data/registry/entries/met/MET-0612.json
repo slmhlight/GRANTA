@@ -193,26 +193,22 @@
     {
       "label": "MatWeb — Rene N5 single crystal",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+N5",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "GE / ASM — Rene N5 single-crystal superalloy",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: GE Aviation Single Crystal",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Neway AeroTech — Rene N5 single-crystal casting 물성 데이터시트",
       "url": "https://www.newayaerotech.com/services/single-crystal-casting/rene-n5",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -280,12 +276,29 @@
     "Co 8% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "htg": "h05-waspaloy",
-    "wg": "w38-cmsx",
-    "insight": "ni-superalloy"
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.63,
+          950,
+          1100,
+          14,
+          130,
+          400,
+          11
+        ],
+        [
+          8.63,
+          900,
+          1050,
+          16,
+          130,
+          420,
+          11
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

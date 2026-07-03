@@ -189,38 +189,32 @@
     {
       "label": "MatWeb — AISI 52100 bearing steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+52100",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM — AISI 52100 bearing steel (UNS G52986, hardened)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: 52100 bearing",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 52100 bearing steel",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — AISI 52100 fully hardened bearing",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=4a25fc0eebbc4d8caef0d7d1bd6a4dad",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASTM A295 — High-Carbon Bearing Steel",
       "url": "https://store.astm.org/a0295_a0295m-20.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -340,15 +334,5 @@
     "Bhadeshia H K D H (2012) \"Steels for Bearings\", Prog Mater Sci 57(2)",
     "SKF Group \"Bearing Steels: 52100\" Tech Bulletin (2018)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "bearing",
-    "weld": "ce",
-    "htg": "h01-aisi",
-    "wg": "w04-aisi",
-    "insight": "carbon-alloy-steel"
-  },
-  "uns": [
-    "G52986"
-  ]
+  "confidence_tier": "high"
 }

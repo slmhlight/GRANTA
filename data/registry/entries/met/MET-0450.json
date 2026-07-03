@@ -186,32 +186,27 @@
     {
       "label": "Copper.org — C10100 Oxygen-Free Electronic Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C10100",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C10100",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Copper Development Association — OFE C10100",
       "url": "https://www.copper.org/resources/properties/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM F68 — Oxygen-Free Copper",
       "url": "https://store.astm.org/f0068-22.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -290,15 +285,5 @@
     "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
     "Murr L E (2015) Handbook of Materials Structures, Properties, Processing and Performance, Springer"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "cu-pure",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w50-c10",
-    "insight": "copper"
-  },
-  "uns": [
-    "C10100"
-  ]
+  "confidence_tier": "high"
 }

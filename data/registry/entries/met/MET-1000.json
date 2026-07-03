@@ -192,20 +192,17 @@
     {
       "label": "Sunrise Metal — A383 (ADC12) die-cast datasheet",
       "url": "https://www.sunrise-metal.com/aluminum-alloy-a383/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "JIS H 5302 — Aluminium alloy die castings (ADC12)",
       "url": "https://www.jisc.go.jp/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "Gabrian — A383 aluminum alloy (ADC12) properties",
       "url": "https://www.gabrian.com/a383-aluminum-alloy-adc12/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -281,13 +278,5 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "al-cast-am",
-    "weld": "none",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A03830"
-  ]
+  "confidence_tier": "medium"
 }

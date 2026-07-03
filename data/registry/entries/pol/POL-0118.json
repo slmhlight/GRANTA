@@ -145,14 +145,12 @@
     {
       "label": "Datasheet — PSU Udel P-1700 (Solvay/Boedeker)",
       "url": "https://www.syensqo.com/en/product/udel-psu",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Applications: Analytical instrumentation, semiconductor process equipment, surgical and medical devices, hot water/steam plumbing (USP Class VI / ISO 10993 grade)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "machinability": "Good",
@@ -226,9 +224,5 @@
       "E": 0.5
     }
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "pol-amorphous",
-    "insight": "pol-highperf"
-  }
+  "confidence_tier": "medium"
 }

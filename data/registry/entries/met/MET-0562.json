@@ -188,20 +188,17 @@
     {
       "label": "Special Metals — Inconel Alloy 690",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-690.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Special Metals — Inconel 690 (UNS N06690)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -288,15 +285,5 @@
   "total_cost_estimate": 97.46,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w26-inconel",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N06690"
-  ]
+  "confidence_tier": "high"
 }

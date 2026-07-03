@@ -181,22 +181,19 @@
   },
   "sources": [
     {
-      "label": "ASTM standard",
+      "label": "Datasheet 3",
       "url": "https://store.astm.org/a0128_a0128m-19.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — Hadfield Manganese Steel",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — Hadfield Mn 13 austenitic",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Hadfield",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -275,10 +272,5 @@
     "Davis J R (ed., 1995) ASM Specialty Handbook: Carbon and Alloy Steels",
     "Bhadeshia H K D H (2017) Steels: Microstructure and Properties, 4th ed., Butterworth-Heinemann"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "high"
 }

@@ -191,20 +191,17 @@
     {
       "label": "Nikon SLM CuNi2SiCr MDS 2023-04.1",
       "url": "https://nikon-slm-solutions.com/materials/copper/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "GE Additive M2 Series 5 CuNi2SiCr CMDS",
       "url": "https://www.colibriumadditive.com/sites/default/files/M2SERIES5_CuNi2SiCr_1kW_CMDS_20241108_RevA.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: Cu-Cr-Zr / Cu-Ni-Si-Cr family",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -277,10 +274,29 @@
     "Ni 2.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "weld": "none",
-    "htc": "aged",
-    "wg": "w55-c70",
-    "insight": "copper"
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.85,
+          275,
+          305,
+          16,
+          138,
+          97.5,
+          200
+        ],
+        [
+          8.85,
+          285,
+          307.5,
+          15,
+          138,
+          97.5,
+          200
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

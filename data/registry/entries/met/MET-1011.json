@@ -191,19 +191,16 @@
     {
       "label": "Special Metals — Monel Alloy 400",
       "url": "https://www.rolledalloys.ca/wp-content/uploads/400_Datasheet-rolled-alloys.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Ansys Granta MI — Nickel-copper alloy, MONEL 400, hard (spring temper) (Materials Data for Simulation datasheet, 사용자 제공 R226l)",
-      "verified": true,
-      "authority": "other"
+      "verified": true
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -269,65 +266,10 @@
     "Ni 70% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "qt",
-    "wg": "w39-monel",
-    "insight": "ni-superalloy"
-  },
-  "elevated_temp": [
-    {
-      "temp": 25,
-      "E": 186.7,
-      "ys": 698
-    },
-    {
-      "temp": 100,
-      "E": 183.8,
-      "ys": 718
-    },
-    {
-      "temp": 200,
-      "E": 180.4,
-      "ys": 725
-    },
-    {
-      "temp": 300,
-      "E": 177,
-      "ys": 702
-    },
-    {
-      "temp": 400,
-      "E": 173.3,
-      "ys": 642
-    },
-    {
-      "temp": 500,
-      "E": 168.2,
-      "ys": 571
-    },
-    {
-      "temp": 600,
-      "E": 161,
-      "ys": 515
-    },
-    {
-      "temp": 700,
-      "E": 151.4,
-      "ys": 319
-    },
-    {
-      "temp": 800,
-      "E": 138.1
-    },
-    {
-      "temp": 850,
-      "E": 130
-    }
-  ],
-  "elevated_temp_src": "Ansys Granta MI — Nickel-copper alloy, MONEL 400, hard (spring temper) (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)",
   "_corrections": {
+    "aliases": {
+      "from": []
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
@@ -369,12 +311,12 @@
     "points": {
       "from": [
         [
-          8.83,
-          240,
-          550,
-          40,
+          8.8,
+          760,
+          828,
+          8.5,
           179,
-          130,
+          350,
           21.8
         ]
       ]

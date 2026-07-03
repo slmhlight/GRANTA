@@ -187,34 +187,29 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ80",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Mg alloys",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Luxfer MEL Technologies — Elektron AZ80 Extruded Magnesium (E 44 GPa, SG 1.8, ASTM B107-13)",
       "url": "https://www.luxfermeltechnologies.com/elektron-az80/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "AZoM — Magnesium AZ80A Alloy (UNS M11800) — 등가 ASTM B107, B91",
       "url": "https://www.azom.com/article.aspx?ArticleID=9255",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -287,17 +282,5 @@
   "total_cost_estimate": 7.99,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "magnesium",
-    "weld": "none",
-    "htc": "aged",
-    "ht": "Magnesium AZ31 (Mg-3Al-1Zn, wrought sheet 표준)",
-    "htg": "h09-azd",
-    "wg": "w46-az31",
-    "insight": "magnesium"
-  },
-  "uns": [
-    "M11800"
-  ]
+  "confidence_tier": "high"
 }

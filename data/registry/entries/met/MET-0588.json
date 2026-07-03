@@ -192,20 +192,17 @@
     {
       "label": "Special Metals — Inconel Alloy X-750",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "EOS (AM vendor datasheet)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "MatWeb — search \"Inconel X-750\"",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20X-750",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -278,23 +275,34 @@
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "wg": "w29-inconel",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N07750"
-  ],
   "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS N07750",
+        "EN 2.4669",
+        "Alloy X-750"
+      ]
+    },
     "fields": {
       "heat_treatment": {
-        "from": "Precipitation-aged (AMS 5670 equiv)"
+        "from": "As-built (no post-processing)"
       }
     },
     "_fbasis": "815/1230 = aged X-750 (datasheet 확인, AMS 5670 typical σy115ksi/UTS170ksi min ~ 137ksi/192ksi). 'As-built (no post-processing)' 라벨은 야금학적 불가 — γ'-합금은 시효 없이 이 강도 도달 불가. 값 유지, 라벨만 aged 로 교정.",
-    "_fsrc": "Special Metals SMC-067 INCONEL X-750 datasheet (사용자 첨부)"
+    "_fsrc": "Special Metals SMC-067 INCONEL X-750 datasheet (사용자 첨부)",
+    "points": {
+      "from": [
+        [
+          8.28,
+          950,
+          0,
+          20,
+          205,
+          400,
+          11.8
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

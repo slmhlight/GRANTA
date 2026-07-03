@@ -192,14 +192,12 @@
     {
       "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Haynes International — Hastelloy C-276 Alloy",
       "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-c-276-alloy",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -271,43 +269,39 @@
     "Rebak R B & Crook P (1998) \"Influence of the Environment on the General Corrosion Rate of Ni-Cr-Mo Alloys\", Mater Sci Forum 289-292"
   ],
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w31-hastelloy",
-    "insight": "ni-superalloy"
-  },
-  "elevated_temp": [
-    {
-      "temp": 25,
-      "E": 204.7,
-      "ys": 359
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Haynes International — Hastelloy C-276 Alloy",
+          "url": "https://haynesintl.com/en/alloys/alloy/hastelloy-c-276-alloy",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Hastelloy C-276\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Hastelloy%20C-276",
+          "verified": false
+        }
+      ]
     },
-    {
-      "temp": 100,
-      "E": 200.6,
-      "ys": 310
+    "points": {
+      "from": [
+        [
+          8.89,
+          288.3,
+          609.15,
+          33.2,
+          210,
+          195.3,
+          10.1
+        ]
+      ]
     },
-    {
-      "temp": 200,
-      "E": 194.9,
-      "ys": 268
-    },
-    {
-      "temp": 300,
-      "E": 189.4,
-      "ys": 245
-    },
-    {
-      "temp": 400,
-      "E": 183.7,
-      "ys": 228
-    },
-    {
-      "temp": 550,
-      "E": 175.2
-    }
-  ],
-  "elevated_temp_src": "Ansys Granta MI — Nickel-Mo-Cr alloy, HASTELLOY C-276 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

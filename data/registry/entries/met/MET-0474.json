@@ -189,32 +189,27 @@
     {
       "label": "Luxfer Magnesium Elektron — Elektron WE43",
       "url": "https://www.luxfermeltechnologies.com",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "Magnesium Elektron — WE43 (UNS M18430)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Mg alloys",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Luxfer MEL Technologies — Elektron 43 (WE43) Extruded product page (AMS 4485, ASTM B107/B107M, UNS M18434, MMPDS-08)",
       "url": "https://www.luxfermeltechnologies.com/elektron-43/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "AZoM — Magnesium Elektron WE43 Alloy (UNS M18430) — 등가규격 AMS 4427, ASTM B80, MAM 4427",
       "url": "https://www.azom.com/article.aspx?ArticleID=9279",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -323,17 +318,5 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "magnesium",
-    "weld": "none",
-    "ht": "Magnesium WE43 (Mg-Y-Nd-Zr, aerospace + biodegradable)",
-    "htg": "h09-azd",
-    "wg": "w48-we43b",
-    "insight": "magnesium"
-  },
-  "uns": [
-    "M18430",
-    "M18434"
-  ]
+  "confidence_tier": "high"
 }

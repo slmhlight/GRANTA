@@ -187,34 +187,29 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20S55C",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "SteelJIS — S55C (JIS G4051) 조성 데이터시트",
       "url": "http://steeljis.com/jis_steel_datasheet.php?name_id=246",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "Bebon — JIS S55C 조성+기계적 물성(rolled/annealed/quenched 조건별)",
       "url": "https://www.bebonchina.com/steel/Steel-plate/JIS/S55C.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -281,11 +276,5 @@
   "total_cost_estimate": 1.19,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "soft",
-    "wg": "w02-aisi",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "high"
 }

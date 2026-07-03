@@ -191,20 +191,17 @@
     {
       "label": "ASTM A108 — Cold-Finished Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0108-18.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 10xx series",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM A29 / A29M — Carbon Steel Bars 1030-1080",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -299,12 +296,38 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "Plain carbon steels (medium-high C): • 1030 (UNS G10300, C 0.28-0.34) JIS S30C — σy 350-440, axles, bolts, levers • 1040 (UNS G10400, C 0.37-0.44) JIS S40C — σy 415-470, automotive shaft, gear • 1050 (UNS G10500, C 0.48-0.55) JIS S50C — σy 415-580, machine spindle, chisel • 1080 (UNS G10800, C 0.75-0.88) JIS SK85 / near-eutectoid — σy 525-690, hammer, wrench, blade Q+T 효과 carbon 함량에 비례: 1030 미미 → 1080 효과 큼.",
-  "profiles": {
-    "mach": "carbon-medhigh",
-    "weld": "ce",
-    "htc": "qt",
-    "htg": "h01-aisi",
-    "wg": "w02-aisi",
-    "insight": "carbon-alloy-steel"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 1030\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%201030",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AISI carbon steel",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 10xx series",
+          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+          "verified": true
+        },
+        {
+          "label": "ASTM A29 / A29M — Carbon Steel Bars 1030-1080",
+          "url": "https://store.astm.org/a0029_a0029m-20.html",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "count": 815,
+  "count": 818,
   "kinds": {
-    "alloy-base": 670,
+    "alloy-base": 673,
     "category": 4,
     "subcategory": 131,
     "element-family": 10
@@ -206,6 +206,16 @@
       "member_count": 1,
       "members": [
         "MET-0697"
+      ]
+    },
+    {
+      "id": "F-AB-316fr",
+      "label": "316FR",
+      "kind": "alloy-base",
+      "parent": "F-MET-stainless-steel-austenitic",
+      "member_count": 1,
+      "members": [
+        "MET-1012"
       ]
     },
     {
@@ -1279,8 +1289,10 @@
       "label": "AISI 304",
       "kind": "alloy-base",
       "parent": "F-MET-stainless-steel-austenitic",
-      "member_count": 2,
+      "member_count": 4,
       "members": [
+        "MET-1013",
+        "MET-1014",
         "MET-0713",
         "MET-0716"
       ]
@@ -1324,6 +1336,16 @@
       "member_count": 1,
       "members": [
         "MET-0721"
+      ]
+    },
+    {
+      "id": "F-AB-aisi-304ln",
+      "label": "AISI 304LN",
+      "kind": "alloy-base",
+      "parent": "F-MET-stainless-steel-austenitic",
+      "member_count": 1,
+      "members": [
+        "MET-1015"
       ]
     },
     {
@@ -1411,6 +1433,16 @@
         "MET-0739",
         "MET-0740",
         "MET-0741"
+      ]
+    },
+    {
+      "id": "F-AB-aisi-316n",
+      "label": "AISI 316N",
+      "kind": "alloy-base",
+      "parent": "F-MET-stainless-steel-austenitic",
+      "member_count": 1,
+      "members": [
+        "MET-1016"
       ]
     },
     {
@@ -2157,7 +2189,7 @@
       "id": "F-AB-beta-21s",
       "label": "Beta-21S",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0858"
@@ -2167,7 +2199,7 @@
       "id": "F-AB-beta-c-ti-3al-8v-6cr-4mo-4zr",
       "label": "Beta-C (Ti-3Al-8V-6Cr-4Mo-4Zr)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0859"
@@ -6331,7 +6363,7 @@
       "id": "F-AB-ta15-ti-6-5al-1mo-1v-2zr",
       "label": "TA15 (Ti-6.5Al-1Mo-1V-2Zr)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium-near",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0860"
@@ -6362,7 +6394,7 @@
       "id": "F-AB-ti-10v-2fe-3al",
       "label": "Ti-10V-2Fe-3Al",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0897"
@@ -6372,7 +6404,7 @@
       "id": "F-AB-ti-13v-11cr-3al-b120-vca-1st-gen-titanium",
       "label": "Ti-13V-11Cr-3Al (B120-VCA, 1st-gen β-titanium)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 2,
       "members": [
         "MET-0898",
@@ -6383,7 +6415,7 @@
       "id": "F-AB-ti-15-3-3-3-ti",
       "label": "Ti-15-3-3-3 (β-Ti)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 3,
       "members": [
         "MET-0900",
@@ -6395,7 +6427,7 @@
       "id": "F-AB-ti-15v-3cr-3al-3sn",
       "label": "Ti-15V-3Cr-3Al-3Sn",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0903"
@@ -6405,7 +6437,7 @@
       "id": "F-AB-ti-5-2-5",
       "label": "Ti-5-2-5",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium-near",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 3,
       "members": [
         "MET-0904",
@@ -6417,7 +6449,7 @@
       "id": "F-AB-ti-5553-ti-5al-5v-5mo-3cr",
       "label": "Ti-5553 (Ti-5Al-5V-5Mo-3Cr)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0909"
@@ -6427,7 +6459,7 @@
       "id": "F-AB-ti-6-2-4-6",
       "label": "Ti-6-2-4-6",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 3,
       "members": [
         "MET-0910",
@@ -6439,7 +6471,7 @@
       "id": "F-AB-ti-6al-2mo-2nb-2zr-2sn-1-5cr-blt",
       "label": "Ti-6Al-2Mo-2Nb-2Zr-2Sn-1.5Cr (BLT)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0915"
@@ -6449,7 +6481,7 @@
       "id": "F-AB-ti-6al-2sn-4zr-2mo",
       "label": "Ti-6Al-2Sn-4Zr-2Mo",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium-near",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 3,
       "members": [
         "MET-0916",
@@ -6461,7 +6493,7 @@
       "id": "F-AB-ti-6al-2sn-4zr-2mo-ti-6242",
       "label": "Ti-6Al-2Sn-4Zr-2Mo (Ti-6242)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium-near",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0919"
@@ -6471,7 +6503,7 @@
       "id": "F-AB-ti-6al-4v-am",
       "label": "Ti-6Al-4V (AM)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 5,
       "members": [
         "MET-0920",
@@ -6485,7 +6517,7 @@
       "id": "F-AB-ti-6al-4v-cast-grade-c-5-astm-b367",
       "label": "Ti-6Al-4V Cast (Grade C-5, ASTM B367)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0999"
@@ -6495,7 +6527,7 @@
       "id": "F-AB-ti-6al-4v-gr5",
       "label": "Ti-6Al-4V (Gr5)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0925"
@@ -6505,7 +6537,7 @@
       "id": "F-AB-ti-6al-4v-grade-23-eli-uns-r56401",
       "label": "Ti-6Al-4V Grade 23 ELI (UNS R56401)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 2,
       "members": [
         "MET-0930",
@@ -6516,7 +6548,7 @@
       "id": "F-AB-ti-6al-4v-grade-5",
       "label": "Ti-6Al-4V (Grade 5)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 4,
       "members": [
         "MET-0926",
@@ -6529,7 +6561,7 @@
       "id": "F-AB-ti-6al-7nb",
       "label": "Ti-6Al-7Nb",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0932"
@@ -6539,7 +6571,7 @@
       "id": "F-AB-ti-8-1-1",
       "label": "Ti-8-1-1",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium-near",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 3,
       "members": [
         "MET-0933",
@@ -6606,7 +6638,7 @@
       "id": "F-AB-ti-grade-12",
       "label": "Ti Grade 12",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium-near",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0873"
@@ -6627,7 +6659,7 @@
       "id": "F-AB-ti-grade-23",
       "label": "Ti Grade 23",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 3,
       "members": [
         "MET-0878",
@@ -6673,7 +6705,7 @@
       "id": "F-AB-ti-grade-9-ti-3al-2-5v",
       "label": "Ti Grade 9 (Ti-3Al-2.5V)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0896"
@@ -6683,7 +6715,7 @@
       "id": "F-AB-ti6242-ti-6al-2sn-4zr-2mo",
       "label": "Ti6242 (Ti-6Al-2Sn-4Zr-2Mo)",
       "kind": "alloy-base",
-      "parent": "F-MET-titanium-near",
+      "parent": "F-MET-titanium-pure-cp-grades",
       "member_count": 1,
       "members": [
         "MET-0938"
@@ -7630,7 +7662,7 @@
       "label": "Iron-based",
       "kind": "element-family",
       "parent": null,
-      "member_count": 438,
+      "member_count": 443,
       "members": [
         "MET-0001",
         "MET-0002",
@@ -7879,6 +7911,7 @@
         "MET-0695",
         "MET-0696",
         "MET-0697",
+        "MET-1012",
         "MET-0698",
         "MET-0699",
         "MET-0700",
@@ -7894,6 +7927,8 @@
         "MET-0710",
         "MET-0711",
         "MET-0712",
+        "MET-1013",
+        "MET-1014",
         "MET-0713",
         "MET-0716",
         "MET-0717",
@@ -7901,6 +7936,7 @@
         "MET-0721",
         "MET-0722",
         "MET-0723",
+        "MET-1015",
         "MET-0724",
         "MET-0725",
         "MET-0726",
@@ -7916,6 +7952,7 @@
         "MET-0740",
         "MET-0741",
         "MET-0742",
+        "MET-1016",
         "MET-0743",
         "MET-0744",
         "MET-0747",
@@ -8274,6 +8311,9 @@
       "parent": null,
       "member_count": 65,
       "members": [
+        "MET-0858",
+        "MET-0859",
+        "MET-0860",
         "MET-0861",
         "MET-0862",
         "MET-0863",
@@ -8284,8 +8324,12 @@
         "MET-0868",
         "MET-0871",
         "MET-0872",
+        "MET-0873",
         "MET-0874",
         "MET-0877",
+        "MET-0878",
+        "MET-0879",
+        "MET-0882",
         "MET-0883",
         "MET-0886",
         "MET-0887",
@@ -8293,28 +8337,26 @@
         "MET-0891",
         "MET-0892",
         "MET-0895",
-        "MET-0939",
-        "MET-0860",
-        "MET-0873",
+        "MET-0896",
+        "MET-0897",
+        "MET-0898",
+        "MET-0899",
+        "MET-0900",
+        "MET-0901",
+        "MET-0902",
+        "MET-0903",
         "MET-0904",
         "MET-0905",
         "MET-0908",
-        "MET-0916",
-        "MET-0917",
-        "MET-0918",
-        "MET-0919",
-        "MET-0933",
-        "MET-0934",
-        "MET-0937",
-        "MET-0938",
-        "MET-0878",
-        "MET-0879",
-        "MET-0882",
-        "MET-0896",
+        "MET-0909",
         "MET-0910",
         "MET-0911",
         "MET-0914",
         "MET-0915",
+        "MET-0916",
+        "MET-0917",
+        "MET-0918",
+        "MET-0919",
         "MET-0920",
         "MET-0921",
         "MET-0922",
@@ -8329,16 +8371,11 @@
         "MET-0930",
         "MET-0931",
         "MET-0932",
-        "MET-0858",
-        "MET-0859",
-        "MET-0897",
-        "MET-0898",
-        "MET-0899",
-        "MET-0900",
-        "MET-0901",
-        "MET-0902",
-        "MET-0903",
-        "MET-0909"
+        "MET-0933",
+        "MET-0934",
+        "MET-0937",
+        "MET-0938",
+        "MET-0939"
       ]
     },
     {
@@ -8356,7 +8393,7 @@
       "label": "Metal",
       "kind": "category",
       "parent": null,
-      "member_count": 918
+      "member_count": 923
     },
     {
       "id": "F-MET-advanced-high-strength-steel",
@@ -8650,7 +8687,7 @@
       "label": "Stainless Steel - Austenitic",
       "kind": "subcategory",
       "parent": "F-MET",
-      "member_count": 67
+      "member_count": 72
     },
     {
       "id": "F-MET-stainless-steel-duplex",
@@ -8682,7 +8719,7 @@
     },
     {
       "id": "F-MET-titanium",
-      "label": "Titanium - α+β",
+      "label": "Titanium - β",
       "kind": "subcategory",
       "parent": "F-MET",
       "member_count": 32

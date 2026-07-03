@@ -191,38 +191,32 @@
     {
       "label": "MatWeb — AISI 4130 / DIN 1.7218",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+4130",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SCM430",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 4130 Cr-Mo aerospace",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MMPDS-08 — AISI 4130 normalized + tempered",
       "url": "https://www.mmpds.org/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "AMS 6345 — 4130 sheet, strip, plate",
       "url": "https://www.sae.org/standards/content/ams6345/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -303,16 +297,5 @@
   "total_cost_estimate": 4.39,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "crmo",
-    "weld": "ce",
-    "htc": "qt",
-    "htg": "h01-aisi",
-    "wg": "w03-aisi",
-    "insight": "carbon-alloy-steel"
-  },
-  "uns": [
-    "G41300"
-  ]
+  "confidence_tier": "medium"
 }

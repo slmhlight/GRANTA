@@ -192,16 +192,14 @@
   },
   "sources": [
     {
-      "label": "EN standard",
+      "label": "Datasheet 2",
       "url": "https://www.en-standard.eu/csn-en-10025-2-hot-rolled-products-of-structural-steels-part-2-technical-delivery-conditions-for-non-alloy-structural-steels/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASTM A36 / EN structural",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -279,9 +277,5 @@
     "Pijpers R J M et al. (2017) \"Fatigue strength of structural steel S355\", Steel Constr 10(4)",
     "ECISS / CEN TC 459 documentation"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "insight": "structural-steel"
-  }
+  "confidence_tier": "medium"
 }

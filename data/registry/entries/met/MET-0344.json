@@ -193,26 +193,22 @@
     {
       "label": "MatWeb — MP159 multiphase alloy",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=MP159",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "SPS — MP159 multiphase superalloy",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "UPMET — Alloy MP159 Cobalt Bar, AMS 5842 (datasheet)",
       "url": "https://www.upmet.com/products/cobalt/alloy-159r",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -291,13 +287,5 @@
   "svhc_concerns": [
     "Ni 25% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "cobalt",
-    "weld": "none",
-    "insight": "cobalt"
-  },
-  "uns": [
-    "R30159"
-  ]
+  "confidence_tier": "medium"
 }

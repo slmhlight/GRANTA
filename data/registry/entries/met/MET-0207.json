@@ -192,26 +192,22 @@
     {
       "label": "MatWeb — Aluminum 7050 (aerospace)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+7050",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%207050-T7451",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: Aluminum Association AA 7075-T651",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (T7451/T7651 인장·물성, PDF 직접 판독)",
       "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1016/Kaiser_Aluminum_7050_Sheet_Coil_and_Plate.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -301,16 +297,5 @@
     "ASM Handbook Vol.2 'Aluminum Zn Alloys 7xxx'",
     "Hatch J E (ed., 1984)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "al-7xxx",
-    "weld": "none",
-    "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
-    "htg": "h02-aa",
-    "wg": "w20-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A97050"
-  ]
+  "confidence_tier": "medium"
 }

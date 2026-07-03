@@ -191,37 +191,31 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASTM A108 — Cold-Finished Carbon and Alloy Steel Bars",
       "url": "https://store.astm.org/a0108-18.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "Ansys Granta MI — Carbon steel, AISI 1015, normalized (Materials Data for Simulation datasheet, 사용자 제공 R226l)",
-      "verified": true,
-      "authority": "other"
+      "verified": true
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -283,57 +277,27 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "htc": "soft",
-    "wg": "w01-aisi",
-    "insight": "carbon-alloy-steel"
-  },
-  "elevated_temp": [
-    {
-      "temp": 25,
-      "E": 212.6
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Ansys Granta MI — Carbon steel, AISI 1015, normalized (Materials Data for Simulation datasheet, 사용자 제공 R226l)",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AISI carbon steel",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+          "url": null,
+          "verified": false
+        }
+      ]
     },
-    {
-      "temp": 50,
-      "E": 211.7
-    },
-    {
-      "temp": 150,
-      "E": 207.5
-    },
-    {
-      "temp": 300,
-      "E": 196.9
-    },
-    {
-      "temp": 450,
-      "E": 181.4
-    },
-    {
-      "temp": 600,
-      "E": 161.4
-    },
-    {
-      "temp": 750,
-      "E": 136.3
-    },
-    {
-      "temp": 850,
-      "E": 125.6
-    },
-    {
-      "temp": 1000,
-      "E": 116.3
-    },
-    {
-      "temp": 1150,
-      "E": 106.1
-    },
-    {
-      "temp": 1200,
-      "E": 102.8
+    "aliases": {
+      "from": []
     }
-  ],
-  "elevated_temp_src": "Ansys Granta MI — Carbon steel, AISI 1015, normalized (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  }
 }

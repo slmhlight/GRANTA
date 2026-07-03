@@ -198,32 +198,27 @@
     {
       "label": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Niobium+C-103",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "3D Systems Certified C-103 MDS",
       "url": "https://www.3dsystems.com/sites/default/files/2024-08/3d-systems-certified-c-103-a-mds-a4-us-rev-b.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B652 — Niobium-hafnium alloy",
       "url": "https://store.astm.org/b0652_b0652m-18.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ATI Niobium C-103 datasheet",
       "url": "https://www.atimaterials.com/Products/Pages/ati-c103.aspx",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B654 — Niobium Alloy Plate/Sheet/Strip/Foil (C-103)",
       "url": "https://store.astm.org/b0654-22.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -309,14 +304,56 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "UNS R04295 / Niobium C-103 / Nb-10Hf-1Ti — high-strength refractory alloy (Nb 88 bal, Hf 10, Ti 1, Zr 0.7). Hf+Ti 첨가로 σy 2× boost (pure Nb 대비) + Hf-Nb solid solution oxidation 저항. Tmax 1400-1500°C (silicide coating 도포 시 oxidation 저항). 우주 rocket nozzle / RCS thruster (Atlas V Centaur engine nozzle), satellite thermal radiator, hypersonic leading edge. ⚠ 매우 비싸 ($1000-2000/kg) — 우주만 사용. Plansee, ATI 의 공급.",
-  "profiles": {
-    "mach": "refractory",
-    "weld": "none",
-    "htc": "as-built",
-    "wg": "w61-niobiumb",
-    "insight": "refractory"
-  },
-  "uns": [
-    "R04295"
-  ]
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.85,
+          461,
+          574,
+          27.5,
+          89,
+          180,
+          41
+        ],
+        [
+          8.85,
+          480.5,
+          577,
+          27.5,
+          89,
+          180,
+          41
+        ],
+        [
+          8.85,
+          461,
+          574,
+          28,
+          89,
+          null,
+          41
+        ],
+        [
+          8.85,
+          461,
+          574,
+          28,
+          89,
+          null,
+          41
+        ],
+        [
+          8.85,
+          500,
+          580,
+          27,
+          89,
+          180,
+          41
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

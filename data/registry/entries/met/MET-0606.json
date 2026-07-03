@@ -190,32 +190,27 @@
     {
       "label": "Special Metals — Nimonic Alloy 90",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/nimonic-alloy-90.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Special Metals — Nimonic 90 (UNS N07090)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Special Metals — Nimonic 80A / 90 reference",
       "url": "https://www.specialmetals.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASTM B637 — Precipitation-Hardening Ni Base Bar (80A/90)",
       "url": "https://store.astm.org/b0637-22.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -311,14 +306,5 @@
   "svhc_concerns": [
     "Co 21% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N07090"
-  ]
+  "confidence_tier": "high"
 }

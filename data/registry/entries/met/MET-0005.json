@@ -192,20 +192,19 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Dual phase steel YS600 cold rolled (EN 10336:2007 HCT980X, EN 1.0944)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 2",
+      "url": "ANSYS Granta — Dual phase steel YS600 cold rolled (EN 10336:2007 HCT980X, EN 1.0944)",
+      "verified": true
     },
     {
-      "label": "POSCO datasheet",
+      "label": "Datasheet 2",
       "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "ArcelorMittal DP 980 LCE Y600 / World Auto Steel DP 700/1000",
-      "verified": true,
-      "authority": "other"
+      "label": "Datasheet 2",
+      "url": "ArcelorMittal DP 980 LCE Y600 / World Auto Steel DP 700/1000",
+      "verified": true
     }
   ],
   "points": [
@@ -266,10 +265,5 @@
   "total_cost_estimate": 1.4,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "ht": "AHSS DP980 (Dual-Phase, ferrite + martensite)",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "high"
 }

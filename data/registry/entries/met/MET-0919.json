@@ -191,38 +191,32 @@
     {
       "label": "MatWeb — Ti-6Al-2Sn-4Zr-2Mo",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6242",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Allegheny Technologies Ti-6242 datasheet",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: TIMET Timetal 6242",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "TIMET — TIMETAL 6-2-4-2 (6242) Official Technical Datasheet (TMC-0157, Ti-6Al-2Sn-4Zr-2Mo)",
       "url": "https://www.timet.com/documents/datasheets/near-alpha-alloys/timetal-6242.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "TIMET — Datasheets index (near-alpha alloys 목록, 6242 PDF 링크 확인)",
       "url": "https://www.timet.com/literature/datasheets.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "TIMET TIMETAL 6-2-4-2 (lookpolymers/MatWeb 미러 — YS 895 / UTS 1000 / 신율 12% / E 115 GPa, AMS 4919)",
       "url": "https://lookpolymers.com/polymer_TIMET-TIMETAL-6-2-4-2-Ti-6Al-2Sn-4Zr-2Mo-008Si-Titanium-Alloy.php",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -349,13 +343,9 @@
     }
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "htc": "aged",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R54620"
-  ]
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

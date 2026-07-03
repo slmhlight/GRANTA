@@ -158,26 +158,22 @@
     {
       "label": "Stratasys — ULTEM 9085 datasheet",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "SABIC ULTEM 9085 resin technical guide",
       "url": "https://www.sabic.com/en/products/specialties/ultem-resins",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Stratasys ULTEM 9085 FDM material data",
       "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/ultem-9085-resin/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "FAR 25.853 — Aviation Flammability (PEI 9085 compliant)",
       "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-25",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -295,9 +291,5 @@
     "FAR 25.853 \"Compartment Interiors\"",
     "Bourell D L et al. (2017) \"Materials for AM\", CIRP Annals 66"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "pol-amorphous",
-    "insight": "pol-highperf"
-  }
+  "confidence_tier": "high"
 }

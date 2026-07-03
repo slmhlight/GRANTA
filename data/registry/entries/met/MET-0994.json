@@ -36,8 +36,7 @@
       "max": 275,
       "typical": 275,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "uts": {
       "min": 520,
@@ -192,20 +191,17 @@
     {
       "label": "ASTM A216/A216M — Steel Castings, Carbon",
       "url": "https://store.astm.org/a0216_a0216m-21.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "Badger Alloys — A216 WCC properties",
       "url": "https://badgeralloys.com/casting-alloys/carbon-low-alloy-steel/low-carbon-steel/wcc/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -299,13 +295,5 @@
       "E": 180
     }
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
-  },
-  "uns": [
-    "J02503"
-  ]
+  "confidence_tier": "medium"
 }

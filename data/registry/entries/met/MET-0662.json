@@ -193,32 +193,27 @@
     {
       "label": "MatWeb — Pure Tantalum Ta",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tantalum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "GE Additive M2 Tantalum CMDS",
       "url": "https://www.colibriumadditive.com/sites/default/files/M2SERIES5_Ta_400W_CMDS_20241106_RevA.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B708 — Tantalum and tantalum alloy",
       "url": "https://store.astm.org/b0708-21.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "Plansee Tantalum technical data",
       "url": "https://www.plansee.com/en/materials/tantalum.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B708 — Tantalum/Tantalum Alloy Sheet/Plate/Strip",
       "url": "https://store.astm.org/b0708-15.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -299,89 +294,52 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "UNS R05200 (unalloyed Ta) / UNS R05252 (Ta-10W high-strength) / EN 2.4060 — refractory metal (Tm 3017°C, ρ 16.65 g/cc). Excellent corrosion resistance — all acids except HF + fuming H₂SO₄ (matches Pt/glass tier).",
-  "profiles": {
-    "mach": "ta-nb",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w58-tantalumb",
-    "insight": "refractory"
-  },
-  "uns": [
-    "R05200"
-  ],
   "_corrections": {
     "yield_strength": {
       "had_range": true,
-      "val_range": {
-        "min": 165,
-        "typical": 165,
-        "max": 165,
-        "confidence": "handbook",
-        "provenance": "교정: 사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)"
-      },
+      "val_range": null,
       "had_scalar": true,
-      "val_scalar": 165
+      "val_scalar": null
     },
     "uts": {
       "had_range": true,
-      "val_range": {
-        "min": 240,
-        "typical": 240,
-        "max": 240,
-        "confidence": "handbook",
-        "provenance": "교정: 사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)"
-      },
+      "val_range": null,
       "had_scalar": true,
-      "val_scalar": 240
+      "val_scalar": null
     },
     "elongation": {
       "had_range": true,
-      "val_range": {
-        "min": 40,
-        "typical": 40,
-        "max": 40,
-        "confidence": "handbook",
-        "provenance": "교정: 사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)"
-      },
+      "val_range": null,
       "had_scalar": true,
-      "val_scalar": 40
+      "val_scalar": null
     },
     "fatigue_strength": {
       "had_range": true,
       "val_range": {
-        "min": 110,
-        "typical": 110,
-        "max": 110,
+        "min": 140,
+        "max": 220,
+        "typical": 180,
+        "n": 3,
         "confidence": "handbook",
-        "provenance": "교정: 사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)"
+        "provenance": "alloy:tantalum"
       },
       "had_scalar": true,
-      "val_scalar": 110
+      "val_scalar": 180
     },
     "_basis": "pure Ta wrought annealed 기준값 (As-built→wrought; 공백 채움). fatigue=0.46·UTS (endurance 상한 ≤0.63 준수)",
     "_src": "사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)",
     "points": {
-      "from": [
-        [
-          16.65,
-          165,
-          240,
-          40,
-          186,
-          131,
-          57.5
-        ]
-      ]
+      "from": []
     },
     "fields": {
       "name": {
-        "from": "Tantalum (Ta) — Wrought, Annealed"
+        "from": "Tantalum (Ta) — As-built"
       },
       "process": {
-        "from": "Wrought"
+        "from": "LPBF"
       },
       "heat_treatment": {
-        "from": "Annealed"
+        "from": "As-built"
       }
     },
     "_fbasis": "As-built(AM) 공정을 wrought 로 전환 (사용자 지시). 이름·공정·HT 정합 + 기준값.",

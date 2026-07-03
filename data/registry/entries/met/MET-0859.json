@@ -191,26 +191,22 @@
     {
       "label": "MatWeb — Ti Beta-C (Ti-3-8-6-4-4)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti+Beta+C",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM — Beta-C titanium (UNS R58640)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ATI — ATI 38-644 (Beta C, UNS R58640) Beta Titanium Alloy Technical Data Sheet (v1, 2011)",
       "url": "https://www.atimaterials.com/Products/Documents/datasheets/titanium/alloyed/ati_38-644_tds_en_v1.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -299,14 +295,9 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "htg": "h08-beta",
-    "wg": "w25-beta",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R58640"
-  ]
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

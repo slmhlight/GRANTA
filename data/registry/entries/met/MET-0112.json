@@ -191,38 +191,32 @@
     {
       "label": "Arconic — 2024 Aluminum Alloy",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=2024+aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202024-T351",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AA 2024-T351",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 2xxx (Al-Cu)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MMPDS-08 — Aluminum 2024 (T3/T351/T81)",
       "url": "https://www.mmpds.org/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "MatWeb — Aluminum 2024-T3",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=57483b4d782940faaf12964a1821fb61",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -323,16 +317,5 @@
     "Alcoa \"Engineering Properties of Wrought 2024\" Tech Bulletin TPF-3R (1973)",
     "Smithsonian National Air & Space Museum \"Junkers J 1\" exhibit notes (https://airandspace.si.edu)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "al-2xxx",
-    "weld": "none",
-    "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
-    "htg": "h02-aa",
-    "wg": "w15-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A92024"
-  ]
+  "confidence_tier": "medium"
 }

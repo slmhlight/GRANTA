@@ -195,16 +195,14 @@
   },
   "sources": [
     {
-      "label": "API standard",
+      "label": "Datasheet 2",
       "url": "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5l",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: API 5L pipeline",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -278,10 +276,5 @@
     "Hillenbrand H G & Gräf M (2000) \"High-Strength Line Pipe Steels for Polar Service\", Pipeline Technology Conference",
     "Liessem A et al. (2004) \"Production Experience of Heavy Wall X70 Line Pipe\", J Iron Steel Res Int 11(5)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "wg": "w11-api",
-    "insight": "structural-steel"
-  }
+  "confidence_tier": "medium"
 }

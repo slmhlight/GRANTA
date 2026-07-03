@@ -159,14 +159,12 @@
     {
       "label": "Solvay Veradel PES",
       "url": "https://www.syensqo.com/en/product/veradel-pes",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "BASF Ultrason E PESU",
       "url": "https://www.basf.com/global/en/products/plastics/engineering-plastics/ultrason.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -409,8 +407,30 @@
     }
   ],
   "industry_note": "PES / PESU (Polyethersulfone) — amorphous high-temp sulfone polymer (Solvay Veradel, BASF Ultrason E). Tg 225°C, HDT (1.8 MPa) 200°C, max service 180-200°C continuous. σy 75-95 / UTS 80-100 / El 30-80% / E 2.6 GPa / ρ 1.37 g/cc. 광 투과 (transparent amber). 의료 sterilizable (autoclave, 134°C × 10 cycles), 식품 보존 hot-fill, 항공 인테리어 (UL 94 V-0), 반도체 wafer carrier.",
-  "profiles": {
-    "mach": "pol-amorphous",
-    "insight": "pol-highperf"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Solvay Veradel PES",
+          "url": "https://www.syensqo.com/en/product/veradel-pes",
+          "verified": true
+        },
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"PES\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PES",
+          "verified": false
+        },
+        {
+          "label": "BASF Ultrason E PESU",
+          "url": "https://www.basf.com/global/en/products/plastics/engineering-plastics/ultrason.html",
+          "verified": true
+        }
+      ]
+    }
   }
 }

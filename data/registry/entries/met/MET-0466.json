@@ -188,26 +188,22 @@
     {
       "label": "ASTM B94 — AM60B magnesium die-casting alloy",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Mg alloys",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AZoM — Magnesium AM60B Cast Alloy (M10602)",
       "url": "https://www.azom.com/article.aspx?ArticleID=9237",
-      "verified": true,
-      "authority": "aggregator"
+      "verified": true
     }
   ],
   "points": [
@@ -295,15 +291,5 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "magnesium",
-    "weld": "none",
-    "htg": "h09-azd",
-    "wg": "w47-az91d",
-    "insight": "magnesium"
-  },
-  "uns": [
-    "M10600"
-  ]
+  "confidence_tier": "high"
 }

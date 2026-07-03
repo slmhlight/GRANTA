@@ -190,26 +190,22 @@
     {
       "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
       "url": "https://www.aluminum.org/standards",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "MatWeb — Aluminum 2618 (high-temp)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+2618",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM — AA 2618 high-temperature aluminium (T61)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: AA 2xxx Al-Cu",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -292,14 +288,5 @@
   "svhc_concerns": [
     "Ni 1.2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-2xxx",
-    "weld": "none",
-    "htg": "h02-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A92618"
-  ]
+  "confidence_tier": "high"
 }

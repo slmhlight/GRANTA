@@ -191,22 +191,19 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=D6AC",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "Battelle / MMPDS",
+      "label": "Datasheet 2",
       "url": "https://www.batelle.org/mmpds",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASTM A553 9% Ni LNG",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -274,10 +271,5 @@
   "total_cost_estimate": 6.97,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

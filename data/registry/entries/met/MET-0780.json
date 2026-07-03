@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 242,
-      "max": 242,
-      "typical": 242,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 293,
+      "typical": 293,
+      "max": 293,
+      "confidence": "handbook",
+      "provenance": "교정: Ansys Granta MI — Stainless steel martensitic AISI 410 annealed (사용자 제공 R226m) · ASTM A276 410 annealed (YS≥205/UTS≥450)"
     },
     "uts": {
-      "min": 365.2,
-      "max": 365.2,
-      "typical": 365.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 520,
+      "typical": 520,
+      "max": 520,
+      "confidence": "handbook",
+      "provenance": "교정: Ansys Granta MI — Stainless steel martensitic AISI 410 annealed (사용자 제공 R226m) · ASTM A276 410 annealed (YS≥205/UTS≥450)"
     },
     "elongation": {
-      "min": 18.6,
-      "max": 18.6,
-      "typical": 18.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 25,
+      "typical": 25,
+      "max": 25,
+      "confidence": "handbook",
+      "provenance": "교정: Ansys Granta MI — Stainless steel martensitic AISI 410 annealed (사용자 제공 R226m) · ASTM A276 410 annealed (YS≥205/UTS≥450)"
     },
     "modulus": {
       "min": 200,
@@ -190,36 +190,32 @@
     {
       "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
       "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 410 martensitic stainless",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — 410 Stainless Steel Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=5fc1ec38b39e405da76e95d20f846ef0",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
     [
       7.75,
-      242,
-      365.2,
-      18.6,
+      293,
+      520,
+      25,
       200,
-      164.56,
+      164.6,
       24.8
     ]
   ],
@@ -245,9 +241,9 @@
   "fracture_toughness": 64,
   "fatigue_strength": 171,
   "density": 7.75,
-  "yield_strength": 242,
-  "uts": 365.2,
-  "elongation": 18.6,
+  "yield_strength": 293,
+  "uts": 520,
+  "elongation": 25,
   "modulus": 200,
   "hardness": 164.6,
   "thermal_conductivity": 24.8,
@@ -315,14 +311,86 @@
   ],
   "confidence_tier": "high",
   "industry_note": "UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — martensitic stainless (Cr 11.5-13.5, C 0.08-0.15). 200°C T: σy 1000 / UTS 1350 / HRC 41. Tmax 600°C (over-tempering 위쪽). Cutlery, steam turbine blade, valve stem, oil/gas tubing.",
-  "profiles": {
-    "mach": "ss-ferritic",
-    "weld": "schaeffler",
-    "htc": "soft",
-    "wg": "w06-aisi",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S41000"
-  ]
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
+          "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 410\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20410",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol.1 — AISI 410 martensitic stainless",
+          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — 410 Stainless Steel Annealed",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=5fc1ec38b39e405da76e95d20f846ef0",
+          "verified": false
+        }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 242,
+        "max": 242,
+        "typical": 242,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 242
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 365.2,
+        "max": 365.2,
+        "typical": 365.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 365.2
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 18.6,
+        "max": 18.6,
+        "typical": 18.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 18.6
+    },
+    "_basis": "AISI 410 annealed — DB 242/365 는 UTS 가 A276/A240 min(450) 미달하는 generic 합성 오염 (430 사례와 동형). Granta 276~310/483~600·El 20~35 로 교정 (별도 SS410 R_0331_0 은 정합)",
+    "_src": "Ansys Granta MI — Stainless steel martensitic AISI 410 annealed (사용자 제공 R226m) · ASTM A276 410 annealed (YS≥205/UTS≥450)",
+    "points": {
+      "from": [
+        [
+          7.75,
+          242,
+          365.2,
+          18.6,
+          200,
+          164.56,
+          24.8
+        ]
+      ]
+    }
+  }
 }

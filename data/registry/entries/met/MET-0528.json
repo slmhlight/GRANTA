@@ -199,26 +199,22 @@
     {
       "label": "Haynes International — Haynes 282 Alloy",
       "url": "https://haynesintl.com/en/alloys/alloy/haynes-282-alloy",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Nikon SLM Haynes 282 MDS 2025-05.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/mds5147.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "EOS NickelAlloy HAYNES 282 MDS",
       "url": "https://www.eos.info/var/assets/05-datasheet-images/Assets_MDS_Metal/EOS_NickelAlloy_HAYNES282/Material_DataSheet_EOS_NickelAlloy_Haynes282_en.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AMS 5951 — Haynes 282 bar/forging STA",
       "url": "https://www.sae.org/standards/content/ams5951/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -416,16 +412,5 @@
     "Co 12% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS N07208 / Haynes 282 — modern γ' precipitation-strengthened wrought Ni superalloy (Ni bal, Cr 19-20, Co 10, Mo 8.5, Al 1.5, Ti 2.1, Fe ≤1.5 max, B 0.005, C 0.06). Better creep + weldability than Waspaloy / R-41 / 263 (lower γ' vol fraction → no strain-age cracking). Tmax 1149°C. 가장 advanced wrought Ni superalloy (2005 개발) — supercritical CO2 power cycle (Allam cycle), 항공 LPT casing, 가스 터빈 transition piece. AM LPBF: σy 623-915 (as-built/aged).",
-  "profiles": {
-    "mach": "ni-super-solidsol",
-    "weld": "none",
-    "htc": "as-built",
-    "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
-    "wg": "w35-haynes",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N07208"
-  ]
+  "industry_note": "UNS N07208 / Haynes 282 — modern γ' precipitation-strengthened wrought Ni superalloy (Ni bal, Cr 19-20, Co 10, Mo 8.5, Al 1.5, Ti 2.1, Fe ≤1.5 max, B 0.005, C 0.06). Better creep + weldability than Waspaloy / R-41 / 263 (lower γ' vol fraction → no strain-age cracking). Tmax 1149°C. 가장 advanced wrought Ni superalloy (2005 개발) — supercritical CO2 power cycle (Allam cycle), 항공 LPT casing, 가스 터빈 transition piece. AM LPBF: σy 623-915 (as-built/aged)."
 }

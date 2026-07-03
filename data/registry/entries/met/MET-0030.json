@@ -192,38 +192,32 @@
     {
       "label": "MatWeb — AISI 4340 / DIN 1.6582",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+4340",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=SNCM439",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%204340",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 4340 high-strength Ni-Cr-Mo",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MMPDS-08 — AISI 4340 (200/260 ksi UTS)",
       "url": "https://www.mmpds.org/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "AMS 6415 — 4340 bar/forging",
       "url": "https://www.sae.org/standards/content/ams6415v/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -332,16 +326,5 @@
     "Krauss G (2015) Steels: Processing, Structure, and Performance 2nd ed., ASM",
     "AMS 6415 (SAE) \"Steel, Bars, Forgings, and Tubing 0.80Cr-1.8Ni-0.25Mo (0.38-0.43C)\""
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "nicrmo",
-    "weld": "ce",
-    "htc": "soft",
-    "htg": "h01-aisi",
-    "wg": "w03-aisi",
-    "insight": "carbon-alloy-steel"
-  },
-  "uns": [
-    "G43400"
-  ]
+  "confidence_tier": "medium"
 }

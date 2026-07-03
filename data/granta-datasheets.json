@@ -397,6 +397,219 @@
     }
    ],
    "industry_note": "Ansys Granta MI 검증 datasheet (Nickel-copper alloy, MONEL 400, hard (spring temper), UNS N04400). Granta 추정치(*): hv — 참고 신뢰도."
+  },
+  {
+   "name": "AISI 304LN — Annealed (Wrought)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "process": "Wrought",
+   "heat_treatment": "Annealed",
+   "related": [
+    "AISI 304"
+   ],
+   "aliases": [
+    "S30453",
+    "UNS S30453"
+   ],
+   "composition": {
+    "Fe": "balance",
+    "C": "0~0.03",
+    "Cr": "18~20",
+    "Mn": "0~2",
+    "N": "0.1~0.16",
+    "Ni": "8~12",
+    "P": "0~0.045",
+    "S": "0~0.03",
+    "Si": "0~0.75"
+   },
+   "points": [
+    [
+     7.9,
+     280,
+     650,
+     47.5,
+     200,
+     206,
+     15
+    ]
+   ],
+   "sources": [
+    {
+     "label": "Ansys Granta MI — Stainless steel, austenitic, AISI 304LN, annealed (Materials Data for Simulation datasheet, 사용자 제공 R226m)",
+     "verified": true
+    }
+   ],
+   "industry_note": "N 첨가 저탄소 (강도↑, 예민화 저항). Ansys Granta MI 검증 datasheet (Stainless steel, austenitic, AISI 304LN, annealed, UNS S30453). Granta 추정치(*): hv."
+  },
+  {
+   "name": "AISI 316N — Annealed (Wrought)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "process": "Wrought",
+   "heat_treatment": "Annealed",
+   "related": [
+    "AISI 316"
+   ],
+   "aliases": [
+    "S31651",
+    "UNS S31651"
+   ],
+   "composition": {
+    "Fe": "61.7~71.9",
+    "C": "0~0.08",
+    "Cr": "16~18",
+    "Mn": "0~2",
+    "Mo": "2~3",
+    "N": "0.1~0.16",
+    "Ni": "10~14",
+    "P": "0~0.045",
+    "S": "0~0.03",
+    "Si": "0~1"
+   },
+   "points": [
+    [
+     8,
+     260,
+     596,
+     41.5,
+     198,
+     208,
+     15.6
+    ]
+   ],
+   "sources": [
+    {
+     "label": "Ansys Granta MI — Stainless steel, austenitic, AISI 316N, annealed (Materials Data for Simulation datasheet, 사용자 제공 R226m)",
+     "verified": true
+    }
+   ],
+   "industry_note": "N 첨가 (고용강화 σy↑). Ansys Granta MI 검증 datasheet (Stainless steel, austenitic, AISI 316N, annealed, UNS S31651). Granta 추정치(*): hv."
+  },
+  {
+   "name": "316FR — Annealed (Wrought, fire-resistant)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "process": "Wrought",
+   "heat_treatment": "Annealed",
+   "related": [
+    "AISI 316"
+   ],
+   "aliases": [
+    "316FR"
+   ],
+   "composition": {
+    "Fe": "67.6~69.4",
+    "B": "0.0003",
+    "C": "0.008~0.012",
+    "Cr": "16.5~17.1",
+    "Mn": "0.83~0.95",
+    "Mo": "2.07~2.3",
+    "N": "0.068~0.09",
+    "Ni": "10.6~11.4",
+    "P": "0.024~0.027",
+    "S": "0.003~0.005",
+    "Si": "0.47~0.54"
+   },
+   "points": [
+    [
+     8,
+     284,
+     608,
+     40,
+     196,
+     205,
+     15
+    ]
+   ],
+   "sources": [
+    {
+     "label": "Ansys Granta MI — Stainless steel, austenitic, 316FR, annealed (Materials Data for Simulation datasheet, 사용자 제공 R226m)",
+     "verified": true
+    }
+   ],
+   "industry_note": "내화 건축용 (600°C 고온강도 보증 grade, JIS 계열). Ansys Granta MI 검증 datasheet (Stainless steel, austenitic, 316FR, annealed)."
+  },
+  {
+   "name": "AISI 304 — 1/4 Hard (cold-worked)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "process": "Wrought",
+   "heat_treatment": "Cold-worked (1/4 Hard)",
+   "related": [
+    "AISI 304"
+   ],
+   "aliases": [
+    "304 1/4H"
+   ],
+   "composition": {
+    "Fe": "balance",
+    "C": "0~0.08",
+    "Cr": "18~20",
+    "Mn": "0~2",
+    "Ni": "8~11",
+    "P": "0~0.045",
+    "S": "0~0.03",
+    "Si": "0~1"
+   },
+   "points": [
+    [
+     8,
+     603,
+     945,
+     20,
+     197,
+     310,
+     15.5
+    ]
+   ],
+   "sources": [
+    {
+     "label": "Ansys Granta MI — Stainless steel, austenitic, AISI 304, 1/4 hard (Materials Data for Simulation datasheet, 사용자 제공 R226m)",
+     "verified": true
+    }
+   ],
+   "industry_note": "냉간가공 1/4 경질 (스프링·스트랩). Ansys Granta MI 검증 datasheet (Stainless steel, austenitic, AISI 304, 1/4 hard, UNS S30400). Granta 추정치(*): el/hv."
+  },
+  {
+   "name": "AISI 304 — 1/2 Hard (cold-worked)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "process": "Wrought",
+   "heat_treatment": "Cold-worked (1/2 Hard)",
+   "related": [
+    "AISI 304"
+   ],
+   "aliases": [
+    "304 1/2H"
+   ],
+   "composition": {
+    "Fe": "balance",
+    "C": "0~0.08",
+    "Cr": "18~20",
+    "Mn": "0~2",
+    "Ni": "8~11",
+    "P": "0~0.045",
+    "S": "0~0.03",
+    "Si": "0~1"
+   },
+   "points": [
+    [
+     8,
+     745,
+     1140,
+     12.5,
+     197,
+     460,
+     15.5
+    ]
+   ],
+   "sources": [
+    {
+     "label": "Ansys Granta MI — Stainless steel, austenitic, AISI 304, 1/2 hard (Materials Data for Simulation datasheet, 사용자 제공 R226m)",
+     "verified": true
+    }
+   ],
+   "industry_note": "냉간가공 1/2 경질. Ansys Granta MI 검증 datasheet (Stainless steel, austenitic, AISI 304, 1/2 hard, UNS S30400). Granta 추정치(*): el/hv."
   }
  ]
 }

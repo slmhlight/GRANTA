@@ -177,22 +177,19 @@
   },
   "sources": [
     {
-      "label": "POSCO datasheet",
+      "label": "Datasheet 1",
       "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000005.jsp",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -253,9 +250,5 @@
   "delivered_price_per_kg": 1.36,
   "total_cost_estimate": 1.22,
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

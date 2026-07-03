@@ -190,34 +190,29 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=31CrMoV9",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "SteelNumber — 31CrMoV9 / 1.8519 (EN 10085 두께별 Rm/Rp0.2/신율/Charpy)",
       "url": "https://www.steelnumber.com/en/steel_composition_eu.php?name_id=662",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "MakeItFrom — EN 1.8519 (31CrMoV9) Nitriding Steel (Q&T 대표 물성)",
       "url": "https://www.makeitfrom.com/material-properties/EN-1.8519-31CrMoV9-Nitriding-Steel",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -290,11 +285,5 @@
   "total_cost_estimate": 3.83,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "crmo",
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

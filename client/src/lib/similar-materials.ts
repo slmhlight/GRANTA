@@ -7,11 +7,13 @@
  *   1. 후보 풀: 같은 category (Metal/Polymer/Ceramic/Composite) 만
  *   2. Distance metric: 정규화된 log-space Euclidean distance across 8 핵심 property
  *      (yield, uts, modulus, density, hardness, max_service_temp, fatigue, price)
- *   3. Boost: 같은 family 멤버 (subcategory · families[]) → distance ×0.5
- *   4. Filter: distance < 1.5 + popularity ≥ 3.0 + 자기 자신 제외
- *   5. Sort: popularity DESC → distance ASC → top 5
+ *   3. Boost: 같은 family 멤버 (subcategory · families[]) → distance ×0.55
+ *   4. Filter: distance < 1.5 + 자기 자신 제외 (R226m: popularity 게이트 폐기)
+ *   5. Sort: cross-ref pin → **distance ASC** (R226m: popularity 정렬 폐기 — 물성 가까운 순) → top 10
  *
  * Output: { material, distance, sharedFamily, propertyDiffs }
+ * R226m — 인기도(popularity) 대신 순수 물성 거리로 순위. 다른 용도(인사이트) 그룹이라도
+ * 물성이 가까우면 상위에 노출 → 대체 후보 탐색이 본질. 그룹 구분은 UI 배지로 명시.
  */
 import type { Material } from './materials';
 
@@ -172,14 +174,14 @@ function diffsFor(a: Material, b: Material): Array<{ prop: string; label: string
  * Find top-N similar materials.
  * @param target - 입력 material
  * @param all - 전체 material pool
- * @param opts - { topN: 5, maxDistance: 1.5, minPopularity: 3.0, sameCategoryOnly: true }
+ * @param opts - { topN: 10, maxDistance: 1.5, minPopularity: 0, sameCategoryOnly: true }
  */
 export function findSimilar(
   target: Material,
   all: Material[],
   opts: { topN?: number; maxDistance?: number; minPopularity?: number; sameCategoryOnly?: boolean } = {},
 ): SimilarMaterial[] {
-  const { topN = 5, maxDistance = 1.5, minPopularity = 3.0, sameCategoryOnly = true } = opts;
+  const { topN = 10, maxDistance = 1.5, minPopularity = 0, sameCategoryOnly = true } = opts;
   const pool = sameCategoryOnly ? all.filter(m => m.category === target.category) : all;
   const norms = computeNorms(pool);
 
@@ -211,13 +213,14 @@ export function findSimilar(
     candidates.push({ material: m, distance: crossRef ? -1 : d, sharedFamily: shares, crossRef, diffs: diffsFor(target, m) });
   }
 
-  // Sort: cross-ref pinned first → popularity DESC → distance ASC
+  // Sort: cross-ref pinned first → distance ASC (R226m — 물성 가까운 순; popularity 정렬 폐기)
   candidates.sort((a, b) => {
     if (!!a.crossRef !== !!b.crossRef) return a.crossRef ? -1 : 1;
+    if (Math.abs(a.distance - b.distance) > 1e-6) return a.distance - b.distance;
+    // 동거리 tiebreak 만 popularity (표시 안정성)
     const pa = typeof a.material.popularity === 'number' ? a.material.popularity : 0;
     const pb = typeof b.material.popularity === 'number' ? b.material.popularity : 0;
-    if (Math.abs(pb - pa) > 0.05) return pb - pa;
-    return a.distance - b.distance;
+    return pb - pa;
   });
 
   // De-duplicate by base-name (avoid 5× variant of same alloy)

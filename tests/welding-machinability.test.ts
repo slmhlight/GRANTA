@@ -135,9 +135,13 @@ describe('조건(variation)별 노트 + 가이드 + 인사이트 (R226j)', () =>
     const ctx = decisionContext(cur, cand);
     expect(ctx.whenLine).toContain('Inconel 625');       // 625 전용 시나리오 (650-980°C/부식)
     expect(ctx.machChip).toBe('절삭성 15%→12%');
-    // 다른 그룹: 계열 안내
+    expect(ctx.crossGroup).toBe(false);                  // 같은 ni-superalloy 그룹
+    // 다른 그룹(R226m): crossGroup 플래그 + 후보 그룹명 배지 + 주 용도 안내
     const ti = mk({ name: 'Ti-6Al-4V', profiles: { insight: 'titanium', mach: 'ti-alloy' } });
-    expect(decisionContext(cur, ti).whenLine).toContain('다른 계열');
+    const tctx = decisionContext(cur, ti);
+    expect(tctx.crossGroup).toBe(true);
+    expect(tctx.candGroupTitle).toContain('티타늄');
+    expect(tctx.whenLine).toContain('주 용도');
   });
   it('출처 — 카테고리별 분리 (폴리머에 금속 표준 없음)', () => {
     const polySrc = machinabilitySources(mk({ category: 'Polymer' })).join(' ');

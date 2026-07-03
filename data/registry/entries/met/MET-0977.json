@@ -192,32 +192,27 @@
     {
       "label": "ASM Handbook Vol.1 — Tool Steels (hot-work H-series)",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20H21",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: Bohler-Uddeholm H13",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AZoM — H21 Tool Steel (Tungsten Hot-Work) (조성+40~55 HRC+규격)",
       "url": "https://www.azom.com/article.aspx?ArticleID=6199",
-      "verified": true,
-      "authority": "aggregator"
+      "verified": true
     }
   ],
   "points": [
@@ -282,11 +277,33 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "tool-steel",
-    "weld": "ce",
-    "htc": "qt",
-    "ht": "Tool steel H13 (AISI H13 / DIN 1.2344 / JIS SKD61)",
-    "insight": "tool-steel"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 3",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20H21",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Bohler-Uddeholm H13",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AZoM — H21 Tool Steel (Tungsten Hot-Work) (조성+40~55 HRC+규격)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=6199",
+          "verified": true
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    }
   }
 }

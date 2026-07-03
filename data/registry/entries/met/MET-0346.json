@@ -190,32 +190,27 @@
     {
       "label": "Kennametal/MatWeb — Stellite 21",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+21",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Kennametal Stellite — Stellite 21 (UNS R30021)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Kennametal Stellite 21 reference",
       "url": "https://www.stellite.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASTM F75 — Cast Co-Cr-Mo (Stellite 21 = cast variant)",
       "url": "https://store.astm.org/f0075-18.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -346,15 +341,5 @@
     "Davis J R (ed., 2003) Handbook of Materials for Medical Devices, ASM International",
     "Crook P & Caudill R L (1986) \"Wear Resistance of Cobalt-Base Alloys\", Wear 111(2)"
   ],
-  "confidence_tier": "medium-low",
-  "profiles": {
-    "mach": "cobalt",
-    "weld": "none",
-    "ht": "CoCrMo biomedical (ASTM F75 cast / F1537 wrought)",
-    "wg": "w44-stellite",
-    "insight": "cobalt"
-  },
-  "uns": [
-    "R30021"
-  ]
+  "confidence_tier": "medium-low"
 }

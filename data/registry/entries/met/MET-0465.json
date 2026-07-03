@@ -193,32 +193,29 @@
   },
   "sources": [
     {
-      "label": "ASTM A553/A553M-17 Type III (added 2009) — 7% Ni TMCP grade",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ASTM A553/A553M-17 Type III (added 2009) — 7% Ni TMCP grade",
+      "verified": true
     },
     {
-      "label": "Energy Steel",
+      "label": "Datasheet 1",
       "url": "https://energy-steel.com/product/astm-a553-a553m-7ni-8ni-9ni-steel-plates-for-pressure-vessel/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "Nippon Steel 7Ni TMCP plate catalog",
-      "verified": true,
-      "authority": "other"
+      "label": "Datasheet 1",
+      "url": "Nippon Steel 7Ni TMCP plate catalog",
+      "verified": true
     },
     {
       "label": "ASTM A553 / A553M — 8% & 9% Ni Cryogenic Pressure Vessel",
       "url": "https://store.astm.org/a0553_a0553m-22.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "Nippon Steel — 9% Ni LNG tank plate reference",
       "url": "https://www.nipponsteel.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -289,11 +286,5 @@
   "svhc_concerns": [
     "Ni 7.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "ht": "ASTM A553 9% Ni cryogenic steel",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "high"
 }

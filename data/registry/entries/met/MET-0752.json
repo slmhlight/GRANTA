@@ -36,16 +36,14 @@
       "max": 340,
       "typical": 310,
       "n": 3,
-      "confidence": "measured",
-      "basis": "min_spec"
+      "confidence": "measured"
     },
     "uts": {
       "min": 655,
       "max": 720,
       "typical": 690,
       "n": 3,
-      "confidence": "measured",
-      "basis": "min_spec"
+      "confidence": "measured"
     },
     "elongation": {
       "min": 35,
@@ -192,26 +190,22 @@
     {
       "label": "ATI — AL-6XN Alloy",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AL-6XN",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ATI — AL-6XN super-austenitic (UNS N08367)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AL6XN (UNS N08367) — Calico Metal Alloys (ASME SB-688 최소값)",
       "url": "https://www.calicometal.com/materials/al6xn.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -302,13 +296,5 @@
   "svhc_concerns": [
     "Ni 25.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "insight": "stainless"
-  },
-  "uns": [
-    "N08367"
-  ]
+  "confidence_tier": "high"
 }

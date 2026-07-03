@@ -101,22 +101,19 @@
   ],
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=B4C%20aluminum%20composite",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Allvac / Coalition Resources B4C-Al ceramic armor",
       "url": "https://www.aerospaceandmilitaryusa.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "MIL-DTL-46032E — Boron Carbide Armor Insert",
       "url": "https://www.dla.mil/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -175,5 +172,21 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "low"
+  "confidence_tier": "low",
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          2.55,
+          250,
+          340,
+          2,
+          115,
+          320,
+          90
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

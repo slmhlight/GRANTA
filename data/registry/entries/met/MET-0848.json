@@ -36,8 +36,7 @@
       "max": 250,
       "typical": 250,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "uts": {
       "min": 550,
@@ -190,37 +189,32 @@
     {
       "label": "AISC / MakeItFrom — ASTM A36 Structural Carbon Steel",
       "url": "https://www.makeitfrom.com/material-properties/ASTM-A36-SS400-S275-Structural-Carbon-Steel",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
-      "label": "ANSYS Granta — Structural steel, ASTM A36 (UNS K02600, as rolled)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 3",
+      "url": "ANSYS Granta — Structural steel, ASTM A36 (UNS K02600, as rolled)",
+      "verified": true
     },
     {
-      "label": "AISC steel construction",
+      "label": "Datasheet 3",
       "url": "https://www.aisc.org/aisc/publications/steel-construction-manual/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "AISC Steel Construction Manual — ASTM A36",
       "url": "https://www.aisc.org/publications/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "ASTM A36 / A36M — Structural Steel",
       "url": "https://store.astm.org/a0036_a0036m-19.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "MatWeb — ASTM A36 Steel",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=d1844977c5c8440cb9a3a967f8909c3a",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -301,71 +295,13 @@
     "Bjorhovde R (2004) \"Development and Use of High Performance Steel\", J Constr Steel Res 60"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "insight": "structural-steel"
-  },
-  "elevated_temp": [
-    {
-      "temp": 25,
-      "E": 212.6,
-      "ys": 249
-    },
-    {
-      "temp": 100,
-      "E": 209.5,
-      "ys": 221
-    },
-    {
-      "temp": 200,
-      "E": 204,
-      "ys": 200
-    },
-    {
-      "temp": 300,
-      "E": 196.6,
-      "ys": 185
-    },
-    {
-      "temp": 400,
-      "E": 187.6,
-      "ys": 170
-    },
-    {
-      "temp": 500,
-      "E": 175.6,
-      "ys": 146
-    },
-    {
-      "temp": 600,
-      "E": 161.5,
-      "ys": 109
-    },
-    {
-      "temp": 700,
-      "E": 145.7,
-      "ys": 56
-    },
-    {
-      "temp": 800,
-      "E": 129.8
-    },
-    {
-      "temp": 900,
-      "E": 123.2
-    },
-    {
-      "temp": 1000,
-      "E": 116.4
-    },
-    {
-      "temp": 1100,
-      "E": 109.7
-    },
-    {
-      "temp": 1200,
-      "E": 102.9
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "ASTM A36",
+        "EN S275JR",
+        "St37-2"
+      ]
     }
-  ],
-  "elevated_temp_src": "Ansys Granta MI — Structural steel, ASTM A36 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+  }
 }

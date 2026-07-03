@@ -190,26 +190,22 @@
     {
       "label": "ASM — 12L14 free-machining steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AZoM — AISI 12L14 Carbon Steel (UNS G12144) 조성+냉간인발 기계적 물성",
       "url": "https://www.azom.com/article.aspx?ArticleID=6604",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -301,12 +297,14 @@
     "RoHS 초과: Pb 0.35% > 0.1%"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "fm-steel",
-    "weld": "ce",
-    "insight": "carbon-alloy-steel"
-  },
-  "uns": [
-    "G12144"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS G12144",
+        "DIN 1.0718",
+        "11SMnPb30",
+        "JIS SUM24L"
+      ]
+    }
+  }
 }

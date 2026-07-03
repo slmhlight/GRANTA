@@ -192,38 +192,32 @@
     {
       "label": "Outokumpu — Stainless Steel 316L (1.4404)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "AK Steel (Cleveland-Cliffs) datasheet",
+      "label": "Datasheet 4",
       "url": "https://www.aksteel.com/our-products/stainless/316-316L",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 316/316L",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — Stainless Steel Type 316L (ELC)",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — 316L Stainless Steel Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=1336be6d0c594b55afb5ca8bf1f3e042",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASTM F138 — Stainless Steel for Surgical Implants",
       "url": "https://store.astm.org/f0138-19.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -353,16 +347,5 @@
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
     "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "htc": "soft",
-    "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
-    "wg": "w05-aisi",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S31603"
-  ]
+  "confidence_tier": "high"
 }

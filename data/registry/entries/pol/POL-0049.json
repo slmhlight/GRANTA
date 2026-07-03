@@ -157,14 +157,12 @@
     {
       "label": "Material datasheets — polyhydroxyalkanoate (PHA)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "colorFabb — allPHA (100% PHA) 3D printing filament 데이터시트 (v1.0)",
       "url": "https://3d.nice-cdn.com/upload/file/TDS_E_ColorFabb_allPHA.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -227,34 +225,30 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "pol-soft",
-    "insight": "pol-commodity"
-  },
   "_corrections": {
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 28,
-        "typical": 28,
-        "max": 28,
-        "confidence": "handbook",
-        "provenance": "교정: ScienceDirect PHB overview (tensile 30-35)"
+        "min": 30,
+        "max": 35,
+        "typical": 35,
+        "n": 2,
+        "confidence": "handbook"
       },
       "had_scalar": true,
-      "val_scalar": 28
+      "val_scalar": 35
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 35,
-        "typical": 35,
-        "max": 35,
-        "confidence": "handbook",
-        "provenance": "교정: ScienceDirect PHB overview (tensile 30-35)"
+        "min": 27.9,
+        "max": 32.1,
+        "typical": 30,
+        "n": 1,
+        "confidence": "handbook"
       },
       "had_scalar": true,
-      "val_scalar": 35
+      "val_scalar": 40
     },
     "_basis": "PHB σy~28/UTS~35 — σy35>UTS30 물리 불가능 교정",
     "_src": "ScienceDirect PHB overview (tensile 30-35)",
@@ -262,11 +256,20 @@
       "from": [
         [
           1.25,
-          28,
           35,
+          40,
           5,
-          2.5,
-          null,
+          3.5,
+          0,
+          0.2
+        ],
+        [
+          1.25,
+          30,
+          36,
+          3,
+          3.2,
+          0,
           0.2
         ]
       ]

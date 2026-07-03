@@ -188,26 +188,22 @@
     {
       "label": "ASTM B169 — aluminium bronze C61400",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: AA 6xxx Al-Mg-Si",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Copper Development Association — Alloy C61400 (Aluminum Bronze D)",
       "url": "https://alloys.copper.org/alloy/C61400",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -290,14 +286,5 @@
     "Meigh H J (2000) Cast and Wrought Aluminium Bronzes: Properties, Processes and Structure, IOM Communications",
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "al-6xxx",
-    "weld": "none",
-    "htg": "h02-aa",
-    "insight": "copper"
-  },
-  "uns": [
-    "C61400"
-  ]
+  "confidence_tier": "medium"
 }

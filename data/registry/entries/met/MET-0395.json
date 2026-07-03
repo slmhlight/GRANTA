@@ -106,34 +106,29 @@
   },
   "sources": [
     {
-      "label": "Poongsan datasheet",
+      "label": "Datasheet 4",
       "url": "https://www.poongsan.co.kr/eng/business/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: Copper.org Brass",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Copper Development Association — Red Brass family",
       "url": "https://www.copper.org/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASTM B36 — Brass Plate, Sheet, Strip, Rolled Bar",
       "url": "https://store.astm.org/b0036_b0036m-18.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -198,11 +193,11 @@
     "Copper Development Association CDA Pub 144"
   ],
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "brass",
-    "weld": "none",
-    "htc": "cold",
-    "wg": "w53-c2",
-    "insight": "copper"
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "Red Brass 85Cu-15Zn"
+      ]
+    }
   }
 }

@@ -159,8 +159,7 @@
     {
       "label": "Celanese Fortron PPS",
       "url": "https://www.celanese.com/products/Fortron-PPS",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -369,8 +368,25 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "pol-filled",
-    "insight": "pol-highperf"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Celanese Fortron PPS",
+          "url": "https://www.celanese.com/products/Fortron-PPS",
+          "verified": true
+        },
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"PPS GF40\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PPS%20GF40",
+          "verified": false
+        }
+      ]
+    }
   }
 }

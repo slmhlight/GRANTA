@@ -189,34 +189,29 @@
   },
   "sources": [
     {
-      "label": "Korea steel datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.kssa.co.kr/standard/KS_D_3751",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — Carbon and Low-Alloy Steels: 10xx series",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM A29 / A29M — Carbon Steel Bars 1030-1080",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -290,11 +285,5 @@
   "total_cost_estimate": 7.75,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "tool-steel",
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "tool-steel"
-  }
+  "confidence_tier": "high"
 }

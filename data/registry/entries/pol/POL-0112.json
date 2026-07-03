@@ -158,20 +158,17 @@
     {
       "label": "Syensqo (Solvay) — Radel PPSU polyphenylsulfone (official)",
       "url": "https://www.syensqo.com/en/brands/radel-ppsu",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Material datasheets — PPSU (Radel)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AZoM/Goodfellow — Polyphenylsulphone (PPSU) 물성",
       "url": "https://www.azom.com/article.aspx?ArticleID=2260",
-      "verified": true,
-      "authority": "aggregator"
+      "verified": true
     }
   ],
   "points": [
@@ -252,8 +249,20 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "pol-amorphous",
-    "insight": "pol-highperf"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Material datasheets — PPSU (Radel)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AZoM/Goodfellow — Polyphenylsulphone (PPSU) 물성",
+          "url": "https://www.azom.com/article.aspx?ArticleID=2260",
+          "verified": true
+        }
+      ]
+    }
   }
 }

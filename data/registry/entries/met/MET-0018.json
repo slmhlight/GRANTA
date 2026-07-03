@@ -188,21 +188,19 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — High alloy steel, AerMet 100 (UNS K92580, AMS 6532)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 2",
+      "url": "ANSYS Granta — High alloy steel, AerMet 100 (UNS K92580, AMS 6532)",
+      "verified": true
     },
     {
-      "label": "Carpenter Technology datasheet",
+      "label": "Datasheet 2",
       "url": "https://www.carpentertechnology.com/alloy-finder/aermet-100",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: Carpenter AerMet 100 datasheet (AMS 6532)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -274,13 +272,5 @@
     "Co 14% — REACH SVHC 후보 (소비자 접촉 제품 제한)",
     "Ni 12% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "aged",
-    "insight": "carbon-alloy-steel"
-  },
-  "uns": [
-    "K92580"
-  ]
+  "confidence_tier": "high"
 }

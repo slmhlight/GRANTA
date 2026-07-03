@@ -189,32 +189,27 @@
     {
       "label": "ASM — A2 air-hardening tool steel (DIN 1.2363)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Bohler-Uddeholm AISI A2 Cold Work Tool Steel datasheet (full property tables)",
       "url": "https://www.lookpolymers.com/polymer_Bohler-Uddeholm-AISI-A2-Cold-Work-Tool-Steel.php",
-      "verified": true,
-      "authority": "aggregator"
+      "verified": true
     },
     {
       "label": "A2 tool steel technical data (composition, annealed HB, density, E, tempering range)",
       "url": "https://www.hudsontoolsteel.com/technical-data/steelA2",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -325,11 +320,14 @@
     }
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "tool-steel",
-    "weld": "ce",
-    "htc": "qt",
-    "wg": "w10-h1",
-    "insight": "tool-steel"
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "DIN 1.2363",
+        "X100CrMoV5",
+        "JIS SKD12",
+        "AISI A2"
+      ]
+    }
   }
 }

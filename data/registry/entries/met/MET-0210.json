@@ -192,38 +192,32 @@
     {
       "label": "Arconic/MatWeb — 7075 Aluminum Alloy",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=7075+aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA7075",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "Alcoa datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.alcoa.com/products/aluminum/7075-aerospace-alloy",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 7xxx (Al-Zn-Mg-Cu)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Aluminum Association — 7075 Data Sheet",
       "url": "https://www.aluminum.org/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "MatWeb — Aluminum 7075-T6",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=4f19a42be94546b686bbf43f79c51b7d",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -318,16 +312,14 @@
     "Polmear I J (2006) Light Alloys: From Traditional Alloys to Nanocrystals, 4th ed., Butterworth-Heinemann"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-7xxx",
-    "weld": "none",
-    "htc": "soft",
-    "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
-    "htg": "h02-aa",
-    "wg": "w20-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A97075"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A97075",
+        "EN AW-7075",
+        "AlZn5.5MgCu",
+        "DIN 3.4365"
+      ]
+    }
+  }
 }

@@ -188,14 +188,12 @@
     {
       "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
       "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     }
   ],
   "points": [
@@ -262,9 +260,134 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "weld": "none",
-    "htc": "soft",
-    "insight": "copper"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper Development Association (CDA) Standards Handbook — C series Cu alloys",
+          "url": "https://www.copper.org/resources/properties/db/CDAUNSResult.php",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"C28000\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=C28000",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Copper.org Brass",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": []
+    },
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)",
+    "points": {
+      "from": [
+        [
+          8.53,
+          288.3,
+          353.40000000000003,
+          12.45,
+          97,
+          88.35000000000001,
+          121
+        ],
+        [
+          8.53,
+          325.5,
+          399,
+          15.75,
+          97,
+          99.75,
+          121
+        ],
+        [
+          8.53,
+          300.7,
+          368.6,
+          16.05,
+          97,
+          92.15,
+          121
+        ],
+        [
+          8.53,
+          313.1,
+          383.8,
+          12.15,
+          97,
+          95.95,
+          121
+        ],
+        [
+          8.53,
+          316.2,
+          387.6,
+          15.3,
+          97,
+          96.9,
+          121
+        ],
+        [
+          8.53,
+          306.9,
+          376.2,
+          14.85,
+          97,
+          94.05,
+          121
+        ],
+        [
+          8.53,
+          306.9,
+          376.2,
+          14.85,
+          97,
+          94.05,
+          121
+        ],
+        [
+          8.53,
+          297.6,
+          364.8,
+          14.4,
+          97,
+          91.2,
+          121
+        ],
+        [
+          8.53,
+          337.90000000000003,
+          414.2000000000001,
+          16.35,
+          97,
+          103.55,
+          121
+        ],
+        [
+          8.53,
+          316.2,
+          387.6,
+          13.8,
+          97,
+          96.9,
+          121
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

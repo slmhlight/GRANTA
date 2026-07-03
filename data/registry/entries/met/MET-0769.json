@@ -198,25 +198,22 @@
     {
       "label": "Outokumpu — Super Duplex 2507 (1.4410)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "Rolled Alloys",
+      "label": "Datasheet 1",
       "url": "https://www.rolledalloys.com/alloys/duplex-stainless-steels/zeron-100/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "ASTM A 240 / A 276 / A 789 / A 790 Gr F55 / S32760",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ASTM A 240 / A 276 / A 789 / A 790 Gr F55 / S32760",
+      "verified": true
     },
     {
       "label": "Zeron 100, Super Duplex (UNS S32760) — Mega Mex",
       "url": "https://megamex.com/zeron-100/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -296,16 +293,5 @@
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-duplex",
-    "weld": "schaeffler",
-    "htc": "soft",
-    "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
-    "wg": "w08-duplex",
-    "insight": "stainless-highperf"
-  },
-  "uns": [
-    "S32760"
-  ]
+  "confidence_tier": "high"
 }

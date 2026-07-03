@@ -191,20 +191,17 @@
     {
       "label": "ASM Handbook Vol.1 — Stainless Steel Type 304",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — 304 Stainless Steel Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=abc4415b0f8b490387e3c922237098da",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASTM A240 / A276 — Stainless Steel Plate / Bar",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -319,15 +316,72 @@
   ],
   "confidence_tier": "medium",
   "industry_note": "UNS S30400 / SUS304 / 1.4301 — 가장 흔한 18-8 austenitic stainless. max service 870°C intermittent. 425-870°C sensitization 우려 (Cr23C6 입계석출). 식품·의료·건축·반도체 piping 표준. Austenitic → Q+T 불가 . 의도된 variant: Annealed / Aged / SH / Cast.",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "htc": "qt",
-    "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
-    "wg": "w05-aisi",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S30400"
-  ]
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AK Steel/Outokumpu — Stainless Steel 304 (1.4301)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+304+stainless",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 304\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20304",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol.1 — Stainless Steel Type 304",
+          "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — 304 Stainless Steel Annealed",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=abc4415b0f8b490387e3c922237098da",
+          "verified": false
+        },
+        {
+          "label": "ASTM A240 / A276 — Stainless Steel Plate / Bar",
+          "url": "https://store.astm.org/a0240_a0240m-23.html",
+          "verified": false
+        }
+      ]
+    },
+    "points": {
+      "from": [
+        [
+          8,
+          176.3,
+          442.9,
+          32.4,
+          193,
+          186.62,
+          16.3
+        ],
+        [
+          8,
+          233.7,
+          587.0999999999999,
+          43.6,
+          193,
+          247.38,
+          16.3
+        ],
+        [
+          8,
+          221.4,
+          556.2,
+          41.2,
+          193,
+          234.36,
+          16.3
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

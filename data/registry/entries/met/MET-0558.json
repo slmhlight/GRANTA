@@ -212,32 +212,27 @@
     {
       "label": "Special Metals — Inconel Alloy 625",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Nikon SLM IN625 MDS 2024-06.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/02/mds5127.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "3D Systems LaserForm Ni625(A) MDS",
       "url": "https://www.3dsystems.com/sites/default/files/2023-12/3d-systems-laserform-ni625a-mds-letter-us-revb-web.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AMS 5599 — Inconel 625 sheet/strip annealed",
       "url": "https://www.sae.org/standards/content/ams5599/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "ASTM B443 — Ni-Cr-Mo-Cb Plate/Sheet (625)",
       "url": "https://store.astm.org/b0443-19.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -444,15 +439,14 @@
     "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "soft",
-    "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
-    "wg": "w26-inconel",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N06625"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS N06625",
+        "EN 2.4856",
+        "NiCr22Mo9Nb",
+        "Alloy 625"
+      ]
+    }
+  }
 }

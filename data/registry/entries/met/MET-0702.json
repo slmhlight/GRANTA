@@ -190,32 +190,27 @@
     {
       "label": "Outokumpu — 654 SMO super-austenitic (UNS S32654)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Outokumpu 654 SMO technical datasheet",
       "url": "https://www.outokumpu.com/en/products/654smo",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B649 — UNS S32654 plate/sheet/strip",
       "url": "https://store.astm.org/b0649-21.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -301,13 +296,5 @@
   "svhc_concerns": [
     "Ni 23% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S32654"
-  ]
+  "confidence_tier": "medium"
 }

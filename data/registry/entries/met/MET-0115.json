@@ -190,14 +190,12 @@
     {
       "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys (properties & selection)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
       "url": "https://www.aluminum.org/standards",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -262,11 +260,44 @@
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "fatigue_estimated": true,
-  "profiles": {
-    "mach": "al-2xxx",
-    "weld": "none",
-    "htc": "soft",
-    "htg": "h02-aa",
-    "insight": "aluminum"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 2xxx (Al-Cu) + MMPDS-08 Sec.3.7",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2 (Nonferrous) · Aluminum Association designations",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 2025\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202025",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 2xxx Al-Cu",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "points": {
+      "from": [
+        [
+          2.78,
+          291.40000000000003,
+          423,
+          18.8,
+          73,
+          108.1,
+          121
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

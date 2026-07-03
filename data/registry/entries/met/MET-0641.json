@@ -188,32 +188,27 @@
     {
       "label": "MatWeb — Pure Niobium / Nb-Hf-Ti C-103",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Niobium+C-103",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ATI / Plansee C-103 reference",
       "url": "https://en.wikipedia.org/wiki/Niobium",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ATI Niobium C-103 datasheet",
       "url": "https://www.atimaterials.com/Products/Pages/ati-c103.aspx",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B654 — Niobium Alloy Plate/Sheet/Strip/Foil (C-103)",
       "url": "https://store.astm.org/b0654-22.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -283,14 +278,38 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "refractory",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w61-niobiumb",
-    "insight": "refractory"
-  },
-  "uns": [
-    "R04295"
-  ]
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.85,
+          240,
+          360,
+          25,
+          84,
+          90,
+          41
+        ],
+        [
+          8.85,
+          205,
+          320,
+          20,
+          84,
+          82,
+          41
+        ],
+        [
+          8.85,
+          280,
+          400,
+          32,
+          84,
+          100,
+          41
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

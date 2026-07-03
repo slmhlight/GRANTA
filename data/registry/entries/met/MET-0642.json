@@ -105,44 +105,37 @@
     {
       "label": "ASM — pure chromium",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Eckart pure Chromium technical data",
       "url": "https://www.eckart.net/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.2 — Pure Chromium (refractory)",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205017/Refractory-Metals",
-      "verified": false,
-      "authority": "handbook"
+      "verified": false
     },
     {
       "label": "ESPI Metals — Chromium technical data (ASM 계열): ρ 7.19·melt 1875°C·BCC·E 248 GPa(20°C)·UTS 83 MPa(20°C)·YS 131 MPa(300°C)·CTE 6.2e-6/K",
       "url": "https://www.espimetals.com/index.php/technical-data/63-Chromium",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AZoM (Granta Design data) — Chromium (Cr) >99%: ρ 7.1-7.2·E 245-285 GPa·UTS 370-760 MPa·Poisson 0.2-0.22·CTE 6-7e-6/K·k 84-94 W/m·K·경도 2000-2700 MPa",
       "url": "https://www.azom.com/properties.aspx?ArticleID=594",
-      "verified": true,
-      "authority": "aggregator"
+      "verified": true
     }
   ],
   "points": [
@@ -202,11 +195,5 @@
   "price_grade_premium": 1,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "refractory",
-    "weld": "none",
-    "wg": "w63-chromiumb",
-    "insight": "refractory"
-  }
+  "confidence_tier": "high"
 }

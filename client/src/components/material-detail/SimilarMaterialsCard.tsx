@@ -43,18 +43,27 @@ function synthesizeReason(s: SimilarMaterial): string {
   return parts.join(' · ');
 }
 
-/** R226l — 후보별 결정 컨텍스트 (전부 m.profiles 조회 — regex 없음). export = 유닛테스트 대상. */
-export function decisionContext(cur: Material, cand: Material): { whenLine: string | null; machChip: string | null } {
+/** R226l/R226m — 후보별 결정 컨텍스트 (전부 m.profiles 조회 — regex 없음). export = 유닛테스트 대상.
+ *  crossGroup: 후보가 현재 재료와 다른 인사이트(용도) 그룹인가 — UI 에서 한눈에 배지로 강조. */
+export function decisionContext(cur: Material, cand: Material): {
+  whenLine: string | null; machChip: string | null; candGroupTitle: string | null; crossGroup: boolean;
+} {
   let whenLine: string | null = null;
+  const curG = cur.profiles?.insight;
+  const candG = cand.profiles?.insight;
+  const candIns = resolveInsights(cand);
+  const crossGroup = !!candG && candG !== curG;
   const curIns = resolveInsights(cur);
-  if (curIns && cand.profiles?.insight && cand.profiles.insight === cur.profiles?.insight) {
+  if (curIns && candG && candG === curG) {
     // 같은 인사이트 그룹: 후보에는 해당하고 현재에는 해당하지 않는 시나리오 = 갈아탈 이유
     const pick = curIns.picks.find(p => insightPickMatches(cand, p) && !insightPickMatches(cur, p));
     if (pick) whenLine = `${pick.when} → ${pick.use}`;
-  } else if (cand.profiles?.insight && cand.profiles.insight !== cur.profiles?.insight) {
-    const candIns = resolveInsights(cand);
-    if (candIns) whenLine = `다른 계열 — ${candIns.title}`;
+  } else if (crossGroup && candIns) {
+    // 다른 용도 계열: 이 후보가 통상 쓰이는 대표 시나리오를 안내 (배지가 그룹명을 이미 표시)
+    const own = candIns.picks.find(p => insightPickMatches(cand, p));
+    whenLine = own ? `주 용도: ${own.when}` : `다른 용도 계열`;
   }
+  const candGroupTitle = candIns ? candIns.title.replace(/\s*선택$/, '') : null;
   let machChip: string | null = null;
   const m1 = resolveMachinability(cur);
   const m2 = resolveMachinability(cand);
@@ -64,16 +73,16 @@ export function decisionContext(cur: Material, cand: Material): { whenLine: stri
     const p2 = resolvePolymerMachinability(cand);
     if (p1 && p2 && p1.label !== p2.label) machChip = `절삭성 ${p1.label}→${p2.label}`;
   }
-  return { whenLine, machChip };
+  return { whenLine, machChip, candGroupTitle, crossGroup };
 }
 
-export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial, topN = 5 }: SimilarMaterialsCardProps) {
+export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial, topN = 10 }: SimilarMaterialsCardProps) {
   const similar = findSimilar(material, allMaterials, { topN });
   if (!similar.length) return null;
   return (
     <details open className="rounded-lg border-2 border-sky-300 bg-sky-50/50 p-3">
       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-sky-900">
-        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />유사 · 대체 재료 (대응 합금 우선 · popularity 순)</span>
+        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />유사 · 대체 재료 (물성 가까운 순 · <span className="text-amber-700">↗</span>=다른 용도 계열)</span>
         <span className="text-[10px] font-normal opacity-70">top {similar.length}</span>
       </summary>
       <div className="space-y-1.5 mt-2 pt-2 border-t border-sky-300/50">
@@ -89,15 +98,24 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
           >
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0 flex-1">
-                <p className="text-[12px] font-semibold text-foreground group-hover:text-sky-700 truncate">{s.material.name}</p>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <p className="text-[12px] font-semibold text-foreground group-hover:text-sky-700 truncate">{s.material.name}</p>
+                  {/* R226m — 다른 용도(인사이트) 계열이면 한눈에 배지로 (amber). 같은 계열은 배지 없음(노이즈 감소). */}
+                  {ctx.crossGroup && ctx.candGroupTitle && (
+                    <span className="text-[9px] px-1 rounded bg-amber-100 text-amber-800 border border-amber-300 font-semibold whitespace-nowrap flex items-center gap-0.5" title={`다른 용도 계열: ${ctx.candGroupTitle} — 물성은 가까우나 통상 용도가 다름`}>
+                      <Lightbulb className="w-2.5 h-2.5" />↗ {ctx.candGroupTitle}
+                    </span>
+                  )}
+                </div>
                 <p className="text-[10px] text-muted-foreground truncate">{s.material.subcategory}</p>
               </div>
               <div className="flex flex-col items-end gap-0.5 flex-shrink-0">
                 {s.crossRef && (
                   <span className="text-[9px] px-1 rounded bg-violet-100 text-violet-700 border border-violet-300 font-semibold whitespace-nowrap" title="주조↔단조(wrought) 대응 합금 — cross-reference">↔ 대응 합금</span>
                 )}
-                {typeof s.material.popularity === 'number' && (
-                  <span className="text-[10px] font-mono text-amber-700">★ {s.material.popularity.toFixed(1)}</span>
+                {/* R226m — distance(물성 근접도) 표시 (popularity 대체). 낮을수록 가까움. cross-ref 는 -1 sentinel 이라 숨김. */}
+                {s.distance >= 0 && (
+                  <span className="text-[10px] font-mono text-sky-700" title="물성 거리 (log-norm; 0=동일, 낮을수록 유사)">≈ {s.distance.toFixed(2)}</span>
                 )}
                 {s.sharedFamily && (
                   <span className="text-[9px] px-1 rounded bg-sky-100 text-sky-700 border border-sky-200">same family</span>
@@ -142,10 +160,12 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
           );
         })}
         <p className="text-[10px] text-muted-foreground mt-2 leading-snug">
-          같은 카테고리 + property log-distance &lt; 1.5 + popularity ≥ 3.0 + 같은 family +50% boost.
-          클릭하면 해당 재료로 이동. <span className="text-emerald-700">초록</span>=&lt;10% 차이 ·{' '}
-          <span className="text-amber-700">노랑</span>=&lt;30% · <span className="text-rose-700">빨강</span>=≥30%.{' '}
-          <span className="text-indigo-700">💡 줄</span> = 선택 인사이트 융합 — 이 대체가 유리한 용도 시나리오 (아래 인사이트 카드와 연동).
+          같은 카테고리 · <b>물성 log-distance 가까운 순 top {similar.length}</b> (인기도 무관, 같은 family +45% 가중).
+          <span className="font-mono text-sky-700">≈</span>=물성 거리(낮을수록 유사). 클릭 시 이동.{' '}
+          <span className="text-amber-800 font-semibold">↗ 배지</span>=물성은 가까우나 <b>통상 용도가 다른 계열</b> —
+          진짜 대체 후보 탐색에 활용. <span className="text-emerald-700">초록</span>&lt;10% ·{' '}
+          <span className="text-amber-700">노랑</span>&lt;30% · <span className="text-rose-700">빨강</span>≥30% 물성차 ·{' '}
+          <span className="text-indigo-700">💡</span>=용도 시나리오(인사이트 융합).
         </p>
       </div>
     </details>

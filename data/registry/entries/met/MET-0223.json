@@ -197,38 +197,32 @@
     {
       "label": "MatWeb — Aluminum A356 / AlSi7Mg cast",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A356+aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Nikon SLM Solutions F357 MDS 2024-06.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/02/mds5125.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "GE Additive M2 Series 5 AlSi7Mg CMDS",
       "url": "https://www.colibriumadditive.com/sites/default/files/M2SERIES5_AlSi7Mg_400W_CMDS_20241113_RevG.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.2 — A356 cast aluminum",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Aluminum Association — Cast Designation A356",
       "url": "https://www.aluminum.org/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "MatWeb — A356-T6 cast aluminum",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8e3ea3ec01d04bd1bcb3ea91a13e6f4f",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -382,13 +376,5 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-cast-am",
-    "weld": "none",
-    "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
-    "htg": "h02-aa",
-    "wg": "w21-alsi10mg",
-    "insight": "aluminum"
-  }
+  "confidence_tier": "high"
 }

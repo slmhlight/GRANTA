@@ -227,20 +227,17 @@
     {
       "label": "TIMET — Ti-6Al-4V Grade 5 MatWeb",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Nikon SLM Ti6Al4V Gr23",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/11/mds5137.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "EOS Titanium",
       "url": "https://www.eos.info/metal-solutions/metal-materials/titanium",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -438,16 +435,9 @@
     }
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "htc": "hip",
-    "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
-    "htg": "h07-ti",
-    "wg": "w23-ti",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R56400"
-  ]
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

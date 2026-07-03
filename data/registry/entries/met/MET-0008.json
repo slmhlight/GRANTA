@@ -189,28 +189,24 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=18CrNiMo7-6",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "SteelNumber — 18CrNiMo7-6 / 1.6587 (EN 10084 조성·Rm·경도)",
       "url": "http://www.steelnumber.com/en/steel_composition_eu.php?name_id=245",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -282,11 +278,5 @@
   "svhc_concerns": [
     "Ni 1.7% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "case-hard",
-    "weld": "ce",
-    "htc": "soft",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

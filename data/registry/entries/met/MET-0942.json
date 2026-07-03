@@ -190,32 +190,27 @@
     {
       "label": "Crucible — CPM 3V powder-metallurgy tool steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Tool Steels",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Crucible CPM 3V datasheet",
       "url": "https://www.crucible.com/eselector/prodbyapp/tooling/cpm3v.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — PM Tool Steels",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/15/chapter-abstract/204965/Tool-Steels",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     }
   ],
   "points": [
@@ -295,12 +290,5 @@
   "total_cost_estimate": 15.5,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "tool-steel",
-    "weld": "ce",
-    "htc": "qt",
-    "wg": "w10-h1",
-    "insight": "tool-steel"
-  }
+  "confidence_tier": "high"
 }

@@ -188,26 +188,22 @@
     {
       "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ATI Wah Chang Pure Zirconium",
       "url": "https://www.atimaterials.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASTM B493 — Pure Zr Forging",
       "url": "https://store.astm.org/b0493-15.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "ATI — Zircadyne 702 and 705 Technical Data Sheet (v1, 2012): R60702 조성·ρ 6.51·melt 1852°C·E 99.2 GPa·Poisson 0.35·annealed UTS 468/YS 321 MPa·ASTM min 379/207·SB551/523/493/550 allowable stress",
       "url": "https://www.atimaterials.com/Products/Documents/datasheets/zirconium/alloy/zircadyne_702_705_1_v1.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -453,11 +449,46 @@
   "confidence_tier": "high",
   "industry_note": "Pure Zirconium (UNS R60001, Grade 702) — Hf-free refractory metal. Tm 1855°C, ρ 6.51 g/cc, E 99 GPa. Tmax 400°C continuous in air (above → rapid oxidation). 화학 plant — strong acid (HNO₃, H₂SO₄, HCl) 저항 우수 (Ta 와 비슷), reactor 부품, photographic flash bulb.",
   "fatigue_estimated": true,
-  "profiles": {
-    "mach": "refractory",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w66-zirconiumb",
-    "insight": "refractory"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Zirconium\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Zirconium",
+          "verified": false
+        },
+        {
+          "label": "ATI Wah Chang Pure Zirconium",
+          "url": "https://www.atimaterials.com/",
+          "verified": false
+        },
+        {
+          "label": "ASTM B493 — Pure Zr Forging",
+          "url": "https://store.astm.org/b0493-15.html",
+          "verified": false
+        },
+        {
+          "label": "ATI — Zircadyne 702 and 705 Technical Data Sheet (v1, 2012): R60702 조성·ρ 6.51·melt 1852°C·E 99.2 GPa·Poisson 0.35·annealed UTS 468/YS 321 MPa·ASTM min 379/207·SB551/523/493/550 allowable stress",
+          "url": "https://www.atimaterials.com/Products/Documents/datasheets/zirconium/alloy/zircadyne_702_705_1_v1.pdf",
+          "verified": true
+        }
+      ]
+    },
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
   }
 }

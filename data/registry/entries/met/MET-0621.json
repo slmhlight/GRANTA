@@ -36,16 +36,14 @@
       "max": 485,
       "typical": 485,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "uts": {
       "min": 570,
       "max": 570,
       "typical": 570,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "elongation": {
       "min": 17,
@@ -194,20 +192,19 @@
   },
   "sources": [
     {
-      "label": "API 5L Spec 46th Edition — X70 / L485 PSL2",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "API 5L Spec 46th Edition — X70 / L485 PSL2",
+      "verified": true
     },
     {
-      "label": "Octalsteel API 5L pipe specification datasheet",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "Octalsteel API 5L pipe specification datasheet",
+      "verified": true
     },
     {
       "label": "KIC fallback: API 5L pipeline",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -272,10 +269,5 @@
   "total_cost_estimate": 1.42,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "wg": "w11-api",
-    "insight": "structural-steel"
-  }
+  "confidence_tier": "high"
 }

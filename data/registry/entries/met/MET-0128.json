@@ -190,40 +190,34 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%202195",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "MakeItFrom — 2195 (2195-T8) Aluminum, mechanical properties",
       "url": "https://www.makeitfrom.com/material-properties/2195-2195-T8-Aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Light Metal Age — The Evolution of Constellium Al-Li Alloys for Space Launch and Crew Module Applications (Constellium 기고)",
       "url": "https://www.lightmetalage.com/news/industry-news/aerospace/article-the-evolution-of-constellium-al-li-alloys-for-space-launch-and-crew-module-applications/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "NASA NTRS — Development of Aluminum-Lithium 2195 Gores by the Stretch Forming Process (20140011717)",
       "url": "https://ntrs.nasa.gov/citations/20140011717",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     }
   ],
   "points": [
@@ -291,12 +285,5 @@
     "Pickens J R et al. (1989) \"Al-(4.5-6.3)Cu-1.3Li-0.4Ag-0.4Mg-0.14Zr alloy Weldalite 049\", Aluminum-Lithium Alloys V, MCEP",
     "NASA SLS Reference Vehicle Documentation (https://www.nasa.gov/exploration/systems/sls)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-2xxx",
-    "weld": "none",
-    "htc": "aged",
-    "htg": "h02-aa",
-    "insight": "aluminum"
-  }
+  "confidence_tier": "high"
 }

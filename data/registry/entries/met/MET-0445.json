@@ -189,38 +189,32 @@
     {
       "label": "ASTM B103 — phosphor bronze C51000",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cu alloys general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Copper Development Association — Alloy C51000 (Phosphor Bronze 5% A)",
       "url": "https://alloys.copper.org/alloy/C51000",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "National Bronze Mfg. — C51000 Phosphor Bronze 5% A datasheet (PDF)",
       "url": "https://www.nationalbronze.com/pdfs/C51000.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AZoM — Phosphor Bronze Copper Alloy UNS C51000",
       "url": "https://www.azom.com/article.aspx?ArticleID=6415",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -295,11 +289,38 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "weld": "none",
-    "insight": "copper"
-  },
-  "uns": [
-    "C51000"
-  ]
+  "_corrections": {
+    "points": {
+      "from": [
+        [
+          8.86,
+          350,
+          450,
+          30,
+          110,
+          150,
+          69
+        ],
+        [
+          8.86,
+          320,
+          420,
+          20,
+          110,
+          140,
+          69
+        ],
+        [
+          8.86,
+          390,
+          500,
+          40,
+          110,
+          165,
+          69
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

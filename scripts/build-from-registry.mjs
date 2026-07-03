@@ -28,7 +28,7 @@ const OUT_MATS = path.join(OUT_PUB, 'materials');
 const PROFILE_ASSIGN = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'process-profile-assignments.json'), 'utf8')).assignments;
 // R226l/B1 — 고온 곡선 by_id (stable_id 키 — 이름 매칭 없음). 인라인 elevated_temp 보유 entry 는 불변(인라인 우선).
 const ET_BY_ID = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'elevated-temp-curves.json'), 'utf8')).by_id || {}; } catch { return {}; } })();
-let etAttached = 0;
+let etAttached = 0, etReplaced = 0;
 const PROFILES_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'process-profiles.json'), 'utf8'));
 const INSIGHTS_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'selection-insights.json'), 'utf8'));
 const R226_FIELDS = new Set(['stable_id', 'family', 'legacy_id', 'origin', '_corrections']);
@@ -54,19 +54,22 @@ for (const cc of fs.readdirSync(REG)) {
         profileGateErrors.push(`insight 키 미정의: ${rec.stable_id} → ${a.insight}`);
       if (Object.keys(a).length) entry.profiles = a;
     }
-    // R226l — by_id 고온 곡선 부착 (인라인 보유 시 불변)
+    // R226l/R226m — by_id 고온 곡선 부착. R226m: by_id 는 datasheet 검증(벡터+앵커) 이므로
+    // 파생 백필 인라인보다 우선 → override (SS410 처럼 인라인이 조건-무관 generic 오류인 경우 교정).
     const et = ET_BY_ID[rec.stable_id];
-    if (et && !(entry.elevated_temp && entry.elevated_temp.length)) {
+    if (et) {
+      const hadInline = !!(entry.elevated_temp && entry.elevated_temp.length);
       entry.elevated_temp = et.elevated_temp;
       if (et.src) entry.elevated_temp_src = et.src;
       etAttached++;
+      if (hadInline) etReplaced++;
     }
     all.push(entry);
   }
 }
 for (const sid of Object.keys(PROFILE_ASSIGN)) if (!seenSids.has(sid)) profileGateErrors.push(`stale 할당 (레지스트리에 없는 ID): ${sid}`);
 for (const sid of Object.keys(ET_BY_ID)) if (!seenSids.has(sid)) profileGateErrors.push(`stale 곡선 by_id (레지스트리에 없는 ID): ${sid}`);
-if (etAttached) console.log(`  R226l 고온곡선 by_id 부착: ${etAttached}`);
+if (etAttached) console.log(`  고온곡선 by_id 부착: ${etAttached} (인라인 override ${etReplaced})`);
 if (profileGateErrors.length) {
   console.error(`❌ BUILD GATE (process profiles): ${profileGateErrors.length}건`);
   profileGateErrors.slice(0, 15).forEach(e => console.error('  ' + e));

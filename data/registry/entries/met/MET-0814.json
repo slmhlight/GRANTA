@@ -190,22 +190,19 @@
   },
   "sources": [
     {
-      "label": "AK Steel (Cleveland-Cliffs) datasheet",
+      "label": "Datasheet 3",
       "url": "https://www.aksteel.com/sites/default/files/2018-01/420201706.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -293,14 +290,5 @@
       "E": 174
     }
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ss-ferritic",
-    "weld": "schaeffler",
-    "htc": "qt",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S42000"
-  ]
+  "confidence_tier": "medium"
 }

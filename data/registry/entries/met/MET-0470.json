@@ -185,14 +185,12 @@
     {
       "label": "ASM Handbook Vol.2 — Magnesium & Magnesium Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM B107 + Magnesium Elektron — AZ80A (Mg-Al-Zn high-strength wrought)",
       "url": "https://www.magnesium-elektron.com/products/elektron-az80/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -435,12 +433,36 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "magnesium",
-    "weld": "none",
-    "htc": "soft",
-    "htg": "h09-azd",
-    "wg": "w46-az31",
-    "insight": "magnesium"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASTM B107 + Magnesium Elektron — AZ80A (Mg-Al-Zn high-strength wrought)",
+          "url": "https://www.magnesium-elektron.com/products/elektron-az80/",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AZ80A\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AZ80A",
+          "verified": false
+        }
+      ]
+    },
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
   }
 }

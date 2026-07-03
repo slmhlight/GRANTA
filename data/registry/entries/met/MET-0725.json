@@ -188,21 +188,19 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — Stainless steel, austenitic, AISI 308 annealed (UNS S30800)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ANSYS Granta — Stainless steel, austenitic, AISI 308 annealed (UNS S30800)",
+      "verified": true
     },
     {
-      "label": "Outokumpu datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -275,14 +273,5 @@
   "svhc_concerns": [
     "Ni 12% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "htc": "soft",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S30800"
-  ]
+  "confidence_tier": "high"
 }

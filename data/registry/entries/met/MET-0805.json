@@ -190,22 +190,19 @@
   },
   "sources": [
     {
-      "label": "API standard",
+      "label": "Datasheet 1",
       "url": "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5ct",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -293,14 +290,5 @@
       "E": 174
     }
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ss-ferritic",
-    "weld": "schaeffler",
-    "htc": "qt",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S42000"
-  ]
+  "confidence_tier": "medium"
 }

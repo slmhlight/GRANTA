@@ -190,38 +190,32 @@
     {
       "label": "TIMET — Ti-6Al-4V Grade 5 MatWeb",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/datasheet.aspx?MatGUID=10d463eb3d3d4ff48fc57e0ad1037434",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: AMS 4928 / ASTM F136",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.2 — Ti-6Al-4V (α+β titanium)",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205020/Titanium-Alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "AMS 4928 — Ti-6Al-4V annealed bar",
       "url": "https://www.sae.org/standards/content/ams4928v/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "MMPDS-08 Vol.1 — Ti-6Al-4V Chap.5",
       "url": "https://www.mmpds.org/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -353,16 +347,9 @@
     "Lütjering G & Williams J C (2007) Titanium, 2nd ed., Springer"
   ],
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "htc": "soft",
-    "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
-    "htg": "h07-ti",
-    "wg": "w23-ti",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R56400"
-  ]
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

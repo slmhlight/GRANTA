@@ -187,21 +187,19 @@
   },
   "sources": [
     {
-      "label": "Portland Bolt",
+      "label": "Datasheet 1",
       "url": "https://www.portlandbolt.com/technical/specifications/astm-a536/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "ASTM A536-84 Standard Specification for Ductile Iron Castings",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "ASTM A536-84 Standard Specification for Ductile Iron Castings",
+      "verified": true
     },
     {
       "label": "KIC fallback: ASTM A536 ductile iron",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -268,8 +266,5 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "none"
-  }
+  "confidence_tier": "high"
 }

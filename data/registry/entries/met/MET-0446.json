@@ -188,32 +188,27 @@
     {
       "label": "ASTM B98 — silicon bronze C65500",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: AA 5xxx Al-Mg",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Copper Development Association — Alloy C65500 (High-Silicon Bronze A)",
       "url": "https://alloys.copper.org/alloy/C65500",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AZoM — High Silicon Bronze UNS C65500",
       "url": "https://www.azom.com/article.aspx?ArticleID=6441",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -304,12 +299,5 @@
   "total_cost_estimate": 13.86,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "none",
-    "insight": "copper"
-  },
-  "uns": [
-    "C65500"
-  ]
+  "confidence_tier": "high"
 }

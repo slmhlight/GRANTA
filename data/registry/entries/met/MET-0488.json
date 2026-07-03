@@ -194,48 +194,42 @@
     {
       "label": "Reference 1",
       "url": "https://www.atimaterials.com",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
-      "label": "AMS 6520 / AMS 6521 — Maraging 350",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "AMS 6520 / AMS 6521 — Maraging 350",
+      "verified": true
     },
     {
-      "label": "ATI Technical Data Sheet C-200/250/300/350 (2012)",
-      "verified": true,
-      "authority": "other"
+      "label": "Datasheet 1",
+      "url": "ATI Technical Data Sheet C-200/250/300/350 (2012)",
+      "verified": true
     },
     {
       "label": "ATI VascoMax C-300 / C-350 reference",
       "url": "https://www.atimaterials.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "AMS 6520 — VascoMax C-350 18Ni-9Co",
       "url": "https://www.sae.org/standards/content/ams6520/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "AK Steel — Maraging 250/300/350 datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/MARAGING-DATA-BULLETIN.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AMS 6514 — 18Ni-300 maraging bar/forging",
       "url": "https://www.sae.org/standards/content/ams6514l/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "AMS 6512 — 18Ni-250 maraging bar/forging",
       "url": "https://www.sae.org/standards/content/ams6512f/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -317,14 +311,5 @@
     "Co 12% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
   "confidence_tier": "high",
-  "fatigue_estimated": true,
-  "profiles": {
-    "mach": "maraging",
-    "weld": "none",
-    "htc": "soft",
-    "ht": "Maraging 350 / ATI C-350 (18Ni-12Co)",
-    "htg": "h06-maraging",
-    "wg": "w68-maraging",
-    "insight": "tool-steel"
-  }
+  "fatigue_estimated": true
 }

@@ -159,14 +159,12 @@
     {
       "label": "Hexion Epoxy resins",
       "url": "https://www.westlakeepoxy.com/products/epoxy-resins",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Olin DEN 438 epoxy novolac",
       "url": "https://www.olin.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -378,9 +376,30 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "Epoxy thermoset (DGEBA = Diglycidyl Ether of Bisphenol A — most common; DEN = phenol novolac for higher Tg). Cured (anhydride / aliphatic amine / cycloaliphatic): σy 65-85 / UTS 70-90 / El 4-6% (brittle vs polyester) / E 3.0-3.5 GPa / ρ 1.",
-  "profiles": {
-    "mach": "pol-thermoset",
-    "htc": "qt",
-    "insight": "pol-commodity"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Hexion Epoxy resins",
+          "url": "https://www.westlakeepoxy.com/products/epoxy-resins",
+          "verified": true
+        },
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Epoxy Resin\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Epoxy%20Resin",
+          "verified": false
+        },
+        {
+          "label": "Olin DEN 438 epoxy novolac",
+          "url": "https://www.olin.com/",
+          "verified": false
+        }
+      ]
+    }
   }
 }

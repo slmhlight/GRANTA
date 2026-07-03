@@ -188,38 +188,32 @@
     {
       "label": "ASM — 410S ferritic stainless (UNS S41008)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Elgiloy Specialty Metals — Alloy 410S Material Datasheet (UNS S41008, 2024-06): 조성·물리물성(ρ/E/CTE/k)·어닐 인장표 전부 텍스트 추출 검증",
       "url": "https://www.elgiloy.com/wp-content/uploads/2024/06/410S-Alloy-data-sheet-06042024.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "Sandmeyer Steel — Alloy 410S Specification Sheet (UNS S41008, W.Nr 1.4000): 조성·물리물성(ρ 7.73·E 29×10⁶ psi·CTE·k) 텍스트 추출 검증",
       "url": "https://www.sandmeyersteel.com/wp-content/uploads/Alloy-410S-Spec-Sheet.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "AZoM — Stainless Steel Grade 410S (UNS S41008): 조성·ρ·E·CTE 제공(단 기계물성은 일반 410 템플릿값으로 추정 — 주의)",
       "url": "https://www.azom.com/article.aspx?ArticleID=6811",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -316,13 +310,5 @@
       "E": 165
     }
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-ferritic",
-    "weld": "schaeffler",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S41008"
-  ]
+  "confidence_tier": "high"
 }

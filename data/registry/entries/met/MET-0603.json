@@ -192,32 +192,27 @@
     {
       "label": "MatWeb — Nimonic 105",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Nimonic+105",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Special Metals — Nimonic 105 (UNS N13021)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Special Metals — NIMONIC alloy 105 (W.Nr. 2.4634) Technical Bulletin (BS HR 3 조성 + Table 7 인장)",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/nimonic-alloy-105.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AZoM — Super Alloy Nimonic 105 (RT UTS/YS/신율 cross-check)",
       "url": "https://www.azom.com/article.aspx?ArticleID=7812",
-      "verified": true,
-      "authority": "aggregator"
+      "verified": true
     }
   ],
   "points": [
@@ -297,14 +292,5 @@
   "svhc_concerns": [
     "Co 22% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N13021"
-  ]
+  "confidence_tier": "high"
 }

@@ -190,26 +190,22 @@
     {
       "label": "Crucible — CPM S30V stainless tool/knife steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: Crucible PM tool steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Hudson Tool Steel — CPM S30V Technical Data (조성+HRC+템퍼표+충격)",
       "url": "https://www.hudsontoolsteel.com/technical-data/steelCPMS30V",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -279,12 +275,5 @@
   "total_cost_estimate": 15.5,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "tool-steel",
-    "weld": "ce",
-    "htc": "qt",
-    "wg": "w10-h1",
-    "insight": "tool-steel"
-  }
+  "confidence_tier": "medium"
 }

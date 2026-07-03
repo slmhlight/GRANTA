@@ -36,16 +36,14 @@
       "max": 560,
       "typical": 480,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "uts": {
       "min": 550,
       "max": 680,
       "typical": 550,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "elongation": {
       "min": 15,
@@ -193,26 +191,22 @@
     {
       "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys (properties & selection)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.2 — CP Titanium grades 1-4",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205020/Titanium-Alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM B348 — Titanium / Ti Alloy Bar/Billet (Grade 1-4)",
       "url": "https://store.astm.org/b0348_b0348m-21e1.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "MatWeb — Titanium Grade 2 Annealed",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8b32f4f7d4a04a6a8a82dfc4d35aebab",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -298,23 +292,64 @@
   ],
   "confidence_tier": "medium",
   "industry_note": "Commercially Pure (CP) Titanium — single-phase α structure (NO precipitation aging, R173 fake-variant 제거). 4 grades by O / Fe interstitial 차이: • Grade 1 (UNS R50250, ASTM Gr 1, Ti≥99.5, O ≤0.18): σy 170-310 / UTS 240-345 / El 24%.",
-  "profiles": {
-    "mach": "ti-cp",
-    "weld": "none",
-    "htc": "qt",
-    "wg": "w22-ti",
-    "insight": "titanium"
-  },
   "_corrections": {
     "composition": {
       "from": {
         "Ti": "balance",
-        "O": "≤0.40",
         "Fe": "≤0.50",
-        "C": "≤0.08",
-        "N": "≤0.03",
+        "O": "≤0.40",
+        "C": "≤0.10",
+        "N": "≤0.05",
         "H": "≤0.015"
       }
-    }
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Ti Grade 4\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%204",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: MMPDS-2018 Titanium",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol.2 — CP Titanium grades 1-4",
+          "url": "https://dl.asminternational.org/handbooks/edited-volume/16/chapter-abstract/205020/Titanium-Alloys",
+          "verified": true
+        },
+        {
+          "label": "ASTM B348 — Titanium / Ti Alloy Bar/Billet (Grade 1-4)",
+          "url": "https://store.astm.org/b0348_b0348m-21e1.html",
+          "verified": false
+        },
+        {
+          "label": "MatWeb — Titanium Grade 2 Annealed",
+          "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8b32f4f7d4a04a6a8a82dfc4d35aebab",
+          "verified": false
+        }
+      ]
+    },
+    "points": {
+      "from": [
+        [
+          4.51,
+          489.85,
+          555.5,
+          14.580000000000002,
+          103,
+          161.6,
+          21.8
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

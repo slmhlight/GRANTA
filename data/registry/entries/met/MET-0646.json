@@ -104,22 +104,19 @@
   },
   "sources": [
     {
-      "label": "Plansee datasheet",
+      "label": "Datasheet 2",
       "url": "https://www.plansee.com/en/materials/molybdenum.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -168,12 +165,5 @@
   "price_grade_premium": 1,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "moly",
-    "weld": "none",
-    "htc": "soft",
-    "wg": "w17-aa",
-    "insight": "refractory"
-  }
+  "confidence_tier": "medium"
 }

@@ -188,22 +188,19 @@
   },
   "sources": [
     {
-      "label": "Hyundai Steel datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.hyundai-steel.com/en/products/CRC.do",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: AISI carbon steel",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -275,9 +272,5 @@
   "total_cost_estimate": 1.3,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

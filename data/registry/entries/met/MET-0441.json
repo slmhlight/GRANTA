@@ -190,38 +190,32 @@
     {
       "label": "Copper.org — C95800 Nickel-Aluminum Bronze",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C95800",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B148 — Nickel Aluminum Bronze (C95800)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: AA 5xxx Al-Mg",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Copper Development Association — C95800 NAB",
       "url": "https://www.copper.org/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASTM B148 — Aluminum-Bronze Castings",
       "url": "https://store.astm.org/b0148-18.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "DNV-OS-D101 — Marine NAB propeller cast",
       "url": "https://www.dnv.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -318,14 +312,5 @@
   "svhc_concerns": [
     "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-5xxx",
-    "weld": "none",
-    "wg": "w57-c95800",
-    "insight": "copper"
-  },
-  "uns": [
-    "C95800"
-  ]
+  "confidence_tier": "high"
 }

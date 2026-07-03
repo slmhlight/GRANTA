@@ -186,20 +186,19 @@
   },
   "sources": [
     {
-      "label": "BS EN 13674-1:2011 — R350HT head-hardened rail",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "BS EN 13674-1:2011 — R350HT head-hardened rail",
+      "verified": true
     },
     {
-      "label": "Nippon Steel Rail Catalog R350HT high-strength rail",
-      "verified": true,
-      "authority": "other"
+      "label": "Datasheet 1",
+      "url": "Nippon Steel Rail Catalog R350HT high-strength rail",
+      "verified": true
     },
     {
       "label": "KIC fallback: BS EN 13674 Rail",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -271,10 +270,5 @@
   "total_cost_estimate": 1.98,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "structural-steel"
-  }
+  "confidence_tier": "high"
 }

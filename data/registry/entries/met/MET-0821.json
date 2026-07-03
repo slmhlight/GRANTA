@@ -36,16 +36,14 @@
       "max": 1240,
       "typical": 1170,
       "n": 3,
-      "confidence": "measured",
-      "basis": "min_spec"
+      "confidence": "measured"
     },
     "uts": {
       "min": 1240,
       "max": 1380,
       "typical": 1310,
       "n": 3,
-      "confidence": "measured",
-      "basis": "min_spec"
+      "confidence": "measured"
     },
     "elongation": {
       "min": 10,
@@ -192,32 +190,27 @@
     {
       "label": "Carpenter Technology — Custom 15-5 PH",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AMS 5659 / AK Steel 15-5PH",
       "url": "https://www.aksteel.com/sites/default/files/2018-01/155PH201706.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 15-5PH H900",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AK Steel — 15-5 PH Stainless Datasheet",
       "url": "https://www.aksteel.com/sites/default/files/2018-02/15-5-PH-DATA-BULLETIN.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AMS 5659 — 15-5 PH bar / forging",
       "url": "https://www.sae.org/standards/content/ams5659/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -341,17 +334,5 @@
     "AK Steel \"15-5 PH Stainless Steel Product Data Bulletin\" (2007)",
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ss-ph",
-    "weld": "schaeffler",
-    "htc": "aged",
-    "ht": "15-5 PH stainless (UNS S15500, XM-12)",
-    "htg": "h03-17",
-    "wg": "w09-17",
-    "insight": "stainless-highperf"
-  },
-  "uns": [
-    "S15500"
-  ]
+  "confidence_tier": "high"
 }

@@ -43,8 +43,7 @@
       "max": 690,
       "typical": 620,
       "n": 3,
-      "confidence": "measured",
-      "basis": "min_spec"
+      "confidence": "measured"
     },
     "elongation": {
       "min": 15,
@@ -192,32 +191,27 @@
     {
       "label": "MatWeb — Titanium Grade 9 (Ti-3Al-2.5V)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+9",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASTM B338 / Aircraft Materials — Ti 3-2.5 (Grade 9)",
       "url": "https://www.aircraftmaterials.com/data/titanium.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Smiths High Performance — Ti 3Al 2.5V (Grade 9) Technical Datasheet (AMS 4944 CWSR: UTS 860 / YS 725 / 신율 10% / E 100 GPa, PDF 직접 판독)",
       "url": "https://www.smithshp.com/assets/pdf/titanium/ti3-al-2.5v-grade-9-titanium-english.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "AZoM — Grade 9 Ti-3Al-2.5V (UNS R56320) (annealed: YS 530 / UTS 620 / 신율 20% / E 100 GPa, ASTM·AMS 목록)",
       "url": "https://www.azom.com/article.aspx?ArticleID=9337",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -339,13 +333,9 @@
     "Donachie M J (2000) Titanium: A Technical Guide 2nd ed."
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "wg": "w24-ti",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R56320"
-  ]
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
+  }
 }

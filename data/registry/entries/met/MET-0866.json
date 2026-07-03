@@ -188,28 +188,24 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%203",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: MMPDS-2018 Titanium",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AZoM — Grade 3 Unalloyed Ti (\"Pure\") 65A (UNS R50550) (Article 9415)",
       "url": "https://www.azom.com/article.aspx?ArticleID=9415",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -294,14 +290,5 @@
       "E": 100
     }
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ti-cp",
-    "weld": "none",
-    "htc": "soft",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R50550"
-  ]
+  "confidence_tier": "medium"
 }

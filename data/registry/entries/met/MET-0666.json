@@ -186,20 +186,17 @@
     {
       "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Plansee Densimet W-Ni-Fe Tungsten Heavy Alloy datasheet",
       "url": "https://www.plansee.com/en/materials/tungsten-heavy-metal.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B777 — Tungsten Base High-Density Metal",
       "url": "https://store.astm.org/b0777-15r20.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -446,10 +443,35 @@
   ],
   "confidence_tier": "high",
   "industry_note": "Tungsten Heavy Alloy (WHA / Densalloy / Mallory 1000) — liquid-phase sintered (LPS) W-Ni-Fe (Class 1-4) or W-Ni-Cu (Class M, non-magnetic). 90-97% W + 3-10% binder. ρ 16.5-18.",
-  "profiles": {
-    "mach": "tungsten",
-    "weld": "none",
-    "wg": "w59-tungstenb",
-    "insight": "refractory"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Tungsten Heavy Alloy\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Tungsten%20Heavy%20Alloy",
+          "verified": false
+        },
+        {
+          "label": "Plansee Densimet W-Ni-Fe Tungsten Heavy Alloy datasheet",
+          "url": "https://www.plansee.com/en/materials/tungsten-heavy-metal.html",
+          "verified": true
+        },
+        {
+          "label": "ASTM B777 — Tungsten Base High-Density Metal",
+          "url": "https://store.astm.org/b0777-15r20.html",
+          "verified": false
+        }
+      ]
+    }
   }
 }

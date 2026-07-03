@@ -36,16 +36,14 @@
       "max": 205,
       "typical": 205,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "uts": {
       "min": 485,
       "max": 485,
       "typical": 485,
       "n": 1,
-      "confidence": "handbook",
-      "basis": "min_spec"
+      "confidence": "handbook"
     },
     "elongation": {
       "min": 30,
@@ -194,20 +192,17 @@
     {
       "label": "MatWeb — AISI 316 stainless",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+316+stainless",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASTM A351/A351M — Castings, Austenitic",
       "url": "https://store.astm.org/a0351_a0351m-22.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "Castingquality — CF8M (SS316) casting material",
       "url": "https://castingquality.com/casting-technology/casting-material/casting-material-stainless-steel-cf8m.html",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -315,16 +310,5 @@
   "svhc_concerns": [
     "Ni 12% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "htc": "soft",
-    "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
-    "insight": "stainless"
-  },
-  "uns": [
-    "J92900",
-    "S31600"
-  ]
+  "confidence_tier": "medium"
 }

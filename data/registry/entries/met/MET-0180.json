@@ -190,38 +190,32 @@
     {
       "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — Aluminum 380 die cast",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=380+aluminum+cast",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM — A380 aluminium die-casting alloy",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: Aluminum Association handbook",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "MakeItFrom — A380.0 (A380.0-F, SC84C, A13800) Cast Aluminum (property table)",
       "url": "https://www.makeitfrom.com/material-properties/A380.0-A380.0-F-SC84C-A13800-Cast-Aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "AZoM — Aluminum Casting Alloy A380 (A03800) 데이터시트",
       "url": "https://www.azom.com/article.aspx?ArticleID=6762",
-      "verified": true,
-      "authority": "aggregator"
+      "verified": true
     }
   ],
   "points": [
@@ -305,14 +299,42 @@
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-cast-am",
-    "weld": "none",
-    "htg": "h02-aa",
-    "wg": "w21-alsi10mg",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A03800"
-  ]
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Aluminum 380 die cast",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=380+aluminum+cast",
+          "verified": false
+        },
+        {
+          "label": "ASM — A380 aluminium die-casting alloy",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Aluminum Association handbook",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MakeItFrom — A380.0 (A380.0-F, SC84C, A13800) Cast Aluminum (property table)",
+          "url": "https://www.makeitfrom.com/material-properties/A380.0-A380.0-F-SC84C-A13800-Cast-Aluminum",
+          "verified": false
+        },
+        {
+          "label": "AZoM — Aluminum Casting Alloy A380 (A03800) 데이터시트",
+          "url": "https://www.azom.com/article.aspx?ArticleID=6762",
+          "verified": true
+        }
+      ]
+    },
+    "aliases": {
+      "from": [
+        "UNS A03800",
+        "EN AC-46500",
+        "AlSi8Cu3"
+      ]
+    }
+  }
 }

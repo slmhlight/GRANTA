@@ -185,22 +185,19 @@
   },
   "sources": [
     {
-      "label": "Plansee datasheet",
+      "label": "Datasheet 2",
       "url": "https://www.plansee.com/en/materials/tungsten.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.2 Refractory)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     }
   ],
   "points": [
@@ -261,12 +258,5 @@
   "total_cost_estimate": 142.88,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "tungsten",
-    "weld": "none",
-    "htc": "cold",
-    "wg": "w59-tungstenb",
-    "insight": "refractory"
-  }
+  "confidence_tier": "medium"
 }

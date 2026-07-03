@@ -191,20 +191,17 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "MMPDS-08 Sec.1.5 + ASM Handbook Vol.1 — AISI 4xxx (Cr-Mo / Cr-Ni-Mo)",
       "url": "https://www.asminternational.org/handbooks",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -309,21 +306,39 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "qt",
-    "insight": "carbon-alloy-steel"
-  },
   "_corrections": {
     "composition": {
       "from": {
         "Fe": "balance",
-        "C": "0.48~0.53",
+        "C": "0.30~0.50",
         "Cr": "0.80~1.10",
-        "Mo": "0.15~0.25",
-        "Mn": "0.75~1.00",
-        "Si": "0.15~0.35"
+        "Mo": "0.15~0.30",
+        "Mn": "0.40~0.90"
       }
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "MMPDS-08 Sec.1.5 + ASM Handbook Vol.1 — AISI 4xxx (Cr-Mo / Cr-Ni-Mo)",
+          "url": "https://www.asminternational.org/handbooks",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 4150\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%204150",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+          "url": null,
+          "verified": false
+        }
+      ]
     }
   }
 }

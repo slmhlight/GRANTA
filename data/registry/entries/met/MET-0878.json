@@ -190,20 +190,17 @@
     {
       "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Carpenter Technology — Ti-6Al-4V ELI Datasheet (F136/B348 Gr.23)",
       "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/Ti_6Al-4V_ELI_Datasheet.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "AZoM — Grade 23 Ti-6Al-4V ELI (UNS R56401)",
       "url": "https://www.azom.com/article.aspx?ArticleID=9365",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -290,67 +287,114 @@
     }
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "htc": "aged",
-    "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
-    "htg": "h07-ti",
-    "wg": "w24-ti",
-    "insight": "titanium"
-  },
-  "uns": [
-    "R56401"
-  ],
   "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Titanium Grade 23 ELI (Ti-6Al-4V ELI)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V+ELI",
+          "verified": false
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Ti Grade 23\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti%20Grade%2023",
+          "verified": false
+        },
+        {
+          "label": "Carpenter Technology — Ti-6Al-4V ELI Datasheet (F136/B348 Gr.23)",
+          "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/Ti_6Al-4V_ELI_Datasheet.pdf",
+          "verified": true
+        },
+        {
+          "label": "AZoM — Grade 23 Ti-6Al-4V ELI (UNS R56401)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=9365",
+          "verified": true
+        }
+      ]
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
-        "min": 900,
-        "typical": 900,
-        "max": 900,
-        "confidence": "handbook",
-        "provenance": "교정: ASTM F136 + AMS Ti-6-4 STA"
+        "min": 760,
+        "max": 875,
+        "typical": 790,
+        "n": 4,
+        "confidence": "handbook"
       },
       "had_scalar": true,
-      "val_scalar": 900
+      "val_scalar": 790
     },
     "uts": {
       "had_range": true,
       "val_range": {
-        "min": 965,
-        "typical": 965,
-        "max": 965,
-        "confidence": "handbook",
-        "provenance": "교정: ASTM F136 + AMS Ti-6-4 STA"
+        "min": 825,
+        "max": 930,
+        "typical": 860,
+        "n": 4,
+        "confidence": "handbook"
       },
       "had_scalar": true,
-      "val_scalar": 965
+      "val_scalar": 860
     },
     "elongation": {
       "had_range": true,
       "val_range": {
         "min": 10,
-        "typical": 10,
-        "max": 10,
-        "confidence": "handbook",
-        "provenance": "교정: ASTM F136 + AMS Ti-6-4 STA"
+        "max": 18,
+        "typical": 15,
+        "n": 4,
+        "confidence": "handbook"
       },
       "had_scalar": true,
-      "val_scalar": 10
+      "val_scalar": 15
     },
     "_basis": "Ti-6Al-4V ELI STA (solution+age)",
     "_src": "ASTM F136 + AMS Ti-6-4 STA",
     "points": {
       "from": [
         [
-          4.43,
-          900,
-          965,
-          10,
-          113,
-          320,
-          6.7
+          4.51,
+          297,
+          410.4,
+          25.92,
+          103,
+          118.8,
+          21.8
+        ],
+        [
+          4.51,
+          261.25,
+          361,
+          22.8,
+          103,
+          104.5,
+          21.8
+        ],
+        [
+          4.51,
+          291.5,
+          402.8,
+          25.44,
+          103,
+          116.6,
+          21.8
+        ],
+        [
+          4.51,
+          280.5,
+          387.6,
+          22.08,
+          103,
+          112.2,
+          21.8
         ]
       ]
     }

@@ -192,32 +192,27 @@
     {
       "label": "MatWeb — AISI 9310 gear steel",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+9310",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%209310",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AMS 6260 — AISI 9310 bar/forging (premium VIM-VAR)",
       "url": "https://www.sae.org/standards/content/ams6260/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.4 — 9310 carburized gear",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/17/chapter-abstract/204984/Steel-Heat-Treating-Fundamentals",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     }
   ],
   "points": [
@@ -325,11 +320,5 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "case-hard",
-    "weld": "ce",
-    "htc": "soft",
-    "insight": "carbon-alloy-steel"
-  }
+  "confidence_tier": "medium"
 }

@@ -192,32 +192,27 @@
     {
       "label": "Special Metals — Nimonic alloy 80A (UNS N07080)",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/nimonic-alloy-80a.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "KIC fallback: Special Metals/Haynes general",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Special Metals — Nimonic 80A / 90 reference",
       "url": "https://www.specialmetals.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASTM B637 — Precipitation-Hardening Ni Base Bar (80A/90)",
       "url": "https://store.astm.org/b0637-22.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -363,14 +358,5 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N07080"
-  ]
+  "confidence_tier": "high"
 }

@@ -192,37 +192,32 @@
     {
       "label": "Arconic — 2024 Aluminum Alloy",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=2024+aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2024",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
-      "label": "Aluminum Association T-Temper System / MMPDS-2018 / Boeing fuselage spec",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "Aluminum Association T-Temper System / MMPDS-2018 / Boeing fuselage spec",
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.2 — Aluminum 2xxx (Al-Cu)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MMPDS-08 — Aluminum 2024 (T3/T351/T81)",
       "url": "https://www.mmpds.org/",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "MatWeb — Aluminum 2024-T3",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=57483b4d782940faaf12964a1821fb61",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -317,16 +312,14 @@
     "Smithsonian National Air & Space Museum \"Junkers J 1\" exhibit notes (https://airandspace.si.edu)"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-2xxx",
-    "weld": "none",
-    "htc": "soft",
-    "ht": "AA 2xxx Al-Cu (e.g., 2024, 2014, 2219)",
-    "htg": "h02-aa",
-    "wg": "w15-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A92024"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A92024",
+        "EN AW-2024",
+        "AlCu4Mg1",
+        "DIN 3.1355"
+      ]
+    }
+  }
 }

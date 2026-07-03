@@ -197,22 +197,19 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=MAR-M%20247",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "TMS Superalloys 1984 — Properties of Cast MAR-M-247 for Turbine Blisk Applications (Kaufman/GE, Grainex+HIP 인장·creep)",
       "url": "https://www.tms.org/superalloys/10.7449/1984/Superalloys_1984_43_52.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Markforged — M247 Nickel Superalloy Binder Jetting Material Datasheet (REV 1.0, as-sintered+HIP)",
       "url": "https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/PX100/M247NickelSuperalloy.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -284,11 +281,5 @@
     "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM",
     "Sims C T, Stoloff N S & Hagel W C (eds., 1987) Superalloys II, Wiley"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "wg": "w30-inconel",
-    "insight": "ni-superalloy"
-  }
+  "confidence_tier": "high"
 }

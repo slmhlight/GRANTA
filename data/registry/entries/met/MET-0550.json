@@ -191,14 +191,12 @@
     {
       "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Special Metals — Inconel Alloy 600",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -319,15 +317,46 @@
     "Special Metals Corporation 'INCONEL alloy 600' Technical Data Sheet"
   ],
   "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "qt",
-    "ht": "Inconel 600 (UNS N06600, Ni-Cr-Fe solid solution)",
-    "wg": "w26-inconel",
-    "insight": "ni-superalloy"
-  },
-  "uns": [
-    "N06600"
-  ]
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Inconel Alloy 600",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"Inconel 600\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel%20600",
+          "verified": false
+        }
+      ]
+    },
+    "aliases": {
+      "from": [
+        "UNS N06600",
+        "EN 2.4816",
+        "Alloy 600"
+      ]
+    },
+    "points": {
+      "from": [
+        [
+          8.47,
+          313.1,
+          696.9,
+          24.3,
+          214,
+          161.6,
+          14.7
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

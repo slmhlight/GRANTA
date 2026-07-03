@@ -168,8 +168,7 @@
     {
       "label": "Celanese Fortron PPS",
       "url": "https://www.celanese.com/products/Fortron-PPS",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -411,8 +410,25 @@
       "E": 0.6
     }
   ],
-  "profiles": {
-    "mach": "pol-rigid",
-    "insight": "pol-highperf"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Celanese Fortron PPS",
+          "url": "https://www.celanese.com/products/Fortron-PPS",
+          "verified": true
+        },
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"PPS\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PPS",
+          "verified": false
+        }
+      ]
+    }
   }
 }

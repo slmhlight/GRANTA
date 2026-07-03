@@ -156,20 +156,17 @@
     {
       "label": "Material datasheets — UHMWPE",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "DSM Dyneema SK75/SK78/SK99 datasheet",
       "url": "https://www.dsm.com/dyneema/en_US/home.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Honeywell Spectra fiber datasheet",
       "url": "https://www.honeywell.com/us/en/products/services/spectra-fiber",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -250,9 +247,5 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "pol-soft",
-    "insight": "pol-commodity"
-  }
+  "confidence_tier": "high"
 }

@@ -190,26 +190,22 @@
     {
       "label": "Kennametal Stellite — Stellite 6B wrought (UNS R30016)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.48·σy (ASM Vol.2 Co alloys)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Kennametal Stellite — Stellite 6B (wrought) product/technical page (official)",
       "url": "https://www.stellite.com/us/en/products/stellite-6b.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -289,14 +285,5 @@
   "svhc_concerns": [
     "Ni 3% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "cobalt",
-    "weld": "none",
-    "ht": "Stellite 6 (UNS R30006, Co-Cr-W-C wear-resistant)",
-    "insight": "cobalt"
-  },
-  "uns": [
-    "R30016"
-  ]
+  "confidence_tier": "medium"
 }

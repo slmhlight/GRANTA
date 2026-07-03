@@ -186,32 +186,27 @@
     {
       "label": "MatWeb — AISI 4140 / DIN 1.7225 (42CrMo4)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+4140",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "EOS MDS summary — steel 42crmo4",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-steel-42crmo4",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "DIN EN 10083-3 — Quenched & tempered steels",
       "url": "https://www.dinmedia.de/en/standard/din-en-10083-3/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — Cr-Mo Steels: 4140",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "MatWeb — AISI 4140 Q+T",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=fd0a82eb691f4be08b2bf5d04eee9f97",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     }
   ],
   "points": [
@@ -352,16 +347,5 @@
     "DIN 17200 (1987 superseded by EN 10083)"
   ],
   "confidence_tier": "high",
-  "industry_note": "UNS G41400 / DIN 1.7225 (42CrMo4) / JIS SCM440 / KS SCM440 — Cr-Mo low-alloy steel (C 0.38-0.43, Cr 0.8-1.1, Mo 0.15-0.25). Crank shafts, gears, axles, ASTM A193 B7 bolts. AM LPBF 의 표준 high-strength steel.",
-  "profiles": {
-    "mach": "crmo",
-    "weld": "ce",
-    "htc": "as-built",
-    "htg": "h01-aisi",
-    "wg": "w03-aisi",
-    "insight": "carbon-alloy-steel"
-  },
-  "uns": [
-    "G41400"
-  ]
+  "industry_note": "UNS G41400 / DIN 1.7225 (42CrMo4) / JIS SCM440 / KS SCM440 — Cr-Mo low-alloy steel (C 0.38-0.43, Cr 0.8-1.1, Mo 0.15-0.25). Crank shafts, gears, axles, ASTM A193 B7 bolts. AM LPBF 의 표준 high-strength steel."
 }

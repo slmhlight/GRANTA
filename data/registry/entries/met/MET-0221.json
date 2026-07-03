@@ -212,38 +212,32 @@
     {
       "label": "EOS — AlSi10Mg for DMLS/LPBF",
       "url": "https://www.eos.info/metal-solutions/metal-materials",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Nikon SLM AlSi10Mg MDS 2026-01.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_AlSi10Mg_2026-01.1_EN.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "EOS AlSi10Mg",
       "url": "https://www.eos.info/metal-solutions/metal-materials/aluminium",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "EOS — AlSi10Mg material data sheet",
       "url": "https://www.eos.info/en-us/3d-printing-materials/metals/aluminum/eos-aluminium-alsi10mg",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM F3318 / ISO/ASTM 52907 — AM Powder Aluminum AlSi10Mg",
       "url": "https://www.astm.org/f3318-18.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "Aluminum Association — AlSi10Mg cast (~A360)",
       "url": "https://www.aluminum.org/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -579,13 +573,13 @@
     "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-cast-am",
-    "weld": "none",
-    "htc": "soft",
-    "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
-    "htg": "h02-aa",
-    "wg": "w21-alsi10mg",
-    "insight": "aluminum"
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "EN AC-43000",
+        "EN AC-AlSi10Mg",
+        "DIN 3.2381"
+      ]
+    }
   }
 }

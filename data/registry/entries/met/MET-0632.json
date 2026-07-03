@@ -195,32 +195,29 @@
   },
   "sources": [
     {
-      "label": "ANSYS Granta — HSLA P355N/NH normalized (UNS K02700, ASME SA516 Gr70)",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 2",
+      "url": "ANSYS Granta — HSLA P355N/NH normalized (UNS K02700, ASME SA516 Gr70)",
+      "verified": true
     },
     {
-      "label": "ASME standard",
+      "label": "Datasheet 2",
       "url": "https://www.asme.org/codes-standards/find-codes-standards",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
-      "label": "ASTM A516/A516M Spec for Pressure Vessel Plates, Carbon Steel",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 2",
+      "url": "ASTM A516/A516M Spec for Pressure Vessel Plates, Carbon Steel",
+      "verified": true
     },
     {
       "label": "ASTM A516 / A516M — Pressure Vessel Plate Carbon Steel",
       "url": "https://store.astm.org/a0516_a0516m-17.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "ASME B&PV Sec.II Part A — SA-516 Grade 70",
       "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-ii-materials",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -286,10 +283,5 @@
   "total_cost_estimate": 1.98,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "weld": "ce",
-    "htc": "soft",
-    "insight": "structural-steel"
-  }
+  "confidence_tier": "high"
 }

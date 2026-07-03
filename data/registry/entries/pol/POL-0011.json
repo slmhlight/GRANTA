@@ -157,26 +157,24 @@
   },
   "sources": [
     {
-      "label": "Rohacell (Evonik) datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.rohacell.com/product/rohacell/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
-      "label": "Evonik ROHACELL A Product Information (April 2022, 243400 EN)",
-      "verified": true,
-      "authority": "other"
+      "label": "Datasheet 1",
+      "url": "Evonik ROHACELL A Product Information (April 2022, 243400 EN)",
+      "verified": true
     },
     {
-      "label": "MIL-PRF-32125 / CMS / Boeing BMS aerospace foam spec",
-      "verified": true,
-      "authority": "standard"
+      "label": "Datasheet 1",
+      "url": "MIL-PRF-32125 / CMS / Boeing BMS aerospace foam spec",
+      "verified": true
     },
     {
       "label": "Evonik Rohacell A / IG / WF PMI foam reference",
       "url": "https://www.rohacell.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -242,8 +240,5 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "pol-foam"
-  }
+  "confidence_tier": "high"
 }

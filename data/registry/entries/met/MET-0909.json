@@ -191,26 +191,22 @@
     {
       "label": "Industry data — Ti-5553 (solution + aged)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: TIMET beta Ti",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Neway AeroTech — Ti-5Al-5V-5Mo-3Cr (Ti5553) 물성표 (UTS 1200~1300, YS 1100~1200, 신율 ~10%, 35~40 HRC, E 115 GPa)",
       "url": "https://www.newayaerotech.com/services/equiaxed-crystal-casting/ti-5al-5v-5mo-3cr-ti5553",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     }
   ],
   "points": [
@@ -310,11 +306,9 @@
     }
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "ti-alloy",
-    "weld": "none",
-    "htg": "h08-beta",
-    "wg": "w25-beta",
-    "insight": "titanium"
+  "_corrections": {
+    "subcategory": {
+      "from": "Titanium - Pure / CP Grades"
+    }
   }
 }

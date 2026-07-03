@@ -189,14 +189,12 @@
     {
       "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Aluminum Association — AA 3xxx (Al-Mn) + MMPDS-08 Sec.3.5",
       "url": "https://www.aluminum.org/standards",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -380,10 +378,30 @@
     }
   ],
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-soft",
-    "weld": "none",
-    "htc": "qt",
-    "insight": "aluminum"
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 3xxx (Al-Mn) + MMPDS-08 Sec.3.5",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AA 3105\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%203105",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
   }
 }

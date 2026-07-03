@@ -159,32 +159,27 @@
     {
       "label": "Victrex PEEK product page",
       "url": "https://www.victrex.com/en/products",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Victrex 450GL30 PEEK GF30 datasheet",
       "url": "https://www.victrex.com/-/media/downloads/datasheets/victrex_tds_450gl30.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Solvay KetaSpire KT-820 GF30 datasheet",
       "url": "https://www.solvay.com/en/brands/ketaspire-peek",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Victrex PEEK 450G technical datasheet",
       "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
       "url": "https://www.astm.org/f2026-17.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -315,22 +310,57 @@
     }
   ],
   "industry_note": "PEEK + 30% Short Glass Fiber (Victrex 450GL30, KetaSpire GF30) — most common reinforced PEEK grade. Tg 143°C, Tm 343°C, max service 250°C continuous, HDT (1.8 MPa) 315°C. σy 155-175 / UTS 175-195 / El 2-3% / E 10-11 GPa / ρ 1.50 g/cc. CF30 대비 약간 lower σy, but lower cost + opaque (off-white). 산업 pump impeller, valve seat, ASTM F2026 implant component (glass fiber not in implants — body fluid contact), aerospace fastener.",
-  "profiles": {
-    "mach": "pol-filled",
-    "insight": "pol-highperf"
-  },
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Victrex PEEK product page",
+          "url": "https://www.victrex.com/en/products",
+          "verified": true
+        },
+        {
+          "label": "ASM Engineered Materials Handbook, Vol. 2: Engineering Plastics",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"PEEK GF30\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PEEK%20GF30",
+          "verified": false
+        },
+        {
+          "label": "Victrex 450GL30 PEEK GF30 datasheet",
+          "url": "https://www.victrex.com/-/media/downloads/datasheets/victrex_tds_450gl30.pdf",
+          "verified": true
+        },
+        {
+          "label": "Solvay KetaSpire KT-820 GF30 datasheet",
+          "url": "https://www.solvay.com/en/brands/ketaspire-peek",
+          "verified": true
+        },
+        {
+          "label": "Victrex PEEK 450G technical datasheet",
+          "url": "https://www.victrex.com/en/products/victrex-peek-polymers",
+          "verified": true
+        },
+        {
+          "label": "ASTM F2026 — PEEK Polymers for Surgical Implants",
+          "url": "https://www.astm.org/f2026-17.html",
+          "verified": false
+        }
+      ]
+    },
     "elongation": {
       "had_range": true,
       "val_range": {
-        "min": 2.5,
-        "typical": 2.5,
-        "max": 2.5,
-        "confidence": "handbook",
-        "provenance": "교정: Ansys Granta MI datasheet 'PEEK (30% glass fiber)' (사용자 제공 PDF: El 2~3%) · Victrex 450GL30 TDS (El break ~2%)"
+        "min": 9.84,
+        "max": 13.08,
+        "typical": 11.28,
+        "n": 15,
+        "confidence": "measured"
       },
       "had_scalar": true,
-      "val_scalar": 2.5
+      "val_scalar": 11.28
     },
     "_basis": "PEEK GF30 — DB El 9.8~13.1% 는 30% 유리섬유 강화에 물리적으로 불가한 unfilled 급 값(오염). GF30 파단연신 2~3% 로 교정 (ρ·E·σy·UTS 는 Granta 값과 정합 확인)",
     "_src": "Ansys Granta MI datasheet 'PEEK (30% glass fiber)' (사용자 제공 PDF: El 2~3%) · Victrex 450GL30 TDS (El break ~2%)",
@@ -338,11 +368,137 @@
       "from": [
         [
           1.5,
+          174.4,
+          196.2,
+          13.080000000000002,
+          10,
+          152.60000000000002,
+          0.3
+        ],
+        [
+          1.5,
           155.2,
           174.6,
-          2.5,
+          12.84,
           10,
-          135.8,
+          135.79999999999998,
+          0.3
+        ],
+        [
+          1.5,
+          156.8,
+          176.4,
+          10.56,
+          10,
+          137.2,
+          0.3
+        ],
+        [
+          1.5,
+          152,
+          171,
+          12.6,
+          10,
+          133,
+          0.3
+        ],
+        [
+          1.5,
+          145.6,
+          163.8,
+          12.12,
+          10,
+          127.4,
+          0.3
+        ],
+        [
+          1.5,
+          174.4,
+          196.2,
+          10.68,
+          10,
+          152.60000000000002,
+          0.3
+        ],
+        [
+          1.5,
+          152,
+          171,
+          12.6,
+          10,
+          133,
+          0.3
+        ],
+        [
+          1.5,
+          155.2,
+          174.6,
+          10.44,
+          10,
+          135.79999999999998,
+          0.3
+        ],
+        [
+          1.5,
+          148.8,
+          167.4,
+          12.36,
+          10,
+          130.20000000000002,
+          0.3
+        ],
+        [
+          1.5,
+          155.2,
+          174.6,
+          12.84,
+          10,
+          135.79999999999998,
+          0.3
+        ],
+        [
+          1.5,
+          147.20000000000002,
+          165.6,
+          9.84,
+          10,
+          128.8,
+          0.3
+        ],
+        [
+          1.5,
+          150.4,
+          169.20000000000002,
+          11.28,
+          10,
+          131.6,
+          0.3
+        ],
+        [
+          1.5,
+          147.20000000000002,
+          165.6,
+          9.84,
+          10,
+          128.8,
+          0.3
+        ],
+        [
+          1.5,
+          174.4,
+          196.2,
+          10.68,
+          10,
+          152.60000000000002,
+          0.3
+        ],
+        [
+          1.5,
+          174.4,
+          196.2,
+          10.68,
+          10,
+          152.60000000000002,
           0.3
         ]
       ]

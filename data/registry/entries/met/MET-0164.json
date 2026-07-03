@@ -188,32 +188,27 @@
     {
       "label": "MatWeb — Aluminum 319 cast",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=319+aluminum+cast",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM — A319 cast aluminium (T6)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "KIC fallback: Aluminum Association handbook",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "MakeItFrom — 319.0 (SC64D, A03190) Cast Aluminum (property table, F/T5/T6 합산 범위)",
       "url": "https://www.makeitfrom.com/material-properties/319.0-SC64D-A03190-Cast-Aluminum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "Cast Rite Metal — Aluminum 319.0-T6 sand-cast 데이터시트 (UNS A03190)",
       "url": "https://castritemetal.com/PDF/319_T6.pdf",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -303,12 +298,13 @@
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "profiles": {
-    "mach": "al-cast-am",
-    "weld": "none",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A03190"
-  ]
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A03190",
+        "AlSi6Cu4",
+        "319 cast aluminium"
+      ]
+    }
+  }
 }

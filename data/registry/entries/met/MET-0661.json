@@ -187,32 +187,27 @@
     {
       "label": "MatWeb — Pure Tantalum Ta",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tantalum",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "ASM — pure tantalum (UNS R05200)",
       "url": null,
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.2 Refractory",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Plansee Tantalum technical data",
       "url": "https://www.plansee.com/en/materials/tantalum.html",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "ASTM B708 — Tantalum/Tantalum Alloy Sheet/Plate/Strip",
       "url": "https://store.astm.org/b0708-15.html",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     }
   ],
   "points": [
@@ -303,14 +298,5 @@
   "total_cost_estimate": 262.5,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ta-nb",
-    "weld": "none",
-    "wg": "w58-tantalumb",
-    "insight": "refractory"
-  },
-  "uns": [
-    "R05200"
-  ]
+  "confidence_tier": "high"
 }

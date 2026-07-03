@@ -182,28 +182,24 @@
   },
   "sources": [
     {
-      "label": "NASA technical report",
+      "label": "Datasheet 2",
       "url": "https://www.nasa.gov/news-release/nasa-invention-superalloy-can-withstand-extreme-temperatures",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=GRX-810",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "NASA GRX-810 ODS superalloy press release",
       "url": "https://www.nasa.gov/feature/glenn/2023/nasa-s-grx-810-3d-printable-alloy-strengthens-heat-resistant-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "Smith et al. — GRX-810 microstructure (Acta Materialia 2023)",
       "url": "https://doi.org/10.1016/j.actamat.2023.118887",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -271,11 +267,5 @@
   "svhc_concerns": [
     "Co 7% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high",
-  "profiles": {
-    "mach": "ni-super",
-    "weld": "none",
-    "htc": "aged",
-    "insight": "ni-superalloy"
-  }
+  "confidence_tier": "high"
 }

@@ -191,20 +191,17 @@
     {
       "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
       "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
-      "verified": true,
-      "authority": "handbook"
+      "verified": true
     },
     {
       "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
       "url": "https://store.astm.org/a0029_a0029m-20.html",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 5xxx (Cr alloy steel) + SAE J404",
       "url": "https://www.sae.org/standards/content/j404/",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -280,12 +277,44 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "profiles": {
-    "weld": "ce",
-    "htc": "soft",
-    "insight": "carbon-alloy-steel"
-  },
-  "uns": [
-    "G51400"
-  ]
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM Handbook Vol.1 — AISI 5xxx (Cr alloy steel) + SAE J404",
+          "url": "https://www.sae.org/standards/content/j404/",
+          "verified": true
+        },
+        {
+          "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — search \"AISI 5140\"",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%205140",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AMS 6415 alloy steel",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "points": {
+      "from": [
+        [
+          7.85,
+          624.8,
+          880,
+          15.81,
+          210,
+          246.4,
+          42
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

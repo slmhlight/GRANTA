@@ -192,40 +192,34 @@
   },
   "sources": [
     {
-      "label": "Nippon Steel datasheet",
+      "label": "Datasheet 1",
       "url": "https://www.nipponsteel.com/product/catalog_download/pdf/E001.pdf",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 304/304L",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Sumitomo Metals (Nippon Steel) Super304H Tube reference",
       "url": "https://www.nipponsteel.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     },
     {
       "label": "ASME B&PV Sec.II Part D — S30432 properties",
       "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-ii-materials",
-      "verified": false,
-      "authority": "standard"
+      "verified": false
     },
     {
       "label": "EPRI USC boiler tube material guideline",
       "url": "https://www.epri.com/",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "points": [
@@ -294,14 +288,5 @@
   "svhc_concerns": [
     "Ni 10.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "ss-austenitic",
-    "weld": "schaeffler",
-    "htc": "soft",
-    "insight": "stainless"
-  },
-  "uns": [
-    "S30432"
-  ]
+  "confidence_tier": "medium"
 }

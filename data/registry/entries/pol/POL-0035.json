@@ -145,32 +145,27 @@
     {
       "label": "Datasheet — ULTEM 9085",
       "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/ultem-9085/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Applications: Stratasys FDM 항공기 인테리어 (FAR 25.853), 군용 내부 부품",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "SABIC ULTEM 9085 resin technical guide",
       "url": "https://www.sabic.com/en/products/specialties/ultem-resins",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "Stratasys ULTEM 9085 FDM material data",
       "url": "https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/ultem-9085-resin/",
-      "verified": true,
-      "authority": "manufacturer"
+      "verified": true
     },
     {
       "label": "FAR 25.853 — Aviation Flammability (PEI 9085 compliant)",
       "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-25",
-      "verified": false,
-      "authority": "manufacturer"
+      "verified": false
     }
   ],
   "machinability": "Good",
@@ -257,9 +252,5 @@
     "Bourell D L et al. (2017) \"Materials for AM\", CIRP Annals 66"
   ],
   "confidence_tier": "high",
-  "industry_note": "ULTEM 9085 — PEI/PC blend (FST = Flame/Smoke/Toxicity rated). Tg ≈ 186°C, HDT (1.8 MPa) ≈ 153°C, max service 170°C continuous. σy 71-78 / UTS 71-83 / El 5-7% (lower 보다 unfilled 9085) / E 2.2-2.5 GPa / ρ 1.34 g/cc. FAR 25.853 (aircraft interior flammability) 및 FAA 항공기 인증 — Boeing/Airbus 의 항공 interior parts (overhead bin, ducting). Stratasys FDM 의 항공 grade (1010 대신 9085 가 항공 표준). 가공 시 280-320°C 압출.",
-  "profiles": {
-    "mach": "pol-amorphous",
-    "insight": "pol-highperf"
-  }
+  "industry_note": "ULTEM 9085 — PEI/PC blend (FST = Flame/Smoke/Toxicity rated). Tg ≈ 186°C, HDT (1.8 MPa) ≈ 153°C, max service 170°C continuous. σy 71-78 / UTS 71-83 / El 5-7% (lower 보다 unfilled 9085) / E 2.2-2.5 GPa / ρ 1.34 g/cc. FAR 25.853 (aircraft interior flammability) 및 FAA 항공기 인증 — Boeing/Airbus 의 항공 interior parts (overhead bin, ducting). Stratasys FDM 의 항공 grade (1010 대신 9085 가 항공 표준). 가공 시 280-320°C 압출."
 }

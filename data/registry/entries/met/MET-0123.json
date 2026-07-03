@@ -187,28 +187,24 @@
   },
   "sources": [
     {
-      "label": "MatWeb datasheet",
+      "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA2090",
-      "verified": false,
-      "authority": "aggregator"
+      "verified": false
     },
     {
       "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
       "url": null,
-      "verified": false,
-      "authority": "other"
+      "verified": false
     },
     {
       "label": "AZoM — Aluminum 2090 Alloy (UNS A92090), 2090-T83 Mechanical Properties",
       "url": "https://www.azom.com/article.aspx?ArticleID=8715",
-      "verified": true,
-      "authority": "standard"
+      "verified": true
     }
   ],
   "points": [
@@ -274,15 +270,5 @@
   "total_cost_estimate": 14.74,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "profiles": {
-    "mach": "al-2xxx",
-    "weld": "none",
-    "htg": "h02-aa",
-    "wg": "w17-aa",
-    "insight": "aluminum"
-  },
-  "uns": [
-    "A92090"
-  ]
+  "confidence_tier": "medium"
 }
