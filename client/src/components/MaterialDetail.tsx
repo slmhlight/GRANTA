@@ -13,7 +13,7 @@ import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/l
 import { htGlossaryFor } from '@/lib/ht-glossary';
 import { htAlloySpecificFor } from '@/lib/ht-alloy-specific';
 import { computeCET, computeCEIIW, computePcm, computeSchaeffler, machiningCostBand, htCostBand } from '@/lib/welding-machinability';
-import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote, resolveMachiningGuidance, machinabilitySources, resolveInsights, insightPickMatches, resolveHtGuidanceTexts, resolveWeldGuidance } from '@/lib/process-guidance';
+import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote, resolveMachiningGuidance, machinabilitySources, resolveInsights, insightPickMatches, resolveHtGuidanceTexts, resolveWeldGuidance, resolveWeldConditionNote, machinabilityConditionMult } from '@/lib/process-guidance';
 /* R222c — recharts(~150KB)는 아래에서 lazy 로드 (elev-temp/creep 데이터 있는 재료의 탭이 열릴 때만). */
 import { recommendedCoatings } from '@/lib/coatings';
 /* R157b — MaterialDetail 의 sub-components 분리. */
@@ -449,7 +449,11 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               // R226j/C6 — 절삭성은 m.profiles (stable_id 기반 빌드 스탬프) 조회 — 런타임 name-regex 없음.
               const mach = resolveMachinability(material);
               // R125 — Ceramic / Composite 에서 가공·HT 카드 hide (Si3N4 등 가공 불가 재료에 부적절한 카드 제거)
-              const machCost = machiningCostBand(material.machining_cost_factor, material.category);
+              // R226r — 열처리(조건)별 가공비 보정: ferrous 경화군은 htc 로 machining_cost_factor 상향 (경화=고비용)
+              const machAdj = machinabilityConditionMult(material);
+              const adjMcf = (material.machining_cost_factor != null && machAdj.applies)
+                ? material.machining_cost_factor * machAdj.cost : material.machining_cost_factor;
+              const machCost = machiningCostBand(adjMcf, material.category);
               // R226i — 폴리머는 금속 tool-life 모델 대신 카테고리 전용 정성 절삭성
               const polyMach = resolvePolymerMachinability(material);
               // R226j — 조건(variation)별 가공 노트 + 가족별 가공 가이드
@@ -479,6 +483,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               // R226k — HT 주의사항·합금별 용접 권고 (ID 조회; 구 인라인 name-regex 83블록 대체)
               const htGuidanceTexts = resolveHtGuidanceTexts(material);
               const weldGuidance = resolveWeldGuidance(material, !!weldWorst);
+              // R226r — 용접성 rating 은 조성기반(조건무관)이나, 경화/시효/냉간 상태는 HAZ 연화 유발 → 조건별 HAZ 노트
+              const weldCondNote = resolveWeldConditionNote(material);
               /* R113 + R152b — 3 카드 모두 collapsible (mobile 가독성). default: Machinability open · HT/Weld closed.
                  R152b: 폭 좁은 detail panel (좌측 floating popup 430px 또는 모바일) 에서 2-column 이 텍스트
                  wrap 으로 가독성 ↓ → 항상 1 column stack 으로 변경. */
@@ -497,8 +503,14 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         {mach && (
                           <div className="flex items-baseline justify-between gap-2">
                             <b>절삭성 rating</b>
-                            <span className="font-mono">{mach.rating}% · <b>{mach.label}</b></span>
+                            <span className="font-mono">{mach.rating}% · <b>{mach.label}</b>{mach.conditionAdjusted && <span className="text-[10px] font-normal opacity-70"> (연질 {mach.baseRating}%)</span>}</span>
                           </div>
+                        )}
+                        {/* R226r — 열처리 조건 보정 설명: 같은 합금이라도 어닐 vs 경화(Q&T/시효/냉간)로 가공성 상이 */}
+                        {mach?.conditionAdjusted && (
+                          <p className="text-[10px] leading-relaxed text-foreground/70">
+                            ⓘ 이 열처리 조건에서 경도↑ → 절삭성 {mach.baseRating}%→{mach.rating}% 보정 (가공비도 상향). 어닐/용체화 상태로 가공 후 열처리·연삭이 통상 순서.
+                          </p>
                         )}
                         {machCost && (
                           <div className="flex items-baseline justify-between gap-2">
@@ -670,6 +682,14 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                           <div className="flex items-baseline justify-between gap-2 py-0.5 border-b border-current/10">
                             <b>Weldability rating</b>
                             <span className="font-mono"><b>{material.weldability}</b> (ASM Vol.6 handbook)</span>
+                          </div>
+                        )}
+                        {/* R226r — 조건(HT)별 HAZ 주의: 용접성 rating 은 조성기반(조건무관)이나 경화/시효/냉간 상태는 HAZ 연화 유발 */}
+                        {weldCondNote && (
+                          <div className="mt-2 pt-2 border-t border-current/15">
+                            <p className="text-[11px] leading-relaxed text-foreground/80">
+                              <b>이 조건{material.heat_treatment ? ` (${material.heat_treatment})` : ''}:</b> {weldCondNote}
+                            </p>
                           </div>
                         )}
                         <div className="mt-2 pt-2 border-t-2 border-current/30">

@@ -152,5 +152,8 @@ export function classifyInsightGroup(category, subcategory) {
     if (/polyethylene|uhmwpe|\bpp\b|pvc|polystyrene|pla|petg|eva|pcl|polyester|epoxy|pvb/i.test(sub)) return 'pol-commodity';
     return null;
   }
+  // R226r — 세라믹·복합재 인사이트 그룹 (구조 세라믹 / 섬유·금속기지 복합재 when-to-use). 구조재 전용.
+  if (category === 'Ceramic') return 'ceramic';
+  if (category === 'Composite') return 'composite';
   return null;
 }

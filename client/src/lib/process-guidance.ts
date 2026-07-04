@@ -18,6 +18,10 @@ export interface MachinabilityResult {
   band: 'easy' | 'normal' | 'hard' | 'very_hard';
   label: string;
   note: string;
+  /** R226r — 조건(HT)별 보정이 적용됐으면 true + base(연질) rating 병기. */
+  conditionAdjusted?: boolean;
+  baseRating?: number;
+  htc?: string;
 }
 export interface PolymerMachResult {
   band: 'easy' | 'normal' | 'hard';
@@ -28,6 +32,25 @@ export interface InsightPick { when: string; use: string; why: string }
 export interface InsightGroup { title: string; intro: string; picks: InsightPick[]; sources: string[] }
 
 const METAL_MACH = (profilesData as any).machinability.metal as Record<string, { rating: number; band: MachinabilityResult['band']; label: string; note: string; guidance_key?: string }>;
+/* R226r — 조건(HT)별 절삭성 보정 (process-profiles.json.machinability.condition_adjust). */
+const COND_ADJ = (profilesData as any).machinability.condition_adjust as {
+  rating_mult: Record<string, number>; cost_mult: Record<string, number>;
+  band_thresholds: { easy: number; normal: number; hard: number }; ferrous_hardening: string[];
+};
+const FERROUS_HARDENING = new Set(COND_ADJ.ferrous_hardening);
+const BAND_LABEL: Record<MachinabilityResult['band'], string> = { easy: '우수', normal: '보통', hard: '어려움', very_hard: '매우 어려움' };
+function bandForRating(r: number): MachinabilityResult['band'] {
+  const t = COND_ADJ.band_thresholds;
+  return r >= t.easy ? 'easy' : r >= t.normal ? 'normal' : r >= t.hard ? 'hard' : 'very_hard';
+}
+/** 절삭성 조건(HT) 보정 배율 — ferrous 경화군 + htc 스탬프일 때만 적용. rating(곱)·cost(역보정). */
+export function machinabilityConditionMult(m: Material): { rating: number; cost: number; applies: boolean; htc?: string } {
+  const key = m.profiles?.mach; const htc = m.profiles?.htc;
+  if (!key || !htc || !FERROUS_HARDENING.has(key)) return { rating: 1, cost: 1, applies: false, htc };
+  const rating = COND_ADJ.rating_mult[htc] ?? 1;
+  const cost = COND_ADJ.cost_mult[htc] ?? 1;
+  return { rating, cost, applies: rating !== 1 || cost !== 1, htc };
+}
 const POLYMER_MACH = (profilesData as any).machinability.polymer as Record<string, PolymerMachResult>;
 const CONDITION_NOTES = (profilesData as any).condition_notes as Record<string, string>;
 const MACH_SOURCES = (profilesData as any).machinability.sources as { metal: string[]; polymer: string[] };
@@ -42,17 +65,24 @@ export const INSIGHT_GROUP_LABEL: Record<string, string> = {
   'magnesium': '마그네슘', 'tool-steel': '공구강', 'refractory': '내화금속',
   'pol-highperf': '고성능 폴리머', 'pol-engineering': '엔지니어링 폴리머', 'pol-commodity': '범용 폴리머',
   'pol-elastomer': '탄성체', 'pol-fluoro': '불소수지',
+  ceramic: '구조 세라믹', composite: '복합재',
 };
 export const insightGroupLabel = (key?: string | null): string | null => (key ? (INSIGHT_GROUP_LABEL[key] ?? null) : null);
 
-/** 금속 절삭성 — m.profiles.mach 조회 (프로파일 없으면 null = 카드 미표시). */
+/** 금속 절삭성 — m.profiles.mach 조회 (프로파일 없으면 null = 카드 미표시).
+ *  R226r — 열처리(조건)별 보정: 같은 합금이라도 어닐 vs 경화(Q&T/시효/냉간) 로 가공성이 크게 달라짐.
+ *  ferrous 경화군은 htc(빌드 스탬프)로 rating 을 보정(연질 base × 배율) + band 재산출. name-regex 없음. */
 export function resolveMachinability(m: Material): MachinabilityResult | null {
   if (m.category !== 'Metal') return null;
   const key = m.profiles?.mach;
   if (!key) return null;
   const p = METAL_MACH[key];
   if (!p) return null;
-  return { rating: p.rating, band: p.band, label: p.label, note: p.note };
+  const adj = machinabilityConditionMult(m);
+  if (!adj.applies || adj.rating === 1) return { rating: p.rating, band: p.band, label: p.label, note: p.note };
+  const rating = Math.max(3, Math.round(p.rating * adj.rating));
+  const band = bandForRating(rating);
+  return { rating, band, label: BAND_LABEL[band], note: p.note, conditionAdjusted: true, baseRating: p.rating, htc: adj.htc };
 }
 
 /** 폴리머 절삭성 (정성) — 전 폴리머가 빌드에서 클래스 할당됨. */
@@ -110,6 +140,16 @@ export function resolveWeldGuidance(m: Material, hasCeMetrics: boolean): string 
   if (!b) return null;
   if (b.nonferrous_only && hasCeMetrics) return null;
   return b.text;
+}
+
+/** R226r — 용접 조건(HT) 노트: 용접성 rating 은 조성기반(조건무관)이나, 경화/시효/냉간 상태는
+ *  HAZ 연화를 유발 → htc(빌드 스탬프) 기준 HAZ 주의 노트. soft/hip/as-built 는 null. name-regex 없음. */
+const WELD_COND_NOTES = (profilesData as any).weld_condition_notes as Record<string, string>;
+export function resolveWeldConditionNote(m: Material): string | null {
+  if (m.category !== 'Metal') return null;
+  const htc = m.profiles?.htc;
+  if (!htc) return null;
+  return WELD_COND_NOTES[htc] || null;
 }
 
 /** 재료 선택 인사이트 그룹 (E9 — when-to-use). */

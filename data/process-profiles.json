@@ -54,6 +54,13 @@
   "sources": {
    "metal": ["Machining Data Handbook (Metcut) — AISI 1212=100 기준 상대 rating", "ASM Handbook Vol.16 Machining", "ISO 3685 (tool life)"],
    "polymer": ["Ensinger — Machining Recommendations for Engineering Plastics", "Quadrant(현 MCAM) — Machining Guidelines (GF/CF→초경·PCD 필수, 비정질 ESC·절삭유, 응력완화 어닐링 원문 확인)", "Curbell Plastics — Plastic Machining Guidelines"]
+  },
+  "condition_adjust": {
+   "_note": "R226r — 절삭성의 열처리(조건)별 보정. base rating 은 어닐/용체화(soft) 기준(각 note 확인) → 경화 조건에서 급감. htc 클래스(m.profiles.htc, stable_id 스탬프)별 배율: rating 은 곱, machining_cost_factor 는 역보정(경화=고비용). ferrous_hardening 군만 적용(base=연질 앵커, 경화 시 급감 명확). 비철(Al/Cu/Mg, base=상용 T 조건)·초합금/Ti/refractory(base=용체화이나 시효효과 모호)는 미보정 → 잘못된 값 회피(보수적). 근거: Machining Data Handbook(어닐 vs 경화 rating)·Taylor 공구수명식(경도↑→허용속도↓).",
+   "rating_mult": { "soft": 1.0, "hip": 0.96, "as-built": 0.92, "cold": 0.88, "case": 0.85, "aged": 0.82, "qt": 0.72 },
+   "cost_mult": { "soft": 1.0, "hip": 1.05, "as-built": 1.1, "cold": 1.15, "case": 1.2, "aged": 1.25, "qt": 1.4 },
+   "band_thresholds": { "easy": 68, "normal": 40, "hard": 20 },
+   "ferrous_hardening": ["fm-steel", "ss-303", "ss-416", "carbon-low", "carbon-medhigh", "crmo", "nicrmo", "case-hard", "bearing", "maraging", "tool-steel", "ss-ferritic", "ss-martensitic", "ss-austenitic", "ss-ph", "ss-duplex"]
   }
  },
  "condition_notes": {
@@ -83,6 +90,13 @@
   "ni-super|as-built": "AM as-built — 잔류응력 大. 응력해제/HIP 후 가공 권장 (왜곡 방지).",
   "ti-alloy|as-built": "AM as-built Ti — 잔류응력·표면 α-case 유의. 응력해제 후 가공, 지지구조 제거 시 발열 주의.",
   "al-cast-am|as-built": "AM as-built AlSi — 응력해제(300°C) 후 가공 권장. Si 상 공구 마모는 조건 무관."
+ },
+ "weld_condition_notes": {
+  "_note": "R226r — 용접성 *rating*(Schaeffler/CE_IIW/CET/Pcm)은 조성 기반이라 조건(HT) 무관(=올바름). 다만 열처리 상태는 용접 열영향부(HAZ)에서 강도 손실을 유발 → 조건(htc)별 HAZ 주의 노트. 키=htc 클래스(m.profiles.htc, stable_id 스탬프). soft/hip/as-built 는 노트 없음(연화 이슈 없음).",
+  "aged": "이 조건은 시효경화(aged/PH) 상태 — 용접 열영향부(HAZ)에서 석출물 과시효·재고용으로 국부 연화. 강도 회복은 용접 후 재시효(필요 시 재용체화). 모재 강도 유지가 중요하면 용접부 위치·후열처리 설계 필요.",
+  "qt": "이 조건은 조질(Q&T) 상태 — HAZ 에서 템퍼링 연화 또는 재경화(저온균열) 양면. 경화성 강은 예열·후열(PWHT)로 균열 방지 + 연화 구간 강도 손실 감안.",
+  "cold": "이 조건은 냉간가공 경화 상태 — HAZ 재결정으로 국부 강도 상실 (비가역: 조립 후 재냉간가공 불가). 강도 의존 부위는 용접 회피 또는 어닐재로 설계.",
+  "case": "이 조건은 표면경화(침탄/질화) 상태 — 용접열이 경화층을 손상. 용접은 표면경화 전 또는 경화층 밖에서 수행."
  },
  "weld_models": {
   "ce": "탄소당량(CE_IIW·CET·Pcm) 기반 냉간균열 감수성 평가 — C-Mn/저합금강 전용 (AWS D1.1 적용범위).",

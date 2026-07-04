@@ -77,9 +77,13 @@ export function decisionContext(cur: Material, cand: Material): {
   return { whenLine, machChip, candGroupTitle, crossGroup };
 }
 
-export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial, topN = 10 }: SimilarMaterialsCardProps) {
+export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial, topN = 16 }: SimilarMaterialsCardProps) {
   const similar = findSimilar(material, allMaterials, { topN });
   if (!similar.length) return null;
+  // R226r — 커버리지 확대: 상세 카드 + compact 오버플로우(물성 근접이나 묻히던 대체 후보까지 노출).
+  const DETAIL_N = 7;
+  const detailed = similar.slice(0, DETAIL_N);
+  const compact = similar.slice(DETAIL_N);
   return (
     <details open className="rounded-lg border-2 border-sky-300 bg-sky-50/50 p-3">
       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-sky-900">
@@ -87,7 +91,7 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
         <span className="text-[10px] font-normal opacity-70">top {similar.length}</span>
       </summary>
       <div className="space-y-1.5 mt-2 pt-2 border-t border-sky-300/50">
-        {similar.map((s) => {
+        {detailed.map((s) => {
           const ctx = decisionContext(material, s.material);
           return (
           <button
@@ -160,13 +164,34 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
           </button>
           );
         })}
+        {/* R226r — compact 오버플로우: 물성 근접이나 상세 카드에서 밀린 대체 후보를 한눈에 (묻히는 재료 노출). */}
+        {compact.length > 0 && (
+          <div className="pt-2 mt-1 border-t border-sky-300/40">
+            <p className="text-[10px] text-muted-foreground mb-1.5">그 외 물성 근접 대체 후보 <b>{compact.length}종</b> (클릭 시 이동):</p>
+            <div className="flex flex-wrap gap-1">
+              {compact.map((s) => {
+                const ctx = decisionContext(material, s.material);
+                return (
+                  <button
+                    key={s.material.id}
+                    type="button"
+                    onClick={() => onSelectMaterial?.(s.material.id)}
+                    disabled={!onSelectMaterial}
+                    title={`${s.material.subcategory || ''}${s.distance >= 0 ? ` · ≈${s.distance.toFixed(2)}` : ''}${ctx.crossGroup && ctx.candGroupTitle ? ` · 주로 ${ctx.candGroupTitle}용` : ''}`}
+                    className="text-[10px] px-1.5 py-0.5 rounded border border-sky-200 bg-background hover:border-sky-400 hover:bg-sky-50/80 transition-colors disabled:cursor-default disabled:hover:border-sky-200 flex items-center gap-1 max-w-full"
+                  >
+                    <span className="font-medium text-foreground/90 truncate max-w-[150px]">{s.material.name}</span>
+                    {s.crossRef && <span className="text-violet-600" title="↔ 대응 합금">↔</span>}
+                    {s.distance >= 0 && <span className="font-mono text-sky-700">≈{s.distance.toFixed(2)}</span>}
+                    {ctx.crossGroup && ctx.candGroupTitle && <span className="text-amber-600 font-semibold" title={`주로 ${ctx.candGroupTitle}용 (다른 분야)`}>↗</span>}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
         <p className="text-[10px] text-muted-foreground mt-2 leading-snug">
-          같은 카테고리 · <b>물성 log-distance 가까운 순 top {similar.length}</b> (순위는 인기도 무관, 같은 family +45% 가중 · 단 현재 재료보다 인기도 1.0↓ 재료는 제외).
-          <span className="font-mono text-sky-700">≈</span>=물성 거리(낮을수록 유사). 클릭 시 이동.{' '}
-          <span className="text-amber-800 font-semibold">주로 …용 배지</span>=물성은 가깝지만 <b>보통 다른 분야에 쓰는 재료</b>(예: 스테인리스를 보는데 물성 비슷한 Ni합금) —
-          쓰임새가 달라 대체 시 용도 적합성 확인 필요. <span className="text-emerald-700">초록</span>&lt;10% ·{' '}
-          <span className="text-amber-700">노랑</span>&lt;30% · <span className="text-rose-700">빨강</span>≥30% 물성차 ·{' '}
-          <span className="text-indigo-700">💡</span>=용도 시나리오(인사이트 융합).
+          같은 카테고리 · 물성 거리(<span className="font-mono text-sky-700">≈</span>) 가까운 순 · 같은 family 가중 · 각 항목·배지·색은 마우스 오버로 상세.
         </p>
       </div>
     </details>

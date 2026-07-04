@@ -76,8 +76,10 @@ describe('machinability robustness — 금속 rating 유효성·오분류', () =
       if (/free.?machin|\b303\b|\b416\b/i.test(m.name)) continue;
       const band = familyBand(m);
       if (!band) continue;
-      if (r.rating < band[0] || r.rating > band[1]) {
-        violations.push(`${m.name} [${m.subcategory}] rating ${r.rating} ∉ [${band[0]},${band[1]}]`);
+      // R226r — 가족-band 는 *분류*(프로파일) 검증이 목적 → 조건(HT) 보정된 entry 는 base(연질) rating 으로 비교.
+      const cr = r.conditionAdjusted ? r.baseRating! : r.rating;
+      if (cr < band[0] || cr > band[1]) {
+        violations.push(`${m.name} [${m.subcategory}] rating ${cr} ∉ [${band[0]},${band[1]}]`);
       }
     }
     if (violations.length) console.log('오분류 후보:\n' + violations.join('\n'));
@@ -97,7 +99,12 @@ describe('machinability robustness — 폴리머 정성 band 유효', () => {
  * 측정치-토큰 충돌(1100°C→Al·1020°C→carbon)·m4(SCM4xx)·EN번호(430)·h13(PH13-8) 방어. */
 describe('machinability 오분류 회귀 앵커 (R226i)', () => {
   const find = (rx: RegExp) => metals.find(m => rx.test(m.name));
-  const rate = (m: Material | undefined) => (m ? computeMachinability(m)?.rating : undefined);
+  // R226r — 앵커는 *분류*(프로파일)를 고정 → 조건 보정된 entry 는 base rating 확인.
+  const rate = (m: Material | undefined) => {
+    if (!m) return undefined;
+    const r = computeMachinability(m);
+    return r ? (r.conditionAdjusted ? r.baseRating : r.rating) : undefined;
+  };
   const cases: Array<[string, RegExp, number]> = [
     ['Inconel 625 (Solution treated 1100°C → Ni superalloy 15, not Al 35)', /Inconel 625.*1100/, 15],
     ['AISI 305 (EN 1.4303 must not match ferritic 430 → austenitic 40)', /AISI 305\b/, 40],
@@ -115,6 +122,34 @@ describe('machinability 오분류 회귀 앵커 (R226i)', () => {
       expect(rate(m)).toBe(expected);
     });
   }
+});
+
+/* R226r — 조건(HT)별 절삭성 보정 앵커: 같은 합금이라도 어닐 vs 경화로 rating 이 달라져야 함. */
+describe('machinability 조건(HT)별 보정 (R226r)', () => {
+  const byName = (rx: RegExp) => metals.find(m => rx.test(m.name));
+  it('AISI 410 — 어닐 > Q&T (경화 시 절삭성 하락)', () => {
+    const ann = byName(/AISI 410 — Annealed/);
+    const qt = byName(/AISI 410 — Quenched/);
+    const ra = ann && computeMachinability(ann); const rq = qt && computeMachinability(qt);
+    expect(Boolean(ra && rq)).toBe(true);
+    expect(rq!.rating).toBeLessThan(ra!.rating);
+    expect(rq!.conditionAdjusted).toBe(true);
+  });
+  it('D2 Tool Steel Hardened — 경화 보정(base 35 → 하락)', () => {
+    const r = (() => { const d2 = byName(/D2 Tool Steel.*Hardened/); return d2 && computeMachinability(d2); })();
+    expect(r?.conditionAdjusted).toBe(true);
+    expect(r!.baseRating).toBe(35);
+    expect(r!.rating).toBeLessThan(35);
+  });
+  it('soft/annealed 조건은 base 그대로 (보정 없음)', () => {
+    const r = (() => { const a = byName(/AISI 4130 \/ SCM430.*Annealed/); return a && computeMachinability(a); })();
+    expect(r?.conditionAdjusted).toBeFalsy();
+    expect(r?.rating).toBe(60);
+  });
+  it('비철·초합금(ferrous_hardening 외)은 조건 보정 미적용', () => {
+    const inc = metals.find(m => m.profiles?.mach === 'ni-super' && (m.profiles?.htc === 'aged' || m.profiles?.htc === 'qt'));
+    if (inc) expect(computeMachinability(inc)?.conditionAdjusted).toBeFalsy();
+  });
 });
 
 /* 커버리지 리포트 (정보용 — 게이트 아님, null=안전한 갭). */
