@@ -1471,18 +1471,6 @@
     "fun_fact": "전 세계 음료캔 몸통 대부분이 3004(또는 3104) 알루미늄이다 — 얇게 뽑아도 안 찢어지는 성형성과, 내용물에 안 녹는 내식성을 동시에 만족하기 때문이다."
    }
   },
-  "aluminum-bronze-c61400": {
-   "display": "Aluminum Bronze C61400",
-   "stable_ids": [
-    "MET-0360"
-   ],
-   "refs": [
-    "Tissier J P & N (1856) Comptes Rendus 42",
-    "Meigh H J (2000) Cast and Wrought Aluminium Bronzes: Properties, Processes and Structure, IOM Communications",
-    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
-   ],
-   "legacy_text": "1856년 프랑스 티시에 (Tissier) 형제가 Cu-Al 8-10% 의 합금을 처음 보고 — 발색이 24K 금에 가까워 1869년 파리 만국박람회에서 'L'or des pauvres' (가난한 자의 금) 로 전시됐죠. 1차 대전 영국 해군이 Cu 9% Al + 2% Fe + 3% Ni 의 nickel-aluminum bronze (NAB, C95800) 로 발전시켜 'Sea-cure' alloy 로 명명했고요. C61400 (Cu-7Al-2Fe) 은 그 wrought 변형입니다.\n\n응용 — 해상 — 잠수함 propeller (영국 Astute class, 미국 Virginia class 모두 NAB cast), oil tanker 의 ballast 펌프 impeller, 해상 platform 의 boat lift, Caterpillar dump truck bushing, Westinghouse turbine 발전기의 blade fillet, 시멘트 mixer drum 의 inlet wear ring, Big Ben 시계의 tower bell stand, 영국 1971년 발행 50 pence 동전. 부식 저항 + 마모 + 비-자성 (mine detector 안전) + 비-sparking (가스 안전 — petroleum refinery 의 hammer) 의 만능성을 보여주는 합금입니다."
-  },
   "aluminum-nitride": {
    "display": "Aluminum Nitride",
    "stable_ids": [
@@ -1868,6 +1856,8 @@
     "MET-0400",
     "MET-0401",
     "MET-0413",
+    "MET-0440",
+    "MET-0447",
     "MET-0448",
     "MET-0449"
    ],
@@ -1880,13 +1870,14 @@
     "origin": "황동은 구리-아연 합금으로, 수천 년을 이어 온 가장 친숙한 합금 계열이다. 아연이 5%에서 40%까지 오르는 동안 색은 붉은빛에서 노란빛으로, 강도와 성형성은 점점 높은 쪽으로 움직인다. 커머셜 브론즈라 불리는 C22000(아연 10%), 전형적인 노란 황동 C27000(65/35), 쾌삭황동 C36000, 그리고 해수용 어드미럴티 황동 C44300 이 그 스펙트럼 위의 대표들이다.",
     "breakthrough": "황동의 진화는 첨가 원소의 역사다. 납을 넣은 C36000 은 칩이 잘게 부서져 자동선반 가공의 표준이 됐고, 구리 합금 절삭성 등급의 기준점(100)이 바로 이 합금이다. 주석과 비소를 넣은 어드미럴티 황동은 아연이 바닷물에 녹아 빠지는 탈아연 부식을 억제해 콘덴서 튜브를 지켰다. 아연 35% 부근의 C27000·C26000 은 강도와 딥드로잉 성형성의 균형이 좋아 탄피부터 악기까지 폭넓게 쓰였다.",
     "adoption": "근대 탄피·시계·계기 산업이 황동을 정밀 대량가공의 표준으로 만들었고, 자동선반의 시대가 열리자 쾌삭 C36000 이 그 기준 재료가 됐다.",
-    "today": "밸브·피팅·커넥터 같은 대량 절삭 부품은 여전히 C36000 의 무대이고, C27000 과 먼츠 메탈 C28000(60/40)은 판·관·장식재로, C22000 은 배지와 건축 장식으로, C44300 은 열교환기 튜브로 쓰인다. 다만 납 규제가 강해지면서 수도 계통은 저납·비스무트 황동으로 빠르게 넘어가는 중이다.",
+    "today": "밸브·피팅·커넥터 같은 대량 절삭 부품은 여전히 C36000 의 무대이고, C27000 과 먼츠 메탈 C28000(60/40)은 판·관·장식재로, C22000 은 배지와 건축 장식으로, C44300·해군황동(naval brass) C46400 은 열교환기·해수 튜브로 쓰인다. 다만 납 규제가 강해지면서 수도 계통은 저납·비스무트 황동으로 빠르게 넘어가는 중이다.",
     "fun_fact": "금관악기가 황동(brass)이라 그 장르 이름이 \"브라스 밴드\"다 — 아연 비율을 조절해 붉은 금빛부터 밝은 노랑까지 악기의 색을 고를 수 있고, 그 울림도 합금마다 미묘하게 다르다."
    }
   },
   "bronze-grades": {
    "display": "Bronze (Phosphor C51000/C51900 · Silicon · Aluminum C63020/C95820 · Bearing)",
    "stable_ids": [
+    "MET-0360",
     "MET-0362",
     "MET-0365",
     "MET-0402",
@@ -1910,7 +1901,7 @@
     "origin": "청동은 원래 구리에 주석을 섞은 인류 최초의 합금이지만, 오늘날에는 아연이 주역이 아닌 구리 합금을 폭넓게 부르는 이름이 됐다. 주석에 인을 더한 인청동(C51000, 주석을 6%로 올린 C51900), 규소청동(C65500), 알루미늄청동(C61400·C63000), 그리고 납을 품은 베어링청동(C93200)까지 — 무엇을 섞느냐에 따라 완전히 다른 성격의 재료가 된다.",
     "breakthrough": "주석과 인은 탄성과 내마모를 줘서 인청동을 스프링과 부싱의 재료로 만들었다. 규소는 강도와 용접성을 함께 올리고, 알루미늄은 표면에 치밀한 산화막을 만들어 스테인리스급 강도와 해수 내식을 준다. 알루미늄청동에 니켈과 철을 더한 니켈알루미늄청동(NAB)은 여기서 한 단계 더 나간 계열로, 단조용 C63020 은 인장 700MPa 급 강도로 항공 부싱에, 주조용 C95800·C95820 은 캐비테이션과 해수 부식을 동시에 견디는 성질로 선박 프로펠러에 자리 잡았다.",
     "adoption": "근대 해군이 프로펠러·해수 밸브에 청동 계열을 채택하며 산업 표준이 됐고, 인청동 스프링과 베어링청동 부싱이 전기·기계 산업의 기본 부품으로 이어졌다.",
-    "today": "인청동(C51000·C51900)은 커넥터 스프링·부싱·베어링에, 규소청동은 볼트와 해양 하드웨어에 쓰인다. 알루미늄청동과 NAB 는 해수 펌프·밸브·프로펠러·항공 착륙장치 부싱(C63020)을 맡고, 베어링청동 C93200 은 저속 고하중의 미끄럼 베어링 표준으로 남아 있다.",
+    "today": "인청동(C51000·C51900)은 커넥터 스프링·부싱·베어링에, 규소청동은 볼트와 해양 하드웨어에 쓰인다. 알루미늄청동(C61400)과 NAB 는 해수 펌프·밸브·프로펠러·항공 착륙장치 부싱(C63020)을 맡고, 베어링청동 C93200 은 저속 고하중의 미끄럼 베어링 표준으로 남아 있다.",
     "fun_fact": "대형 선박의 프로펠러 대부분은 지금도 니켈알루미늄청동 주물이다 — 바닷물 속에서 초음속으로 꺼지는 기포(캐비테이션)가 표면을 두들기는 환경을, 강철보다 오래 견디기 때문이다."
    }
   },
@@ -2002,18 +1993,6 @@
     "today": "배관 파이프, 콘덴서 튜브, 압력계·소방 커플링 등 강도와 내식이 함께 필요한 자리에 쓰인다. 더 높은 강도·성형성은 노란 황동으로, 가혹한 해수는 어드미럴티·백동으로 넘어간다.",
     "fun_fact": "아연 15%는 황동의 아슬아슬한 선이다 — 이보다 아연이 많으면 아연만 녹아 빠져 구리 스펀지가 남는 탈아연 부식이 심해져, 배관용 황동의 아연 상한이 대략 여기서 그어진다."
    }
-  },
-  "c26000": {
-   "display": "C26000",
-   "stable_ids": [
-    "MET-0447"
-   ],
-   "refs": [
-    "ASTM B36 \"Standard Specification for Brass Plate, Sheet, Strip, And Rolled Bar\"",
-    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
-    "Mendenhall J H (ed., 1980) Understanding Copper Alloys, Olin Brass"
-   ],
-   "legacy_text": "1882년 미국 Federal Cartridge 가 탄피 (cartridge case) 의 표준 합금으로 채택한 70% Cu + 30% Zn 의 α-brass. Zn 30% 가 정확히 cold-work 의 극한 한계 — 한 번의 deep-drawing 으로 brass strip 이 탄피 모양으로 변형되면서도 균열이 안 가는 sweet spot 이었어요. 1925년 ASTM B36 으로 표준화됐고, UNS C26000 으로 등재됐죠.\n\n응용은 군용·산업 일대. 군용 탄피 — M16 의 5.56×45 NATO, M2 Browning 의 .50 BMG, M240 의 7.62×51 NATO — 모두 C26000. 산업 — 가스라이터의 fuel chamber, 전자관 envelope, 음향 wind instrument (트럼펫, 트럼본의 bell 부분 — 음향적 brilliance 가 70/30 의 특징입니다), pen body (Cross 펜의 일부 grade), 라디에이터의 core tube. 한국 풍산 (Poongsan) 이 글로벌 cartridge brass 의 약 20% 를 점유 — 한국이 cartridge case 산업의 강자 중 하나예요.\n\n흥미. cartridge brass 의 일관 deep-drawing 공정은 '15 단계 이상의 cup-drawing + 중간 annealing' 의 매우 정교한 manufacturing process 이고, scrap 회수율이 95% 가 넘는 모범적 closed-loop 산업입니다. 한 발의 탄피가 결국 다시 탄피로 돌아오는 거죠."
   },
   "c26800": {
    "display": "C26800",
@@ -2418,22 +2397,11 @@
     "fun_fact": "D2 는 크롬이 12%나 들어 \"반(半)스테인리스\"라고 불릴 만큼 녹에 강하지만, 그 크롬 대부분이 탄화물로 묶여 있어 진짜 스테인리스의 내식에는 끝내 못 미친다 — 같은 원소도 어디에 있느냐가 성질을 가른다."
    }
   },
-  "copper": {
-   "display": "Copper",
-   "stable_ids": [
-    "MET-0414"
-   ],
-   "refs": [
-    "Cohen M (1980) The Copper Industry — A History",
-    "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
-    "ASTM B187 \"Standard Specification for Copper Bus Bar\""
-   ],
-   "legacy_text": "Copper (Cu) 의 인류 사용은 BC 9000년 전 중동 (현 이라크 북부 Tepe Sialk) 의 천연 native copper hammer-formed jewelry 에서 시작합니다. BC 3500년 청동기 시대 (Bronze Age) 의 시작은 Cu + Sn (~10%) 의 bronze alloy 가 광범위하게 사용되면서 청동기 시대의 도구·무기·공예가 인류 문명의 한 단계를 정의한 시기였어요. 현대 metallurgy 에서 'copper' 는 pure 또는 거의 pure Cu 를 의미합니다.\n\n순수 Cu 의 매력은 electrical conductivity (100% IACS, 모든 금속 중 silver 다음으로 높음) + thermal conductivity (390 W/m·K, 거의 silver 와 동급) + ductility + corrosion resistance (atmospheric environment 에서 patina 형성 후 안정) 의 균형입니다. σy 가 annealed 70 MPa 로 낮지만 cold-work 으로 380 MPa 까지 강화 가능.\n\n분류: ETP (Electrolytic Tough Pitch, C11000) — 가장 흔한 일반 전기용. OFHC (C10200) — 산소 함량 < 10 ppm, 진공·전자 응용. OFE (C10100) — 산소 < 5 ppm, ultra-pure 응용. 응용은 무한합니다: 전선 (전 세계 전선의 50% 이상이 Cu, 나머지는 Al), motor winding, plumbing pipe (1950년대 이후 미국 plumbing 표준), 가전 PCB trace, 자동차 starter motor + alternator, 산업 busbar (변압기 + 발전소의 high-current 도체), 그리고 우주 발사체 + 항공기의 lightning protection bonding. 가격은 LME 거래 기준 $9-10/kg (2026 Q2), 글로벌 산업 표준 commodity 금속입니다."
-  },
   "copper-c11000": {
    "display": "Copper C11000",
    "stable_ids": [
     "MET-0374",
+    "MET-0414",
     "MET-0417",
     "MET-0418"
    ],
@@ -2450,19 +2418,6 @@
     "today": "송전선, 모터·변압기 권선, 통신 케이블, 건축 지붕·가스 배관에 쓰인다. 다만 수소 분위기에서 뜨거워지면 수소취화가 생겨, 진공·수소·고온 용도는 무산소동(OFHC/OFE)으로 갈린다.",
     "fun_fact": "자유의 여신상과 유서 깊은 건물의 청록색 지붕이 바로 이 구리다 — 세월과 함께 표면에 생긴 안정한 녹(파티나)이, 오히려 안쪽 구리를 보호하며 한 세기를 버틴다."
    }
-  },
-  "copper-cr-zr-alloy-c18100": {
-   "display": "Copper-Cr-Zr alloy C18100",
-   "stable_ids": [
-    "MET-0415",
-    "MET-0416"
-   ],
-   "refs": [
-    "Hosford R R (1939) US Patent 2,159,329 \"Copper-Chromium Alloy\"",
-    "ASM Handbook Vol.2 \"Properties and Selection: Nonferrous Alloys\"",
-    "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys"
-   ],
-   "legacy_text": "C18100 (CuCr1Zr, copper-chromium-zirconium) 은 1937년 미국 General Electric 의 R.R. Hosford 가 개발한 high-conductivity copper-base precipitation-hardening alloy 입니다. Cr 0.5-1.0% + Zr 0.05-0.25% 가 첨가되면 Cu-rich matrix 에 Cr-Zr precipitate 가 시효 (450-500°C, 2-4h) 로 석출하면서 σy 가 OFHC copper (70 MPa) 의 5-7 배 (500 MPa) 로 올라가요. 그러면서 electrical conductivity 는 80% IACS 이상을 유지합니다 — 이건 일반 copper alloy 에서 매우 보기 힘든 조합입니다.\n\nC18100 의 변형 (CDA C18150) 은 1965년 미국 Olin Brass 가 추가로 0.08% Mg 를 첨가해 더 높은 thermal stability 를 낸 형태이고, 둘 다 'precision precipitation-hardenable copper' 의 표준이 됐어요.\n\n응용은 high-current + high-thermal-stability 가 필요한 영역에 집중돼 있습니다. Resistance welding tip + electrode (자동차 차체 spot welding 의 standard 5-mm tip), CERN LHC 의 superconducting magnet busbar contact, 군용 leaser cooling assembly 의 high-current connector, semiconductor lead frame 의 일부 grade, 그리고 정밀 EDM electrode 의 일부 (graphite EDM 대비 surface finish 가 우수). 가격은 $25-40/kg 으로 OFHC copper ($10/kg) 의 2-4 배지만 thermal cycling 의 수명이 OFHC 대비 10 배 이상 길어 cost-of-ownership 은 오히려 낮은 경우가 많습니다."
   },
   "cp-ti": {
    "display": "CP-Ti",
@@ -2573,6 +2528,8 @@
   "cucr1zr": {
    "display": "CuCr1Zr",
    "stable_ids": [
+    "MET-0415",
+    "MET-0416",
     "MET-0419",
     "MET-0420",
     "MET-0421",
@@ -2585,7 +2542,7 @@
    ],
    "sections": {
     "hook": "자동차 한 대의 수천 개 점용접을 받아내는 구리 — 강도와 전도를 겸한 스폿 용접 전극 CuCrZr.",
-    "origin": "1940년대 미국·독일이 점용접 전극 재료를 찾던 중 정착한 석출경화 구리다(UNS C18150). 크롬 1%·지르코늄 0.1% 남짓의 극소량 합금이지만, 크롬 석출과 지르코늄의 결정립 안정화로 강도와 고온 내연화를 얻는다 — 순동의 약점(무름·연화)을 최소 합금으로 고친 조성이다.",
+    "origin": "1940년대 미국·독일이 점용접 전극 재료를 찾던 중 정착한 석출경화 구리다(UNS C18150·저합금형 C18100). 크롬 1%·지르코늄 0.1% 남짓의 극소량 합금이지만, 크롬 석출과 지르코늄의 결정립 안정화로 강도와 고온 내연화를 얻는다 — 순동의 약점(무름·연화)을 최소 합금으로 고친 조성이다.",
     "breakthrough": "미세한 크롬 석출이 항복 350MPa 급 강도와 500°C 대 내연화를 주면서도 전기전도는 순동의 80%(IACS)를 유지한다. \"전기가 잘 통하면서 뜨거워도 안 무너지는 구리\"라는 좁고 귀한 조합이, 매 타점마다 붉게 달궈지는 용접 전극에 꼭 맞았다.",
     "adoption": "자동차 차체 조립의 로봇 점용접 전극 캡으로 채택되며 사실상의 표준이 됐고, 전철 가선(catenary)과 저항용접 부품으로 확산됐다.",
     "today": "점용접 전극 캡, 전철 가선, 저항용접 부품, 연속주조 몰드가 본진이다. 더 높은 열안정성은 Cu-Ni-Si(C18000)로, 더 높은 전도는 순동으로 갈린다.",
@@ -3644,6 +3601,7 @@
    "display": "Invar 36",
    "stable_ids": [
     "MET-0355",
+    "MET-0356",
     "MET-0358",
     "MET-0359"
    ],
@@ -3652,20 +3610,14 @@
     "Special Metals Pernifer 36 (Invar) Tech Data",
     "Nakamura Y et al. (1976) \"Invar Effect in Fe-Ni Alloys\", Physica B&C 86-88"
    ],
-   "legacy_text": "Invar (Inv-ar, invariable 의 약자) 는 1896년 프랑스 Charles Édouard Guillaume 이 발견한 신기한 합금입니다. Fe 64% + Ni 36% 조성에서 thermal expansion 이 거의 0 (1.2 × 10⁻⁶/K, 강의 1/10) 인 게 핵심인데, 이는 magnetostriction (자기변형) 이 thermal expansion 을 정확히 상쇄하는 'Invar effect' 라는 양자역학 현상 때문입니다. Guillaume 은 이 발견으로 1920년 Nobel Physics Prize 를 받았어요.\n\nInvar 36 (UNS K93600) 의 응용은 dimensional stability 가 critical 한 모든 영역입니다. 정밀 측정기기 — Mitutoyo, Carl Zeiss 의 일부 reference block + slip gauge 의 base material (CTE 가 0 에 가까워 temperature 변화에 무관한 dimension). 정밀 시계 — Patek Philippe · Lange & Söhne 의 escapement spring 의 일부 (1920년대 시계 산업의 표준 spring). 우주 망원경 — JWST (제임스 웹 우주 망원경) 의 secondary mirror support truss (cryogenic 환경 -200°C 에서 dimension 유지). LNG 운반선 — 멤브레인 tank 의 inner barrier (LNG -163°C 와 외기 +30°C 사이의 thermal cycling 에서 dimension stability 유지, GTT Mark III + No.96 mem 의 핵심). 광섬유 telescope mount + radio telescope dish 의 일부.\n\n단점은 σy 240 MPa 로 보통 구조 strength 가 낮고 가격이 비쌈 ($25-50/kg, Ni 36% 함량 때문). 또 Invar effect 가 230°C 이상에서 사라져 high-temp 응용 불가. 그래서 high-temp dimensional stability 가 필요하면 Super-Invar (Fe-Ni-Co), 또는 Kovar (Fe-Ni-Co, 17 × 10⁻⁶/K, glass-metal seal) 같은 variant 가 검토됩니다."
-  },
-  "invar-36-feni36": {
-   "display": "Invar 36 (FeNi36)",
-   "stable_ids": [
-    "MET-0356"
-   ],
-   "refs": [
-    "Guillaume C É (1897) \"Recherches sur les aciers au nickel\", J Phys Théor Appl 7",
-    "Guillaume C É (1920) Nobel Lecture \"Invar and Elinvar\"",
-    "Sahoo A et al. (2020) \"A review on the development of Invar and Elinvar alloys\", Mater Sci Tech 36(15)",
-    "ASM Handbook Vol.2 \"Properties and Selection: Nonferrous Alloys and Special-Purpose Materials\""
-   ],
-   "legacy_text": "1896년 스위스 샤를 에두아르 기욤 (Charles Édouard Guillaume) 이 Fe-Ni 36% 합금이 thermal expansion 이 거의 zero (CTE ≈ 1.2 × 10⁻⁶/K) 에 가깝다는 사실을 발견합니다 — magneto-volume effect (Fe-Ni 35-36 at% 의 spin-disordered γ 상태에서 격자 수축이 thermal expansion 을 cancel) 가 원인이에요. 'Invariable' 의 단축형 'Invar' 로 명명, 1920년 노벨 물리학상 수상.\n\n응용 — 정밀 — 1900-1980년 사이 전 세계 표준 미터 막대 (시드니 천문대의 standard meter 도 Invar), 측량 표준 chain (theodolite), 시계 pendulum (Big Ben 의 reserve pendulum). 우주 — Hubble Space Telescope 의 mirror support truss, James Webb Space Telescope 의 primary mirror backing (-243°C 까지 dimensional stable), 위성 antenna boom (CTE-matched composite). 산업 — LNG cargo containment (Mark III 의 secondary barrier), 반도체 mask aligner stage (-50°C ~ +50°C 동안 sub-micron 변위), Apple Vision Pro 의 일부 internal precision part. 단점은 Ni 35% 의 비싼 원료가와 다소 낮은 σ_y 280 MPa."
+   "sections": {
+    "hook": "거의 늘고 줄지 않는 금속 — 온도가 변해도 크기가 안 변하는 Fe-Ni 합금 인바(Invar 36).",
+    "origin": "인바(Invar, FeNi36)는 1896년 프랑스의 기욤이 발견한 철-니켈 36% 합금이다. 이름은 \"변하지 않는다(invariable)\"에서 왔는데, 열팽창이 강철의 10분의 1에도 못 미쳐 온도가 변해도 크기가 거의 그대로다 — 기욤은 이 발견으로 노벨 물리학상을 받았다.",
+    "breakthrough": "자기적 효과가 열팽창을 상쇄하는 \"인바 효과\"로, 상온 부근에서 열팽창이 거의 0에 가깝다. 그래서 온도가 오르내려도 치수가 안 변해야 하는 정밀 기구·계측기에 이상적이다. 다만 이 효과는 특정 온도 범위에서만 유효하고, 강도·내식은 평범하다.",
+    "adoption": "20세기 초 정밀 시계·측량기·기준자에 채택되며 계측의 표준이 됐고, 이후 LNG 탱크 멤브레인과 브라운관 섀도마스크로 확산됐다.",
+    "today": "LNG 운반선 화물창 멤브레인, 정밀 계측기·기준자, 복합재 성형 몰드(탄소섬유와 열팽창 정합), 정밀 광학 벤치에 쓰인다. 유리 밀봉처럼 특정 팽창이 필요하면 코바(Kovar)로 간다.",
+    "fun_fact": "LNG 운반선의 −163°C 화물창 안쪽을 감싸는 얇은 주름 금속막이 인바다 — 극저온에서도 거의 수축하지 않아, 뜨거운 여름과 극저온 화물 사이의 온도차에도 막이 찢어지지 않는다."
+   }
   },
   "jis-carbon-steel-sc": {
    "display": "JIS Carbon Steel (S35C / S55C)",
@@ -4191,18 +4143,6 @@
     "fun_fact": "모스키토는 \"목재 기체로 마하 0.5\"를 날았다 — 발사와 합판의 샌드위치가 당대 금속기를 앞지른 이 사례는, 천연 복합재의 역량을 보여 주는 고전이 됐다."
    }
   },
-  "naval-brass-c46400": {
-   "display": "Naval Brass C46400",
-   "stable_ids": [
-    "MET-0440"
-   ],
-   "refs": [
-    "ASTM B21 \"Standard Specification for Naval Brass Rod, Bar, and Shapes\"",
-    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
-    "Copper Development Association \"Brasses for Marine Service\" Pub TN 26 (2010)"
-   ],
-   "legacy_text": "1881년 영국 해군이 19세기 sail ship 에서 steam-driven ironclad 로 전환하면서, 해수 환경의 fitting 자재 — propeller shaft, valve seat — 의 부식 문제가 심각해졌어요. 영국 Vickers 가 통상 brass (70/30 Cartridge) 에 Sn 1% 를 추가한 alloy 가 60/40 brass + Sn 1% — 이게 'Naval Brass' (UNS C46400) 의 등장 배경입니다. Sn 의 dezincification 억제로 해수에서 30년 사용이 가능해졌죠.\n\n응용 — 해수 propeller shaft (작은 선박), 해수 valve seat (펌프, condenser), boat hull fastener (bolt, nut, washer — 해군 sailor 가 'silicon bronze' 만큼 자주 부르는 자재), 산업 condenser tube plate (해수 condenser 의 tube + plate 의 plate 부분), 영국 royal navy 의 mine 도. Big Ben 의 bell mounting bracket 도 Naval Brass — 100+ 년이 지나도 부식 없이 견디고 있어요.\n\n특이한 사실. 영국·미국·유럽의 yacht 들 사이에 'Naval Brass turnbuckle 은 항상 sailors 가 자기 손으로 잠근다' 는 전통이 있어요. 이유는 Naval Brass 가 60/40 알파-베타 brass 라 ductile + machinable 해서 hand-tightening 시 thread 가 자연스럽게 burnish 되면서 grip 이 강해지기 때문이죠. 100년 전 sailors 의 superstition 같지만 실제로 metallurgy 적으로 맞는 이야기입니다."
-  },
   "nbr-nitrile-butadiene-rubber": {
    "display": "NBR — Nitrile Butadiene Rubber",
    "stable_ids": [
@@ -4361,19 +4301,6 @@
     "fun_fact": "녹는점 근처까지 버티는 비결이 \"녹지 않는 입자\"라는 점이 역설적이다 — 금속이 물러져도 산화물 못이 조직을 붙들고 있는, 아주 단순하고 강력한 아이디어다."
    }
   },
-  "ofe-copper-c10100": {
-   "display": "OFE Copper C10100",
-   "stable_ids": [
-    "MET-0450",
-    "MET-0451"
-   ],
-   "refs": [
-    "ASTM B170 \"Standard Specification for Oxygen-Free Electrolytic Copper\"",
-    "Davis J R (2001) ASM Specialty Handbook: Copper and Copper Alloys",
-    "Murr L E (2015) Handbook of Materials Structures, Properties, Processing and Performance, Springer"
-   ],
-   "legacy_text": "OFE (Oxygen-Free Electronic) Copper C10100 은 미국 ASTM 의 'oxygen-free copper for electronic use' 표준입니다. Cu 함량 99.99% 이상 + O 함량 5 ppm 이하 (일반 OFHC 의 1/10) + 모든 잔류 impurity 합계 25 ppm 이하의 ultra-pure copper 입니다. 1960년대 미국 Bell Labs 가 초고진공 (UHV) 시스템의 outgassing 문제를 해결하려고 spec 을 정의했어요.\n\nOFE 의 매력은 vacuum + electronic + cryogenic 환경에서의 안정성입니다. 일반 ETP copper (C11000) 는 O 가 약 200 ppm 들어가서 가열 시 Cu₂O 가 환원되어 H₂O 가스를 방출하지만, OFE 는 ppm 수준 O 라 UHV 환경에서 outgassing 이 거의 없어요. 또 IACS 100% (international annealed copper standard 의 conductivity reference) 를 보장합니다.\n\n응용: 입자가속기 RF cavity (CERN LHC 의 일부 cavity 안쪽), 우주 발사체 vacuum chamber 의 inner lining, semiconductor MBE / MOCVD chamber 의 일부 부속, audiophile speaker cable + interconnect (고가 model 의 표준 conductor), 정밀 thermocouple sheath, 그리고 cryogenic instrument 의 thermal anchor. OFE 는 또한 7N (99.99999%) 까지 더 정제된 grade 가 있고, 그건 audio 시장에서 '6N copper' 같은 marketing 표현으로 나옵니다 (사실 Bell Labs 의 OFE 도 6N 이지만 ASTM 표기는 C10100)."
-  },
   "ofhc-copper-c10100": {
    "display": "OFHC Copper C10100",
    "stable_ids": [
@@ -4386,7 +4313,9 @@
     "MET-0372",
     "MET-0373",
     "MET-0443",
-    "MET-0444"
+    "MET-0444",
+    "MET-0450",
+    "MET-0451"
    ],
    "refs": [
     "ASTM B170 \"Standard Specification for Oxygen-Free Electrolytic Copper - Refinery Shapes\"",
