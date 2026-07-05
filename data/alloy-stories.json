@@ -2544,6 +2544,31 @@
     "today": "브레이크 로터·전자패키지(저열팽창 방열)·자전거·항공 구조(Al/SiC), 방탄판(B₄C-Al), 고온 항공 축(Ti/SiC) 등에 쓰인다. 세라믹 대비 인성이, 금속 대비 강성이 좋은 중간 자리를 차지한다."
    }
   },
+  "molybdenum-alloys": {
+   "display": "Molybdenum Alloys (Mo / TZM / Mo-La / Mo-Re)",
+   "stable_ids": [
+    "MET-0644",
+    "MET-0645",
+    "MET-0646",
+    "MET-0647",
+    "MET-0648",
+    "MET-0649",
+    "MET-0650",
+    "MET-0651",
+    "MET-0667"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys (Refractory Metals)",
+    "Plansee / CSM, Molybdenum and Its Alloys 기술 자료"
+   ],
+   "sections": {
+    "hook": "2600°C에서 녹는 은백색 내화금속 — 진공·수소로 속 고온 부품과 반도체 열관리의 주역.",
+    "origin": "몰리브데넘(Mo)은 융점 2623°C 의 내화금속으로, 텅스텐보다 가볍고 가공이 쉬우면서 높은 고온 강도·열전도·낮은 열팽창을 갖는다. 순 Mo 에 Ti·Zr·La·Re 를 미량 넣어 고온 강도·연성·재결정 저항을 개선한 합금들이 있다.",
+    "breakthrough": "TZM(Mo-0.5Ti-0.08Zr)은 탄화물 석출로 순 Mo 보다 재결정 온도와 고온 강도를 크게 높인다. Mo-La(란타넘 도프)는 미세 산화물이 결정립 성장을 막아 고온 취화가 덜하고, Mo-Re 는 레늄이 연성·용접성을 개선한다. 다만 500°C 이상 산화 분위기에선 급속 산화해 진공·환원·불활성 분위기가 전제다.",
+    "today": "진공 열처리로 히터·열차폐, 반도체·LED 방열 기판·전극, 유리 용융 전극, 금속 사출 금형, X선 타깃 등에 쓰인다. 산화 환경 고온이면 코팅하거나 다른 재료로 간다.",
+    "fun_fact": "Mo 는 산화 분위기에서 700°C 부근이면 산화물(MoO₃)이 승화(기체화)해 버린다 — 그래서 대기 중 고온엔 절대 쓰지 못하고 진공·불활성이 필수다."
+   }
+  },
   "monel-nickel": {
    "display": "Monel & Nickel (Monel 400 / K-500 / Nickel 200)",
    "stable_ids": [
@@ -3638,6 +3663,33 @@
     "today": "금속 벽온 약 700°C 이하의 USC 보일러 과열기·재열기 튜브 표준 중 하나다. 더 높은 온도는 Ni 기 합금(예: Inconel 740)이 맡고, Super304H 는 오스테나이트 스테인리스 영역의 상단을 담당한다."
    }
   },
+  "tantalum-niobium-alloys": {
+   "display": "Tantalum & Niobium (Ta / Ta-10W / Nb / C-103)",
+   "stable_ids": [
+    "MET-0640",
+    "MET-0641",
+    "MET-0652",
+    "MET-0653",
+    "MET-0655",
+    "MET-0657",
+    "MET-0658",
+    "MET-0659",
+    "MET-0661",
+    "MET-0662"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys (Refractory Metals)",
+    "Cardarelli F (2018) Materials Handbook, 3rd ed., Springer"
+   ],
+   "sections": {
+    "hook": "상온에서도 잘 늘어나는 무른 내화금속 — 화학장치의 백금 대체재이자 로켓 노즐의 재료.",
+    "origin": "탄탈럼(Ta)·나이오븀(Nb)은 융점이 3000°C 안팎이면서도, 다른 내화금속과 달리 상온에서 연성이 좋아(DBTT 가 매우 낮음) 가공이 쉽다. 그래서 판·튜브·복잡 형상으로 만들기 쉽고, W·Hf 를 넣어 고온 강도를 높인 합금(Ta-10W·C-103 등)이 있다.",
+    "breakthrough": "Ta 는 백금에 버금가는 내약품성(강산에도 거의 안 녹음)을, Nb 는 낮은 밀도와 초전도·핵 특성을 준다. C-103(Nb-10Hf-1Ti)은 가공성과 1200°C급 고온 강도를 겸해 로켓 노즐·스러스터에 쓰이며, Ta-2.5W·Ta-10W 는 화학장치의 강도를 높인다.",
+    "adoption": "C-103 은 아폴로 서비스 모듈 엔진을 비롯한 다수 우주선 추력기 노즐의 표준 재료가 됐다.",
+    "today": "Ta 는 황산·염산 열교환기·반응기 라이닝(백금보다 싼 내약품재)·전해 커패시터·의료 임플란트에, Nb·C-103 은 로켓 노즐·초전도 자석·핵 부품에 쓰인다. 고온 산화가 문제라 코팅이 흔히 병용된다.",
+    "fun_fact": "탄탈럼은 인체에 무해하고 부식되지 않아, 두개골 성형판·봉합 클립 등 의료 임플란트로도 오래 쓰였다."
+   }
+  },
   "technical-silicate-ceramics": {
    "display": "Technical Silicate Ceramics (Cordierite / Mullite / Steatite)",
    "stable_ids": [
@@ -3753,6 +3805,27 @@
     "Roebuck B (2018) Cemented Carbides Handbook, NPL"
    ],
    "legacy_text": "Tungsten Carbide (WC) 의 cemented carbide 형태는 1923년 독일 Osram 의 Karl Schröter 가 발견한 cobalt-binder sintering 공정이 시작입니다. 1925년 Krupp 이 'Widia' (Wie Diamant = 다이아몬드 같은) 이라는 상표로 시장 출시했고, GE 가 미국에서 1928년 'Carboloy' 라는 이름으로 상품화했어요. 이게 현대 cemented carbide industry 의 시작입니다.\n\nWC 의 메커니즘은 단순합니다. WC 단결정 (Mohs 9, HV 2400) 입자를 6-20% Co metal binder 가 둘러싸 sintering 으로 결합합니다. 이렇게 만든 WC-Co 의 경도는 HRC 70-75, σ_compress 5000 MPa, KIC 10-20 MPa·√m 의 압도적 강도 + 약간의 인성을 갖습니다. Co 함량으로 hardness vs toughness 균형을 조절해요 (6% Co → 매우 단단·brittle, 20% Co → 부드럽지만 tough).\n\n응용: cutting tool — turning insert, milling cutter, drill bit (전 세계 절삭공구 시장의 90% 이상이 WC-Co), 광산 drill bit (rock drilling 의 button bit), 자동차 stamping die (high-volume sheet metal forming die), 정밀 micro mold (시계 watch 부품 forming), wear-resistant coating (HVOF spray WC-Co coating on landing gear), 그리고 ammunition penetrator (군용 KE penetrator 의 일부 grade, depleted uranium 대안). 정밀 측정 분야의 표준 reference block (Mitutoyo / Carl Zeiss 의 calibration block) 도 WC-Co 입니다. 가격은 $40-80/kg 이지만 cutting tool life 가 HSS 의 5-10 배라 cost-of-ownership 은 압도적으로 유리합니다."
+  },
+  "tungsten-rhenium-refractory": {
+   "display": "Tungsten / Rhenium / Hafnium / Chromium",
+   "stable_ids": [
+    "MET-0642",
+    "MET-0643",
+    "MET-0656",
+    "MET-0669",
+    "MET-0670"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys (Refractory Metals)",
+    "Cardarelli F (2018) Materials Handbook, 3rd ed., Springer"
+   ],
+   "sections": {
+    "hook": "가장 높이 녹는 금속과 그 이웃들 — 텅스텐·레늄·하프늄·크롬, 극한을 담당하는 원소 금속.",
+    "origin": "이 그룹은 각자 극단적 성질로 특화된 원소 금속들이다. 텅스텐(W)은 융점 3422°C 로 모든 금속 중 최고, 레늄(Re)은 3186°C 이면서 넓은 온도에서 연성을 유지, 하프늄(Hf)은 중성자 흡수가 크고, 크롬(Cr)은 내산화·경도가 높다.",
+    "breakthrough": "란타넘 도프 텅스텐(W-La)은 미세 산화물이 재결정을 막아 고온 처짐·취화를 줄여 조명 필라멘트·용접 전극에 쓰인다. Re 는 단독으로도, 그리고 Ni 초합금·W 합금에 넣어 고온 크리프를 극적으로 높이는 첨가재로 귀하다. Hf 는 원자로 제어봉, Cr 은 내산화 코팅·합금 원소로 쓰인다.",
+    "today": "W-La 는 조명·용접·군수, Re 는 로켓 노즐·초합금 첨가·촉매·열전대, Hf 는 원자로 제어봉·초합금, Cr 은 도금·내산화 코팅 원소로 쓰인다. 원소 금속 자체보다 합금·코팅의 핵심 원소로 더 많이 쓰인다.",
+    "fun_fact": "레늄은 지각에 가장 희귀한 원소 중 하나로, 대부분 몰리브데넘 제련의 부산물로만 얻는다 — 그래서 초합금에 3% 넣는 것만으로도 원가가 크게 뛴다."
+   }
   },
   "tungsten-w-99-95-pure": {
    "display": "Tungsten (W 99.95% pure)",
