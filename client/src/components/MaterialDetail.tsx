@@ -808,7 +808,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 {/* R226t/E13 — v2 구조화 스토리 (sections+timeline) 우선, 없으면 legacy blob 문단 */}
                 {material.story_v2?.sections ? (() => {
                   const SEC_LABEL: Record<string, string> = {
-                    hook: '', origin: '개발 배경', breakthrough: '기술적 돌파', adoption: '최초 적용·확산', today: '오늘날', fun_fact: '흥미',
+                    hook: '', origin: '개발 배경', breakthrough: '기술적 돌파', adoption: '최초 적용·확산', today: '오늘날', fun_fact: '여담',
                   };
                   const ORDER = ['hook', 'origin', 'breakthrough', 'adoption', 'today', 'fun_fact'] as const;
                   const secs = material.story_v2.sections;
