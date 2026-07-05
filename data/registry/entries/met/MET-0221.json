@@ -566,12 +566,6 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "story": "AlSi10Mg 는 1960년대부터 사용된 알루미늄 die-casting 합금 A360.0 / A413.0 (Al-Si-Mg eutectic family, EN AC-43000) 계열에서 진화한 조성입니다. Si 10% 가 Al-Si eutectic (12.6%) 에 근접해 fluidity 가 우수 → 복잡한 thin-wall casting 가능. Mg 0.2-0.45% 가 T6 시효처리 (530°C SHT + WQ + 175°C/3h aging) 시 Mg₂Si precipitate 를 형성해 σy 240 MPa / σUTS 360 MPa / El 8% 의 균형을 달성합니다.\n\n2010년대 들어 metal AM (LPBF, DMLS) 시장이 본격적으로 열리면서 AlSi10Mg 가 metal 3D 프린팅의 default Al 분말 자리에 올랐어요. 이유는 첫째, gas atomization 이 비교적 쉽고 (다른 high-strength Al 합금은 oxide 형성으로 atomization 어려움), 둘째, LPBF 의 빠른 열 사이클이 자연스럽게 fine Si network microstructure 를 만들어 as-built σy 가 단조 6061-T6 (276 MPa) 의 약 90% 수준 (240 MPa) 에 도달하기 때문입니다.\n\n응용 — 자동차 light-weight bracket / heat exchanger (Audi/BMW 의 일부 motorsport 부품), 항공 ECS (Environmental Control System) / antenna mount, F1 차의 일부 cooling duct 와 ducting (FSAE / Formula Student 표준), 의료 dental implant mount, 우주 satellite truss / mounting bracket. EOS 의 EOS Aluminum AlSi10Mg, SLM Solutions 의 AlSi10Mg, GE Additive Concept Laser 의 AlSi10Mg-A — 사실상 모든 metal AM vendor 의 표준 Al grade 입니다. ⚠ DED (Optomec LENS 등) 에는 wire feedstock 사용 — AlSi10Mg DED 는 wire 형태로 변환됨.",
-  "story_refs": [
-    "Aboulkhair N T et al. (2019) \"3D printing of Aluminium alloys: Additive Manufacturing of Aluminium alloys using selective laser melting\", Prog Mater Sci 106",
-    "EOS GmbH \"EOS Aluminium AlSi10Mg Material Data Sheet\" (2020)",
-    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
-  ],
   "confidence_tier": "high",
   "_corrections": {
     "aliases": {

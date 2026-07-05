@@ -271,11 +271,5 @@
   "total_cost_estimate": 1.49,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "story": "1993년 유럽이 ECISS (European Committee for Iron and Steel Standardization) 통합 과정에서 만든 표준. 이전엔 독일 St52 (DIN 17100), 영국 BS50, 프랑스 E36, 이탈리아 Fe510 … 각 나라의 mild structural steel 이 다른 이름으로 존재했어요. EN 10025 는 이를 S355 (S = Structural, 355 = σ_y MPa) 로 통합하고, 인성에 따라 JR (room temp), J0 (0°C), J2 (-20°C), K2 (CVN 40 J) 등급으로 분류합니다. +N (Normalized) 은 heat treatment 변형이고요.\n\n'EU 다리·구조의 baseline' 으로 자리잡았어요. 외레순드 다리 (Øresund Bridge, 덴마크-스웨덴), Millau Viaduct (프랑스, 세계에서 가장 높은 다리), Stonecutters Bridge (홍콩), Ribblehead Viaduct restoration, 그리고 모든 풍력 tower (Vestas V90 / V112 / V164, Siemens Gamesa SG 11.0-200, GE Cypress 의 tower steel). 한국에서도 인천대교와 거가대교의 일부 piece 가 S355J2+N 이에요.\n\nJ2 sub-grade 가 -20°C CVN ≥ 27 J 인 이유가 흥미로워요. EU 의 worst-case 시나리오 — 북유럽 (스칸디나비아) 의 겨울 평균 -15°C 의 다리 — 에서 brittle fracture 회피를 위한 conservative spec 이거든요. 한국 KS 가 SS400, SM490 으로 비슷한 grade 를 만들었지만, 유럽 EU 표준의 호환성 때문에 글로벌 default 는 S355 가 차지하고 있습니다.",
-  "story_refs": [
-    "EN 10025-2 (2019) \"Hot rolled products of structural steels - Part 2: Technical delivery conditions for non-alloy structural steels\"",
-    "Pijpers R J M et al. (2017) \"Fatigue strength of structural steel S355\", Steel Constr 10(4)",
-    "ECISS / CEN TC 459 documentation"
-  ],
   "confidence_tier": "medium"
 }

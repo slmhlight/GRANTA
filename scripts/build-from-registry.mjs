@@ -32,6 +32,23 @@ let etAttached = 0, etReplaced = 0;
 const PROFILES_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'process-profiles.json'), 'utf8'));
 const INSIGHTS_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'selection-insights.json'), 'utf8'));
 const CREC_GROUPS = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'coating-recommendations.json'), 'utf8')).groups;   // R226s/E10
+/* R226t/E13 — 합금 개발배경(스토리) SSOT: stable_id 로 부착 (구 build-materials name-매칭 은퇴).
+ *   본문 = sections(v2 구조화, 표준 순서 join) 우선, 없으면 legacy_text. sid 중복은 빌드 실패. */
+const STORY_ORDER = ['hook', 'origin', 'breakthrough', 'adoption', 'today', 'fun_fact'];
+const STORY_BY_SID = (() => {
+  const m = new Map();
+  const doc = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'alloy-stories.json'), 'utf8'));
+  for (const [key, st] of Object.entries(doc.stories || {})) {
+    const text = st.legacy_text || STORY_ORDER.map((k) => st.sections?.[k]).filter(Boolean).join('\n\n');
+    if (!text) continue;   // dead(멤버 0)이면서 본문 없음 — 없음
+    for (const sid of st.stable_ids || []) {
+      if (m.has(sid)) { console.error(`❌ alloy-stories: sid 중복 ${sid} (${m.get(sid).key} & ${key})`); process.exit(1); }
+      m.set(sid, { key, text, refs: st.refs || [], sections: st.sections || null, timeline: st.timeline || null });
+    }
+  }
+  return m;
+})();
+let storyAttached = 0;
 const R226_FIELDS = new Set(['stable_id', 'family', 'legacy_id', 'origin', '_corrections']);
 const all = [];
 const profileGateErrors = [];
@@ -71,12 +88,26 @@ for (const cc of fs.readdirSync(REG)) {
       etAttached++;
       if (hadInline) etReplaced++;
     }
+    // R226t/E13 — 스토리 부착 (stable_id; 레지스트리 baked story 는 은퇴 — SSOT 가 항상 우선)
+    const st = STORY_BY_SID.get(rec.stable_id);
+    if (st) {
+      entry.story = st.text;
+      entry.story_refs = st.refs;
+      entry.story_key = st.key;
+      if (st.sections) entry.story_v2 = { sections: st.sections, ...(st.timeline ? { timeline: st.timeline } : {}) };
+      storyAttached++;
+    } else if (entry.story) {
+      // 레지스트리에 잔존 baked story (재생성 전 과도기) — SSOT 미등재면 제거 (name-매칭 잔재 차단)
+      delete entry.story; delete entry.story_refs;
+    }
     all.push(entry);
   }
 }
 for (const sid of Object.keys(PROFILE_ASSIGN)) if (!seenSids.has(sid)) profileGateErrors.push(`stale 할당 (레지스트리에 없는 ID): ${sid}`);
 for (const sid of Object.keys(ET_BY_ID)) if (!seenSids.has(sid)) profileGateErrors.push(`stale 곡선 by_id (레지스트리에 없는 ID): ${sid}`);
+for (const sid of STORY_BY_SID.keys()) if (!seenSids.has(sid)) profileGateErrors.push(`stale 스토리 stable_id (레지스트리에 없는 ID): ${sid}`);   // R226t
 if (etAttached) console.log(`  고온곡선 by_id 부착: ${etAttached} (인라인 override ${etReplaced})`);
+if (storyAttached) console.log(`  스토리 by_id 부착: ${storyAttached} (SSOT data/alloy-stories.json)`);
 if (profileGateErrors.length) {
   console.error(`❌ BUILD GATE (process profiles): ${profileGateErrors.length}건`);
   profileGateErrors.slice(0, 15).forEach(e => console.error('  ' + e));

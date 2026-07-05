@@ -284,11 +284,5 @@
   "total_cost_estimate": 0.98,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "story": "20세기 초 미국 SAE (Society of Automotive Engineers) 가 자동차 부품 표준화를 위해 1911년 처음 numbering system 을 발표합니다. 1XXX 시리즈를 plain carbon steel 로 지정하고, 마지막 두 자리는 ≈ 100 × carbon% 를 표시하기로 한 거죠. 즉 1018 = 0.18% C, 1020 = 0.20% C, 1045 = 0.45% C. 1941년 AISI (American Iron & Steel Institute) 가 SAE 의 numbering 을 채택하면서 'AISI/SAE 1018' 형식이 현행 표준으로 정착됐습니다.\n\n1018 은 저탄소 (C 0.15-0.20%) mild steel 로 ferrite-pearlite 미세조직 + 거의 무한 ductility 가 특징. Cold drawn round bar 기준 σy 370 MPa / σUTS 440 MPa / El 15%. Annealed 는 σy 235 / σUTS 365 / El 35%. 절삭 가공성 (machinability rating) 70% 정도 — 1144 free-machining (S 첨가) 보다는 낮지만 plain carbon 중 baseline. 용접성은 plain carbon 중 최고 (carbon equivalent 0.22, no preheat needed).\n\n응용 — 자동차 변속기 shaft (carburized + Q+T 후 사용), 농기계 axle, 산업 컨베이어 frame, 일반 fastener (low-strength bolt/nut), 단조 raw stock, machining stock (CNC 가공용 round bar 표준). 건축 W-shape (H-beam) 은 ASTM A992 (yield 345 MPa) 또는 A36 (yield 250 MPa, C ≤ 0.26%) — 1018 자체보다 약간 high-C 인 별도 grade 사용. 1018/1020 은 일반 carbon steel bar 분야의 가장 흔한 grade — JIS S20C / DIN 1.0453 (C18) 와 거의 동등.",
-  "story_refs": [
-    "SAE J403 (current rev.) \"Chemical Composition of SAE Carbon Steels\"",
-    "AISI Bar Steel Products Committee (1999) \"Carbon Steel Bars: 1018, 1020\"",
-    "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM"
-  ],
   "confidence_tier": "high"
 }

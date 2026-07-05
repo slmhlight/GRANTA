@@ -196,13 +196,6 @@
   "price_grade_premium": 1,
   "price_per_cm3": 0.124,
   "rohs_compliant": true,
-  "story": "CFRP (Carbon Fiber Reinforced Polymer) 의 역사는 1958년 미국 Union Carbide 의 Roger Bacon 이 흑연 위스커를 처음 인공 합성하면서 시작됩니다. 진짜 응용 가능한 PAN (polyacrylonitrile) 기반 carbon fiber 는 1963년 영국 RAE Farnborough 의 William Watt 가 stretch-during-pyrolysis 공정을 발견하면서 길이 보존 + 고강도 fiber 가 가능해졌어요. 1970년대 미국 Hercules / Hexcel 과 일본 Toray 가 상업 생산을 시작하면서 CFRP 시대가 열렸습니다.\n\nCFRP 의 핵심은 fiber 와 matrix 의 역할 분담입니다. 탄소 fiber 가 인장 하중을 거의 다 받고 (UTS 4-5 GPa, E 230-380 GPa), 에폭시 matrix 는 fiber 사이 응력 전달과 환경 보호 역할만 합니다. UD (단방향) 0° 시편은 3 GPa 이상의 UTS 를 내지만, 90° 방향이나 ±45° 는 100 MPa 도 안 되는 강한 이방성이 특징이죠. 이 때문에 quasi-isotropic [0/±45/90]s laminate 가 항공 표준이 됐어요.\n\n응용 분야는 항공이 압도적입니다. Boeing 787 동체 50%, Airbus A350 동체 53%, F-22 / F-35 의 외피, F1 monocoque (1981년 McLaren MP4/1 이 최초), 풍력 blade root (Vestas V164), 우주 발사체 페어링 (SpaceX Falcon 9 의 페이로드 fairing), 마지막으로 자전거 frame · 라켓 · 낚시대까지. 단점은 가격 (T700 $80/kg, IM7 $200/kg), 충격에 약함 (delamination), 그리고 재활용이 어렵다는 점입니다. 최근 thermoplastic CFRP (PEEK 또는 PEKK matrix) 가 재활용 + 재용접 가능성으로 급부상 중이고, BMW i3 의 carbon cabin (2013) 이 대량 생산 적용 첫 사례였습니다.",
-  "story_refs": [
-    "Bacon R (1960) \"Growth, Structure, and Properties of Graphite Whiskers\", J Appl Phys 31",
-    "Watt W & Phillips L N (1969) \"Strong Carbon Fibers\", Nature 217",
-    "Chung D D L (2017) Carbon Fiber Composites 2nd ed., Butterworth-Heinemann",
-    "ASM Handbook Vol.21 Composites"
-  ],
   "confidence_tier": "high",
   "industry_note": "CFRP UD 0° (Vf 60% standard) tensile values: • **T300/Epoxy**: σf 1800 / E 130 — 기본급 (Boeing 737/787 boards) • **T700SC/Epoxy**: σf 2400 / E 135 — sporting goods (자전거 frame, 골프 shaft) • **T800/Epoxy**: σf 2900 / E 165 — 항공 wing primary (B787 wing box partial) • **IM7/8552 (Hexcel HexPly)**: σf 2820 / E 164 — 항공 표준 prepreg (F-35 wing, Boeing 787 fuselage barrel) • **IM9/8552**: σf 3000 / E 170 — F-22 / F-35 inlet duct • **M40J/Cyanate Ester**: σf"
 }

@@ -805,7 +805,36 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     </div>
                   );
                 })()}
-                {material.story && (
+                {/* R226t/E13 — v2 구조화 스토리 (sections+timeline) 우선, 없으면 legacy blob 문단 */}
+                {material.story_v2?.sections ? (() => {
+                  const SEC_LABEL: Record<string, string> = {
+                    hook: '', origin: '개발 배경', breakthrough: '기술적 돌파', adoption: '최초 적용·확산', today: '오늘날', fun_fact: '흥미',
+                  };
+                  const ORDER = ['hook', 'origin', 'breakthrough', 'adoption', 'today', 'fun_fact'] as const;
+                  const secs = material.story_v2.sections;
+                  const tl = material.story_v2.timeline;
+                  return (
+                    <div className="mt-2 space-y-2.5 text-[11.5px] text-foreground/85 leading-relaxed">
+                      {secs.hook && <p className="font-semibold text-foreground/95 italic">{secs.hook}</p>}
+                      {tl && tl.length > 0 && (
+                        <div className="rounded border px-2 py-1.5 space-y-1" style={{ borderColor: `${famColor}40`, background: `${famColor}0a` }}>
+                          {tl.map((e, i) => (
+                            <div key={i} className="flex gap-2 text-[10.5px] leading-snug">
+                              <span className="font-mono font-bold whitespace-nowrap" style={{ color: famColor }}>{e.year}</span>
+                              <span className="text-foreground/80">{e.event}{typeof e.ref === 'number' && <sup className="opacity-60"> [{e.ref}]</sup>}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {ORDER.filter((k) => k !== 'hook' && secs[k]).map((k) => (
+                        <div key={k}>
+                          <p className="text-[10px] font-semibold uppercase tracking-wide mb-0.5" style={{ color: famColor }}>{SEC_LABEL[k]}</p>
+                          <p className="whitespace-pre-wrap">{secs[k]}</p>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })() : material.story && (
                   <div className="mt-2 space-y-2 text-[11.5px] text-foreground/85 leading-relaxed">
                     {material.story.split('\n\n').map((para, i) => (
                       <p key={i} className="whitespace-pre-wrap">{para}</p>

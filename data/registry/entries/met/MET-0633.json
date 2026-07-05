@@ -270,11 +270,5 @@
   "total_cost_estimate": 1.98,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "story": "1960년대 UIC (Union Internationale des Chemins de fer, 국제 철도 연합) 가 처음 standardize 한 합금. 이전엔 각 나라 (영국 BS 11, 미국 AREMA, 일본 JIS E1101) 의 rail steel 이 다 달랐는데, EU 통합 + ISO 호환을 위해 1971년 UIC 860 코드로 통합됐어요. R260 (R = Rail, 260 = HBW typical 260) 이 mainline 의 default grade 가 됐습니다.\n\nR260 의 비결은 fully pearlitic 미세조직 + 충분한 carbon (0.60~0.82%) 이에요. 차륜과의 contact 영역에서 RCF (rolling contact fatigue, 회전 접촉 피로) 가 하루 100만 cycle 발생하는데, fine pearlite 가 그 cycle 을 millions 번 받아내면서도 표면이 work-hardening 으로 추가 강화됩니다.\n\n응용 — KTX / SRT 의 고속선 (시속 300+ km), TGV (프랑스), Shinkansen (일본), HSR (스페인 RENFE AVE), ICE (독일 DB) — 모든 고속 철도의 main line. 호주 BHP iron ore line (Pilbara, 38 t/axle 의 heavy-haul 표준), 미국 BNSF coal line, 중국 China Railway 의 trunk line … heavy-haul 영역은 R350HT (head-hardened, HBW 350) 으로 진화했지만 baseline 은 항상 R260. EU 의 EN 13674-1 표준이 글로벌 reference 가 되어 있어요.",
-  "story_refs": [
-    "EN 13674-1 (2017) \"Railway applications - Track - Rail - Part 1: Vignole railway rails 46 kg/m and above\"",
-    "Kalousek J & Magel E (2008) \"Optimising the wheel/rail system\", Railway Gazette Int",
-    "Cannon D F et al. (2003) \"Rail defects: an overview\", Fatigue Fract Eng Mater Struct 26(10)"
-  ],
   "confidence_tier": "medium"
 }

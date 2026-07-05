@@ -134,10 +134,18 @@ export interface Material {
     /** R226p Phase 5b — family-color 분류 key (material-colors.ts CLASSES; 빌드 스탬프). 'Other'는 생략. */
     colorFamily?: string;
   };
-  /** R75 — 개발 역사·스토리·실제 사용례 (markdown 가능, 다단락). data/material-stories.json 에서 base name 으로 주입. */
+  /** R75 → R226t — 개발 역사·스토리 본문 (다단락). SSOT data/alloy-stories.json 에서 **stable_id** 로 부착 (name 매칭 은퇴). */
   story?: string | null;
   /** R75 — story 의 출처 (저자/특허/표준/handbook). 각 entry 는 markdown link 가능. */
   story_refs?: string[];
+  /** R226t/E13 — 스토리 SSOT 키 (data/alloy-stories.json; stable_id 부착 — name 매칭 없음). */
+  story_key?: string;
+  /** R226t/E13 — 구조화 스토리 v2 (Opus 작문 회차에서 legacy_text 를 섹션으로 승격).
+   *  sections: hook/origin/breakthrough/adoption/today/fun_fact (표준 순서), timeline.ref = story_refs 1-base 인덱스. */
+  story_v2?: {
+    sections: Partial<Record<'hook' | 'origin' | 'breakthrough' | 'adoption' | 'today' | 'fun_fact', string>>;
+    timeline?: Array<{ year: number | string; event: string; ref?: number }>;
+  };
   /** R72/R73/R74 — industry-standard application 한 줄. supplementary entry 의 industry_note 필드 그대로. */
   industry_note?: string | null;
   /** R157 — Primary composition class (legacy filter 호환 — 현재 build pipeline 이 채우지 않음). */

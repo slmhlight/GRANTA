@@ -3702,68 +3702,10 @@ rep.push('- **Refresh frequency**: quarterly. Last sync: 2026-Q1.');
 rep.push('');
 rep.push('## TODO', '- Hardness scale unification (HV/HRC/HB).', '- Reconcile fatigue/impact gaps where datasheets provide values.', '- (R34d candidate) Polymer creep rupture curves (PEEK / ULTEM / PEKK 100–200°C, 1000–10⁴ h).');
 
-// R75/R78 — material-stories.json 주입. 우선순위:
-//   (1) exact full name 매칭
-//   (2) base name (split " — " 앞부분) 매칭
-//   (3) prefix 매칭 (material name 이 stories key 로 시작) + word-boundary check (Inconel 718Plus 가 Inconel 718 prefix 와 잘못 매칭되는 것 방지)
-// keys 는 길이 내림차순 정렬 → 더 specific 한 key 가 먼저 시도됨.
-let storyAttached = 0;
-try {
-  const storiesFile = path.join(DATA, 'material-stories.json');
-  // R149 — material-stories-r149.json (popularity ≥ 4 missing 122 entry 의 65 base group 신규 story) 도 함께 merge.
-  const storiesR149File = path.join(DATA, 'material-stories-r149.json');
-  // R177 — material-stories-r177.json (popularity 4.0-4.5 missing 28 entries 신규 story) merge.
-  const storiesR177File = path.join(DATA, 'material-stories-r177.json');
-  if (fs.existsSync(storiesFile)) {
-    const sj = JSON.parse(fs.readFileSync(storiesFile, 'utf8'));
-    const sMap = { ...(sj.stories || {}) };
-    // Merge R149 stories (later override existing only if collision)
-    if (fs.existsSync(storiesR149File)) {
-      const sj149 = JSON.parse(fs.readFileSync(storiesR149File, 'utf8'));
-      const sMap149 = sj149.stories || {};
-      for (const [k, v] of Object.entries(sMap149)) {
-        if (!sMap[k]) sMap[k] = v;
-      }
-    }
-    // Merge R177 stories
-    if (fs.existsSync(storiesR177File)) {
-      const sj177 = JSON.parse(fs.readFileSync(storiesR177File, 'utf8'));
-      const sMap177 = sj177.stories || {};
-      for (const [k, v] of Object.entries(sMap177)) {
-        if (!sMap[k]) sMap[k] = v;
-      }
-    }
-    const sortedKeys = Object.keys(sMap).sort((a, b) => b.length - a.length);
-    const lowerKeys = sortedKeys.map((k) => ({ orig: k, lower: k.toLowerCase() }));
-    const isBoundary = (ch) => ch === undefined || ch === ' ' || ch === '—' || ch === '-' || ch === '(' || ch === ',';
-    for (const m of all) {
-      if (!m || !m.name) continue;
-      const nameL = m.name.toLowerCase();
-      let matchedKey = null;
-      if (sMap[m.name]) matchedKey = m.name;
-      if (!matchedKey) {
-        const base = m.name.split(' — ')[0].trim();
-        if (sMap[base]) matchedKey = base;
-      }
-      if (!matchedKey) {
-        for (const { orig, lower } of lowerKeys) {
-          if (nameL.startsWith(lower) && isBoundary(nameL[lower.length])) { matchedKey = orig; break; }
-        }
-      }
-      if (matchedKey) {
-        const story = sMap[matchedKey];
-        if (story && typeof story === 'object' && story.text) {
-          m.story = story.text;
-          if (Array.isArray(story.refs) && story.refs.length) m.story_refs = story.refs;
-          storyAttached++;
-        }
-      }
-    }
-  }
-} catch (e) {
-  console.warn('story injection skipped:', e?.message);
-}
-if (storyAttached) console.log(`R75/R78 — stories attached: ${storyAttached}`);
+/* R75/R78 → R226t/E13 — 스토리 name-매칭 주입 **은퇴**.
+ *   구 3파일(material-stories*.json)의 exact/base/prefix 이름 매칭은 rename 에 취약(dead 17 발생) →
+ *   381 매칭을 stable_id 로 동결 이관한 data/alloy-stories.json 이 단일 SSOT.
+ *   부착은 build-from-registry(build:data)가 stable_id 로 수행 — 레지스트리는 story-free (콘텐츠/값 분리). */
 
 /* R139b — Impact strength typical (ASM) vs min_spec (vendor minimum) 표시.
    사용자 의사결정 도우미: 안전 임계 시 min spec 사용 권장. */
