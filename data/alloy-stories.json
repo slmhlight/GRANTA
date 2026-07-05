@@ -88,7 +88,21 @@
     "ArcelorMittal \"USIBOR / DUCTIBOR Product Brochure\" (2020)",
     "Mori K et al. (2017) \"Hot stamping of ultra-high strength steel parts\", CIRP Annals 66(2)"
    ],
-   "legacy_text": "1995년 룩셈부르크 ArcelorMittal (당시 Arbed) 의 R&D 가 자동차 차체에 '초고강도 + 복잡 형상 가공' 을 한 번에 만족하는 답을 찾으면서 등장한 합금이에요. 일반 강이라면 cold stamping 시 σ_UTS 600 MPa 이상에서 형상이 부서지는데, 22MnB5 는 hot stamping (가열 stamping) 으로 해결했죠. 900°C 에서 austenitization → mold 안에서 quench → 단일 stroke 으로 σ_UTS 1500 MPa 마르텐사이트가 형성됩니다.\n\n응용은 자동차 차체의 critical safety 부품 — B-pillar 보강재, door impact beam, front bumper beam, A-pillar 보강. 한 번의 hot-stamp 로 1.5 GPa 강도가 나오니, 동일 강도를 위해 일반 강을 쓸 때보다 차체 무게가 30% 감량되는 효과가 있어요. CO₂ emission 규제 (EU 95 g/km) 가 시작된 2009년 경부터 거의 모든 OEM 이 22MnB5 를 도입했습니다.\n\n한 가지 핵심 advance 가 있어요 — 표면 Al-Si 코팅 (USIBOR 의 'USI' 는 Usinor Sacilor International 의 약자, 'BOR' 은 Boron) 이 핵심이에요. 900°C 의 austenitization 동안 Fe-Al-Si 표면 형성으로 oxidation 과 탄소 손실을 막아주거든요. 1990년대 Arbed 가 이 dual-process 를 patent 화하면서 시장을 일찍 장악했고, 현재 ArcelorMittal 이 글로벌 22MnB5 의 60% 를 점유하고 있습니다."
+   "sections": {
+    "hook": "뜨겁게 찍어 1.5 GPa로 굳는 강 — 자동차 충돌 안전의 핵심, 핫스탬핑 보론강 22MnB5.",
+    "origin": "1990년대 자동차 업계는 \"초고강도이면서 복잡한 형상으로 성형\"이라는 모순을 풀어야 했다. 냉간 프레스로는 1GPa 급 강이 부서지기 때문이다. ArcelorMittal 계열이 내놓은 답이 핫스탬핑(열간 프레스) — 22MnB5 보론강을 900°C 로 달궈 오스테나이트 상태로 성형한 뒤 금형 안에서 급랭하면, 한 번의 스탬핑으로 마르텐사이트 1.5GPa 가 나온다.",
+    "breakthrough": "보론 미량이 경화능을 극적으로 높여 금형 냉각만으로 완전 마르텐사이트를 만든다. 뜨거운 오스테나이트는 무르니 복잡한 형상도 잘 찍히고, 식으면서 초고강도가 된다 — 성형과 경화를 한 공정에 합친 것이다. 표면의 Al-Si 코팅(USIBOR 상표)이 가열 중 산화·탈탄을 막아 이 공정을 실용화했다.",
+    "adoption": "2009년 전후 CO₂ 규제가 시작되며 거의 모든 완성차가 B필러·도어 임팩트 빔·범퍼 빔 등 충돌 안전 부품에 채택했고, 오늘날 차체 경량화의 핵심 강종이 됐다.",
+    "today": "B필러·범퍼 빔·도어 빔·A필러 보강 등 승객을 지키는 충돌 구조에 쓰인다. 같은 강도를 일반 강으로 내려면 훨씬 무거워져, 핫스탬핑은 차체 경량화와 안전을 동시에 잡는 표준 공법이 됐다. 연성이 더 필요한 구역은 연성 보론강(Ductibor)과 조합한다.",
+    "fun_fact": "핫스탬핑 부품은 금형에서 나올 때 이미 완성된 초고강도강이다 — 벌겋게 달군 무른 판을 찍는 순간 급랭으로 굳어, 성형이 끝나는 그 자리에서 1.5GPa 강이 태어난다."
+   },
+   "timeline": [
+    {
+     "year": 1995,
+     "event": "Arbed(현 ArcelorMittal), Al-Si 코팅 핫스탬핑 보론강 특허",
+     "ref": 2
+    }
+   ]
   },
   "253-ma": {
    "display": "253 MA",
@@ -260,7 +274,14 @@
     "NACE MR0175 / ISO 15156",
     "ASM Handbook Vol.1 'Carbon and Alloy Steels for Pressure Vessels'"
    ],
-   "legacy_text": "A516 Grade 70 은 ASTM A516 표준의 pressure vessel quality (PVQ) carbon-manganese steel 입니다. 1960년 ASME B&PV Code Section II 에 채택되며 오일·가스 산업의 reactor / boiler / storage tank 의 baseline 으로 자리잡았어요. C 0.27% + Mn 0.85-1.20% + Si 0.13-0.45% 의 단순한 화학 조성이지만, 두꺼운 plate (최대 200 mm) 의 균일한 강도 + impact toughness 가 핵심입니다.\n\nGrade 별 차이는 인장 강도 minimum: A516 Gr 55 (380 MPa), Gr 60 (415), Gr 65 (450), Gr 70 (485 MPa). Gr 70 이 가장 일반적이며 yield 260 MPa min, El 17% min, Charpy V-notch -29°C 27 J min.\n\n응용 — Petrochemical reactor vessel, refinery distillation column (SK Innovation, GS Caltex 의 정유공장), boiler drum (현대중공업 / 두산에너빌리티의 thermal power plant), LNG storage tank (10,000-200,000 m³ class), pulp & paper digester, ammonia synthesis converter. 모든 ASME B&PV Sec.VIII Div.1 / EN 13445 의 pressure vessel 의 표준 plate material 이며, 한국 산업 현장의 'pressure vessel = A516 Gr 70' 등식이 성립합니다.\n\n특이 처리 — Normalized (균질 ferrite-pearlite microstructure, low-T toughness 향상) 가 표준. HIC (Hydrogen-Induced Cracking) 저항성을 위해 sour service 환경은 NACE MR0175 통제 + S < 0.002% 의 low-S 변형 사용."
+   "sections": {
+    "hook": "정유·발전 압력용기의 기본 강판 — 두꺼워도 속까지 균일하고 저온에 질긴 A516 Gr70.",
+    "origin": "A516 Grade 70 은 ASTM/ASME 의 압력용기용(PVQ) 탄소-망간 강판으로, 1960년 ASME 보일러·압력용기 코드에 채택되며 정유·가스 산업의 반응기·보일러·탱크 기본재가 됐다. 탄소 0.27%에 망간을 더한 단순한 조성이지만, 두께 200mm 후판까지 균일한 강도와 저온 충격인성을 보증하는 것이 핵심이다.",
+    "breakthrough": "정규화(normalizing)로 페라이트-펄라이트 조직을 미세·균질하게 만들어 저온 인성을 확보하고, 낮은 탄소당량으로 두꺼운 판도 용접할 수 있게 했다. 등급 뒤 숫자(55~70)는 최소 인장강도(ksi)로, Gr70(485MPa)이 가장 널리 쓰인다 — 값싸고 용접 잘 되고 두꺼워도 믿을 수 있는, 압력용기의 무난한 표준이다.",
+    "adoption": "1960년대 이후 세계 정유·석유화학 반응기와 발전 보일러 드럼, 대형 LNG·저장탱크의 표준 판재로 자리 잡았다 — \"압력용기 = A516 Gr70\"이라는 현장 등식을 만들었다.",
+    "today": "정유·화학 반응기와 증류탑, 보일러 드럼, LNG·암모니아 저장탱크의 기본 판재다. 황화수소 환경(sour service)은 황을 극도로 낮춘 저황·HIC 저항 변형을, 극저온은 9%Ni 강을, 고온은 Cr-Mo 강을 쓴다.",
+    "fun_fact": "화려한 특수강이 아니라 이 평범한 탄소강판이 세계 정유·발전 플랜트의 압력을 떠받친다 — 두껍고 값싸고 예측 가능하다는 것이, 안전이 최우선인 압력용기에서는 가장 큰 미덕이다."
+   }
   },
   "a572-grade-50": {
    "display": "A572 Grade 50",
@@ -288,7 +309,21 @@
     "AISC \"Steel Construction Manual\" 15th Edition (2017)",
     "NIST \"Northridge Earthquake Investigation Report\" NIST GCR 95-682 (1995)"
    ],
-   "legacy_text": "2002년 미국 AISI 가 새 wide-flange beam (W-shape) 의 표준을 A36 / A572 에서 A992 로 교체합니다. 이전 표준의 carbon equivalent (CE) 가 너무 높아 high-rise building 의 high-strength bolting 후 brittle fracture 위험이 있었거든요. A992 는 CE ≤ 0.45 + σ_y 345 MPa + σ_y/σ_UTS ≤ 0.85 의 ductility 요구로 weldability 와 지진 저항을 풀었어요.\n\n전환의 trigger 는 1994년 노스리지 (Northridge) 지진이었어요. 강진동 중 W-shape steel frame 의 column-beam connection 이 weld 부위에서 brittle fracture 가 다수 발견되면서, NIST + AISC 가 새 표준을 요구했죠. 결과 — A992 가 모든 US W-shape 의 default 가 됐고, 2002년 9·11 이후 New York 의 모든 reconstruction (One WTC, 7 WTC) 의 framing 강이 A992 입니다.\n\n응용 — Salesforce Tower (1070 ft, San Francisco), Empire State Building 의 ECC upgrade, Bank of America Tower NYC, Hoover Dam Bypass Bridge (Mike O'Callaghan-Pat Tillman), Tappan Zee Bridge replacement (Mario Cuomo Bridge). 사실상 미국에서 짓는 모든 steel-framed building 과 highway bridge — 매년 약 15백만 ton 의 강이 A992 로 소비됩니다."
+   "sections": {
+    "hook": "미국 철골 건물의 표준 H형강 — 지진이 바꿔 놓은 용접성·연성 규격, A992.",
+    "origin": "2002년 미국이 광폭 플랜지 H형강(W-shape)의 표준을 기존 A36/A572 에서 A992 로 교체했다. 계기는 1994년 노스리지 지진 — 강진 중 다수 철골 건물의 기둥-보 용접 접합부가 취성 파괴된 것이 발견되자, 더 나은 용접성과 연성을 규격으로 못 박은 강이 요구됐다.",
+    "breakthrough": "A992 는 항복 345MPa 를 보증하면서, 탄소당량 상한(≤0.45)으로 용접성을 지키고 항복비(항복/인장 ≤0.85)를 규정해 지진 시 소성 변형 여력을 확보한다 — 강도뿐 아니라 \"잘 붙고 잘 늘어나는\" 성질까지 규격화한 것이 핵심이다. 지진공학의 교훈이 강재 규격에 직접 새겨진 사례다.",
+    "adoption": "2002년 이후 미국에서 짓는 사실상 모든 철골 건물과 고속도로 교량의 H형강 기본값이 됐고, 9·11 이후 뉴욕 재건축의 골조강으로도 쓰였다.",
+    "today": "고층 건물 골조와 교량의 표준 H형강으로, 미국에서만 연간 수천만 톤이 소비된다. 규격은 지역마다 다르지만(EN S355 등) 모두 \"용접성과 연성을 갖춘 구조강\"이라는 같은 목표의 답들이다.",
+    "fun_fact": "A992 의 규격표에는 \"너무 강하지 말 것\"이라는 조항이 있다 — 항복비 상한이 그것인데, 강이 예상보다 강하면 지진 때 설계한 곳이 아닌 엉뚱한 부위가 먼저 파괴되기 때문이다."
+   },
+   "timeline": [
+    {
+     "year": 1994,
+     "event": "노스리지 지진 — 철골 접합부 취성 파괴, A992 규격 제정 계기",
+     "ref": 3
+    }
+   ]
   },
   "aa-1050": {
    "display": "AA 1050",
@@ -347,7 +382,14 @@
     "ASM Handbook Vol.2 'Aluminum Cu Alloys 2xxx'",
     "Hatch J E (ed., 1984) Aluminum: Properties and Physical Metallurgy"
    ],
-   "legacy_text": "AA 2014 는 1928년 미국 ALCOA (Aluminum Company of America) 의 alloy 14S 으로 개발 — Al-Cu-Si-Mg 합금 중 가장 강도가 높은 forge-grade Al alloy 였습니다. Cu 4.4% + Si 1.0% + Mg 0.5% + Mn 0.8% 의 조성에서 Cu 가 강도, Si 가 weldability (hot crack 완화), Mn 가 grain refinement 역할.\n\n역사 — 2차 대전 동안 미군 항공기 wing 구조 forging 의 standard 였어요. P-38 Lightning, P-51 Mustang, P-47 Thunderbolt 의 wing root / fuselage frame, 영국 RAF Spitfire 의 일부 frame. 전후엔 일반 항공으로 확산 — Cessna / Beechcraft / Piper 의 single-engine aircraft 의 main spar. 1960년대 AA 2024 와 7075 의 등장으로 점차 application 이 줄었지만, weldability 가 2024 보다 우수해 truck chassis / 군용 trailer 등 weld-fabrication 부품으로 잔존.\n\n현대 응용 — Howitzer / artillery 시스템의 carriage 구조 (M777 howitzer 의 sub-component), truck frame (heavy-duty military), tank suspension torsion bar housing (M1 Abrams 일부), 산악 자전거 일부 frame (Trek 2014-T6 spec model). 일반 산업 응용은 7075-T6 / 2024-T3 보다 적지만 forge-grade Al 에서 strength + weldability 균형이 필요한 응용에서 여전히 사용됩니다.\n\nHT — T4 (sol. + nat aged, σy 290) / T6 (sol. + art aged 170°C/10h, σy 415) / T651 (T6 + stretched). T6 strength 가 7075 보다 약간 낮지만 (415 vs 505 MPa) weldability 가 우수."
+   "sections": {
+    "hook": "2024보다 강하고 용접까지 되는 항공 단조 알루미늄 — 2차 대전 전투기 날개의 2014.",
+    "origin": "1928년 Alcoa 가 내놓은 14S 가 원형으로, Al-Cu-Si-Mg 계에서 가장 강도가 높은 단조용 알루미늄이었다. 구리가 강도를, 규소가 용접 시 균열을 줄이고, 망간이 결정립을 다듬는다 — 시효경화 항공 알루미늄이면서 용접까지 감당하는 조성이다.",
+    "breakthrough": "T6 시효로 항복 415MPa 를 내 두랄루민계(2024)보다 강하면서, 규소 덕에 2024 보다 용접성이 좋다. 강도의 정점(7075)에는 못 미치지만, \"강하면서 용접되는 단조 알루미늄\"이라는 틈을 정확히 메웠다.",
+    "adoption": "2차 대전 미군 전투기(P-51·P-47 등)의 날개 뿌리·동체 프레임 단조재로 대량 채택됐고, 전후 경비행기 주스파와 군용 트레일러로 이어졌다.",
+    "today": "견인포 가신·군용 트럭 프레임처럼 단조 강도와 용접성이 함께 필요한 곳에 쓰인다. 항공 주력은 2024·7075 에 내줬지만, 용접 조립 단조 부품에서는 여전히 제 몫을 한다.",
+    "fun_fact": "2014 는 \"강도의 2024\"와 \"용접의 6061\" 사이에 낀 합금이다 — 어느 쪽에서도 1등은 아니지만, 강하면서 붙일 수 있어야 하는 단조 부품에서는 그 절충이 정답이 된다."
+   }
   },
   "aa-2024": {
    "display": "AA 2024",
@@ -454,7 +496,14 @@
     "Mondolfo L F (1976) Aluminum Alloys: Structure and Properties, Butterworths",
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
    ],
-   "legacy_text": "1929년 Alcoa 의 에드거 H. 딕스 주니어 (Edgar H. Dix Jr.) 가 Al-Mg 2.5% 에 Cr 0.15-0.35% 를 첨가하면 cold-rolled 상태에서도 SCC (응력 부식 균열) 면역을 유지하면서 H32/H34 temper 의 강도를 안정적으로 보존할 수 있음을 확인합니다. 이전 5005 (Al-Mg 0.8%) 의 강도 한계와 5083 (Al-Mg 4.5%) 의 SCC 우려 사이의 sweet spot 을 찾은 결과였죠 (1944년 AIME Trans 156 에 발표).\n\n비열처리 가공경화 합금이라 시효처리 없이 H32 (1/4 hard) / H34 (1/2 hard) / H38 (full hard) temper 로 바로 사용합니다. H32 기준 σy 195 MPa / σUTS 230 MPa / El 12%. 해수 환경에서 부식 속도 0.02 mm/year 로 일정 (passive Al₂O₃ + Cr 추가로 pitting 회피), 양극산화 (anodizing) 후 표면 강도 + 내식성 boost.\n\n응용 — marine fuel tank (소형 보트 알루미늄 연료 탱크 표준 — Bayliner, Boston Whaler 일부 모델), 가전 backsplash (스테인리스 대안), 자동차 fuel tank, 산업 cargo container, 항공 ducting (non-structural), 알루미늄 가구 (Knoll, Herman Miller frame). ASTM B209 (sheet) / B221 (extrusion) 표준 — marine grade 의 대표."
+   "sections": {
+    "hook": "가장 널리 쓰이는 해양 알루미늄 판재 — 크롬으로 응력부식을 막은 비열처리 5052.",
+    "origin": "1929년 Alcoa 의 딕스가 Al-Mg 2.5%에 크롬을 미량 넣으면 냉간가공 상태에서도 응력부식균열(SCC) 면역과 안정한 강도를 얻는다는 것을 확인했다. 강도가 약한 5005 와 SCC 가 우려되는 고Mg 5083 사이의 균형점을 찾은 결과로, 이후 해양·판금용 알루미늄의 대표 판재가 됐다.",
+    "breakthrough": "열처리가 아니라 마그네슘 고용과 냉간가공으로 강도를 얻으니 시효가 필요 없고, 크롬이 SCC 와 공식을 억제해 해수에서도 안정하다. H32·H34 같은 가공경화 템퍼로 바로 쓰며, 성형성이 좋아 연료탱크·판금 가공에 이상적이다 — \"무난한 해양 판재\"의 자리를 차지했다.",
+    "adoption": "소형 보트 연료탱크와 선체 판금의 표준으로 채택됐고, 가전 외장·화물 컨테이너·알루미늄 가구로 폭넓게 확산됐다.",
+    "today": "보트 연료탱크·판금, 가전 백스플래시, 화물 컨테이너, 표지판, 알루미늄 가구가 본진이다. 더 높은 강도가 필요한 해양 구조는 5083 으로, 열처리 강도가 필요하면 6061 로 넘어간다.",
+    "fun_fact": "\"해양 알루미늄\" 하면 흔히 5052 를 떠올린다 — 특별히 강하진 않지만 바닷물에 안 갈라지고 잘 구부러지며 값도 무난해, 판금 작업자에게 가장 손에 익은 알루미늄이 됐다."
+   }
   },
   "aa-5083": {
    "display": "AA 5083",
@@ -588,7 +637,21 @@
     "ASM Handbook Vol.2 'Properties and Selection: Nonferrous Alloys'",
     "Kaiser Aluminum AA 6082 Technical Data Sheet"
    ],
-   "legacy_text": "AA 6082 는 1972년 EU Aluminum Association 이 표준화한 medium-strength Al-Mg-Si 합금입니다. Mg 0.6-1.2% + Si 0.7-1.3% + Mn 0.4-1.0% 의 조성으로, 미국 6061 (Mg 1.0% + Si 0.6%) 보다 Mn 함량이 약간 높아 grain refinement 와 corrosion resistance 가 우수해요. 한국 KS D 6705 의 AA 6082 가 동일 표준입니다.\n\n응용은 EU 시장 중심의 structural extrusion / sheet. 자동차 frame (Volvo XC60 / S90 의 일부 cross-member), 자전거 frame (Cannondale / Trek 의 EU spec), 트럭 trailer chassis (Schmitz Cargobull 의 EU 표준 trailer), 철도 차체 (Stadler / Talgo 의 alpine train), 해양 plate (passenger ferry, 작은 yacht), 사다리 (DIN EN 131 표준 ladder), 산업용 conveyor frame, 가로등 mast. EU 의 6xxx Al 표준은 6082 가 차지하고, 미국·아시아는 6061 — 동일 응용이지만 시장 우선순위가 다른 케이스입니다.\n\nHT 표준 — T6 (sol. 530°C/WQ + aged 175°C/8h, σy 250 / σUTS 295 MPa) 가 가장 일반적. T651 (T6 + stretched, residual stress < 30 MPa) 은 정밀 가공 부품 용. 압출 시 T5 (cooling from extrusion + aged) 도 가능 — 6063 와 유사한 cost-saving option. Weldability 는 6061 와 비슷 — ER4043 / ER5356 filler + HAZ softening 60% 손실의 동일 issue."
+   "sections": {
+    "hook": "유럽의 6061 — 망간을 더해 강도·내식을 높인 구조용 압출 알루미늄 6082.",
+    "origin": "AA 6082 는 1970년대 유럽이 표준화한 중강도 Al-Mg-Si 합금으로, 미국 6061 과 용도가 같되 망간을 조금 더 넣어 결정립 미세화와 내식을 개선했다. 유럽·아시아 구조용 압출·판재 시장에서 6061 의 자리를 차지하는, 사실상의 \"유럽판 6061\"이다.",
+    "breakthrough": "Mg₂Si 석출로 T6 에서 항복 250MPa 를 내며, 망간이 결정립을 다듬어 6061 보다 약간 높은 강도와 내식을 준다. 압출성·용접성·양극산화성이 모두 좋아, 구조부터 마감까지 한 합금으로 감당하는 범용 구조재다 — 지역만 다를 뿐 6061 과 같은 \"만능 구조 알루미늄\" 자리다.",
+    "adoption": "유럽 자동차 크로스멤버와 철도 차체, 트레일러 섀시, 사다리(EN 131) 표준재로 채택되며 유럽 구조용 압출의 기본값이 됐다.",
+    "today": "자동차·철도 구조재, 트레일러 섀시, 사다리, 해양 판재, 가로등 기둥 등 유럽·아시아 구조용 6xxx 의 표준이다. 미국·아시아 일부는 같은 용도에 6061 을 쓰는, 시장 우선순위만 다른 쌍둥이다.",
+    "fun_fact": "똑같은 자전거·트레일러라도 미국 카탈로그엔 6061, 유럽 카탈로그엔 6082 로 적힌다 — 성질이 거의 같은 두 합금이 대서양을 사이에 두고 각자의 표준으로 굳은, 규격 역사의 흔적이다."
+   },
+   "timeline": [
+    {
+     "year": 1972,
+     "event": "유럽 알루미늄협회, AA 6082 표준화 — 유럽 구조용 6xxx",
+     "ref": 1
+    }
+   ]
   },
   "aa-6xxx-special": {
    "display": "AA 6xxx Special (6101 / 6262 / 6463 / 6151 / 6005A)",
@@ -3662,12 +3725,16 @@
    "legacy_text": "Maraging steel 의 'mar' 는 martensite, 'aging' 은 시효 처리를 뜻합니다. 1959년 미국 INCO (International Nickel) 의 Clarence Bieber 가 18% Ni 마텐사이트 모재에 Co + Mo + Ti 를 시효처리로 석출시키면 일반 강과는 다른 새 강화 메커니즘이 생긴다는 걸 발견했어요. 보통 강은 C 를 탄화물로 굳혀 강도를 내지만, 마레이징은 C 를 거의 안 쓰고 (≤0.03%) intermetallic compound (Ni₃Mo, Ni₃Ti) 를 석출시켜 강화합니다.\n\nMaraging 250 (UNS K92890, AMS 6512) 은 18Ni-7Co-5Mo-0.4Ti 조성으로 UTS 1750 MPa 이상을 내는 ultra-high strength steel 의 표준입니다. 482°C / 3h 표준 시효로 σy 1670, UTS 1750 정도, 6h peak 시효면 1810 / 1870 까지 올라가죠. 250 의 강점은 단조·용접·가공 단계에서는 soft annealed (σy 760) 상태로 두고 마지막에 단순한 air-cool 시효만 하면 굳어진다는 점이에요. 보통 Q&T 강처럼 quench distortion 걱정이 없어 정밀 부품에 이상적입니다.\n\n실 응용은 항공·우주에 집중돼 있습니다. Polaris·Trident 미사일 case (외경 2.4m 크기에서 wall 6mm 압력 견딤), 항공기 landing gear (Lockheed C-5 Galaxy), 우주 발사체 SRB 의 case (Space Shuttle SRB 의 일부 segment), 정밀 punch / die / coining tool (US Mint 의 동전 type), F1 의 reciprocating valve. 한 가지 단점은 Co 의 가격 변동에 단가가 많이 흔들린다는 점이고, 그래서 Co-free Maraging (Sandvik Nanoflex) 같은 변형도 개발됐습니다."
   },
   "maraging-300": {
-   "display": "Maraging 300",
+   "display": "Maraging 300 · UNS K93120)",
    "stable_ids": [
     "MET-0482",
     "MET-0483",
     "MET-0484",
-    "MET-0485"
+    "MET-0485",
+    "MET-0952",
+    "MET-0953",
+    "MET-0954",
+    "MET-0955"
    ],
    "refs": [
     "AMS 6514 (SAE 2017) \"Steel, Bars, Maraging 18% Ni\"",
@@ -3690,22 +3757,6 @@
      "ref": 2
     }
    ]
-  },
-  "maraging-300-uns-k93120": {
-   "display": "Maraging 300 (UNS K93120)",
-   "stable_ids": [
-    "MET-0952",
-    "MET-0953",
-    "MET-0954",
-    "MET-0955"
-   ],
-   "refs": [
-    "Decker R F, Eash J T, Goldman A J (1962) \"18% Nickel Maraging Steel\", Trans ASM 55",
-    "INCO US Patent 3,093,518 (1963)",
-    "Schnitzer R et al. (2010) \"Effect of Cu on Precipitation in Maraging Steel\", Acta Mater 58",
-    "Sha W & Guo Z (2009) Maraging Steels: Modelling of Microstructure, Properties and Applications, Woodhead Publishing"
-   ],
-   "legacy_text": "1959년 INCO (International Nickel) 의 샘 플로린 (Sam Floreen) 과 로이 데커 (Roy Decker) 가 Ni 18% + Co 9% + Mo 5% + Ti 0.7% 의 새 ferrous 합금이 martensite + aging 의 조합으로 σ_y 2000 MPa 를 달성한다는 사실을 발견하면서 'maraging' (MARtensite + AGING) 이라는 신조어가 만들어졌어요. 종래 ultra-high-strength steel (4340) 의 quenching crack 문제를 carbon ≤ 0.03% 로 거의 carbon-free 로 만들어서, air-cooling 만으로 100% lath martensite 가 형성되도록 한 게 핵심이죠. 시효 시에는 Ni₃Mo + Ni₃Ti 의 metastable 석출이 입계와 격자에 동시 분포해 극도로 높은 KIC 를 동반합니다.\n\n응용은 우주, 핵, 군, 스포츠에 걸쳐 있어요. 우주 — SpaceX Falcon 9 의 second-stage interstage forging, NASA Hubble repair mission 의 hand tool. 핵무기 — 미국 LLNL 의 uranium enrichment centrifuge bowl (P2 type). 군 — Lockheed Martin 의 ATK 미사일 motor case (Tomahawk, Trident D-5). 스포츠 — Callaway 골프 driver face plate, F1 의 일부 gearbox shaft. 단점은 Co 의 글로벌 공급 의존 (DRC) 으로 가격이 1996 → 2024 약 7배 상승했다는 점 — NoCo (cobalt-free) variants 가 활발히 연구 중입니다."
   },
   "maraging-c300-18ni-300": {
    "display": "Maraging C300 (18Ni-300)",
@@ -5113,7 +5164,21 @@
     "Krauss G (2015) Steels: Processing, Structure, and Performance 2nd ed., ASM",
     "AMS 6415 (SAE) \"Steel, Bars, Forgings, and Tubing 0.80Cr-1.8Ni-0.25Mo (0.38-0.43C)\""
    ],
-   "legacy_text": "SNCM439 는 JIS G 4053 의 'Nickel-Chromium-Molybdenum steel No.439' 인데, 미국 AISI 4340 의 일본 equivalent 입니다. C 0.4% + Ni 1.8% + Cr 0.8% + Mo 0.25% 라는 Ni-Cr-Mo 합금강의 가장 표준적 조성이에요. 1934년 미국 Republic Steel 이 AISI 4340 을 항공 landing gear 용으로 처음 표준화했고, 일본 신일본제철·고베제강이 1950년대 후반에 SNCM439 로 라이센스 생산을 시작했습니다.\n\n4340 / SNCM439 의 핵심은 Ni 가 페라이트 강도에 기여하면서 동시에 인성도 올려준다는 점입니다. Cr-Mo 만 있는 합금 (AISI 4140) 대비 Ni 1.8% 가 추가되면 KIC 가 60 → 90 MPa·√m 으로 50% 이상 올라가요. Q+T 표준 (845°C 오일 quench + 540°C temper) 으로 σy 850-1000 MPa · UTS 1000-1200 + KIC 90 + Charpy 50 J 의 균형을 냅니다.\n\n응용: 항공 landing gear (Boeing 747 의 truck beam, 모든 commercial jet 의 oleo strut), 자동차 crankshaft (BMW M-series, Toyota 2JZ-GTE), 정밀 reduction gear 의 input shaft, 군용 차량 (M1 Abrams) 의 axle, 산업 forging die backing block, 그리고 reciprocating engine 의 connecting rod (forged 4340 이 racing engine 표준). 4340 / SNCM439 가 80년 동안 'high-strength engineering steel 의 산업 표준' 자리를 지키는 이유는 단조 + Q+T 후의 σy / KIC / weldability / cost 의 균형이 다른 어떤 alloy steel 도 못 따라잡기 때문이에요. 단점은 인장강도 1200 MPa 이상이 필요한 super-critical 부품에는 부적합 (4340 의 한계), 그래서 그 영역은 300M (Ni 2.5% + Si 1.6%) 또는 Aermet 100 (Co 13%) 같은 prestige alloy 가 잠식합니다."
+   "sections": {
+    "hook": "4340의 일본 이름 — 니켈로 인성까지 얻은 고강도 조질강, 착륙장치와 크랭크샤프트의 표준.",
+    "origin": "SNCM439 는 JIS 의 Ni-Cr-Mo 기계구조용강으로, 미국 AISI 4340 과 사실상 같은 조성이다. 1930년대 미국이 항공 착륙장치용으로 표준화한 4340 을 일본 제철사가 1950년대에 라이선스 생산하며 붙인 이름으로, 탄소 0.4%에 니켈 1.8%·크롬·몰리브데넘을 더한 고강도 조질강의 가장 표준적 조성이다.",
+    "breakthrough": "핵심은 니켈의 이중 역할이다 — 강도에 기여하면서 동시에 인성을 끌어올려, Cr-Mo 만 있는 4140 보다 파괴인성을 절반 이상 높인다. 담금질+뜨임(Q&T)으로 항복 850~1000MPa 에 준수한 충격인성을 함께 얻는, 강도-인성-용접성-값의 균형이 이 계열의 지속 비결이다.",
+    "adoption": "1930년대 항공 착륙장치 채택을 시작으로 자동차 크랭크샤프트·기어 축, 군용 차량 구동부로 확산돼, 80년 넘게 \"고강도 기계구조강의 기준\"으로 남았다.",
+    "today": "항공 착륙장치 빔·오레오 스트럿, 자동차·경주용 크랭크샤프트와 커넥팅로드, 정밀 감속기 축, 대형 단조 금형 받침에 쓰인다. 더 높은 강도(UTS 1200MPa+)가 필요하면 300M·AerMet 100 으로 넘어간다.",
+    "fun_fact": "4340/SNCM439 가 80년째 현역인 이유는 특별히 강해서가 아니라 균형이 좋아서다 — 강도·인성·용접성·값 중 하나도 크게 모자라지 않는 그 무난함을, 아직 다른 저합금강이 넘어서지 못했다."
+   },
+   "timeline": [
+    {
+     "year": 1934,
+     "event": "AISI 4340 항공 착륙장치용 표준화 (JIS SNCM439 는 그 등가)",
+     "ref": 2
+    }
+   ]
   },
   "special-tool-steel": {
    "display": "Special Tool Steel (S7 / H21 / CPM 3V / CPM S30V)",
