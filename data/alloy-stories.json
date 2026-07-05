@@ -1597,6 +1597,44 @@
    ],
    "legacy_text": "CP-Ti (Commercially Pure Titanium) 는 1948년 미국 Bureau of Mines 의 William Kroll 이 개발한 Kroll process (TiCl₄ + Mg → Ti + MgCl₂) 가 상용 생산을 가능케 한 후 1950년대 chemical industry 와 의료 분야에 진출한 가장 단순한 Ti grade 입니다. Grade 1 (UNS R50250, O ≤ 0.18%) → Grade 4 (R50700, O ≤ 0.40%) 의 4 단계가 ASTM B265 표준으로 등재됐어요.\n\n역사 — 1791년 영국 William Gregor 가 menachanite 광물에서 Ti oxide 를 발견. 1825년 Jöns Jakob Berzelius 가 pure Ti 추출. 1910년 Matthew Hunter 가 first pure metallic Ti 분리. 1948년 Kroll process 의 상업화 전까지 산업적 application 이 없었어요. 1950년대 미군 항공기 + chemical industry (HCl 산 환경) 가 main application 으로 자리잡았습니다.\n\n응용 — Chemical industry 의 HCl / HF / chlorine 환경 reactor / heat exchanger tube (Ti 의 self-passivating TiO₂ 가 chloride 환경에서 304 보다 압도적 우수), 의료 implant (dental implant — Branemark 1965 첫 osseointegration), bone screw / plate (ASTM F67 spec), 해양 platform 의 seawater piping, desalination plant.\n\nGrade 별 — Gr 1 (가장 ductile, El 24%, σy 170 MPa) / Gr 2 (가장 common, El 20%, σy 275 MPa) / Gr 3 (industrial, El 18%, σy 380 MPa) / Gr 4 (가장 강, El 15%, σy 485 MPa). 모두 α single-phase, no β stabilizer, no precipitation hardening — strain hardening 과 anneal 만 가능. Welding 우수 (GTAW + Ar shielding + α-case 회피)."
   },
+  "cr-mo-engineering-steel": {
+   "display": "Cr / Cr-Mo / Cr-V Engineering Steel (4150 / 5140 / 6150 / SCM435 / 8740)",
+   "stable_ids": [
+    "MET-0023",
+    "MET-0024",
+    "MET-0025",
+    "MET-0029",
+    "MET-0086",
+    "MET-0089",
+    "MET-0090",
+    "MET-0034",
+    "MET-0035",
+    "MET-0038",
+    "MET-0039",
+    "MET-0040",
+    "MET-0043",
+    "MET-0044",
+    "MET-0047",
+    "MET-0050",
+    "MET-0051",
+    "MET-1003",
+    "MET-0052",
+    "MET-0063",
+    "MET-0064",
+    "MET-0065"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Krauss G (2005) Steels: Processing, Structure, and Performance, ASM International"
+   ],
+   "sections": {
+    "hook": "크롬·몰리브데넘으로 담금질 경화능을 키운 중탄소 기계구조강 — 축·기어·볼트의 살림꾼.",
+    "origin": "중탄소강(0.3~0.5%C)에 크롬·몰리브데넘·바나듐을 더하면, 담금질 때 두꺼운 단면까지 마르텐사이트로 굳는 경화능이 커진다. 4140(Cr-Mo)을 중심으로 크롬강(51xx), 크롬-바나듐강(61xx), Ni-Cr-Mo(87xx), JIS Cr-Mo(SCM) 등 조질(담금질+뜨임)해 쓰는 기계구조강 계열이다.",
+    "breakthrough": "크롬은 경화능과 내마모를, 몰리브데넘은 경화능·뜨임취성 억제·고온강도를, 바나듐(6150)은 결정립 미세화와 내마모를 준다. 조질로 강도·인성을 폭넓게(HRC 25~50) 맞출 수 있어, 같은 부품도 요구에 따라 뜨임 온도로 성질을 조율한다.",
+    "today": "4150·SCM440·SCM445 는 축·기어·스핀들·유정 공구, 5140·5130 은 볼트·기어, 6150 은 밸브 스프링·기어·공구, 8740 은 항공용 볼트·체결구에 쓰인다. 더 높은 강도가 필요하면 4340·300M 으로, 표면만 굳히려면 침탄강으로 간다.",
+    "fun_fact": "4150·4140 같은 Cr-Mo 강은 유정 시추의 드릴 칼라·툴 조인트 단골이다 — 깊은 땅속에서 비틀림과 충격을 오래 견뎌야 하기 때문이다."
+   }
+  },
   "cucr1zr": {
    "display": "CuCr1Zr",
    "stable_ids": [
@@ -3836,6 +3874,38 @@
     "today": "금속 벽온 약 700°C 이하의 USC 보일러 과열기·재열기 튜브 표준 중 하나다. 더 높은 온도는 Ni 기 합금(예: Inconel 740)이 맡고, Super304H 는 오스테나이트 스테인리스 영역의 상단을 담당한다."
    }
   },
+  "surface-hardening-steel": {
+   "display": "Surface-Hardening Steel (Carburizing 18CrNiMo7 / 20MnCr5 / 9310, Nitriding 31CrMoV9)",
+   "stable_ids": [
+    "MET-0006",
+    "MET-0007",
+    "MET-0008",
+    "MET-0009",
+    "MET-0010",
+    "MET-0011",
+    "MET-0066",
+    "MET-0060",
+    "MET-0061",
+    "MET-0062",
+    "MET-0070",
+    "MET-0071",
+    "MET-0072",
+    "MET-0013",
+    "MET-0014",
+    "MET-0015"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Krauss G (2005) Steels: Processing, Structure, and Performance, ASM International"
+   ],
+   "sections": {
+    "hook": "겉은 단단하게 속은 질기게 — 침탄·질화로 표면만 경화해 마모와 피로를 함께 이기는 기어강.",
+    "origin": "기어·캠·축은 표면은 마모에 강하고 속은 충격에 견뎌야 하는 상반된 요구를 받는다. 이를 위해 저탄소 합금강(18CrNiMo7·20MnCr5·SCM415·9310)을 침탄(표면에 탄소 주입)하거나, 중탄소 합금강(31CrMoV9)을 질화(표면에 질소 주입)해 겉만 단단한 경화층(case)을 만든다.",
+    "breakthrough": "침탄강은 저탄소(~0.2%C) 심부가 질긴 채로 표면만 고탄소 마르텐사이트(HRC 58~62)가 되어 마모·접촉피로에 강하다. Ni·Cr·Mo 는 심부 인성·경화능을 조율한다. 질화강 31CrMoV9 는 Cr·Mo·V 가 질소와 미세 질화물을 만들어, 담금질 없이 500°C 부근 처리만으로 표면을 굳혀 변형이 거의 없다.",
+    "today": "18CrNiMo7·20MnCr5 는 자동차·산업 기어, SCM415 는 소형 기어·핀, 9310 은 항공기 기어·베어링(청정 VIM 용해), 31CrMoV9 는 정밀 스핀들·크랭크샤프트·압출 스크루에 쓰인다.",
+    "fun_fact": "침탄 표면은 탄소가 들어차며 부피가 늘어 잔류압축응력을 머금는데, 이 압축이 피로 균열의 시작을 눌러 기어 수명을 몇 배로 늘린다."
+   }
+  },
   "tantalum-niobium-alloys": {
    "display": "Tantalum & Niobium (Ta / Ta-10W / Nb / C-103)",
    "stable_ids": [
@@ -4137,6 +4207,32 @@
     "Bourell D L et al. (2017) \"Materials for AM\", CIRP Annals 66"
    ],
    "legacy_text": "ULTEM 9085 는 Sabic 의 PEI 의 'flame-retardant + smoke + toxicity' (FST) grade 입니다. PEI base 에 brominated flame retardant 를 첨가해 FAR 25.853 (Federal Aviation Regulation, 항공기 cabin material 의 화재 안전 기준) 통과가 가능한 grade. 1990년대 GE Plastics 가 commercial launch 했고, Stratasys 가 2007년 FDM 3D 프린팅 filament 의 첫 항공-qualified 재료로 채택했어요.\n\n특성: Tg 186°C (base PEI 217°C 보다 약간 낮음, 화재 처리제 영향) · σy 65-85 MPa · modulus 2.4 GPa · El 5-7%. FST 등급은 OSU (Ohio State University) heat release < 65 kW·min/m² (FAR 25.853 한도), 발연 (smoke) < 200 OSU NBS, toxicity 도 통과. Stratasys FDM print 의 결과는 anisotropic 이지만 항공 part 의 spec 이 정해진 isotropic value 보다 보수적으로 사용됩니다.\n\n응용: 항공기 cabin 내부 ducting (Airbus A350, Boeing 787, F-35), 항공기 brackets + spacer, 화재 안전 요구 의료 device (휴대용 portable ventilator 의 일부 housing), 군용 응급 의료 kit case. Stratasys 의 첫 항공 인증 (Boeing F-18 fighter ducting, 2014) 으로 'FDM Ultem 9085 가 항공 production 가능' 이라는 분기점을 만든 게 화제였고, 그 이후 Lockheed Martin · Boeing · Airbus 의 일부 low-volume cabin part 가 FDM 으로 print 되고 있습니다."
+  },
+  "ultra-high-strength-steel": {
+   "display": "Ultra-High-Strength Steel (300M / AerMet 100 / D6AC / HP-9-4-30)",
+   "stable_ids": [
+    "MET-0012",
+    "MET-0017",
+    "MET-0018",
+    "MET-0019",
+    "MET-0053",
+    "MET-0054",
+    "MET-0055",
+    "MET-0056",
+    "MET-0057",
+    "MET-0058"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Philip T V & McCaffrey T J, Ultrahigh-Strength Steels, ASM Handbook Vol.1"
+   ],
+   "sections": {
+    "hook": "UTS 1900MPa를 넘나드는 저합금강 — 착륙장치와 로켓 모터 케이스를 위한 극한 강도강.",
+    "origin": "항공기 착륙장치·로켓 모터 케이스처럼 좁은 공간에 막대한 하중이 걸리는 곳엔 강도가 최우선인 초고강도 저합금강(UHS)이 쓰인다. 4340 을 규소·바나듐으로 강화한 300M, 코발트-니켈 2차경화형 AerMet 100, 로켓용 D6AC, 고인성 HP-9-4-30 등이 대표적이다.",
+    "breakthrough": "300M 은 Si 첨가로 뜨임 저항을 높여 4340 보다 강도를 끌어올렸고, AerMet 100 은 Co·Ni 이 만드는 미세 합금탄화물의 2차경화로 UTS ~1965MPa 에 뛰어난 인성을 겸한다. 공통 과제는 강도가 오를수록 커지는 수소취화·응력부식 민감성이라, 청정 용해와 도금 관리가 필수다.",
+    "today": "300M 은 대형 항공기 착륙장치·구동축, AerMet 100 은 함재기 착륙장치·아레스팅 후크, D6AC 는 고체로켓 모터 케이스, HP-9-4-30 은 고인성이 필요한 항공 구조에 쓰인다. 부식이 문제면 PH 스테인리스로 간다.",
+    "fun_fact": "300M 은 오랫동안 대형 항공기 착륙장치의 대표 재료였다 — 착륙 충격을 견디면서도 가벼워야 하는 이 부위엔 아직 이만한 강도 대 무게의 대안이 마땅치 않다."
+   }
   },
   "we-magnesium": {
    "display": "WE Magnesium (WE43 / WE54)",
