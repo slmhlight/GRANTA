@@ -35,6 +35,8 @@
   "17-7-ph-uns-s17700-semi-austenitic-ph": {
    "display": "17-7 PH (UNS S17700, semi-austenitic PH)",
    "stable_ids": [
+    "MET-0770",
+    "MET-0771",
     "MET-0827",
     "MET-0828",
     "MET-0829"
@@ -84,6 +86,7 @@
     "MET-0700",
     "MET-0743",
     "MET-0761",
+    "MET-1012",
     "MET-1016"
    ],
    "refs": [
@@ -145,6 +148,7 @@
   "a-286": {
    "display": "A-286",
    "stable_ids": [
+    "MET-0704",
     "MET-0753",
     "MET-0754",
     "MET-0755"
@@ -727,8 +731,11 @@
    "stable_ids": [
     "MET-0713",
     "MET-0716",
+    "MET-0724",
+    "MET-0725",
     "MET-1013",
-    "MET-1014"
+    "MET-1014",
+    "MET-1015"
    ],
    "refs": [
     "Krupp DRP 304126 (1913) \"Herstellung von Gegenständen aus rostfreiem Stahl\"",
@@ -773,7 +780,11 @@
    "stable_ids": [
     "MET-0780",
     "MET-0783",
-    "MET-0784"
+    "MET-0784",
+    "MET-0809",
+    "MET-0810",
+    "MET-0811",
+    "MET-0812"
    ],
    "refs": [
     "Brearley H (1913) UK Patent 23,498/1913 \"Improvements in the Manufacture of Iron and Steel Alloys\"",
@@ -1874,6 +1885,30 @@
     "today": "항공 전선 피복·화학 라이닝, 그리고 무엇보다 대형 건축 지붕·파사드의 공기막 쿠션(베이징 워터큐브·뮌헨 알리안츠 아레나 등)이 대표 용도다. 유리보다 훨씬 가벼워 넓은 채광 구조를 만든다."
    }
   },
+  "ferritic-stainless": {
+   "display": "Ferritic Stainless (405 / 410S / 434 / 436 / 446 / FeCrAl MA956)",
+   "stable_ids": [
+    "MET-0776",
+    "MET-0779",
+    "MET-0789",
+    "MET-0792",
+    "MET-0793",
+    "MET-0804",
+    "MET-0772",
+    "MET-0807"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "자석에 붙는 스테인리스 — 니켈 없이 크롬만으로 녹을 막는, 값싸고 열에 강한 페라이트계.",
+    "origin": "스테인리스는 크롬 11% 이상이면 표면에 부동태막이 생겨 녹슬지 않는다. 페라이트계는 여기에 니켈을 거의 넣지 않은, 값싼(니켈 시세에 덜 흔들리는) 자성 스테인리스다. 담금질로 경화되지 않으며 Cr 함량과 소량 첨가(Mo·Al·Ti)로 405·434·436·446 등으로 갈린다.",
+    "breakthrough": "니켈이 없어 오스테나이트계보다 값싸고, 염화물 응력부식균열에 강한 것이 장점이다. Cr 을 높이면(446) 내산화·내열이, Mo 를 넣으면(434·436) 내식이 좋아진다. 대신 저온 취성과 용접부 입계 취화가 약점이라 두꺼운 구조나 극저온엔 잘 안 쓴다. 알루미늄을 넣은 FeCrAl(MA956 등)은 1000°C 대 내산화를 낸다.",
+    "today": "434·436 은 자동차 트림·연료계, 405·409 는 배기 시스템, 446·FeCrAl 은 히터·소각·고온 부품에 쓰인다. 강도·인성·용접이 중요하면 오스테나이트계나 마르텐사이트계로 간다.",
+    "fun_fact": "자동차 배기·트림에 스테인리스가 대량 쓰이는데 대부분 값싸고 자성인 페라이트계(409·439·434)다 — 니켈이 든 반짝이는 304 는 오히려 드물다."
+   }
+  },
   "fkm": {
    "display": "FKM",
    "stable_ids": [],
@@ -2190,7 +2225,9 @@
    "stable_ids": [
     "MET-0696",
     "MET-0697",
-    "MET-0726"
+    "MET-0726",
+    "MET-0727",
+    "MET-0730"
    ],
    "refs": [
     "ASTM A240 / A240M",
@@ -2631,6 +2668,26 @@
     }
    ]
   },
+  "lean-super-duplex-stainless": {
+   "display": "Lean & Super Duplex (2304 / 2507)",
+   "stable_ids": [
+    "MET-0692",
+    "MET-0764",
+    "MET-0765",
+    "MET-0768"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "IMOA (International Molybdenum Association), Practical Guidelines for the Fabrication of Duplex Stainless Steels"
+   ],
+   "sections": {
+    "hook": "오스테나이트와 페라이트 반반 — 2205 아래(린)와 위(슈퍼)로 넓힌 2상 스테인리스.",
+    "origin": "듀플렉스 스테인리스는 오스테나이트와 페라이트가 대략 반반 섞인 2상 조직으로, 오스테나이트계의 내식과 페라이트계의 고강도·내응력부식을 겸한다. 대표 2205 를 기준으로, 니켈·Mo 를 줄여 값싼 린 듀플렉스(2304)와, 더 넣어 해수까지 견디는 슈퍼 듀플렉스(2507)로 갈린다.",
+    "breakthrough": "2상 조직은 같은 두께에서 오스테나이트계의 약 2배 항복강도를 내면서 염화물 응력부식균열에 강하다. 린 듀플렉스(2304)는 값싼 304/316 대체로, 슈퍼 듀플렉스(2507, PREN>40)는 뜨거운 해수·유정 환경으로 영역을 넓혔다. 상 균형이 핵심이라 용접 입열·냉각을 잘 관리해야 한다.",
+    "today": "2304 는 물탱크·구조·펄프 설비(값싼 고강도), 2507 슈퍼 듀플렉스는 해수 배관·유정·화학 플랜트에 쓰인다. 상 균형이 깨지기 쉬운 극후판·주조엔 주의가 필요하다.",
+    "fun_fact": "듀플렉스는 강도가 높아 같은 하중을 더 얇은 벽으로 버틴다 — 그래서 큰 화학 탱크·다리를 오스테나이트계보다 가볍고 싸게 지을 수 있다."
+   }
+  },
   "lithium-aluminosilicate": {
    "display": "Lithium Aluminosilicate",
    "stable_ids": [
@@ -2815,6 +2872,28 @@
     "origin": "대부분의 스테인리스는 물러서 마모·절삭날에 부적합하다. 440 계는 Cr 16~18%에 탄소를 0.6~1.2%까지 높여, 담금질 시 다량의 크롬 탄화물과 마르텐사이트로 HRC 58~60 의 경도를 내는 고탄소 마르텐사이트 스테인리스다.",
     "breakthrough": "탄소가 A(0.6~0.75%)→ B(0.75~0.95%)→ C(0.95~1.2%)로 오를수록 경도·내마모가 커진다. 440C 는 스테인리스 중 최고 경도급이다 — 다만 그 탄화물이 Cr 을 소모해 내식은 오스테나이트계보다 낮고, 인성도 낮다.",
     "today": "440C 는 볼베어링·밸브 시트·수술칼·고급 나이프에, 440A/B 는 중간 경도가 필요한 칼·부품에 쓰인다. 내식이 더 중요하면 마르텐사이트 대신 PH 스테인리스(17-4)나 오스테나이트로 간다."
+   }
+  },
+  "martensitic-stainless-specialty": {
+   "display": "Specialty Martensitic Stainless (416 / 422 / 431 / 415 / L80-13Cr)",
+   "stable_ids": [
+    "MET-0773",
+    "MET-0774",
+    "MET-0775",
+    "MET-0819",
+    "MET-0805",
+    "MET-0806"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "담금질로 굳는 스테인리스 — 410·420·440 너머의 특수 마르텐사이트 grade들.",
+    "origin": "마르텐사이트계 스테인리스는 탄소를 넣어 담금질로 경화되는 자성 스테인리스다. 기본 410·420·440 외에 용도별 특수 grade 가 있다 — 쾌삭형 416, 고온 터빈용 422, 고강도 431, 저탄소 연질 415(CA6NM), 유정용 L80-13Cr 등이다.",
+    "breakthrough": "416 은 황을 넣어 절삭성을 극대화(쾌삭)하고, 422 는 Mo·V·W 로 600°C 대 고온강도를 내며, 431 은 니켈을 더해 강도·인성·내식을 겸한다. 415(CA6NM)는 탄소를 낮춰 용접·인성을 개선한 연질 마르텐사이트로 대형 주조에 맞고, L80-13Cr 은 유정의 부식·황화 환경(sour service)을 견딘다.",
+    "today": "416 은 밸브·기어·샤프트(쾌삭), 422 는 증기터빈 블레이드·볼트, 431 은 펌프축·고강도 부품, 415 는 수력터빈 러너·대형 주조, L80-13Cr 은 유정 튜빙·케이싱에 쓰인다.",
+    "fun_fact": "수력발전 터빈의 거대한 러너(회전차)는 대부분 415(CA6NM) 연질 마르텐사이트 스테인리스 주강이다 — 캐비테이션·부식을 견디면서 용접 보수가 가능해야 하기 때문이다."
    }
   },
   "microalloyed-hsla-steel": {
@@ -3449,6 +3528,26 @@
    ],
    "legacy_text": "1953년 영국 ICI 의 존 윈필드 (John Whinfield) 와 제임스 딕슨 (James Dickson) 이 terephthalic acid + ethylene glycol 의 transesterification 으로 polyethylene terephthalate (PET) 를 발견 — 같은 해 미국 DuPont 이 fiber grade 로 'Dacron' 을 출시했고, 결정성이 너무 높아 사출용으로는 부적합한 것이 PET 의 한계였어요. 1980년대 Eastman Chemical 이 1,4-cyclohexanedimethanol (CHDM) 을 ethylene glycol 일부 대체해 결정화를 방해함으로써 완전한 amorphous → 광학적으로 투명하고 사출 가능한 변형 — 이것이 PETG (G = glycol-modified) 입니다.\n\nPETG 의 의의는 PET 의 화학 내성 + Polycarbonate 의 광학 투명성 + 사출 성형성을 한 polymer 에 모은 거예요. Tg 80°C 로 dishwasher 안전한 음료 컵 (Starbucks 의 reusable cup), 의료 진단 cuvette (POC 키트), 데스크탑 FDM 3D 프린팅의 표준 (ABS 보다 warping 적음, PLA 보다 충격에 강함 — Prusa MK3 / Bambu Lab X1C 의 표준 필라멘트). 2000년대 들어 Coca-Cola·Pepsi 의 squeeze bottle, 슈퍼 hard-pack 카드 패키지 (Apple iPhone box 의 plastic tray) 까지 확산됐습니다."
   },
+  "ph-tool-and-high-strength-stainless": {
+   "display": "PH Tool & High-Strength Stainless (Custom 455 / CX mold PH)",
+   "stable_ids": [
+    "MET-0830",
+    "MET-0831",
+    "MET-0832",
+    "MET-0838"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "스테인리스인데 공구강만큼 강한 — 시효로 굳히는 초고강도·금형용 석출경화 스테인리스.",
+    "origin": "17-4·15-5 PH 로 대표되는 석출경화(PH) 스테인리스 중에서도, 강도를 더 끌어올리거나 금형 용도로 특화한 grade 들이 있다. Custom 455 는 Carpenter 가 만든 티타늄·구리 강화 마르텐사이트 PH 로 매우 높은 강도를, CX 계열은 내식성과 경면 연마성을 갖춘 PH 금형 스테인리스다.",
+    "breakthrough": "낮은 탄소 마르텐사이트를 만든 뒤 480~540°C 시효로 미세한 금속간화합물(Cu·Ti·Ni-Al 등)을 석출시켜, 담금질강처럼 무르지 않으면서 초고강도(1700MPa 급)를 낸다. 낮은 탄소라 용접·성형 후 시효만으로 굳어 변형이 적고, 스테인리스라 녹슬지 않는다.",
+    "today": "Custom 455 는 항공 체결·스프링·고강도 축, CX 계열 PH 금형강은 부식·경면이 중요한 플라스틱 사출 금형(투명·의료용)에 쓰인다. 더 높은 인성·강도 조합은 PH13-8 Mo 로 간다.",
+    "fun_fact": "투명 플라스틱 렌즈·의료 부품을 찍는 금형은 녹과 흠집이 곧 불량이라, 부식에 강하고 거울처럼 연마되는 PH 스테인리스 금형강으로 만든다."
+   }
+  },
   "ph13-8-mo": {
    "display": "PH13-8 Mo",
    "stable_ids": [
@@ -4055,6 +4154,25 @@
     "origin": "일본 Sumitomo Metal(현 Nippon Steel)이 초초임계(USC) 화력발전 보일러의 과열기·재열기 튜브용으로 304H 를 개질해 개발했다(UNS S30432). Cu ~3%·Nb ~0.4%·N ~0.1% 를 더한 것이 핵심이다.",
     "breakthrough": "시효 중 Cu-rich 상과 Nb(C,N)이 오스테나이트 기지에 미세 석출해 크리프 파단강도를 크게 높인다. 600°C 증기·25~30 MPa 조건에서 재래 304H·347H 보다 높은 고온 강도를 낸다.",
     "today": "금속 벽온 약 700°C 이하의 USC 보일러 과열기·재열기 튜브 표준 중 하나다. 더 높은 온도는 Ni 기 합금(예: Inconel 740)이 맡고, Super304H 는 오스테나이트 스테인리스 영역의 상단을 담당한다."
+   }
+  },
+  "super-austenitic-stainless": {
+   "display": "Super-Austenitic Stainless (254 SMO / AL-6XN, 6% Mo)",
+   "stable_ids": [
+    "MET-0694",
+    "MET-0705",
+    "MET-0752"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "몰리브데넘 6%로 바닷물까지 견디는 스테인리스 — 316도 부족한 곳의 슈퍼 오스테나이트계.",
+    "origin": "316 스테인리스도 뜨거운 바닷물·염화물에선 공식(pitting)·틈부식으로 뚫린다. 슈퍼 오스테나이트계(254 SMO·AL-6XN)는 몰리브데넘을 6% 이상, 질소를 더 넣어 이 내공식성을 극한까지 끌어올린 고합금 스테인리스다.",
+    "breakthrough": "내공식 지수(PREN = Cr+3.3Mo+16N)가 40을 크게 넘어, 뜨거운 해수·표백·인산 같은 가혹한 염화물 환경도 견딘다. 니켈을 20% 안팎으로 높여 오스테나이트를 안정화하고 응력부식균열도 억제한다. 값이 비싸고, 고Mo 라 시그마상 석출을 피하는 용접·열처리 관리가 필요하다.",
+    "today": "254 SMO·AL-6XN 은 해수 열교환기·담수화 설비·표백 타워·화학 플랜트처럼 316 이 뚫리는 곳에 쓰인다. 더 가혹하면 니켈합금(C-276)이나 티타늄으로 간다.",
+    "fun_fact": "슈퍼 오스테나이트계는 값비싼 니켈합금을 쓰기엔 아깝고 316 으론 부족한, 딱 그 사이의 가혹한 해수 환경을 값싸게 메우려 태어난 재료다."
    }
   },
   "surface-hardening-steel": {
