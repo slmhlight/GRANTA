@@ -1649,6 +1649,36 @@
    ],
    "legacy_text": "1896년 스위스 샤를 에두아르 기욤 (Charles Édouard Guillaume) 이 Fe-Ni 36% 합금이 thermal expansion 이 거의 zero (CTE ≈ 1.2 × 10⁻⁶/K) 에 가깝다는 사실을 발견합니다 — magneto-volume effect (Fe-Ni 35-36 at% 의 spin-disordered γ 상태에서 격자 수축이 thermal expansion 을 cancel) 가 원인이에요. 'Invariable' 의 단축형 'Invar' 로 명명, 1920년 노벨 물리학상 수상.\n\n응용 — 정밀 — 1900-1980년 사이 전 세계 표준 미터 막대 (시드니 천문대의 standard meter 도 Invar), 측량 표준 chain (theodolite), 시계 pendulum (Big Ben 의 reserve pendulum). 우주 — Hubble Space Telescope 의 mirror support truss, James Webb Space Telescope 의 primary mirror backing (-243°C 까지 dimensional stable), 위성 antenna boom (CTE-matched composite). 산업 — LNG cargo containment (Mark III 의 secondary barrier), 반도체 mask aligner stage (-50°C ~ +50°C 동안 sub-micron 변위), Apple Vision Pro 의 일부 internal precision part. 단점은 Ni 35% 의 비싼 원료가와 다소 낮은 σ_y 280 MPa."
   },
+  "ldpe": {
+   "display": "LDPE",
+   "stable_ids": [
+    "POL-0089"
+   ],
+   "refs": [
+    "ICIS (2008) \"Polyethylene: discovered by accident 75 years ago\"",
+    "Brydson J A (1999) Plastic Materials, 7th ed., Butterworth-Heinemann"
+   ],
+   "sections": {
+    "hook": "1933년 어느 고압 실험의 우연한 산물 — 세계 최초의 폴리에틸렌이자 비닐봉지의 원료.",
+    "origin": "1933년 영국 ICI(Imperial Chemical Industries) 연구소에서 Eric Fawcett 와 Reginald Gibson 이 에틸렌의 고압 반응을 연구하던 중 우연히 만들었다. 1,000~3,000기압·약 170°C 에서 장치에 남은 미량의 산소가 자유라디칼 개시제로 작용해, 하얀 왁스질 고체 — 폴리에틸렌 — 가 생긴 것이다.",
+    "breakthrough": "고압 자유라디칼 중합은 긴 가지(long-chain branching)가 많은 사슬을 만들어, 밀도가 낮고(0.91~0.94) 유연하며 결정성이 낮은 폴리머가 된다. 이 가지 구조가 LDPE 를 투명·유연·질기게 만들어 필름·포장에 이상적이다.",
+    "adoption": "Michael Perrin 이 재현 가능한 공정으로 발전시켜 1939년부터 공업 생산됐고, 2차 세계대전 중에는 레이더 케이블 절연재로 쓰이며 전략 물자가 됐다.",
+    "today": "비닐봉지·랩·짜는 병(squeeze bottle)·전선 피복 등 유연 포장의 대명사다. 강성·내열이 필요하면 HDPE 나 PP 로, 더 질긴 필름은 LLDPE 로 간다.",
+    "fun_fact": "ICI 는 이 발견을 1937년 영국 특허(British Patent 471,590)로 등록했다."
+   },
+   "timeline": [
+    {
+     "year": 1933,
+     "event": "ICI, 고압 실험 중 폴리에틸렌 우연 발견 (Fawcett·Gibson)",
+     "ref": 1
+    },
+    {
+     "year": 1939,
+     "event": "재현 공정 확립 → 공업 생산 시작",
+     "ref": 1
+    }
+   ]
+  },
   "lithium-aluminosilicate": {
    "display": "Lithium Aluminosilicate",
    "stable_ids": [
@@ -1957,6 +1987,8 @@
   "pa11-alm-pa850": {
    "display": "PA11 ALM PA850",
    "stable_ids": [
+    "POL-0059",
+    "POL-0060",
     "POL-0061"
    ],
    "refs": [
@@ -1969,6 +2001,7 @@
   "pa12-cf-eos-hp-3": {
    "display": "PA12-CF EOS HP 3",
    "stable_ids": [
+    "POL-0069",
     "POL-0070"
    ],
    "refs": [
@@ -1981,7 +2014,13 @@
   "pa12-eos-pa-2200": {
    "display": "PA12 EOS PA 2200",
    "stable_ids": [
-    "POL-0064"
+    "POL-0062",
+    "POL-0063",
+    "POL-0064",
+    "POL-0073",
+    "POL-0074",
+    "POL-0075",
+    "POL-0076"
    ],
    "refs": [
     "EOS PA 2200 Tech Data",
@@ -2083,7 +2122,9 @@
     "POL-0081",
     "POL-0082",
     "POL-0083",
-    "POL-0084"
+    "POL-0084",
+    "POL-0085",
+    "POL-0086"
    ],
    "refs": [
     "Schnell H (1956) DE Patent 971,790 (Bayer) \"Process for the production of high-molecular-weight thermoplastic polycarbonates\"",
@@ -2274,7 +2315,9 @@
   "pom-copolymer": {
    "display": "POM Copolymer",
    "stable_ids": [
-    "POL-0097"
+    "POL-0097",
+    "POL-0100",
+    "POL-0101"
    ],
    "refs": [
     "Kern W & Cherdron H (1960) Celanese Patent on POM Copolymer",
@@ -2299,7 +2342,9 @@
   "pom-homopolymer": {
    "display": "POM Homopolymer",
    "stable_ids": [
-    "POL-0099"
+    "POL-0099",
+    "POL-0102",
+    "POL-0103"
    ],
    "refs": [
     "DuPont Delrin 150 Tech Data Sheet",
@@ -2322,6 +2367,36 @@
     "Moore E P (ed., 1996) Polypropylene Handbook: Polymerization, Characterization, Properties, Processing, Applications, Hanser"
    ],
    "legacy_text": "1954년 3월, 이탈리아 Milan Polytechnic 의 줄리오 나타 (Giulio Natta) 가 카를 치글러 (Karl Ziegler) 의 1953년 Ti-Al 카탈리스트 (Ziegler catalyst) 를 propene 에 적용해 처음으로 isotactic polypropylene 을 합성합니다 — Ziegler 의 polyethylene 발견과 함께 1963년 노벨 화학상을 공동 수상하게 되죠. Montecatini 가 1957년 'Moplen' 으로 상업화한 뒤 1960년대 들어 자동차 범퍼·계측기 하우징·식품 용기 (Tupperware) 까지 폭발적으로 보급됐어요.\n\nPP 의 의의는 결정성 (X_c ~60%) + 낮은 밀도 (0.91 g/cm³, 모든 commodity 폴리머 중 최소) + 99% 의 chain-scission-free 재활용 가능성 — 현재 세계 폴리머 시장 2위 (PE 다음 ≈ 80 Mt/y) 의 거대 시장입니다. 가장 흔한 응용: 자동차 범퍼 (BMW, Toyota, 현대), 의자 (IKEA), 약병 cap, microwaveable 식품 용기 (CPP), 의료 syringe (단, Tg -20°C → low-temp 취성 한계). GF30 강화 변형은 자동차 cooling fan 과 dishwasher impeller 의 표준이고요."
+  },
+  "pps": {
+   "display": "PPS (Polyphenylene Sulfide)",
+   "stable_ids": [
+    "POL-0109",
+    "POL-0110",
+    "POL-0111"
+   ],
+   "refs": [
+    "Chevron Phillips Chemical, Ryton® PPS 기술 자료 (Phillips Petroleum, 1967 개발 / 1973 상용)",
+    "Brydson J A (1999) Plastic Materials, 7th ed., Butterworth-Heinemann"
+   ],
+   "sections": {
+    "hook": "방향족 고리와 황이 번갈아 이어진 뼈대 — 200°C를 견디고 녹이는 용매가 거의 없는 고성능 열가소성.",
+    "origin": "미국 Phillips Petroleum 이 1967년 p-디클로로벤젠과 황화나트륨을 극성 용매에서 반응시키는 공정을 개발하고, 1973년 Ryton 상표로 상용 생산을 시작했다. 벤젠 고리와 황(S) 원자가 번갈아 이어진 단순하지만 매우 안정한 뼈대가 특징이다.",
+    "breakthrough": "강직한 방향족-황 뼈대가 높은 결정성과 열안정성을 주어, 연속 200°C 이상·순간 260°C 를 견디고 자기소화성(내연)을 갖는다. 200°C 이하에서 이를 녹이는 용매가 사실상 없어 화학 내성이 극단적으로 높다.",
+    "today": "대개 유리·탄소섬유(40% 등)로 강화해 자동차 워터펌프·전장 커넥터·펌프 임펠러·고온 부품에 쓴다. 순수 PPS 는 다소 취성이라 강화·컴파운딩이 기본이며, 더 높은 온도는 PEEK·PAI 영역이다."
+   },
+   "timeline": [
+    {
+     "year": 1967,
+     "event": "Phillips Petroleum, PPS 중합 공정 개발",
+     "ref": 1
+    },
+    {
+     "year": 1973,
+     "event": "Ryton PPS 상용 생산 개시",
+     "ref": 1
+    }
+   ]
   },
   "ptfe": {
    "display": "PTFE",
@@ -2360,6 +2435,30 @@
     "Brydson J A (1999) Plastics Materials 7th ed."
    ],
    "legacy_text": "PVC (Polyvinyl Chloride) 의 합성은 1872년 독일 Eugen Baumann 이 처음 발견했지만 실용 polymerization 은 1913년 독일 Klatte (Griesheim-Elektron, 현 Hoechst) 가 emulsion polymerization 으로 stable PVC 합성에 성공한 게 시작입니다. 1926년 미국 Waldo Semon (B.F. Goodrich) 이 plasticizer (phthalate 등) 첨가로 flexible PVC 를 만들어 leatherette 같은 응용을 열었어요. Rigid PVC (uPVC, unplasticized) 는 plasticizer 없는 form 입니다.\n\nRigid PVC 의 매력은 cost ($1.0-1.5/kg, commodity polymer 중 가장 저렴) + 우수한 chemical resistance + flame retardant (Cl 함량 56%) 의 균형입니다. σy 50 MPa, UTS 55 MPa, modulus 3 GPa, El 20-40%, Tg 80°C. 단점은 thermal stability 가 낮고 (가공 시 HCl 방출), UV 노출 시 brittle 화.\n\n응용: 건축 plumbing pipe (전 세계 plumbing pipe 의 50% 이상이 uPVC) — 미국 IRC code 의 표준, 한국 KS M 3401 의 표준. 윈도우 frame (uPVC 윈도우 frame 이 1980년대 이후 wood 의 대체로 보편화), wire insulation (전선 jacketing 의 표준), 자동차 underhood 의 wire harness, 신용카드 (모든 신용카드 + 의료 ID 카드의 substrate 가 PVC), 그리고 건축 sheet (Pearl PVC roofing). 환경 측면에서는 PVC 의 Cl 함량 + plasticizer (phthalate) 이슈로 REACH + RoHS 규제가 강화되고 있어 일부 응용에서는 PE 또는 PP 로 대체 진행 중입니다."
+  },
+  "pvdf": {
+   "display": "PVDF (Kynar)",
+   "stable_ids": [
+    "POL-0126",
+    "POL-0127"
+   ],
+   "refs": [
+    "Arkema, Kynar® PVDF 기술 자료 (Pennwalt, 1961 첫 상용)",
+    "Brydson J A (1999) Plastic Materials, 7th ed., Butterworth-Heinemann"
+   ],
+   "sections": {
+    "hook": "탄소-불소 결합의 힘으로 화학·내후를 견디되, PTFE보다 단단해 배관·부품으로 쓰는 불소수지.",
+    "origin": "1960년대 미국 Pennwalt(현 Arkema)가 개발해 1961년 Kynar 상표로 첫 상용 PVDF 를 내놓았다. 비닐리덴 플루오라이드(VDF)를 유화·현탁 중합해 만들며, 1965년 Kynar 500 건축용 코팅으로 대중화됐다.",
+    "breakthrough": "사슬의 강한 C-F 결합이 산·용매·자외선·산화에 대한 저항을 주면서도, PTFE 와 달리 반결정성이라 강성·내마모가 높고 사출·용접이 가능하다 — ‘구조재로 쓸 수 있는 불소수지’다.",
+    "today": "화학 플랜트 배관·밸브·펌프, 반도체 초순수 라인, 리튬전지 바인더, 건축 외장 코팅(Kynar 500) 등에 쓰인다. 극한 내약품·저마찰이 우선이면 PTFE 로, 기계 강도가 더 중요하면 PVDF 로 갈린다."
+   },
+   "timeline": [
+    {
+     "year": 1961,
+     "event": "Pennwalt, Kynar PVDF 첫 상용화",
+     "ref": 1
+    }
+   ]
   },
   "pyrowear-53-carpenter-ams-6308-helicopter-transm": {
    "display": "Pyrowear 53 (Carpenter, AMS 6308) — helicopter transmission gear",
@@ -2591,6 +2690,41 @@
    ],
    "legacy_text": "1907년 인디애나 코코모 (Kokomo) 의 'Stellite' 발명자 엘우드 헤인즈 (Elwood Haynes) — Haynes-Apperson 자동차 제조사 공동 설립자 — 가 Co-Cr-W 합금이 산화 환경에서도 강도와 경도를 잃지 않는다는 사실을 확인합니다. 라틴어 'stella' (별) 에서 따와 'Stellite' 로 명명했고, 1912년 USPTO 가 1,054,995 'Alloy' 특허를 부여, 1914년 Haynes Stellite Works 를 설립합니다.\n\nStellite 6 (W-rich, ~4-6% W) 는 가장 흔한 grade 로 응용 폭이 정말 넓어요. valve seat (자동차 SI 엔진 exhaust valve seat insert, F1 엔진), 항공 가스터빈 noise suppressor, 외과 칼 (Stryker orthopedic saw blade), 표면 weld overlay (보일러 튜브, pump impeller, 6061 plate 표면 hardfacing) 등. 1차 대전 때 영국 BSA / Vickers 의 weapon 표면 hardfacing 으로 채택됐고, 2차 대전 때는 P-47 의 valve seat 으로 대량 양산됐어요. 현재도 oil & gas drilling tool joint 의 wear band 와 대형 valve trim 의 sealing surface 에 가장 흔히 사용됩니다."
   },
+  "sulfone-polymers": {
+   "display": "Sulfone Polymers (PSU / PPSU)",
+   "stable_ids": [
+    "POL-0112",
+    "POL-0113",
+    "POL-0114",
+    "POL-0115",
+    "POL-0116",
+    "POL-0117",
+    "POL-0118",
+    "POL-0119"
+   ],
+   "refs": [
+    "Solvay Specialty Polymers, Udel® PSU / Radel® PPSU 기술 자료 (Union Carbide, 1966·1976)",
+    "Brydson J A (1999) Plastic Materials, 7th ed., Butterworth-Heinemann"
+   ],
+   "sections": {
+    "hook": "고온 스팀 살균을 반복해도 견디는 투명 엔지니어링 플라스틱 — 의료·항공의 폴리설폰 계열.",
+    "origin": "사슬에 설폰기(–SO₂–)와 방향족 고리가 이어진 비정질 고성능 열가소성이다. Union Carbide 가 1966년 Udel(PSU)을, 1976년 2세대 Radel(PPSU)을 상용화했다 — 두 상표 모두 현재 Solvay 소유.",
+    "breakthrough": "설폰기와 방향족 뼈대가 높은 유리전이온도(PPSU 약 220°C)와 가수분해 저항을 준다 — 그래서 반복 오토클레이브(고온 스팀) 살균을 견딘다. PPSU 는 Udel 보다 내약품·내충격이 한 단계 더 좋다.",
+    "today": "수술기구 트레이·병원 소독 용기·항공 인테리어(난연)·온수 배관 피팅·멤브레인 등 ‘투명 + 반복 고온살균 + 치수안정’이 필요한 곳에 쓰인다. 더 높은 내열·내약품은 PEI(Ultem)·PEEK 로 간다."
+   },
+   "timeline": [
+    {
+     "year": 1966,
+     "event": "Union Carbide, Udel(PSU) 상용화",
+     "ref": 1
+    },
+    {
+     "year": 1976,
+     "event": "Union Carbide, Radel(PPSU) 상용화",
+     "ref": 1
+    }
+   ]
+  },
   "sup10": {
    "display": "SUP10",
    "stable_ids": [
@@ -2683,6 +2817,22 @@
     "ASTM A681 \"Standard Specification for Tool Steels Alloy\""
    ],
    "legacy_text": "H13 (AISI H13 / DIN 1.2344 / JIS SKD61) 은 1942년 미국 Bethlehem Steel 이 hot-work tool steel 의 표준으로 정립한 5% Cr + 1% Mo + 1% V + 0.4% C 합금입니다. 'H' 는 hot-work, '13' 은 grade 번호죠. 그 이전 hot-work tool steel 의 표준이었던 H11 (Mo 1.5%) 보다 V 함량을 늘려 secondary hardening 을 강화해 600°C 이상 high-temp tempering 에서도 hardness 가 유지되도록 했어요.\n\nH13 의 매력은 thermal fatigue resistance 입니다. die-casting mold 가 알루미늄 용탕 (700°C) 과 금형 표면 사이에서 매 cycle ΔT ~ 600°C 의 열충격을 받는데, H13 의 secondary hardening 미세조직 (M₂₃C₆ / MC carbide) 이 이 cycle 에서 hardness 유지가 가능합니다. 표준 Q+T 는 1010°C 오일 quench + 540°C double temper 로 HRC 50 (인성 우선) 또는 540°C × 2 peak temper 로 HRC 53 (강도 우선).\n\n주요 응용: 알루미늄 die-casting mold (Tesla Cybertruck 의 megacasting 한 변 6m+ mold), Mg/Zn die-casting mold, hot extrusion die (Al 6063 윈도우 frame extrusion), hot forging die (자동차 connecting rod forging), 그리고 wider 응용으로 plastic injection mold 중 abrasion 우려 부분 (PEEK GF30, 유리섬유 강화 polymer 용 cavity). H13 의 단점은 인성 KIC 24 MPa·√m 로 낮다는 점인데, 충격 부하가 있으면 H11 또는 P20 를 검토합니다. 최근에는 LPBF 분말로도 가공되어 conformal cooling channel 이 있는 mold 제작이 가능해졌고 (예: SLM Solutions H13 powder), 일반 EDM 가공 대비 cycle time 30% 단축 + die life 2배 효과를 봅니다."
+  },
+  "tpe": {
+   "display": "TPE (Thermoplastic Elastomer)",
+   "stable_ids": [
+    "POL-0129"
+   ],
+   "refs": [
+    "Holden G, Kricheldorf H R, Quirk R P (2004) Thermoplastic Elastomers, 3rd ed., Hanser",
+    "Brydson J A (1999) Plastic Materials, 7th ed., Butterworth-Heinemann"
+   ],
+   "sections": {
+    "hook": "가황고무의 탄성과 플라스틱의 재가공성을 한 재료에 담은 ‘녹여 쓰는 고무’.",
+    "origin": "전통 고무는 황으로 가교(가황)하면 다시 녹지 않아 재활용·사출이 어렵다. TPE 는 물리적 가교(경질 세그먼트가 만드는 가역적 도메인)로 이를 대체한 재료 계열로, 1960년대 블록 공중합체(예: SBS)의 등장과 함께 본격화됐다.",
+    "breakthrough": "사슬 안에 경질(hard)·연질(soft) 세그먼트가 번갈아 있어, 상온에선 경질 도메인이 물리적 가교점 역할을 해 고무처럼 늘어나고, 가열하면 그 도메인이 풀려 열가소성처럼 녹는다 — 그래서 사출·압출·재활용이 가능하다.",
+    "today": "공구 그립·씰·가스켓·오버몰딩·신발 밑창·의료 튜브 등 ‘부드러운 촉감 + 대량 사출’이 필요한 곳에 쓰인다. TPE 는 SBS·TPU·TPO·TPV 등 여러 계열의 총칭이며, 내유·내열이 크면 TPV·TPU 로, 초저가는 TPO 로 세분된다."
+   }
   },
   "tpu": {
    "display": "TPU",
