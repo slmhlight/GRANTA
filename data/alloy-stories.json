@@ -1810,6 +1810,22 @@
    ],
    "legacy_text": "1965년 미해군이 USS Albacore 후속 잠수함 — 더 깊이, 더 조용히 잠수할 수 있는 차세대 — 의 압력선체용 강을 찾던 중 만들어진 합금. 1950년대 HY-80 (σ_y 550 MPa) 으로는 limit dive depth 가 부족했거든요. Naval Surface Warfare Center 의 연구진이 HY-80 의 Ni 함량을 살짝 늘리고 Q+T 사이클을 강화해 σ_y 690 MPa + CVN ≥ 81 J at -18°C 의 HY-100 을 완성합니다.\n\n첫 채택은 1976년 USS Los Angeles (SSN-688) class 잠수함의 일부 frame. 그 뒤로 Seawolf class (SSN-21, 1997-) 와 Virginia class (SSN-774, 2004-) 의 전체 압력선체로 확장됐어요. HY-100 은 잠수 한도를 800 ft 에서 1200 ft 로 끌어올린 합금입니다.\n\n어려운 점은 용접이에요. HY-100 의 용접부는 hydrogen embrittlement 에 민감해서, MIL-E-22200/10 의 low-hydrogen electrode + 100°C 예열 + 24시간 hydrogen bake-out 이 모두 필수. 1989년 USS San Juan (SSN-751) 의 dry dock inspection 에서 HY-100 용접부의 hydrogen-induced crack 이 발견된 사건 이후, USN 의 잠수함 hull welding 는 모든 공정이 sealed clean room 에서 진행됩니다."
   },
+  "hydroxyapatite": {
+   "display": "Hydroxyapatite (HA)",
+   "stable_ids": [
+    "CER-0002"
+   ],
+   "refs": [
+    "Hench L L (1998) \"Bioceramics\", J. Am. Ceram. Soc. 81",
+    "Ratner B D, Hoffman A S, Schoen F J, Lemons J E (2013) Biomaterials Science, 3rd ed., Academic Press"
+   ],
+   "sections": {
+    "hook": "뼈와 이의 주성분을 그대로 세라믹으로 만든 생체 재료 — 임플란트를 뼈에 붙게 한다.",
+    "origin": "하이드록시아파타이트(HA, Ca₁₀(PO₄)₆(OH)₂)는 사람 뼈·치아 무기질의 주성분이다. 이 조성을 합성·소결해 만든 생체활성 세라믹으로, 인체가 이물질로 인식하지 않고 뼈와 직접 결합한다.",
+    "breakthrough": "골전도성(osteoconductive) — 표면에 골아세포가 자라 신생골이 HA 와 화학적으로 결합한다. 그래서 티타늄 임플란트 표면에 HA 를 코팅하면 뼈와의 골유착이 빨라진다.",
+    "today": "정형·치과 임플란트의 골접합 코팅, 골이식재·골충전재(과립·블록), 조직공학 지지체로 쓰인다. 다만 벌크 HA 는 약해 하중부에는 부적합 — 강도는 금속·복합재가 맡고 HA 는 표면 생체활성을 담당한다."
+   }
+  },
   "inconel-600": {
    "display": "Inconel 600",
    "stable_ids": [
@@ -2912,6 +2928,22 @@
     "today": "승용·경주·선박·산업 엔진의 배기밸브 표준 합금이다. 더 가혹한 고성능·터보 엔진은 밸브 헤드에 Nimonic 80A 같은 Ni 기 합금을 접합해 쓰기도 한다."
    }
   },
+  "sapphire": {
+   "display": "Sapphire (single-crystal Al₂O₃)",
+   "stable_ids": [
+    "CER-0029"
+   ],
+   "refs": [
+    "Dobrovinskaya E R, Lytvynov L A, Pishchik V (2009) Sapphire: Material, Manufacturing, Applications, Springer",
+    "ASM Engineered Materials Handbook Vol.4 (Ceramics and Glasses)"
+   ],
+   "sections": {
+    "hook": "알루미나를 단결정으로 키운 투명 세라믹 — 긁히지 않는 창과 LED의 기판.",
+    "origin": "다결정 알루미나(불투명)와 달리, Al₂O₃ 를 단결정으로 성장시키면(Verneuil·Czochralski·EFG 법) 투명하고 결정립계가 없는 사파이어가 된다. 공업용은 무색이며, 미량 불순물이 보석 사파이어의 색을 낸다.",
+    "breakthrough": "단결정이라 결정립계가 없어 투명하고, 알루미나의 높은 경도(모스 9)·내마모·내약품·내열을 그대로 갖는다 — 유리보다 훨씬 단단해 긁힘·마모에 강하다.",
+    "today": "스마트폰 카메라 커버·고급 시계 유리·스캐너 창·고압 광학창, 그리고 GaN 계 LED·반도체 성장 기판이 대표 용도다. 값이 비싸고 절단·연마가 어려운 게 단점이다."
+   }
+  },
   "silica-aerogel": {
    "display": "Silica Aerogel",
    "stable_ids": [
@@ -2940,7 +2972,8 @@
   "silicon-nitride-si-n-hip-d": {
    "display": "Silicon Nitride (Si₃N₄, HIP'd)",
    "stable_ids": [
-    "CER-0020"
+    "CER-0020",
+    "CER-0021"
    ],
    "refs": [
     "Lumsden J (1957) Trans Faraday Soc 53 \"The chemical vapour deposition of Si₃N₄\"",
@@ -3138,6 +3171,26 @@
     "today": "금속 벽온 약 700°C 이하의 USC 보일러 과열기·재열기 튜브 표준 중 하나다. 더 높은 온도는 Ni 기 합금(예: Inconel 740)이 맡고, Super304H 는 오스테나이트 스테인리스 영역의 상단을 담당한다."
    }
   },
+  "technical-silicate-ceramics": {
+   "display": "Technical Silicate Ceramics (Cordierite / Mullite / Steatite)",
+   "stable_ids": [
+    "CER-0016",
+    "CER-0024",
+    "CER-0027",
+    "CER-0030",
+    "CER-0036"
+   ],
+   "refs": [
+    "ASM Engineered Materials Handbook Vol.4 (Ceramics and Glasses)",
+    "Kingery W D, Bowen H K, Uhlmann D R (1976) Introduction to Ceramics, 2nd ed., Wiley"
+   ],
+   "sections": {
+    "hook": "점토·활석에서 구워낸 규산염 세라믹 — 열충격과 절연이 필요한 곳의 값싼 해결책.",
+    "origin": "알루미나·질화물 같은 고순도 세라믹 이전부터, 점토·활석·마그네시아 원료를 구워 만든 규산염 세라믹이 전기 절연과 내열에 쓰였다. 코디어라이트·멀라이트·스테아타이트·포스터라이트·자기(porcelain)가 대표다.",
+    "breakthrough": "각 조성이 특정 성질에 특화된다 — 코디어라이트는 열팽창이 거의 0 이라 열충격에 강하고, 멀라이트는 고온 강도·크리프 저항, 스테아타이트·포스터라이트는 고주파 절연 손실이 낮다. 원료가 싸고 성형이 쉬운 것이 공통 강점이다.",
+    "today": "자동차 촉매 담체(코디어라이트 벌집)·가마 부재·전기 애자·고주파 절연 부품·기판 등에 쓰인다. 고순도·고강도가 필요하면 알루미나·질화물로 올라간다."
+   }
+  },
   "ti-6al-4v": {
    "display": "Ti-6Al-4V",
    "stable_ids": [
@@ -3174,6 +3227,22 @@
     "Donachie M J (2000) Titanium: A Technical Guide 2nd ed."
    ],
    "legacy_text": "Ti Grade 9 (Ti-3Al-2.5V, UNS R56320) 는 1960년대 미국 Titanium Metals Corporation (TIMET) 이 Ti-6Al-4V (Grade 5) 와 CP-Ti 사이의 'medium-strength weldable Ti' 로 개발한 α+β alloy 입니다. Al 3% + V 2.5% 의 조성이 cold-formability + welding 가능성을 보존하면서 CP-Ti 보다 약 50% 강도를 얻어요.\n\n응용 — Mountain bike / racing bike frame 의 high-end model. 1985년 미국 Litespeed 가 첫 Ti Gr9 bicycle frame 을 출시했고 1990-2000년대 Lynskey, Moots, Seven Cycles, Eriksen 의 hand-built frame 의 표준이 됐어요. 항공기 hydraulic line + fuel line tubing (Boeing 737 / Airbus A320 의 일부 sub-system), aerospace seamless tubing (AMS 4943 / 4944), medical surgical instrument (orthopedic drill bit).\n\n특이점은 cold-formability — CP-Ti 와 비슷한 cold-bend 가 가능하면서 (mandrel 직경 4t bend pass), Ti-6Al-4V 의 50% 강도를 얻는 점입니다. Wing spar 같은 high-stress 부품에는 부적합하지만, tubing / sheet / strut 같은 medium-stress + complex-form 부품에서 우위. 또 다른 특이점은 weldability — 6-4 보다 우수해 항공 sub-system tubing 의 welded joint 에 표준 사용됩니다.\n\nHT — Annealed (704-790°C / AC, σy 485 / σUTS 620 MPa, El 15%) 또는 STA (sol. + aged, σy 760 / σUTS 860 MPa, El 10%)."
+  },
+  "titanium-carbide": {
+   "display": "Titanium Carbide (TiC)",
+   "stable_ids": [
+    "CER-0008"
+   ],
+   "refs": [
+    "Pierson H O (1996) Handbook of Refractory Carbides and Nitrides, Noyes Publications",
+    "ASM Engineered Materials Handbook Vol.4 (Ceramics and Glasses)"
+   ],
+   "sections": {
+    "hook": "다이아몬드 다음가는 경도의 탄화물 — 절삭공구 서멧과 내마모 코팅의 핵심.",
+    "origin": "TiC 는 매우 단단하고(약 3000 HV) 융점이 3000°C 이상인 전이금속 탄화물이다. 순수 소결은 취성이 커, 보통 Ni·Mo 금속 상과 섞은 ‘서멧(cermet)’ 또는 얇은 코팅으로 쓴다.",
+    "breakthrough": "TiC 입자가 경도·내마모를, 금속 바인더가 인성을 담당하는 서멧은 WC-Co 초경보다 가볍고 고속 절삭에서 내산화가 좋다. CVD 로 얇게 입히면 절삭 인서트·금형 표면 수명을 크게 늘린다.",
+    "today": "절삭공구 서멧 인서트, TiC/TiN 다층 코팅, 내마모 부품·시일에 쓰인다. 순수 벌크보다 코팅·복합 형태가 대부분이며, 최고 경도가 필요하면 다이아몬드·cBN 으로 간다."
+   }
   },
   "tpe": {
    "display": "TPE (Thermoplastic Elastomer)",
@@ -3246,6 +3315,25 @@
    ],
    "legacy_text": "1965년 미국 Special Metals (당시 Cyclops Industries) 가 항공 가스터빈 디스크 용 새 P/M (Powder Metallurgy) 합금을 개발하면서 등장한 Udimet 720. 1985년 영국 Rolls-Royce 의 요구로 carbon 과 boron 을 더 낮춘 Li (Low-Interstitial) 변형이 나오면서 단조성이 향상됐어요 — 이게 Udimet 720Li 입니다. Ni 55% + Cr 16% + Co 14.7% + Mo 3% + W 1.25% + Al 2.5% + Ti 5% — γ' 부피분율 약 45% 로 creep / LCF / burst margin 의 균형이 가장 좋은 조성이죠.\n\nRolls-Royce Trent 시리즈 — Trent 500 (A340-500/600), Trent 700 (A330), Trent 800 (777), Trent 900 (A380) — 의 HP 와 IP 터빈 디스크가 모두 Udimet 720Li 입니다. Pratt & Whitney F119 (F-22) 와 F135 (F-35) 의 일부 디스크도 720Li 변형. 600~700°C 영역의 LCF 수명이 Inconel 718 의 약 5배 — 그게 차세대 엔진 디스크 채택의 결정적 이유였어요.\n\n흥미로운 점은 제조 공정이에요. VIM-VAR (Vacuum Induction Melting + Vacuum Arc Remelting) 으로 청정도를 극대화한 뒤 isothermal forging — 모든 단조 공정이 1100°C 의 isothermal die 안에서 진행돼 미세조직이 균일해집니다. 한 번의 disc 단조에 4시간 이상 — 그래서 가격이 Inconel 718 의 약 8배 (~$700/kg) 인데, 그 자리를 차지할 합금이 별로 없어요."
   },
+  "uhtc": {
+   "display": "UHTC (ZrB₂ / HfB₂ / HfC / TaC)",
+   "stable_ids": [
+    "CER-0007",
+    "CER-0037",
+    "CER-0038",
+    "CER-0039"
+   ],
+   "refs": [
+    "Fahrenholtz W G, Hilmas G E, Talmy I G, Zaykoski J A (2007) \"Refractory Diborides of Zirconium and Hafnium\", J. Am. Ceram. Soc. 90",
+    "ASM Engineered Materials Handbook Vol.4 (Ceramics and Glasses)"
+   ],
+   "sections": {
+    "hook": "3000°C를 넘겨 버티는 세라믹 — 극초음속기 선단과 로켓 노즐목의 최전선 소재.",
+    "origin": "대부분의 재료는 2000°C 부근에서 녹거나 산화한다. UHTC(초고온 세라믹)는 전이금속의 탄화물·붕화물 중 융점이 3000°C를 넘는 극소수다 — TaC·HfC 는 알려진 물질 중 융점이 가장 높고(약 3900°C), ZrB₂·HfB₂ 는 붕화물 UHTC 의 대표다.",
+    "breakthrough": "강한 공유·금속 결합이 초고융점과 높은 경도·열전도를 준다. 붕화물(ZrB₂·HfB₂)에 SiC 를 섞으면 표면에 보호성 붕규산 유리막이 생겨 내산화가 개선된다 — 산화가 UHTC 의 진짜 적이다.",
+    "today": "극초음속 비행체의 리딩엣지·로켓 노즐목·재진입 선단 등 산화 분위기 초고온 부위가 주 무대다. 아직 가공·소결·인성이 과제라 대부분 연구·방산·우주 영역에 머문다."
+   }
+  },
   "ultem-1010": {
    "display": "ULTEM 1010",
    "stable_ids": [
@@ -3273,6 +3361,22 @@
     "Bourell D L et al. (2017) \"Materials for AM\", CIRP Annals 66"
    ],
    "legacy_text": "ULTEM 9085 는 Sabic 의 PEI 의 'flame-retardant + smoke + toxicity' (FST) grade 입니다. PEI base 에 brominated flame retardant 를 첨가해 FAR 25.853 (Federal Aviation Regulation, 항공기 cabin material 의 화재 안전 기준) 통과가 가능한 grade. 1990년대 GE Plastics 가 commercial launch 했고, Stratasys 가 2007년 FDM 3D 프린팅 filament 의 첫 항공-qualified 재료로 채택했어요.\n\n특성: Tg 186°C (base PEI 217°C 보다 약간 낮음, 화재 처리제 영향) · σy 65-85 MPa · modulus 2.4 GPa · El 5-7%. FST 등급은 OSU (Ohio State University) heat release < 65 kW·min/m² (FAR 25.853 한도), 발연 (smoke) < 200 OSU NBS, toxicity 도 통과. Stratasys FDM print 의 결과는 anisotropic 이지만 항공 part 의 spec 이 정해진 isotropic value 보다 보수적으로 사용됩니다.\n\n응용: 항공기 cabin 내부 ducting (Airbus A350, Boeing 787, F-35), 항공기 brackets + spacer, 화재 안전 요구 의료 device (휴대용 portable ventilator 의 일부 housing), 군용 응급 의료 kit case. Stratasys 의 첫 항공 인증 (Boeing F-18 fighter ducting, 2014) 으로 'FDM Ultem 9085 가 항공 production 가능' 이라는 분기점을 만든 게 화제였고, 그 이후 Lockheed Martin · Boeing · Airbus 의 일부 low-volume cabin part 가 FDM 으로 print 되고 있습니다."
+  },
+  "yttria": {
+   "display": "Yttria (Y₂O₃)",
+   "stable_ids": [
+    "CER-0031"
+   ],
+   "refs": [
+    "ASM Engineered Materials Handbook Vol.4 (Ceramics and Glasses)",
+    "Kingery W D, Bowen H K, Uhlmann D R (1976) Introduction to Ceramics, 2nd ed., Wiley"
+   ],
+   "sections": {
+    "hook": "플라즈마에 안 깎이는 산화물 — 반도체 공정 챔버의 내플라즈마 세라믹이자 소결 조제.",
+    "origin": "이트리아(Y₂O₃)는 융점 약 2400°C 의 안정한 희토류 산화물이다. 오래전부터 질화규소·지르코니아의 소결 조제로 쓰였고, 최근엔 반도체 식각 공정의 내플라즈마 코팅으로 각광받는다.",
+    "breakthrough": "불소·염소 플라즈마에 대한 화학 안정성이 알루미나보다 높아, 식각 챔버 내벽·부품을 이트리아로 코팅하면 침식·파티클 발생이 크게 준다. 또 지르코니아에 넣으면(Y-TZP) 정방정을 안정화해 변태강화 인성을 만든다.",
+    "today": "반도체 식각 챔버 부품(Y₂O₃·YAG 코팅), 질화규소·지르코니아 소결 조제, 고온 광학·형광체 모재로 쓰인다. 구조재라기보다 ‘표면·조제·기능성 산화물’ 성격이 강하다."
+   }
   },
   "yttria-stabilized-zirconia": {
    "display": "Yttria-Stabilized Zirconia",
