@@ -30,7 +30,20 @@
     "AK Steel \"17-4 PH Stainless Steel Product Data Bulletin\" (2007)",
     "Nakkalil R et al. (1993) \"Microstructural Evolution During Aging of 17-4 PH Stainless Steel\", Met Trans A 24A"
    ],
-   "legacy_text": "1944년 미국 Armco Steel Corporation (현 AK Steel) 의 윌리엄 머피 (William J Murphy) 가 austenitic 304 의 부식 저항과 martensitic 410 의 강도를 결합한 precipitation-hardening stainless 를 처음 선보였습니다. Cr 17% + Ni 4% + Cu 4% — 처음엔 austenite 상태로 solution treated 되었다가, 480~620°C 시효처리 시 ε-Cu (face-centered cubic Cu cluster) 가 martensite 매트릭스에서 석출하면서 σ_y 1100~1380 MPa 까지 강화되는 합금이죠.\n\nH900 (480°C/1h), H925, H1025, H1075, H1100, H1150 의 6개 시효 단계가 강도-인성 trade-off 를 fine-tuning 해 줍니다. 응용은 정말 다양해요. 항공 — Boeing 777 landing gear retract actuator, 우주 — Falcon 9 grid-fin actuator, 군용 — M16 rifle bolt carrier 일부, M1 Abrams 의 gun loader chain link, 핵발전소 — valve stem (PWR primary), 의료 — surgical instrument (Mayo Clinic ortho 표준), 보석 — Rolex Yacht-Master II 의 일부 부품. 1989년 EOS 가 LPBF 의 첫 stainless powder 로 17-4 PH 를 선택한 이후, 현재까지 AM 의 메인 합금으로도 자리하고 있습니다."
+   "sections": {
+    "hook": "스테인리스의 내식에 합금강의 강도를 — 시효 온도 하나로 성질을 조율하는 17-4 PH.",
+    "origin": "1944년 Armco 의 윌리엄 머피가 오스테나이트계의 내식과 마르텐사이트계의 강도를 한 재료에 담으려 했다. 답은 크롬 17%·니켈 4%에 구리 4%를 넣은 석출경화(PH) 스테인리스 — 용체화 상태로 가공한 뒤 480~620°C 시효를 걸면 마르텐사이트 속에 미세한 구리 입자가 석출하며 항복 1100~1380MPa 로 굳는 17-4 PH 다.",
+    "breakthrough": "진짜 발명은 시효 온도의 눈금이다. H900(480°C)부터 H1150 까지 온도를 고르면 최고 강도에서 고인성까지 성질이 연속적으로 조율되고, 낮은 탄소 덕에 용접·성형 후 시효만으로 완성된다. 강도·내식·제작성의 이 균형이 \"스테인리스로 만드는 구조 부품\"의 기본값을 만들었다.",
+    "today": "항공 액추에이터와 착륙장치 부속, 로켓 그리드핀 액추에이터, 원전 밸브 스템, 수술 기구, 펌프 축까지 — 부식 환경의 고강도 부품이면 첫 후보다. 3D 프린팅에서도 주력 스테인리스 분말로, 시효까지 마치면 단조재에 준하는 물성이 나온다. 더 높은 인성은 15-5 PH, 더 높은 강도·인성 조합은 PH13-8 Mo 가 잇는다.",
+    "fun_fact": "같은 부품 도면에 \"H900\"이냐 \"H1150\"이냐 한 줄이 강도 30%와 인성 몇 배를 가른다 — 17-4 를 쓰는 엔지니어의 첫 질문이 늘 시효 조건인 이유다."
+   },
+   "timeline": [
+    {
+     "year": 1944,
+     "event": "Armco 머피, 석출경화 스테인리스 특허 (17-4 PH 의 원점)",
+     "ref": 1
+    }
+   ]
   },
   "17-7-ph-uns-s17700-semi-austenitic-ph": {
    "display": "17-7 PH (UNS S17700, semi-austenitic PH)",
@@ -896,7 +909,20 @@
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
     "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2"
    ],
-   "legacy_text": "1903년 영국 셰필드 (Sheffield) 의 해리 브리얼리 (Harry Brearley) 가 총포 강의 부식 저항을 연구하던 중 우연히 발견한 Cr 12~14% steel 이 martensitic stainless 의 첫 발견이었어요. 1913년 Brearley's 'Rustless Steel' 로 발표됐고, 1925년 AISI 가 type 410 으로 표준화 — 18-8 (304) 와 함께 stainless steel 의 두 가지 큰 family 의 한 축이 됐죠.\n\n410 의 핵심은 carbon 0.15% + Cr 12% 의 자기-quenching martensitic 조성이에요. 빠르게 식히면 austenite → martensite 변태가 일어나면서 σ_y 850 MPa 의 강도가 나오는데, 동시에 Cr 12% 의 부동태로 mild 부식 환경에서는 안정적입니다.\n\n응용 — 밸브 trim (API 6A trim 8/8A, 가장 흔한 trim spec), 펌프 impeller (해수 펌프), 칼날 (cutlery — Wüsthof, 헨켈의 entry-level), 산업 turbine blade (저온단), 항공 fastener (12% Cr 부동태로 mild stress corrosion 회피). 자동차 엔진 valve 일부도 410 변형 (SUH 1, SUH 3) 입니다. 한국 KS 의 STS 410, 일본 SUS 410, EU 의 X20Cr13 모두 동일 합금이에요."
+   "sections": {
+    "hook": "녹슬지 않는 강의 마르텐사이트 쪽 원점 — 담금질로 굳는 12% 크롬강 410.",
+    "origin": "1912~13년 셰필드의 해리 브리얼리는 총열 부식을 연구하다 크롬 12% 강이 부식액에 녹지 않는 것을 발견했다 — 마르텐사이트계 스테인리스의 원점이자, \"rustless steel\"이라는 이름의 시작이다. 이 조성이 미국에서 type 410 으로 표준화되며, 18-8 오스테나이트계와 함께 스테인리스의 양대 축이 됐다.",
+    "breakthrough": "탄소 0.15%에 크롬 12% — 보통 강처럼 담금질로 마르텐사이트 경화가 되면서, 크롬 부동태막으로 온화한 환경의 녹을 막는 이중의 재주다. 강도가 필요한 만큼 담금질-뜨임으로 조율하고, 어닐 상태로 가공한 뒤 경화하는 순서가 표준이다. 내식은 오스테나이트계에 못 미치므로, 물·증기·마모가 겹치는 자리가 이 강의 영역이다.",
+    "today": "밸브 트림(API 트림 스펙의 기본값), 펌프 임펠러와 축, 증기터빈 저온단 블레이드, 보급형 칼날, 체결구까지 — \"적당히 녹 안 스는 경화강\"의 표준이다. 더 단단한 날은 420·440 으로, 더 강한 내식은 오스테나이트·듀플렉스로 넘어간다. KS STS410·JIS SUS410·EN X12Cr13 이 같은 강의 다른 이름이다.",
+    "fun_fact": "브리얼리의 발견담은 \"버린 시편이 실험실 구석에서 홀로 녹슬지 않았다\"는 쪽이 유명하다 — 스테인리스의 두 계보(마르텐사이트·오스테나이트)가 모두 우연히 방치된 시료에서 태어난 셈이다."
+   },
+   "timeline": [
+    {
+     "year": 1913,
+     "event": "브리얼리, 12~14% Cr \"rustless steel\" 특허 — 마르텐사이트계 원점",
+     "ref": 1
+    }
+   ]
   },
   "aisi-4130": {
    "display": "AISI 4130",
@@ -1664,7 +1690,26 @@
     "Chung D D L (2017) Carbon Fiber Composites 2nd ed., Butterworth-Heinemann",
     "ASM Handbook Vol.21 Composites"
    ],
-   "legacy_text": "CFRP (Carbon Fiber Reinforced Polymer) 의 역사는 1958년 미국 Union Carbide 의 Roger Bacon 이 흑연 위스커를 처음 인공 합성하면서 시작됩니다. 진짜 응용 가능한 PAN (polyacrylonitrile) 기반 carbon fiber 는 1963년 영국 RAE Farnborough 의 William Watt 가 stretch-during-pyrolysis 공정을 발견하면서 길이 보존 + 고강도 fiber 가 가능해졌어요. 1970년대 미국 Hercules / Hexcel 과 일본 Toray 가 상업 생산을 시작하면서 CFRP 시대가 열렸습니다.\n\nCFRP 의 핵심은 fiber 와 matrix 의 역할 분담입니다. 탄소 fiber 가 인장 하중을 거의 다 받고 (UTS 4-5 GPa, E 230-380 GPa), 에폭시 matrix 는 fiber 사이 응력 전달과 환경 보호 역할만 합니다. UD (단방향) 0° 시편은 3 GPa 이상의 UTS 를 내지만, 90° 방향이나 ±45° 는 100 MPa 도 안 되는 강한 이방성이 특징이죠. 이 때문에 quasi-isotropic [0/±45/90]s laminate 가 항공 표준이 됐어요.\n\n응용 분야는 항공이 압도적입니다. Boeing 787 동체 50%, Airbus A350 동체 53%, F-22 / F-35 의 외피, F1 monocoque (1981년 McLaren MP4/1 이 최초), 풍력 blade root (Vestas V164), 우주 발사체 페어링 (SpaceX Falcon 9 의 페이로드 fairing), 마지막으로 자전거 frame · 라켓 · 낚시대까지. 단점은 가격 (T700 $80/kg, IM7 $200/kg), 충격에 약함 (delamination), 그리고 재활용이 어렵다는 점입니다. 최근 thermoplastic CFRP (PEEK 또는 PEKK matrix) 가 재활용 + 재용접 가능성으로 급부상 중이고, BMW i3 의 carbon cabin (2013) 이 대량 생산 적용 첫 사례였습니다."
+   "sections": {
+    "hook": "무게의 문법을 바꾼 검은 섬유 — 강철보다 강하고 알루미늄보다 가벼운 탄소섬유 복합재.",
+    "origin": "1958년 Union Carbide 의 로저 베이컨이 흑연 위스커를 인공 합성해 탄소 섬유의 가능성을 열었고, 1963년 영국 RAE 판버러의 윌리엄 와트가 PAN(폴리아크릴로니트릴)을 잡아당긴 채 열분해하는 공정을 찾아내면서 실용 고강도 탄소섬유가 태어났다. 1970년대 Toray 와 Hercules 가 상업 생산을 시작하자, 이 섬유를 에폭시에 적셔 굳힌 CFRP 의 시대가 열렸다.",
+    "breakthrough": "원리는 철저한 분업이다. 인장 하중은 강철 몇 배 강도의 탄소섬유가 도맡고, 에폭시 매트릭스는 섬유 사이에서 힘을 전달하며 섬유를 보호할 뿐이다. 그래서 섬유 방향으로는 극한으로 강하지만 직각 방향은 수십 분의 일로 약한 심한 이방성이 생기고, 이를 [0/±45/90] 준등방 적층으로 다스리는 것이 복합재 설계의 문법이 됐다.",
+    "adoption": "1981년 맥라렌 MP4/1 이 F1 최초의 카본 모노코크로 안전의 기준을 바꿨고, 보잉 787(동체의 절반)과 A350 이 여객기 구조의 주역으로 끌어올렸다.",
+    "today": "항공 동체·날개, 풍력 블레이드 스파, 로켓 페어링, 자전거 프레임과 라켓까지 — 무게가 돈이 되는 곳이면 어디든 CFRP 다. 값과 충격 취약성(층간 박리), 재활용이 숙제라, 녹여 다시 성형할 수 있는 열가소성 CFRP(PEEK/PEKK 매트릭스)가 다음 장을 준비 중이다. BMW i3(2013)는 카본 캐빈의 양산 가능성을 보여 준 첫 사례였다.",
+    "fun_fact": "탄소섬유의 결정적 공정은 \"구우면서 잡아당기는\" 것이다 — 당기지 않고 구우면 분자가 흐트러져 약한 숯이 되고, 팽팽히 당긴 채 구워야 흑연 면이 섬유 축으로 정렬해 강철을 넘는 강도가 나온다."
+   },
+   "timeline": [
+    {
+     "year": 1958,
+     "event": "베이컨(Union Carbide), 흑연 위스커 합성 — 탄소섬유의 서막",
+     "ref": 1
+    },
+    {
+     "year": 1963,
+     "event": "와트(RAE), PAN 연신-열분해 공정 — 고강도 탄소섬유 실용화",
+     "ref": 2
+    }
+   ]
   },
   "cfrp-t800-epoxy-ud-0": {
    "display": "CFRP — T800/Epoxy (UD 0°)",
@@ -1798,7 +1843,25 @@
     "ASTM F75 / F1537 standards",
     "Niinomi M (2008) \"Mechanical biocompatibilities of titanium alloys for biomedical applications\", J Mech Behav Biomed Mater 1"
    ],
-   "legacy_text": "CoCrMo (Cobalt-Chromium-Molybdenum) 합금의 출발점은 1907년 미국 Elwood Haynes 의 Stellite 발견까지 거슬러 올라갑니다. Haynes 는 자동차 부품 절삭공구를 만들다가 Co + Cr 의 carbide 가 매우 단단한 wear-resistant 표면을 만든다는 걸 발견했고, 1912년 'Stellite 1' 을 출시했어요. 1930년대 의료용으로의 응용은 미국 Charles Venable 가 1936년 Vitallium 이라는 이름으로 Co-Cr-Mo 28-6-5 를 dental + hip 임플란트에 처음 쓰면서 시작됐습니다.\n\n오늘날 CoCrMo 의 의료 표준은 ASTM F75 (투자주조, as-cast) 와 F1537 (열간단조, wrought) 두 가지입니다. F75 는 σy 450-520 MPa · UTS 665-800 으로 cast 그대로 hip implant stem 에 쓰이고, F1537 은 1230°C 가열-급랭 처리로 σy 700 / UTS 1000 MPa 까지 끌어올린 wrought grade 입니다. 둘 다 γ-Co (FCC) matrix + M₂₃C₆ carbide 가 핵심 미세조직이에요.\n\n응용은 명확합니다. 인공 hip 관절 stem + cup (Zimmer Biomet, DePuy Synthes, Stryker 의 표준 stem 재료), 인공 knee 관절 femoral component, dental crown framework, 척추 implant rod. ASTM F75 는 1980년대까지 hip 표준이었지만 wear debris 의 metal-on-metal 마찰 문제로 최근에는 ceramic-on-ceramic (alumina, ZTA) 짝으로 점점 대체되고 있어요. 그래도 deep stem (cement-fixed long stem) 과 외과용 instrument 에서 여전히 압도적입니다. 흥미로운 점은 같은 CoCrMo 가 jet engine combustor 의 hot section 부품 (Haynes 188, Stellite 31) 으로도 쓰이는데, 이는 의료 grade 와는 carbon 함량이 다릅니다 (의료 0.05%, 항공 0.5%)."
+   "sections": {
+    "hook": "공구의 날에서 몸속 관절로 — 한 세기를 관통한 코발트-크롬-몰리브데넘.",
+    "origin": "뿌리는 1907년 엘우드 헤인즈의 Stellite 발견이다. 코발트-크롬 합금이 녹슬지도 무뎌지지도 않는다는 사실에서 출발한 이 계보는, 1936년 미국에서 Vitallium(Co-Cr-Mo 28-6-5)이라는 이름으로 치과와 정형외과에 이식되면서 의료 재료의 역사를 새로 썼다 — 몸속에서 부식되지 않고 뼈와 공존하는 금속이 처음 검증된 것이다.",
+    "breakthrough": "크롬이 표면 부동태막으로 체액 부식을 막고, 몰리브데넘이 강도와 내식을 보태며, 탄화물이 박힌 코발트 바탕이 극한의 내마모를 준다. 오늘의 의료 표준은 주조 ASTM F75 와 단조 F1537 두 갈래로, 단조재는 항복 700MPa 급까지 올라간다. 같은 Co-Cr-Mo 라도 탄소를 열 배쯤 올리면 제트엔진 고온 부품용이 된다 — 조성 미세조정으로 병원과 엔진룸을 오가는 가족이다.",
+    "today": "인공 고관절 스템과 인공 무릎의 대퇴 부품, 치과 크라운 프레임, 척추 로드가 본진이다. 금속-금속 마찰면의 마모 입자 문제로 관절면은 세라믹에 자리를 내주고 있지만, 스템·기구·고하중 부위에서는 여전히 표준이다. LPBF 프린팅 분말로도 치과·정형 맞춤 부품에 널리 쓰인다.",
+    "fun_fact": "Vitallium 이전의 임플란트 금속은 몸속에서 녹슬어 뼈를 상하게 하기 일쑤였다 — \"부식되지 않는 첫 임플란트 합금\"이라는 지위가, 이 재료가 지금까지 신뢰받는 이유의 절반이다."
+   },
+   "timeline": [
+    {
+     "year": 1907,
+     "event": "헤인즈, Stellite(Co-Cr) 발견 — 계보의 출발",
+     "ref": 1
+    },
+    {
+     "year": 1936,
+     "event": "Vitallium(Co-Cr-Mo) 치과·정형 임플란트 첫 적용",
+     "ref": 2
+    }
+   ]
   },
   "cocrmo-astm-f75": {
    "display": "CoCrMo (ASTM F75)",
@@ -2542,7 +2605,21 @@
     "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
     "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP"
    ],
-   "legacy_text": "1954년 Haynes International 의 프랭크 플로린 (Frank Floreen) 과 로이 데커 (Roy Decker) — 5년 뒤 Maraging steel 도 발명한 그 두 사람! — 이 가스터빈 combustor 용 새 합금을 만들고자 했어요. 1100°C 영역에서 산화 저항이 좋으면서도 잘 용접되는 합금이 필요했던 거죠. 그들이 내놓은 답이 Ni 47% + Cr 22% + Fe 18% + Mo 9% + Co 1.5% 의 Hastelloy X 였습니다.\n\nHastelloy X 의 의의는 '잠시 1200°C 까지 견디는데 용접까지 잘 된다' 는 점이었어요. Inconel 600 보다 고온 강도가 30% 높고, 318L 보다 산화 저항이 5배 좋으면서, MIG/TIG 용접에 별다른 후처리도 필요 없었거든요.\n\n가스터빈 산업의 표준이 되면서 1960년대 GE J79 (F-104, F-4 Phantom), P&W J57 (B-52 Stratofortress) 의 combustor liner 가 모두 Hastelloy X 였고요. 우주 — Apollo Lunar Module 의 descent engine combustion chamber, RS-25 (SSME) 의 일부 후단 nozzle extension, NASA Artemis Orion 의 service module RCS thruster — 까지 60+ 년 동안 변함없이 쓰이고 있습니다. LPBF 분말로도 GE Catalyst 엔진의 heat exchanger 같은 데 들어가요."
+   "sections": {
+    "hook": "1100°C 화염 옆에서 60년 현역 — 용접되는 고온 합금의 기준, Hastelloy X.",
+    "origin": "1950년대 제트엔진 연소기는 고온 산화에 견디면서 판재로 성형·용접까지 되는 재료를 요구했다. 1954년 Haynes 가 내놓은 답이 니켈 47%-크롬 22%-철 18%-몰리브데넘 9%의 Hastelloy X — 석출경화 없이 고용강화만으로 버티는, \"다루기 쉬운 고온 합금\"이었다.",
+    "breakthrough": "크롬이 만드는 산화막이 1100°C 급 산화·침탄 분위기를 막고, 몰리브데넘 고용이 고온 강도를 지탱한다. 시효가 필요 없으니 판재를 접고 용접해 연소기 라이너 같은 얇고 복잡한 고온 구조를 만들 수 있었다 — 강도의 정점 대신 제작성과 고온 내구의 균형을 택한 설계다.",
+    "adoption": "1960년대 GE J79(F-4 팬텀)와 P&W J57(B-52)의 연소기 라이너가 모두 이 합금이었고, 아폴로 달착륙선 하강 엔진의 연소실에도 올랐다.",
+    "today": "가스터빈 연소기·트랜지션 덕트, 산업 열처리로 부속, 로켓 노즐 연장부와 RCS 스러스터까지 — 60년 넘게 같은 자리를 지키고 있다. LPBF 분말로도 항공 열교환기 등에 인쇄된다. 더 높은 강도는 Haynes 282 같은 후배가, 더 높은 내산화는 Haynes 214 가 잇는다.",
+    "fun_fact": "재료 교과서에서 Hastelloy X 는 \"고온 합금은 강할수록 좋다\"의 반례로 쓰인다 — 더 강한 합금은 많았지만, 접고 붙이고 고치기 쉬운 이 합금만큼 오래 살아남은 연소기 재료는 드물다."
+   },
+   "timeline": [
+    {
+     "year": 1954,
+     "event": "Haynes, Hastelloy X 출시 — 용접 가능한 1100°C 급 고용강화 합금",
+     "ref": 1
+    }
+   ]
   },
   "haynes-230": {
    "display": "Haynes 230",
@@ -2831,7 +2908,20 @@
     "Special Metals Corp \"Inconel Alloy 625\" Tech Bulletin (2013)",
     "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM"
    ],
-   "legacy_text": "1968년 INCO 의 허버트 아이젤슈타인 (Inconel 718 의 발명자와 동일 인물!) 이 Inconel 600 (1932, 월터 크래프츠) 에 Mo 9% + Nb 3.5% 를 추가, solid-solution + carbide hardening 으로 σ_y 415 MPa + 980°C 까지 산화 저항을 갖는 새 합금 'Inconel 625' 를 출시합니다. 처음 응용은 supercritical steam pipe 였지만, 곧 oil & gas 와 해양으로 확산됐어요.\n\n응용 — PWR 핵발전소의 steam generator U-tube (Mitsubishi APR1400 일부), oil & gas 의 sour wellhead component (Shell Mensa), 해수 desalination plant 의 multi-effect evaporator tube, 우주 — SpaceX Merlin / Raptor 엔진의 fuel manifold (LPBF 인쇄), GE LEAP-1A 엔진 fuel nozzle 의 일부, NASA Artemis Orion 의 ESM thrust frame. AM (LPBF) 에서도 표준 powder 중 하나로, 718 다음으로 인기가 높은 합금입니다."
+   "sections": {
+    "hook": "용접되는 만능 내식·내열 니켈 — 바닷속 유정에서 로켓 연료 매니폴드까지, 625 의 전천후.",
+    "origin": "Inconel 718 을 만든 INCO 의 아이젤슈타인이 이번엔 석출경화 대신 고용강화를 택했다. Inconel 600 바탕에 몰리브데넘 9%와 나이오븀 3.5%를 넣어, 열처리 없이도 강하고 어떤 용접에도 관대한 합금 — 1960년대에 태어난 Inconel 625 다. 첫 무대는 초임계 증기 배관이었지만 곧 바다와 화학 플랜트로 번졌다.",
+    "breakthrough": "몰리브데넘·나이오븀의 고용강화는 시효가 필요 없어 큰 구조물도 용접 그대로 쓸 수 있고, 높은 Mo 함량은 공식·틈부식 저항(PREN)을 니켈합금 상위권으로 끌어올린다. 극저온부터 980°C 급 산화 환경까지 물성이 완만하게 이어지는 \"넓은 사용 창\"이 이 합금의 정체성이다.",
+    "today": "해양 유정의 사워 서비스 부품과 클래드 배관, 담수화 증발기, 원전 증기발생기 부속, 화학 플랜트가 산업 쪽 본진이고, 항공·우주에서는 로켓 엔진 연료 매니폴드와 연소기 주변 부품으로 쓰인다. LPBF 프린팅에서도 718 다음으로 흔한 니켈 분말이라, 적층제조 로켓 부품의 단골이 됐다.",
+    "fun_fact": "625 는 \"어디에도 최적은 아니지만 어디서나 통하는\" 합금으로 불린다 — 강도는 718 에, 내식은 C-276 에 한 발씩 양보하는 대신, 용접·성형·인증의 무난함으로 반세기 넘게 자리를 지켰다."
+   },
+   "timeline": [
+    {
+     "year": 1968,
+     "event": "INCO 아이젤슈타인 등, Alloy 625 발표 (고용강화 노선)",
+     "ref": 1
+    }
+   ]
   },
   "inconel-718": {
    "display": "Inconel 718",
@@ -3696,7 +3786,13 @@
     "Goodridge R D et al. (2012) \"Laser sintering of polymers\", Prog Mater Sci 57",
     "Schmid M (ed., 2018) Laser Sintering with Plastics, Hanser"
    ],
-   "legacy_text": "PA 2200 은 EOS (독일 Electro Optical Systems) 가 SLS (Selective Laser Sintering) 3D 프린팅용으로 commercial launch 한 PA12 powder 입니다. 1990년대 후반 EOSINT P 시스템 (현 EOS P 시리즈) 의 표준 polymer 가 PA 2200 이 되면서 SLS polymer 산업의 'industry standard' 가 됐어요. PA12 base 에 SLS 공정에 최적화된 입자 모양 + 입자 크기 분포 (50-90 μm 평균) 를 가집니다.\n\nPA 2200 print 결과: 밀도 0.93-0.95 g/cm³ (full density 의 93-95%, 약간의 internal porosity), σy 48 MPa, UTS 50 MPa, El 24% (XY), 18% (Z). 이방성이 적은 게 SLS 의 강점입니다 (FDM 보다 훨씬 isotropic). EOS PA 2200 의 powder refresh ratio (재사용 powder 의 fresh 비율) 는 30-50% 가 표준이고 이게 quality 균일성의 핵심.\n\n응용: prototype + functional part — 자동차 prototype (Volkswagen · Audi · BMW 의 일부 custom interior), 의료 의수 / 의지 / orthotic insole (정밀 custom fit), 산업 jig + fixture, 미술 sculpture (대형 작품의 prototype), 그리고 EOS Toolless Production 의 일부 (printed 부품 + tool 동시 제작). 가격은 fresh powder $50-80/kg, recycled blend (refreshed 30%) $30/kg 정도. EOS 의 PA 2200 이 SLS 시장의 70% 이상을 차지하는 게 표준화의 힘을 보여주고, alternative HP MJF (Multi Jet Fusion) 의 HP PA12 도 거의 동일한 base material 입니다."
+   "sections": {
+    "hook": "SLS 3D 프린팅의 사실상 표준 분말 — 레이저로 소결되는 나일론, PA 2200.",
+    "origin": "분말 베드에 레이저를 쏘아 층층이 굳히는 SLS 프린팅은 분말의 품질이 곧 부품의 품질이다. 1990년대 후반 EOS 가 자사 시스템용으로 다듬은 PA12 분말 PA 2200 은 입자 크기와 형상, 용융 거동을 공정에 맞춰 최적화해 SLS 폴리머의 산업 표준이 됐다.",
+    "breakthrough": "PA12 는 흡습이 적고 용융 창이 넓어 레이저 소결에 유난히 관대하다. 프린팅 결과물은 밀도 93~95%에 연신율 20% 안팎으로, FDM 과 달리 방향에 따른 강도 차이가 작아 \"진짜 기능 부품\"을 뽑을 수 있다. 사용한 분말에 새 분말을 섞어 다시 쓰는 리프레시 관리가 품질 균일성의 핵심 노하우다.",
+    "today": "자동차 시작품과 맞춤 내장, 의지·보조기·맞춤 인솔, 산업 치구, 소량 양산 부품까지 — 서포트 없는 형상 자유도가 값을 하는 곳에 쓰인다. HP 의 MJF 프린팅도 거의 같은 PA12 를 쓰므로, 나일론 12 는 폴리머 적층제조 전체의 공용어가 됐다.",
+    "fun_fact": "SLS 는 서포트 구조가 필요 없다 — 아직 굳지 않은 주변 분말이 스스로 지지대가 되기 때문이다. 프린트가 끝나면 부품을 분말 더미에서 발굴하듯 꺼내는데, 그 장면이 꼭 고고학 발굴 같다."
+   }
   },
   "pa12-eos-pa1101": {
    "display": "PA12 EOS PA1101",
@@ -4652,7 +4748,20 @@
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
     "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2"
    ],
-   "legacy_text": "316L 은 1962년 미국 Combustion Engineering 이 316 (1929) 의 sensitization 문제 — 450~850°C 영역에서 Cr₂₃C₆ 가 입계에 석출해 IGC (입계 부식) 가 일어나는 — 를 풀려고 carbon 함량을 ≤ 0.03% 로 낮춘 ELC (Extra-Low-Carbon) 변형이에요. 316 의 marine + chloride 부식 저항을 유지하면서 용접 후 PWHT 없이 바로 service 가능한 합금이 된 거죠.\n\n응용은 정말 폭넓어요. 의료 — ASTM F138 ELC 316LVM (Vacuum Melted) 의 정형외과 nail / screw / plate, 외과 surgical instrument (Mayo Clinic 표준), pacemaker case. 화학 — 화학 plant 의 jacketed reactor + pump + valve, 펄프·종이 산업의 chemical pump (Goulds 3196 의 일부 grade). 식품 — 와인 발효조 (Mondavi, La Tâche), beer brewery (Heineken, Sapporo) 의 tank + piping. 해상 — FPSO 의 무수 수송관 + 해상 platform handrail. 반도체 — super-clean piping (EP-finished 316L, 표면 Ra < 0.4 μm — TSMC, 삼성 5 nm fab 의 process gas line).\n\nAM 에서도 인기 1순위. EOS 의 EOS Stainless Steel 316L, SLM Solutions, GE Additive Concept Laser 의 standard powder. 2010년대 들어 LPBF AM 의 가장 흔한 stainless powder 가 316L 이고, GE H-class 가스터빈의 후단 nozzle, NASA RAMPT 의 일부 cooling channel, 의료 임플란트 (FDA Class III orthopedic) 까지 폭넓게 쓰입니다."
+   "sections": {
+    "hook": "용접해도 녹슬지 않게 — 탄소를 덜어내 바다와 몸속, 반도체 팹까지 간 316L.",
+    "origin": "오스테나이트 스테인리스는 용접열(450~850°C)을 받으면 입계에 크롬 탄화물이 석출해 그 주변이 부식되는 예민화가 고질이었다. 316L 은 이 문제를 정공법으로 푼 변형으로, 탄소를 0.03% 이하로 낮춰(ELC) 탄화물이 생길 재료 자체를 없앴다. 316 의 몰리브데넘이 주는 염화물 내식은 그대로 두고, 용접 후 열처리 없이 바로 쓰는 강을 만든 것이다.",
+    "breakthrough": "몰리브데넘 2%가 해수·염화물 공식을 막고, 저탄소가 용접부 예민화를 봉쇄한다 — \"바닷가에서 용접해 그대로 쓰는 스테인리스\"라는 조합이 화학·해양 산업의 기본값이 됐다. 진공 용해로 개재물을 극도로 줄인 316LVM 은 정형외과 임플란트 규격(ASTM F138)으로 이어졌다.",
+    "today": "화학 반응기와 펌프, 와이너리·브루어리의 발효조, 병원의 수술기구와 골절 고정 나사, 그리고 반도체 팹의 전해연마 초청정 배관까지 — 산업의 위생·내식 기본값이다. 3D 프린팅에서도 가장 흔한 스테인리스 분말이라, 적층제조 입문 금속의 자리도 316L 의 것이다.",
+    "fun_fact": "최첨단 반도체 공장의 공정가스 배관도 결국 316L 이다 — 나노미터 공정의 순도를 지키는 것이, 거울처럼 전해연마된 이 오래된 강관이라는 사실은 묘하게 든든하다."
+   },
+   "timeline": [
+    {
+     "year": 1962,
+     "event": "저탄소(ELC) 316L 도입 — 용접부 예민화 봉쇄",
+     "ref": 2
+    }
+   ]
   },
   "stavax-esr": {
    "display": "STAVAX ESR",
