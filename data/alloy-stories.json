@@ -1594,6 +1594,46 @@
     }
    ]
   },
+  "cobalt-multiphase-alloys": {
+   "display": "Cobalt Multiphase Alloys (MP35N / MP159 / Elgiloy)",
+   "stable_ids": [
+    "MET-0341",
+    "MET-0344",
+    "MET-0352",
+    "MET-0353",
+    "MET-0354"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys",
+    "SPS Technologies / Carpenter, MP35N®·MP159® multiphase alloy 기술 자료"
+   ],
+   "sections": {
+    "hook": "냉간가공과 시효로 초고강도를 얻는 코발트-니켈 합금 — 부러지지 않는 스프링과 심장 리드.",
+    "origin": "코발트-니켈-크롬-몰리브데넘 다상(multiphase) 합금(MP35N·MP159·Elgiloy)은 냉간가공으로 조직을 변태시킨 뒤 시효해, 부식에 강하면서 극한의 강도·피로수명을 얻는 합금이다. 스프링·체결·의료용처럼 반복하중과 부식을 동시에 받는 곳을 겨냥했다.",
+    "breakthrough": "냉간가공이 일부 조직을 변태시켜 미세한 다상 구조를 만들고, 이어진 시효가 이를 고정해 UTS 2000MPa 급 강도와 뛰어난 피로·내식을 동시에 낸다. 비자성·생체적합성까지 갖춰, 다른 초고강도강이 부식·자성 때문에 못 가는 곳에 들어간다.",
+    "today": "MP35N·MP159 는 항공 체결구·고성능 스프링·유정 부품, Elgiloy 는 태엽·계측 스프링·의료 기기, MP35N 은 정형·심박 리드 등 의료 임플란트에 쓰인다. 값이 비싸 정말 필요한 곳에만 쓴다.",
+    "fun_fact": "MP35N 은 심박기의 전극 리드처럼 몸속에서 수억 번 굽혀지는 부품에 쓰인다 — 부러지지 않는 피로수명과 몸에 해롭지 않은 내식성이 함께 필요하기 때문이다."
+   }
+  },
+  "cobalt-superalloys": {
+   "display": "Cobalt Superalloys (L605 / Haynes 188 / FSX-414)",
+   "stable_ids": [
+    "MET-0343",
+    "MET-0351",
+    "MET-0342"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys",
+    "Haynes International, HAYNES® 25(L605)·188 기술 자료"
+   ],
+   "sections": {
+    "hook": "고온에서 녹지 않고 마모·부식을 견디는 코발트 합금 — 제트엔진 연소기와 심혈관 스텐트의 재료.",
+    "origin": "코발트는 니켈보다 융점이 높고 고온 강도·내마모·내식이 뛰어나다. 고용강화형 코발트 초합금(L605·Haynes 188·FSX-414)은 니켈 초합금처럼 석출경화에 의존하지 않고, 텅스텐·크롬 고용과 탄화물로 900°C 이상 고온강도와 내산화를 낸다.",
+    "breakthrough": "크롬이 뛰어난 고온 내산화·내식을, 텅스텐이 고용강화로 고온강도를, 미량의 란타넘(Haynes 188)이 산화막 밀착을 돕는다. γ′ 석출이 없어 니켈 초합금만큼 강하진 않지만, 얇은 판재로 성형·용접이 쉽고 고온 피로·열충격에 강하다.",
+    "today": "L605·Haynes 188 은 제트엔진 연소기·애프터버너·과열 부위 판재에, FSX-414 는 가스터빈 노즐·베인 주물에 쓰인다. L605 는 생체적합성이 좋아 심혈관 스텐트·심장 판막에도 쓰인다.",
+    "fun_fact": "L605(Haynes 25)는 제트엔진 부품이면서 동시에 몸속 혈관에 심는 스텐트 재료다 — 고온 내식성과 생체적합성을 함께 갖춘 덕에 하늘과 인체를 오간다."
+   }
+  },
   "cocrmo": {
    "display": "CoCrMo",
    "stable_ids": [
@@ -4107,7 +4147,11 @@
   "stellite-6-cocrw": {
    "display": "Stellite 6 (CoCrW)",
    "stable_ids": [
-    "MET-0348"
+    "MET-0345",
+    "MET-0347",
+    "MET-0348",
+    "MET-0349",
+    "MET-0350"
    ],
    "refs": [
     "Haynes E (1913) US Patent 1,054,995 \"Alloy\"",
@@ -4714,6 +4758,28 @@
     "Chevalier J (2006) \"What future for zirconia as a biomaterial?\", Biomaterials 27"
    ],
    "legacy_text": "Zirconia (ZrO₂) 의 공학 ceramic 으로의 발견은 1972년 호주 CSIRO 의 Ronald Garvie 와 Patrick Nicholson 이 'Ceramic Steel' 이라는 별명을 붙인 PSZ (Partially Stabilized Zirconia) 개발이 시작입니다. 순수 ZrO₂ 는 1170°C 와 2370°C 에서 결정 구조가 monoclinic → tetragonal → cubic 으로 변하면서 부피가 ±4% 변해 가공한 부품이 다 깨졌어요. Garvie 가 Y₂O₃ 또는 MgO 또는 CaO 를 도핑하면 이 transformation 을 메탈처럼 'transformation toughening' 으로 활용할 수 있다는 걸 발견했습니다.\n\nZrO₂ 의 KIC 가 10-15 MPa·√m — 일반 alumina (3-4) 의 3-4 배입니다. 균열이 진행할 때 균열 끝의 응력장이 tetragonal → monoclinic 변태를 induce 해 부피가 4% 증가하면서 균열을 닫아버리는 메커니즘이에요. 'ceramic 의 강철' 이라는 별명이 여기서 나왔습니다.\n\n응용: dental crown (CAD/CAM 기반 zirconia crown 이 2010년대 이후 표준), 인공 hip femoral head (BIOLOX delta — ZTA, 알루미나-지르코니아 composite, hip 의 'ball'), TBC (thermal barrier coating) — jet engine turbine blade 표면의 YSZ coating (Y 7-8% stabilized zirconia) 이 blade 의 cooling 효율 + creep 수명을 결정적으로 늘립니다, 정밀 가공 ceramic tool (textile thread guide), 산소 sensor (자동차 lambda sensor 의 YSZ 전해질). 가격은 alumina ($10/kg) 의 5 배 ($50-100/kg) 이지만 hip implant + dental 시장에서 비용 정당화가 충분합니다."
+  },
+  "zirconium-alloys": {
+   "display": "Zirconium Alloys (Zircaloy-2 / Zircaloy-4 / Zr-2.5Nb 705)",
+   "stable_ids": [
+    "MET-0671",
+    "MET-0672",
+    "MET-0673",
+    "MET-0990",
+    "MET-0991",
+    "MET-0992"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys",
+    "Lemaignan C & Motta A T, Zirconium Alloys in Nuclear Applications"
+   ],
+   "sections": {
+    "hook": "중성자를 거의 삼키지 않는 금속 — 원자로 핵연료를 감싸는 지르코늄 클래딩.",
+    "origin": "지르코늄은 중성자 흡수단면적이 매우 작아 핵분열 중성자를 낭비 없이 통과시키면서, 고온 물·증기에 대한 내식이 뛰어나다. 그래서 원자로 핵연료봉을 감싸는 피복관(cladding)에 최적이며, 주석을 넣은 Zircaloy-2·-4, 니오븀을 넣은 Zr-2.5Nb(705) 등으로 쓰인다.",
+    "breakthrough": "주석·철·크롬·니오븀 미량 첨가가 고온 물·증기 내식과 강도를 조율한다. 천연 지르코늄엔 화학적으로 똑 닮은 하프늄이 섞여 중성자를 크게 흡수하는데, 원자로급은 이 하프늄을 정밀 분리·제거한 것이 핵심이다. 반대로 하프늄은 제어봉에 쓰인다.",
+    "today": "Zircaloy-2 는 비등수형(BWR), Zircaloy-4·Zr-2.5Nb 는 가압수형(PWR·CANDU) 핵연료 피복관·압력관에 쓰인다. 원자로 밖에선 뛰어난 내산성으로 화학 플랜트(Zr705)의 반응기·열교환기에도 쓰인다.",
+    "fun_fact": "지르코늄이 초고온 증기와 만나면 산화하며 수소를 내놓는다(Zr+물→ZrO₂+수소) — 과열된 피복관의 이 반응은 원자로에서 정상 온도 관리가 왜 중요한지를 보여주는 대표 사례다."
+   }
   },
   "zta": {
    "display": "ZTA",
