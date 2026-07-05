@@ -23,7 +23,7 @@ const KO = {
   'kovar': '코바', 'invar': '인바', 'molybdenum': '몰리브데넘', 'tantalum': '탄탈럼', 'niobium': '나이오븀',
   'titanium': '티타늄', 'magnesium': '마그네슘', 'aluminum': '알루미늄', 'nickel': '니켈', 'cobalt': '코발트',
   'polyethylene': '폴리에틸렌', 'polysulfone': '폴리설폰', 'rebar': '철근', 'forsterite': '포스터라이트',
-  'polycarbonate': '폴리카보네이트',
+  'polycarbonate': '폴리카보네이트', 'polypropylene': '폴리프로필렌', 'polyurethane': '폴리우레탄',
 };
 // 지정자가 아닌 범용 단어 (무숫자 fallback 에서 제외 — 규격 접두어 포함: 단독으론 식별력 없음)
 const STOP = new Set(['steel', 'tool', 'alloy', 'iron', 'high', 'cast', 'wire', 'grade', 'type', 'plate',

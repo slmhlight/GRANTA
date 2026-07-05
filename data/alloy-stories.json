@@ -3265,19 +3265,6 @@
     "fun_fact": "초합금의 역사는 대개 \"더 강하게\"였는데 282 는 \"더 잘 만들어지게\"로 승부했다 — 용접·성형이 쉬운 초합금이라는 역설이 이 후발주자의 무기다."
    }
   },
-  "hdpe": {
-   "display": "HDPE",
-   "stable_ids": [
-    "POL-0088"
-   ],
-   "refs": [
-    "Ziegler K (1953) German Patent 973,626",
-    "Phillips Petroleum (1955) US Patent 2,825,721 (Phillips Cr catalyst)",
-    "ASTM D4976",
-    "Mark J E (1996) Physical Properties of Polymers Handbook, AIP"
-   ],
-   "legacy_text": "HDPE (High-Density Polyethylene) 는 1953년 독일 Karl Ziegler (Max Planck Institute for Coal Research, 1963년 노벨화학상) 가 Ziegler catalyst (TiCl₄ + Al(C₂H₅)₃) 를 사용해 ethylene 의 정확한 linear polymerization 을 가능케 한 발견에서 출발합니다. 이전의 LDPE (Low-Density Polyethylene, 1933년 ICI 에서 발견) 는 branched chain (가지 많음) 이라 density 0.91-0.94 g/cc, 강도 낮음. HDPE 는 거의 linear chain (가지 거의 없음) 이라 density 0.94-0.97 + 결정도 70-80% + 강도 약 2배 향상.\n\nZiegler catalyst 발견 후 1955년 BASF, Hoechst (현재 Celanese), Hercules (현재 LyondellBasell), Phillips Petroleum 이 거의 동시에 상업화. Phillips Petroleum 의 chromium-based catalyst (Phillips catalyst, 1953-1955) 가 HDPE 의 두 번째 main process 가 됐어요. 한국 — LG 화학 / 한화솔루션 / SK 종합화학 / 롯데화학이 모두 HDPE 생산.\n\n응용 — Pipe (water distribution, sewer line, gas line), bottle (laundry detergent, motor oil container, milk jug — 식품접촉 FDA 통과), industrial container (drum, IBC tote), HDPE film (shopping bag, garbage bag), kayak / sup board (rotomolding), playground equipment, 산업 cutting board, 의료 cleanroom liner, 매립지 liner (geomembrane — HDPE 1.5-3mm 두께가 표준).\n\n특이 응용 — UHMWPE (Ultra-High Molecular Weight PE, MW > 3 million g/mol) 은 HDPE 의 special grade 로, 의료 hip / knee implant 의 bearing surface (1962년 Sir John Charnley 의 first hip implant), 방탄 sheet (Dyneema / Spectra 의 ultra-strong fiber 가 UHMWPE), 산업 wear-resistant plate (mining chute liner)."
-  },
   "heat-resistant-austenitic": {
    "display": "Heat-Resistant Austenitic (309 / 310)",
    "stable_ids": [
@@ -4495,26 +4482,22 @@
    "display": "PBT",
    "stable_ids": [
     "POL-0020",
-    "POL-0021"
+    "POL-0021",
+    "POL-0022"
    ],
    "refs": [
     "Whinfield J R & Dickson J T (1941) UK Patent 578,079 \"Polymeric Linear Terephthalic Esters\"",
     "Mark H F (ed., 2014) Encyclopedia of Polymer Science and Technology Vol.7",
     "Brydson J A (1999) Plastics Materials 7th ed., Butterworth-Heinemann"
    ],
-   "legacy_text": "PBT (Polybutylene Terephthalate) 는 1970년대 미국 Celanese 와 독일 Bayer 가 거의 동시에 개발한 'fast-crystallizing thermoplastic polyester' 입니다. PET (1941년 DuPont, 음료수 병의 표준) 의 결정화가 느린 단점을 보완하기 위해 ethylene glycol 을 butylene glycol 로 교체하면서 결정화 시간이 PET 의 1/10 로 줄었어요. 1972년 Celanese Celanex (현 Celanese Ticona) 와 1974년 Bayer Pocan 이 상품화됐습니다.\n\nPBT 의 매력은 빠른 결정화 + 우수한 dimensional stability + electrical insulation + chemical resistance 의 균형입니다. 일반 PBT 의 Tg 는 60°C · Tm 220-230°C 로 PET 보다 낮지만 30-45% glass fiber 강화 시 σy 110-130 MPa, UTS 130-150 MPa 까지 올라가요. 사출 cycle 이 PET 의 1/3 정도라 대량 생산 부품에 적합합니다.\n\n응용: 자동차 electronics housing (BMW iDrive control panel housing), 가전 전원 plug + outlet housing (Schuko plug 의 표준 PBT GF30), 충전 connector (Tesla supercharger plug 의 housing), 자동차 ignition coil bobbin, 가스 fired stove 의 thermocouple connector, 의료 X-ray cassette 의 일부 grade, 그리고 toy industry 의 high-quality model (Mattel Matchbox / Hot Wheels 의 plastic body 일부). 단점은 hydrolysis (가수분해) 에 약해 80°C + 다습 환경 (특히 80°C-95% RH) 의 장기 노출 시 분해되어 brittle 화 됩니다. 이 문제 때문에 자동차 underhood 의 어려운 위치 (transmission 근방 90°C 이상) 에는 PA66-GF (Zytel) 로 대체됩니다."
-  },
-  "pbt-30-gf": {
-   "display": "PBT 30%GF",
-   "stable_ids": [
-    "POL-0022"
-   ],
-   "refs": [
-    "BASF Ultradur B4300G6 Tech Data",
-    "DuPont Crastin Tech Data",
-    "Brydson J A (1999) Plastics Materials 7th ed."
-   ],
-   "legacy_text": "PBT 30%GF 는 BASF Ultradur B4300G6 / DuPont Crastin / Celanese Celanex 의 standard 30% glass-fiber 강화 PBT grade 입니다. PBT 의 결정화가 빠른 (PET 의 10배) 장점을 GF 강화로 더 강화한 표준 engineering polymer.\n\n특성: σy 130 MPa, UTS 145 MPa, modulus 9-11 GPa, El 2.5%, Tg 60°C, HDT 215°C, density 1.55 g/cm³. PA66-GF30 과 직접 경쟁하지만 PBT 가 수분 흡수 저항이 우수 (PBT 흡수 < 0.5% 24h vs PA66 흡수 2.5% 24h) → 다습 환경에서 dimensional stability 가 결정적으로 유리.\n\n응용: 자동차 electronics housing (BMW iDrive control panel housing, Mercedes COMAND), 자동차 ignition coil bobbin (다습 환경 → PA66 보다 PBT 우수), 가전 power plug socket housing (Schuko + NEMA plug 의 표준), 자동차 ABS sensor housing, 그리고 산업 motor housing 의 일부 grade. PBT-GF vs PA66-GF 선택: dimension critical 의 다습 환경에서는 PBT-GF, 고-temperature (>200°C) 또는 mechanical load 큰 경우는 PA66-GF. 가격은 PA66-GF30 ($5-7/kg) 보다 약간 비싼 $5-8/kg."
+   "sections": {
+    "hook": "빨리 굳어 정밀하게 찍히는 폴리에스터 — 전장 커넥터의 표준 PBT.",
+    "origin": "PBT(폴리부틸렌 테레프탈레이트)는 1970년대 셀라니즈·바이어가 개발한 빠르게 결정화되는 폴리에스터다. 결정화가 느려 사출에 불리한 PET 의 약점을, 원료 글리콜을 바꿔 결정화 속도를 크게 높여 해결했다 — \"사출로 정밀하게 찍는 PET\"인 셈이다.",
+    "breakthrough": "빠른 결정화가 짧은 성형 사이클과 우수한 치수 안정성을 주고, 흡습이 적어 습한 환경에서도 전기 절연이 안정하다. 유리 30% 강화(PBT-GF30·PBT 30%GF)하면 강성·내열이 올라, 뜨겁고 진동하는 자동차 전장 환경에 맞는다.",
+    "adoption": "1980년대 자동차·가전 전장화와 함께 커넥터·소켓·하우징의 표준으로 채택됐고, 유리강화 grade 로 확산됐다.",
+    "today": "자동차·가전 커넥터·소켓, 스위치·릴레이 하우징, 유리강화 구조 부품에 쓰인다. 투명·병이 필요하면 PET 로, 더 높은 내열은 PPS·PA46 으로 간다.",
+    "fun_fact": "자동차 한 대의 수백 개 전기 커넥터 상당수가 검은 PBT 다 — 빨리 찍히고 치수가 안 변하며 전기가 안 새는 조합이, 전장 부품의 대량 생산에 딱 맞았다."
+   }
   },
   "pc": {
    "display": "PC",
@@ -4646,38 +4629,23 @@
   "pet": {
    "display": "PET",
    "stable_ids": [
-    "POL-0043"
-   ],
-   "refs": [
-    "Whinfield J R & Dickson J T (1941) UK Patent 578,079",
-    "Brydson J A (1999) Plastics Materials 7th ed.",
-    "Awaja F & Pavel D (2005) \"Recycling of PET\", Eur Polym J 41"
-   ],
-   "legacy_text": "PET (Polyethylene Terephthalate) 는 1941년 영국 ICI 의 John Whinfield 와 James Dickson 이 'Terylene' 이라는 이름으로 처음 합성한 polyester 입니다. 미국 DuPont 가 1953년 'Dacron' 이라는 trade name 으로 상품화했고, 이후 1973년 DuPont 의 Nathaniel Wyeth (Andrew Wyeth 화가의 동생) 가 stretch-blow molding 으로 음료 bottle 의 PET 적용을 가능케 한 게 인류 음료 산업의 분기점이 됐어요.\n\nPET 의 두 가지 form: amorphous (음료 bottle, transparent) vs semi-crystalline (textile / 산업 부품). Tg 80°C · Tm 250-260°C · σy 50-80 MPa · UTS 70-90 MPa. Crystallization 이 느려서 (PBT 의 1/10) thermoforming 가능 + transparency 유지 가능 — 이게 음료 bottle 의 핵심 특성입니다.\n\n응용은 한 단어로 정의됩니다: 음료수 bottle. Coca-Cola · Pepsi · 생수 의 거의 모든 산업 음료 bottle 이 PET 의 stretch-blow molded form 이에요. 이외 응용: polyester textile (PET의 95% 이상이 textile, 옷 라벨에 'polyester' 라고 쓰여 있으면 모두 PET), 자기 tape (cassette tape, VHS tape — historical), 그리고 X-ray film + microfilm 의 base. 산업 PET 부속은 PBT 보다 결정화가 느려 부적합하므로 'PET-GF' 등의 강화 grade 만 일부 응용됩니다 (예: DuPont Rynite). PET 의 재활용성이 우수해 (rPET, regenerated PET) 음료 bottle → fleece 의류 → carpet 순환이 가능합니다."
-  },
-  "pet-gf30-rynite-530": {
-   "display": "PET-GF30 Rynite 530",
-   "stable_ids": [
+    "POL-0043",
+    "POL-0044",
     "POL-0045"
    ],
    "refs": [
-    "DuPont Rynite 530 Tech Data Sheet",
+    "Whinfield J R & Dickson J T (1941) UK Patent 578,079",
     "Brydson J A (1999) Plastics Materials 7th ed.",
     "Awaja F & Pavel D (2005) \"Recycling of PET\", Eur Polym J 41"
    ],
-   "legacy_text": "Rynite 530 은 DuPont 의 PET-based + 30% glass fiber 강화 engineering polymer 입니다. DuPont 의 'Rynite' brand 는 PET 와 PBT 의 thermoplastic polyester 시리즈이고, '530' 은 base resin + GF30 강화 의 표준 grade.\n\nPET 의 결정화가 느린 단점이 GF 강화로 더 악화되어 (GF 가 crystallization 을 더 늦춤) 사출 cycle 이 PBT-GF30 보다 길다는 단점이 있지만, GF 강화 후의 σy 와 modulus 가 더 높습니다. σy 160 MPa, UTS 180 MPa, modulus 12 GPa, El 3%, HDT 230°C.\n\n응용: 자동차 underhood structural component (BMW · Mercedes 의 일부 engine cover, intake plenum 의 일부 grade), 가전 power tool housing 의 high-load grade, 산업 electrical insulator 의 일부, 그리고 자전거 derailleur housing. PBT-GF30 의 대체로 검토되지만 사출 cycle + cost 가 약간 불리하므로 specific 응용 (특정 chemical resistance, thermal stability) 이 필요한 경우에만 PET-GF 가 채택됩니다."
-  },
-  "pet-semi-crystalline": {
-   "display": "PET Semi-Crystalline",
-   "stable_ids": [
-    "POL-0044"
-   ],
-   "refs": [
-    "Whinfield J R & Dickson J T (1941) UK Patent 578,079",
-    "Brydson J A (1999) Plastics Materials 7th ed.",
-    "Mark H F (ed., 2014) Encyclopedia of Polymer Science and Technology Vol.7"
-   ],
-   "legacy_text": "PET Semi-Crystalline 은 일반 PET (Whinfield-Dickson 1941) 의 가열-결정화 form 입니다. Amorphous PET (음료수 bottle 의 transparent form) 와 차이는 가공 시 결정화를 induce 해 (mold temperature 100-110°C, holding 후 분리) 결정도 30-40% 까지 올린 form 이에요. 결과적으로 σy 와 thermal stability 가 amorphous form 보다 우수.\n\nSemi-crystalline PET 특성: σy 70-90 MPa (amorphous 의 1.5배), modulus 3 GPa, El 30-50%, Tg 80°C, Tm 250-260°C, continuous use 120-140°C. 가공 cycle 이 amorphous PET 보다 길지만 결과 부품의 strength 와 dimensional stability 가 우수.\n\n응용: 자동차 wiring harness terminal (electrical connector pin housing), 가전 high-temp wire insulation, 의료 X-ray cassette 의 일부 grade, 산업 electrical insulator (변압기 + 모터 권선 사이의 layer insulator), 그리고 식품 처리 plant 의 일부 high-temp 부속. 음료 bottle 의 amorphous PET 와는 다른 응용 영역이고, semi-crystalline 의 응용은 PBT 와 일부 겹치지만 PBT 보다 가격이 약간 저렴해 commodity 응용에 적합. PA6-GF / PBT-GF 의 cheaper alternative 로 검토됩니다."
+   "sections": {
+    "hook": "음료수 병의 그 플라스틱 — 섬유에서 병까지, 세계에서 가장 많이 쓰이는 폴리에스터 PET.",
+    "origin": "PET(폴리에틸렌 테레프탈레이트)는 1941년 영국 ICI 의 윈필드·딕슨이 Terylene 이라는 이름으로 합성한 폴리에스터다. 처음엔 섬유(데이크론)로 성공했고, 1970년대 연신 블로 성형이 개발되며 투명한 음료 병 재료로 폭발해 음료 산업의 판을 바꿨다.",
+    "breakthrough": "PET 는 두 얼굴을 가진다 — 급랭하면 투명한 비정질(병·시트)이 되고, 서서히 식히거나 유리섬유를 넣으면 단단한 반결정성(기어·부품)이 된다. 유리 30% 강화 grade(PET-GF30 Rynite 등, 반결정성)는 치수 안정성과 강성이 좋아 전장·기어 부품에 쓰인다.",
+    "adoption": "전후 섬유·필름으로 대량 채택된 뒤, 1970년대 음료 병 채택으로 세계 최대 규모의 플라스틱 시장을 얻었다.",
+    "today": "음료·식품 병과 필름, 폴리에스터 섬유, 전장 커넥터·기어(유리강화 반결정성)에 쓰인다. 결정화가 빨라야 하는 사출 부품은 PBT 로, 투명·충격이 필요하면 PETG·PC 로 간다.",
+    "fun_fact": "전 세계에서 초당 수만 개씩 만들어지는 투명 음료 병이 모두 PET 다 — 얇게 불어도 안 터지고 내용물을 지키며 재활용까지 되는 조합을, 한 재료가 반세기째 감당하고 있다."
+   }
   },
   "petg": {
    "display": "PETG",
@@ -4752,7 +4720,14 @@
     "Gruber P R & O'Brien M (2002) \"Polylactides: NatureWorks PLA\", in Biopolymers Vol 4, Wiley-VCH",
     "NatureWorks LLC corporate history (https://www.natureworksllc.com)"
    ],
-   "legacy_text": "1932년 DuPont 의 월리스 캐러더스 (Nylon 66 발명자) 가 lactic acid 의 ring-opening polymerization 으로 처음 polylactic acid 를 합성했지만 분자량이 낮아 상품화에는 실패했어요. 1989년 Cargill 의 팻 그루버 (Pat Gruber) 가 corn starch fermentation → lactic acid → lactide cyclic dimer → ring-opening polymerization 의 economical 공정을 완성, 1997년 Cargill + Dow 의 joint venture 인 NatureWorks 가 'Ingeo' 라는 상표로 첫 상업 생산을 시작합니다.\n\nPLA 의 사회적 의의는 corn / sugarcane 같은 농업 원료 100% 의 bio-source + 산업 퇴비 (60°C, 6 주) 조건에서 완전 분해 가능한 최초의 메인스트림 폴리머라는 점이에요. 2010년대 데스크탑 3D 프린팅 (MakerBot, Prusa, Bambu Lab) 에서 가장 흔한 필라멘트로 — low T_m 175°C 라 일반 hotend 로도 잘 출력되고 warping 도 거의 없거든요. Coca-Cola PlantBottle, 스타벅스 disposable cup lid, 미국 Whole Foods food container, 의료 PLA-PGA biodegradable suture (Vicryl) 와 stent. 단점은 Tg 60°C — 자동차 dashboard 처럼 햇볕에 직사되는 환경에서는 쉽게 변형됩니다."
+   "sections": {
+    "hook": "옥수수로 만들어 흙에서 분해되는 플라스틱 — 3D 프린팅과 친환경 포장의 PLA.",
+    "origin": "PLA(폴리락트산)는 젖산을 중합한 바이오 유래·생분해성 폴리에스터다. 20세기 초 합성 자체는 됐지만 분자량이 낮아 실패했고, 1990년대에 옥수수 전분 발효로 젖산을 값싸게 얻는 공정이 완성되며 상업 생산(Ingeo 등)이 시작됐다 — 석유가 아닌 식물에서 오는 흔치 않은 대량 플라스틱이다.",
+    "breakthrough": "식물 유래라 원료부터 친환경이고, 산업 퇴비 조건에서 생분해된다. 투명하고 강성이 있으며 낮은 온도에서 잘 흘러 성형이 쉽다 — 다만 유리전이온도가 낮아(약 60°C) 열에 약하고 다소 잘 부서지는 것이 한계다.",
+    "adoption": "2000년대 친환경 포장·일회용품으로 채택이 확산됐고, 2010년대 데스크톱 3D 프린팅 붐에서 가장 쉬운 필라멘트로 대중화됐다.",
+    "today": "생분해 포장·일회용 용기, 3D 프린팅 필라멘트, 농업 필름, 의료 봉합·서방에 쓰인다. 내열·내충격이 필요하면 ABS·PETG 로, 오래 견뎌야 하면 범용 열가소성으로 간다.",
+    "fun_fact": "데스크톱 3D 프린터에서 가장 먼저 배우는 재료가 PLA 다 — 낮은 온도에서 잘 붙고 냄새·휘어짐이 적어, 옥수수에서 온 이 플라스틱이 개인 제작의 입문 소재가 됐다."
+   }
   },
   "pmi-structural-foam": {
    "display": "PMI Structural Foam (Rohacell)",
@@ -4812,6 +4787,7 @@
   "polyethylene": {
    "display": "Polyethylene (LDPE / HDPE / UHMWPE)",
    "stable_ids": [
+    "POL-0088",
     "POL-0090",
     "POL-0133"
    ],
@@ -4858,18 +4834,6 @@
     "today": "Vespel 부싱·시일·베어링(고온·무윤활), 반도체 웨이퍼 핸들링, 항공엔진 부품, Kapton 필름(전선 절연·우주선 단열·유연 회로)에 쓰인다. 더 성형성이 필요하면 PAI(Torlon)·PEEK 로 간다.",
     "fun_fact": "Kapton 폴리이미드 필름은 극저온부터 400°C 고온까지 견뎌, 아폴로 우주선을 비롯한 수많은 우주선의 금빛 단열막(MLI)으로 쓰였다."
    }
-  },
-  "polypropylene": {
-   "display": "Polypropylene",
-   "stable_ids": [
-    "POL-0104"
-   ],
-   "refs": [
-    "Natta G (1955) \"Macromolecules with Stereospecific Structure\", J Am Chem Soc 77",
-    "Karger-Kocsis J (ed., 1995) Polypropylene Structure, Blends and Composites, Chapman & Hall",
-    "Maier C & Calafut T (1998) Polypropylene: The Definitive User's Guide and Databook, William Andrew"
-   ],
-   "legacy_text": "Polypropylene (PP) 의 합성은 1954년 이탈리아 Politecnico di Milano 의 Giulio Natta 가 발견했어요. 그는 독일 Karl Ziegler 의 1953년 Ziegler catalyst (TiCl₃ + AlR₃) 를 이용해 propylene 을 isotactic 한 stereoregular polymer 로 만드는 데 성공했고, 이게 1963년 두 사람의 Nobel Chemistry Prize 의 핵심 업적이 됐죠. Natta 의 발견 이후 1957년 이탈리아 Montecatini 가 'Moplen' 이라는 trade name 으로 PP 상품화를 시작했습니다.\n\nPP 의 매력은 commodity polymer 중에서 가장 가벼움 (밀도 0.9 g/cm³, water 보다 가벼움 — only commodity polymer that floats) + chemical resistance + low cost ($1.2-2/kg) 의 조합입니다. Tm 165°C · Tg -10°C · σy 30-40 MPa. 1957년 이후 전 세계 plastic 생산의 두 번째로 큰 polymer (PE 가 1위).\n\n응용은 commodity 자체입니다. 식품 포장 (yogurt cup, deli container — heat-sealable + 식품 contact 안전), 자동차 bumper (대부분 신차 의 outer bumper 가 PP-EPDM blend), 의류 carpet fiber (commercial carpet 의 30%), 의료 syringe + IV bag, hot-water pipe (PP-RC, random copolymer), 가전 dishwasher inner tub, 그리고 'living hinge' (단일 부품의 lid hinge — 1956년 발견된 PP 의 unique 특성). 환경 측면: PP 는 결정 + amorphous 부분이 모두 재활용 가능하지만 회수 비율은 PET 보다 낮습니다 (소비자 분리수거의 어려움)."
   },
   "polystyrene": {
    "display": "Polystyrene (GPPS / HIPS)",
@@ -4937,6 +4901,7 @@
   "pp": {
    "display": "PP",
    "stable_ids": [
+    "POL-0104",
     "POL-0105",
     "POL-0106",
     "POL-0107"
@@ -5055,7 +5020,8 @@
   "pvc-rigid": {
    "display": "PVC (rigid)",
    "stable_ids": [
-    "POL-0124"
+    "POL-0124",
+    "POL-0125"
    ],
    "refs": [
     "Baumann E (1872) Liebigs Ann Chem 163 \"Vorläufige Mittheilung über den Vinylchlorid\"",
@@ -5063,19 +5029,14 @@
     "Wickson E J (ed., 1993) Handbook of Polyvinyl Chloride Formulating, Wiley",
     "Wilkes C E, Summers J W & Daniels C A (eds., 2005) PVC Handbook, Hanser"
    ],
-   "legacy_text": "1872년 독일 오이겐 바우만 (Eugen Baumann) 이 vinyl chloride monomer 를 햇볕에 노출하자 흰색 가루로 변하는 것을 처음 관찰했지만 상품화에는 실패했어요. 1926년 미국 BF Goodrich 의 월도 시몬 (Waldo Semon) 이 plasticizer (DEHP) 를 가해 가공 가능한 PVC compound 를 개발하면서 'Geon' 으로 상품화 — Semon 의 핵심 통찰은 '순수 PVC 는 너무 brittle 하고 가공이 어렵다 → DEHP 같은 plasticizer 가 modular property tuning 을 가능하게 한다' 는 점이었습니다.\n\n응용 — 1930년대 자동차 dashboard rubber → PVC 전환 (GM), 40년대 와이어 절연 (군용 케이블), 50년대 LP 음반 (RCA Victor), 60년대 의료 IV bag (Travenol, 현 Baxter), 70년대 PVC 수도관 (Eagan Plastics 의 SCH 40 표준), 80년대 신용카드 (Visa, MC), 90년대 창호 sash (Anderson, Pella), 2000년대 Apple 의 USB 케이블 외피, 의료 blood bag (transfusion). 의료 응용 시장만 연 $25 B. 단, DEHP 의 endocrine disruption 우려로 EU REACH 가 일부 응용을 제한 — 2015년 EU 가 어린이 장난감의 DEHP 농도 0.1% 미만을 의무화했어요."
-  },
-  "pvc-rigid-2": {
-   "display": "PVC Rigid",
-   "stable_ids": [
-    "POL-0125"
-   ],
-   "refs": [
-    "Semon W L (1929) US Patent 1,929,453 \"Synthetic Rubber-Like Composition\"",
-    "Wickson E J (ed., 1993) Handbook of Polyvinyl Chloride Formulating, Wiley",
-    "Brydson J A (1999) Plastics Materials 7th ed."
-   ],
-   "legacy_text": "PVC (Polyvinyl Chloride) 의 합성은 1872년 독일 Eugen Baumann 이 처음 발견했지만 실용 polymerization 은 1913년 독일 Klatte (Griesheim-Elektron, 현 Hoechst) 가 emulsion polymerization 으로 stable PVC 합성에 성공한 게 시작입니다. 1926년 미국 Waldo Semon (B.F. Goodrich) 이 plasticizer (phthalate 등) 첨가로 flexible PVC 를 만들어 leatherette 같은 응용을 열었어요. Rigid PVC (uPVC, unplasticized) 는 plasticizer 없는 form 입니다.\n\nRigid PVC 의 매력은 cost ($1.0-1.5/kg, commodity polymer 중 가장 저렴) + 우수한 chemical resistance + flame retardant (Cl 함량 56%) 의 균형입니다. σy 50 MPa, UTS 55 MPa, modulus 3 GPa, El 20-40%, Tg 80°C. 단점은 thermal stability 가 낮고 (가공 시 HCl 방출), UV 노출 시 brittle 화.\n\n응용: 건축 plumbing pipe (전 세계 plumbing pipe 의 50% 이상이 uPVC) — 미국 IRC code 의 표준, 한국 KS M 3401 의 표준. 윈도우 frame (uPVC 윈도우 frame 이 1980년대 이후 wood 의 대체로 보편화), wire insulation (전선 jacketing 의 표준), 자동차 underhood 의 wire harness, 신용카드 (모든 신용카드 + 의료 ID 카드의 substrate 가 PVC), 그리고 건축 sheet (Pearl PVC roofing). 환경 측면에서는 PVC 의 Cl 함량 + plasticizer (phthalate) 이슈로 REACH + RoHS 규제가 강화되고 있어 일부 응용에서는 PE 또는 PP 로 대체 진행 중입니다."
+   "sections": {
+    "hook": "세계에서 셋째로 많이 쓰이는 플라스틱 — 파이프·창틀을 만드는 경질 PVC(uPVC).",
+    "origin": "PVC(폴리염화비닐)는 19세기에 우연히 발견됐지만 너무 잘 부서지고 가공이 어려워 오래 실패했다. 20세기 초 가소제와 안정제로 가공성을 푸는 기술이 개발되며 상용화됐고, 가소제를 넣지 않은 경질 PVC(uPVC, Type I)가 파이프·창틀의 재료가 됐다.",
+    "breakthrough": "염소가 사슬에 붙어 스스로 잘 안 타는(자기소화성) 난연성과 내약품·내후성을 주고, 값이 매우 싸다. 가소제를 넣으면 유연한 연질 PVC(전선 피복·바닥재)가, 안 넣으면 단단한 경질 PVC(파이프·창틀)가 된다 — 첨가제로 성질을 넓게 조율하는 것이 특징이다.",
+    "adoption": "20세기 중반 상하수도 배관과 건축 창틀·사이딩에 대량 채택되며 건자재의 기본 플라스틱이 됐다.",
+    "today": "상하수도·배수 파이프, 창틀·사이딩, 전선 피복(연질), 바닥재, 카드에 쓰인다. 내열·강도가 더 필요하면 CPVC·ABS 로, 식품 접촉·투명 용기는 PET 로 간다.",
+    "fun_fact": "땅속 상하수도관과 집집의 하얀 창틀 대부분이 경질 PVC(uPVC)다 — 값싸고 안 썩고 불에 잘 안 붙는 조합이, 눈에 잘 안 띄는 건축 인프라를 반세기째 떠받친다."
+   }
   },
   "pvdf": {
    "display": "PVDF (Kynar)",
@@ -5837,7 +5798,14 @@
     "Mark H F (ed., 2014) Encyclopedia of Polymer Science and Technology Vol.13",
     "ASTM D7745"
    ],
-   "legacy_text": "TPU (Thermoplastic Polyurethane) 의 역사는 1937년 독일 IG Farben (현재 Bayer / Covestro) 의 Otto Bayer 가 polyurethane chemistry 를 발견하면서 시작됩니다. Diisocyanate (TDI / MDI) + polyol (polyester / polyether) 의 addition polymerization 으로 polyurethane 을 합성한 후, hard segment (urethane) + soft segment (polyol) 의 block copolymer 구조에서 hard segment 가 thermo-reversible 가교 역할을 하는 게 핵심 — 가열 시 hard segment 가 풀리고 cooling 시 다시 결정화되어 thermoplastic processing 이 가능해요.\n\n응용 — Footwear (가장 큰 시장): Nike Air sole insert, Adidas Boost foam (TPU expanded bead), Vans / Converse 의 sole rubber alternative, 등산화 outsole. 자동차 — instrument panel skin, dashboard cover, exterior body panel, brake hose outer protective sleeve, air bag cover. 의료 — catheter (urological catheter, IV catheter 의 PVC-free alternative), wound dressing, surgical drape, blood bag tubing. 산업 — cable insulation (industrial robot cable), conveyor belt cover, hydraulic seal (low-T 응용), 가전 — appliance cover.\n\n특이점 — TPU 의 grade range 가 매우 넓음. Shore A 60 (soft, similar to rubber band) ~ Shore D 75 (hard, similar to ABS). Polyester-based TPU (mechanical strength ↑, hydrolysis 약함) vs Polyether-based TPU (hydrolysis 저항 ↑, 외관 stability) 의 2가지 main category. 가격은 ABS 의 약 1.5-2배 ($4-6/kg).\n\n2015년 이후 새로운 mega-application — Carbon (formerly Carbon3D) 의 DLP 3D printing TPU resin (Carbon's EPU 41), Stratasys F123 series 의 TPU filament. Footwear midsole 의 lattice-structure 3D printing 으로 customized geometry 의 stiffness gradient 가능 — Adidas 4DFWD 의 sole 이 commercial 첫 사례."
+   "sections": {
+    "hook": "녹여 쓰는 고무 — 가황고무의 탄성과 플라스틱의 재가공성을 겸한 열가소성 폴리우레탄.",
+    "origin": "TPU(열가소성 폴리우레탄)의 뿌리는 1937년 독일 오토 바이어가 발견한 폴리우레탄 화학이다. 단단한 세그먼트와 부드러운 세그먼트가 번갈아 이어진 블록 공중합체로, 단단한 부분이 물리적 가교 역할을 해 — 가황(화학 가교) 없이도 고무처럼 탄성을 내면서 열로 다시 성형된다.",
+    "breakthrough": "경질·연질 세그먼트 비율로 무른 고무부터 단단한 플라스틱까지 경도를 넓게 조절할 수 있고, 내마모·내유·내충격이 뛰어나다. 가황고무와 달리 녹여 재가공·재활용되니, 사출·압출·3D 프린팅으로 자유롭게 성형된다 — \"다룰 수 있는 고무\"다.",
+    "adoption": "1960~70년대 자동차 부트·웨더스트립과 신발 부품이 가황고무 대신 TPU 를 채택하며 자리 잡았고, 케이블 피복·3D 프린팅으로 확산됐다.",
+    "today": "신발 밑창·부품, 휴대폰 케이스, 캐스터 바퀴, 호스·케이블 피복, 유연 3D 프린팅에 쓰인다. 값싼 완충은 EVA 로, 더 높은 내열·강성은 엔지니어링 플라스틱으로 간다.",
+    "fun_fact": "휴대폰 투명 케이스의 말랑하면서 잘 안 찢어지는 촉감이 대개 TPU 다 — 고무처럼 충격을 흡수하면서 플라스틱처럼 투명하게 사출되는, 두 성질의 이음매다."
+   }
   },
   "tungsten-carbide": {
    "display": "Tungsten Carbide",
