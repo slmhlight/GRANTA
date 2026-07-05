@@ -1007,6 +1007,29 @@
    ],
    "legacy_text": "ASTM A36 는 미국에서 가장 흔히 쓰이는 carbon structural steel 의 grade designation 입니다. 1960년 ASTM 이 발행한 'Standard Specification for Carbon Structural Steel' 이 원본이고, σy 250 MPa (36 ksi, 그래서 A36) · UTS 400-550 · El 20% 의 minimum spec 을 보장합니다. Carbon 0.26% 이하 + Mn 약 0.8-1.0% 로 가장 단순한 ferritic-pearlitic 미세조직을 가져요.\n\n건축의 거의 모든 일반 구조용 steel 이 A36 입니다. I-beam (W shape), H-pile, angle iron, channel iron, square / rectangular tubing, plate. 미국에서만 연간 4천만 톤의 A36 가 생산되며 이는 전체 carbon steel 생산의 30% 이상을 차지해요. 가격이 가장 저렴하고 (~$0.8-1.3/kg) machining + welding + bending 모두 쉬워서 '명확한 이유가 없으면 A36 부터 검토' 가 mechanical engineer 의 기본 자세입니다.\n\n실제 응용은 무한합니다. 빌딩 frame (300m+ skyscraper 의 일부 column, 보 — A36 또는 high-strength A992), 다리 (golden gate bridge 의 주요 stiffener, suspension cable 안의 wire 는 high-strength carbon steel), 자동차 chassis frame (트럭 ladder frame), 산업 storage tank, 일반 기계 frame, 그리고 사실상 모든 ' 산업 metal cabinet · workbench · 부품 holder ' . 단점은 부식 저항이 없어 도장 또는 galvanizing 이 필수, 그리고 σy 250 MPa 이 한계라 high-load 또는 light-weight 응용에는 A992 (σy 345) 또는 A572 Grade 50 / 65 가 검토됩니다."
   },
+  "auto-galvanized-sheet": {
+   "display": "Automotive & Galvanized Sheet (SGCC / SAPH / SPFH)",
+   "stable_ids": [
+    "MET-0287",
+    "MET-0294",
+    "MET-0303",
+    "MET-0304",
+    "MET-0305",
+    "MET-0320",
+    "MET-0324"
+   ],
+   "refs": [
+    "KS D 3506 (용융아연도금 강판) / JIS G 3302·3113·3116",
+    "Davis J R (ed., 1990) ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys"
+   ],
+   "sections": {
+    "hook": "자동차 차체와 가전을 이루는 얇은 강판 — 아연도금과 성형성·강도 등급으로 나뉜다.",
+    "origin": "자동차·가전 판재는 프레스 성형성·용접성·방청이 관건이라, JIS/KS 가 용도별로 규격을 나눈다 — SGCC(용융아연도금 일반), SAPH·SPFH(자동차 열연 고장력), SG325(구조용), STKM(기계 구조 강관). Zn-Mg-Al 도금강판은 아연도금의 내식을 크게 끌어올린 표면처리다.",
+    "breakthrough": "용융아연도금(GI)은 아연층의 희생방식으로 강판을 방청하고, SAPH440·SPFH590 은 고장력이면서 프레스 성형성을 유지하도록 조직을 설계한다. Zn-Mg-Al 3원계 도금은 같은 두께에서 순아연 대비 수 배의 내식을 내, 도금량을 줄이면서 수명을 늘린다.",
+    "today": "SGCC 는 지붕·덕트·가전 외장, SAPH·SPFH 는 자동차 차체·섀시(경량화용 고장력), SG325 는 건축·구조, STKM 은 기계 구조 강관에 쓰인다. 더 높은 강도는 DP·TWIP·핫스탬핑(22MnB5) 영역이다.",
+    "fun_fact": "Zn-Mg-Al 도금은 도금이 안 된 절단면에서도 아연이 스며 나와 보호하는 self-healing 효과가 있어, 순아연도금보다 가장자리 부식에 강하다."
+   }
+  },
   "az31b-magnesium": {
    "display": "AZ31B Magnesium",
    "stable_ids": [
@@ -1993,6 +2016,82 @@
     "ASM Handbook Vol.2 \"Properties and Selection: Nonferrous Alloys and Special-Purpose Materials\""
    ],
    "legacy_text": "1896년 스위스 샤를 에두아르 기욤 (Charles Édouard Guillaume) 이 Fe-Ni 36% 합금이 thermal expansion 이 거의 zero (CTE ≈ 1.2 × 10⁻⁶/K) 에 가깝다는 사실을 발견합니다 — magneto-volume effect (Fe-Ni 35-36 at% 의 spin-disordered γ 상태에서 격자 수축이 thermal expansion 을 cancel) 가 원인이에요. 'Invariable' 의 단축형 'Invar' 로 명명, 1920년 노벨 물리학상 수상.\n\n응용 — 정밀 — 1900-1980년 사이 전 세계 표준 미터 막대 (시드니 천문대의 standard meter 도 Invar), 측량 표준 chain (theodolite), 시계 pendulum (Big Ben 의 reserve pendulum). 우주 — Hubble Space Telescope 의 mirror support truss, James Webb Space Telescope 의 primary mirror backing (-243°C 까지 dimensional stable), 위성 antenna boom (CTE-matched composite). 산업 — LNG cargo containment (Mark III 의 secondary barrier), 반도체 mask aligner stage (-50°C ~ +50°C 동안 sub-micron 변위), Apple Vision Pro 의 일부 internal precision part. 단점은 Ni 35% 의 비싼 원료가와 다소 낮은 σ_y 280 MPa."
+  },
+  "jis-carbon-steel-sc": {
+   "display": "JIS Carbon Steel (S35C / S55C)",
+   "stable_ids": [
+    "MET-0288",
+    "MET-0289",
+    "MET-0290",
+    "MET-0291",
+    "MET-0292",
+    "MET-0293"
+   ],
+   "refs": [
+    "JIS G 4051 (기계구조용 탄소강) / KS D 3752",
+    "Davis J R (ed., 1990) ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys"
+   ],
+   "sections": {
+    "hook": "일본·한국의 기계구조용 탄소강 — 미국 10xx에 대응하는 S-C 번호 체계.",
+    "origin": "JIS G 4051(기계구조용 탄소강)은 미국 AISI 10xx 에 대응하는 체계로, ‘S’+탄소 함량(× 0.01%)+‘C’로 표기한다 — S35C 는 약 0.35%C, S55C 는 약 0.55%C 다. S45C(≈1045)가 가장 흔하다.",
+    "breakthrough": "저·중·고 탄소가 성격을 가른다 — S35C(중탄소 저역)는 적당한 강도와 용접·가공성, S55C(중탄소 고역)는 담금질·고주파 경화로 높은 표면 경도를 얻어 내마모 부품에 맞다. 합금 없이 탄소만으로 열처리 강도를 조절한다.",
+    "today": "S35C 는 볼트·축·레버 등 범용 기계부품, S55C 는 스프링·기어·캠·롤 등 경화가 필요한 부품에 쓰인다. 대단면 경화능·인성이 더 필요하면 SCM(Cr-Mo)·SNCM(Ni-Cr-Mo) 합금강으로 넘어간다.",
+    "fun_fact": "같은 알맹이라도 나라마다 이름이 다르다 — S45C(JIS)=1045(AISI)=C45(EN) 는 모두 ‘0.45% 탄소강’을 뜻한다."
+   }
+  },
+  "korean-building-steel": {
+   "display": "Welded Structural Steel (KS SM / SHN / SHP)",
+   "stable_ids": [
+    "MET-0306",
+    "MET-0307",
+    "MET-0308",
+    "MET-0309",
+    "MET-0310",
+    "MET-0311",
+    "MET-0312",
+    "MET-0313",
+    "MET-0314",
+    "MET-0315",
+    "MET-0316",
+    "MET-0317",
+    "MET-0318",
+    "MET-0319"
+   ],
+   "refs": [
+    "KS D 3515 (용접구조용 압연강재) / KS D 3866 (건축구조용 H형강)",
+    "KDS 41 강구조 설계기준 관행"
+   ],
+   "sections": {
+    "hook": "건물과 교량의 뼈대를 이루는 용접구조용 강 — 강도·인성·용접성을 등급으로 보증한다.",
+    "origin": "건축·교량 골조는 용접으로 조립되므로 강도만큼 용접성·인성이 중요하다. 한국은 KS D 3515(SM, 용접구조용 압연강재)·KS D 3866(SHN, 건축 H형강)·KS F 4603(SHP, 강관) 등으로 구조용 강을 규격화한다. ‘SM490’의 490 은 인장강도(MPa)를 뜻한다.",
+    "breakthrough": "등급 뒤 A·B·C 는 샤르피 충격(인성) 보증 수준으로, C 로 갈수록 저온 인성을 보증한다. SHN(건축 H형강)은 항복점 상한·항복비·용접성을 함께 규정한 내진용이고, SM570·TMCP 강은 제어압연으로 낮은 탄소당량에서 고강도를 낸다.",
+    "today": "SM275·SM355 가 일반 건축·교량, SM490·SM570 이 대형·장경간 구조, SHN 계열이 내진 건축 H형강, SHP 계열이 강관 구조에 쓰인다. 일본 JIS(SS·SM·SN)와 등가 체계다.",
+    "fun_fact": "‘SN’(일본)·‘SHN’(한국) 건축강은 일반 SM/SS 와 달리 항복점의 상·하한을 모두 규정한다 — 지진 시 어느 부재가 먼저 항복할지(소성 힌지)를 설계자가 통제하기 위해서다."
+   }
+  },
+  "korean-rebar": {
+   "display": "Deformed Rebar (KS SD400~SD700)",
+   "stable_ids": [
+    "MET-0295",
+    "MET-0296",
+    "MET-0297",
+    "MET-0298",
+    "MET-0299",
+    "MET-0300",
+    "MET-0301",
+    "MET-0302"
+   ],
+   "refs": [
+    "KS D 3504 (철근콘크리트용 봉강)",
+    "KDS 14 콘크리트구조 설계기준 관행"
+   ],
+   "sections": {
+    "hook": "콘크리트 속에서 인장을 받는 이형 철근 — 강도 등급과 ‘내진용·용접용’ 접미가 성격을 가른다.",
+    "origin": "콘크리트는 압축에 강하지만 인장에 약해, 인장부에 철근(rebar)을 넣는다. 한국은 KS D 3504 로 이형봉강을 규격화하며, ‘SD’ 뒤 숫자가 항복강도(MPa)를 뜻한다 — SD400·SD500 이 가장 흔하다.",
+    "breakthrough": "표면 리브(마디)가 콘크리트와의 부착력을 높인다. 강도 등급(400→700)이 오를수록 같은 철근량으로 더 큰 하중을 받아 배근을 줄인다. 접미가 성격을 세분한다 — ‘S’(내진)는 항복비·연신율을 보증해 지진 시 소성 변형 능력을, ‘W’(용접)는 탄소당량을 낮춰 용접성을 확보한다.",
+    "today": "SD400·SD500 이 일반 건축·토목의 표준, SD600·SD700 이 초고층·특수 구조의 고강도 배근, ‘S’ 등급이 내진 설계 부재, ‘W’ 등급이 용접 이음 부위에 쓰인다.",
+    "fun_fact": "내진 등급 ‘S’는 단순히 더 강한 게 아니라 항복점 상한과 연신율까지 규정해, 지진 시 ‘먼저 늘어나며 버티는’ 능력을 보증한다."
+   }
   },
   "lcp": {
    "display": "LCP (Liquid Crystal Polymer)",
@@ -3390,6 +3489,30 @@
     "Davis J R (ed., 1998) ASM Specialty Handbook: Heat-Resistant Materials"
    ],
    "legacy_text": "1908년 미국 GE 의 윌리엄 데이비드 쿨리지 (William David Coolidge) 가 ductile tungsten — '구부릴 수 있는 텅스텐' — 의 제법을 발견하면서 산업이 시작됐어요. 원래 W 는 brittle 해서 가공이 불가능했는데, 쿨리지가 swaging (단조성 가공) 으로 결정립을 미세화하면 ductile 해진다는 사실을 알아낸 거죠. 1913년 그의 발견으로 incandescent 전구의 filament 가 carbon → tungsten 으로 전환되면서 '에디슨 전구' 가 진정한 의미의 lightbulb 가 됐습니다.\n\nTungsten 의 매력은 단연 melting point 3422°C — 모든 금속 중 최고예요. 19.25 g/cm³ 의 밀도 (Pb 의 1.7배), σ_y 750 MPa 의 상온 강도, 4.5 × 10⁻⁶/K 의 매우 낮은 CTE.\n\n응용은 크게 네 갈래입니다. (1) 전자 방출 — X-ray tube 의 anode, 반도체 e-beam lithography 의 source, mass spectrometer 의 filament. (2) 군용 — Kinetic Energy penetrator (M829A4 의 sabot core, long-rod 관통체. 우라늄 대체용), helicopter rotor balance weight. (3) 우주 — 인공위성의 angular momentum wheel, RTG 의 radiation shield. (4) 일상 — F1 brake disc heat sink, 다트 weight, Apple Watch Series 5+ 의 일부 internal radiation shield. 단점은 brittle (KIC 9 MPa√m) — 충격에 약해 항상 ductile metal 안에 묻혀 쓰입니다."
+  },
+  "twip-steel": {
+   "display": "TWIP Steel",
+   "stable_ids": [
+    "MET-0325"
+   ],
+   "refs": [
+    "Grässel O, Krüger L, Frommeyer G, Meyer L W (2000) \"High strength Fe-Mn-(Al,Si) TRIP/TWIP steels\", Int. J. Plasticity 16",
+    "Bouaziz O, Allain S et al. (2011) \"High manganese austenitic TWIP steels\" 리뷰, Curr. Opin. Solid State Mater. Sci. 15"
+   ],
+   "sections": {
+    "hook": "늘어날수록 쌍정으로 스스로 단단해지는 강 — 강도와 연신율을 동시에 잡은 자동차 초고장력강.",
+    "origin": "보통 강은 강도를 올리면 연신율이 떨어져, 충돌 안전과 성형성을 동시에 만족하기 어렵다. TWIP(Twinning-Induced Plasticity) 강은 이 상충을 깬 고망간 오스테나이트 강으로, 1990년대 후반~2000년 독일 Max-Planck-Institut für Eisenforschung 의 Frommeyer·Grässel 등이 체계화했다.",
+    "breakthrough": "Mn 을 15~30% 넣어 상온에서 오스테나이트를 안정화하면, 변형 시 전위 대신 ‘기계적 쌍정(deformation twin)’이 대량 생긴다. 이 쌍정 경계가 전위 이동을 막아(동적 Hall-Petch) 늘어날수록 계속 단단해지므로, 인장강도 1000 MPa 급에서도 연신율 50%를 넘긴다.",
+    "today": "자동차 차체의 충돌 흡수 부재(크래시박스·B필러)처럼 ‘고강도 + 큰 에너지 흡수’가 필요한 곳을 겨냥한다. 다만 고망간 합금비용, 지연파괴(수소취성)·용접 이슈로 핫스탬핑·DP·QP 강과 용도·비용을 두고 경쟁한다.",
+    "fun_fact": "‘늘어날수록 단단해지는’ 특성 덕에, 변형이 집중되려는 곳이 오히려 강해져 변형을 옆으로 퍼뜨린다 — 그래서 균일 연신율이 극대화된다."
+   },
+   "timeline": [
+    {
+     "year": 2000,
+     "event": "Max-Planck-Institut(Frommeyer·Grässel), Fe-Mn-Al-Si TWIP강 체계화",
+     "ref": 1
+    }
+   ]
   },
   "udimet-720li-low-interstitial-p-m-disc": {
    "display": "Udimet 720Li (low-interstitial, P/M disc)",
