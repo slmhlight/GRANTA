@@ -255,6 +255,9 @@ export interface CostFactorResult {
 export function machiningCostBand(factor: number | null | undefined, category?: string | null): CostFactorResult | null {
   if (category === 'Ceramic' || category === 'Composite' || category === 'Polymer') return null;
   if (factor == null || !isFinite(factor) || factor <= 0) return null;
+  /* R226v — 정확히 1.0 은 "산출 안 됨(파이프라인 기본값)"과 "진짜 표준"이 소스에서 구분 불가 + 정보량 0
+     ("×1.00 보통"이 rating 과 모순 표시되던 혼란) → 표시하지 않음. 조건보정(adjMcf)으로 1.0 을 벗어나면 표시됨. */
+  if (Math.abs(factor - 1) < 1e-9) return null;
   const f = factor;
   const pct = Math.round((f - 1) * 100);
   const pctStr = pct === 0 ? '기준' : pct > 0 ? `+${pct}%` : `${pct}%`;
@@ -281,6 +284,9 @@ export function machiningCostBand(factor: number | null | undefined, category?: 
 export function htCostBand(factor: number | null | undefined, category?: string | null): CostFactorResult | null {
   if (category === 'Ceramic' || category === 'Composite') return null;
   if (factor == null || !isFinite(factor) || factor < 1.0) return null;
+  /* R226v — 정확히 1.0 은 "미산출 기본값"과 "정말 HT 불요"가 구분 불가 → 표시하지 않음
+     (HT 주의사항 htGuidanceTexts 는 카드에서 별도 유지 — MaterialDetail 참조). */
+  if (Math.abs(factor - 1) < 1e-9) return null;
   const f = factor;
   const pct = Math.round((f - 1) * 100);
   const pctStr = pct === 0 ? '없음' : `+${pct}%`;

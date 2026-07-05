@@ -2,68 +2,425 @@
  "_note": "R226j/C6 — 공정 프로파일 콘텐츠 SSOT. 키는 process-profile-assignments.json 의 mach 값과 1:1 (테스트 게이트). rating 은 AISI 1212=100 기준 상대치 (Machining Data Handbook·ASM Vol.16 — 기존 DB 검증값 승계, R205/R226i 정정 반영). guidance_key → data/machining-guidance.json. condition_notes 키 = 'mach프로파일|htc클래스' (build 가 stable_id 별 htc 스탬프).",
  "machinability": {
   "metal": {
-   "fm-steel": { "rating": 100, "band": "easy", "label": "우수", "note": "자유절삭 grade (S/Pb/Bi 첨가) — chip breaker 내장. 표준 절삭 — Carbide/HSS 공구, 절삭유 일반.", "guidance_key": "fm-steel" },
-   "ss-303": { "rating": 78, "band": "easy", "label": "우수", "note": "S 첨가 자유절삭 오스테나이트 스테인리스 — 304 대비 가공성 대폭 개선 (MDH ~78%). 내식성은 304 보다 약간 낮음.", "guidance_key": "ss-austenitic" },
-   "ss-416": { "rating": 85, "band": "easy", "label": "우수", "note": "S 첨가 자유절삭 마르텐사이트 스테인리스 — 스테인리스 중 최고 가공성.", "guidance_key": "ss-martensitic" },
-   "al-fm": { "rating": 90, "band": "easy", "label": "우수", "note": "자유절삭 Al (2011/6262, Pb·Bi 첨가) — screw machine 표준.", "guidance_key": "aluminum" },
-   "al-6xxx": { "rating": 60, "band": "normal", "label": "보통", "note": "6xxx Al-Mg-Si — T6 상태 양호한 chip. Carbide 공구, 충분한 절삭유.", "guidance_key": "aluminum" },
-   "al-7xxx": { "rating": 60, "band": "normal", "label": "보통", "note": "7xxx Al-Zn-Mg 고강도 — T6/T7 가공 양호.", "guidance_key": "aluminum" },
-   "al-2xxx": { "rating": 65, "band": "normal", "label": "보통", "note": "2xxx Al-Cu — 항공 표준, 가공성 양호.", "guidance_key": "aluminum" },
-   "al-5xxx": { "rating": 50, "band": "normal", "label": "보통", "note": "5xxx Al-Mg 비열처리 — 연질 gummy 경향, 예리한 공구.", "guidance_key": "aluminum" },
-   "al-soft": { "rating": 35, "band": "hard", "label": "어려움", "note": "1xxx/3xxx 연질 Al — gummy chip·BUE. 매우 예리한 positive rake, 고속.", "guidance_key": "aluminum" },
-   "al-cast-am": { "rating": 55, "band": "normal", "label": "보통", "note": "AlSi 주조/AM (AlSi10Mg 등) — Si 상이 공구 마모 ↑, carbide 권장.", "guidance_key": "aluminum" },
-   "brass": { "rating": 30, "band": "hard", "label": "어려움", "note": "비연 황동 — 인성 chip. 자유절삭(C36000)과 구별.", "guidance_key": "brass" },
-   "cuni": { "rating": 20, "band": "hard", "label": "어려움", "note": "Cupronickel — work-hardening + BUE, 오스테나이트 스테인리스 유사 절삭 조건.", "guidance_key": "cuni" },
-   "becu": { "rating": 20, "band": "hard", "label": "어려움", "note": "BeCu — Be 분진 발암성, wet 가공 전용 + 안전 절차 필수.", "guidance_key": "becu" },
-   "cu-pure": { "rating": 20, "band": "hard", "label": "어려움", "note": "순동 — 높은 연성 → stringy chip·smearing. 고속 + 예리한 공구.", "guidance_key": "cu-pure" },
-   "cu-crzr": { "rating": 55, "band": "normal", "label": "보통", "note": "CuCrZr 석출경화 Cu — 순동보다 훨씬 양호. 시효 상태 가공 권장.", "guidance_key": "cu-pure" },
-   "carbon-low": { "rating": 70, "band": "easy", "label": "우수", "note": "저탄소강 (1018/1020/A36) — 표준 절삭. long stringy chip 만 주의 (chip breaker).", "guidance_key": "carbon-low" },
-   "carbon-medhigh": { "rating": 55, "band": "normal", "label": "보통", "note": "중·고탄소강 (1030-1080) — C↑ 만큼 가공성↓. 어닐 상태 가공 권장.", "guidance_key": "carbon-medhigh" },
-   "crmo": { "rating": 60, "band": "normal", "label": "보통", "note": "Cr-Mo 강 (4130/4140/SCM4xx) — 어닐 상태 양호, Q+T 후 급감(공구수명 1/10). 가공→HT→연삭 순서.", "guidance_key": "crmo" },
-   "nicrmo": { "rating": 50, "band": "normal", "label": "보통", "note": "Ni-Cr-Mo 강 (4340/SNCM) — 4140 보다 인성↑ 가공성↓.", "guidance_key": "nicrmo" },
-   "case-hard": { "rating": 65, "band": "normal", "label": "보통", "note": "침탄강 (8620/9310) — 침탄 전 가공 표준. 침탄 후는 연삭만.", "guidance_key": "carbon-medhigh" },
-   "bearing": { "rating": 40, "band": "normal", "label": "보통", "note": "베어링강 (52100) — spheroidize-annealed 상태 가공, 담금질 후 연삭.", "guidance_key": "bearing" },
-   "maraging": { "rating": 45, "band": "normal", "label": "보통", "note": "Maraging — 용체화 상태 가공성 양호(저C 마르텐사이트), 시효 후 마무리 연삭.", "guidance_key": "maraging" },
-   "magnesium": { "rating": 90, "band": "easy", "label": "우수", "note": "Mg 합금 — 최고 수준 가공성. 단 분진·swarf 발화 위험 안전 절차 필수 (NFPA 484).", "guidance_key": "magnesium" },
-   "tool-steel": { "rating": 35, "band": "hard", "label": "어려움", "note": "공구강 — 어닐 상태 가공 후 HT, 경화 후 연삭/EDM. TiAlN carbide.", "guidance_key": "tool-steel" },
-   "ss-ferritic": { "rating": 55, "band": "normal", "label": "보통", "note": "페라이트 스테인리스 (409/430/439) — 스테인리스 중 양호. gummy 경향 약간.", "guidance_key": "ss-martensitic" },
-   "ss-martensitic": { "rating": 45, "band": "normal", "label": "보통", "note": "마르텐사이트 스테인리스 (410/420/440) — 어닐 상태 가공, 경화 후 연삭.", "guidance_key": "ss-martensitic" },
-   "ss-austenitic": { "rating": 40, "band": "normal", "label": "보통", "note": "오스테나이트 스테인리스 (304/316) — work-hardening 빠름. 일정 이송·깊은 절입 (rubbing 금지).", "guidance_key": "ss-austenitic" },
-   "ss-ph": { "rating": 35, "band": "hard", "label": "어려움", "note": "PH 스테인리스 (17-4 등) — 용체화(A) 상태 가공 후 시효 (치수변화 ~0.05% 반영).", "guidance_key": "ss-ph" },
-   "ss-duplex": { "rating": 30, "band": "hard", "label": "어려움", "note": "듀플렉스 (2205/2507) — 고강도 + work-hardening, 오스테나이트보다 어려움. 강성 셋업.", "guidance_key": "ss-austenitic" },
-   "ni-super": { "rating": 15, "band": "very_hard", "label": "매우 어려움", "note": "Ni 초내열합금 — work-hardening·저열전도. Sol-T 상태 rough 가공 → 시효 → 연삭 마무리.", "guidance_key": "ni-superalloy" },
-   "ni-super-solidsol": { "rating": 12, "band": "very_hard", "label": "매우 어려움", "note": "고용강화 Ni (617/HX/230/282) — 718 급보다도 어려움. Ceramic/CBN 공구.", "guidance_key": "ni-superalloy" },
-   "cobalt": { "rating": 10, "band": "very_hard", "label": "매우 어려움", "note": "Co 합금 (CoCrMo/Stellite) — 극심한 work-hardening + 마모성. CBN/SiAlON.", "guidance_key": "cobalt" },
-   "ti-cp": { "rating": 30, "band": "hard", "label": "어려움", "note": "CP Ti — 합금 Ti 보다 양호하나 저열전도·화학 친화 동일 주의.", "guidance_key": "titanium" },
-   "ti-alloy": { "rating": 22, "band": "hard", "label": "어려움", "note": "Ti 합금 (Ti-6Al-4V 등) — 저열전도(공구 집중열)·galling·발화 위험. 고압 절삭유 필수.", "guidance_key": "titanium" },
-   "tungsten": { "rating": 8, "band": "very_hard", "label": "매우 어려움", "note": "W — RT 취성 + 극마모성. 연삭이 표준, CNC 는 제한적 (CBN).", "guidance_key": "refractory" },
-   "ta-nb": { "rating": 45, "band": "normal", "label": "보통", "note": "Ta/Nb — RT 연성 (DBTT<-100°C), refractory 중 가공 용이. gummy 주의.", "guidance_key": "refractory" },
-   "moly": { "rating": 35, "band": "hard", "label": "어려움", "note": "Mo/TZM/Mo-La — 약간 취성 (DBTT~0°C). negative rake·저이송.", "guidance_key": "refractory" },
-   "refractory": { "rating": 18, "band": "very_hard", "label": "매우 어려움", "note": "기타 refractory — chipping 위험, 연삭 우선 검토.", "guidance_key": "refractory" }
+   "fm-steel": {
+    "rating": 100,
+    "band": "easy",
+    "label": "우수",
+    "note": "자유절삭 grade (S/Pb/Bi 첨가) — chip breaker 내장. 표준 절삭 — Carbide/HSS 공구, 절삭유 일반.",
+    "guidance_key": "fm-steel"
+   },
+   "ss-303": {
+    "rating": 78,
+    "band": "easy",
+    "label": "우수",
+    "note": "S 첨가 자유절삭 오스테나이트 스테인리스 — 304 대비 가공성 대폭 개선 (MDH ~78%). 내식성은 304 보다 약간 낮음.",
+    "guidance_key": "ss-austenitic"
+   },
+   "ss-416": {
+    "rating": 85,
+    "band": "easy",
+    "label": "우수",
+    "note": "S 첨가 자유절삭 마르텐사이트 스테인리스 — 스테인리스 중 최고 가공성.",
+    "guidance_key": "ss-martensitic"
+   },
+   "al-fm": {
+    "rating": 90,
+    "band": "easy",
+    "label": "우수",
+    "note": "자유절삭 Al (2011/6262, Pb·Bi 첨가) — screw machine 표준.",
+    "guidance_key": "aluminum"
+   },
+   "al-6xxx": {
+    "rating": 60,
+    "band": "normal",
+    "label": "보통",
+    "note": "6xxx Al-Mg-Si — T6 상태 양호한 chip. Carbide 공구, 충분한 절삭유.",
+    "guidance_key": "aluminum"
+   },
+   "al-7xxx": {
+    "rating": 60,
+    "band": "normal",
+    "label": "보통",
+    "note": "7xxx Al-Zn-Mg 고강도 — T6/T7 가공 양호.",
+    "guidance_key": "aluminum"
+   },
+   "al-2xxx": {
+    "rating": 65,
+    "band": "normal",
+    "label": "보통",
+    "note": "2xxx Al-Cu — 항공 표준, 가공성 양호.",
+    "guidance_key": "aluminum"
+   },
+   "al-5xxx": {
+    "rating": 50,
+    "band": "normal",
+    "label": "보통",
+    "note": "5xxx Al-Mg 비열처리 — 연질 gummy 경향, 예리한 공구.",
+    "guidance_key": "aluminum"
+   },
+   "al-soft": {
+    "rating": 35,
+    "band": "hard",
+    "label": "어려움",
+    "note": "1xxx/3xxx 연질 Al — gummy chip·BUE. 매우 예리한 positive rake, 고속.",
+    "guidance_key": "aluminum"
+   },
+   "al-cast-am": {
+    "rating": 55,
+    "band": "normal",
+    "label": "보통",
+    "note": "AlSi 주조/AM (AlSi10Mg 등) — Si 상이 공구 마모 ↑, carbide 권장.",
+    "guidance_key": "aluminum"
+   },
+   "brass": {
+    "rating": 30,
+    "band": "hard",
+    "label": "어려움",
+    "note": "비연 황동 — 인성 chip. 자유절삭(C36000)과 구별.",
+    "guidance_key": "brass"
+   },
+   "cuni": {
+    "rating": 20,
+    "band": "hard",
+    "label": "어려움",
+    "note": "Cupronickel — work-hardening + BUE, 오스테나이트 스테인리스 유사 절삭 조건.",
+    "guidance_key": "cuni"
+   },
+   "becu": {
+    "rating": 20,
+    "band": "hard",
+    "label": "어려움",
+    "note": "BeCu — Be 분진 발암성, wet 가공 전용 + 안전 절차 필수.",
+    "guidance_key": "becu"
+   },
+   "cu-pure": {
+    "rating": 20,
+    "band": "hard",
+    "label": "어려움",
+    "note": "순동 — 높은 연성 → stringy chip·smearing. 고속 + 예리한 공구.",
+    "guidance_key": "cu-pure"
+   },
+   "cu-crzr": {
+    "rating": 55,
+    "band": "normal",
+    "label": "보통",
+    "note": "CuCrZr 석출경화 Cu — 순동보다 훨씬 양호. 시효 상태 가공 권장.",
+    "guidance_key": "cu-pure"
+   },
+   "carbon-low": {
+    "rating": 70,
+    "band": "easy",
+    "label": "우수",
+    "note": "저탄소강 (1018/1020/A36) — 표준 절삭. long stringy chip 만 주의 (chip breaker).",
+    "guidance_key": "carbon-low"
+   },
+   "carbon-medhigh": {
+    "rating": 55,
+    "band": "normal",
+    "label": "보통",
+    "note": "중·고탄소강 (1030-1080) — C↑ 만큼 가공성↓. 어닐 상태 가공 권장.",
+    "guidance_key": "carbon-medhigh"
+   },
+   "crmo": {
+    "rating": 60,
+    "band": "normal",
+    "label": "보통",
+    "note": "Cr(-Mo/-V) 저합금강 (4130~4150·51xx·6150·SCM·SUP) — 어닐 상태 양호, Q+T 후 급감(공구수명 1/10).",
+    "guidance_key": "crmo"
+   },
+   "nicrmo": {
+    "rating": 50,
+    "band": "normal",
+    "label": "보통",
+    "note": "Ni-Cr-Mo 고강도 조질강 (4340/SNCM/8740·300M·D6AC·HY 급) — 4140 보다 인성↑ 가공성↓. 어닐 상태 가공 후 열처리.",
+    "guidance_key": "nicrmo"
+   },
+   "case-hard": {
+    "rating": 65,
+    "band": "normal",
+    "label": "보통",
+    "note": "침탄강 (8620/9310) — 침탄 전 가공 표준. 침탄 후는 연삭만.",
+    "guidance_key": "carbon-medhigh"
+   },
+   "bearing": {
+    "rating": 40,
+    "band": "normal",
+    "label": "보통",
+    "note": "베어링강 (52100) — spheroidize-annealed 상태 가공, 담금질 후 연삭.",
+    "guidance_key": "bearing"
+   },
+   "maraging": {
+    "rating": 45,
+    "band": "normal",
+    "label": "보통",
+    "note": "Maraging — 용체화 상태 가공성 양호(저C 마르텐사이트), 시효 후 마무리 연삭.",
+    "guidance_key": "maraging"
+   },
+   "magnesium": {
+    "rating": 90,
+    "band": "easy",
+    "label": "우수",
+    "note": "Mg 합금 — 최고 수준 가공성. 단 분진·swarf 발화 위험 안전 절차 필수 (NFPA 484).",
+    "guidance_key": "magnesium"
+   },
+   "tool-steel": {
+    "rating": 35,
+    "band": "hard",
+    "label": "어려움",
+    "note": "공구강 — 어닐 상태 가공 후 HT, 경화 후 연삭/EDM. TiAlN carbide.",
+    "guidance_key": "tool-steel"
+   },
+   "ss-ferritic": {
+    "rating": 55,
+    "band": "normal",
+    "label": "보통",
+    "note": "페라이트 스테인리스 (409/430/439) — 스테인리스 중 양호. gummy 경향 약간.",
+    "guidance_key": "ss-martensitic"
+   },
+   "ss-martensitic": {
+    "rating": 45,
+    "band": "normal",
+    "label": "보통",
+    "note": "마르텐사이트 스테인리스 (410/420/440) — 어닐 상태 가공, 경화 후 연삭.",
+    "guidance_key": "ss-martensitic"
+   },
+   "ss-austenitic": {
+    "rating": 40,
+    "band": "normal",
+    "label": "보통",
+    "note": "오스테나이트 스테인리스 (304/316) — work-hardening 빠름. 일정 이송·깊은 절입 (rubbing 금지).",
+    "guidance_key": "ss-austenitic"
+   },
+   "ss-ph": {
+    "rating": 35,
+    "band": "hard",
+    "label": "어려움",
+    "note": "PH 스테인리스 (17-4 등) — 용체화(A) 상태 가공 후 시효 (치수변화 ~0.05% 반영).",
+    "guidance_key": "ss-ph"
+   },
+   "ss-duplex": {
+    "rating": 30,
+    "band": "hard",
+    "label": "어려움",
+    "note": "듀플렉스 (2205/2507) — 고강도 + work-hardening, 오스테나이트보다 어려움. 강성 셋업.",
+    "guidance_key": "ss-austenitic"
+   },
+   "ni-super": {
+    "rating": 15,
+    "band": "very_hard",
+    "label": "매우 어려움",
+    "note": "Ni 초내열합금 — work-hardening·저열전도. Sol-T 상태 rough 가공 → 시효 → 연삭 마무리.",
+    "guidance_key": "ni-superalloy"
+   },
+   "ni-super-solidsol": {
+    "rating": 12,
+    "band": "very_hard",
+    "label": "매우 어려움",
+    "note": "고용강화 Ni (617/HX/230/282) — 718 급보다도 어려움. Ceramic/CBN 공구.",
+    "guidance_key": "ni-superalloy"
+   },
+   "cobalt": {
+    "rating": 10,
+    "band": "very_hard",
+    "label": "매우 어려움",
+    "note": "Co 합금 (CoCrMo/Stellite) — 극심한 work-hardening + 마모성. CBN/SiAlON.",
+    "guidance_key": "cobalt"
+   },
+   "ti-cp": {
+    "rating": 30,
+    "band": "hard",
+    "label": "어려움",
+    "note": "CP Ti — 합금 Ti 보다 양호하나 저열전도·화학 친화 동일 주의.",
+    "guidance_key": "titanium"
+   },
+   "ti-alloy": {
+    "rating": 22,
+    "band": "hard",
+    "label": "어려움",
+    "note": "Ti 합금 (Ti-6Al-4V 등) — 저열전도(공구 집중열)·galling·발화 위험. 고압 절삭유 필수.",
+    "guidance_key": "titanium"
+   },
+   "tungsten": {
+    "rating": 8,
+    "band": "very_hard",
+    "label": "매우 어려움",
+    "note": "W — RT 취성 + 극마모성. 연삭이 표준, CNC 는 제한적 (CBN).",
+    "guidance_key": "refractory"
+   },
+   "ta-nb": {
+    "rating": 45,
+    "band": "normal",
+    "label": "보통",
+    "note": "Ta/Nb — RT 연성 (DBTT<-100°C), refractory 중 가공 용이. gummy 주의.",
+    "guidance_key": "refractory"
+   },
+   "moly": {
+    "rating": 35,
+    "band": "hard",
+    "label": "어려움",
+    "note": "Mo/TZM/Mo-La — 약간 취성 (DBTT~0°C). negative rake·저이송.",
+    "guidance_key": "refractory"
+   },
+   "refractory": {
+    "rating": 18,
+    "band": "very_hard",
+    "label": "매우 어려움",
+    "note": "기타 refractory — chipping 위험, 연삭 우선 검토.",
+    "guidance_key": "refractory"
+   },
+   "bronze-wrought": {
+    "rating": 25,
+    "band": "hard",
+    "label": "어려움",
+    "note": "전신재 청동 (인청동 C51000/C51900·규소청동 C65500·Ni-Al청동 C63000) — 질긴 chip·가공경화 (CDA 등급 20~30, C36000=100 기준). 예리한 공구·저이송."
+   },
+   "bronze-bearing": {
+    "rating": 70,
+    "band": "easy",
+    "label": "쉬움",
+    "note": "Pb 함유 주조 베어링청동 (C93200 등) — 납이 chip breaker 역할 (CDA 등급 ~70). 주물 표피만 주의."
+   },
+   "cast-iron-gray": {
+    "rating": 75,
+    "band": "easy",
+    "label": "쉬움",
+    "note": "회주철 — 흑연 조각이 chip 을 끊고 자기윤활, 절삭성 우수. 단속 chip·분진 (건식 가공 일반적), 주물 표피 스케일에서 첫 패스 절입 깊게."
+   },
+   "cast-iron-ductile": {
+    "rating": 60,
+    "band": "normal",
+    "label": "보통",
+    "note": "구상흑연주철 (ASTM A536) — 회주철보다 질겨 절삭저항 ↑, 페라이트계(65-45-12)는 양호·펄라이트계(100-70-03)는 어려움. 연속 chip 경향."
+   },
+   "zinc-diecast": {
+    "rating": 90,
+    "band": "easy",
+    "label": "쉬움",
+    "note": "Zn 다이캐스트 (Zamak/ZA) — 낮은 절삭저항·우수한 표면, 대개 다이캐스트 정밀도로 후가공 최소. 저융점(~385°C)이라 고속 시 용착만 주의."
+   },
+   "ni-fe-lowexp": {
+    "rating": 40,
+    "band": "normal",
+    "label": "보통",
+    "note": "Fe-Ni 저팽창 합금 (Invar 36/Kovar) — 오스테나이트 스테인리스 유사 절삭 조건 (gummy·가공경화; CarTech free-cut 등급은 ~60). 절삭열이 곧 치수 오차 — 저팽창 정밀부품은 열관리·경절삭 마무리가 핵심."
+   },
+   "hadfield": {
+    "rating": 8,
+    "band": "very_hard",
+    "label": "매우 어려움",
+    "note": "Hadfield 고망간강 (Mn13) — 절삭 자체가 표면을 가공경화시켜 사실상 절삭 불가급. 주조/단조 후 연삭·초경 저속 특수 가공이 표준."
+   },
+   "zirconium": {
+    "rating": 28,
+    "band": "hard",
+    "label": "어려움",
+    "note": "Zr 합금 (Zircaloy/Zr702/705) — Ti 유사 절삭 조건(반응성·galling·저열전도). 예리한 공구·저속·충분한 절삭유, 미세 chip 발화 주의."
+   }
   },
   "polymer": {
-   "pol-rigid": { "band": "easy", "label": "우수 (강성 열가소성)", "note": "강성 엔지니어링 열가소성 (POM/PBT/PA/PEEK/PPS 등) — 황동에 준하는 우수한 절삭성(깨끗한 chip·양호한 표면). 발열/용융 방지 위해 공구 예리하게 유지(절삭유 또는 공기 냉각), 얇은 단면 지지. 흡습 폴리머(나일론)는 조건에 따른 치수 변동 주의." },
-   "pol-amorphous": { "band": "easy", "label": "우수 (비정질 — 절삭유 주의)", "note": "비정질 열가소성 (PC/PEI/PSU/PPSU/PES) — 절삭성 자체는 우수하나 수용성 절삭유·석유계 유제가 environmental stress-cracking(ESC) 을 유발할 수 있음. 냉각은 순수 물 또는 압축공기 권장 (Quadrant/MCAM 가공 가이드). 잔류응력 완화 어닐링 후 가공하면 크랙·휨 감소." },
-   "pol-filled": { "band": "hard", "label": "주의 (마모성 필러)", "note": "유리·탄소 섬유(또는 미네랄) 강화 — 절삭력은 낮으나 필러가 공구를 강하게 마모. 초경(연마 날) 또는 세라믹/PCD 공구가 사실상 필수 (Ensinger·Quadrant), 낮은 이송, 섬유 분진 집진. 라미네이트는 층간 박리 방지 위해 예리한 공구." },
-   "pol-thermoset": { "band": "hard", "label": "열경화 (분진·취성)", "note": "열경화성 수지 — 재용융 불가, chip 이 분말상(마모성·유해분진). 초경 공구·강력 집진, 취성 크랙 방지 위해 예리한 공구·낮은 이송." },
-   "pol-foam": { "band": "normal", "label": "발포체 (연질·분진)", "note": "저밀도 구조 발포체 — 매우 낮은 절삭력이나 부스러짐·분진. 예리한 공구·낮은 클램프압·집진." },
-   "pol-elastomer": { "band": "hard", "label": "탄성체 (절삭 부적합)", "note": "탄성체/고무 — 낮은 강성으로 절삭 시 변형·찢김. 통상 절단(die-cut)·워터젯·성형. 부득이 절삭 시 극예리 블레이드·저온(cryo) 고정." },
-   "pol-soft": { "band": "normal", "label": "연질 (거미상 chip)", "note": "연질·저모듈러스/저Tg (PE/PP/PTFE/PLA/PETG) — 절삭력 매우 낮으나 chip 이 거미상으로 늘어지고 발열 시 용융. 예리한 공구·큰 positive rake, 저속·공기 냉각, 얇은 벽 처짐 지지." },
-   "pol-brittle": { "band": "normal", "label": "취성 (크랙·치핑)", "note": "경질 취성 비정질 (PMMA/PS) — 과열·과이송 시 크랙·치핑·크레이징. 예리한 공구·낮은 이송·충분한 냉각, 어닐링 후 가공 권장." }
+   "pol-rigid": {
+    "band": "easy",
+    "label": "우수 (강성 열가소성)",
+    "note": "강성 엔지니어링 열가소성 (POM/PBT/PA/PEEK/PPS 등) — 황동에 준하는 우수한 절삭성(깨끗한 chip·양호한 표면). 발열/용융 방지 위해 공구 예리하게 유지(절삭유 또는 공기 냉각), 얇은 단면 지지. 흡습 폴리머(나일론)는 조건에 따른 치수 변동 주의."
+   },
+   "pol-amorphous": {
+    "band": "easy",
+    "label": "우수 (비정질 — 절삭유 주의)",
+    "note": "비정질 열가소성 (PC/PEI/PSU/PPSU/PES) — 절삭성 자체는 우수하나 수용성 절삭유·석유계 유제가 environmental stress-cracking(ESC) 을 유발할 수 있음. 냉각은 순수 물 또는 압축공기 권장 (Quadrant/MCAM 가공 가이드). 잔류응력 완화 어닐링 후 가공하면 크랙·휨 감소."
+   },
+   "pol-filled": {
+    "band": "hard",
+    "label": "주의 (마모성 필러)",
+    "note": "유리·탄소 섬유(또는 미네랄) 강화 — 절삭력은 낮으나 필러가 공구를 강하게 마모. 초경(연마 날) 또는 세라믹/PCD 공구가 사실상 필수 (Ensinger·Quadrant), 낮은 이송, 섬유 분진 집진. 라미네이트는 층간 박리 방지 위해 예리한 공구."
+   },
+   "pol-thermoset": {
+    "band": "hard",
+    "label": "열경화 (분진·취성)",
+    "note": "열경화성 수지 — 재용융 불가, chip 이 분말상(마모성·유해분진). 초경 공구·강력 집진, 취성 크랙 방지 위해 예리한 공구·낮은 이송."
+   },
+   "pol-foam": {
+    "band": "normal",
+    "label": "발포체 (연질·분진)",
+    "note": "저밀도 구조 발포체 — 매우 낮은 절삭력이나 부스러짐·분진. 예리한 공구·낮은 클램프압·집진."
+   },
+   "pol-elastomer": {
+    "band": "hard",
+    "label": "탄성체 (절삭 부적합)",
+    "note": "탄성체/고무 — 낮은 강성으로 절삭 시 변형·찢김. 통상 절단(die-cut)·워터젯·성형. 부득이 절삭 시 극예리 블레이드·저온(cryo) 고정."
+   },
+   "pol-soft": {
+    "band": "normal",
+    "label": "연질 (거미상 chip)",
+    "note": "연질·저모듈러스/저Tg (PE/PP/PTFE/PLA/PETG) — 절삭력 매우 낮으나 chip 이 거미상으로 늘어지고 발열 시 용융. 예리한 공구·큰 positive rake, 저속·공기 냉각, 얇은 벽 처짐 지지."
+   },
+   "pol-brittle": {
+    "band": "normal",
+    "label": "취성 (크랙·치핑)",
+    "note": "경질 취성 비정질 (PMMA/PS) — 과열·과이송 시 크랙·치핑·크레이징. 예리한 공구·낮은 이송·충분한 냉각, 어닐링 후 가공 권장."
+   }
   },
   "sources": {
-   "metal": ["Machining Data Handbook (Metcut) — AISI 1212=100 기준 상대 rating", "ASM Handbook Vol.16 Machining", "ISO 3685 (tool life)"],
-   "polymer": ["Ensinger — Machining Recommendations for Engineering Plastics", "Quadrant(현 MCAM) — Machining Guidelines (GF/CF→초경·PCD 필수, 비정질 ESC·절삭유, 응력완화 어닐링 원문 확인)", "Curbell Plastics — Plastic Machining Guidelines"]
+   "metal": [
+    "Machining Data Handbook (Metcut) — AISI 1212=100 기준 상대 rating",
+    "ASM Handbook Vol.16 Machining",
+    "ISO 3685 (tool life)"
+   ],
+   "polymer": [
+    "Ensinger — Machining Recommendations for Engineering Plastics",
+    "Quadrant(현 MCAM) — Machining Guidelines (GF/CF→초경·PCD 필수, 비정질 ESC·절삭유, 응력완화 어닐링 원문 확인)",
+    "Curbell Plastics — Plastic Machining Guidelines"
+   ]
   },
   "condition_adjust": {
    "_note": "R226r — 절삭성의 열처리(조건)별 보정. base rating 은 어닐/용체화(soft) 기준(각 note 확인) → 경화 조건에서 급감. htc 클래스(m.profiles.htc, stable_id 스탬프)별 배율: rating 은 곱, machining_cost_factor 는 역보정(경화=고비용). ferrous_hardening 군만 적용(base=연질 앵커, 경화 시 급감 명확). 비철(Al/Cu/Mg, base=상용 T 조건)·초합금/Ti/refractory(base=용체화이나 시효효과 모호)는 미보정 → 잘못된 값 회피(보수적). 근거: Machining Data Handbook(어닐 vs 경화 rating)·Taylor 공구수명식(경도↑→허용속도↓).",
-   "rating_mult": { "soft": 1.0, "hip": 0.96, "as-built": 0.92, "cold": 0.88, "case": 0.85, "aged": 0.82, "qt": 0.72 },
-   "cost_mult": { "soft": 1.0, "hip": 1.05, "as-built": 1.1, "cold": 1.15, "case": 1.2, "aged": 1.25, "qt": 1.4 },
-   "band_thresholds": { "easy": 68, "normal": 40, "hard": 20 },
+   "rating_mult": {
+    "soft": 1,
+    "hip": 0.96,
+    "as-built": 0.92,
+    "cold": 0.88,
+    "case": 0.85,
+    "aged": 0.82,
+    "qt": 0.72
+   },
+   "cost_mult": {
+    "soft": 1,
+    "hip": 1.05,
+    "as-built": 1.1,
+    "cold": 1.15,
+    "case": 1.2,
+    "aged": 1.25,
+    "qt": 1.4
+   },
+   "band_thresholds": {
+    "easy": 68,
+    "normal": 40,
+    "hard": 20
+   },
    "_hardness_note": "R226r-2 — 경화 클래스(qt/aged/cold) 내 조건별 경도 편차 반영(H900 vs H1150, Q+T 템퍼 등). rating_mult 에 factor=min(1, ref_hv/entry_hv) 를 곱해 **클래스 대표경도보다 단단한 entry만 추가 감산**(더 연하거나 경도 데이터가 부실한 entry 는 class base 유지 — 오값 회피). 단위 = HV(ranges.hardness). floor 로 하한.",
-   "hardness_ref_hv": { "qt": 330, "aged": 360, "cold": 240 },
+   "hardness_ref_hv": {
+    "qt": 330,
+    "aged": 360,
+    "cold": 240
+   },
    "hardness_floor": 0.42,
-   "ferrous_hardening": ["fm-steel", "ss-303", "ss-416", "carbon-low", "carbon-medhigh", "crmo", "nicrmo", "case-hard", "bearing", "maraging", "tool-steel", "ss-ferritic", "ss-martensitic", "ss-austenitic", "ss-ph", "ss-duplex"]
+   "ferrous_hardening": [
+    "fm-steel",
+    "ss-303",
+    "ss-416",
+    "carbon-low",
+    "carbon-medhigh",
+    "crmo",
+    "nicrmo",
+    "case-hard",
+    "bearing",
+    "maraging",
+    "tool-steel",
+    "ss-ferritic",
+    "ss-martensitic",
+    "ss-austenitic",
+    "ss-ph",
+    "ss-duplex"
+   ]
   }
  },
  "condition_notes": {

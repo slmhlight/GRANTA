@@ -100,6 +100,11 @@ describe('machiningCostBand — 카테고리 가드 유지', () => {
     expect(machiningCostBand(0.7, 'Ceramic')).toBeNull();
     expect(machiningCostBand(0.7, 'Metal')?.band).toBe('easy');
   });
+  it('R226v — 정확히 1.0(미산출 기본값)은 표시 억제, 1.0 근방 산출값은 유지', () => {
+    expect(machiningCostBand(1.0, 'Metal')).toBeNull();
+    expect(machiningCostBand(1.02, 'Metal')?.band).toBe('normal');
+    expect(machiningCostBand(0.98, 'Metal')?.band).toBe('normal');
+  });
 });
 
 describe('조건(variation)별 노트 + 가이드 + 인사이트 (R226j)', () => {

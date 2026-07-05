@@ -114,6 +114,15 @@ describe('machinability 오분류 회귀 앵커 (R226i)', () => {
     ['PH13-8 Mo (h13 must not match tool steel; PH → 35)', /PH13-8 Mo/, 35],
     ['D2 tool steel (1020°C must not match carbon steel → tool 35)', /D2 Tool Steel.*1020/, 35],
     ['Mo-La (→ molybdenum 35, not generic refractory 18)', /Mo-La.*1100/, 35],
+    // R226v — 커버리지 확장(217 신규)·오분류 교정(청동 al-* / Zr refractory) 앵커
+    ['Invar 36 (→ ni-fe-lowexp 40 — 오스테나이트 SS 유사, CarTech)', /Invar 36/, 40],
+    ['Hadfield Mn13 (→ hadfield 8 — 사실상 절삭 불가급)', /Hadfield/, 8],
+    ['Gray Cast Iron (→ cast-iron-gray 75 — 흑연 자기윤활)', /Gray Cast Iron/, 75],
+    ['C93200 bearing bronze (→ bronze-bearing 70, CDA)', /Bearing Bronze C93200/, 70],
+    ['C95800 NAB (aluminum bronze must not match al-* → bronze-wrought 25)', /Nickel Aluminum Bronze C95800/, 25],
+    ['Zircaloy-4 (Zr는 Ti 유사 — refractory 18 과대 교정 → 28)', /Zircaloy-4.*Recrystallized/, 28],
+    ['AISI 5140 (51xx Cr강 → crmo 60)', /AISI 5140.*Annealed/, 60],
+    ['SM355B (한국 구조강 → carbon-low 70)', /SM355B/, 70],
   ];
   for (const [label, rx, expected] of cases) {
     it(label, () => {

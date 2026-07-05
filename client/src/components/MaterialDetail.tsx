@@ -491,6 +491,14 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               return (
                 <div className="grid grid-cols-1 gap-3">
                   {/* 카드 1 — 절삭성 + 가공비 통합 (default open) */}
+                  {/* R226v — 절삭성 데이터가 전무한 금속: pop>2.0 이면 "미확보" 명시 (1.0 표시가 '가공 용이'로 오독되던 문제),
+                      pop≤2.0 이면 카드 자체 생략. 대상: AHSS 판재(TWIP/DP — 절삭 아닌 성형 재료)·전기강판·Nitinol 등. */}
+                  {material.category === 'Metal' && !mach && !machCost && (material.popularity ?? 0) > 2.0 && (
+                    <div className="rounded-lg border border-dashed border-border bg-muted/30 p-3 text-[11px] text-foreground/70 leading-relaxed">
+                      <span className="font-semibold flex items-center gap-1.5 text-foreground/80"><Wrench className="w-3.5 h-3.5" />Machinability · 절삭성</span>
+                      <p className="mt-1">절삭성 등급 <b>데이터 미확보</b> — 등급이 없다는 뜻이며 "가공이 쉽다"는 뜻이 아닙니다. 판재 성형 전용 강재(AHSS 등)·전기강판처럼 절삭 등급이 통용되지 않는 재료이거나, 신뢰할 수 있는 출처를 아직 확보하지 못한 경우입니다.</p>
+                    </div>
+                  )}
                   {(mach || machCost || polyMach) && (
                     <details className={`rounded-lg border-2 p-3 ${bandColor((polyMach?.band || machCost?.band || mach?.band) as string)}`}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
@@ -591,41 +599,47 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                       );
                     }
                     // Fallback: 기존 HT 가중치 카드 (specific HT 매칭 안 됨)
-                    if (!htCost) return null;
+                    // R226v — htf 정확히 1.0 은 htCostBand 가 null (미산출 vs 진짜 불요 구분 불가·정보량 0).
+                    //          단 HT 주의사항(htGuidanceTexts)이 있으면 가이드만으로 카드 유지 (Ti64 AM·AlSi10Mg 등 34건 손실 방지).
+                    if (!htCost && htGuidanceTexts.length === 0) return null;
                     return (
-                      <details className={`rounded-lg border-2 p-3 ${bandColor(htCost.band)}`}>
+                      <details className={`rounded-lg border-2 p-3 ${htCost ? bandColor(htCost.band) : 'border-border bg-muted/30'}`}>
                         <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                           <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · 열처리</span>
-                          <span className="text-[10px] font-normal opacity-70">×{htCost.factor.toFixed(2)} · <b>{htCost.label}</b></span>
+                          <span className="text-[10px] font-normal opacity-70">{htCost ? <>×{htCost.factor.toFixed(2)} · <b>{htCost.label}</b></> : <b>주의사항</b>}</span>
                         </summary>
                         <div className="space-y-1.5 text-[12px] mt-2 pt-2 border-t border-current/15">
-                          <div className="flex items-baseline justify-between gap-2">
-                            <b>HT 가중치</b>
-                            <span className="font-mono">×{htCost.factor.toFixed(2)} · {htCost.detail} · <b>{htCost.label}</b></span>
-                          </div>
+                          {htCost && (
+                            <div className="flex items-baseline justify-between gap-2">
+                              <b>HT 가중치</b>
+                              <span className="font-mono">×{htCost.factor.toFixed(2)} · {htCost.detail} · <b>{htCost.label}</b></span>
+                            </div>
+                          )}
                           {(() => {
-                            const f = htCost.factor;
-                            const atmosphere = f >= 1.5 ? 'Vacuum / Inert gas (Ar/N₂)' : f >= 1.2 ? 'Inert gas 또는 controlled air' : 'Air / open furnace';
-                            const steps = f >= 1.5 ? '3-5 step (solution → quench → multi-stage aging + HIP/coating)' : f >= 1.2 ? '2 step (Q+T 또는 solution+aging)' : f >= 1.05 ? '1 step (stress relief 또는 anneal)' : 'None';
-                            const hours = f >= 1.5 ? '8-24h' : f >= 1.2 ? '4-8h' : f >= 1.05 ? '1-3h' : '0h';
-                            const ksRef = f >= 1.2 ? 'KS D 0040 (열처리 일반) · KS D 3866 (구조용 강)' : null;
+                            const f = htCost?.factor;
+                            const atmosphere = f == null ? null : f >= 1.5 ? 'Vacuum / Inert gas (Ar/N₂)' : f >= 1.2 ? 'Inert gas 또는 controlled air' : 'Air / open furnace';
+                            const steps = f == null ? null : f >= 1.5 ? '3-5 step (solution → quench → multi-stage aging + HIP/coating)' : f >= 1.2 ? '2 step (Q+T 또는 solution+aging)' : f >= 1.05 ? '1 step (stress relief 또는 anneal)' : 'None';
+                            const hours = f == null ? null : f >= 1.5 ? '8-24h' : f >= 1.2 ? '4-8h' : f >= 1.05 ? '1-3h' : '0h';
+                            const ksRef = f != null && f >= 1.2 ? 'KS D 0040 (열처리 일반) · KS D 3866 (구조용 강)' : null;
                             return (
                               <>
-                                <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px] mt-1">
-                                  <div><span className="text-foreground/60">분위기:</span> <b>{atmosphere}</b></div>
-                                  <div><span className="text-foreground/60">총 시간:</span> <b>{hours}</b></div>
-                                  <div className="col-span-2"><span className="text-foreground/60">단계:</span> <b>{steps}</b></div>
-                                </div>
-                                <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{htCost.note}</p>
-                                                                {/* R226k — HT 주의사항: m.profiles.htg / htc → ht-guidance.json (구 인라인 12블록 이관) */}
+                                {htCost && (
+                                  <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px] mt-1">
+                                    <div><span className="text-foreground/60">분위기:</span> <b>{atmosphere}</b></div>
+                                    <div><span className="text-foreground/60">총 시간:</span> <b>{hours}</b></div>
+                                    <div className="col-span-2"><span className="text-foreground/60">단계:</span> <b>{steps}</b></div>
+                                  </div>
+                                )}
+                                {htCost && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{htCost.note}</p>}
+                                {/* R226k — HT 주의사항: m.profiles.htg / htc → ht-guidance.json (구 인라인 12블록 이관) */}
                                 {htGuidanceTexts.length > 0 && (
-                                  <div className="mt-2 pt-2 border-t border-current/15">
+                                  <div className={htCost ? 'mt-2 pt-2 border-t border-current/15' : ''}>
                                     <p className="text-[11px] font-semibold leading-relaxed mb-1">⚠ 열처리 주의사항:</p>
                                     <RecText className="text-[11px] leading-relaxed">{htGuidanceTexts.join('\n\n')}</RecText>
                                   </div>
                                 )}
                                 <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
-                                  <b>출처 / 기준</b>: ASM Handbook Vol.4 Heat Treating{ksRef && ` · ${ksRef}`} · AMS spec (alloy 별) · 분위기/단계/시간은 factor 기반 휴리스틱 (vendor 견적 별도 필요).
+                                  <b>출처 / 기준</b>: ASM Handbook Vol.4 Heat Treating{ksRef && ` · ${ksRef}`} · AMS spec (alloy 별){htCost ? ' · 분위기/단계/시간은 factor 기반 휴리스틱 (vendor 견적 별도 필요)' : ''}.
                                 </p>
                               </>
                             );
