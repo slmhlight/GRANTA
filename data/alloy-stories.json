@@ -921,7 +921,14 @@
     "ASM Handbook Vol.1",
     "JIS G 4051 / KS D 3752"
    ],
-   "legacy_text": "AISI 1040 은 C 0.37-0.44% 의 plain medium-carbon steel — 한국 KS D 3752 의 SM40C, 일본 JIS S40C, 독일 DIN C40 (1.0511) 와 동일합니다. 1018 (mild) 보다 강도 ↑, 1050 (medium-strong) 보다 weldability ↑ 의 균형으로 spring, shaft, hand tool 의 baseline 입니다.\n\n응용 범위는 일반 산업 — Crankshaft (소형 엔진), gear blank, axle shaft, spline, key, machine tool body, wood-working hand tool (도끼, 망치), 작은 leaf spring, railway track spike, 농기계 component (cultivator tine, plow blade). 가격은 1018 의 약 1.1배.\n\nHT 표준 — Normalized (σy 350 / σUTS 580 MPa, HRC 20) 또는 Q+T (σy 490 / σUTS 690 MPa, HRC 28). Spring 응용 시 oil quench + tempering 425-475°C."
+   "sections": {
+    "hook": "무르지도 단단하지도 않은 중탄소강 — 축·기어·공구의 중간값 1040.",
+    "origin": "AISI 1040 은 탄소 0.4%의 평탄소강으로, 일본 S40C·한국 SM40C·독일 C40 과 같은 조성이다. 저탄소 1018 보다 강하고 고탄소 1050 보다 용접이 쉬운 균형점이라, 축·스프링·수공구의 기본재로 자리 잡았다.",
+    "breakthrough": "탄소 0.4%는 조질로 항복 500MPa 급 강도를 내면서도, 담금질 균열 위험이 크지 않고 용접·가공이 무난한 중간 지대다. 표면만 유도경화해 축의 저널만 단단하게 만드는 처리도 흔하다 — 강도와 다루기 쉬움의 절충이 이 강의 자리다.",
+    "adoption": "20세기 초 SAE 표준화와 함께 소형 엔진 크랭크샤프트·기어 블랭크·축의 공용재가 됐고, 농기계·수공구로 확산됐다.",
+    "today": "소형 크랭크샤프트, 기어 블랭크, 축·스플라인·키, 수공구(도끼·망치), 소형 판스프링에 쓰인다. 더 강해야 하면 1050·4140 조질로, 더 무르고 용접이 쉬워야 하면 1018·1020 으로 간다.",
+    "fun_fact": "망치·도끼 같은 수공구가 중탄소강인 이유는 균형 때문이다 — 너무 무르면 찌그러지고 너무 단단하면 깨지는데, 0.4% 탄소가 \"때려도 견디되 깨지지 않는\" 지점을 준다."
+   }
   },
   "aisi-1045": {
    "display": "AISI 1045",
@@ -947,7 +954,14 @@
     "SAE J403 / JIS G 4051 / KS D 3752",
     "ASM Handbook Vol.1 'Carbon and Alloy Steels'"
    ],
-   "legacy_text": "AISI 1050 은 C 0.48-0.55% 의 plain medium-carbon steel 로, JIS S50C / S45C 와 거의 동일한 화학 조성을 가집니다 (한국 KS D 3752 의 SM50C). 1018 (C 0.18%) 보다 강도가 약 2배 높고 (Q+T 후 σy 580-620 MPa), spring 으로 쓸 수 있을 정도의 hardenability 를 가져요.\n\n응용 — 자동차 axle shaft, propeller shaft, gear blank (annealed 상태로 machining → carburizing 또는 induction-hardening), machine tool spindle, leaf spring (heavier-duty applications), railway car coupling 등. 일본 JIS S45C/S50C 는 한국 기계 산업에서 가장 흔한 medium-carbon 합금으로, 자동차 부품, 산업 기계, 농기계의 baseline shaft material 입니다.\n\nHT 표준 — Normalized (HRC 18-25) 가 일반적이고, 더 높은 강도가 필요하면 Q+T (austenitize 830°C → oil quench → temper 540°C, HRC 28-33). Induction hardening 으로 표면만 HRC 55+ 까지 경화하는 surface-hardened shaft 가 자동차 부품의 표준 처리입니다."
+   "sections": {
+    "hook": "스프링도 되는 중고탄소강 — 담금질로 제법 단단해지는 축·판스프링의 1050.",
+    "origin": "AISI 1050 은 탄소 0.5% 부근의 중고탄소 평탄소강으로, 일본 S50C·한국 SM50C 와 거의 같다. 저탄소 1018 의 두 배 가까운 강도를 조질로 낼 수 있고, 스프링으로 쓸 만한 경화능을 가진 것이 특징이다.",
+    "breakthrough": "탄소가 높아 담금질+뜨임으로 항복 580~620MPa 급까지 오르고, 유도경화로 표면만 HRC 55 이상으로 굳혀 마모 부위를 강화할 수 있다. 강도는 얻되 용접·성형은 저탄소강보다 까다로워지는 지점이라, 대개 조질·표면경화 부품으로 쓴다.",
+    "adoption": "자동차 축·기어 블랭크와 중하중 판스프링에 채택되며 기계 부품의 표준 축재가 됐고, 특히 아시아 기계공업에서 S45C/S50C 가 가장 흔한 중탄소강이 됐다.",
+    "today": "자동차 구동축·프로펠러 축, 기어 블랭크, 중하중 판스프링, 공작기계 스핀들에 쓰인다. 표면만 굳히는 유도경화 축이 자동차 부품의 표준 처리이며, 더 높은 강도·인성은 4140 으로 간다.",
+    "fun_fact": "아시아 기계 도면에서 가장 자주 보이는 재질이 \"S45C/S50C\"다 — 미국의 4140 자리를 이 중탄소강이 대신할 만큼, 축이라 하면 먼저 떠오르는 재료가 됐다."
+   }
   },
   "aisi-1080": {
    "display": "AISI 1080",
@@ -961,7 +975,14 @@
     "ASTM A29 / SAE J403",
     "ASM Handbook Vol.1 'Carbon Steel Wires'"
    ],
-   "legacy_text": "AISI 1080 은 C 0.75-0.88% 의 eutectoid carbon steel — Fe-C 상태도의 eutectoid composition (C 0.77%) 부근에서 austenite 가 거의 100% pearlite 로 변환됩니다. 이 미세조직이 high-strength wire 의 비밀이에요.\n\n역사적 응용은 piano wire / music wire 입니다. 1820년대 Krupp 이 처음 cold-drawn high-C wire 를 만들었고, 1860년대 Paris 의 Pleyel piano 와 New York Steinway piano 가 1080 wire 를 채용하면서 표준이 됐죠. 인장 강도가 cold-drawn 후 2000-3000 MPa 까지 도달 — 가는 직경 (0.5-1.5 mm) 의 piano 현이 200 kg 의 인장 하중을 견디는 비결입니다.\n\n현대 응용 — Knife blade (특히 일본 도검 yasugi-hagane 백탄소강), high-strength spring (valve spring, suspension spring), high-strength wire (steel cord for radial tire, suspension bridge cable). cold-work 으로 강도를 얻는 합금이라 welding 어려움."
+   "sections": {
+    "hook": "거의 100% 펄라이트로 굳는 강 — 피아노선과 타이어 코드의 공석 탄소강 1080.",
+    "origin": "AISI 1080 은 탄소 0.8% 부근의 공석(eutectoid) 탄소강으로, 냉각 시 오스테나이트가 거의 전부 펄라이트로 변한다. 이 미세한 펄라이트 조직이 극도로 강한 강선의 비밀이라, 오래전부터 피아노선과 스프링의 재료가 됐다.",
+    "breakthrough": "가느다랗게 냉간인발하면 펄라이트의 얇은 층이 섬유처럼 정렬해, 인장강도가 2000~3000MPa 에 이르는 강선이 된다 — 열처리가 아니라 가공경화만으로 얻는 초고강도다. 대신 탄소가 높아 용접은 어렵고, 강도는 오직 냉간가공에서 나온다.",
+    "adoption": "19세기 피아노 제조가 고탄소 강선을 현으로 채택하며 \"피아노선(뮤직 와이어)\"이라는 이름을 붙였고, 이후 스프링·케이블·타이어 코드로 확산됐다.",
+    "today": "피아노 현과 정밀 스프링, 현수교 케이블, 타이어 스틸 코드, 고탄소 칼날에 쓰인다. 부식·고온이 문제면 스테인리스·합금 스프링강으로, 더 균일한 조질 강도가 필요하면 합금강으로 간다.",
+    "fun_fact": "피아노 한 대의 현 전체가 견디는 장력은 수십 톤에 이른다 — 손가락 굵기도 안 되는 고탄소 강선들이 그 힘을 나눠 버티는데, 냉간인발로 섬유처럼 정렬된 펄라이트가 그 비결이다."
+   }
   },
   "aisi-301": {
    "display": "AISI 301",
@@ -1142,7 +1163,21 @@
     "JIS G 4053 / KS D 3753 (SCM430)",
     "NACA TR-540 (1935) 'Strength Tests of Steel Tubing for Aircraft Use'"
    ],
-   "legacy_text": "AISI 4130 은 Cr-Mo 저합금강 (C 0.28-0.33%, Cr 0.8-1.1%, Mo 0.15-0.25%) — 한국 KS D 3753 의 SCM430, 일본 JIS SCM430 와 동일합니다. 1930년대 NACA (NASA 의 전신) 항공기 fuselage tubing 표준으로 도입되며 'aircraft tubing' 이라는 별명을 얻었어요.\n\nNorman Goodyear 와 NACA Langley 연구소가 1932년 항공기 시제기의 wing strut + landing gear 에 4130 seamless tubing 을 도입하며 본격 응용. 2차 대전 동안 P-51 Mustang, B-17 Flying Fortress, Spitfire 의 fuselage frame 모두 4130 tubing 으로 제작됐고, 이후 항공·우주·모터스포츠의 baseline 합금이 됐습니다.\n\n현대 응용 — 모터사이클 frame (BMX, mountain bike — Mongoose, GT Bicycles), motorsports roll cage (NASCAR 표준은 4130 seamless tubing), 항공기 motor mount / wing strut, F1 suspension wishbone, pressure vessel (compressed air receiver, oxygen cylinder), oil & gas drilling pipe. 가격이 4140 의 약 1.3배이지만 weldability + machinability 가 우수해 thin-wall tubing 응용에서 절대 우위입니다.\n\nHT — Annealed (HRC 22) → Normalized (σy 460, HRC 27) → Q+T (σy 700-1100 MPa, HRC 28-42). Aerospace tubing 은 보통 normalized condition 으로 공급. AWS D17.1 표준의 항공 welding spec 적용."
+   "sections": {
+    "hook": "용접되는 크롬-몰리브데넘강 — \"항공기 튜빙\"이라 불리는 얇은 관 구조의 4130.",
+    "origin": "AISI 4130 은 탄소 0.3%의 크롬-몰리브데넘 저합금강으로, 일본 SCM430·한국 SCM430 과 같은 조성이다. 1930년대 미국 항공 연구기관(NACA)이 시제기의 동체·날개 지주·착륙장치용 이음매 없는 강관 표준으로 도입하며 \"항공기 튜빙(aircraft tubing)\"이라는 별명을 얻었다.",
+    "breakthrough": "4140 보다 탄소가 낮아 용접이 쉽고, 얇은 벽 관으로 만들어도 크롬-몰리브데넘의 경화능으로 충분한 강도가 나온다 — 가볍게 짜 올린 관 구조(트러스)에 이상적인 조성이다. 대개 정규화 상태로 공급되어 용접 후 그대로 쓰거나, 필요하면 조질로 항복 1000MPa 급까지 올린다.",
+    "adoption": "2차 대전 전투기 동체 프레임에 강관으로 대량 채택됐고, 전후 항공·모터스포츠·자전거의 관 구조 기본재가 됐다.",
+    "today": "경비행기 엔진 마운트·날개 지주, 레이싱카 롤케이지, 자전거·오토바이 프레임, 고압 가스 실린더, 유정 드릴 파이프에 쓰인다. 얇은 벽 용접 관에서는 우위지만, 더 두꺼운 조질 부품은 4140 으로 넘어간다.",
+    "fun_fact": "경량 항공기와 레이싱카의 뼈대가 대개 4130 강관 용접 트러스다 — 얇게 만들어도 용접부가 믿을 만하다는 점이, 목숨을 싣는 관 구조의 채용 조건이었다."
+   },
+   "timeline": [
+    {
+     "year": 1930,
+     "event": "NACA, 4130 강관을 항공기 튜빙 표준으로 도입",
+     "ref": 1
+    }
+   ]
   },
   "aisi-4140": {
    "display": "AISI 4140",
@@ -1156,7 +1191,21 @@
     "Roberts G A, Krauss G & Kennedy R (1998) Tool Steels, 5th ed., ASM",
     "Bhadeshia H K D H & Honeycombe R W K (2017) Steels: Microstructure and Properties, 4th ed."
    ],
-   "legacy_text": "1923년 SAE 의 새 numbering system 이 4xxx 시리즈를 Mo-bearing low-alloy steel 로 지정하면서 그 중 4140 — 1.0% Cr + 0.20% Mo + 0.40% C — 가 'general purpose Cr-Mo' 표준으로 등장합니다. 1941년 AISI 와 SAE 가 통합 numbering 을 합의하면서 정식 등재됐고, EU 표준명 42CrMo4 (EN 10083-3) 는 1971년 등록됐어요.\n\n4140 의 의의는 Mo 0.2% 의 역할에 있어요. tempering brittleness (350-450°C 영역에서 σ 인접 P, S 가 입계 석출) 를 억제하면서, Cr 1% 가 경화능 (hardenability) 을 ø100 mm 두께까지 보장하는 거죠 — 가장 두꺼운 단조에서도 균일한 σ_y 700+ MPa 가 나옵니다. 응용 — 자동차·트럭의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. 가장 흔히 만져지는 alloy steel 의 가장 흔한 grade 라고 보면 됩니다."
+   "sections": {
+    "hook": "세상에서 가장 흔히 만지는 합금강 — 축·기어·볼트의 만능 크롬-몰리브데넘강 4140.",
+    "origin": "AISI 4140 은 크롬 1%·몰리브데넘 0.2%에 탄소 0.4%를 더한 저합금강으로, 1923년 SAE 가 4xxx(Mo 함유) 계열을 정립하며 \"범용 Cr-Mo\"의 표준으로 등장했다. 유럽명 42CrMo4 로도 불리며, 기계구조용 합금강의 대명사가 됐다.",
+    "breakthrough": "핵심은 몰리브데넘 0.2%다 — 뜨임취성을 억제해 두꺼운 단면을 조질해도 인성이 유지되고, 크롬 1%가 지름 100mm 급까지 경화능을 보장한다. 담금질+뜨임으로 항복 700MPa 이상을 균일하게 얻으면서, 뜨임 온도로 강도-인성을 폭넓게 조율할 수 있다.",
+    "adoption": "1920~30년대 자동차·항공 산업이 축·크랭크샤프트·기어에 채택하며 기계공업의 공용 재료가 됐고, 유정 시추 붐이 수요를 더했다.",
+    "today": "자동차 축·크랭크샤프트·커넥팅로드, 공작기계 스핀들, 풍력 발전 주축, 유정 공구, 밸브 몸체까지 — \"합금강\"이라는 말이 가장 먼저 가리키는 강이다. 더 높은 인성이 필요하면 니켈을 더한 4340 으로 간다.",
+    "fun_fact": "기계 부품 도면에 재질이 \"합금강\"으로만 적혀 있으면 십중팔구 4140 이다 — 강도·인성·값·가공성 어느 하나 크게 모자라지 않는 균형이, 이 강을 기본 선택지로 만들었다."
+   },
+   "timeline": [
+    {
+     "year": 1923,
+     "event": "SAE 4xxx(Mo 함유) 계열 정립 — 4140 범용 Cr-Mo 등장",
+     "ref": 1
+    }
+   ]
   },
   "aisi-420": {
    "display": "AISI 420",
@@ -1212,7 +1261,14 @@
     "Bhadeshia H K D H (2012) \"Steels for Bearings\", Prog Mater Sci 57(2)",
     "SKF Group \"Bearing Steels: 52100\" Tech Bulletin (2018)"
    ],
-   "legacy_text": "1898년 독일 SKF 의 창립자 스벤 빙크비스트 (Sven Wingquist) 가 ball bearing 의 표준 재료를 찾던 중 high-carbon chromium steel — 1% C + 1.5% Cr — 의 마법을 발견합니다. 후에 미국 AISI 가 52100 (UNS G52986) 으로 표준화한 합금이죠. quench + 160°C tempering 후 σ_UTS 2300 MPa + HRC 62 + 매우 낮은 inclusion 함량 — 회전 마찰 환경에서 '10⁹ cycle 의 무한 수명' 을 달성하는 합금입니다.\n\n응용은 정말 많아요. 모든 자동차의 wheel bearing (BMW, Toyota, 현대 자동차), 산업 모터의 deep groove ball bearing (SKF, FAG, Timken, NSK 의 표준 grade), 풍력 발전기의 main shaft bearing (Sumitomo MGB, Romax 의 표준), 컴퓨터 hard disk 의 spindle bearing (sealed for clean room operations), 산업 grinder spindle bearing 까지.\n\n흥미로운 진화가 있어요. 2000년대 들어 hybrid bearing — 외륜·내륜은 52100, 볼은 Si₃N₄ ceramic — 이 등장했죠. 이유는 5만 RPM 이상에서 ball 의 원심력으로 race 마모가 가속되는데, ceramic ball (3.2 g/cm³, 52100 의 40%) 이면 그 force 가 절반 이하가 되거든요. F1 의 엔진 spindle bearing, MTU 의 jet engine bearing, ASML 의 wafer scanner stage bearing 이 hybrid 입니다. 52100 자체는 100+ 년 동안 형상만 진화하고 조성은 그대로 — '한 합금이 그만큼 완벽' 한 셈이죠."
+   "sections": {
+    "hook": "100년째 조성이 그대로인 베어링강 — 굴림 접촉의 무한 수명을 낸 고탄소 크롬강 52100.",
+    "origin": "AISI 52100 은 탄소 1%·크롬 1.5%의 고탄소 크롬강으로, 20세기 초 유럽 베어링 산업이 굴림 요소 재료로 표준화했다(유럽명 100Cr6). 담금질 후 HRC 62 의 경도와 극도로 낮은 개재물이, 회전 마찰이라는 가혹한 조건에서 사실상 무한에 가까운 피로 수명을 낸다.",
+    "breakthrough": "고탄소가 다량의 미세 크롬 탄화물과 경질 마르텐사이트를 만들어 내마모·접촉피로를 극대화하고, 청정 제강이 굴림 피로의 시작점이 되는 개재물을 최소화한다. 볼과 레이스가 매 회전 수 GPa 로 눌리는 조건에서, 이 조합이 10억 회전급 수명을 가능케 한다.",
+    "adoption": "20세기 초 볼·롤러 베어링의 표준 재료로 채택된 이래, 자동차·산업 모터·공작기계의 모든 정밀 베어링으로 확산됐다.",
+    "today": "자동차 휠 베어링, 산업 모터·공작기계 스핀들 베어링, 풍력 주축 베어링, 하드디스크 스핀들에 쓰인다. 초고속에서는 볼만 질화규소로 바꾼 하이브리드 베어링이 원심력·전식을 줄여 이 강의 레이스와 짝을 이룬다.",
+    "fun_fact": "52100 은 100년 넘게 형상만 진화하고 조성은 거의 그대로다 — 굴림 접촉이라는 문제에 이만한 답이 없어서, \"바꿀 필요가 없어 안 바뀐\" 드문 강이다."
+   }
   },
   "aisi-8620": {
    "display": "AISI 8620",
@@ -1226,7 +1282,14 @@
     "ASM Heat Treater's Guide 2nd ed. (1995)",
     "Krauss G (2015) Steels: Processing, Structure, and Performance 2nd ed., ASM"
    ],
-   "legacy_text": "AISI 8620 은 미국 SAE-AISI 의 'carburizing grade alloy steel' 표준입니다. C 0.18-0.23% + Ni 0.4-0.7% + Cr 0.4-0.6% + Mo 0.15-0.25% 의 low-carbon alloy steel 로, carburizing (case hardening) 후의 '표면 hard + 코어 tough' 의 dual-property gear/shaft 표준입니다. 1930년대 미국 자동차 산업의 transmission gear 표준이 8620 으로 통일됐어요.\n\n8620 의 핵심은 carburizing 가능한 조성입니다. Surface 에 C 를 0.9-1.1% 까지 침투시켜 (boost carburizing) HRC 58-62 의 굳은 표면을 만들고, 코어는 C 0.18-0.23% 로 그대로 둬서 KIC 90 MPa·√m, Charpy 60 J 이 유지됩니다. Heat treatment 표준은 920°C carburize → 850°C oil quench → 175°C low temper. 결과는 surface HRC 60 / case 1 mm + core HRC 25 의 dual structure.\n\n응용: 자동차 transmission gear (특히 differential ring gear · pinion), planetary gear set (BMW · Mercedes 의 8-speed automatic 의 일부 gear), 산업 reducer gear (Sumitomo · SEW 의 cycloidal reducer), 그리고 산업 chain pin · cam · roller. 8620 의 매력은 cost ($1.8-3.2/kg) + carburizing 가능 + 가공성의 균형입니다. 더 높은 강도가 필요하면 8822 (C 0.22%, Mo 0.35%), 또는 9310 (Ni 3.25%, Cr 1.2%) 이 검토됩니다. 흥미로운 사실은 1986년 NASA Space Shuttle 의 main engine turbopump bearing 의 일부가 9310 carburized steel 이었고, 8620 의 후속 variant 가 우주 propulsion 에 진입한 케이스라는 점입니다."
+   "sections": {
+    "hook": "겉은 단단하게 속은 질기게 — 침탄해 쓰는 기어강의 대표 8620.",
+    "origin": "AISI 8620 은 니켈·크롬·몰리브데넘을 조금씩 넣은 저탄소(0.2%) 합금강으로, 침탄(case hardening) 후 \"표면 경화+심부 인성\"을 얻는 기어·축 표준이다. 1930년대 미국 자동차 산업이 변속기 기어 재료를 이 조성으로 통일하며 자리 잡았다.",
+    "breakthrough": "저탄소 심부는 질긴 채로 두고, 침탄으로 표면에만 탄소를 0.9~1.1%까지 넣어 HRC 58~62 의 굳은 경화층을 만든다. 니켈·크롬·몰리브데넘이 심부 인성과 경화능을 조율해, 이가 부러지지 않으면서 이면은 마모에 견디는 기어를 만든다 — 접촉피로와 충격을 함께 받는 부품의 답이다.",
+    "adoption": "자동차 변속기 링기어·피니언과 산업 감속기 기어의 표준으로 채택되며 대량생산 기어의 기본재가 됐다.",
+    "today": "변속기·차동 기어, 산업 감속기 기어, 캠·롤러·체인 핀에 쓰인다. 값·침탄성·가공성의 균형이 좋아 널리 쓰이며, 더 높은 강도·청정도가 필요한 항공 기어는 9310 으로 올라간다.",
+    "fun_fact": "침탄 기어는 겉과 속이 다른 강처럼 작동한다 — 표면은 유리처럼 단단해 마모에 버티고 속은 고무처럼 질겨 충격을 흡수하는, 한 부품 안의 이중 인격이 8620 의 재주다."
+   }
   },
   "al-li-alloys": {
    "display": "Al-Li Alloys (2090 / 2099 / 8090 / 2196 / 2198)",
@@ -1492,7 +1555,21 @@
     "AISC Steel Construction Manual 15th ed. (2017)",
     "Bjorhovde R (2004) \"Development and Use of High Performance Steel\", J Constr Steel Res 60"
    ],
-   "legacy_text": "ASTM A36 는 미국에서 가장 흔히 쓰이는 carbon structural steel 의 grade designation 입니다. 1960년 ASTM 이 발행한 'Standard Specification for Carbon Structural Steel' 이 원본이고, σy 250 MPa (36 ksi, 그래서 A36) · UTS 400-550 · El 20% 의 minimum spec 을 보장합니다. Carbon 0.26% 이하 + Mn 약 0.8-1.0% 로 가장 단순한 ferritic-pearlitic 미세조직을 가져요.\n\n건축의 거의 모든 일반 구조용 steel 이 A36 입니다. I-beam (W shape), H-pile, angle iron, channel iron, square / rectangular tubing, plate. 미국에서만 연간 4천만 톤의 A36 가 생산되며 이는 전체 carbon steel 생산의 30% 이상을 차지해요. 가격이 가장 저렴하고 (~$0.8-1.3/kg) machining + welding + bending 모두 쉬워서 '명확한 이유가 없으면 A36 부터 검토' 가 mechanical engineer 의 기본 자세입니다.\n\n실제 응용은 무한합니다. 빌딩 frame (300m+ skyscraper 의 일부 column, 보 — A36 또는 high-strength A992), 다리 (golden gate bridge 의 주요 stiffener, suspension cable 안의 wire 는 high-strength carbon steel), 자동차 chassis frame (트럭 ladder frame), 산업 storage tank, 일반 기계 frame, 그리고 사실상 모든 ' 산업 metal cabinet · workbench · 부품 holder ' . 단점은 부식 저항이 없어 도장 또는 galvanizing 이 필수, 그리고 σy 250 MPa 이 한계라 high-load 또는 light-weight 응용에는 A992 (σy 345) 또는 A572 Grade 50 / 65 가 검토됩니다."
+   "sections": {
+    "hook": "세상에서 가장 흔한 구조용 강 — 건물·다리·기계 프레임의 기본값 A36.",
+    "origin": "ASTM A36 은 미국에서 가장 널리 쓰이는 탄소 구조강 등급으로, 1960년 표준으로 발행됐다. 이름의 36 은 최소 항복강도(36 ksi=250MPa)를 뜻하며, 탄소 0.26% 이하의 가장 단순한 페라이트-펄라이트 조직이다 — 특별한 야금이 아니라 \"어디서 사도 같은 성질\"이라는 표준화 자체가 핵심이다.",
+    "breakthrough": "값이 가장 싸고, 절삭·용접·굽힘이 모두 쉬우며, 형강·판·관 등 모든 형태로 유통된다. 강도의 정점 대신 범용성과 예측 가능성을 택한 강이라, \"특별한 이유가 없으면 A36 부터 검토\"가 구조·기계 설계의 기본 자세가 됐다.",
+    "adoption": "1960년대 이후 미국 철골 건축·교량·산업 구조의 기본 강재가 됐고, 형강·플레이트로 연간 수천만 톤이 소비된다.",
+    "today": "건물 골조, 교량 보강재, 트럭 섀시, 저장탱크, 기계 프레임, 작업대까지 — \"그냥 강철\"이 필요한 모든 곳의 기본값이다. 부식 방지 도장·아연도금이 필수이며, 더 높은 강도·경량이 필요하면 A572 Gr50·A992 로 넘어간다.",
+    "fun_fact": "엔지니어가 재료를 못 정했을 때의 안전한 첫 답이 A36 이다 — 싸고, 구하기 쉽고, 어떻게 다뤄도 예측대로라, \"일단 A36 으로 그리고 나중에 올린다\"가 설계실의 관행이 됐다."
+   },
+   "timeline": [
+    {
+     "year": 1960,
+     "event": "ASTM A36 표준 발행 — 미국 탄소 구조강의 기본 등급",
+     "ref": 1
+    }
+   ]
   },
   "auto-galvanized-sheet": {
    "display": "Automotive & Galvanized Sheet (SGCC · SGC400 · SAPH/SPFH · STKM)",
