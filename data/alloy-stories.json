@@ -345,7 +345,14 @@
     "ASM Handbook Vol.2 'Aluminum Pure Grades 1xxx'",
     "Hatch J E (ed., 1984) Aluminum: Properties and Physical Metallurgy"
    ],
-   "legacy_text": "AA 1050 은 commercially pure aluminum (99.50% Al min) — 1xxx 시리즈의 baseline 입니다. Fe + Si 가 unintentional impurity 로 < 0.50% 잔존하지만 Cu / Mn / Mg / Cr / Zn 는 거의 없어요 (각 < 0.05%). 이 high-purity 조성이 전기 전도도와 부식 저항의 비결입니다.\n\n응용 — Electrical busbar / conductor (변전소 high-voltage busbar, transformer winding), 식품 가공 (cooking pot, 김치 fermenter inner liner), chemical storage tank (HNO₃ 95% storage — Al 의 self-passivation Al₂O₃ 가 acid 와 반응 않음), heat exchanger fin (HVAC system 의 air-to-air heat exchanger), reflective optics (search-light reflector, solar concentrator), decorative trim (anodized exterior cladding). 1050 의 전기 전도도는 62% IACS — 무게 비교 시 동의 약 2배 효율로 long-distance transmission line 의 standard 가 됐어요.\n\nHT 가능성은 제한적 — non-heat-treatable (Mg-Si 도 Cu 도 충분치 않음). Strain-hardening (H12 ~ H18) 으로만 강도 향상 가능. O (annealed) σy 28 MPa / σUTS 75 MPa, H18 (full hard) σy 145 MPa / σUTS 160 MPa. Weldability 우수 — 표준 ER1100 filler 또는 base self-filler 사용. 산업 응용 시 가장 가격 효율적인 Al alloy (가격 약 2.4 USD/kg)."
+   "sections": {
+    "hook": "유럽의 순알루미늄 — 전도·내식·성형이 최상급인 99.5% 알루미늄 1050.",
+    "origin": "AA 1050 은 순도 99.5%의 상업용 순알루미늄으로, 1xxx 계열의 기준 grade 다. 미국 1100(99.0%)과 형제뻘로, 유럽·아시아에서 순알루미늄이라 하면 흔히 이 1050 을 가리킨다 — 합금 원소가 거의 없어 성질이 순수 알루미늄 그 자체다.",
+    "breakthrough": "합금 원소가 없어 강도는 낮지만, 전기·열 전도가 좋고 내식·성형·양극산화가 최상급이다. 깊게 접고 얇게 펴는 가공이 자유롭고, 질산 같은 강산에도 부동태막으로 견딘다 — \"강도 빼고 다 되는\" 순알루미늄의 미덕을 그대로 지녔다.",
+    "adoption": "전력 산업의 버스바·도체와 식품·화학 저장 용기로 대량 채택됐고, 반사판·방열 핀으로 확산됐다.",
+    "today": "전력 버스바·도체, 식품·화학 저장탱크, 방열 핀, 반사판, 명판에 쓰인다. 강도가 조금이라도 필요하면 3003 으로, 구조 강도가 필요하면 5xxx·6xxx 로 올라간다.",
+    "fun_fact": "진한 질산을 알루미늄 탱크에 담는 것이 얼핏 위험해 보이지만, 순알루미늄 표면의 산화막이 오히려 산과 반응하지 않아 안전하다 — 순도가 높을수록 이 부동태가 더 잘 지켜진다."
+   }
   },
   "aa-1100": {
    "display": "AA 1100",
@@ -825,7 +832,14 @@
     "DuPont Delrin 150 Tech Data Sheet",
     "Brydson J A (1999) Plastics Materials 7th ed., Butterworth-Heinemann"
    ],
-   "legacy_text": "Acetal (POM, Polyoxymethylene) 의 monomer 인 formaldehyde 가 자발적 중합하는 현상은 1859년 러시아 화학자 알렉산드르 부틀레로프 (Aleksandr Butlerov) 가 paraformaldehyde 부산물로 처음 관찰했지만, thermally stable 한 polymer 로 만드는 chain-end stabilization 기술이 해결되지 않아 industrial polymer 가 되지 못했어요. 90여 년 후 1953년 미국 DuPont 의 로버트 맥도널드 (Robert N. MacDonald) 팀이 acetate end-capping 기술로 안정화에 성공해 1960년 'Delrin 100' 으로 출시했죠. 거의 동시에 1962년 독일 Celanese 가 ethylene oxide co-monomer 를 추가한 copolymer 'Hostaform' (later Celcon) 을 상품화했습니다.\n\nPOM 의 매력은 high crystallinity (75-80%) → 그에 따른 dimensional precision + fatigue resistance + low friction 의 균형입니다. σy 70 MPa · modulus 3.1 GPa · El 25-40% — engineering polymer 중 dimension-critical 부품의 표준이에요. 마찰계수 0.2 (PTFE 의 0.05 보다는 높지만 일반 polymer 의 0.3-0.5 보다 낮음).\n\nPOM 의 두 가지 변형: Homopolymer (Delrin 500) vs Copolymer (Hostaform C 9021 / Celcon M90). Homopolymer 가 σy 약간 더 높고 (75 vs 65 MPa), copolymer 가 thermal stability (HDT 110°C vs 100°C) + chemical resistance (강알칼리 환경) 가 더 우수해요.\n\n응용: 정밀 gear (small mechanical clock, electric razor, 산업 servo motor gear 의 plastic option), snap-fit (자동차 interior trim — Toyota/Hyundai의 dashboard panel snap), 가전 dishwasher rack roller, 자동차 fuel system component (gasoline + ethanol 환경에서 PA66 보다 hydrolysis 저항 우수), zipper teeth (YKK 의 일부 plastic zipper), 그리고 furniture hinge + drawer slide. 단점은 acid + 강산 환경 (98% H₂SO₄ 같은) 에서 chain depolymerization → formaldehyde 방출, 이 때문에 acid plant 응용에는 PVDF (Kynar) 또는 PEEK 가 대체됩니다."
+   "sections": {
+    "hook": "금속처럼 정밀한 플라스틱 — 기어·베어링을 대신하는 엔지니어링 폴리머 아세탈(POM).",
+    "origin": "아세탈(POM, 폴리옥시메틸렌)의 단량체가 스스로 중합하는 현상은 19세기에 관찰됐지만, 사슬 끝이 불안정해 잘 분해되는 탓에 오래도록 실용화되지 못했다. 20세기 중반 사슬 끝을 안정화하는 기술이 개발되며 DuPont 이 Delrin(호모폴리머)으로, Celanese 가 코폴리머(Celcon)로 상용화하면서 엔지니어링 플라스틱의 반열에 올랐다.",
+    "breakthrough": "결정성이 높아(75~80%) 치수 안정성·강성·내마모·자기윤활이 뛰어나고, 마찰계수가 낮아 윤활 없이 미끄러진다. 흡습이 적어 나일론보다 치수가 안정한 것도 강점이다 — 금속 기어·베어링을 대신할 \"정밀 플라스틱\"의 자리를 얻었다.",
+    "adoption": "전자·자동차 산업이 소형 기어·캠·베어링을 금속에서 아세탈로 대체하며 대량 채택했고, 지퍼·버클·기구 부품으로 확산됐다.",
+    "today": "소형 기어·캠·베어링·부싱, 지퍼·버클, 정밀 기구 부품, 연료계 부품에 쓰인다. 호모폴리머(Delrin)는 강성·강도가, 코폴리머(Celcon)는 열수·화학 안정성이 낫다. 더 높은 내열·강도는 PA·PBT·PEEK 로 간다.",
+    "fun_fact": "작은 플라스틱 기어가 조용히 정확하게 도는 시계·프린터·자동차 부품 속에 대개 아세탈이 있다 — 기름칠 없이도 잘 미끄러지고 치수가 안 변해, 금속 기어의 소음과 급유를 없앤 재료다."
+   }
   },
   "advanced-high-strength-steel": {
    "display": "Advanced High-Strength Steel (Dual-Phase DP780 / DP980)",
@@ -881,7 +895,14 @@
     "AISI \"Steel Products Manual: Carbon Steel Bars\" (1999)",
     "ASM Handbook Vol.1 \"Properties and Selection: Irons, Steels and High-Performance Alloys\""
    ],
-   "legacy_text": "1010 은 carbon 0.08~0.13% 의 ultra-low-carbon plain steel 로, 1941년 AISI numbering 표준화 시 '가장 부드러운 일반 강' 카테고리에 들어갔습니다. 거의 pure iron 에 가까운 미세조직 (ferrite 100%) 으로 σ_y 180 MPa, El 28% — 종이를 자르듯 가공이 쉬운 게 특징이에요.\n\n응용은 'deep drawing 이 필요한 모든 곳'. 자동차 차체 패널, 캔 음료 외장, 와이어 (paperclip, fence wire, nail), 가구 tube (수업용 의자 frame), 농기계 cover panel, 가스 보일러 thin-wall housing, 산업용 ductwork. 용접성도 perfect (CE 0.18) 이고, galvanizing 후 거의 모든 산업 굴뚝·전봇대 base 로도 사용됩니다."
+   "sections": {
+    "hook": "거의 순철에 가까운 가장 무른 강 — 깊게 눌러 뽑는 판금·철사의 1010.",
+    "origin": "AISI 1010 은 탄소 0.1% 안팎의 초저탄소 평탄소강으로, 사실상 페라이트 100%에 가까운 조직이다. 강도는 낮지만 종이를 자르듯 가공이 쉽고 무한히 늘어나, \"깊게 눌러 성형(딥드로잉)\"이 필요한 곳의 기본 판금·선재가 됐다.",
+    "breakthrough": "탄소가 거의 없으니 연신율이 극도로 높고 용접성이 완벽하다 — 복잡한 형상으로 깊게 프레스하거나 가늘게 뽑아도 찢어지지 않는다. 강도가 필요 없는 대신 \"잘 늘어나고 잘 붙는\" 성질을 극대화한 강이다.",
+    "adoption": "자동차 차체 패널과 캔·철사·못의 대량 성형재로 채택되며 판금 산업의 기본재가 됐다.",
+    "today": "자동차 외판, 캔·용기, 못·클립·철망, 가구 튜브, 덕트에 쓰인다. 아연도금해 굴뚝·기둥 밑판으로도 널리 쓰인다. 강도가 필요하면 1018·1020 으로, 표면 경화가 필요하면 침탄강으로 간다.",
+    "fun_fact": "클립·못·철망처럼 마구 구부려도 안 부러지는 흔한 철제품이 대개 1010 계다 — 강해서가 아니라 무르고 잘 늘어나서, 함부로 다뤄지는 자리에 오히려 잘 맞는다."
+   }
   },
   "aisi-1018": {
    "display": "AISI 1018",
@@ -893,7 +914,14 @@
     "AISI Bar Steel Products Committee (1999) \"Carbon Steel Bars: 1018, 1020\"",
     "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM"
    ],
-   "legacy_text": "20세기 초 미국 SAE (Society of Automotive Engineers) 가 자동차 부품 표준화를 위해 1911년 처음 numbering system 을 발표합니다. 1XXX 시리즈를 plain carbon steel 로 지정하고, 마지막 두 자리는 ≈ 100 × carbon% 를 표시하기로 한 거죠. 즉 1018 = 0.18% C, 1020 = 0.20% C, 1045 = 0.45% C. 1941년 AISI (American Iron & Steel Institute) 가 SAE 의 numbering 을 채택하면서 'AISI/SAE 1018' 형식이 현행 표준으로 정착됐습니다.\n\n1018 은 저탄소 (C 0.15-0.20%) mild steel 로 ferrite-pearlite 미세조직 + 거의 무한 ductility 가 특징. Cold drawn round bar 기준 σy 370 MPa / σUTS 440 MPa / El 15%. Annealed 는 σy 235 / σUTS 365 / El 35%. 절삭 가공성 (machinability rating) 70% 정도 — 1144 free-machining (S 첨가) 보다는 낮지만 plain carbon 중 baseline. 용접성은 plain carbon 중 최고 (carbon equivalent 0.22, no preheat needed).\n\n응용 — 자동차 변속기 shaft (carburized + Q+T 후 사용), 농기계 axle, 산업 컨베이어 frame, 일반 fastener (low-strength bolt/nut), 단조 raw stock, machining stock (CNC 가공용 round bar 표준). 건축 W-shape (H-beam) 은 ASTM A992 (yield 345 MPa) 또는 A36 (yield 250 MPa, C ≤ 0.26%) — 1018 자체보다 약간 high-C 인 별도 grade 사용. 1018/1020 은 일반 carbon steel bar 분야의 가장 흔한 grade — JIS S20C / DIN 1.0453 (C18) 와 거의 동등."
+   "sections": {
+    "hook": "가장 흔한 연강 — 잘 깎이고 잘 붙는, 기계 부품의 저탄소 기본재 1018.",
+    "origin": "AISI 1018 은 탄소 0.18%의 저탄소 평탄소강이다. 20세기 초 SAE 가 정한 10xx 체계에서 뒤 두 자리가 탄소 함량(×0.01%)을 뜻하니, 이름만 봐도 조성을 안다. 강도·가공성·값이 모두 \"기본값\"이라, 기계 부품 소재의 출발점이 됐다.",
+    "breakthrough": "페라이트-펄라이트 조직이 절삭·용접·냉간성형을 모두 무난하게 받고, 냉간인발하면 강도가 제법 오른다. 침탄으로 표면만 굳혀 마모 부위를 강화하는 것도 쉽다 — 강도의 정점 대신 다루기 쉬움을 택한 범용재다.",
+    "adoption": "20세기 초 자동차 부품 표준화와 함께 축·핀·소형 부품의 공용재가 됐고, 냉간인발 환봉으로 기계가공 시장의 기본 스톡이 됐다.",
+    "today": "축·핀·스페이서·브래킷 등 일반 기계 가공품과 냉간성형 부품, 침탄용 소재로 쓰인다. 강도가 더 필요하면 1045 조질로, 합금강 경화능이 필요하면 4140 으로 넘어간다.",
+    "fun_fact": "기계공작 실습과 CNC 시제작에서 가장 먼저 물리는 재료가 1018 환봉이다 — 싸고 잘 깎이고 예측대로라, \"연습용 강철\"의 대명사가 됐다."
+   }
   },
   "aisi-1020": {
    "display": "AISI 1020",
@@ -969,7 +997,14 @@
     "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM",
     "ASTM A29 \"Standard Specification for General Requirements for Steel Bars\""
    ],
-   "legacy_text": "AISI 1045 는 carbon 0.43~0.50% 의 medium-carbon plain steel 로, 1911년 SAE numbering 표준화 직후부터 'general purpose machinery steel' 자리에 올랐어요. 0.45% C 는 normalized 상태로 σ_y 530 MPa + El 16% — 1018 (0.18% C) 의 약 1.5배 강도이면서도 가공성은 여전히 양호한 sweet spot 이거든요.\n\n응용 — 자동차 axle shaft (Hyundai/Kia), 산업 펌프 shaft, gear blank (induction-hardened 후 case 만 강하게), bolt blank (Grade 5 / 8.8), 머시너리 base plate, 농기계 fork tine, 산업 hydraulic ram. 한국 KS D 3752 의 S45C, 독일 DIN EN 10083 의 C45, 일본 JIS G 4051 의 S45C 모두 동일 합금이에요 — 자동차·기계 산업의 단조 blank 의 절반 정도가 1045 / S45C / C45 입니다.\n\n흥미. 1045 는 'flame-hardenable medium carbon' 의 typical example 이에요. 표면을 산소-아세틸렌 torch 로 빨갛게 달군 후 물 분사로 quench 하면 surface 만 HRC 55 의 martensite 가 되고 안쪽은 ductile pearlite 가 유지됩니다. 자동차 cam shaft 의 cam lobe 표면 hardening 이 이 기술의 가장 흔한 응용이죠."
+   "sections": {
+    "hook": "기계 산업이 가장 많이 쓰는 중탄소강 — 축·기어·볼트의 만능 블랭크 1045.",
+    "origin": "AISI 1045 는 탄소 0.45%의 중탄소 평탄소강으로, 일본 S45C·한국 SM45C·독일 C45 와 같다. 저탄소 1018 의 약 1.5배 강도를 조질로 내면서도 가공성이 여전히 좋은 균형점이라, \"범용 기계강\"의 자리에 올랐다.",
+    "breakthrough": "탄소 0.45%는 정규화만으로 항복 500MPa 급을 내고, 담금질+뜨임이나 유도경화로 더 강하게 만들 수 있다. 표면만 유도경화해 저널을 굳히는 처리가 축 부품의 표준이다 — 강도와 가공성의 절충이 이 강의 자리다.",
+    "adoption": "20세기 기계·자동차 산업이 축·기어 블랭크·볼트 소재로 채택하며 단조 블랭크의 표준이 됐고, 특히 아시아 기계공업에서 S45C 가 가장 흔한 중탄소강이 됐다.",
+    "today": "자동차 구동축, 펌프 축, 기어·볼트 블랭크, 유압 램, 기계 베이스에 쓰인다. 아시아 도면에서 \"S45C\"는 축의 기본값이며, 더 높은 강도·인성은 4140·4340 으로 간다.",
+    "fun_fact": "\"축이라 하면 S45C\"라는 말이 기계 설계실의 상식이다 — 미국의 4140 자리를 아시아에서는 이 값싼 중탄소강이 대신할 만큼, 축 소재로 가장 먼저 떠오르는 재료다."
+   }
   },
   "aisi-1050": {
    "display": "AISI 1050",
@@ -1045,7 +1080,14 @@
     "Pickering F B (1976) The Metallurgical Evolution of Stainless Steels",
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
    ],
-   "legacy_text": "AISI 302 는 austenitic stainless steel 중 304 의 'older sibling' 입니다. 1925년 ASTM 이 304 (Cr 18% + Ni 8% + C 0.08% max) 를 표준화하면서 그 직전의 high-C variant 를 302 (Cr 17-19% + Ni 8-10% + C 0.15% max) 로 designation 했어요. C 함량이 304 의 2배 가까이 높아서 cold-working 시 σy 가 더 빨리 올라가는 게 특징입니다.\n\n302 의 매력은 cold-work hardening 이 다른 austenitic 보다 강하다는 점입니다. Annealed σy 200 MPa → cold-worked half-hard 800 MPa → full-hard 1200 MPa. 304 의 ½ hard 가 700 MPa 인 데 비해 302 는 800 MPa 까지 가능. 이 때문에 austenitic spring steel 산업의 표준으로 자리잡았어요.\n\n응용: stainless spring wire (Smalley wave spring 의 일부 grade — 302 cold-drawn wire 가 austenitic spring 의 baseline), 정밀 wire form spring (전자 connector spring contact), surgical instrument 의 일부 (외과 retractor 의 spring 부분 — autoclave 환경 호환), 그리고 식기 cutlery (302 의 일반 forks/knives — 304 보다 cheaper). 단점은 C 함량이 높아 용접 후 sensitization (450-850°C 에서 Cr₂₃C₆ 입계 석출) 위험이 크다는 점. 그래서 용접 필요 응용은 304 또는 304L (C ≤ 0.03%) 로 대체됩니다."
+   "sections": {
+    "hook": "304보다 탄소를 높여 더 잘 굳는 오스테나이트 스테인리스 — 스프링 와이어의 302.",
+    "origin": "AISI 302 는 304 의 손위 형제 격인 오스테나이트 스테인리스다. 1920년대 304 를 표준화할 때, 그 직전의 탄소가 높은 조성을 302 로 남겼다. 탄소가 304 의 두 배 가까이 높아, 냉간가공 시 강도가 더 빠르게 오르는 것이 특징이다.",
+    "breakthrough": "오스테나이트계는 열처리로 경화되지 않지만, 냉간가공하면 가공경화로 단단해진다 — 302 는 탄소가 높아 이 가공경화가 더 강해, 냉간인발하면 인장 1200MPa 급까지 오른다. 그러면서 스테인리스의 내식·비자성(가공 전)을 유지한다.",
+    "adoption": "냉간가공 강도가 필요한 스테인리스 스프링 산업이 302 를 표준 와이어로 채택하며 자리 잡았다.",
+    "today": "스테인리스 스프링 와이어, 클립, 성형 판스프링, 케이블에 쓰인다. 용접·내식이 더 중요하면 저탄소 304L 로, 더 높은 스프링 강도·내식은 석출경화(17-7 PH) 스테인리스로 간다.",
+    "fun_fact": "스테인리스 스프링은 담금질이 아니라 \"당기고 감는\" 냉간가공으로 강해진다 — 302 의 높은 탄소가 그 가공경화를 빠르게 해, 늘일수록 단단해지는 스프링 와이어에 딱 맞았다."
+   }
   },
   "aisi-303": {
    "display": "AISI 303",
@@ -1652,7 +1694,14 @@
     "Avedesian M M & Baker H (eds., 1999) ASM Specialty Handbook: Magnesium and Magnesium Alloys",
     "Friedrich H E & Mordike B L (eds., 2006) Magnesium Technology: Metallurgy, Design Data, Applications, Springer"
    ],
-   "legacy_text": "1933년 미국 Dow Chemical 의 허버트 다우 (Herbert Dow) 와 Alcoa 의 영국 자회사가 Mg-Al 3% + Zn 1% 합금을 처음 표준화했어요. H24 (rolled + partial annealed) sheet 로 1939년부터 미국 Beechcraft 의 항공기 cowling 에 사용됐죠. AZ 명명법은 A = Aluminum, Z = Zinc, 숫자는 wt% 표시 — 1948년 ASTM B107 으로 표준 등재됐습니다.\n\nMg 합금의 위상은 독특해요 — 1.74 g/cm³의 가장 가벼운 구조 금속 (Al 2.7 의 65%), σ_y 200 MPa. HCP 결정구조 때문에 cold workability 가 낮은 게 한계지만, 200°C+ 의 hot rolling 으로 sheet 제조는 가능합니다. 응용 — VW Beetle 의 transmission case (1938-2003, Mg 가 100%), Boeing 747 의 cockpit 내부 floor panel, MacBook Pro 의 내부 chassis (M1 모델 일부), Sony α7 mirrorless camera body, 항공기 일반 wheel, 자동차 steering wheel armature. 한계는 부식 (galvanic + 자체적 Mg 의 anodic 반응) — 그래서 차체 외부 응용은 매우 제한적입니다."
+   "sections": {
+    "hook": "가장 널리 쓰이는 판·압출용 마그네슘 — 알루미늄 3%로 균형을 잡은 경량 AZ31B.",
+    "origin": "AZ31B 는 마그네슘에 알루미늄 3%·아연 1%를 넣은 가공용(판·압출) 합금이다. 1930년대에 표준화됐고, 이름 자체가 조성(A=알루미늄, Z=아연)을 담는다. 마그네슘은 밀도 1.74 로 알루미늄의 2/3에 불과한 가장 가벼운 구조 금속이라, 극한의 경량화를 노리는 곳에 쓰인다.",
+    "breakthrough": "알루미늄 3%가 강도와 내식을 적당히 주면서도 가공성을 지키는 균형점이라, 마그네슘 합금 중 판·압출로 만들기 가장 무난하다. 다만 조밀육방(HCP) 구조라 상온 성형이 어려워 200°C 이상 온간에서 압연·성형한다.",
+    "adoption": "2차 대전기 항공기 카울링 판재로 채택되며 자리 잡았고, 전자기기 케이스·경량 구조로 확산됐다.",
+    "today": "노트북·카메라 등 전자기기 케이스, 항공·경량 구조 판재, 진동 감쇠가 필요한 부품에 쓰인다. 부식 때문에 표면처리가 거의 필수이며, 강도가 더 필요하면 AZ80·ZK60 으로 간다.",
+    "fun_fact": "가벼운 노트북·카메라 바디의 상당수가 마그네슘 판(AZ31)이다 — 알루미늄보다 가벼우면서 진동을 잘 흡수해, 손에 드는 기기의 무게와 촉감을 함께 잡는다."
+   }
   },
   "az91d": {
    "display": "AZ91D",
@@ -1664,7 +1713,14 @@
     "ASTM B94 \"Standard Specification for Magnesium-Alloy Die Castings\"",
     "Friedrich H E & Mordike B L (eds., 2006) Magnesium Technology, Springer"
    ],
-   "legacy_text": "1933년 미국 Dow Chemical 이 AZ31 (Mg-Al 3%) 의 cast 변형으로 Al 9% + Zn 1% 의 합금을 출시했어요 — die-cast 의 fluidity 와 die-soldering 저항을 동시에 풀려고 한 결과물이었죠. 1950년대 들어 'D' suffix 가 추가되며 (Al 7.5~9.7% 의 tight 한 범위로 spec) AZ91D 가 자동차 die-cast 의 default 자리에 올랐습니다.\n\n응용 — 자동차 — VW Beetle 의 transmission case (1938-2003, AZ91D 의 가장 유명한 응용), Audi A8 의 ZF transmission housing (2003-), BMW i8 의 일부 내부 chassis. 가전 — Sony α7 mirrorless camera body, Apple iPad 1세대의 internal frame (저전류 응용). 자동차 — 핸들 column lock, gear shift housing, seat frame.\n\n흥미. AZ91D 의 die-cast 공정에서는 mold (steel) 와 molten Mg 사이의 'soldering' (mutual adhesion) 이 큰 issue 였어요. Al 9% 가 정확히 이를 회피하는 비율 — 너무 적으면 (예: AZ31) die 에 붙고, 너무 많으면 (예: AM50) 강도가 떨어집니다. 1933년 Dow 의 발견이 60년이 지나도 정확한 비율로 자리잡은 셈이죠."
+   "sections": {
+    "hook": "가장 널리 쓰이는 다이캐스트 마그네슘 — 알루미늄 9%로 주조성을 잡은 AZ91D.",
+    "origin": "AZ91D 는 마그네슘에 알루미늄 9%·아연 1%를 넣은 다이캐스팅 전용 합금이다. 1930년대에 나온 AZ 계열의 주조형으로, 알루미늄을 9%까지 높여 쇳물의 흐름성과 금형 부착(다이 솔더링) 저항을 잡았다. ‘D’ 등급은 불순물(철 등)을 엄격히 낮춰 내식을 개선한 현대 표준이다.",
+    "breakthrough": "알루미늄 9%가 좁은 응고 구간과 좋은 유동성을 줘, 얇고 복잡한 형상을 고압 다이캐스팅으로 대량 생산할 수 있다. 마그네슘의 가벼움을 그대로 살리면서 주조성을 극대화한 조성이라, 경량 하우징의 기본값이 됐다.",
+    "adoption": "20세기 중반 자동차 변속기 케이스·하우징에 채택되며 다이캐스트 마그네슘의 표준이 됐고, 전자기기 프레임으로 확산됐다.",
+    "today": "자동차 변속기·스티어링 하우징, 시트 프레임, 카메라·노트북 프레임에 쓰인다. 부식·크리프 때문에 표면처리와 설계 관리가 필요하며, 고온부는 희토류계(WE43)로, 대량 경량 주물은 알루미늄 다이캐스트로 갈린다.",
+    "fun_fact": "공랭식 폭스바겐 비틀의 변속기 케이스가 마그네슘 주물이었다 — 수십 년간 가장 유명한 마그네슘 대량 응용으로, 이 가벼운 금속이 자동차 밑바닥에서 오래 일해 왔음을 보여 준다."
+   }
   },
   "beryllium-copper-c17200": {
    "display": "Beryllium Copper C17200",
