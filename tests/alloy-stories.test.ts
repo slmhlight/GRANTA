@@ -100,11 +100,23 @@ describe('산출물 parity (materials.json)', () => {
     }
     expect(bad).toEqual([]);
   });
-  it('v2 exemplar — Inconel 718: sections 4 + timeline 3 (ref 인덱스 유효)', () => {
+  it('v2 exemplar — Inconel 718: 6섹션 완비 + timeline 3 (ref 인덱스 유효)', () => {
     const m = all.find((x) => x.story_key === 'inconel-718');
     expect(m).toBeTruthy();
-    expect(Object.keys(m!.story_v2?.sections || {}).sort()).toEqual(['adoption', 'breakthrough', 'origin', 'today']);
+    expect(Object.keys(m!.story_v2?.sections || {}).sort()).toEqual(['adoption', 'breakthrough', 'fun_fact', 'hook', 'origin', 'today']);
     expect(m!.story_v2?.timeline?.length).toBe(3);
+  });
+  /* R226u 구조 2.0 — 사용자 요구: v2 는 풀 스켈레톤(6섹션) + 표준 순서 준수. */
+  it('v2 전량: hook/origin/breakthrough/adoption/today/fun_fact 6섹션 완비 + 표준 순서', () => {
+    const bad: string[] = [];
+    for (const [k, st] of Object.entries(STORIES)) {
+      if (!st.sections) continue;
+      for (const req of ORDER) if (!(st.sections as Record<string, string>)[req]) bad.push(`${k}:${req} 누락`);
+      const keys = Object.keys(st.sections);
+      const ref = ORDER.filter((x) => keys.includes(x));
+      if (JSON.stringify(keys) !== JSON.stringify(ref)) bad.push(`${k}: 순서 ${keys.join(',')}`);
+    }
+    expect(bad).toEqual([]);
   });
   it('재연결 앵커 — A-286·2205 Duplex·CBN 이 스토리 보유 (dead 복구 회귀 방지)', () => {
     for (const rx of [/Carpenter A-286/, /^2205 Duplex Stainless/, /CBN \(cubic Boron Nitride/]) {
