@@ -4604,6 +4604,10 @@
    "stable_ids": [
     "POL-0024",
     "POL-0025",
+    "POL-0026",
+    "POL-0027",
+    "POL-0028",
+    "POL-0029",
     "POL-0030"
    ],
    "refs": [
@@ -4616,7 +4620,7 @@
     "origin": "1977년 영국 ICI 의 연구진(J B Rose 등)이 방향족 폴리에터케톤 계열을 합성하며 PEEK(폴리에터에터케톤)가 태어났고, 1981년 Victrex PEEK 라는 이름으로 상업화됐다. ICI 가 1993년 이 사업을 분사시킨 것이 지금의 Victrex 다. 이름의 에터-에터-케톤은 주사슬의 반복 구조를 그대로 읽은 것이다.",
     "breakthrough": "반결정성 방향족 골격이 유리전이 143°C·융점 343°C 에 연속 사용 250°C 급을 주고, 진한 산에도 견디는 내약품성과 감마선 저항까지 겸한다. 강도·탄성률도 엔지니어링 플라스틱 최상급이라, \"금속 대체(metal replacement)\"라는 말이 이 재료의 마케팅이 아니라 실제 용도가 됐다.",
     "adoption": "1980년대 상용화 직후 항공 내장·브래킷과 유정 부품으로 퍼졌고, 1990년대 말 척추 유합 케이지에 채택되면서 의료 임플란트 시장이 열렸다 — 오늘날 PEEK 수요의 큰 축이 이 두 산업이다.",
-    "today": "척추 유합 케이지 같은 의료 임플란트(뼈와 비슷한 탄성률에 X선 투과), 항공기 브래킷·클램프, 유정 씰·백업링, 반도체 공정 치구가 본진이다. 탄소섬유 강화 PEEK-CF 는 강성·내마모를 한 단계 올려 베어링 케이지와 구조 부품을 맡는다. 값이 부담이면 PPS·PEI 로, 결정화 제어가 관건인 프린팅·복합재는 사촌 PEKK 로 넘어간다.",
+    "today": "척추 유합 케이지 같은 의료 임플란트(뼈와 비슷한 탄성률에 X선 투과), 항공기 브래킷·클램프, 유정 씰·백업링, 반도체 공정 치구가 본진이다. 유리섬유 강화 PEEK-GF30, 탄소섬유 강화 PEEK-CF(Victrex 450CA30·Solvay KetaSpire KT-820 SCF30)는 강성·내마모를 한 단계 올려 베어링 케이지·구조 부품에, 무충전 Victrex 450G 는 범용 사출에 쓰인다. 값이 부담이면 PPS·PEI 로, 결정화 제어가 관건인 프린팅·복합재는 사촌 PEKK 로 넘어간다.",
     "fun_fact": "척추 임플란트에서 PEEK 가 티타늄을 밀어낸 이유는 강해서가 아니라 뼈만큼만 강해서다 — 지나치게 뻣뻣한 금속은 주변 뼈의 하중을 빼앗아 골밀도를 떨어뜨리는데(응력 차폐), PEEK 는 뼈와 탄성률이 비슷해 그 문제를 비켜간다."
    },
    "timeline": [
@@ -4632,66 +4636,29 @@
     }
    ]
   },
-  "peek-gf30": {
-   "display": "PEEK GF30",
-   "stable_ids": [
-    "POL-0026"
-   ],
-   "refs": [
-    "Victrex 450GL30 (PEEK-GF30) Tech Data",
-    "Kurtz S M (2012) PEEK Biomaterials Handbook, Elsevier",
-    "Brydson J A (1999) Plastics Materials 7th ed."
-   ],
-   "legacy_text": "PEEK GF30 (Victrex 450GL30) 은 base PEEK 에 30 wt% glass fiber 를 강화한 form 입니다. 1985년 Victrex 가 'reinforced grade' 으로 출시했고 GF + CF 두 가지 강화 grade 가 동시에 시장에 나왔어요. GF (glass fiber) 강화는 stiffness + dimensional stability 가 핵심 목적이고, CF (carbon fiber) 강화는 strength + EMI shielding + thermal conductivity 가 핵심입니다.\n\nPEEK base σy 100 → GF30 강화 후 160-180 MPa, modulus 3.8 → 11-13 GPa. 강화량이 PA6-GF30 보다 더 큰 이유는 PEEK matrix 와 GF 사이의 interface bonding 이 PA6-GF 보다 우수하기 때문이에요 (PEEK 의 화학적 inert 특성이 GF 표면의 silane coupling agent 와 더 잘 반응합니다). Tg 도 143°C → ~160°C (강화), HDT 는 152°C → 315°C.\n\n응용: 항공 bracket (Boeing 787 cabin 내부의 metal-replacement bracket), 자동차 high-temperature housing (engine 근방 electronics housing), oil & gas downhole tool 의 sealing assembly (200°C+ 환경), 산업 pump seal (Sulzer 의 high-pressure mechanical seal), semiconductor wafer chuck assembly 의 일부, 그리고 의료 surgical instrument handle (autoclave + gamma sterilizable). 가격은 base PEEK ($90/kg) 대비 GF30 ($110-130/kg) 으로 30% 비싸지만 강도가 2배라 가공 후 부품 단가는 오히려 비슷합니다. 단점은 GF 가 abrasive sliding 부위에서 마모를 일으켜 PEEK CF30 (Victrex 450CA30) 또는 PEEK + PTFE filled 변형이 sliding 응용에서 검토됩니다."
-  },
-  "peek-solvay-ketaspire-kt-820-scf30": {
-   "display": "PEEK Solvay KetaSpire KT-820 SCF30",
-   "stable_ids": [
-    "POL-0028"
-   ],
-   "refs": [
-    "Solvay KetaSpire KT-820 SCF30 Tech Data",
-    "Kurtz S M (2012) PEEK Biomaterials Handbook, Elsevier",
-    "Friedrich K (2018) \"Polymer composites for tribological applications\""
-   ],
-   "legacy_text": "KetaSpire KT-820 SCF30 은 Solvay 의 PEEK + 30 wt% short carbon fiber 강화 grade 입니다. Solvay 가 2010년대 PEEK 시장 진입을 위해 launch 한 KetaSpire 시리즈는 Victrex PEEK 의 alternative 로 marketing 됐고, SCF30 (Short Carbon Fiber 30%) 은 Victrex 의 450CA30 의 equivalent 입니다.\n\n특성: σy 230 MPa, UTS 250 MPa, modulus 21 GPa, El 2-3%, Tg 143°C, HDT 320°C, max service 250°C. Victrex 450CA30 과 거의 동일한 spec 이지만 Solvay 의 KetaSpire 는 약간 더 high molecular weight 인 base PEEK 를 사용해 fatigue resistance 가 미세하게 우수한 것으로 알려져 있어요.\n\n응용: 항공 metal-replacement bracket (Boeing 787 의 일부 cabin bracket, Airbus A350 의 일부 secondary structure), 의료 spinal cage + interbody implant (Medtronic, Stryker 의 CF-PEEK spine implant 의 일부), 자동차 high-load underhood bracket, 산업 high-pressure pump seal 의 일부 grade, 그리고 oil & gas downhole tool 의 일부 sealing assembly. 가격은 Victrex 450CA30 과 거의 동등 ($110-150/kg). Solvay 의 시장 점유는 Victrex 의 약 1/3 정도이지만 항공 / 의료 의 specific customer (특히 Medtronic, Boeing 등) 가 dual-source 전략으로 채택하면서 안정 성장 중입니다."
-  },
-  "peek-victrex-450ca30": {
-   "display": "PEEK Victrex 450CA30",
-   "stable_ids": [
-    "POL-0029"
-   ],
-   "refs": [
-    "Victrex 450CA30 (PEEK-CF30) Tech Data",
-    "Kurtz S M (2012) PEEK Biomaterials Handbook, Elsevier",
-    "Friedrich K (2018) \"Polymer composites for tribological applications\", Adv Indust Eng Polym Res 1"
-   ],
-   "legacy_text": "PEEK Victrex 450CA30 은 base PEEK (Victrex 450G) 에 30 wt% chopped carbon fiber 를 강화한 grade 입니다. 1990년대 Victrex 가 'CA' (Carbon-fiber Augmented) prefix 로 commercial launch 했고, 30% 가 표준이지만 60% (CA60) grade 도 존재합니다.\n\nCF 30% 강화의 결과: σy 230 MPa (base PEEK 의 2.3배), modulus 20 GPa (base 의 5배 이상), σ_compress 280 MPa, El 2-3% (base 의 1/10 — brittle). CF 의 longitudinal 강화가 압도적이고 transverse 는 base PEEK 와 유사. 또한 CF 는 thermal conductivity 를 0.25 → 0.7 W/m·K 로 약 3배 강화시키고 (heat dissipation 개선), EMI shielding 도 가능 (CF 가 electrical conductive).\n\n응용은 'metal replacement' 의 정점에 있습니다. 항공 bracket (Boeing 787 의 일부 cabin bracket — Ti 대신 PEEK-CF30 으로 무게 50% 감소), 자동차 high-temp housing (Audi · BMW 의 일부 turbo housing 인접 사용), oil & gas downhole tool (200°C+ 의 pressure compensator), 의료 spinal implant cage (CF 가 X-ray opaque 이어서 imaging 가능), 산업 pump seal 의 일부 grade, 그리고 EV 충전 high-power connector 의 housing. 단점은 가격 ($120-170/kg) 과 CF 의 abrasive sliding wear (sliding 응용에는 PEEK + PTFE filled 가 검토됨)."
-  },
-  "peek-victrex-450g-as-supplied-injection-molding": {
-   "display": "PEEK Victrex 450G — As-supplied (Injection Molding)",
-   "stable_ids": [
-    "POL-0027"
-   ],
-   "refs": [
-    "Attwood T E et al. (1981) \"Synthesis and properties of polyaryletherketones\", Polymer 22(8)",
-    "ICI UK Patent 1,569,602 (1976) \"Aromatic ether ketone polymers\"",
-    "Kemmish D (2017) Update on the Technology and Applications of Polyaryletherketones, Smithers Rapra",
-    "Victrex PLC Annual Report 2023 (https://www.victrex.com/investors)"
-   ],
-   "legacy_text": "1978년 영국 ICI (Imperial Chemical Industries) Wilton 연구소의 존 로즈 (John Rose) 와 P A 스태닐랜드 (Staniland) 가 difluorobenzophenone + hydroquinone 의 nucleophilic substitution 으로 polyetheretherketone 을 합성합니다 — 처음에는 핵 발전소의 고온 와이어 절연재로 개발 계획이었어요. 1986년 ICI 가 Plastics Division 을 spin-off 해 Victrex 로 분리하면서 PEEK 가 본격 상품화됐죠.\n\nT_m 343°C 의 결정성 polymer 로 ULTEM (Tg 217°C) 위 영역을 채우면서 200~260°C 의 연속 사용 온도, 99% 의 화학적 비활성 (강산, 강알칼리, 모든 일반 유기용제), 식품 등급 인증을 모두 보유하고 있어요 — 의료 척추 cage / pedicle screw (FDA Class III implant 표준), 반도체 wafer carrier, 오일·가스 다운홀 sealing, 자동차 ABS 펌프 piston ring, F1 F-duct actuator. 2016년 Apple iPhone 7 의 OLED 디스플레이 internal carrier 도 PEEK CF30 — 휴대폰 내부에서도 사용됐어요. 단점은 $95/kg 의 가격과 매우 느린 결정화 (등온 결정화 350°C/30 min) — 사출 성형 mold 가공 시간이 PP 의 3배입니다."
-  },
   "pei": {
    "display": "PEI",
    "stable_ids": [
-    "POL-0031"
+    "POL-0031",
+    "POL-0032",
+    "POL-0033",
+    "POL-0034",
+    "POL-0035",
+    "POL-0036"
    ],
    "refs": [
     "Bonner R W (1965) US Patent 3,847,867 \"Polyetherimides\"",
     "Sabic Ultem 1000 Tech Data (verified 2024)",
     "Brydson J A (1999) Plastics Materials 7th ed."
    ],
-   "legacy_text": "PEI (Polyetherimide) 는 1982년 미국 General Electric 의 Robert Bonner 가 발견한 amorphous high-performance thermoplastic 입니다. 1985년 GE Plastics 가 'Ultem 1000' 이라는 trade name 으로 commercial launch 했고, 이후 GE Plastics 가 Sabic 으로 매각 (2007) 되며 현재는 Sabic Ultem 으로 판매됩니다.\n\nPEI 의 핵심은 high Tg (217°C) + amorphous (결정 X) + transparent + electrical insulation 의 균형입니다. PEEK 와 비교하면 Tg 는 PEI 가 75°C 높지만 (217 vs 143), continuous use 는 PEI 가 170-180°C 로 PEEK (250) 보다 낮습니다. 그러나 PEI 는 amorphous 라 가공이 PEEK 보다 훨씬 쉽고 (사출 가공 cycle 1/2), 가격도 PEEK 의 1/2 ($35-55/kg) 입니다.\n\n응용: 항공 cabin interior — FAR 25.853 (flammability + smoke + toxicity) 통과 polymer 의 표준 (American Airlines, Delta 등의 좌석 backshell, tray table, overhead bin). 의료 sterilizable instrument handle (autoclave + gamma 모두 가능), 의료 device 의 transparent component (혈액 분석기 chamber, MRI gradient coil bobbin), 그리고 전자 connector + circuit board (high-voltage transformer bobbin, RF connector body). FDM 3D 프린팅 분야의 표준 high-temperature filament — Stratasys 의 Fortus 450mc 의 Ultem 1010 / Ultem 9085 가 항공 / 군용 prototype + production 의 표준입니다. 가격이 PEEK 의 1/2 이면서 80% 이상의 thermal performance 를 내는 게 매력입니다."
+   "sections": {
+    "hook": "호박빛의 투명한 고내열 플라스틱 — 난연·절연을 겸한 PEI(Ultem).",
+    "origin": "PEI(폴리에터이미드)는 1980년대 초 미국 GE 가 개발해 Ultem 상표로 상용화한 비정질 고성능 열가소성이다(현재 SABIC 소유). 이미드 고리가 주는 고내열에 에터 결합의 가공성을 더해, \"성형하기 쉬운 고내열 플라스틱\"을 목표로 설계됐다.",
+    "breakthrough": "유리전이온도가 217°C로 PEEK 보다 높고, 비정질이라 투명하며 치수 안정성이 좋다. 별도 첨가 없이도 스스로 잘 안 타고 연기·유독가스가 적어(본질적 난연), 전기 절연까지 겸한다. 연속 사용 온도는 PEEK 보다 낮지만, 가공성과 투명성·난연에서 앞선다.",
+    "adoption": "1990년대 이후 항공기 인테리어(난연 규정)와 의료 멸균 기구, 전자 커넥터에 채택되며 자리 잡았고, Ultem 9085 는 항공용 FDM 3D 프린팅 소재로 확산됐다.",
+    "today": "항공 인테리어 패널, 반복 멸균 의료 기구, 전자 커넥터·소켓, 반도체 치구에 쓰이며, Ultem 1010(사출)·Ultem 9085(FDM)가 대표 grade 다. 더 높은 연속 내열·내약품은 PEEK 로, 더 극한은 PI 로 간다.",
+    "fun_fact": "비행기 객실의 투명한 호박빛 부품(승무원 콜 버튼 커버·조명 렌즈 등)이 대개 PEI 다 — 불에 잘 안 타면서 투명해야 하는 항공 난연 규정을, 이 수지가 색과 함께 만족한다."
+   }
   },
   "pekk": {
    "display": "PEKK (+ PEKK-CF)",
@@ -4981,24 +4948,19 @@
     "Celanese Hostaform Tech Data Sheet",
     "Brydson J A (1999) Plastics Materials 7th ed."
    ],
-   "legacy_text": "POM Copolymer (POM-C, Hostaform / Celcon) 는 acetal 의 copolymer form 으로 1962년 미국 Celanese (현 Celanese / Ticona) 가 commercial launch 했어요. Base POM-H (Homopolymer, DuPont Delrin) 와 차이는 ethylene oxide 의 약 1-3 mol% co-monomer 가 chain 안에 분산되어 thermal stability 와 chemical resistance 가 약간 더 우수합니다.\n\nPOM-C vs POM-H: σy 65 MPa (POM-C) vs 70 MPa (POM-H) — POM-H 가 약간 더 높음. El 30-50% (둘 다 비슷). Continuous use 115°C (POM-C) vs 105°C (POM-H) — POM-C 가 약간 우수. Chemical resistance — POM-C 가 alkali 환경에서 더 안정.\n\n응용은 POM-H 와 거의 동일하지만 long-term thermal 환경 또는 alkali 환경에서 POM-C 가 선호됩니다. 자동차 fuel system component (gasoline + ethanol 환경에서 POM-C 가 안정), water meter 의 일부 (chlorinated water 환경), 가전 dishwasher inner component, 정밀 gear 의 일부 grade. Celanese 의 Hostaform / Ticona 의 Celcon 모두 POM-C 의 표준 brand 입니다."
-  },
-  "pom-delrin-500-acetal-homopolymer": {
-   "display": "POM Delrin 500 (Acetal Homopolymer)",
-   "stable_ids": [
-    "POL-0098"
-   ],
-   "refs": [
-    "MacDonald R N (1959) US Patent 2,877,213 (DuPont) \"Polymerization of formaldehyde\"",
-    "Wagner H (1965) DE Patent 1,158,071 (Celanese) \"Verfahren zur Polymerisation von Trioxan\"",
-    "Lüftl S, Visakh P M & Chandran S (eds., 2014) Polyoxymethylene Handbook, Scrivener Publishing",
-    "DuPont \"Delrin Design Information\" Product Bulletin 1995"
-   ],
-   "legacy_text": "1956년 미국 DuPont 의 리처드 맥도널드 (Richard MacDonald) 가 anhydrous formaldehyde 의 anionic polymerization 으로 polyoxymethylene (POM) homopolymer 를 합성, 1960년 'Delrin' 상표로 출시합니다. 거의 동시에 독일 Celanese 의 한스 바그너 (Hans Wagner, 1962년) 가 trioxane + ethylene oxide 의 cationic 공중합으로 'Celcon' copolymer 를 개발 — POM-H (DuPont Delrin) 와 POM-C (Celanese Celcon, BASF Ultraform, Polyplastics Duracon) 의 양강 구도로 발전했어요.\n\nPOM 의 매력은 결정성 70~75% 의 dense polymer 로 σ_y 70 MPa + 자가윤활 + 흡습 0.2% + 화학 비활성 입니다. 응용 — 1960년대 자동차 carburetor 의 metal 부품 대체 (Ford), 70년대 vacuum cleaner gear (Hoover), 80년대 Polaroid 카메라의 shutter, 90년대 ATM 지폐 dispenser 의 idler gear, 2000년대 데스크탑 프린터 sprocket (HP, Canon), 의료 inhaler 의 valve (Boehringer Ingelheim), 우주 — SpaceX Crew Dragon 의 일부 valve guide. '메탈 부품을 플라스틱으로 대체' 의 가장 흔한 후보입니다."
+   "sections": {
+    "hook": "열수·화학에 더 강한 아세탈 — Celcon/Hostaform 으로 대표되는 POM 코폴리머.",
+    "origin": "POM 코폴리머(POM-C, Hostaform/Celcon)는 아세탈의 공중합 형태로, 20세기 중반 Celanese 등이 상용화했다. 사슬에 소량의 공단량체(에틸렌옥사이드 등)를 넣어, 호모폴리머보다 열·화학·가수분해 안정성을 높인 것이 핵심이다.",
+    "breakthrough": "공단량체가 사슬을 안정화해 뜨거운 물·알칼리·반복 열에 호모폴리머보다 강하고, 두꺼운 단면에서도 중심부 다공이 잘 생기지 않는다. 강성·강도는 호모폴리머보다 살짝 낮지만, 장기 내구·화학 환경에서 더 믿을 만하다 — 안정성을 택한 아세탈이다.",
+    "adoption": "온수·세제에 닿는 배관 부속과 자동차 연료계 부품이 코폴리머를 채택하며 자리 잡았고, 일반 기구 부품으로 확산됐다.",
+    "today": "온수·세정 환경의 밸브·펌프 부속, 자동차 연료계 부품, 기어·부싱, 지퍼·버클에 쓰인다. 강성·강도가 우선이면 호모폴리머(Delrin)로, 더 높은 내열·강도는 PA·PBT·PEEK 로 간다.",
+    "fun_fact": "같은 \"아세탈\"이라도 뜨거운 물이 닿는 자리엔 코폴리머를 고른다 — 호모폴리머는 강하지만 열수·알칼리에서 서서히 분해되기 쉬워, 세탁기·온수 밸브 부속은 대개 코폴리머다."
+   }
   },
   "pom-homopolymer": {
    "display": "POM Homopolymer",
    "stable_ids": [
+    "POL-0098",
     "POL-0099",
     "POL-0102",
     "POL-0103"
@@ -5008,7 +4970,14 @@
     "Kern W & Cherdron H (1960) DuPont Patent on POM Homopolymer",
     "Brydson J A (1999) Plastics Materials 7th ed."
    ],
-   "legacy_text": "POM Homopolymer (POM-H, Delrin) 는 acetal 의 original homopolymer form 으로 1960년 미국 DuPont (Wallace Carothers 의 후속 팀) 가 commercial launch 했어요. Pure CH₂O monomer 의 polymerization 결과 chain 이 완전 homopolymer (예: -CH₂-O-CH₂-O-CH₂-O-) 로, copolymer (POM-C) 보다 결정도가 약간 높고 (75-80% vs 70-75%) σy 가 약간 더 높습니다.\n\n특성: σy 70 MPa, UTS 75 MPa, modulus 3.1 GPa, El 25-40% (cold drawn 후 30% 이상), Continuous use 105°C. 마찰계수 0.2, 저-noise sliding (자동차 dashboard 의 모든 일반 snap 부속의 'click' 이 POM 의 sliding sound). 단점은 acid 환경에서의 chain depolymerization (formaldehyde 방출).\n\n응용은 dimension critical + sliding 정밀 부속의 표준입니다. Lego Technic gear (Lego 의 일부 부속이 POM-H 인 게 정밀 + 마모 저항의 표준 사례), 자동차 dashboard snap-fit, 정밀 시계 mechanism 의 일부 plastic 부속 (예: digital watch 의 일부 internal frame), 가전 dishwasher rack roller, snap-fit 부속, fishing line guide ring, 그리고 자동차 fuel system 의 일부 (POM-C 와 비슷한 응용). Delrin 100 vs Delrin 500 vs Delrin 900 의 다양한 viscosity grade 가 있고 응용에 따라 선택됩니다."
+   "sections": {
+    "hook": "가장 단단하고 뻣뻣한 아세탈 — DuPont Delrin 으로 대표되는 POM 호모폴리머.",
+    "origin": "POM 호모폴리머(POM-H, Delrin)는 아세탈의 원조 형태로, 20세기 중반 DuPont 이 사슬 끝 안정화 기술로 상용화했다. 포름알데히드 단량체가 순수하게 중합한 사슬이라, 결정도가 코폴리머보다 약간 높아 강성과 강도에서 앞선다 — Delrin 500 이 그 대표 grade 다.",
+    "breakthrough": "높은 결정도(75~80%)가 강성·강도·내피로·내크리프를 극대화하고, 낮은 마찰계수가 윤활 없이 미끄러지게 한다. 흡습이 적어 치수도 안정하다 — 정밀 기계 부품에서 \"가장 금속에 가까운 플라스틱\"이라는 자리를 코폴리머와 나눈다.",
+    "adoption": "정밀 기어·베어링을 금속에서 대체하려는 전자·자동차 산업이 채택했고, 스냅 부속·기구 부품으로 확산됐다.",
+    "today": "고하중·고정밀 기어와 캠, 축·부싱, 스냅 체결, 정밀 기구 부품에 쓰인다. 강성·강도가 필요하면 호모폴리머, 열수·화학 안정성이 필요하면 코폴리머로 갈린다. 다만 두꺼운 단면 중심부에 미세 기공(센터라인 다공)이 생길 수 있어 코폴리머를 택하기도 한다.",
+    "fun_fact": "기계에서 \"델린으로 깎자\"는 말은 곧 정밀 플라스틱 부품을 뜻한다 — 상표명 Delrin 이 POM 호모폴리머의 대명사가 될 만큼, 이 재료가 소형 기어·부싱의 표준이 됐다."
+   }
   },
   "pp": {
    "display": "PP",
@@ -6050,34 +6019,6 @@
     "today": "극초음속 비행체의 리딩엣지·로켓 노즐목·재진입 선단 등 산화 분위기 초고온 부위가 주 무대다. 아직 가공·소결·인성이 과제라 대부분 연구·방산·우주 영역에 머문다.",
     "fun_fact": "TaC·HfC 의 융점 약 3900°C 는 \"가장 높이 녹는 물질\" 목록의 단골이다 — 고체 상태가 버틸 수 있는 온도의 사실상 끝단을 이 탄화물들이 지키고 있다."
    }
-  },
-  "ultem-1010": {
-   "display": "ULTEM 1010",
-   "stable_ids": [
-    "POL-0032",
-    "POL-0033",
-    "POL-0034"
-   ],
-   "refs": [
-    "Sabic Ultem 1010 Tech Data",
-    "Stratasys Ultem 1010 Material Data Sheet (verified 2024)",
-    "Aw J et al. (2018) \"FDM of Ultem 1010 for Medical Applications\", Rapid Prototyping J 24"
-   ],
-   "legacy_text": "ULTEM 1010 은 Sabic 의 PEI (Ultem 1000 series) 중 unfilled, transparent, high-purity grade 입니다. 의료 + 식품 contact 용으로 USP Class VI + ISO 10993 + FDA contact 인증을 받은 grade 이며, Stratasys 가 2014년 자사의 FDM 3D 프린팅 filament 로 채택해 'Ultem 1010' 이 항공 / 의료 AM 의 표준 high-temp 재료가 됐어요.\n\n특성: base Ultem 1000 과 거의 동일하지만 추가로 식품/의료 안전성 인증. Tg 217°C · σy 105 MPa · UTS 115 MPa · modulus 3.2 GPa · El 60-80%. Continuous use 170-180°C. Stratasys FDM print 결과는 부분적으로 anisotropic — Z-축 (build direction) 의 strength 가 X/Y 의 70% 정도.\n\n응용: Stratasys Fortus 450mc + Fortus 900mc 의 표준 high-temp filament. 항공기 ducting (커스텀 ducting 의 prototype + low-volume production), 의료 surgical guide + sterilizable instrument handle (autoclave + EtO + gamma 모두 가능), 자동차 motorsport prototype, 그리고 식품 처리 plant 의 일부 contact 부속. 가격은 Stratasys cartridge $300+ /kg 이라 일반 polymer 대비 매우 비싸지만 metal 대체 + custom geometry 가 가능한 게 매력. 비교 grade Ultem 9085 는 flame-retardant 인증으로 항공 cabin 응용 (FAR 25.853), 1010 은 식품/의료 인증으로 의료 응용에 특화."
-  },
-  "ultem-9085": {
-   "display": "ULTEM 9085",
-   "stable_ids": [
-    "POL-0035",
-    "POL-0036"
-   ],
-   "refs": [
-    "Sabic Ultem 9085 Tech Data",
-    "Stratasys Ultem 9085 Material Data Sheet (verified 2024)",
-    "FAR 25.853 \"Compartment Interiors\"",
-    "Bourell D L et al. (2017) \"Materials for AM\", CIRP Annals 66"
-   ],
-   "legacy_text": "ULTEM 9085 는 Sabic 의 PEI 의 'flame-retardant + smoke + toxicity' (FST) grade 입니다. PEI base 에 brominated flame retardant 를 첨가해 FAR 25.853 (Federal Aviation Regulation, 항공기 cabin material 의 화재 안전 기준) 통과가 가능한 grade. 1990년대 GE Plastics 가 commercial launch 했고, Stratasys 가 2007년 FDM 3D 프린팅 filament 의 첫 항공-qualified 재료로 채택했어요.\n\n특성: Tg 186°C (base PEI 217°C 보다 약간 낮음, 화재 처리제 영향) · σy 65-85 MPa · modulus 2.4 GPa · El 5-7%. FST 등급은 OSU (Ohio State University) heat release < 65 kW·min/m² (FAR 25.853 한도), 발연 (smoke) < 200 OSU NBS, toxicity 도 통과. Stratasys FDM print 의 결과는 anisotropic 이지만 항공 part 의 spec 이 정해진 isotropic value 보다 보수적으로 사용됩니다.\n\n응용: 항공기 cabin 내부 ducting (Airbus A350, Boeing 787, F-35), 항공기 brackets + spacer, 화재 안전 요구 의료 device (휴대용 portable ventilator 의 일부 housing), 군용 응급 의료 kit case. Stratasys 의 첫 항공 인증 (Boeing F-18 fighter ducting, 2014) 으로 'FDM Ultem 9085 가 항공 production 가능' 이라는 분기점을 만든 게 화제였고, 그 이후 Lockheed Martin · Boeing · Airbus 의 일부 low-volume cabin part 가 FDM 으로 print 되고 있습니다."
   },
   "ultra-high-strength-steel": {
    "display": "Ultra-High-Strength Steel (300M / D6AC / HP-9-4-30)",
