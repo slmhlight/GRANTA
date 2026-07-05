@@ -23,6 +23,7 @@ const KO = {
   'kovar': '코바', 'invar': '인바', 'molybdenum': '몰리브데넘', 'tantalum': '탄탈럼', 'niobium': '나이오븀',
   'titanium': '티타늄', 'magnesium': '마그네슘', 'aluminum': '알루미늄', 'nickel': '니켈', 'cobalt': '코발트',
   'polyethylene': '폴리에틸렌', 'polysulfone': '폴리설폰', 'rebar': '철근', 'forsterite': '포스터라이트',
+  'polycarbonate': '폴리카보네이트',
 };
 // 지정자가 아닌 범용 단어 (무숫자 fallback 에서 제외 — 규격 접두어 포함: 단독으론 식별력 없음)
 const STOP = new Set(['steel', 'tool', 'alloy', 'iron', 'high', 'cast', 'wire', 'grade', 'type', 'plate',
@@ -45,12 +46,16 @@ function tokensOf(base) {
   if (full.length >= 2) t.add(full); // 전체 이름 (EVA·PC-ABS·Onyx 등)
   if (FORMULA[full]) t.add(FORMULA[full]);
   const words = base.split(/[\s\/(),]+/).map((r) => r.replace(/[.,;:~]+$/g, '')).filter(Boolean);
+  // 다단어 이름의 첫 대문자 약어 (PC High Viscosity → pc)
+  if (words.length >= 2 && /^[A-Z]{2,4}$/.test(words[0]) && !STOP.has(words[0].toLowerCase())) t.add(norm(words[0]));
   words.forEach((w, i) => {
     if (/\d/.test(w)) {
       for (const piece of w.split('-')) { // 하이픈 분해: 2024-T351 → 2024, T351
         if (!/\d/.test(piece)) continue;
         const p = piece.replace(/[^\dA-Za-z.]/g, '');
         if (p.length >= 2) t.add(norm(p));
+        const gr = p.match(/^Gr\.?(\d+)$/i); // Gr1 ↔ Grade 1 동치
+        if (gr) t.add('grade' + gr[1]);
         const noLead = p.replace(/^[A-Za-z]+/, '');   // SS410 → 410
         if (noLead.length >= 3) t.add(norm(noLead));
         const noTrail = p.replace(/[A-Za-z]+$/, '');  // SD400W → SD400 (숫자 유지 시)
