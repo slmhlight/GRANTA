@@ -72,6 +72,26 @@
     "today": "소둔로 부품·버너·라디언트 튜브·컨베이어·전열체 등 850~1100°C 산화 분위기의 로(爐) 부품에 쓰인다. 반복 승온·냉각이 심한 곳에서 Ce 의 스케일 밀착 효과가 특히 유효하다."
    }
   },
+  "316-variants": {
+   "display": "316 Variants (317 / 316Ti / 316H / 316LN)",
+   "stable_ids": [
+    "MET-0698",
+    "MET-0699",
+    "MET-0700",
+    "MET-0761",
+    "MET-1016"
+   ],
+   "refs": [
+    "ASTM A240 / A240M",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "316 하나에 몰리브덴·티타늄·질소·탄소를 조금씩 손봐 만든 파생 계열 — 필요한 성질만 콕 집어 올린다.",
+    "origin": "316(18Cr-10Ni-2Mo)은 스테인리스의 만능 내식 grade 지만, 특정 요구에는 조성을 조금 비틀어 대응한다. 그렇게 파생된 것이 317(Mo↑)·316Ti(Ti 안정화)·316H(고탄소)·316LN·316N(질소 강화)이다.",
+    "breakthrough": "317·317L 은 Mo 를 3~4%로 올려 공식(pitting)·틈부식 저항을 316 보다 높인다. 316Ti 는 Ti 로 탄화물을 안정화해 고온 용접부 예민화를 막고, 316H 는 탄소를 높여 고온 크리프를, 316LN·316N 은 질소로 저탄소 grade 의 낮은 강도를 보완한다.",
+    "today": "배연탈황·습식 화학(317L), 고온 용접 구조(316Ti·316H), 저온·고강도 압력부(316LN)처럼 316 이 살짝 모자란 지점을 메운다. 요구가 더 극단적이면 슈퍼오스테나이트(904L·654SMO)나 듀플렉스로 넘어간다."
+   }
+  },
   "42crmo4": {
    "display": "42CrMo4",
    "stable_ids": [
@@ -84,6 +104,22 @@
     "DIN 17200 (1987 superseded by EN 10083)"
    ],
    "legacy_text": "42CrMo4 는 미국 AISI 4140 (1923 SAE 표준) 의 유럽 표준 명칭으로, 1971년 DIN 17200 (현 EN 10083-3) 으로 표준화됐어요. 1.0% Cr + 0.20% Mo + 0.40% C — 동일한 조성, 동일한 응용, 동일한 'general purpose Cr-Mo' 의 위상을 가진 합금이죠.\n\n자동차·트럭 의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. Mo 0.2% 가 tempering brittleness (350-450°C 영역에서 P, S 가 입계 석출) 를 억제하면서 Cr 1% 의 경화능으로 ø100 mm 두께까지 균일한 σ_y 700+ MPa 가 나옵니다. EU 산업의 단조 blank 의 약 25% 가 42CrMo4 입니다."
+  },
+  "654-smo": {
+   "display": "654 SMO",
+   "stable_ids": [
+    "MET-0702"
+   ],
+   "refs": [
+    "Outokumpu (구 Avesta) 654 SMO® (UNS S32654) 기술 자료",
+    "ASTM A240 (UNS S32654)"
+   ],
+   "sections": {
+    "hook": "몰리브덴 7%·질소 0.5%로 해수·표백 환경까지 버티는 최상급 오스테나이트 스테인리스.",
+    "origin": "6% Mo 슈퍼오스테나이트(254 SMO 등)보다도 한 단계 위의 내식을 겨냥해 스웨덴 Avesta(현 Outokumpu)가 개발한 super-austenitic 이다(UNS S32654). Cr 24·Ni 22·Mo 7·N 0.5 로, 공식저항지수(PREN)가 오스테나이트 중 최상급이다.",
+    "breakthrough": "Mo 7% + N 0.5% 조합이 염화물 공식·틈부식을 극한까지 억제해, 니켈기 합금(Hastelloy·Inconel)에 근접한 내식을 스테인리스 가격대에서 낸다. 높은 질소는 강도도 함께 끌어올린다.",
+    "today": "해수 열교환기·배연탈황(FGD)·제지 표백·인산·황산 설비처럼 오스테나이트 스테인리스의 내식 한계에 놓인 부품에 쓰인다. 그보다 가혹하면 Ni 기 합금이나 티타늄 영역이다."
+   }
   },
   "904l": {
    "display": "904L",
@@ -1811,6 +1847,22 @@
    ],
    "legacy_text": "1959년 미국 Naval Ordnance Laboratory (NOL, 메릴랜드 White Oak) 의 윌리엄 부엘러 (William Buehler) 가 nuclear submarine 의 nose cone 용 새 합금을 찾던 중 Ni 50at% + Ti 50at% 의 intermetallic 이 일정 온도에서 형상을 기억해 회복하는 (shape memory) 현상을 발견합니다. 프레더릭 왕 (Frederick Wang) 과 함께 1965년 BCC ↔ B19' martensite 의 thermoelastic 변태 메커니즘을 규명, NOL + Ti 의 머리글자로 'Nitinol' 로 명명했어요. 1962년 NOL 의 콘퍼런스 시연에서 구부려진 wire 가 손 열로 펴지는 모습이 '마술 metal' 로 NYT 1면을 장식하기도 했죠.\n\n응용 — 의료 — 1990년대 들어 cardiovascular stent (Cordis Cypher, Boston Scientific 의 모든 PCI stent), 뼈 골절 fixator (Memry MEMOFEX), 치과 교정 wire (3M Unitek 의 most braces wire), 두부 외상 stapler. 항공 — F-14 hydraulic coupling (Raychem CryoFit), 미 Navy USS Constellation 의 anti-vibration mount. 일상 — 안경 frame (Rectangulus, Marchon Flexon), 무선 헤드폰 headband (Bose QuietComfort), 와이파이 안테나 actuator (Apple AirPods Pro) 까지."
   },
+  "nitronic-50": {
+   "display": "Nitronic 50",
+   "stable_ids": [
+    "MET-0756"
+   ],
+   "refs": [
+    "Armco / Electralloy, Nitronic 50 (UNS S20910, XM-19) 기술 자료",
+    "ASTM A276 / A182 (UNS S20910)"
+   ],
+   "sections": {
+    "hook": "질소로 강화해 316보다 2배 강하면서 내식은 더 좋은 오스테나이트 스테인리스.",
+    "origin": "미국 Armco 가 개발한 질소강화 오스테나이트 스테인리스(UNS S20910, ASTM XM-19)다. 22Cr-12Ni-2Mo 에 N 0.2~0.4·Nb·V 를 더해, 스테인리스의 낮은 강도라는 약점을 겨냥했다.",
+    "breakthrough": "고용 질소가 어닐 상태에서도 σy 를 316 의 약 2배로 올리면서, 높은 Cr·Mo·N 이 공식·응력부식균열(SCC) 저항까지 316·317 보다 좋게 만든다. 고강도·고내식·비자성을 한 번에 얻는 조합이다.",
+    "today": "해양·화학 펌프 샤프트, 밸브 스템, 패스너, 선박 부품처럼 고강도와 고내식이 동시에 필요한 곳에 쓰인다. 냉간가공 없이 강도를 얻으므로 대형 단조·바 부품에 유리하다."
+   }
+  },
   "nitronic-60": {
    "display": "Nitronic 60",
    "stable_ids": [
@@ -2375,6 +2427,24 @@
    ],
    "legacy_text": "1993년 유럽이 ECISS (European Committee for Iron and Steel Standardization) 통합 과정에서 만든 표준. 이전엔 독일 St52 (DIN 17100), 영국 BS50, 프랑스 E36, 이탈리아 Fe510 … 각 나라의 mild structural steel 이 다른 이름으로 존재했어요. EN 10025 는 이를 S355 (S = Structural, 355 = σ_y MPa) 로 통합하고, 인성에 따라 JR (room temp), J0 (0°C), J2 (-20°C), K2 (CVN 40 J) 등급으로 분류합니다. +N (Normalized) 은 heat treatment 변형이고요.\n\n'EU 다리·구조의 baseline' 으로 자리잡았어요. 외레순드 다리 (Øresund Bridge, 덴마크-스웨덴), Millau Viaduct (프랑스, 세계에서 가장 높은 다리), Stonecutters Bridge (홍콩), Ribblehead Viaduct restoration, 그리고 모든 풍력 tower (Vestas V90 / V112 / V164, Siemens Gamesa SG 11.0-200, GE Cypress 의 tower steel). 한국에서도 인천대교와 거가대교의 일부 piece 가 S355J2+N 이에요.\n\nJ2 sub-grade 가 -20°C CVN ≥ 27 J 인 이유가 흥미로워요. EU 의 worst-case 시나리오 — 북유럽 (스칸디나비아) 의 겨울 평균 -15°C 의 다리 — 에서 brittle fracture 회피를 위한 conservative spec 이거든요. 한국 KS 가 SS400, SM490 으로 비슷한 grade 를 만들었지만, 유럽 EU 표준의 호환성 때문에 글로벌 default 는 S355 가 차지하고 있습니다."
   },
+  "sae-21-4n": {
+   "display": "SAE 21-4N",
+   "stable_ids": [
+    "MET-0758",
+    "MET-0759",
+    "MET-0760"
+   ],
+   "refs": [
+    "Armco 21-4N 밸브강 (US Patent 2,495,731 등)",
+    "SAE J775 \"Engine Poppet Valve Information Report\""
+   ],
+   "sections": {
+    "hook": "가솔린 엔진 배기밸브의 표준 — 니켈을 망간으로 대체해 값싸게 고온·납·황을 견딘다.",
+    "origin": "미국 Armco 가 1950년대에 개발·특허화한 고망간 내열 오스테나이트 밸브강이다(21Cr-4Ni-9Mn-N). 값비싼 Ni 의 상당량을 Mn 과 N 으로 대체해 오스테나이트를 유지하면서 원가를 낮춘 것이 핵심이다.",
+    "breakthrough": "고용 질소가 고온 강도를 주고 탄소와 결합해 탄질화물로 경도·내마모를 더한다. 21% Cr 이 내산화를, 조성 전체가 연료 속 납(Pb)·황(S) 부식에 대한 저항을 준다 — 배기밸브가 겪는 ~800°C 부식·마모 환경에 맞춰졌다.",
+    "today": "승용·경주·선박·산업 엔진의 배기밸브 표준 합금이다. 더 가혹한 고성능·터보 엔진은 밸브 헤드에 Nimonic 80A 같은 Ni 기 합금을 접합해 쓰기도 한다."
+   }
+  },
   "silica-aerogel": {
    "display": "Silica Aerogel",
    "stable_ids": [
@@ -2708,6 +2778,23 @@
     "Padture N P et al. (2002) \"Thermal Barrier Coatings\", Science 296"
    ],
    "legacy_text": "Yttria-Stabilized Zirconia (YSZ) 는 1970년대 영국 Magnesium Elektron 의 Ron Garvie (zirconia transformation toughening 의 창시자) 와 함께 발견된 zirconia 의 표준 stabilized form 입니다. ZrO₂ 에 Y₂O₃ 7-8% 를 첨가하면 cubic 또는 partially stabilized tetragonal phase 가 room temperature 에서 stable 해져 monoclinic 변태가 일어나지 않아요. 'transformation toughening' 의 mechanism 을 더 안정적으로 활용할 수 있는 form 입니다.\n\nYSZ 의 두 가지 main form: 8YSZ (Y₂O₃ 8 mol%, fully stabilized cubic, KIC 2-3 MPa·√m — 강도는 낮음) vs 3YSZ 또는 Y-TZP (Y₂O₃ 3 mol%, tetragonal polycrystal, KIC 6-10 MPa·√m — 강도가 우수). 응용에 따라 선택이 갈립니다.\n\n3YSZ (Y-TZP) 응용: dental crown (모든 CAD/CAM zirconia crown 의 표준 — Nobel Biocare, Straumann, Dentsply 의 dental zirconia), 의료 ball head (인공 hip femoral head — BIOLOX delta 의 일부 grade), 정밀 ceramic tool, 그리고 wear-resistant component. 8YSZ 응용: jet engine thermal barrier coating (TBC) — Inconel 단지에 plasma-sprayed 8YSZ coating 으로 hot section blade 표면 thermal protection. GE LEAP-1A · Pratt & Whitney F135 · RR Trent XWB 모두 8YSZ TBC 가 들어가요. 산소 sensor (자동차 lambda sensor 의 핵심 — engine 의 air-fuel ratio 측정), SOFC (solid oxide fuel cell) 의 electrolyte. 가격은 dental grade $200-500/kg (구획화된 piece 으로), TBC powder $30-50/kg."
+  },
+  "zeron-100": {
+   "display": "Zeron 100",
+   "stable_ids": [
+    "MET-0766",
+    "MET-0769"
+   ],
+   "refs": [
+    "Rolled Alloys (구 Weir Materials), ZERON® 100 (UNS S32760) 기술 자료",
+    "ASTM A240 / A790 (UNS S32760)"
+   ],
+   "sections": {
+    "hook": "북해 해수 펌프를 위해 태어난 슈퍼듀플렉스 — 25Cr에 W·Cu를 더해 공식저항 PREN 40 이상.",
+    "origin": "1970년대 북해 해양유전 붐과 함께, 해수 펌프 몸체용 내식 주강으로 영국에서 개발됐다(원 개발 Mather+Platt → Weir → 현 Rolled Alloys, UNS S32760). 25Cr-7Ni-3.6Mo 듀플렉스에 W·Cu 를 더한 것이 특징이다.",
+    "breakthrough": "오스테나이트+페라이트 2상 구조가 오스테나이트급 내식과 약 2배 높은 항복강도를 함께 준다. 여기에 W·Cu 첨가가 공식·틈부식 저항을 super-duplex 급(PREN ≥ 40)으로 끌어올린다.",
+    "today": "해양 오일가스 배관·펌프·밸브·매니폴드, 해수·화학 처리 설비의 표준 super-duplex 다. 표준 듀플렉스(2205)보다 내식·강도가 높지만, 300~500°C 취화 위험과 용접 관리 부담은 더 크다."
+   }
   },
   "zirconia": {
    "display": "Zirconia",
