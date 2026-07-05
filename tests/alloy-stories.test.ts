@@ -30,7 +30,8 @@ const bodyOf = (st: (typeof STORIES)[string]) =>
 
 /* dead(멤버 0) 허용 목록 — R226t 이관 시점 문서화. 재연결/재작성/삭제는 Opus 회차 (STORY-SYSTEM.md).
  * 여기 없는 dead 가 생기면 = 조용한 할당 상실 → 실패. */
-const DOCUMENTED_DEAD = new Set(['aisi-420', 'aisi-4340', 'astm-a36-structural', 'cp-ti', 'epdm', 'fkm', 'wc-6co-cemented-carbide-k10']);
+// R226t 작문회차: aisi-420·cp-ti 재연결, aisi-4340·astm-a36-structural·wc-6co 삭제(개념중복). epdm/fkm 은 DB 에 재료 없음(향후 추가 대비).
+const DOCUMENTED_DEAD = new Set(['epdm', 'fkm']);
 
 describe('alloy-stories 스키마 무결성', () => {
   it('전 스토리: display·refs≥1·본문(legacy_text 또는 sections) 필수', () => {

@@ -56,17 +56,6 @@
    ],
    "legacy_text": "1995년 룩셈부르크 ArcelorMittal (당시 Arbed) 의 R&D 가 자동차 차체에 '초고강도 + 복잡 형상 가공' 을 한 번에 만족하는 답을 찾으면서 등장한 합금이에요. 일반 강이라면 cold stamping 시 σ_UTS 600 MPa 이상에서 형상이 부서지는데, 22MnB5 는 hot stamping (가열 stamping) 으로 해결했죠. 900°C 에서 austenitization → mold 안에서 quench → 단일 stroke 으로 σ_UTS 1500 MPa 마르텐사이트가 형성됩니다.\n\n응용은 자동차 차체의 critical safety 부품 — B-pillar 보강재, door impact beam, front bumper beam, A-pillar 보강. 한 번의 hot-stamp 로 1.5 GPa 강도가 나오니, 동일 강도를 위해 일반 강을 쓸 때보다 차체 무게가 30% 감량되는 효과가 있어요. CO₂ emission 규제 (EU 95 g/km) 가 시작된 2009년 경부터 거의 모든 OEM 이 22MnB5 를 도입했습니다.\n\n한 가지 핵심 advance 가 있어요 — 표면 Al-Si 코팅 (USIBOR 의 'USI' 는 Usinor Sacilor International 의 약자, 'BOR' 은 Boron) 이 핵심이에요. 900°C 의 austenitization 동안 Fe-Al-Si 표면 형성으로 oxidation 과 탄소 손실을 막아주거든요. 1990년대 Arbed 가 이 dual-process 를 patent 화하면서 시장을 일찍 장악했고, 현재 ArcelorMittal 이 글로벌 22MnB5 의 60% 를 점유하고 있습니다."
   },
-  "304l-stainless": {
-   "display": "304L Stainless",
-   "stable_ids": [
-    "MET-0721"
-   ],
-   "refs": [
-    "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
-    "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
-   ],
-   "legacy_text": "304L 은 1962년 미국 Combustion Engineering 이 304 의 sensitization 문제를 풀기 위해 carbon 함량을 ≤0.03% 로 낮춘 ELC (Extra-Low-Carbon) 변형입니다. 304 가 가진 모든 부식 환경 적응성은 그대로 살리면서 용접 그대로 PWHT (post-weld heat treatment) 없이 바로 service 가능한 합금이 된 거죠. 사실상 '용접하는 304' 의 기준이 됐어요.\n\n응용은 304 와 거의 동일하면서도 용접 의존도가 높은 분야에 특화돼 있어요. 식품 공정 라인 (un-pasteurized milk, beer brewery 의 용접 tank), 의료 surgical tray, 화학 plant 의 jacketed reactor, 반도체 super-clean piping (EP-finished, 표면 Ra < 0.4 μm), HVAC ductwork, 대형 outdoor 조각상 (시카고 Anish Kapoor 의 'Cloud Gate' 가 304L 의 12-mm sheet 168 장을 용접해서 만든 것). 단점은 carbon 감소로 σ_y 가 304 대비 약 5% 낮다는 점이에요."
-  },
   "42crmo4": {
    "display": "42CrMo4",
    "stable_ids": [
@@ -123,7 +112,9 @@
   "a516-grade-70": {
    "display": "A516 Grade 70",
    "stable_ids": [
-    "MET-0233"
+    "MET-0233",
+    "MET-0631",
+    "MET-0632"
    ],
    "refs": [
     "ASTM A516 / A516M",
@@ -427,6 +418,24 @@
    ],
    "legacy_text": "1020 은 1018 보다 carbon 이 0.02% 더 높은 (0.18~0.23%) plain carbon steel 로, 1911년 SAE 표준 등재 이후 자동차 산업의 'general purpose carbon steel' baseline 으로 자리잡았어요. 1018 보다 σ_y 가 약 5% 높지만 용접성은 다소 낮습니다 (carbon equivalent CE 가 살짝 증가).\n\n응용 — 자동차 axle 단조 (rough forging blank), 농기계 shaft, 차고 도어 spring frame, 산업 펌프 base plate, 미국 ASME / API standard 의 pressure vessel raw stock, 콘크리트 reinforcing rebar (Grade 40 → 1020 변형). 가장 흔한 '강철' 그대로의 모습이라고 보면 됩니다."
   },
+  "aisi-1030": {
+   "display": "AISI 1030",
+   "stable_ids": [
+    "MET-0255",
+    "MET-0258",
+    "MET-0259"
+   ],
+   "refs": [
+    "SAE J403 \"Chemical Compositions of SAE Carbon Steels\"",
+    "Davis J R (ed., 1990) ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys"
+   ],
+   "sections": {
+    "hook": "탄소 0.30%의 가장 기본적인 중탄소강 — ‘적당한 강도가 필요할 때’의 출발점.",
+    "origin": "SAE/AISI 의 10xx 평탄소강(plain carbon) 계열 중 하나로, 20세기 초 SAE 가 정립한 4자리 강 분류 체계의 산물이다. 앞 ‘10’은 합금원소 없는 탄소강, 뒤 ‘30’은 탄소 약 0.30%를 뜻한다. Fe-C-Mn 만으로 구성된다.",
+    "breakthrough": "저탄소강(1010~1020)보다 탄소가 높아 담금질·고주파 경화로 표면 경도를 얻을 수 있고, 고탄소강(1045+)보다는 용접성·인성이 낫다. 열처리로 강도를 올리되 취성은 억제하는, 딱 중간 지점의 조성.",
+    "today": "샤프트·스터드·레버·핀 등 ‘중간 강도 + 저비용’이 맞는 범용 기계부품에 쓰인다. 특별한 이유가 없으면 더 강한 1045 나 더 무른 1020 으로 가지만, 그 사이가 필요할 때 선택된다."
+   }
+  },
   "aisi-1040": {
    "display": "AISI 1040",
    "stable_ids": [
@@ -512,8 +521,12 @@
   "aisi-304l": {
    "display": "AISI 304L",
    "stable_ids": [
+    "MET-0695",
     "MET-0717",
-    "MET-0720"
+    "MET-0720",
+    "MET-0721",
+    "MET-0722",
+    "MET-0723"
    ],
    "refs": [
     "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
@@ -580,7 +593,12 @@
   },
   "aisi-420": {
    "display": "AISI 420",
-   "stable_ids": [],
+   "stable_ids": [
+    "MET-0813",
+    "MET-0814",
+    "MET-0815",
+    "MET-0820"
+   ],
    "refs": [
     "ASTM A276 / A276M 'Standard Specification for Stainless Steel Bars and Shapes'",
     "ASM Handbook Vol.1 'Stainless Steels' (Martensitic Section)",
@@ -601,16 +619,6 @@
     "Sedriks A J (1996) Corrosion of Stainless Steels, 2nd ed., Wiley"
    ],
    "legacy_text": "430 은 carbon 을 ≤ 0.12% 로 낮추고 Cr 16~18% 만 넣은 ferritic stainless 로, 410 의 cousin 이지만 성격이 완전히 다른 합금입니다. 가열-냉각해도 martensite 가 생기지 않아 항상 ferrite 100% — 그래서 'soft, ductile, weldable' stainless 가 되었고, 1929년 미국 ASTM 이 표준화했어요.\n\n430 의 매력은 가격입니다. 304 보다 약 30% 가격으로 mild 환경 부식 저항 + magnetic property + 우수한 deep drawing 의 균형을 얻을 수 있거든요. 응용 — 자동차 exhaust system muffler / catalytic converter housing (Toyota, 현대), kitchen sink (Kohler, 한국 대림), 가정용 dishwasher inner liner (LG, 삼성), 가전 inner panel (전자 oven), 식기 (cheap-end 식당 spoon, fork).\n\n단점은 Ni 가 없어 austenitic stainless 의 SCC + chloride 저항이 없다는 점 — 그래서 outdoor + chloride 환경에서는 여전히 304/316 이 필요합니다. 그래도 '인테리어 stainless' 시장의 80% 가 430 — 우리가 부엌에서 매일 만지는 stainless 의 대부분이 이 합금이에요."
-  },
-  "aisi-4340": {
-   "display": "AISI 4340",
-   "stable_ids": [],
-   "refs": [
-    "SAE J404 (1930) \"Chemical Compositions of SAE Alloy Steels\"",
-    "Roberts G A, Krauss G & Kennedy R (1998) Tool Steels 5th ed., ASM",
-    "Krauss G (2015) Steels: Processing, Structure, and Performance, 2nd ed., ASM"
-   ],
-   "legacy_text": "1923년 SAE 4xxx Mo-bearing series 와 함께 등장한 합금이에요. Ni 1.8% + Cr 0.8% + Mo 0.25% + C 0.40% — Ni + Cr 의 경화능 + Mo 의 tempering brittleness 억제로 ø150 mm 두께까지 균일한 σ_y 1100 MPa 가 나오는 게 특징이죠. 1932년 AISI 4340 (UNS G43406) 으로 표준화됐습니다.\n\n4340 의 자리는 'general purpose ultra-high-strength' 입니다. 4140 보다 한 단계 강도가 위, D6AC / HP 9-4-30 보다 한 단계 아래. 응용 — 항공 landing gear (Boeing 737-800, A320 의 nose gear), 자동차 crankshaft (F1 의 일부 grade), 미사일 motor case (Sidewinder AIM-9), Boeing 777 의 wing folding mechanism, 산업 forging die (대형 단조 hammer anvil), 산업 hydraulic cylinder rod (1000-ton press).\n\n흥미로운 진화. 1965년 AISI 가 4340 의 Si 함량을 1.6% 로 늘려 tempering 후 σ_y 1620 MPa 까지 끌어올린 '300M' 을 표준화했어요. F-22 / F-35 / F/A-18 의 main landing gear 가 모두 300M — 4340 의 family member 중 하나가 항공의 핵심 부품으로 자리잡은 셈입니다."
   },
   "aisi-52100-bearing": {
    "display": "AISI 52100 (bearing)",
@@ -731,16 +739,6 @@
     "Bjorhovde R (2004) \"Development and Use of High Performance Steel\", J Constr Steel Res 60"
    ],
    "legacy_text": "ASTM A36 는 미국에서 가장 흔히 쓰이는 carbon structural steel 의 grade designation 입니다. 1960년 ASTM 이 발행한 'Standard Specification for Carbon Structural Steel' 이 원본이고, σy 250 MPa (36 ksi, 그래서 A36) · UTS 400-550 · El 20% 의 minimum spec 을 보장합니다. Carbon 0.26% 이하 + Mn 약 0.8-1.0% 로 가장 단순한 ferritic-pearlitic 미세조직을 가져요.\n\n건축의 거의 모든 일반 구조용 steel 이 A36 입니다. I-beam (W shape), H-pile, angle iron, channel iron, square / rectangular tubing, plate. 미국에서만 연간 4천만 톤의 A36 가 생산되며 이는 전체 carbon steel 생산의 30% 이상을 차지해요. 가격이 가장 저렴하고 (~$0.8-1.3/kg) machining + welding + bending 모두 쉬워서 '명확한 이유가 없으면 A36 부터 검토' 가 mechanical engineer 의 기본 자세입니다.\n\n실제 응용은 무한합니다. 빌딩 frame (300m+ skyscraper 의 일부 column, 보 — A36 또는 high-strength A992), 다리 (golden gate bridge 의 주요 stiffener, suspension cable 안의 wire 는 high-strength carbon steel), 자동차 chassis frame (트럭 ladder frame), 산업 storage tank, 일반 기계 frame, 그리고 사실상 모든 ' 산업 metal cabinet · workbench · 부품 holder ' . 단점은 부식 저항이 없어 도장 또는 galvanizing 이 필수, 그리고 σy 250 MPa 이 한계라 high-load 또는 light-weight 응용에는 A992 (σy 345) 또는 A572 Grade 50 / 65 가 검토됩니다."
-  },
-  "astm-a36-structural": {
-   "display": "ASTM A36 (structural)",
-   "stable_ids": [],
-   "refs": [
-    "ASTM A36 / A36M \"Standard Specification for Carbon Structural Steel\"",
-    "AISC \"Steel Construction Manual\" 15th Edition (2017)",
-    "Brockenbrough R L & Merritt F S (eds., 2011) Structural Steel Designer's Handbook, McGraw-Hill"
-   ],
-   "legacy_text": "1960년 미국 ASTM 이 처음 발표한 ASTM A36 은 carbon ≤0.26% + Si 0.40% + Mn 0.50~1.20% 의 plain carbon structural steel 이에요. 1018 의 cousin 이지만 mill 의 자유도가 더 크고 (예: scrap 함량이 더 많아도 OK), σ_y 250 MPa + El 23% 의 ductility + 우수한 용접성 (CE 0.45 미만) 의 균형으로 미국 건설 산업의 baseline 자리에 올랐습니다.\n\n1970-2002년 동안 미국 도시의 거의 모든 W-shape beam, channel, angle, plate 가 A36 — 시카고 Sears Tower (현 Willis Tower), 보스턴 John Hancock Building, World Trade Center 의 frame 까지. 2002년 ASTM A992 가 W-shape 의 default 가 됐지만, plate 와 bar 응용에서는 A36 이 여전히 default 자리에 있어요.\n\n응용 — 다리 (미국 interstate 의 80% 이상이 A36 plate), 빌딩 frame (지진 안전 spec 없는 저층), 콘크리트 reinforcing rebar (Grade 36 변형), 농기계 trailer chassis, 산업 컨베이어 frame, 가설 발판. 매년 미국에서 약 8천만 ton 의 A36 가 소비되며 — 양으로는 모든 강 중 1위입니다."
   },
   "az31b-magnesium": {
    "display": "AZ31B Magnesium",
@@ -904,6 +902,27 @@
    ],
    "legacy_text": "C75200 (nickel silver, 65-18-17) 은 Cu-18% Ni-17% Zn 합금이지만 이름에 'silver' 가 들어가도 실제로는 은이 한 톨도 없습니다. 18세기 독일 광부들이 광석에서 발견한 'kupfernickel' (구리-니켈 광석) 을 정련하다가 우연히 발견한 이 합금이 은처럼 보였고, 19세기 초 독일 Gebrüder Henninger 가 'German silver' 로 상품화했어요. UNS 번호의 C7 prefix 는 Cu-Ni 합금 (cupronickel) 계열을 의미하지만 Zn 17% 가 함께 들어가서 색상이 silver-white 가 됩니다.\n\nNi 18% 가 핵심 — α-Cu matrix 에 Ni 가 완전 고용되어 색상이 흰색이 되고 부식 저항 + machinability 가 brass 수준으로 올라갑니다. σy 100 annealed → 480 half-hard 정도로 cold-work 강화가 가능하고, 가공·표면처리·polish 가 stainless 보다 훨씬 쉬워서 jewelry · 표창 · 표창의 base material 로 표준입니다.\n\n응용: 표창 metal (military medal, sport trophy 의 nickel silver coating 의 base), 시계 case (Patek Philippe · Vacheron Constantin 의 일부 entry-level model), spectacle frame (안경테, 1880년대 표준이었음), 의류 zipper · 단추, 음악 instrument key 부속 (saxophone · clarinet 의 key), 시계 mechanism 의 일부 plate (German watchmaking 의 'Glashütte plate'), 그리고 dental bridge framework (의료 grade C75200). 'German silver' 라는 이름이 marketing 으로 통해도 ISO 표시는 NiAg18 (DIN) 또는 C75200 (UNS) 입니다."
   },
+  "cast-cf-stainless": {
+   "display": "Cast CF Stainless (CF8/CF8M/CF3/CF3M)",
+   "stable_ids": [
+    "MET-0995",
+    "MET-0996",
+    "MET-0997",
+    "MET-0998"
+   ],
+   "refs": [
+    "ASTM A351 / A351M \"Standard Specification for Castings, Austenitic, for Pressure-Containing Parts\"",
+    "Steel Founders’ Society of America (1995) Steel Castings Handbook, 6th ed.",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "밸브·펌프 몸체를 통짜로 뽑아내는 ‘주물 버전의 304/316’ — 주조 스테인리스의 표준 4종.",
+    "origin": "미국 ACI(Alloy Casting Institute)가 주조 내식 합금에 부여한 명명 체계에서 나왔다. ‘C’는 corrosion-resistant(내식), ‘F’는 약 19Cr-9Ni 조성대, 뒤 숫자는 최대 탄소(8→ 0.08%, 3→ 0.03%), ‘M’은 Mo 첨가를 뜻한다. 그래서 CF8=주조 304, CF8M=주조 316, CF3=주조 304L, CF3M=주조 316L 로 단조 등급과 1:1 대응한다.",
+    "breakthrough": "단조 스테인리스와 결정적으로 다른 점은 δ-ferrite. 주조 오스테나이트 스테인리스는 응고 중 고온균열(hot cracking)을 막기 위해 조성을 조절해 약 3~30%의 δ-페라이트를 일부러 남긴다(Schaeffler·WRC 다이어그램으로 제어). 이 잔류 페라이트가 균열 저항과 용접성을 주지만, 350~550°C 장기 노출 시 σ-상 취화의 빌미가 되기도 한다.",
+    "today": "밸브 바디·펌프 케이싱·플랜지·피팅처럼 ‘복잡 형상 + 내식’이 필요한 곳의 표준으로, ASTM A351(내압·내식 주강)·A743/A744 로 규격화되어 있다. 판재를 깎아 만들기 어려운 형상을 정밀·사형 주조로 통짜 성형하는 것이 존재 이유다.",
+    "fun_fact": "CF 뒤 숫자가 탄소 최대치를 뜻하는 건 ACI 체계의 일반 규칙 — 고온용 ‘H’ 계열(HK40 등)은 오히려 탄소를 높여 크리프 강도를 얻는다."
+   }
+  },
   "cfrp": {
    "display": "CFRP",
    "stable_ids": [
@@ -938,6 +957,30 @@
     "Soutis C (2005) \"Fibre reinforced composites in aircraft construction\", Prog Aerosp Sci 41"
    ],
    "legacy_text": "T800 carbon fiber 는 1976년 일본 Toray 가 PAN (polyacrylonitrile) precursor 의 stabilization → carbonization → graphitization 공정을 최적화해 σ_UTS 5.5 GPa + E 285 GPa 의 intermediate-modulus fiber 를 양산화한 결과예요 — 1980년대 IM (intermediate modulus) 등급의 표준으로 자리잡았습니다. 1985년 Hercules (현 ATK) 의 IM7 (US 표준) 과 Toray 의 T800 이 양강 구도로 전 세계 항공 prepreg 시장을 양분.\n\n응용 — Boeing 787 Dreamliner 의 fuselage barrel 50% / wing 50% (Toray 가 단독 공급), Airbus A350 XWB 의 wing 의 outer skin / center wing box, F-22 / F-35 의 vertical tail / horizontal stabilizer. 우주 — SpaceX Falcon 9 의 helium COPV (Composite Overwrapped Pressure Vessel, payload fairing 도 T800/Cyanate), Blue Origin New Shepard 의 crew capsule. 민간 — F1 모노코크 (FIA 2014 표준), 일부 항공 — Boeing 777X 의 folding wingtip, Mercedes-Benz EQS 의 일부 트렁크 lid 도 T800 prepreg autoclave 입니다."
+  },
+  "cmsx-10": {
+   "display": "CMSX-10",
+   "stable_ids": [
+    "MET-0495",
+    "MET-0496"
+   ],
+   "refs": [
+    "Erickson G L (1996) \"The Development and Application of CMSX-10\", Superalloys 1996, TMS",
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge University Press"
+   ],
+   "sections": {
+    "hook": "레늄을 약 6% 넣어 융점 근처까지 버티게 만든 3세대 단결정 초합금 — 터빈 블레이드 온도 한계의 최전선.",
+    "origin": "미국 Cannon-Muskegon Corporation 이 개발한 3세대 단결정(single-crystal) Ni 초합금으로, 1996년 TMS Superalloys 학회에서 개발·응용이 발표됐다. 2세대 CMSX-4(Re 3%)에서 Re 를 약 6%로 늘리고 W·Ta·Mo 등 refractory 원소를 높인 것이 골자다.",
+    "breakthrough": "단결정은 결정립계를 아예 없애 입계 크리프 파괴를 제거하고, γ/γ′ 두 상만으로 하중을 받는다. 여기에 Re ~6%가 γ 기지 확산을 늦춰(rhenium effect) 크리프 저항을 한 세대 더 끌어올렸다. 대신 refractory 여유를 위해 Cr 을 ~2%로 낮춰야 해, 내산화·내식은 코팅(TBC·본드코트)에 의존한다.",
+    "today": "항공·발전용 가스터빈의 고압터빈(HPT) 1단 블레이드 — 가장 뜨거운 부위에 쓰인다. 3세대 단결정은 Re 원가·주조 난도가 커, 저비용 2세대나 Ru 를 넣은 4세대 합금과 용도별로 갈린다."
+   },
+   "timeline": [
+    {
+     "year": 1996,
+     "event": "Cannon-Muskegon, CMSX-10 개발·응용 발표 (TMS Superalloys)",
+     "ref": 1
+    }
+   ]
   },
   "cocrmo": {
    "display": "CoCrMo",
@@ -1008,7 +1051,16 @@
   },
   "cp-ti": {
    "display": "CP-Ti",
-   "stable_ids": [],
+   "stable_ids": [
+    "MET-0868",
+    "MET-0871",
+    "MET-0874",
+    "MET-0877",
+    "MET-0883",
+    "MET-0886",
+    "MET-0887",
+    "MET-0890"
+   ],
    "refs": [
     "Kroll W J (1940) 'The Production of Ductile Titanium', Trans. Electrochem. Soc. 78",
     "ASTM B265",
@@ -1043,6 +1095,34 @@
     "Copper Development Association \"Cupronickel Alloys for Seawater Service\" Pub TN 31 (2010)"
    ],
    "legacy_text": "1929년 미해군 사양으로 처음 표준화된 Cu 70% + Ni 30% 합금. 영국에서는 18세기부터 동전 (sixpence, shilling) 용으로 알려진 조성이었지만, 산업 응용은 USN 이 1930년 USS Constellation 의 condenser tube 로 채택하면서 시작됐어요. 해수에서 부식 속도가 0.025 mm/year — 황동 (brass) 의 1/10 수준이라 condenser 수명이 5배로 늘어났거든요.\n\n핵심 응용은 '해수 + 열교환' 입니다. 발전소·정유소·LNG carrier 의 main seawater condenser, MSF (multi-stage flash) 해수 담수화 plant 의 evaporator tube, FPSO 의 produced water cooler, 잠수함의 saltwater cooling loop. 2007년 사우디 Ras Al Khair 의 MSF plant (세계 최대, 1.0 백만 m³/일) condenser tube 880 km 가 모두 C71500 이에요.\n\n부수적 장점도 있죠. 생물 부착 (biofouling) 저항. Cu 이온이 표면에서 천천히 용해되면서 mussel · barnacle 같은 해양 생물의 정착을 막아주거든요. 그래서 boat hull cladding 으로도 인기 — 영국 royal navy 의 18세기 frigate 가 hull 에 Cu sheet 를 붙인 게 그 시초고, 현대에도 일부 superyacht 가 사용합니다."
+  },
+  "custom-465": {
+   "display": "Custom 465",
+   "stable_ids": [
+    "MET-0833",
+    "MET-0834",
+    "MET-0835",
+    "MET-0836",
+    "MET-0837"
+   ],
+   "refs": [
+    "Carpenter Technology, CarTech® Custom 465® Stainless Technical Datasheet (UNS S46500)",
+    "AMS 5936 / ASTM F899 (Custom 465, 항공·의료 규격)"
+   ],
+   "sections": {
+    "hook": "‘30년을 최소 정비로 나는 기체’를 목표로 카펜터가 7년간 벼려낸 초고강도 마르텐사이트 석출경화 스테인리스.",
+    "origin": "1997년 미국 Carpenter Technology 가 항공우주 산업에 내놓은 마르텐사이트 시효경화 스테인리스(UNS S46500)다. ‘30년 이상 최소 정비로 비행하는 기체’라는 항공사·기체 제작사의 요구에 맞춰, 파트너들과 목표를 조율하고 시편을 시험하며 약 7년의 검증을 거쳐 자격 인증을 받았다.",
+    "breakthrough": "Cr 11~12% 마르텐사이트 기지에 Ni ~11%·Mo ~1%·Ti 를 넣어, 시효 시 Ni₃Ti 석출로 경화한다. 이중 진공용해(VIM+VAR)로 개재물을 극도로 낮춰, 같은 강도급의 다른 PH 스테인리스보다 인성·피로 수명이 높다. H950 peak 시효에서 σy ~1670 MPa 에 이르면서도 내식을 유지하는 조합이 강점이다.",
+    "today": "랜딩기어 부품·항공 체결구처럼 고강도와 내식이 동시에 필요한 항공우주가 중심이지만, 도입 이후 해양 장비·총기·수술기구·석유가스 시추·의료로 확산됐다. 시효 온도(H950~H1100)를 바꿔 강도와 인성을 맞춤 조절한다.",
+    "fun_fact": "H 뒤 숫자는 시효 온도(°F) — H950 은 950°F(510°C) 시효로 peak 강도를 낸다."
+   },
+   "timeline": [
+    {
+     "year": 1997,
+     "event": "Carpenter, 항공우주에 Custom 465 도입 (UNS S46500)",
+     "ref": 1
+    }
+   ]
   },
   "d2-tool-steel-aisi-d2-cold-work-die": {
    "display": "D2 Tool Steel (AISI D2, cold-work die)",
@@ -1161,6 +1241,38 @@
     "Doremus R H (1994) Glass Science 2nd ed., Wiley"
    ],
    "legacy_text": "Glass (silica-based 비결정 고체) 의 인류 사용은 BC 3500년경 메소포타미아 (현 시리아) 의 청금석 모방 jewelry 가 최초입니다. 그러나 공학용 borosilicate glass 의 출발은 1893년 독일 Otto Schott 가 Schott AG (현 SCHOTT) 에서 'Duran' 이라는 borosilicate glass 를 개발한 것입니다. SiO₂ 80% + B₂O₃ 13% + Na₂O 4% + Al₂O₃ 2% 의 조성으로 일반 soda-lime glass (SiO₂ 73%) 대비 thermal expansion 이 1/3 (3.3 × 10⁻⁶/K) 인 게 핵심입니다.\n\nThermal expansion 이 낮다는 건 thermal shock 저항이 강하다는 의미입니다. 실험실에서 250°C → 0°C 급랭에도 안 깨지죠. 1915년 미국 Corning 의 William Sullivan 이 Schott 의 Duran 을 모방해 'Pyrex' (boron silicate) 라는 변형을 만들었고, 이게 실험실 유리기구 + Pyrex 주방용기의 표준이 됐어요.\n\n응용: 실험실 beaker / flask / test tube (Schott Duran 또는 Corning Pyrex, KIMAX / SHOTT 의 100 mm wash bottle 까지 borosilicate), 의약 vial + ampoule (Schott Type I borosilicate 가 미국 FDA + EP 의 표준), microwave oven inner container (Corelle / Pyrex 의 표준), 광학 lens substrate (precision telescope mirror, BK7 borosilicate 가 광학 표준), gas chromatography column · capillary, 그리고 고압 view sight (industrial pressure vessel 의 sight glass). 일반 윈도우 glass 는 soda-lime glass 인데 borosilicate 의 thermal shock 저항이 압도적으로 좋아 공학 응용에서는 borosilicate 가 표준입니다."
+  },
+  "grade-91": {
+   "display": "Grade 91 (P91)",
+   "stable_ids": [
+    "MET-0453",
+    "MET-0454"
+   ],
+   "refs": [
+    "US Patent 4,762,577 (1988) \"9 Cr-1 Mo steel alloy having superior high temperature properties and weldability\" (Sikka et al.)",
+    "ASME Boiler & Pressure Vessel Code, SA-213 Grade T91 / SA-335 Grade P91",
+    "Oak Ridge National Laboratory · Combustion Engineering, Modified 9Cr-1Mo 개발 프로그램 (1970s–80s)"
+   ],
+   "sections": {
+    "hook": "화력발전 보일러를 초초임계로 끌어올린 개질 9Cr강 — 크리프 저항을 위해 V·Nb·N을 정밀 배합한 최초의 CSEF강.",
+    "origin": "1970년대 중반~1980년대 초, 미국 Oak Ridge National Laboratory(ORNL)가 Combustion Engineering 과 함께 기존 9Cr-1Mo(P9) 강을 개질해 개발했다. V·Nb 를 균형 첨가하고 질소(N)를 의도적으로 합금화한 것이 핵심 — 상용 마르텐사이트 내크리프강에 N 을 처음 규정한 사례다.",
+    "breakthrough": "V·Nb 가 미세한 MX(탄질화물) 석출을 만들고 템퍼드 마르텐사이트 라스 구조를 안정화해, 600°C 부근 크리프 파단강도를 모재 P9 대비 크게 끌어올렸다. 세계 최초의 CSEF(creep-strength enhanced ferritic) 강으로 분류된다. 반면 용접·후열처리(PWHT)에 매우 민감해 시공 관리가 까다롭다.",
+    "adoption": "1982년 상용 등장, 1984년 ASME 코드 승인 후 화력발전에 급속 확산됐다. 보일러 튜브(T91)·주증기관(P91)·헤더에 쓰이며 최초의 초초임계(USC) 발전소를 가능케 했다.",
+    "today": "아임계~초초임계 화력·복합화력의 고온 배관·헤더 표준으로 남아 있다. 더 높은 온도는 W 을 더한 후속 Grade 92(P92)가 맡고, Grade 91 은 검증된 baseline 자리를 지킨다.",
+    "fun_fact": "‘T’는 튜브(tube), ‘P’는 파이프(pipe) — 같은 합금이 용도에 따라 T91/P91 로 나뉜다."
+   },
+   "timeline": [
+    {
+     "year": 1982,
+     "event": "개질 9Cr-1Mo(Grade 91) 상용 등장",
+     "ref": 3
+    },
+    {
+     "year": 1984,
+     "event": "ASME 코드 승인 → 화력발전 확산",
+     "ref": 2
+    }
+   ]
   },
   "grcop-84-cu-8cr-4nb-nasa-dispersion-strengthened": {
    "display": "GRCop-84 (Cu-8Cr-4Nb, NASA dispersion-strengthened)",
@@ -2238,7 +2350,8 @@
     "MET-0738",
     "MET-0739",
     "MET-0740",
-    "MET-0741"
+    "MET-0741",
+    "MET-0742"
    ],
    "refs": [
     "ASTM A240 / A240M \"Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip\"",
@@ -2443,17 +2556,6 @@
     "Bourell D L et al. (2017) \"Materials for AM\", CIRP Annals 66"
    ],
    "legacy_text": "ULTEM 9085 는 Sabic 의 PEI 의 'flame-retardant + smoke + toxicity' (FST) grade 입니다. PEI base 에 brominated flame retardant 를 첨가해 FAR 25.853 (Federal Aviation Regulation, 항공기 cabin material 의 화재 안전 기준) 통과가 가능한 grade. 1990년대 GE Plastics 가 commercial launch 했고, Stratasys 가 2007년 FDM 3D 프린팅 filament 의 첫 항공-qualified 재료로 채택했어요.\n\n특성: Tg 186°C (base PEI 217°C 보다 약간 낮음, 화재 처리제 영향) · σy 65-85 MPa · modulus 2.4 GPa · El 5-7%. FST 등급은 OSU (Ohio State University) heat release < 65 kW·min/m² (FAR 25.853 한도), 발연 (smoke) < 200 OSU NBS, toxicity 도 통과. Stratasys FDM print 의 결과는 anisotropic 이지만 항공 part 의 spec 이 정해진 isotropic value 보다 보수적으로 사용됩니다.\n\n응용: 항공기 cabin 내부 ducting (Airbus A350, Boeing 787, F-35), 항공기 brackets + spacer, 화재 안전 요구 의료 device (휴대용 portable ventilator 의 일부 housing), 군용 응급 의료 kit case. Stratasys 의 첫 항공 인증 (Boeing F-18 fighter ducting, 2014) 으로 'FDM Ultem 9085 가 항공 production 가능' 이라는 분기점을 만든 게 화제였고, 그 이후 Lockheed Martin · Boeing · Airbus 의 일부 low-volume cabin part 가 FDM 으로 print 되고 있습니다."
-  },
-  "wc-6co-cemented-carbide-k10": {
-   "display": "WC-6Co (Cemented Carbide K10)",
-   "stable_ids": [],
-   "refs": [
-    "Schroter K (1923) DE Patent 425,932 \"Verfahren zur Herstellung eines Werkzeugs aus Hartmetall\"",
-    "Upadhyaya G S (1998) Cemented Tungsten Carbides: Production, Properties and Testing, Noyes Publications",
-    "Brookes K J A (1996) World Directory and Handbook of Hardmetals and Hard Materials, 6th ed.",
-    "Sandvik Coromant \"Metal cutting technology training handbook\" (2017)"
-   ],
-   "legacy_text": "1923년 독일 카를 슈뢰터 (Karl Schroter, Osram Lamp Werke) 가 W 의 winding-wire die 를 만들면서 hot-pressed WC + 6 wt% Co 의 sintered 합금이 diamond 다음 가는 hardness 를 보인다는 사실을 발견합니다 — 1925년 Osram, Krupp, Friedrich Krupp Widia (WIe DIAmant = 'like diamond') 가 'WIDIA' 상표로 1926년 라이프치히 박람회에서 첫 공개. 1928년 미국 Carboloy (GE) 가 라이선스를 받아 미국 양산을 시작했어요.\n\nWC 입자 (HV 2500) + Co 매트릭스 (toughness 와 ductility) 의 결합으로 KIC 11 MPa√m + HV 1700 의 균형이 나옵니다. 1930년대 자동차 conveyor pin, 40년대 군용 armor-piercing core ('hard core' 탄두), 50년대 광업 rotary drill bit, 60년대 CNC 절삭 인서트 (Sandvik, Iscar, Mitsubishi), 70년대 oil & gas drill bit (Hughes Christensen), 현재는 광업 — 모든 hard-rock drilling, 자동차 — engine valve seat insert (포드 V8), 산업 — paper-cutting knife. 1990년대 들어 PVD-coated (TiN/TiAlN) WC-Co 가 절삭 속도를 3배 증가시키며 'cermet' 시장을 본격 열었어요."
   },
   "yttria-stabilized-zirconia": {
    "display": "Yttria-Stabilized Zirconia",
