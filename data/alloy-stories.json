@@ -1471,6 +1471,26 @@
    ],
    "legacy_text": "T800 carbon fiber 는 1976년 일본 Toray 가 PAN (polyacrylonitrile) precursor 의 stabilization → carbonization → graphitization 공정을 최적화해 σ_UTS 5.5 GPa + E 285 GPa 의 intermediate-modulus fiber 를 양산화한 결과예요 — 1980년대 IM (intermediate modulus) 등급의 표준으로 자리잡았습니다. 1985년 Hercules (현 ATK) 의 IM7 (US 표준) 과 Toray 의 T800 이 양강 구도로 전 세계 항공 prepreg 시장을 양분.\n\n응용 — Boeing 787 Dreamliner 의 fuselage barrel 50% / wing 50% (Toray 가 단독 공급), Airbus A350 XWB 의 wing 의 outer skin / center wing box, F-22 / F-35 의 vertical tail / horizontal stabilizer. 우주 — SpaceX Falcon 9 의 helium COPV (Composite Overwrapped Pressure Vessel, payload fairing 도 T800/Cyanate), Blue Origin New Shepard 의 crew capsule. 민간 — F1 모노코크 (FIA 2014 표준), 일부 항공 — Boeing 777X 의 folding wingtip, Mercedes-Benz EQS 의 일부 트렁크 lid 도 T800 prepreg autoclave 입니다."
   },
+  "chromium-moly-heat-resistant-steel": {
+   "display": "Cr-Mo Heat-Resistant Steel (2.25Cr-1Mo: SA213 T22 / SA336 F22V)",
+   "stable_ids": [
+    "MET-0455",
+    "MET-0456",
+    "MET-0457",
+    "MET-0458"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "API RP 941 (Steels for Hydrogen Service — Nelson curves), API"
+   ],
+   "sections": {
+    "hook": "뜨거운 증기와 수소를 견디는 강 — 발전 보일러와 정유 반응기의 크롬-몰리브데넘강.",
+    "origin": "발전 보일러 튜브·정유 수소화 반응기는 400~600°C 고온에서 증기압·수소를 오래 견뎌야 한다. 여기엔 크롬-몰리브데넘 저합금강(2.25Cr-1Mo, SA213 T22·SA336 F22)이 쓰인다 — 고온 크리프와 수소 침식에 강하도록 설계된 내열강이다.",
+    "breakthrough": "크롬·몰리브데넘이 안정한 탄화물을 만들어 고온에서 오래 버티는 크리프 강도를 주고, 크롬은 고온 수소가 강을 침식하는 것을 막는다. V·Nb 를 더한 개량형(F22V)은 미세 석출로 크리프·수소 저항을 더 높여 두껍고 큰 현대 수소화 반응기를 가능케 했다.",
+    "today": "T22·T11 은 보일러 과열기·재열기 튜브, F22·F22V 는 정유·석유화학 수소화 반응기 대형 단조에 쓰인다. 더 높은 온도(초초임계 발전)는 9~12Cr 마르텐사이트계(P91·P92)로, 극한이면 오스테나이트강·초합금으로 간다.",
+    "fun_fact": "고온 수소가 강 속 탄소와 만나 메탄 기포를 만들어 강을 안에서부터 부풀려 터뜨리는 ‘수소침식’은, 어떤 Cr-Mo 강을 몇 도·몇 기압까지 쓸 수 있는지 그린 넬슨 선도(Nelson curve)로 관리한다."
+   }
+  },
   "cmc": {
    "display": "Ceramic Matrix Composites (SiC/SiC, Al₂O₃/Al₂O₃)",
    "stable_ids": [
@@ -1675,6 +1695,26 @@
     "breakthrough": "크롬은 경화능과 내마모를, 몰리브데넘은 경화능·뜨임취성 억제·고온강도를, 바나듐(6150)은 결정립 미세화와 내마모를 준다. 조질로 강도·인성을 폭넓게(HRC 25~50) 맞출 수 있어, 같은 부품도 요구에 따라 뜨임 온도로 성질을 조율한다.",
     "today": "4150·SCM440·SCM445 는 축·기어·스핀들·유정 공구, 5140·5130 은 볼트·기어, 6150 은 밸브 스프링·기어·공구, 8740 은 항공용 볼트·체결구에 쓰인다. 더 높은 강도가 필요하면 4340·300M 으로, 표면만 굳히려면 침탄강으로 간다.",
     "fun_fact": "4150·4140 같은 Cr-Mo 강은 유정 시추의 드릴 칼라·툴 조인트 단골이다 — 깊은 땅속에서 비틀림과 충격을 오래 견뎌야 하기 때문이다."
+   }
+  },
+  "cryogenic-nickel-steel": {
+   "display": "Cryogenic Nickel Steel (9% Ni / 7% Ni — ASTM A553)",
+   "stable_ids": [
+    "MET-0462",
+    "MET-0463",
+    "MET-0464",
+    "MET-0465"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Krauss G (2005) Steels: Processing, Structure, and Performance, ASM International"
+   ],
+   "sections": {
+    "hook": "−196°C 액화천연가스를 담는 강 — 니켈이 저온에서도 깨지지 않게 지키는 극저온강.",
+    "origin": "보통 강은 저온에서 갑자기 취약해져(연성-취성 천이) 깨진다. 하지만 니켈을 많이 넣으면 이 천이 온도가 극저온까지 내려간다. 9%Ni 강(ASTM A553)은 −196°C 액화천연가스(LNG)에서도 질긴 상태를 유지하도록 개발된 극저온강이다.",
+    "breakthrough": "니켈은 저온에서 잘 안 깨지는 조직을 안정화하고, 특수 열처리(QLT — 담금질·라멜라화·뜨임)로 조직 사이에 미세한 잔류 오스테나이트를 남긴다. 이 잔류 오스테나이트가 저온에서 균열의 진행을 흡수해, −196°C 에서도 높은 충격인성을 준다.",
+    "today": "9%Ni 강은 LNG 저장탱크·수송선 화물창·극저온 배관에 쓰인다. 니켈을 조금 줄인 7%Ni(A553 Type III)로 원가를 낮추려는 시도도 있다. 더 낮은 온도(액체수소·헬륨)나 비자성이 필요하면 오스테나이트 스테인리스로 간다.",
+    "fun_fact": "9%Ni 강 덕분에 값비싼 스테인리스 없이도 LNG(−162°C)를 안전하게 담을 수 있게 됐다 — 오늘날 세계 LNG 저장탱크·수송선의 뼈대가 이 강이다."
    }
   },
   "cucr1zr": {
@@ -2161,6 +2201,27 @@
     "origin": "304(18Cr-8Ni)는 약 870°C 부근부터 산화 스케일이 벗겨지기 시작한다. Cr 을 23~26%, Ni 를 13~22%까지 끌어올리면 치밀한 Cr₂O₃ 스케일이 더 높은 온도까지 버틴다 — 그렇게 만든 것이 309(23Cr-13Ni)와 310(25Cr-20Ni)이다.",
     "breakthrough": "높은 Cr 이 내산화·내황화를, 높은 Ni 가 고온에서 오스테나이트 상 안정과 침탄 저항을 준다. ‘S’ 접미(309S/310S)는 탄소를 낮춰 용접성을 개선한 판재용이며, 310 은 309 보다 Ni 가 많아 열충격·연속 고온에 더 강하다.",
     "today": "소둔로·열처리 지그·머플·라디언트 튜브·소각로 부품 등 1000~1100°C 산화 분위기에 쓰인다. 다만 황 함유 환원 분위기에서는 Ni 가 오히려 취약해 다른 합금으로 간다. 309 는 이종금속 용접의 완충 용접봉으로도 흔하다."
+   }
+  },
+  "heavy-section-pressure-steel": {
+   "display": "Heavy-Section Pressure Steel (A537 / SA508 nuclear forging / HY-80)",
+   "stable_ids": [
+    "MET-0627",
+    "MET-0628",
+    "MET-0629",
+    "MET-0630",
+    "MET-0059"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Krauss G (2005) Steels: Processing, Structure, and Performance, ASM International"
+   ],
+   "sections": {
+    "hook": "두꺼운 단면 속까지 질긴 강 — 원자로·압력용기·잠수함 선체를 위한 후판·대형 단조강.",
+    "origin": "압력용기·원자로·잠수함 선체는 두꺼운 단면 전체가 높은 압력과 충격을 견뎌야 한다. 그래서 Mn·Ni·Cr·Mo 로 경화능을 키워 두꺼운 판·단조재의 심부까지 담금질되게 하고, 낮은 탄소로 용접성을 지킨 저합금강이 쓰인다 — A537(C-Mn 후판), SA508(Mn-Mo-Ni 원자로 단조), HY-80(Ni-Cr-Mo 잠수함강) 등이다.",
+    "breakthrough": "핵심은 두꺼운 단면 심부까지의 경화능과, 두꺼워도 유지되는 저온 인성이다. Ni 는 저온 인성을, Mo 는 경화능·뜨임취성 억제를, 낮은 탄소·청정강은 용접 건전성을 준다. SA508·HY-80 은 담금질+뜨임(Q&T)으로 두꺼운 단면에서도 균일한 조직과 인성을 얻는다.",
+    "today": "A537 은 저온 압력용기·저장탱크, SA508 은 원자로 압력용기·증기발생기 대형 단조, HY-80·HY-100 은 잠수함·군함 선체에 쓰인다. 극저온(LNG)이면 9%Ni 강, 고온(보일러)이면 Cr-Mo 강으로 간다.",
+    "fun_fact": "SA508 로 만드는 원자로 압력용기는 두께 200mm를 넘는 단일 대형 단조품으로, 수십 년의 중성자 조사에도 취화가 관리되도록 구리·인 같은 불순물을 극도로 낮춘다."
    }
   },
   "high-speed-steel": {
@@ -2754,6 +2815,29 @@
     "origin": "대부분의 스테인리스는 물러서 마모·절삭날에 부적합하다. 440 계는 Cr 16~18%에 탄소를 0.6~1.2%까지 높여, 담금질 시 다량의 크롬 탄화물과 마르텐사이트로 HRC 58~60 의 경도를 내는 고탄소 마르텐사이트 스테인리스다.",
     "breakthrough": "탄소가 A(0.6~0.75%)→ B(0.75~0.95%)→ C(0.95~1.2%)로 오를수록 경도·내마모가 커진다. 440C 는 스테인리스 중 최고 경도급이다 — 다만 그 탄화물이 Cr 을 소모해 내식은 오스테나이트계보다 낮고, 인성도 낮다.",
     "today": "440C 는 볼베어링·밸브 시트·수술칼·고급 나이프에, 440A/B 는 중간 경도가 필요한 칼·부품에 쓰인다. 내식이 더 중요하면 마르텐사이트 대신 PH 스테인리스(17-4)나 오스테나이트로 간다."
+   }
+  },
+  "microalloyed-hsla-steel": {
+   "display": "Microalloyed HSLA Steel (Pipeline API 5L X42–X65 / Forging 38MnVS6)",
+   "stable_ids": [
+    "MET-0489",
+    "MET-0490",
+    "MET-0491",
+    "MET-0492",
+    "MET-0618",
+    "MET-0619",
+    "MET-0620"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Krauss G (2005) Steels: Processing, Structure, and Performance, ASM International"
+   ],
+   "sections": {
+    "hook": "니오븀·바나듐을 아주 조금 넣어 값싸게 강해진 강 — 송유관과 단조 부품의 미세합금강.",
+    "origin": "1960년대, 니오븀·바나듐·티타늄을 0.1% 안팎만 넣어도 강도가 크게 오른다는 것이 알려졌다. 이 미세합금(microalloyed) 원소들이 제어압연(TMCP) 중 미세한 탄질화물을 석출하고 결정립을 잡아, 값싼 저탄소강을 고강도·고인성 HSLA 강으로 바꾼다. 송유관(API 5L X)과 단조 부품(38MnVS6)이 대표 용도다.",
+    "breakthrough": "Nb·V·Ti 의 미세 석출물이 결정립 성장을 막아 강도와 저온 인성을 동시에 올린다 — 합금을 거의 안 넣고 얻는 강화라 값싸고 용접성도 좋다. 파이프라인강(X65 등)은 여기에 TMCP 를 더해 낮은 탄소당량으로 현장 용접성과 고압 내압을 겸한다.",
+    "today": "API 5L X42~X70 은 원유·가스 송유관, 38MnVS6 같은 미세합금 단조강은 자동차 크랭크샤프트·커넥팅로드에 쓰인다. 더 높은 강도·인성은 조질강이나 저온 Ni 강으로 간다.",
+    "fun_fact": "38MnVS6 같은 미세합금 단조강은 단조 후 그냥 공기 중에서 식히기만 해도 바나듐 석출로 필요한 강도가 나온다 — 담금질·뜨임 공정을 통째로 생략해 원가를 크게 줄인다."
    }
   },
   "mmc": {
@@ -3598,7 +3682,9 @@
    "stable_ids": [
     "MET-0633",
     "MET-0634",
-    "MET-0635"
+    "MET-0635",
+    "MET-0636",
+    "MET-0637"
    ],
    "refs": [
     "EN 13674-1 (2017) \"Railway applications - Track - Rail - Part 1: Vignole railway rails 46 kg/m and above\"",
@@ -3865,16 +3951,19 @@
   "structural-plate-steel": {
    "display": "Structural Plate Steel (S275 / S690QL / AH36·EH36 ship / API 2H offshore)",
    "stable_ids": [
+    "MET-0321",
+    "MET-0322",
+    "MET-0323",
+    "MET-0675",
+    "MET-0676",
+    "MET-0677",
+    "MET-0678",
     "MET-0845",
     "MET-0846",
     "MET-0852",
     "MET-0853",
     "MET-0856",
-    "MET-0857",
-    "MET-0675",
-    "MET-0676",
-    "MET-0677",
-    "MET-0678"
+    "MET-0857"
    ],
    "refs": [
     "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
