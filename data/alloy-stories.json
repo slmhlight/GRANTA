@@ -2068,6 +2068,23 @@
     "today": "항공 전선 피복·화학 라이닝, 그리고 무엇보다 대형 건축 지붕·파사드의 공기막 쿠션(베이징 워터큐브·뮌헨 알리안츠 아레나 등)이 대표 용도다. 유리보다 훨씬 가벼워 넓은 채광 구조를 만든다."
    }
   },
+  "eva": {
+   "display": "EVA (Ethylene-Vinyl Acetate)",
+   "stable_ids": [
+    "POL-0010"
+   ],
+   "refs": [
+    "Osswald T A, Baur E, Brinkmann S et al. (2006) International Plastics Handbook, Hanser",
+    "Harper C A (ed., 2006) Handbook of Plastics Technologies, McGraw-Hill"
+   ],
+   "sections": {
+    "hook": "고무처럼 말랑한 플라스틱 — 신발 밑창과 태양광 봉지재의 EVA.",
+    "origin": "EVA(에틸렌-비닐아세테이트)는 폴리에틸렌에 비닐아세테이트를 넣어 유연하고 탄성 있게 만든 공중합체다. 아세테이트 함량으로 딱딱함부터 고무 같은 말랑함까지 조절되며, 값싸고 투명하며 잘 붙는다.",
+    "breakthrough": "비닐아세테이트가 결정성을 낮춰 유연성·투명성·접착성·내충격을 높인다. 발포하면 가볍고 푹신한 폼이 되고, 필름은 투명하고 밀착력이 좋아 봉지·라미네이트에 맞는다. 다만 내열·내약품·강도는 낮다.",
+    "today": "발포 EVA 는 운동화 중창·매트·부력재, EVA 필름은 태양광 패널 봉지재(셀 보호)·안전유리 중간막·핫멜트 접착제에 쓰인다. 더 질기고 탄성이 필요하면 TPU 로 간다.",
+    "fun_fact": "거의 모든 운동화의 푹신한 중창이 발포 EVA 다 — 가볍고 충격을 잘 흡수하면서 값싸, 반세기 넘게 신발 밑창의 표준으로 쓰인다."
+   }
+  },
   "ferritic-stainless": {
    "display": "Ferritic Stainless (405 / 410S / 434 / 436 / 446 / FeCrAl MA956)",
    "stable_ids": [
@@ -2490,6 +2507,26 @@
      "ref": 1
     }
    ]
+  },
+  "high-temp-polyamides": {
+   "display": "High-Temp Polyamides (PA46 Stanyl / PPA Amodel)",
+   "stable_ids": [
+    "POL-0017",
+    "POL-0066",
+    "POL-0067",
+    "POL-0108"
+   ],
+   "refs": [
+    "Osswald T A, Baur E, Brinkmann S et al. (2006) International Plastics Handbook, Hanser",
+    "Harper C A (ed., 2006) Handbook of Plastics Technologies, McGraw-Hill"
+   ],
+   "sections": {
+    "hook": "더 뜨겁게 견디는 나일론 — 결정을 촘촘히·고리를 넣어 엔진룸을 버티는 PA46·PPA.",
+    "origin": "일반 나일론(PA6·PA66)은 엔진룸 같은 고온·다습 환경에서 강도가 떨어지고 수분을 먹어 치수가 변한다. 이를 개선한 고온 나일론이 있다 — 결정성을 극도로 높인 PA46(Stanyl)과, 사슬에 방향족 고리를 넣은 반방향족 PPA(Amodel) 등이다.",
+    "breakthrough": "PA46 은 촘촘한 결정 구조로 융점(~295°C)과 고온 강성·내마모를 높이고, PPA(폴리프탈아마이드)는 방향족 고리로 내열·강성을 올리면서 일반 나일론보다 수분 흡수를 줄여 습한 환경에서도 치수가 안정하다. 유리섬유를 넣으면 고온 강도가 더 오른다.",
+    "today": "PA46 은 자동차 엔진 기어·베어링·변속 부품, PPA-GF 는 엔진룸 커넥터·센서 하우징·전장 부품에 쓰인다. 더 높은 내열·내약품이 필요하면 PPS·PEEK 로 간다.",
+    "fun_fact": "요즘 자동차 엔진룸의 검은 플라스틱 부품 상당수가 유리섬유 강화 고온 나일론(PA46·PPA)이다 — 금속을 대체해 무게와 원가를 줄이면서 엔진 열을 견딘다."
+   }
   },
   "high-temp-titanium": {
    "display": "High-Temp Titanium (Ti-6242 / Ti-8-1-1 / Ti-6-2-4-6 / TA15)",
@@ -3348,6 +3385,7 @@
   "nylon-6-gf30": {
    "display": "Nylon 6 GF30",
    "stable_ids": [
+    "POL-0058",
     "POL-0071"
    ],
    "refs": [
@@ -3554,6 +3592,23 @@
     "origin": "아미드기(–CONH–)와 이미드 고리를 한 사슬에 결합한 비정질 고성능 열가소성이다. 1970년대 미국 Amoco(현 Solvay)가 Torlon 상표로 도입했다 — 처음엔 불소수지 코팅 접착과 전선 피복용이었다.",
     "breakthrough": "아미드-이미드 뼈대가 열가소성 중 최고 수준의 강도·강성과 약 260°C 연속 사용 온도를 준다. 다만 성형 후 장시간 고온 경화(post-cure)로 이미드화를 완성해야 물성이 나와, 가공이 까다롭다.",
     "today": "제트엔진 부싱·베어링 케이지·고온 씰·반도체 시험 소켓처럼 ‘금속을 대신할 만큼 강하면서 고온·마모’를 견뎌야 하는 극한 부품에 쓰인다. 더 높은 온도는 폴리이미드(PI)·세라믹으로 간다."
+   }
+  },
+  "pbi": {
+   "display": "PBI (Polybenzimidazole — Celazole)",
+   "stable_ids": [
+    "POL-0019"
+   ],
+   "refs": [
+    "Osswald T A, Baur E, Brinkmann S et al. (2006) International Plastics Handbook, Hanser",
+    "PBI Performance Products, Celazole® PBI 기술 자료"
+   ],
+   "sections": {
+    "hook": "플라스틱 중 가장 뜨거운 것을 견디는 재료 — 400°C에도 물러지지 않는 PBI.",
+    "origin": "PBI(폴리벤즈이미다졸)는 알려진 열가소성 플라스틱 중 유리전이온도가 가장 높은(~427°C) 초고내열 폴리머다. 방향족 이미다졸 고리가 촘촘히 이어져, 다른 플라스틱이 물러지거나 타 버리는 온도에서도 형상과 강도를 유지한다.",
+    "breakthrough": "극도로 안정한 방향족 고리 구조가 최고 수준의 내열·강성·내약품·난연성을 준다 — 고온에서도 처지지 않고(비크리프), 불에 잘 타지 않으며 유독가스도 적다. 다만 값이 매우 비싸고 성형이 까다로워, 정말 극한 온도에만 쓴다.",
+    "today": "반도체 웨이퍼 핸들링·시험 소켓, 고온 부싱·시일, 항공·소방 방열복 섬유(내열 장갑·소방복)에 쓰인다. 더 낮은 온도로 충분하면 PEEK·PAI(Torlon)로 내려간다.",
+    "fun_fact": "PBI 섬유는 불에 닿아도 타거나 녹지 않고 탄화만 되어, 소방관 방화복과 우주비행사 의류의 내열 소재로 쓰인다."
    }
   },
   "pbt": {
@@ -3797,6 +3852,25 @@
    ],
    "legacy_text": "1932년 DuPont 의 월리스 캐러더스 (Nylon 66 발명자) 가 lactic acid 의 ring-opening polymerization 으로 처음 polylactic acid 를 합성했지만 분자량이 낮아 상품화에는 실패했어요. 1989년 Cargill 의 팻 그루버 (Pat Gruber) 가 corn starch fermentation → lactic acid → lactide cyclic dimer → ring-opening polymerization 의 economical 공정을 완성, 1997년 Cargill + Dow 의 joint venture 인 NatureWorks 가 'Ingeo' 라는 상표로 첫 상업 생산을 시작합니다.\n\nPLA 의 사회적 의의는 corn / sugarcane 같은 농업 원료 100% 의 bio-source + 산업 퇴비 (60°C, 6 주) 조건에서 완전 분해 가능한 최초의 메인스트림 폴리머라는 점이에요. 2010년대 데스크탑 3D 프린팅 (MakerBot, Prusa, Bambu Lab) 에서 가장 흔한 필라멘트로 — low T_m 175°C 라 일반 hotend 로도 잘 출력되고 warping 도 거의 없거든요. Coca-Cola PlantBottle, 스타벅스 disposable cup lid, 미국 Whole Foods food container, 의료 PLA-PGA biodegradable suture (Vicryl) 와 stent. 단점은 Tg 60°C — 자동차 dashboard 처럼 햇볕에 직사되는 환경에서는 쉽게 변형됩니다."
   },
+  "pmi-structural-foam": {
+   "display": "PMI Structural Foam (Rohacell)",
+   "stable_ids": [
+    "POL-0011",
+    "POL-0012",
+    "POL-0013"
+   ],
+   "refs": [
+    "Osswald T A, Baur E, Brinkmann S et al. (2006) International Plastics Handbook, Hanser",
+    "Evonik, ROHACELL® PMI 구조 발포체 기술 자료"
+   ],
+   "sections": {
+    "hook": "가볍고 단단하며 열까지 견디는 구조용 발포체 — 샌드위치 패널의 심재 Rohacell.",
+    "origin": "항공기 날개·위성 패널처럼 가벼우면서 휨에 강한 구조는, 얇고 강한 두 표피 사이에 가벼운 심재를 끼운 샌드위치로 만든다. PMI(폴리메타크릴이미드) 발포체(Rohacell)는 이 심재를 위한 고성능 폼으로, 극히 가벼우면서 압축·전단에 강하고 복합재 경화 온도·압력을 견딘다.",
+    "breakthrough": "닫힌 기포(closed-cell) 구조가 낮은 밀도에서 높은 비강성·비강도를 내고, 이미드 결합이 복합재 오토클레이브 경화(~180°C, 고압)를 견디게 한다 — 그래서 표피(탄소섬유 프리프레그)와 함께 한 번에 성형할 수 있다. 균일한 미세 기포라 표면 품질·재현성도 좋다. 다만 값이 비싸다.",
+    "today": "항공기 조종면·레이돔·헬기 로터, 위성 구조 패널, 고성능 자동차·스포츠 장비의 샌드위치 심재로 쓰인다. 값이 부담이면 발포 PVC·허니콤·발사로 간다.",
+    "fun_fact": "PMI 폼 심재는 무게의 대부분이 공기지만, 얇은 탄소섬유 표피와 결합하면 같은 무게의 알루미늄판보다 훨씬 안 휘는 구조가 된다 — 이것이 샌드위치 구조의 힘이다."
+   }
+  },
   "pmma": {
    "display": "PMMA",
    "stable_ids": [
@@ -3980,6 +4054,23 @@
     "ASTM D1457"
    ],
    "legacy_text": "PTFE (Teflon, Polytetrafluoroethylene) 의 발견은 1938년 미국 DuPont 의 Roy J. Plunkett 이 우연한 실험 사고로 이뤄집니다. Refrigerant 후보로 TFE (tetrafluoroethylene) gas 를 보관하던 cylinder 에서 갑자기 gas 가 사라지고 흰 powder 가 cylinder 벽에 부착되어 있던 거예요. Analysis 해보니 stainless steel cylinder 의 Fe 가 촉매 역할 → autopolymerization (free-radical chain) 으로 TFE 가 PTFE 로 변환된 사실이었습니다.\n\n2차 대전 동안 PTFE 는 'Manhattan Project' 의 비밀 물자 — UF₆ (uranium hexafluoride) 의 enrichment process gasket / seal 로 사용됐어요. UF₆ 가 거의 모든 metal 과 polymer 를 부식시키는데 PTFE 만 안정적이었기 때문이죠. 전후엔 'Teflon' 의 상표명으로 1948년 first commercial 출시. Frypan coating 의 첫 application 은 1956년 프랑스 Marc Grégoire (Tefal/T-fal 창립자) 의 발명.\n\n현대 응용 — Cooking pan coating (Tefal/T-fal, DuPont SilverStone, Calphalon), 화학 plant 의 piping / valve / gasket (HCl 95%, HF 70%, H₂SO₄ 98%, HNO₃ 70% — almost universal chemical resistance, 300°C 까지), aerospace wire insulation (high-temperature aircraft wiring — F-22, B787), medical: vascular graft (Gore-Tex), suture, oxygen delivery system, 반도체: ultra-pure water piping (Daikin / Nichias PFA), 식품 산업의 conveyor lining.\n\n특이점 — 가장 낮은 friction coefficient 0.04, 가장 넓은 chemical resistance, -200 ~ +260°C 의 ultra-wide service T, 단 mechanical strength 부족 (σ 25 MPa, El 200%) + 가공 어려움 (sintering 365°C — melting 안 되고 paste sintering)."
+  },
+  "pvb": {
+   "display": "PVB (Polyvinyl Butyral — laminated glass)",
+   "stable_ids": [
+    "POL-0123"
+   ],
+   "refs": [
+    "Osswald T A, Baur E, Brinkmann S et al. (2006) International Plastics Handbook, Hanser",
+    "Harper C A (ed., 2006) Handbook of Plastics Technologies, McGraw-Hill"
+   ],
+   "sections": {
+    "hook": "깨져도 흩어지지 않게 붙잡는 필름 — 자동차 앞유리 안에 숨은 PVB.",
+    "origin": "PVB(폴리비닐부티랄)는 유리 두 장 사이에 끼우는 투명하고 질긴 접착 필름이다. 접합유리(laminated glass)에서 유리가 깨져도 파편이 이 필름에 붙어 흩어지지 않게 붙잡아, 관통과 비산을 막는다.",
+    "breakthrough": "유리와의 강한 접착력과 높은 인성·유연성이 핵심이다 — 충격으로 유리가 깨져도 PVB 층이 파편을 붙든 채 늘어나며 에너지를 흡수해, 사람이 뚫고 나가거나 유리가 튀는 것을 막는다. 자외선·소음 차단 기능도 더할 수 있다.",
+    "today": "자동차 앞유리(접합유리), 건축 안전유리·방탄유리·방음유리, 태양광 봉지재에 쓰인다. 접합유리의 안전성이 곧 PVB 필름의 성능이다.",
+    "fun_fact": "자동차 앞유리가 깨져도 거미줄처럼 금만 가고 조각이 쏟아지지 않는 것은, 유리 두 장 사이의 얇은 PVB 필름이 파편을 전부 붙들고 있기 때문이다."
+   }
   },
   "pvc-rigid": {
    "display": "PVC (rigid)",
