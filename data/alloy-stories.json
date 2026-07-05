@@ -195,7 +195,21 @@
     "ATI 'A-286 Technical Data Sheet'",
     "Reed R C (2006) The Superalloys: Fundamentals and Applications, Chapter 4"
    ],
-   "legacy_text": "A-286 (UNS S66286) 은 1944년 미국 Allegheny Ludlum (현재 ATI) 이 'A-286' (Allegheny No. 286) 으로 개발한 iron-based superalloy 입니다. Fe 53% + Ni 25% + Cr 15% + Ti 2% + Mo 1.3% 의 조성에서 Ti 가 γ' (Ni₃(Al,Ti)) precipitate 의 형성으로 강도를 얻어요. Iron-base γ' superalloy 의 첫 commercial 합금이었습니다.\n\n응용 — Jet engine 의 720°C-class 부품. GE J47 (1948년 First U.S. jet engine), Pratt & Whitney JT3D / JT8D (Boeing 707 / 727 / 737) 의 compressor disk, fastener (bolt, stud), turbine exhaust case, afterburner spool, jet engine bracket. Inconel 718 (1962년 개발) 의 등장 이전까지 A-286 가 PH-Ni superalloy 의 main option 이었고, 718 등장 후에는 cost-effective alternative 로 fastener (1200°F = 650°C service) 분야로 transition 됐어요.\n\n현대 응용 — Aerospace fastener (AMS 5736 의 ESR-melted 등급, F-35 / F-22 의 engine bolt), industrial turbine bolt (650°C service), high-T spring, automotive turbocharger valve spring. HT 표준 — Solution 980°C / 1h / OQ → Aged 720°C / 16h / AC. σy 약 700 MPa, σUTS 1000 MPa, El 22%. 가격은 Inconel 718 의 약 70% (Fe matrix 의 Ni-saving)."
+   "sections": {
+    "hook": "니켈을 아끼려 철을 바탕으로 삼은 최초의 γ′ 초합금 — 제트엔진 볼트와 디스크의 A-286.",
+    "origin": "1944년 미국 Allegheny Ludlum(현 ATI)이 개발한 철기(iron-based) 초합금으로, 이름은 사내 강종 번호(No. 286)에서 왔다. 철 바탕에 니켈·크롬을 넣고 티타늄으로 γ′(Ni₃(Al,Ti)) 석출을 일으키는데, 이는 값비싼 니켈 초합금의 강화 원리를 철 바탕에서 처음 상용화한 것이었다.",
+    "breakthrough": "티타늄이 만드는 γ′ 석출이 650~720°C 급 고온강도를 주면서, 낮은 탄소로 용접성까지 지킨다. 니켈 초합금만큼 강하진 않지만 니켈을 절반쯤만 쓰니 값이 싸다 — 고온에서 \"충분히 강하고 충분히 싼\" 자리를 정확히 겨냥한 설계다.",
+    "adoption": "1950년대 초기 제트엔진 압축기 디스크·배기 케이스·볼트에 폭넓게 채택됐고, 1962년 Inconel 718 이 나온 뒤에는 값싼 대안으로 고온 체결구 분야로 자리를 옮겼다.",
+    "today": "오늘날 A-286 은 항공엔진 볼트·스터드와 고온 스프링, 터보차저 밸브 스프링의 표준이다 — 디스크 자리는 718 에 내줬지만, 650°C 를 견디는 체결구가 필요하면 여전히 첫 후보다.",
+    "fun_fact": "초합금이라는 화려한 이름과 달리 A-286 의 오늘날 주 무대는 볼트다 — 엔진을 이루는 수천 개의 뜨거운 나사가, 반세기 넘게 이 합금의 조용한 일터다."
+   },
+   "timeline": [
+    {
+     "year": 1944,
+     "event": "Allegheny Ludlum, A-286 개발 — 최초 상용 철기 γ′ 초합금",
+     "ref": 4
+    }
+   ]
   },
   "a356": {
    "display": "A356",
@@ -455,7 +469,21 @@
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
     "Searles J L et al. (2001) \"Stress corrosion cracking of sensitized AA5083\", Met Mater Trans A 32(11)"
    ],
-   "legacy_text": "1957년 미국 Alcoa 의 R W Fink 가 Mg 4.5% + Mn 0.7% + Cr 0.15% 조성으로 marine 환경에 강한 새 5xxx 합금을 개발하면서 AA 5083 이 등장합니다. 이전 5052 (Mg 2.5%) 의 강도 한계를 거의 두 배 (σ_y 145 → 230 MPa) 로 끌어올리면서 해수 SCC 저항을 그대로 유지한 게 핵심이었어요.\n\n응용은 marine 의 모든 곳이에요. 어선 hull (Bertram, Boston Whaler 의 high-end 모델), 잠수정 (이전 Russian Mir + USS Trieste 의 외부 frame), LNG carrier 의 inner tank (−163°C 까지 fully toughness 유지, IMO IGC code 표준), 군용 — M2 Bradley IFV 의 ballistic 보강 (aluminum armor), 미해군 LCS class 의 superstructure. 자동차에서는 Audi A8 의 일부 frame member, Tesla Roadster 1세대의 frame — 'high-strength 5xxx' 자리의 default 입니다.\n\n약점도 있어요. Mg 4.5% 는 65°C 이상에서 β-phase (Al₃Mg₂) 가 입계에 석출하면서 IGC (입계 부식) sensitization 이 일어날 수 있죠. 그래서 marine 응용에서도 dewpoint condensation 등 표면 온도가 60°C 를 넘는 곳에는 H116 / H321 같은 special-temper grade 를 별도로 사용합니다."
+   "sections": {
+    "hook": "바닷물을 견디는 비열처리 알루미늄 — 용접되고 극저온까지 질긴 선체·LNG 탱크의 5083.",
+    "origin": "1957년 Alcoa 가 마그네슘 4.5%에 망간·크롬을 더해 내놓은 5xxx 합금이다. 앞 세대 5052(Mg 2.5%)의 강도를 거의 두 배로 끌어올리면서도 해수 응력부식 저항은 그대로 지켜, \"고강도 해양 알루미늄\"의 자리를 열었다.",
+    "breakthrough": "마그네슘 고용강화와 냉간가공으로 강도를 얻으니 열처리가 필요 없고, 면심입방 구조라 극저온에서도 취성 천이 없이 질기다. 용접해도 강도 손실이 작아, 바닷가에서 대형 구조물을 지어 그대로 쓸 수 있다 — 이 조합이 해양·극저온 산업의 기본값을 만들었다.",
+    "adoption": "전후 알루미늄 조선이 어선·군함 상부구조에 채택하며 표준이 됐고, LNG 운반선의 내부 화물탱크(−163°C)와 방탄 보강재로 확산됐다.",
+    "today": "선체·상부구조, LNG 탱크, 압력용기, 방탄 패널까지 해양·극저온 알루미늄의 기둥이다. 다만 60°C 이상 장기 노출 시 입계 부식 감수성이 생겨, 그런 자리는 안정화 템퍼(H116/H321)를 지정한다.",
+    "fun_fact": "−163°C LNG 를 담는 알루미늄 탱크가 5083 인 것은, 강철과 달리 이 합금엔 \"추워지면 갑자기 깨지는 온도\"가 없기 때문이다 — 면심입방 구조의 금속이 극저온 산업의 그릇이 된 이유다."
+   },
+   "timeline": [
+    {
+     "year": 1957,
+     "event": "Alcoa, AA 5083 개발 — 고강도 해양 5xxx",
+     "ref": 1
+    }
+   ]
   },
   "aa-5xxx-marine": {
    "display": "AA 5xxx Marine (5086 / 5182 / 5454 / 5456)",
@@ -531,7 +559,21 @@
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum",
     "Saha P K (2000) Aluminum Extrusion Technology, ASM"
    ],
-   "legacy_text": "1935년 미국 Alcoa 가 6061 의 변형으로 Cu 와 Cr 을 줄인 alloy 63S 를 출시했어요 — 6061 보다 약간 약하지만 압출성이 훨씬 좋고 표면 마감 (anodizing) 도 더 매끄러운 합금이었죠. 1954년 IADS 통합 시 AA 6063 으로 재명명됐습니다.\n\n6063 의 매력은 '모든 압출의 default' 라는 점이에요. T5 (수냉 air-quench + 자연 시효) 또는 T6 (water-quench + 인공 시효) 상태로 σ_y 145~215 MPa — 적당한 강도 + 우수한 압출성 + 깔끔한 surface anodizing 의 3박자입니다.\n\n응용 — 창호 frame (한국 LG Hausys, KCC 의 알루미늄 새시의 표준 합금), curtain wall (전 세계 모든 high-rise 의 외관 frame), 가정용 air-conditioner heat exchanger 의 fin, automobile heat exchanger (라디에이터, condenser fin), 자전거 frame (entry-level), Apple Mac mini 의 외관 chassis (anodized clear), 가구 — IKEA 의 일부 알루미늄 다리. 매년 세계 알루미늄 압출 생산량의 약 60% 가 6063 — '비행기는 2024/7075, 자동차는 6061, 압출은 6063' 이라는 말이 통하는 합금입니다."
+   "sections": {
+    "hook": "세상 모든 창틀의 알루미늄 — 잘 뽑히고 곱게 착색되는 압출의 기본값 6063.",
+    "origin": "1935년 Alcoa 가 6061 에서 구리·크롬을 줄여 내놓은 63S 가 원형이다. 강도는 6061 보다 조금 낮지만 압출이 훨씬 잘 되고 표면이 매끄러워 양극산화 착색이 곱게 나온다 — 강도보다 성형성과 마감을 택한 조성이다.",
+    "breakthrough": "Mg₂Si 석출로 적당한 강도(항복 145~215MPa)를 내면서, 낮은 합금량 덕에 복잡한 단면을 얇고 길게 압출할 수 있다. T5(압출 직후 공랭+시효)로 별도 용체화 없이 마무리되니 값도 싸다 — \"압출의 default\"라는 별명이 여기서 나왔다.",
+    "adoption": "전후 건축 붐과 함께 창호·커튼월 프레임의 표준 압출재가 됐고, 냉난방기 방열 핀과 가전·가구 프레임으로 확산됐다.",
+    "today": "세계 알루미늄 압출량의 절반을 넘는 최다 압출 합금이다 — 창틀·커튼월·방열 핀·경량 프레임의 기본값이며, 강도가 더 필요하면 6061·6082 로 올라간다.",
+    "fun_fact": "\"비행기는 2024, 자동차는 6061, 압출은 6063\"이라는 현장의 격언이 있다 — 지금 창밖 새시부터 에어컨 실외기 핀까지, 눈에 보이는 알루미늄 형재 대부분이 6063 이다."
+   },
+   "timeline": [
+    {
+     "year": 1935,
+     "event": "Alcoa 63S 개발 (1954년 AA 6063 로 재명명)",
+     "ref": 2
+    }
+   ]
   },
   "aa-6082": {
    "display": "AA 6082",
@@ -1067,7 +1109,21 @@
     "JIS G 4303 'Stainless Steel Bars' (SUS420J1/J2)",
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
    ],
-   "legacy_text": "AISI 420 은 1913년 Krupp 의 18-8 (304) 발견 직후 등장한 martensitic stainless 입니다. Cr 12-14% + C 0.15-0.40% 의 조성으로, 304 (오스테나이트) 와 달리 Q+T 처리가 가능해 HRC 50+ 의 경도를 얻을 수 있어요. 일본 JIS 의 SUS420J1 (C 0.16-0.25%) / SUS420J2 (C 0.26-0.40%) 가 동일 합금이며, KS D 3697 (STS420J1/J2) 가 한국 표준입니다.\n\n핵심 응용은 의료 surgical instrument 와 cutlery 입니다. 일본 Seki 시 (관광지 '도검의 마을') 의 식칼, 독일 Solingen 의 Wüsthof / Henckels 식칼, 외과 수술용 mes·scalpel·scissor (Aesculap, B. Braun), 의료 implant용 bone plate (단 ELC 변종만 — ASTM F899), 골프 club head (Cleveland Wedge), 권총·소총의 firing pin 까지. 부식 저항은 304 보다 낮지만 (Cr 13% vs 18%), Q+T 후의 cutting edge retention 이 압도적으로 우수해 cutting tool 분야의 표준이 됐습니다.\n\nHT 표준 — Annealed (HRC 22 max, 가공용) → Austenitize 1010°C / oil quench → Temper 150-300°C / AC. 식칼은 HRC 55-58, 외과 instrument 는 HRC 50-54 의 균형이 일반적입니다. 단점은 sensitization 위험 (450-700°C 영역의 Cr₂₃C₆ 입계 석출) 과 chloride 환경에서의 pitting — 그래서 marine 응용은 17-4 PH 또는 316L 로 대체됩니다."
+   "sections": {
+    "hook": "담금질하면 HRC 50을 넘는 스테인리스 — 식칼과 수술칼의 마르텐사이트 420.",
+    "origin": "1913년 크루프의 스테인리스 발견 직후 등장한 마르텐사이트계로, 크롬 12~14%에 탄소를 0.15~0.40%까지 높인 조성이다. 오스테나이트계(304)와 달리 담금질-뜨임으로 경화되어 날이 서는 것이 핵심이라, 처음부터 칼과 기구를 겨냥했다. 일본 SUS420J1/J2, 한국 STS420J1/J2 가 같은 강이다.",
+    "breakthrough": "탄소가 담금질 시 크롬 탄화물과 마르텐사이트를 만들어 HRC 50~58 의 경도와 날 유지력을 준다. 크롬 부동태는 온화한 환경의 녹만 막을 뿐이라, 내식은 오스테나이트계에 못 미친다 — 대신 \"녹 덜 스는 잘 드는 칼\"이라는 자리를 얻었다.",
+    "adoption": "독일 졸링겐과 일본 세키의 칼 산업이 식칼 표준으로 채택했고, 수술용 메스·가위 등 의료 기구로 확산되며 절삭날 스테인리스의 대명사가 됐다.",
+    "today": "식칼·가위·수술 기구·골프 웨지·공이 등 \"녹 덜 스는 경화 날\"이 필요한 곳의 표준이다. 더 단단한 고급 칼은 440C·분말강으로, 염화물 환경은 17-4 PH·316L 로 넘어간다.",
+    "fun_fact": "주방 식칼 자루에 흔히 새겨진 \"스테인리스\"의 정체가 대개 420 계다 — 녹이 잘 안 슬면서도 갈면 다시 서는 균형이, 매일 물에 닿는 칼에 딱 맞기 때문이다."
+   },
+   "timeline": [
+    {
+     "year": 1913,
+     "event": "크루프 스테인리스 발견 직후 마르텐사이트 420 계 등장",
+     "ref": 2
+    }
+   ]
   },
   "aisi-430": {
    "display": "AISI 430",
@@ -1436,7 +1492,21 @@
     "Materion Corp \"Alloy 25 (C17200) Technical Data Sheet\" (2022)",
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
    ],
-   "legacy_text": "1932년 미국 Brush Beryllium Company (현 Materion) 의 화학자 찰스 소이어 (Charles Sawyer) 가 Cu 에 Be 2% 정도를 첨가해 시효 경화시키면 인장강도가 1380 MPa 까지 올라간다는 사실을 발견합니다. 비슷한 시기 BeCu 가 전기 전도도 22% IACS, σ_y 1100 MPa — 강도와 전도성을 동시에 갖춘 거의 유일한 합금이라는 점도 명확해졌어요.\n\n가장 유명한 응용은 '비-스파크 (non-sparking)' 도구입니다. BeCu 망치, 렌치, 스크루드라이버는 강한 충격에도 불꽃이 튀지 않아 폭발 위험이 있는 정유 refinery, 가스 plant, 광산에서 표준이에요. NASA 의 Apollo 우주복 zipper 의 metal pull 도 BeCu — 산소 풍부 환경에서 스파크가 발생하지 않도록 한 거죠.\n\n항공·우주에서는 spring contact, bushing, bearing race 의 단골입니다. 보잉 787 의 landing gear hinge bushing, 우주 셔틀 RMS robot arm joint, Hubble 망원경의 secondary mirror gimbal 같은 정밀 movement 부품에 쓰여요. 단점은 Be 가루 흡입 시 chronic beryllium disease (CBD) — 그래서 가공 공정에서 엄격한 환기와 봉인이 필수입니다."
+   "sections": {
+    "hook": "강철만큼 강한데 불꽃이 안 튀는 구리 — 방폭 공구와 정밀 스프링의 베릴륨동.",
+    "origin": "1932년 미국 Brush Beryllium 의 찰스 소이어가 구리에 베릴륨 2%를 넣고 시효하면 인장강도가 1380MPa 까지 오른다는 것을 발견했다 — 강철급 강도와 상당한 전기전도(IACS 22%)를 한 몸에 지닌 거의 유일한 구리 합금이다.",
+    "breakthrough": "베릴륨화물 석출이 강도를, 구리 바탕이 전도·비자성·내식을 준다. 무엇보다 충격에 불꽃이 튀지 않아, 폭발 위험 환경의 공구 재료로 독보적이다. 다만 가공 중 나오는 베릴륨 분진은 만성 폐질환을 일으켜, 엄격한 환기·봉인 아래에서만 다룬다.",
+    "adoption": "정유·가스·광산의 방폭 공구(망치·렌치)가 첫 대량 시장이 됐고, 전자·항공의 스프링 접점과 부싱으로 확산됐다.",
+    "today": "방폭 공구, 커넥터 스프링·접점, 정밀 부싱·베어링, 사출 금형 인서트가 본진이다. 강도·전도·비자성·비발화가 겹치는 자리라 대체재가 드물지만, 독성 탓에 무(無)베릴륨 구리 합금으로의 전환 압력도 크다.",
+    "fun_fact": "아폴로 우주복의 금속 지퍼 손잡이가 베릴륨동이었다 — 순산소 환경에서 작은 불꽃도 치명적이라, 부딪혀도 스파크가 없는 이 금속이 우주비행사의 안전을 맡았다."
+   },
+   "timeline": [
+    {
+     "year": 1932,
+     "event": "소이어(Brush Beryllium), BeCu 시효경화 발견",
+     "ref": 1
+    }
+   ]
   },
   "beryllium-metal": {
    "display": "Beryllium",
@@ -3542,7 +3612,21 @@
     "Sha W & Guo Z (2009) Maraging Steels",
     "ATI VascoMax C-300 datasheet"
    ],
-   "legacy_text": "Maraging 300 (UNS K93120, AMS 6514) 은 1962년 INCO 가 250 grade 의 Co 를 7% → 9% 로, Mo 를 5% → 5% 그대로 유지하면서 Ti 를 0.4% → 0.7% 로 올려 만든 변형입니다. 시효 후 UTS 가 250 의 1750 → 1960~2030 MPa 로 13% 이상 올라가면서 같은 air-cool 시효 + 0.05% C 이하의 weldability 는 그대로 유지했어요. 항공·우주 OEM 의 표준 ultra-high strength steel 이 됐습니다.\n\n핵심은 Co 의 역할입니다. Co 자체는 강화에 직접 기여하지 않지만 Mo 의 고용도를 낮춰 Mo 가 Ni₃Mo 석출에 더 많이 참여하도록 유도해 σy 를 끌어올립니다. 280 ksi (1930 MPa) 강도와 KIC 80 MPa·√m 의 인성 균형이 다른 어떤 강에서도 보기 힘든 조합이에요.\n\n주요 응용: NASA Saturn V 의 LH₂ 탱크 일부, F-14 Tomcat / F-15 Eagle landing gear, ICBM (Minuteman III, Trident II D5) motor case, 잠수정 deep-submergence 외피, 우주 셔틀 SRB case 의 일부, 그리고 F1 의 push-rod·crankshaft. 흥미로운 사실은 1985년 Special Metals 가 Iraq 원자력 농축 원심분리기에 Maraging 300 이 쓰일 가능성 때문에 export 제한을 받았다는 점이에요 (Saddam 의 Project Petrochemical-3). 지금도 일부 국가에는 export 제한 품목입니다."
+   "sections": {
+    "hook": "탄소 없이 니켈로 굳히는 초고강도강 — 담금질 균열 없이 UTS 2000MPa를 내는 마레이징 300.",
+    "origin": "1960년대 INCO 가 앞 세대 마레이징 250 의 코발트·티타늄을 조율해 강도를 한 단계 올린 18%Ni 마레이징강이다. 보통 강이 탄소 마르텐사이트로 굳는 것과 달리, 저탄소 니켈 마르텐사이트를 시효해 금속간화합물(Ni₃Mo·Ni₃Ti) 석출로 강해진다 — 탄소가 없어 담금질 균열과 변형이 거의 없다.",
+    "breakthrough": "시효(약 480°C) 만으로 UTS 1950~2030MPa 에 파괴인성까지 겸비하는데, 코발트가 몰리브데넘의 석출 참여를 도와 강도를 끌어올린다. 저탄소라 용접·가공 후 시효만 하면 되니 변형이 적고, 그 시효는 낮은 온도의 단순 공정이다 — 정밀 부품에 이상적인 초고강도강이다.",
+    "adoption": "1960~70년대 항공·우주가 착륙장치·로켓 모터 케이스·원심분리기 로터에 채택하며 자리 잡았고, 금형·경주용 구동부품으로 확산됐다.",
+    "today": "로켓 모터 케이스, 착륙장치, 고성능 금형, F1 구동부품과 3D 프린팅(MS1) 금형에 쓰인다. 값비싼 코발트·니켈이 부담이라, 정말 강도-인성-정밀이 함께 필요한 곳에만 쓴다.",
+    "fun_fact": "마레이징강은 강도가 너무 좋은 탓에 규제받는 드문 금속이다 — 우라늄 농축 원심분리기 로터에 이상적이라, 국제 핵 수출통제 목록에 올라 거래가 제한된다."
+   },
+   "timeline": [
+    {
+     "year": 1960,
+     "event": "INCO, 18%Ni 마레이징강 계열 개발 (250→300 grade)",
+     "ref": 2
+    }
+   ]
   },
   "maraging-300-uns-k93120": {
    "display": "Maraging 300 (UNS K93120)",
@@ -4465,7 +4549,26 @@
     "American Chemical Society (2019) \"PMMA: 90 Years of an Optically Clear Polymer\" educational resource",
     "Andrady A L (2003) Plastics and the Environment, Wiley"
    ],
-   "legacy_text": "1928년 영국 ICI 의 존 크로퍼드 (John Crawford) 가 메틸 메타크릴레이트 (MMA) 의 첨가중합을 처음 시연했고, 1933년 독일 Röhm & Haas 의 오토 룀 (Otto Röhm) 이 산업 규모 생산공정을 완성하면서 'Plexiglas' 라는 상표로 출시했어요. 미국에서는 1936년 DuPont 과 Röhm & Haas (PA) 사이의 패권 다툼 끝에 'Lucite' / 'Plexiglas' 가 평행 상표로 정착했습니다.\n\n2차 대전이 PMMA 의 운명을 결정했어요 — 1941년 Battle of Britain 에서 영국 Spitfire 의 캐노피가 박살나는 일이 잦자 미국 PA Plexiglas 가 모든 동맹국 전투기에 공급됐고, 종전 후 미군 잉여 PMMA 가 1945년부터 의료기기 (artificial eye, contact lens) 와 도로 표지판으로 쏟아져 나오면서 일반 시장으로 확산. 현재는 항공기 윈드실드 (F-16, Cessna, Cirrus SR22; MIL-PRF-25690), Apple Store 천장 라이트박스, 박물관 디스플레이 케이스, LCD 광학 가이드, 수족관 윈도우 (Atlanta Aquarium 의 7.4 × 3.7 m 패널) 같은 가장 흔히 쓰이는 광학 폴리머 자리에 있어요. Tg 105°C 위에서 viscoelastic flow → 정밀 핫스탬핑도 가능합니다."
+   "sections": {
+    "hook": "깨져도 파편이 덜 튀는 투명 플라스틱 — 유리를 대신한 캐노피와 수족관 창의 아크릴.",
+    "origin": "1928년께 영국 ICI 의 존 크로퍼드가 메틸메타크릴레이트 중합을 시연했고, 1933년 독일 Röhm 이 산업 생산 공정을 완성해 Plexiglas 라는 이름으로 내놓았다. 유리처럼 투명하면서 가볍고 잘 깨지지 않는 이 아크릴 수지는, 곧 유리를 대신할 후보로 떠올랐다.",
+    "breakthrough": "광 투과율이 92%로 유리에 버금가면서 밀도는 절반, 깨져도 날카롭게 흩어지지 않고 큰 조각으로 갈라진다. 열가소성이라 가열해 곡면으로 성형하기 쉽고, 두껍게 접합해 거대한 투명 벽도 만들 수 있다 — 유리가 못 하는 형상 자유를 얻었다.",
+    "adoption": "2차 대전에서 전투기 캐노피 재료로 대량 채택되며 검증됐고, 전후 잉여 물자가 표지판·의료기기·조명으로 쏟아지며 민수 시장으로 퍼졌다.",
+    "today": "항공기 윈드실드, 수족관·전망 창, 조명 확산판, 디스플레이 케이스, 광학 도광판이 본진이다. 내충격이 더 필요하면 폴리카보네이트로, 내약품·내열이 필요하면 유리로 갈린다.",
+    "fun_fact": "거대 수족관의 사람 키를 넘는 투명 벽은 유리가 아니라 두껍게 접합한 아크릴이다 — 수십 톤 수압을 견디면서도 왜곡 없이 맑아야 하는 그 창을, 유리로는 그 크기로 만들 수 없다."
+   },
+   "timeline": [
+    {
+     "year": 1933,
+     "event": "Röhm, PMMA 산업 생산 — Plexiglas 상표 출시",
+     "ref": 2
+    },
+    {
+     "year": 1940,
+     "event": "2차 대전 전투기 캐노피 대량 채택 — 대중화 계기",
+     "ref": 3
+    }
+   ]
   },
   "polyethylene": {
    "display": "Polyethylene (LDPE / HDPE / UHMWPE)",
@@ -4799,7 +4902,14 @@
     "Kalousek J & Magel E (2008) \"Optimising the wheel/rail system\", Railway Gazette Int",
     "Cannon D F et al. (2003) \"Rail defects: an overview\", Fatigue Fract Eng Mater Struct 26(10)"
    ],
-   "legacy_text": "1960년대 UIC (Union Internationale des Chemins de fer, 국제 철도 연합) 가 처음 standardize 한 합금. 이전엔 각 나라 (영국 BS 11, 미국 AREMA, 일본 JIS E1101) 의 rail steel 이 다 달랐는데, EU 통합 + ISO 호환을 위해 1971년 UIC 860 코드로 통합됐어요. R260 (R = Rail, 260 = HBW typical 260) 이 mainline 의 default grade 가 됐습니다.\n\nR260 의 비결은 fully pearlitic 미세조직 + 충분한 carbon (0.60~0.82%) 이에요. 차륜과의 contact 영역에서 RCF (rolling contact fatigue, 회전 접촉 피로) 가 하루 100만 cycle 발생하는데, fine pearlite 가 그 cycle 을 millions 번 받아내면서도 표면이 work-hardening 으로 추가 강화됩니다.\n\n응용 — KTX / SRT 의 고속선 (시속 300+ km), TGV (프랑스), Shinkansen (일본), HSR (스페인 RENFE AVE), ICE (독일 DB) — 모든 고속 철도의 main line. 호주 BHP iron ore line (Pilbara, 38 t/axle 의 heavy-haul 표준), 미국 BNSF coal line, 중국 China Railway 의 trunk line … heavy-haul 영역은 R350HT (head-hardened, HBW 350) 으로 진화했지만 baseline 은 항상 R260. EU 의 EN 13674-1 표준이 글로벌 reference 가 되어 있어요."
+   "sections": {
+    "hook": "고속철과 화물열차의 레일이 밟고 지나는 강 — 펄라이트 조직으로 접촉피로를 견디는 R260.",
+    "origin": "나라마다 제각각이던 레일강을, 유럽 철도 통합과 ISO 호환을 위해 국제철도연맹(UIC)이 1970년대에 하나로 묶었다. R260 은 그 표준의 기본 등급으로, 이름 자체가 정체(R=Rail, 260=경도 HBW)를 담고 있으며 지금은 EN 13674-1 규격으로 세계 레일의 기준이 됐다.",
+    "breakthrough": "비결은 완전 펄라이트 조직과 충분한 탄소(0.6~0.8%)다. 차륜과 닿는 지점은 하루에도 수백만 번 굴림 접촉피로를 받는데, 미세한 펄라이트가 이를 견디면서 표면이 밟힐수록 가공경화로 더 단단해진다 — 마모와 피로를 스스로 버티는 조직이다.",
+    "adoption": "1970년대 표준화 이후 KTX·TGV·신칸센·ICE 등 세계 고속선 본선과 대륙 간선의 기본 레일이 됐고, EN 13674-1 이 사실상의 국제 기준으로 자리 잡았다.",
+    "today": "고속선·간선의 표준 레일이며, 광석·석탄을 나르는 중하중 화물선은 표면만 더 굳힌 두부경화 R350HT 로 올라간다. 곡선부의 마모·균열이 심한 구간은 베이나이트계 레일 연구가 다음 장을 준비한다.",
+    "fun_fact": "레일 표면은 열차가 지날수록 스스로 단단해진다 — 밟혀서 강해지는 가공경화 덕에, 갓 깔린 레일보다 몇 달 굴린 레일의 표면 경도가 더 높다."
+   }
   },
   "railway-wheel-class-c-aar-m-107-heavy-haul": {
    "display": "Railway Wheel Class C (AAR M-107) — heavy-haul",
