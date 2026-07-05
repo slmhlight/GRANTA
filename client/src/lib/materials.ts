@@ -129,8 +129,8 @@ export interface Material {
     /** R226k — HT 주의사항 가이드 키 (ht-guidance.json) · 합금별 용접 권고 키 (welding-guidance.json) */
     htg?: string;
     wg?: string;
-    /** R226p Phase 5 — alloy-specific 매칭 coating id 집합 (coatings.ts recommendedCoatings; 빌드 스탬프) */
-    coatings?: string[];
+    /** R226s/E10 — 후공정 추천 그룹 키 (data/coating-recommendations.json groups; 빌드 스탬프) */
+    cg?: string;
     /** R226p Phase 5b — family-color 분류 key (material-colors.ts CLASSES; 빌드 스탬프). 'Other'는 생략. */
     colorFamily?: string;
   };

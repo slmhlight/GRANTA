@@ -66,6 +66,7 @@
 | E9 | 재료 선택 인사이트 (when-to-use) | ✅ 1차 R226j / ○ 확장 | 17 그룹·96 시나리오 (selection-insights.json, 출처 포함) — 상세패널 물성탭 카드 + 현재 재료 강조. 확장 E: 그룹별 시나리오 보강·엔지니어 검토. R: 관행 서술의 과일반화 / M: "일반 관행 요약, 설계 검증 대체 안 함" 명시 + 출처 필수 |
 | E10 | 조건(variation)별 공정 노트 확장 (현 26 조합) | ▶ | condition_notes 'mach|htc' 조합 — 신규 조합은 근거와 함께 추가. R: 조건 오적용 / M: htc 분류는 구조 필드 기반 + parity 게이트 |
 | E11 | 유사재료 × 인사이트 융합 (decisionContext) | ✅ R226l·R226m / ○ 확장 | R226m: **popularity 정렬·필터 폐기 → 물성 log-distance 순 top10**, 다른 인사이트(용도) 그룹 후보는 amber **↗ 배지**로 한눈에 + 주용도 안내, distance(≈) 표기. 전부 m.profiles ID 조회. 확장: 그룹 다양성 슬롯 예약·용접/비용 델타. R: 동일 그룹이 클러스터 지배 시 타그룹 미노출 / M: distance-sort 로 타그룹-근접 후보 억제 해제(배지로 강조) |
+| E12 | **후공정(코팅) 추천 전면 개편** — 합금 그룹 기반 합리화 | ✅ R226s | 구 substrateMatch regex+일률 점수제 폐기 → `data/coating-recommendations.json`(**22그룹** SSOT: 목적(부식/마모/피로/고온/전기/위생/접착/치수)별 when·why·caution) + `m.profiles.cg`(빌드 스탬프, by_mach→by_insight→by_category 키 조회). 조건 보정: **수소취성**(UTS≥1000×전해도금→B850/F519 베이킹)·**AM as-built**(선행 공정)·프로파일별(2xxx 하드아노다이즈, 303/416 질산욕, BeCu 분진). 카탈로그 +5(ENP·QPQ·Ti양극산화 AMS2488·폴리머 어닐링·표면활성화), substrateMatch 필드 소멸. 게이트 `coating-recs.test.ts`(스키마 parity+합금 앵커 17+조건 보정). 커버리지 Metal 98%·Composite 전량·Ceramic 의도적 0. R: 관행 과일반화 / M: 표준 인용 필수+앵커 고정 |
 | D6 | 상류 조건-라벨 비결정성 (supplementary 무라벨 다-point → fp flip) | ○ | Tantalum(Ta) 3-point 무-conditions 가 build-materials 에서 비결정 라벨링 → C_0071 fp 간헐 flip (R226l·R226m 재발, 값 오염 아님·benign). E: 재현 스크립트. A: supplementary 무라벨 다-point 에 conditions[] 부여 or ID-assign 결정화. R: 중간삽입 유발 / M: append-only |
 
 ## F. 코드 품질 (지속)

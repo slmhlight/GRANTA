@@ -1,32 +1,30 @@
 /*
- * R17/R41 — 표준 후공정·코팅 DB.
- *  R41 (현실성 보강): HVOF 범위 좁힘 (landing gear / hydraulic / pump rod / mill roll 만),
- *  DLC 좁힘 (sliding parts/medical 만), Shot Peening 좁힘 (spring/gear/shaft/aerospace fatigue 만).
- *  한국 산업 현장에서 자주 쓰는 흔한 coating 추가 — Hard Chrome 도금, Zinc plating (방청), Phosphate
- *  (자동차 인산염), Stainless Passivation (ASTM A967), Electropolish, Anodizing Type II (장식·내식),
- *  Black Oxide (총포·도구), PEO (Ti·Mg), Aluminizing (니켈 슈퍼합금 고온), Tin plating (전기 접점), Galvanizing (조선).
- *  score 시스템 개선 — alloy-specific match (10점) ≫ generic match (1점) → 'all' 매칭이 alloy-specific 매칭을 가리지 않게.
+ * R17/R41 → R226s/E10 — 표준 후공정·코팅 카탈로그 + 합금별 추천 해석기.
+ *
+ * R226s 전면 개편: 구 substrateMatch name-regex + 점수제(합금 무관 일률 보너스)를 폐기하고,
+ *  - 카탈로그(COATINGS)는 공정 백과(물성·표준·한계)만 담당,
+ *  - "어떤 합금에 무엇을 왜"는 data/coating-recommendations.json(합금 그룹 22종 SSOT)이 담당,
+ *  - 재료→그룹 매핑은 빌드 스탬프 m.profiles.cg (Material ID 기반 — 런타임 regex 0).
+ * resolveCoatingPlan 이 둘을 조합해 목적(부식/마모/피로/고온/전기/위생/접착/치수)별 추천 +
+ * 조건 보정(수소취성 UTS≥1000·AM as-built)을 반환한다.
  *
  * 데이터 출처:
- *   ASM Handbook Vol.5 (Surface Engineering), AMS 시리즈, ASTM B600·B633·B843·D7091·F1925,
+ *   ASM Handbook Vol.5 (Surface Engineering), AMS 시리즈, ASTM B600·B633·B733·B843·D7091·F1925,
  *   KS D 8302 (도금 표준), JIS H 8617, ISO 1456·9587·14713 (방청 도금), MIL-A-8625 (anodizing).
  *
  * Δ 값은 핸드북 typical (실제 값은 코팅 두께·기재·공정 변수에 따라 ±20% 변동).
  */
+import type { Material } from './materials';
+import recsData from '../../../data/coating-recommendations.json';
 
 export interface Coating {
   id: string;
   name: string;
   /** 한국어 라벨 (UI). */
   nameKo: string;
-  /** 어느 카테고리에 적용 가능 (Metal/Polymer/All). */
+  /** 어느 카테고리에 적용 가능 (Metal/Polymer/All) — 추천 SSOT 정합성 게이트용. */
   applicableTo: ('Metal' | 'Polymer' | 'All')[];
-  /**
-   * 어느 기재 (substrate) 에서 효과적 — material name regex.
-   * R41: 'all' 은 거의 안 씀 — 명시적 alloy 패턴 매칭이 원칙.
-   */
-  substrateMatch: 'all' | string;
-  /** 표층 두께 typical (μm). */
+  /** 표층 두께 typical (μm). 피닝·어닐링 등 비피막 공정은 [0, 0]. */
   thicknessMicrons: [number, number];
   /** 표층 경도 결과 (HV). 기재가 부드러우면 영향 큼. */
   surfaceHardnessHV: number | null;
@@ -51,8 +49,6 @@ export const COATINGS: Coating[] = [
     name: 'Zinc Electroplating (방청 도금)',
     nameKo: '아연 도금 (방청)',
     applicableTo: ['Metal'],
-    // 4140·4340·8620·1018·1020·SCM·SS400·a36·sae carbon/alloy steel — 자동차·산업 표준
-    substrateMatch: '\\b(?:1018|1020|1045|s45c|4140|4340|8620|9310|scm4|sncm|ss400|a36|carbon steel|alloy steel|low.?alloy|case[\\s-]?hard|sae 1\\d|sae 4\\d|sae 8\\d|1\\d{3}|4\\d{3})\\b',
     thicknessMicrons: [5, 25],
     surfaceHardnessHV: null,
     frictionCoef: null,
@@ -67,7 +63,6 @@ export const COATINGS: Coating[] = [
     name: 'Manganese Phosphate (Parkerizing)',
     nameKo: '인산염 처리 (Phosphate)',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:1018|1020|1045|s45c|4140|4340|8620|9310|scm4|sncm|carbon steel|alloy steel|fastener|gear|bearing|sae 1\\d|sae 4\\d|sae 8\\d|d2|m2|tool|cast iron|gjl|gjs)\\b',
     thicknessMicrons: [5, 30],
     surfaceHardnessHV: null,
     frictionCoef: 0.15,
@@ -82,8 +77,6 @@ export const COATINGS: Coating[] = [
     name: 'Hard Chrome Electroplating',
     nameKo: '경질 크롬 도금',
     applicableTo: ['Metal'],
-    // 유압 로드·실린더·인쇄 롤·금형 — 흔한 산업 표준
-    substrateMatch: '\\b(?:4140|4340|8620|17[\\s-]?4 ?ph|15[\\s-]?5 ?ph|sus630|sus6\\d{2}|h13|d2|skd|tool steel|hydraulic|piston rod|cylinder|roll|mold|valve stem)\\b',
     thicknessMicrons: [20, 250],
     surfaceHardnessHV: 1000,
     frictionCoef: 0.16,
@@ -94,11 +87,24 @@ export const COATINGS: Coating[] = [
     limitations: 'Cr⁶⁺ 폐액 — EU REACH 규제. 시안화물 위험. 피로 -15% (수소취화). 대체로 HVOF·DLC 검토.',
   },
   {
+    id: 'electroless-nickel',
+    name: 'Electroless Nickel (Ni-P)',
+    nameKo: '무전해 니켈 도금 (ENP)',
+    applicableTo: ['Metal'],
+    thicknessMicrons: [12, 50],
+    surfaceHardnessHV: 550,
+    frictionCoef: 0.4,
+    fatigueGainPct: -10,
+    corrosionUpgrade: '+2',
+    costFactor: 1.3,
+    applications: '복잡 형상 균일 도금 (전류 분포 무관) — 밸브·금형·전자 하우징 (ASTM B733, AMS 2404, MIL-C-26074). 열처리(400°C) 시 850-950 HV.',
+    limitations: 'P 함량따라 특성 변동 (mid-P 표준). 고강도강 수소취성 — 베이킹 필요. 인성 낮아 충격·굽힘부 크랙.',
+  },
+  {
     id: 'tin-plating',
     name: 'Tin Electroplating',
     nameKo: '주석 도금 (전기 접점)',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:copper|c1\\d{4}|c2\\d{4}|c3\\d{4}|c5\\d{4}|brass|bronze|cu-?|ofe|electrical|busbar|connector|terminal)\\b',
     thicknessMicrons: [2, 15],
     surfaceHardnessHV: null,
     frictionCoef: 0.4,
@@ -113,7 +119,6 @@ export const COATINGS: Coating[] = [
     name: 'Silver Electroplating',
     nameKo: '은 도금 (고전류 접점)',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:copper|c1\\d{4}|c17200|cube|beryllium copper|brass|busbar|high.?current|electrical contact)\\b',
     thicknessMicrons: [2, 20],
     surfaceHardnessHV: null,
     frictionCoef: 0.3,
@@ -129,7 +134,6 @@ export const COATINGS: Coating[] = [
     name: 'Hard Anodizing (Type III)',
     nameKo: '경질 양극산화 (Type III)',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:aluminum|alsi|6061|6063|6082|7075|7050|2024|2014|5052|5083|aa\\s?\\d|al-?si)\\b',
     thicknessMicrons: [25, 100],
     surfaceHardnessHV: 500,
     frictionCoef: 0.5,
@@ -144,13 +148,12 @@ export const COATINGS: Coating[] = [
     name: 'Standard Anodizing (Type II)',
     nameKo: '표준 양극산화 (Type II, 장식·내식)',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:aluminum|alsi|6061|6063|6082|5052|5083|aa\\s?(?:1|3|5|6)\\d{3})\\b',
     thicknessMicrons: [5, 25],
     surfaceHardnessHV: 250,
     frictionCoef: null,
     fatigueGainPct: 0,
     corrosionUpgrade: '+1',
-    costFactor: 1.10,
+    costFactor: 1.1,
     applications: '건축 창호 압출재·가전 외장·자전거 frame·MacBook chassis (MIL-A-8625 Type II). 다양한 컬러 가능.',
     limitations: '경도 < Type III. 두께 10-20μm — 마모 부품엔 부족. 7075 등 고합금 표면 얼룩 가능.',
   },
@@ -159,7 +162,6 @@ export const COATINGS: Coating[] = [
     name: 'Chromate Conversion (Alodine / Iridite)',
     nameKo: '크로메이트 전환 피막',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:aluminum|alsi|6061|6063|2024|5052|5083|7075|aa\\s?\\d)\\b',
     thicknessMicrons: [0.5, 3],
     surfaceHardnessHV: null,
     frictionCoef: null,
@@ -175,7 +177,6 @@ export const COATINGS: Coating[] = [
     name: 'Passivation (Citric / Nitric)',
     nameKo: '부동태화 (Passivation)',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:stainless|sus3\\d{2}|3\\d{2}l?|sus4\\d{2}|17[\\s-]?4 ?ph|15[\\s-]?5 ?ph|inconel|hastelloy|304|316|321|347|2205|duplex)\\b',
     thicknessMicrons: [0, 1],
     surfaceHardnessHV: null,
     frictionCoef: null,
@@ -190,13 +191,12 @@ export const COATINGS: Coating[] = [
     name: 'Electropolishing',
     nameKo: '전해 연마',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:stainless|sus3\\d{2}|3\\d{2}l?|sus4\\d{2}|316l|304l|17[\\s-]?4 ?ph|niti|nitinol|inconel|titanium|ti grade ?\\d)\\b',
     thicknessMicrons: [1, 25],
     surfaceHardnessHV: null,
     frictionCoef: 0.2,
     fatigueGainPct: 10,
     corrosionUpgrade: '+1',
-    costFactor: 1.20,
+    costFactor: 1.2,
     applications: '의료기기 (인공관절·임플란트)·반도체 부품·식품·제약 (ASTM B912, ASME BPE). Ra < 0.4μm 가능.',
     limitations: '치수 변경 (10-25μm 제거). 모서리·구멍 가장자리 과식. 가격 ↑. Nitinol 표면 Ti-rich 층 형성.',
   },
@@ -205,7 +205,6 @@ export const COATINGS: Coating[] = [
     name: 'Pack Aluminizing (Diffusion)',
     nameKo: '확산 알루미늄 코팅',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:inconel|hastelloy|haynes|waspaloy|nimonic|in[\\s-]?7\\d{2}|in[\\s-]?9\\d{2}|nickel superalloy|tbc|turbine)\\b',
     thicknessMicrons: [25, 75],
     surfaceHardnessHV: null,
     frictionCoef: null,
@@ -221,7 +220,6 @@ export const COATINGS: Coating[] = [
     name: 'Gas / Plasma Nitriding',
     nameKo: '질화 (Nitriding)',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:h13|skd61|d2|d3|m2|nitralloy|4140|scm4|cr-?mo|tool steel|hot work|cold work|spring|gear|cam|crankshaft|extrusion die|injection mold)\\b',
     thicknessMicrons: [50, 500],
     surfaceHardnessHV: 1100,
     frictionCoef: 0.4,
@@ -232,12 +230,24 @@ export const COATINGS: Coating[] = [
     limitations: '500°C 사용 한계. Al/Cu 부적합. 표면 변형 ±5μm. 처리 후 grind 가능하면 정밀.',
   },
   {
+    id: 'qpq',
+    name: 'Salt Bath Nitrocarburizing + Oxidizing (QPQ)',
+    nameKo: 'QPQ 염욕 질화탄화 (내마모+내식)',
+    applicableTo: ['Metal'],
+    thicknessMicrons: [10, 25],
+    surfaceHardnessHV: 600,
+    frictionCoef: 0.35,
+    fatigueGainPct: 30,
+    corrosionUpgrade: '+2',
+    costFactor: 1.35,
+    applications: '샤프트·유압 부품·총열·기어 (AMS 2753, Tufftride/Melonite 급). 화합물층+산화막 — 염수분무 내식이 아연도금 상회.',
+    limitations: '처리 온도 ~580°C — 저온 템퍼강은 강도 손실 (Q&T 템퍼 온도 확인). 치수 미세 성장. 염욕 폐기물 관리.',
+  },
+  {
     id: 'carburizing',
     name: 'Gas Carburizing + Quench',
     nameKo: '침탄 (Carburizing)',
     applicableTo: ['Metal'],
-    // R41 fix: 저탄소강 (C ≤ 0.25%) 명시 — S45C/1045 같은 중탄소강 / SS400 구조용 강 제외.
-    substrateMatch: '\\b(?:8620|9310|4118|4320|sae 41\\d{2}|sae 43\\d{2}|scm415|scm420|scm822|sncm220|sncm815|sncm439|low.?carbon|1018|1020|1015|s20c|s15c|case[\\s-]?hard|case[\\s-]?harden|20mncr5|carburiz|침탄)\\b',
     thicknessMicrons: [500, 2000],
     surfaceHardnessHV: 750,
     frictionCoef: null,
@@ -252,7 +262,6 @@ export const COATINGS: Coating[] = [
     name: 'Induction Hardening',
     nameKo: '고주파 표면 경화',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:1045|s45c|sm45c|1050|s50c|1060|s55c|4140|4340|scm4|sae 1\\d{3}|sae 4\\d{3}|shaft|axle|crankshaft|cam shaft|gear|spline|leaf spring)\\b',
     thicknessMicrons: [500, 5000],
     surfaceHardnessHV: 650,
     frictionCoef: null,
@@ -268,8 +277,6 @@ export const COATINGS: Coating[] = [
     name: 'PVD TiN (Titanium Nitride)',
     nameKo: 'PVD TiN 코팅',
     applicableTo: ['Metal'],
-    // CVD 가 아닌 PVD — 기재 풀림 없이 ~500°C 처리. R41: CVD-TiN 은 1000°C 라 거의 안 씀 → 항목 자체 제거 (PVD 표준).
-    substrateMatch: '\\b(?:hss|m2|m42|skd|skh|d2|d3|carbide|wc-?co|tool steel|cermet|insert|drill|endmill|tap|punch)\\b',
     thicknessMicrons: [1, 5],
     surfaceHardnessHV: 2400,
     frictionCoef: 0.4,
@@ -284,7 +291,6 @@ export const COATINGS: Coating[] = [
     name: 'PVD TiCN (Titanium Carbonitride)',
     nameKo: 'PVD TiCN 코팅',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:tool steel|skd|d2|d3|hss|m2|carbide|wc-?co|gear|cam|punch|stamping die)\\b',
     thicknessMicrons: [1, 4],
     surfaceHardnessHV: 3000,
     frictionCoef: 0.35,
@@ -299,7 +305,6 @@ export const COATINGS: Coating[] = [
     name: 'PVD TiAlN (Titanium Aluminum Nitride)',
     nameKo: 'PVD TiAlN 코팅',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:h13|skd61|d2|skd|hss|m2|m42|carbide|wc-?co|hot work|die cast|forging die|extrusion|insert|endmill|tap)\\b',
     thicknessMicrons: [2, 6],
     surfaceHardnessHV: 3300,
     frictionCoef: 0.3,
@@ -315,8 +320,6 @@ export const COATINGS: Coating[] = [
     name: 'DLC (Diamond-Like Carbon)',
     nameKo: 'DLC 코팅',
     applicableTo: ['Metal'],
-    // R41: 'all' → sliding parts / 의료 / 베어링 / 피스톤링 / 밸브 / 캠 으로 좁힘.
-    substrateMatch: '\\b(?:bearing|piston ring|piston|valve|cam shaft|valve lifter|injector|pump rotor|gear|medical|implant|surgical|knife|niti|nitinol|titanium grade ?\\d|tool steel|h13|cocrmo|cocr)\\b',
     thicknessMicrons: [1, 5],
     surfaceHardnessHV: 2500,
     frictionCoef: 0.08,
@@ -331,8 +334,6 @@ export const COATINGS: Coating[] = [
     name: 'HVOF WC-Co (Hard Chrome 대체)',
     nameKo: 'HVOF 텅스텐 카바이드 (특수)',
     applicableTo: ['Metal'],
-    // R41: 'all' → 항공 랜딩기어 / 펌프 로드 / 인쇄 롤 / Cr 도금 대체 한정.
-    substrateMatch: '\\b(?:landing gear|piston rod|hydraulic|pump shaft|valve seat|mill roll|paper roll|chrome.?replace|aerospace shaft|titanium grade ?5|17[\\s-]?4 ?ph|15[\\s-]?5 ?ph|4340)\\b',
     thicknessMicrons: [100, 500],
     surfaceHardnessHV: 1300,
     frictionCoef: 0.5,
@@ -347,7 +348,6 @@ export const COATINGS: Coating[] = [
     name: 'Cold Spray (Kinetic Deposition)',
     nameKo: '콜드 스프레이 (보수)',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:repair|restoration|landing gear|titanium grade ?5|6061|7075|magnesium|az3|az9|copper|c1\\d{4})\\b',
     thicknessMicrons: [200, 5000],
     surfaceHardnessHV: null,
     frictionCoef: null,
@@ -362,23 +362,20 @@ export const COATINGS: Coating[] = [
     name: 'Shot / Laser Peening',
     nameKo: '쇼트피닝 (피로 강화)',
     applicableTo: ['Metal'],
-    // R41: 'all' → spring / gear / shaft / aerospace fatigue critical 로 좁힘
-    substrateMatch: '\\b(?:spring|coil spring|leaf spring|valve spring|gear|pinion|shaft|crankshaft|connecting rod|landing gear|turbine blade|compressor disk|aerospace|fatigue critical|4340|aermet|maraging|17[\\s-]?4 ?ph|titanium grade ?5|ti-?6)\\b',
-    thicknessMicrons: [50, 250],
+    thicknessMicrons: [0, 0],
     surfaceHardnessHV: null,
     frictionCoef: null,
     fatigueGainPct: 50,
     corrosionUpgrade: 'none',
     costFactor: 1.15,
     applications: '자동차 valve spring·항공 터빈 블레이드·기어·랜딩기어 (SAE J442·J443, AMS 2430). Almen 정량.',
-    limitations: '코팅 아님 — Ra ↑. 정밀 표면 부품엔 비추천. 강축 (compressive) 응력 도입.',
+    limitations: '코팅 아님 — Ra ↑. 정밀 표면 부품엔 비추천. 압축 잔류응력 층 깊이 50-250μm.',
   },
   {
     id: 'black-oxide',
     name: 'Black Oxide (Fe₃O₄)',
     nameKo: '흑색 산화 처리',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:carbon steel|alloy steel|tool steel|skd|d2|m2|1045|s45c|4140|4340|fastener|hand tool|firearm|총포)\\b',
     thicknessMicrons: [0.5, 2],
     surfaceHardnessHV: null,
     frictionCoef: 0.2,
@@ -393,13 +390,12 @@ export const COATINGS: Coating[] = [
     name: 'Hot-dip Galvanizing',
     nameKo: '용융아연 도금 (조선·건설)',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:ss400|a36|1018|1020|low carbon|carbon steel|structural steel|ship|bridge|pipe|h.?beam|i-beam)\\b',
     thicknessMicrons: [50, 200],
     surfaceHardnessHV: null,
     frictionCoef: null,
     fatigueGainPct: -10,
     corrosionUpgrade: '+2',
-    costFactor: 1.20,
+    costFactor: 1.2,
     applications: '조선·건설 H형강·파이프·교량·송전탑 (ASTM A123, KS D 9521). 30년+ 내식.',
     limitations: '도금조 ~450°C — 열변형 가능. 표면 거칠음. 피로 -10%. 두꺼운 부재 다공성 위험.',
   },
@@ -408,7 +404,6 @@ export const COATINGS: Coating[] = [
     name: 'PEO (Plasma Electrolytic Oxidation)',
     nameKo: 'PEO 플라즈마 전해 산화',
     applicableTo: ['Metal'],
-    substrateMatch: '\\b(?:titanium|ti grade ?\\d|ti-?6al|magnesium|az3|az9|we43|aluminum|6061|7075|alsi|implant|medical|niti)\\b',
     thicknessMicrons: [20, 200],
     surfaceHardnessHV: 1500,
     frictionCoef: 0.5,
@@ -418,34 +413,113 @@ export const COATINGS: Coating[] = [
     applications: '의료 Ti 임플란트 골 친화성·Mg 자동차 부품 내식 (ASTM F2393). 거친 다공질 → 골 융합.',
     limitations: '두께 > 50μm 시 brittle. Mg 합금에 최적. 처리 표면 절연성. fatigue 영향 검증 필요.',
   },
+  {
+    id: 'ti-anodize',
+    name: 'Titanium Anodizing (AMS 2488)',
+    nameKo: 'Ti 양극산화 (anti-galling·색상)',
+    applicableTo: ['Metal'],
+    thicknessMicrons: [0.5, 3],
+    surfaceHardnessHV: null,
+    frictionCoef: null,
+    fatigueGainPct: 0,
+    corrosionUpgrade: '+1',
+    costFactor: 1.15,
+    applications: 'Ti 패스너·피팅 골링 방지 (AMS 2488 Type 2, 회색), 의료·항공 부품 색 구분 (Type 3 간섭색).',
+    limitations: '박막 — 고하중 마모엔 부족 (DLC/PEO 영역). Al 용 MIL-A-8625 와 다른 규격·전해액.',
+  },
+  // ── 폴리머 후공정 ────────────────────────────────────────────────────
+  {
+    id: 'pol-annealing',
+    name: 'Stress-relief Annealing (Polymer)',
+    nameKo: '응력완화 어닐링 (폴리머)',
+    applicableTo: ['Polymer'],
+    thicknessMicrons: [0, 0],
+    surfaceHardnessHV: null,
+    frictionCoef: null,
+    fatigueGainPct: null,
+    corrosionUpgrade: 'none',
+    costFactor: 1.05,
+    applications: '정밀 가공 전후 잔류응력 완화 (Ensinger/MCAM 가이드) — PC/PEI/PSU 의 ESC 크랙·가공 휨 저감, POM/PA/PEEK 치수 안정.',
+    limitations: '결정성 수지는 어닐 중 수축·치수 변화 — 어닐 후 정삭 순서. Tg/융점 대비 온도·시간 관리 필요.',
+  },
+  {
+    id: 'pol-surface-activation',
+    name: 'Plasma / Corona Surface Activation',
+    nameKo: '표면 활성화 (플라즈마·코로나)',
+    applicableTo: ['Polymer'],
+    thicknessMicrons: [0, 0],
+    surfaceHardnessHV: null,
+    frictionCoef: null,
+    fatigueGainPct: null,
+    corrosionUpgrade: 'none',
+    costFactor: 1.1,
+    applications: '도장·접착·인쇄 전처리 (ISO 8296 젖음성) — PP/PE/POM 등 저표면에너지 수지의 접착 성립 조건.',
+    limitations: '효과 지속시간 제한 (수 시간~수일 내 접착·도장). PTFE 는 나트륨 에칭 수준의 강처리 필요.',
+  },
 ];
 
-/** Material 에서 추천 후공정 N개 반환 — **Material ID 기반**(R226p Phase 5): 런타임 regex 제거.
- *  alloy-specific 매칭 coating id 집합은 빌드가 `m.profiles.coatings` 로 스탬프(coatings-classify.mjs).
- *  'all' 코팅은 substrateMatch==='all' 로 런타임 판별(재료 무관). 점수/정렬/보너스는 불변.
- */
-export function recommendedCoatings(m: { category?: string; profiles?: { coatings?: string[] } }, max = 3): Coating[] {
-  const cat = m.category;
-  const matched = new Set(m.profiles?.coatings || []);
-  const scored: { coating: Coating; score: number }[] = [];
-  for (const c of COATINGS) {
-    if (cat && !c.applicableTo.includes(cat as any) && !c.applicableTo.includes('All')) continue;
-    let score = 0;
-    if (c.substrateMatch === 'all') {
-      score = 0.5; // R41: 'all' 매칭은 fallback 으로만 — alloy-specific 매칭과 경쟁 안 함.
-    } else if (matched.has(c.id)) {
-      score = 10; // 명시적 alloy 매칭 (빌드 스탬프) — 최우선
-    } else {
-      continue; // 비매칭 — skip
-    }
-    // 보너스 점수 — fatigue·corrosion·경도 향상이 큰 coating 우대
-    if (c.fatigueGainPct && c.fatigueGainPct >= 30) score += 1;
-    if (c.corrosionUpgrade === '+2' || c.corrosionUpgrade === 'major') score += 1;
-    if ((c.surfaceHardnessHV ?? 0) >= 1500) score += 0.5;
-    // 비용 페널티 — 너무 비싼 coating (×2 이상) 은 일반 alloy 에서 우선순위 ↓
-    if (c.costFactor >= 2.0) score -= 0.5;
-    scored.push({ coating: c, score });
+/* ── R226s — 합금별 추천 해석 (Material ID 기반: m.profiles.cg → coating-recommendations.json) ── */
+
+export type CoatingPurpose = 'corrosion' | 'wear' | 'fatigue' | 'thermal' | 'electrical' | 'hygiene' | 'adhesion' | 'stability';
+export const PURPOSE_LABEL: Record<CoatingPurpose, string> = {
+  corrosion: '부식방지', wear: '내마모', fatigue: '피로', thermal: '고온',
+  electrical: '전기·납땜', hygiene: '위생·정밀', adhesion: '접착·도장', stability: '치수·응력',
+};
+
+export interface CoatingRec {
+  coating: Coating;
+  purpose: CoatingPurpose;
+  when: string;
+  why: string;
+  caution?: string;
+}
+export interface CoatingPlan {
+  group: string;
+  title: string;
+  intro?: string;
+  recs: CoatingRec[];
+  notes: string[];
+  sources: string[];
+}
+
+interface RecRaw { coating: string; purpose: CoatingPurpose; when: string; why: string; caution?: string; caution_mach?: Record<string, string> }
+interface GroupRaw { title: string; intro?: string; recs: RecRaw[]; notes?: string[]; notes_mach?: Record<string, string> }
+const RECS = recsData as unknown as {
+  sources: string[];
+  condition_mods: {
+    he_risk: { uts_min_mpa: number; coatings: string[]; text: string };
+    as_built: { htc: string; text: string };
+  };
+  groups: Record<string, GroupRaw>;
+};
+const COATING_BY_ID = new Map(COATINGS.map((c) => [c.id, c]));
+
+/** 재료의 후공정 추천 플랜 — 빌드 스탬프 m.profiles.cg 조회 (regex 0). 그룹 없으면 null(카드 미표시).
+ *  조건 보정: ① 수소취성(UTS≥1000 MPa × 전해도금 계열 → 베이킹 주의), ② AM as-built(htc) → 선행 공정 노트,
+ *  ③ 세부 프로파일별 주의(caution_mach/notes_mach — 예: 2xxx 하드아노다이즈, 303/416 질산욕). */
+export function resolveCoatingPlan(m: Material): CoatingPlan | null {
+  const cg = m.profiles?.cg;
+  if (!cg) return null;
+  const g = RECS.groups[cg];
+  if (!g) return null;
+  const mach = m.profiles?.mach || '';
+  const uts = m.ranges?.uts?.typical;
+  const he = RECS.condition_mods?.he_risk;
+  const heActive = !!(he && m.category === 'Metal' && typeof uts === 'number' && uts >= he.uts_min_mpa);
+
+  const recs: CoatingRec[] = [];
+  for (const r of g.recs || []) {
+    const c = COATING_BY_ID.get(r.coating);
+    if (!c) continue;
+    const cautions: string[] = [];
+    if (r.caution) cautions.push(r.caution);
+    if (r.caution_mach?.[mach]) cautions.push(r.caution_mach[mach]);
+    if (heActive && he.coatings.includes(r.coating)) cautions.push(he.text);
+    recs.push({ coating: c, purpose: r.purpose, when: r.when, why: r.why, caution: cautions.length ? cautions.join(' ') : undefined });
   }
-  scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, max).map((x) => x.coating);
+  const notes = [...(g.notes || [])];
+  if (g.notes_mach?.[mach]) notes.push(g.notes_mach[mach]);
+  const ab = RECS.condition_mods?.as_built;
+  if (ab && m.category === 'Metal' && m.profiles?.htc === ab.htc) notes.push(ab.text);
+  return { group: cg, title: g.title, intro: g.intro, recs, notes, sources: RECS.sources || [] };
 }

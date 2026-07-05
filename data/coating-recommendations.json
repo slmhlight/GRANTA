@@ -1,0 +1,291 @@
+{
+ "_note": "R226s/E10 — 후공정(코팅·표면처리) 추천 SSOT. 합금 그룹(cg)별 '어떤 목적에 무엇을 쓰는 게 관행인가'를 서술. 할당: build:profiles 가 assignment(by_mach→by_insight→by_category 순 키 조회 — regex 없음)로 m.profiles.cg 스탬프. 런타임 resolveCoatingPlan 이 groups[cg] + COATINGS 카탈로그(coatings.ts) 조합. rec.coating 은 카탈로그 id 와 1:1 (테스트 게이트). caution_mach/notes_mach 는 세부 mach 프로파일별 조건 주의. condition_mods 는 물성·조건(htc) 기반 동적 주의 — 값(UTS)·스탬프만 사용.",
+ "sources": [
+  "ASM Handbook Vol.5 Surface Engineering",
+  "MIL-A-8625 · MIL-DTL-5541 · MIL-DTL-16232",
+  "ASTM B633·B733·A967/A380·A123·B545·F519/B850",
+  "AMS 2430(피닝)·2406(경질Cr)·2444(PVD)·2488(Ti 양극산화)·2753(QPQ)·2759(질화)·4782(알루미나이징)",
+  "ISO 1461·2081 · Ensinger/MCAM 가공·어닐링 가이드"
+ ],
+ "assignment": {
+  "by_mach": {
+   "fm-steel": "steel-low",
+   "carbon-low": "steel-low",
+   "carbon-medhigh": "steel-alloy",
+   "crmo": "steel-alloy",
+   "nicrmo": "steel-alloy",
+   "case-hard": "case-hard",
+   "bearing": "bearing",
+   "maraging": "maraging",
+   "tool-steel": "tool-steel",
+   "ss-303": "ss-austenitic",
+   "ss-austenitic": "ss-austenitic",
+   "ss-ferritic": "ss-ferritic",
+   "ss-416": "ss-martensitic",
+   "ss-martensitic": "ss-martensitic",
+   "ss-ph": "ss-ph",
+   "ss-duplex": "ss-duplex",
+   "al-fm": "al-wrought",
+   "al-6xxx": "al-wrought",
+   "al-7xxx": "al-wrought",
+   "al-2xxx": "al-wrought",
+   "al-5xxx": "al-wrought",
+   "al-soft": "al-wrought",
+   "al-cast-am": "al-cast-am",
+   "magnesium": "mg",
+   "brass": "cu",
+   "cuni": "cu",
+   "becu": "cu",
+   "cu-pure": "cu",
+   "cu-crzr": "cu",
+   "ni-super": "ni-super",
+   "ni-super-solidsol": "ni-super",
+   "cobalt": "cocr",
+   "ti-cp": "ti",
+   "ti-alloy": "ti",
+   "tungsten": "refractory",
+   "ta-nb": "refractory",
+   "moly": "refractory",
+   "refractory": "refractory",
+   "pol-rigid": "polymer",
+   "pol-amorphous": "polymer",
+   "pol-filled": "polymer",
+   "pol-soft": "polymer",
+   "pol-brittle": "polymer"
+  },
+  "by_insight": {
+   "structural-steel": "steel-low",
+   "carbon-alloy-steel": "steel-alloy",
+   "stainless": "ss-general",
+   "stainless-highperf": "ss-general",
+   "aluminum": "al-wrought",
+   "titanium": "ti",
+   "ni-superalloy": "ni-super",
+   "cobalt": "cocr",
+   "copper": "cu",
+   "magnesium": "mg",
+   "tool-steel": "tool-steel",
+   "refractory": "refractory",
+   "composite": "composite"
+  },
+  "by_category": {
+   "Composite": "composite"
+  }
+ },
+ "condition_mods": {
+  "he_risk": {
+   "uts_min_mpa": 1000,
+   "coatings": ["zinc-plating", "hard-chrome", "electroless-nickel"],
+   "text": "이 강도(UTS≥1000 MPa)에서 전해·무전해 도금은 수소취성 위험 — 도금 후 베이킹(ASTM B850/F519) 필수, 또는 Zn-flake(비전해 아연박편)·기계도금 대체."
+  },
+  "as_built": {
+   "htc": "as-built",
+   "text": "AM as-built: 응력해제(필요 시 HIP) → 표면 개선(전해연마·AFM·피닝)을 코팅보다 먼저 — as-built 조도(Ra 6–20 µm)·표면 결함 위에 도금하면 결함을 그대로 승계."
+  }
+ },
+ "groups": {
+  "steel-low": {
+   "title": "탄소강·구조강",
+   "recs": [
+    { "coating": "zinc-plating", "purpose": "corrosion", "when": "실내·경부식 환경 방청 (패스너·브래킷·범용 부품)", "why": "탄소강 방청의 기본값 (ASTM B633·KS D 8302) — 가장 경제적. 옥외 장기 노출은 용융아연 영역." },
+    { "coating": "galvanizing", "purpose": "corrosion", "when": "옥외·해안 구조물 장기 방청 (형강·파이프·철탑·교량)", "why": "두꺼운 Zn-Fe 합금층(50–200 µm)으로 무도장 수십 년 (ISO 1461/ASTM A123).", "caution": "450°C 도금조 — 얇은 판재 열변형, 고장력 볼트(10.9+)는 수소·LME 관리 규정 준수." },
+    { "coating": "phosphate", "purpose": "corrosion", "when": "방청유 하지·마찰 길들이기 (기어·습동부·실내 보관품)", "why": "인산염+오일 조합이 실내 방청·run-in 관행 (MIL-DTL-16232) — 오일 유지력이 핵심." },
+    { "coating": "black-oxide", "purpose": "corrosion", "when": "치수 변화 없이 최소한의 방청 (공구·계측기·패스너)", "why": "<2 µm 산화막 — 치수·외관 유지. 오일 시일링 전제의 경방청." },
+    { "coating": "qpq", "purpose": "wear", "when": "내마모+내식을 도금 없이 동시에 (샤프트·유압 부품)", "why": "염욕 질화탄화+산화(QPQ, AMS 2753) — 표면 ~600 HV에 염수분무 내식이 아연도금 상회." }
+   ],
+   "notes": []
+  },
+  "steel-alloy": {
+   "title": "기계구조용 합금강",
+   "recs": [
+    { "coating": "nitriding", "purpose": "wear", "when": "축·기어·캠의 내마모+피로 (최종 열처리로)", "why": "Cr-Mo 강은 질화 최적 강종 — 표면 500–1100 HV·변형 최소 (AMS 2759). Q&T 템퍼 온도 아래에서 처리 가능한지 확인." },
+    { "coating": "induction-hardening", "purpose": "wear", "when": "국부 표면 경화 (저널·스플라인·캠 로브)", "why": "중탄소 이상(C≥0.4%)에서 국부 50–58 HRC — 자동차 양산 표준.", "caution": "C<0.35% 강은 경화 불충분 — 침탄강 영역." },
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "피로 임계 부품 (스프링·기어 루트·커넥팅로드)", "why": "압축잔류응력으로 피로한도 +30~50% (SAE J442·AMS 2430) — 고강도 Q&T 일수록 효과 큼." },
+    { "coating": "hard-chrome", "purpose": "wear", "when": "유압 로드·롤의 내마모·저마찰·치수 보수", "why": "20–250 µm·~1000 HV (AMS 2406) — 재연마·재도금 보수 사이클 관행.", "caution": "REACH Cr⁶⁺ 규제 — 신규 설계는 HVOF·질화 대체 검토." },
+    { "coating": "zinc-plating", "purpose": "corrosion", "when": "일반 방청 (패스너·하우징)", "why": "합금강 방청도 아연 도금이 표준 (ASTM B633)." }
+   ],
+   "notes": []
+  },
+  "case-hard": {
+   "title": "침탄강 (기어강)",
+   "recs": [
+    { "coating": "carburizing", "purpose": "wear", "when": "기어 치면·캠 — 표면 60 HRC + 심부 인성", "why": "침탄 전용 저탄소 합금강(8620/9310)의 본연의 최종 공정 (SAE J404) — 침탄→담금질→저온템퍼→연삭 순서." },
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "침탄 기어의 치근 굽힘피로 (자동차·항공 감속기)", "why": "침탄 후 피닝이 치근 피로 +20~30% — 양산 기어 표준 관행 (AGMA/SAE)." },
+    { "coating": "phosphate", "purpose": "corrosion", "when": "조립 전 방청·초기 길들이기", "why": "기어·베어링류 관행 (MIL-DTL-16232)." }
+   ],
+   "notes": ["침탄은 이 강종의 설계 전제 — '코팅 선택'이 아니라 공정 순서(가공→침탄→연삭) 계획이 핵심."]
+  },
+  "bearing": {
+   "title": "베어링강",
+   "recs": [
+    { "coating": "black-oxide", "purpose": "corrosion", "when": "베어링 부품 방청·길들이기", "why": "치수 영향 없이 초기 응착(smearing) 방지 + 방청유 유지 — 베어링 업계 표준 옵션 (SKF 등)." }
+   ],
+   "notes": [
+    "구름 베어링은 통상 무코팅+방청유가 기본 — 코팅보다 청정도·경도(58–64 HRC) 관리가 성능을 지배.",
+    "수소 환경·박막 윤활 등 특수 조건에서 DLC 니치 적용."
+   ]
+  },
+  "maraging": {
+   "title": "마레이징강",
+   "recs": [
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "금형·항공 피로 부품", "why": "저온 공정이라 시효 물성 무영향 — 피로한도 개선 (AMS 2430)." },
+    { "coating": "nitriding", "purpose": "wear", "when": "금형 표면 내마모", "why": "질화 온도(480–500°C)가 시효 온도(480°C)와 겹쳐 시효+질화 동시 사이클이 관행 — 표면 750+ HV.", "caution": "시효 시간·온도 합산 관리(과시효 방지) — 열처리 업체와 사이클 협의." },
+    { "coating": "pvd-tialn", "purpose": "wear", "when": "AM 금형 인서트의 이형성·마모", "why": "저온 PVD(<500°C)로 시효 상태 유지한 채 표면 강화." }
+   ],
+   "notes": []
+  },
+  "tool-steel": {
+   "title": "공구강",
+   "recs": [
+    { "coating": "pvd-tialn", "purpose": "wear", "when": "다이캐스팅 다이·열간 금형·고속 절삭공구", "why": "H13 다이캐스팅 다이 표준 (AMS 2444 계열) — 800°C 내산화·용탕 솔더링 방지.", "caution": "코팅 온도(400–500°C)가 템퍼 온도 이하인지 확인 — 저온템퍼 냉간공구강(D2 200°C 템퍼)은 저온 PVD 공정 선택." },
+    { "coating": "pvd-tin", "purpose": "wear", "when": "범용 절삭공구·펀치 (경제형)", "why": "가장 흔한 PVD(금색) — TiAlN 대비 저가, 사용온도 <600°C." },
+    { "coating": "nitriding", "purpose": "wear", "when": "열간 금형 표면 (PVD 하지 겸용)", "why": "H13 질화 후 PVD '듀플렉스'가 다이 수명 연장 표준 — 박막 함몰(계란껍질 효과) 방지." },
+    { "coating": "black-oxide", "purpose": "corrosion", "when": "공구 보관 방청", "why": "치수 무변화 경방청 (MIL-DTL-13924)." }
+   ],
+   "notes": []
+  },
+  "ss-austenitic": {
+   "title": "오스테나이트 스테인리스",
+   "recs": [
+    { "coating": "passivation", "purpose": "corrosion", "when": "가공 후 표준 마무리 (사실상 전 부품)", "why": "가공 중 오염된 유리철(free iron) 제거 + Cr₂O₃ 부동태 회복 (ASTM A967/A380) — 스테인리스 내식성의 전제 조건.", "caution_mach": { "ss-303": "303(S 첨가)은 질산욕에서 황화물 침식 — 구연산(citric) 공정 권장 (A967)." } },
+    { "coating": "electropolish", "purpose": "hygiene", "when": "위생·초청정 표면 (제약 BPE·식품·반도체)", "why": "Ra<0.4 µm + 표면 Cr 농화 — 세균 부착·파티클 발생 저감 (ASME BPE·ASTM B912)." }
+   ],
+   "notes": [
+    "아연도금·인산염·흑색산화는 스테인리스에 불필요·부적합 — 자체 부동태가 내식을 담당.",
+    "용접부는 산세(pickling)로 열변색(heat tint) 제거 후 부동태화 — 변색부가 부식 기점이 된다."
+   ]
+  },
+  "ss-ferritic": {
+   "title": "페라이트 스테인리스",
+   "recs": [
+    { "coating": "passivation", "purpose": "corrosion", "when": "가공 후 표준 마무리", "why": "유리철 제거·부동태 회복 (ASTM A967) — 400계도 동일하게 적용." }
+   ],
+   "notes": ["409/430 계열은 장식·배기 용도 중심 — 통상 부동태화 외 추가 코팅 불요. 부식 환경이 가혹하면 코팅보다 재질 상향(304/316)이 정답."]
+  },
+  "ss-martensitic": {
+   "title": "마르텐사이트 스테인리스",
+   "recs": [
+    { "coating": "passivation", "purpose": "corrosion", "when": "경화·연마 후 마무리", "why": "가공 유리철 제거 (ASTM A967).", "caution": "경화 상태(HRC 50+)는 산 접촉 수소취성에 민감 — 구연산 저농도 공정·필요 시 베이킹.", "caution_mach": { "ss-416": "416(S 첨가)은 질산욕 침식 — 구연산 공정 권장 (A967)." } },
+    { "coating": "nitriding", "purpose": "wear", "when": "밸브·노즐·커틀러리 내마모 (410/420)", "why": "표면 ~1000 HV·저변형 (AMS 2759).", "caution": "질화는 표면 Cr 을 CrN 으로 소모 — 내식성 일부 저하. 내식 우선 부품엔 부적합." },
+    { "coating": "pvd-tin", "purpose": "wear", "when": "커틀러리·의료 기구·금형 (내마모+외관)", "why": "저온 박막 경질층 — 모재 내식 유지." }
+   ],
+   "notes": []
+  },
+  "ss-ph": {
+   "title": "석출경화 스테인리스 (PH)",
+   "recs": [
+    { "coating": "passivation", "purpose": "corrosion", "when": "시효 후 표준 마무리", "why": "ASTM A967 — 저온 공정이라 시효(H900 등) 물성 무영향." },
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "항공 구조 피팅·랜딩기어 부품", "why": "고강도 시효재의 피로 개선 표준 (AMS 2430)." },
+    { "coating": "hvof-wcco", "purpose": "wear", "when": "랜딩기어·유압 로드 (경질크롬 대체)", "why": "AMS 2447 — 17-4/15-5 항공 유압재에서 Cr⁶⁺ 회피 관행." }
+   ],
+   "notes": ["질화(≥500°C)는 시효 온도(H900=482°C)와 간섭 — 과시효로 강도 저하. 필요하면 저온 플라즈마 질화 또는 H1150 상태에서 수행."]
+  },
+  "ss-duplex": {
+   "title": "듀플렉스 스테인리스",
+   "recs": [
+    { "coating": "passivation", "purpose": "corrosion", "when": "가공·용접 후 마무리", "why": "ASTM A967 + 용접부 산세 — 듀플렉스도 표면 관리가 공식(pitting) 저항의 전제." }
+   ],
+   "notes": [
+    "300–500°C 장시간 노출은 475°C 취화 — 코팅·건조 공정의 온도 관리 필요.",
+    "듀플렉스는 재질 자체가 내식 솔루션 — 코팅보다 용접 절차(질소 보호·상 비율)가 성능을 지배."
+   ]
+  },
+  "ss-general": {
+   "title": "스테인리스 (일반)",
+   "recs": [
+    { "coating": "passivation", "purpose": "corrosion", "when": "가공 후 표준 마무리", "why": "유리철 제거·부동태 회복 (ASTM A967/A380) — 전 스테인리스 공통 전제." }
+   ],
+   "notes": ["세부 계열(오스테나이트/마르텐사이트/PH/듀플렉스)에 따라 전해연마·질화·피닝 등 추가 옵션이 갈린다."]
+  },
+  "al-wrought": {
+   "title": "가공용 알루미늄",
+   "recs": [
+    { "coating": "anodizing-type2", "purpose": "corrosion", "when": "일반 내식+외관 (외장·프레임·압출재)", "why": "Al 표면처리의 기본값 (MIL-A-8625 Type II) — 착색 가능, 5–25 µm." },
+    { "coating": "anodizing-hard", "purpose": "wear", "when": "습동면·씰 보어·유압 블록", "why": "Type III 25–100 µm·~500 HV (MIL-A-8625) — Al 내마모의 표준.", "caution": "피로 저하(−10~30%) — 피로 임계부는 쇼트피닝 선처리로 상쇄.", "caution_mach": { "al-2xxx": "2xxx(고Cu)는 하드아노다이즈 품질·두께 한계 (MIL-A-8625 에서도 별도 취급) — 사전 시편 검증." } },
+    { "coating": "chromate-conversion", "purpose": "electrical", "when": "도전성 유지 내식·도장 하지 (전자 접지면·항공)", "why": "MIL-DTL-5541 Class 3 — 아노다이즈와 달리 전기 전도를 유지하는 유일한 표준 처리." },
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "항공 고응력 부품 (7xxx/2xxx)", "why": "압축잔류응력 — 하드아노다이즈 피로 저하 상쇄 선처리로도 관행 (AMS 2430)." },
+    { "coating": "electroless-nickel", "purpose": "wear", "when": "국부 경질면·납땜성·치수 복원", "why": "복잡 형상 균일 도금 (ASTM B733) — Al 위엔 zincate 전처리 필수." }
+   ],
+   "notes": []
+  },
+  "al-cast-am": {
+   "title": "주조·AM 알루미늄 (AlSi)",
+   "recs": [
+    { "coating": "chromate-conversion", "purpose": "corrosion", "when": "주조재 방청·도장 하지", "why": "Si 상 때문에 아노다이즈 품질이 불균일 → 화성처리+도장 스택이 주조 Al 관행 (MIL-DTL-5541)." },
+    { "coating": "anodizing-type2", "purpose": "corrosion", "when": "외관 요구가 있을 때", "why": "가능하나 Si 함량만큼 품질 타협.", "caution": "AlSi10Mg 등 Si 10%+ 는 회색·색 얼룩·다공 — 장식 목적엔 한계." },
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "AM 피로 부품", "why": "표면 결함 민감도를 압축잔류응력으로 완화 — as-built 대비 피로 개선." }
+   ],
+   "notes": []
+  },
+  "mg": {
+   "title": "마그네슘 합금",
+   "recs": [
+    { "coating": "peo", "purpose": "corrosion", "when": "구조 Mg 부품 내식 (사실상 필수급)", "why": "Mg 는 무처리 사용이 불가한 최비(卑)전위 금속 — PEO(Keronite/Tagnite 급)가 내식+내마모 최상 옵션." },
+    { "coating": "chromate-conversion", "purpose": "corrosion", "when": "도장 하지·경부식", "why": "Mg 용 화성처리(Dow 계열)+도장 스택이 전통 표준." }
+   ],
+   "notes": [
+    "Mg 는 갈바닉 최약체 — 이종금속 접촉부 절연(부싱·실런트) 설계가 코팅만큼 중요.",
+    "나사·습동부는 강 인서트(헬리코일 등) 병용이 관행."
+   ]
+  },
+  "cu": {
+   "title": "구리 합금",
+   "recs": [
+    { "coating": "tin-plating", "purpose": "electrical", "when": "전기 접점·납땜성·버스바", "why": "Cu 접점 표준 (ASTM B545) — 무연(RoHS)." },
+    { "coating": "silver-plating", "purpose": "electrical", "when": "고전류·고온 접점 (차단기·항공 커넥터)", "why": "최저 접촉저항 (ASTM B700).", "caution": "황 함유 분위기에서 흑변 — 밀폐 또는 변색방지 후처리." },
+    { "coating": "electroless-nickel", "purpose": "wear", "when": "내마모·변색 방지·치수 균일 도금", "why": "Cu 위 직접 무전해 Ni (ASTM B733) — 커넥터 하지도금으로도 표준." }
+   ],
+   "notes": [],
+   "notes_mach": { "becu": "BeCu 는 도금·연마 등 분진 발생 공정에서 Be 안전 절차 필수." }
+  },
+  "ni-super": {
+   "title": "Ni 초내열합금",
+   "recs": [
+    { "coating": "aluminizing", "purpose": "thermal", "when": "고온 산화·황화 방호 (>800°C 가스경로 부품)", "why": "확산 알루미나이드 (AMS 4782) — 터빈 블레이드 표준, TBC 하지층." },
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "디스크·블레이드 루트 피로", "why": "항공 엔진 회전부 관행 (AMS 2430)." }
+   ],
+   "notes": ["수용액 내식은 합금 자체가 담당 — 방청 도금(아연 등) 불필요. 과제는 고온 산화·피로 쪽."]
+  },
+  "cocr": {
+   "title": "코발트 합금",
+   "recs": [
+    { "coating": "electropolish", "purpose": "hygiene", "when": "의료 임플란트·관절면 마무리", "why": "Ra 저감+세정성 — CoCrMo 임플란트 표면 관행." },
+    { "coating": "passivation", "purpose": "corrosion", "when": "임플란트 최종 부동태화", "why": "질산 부동태화 — ASTM F86 계열 의료 표면처리 관행." }
+   ],
+   "notes": ["하드페이싱(Stellite)류는 그 자체가 내마모 코팅 소재 — 별도 후처리 통상 불요."]
+  },
+  "ti": {
+   "title": "티타늄 합금",
+   "recs": [
+    { "coating": "ti-anodize", "purpose": "wear", "when": "패스너·피팅 anti-galling·부품 색 구분", "why": "AMS 2488 Type 2 — Ti 골링(galling) 방지 표준 (Type 3 은 간섭색 마킹)." },
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "Ti-6Al-4V 피로 부품 (블레이드·구조)", "why": "항공 관행 (AMS 2430) — Ti 는 노치 민감이라 효과 큼." },
+    { "coating": "dlc", "purpose": "wear", "when": "습동부 (밸브트레인·의료 기구)", "why": "Ti 골링 대응 저마찰 경질막 — 모터스포츠·의료 관행." },
+    { "coating": "peo", "purpose": "wear", "when": "내마모+절연, 임플란트 골유착 표면", "why": "ASTM F2393 — 의료 Ti 다공질 산화층." }
+   ],
+   "notes": [
+    "전기아연·경질크롬 등 수소 발생 도금은 Ti 수소취화 위험 — 통상 회피(산세도 수소 관리).",
+    "CFRP·Al 접촉부 갈바닉 검토 — Ti 는 귀(貴)전위 쪽."
+   ]
+  },
+  "refractory": {
+   "title": "내화금속 (W/Mo/Ta/Nb)",
+   "intro": "내화금속은 진공·불활성·환원 분위기 사용이 전제 — 통상 코팅 없이 쓴다. 산화 분위기 고온은 실리사이드 확산코팅(MoSi₂ 계) 특수 영역.",
+   "recs": [],
+   "notes": ["Ta/Nb 화학장치는 소재 자체가 내식 솔루션 — 후처리 불요."]
+  },
+  "polymer": {
+   "title": "엔지니어링 폴리머",
+   "recs": [
+    { "coating": "pol-annealing", "purpose": "stability", "when": "정밀 가공 전후·후육 성형품", "why": "잔류응력 완화 — 가공 휨과 비정질(PC/PEI/PSU)의 ESC 크랙을 줄인다 (Ensinger/MCAM 가이드)." },
+    { "coating": "pol-surface-activation", "purpose": "adhesion", "when": "도장·접착·인쇄 전 (특히 PP/PE/POM 저표면에너지)", "why": "플라즈마/코로나/화염으로 표면에너지 상승 (ISO 8296) — 미처리 폴리올레핀은 접착이 사실상 불가." }
+   ],
+   "notes": ["금속화(도금)는 ABS 크롬도금 등 특정 수지·공정 한정 — 범용 아님."]
+  },
+  "composite": {
+   "title": "복합재",
+   "intro": "복합재 후처리는 코팅보다 보호·실링이다: ① UV 도장/클리어코트(에폭시 황변·섬유 노출 방지), ② 절단·드릴 가공부 엣지 실링(흡습 방지), ③ CFRP–금속 체결부 갈바닉 절연(글라스 플라이·실런트, 알루미늄 패스너 회피).",
+   "recs": [],
+   "notes": []
+  }
+ }
+}

@@ -14,7 +14,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifyMachinability, classifyWeldModel, classifyHtClass, classifyHtFamily, classifyInsightGroup } from './lib/process-classify.mjs';
-import { parseCoatings, classifyCoatings } from './lib/coatings-classify.mjs';
 import { parseColorClasses, classifyColorKey } from './lib/color-classify.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -45,9 +44,13 @@ const WG = loadBlocks('welding-guidance.json');
 const stripMeas = (s) => String(s || '').replace(/\d+(?:[.,]\d+)?\s*(?:°\s*[cf]?|h(?:v|rc|rb|ra|b)|[mg]pa|ksi)\b/gi, ' ');
 const firstKey = (list, name) => { for (const b of list) if (b.re.test(name)) return b.key; return null; };
 
-// R226p Phase 5 — 코팅 적용성 분류기 (client/src/lib/coatings.ts 파싱)
-const COATING_DEFS = parseCoatings(path.join(ROOT, 'client', 'src', 'lib', 'coatings.ts'));
-if (COATING_DEFS.length < 20) { console.error(`❌ coatings.ts 파싱 실패 — ${COATING_DEFS.length}개만 추출`); process.exit(1); }
+// R226s/E10 — 후공정 추천 그룹(cg) 매핑 SSOT (구 substrateMatch regex 분류 대체 — 순수 키 조회)
+const CREC = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'coating-recommendations.json'), 'utf8'));
+for (const [src, tbl] of Object.entries(CREC.assignment)) {
+  for (const [k, v] of Object.entries(tbl)) {
+    if (!CREC.groups[v]) { console.error(`❌ coating-recommendations assignment.${src}.${k} → 미정의 그룹 '${v}'`); process.exit(1); }
+  }
+}
 
 // R226p Phase 5b — family-color 분류기 (client/src/lib/material-colors.ts CLASSES 파싱)
 const COLOR_CLASSES = parseColorClasses(path.join(ROOT, 'client', 'src', 'lib', 'material-colors.ts'));
@@ -62,9 +65,6 @@ for (const cc of fs.readdirSync(REG)) {
     const sid = rec.stable_id;
     if (!sid) { console.error(`❌ stable_id 없음: ${cc}/${fn}`); process.exit(1); }
     const a = {};
-    // R226p Phase 5 — 코팅 적용성 (구 런타임 recommendedCoatings regex 대체; 구 호출부 입력 재현: name/process)
-    const cts = classifyCoatings(COATING_DEFS, rec.category, rec.name, rec.process);
-    if (cts.length) a.cts = cts;
     // R226p Phase 5b — family-color key (구 런타임 classOf regex 대체). 'Other'는 스탬프 생략(런타임 기본값).
     const colorf = classifyColorKey(COLOR_CLASSES, rec.subcategory, rec.name, rec.category);
     if (colorf && colorf !== 'Other') a.colorf = colorf;
@@ -86,6 +86,11 @@ for (const cc of fs.readdirSync(REG)) {
     }
     const ins = classifyInsightGroup(rec.category, rec.subcategory);
     if (ins) a.insight = ins;
+    // R226s/E10 — 후공정 추천 그룹: mach → insight → category 순 키 조회 (coating-recommendations.json SSOT)
+    const cg = (a.mach && CREC.assignment.by_mach[a.mach])
+      || (a.insight && CREC.assignment.by_insight[a.insight])
+      || CREC.assignment.by_category[rec.category] || null;
+    if (cg) a.cg = cg;
     assignments[sid] = a;   // 빈 {} 라도 레코드 존재 = "분류 완료·해당 없음" 명시
     count++;
   }

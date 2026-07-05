@@ -10,7 +10,7 @@
 
 ### A-1. 런타임(클라이언트) — 분류 regex 거의 소거됨
 - ✅ **제거 완료**: 절삭성 rating·폴리머 절삭성·용접성 모델(ce/schaeffler/none)·HT family·선택 인사이트 → 전부 `m.profiles` ID 조회 (R226j/k).
-- ✅ **제거 완료(Phase 5, R226p)**: `client/src/lib/coatings.ts` `recommendedCoatings` — 구 `substrateMatch` name-regex 를 빌드 스탬프 `m.profiles.coatings`(coatings-classify.mjs) 조회로 전환. 런타임 regex 0.
+- ✅ **제거 완료(Phase 5, R226p) → R226s 로 대체**: `client/src/lib/coatings.ts` — Phase 5 는 구 `substrateMatch` regex 의 *behavior-identical* 보존(빌드 스탬프 `profiles.coatings`)이었고, **R226s/E12 전면 개편**에서 substrateMatch 필드·coatings-classify.mjs 자체를 소멸시키고 합금 그룹 SSOT(`coating-recommendations.json` + `m.profiles.cg`)로 교체. regex 원천 삭제 — 캡처·오라클 불요.
 - ✅ **제거 완료(Phase 5b, R226p — R226o 감사 누락분)**: `client/src/lib/material-colors.ts` `classOf` — family-color 를 name-regex(CLASSES.test)로 판정하던 **런타임 분류**를 빌드 스탬프 `m.profiles.colorFamily`(color-classify.mjs) 조회로 전환. CLASSES 는 순수 데이터(key·color·category|pattern)로 축소, 런타임 정규식 0. (구 A-1 감사가 놓친 유일한 런타임 분류 regex — 전수 재점검에서 발견.)
 - 🟢 **정당(유지)**: 검색·파싱 — `direct-hit`·`query-dsl`·`query-autocomplete`·`spec-matcher`·`composition-parser`·`ht-matcher`. 사용자 입력/조성 문자열 파싱이지 재료 분류가 아님.
 - 🟡 **경계(유지 검토)**: `ht-alloy-specific.ts` 조건코드(H900/T6) 토큰 매칭 — **family 는 이미 `m.profiles.ht` 로 ID 선택**됨, 남은 건 조건 코드 파싱뿐. 낮은 위험.

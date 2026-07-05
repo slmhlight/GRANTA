@@ -31,6 +31,7 @@ const ET_BY_ID = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT
 let etAttached = 0, etReplaced = 0;
 const PROFILES_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'process-profiles.json'), 'utf8'));
 const INSIGHTS_CONTENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'selection-insights.json'), 'utf8'));
+const CREC_GROUPS = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'coating-recommendations.json'), 'utf8')).groups;   // R226s/E10
 const R226_FIELDS = new Set(['stable_id', 'family', 'legacy_id', 'origin', '_corrections']);
 const all = [];
 const profileGateErrors = [];
@@ -52,9 +53,10 @@ for (const cc of fs.readdirSync(REG)) {
         profileGateErrors.push(`weld 키 미정의: ${rec.stable_id} → ${a.weld}`);
       if (a.insight && !INSIGHTS_CONTENT.groups[a.insight])
         profileGateErrors.push(`insight 키 미정의: ${rec.stable_id} → ${a.insight}`);
+      if (a.cg && !CREC_GROUPS[a.cg])
+        profileGateErrors.push(`cg(후공정 그룹) 키 미정의: ${rec.stable_id} → ${a.cg}`);   // R226s/E10
       if (Object.keys(a).length) {
         const p = { ...a };
-        if (p.cts) { p.coatings = p.cts; delete p.cts; }   // R226p Phase 5 — cts(할당 키) → coatings(런타임 필드)
         if (p.colorf) { p.colorFamily = p.colorf; delete p.colorf; }   // R226p Phase 5b — colorf → colorFamily
         entry.profiles = p;
       }

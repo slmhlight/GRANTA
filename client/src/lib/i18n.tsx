@@ -168,7 +168,7 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   'detail.regulated.rohsFail': { ko: 'RoHS 미통과', en: 'RoHS non-compliant' },
   'detail.regulated.svhc': { ko: 'SVHC', en: 'SVHC' },
   'detail.regulated.note': { ko: '자동 검출 (composition 기반). EU·국내 전자제품 출시 시 실측 검증 필요.', en: 'Auto-detected (composition-based). Verify with measurements before EU/domestic electronics release.' },
-  'detail.coatings.title': { ko: '권장 후공정 (R17)', en: 'Recommended surface treatments' },
+  'detail.coatings.title': { ko: '권장 후공정', en: 'Recommended post-processing' },
   'detail.coatings.thickness': { ko: '두께', en: 'thickness' },
   'detail.coatings.cost': { ko: '비용', en: 'cost' },
   'detail.compare.added': { ko: 'Compare 에 추가됨', en: 'Added to Compare' },

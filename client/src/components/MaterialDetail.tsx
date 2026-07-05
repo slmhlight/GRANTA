@@ -15,7 +15,7 @@ import { htAlloySpecificFor } from '@/lib/ht-alloy-specific';
 import { computeCET, computeCEIIW, computePcm, computeSchaeffler, machiningCostBand, htCostBand } from '@/lib/welding-machinability';
 import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote, resolveMachiningGuidance, machinabilitySources, resolveInsights, insightPickMatches, resolveHtGuidanceTexts, resolveWeldGuidance, resolveWeldConditionNote, machinabilityConditionMult } from '@/lib/process-guidance';
 /* R222c — recharts(~150KB)는 아래에서 lazy 로드 (elev-temp/creep 데이터 있는 재료의 탭이 열릴 때만). */
-import { recommendedCoatings } from '@/lib/coatings';
+import { resolveCoatingPlan, PURPOSE_LABEL } from '@/lib/coatings';
 /* R157b — MaterialDetail 의 sub-components 분리. */
 import { SourcesList } from '@/components/material-detail/SourcesList';
 import { RangeRow, fmt } from '@/components/material-detail/RangeRow';
@@ -911,30 +911,44 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 <p className="text-[10px] text-muted-foreground mt-1">{t('detail.regulated.note')}</p>
               </div>
             )}
-            {/* R17: 권장 후공정 — Material ID 기반(빌드 스탬프 profiles.coatings; R226p Phase 5) */}
+            {/* R226s/E10: 권장 후공정 — 합금 그룹별 목적·근거 기반 추천 (빌드 스탬프 profiles.cg → coating-recommendations.json) */}
             {(() => {
-              const recs = recommendedCoatings(material, 3);
-              if (!recs.length) return null;
+              const plan = resolveCoatingPlan(material);
+              if (!plan || (!plan.recs.length && !plan.intro && !plan.notes.length)) return null;
               return (
                 <div className="mt-3 rounded border border-accent/30 bg-accent/5 p-2.5">
-                  <p className="text-[11px] font-semibold text-accent mb-1.5 uppercase tracking-wide">{t('detail.coatings.title')}</p>
+                  <p className="text-[11px] font-semibold text-accent mb-1 uppercase tracking-wide">{t('detail.coatings.title')} · {plan.title}</p>
+                  {plan.intro && <p className="text-[10px] text-foreground/75 mb-1.5 leading-relaxed">{plan.intro}</p>}
                   <div className="space-y-2">
-                    {recs.map((c) => (
-                      <div key={c.id} className="text-[11px] leading-snug border-b border-accent/15 pb-1.5 last:border-0">
-                        <p className="font-semibold text-foreground">{c.nameKo}</p>
-                        <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[10px] text-muted-foreground mt-0.5">
-                          {c.surfaceHardnessHV && <span>HV ≈ {c.surfaceHardnessHV}</span>}
-                          {c.frictionCoef != null && <span>μ ≈ {c.frictionCoef}</span>}
-                          {c.fatigueGainPct != null && c.fatigueGainPct !== 0 && <span className={c.fatigueGainPct > 0 ? 'text-emerald-700' : 'text-rose-700'}>Δ피로 {c.fatigueGainPct > 0 ? '+' : ''}{c.fatigueGainPct}%</span>}
-                          {c.corrosionUpgrade !== 'none' && <span>내식 {c.corrosionUpgrade}</span>}
-                          <span>두께 {c.thicknessMicrons[0]}-{c.thicknessMicrons[1]}μm</span>
-                          <span>비용 ×{c.costFactor}</span>
+                    {plan.recs.map((r) => {
+                      const c = r.coating;
+                      return (
+                        <div key={c.id} className="text-[11px] leading-snug border-b border-accent/15 pb-1.5 last:border-0">
+                          <p className="font-semibold text-foreground flex items-center gap-1.5 flex-wrap" title={`${c.applications}${c.limitations ? `\n한계: ${c.limitations}` : ''}`}>
+                            <span className="text-[9px] px-1 rounded bg-accent/15 text-accent border border-accent/30 font-semibold whitespace-nowrap">{PURPOSE_LABEL[r.purpose] || r.purpose}</span>
+                            {c.nameKo}
+                          </p>
+                          <p className="text-[10px] text-foreground/85 mt-0.5"><b>언제:</b> {r.when}</p>
+                          <p className="text-[10px] text-foreground/70 mt-0.5">{r.why}</p>
+                          <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[10px] text-muted-foreground mt-0.5">
+                            {c.thicknessMicrons[1] > 0 && <span>두께 {c.thicknessMicrons[0]}-{c.thicknessMicrons[1]}μm</span>}
+                            {c.surfaceHardnessHV && <span>HV ≈ {c.surfaceHardnessHV}</span>}
+                            {c.frictionCoef != null && <span>μ ≈ {c.frictionCoef}</span>}
+                            {c.fatigueGainPct != null && c.fatigueGainPct !== 0 && <span className={c.fatigueGainPct > 0 ? 'text-emerald-700' : 'text-rose-700'}>Δ피로 {c.fatigueGainPct > 0 ? '+' : ''}{c.fatigueGainPct}%</span>}
+                            {c.corrosionUpgrade !== 'none' && <span>내식 {c.corrosionUpgrade}</span>}
+                            <span>비용 ×{c.costFactor}</span>
+                          </div>
+                          {r.caution && <p className="text-[10px] text-amber-700 mt-0.5">⚠ {r.caution}</p>}
                         </div>
-                        <p className="text-[10px] text-foreground/70 mt-0.5">{c.applications}</p>
-                        {c.limitations && <p className="text-[10px] text-amber-700 mt-0.5">⚠ {c.limitations}</p>}
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
+                  {plan.notes.length > 0 && (
+                    <ul className="mt-1.5 space-y-0.5">
+                      {plan.notes.map((n, i) => <li key={i} className="text-[10px] text-foreground/70 leading-relaxed">ⓘ {n}</li>)}
+                    </ul>
+                  )}
+                  <p className="text-[9px] text-muted-foreground mt-1.5 pt-1 border-t border-accent/15"><b>출처</b>: {plan.sources.join(' · ')}</p>
                 </div>
               );
             })()}
