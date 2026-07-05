@@ -1473,6 +1473,35 @@
    ],
    "legacy_text": "1929년 미국의 한 치과의사가 '인체에 거의 반응하지 않는 금속' 을 찾던 중 Co 65% + Cr 28% + Mo 6% 조성의 합금이 답이라는 사실을 발견합니다. 1932년 치과의사 찰스 베너블 (Charles Venable) 이 이 합금을 임상에서 검증하며 'Vitallium' 이라는 상품명으로 의료 임플란트의 첫 표준이 됐죠.\n\n1937년 Earl Bohlman 박사가 첫 hip arthroplasty 에 Vitallium 인공 대퇴골을 이식한 게 정형외과 임플란트의 출발이었어요. 2차 대전 동안에는 군의관들이 부상병의 broken jaw 재건에 Vitallium plate 를 활용하며 응급 의료의 표준으로 확산됐고요.\n\n1976년 ASTM 이 이 합금을 cast 형태 F75, 1991년에 wrought 형태 F1537 로 표준화합니다. 현재도 hip replacement 의 femoral stem (Stryker Accolade, Zimmer M/L Taper), knee tibial tray (Zimmer NexGen), dental crown (Dentsply Sirona), heart valve frame (Edwards SAPIEN) 같은 평생 인체 체류 부품의 기준 재료예요. Cr 산화막의 자기-치유 + Co 매트릭스의 항피로 — 100년이 지나도 인체에서 그대로 견디는 셈입니다."
   },
+  "cold-work-tool-steel": {
+   "display": "Cold-Work Tool Steel (D2 / A2 / O1 / SK / NAK80)",
+   "stable_ids": [
+    "MET-0940",
+    "MET-0941",
+    "MET-0944",
+    "MET-0945",
+    "MET-0956",
+    "MET-0957",
+    "MET-0960",
+    "MET-0961",
+    "MET-0962",
+    "MET-0963",
+    "MET-0964",
+    "MET-0978",
+    "MET-0979"
+   ],
+   "refs": [
+    "Roberts G, Krauss G, Kennedy R (1998) Tool Steels, 5th ed., ASM International",
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys (Tool Steels)"
+   ],
+   "sections": {
+    "hook": "무르게 만들어 깎은 뒤 담금질해 쓰는 강 — 금형·칼날·펀치의 냉간 공구강.",
+    "origin": "공구강은 어닐 상태로 가공한 뒤 담금질해 HRC 58~64 로 굳혀 쓰는 것이 원칙이다. 상온 작업용 냉간 공구강은 담금질 방식과 합금으로 갈린다 — 유냉(O1), 공냉(A2), 고Cr 공기경화(D2·D3), 탄소공구강(SK), 프리하든 금형강(NAK80)까지.",
+    "breakthrough": "O1(유냉)은 가장 오래된 범용 공구강, A2(공기경화)는 유냉의 변형·균열을 줄이고, D2(고탄소 12%Cr)는 다량의 크롬 탄화물로 내마모를 극대화한다(대신 인성↓). NAK80 은 미리 경화(HRC ~40)해 두어 열처리 변형 없이 바로 가공하는 사출 금형강이다.",
+    "today": "O1·A2 는 게이지·펀치·소량 금형, D2·D3 는 전단·성형·냉간압출 다이(내마모), SK4·SK5 는 칼·스프링·목공구, NAK80 은 정밀 플라스틱 사출 금형에 쓰인다. 인성이 더 필요하면 S7, 고온이면 H13 으로 간다.",
+    "fun_fact": "D2 는 ‘반(半)스테인리스’라 불릴 만큼 Cr 이 많아(12%) 어느 정도 녹슬지 않지만, 그 탄화물 탓에 진짜 스테인리스만큼의 내식은 나지 않는다."
+   }
+  },
   "copper": {
    "display": "Copper",
    "stable_ids": [
@@ -2015,6 +2044,34 @@
     "breakthrough": "높은 Cr 이 내산화·내황화를, 높은 Ni 가 고온에서 오스테나이트 상 안정과 침탄 저항을 준다. ‘S’ 접미(309S/310S)는 탄소를 낮춰 용접성을 개선한 판재용이며, 310 은 309 보다 Ni 가 많아 열충격·연속 고온에 더 강하다.",
     "today": "소둔로·열처리 지그·머플·라디언트 튜브·소각로 부품 등 1000~1100°C 산화 분위기에 쓰인다. 다만 황 함유 환원 분위기에서는 Ni 가 오히려 취약해 다른 합금으로 간다. 309 는 이종금속 용접의 완충 용접봉으로도 흔하다."
    }
+  },
+  "high-speed-steel": {
+   "display": "High-Speed Steel (M4 / M42 / M50)",
+   "stable_ids": [
+    "MET-0950",
+    "MET-0951",
+    "MET-0972",
+    "MET-0973",
+    "MET-0974"
+   ],
+   "refs": [
+    "Roberts G, Krauss G, Kennedy R (1998) Tool Steels, 5th ed., ASM International",
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys (Tool Steels)"
+   ],
+   "sections": {
+    "hook": "빨갛게 달궈져도 무뎌지지 않는 절삭공구강 — 20세기 초 가공 속도를 몇 배로 올린 ‘고속도강’.",
+    "origin": "20세기 초, 절삭날이 마찰열로 물러지는 것이 가공 속도의 한계였다. 고속도강(HSS)은 W·Mo·V·Co 를 넣어 500~600°C 절삭열에서도 경도를 유지하는(2차 경화) 공구강으로, 이름 그대로 절삭 속도를 획기적으로 높였다. 초기 W계(T)에서 값싼 Mo계(M)로 주류가 넘어갔다.",
+    "breakthrough": "고온에서 안정한 W·Mo·V 탄화물이 뜨거운 절삭날에서도 무뎌지지 않는 ‘적열경도(red hardness)’를 준다. M4 는 V 이 많아 내마모가, M42 는 Co 8%로 최고 경도(HRC 68)가, M50 은 청정도·피로수명이 좋아 항공 베어링에 특화됐다.",
+    "today": "M4·M42 는 드릴·엔드밀·브로치·톱 같은 절삭공구, M50 은 제트엔진 메인 베어링에 쓰인다. 초경(WC-Co)이 더 단단해 많은 절삭을 대체했지만, 인성·형상 자유도가 필요한 공구엔 여전히 HSS 다.",
+    "fun_fact": "1900년 파리 만국박람회에서 Taylor 와 White 가 시연한 고속도강 절삭은, 시뻘겋게 달아오른 칩을 뿜으며 당시 기준 몇 배 속도로 깎아 관람객을 놀라게 했다."
+   },
+   "timeline": [
+    {
+     "year": 1900,
+     "event": "Taylor·White, 고속도강 개발·파리 만국박람회 시연",
+     "ref": 1
+    }
+   ]
   },
   "hnbr": {
    "display": "HNBR",
@@ -3504,6 +3561,28 @@
     "AMS 6415 (SAE) \"Steel, Bars, Forgings, and Tubing 0.80Cr-1.8Ni-0.25Mo (0.38-0.43C)\""
    ],
    "legacy_text": "SNCM439 는 JIS G 4053 의 'Nickel-Chromium-Molybdenum steel No.439' 인데, 미국 AISI 4340 의 일본 equivalent 입니다. C 0.4% + Ni 1.8% + Cr 0.8% + Mo 0.25% 라는 Ni-Cr-Mo 합금강의 가장 표준적 조성이에요. 1934년 미국 Republic Steel 이 AISI 4340 을 항공 landing gear 용으로 처음 표준화했고, 일본 신일본제철·고베제강이 1950년대 후반에 SNCM439 로 라이센스 생산을 시작했습니다.\n\n4340 / SNCM439 의 핵심은 Ni 가 페라이트 강도에 기여하면서 동시에 인성도 올려준다는 점입니다. Cr-Mo 만 있는 합금 (AISI 4140) 대비 Ni 1.8% 가 추가되면 KIC 가 60 → 90 MPa·√m 으로 50% 이상 올라가요. Q+T 표준 (845°C 오일 quench + 540°C temper) 으로 σy 850-1000 MPa · UTS 1000-1200 + KIC 90 + Charpy 50 J 의 균형을 냅니다.\n\n응용: 항공 landing gear (Boeing 747 의 truck beam, 모든 commercial jet 의 oleo strut), 자동차 crankshaft (BMW M-series, Toyota 2JZ-GTE), 정밀 reduction gear 의 input shaft, 군용 차량 (M1 Abrams) 의 axle, 산업 forging die backing block, 그리고 reciprocating engine 의 connecting rod (forged 4340 이 racing engine 표준). 4340 / SNCM439 가 80년 동안 'high-strength engineering steel 의 산업 표준' 자리를 지키는 이유는 단조 + Q+T 후의 σy / KIC / weldability / cost 의 균형이 다른 어떤 alloy steel 도 못 따라잡기 때문이에요. 단점은 인장강도 1200 MPa 이상이 필요한 super-critical 부품에는 부적합 (4340 의 한계), 그래서 그 영역은 300M (Ni 2.5% + Si 1.6%) 또는 Aermet 100 (Co 13%) 같은 prestige alloy 가 잠식합니다."
+  },
+  "special-tool-steel": {
+   "display": "Special Tool Steel (S7 / H21 / CPM 3V / CPM S30V)",
+   "stable_ids": [
+    "MET-0942",
+    "MET-0943",
+    "MET-0959",
+    "MET-0975",
+    "MET-0976",
+    "MET-0977"
+   ],
+   "refs": [
+    "Roberts G, Krauss G, Kennedy R (1998) Tool Steels, 5th ed., ASM International",
+    "Crucible Industries, CPM® tool steels 기술 자료"
+   ],
+   "sections": {
+    "hook": "충격·고온·분말야금 — 범용을 벗어난 특수 목적 공구강들.",
+    "origin": "냉간·고속도강으로 안 되는 요구를 위한 특수 공구강들이다. S7 은 충격에 견디는 내충격강, H21 은 텅스텐계 열간 공구강, CPM(Crucible Particle Metallurgy) 계열은 분말야금으로 만든 초내마모·고인성 강이다.",
+    "breakthrough": "S7 은 낮은 탄소·Cr-Mo 로 인성을 극대화해 충격 공구(펀치·치즐)에, H21 은 W 탄화물로 열간 단조·압출 다이의 고온 강도를 준다. CPM 3V·S30V 는 분말야금으로 탄화물을 미세·균일하게 분산시켜, 일반 용해강이 못 내는 ‘내마모+인성’ 조합을 낸다.",
+    "today": "S7 은 냉간·온간 펀치·전단 다이, H21 은 열간 압출·다이캐스팅 다이, CPM 3V 는 고인성 산업 공구, CPM S30V 는 고급 나이프 강에 쓰인다. 분말야금강은 비싸지만 성능이 필요한 곳에서 값을 한다.",
+    "fun_fact": "CPM S30V 는 원래 고급 주방·아웃도어 나이프용으로 Crucible 이 나이프 제작자들과 함께 설계한, 드물게 ‘칼을 위해 태어난’ 강이다."
+   }
   },
   "stabilized-austenitic": {
    "display": "Stabilized Austenitic (321 / 347)",
