@@ -56,6 +56,22 @@
    ],
    "legacy_text": "1995년 룩셈부르크 ArcelorMittal (당시 Arbed) 의 R&D 가 자동차 차체에 '초고강도 + 복잡 형상 가공' 을 한 번에 만족하는 답을 찾으면서 등장한 합금이에요. 일반 강이라면 cold stamping 시 σ_UTS 600 MPa 이상에서 형상이 부서지는데, 22MnB5 는 hot stamping (가열 stamping) 으로 해결했죠. 900°C 에서 austenitization → mold 안에서 quench → 단일 stroke 으로 σ_UTS 1500 MPa 마르텐사이트가 형성됩니다.\n\n응용은 자동차 차체의 critical safety 부품 — B-pillar 보강재, door impact beam, front bumper beam, A-pillar 보강. 한 번의 hot-stamp 로 1.5 GPa 강도가 나오니, 동일 강도를 위해 일반 강을 쓸 때보다 차체 무게가 30% 감량되는 효과가 있어요. CO₂ emission 규제 (EU 95 g/km) 가 시작된 2009년 경부터 거의 모든 OEM 이 22MnB5 를 도입했습니다.\n\n한 가지 핵심 advance 가 있어요 — 표면 Al-Si 코팅 (USIBOR 의 'USI' 는 Usinor Sacilor International 의 약자, 'BOR' 은 Boron) 이 핵심이에요. 900°C 의 austenitization 동안 Fe-Al-Si 표면 형성으로 oxidation 과 탄소 손실을 막아주거든요. 1990년대 Arbed 가 이 dual-process 를 patent 화하면서 시장을 일찍 장악했고, 현재 ArcelorMittal 이 글로벌 22MnB5 의 60% 를 점유하고 있습니다."
   },
+  "253-ma": {
+   "display": "253 MA",
+   "stable_ids": [
+    "MET-0693"
+   ],
+   "refs": [
+    "Outokumpu (구 Avesta) Therma 253 MA (UNS S30815) 기술 자료",
+    "ASTM A240 / EN 1.4835 (UNS S30815)"
+   ],
+   "sections": {
+    "hook": "세륨(Ce)을 미량 넣어 산화 스케일이 벗겨지지 않게 만든 내열 스테인리스 — 310을 더 적은 니켈로 대체.",
+    "origin": "1970년대 스웨덴 Avesta(현 Outokumpu) 연구소가, 값비싼 Ni 20%의 310 만큼 내열이면서 합금을 아끼는 것을 목표로 개발했다. ‘MA’는 Micro-Alloyed — 21Cr-11Ni 에 Si·N 과 희토류 Ce 를 미량 배합한 것이 핵심이다.",
+    "breakthrough": "Ce 가 산화막 결정립계와 금속-산화물 계면에 편석해, 열충격 시 산화 스케일이 벗겨지는(spallation) 것을 억제한다. Si·N 은 고온 크리프 강도와 σ-상 저항을 준다 — 그래서 310 보다 Ni 를 절반가량 쓰고도 비슷한 내열을 낸다.",
+    "today": "소둔로 부품·버너·라디언트 튜브·컨베이어·전열체 등 850~1100°C 산화 분위기의 로(爐) 부품에 쓰인다. 반복 승온·냉각이 심한 곳에서 Ce 의 스케일 밀착 효과가 특히 유효하다."
+   }
+  },
   "42crmo4": {
    "display": "42CrMo4",
    "stable_ids": [
@@ -68,6 +84,22 @@
     "DIN 17200 (1987 superseded by EN 10083)"
    ],
    "legacy_text": "42CrMo4 는 미국 AISI 4140 (1923 SAE 표준) 의 유럽 표준 명칭으로, 1971년 DIN 17200 (현 EN 10083-3) 으로 표준화됐어요. 1.0% Cr + 0.20% Mo + 0.40% C — 동일한 조성, 동일한 응용, 동일한 'general purpose Cr-Mo' 의 위상을 가진 합금이죠.\n\n자동차·트럭 의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. Mo 0.2% 가 tempering brittleness (350-450°C 영역에서 P, S 가 입계 석출) 를 억제하면서 Cr 1% 의 경화능으로 ø100 mm 두께까지 균일한 σ_y 700+ MPa 가 나옵니다. EU 산업의 단조 blank 의 약 25% 가 42CrMo4 입니다."
+  },
+  "904l": {
+   "display": "904L",
+   "stable_ids": [
+    "MET-0703"
+   ],
+   "refs": [
+    "ASTM B625 / A240 (UNS N08904)",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "몰리브덴 4.5%·구리·고니켈로 황산을 견디게 만든 초(超)오스테나이트 스테인리스.",
+    "origin": "표준 316(Mo 2~3%)으로는 버티기 어려운 황산·인산 환경을 겨냥해 스웨덴 Avesta(현 Outokumpu) 등이 개발한 고합금 오스테나이트다. Cr ~20·Ni ~25·Mo 4~5·Cu ~1.5 로, Ni 를 크게 높여 오스테나이트를 안정화한 것이 특징이다.",
+    "breakthrough": "높은 Mo 가 공식(pitting)·틈부식을, Cu 첨가가 특히 환원성 황산 환경의 전면부식 저항을 준다. Ni 25% 는 응력부식균열(SCC) 저항도 316 보다 높인다 — 이름은 ‘L’이지만 사실상 super-austenitic 급이다.",
+    "today": "황산·인산 플랜트, 배연탈황(FGD), 제지·표백, 해수 열교환기 등에 쓰인다. 다만 6% Mo 급 슈퍼오스테나이트나 듀플렉스가 더 강한 내식·강도를 값싸게 주는 경우가 늘어 용도별로 경쟁한다."
+   }
   },
   "a-286": {
    "display": "A-286",
@@ -490,6 +522,26 @@
    ],
    "legacy_text": "AISI 1080 은 C 0.75-0.88% 의 eutectoid carbon steel — Fe-C 상태도의 eutectoid composition (C 0.77%) 부근에서 austenite 가 거의 100% pearlite 로 변환됩니다. 이 미세조직이 high-strength wire 의 비밀이에요.\n\n역사적 응용은 piano wire / music wire 입니다. 1820년대 Krupp 이 처음 cold-drawn high-C wire 를 만들었고, 1860년대 Paris 의 Pleyel piano 와 New York Steinway piano 가 1080 wire 를 채용하면서 표준이 됐죠. 인장 강도가 cold-drawn 후 2000-3000 MPa 까지 도달 — 가는 직경 (0.5-1.5 mm) 의 piano 현이 200 kg 의 인장 하중을 견디는 비결입니다.\n\n현대 응용 — Knife blade (특히 일본 도검 yasugi-hagane 백탄소강), high-strength spring (valve spring, suspension spring), high-strength wire (steel cord for radial tire, suspension bridge cable). cold-work 으로 강도를 얻는 합금이라 welding 어려움."
   },
+  "aisi-301": {
+   "display": "AISI 301",
+   "stable_ids": [
+    "MET-0706",
+    "MET-0707",
+    "MET-0708",
+    "MET-0709",
+    "MET-0710"
+   ],
+   "refs": [
+    "ASTM A666 (오스테나이트 스테인리스 strip, temper 규격)",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "Cr·Ni를 낮춰 일부러 불안정하게 만든 304 — 냉간가공하면 마르텐사이트로 변해 스프링처럼 단단해진다.",
+    "origin": "오스테나이트 스테인리스는 원래 열처리로 경화되지 않는다. 301 은 304 에서 Cr(16~18%)·Ni(6~8%)를 낮춰 오스테나이트를 ‘준안정(metastable)’하게 만든 grade — 냉간압연하면 변형유기 마르텐사이트가 생겨 강도가 급상승한다.",
+    "breakthrough": "냉간가공량(1/4H~Full Hard)으로 σy 를 수백 MPa 에서 1000 MPa 이상까지 조절할 수 있다. 열처리 없이 가공만으로 스프링급 강도와 스테인리스 내식을 동시에 얻는 것이 핵심이다.",
+    "today": "철도차량·버스·트레일러 외판, 스프링·클립, 컨베이어 벨트처럼 ‘경량 고강도 + 내식’이 필요한 구조에 쓰인다. ASTM A666 이 1/4H~FH temper 를 규격화한다. 극한 내식이 필요하면 301 대신 304/316 으로 간다."
+   }
+  },
   "aisi-302": {
    "display": "AISI 302",
    "stable_ids": [
@@ -501,6 +553,22 @@
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
    ],
    "legacy_text": "AISI 302 는 austenitic stainless steel 중 304 의 'older sibling' 입니다. 1925년 ASTM 이 304 (Cr 18% + Ni 8% + C 0.08% max) 를 표준화하면서 그 직전의 high-C variant 를 302 (Cr 17-19% + Ni 8-10% + C 0.15% max) 로 designation 했어요. C 함량이 304 의 2배 가까이 높아서 cold-working 시 σy 가 더 빨리 올라가는 게 특징입니다.\n\n302 의 매력은 cold-work hardening 이 다른 austenitic 보다 강하다는 점입니다. Annealed σy 200 MPa → cold-worked half-hard 800 MPa → full-hard 1200 MPa. 304 의 ½ hard 가 700 MPa 인 데 비해 302 는 800 MPa 까지 가능. 이 때문에 austenitic spring steel 산업의 표준으로 자리잡았어요.\n\n응용: stainless spring wire (Smalley wave spring 의 일부 grade — 302 cold-drawn wire 가 austenitic spring 의 baseline), 정밀 wire form spring (전자 connector spring contact), surgical instrument 의 일부 (외과 retractor 의 spring 부분 — autoclave 환경 호환), 그리고 식기 cutlery (302 의 일반 forks/knives — 304 보다 cheaper). 단점은 C 함량이 높아 용접 후 sensitization (450-850°C 에서 Cr₂₃C₆ 입계 석출) 위험이 크다는 점. 그래서 용접 필요 응용은 304 또는 304L (C ≤ 0.03%) 로 대체됩니다."
+  },
+  "aisi-303": {
+   "display": "AISI 303",
+   "stable_ids": [
+    "MET-0712"
+   ],
+   "refs": [
+    "ASTM A582 (free-machining 스테인리스 bar)",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "황(S)을 일부러 넣어 ‘깎기 좋게’ 만든 304 — 자동선반 부품용 스테인리스.",
+    "origin": "304 는 절삭 시 질기고 칩이 늘어져 자동선반(screw machine) 대량가공에 불리하다. 303 은 여기에 황(S ~0.15~0.35%)을 넣어 MnS 개재물을 만든 free-machining grade 로, 칩이 잘 끊기고 공구 수명이 길어진다.",
+    "breakthrough": "MnS 개재물이 절삭면에서 칩 분단·윤활 역할을 해 절삭성을 304 대비 크게 올린다. 대가로 그 황화물이 부식 기점이 되어 내식성·용접성은 304 보다 떨어진다 — 그래서 용접부·고내식 부품에는 쓰지 않는다.",
+    "today": "볼트·너트·부싱·샤프트·피팅처럼 자동선반으로 대량 절삭하는 소형 부품이 주 용도다. 내식이 더 중요하면 303 대신 304 로, 절삭성과 내식을 함께 원하면 저황 특수 grade 로 간다."
+   }
   },
   "aisi-304": {
    "display": "AISI 304",
@@ -1387,6 +1455,24 @@
    ],
    "legacy_text": "HDPE (High-Density Polyethylene) 는 1953년 독일 Karl Ziegler (Max Planck Institute for Coal Research, 1963년 노벨화학상) 가 Ziegler catalyst (TiCl₄ + Al(C₂H₅)₃) 를 사용해 ethylene 의 정확한 linear polymerization 을 가능케 한 발견에서 출발합니다. 이전의 LDPE (Low-Density Polyethylene, 1933년 ICI 에서 발견) 는 branched chain (가지 많음) 이라 density 0.91-0.94 g/cc, 강도 낮음. HDPE 는 거의 linear chain (가지 거의 없음) 이라 density 0.94-0.97 + 결정도 70-80% + 강도 약 2배 향상.\n\nZiegler catalyst 발견 후 1955년 BASF, Hoechst (현재 Celanese), Hercules (현재 LyondellBasell), Phillips Petroleum 이 거의 동시에 상업화. Phillips Petroleum 의 chromium-based catalyst (Phillips catalyst, 1953-1955) 가 HDPE 의 두 번째 main process 가 됐어요. 한국 — LG 화학 / 한화솔루션 / SK 종합화학 / 롯데화학이 모두 HDPE 생산.\n\n응용 — Pipe (water distribution, sewer line, gas line), bottle (laundry detergent, motor oil container, milk jug — 식품접촉 FDA 통과), industrial container (drum, IBC tote), HDPE film (shopping bag, garbage bag), kayak / sup board (rotomolding), playground equipment, 산업 cutting board, 의료 cleanroom liner, 매립지 liner (geomembrane — HDPE 1.5-3mm 두께가 표준).\n\n특이 응용 — UHMWPE (Ultra-High Molecular Weight PE, MW > 3 million g/mol) 은 HDPE 의 special grade 로, 의료 hip / knee implant 의 bearing surface (1962년 Sir John Charnley 의 first hip implant), 방탄 sheet (Dyneema / Spectra 의 ultra-strong fiber 가 UHMWPE), 산업 wear-resistant plate (mining chute liner)."
   },
+  "heat-resistant-austenitic": {
+   "display": "Heat-Resistant Austenitic (309 / 310)",
+   "stable_ids": [
+    "MET-0696",
+    "MET-0697",
+    "MET-0726"
+   ],
+   "refs": [
+    "ASTM A240 / A240M",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "Cr·Ni를 304보다 훨씬 높여 1000°C 산화 분위기를 견디게 만든 내열 오스테나이트.",
+    "origin": "304(18Cr-8Ni)는 약 870°C 부근부터 산화 스케일이 벗겨지기 시작한다. Cr 을 23~26%, Ni 를 13~22%까지 끌어올리면 치밀한 Cr₂O₃ 스케일이 더 높은 온도까지 버틴다 — 그렇게 만든 것이 309(23Cr-13Ni)와 310(25Cr-20Ni)이다.",
+    "breakthrough": "높은 Cr 이 내산화·내황화를, 높은 Ni 가 고온에서 오스테나이트 상 안정과 침탄 저항을 준다. ‘S’ 접미(309S/310S)는 탄소를 낮춰 용접성을 개선한 판재용이며, 310 은 309 보다 Ni 가 많아 열충격·연속 고온에 더 강하다.",
+    "today": "소둔로·열처리 지그·머플·라디언트 튜브·소각로 부품 등 1000~1100°C 산화 분위기에 쓰인다. 다만 황 함유 환원 분위기에서는 Ni 가 오히려 취약해 다른 합금으로 간다. 309 는 이종금속 용접의 완충 용접봉으로도 흔하다."
+   }
+  },
   "hnbr": {
    "display": "HNBR",
    "stable_ids": [
@@ -1724,6 +1810,22 @@
     "Duerig T et al. (1990) Engineering Aspects of Shape Memory Alloys, Butterworth-Heinemann"
    ],
    "legacy_text": "1959년 미국 Naval Ordnance Laboratory (NOL, 메릴랜드 White Oak) 의 윌리엄 부엘러 (William Buehler) 가 nuclear submarine 의 nose cone 용 새 합금을 찾던 중 Ni 50at% + Ti 50at% 의 intermetallic 이 일정 온도에서 형상을 기억해 회복하는 (shape memory) 현상을 발견합니다. 프레더릭 왕 (Frederick Wang) 과 함께 1965년 BCC ↔ B19' martensite 의 thermoelastic 변태 메커니즘을 규명, NOL + Ti 의 머리글자로 'Nitinol' 로 명명했어요. 1962년 NOL 의 콘퍼런스 시연에서 구부려진 wire 가 손 열로 펴지는 모습이 '마술 metal' 로 NYT 1면을 장식하기도 했죠.\n\n응용 — 의료 — 1990년대 들어 cardiovascular stent (Cordis Cypher, Boston Scientific 의 모든 PCI stent), 뼈 골절 fixator (Memry MEMOFEX), 치과 교정 wire (3M Unitek 의 most braces wire), 두부 외상 stapler. 항공 — F-14 hydraulic coupling (Raychem CryoFit), 미 Navy USS Constellation 의 anti-vibration mount. 일상 — 안경 frame (Rectangulus, Marchon Flexon), 무선 헤드폰 headband (Bose QuietComfort), 와이파이 안테나 actuator (Apple AirPods Pro) 까지."
+  },
+  "nitronic-60": {
+   "display": "Nitronic 60",
+   "stable_ids": [
+    "MET-0757"
+   ],
+   "refs": [
+    "Armco / Electralloy, Nitronic 60 (UNS S21800, Alloy 218) 기술 자료",
+    "US Patent 4,814,140 \"Galling resistant austenitic stainless steel alloy\""
+   ],
+   "sections": {
+    "hook": "규소·망간·질소로 ‘눌어붙음(galling)’을 잡은 스테인리스 — 코발트 없이 마찰·마모를 견딘다.",
+    "origin": "미국 Armco(‘Nitronic’은 등록상표)가 개발한 질소강화 오스테나이트 스테인리스(UNS S21800, Alloy 218)다. Cr 17·Ni 8·Mn 8·Si 4·N 0.13 조성으로, 스테인리스 특유의 응착 마모(galling)를 겨냥했다.",
+    "breakthrough": "높은 Si·Mn 이 만든 표면 특성과 N 강화가 어닐 상태에서도 galling·fretting·마모를 억제한다. 상온 σy 가 304·316 의 약 2배(~415 MPa)여서, 값비싼 Co(Stellite)·고Ni 합금 없이 마찰부를 해결하는 저비용 대안이 된다.",
+    "today": "밸브 트림·부싱·핀·패스너·펌프 슬리브처럼 스테인리스끼리 미끄러지며 눌어붙기 쉬운 부위에 쓰인다. 특히 두 접촉면이 모두 스테인리스여야 할 때 유용하다."
+   }
   },
   "nylon-6": {
    "display": "Nylon 6",
@@ -2341,6 +2443,27 @@
    ],
    "legacy_text": "SNCM439 는 JIS G 4053 의 'Nickel-Chromium-Molybdenum steel No.439' 인데, 미국 AISI 4340 의 일본 equivalent 입니다. C 0.4% + Ni 1.8% + Cr 0.8% + Mo 0.25% 라는 Ni-Cr-Mo 합금강의 가장 표준적 조성이에요. 1934년 미국 Republic Steel 이 AISI 4340 을 항공 landing gear 용으로 처음 표준화했고, 일본 신일본제철·고베제강이 1950년대 후반에 SNCM439 로 라이센스 생산을 시작했습니다.\n\n4340 / SNCM439 의 핵심은 Ni 가 페라이트 강도에 기여하면서 동시에 인성도 올려준다는 점입니다. Cr-Mo 만 있는 합금 (AISI 4140) 대비 Ni 1.8% 가 추가되면 KIC 가 60 → 90 MPa·√m 으로 50% 이상 올라가요. Q+T 표준 (845°C 오일 quench + 540°C temper) 으로 σy 850-1000 MPa · UTS 1000-1200 + KIC 90 + Charpy 50 J 의 균형을 냅니다.\n\n응용: 항공 landing gear (Boeing 747 의 truck beam, 모든 commercial jet 의 oleo strut), 자동차 crankshaft (BMW M-series, Toyota 2JZ-GTE), 정밀 reduction gear 의 input shaft, 군용 차량 (M1 Abrams) 의 axle, 산업 forging die backing block, 그리고 reciprocating engine 의 connecting rod (forged 4340 이 racing engine 표준). 4340 / SNCM439 가 80년 동안 'high-strength engineering steel 의 산업 표준' 자리를 지키는 이유는 단조 + Q+T 후의 σy / KIC / weldability / cost 의 균형이 다른 어떤 alloy steel 도 못 따라잡기 때문이에요. 단점은 인장강도 1200 MPa 이상이 필요한 super-critical 부품에는 부적합 (4340 의 한계), 그래서 그 영역은 300M (Ni 2.5% + Si 1.6%) 또는 Aermet 100 (Co 13%) 같은 prestige alloy 가 잠식합니다."
   },
+  "stabilized-austenitic": {
+   "display": "Stabilized Austenitic (321 / 347)",
+   "stable_ids": [
+    "MET-0701",
+    "MET-0744",
+    "MET-0747",
+    "MET-0748",
+    "MET-0751"
+   ],
+   "refs": [
+    "ASTM A240 / A240M (내식 오스테나이트 스테인리스 판재)",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "탄소를 낮추는 대신 Ti·Nb로 탄소를 ‘묶어’ 용접부 부식을 막은 스테인리스 — 저탄소(ELC) 이전의 해법.",
+    "origin": "304 는 450~850°C 로 가열되면 Cr₂₃C₆ 가 입계에 석출해 그 주변 Cr 이 고갈되는 ‘예민화(sensitization)’로 용접부가 부식됐다(weld decay). AOD 정련으로 저탄소(L) 강을 값싸게 만들기 전까지의 해법은, 탄소보다 탄화물 친화력이 큰 Ti(321)나 Nb(347)를 넣어 TiC·NbC 로 탄소를 선점하는 ‘안정화(stabilization)’였다.",
+    "breakthrough": "Ti·Nb 가 C 를 안정한 MC 탄화물로 묶어두면 Cr 이 입계에서 고갈되지 않는다. 덕분에 321·347 은 500~800°C 에 반복 노출되는 용접 구조물에서도 예민화를 견딘다 — 저탄소 L 강이 커버하지 못하는 장시간 고온역이 이들의 자리다.",
+    "today": "항공 배기·열교환기·고온 배관·팽창 조인트처럼 용접과 고온이 겹치는 곳에 쓰인다. 347 은 Nb 로 더 높은 크리프 강도를, 347H(고탄소)는 발전 보일러에서 크리프를 노린다. 상온 부식만 문제라면 더 싼 304L/316L 로 간다.",
+    "fun_fact": "용접봉·주조에서는 Ti 가 아크에서 타버려, 같은 안정화라도 Nb(347) 쪽이 선호된다."
+   }
+  },
   "stainless-steel-316l": {
    "display": "Stainless Steel 316L",
    "stable_ids": [
@@ -2425,6 +2548,23 @@
     "Yamada Y (ed., 2007) Materials for Springs, Springer"
    ],
    "legacy_text": "SUP9 은 일본 JIS G 4801 의 Cr-Mn spring steel 로, 1960년대 일본 자동차 산업의 leaf spring 자재 표준화 과정에서 등장했어요. Cr 0.7% + Mn 0.8% + C 0.55% — 미국 AISI 5160 의 일본 equivalent 입니다.\n\n응용 — 자동차 leaf spring 의 표준 자재. Toyota Land Cruiser, Hyundai Porter, Mitsubishi Fuso, Isuzu D-Max 의 truck rear leaf spring 의 거의 모두가 SUP9 또는 그 변형. 한국 KS D 3701 의 SPS9 도 동일 합금이고, 한국 트럭 (현대 마이티, Tata Daewoo Novus) 의 spring 도 대부분 SPS9 입니다. 농기계 — 트랙터 의 hitch spring, 산업 — vibratory feeder spring, 의료 — orthopedic external fixator spring.\n\nSUP10 (Cr-V, 5160 와 9260 의 중간) 과 함께 일본·한국·동남아 spring 시장의 양강 구도를 형성하고 있어요. 가격이 미국 AISI 5160 의 절반에 비슷한 강도 — '아시아 spring 의 표준' 입니다."
+  },
+  "super-304h": {
+   "display": "Super 304H",
+   "stable_ids": [
+    "MET-0762",
+    "MET-0763"
+   ],
+   "refs": [
+    "Sumitomo Metal Industries, Super304H (UNS S30432) 기술 자료",
+    "ASME Boiler & Pressure Vessel Code, SA-213 Grade S30432"
+   ],
+   "sections": {
+    "hook": "304H에 구리를 3% 넣어 초초임계 보일러의 고온 증기를 버티게 만든 일본발 내열 오스테나이트.",
+    "origin": "일본 Sumitomo Metal(현 Nippon Steel)이 초초임계(USC) 화력발전 보일러의 과열기·재열기 튜브용으로 304H 를 개질해 개발했다(UNS S30432). Cu ~3%·Nb ~0.4%·N ~0.1% 를 더한 것이 핵심이다.",
+    "breakthrough": "시효 중 Cu-rich 상과 Nb(C,N)이 오스테나이트 기지에 미세 석출해 크리프 파단강도를 크게 높인다. 600°C 증기·25~30 MPa 조건에서 재래 304H·347H 보다 높은 고온 강도를 낸다.",
+    "today": "금속 벽온 약 700°C 이하의 USC 보일러 과열기·재열기 튜브 표준 중 하나다. 더 높은 온도는 Ni 기 합금(예: Inconel 740)이 맡고, Super304H 는 오스테나이트 스테인리스 영역의 상단을 담당한다."
+   }
   },
   "ti-6al-4v": {
    "display": "Ti-6Al-4V",
