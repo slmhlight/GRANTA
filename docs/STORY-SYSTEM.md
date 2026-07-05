@@ -4,13 +4,14 @@
 검증 가능해야 하며(출처 규율), 할당은 **Material ID(stable_id)** 로만 한다(이름 매칭 금지).
 이 문서가 스키마·원칙·작문 회차(Opus) 운영의 SSOT 다.
 
-## 0. 현황 (R226t 이관 시점)
-- SSOT: **`data/alloy-stories.json`** — 스토리 **183종**, 멤버 **403 entry** (1129 중 36%).
-- base(합금) 단위: 190/637 커버. 무스토리 base 447 (우선순위 큐는 §5).
+## 0. 현황 (R226t 작문 회차 — **완료**)
+- SSOT: **`data/alloy-stories.json`** — 스토리 **294종**, 멤버 **1129 entry** = **1129/1129 (100%)**.
+  - 배치 1~27(E13)로 전 재료 부착 완료. 미부착 0 (`build-from-registry` 스탬프 기준).
+  - v2(구조화 sections+timeline) **621종 entry** 커버. 잔여 ~508 entry 는 legacy v1(본문+refs, 섹션 미구조) — v2 승격은 후속(§5).
 - 구조: `stories.<slug>: { display, stable_ids[], refs[], legacy_text | sections(+timeline) }`.
-- v2 exemplar: `inconel-718` (섹션 4 + 타임라인 3 — 기존 문단 무손실 재배치로 파이프 증명).
-- dead(멤버 0) 7종 문서화: `aisi-420 · aisi-4340 · astm-a36-structural · cp-ti · epdm · fkm · wc-6co-*`
-  — 이름 드리프트/중복 텍스트로 할당을 잃은 검증 콘텐츠. 처리(재연결/병합/삭제)는 작문 회차 0단계.
+- v2 exemplar: `inconel-718` (섹션 4 + 타임라인 3). 신규 작문은 hook/origin/breakthrough/[adoption]/today/fun_fact 풀 구조 + 검증된 경우 timeline.
+- dead(멤버 0) 2종만 잔존: `epdm · fkm` (테스트 `DOCUMENTED_DEAD` 고정). 나머지 과거 dead(aisi-420/4340/a36/cp-ti/wc-6co)는 작문 회차에서 재연결·병합·검증 재작성으로 해소.
+- 게이트: `tests/alloy-stories.test.ts` 10 통과 · tsc · 770 테스트 · build 전부 green.
 
 ## 1. 아키텍처 (전부 Material ID — regex/이름 매칭 0)
 ```
@@ -70,15 +71,12 @@ data/alloy-stories.json (SSOT: 콘텐츠+stable_ids 동결)
 4. 게이트 실행(`vitest alloy-stories`) → 커밋 (배치 단위, 커밋 메시지에 검증 출처 요약).
 5. 기존 v1 스토리의 v2 승격은 별도 배치 (재배치 원칙 — join 검증).
 
-**우선순위 큐** (2026-07 산출, popularity 기준):
-- **T0 — dead 7 처리**: aisi-420(재연결: Stainless Steel 420·SS420 계열)·aisi-4340/astm-a36(기존 스토리와
-  텍스트 비교 후 병합 또는 대체)·cp-ti(CP Ti 계열 재연결 검토)·epdm/fkm(대상 재료 확인)·wc-6co(WC-Co 12% 와 grade 상이 — 재작성 판단).
-- **T1 — pop≥4.0 신규**: CF8/CF8M/CF3/CF3M(주조 스테인리스 4종 — 한 스토리로 묶기 가능)·
-  Custom 465·AISI 1030·CMSX-10·Grade 91·SA516 Gr70. 이름-변형 재연결: AISI 304L/STS304L·316L/STS316L·304 ULC.
-- **T2 — pop 3.5~4.0**: LDPE·TPE·PA12·PA11·Polycarbonate·POM-H/C·AlSi7Mg·CoCr·H13(변형 재연결)·
-  AISI 301/321/347·Super 304H·SAE 21-4N·AA 6101/6262/6463/6151/1200 등 (~30 base).
-- **T3 — 나머지 ~400 base**: 인사이트 그룹별 대표 우선 (세라믹·복합재 그룹 대표 포함).
-- 목표: base 커버리지 190 → **~300** (인기 가중), 전 스토리 v2 승격.
+**우선순위 큐 — 전량 소진 완료 (배치 1~27, 1129/1129).**
+T0(dead 재연결/재작성)·T1·T2·T3(전 base) 모두 처리. 커버리지는 base·popularity 가중이 아니라 **전 entry 100%** 로 마감.
+남은 후속 작업(신규·저우선):
+- **v2 승격**: legacy v1 스토리 ~508 entry 를 구조화 sections(+timeline)로 승격 (재배치 원칙 — 무손실 join 검증, 배치 단위).
+- **신규 entry 부착**: 데이터에 재료가 추가되면 build 게이트가 무스토리를 잡아냄 → 해당 그룹 스토리에 stable_id 재연결 또는 신규 작성.
+- **timeline 보강**: 연도·최초적용이 웹/문헌으로 확정되는 스토리에 timeline 추가 (현재 일부만 보유).
 
 ## 5. 편집 위치 요약
 | 작업 | 파일 |
