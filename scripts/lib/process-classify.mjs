@@ -47,8 +47,10 @@ const METAL_MACH = [
   [/magnesium|\baz\d{2}\b|\bwe43\b|\bzk60\b|\bam60\b|\belektron\b/i, 'magnesium'],
   [/tool steel|\bd2\b|\bd3\b|\bh1[13]\b|\bm[24]\b|skd|cpm/i, 'tool-steel'],
   [/stainless.*ph|17-?4|15-?5|13-?8|custom 465/i, 'ss-ph'],
-  [/stainless.*ferritic|\b409\b|\b430\b|\b439\b/i, 'ss-ferritic'],
-  [/stainless.*martensitic|\b410\b|\b420\b|\b440[a-c]?\b/i, 'ss-martensitic'],
+  // 조합 subcategory "Ferritic/Martensitic" 는 subcat 단어로 구분 불가(둘 다 매칭) → **grade 번호**로 판정.
+  //   마르텐사이트(경화형: 410/420/422/431/440·SS4x0·13Cr)를 페라이트보다 먼저. 410S(페라이트)·FSX-414(Co)는 제외.
+  [/\b410\b|\b420\b|\b422\b|\b431\b|\b440[a-c]?\b|\bss4[124]0[a-c]?\b|13\s*cr/i, 'ss-martensitic'],
+  [/\b40[59]\b|\b430\b|\b434\b|\b436\b|\b439\b|\b44[246]\b|\b410s\b|stainless.*ferritic|fecral|ma956/i, 'ss-ferritic'],
   [/stainless.*austenitic|\b304l?\b|\b316l?\b|\b309\b|\b310s?\b|\b321\b/i, 'ss-austenitic'],
   [/stainless.*duplex|\b2205\b|\b2507\b/i, 'ss-duplex'],
   [/inconel 617|haynes 230|hastelloy x|haynes 282/i, 'ni-super-solidsol'],

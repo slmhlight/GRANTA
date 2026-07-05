@@ -36,6 +36,7 @@ const METAL_MACH = (profilesData as any).machinability.metal as Record<string, {
 const COND_ADJ = (profilesData as any).machinability.condition_adjust as {
   rating_mult: Record<string, number>; cost_mult: Record<string, number>;
   band_thresholds: { easy: number; normal: number; hard: number }; ferrous_hardening: string[];
+  hardness_ref_hv?: Record<string, number>; hardness_floor?: number;
 };
 const FERROUS_HARDENING = new Set(COND_ADJ.ferrous_hardening);
 const BAND_LABEL: Record<MachinabilityResult['band'], string> = { easy: '우수', normal: '보통', hard: '어려움', very_hard: '매우 어려움' };
@@ -47,8 +48,16 @@ function bandForRating(r: number): MachinabilityResult['band'] {
 export function machinabilityConditionMult(m: Material): { rating: number; cost: number; applies: boolean; htc?: string } {
   const key = m.profiles?.mach; const htc = m.profiles?.htc;
   if (!key || !htc || !FERROUS_HARDENING.has(key)) return { rating: 1, cost: 1, applies: false, htc };
-  const rating = COND_ADJ.rating_mult[htc] ?? 1;
+  let rating = COND_ADJ.rating_mult[htc] ?? 1;
   const cost = COND_ADJ.cost_mult[htc] ?? 1;
+  // R226r-2 — 경화 클래스 내 조건별 경도 편차 반영: 클래스 대표경도(ref_hv)보다 단단한 entry 만 추가 감산
+  //   (더 연하거나 경도 데이터 부실 시 factor=1 → class base 유지, 오값 회피). H900 vs H1150 등 구분.
+  const ref = COND_ADJ.hardness_ref_hv?.[htc];
+  const hv = m.ranges?.hardness?.typical;
+  if (ref && typeof hv === 'number' && hv > 0) {
+    const factor = Math.min(1, ref / hv);
+    rating = Math.max(COND_ADJ.hardness_floor ?? 0.42, rating * factor);
+  }
   return { rating, cost, applies: rating !== 1 || cost !== 1, htc };
 }
 const POLYMER_MACH = (profilesData as any).machinability.polymer as Record<string, PolymerMachResult>;

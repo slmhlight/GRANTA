@@ -150,6 +150,30 @@ describe('machinability 조건(HT)별 보정 (R226r)', () => {
     const inc = metals.find(m => m.profiles?.mach === 'ni-super' && (m.profiles?.htc === 'aged' || m.profiles?.htc === 'qt'));
     if (inc) expect(computeMachinability(inc)?.conditionAdjusted).toBeFalsy();
   });
+  // R226r-1 — 마르텐사이트 스테인리스(410/420/440)는 ss-ferritic 아닌 ss-martensitic 분류 (조합 subcat 오분류 교정)
+  it('AISI 410/420/440C 은 ss-martensitic (ss-ferritic 아님)', () => {
+    for (const rx of [/AISI 410 — Annealed/, /Stainless Steel 420/, /AISI 440C — Annealed/]) {
+      const m = byName(rx);
+      expect(m?.profiles?.mach, `${rx} 분류`).toBe('ss-martensitic');
+    }
+    // 진짜 페라이트(430/405)는 ss-ferritic 유지
+    expect(byName(/AISI 430 — Annealed/)?.profiles?.mach).toBe('ss-ferritic');
+    // FSX-414(Co 합금)는 414 오매칭 없이 cobalt 유지
+    expect(byName(/FSX-414/)?.profiles?.mach).toBe('cobalt');
+  });
+  // R226r-2 — 경화 클래스 내 경도 편차: 17-4 PH H900(peak) 가 H1075/H1150(overaged) 보다 절삭성 낮음
+  it('17-4 PH — H900(peak) < H1075/H1150(overaged) 절삭성 (경도 편차 반영)', () => {
+    const h900 = byName(/17-4 PH.*H900/); const h1075 = byName(/17-4 PH.*H1075/);
+    const r9 = h900 && computeMachinability(h900); const r10 = h1075 && computeMachinability(h1075);
+    expect(Boolean(r9 && r10)).toBe(true);
+    expect(r9!.rating).toBeLessThan(r10!.rating);   // peak-aged 가 더 어려움
+  });
+  it('경도 데이터 부실(연질값) 조건은 class base 유지 (오값 회피)', () => {
+    // AISI 410 Q&T 는 HV 188.9(비정상 저값) — hardness factor=1 → qt class base(×0.72) 만 적용
+    const qt = byName(/AISI 410 — Quenched/);
+    const r = qt && computeMachinability(qt);
+    expect(r?.rating).toBe(Math.round(45 * 0.72));   // 32
+  });
 });
 
 /* 커버리지 리포트 (정보용 — 게이트 아님, null=안전한 갭). */

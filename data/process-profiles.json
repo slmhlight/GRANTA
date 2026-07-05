@@ -60,6 +60,9 @@
    "rating_mult": { "soft": 1.0, "hip": 0.96, "as-built": 0.92, "cold": 0.88, "case": 0.85, "aged": 0.82, "qt": 0.72 },
    "cost_mult": { "soft": 1.0, "hip": 1.05, "as-built": 1.1, "cold": 1.15, "case": 1.2, "aged": 1.25, "qt": 1.4 },
    "band_thresholds": { "easy": 68, "normal": 40, "hard": 20 },
+   "_hardness_note": "R226r-2 — 경화 클래스(qt/aged/cold) 내 조건별 경도 편차 반영(H900 vs H1150, Q+T 템퍼 등). rating_mult 에 factor=min(1, ref_hv/entry_hv) 를 곱해 **클래스 대표경도보다 단단한 entry만 추가 감산**(더 연하거나 경도 데이터가 부실한 entry 는 class base 유지 — 오값 회피). 단위 = HV(ranges.hardness). floor 로 하한.",
+   "hardness_ref_hv": { "qt": 330, "aged": 360, "cold": 240 },
+   "hardness_floor": 0.42,
    "ferrous_hardening": ["fm-steel", "ss-303", "ss-416", "carbon-low", "carbon-medhigh", "crmo", "nicrmo", "case-hard", "bearing", "maraging", "tool-steel", "ss-ferritic", "ss-martensitic", "ss-austenitic", "ss-ph", "ss-duplex"]
   }
  },
