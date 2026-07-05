@@ -223,6 +223,7 @@
    "display": "A356",
    "stable_ids": [
     "MET-0178",
+    "MET-0179",
     "MET-0222",
     "MET-0223",
     "MET-0224",
@@ -235,25 +236,12 @@
    ],
    "sections": {
     "hook": "주조 알루미늄의 살림꾼 — 잘 흐르고, 열처리로 강해지고, 값도 무난한 A356.",
-    "origin": "1920년대 말 Alcoa 가 정립한 Al-7Si-0.3Mg 주조 합금이 뿌리다 — 유럽·AM 분말 표기로는 AlSi7Mg(EN AC-42100)와 같은 계보다. 규소 7%가 쇳물의 유동성을 살려 복잡한 형상을 채우고, 마그네슘 0.3%가 T6 열처리에서 Mg₂Si 석출로 강도를 끌어올린다 — 주조성과 열처리 강화를 한 조성에 담은 설계다.",
+    "origin": "1920년대 말 Alcoa 가 정립한 Al-7Si-0.3Mg 주조 합금이 뿌리다 — 유럽·AM 분말 표기로는 AlSi7Mg(EN AC-42100)·주조 규격 A356.0 과 같은 계보다. 규소 7%가 쇳물의 유동성을 살려 복잡한 형상을 채우고, 마그네슘 0.3%가 T6 열처리에서 Mg₂Si 석출로 강도를 끌어올린다 — 주조성과 열처리 강화를 한 조성에 담은 설계다.",
     "breakthrough": "T6 후 항복 220MPa·연신 8~10%는 사형·금형 주물로서는 균형의 정점이고, 용접·가공·양극산화까지 무난하다. 개량은 불순물 관리로 이어져, 철을 엄격히 낮춘 항공급과 Mg 를 올린 A357 이 위쪽을 맡는다.",
     "adoption": "1980년대 이후 주조 알루미늄 휠의 대중화가 이 합금을 자동차 산업의 표준으로 밀어올렸고, 실린더 헤드·서스펜션 너클로 확산됐다.",
     "today": "자동차 휠·헤드·섀시 주물의 기본값이자, 항공·의료 하우징의 주조 표준이다. 다이캐스팅 대량생산은 A380/ADC12 가, 더 높은 강도는 A357·A201 이 맡는 구도 속에서 \"품질 주물의 기준\"으로 남아 있다.",
     "fun_fact": "길에서 보는 알루미늄 휠 대부분이 이 합금의 저압주조품이다 — 휠 하나가 견디는 연석 충격과 수십만 km 의 피로가, A356-T6 균형의 일상적 증명이다."
    }
-  },
-  "a356-0-al-si-mg-cast": {
-   "display": "A356.0 (Al-Si-Mg cast)",
-   "stable_ids": [
-    "MET-0179"
-   ],
-   "refs": [
-    "Mondolfo L F (1976) Aluminum Alloys: Structure and Properties, Butterworths",
-    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
-    "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Aluminum Casting",
-    "Sigworth G K & Caceres C H (2005) \"Quality issues in aluminum castings\", AFS Trans 113"
-   ],
-   "legacy_text": "1923년 미국 Aluminum Company of America (Alcoa) 가 sand-cast 용 Al-Si 7% + Mg 0.3% 의 새 합금 'alloy 356' 을 출시합니다 — 이전 Al-Cu 계 cast (alloy 222) 가 quenching crack 으로 시달리던 문제를 Si 7% 의 hypoeutectic 구성과 Mg₂Si 시효 석출로 풀어냈어요. 1954년 IADS 통합 시 A356 (.0 = sand cast / .1 = ingot / .2 = premium) 으로 재명명됐습니다.\n\nA356-T6 (515°C SA + WQ + 155°C/6h 시효) 가 σ_y 200 MPa + El 6% 의 항공 grade 표준이 됐어요. 응용 — 자동차 wheel (BBS, Enkei, Volk Racing 의 모든 forged-look cast wheel), 엔진 cylinder head (Ford EcoBoost, Hyundai Theta), 전동 모터 housing (Tesla Model 3 의 rear motor casing), 항공기 landing-gear truck beam (Boeing 747-8). 1990년대 들어 'squeeze casting' 과 'SSM (semi-solid metal)' 공정으로 cast porosity 가 0.5% 이하로 떨어져 forged 6061 의 90% 성능에 단가는 1/4 — '공기 단조' 의 baseline 이 됐습니다."
   },
   "a516-grade-70": {
    "display": "A516 Grade 70",
@@ -281,7 +269,9 @@
    "display": "A572 Grade 50",
    "stable_ids": [
     "MET-0850",
-    "MET-0851"
+    "MET-0851",
+    "MET-0854",
+    "MET-0855"
    ],
    "refs": [
     "ASTM A572 / A572M",
@@ -293,7 +283,7 @@
     "hook": "A36보다 강한 건축·교량 강 — 니오븀·바나듐 미량으로 강도를 올린 HSLA 표준 A572 Gr50.",
     "origin": "A572 는 고장력 저합금(HSLA) 구조강 표준으로, 항복 345MPa 의 Grade 50 이 가장 흔하다. 1960년대에 채택되어, 탄소를 늘리지 않고 니오븀·바나듐을 0.05% 안팎만 넣어 강도를 A36(250MPa)보다 38% 높였다 — 결정립 미세화로 강도를 얻는 미세합금 야금의 산물이다.",
     "breakthrough": "니오븀·바나듐의 미세 탄질화물이 결정립 성장을 막아, 결정립을 잘게 하면 강도가 오른다는 홀-페치 원리를 활용한다. 탄소를 안 늘리니 용접성은 A36 과 비슷하게 유지되면서 강도만 오른다 — 같은 구조를 더 가볍게 짓게 하는 \"강도 대비 값\"의 개선이다.",
-    "adoption": "1970년대 이후 미국 고층 건물·교량 구조의 새 표준으로 A36 을 대체했고, 유럽 S355·일본 SM490Y 가 등가로 자리 잡았다.",
+    "adoption": "1970년대 이후 미국 고층 건물·교량 구조의 새 표준으로 A36 을 대체했고, 유럽 S355(S355J2+N)·일본 SM490Y 가 등가로 자리 잡았다.",
     "today": "고층 건물 보, 교량 거더, 중장비 프레임, 크레인 붐, 풍력 타워, 광산 트럭 섀시에 쓰인다. 더 높은 강도는 조질강(S690QL)으로, 더 싸고 무난한 일반 구조는 A36 으로 갈린다.",
     "fun_fact": "니오븀을 강에 넣는 양은 놀랄 만큼 적다 — 강 1톤에 니오븀 몇백 그램이면 항복강도가 눈에 띄게 오르는데, 이 \"미량으로 큰 효과\"가 현대 구조강 경제성의 비밀이다."
    },
@@ -2338,7 +2328,8 @@
     "MET-0337",
     "MET-0338",
     "MET-0339",
-    "MET-0340"
+    "MET-0340",
+    "MET-0346"
    ],
    "refs": [
     "Haynes E (1913) US Patent 1,057,423 \"Metal Alloy\"",
@@ -2351,7 +2342,7 @@
     "origin": "뿌리는 1907년 엘우드 헤인즈의 Stellite 발견이다. 코발트-크롬 합금이 녹슬지도 무뎌지지도 않는다는 사실에서 출발한 이 계보는, 1936년 미국에서 Vitallium(Co-Cr-Mo 28-6-5)이라는 이름으로 치과와 정형외과에 이식되면서 의료 재료의 역사를 새로 썼다 — 몸속에서 부식되지 않고 뼈와 공존하는 금속이 처음 검증된 것이다.",
     "breakthrough": "크롬이 표면 부동태막으로 체액 부식을 막고, 몰리브데넘이 강도와 내식을 보태며, 탄화물이 박힌 코발트 바탕이 극한의 내마모를 준다. 오늘의 의료 표준은 주조 ASTM F75 와 단조 F1537 두 갈래로, 단조재는 항복 700MPa 급까지 올라간다. 같은 Co-Cr-Mo 라도 탄소를 열 배쯤 올리면 제트엔진 고온 부품용이 된다 — 조성 미세조정으로 병원과 엔진룸을 오가는 가족이다.",
     "adoption": "1936년 Vitallium 이 치과 프레임으로 첫 발을 뗀 뒤 1940년대 고관절 임플란트로 확산됐고, ASTM F75/F1537 표준화와 함께 인공관절 대퇴 부품의 기본 재료가 됐다.",
-    "today": "인공 고관절 스템과 인공 무릎의 대퇴 부품, 치과 크라운 프레임, 척추 로드가 본진이다. 금속-금속 마찰면의 마모 입자 문제로 관절면은 세라믹에 자리를 내주고 있지만, 스템·기구·고하중 부위에서는 여전히 표준이다. LPBF 프린팅 분말로도 치과·정형 맞춤 부품에 널리 쓰인다.",
+    "today": "주조 Stellite 21 같은 내마모 grade 와 인공 고관절 스템·인공 무릎 대퇴 부품, 치과 크라운 프레임, 척추 로드가 본진이다. 금속-금속 마찰면의 마모 입자 문제로 관절면은 세라믹에 자리를 내주고 있지만, 스템·기구·고하중 부위에서는 여전히 표준이다. LPBF 프린팅 분말로도 치과·정형 맞춤 부품에 널리 쓰인다.",
     "fun_fact": "Vitallium 이전의 임플란트 금속은 몸속에서 녹슬어 뼈를 상하게 하기 일쑤였다 — \"부식되지 않는 첫 임플란트 합금\"이라는 지위가, 이 재료가 지금까지 신뢰받는 이유의 절반이다."
    },
    "timeline": [
@@ -3091,7 +3082,14 @@
     "Davis J R (ed., 1995) ASM Specialty Handbook: Carbon and Alloy Steels",
     "Bhadeshia H K D H (2017) Steels: Microstructure and Properties, 4th ed., Butterworth-Heinemann"
    ],
-   "legacy_text": "1882년 영국 셰필드 (Sheffield), 19세의 로버트 애벗 해드필드 (Robert Abbott Hadfield) 가 부친의 Hecla Works 에서 13% Mn (당시 표준은 1% 미만) 의 새 steel 을 water-quench 했더니 brittle 한 줄 알았던 강이 오히려 work-hardening 으로 단단해지는 현상을 발견합니다 — 1883년 영국 특허 200/1883 으로 출원, 'Manganese Steel' 또는 'Hadfield's Steel' 로 명명됐어요. 인류 최초의 alloy steel 입니다.\n\nHadfield 가 발견한 매커니즘은 γ (austenite) → ε-martensite + 변형 쌍정 (deformation twin) 의 응력 유발 변태 — 충격 시 표면이 자체적으로 HV 200 → HV 550 으로 두 배 단단해지는 거예요. 응용 — jaw / cone crusher 의 mantle (BHP 광업의 Komatsu PC8000 buckets, Vale Carajás iron mine), 철도 frog / crossing (KTX / Shinkansen 의 switch point), 굴착기 bucket teeth, dragline excavator 의 rope sheave, anti-magnetic 군용 ship turret (γ-austenite 가 non-magnetic 이라 자기 mine 안전), 미 NY 주 Sing Sing 교도소의 전기의자 머리 띠."
+   "sections": {
+    "hook": "두들길수록 단단해지는 강 — 충격을 먹고 표면이 굳는 하드필드 고망간강(Mn13).",
+    "origin": "하드필드 고망간강(Mn13)은 19세기 말 영국의 로버트 하드필드가 개발한, 최초의 실용 합금강 중 하나다. 망간을 12~14% 넣어 상온에서 오스테나이트를 유지하는데, 무른 상태로 주조된 뒤 충격을 받으면 표면이 급격히 가공경화되어 단단해지는 독특한 성질을 가진다.",
+    "breakthrough": "핵심은 충격 유기 가공경화다 — 표면이 두들겨질수록 오스테나이트가 변태·경화되어 HRC 50 급으로 단단해지지만, 속은 질긴 오스테나이트로 남아 충격을 흡수한다. 그래서 \"때리는 마모\"에 이상적이다. 다만 절삭이 사실상 불가능해(깎다가 스스로 굳음) 주조·연삭으로만 형상을 만든다.",
+    "adoption": "철도 분기기 크로싱과 분쇄기 조·해머에 채택되며 충격 마모 부품의 표준이 됐고, 광산·채석 설비로 확산됐다.",
+    "today": "철도 크로싱·분기기, 분쇄기 조·콘·해머, 굴착기 버킷 이빨, 방호 그레이팅에 쓰인다. 순수한 미끄럼 마모(가공경화가 안 걸리는)에는 오히려 불리해, 그럴 땐 고크롬 주철·경화강으로 간다.",
+    "fun_fact": "금고와 감옥 창살에 고망간강을 쓰는 이유는 역설적이다 — 드릴이나 톱으로 자르려 할수록 그 마찰과 충격에 표면이 스스로 굳어버려, 공구가 먼저 무뎌지기 때문이다."
+   }
   },
   "hardox-450-ssab-abrasion-resistant": {
    "display": "Hardox 450 (SSAB abrasion-resistant)",
@@ -3104,20 +3102,14 @@
     "Mishnaevsky L Jr (2003) \"Three-dimensional numerical analysis of the role of microstructural inhomogeneity in damage and failure\", Comput Mater Sci 27(4)",
     "SSAB Corporate History 1878-2018"
    ],
-   "legacy_text": "1974년 스웨덴 SSAB Oxelösund (Oxelösund Iron Works) 가 광업 industry 의 wear plate 시장을 노리고 시작한 브랜드. 당시 wear plate 의 표준은 abrasion-resistant cast iron (NIHARD) 이었는데, hard 하지만 brittle 해서 충격을 받으면 부서지는 게 문제였어요. SSAB 의 해법은 'Q+T low-alloy steel' — Cr+Mo+B microalloy 의 martensite + 100% 의 균일한 hardenability + 인성 보존이었습니다.\n\nHardox 400 → 450 → 500 → 550 → 600 의 BHN grade 별로 라인업이 확장되면서 '광업의 wear plate = Hardox' 라는 인식이 굳어졌어요. 1980년대 Komatsu HD785 dump truck body, 1990년대 Caterpillar 793F mining truck haul body, 2000년대 BHP iron ore train coupling box, 2010년대 EU 광업 hammer mill liner — Hardox 가 거의 전부.\n\nHardox 450 (HBW 425~475) 이 가장 인기 grade 입니다. 충격 + abrasion 의 균형이 가장 좋거든요. 응용 예 — Volvo A30/A40 articulated dump truck haul body, John Deere 1810E forwarder grapple, JCB 540 telehandler bucket, 한국 두산 DX380LC 굴착기의 bucket liner. SSAB 매출의 60% 이상이 Hardox 라인 — '한 산업이 한 brand 와 거의 동의어' 가 된 가장 극단적인 예입니다."
-  },
-  "hastelloy-c-276": {
-   "display": "Hastelloy C-276",
-   "stable_ids": [
-    "MET-0507",
-    "MET-0510"
-   ],
-   "refs": [
-    "Haynes International \"Hastelloy C-276 Alloy Brochure\" (2020)",
-    "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
-    "Rebak R B & Crook P (1998) \"Influence of the Environment on the General Corrosion Rate of Ni-Cr-Mo Alloys\", Mater Sci Forum 289-292"
-   ],
-   "legacy_text": "1965년 미국 Haynes Stellite Works 의 화학자들이 '어떤 산도 못 견디는 합금' 을 만들려고 시도한 결과물이 Hastelloy C-276 입니다. 기존 Hastelloy C 의 weldability 와 phase stability 문제를 해결하기 위해 Si 와 C 의 함량을 극단적으로 낮춘 (각각 ≤0.08%, ≤0.01%) 변형이었어요. Ni 57% + Cr 16% + Mo 16% + W 4% 의 조성으로, 모든 ferric chloride / acid chloride / hypochlorite 환경에서 부식 속도가 0.1 mm/year 미만입니다.\n\n'산성 환경의 최종 답' 으로 자리잡으면서 1970년대부터 화학 산업의 핵심 자재가 됐어요. DuPont 의 hydrofluoric acid plant reactor 와 pump, BASF 의 chlorine cell anode connector, 의료 폐기물 소각로의 acid scrubber, 핵 reprocessing plant (Hanford, Sellafield) 의 separation column … 어디든 강산 + 강알칼리 + Cl⁻ 가 함께 있으면 C-276 이 답이죠.\n\n우주에서도 활약 중이에요. NASA Cassini 위성의 RTG 외부 protective shell, 화성 큐리오시티 로버의 SAM (Sample Analysis at Mars) 의 sample inlet, SpaceX Crew Dragon 의 hypergolic propellant ground support equipment. 1 kg 당 25 달러의 비싼 합금이지만, 그 가격이 안전한 화학 공정 운영의 보험이 되는 셈입니다."
+   "sections": {
+    "hook": "긁힘에 버티도록 통째로 담금질한 강판 — 광산·건설 장비의 내마모 강 Hardox 450.",
+    "origin": "Hardox 는 스웨덴 SSAB 의 내마모 강판 상표로, 450 은 표면 경도(약 450 HBW)를 뜻한다. 저합금강을 판 전체가 마르텐사이트가 되도록 담금질해, 표면만이 아니라 두께 전체가 단단하면서도 어느 정도 인성을 유지하도록 만든 강이다.",
+    "breakthrough": "판 전체를 균일하게 담금질(관통 경화)해, 마모로 표면이 깎여 나가도 그 아래가 여전히 단단하다 — 표면경화강과 달리 마모 수명이 두께 내내 이어진다. 낮은 탄소당량으로 굽힘·용접까지 가능한 균형이, 값싼 고크롬 주철과 다른 실용성을 준다.",
+    "adoption": "20세기 말 이후 광산·건설·재활용 장비의 마모판으로 채택되며 내마모강 시장의 표준 상표가 됐다.",
+    "today": "덤프트럭 적재함, 굴착기 버킷, 분쇄·선별 슈트, 컨베이어 라이너에 쓰인다. 더 단단한 마모는 Hardox 500·600 이나 고크롬 주철로, 충격이 지배하면 하드필드 고망간강으로 간다.",
+    "fun_fact": "광산 덤프트럭 적재함이 수십 톤 바위를 매일 쏟아부어도 몇 년을 버티는 비결이 이 관통 경화 강판이다 — 표면이 깎여도 그 아래가 똑같이 단단해, \"닳는 만큼 새 표면이 나오는\" 셈이다."
+   }
   },
   "hastelloy-corrosion": {
    "display": "Hastelloy Corrosion Alloys (C-22 / C-2000 / B-2 / N)",
@@ -3125,6 +3117,8 @@
     "MET-0504",
     "MET-0505",
     "MET-0506",
+    "MET-0507",
+    "MET-0510",
     "MET-0511",
     "MET-0512",
     "MET-0513"
@@ -5071,19 +5065,6 @@
    ],
    "legacy_text": "1888년 미국 AAR (Association of American Railroads, 당시 Master Car Builders' Association) 가 처음 wheel 표준을 발표한 이후, 1950년대 미국 화물 railroad 의 axle load 증가 (25 t → 33 t) 에 맞춰 새 grade 가 필요해졌어요. 1962년 AAR M-107 의 Class A → B → C 시리즈가 도입되면서 Class C (rim BHN 321~363) 가 heavy-haul 의 표준이 됐습니다.\n\nClass C 의 비결은 quench + tempered rim — 외륜 표면만 강하게 처리하고 hub 부위는 ductile 하게 남겨 fatigue 저항을 극대화한 것. 차륜이 rail 과 부딪히는 contact 영역은 마모를 견디고, 차축과 만나는 hub 는 충격을 견디는 거죠.\n\n응용은 매우 폭이 좁아요. 호주 BHP 의 Pilbara iron ore line (Hamersley, FMG, Roy Hill — 시속 80 km 의 35 t/axle 적재, 240-car 화물열차), 브라질 Vale 의 Carajás line (430-car 의 가장 긴 화물열차 — 길이 4 km), 미국 BNSF / Union Pacific 의 coal line, 캐나다 CN / CP 의 grain shuttle. 모두 차륜이 Class C 입니다. 한국 KORAIL 의 화물열차 차륜도 Class C 의 변형. AAR M-107 사양은 헬리콥터 변속기 표준만큼이나 엄격해서, 한 차륜에 수백 개의 dimensional check 과 수십 개의 NDT (비파괴) test 가 적용됩니다."
   },
-  "s355j2-n-en-10025-2-eu-mild-structural": {
-   "display": "S355J2+N (EN 10025-2, EU mild structural)",
-   "stable_ids": [
-    "MET-0854",
-    "MET-0855"
-   ],
-   "refs": [
-    "EN 10025-2 (2019) \"Hot rolled products of structural steels - Part 2: Technical delivery conditions for non-alloy structural steels\"",
-    "Pijpers R J M et al. (2017) \"Fatigue strength of structural steel S355\", Steel Constr 10(4)",
-    "ECISS / CEN TC 459 documentation"
-   ],
-   "legacy_text": "1993년 유럽이 ECISS (European Committee for Iron and Steel Standardization) 통합 과정에서 만든 표준. 이전엔 독일 St52 (DIN 17100), 영국 BS50, 프랑스 E36, 이탈리아 Fe510 … 각 나라의 mild structural steel 이 다른 이름으로 존재했어요. EN 10025 는 이를 S355 (S = Structural, 355 = σ_y MPa) 로 통합하고, 인성에 따라 JR (room temp), J0 (0°C), J2 (-20°C), K2 (CVN 40 J) 등급으로 분류합니다. +N (Normalized) 은 heat treatment 변형이고요.\n\n'EU 다리·구조의 baseline' 으로 자리잡았어요. 외레순드 다리 (Øresund Bridge, 덴마크-스웨덴), Millau Viaduct (프랑스, 세계에서 가장 높은 다리), Stonecutters Bridge (홍콩), Ribblehead Viaduct restoration, 그리고 모든 풍력 tower (Vestas V90 / V112 / V164, Siemens Gamesa SG 11.0-200, GE Cypress 의 tower steel). 한국에서도 인천대교와 거가대교의 일부 piece 가 S355J2+N 이에요.\n\nJ2 sub-grade 가 -20°C CVN ≥ 27 J 인 이유가 흥미로워요. EU 의 worst-case 시나리오 — 북유럽 (스칸디나비아) 의 겨울 평균 -15°C 의 다리 — 에서 brittle fracture 회피를 위한 conservative spec 이거든요. 한국 KS 가 SS400, SM490 으로 비슷한 grade 를 만들었지만, 유럽 EU 표준의 호환성 때문에 글로벌 default 는 S355 가 차지하고 있습니다."
-  },
   "sae-21-4n": {
    "display": "SAE 21-4N",
    "stable_ids": [
@@ -5254,15 +5235,21 @@
    "display": "Spring Steel (5160 / 9260 / Chrome-Silicon 9254 / Music Wire A228)",
    "stable_ids": [
     "MET-0045",
-    "MET-1001",
-    "MET-1002",
     "MET-0679",
     "MET-0680",
     "MET-0681",
     "MET-0682",
     "MET-0683",
     "MET-0684",
-    "MET-0685"
+    "MET-0685",
+    "MET-0686",
+    "MET-0687",
+    "MET-0688",
+    "MET-0689",
+    "MET-0690",
+    "MET-0691",
+    "MET-1001",
+    "MET-1002"
    ],
    "refs": [
     "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
@@ -5273,7 +5260,7 @@
     "origin": "스프링은 큰 변형을 반복해도 영구변형 없이 돌아와야 한다 — 높은 탄성한계와 피로강도가 핵심이다. 이를 위해 탄소를 높이고(0.5~1.0%C) 규소·크롬을 더해 조질하거나 냉간인발한 전용강이 있다. 5160(Cr), 9260(Si-Mn), 크롬-실리콘(9254), 피아노선(A228) 등이다.",
     "breakthrough": "규소(9260·9254)는 탄성한계와 뜨임저항을 크게 높여 스프링이 더 큰 응력에서도 안 처지게 하고, 크롬은 경화능·내피로를 더한다. 피아노선은 고탄소강을 극도로 냉간인발해 가공경화만으로 최고 수준의 인장강도를 낸다. 스프링은 표면 흠이 곧 피로파괴라, 표면 품질과 숏피닝(압축응력 부여)이 수명을 좌우한다.",
     "adoption": "자동차 현가 산업의 대량생산이 SAE 스프링강 규격 체계를 만들었고, 밸브 스프링의 고응력화 경쟁이 크롬-실리콘강 채택을 이끌었다.",
-    "today": "5160 은 트럭·차량 판스프링·코일스프링, 9260·9254 는 자동차 밸브·현가 스프링, 피아노선은 소형 코일스프링·악기 현·케이블에 쓰인다. 부식·고온이 문제면 스테인리스·Inconel X-750 스프링으로 간다.",
+    "today": "SUP9·SUP10(JIS Cr·Cr-V 스프링강)·5160 은 트럭·차량 판스프링·코일스프링, 9260·9254 는 자동차 밸브·현가 스프링, 피아노선은 소형 코일스프링·악기 현·케이블에 쓰인다. 부식·고온이 문제면 스테인리스·Inconel X-750 스프링으로 간다.",
     "fun_fact": "피아노선(music wire)은 이름 그대로 피아노 현을 위해 발전한 강선이다 — 팽팽히 걸린 채 두들겨 맞는 현에 필요한 극한의 인장강도가, 그대로 정밀 스프링에 쓰였다."
    }
   },
@@ -5345,18 +5332,6 @@
     "Roberts G A et al. (1998) Tool Steels 5th ed., ASM"
    ],
    "legacy_text": "STAVAX ESR 은 Uddeholm (현 voestalpine Group) 의 plastic mold-grade stainless tool steel 입니다. Original 발표는 1972년 스웨덴 Uddeholm Tooling 으로, AISI 420 (13% Cr martensitic stainless tool steel) 의 ESR (Electroslag Remelting, 전극용해 정련) variant 입니다. ESR 공정은 inclusion (산화물 · 황화물 비금속 개재물) 을 1/10 수준으로 낮춰 polish 표면이 거울 같은 수준 (Ra < 0.05 μm) 까지 가능해집니다.\n\nSTAVAX ESR 은 13% Cr + 0.5% Si + 0.4% Mn + 0.38% C 의 martensitic stainless 입니다. Q+T 후 HRC 48-52 hardness 와 함께 stainless 의 부식 저항 + ESR 의 polish ability + plastic mold 의 abrasion resistance 를 모두 갖춘 hybrid 입니다. Q+T 표준은 1030°C oil quench + 350°C double temper.\n\n응용은 plastic injection mold 의 '거울 표면' 이 필요한 cavity 입니다. CD/DVD pressing mold (0.7 μm pit 을 정확히 transfer), 광학 lens mold (안경 lens, 카메라 lens), 의료 syringe / catheter mold, 일반 소비재 의 transparent component (transparent ABS housing), 그리고 자동차 headlamp lens mold (acrylic 또는 polycarbonate 의 광학 cavity). STAVAX ESR 가격은 $25-35/kg 으로 일반 P20 mold steel ($8/kg) 대비 3-4 배이지만 corrosion 환경 (산성 또는 chloride 함유 resin) 의 mold 수명을 10 배 이상 늘립니다."
-  },
-  "stellite-21-cocrmo": {
-   "display": "Stellite 21 (CoCrMo)",
-   "stable_ids": [
-    "MET-0346"
-   ],
-   "refs": [
-    "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
-    "Davis J R (ed., 2003) Handbook of Materials for Medical Devices, ASM International",
-    "Crook P & Caudill R L (1986) \"Wear Resistance of Cobalt-Base Alloys\", Wear 111(2)"
-   ],
-   "legacy_text": "1930년 미국 Haynes Stellite Works 의 엘우드 헤인즈 (Elwood Haynes) 가 Stellite 6 의 후속으로 Mo 5.5% + Cr 27% + Co bal 의 새 변형을 출시했어요 — W 대신 Mo 를 쓰면서 corrosion 저항 (특히 acid 환경) 이 6 보다 좋아졌고 가공성도 더 좋아진 합금이었죠. 1934년 미국 J O Eden 의 'Vitallium' 으로 의료 응용이 시작된 게 의료 표준 자리에 오른 계기였습니다.\n\n응용 — 의료 — hip replacement (Stryker Accolade II 의 일부 grade), knee replacement, dental crown 의 일부 grade. 항공 — 가스 터빈 의 burner shroud (GE T700 의 일부), 우주 — Apollo Lunar Module 의 일부 hot-section vane. 산업 — chemical plant 의 corrosion-resistant pump (Goulds Type 3196 의 일부 grade), oil & gas 의 H₂S 환경 valve seat (Stellite 6 의 cousin 이지만 sour service 에서 우수).\n\nStellite 6 (W-rich, hardfacing) 과 Stellite 21 (Mo-rich, biomedical + corrosion) 의 양강 구도가 cobalt alloy 의 분류 기준이 됐어요. 6 은 마모, 21 은 부식 + 의료 — 한 가지 응용에 한 가지 grade 가 거의 정해져 있습니다."
   },
   "stellite-6-cocrw": {
    "display": "Stellite 6 (CoCrW)",
@@ -5461,34 +5436,6 @@
      "ref": 1
     }
    ]
-  },
-  "sup10": {
-   "display": "SUP10",
-   "stable_ids": [
-    "MET-0686",
-    "MET-0687",
-    "MET-0688"
-   ],
-   "refs": [
-    "JIS G 4801 (2018) \"Spring Steels\"",
-    "ASM Specialty Handbook \"Carbon and Alloy Steels\" (1996)",
-    "Yamada Y (2007) Materials for Springs, Springer"
-   ],
-   "legacy_text": "SUP10 은 JIS G 4801 의 Cr-V (chrome-vanadium) spring steel 표준입니다. 1965년 일본 신일본제철과 고베제강이 미국 AISI 6150 의 일본 equivalent 로 채택했어요. C 0.45-0.55% + Cr 0.8-1.1% + V 0.15-0.30% 의 carbon-alloy spring steel 로, 미국 5160 (Cr-only) 과 AISI 9260 (Si-only) 의 중간 strength + toughness 영역을 차지합니다.\n\nSUP10 의 V 함량 0.2% 가 핵심입니다. V 는 austenitizing 시 미세 VC carbide 가 입계에 석출해 grain refinement 효과를 내고, 동시에 secondary hardening 으로 temperature 안정성을 올립니다. Q+T 표준 (850°C oil quench + 450°C temper) 으로 σy 1300-1500 MPa, Charpy 30 J 의 spring 표준을 냅니다.\n\n응용: 자동차 coil spring (Toyota Camry · Honda Accord 의 일부 model 의 strut spring), motorcycle coil spring (Honda CB · Yamaha YZF 의 fork spring), 산업 valve spring (passenger car engine 의 intake/exhaust valve spring 의 일부), 정밀 die spring (mold spring), 그리고 농기계 leaf spring. SUP10 의 매력은 fatigue strength (200 MPa, 10⁷ cycle) 와 가격 ($2-3/kg) 의 균형이고, 같은 등급의 Cr-Si spring steel SUP12 (Si 1.45%) 대비 V 첨가의 secondary hardening 효과로 350°C 이상의 환경 노출에서도 σy 손실이 적다는 점이 강점입니다."
-  },
-  "sup9": {
-   "display": "SUP9",
-   "stable_ids": [
-    "MET-0689",
-    "MET-0690",
-    "MET-0691"
-   ],
-   "refs": [
-    "JIS G 4801 \"Spring Steels\"",
-    "KS D 3701 \"Spring Steels\"",
-    "Yamada Y (ed., 2007) Materials for Springs, Springer"
-   ],
-   "legacy_text": "SUP9 은 일본 JIS G 4801 의 Cr-Mn spring steel 로, 1960년대 일본 자동차 산업의 leaf spring 자재 표준화 과정에서 등장했어요. Cr 0.7% + Mn 0.8% + C 0.55% — 미국 AISI 5160 의 일본 equivalent 입니다.\n\n응용 — 자동차 leaf spring 의 표준 자재. Toyota Land Cruiser, Hyundai Porter, Mitsubishi Fuso, Isuzu D-Max 의 truck rear leaf spring 의 거의 모두가 SUP9 또는 그 변형. 한국 KS D 3701 의 SPS9 도 동일 합금이고, 한국 트럭 (현대 마이티, Tata Daewoo Novus) 의 spring 도 대부분 SPS9 입니다. 농기계 — 트랙터 의 hitch spring, 산업 — vibratory feeder spring, 의료 — orthopedic external fixator spring.\n\nSUP10 (Cr-V, 5160 와 9260 의 중간) 과 함께 일본·한국·동남아 spring 시장의 양강 구도를 형성하고 있어요. 가격이 미국 AISI 5160 의 절반에 비슷한 강도 — '아시아 spring 의 표준' 입니다."
   },
   "super-304h": {
    "display": "Super 304H",
