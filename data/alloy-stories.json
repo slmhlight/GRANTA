@@ -1542,6 +1542,13 @@
   "cp-ti": {
    "display": "CP-Ti",
    "stable_ids": [
+    "MET-0861",
+    "MET-0862",
+    "MET-0863",
+    "MET-0864",
+    "MET-0865",
+    "MET-0866",
+    "MET-0867",
     "MET-0868",
     "MET-0871",
     "MET-0874",
@@ -2458,6 +2465,32 @@
     "Yuan H et al. (2008) J Phys D: Appl Phys 41"
    ],
    "legacy_text": "Magnesia (MgO, magnesium oxide) 는 가장 오래된 refractory ceramic 중 하나로, 19세기 초 dolomite (CaMg(CO₃)₂) 의 calcination 으로 처음 산업화됐습니다. Tm 2852°C — Al₂O₃ (2072°C), SiC (2730°C) 보다 높아 고온 refractory 의 절대 표준입니다. 자연계에서 periclase 광물 (Mg-rich 화성암) 또는 brucite Mg(OH)₂ → calcination 으로 추출돼요.\n\n응용 — Steelmaking refractory: BOF (Basic Oxygen Furnace) lining, EAF (Electric Arc Furnace) roof + sidewall, ladle refractory (포항제철 + 현대제철 + 동국제강의 모든 secondary refining lining). 한국 강철 산업 의 magnesia brick 사용량 약 30만톤/년. Cement kiln refractory (현대 cement, Ssangyong cement 의 rotary kiln lining), copper smelter refractory (LS-Nikko 의 smelter 부분), Glass furnace upper part (lower part 는 zirconia-mullite), 비철금속 melting (Al smelter, brass furnace).\n\n특이 응용 — MgO 가 약알칼리성이고 산성 환경 (실리카 slag) 과 반응 → basic refractory 로 분류됩니다. 'basic refractory' 의 가장 중요한 표준. Al₂O₃ + spinel (MgAl₂O₄) 첨가로 더 안정성 향상 — Magnesia-spinel brick 이 현대 cement kiln 의 표준 (chrome-magnesia brick 의 Cr-VI 환경 우려 회피).\n\n전자 응용 — MgO 가 single crystal grade (CMP grade) 로 약 99.99% purity 가 가능, MRAM (Magnetic RAM) 의 tunneling barrier (Tunnel-MR junction 의 MgO single-crystal layer ~ 1-2 nm), single-crystal substrate for HEMT 의 일부 sub-application 에 사용 — high-purity electronic-grade MgO 가격 $500-2000/kg 의 specialty 시장."
+  },
+  "magnesium-alloys": {
+   "display": "Magnesium Alloys (AZ80 / AM60 / ZK60 / ZE41)",
+   "stable_ids": [
+    "MET-0466",
+    "MET-0468",
+    "MET-0469",
+    "MET-0470",
+    "MET-0472",
+    "MET-0473",
+    "MET-0476",
+    "MET-0477",
+    "MET-0478",
+    "MET-0479"
+   ],
+   "refs": [
+    "Avedesian M M & Baker H (eds., 1999) ASM Specialty Handbook: Magnesium and Magnesium Alloys",
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys"
+   ],
+   "sections": {
+    "hook": "실용 금속 중 가장 가벼운 금속 — 알루미늄의 2/3 무게로 항공·자동차 경량화를 노린다.",
+    "origin": "마그네슘은 밀도 1.74 로 알루미늄(2.7)의 2/3, 강철의 1/4 에 불과한 가장 가벼운 실용 구조 금속이다. 순 Mg 는 약해, Al·Zn·Zr·희토류를 넣어 강화한 합금으로 쓴다 — AZ(Al-Zn), ZK(Zn-Zr), ZE·EZ(Zn-희토류) 등 첨가원소로 이름이 붙는다.",
+    "breakthrough": "Al(AZ80·AM60)은 주조성·강도를, Zr(ZK60)은 결정립 미세화로 단조 강도를, 희토류(ZE41·EZ33A)는 고온 크리프 저항을 준다. 다만 조밀육방(HCP) 구조라 상온 성형성이 낮고, 가장 卑한 전위 탓에 부식·갈바닉에 약하며 분진 발화 위험이 있다.",
+    "today": "AM60·AZ91 은 자동차 시트 프레임·스티어링·하우징(다이캐스팅), ZK60·AZ80 은 항공 단조·자전거·전자기기 케이스에 쓰인다. 부식 때문에 표면처리(PEO 등)와 갈바닉 절연이 거의 필수다.",
+    "fun_fact": "마그네슘 합금은 진동을 잘 흡수해(높은 감쇠능) 공구 하우징·카메라 바디처럼 손떨림·소음을 줄여야 하는 곳에도 쓰인다."
+   }
   },
   "magnesium-aluminate-spinel": {
    "display": "Magnesium Aluminate Spinel",
@@ -3792,6 +3825,9 @@
   "ti-6al-4v": {
    "display": "Ti-6Al-4V",
    "stable_ids": [
+    "MET-0878",
+    "MET-0879",
+    "MET-0882",
     "MET-0920",
     "MET-0921",
     "MET-0922",
@@ -3840,6 +3876,26 @@
     "origin": "TiC 는 매우 단단하고(약 3000 HV) 융점이 3000°C 이상인 전이금속 탄화물이다. 순수 소결은 취성이 커, 보통 Ni·Mo 금속 상과 섞은 ‘서멧(cermet)’ 또는 얇은 코팅으로 쓴다.",
     "breakthrough": "TiC 입자가 경도·내마모를, 금속 바인더가 인성을 담당하는 서멧은 WC-Co 초경보다 가볍고 고속 절삭에서 내산화가 좋다. CVD 로 얇게 입히면 절삭 인서트·금형 표면 수명을 크게 늘린다.",
     "today": "절삭공구 서멧 인서트, TiC/TiN 다층 코팅, 내마모 부품·시일에 쓰인다. 순수 벌크보다 코팅·복합 형태가 대부분이며, 최고 경도가 필요하면 다이아몬드·cBN 으로 간다."
+   }
+  },
+  "titanium-corrosion": {
+   "display": "Corrosion Titanium (Grade 7 / 11 / 12)",
+   "stable_ids": [
+    "MET-0872",
+    "MET-0873",
+    "MET-0891",
+    "MET-0892",
+    "MET-0895"
+   ],
+   "refs": [
+    "ASTM B265 (Ti·Ti alloy strip/plate)",
+    "Donachie M J (2000) Titanium: A Technical Guide, 2nd ed., ASM International"
+   ],
+   "sections": {
+    "hook": "팔라듐·니켈을 미량 넣어 틈부식까지 막은 티타늄 — 화학 플랜트의 내식 grade.",
+    "origin": "CP 티타늄은 대개 내식이 뛰어나지만, 뜨거운 환원성 산·염화물의 틈(crevice)에서는 부식될 수 있다. Grade 7·11(Ti-0.15Pd)과 Grade 12(Ti-0.3Mo-0.8Ni)는 여기에 미량의 팔라듐·니켈·몰리브데넘을 넣어 그 약점까지 없앤 내식 특화 grade 다.",
+    "breakthrough": "미량의 Pd(Gr7·11)가 표면에서 수소 발생 반응을 촉진해 부동태막이 더 쉽게·안정하게 형성되도록 돕는다 — 그 결과 CP Ti 가 녹는 뜨거운 염산·황산 틈 환경에서도 견딘다. Gr12(Mo·Ni)는 Pd 없이 더 싼 값으로 비슷한 내식과 약간의 강도를 낸다.",
+    "today": "화학·석유화학 반응기·열교환기·배관, 습식 야금, 표백 설비처럼 CP Ti 로는 부족한 가혹한 내식 환경에 쓰인다. Pd 값 때문에 Gr7 은 비싸, 덜 가혹하면 Gr12 나 일반 CP Ti 로 내려간다."
    }
   },
   "tpe": {
@@ -4020,6 +4076,24 @@
     "Bourell D L et al. (2017) \"Materials for AM\", CIRP Annals 66"
    ],
    "legacy_text": "ULTEM 9085 는 Sabic 의 PEI 의 'flame-retardant + smoke + toxicity' (FST) grade 입니다. PEI base 에 brominated flame retardant 를 첨가해 FAR 25.853 (Federal Aviation Regulation, 항공기 cabin material 의 화재 안전 기준) 통과가 가능한 grade. 1990년대 GE Plastics 가 commercial launch 했고, Stratasys 가 2007년 FDM 3D 프린팅 filament 의 첫 항공-qualified 재료로 채택했어요.\n\n특성: Tg 186°C (base PEI 217°C 보다 약간 낮음, 화재 처리제 영향) · σy 65-85 MPa · modulus 2.4 GPa · El 5-7%. FST 등급은 OSU (Ohio State University) heat release < 65 kW·min/m² (FAR 25.853 한도), 발연 (smoke) < 200 OSU NBS, toxicity 도 통과. Stratasys FDM print 의 결과는 anisotropic 이지만 항공 part 의 spec 이 정해진 isotropic value 보다 보수적으로 사용됩니다.\n\n응용: 항공기 cabin 내부 ducting (Airbus A350, Boeing 787, F-35), 항공기 brackets + spacer, 화재 안전 요구 의료 device (휴대용 portable ventilator 의 일부 housing), 군용 응급 의료 kit case. Stratasys 의 첫 항공 인증 (Boeing F-18 fighter ducting, 2014) 으로 'FDM Ultem 9085 가 항공 production 가능' 이라는 분기점을 만든 게 화제였고, 그 이후 Lockheed Martin · Boeing · Airbus 의 일부 low-volume cabin part 가 FDM 으로 print 되고 있습니다."
+  },
+  "we-magnesium": {
+   "display": "WE Magnesium (WE43 / WE54)",
+   "stable_ids": [
+    "MET-0474",
+    "MET-0475"
+   ],
+   "refs": [
+    "Avedesian M M & Baker H (eds., 1999) ASM Specialty Handbook: Magnesium and Magnesium Alloys",
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys"
+   ],
+   "sections": {
+    "hook": "이트륨과 희토류로 250°C를 견디게 만든 고성능 마그네슘 — 헬기 기어박스와 몸에 녹는 임플란트.",
+    "origin": "보통 Mg 합금은 120°C 부근부터 크리프로 약해진다. WE43·WE54 는 이트륨(Y ~4%)과 희토류를 넣어 250°C 까지 강도를 유지하도록 만든 고온·고강도 Mg 합금으로, 아연·알루미늄이 거의 없는 것이 특징이다.",
+    "breakthrough": "Y·Nd 등이 만드는 안정한 석출물이 고온에서도 결정립계를 붙잡아 크리프를 억제한다. 여기에 부식 저항도 일반 Mg 보다 나아, Mg 로는 드물게 항공 구조에 인증받았다. 최근엔 인체에서 서서히 녹아 흡수되는 특성으로 생분해성 의료 임플란트로도 주목받는다.",
+    "today": "WE43 은 헬리콥터·항공 기어박스 하우징, 레이싱·군수 부품에, 그리고 생분해성 심혈관 스텐트·정형 임플란트로 연구·상용화되고 있다. 값이 비싸 정말 고온·고성능이 필요한 곳에만 쓴다.",
+    "fun_fact": "몸속에서 안전하게 녹아 없어지는 성질 덕에, WE43 계열은 뼈가 붙는 동안만 지지하고 사라지는 ‘녹는 나사·스텐트’로 실제 이식되고 있다."
+   }
   },
   "wrought-superalloys": {
    "display": "Wrought Superalloys (Waspaloy / Nimonic / Rene 41 / X-750)",
