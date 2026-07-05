@@ -1069,6 +1069,37 @@
    ],
    "legacy_text": "1932년 미국 Brush Beryllium Company (현 Materion) 의 화학자 찰스 소이어 (Charles Sawyer) 가 Cu 에 Be 2% 정도를 첨가해 시효 경화시키면 인장강도가 1380 MPa 까지 올라간다는 사실을 발견합니다. 비슷한 시기 BeCu 가 전기 전도도 22% IACS, σ_y 1100 MPa — 강도와 전도성을 동시에 갖춘 거의 유일한 합금이라는 점도 명확해졌어요.\n\n가장 유명한 응용은 '비-스파크 (non-sparking)' 도구입니다. BeCu 망치, 렌치, 스크루드라이버는 강한 충격에도 불꽃이 튀지 않아 폭발 위험이 있는 정유 refinery, 가스 plant, 광산에서 표준이에요. NASA 의 Apollo 우주복 zipper 의 metal pull 도 BeCu — 산소 풍부 환경에서 스파크가 발생하지 않도록 한 거죠.\n\n항공·우주에서는 spring contact, bushing, bearing race 의 단골입니다. 보잉 787 의 landing gear hinge bushing, 우주 셔틀 RMS robot arm joint, Hubble 망원경의 secondary mirror gimbal 같은 정밀 movement 부품에 쓰여요. 단점은 Be 가루 흡입 시 chronic beryllium disease (CBD) — 그래서 가공 공정에서 엄격한 환기와 봉인이 필수입니다."
   },
+  "beta-titanium": {
+   "display": "Beta Titanium (Ti-13V-11Cr-3Al / Beta-C / Ti-15-3 / Beta-21S)",
+   "stable_ids": [
+    "MET-0858",
+    "MET-0859",
+    "MET-0898",
+    "MET-0899",
+    "MET-0900",
+    "MET-0901",
+    "MET-0902"
+   ],
+   "refs": [
+    "Donachie M J (2000) Titanium: A Technical Guide, 2nd ed., ASM International",
+    "Cotton J D et al. (2015) State of the Art in Beta Titanium Alloys for Airframe Applications, JOM 67:1281"
+   ],
+   "sections": {
+    "hook": "β상을 상온까지 붙잡아 냉간성형과 초고강도를 얻은 티타늄 — SR-71 블랙버드 기체의 재료.",
+    "origin": "티타늄은 상온에서 육방(α)상이 기본이라 성형이 어렵다. Mo·V·Cr·Fe 같은 β 안정화 원소를 많이 넣으면 상온에서도 체심입방(β)상이 유지돼, 냉간성형이 쉽고 시효로 초고강도를 낼 수 있는 β 티타늄이 된다. Ti-13V-11Cr-3Al(B120VCA)이 1950년대 나온 최초의 실용 β 합금이다.",
+    "breakthrough": "β 합금은 용체화 상태에선 무르고 성형성이 좋다가, 시효로 미세한 α 를 석출시키면 UTS 1300MPa 이상까지 강화된다 — α+β 합금보다 두꺼운 단면까지 고르게 경화되는(경화능) 장점이 있다. 대신 밀도가 다소 높고 값이 비싸며 고온 크리프엔 약하다.",
+    "adoption": "Ti-13V-11Cr-3Al 은 1960년대 SR-71 블랙버드에 채택돼, 기체의 약 93%를 이루며 마하 3 의 공력 가열(약 540°C)을 견뎠다.",
+    "today": "Beta-C(Ti-3Al-8V-6Cr-4Mo-4Zr)는 유정 시추 스프링·화학 부품, Ti-15-3(Ti-15V-3Cr-3Al-3Sn)은 냉간압연 스트립·항공 부품, Beta-21S 는 내산화 β 로 엔진 나셀·유압 배관에 쓰인다. 고강도 스프링·골프클럽 헤드에도 β Ti 가 쓰인다.",
+    "fun_fact": "SR-71 기체에 티타늄이 대량 필요했지만 미국 내 광석이 부족해, CIA 는 위장 회사를 통해 냉전 상대인 소련산 티타늄을 사들여 블랙버드를 만들었다."
+   },
+   "timeline": [
+    {
+     "year": 1964,
+     "event": "SR-71 블랙버드 초도비행 — 기체 ~93%가 Ti-13V-11Cr-3Al β 티타늄",
+     "ref": 2
+    }
+   ]
+  },
   "boron-carbide": {
    "display": "Boron Carbide",
    "stable_ids": [
@@ -2079,6 +2110,36 @@
      "ref": 1
     }
    ]
+  },
+  "high-temp-titanium": {
+   "display": "High-Temp Titanium (Ti-6242 / Ti-8-1-1 / Ti-6-2-4-6 / TA15)",
+   "stable_ids": [
+    "MET-0860",
+    "MET-0904",
+    "MET-0905",
+    "MET-0908",
+    "MET-0910",
+    "MET-0911",
+    "MET-0914",
+    "MET-0916",
+    "MET-0917",
+    "MET-0918",
+    "MET-0919",
+    "MET-0933",
+    "MET-0934",
+    "MET-0937"
+   ],
+   "refs": [
+    "Donachie M J (2000) Titanium: A Technical Guide, 2nd ed., ASM International",
+    "Boyer R, Welsch G, Collings E W (eds., 1994) Materials Properties Handbook: Titanium Alloys, ASM International"
+   ],
+   "sections": {
+    "hook": "Ti-6Al-4V보다 더 뜨겁게 — 제트엔진 압축기를 위해 500°C대를 버티게 만든 근α·α+β 티타늄.",
+    "origin": "Ti-6Al-4V 는 만능이지만 약 315°C 이상에선 크리프로 약해진다. 더 뜨거운 제트엔진 압축기용으로, 크리프에 강한 α 상을 늘린 근α 합금(Ti-6242·Ti-8-1-1)과 강도를 더 높인 α+β 합금(Ti-6-2-4-6)이 개발됐다.",
+    "breakthrough": "Al·Sn 은 α 를 고용강화하고 Zr 은 강도, Mo 는 β 안정·경화능, 미량의 Si 는 크리프 저항을 준다. 근α Ti-6242(Ti-6Al-2Sn-4Zr-2Mo)는 약 450~520°C 까지, Si 를 더한 Ti-6242S 는 그보다 더 버틴다. Ti-6-2-4-6 은 Mo 를 늘려 상온 강도를 Ti-6-4 이상으로 높였다.",
+    "today": "Ti-6242·Ti-6242S 는 제트엔진 고압 압축기 디스크·블레이드, Ti-6-2-4-6 은 고강도 엔진·체결 부품, TA15(Ti-6.5Al-1Mo-1V-2Zr)는 러시아계 항공 구조, Ti-8-1-1 은 초기 엔진 팬에 쓰였다. 더 뜨거우면 티타늄 알루미나이드나 니켈 초합금으로 간다.",
+    "fun_fact": "Ti-8-1-1 은 알루미늄(8%)이 많아 강성·고온강도가 높지만, 바로 그 때문에 응력부식균열에 민감해 — 티타늄 합금의 알루미늄을 대략 6%(Al 당량) 이하로 묶는 설계 관행의 배경이 됐다."
+   }
   },
   "hnbr": {
    "display": "HNBR",
