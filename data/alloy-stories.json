@@ -1150,6 +1150,35 @@
    ],
    "legacy_text": "C75200 (nickel silver, 65-18-17) 은 Cu-18% Ni-17% Zn 합금이지만 이름에 'silver' 가 들어가도 실제로는 은이 한 톨도 없습니다. 18세기 독일 광부들이 광석에서 발견한 'kupfernickel' (구리-니켈 광석) 을 정련하다가 우연히 발견한 이 합금이 은처럼 보였고, 19세기 초 독일 Gebrüder Henninger 가 'German silver' 로 상품화했어요. UNS 번호의 C7 prefix 는 Cu-Ni 합금 (cupronickel) 계열을 의미하지만 Zn 17% 가 함께 들어가서 색상이 silver-white 가 됩니다.\n\nNi 18% 가 핵심 — α-Cu matrix 에 Ni 가 완전 고용되어 색상이 흰색이 되고 부식 저항 + machinability 가 brass 수준으로 올라갑니다. σy 100 annealed → 480 half-hard 정도로 cold-work 강화가 가능하고, 가공·표면처리·polish 가 stainless 보다 훨씬 쉬워서 jewelry · 표창 · 표창의 base material 로 표준입니다.\n\n응용: 표창 metal (military medal, sport trophy 의 nickel silver coating 의 base), 시계 case (Patek Philippe · Vacheron Constantin 의 일부 entry-level model), spectacle frame (안경테, 1880년대 표준이었음), 의류 zipper · 단추, 음악 instrument key 부속 (saxophone · clarinet 의 key), 시계 mechanism 의 일부 plate (German watchmaking 의 'Glashütte plate'), 그리고 dental bridge framework (의료 grade C75200). 'German silver' 라는 이름이 marketing 으로 통해도 ISO 표시는 NiAg18 (DIN) 또는 C75200 (UNS) 입니다."
   },
+  "carbon-steel-spectrum": {
+   "display": "Carbon Steel Spectrum (1015 / 1022 / 1025 / 1095)",
+   "stable_ids": [
+    "MET-0239",
+    "MET-0242",
+    "MET-0243",
+    "MET-0250",
+    "MET-0253",
+    "MET-0254",
+    "MET-0276",
+    "MET-0279",
+    "MET-0280",
+    "MET-1004",
+    "MET-1005",
+    "MET-1008",
+    "MET-1009",
+    "MET-1010"
+   ],
+   "refs": [
+    "SAE J403 \"Chemical Compositions of SAE Carbon Steels\"",
+    "Davis J R (ed., 1990) ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys"
+   ],
+   "sections": {
+    "hook": "탄소 함량 두 자리로 성격이 갈리는 강 — 무른 1015부터 스프링용 1095까지.",
+    "origin": "10xx 평탄소강은 뒤 두 자리가 탄소 함량(× 0.01%)을 나타내는 가장 기본적인 강 체계다. 합금원소 없이 탄소만으로 강도와 경화능이 정해져, 번호가 곧 성격이 된다.",
+    "breakthrough": "저탄소(1015·1022, 약 0.15~0.22%C)는 무르고 질겨 성형·용접·침탄에 좋고, 중탄소(1025)는 적당한 강도, 고탄소(1095, 0.95%C)는 담금질로 매우 단단해져 스프링·칼날·톱날이 된다. 같은 계열 안에서 탄소가 강도와 취성을 함께 끌어올린다.",
+    "today": "1015·1022 는 볼트·리벳·침탄 기어 소재, 1025 는 범용 축·레버, 1095 는 판스프링·칼·톱·수공구에 쓰인다. 경화능·인성이 더 필요하면 합금강(41xx·43xx)으로 넘어간다."
+   }
+  },
   "cast-al-alsi": {
    "display": "Cast Aluminum (A319 / A380)",
    "stable_ids": [
@@ -1165,6 +1194,23 @@
     "origin": "주조용 Al 은 유동성과 응고 특성이 관건이라 Si 를 많이(5~12%) 넣는다. A380 은 다이캐스팅 표준, A319 는 사형·금형 주조용 범용 Al-Si-Cu 합금이다.",
     "breakthrough": "Si 가 용융 Al 의 유동성을 높이고 응고 수축을 줄여 얇고 복잡한 형상을 채운다. Cu 첨가(A319·A380)는 강도·가공성을 주되 내식은 다소 희생한다. A380 은 유동성·이형성이 뛰어나 고압 다이캐스팅에 특히 맞는다.",
     "today": "A380 은 변속기 케이스·엔진 하우징·전자 하우징 등 대량 다이캐스팅의 대명사, A319 는 엔진 블록·실린더 헤드·매니폴드 등 사형·금형 주조에 쓰인다. 고강도·기밀이 중요하면 A356(AlSi7Mg) 계열로 간다."
+   }
+  },
+  "cast-carbon-steel": {
+   "display": "Cast Carbon Steel (WCB / WCC)",
+   "stable_ids": [
+    "MET-0993",
+    "MET-0994"
+   ],
+   "refs": [
+    "ASTM A216 / A352 (용접용 탄소·저온 주강)",
+    "Steel Founders’ Society of America (1995) Steel Castings Handbook, 6th ed."
+   ],
+   "sections": {
+    "hook": "밸브·펌프 몸체를 통짜로 주조하는 표준 탄소강 — ASTM A216의 WCB/WCC.",
+    "origin": "압력을 받는 밸브·펌프·피팅 몸체는 형상이 복잡해 단조보다 주조가 유리하다. ASTM A216 은 이런 용융용접용 탄소강 주물의 표준으로, WCB·WCC 가 대표 grade 다.",
+    "breakthrough": "일반 탄소강 조성을 주조성에 맞춰 조정하고, 용접·후열처리(노멀라이즈)로 건전한 조직을 만든다. WCC 는 WCB 보다 Mn·강도가 약간 높아 더 두꺼운 부재에 쓴다. −29°C 이상 상온 압력 서비스가 적용 범위다.",
+    "today": "발전·석유화학 플랜트의 밸브 바디·펌프 케이싱·플랜지의 기본 재료다. 저온이 필요하면 LCB·LCC(A352), 고온이면 WC6·WC9(Cr-Mo 주강), 내식이 필요하면 CF8/CF8M 주조 스테인리스로 간다."
    }
   },
   "cast-cf-stainless": {
@@ -1407,6 +1453,24 @@
    ],
    "legacy_text": "1920년대 미국 Vasco Wear 가 cold-work die 의 절대적 표준을 찾던 중 등장한 합금. C 1.5% + Cr 12% + V 1% — high-carbon high-chromium 의 극단으로, quench 후 secondary hardening (520°C T) 으로 σ_UTS 2100 MPa + HV 650 + 균일한 M₇C₃ 카바이드 분산을 얻습니다. 1932년 AISI 가 D2 (UNS T30402) 로 표준화하면서 이름이 정해졌어요.\n\nD2 가 풀어주는 문제는 '정확한 형상으로 수십만 번 펀칭' 이에요. 자동차 차체 stamping press 에서 하루 8시간 동안 cycles 10000회 — 1년이면 200만 cycles. 그 사이 die 의 형상이 0.05 mm 도 변하면 안 되거든요. D2 는 Cr 의 산화 저항 + carbide 의 abrasion 저항 + 안정한 tempering 으로 1년 service 후도 형상을 유지합니다.\n\n각 메이커가 자체 grade 로 부르지만 본질은 모두 D2 — Bohler 의 K110, Uddeholm 의 Sverker 21, 일본 Hitachi 의 SLD, 한국 두산 (현 두산공작기계) 의 KD11. 응용 — 자동차 stamping (현대차 G80 의 hood die), thread roll, slitter knife, cold-header punch, kitchen 칼날 (Bohler K110 의 high-end folder knife), 산업 cutting tool. 데스크탑 fabrication 에서도 매우 인기가 높아요."
   },
+  "ductile-iron": {
+   "display": "Ductile Iron (ASTM A536)",
+   "stable_ids": [
+    "MET-0327",
+    "MET-0328",
+    "MET-0329"
+   ],
+   "refs": [
+    "ASTM A536 (구상흑연주철)",
+    "Davis J R (ed., 1990) ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys"
+   ],
+   "sections": {
+    "hook": "흑연을 공 모양으로 만들어 무쇠를 질기게 바꾼 주철 — 크랭크축·수도관을 통짜로 뽑는다.",
+    "origin": "회주철(gray iron)은 편상(片狀) 흑연이 균열 기점이 되어 잘 깨진다. 1940년대 후반 흑연을 구형(nodular)으로 만드는 Mg 접종법이 개발되면서, 주철에 강(steel)에 가까운 연성·인성을 준 것이 구상흑연주철(ductile iron)이다. ASTM A536 이 100-70-03 같은 등급으로 규격화한다.",
+    "breakthrough": "미량의 Mg(또는 Ce)가 응고 중 흑연을 편상 대신 구형으로 정출시킨다. 구형 흑연은 응력집중이 작아, 주조의 자유로운 형상·저비용은 유지하면서 연신율 2~18%·항복강도 수백 MPa 를 낸다 — 주강에 필적하되 훨씬 싸다.",
+    "today": "자동차 크랭크축·서스펜션 부품, 상하수도 파이프·맨홀, 기어·하우징 등 ‘주조 형상 + 강도·인성’이 필요한 대량 부품에 쓰인다. 등급 숫자(100-70-03)는 인장강도(ksi)-항복(ksi)-연신율(%)을 뜻한다."
+   }
+  },
   "duplex-2205": {
    "display": "Duplex 2205",
    "stable_ids": [
@@ -1474,6 +1538,26 @@
     "Evonik Rohacell datasheet (verified 2024)"
    ],
    "legacy_text": "Foam core sandwich panel 의 발상은 1820년대 자연계의 관찰에서 시작됩니다. 새의 뼈 (skin + spongy interior) 와 식물 줄기 (tough outer + light core) 의 cross-section 이 같은 무게로 최대 굽힘 강성을 내는 구조라는 걸 알아낸 사람은 1849년 영국 수학자 William John Macquorn Rankine 이에요. 그가 'I-beam 의 web 을 foam 으로 대체하면 자른 무게가 같아도 굽힘 강성은 5-10 배' 임을 수학으로 증명했습니다.\n\n실제 항공 적용은 1940년대 영국 De Havilland Mosquito 폭격기에서 시작됐어요. Mosquito 의 fuselage 는 plywood + balsa core + plywood sandwich 였고, 이게 metal fuselage 대비 무게 30% 감소 + 강성 동등이라는 결과를 냈습니다. 1950년대 이후 합성 foam (PMI Rohacell — Evonik 1959, PVC Divinycell — Diab 1960, SAN Corecell — Gurit 1970) 이 등장하면서 marine + 항공 + 풍력 산업의 표준이 됐어요.\n\nFoam core 의 핵심은 face skin (carbon / glass laminate) 과 core 의 stiffness mismatch 입니다. Skin 이 인장·압축을 받고, core 는 전단만 받습니다. PMI Rohacell 71 IG (밀도 71 kg/m³, 압축 강도 1.5 MPa) 와 같은 closed-cell foam 이 marine sandwich 의 표준이고, BMW i3 의 carbon cabin (2013) 의 일부 panel 도 PVC foam core 입니다. 응용은 풍력 blade (전체 길이의 50% 이상이 sandwich), 보트 hull (J/24, Hobie Cat 의 cabin), 항공 floor panel (Boeing 787 의 일부), 우주 발사체의 fairing inner panel (SpaceX Falcon 9 의 일부), F1 의 nose cone. 단점은 화재 (PVC 의 HCl 방출, PMI 의 가격), 흡수 (open-cell foam 의 수분 침투), 그리고 fatigue (반복 굽힘에 의한 core 의 shear failure) 입니다."
+  },
+  "free-machining-steel": {
+   "display": "Free-Machining Steel (12L14 / 1144)",
+   "stable_ids": [
+    "MET-0232",
+    "MET-0281",
+    "MET-0282",
+    "MET-0283",
+    "MET-0284"
+   ],
+   "refs": [
+    "SAE J403 \"Chemical Compositions of SAE Carbon Steels\"",
+    "Davis J R (ed., 1990) ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys"
+   ],
+   "sections": {
+    "hook": "빠르게 깎으라고 만든 강 — 납·황을 넣어 자동선반이 하루종일 멈추지 않게 한다.",
+    "origin": "대량 절삭에서는 공구 수명과 칩 처리가 생산성을 지배한다. 자유절삭강은 강에 황(S)·납(Pb)·비스무트(Bi)를 넣어 MnS·저융점 개재물을 만들어 이를 해결한 계열이다. 12L14 는 저탄소 Pb 첨가, 1144 는 중탄소 고황강이다.",
+    "breakthrough": "MnS 개재물이 절삭면에서 칩을 잘게 끊고 윤활막 역할을 해, 절삭속도를 크게 올려도 공구가 오래 간다. 1144 Stressproof 는 여기에 냉간가공+응력제거를 더해 열처리 없이 σy ~700 MPa 를 내, ‘가공 그대로 쓰는 고강도 축’이 됐다.",
+    "today": "12L14 는 나사·핀·커넥터 등 저강도 대량 절삭 부품, 1144 는 열처리 없이 강도가 필요한 샤프트·스터드에 쓰인다. 다만 황·납 개재물이 인성·용접성·내식을 떨어뜨려, 그것이 중요하면 일반 탄소강으로 간다. Pb 는 환경 규제로 Bi·저납 대체가 늘고 있다."
+   }
   },
   "fused-silica": {
    "display": "Fused Silica",
@@ -2028,6 +2112,32 @@
     "ATI VascoMax C-350 datasheet"
    ],
    "legacy_text": "Maraging 350 (또는 VascoMax C-350, ATI 의 등록 상표) 은 1965년 미국 Vanadium Alloys Steel Company (VASCO) 가 개발한 마레이징 라인의 정점입니다. Co 를 9% → 12%, Ti 를 0.7% → 1.4% 로 올려 시효 후 UTS 2400 MPa (350 ksi) 를 달성한 ultra-ultra-high strength steel 이에요. 1970년대 영국 Hawker Siddeley 가 V/STOL 군용 항공기 (Harrier) 프로토타입의 critical fastener 에 처음 적용한 게 본격 시장 진입이었습니다.\n\n350 ksi 라는 숫자는 일반 강의 4-5 배에 해당하는 강도라서, 같은 단면적으로 4배 무거운 짐을 들 수 있다는 뜻입니다. 단, 인성 KIC 가 55 MPa·√m 로 250 (85) / 300 (80) 보다 낮아 충격 부하는 부적합하고, 정적 부하 전용입니다. C-350 도 다른 maraging 처럼 가공 단계는 800°C solution annealed 상태 (HRC 32) 에서 진행하고 마지막 482-510°C 시효로 굳혀요.\n\n핵심 응용: Trident II D5 미사일의 motor case (Lockheed Martin), 항공 우주 우주 발사체 의 high-pressure recoil spring, F1 monocoque 의 일부 push-rod, NASA Mars rover (Curiosity, Perseverance) 의 sky crane retract spring, 그리고 가장 극단적 응용으로 미 해군 의 SLBM (잠수함 발사 탄도 미사일) 의 1차·2차 stage motor case. 가격은 Co 함량 때문에 250 의 2배 (~$70-150/kg), 그래서 산업용보다 군수·우주 중심으로 쓰입니다."
+  },
+  "martensitic-440": {
+   "display": "Martensitic 440 (440A / 440B / 440C)",
+   "stable_ids": [
+    "MET-0794",
+    "MET-0795",
+    "MET-0796",
+    "MET-0797",
+    "MET-0798",
+    "MET-0799",
+    "MET-0802",
+    "MET-0803",
+    "MET-0816",
+    "MET-0817",
+    "MET-0818"
+   ],
+   "refs": [
+    "ASTM A276 (스테인리스 bar·shape)",
+    "Davis J R (ed., 1994) ASM Specialty Handbook: Stainless Steels"
+   ],
+   "sections": {
+    "hook": "탄소를 잔뜩 넣어 담금질하면 HRC 60까지 가는 스테인리스 — 베어링과 칼날의 마르텐사이트.",
+    "origin": "대부분의 스테인리스는 물러서 마모·절삭날에 부적합하다. 440 계는 Cr 16~18%에 탄소를 0.6~1.2%까지 높여, 담금질 시 다량의 크롬 탄화물과 마르텐사이트로 HRC 58~60 의 경도를 내는 고탄소 마르텐사이트 스테인리스다.",
+    "breakthrough": "탄소가 A(0.6~0.75%)→ B(0.75~0.95%)→ C(0.95~1.2%)로 오를수록 경도·내마모가 커진다. 440C 는 스테인리스 중 최고 경도급이다 — 다만 그 탄화물이 Cr 을 소모해 내식은 오스테나이트계보다 낮고, 인성도 낮다.",
+    "today": "440C 는 볼베어링·밸브 시트·수술칼·고급 나이프에, 440A/B 는 중간 경도가 필요한 칼·부품에 쓰인다. 내식이 더 중요하면 마르텐사이트 대신 PH 스테인리스(17-4)나 오스테나이트로 간다."
+   }
   },
   "narloy-z-cu-3ag-0-5zr-ssme-chamber": {
    "display": "NARLOY-Z (Cu-3Ag-0.5Zr) — SSME chamber",
