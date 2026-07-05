@@ -155,7 +155,11 @@
   "a356": {
    "display": "A356",
    "stable_ids": [
-    "MET-0178"
+    "MET-0178",
+    "MET-0222",
+    "MET-0223",
+    "MET-0224",
+    "MET-0225"
    ],
    "refs": [
     "ASTM B26 / B108 \"Standard Specification for Aluminum-Alloy Sand / Permanent Mold Castings\"",
@@ -238,7 +242,10 @@
    "display": "AA 1100",
    "stable_ids": [
     "MET-0167",
-    "MET-0168"
+    "MET-0168",
+    "MET-0169",
+    "MET-0170",
+    "MET-0171"
    ],
    "refs": [
     "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
@@ -306,6 +313,35 @@
    ],
    "legacy_text": "1989년 미국 Reynolds Metals (Reynolds Aluminum) 의 R&D 가 NASA Marshall Space Flight Center 와 협력해 우주 셔틀 External Tank (ET) 의 무게 감량을 목표로 개발한 Al-Li 합금이에요. Cu 4% + Li 1% + Mg 0.5% + Ag 0.4% — Li 의 낮은 비중 + Cu 시효 석출 (T1 = Al₂CuLi) + Ag 가 시효 가속 효과.\n\n결과 — AA 2219 (이전 ET 자재) 대비 5% 가볍고 30% 더 강한 합금이 나왔어요. 우주 셔틀의 Super-Lightweight Tank (SLWT) 가 1998년 STS-91 부터 도입되면서 ET 무게가 26 ton → 22 ton — 즉 4 ton 더 많은 payload 를 우주로 보낼 수 있게 됐죠. 그게 ISS construction 마지막 phase 의 module 운반에 결정적이었습니다.\n\n현재도 우주의 표준이에요. NASA SLS Block 1 의 core stage LH2 + LOX tank 가 모두 AA 2195 의 FSW (Friction Stir Welded) 조립. SpaceX Falcon 9 의 second-stage interstage cylinder 도 AA 2195 의 친척 합금이고, Blue Origin New Glenn 의 second stage tank 도 검토 중이에요. 단점은 Li 의 산화 — 표면 anodizing 또는 organic 코팅이 필수입니다."
   },
+  "aa-2xxx-misc": {
+   "display": "AA 2xxx Misc (2011 / 2017 / 2025 / 2219 / 2618)",
+   "stable_ids": [
+    "MET-0097",
+    "MET-0098",
+    "MET-0099",
+    "MET-0103",
+    "MET-0104",
+    "MET-0105",
+    "MET-0114",
+    "MET-0115",
+    "MET-0116",
+    "MET-0117",
+    "MET-0118",
+    "MET-0119",
+    "MET-0120"
+   ],
+   "refs": [
+    "The Aluminum Association, Aluminum Standards and Data / International Alloy Designations",
+    "Davis J R (ed., 1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
+   ],
+   "sections": {
+    "hook": "듀랄루민의 형제들 — 자유절삭(2011)부터 우주선 연료탱크(2219)·콩코드 외피(2618)까지.",
+    "origin": "2xxx(Al-Cu)계는 1900년대 초 듀랄루민(Duralumin)에서 시작된 최초의 고강도 열처리 Al 이다. 범용 2014·2024 외에, 절삭·용접·고온 등 특수 목적으로 갈라진 grade 들이 있다.",
+    "breakthrough": "2011 은 Pb·Bi 로 자유절삭성을, 2017·2025 는 초기 듀랄루민 계열의 범용·단조 강도를, 2219 는 높은 Cu(약 6%)와 낮은 불순물로 용접성·극저온 인성·내열을, 2618 은 Fe·Ni 첨가로 고온 크리프 저항을 얻었다.",
+    "adoption": "2219 는 새턴 V 와 초기 스페이스셔틀 외부연료탱크(ET)의 용접 구조재였고, 2618(영국명 RR58)은 콩코드 초음속기의 가열되는 외피·엔진 부품에 쓰였다.",
+    "today": "2011 자동선반 부품, 2017 리벳·범용 구조, 2219 항공우주 용접 탱크·극저온 부품, 2618 항공 피스톤·고온 부품 등으로 쓰인다. 용접 안 하는 고강도는 2024, 용접이 필요하면 2219 로 갈린다."
+   }
+  },
   "aa-5052": {
    "display": "AA 5052",
    "stable_ids": [
@@ -334,6 +370,34 @@
     "Searles J L et al. (2001) \"Stress corrosion cracking of sensitized AA5083\", Met Mater Trans A 32(11)"
    ],
    "legacy_text": "1957년 미국 Alcoa 의 R W Fink 가 Mg 4.5% + Mn 0.7% + Cr 0.15% 조성으로 marine 환경에 강한 새 5xxx 합금을 개발하면서 AA 5083 이 등장합니다. 이전 5052 (Mg 2.5%) 의 강도 한계를 거의 두 배 (σ_y 145 → 230 MPa) 로 끌어올리면서 해수 SCC 저항을 그대로 유지한 게 핵심이었어요.\n\n응용은 marine 의 모든 곳이에요. 어선 hull (Bertram, Boston Whaler 의 high-end 모델), 잠수정 (이전 Russian Mir + USS Trieste 의 외부 frame), LNG carrier 의 inner tank (−163°C 까지 fully toughness 유지, IMO IGC code 표준), 군용 — M2 Bradley IFV 의 ballistic 보강 (aluminum armor), 미해군 LCS class 의 superstructure. 자동차에서는 Audi A8 의 일부 frame member, Tesla Roadster 1세대의 frame — 'high-strength 5xxx' 자리의 default 입니다.\n\n약점도 있어요. Mg 4.5% 는 65°C 이상에서 β-phase (Al₃Mg₂) 가 입계에 석출하면서 IGC (입계 부식) sensitization 이 일어날 수 있죠. 그래서 marine 응용에서도 dewpoint condensation 등 표면 온도가 60°C 를 넘는 곳에는 H116 / H321 같은 special-temper grade 를 별도로 사용합니다."
+  },
+  "aa-5xxx-marine": {
+   "display": "AA 5xxx Marine (5086 / 5182 / 5454 / 5456)",
+   "stable_ids": [
+    "MET-0140",
+    "MET-0141",
+    "MET-0142",
+    "MET-0143",
+    "MET-0144",
+    "MET-0145",
+    "MET-0146",
+    "MET-0147",
+    "MET-0148",
+    "MET-0149",
+    "MET-0150",
+    "MET-0151",
+    "MET-0152"
+   ],
+   "refs": [
+    "The Aluminum Association, Aluminum Standards and Data / International Alloy Designations",
+    "Davis J R (ed., 1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
+   ],
+   "sections": {
+    "hook": "마그네슘으로 강화한 비열처리 알루미늄 — 용접되고 바닷물을 견디는 선체·탱크의 5xxx.",
+    "origin": "5xxx(Al-Mg)계는 열처리가 아니라 Mg 고용강화와 냉간가공으로 강도를 얻는 비열처리 Al 이다. 범용 5052·5083 외에, Mg 함량과 용도에 따라 여러 grade 로 갈린다.",
+    "breakthrough": "Mg 가 높을수록 강도·내식이 오르지만(5083·5456), 3% 이상에서 장기 고온 노출 시 입계 Mg₂Al₃ 석출로 응력부식·박리 위험이 생긴다 — 그래서 5454 처럼 Mg 를 조절해 65°C 이상 고온 서비스용으로 만든 grade 도 있다. 5182 는 성형성을 높여 캔 뚜껑용이다.",
+    "today": "5083·5086 선체·해양 구조·LNG 탱크, 5454 고온 탱크로리·압력용기, 5182 음료캔 엔드, 5456 조선 등에 쓰인다. 용접되고 바닷물을 견뎌야 하는 구조가 5xxx 의 본령이다."
+   }
   },
   "aa-6061": {
    "display": "AA 6061",
@@ -381,6 +445,32 @@
     "Kaiser Aluminum AA 6082 Technical Data Sheet"
    ],
    "legacy_text": "AA 6082 는 1972년 EU Aluminum Association 이 표준화한 medium-strength Al-Mg-Si 합금입니다. Mg 0.6-1.2% + Si 0.7-1.3% + Mn 0.4-1.0% 의 조성으로, 미국 6061 (Mg 1.0% + Si 0.6%) 보다 Mn 함량이 약간 높아 grain refinement 와 corrosion resistance 가 우수해요. 한국 KS D 6705 의 AA 6082 가 동일 표준입니다.\n\n응용은 EU 시장 중심의 structural extrusion / sheet. 자동차 frame (Volvo XC60 / S90 의 일부 cross-member), 자전거 frame (Cannondale / Trek 의 EU spec), 트럭 trailer chassis (Schmitz Cargobull 의 EU 표준 trailer), 철도 차체 (Stadler / Talgo 의 alpine train), 해양 plate (passenger ferry, 작은 yacht), 사다리 (DIN EN 131 표준 ladder), 산업용 conveyor frame, 가로등 mast. EU 의 6xxx Al 표준은 6082 가 차지하고, 미국·아시아는 6061 — 동일 응용이지만 시장 우선순위가 다른 케이스입니다.\n\nHT 표준 — T6 (sol. 530°C/WQ + aged 175°C/8h, σy 250 / σUTS 295 MPa) 가 가장 일반적. T651 (T6 + stretched, residual stress < 30 MPa) 은 정밀 가공 부품 용. 압출 시 T5 (cooling from extrusion + aged) 도 가능 — 6063 와 유사한 cost-saving option. Weldability 는 6061 와 비슷 — ER4043 / ER5356 filler + HAZ softening 60% 손실의 동일 issue."
+  },
+  "aa-6xxx-special": {
+   "display": "AA 6xxx Special (6101 / 6262 / 6463 / 6151 / 6005A)",
+   "stable_ids": [
+    "MET-0172",
+    "MET-0193",
+    "MET-0194",
+    "MET-0195",
+    "MET-0196",
+    "MET-0197",
+    "MET-0198",
+    "MET-0199",
+    "MET-0200",
+    "MET-0201",
+    "MET-0202"
+   ],
+   "refs": [
+    "The Aluminum Association, Aluminum Standards and Data / International Alloy Designations",
+    "Davis J R (ed., 1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
+   ],
+   "sections": {
+    "hook": "6061·6063을 넘어선 6xxx 특수 grade들 — 전기·절삭·광택·단조로 각자 특화한 Al-Mg-Si 사촌들.",
+    "origin": "6xxx(Al-Mg-Si)계는 Mg₂Si 석출로 열처리 경화되고 압출이 잘 되는 만능 구조 Al 이다. 범용 6061·6063 외에, 특정 목적에 맞춰 조성을 미세 조정한 파생 grade 들이 있다.",
+    "breakthrough": "6101 은 Si·Fe 를 낮춰 전기전도도를 극대화하고, 6262 는 Pb·Bi 로 자유절삭성을(6061 의 free-machining 판), 6463 은 불순물을 낮춰 양극산화 후 거울 광택을, 6151·6005A 는 각각 단조·구조 압출에 최적화했다.",
+    "today": "6101 전력 버스바·전도체, 6262 자동선반 피팅, 6463 자동차 몰딩·가전 트림, 6151 항공/자동차 단조품, 6005A 철도차량 압출재 등으로 갈린다. 목적이 애매하면 결국 만능 6061 로 돌아간다."
+   }
   },
   "aa-7050": {
    "display": "AA 7050",
@@ -751,6 +841,29 @@
    ],
    "legacy_text": "AISI 8620 은 미국 SAE-AISI 의 'carburizing grade alloy steel' 표준입니다. C 0.18-0.23% + Ni 0.4-0.7% + Cr 0.4-0.6% + Mo 0.15-0.25% 의 low-carbon alloy steel 로, carburizing (case hardening) 후의 '표면 hard + 코어 tough' 의 dual-property gear/shaft 표준입니다. 1930년대 미국 자동차 산업의 transmission gear 표준이 8620 으로 통일됐어요.\n\n8620 의 핵심은 carburizing 가능한 조성입니다. Surface 에 C 를 0.9-1.1% 까지 침투시켜 (boost carburizing) HRC 58-62 의 굳은 표면을 만들고, 코어는 C 0.18-0.23% 로 그대로 둬서 KIC 90 MPa·√m, Charpy 60 J 이 유지됩니다. Heat treatment 표준은 920°C carburize → 850°C oil quench → 175°C low temper. 결과는 surface HRC 60 / case 1 mm + core HRC 25 의 dual structure.\n\n응용: 자동차 transmission gear (특히 differential ring gear · pinion), planetary gear set (BMW · Mercedes 의 8-speed automatic 의 일부 gear), 산업 reducer gear (Sumitomo · SEW 의 cycloidal reducer), 그리고 산업 chain pin · cam · roller. 8620 의 매력은 cost ($1.8-3.2/kg) + carburizing 가능 + 가공성의 균형입니다. 더 높은 강도가 필요하면 8822 (C 0.22%, Mo 0.35%), 또는 9310 (Ni 3.25%, Cr 1.2%) 이 검토됩니다. 흥미로운 사실은 1986년 NASA Space Shuttle 의 main engine turbopump bearing 의 일부가 9310 carburized steel 이었고, 8620 의 후속 variant 가 우주 propulsion 에 진입한 케이스라는 점입니다."
   },
+  "al-li-alloys": {
+   "display": "Al-Li Alloys (2090 / 2099 / 8090 / 2196 / 2198)",
+   "stable_ids": [
+    "MET-0123",
+    "MET-0124",
+    "MET-0125",
+    "MET-0126",
+    "MET-0129",
+    "MET-0130",
+    "MET-0131",
+    "MET-0132"
+   ],
+   "refs": [
+    "The Aluminum Association, Aluminum Standards and Data / International Alloy Designations",
+    "Rioja R J & Liu J (2012) \"The Evolution of Al-Li Base Products\", Metall. Mater. Trans. A 43"
+   ],
+   "sections": {
+    "hook": "리튬을 넣어 가볍고 뻣뻣하게 만든 항공용 알루미늄 — 밀도를 낮추고 강성을 올린 세대들.",
+    "origin": "Li 은 Al 에 넣으면 밀도를 낮추고(Li 1%당 약 3% 경량) 탄성계수를 올리는 거의 유일한 합금원소다. 1980년대 2세대(8090·2090)와 2000년대 3세대(2099·2196·2198)가 항공 경량화를 겨냥해 개발됐다.",
+    "breakthrough": "Al₃Li(δ′)·T1 상 석출로 강도를 얻으면서 밀도는 8~10% 낮고 강성은 높다. 2세대는 이방성·박리 문제로 제한적이었고, 3세대는 Cu·Zn·Mn 균형으로 인성·부식·이방성을 개선해 실용성을 크게 높였다.",
+    "today": "여객기 동체 프레임·스트링거·날개 구조(3세대)에서 탄소복합재와 경합·병용한다. 같은 계열의 2050(단조)·2195(용접 탱크)는 특화 grade 로 따로 쓰인다. 값이 비싸고 가공이 까다로운 게 단점이다."
+   }
+  },
   "alsi10mg": {
    "display": "AlSi10Mg",
    "stable_ids": [
@@ -1028,6 +1141,23 @@
     "Copper Development Association Pub 144"
    ],
    "legacy_text": "C75200 (nickel silver, 65-18-17) 은 Cu-18% Ni-17% Zn 합금이지만 이름에 'silver' 가 들어가도 실제로는 은이 한 톨도 없습니다. 18세기 독일 광부들이 광석에서 발견한 'kupfernickel' (구리-니켈 광석) 을 정련하다가 우연히 발견한 이 합금이 은처럼 보였고, 19세기 초 독일 Gebrüder Henninger 가 'German silver' 로 상품화했어요. UNS 번호의 C7 prefix 는 Cu-Ni 합금 (cupronickel) 계열을 의미하지만 Zn 17% 가 함께 들어가서 색상이 silver-white 가 됩니다.\n\nNi 18% 가 핵심 — α-Cu matrix 에 Ni 가 완전 고용되어 색상이 흰색이 되고 부식 저항 + machinability 가 brass 수준으로 올라갑니다. σy 100 annealed → 480 half-hard 정도로 cold-work 강화가 가능하고, 가공·표면처리·polish 가 stainless 보다 훨씬 쉬워서 jewelry · 표창 · 표창의 base material 로 표준입니다.\n\n응용: 표창 metal (military medal, sport trophy 의 nickel silver coating 의 base), 시계 case (Patek Philippe · Vacheron Constantin 의 일부 entry-level model), spectacle frame (안경테, 1880년대 표준이었음), 의류 zipper · 단추, 음악 instrument key 부속 (saxophone · clarinet 의 key), 시계 mechanism 의 일부 plate (German watchmaking 의 'Glashütte plate'), 그리고 dental bridge framework (의료 grade C75200). 'German silver' 라는 이름이 marketing 으로 통해도 ISO 표시는 NiAg18 (DIN) 또는 C75200 (UNS) 입니다."
+  },
+  "cast-al-alsi": {
+   "display": "Cast Aluminum (A319 / A380)",
+   "stable_ids": [
+    "MET-0164",
+    "MET-0180"
+   ],
+   "refs": [
+    "Davis J R (ed., 1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+    "American Foundry Society (AFS), Aluminum Casting Alloys 관행"
+   ],
+   "sections": {
+    "hook": "실리콘을 듬뿍 넣어 얇고 복잡한 형상을 통짜로 뽑는 주조용 알루미늄 — 엔진 블록과 다이캐스팅의 재료.",
+    "origin": "주조용 Al 은 유동성과 응고 특성이 관건이라 Si 를 많이(5~12%) 넣는다. A380 은 다이캐스팅 표준, A319 는 사형·금형 주조용 범용 Al-Si-Cu 합금이다.",
+    "breakthrough": "Si 가 용융 Al 의 유동성을 높이고 응고 수축을 줄여 얇고 복잡한 형상을 채운다. Cu 첨가(A319·A380)는 강도·가공성을 주되 내식은 다소 희생한다. A380 은 유동성·이형성이 뛰어나 고압 다이캐스팅에 특히 맞는다.",
+    "today": "A380 은 변속기 케이스·엔진 하우징·전자 하우징 등 대량 다이캐스팅의 대명사, A319 는 엔진 블록·실린더 헤드·매니폴드 등 사형·금형 주조에 쓰인다. 고강도·기밀이 중요하면 A356(AlSi7Mg) 계열로 간다."
+   }
   },
   "cast-cf-stainless": {
    "display": "Cast CF Stainless (CF8/CF8M/CF3/CF3M)",
