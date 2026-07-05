@@ -1057,8 +1057,10 @@
   "beryllium-copper-c17200": {
    "display": "Beryllium Copper C17200",
    "stable_ids": [
+    "MET-0361",
     "MET-0363",
-    "MET-0364"
+    "MET-0364",
+    "MET-0381"
    ],
    "refs": [
     "Sawyer C B (1932) US Patent 1,907,757 (Brush Beryllium) \"Copper-beryllium alloy\"",
@@ -1093,10 +1095,64 @@
    ],
    "legacy_text": "Boron Nitride (BN) 은 1842년 영국 William H. Balmain 이 처음 합성한 ceramic 으로, 두 가지 다른 결정 구조를 가집니다. Hexagonal BN (h-BN, 'white graphite') 은 graphite 와 비슷한 layered structure — Tm 2900°C, soft, lubricant, electrical insulator. Cubic BN (c-BN) 은 diamond 와 비슷한 sp³-bonded structure — 1957년 GE 의 Robert Wentorf 가 처음 합성, hardness 약 4,500 HV (diamond 8,000 HV 의 1/2 but 800°C 까지 stable).\n\nh-BN 응용 — 고온 lubricant (graphite 와 같은 lubricating action 이지만 산화 환경 1000°C+ 안정), crucible (semiconductor / glass melting), X-ray window (Be 의 alternative — Be 의 발암성 회피), 우주 항공의 thermal insulating coating, 화장품 (mascara / foundation 의 'soft feel' 첨가제), high-T spark plug insulator, 일부 응용에서 graphite 의 대체 — graphite 가 산화하는 환경에서 ('graphite 는 500°C 에서 산화, BN 은 1000°C 까지 안정').\n\nc-BN 응용 — Cutting tool insert (gear cutting, hardened steel turning, CBN tool 의 c-BN 이 binding agent (Co/Ni) 와 sintering 된 form, Sandvik / Kennametal / Mitsubishi 의 PCBN tool), grinding wheel (CBN wheel for high-precision grinding of hardened steel, Norton / 3M 의 CBN abrasive product). c-BN 의 Fe 와의 chemical inertness (Fe 와 반응 없음) 가 diamond 의 약점을 보완 — Fe-base alloy 의 hardturning 에서 diamond 는 wear 빠른데 c-BN 은 안전.\n\nh-BN 가격 — 약 30-50 USD/kg (sintered piece). c-BN 가격 — 약 200-500 USD/kg (CBN insert 의 actual cutting tip)."
   },
+  "brass-grades": {
+   "display": "Brass (Cu-Zn: C36000 / C44300 / C22000)",
+   "stable_ids": [
+    "MET-0400",
+    "MET-0401",
+    "MET-0413",
+    "MET-0448",
+    "MET-0449"
+   ],
+   "refs": [
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Copper Development Association (CDA), Copper Alloys 기술 자료"
+   ],
+   "sections": {
+    "hook": "구리에 아연을 섞은 가장 오래된 합금 계열 — 아연 비율과 첨가물로 색·강도·가공성이 갈린다.",
+    "origin": "황동(brass)은 구리에 아연을 넣은 Cu-Zn 합금으로, 수천 년 전부터 쓰인 가장 오래된 합금 중 하나다. 아연 함량(5~40%)과 소량 첨가물(Pb·Sn·Ni)로 수십 가지 grade 로 갈린다 — C22000(커머셜 브론즈)부터 C36000(쾌삭황동), C44300(어드미럴티)까지.",
+    "breakthrough": "아연이 늘수록 강도·성형성이 오르고 색이 붉은빛에서 노란빛으로 바뀐다(30% 부근이 카트리지 황동). Pb 를 넣으면(C36000) 절삭성이 극대화돼 자동선반의 표준이 되고, Sn·As 를 넣으면(어드미럴티) 탈아연 부식을 막아 해수 콘덴서 튜브에 쓴다.",
+    "today": "C36000 은 밸브·피팅·커넥터 등 대량 절삭 부품, C22000 은 장식·배지, C44300·C28000 은 열교환기·콘덴서 튜브에 쓰인다. 무연 규제로 Pb 황동은 저납·비스무트 grade 로 대체가 늘고 있다.",
+    "fun_fact": "구리 합금 절삭성 등급의 기준(100)이 바로 C36000 쾌삭황동이다 — 다른 구리 합금의 가공성을 이것과 비교한다."
+   }
+  },
+  "bronze-grades": {
+   "display": "Bronze (Phosphor / Silicon / Aluminum / Bearing)",
+   "stable_ids": [
+    "MET-0362",
+    "MET-0365",
+    "MET-0402",
+    "MET-0403",
+    "MET-0404",
+    "MET-0405",
+    "MET-0406",
+    "MET-0411",
+    "MET-0412",
+    "MET-0441",
+    "MET-0442",
+    "MET-0445",
+    "MET-0446"
+   ],
+   "refs": [
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Copper Development Association (CDA), Copper Alloys 기술 자료"
+   ],
+   "sections": {
+    "hook": "청동시대의 그 합금 — 주석·규소·알루미늄을 넣어 내식·내마모·고강도로 갈라진 구리 합금들.",
+    "origin": "청동(bronze)은 원래 구리-주석(Cu-Sn) 합금이지만, 오늘날엔 아연이 주가 아닌 구리 합금을 폭넓게 부른다. 첨가원소로 인청동(Cu-Sn-P), 규소청동(Cu-Si), 알루미늄청동(Cu-Al), 베어링청동(Cu-Sn-Pb) 등으로 갈린다.",
+    "breakthrough": "주석(인청동 C51000)은 스프링성·내마모를, 규소(C65500)는 강도·용접성을, 알루미늄(알루미늄청동 C95400·C63000)은 스테인리스급 강도와 해수 내식을 준다. 니켈알루미늄청동(C95800)은 여기에 Ni 를 더해 캐비테이션·부식 저항을 극대화한다.",
+    "today": "인청동은 스프링·부싱·베어링·커넥터, 규소청동은 볼트·해양 하드웨어, 알루미늄청동은 선박 프로펠러·펌프·밸브(해수), 베어링청동은 슬라이딩 베어링·부싱에 쓰인다.",
+    "fun_fact": "대형 선박 프로펠러의 상당수가 니켈알루미늄청동(C95800) 주물이다 — 해수 속에서 캐비테이션과 부식을 동시에 견뎌야 하기 때문이다."
+   }
+  },
   "c18000": {
    "display": "C18000",
    "stable_ids": [
-    "MET-0382"
+    "MET-0382",
+    "MET-0423",
+    "MET-0424",
+    "MET-0425",
+    "MET-0426"
    ],
    "refs": [
     "ASTM B441 \"Standard Specification for Copper-Cobalt-Beryllium\" (similar UNS family)",
@@ -1492,7 +1548,12 @@
   "cupronickel-70-30-c71500": {
    "display": "Cupronickel 70/30 (C71500)",
    "stable_ids": [
-    "MET-0431"
+    "MET-0427",
+    "MET-0428",
+    "MET-0429",
+    "MET-0430",
+    "MET-0431",
+    "MET-0432"
    ],
    "refs": [
     "Hudson R M (1996) \"Cupronickel-Aluminum Alloys for Marine Heat Exchanger Service\", Mater Perform 35(3)",
@@ -1542,6 +1603,30 @@
     "Bohler-Uddeholm \"K110 Technical Information\" (2019)"
    ],
    "legacy_text": "1920년대 미국 Vasco Wear 가 cold-work die 의 절대적 표준을 찾던 중 등장한 합금. C 1.5% + Cr 12% + V 1% — high-carbon high-chromium 의 극단으로, quench 후 secondary hardening (520°C T) 으로 σ_UTS 2100 MPa + HV 650 + 균일한 M₇C₃ 카바이드 분산을 얻습니다. 1932년 AISI 가 D2 (UNS T30402) 로 표준화하면서 이름이 정해졌어요.\n\nD2 가 풀어주는 문제는 '정확한 형상으로 수십만 번 펀칭' 이에요. 자동차 차체 stamping press 에서 하루 8시간 동안 cycles 10000회 — 1년이면 200만 cycles. 그 사이 die 의 형상이 0.05 mm 도 변하면 안 되거든요. D2 는 Cr 의 산화 저항 + carbide 의 abrasion 저항 + 안정한 tempering 으로 1년 service 후도 형상을 유지합니다.\n\n각 메이커가 자체 grade 로 부르지만 본질은 모두 D2 — Bohler 의 K110, Uddeholm 의 Sverker 21, 일본 Hitachi 의 SLD, 한국 두산 (현 두산공작기계) 의 KD11. 응용 — 자동차 stamping (현대차 G80 의 hood die), thread roll, slitter knife, cold-header punch, kitchen 칼날 (Bohler K110 의 high-end folder knife), 산업 cutting tool. 데스크탑 fabrication 에서도 매우 인기가 높아요."
+  },
+  "deoxidized-copper": {
+   "display": "Deoxidized Copper (DHP C12200 / C14500 / C19400)",
+   "stable_ids": [
+    "MET-0375",
+    "MET-0376",
+    "MET-0377",
+    "MET-0378",
+    "MET-0379",
+    "MET-0380",
+    "MET-0383",
+    "MET-0433"
+   ],
+   "refs": [
+    "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
+    "Copper Development Association (CDA), Copper Alloys 기술 자료"
+   ],
+   "sections": {
+    "hook": "산소를 뺀 구리 — 용접되고 수소취화가 없는, 배관과 커넥터를 위한 순동 grade들.",
+    "origin": "가장 흔한 전기동(ETP, C11000)은 미량의 산소를 머금는데, 이 산소가 용접·고온 환원 분위기에서 수소취화를 일으킨다. 이를 막으려 인(P)으로 산소를 제거한 것이 탈산동(DLP C12000·DHP C12200)이고, 순도·가공성을 위한 변형 grade 도 있다.",
+    "breakthrough": "인 탈산(DHP)은 산소를 없애 용접·브레이징·고온 사용을 가능케 하지만, 잔류 인이 전기전도도를 약간 낮춘다 — 그래서 전기용엔 무산소동(OFHC), 배관·열교환용엔 DHP 로 갈린다. C14500(텔루륨동)은 절삭성을, C19400(Fe 첨가)은 강도·내응력완화를 더한 커넥터용이다.",
+    "today": "DHP(C12200)는 급수·냉매 배관·열교환기 튜브의 표준, C14500 은 쾌삭 전기부품, C19400 은 리드프레임·커넥터·단자에 쓰인다. 최고 전도도가 필요하면 무산소동, 강도가 필요하면 Cu 합금으로 간다.",
+    "fun_fact": "집 안의 구리 수도관·에어컨 냉매관 대부분이 DHP 동(C12200)이다 — 용접·확관이 잘 되고 수소취화가 없어서다."
+   }
   },
   "ductile-iron": {
    "display": "Ductile Iron (ASTM A536)",
@@ -2678,6 +2763,15 @@
   "ofhc-copper-c10100": {
    "display": "OFHC Copper C10100",
    "stable_ids": [
+    "MET-0366",
+    "MET-0367",
+    "MET-0368",
+    "MET-0369",
+    "MET-0370",
+    "MET-0371",
+    "MET-0372",
+    "MET-0373",
+    "MET-0443",
     "MET-0444"
    ],
    "refs": [
