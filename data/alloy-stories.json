@@ -2939,14 +2939,22 @@
   "fused-silica": {
    "display": "Fused Silica",
    "stable_ids": [
-    "CER-0011"
+    "CER-0011",
+    "CER-0028"
    ],
    "refs": [
     "Heraeus Suprasil Tech Data",
     "Brückner R (1970) \"Properties and Structure of Vitreous Silica\", J Non-Cryst Solids 5",
     "Corning ULE (Ultra-Low Expansion) Glass Tech Data"
    ],
-   "legacy_text": "Fused silica (또는 fused quartz, 비결정 SiO₂) 는 1890년 영국 Joseph Wilson Swan (전구 발명가) 이 처음 합성했지만 commercial 응용은 1936년 미국 Corning 의 Charles Vycor 가 'Vycor 7900' (96% silica + 4% B₂O₃) 시리즈를 commercial launch 한 게 시작입니다. Pure fused silica (>99.9% SiO₂) 는 같은 1930년대 Heraeus (독일) 가 'Suprasil' 이라는 이름으로 출시했어요.\n\nFused silica 의 매력은 거의 0 의 thermal expansion (0.55 × 10⁻⁶/K, alumina 의 1/10) + 1100°C 까지의 thermal stability + UV-VIS-NIR 전 영역의 transparency + chemical inert 의 조합입니다. 'thermal shock 의 황제' 라고 불립니다 — 1000°C 가열 후 물에 담가도 깨지지 않아요.\n\n응용: photolithography lens (semiconductor wafer printing 의 step-and-scan lithography 의 ArF excimer laser 광학), UV-VIS spectroscopy cuvette + cell window (Perkin-Elmer, Shimadzu, Agilent 의 spectrometer 의 표준), telescope mirror substrate (Hubble Space Telescope 의 primary mirror 의 ULE — Corning 의 Ultra-Low-Expansion 0.03 × 10⁻⁶/K), optical fiber preform (silica optical fiber 의 99% 이상이 fused silica), lab beaker + crucible (1500°C 작동 furnace 용), 그리고 자동차 halogen / xenon lamp envelope (Osram, Philips 의 HID light envelope). 가격은 grade 별로 다양 — commercial $50/kg, semiconductor $500/kg, telescope grade $5000/kg+."
+   "sections": {
+    "hook": "거의 안 늘어나는 유리 — 순수 규소 산화물로 만든, 열충격·자외선에 강한 용융 실리카.",
+    "origin": "용융 실리카(fused silica)는 거의 순수한 규소 산화물(SiO₂)을 녹여 만든 비정질 유리다. 20세기 초 상용화됐고, 같은 조성의 결정질인 석영(quartz, 결정질 SiO₂)과 달리 결정 구조가 없어 광학적으로 균질하다. 불순물을 극도로 낮춘 고순도 grade 가 반도체·광학의 핵심이다.",
+    "breakthrough": "순수 SiO₂ 그물이 열팽창을 극도로 낮춰(거의 0에 가까움) 뜨겁게 달궈 물에 던져도 잘 안 깨지는 열충격 저항을 주고, 자외선까지 넓은 파장을 투과시킨다. 화학적으로도 매우 안정해, 반도체 공정의 고순도 환경과 정밀 광학에 이상적이다.",
+    "adoption": "반도체 공정 부품과 자외선·정밀 광학, 통신 광섬유의 모재로 채택되며 첨단 산업의 소재가 됐다.",
+    "today": "반도체 공정 튜브·웨이퍼 보트, 자외선 렌즈·창, 광섬유 프리폼, 정밀 계측 부품에 쓰인다. 값이 부담이면 붕규산 유리로, 극한 경도·내마모는 사파이어로 간다.",
+    "fun_fact": "용융 실리카는 열팽창이 거의 없어, 시뻘겋게 달군 것을 찬물에 넣어도 깨지지 않는다 — 온도가 변해도 크기가 거의 안 변하니, 정밀 광학의 \"변하지 않는 자\" 노릇을 한다."
+   }
   },
   "gfrp": {
    "display": "GFRP",
@@ -3001,7 +3009,14 @@
     "Shelby J E (2005) Introduction to Glass Science and Technology 2nd ed., RSC",
     "Doremus R H (1994) Glass Science 2nd ed., Wiley"
    ],
-   "legacy_text": "Glass (silica-based 비결정 고체) 의 인류 사용은 BC 3500년경 메소포타미아 (현 시리아) 의 청금석 모방 jewelry 가 최초입니다. 그러나 공학용 borosilicate glass 의 출발은 1893년 독일 Otto Schott 가 Schott AG (현 SCHOTT) 에서 'Duran' 이라는 borosilicate glass 를 개발한 것입니다. SiO₂ 80% + B₂O₃ 13% + Na₂O 4% + Al₂O₃ 2% 의 조성으로 일반 soda-lime glass (SiO₂ 73%) 대비 thermal expansion 이 1/3 (3.3 × 10⁻⁶/K) 인 게 핵심입니다.\n\nThermal expansion 이 낮다는 건 thermal shock 저항이 강하다는 의미입니다. 실험실에서 250°C → 0°C 급랭에도 안 깨지죠. 1915년 미국 Corning 의 William Sullivan 이 Schott 의 Duran 을 모방해 'Pyrex' (boron silicate) 라는 변형을 만들었고, 이게 실험실 유리기구 + Pyrex 주방용기의 표준이 됐어요.\n\n응용: 실험실 beaker / flask / test tube (Schott Duran 또는 Corning Pyrex, KIMAX / SHOTT 의 100 mm wash bottle 까지 borosilicate), 의약 vial + ampoule (Schott Type I borosilicate 가 미국 FDA + EP 의 표준), microwave oven inner container (Corelle / Pyrex 의 표준), 광학 lens substrate (precision telescope mirror, BK7 borosilicate 가 광학 표준), gas chromatography column · capillary, 그리고 고압 view sight (industrial pressure vessel 의 sight glass). 일반 윈도우 glass 는 soda-lime glass 인데 borosilicate 의 thermal shock 저항이 압도적으로 좋아 공학 응용에서는 borosilicate 가 표준입니다."
+   "sections": {
+    "hook": "가장 오래된 인공 재료 중 하나 — 소다석회에서 붕규산까지, 투명한 비정질 고체 유리.",
+    "origin": "유리는 규사를 녹여 급랭한 비정질 고체로, 수천 년 전부터 쓰인 가장 오래된 인공 재료다. 값싼 소다석회 유리가 창·병의 주류이고, 19세기 말 독일에서 붕소를 넣은 붕규산 유리(Duran·Pyrex)가 개발되며 열충격에 강한 공학용 유리가 나왔다.",
+    "breakthrough": "규소 산화물 그물이 투명성과 화학 안정성을 주고, 조성으로 성질을 넓게 조율한다 — 소다석회는 값싸고, 붕소를 넣으면 열팽창이 낮아져 뜨거운 물을 부어도 안 깨진다. 결정립계가 없어 투명하지만, 취성이 커 흠집이 곧 파괴 기점이 되는 것이 본질적 약점이다.",
+    "adoption": "창·용기의 소다석회 유리가 건축·포장을 채웠고, 붕규산 유리가 실험 기구·조리 기구·조명으로 확산됐다.",
+    "today": "창·병·용기(소다석회), 실험·조리 기구와 조명·광학(붕규산), 강화유리·접합유리(건축·자동차)에 쓰인다. 더 높은 내열·저팽창은 용융 실리카로, 초고강도 투명은 사파이어로 간다.",
+    "fun_fact": "유리는 고체지만 결정이 아니라 \"얼어붙은 액체\"에 가깝다 — 규소 그물이 무질서하게 굳은 비정질이라, 녹는점이 딱 정해지지 않고 물러지는 온도 구간을 거쳐 흐른다."
+   }
   },
   "grade-91": {
    "display": "Grade 91 (P91)",
@@ -5091,18 +5106,6 @@
    ],
    "legacy_text": "1985년 미국 Carpenter Technology 가 헬리콥터 변속기 산업의 골치 아픈 문제를 풀려고 만든 합금이에요. 헬리콥터는 일반 비행기와 달리 'loss-of-lube' 시나리오가 결정적이거든요. 변속기 윤활유가 손실되면 30분 안에 기어 표면이 300~600°C 까지 올라가는데, 기존 9310 case-carburized 표면은 200°C 만 되어도 풀어지면서 (over-tempered) 기어가 파괴되는 게 한계였죠.\n\nCarpenter 가 내놓은 답이 Pyrowear 53 — C 0.10% + Cr 1.0% + Ni 2.0% + Mo 3.25% + Cu 2.0% + V 0.1% — 의 case-carburizing alloy. Mo 의 secondary hardening 으로 380°C 까지 표면 강도를 유지했고, Cu 가 시효 강화로 fillet 의 fatigue 저항을 높여줬어요. AMS 6308 로 1989년 표준화됩니다.\n\n미해군 SH-60 Seahawk (1985년 도입), 미육군 UH-60 Black Hawk (1989년 retrofit), AH-64 Apache (1995), CH-47 Chinook (2000) 의 main rotor gearbox + tail rotor drive 가 모두 Pyrowear 53 입니다. 'loss-of-lube 30분 생존' 의 기준이 됐어요. 한국군의 KUH-1 수리온 도 Pyrowear 53 의 기어를 씁니다. 단점은 가격 — 9310 의 3배예요."
   },
-  "quartz": {
-   "display": "Quartz",
-   "stable_ids": [
-    "CER-0028"
-   ],
-   "refs": [
-    "Curie J & Curie P (1880) \"Développement par compression de l'électricité polaire dans les cristaux hémièdres\", Bull Soc Min France 3",
-    "Cady W G (1922) \"The Piezo-Electric Resonator\", Proc IRE 10",
-    "Brice J C (1985) \"Crystals for Quartz Resonators\", Rev Mod Phys 57"
-   ],
-   "legacy_text": "Quartz (crystalline SiO₂) 의 공학적 사용은 1880년 프랑스 Pierre 와 Jacques Curie 형제의 piezoelectric effect 발견이 시작입니다. 그들은 quartz 단결정에 mechanical stress 를 가하면 electrical voltage 가 발생함을 증명했고, 이게 모든 quartz oscillator 산업의 기초가 됐어요. 1921년 미국 Bell Labs 의 Walter Cady 가 quartz crystal oscillator 의 첫 실용 form 을 발표했고, 1927년 Warren Marrison 이 첫 'quartz clock' 을 만들었습니다.\n\nQuartz 의 단결정은 piezoelectric (응력 → 전압, 전압 → 응력) + ultra-low loss (Q factor 100,000 이상) + thermal stability (특정 cut 각도에서 CTE 가 0) 의 조합으로 시간 측정 + 주파수 생성의 표준입니다. AT-cut, BT-cut, SC-cut 등 결정 방향에 따라 다양한 응용.\n\n응용: 모든 디지털 시계 + clock 의 시간 기준 (Casio · Seiko 의 quartz watch 가 1969년 이후 mechanical watch 를 거의 대체), 휴대폰 + computer 의 system clock (32.768 kHz 또는 26 MHz quartz crystal), GPS 위성의 일부 frequency reference, ULTRASONIC transducer (의료 ultrasound, 산업 cleaning), QCM (quartz crystal microbalance, 나노 그램 단위 mass 측정). 천연 quartz crystal 도 있지만 거의 모든 산업 quartz 는 hydrothermal growth (autoclave 에서 SiO₂ 용액 단결정 성장) 로 만든 합성 단결정입니다. 가격은 raw crystal $10-30/kg 인데 정밀 cut + polish 부품 ($100-500 per piece) 으로 끝나면 매우 비싸집니다."
-  },
   "r260-rail-steel-uic-860-en-13674-1-railway-head": {
    "display": "R260 Rail Steel (UIC 860 / EN 13674-1) — railway head",
    "stable_ids": [
@@ -5200,7 +5203,14 @@
     "Aspen Aerogels Spaceloft Tech Data",
     "Pierre A C & Pajonk G M (2002) \"Chemistry of Aerogels and Their Applications\", Chem Rev 102"
    ],
-   "legacy_text": "Silica aerogel 은 1931년 미국 Stanford University 의 Samuel Stephens Kistler 가 처음 합성한 매우 가벼운 ceramic-like solid 입니다. Wet gel 에서 액체를 supercritical drying 으로 제거해 분자 수준의 mesh 구조를 유지하면서 만든 결과, 밀도가 0.003-0.5 g/cm³ — 일반 공기 (0.0012) 의 3-400 배 정도밖에 안 되는 압도적으로 가벼운 solid 가 됐어요. 'frozen smoke' 또는 'solid air' 라는 별명이 붙었습니다.\n\nAerogel 의 매력은 thermal insulation 이 압도적이라는 점입니다. Thermal conductivity 가 0.014 W/m·K — fiberglass insulation (0.040) 의 1/3, vacuum insulation 보다도 약간 우수해요. 또 공기 대신 SiO₂ 가 채우는 nano-pore 구조라 conduction + radiation + convection 모두 차단.\n\n응용: 우주 — NASA Mars rover (Spirit, Opportunity, Curiosity, Perseverance) 의 electronics bay thermal insulation (cryogenic 화성 환경에서 RTG 의 열을 가둠), NASA Stardust mission (1999) 의 comet dust 채집기 (Wild 2 comet 의 dust 입자를 부드럽게 잡기 위한 aerogel block), JWST 의 일부 cryocooler insulation. 산업 — Aspen Aerogel 의 'Spaceloft' (석유 산업 cryogenic pipe insulation, LNG plant), 건축 단열재 (R-value 가 일반 fiberglass 의 3 배인 wall panel), Aspen 의 'Cryogel' (LNG tank insulation). 가격은 $50-200/kg 으로 비싸지만 thermal performance 가 압도적이고, 같은 R-value 를 얻으려면 일반 단열재의 1/3 두께면 충분하다는 점이 매력입니다."
+   "sections": {
+    "hook": "고체가 된 연기 — 부피의 99%가 공기인, 가장 가벼운 고체 실리카 에어로겔.",
+    "origin": "실리카 에어로겔은 20세기 초 미국의 키슬러가 젤 속 액체를 초임계 건조로 구조를 무너뜨리지 않고 빼내 처음 만든, 극도로 가벼운 다공성 고체다. 밀도가 공기의 몇 배에 불과해 \"얼어붙은 연기(frozen smoke)\"라 불리며, 나노 크기 기공이 부피의 대부분을 차지한다.",
+    "breakthrough": "나노 기공이 공기의 대류·전도를 막아, 알려진 고체 중 가장 낮은 열전도(뛰어난 단열)를 낸다. 투명에 가까울 만큼 가볍고 표면적이 극도로 넓다. 다만 순수 실리카 에어로겔은 부서지기 쉬워, 섬유·폴리머로 보강해 실용화한다.",
+    "adoption": "우주 탐사(혜성 입자 포집)와 극한 단열재로 채택된 뒤, 건축·산업 단열 담요로 상용화가 확산됐다.",
+    "today": "고성능 단열 담요·패널, 극저온·우주 단열, 흡착·촉매 담체에 쓰인다. 값과 취성이 부담이라, 얇고 가벼운 초단열이 값을 하는 곳에 집중된다.",
+    "fun_fact": "NASA 의 혜성 탐사선은 초속 6km 로 날아오는 혜성 먼지를 이 에어로겔로 부드럽게 붙잡아 지구로 가져왔다 — 거의 공기로 된 고체가, 총알보다 빠른 입자를 안 부수고 멈춰 세웠다."
+   }
   },
   "silicon-carbide": {
    "display": "Silicon Carbide",
@@ -5213,7 +5223,14 @@
     "Munro R G (1997) \"Material Properties of a Sintered alpha-SiC\", J Phys Chem Ref Data 26",
     "Kimoto T (2014) Fundamentals of Silicon Carbide Technology, Wiley"
    ],
-   "legacy_text": "Silicon Carbide (SiC) 는 1891년 미국 Acheson Edward Goodrich 가 우연한 발견으로 만든 인공 ceramic 입니다. 그는 carbon + clay 혼합물을 가열해 인공 다이아몬드를 만들려고 했지만 대신 짙은 청록색 결정이 형성됐어요. 그가 'Carborundum' 이라고 이름 붙이고 1893년 회사 (Carborundum Company) 를 설립해서 abrasive grain 으로 상품화한 게 SiC 산업의 시작입니다.\n\nSiC 는 covalent 결합 (Si-C) 이라 화학적 안정성 + 경도 (Mohs 9.5) + thermal stability (1600°C 까지) + thermal conductivity (90-120 W/m·K, ceramic 중 가장 높음) + low CTE (4-5 × 10⁻⁶/K) 의 ceramic 으로는 매우 독특한 조합을 갖습니다. 결정 구조는 α-SiC (6H, hexagonal) 와 β-SiC (3C, cubic) 가 있고, 4H-SiC 가 전자 응용에 표준입니다.\n\n응용은 ceramic + 전자 두 분야로 나뉩니다. Ceramic 응용은 grinding wheel (전 세계 abrasive 시장의 표준), kiln furniture (도자기 굽는 firing 의 setter), 군용 ceramic armor (HEAT-FRAG 위협 차단), semiconductor wafer carrier (정밀 가공된 reaction-bonded SiC), pump seal (해수 pump 의 mechanical seal), 그리고 brake disc (Porsche 911 GT3 의 PCCB 의 일부 — carbon/SiC composite). 전자 응용은 2010년대 이후 폭발 — SiC MOSFET (Tesla 의 Model 3 PowerTrain 의 inverter, 2017년 이후 표준), GaN-on-SiC RF amplifier (5G base station), SiC LED (blue LED 의 substrate 의 일부 grade). 'wide bandgap semiconductor' 의 압도적 후보로 떠올랐고, 2030년대까지 SiC 시장이 $20B 규모로 성장 예측됩니다."
+   "sections": {
+    "hook": "다이아몬드를 만들려다 얻은 초경질 세라믹 — 연마재에서 반도체까지의 탄화규소.",
+    "origin": "탄화규소(SiC)는 19세기 말 미국의 애치슨이 인조 다이아몬드를 만들려다 우연히 얻은 인공 세라믹이다 — 그가 카보런덤이라 이름 붙여 연마재로 상용화한 것이 SiC 산업의 시작이다. 규소-탄소 공유결합이 극한의 경도·내열·화학 안정성을 준다.",
+    "breakthrough": "강한 공유결합이 고온 강도와 내마모·내식·높은 열전도를 함께 준다. 반응소결·상압소결 등 공정으로 치밀체를 만들며, 열충격에도 비교적 강하다. 최근엔 넓은 밴드갭 반도체로서 전력 소자의 핵심 재료가 되어, 구조 세라믹을 넘어 전자재료로 영역을 넓혔다.",
+    "adoption": "연마재·내화물로 산업에 자리 잡은 뒤, 기계 실·펌프 부품과 방탄 세라믹, 그리고 전력 반도체(SiC 소자)로 확산됐다.",
+    "today": "기계 씰·베어링·펌프 부품, 방탄 세라믹, 발열체·내화물, 전력 반도체 웨이퍼에 쓰인다. 열충격이 더 필요하면 질화규소로, 극한 경도는 다이아몬드·B₄C 로 간다.",
+    "fun_fact": "전기차 인버터의 효율을 끌어올린 \"SiC 반도체\"가 바로 이 세라믹이다 — 100년 전 연마 가루로 시작한 재료가, 오늘은 전력 반도체로 다시 태어났다."
+   }
   },
   "silicon-nitride-si-n-hip-d": {
    "display": "Silicon Nitride (Si₃N₄, HIP'd)",
@@ -5831,7 +5848,14 @@
     "Schubert W D, Lassner E, & Böhlke W (2010) Tungsten 4th ed., Springer",
     "Roebuck B (2018) Cemented Carbides Handbook, NPL"
    ],
-   "legacy_text": "Tungsten Carbide (WC) 의 cemented carbide 형태는 1923년 독일 Osram 의 Karl Schröter 가 발견한 cobalt-binder sintering 공정이 시작입니다. 1925년 Krupp 이 'Widia' (Wie Diamant = 다이아몬드 같은) 이라는 상표로 시장 출시했고, GE 가 미국에서 1928년 'Carboloy' 라는 이름으로 상품화했어요. 이게 현대 cemented carbide industry 의 시작입니다.\n\nWC 의 메커니즘은 단순합니다. WC 단결정 (Mohs 9, HV 2400) 입자를 6-20% Co metal binder 가 둘러싸 sintering 으로 결합합니다. 이렇게 만든 WC-Co 의 경도는 HRC 70-75, σ_compress 5000 MPa, KIC 10-20 MPa·√m 의 압도적 강도 + 약간의 인성을 갖습니다. Co 함량으로 hardness vs toughness 균형을 조절해요 (6% Co → 매우 단단·brittle, 20% Co → 부드럽지만 tough).\n\n응용: cutting tool — turning insert, milling cutter, drill bit (전 세계 절삭공구 시장의 90% 이상이 WC-Co), 광산 drill bit (rock drilling 의 button bit), 자동차 stamping die (high-volume sheet metal forming die), 정밀 micro mold (시계 watch 부품 forming), wear-resistant coating (HVOF spray WC-Co coating on landing gear), 그리고 ammunition penetrator (군용 KE penetrator 의 일부 grade, depleted uranium 대안). 정밀 측정 분야의 표준 reference block (Mitutoyo / Carl Zeiss 의 calibration block) 도 WC-Co 입니다. 가격은 $40-80/kg 이지만 cutting tool life 가 HSS 의 5-10 배라 cost-of-ownership 은 압도적으로 유리합니다."
+   "sections": {
+    "hook": "금속으로 굳힌 초경 세라믹 — 절삭공구와 드릴의 표준, 텅스텐 카바이드(초경합금).",
+    "origin": "텅스텐 카바이드(WC)는 매우 단단하지만 홀로는 부서진다. 20세기 초 독일에서 코발트를 접착제로 섞어 소결하는 공정(초경합금, cemented carbide)이 개발되며 실용화됐고, \"다이아몬드 같다\"는 뜻의 Widia 상표로 출시돼 절삭공구 산업을 바꿨다.",
+    "breakthrough": "극도로 단단한 WC 입자를 질긴 코발트가 붙잡아, 세라믹의 경도와 금속의 인성을 겸한다. 코발트 함량으로 성질을 조율하는데, 적으면(6%) 더 단단해 정밀 절삭에, 많으면(12%) 더 질겨 충격 공구에 맞는다 — 경도-인성의 눈금을 접착제 양으로 정한다.",
+    "adoption": "20세기 초 고속 절삭공구로 채택되며 고속도강을 밀어냈고, 광산·유정 드릴 비트와 내마모 부품으로 확산됐다.",
+    "today": "절삭공구 팁·드릴, 광산·유정 드릴 비트, 금형·노즐, 내마모 롤·다이에 쓰인다. 코발트 함량으로 절삭용(저Co)과 충격용(고Co)이 갈리며, 극한 정밀 절삭은 CBN·다이아몬드로 간다.",
+    "fun_fact": "볼펜 끝의 작은 볼도, 산악 지형을 뚫는 거대 드릴 비트도 같은 초경합금이다 — WC 입자를 코발트로 붙잡는 한 가지 원리가, 크기만 달리해 세상의 마모 지점을 지킨다."
+   }
   },
   "tungsten-rhenium-refractory": {
    "display": "Tungsten · Rhenium · Hafnium · Chromium · Vanadium (elemental refractories)",
@@ -6070,18 +6094,6 @@
     "fun_fact": "반도체 챔버 부품은 플라즈마에 깎여 나가는 소모품이다 — 이트리아 코팅은 그 소모 속도를 몇 배 늦춰, 파티클(오염 입자)과 교체 정지를 함께 줄인다."
    }
   },
-  "yttria-stabilized-zirconia": {
-   "display": "Yttria-Stabilized Zirconia",
-   "stable_ids": [
-    "CER-0032"
-   ],
-   "refs": [
-    "Garvie R C et al. (1975) \"Ceramic Steel?\", Nature 258 (foundational paper)",
-    "Hannink R H J et al. (2000) \"Transformation Toughening in Zirconia\", J Am Ceram Soc 83",
-    "Padture N P et al. (2002) \"Thermal Barrier Coatings\", Science 296"
-   ],
-   "legacy_text": "Yttria-Stabilized Zirconia (YSZ) 는 1970년대 영국 Magnesium Elektron 의 Ron Garvie (zirconia transformation toughening 의 창시자) 와 함께 발견된 zirconia 의 표준 stabilized form 입니다. ZrO₂ 에 Y₂O₃ 7-8% 를 첨가하면 cubic 또는 partially stabilized tetragonal phase 가 room temperature 에서 stable 해져 monoclinic 변태가 일어나지 않아요. 'transformation toughening' 의 mechanism 을 더 안정적으로 활용할 수 있는 form 입니다.\n\nYSZ 의 두 가지 main form: 8YSZ (Y₂O₃ 8 mol%, fully stabilized cubic, KIC 2-3 MPa·√m — 강도는 낮음) vs 3YSZ 또는 Y-TZP (Y₂O₃ 3 mol%, tetragonal polycrystal, KIC 6-10 MPa·√m — 강도가 우수). 응용에 따라 선택이 갈립니다.\n\n3YSZ (Y-TZP) 응용: dental crown (모든 CAD/CAM zirconia crown 의 표준 — Nobel Biocare, Straumann, Dentsply 의 dental zirconia), 의료 ball head (인공 hip femoral head — BIOLOX delta 의 일부 grade), 정밀 ceramic tool, 그리고 wear-resistant component. 8YSZ 응용: jet engine thermal barrier coating (TBC) — Inconel 단지에 plasma-sprayed 8YSZ coating 으로 hot section blade 표면 thermal protection. GE LEAP-1A · Pratt & Whitney F135 · RR Trent XWB 모두 8YSZ TBC 가 들어가요. 산소 sensor (자동차 lambda sensor 의 핵심 — engine 의 air-fuel ratio 측정), SOFC (solid oxide fuel cell) 의 electrolyte. 가격은 dental grade $200-500/kg (구획화된 piece 으로), TBC powder $30-50/kg."
-  },
   "zeron-100": {
    "display": "Zeron 100",
    "stable_ids": [
@@ -6122,6 +6134,7 @@
   "zirconia": {
    "display": "Zirconia",
    "stable_ids": [
+    "CER-0032",
     "CER-0033",
     "CER-0034"
    ],
@@ -6130,7 +6143,14 @@
     "Hannink R H J, Kelly P M, & Muddle B C (2000) \"Transformation Toughening in Zirconia-Containing Ceramics\", J Am Ceram Soc 83",
     "Chevalier J (2006) \"What future for zirconia as a biomaterial?\", Biomaterials 27"
    ],
-   "legacy_text": "Zirconia (ZrO₂) 의 공학 ceramic 으로의 발견은 1972년 호주 CSIRO 의 Ronald Garvie 와 Patrick Nicholson 이 'Ceramic Steel' 이라는 별명을 붙인 PSZ (Partially Stabilized Zirconia) 개발이 시작입니다. 순수 ZrO₂ 는 1170°C 와 2370°C 에서 결정 구조가 monoclinic → tetragonal → cubic 으로 변하면서 부피가 ±4% 변해 가공한 부품이 다 깨졌어요. Garvie 가 Y₂O₃ 또는 MgO 또는 CaO 를 도핑하면 이 transformation 을 메탈처럼 'transformation toughening' 으로 활용할 수 있다는 걸 발견했습니다.\n\nZrO₂ 의 KIC 가 10-15 MPa·√m — 일반 alumina (3-4) 의 3-4 배입니다. 균열이 진행할 때 균열 끝의 응력장이 tetragonal → monoclinic 변태를 induce 해 부피가 4% 증가하면서 균열을 닫아버리는 메커니즘이에요. 'ceramic 의 강철' 이라는 별명이 여기서 나왔습니다.\n\n응용: dental crown (CAD/CAM 기반 zirconia crown 이 2010년대 이후 표준), 인공 hip femoral head (BIOLOX delta — ZTA, 알루미나-지르코니아 composite, hip 의 'ball'), TBC (thermal barrier coating) — jet engine turbine blade 표면의 YSZ coating (Y 7-8% stabilized zirconia) 이 blade 의 cooling 효율 + creep 수명을 결정적으로 늘립니다, 정밀 가공 ceramic tool (textile thread guide), 산소 sensor (자동차 lambda sensor 의 YSZ 전해질). 가격은 alumina ($10/kg) 의 5 배 ($50-100/kg) 이지만 hip implant + dental 시장에서 비용 정당화가 충분합니다."
+   "sections": {
+    "hook": "깨지지 않는 세라믹 — 상변태로 균열을 스스로 막는 \"세라믹 강철\" 지르코니아.",
+    "origin": "지르코니아(ZrO₂)는 순수하면 냉각 중 결정 구조가 바뀌며 부피가 변해 부품이 깨졌다. 1970년대 호주 연구진이 이트리아·마그네시아·칼시아를 도핑해 이 변태를 제어한 부분안정화(PSZ)·정방정(TZP)을 개발하며, \"세라믹 강철(ceramic steel)\"이라 불릴 만큼 질긴 세라믹이 됐다. 이트리아 8몰% 완전안정화(YSZ)는 산소센서·코팅용이다.",
+    "breakthrough": "핵심은 변태 강화다 — 균열 끝의 응력이 준안정한 정방정 입자를 단사정으로 변태시키며 부피가 팽창해, 그 팽창이 균열을 눌러 막는다. 그 결과 세라믹 중 가장 높은 파괴인성과 굽힘강도를 낸다. 다만 저온·습윤에서 서서히 열화(LTD)하는 약점이 있어 조성으로 관리한다.",
+    "adoption": "1980년대 이후 절삭공구·다이·펌프 부품과 치과 크라운, 산소센서·연료전지 전해질(YSZ)로 채택이 확산됐다.",
+    "today": "치과 크라운·임플란트, 세라믹 칼·가위, 펌프·밸브 부품, 산소센서·SOFC 전해질(YSZ), 열차폐 코팅에 쓰인다. 강성·경도가 더 필요하면 알루미나·ZTA 로, 극한 내마모는 초경합금으로 간다.",
+    "fun_fact": "\"안 깨지는 세라믹 칼\"의 비밀이 이 변태 강화다 — 균열이 생기려는 순간 결정이 부풀어 그 틈을 스스로 눌러 막으니, 세라믹이면서도 금속처럼 균열에 버틴다."
+   }
   },
   "zirconium-alloys": {
    "display": "Zirconium Alloys (Zircaloy-2 / Zircaloy-4 / Zr-2.5Nb 705)",
@@ -6165,7 +6185,14 @@
     "CeramTec BIOLOX delta Tech Data",
     "Stevens R (1986) \"Zirconia and Zirconia Ceramics\", 2nd ed., Magnesium Elektron Publ"
    ],
-   "legacy_text": "ZTA (Zirconia-Toughened Alumina) 는 1970년대 호주 CSIRO 의 Ron Garvie 와 동료들이 발견한 alumina + zirconia 복합 ceramic 입니다. Pure alumina (KIC 3-4) 의 brittleness 를 보완하기 위해 미세 ZrO₂ 입자 (15-25 vol%) 를 분산시켜 transformation toughening mechanism 으로 KIC 를 6-8 MPa·√m 까지 끌어올린 form 이에요.\n\nZTA 의 메커니즘: alumina matrix 안에 분산된 tetragonal ZrO₂ 입자가 균열 진행 시 균열 끝의 응력장이 tetragonal → monoclinic 변태를 induce 해 부피가 4% 증가하면서 균열을 닫음. Pure ZrO₂ 보다는 toughening 효과가 작지만 alumina 의 cost + hardness 를 그대로 유지하면서 인성을 강화할 수 있어요.\n\n응용: 의료 implant ball head — BIOLOX delta (CeramTec) 가 가장 유명한 brand. 이건 Al₂O₃ matrix + ZrO₂ 25 vol% + Cr₂O₃ 흔적 + SrAl₁₂O₁₉ platelet 의 다중 강화 ceramic. 인공 hip 의 28mm/32mm/36mm femoral head 가 거의 모두 BIOLOX delta — pure alumina 의 brittle 한 'BIOLOX forte' 를 대체했어요. 그 외 응용: 산업 grinding media (ball mill 의 grinding ball), wear-resistant pump impeller, 정밀 cutting tool 의 일부 grade, 그리고 일반 ceramic armor (BIOLOX 가 의료 표준이지만 산업 grade ZTA 가 lighter armor 에도 쓰입니다)."
+   "sections": {
+    "hook": "알루미나에 지르코니아를 섞어 질기게 만든 복합 세라믹 — 인공관절·내마모의 ZTA.",
+    "origin": "ZTA(지르코니아 강화 알루미나)는 값싸고 단단하지만 잘 깨지는 알루미나의 약점을 보완하려, 알루미나 바탕에 지르코니아 입자를 15~25% 분산시킨 복합 세라믹이다. 1970년대 지르코니아 변태 강화가 발견된 뒤, 그 원리를 알루미나에 적용한 결과다.",
+    "breakthrough": "알루미나 속에 분산된 준안정 지르코니아 입자가, 균열이 다가오면 변태·팽창하며 균열을 눌러 막는다 — 알루미나의 경도·강성·값을 유지하면서 파괴인성을 두 배 가까이 끌어올린다. 순수 알루미나와 순수 지르코니아 사이의 절충점이다.",
+    "adoption": "내마모 부품과 절삭공구로 채택된 뒤, 인공 고관절 볼헤드 재료로 확산되며 의료 세라믹의 한 축이 됐다.",
+    "today": "인공관절 볼헤드, 내마모 라이너·노즐·다이, 절삭 인서트에 쓰인다. 더 높은 인성은 지르코니아로, 더 높은 경도·강성·값은 알루미나로 갈린다.",
+    "fun_fact": "오래 쓰는 인공 고관절의 볼헤드 상당수가 ZTA 다 — 알루미나만큼 단단해 잘 닳지 않으면서 지르코니아만큼 잘 안 깨지는, 두 세라믹의 장점을 한 몸에 담은 절충이다."
+   }
   }
  }
 }
