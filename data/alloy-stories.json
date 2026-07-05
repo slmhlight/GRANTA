@@ -4272,13 +4272,22 @@
     "Kohan M I (1995) Nylon Plastics Handbook, Hanser",
     "BASF Ultramid B (PA6) Tech Data Sheet"
    ],
-   "legacy_text": "Nylon 6 (또는 polyamide 6, PA6) 는 1938년 독일 IG Farben 의 Paul Schlack 이 만든 합성 고분자입니다. 미국 DuPont 의 Wallace Carothers 가 1935년 Nylon 6,6 을 발표한 직후, Schlack 이 lactam (caprolactam) 의 ring-opening polymerization 으로 더 간단한 단일 monomer 합성 경로를 발견했어요. 이게 PA6 의 시작이고, 1939년 IG Farben 이 'Perlon' 이라는 trade name 으로 stocking 산업에 출시했습니다.\n\nPA6 와 PA66 의 화학적 차이는 monomer 1 종 (caprolactam) vs 2 종 (hexamethylenediamine + adipic acid) 이고, 결과적으로 PA6 의 Tm 이 220°C (PA66 의 260°C 보다 40°C 낮음). 융점이 낮은 만큼 가공이 더 쉽고 가격이 약간 더 저렴해요. σy 는 PA6 가 약 60-80 MPa · UTS 70-90 MPa 정도로 일반 commodity polymer 중에서 가장 높은 편입니다.\n\n응용은 거의 무한합니다. textile (stocking, sock, swimsuit — Schlack 의 original 응용), 자동차 underhood (intake manifold cover, radiator end-cap — 보통 30-50% glass-fiber 강화), 산업 gear (low-load gear, 카메라 lens helicoid), 자전거 chain의 일부, fishing line (monofilament line), 그리고 가전 power tool housing (Bosch / Makita drill body). 단점은 수분 흡수 (24h, dry-as-molded 에서 8% 까지 흡수) — 흡수하면 σy 가 50% 떨어지고 dimension 이 1.5% 변합니다. 이 때문에 dimension critical 부품에는 conditioned (50% RH balanced) 상태로 spec 을 매기거나 PA66 또는 PA12 (수분 흡수 1/4) 로 대체합니다."
+   "sections": {
+    "hook": "스타킹에서 시작해 엔지니어링 플라스틱이 된 나일론 — 단일 단량체로 만드는 PA6.",
+    "origin": "나일론 6(PA6)는 1938년 독일 IG Farben 의 파울 슐라크가 개발했다. DuPont 이 두 종류 단량체로 나일론 66 을 만든 직후, 슐라크는 카프로락탐이라는 단일 단량체의 고리 열림 중합으로 더 간단한 경로를 찾았다 — 이것이 PA6 로, \"Perlon\" 이라는 이름으로 섬유 산업에 나왔다.",
+    "breakthrough": "카프로락탐 하나로 중합되니 공정이 단순하고, PA66 보다 융점이 조금 낮은 대신 인성·성형성·흡습이 크다. 질기고 내마모·자기윤활이 좋아 섬유를 넘어 기어·부싱 같은 엔지니어링 부품으로 넓어졌다. 유리섬유를 넣으면 강성이 크게 오른다.",
+    "adoption": "2차 대전기 섬유·타이어 코드로 대량 채택된 뒤, 전후 기어·부싱 같은 기계 부품으로 확산되며 엔지니어링 플라스틱의 반열에 올랐다.",
+    "today": "기어·부싱·롤러, 섬유·타이어 코드, 전동공구·가전 부품에 쓰인다. 흡습에 따른 치수 변화가 약점이라 정밀·건조 환경은 PA66·POM 으로, 고온·강성은 유리강화 나일론이나 PA46·PPA 로 간다.",
+    "fun_fact": "PA6 의 옛 이름 Perlon 은 나일론에 맞선 독일판 상표였다 — 같은 시기 대서양 양편에서 두 종류의 나일론(PA6·PA66)이 거의 동시에 태어나, 스타킹 시장을 두고 경쟁했다."
+   }
   },
   "nylon-6-gf30": {
    "display": "Nylon 6 GF30",
    "stable_ids": [
     "POL-0058",
-    "POL-0071"
+    "POL-0071",
+    "POL-0077",
+    "POL-0078"
    ],
    "refs": [
     "Brydson J A (1999) Plastics Materials 7th ed., Butterworth-Heinemann",
@@ -4288,7 +4297,7 @@
    "sections": {
     "hook": "나일론에 유리섬유 30% — 값 30%를 더 내면 강도가 두 배가 되는 금속 대체의 공식.",
     "origin": "나일론(PA6)은 질기고 내마모가 좋지만 강성이 아쉽고 수분을 먹으면 치수가 변한다. 여기에 잘게 자른 유리섬유를 30% 반죽해 사출하면, 섬유가 흐름 방향으로 정렬하며 강성·강도·내열이 도약한다 — 1960년대에 본격 상품화된 이 배합(PA6-GF30)은 이후 \"엔지니어링 플라스틱의 기본 강화 공식\"이 됐다.",
-    "breakthrough": "유리섬유 30%로 탄성률은 3배 안팎, 강도는 두 배로 뛰고, 열변형온도는 200°C 급으로 올라간다. 수분에 의한 치수 변화도 크게 줄어, 엔진룸처럼 덥고 진동하는 곳의 금속 브래킷을 대체할 수 있게 됐다. 같은 문법의 현대적 변주가 3D 프린팅용 Onyx(잘게 썬 탄소섬유를 나일론에 섞은 Markforged 의 소재)로, 프린팅 치구·브래킷 시장을 열었다.",
+    "breakthrough": "유리섬유(PA6-GF30·고충전 GF65)로 탄성률은 3배 안팎, 강도는 두 배로 뛰고, 열변형온도는 200°C 급으로 올라간다. 수분에 의한 치수 변화도 크게 줄어, 엔진룸처럼 덥고 진동하는 곳의 금속 브래킷을 대체할 수 있게 됐다. 같은 문법의 현대적 변주가 3D 프린팅용 Onyx(잘게 썬 탄소섬유를 나일론에 섞은 Markforged 의 소재)로, 프린팅 치구·브래킷 시장을 열었다.",
     "adoption": "1970~80년대 자동차 언더후드에서 금속 브래킷·커버를 대체하며 대량 채택됐고, 흡기 매니폴드의 플라스틱화(1990년대 확산)가 상징적 이정표가 됐다.",
     "today": "자동차 흡기 매니폴드·엔진 커버·기어시프트 하우징, EV 충전 커넥터 하우징, 전동공구 몸체, 가전 모터 하우징이 본진이다. 미끄럼 마모 부위에는 유리섬유가 상대를 갉아먹어 POM 이나 PTFE 배합 나일론이 낫고, 더 높은 온도·치수 요구는 PA46·PPA 로 올라간다.",
     "fun_fact": "유리섬유를 넣은 사출품은 흐른 방향으로 강하고 가로로는 약한 이방성 재료다 — 그래서 금형의 게이트 위치가 곧 부품의 강도 설계가 되고, 해석 엔지니어는 섬유가 어느 쪽으로 누웠는지부터 본다."
@@ -4298,7 +4307,9 @@
    "display": "Nylon 66",
    "stable_ids": [
     "POL-0057",
-    "POL-0072"
+    "POL-0068",
+    "POL-0072",
+    "POL-0079"
    ],
    "refs": [
     "Carothers W H (1938) US Patent 2,130,948 \"Diamine-dicarboxylic acid salt and process of preparing same\"",
@@ -4306,7 +4317,14 @@
     "Kohan M I (1995) Nylon Plastics Handbook, Hanser",
     "Smithsonian American History Museum \"Nylon: A Revolution in Textiles\" online exhibit"
    ],
-   "legacy_text": "1935년 2월 28일, DuPont 의 월리스 흄 캐러더스 (Wallace Hume Carothers) 가 Wilmington 실험실에서 hexamethylene diamine 과 adipic acid 를 reflux 시켜 처음 만든 polyamide 66 (HMDA + AA, 둘 다 carbon 6 → 66) — 인류 최초의 합성 섬유였어요. 'Nylon' 이라는 명칭은 DuPont 마케팅 부서가 'Nuron' (no-run, 올 풀림 없음) → 'Nilon' → 끝에 -on 을 붙인 형태로 합의됐고, 1939년 New York World's Fair 에서 'Nylons' (스타킹) 으로 데뷔하자마자 첫날 4백만 켤레가 매진됐다는 전설이 있죠.\n\n2차 대전 동안 모든 미군 낙하산이 nylon 66 (이전엔 silk) 으로 바뀌었고, 전후 1953년부터는 monomers 가 caprolactam (PA6, IG Farben 1938) 과 분리돼 PA66 (DuPont, BASF) / PA6 (Toray, Honeywell) 의 양강 구도로 자리잡았어요. 엔지니어링 grade 로는 σ_y 80 MPa, T_m 263°C — 자동차 인테이크 매니폴드 (Ford EcoBoost, Bosch), 라디에이터 엔드탱크 (Behr), 전기 커넥터 하우징 (TE Connectivity), 키친 식기, 산업 케이블 타이의 표준이 됐습니다. 흡수율 1.2% 에 따른 dimensional 변화가 한계이지만 GF30/35 강화 grade (Zytel 70G35) 가 그걸 보완해 줍니다."
+   "sections": {
+    "hook": "인류 최초의 합성 섬유 — 스타킹과 낙하산을 거쳐 엔지니어링 플라스틱이 된 나일론 66.",
+    "origin": "나일론 66 은 1935년 DuPont 의 월리스 캐러더스가 두 종류의 여섯 탄소 단량체(헥사메틸렌디아민+아디프산)를 반응시켜 만든 인류 최초의 합성 섬유다. 두 성분이 모두 탄소 6이라 \"66\"이 됐고, 1939년 스타킹으로 데뷔하자마자 폭발적으로 팔렸다.",
+    "breakthrough": "규칙적인 사슬이 촘촘한 결정을 이뤄 PA6 보다 융점·강성·내열이 높다. 질기고 내마모가 좋아 섬유를 넘어 기계·전장 부품으로 넓어졌고, 유리섬유를 30% 넣은 강화 grade(PA66-GF30, Zytel·Ultramid 등 상표)는 금속 브래킷을 대체하는 언더후드 부품의 표준이 됐다.",
+    "adoption": "2차 대전에서 낙하산·타이어 코드로 대량 채택된 뒤, 전후 자동차 언더후드와 전장 부품으로 확산됐다.",
+    "today": "자동차 흡기·엔진 커버(유리강화), 전장 커넥터, 섬유·카펫, 기어·부싱에 쓰인다. PA6 보다 내열·강성이 낫지만 값이 조금 높고, 더 뜨거우면 PA46·PPA·PPS 로 간다.",
+    "fun_fact": "나일론이라는 이름은 \"올이 안 풀린다(no-run)\"에서 출발했다는 이야기가 유명하다 — 데뷔한 스타킹이 첫날 수백만 켤레가 팔렸다는 전설과 함께, 합성 섬유 시대를 연 상표가 됐다."
+   }
   },
   "ods-superalloys": {
    "display": "ODS Superalloys (MA754 / GRX-810)",
@@ -4400,20 +4418,14 @@
     "Rilsan PA11 Tech Bulletin (verified 2024)",
     "Schmid M (2018) Laser Sintering with Plastics, Hanser"
    ],
-   "legacy_text": "PA850 은 미국 Arkema (ALM = Arkema Advanced Material) 의 SLS 용 PA11 powder 입니다. PA12 (PA 2200) 가 SLS 시장의 표준이지만 PA12 는 fossil-fuel 유래 (lauryl lactam 의 raw material 이 oil), PA11 은 castor oil (피마자유) 유래 — 100% bio-based polymer 입니다. 1947년 ATOFINA (현 Arkema) 가 PA11 (Rilsan) 의 첫 산업 batch 를 출시했고, 2010년 ALM 이 PA11 의 SLS-grade powder 를 'PA850' 으로 commercial launch 했어요.\n\nPA850 의 특성: bio-based (castor oil → C11 dicarboxylic acid → PA11), σy 50 MPa, UTS 55 MPa, El 50% (PA12 의 2배 — PA11 의 본질적 flexibility), Tm 187°C. SLS print 의 결과는 PA12 와 거의 동등하지만 El 이 훨씬 높아 'flexible part' 응용에 압도적으로 유리.\n\n응용: 의수/의지의 socket interface (인체 contact + flex 필요), 정밀 medical splint, 의료 patient-specific guide (FDA Class I), 자동차 flexible duct, 그리고 sustainable 의식이 강한 brand 의 marketing campaign (Adidas 의 bio-based midsole prototype 등). 가격은 fresh PA850 $80-130/kg 으로 PA12 PA 2200 의 약 2 배. 단점은 PA11 이 PA12 보다 hygroscopic (수분 흡수 1.9% — PA12 의 0.7% 보다 3배 많음) — 보관 + 가공 시 dry-as-molded 유지가 더 까다롭습니다."
-  },
-  "pa12-cf-eos-hp-3": {
-   "display": "PA12-CF EOS HP 3",
-   "stable_ids": [
-    "POL-0069",
-    "POL-0070"
-   ],
-   "refs": [
-    "EOS PA-CF Tech Data",
-    "Yan C et al. (2011) \"Preparation, characterisation and processing of carbon fibre/polyamide-12 composites\", Compos Sci Technol 71",
-    "Schmid M (2018) Laser Sintering with Plastics, Hanser"
-   ],
-   "legacy_text": "PA12-CF (또는 EOS PA-CF) 는 EOS 의 carbon-fiber reinforced PA12 SLS powder 입니다. PA 2200 base 에 chopped carbon fiber (3-5 mm 길이) 를 0.1-1% 혼합한 grade 로 'HP 3' 는 EOS 의 'high-performance' grade 3 의 표기. 2014년 EOS 가 commercial launch 했고, FDM 의 PEEK-CF 와 함께 'CF-reinforced AM polymer' 의 양대 산맥이 됐어요.\n\n특성: σy 70 MPa (base PA12 의 1.5배), UTS 76 MPa, modulus 5.5 GPa (base 의 1.7배), El 12% (base 의 1/2 — CF brittleness), thermal conductivity 0.4 W/m·K (base 의 1.5배 → heat dissipation 약간 개선). CF anisotropy 가 SLS 의 random orientation 때문에 FDM 의 highly aligned CF 보다 작아 거의 isotropic 강화 효과.\n\n응용: 자동차 prototype + low-volume production (BMW · Audi 의 일부 metal-replacement bracket prototype), 정밀 measurement jig (CF 의 low CTE → dimensional stable), 산업 dimensionally critical fixture, 그리고 EV charging connector housing (열 전도 + 강도). 가격은 fresh $100-150/kg 으로 PA 2200 ($50-80/kg) 의 2 배. PA12-CF 의 EMI shielding 도 일부 응용에서 매력 (CF 가 electrical conductive)."
+   "sections": {
+    "hook": "피마자유로 만든 바이오 나일론 — 흡습이 적고 질긴 PA11(Rilsan), 3D 프린팅 친환경 소재.",
+    "origin": "PA11(나일론 11, Rilsan)은 석유가 아니라 피마자유(캐스터유)에서 얻는 100% 바이오 유래 나일론이다. 20세기 중반 프랑스에서 상용화됐고, 긴 사슬 구조 덕에 일반 나일론보다 흡습이 적고 저온 충격에 강하다. 최근 SLS 3D 프린팅용 분말(PA850)로 다시 주목받았다.",
+    "breakthrough": "긴 탄화수소 사슬이 흡습을 줄여 습한 환경에서도 치수가 안정하고, 유연하면서 저온 충격·내약품이 좋다. 원료가 재생 가능한 식물성이라, 성능과 친환경을 함께 요구하는 곳에 맞는다 — SLS 프린팅에서는 PA12 의 바이오 대안으로 쓰인다.",
+    "adoption": "연료·유압 배관(흡습·내약품)과 케이블 피복으로 오래 쓰였고, 2010년대 이후 SLS 3D 프린팅 분말(PA850)로 채택이 확산됐다.",
+    "today": "자동차 연료·브레이크 배관, 케이블 피복, 유연 튜브, SLS 프린팅 기능 부품에 쓰인다. 값이 PA12 보다 비싸, 바이오 유래나 저흡습·저온 인성이 값을 하는 곳에 집중된다.",
+    "fun_fact": "PA11 은 식물(피마자)에서 오는 몇 안 되는 엔지니어링 플라스틱이다 — 석유 없이 만든 나일론이라, 친환경 3D 프린팅과 자동차 연료 배관에서 그 출신이 강점이 된다."
+   }
   },
   "pa12-eos-pa-2200": {
    "display": "PA12 EOS PA 2200",
@@ -4421,6 +4433,9 @@
     "POL-0062",
     "POL-0063",
     "POL-0064",
+    "POL-0065",
+    "POL-0069",
+    "POL-0070",
     "POL-0073",
     "POL-0074",
     "POL-0075",
@@ -4436,69 +4451,9 @@
     "origin": "분말 베드에 레이저를 쏘아 층층이 굳히는 SLS 프린팅은 분말의 품질이 곧 부품의 품질이다. 1990년대 후반 EOS 가 자사 시스템용으로 다듬은 PA12 분말 PA 2200 은 입자 크기와 형상, 용융 거동을 공정에 맞춰 최적화해 SLS 폴리머의 산업 표준이 됐다.",
     "breakthrough": "PA12 는 흡습이 적고 용융 창이 넓어 레이저 소결에 유난히 관대하다. 프린팅 결과물은 밀도 93~95%에 연신율 20% 안팎으로, FDM 과 달리 방향에 따른 강도 차이가 작아 \"진짜 기능 부품\"을 뽑을 수 있다. 사용한 분말에 새 분말을 섞어 다시 쓰는 리프레시 관리가 품질 균일성의 핵심 노하우다.",
     "adoption": "2000년대 SLS 서비스뷰로들이 PA 2200 을 사실상 공용 재료로 삼으면서 \"3D 프린팅 나일론\"의 대명사가 됐고, 2016년 HP MJF 가 같은 PA12 계로 합류하며 표준 지위가 굳어졌다.",
-    "today": "자동차 시작품과 맞춤 내장, 의지·보조기·맞춤 인솔, 산업 치구, 소량 양산 부품까지 — 서포트 없는 형상 자유도가 값을 하는 곳에 쓰인다. HP 의 MJF 프린팅도 거의 같은 PA12 를 쓰므로, 나일론 12 는 폴리머 적층제조 전체의 공용어가 됐다.",
+    "today": "자동차 시작품과 맞춤 내장, 유리·탄소섬유 강화(PA12-GF·PA12-CF)와 바이오 grade(PA1101), 의지·보조기·맞춤 인솔, 산업 치구, 소량 양산 부품까지 — 서포트 없는 형상 자유도가 값을 하는 곳에 쓰인다. HP 의 MJF 프린팅도 거의 같은 PA12 를 쓰므로, 나일론 12 는 폴리머 적층제조 전체의 공용어가 됐다.",
     "fun_fact": "SLS 는 서포트 구조가 필요 없다 — 아직 굳지 않은 주변 분말이 스스로 지지대가 되기 때문이다. 프린트가 끝나면 부품을 분말 더미에서 발굴하듯 꺼내는데, 그 장면이 꼭 고고학 발굴 같다."
    }
-  },
-  "pa12-eos-pa1101": {
-   "display": "PA12 EOS PA1101",
-   "stable_ids": [
-    "POL-0065"
-   ],
-   "refs": [
-    "EOS PA1101 Tech Data",
-    "Rilsan PA11 Tech Bulletin",
-    "Goodridge R D et al. (2012) \"Laser sintering of polymers\", Prog Mater Sci 57"
-   ],
-   "legacy_text": "PA1101 은 EOS 의 PA11 (bio-based) SLS powder 입니다. 사실상 EOS 가 ALM 의 PA850 의 alternative 로 자체 개발한 PA11 grade 이고, 2018년 commercial launch 됐어요. 표기 'PA1101' 의 1101 은 PA11 (carbon-11 polymer) 의 type 1 grade 를 의미.\n\n특성: bio-based (피마자유 유래 PA11) · σy 47 MPa · UTS 52 MPa · El 47% (XY) · Tm 187°C. PA850 (ALM) 과 거의 동일하지만 EOS 의 EOSINT P 시스템에 powder bed 균일성이 최적화되어 있습니다. EOS 의 'Performance Polymer' 시리즈로 분류되며 PA12 PA 2200 의 flexible alternative 로 marketing 됩니다.\n\n응용: 의수/의지 (high-flex 의 prosthetic socket — Otto Bock 의 일부 custom socket), 자동차 flexible duct (Volkswagen · BMW 의 prototype + low-volume), 의료 patient-specific guide (FDA Class I — 임시 사용), 미술 sculpture 의 flexible 부분, sport 의류 prototype (custom shoe midsole, Adidas Futurecraft 의 일부 prototype generation). 가격은 fresh $80-110/kg, refreshed (30% blend) $50/kg. PA11 시장 점유율은 PA12 보다 작지만 (전체 SLS polymer 시장의 10-15%) bio-based ESG 의식의 확산으로 점진적으로 성장 중입니다."
-  },
-  "pa6-gf": {
-   "display": "PA6-GF",
-   "stable_ids": [
-    "POL-0077"
-   ],
-   "refs": [
-    "BASF Ultramid B3WG6 (PA6-GF30) Tech Data Sheet",
-    "Lanxess Durethan BKV30 Tech Data",
-    "Kohan M I (1995) Nylon Plastics Handbook"
-   ],
-   "legacy_text": "PA6-GF 의 일반 표기 (보통 PA6-GF30 또는 GF15, GF50 으로 specific) 는 Nylon 6 의 glass-fiber reinforced grade 입니다. R149 에서 별도 entry 로 'Nylon 6 GF30' 도 있지만 'PA6-GF' 는 generic 표기에 가깝습니다. 1955년 Owens-Corning 의 chopped strand mat 기술이 PA6 강화 가능성을 처음 입증했고, 이후 BASF / DSM / Lanxess 가 다양한 GF 함량 grade 를 상품화했어요.\n\nGF 함량별 특성: GF15 (15%) 는 mild strength 강화 + 가공성 우수, GF30 은 표준 strength-stiffness 균형, GF50 (50%) 은 거의 metal 수준의 강성 (15 GPa) 이지만 가공 cycle 이 길고 viscosity 가 높아 mold flow 어려움. GF65 (65%) 는 극도 강화이지만 거의 사용 불가능 수준의 가공성.\n\n응용은 자동차 + 산업 polymer 의 표준입니다. 자동차 engine intake manifold (BMW B58 engine 의 intake plenum), gear shifter housing (Mercedes Benz 6-speed manual 의 일부), EV charging connector housing (CCS combo plug), 자전거 derailleur cage, 산업 pump housing, 그리고 power tool body (Bosch / Makita / Milwaukee). PA6 의 흡수성 (8% max) 이 강화 후 1/3 로 줄어 dimensional stability 가 결정적으로 개선되어 'metal replacement' 의 표준 응용이 됐어요. 단점은 GF 의 anisotropy + flow direction 으로 인한 mold 설계의 복잡성, 그리고 GF 의 마모성."
-  },
-  "pa6-gf65": {
-   "display": "PA6-GF65",
-   "stable_ids": [
-    "POL-0078"
-   ],
-   "refs": [
-    "BASF Ultramid B3WG12 (PA6-GF60) Tech Data",
-    "DSM Stanyl ForTii Tech Data",
-    "Kohan M I (1995) Nylon Plastics Handbook"
-   ],
-   "legacy_text": "PA6-GF65 는 PA6 의 가장 강화된 GF 함량 (65 wt%) grade 입니다. BASF / DSM / Lanxess 가 각각 'Ultramid B3WG12' 또는 'Stanyl ForTii' 등 specific grade 로 commercial launch 한 high-end engineering polymer. GF 65% 가 들어가면서 metal 의 일부 응용에서 'plastic 대체' 가 가능한 수준의 강도를 냅니다.\n\n특성: σy 280 MPa (base PA6 의 4배), UTS 320 MPa, modulus 25 GPa (carbon steel 의 1/8), El 1.5% (extremely brittle — base PA6 의 1/30), Tg 60°C, HDT 220°C, density 1.65 g/cm³. GF 의 mold flow 가 매우 어렵고 가공 cycle 이 base PA6 의 2 배 이상.\n\n응용: 자동차 oil pan (저-end engine 의 metal aluminum oil pan 의 대체), structural underhood bracket, 산업 high-load gear housing, EV charging plug 의 high-power cooling shroud (수분 환경 가능성 때문에 PA6 흡수성 단점이 GF 강화로 1/3 줄어듦), 그리고 군용 portable equipment 의 structural housing. 가격은 GF30 grade 의 1.5-2 배인 $8-12/kg. 단점은 El 1.5% 로 매우 brittle 한 점인데, 'plastic 의 metal-like 강도' 의 trade-off 이고 진동 / 충격이 거의 없는 정적 부하 응용에만 적합합니다."
-  },
-  "pa66-gf30-zytel-70g30": {
-   "display": "PA66-GF30 Zytel 70G30",
-   "stable_ids": [
-    "POL-0079"
-   ],
-   "refs": [
-    "DuPont Zytel 70G30 Tech Data Sheet",
-    "Kohan M I (1995) Nylon Plastics Handbook",
-    "Brydson J A (1999) Plastics Materials 7th ed."
-   ],
-   "legacy_text": "Zytel 70G30 은 DuPont 의 PA66 + 30% glass fiber 강화 grade 입니다. DuPont 는 1939년 첫 PA66 (Wallace Carothers 의 발명) 의 commercial launch 후 'Zytel' brand 로 모든 PA66 응용 grade 를 분류했고, '70G30' 의 70 은 PA66, G 는 glass fiber, 30 은 30 wt% 강화를 의미합니다.\n\n특성: σy 165 MPa (base PA66 의 2배), UTS 200 MPa, modulus 10 GPa (base 의 3배), El 3% (base 의 1/15 — GF brittleness), Tg 65°C, HDT @ 1.82 MPa 250°C (base PA66 의 70°C 의 3배 이상). GF anisotropy 가 mold flow direction 으로 정렬되어 strength 의 방향 의존성이 있음.\n\n응용: 자동차 engine intake manifold (BMW · Audi · Toyota 의 표준 underhood plastic — 1990년대 이후 aluminum intake manifold 의 80% 가 PA66-GF30 으로 대체), 산업 chain saw housing (Stihl · Husqvarna 의 표준), 가전 washing machine outer drum 의 일부 grade, 자동차 fan blade (cooling fan), 그리고 power tool housing 의 일부. 가격은 base PA66 $4/kg → GF30 강화 후 $5-7/kg 으로 30% 인상되지만 strength 가 2배인 효과적 metal replacement 의 표준 polymer 입니다."
-  },
-  "pa66-ultramid-a3k": {
-   "display": "PA66 Ultramid A3K",
-   "stable_ids": [
-    "POL-0068"
-   ],
-   "refs": [
-    "BASF Ultramid A3K Tech Data Sheet",
-    "Kohan M I (1995) Nylon Plastics Handbook, Hanser",
-    "Brydson J A (1999) Plastics Materials 7th ed."
-   ],
-   "legacy_text": "Ultramid A3K 는 BASF 의 PA66 (Nylon 6,6) unfilled, easy-flow grade 입니다. BASF 는 1968년 'Ultramid' brand 로 PA6 와 PA66 의 commercial polymer 라인을 출시했고, 'A3K' 는 PA66 의 medium viscosity, 다목적 사출 grade 를 의미. PA66 의 'A' 는 BASF 의 PA66 family 표기.\n\nPA66 vs PA6: PA66 의 Tm 260°C 가 PA6 의 220°C 보다 40°C 높아 high-temperature 응용에 유리. σy 85 MPa, UTS 85 MPa, El 50% — engineering polymer 중 strength 와 toughness 의 균형이 우수. 흡수성은 PA6 (8%) 보다 낮은 6%.\n\n응용: 자동차 underhood (Volkswagen · BMW · Mercedes 의 표준 engine compartment polymer — coolant tank, radiator end-cap, fan blade 의 일부), 산업 gear (high-load gear), 자전거 chain link 의 일부 (특정 brand 의 일부 chain plate), 식품 cookware utensil (식기 spatula, ladle), 그리고 군용 helmet 의 일부 layer (combat helmet 의 inner layer 의 일부). PA66 vs PA6 선택: 가격 (PA66 $4-5/kg, PA6 $3/kg) + 흡수 + Tm 의 trade-off 입니다. PA6 가 가격 / 가공 cycle 의 우위, PA66 가 thermal stability + 흡수 저항의 우위."
   },
   "pai": {
    "display": "PAI (Torlon)",
