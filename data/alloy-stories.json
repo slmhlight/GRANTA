@@ -12,7 +12,14 @@
     "AK Steel \"15-5 PH Stainless Steel Product Data Bulletin\" (2007)",
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
    ],
-   "legacy_text": "1962년 미국 Armco Steel 이 17-4 PH (1944) 의 약점 — austenite δ-ferrite 잔류로 가공 방향에 따른 강도 차이 — 를 해결하려고 새 PH stainless 를 시도했어요. Cr 15% + Ni 5% + Cu 4% — Cr 을 17 → 15% 로 줄이고 Ni 를 4 → 5% 로 늘려 δ-ferrite 를 거의 없앤 게 핵심이었죠. 결과 — 17-4 와 동일한 강도 + 약 30% 더 좋은 transverse impact + 통일된 가공성을 얻었습니다.\n\n응용 — 항공 — F-22 의 hydraulic actuator (15-5 가 17-4 보다 isotropy 가 좋아 정밀 forging 에 유리), Boeing 777 의 일부 fastener (Hi-Lok), 우주 — NASA SLS 의 LH2 pump shaft. 군 — M249 SAW 의 일부 internal part. 의료 — Stryker 의 일부 spinal hardware (인체 인장-피로 환경에서 17-4 보다 우수). LPBF 분말로도 인기 — 17-4 PH 다음으로 인기 있는 stainless powder 가 15-5 PH 입니다.\n\n흥미. 17-4 와 15-5 의 family relationship 은 stainless 산업에서 'sister grades' 로 통해요. 같은 시효 단계 (H900, H1025, H1075, H1100, H1150) 를 공유하고, 가격도 비슷하고, 응용 영역도 거의 겹치죠. 다만 'forging direction 의 인성 균일성' 이 결정적인 응용 (대형 항공 단조) 에서는 15-5 가 거의 항상 선택됩니다."
+   "sections": {
+    "hook": "17-4 PH의 자매 — 델타 페라이트를 없애 방향에 상관없이 균일하게 강한 PH 스테인리스.",
+    "origin": "15-5 PH 는 1960년대 미국 Armco 가 17-4 PH 의 약점을 고쳐 내놓은 석출경화 스테인리스다. 17-4 는 델타 페라이트가 남아 가공 방향에 따라 인성이 달라졌는데, 크롬을 15%로 줄이고 니켈을 5%로 늘려 이 페라이트를 거의 없앴다 — 같은 강도에 방향 균일성을 더한 것이다.",
+    "breakthrough": "17-4 와 같은 구리 석출 경화 원리를 쓰되, 델타 페라이트를 제거해 단면 어느 방향으로든 균일한 인성을 낸다. 시효 온도(H900~H1150)로 강도를 조율하는 것도 같아, 대형 항공 단조처럼 방향 균일성이 결정적인 부품에서 17-4 를 대체한다.",
+    "adoption": "방향 균일성이 중요한 항공 단조 부품(액추에이터·체결구)에 채택되며 자리 잡았고, 우주·의료 부품으로 확산됐다.",
+    "today": "항공 유압 액추에이터·체결구, 로켓 펌프 축, 의료 하드웨어에 쓰이며, 3D 프린팅에서는 17-4 다음으로 흔한 PH 스테인리스 분말이다. 판재·소형 부품은 17-4 로도 충분해, 15-5 는 대형 단조에 특화된다.",
+    "fun_fact": "17-4 와 15-5 는 스테인리스 업계에서 \"자매 grade\"로 통한다 — 강도도 값도 시효 단계도 거의 같지만, 큰 단조품의 방향별 인성이 걸리는 순간 거의 항상 15-5 가 선택된다."
+   }
   },
   "17-4-ph-uns-s17400": {
    "display": "17-4 PH (UNS S17400)",
@@ -145,19 +152,6 @@
     "today": "배연탈황·습식 화학(317L), 고온 용접 구조(316Ti·316H), 저온·고강도 압력부(316LN)처럼 316 이 살짝 모자란 지점을 메운다. 요구가 더 극단적이면 슈퍼오스테나이트(904L·654SMO)나 듀플렉스로 넘어간다.",
     "fun_fact": "이름의 문자 하나가 곧 처방이다 — L 은 탄소를 빼고, H 는 탄소를 남기고, N 은 질소를 더하고, Ti 는 티타늄으로 묶는다. 316 가족의 문법을 알면 스테인리스 절반이 읽힌다."
    }
-  },
-  "42crmo4": {
-   "display": "42CrMo4",
-   "stable_ids": [
-    "MET-0016",
-    "MET-0326"
-   ],
-   "refs": [
-    "EN 10083-3 \"Steels for quenching and tempering - Part 3: Technical delivery conditions for alloy steels\"",
-    "Bhadeshia H K D H & Honeycombe R W K (2017) Steels: Microstructure and Properties, 4th ed., Butterworth-Heinemann",
-    "DIN 17200 (1987 superseded by EN 10083)"
-   ],
-   "legacy_text": "42CrMo4 는 미국 AISI 4140 (1923 SAE 표준) 의 유럽 표준 명칭으로, 1971년 DIN 17200 (현 EN 10083-3) 으로 표준화됐어요. 1.0% Cr + 0.20% Mo + 0.40% C — 동일한 조성, 동일한 응용, 동일한 'general purpose Cr-Mo' 의 위상을 가진 합금이죠.\n\n자동차·트럭 의 axle shaft / crankshaft / connecting rod, 정유소 valve body, 광업 conveyor pin, 공작기계 spindle, 풍력 발전 main shaft (NREL 1.5 MW reference design), 핵발전소 reactor coolant pump shaft. Mo 0.2% 가 tempering brittleness (350-450°C 영역에서 P, S 가 입계 석출) 를 억제하면서 Cr 1% 의 경화능으로 ø100 mm 두께까지 균일한 σ_y 700+ MPa 가 나옵니다. EU 산업의 단조 blank 의 약 25% 가 42CrMo4 입니다."
   },
   "654-smo": {
    "display": "654 SMO",
@@ -295,7 +289,21 @@
     "ASM Handbook Vol.1 'High-Strength Low-Alloy Steels'",
     "Pickering F B (1978) Physical Metallurgy and the Design of Steels"
    ],
-   "legacy_text": "ASTM A572 는 HSLA (High-Strength Low-Alloy) 구조용 강 표준입니다. Grade 50 (yield 345 MPa min) 이 가장 일반적이며, ASTM A36 (yield 250 MPa) 대신 1970년대 이후 미국 building / bridge 표준으로 채택됐어요. Cr-V-Nb micro-alloying (V 0.06% max, Nb 0.05% max) 이 fine grain + fine carbide precipitate 으로 강도 향상의 비결입니다.\n\nNb / V 첨가는 1950년대 후반 BISRA (British Iron and Steel Research Association) 의 hot-rolled HSLA 연구에서 출발 — fine grain steel 의 yield 가 grain size 의 -1/2 비례 (Hall-Petch relation) 임을 이용해 carbon 함량을 늘리지 않고 강도 향상이 가능했어요. 1965년 ASTM 이 A572 표준을 채택했고, 이후 EN 10025-2 (S355) / JIS G 3106 (SM490Y) 가 거의 동일 grade 로 등재됐습니다.\n\n응용 — High-rise building structural beam (서울 Lotte World Tower 구조 강철), bridge girder (한국 인천대교 cable-stayed deck), heavy equipment frame (Caterpillar D11 dozer chassis), crane boom (200-ton crane), railway hopper car frame, mining truck (Caterpillar 797F chassis), wind turbine tower (대형 onshore wind), highway sign frame. A36 대비 strength 38% ↑ + 동일 weldability — building / bridge 시장의 새 표준."
+   "sections": {
+    "hook": "A36보다 강한 건축·교량 강 — 니오븀·바나듐 미량으로 강도를 올린 HSLA 표준 A572 Gr50.",
+    "origin": "A572 는 고장력 저합금(HSLA) 구조강 표준으로, 항복 345MPa 의 Grade 50 이 가장 흔하다. 1960년대에 채택되어, 탄소를 늘리지 않고 니오븀·바나듐을 0.05% 안팎만 넣어 강도를 A36(250MPa)보다 38% 높였다 — 결정립 미세화로 강도를 얻는 미세합금 야금의 산물이다.",
+    "breakthrough": "니오븀·바나듐의 미세 탄질화물이 결정립 성장을 막아, 결정립을 잘게 하면 강도가 오른다는 홀-페치 원리를 활용한다. 탄소를 안 늘리니 용접성은 A36 과 비슷하게 유지되면서 강도만 오른다 — 같은 구조를 더 가볍게 짓게 하는 \"강도 대비 값\"의 개선이다.",
+    "adoption": "1970년대 이후 미국 고층 건물·교량 구조의 새 표준으로 A36 을 대체했고, 유럽 S355·일본 SM490Y 가 등가로 자리 잡았다.",
+    "today": "고층 건물 보, 교량 거더, 중장비 프레임, 크레인 붐, 풍력 타워, 광산 트럭 섀시에 쓰인다. 더 높은 강도는 조질강(S690QL)으로, 더 싸고 무난한 일반 구조는 A36 으로 갈린다.",
+    "fun_fact": "니오븀을 강에 넣는 양은 놀랄 만큼 적다 — 강 1톤에 니오븀 몇백 그램이면 항복강도가 눈에 띄게 오르는데, 이 \"미량으로 큰 효과\"가 현대 구조강 경제성의 비밀이다."
+   },
+   "timeline": [
+    {
+     "year": 1965,
+     "event": "ASTM A572 HSLA 구조강 표준 채택",
+     "ref": 2
+    }
+   ]
   },
   "a992-us-wide-flange-beam-astm-a992": {
    "display": "A992 (US wide-flange beam, ASTM A992)",
@@ -1116,7 +1124,14 @@
     "ASM Handbook Vol.1A \"Properties and Selection: Irons, Steels and High-Performance Alloys\"",
     "Mathy J (2001) \"Stainless Steels in Architecture\", Nickel Institute Publication"
    ],
-   "legacy_text": "1929년경, 304 의 한계 — 해수나 염수 환경에서의 부식 — 를 풀어보려는 시도가 미국과 독일에서 거의 동시에 이뤄집니다. 304 의 18-8 (Cr-Ni) 조성에 Mo 2~3% 를 추가하면 어떨까? 라는 발상이었죠. Mo 가 만드는 MoO₄²⁻ 음이온이 Cl⁻ 의 부동태 침투를 막아주는 게 핵심이었어요. 이렇게 등장한 AISI 316 은 60~80°C 의 염수 환경까지 안정적인 부식 저항을 보여 'Marine grade' 로 불리며 1934년 American Iron and Steel Institute (AISI) 첫 publication 에 등록되고, 이후 ASTM A240 표준에 등재됩니다.\n\n1960년대에 한 번 더 진화합니다. carbon 을 ≤0.03% 로 떨어뜨린 ELC (Extra Low Carbon) 변형 — 316L 이 표준화됐고, 용접 후 별다른 후처리 없이 바로 쓸 수 있는 합금으로 자리잡았어요. 입계 부식 (sensitization — Cr₂₃C₆ 의 grain boundary 석출) 위험이 거의 없어, 모든 용접 식품·화학·바이오 응용의 기준선이 됩니다.\n\n응용 범위가 정말 넓습니다. 해상 platform 의 hand-railing, 식품 가공 라인 (요리도구, 맥주 양조 탱크, 와인 발효조), 의료 임플란트 (ASTM F138 ELC 316LVM 정형외과 bone plate/screw), 펄프·종이 산업 펌프, FPSO seawater piping, 반도체 super-clean piping (EP polish Ra<0.4 μm). 2010년대 들어서는 AM (LPBF, EBM) 의 인기 분말 중 하나가 되어 GE Aviation 의 항공 부품, Stryker/Zimmer 의 의료 implant prototype, EOS·SLM Solutions 의 standard powder bed grade 까지 폭넓게 쓰입니다."
+   "sections": {
+    "hook": "몰리브데넘을 넣어 바닷물을 견디는 304 — 해양·화학·의료의 만능 스테인리스 316.",
+    "origin": "1920년대 말, 304 가 해수·염화물 환경에서 부식되는 약점을 풀려고 미국·독일이 거의 동시에 몰리브데넘 2~3%를 넣는 발상을 시도했다. 몰리브데넘이 염소 이온의 부동태막 침투를 막아, 온화한 염수 환경까지 견디는 316 이 나왔다 — \"해양 등급(marine grade)\"이라는 별명이 여기서 왔다.",
+    "breakthrough": "몰리브데넘이 공식·틈부식 저항을 304 보다 한 단계 올려, 해수·화학 환경의 기본값이 됐다. 1960년대에는 탄소를 낮춘 316L 이 나와 용접 후 열처리 없이 쓸 수 있게 됐고, 이 조합이 위생·화학 산업의 표준을 완성했다.",
+    "adoption": "해양 구조·식품 설비·화학 플랜트가 304 대신 316 을 기본으로 삼으며 자리 잡았고, 진공용해 316LVM 은 정형외과 임플란트 규격(ASTM F138)으로 이어졌다.",
+    "today": "해양 난간·설비, 식품·양조 탱크, 화학 반응기, 의료 임플란트·기구, 반도체 배관까지 위생·내식의 기본값이다. 3D 프린팅 분말로도 널리 쓰이며, 더 가혹한 염화물은 슈퍼오스테나이트·듀플렉스로 넘어간다.",
+    "fun_fact": "주방·양조장·병원에서 \"의료용/식품용 스테인리스\"라 하면 대개 316(L)이다 — 몰리브데넘 몇 %가 만드는 내식의 여유가, 매일 물·산·소금에 닿는 자리의 신뢰를 산다."
+   }
   },
   "aisi-410": {
    "display": "AISI 410",
@@ -1182,9 +1197,11 @@
   "aisi-4140": {
    "display": "AISI 4140",
    "stable_ids": [
+    "MET-0016",
     "MET-0026",
     "MET-0027",
-    "MET-0028"
+    "MET-0028",
+    "MET-0326"
    ],
    "refs": [
     "SAE J404 (1930) \"Chemical Compositions of SAE Alloy Steels\"",
@@ -1248,7 +1265,14 @@
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels",
     "Sedriks A J (1996) Corrosion of Stainless Steels, 2nd ed., Wiley"
    ],
-   "legacy_text": "430 은 carbon 을 ≤ 0.12% 로 낮추고 Cr 16~18% 만 넣은 ferritic stainless 로, 410 의 cousin 이지만 성격이 완전히 다른 합금입니다. 가열-냉각해도 martensite 가 생기지 않아 항상 ferrite 100% — 그래서 'soft, ductile, weldable' stainless 가 되었고, 1929년 미국 ASTM 이 표준화했어요.\n\n430 의 매력은 가격입니다. 304 보다 약 30% 가격으로 mild 환경 부식 저항 + magnetic property + 우수한 deep drawing 의 균형을 얻을 수 있거든요. 응용 — 자동차 exhaust system muffler / catalytic converter housing (Toyota, 현대), kitchen sink (Kohler, 한국 대림), 가정용 dishwasher inner liner (LG, 삼성), 가전 inner panel (전자 oven), 식기 (cheap-end 식당 spoon, fork).\n\n단점은 Ni 가 없어 austenitic stainless 의 SCC + chloride 저항이 없다는 점 — 그래서 outdoor + chloride 환경에서는 여전히 304/316 이 필요합니다. 그래도 '인테리어 stainless' 시장의 80% 가 430 — 우리가 부엌에서 매일 만지는 stainless 의 대부분이 이 합금이에요."
+   "sections": {
+    "hook": "부엌에서 매일 만지는 스테인리스 — 니켈 없이 값싼, 자성 페라이트계 430.",
+    "origin": "430 은 탄소를 낮추고 크롬 16~18%만 넣은 페라이트계 스테인리스로, 410 의 사촌이지만 성격이 정반대다. 가열·냉각해도 마르텐사이트가 생기지 않아 항상 무르고 질긴 페라이트라, \"부드럽고 잘 늘어나고 용접되는\" 스테인리스가 됐다. 1920년대에 표준화됐다.",
+    "breakthrough": "니켈이 없어 304 의 약 30% 값으로 온화한 환경의 내식과 자성, 우수한 딥드로잉을 얻는다. 다만 니켈이 없는 만큼 염화물 응력부식·저온 인성은 오스테나이트계에 못 미쳐, 실내·건조 환경에 특화된다 — \"값과 성형성\"을 택한 스테인리스다.",
+    "adoption": "1930년대 자동차 트림·주방 기물로 대량 채택됐고, 배기계와 가전 내장재로 확산됐다.",
+    "today": "주방 싱크대, 식기세척기·오븐 내장, 자동차 머플러·배기계, 장식 트림에 쓰인다 — 실내 스테인리스 시장의 큰 몫을 차지한다. 옥외·염화물 환경은 여전히 304/316 이 맡는다.",
+    "fun_fact": "냉장고 문에 자석이 붙으면 대개 430(페라이트계), 안 붙으면 304(오스테나이트계)다 — 니켈의 유무가 자성을 가르니, 자석 하나로 스테인리스 종류를 어림할 수 있다."
+   }
   },
   "aisi-52100-bearing": {
    "display": "AISI 52100 (bearing)",
@@ -2334,7 +2358,14 @@
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys",
     "Elkington J B (1865) UK Patent 2,838 \"Improvements in the electrolytic refining of copper\""
    ],
-   "legacy_text": "C11000 (Electrolytic Tough Pitch, ETP) Cu 는 1865년 영국 제임스 엘킹턴 (James Elkington) 이 전해 정련 공정을 발명한 직후부터 표준 conductor 자리에 올랐어요. 99.90% Cu + 200~400 ppm 산소 (소량의 Cu₂O 입자 형태로 결정 boundary 에 분포 → P, S 같은 불순물을 oxide 로 트랩핑) 가 ETP 의 비결입니다.\n\n응용 — 전기 — 송전선 (이중선·고전압 grid), 모터 권선 (Tesla Model 3 의 rear motor 가 Cu rotor), 변압기 권선, 통신 케이블 (CAT-6 Ethernet), 빌딩 — 지붕 (Buckingham Palace, Statue of Liberty 의 패티나 표면), 가스 배관 (LP gas indoor piping), 가구 — kitchen 동냄비. 1960년대 H₂ 분위기 annealing 시 H + O → H₂O 입계 균열 ('hydrogen embrittlement') 이 발견되면서 진공 / 수소 분위기 응용은 oxygen-free OFE (C10100) 또는 OFHC (C10200) 로 전환됐죠."
+   "sections": {
+    "hook": "전기가 흐르는 가장 흔한 구리 — 전선·권선·지붕의 표준 전기동 ETP.",
+    "origin": "C11000(전기동, ETP)은 19세기 후반 전해 정련이 상용화된 직후부터 도체의 표준이 된 순수 구리(Cu)다. 순도 99.9%에 미량의 산소를 머금는데, 이 산소가 산화물 입자로 불순물을 가둬 전기전도를 지킨다 — 전선·권선의 기본 재료가 된 이유다.",
+    "breakthrough": "전해 정련이 순도를 높여 전도도(IACS 100% 부근)를 극대화하고, 미량 산소가 인·황 같은 불순물을 산화물로 묶어 전도 저하를 막는다. 값싸고 뽑기 쉬워 전선·판·관 모든 형태로 공급되는, 전기의 기반 금속이다.",
+    "adoption": "전력 그리드 확장과 함께 송전선·모터 권선·변압기의 표준 도체가 됐고, 건축 지붕·배관으로도 널리 쓰였다.",
+    "today": "송전선, 모터·변압기 권선, 통신 케이블, 건축 지붕·가스 배관에 쓰인다. 다만 수소 분위기에서 뜨거워지면 수소취화가 생겨, 진공·수소·고온 용도는 무산소동(OFHC/OFE)으로 갈린다.",
+    "fun_fact": "자유의 여신상과 유서 깊은 건물의 청록색 지붕이 바로 이 구리다 — 세월과 함께 표면에 생긴 안정한 녹(파티나)이, 오히려 안쪽 구리를 보호하며 한 세기를 버틴다."
+   }
   },
   "copper-cr-zr-alloy-c18100": {
    "display": "Copper-Cr-Zr alloy C18100",
@@ -2549,7 +2580,14 @@
     "Uddeholm \"Sverker 21 Technical Data Sheet\" (2020)",
     "Bohler-Uddeholm \"K110 Technical Information\" (2019)"
    ],
-   "legacy_text": "1920년대 미국 Vasco Wear 가 cold-work die 의 절대적 표준을 찾던 중 등장한 합금. C 1.5% + Cr 12% + V 1% — high-carbon high-chromium 의 극단으로, quench 후 secondary hardening (520°C T) 으로 σ_UTS 2100 MPa + HV 650 + 균일한 M₇C₃ 카바이드 분산을 얻습니다. 1932년 AISI 가 D2 (UNS T30402) 로 표준화하면서 이름이 정해졌어요.\n\nD2 가 풀어주는 문제는 '정확한 형상으로 수십만 번 펀칭' 이에요. 자동차 차체 stamping press 에서 하루 8시간 동안 cycles 10000회 — 1년이면 200만 cycles. 그 사이 die 의 형상이 0.05 mm 도 변하면 안 되거든요. D2 는 Cr 의 산화 저항 + carbide 의 abrasion 저항 + 안정한 tempering 으로 1년 service 후도 형상을 유지합니다.\n\n각 메이커가 자체 grade 로 부르지만 본질은 모두 D2 — Bohler 의 K110, Uddeholm 의 Sverker 21, 일본 Hitachi 의 SLD, 한국 두산 (현 두산공작기계) 의 KD11. 응용 — 자동차 stamping (현대차 G80 의 hood die), thread roll, slitter knife, cold-header punch, kitchen 칼날 (Bohler K110 의 high-end folder knife), 산업 cutting tool. 데스크탑 fabrication 에서도 매우 인기가 높아요."
+   "sections": {
+    "hook": "수십만 번 찍어도 형상이 안 변하는 공구강 — 냉간 프레스 금형의 표준 D2.",
+    "origin": "D2 는 탄소 1.5%·크롬 12%에 바나듐을 더한 고탄소 고크롬 공구강으로, 1920~30년대 냉간 금형 재료의 표준으로 정립됐다. 다량의 크롬 탄화물이 만드는 극한의 내마모가 핵심이라, 처음부터 대량 펀칭·전단 금형을 겨냥했다.",
+    "breakthrough": "담금질 후 520°C 뜨임의 2차경화로 HRC 60 급 경도와 균일한 M₇C₃ 탄화물 분산을 얻는다 — 자동차 프레스에서 하루 수천 번, 1년 수백만 번 찍어도 형상이 0.05mm 도 안 변하는 안정성이 여기서 나온다. 공냉 경화라 큰 금형도 변형 없이 열처리된다.",
+    "adoption": "20세기 자동차 프레스 산업이 차체 스탬핑 금형의 표준으로 채택했고, 전단·성형 다이 전반으로 확산됐다.",
+    "today": "자동차 스탬핑 금형, 나사 전조 다이, 슬리터 나이프, 냉간 압조 펀치, 고급 칼날에 쓰인다. 제조사마다 K110·Sverker21·SLD 등 다른 이름으로 팔지만 본질은 같은 D2 다. 인성이 더 필요하면 A2·S7 로, 고온 금형은 H13 으로 간다.",
+    "fun_fact": "크롬이 12%나 들어 \"반쯤 스테인리스\"라 불리지만, 그 크롬이 대부분 탄화물로 묶여 있어 진짜 스테인리스만큼 녹슬지 않는 것은 아니다 — 내마모를 위해 내식을 조금 양보한 셈이다."
+   }
   },
   "deoxidized-copper": {
    "display": "Deoxidized Copper (DHP C12200 / C14500 / C19400)",
@@ -2652,7 +2690,14 @@
     "Charles J (1991) 'Super Duplex Stainless Steels: Structure and Properties'",
     "Outokumpu 2205 Code Plus Two Technical Data"
    ],
-   "legacy_text": "2205 Duplex (UNS S32205 / S31803) 은 1970년대 Sandvik (스웨덴) + Outokumpu (핀란드) 가 공동 개발한 ferrite + austenite 50/50 duplex stainless steel 입니다. Cr 22% + Ni 5% + Mo 3% + N 0.17% 의 조성에서 N 첨가가 핵심 — austenite stabilizer 로 ferrite/austenite 비율을 정밀 통제하고, pitting resistance 를 PREN 35 까지 끌어올립니다.\n\nDuplex 의 매력은 austenitic (304/316) + ferritic (430) 의 장점 결합 — austenitic 의 ductility + ferritic 의 SCC 저항 + 더 높은 strength (σy 450 MPa, 316L 의 1.6배) + 동일 가격대. 1980년대 후반부터 oil & gas industry 의 sour service (H₂S 환경) 의 standard 가 됐고, 2010년대 FPSO topside / subsea piping / LNG carrier 의 main option 으로 자리잡았어요.\n\n응용 — North Sea / Brazilian basin 의 FPSO topside (Aker Solutions / Petrobras), subsea oil pipeline (Statoil / Equinor 의 Troll field), LNG carrier inner-tank cargo line, 화학 plant 의 chloride 환경 reactor, pulp & paper digester, desalination plant (MED / RO process 의 heat exchanger tube), urea synthesis plant.\n\nWelding — Sigma phase (Fe-Cr brittle, 700-1000°C 의 fast cooling 시 형성) 회피가 가장 critical. Inter-pass < 150°C 절대 유지. Filler ER2209 (Ni 9%, austenite 형성 보강) + Ar + 2-3% N₂ shielding. Heat input 0.5-2.5 kJ/mm 정확 통제. Welded zone 의 ASTM G48 method E (FeCl₃ pitting test) 통과 확인 필수."
+   "sections": {
+    "hook": "오스테나이트와 페라이트를 반반 섞은 스테인리스 — 316의 두 배 강도로 해수 유정을 견디는 2205.",
+    "origin": "2205 듀플렉스는 1970년대 스웨덴·핀란드 제철사가 공동 개발한 2상(오스테나이트+페라이트 50:50) 스테인리스다. 크롬 22%·니켈 5%·몰리브데넘 3%에 질소를 더한 조성으로, 질소가 상 균형을 잡고 내공식성(PREN)을 끌어올린 것이 핵심이다.",
+    "breakthrough": "2상 조직이 오스테나이트계의 연성·내식과 페라이트계의 고강도·내응력부식을 겸한다 — 같은 두께에서 316L 의 1.6배 항복강도를 내면서 염화물 응력부식균열에 강하다. 단 700~1000°C 에서 취성 시그마상이 생기므로, 용접 입열과 냉각을 정밀하게 관리해야 한다.",
+    "adoption": "1980년대 후반 유전 산업의 사워 서비스(H₂S) 표준이 됐고, FPSO 상부·해저 배관·LNG 화물 라인으로 확산됐다.",
+    "today": "해양 유정·해저 배관, LNG 화물 라인, 염화물 환경 화학 반응기, 담수화 열교환기, 요소 합성 설비에 쓰인다. 더 가혹한 해수는 슈퍼 듀플렉스(2507)로, 값싼 대체는 린 듀플렉스(2304)로 갈린다.",
+    "fun_fact": "듀플렉스는 강해서 같은 하중을 더 얇은 벽으로 버틴다 — 그래서 거대한 화학 탱크나 다리를 오스테나이트계보다 가볍고 싸게 지을 수 있어, \"강도로 돈을 아끼는 스테인리스\"로 불린다."
+   }
   },
   "electrical-steel": {
    "display": "Grain-Oriented Electrical Steel (Fe-3%Si)",
