@@ -567,6 +567,25 @@
     "fun_fact": "이중조직강은 프레스로 성형되는 순간에도 계속 단단해진다(가공경화) — 성형이 끝난 차체가 원판보다 더 강해지는, 자동차 경량화의 숨은 무기다."
    }
   },
+  "aermet-100": {
+   "display": "AerMet 100 (Co-Ni secondary-hardening UHS)",
+   "stable_ids": [
+    "MET-0017",
+    "MET-0018",
+    "MET-0019"
+   ],
+   "refs": [
+    "Carpenter Technology, AerMet® 100 (AMS 6532 / UNS K92580) 기술 자료",
+    "Philip T V & McCaffrey T J, Ultrahigh-Strength Steels, ASM Handbook Vol.1"
+   ],
+   "sections": {
+    "hook": "초고강도와 높은 인성을 함께 잡은 코발트-니켈강 — 항모 함재기 착륙장치를 위해 태어났다.",
+    "origin": "보통 강은 강도를 극한까지 높이면 인성(잘 안 깨지는 성질)이 급격히 떨어진다. AerMet 100 은 이 상충을 깨려고 Carpenter Technology 가 개발한 초고강도강으로, 코발트(~13%)·니켈(~11%)을 넣어 UTS 1930MPa 급 강도와, 그 강도에서는 드문 높은 파괴인성·응력부식 저항을 함께 낸다. 미 해군 항모 함재기 착륙장치의 까다로운 요구에서 출발했다.",
+    "breakthrough": "핵심은 탄소를 낮춘 마르텐사이트를 시효(~482°C)해 미세한 M2C 합금탄화물을 석출시키는 2차경화다. 크롬·몰리브데넘이 이 탄화물을, 코발트가 고용강화와 탄화물 확산 촉진을, 니켈이 인성과 미세 탄화물 형성을 맡는다 — 그 결과 300M 같은 담금질-뜨임 초고강도강보다 같은 강도에서 훨씬 잘 안 깨진다. 청정도를 위해 진공유도용해+진공아크재용해(VIM-VAR)로 만든다.",
+    "today": "F/A-18 등 항모 함재기 착륙장치·아레스팅 후크, 제트엔진·구동축, 고강도 체결·방탄 부품에 쓰인다. 강도 대비 인성·내응력부식이 돋보이지만, 코발트·니켈과 진공 이중용해로 매우 비싸 정말 필요한 곳에만 쓴다.",
+    "fun_fact": "항공모함 착륙은 초당 수십 미터로 내리꽂아 케이블에 낚아채이는, 착륙장치엔 가혹하기 짝이 없는 순간이다 — AerMet 100 은 바로 이 충격을 소금 바람 속에서 반복해 견디도록 설계됐다."
+   }
+  },
   "aisi-1010": {
    "display": "AISI 1010",
    "stable_ids": [
@@ -4911,12 +4930,9 @@
    "legacy_text": "ULTEM 9085 는 Sabic 의 PEI 의 'flame-retardant + smoke + toxicity' (FST) grade 입니다. PEI base 에 brominated flame retardant 를 첨가해 FAR 25.853 (Federal Aviation Regulation, 항공기 cabin material 의 화재 안전 기준) 통과가 가능한 grade. 1990년대 GE Plastics 가 commercial launch 했고, Stratasys 가 2007년 FDM 3D 프린팅 filament 의 첫 항공-qualified 재료로 채택했어요.\n\n특성: Tg 186°C (base PEI 217°C 보다 약간 낮음, 화재 처리제 영향) · σy 65-85 MPa · modulus 2.4 GPa · El 5-7%. FST 등급은 OSU (Ohio State University) heat release < 65 kW·min/m² (FAR 25.853 한도), 발연 (smoke) < 200 OSU NBS, toxicity 도 통과. Stratasys FDM print 의 결과는 anisotropic 이지만 항공 part 의 spec 이 정해진 isotropic value 보다 보수적으로 사용됩니다.\n\n응용: 항공기 cabin 내부 ducting (Airbus A350, Boeing 787, F-35), 항공기 brackets + spacer, 화재 안전 요구 의료 device (휴대용 portable ventilator 의 일부 housing), 군용 응급 의료 kit case. Stratasys 의 첫 항공 인증 (Boeing F-18 fighter ducting, 2014) 으로 'FDM Ultem 9085 가 항공 production 가능' 이라는 분기점을 만든 게 화제였고, 그 이후 Lockheed Martin · Boeing · Airbus 의 일부 low-volume cabin part 가 FDM 으로 print 되고 있습니다."
   },
   "ultra-high-strength-steel": {
-   "display": "Ultra-High-Strength Steel (300M / AerMet 100 / D6AC / HP-9-4-30)",
+   "display": "Ultra-High-Strength Steel (300M / D6AC / HP-9-4-30)",
    "stable_ids": [
     "MET-0012",
-    "MET-0017",
-    "MET-0018",
-    "MET-0019",
     "MET-0053",
     "MET-0054",
     "MET-0055",
@@ -4930,9 +4946,9 @@
    ],
    "sections": {
     "hook": "UTS 1900MPa를 넘나드는 저합금강 — 착륙장치와 로켓 모터 케이스를 위한 극한 강도강.",
-    "origin": "항공기 착륙장치·로켓 모터 케이스처럼 좁은 공간에 막대한 하중이 걸리는 곳엔 강도가 최우선인 초고강도 저합금강(UHS)이 쓰인다. 4340 을 규소·바나듐으로 강화한 300M, 코발트-니켈 2차경화형 AerMet 100, 로켓용 D6AC, 고인성 HP-9-4-30 등이 대표적이다.",
-    "breakthrough": "300M 은 Si 첨가로 뜨임 저항을 높여 4340 보다 강도를 끌어올렸고, AerMet 100 은 Co·Ni 이 만드는 미세 합금탄화물의 2차경화로 UTS ~1965MPa 에 뛰어난 인성을 겸한다. 공통 과제는 강도가 오를수록 커지는 수소취화·응력부식 민감성이라, 청정 용해와 도금 관리가 필수다.",
-    "today": "300M 은 대형 항공기 착륙장치·구동축, AerMet 100 은 함재기 착륙장치·아레스팅 후크, D6AC 는 고체로켓 모터 케이스, HP-9-4-30 은 고인성이 필요한 항공 구조에 쓰인다. 부식이 문제면 PH 스테인리스로 간다.",
+    "origin": "항공기 착륙장치·로켓 모터 케이스처럼 좁은 공간에 막대한 하중이 걸리는 곳엔 강도가 최우선인 초고강도 저합금강(UHS)이 쓰인다. 4340 을 규소로 강화한 300M, Cr-Mo-V 로켓용 D6AC, Ni-Co 고인성 HP-9-4-30 등이 대표적이다.",
+    "breakthrough": "300M 은 Si 첨가로 뜨임 저항을 높여 4340 보다 강도를 끌어올렸고, D6AC 는 Cr-Mo-V 로 두꺼운 단면의 경화능과 파괴인성을, HP-9-4-30 은 Ni-Co 로 강도와 인성을 조율한다. 공통 과제는 강도가 오를수록 커지는 수소취화·응력부식 민감성이라, 청정 용해와 도금 관리가 필수다.",
+    "today": "300M 은 대형 항공기 착륙장치·구동축, D6AC 는 고체로켓 모터 케이스, HP-9-4-30 은 고인성이 필요한 항공 구조·착륙장치에 쓰인다. 더 나은 강도-인성이 필요하면 AerMet 100, 부식이 문제면 PH 스테인리스로 간다.",
     "fun_fact": "300M 은 오랫동안 대형 항공기 착륙장치의 대표 재료였다 — 착륙 충격을 견디면서도 가벼워야 하는 이 부위엔 아직 이만한 강도 대 무게의 대안이 마땅치 않다."
    }
   },
