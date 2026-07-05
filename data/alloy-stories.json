@@ -951,6 +951,25 @@
    ],
    "legacy_text": "1973년 알래스카 횡단 송유관 (Trans-Alaska Pipeline System, TAPS) 의 자재 선정이 송유관 표준화의 분기점이 됐어요. 영하 50°C 의 극저온, M7 지진 지대, 영구동토 (permafrost) 융해 위험 — 이 모든 환경을 동시에 만족해야 했거든요. 일본 신일본제철 (현 Nippon Steel) 이 TMCP (Thermo-Mechanical Controlled Processing) 기술로 σ_y 485 MPa + CVN ≥ 100 J at -40°C 의 새 강 X70 을 개발해 TAPS 의 1287 km 의 80% 가 X70.\n\nTAPS 의 성공 이후 X70 은 글로벌 송유관·가스 transmission 표준으로 확산됐어요. 2001-2003년 중국 西气东输 (서기동수) 4200 km — 신장에서 상하이까지 가스 송유관 — 의 90% 가 X70. 2010년대의 러시아 Nord Stream 1+2 (1224 km × 2), 트랜스-튀르키예 TANAP (1850 km), 호주 Northern Gas Pipeline (622 km) … 모두 X70 PSL2 grade.\n\nPSL2 sub-grade 의 특별함은 'CTOD ≥ 0.25 mm at -20°C' 의 인성 요구예요. running brittle fracture — 한 군데서 시작된 균열이 음속으로 전파되어 수십 km 의 송유관을 한 번에 파괴하는 catastrophic failure — 를 회피하기 위한 spec. 1986년 캐나다 Athabasca pipeline 에서 X65 의 brittle fracture 가 발생해 13 km 의 송유관이 한 번에 깨졌던 사고가 이 spec 의 trigger 였습니다."
   },
+  "aramid-composites": {
+   "display": "Aramid Composites (Kevlar / Twaron)",
+   "stable_ids": [
+    "CMP-0001",
+    "CMP-0002",
+    "CMP-0003"
+   ],
+   "refs": [
+    "Chawla K K (2012) Composite Materials: Science and Engineering, 3rd ed., Springer",
+    "DuPont, Kevlar® Technical Guide"
+   ],
+   "sections": {
+    "hook": "탄소섬유보다 질기고 총알을 멈추는 섬유 — 케블라·트와론 아라미드 복합재.",
+    "origin": "아라미드(방향족 폴리아미드) 섬유는 1965년 DuPont 의 Stephanie Kwolek 이 발견한 액정 고분자에서 나왔다 — Kevlar 가 대표 상표, Twaron(현 Teijin)이 등가품이다. 이 섬유를 에폭시·비닐에스터로 굳힌 것이 아라미드 복합재다.",
+    "breakthrough": "강직한 분자가 섬유축으로 정렬해 비강도가 강철의 여러 배에 이르면서, 탄소섬유와 달리 파단 시 잘 부서지지 않고 에너지를 흡수한다 — 인장·충격에 질기다. 대신 압축강도가 낮아 압축 지배부에는 약하다.",
+    "today": "방탄복·헬멧·방탄판, 압력용기·로프·마찰재, 항공 2차 구조·보강재에 쓰인다. 인장·내충격이 지배적일 때 유리하고, 압축·강성이 중요하면 탄소섬유로 간다.",
+    "fun_fact": "Kwolek 의 발견은 원래 폐기하려던 탁한 용액에서 나왔다 — 방사해 보니 예상과 달리 강철보다 강한 섬유가 됐다."
+   }
+  },
   "asa": {
    "display": "ASA",
    "stable_ids": [
@@ -1269,6 +1288,23 @@
    ],
    "legacy_text": "T800 carbon fiber 는 1976년 일본 Toray 가 PAN (polyacrylonitrile) precursor 의 stabilization → carbonization → graphitization 공정을 최적화해 σ_UTS 5.5 GPa + E 285 GPa 의 intermediate-modulus fiber 를 양산화한 결과예요 — 1980년대 IM (intermediate modulus) 등급의 표준으로 자리잡았습니다. 1985년 Hercules (현 ATK) 의 IM7 (US 표준) 과 Toray 의 T800 이 양강 구도로 전 세계 항공 prepreg 시장을 양분.\n\n응용 — Boeing 787 Dreamliner 의 fuselage barrel 50% / wing 50% (Toray 가 단독 공급), Airbus A350 XWB 의 wing 의 outer skin / center wing box, F-22 / F-35 의 vertical tail / horizontal stabilizer. 우주 — SpaceX Falcon 9 의 helium COPV (Composite Overwrapped Pressure Vessel, payload fairing 도 T800/Cyanate), Blue Origin New Shepard 의 crew capsule. 민간 — F1 모노코크 (FIA 2014 표준), 일부 항공 — Boeing 777X 의 folding wingtip, Mercedes-Benz EQS 의 일부 트렁크 lid 도 T800 prepreg autoclave 입니다."
   },
+  "cmc": {
+   "display": "Ceramic Matrix Composites (SiC/SiC, Al₂O₃/Al₂O₃)",
+   "stable_ids": [
+    "CMP-0016",
+    "CMP-0017"
+   ],
+   "refs": [
+    "Krenkel W (ed., 2008) Ceramic Matrix Composites, Wiley-VCH",
+    "ASM Engineered Materials Handbook Vol.4 (Ceramics and Glasses)"
+   ],
+   "sections": {
+    "hook": "세라믹을 세라믹 섬유로 보강해 ‘깨지지 않게’ 만든 복합재 — 제트엔진 고온부의 금속 대체재.",
+    "origin": "세라믹은 고온에 강하지만 취성 탓에 구조재로 쓰기 어렵다. CMC(세라믹기지 복합재)는 SiC·Al₂O₃ 기지에 같은 계열의 세라믹 섬유를 넣어, 균열이 섬유에서 멈추게 함으로써 ‘준연성(graceful failure)’을 만든 재료다.",
+    "breakthrough": "섬유-기지 계면이 약하게 설계돼, 균열이 섬유를 끊는 대신 계면을 따라 미끄러지며(디본딩·풀아웃) 에너지를 흡수한다 — 그래서 단일 세라믹처럼 갑자기 깨지지 않는다. SiC/SiC 는 1300°C+, 산화물/산화물은 내산화가 강점이다.",
+    "today": "제트엔진 고온 부품(슈라우드·연소기 라이너·터빈 베인)에서 Ni 초합금을 대체해 냉각공기·무게를 줄인다. 재진입·핵융합 부품에도 연구된다. 값과 제조 난도가 매우 높은 것이 한계다."
+   }
+  },
   "cmsx-10": {
    "display": "CMSX-10",
    "stable_ids": [
@@ -1574,6 +1610,7 @@
   "gfrp": {
    "display": "GFRP",
    "stable_ids": [
+    "CMP-0004",
     "CMP-0024",
     "CMP-0026",
     "CMP-0027"
@@ -1796,6 +1833,23 @@
     "ASTM D2000"
    ],
    "legacy_text": "HNBR (Hydrogenated Nitrile Butadiene Rubber) 은 1980년대 후반 독일 Bayer (현재 ARLANXEO / Lanxess) 가 개발한 NBR 의 hydrogenated 변형입니다. NBR 의 butadiene unit 의 잔여 이중결합 (C=C) 을 catalyst-assisted hydrogenation 으로 95-99% 포화시킨 게 핵심 — 이중결합이 없어지면 oxidation / ozone / UV 공격이 차단되어 작동 온도 한계가 NBR 의 100°C 에서 150-160°C 까지 올라가요.\n\n응용 — 자동차 timing belt (1990년대 후반 Goodyear / Gates 의 first HNBR belt 채택, 현재 모든 OEM 의 표준 timing belt 재료), automatic transmission oil seal, oil pump seal, 엔진 valve cover gasket (Ford / GM / Toyota 의 OEM spec), oilfield drilling mud seal (deepwater 의 130°C+ 환경), aerospace fuel line seal. 자동차 timing belt market 의 약 80% 가 HNBR 로, 그 안정성이 100,000 km 의 belt 수명을 가능케 했습니다.\n\n특이 처리 — HNBR 은 ACN (acrylonitrile) 함량과 hydrogenation level 의 2가지 parameter 로 spec 됩니다. ACN 17-18% / 95% 수소화 = 일반 자동차 belt spec. ACN 33-36% / 99% 수소화 = oilfield / 고가 aerospace. Peroxide cure (Bayer 의 표준 cure) 가 일반적이며 sulfur cure 도 가능 — peroxide cure 가 더 높은 thermal stability 제공."
+  },
+  "honeycomb-core": {
+   "display": "Honeycomb Core (Al 5052 / Nomex)",
+   "stable_ids": [
+    "CMP-0028",
+    "CMP-0029"
+   ],
+   "refs": [
+    "Bitzer T (1997) Honeycomb Technology, Springer",
+    "ASM Handbook Vol.21 (Composites)"
+   ],
+   "sections": {
+    "hook": "벌집 구조로 무게 대비 굽힘 강성을 극대화한 샌드위치 코어 — 항공기 바닥과 로터 블레이드의 속.",
+    "origin": "얇은 판재를 벌집(hexagonal cell)으로 성형해 두 표피(skin) 사이에 넣으면, 아주 가벼우면서 굽힘 강성이 큰 샌드위치 구조가 된다. 코어 소재로 Al 5052 포일과 Nomex(아라미드 종이)가 대표다.",
+    "breakthrough": "굽힘 강성은 표피 간 거리의 제곱에 비례한다 — 벌집 코어가 표피를 멀리 떨어뜨리면서도 무게는 거의 안 늘려, 단위 무게당 굽힘 강성을 극대화한다. Al 코어는 강성·열전도, Nomex 코어는 절연·난연·내식이 강점이다.",
+    "today": "항공기 바닥판·조종면·페어링, 헬기 로터 블레이드, 위성 구조 패널, 고속열차 내장재 등 ‘가벼우면서 뻣뻣해야 하는’ 판 구조에 쓰인다. 국부 압축·충격에 코어가 눌리는 것이 약점이다."
+   }
   },
   "hy-100-mil-s-16216-submarine-pressure-hull": {
    "display": "HY-100 (MIL-S-16216) — submarine pressure hull",
@@ -2155,6 +2209,25 @@
     "today": "440C 는 볼베어링·밸브 시트·수술칼·고급 나이프에, 440A/B 는 중간 경도가 필요한 칼·부품에 쓰인다. 내식이 더 중요하면 마르텐사이트 대신 PH 스테인리스(17-4)나 오스테나이트로 간다."
    }
   },
+  "mmc": {
+   "display": "Metal Matrix Composites (Al/SiC, B₄C-Al, Ti/SiC)",
+   "stable_ids": [
+    "CMP-0018",
+    "CMP-0019",
+    "CMP-0030",
+    "CMP-0031"
+   ],
+   "refs": [
+    "Chawla N & Chawla K K (2013) Metal Matrix Composites, 2nd ed., Springer",
+    "ASM Handbook Vol.21 (Composites)"
+   ],
+   "sections": {
+    "hook": "금속에 세라믹 입자·섬유를 박아 더 뻣뻣하고 마모에 강하게 만든 복합재.",
+    "origin": "금속기지 복합재(MMC)는 Al·Ti 같은 금속에 SiC·B₄C·Al₂O₃ 세라믹을 입자나 섬유로 넣은 재료다. 금속의 인성·가공성·열전도를 유지하면서 세라믹의 강성·내마모·저열팽창을 더한다.",
+    "breakthrough": "세라믹 강화상이 탄성계수와 내마모를 크게 올리고 열팽창을 낮춘다. 입자강화(Al/SiCp)는 등방성·가공 용이, 섬유강화(Ti/SiCf)는 방향 비강도가 극대다. B₄C-Al 은 가벼운 세라믹으로 방탄·중성자 흡수를 노린다.",
+    "today": "브레이크 로터·전자패키지(저열팽창 방열)·자전거·항공 구조(Al/SiC), 방탄판(B₄C-Al), 고온 항공 축(Ti/SiC) 등에 쓰인다. 세라믹 대비 인성이, 금속 대비 강성이 좋은 중간 자리를 차지한다."
+   }
+  },
   "narloy-z-cu-3ag-0-5zr-ssme-chamber": {
    "display": "NARLOY-Z (Cu-3Ag-0.5Zr) — SSME chamber",
    "stable_ids": [
@@ -2168,6 +2241,23 @@
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
    ],
    "legacy_text": "1965년 미국 Rocketdyne (현 Aerojet Rocketdyne) 의 R&D 팀이 우주 셔틀 메인 엔진 (SSME) 의 main combustion chamber cooling channel 자재를 개발하면서 등장한 합금. Cu 96% + Ag 3% + Zr 0.5% — Ag 가 dispersion strengthening, Zr 가 grain boundary 안정화. 결과 — 100°C 의 thermal-k 316 W/m·K (Cu 의 80% 유지) + 1 atm 의 cryogenic LH2 와 3000°C 의 연소 가스 사이 wall 의 thermal management 가 가능해진 거죠.\n\nSSME 의 main combustion chamber 안쪽에는 390개의 milled channel 이 있어요. 각 채널은 1.3 mm × 4 mm 크기로 LH2 가 흐르면서 wall 을 cool 합니다. NARLOY-Z 가 이 채널 자체이고, 외부에는 stainless steel jacket 이 덮여서 high-pressure containment. 한 번의 발사 동안 7000만 BTU/s 의 heat flux 를 견디는 거죠.\n\n1981년 첫 STS-1 발사부터 2011년 마지막 STS-135 까지 30년 동안 NARLOY-Z chamber 는 변함없이 그대로였어요. 현재도 RS-25E (SLS Block 1B 의 main engine) 의 combustion chamber 는 NARLOY-Z 변형. 차세대로는 GRCop-84 (NASA 의 dispersion-strengthened Cu-Cr-Nb) 가 대체 중이지만, 우주 main engine 자재로 60년 가까이 채택되어 온 합금입니다."
+  },
+  "natural-composites": {
+   "display": "Natural Composites (Balsa / Bamboo)",
+   "stable_ids": [
+    "CMP-0033",
+    "CMP-0034"
+   ],
+   "refs": [
+    "Gibson L J & Ashby M F (1997) Cellular Solids: Structure and Properties, 2nd ed., Cambridge UP",
+    "Ashby M F (2013) Materials and the Environment, 2nd ed., Butterworth-Heinemann"
+   ],
+   "sections": {
+    "hook": "자연이 만든 섬유 복합재 — 가볍고 뻣뻣한 발사와 대나무, 여전히 쓰이는 이유가 있다.",
+    "origin": "목재는 셀룰로오스 섬유(강화상)를 리그닌(기지)이 묶은 천연 섬유 복합재다. 발사(balsa)는 밀도가 매우 낮고, 대나무(bamboo)는 섬유가 길고 방향성이 강해 비강도가 높다.",
+    "breakthrough": "발사는 세포벽이 얇고 속이 비어 밀도가 코르크급으로 낮으면서 결 방향 압축·전단 강성이 좋아 샌드위치 코어로 이상적이다. 대나무는 규소가 많은 겉껍질과 정렬된 섬유 다발로 비강도·인성이 커 인장 방향에서 강하다.",
+    "today": "발사는 풍력 블레이드·선박·항공 샌드위치 코어(합성 폼과 경합), 대나무는 건축·구조·복합재 보강·친환경 소재로 쓰인다. 흡습·생물열화·이방성·품질 편차가 천연재 공통의 약점이다."
+   }
   },
   "naval-brass-c46400": {
    "display": "Naval Brass C46400",
@@ -3314,6 +3404,22 @@
     "Special Metals Corp \"Udimet 720Li Technical Data\" (2014)"
    ],
    "legacy_text": "1965년 미국 Special Metals (당시 Cyclops Industries) 가 항공 가스터빈 디스크 용 새 P/M (Powder Metallurgy) 합금을 개발하면서 등장한 Udimet 720. 1985년 영국 Rolls-Royce 의 요구로 carbon 과 boron 을 더 낮춘 Li (Low-Interstitial) 변형이 나오면서 단조성이 향상됐어요 — 이게 Udimet 720Li 입니다. Ni 55% + Cr 16% + Co 14.7% + Mo 3% + W 1.25% + Al 2.5% + Ti 5% — γ' 부피분율 약 45% 로 creep / LCF / burst margin 의 균형이 가장 좋은 조성이죠.\n\nRolls-Royce Trent 시리즈 — Trent 500 (A340-500/600), Trent 700 (A330), Trent 800 (777), Trent 900 (A380) — 의 HP 와 IP 터빈 디스크가 모두 Udimet 720Li 입니다. Pratt & Whitney F119 (F-22) 와 F135 (F-35) 의 일부 디스크도 720Li 변형. 600~700°C 영역의 LCF 수명이 Inconel 718 의 약 5배 — 그게 차세대 엔진 디스크 채택의 결정적 이유였어요.\n\n흥미로운 점은 제조 공정이에요. VIM-VAR (Vacuum Induction Melting + Vacuum Arc Remelting) 으로 청정도를 극대화한 뒤 isothermal forging — 모든 단조 공정이 1100°C 의 isothermal die 안에서 진행돼 미세조직이 균일해집니다. 한 번의 disc 단조에 4시간 이상 — 그래서 가격이 Inconel 718 의 약 8배 (~$700/kg) 인데, 그 자리를 차지할 합금이 별로 없어요."
+  },
+  "uhmwpe-fiber": {
+   "display": "UHMWPE Fiber (Dyneema / Spectra)",
+   "stable_ids": [
+    "CMP-0032"
+   ],
+   "refs": [
+    "Chawla K K (2012) Composite Materials: Science and Engineering, 3rd ed., Springer",
+    "DSM, Dyneema® Technical Guide"
+   ],
+   "sections": {
+    "hook": "물에 뜨는 방탄섬유 — 초고분자량 폴리에틸렌을 극도로 늘려 뽑은 세계에서 가장 질긴 섬유 중 하나.",
+    "origin": "초고분자량 폴리에틸렌(UHMWPE)을 젤 방사(gel spinning)로 극도로 연신하면, 분자 사슬이 거의 완전히 정렬해 인장강도가 강철을 능가하는 섬유가 된다. Dyneema(DSM)·Spectra(Honeywell)가 대표 상표다.",
+    "breakthrough": "분자 정렬도가 극히 높아 비강도가 아라미드보다도 높고, 밀도가 물보다 낮아(약 0.97) 물에 뜬다. 흡습이 없고 내약품·내자외선이 좋다. 대신 융점이 낮아(약 150°C) 고온·크리프에 약하다.",
+    "today": "방탄복·방탄판·헬멧(연질 방탄 최상급), 요트·크레인용 초경량 로프, 낚싯줄·수술 봉합사 등에 쓰인다. 고온이 필요하면 아라미드로, 압축·강성이 필요하면 탄소섬유로 간다."
+   }
   },
   "uhtc": {
    "display": "UHTC (ZrB₂ / HfB₂ / HfC / TaC)",
