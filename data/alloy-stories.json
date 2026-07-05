@@ -211,7 +211,14 @@
     "Polmear I J et al. (2017) Light Alloys: Metallurgy of the Light Metals 5th ed., Butterworth-Heinemann",
     "Aluminum Association \"Aluminum Casting Alloys\""
    ],
-   "legacy_text": "A356 (또는 AlSi7Mg, EN AC-42100) 은 7% Si + 0.3% Mg 의 cast aluminum 합금입니다. 1929년 미국 Aluminum Company of America (현 Alcoa) 의 Junius Edwards 가 'Alcoa 356' 이라는 이름으로 출시했고, 이후 ASTM B26 / B108 의 표준 cast aluminum grade 가 됐어요. Si 7% 의 eutectic 첨가로 fluidity 가 우수하고 (Si 가 mold 내부 흐름을 도움), Mg 0.3% 가 Mg₂Si precipitate 로 시효 강화 메커니즘을 제공합니다.\n\nT6 시효 후 σy 220 MPa · UTS 275 MPa · El 8-10% — sand-cast 또는 permanent-mold cast aluminum 의 표준 strength 수준입니다. Cost ($3-5/kg) + machinability + weldability 의 균형이 우수해 고급 cast aluminum 의 'workhorse' 가 됐어요.\n\n응용: 자동차 cylinder head (Audi · BMW 의 일부 small-displacement engine 의 head), 자동차 wheel (저렴한 cast aluminum wheel — 1980년대 이후 대부분), 항공기 oxygen mask reservoir, 의료 portable ventilator 의 housing, 그리고 자동차 transmission 의 일부 casing (Toyota AISIN AA80 의 일부 grade). 더 고급 cast aluminum 합금은 A357 (Mg 0.7%, 더 높은 σy) 또는 A201 (Cu 4.5%, aerospace grade) 이고, 더 저렴한 commodity 는 A380 (Si 8% + Cu 3.5%, die-cast)."
+   "sections": {
+    "hook": "주조 알루미늄의 살림꾼 — 잘 흐르고, 열처리로 강해지고, 값도 무난한 A356.",
+    "origin": "1920년대 말 Alcoa 가 정립한 Al-7Si-0.3Mg 주조 합금이 뿌리다 — 유럽·AM 분말 표기로는 AlSi7Mg(EN AC-42100)와 같은 계보다. 규소 7%가 쇳물의 유동성을 살려 복잡한 형상을 채우고, 마그네슘 0.3%가 T6 열처리에서 Mg₂Si 석출로 강도를 끌어올린다 — 주조성과 열처리 강화를 한 조성에 담은 설계다.",
+    "breakthrough": "T6 후 항복 220MPa·연신 8~10%는 사형·금형 주물로서는 균형의 정점이고, 용접·가공·양극산화까지 무난하다. 개량은 불순물 관리로 이어져, 철을 엄격히 낮춘 항공급과 Mg 를 올린 A357 이 위쪽을 맡는다.",
+    "adoption": "1980년대 이후 주조 알루미늄 휠의 대중화가 이 합금을 자동차 산업의 표준으로 밀어올렸고, 실린더 헤드·서스펜션 너클로 확산됐다.",
+    "today": "자동차 휠·헤드·섀시 주물의 기본값이자, 항공·의료 하우징의 주조 표준이다. 다이캐스팅 대량생산은 A380/ADC12 가, 더 높은 강도는 A357·A201 이 맡는 구도 속에서 \"품질 주물의 기준\"으로 남아 있다.",
+    "fun_fact": "길에서 보는 알루미늄 휠 대부분이 이 합금의 저압주조품이다 — 휠 하나가 견디는 연석 충격과 수십만 km 의 피로가, A356-T6 균형의 일상적 증명이다."
+   }
   },
   "a356-0-al-si-mg-cast": {
    "display": "A356.0 (Al-Si-Mg cast)",
@@ -344,7 +351,26 @@
     "Alcoa \"Engineering Properties of Wrought 2024\" Tech Bulletin TPF-3R (1973)",
     "Smithsonian National Air & Space Museum \"Junkers J 1\" exhibit notes (https://airandspace.si.edu)"
    ],
-   "legacy_text": "1909년 독일 Düren 의 Dürener Metallwerke 에서 알프레드 빌름 (Alfred Wilm) 이 우연히 한 발견에서 모든 게 시작됩니다. Al-4%Cu 합금을 quench 한 뒤 며칠 방치해 놓았더니 강도가 두 배로 올라간 거예요. 이게 인류가 처음으로 'precipitation hardening' 이라는 메커니즘을 인지한 순간이었어요. Wilm 은 이걸 'Duralumin' 으로 상표화했고, 1909년 9월에는 세계 최초의 all-metal 항공기 Junkers J 1 의 동체로 사용됩니다. 1차 대전 동안에는 Zeppelin LZ 시리즈 비행선의 frame 으로도 대량 채택됐죠.\n\n1931년 미국 Alcoa 가 여기에 Mg 0.5% 를 추가해 더 안정한 시효 거동을 가진 X-2024 를 개발 → 1944년 AA 2024 로 표준화됐습니다. T351 temper (solution + 1.5% stretched + 자연 시효) 가 σ_y 325 MPa + 항피로 strength 의 sweet spot 으로, fuselage skin 의 디폴트로 자리잡았어요.\n\nBoeing 707 (1957) 부터 737 / 747 / 757, Airbus A320 family 의 모든 외피, MD-80, 콩코드 (1969-2003) 의 hull 거의 전체가 2024 — '비행기는 곧 2024' 라는 말까지 있을 정도였죠. 단, Cu 4% 가 galvanic + SCC + 부식에 약해서 표면에 Alclad (pure Al 5% cladding) 를 입혀 보호하는 게 표준이에요. 3세대 Al-Li (2050 등) 가 등장하면서 점차 대체되고 있지만, 50+ 년 동안 항공 산업의 main material 이었습니다."
+   "sections": {
+    "hook": "시효경화의 발견 그 자체가 된 합금 — 두랄루민의 직계, 항공기 외피의 반세기 표준 2024.",
+    "origin": "1909년께 독일 뒤렌의 알프레드 빌름은 Al-Cu 합금을 담금질해 두고 며칠 뒤 강도가 두 배로 오른 것을 발견했다 — 인류가 석출경화라는 현상을 처음 만난 순간이고, 이것이 두랄루민이라는 이름으로 상표화됐다. 1차 대전의 체펠린 비행선 골조와 1915년 융커스 J1(최초의 전금속 항공기)이 이 계보의 첫 무대였다. 1931년 Alcoa 가 마그네슘을 더해 시효 거동을 안정화한 개량형을 내놓았고, 이것이 AA 2024 로 표준화됐다.",
+    "breakthrough": "구리 4%가 만드는 석출물이 강도를, 자연시효의 안정화가 재현성을 준다. 특히 T351(용체화 후 1.5% 인장 교정 + 자연시효)은 강도·피로·인성의 균형점으로, 반복 가압을 견뎌야 하는 여압 동체 외피에 꼭 맞았다. 약점인 부식(Cu 탓)은 순알루미늄을 얇게 입힌 Alclad 로 해결하는 것이 표준 관행이 됐다.",
+    "adoption": "보잉 707 에서 737·747, 에어버스 A320 계열까지 제트 여객기 동체 외피의 기본값이 됐다 — \"여객기 외피는 곧 2024\"라는 말이 통용될 정도였다.",
+    "today": "지금도 항공 동체·하부 날개 외피와 리벳·피로 임계 부품의 표준이고, 정밀 치구와 모터스포츠에도 쓰인다. 3세대 Al-Li 합금이 일부 신형기에서 자리를 잠식하고 있지만, 수리·개조 시장까지 포함하면 여전히 항공 알루미늄의 기둥이다.",
+    "fun_fact": "빌름의 발견은 주말 방치가 낳았다 — 담금질 직후 시험을 미루고 자리를 비운 사이 합금이 스스로 굳어진 것인데, 그 \"게으름의 발견\"이 알루미늄 시대와 항공 시대를 함께 열었다."
+   },
+   "timeline": [
+    {
+     "year": 1909,
+     "event": "빌름, 시효경화 발견 — 두랄루민 상표화",
+     "ref": 1
+    },
+    {
+     "year": 1915,
+     "event": "융커스 J1 — 전금속 항공기에 두랄루민 계보 첫 적용",
+     "ref": 4
+    }
+   ]
   },
   "aa-2050-al-cu-li-3rd-gen-airbus-a380-wing": {
    "display": "AA 2050 (Al-Cu-Li, 3rd-gen) — Airbus A380 wing",
@@ -476,7 +502,21 @@
     "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
     "The Aluminum Association (2018) International Alloy Designations and Chemical Composition Limits for Wrought Aluminum"
    ],
-   "legacy_text": "1935년 미국 Alcoa 의 예일 셔먼 (Yale L. Sherman) 이 Al-Mg-Si 6063 의 조성을 발전시켜 Cu 0.15-0.4% + Cr 0.04-0.35% 를 추가한 합금이 alloy 61S — 1954년 Aluminum Association 의 international designation 통합 시 AA 6061 으로 재명명됐습니다. Cu 첨가로 Mg2Si precipitate 의 nucleation 이 강화되어 동일 열처리에서 6063 대비 σy 가 60% 향상됐죠.\n\n1939-1945년 2차 세계대전 동안 미군 항공기 fuselage frame 의 secondary structural alloy 로 채택되며 항공 응용이 본격화됐고, 1960년대 Reynolds Aluminum 이 trailer/dump truck body 표준으로 도입하면서 일반 산업으로 확산됩니다. T6 열처리 (530°C/1h solution + WQ + 175°C/8h artificial aging) 후 σy 276 MPa / σUTS 310 MPa — 항공·구조용의 균형 잡힌 강도 + 우수한 용접성 (4043/5356 filler) + 압출성 + 내식성 (Cu < 0.4% 라 5xxx 의 SCC 문제 없음) 의 트리오로 'all-purpose Al alloy' 자리에 올랐습니다.\n\n응용 — 자전거 프레임 (Cannondale CAAD, Specialized Allez), Apple MacBook unibody chassis (CNC 가공 후 anodizing — 6061-T6 sheet), Caltrans freeway sign frame, SpaceX Falcon 9 interstage adapter, M16/M4 rifle upper/lower receiver (군용 6061-T6 forging — Colt Mil-Spec), CNC 가공용 plate stock (7075 의 1/3 가격) 까지. 압출·plate·rod·bar·sheet·forging 모든 형태로 공급되며, ASTM B221 (extrusion) / B209 (sheet) / B211 (bar) 표준의 baseline 합금입니다."
+   "sections": {
+    "hook": "만능이라는 말이 가장 잘 어울리는 알루미늄 — 자전거에서 로켓까지, 구조용 압출의 표준 6061.",
+    "origin": "1935년 Alcoa 가 6063 계 Al-Mg-Si 에 구리와 크롬을 더해 내놓은 61S 가 원형이다. 구리가 석출 강화를 도와 6063 보다 한층 강해졌고, 1954년 국제 명명 통합 때 AA 6061 이 됐다. 강도·용접성·압출성·내식의 네 박자를 갖춘 \"중간의 정답\"이었다.",
+    "breakthrough": "T6(용체화+인공시효) 에서 항복 276MPa — 7075 의 절반쯤이지만, 대신 잘 용접되고(4043/5356 용가재), 잘 압출되고, 바닷가에서도 잘 견딘다. 성능의 정점 대신 취급의 관대함을 택한 설계가 이 합금의 본질이다.",
+    "adoption": "2차 대전기 항공 2차 구조로 검증된 뒤, 전후 트레일러·건축 압출재로 산업 전반에 퍼졌다 — \"도면에 재질 미지정 알루미늄 = 6061\"이라는 관행이 이때 생겼다.",
+    "today": "자전거 프레임, 노트북 유니바디, 로켓 어댑터 구조, 소총 리시버, CNC 플레이트 스톡까지 — 형태(압출·판·봉·단조)를 가리지 않는 범용 표준이다. 더 강해야 하면 7075, 더 잘 압출돼야 하면 6063 으로 갈린다.",
+    "fun_fact": "6061 의 별명은 \"알루미늄의 1018\"이다 — 강철 세계의 범용 저탄소강처럼, 특별히 뛰어난 것 없이 모든 것이 충분한 재료가 결국 세상을 채운다."
+   },
+   "timeline": [
+    {
+     "year": 1935,
+     "event": "Alcoa 61S 개발 (1954년 AA 6061 로 재명명)",
+     "ref": 4
+    }
+   ]
   },
   "aa-6063": {
    "display": "AA 6063",
@@ -552,7 +592,21 @@
     "ASM Handbook Vol.2 'Aluminum Zn Alloys 7xxx'",
     "Hatch J E (ed., 1984)"
    ],
-   "legacy_text": "AA 7050 은 1971년 미국 ALCOA 가 'X7050' 으로 시제 개발 후 1975년 표준화한 thick-section aerospace Al alloy 입니다. AA 7075 의 약점 — short-transverse 방향의 SCC 위험 + 두꺼운 plate 의 cooling rate 불균일 — 을 보완하기 위해 Cr 을 제거하고 Zr 0.10-0.15% 첨가, Mg 함량을 약간 낮춰 hardenability + thick-section uniformity 를 개선했어요.\n\n구조적 차이 — 7075: Zn 5.6% + Mg 2.5% + Cu 1.6% + Cr 0.23%. 7050: Zn 6.2% + Mg 2.25% + Cu 2.3% + Zr 0.12%. Cr 제거 + Zr 추가가 fine grain + uniform precipitation 을 보장해, 50-200 mm 두께 plate 의 균일한 강도를 얻을 수 있게 됐습니다.\n\n응용 — Thick aerospace plate 의 표준. Boeing 777 / 787 / 747-8 의 wing skin 일부 thick section, Lockheed Martin F-22 의 main wing spar (forging 형태 T7452), Lockheed C-5 / C-17 의 main landing gear support frame, Airbus A380 / A350 의 thick wing rib, Boeing 737NG / MAX 의 main spar. AM (LPBF) 분말로도 사용 (EOS / Concept Laser 의 7050 분말).\n\nT74 / T7451 / T7452 over-aged temper 가 표준 — 7075 의 T651 와 동일 강도 (σy 460-470 MPa) + 약 100배 향상된 SCC 저항. 가격은 7075 의 약 1.5배."
+   "sections": {
+    "hook": "두꺼워도 속까지 강한 7xxx — 7075 의 약점을 지르코늄으로 고친 항공 후판의 표준 7050.",
+    "origin": "7075 는 얇은 판에선 최강이지만, 두꺼운 단면에선 냉각 불균일로 속이 덜 강해지고 단변 방향 응력부식균열(SCC)에 취약했다. 1971년 Alcoa 가 이를 겨냥해 크롬을 빼고 지르코늄 0.1% 남짓을 넣은 X7050 을 내놓았다 — 담금질 감수성을 낮춰 50~200mm 후판의 속까지 균일하게 강해지는 조성이다.",
+    "breakthrough": "지르코늄이 만드는 미세한 Al₃Zr 입자가 재결정을 억제해 조직을 균일하게 붙잡고, 구리를 늘려 과시효(T74 계열)에서도 강도를 유지한다. 그 결과 7075-T651 급 강도(σy 460~470MPa)를 내면서 SCC 저항은 자릿수로 좋아진 후판이 나왔다 — \"두꺼운 7xxx\"라는 모순을 푼 설계다.",
+    "adoption": "1975년 표준화 이후 항공 후판·단조의 기본값이 됐다 — 대형기 날개 스파와 리브, 착륙장치 지지 구조, 전투기 주날개 스파 단조가 대표 무대다.",
+    "today": "보잉·에어버스 기종들의 두꺼운 날개 구조재와 벌크헤드에 T7451/T7452 로 널리 쓰인다. 더 가벼운 쪽은 Al-Li, 더 강한 쪽은 7055/7085 같은 후속이 잇지만, 후판 신뢰성의 기준은 여전히 7050 이다.",
+    "fun_fact": "7050 의 발명은 원소 하나 빼고 하나 넣은 일이다 — 크롬을 지르코늄으로 바꾼 그 교체가, \"얇은 판의 왕\"과 \"두꺼운 판의 왕\"을 갈라놓았다."
+   },
+   "timeline": [
+    {
+     "year": 1971,
+     "event": "Alcoa, X7050 개발 (1975년 표준화) — 후판 SCC·균일성 해결",
+     "ref": 3
+    }
+   ]
   },
   "aa-7075": {
    "display": "AA 7075",
@@ -721,7 +775,14 @@
     "ASTM A29 \"Standard Specification for General Requirements for Steel Bars\"",
     "Krauss G (2015) Steels: Processing, Structure, and Performance, ASM"
    ],
-   "legacy_text": "1020 은 1018 보다 carbon 이 0.02% 더 높은 (0.18~0.23%) plain carbon steel 로, 1911년 SAE 표준 등재 이후 자동차 산업의 'general purpose carbon steel' baseline 으로 자리잡았어요. 1018 보다 σ_y 가 약 5% 높지만 용접성은 다소 낮습니다 (carbon equivalent CE 가 살짝 증가).\n\n응용 — 자동차 axle 단조 (rough forging blank), 농기계 shaft, 차고 도어 spring frame, 산업 펌프 base plate, 미국 ASME / API standard 의 pressure vessel raw stock, 콘크리트 reinforcing rebar (Grade 40 → 1020 변형). 가장 흔한 '강철' 그대로의 모습이라고 보면 됩니다."
+   "sections": {
+    "hook": "가장 보통의 강철 — 탄소 0.2%, 이름 그대로의 범용 저탄소강 1020.",
+    "origin": "1911년 SAE 가 정립한 10xx 평탄소강 체계의 한 눈금으로, 탄소 0.18~0.23%의 저탄소강이다. 합금 원소 없이 탄소만으로 성질이 정해지는 가장 단순한 강이라, 값과 용접성과 가공성이 모두 \"기본값\"이 된다.",
+    "breakthrough": "특별한 야금적 발명이 아니라 표준화 그 자체가 이 강의 기여다 — 어디서 사도 같은 성질이 보장되는 범용 강재가 있다는 것이, 대량생산 시대 설계의 전제가 됐다. 강도가 더 필요하면 침탄으로 표면만 굳히는 확장도 쉽다.",
+    "adoption": "자동차 산업의 축·브래킷 소재로 채택되며 20세기 기계공업의 기본 재료가 됐고, 구조 각관·환봉·플레이트의 유통 표준으로 자리 잡았다.",
+    "today": "샤프트 블랭크, 기계 베이스, 치구, 일반 구조물 — \"그냥 강철\"이 필요한 모든 곳의 기본값이다. 강도가 필요하면 1045·4140 조질로, 용접 구조 대량재는 A36 계 판재로 넘어간다.",
+    "fun_fact": "기계공학 교재의 예제 재료가 유난히 1020 인 이유는 단순하다 — 성질이 표준적이고 데이터가 흔해서, \"강철\"이라는 개념의 대명사 노릇을 하기 때문이다."
+   }
   },
   "aisi-1030": {
    "display": "AISI 1030",
@@ -902,7 +963,21 @@
     "Pickering F B (1976) \"Metallurgical Evolution of Stainless Steels\", The Metals Society Vol 2",
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
    ],
-   "legacy_text": "304L 은 1962년 미국 Combustion Engineering 이 304 의 sensitization 문제를 풀기 위해 carbon 함량을 ≤0.03% 로 낮춘 ELC (Extra-Low-Carbon) 변형입니다. 304 가 가진 모든 부식 환경 적응성은 그대로 살리면서, 용접 그대로 PWHT (post-weld heat treatment) 없이 바로 service 가능한 합금이 된 거죠. 사실상 '용접하는 304' 의 기준이 됐어요.\n\n응용은 304 와 거의 동일하면서도 용접 의존도가 높은 분야에 특화돼 있습니다. 식품 공정 라인 (uno-pasteurized milk, beer brewery 의 용접 tank), 의료 surgical tray, 화학 plant 의 jacketed reactor, 반도체 super-clean piping (EP-finished, 표면 Ra < 0.4 μm), HVAC ductwork, 대형 outdoor 조각상 (시카고 Anish Kapoor 의 'Cloud Gate' 가 304L 의 12-mm sheet 168장을 용접해서 만든 것). 단점은 carbon 감소로 σ_y 가 304 대비 약 5% 낮다는 점입니다."
+   "sections": {
+    "hook": "용접하는 304 — 탄소를 덜어내 후열처리 없이 그대로 쓰는 저탄소 스테인리스.",
+    "origin": "304 는 용접열(450~850°C)을 받으면 입계에 크롬 탄화물이 석출해 그 주변이 부식되는 예민화가 약점이었다. 304L 은 탄소를 0.03% 이하로 낮춰(ELC) 이 문제의 뿌리를 없앤 변형으로, 1960년대에 표준화되며 \"용접 후 열처리 없이 바로 쓰는 304\"의 기준이 됐다.",
+    "breakthrough": "탄소를 낮추면 탄화물이 생길 재료 자체가 사라져 용접부가 안전해진다. 대가는 항복강도 약 5% 하락뿐이라, 용접 구조물에서는 사실상 손해 없는 거래였다 — 질소를 더해 강도까지 회복한 304LN 이 그 연장선에 있다.",
+    "adoption": "식품·양조 설비의 용접 탱크와 배관이 먼저 표준으로 삼았고, 화학 플랜트와 의료 기구, 반도체 전해연마 배관으로 확산되며 \"용접 지정 시 기본 L\"이라는 설계 관행을 만들었다.",
+    "today": "오늘날 판재 시장에서는 304 와 304L 을 겸용(dual-certified)으로 공급하는 것이 일반적일 만큼 표준이 됐다. 옥외 조형물부터 위생 배관까지, 용접이 들어가는 스테인리스 구조물의 기본값이다.",
+    "fun_fact": "시카고의 명물 \"클라우드 게이트(콩)\"는 304L 판 168장을 용접해 이음매를 갈아낸 조형물이다 — 거울처럼 이어진 그 표면 자체가 이 강의 용접성 광고인 셈이다."
+   },
+   "timeline": [
+    {
+     "year": 1962,
+     "event": "저탄소(ELC) 304L 도입 — 용접부 예민화 봉쇄",
+     "ref": 3
+    }
+   ]
   },
   "aisi-316": {
    "display": "AISI 316",
@@ -1073,7 +1148,14 @@
     "EOS GmbH \"EOS Aluminium AlSi10Mg Material Data Sheet\" (2020)",
     "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
    ],
-   "legacy_text": "AlSi10Mg 는 1960년대부터 사용된 알루미늄 die-casting 합금 A360.0 / A413.0 (Al-Si-Mg eutectic family, EN AC-43000) 계열에서 진화한 조성입니다. Si 10% 가 Al-Si eutectic (12.6%) 에 근접해 fluidity 가 우수 → 복잡한 thin-wall casting 가능. Mg 0.2-0.45% 가 T6 시효처리 (530°C SHT + WQ + 175°C/3h aging) 시 Mg₂Si precipitate 를 형성해 σy 240 MPa / σUTS 360 MPa / El 8% 의 균형을 달성합니다.\n\n2010년대 들어 metal AM (LPBF, DMLS) 시장이 본격적으로 열리면서 AlSi10Mg 가 metal 3D 프린팅의 default Al 분말 자리에 올랐어요. 이유는 첫째, gas atomization 이 비교적 쉽고 (다른 high-strength Al 합금은 oxide 형성으로 atomization 어려움), 둘째, LPBF 의 빠른 열 사이클이 자연스럽게 fine Si network microstructure 를 만들어 as-built σy 가 단조 6061-T6 (276 MPa) 의 약 90% 수준 (240 MPa) 에 도달하기 때문입니다.\n\n응용 — 자동차 light-weight bracket / heat exchanger (Audi/BMW 의 일부 motorsport 부품), 항공 ECS (Environmental Control System) / antenna mount, F1 차의 일부 cooling duct 와 ducting (FSAE / Formula Student 표준), 의료 dental implant mount, 우주 satellite truss / mounting bracket. EOS 의 EOS Aluminum AlSi10Mg, SLM Solutions 의 AlSi10Mg, GE Additive Concept Laser 의 AlSi10Mg-A — 사실상 모든 metal AM vendor 의 표준 Al grade 입니다. ⚠ DED (Optomec LENS 등) 에는 wire feedstock 사용 — AlSi10Mg DED 는 wire 형태로 변환됨."
+   "sections": {
+    "hook": "금속 3D 프린팅의 기본 알루미늄 — 다이캐스팅 혈통에서 AM 표준 분말이 된 AlSi10Mg.",
+    "origin": "뿌리는 1960년대부터 쓰인 Al-Si-Mg 다이캐스팅 계보다. 규소 10%가 공정점 부근이라 쇳물이 잘 흐르고, 마그네슘 0.2~0.45%가 시효 강화를 제공한다 — 얇고 복잡한 주물을 위한 조성이 반세기 뒤 레이저 프린팅에 그대로 들어맞았다.",
+    "breakthrough": "LPBF 의 초고속 응고가 실리콘을 나노 셀 네트워크로 얼려, as-built 상태에서 항복 ~240MPa — 6061-T6 의 90% 급이 열처리 없이 나온다. 분말 제조(가스 분무)도 고강도 Al 대비 수월해, 공정·물성·공급의 삼박자가 맞았다.",
+    "adoption": "2010년대 금속 AM 붐과 함께 사실상 모든 장비사의 표준 알루미늄 분말이 됐다 — 모터스포츠 덕트·브래킷과 위성 구조가 초기 검증 무대였다.",
+    "today": "경량 브래킷, 일체형 열교환기, 안테나 마운트, 위상최적화 구조 등 \"프린팅이 값을 하는\" 알루미늄 부품의 기본값이다. 더 높은 강도·연성은 Scalmalloy 같은 AM 전용 합금이, 대량 양산은 여전히 다이캐스팅이 맡는다.",
+    "fun_fact": "AlSi10Mg 는 열처리 상식이 뒤집히는 재료다 — 응력만 풀려고 300°C 에 넣으면 나노 실리콘 네트워크가 풀려 강도가 뚝 떨어진다. as-built 가 가장 강한 상태라는 것, AM 이 만든 새 문법이다."
+   }
   },
   "alumina": {
    "display": "Alumina",
@@ -1189,7 +1271,21 @@
     "Hillenbrand H G & Gräf M (2000) \"High-Strength Line Pipe Steels for Polar Service\", Pipeline Technology Conference",
     "Liessem A et al. (2004) \"Production Experience of Heavy Wall X70 Line Pipe\", J Iron Steel Res Int 11(5)"
    ],
-   "legacy_text": "1973년 알래스카 횡단 송유관 (Trans-Alaska Pipeline System, TAPS) 의 자재 선정이 송유관 표준화의 분기점이 됐어요. 영하 50°C 의 극저온, M7 지진 지대, 영구동토 (permafrost) 융해 위험 — 이 모든 환경을 동시에 만족해야 했거든요. 일본 신일본제철 (현 Nippon Steel) 이 TMCP (Thermo-Mechanical Controlled Processing) 기술로 σ_y 485 MPa + CVN ≥ 100 J at -40°C 의 새 강 X70 을 개발해 TAPS 의 1287 km 의 80% 가 X70.\n\nTAPS 의 성공 이후 X70 은 글로벌 송유관·가스 transmission 표준으로 확산됐어요. 2001-2003년 중국 西气东输 (서기동수) 4200 km — 신장에서 상하이까지 가스 송유관 — 의 90% 가 X70. 2010년대의 러시아 Nord Stream 1+2 (1224 km × 2), 트랜스-튀르키예 TANAP (1850 km), 호주 Northern Gas Pipeline (622 km) … 모두 X70 PSL2 grade.\n\nPSL2 sub-grade 의 특별함은 'CTOD ≥ 0.25 mm at -20°C' 의 인성 요구예요. running brittle fracture — 한 군데서 시작된 균열이 음속으로 전파되어 수십 km 의 송유관을 한 번에 파괴하는 catastrophic failure — 를 회피하기 위한 spec. 1986년 캐나다 Athabasca pipeline 에서 X65 의 brittle fracture 가 발생해 13 km 의 송유관이 한 번에 깨졌던 사고가 이 spec 의 trigger 였습니다."
+   "sections": {
+    "hook": "대륙을 건너는 가스관의 강 — 극지와 지진대를 위해 벼려진 라인파이프 X70.",
+    "origin": "1970년대 알래스카 횡단 송유관(TAPS)은 영하 수십 도, 지진대, 영구동토라는 조건을 동시에 요구했다. 일본 제철사들이 제어압연(TMCP)으로 답한 것이 X70 — 항복 485MPa 급이면서 −40°C 충격인성을 보증하는 저탄소 미세합금강이다. 합금을 더 넣는 대신 압연 공정으로 결정립을 다듬어 강도와 인성을 함께 얻었다.",
+    "breakthrough": "PSL2 등급의 본질은 파괴 전파의 저지다. 가스관은 한 점의 균열이 내부 압력을 타고 음속으로 달리며 관을 수 km 씩 찢을 수 있어(취성 전파), 낮은 온도에서의 파괴인성(CTOD)과 샤르피 흡수에너지를 계약 수준으로 못 박는다 — 과거의 장거리 취성 파괴 사고들이 이 사양을 만들었다.",
+    "adoption": "TAPS 대부분 구간에 채택되며 검증됐고, 이후 중국 서기동수(4200km), 노드스트림, TANAP 등 세계의 장거리 가스관이 X70 PSL2 를 표준으로 삼았다.",
+    "today": "장거리 천연가스 수송관의 세계 표준이며, 더 높은 압력·대구경은 X80 이, 수소 혼송 대비 연구가 다음 장을 준비하고 있다. 강 자체만큼 현장 용접 절차와 방식(코팅·음극방식)이 수명을 좌우하는 재료이기도 하다.",
+    "fun_fact": "가스관 설계자들은 \"관이 터지는 것\"보다 \"터짐이 달리는 것\"을 두려워한다 — 균열이 가스 감압 속도보다 빨리 달리면 멈추지 않기 때문에, X70 의 인성 사양은 사실상 균열과 소리의 경주 규칙이다."
+   },
+   "timeline": [
+    {
+     "year": 1977,
+     "event": "알래스카 횡단 송유관 완공 — X70 급 TMCP 라인파이프 대규모 검증",
+     "ref": 2
+    }
+   ]
   },
   "aramid-composites": {
    "display": "Aramid Composites (Kevlar · Twaron — AFK laminates)",
