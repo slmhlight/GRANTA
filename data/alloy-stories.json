@@ -1283,7 +1283,10 @@
     "MET-0813",
     "MET-0814",
     "MET-0815",
-    "MET-0820"
+    "MET-0820",
+    "MET-0980",
+    "MET-0981",
+    "MET-0982"
    ],
    "refs": [
     "ASTM A276 / A276M 'Standard Specification for Stainless Steel Bars and Shapes'",
@@ -1296,7 +1299,7 @@
     "origin": "1913년 크루프의 스테인리스 발견 직후 등장한 마르텐사이트계로, 크롬 12~14%에 탄소를 0.15~0.40%까지 높인 조성이다. 오스테나이트계(304)와 달리 담금질-뜨임으로 경화되어 날이 서는 것이 핵심이라, 처음부터 칼과 기구를 겨냥했다. 일본 SUS420J1/J2, 한국 STS420J1/J2 가 같은 강이다.",
     "breakthrough": "탄소가 담금질 시 크롬 탄화물과 마르텐사이트를 만들어 HRC 50~58 의 경도와 날 유지력을 준다. 크롬 부동태는 온화한 환경의 녹만 막을 뿐이라, 내식은 오스테나이트계에 못 미친다 — 대신 \"녹 덜 스는 잘 드는 칼\"이라는 자리를 얻었다.",
     "adoption": "독일 졸링겐과 일본 세키의 칼 산업이 식칼 표준으로 채택했고, 수술용 메스·가위 등 의료 기구로 확산되며 절삭날 스테인리스의 대명사가 됐다.",
-    "today": "식칼·가위·수술 기구·골프 웨지·공이 등 \"녹 덜 스는 경화 날\"이 필요한 곳의 표준이다. 더 단단한 고급 칼은 440C·분말강으로, 염화물 환경은 17-4 PH·316L 로 넘어간다.",
+    "today": "식칼·가위·수술 기구·골프 웨지·공이 등 “녹 덜 스는 경화 날”이 필요한 곳의 표준이며, 경면 연마되는 정밀 사출 금형강(Stavax ESR)으로도 쓰인다. 더 단단한 고급 칼은 440C·분말강으로, 염화물 환경은 17-4 PH·316L 로 넘어간다.",
     "fun_fact": "주방 식칼 자루에 흔히 새겨진 \"스테인리스\"의 정체가 대개 420 계다 — 녹이 잘 안 슬면서도 갈면 다시 서는 균형이, 매일 물에 닿는 칼에 딱 맞기 때문이다."
    },
    "timeline": [
@@ -2166,7 +2169,8 @@
     "CMP-0011",
     "CMP-0012",
     "CMP-0013",
-    "CMP-0014"
+    "CMP-0014",
+    "CMP-0015"
    ],
    "refs": [
     "Bacon R (1960) \"Growth, Structure, and Properties of Graphite Whiskers\", J Appl Phys 31",
@@ -2194,19 +2198,6 @@
      "ref": 2
     }
    ]
-  },
-  "cfrp-t800-epoxy-ud-0": {
-   "display": "CFRP — T800/Epoxy (UD 0°)",
-   "stable_ids": [
-    "CMP-0015"
-   ],
-   "refs": [
-    "Toray Industries Inc. \"T800S Carbon Fiber Technical Data\" (2021 revision)",
-    "Chung D D L (1994) Carbon Fiber Composites, Butterworth-Heinemann",
-    "Hexcel \"HexTow IM7 Data Sheet\" (2024) (대응 미국 표준)",
-    "Soutis C (2005) \"Fibre reinforced composites in aircraft construction\", Prog Aerosp Sci 41"
-   ],
-   "legacy_text": "T800 carbon fiber 는 1976년 일본 Toray 가 PAN (polyacrylonitrile) precursor 의 stabilization → carbonization → graphitization 공정을 최적화해 σ_UTS 5.5 GPa + E 285 GPa 의 intermediate-modulus fiber 를 양산화한 결과예요 — 1980년대 IM (intermediate modulus) 등급의 표준으로 자리잡았습니다. 1985년 Hercules (현 ATK) 의 IM7 (US 표준) 과 Toray 의 T800 이 양강 구도로 전 세계 항공 prepreg 시장을 양분.\n\n응용 — Boeing 787 Dreamliner 의 fuselage barrel 50% / wing 50% (Toray 가 단독 공급), Airbus A350 XWB 의 wing 의 outer skin / center wing box, F-22 / F-35 의 vertical tail / horizontal stabilizer. 우주 — SpaceX Falcon 9 의 helium COPV (Composite Overwrapped Pressure Vessel, payload fairing 도 T800/Cyanate), Blue Origin New Shepard 의 crew capsule. 민간 — F1 모노코크 (FIA 2014 표준), 일부 항공 — Boeing 777X 의 folding wingtip, Mercedes-Benz EQS 의 일부 트렁크 lid 도 T800 prepreg autoclave 입니다."
   },
   "chromium-moly-heat-resistant-steel": {
    "display": "Cr-Mo Heat-Resistant Steel (2.25Cr-1Mo: SA213 T22 / SA336 F22V)",
@@ -2909,6 +2900,7 @@
    "stable_ids": [
     "CMP-0004",
     "CMP-0024",
+    "CMP-0025",
     "CMP-0026",
     "CMP-0027"
    ],
@@ -2932,19 +2924,6 @@
      "ref": 1
     }
    ]
-  },
-  "gfrp-e-glass-epoxy-ud-0": {
-   "display": "GFRP — E-glass/Epoxy (UD 0°)",
-   "stable_ids": [
-    "CMP-0025"
-   ],
-   "refs": [
-    "Kleist D (1933) US Patent 1,920,255 (Owens-Illinois) \"Glass and method of making same\"",
-    "Wallenberger F T & Bingham P A (eds., 2009) Fiberglass and Glass Technology, Springer",
-    "Mishnaevsky L Jr. et al. (2017) \"Materials for Wind Turbine Blades: An Overview\", Materials 10(11)",
-    "Owens Corning corporate history (https://www.owenscorning.com/about-us/our-company/history)"
-   ],
-   "legacy_text": "1932년 미국 Owens-Illinois Glass 의 데일 클라이스트 (Dale Kleist) 가 우연히 silica + Al₂O₃ + CaO 의 melt 에 압축 공기를 불자 글래스 wool fine fiber 가 생성됨을 발견 — 1935년 Owens-Corning 으로 spin-off 되며 'E-glass' (Electrical grade, 낮은 dielectric loss) 가 1938년 표준화됐어요. 2차 대전 동안 군용 radome 의 핵심 소재로 활용된 뒤, 1942년 Owens-Corning + Standard Oil 의 'Fiberglas' 가 선박 hull 의 첫 GFRP 응용 (Bertram boat) 으로 등장합니다.\n\nE-glass / Epoxy UD 의 의의는 σ_UTS 1100 MPa + E 45 GPa + 가격 $6/kg 으로 carbon fiber 의 1/15 가격에 강도 70% — 풍력 발전 spar cap 의 절대적 표준이 됐어요 (Vestas V164 의 80 m blade spar 가 E-glass UD pultrusion). 응용 — 풍력 — Vestas / GE / Siemens Gamesa / LM Wind 의 모든 megawatt-class blade spar cap, 보트 hull (Bertram, Boston Whaler), 산업 — 압력 탱크 (CNG type IV), 펄프 / 종이 산업 chemical tank, 풍력 nacelle housing, 자동차 — Mustang Shelby GT500 의 hood scoop, BMW i8 의 trunk lid 내부 보강. 풍력 시장 폭발 (2010-2025) 의 핵심 소재입니다."
   },
   "glass": {
    "display": "Glass",
@@ -3259,11 +3238,13 @@
   "heavy-section-pressure-steel": {
    "display": "Heavy-Section Pressure Steel (A537 / SA508 nuclear forging / HY-80)",
    "stable_ids": [
+    "MET-0059",
+    "MET-0460",
+    "MET-0461",
     "MET-0627",
     "MET-0628",
     "MET-0629",
-    "MET-0630",
-    "MET-0059"
+    "MET-0630"
    ],
    "refs": [
     "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
@@ -3392,19 +3373,6 @@
     "today": "항공기 바닥판·조종면·페어링, 헬기 로터 블레이드, 위성 구조 패널, 고속열차 내장재 등 ‘가벼우면서 뻣뻣해야 하는’ 판 구조에 쓰인다. 국부 압축·충격에 코어가 눌리는 것이 약점이다.",
     "fun_fact": "항공용 벌집 코어의 상당수는 금속이 아니라 종이다 — 아라미드 종이(Nomex)에 수지를 먹인 벌집이, 불에 강하고 가벼워 객실 바닥 밑을 채운다."
    }
-  },
-  "hy-100-mil-s-16216-submarine-pressure-hull": {
-   "display": "HY-100 (MIL-S-16216) — submarine pressure hull",
-   "stable_ids": [
-    "MET-0460",
-    "MET-0461"
-   ],
-   "refs": [
-    "MIL-S-16216K (1987) \"Steel Plate, Alloy, Structural, High Yield Strength (HY-80 and HY-100)\"",
-    "Czyryca E J (1990) \"Development of Low-Carbon, Copper-Strengthened HSLA Steel Plate for Naval Ship Construction\", David Taylor Research Center DTRC/SME-90-04",
-    "Czyryca E J et al. (1990) \"Development and Certification of HSLA-100 Steel for Naval Ship Construction\", Naval Eng J 102(3)"
-   ],
-   "legacy_text": "1965년 미해군이 USS Albacore 후속 잠수함 — 더 깊이, 더 조용히 잠수할 수 있는 차세대 — 의 압력선체용 강을 찾던 중 만들어진 합금. 1950년대 HY-80 (σ_y 550 MPa) 으로는 limit dive depth 가 부족했거든요. Naval Surface Warfare Center 의 연구진이 HY-80 의 Ni 함량을 살짝 늘리고 Q+T 사이클을 강화해 σ_y 690 MPa + CVN ≥ 81 J at -18°C 의 HY-100 을 완성합니다.\n\n첫 채택은 1976년 USS Los Angeles (SSN-688) class 잠수함의 일부 frame. 그 뒤로 Seawolf class (SSN-21, 1997-) 와 Virginia class (SSN-774, 2004-) 의 전체 압력선체로 확장됐어요. HY-100 은 잠수 한도를 800 ft 에서 1200 ft 로 끌어올린 합금입니다.\n\n어려운 점은 용접이에요. HY-100 의 용접부는 hydrogen embrittlement 에 민감해서, MIL-E-22200/10 의 low-hydrogen electrode + 100°C 예열 + 24시간 hydrogen bake-out 이 모두 필수. 1989년 USS San Juan (SSN-751) 의 dry dock inspection 에서 HY-100 용접부의 hydrogen-induced crack 이 발견된 사건 이후, USN 의 잠수함 hull welding 는 모든 공정이 sealed clean room 에서 진행됩니다."
   },
   "hydroxyapatite": {
    "display": "Hydroxyapatite (HA)",
@@ -3788,30 +3756,6 @@
     "fun_fact": "듀플렉스는 강도가 높아 같은 하중을 더 얇은 벽으로 버틴다 — 그래서 큰 화학 탱크·다리를 오스테나이트계보다 가볍고 싸게 지을 수 있다."
    }
   },
-  "lithium-aluminosilicate": {
-   "display": "Lithium Aluminosilicate",
-   "stable_ids": [
-    "CER-0014"
-   ],
-   "refs": [
-    "Stookey S D (1959) US Patent 2,920,971 \"Method of Making Ceramics and Product Thereof\"",
-    "Schott Ceran Tech Data",
-    "Beall G H (1992) \"Design and Properties of Glass-Ceramics\", Annu Rev Mater Sci 22"
-   ],
-   "legacy_text": "Lithium aluminosilicate (LAS, Li₂O·Al₂O₃·SiO₂) 는 1968년 미국 Corning 의 S. Donald Stookey 가 'pyroceramic' (또는 glass-ceramic) 의 표준으로 발견한 controlled crystallization glass 입니다. Stookey 는 1957년 Pyroceram (코닝의 첫 glass-ceramic) 을 발견했고, LAS 는 그 진화형으로 thermal expansion 이 거의 0 (~0.2 × 10⁻⁶/K) 인 β-spodumene crystal phase 가 형성되도록 nucleating agent (TiO₂, ZrO₂) 를 첨가했어요.\n\nLAS 의 핵심은 thermal expansion 이 거의 0 이라 thermal shock 에 거의 면역이라는 점입니다. 1100°C 가열 후 물에 담가도 깨지지 않고 (fused silica 와 같은 수준), 0 ↔ 700°C cycling 도 OK. 또 미세 crystal (1 μm 이하) 이 분산되어 있어 transparent (LAS-S, transparent) 또는 opaque (LAS-O, opaque) 두 form 모두 가능.\n\n응용: cooktop glass (Schott 의 'Ceran', Corning 의 'EuroKera' — 거의 모든 induction + radiant cooktop 의 상단 glass), 가스 cookware (Corning CorningWare 의 일부 grade — 직접 화염에 올려도 OK), 망원경 mirror substrate (Schott 의 'Zerodur' 가 LAS 의 대표 grade — ESO VLT 4×8.2m primary mirror, Keck Observatory 10m segmented mirror, ELT 39m 의 798 hexagonal segment 모두 Zerodur 기반), space telescope 의 일부 ground-based observatory, EUV 리소그래피 wafer stage (CTE ~ 0 → ASML EUV scanner 의 reticle stage substrate), 정밀 광학 부품 (CTE 가 0 이라 dimension 안정)."
-  },
-  "macor": {
-   "display": "Macor",
-   "stable_ids": [
-    "CER-0015"
-   ],
-   "refs": [
-    "Corning Macor Machinable Glass Ceramic Tech Data",
-    "Hench L L et al. (1986) \"Glass-Ceramic Composites\", J Am Ceram Soc 69",
-    "Davis J R (ed., 1991) Engineered Materials Handbook Vol.4 Ceramics, ASM"
-   ],
-   "legacy_text": "Macor 는 미국 Corning 이 1972년에 출시한 'machinable glass-ceramic' 입니다. 일반 ceramic (alumina, zirconia 등) 은 단단해서 final machining 이 grinding 으로만 가능한데, Macor 는 mica (fluorophlogopite) crystal 이 glass matrix 에 분산되어 일반 carbide tool 로 turning + milling + drilling 이 가능합니다. 'Glass-ceramic 의 황금시대' 의 대표작이에요.\n\nMacor 의 특징: 가공성 (HSS 또는 carbide tool 로 일반 machining 가능, 정밀 ±25 μm 까지 가능), thermal stability (continuous 800°C, peak 1000°C), electrical insulation (~16 kV/mm dielectric strength), chemical inert (대부분의 acid 에 안정), UHV 안정 (outgassing < 10⁻⁹ Torr·L/s). σ_compress 345 MPa, MOR 94 MPa, KIC 1.5 MPa·√m (alumina 의 1/3 정도, brittle).\n\n응용: 연구실 정밀 시험 jig (sample holder, fixture — vacuum 환경에서의 dimension 안정 + outgassing 없음), 정밀 측정기기 (LDV laser interferometer 의 mounting block), 항공 jet engine ground test 의 thermocouple support, 우주 발사체 inertial measurement unit (IMU) 의 gyroscope mount, MRI 의 일부 RF coil bobbin, 의료 surgical robot 의 일부 insulator. 가격은 $40-80/kg 으로 alumina 의 5-10 배지만 machining 가능 + 정밀 가공된 부품 단가는 alumina sintered 부품보다 30-50% 저렴할 때도 있어요 (sintering 의 후가공 비용 회피)."
-  },
   "magnesia": {
    "display": "Magnesia",
    "stable_ids": [
@@ -4149,18 +4093,6 @@
     "Hofmann W (1989) Rubber Technology Handbook, Hanser Publishers"
    ],
    "legacy_text": "1931년 독일 IG Farben (오늘날 BASF/Bayer 의 모체) 의 두 화학자 에두아르드 츤커 (Eduard Tschunkur) 와 발터 보크 (Walter Bock) 가 부타디엔 (CH₂=CH-CH=CH₂) 과 아크릴로니트릴 (CH₂=CH-CN) 을 유화 중합 (emulsion polymerization) 으로 합성한 새로운 합성 고무를 'Buna N' (Bu=Butadiene, Na=Sodium 촉매, N=Nitrile) 이라는 이름으로 발표합니다. 자연고무 (cis-1,4-polyisoprene) 가 가솔린·기름에 부풀어 못 쓰던 시절, '기름에 견디는 고무' 가 처음 등장한 순간이었어요.\n\n2차 대전 중에는 미국 정부의 합성고무 비상 계획 (Rubber Reserve) 의 핵심 소재로 지정돼 Goodrich, Goodyear, US Rubber 가 라이선스를 받아 대량 생산했고, 군용 항공기 연료 라인·O-ring 의 표준이 됐죠. 전후엔 자동차 산업 전반으로 확산 — Ford Model T 의 fuel-line gasket 부터 현대 모든 내연기관 엔진의 valve cover gasket, transmission shaft seal, 디젤 연료 분사기 O-ring 까지 사용처가 끝이 없어요.\n\nNBR 의 성능은 아크릴로니트릴 (ACN) 함량에 의해 결정됩니다. 18% 짜리 'low ACN' 은 저온 유연성이 좋고 (T_g ≈ -40°C), 50% 짜리 'high ACN' 은 내유성이 극대화됩니다. 산업 표준은 33% 'medium ACN' — fuel resistance 와 cold-flex 의 균형점이죠. 단점은 오존·자외선·heat-aging 에 약하다는 점. 그래서 150°C 이상이나 outdoor 노출 환경에서는 1980년대 등장한 HNBR (이중결합을 수소화한 형태) 이나 FKM (Viton) 으로 대체됩니다."
-  },
-  "niobium-c-103": {
-   "display": "Niobium C-103",
-   "stable_ids": [
-    "MET-0654"
-   ],
-   "refs": [
-    "Buckman R W (2000) \"New Applications for Tantalum and Tantalum Alloys\", JOM 52(3)",
-    "Wojcik C C (1995) \"Process Optimization for C-103 Niobium Nozzle Fabrication\", AIAA 95-2811",
-    "ATI Wah Chang \"C-103 Niobium Alloy Data Sheet\" (2018)"
-   ],
-   "legacy_text": "1956년 미국 Du Pont 의 R W 버크먼 (Buckman) 과 R G 테스터 (Tester) 가 우주 시대의 새 도전 — '1500°C 영역의 노즐 재료' — 를 풀려고 한 결과물이 Niobium C-103 입니다. Nb 90% + Hf 10% + Ti 1% 의 조성으로, 1700°C 까지 σ_UTS 100 MPa 를 유지하면서 가공이 가능했죠.\n\nC-103 의 가장 상징적 응용은 액체 로켓 엔진 nozzle 입니다. 1967년 Apollo Lunar Module 의 ascent engine (Bell Aerospace) 의 nozzle 이 C-103 — 달 표면에서 이륙해 사령선과 도킹할 때 단 한 번 작동했지만, 그게 우주인의 생존을 결정했어요. 우주 셔틀 OMS (Orbital Maneuvering System) 엔진의 thrust chamber 도 C-103 silicide-coated 였습니다.\n\n현재도 우주 응용에서 거의 전유에 가까워요. Merlin (Falcon 9 Stage 2), Aerojet AR-22 (X-37B), Northrop Grumman BT-4 (HTV-2), Rocket Lab Curie (Electron 의 kick stage) … 단점은 Nb 자체가 1300°C 이상에서 산화 폭발이라, 표면에 disilicide (NbSi₂) 코팅이 필수입니다. 코팅 손상 + 산화 사고가 NASA Mariner 4 (1965) 에 있었고, 그 이후로 dual-layer coating + ground inspection 가 strict 합니다."
   },
   "nitinol-niti": {
    "display": "Nitinol (NiTi)",
@@ -5015,20 +4947,6 @@
     }
    ]
   },
-  "pyrowear-53-carpenter-ams-6308-helicopter-transm": {
-   "display": "Pyrowear 53 (Carpenter, AMS 6308) — helicopter transmission gear",
-   "stable_ids": [
-    "MET-0073",
-    "MET-0074",
-    "MET-0075"
-   ],
-   "refs": [
-    "Carpenter Technology \"Pyrowear Alloy 53 Technical Data Sheet\" (2019)",
-    "AMS 6308 \"Steel, Bars, Forgings, and Tubing 1.0Cr - 2.0Ni - 3.25Mo - 2.0Cu - 0.10V - 0.10C\"",
-    "Maurer G E (2002) \"Pyrowear Alloy 53 — Performance in Loss-of-Lubrication Conditions\", American Helicopter Society 58th Annual Forum"
-   ],
-   "legacy_text": "1985년 미국 Carpenter Technology 가 헬리콥터 변속기 산업의 골치 아픈 문제를 풀려고 만든 합금이에요. 헬리콥터는 일반 비행기와 달리 'loss-of-lube' 시나리오가 결정적이거든요. 변속기 윤활유가 손실되면 30분 안에 기어 표면이 300~600°C 까지 올라가는데, 기존 9310 case-carburized 표면은 200°C 만 되어도 풀어지면서 (over-tempered) 기어가 파괴되는 게 한계였죠.\n\nCarpenter 가 내놓은 답이 Pyrowear 53 — C 0.10% + Cr 1.0% + Ni 2.0% + Mo 3.25% + Cu 2.0% + V 0.1% — 의 case-carburizing alloy. Mo 의 secondary hardening 으로 380°C 까지 표면 강도를 유지했고, Cu 가 시효 강화로 fillet 의 fatigue 저항을 높여줬어요. AMS 6308 로 1989년 표준화됩니다.\n\n미해군 SH-60 Seahawk (1985년 도입), 미육군 UH-60 Black Hawk (1989년 retrofit), AH-64 Apache (1995), CH-47 Chinook (2000) 의 main rotor gearbox + tail rotor drive 가 모두 Pyrowear 53 입니다. 'loss-of-lube 30분 생존' 의 기준이 됐어요. 한국군의 KUH-1 수리온 도 Pyrowear 53 의 기어를 씁니다. 단점은 가격 — 9310 의 3배예요."
-  },
   "r260-rail-steel-uic-860-en-13674-1-railway-head": {
    "display": "R260 Rail Steel (UIC 860 / EN 13674-1) — railway head",
    "stable_ids": [
@@ -5319,20 +5237,6 @@
     }
    ]
   },
-  "stavax-esr": {
-   "display": "STAVAX ESR",
-   "stable_ids": [
-    "MET-0980",
-    "MET-0981",
-    "MET-0982"
-   ],
-   "refs": [
-    "Uddeholm STAVAX ESR Tech Data (revised 2018)",
-    "Boyer H F & Gall T L (1985) Metals Handbook Desk Edition, ASM",
-    "Roberts G A et al. (1998) Tool Steels 5th ed., ASM"
-   ],
-   "legacy_text": "STAVAX ESR 은 Uddeholm (현 voestalpine Group) 의 plastic mold-grade stainless tool steel 입니다. Original 발표는 1972년 스웨덴 Uddeholm Tooling 으로, AISI 420 (13% Cr martensitic stainless tool steel) 의 ESR (Electroslag Remelting, 전극용해 정련) variant 입니다. ESR 공정은 inclusion (산화물 · 황화물 비금속 개재물) 을 1/10 수준으로 낮춰 polish 표면이 거울 같은 수준 (Ra < 0.05 μm) 까지 가능해집니다.\n\nSTAVAX ESR 은 13% Cr + 0.5% Si + 0.4% Mn + 0.38% C 의 martensitic stainless 입니다. Q+T 후 HRC 48-52 hardness 와 함께 stainless 의 부식 저항 + ESR 의 polish ability + plastic mold 의 abrasion resistance 를 모두 갖춘 hybrid 입니다. Q+T 표준은 1030°C oil quench + 350°C double temper.\n\n응용은 plastic injection mold 의 '거울 표면' 이 필요한 cavity 입니다. CD/DVD pressing mold (0.7 μm pit 을 정확히 transfer), 광학 lens mold (안경 lens, 카메라 lens), 의료 syringe / catheter mold, 일반 소비재 의 transparent component (transparent ABS housing), 그리고 자동차 headlamp lens mold (acrylic 또는 polycarbonate 의 광학 cavity). STAVAX ESR 가격은 $25-35/kg 으로 일반 P20 mold steel ($8/kg) 대비 3-4 배이지만 corrosion 환경 (산성 또는 chloride 함유 resin) 의 mold 수명을 10 배 이상 늘립니다."
-  },
   "stellite-6-cocrw": {
    "display": "Stellite 6 (CoCrW)",
    "stable_ids": [
@@ -5485,16 +5389,19 @@
     "MET-0009",
     "MET-0010",
     "MET-0011",
-    "MET-0066",
+    "MET-0013",
+    "MET-0014",
+    "MET-0015",
     "MET-0060",
     "MET-0061",
     "MET-0062",
+    "MET-0066",
     "MET-0070",
     "MET-0071",
     "MET-0072",
-    "MET-0013",
-    "MET-0014",
-    "MET-0015"
+    "MET-0073",
+    "MET-0074",
+    "MET-0075"
    ],
    "refs": [
     "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
@@ -5505,7 +5412,7 @@
     "origin": "기어·캠·축은 표면은 마모에 강하고 속은 충격에 견뎌야 하는 상반된 요구를 받는다. 이를 위해 저탄소 합금강(18CrNiMo7·20MnCr5·SCM415·9310)을 침탄(표면에 탄소 주입)하거나, 중탄소 합금강(31CrMoV9)을 질화(표면에 질소 주입)해 겉만 단단한 경화층(case)을 만든다.",
     "breakthrough": "침탄강은 저탄소(~0.2%C) 심부가 질긴 채로 표면만 고탄소 마르텐사이트(HRC 58~62)가 되어 마모·접촉피로에 강하다. Ni·Cr·Mo 는 심부 인성·경화능을 조율한다. 질화강 31CrMoV9 는 Cr·Mo·V 가 질소와 미세 질화물을 만들어, 담금질 없이 500°C 부근 처리만으로 표면을 굳혀 변형이 거의 없다.",
     "adoption": "자동차 변속기의 대량생산이 침탄 기어강을 표준화했고, 유럽 기어 산업의 18CrNiMo7-6 채택과 항공 기어의 VIM 9310 채택이 고급 계보를 완성했다.",
-    "today": "18CrNiMo7·20MnCr5 는 자동차·산업 기어, SCM415 는 소형 기어·핀, 9310 은 항공기 기어·베어링(청정 VIM 용해), 31CrMoV9 는 정밀 스핀들·크랭크샤프트·압출 스크루에 쓰인다.",
+    "today": "18CrNiMo7·20MnCr5 는 자동차·산업 기어, SCM415 는 소형 기어·핀, 9310 은 항공기 기어·베어링(청정 VIM 용해), 31CrMoV9 는 정밀 스핀들·크랭크샤프트·압출 스크루에, 고온 침탄강 Pyrowear 53 은 헬리콥터 변속기 기어에 쓰인다.",
     "fun_fact": "침탄 표면은 탄소가 들어차며 부피가 늘어 잔류압축응력을 머금는데, 이 압축이 피로 균열의 시작을 눌러 기어 수명을 몇 배로 늘린다."
    }
   },
@@ -5516,6 +5423,7 @@
     "MET-0641",
     "MET-0652",
     "MET-0653",
+    "MET-0654",
     "MET-0655",
     "MET-0657",
     "MET-0658",
@@ -5539,6 +5447,8 @@
   "technical-silicate-ceramics": {
    "display": "Technical Silicate Ceramics (Cordierite / Mullite / Steatite)",
    "stable_ids": [
+    "CER-0014",
+    "CER-0015",
     "CER-0016",
     "CER-0024",
     "CER-0027",
@@ -5554,7 +5464,7 @@
     "origin": "알루미나·질화물 같은 고순도 세라믹 이전부터, 점토·활석·마그네시아 원료를 구워 만든 규산염 세라믹이 전기 절연과 내열에 쓰였다. 코디어라이트·멀라이트·스테아타이트·포스터라이트·자기(porcelain)가 대표다.",
     "breakthrough": "각 조성이 특정 성질에 특화된다 — 코디어라이트는 열팽창이 거의 0 이라 열충격에 강하고, 멀라이트는 고온 강도·크리프 저항, 스테아타이트·포스터라이트는 고주파 절연 손실이 낮다. 원료가 싸고 성형이 쉬운 것이 공통 강점이다.",
     "adoption": "20세기 초 전력·전자 산업이 애자·절연 부품으로 채택하며 산업화됐고, 코디어라이트 허니컴이 자동차 배기 촉매 담체의 표준이 되며 최대 시장을 얻었다.",
-    "today": "자동차 촉매 담체(코디어라이트 벌집)·가마 부재·전기 애자·고주파 절연 부품·기판 등에 쓰인다. 고순도·고강도가 필요하면 알루미나·질화물로 올라간다.",
+    "today": "자동차 촉매 담체(코디어라이트 벌집)·가마 부재·전기 애자·고주파 절연 부품·기판 등에 쓰인다. 가공형 유리세라믹 Macor 와 저팽창 Lithium Aluminosilicate(LAS) 유리세라믹 쿡탑도 이 계열이다. 고순도·고강도가 필요하면 알루미나·질화물로 올라간다.",
     "fun_fact": "자동차 배기가스를 거르는 벌집 모양 촉매 담체가 코디어라이트다 — 열충격에 강하고 값싼 이 규산염이, 전 세계 내연차 배기관 속에서 일하고 있다."
    }
   },
@@ -5739,6 +5649,9 @@
     "MET-0642",
     "MET-0643",
     "MET-0656",
+    "MET-0663",
+    "MET-0664",
+    "MET-0665",
     "MET-0666",
     "MET-0668",
     "MET-0669",
@@ -5763,20 +5676,6 @@
      "ref": 1
     }
    ]
-  },
-  "tungsten-w-99-95-pure": {
-   "display": "Tungsten (W 99.95% pure)",
-   "stable_ids": [
-    "MET-0663",
-    "MET-0664",
-    "MET-0665"
-   ],
-   "refs": [
-    "Coolidge W D (1913) US Patent 1,082,933 \"Tungsten and method of making the same for use as filaments\"",
-    "Lassner E & Schubert W D (1999) Tungsten: Properties, Chemistry, Technology of the Element, Alloys, and Chemical Compounds, Springer",
-    "Davis J R (ed., 1998) ASM Specialty Handbook: Heat-Resistant Materials"
-   ],
-   "legacy_text": "1908년 미국 GE 의 윌리엄 데이비드 쿨리지 (William David Coolidge) 가 ductile tungsten — '구부릴 수 있는 텅스텐' — 의 제법을 발견하면서 산업이 시작됐어요. 원래 W 는 brittle 해서 가공이 불가능했는데, 쿨리지가 swaging (단조성 가공) 으로 결정립을 미세화하면 ductile 해진다는 사실을 알아낸 거죠. 1913년 그의 발견으로 incandescent 전구의 filament 가 carbon → tungsten 으로 전환되면서 '에디슨 전구' 가 진정한 의미의 lightbulb 가 됐습니다.\n\nTungsten 의 매력은 단연 melting point 3422°C — 모든 금속 중 최고예요. 19.25 g/cm³ 의 밀도 (Pb 의 1.7배), σ_y 750 MPa 의 상온 강도, 4.5 × 10⁻⁶/K 의 매우 낮은 CTE.\n\n응용은 크게 네 갈래입니다. (1) 전자 방출 — X-ray tube 의 anode, 반도체 e-beam lithography 의 source, mass spectrometer 의 filament. (2) 군용 — Kinetic Energy penetrator (M829A4 의 sabot core, long-rod 관통체. 우라늄 대체용), helicopter rotor balance weight. (3) 우주 — 인공위성의 angular momentum wheel, RTG 의 radiation shield. (4) 일상 — F1 brake disc heat sink, 다트 weight, Apple Watch Series 5+ 의 일부 internal radiation shield. 단점은 brittle (KIC 9 MPa√m) — 충격에 약해 항상 ductile metal 안에 묻혀 쓰입니다."
   },
   "twip-steel": {
    "display": "TWIP Steel (high-Mn austenitic)",
