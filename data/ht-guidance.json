@@ -1,5 +1,5 @@
 {
- "_note": "R226k — HT 주의사항 가이드 (구 MaterialDetail 인라인 12블록 이관). field=name 블록의 pattern 은 빌드 분류기(build-process-profiles.mjs)가 htg 할당에 사용(런타임 미사용). key hip/case 는 htc 클래스로 렌더. 출처: 각 텍스트 【표준】 + ASM Vol.4.",
+ "_note": "R226k — HT 주의사항 가이드 (구 MaterialDetail 인라인 12블록 이관). field=name 블록의 pattern 은 빌드 분류기(build-process-profiles.mjs)가 htg 할당에 사용(런타임 미사용). key hip/case 는 htc 클래스로 렌더. 출처: 각 텍스트 【표준】 + ASM Vol.4. R226w: am_map(byHt=profiles.ht 접두, byMach=profiles.mach) → blocks 의 am-* 키 — AM 공정(process 구조 필드) entry 전용 후처리 가이드.",
  "blocks": {
   "h01-aisi": {
    "pattern": "^(?:aisi |sae )?(?:10[3-8]\\d|41[34]0|43[14]0|52100|86\\d{2}|92\\d{2})\\b|^42crmo4|^scm44|^sncm",
@@ -60,6 +60,88 @@
    "pattern": "carburiz|nitrid|cementation|침탄|질화",
    "field": "heat_treatment",
    "text": "⚠ Carburizing / Nitriding — Case Hardening\nSurface hardening 처리:\n• Carburizing: case 0.5-1.5 mm 깊이, surface C 0.8-1.0%\n• Nitriding: case 0.1-0.5 mm 깊이, surface N 7-8%\n\n표준 절차:\n• Gas Carburizing: 900-925°C / 4-12 h / quench (endothermic gas atmosphere)\n• Plasma Carburizing: 850-950°C / vacuum + N₂-CH₄ plasma\n• Gas Nitriding: 500-550°C / 24-72 h / NH₃ atmosphere\n• Plasma Nitriding: 450-550°C / vacuum + N₂ plasma\n\n【⚠ 주의 1 — Core Hardenability 필요】\nCarburizing 의 base material 선택:\n• Plain carbon (1018, 1020): case 만 hardness, core soft (불충분)\n• Case-hardening grade:\n  - AISI 8620 (Ni 0.5%, Mo 0.2%): general gear\n  - AISI 9310 (Ni 3.2%, Mo 0.1%): aerospace gear\n  - AISI 4118 (Cr 0.5%, Mo 0.1%): automotive\n  - AISI 4320 (Ni 1.8%, Cr 0.5%, Mo 0.25%): heavy duty\n• Core hardness 보장: HRC 35-45 (정밀 gear)\n\nNitriding 의 base material:\n• Nitralloy 135 / N (Cr-Mo-Al 합금): 최고 case hardness\n• AISI 4140, 4340: 일반 nitriding grade\n• Tool steel (H13, D2): post-Q+T nitriding\n\n【⚠ 주의 2 — Distortion (Carburizing)】\nCarburizing 의 distortion 위험:\n• 900-925°C 의 high T → thermal expansion\n• Quench 시 differential cooling → warping\n• 두꺼운 part 의 sag, twist\n\n【권장 대응】\n• Press quenching (specialty equipment) — gear / shaft\n• Controlled atmosphere (endothermic gas)\n• Quench fixture (gear 의 정밀 dimensional control)\n• Post-quench tempering (low-T 180°C / 1 h, residual stress 해소)\n\n【⚠ 주의 3 — Nitriding (Lower T, Less Distortion)】\nNitriding 의 우수성:\n• 500-550°C — austenitize 회피 (austenite → martensite transformation 없음)\n• Distortion 매우 작음 (0.005-0.01% dimensional change)\n• Pre-machining 후 nitriding 가능 (final finishing 불필요)\n• 단, case 깊이 thin (0.1-0.5 mm)\n\n【응용】\n• Gear: carburizing (deep case, heavy load)\n• Precision part: nitriding (low distortion)\n• Aerospace gear: carburizing (case 1.0-1.5 mm)\n• Automotive gear: carburizing 또는 nitriding (cost trade-off)\n\n【표준】\nASM Vol.4 (Heat Treating) · SAE J1268 (carburized gear) · AMS 2759 / 5 (nitriding)"
+  },
+  "am-ti64": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM (LPBF/EBM) Ti-6Al-4V — 후처리 열처리\nAs-built 는 α′ 마르텐사이트 + 잔류응력 상태 — 그대로 쓰지 않는 것이 원칙.\n  ① Stress Relief: 480-650°C / 1-4 h / 진공 또는 Ar (빌드플레이트 절단·서포트 제거 전 필수 — 왜곡·균열 방지)\n  ② Anneal (연성 회복): 700-800°C / 1-2 h — α′ 분해 → α+β, 연신율 ↑ (강도 소폭 ↓)\n  ③ HIP (피로 임계 부품): 920°C / ≥100 MPa Ar / 2 h (ASTM F2924/F3001 표준) — 내부 기공 폐쇄, 피로수명 수 배 ↑. 강도는 as-built 대비 하락(연신 ↑) — 트레이드오프 인지.\n【주의】 700°C+ 대기 노출 시 α-case(산소 취화층) — 진공/고순도 Ar 필수, 필요 시 표면 제거.\n【표준】 ASTM F2924·F3001 (Ti64 PBF) · ASTM F3301 (AM 후처리 열처리)"
+  },
+  "am-ti-cp": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM CP-Ti — 후처리\nStress Relief 480-600°C / 1-2 h / 진공·Ar (잔류응력 제거·치수 안정). 열처리 강화 개념 없음(α 단상) — 어닐로 연성 회복만.\n【주의】 고온 대기 노출 시 산소 흡수(α-case) → 진공/Ar 분위기 필수.\n【표준】 ASTM F3301 · ASTM B265 (CP-Ti 어닐 관행)"
+  },
+  "am-alsi": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM (LPBF) AlSi10Mg/AlSi7Mg — 후처리 (전통 T6 관행과 다름!)\nAs-built 가 가장 강함 (미세 셀 조직 + Si 네트워크, UTS ~430-490 MPa).\n  ① Stress Relief 270-300°C / 2 h: 잔류응력·이방성 완화 — 단 Si 네트워크 분해로 강도 20-40% ↓, 연성 ↑ (강도 중요 부품엔 신중)\n  ② 전통 T6 (SHT 520-540°C + 시효): AM 에선 조직 조대화로 주조 T6 만큼의 이득 없음 — 관행적 T6 지시를 그대로 옮기지 말 것\n  ③ Direct aging 160-170°C: 강도 유지하며 응력 일부 완화 (제조사 옵션)\n【표준】 ASTM F3318 (AlSi10Mg PBF) · EOS/SLM 제조사 데이터시트"
+  },
+  "am-ni718": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM (LPBF) Inconel 718 — 후처리\nAs-built 는 Laves 상 + 미세편석 상태 — 시효만으로 부족, 균질화/용체화가 선행돼야 함.\n  ① Stress Relief: 950-980°C / 1 h (플레이트 분리 전)\n  ② 균질화/용체화: 954-1065°C (δ·Laves 제어 목적별 선택)\n  ③ 2단 시효: 718°C / 8 h → 노랭 → 621°C / 8-10 h / AC (γ″·γ′ 석출 — AMS 5662 계열)\n  ④ HIP 옵션: 1120-1185°C / ≥100 MPa — 피로 임계 부품 기공 폐쇄\n【표준】 ASTM F3055 (IN718 PBF) · AMS 5662/5664 준용 · F3301"
+  },
+  "am-ni625": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM (LPBF) Inconel 625 — 후처리\n고용강화 합금 — 시효 불필요. 목적별:\n  ① Stress Relief: ~870°C / 1 h (치수 안정·플레이트 분리 전)\n  ② Anneal: 980-1050°C (연성·내식 회복, 편석 완화) / Grade 별 F3056 참조\n  ③ HIP: 1120-1180°C / ≥100 MPa (피로·기밀 임계 부품)\n【주의】 600-900°C 장시간 유지 시 δ/카바이드 석출로 인성·내식 저하 — 불필요한 중간온도 체류 회피.\n【표준】 ASTM F3056 (IN625 PBF) · F3301"
+  },
+  "am-ni-solidsol": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM 고용강화 Ni (Hastelloy X · Haynes 230) — 후처리\n시효 개념 없음 — 용체화급 어닐이 핵심:\n  ① Stress Relief ~870-980°C (플레이트 분리 전)\n  ② Solution Anneal: 1120-1175°C / 급냉 (재결정·탄화물 용해 — 연성·크리프 회복)\n  ③ HIP 옵션 (연소기 등 피로 부품)\n【표준】 제조사(Haynes) AM 가이드 · ASTM F3301"
+  },
+  "am-282": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM Haynes 282 — 후처리\nγ′ 석출강화 — 용체화 + 2단 시효가 표준:\n  ① Stress Relief (플레이트 분리 전)\n  ② Solution: ~1120-1135°C\n  ③ 2단 시효: 1010°C / 2 h → 788°C / 8 h (Haynes 표준 사이클)\n【표준】 Haynes International 282 데이터시트 · ASTM F3301"
+  },
+  "am-316l": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM (LPBF) 316L/304L — 후처리 (as-built 사용이 흔함)\nAs-built 의 미세 셀 조직이 강도원 (σy 가 어닐 판재보다 높음) — 열처리가 오히려 강도를 낮춤:\n  ① 통상: as-built 또는 Stress Relief 550-650°C / 1-2 h (응력·치수 안정, 조직 대체로 유지)\n  ② Solution Anneal 1050-1100°C: 셀 조직 소실 → 강도 ↓ 연성·내식 ↑ (요구 시에만)\n  ③ HIP 1120-1150°C: 기공 폐쇄 (피로·기밀 임계) — 강도 트레이드오프 동반\n【표준】 ASTM F3184 (316L PBF) · F3301"
+  },
+  "am-ph": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM (LPBF) 17-4/15-5 PH — 후처리\nAs-built 는 잔류 오스테나이트 분율이 분말·분위기 따라 크게 변동 — 직접 시효만 하면 물성 산포 큼:\n  ① Solution (Condition A): 1040°C / 30 min-1 h / 급냉 — 마르텐사이트 재확립 (권장 선행)\n  ② 시효: H900 482°C/1h (peak) ~ H1150 (고인성) — 재래 규격과 동일 눈금\n  ③ HIP 옵션 (피로 임계)\n【표준】 ASTM F3301 · AMS 5604/5643 준용 · 제조사(EOS 17-4PH 등) 데이터시트"
+  },
+  "am-cocr": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM (LPBF) CoCrMo — 후처리\n의료·치과 관행: HIP + 용체화로 주조 결함·이방성 해소:\n  ① Stress Relief (플레이트 분리 전)\n  ② HIP: ~1200°C / ≥100 MPa (F75 주조 준용 — 기공 폐쇄)\n  ③ Solution Anneal: 1150-1230°C (탄화물 조절·연성 회복)\n【표준】 ASTM F3213 (CoCr PBF) · F75/F1537 준용"
+  },
+  "am-maraging": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM (LPBF) Maraging 300 (1.2709/MS1) — 후처리\nAs-built 가 이미 저탄소 마르텐사이트 — 용체화 없이 직접 시효가 표준:\n  ① Direct Aging: 490°C ± 10°C / 6 h / AC → ~54 HRC · UTS ~1950 MPa (as-built ~1100 대비 약 1.8배)\n  ② 치수 임계 금형: 시효 전 Stress Relief 병행 검토\n  ③ 용체화(815-840°C)는 조직 리셋 필요시에만\n【표준】 EOS MS1 데이터시트 (490°C/6h) · ASTM F3301"
+  },
+  "am-cu": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM 고전도 Cu (CuCrZr · GRCop) — 후처리\n  • CuCrZr: 용체화 970-1000°C 급냉 + 시효 450-480°C / 2-4 h — 또는 as-built 직접 시효(제조사 옵션). 시효로 전도도·강도 동시 회복.\n  • GRCop-42/84: 석출이 응고 중 형성 — 별도 시효 불필요, HIP(기공 폐쇄·연소실 기밀)가 관행 (NASA RAMPT).\n【주의】 고온 대기 노출 시 산화 — 진공/환원 분위기.\n【표준】 제조사(EOS CuCrZr 등) 데이터시트 · NASA GRCop 공정 문헌"
+  }
+ },
+ "am_map": {
+  "_note": "AM entry 판정은 런타임에서 m.process/processes(구조 필드)로. byHt 접두 매칭 우선, 실패 시 byMach.",
+  "byHt": {
+   "Ti-6Al-4V": "am-ti64",
+   "AlSi cast / AM": "am-alsi",
+   "Inconel 718": "am-ni718",
+   "Inconel 625": "am-ni625",
+   "Hastelloy X": "am-ni-solidsol",
+   "Haynes 230": "am-ni-solidsol",
+   "Haynes 282": "am-282",
+   "Austenitic SS 316": "am-316l",
+   "Austenitic SS 304": "am-316l",
+   "17-4 PH": "am-ph",
+   "15-5 PH": "am-ph",
+   "CoCrMo": "am-cocr",
+   "Maraging 300": "am-maraging"
+  },
+  "byMach": {
+   "ti-cp": "am-ti-cp",
+   "cu-crzr": "am-cu"
   }
  }
 }

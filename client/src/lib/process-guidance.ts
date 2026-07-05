@@ -130,8 +130,25 @@ const WELD_GUIDANCE = (weldGuidanceData as any).blocks as Record<string, Guidanc
 
 /** HT 주의사항 가이드 (R226k) — name-키(m.profiles.htg) + 조건 클래스(hip/case) 블록의 배열.
  *  구 인라인에서는 매칭 블록이 모두 연결 표시됐던 의미를 배열로 보존 (예: Ti STA + HIP). */
+/* R226w — AM(적층제조) 후처리 가이드. AM 판정은 구조 필드(process/processes)만 사용 — name regex 없음.
+ * family 는 빌드 스탬프 조회: profiles.ht 접두(am_map.byHt) 우선, 없으면 profiles.mach(am_map.byMach). */
+const AM_MAP = (htGuidanceData as any).am_map as { byHt: Record<string, string>; byMach: Record<string, string> } | undefined;
+const AM_PROC_RE = /lpbf|dmls|slm\b|ebm|binder|waam|\bded\b|direct energy|directed energy/i;
+export function isAmProcess(m: Material): boolean {
+  return AM_PROC_RE.test(m.process || '') || (m.processes || []).some((p) => AM_PROC_RE.test(p));
+}
+function amGuidanceKey(m: Material): string | null {
+  if (!AM_MAP || m.category !== 'Metal' || !isAmProcess(m)) return null;
+  const ht = m.profiles?.ht;
+  if (ht) for (const [prefix, key] of Object.entries(AM_MAP.byHt)) if (ht.startsWith(prefix)) return key;
+  const mach = m.profiles?.mach;
+  return (mach && AM_MAP.byMach[mach]) || null;
+}
+
 export function resolveHtGuidanceTexts(m: Material): string[] {
   const out: string[] = [];
+  const amKey = amGuidanceKey(m);
+  if (amKey && HT_GUIDANCE[amKey]) out.push(HT_GUIDANCE[amKey].text);   // AM 후처리 우선 (as-built 사용자에게 가장 유효)
   const htg = m.profiles?.htg;
   if (htg && HT_GUIDANCE[htg]) out.push(HT_GUIDANCE[htg].text);
   const htc = m.profiles?.htc;

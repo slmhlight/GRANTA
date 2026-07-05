@@ -5,7 +5,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { computeCET, computeSchaeffler, machiningCostBand } from '../client/src/lib/welding-machinability';
-import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote, resolveMachiningGuidance, resolveInsights, insightPickMatches, machinabilitySources } from '../client/src/lib/process-guidance';
+import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote, resolveMachiningGuidance, resolveInsights, insightPickMatches, machinabilitySources, resolveHtGuidanceTexts, isAmProcess } from '../client/src/lib/process-guidance';
 import type { Material } from '../client/src/lib/materials';
 
 function mk(over: Partial<Material>): Material {
@@ -104,6 +104,28 @@ describe('machiningCostBand — 카테고리 가드 유지', () => {
     expect(machiningCostBand(1.0, 'Metal')).toBeNull();
     expect(machiningCostBand(1.02, 'Metal')?.band).toBe('normal');
     expect(machiningCostBand(0.98, 'Metal')?.band).toBe('normal');
+  });
+});
+
+/* R226w — AM 후처리 HT 가이드: 구조 필드(process) 판정 + 빌드 스탬프(ht/mach) family 매핑. */
+describe('AM 후처리 열처리 가이드 (R226w)', () => {
+  it('LPBF Ti-6Al-4V(ht family) → am-ti64: SR·HIP 920°C 포함', () => {
+    const texts = resolveHtGuidanceTexts(mk({ process: 'LPBF', profiles: { ht: 'Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)' } }));
+    expect(texts.join('\n')).toContain('920°C');
+    expect(texts.join('\n')).toContain('Stress Relief');
+  });
+  it('LPBF AlSi10Mg → am-alsi: SR 강도 하락 경고 포함', () => {
+    const texts = resolveHtGuidanceTexts(mk({ process: 'LPBF (DMLS)', profiles: { ht: 'AlSi cast / AM (AlSi10Mg, AlSi12, A357)' } }));
+    expect(texts.join('\n')).toContain('As-built 가 가장 강함');
+  });
+  it('LPBF CP-Ti(ht 없음 → mach fallback) → am-ti-cp', () => {
+    const texts = resolveHtGuidanceTexts(mk({ process: 'LPBF', profiles: { mach: 'ti-cp' } }));
+    expect(texts.join('\n')).toContain('CP-Ti');
+  });
+  it('Wrought(비 AM) 는 am 블록 미적용 · Polymer/비금속 미적용', () => {
+    expect(resolveHtGuidanceTexts(mk({ process: 'Wrought', profiles: { mach: 'ti-cp' } }))).toEqual([]);
+    expect(isAmProcess(mk({ process: 'Wrought' }))).toBe(false);
+    expect(isAmProcess(mk({ process: 'LPBF (SLM)' }))).toBe(true);
   });
 });
 
