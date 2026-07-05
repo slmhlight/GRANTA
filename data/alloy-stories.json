@@ -1276,6 +1276,37 @@
     "fun_fact": "CF 뒤 숫자가 탄소 최대치를 뜻하는 건 ACI 체계의 일반 규칙 — 고온용 ‘H’ 계열(HK40 등)은 오히려 탄소를 높여 크리프 강도를 얻는다."
    }
   },
+  "cast-turbine-superalloys": {
+   "display": "Cast/Single-Crystal Superalloys (IN738 / CMSX-4 / Rene N5 / PWA1484)",
+   "stable_ids": [
+    "MET-0497",
+    "MET-0542",
+    "MET-0543",
+    "MET-0545",
+    "MET-0546",
+    "MET-0564",
+    "MET-0574",
+    "MET-0575",
+    "MET-0582",
+    "MET-0583",
+    "MET-0584",
+    "MET-0607",
+    "MET-0609",
+    "MET-0610",
+    "MET-0612"
+   ],
+   "refs": [
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge University Press",
+    "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM International"
+   ],
+   "sections": {
+    "hook": "제트엔진 1단 터빈 블레이드의 재료 — 결정립을 없애가며 온도 한계를 밀어올린 주조·단결정 초합금.",
+    "origin": "가스터빈에서 가장 뜨거운 1단 블레이드는 1000°C 이상에서 원심력을 받는다. 이를 견디려 γ′(Ni₃(Al,Ti)) 석출을 극대화한 주조 초합금이 나왔고, 결정립계가 크리프 파괴의 약점이라 등축정→방향성응고(DS)→단결정(SX)으로 진화했다.",
+    "breakthrough": "등축 주조재(IN713C·IN738·IN100·IN939)는 높은 γ′ 분율로 크리프를 견디고, 단결정(CMSX-4·Rene N5·PWA1484)은 결정립계를 아예 없애 입계 파괴를 제거한다. 2세대 SX 는 Re 3%를 넣어 원소 확산을 늦춰 온도 한계를 더 끌어올렸다.",
+    "today": "IN738·IN939 는 발전용 가스터빈 블레이드·베인에, 단결정 CMSX-4·Rene N5·PWA1484 는 항공엔진 1단 블레이드에 쓰인다. 3세대(CMSX-10)와 Ru 함유 4세대로 온도 경쟁이 이어진다.",
+    "fun_fact": "단결정 블레이드는 주형에 나선형 ‘결정 선택기(pigtail)’를 두어 수많은 결정 중 하나만 자라게 함으로써, 블레이드 전체를 단 하나의 결정으로 키운다."
+   }
+  },
   "cfrp": {
    "display": "CFRP",
    "stable_ids": [
@@ -1841,6 +1872,33 @@
     "Klarstrom D L (1995) 'A New Nickel-Based Superalloy for High-Temperature Applications', J Mater Eng Performance 4"
    ],
    "legacy_text": "Haynes 230 은 1984년 미국 Cabot Corporation (현재 Haynes International, Indiana 주 Kokomo) 이 개발한 Ni-Cr-W-Mo solid-solution superalloy 입니다. Ni 57% + Cr 22% + W 14% + Mo 2% + La 0.02% 의 조성에서 La (lanthanum) 가 핵심 — 0.02% 의 미량 첨가만으로 oxide-stabilization 이 일어나 1000-1200°C 의 cyclic oxidation 환경에서 다른 Ni alloy (Inconel 617, Hastelloy X) 보다 훨씬 안정적입니다.\n\n응용 — A-USC (Advanced Ultra-Supercritical) steam turbine 의 700°C+ steam header (한국 두산에너빌리티의 GE 9HA gas turbine combustor liner), industrial gas turbine 의 combustor / transition piece, 화학 plant 의 ethylene cracking furnace tube (1100°C service), 항공 엔진 afterburner duct (F119 / F135 engine), 우주 추진 시스템, 유리 furnace 의 melting tank component. 1100°C 의 stress-rupture 1000h 강도가 25 MPa.\n\nWelding 우수 (γ' Vf < 5%) — ERNiCrWMo-1 (AMS 5839) matching filler. Pre-heat 미요, inter-pass < 175°C. PWHT 1050°C / 1h / AC (homogenization). 1980년대 후반부터 Inconel 617 의 더 안정적 대체로 자리잡았고, 한국 한국전력기술 (KOPEC) 의 차세대 boiler design 에서 standard high-T 부품 material 로 spec 됩니다."
+  },
+  "haynes-superalloys": {
+   "display": "Haynes Superalloys (282 / 214)",
+   "stable_ids": [
+    "MET-0521",
+    "MET-0522",
+    "MET-0527",
+    "MET-0528",
+    "MET-0529",
+    "MET-0530",
+    "MET-0531",
+    "MET-0532",
+    "MET-0533",
+    "MET-0534",
+    "MET-0535",
+    "MET-0536"
+   ],
+   "refs": [
+    "Haynes International, HAYNES® 282®·214® 기술 자료",
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge University Press"
+   ],
+   "sections": {
+    "hook": "가공성과 고온 강도를 함께 노린 후발 초합금 — 발전 터빈의 새 디스크·시트 재료.",
+    "origin": "Haynes International(구 Haynes Stellite)이 내놓은 후발 초합금들이다. Haynes 282 는 2000년대 중반 발표된 γ′ 강화 합금으로, Waspaloy 급 크리프 강도를 유지하면서 용접·성형성을 크게 개선한 것이 특징이다. Haynes 214 는 Al 을 넣어 표면에 알루미나 보호막을 형성하는 내산화 시트 합금이다.",
+    "breakthrough": "Haynes 282 는 γ′ 분율과 조성을 조율해 시효 전 성형·용접을 쉽게 하고 시효로 강도를 내, 대형 부품 제작을 용이하게 했다. Haynes 214 는 1000°C 이상에서도 알루미나 스케일이 벗겨지지 않아 최고 수준의 내산화를 낸다.",
+    "today": "Haynes 282 는 초초임계 발전 터빈 디스크·케이스·항공 부품에, Haynes 214 는 열처리로·소각로·촉매 지지처럼 극한 내산화 부위에 쓰인다."
+   }
   },
   "hdpe": {
    "display": "HDPE",
@@ -2585,6 +2643,24 @@
     "Smithsonian American History Museum \"Nylon: A Revolution in Textiles\" online exhibit"
    ],
    "legacy_text": "1935년 2월 28일, DuPont 의 월리스 흄 캐러더스 (Wallace Hume Carothers) 가 Wilmington 실험실에서 hexamethylene diamine 과 adipic acid 를 reflux 시켜 처음 만든 polyamide 66 (HMDA + AA, 둘 다 carbon 6 → 66) — 인류 최초의 합성 섬유였어요. 'Nylon' 이라는 명칭은 DuPont 마케팅 부서가 'Nuron' (no-run, 올 풀림 없음) → 'Nilon' → 끝에 -on 을 붙인 형태로 합의됐고, 1939년 New York World's Fair 에서 'Nylons' (스타킹) 으로 데뷔하자마자 첫날 4백만 켤레가 매진됐다는 전설이 있죠.\n\n2차 대전 동안 모든 미군 낙하산이 nylon 66 (이전엔 silk) 으로 바뀌었고, 전후 1953년부터는 monomers 가 caprolactam (PA6, IG Farben 1938) 과 분리돼 PA66 (DuPont, BASF) / PA6 (Toray, Honeywell) 의 양강 구도로 자리잡았어요. 엔지니어링 grade 로는 σ_y 80 MPa, T_m 263°C — 자동차 인테이크 매니폴드 (Ford EcoBoost, Bosch), 라디에이터 엔드탱크 (Behr), 전기 커넥터 하우징 (TE Connectivity), 키친 식기, 산업 케이블 타이의 표준이 됐습니다. 흡수율 1.2% 에 따른 dimensional 변화가 한계이지만 GF30/35 강화 grade (Zytel 70G35) 가 그걸 보완해 줍니다."
+  },
+  "ods-superalloys": {
+   "display": "ODS Superalloys (MA754 / GRX-810)",
+   "stable_ids": [
+    "MET-0502",
+    "MET-0503",
+    "MET-0591"
+   ],
+   "refs": [
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge University Press",
+    "NASA, GRX-810 3D-printed ODS superalloy 발표 (2022)"
+   ],
+   "sections": {
+    "hook": "산화물 입자를 뿌려 융점 근처까지 버티게 만든 초합금 — 기계적 합금화와 3D 프린팅의 산물.",
+    "origin": "γ′ 초합금도 융점의 85% 부근에선 석출물이 녹아 약해진다. ODS(산화물 분산강화) 초합금은 Y₂O₃ 같은 나노 산화물 입자를 금속에 고르게 분산시켜, 녹지 않는 입자로 초고온 크리프를 견디게 한 재료다. MA754 는 기계적 합금화(mechanical alloying)로, NASA 의 GRX-810 은 3D 프린팅으로 산화물을 분산시킨다.",
+    "breakthrough": "나노 산화물 입자는 고온에서도 안정해 전위·결정립계 이동을 막는다 — γ′ 가 녹는 온도를 넘어서도 강도를 유지한다. GRX-810 은 레이저 적층제조로 산화물을 분산시켜, 기존 ODS 의 까다로운 제조를 획기적으로 단순화했다.",
+    "today": "MA754 는 항공엔진 베인·연소기 등 초고온 부품에, GRX-810 은 로켓·항공 초고온 부품용으로 NASA 가 개발·시험 중이다. 제조가 어렵고 비싼 것이 공통 한계다."
+   }
   },
   "ofe-copper-c10100": {
    "display": "OFE Copper C10100",
@@ -3698,6 +3774,41 @@
     "Bourell D L et al. (2017) \"Materials for AM\", CIRP Annals 66"
    ],
    "legacy_text": "ULTEM 9085 는 Sabic 의 PEI 의 'flame-retardant + smoke + toxicity' (FST) grade 입니다. PEI base 에 brominated flame retardant 를 첨가해 FAR 25.853 (Federal Aviation Regulation, 항공기 cabin material 의 화재 안전 기준) 통과가 가능한 grade. 1990년대 GE Plastics 가 commercial launch 했고, Stratasys 가 2007년 FDM 3D 프린팅 filament 의 첫 항공-qualified 재료로 채택했어요.\n\n특성: Tg 186°C (base PEI 217°C 보다 약간 낮음, 화재 처리제 영향) · σy 65-85 MPa · modulus 2.4 GPa · El 5-7%. FST 등급은 OSU (Ohio State University) heat release < 65 kW·min/m² (FAR 25.853 한도), 발연 (smoke) < 200 OSU NBS, toxicity 도 통과. Stratasys FDM print 의 결과는 anisotropic 이지만 항공 part 의 spec 이 정해진 isotropic value 보다 보수적으로 사용됩니다.\n\n응용: 항공기 cabin 내부 ducting (Airbus A350, Boeing 787, F-35), 항공기 brackets + spacer, 화재 안전 요구 의료 device (휴대용 portable ventilator 의 일부 housing), 군용 응급 의료 kit case. Stratasys 의 첫 항공 인증 (Boeing F-18 fighter ducting, 2014) 으로 'FDM Ultem 9085 가 항공 production 가능' 이라는 분기점을 만든 게 화제였고, 그 이후 Lockheed Martin · Boeing · Airbus 의 일부 low-volume cabin part 가 FDM 으로 print 되고 있습니다."
+  },
+  "wrought-superalloys": {
+   "display": "Wrought Superalloys (Waspaloy / Nimonic / Rene 41 / X-750)",
+   "stable_ids": [
+    "MET-0585",
+    "MET-0586",
+    "MET-0588",
+    "MET-0590",
+    "MET-0603",
+    "MET-0604",
+    "MET-0605",
+    "MET-0606",
+    "MET-0608",
+    "MET-0613",
+    "MET-0617"
+   ],
+   "refs": [
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge University Press",
+    "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM International"
+   ],
+   "sections": {
+    "hook": "제트엔진과 함께 태어난 초합금의 원조 — 단조로 만드는 γ′ 강화 니켈 합금.",
+    "origin": "초합금의 역사는 1941년 영국 Wiggin Works 에서 시작됐다. Leonard Pfeil 이 Whittle 제트엔진 터빈 블레이드용으로 개발한 Nimonic 80(1945년 80A)이 최초의 γ′ 시효경화 단조 니켈 합금이며, 여기서 Waspaloy·Rene 41·Udimet 720 등 단조 초합금이 뻗어 나왔다.",
+    "breakthrough": "Ti·Al 이 만드는 γ′(Ni₃(Al,Ti)) 석출이 고온에서도 전위를 막아 크리프를 견딘다. γ′ 분율이 높을수록 강하지만 단조·용접이 어려워져, 블레이드(고γ′)와 디스크(중γ′, 단조성 유지) 사이에서 조성이 갈린다.",
+    "adoption": "Nimonic 80A 는 초기 Rolls-Royce Nene 등 제트엔진 블레이드에, Waspaloy·Rene 41 은 P&W·GE 엔진의 디스크·블레이드에 폭넓게 채택됐다.",
+    "today": "Waspaloy·Udimet 720·Rene 41 은 터빈 디스크·고온 볼트·연소기에, Nimonic 계열은 엔진 밸브·링·시트에, Inconel X-750 은 스프링·시일에 쓰인다. 더 높은 디스크 강도는 분말야금(P/M) 초합금이 맡는다.",
+    "fun_fact": "Nimonic 80A 는 지금도 대형 디젤·가스 엔진의 배기밸브 재료로 흔히 쓰인다 — 80년 된 합금이 여전히 현역이다."
+   },
+   "timeline": [
+    {
+     "year": 1941,
+     "event": "Wiggin Works(Pfeil), Nimonic 80 — Whittle 제트엔진용 최초 γ′ 단조 초합금",
+     "ref": 1
+    }
+   ]
   },
   "yttria": {
    "display": "Yttria (Y₂O₃)",
