@@ -1173,16 +1173,36 @@
    ],
    "legacy_text": "1932년 미국 Brush Beryllium Company (현 Materion) 의 화학자 찰스 소이어 (Charles Sawyer) 가 Cu 에 Be 2% 정도를 첨가해 시효 경화시키면 인장강도가 1380 MPa 까지 올라간다는 사실을 발견합니다. 비슷한 시기 BeCu 가 전기 전도도 22% IACS, σ_y 1100 MPa — 강도와 전도성을 동시에 갖춘 거의 유일한 합금이라는 점도 명확해졌어요.\n\n가장 유명한 응용은 '비-스파크 (non-sparking)' 도구입니다. BeCu 망치, 렌치, 스크루드라이버는 강한 충격에도 불꽃이 튀지 않아 폭발 위험이 있는 정유 refinery, 가스 plant, 광산에서 표준이에요. NASA 의 Apollo 우주복 zipper 의 metal pull 도 BeCu — 산소 풍부 환경에서 스파크가 발생하지 않도록 한 거죠.\n\n항공·우주에서는 spring contact, bushing, bearing race 의 단골입니다. 보잉 787 의 landing gear hinge bushing, 우주 셔틀 RMS robot arm joint, Hubble 망원경의 secondary mirror gimbal 같은 정밀 movement 부품에 쓰여요. 단점은 Be 가루 흡입 시 chronic beryllium disease (CBD) — 그래서 가공 공정에서 엄격한 환기와 봉인이 필수입니다."
   },
+  "beryllium-metal": {
+   "display": "Beryllium",
+   "stable_ids": [
+    "MET-0231"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys",
+    "Walsh K A (2009) Beryllium Chemistry and Processing, ASM International"
+   ],
+   "sections": {
+    "hook": "알루미늄보다 가벼우면서 강철보다 뻣뻣한 금속 — X선을 통과시키는 우주·광학용 베릴륨.",
+    "origin": "베릴륨은 밀도 1.85(Al 의 2/3)로 매우 가벼우면서 탄성계수가 강철의 약 1.5배(~290GPa)에 이르는 독특한 금속이다. 즉 가장 뻣뻣한(비강성이 가장 높은) 구조 금속으로, 진동·처짐을 극도로 억제해야 하는 정밀 구조에 쓰인다.",
+    "breakthrough": "낮은 밀도와 극히 높은 강성의 조합(비강성)이 다른 어떤 금속보다 앞선다 — 같은 무게로 훨씬 덜 휜다. 원자번호가 낮아 X선을 잘 통과시키고, 열팽창이 작고 열전도가 좋다. 다만 취성이 크고 분진이 유독(만성 베릴륨증)해 취급·가공에 엄격한 관리가 필요하다.",
+    "today": "우주망원경 거울·관성항법 자이로·위성 구조, X선 튜브 창, 정밀 광학 벤치에 쓰인다. 값비싸고 유독해, 극한의 비강성·X선 투과가 꼭 필요한 곳에만 제한적으로 쓴다.",
+    "fun_fact": "제임스웹 우주망원경의 주경 18장은 베릴륨으로 만들어졌다 — 극저온 우주에서도 형상이 거의 변하지 않고, 가벼워 로켓에 실을 수 있어야 했기 때문이다."
+   }
+  },
   "beta-titanium": {
    "display": "Beta Titanium (Ti-13V-11Cr-3Al / Beta-C / Ti-15-3 / Beta-21S)",
    "stable_ids": [
     "MET-0858",
     "MET-0859",
+    "MET-0897",
     "MET-0898",
     "MET-0899",
     "MET-0900",
     "MET-0901",
-    "MET-0902"
+    "MET-0902",
+    "MET-0903",
+    "MET-0909"
    ],
    "refs": [
     "Donachie M J (2000) Titanium: A Technical Guide, 2nd ed., ASM International",
@@ -1712,7 +1732,9 @@
   "copper-c11000": {
    "display": "Copper C11000",
    "stable_ids": [
-    "MET-0374"
+    "MET-0374",
+    "MET-0417",
+    "MET-0418"
    ],
    "refs": [
     "ASTM B187 / B187M \"Standard Specification for Copper, Bus Bar, Rod, and Shapes and General Purpose Rod, Bar, and Shapes\"",
@@ -1917,6 +1939,23 @@
     "fun_fact": "집 안의 구리 수도관·에어컨 냉매관 대부분이 DHP 동(C12200)이다 — 용접·확관이 잘 되고 수소취화가 없어서다."
    }
   },
+  "diamond": {
+   "display": "Diamond (industrial / superhard carbon)",
+   "stable_ids": [
+    "CER-0004"
+   ],
+   "refs": [
+    "Field J E (ed., 1992) The Properties of Natural and Synthetic Diamond, Academic Press",
+    "Pierson H O (1993) Handbook of Carbon, Graphite, Diamond and Fullerenes, Noyes"
+   ],
+   "sections": {
+    "hook": "자연에서 가장 단단한 물질 — 절삭·연마와 열 분산을 위한 탄소 결정.",
+    "origin": "다이아몬드는 탄소 원자가 사방으로 강하게 결합한 결정으로, 알려진 물질 중 가장 단단하고(경도 최고) 열전도가 가장 높다. 천연뿐 아니라 고온·고압 합성(HPHT)과 화학기상증착(CVD)으로 공업용을 대량 생산한다.",
+    "breakthrough": "극한의 경도·내마모가 다른 무엇도 못 깎는 재료(초경·유리·석재)를 깎고 갈게 하고, 구리의 몇 배에 이르는 열전도가 전자소자의 열을 빠르게 빼낸다. 넓은 파장에 투명해 광학창으로도 쓰인다. 다만 철과는 고온에서 반응해(흑연화) 강철 절삭엔 잘 안 쓴다.",
+    "today": "절삭공구 팁·연삭휠·드릴 비트(석재·콘크리트)·와이어소, 고출력 전자소자 히트스프레더, 적외선·고출력 레이저 광학창에 쓰인다. 강철 가공엔 다이아몬드 대신 CBN(입방정 질화붕소)을 쓴다.",
+    "fun_fact": "다이아몬드는 가장 단단하지만 철과 만나면 고온에서 흑연으로 변해 버려, 정작 세상에서 가장 흔한 금속인 철·강철을 깎는 데는 못 쓴다 — 그 자리를 CBN 이 맡는다."
+   }
+  },
   "diecast-aluminum-alsi": {
    "display": "Die-Cast Aluminum (Al-Si eutectic: ADC12 / A383 / Al-12Si)",
    "stable_ids": [
@@ -1966,6 +2005,23 @@
     "Outokumpu 2205 Code Plus Two Technical Data"
    ],
    "legacy_text": "2205 Duplex (UNS S32205 / S31803) 은 1970년대 Sandvik (스웨덴) + Outokumpu (핀란드) 가 공동 개발한 ferrite + austenite 50/50 duplex stainless steel 입니다. Cr 22% + Ni 5% + Mo 3% + N 0.17% 의 조성에서 N 첨가가 핵심 — austenite stabilizer 로 ferrite/austenite 비율을 정밀 통제하고, pitting resistance 를 PREN 35 까지 끌어올립니다.\n\nDuplex 의 매력은 austenitic (304/316) + ferritic (430) 의 장점 결합 — austenitic 의 ductility + ferritic 의 SCC 저항 + 더 높은 strength (σy 450 MPa, 316L 의 1.6배) + 동일 가격대. 1980년대 후반부터 oil & gas industry 의 sour service (H₂S 환경) 의 standard 가 됐고, 2010년대 FPSO topside / subsea piping / LNG carrier 의 main option 으로 자리잡았어요.\n\n응용 — North Sea / Brazilian basin 의 FPSO topside (Aker Solutions / Petrobras), subsea oil pipeline (Statoil / Equinor 의 Troll field), LNG carrier inner-tank cargo line, 화학 plant 의 chloride 환경 reactor, pulp & paper digester, desalination plant (MED / RO process 의 heat exchanger tube), urea synthesis plant.\n\nWelding — Sigma phase (Fe-Cr brittle, 700-1000°C 의 fast cooling 시 형성) 회피가 가장 critical. Inter-pass < 150°C 절대 유지. Filler ER2209 (Ni 9%, austenite 형성 보강) + Ar + 2-3% N₂ shielding. Heat input 0.5-2.5 kJ/mm 정확 통제. Welded zone 의 ASTM G48 method E (FeCl₃ pitting test) 통과 확인 필수."
+  },
+  "electrical-steel": {
+   "display": "Grain-Oriented Electrical Steel (Fe-3%Si)",
+   "stable_ids": [
+    "MET-0452"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "ASM Handbook Vol.1 — Magnetically Soft Materials (Silicon Steels)"
+   ],
+   "sections": {
+    "hook": "전기를 위해 규소를 넣은 강 — 변압기 철심의 손실을 줄이는 방향성 전기강판.",
+    "origin": "변압기·모터의 철심은 자기장이 초당 수십~수백 번 뒤집혀, 그때마다 열로 새는 손실(철손)을 줄여야 한다. 전기강판은 철에 규소를 ~3% 넣어 전기저항을 높이고(맴돌이전류↓), 결정 방향을 정렬(방향성, Goss 집합조직)해 자화를 쉽게 만든 소프트 자성강이다.",
+    "breakthrough": "규소가 전기저항을 높여 맴돌이전류 손실을 줄이고, 얇은 판을 겹쳐 절연하는 적층이 이를 더 줄인다. 방향성(GO) 강판은 압연·재결정으로 결정을 자속 방향에 맞춰, 그 방향으로 극히 낮은 손실과 높은 투자율을 낸다 — 변압기처럼 자속 방향이 일정한 곳에 최적이다.",
+    "today": "방향성(GO) 강판은 전력·배전 변압기 철심에, 무방향성(NGO) 강판은 회전 방향이 바뀌는 모터·발전기 철심에 쓰인다. 초저손실이 필요하면 아몰퍼스(비정질) 합금 철심으로 간다.",
+    "fun_fact": "방향성 전기강판 한 장의 손실을 조금 줄이는 것이 세계 수억 대 변압기에 곱해지면 발전소 여러 기의 전력에 해당한다 — 그래서 이 강판의 효율 경쟁은 치열하다."
+   }
   },
   "epdm": {
    "display": "EPDM",
@@ -2150,9 +2206,27 @@
     }
    ]
   },
+  "gray-cast-iron": {
+   "display": "Gray Cast Iron",
+   "stable_ids": [
+    "MET-0330"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "Davis J R (ed., 1996) ASM Specialty Handbook: Cast Irons"
+   ],
+   "sections": {
+    "hook": "흑연 조각이 진동을 삼키는, 가장 오래되고 값싼 주철 — 엔진 블록과 공작기계 베드.",
+    "origin": "회주철(gray cast iron)은 탄소가 얇은 흑연 조각(flake) 형태로 박힌 주철로, 인류가 가장 오래·많이 써 온 주조 금속이다. 흑연 조각이 파단면을 회색으로 보이게 해 이름이 붙었다. 값싸고, 잘 흐르고, 잘 깎이며, 진동을 잘 흡수한다.",
+    "breakthrough": "흑연 조각은 균열처럼 작용해 인장엔 약하고 잘 부러지지만(취성), 바로 그 구조가 진동을 흡수(높은 감쇠능)하고 마찰에서 자기윤활을 하며 열을 잘 전달한다. 압축엔 강하고 주조·절삭이 쉬워, 복잡한 큰 부품을 값싸게 만든다.",
+    "today": "엔진 블록·실린더, 브레이크 디스크·드럼, 공작기계 베드·하우징, 파이프·맨홀 뚜껑에 쓰인다. 인장·충격이 필요하면 흑연을 구형으로 바꾼 구상흑연주철(덕타일)로 간다.",
+    "fun_fact": "공작기계의 베드가 대부분 회주철인 것은, 절삭 중 생기는 진동을 흑연 조각이 흡수해 가공 정밀도를 지켜 주기 때문이다."
+   }
+  },
   "grcop-84-cu-8cr-4nb-nasa-dispersion-strengthened": {
    "display": "GRCop-84 (Cu-8Cr-4Nb, NASA dispersion-strengthened)",
    "stable_ids": [
+    "MET-0434",
     "MET-0435",
     "MET-0436"
    ],
@@ -2166,6 +2240,7 @@
   "h13": {
    "display": "H13",
    "stable_ids": [
+    "MET-0946",
     "MET-0947",
     "MET-0948",
     "MET-0949",
@@ -2408,13 +2483,15 @@
     "MET-0910",
     "MET-0911",
     "MET-0914",
+    "MET-0915",
     "MET-0916",
     "MET-0917",
     "MET-0918",
     "MET-0919",
     "MET-0933",
     "MET-0934",
-    "MET-0937"
+    "MET-0937",
+    "MET-0938"
    ],
    "refs": [
     "Donachie M J (2000) Titanium: A Technical Guide, 2nd ed., ASM International",
@@ -2585,6 +2662,8 @@
   "inconel-718plus": {
    "display": "Inconel 718Plus",
    "stable_ids": [
+    "MET-0493",
+    "MET-0494",
     "MET-0573"
    ],
    "refs": [
@@ -2720,6 +2799,23 @@
     "breakthrough": "표면 리브(마디)가 콘크리트와의 부착력을 높인다. 강도 등급(400→700)이 오를수록 같은 철근량으로 더 큰 하중을 받아 배근을 줄인다. 접미가 성격을 세분한다 — ‘S’(내진)는 항복비·연신율을 보증해 지진 시 소성 변형 능력을, ‘W’(용접)는 탄소당량을 낮춰 용접성을 확보한다.",
     "today": "SD400·SD500 이 일반 건축·토목의 표준, SD600·SD700 이 초고층·특수 구조의 고강도 배근, ‘S’ 등급이 내진 설계 부재, ‘W’ 등급이 용접 이음 부위에 쓰인다.",
     "fun_fact": "내진 등급 ‘S’는 단순히 더 강한 게 아니라 항복점 상한과 연신율까지 규정해, 지진 시 ‘먼저 늘어나며 버티는’ 능력을 보증한다."
+   }
+  },
+  "kovar-sealing-alloy": {
+   "display": "Kovar (Fe-Ni-Co glass-sealing alloy)",
+   "stable_ids": [
+    "MET-0357"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys",
+    "ASM Handbook Vol.2 — Controlled-Expansion Alloys"
+   ],
+   "sections": {
+    "hook": "유리와 똑같이 늘고 주는 금속 — 깨지지 않는 유리-금속 밀봉을 위한 코바.",
+    "origin": "금속과 유리·세라믹을 붙여 밀봉할 때 둘의 열팽창이 다르면, 온도가 변할 때마다 응력이 쌓여 깨진다. 코바(Kovar, Fe-29Ni-17Co)는 붕규산 유리와 거의 같은 열팽창을 갖도록 설계된 Fe-Ni-Co 합금으로, 온도가 변해도 유리와 함께 늘고 줄어 밀봉이 유지된다.",
+    "breakthrough": "Fe-Ni-Co 조성을 조율해 상온~수백 °C 구간의 열팽창 곡선을 붕규산 유리에 맞춘 것이 핵심이다. 덕분에 가열·냉각을 반복해도 유리-금속 경계에 균열이 안 생겨, 진공·기밀 밀봉을 오래 유지한다. 표면 산화막이 유리와 잘 젖어 접합도 돕는다.",
+    "today": "반도체·전자소자 패키지의 기밀 밀봉, 진공관·릴레이·센서의 유리-금속 실, 적외선 검출기·마이크로파 소자 창에 쓰인다. 더 낮은(제로) 팽창이 필요하면 Invar 로 간다.",
+    "fun_fact": "코바가 유리와 “함께 숨쉬듯” 늘고 줄어야 하는 이유는, 그 경계가 단 한 번만 깨져도 진공·기밀이 새어 소자 전체가 죽기 때문이다."
    }
   },
   "lcp": {
@@ -3989,6 +4085,7 @@
   "silicon-nitride-si-n-hip-d": {
    "display": "Silicon Nitride (Si₃N₄, HIP'd)",
    "stable_ids": [
+    "CER-0019",
     "CER-0020",
     "CER-0021"
    ],
@@ -4385,6 +4482,7 @@
     "MET-0929",
     "MET-0930",
     "MET-0931",
+    "MET-0932",
     "MET-0999"
    ],
    "refs": [
@@ -4430,7 +4528,8 @@
     "MET-0873",
     "MET-0891",
     "MET-0892",
-    "MET-0895"
+    "MET-0895",
+    "MET-0939"
    ],
    "refs": [
     "ASTM B265 (Ti·Ti alloy strip/plate)",
@@ -4492,6 +4591,8 @@
     "MET-0642",
     "MET-0643",
     "MET-0656",
+    "MET-0666",
+    "MET-0668",
     "MET-0669",
     "MET-0670"
    ],
@@ -4666,9 +4767,29 @@
     "fun_fact": "몸속에서 안전하게 녹아 없어지는 성질 덕에, WE43 계열은 뼈가 붙는 동안만 지지하고 사라지는 ‘녹는 나사·스텐트’로 실제 이식되고 있다."
    }
   },
+  "weathering-steel": {
+   "display": "Weathering Steel (SPA-H / ASTM A588 — Cor-Ten type)",
+   "stable_ids": [
+    "MET-0459",
+    "MET-0988"
+   ],
+   "refs": [
+    "ASM Handbook Vol.1: Properties and Selection — Irons, Steels, and High-Performance Alloys",
+    "ASTM A588/A588M; ASM Handbook Vol.1 — Weathering Steels"
+   ],
+   "sections": {
+    "hook": "일부러 녹슬어 더 이상 안 녹스는 강 — 도장 없이 쓰는 내후성강 코르텐.",
+    "origin": "보통 강의 녹은 부풀며 계속 벗겨져 안쪽까지 부식이 진행된다. 내후성강(weathering steel, SPA-H·ASTM A588·코르텐)은 구리·크롬·니켈·인을 소량 넣어, 표면에 치밀하게 밀착하는 안정한 녹층(패티나)을 만들어 더 이상의 부식을 스스로 막는다.",
+    "breakthrough": "Cu·Cr·Ni·P 가 젖음·건조가 반복되는 대기에서 치밀한 산화막(patina)을 형성해, 이 층이 산소·수분을 차단하는 보호막이 된다 — 그래서 도장 없이도 오래 견딘다. 다만 늘 젖어 있거나 염분이 심한 환경에선 패티나가 안 만들어져 이점이 사라진다.",
+    "today": "교량·철골 구조·송전탑·컨테이너·건축 외장(의도된 녹빛 마감)·조형물에 도장 없이 쓰인다. 초기 몇 년의 녹물 흘러내림과 염해 환경 부적합이 약점이다.",
+    "fun_fact": "많은 현대 건축·조각이 내후성강의 깊은 주황빛 녹을 마감 그 자체로 쓴다 — 시간이 지날수록 색이 안정되는, 녹이 곧 보호막이자 디자인인 재료다."
+   }
+  },
   "wrought-superalloys": {
    "display": "Wrought Superalloys (Waspaloy / Nimonic / Rene 41 / X-750)",
    "stable_ids": [
+    "MET-0580",
+    "MET-0581",
     "MET-0585",
     "MET-0586",
     "MET-0588",
@@ -4678,6 +4799,7 @@
     "MET-0605",
     "MET-0606",
     "MET-0608",
+    "MET-0611",
     "MET-0613",
     "MET-0617"
    ],
@@ -4744,6 +4866,23 @@
     "origin": "1970년대 북해 해양유전 붐과 함께, 해수 펌프 몸체용 내식 주강으로 영국에서 개발됐다(원 개발 Mather+Platt → Weir → 현 Rolled Alloys, UNS S32760). 25Cr-7Ni-3.6Mo 듀플렉스에 W·Cu 를 더한 것이 특징이다.",
     "breakthrough": "오스테나이트+페라이트 2상 구조가 오스테나이트급 내식과 약 2배 높은 항복강도를 함께 준다. 여기에 W·Cu 첨가가 공식·틈부식 저항을 super-duplex 급(PREN ≥ 40)으로 끌어올린다.",
     "today": "해양 오일가스 배관·펌프·밸브·매니폴드, 해수·화학 처리 설비의 표준 super-duplex 다. 표준 듀플렉스(2205)보다 내식·강도가 높지만, 300~500°C 취화 위험과 용접 관리 부담은 더 크다."
+   }
+  },
+  "zinc-diecasting-alloy": {
+   "display": "Zinc Die-Casting Alloy (Zamak 3)",
+   "stable_ids": [
+    "MET-0989"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys",
+    "NADCA (North American Die Casting Association), Zinc Alloy 기술 자료"
+   ],
+   "sections": {
+    "hook": "낮은 온도에서 정밀하게 찍어내는 아연 합금 — 손잡이·기어·커넥터의 다이캐스트 자멕.",
+    "origin": "아연 합금(Zamak/ZA)은 융점이 낮아(~385°C) 금형 수명을 아끼면서, 알루미늄보다 정밀하고 얇은 형상을 고압 다이캐스팅으로 대량 생산할 수 있다. Zamak 3(Zn-4Al)이 대표로, 알루미늄·마그네슘·구리를 미량 넣어 강도·주조성을 맞춘다.",
+    "breakthrough": "낮은 주조 온도가 금형을 덜 상하게 해 한 금형으로 수십만~수백만 개를 뽑을 수 있고, 얇고 복잡한 형상·정밀 치수·좋은 표면을 낸다. 그대로 도금·도장도 잘 된다. 다만 무겁고(밀도 ~6.6) 고온엔 약하며 크리프가 있어 하중 부품엔 주의한다.",
+    "today": "Zamak 3 는 자동차 손잡이·잠금장치·커넥터, 가전·완구·지퍼·수도 금구, 장식 하드웨어에 쓰인다. 더 높은 강도·내마모는 ZA-8·ZA-27 로, 더 가벼우면 알루미늄·마그네슘 다이캐스트로 간다.",
+    "fun_fact": "아연은 워낙 정밀하게 찍혀, 자멕 다이캐스팅은 대개 후가공 없이 도금만 하면 완성된다 — 지퍼 슬라이더·자동차 열쇠 몸체가 대표적이다."
    }
   },
   "zirconia": {
