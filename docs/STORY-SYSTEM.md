@@ -4,14 +4,14 @@
 검증 가능해야 하며(출처 규율), 할당은 **Material ID(stable_id)** 로만 한다(이름 매칭 금지).
 이 문서가 스키마·원칙·작문 회차(Opus) 운영의 SSOT 다.
 
-## 0. 현황 (R226t 작문 회차 — **완료**)
-- SSOT: **`data/alloy-stories.json`** — 스토리 **294종**, 멤버 **1129 entry** = **1129/1129 (100%)**.
-  - 배치 1~27(E13)로 전 재료 부착 완료. 미부착 0 (`build-from-registry` 스탬프 기준).
-  - v2(구조화 sections+timeline) **621종 entry** 커버. 잔여 ~508 entry 는 legacy v1(본문+refs, 섹션 미구조) — v2 승격은 후속(§5).
-- 구조: `stories.<slug>: { display, stable_ids[], refs[], legacy_text | sections(+timeline) }`.
-- v2 exemplar: `inconel-718` (섹션 4 + 타임라인 3). 신규 작문은 hook/origin/breakthrough/[adoption]/today/fun_fact 풀 구조 + 검증된 경우 timeline.
-- dead(멤버 0) 2종만 잔존: `epdm · fkm` (테스트 `DOCUMENTED_DEAD` 고정). 나머지 과거 dead(aisi-420/4340/a36/cp-ti/wc-6co)는 작문 회차에서 재연결·병합·검증 재작성으로 해소.
-- 게이트: `tests/alloy-stories.test.ts` 10 통과 · tsc · 770 테스트 · build 전부 green.
+## 0. 현황 (R226t 부착 + R226u v2 전환 — **완료**)
+- SSOT: **`data/alloy-stories.json`** — 스토리 **244종**, 멤버 **1129 entry** = **1129/1129 (100%)**.
+  - 배치 1~27(R226t/E13)로 전 재료 부착 완료. 미부착 0.
+  - **v2 전환 완료(R226u)**: 콘텐츠 보유 스토리 **242종 전부 v2**(6섹션 구조화). legacy v1 blob 은 dead 2종(epdm·fkm) 외 **0**. 승격 과정에서 동일합금 중복 스토리 ~30종을 원본으로 통합(스토리 294→244).
+- 구조: `stories.<slug>: { display, stable_ids[], refs[], sections(+timeline) }` (신규 legacy_text 생성 금지).
+- **v2 = 6섹션 필수**: hook·origin·breakthrough·adoption·today·fun_fact 전부 + 표준 순서 (게이트가 강제). exemplar `inconel-718`.
+- dead(멤버 0) 2종만 잔존: `epdm · fkm` (테스트 `DOCUMENTED_DEAD` 고정, DB 에 대상 재료 없음).
+- 게이트: `tests/alloy-stories.test.ts` **11 통과**(6섹션 전량 검증 포함) · `scripts/audit-story-names.mjs` **0** · tsc · 784 테스트 · build green.
 
 ## 1. 아키텍처 (전부 Material ID — regex/이름 매칭 0)
 ```

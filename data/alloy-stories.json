@@ -3342,19 +3342,6 @@
     "fun_fact": "Ti-8-1-1 은 알루미늄 8%로 강성과 고온강도를 얻었지만 바로 그 알루미늄 때문에 응력부식균열에 데였다 — 이후 티타늄 설계에는 \"알루미늄 당량을 대략 9 이하로 묶는다\"는 관행이 생겼고, 이 실패의 교훈이 지금도 합금표 속에 살아 있다."
    }
   },
-  "hnbr": {
-   "display": "HNBR",
-   "stable_ids": [
-    "POL-0006"
-   ],
-   "refs": [
-    "Severe G (1990) 'HNBR — A New Rubber for Higher Performance', Rubber & Plastics News",
-    "Hofmann W (1989) Rubber Technology Handbook",
-    "ARLANXEO Therban Technical Manual",
-    "ASTM D2000"
-   ],
-   "legacy_text": "HNBR (Hydrogenated Nitrile Butadiene Rubber) 은 1980년대 후반 독일 Bayer (현재 ARLANXEO / Lanxess) 가 개발한 NBR 의 hydrogenated 변형입니다. NBR 의 butadiene unit 의 잔여 이중결합 (C=C) 을 catalyst-assisted hydrogenation 으로 95-99% 포화시킨 게 핵심 — 이중결합이 없어지면 oxidation / ozone / UV 공격이 차단되어 작동 온도 한계가 NBR 의 100°C 에서 150-160°C 까지 올라가요.\n\n응용 — 자동차 timing belt (1990년대 후반 Goodyear / Gates 의 first HNBR belt 채택, 현재 모든 OEM 의 표준 timing belt 재료), automatic transmission oil seal, oil pump seal, 엔진 valve cover gasket (Ford / GM / Toyota 의 OEM spec), oilfield drilling mud seal (deepwater 의 130°C+ 환경), aerospace fuel line seal. 자동차 timing belt market 의 약 80% 가 HNBR 로, 그 안정성이 100,000 km 의 belt 수명을 가능케 했습니다.\n\n특이 처리 — HNBR 은 ACN (acrylonitrile) 함량과 hydrogenation level 의 2가지 parameter 로 spec 됩니다. ACN 17-18% / 95% 수소화 = 일반 자동차 belt spec. ACN 33-36% / 99% 수소화 = oilfield / 고가 aerospace. Peroxide cure (Bayer 의 표준 cure) 가 일반적이며 sulfur cure 도 가능 — peroxide cure 가 더 높은 thermal stability 제공."
-  },
   "honeycomb-core": {
    "display": "Honeycomb Core (Al 5052 / Nomex)",
    "stable_ids": [
@@ -3767,7 +3754,14 @@
     "Lee W E & Moore R E (1998) J Am Ceram Soc 81",
     "Yuan H et al. (2008) J Phys D: Appl Phys 41"
    ],
-   "legacy_text": "Magnesia (MgO, magnesium oxide) 는 가장 오래된 refractory ceramic 중 하나로, 19세기 초 dolomite (CaMg(CO₃)₂) 의 calcination 으로 처음 산업화됐습니다. Tm 2852°C — Al₂O₃ (2072°C), SiC (2730°C) 보다 높아 고온 refractory 의 절대 표준입니다. 자연계에서 periclase 광물 (Mg-rich 화성암) 또는 brucite Mg(OH)₂ → calcination 으로 추출돼요.\n\n응용 — Steelmaking refractory: BOF (Basic Oxygen Furnace) lining, EAF (Electric Arc Furnace) roof + sidewall, ladle refractory (포항제철 + 현대제철 + 동국제강의 모든 secondary refining lining). 한국 강철 산업 의 magnesia brick 사용량 약 30만톤/년. Cement kiln refractory (현대 cement, Ssangyong cement 의 rotary kiln lining), copper smelter refractory (LS-Nikko 의 smelter 부분), Glass furnace upper part (lower part 는 zirconia-mullite), 비철금속 melting (Al smelter, brass furnace).\n\n특이 응용 — MgO 가 약알칼리성이고 산성 환경 (실리카 slag) 과 반응 → basic refractory 로 분류됩니다. 'basic refractory' 의 가장 중요한 표준. Al₂O₃ + spinel (MgAl₂O₄) 첨가로 더 안정성 향상 — Magnesia-spinel brick 이 현대 cement kiln 의 표준 (chrome-magnesia brick 의 Cr-VI 환경 우려 회피).\n\n전자 응용 — MgO 가 single crystal grade (CMP grade) 로 약 99.99% purity 가 가능, MRAM (Magnetic RAM) 의 tunneling barrier (Tunnel-MR junction 의 MgO single-crystal layer ~ 1-2 nm), single-crystal substrate for HEMT 의 일부 sub-application 에 사용 — high-purity electronic-grade MgO 가격 $500-2000/kg 의 specialty 시장."
+   "sections": {
+    "hook": "가장 높이 녹는 흔한 산화물 — 제강로 안벽을 지키는 내화 세라믹 마그네시아(MgO).",
+    "origin": "마그네시아(MgO)는 가장 오래된 내화 세라믹 중 하나로, 융점이 2852°C 로 알루미나·탄화규소보다도 높다. 값싼 원료(마그네사이트·해수)에서 얻어, 극한 고온을 견뎌야 하는 야금로의 내벽 재료로 오래 쓰였다.",
+    "breakthrough": "극도로 높은 융점과 염기성 슬래그에 대한 내식이 핵심이다 — 제강로의 염기성 슬래그가 규산질 내화물을 녹여 버리는 환경에서, 염기성인 MgO 는 견딘다. 다만 열충격에 약하고 물·습기에 서서히 수화되는 약점이 있어, 탄소·크롬과 조합해 보완한다.",
+    "adoption": "20세기 제강 산업이 전로·전기로 내벽과 슬래그 라인에 채택하며 내화물의 핵심이 됐고, 시멘트·유리 가마로 확산됐다.",
+    "today": "제강 전로·전기로 내벽(MgO-C 벽돌), 시멘트·유리 가마 부재, 전열체 절연에 쓰인다. 산성 슬래그 환경이나 열충격이 심하면 알루미나·지르코니아계로 간다.",
+    "fun_fact": "녹인 쇳물을 담는 제강로가 스스로 녹지 않는 것은, 그 안벽이 쇳물보다 훨씬 높은 온도에서 녹는 마그네시아 벽돌이기 때문이다 — 불을 담는 그릇이 불보다 강해야 하는 셈이다."
+   }
   },
   "magnesium-alloys": {
    "display": "Magnesium Alloys (AZ80 · AM60 · ZK60 · ZE41 · EZ33A · HK31A · ZE63A)",
@@ -3806,7 +3800,14 @@
     "Goldstein A & Krell A (2016) \"Transparent Ceramics — A Now-and-Then Survey\", Adv Eng Mater 18",
     "TA&T (TransparentArmor & Tactical) MgAl₂O₄ Tech Data"
    ],
-   "legacy_text": "Magnesium Aluminate Spinel (MgAl₂O₄) 은 spinel mineral group 의 대표 cubic ceramic 입니다. 자연계에서 보석 (Sri Lanka 의 red spinel — 한때 'Black Prince's Ruby' 라고 잘못 알려진 영국 왕관의 보석이 사실 red spinel) 으로도 발견되지만, 산업 응용은 1960년대 이후 hot-pressed transparent spinel 의 발달이 시작입니다.\n\nMgAl₂O₄ 의 매력은 transparent ceramic 으로 가능하다는 점입니다. Cubic crystal structure 라 birefringence (이중굴절) 가 없어 microstructure 가 충분히 미세하면 (1 μm 이하 grain) visible + IR (mid-wavelength, 2-5 μm) 영역에서 transparent. 또 hardness HRA 88 + KIC 3-4 MPa·√m 으로 alumina 와 유사한 wear resistance 를 가집니다.\n\n응용: 군용 IR window (Sapphire 의 대체 — IR-transparent + 더 단단함, AH-64 Apache 의 sight window 의 일부), 미사일 dome / radome (특히 IR-guided missile 의 seeker dome), 의료 dental crown 의 일부 luxury grade (transparent → 자연 치아의 색감과 유사), 정밀 광학 — high-power laser window, 그리고 ballistic armor (transparent armor 의 ceramic layer). 가격은 transparent grade $300-1500/kg 으로 매우 비싸지만 alternative ceramic (sapphire monocrystal $500-2000/kg) 보다는 훨씬 저렴하고 large-aperture window 제작이 가능합니다."
+   "sections": {
+    "hook": "총알을 막으면서 투명한 세라믹 — 방탄창과 적외선 창의 스피넬(MgAl₂O₄).",
+    "origin": "마그네슘 알루미네이트 스피넬(MgAl₂O₄)은 입방정 결정 구조의 산화물 세라믹으로, 자연에서는 보석(스피넬)으로도 난다. 다결정으로 소결해도 투명하게 만들 수 있어, \"단단하면서 투명한 세라믹\"이 필요한 방탄·광학 창의 재료가 됐다.",
+    "breakthrough": "입방정이라 결정 방향에 따른 광학 차이가 없어, 다결정체인데도 투명하다. 유리·아크릴보다 훨씬 단단하고 넓은 파장(가시광~적외선)을 투과시켜, 긁힘과 충격·탄자를 견디면서 속이 비쳐야 하는 창을 만든다 — 사파이어보다 크고 값싸게 만들 수 있는 것이 강점이다.",
+    "adoption": "군용 방탄창과 적외선 센서 돔에 채택되며 투명 장갑·광학 창의 재료가 됐다.",
+    "today": "군용 투명 장갑(방탄창), 적외선 미사일 돔·센서 창, 고온·긁힘 저항 광학 창에 쓰인다. 더 단단한 창은 사파이어로, 값싼 방탄은 유리·폴리카보네이트 적층으로 간다.",
+    "fun_fact": "투명한데 총알을 막는다는 모순을 스피넬이 푼다 — 유리처럼 비치면서 세라믹처럼 단단해, 장갑차 관측창과 미사일의 \"눈\"을 동시에 맡는다."
+   }
   },
   "maraging-250": {
    "display": "Maraging 250",
@@ -4084,6 +4085,7 @@
   "nbr-nitrile-butadiene-rubber": {
    "display": "NBR — Nitrile Butadiene Rubber",
    "stable_ids": [
+    "POL-0006",
     "POL-0007"
    ],
    "refs": [
@@ -4092,7 +4094,14 @@
     "ASTM D2000 / D735 \"Standard Classification for Rubber Materials in Automotive Applications\"",
     "Hofmann W (1989) Rubber Technology Handbook, Hanser Publishers"
    ],
-   "legacy_text": "1931년 독일 IG Farben (오늘날 BASF/Bayer 의 모체) 의 두 화학자 에두아르드 츤커 (Eduard Tschunkur) 와 발터 보크 (Walter Bock) 가 부타디엔 (CH₂=CH-CH=CH₂) 과 아크릴로니트릴 (CH₂=CH-CN) 을 유화 중합 (emulsion polymerization) 으로 합성한 새로운 합성 고무를 'Buna N' (Bu=Butadiene, Na=Sodium 촉매, N=Nitrile) 이라는 이름으로 발표합니다. 자연고무 (cis-1,4-polyisoprene) 가 가솔린·기름에 부풀어 못 쓰던 시절, '기름에 견디는 고무' 가 처음 등장한 순간이었어요.\n\n2차 대전 중에는 미국 정부의 합성고무 비상 계획 (Rubber Reserve) 의 핵심 소재로 지정돼 Goodrich, Goodyear, US Rubber 가 라이선스를 받아 대량 생산했고, 군용 항공기 연료 라인·O-ring 의 표준이 됐죠. 전후엔 자동차 산업 전반으로 확산 — Ford Model T 의 fuel-line gasket 부터 현대 모든 내연기관 엔진의 valve cover gasket, transmission shaft seal, 디젤 연료 분사기 O-ring 까지 사용처가 끝이 없어요.\n\nNBR 의 성능은 아크릴로니트릴 (ACN) 함량에 의해 결정됩니다. 18% 짜리 'low ACN' 은 저온 유연성이 좋고 (T_g ≈ -40°C), 50% 짜리 'high ACN' 은 내유성이 극대화됩니다. 산업 표준은 33% 'medium ACN' — fuel resistance 와 cold-flex 의 균형점이죠. 단점은 오존·자외선·heat-aging 에 약하다는 점. 그래서 150°C 이상이나 outdoor 노출 환경에서는 1980년대 등장한 HNBR (이중결합을 수소화한 형태) 이나 FKM (Viton) 으로 대체됩니다."
+   "sections": {
+    "hook": "기름에 안 녹는 고무 — O링·오일씰의 표준 합성고무 니트릴(NBR).",
+    "origin": "니트릴 고무(NBR)는 1930년대 독일에서 부타디엔과 아크릴로니트릴을 공중합해 만든 합성고무다. 천연고무가 기름·연료에 녹아 부풀던 문제를, 극성인 아크릴로니트릴을 넣어 해결했다 — 석유화학·자동차 시대의 내유(耐油) 씰 재료로 태어났다.",
+    "breakthrough": "아크릴로니트릴 함량이 높을수록 내유·내연료성이 오르고, 낮을수록 저온 유연성이 좋아진다 — 이 비율로 성질을 조율한다. 값싸고 내마모·내유가 좋아, 기름과 닿는 밀봉의 기본값이 됐다. 다만 오존·햇빛·고온에는 약하다.",
+    "adoption": "20세기 중반 자동차·유압 산업이 O링·오일씰·연료 호스에 대량 채택하며 내유 고무의 표준이 됐다.",
+    "today": "O링·오일씰·개스킷, 연료·유압 호스, 장갑·컨베이어 벨트에 쓰인다. 고온·내오존이 필요하면 수소화 NBR(HNBR)로, 극한 내약품·고온은 불소고무(FKM)로 간다.",
+    "fun_fact": "자동차·기계 속 수많은 검은 O링과 오일씰 대부분이 니트릴 고무다 — 기름에 담가도 안 녹고 값도 싸, 눈에 안 띄는 밀봉 자리를 반세기째 지키는 고무다."
+   }
   },
   "nitinol-niti": {
    "display": "Nitinol (NiTi)",
@@ -4105,7 +4114,14 @@
     "Otsuka K & Wayman C M (eds., 1998) Shape Memory Materials, Cambridge UP",
     "Duerig T et al. (1990) Engineering Aspects of Shape Memory Alloys, Butterworth-Heinemann"
    ],
-   "legacy_text": "1959년 미국 Naval Ordnance Laboratory (NOL, 메릴랜드 White Oak) 의 윌리엄 부엘러 (William Buehler) 가 nuclear submarine 의 nose cone 용 새 합금을 찾던 중 Ni 50at% + Ti 50at% 의 intermetallic 이 일정 온도에서 형상을 기억해 회복하는 (shape memory) 현상을 발견합니다. 프레더릭 왕 (Frederick Wang) 과 함께 1965년 BCC ↔ B19' martensite 의 thermoelastic 변태 메커니즘을 규명, NOL + Ti 의 머리글자로 'Nitinol' 로 명명했어요. 1962년 NOL 의 콘퍼런스 시연에서 구부려진 wire 가 손 열로 펴지는 모습이 '마술 metal' 로 NYT 1면을 장식하기도 했죠.\n\n응용 — 의료 — 1990년대 들어 cardiovascular stent (Cordis Cypher, Boston Scientific 의 모든 PCI stent), 뼈 골절 fixator (Memry MEMOFEX), 치과 교정 wire (3M Unitek 의 most braces wire), 두부 외상 stapler. 항공 — F-14 hydraulic coupling (Raychem CryoFit), 미 Navy USS Constellation 의 anti-vibration mount. 일상 — 안경 frame (Rectangulus, Marchon Flexon), 무선 헤드폰 headband (Bose QuietComfort), 와이파이 안테나 actuator (Apple AirPods Pro) 까지."
+   "sections": {
+    "hook": "구부려도 원래대로 돌아오고 데우면 형상을 기억하는 금속 — 니켈-티타늄 형상기억합금 니티놀.",
+    "origin": "니티놀(NiTi)은 1950년대 말 미국 해군 연구소의 부엘러가 우연히 발견한 니켈-티타늄 금속간화합물이다. 실온에서 크게 변형시켜도 데우면 원래 형상으로 돌아오는(형상기억), 또는 힘을 빼면 즉시 되돌아오는(초탄성) 독특한 성질을 가진다.",
+    "breakthrough": "비결은 응력·온도로 오가는 마르텐사이트↔오스테나이트 상변태다 — 변형이 결정 구조의 가역적 전환으로 흡수됐다가, 온도나 하중이 바뀌면 원래 구조로 돌아오며 형상이 복원된다. 금속이면서 고무처럼 크게 휘고 되돌아오니, 다른 금속이 못 하는 일을 한다.",
+    "adoption": "1970년대 이후 의료(혈관 스텐트·치과 교정 와이어)와 항공·로봇 액추에이터에 채택되며 형상기억합금의 대표가 됐다.",
+    "today": "혈관 스텐트·수술 기구·치과 교정 와이어, 안경테, 온도 구동 액추에이터·커플링에 쓰인다. 값이 비싸고 가공이 까다로워, 형상기억·초탄성이 값을 하는 곳에 집중된다.",
+    "fun_fact": "휘어도 부러지지 않고 튕겨 돌아오는 안경테가 대개 니티놀이다 — 밟거나 깔고 앉아도 원래 모양으로 돌아오는 그 초탄성이, 혈관 속에서 스스로 펴지는 스텐트와 똑같은 원리다."
+   }
   },
   "nitronic-50": {
    "display": "Nitronic 50",
@@ -4274,7 +4290,14 @@
     "ASTM A681 \"Standard Specification for Tool Steels Alloy\"",
     "Bohler-Uddeholm \"M238 Technical Information\" (2019)"
    ],
-   "legacy_text": "1936년 미국 Bethlehem Steel 이 plastic injection mold 산업의 표준 자재로 출시한 합금이에요. Cr 1.6% + Mn 1.0% + Mo 0.4% + C 0.4% 의 조성으로 pre-hardened (HRC 30~36) 상태로 출하 — 사용자가 별도 열처리 없이 가공 후 바로 mold 로 사용 가능한 게 혁명적이었죠. 1941년 AISI P20 (UNS T51620) 으로 표준화됐습니다.\n\nP20 의 의의는 '사출금형 제조의 생산성 혁명' 이에요. 이전엔 mold 가공 → quench + temper → 변형 보정 가공의 3 단계가 필요했는데, P20 은 가공 → 끝. mold 제조 시간이 50% 단축되면서 plastic 산업이 폭발적으로 확산됐죠.\n\n응용 — 사출금형의 약 70% 가 P20 또는 그 변형 (NAK80, 718H — pre-hardened 4140) 입니다. 가전 제품 (LG, 삼성의 가전 plastic case), 자동차 interior (dashboard, bumper), 식품 용기 (Tupperware, Coca-Cola plastic bottle 제조 mold), 의료 device housing, 사출 plastic toy (LEGO mold 는 더 hard 한 STAVAX 사용). 한국 두산공작기계의 KP4, Bohler M238, Uddeholm Impax Supreme 도 P20 변형이에요."
+   "sections": {
+    "hook": "미리 굳혀 파는 금형강 — 열처리 없이 깎아 바로 쓰는 플라스틱 사출 금형의 P20.",
+    "origin": "P20 은 20세기 중반 미국에서 플라스틱 사출 금형용으로 표준화된 저합금 공구강이다. 크롬-망간-몰리브데넘에 중탄소를 넣고, 사용자가 별도 열처리를 하지 않도록 미리 조질(HRC 30~36)한 상태로 출하하는 \"프리하든 금형강\"이다.",
+    "breakthrough": "핵심은 \"가공 후 열처리 불필요\"다. 큰 금형은 담금질 시 변형·균열 위험이 크고 후가공도 어려운데, P20 은 이미 적당히 굳은 상태로 와 깎기만 하면 완성된다 — 열처리 변형이라는 대형 금형의 골칫거리를 아예 없앤 설계다. 경면 연마·용접 보수도 잘 된다.",
+    "adoption": "20세기 중반 이후 플라스틱 사출·다이캐스팅 금형의 본체(금형 베이스)로 대량 채택되며 금형 산업의 기본재가 됐다.",
+    "today": "플라스틱 사출 금형 본체, 다이캐스팅 금형 홀더, 대형 지그·고정구에 쓰인다. 부식·경면이 더 필요하면 스테인리스 금형강(Stavax·CX)으로, 뜨거운 다이캐스팅은 H13 으로 간다.",
+    "fun_fact": "큰 금형을 담금질하면 뒤틀리고 갈라지기 십상이라, P20 은 아예 \"적당히 굳은 채로\" 판다 — 열처리를 생략한 이 한 수가, 자동차 범퍼 금형 같은 대형 금형 제작을 실용화했다."
+   }
   },
   "pa11-alm-pa850": {
    "display": "PA11 ALM PA850",
@@ -4589,7 +4612,14 @@
     "AK Steel \"PH 13-8 Mo Stainless Steel Product Data Bulletin\" (2007)",
     "Davis J R (1994) ASM Specialty Handbook: Stainless Steels"
    ],
-   "legacy_text": "1965년 미국 Armco Steel 이 17-4 PH 의 한계 (σ_y 1240 MPa) 를 넘는 새 PH stainless 를 시도하면서 등장한 합금. Cr 12.7% + Ni 8% + Mo 2.2% + Al 1.1% 의 조성으로, Al 의 NiAl 시효 석출이 17-4 의 ε-Cu 보다 더 미세하고 균일해서 σ_y 1380 MPa 까지 도달합니다.\n\n17-4 PH 가 'general purpose' 라면 PH 13-8 Mo 는 'high-strength precision' 자리를 차지했어요. 항공 — F-15/16/18 의 hydraulic actuator rod, AH-64 Apache 의 rotor blade pitch shaft, Boeing 777 의 wing slat actuator. 우주 — NASA SLS 의 hydraulic system, SpaceX Falcon 9 의 grid-fin actuator. 핵 — PWR 의 control rod drive shaft (Westinghouse).\n\n의료에서도 인기 — Stryker 의 spinal fixation rod, Zimmer 의 trauma plate 가 표준입니다. 부식 저항이 17-4 PH 보다 4배 좋아서 (Mo 첨가 효과) 인체 평생 체류가 가능해요. 단점은 가격 — 18-8 stainless 의 4배. 그래도 '강도 × 부식 저항 × 가공성' 의 균형을 따라잡을 합금이 별로 없어서 1970년대부터 항공 페스너의 표준으로 굳어졌습니다."
+   "sections": {
+    "hook": "17-4를 넘어선 고인성 PH 스테인리스 — 알루미늄 시효로 초고강도와 인성을 겸한 PH13-8 Mo.",
+    "origin": "PH13-8 Mo 는 1960년대 미국 Armco 가 17-4 PH 의 강도·청정도 한계를 넘으려 개발한 석출경화 스테인리스다. 크롬 13%·니켈 8%·몰리브데넘에 알루미늄을 넣어, 니켈-알루미늄 금속간화합물 석출로 강해진다 — 17-4 의 구리 석출보다 미세하고 균일하다.",
+    "breakthrough": "진공 재용해로 개재물을 극도로 낮추고, NiAl 미세 석출로 초고강도(항복 1400MPa 급)에 뛰어난 파괴인성·내응력부식을 겸한다 — \"강하면서 잘 안 깨지는\" PH 스테인리스의 정점이다. 방향에 따른 성질 차이도 작아 대형 단조에 맞는다.",
+    "adoption": "1970년대 이후 항공기 착륙장치·플랩 트랙·구조 체결처럼 강도·인성·내식이 동시에 걸리는 임계 부품에 채택됐다.",
+    "today": "항공 착륙장치·플랩 트랙·고강도 체결, 유정 부품, 고성능 스프링에 쓰인다. 값이 부담이면 17-4/15-5 PH 로 내려가고, 부식이 없으면 마레이징강으로 간다.",
+    "fun_fact": "17-4·15-5·13-8 은 PH 스테인리스의 강도-인성 사다리다 — 항공 엔지니어는 필요한 인성 등급에 따라 이 세 형제 중 하나를 고르는데, 가장 인성이 중요한 임계 부품에 13-8 Mo 가 온다."
+   }
   },
   "pla": {
    "display": "PLA",
@@ -4981,7 +5011,14 @@
     "Stone D H et al. (1989) \"Heavy-Haul Heavy-Wheel Load Service\", AAR Research Report R-714",
     "Marich S (2006) \"Wheel-rail interaction\", Tech Report TR 1051, Australasian Centre for Rail Innovation"
    ],
-   "legacy_text": "1888년 미국 AAR (Association of American Railroads, 당시 Master Car Builders' Association) 가 처음 wheel 표준을 발표한 이후, 1950년대 미국 화물 railroad 의 axle load 증가 (25 t → 33 t) 에 맞춰 새 grade 가 필요해졌어요. 1962년 AAR M-107 의 Class A → B → C 시리즈가 도입되면서 Class C (rim BHN 321~363) 가 heavy-haul 의 표준이 됐습니다.\n\nClass C 의 비결은 quench + tempered rim — 외륜 표면만 강하게 처리하고 hub 부위는 ductile 하게 남겨 fatigue 저항을 극대화한 것. 차륜이 rail 과 부딪히는 contact 영역은 마모를 견디고, 차축과 만나는 hub 는 충격을 견디는 거죠.\n\n응용은 매우 폭이 좁아요. 호주 BHP 의 Pilbara iron ore line (Hamersley, FMG, Roy Hill — 시속 80 km 의 35 t/axle 적재, 240-car 화물열차), 브라질 Vale 의 Carajás line (430-car 의 가장 긴 화물열차 — 길이 4 km), 미국 BNSF / Union Pacific 의 coal line, 캐나다 CN / CP 의 grain shuttle. 모두 차륜이 Class C 입니다. 한국 KORAIL 의 화물열차 차륜도 Class C 의 변형. AAR M-107 사양은 헬리콥터 변속기 표준만큼이나 엄격해서, 한 차륜에 수백 개의 dimensional check 과 수십 개의 NDT (비파괴) test 가 적용됩니다."
+   "sections": {
+    "hook": "수십 톤 화차를 싣고 구르는 강철 바퀴 — 열처리로 테두리를 굳힌 중하중 철도차륜.",
+    "origin": "철도차륜은 무거운 하중을 싣고 레일 위를 굴러, 접촉피로·마모·제동열을 동시에 견뎌야 한다. AAR M-107 의 Class C 는 미국 화물철도의 중하중용 차륜강 등급으로, 축중이 커지면서 더 단단한 답이 필요해 정립됐다 — 중탄소 펄라이트강을 테두리(rim) 열처리로 굳힌다.",
+    "breakthrough": "탄소를 높인 펄라이트강의 테두리를 담금질·뜨임으로 굳혀 마모·접촉피로에 견디게 하고, 심부는 질기게 남겨 충격을 흡수한다. 제동 시 발생하는 열과 반복 하중을 함께 버티도록, 경도와 잔류응력을 정밀하게 조율한 것이 핵심이다.",
+    "adoption": "축중이 커진 20세기 중반 이후 북미 화물철도의 표준 차륜강으로 채택됐고, 중하중 화물·광석 운송으로 확산됐다.",
+    "today": "화물열차·광석열차 차륜에 쓰이며, 레일(R260 등)과 짝을 이뤄 궤도 시스템을 이룬다. 더 가혹한 고속·고하중은 미세합금·열처리를 강화한 차륜강으로 간다.",
+    "fun_fact": "레일과 차륜은 서로 갈아먹는 한 쌍이다 — 둘 다 너무 단단하면 서로를 깨고, 너무 무르면 빨리 닳는다. 그래서 차륜과 레일의 경도는 한쪽이 조금 더 무르게, 함께 오래 가도록 짝지어 정해진다."
+   }
   },
   "sae-21-4n": {
    "display": "SAE 21-4N",
@@ -5094,7 +5131,14 @@
     "ISO 10993",
     "FDA Title 21 CFR 177.2600"
    ],
-   "legacy_text": "Silicone (PDMS — Polydimethylsiloxane) 은 1943년 미국 GE (General Electric) 와 Dow Corning 이 거의 동시에 상업화한 silicone 폴리머의 가장 일반적인 형태입니다. Frederic Kipping (영국 University College Nottingham) 이 1899년 처음 silicone 합성에 성공한 이후 40여 년 만의 상업화 — Si-O-Si backbone 의 강한 화학 안정성 + 우수한 thermal stability + 생체 적합성이 핵심이에요.\n\n응용 — 의료 (가장 critical) implant: breast implant (1962년 Dow Corning 의 first silicone implant), pacemaker insulation, catheter coating, blood-bag tubing, IV line, surgical drainage tube, intra-ocular lens (IOL — 1980년대부터 cataract surgery 표준), 식품 (FDA / EFSA 승인 grade): cooking utensil (silicone baking mat, ice cube mold, baby bottle nipple), industrial: high-T seal (engine gasket, oven door seal 300°C 까지), 전자 (potting compound — PCB conformal coating), 화장품 (lubricant, anti-perspirant 의 cyclomethicone).\n\n특이점 — Tm range -50°C ~ +200°C (가장 넓은 service temp 의 rubber), UV / ozone / chemical 압도적 저항, 생체 적합성 (ISO 10993 통과), low toxicity (FDA Title 21 CFR 177.2600). 단점은 mechanical strength 가 낮음 (tensile σ 5-10 MPa, NBR/EPDM 의 절반) + oil / nonpolar solvent 에 swell.\n\n경화 종류 — Heat-cure (peroxide / Pt-catalyzed addition cure) — 산업용. Room-temp vulcanizing (RTV) — DIY / 의료 silicone caulking. Liquid silicone rubber (LSR) — injection molding (Wacker / Shin-Etsu / Dow 의 medical-grade LSR)."
+   "sections": {
+    "hook": "−50°C부터 200°C를 견디는 고무 — 규소 골격의 실리콘, 극한 온도와 인체를 오가는 탄성체.",
+    "origin": "실리콘 고무(PDMS)는 탄소 대신 규소-산소 골격을 가진 합성 탄성체로, 20세기 중반 미국에서 상업화됐다. 유기 고무가 견디지 못하는 넓은 온도 범위와 내후·내오존, 생체적합성을 갖춰 — 다른 고무가 물러지거나 굳는 극한 환경의 밀봉·부품이 됐다.",
+    "breakthrough": "규소-산소 결합이 유연하면서도 열·자외선·산소에 안정해, −50°C 저온부터 200°C 이상 고온까지 탄성을 유지한다. 인체에 무해하고 발수·이형성이 좋다. 대신 인장강도·내마모·내유는 유기 고무보다 낮아, 밀봉·완충·의료처럼 온도·안전이 중요한 곳에 특화된다.",
+    "adoption": "항공·전자의 고온 밀봉과 의료·식품 부품에 채택되며 극한 온도 탄성체의 표준이 됐고, 생활용품으로 확산됐다.",
+    "today": "고온·저온 개스킷·오링, 의료 튜브·임플란트, 식품용 몰드·조리도구, 전자 봉지재·키패드에 쓰인다. 내유·강도가 필요하면 니트릴·불소고무로, 저가 완충은 EVA·TPU 로 간다.",
+    "fun_fact": "뜨거운 오븐 장갑과 몸속 의료 튜브에 같은 고무가 쓰인다 — 실리콘은 넓은 온도와 인체를 모두 견디는 드문 탄성체라, 주방과 수술실을 함께 누빈다."
+   }
   },
   "sncm439": {
    "display": "SNCM439",
@@ -5540,7 +5584,14 @@
     "ASTM B338",
     "Donachie M J (2000) Titanium: A Technical Guide 2nd ed."
    ],
-   "legacy_text": "Ti Grade 9 (Ti-3Al-2.5V, UNS R56320) 는 1960년대 미국 Titanium Metals Corporation (TIMET) 이 Ti-6Al-4V (Grade 5) 와 CP-Ti 사이의 'medium-strength weldable Ti' 로 개발한 α+β alloy 입니다. Al 3% + V 2.5% 의 조성이 cold-formability + welding 가능성을 보존하면서 CP-Ti 보다 약 50% 강도를 얻어요.\n\n응용 — Mountain bike / racing bike frame 의 high-end model. 1985년 미국 Litespeed 가 첫 Ti Gr9 bicycle frame 을 출시했고 1990-2000년대 Lynskey, Moots, Seven Cycles, Eriksen 의 hand-built frame 의 표준이 됐어요. 항공기 hydraulic line + fuel line tubing (Boeing 737 / Airbus A320 의 일부 sub-system), aerospace seamless tubing (AMS 4943 / 4944), medical surgical instrument (orthopedic drill bit).\n\n특이점은 cold-formability — CP-Ti 와 비슷한 cold-bend 가 가능하면서 (mandrel 직경 4t bend pass), Ti-6Al-4V 의 50% 강도를 얻는 점입니다. Wing spar 같은 high-stress 부품에는 부적합하지만, tubing / sheet / strut 같은 medium-stress + complex-form 부품에서 우위. 또 다른 특이점은 weldability — 6-4 보다 우수해 항공 sub-system tubing 의 welded joint 에 표준 사용됩니다.\n\nHT — Annealed (704-790°C / AC, σy 485 / σUTS 620 MPa, El 15%) 또는 STA (sol. + aged, σy 760 / σUTS 860 MPa, El 10%)."
+   "sections": {
+    "hook": "Ti-6-4의 절반쯤 강한 용접용 티타늄 — 배관·자전거 프레임의 Ti Grade 9(Ti-3Al-2.5V).",
+    "origin": "Ti Grade 9(Ti-3Al-2.5V)는 1960년대에 CP 티타늄과 Ti-6Al-4V 사이의 \"중강도 용접용 티타늄\"으로 개발된 α+β 합금이다. Ti-6-4 보다 합금 원소를 줄여 성형·용접이 쉬우면서, CP 티타늄보다 강도가 높은 균형점을 노렸다.",
+    "breakthrough": "알루미늄·바나듐을 Ti-6-4 의 절반쯤만 넣어, 냉간성형과 용접이 잘 되는 성질을 지키면서 강도를 CP Ti 이상으로 올렸다. 특히 얇은 벽 관으로 만들기 좋아, 가볍고 내식성 좋은 고압 배관·튜브에 이상적이다.",
+    "adoption": "항공 유압 배관과 골프 샤프트·고급 자전거 프레임에 채택되며 \"성형용 티타늄\"의 자리를 얻었다.",
+    "today": "항공 유압·연료 배관, 고압 튜브, 자전거 프레임, 골프 샤프트에 쓰인다. 더 높은 강도가 필요하면 Ti-6Al-4V 로, 순수 내식만 필요하면 CP 티타늄으로 간다.",
+    "fun_fact": "고급 티타늄 자전거 프레임의 상당수가 Grade 9 관이다 — Ti-6-4 는 너무 뻣뻣하고 용접이 까다로운데, \"반쯤 합금한\" 이 티타늄이 가볍고 잘 휘어지며 용접까지 되어 프레임에 딱 맞았다."
+   }
   },
   "titanium-carbide": {
    "display": "Titanium Carbide (TiC)",
