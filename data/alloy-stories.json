@@ -2164,6 +2164,9 @@
     "MET-0582",
     "MET-0583",
     "MET-0584",
+    "MET-0592",
+    "MET-0593",
+    "MET-0594",
     "MET-0607",
     "MET-0609",
     "MET-0610",
@@ -2178,7 +2181,7 @@
     "origin": "가스터빈에서 가장 뜨거운 1단 블레이드는 1000°C 이상에서 원심력을 받는다. 이를 견디려 γ′(Ni₃(Al,Ti)) 석출을 극대화한 주조 초합금이 나왔고, 결정립계가 크리프 파괴의 약점이라 등축정→방향성응고(DS)→단결정(SX)으로 진화했다.",
     "breakthrough": "등축 주조재(IN713C·IN738·IN100·IN939)는 높은 γ′ 분율로 크리프를 견디고, 단결정(CMSX-4·Rene N5·PWA1484)은 결정립계를 아예 없애 입계 파괴를 제거한다. 2세대 SX 는 Re 3%를 넣어 원소 확산을 늦춰 온도 한계를 더 끌어올렸다.",
     "adoption": "1970~80년대 방향성응고와 단결정 주조가 군용 엔진에서 검증된 뒤 민항 엔진으로 확산돼, 오늘날 1단 블레이드는 단결정이 표준이 됐다.",
-    "today": "IN738·IN939 는 발전용 가스터빈 블레이드·베인에, 단결정 CMSX-4·Rene N5·PWA1484 는 항공엔진 1단 블레이드에 쓰인다. 3세대(CMSX-10)와 Ru 함유 4세대로 온도 경쟁이 이어진다.",
+    "today": "IN738·IN939 는 발전용 가스터빈 블레이드·베인(IN738·MAR-M 247 등)에, 단결정 CMSX-4·Rene N5·PWA1484 는 항공엔진 1단 블레이드에 쓰인다. 3세대(CMSX-10)와 Ru 함유 4세대로 온도 경쟁이 이어진다.",
     "fun_fact": "단결정 블레이드는 주형에 나선형 ‘결정 선택기(pigtail)’를 두어 수많은 결정 중 하나만 자라게 함으로써, 블레이드 전체를 단 하나의 결정으로 키운다."
    }
   },
@@ -3489,7 +3492,14 @@
     "AMS 5679 (ERNiCr-3 filler)",
     "Special Metals Corporation 'INCONEL alloy 600' Technical Data Sheet"
    ],
-   "legacy_text": "Inconel 600 은 1932년 International Nickel Company (INCO) 의 표준 nickel alloy — Ni 72% + Cr 16% + Fe 8% 의 단순한 solid-solution composition 입니다. 식품·식기와 chemical 산업의 부식 저항 nickel 합금으로 첫 등장 후 1950년대 nuclear reactor steam generator tube 의 standard 가 됐어요.\n\nNuclear 응용 — Three Mile Island (TMI) 1979년 사고 이전까지 PWR (Pressurized Water Reactor) steam generator tube 의 표준 material (Westinghouse 의 모든 모델 + 한국 한울 1-4호기, 영광 1-2호기). TMI 사고 후 IGSCC (Intergranular Stress Corrosion Cracking) 의 root cause analysis 에서 600 의 chloride 환경 + 잔류응력 stress 가 SCC trigger 로 확인되어, 후속 plant (한국 한울 5-6호기, 영광 3-4호기, 신고리, 신한울) 의 SG tube 는 Inconel 690 (Cr 30%) 으로 대체됐어요.\n\n비-nuclear 응용 — 화학 plant HCl 환경 piping, 유리 furnace 의 muffle (1100°C+ service), heat-treatment furnace 의 radiant tube, organic chemical industry 의 nitric acid concentrator, paper mill bleaching tower. Inconel 690 (Cr 30%) 와 비교 시 600 의 Cr 16% 가 sulfide 환경에서 더 좋은 성능 — sour gas (H₂S) 응용은 600 의 적합 영역입니다.\n\nWelding — ERNiCr-3 (AMS 5679) matching filler. 입계 carbide sensitization (450-850°C) 위험 — 두꺼운 weld 시 PWHT (1050°C/30min/AC) 권장."
+   "sections": {
+    "hook": "인코넬 가문의 뿌리 — 니켈-크롬-철의 단순한 내식·내열 합금 600.",
+    "origin": "Inconel 600 은 1930년대 INCO 가 표준화한 니켈-크롬-철 고용강화 합금으로, 인코넬 계보의 출발점이다. 니켈 72%에 크롬·철을 더한 단순한 조성으로, 식품·화학의 내식 니켈 합금으로 처음 쓰이다 원자력 산업으로 넓어졌다.",
+    "breakthrough": "니켈 바탕이 염기·환원 환경 내식과 고온 내산화를 주고, 크롬이 산화·부식 저항을 보탠다. 석출경화 없이 고용강화만으로 넓은 온도에서 안정해, 열교환기 튜브처럼 오래 견뎌야 하는 자리에 맞는다 — 다만 특정 고온수 환경의 응력부식균열이 약점으로 드러났다.",
+    "adoption": "1950년대 가압수형 원자로 증기발생기 튜브의 표준으로 채택됐고, 화학·열처리 설비로 확산됐다.",
+    "today": "열처리로 부품, 화학 설비, 전열 히터 시스, 일부 원자로 부품에 쓰인다. 고온수 응력부식이 문제되는 원자로 튜브는 크롬을 높인 690 으로 대체됐고, 강도가 필요하면 X-750·718 로 간다.",
+    "fun_fact": "600 은 인코넬이라는 이름의 원점이지만, 원자로에서 겪은 응력부식 문제가 역설적으로 후배 합금(690)을 낳았다 — 한 합금의 약점이 가문의 진화를 이끈 셈이다."
+   }
   },
   "inconel-625": {
    "display": "Inconel 625",
@@ -3580,7 +3590,14 @@
     "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP",
     "ATI Allvac \"Allvac 718Plus Alloy Technical Data\" (2014)"
    ],
-   "legacy_text": "2000년 미국 Allvac (현 ATI Allvac) 의 카오 웨이디 (Wei-Di Cao) 가 Inconel 718 (1959) 의 한계 — 700°C 이상에서 γ\" 가 가속 coarsening 으로 강도 손실 — 을 풀려고 시도한 합금이 718Plus 입니다. 718 의 Nb 5% + Mo 3% 에 Al 1.5% + Ti 0.7% + Co 9% 를 더해 γ\" + γ' 의 dual-precipitate 구조를 만들었어요. 결과 — 718 의 응고 균열 저항을 유지하면서 사용 온도를 50~100°C 끌어올린 (740°C 영역까지) 새 합금이 됐죠.\n\n응용 — Pratt & Whitney F135 (F-35) 의 일부 component, GE LEAP-1A 의 일부 hot section (FOD 보호 위치), Rolls-Royce Trent XWB 의 일부 disc — 모든 차세대 엔진의 718 대체 후보로 자리잡았어요. 우주 — NASA Artemis Orion 의 일부 thermal-cycling component, SpaceX Raptor 의 일부 injector.\n\n흥미. 718Plus 는 'evolution by alloying' 의 모범 예입니다. 718 (1959) → IN-718Plus (2000) → AD730 (2010, French ONERA) → 차세대 candidate (2020+) 의 진화 계보가 있는데, 모두 'γ\" 가속 coarsening' 이라는 한 가지 mechanism 을 풀어내는 시도들이에요. 한 합금의 한 가지 한계가 60년에 걸쳐 4~5 세대의 변형을 만들어내는 흥미로운 합금 가족이죠."
+   "sections": {
+    "hook": "718의 온도 한계를 끌어올린 개량 초합금 — γ″에 γ′를 더한 Allvac 718Plus.",
+    "origin": "Inconel 718 은 용접성과 강도의 균형으로 초합금의 왕이 됐지만, 700°C 를 넘으면 강화상(γ″)이 조대화되며 강도를 잃는 한계가 있었다. 2000년경 ATI Allvac 이 여기에 알루미늄·티타늄·코발트를 더해, γ″에 더 안정한 γ′ 석출을 겸하게 만든 것이 718Plus 다.",
+    "breakthrough": "γ″와 γ′의 이중 석출이 고온에서 조대화를 늦춰, 718 의 용접성·제작성을 유지하면서 사용 온도를 50~100°C 끌어올렸다(약 704°C). 기존 718 설비·공정을 크게 바꾸지 않고 온도 여유를 얻는 \"손쉬운 업그레이드\"를 노린 설계다.",
+    "adoption": "2000년대 항공엔진 제작사들이 718 로는 아쉬운 고온 디스크·케이스·체결부에 채택하며 상용화됐다.",
+    "today": "항공엔진의 고온 디스크·케이스·볼트, 발전 터빈 부품에 쓰인다. 718 로 충분하면 값싼 718 로, 더 높은 온도는 Waspaloy·분말야금 초합금으로 간다.",
+    "fun_fact": "718Plus 의 매력은 성능보다 \"갈아타기 쉬움\"에 있다 — 기존 718 라인을 거의 그대로 쓰면서 온도만 올릴 수 있어, 엔진 제작사가 공정 변경 부담 없이 여유를 얻는다."
+   }
   },
   "inconel-heat-corrosion": {
    "display": "Inconel Heat/Corrosion (601 / 617 / 690 / 740H)",
@@ -3886,20 +3903,6 @@
    ],
    "legacy_text": "Magnesium Aluminate Spinel (MgAl₂O₄) 은 spinel mineral group 의 대표 cubic ceramic 입니다. 자연계에서 보석 (Sri Lanka 의 red spinel — 한때 'Black Prince's Ruby' 라고 잘못 알려진 영국 왕관의 보석이 사실 red spinel) 으로도 발견되지만, 산업 응용은 1960년대 이후 hot-pressed transparent spinel 의 발달이 시작입니다.\n\nMgAl₂O₄ 의 매력은 transparent ceramic 으로 가능하다는 점입니다. Cubic crystal structure 라 birefringence (이중굴절) 가 없어 microstructure 가 충분히 미세하면 (1 μm 이하 grain) visible + IR (mid-wavelength, 2-5 μm) 영역에서 transparent. 또 hardness HRA 88 + KIC 3-4 MPa·√m 으로 alumina 와 유사한 wear resistance 를 가집니다.\n\n응용: 군용 IR window (Sapphire 의 대체 — IR-transparent + 더 단단함, AH-64 Apache 의 sight window 의 일부), 미사일 dome / radome (특히 IR-guided missile 의 seeker dome), 의료 dental crown 의 일부 luxury grade (transparent → 자연 치아의 색감과 유사), 정밀 광학 — high-power laser window, 그리고 ballistic armor (transparent armor 의 ceramic layer). 가격은 transparent grade $300-1500/kg 으로 매우 비싸지만 alternative ceramic (sapphire monocrystal $500-2000/kg) 보다는 훨씬 저렴하고 large-aperture window 제작이 가능합니다."
   },
-  "mar-m-247-aerospace-blade-turbo-wheel": {
-   "display": "MAR-M 247 — aerospace blade & turbo wheel",
-   "stable_ids": [
-    "MET-0592",
-    "MET-0593",
-    "MET-0594"
-   ],
-   "refs": [
-    "Martin Marietta Corp Tech Memo (1971) \"MAR-M 247 Alloy Development\"",
-    "Donachie M J & Donachie S J (2002) Superalloys: A Technical Guide, 2nd ed., ASM",
-    "Sims C T, Stoloff N S & Hagel W C (eds., 1987) Superalloys II, Wiley"
-   ],
-   "legacy_text": "1971년 미국 Martin Marietta (현 Lockheed Martin) 가 MAR-M 200 series 의 후속으로 개발한 cast nickel superalloy. Ni 60% + Co 10% + Cr 8% + W 10% + Ta 3% + Al 5.5% + Ti 1% + Mo 0.7% + Hf 1.5% — γ' 부피분율 약 62% 의 매우 무거운 화학 조성으로 1000°C 영역까지 σ_y 870 MPa 를 유지합니다. Hf 가 grain boundary 의 카바이드 형상을 굵게 만들어 creep 저항을 추가로 끌어올린 게 특징이죠.\n\n응용은 가스터빈 블레이드의 표준이 됐어요. GE F404 (F/A-18) 의 1단 터빈 블레이드, GE F414 (Super Hornet) 의 HP 터빈, P&W F100 (F-15/F-16) 의 일부 블레이드, GE LM2500 (LCS 호위함 / Arleigh Burke 구축함의 추진 가스터빈) 의 1-2단 블레이드. 자동차에서는 F1 의 터보차저 휠 (Mercedes-AMG, Ferrari), Le Mans LMP1 의 hot-side wheel, 호주 V8 Supercars 의 일부 터보 휠 — 'racing 의 표준' 으로 자리잡았어요.\n\n흥미로운 사실. MAR-M 247 의 DS (Directionally Solidified, 일방향 응고) 변형은 길이방향 결정립을 모두 한 방향으로 정렬해 transverse 입계가 없어요. 이게 LCF (저주기 피로) 수명을 5~10배 늘려주거든요. 1985년 GE T700 (Black Hawk 엔진) 의 1단 블레이드부터 DS 가 도입됐고, 현재는 CC (conventional cast) vs DS vs SX (single crystal) 의 3 단계 진화로 매우 hot 한 응용에는 SX 변형 (CMSX-4) 이 쓰입니다."
-  },
   "maraging-250": {
    "display": "Maraging 250",
    "stable_ids": [
@@ -3912,7 +3915,14 @@
     "AMS 6512 (SAE 2017) \"Steel, Maraging 250\"",
     "Sha W & Guo Z (2009) Maraging Steels, Woodhead Publishing"
    ],
-   "legacy_text": "Maraging steel 의 'mar' 는 martensite, 'aging' 은 시효 처리를 뜻합니다. 1959년 미국 INCO (International Nickel) 의 Clarence Bieber 가 18% Ni 마텐사이트 모재에 Co + Mo + Ti 를 시효처리로 석출시키면 일반 강과는 다른 새 강화 메커니즘이 생긴다는 걸 발견했어요. 보통 강은 C 를 탄화물로 굳혀 강도를 내지만, 마레이징은 C 를 거의 안 쓰고 (≤0.03%) intermetallic compound (Ni₃Mo, Ni₃Ti) 를 석출시켜 강화합니다.\n\nMaraging 250 (UNS K92890, AMS 6512) 은 18Ni-7Co-5Mo-0.4Ti 조성으로 UTS 1750 MPa 이상을 내는 ultra-high strength steel 의 표준입니다. 482°C / 3h 표준 시효로 σy 1670, UTS 1750 정도, 6h peak 시효면 1810 / 1870 까지 올라가죠. 250 의 강점은 단조·용접·가공 단계에서는 soft annealed (σy 760) 상태로 두고 마지막에 단순한 air-cool 시효만 하면 굳어진다는 점이에요. 보통 Q&T 강처럼 quench distortion 걱정이 없어 정밀 부품에 이상적입니다.\n\n실 응용은 항공·우주에 집중돼 있습니다. Polaris·Trident 미사일 case (외경 2.4m 크기에서 wall 6mm 압력 견딤), 항공기 landing gear (Lockheed C-5 Galaxy), 우주 발사체 SRB 의 case (Space Shuttle SRB 의 일부 segment), 정밀 punch / die / coining tool (US Mint 의 동전 type), F1 의 reciprocating valve. 한 가지 단점은 Co 의 가격 변동에 단가가 많이 흔들린다는 점이고, 그래서 Co-free Maraging (Sandvik Nanoflex) 같은 변형도 개발됐습니다."
+   "sections": {
+    "hook": "탄소 없이 니켈로 굳히는 초고강도강의 표준 grade — 시효만으로 1700MPa를 내는 마레이징 250.",
+    "origin": "마레이징강은 이름 그대로 마르텐사이트(mar)를 시효(aging)해 굳히는 강으로, 1950년대 말 INCO 가 체계화했다. 250 은 18%Ni 마레이징 계열의 기준 grade 로, 탄소를 거의 안 쓰고(≤0.03%) 니켈-코발트-몰리브데넘의 금속간화합물 석출로 강해진다.",
+    "breakthrough": "탄소가 없어 담금질 균열·변형이 없고, 낮은 온도의 단순 시효(약 480°C)만으로 UTS 1750MPa 급 강도에 좋은 인성을 겸한다. 용체화 상태에서 가공한 뒤 시효만 하면 되니 변형이 적어, 정밀 부품에 이상적이다 — 계열 중 강도·인성 균형이 가장 무난한 표준 grade 다.",
+    "adoption": "1960~70년대 항공·우주가 로켓 모터 케이스·착륙장치·정밀 금형에 채택하며 자리 잡았다.",
+    "today": "로켓 모터 케이스, 착륙장치, 정밀 금형·공구, 경주용 구동부품에 쓰인다. 더 높은 강도는 300·350 grade 로 올라가고, 값비싼 코발트·니켈 탓에 정밀·고강도가 함께 필요한 곳에 집중된다.",
+    "fun_fact": "보통 강은 담금질로 굳히다 균열·변형이 생기지만, 마레이징은 무른 상태로 다 만든 뒤 낮은 온도에 데워 굳힌다 — 그래서 정밀 금형처럼 \"만든 형상 그대로 강해져야 하는\" 부품에 딱 맞는다."
+   }
   },
   "maraging-300": {
    "display": "Maraging 300 · UNS K93120)",
@@ -3921,6 +3931,7 @@
     "MET-0483",
     "MET-0484",
     "MET-0485",
+    "MET-0486",
     "MET-0952",
     "MET-0953",
     "MET-0954",
@@ -3934,7 +3945,7 @@
    ],
    "sections": {
     "hook": "탄소 없이 니켈로 굳히는 초고강도강 — 담금질 균열 없이 UTS 2000MPa를 내는 마레이징 300.",
-    "origin": "1960년대 INCO 가 앞 세대 마레이징 250 의 코발트·티타늄을 조율해 강도를 한 단계 올린 18%Ni 마레이징강이다. 보통 강이 탄소 마르텐사이트로 굳는 것과 달리, 저탄소 니켈 마르텐사이트를 시효해 금속간화합물(Ni₃Mo·Ni₃Ti) 석출로 강해진다 — 탄소가 없어 담금질 균열과 변형이 거의 없다.",
+    "origin": "1960년대 INCO 가 앞 세대 마레이징 250 의 코발트·티타늄을 조율해 강도를 한 단계 올린 18%Ni 마레이징강(C300)이다. 보통 강이 탄소 마르텐사이트로 굳는 것과 달리, 저탄소 니켈 마르텐사이트를 시효해 금속간화합물(Ni₃Mo·Ni₃Ti) 석출로 강해진다 — 탄소가 없어 담금질 균열과 변형이 거의 없다.",
     "breakthrough": "시효(약 480°C) 만으로 UTS 1950~2030MPa 에 파괴인성까지 겸비하는데, 코발트가 몰리브데넘의 석출 참여를 도와 강도를 끌어올린다. 저탄소라 용접·가공 후 시효만 하면 되니 변형이 적고, 그 시효는 낮은 온도의 단순 공정이다 — 정밀 부품에 이상적인 초고강도강이다.",
     "adoption": "1960~70년대 항공·우주가 착륙장치·로켓 모터 케이스·원심분리기 로터에 채택하며 자리 잡았고, 금형·경주용 구동부품으로 확산됐다.",
     "today": "로켓 모터 케이스, 착륙장치, 고성능 금형, F1 구동부품과 3D 프린팅(MS1) 금형에 쓰인다. 값비싼 코발트·니켈이 부담이라, 정말 강도-인성-정밀이 함께 필요한 곳에만 쓴다.",
@@ -3948,18 +3959,6 @@
     }
    ]
   },
-  "maraging-c300-18ni-300": {
-   "display": "Maraging C300 (18Ni-300)",
-   "stable_ids": [
-    "MET-0486"
-   ],
-   "refs": [
-    "Decker R F, Eash J T, Goldman A J (1962) \"18% Nickel Maraging Steel\", Trans ASM 55",
-    "Sha W & Guo Z (2009) Maraging Steels: Modelling of Microstructure, Properties and Applications, Woodhead Publishing",
-    "EOS GmbH \"EOS MaragingSteel MS1 Material Data Sheet\" (2020)"
-   ],
-   "legacy_text": "Maraging C300 은 Maraging 300 (UNS K93120, 1959 INCO Decker/Floreen 발명) 의 commercial grade 명칭으로, Vasco (현 Vacuumelt) / Allvac / Latrobe Specialty Steel 같은 미국 specialty mill 의 자체 brand name 입니다. 'C' 는 Commercial 또는 carbon-related minor 변형의 표시.\n\n조성과 응용은 Maraging 300 과 거의 동일해요 — Ni 18% + Co 9% + Mo 5% + Ti 0.7% 의 carbon-free martensite + 480°C aging 으로 σ_y 2000 MPa 의 ultra-high strength + KIC 100 MPa√m 의 인성 균형. 응용 — Falcon 9 의 second-stage interstage forging, NASA Hubble repair mission hand tool, 미사일 motor case (Tomahawk, Trident D-5), Callaway 골프 driver face plate, F1 gearbox shaft 일부.\n\nAM (LPBF) 에서도 EOS 의 EOS MaragingSteel MS1 (= C300 변형) 으로 가장 인기 있는 high-strength tool steel 분말 자리에 있어요. 사출금형의 conformal cooling channel, 자동차 stamping die 의 customizable insert, F1 의 핵심 brackets — 모두 MS1 LPBF + post-age 의 조합. Maraging 300 family 의 응용 범위가 매년 확장되는 중이에요."
-  },
   "maraging-c350-vascomax-c-350": {
    "display": "Maraging C350 / VascoMax C-350",
    "stable_ids": [
@@ -3971,7 +3970,14 @@
     "Decker R F (1988) \"Maraging Steels — The First 30 Years\"",
     "ATI VascoMax C-350 datasheet"
    ],
-   "legacy_text": "Maraging 350 (또는 VascoMax C-350, ATI 의 등록 상표) 은 1965년 미국 Vanadium Alloys Steel Company (VASCO) 가 개발한 마레이징 라인의 정점입니다. Co 를 9% → 12%, Ti 를 0.7% → 1.4% 로 올려 시효 후 UTS 2400 MPa (350 ksi) 를 달성한 ultra-ultra-high strength steel 이에요. 1970년대 영국 Hawker Siddeley 가 V/STOL 군용 항공기 (Harrier) 프로토타입의 critical fastener 에 처음 적용한 게 본격 시장 진입이었습니다.\n\n350 ksi 라는 숫자는 일반 강의 4-5 배에 해당하는 강도라서, 같은 단면적으로 4배 무거운 짐을 들 수 있다는 뜻입니다. 단, 인성 KIC 가 55 MPa·√m 로 250 (85) / 300 (80) 보다 낮아 충격 부하는 부적합하고, 정적 부하 전용입니다. C-350 도 다른 maraging 처럼 가공 단계는 800°C solution annealed 상태 (HRC 32) 에서 진행하고 마지막 482-510°C 시효로 굳혀요.\n\n핵심 응용: Trident II D5 미사일의 motor case (Lockheed Martin), 항공 우주 우주 발사체 의 high-pressure recoil spring, F1 monocoque 의 일부 push-rod, NASA Mars rover (Curiosity, Perseverance) 의 sky crane retract spring, 그리고 가장 극단적 응용으로 미 해군 의 SLBM (잠수함 발사 탄도 미사일) 의 1차·2차 stage motor case. 가격은 Co 함량 때문에 250 의 2배 (~$70-150/kg), 그래서 산업용보다 군수·우주 중심으로 쓰입니다."
+   "sections": {
+    "hook": "마레이징 계열의 강도 정점 — 코발트·티타늄을 더 넣어 UTS 2400MPa를 낸 C350.",
+    "origin": "마레이징 350(VascoMax C-350)은 1960년대에 개발된 18%Ni 마레이징 계열의 최강 grade 다. 250·300 보다 코발트·티타늄을 더 넣어, 시효 후 UTS 2400MPa(350 ksi)에 이르는 초초고강도를 얻는다 — 탄소 없는 니켈 마레이징의 강도 정점이다.",
+    "breakthrough": "더 많은 금속간화합물 석출이 강도를 극한까지 끌어올리지만, 그만큼 인성은 300 보다 내려간다 — 강도와 인성의 트레이드오프에서 강도 쪽 끝에 선 grade 다. 그래도 저탄소라 용접·가공 후 시효만으로 완성되는 마레이징의 장점은 그대로다.",
+    "adoption": "강도가 절대적으로 필요한 항공 체결·구동부품과 고성능 스포츠 장비에 제한적으로 채택됐다.",
+    "today": "극한 강도가 필요한 항공 부품, 고성능 구동축, 펜싱 검·경주 부품에 쓰인다. 인성이 더 필요하면 300 으로 내려가고, 부식이 문제면 PH 스테인리스로 간다.",
+    "fun_fact": "올림픽 펜싱의 에페·플뢰레 검날 상당수가 마레이징강이다 — 부러져도 날카롭게 쪼개지지 않고 무디게 휘도록, 초고강도에 인성을 갖춘 이 강이 선수 안전을 위해 규정으로 요구된다."
+   }
   },
   "martensitic-440": {
    "display": "Martensitic 440 (440A / 440B / 440C)",
@@ -4142,7 +4148,14 @@
     "Esposito J J & Zabora R F (1975) \"Thrust Chamber Life Prediction\", NASA CR-134806",
     "Davis J R (ed., 2001) ASM Specialty Handbook: Copper and Copper Alloys"
    ],
-   "legacy_text": "1965년 미국 Rocketdyne (현 Aerojet Rocketdyne) 의 R&D 팀이 우주 셔틀 메인 엔진 (SSME) 의 main combustion chamber cooling channel 자재를 개발하면서 등장한 합금. Cu 96% + Ag 3% + Zr 0.5% — Ag 가 dispersion strengthening, Zr 가 grain boundary 안정화. 결과 — 100°C 의 thermal-k 316 W/m·K (Cu 의 80% 유지) + 1 atm 의 cryogenic LH2 와 3000°C 의 연소 가스 사이 wall 의 thermal management 가 가능해진 거죠.\n\nSSME 의 main combustion chamber 안쪽에는 390개의 milled channel 이 있어요. 각 채널은 1.3 mm × 4 mm 크기로 LH2 가 흐르면서 wall 을 cool 합니다. NARLOY-Z 가 이 채널 자체이고, 외부에는 stainless steel jacket 이 덮여서 high-pressure containment. 한 번의 발사 동안 7000만 BTU/s 의 heat flux 를 견디는 거죠.\n\n1981년 첫 STS-1 발사부터 2011년 마지막 STS-135 까지 30년 동안 NARLOY-Z chamber 는 변함없이 그대로였어요. 현재도 RS-25E (SLS Block 1B 의 main engine) 의 combustion chamber 는 NARLOY-Z 변형. 차세대로는 GRCop-84 (NASA 의 dispersion-strengthened Cu-Cr-Nb) 가 대체 중이지만, 우주 main engine 자재로 60년 가까이 채택되어 온 합금입니다."
+   "sections": {
+    "hook": "우주왕복선 엔진 연소실 안벽의 구리 — 은을 넣어 열을 견디게 만든 NARloy-Z.",
+    "origin": "NARloy-Z(Cu-3Ag-0.5Zr)는 1960년대 미국 Rocketdyne 이 우주왕복선 메인엔진(SSME) 연소실 냉각 채널용으로 개발한 은 함유 구리다. 연소실 안벽은 3000°C 화염과 극저온 수소 사이에 놓여, 열을 빠르게 빼면서 고온 강도를 잃지 않는 구리가 필요했다.",
+    "breakthrough": "은이 석출강화를, 지르코늄이 결정립을 안정화해 순구리에 가까운 열전도를 유지한 채 고온 강도를 얻는다. 화염 쪽에서 받은 열을 뒷면 극저온 연료로 순식간에 빼내, 손가락 두께 벽 하나에 수천 도의 온도차를 세워 둘 수 있다.",
+    "adoption": "우주왕복선 메인엔진의 연소실 라이너에 채택되며 재사용 로켓엔진의 냉각 구조를 떠받쳤다.",
+    "today": "로켓엔진 연소실·노즐의 냉각 구조에 쓰이며, 최근에는 프린팅이 쉬운 후속 GRCop 계열(Cu-Cr-Nb)이 이 자리를 이어받고 있다.",
+    "fun_fact": "재사용 로켓엔진의 연소실은 매 비행마다 극저온과 초고온을 오간다 — NARloy-Z 는 그 잔혹한 열 사이클을 수십 번 견디도록, 구리에 은을 섞어 만든 초창기의 답이었다."
+   }
   },
   "natural-composites": {
    "display": "Natural Composites (Balsa / Bamboo)",
@@ -5890,20 +5903,6 @@
     }
    ]
   },
-  "udimet-720li-low-interstitial-p-m-disc": {
-   "display": "Udimet 720Li (low-interstitial, P/M disc)",
-   "stable_ids": [
-    "MET-0614",
-    "MET-0615",
-    "MET-0616"
-   ],
-   "refs": [
-    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge UP",
-    "Mitchell A (2005) \"Melting, Casting and Forging Problems in Titanium Alloys\", Mater Sci Eng A 392",
-    "Special Metals Corp \"Udimet 720Li Technical Data\" (2014)"
-   ],
-   "legacy_text": "1965년 미국 Special Metals (당시 Cyclops Industries) 가 항공 가스터빈 디스크 용 새 P/M (Powder Metallurgy) 합금을 개발하면서 등장한 Udimet 720. 1985년 영국 Rolls-Royce 의 요구로 carbon 과 boron 을 더 낮춘 Li (Low-Interstitial) 변형이 나오면서 단조성이 향상됐어요 — 이게 Udimet 720Li 입니다. Ni 55% + Cr 16% + Co 14.7% + Mo 3% + W 1.25% + Al 2.5% + Ti 5% — γ' 부피분율 약 45% 로 creep / LCF / burst margin 의 균형이 가장 좋은 조성이죠.\n\nRolls-Royce Trent 시리즈 — Trent 500 (A340-500/600), Trent 700 (A330), Trent 800 (777), Trent 900 (A380) — 의 HP 와 IP 터빈 디스크가 모두 Udimet 720Li 입니다. Pratt & Whitney F119 (F-22) 와 F135 (F-35) 의 일부 디스크도 720Li 변형. 600~700°C 영역의 LCF 수명이 Inconel 718 의 약 5배 — 그게 차세대 엔진 디스크 채택의 결정적 이유였어요.\n\n흥미로운 점은 제조 공정이에요. VIM-VAR (Vacuum Induction Melting + Vacuum Arc Remelting) 으로 청정도를 극대화한 뒤 isothermal forging — 모든 단조 공정이 1100°C 의 isothermal die 안에서 진행돼 미세조직이 균일해집니다. 한 번의 disc 단조에 4시간 이상 — 그래서 가격이 Inconel 718 의 약 8배 (~$700/kg) 인데, 그 자리를 차지할 합금이 별로 없어요."
-  },
   "uhmwpe-fiber": {
    "display": "UHMWPE Fiber (Dyneema / Spectra)",
    "stable_ids": [
@@ -6028,6 +6027,9 @@
     "MET-0608",
     "MET-0611",
     "MET-0613",
+    "MET-0614",
+    "MET-0615",
+    "MET-0616",
     "MET-0617"
    ],
    "refs": [
@@ -6039,7 +6041,7 @@
     "origin": "초합금의 역사는 1941년 영국 Wiggin Works 에서 시작됐다. Leonard Pfeil 이 Whittle 제트엔진 터빈 블레이드용으로 개발한 Nimonic 80(1945년 80A)이 최초의 γ′ 시효경화 단조 니켈 합금이며, 여기서 Waspaloy·Rene 41·Udimet 720 등 단조 초합금이 뻗어 나왔다.",
     "breakthrough": "Ti·Al 이 만드는 γ′(Ni₃(Al,Ti)) 석출이 고온에서도 전위를 막아 크리프를 견딘다. γ′ 분율이 높을수록 강하지만 단조·용접이 어려워져, 블레이드(고γ′)와 디스크(중γ′, 단조성 유지) 사이에서 조성이 갈린다.",
     "adoption": "Nimonic 80A 는 초기 Rolls-Royce Nene 등 제트엔진 블레이드에, Waspaloy·Rene 41 은 P&W·GE 엔진의 디스크·블레이드에 폭넓게 채택됐다.",
-    "today": "Waspaloy·Udimet 720·Rene 41 은 터빈 디스크·고온 볼트·연소기에, Nimonic 계열은 엔진 밸브·링·시트에, Inconel X-750 은 스프링·시일에 쓰인다. 더 높은 디스크 강도는 분말야금(P/M) 초합금이 맡는다.",
+    "today": "Waspaloy·Udimet 720·Rene 41 은 터빈 디스크·고온 볼트·연소기에, Nimonic 계열은 엔진 밸브·링·시트에, Inconel X-750 은 스프링·시일에 쓰인다. 더 높은 디스크 강도는 분말야금(P/M) 초합금(Udimet 720Li 등)이 맡는다.",
     "fun_fact": "Nimonic 80A 는 지금도 대형 디젤·가스 엔진의 배기밸브 재료로 흔히 쓰인다 — 80년 된 합금이 여전히 현역이다."
    },
    "timeline": [
