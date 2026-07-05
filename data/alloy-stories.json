@@ -502,11 +502,14 @@
   "aa-7075": {
    "display": "AA 7075",
    "stable_ids": [
+    "MET-0209",
     "MET-0210",
     "MET-0211",
     "MET-0212",
     "MET-0213",
-    "MET-0214"
+    "MET-0214",
+    "MET-0215",
+    "MET-0216"
    ],
    "refs": [
     "Igarashi I (1936) 住友金属研究レポート 7-3",
@@ -942,6 +945,30 @@
    ],
    "legacy_text": "1907년 독일 하인리히 골트슈미트 (Heinrich Goldschmidt) 가 fused alumina (electrocorundum) 의 산업 공정을 완성한 뒤, 1930년 미국 Norton Company 가 sintered Al₂O₃ ceramic 을 spark plug insulator 로 처음 상업화 — 자동차 ignition coil 의 표준이 됐어요. 1955년 Coors (현 CoorsTek) 가 99.5% pure alumina 의 dense sintering 공정을 정립하면서 industrial ceramic 의 baseline 으로 자리잡습니다.\n\nT_m 2072°C, σ_y 350 MPa, hardness HV 1800 — 모든 oxide ceramic 의 표준이에요. 응용 — 자동차 spark plug insulator (NGK, Bosch), 산업 절삭 인서트 (Sandvik CC650 cermet 의 alumina coat), 의료 임플란트 (1970년 Boutin 의 첫 alumina hip ball, Biolox forte 1995 표준), 인공 무릎 articulating surface, 펌프 mechanical seal (John Crane Type 21), 항공 thermal barrier coating (TBC) plasma-sprayed top coat, 광 fiber ferrule (Sumitomo SC connector), Apple Watch sapphire 의 lower-cost 대안. 단점은 KIC 4 MPa√m 의 취성과 thermal shock ΔT 200°C 한계입니다."
   },
+  "aluminum-3xxx": {
+   "display": "Aluminum 3xxx — Mn Alloys (3003 / 3004 / 3005 / 3105)",
+   "stable_ids": [
+    "MET-0153",
+    "MET-0154",
+    "MET-0155",
+    "MET-0156",
+    "MET-0157",
+    "MET-0158",
+    "MET-0159",
+    "MET-0160"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys",
+    "Kaufman J G (2000) Introduction to Aluminum Alloys and Tempers, ASM International"
+   ],
+   "sections": {
+    "hook": "망간을 넣어 순알루미늄보다 조금 더 강한, 잘 늘어나고 잘 붙는 합금 — 음료캔과 지붕의 알루미늄.",
+    "origin": "3xxx 계는 순알루미늄(1xxx)에 망간을 약 1~1.5% 넣은 합금이다. 열처리로 경화되진 않지만, 망간이 순Al 보다 강도를 높이면서도 뛰어난 성형성·내식성·용접성을 유지시킨다 — 값싸고 다루기 쉬운 범용 판재 합금이다.",
+    "breakthrough": "망간 고용·분산이 순Al 대비 강도를 뚜렷이 높이면서 성형성을 거의 그대로 둔다. 냉간가공(H 조질)으로 필요한 강도를 맞추고, 마그네슘을 조금 더한 3004·3104 는 강도를 더 올려 얇게 만들 수 있다. 내식성이 좋아 도장 없이도 오래 견딘다.",
+    "today": "AA3003 은 열교환기·냉방 배관·조리기구·지붕/외장, 3004·3104 는 음료캔 몸통, 3005·3105 는 건축 외장·루버에 쓰인다. 더 강해야 하면 열처리형(6xxx)으로, 더 순수한 전도가 필요하면 1xxx 로 간다.",
+    "fun_fact": "전 세계 음료캔 몸통 대부분이 3004(또는 3104) 알루미늄이다 — 얇게 뽑아도 안 찢어지는 성형성과, 내용물에 안 녹는 내식성을 동시에 만족하기 때문이다."
+   }
+  },
   "aluminum-bronze-c61400": {
    "display": "Aluminum Bronze C61400",
    "stable_ids": [
@@ -966,6 +993,30 @@
     "Selvaduray G & Sheet L (1993) Mater Sci Tech 9"
    ],
    "legacy_text": "AlN (Aluminum Nitride) 은 1862년 독일 Friedrich Briegleb 와 Geuther 가 처음 합성한 ceramic 으로, 1980년대 일본 Sumitomo Electric / Tokuyama Soda 가 첫 high-purity sintered AlN powder 의 상업 생산을 시작하면서 본격적인 산업 활용이 가능해졌습니다. Hexagonal wurtzite 구조의 covalent ceramic 으로, 가장 큰 매력은 thermal conductivity 170-200 W/m·K — 일반 Al₂O₃ (25-30 W/m·K) 의 7-8배 + electrical insulating (10¹⁴ Ω·cm).\n\nAlN 의 'thermal conductor + electrical insulator' 조합이 power electronics 의 critical 응용을 가능케 해요. 응용 — Power semiconductor substrate (IGBT 모듈의 DBC — Direct Bonded Copper substrate, Infineon / Mitsubishi / Toshiba 의 hybrid IGBT module), LED package substrate (high-brightness LED 의 thermal management, 1995년 Nichia 의 first blue LED 의 substrate 가 AlN), high-power RF amplifier substrate (cellular base station 의 GaN amplifier substrate), 5G mmWave RF module substrate, 자동차 EV inverter (Tesla / Hyundai IONIQ / BYD 의 SiC module substrate).\n\n특이 가공 — Sintering: liquid-phase sintering (Y₂O₃ 또는 CaO 첨가, 1750-1900°C, N₂ atmosphere). HIP'd AlN density 99.5%+. 가격은 Al₂O₃ 의 약 5-10배 ($25-50/kg sintered piece) — high-end application 한정. 표면 metallization (Mo-Mn paste 또는 active brazing) 후 Cu 또는 Ag 와 bonding 가능해 DBC substrate 로 사용."
+  },
+  "am-aluminum-alloys": {
+   "display": "AM Aluminum (Scalmalloy / A20X / Aheadd CP1)",
+   "stable_ids": [
+    "MET-0161",
+    "MET-0162",
+    "MET-0163",
+    "MET-0173",
+    "MET-0174",
+    "MET-0175",
+    "MET-0176",
+    "MET-0177"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys",
+    "APWorks Scalmalloy® · A20X™ · Constellium Aheadd® 기술 자료 (AM 전용 Al)"
+   ],
+   "sections": {
+    "hook": "3D 프린팅을 위해 태어난 알루미늄 — 스칸듐·지르코늄으로 레이저 적층에 맞춰 설계한 고강도 Al.",
+    "origin": "기존 알루미늄 합금(6061·7075 등)은 레이저 적층제조(LPBF) 때 응고 균열이 잘 생겨 그대로 쓰기 어렵다. 그래서 프린팅 자체를 염두에 두고 설계된 AM 전용 알루미늄이 나왔다 — 스칸듐·지르코늄을 넣은 Scalmalloy, Al-Cu 계 A20X·A205, Al-Fe-Zr 계 Aheadd CP1 등이다.",
+    "breakthrough": "스칸듐·지르코늄은 응고 때 미세한 결정핵(Al₃Sc·Al₃Zr)을 만들어 균열을 막고 결정립을 잘게 나눠, 프린팅 상태에서 바로 높은 강도를 낸다. Al-Cu 계(A20X)는 열처리로 고온강도를, Al-Fe-Zr 계는 별도 열처리 없이도 생산성을 노린다. 기존 주조·단조 Al 로는 못 내던 강도-연성-프린팅성 조합을 얻는다.",
+    "today": "Scalmalloy·A20X 는 항공·모터스포츠·드론의 경량 고강도 프린팅 부품에, Aheadd CP1 은 생산성이 중요한 열관리·구조 부품에 쓰인다. 값과 분말 취급이 부담이라, 형상 자유도·경량화가 값을 하는 곳에 쓴다.",
+    "fun_fact": "Scalmalloy 는 에어버스 자회사가 3D 프린팅 전용으로 개발한 Al-Mg-Sc 합금으로, 프린팅한 상태에서 7075 에 버금가는 강도를 내도록 설계됐다."
+   }
   },
   "api-5l-x70-psl2-gas-transmission-pipeline": {
    "display": "API 5L X70 PSL2 (Gas-transmission pipeline)",
@@ -1824,6 +1875,24 @@
     "breakthrough": "인 탈산(DHP)은 산소를 없애 용접·브레이징·고온 사용을 가능케 하지만, 잔류 인이 전기전도도를 약간 낮춘다 — 그래서 전기용엔 무산소동(OFHC), 배관·열교환용엔 DHP 로 갈린다. C14500(텔루륨동)은 절삭성을, C19400(Fe 첨가)은 강도·내응력완화를 더한 커넥터용이다.",
     "today": "DHP(C12200)는 급수·냉매 배관·열교환기 튜브의 표준, C14500 은 쾌삭 전기부품, C19400 은 리드프레임·커넥터·단자에 쓰인다. 최고 전도도가 필요하면 무산소동, 강도가 필요하면 Cu 합금으로 간다.",
     "fun_fact": "집 안의 구리 수도관·에어컨 냉매관 대부분이 DHP 동(C12200)이다 — 용접·확관이 잘 되고 수소취화가 없어서다."
+   }
+  },
+  "diecast-aluminum-alsi": {
+   "display": "Die-Cast Aluminum (Al-Si eutectic: ADC12 / A383 / Al-12Si)",
+   "stable_ids": [
+    "MET-1000",
+    "MET-0096"
+   ],
+   "refs": [
+    "ASM Handbook Vol.2: Properties and Selection — Nonferrous Alloys",
+    "Kaufman J G & Rooy E L (2004) Aluminum Alloy Castings, ASM International"
+   ],
+   "sections": {
+    "hook": "규소를 잔뜩 넣어 잘 흘러 굳는 알루미늄 — 복잡한 형상을 값싸게 대량 주조하는 다이캐스트 합금.",
+    "origin": "알루미늄에 규소를 넣으면 녹은 쇳물이 잘 흐르고(주조성) 응고 수축이 줄어 복잡한 형상을 정밀하게 뽑을 수 있다. 규소가 공정점 부근(~11~13%)인 ADC12(A383)·Al-12Si 는 이런 주조성을 극대화한 다이캐스트·주조용 합금이다.",
+    "breakthrough": "공정 조성 부근의 Al-Si 는 좁은 응고 구간과 낮은 수축으로 얇고 복잡한 다이캐스팅을 가능케 한다. ADC12 는 구리를 더해 강도·절삭성을, 규소는 내마모·주조성을 준다. 열처리 없이도 실용 강도가 나와 대량생산에 맞지만, 연성·인성은 단조재보다 낮다.",
+    "today": "ADC12(A383)는 자동차 엔진·변속기 하우징·브래킷, 전자·가전 케이스 등 고압 다이캐스팅 부품에 널리 쓰인다. 강도·연성이 더 필요하면 열처리형 A356(Al-Si-Mg) 주물로 간다.",
+    "fun_fact": "ADC12 는 세계에서 가장 많이 쓰이는 다이캐스팅 알루미늄 중 하나로, 자동차 한 대에 들어가는 알루미늄 주물 상당수가 이 합금 계열이다."
    }
   },
   "ductile-iron": {
