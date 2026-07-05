@@ -4,7 +4,8 @@
   "15-5-ph-stainless": {
    "display": "15-5 PH Stainless",
    "stable_ids": [
-    "MET-0821"
+    "MET-0821",
+    "MET-0822"
    ],
    "refs": [
     "ASTM A564 \"Standard Specification for Hot-Rolled and Cold-Finished Age-Hardening Stainless Steel Bars and Shapes\"",
@@ -19,7 +20,10 @@
     "MET-0823",
     "MET-0824",
     "MET-0825",
-    "MET-0826"
+    "MET-0826",
+    "MET-0839",
+    "MET-0840",
+    "MET-0841"
    ],
    "refs": [
     "Murphy W J (1944) US Patent 2,432,832 (Armco) \"Stainless precipitation-hardening alloy\"",
@@ -78,6 +82,7 @@
     "MET-0698",
     "MET-0699",
     "MET-0700",
+    "MET-0743",
     "MET-0761",
     "MET-1016"
    ],
@@ -933,6 +938,9 @@
   "api-5l-x70-psl2-gas-transmission-pipeline": {
    "display": "API 5L X70 PSL2 (Gas-transmission pipeline)",
    "stable_ids": [
+    "MET-0285",
+    "MET-0286",
+    "MET-0621",
     "MET-0622",
     "MET-0623"
    ],
@@ -1243,6 +1251,10 @@
    "display": "CoCrMo",
    "stable_ids": [
     "MET-0331",
+    "MET-0333",
+    "MET-0334",
+    "MET-0335",
+    "MET-0336",
     "MET-0337",
     "MET-0338",
     "MET-0339"
@@ -1560,17 +1572,27 @@
    ],
    "legacy_text": "2001년 NASA Glenn Research Center 의 D L Ellis 와 G M Michal 이 NARLOY-Z 의 다음 세대로 개발한 dispersion-strengthened Cu 합금이에요. Cu 88% + Cr 8% + Nb 4% — 합금화 직후 형성되는 Cr₂Nb 카바이드 입자 (10 nm 크기) 가 grain boundary 를 pin-down 시켜 800°C 까지 σ_y 150 MPa 를 유지합니다. NARLOY-Z 가 700°C 영역에서 강도를 잃기 시작하는 반면 GRCop-84 는 그 100°C 위 영역까지 견뎌요.\n\nNASA RAMPT (Rapid Analysis and Manufacturing Propulsion Technology) program 의 핵심 자재로 채택되면서 본격 알려졌어요. 2 단계 공정 — gas-atomized Cu-Cr-Nb 분말 → LPBF 인쇄 (DMLS 변형) → HIP — 으로 thrust chamber liner 의 cooling channel 을 직접 인쇄할 수 있게 됐죠. 종래의 milled-channel + EDM 공정 (NARLOY-Z) 보다 제조 시간이 50% 단축되고 형상 자유도가 큰 게 장점입니다.\n\nSpaceX Raptor V2 의 main combustion chamber 의 일부, NASA RS-25 의 차세대 후보, Aerojet RL10C 의 nozzle extension 같은 곳에 채택 검토 중이에요. 단점은 제조 비용 — gas atomization 분말이 NARLOY-Z 잉곳보다 4배 비싸요. 그래도 cooling channel 의 형상 최적화 (topology-optimized) 가 가능해서 thrust 대비 무게가 30% 감소하는 게 그 가격을 정당화합니다."
   },
-  "h13-tool-steel": {
-   "display": "H13 Tool Steel",
+  "h13": {
+   "display": "H13",
    "stable_ids": [
-    "MET-0949"
+    "MET-0947",
+    "MET-0948",
+    "MET-0949",
+    "MET-0965",
+    "MET-0966",
+    "MET-0967",
+    "MET-0968"
    ],
    "refs": [
-    "Roberts G A, Krauss G & Kennedy R (1998) Tool Steels 5th ed., ASM",
-    "Bohler-Uddeholm \"W302 / Orvar Supreme Technical Information\" (2019)",
-    "ASTM A681 \"Standard Specification for Tool Steels Alloy\""
+    "Roberts G, Krauss G, Kennedy R (1998) Tool Steels, 5th ed., ASM International",
+    "ASM Handbook Vol.1 — Tool Steels (AISI H-series 분류)"
    ],
-   "legacy_text": "1929년 미국 Carpenter Steel 이 다이캐스팅 산업의 die-life 문제를 풀려고 시도한 결과 등장한 합금이에요. Cr 5% + Mo 1.5% + V 1% 의 secondary-hardening 조합으로, 600°C 영역에서 10000 cycle 의 thermal cycling 후도 σ_y 1100 MPa 를 유지하는 게 특징이죠. 1932년 AISI 가 H13 (UNS T20813) 으로 표준화했습니다.\n\nH13 의 응용은 그야말로 hot work 의 절대 표준. Al 다이캐스팅 die (Toyota Lexus engine block die, 한국 GM 알페온의 cylinder block die), Mg 다이캐스팅 die (Ford Mustang 의 transmission housing), forging die (자동차 valve, connecting rod 의 단조 형판), 산업 hot punch, hot shear blade. 한국 두산 KP4M, 일본 Hitachi DAC, Bohler W302, Uddeholm Orvar Supreme — 모두 H13 변형입니다.\n\nLPBF 분말로도 인기. EOS 의 MS1 (Maraging 변형) 과 함께 H13 이 mold AM 의 default 가 됐어요. Conformal cooling channel — die 안에 곡선 채널을 인쇄로 만들어 mold 냉각을 5~10배 빠르게 — 가 H13 AM 의 대표 응용이고, BMW iX5 Hydrogen 의 fuel cell stack housing die 가 그 최신 예입니다."
+   "sections": {
+    "hook": "다이캐스팅 금형의 대명사 — 뜨거운 용탕과 열충격을 버티는 크롬 열간공구강.",
+    "origin": "AISI H-계열(H1~H19) 크롬 열간공구강 중 하나로, 20세기 중반 열간 금형 수명을 늘리기 위해 표준화된 5Cr-Mo-V 조성이다. DIN 1.2344·JIS SKD61 이 같은 합금이다.",
+    "breakthrough": "Cr 5% + Mo·V 가 2차 경화 탄화물을 만들어 500~600°C 고온에서도 경도를 유지하고, V 이 결정립을 미세화해 열피로(heat checking) 저항을 준다 — 반복 가열·냉각되는 금형이 갈라지지 않게 하는 것이 핵심이다.",
+    "today": "알루미늄 다이캐스팅 금형·열간 단조 금형·압출 다이·플라스틱 사출 금형의 표준이다. 통상 어닐 상태로 가공한 뒤 진공 열처리(HRC 44~52)하고, 표면은 질화·PVD 로 강화한다. 더 뜨거운 곳은 Cr 대신 W·Mo 를 쓴 H21·H10 계열로 간다."
+   }
   },
   "hadfield-manganese-steel-mn13-astm-a128-grade-b": {
    "display": "Hadfield Manganese Steel (Mn13, ASTM A128 Grade B)",
@@ -3009,6 +3031,11 @@
   "ti-6al-4v": {
    "display": "Ti-6Al-4V",
    "stable_ids": [
+    "MET-0920",
+    "MET-0921",
+    "MET-0922",
+    "MET-0923",
+    "MET-0924",
     "MET-0925",
     "MET-0926",
     "MET-0927",
@@ -3037,22 +3064,6 @@
     "Donachie M J (2000) Titanium: A Technical Guide 2nd ed."
    ],
    "legacy_text": "Ti Grade 9 (Ti-3Al-2.5V, UNS R56320) 는 1960년대 미국 Titanium Metals Corporation (TIMET) 이 Ti-6Al-4V (Grade 5) 와 CP-Ti 사이의 'medium-strength weldable Ti' 로 개발한 α+β alloy 입니다. Al 3% + V 2.5% 의 조성이 cold-formability + welding 가능성을 보존하면서 CP-Ti 보다 약 50% 강도를 얻어요.\n\n응용 — Mountain bike / racing bike frame 의 high-end model. 1985년 미국 Litespeed 가 첫 Ti Gr9 bicycle frame 을 출시했고 1990-2000년대 Lynskey, Moots, Seven Cycles, Eriksen 의 hand-built frame 의 표준이 됐어요. 항공기 hydraulic line + fuel line tubing (Boeing 737 / Airbus A320 의 일부 sub-system), aerospace seamless tubing (AMS 4943 / 4944), medical surgical instrument (orthopedic drill bit).\n\n특이점은 cold-formability — CP-Ti 와 비슷한 cold-bend 가 가능하면서 (mandrel 직경 4t bend pass), Ti-6Al-4V 의 50% 강도를 얻는 점입니다. Wing spar 같은 high-stress 부품에는 부적합하지만, tubing / sheet / strut 같은 medium-stress + complex-form 부품에서 우위. 또 다른 특이점은 weldability — 6-4 보다 우수해 항공 sub-system tubing 의 welded joint 에 표준 사용됩니다.\n\nHT — Annealed (704-790°C / AC, σy 485 / σUTS 620 MPa, El 15%) 또는 STA (sol. + aged, σy 760 / σUTS 860 MPa, El 10%)."
-  },
-  "tool-steel-h13": {
-   "display": "Tool Steel H13",
-   "stable_ids": [
-    "MET-0965",
-    "MET-0966",
-    "MET-0967",
-    "MET-0968"
-   ],
-   "refs": [
-    "AISI Tool Steel Classification, originally published 1942",
-    "Roberts G A et al. (1998) Tool Steels 5th ed., ASM",
-    "Bohler W302 (H13) Tech Data Sheet",
-    "ASTM A681 \"Standard Specification for Tool Steels Alloy\""
-   ],
-   "legacy_text": "H13 (AISI H13 / DIN 1.2344 / JIS SKD61) 은 1942년 미국 Bethlehem Steel 이 hot-work tool steel 의 표준으로 정립한 5% Cr + 1% Mo + 1% V + 0.4% C 합금입니다. 'H' 는 hot-work, '13' 은 grade 번호죠. 그 이전 hot-work tool steel 의 표준이었던 H11 (Mo 1.5%) 보다 V 함량을 늘려 secondary hardening 을 강화해 600°C 이상 high-temp tempering 에서도 hardness 가 유지되도록 했어요.\n\nH13 의 매력은 thermal fatigue resistance 입니다. die-casting mold 가 알루미늄 용탕 (700°C) 과 금형 표면 사이에서 매 cycle ΔT ~ 600°C 의 열충격을 받는데, H13 의 secondary hardening 미세조직 (M₂₃C₆ / MC carbide) 이 이 cycle 에서 hardness 유지가 가능합니다. 표준 Q+T 는 1010°C 오일 quench + 540°C double temper 로 HRC 50 (인성 우선) 또는 540°C × 2 peak temper 로 HRC 53 (강도 우선).\n\n주요 응용: 알루미늄 die-casting mold (Tesla Cybertruck 의 megacasting 한 변 6m+ mold), Mg/Zn die-casting mold, hot extrusion die (Al 6063 윈도우 frame extrusion), hot forging die (자동차 connecting rod forging), 그리고 wider 응용으로 plastic injection mold 중 abrasion 우려 부분 (PEEK GF30, 유리섬유 강화 polymer 용 cavity). H13 의 단점은 인성 KIC 24 MPa·√m 로 낮다는 점인데, 충격 부하가 있으면 H11 또는 P20 를 검토합니다. 최근에는 LPBF 분말로도 가공되어 conformal cooling channel 이 있는 mold 제작이 가능해졌고 (예: SLM Solutions H13 powder), 일반 EDM 가공 대비 cycle time 30% 단축 + die life 2배 효과를 봅니다."
   },
   "tpe": {
    "display": "TPE (Thermoplastic Elastomer)",
