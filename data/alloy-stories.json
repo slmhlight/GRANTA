@@ -1779,6 +1779,35 @@
    ],
    "legacy_text": "1965년 미국 Haynes Stellite Works 의 화학자들이 '어떤 산도 못 견디는 합금' 을 만들려고 시도한 결과물이 Hastelloy C-276 입니다. 기존 Hastelloy C 의 weldability 와 phase stability 문제를 해결하기 위해 Si 와 C 의 함량을 극단적으로 낮춘 (각각 ≤0.08%, ≤0.01%) 변형이었어요. Ni 57% + Cr 16% + Mo 16% + W 4% 의 조성으로, 모든 ferric chloride / acid chloride / hypochlorite 환경에서 부식 속도가 0.1 mm/year 미만입니다.\n\n'산성 환경의 최종 답' 으로 자리잡으면서 1970년대부터 화학 산업의 핵심 자재가 됐어요. DuPont 의 hydrofluoric acid plant reactor 와 pump, BASF 의 chlorine cell anode connector, 의료 폐기물 소각로의 acid scrubber, 핵 reprocessing plant (Hanford, Sellafield) 의 separation column … 어디든 강산 + 강알칼리 + Cl⁻ 가 함께 있으면 C-276 이 답이죠.\n\n우주에서도 활약 중이에요. NASA Cassini 위성의 RTG 외부 protective shell, 화성 큐리오시티 로버의 SAM (Sample Analysis at Mars) 의 sample inlet, SpaceX Crew Dragon 의 hypergolic propellant ground support equipment. 1 kg 당 25 달러의 비싼 합금이지만, 그 가격이 안전한 화학 공정 운영의 보험이 되는 셈입니다."
   },
+  "hastelloy-corrosion": {
+   "display": "Hastelloy Corrosion Alloys (C-22 / C-2000 / B-2 / N)",
+   "stable_ids": [
+    "MET-0504",
+    "MET-0505",
+    "MET-0506",
+    "MET-0511",
+    "MET-0512",
+    "MET-0513"
+   ],
+   "refs": [
+    "Haynes International, HASTELLOY® corrosion-resistant alloys 기술 자료 (Haynes Stellite, 1921)",
+    "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys"
+   ],
+   "sections": {
+    "hook": "니켈에 몰리브덴을 듬뿍 넣어 최악의 산을 견디는 합금 — 이름은 ‘Haynes Stellite Alloy’의 약자다.",
+    "origin": "1921년 미국 Haynes Stellite Company 가 Ni-Mo 합금 조성을 특허화하며 Hastelloy 계열이 시작됐다. 이름은 HAYNES STELLITE ALLOY 의 글자를 딴 것이다(1922 상표). Ni-Mo(±Cr)가 기본 골격이다.",
+    "breakthrough": "Mo(그리고 C 계열은 Cr·W)가 환원성·산화성 산 양쪽에서 공식·틈부식·응력부식균열을 억제한다. B 계열(고Mo)은 염산 등 환원성 산에, C 계열(Cr+Mo+W: C-22·C-2000)은 산화·환원 혼합 환경에, N 은 용융염(불화물)에 특화됐다.",
+    "today": "화학·제약 반응기, 배연탈황, 산 세정 설비, 폐기물 처리처럼 스테인리스가 녹아나는 최악의 부식 환경에 쓰인다. 값이 비싸 정말 필요한 곳에만 쓰고, 조금 덜 가혹하면 슈퍼오스테나이트·듀플렉스로 내려간다.",
+    "fun_fact": "Hastelloy N 은 1950년대 미국 오크리지(ORNL)의 용융염 원자로(MSRE) 프로그램에서 불화물 용융염을 담기 위해 개발됐다."
+   },
+   "timeline": [
+    {
+     "year": 1921,
+     "event": "Haynes Stellite, Ni-Mo(Hastelloy) 조성 특허",
+     "ref": 1
+    }
+   ]
+  },
   "hastelloy-x": {
    "display": "Hastelloy X",
    "stable_ids": [
@@ -1903,6 +1932,26 @@
     "today": "정형·치과 임플란트의 골접합 코팅, 골이식재·골충전재(과립·블록), 조직공학 지지체로 쓰인다. 다만 벌크 HA 는 약해 하중부에는 부적합 — 강도는 금속·복합재가 맡고 HA 는 표면 생체활성을 담당한다."
    }
   },
+  "incoloy": {
+   "display": "Incoloy (800H / 825 / 901 / 909 / 925)",
+   "stable_ids": [
+    "MET-0537",
+    "MET-0538",
+    "MET-0539",
+    "MET-0540",
+    "MET-0541"
+   ],
+   "refs": [
+    "Special Metals, Incoloy® alloys 기술 자료 (INCO)",
+    "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys"
+   ],
+   "sections": {
+    "hook": "니켈을 아끼려 철을 많이 섞은 Fe-Ni-Cr 합금 — 스테인리스와 니켈 초합금 사이를 메운다.",
+    "origin": "순수 Ni 초합금은 비싸다. Incoloy(INCO 상표) 계열은 철(Fe)을 많이 넣은 Fe-Ni-Cr 합금으로, 스테인리스보다 내열·내식이 좋으면서 순니켈 합금보다 싼 중간 자리를 노렸다. 800·825·901·909·925 등 조성별로 갈린다.",
+    "breakthrough": "높은 Ni·Cr 이 침탄·산화·염화물 응력부식(SCC)에 견디고, 901·925 는 Ti·Al 시효경화로 강도를 더한다. 800H(고탄소·조립)는 고온 크리프, 825 는 황산·인산 내식, 909 는 저열팽창(Fe-Ni-Co) 특성이 강점이다.",
+    "today": "800H 는 석유화학 열분해로 튜브·고온 헤더, 825 는 산 환경 배관·탱크, 925 는 고강도 내식(유정), 909 는 정밀 저팽창 부품에 쓰인다. 요구가 더 가혹하면 Inconel·Hastelloy 로 올라간다."
+   }
+  },
   "inconel-600": {
    "display": "Inconel 600",
    "stable_ids": [
@@ -1989,6 +2038,31 @@
     "ATI Allvac \"Allvac 718Plus Alloy Technical Data\" (2014)"
    ],
    "legacy_text": "2000년 미국 Allvac (현 ATI Allvac) 의 카오 웨이디 (Wei-Di Cao) 가 Inconel 718 (1959) 의 한계 — 700°C 이상에서 γ\" 가 가속 coarsening 으로 강도 손실 — 을 풀려고 시도한 합금이 718Plus 입니다. 718 의 Nb 5% + Mo 3% 에 Al 1.5% + Ti 0.7% + Co 9% 를 더해 γ\" + γ' 의 dual-precipitate 구조를 만들었어요. 결과 — 718 의 응고 균열 저항을 유지하면서 사용 온도를 50~100°C 끌어올린 (740°C 영역까지) 새 합금이 됐죠.\n\n응용 — Pratt & Whitney F135 (F-35) 의 일부 component, GE LEAP-1A 의 일부 hot section (FOD 보호 위치), Rolls-Royce Trent XWB 의 일부 disc — 모든 차세대 엔진의 718 대체 후보로 자리잡았어요. 우주 — NASA Artemis Orion 의 일부 thermal-cycling component, SpaceX Raptor 의 일부 injector.\n\n흥미. 718Plus 는 'evolution by alloying' 의 모범 예입니다. 718 (1959) → IN-718Plus (2000) → AD730 (2010, French ONERA) → 차세대 candidate (2020+) 의 진화 계보가 있는데, 모두 'γ\" 가속 coarsening' 이라는 한 가지 mechanism 을 풀어내는 시도들이에요. 한 합금의 한 가지 한계가 60년에 걸쳐 4~5 세대의 변형을 만들어내는 흥미로운 합금 가족이죠."
+  },
+  "inconel-heat-corrosion": {
+   "display": "Inconel Heat/Corrosion (601 / 617 / 690 / 740H)",
+   "stable_ids": [
+    "MET-0551",
+    "MET-0552",
+    "MET-0561",
+    "MET-0562",
+    "MET-0563",
+    "MET-0576",
+    "MET-0577",
+    "MET-0578",
+    "MET-0579"
+   ],
+   "refs": [
+    "Special Metals, Inconel® alloys 기술 자료 (INCO)",
+    "Reed R C (2006) The Superalloys: Fundamentals and Applications, Cambridge University Press"
+   ],
+   "sections": {
+    "hook": "601에서 740H까지, 용도별로 갈라진 Inconel 그룹 — 내산화부터 초초임계 발전까지.",
+    "origin": "Inconel(INCO 상표)은 Ni-Cr 을 기본으로 한 초합금 브랜드로, 600·625·718 외에도 특정 환경에 맞춘 grade 가 많다. 601·617·690·686·706·740H·751 이 대표다.",
+    "breakthrough": "601 은 Al 첨가로 내산화(1200°C급), 617 은 Co·Mo 고용강화로 초고온 크리프, 690 은 고Cr 로 원자로 증기발생기의 응력부식 저항, 686 은 고Mo 로 극한 내식, 740H 는 γ′ 시효로 초초임계 발전 배관, 706·751 은 X-750 계열 시효경화 grade 다.",
+    "adoption": "617·740H 는 700°C급 초초임계(A-USC) 화력발전의 핵심 후보로, 690 은 이전 600 의 응력부식 문제를 대체해 원자로 증기발생기 튜브 재료로 널리 채택됐다.",
+    "today": "각 grade 가 가스터빈 연소기(617)·발전 보일러(740H)·원자로(690)·화학 내식(686)·고온 밸브(751) 등 특화 영역을 맡는다. 범용 고강도는 여전히 718, 고온 산화는 625·X-750 가 담당한다."
+   }
   },
   "invar-36": {
    "display": "Invar 36",
@@ -2326,6 +2400,40 @@
     "breakthrough": "세라믹 강화상이 탄성계수와 내마모를 크게 올리고 열팽창을 낮춘다. 입자강화(Al/SiCp)는 등방성·가공 용이, 섬유강화(Ti/SiCf)는 방향 비강도가 극대다. B₄C-Al 은 가벼운 세라믹으로 방탄·중성자 흡수를 노린다.",
     "today": "브레이크 로터·전자패키지(저열팽창 방열)·자전거·항공 구조(Al/SiC), 방탄판(B₄C-Al), 고온 항공 축(Ti/SiC) 등에 쓰인다. 세라믹 대비 인성이, 금속 대비 강성이 좋은 중간 자리를 차지한다."
    }
+  },
+  "monel-nickel": {
+   "display": "Monel & Nickel (Monel 400 / K-500 / Nickel 200)",
+   "stable_ids": [
+    "MET-0498",
+    "MET-0499",
+    "MET-0500",
+    "MET-0501",
+    "MET-0595",
+    "MET-0598",
+    "MET-0599",
+    "MET-0600",
+    "MET-0601",
+    "MET-0602",
+    "MET-1011"
+   ],
+   "refs": [
+    "Nickel Institute / Special Metals, Monel® alloys 기술 자료 (INCO, 1905)",
+    "Davis J R (ed., 2000) ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys"
+   ],
+   "sections": {
+    "hook": "구리와 니켈을 섞어 바닷물을 견디게 만든 합금 — 1905년에 태어나 아직도 해양·화학에서 쓰인다.",
+    "origin": "1905년 미국 International Nickel(INCO)의 Robert Crooks Stanley 가 니켈-구리 광석에서 바로 뽑아낸 합금이 Monel 이다(1906 특허). Ni ~67%·Cu ~30% 로, 순니켈(Nickel 200)과 함께 니켈계 내식 재료의 출발점이 됐다.",
+    "breakthrough": "Ni-Cu 고용체가 해수·불산·알칼리에 넓게 견디고, 스테인리스가 취약한 환원성·불소 환경에서도 안정하다. Monel K-500 은 Al·Ti 를 넣어 시효경화로 강도를 크게 높인 grade — 내식과 고강도가 함께 필요한 축·스프링용이다.",
+    "today": "해수 밸브·펌프·열교환기, 불산·염산 설비, 해양 시추 부품(Monel 400·K-500)에 쓰인다. 순니켈(Nickel 200)은 가성소다·식품·전자에, CP-Nickel 은 도금·전기 부품에 쓴다. 산화성 산(질산 등)에는 오히려 약해 스테인리스로 간다.",
+    "fun_fact": "Monel 은 INCO 사장 Ambrose Monell 의 이름에서 왔는데, 당시 성(姓)은 상표로 쓸 수 없다는 규정 때문에 ‘l’을 하나 뺐다."
+   },
+   "timeline": [
+    {
+     "year": 1905,
+     "event": "INCO(R.C. Stanley), Monel Ni-Cu 합금 개발",
+     "ref": 1
+    }
+   ]
   },
   "narloy-z-cu-3ag-0-5zr-ssme-chamber": {
    "display": "NARLOY-Z (Cu-3Ag-0.5Zr) — SSME chamber",
