@@ -7,7 +7,7 @@
  * 방법을 보여주기 위한 예시이며 특정 재료의 측정값이 아님.
  */
 import { Link, useParams, useLocation } from 'wouter';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass, Rocket, ChevronDown, Search, X, BookMarked } from 'lucide-react';
 import { searchGuide, type GuideIndexEntry } from './guide/index-entries';
 import type { ScenarioKey } from '@/lib/scenario-presets';
@@ -17,7 +17,9 @@ import { GuideSidebar } from './guide/GuideSidebar';
 import { ChapterSubToc } from './guide/ChapterSubToc';
 import { TOC } from './guide/toc';
 // C1: Guide 페이지 구성요소를 ./guide/{components,svgs}.tsx 로 분리해 파일 사이즈 축소.
-import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario, useReadChapters } from './guide/components';
+import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario, useReadChapters, GuideMaterialMapContext } from './guide/components';
+import { useWikiRefs } from '@/hooks/useWikiRefs';
+import { buildAutolinkMap } from '@/lib/wiki-link';
 import {
   SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink,
   SvgWear, SvgMedical, SvgCryogenic, SvgElectrical,
@@ -65,6 +67,9 @@ export default function Guide() {
   const routeParams = useParams<{ section?: string }>();
   const section = routeParams?.section;
   const [, navigate] = useLocation();
+  // R227/E14 — 가이드 본문 합금명 자동링크용 재료 맵(wiki-index). 로드 실패 시 null → 재료 링크 생략(용어는 유지).
+  const wikiLookups = useWikiRefs();
+  const materialMap = useMemo(() => (wikiLookups ? buildAutolinkMap(wikiLookups) : null), [wikiLookups]);
   /* 랜딩의 기존 #chX 앵커(학습경로·CTA·흐름도 SVG 포함)를 위임 처리 → /guide/chX SPA 이동.
      앵커 개별 수정 없이 한 곳에서 라우팅(멀티페이지에서 챕터는 별도 페이지이므로). */
   const onLandingAnchorClick = (e: React.MouseEvent) => {
@@ -99,6 +104,7 @@ export default function Guide() {
     }, 200);
   };
   return (
+    <GuideMaterialMapContext.Provider value={materialMap}>
     <div className="min-h-screen bg-background text-foreground">
       <ScenarioDialog scenarioKey={dialogKey} open={dialogKey !== null} onOpenChange={(v) => { if (!v) setDialogKey(null); }} />
       {/* 상단 바 — R66 검색 + R101 모바일 layout fix (whitespace-nowrap + 모바일 라벨 축약 + min-w-0). */}
@@ -2250,5 +2256,6 @@ export default function Guide() {
         </div>
       </div>
     </div>
+    </GuideMaterialMapContext.Provider>
   );
 }

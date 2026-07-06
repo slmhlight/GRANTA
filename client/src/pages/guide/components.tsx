@@ -2,12 +2,16 @@
  * Guide 페이지 공용 UI 컴포넌트 — 챕터·카드·강조 박스 등.
  * Guide.tsx 가 너무 커져 분리. svg 들은 ./svgs.tsx 로 별도 분리.
  */
-import { useState, useEffect, Fragment, cloneElement, isValidElement, type ReactNode } from 'react';
+import { useState, useEffect, useContext, createContext, Fragment, cloneElement, isValidElement, type ReactNode } from 'react';
 import { Link, useParams } from 'wouter';
 import { ExternalLink, Play, Settings, ChevronDown, ChevronRight } from 'lucide-react';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { linkifyTerms } from '@/lib/glossary-link';
+import { linkify, type AutolinkMap } from '@/lib/wiki-link';
 import { TermLink, TermText } from '@/components/TermLink';
+
+/* R227/E14 — 가이드 본문 합금명 자동링크용 재료 autolink 맵(wiki-index). Guide 가 Provider 로 주입. */
+export const GuideMaterialMapContext = createContext<AutolinkMap | null>(null);
 
 /** R61 #4 — 약어/기호 풀이 사전. F 컴포넌트가 자식 텍스트를 lookup → title 자동 부여.
  *  hover 시 native browser tooltip 으로 풀이 표시. 모바일에서는 첫 등장 시 한 번 해설.
@@ -105,31 +109,51 @@ function glossarySkip(type: unknown): boolean {
   if (type === F || type === ExtLink || type === Term || type === H3) return true;
   return typeof type === 'string' && GLOSSARY_SKIP_TAGS.has(type);
 }
-function processGlossary(node: ReactNode, seen: Set<string>, keyPrefix: string): ReactNode {
-  if (typeof node === 'string') {
-    const parts = linkifyTerms(node, seen);
-    if (parts.length === 1 && parts[0].t === 'text') return node;
-    return parts.map((p, i) =>
-      p.t === 'term' ? (
-        <TermLink key={`${keyPrefix}-${i}`} slug={p.slug} short={p.short}>{p.s}</TermLink>
-      ) : (
-        <Fragment key={`${keyPrefix}-${i}`}>{p.s}</Fragment>
-      ),
-    );
-  }
-  if (Array.isArray(node)) return node.map((c, i) => <Fragment key={`${keyPrefix}-${i}`}>{processGlossary(c, seen, `${keyPrefix}-${i}`)}</Fragment>);
+interface GlossaryCtx { termSeen: Set<string>; matSeen: Set<string>; matMap: AutolinkMap | null }
+
+/** 문자열 leaf → 재료 링크(violet, /?d=repId) + 기술용어 링크(teal, popover) 합성. */
+function renderGlossaryString(str: string, ctx: GlossaryCtx, keyPrefix: string): ReactNode {
+  const matNodes = ctx.matMap ? linkify(str, ctx.matMap, null, null, ctx.matSeen) : [{ t: 'text' as const, s: str }];
+  const out: ReactNode[] = [];
+  matNodes.forEach((mn, mi) => {
+    if (mn.t === 'link') {
+      out.push(
+        <Link
+          key={`${keyPrefix}-m${mi}`}
+          href={`/?d=${encodeURIComponent(mn.repId)}`}
+          title={`${mn.display} — 탐색기에서 보기`}
+          className="text-violet-700 no-underline border-b border-dotted border-violet-300 hover:bg-violet-50 hover:border-violet-500"
+        >{mn.s}</Link>,
+      );
+    } else {
+      linkifyTerms(mn.s, ctx.termSeen).forEach((p, pi) =>
+        out.push(
+          p.t === 'term'
+            ? <TermLink key={`${keyPrefix}-m${mi}t${pi}`} slug={p.slug} short={p.short}>{p.s}</TermLink>
+            : <Fragment key={`${keyPrefix}-m${mi}t${pi}`}>{p.s}</Fragment>,
+        ),
+      );
+    }
+  });
+  return out.length === 1 ? out[0] : <>{out}</>;
+}
+
+function processGlossary(node: ReactNode, ctx: GlossaryCtx, keyPrefix: string): ReactNode {
+  if (typeof node === 'string') return renderGlossaryString(node, ctx, keyPrefix);
+  if (Array.isArray(node)) return node.map((c, i) => <Fragment key={`${keyPrefix}-${i}`}>{processGlossary(c, ctx, `${keyPrefix}-${i}`)}</Fragment>);
   if (isValidElement(node)) {
     if (glossarySkip(node.type)) return node;
     const kids = (node.props as { children?: ReactNode })?.children;
     if (kids == null) return node;
-    return cloneElement(node, undefined, processGlossary(kids, seen, keyPrefix));
+    return cloneElement(node, undefined, processGlossary(kids, ctx, keyPrefix));
   }
   return node;
 }
-/** 가이드 챕터 본문을 감싸 기술용어를 자동링크. */
+/** 가이드 챕터 본문을 감싸 기술용어(teal) + 합금명(violet) 자동링크. */
 export function GlossaryText({ children }: { children: ReactNode }) {
-  const seen = new Set<string>();
-  return <>{processGlossary(children, seen, 'g')}</>;
+  const matMap = useContext(GuideMaterialMapContext);
+  const ctx: GlossaryCtx = { termSeen: new Set(), matSeen: new Set(), matMap };
+  return <>{processGlossary(children, ctx, 'g')}</>;
 }
 
 /** R187 — Chapter 진행률 indicator helpers (localStorage 'am_guide_read' = chapter id Set). */
