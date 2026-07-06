@@ -112,7 +112,44 @@ ambiguityReport.sort((a, b) => b.owners.length - a.owners.length);
 const hash = (s) => crypto.createHash('sha256').update(s).digest('hex').slice(0, 16);
 const inputHashes = { materials: hash(materialsRaw), stories: hash(storiesRaw) };
 
-// 5) orphan(다른 스토리에서 안 불리는) 은 Phase2(backlink)에서 산출 — 여기선 N/A
+// 5) backlink 역인덱스 — allowlist(autolink=true) form 을 스토리 본문에서 단어경계 매칭.
+//    ※ naive substring 금지(§A) — 본문을 구분자로 split 한 span 을 norm 해 정확 일치(단어경계 무료).
+//    self-reference(자기 스토리 form) 제외 → 진짜 상호참조만.
+const autolinkForms = new Map(); // form → entityId (autolink=true, 즉 allowlist·비모호만)
+for (const e of entities) for (const sf of e.surface_forms) if (sf.autolink) {
+  if (!autolinkForms.has(sf.form)) autolinkForms.set(sf.form, e.id);
+}
+const SPLIT = /[\s,.;:()/·\[\]{}"'“”‘’—–…?!°%×+=<>|~]+/;
+const backlinks = {}; // entityId → Set(storyKey that mention)
+const sampleEdges = [];
+let edgeCount = 0;
+for (const [key, st] of Object.entries(doc.stories)) {
+  if (DEAD.has(key)) continue;
+  const body = [st.display || '', ...(st.sections ? Object.values(st.sections) : []), st.legacy_text || '',
+    ...(st.timeline || []).map((e) => e.event)].join(' ');
+  const seen = new Set(); // 스토리당 엔티티 1회
+  for (const span of body.split(SPLIT)) {
+    const nf = norm(span);
+    if (nf.length < 4) continue;
+    const owner = autolinkForms.get(nf);
+    if (!owner || owner === key || seen.has(owner)) continue;   // 미매칭·self·중복 제외
+    seen.add(owner);
+    (backlinks[owner] = backlinks[owner] || []).push(key);
+    edgeCount++;
+    if (sampleEdges.length < 40) sampleEdges.push({ from: key, mentions: owner, via: nf });
+  }
+}
+const backlinkObj = {
+  _note: 'R227/E14/H2 위키 역인덱스: entityId → 이 재료를 본문에서 언급하는 스토리들. allowlist auto-link 매칭(단어경계·self제외).',
+  generated_from: inputHashes, backlinks,
+};
+fs.writeFileSync(path.join(ROOT, 'data/wiki-backlinks.json'), JSON.stringify(backlinkObj, null, 1) + '\n');
+const entitiesWithBacklink = Object.keys(backlinks).length;
+const storiesWithOutlink = new Set(sampleEdges.map(() => 0)); // placeholder
+const outByStory = {};
+for (const [ent, froms] of Object.entries(backlinks)) for (const f of froms) outByStory[f] = (outByStory[f] || 0) + 1;
+const avgOut = (edgeCount / Object.keys(outByStory).length).toFixed(1);
+
 const index = {
   _note: 'R227/E14 위키 인덱스 (Phase1: 재료 lexicon+surface table). 런타임은 조회만. 빌드: build-wiki-index.mjs.',
   version: 1,
@@ -131,8 +168,15 @@ const meta = {
   autolink_off: autolinkNo,
   ambiguous_forms: ambiguousForms,
   ambiguity_top: ambiguityReport.slice(0, 40),
+  backlink_edges: edgeCount,
+  entities_with_backlink: entitiesWithBacklink,
+  stories_with_outlink: Object.keys(outByStory).length,
+  avg_outlink_per_story: Number(avgOut),
+  backlink_sample: sampleEdges,
 };
 fs.writeFileSync(path.join(ROOT, 'data/wiki-meta.json'), JSON.stringify(meta, null, 1) + '\n');
 
 console.log(`wiki-index: 엔티티 ${entities.length} · surface-form ${totalForms} (autolink 제안 ${autolinkYes} / off ${autolinkNo}) · 모호 form ${ambiguousForms}`);
 console.log('모호 상위:', ambiguityReport.slice(0, 12).map((a) => `${a.form}(${a.owners.length})`).join(' '));
+console.log(`backlink: 상호참조 edge ${edgeCount} · 피언급 엔티티 ${entitiesWithBacklink} · outlink 보유 스토리 ${Object.keys(outByStory).length} (평균 ${avgOut}/스토리)`);
+console.log('샘플:', sampleEdges.slice(0, 10).map((e) => `${e.from}→${e.mentions}(${e.via})`).join('  '));

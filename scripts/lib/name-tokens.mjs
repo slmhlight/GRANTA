@@ -70,12 +70,19 @@ export function tokensOf(base) {
 
 /* ── 아래는 WIKI 전용 (audit 미사용 — audit 동작 불변 보장) ── */
 
-/** 쓰레기 surface-form 제거: 시간/온도/퍼센트 파편·순수 1~2자 등. wiki lexicon 정제용. */
+/** 야금 용어·지표 토큰 (합금명/별칭에 섞여 새지만 재료 지정자가 아님 — Phase4 glossary 소관). */
+export const TERM_STOP = new Set([
+  'pren', 'iacs', 'dbtt', 'scc', 'haz', 'igc', 'esc', 'ksi', 'mpa', 'hrc', 'hbw', 'hrb',
+  'wpqr', 'pwht', 'osseointegration', 'passivation', 'sensitization',
+]);
+
+/** 쓰레기 surface-form 제거: 시간/온도/퍼센트 파편·순수 1~2자·야금용어. wiki lexicon 정제용. */
 export function isJunkForm(f) {
   if (!f || f.length < 2) return true;
   if (/^\d+h$/.test(f)) return true;         // "4h" "16h" (시효 시간)
   if (/^\d+(c|f)$/.test(f)) return true;      // "480c" 온도
   if (/^\d{1,2}$/.test(f)) return true;       // 순수 1~2자 숫자 "30" "12"
+  if (TERM_STOP.has(f)) return true;          // 야금 용어(pren·iacs·dbtt…) — 재료 form 아님
   return false;
 }
 

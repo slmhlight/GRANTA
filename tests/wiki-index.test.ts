@@ -27,7 +27,12 @@ const IDX = JSON.parse(rd('data/wiki-index.json')) as {
   }>;
 };
 const STORIES = JSON.parse(storiesRaw).stories as Record<string, { stable_ids: string[] }>;
+const BL = JSON.parse(rd('data/wiki-backlinks.json')) as {
+  generated_from: { materials: string; stories: string };
+  backlinks: Record<string, string[]>;
+};
 const hash = (s: string) => crypto.createHash('sha256').update(s).digest('hex').slice(0, 16);
+const entIds = new Set(IDX.entities.map((e) => e.id));
 
 describe('wiki-index 스키마·무결성 (R227/E14/H1)', () => {
   it('엔티티 존재 + 필수 필드', () => {
@@ -100,5 +105,32 @@ describe('wiki-index 스키마·무결성 (R227/E14/H1)', () => {
     expect(IDX.entities.find((e) => e.id === 'aermet-100')?.surface_forms.some((s) => s.form === 'aermet100')).toBe(true);
     // 300m 은 ultra-high-strength-steel 그룹에
     expect(IDX.entities.find((e) => e.id === 'ultra-high-strength-steel')?.surface_forms.some((s) => s.form === '300m')).toBe(true);
+  });
+});
+
+describe('wiki-backlinks 역인덱스 무결성 (H2 기반)', () => {
+  it('피언급 엔티티·참조원이 모두 유효(실재)하고 self-link 없음', () => {
+    const bad: string[] = [];
+    for (const [ent, froms] of Object.entries(BL.backlinks)) {
+      if (!entIds.has(ent)) bad.push(`대상 엔티티 부재: ${ent}`);
+      for (const f of froms) {
+        if (!STORIES[f]) bad.push(`참조원 스토리 부재: ${f}`);
+        if (f === ent) bad.push(`self-link: ${ent}`);   // 자기 스토리가 자기를 언급 금지
+      }
+    }
+    expect(bad.slice(0, 20)).toEqual([]);
+  });
+
+  it('참조원 목록에 중복 없음 (스토리당 엔티티 1회)', () => {
+    const dup: string[] = [];
+    for (const [ent, froms] of Object.entries(BL.backlinks)) {
+      if (new Set(froms).size !== froms.length) dup.push(ent);
+    }
+    expect(dup).toEqual([]);
+  });
+
+  it('staleness — backlinks 도 현재 산출물 해시와 일치', () => {
+    expect(BL.generated_from.materials).toBe(hash(materialsRaw));
+    expect(BL.generated_from.stories).toBe(hash(storiesRaw));
   });
 });

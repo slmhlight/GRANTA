@@ -5,10 +5,10 @@
   "stories": "bd09013a826cde9a"
  },
  "entity_count": 242,
- "surface_form_total": 3511,
- "autolink_suggested": 2146,
- "autolink_off": 1365,
- "ambiguous_forms": 203,
+ "surface_form_total": 3502,
+ "autolink_suggested": 2145,
+ "autolink_off": 1357,
+ "ambiguous_forms": 200,
  "ambiguity_top": [
   {
    "form": "ams",
@@ -205,15 +205,6 @@
    ]
   },
   {
-   "form": "hrc",
-   "owners": [
-    "cold-work-tool-steel",
-    "h13",
-    "maraging-c350-vascomax-c-350",
-    "martensitic-440"
-   ]
-  },
-  {
    "form": "9ni",
    "owners": [
     "cryogenic-nickel-steel",
@@ -374,6 +365,220 @@
     "alsi10mg",
     "surface-hardening-steel"
    ]
+  },
+  {
+   "form": "600",
+   "owners": [
+    "armor-steel",
+    "inconel-600",
+    "korean-rebar"
+   ]
+  }
+ ],
+ "backlink_edges": 119,
+ "entities_with_backlink": 65,
+ "stories_with_outlink": 91,
+ "avg_outlink_per_story": 1.3,
+ "backlink_sample": [
+  {
+   "from": "17-4-ph-uns-s17400",
+   "mentions": "ph13-8-mo",
+   "via": "ph138"
+  },
+  {
+   "from": "17-7-ph-uns-s17700-semi-austenitic-ph",
+   "mentions": "ph13-8-mo",
+   "via": "ph138"
+  },
+  {
+   "from": "316-variants",
+   "mentions": "904l",
+   "via": "904l"
+  },
+  {
+   "from": "316-variants",
+   "mentions": "654-smo",
+   "via": "654smo"
+  },
+  {
+   "from": "654-smo",
+   "mentions": "hastelloy-corrosion",
+   "via": "c276"
+  },
+  {
+   "from": "a356",
+   "mentions": "cast-al-alsi",
+   "via": "a380"
+  },
+  {
+   "from": "a356",
+   "mentions": "diecast-aluminum-alsi",
+   "via": "adc12"
+  },
+  {
+   "from": "a572-grade-50",
+   "mentions": "structural-plate-steel",
+   "via": "s690ql"
+  },
+  {
+   "from": "a992-us-wide-flange-beam-astm-a992",
+   "mentions": "a572-grade-50",
+   "via": "a572"
+  },
+  {
+   "from": "aa-2024",
+   "mentions": "al-li-alloys",
+   "via": "alli"
+  },
+  {
+   "from": "aa-2050-al-cu-li-3rd-gen-airbus-a380-wing",
+   "mentions": "cast-al-alsi",
+   "via": "a380"
+  },
+  {
+   "from": "aa-2050-al-cu-li-3rd-gen-airbus-a380-wing",
+   "mentions": "al-li-alloys",
+   "via": "alli"
+  },
+  {
+   "from": "aa-2195-al-cu-li-mg-ag-sls-lh2-tank",
+   "mentions": "grcop-84-cu-8cr-4nb-nasa-dispersion-strengthened",
+   "via": "nasa"
+  },
+  {
+   "from": "aa-7050",
+   "mentions": "al-li-alloys",
+   "via": "alli"
+  },
+  {
+   "from": "aa-7075",
+   "mentions": "al-li-alloys",
+   "via": "alli"
+  },
+  {
+   "from": "abs",
+   "mentions": "petg",
+   "via": "petg"
+  },
+  {
+   "from": "acetal",
+   "mentions": "pom-homopolymer",
+   "via": "delrin"
+  },
+  {
+   "from": "acetal",
+   "mentions": "peek",
+   "via": "peek"
+  },
+  {
+   "from": "advanced-high-strength-steel",
+   "mentions": "22mnb5-usibor-1500-hot-stamped-automotive-phs",
+   "via": "22mnb5"
+  },
+  {
+   "from": "aermet-100",
+   "mentions": "cobalt-multiphase-alloys",
+   "via": "coni"
+  },
+  {
+   "from": "aermet-100",
+   "mentions": "ultra-high-strength-steel",
+   "via": "300m"
+  },
+  {
+   "from": "aisi-1050",
+   "mentions": "aisi-1045",
+   "via": "s45c"
+  },
+  {
+   "from": "aisi-301",
+   "mentions": "inconel-718",
+   "via": "full"
+  },
+  {
+   "from": "aisi-304l",
+   "mentions": "aisi-304",
+   "via": "304ln"
+  },
+  {
+   "from": "alsi10mg",
+   "mentions": "aa-6xxx-special",
+   "via": "alsimg"
+  },
+  {
+   "from": "alsi10mg",
+   "mentions": "am-aluminum-alloys",
+   "via": "scalmalloy"
+  },
+  {
+   "from": "astm-a36",
+   "mentions": "a572-grade-50",
+   "via": "a572"
+  },
+  {
+   "from": "astm-a36",
+   "mentions": "a992-us-wide-flange-beam-astm-a992",
+   "via": "a992"
+  },
+  {
+   "from": "az31b-magnesium",
+   "mentions": "magnesium-alloys",
+   "via": "az80"
+  },
+  {
+   "from": "az91d",
+   "mentions": "we-magnesium",
+   "via": "we43"
+  },
+  {
+   "from": "boron-nitride",
+   "mentions": "boron-carbide",
+   "via": "boron"
+  },
+  {
+   "from": "c18000",
+   "mentions": "cucr1zr",
+   "via": "cucrzr"
+  },
+  {
+   "from": "c26800",
+   "mentions": "brass-grades",
+   "via": "c44300"
+  },
+  {
+   "from": "cast-al-alsi",
+   "mentions": "a356",
+   "via": "a356"
+  },
+  {
+   "from": "cast-carbon-steel",
+   "mentions": "cast-cf-stainless",
+   "via": "cf8m"
+  },
+  {
+   "from": "cast-turbine-superalloys",
+   "mentions": "cmsx-10",
+   "via": "cmsx10"
+  },
+  {
+   "from": "cfrp",
+   "mentions": "peek",
+   "via": "peek"
+  },
+  {
+   "from": "cfrp",
+   "mentions": "pekk",
+   "via": "pekk"
+  },
+  {
+   "from": "cmsx-10",
+   "mentions": "cast-turbine-superalloys",
+   "via": "cmsx4"
+  },
+  {
+   "from": "cmsx-10",
+   "mentions": "tungsten-rhenium-refractory",
+   "via": "rhenium"
   }
  ]
 }
