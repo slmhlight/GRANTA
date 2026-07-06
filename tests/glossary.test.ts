@@ -74,11 +74,14 @@ describe('glossary SSOT — 핵심 앵커', () => {
 
 describe('glossary A4 본문(articles) 무결성', () => {
   const artPath = path.resolve(process.cwd(), 'data/glossary-articles.json');
-  const figPath = path.resolve(process.cwd(), 'client/src/pages/guide/glossary-figures.tsx');
+  const figDir = path.resolve(process.cwd(), 'client/src/assets/glossary');
   const articles: Record<string, any> = JSON.parse(fs.readFileSync(artPath, 'utf8')).articles;
-  const figSrc = fs.readFileSync(figPath, 'utf8');
-  // FIGURES 맵의 id 추출: 'iron-carbon': IronCarbon,
-  const figIds = new Set([...figSrc.matchAll(/'([a-z0-9-]+)':\s*[A-Z][A-Za-z]+,/g)].map((m) => m[1]));
+  // 도표 id = 에셋 폴더의 PNG 파일명 (scripts/gen-glossary-figures.py 산출).
+  const figIds = new Set(
+    (fs.existsSync(figDir) ? fs.readdirSync(figDir) : [])
+      .filter((f) => f.endsWith('.png'))
+      .map((f) => f.replace(/\.png$/, '')),
+  );
 
   it('article slug 는 실재 term, 섹션·도표·참고문헌 유효', () => {
     const bad: string[] = [];
