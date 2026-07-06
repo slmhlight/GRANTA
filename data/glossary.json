@@ -624,6 +624,60 @@
       "short": "담금질 후 0 °C 이하(예 −80 °C 드라이아이스, −196 °C 액체질소)로 냉각해, 상온에 남은 잔류 오스테나이트를 마르텐사이트로 추가 변태시키는 처리. 치수 안정성과 경도·내마모성을 높인다(공구강·게이지·베어링).",
       "sources": ["ASM Handbook Vol.4 Heat Treating"],
       "related": ["retained-austenite", "quenching", "martensite"]
+    },
+    "tensile-stress": {
+      "display": "인장응력 (Tensile Stress)",
+      "category": "mechanical",
+      "surface_forms": ["인장응력", "인장 응력", "tensile stress"],
+      "autolink": ["인장응력", "인장 응력", "tensile stress"],
+      "short": "재료를 잡아당겨 늘리려는 방향의 응력. 눌러 줄이는 압축응력의 반대이며, 균열·피로·응력부식균열을 진전시키는 주된 구동력이 된다.",
+      "sources": ["Callister, Materials Science & Engineering"],
+      "related": ["yield-strength", "scc", "fatigue"]
+    },
+    "stress-concentration": {
+      "display": "응력집중 (Stress Concentration)",
+      "category": "mechanical",
+      "surface_forms": ["응력집중", "응력 집중", "stress concentration", "노치효과"],
+      "autolink": ["응력집중", "응력 집중", "stress concentration"],
+      "short": "노치·구멍·급격한 단면 변화 주변에서 응력이 국부적으로 크게 높아지는 현상. 피로 균열과 취성 파괴의 시작점이 되므로, 설계에서 모서리를 둥글리고 단면 변화를 완만히 해 완화한다.",
+      "sources": ["Shigley, Mechanical Engineering Design", "Peterson's Stress Concentration Factors"],
+      "related": ["fatigue", "fracture-toughness", "brittleness"]
+    },
+    "stainless-steel": {
+      "display": "스테인리스강 (Stainless Steel)",
+      "category": "alloy-family",
+      "surface_forms": ["스테인리스강", "스테인리스 강", "스테인레스강", "stainless steel"],
+      "autolink": ["스테인리스강", "스테인리스 강", "stainless steel"],
+      "short": "크로뮴을 약 10.5% 이상 넣어 표면 부동태 피막으로 내식성을 얻은 강. 조직에 따라 오스테나이트계(304·316)·페라이트계·마르텐사이트계·듀플렉스로 나뉘며, 내식·위생·미관으로 가장 널리 쓰인다.",
+      "sources": ["ASM Handbook Vol.1", "ASM Specialty Handbook: Stainless Steels"],
+      "related": ["passivation", "austenite", "ferrite", "duplex-stainless-steel"]
+    },
+    "duplex-stainless-steel": {
+      "display": "듀플렉스 스테인리스강 (Duplex Stainless Steel)",
+      "category": "alloy-family",
+      "surface_forms": ["듀플렉스 스테인리스강", "듀플렉스강", "듀플렉스", "duplex stainless steel", "duplex"],
+      "autolink": ["듀플렉스 스테인리스강", "듀플렉스강", "듀플렉스", "duplex stainless steel"],
+      "short": "오스테나이트와 페라이트가 대략 반반 섞인 스테인리스강. 오스테나이트계보다 강도가 높고, 페라이트 조직 덕분에 염화물 응력부식균열·공식에 강하다(2205·슈퍼듀플렉스).",
+      "sources": ["IMOA Practical Guidelines for Duplex Stainless Steels", "ASM Handbook Vol.1"],
+      "related": ["stainless-steel", "scc", "pren", "ferrite"]
+    },
+    "nickel-superalloy": {
+      "display": "니켈기 초합금 (Nickel Superalloy)",
+      "category": "alloy-family",
+      "surface_forms": ["니켈기 초합금", "니켈 초합금", "니켈합금", "초합금", "superalloy", "nickel superalloy"],
+      "autolink": ["니켈기 초합금", "니켈 초합금", "니켈합금", "초합금", "nickel superalloy"],
+      "short": "니켈을 주성분으로 고온 강도·내산화·내크리프가 뛰어난 합금. γ′·γ″ 석출과 고용강화로 융점 가까운 온도까지 강도를 유지해 가스터빈·제트엔진 고온부에 쓰인다(Inconel·Waspaloy·Haynes).",
+      "sources": ["ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys", "Reed, The Superalloys"],
+      "related": ["creep", "precipitation-hardening", "corrosion-resistance"]
+    },
+    "high-speed-steel": {
+      "display": "고속도강 (High-Speed Steel, HSS)",
+      "category": "alloy-family",
+      "surface_forms": ["고속도강", "고속도 강", "high-speed steel", "high speed steel", "HSS"],
+      "autolink": ["고속도강", "고속도 강", "high-speed steel", "high speed steel"],
+      "short": "텅스텐·몰리브데넘·바나듐·크로뮴을 다량 함유한 공구강. 뜨임 시 이차경화로 적열경도를 얻어, 절삭 중 고온에서도 경도를 유지하므로 고속 절삭공구에 쓰인다(M2·M42).",
+      "sources": ["ASM Handbook Vol.1", "G. Roberts et al., Tool Steels (ASM)"],
+      "related": ["tool-steel", "tempering", "carbide"]
     }
   }
 }
