@@ -78,12 +78,13 @@
 
 | # | 항목 | 상태 | Entry / Accept / 리스크·완화 |
 |---|---|---|---|
-| H0 | 설계·백본·단계계획 문서화 + 플랜/백로그 반영 | ✅ R227 | WIKI-CROSSREF-DESIGN.md(엔티티 taxonomy·SSOT·빌드 인덱스 4종·런타임 linkify·검색 개편·5 Phase·리스크·파일맵). LONGTERM §5 P4·본 섹션 등재 |
-| H1 | **Phase1 — 재료 lexicon 자동생성 + backlink 역인덱스** | ○ 다음(저위험) | E: `audit-story-names` 토큰화 → `scripts/lib/name-tokens.mjs` 승격. A: `build-wiki-index.mjs`→`wiki-index.json`·`wiki-backlinks.json` 생성 + "여기를 가리키는 것" 패널(파생, behavior-additive) + 게이트 green. R: surface 충돌 / M: ambiguity_group 리포트 |
-| H2 | **Phase2 — 스토리 authored `[[…]]` 링크 + 렌더** | ○ | E: 고가치 상호참조 목록(300M↔AerMet·PEEK↔PEKK·4340계 등). A: 전 `[[…]]` 무해결 0(빌드 에러 게이트)·본문 링크 렌더·원문 무손실. R: 과링크 / M: 섹션당 첫 등장·self 제외 |
-| H3 | **Phase3 — glossary SSOT + 용어 auto-link + 팝오버** | ○ | E: `ht-glossary`(26)+빈출 용어 씨앗. A: `glossary.json`(출처 규율·스토리 플레이북)+`glossary.test.ts`+가드된 auto-link(ambiguity 제외·min-length·STOP). R: 거짓/과링크 / M: 큐레이션 lexicon만·모호=명시링크 |
-| H4 | **Phase4 — 검색 개편(랭크·타입그룹·⌘K 이원화)** | ○ | E: wiki-index 통합. A: boolean→랭크 스코어링+타입 그룹핑+전역 팔레트, **표 검색은 재료-only 유지**. 게이트 랭킹 앵커(N07718→718·석출경화→term·self 제외). R: 검색 소음/회귀 / M: 스코프 이원화·앵커 테스트 |
-| H5 | Phase5 — hover 프리뷰·what-links-here 전체뷰·(선택)그래프뷰 | ○ 원거리 | 저위험 후속 |
+| H0 | 설계·백본·단계계획 문서화 + **적대적 리뷰**(데이터 검증) | ✅ R227 | WIKI-CROSSREF-DESIGN.md. 적대적 리뷰로 초안 결함 3 교정: **auto-link=allowlist(blocklist 아님, 실측 근거 §A: naive substring 시 "30" 210회·"PE" 120회·원소기호 오탐)** · Phase 의존 교정(매처 먼저→backlink 파생) · **검색 개편은 표 필터 술어 불변**(narrowedRanges R209). +대표-entry 결정 규칙·한글 조사경계·성공지표·검증 하네스 |
+| H1 | **Phase1 — lexicon + build-wiki-index + allowlist surface table(렌더 X)** | ○ 다음(무위험) | E: `audit-story-names`→`scripts/lib/name-tokens.mjs` 승격. A: `wiki-index.json` 생성 + autolink allowlist 자동제안(len≥4·경계·단독) + 수동검수 리포트 + 게이트(slug 중복0·rep_stable_id 결정성·staleness 해시). 렌더 없음=behavior-additive. R: surface 충돌 / M: ambiguity_group 자동분류 |
+| H2 | **Phase2 — allowlist auto-link 렌더 + backlink 파생 패널** | ○ (H1 선행) | A: 재료 auto-link 본문 렌더(§D 6규칙: 경계·self·섹션당첫등장·모호제외)·`wiki-backlinks.json` **allowlist+authored 에서만 파생**·"함께 언급" 패널(유사재료와 축 분리). R: 과링크 / M: 섹션당 첫등장·정밀도 표본 게이트 |
+| H3 | **Phase3 — 스토리 authored `[[…]]`(모호·고가치만) + 렌더** | ○ (H1 선행) | E: 모호형(PC·PH·300M) + 고가치 상호참조(AerMet↔300M·PEEK↔PEKK). A: 전 `[[…]]` 무해결 0(빌드 에러)·원문 무손실. **범위=모호/고가치만**(대량은 H2 auto-link) |
+| H4 | **Phase4 — glossary SSOT + 용어 auto-link + 팝오버** | ○ (H1 선행) | E: `ht-glossary`(26)+빈출 용어 씨앗(~40→100). A: `glossary.json`(출처 규율·surface_forms[autolink])+`glossary.test.ts`+GlossaryPopover. R: 거짓/과링크 / M: allowlist·모호=명시링크 |
+| H5 | **Phase5 — 전역 위키검색(⌘K·랭크·타입그룹)** | ○ | A: `wiki-search.ts`+CommandPalette, boolean→랭크+타입그룹핑+컷오프. **`useMaterialFilter` 미변경(표 필터·narrowedRanges 불변)**. 게이트 랭킹 앵커(N07718→718·석출경화→term·PC 모호·self 제외) |
+| H6 | Phase6 — hover 프리뷰·what-links-here 전체뷰·(선택)그래프뷰 | ○ 원거리 | 저위험 후속 |
 
 ## F. 코드 품질 (지속)
 
