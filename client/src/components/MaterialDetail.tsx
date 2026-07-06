@@ -35,7 +35,7 @@ import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor, CONFIDENCE, CONFIDENCE_ORDER } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
-import { useState as useStateRD, useEffect as useEffectRD, useMemo as useMemoRD, lazy as lazyRD, Suspense as SuspenseRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
+import { useState as useStateRD, useEffect as useEffectRD, useMemo as useMemoRD, useRef as useRefRD, lazy as lazyRD, Suspense as SuspenseRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
 
 /* R222c — recharts 차트 lazy 분리 (named export → default 변환). 메인 청크에서 recharts 제거. */
@@ -64,7 +64,13 @@ interface MaterialDetailProps {
   /** R227/E14 — 활성 탭 제어(용어/canonical 페이지로 갔다가 뒤로가기 시 탭 복원). 없으면 비제어(기본 물성). */
   tab?: string;
   onTabChange?: (tab: string) => void;
+  /** R227/E14 — 접히는 섹션(스토리·절삭성·용접성 등) 펼침 상태. null=기본값, 문자열('story.mach')=복원값. */
+  openSectionsCsv?: string | null;
+  onOpenSectionsChange?: (csv: string) => void;
 }
+
+/** 접힘 섹션 중 기본 펼침(open) 상태인 것들의 key. */
+const DEFAULT_OPEN_SECTIONS = ['ins', 'poly'];
 
 // R157b — fmt → components/material-detail/RangeRow.tsx (export 됨, RangeRow 와 함께 사용).
 
@@ -110,8 +116,25 @@ const SPEC_BADGE_COLOR: Record<string, { color: string; bg: string }> = {
 // R157b — CompositionDisplay → components/material-detail/CompositionDisplay.tsx 로 이동.
 // R157b — Field → components/material-detail/Field.tsx 로 이동.
 
-export function MaterialDetail({ material, compareList, onToggleCompare, onClose, onBack, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned, tab, onTabChange }: MaterialDetailProps) {
+export function MaterialDetail({ material, compareList, onToggleCompare, onClose, onBack, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned, tab, onTabChange, openSectionsCsv, onOpenSectionsChange }: MaterialDetailProps) {
   const t = useT();
+  // R227/E14 — 접힘 섹션 펼침 상태. null/undefined=기본값, 문자열=복원값(라우트 왕복에도 URL 로 보존).
+  const [openSecs, setOpenSecs] = useStateRD<Set<string>>(() =>
+    openSectionsCsv != null
+      ? new Set(openSectionsCsv.split('.').filter(Boolean))
+      : new Set(DEFAULT_OPEN_SECTIONS)
+  );
+  const openSecsRef = useRefRD(openSecs);
+  openSecsRef.current = openSecs;
+  const isSecOpen = (k: string) => openSecs.has(k);
+  const toggleSec = (k: string, open: boolean) => {
+    const cur = openSecsRef.current;
+    if (cur.has(k) === open) return; // 변화 없음(마운트 시 native toggle 노이즈 차단)
+    const next = new Set(cur);
+    if (open) next.add(k); else next.delete(k);
+    setOpenSecs(next);
+    onOpenSectionsChange?.(Array.from(next).join('.'));
+  };
   // R227/E14/H2 — 위키 상호참조(backlink) 데이터. 실패 시 null → 카드 숨김(비치명적).
   const wikiLookups = useWikiRefs();
   // R227/E14/H2b — 스토리 본문 인라인 auto-link 조회 맵(빌드 allowlist). null 이면 평문 렌더.
@@ -441,7 +464,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               const ins = resolveInsights(material);
               if (!ins) return null;
               return (
-                <details className="rounded-lg border-2 border-indigo-200 bg-indigo-50/40 p-3" open>
+                <details className="rounded-lg border-2 border-indigo-200 bg-indigo-50/40 p-3" open={isSecOpen('ins')} onToggle={(e) => toggleSec('ins', e.currentTarget.open)}>
                   <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-indigo-900">
                     <span className="flex items-center gap-1.5"><Lightbulb className="w-3.5 h-3.5" />선택 인사이트 · {ins.title}</span>
                     <span className="text-[10px] font-normal opacity-60">{ins.picks.length} 시나리오</span>
@@ -528,7 +551,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     </div>
                   )}
                   {(mach || machCost || polyMach) && (
-                    <details className={`rounded-lg border-2 p-3 ${bandColor((polyMach?.band || machCost?.band || mach?.band) as string)}`}>
+                    <details className={`rounded-lg border-2 p-3 ${bandColor((polyMach?.band || machCost?.band || mach?.band) as string)}`} open={isSecOpen('mach')} onToggle={(e) => toggleSec('mach', e.currentTarget.open)}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5"><Wrench className="w-3.5 h-3.5" />Machinability · 절삭성</span>
                         <span className="text-[10px] font-normal opacity-70">
@@ -593,7 +616,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     if (alloyHt) {
                       const { family, description } = alloyHt;
                       return (
-                        <details className="rounded-lg border-2 border-sky-300 bg-sky-50 p-3">
+                        <details className="rounded-lg border-2 border-sky-300 bg-sky-50 p-3" open={isSecOpen('htc')} onToggle={(e) => toggleSec('htc', e.currentTarget.open)}>
                           <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-sky-800">
                             <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · {description.code}</span>
                             <span className="text-[10px] font-normal opacity-70">{family.familyName}</span>
@@ -631,7 +654,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     //          단 HT 주의사항(htGuidanceTexts)이 있으면 가이드만으로 카드 유지 (Ti64 AM·AlSi10Mg 등 34건 손실 방지).
                     if (!htCost && htGuidanceTexts.length === 0) return null;
                     return (
-                      <details className={`rounded-lg border-2 p-3 ${htCost ? bandColor(htCost.band) : 'border-border bg-muted/30'}`}>
+                      <details className={`rounded-lg border-2 p-3 ${htCost ? bandColor(htCost.band) : 'border-border bg-muted/30'}`} open={isSecOpen('ht')} onToggle={(e) => toggleSec('ht', e.currentTarget.open)}>
                         <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                           <span className="flex items-center gap-1.5"><Thermometer className="w-3.5 h-3.5" />Heat Treatment · 열처리</span>
                           <span className="text-[10px] font-normal opacity-70">{htCost ? <>×{htCost.factor.toFixed(2)} · <b>{htCost.label}</b></> : <b>주의사항</b>}</span>
@@ -682,7 +705,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             (2) ce_iiw/cet/pcm/sch 가 모두 null 인 Al/Cu/Ti/Mg/Ni-superalloy 같은 비철금속도
                                 qualitative weldability (material.weldability) 표시 — 카드 누락 fix. */}
                   {(material.category === 'Metal' && (ce_iiw || cet || pcm || sch || material.weldability)) && (
-                    <details className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || (material.weldability === 'Poor' ? 'high' : material.weldability === 'Fair' ? 'med' : 'low'))}`}>
+                    <details className={`rounded-lg border-2 p-3 ${bandColor(weldWorst || (material.weldability === 'Poor' ? 'high' : material.weldability === 'Fair' ? 'med' : 'low'))}`} open={isSecOpen('weld')} onToggle={(e) => toggleSec('weld', e.currentTarget.open)}>
                       <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none">
                         <span className="flex items-center gap-1.5">
                           <FlaskConical className="w-3.5 h-3.5" />Weldability · 용접성 종합
@@ -771,7 +794,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               const uvColor = uv === 'Excellent' ? 'text-emerald-700' : uv === 'Good' ? 'text-emerald-600' : uv === 'Fair' ? 'text-amber-700' : 'text-rose-700';
               const moistColor = (moisture ?? 0) < 0.5 ? 'text-emerald-700' : (moisture ?? 0) < 1.5 ? 'text-amber-700' : 'text-rose-700';
               return (
-                <details open className="rounded-lg border-2 border-violet-300 bg-violet-50/50 p-3">
+                <details open={isSecOpen('poly')} onToggle={(e) => toggleSec('poly', e.currentTarget.open)} className="rounded-lg border-2 border-violet-300 bg-violet-50/50 p-3">
                   <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-violet-900">
                     <span className="flex items-center gap-1.5"><FlaskConical className="w-3.5 h-3.5" />Polymer-specific Properties</span>
                     <span className="text-[10px] font-normal opacity-70">UL94 · UV · Moisture · Tg · HDT</span>
@@ -818,7 +841,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {/* R76 → R87 — History·개발 스토리. R174: 기본 접힘 (collapse) — 사용자 요청.
                 긴 story 가 detail panel 의 상단 영역을 차지하던 issue 해소. 클릭 시만 펼침. */}
             {(material.story || material.industry_note) && (
-              <details className="rounded border p-3" style={{ background: `${famColor}10`, borderColor: `${famColor}55` }}>
+              <details className="rounded border p-3" style={{ background: `${famColor}10`, borderColor: `${famColor}55` }} open={isSecOpen('story')} onToggle={(e) => toggleSec('story', e.currentTarget.open)}>
                 <summary className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none" style={{ color: famColor }}>
                   <BookText className="w-3.5 h-3.5" />
                   {t('detail.history') || 'History · 개발 스토리'}

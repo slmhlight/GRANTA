@@ -88,6 +88,9 @@ export default function Home() {
   /* R227/E14 — 상세 활성 탭(물성/조성/공정). URL `dt=` 로 인코딩 → 용어/canonical 페이지로 갔다가
      뒤로가기 시 원래 탭 복원(라우트 이탈로 Home 리마운트되어도 URL 이 살아남음). */
   const [detailTab, setDetailTab] = useState<string>('properties');
+  /* R227/E14 — 상세 접힘 섹션(스토리·절삭성·용접성 등) 펼침 상태를 URL `dx=` 로 보존. null=기본값,
+     문자열('story.mach', ''포함)=사용자가 토글한 명시 스냅샷. 라우트 왕복 후 복원. */
+  const [detailOpenCsv, setDetailOpenCsv] = useState<string | null>(null);
   /* R204 #1 — PC desktop multi-popup. Pin 버튼 클릭 시 selectedMaterial → pinnedDetails 로 이동.
      각 pinned popup 은 독립 위치 + 독립 close. 사용자가 여러 alloy 를 동시 비교 가능. */
   const [pinnedDetails, setPinnedDetails] = useState<Material[]>([]);
@@ -118,6 +121,7 @@ export default function Home() {
     setSelectedMaterial(null);
     setDetailHistory([]);
     setDetailTab('properties');
+    setDetailOpenCsv(null);
   }, []);
   /* X(닫기) 직관화 — 뒤로갈 이력이 있으면 한 단계 back, 루트(이력 없음)에서만 완전히 닫기. */
   const handleDetailClose = useCallback(() => {
@@ -337,6 +341,8 @@ export default function Home() {
     // R227/E14 — 상세 활성 탭 복원(?dt=). 뒤로가기로 돌아왔을 때 원래 탭(예: 공정) 유지.
     const dTab = params.get('dt');
     if (dTab === 'properties' || dTab === 'composition' || dTab === 'process') setDetailTab(dTab);
+    // R227/E14 — 접힘 섹션 펼침 상태 복원(?dx=). 있으면(빈 문자열 포함) 명시 스냅샷, 없으면 null(기본값).
+    if (params.has('dx')) setDetailOpenCsv(params.get('dx') || '');
     // R49f — URL restore 완료 후에야 encode effect 활성화 (default 덮어쓰기 race 방지).
     urlRestoredRef.current = true;
     // R49f — deps `[search]` 가 wouter useSearch 의 첫 값 변경 race 로 trigger 불안정 → `[]` (mount-only).
@@ -512,7 +518,9 @@ export default function Home() {
       const detailQ = selectedMaterial ? `d=${encodeURIComponent(selectedMaterial.id)}` : '';
       // R227/E14 — 활성 탭(공정/조성)도 URL 에 → 뒤로가기 시 탭 복원. 기본 물성은 생략(URL 간결).
       const tabQ = selectedMaterial && detailTab && detailTab !== 'properties' ? `dt=${detailTab}` : '';
-      const query = [presetQ, secondQ, detailQ, tabQ, qs].filter(Boolean).join('&');
+      // R227/E14 — 접힘 섹션 스냅샷(사용자 토글 후)만 URL 에. null(미토글)이면 생략.
+      const secQ = selectedMaterial && detailOpenCsv !== null ? `dx=${encodeURIComponent(detailOpenCsv)}` : '';
+      const query = [presetQ, secondQ, detailQ, tabQ, secQ, qs].filter(Boolean).join('&');
       const queryPart = query ? `?${query}` : '';
       const hashPart = (restrictIds && restrictIds.length)
         ? `#g=shared~${restrictIds.join('.')}`
@@ -521,7 +529,7 @@ export default function Home() {
       const current = `${location.pathname}${location.search}${location.hash}`;
       if (target !== current) history.replaceState(null, '', target);
     } catch { /* ignore */ }
-  }, [filters, appliedPreset, restrictIds, selectedMaterial, detailTab]);
+  }, [filters, appliedPreset, restrictIds, selectedMaterial, detailTab, detailOpenCsv]);
 
   // detail now opens as a floating popup, so it no longer needs to close the Compare panel
   // R101 — 모바일: 첫 클릭은 preview card 표시, 같은 점 두 번째 클릭은 detail open. 데스크탑은 즉시 detail.
@@ -1006,6 +1014,9 @@ export default function Home() {
           /* R227/E14 — 활성 탭 제어(뒤로가기 시 공정/조성 탭 복원) */
           tab={detailTab}
           onTabChange={setDetailTab}
+          /* R227/E14 — 접힘 섹션 펼침 상태 제어(뒤로가기 시 복원) */
+          openSectionsCsv={detailOpenCsv}
+          onOpenSectionsChange={setDetailOpenCsv}
         />
         {/* R204 #1 — Multi-pinned detail stack (PC desktop). 각 popup 독립 위치 + close. */}
         {pinnedDetails.map((m, i) => (
