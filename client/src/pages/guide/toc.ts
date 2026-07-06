@@ -2,6 +2,7 @@
  * R227/E14/H7 — 가이드 챕터 목차(TOC) SSOT. Guide 본문·사이드바·용어 페이지가 공유.
  */
 import { LineChart, ListChecks, Compass, BookOpen, Target, Sigma, AlertTriangle, Lightbulb, BookText, BookMarked } from 'lucide-react';
+import { GLOSSARY } from '@/lib/glossary';
 
 export interface TocItem {
   id: string;
@@ -9,6 +10,9 @@ export interface TocItem {
   label: string;
   icon: any;
 }
+
+// 글로서리 용어 수는 데이터에서 산출 — 용어 추가 시 라벨이 자동 갱신(하드코딩 staleness 방지).
+const GLOSS_COUNT = Object.keys(GLOSSARY.terms).length;
 
 export const TOC: TocItem[] = [
   { id: 'ch7', n: 1, label: '실전 사례 16선 (앱 자동 연계)', icon: LineChart },
@@ -25,5 +29,5 @@ export const TOC: TocItem[] = [
   { id: 'ch14', n: 12, label: '산업 case study 5선 — 추상에서 구체로', icon: LineChart },
   { id: 'ch8', n: 13, label: '데이터 해석·datasheet·출처·단위·FAQ', icon: BookText },
   { id: 'ch15', n: 14, label: '재료 family 기본론 (Steel · Al · Ti · Ni · Cu · KS)', icon: BookOpen },
-  { id: 'chGloss', n: 15, label: '기술용어 사전 (글로서리 64종)', icon: BookMarked },
+  { id: 'chGloss', n: 15, label: `기술용어 사전 (글로서리 ${GLOSS_COUNT}종)`, icon: BookMarked },
 ];

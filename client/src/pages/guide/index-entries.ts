@@ -71,8 +71,8 @@ export const GUIDE_INDEX: GuideIndexEntry[] = [
   { ch: 'ch8', chapterN: 13, chapterLabel: '데이터 해석·출처·단위·FAQ', section: '단위 변환', keywords: ['SI', 'imperial', 'MPa', 'ksi', 'GPa', 'Msi', 'Celsius', 'Fahrenheit', 'lb/in3', 'BTU'], snippet: 'MPa↔ksi · GPa↔Msi · °C↔°F · g/cm³↔lb/in³ · KIC' },
   { ch: 'ch8', chapterN: 13, chapterLabel: '데이터 해석·출처·단위·FAQ', section: 'FAQ 10항목', keywords: ['FAQ', 'collection', 'shortcut', 'language', 'unit', 'reset', 'bookmark', 'URL'], snippet: '같은 합금 여러 row / class 신뢰성 / AM 방향 / 단위 / collection 등' },
 
-  // Ch.15 (chGloss) — 기술용어 사전 (글로서리 64종)
-  { ch: 'chGloss', chapterN: 15, chapterLabel: '기술용어 사전 (글로서리)', keywords: ['글로서리', 'glossary', '용어', '용어사전', 'term', '정의', 'definition', '마르텐사이트', 'martensite', '오스테나이트', 'austenite', '석출경화', 'precipitation', '크리프', 'creep', '피로', 'fatigue', '내식성', 'corrosion', '부동태', 'passivation', '예민화', 'sensitization', '인성', 'toughness', '담금질', 'quench', '뜨임', 'temper', '시효', 'aging'], snippet: '금속·재료 전문용어 64종 — 미세조직·강화·열처리·부식·파괴·성형·AM 표준 정의 + 검색' },
+  // Ch.15 (chGloss) — 기술용어 사전 (글로서리)
+  { ch: 'chGloss', chapterN: 15, chapterLabel: '기술용어 사전 (글로서리)', keywords: ['글로서리', 'glossary', '용어', '용어사전', 'term', '정의', 'definition', '마르텐사이트', 'martensite', '오스테나이트', 'austenite', '석출경화', 'precipitation', '크리프', 'creep', '피로', 'fatigue', '내식성', 'corrosion', '부동태', 'passivation', '예민화', 'sensitization', '인성', 'toughness', '담금질', 'quench', '뜨임', 'temper', '시효', 'aging'], snippet: '금속·재료 전문용어 — 미세조직·강화·열처리·부식·파괴·성형·AM 표준 정의 + 검색' },
 ];
 
 /** R66 — 단순 substring match (fuzzy 는 너무 노이즈). 다국어 (KO+EN) 동시 매칭 위해 keywords 가 다국어 포함. */

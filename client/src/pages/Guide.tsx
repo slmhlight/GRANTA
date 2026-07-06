@@ -13,6 +13,7 @@ import { searchGuide, type GuideIndexEntry } from './guide/index-entries';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { GlossaryBrowser } from '@/components/GlossaryBrowser';
+import { GLOSSARY } from '@/lib/glossary';
 import { GuideSidebar } from './guide/GuideSidebar';
 import { ChapterSubToc } from './guide/ChapterSubToc';
 import { TOC } from './guide/toc';
@@ -2245,7 +2246,7 @@ export default function Guide() {
           id="chGloss"
           title="기술용어 사전 (글로서리)"
           learn={[
-            '금속·재료 전문용어 64종의 표준 정의 (미세조직·강화·열처리·부식·파괴·성형·AM·상)',
+            `금속·재료 전문용어 ${Object.keys(GLOSSARY.terms).length}종의 표준 정의 (미세조직·강화·열처리·부식·파괴·성형·AM·상)`,
             '용어 검색 + 관련 용어 상호참조 — 스토리·상세 본문에 등장하는 용어의 뜻을 한 곳에서',
             '각 정의는 표준 교과서·핸드북(ASM·Callister·Ashby 등) 기반이며 출처를 표기',
           ]}
