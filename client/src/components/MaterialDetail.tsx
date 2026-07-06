@@ -27,6 +27,7 @@ import { SpecBadgeList } from '@/components/material-detail/SpecBadgeList';
 import { SimilarMaterialsCard } from '@/components/material-detail/SimilarMaterialsCard';
 import { WikiBacklinksCard } from '@/components/material-detail/WikiBacklinksCard';
 import { StoryLinkedText } from '@/components/material-detail/StoryLinkedText';
+import { TermText } from '@/components/TermLink';
 import { useWikiRefs } from '@/hooks/useWikiRefs';
 import { buildAutolinkMap } from '@/lib/wiki-link';
 /* R177 — Recommendation text renderer (ASCII table → real <table>). */
@@ -448,7 +449,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     <span className="flex items-center gap-1.5"><Lightbulb className="w-3.5 h-3.5" />선택 인사이트 · {ins.title}</span>
                     <span className="text-[10px] font-normal opacity-60">{ins.picks.length} 시나리오</span>
                   </summary>
-                  <p className="text-[11px] mt-2 text-foreground/75 leading-relaxed">{ins.intro}</p>
+                  <p className="text-[11px] mt-2 text-foreground/75 leading-relaxed"><TermText text={ins.intro} /></p>
                   <div className="mt-2 space-y-1.5">
                     {ins.picks.map((p, i) => {
                       const hit = insightPickMatches(material, p);
@@ -556,7 +557,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             <span className="font-mono">×{machCost.factor.toFixed(2)} · {machCost.detail} · <b>{machCost.label}</b></span>
                           </div>
                         )}
-                        {mach && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{mach.note}</p>}
+                        {mach && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80"><TermText text={mach.note} /></p>}
                         {machCost && machCost.band !== mach?.band && <p className="text-[11px] leading-relaxed text-foreground/80">{machCost.note}</p>}
                         {/* R226i — 폴리머 전용 정성 절삭성 (금속 rating/가공비 대신) */}
                         {polyMach && (
@@ -565,7 +566,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             <span className="font-mono"><b>{polyMach.label}</b></span>
                           </div>
                         )}
-                        {polyMach && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80">{polyMach.note}</p>}
+                        {polyMach && <p className="text-[11px] leading-relaxed mt-1 text-foreground/80"><TermText text={polyMach.note} /></p>}
                         {/* R226j — 조건(variation)별 가공 노트: 같은 합금이라도 HT 조건 entry(고유 ID)마다 다른 안내 */}
                         {condNote && (
                           <p className="text-[11px] leading-relaxed mt-1 pt-1.5 border-t border-current/10">
@@ -745,7 +746,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                                                         {/* R226k — 합금별 용접 권고: m.profiles.wg → welding-guidance.json (구 인라인 71블록 이관; nonferrous 는 CE 지표 없을 때만) */}
                             {weldGuidance && '\n' + weldGuidance}
                             </RecText>
-                          {sch && <p className="text-[11px] leading-relaxed text-foreground/80 mt-1">{sch.note}</p>}
+                          {sch && <p className="text-[11px] leading-relaxed text-foreground/80 mt-1"><TermText text={sch.note} /></p>}
                           <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
                             <b>출처 / 기준</b>: {(ce_iiw || cet || pcm || sch) ? 'IIW Doc IX-535-67 (CE_IIW) · IIW IX-1086-87 (CET, Thyssen) · JIS (Pcm, Ito-Bessyo 1969) · AWS A3.0 / Schaeffler 1949 · ASM Vol.6 Welding' : 'ASM Vol.6 Welding · AWS D1.2 (Al) / D1.6 (stainless) / D17.1 (aerospace) · Handbook qualitative rating'}
                           </p>
@@ -845,7 +846,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                           ))}
                         </div>
                       )}
-                      <p className="text-[11.5px] text-foreground/80 leading-relaxed whitespace-pre-wrap">{desc}</p>
+                      <p className="text-[11.5px] text-foreground/80 leading-relaxed whitespace-pre-wrap"><TermText text={desc} /></p>
                     </div>
                   );
                 })()}

@@ -4,9 +4,9 @@
  * map=null(위키 인덱스 미로드) 이면 재료 링크는 생략되나 용어 링크는 유지 — behavior-additive.
  */
 import { Fragment, useMemo } from 'react';
-import { Link } from 'wouter';
 import { linkify, type AutolinkMap, type LinkNode } from '@/lib/wiki-link';
 import { linkifyTerms } from '@/lib/glossary-link';
+import { TermLink } from '@/components/TermLink';
 import type { WikiEntity } from '@/lib/wiki-refs';
 
 interface Props {
@@ -44,15 +44,7 @@ export function StoryLinkedText({ text, map, byKey, selfKey, onSelectMaterial }:
         const parts = linkifyTerms(n.s, termSeen);
         return parts.map((p, j) =>
           p.t === 'term' ? (
-            <Link
-              key={`${i}-${j}`}
-              href={`/guide/term/${p.slug}`}
-              title={`${p.display.replace(/\s*\(.*$/, '')} — ${p.short}`}
-              onClick={(e) => e.stopPropagation()}
-              className="text-teal-700 no-underline border-b border-dotted border-teal-400/70 hover:bg-teal-50 hover:border-teal-500"
-            >
-              {p.s}
-            </Link>
+            <TermLink key={`${i}-${j}`} slug={p.slug} short={p.short}>{p.s}</TermLink>
           ) : (
             <Fragment key={`${i}-${j}`}>{p.s}</Fragment>
           ),

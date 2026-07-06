@@ -7,6 +7,7 @@ import { Link, useParams } from 'wouter';
 import { ExternalLink, Play, Settings, ChevronDown, ChevronRight } from 'lucide-react';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { linkifyTerms } from '@/lib/glossary-link';
+import { TermLink, TermText } from '@/components/TermLink';
 
 /** R61 #4 — 약어/기호 풀이 사전. F 컴포넌트가 자식 텍스트를 lookup → title 자동 부여.
  *  hover 시 native browser tooltip 으로 풀이 표시. 모바일에서는 첫 등장 시 한 번 해설.
@@ -110,12 +111,7 @@ function processGlossary(node: ReactNode, seen: Set<string>, keyPrefix: string):
     if (parts.length === 1 && parts[0].t === 'text') return node;
     return parts.map((p, i) =>
       p.t === 'term' ? (
-        <Link
-          key={`${keyPrefix}-${i}`}
-          href={`/guide/term/${p.slug}`}
-          title={p.short}
-          className="text-teal-700 no-underline border-b border-dotted border-teal-400/70 hover:bg-teal-50 hover:border-teal-500"
-        >{p.s}</Link>
+        <TermLink key={`${keyPrefix}-${i}`} slug={p.slug} short={p.short}>{p.s}</TermLink>
       ) : (
         <Fragment key={`${keyPrefix}-${i}`}>{p.s}</Fragment>
       ),
@@ -301,8 +297,8 @@ export function PropCard({ name, unit, icon, intuition, useFor, range }: { name:
         </div>
         {icon && <div className="w-28 h-20 flex-shrink-0 bg-muted/30 rounded border border-border/50 p-1.5">{icon}</div>}
       </div>
-      <p className="text-[13px] leading-relaxed text-foreground/90"><b className="text-accent">물리적 의미:</b> {intuition}</p>
-      <p className="text-[12px] mt-2 leading-relaxed text-muted-foreground"><b className="text-foreground/80">관련 설계 요구:</b> {useFor}</p>
+      <p className="text-[13px] leading-relaxed text-foreground/90"><b className="text-accent">물리적 의미:</b> <TermText text={intuition} /></p>
+      <p className="text-[12px] mt-2 leading-relaxed text-muted-foreground"><b className="text-foreground/80">관련 설계 요구:</b> <TermText text={useFor} /></p>
       <p className="text-[11px] mt-2 text-muted-foreground font-mono"><b className="not-italic text-foreground/70">일반 범위:</b> {range}</p>
     </div>
   );
