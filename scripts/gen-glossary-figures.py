@@ -668,6 +668,85 @@ def fig_sensitization():
     save(fig, "sensitization")
 
 
+def fig_stainless_families():
+    """스테인리스강 5계열 — Cr–Ni 조성 계통도(개략, Schaeffler 축약)."""
+    from matplotlib.patches import Ellipse
+    fig, ax = plt.subplots(figsize=(8.6, 5.6))
+    C_D = "#3f8f6f"; C_P = "#7a5aa8"
+    # 계열 영역(정성적 Cr–Ni 범위) — 반투명
+    regions = [
+        ((20.0, 14.5), 13.5, 18.0, 12, C_G, "오스테나이트계", (24.5, 20.5)),
+        ((21.5, 1.0),  13.0, 3.4,  0,  C_A, "페라이트계",   (26.5, 2.8)),
+        ((12.8, 1.2),  3.8,  3.8,  0,  C_M, "마르텐사이트계", (10.2, 4.2)),
+        ((23.2, 5.6),  6.2,  4.2,  22, C_D, "듀플렉스",     (27.4, 7.2)),
+        ((16.2, 5.2),  4.6,  5.6,  78, C_P, "석출경화(PH)", (13.0, 8.6)),
+    ]
+    for (cx, cy), w, h, ang, col, lab, lpos in regions:
+        ax.add_patch(Ellipse((cx, cy), w, h, angle=ang, facecolor=col, alpha=0.15, edgecolor=col, lw=1.6))
+        ax.text(*lpos, lab, color=col, fontsize=10.5, fontweight="bold", ha="center")
+    # 대표 grade 점
+    grades = [("304", 18, 8.2), ("316", 17.5, 12), ("310", 25, 20),
+              ("430", 17, 0.4), ("446", 24, 0.4), ("410", 12.5, 0.4),
+              ("2205", 22, 5.5), ("2507", 25, 7), ("17-4PH", 16.5, 4.5)]
+    for name, cr, ni in grades:
+        ax.plot(cr, ni, "o", color=C_AX, ms=5, zorder=5)
+        ax.annotate(name, (cr, ni), textcoords="offset points", xytext=(5, 3),
+                    fontsize=8, color=C_AX, zorder=5)
+    ax.set_xlabel("크로뮴 Cr (wt %)  →  내식성", fontsize=11, color=C_AX)
+    ax.set_ylabel("니켈 Ni (wt %)  →  오스테나이트 안정", fontsize=11, color=C_AX)
+    ax.set_xlim(9, 30); ax.set_ylim(-1.5, 24)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(colors=C_AX, labelsize=9)
+    ax.set_title("스테인리스강 5계열 — Cr·Ni 조성 계통도 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    save(fig, "stainless-families")
+
+
+def fig_superalloy_strength():
+    """니켈초합금 vs 강 vs 알루미늄 — 온도에 따른 강도 유지(개략)."""
+    fig, ax = plt.subplots(figsize=(7.2, 4.6))
+    T = np.linspace(20, 1000, 300)
+    # 상대강도(상온=100 기준). 초합금: γ' 로 고온까지 유지 후 급락
+    ni = 100 / (1 + np.exp((T - 800) / 55)) + 6
+    steel = 100 / (1 + np.exp((T - 480) / 90)) + 3
+    al = 100 / (1 + np.exp((T - 190) / 55)) + 1
+    ax.plot(T, ni, color=C_M, lw=2.4, label="니켈초합금")
+    ax.plot(T, steel, color=C_A, lw=2.2, label="강(steel)")
+    ax.plot(T, al, color=C_G, lw=2.2, label="알루미늄")
+    ax.axvspan(650, 1000, color=C_M, alpha=0.06)
+    ax.text(825, 88, "초합금\n사용역", color=C_M, fontsize=9, ha="center")
+    ax.text(150, 20, "알루미늄\n(~200°C↑ 급락)", color=C_G, fontsize=8.6, ha="center")
+    ax.text(430, 74, "강", color=C_A, fontsize=10, fontweight="bold")
+    ax.text(720, 60, "니켈초합금", color=C_M, fontsize=10, fontweight="bold", ha="center")
+    ax.set_xlabel("온도 (°C) →", fontsize=11, color=C_AX)
+    ax.set_ylabel("상대 강도 (상온 = 100)", fontsize=11, color=C_AX)
+    ax.set_xlim(20, 1000); ax.set_ylim(0, 112)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(colors=C_AX, labelsize=9)
+    save(fig, "superalloy-strength")
+
+
+def fig_red_hardness():
+    """고속도강 적열경도 — 온도에 따른 경도 유지(개략)."""
+    fig, ax = plt.subplots(figsize=(7.2, 4.4))
+    T = np.linspace(20, 700, 300)
+    # 탄소공구강: ~200°C 부터 급락 / HSS: 2차경화로 ~550°C 까지 유지
+    carbon = 64 / (1 + np.exp((T - 230) / 45)) + 3
+    hss = 65 / (1 + np.exp((T - 560) / 35)) + 4 + 3 * np.exp(-((T - 520) / 60) ** 2)  # 2차경화 융기
+    ax.plot(T, hss, color=C_M, lw=2.4)
+    ax.plot(T, carbon, color=C_A, lw=2.2)
+    ax.axvline(560, color=C_M, lw=1, ls="--")
+    ax.text(566, 20, "적열경도 한계\n(~600°C)", color=C_M, fontsize=8.6, va="center")
+    ax.text(120, 30, "탄소공구강\n(~200°C 연화)", color=C_A, fontsize=8.8, ha="center")
+    ax.text(330, 63, "고속도강(HSS)", color=C_M, fontsize=10.5, fontweight="bold")
+    ax.text(470, 55, "2차경화 융기", color=C_M, fontsize=8.2, ha="center")
+    ax.set_xlabel("절삭날 온도 (°C) →", fontsize=11, color=C_AX)
+    ax.set_ylabel("경도 (HRC)", fontsize=11, color=C_AX)
+    ax.set_xlim(20, 700); ax.set_ylim(0, 72)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(colors=C_AX, labelsize=9)
+    save(fig, "red-hardness")
+
+
 if __name__ == "__main__":
     fig_martensite_lattice()
     fig_fcc_bcc()
@@ -689,4 +768,7 @@ if __name__ == "__main__":
     fig_pearlite()
     fig_grain_structure()
     fig_steel_microstructures()
+    fig_stainless_families()
+    fig_superalloy_strength()
+    fig_red_hardness()
     print("done →", os.path.abspath(OUT))
