@@ -85,7 +85,20 @@ export function isJunkForm(f) {
 export function suggestAutolink(form, ambiguous) {
   if (ambiguous) return false;
   if (isJunkForm(form)) return false;
-  if (form.length < 4) return false;          // 짧은 약어(PC·PPS·H13)는 명시링크만
+  if (form.length < 4 || form.length > 18) return false; // 약어(<4)·설명블롭(>18)은 명시링크만
   if (!/[a-z]/i.test(form)) return false;      // 순수 숫자(4150·304)는 명시링크만 (§A 오탐 방지)
+  if (!/[0-9]/.test(form) && GENERIC_WORDS.has(form)) return false; // 설명어 leak (wing·tank·marine…)
   return true;
 }
+
+/** 스토리 제목/이름에서 새는 설명 단어 (합금 지정자 아님) — autolink 제외 (§D). */
+export const GENERIC_WORDS = new Set([
+  'variants', 'beam', 'wing', 'tank', 'misc', 'marine', 'line', 'pipe', 'sand', 'inch', 'advanced',
+  'extrusion', 'hotstamped', 'usibor', 'wideflange', 'semiaustenitic', 'secondaryhardening',
+  'higherc', 'dualphase', 'gastransmission', 'lowinterstitial', 'submarine', 'pressure', 'hull',
+  'aerospace', 'blade', 'turbo', 'wheel', 'helicopter', 'transmission', 'railway', 'chamber',
+  'abrasion', 'resistant', 'ferritic', 'martensitic', 'austenitic', 'duplex', 'general', 'purpose',
+  'grades', 'family', 'class', 'series', 'commercial', 'building', 'welded', 'deformed', 'galvanized',
+  'coating', 'coated', 'equivalent', 'equiv', 'typical', 'ternary', 'yellow', 'silver', 'hotdip',
+  'deoxidized', 'phosphor', 'nominal', 'modified', 'reinforced', 'toughened', 'stabilized', 'diecast',
+]);
