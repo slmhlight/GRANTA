@@ -2,10 +2,11 @@
  * Guide 페이지 공용 UI 컴포넌트 — 챕터·카드·강조 박스 등.
  * Guide.tsx 가 너무 커져 분리. svg 들은 ./svgs.tsx 로 별도 분리.
  */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment, cloneElement, isValidElement, type ReactNode } from 'react';
 import { Link, useParams } from 'wouter';
 import { ExternalLink, Play, Settings, ChevronDown, ChevronRight } from 'lucide-react';
 import type { ScenarioKey } from '@/lib/scenario-presets';
+import { linkifyTerms } from '@/lib/glossary-link';
 
 /** R61 #4 — 약어/기호 풀이 사전. F 컴포넌트가 자식 텍스트를 lookup → title 자동 부여.
  *  hover 시 native browser tooltip 으로 풀이 표시. 모바일에서는 첫 등장 시 한 번 해설.
@@ -93,6 +94,46 @@ export function Term({ word, children }: { word: string; children: React.ReactNo
       <span className="text-muted-foreground">— {children}</span>
     </span>
   );
+}
+
+/* R227/E14/H4b — 가이드 본문 기술용어 자동링크(React 트리 재귀).
+ * children 의 문자열 leaf 만 용어 링크로 치환. F(수식)·ExtLink·Term·H3·코드·헤딩·기존 링크는 스킵
+ * (오탐/중첩 방지). 챕터당 첫 등장 1회(seen 공유). DOM 변형 아님 → React 재렌더 안전. */
+const GLOSSARY_SKIP_TAGS = new Set(['a', 'button', 'code', 'abbr', 'sup', 'kbd', 'pre', 'h1', 'h2', 'h3', 'h4', 'style', 'script']);
+function glossarySkip(type: unknown): boolean {
+  if (type === F || type === ExtLink || type === Term || type === H3) return true;
+  return typeof type === 'string' && GLOSSARY_SKIP_TAGS.has(type);
+}
+function processGlossary(node: ReactNode, seen: Set<string>, keyPrefix: string): ReactNode {
+  if (typeof node === 'string') {
+    const parts = linkifyTerms(node, seen);
+    if (parts.length === 1 && parts[0].t === 'text') return node;
+    return parts.map((p, i) =>
+      p.t === 'term' ? (
+        <Link
+          key={`${keyPrefix}-${i}`}
+          href={`/guide/term/${p.slug}`}
+          title={p.short}
+          className="text-teal-700 no-underline border-b border-dotted border-teal-400/70 hover:bg-teal-50 hover:border-teal-500"
+        >{p.s}</Link>
+      ) : (
+        <Fragment key={`${keyPrefix}-${i}`}>{p.s}</Fragment>
+      ),
+    );
+  }
+  if (Array.isArray(node)) return node.map((c, i) => <Fragment key={`${keyPrefix}-${i}`}>{processGlossary(c, seen, `${keyPrefix}-${i}`)}</Fragment>);
+  if (isValidElement(node)) {
+    if (glossarySkip(node.type)) return node;
+    const kids = (node.props as { children?: ReactNode })?.children;
+    if (kids == null) return node;
+    return cloneElement(node, undefined, processGlossary(kids, seen, keyPrefix));
+  }
+  return node;
+}
+/** 가이드 챕터 본문을 감싸 기술용어를 자동링크. */
+export function GlossaryText({ children }: { children: ReactNode }) {
+  const seen = new Set<string>();
+  return <>{processGlossary(children, seen, 'g')}</>;
 }
 
 /** R187 — Chapter 진행률 indicator helpers (localStorage 'am_guide_read' = chapter id Set). */
@@ -239,7 +280,7 @@ export function Chapter({ n, id, title, learn, prereq, children }: { n: number; 
           </>
         )}
       </div>
-      {effectiveOpen && children}
+      {effectiveOpen && (routedSection ? <GlossaryText>{children}</GlossaryText> : children)}
     </section>
   );
 }
