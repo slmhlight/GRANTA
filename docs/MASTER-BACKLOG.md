@@ -82,9 +82,13 @@
 | H1 | **Phase1 — lexicon + build-wiki-index + allowlist surface table(렌더 X)** | ✅ R227 | `audit-story-names`→`scripts/lib/name-tokens.mjs` 승격(회귀 0/244). `build-wiki-index.mjs` → **client/public/wiki-{index,backlinks,meta}.json**(gitignore·CI build:wiki 재생성, materials.json 관행). 242 엔티티·surface-form 3502·게이트 `tests/wiki-index.test.ts`(12). 엔티티에 rep_id(legacy m.id) — 클라 네비게이션 |
 | H2 | **Phase2 — allowlist auto-link 렌더 + backlink 파생 패널** | ✅ R227 | (a) **backlink 패널** `WikiBacklinksCard`("함께 언급되는 재료", 유사재료와 축 분리·violet 칩·↑↓) — `lib/wiki-refs.ts`+`hooks/useWikiRefs.ts`. (b) **본문 인라인 auto-link** `lib/wiki-link.ts`(순수 linkify: 최장프리픽스·self·섹션당첫등장·repId실재·한글조사경계·[[…]]파싱)+`StoryLinkedText`. **allowlist 정밀도**: name-tokens `AUTOLINK_STOP`(원소명·yield/peak/glass/gray/boron/ductile… 흔한단어 제외)로 과링크 차단(2145→2090, 고가치 유지). 게이트 `tests/wiki-link.test.ts`(11). preview PEEK→PEKK 인라인·self 미링크·클릭 네비 검증. **미로드 시 평문**(비치명적) |
 | H3 | **Phase3 — 스토리 authored `[[…]]`(모호·고가치만) + 렌더** | ○ (H1 선행) | E: 모호형(PC·PH·300M) + 고가치 상호참조(AerMet↔300M·PEEK↔PEKK). A: 전 `[[…]]` 무해결 0(빌드 에러)·원문 무손실. **범위=모호/고가치만**(대량은 H2 auto-link) |
-| H4 | **Phase4 — glossary SSOT + 용어 auto-link + 팝오버** | ○ (H1 선행) | E: `ht-glossary`(26)+빈출 용어 씨앗(~40→100). A: `glossary.json`(출처 규율·surface_forms[autolink])+`glossary.test.ts`+GlossaryPopover. R: 거짓/과링크 / M: allowlist·모호=명시링크 |
-| H5 | **Phase5 — 전역 위키검색(⌘K·랭크·타입그룹)** | ○ | A: `wiki-search.ts`+CommandPalette, boolean→랭크+타입그룹핑+컷오프. **`useMaterialFilter` 미변경(표 필터·narrowedRanges 불변)**. 게이트 랭킹 앵커(N07718→718·석출경화→term·PC 모호·self 제외) |
-| H6 | Phase6 — hover 프리뷰·what-links-here 전체뷰·(선택)그래프뷰 | ○ 원거리 | 저위험 후속 |
+| **H4a** | **기술용어 글로서리 SSOT (렌더 X)** | ◐ 진행중 | **사용자 지시(2026-07): 글로서리 먼저·필요한것 판단→이후 링크**. E: SYM_GLOSSARY(기호 18)+`ht-glossary`(26)+본문 빈도조사(freq≥5 ~48종: 인성 153·내식성 134·시효 98·피로 98·오스테나이트 81·마르텐사이트 49…). A: `data/glossary.json`(display·category·aliases·short 정의·**출처 인용**·related)+`glossary.test.ts`(스키마·중복·related 무결성·출처필수). 렌더/링크 없음=무위험. 표준 정의라도 출처(ASM·Callister·Ashby) 명기 |
+| **H4b** | **용어 링크 배선 (스토리·detail·가이드 전역) + 팝오버** | ○ (H4a) | A: **KO-aware 매처**(한글 조사경계 규칙표 — material 은 Latin 전용이라 회피했던 부분·신중)+GlossaryPopover(정의 1줄+가이드 링크). `wiki-link` linkify 확장(용어 allowlist 합류). 스토리·detail text·가이드 본문 전역. R: 한글 과링크/오경계 / M: allowlist·섹션당첫등장·정밀도 표본 게이트 |
+| **H7** | **가이드 단일페이지→멀티 위키(좌측 사이드바·모바일 슬라이드)** | ○ (H4a 후 권장) | **사용자 지시**. E: `Guide.tsx`(2121 LOC) 14챕터 단일스크롤. A: 라우팅(`/guide/:section`)·사이드바 nav·모바일 드로어·글로서리를 가이드 페이지로 통합. 앵커·검색·읽음진행률 보존. R: 대규모 리팩터/앵커유실 / M: 챕터 콘텐츠 무변경·라우팅 래핑만·단계 이관 |
+| **H8** | **가이드 내 검색(위키스타일)** | ○ (H7) | E: `guide/index-entries.ts` 수동 인덱스(~35). A: 콘텐츠 파생/확장 인덱스 + 글로서리 용어 합류 + 사이드바 내 검색. |
+| H3 | 스토리 authored `[[…]]`(모호·고가치만) + 게이트 | ○ 저우선 | auto-link 과 상당중복 — 모호형(PC·PH) 소수만. linkify 는 이미 `[[key|label]]` 파싱 |
+| H5 | **전역 위키검색(⌘K·랭크·타입그룹)** | ○ **후순위**(사용자) | A: `wiki-search.ts`+CommandPalette, 랭크+타입그룹핑+컷오프. **`useMaterialFilter` 미변경(표 필터·narrowedRanges 불변)**. 게이트 랭킹 앵커(N07718→718·석출경화→term·PC 모호·self 제외) |
+| H6 | hover 프리뷰·what-links-here 전체뷰·(선택)그래프뷰 | ○ 원거리 | 저위험 후속 |
 
 ## F. 코드 품질 (지속)
 
