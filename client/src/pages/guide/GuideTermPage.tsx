@@ -3,20 +3,29 @@
  * 짧은 정의 + 분류 + 관련 용어(용어 페이지 상호링크) + 출처. (심화 A4 콘텐츠는 추후 — 사용자 결정.)
  * 가이드 사이드바 재사용으로 챕터 네비 일관 유지.
  */
+import { useMemo } from 'react';
 import { Link, useParams } from 'wouter';
 import { ArrowLeft, GraduationCap, BookMarked, ChevronRight } from 'lucide-react';
-import { GLOSSARY } from '@/lib/glossary';
+import { GLOSSARY, glossaryArticle } from '@/lib/glossary';
 import { GuideSidebar } from './GuideSidebar';
 import { TOC } from './toc';
-import { useReadChapters } from './components';
+import { useReadChapters, GlossaryText, GuideMaterialMapContext } from './components';
+import { GlossaryFigure } from './glossary-figures';
+import { useWikiRefs } from '@/hooks/useWikiRefs';
+import { buildAutolinkMap } from '@/lib/wiki-link';
 
 export default function GuideTermPage() {
   const { slug } = useParams<{ slug: string }>();
   const { isRead } = useReadChapters();
   const term = slug ? GLOSSARY.terms[slug] : undefined;
   const catLabel = term ? GLOSSARY.categories[term.category] : '';
+  const article = slug ? glossaryArticle(slug) : undefined;
+  // 본문 내 용어·합금 상호링크용 재료 맵.
+  const wikiLookups = useWikiRefs();
+  const materialMap = useMemo(() => (wikiLookups ? buildAutolinkMap(wikiLookups) : null), [wikiLookups]);
 
   return (
+    <GuideMaterialMapContext.Provider value={materialMap}>
     <div className="min-h-screen bg-background text-foreground">
       {/* 헤더 */}
       <header className="sticky top-0 z-20 h-12 flex items-center gap-2 sm:gap-3 px-2 sm:px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
@@ -54,11 +63,32 @@ export default function GuideTermPage() {
               </div>
               <h1 className="text-2xl font-bold tracking-tight text-foreground">{term.display}</h1>
 
-              {/* 정의 */}
-              <div className="mt-4 rounded-lg border border-border bg-card p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">정의</p>
+              {/* 정의(리드) */}
+              <div className="mt-4 rounded-lg border border-accent/30 bg-accent/5 p-4">
                 <p className="text-[14px] leading-relaxed text-foreground/90">{term.short}</p>
               </div>
+
+              {/* A4 상세 본문 (있는 term 만) — 섹션별 프로즈(용어·합금 자동링크) + 도표 */}
+              {article && (
+                <div className="mt-6 space-y-6">
+                  {article.sections.map((sec, i) => (
+                    <section key={i}>
+                      <h2 className="text-[15px] font-bold text-foreground border-b border-border/60 pb-1 mb-2">{sec.heading}</h2>
+                      <p className="text-[13.5px] leading-relaxed text-foreground/90 whitespace-pre-line"><GlossaryText excludeTermSlug={slug}>{sec.body}</GlossaryText></p>
+                      {sec.figure && <GlossaryFigure id={sec.figure} />}
+                    </section>
+                  ))}
+                  {article.refs && article.refs.length > 0 && (
+                    <div className="pt-3 border-t border-border">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">참고 문헌</p>
+                      <ul className="text-[12px] text-foreground/70 space-y-0.5 list-disc list-inside">
+                        {article.refs.map((r) => <li key={r}>{r}</li>)}
+                      </ul>
+                      <p className="text-[10.5px] text-muted-foreground/70 mt-1.5 italic">표준 교과서·핸드북 기반 개념 설명이며 특정 재료의 측정값이 아닙니다. 도표는 개략(schematic)입니다.</p>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* 표기 (surface forms) */}
               {term.surface_forms && term.surface_forms.length > 0 && (
@@ -90,8 +120,8 @@ export default function GuideTermPage() {
                 </div>
               )}
 
-              {/* 출처 */}
-              {term.sources && term.sources.length > 0 && (
+              {/* 출처 (A4 본문 없을 때만 — 있으면 참고 문헌으로 대체) */}
+              {!article && term.sources && term.sources.length > 0 && (
                 <div className="mt-5 pt-4 border-t border-border">
                   <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">출처</p>
                   <ul className="text-[12px] text-foreground/70 space-y-0.5 list-disc list-inside">
@@ -105,5 +135,6 @@ export default function GuideTermPage() {
         </div>
       </div>
     </div>
+    </GuideMaterialMapContext.Provider>
   );
 }

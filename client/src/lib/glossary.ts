@@ -4,6 +4,7 @@
  * 소비처: GlossaryBrowser(가이드 렌더) · 용어 auto-link 매처(H4b) · 팝오버.
  */
 import glossaryJson from '../../../data/glossary.json';
+import articlesJson from '../../../data/glossary-articles.json';
 
 export interface GlossaryTerm {
   display: string;
@@ -21,6 +22,13 @@ export interface GlossaryData {
 }
 
 export const GLOSSARY = glossaryJson as unknown as GlossaryData;
+
+/* R227/E14/H4c — A4 상세 본문(확장 term 만). */
+export interface GlossarySection { heading: string; body: string; figure?: string; photo?: string }
+export interface GlossaryArticle { sections: GlossarySection[]; refs?: string[] }
+const ARTICLES = (articlesJson as unknown as { articles: Record<string, GlossaryArticle> }).articles;
+export function glossaryArticle(slug: string): GlossaryArticle | undefined { return ARTICLES[slug]; }
+export function hasGlossaryArticle(slug: string): boolean { return !!ARTICLES[slug]; }
 
 /** 카테고리 순서대로 그룹핑 (빈 그룹 제외). */
 export function glossaryByCategory(): Array<{ cat: string; label: string; terms: Array<[string, GlossaryTerm]> }> {

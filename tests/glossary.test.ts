@@ -71,3 +71,30 @@ describe('glossary SSOT — 핵심 앵커', () => {
     }
   });
 });
+
+describe('glossary A4 본문(articles) 무결성', () => {
+  const artPath = path.resolve(process.cwd(), 'data/glossary-articles.json');
+  const figPath = path.resolve(process.cwd(), 'client/src/pages/guide/glossary-figures.tsx');
+  const articles: Record<string, any> = JSON.parse(fs.readFileSync(artPath, 'utf8')).articles;
+  const figSrc = fs.readFileSync(figPath, 'utf8');
+  // FIGURES 맵의 id 추출: 'iron-carbon': IronCarbon,
+  const figIds = new Set([...figSrc.matchAll(/'([a-z0-9-]+)':\s*[A-Z][A-Za-z]+,/g)].map((m) => m[1]));
+
+  it('article slug 는 실재 term, 섹션·도표·참고문헌 유효', () => {
+    const bad: string[] = [];
+    for (const [slug, a] of Object.entries(articles)) {
+      if (!terms[slug]) bad.push(`${slug}: not a glossary term`);
+      if (!Array.isArray(a.sections) || a.sections.length < 3) bad.push(`${slug}: <3 sections`);
+      for (const s of a.sections || []) {
+        if (!s.heading) bad.push(`${slug}: section no heading`);
+        if (!s.body || s.body.length < 30) bad.push(`${slug}: section body too short`);
+        if (s.figure && !figIds.has(s.figure)) bad.push(`${slug}: unknown figure '${s.figure}'`);
+      }
+      if (!Array.isArray(a.refs) || !a.refs.length) bad.push(`${slug}: no refs`);
+    }
+    expect(bad, bad.join('\n')).toEqual([]);
+  });
+  it('도표 레지스트리에 id 존재', () => {
+    expect(figIds.size).toBeGreaterThanOrEqual(3);
+  });
+});

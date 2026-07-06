@@ -149,10 +149,11 @@ function processGlossary(node: ReactNode, ctx: GlossaryCtx, keyPrefix: string): 
   }
   return node;
 }
-/** 가이드 챕터 본문을 감싸 기술용어(teal) + 합금명(violet) 자동링크. */
-export function GlossaryText({ children }: { children: ReactNode }) {
+/** 가이드 챕터 본문을 감싸 기술용어(teal) + 합금명(violet) 자동링크.
+ *  excludeTermSlug: 현재 용어 페이지 자신은 링크 제외(자기링크 방지). */
+export function GlossaryText({ children, excludeTermSlug }: { children: ReactNode; excludeTermSlug?: string }) {
   const matMap = useContext(GuideMaterialMapContext);
-  const ctx: GlossaryCtx = { termSeen: new Set(), matSeen: new Set(), matMap };
+  const ctx: GlossaryCtx = { termSeen: new Set(excludeTermSlug ? [excludeTermSlug] : []), matSeen: new Set(), matMap };
   return <>{processGlossary(children, ctx, 'g')}</>;
 }
 
