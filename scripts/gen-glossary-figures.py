@@ -668,6 +668,35 @@ def fig_sensitization():
     save(fig, "sensitization")
 
 
+def fig_case_hardening():
+    """표면경화 — 표면부터 깊이에 따른 경도(침탄·질화·심부) 개략."""
+    fig, ax = plt.subplots(figsize=(7.4, 4.6))
+    d = np.linspace(0, 2.0, 300)
+    core = 300.0
+    # 침탄: 두꺼운 경화층(~1mm), 완만한 천이
+    carb = core + (720 - core) / (1 + np.exp((d - 0.9) / 0.12))
+    # 질화: 얇고 매우 단단한 층(~0.3mm), 급한 천이
+    nitr = core + (1050 - core) / (1 + np.exp((d - 0.32) / 0.05))
+    ax.plot(d, nitr, color=C_M, lw=2.4, label="질화 (얇고 매우 단단)")
+    ax.plot(d, carb, color=C_A, lw=2.4, label="침탄 (두꺼운 경화층)")
+    ax.axhline(core, color=C_MUTE, lw=1.2, ls="--")
+    ax.text(1.6, core + 22, "심부(core) — 연하고 인성 유지", color=C_MUTE, fontsize=8.6, ha="center")
+    # 유효경화깊이(550HV 등가) 표시
+    ax.axhline(550, color=C_AX, lw=0.8, ls=":")
+    ax.text(1.97, 565, "경화깊이 기준", color=C_AX, fontsize=7.6, ha="right")
+    ax.annotate("질화층", xy=(0.16, 1000), xytext=(0.42, 980), color=C_M, fontsize=9,
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    ax.annotate("침탄 경화층", xy=(0.55, 700), xytext=(0.72, 780), color=C_A, fontsize=9,
+                arrowprops=dict(arrowstyle="->", color=C_A, lw=0.9))
+    ax.set_xlabel("표면으로부터의 깊이 (mm) →", fontsize=11, color=C_AX)
+    ax.set_ylabel("경도 (HV)", fontsize=11, color=C_AX)
+    ax.set_xlim(0, 2.0); ax.set_ylim(250, 1150)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(colors=C_AX, labelsize=9)
+    ax.set_title("표면경화 — 단단한 표면 + 인성 있는 심부 (개략)", fontsize=11, color=C_AX, pad=8)
+    save(fig, "case-hardening")
+
+
 def fig_strengthening_mechanisms():
     """4대 강화기구 — 전위가 용질·결정립계·석출물·전위얽힘에 막힘(개략)."""
     fig, axes = plt.subplots(2, 2, figsize=(8.6, 7.0))
@@ -834,6 +863,7 @@ if __name__ == "__main__":
     fig_grain_structure()
     fig_steel_microstructures()
     fig_strengthening_mechanisms()
+    fig_case_hardening()
     fig_stainless_families()
     fig_superalloy_strength()
     fig_red_hardness()
