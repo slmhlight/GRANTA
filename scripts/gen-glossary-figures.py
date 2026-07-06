@@ -399,6 +399,147 @@ def fig_fracture_crack():
     save(fig, "fracture-crack")
 
 
+def _fill_parallel(ax, rect, angle_deg, spacing=0.06, color=C_M, lw=1.0):
+    """사각 영역을 평행선으로 채움(마르텐사이트 라스 표현). rect=(x,y,w,h)."""
+    x, y, w, h = rect
+    clip = Rectangle((x, y), w, h, transform=ax.transData)
+    a = np.deg2rad(angle_deg)
+    dx, dy = np.cos(a), np.sin(a)
+    diag = np.hypot(w, h)
+    cx, cy = x + w / 2, y + h / 2
+    for t in np.arange(-diag, diag, spacing):
+        px, py = cx - dy * t, cy + dx * t
+        ln, = ax.plot([px - dx * diag, px + dx * diag], [py - dy * diag, py + dy * diag],
+                      color=color, lw=lw, alpha=0.55)
+        ln.set_clip_path(clip)
+
+
+def fig_martensite_morphology():
+    """마르텐사이트 형태 — 라스(저·중탄소) vs 판상/렌티큘러(고탄소). 개략."""
+    from matplotlib.patches import Ellipse
+    fig, axes = plt.subplots(1, 2, figsize=(9.2, 4.4))
+    # 라스: 결정립을 조각(packet)으로 나눠 각 조각에 평행 라스
+    ax = axes[0]
+    ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#f4efe9", edgecolor=C_AX, lw=1.5))
+    packets = [((0.0, 0.0, 0.5, 0.5), 22), ((0.5, 0.0, 0.5, 0.5), -32),
+               ((0.0, 0.5, 0.5, 0.5), -58), ((0.5, 0.5, 0.5, 0.5), 62)]
+    for rect, ang in packets:
+        _fill_parallel(ax, rect, ang, spacing=0.055, color=C_M, lw=0.9)
+    ax.plot([0.5, 0.5], [0, 1], color=C_AX, lw=0.8, alpha=0.5)
+    ax.plot([0, 1], [0.5, 0.5], color=C_AX, lw=0.8, alpha=0.5)
+    ax.set_title("라스 마르텐사이트 (저·중탄소강)", fontsize=10.5, color=C_M, fontweight="bold")
+    # 판상/렌티큘러: 렌즈 모양 판 교차
+    ax = axes[1]
+    ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#f4efe9", edgecolor=C_AX, lw=1.5))
+    lenses = [(0.35, 0.62, 0.62, 0.13, 28), (0.62, 0.38, 0.7, 0.11, -22),
+              (0.48, 0.78, 0.42, 0.09, -68), (0.72, 0.68, 0.4, 0.08, 48),
+              (0.28, 0.32, 0.5, 0.1, -50), (0.55, 0.2, 0.38, 0.08, 15)]
+    for cx, cy, w, h, ang in lenses:
+        ax.add_patch(Ellipse((cx, cy), w, h, angle=ang, facecolor=C_M, alpha=0.28, edgecolor=C_M, lw=1.2))
+    ax.set_title("판상(렌티큘러) 마르텐사이트 (고탄소강)", fontsize=10.5, color=C_M, fontweight="bold")
+    for ax in axes:
+        ax.set_xlim(-0.02, 1.02); ax.set_ylim(-0.02, 1.02); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("마르텐사이트 형태 (개략)", fontsize=11, color=C_AX, y=1.0)
+    save(fig, "martensite-morphology")
+
+
+def fig_pearlite():
+    """펄라이트 — 페라이트(밝음)와 시멘타이트(어둠) 교대 층상. 개략."""
+    fig, ax = plt.subplots(figsize=(6.6, 4.0))
+    ax.add_patch(Rectangle((0, 0), 6, 4, facecolor="#f4efe9", edgecolor=C_AX, lw=1.4))
+    # 콜로니 3개, 방향 다름
+    colonies = [((0.3, 0.3, 2.6, 3.4), 0), ((3.0, 0.3, 2.7, 1.8), 90), ((3.0, 2.2, 2.7, 1.5), 35)]
+    for (x, y, w, h), ang in colonies:
+        clip = Rectangle((x, y), w, h, transform=ax.transData)
+        a = np.deg2rad(ang)
+        dx, dy = np.cos(a), np.sin(a)
+        cx, cy = x + w / 2, y + h / 2
+        diag = np.hypot(w, h)
+        for i, t in enumerate(np.arange(-diag, diag, 0.16)):
+            px, py = cx - dy * t, cy + dx * t
+            col = "#333" if i % 2 == 0 else "#f4efe9"
+            lw = 3.0 if i % 2 == 0 else 0
+            if lw:
+                ln, = ax.plot([px - dx * diag, px + dx * diag], [py - dy * diag, py + dy * diag], color=col, lw=lw)
+                ln.set_clip_path(clip)
+    ax.text(1.6, 3.75, "α 페라이트(밝음) + Fe₃C 시멘타이트(어둠) 교대 층상", ha="center", fontsize=8.5, color=C_AX)
+    ax.set_xlim(-0.1, 6.1); ax.set_ylim(-0.1, 4.2); ax.set_aspect("equal"); ax.axis("off")
+    save(fig, "pearlite")
+
+
+def _voronoi_grains(ax, pts, color="#eef1f4"):
+    from scipy.spatial import Voronoi
+    far = np.array([[-9, -9], [-9, 9], [9, -9], [9, 9]])
+    vor = Voronoi(np.vstack([pts, far]))
+    for pr in vor.point_region[:len(pts)]:
+        region = vor.regions[pr]
+        if not region or -1 in region:
+            continue
+        poly = [vor.vertices[i] for i in region]
+        ax.add_patch(Polygon(poly, facecolor=color, edgecolor=C_AX, lw=1.0))
+
+
+def fig_grain_structure():
+    """결정립 조직 — 등축(어닐링) / 냉간가공(연신) / 재결정. 개략."""
+    fig, axes = plt.subplots(1, 3, figsize=(10.2, 3.5))
+    np.random.seed(7)
+    base = np.random.rand(28, 2)
+    # (A) 등축
+    _voronoi_grains(axes[0], base)
+    axes[0].set_title("등축 (어닐링)", fontsize=10, color=C_AX)
+    # (B) 냉간가공 — y 압축 → 수평으로 늘어난 결정립
+    stretched = base.copy(); stretched[:, 1] *= 0.32
+    _voronoi_grains(axes[1], stretched, color="#f0ece6")
+    axes[1].set_title("냉간가공 (연신)", fontsize=10, color=C_AX)
+    axes[1].set_ylim(-0.02, 0.34)
+    # (C) 재결정 — 더 많은·작은 등축립
+    fine = np.random.rand(70, 2)
+    _voronoi_grains(axes[2], fine)
+    axes[2].set_title("재결정 (새 미세립)", fontsize=10, color=C_AX)
+    for i, ax in enumerate(axes):
+        ax.set_xlim(0.03, 0.97)
+        if i != 1:
+            ax.set_ylim(0.03, 0.97)
+        ax.set_aspect("auto" if i == 1 else "equal"); ax.axis("off")
+    fig.suptitle("결정립 조직 변화 (개략)", fontsize=11, color=C_AX, y=1.02)
+    save(fig, "grain-structure")
+
+
+def fig_steel_microstructures():
+    """탄소 함량별 강 미세조직 — 아공석/공석/과공석 (개략)."""
+    fig, axes = plt.subplots(1, 3, figsize=(9.6, 3.4))
+    titles = ["아공석강 (<0.76%C)\n페라이트 + 펄라이트",
+              "공석강 (0.76%C)\n전부 펄라이트",
+              "과공석강 (>0.76%C)\n펄라이트 + 입계 시멘타이트"]
+    np.random.seed(5)
+    for k, (ax, title) in enumerate(zip(axes, titles)):
+        ax.add_patch(Circle((0.5, 0.55), 0.42, facecolor="#f4efe9", edgecolor=C_AX, lw=1.4))
+        clipc = Circle((0.5, 0.55), 0.42, transform=ax.transData)
+        # 펄라이트 영역(층상 해칭) + 페라이트(밝음)/시멘타이트(입계)
+        if k == 0:  # 아공석: 밝은 페라이트 바탕 + 깔끔한 펄라이트 콜로니 2개
+            for (px, py, pw, ph) in [(0.30, 0.30, 0.27, 0.22), (0.54, 0.58, 0.23, 0.19)]:
+                clipp = Rectangle((px, py), pw, ph, transform=ax.transData)
+                for i, yy in enumerate(np.arange(py, py + ph, 0.028)):
+                    ln, = ax.plot([px, px + pw], [yy, yy], color="#333" if i % 2 == 0 else "none", lw=1.7)
+                    ln.set_clip_path(clipp)
+            ax.text(0.25, 0.76, "α 페라이트", fontsize=7.5, color=C_A)
+            ax.text(0.435, 0.255, "펄라이트", fontsize=7, color="#333", ha="center")
+        elif k == 1:  # 공석: 전면 펄라이트
+            for i, off in enumerate(np.arange(-0.4, 0.4, 0.035)):
+                ln, = ax.plot([0.1, 0.9], [0.55 + off, 0.55 + off], color="#333" if i % 2 == 0 else "none", lw=2.2)
+                ln.set_clip_path(clipc)
+        else:  # 과공석: 펄라이트 + 입계 시멘타이트 망
+            for i, off in enumerate(np.arange(-0.4, 0.4, 0.045)):
+                ln, = ax.plot([0.1, 0.9], [0.55 + off, 0.55 + off], color="#555" if i % 2 == 0 else "none", lw=1.6)
+                ln.set_clip_path(clipc)
+            ax.add_patch(Circle((0.5, 0.55), 0.42, facecolor="none", edgecolor="#111", lw=2.5))
+            ax.text(0.5, 1.02, "입계 Fe₃C", fontsize=8, color="#111", ha="center")
+        ax.text(0.5, 0.02, title, ha="center", va="bottom", fontsize=8.5, color=C_AX, fontweight="bold")
+        ax.set_xlim(0, 1); ax.set_ylim(-0.02, 1.12); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("탄소 함량별 강 미세조직 (냉각 후, 개략)", fontsize=11, color=C_AX, y=1.04)
+    save(fig, "steel-microstructures")
+
+
 def fig_gp_zones():
     """석출경화 — 시효 진행에 따른 석출물 변화(과포화→GP존→중간석출→과시효). 개략."""
     fig, axes = plt.subplots(1, 4, figsize=(10.2, 3.0))
@@ -480,4 +621,8 @@ if __name__ == "__main__":
     fig_galvanic_cell()
     fig_sensitization()
     fig_gp_zones()
+    fig_martensite_morphology()
+    fig_pearlite()
+    fig_grain_structure()
+    fig_steel_microstructures()
     print("done →", os.path.abspath(OUT))
