@@ -75,7 +75,7 @@
 10. **authority 필터/정렬**: 출처 등급별 보기 (숨기지 않고 구분 — 원칙 8).
 
 **P4 — 위키형 상호참조 (E14, 다분기 프로그램 — 설계 완료)**
-11. **위키 상호참조 시스템**: 재료↔재료·본문 기술용어 백링크 + 통합 랭크 검색. 전 링크는 빌드타임 stable_id/slug 해석(런타임 regex 0, 원칙 1) + SSOT(`glossary.json`·본문 `[[…]]`) + 게이트. **적대적 리뷰 반영**: auto-link 는 **allowlist(opt-in per surface-form)** — naive substring 은 실측상 오탐 폭발("30" 210회·원소기호 등, 설계문서 §A). 검색 개편은 **표 필터 술어 불변**(narrowedRanges R209 회귀 방지)·신규 전역검색(⌘K)에서만. 단계·백본·리스크 상세 → **[WIKI-CROSSREF-DESIGN.md](WIKI-CROSSREF-DESIGN.md)**. 착수기준: Phase 0(설계·리뷰) ✅ — Phase 1(lexicon+매처, 렌더 X = 무위험)부터 진입.
+11. **위키 상호참조 시스템**: 재료↔재료·본문 기술용어 백링크 + 통합 랭크 검색. 전 링크는 빌드타임 stable_id/slug 해석(런타임 regex 0, 원칙 1) + SSOT(`glossary.json`·본문 `[[…]]`) + 게이트. **적대적 리뷰 반영**: auto-link 는 **allowlist(opt-in per surface-form)** — naive substring 은 실측상 오탐 폭발("30" 210회·원소기호 등, 설계문서 §A). 검색 개편은 **표 필터 술어 불변**(narrowedRanges R209 회귀 방지)·신규 전역검색(⌘K)에서만. 단계·백본·리스크 상세 → **[WIKI-CROSSREF-DESIGN.md](WIKI-CROSSREF-DESIGN.md)**. 진행: Phase 0(설계·리뷰) ✅ · **Phase 1(lexicon+build-wiki-index+게이트) ✅ R227** · **Phase 2(backlink 패널 + 본문 인라인 auto-link, allowlist AUTOLINK_STOP 정밀도) ✅ R227**. 다음: Phase 3(authored `[[…]]` 모호·고가치) → Phase 4(glossary 용어링크) → Phase 5(⌘K 전역검색).
 
 ## 6. 신규 세션 착수 절차
 1. CLAUDE.md → DATA-WORKFLOW → 이 문서 §3 편집 맵 확인.
