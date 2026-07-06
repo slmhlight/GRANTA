@@ -185,7 +185,8 @@ def fig_ttt():
     # 곡선 라벨 (곡선 옆 빈 공간)
     ax.text(1.55, 690, "변태 시작", color=C_AX, fontsize=9.5)
     ax.text(2.75, 250, "변태 완료", color=C_MUTE, fontsize=9.5)
-    ax.annotate("코(nose)", xy=(0.55, nose), xytext=(1.15, 480), fontsize=8.5, color=C_AX,
+    # 코(nose): start·finish 사이 빈 공간에서 화살표로 지시 (점선과 겹치지 않게)
+    ax.annotate("코(nose)", xy=(0.56, nose), xytext=(0.98, 628), fontsize=8.5, color=C_AX, ha="left",
                 arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
     ax.set_xlabel("시간 (log)", fontsize=11, color=C_AX)
     ax.set_ylabel("온도 (°C)", fontsize=11, color=C_AX)
@@ -205,8 +206,9 @@ def fig_tempering():
     ax.plot(T, toughness, color=C_A, lw=2.2, label="인성")
     ax.axvspan(250, 400, color=C_MUTE, alpha=0.10)
     ax.text(325, 96, "뜨임취성역", color=C_MUTE, fontsize=8.5, ha="center")
-    ax.text(150, 58, "경도 ↓", color=C_M, fontsize=11, fontweight="bold")
-    ax.text(520, 82, "인성 ↑", color=C_A, fontsize=11, fontweight="bold")
+    # 라벨을 곡선 위 빈 공간에 (선과 겹치지 않게)
+    ax.text(150, 80, "경도 ↓", color=C_M, fontsize=11, fontweight="bold")
+    ax.text(500, 92, "인성 ↑", color=C_A, fontsize=11, fontweight="bold")
     ax.set_xlabel("뜨임 온도 (°C)", fontsize=11, color=C_AX)
     ax.set_ylabel("상대 경도 · 인성", fontsize=11, color=C_AX)
     ax.set_xlim(100, 650); ax.set_ylim(0, 105)
@@ -215,10 +217,140 @@ def fig_tempering():
     save(fig, "tempering-curve")
 
 
+def fig_stress_strain():
+    """응력-변형 곡선 — 연성 vs 취성 · 항복·인장강도·연신·인성(면적)."""
+    fig, ax = plt.subplots(figsize=(6.8, 4.4))
+    # 연성(ductile): 탄성→항복→가공경화(UTS)→네킹→파단
+    ex = np.array([0, 1.2, 3, 6, 10, 14, 18, 21.5])
+    sy = np.array([0, 60, 78, 89, 94, 95, 90, 80])
+    e = np.linspace(0, 21.5, 300)
+    s = np.interp(e, ex, sy)
+    ax.fill_between(e, 0, s, color=C_A, alpha=0.10)
+    ax.plot(e, s, color=C_A, lw=2.3)
+    ax.plot(21.5, 80, "x", color=C_A, ms=9, mew=2)
+    # 취성(brittle): 급경사 선형 후 파단
+    eb = np.array([0, 3.3]); sb = np.array([0, 102])
+    ax.plot(eb, sb, color=C_M, lw=2.3)
+    ax.plot(3.3, 102, "x", color=C_M, ms=9, mew=2)
+    # 마커
+    ax.plot(1.2, 60, "o", color=C_A, ms=6)
+    ax.annotate("항복", xy=(1.2, 60), xytext=(2.6, 40), fontsize=9, color=C_AX,
+                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
+    ax.annotate("인장강도(UTS)", xy=(14, 95), xytext=(9.5, 104), fontsize=9, color=C_AX,
+                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
+    ax.text(15.5, 55, "인성 =\n곡선 아래 면적", color=C_A, fontsize=9, ha="center")
+    ax.text(1.3, 96, "취성", color=C_M, fontsize=10, fontweight="bold")
+    ax.text(18.6, 100, "연성", color=C_A, fontsize=10, fontweight="bold")
+    ax.annotate("", xy=(21.5, 6), xytext=(0, 6), arrowprops=dict(arrowstyle="<->", color=C_MUTE, lw=1))
+    ax.text(10.7, 11, "연신율", color=C_MUTE, fontsize=8.5, ha="center")
+    ax.set_xlabel("변형률 (%)", fontsize=11, color=C_AX)
+    ax.set_ylabel("응력", fontsize=11, color=C_AX)
+    ax.set_xlim(0, 24); ax.set_ylim(0, 112)
+    ax.set_yticks([]); ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(colors=C_AX, labelsize=9)
+    save(fig, "stress-strain")
+
+
+def fig_sn_curve():
+    """피로 S-N 곡선 — 강(피로한도 있음) vs 알루미늄(없음)."""
+    fig, ax = plt.subplots(figsize=(6.8, 4.2))
+    N = np.linspace(2, 8, 200)
+    steel = 252 + 260 * np.exp(-(N - 2) / 0.90)  # 부드러운 knee → 피로한도(~252) 평탄
+    al = 430 * np.exp(-(N - 2) / 3.6) + 60
+    ax.plot(N, steel, color=C_A, lw=2.2)
+    ax.plot(N, al, color=C_M, lw=2.2)
+    ax.text(7.05, 268, "피로한도", color=C_A, fontsize=9)
+    ax.text(3.1, 470, "강 (BCC)", color=C_A, fontsize=10, fontweight="bold")
+    ax.text(5.6, 175, "알루미늄", color=C_M, fontsize=10, fontweight="bold")
+    ax.text(5.6, 150, "(한도 없음)", color=C_MUTE, fontsize=8)
+    ax.set_xlabel("파단 반복수 N  (log 스케일)", fontsize=11, color=C_AX)
+    ax.set_ylabel("응력 진폭 (MPa)", fontsize=11, color=C_AX)
+    ax.set_xlim(2, 8); ax.set_ylim(80, 580)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(colors=C_AX, labelsize=9)
+    save(fig, "sn-curve")
+
+
+def fig_creep_curve():
+    """크리프 곡선 — 1차(감속)·2차(정상)·3차(가속) 3단계."""
+    fig, ax = plt.subplots(figsize=(6.8, 4.2))
+    t = np.linspace(0, 10, 300)
+    primary = 0.9 * (1 - np.exp(-t / 0.8))
+    secondary = 0.16 * t
+    tertiary = 0.02 * np.exp((t - 6.5) / 1.1)
+    strain = 0.6 + primary + secondary + tertiary
+    strain = strain[t <= 9.2]; tt = t[t <= 9.2]
+    ax.plot(tt, strain, color=C_A, lw=2.3)
+    ax.plot(tt[-1], strain[-1], "x", color=C_M, ms=10, mew=2)
+    ax.text(tt[-1] - 0.1, strain[-1] + 0.15, "파단", color=C_M, fontsize=9, ha="right")
+    # 단계 경계
+    for x0, x1, name, xc in [(0, 1.8, "1차\n(감속)", 0.9), (1.8, 6.5, "2차 (정상 · 최소속도)", 4.1), (6.5, 9.2, "3차\n(가속)", 7.9)]:
+        ax.axvspan(x0, x1, color=C_MUTE, alpha=0.06)
+        ax.text(xc, 0.35, name, color=C_AX, fontsize=8.5, ha="center", va="center")
+    ax.axvline(1.8, color=C_MUTE, lw=0.7, ls=":"); ax.axvline(6.5, color=C_MUTE, lw=0.7, ls=":")
+    ax.plot(0, 0.6, "o", color=C_AX, ms=5)
+    ax.text(0.15, 0.72, "순간 변형", color=C_MUTE, fontsize=8)
+    ax.set_xlabel("시간 →", fontsize=11, color=C_AX)
+    ax.set_ylabel("변형률", fontsize=11, color=C_AX)
+    ax.set_xlim(0, 9.6); ax.set_ylim(0, max(strain) + 0.4)
+    ax.set_xticks([]); ax.set_yticks([]); ax.spines[["top", "right"]].set_visible(False)
+    save(fig, "creep-curve")
+
+
+def fig_aging_curve():
+    """시효경화 곡선 — 시효시간에 따른 경도(peak aging·overaging)."""
+    fig, ax = plt.subplots(figsize=(6.8, 4.2))
+    lt = np.linspace(0, 5, 300)  # log time
+    def curve(peak_t, peak_h):
+        return 40 + (peak_h - 40) * np.exp(-((lt - peak_t) ** 2) / (1.1 if peak_t > 2 else 0.7))
+    hi = curve(1.7, 92)   # 고온 시효(빠르게 peak·낮은 최고)
+    lo = curve(3.0, 100)  # 저온 시효(늦게 peak·높은 최고)
+    ax.plot(lt, lo, color=C_A, lw=2.2)
+    ax.plot(lt, hi, color=C_M, lw=2.2, ls="-")
+    ax.plot(3.0, 100, "o", color=C_A, ms=6); ax.plot(1.7, 92, "o", color=C_M, ms=6)
+    ax.annotate("최고경도(peak aging)", xy=(3.0, 101), xytext=(2.35, 108), fontsize=8.5, color=C_A, ha="center",
+                arrowprops=dict(arrowstyle="->", color=C_A, lw=0.9))
+    ax.text(4.45, 52, "과시효\n(overaging)", color=C_MUTE, fontsize=8.5, ha="center")
+    ax.text(0.95, 88, "저온", color=C_A, fontsize=9)
+    ax.text(0.7, 65, "고온", color=C_M, fontsize=9)
+    ax.set_xlabel("시효 시간  (log) →", fontsize=11, color=C_AX)
+    ax.set_ylabel("경도", fontsize=11, color=C_AX)
+    ax.set_xlim(0, 5); ax.set_ylim(35, 112)
+    ax.set_xticks([]); ax.set_yticks([]); ax.spines[["top", "right"]].set_visible(False)
+    save(fig, "aging-curve")
+
+
+def fig_dbtt_curve():
+    """연성-취성 천이 — 충격에너지 vs 온도. BCC 는 천이, FCC 는 평탄."""
+    fig, ax = plt.subplots(figsize=(6.8, 4.2))
+    T = np.linspace(-150, 100, 300)
+    bcc = 15 + 85 / (1 + np.exp(-(T + 20) / 15))
+    fcc = 92 + 0.02 * T
+    ax.plot(T, bcc, color=C_A, lw=2.3)
+    ax.plot(T, fcc, color=C_G, lw=2.2, ls="-")
+    ax.axvline(-20, color=C_M, lw=1, ls="--")
+    ax.text(-17, 20, "DBTT", color=C_M, fontsize=9)
+    ax.text(-120, 25, "취성\n(저에너지)", color=C_AX, fontsize=8.5, ha="center")
+    ax.text(70, 108, "연성\n(고에너지)", color=C_AX, fontsize=8.5, ha="center")
+    ax.text(55, 82, "BCC 강 (천이 있음)", color=C_A, fontsize=9, ha="center")
+    ax.text(-55, 98, "FCC (천이 없음)", color=C_G, fontsize=9, ha="center")
+    ax.set_xlabel("온도 (°C) →", fontsize=11, color=C_AX)
+    ax.set_ylabel("충격 흡수 에너지", fontsize=11, color=C_AX)
+    ax.set_xlim(-150, 100); ax.set_ylim(0, 122)
+    ax.set_yticks([]); ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(colors=C_AX, labelsize=9)
+    save(fig, "dbtt-curve")
+
+
 if __name__ == "__main__":
     fig_martensite_lattice()
     fig_fcc_bcc()
     fig_iron_carbon()
     fig_ttt()
     fig_tempering()
+    fig_stress_strain()
+    fig_sn_curve()
+    fig_creep_curve()
+    fig_aging_curve()
+    fig_dbtt_curve()
     print("done →", os.path.abspath(OUT))
