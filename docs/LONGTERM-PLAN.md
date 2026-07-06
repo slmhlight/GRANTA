@@ -74,6 +74,9 @@
 9. **provenance tooltip 확대**: R129 tooltip 이 교정 인용(`교정: …`)을 표시하는지 확인·보강.
 10. **authority 필터/정렬**: 출처 등급별 보기 (숨기지 않고 구분 — 원칙 8).
 
+**P4 — 위키형 상호참조 (E14, 다분기 프로그램 — 설계 완료)**
+11. **위키 상호참조 시스템**: 재료↔재료·본문 기술용어 백링크 + 통합 랭크 검색. 전 링크는 빌드타임 stable_id/slug 해석(런타임 regex 0, 원칙 1) + SSOT(`glossary.json`·본문 `[[…]]`) + 게이트. 검색은 boolean→타입 그룹핑 랭킹으로 개편하되 **표 검색(재료만)과 전역 위키검색(⌘K) 스코프 이원화**로 청결 유지. 단계·백본·리스크 상세 → **[WIKI-CROSSREF-DESIGN.md](WIKI-CROSSREF-DESIGN.md)**. 수용(Phase별): P1 backlink 역인덱스 파생·게이트 green / P2 authored 링크 무해결 0 / P3 glossary 스키마 게이트 / P4 검색 랭킹 앵커. 착수기준: Phase 0(설계) ✅ — Phase 1(재료 lexicon 자동생성)부터 저위험 진입.
+
 ## 6. 신규 세션 착수 절차
 1. CLAUDE.md → DATA-WORKFLOW → 이 문서 §3 편집 맵 확인.
 2. 작업 후 §1-5 게이트 체인. 3. 커밋 메시지에 검증 수치(round-trip·테스트) 명기. 4. 푸시는 사용자 지시 시.

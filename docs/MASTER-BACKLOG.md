@@ -72,6 +72,19 @@
 | D8 | **AM 후처리 열처리 가이드** — AM 금속 entry HT 카드 공백 채움 | ✅ R226w 1차 (58/103) / ○ 확장 | `ht-guidance.json` +am_map(byHt 접두·byMach)+블록 12종 (am-ti64·ti-cp·alsi·ni718·ni625·ni-solidsol·282·316l·ph·cocr·maraging·cu). 웹 검증: Ti64 SR 480-650·HIP 920°C/100MPa(F2924)·AlSi10Mg SR 300°C 강도↓(Si 네트워크)·MS1 490°C/6h→1950MPa. 해석 `resolveHtGuidanceTexts` — AM 판정은 **구조 필드 process/processes**(name regex 없음), family 는 profiles.ht 접두→mach fallback. 게이트 4 앵커. 잔여 45(Scalmalloy·Invar/W AM·H13 AM·Zeron AM 등)는 근거 문헌 확보 후 확장 (거짓 채움 금지). R: 레시피 오적용 / M: 표준·데이터시트 인용 명시+게이트 |
 | D7 | **절삭성 "1.0·정보없음" 해소** — 커버리지 확장 + 미산출값 표시 억제 | ✅ R226v | 문제: mcf/htf=1.0(파이프 기본값)이 "×1.00 보통/불요"로 표시 — rating(어려움)과 모순, "정보 없음 vs 실제 용이" 구분 불가 + Metal 228 entry mach 프로파일 미할당(Granta G_*·KS·구리 C번호 등 패턴 미커버). 조치: (1) classify 패턴 보강 → **신규 217 할당** (잔여 11 = AHSS 판재·전기강·Nitinol — 절삭 등급 자체가 통용 안 되는 재료), (2) 오분류 교정 9 (Aluminum Bronze 6종 al-*→bronze-wrought · Zircaloy 3종 refractory 18→zirconium 28 — Zr은 Ti 유사가 통설), (3) **신규 프로파일 8** (bronze-wrought 25·bronze-bearing 70(CDA 검증)·cast-iron-gray 75·cast-iron-ductile 60·zinc-diecast 90·ni-fe-lowexp 40(CarTech: Invar≈오스테나이트, FM급 60)·hadfield 8(사실상 절삭불가)·zirconium 28), (4) UI: costBand ==1.0 → null(표시 억제, 조건보정으로 1.0 벗어나면 표시)·HT 카드는 htGuidance 있으면 가중치 없이도 유지(Ti64 AM 등 34건 손실 방지)·**pop>2 & 데이터 전무 → "데이터 미확보(≠가공 용이)" 명시**, pop≤2 → 카드 생략. 게이트: robustness 앵커 +8(Invar/Hadfield/회주철/C93200/C95800/Zircaloy/5140/SM355B)·costBand 1.0 테스트. R: 1.0 이 진짜 표준인 케이스 은폐 / M: rating(프로파일)이 정보 전달 — 표준강은 전부 mach 프로파일 보유 |
 
+## H. 위키형 상호참조 (E14 — 다분기 프로그램, 설계 완료·구현 대기)
+
+**설계 SSOT**: [WIKI-CROSSREF-DESIGN.md](WIKI-CROSSREF-DESIGN.md). 재료↔재료·본문 기술용어 백링크 + 통합 랭크 검색. 전 링크 빌드타임 stable_id/slug 해석(런타임 regex 0)·SSOT+게이트. Phase 독립 배포.
+
+| # | 항목 | 상태 | Entry / Accept / 리스크·완화 |
+|---|---|---|---|
+| H0 | 설계·백본·단계계획 문서화 + 플랜/백로그 반영 | ✅ R227 | WIKI-CROSSREF-DESIGN.md(엔티티 taxonomy·SSOT·빌드 인덱스 4종·런타임 linkify·검색 개편·5 Phase·리스크·파일맵). LONGTERM §5 P4·본 섹션 등재 |
+| H1 | **Phase1 — 재료 lexicon 자동생성 + backlink 역인덱스** | ○ 다음(저위험) | E: `audit-story-names` 토큰화 → `scripts/lib/name-tokens.mjs` 승격. A: `build-wiki-index.mjs`→`wiki-index.json`·`wiki-backlinks.json` 생성 + "여기를 가리키는 것" 패널(파생, behavior-additive) + 게이트 green. R: surface 충돌 / M: ambiguity_group 리포트 |
+| H2 | **Phase2 — 스토리 authored `[[…]]` 링크 + 렌더** | ○ | E: 고가치 상호참조 목록(300M↔AerMet·PEEK↔PEKK·4340계 등). A: 전 `[[…]]` 무해결 0(빌드 에러 게이트)·본문 링크 렌더·원문 무손실. R: 과링크 / M: 섹션당 첫 등장·self 제외 |
+| H3 | **Phase3 — glossary SSOT + 용어 auto-link + 팝오버** | ○ | E: `ht-glossary`(26)+빈출 용어 씨앗. A: `glossary.json`(출처 규율·스토리 플레이북)+`glossary.test.ts`+가드된 auto-link(ambiguity 제외·min-length·STOP). R: 거짓/과링크 / M: 큐레이션 lexicon만·모호=명시링크 |
+| H4 | **Phase4 — 검색 개편(랭크·타입그룹·⌘K 이원화)** | ○ | E: wiki-index 통합. A: boolean→랭크 스코어링+타입 그룹핑+전역 팔레트, **표 검색은 재료-only 유지**. 게이트 랭킹 앵커(N07718→718·석출경화→term·self 제외). R: 검색 소음/회귀 / M: 스코프 이원화·앵커 테스트 |
+| H5 | Phase5 — hover 프리뷰·what-links-here 전체뷰·(선택)그래프뷰 | ○ 원거리 | 저위험 후속 |
+
 ## F. 코드 품질 (지속)
 
 | # | 항목 | 상태 | 비고 |

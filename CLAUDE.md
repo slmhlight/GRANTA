@@ -36,7 +36,7 @@ React 19 · Vite 7 · TypeScript · Tailwind CSS 4 · shadcn/ui · **Plotly.js**
   - Fatigue fallback (C1): 759 alloys get a `derived`-confidence σ_f ≈ k·σ_y (Shigley · k=0.38–0.52 by family) → 89% coverage.
   - Elevated-temp & creep curves (C3): 30+ alloys (Inconel 617/625/718/X-750/Waspaloy, Haynes 230, Hastelloy X, Ti-6Al-4V, 17-4 PH, P91, 800H, CoCrMo, etc).
 - **Anomaly detection**: `build:data`(build-from-registry)가 **최종 데이터** 기준 검출 → 2 (high 0 / med 0 / low 2) per `build-meta.json`. (구 `build-materials.mjs`는 소스 부착 전 검출로 ~159 과다집계 — cutover가 정합. 테스트는 `anomaliesBySeverity.high===0`만 게이트.)
-- **합금 개발배경(스토리)** (R226t/E13): SSOT `data/alloy-stories.json`(183종·403 entry) — 할당은 **stable_ids 동결**(구 name-매칭 3파일·build-materials 주입 은퇴, 레지스트리 story-free). build:data 가 stable_id 부착(`story`·`story_refs`·`story_key`·`story_v2`). v2 스키마(sections+timeline)·신뢰성 원칙·Opus 작문 회차 운영 → [`docs/STORY-SYSTEM.md`](docs/STORY-SYSTEM.md). 게이트 `tests/alloy-stories.test.ts`.
+- **합금 개발배경(스토리)** (R226t/E13): SSOT `data/alloy-stories.json`(183종·403 entry) — 할당은 **stable_ids 동결**(구 name-매칭 3파일·build-materials 주입 은퇴, 레지스트리 story-free). build:data 가 stable_id 부착(`story`·`story_refs`·`story_key`·`story_v2`). v2 스키마(sections+timeline)·신뢰성 원칙·Opus 작문 회차 운영 → [`docs/STORY-SYSTEM.md`](docs/STORY-SYSTEM.md). 게이트 `tests/alloy-stories.test.ts`. **위키형 상호참조(재료↔재료·본문 용어 백링크 + 검색 개편)** 설계·백본 → [`docs/WIKI-CROSSREF-DESIGN.md`](docs/WIKI-CROSSREF-DESIGN.md) (E14/H, 빌드타임 slug 해석·SSOT+게이트, 구현 대기).
 - Material schema: `{id, name, category, subcategory, process, manufacturer, composition, ranges, sources[{label,url,verified}], tier, points[], elevated_temp?[], creep_rupture?[], meta}`.
 
 ## Layout
