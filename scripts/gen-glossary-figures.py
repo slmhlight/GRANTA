@@ -10,7 +10,7 @@ import os
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrowPatch
+from matplotlib.patches import FancyArrowPatch, Rectangle, Circle, Polygon
 from mpl_toolkits.mplot3d import proj3d
 import numpy as np
 
@@ -342,6 +342,63 @@ def fig_dbtt_curve():
     save(fig, "dbtt-curve")
 
 
+def fig_passivation_pitting():
+    """부동태 피막과 공식(pitting) 발생 — 모식도."""
+    fig, ax = plt.subplots(figsize=(7.2, 3.8))
+    ax.add_patch(Rectangle((0.5, 0.2), 9, 2.0, facecolor="#cfd3d8", edgecolor=C_AX, lw=1.2))
+    ax.text(3.2, 1.15, "금속 (스테인리스강 등)", ha="center", fontsize=10, color=C_AX)
+    ax.add_patch(Rectangle((0.5, 2.2), 9, 0.26, facecolor="#4a9b6e", edgecolor="none"))
+    ax.text(0.7, 2.72, "부동태 피막 (치밀한 Cr₂O₃ 산화막)", fontsize=9, color="#2f6b4a", ha="left")
+    # Cl- 공격 (위첨자 마이너스는 mathtext 로 — 폰트 tofu 회피)
+    ax.annotate(r"$\mathrm{Cl^{-}}$", xy=(6.5, 2.5), xytext=(6.5, 3.5), fontsize=13, color=C_M, ha="center",
+                arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.8))
+    # pit (금속으로 파고든 V)
+    ax.add_patch(Polygon([(6.05, 2.2), (6.95, 2.2), (6.62, 0.7), (6.5, 0.45), (6.38, 0.7)],
+                         facecolor="white", edgecolor=C_M, lw=1.5))
+    ax.annotate("공식(pit)\n피막 국부 파괴→국부 부식", xy=(6.7, 1.2), xytext=(7.7, 1.5),
+                fontsize=9, color=C_M, ha="left",
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    ax.set_xlim(0, 12.2); ax.set_ylim(0, 4); ax.axis("off")
+    save(fig, "passivation-pitting")
+
+
+def fig_scc_venn():
+    """응력부식균열 = 인장응력 + 부식환경 + 감수성 재료 (동시 작용)."""
+    fig, ax = plt.subplots(figsize=(5.8, 5.2))
+    data = [((0.37, 0.60), "인장응력", C_A, (0.20, 0.83)),
+            ((0.63, 0.60), "부식환경", C_M, (0.80, 0.83)),
+            ((0.50, 0.38), "감수성 재료", C_G, (0.50, 0.14))]
+    for (cx, cy), label, col, (lx, ly) in data:
+        ax.add_patch(Circle((cx, cy), 0.25, facecolor=col, alpha=0.16, edgecolor=col, lw=1.8))
+        ax.text(lx, ly, label, ha="center", color=col, fontsize=11, fontweight="bold")
+    ax.text(0.50, 0.53, "SCC", ha="center", va="center", fontsize=15, fontweight="bold", color=C_AX)
+    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
+    ax.set_title("응력부식균열 — 세 요소가 동시에 있을 때만 발생", fontsize=11, color=C_AX, pad=8)
+    save(fig, "scc-venn")
+
+
+def fig_fracture_crack():
+    """파괴역학 — 균열·원격응력·응력확대계수 K·소성역."""
+    fig, ax = plt.subplots(figsize=(5.6, 5.4))
+    ax.add_patch(Rectangle((0.7, 0.7), 3.6, 3.6, facecolor="#eef1f4", edgecolor=C_AX, lw=1.3))
+    # 중앙 균열 2a
+    ax.plot([1.75, 3.25], [2.5, 2.5], color=C_M, lw=3)
+    ax.annotate("", xy=(3.25, 2.15), xytext=(1.75, 2.15), arrowprops=dict(arrowstyle="<->", color=C_M, lw=0.9))
+    ax.text(2.5, 1.85, "균열 길이 2a", ha="center", color=C_M, fontsize=9)
+    # 원격 응력
+    for x in [1.3, 2.5, 3.7]:
+        ax.annotate("", xy=(x, 4.35), xytext=(x, 5.0), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.7))
+        ax.annotate("", xy=(x, 0.7), xytext=(x, 0.05), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.7))
+    ax.text(2.5, 5.25, "σ  (원격 인장응력)", ha="center", color=C_A, fontsize=9.5)
+    # 소성역
+    ax.add_patch(Circle((3.25, 2.5), 0.2, facecolor=C_G, alpha=0.35, edgecolor=C_G))
+    ax.annotate("소성역", xy=(3.42, 2.62), xytext=(3.95, 3.15), fontsize=8.5, color=C_G,
+                arrowprops=dict(arrowstyle="->", color=C_G, lw=0.8))
+    ax.text(2.5, -0.35, r"$K = Y\,\sigma\,\sqrt{\pi a}$   →   $K \geq K_{IC}$ 이면 불안정 파괴", ha="center", fontsize=10, color=C_AX)
+    ax.set_xlim(0.1, 5.0); ax.set_ylim(-0.7, 5.6); ax.axis("off")
+    save(fig, "fracture-crack")
+
+
 if __name__ == "__main__":
     fig_martensite_lattice()
     fig_fcc_bcc()
@@ -353,4 +410,7 @@ if __name__ == "__main__":
     fig_creep_curve()
     fig_aging_curve()
     fig_dbtt_curve()
+    fig_passivation_pitting()
+    fig_scc_venn()
+    fig_fracture_crack()
     print("done →", os.path.abspath(OUT))
