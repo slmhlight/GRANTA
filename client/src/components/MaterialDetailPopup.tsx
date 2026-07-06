@@ -23,6 +23,8 @@ export function MaterialDetailPopup({
   onPin,
   isPinned,
   initialPos,
+  tab,
+  onTabChange,
 }: {
   material: Material | null;
   compareList: string[];
@@ -42,6 +44,9 @@ export function MaterialDetailPopup({
   isPinned?: boolean;
   /** R204 #1 — pinned popup 초기 위치 (auto-stagger 용) */
   initialPos?: { x: number; y: number };
+  /** R227/E14 — 활성 탭 제어(뒤로가기 시 탭 복원). */
+  tab?: string;
+  onTabChange?: (tab: string) => void;
 }) {
   const [pos, setPos] = useState<{ x: number; y: number } | null>(initialPos ?? null);
   const [isDesktop, setIsDesktop] = useState(
@@ -83,7 +88,7 @@ export function MaterialDetailPopup({
        이전 `fixed inset-0` 은 헤더·하단 nav 까지 가려 다른 view 로 이동 불가. (Compare 와 동일한 패턴) */
     return (
       <div className="fixed top-12 left-0 right-0 bottom-[50px] z-40 bg-background overflow-auto">
-        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} onBack={onBack} allMaterials={allMaterials} favorites={favorites} onToggleFavorite={onToggleFavorite} onSelectMaterial={onSelectMaterial} />
+        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} onBack={onBack} allMaterials={allMaterials} favorites={favorites} onToggleFavorite={onToggleFavorite} onSelectMaterial={onSelectMaterial} tab={tab} onTabChange={onTabChange} />
       </div>
     );
   }
@@ -112,6 +117,8 @@ export function MaterialDetailPopup({
         onSelectMaterial={onSelectMaterial}
         onPin={onPin}
         isPinned={isPinned}
+        tab={tab}
+        onTabChange={onTabChange}
       />
     </div>
   );

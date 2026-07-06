@@ -85,6 +85,9 @@ export default function Home() {
      열면 현재 재료를 stack 에 push → 헤더 ← 로 복귀. 닫으면 stack 초기화. (버그: 링크로 연 재료를
      닫으면 원래 재료도 닫히던 문제 — 교체만 하고 이력이 없었음.) */
   const [detailHistory, setDetailHistory] = useState<Material[]>([]);
+  /* R227/E14 — 상세 활성 탭(물성/조성/공정). URL `dt=` 로 인코딩 → 용어/canonical 페이지로 갔다가
+     뒤로가기 시 원래 탭 복원(라우트 이탈로 Home 리마운트되어도 URL 이 살아남음). */
+  const [detailTab, setDetailTab] = useState<string>('properties');
   /* R204 #1 — PC desktop multi-popup. Pin 버튼 클릭 시 selectedMaterial → pinnedDetails 로 이동.
      각 pinned popup 은 독립 위치 + 독립 close. 사용자가 여러 alloy 를 동시 비교 가능. */
   const [pinnedDetails, setPinnedDetails] = useState<Material[]>([]);
@@ -110,10 +113,11 @@ export default function Home() {
       return h.slice(0, -1);
     });
   }, []);
-  /* 상세 닫기 — 선택·이력 모두 초기화. */
+  /* 상세 닫기 — 선택·이력·탭 모두 초기화(다음 열림은 기본 물성 탭). */
   const closeDetail = useCallback(() => {
     setSelectedMaterial(null);
     setDetailHistory([]);
+    setDetailTab('properties');
   }, []);
   /* X(닫기) 직관화 — 뒤로갈 이력이 있으면 한 단계 back, 루트(이력 없음)에서만 완전히 닫기. */
   const handleDetailClose = useCallback(() => {
@@ -330,6 +334,9 @@ export default function Home() {
     // R227/E14 — 상세 복원: ?d= 가 있으면 materials 로드 후 open (아래 effect).
     const dId = params.get('d');
     if (dId) pendingDetailIdRef.current = dId;
+    // R227/E14 — 상세 활성 탭 복원(?dt=). 뒤로가기로 돌아왔을 때 원래 탭(예: 공정) 유지.
+    const dTab = params.get('dt');
+    if (dTab === 'properties' || dTab === 'composition' || dTab === 'process') setDetailTab(dTab);
     // R49f — URL restore 완료 후에야 encode effect 활성화 (default 덮어쓰기 race 방지).
     urlRestoredRef.current = true;
     // R49f — deps `[search]` 가 wouter useSearch 의 첫 값 변경 race 로 trigger 불안정 → `[]` (mount-only).
@@ -503,7 +510,9 @@ export default function Home() {
       const secondQ = appliedPreset?.secondaryKey ? `p2=${encodeURIComponent(appliedPreset.secondaryKey)}` : '';
       // R227/E14 — 열린 상세(재료 id)를 URL 에 반영 → 용어/canonical 페이지로 갔다가 뒤로가기 시 상세 복원.
       const detailQ = selectedMaterial ? `d=${encodeURIComponent(selectedMaterial.id)}` : '';
-      const query = [presetQ, secondQ, detailQ, qs].filter(Boolean).join('&');
+      // R227/E14 — 활성 탭(공정/조성)도 URL 에 → 뒤로가기 시 탭 복원. 기본 물성은 생략(URL 간결).
+      const tabQ = selectedMaterial && detailTab && detailTab !== 'properties' ? `dt=${detailTab}` : '';
+      const query = [presetQ, secondQ, detailQ, tabQ, qs].filter(Boolean).join('&');
       const queryPart = query ? `?${query}` : '';
       const hashPart = (restrictIds && restrictIds.length)
         ? `#g=shared~${restrictIds.join('.')}`
@@ -512,7 +521,7 @@ export default function Home() {
       const current = `${location.pathname}${location.search}${location.hash}`;
       if (target !== current) history.replaceState(null, '', target);
     } catch { /* ignore */ }
-  }, [filters, appliedPreset, restrictIds, selectedMaterial]);
+  }, [filters, appliedPreset, restrictIds, selectedMaterial, detailTab]);
 
   // detail now opens as a floating popup, so it no longer needs to close the Compare panel
   // R101 — 모바일: 첫 클릭은 preview card 표시, 같은 점 두 번째 클릭은 detail open. 데스크탑은 즉시 detail.
@@ -994,6 +1003,9 @@ export default function Home() {
           /* R204 #1 — pin: 이 popup 을 별도 stack 으로 분리 (multi-popup) */
           onPin={handlePin}
           isPinned={false}
+          /* R227/E14 — 활성 탭 제어(뒤로가기 시 공정/조성 탭 복원) */
+          tab={detailTab}
+          onTabChange={setDetailTab}
         />
         {/* R204 #1 — Multi-pinned detail stack (PC desktop). 각 popup 독립 위치 + close. */}
         {pinnedDetails.map((m, i) => (

@@ -61,6 +61,9 @@ interface MaterialDetailProps {
   /** R204 #1 — PC 에서 detail popup 을 multi-stack. pin 시 floating popup 으로 분리. */
   onPin?: (m: Material) => void;
   isPinned?: boolean;
+  /** R227/E14 — 활성 탭 제어(용어/canonical 페이지로 갔다가 뒤로가기 시 탭 복원). 없으면 비제어(기본 물성). */
+  tab?: string;
+  onTabChange?: (tab: string) => void;
 }
 
 // R157b — fmt → components/material-detail/RangeRow.tsx (export 됨, RangeRow 와 함께 사용).
@@ -107,7 +110,7 @@ const SPEC_BADGE_COLOR: Record<string, { color: string; bg: string }> = {
 // R157b — CompositionDisplay → components/material-detail/CompositionDisplay.tsx 로 이동.
 // R157b — Field → components/material-detail/Field.tsx 로 이동.
 
-export function MaterialDetail({ material, compareList, onToggleCompare, onClose, onBack, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned }: MaterialDetailProps) {
+export function MaterialDetail({ material, compareList, onToggleCompare, onClose, onBack, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned, tab, onTabChange }: MaterialDetailProps) {
   const t = useT();
   // R227/E14/H2 — 위키 상호참조(backlink) 데이터. 실패 시 null → 카드 숨김(비치명적).
   const wikiLookups = useWikiRefs();
@@ -234,7 +237,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
           </Button>
         </div>
 
-        <Tabs defaultValue="properties" className="w-full">
+        <Tabs
+          {...(onTabChange ? { value: tab || 'properties', onValueChange: onTabChange } : { defaultValue: 'properties' })}
+          className="w-full"
+        >
           <TabsList className="w-full justify-start rounded-none border-b border-border/50 bg-background p-0 h-auto sticky top-0 z-10 shadow-sm">
             <TabsTrigger value="properties" className="rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-accent/5 data-[state=active]:text-accent data-[state=active]:font-semibold px-3 py-2">
               <Layers className="w-3 h-3 mr-1" />{t('detail.properties')}
