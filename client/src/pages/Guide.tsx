@@ -8,10 +8,11 @@
  */
 import { Link } from 'wouter';
 import { useState } from 'react';
-import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass, Rocket, ChevronDown, Search, X } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass, Rocket, ChevronDown, Search, X, BookMarked } from 'lucide-react';
 import { searchGuide, type GuideIndexEntry } from './guide/index-entries';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
+import { GlossaryBrowser } from '@/components/GlossaryBrowser';
 // C1: Guide 페이지 구성요소를 ./guide/{components,svgs}.tsx 로 분리해 파일 사이즈 축소.
 import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario, useReadChapters } from './guide/components';
 import {
@@ -46,6 +47,7 @@ const TOC: { id: string; n: number; label: string; icon: any }[] = [
   { id: 'ch14', n: 12, label: '산업 case study 5선 — 추상에서 구체로', icon: LineChart },
   { id: 'ch8', n: 13, label: '데이터 해석·datasheet·출처·단위·FAQ', icon: BookText },
   { id: 'ch15', n: 14, label: '재료 family 기본론 (Steel · Al · Ti · Ni · Cu · KS)', icon: BookOpen },
+  { id: 'chGloss', n: 15, label: '기술용어 사전 (글로서리 64종)', icon: BookMarked },
 ];
 
 /** 사례 타일 — R61 #3 자주 쓰는 6 + 점진 공개 10. 첫 시각 부담 ↓. */
@@ -2229,6 +2231,19 @@ export default function Guide() {
               <li><ExtLink href="https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/AR0357.xhtml">FAA AR-03/57 (MMPDS Statistical Methodology)</ExtLink> — A-Basis · B-Basis 공식 derivation</li>
             </ul>
           </Note>
+        </Chapter>
+
+        <Chapter
+          n={15}
+          id="chGloss"
+          title="기술용어 사전 (글로서리)"
+          learn={[
+            '금속·재료 전문용어 64종의 표준 정의 (미세조직·강화·열처리·부식·파괴·성형·AM·상)',
+            '용어 검색 + 관련 용어 상호참조 — 스토리·상세 본문에 등장하는 용어의 뜻을 한 곳에서',
+            '각 정의는 표준 교과서·핸드북(ASM·Callister·Ashby 등) 기반이며 출처를 표기',
+          ]}
+        >
+          <GlossaryBrowser />
         </Chapter>
 
       </div>
