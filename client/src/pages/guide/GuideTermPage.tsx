@@ -78,6 +78,24 @@ export default function GuideTermPage() {
                       {sec.figure && <GlossaryFigure id={sec.figure} />}
                     </section>
                   ))}
+                  {article.example_materials && article.example_materials.length > 0 && (
+                    <div>
+                      <h2 className="text-[15px] font-bold text-foreground border-b border-border/60 pb-1 mb-2">대표 합금</h2>
+                      <div className="flex flex-wrap gap-2">
+                        {article.example_materials.map((m) => (
+                          <Link
+                            key={m.id}
+                            href={`/?d=${encodeURIComponent(m.id)}`}
+                            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-violet-300 bg-violet-50/50 text-[12.5px] font-medium text-violet-800 hover:bg-violet-100 hover:border-violet-500 transition-colors"
+                            title="탐색기에서 이 합금 보기"
+                          >
+                            {m.label} <span className="text-violet-400" aria-hidden>→</span>
+                          </Link>
+                        ))}
+                      </div>
+                      <p className="text-[10.5px] text-muted-foreground/70 mt-1.5 italic">칩을 누르면 탐색기에서 해당 합금 상세가 열립니다.</p>
+                    </div>
+                  )}
                   {article.refs && article.refs.length > 0 && (
                     <div className="pt-3 border-t border-border">
                       <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">참고 문헌</p>

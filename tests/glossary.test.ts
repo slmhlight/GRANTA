@@ -93,6 +93,9 @@ describe('glossary A4 본문(articles) 무결성', () => {
         if (!s.body || s.body.length < 30) bad.push(`${slug}: section body too short`);
         if (s.figure && !figIds.has(s.figure)) bad.push(`${slug}: unknown figure '${s.figure}'`);
       }
+      for (const em of a.example_materials || []) {
+        if (!em.label || !em.id) bad.push(`${slug}: example_material 은 label·id 필수`);
+      }
       if (!Array.isArray(a.refs) || !a.refs.length) bad.push(`${slug}: no refs`);
     }
     expect(bad, bad.join('\n')).toEqual([]);

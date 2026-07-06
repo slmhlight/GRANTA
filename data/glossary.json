@@ -9,7 +9,8 @@
     "corrosion": "부식 · 환경열화",
     "processing": "성형 · 가공",
     "am": "적층제조 (AM)",
-    "phase": "상 · 상변태 · 평형"
+    "phase": "상 · 상변태 · 평형",
+    "alloy-family": "합금 계열"
   },
   "terms": {
     "martensite": {
@@ -587,6 +588,42 @@
       "short": "인장시험에서 파단까지 표점거리가 늘어난 비율(%). 연성을 나타내는 대표 척도로, 값이 클수록 소성변형 여력이 크다.",
       "sources": ["ASM Handbook Vol.8 Mechanical Testing"],
       "related": ["ductility", "tensile-strength"]
+    },
+    "tool-steel": {
+      "display": "공구강 (Tool Steel)",
+      "category": "alloy-family",
+      "surface_forms": ["공구강", "tool steel"],
+      "autolink": ["공구강", "tool steel"],
+      "short": "절삭·성형·금형 공구에 쓰는 고탄소·고합금강. 높은 경도·내마모성과 고온에서도 경도를 유지하는 적열경도를 위해 담금질+뜨임하며, 냉간(D2·A2·O1)·열간(H13)·고속도(M2) 계열로 나뉜다.",
+      "sources": ["ASM Handbook Vol.1", "G. Roberts et al., Tool Steels (ASM)"],
+      "related": ["martensite", "tempering", "hardness", "carbide"]
+    },
+    "maraging-steel": {
+      "display": "마레이징강 (Maraging Steel)",
+      "category": "alloy-family",
+      "surface_forms": ["마레이징강", "마레이징 강", "maraging steel", "마르에이징강"],
+      "autolink": ["마레이징강", "마레이징 강", "maraging steel"],
+      "short": "탄소를 거의 넣지 않고 니켈(약 18%) 마르텐사이트 기지를 금속간화합물(Ni₃Mo·Ni₃Ti) 시효 석출로 강화한 초고강도강. 담금질 없이도 무른 마르텐사이트 상태에서 가공·용접한 뒤 저온 시효로 변형 적게 강화한다.",
+      "sources": ["ASM Handbook Vol.1", "ASM Specialty Handbook: Carbon and Alloy Steels"],
+      "related": ["martensite", "precipitation-hardening", "aging"]
+    },
+    "martempering": {
+      "display": "마르퀜칭 · 마템퍼링 (Martempering)",
+      "category": "heat-treatment",
+      "surface_forms": ["마르퀜칭", "마템퍼링", "martempering", "marquenching"],
+      "autolink": ["마르퀜칭", "마템퍼링", "martempering"],
+      "short": "담금질 변형·균열을 줄이는 열처리. Ms 부근 온도의 염욕 등에서 잠시 유지해 부품 표면과 중심의 온도를 고르게 한 뒤 공랭하여 마르텐사이트로 변태시켜, 변태 응력을 낮춘다.",
+      "sources": ["ASM Handbook Vol.4 Heat Treating"],
+      "related": ["quenching", "martensite", "residual-stress"]
+    },
+    "subzero-treatment": {
+      "display": "서브제로 · 심랭 처리 (Sub-zero Treatment)",
+      "category": "heat-treatment",
+      "surface_forms": ["서브제로처리", "서브제로 처리", "심랭처리", "심랭 처리", "sub-zero treatment", "cryogenic treatment"],
+      "autolink": ["서브제로처리", "서브제로 처리", "심랭처리", "심랭 처리"],
+      "short": "담금질 후 0 °C 이하(예 −80 °C 드라이아이스, −196 °C 액체질소)로 냉각해, 상온에 남은 잔류 오스테나이트를 마르텐사이트로 추가 변태시키는 처리. 치수 안정성과 경도·내마모성을 높인다(공구강·게이지·베어링).",
+      "sources": ["ASM Handbook Vol.4 Heat Treating"],
+      "related": ["retained-austenite", "quenching", "martensite"]
     }
   }
 }
