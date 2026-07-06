@@ -65,30 +65,46 @@ def _cube_edges(ax, ox, oy, oz, ax_, ay_, az_, color):
         ax.plot(*zip(pts[a], pts[b]), color=color, lw=1.6, alpha=0.9)
 
 
+def _cube_faces(ax, c, color):
+    """단위셀 6면을 반투명으로 채워 입체감 (c=z 높이). BCT 는 c>1."""
+    from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+    v = [(0, 0, 0), (1, 0, 0), (1, 1, 0), (0, 1, 0),
+         (0, 0, c), (1, 0, c), (1, 1, c), (0, 1, c)]
+    faces = [[0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 5, 4],
+             [2, 3, 7, 6], [1, 2, 6, 5], [0, 3, 7, 4]]
+    pc = Poly3DCollection([[v[i] for i in f] for f in faces],
+                          facecolor=color, alpha=0.06, edgecolor="none")
+    ax.add_collection3d(pc)
+
+
 def fig_martensite_lattice():
     """FCC 오스테나이트 → BCT 마르텐사이트 (3D 단위격자)."""
     fig = plt.figure(figsize=(8.4, 4.2))
 
     # FCC
     ax1 = fig.add_subplot(1, 2, 1, projection="3d")
+    _cube_faces(ax1, 1, C_G)
     _cube_edges(ax1, 0, 0, 0, 1, 1, 1, C_G)
     corners = [(i, j, k) for i in (0, 1) for j in (0, 1) for k in (0, 1)]
     faces = [(0.5, 0.5, 0), (0.5, 0.5, 1), (0.5, 0, 0.5), (0.5, 1, 0.5), (0, 0.5, 0.5), (1, 0.5, 0.5)]
     ax1.scatter(*zip(*corners), s=190, c=C_G, depthshade=True, edgecolors="white", linewidths=0.5)
     ax1.scatter(*zip(*faces), s=130, c=C_G, alpha=0.55, depthshade=True, edgecolors="white", linewidths=0.5)
+    # 8면체 공극(탄소가 들어갈 침입형 자리) — 큰 빈틈
+    ax1.scatter([0.5], [0.5], [0.5], s=60, facecolors="none", edgecolors="#111", linewidths=1.1, depthshade=False)
     ax1.set_title("FCC 오스테나이트 (γ)", fontsize=12, color=C_G, fontweight="bold", pad=2)
-    ax1.text2D(0.5, -0.02, "면심입방 · 탄소 고용", transform=ax1.transAxes, ha="center", fontsize=9, color=C_MUTE)
+    ax1.text2D(0.5, -0.02, "면심입방 · 8면체 공극 큼(탄소 고용↑)", transform=ax1.transAxes, ha="center", fontsize=8.6, color=C_MUTE)
 
     # BCT (c > a)
     ax2 = fig.add_subplot(1, 2, 2, projection="3d")
     c = 1.45
+    _cube_faces(ax2, c, C_M)
     _cube_edges(ax2, 0, 0, 0, 1, 1, c, C_M)
     corners2 = [(i, j, k) for i in (0, 1) for j in (0, 1) for k in (0, c)]
     ax2.scatter(*zip(*corners2), s=190, c=C_M, depthshade=True, edgecolors="white", linewidths=0.5)
     ax2.scatter([0.5], [0.5], [c / 2], s=150, c=C_M, depthshade=True, edgecolors="white", linewidths=0.5)  # body center
-    ax2.scatter([0.5], [0.5], [c * 0.83], s=70, c="#111", marker="D", depthshade=False)  # 침입형 탄소
+    ax2.scatter([0.5], [0.5], [c * 0.83], s=80, c="#111", marker="D", depthshade=False)  # 침입형 탄소
     ax2.set_title("BCT 마르텐사이트", fontsize=12, color=C_M, fontweight="bold", pad=2)
-    ax2.text2D(0.5, -0.02, "체심정방(c>a) · 탄소 과포화(◆)", transform=ax2.transAxes, ha="center", fontsize=9, color=C_MUTE)
+    ax2.text2D(0.5, -0.02, "체심정방(c>a) · 탄소 과포화(◆)", transform=ax2.transAxes, ha="center", fontsize=8.6, color=C_MUTE)
 
     for ax, zmax in ((ax1, 1), (ax2, c)):
         ax.set_box_aspect((1, 1, zmax))
@@ -106,20 +122,23 @@ def fig_fcc_bcc():
     """FCC(오스테나이트) vs BCC(페라이트) 3D 단위격자 — austenite/ferrite 공용."""
     fig = plt.figure(figsize=(8.4, 4.2))
     ax1 = fig.add_subplot(1, 2, 1, projection="3d")
+    _cube_faces(ax1, 1, C_G)
     _cube_edges(ax1, 0, 0, 0, 1, 1, 1, C_G)
     corners = [(i, j, k) for i in (0, 1) for j in (0, 1) for k in (0, 1)]
     faces = [(0.5, 0.5, 0), (0.5, 0.5, 1), (0.5, 0, 0.5), (0.5, 1, 0.5), (0, 0.5, 0.5), (1, 0.5, 0.5)]
-    ax1.scatter(*zip(*corners), s=180, c=C_G, edgecolors="white", linewidths=0.5)
-    ax1.scatter(*zip(*faces), s=120, c=C_G, alpha=0.55, edgecolors="white", linewidths=0.5)
+    ax1.scatter(*zip(*corners), s=180, c=C_G, depthshade=True, edgecolors="white", linewidths=0.5)
+    ax1.scatter(*zip(*faces), s=120, c=C_G, alpha=0.55, depthshade=True, edgecolors="white", linewidths=0.5)
+    ax1.scatter([0.5], [0.5], [0.5], s=55, facecolors="none", edgecolors="#111", linewidths=1.0, depthshade=False)
     ax1.set_title("FCC 오스테나이트 (γ)", fontsize=12, color=C_G, fontweight="bold", pad=2)
-    ax1.text2D(0.5, -0.02, "면심입방 · 탄소 고용도 큼", transform=ax1.transAxes, ha="center", fontsize=9, color=C_MUTE)
+    ax1.text2D(0.5, -0.02, "면심입방 · 탄소 고용도 큼(~2.1%)", transform=ax1.transAxes, ha="center", fontsize=8.6, color=C_MUTE)
 
     ax2 = fig.add_subplot(1, 2, 2, projection="3d")
+    _cube_faces(ax2, 1, C_A)
     _cube_edges(ax2, 0, 0, 0, 1, 1, 1, C_A)
-    ax2.scatter(*zip(*corners), s=180, c=C_A, edgecolors="white", linewidths=0.5)
-    ax2.scatter([0.5], [0.5], [0.5], s=150, c=C_A, edgecolors="white", linewidths=0.5)  # body center
+    ax2.scatter(*zip(*corners), s=180, c=C_A, depthshade=True, edgecolors="white", linewidths=0.5)
+    ax2.scatter([0.5], [0.5], [0.5], s=150, c=C_A, depthshade=True, edgecolors="white", linewidths=0.5)  # body center
     ax2.set_title("BCC 페라이트 (α)", fontsize=12, color=C_A, fontweight="bold", pad=2)
-    ax2.text2D(0.5, -0.02, "체심입방 · 탄소 고용도 작음", transform=ax2.transAxes, ha="center", fontsize=9, color=C_MUTE)
+    ax2.text2D(0.5, -0.02, "체심입방 · 탄소 고용도 작음(~0.02%)", transform=ax2.transAxes, ha="center", fontsize=8.6, color=C_MUTE)
 
     for ax in (ax1, ax2):
         ax.set_box_aspect((1, 1, 1)); ax.set_axis_off(); ax.view_init(elev=18, azim=-58)
@@ -129,31 +148,76 @@ def fig_fcc_bcc():
 
 
 def fig_iron_carbon():
-    """철-탄소 상태도 (개략) — 라벨 겹침 회피."""
-    fig, ax = plt.subplots(figsize=(6.6, 4.4))
-    # A3 line γ→α (912→727)
-    cc = np.linspace(0, 0.76, 50)
-    a3 = 912 - (912 - 727) * (cc / 0.76) ** 0.75
-    ax.plot(cc, a3, color=C_G, lw=2)
-    # Acm line γ→Fe3C (727→상승)
-    cc2 = np.linspace(0.76, 2.0, 50)
-    acm = 727 + (1147 - 727) * ((cc2 - 0.76) / (2.0 - 0.76)) ** 0.9
-    ax.plot(cc2, acm, color=C_G, lw=2, ls="--")
-    # eutectoid 727 line
-    ax.plot([0, 2.0], [727, 727], color=C_M, lw=1.4, ls=":")
-    ax.plot(0.76, 727, "o", color=C_M, ms=7)
-    # 영역 라벨 (열린 공간에 배치 — 겹침 없음)
-    ax.text(1.15, 1050, "γ 오스테나이트", fontsize=13, color=C_G, fontweight="bold", ha="center")
-    ax.text(1.15, 1000, "(FCC · 고온상)", fontsize=9, color=C_MUTE, ha="center")
-    ax.text(0.28, 620, "α + Fe₃C", fontsize=11, color=C_A, ha="center")
-    ax.text(0.28, 585, "(펄라이트)", fontsize=8.5, color=C_MUTE, ha="center")
-    ax.text(1.45, 640, "γ + Fe₃C", fontsize=10, color=C_MUTE, ha="center")
-    ax.annotate("공석점\n0.76%C · 727°C", xy=(0.76, 727), xytext=(1.15, 800),
-                fontsize=9, color=C_M, ha="left",
-                arrowprops=dict(arrowstyle="->", color=C_M, lw=1))
-    ax.set_xlabel("탄소 함량 (wt % C)", fontsize=11, color=C_AX)
-    ax.set_ylabel("온도 (°C)", fontsize=11, color=C_AX)
-    ax.set_xlim(0, 2.0); ax.set_ylim(500, 1150)
+    """철-Fe₃C 상태도 (완전판) — 전 영역 음영·경계선·불변점(포정·공정·공석)."""
+    fig, ax = plt.subplots(figsize=(9.4, 6.2))
+    # ── 불변점 좌표 (표준값) ────────────────────────────────
+    A = (0.0, 1538); N = (0.0, 1394); Gp = (0.0, 912); P = (0.022, 727)
+    H = (0.09, 1495); J = (0.16, 1495); Bp = (0.53, 1495)          # 포정 1495
+    E = (2.11, 1147); Cc = (4.30, 1147); F = (6.67, 1147); K = (6.67, 727); D = (6.67, 1250)
+    S = (0.76, 727)                                                 # 공석
+    FE3C = 6.67
+
+    # ── 영역 음영 (상별 색) ────────────────────────────────
+    regions = [
+        ([A, Bp, Cc, D, (FE3C, 1600), (0, 1600)],           "#d9dee6", None, None),                 # L
+        ([N, A, H],                                          "#cfe0f2", "δ", (0.045, 1455)),         # δ
+        ([A, Bp, H],                                         "#e2ecf5", None, None),                 # δ+L
+        ([J, Bp, Cc, E],                                     "#ecdfca", "γ + L", (2.1, 1300)),       # γ+L
+        ([Cc, D, F],                                         "#e8dfc9", "L + Fe₃C", (5.7, 1178)),    # L+Fe3C
+        ([Gp, N, J, E, S],                                   "#f6e2c6", None, None),                 # γ 오스테나이트
+        ([Gp, S, P],                                         "#dfe9f4", None, None),                 # α+γ
+        ([(0, 912), P, (0, 727)],                            "#cfe0f2", None, None),                 # α
+        ([S, E, F, K],                                       "#f1e7d0", "γ + Fe₃C", (3.9, 930)),     # γ+Fe3C
+        ([P, K, (FE3C, 500), (0, 500), (0, 727)],           "#efe6d6", None, None),                 # α+Fe3C
+    ]
+    for poly, fc, lab, lpos in regions:
+        ax.add_patch(Polygon(poly, closed=True, facecolor=fc, edgecolor="none", zorder=0))
+        if lab:
+            ax.text(*lpos, lab, ha="center", va="center", fontsize=10, color=C_AX, zorder=5)
+    # γ / α+Fe3C 큰 영역 라벨(강조)
+    ax.text(0.95, 1055, "γ 오스테나이트", ha="center", fontsize=13, color=C_G, fontweight="bold", zorder=5)
+    ax.text(0.95, 1010, "(FCC)", ha="center", fontsize=9, color=C_MUTE, zorder=5)
+    ax.text(3.0, 610, "α 페라이트 + Fe₃C", ha="center", fontsize=11.5, color=C_AX, fontweight="bold", zorder=5)
+    ax.text(3.0, 568, "(펄라이트 기반 조직)", ha="center", fontsize=9, color=C_MUTE, zorder=5)
+
+    # ── 경계선 ────────────────────────────────────────────
+    def line(p, q, **kw): ax.plot([p[0], q[0]], [p[1], q[1]], **kw)
+    lw = dict(color=C_AX, lw=2.0, zorder=3)
+    line(A, Bp, **lw); line(Bp, Cc, **lw); line(Cc, D, **lw)        # 액상선
+    line(A, H, **lw); line(J, E, **lw)                             # 고상선(δ·γ)
+    line(H, Bp, color=C_AX, lw=1.4, zorder=3)                      # 포정선 1495
+    line(E, F, color=C_M, lw=1.8, zorder=3)                        # 공정선 1147
+    line(Cc, E, color=C_M, lw=1.8, zorder=3)
+    line(Gp, S, color=C_G, lw=2.0, zorder=3)                       # A3 (GS)
+    line(S, E, color=C_G, lw=2.0, ls="--", zorder=3)               # Acm (SE)
+    line(P, K, color=C_M, lw=1.8, zorder=3)                        # 공석선 727 (PSK)
+    ax.plot([FE3C, FE3C], [500, 1250], color=C_AX, lw=2.0, zorder=3)  # Fe₃C 축
+
+    # ── 불변점 (포정·공정·공석) ────────────────────────────
+    for (pt, txt, tp) in [
+        (J,  "포정 J\n0.16%C · 1495°C", (0.62, 1540)),
+        (Cc, "공정 C\n4.30%C · 1147°C", (4.55, 1245)),
+        (S,  "공석 S\n0.76%C · 727°C",  (1.30, 815)),
+    ]:
+        ax.plot(*pt, "o", color=C_M, ms=7, zorder=6)
+        ax.annotate(txt, xy=pt, xytext=tp, fontsize=8.6, color=C_M, ha="left", va="center",
+                    zorder=6, arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    # 페라이트(α) 콜아웃 — 얇아 라벨 불가
+    ax.annotate("α 페라이트 (BCC)", xy=(0.03, 800), xytext=(1.35, 690), fontsize=9, color=C_A,
+                ha="left", va="center", zorder=6, arrowprops=dict(arrowstyle="->", color=C_A, lw=0.9))
+    ax.text(5.4, 1470, "L 액체", ha="center", fontsize=12, color=C_AX, zorder=5)
+
+    # ── 조성 구간 브래킷 (하단) ────────────────────────────
+    for x0, x1, name in [(0.022, 0.76, "아공석강"), (0.76, 2.11, "과공석강"), (2.11, 6.67, "주철")]:
+        ax.annotate("", xy=(x0, 520), xytext=(x1, 520),
+                    arrowprops=dict(arrowstyle="<->", color=C_MUTE, lw=0.9))
+        ax.text((x0 + x1) / 2, 505, name, ha="center", va="top", fontsize=8, color=C_MUTE)
+
+    ax.set_xlabel("탄소 함량 (wt % C)", fontsize=12, color=C_AX)
+    ax.set_ylabel("온도 (°C)", fontsize=12, color=C_AX)
+    ax.set_xlim(-0.05, 7.0); ax.set_ylim(480, 1600)
+    ax.set_xticks([0, 0.76, 2.11, 4.30, 6.67])
+    ax.set_yticks([500, 727, 912, 1147, 1394, 1538])
     ax.spines[["top", "right"]].set_visible(False)
     ax.tick_params(colors=C_AX, labelsize=9)
     save(fig, "iron-carbon")
