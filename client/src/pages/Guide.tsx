@@ -14,6 +14,7 @@ import type { ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { GlossaryBrowser } from '@/components/GlossaryBrowser';
 import { GuideSidebar } from './guide/GuideSidebar';
+import { ChapterSubToc } from './guide/ChapterSubToc';
 // C1: Guide 페이지 구성요소를 ./guide/{components,svgs}.tsx 로 분리해 파일 사이즈 축소.
 import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario, useReadChapters } from './guide/components';
 import {
@@ -408,6 +409,7 @@ export default function Guide() {
         </div>
         </div>)}
         {section && (<>
+        {section !== 'chGloss' && <ChapterSubToc section={section} />}
         {/* ── Chapter 7: 실전 사례 ─────────────────────────────────────── */}
         <Chapter
           n={1}
