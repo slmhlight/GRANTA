@@ -25,6 +25,8 @@ import { Field } from '@/components/material-detail/Field';
 import { SpecBadgeList } from '@/components/material-detail/SpecBadgeList';
 /* R161 — Similar / alternative materials card → Composition tab. */
 import { SimilarMaterialsCard } from '@/components/material-detail/SimilarMaterialsCard';
+import { WikiBacklinksCard } from '@/components/material-detail/WikiBacklinksCard';
+import { useWikiRefs } from '@/hooks/useWikiRefs';
 /* R177 — Recommendation text renderer (ASCII table → real <table>). */
 import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
@@ -102,6 +104,8 @@ const SPEC_BADGE_COLOR: Record<string, { color: string; bg: string }> = {
 
 export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned }: MaterialDetailProps) {
   const t = useT();
+  // R227/E14/H2 — 위키 상호참조(backlink) 데이터. 실패 시 null → 카드 숨김(비치명적).
+  const wikiLookups = useWikiRefs();
   // R53a — Radar axes + normalize base (localStorage 저장)
   const [radarAxes, setRadarAxes] = useStateRD<RadarAxis[]>(() => {
     try {
@@ -405,6 +409,15 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               <SimilarMaterialsCard
                 material={material}
                 allMaterials={allMaterials}
+                onSelectMaterial={onSelectMaterial}
+              />
+            )}
+            {/* R227/E14/H2 — 서술 상호참조(위키 backlink). 물성 거리와 다른 축. lookups 없으면(로드 전/실패) 카드 미표시. */}
+            {allMaterials && allMaterials.length > 0 && (
+              <WikiBacklinksCard
+                material={material}
+                allMaterials={allMaterials}
+                lookups={wikiLookups}
                 onSelectMaterial={onSelectMaterial}
               />
             )}
