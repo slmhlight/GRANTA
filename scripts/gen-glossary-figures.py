@@ -668,6 +668,71 @@ def fig_sensitization():
     save(fig, "sensitization")
 
 
+def fig_strengthening_mechanisms():
+    """4대 강화기구 — 전위가 용질·결정립계·석출물·전위얽힘에 막힘(개략)."""
+    fig, axes = plt.subplots(2, 2, figsize=(8.6, 7.0))
+    for ax in axes.ravel():
+        ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.set_aspect("equal"); ax.axis("off")
+        ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#f6f7f9", edgecolor=C_AX, lw=1.2))
+
+    # (A) 고용강화 — 격자 + 용질(대/소) + 전위선
+    ax = axes[0, 0]
+    gx, gy = np.meshgrid(np.linspace(0.1, 0.9, 8), np.linspace(0.12, 0.9, 8))
+    ax.scatter(gx, gy, s=42, c="#b8c0cb", edgecolors="none", zorder=2)
+    ax.scatter([0.32, 0.66, 0.5], [0.4, 0.66, 0.24], s=95, c=C_M, edgecolors="white", lw=0.6, zorder=3)  # 큰 용질
+    ax.scatter([0.5, 0.24, 0.76], [0.55, 0.72, 0.42], s=20, c=C_A, edgecolors="white", lw=0.4, zorder=3)  # 작은 용질
+    xx = np.linspace(0.08, 0.92, 100)
+    ax.plot(xx, 0.5 + 0.05 * np.sin((xx - 0.08) * 14), color="#1f2933", lw=2.2, zorder=4)
+    ax.text(0.12, 0.52, "⊥", fontsize=13, color="#1f2933", ha="center", va="center", zorder=5)
+    ax.set_title("고용강화", fontsize=11, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, 0.02, "용질 원자의 격자 왜곡이 전위를 방해", ha="center", va="bottom", fontsize=8.3, color=C_MUTE)
+
+    # (B) 결정립 미세화 — 입계에 전위 pile-up
+    ax = axes[0, 1]
+    ax.add_patch(Polygon([(0.52, 0), (0.6, 1), (1, 1), (1, 0)], facecolor="#efe3d2", edgecolor="none", zorder=1))
+    ax.add_patch(Polygon([(0, 0), (0, 1), (0.6, 1), (0.52, 0)], facecolor="#dfe9f4", edgecolor="none", zorder=1))
+    ax.plot([0.52, 0.6], [0, 1], color=C_AX, lw=2.4, zorder=3)  # 입계
+    for i, y in enumerate([0.26, 0.42, 0.58, 0.74]):
+        x = 0.5 - 0.055 - i * 0.085
+        ax.text(x, y, "⊥", fontsize=13, color=C_M, ha="center", va="center", zorder=4)
+    ax.annotate("", xy=(0.46, 0.5), xytext=(0.14, 0.5), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.4), zorder=4)
+    ax.text(0.74, 0.5, "입계", fontsize=9, color=C_AX, rotation=90, va="center", ha="center")
+    ax.set_title("결정립 미세화", fontsize=11, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, 0.02, "결정립계가 전위를 막음 (Hall–Petch)", ha="center", va="bottom", fontsize=8.3, color=C_MUTE)
+
+    # (C) 석출·분산강화 — Orowan bowing + 잔류 루프
+    ax = axes[1, 0]
+    px = [0.2, 0.4, 0.6, 0.8]
+    for x in px:
+        ax.add_patch(Circle((x, 0.5), 0.045, facecolor=C_G, edgecolor=C_AX, lw=0.8, zorder=3))
+    # 전위선: 입자 사이에서 위로 부풀며 통과
+    seg = np.linspace(0.08, 0.92, 200)
+    line = 0.5 + 0.11 * np.abs(np.sin((seg - 0.08) / (0.92 - 0.08) * np.pi * 4))
+    ax.plot(seg, line, color="#1f2933", lw=2.2, zorder=4)
+    for x in [0.3, 0.5]:  # 지나간 입자 둘레 잔류 루프
+        ax.add_patch(Circle((x - 0.1, 0.5), 0.07, facecolor="none", edgecolor="#1f2933", lw=1.0, ls=(0, (3, 2)), zorder=2))
+    ax.set_title("석출·분산강화", fontsize=11, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, 0.02, "전위가 입자를 우회 (Orowan 루프)", ha="center", va="bottom", fontsize=8.3, color=C_MUTE)
+
+    # (D) 가공경화 — 전위 얽힘(밀도↑)
+    ax = axes[1, 1]
+    rng = np.random.RandomState(11)
+    for _ in range(11):
+        x0, y0 = rng.uniform(0.1, 0.9, 2)
+        ang = rng.uniform(0, np.pi)
+        t = np.linspace(-0.42, 0.42, 40)
+        wob = 0.05 * np.sin(t * rng.uniform(6, 12) + rng.uniform(0, 3))
+        xs = x0 + t * np.cos(ang) - wob * np.sin(ang)
+        ys = y0 + t * np.sin(ang) + wob * np.cos(ang)
+        ax.plot(np.clip(xs, 0.05, 0.95), np.clip(ys, 0.1, 0.94), color="#1f2933", lw=1.3, alpha=0.8, zorder=3)
+    ax.set_title("가공경화", fontsize=11, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, 0.02, "전위 밀도↑·서로 얽혀 이동 방해", ha="center", va="bottom", fontsize=8.3, color=C_MUTE)
+
+    fig.suptitle("4대 강화기구 — 전위 이동을 막는 방법 (개략)", fontsize=12, color=C_AX, y=0.98)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.9, bottom=0.02, wspace=0.08, hspace=0.16)
+    save(fig, "strengthening-mechanisms")
+
+
 def fig_stainless_families():
     """스테인리스강 5계열 — Cr–Ni 조성 계통도(개략, Schaeffler 축약)."""
     from matplotlib.patches import Ellipse
@@ -768,6 +833,7 @@ if __name__ == "__main__":
     fig_pearlite()
     fig_grain_structure()
     fig_steel_microstructures()
+    fig_strengthening_mechanisms()
     fig_stainless_families()
     fig_superalloy_strength()
     fig_red_hardness()
