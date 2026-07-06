@@ -8,7 +8,7 @@ import { ExternalLink, Play, Settings, ChevronDown, ChevronRight } from 'lucide-
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { linkifyTerms } from '@/lib/glossary-link';
 import { linkify, type AutolinkMap } from '@/lib/wiki-link';
-import { TermLink, TermText } from '@/components/TermLink';
+import { TermLink } from '@/components/TermLink';
 
 /* R227/E14 — 가이드 본문 합금명 자동링크용 재료 autolink 맵(wiki-index). Guide 가 Provider 로 주입. */
 export const GuideMaterialMapContext = createContext<AutolinkMap | null>(null);
@@ -321,8 +321,8 @@ export function PropCard({ name, unit, icon, intuition, useFor, range }: { name:
         </div>
         {icon && <div className="w-28 h-20 flex-shrink-0 bg-muted/30 rounded border border-border/50 p-1.5">{icon}</div>}
       </div>
-      <p className="text-[13px] leading-relaxed text-foreground/90"><b className="text-accent">물리적 의미:</b> <TermText text={intuition} /></p>
-      <p className="text-[12px] mt-2 leading-relaxed text-muted-foreground"><b className="text-foreground/80">관련 설계 요구:</b> <TermText text={useFor} /></p>
+      <p className="text-[13px] leading-relaxed text-foreground/90"><b className="text-accent">물리적 의미:</b> <GlossaryText>{intuition}</GlossaryText></p>
+      <p className="text-[12px] mt-2 leading-relaxed text-muted-foreground"><b className="text-foreground/80">관련 설계 요구:</b> <GlossaryText>{useFor}</GlossaryText></p>
       <p className="text-[11px] mt-2 text-muted-foreground font-mono"><b className="not-italic text-foreground/70">일반 범위:</b> {range}</p>
     </div>
   );
@@ -334,10 +334,10 @@ export function Step({ n, title, formula, result, note }: { n: number; title: Re
     <div className="flex gap-3 my-2">
       <div className="flex-shrink-0 w-7 h-7 rounded-full bg-accent text-white text-sm font-bold flex items-center justify-center shadow-sm">{n}</div>
       <div className="flex-1 min-w-0 border-l-2 border-accent/30 pl-3 pb-2">
-        <p className="text-sm font-semibold text-foreground">{title}</p>
+        <p className="text-sm font-semibold text-foreground"><GlossaryText>{title}</GlossaryText></p>
         {formula && <p className="font-mono text-[13px] mt-1 bg-muted/40 px-2 py-1 rounded inline-block text-foreground/90">{formula}</p>}
-        {result && <p className="text-sm mt-1 text-foreground/90"><b className="text-emerald-700">→</b> {result}</p>}
-        {note && <p className="text-[12px] mt-1 text-muted-foreground italic">{note}</p>}
+        {result && <p className="text-sm mt-1 text-foreground/90"><b className="text-emerald-700">→</b> <GlossaryText>{result}</GlossaryText></p>}
+        {note && <p className="text-[12px] mt-1 text-muted-foreground italic"><GlossaryText>{note}</GlossaryText></p>}
       </div>
     </div>
   );
@@ -362,7 +362,7 @@ export function ShapeCard({ svg, name, dims, formulas, usedFor }: { svg: React.R
           </div>
         ))}
       </div>
-      <p className="text-[11px] mt-3 pt-2 border-t border-border/60 text-muted-foreground"><b className="text-foreground/80">자주 쓰이는 곳:</b> {usedFor}</p>
+      <p className="text-[11px] mt-3 pt-2 border-t border-border/60 text-muted-foreground"><b className="text-foreground/80">자주 쓰이는 곳:</b> <GlossaryText>{usedFor}</GlossaryText></p>
     </div>
   );
 }
@@ -385,8 +385,8 @@ export function LoadCard({ svg, name, deflection, moment, common, hint }: { svg:
           <span className="font-mono text-foreground/90">{moment}</span>
         </div>
       </div>
-      <p className="text-[11px] mt-3 pt-2 border-t border-border/60 text-muted-foreground"><b className="text-foreground/80">자주 쓰이는 예:</b> {common}</p>
-      {hint && <p className="text-[11px] mt-1 text-amber-700">⚠ {hint}</p>}
+      <p className="text-[11px] mt-3 pt-2 border-t border-border/60 text-muted-foreground"><b className="text-foreground/80">자주 쓰이는 예:</b> <GlossaryText>{common}</GlossaryText></p>
+      {hint && <p className="text-[11px] mt-1 text-amber-700">⚠ <GlossaryText>{hint}</GlossaryText></p>}
     </div>
   );
 }
@@ -413,14 +413,14 @@ export function Scenario({ n, title, presetKey, diagram, examples, situation, ne
         <div className="flex-shrink-0 w-32 h-24 bg-muted/30 rounded border border-border/60 flex items-center justify-center p-2">{diagram}</div>
         <div className="min-w-0 flex-1">
           <p className="font-semibold text-foreground"><span className="text-accent">사례 {n}.</span> {title}</p>
-          <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{situation}</p>
-          <p className="text-xs mt-2 leading-relaxed"><Label>실제 예시</Label> <span className="ml-1">{examples}</span></p>
+          <p className="text-sm text-muted-foreground mt-1 leading-relaxed"><GlossaryText>{situation}</GlossaryText></p>
+          <p className="text-xs mt-2 leading-relaxed"><Label>실제 예시</Label> <span className="ml-1"><GlossaryText>{examples}</GlossaryText></span></p>
         </div>
       </div>
       <div className="mt-3 space-y-2 text-sm leading-relaxed">
-        <div><Label>요구 → 숫자</Label><div className="mt-0.5">{needs}</div></div>
-        <div><Label>이 앱에서</Label><ol className="list-decimal pl-5 space-y-0.5 mt-0.5">{steps.map((s, i) => <li key={i}>{s}</li>)}</ol></div>
-        <div><Label>유력 재료군</Label> <span>{families}</span></div>
+        <div><Label>요구 → 숫자</Label><div className="mt-0.5"><GlossaryText>{needs}</GlossaryText></div></div>
+        <div><Label>이 앱에서</Label><ol className="list-decimal pl-5 space-y-0.5 mt-0.5">{steps.map((s, i) => <li key={i}><GlossaryText>{s}</GlossaryText></li>)}</ol></div>
+        <div><Label>유력 재료군</Label> <span><GlossaryText>{families}</GlossaryText></span></div>
       </div>
       <div className="mt-3 pt-3 border-t border-border/60 flex justify-end gap-2">
         <button type="button" onClick={() => onConfigure(presetKey)} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-accent text-accent hover:bg-accent/10 transition-colors" title="치수·하중을 입력해 정밀하게 시작">
