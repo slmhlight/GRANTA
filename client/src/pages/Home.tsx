@@ -127,6 +127,8 @@ export default function Home() {
   const [restrictIds, setRestrictIds] = useState<string[] | null>(null);
   // R49f — URL filter restore 직후에만 URL encode 활성화 (encode/decode race 방지).
   const urlRestoredRef = useRef(false);
+  // R227/E14 — URL `d=` 로 열린 상세 복원 대기(materials 로드 후 open). 용어/canonical 페이지에서 뒤로가기 시.
+  const pendingDetailIdRef = useRef<string | null>(null);
   const [collections, setCollections] = useState<Collection[]>([]);
   const [collName, setCollName] = useState('');
   // Sprint 3 B8 — Collection 검색 + 정렬 (5+ 일 때 가시성↑).
@@ -325,11 +327,26 @@ export default function Home() {
       // 같은 필터가 재적용될 뿐, 데이터/사용자에게 부작용 없음. URL 이 길어 보이는 게 흠이라
       // 별도 'URL 정리' 버튼 (배너 닫기 시점) 으로 처리.
     }
+    // R227/E14 — 상세 복원: ?d= 가 있으면 materials 로드 후 open (아래 effect).
+    const dId = params.get('d');
+    if (dId) pendingDetailIdRef.current = dId;
     // R49f — URL restore 완료 후에야 encode effect 활성화 (default 덮어쓰기 race 방지).
     urlRestoredRef.current = true;
     // R49f — deps `[search]` 가 wouter useSearch 의 첫 값 변경 race 로 trigger 불안정 → `[]` (mount-only).
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  // R227/E14 — pending 상세(?d=)를 materials 로드되면 open (용어 페이지 등에서 뒤로가기 복원).
+  useEffect(() => {
+    const id = pendingDetailIdRef.current;
+    if (!id || !materials.length) return;
+    const m = materials.find((x) => x.id === id);
+    if (m) {
+      pendingDetailIdRef.current = null;
+      ensureCategory(m.category).catch(() => { /* non-fatal */ });
+      setSelectedMaterial(m);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [materials]);
   // R55 — In-route preset 재적용. ScenarioDialog Apply → wouter navigate('/?p=...') 는
   //   컴포넌트 unmount 없이 URL 만 바꾸므로 위 mount-only effect 가 trigger 안 됨.
   //   wouter useSearch 의 search 값 변화에 반응해 preset/viewMode/indexHint 재적용.
@@ -484,7 +501,9 @@ export default function Home() {
       const qs = encodeFiltersToParams(filters);
       const presetQ = appliedPreset ? `p=${encodeURIComponent(appliedPreset.key)}` : '';
       const secondQ = appliedPreset?.secondaryKey ? `p2=${encodeURIComponent(appliedPreset.secondaryKey)}` : '';
-      const query = [presetQ, secondQ, qs].filter(Boolean).join('&');
+      // R227/E14 — 열린 상세(재료 id)를 URL 에 반영 → 용어/canonical 페이지로 갔다가 뒤로가기 시 상세 복원.
+      const detailQ = selectedMaterial ? `d=${encodeURIComponent(selectedMaterial.id)}` : '';
+      const query = [presetQ, secondQ, detailQ, qs].filter(Boolean).join('&');
       const queryPart = query ? `?${query}` : '';
       const hashPart = (restrictIds && restrictIds.length)
         ? `#g=shared~${restrictIds.join('.')}`
@@ -493,7 +512,7 @@ export default function Home() {
       const current = `${location.pathname}${location.search}${location.hash}`;
       if (target !== current) history.replaceState(null, '', target);
     } catch { /* ignore */ }
-  }, [filters, appliedPreset, restrictIds]);
+  }, [filters, appliedPreset, restrictIds, selectedMaterial]);
 
   // detail now opens as a floating popup, so it no longer needs to close the Compare panel
   // R101 — 모바일: 첫 클릭은 preview card 표시, 같은 점 두 번째 클릭은 detail open. 데스크탑은 즉시 detail.

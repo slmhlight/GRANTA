@@ -430,15 +430,6 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 onSelectMaterial={onSelectMaterial}
               />
             )}
-            {/* R227/E14/H2 — 서술 상호참조(위키 backlink). 물성 거리와 다른 축. lookups 없으면(로드 전/실패) 카드 미표시. */}
-            {allMaterials && allMaterials.length > 0 && (
-              <WikiBacklinksCard
-                material={material}
-                allMaterials={allMaterials}
-                lookups={wikiLookups}
-                onSelectMaterial={onSelectMaterial}
-              />
-            )}
             {/* R226j/E9 → R226k 이동 — 재료 선택 인사이트: 유사재료 카드 바로 아래(조성 탭), "어떤 경우 어떤 재료가 유리한가" (m.profiles.insight → selection-insights.json) */}
             {(() => {
               const ins = resolveInsights(material);
@@ -897,6 +888,15 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                   </div>
                 )}
               </details>
+            )}
+            {/* R227/E14 — "함께 언급되는 재료"(위키 backlink) — 개발 배경(스토리) 바로 아래(공정 탭). 물성 거리와 다른 서술축. */}
+            {allMaterials && allMaterials.length > 0 && (
+              <WikiBacklinksCard
+                material={material}
+                allMaterials={allMaterials}
+                lookups={wikiLookups}
+                onSelectMaterial={onSelectMaterial}
+              />
             )}
             {/* R148 / R161 — 유사 · 대체 재료 추천 Composition tab 으로 이동. 여기는 빈 자리. */}
             {material.aliases && material.aliases.length > 0 && (
