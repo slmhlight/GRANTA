@@ -81,13 +81,45 @@ export default function Home() {
     try { localStorage.setItem('am_cards_hint_shown', '1'); } catch { /* ignore */ }
   }, [viewMode, t]);
   const [selectedMaterial, setSelectedMaterial] = useState<Material | null>(null);
+  /* R227/E14 — 메인 상세 popup 의 링크 네비게이션 back-stack. 위키 링크/유사재료로 다른 재료를
+     열면 현재 재료를 stack 에 push → 헤더 ← 로 복귀. 닫으면 stack 초기화. (버그: 링크로 연 재료를
+     닫으면 원래 재료도 닫히던 문제 — 교체만 하고 이력이 없었음.) */
+  const [detailHistory, setDetailHistory] = useState<Material[]>([]);
   /* R204 #1 — PC desktop multi-popup. Pin 버튼 클릭 시 selectedMaterial → pinnedDetails 로 이동.
      각 pinned popup 은 독립 위치 + 독립 close. 사용자가 여러 alloy 를 동시 비교 가능. */
   const [pinnedDetails, setPinnedDetails] = useState<Material[]>([]);
   const handlePin = useCallback((m: Material) => {
     setPinnedDetails((prev) => prev.some((x) => x.id === m.id) ? prev : [...prev, m]);
     setSelectedMaterial(null);
+    setDetailHistory([]);
   }, []);
+  /* 링크로 다른 재료 열기 — 현재 재료를 back-stack 에 push. */
+  const navigateDetail = useCallback((id: string) => {
+    setSelectedMaterial((cur) => {
+      const next = materials.find((m) => m.id === id);
+      if (!next) return cur;
+      if (cur && cur.id !== next.id) setDetailHistory((h) => [...h, cur]);
+      return next;
+    });
+  }, [materials]);
+  /* ← 뒤로: stack 의 마지막 재료로 복귀. */
+  const backDetail = useCallback(() => {
+    setDetailHistory((h) => {
+      if (!h.length) return h;
+      setSelectedMaterial(h[h.length - 1]);
+      return h.slice(0, -1);
+    });
+  }, []);
+  /* 상세 닫기 — 선택·이력 모두 초기화. */
+  const closeDetail = useCallback(() => {
+    setSelectedMaterial(null);
+    setDetailHistory([]);
+  }, []);
+  /* X(닫기) 직관화 — 뒤로갈 이력이 있으면 한 단계 back, 루트(이력 없음)에서만 완전히 닫기. */
+  const handleDetailClose = useCallback(() => {
+    if (detailHistory.length > 0) backDetail();
+    else closeDetail();
+  }, [detailHistory, backDetail, closeDetail]);
   /* R101 — 모바일 ashby preview: 첫 클릭 시 작은 floating card 만 표시, 같은 점 두 번째 클릭 시 detail open.
      desktop 은 종전대로 즉시 detail open. previewMaterial 이 차트 위 작은 card 로 렌더링됨. */
   const [previewMaterial, setPreviewMaterial] = useState<Material | null>(null);
@@ -475,17 +507,20 @@ export default function Home() {
         // 두 번째 클릭 → detail open + preview close
         setPreviewMaterial(null);
         setSelectedMaterial(m);
+        setDetailHistory([]); // 새 선택 = 이력 초기화
       } else {
         setPreviewMaterial(m);
       }
     } else {
       setSelectedMaterial(m);
+      setDetailHistory([]); // 새 선택 = 이력 초기화
     }
   }, [previewMaterial, ensureCategory]);
 
   // click a material inside Compare → open its detail popup AND locate it on the Ashby chart
   const handleSelectFromCompare = useCallback((m: Material) => {
     setSelectedMaterial(m);
+    setDetailHistory([]);
     setViewMode('ashby');
   }, []);
 
@@ -930,15 +965,13 @@ export default function Home() {
           material={selectedMaterial ? (materials.find((m) => m.id === selectedMaterial.id) || selectedMaterial) : null}
           compareList={compareList}
           onToggleCompare={handleToggleCompare}
-          onClose={() => setSelectedMaterial(null)}
+          onClose={handleDetailClose}
+          onBack={detailHistory.length > 0 ? backDetail : undefined}
           allMaterials={materials}
           favorites={favorites}
           onToggleFavorite={toggleFavorite}
-          /* R148 — 유사 재료 클릭 시 그 재료로 전환. */
-          onSelectMaterial={(id) => {
-            const next = materials.find((m) => m.id === id);
-            if (next) setSelectedMaterial(next);
-          }}
+          /* R148 — 유사 재료 클릭 시 그 재료로 전환. R227 — 현재 재료를 back-stack 에 push. */
+          onSelectMaterial={navigateDetail}
           /* R204 #1 — pin: 이 popup 을 별도 stack 으로 분리 (multi-popup) */
           onPin={handlePin}
           isPinned={false}

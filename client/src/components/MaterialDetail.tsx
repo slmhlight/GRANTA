@@ -4,7 +4,7 @@
  * source citations (verified datasheet URLs where available).
  */
 
-import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer, Star, AlertTriangle, Pin, Lightbulb } from 'lucide-react';
+import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer, Star, AlertTriangle, Pin, Lightbulb, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -46,6 +46,8 @@ interface MaterialDetailProps {
   compareList: string[];
   onToggleCompare: (id: string) => void;
   onClose: () => void;
+  /** R227/E14 — 링크로 다른 재료를 열었을 때 이전 재료로 돌아가는 back-stack. 있으면 헤더에 ← 버튼. */
+  onBack?: () => void;
   dragHandleProps?: { onPointerDown?: (e: ReactPointerEvent<HTMLElement>) => void }; // when floating, makes the header a drag handle
   floating?: boolean;
   /** R53a — Radar normalize 에 사용할 전체 dataset. 없으면 'set' base 만 동작. */
@@ -104,7 +106,7 @@ const SPEC_BADGE_COLOR: Record<string, { color: string; bg: string }> = {
 // R157b — CompositionDisplay → components/material-detail/CompositionDisplay.tsx 로 이동.
 // R157b — Field → components/material-detail/Field.tsx 로 이동.
 
-export function MaterialDetail({ material, compareList, onToggleCompare, onClose, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned }: MaterialDetailProps) {
+export function MaterialDetail({ material, compareList, onToggleCompare, onClose, onBack, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned }: MaterialDetailProps) {
   const t = useT();
   // R227/E14/H2 — 위키 상호참조(backlink) 데이터. 실패 시 null → 카드 숨김(비치명적).
   const wikiLookups = useWikiRefs();
@@ -156,6 +158,17 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
       {/* Header (drag handle when floating) */}
       <div {...dragHandleProps} className={`flex items-start justify-between p-4 border-b border-border/50 flex-shrink-0 ${floating ? 'cursor-move select-none' : ''}`}>
         <div className="flex-1 min-w-0 flex items-start gap-2">
+          {onBack && (
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onBack(); }}
+              className="flex-shrink-0 -ml-1 mt-0.5 p-1 rounded hover:bg-violet-100 text-violet-700 transition-colors"
+              title="이전 재료로 돌아가기"
+              aria-label="뒤로"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </button>
+          )}
           <span className="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1 ring-1 ring-background" style={{ background: famColor }} />
           <div className="min-w-0">
             <h2 className="text-sm font-bold text-foreground leading-tight">{material.name}</h2>

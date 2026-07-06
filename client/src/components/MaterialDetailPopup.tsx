@@ -15,6 +15,7 @@ export function MaterialDetailPopup({
   compareList,
   onToggleCompare,
   onClose,
+  onBack,
   allMaterials,
   favorites,
   onToggleFavorite,
@@ -27,6 +28,8 @@ export function MaterialDetailPopup({
   compareList: string[];
   onToggleCompare: (id: string) => void;
   onClose: () => void;
+  /** R227/E14 — 링크 네비게이션 back-stack (이전 재료로 복귀). */
+  onBack?: () => void;
   /** R53a — Radar 정규화 base 에 사용. */
   allMaterials?: Material[];
   /** R69 A — 즐겨찾기 props 패스스루. */
@@ -80,7 +83,7 @@ export function MaterialDetailPopup({
        이전 `fixed inset-0` 은 헤더·하단 nav 까지 가려 다른 view 로 이동 불가. (Compare 와 동일한 패턴) */
     return (
       <div className="fixed top-12 left-0 right-0 bottom-[50px] z-40 bg-background overflow-auto">
-        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} allMaterials={allMaterials} favorites={favorites} onToggleFavorite={onToggleFavorite} onSelectMaterial={onSelectMaterial} />
+        <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} onBack={onBack} allMaterials={allMaterials} favorites={favorites} onToggleFavorite={onToggleFavorite} onSelectMaterial={onSelectMaterial} />
       </div>
     );
   }
@@ -100,6 +103,7 @@ export function MaterialDetailPopup({
         compareList={compareList}
         onToggleCompare={onToggleCompare}
         onClose={onClose}
+        onBack={onBack}
         floating
         dragHandleProps={{ onPointerDown: startDrag }}
         allMaterials={allMaterials}
