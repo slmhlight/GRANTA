@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 // R71 A — Guide·Tools 는 첫 로드에 필요 없음 → lazy chunk 분리 → 첫 페인트 ↓
 // R186 — Wizard 기능 영구 제거. 사용자: 너무 낮은 레벨 즉시 사용 배제, Guide 차근차근 학습 유도.
 const Guide = lazy(() => import("./pages/Guide"));
+const GuideTermPage = lazy(() => import("./pages/guide/GuideTermPage"));
 const Tools = lazy(() => import("./pages/Tools"));
 const RouteLoader = () => <div className="flex items-center justify-center min-h-screen text-sm text-muted-foreground">Loading…</div>;
 
@@ -24,6 +25,7 @@ function AppRouter() {
         <Switch>
           <Route path={"/"} component={Home} />
           <Route path={"/guide"} component={Guide} />
+          <Route path={"/guide/term/:slug"} component={GuideTermPage} />
           <Route path={"/guide/:section"} component={Guide} />
           <Route path={"/tools"} component={Tools} />
           <Route path={"/404"} component={NotFound} />

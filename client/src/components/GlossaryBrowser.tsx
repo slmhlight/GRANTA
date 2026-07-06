@@ -4,7 +4,8 @@
  * 향후 H7 멀티위키 개편 시 독립 페이지로 승격 가능하도록 self-contained.
  */
 import { useMemo, useState } from 'react';
-import { Search, X, BookMarked } from 'lucide-react';
+import { Link } from 'wouter';
+import { Search, X, BookMarked, ArrowRight } from 'lucide-react';
 import { glossaryByCategory, filterGlossary, GLOSSARY } from '@/lib/glossary';
 
 export function GlossaryBrowser() {
@@ -63,8 +64,11 @@ export function GlossaryBrowser() {
             </h3>
             <div className="grid sm:grid-cols-2 gap-2.5">
               {g.terms.map(([slug, t]) => (
-                <div key={slug} id={`term-${slug}`} className="rounded-lg border border-border bg-card p-3 scroll-mt-28">
-                  <p className="font-bold text-[13.5px] text-foreground">{t.display}</p>
+                <div key={slug} id={`term-${slug}`} className="rounded-lg border border-border bg-card p-3 scroll-mt-28 hover:border-violet-300 transition-colors">
+                  <Link href={`/guide/term/${slug}`} className="group inline-flex items-baseline gap-1">
+                    <span className="font-bold text-[13.5px] text-foreground group-hover:text-violet-800 group-hover:underline">{t.display}</span>
+                    <ArrowRight className="w-3 h-3 text-violet-400 opacity-0 group-hover:opacity-100 self-center" />
+                  </Link>
                   <p className="text-[12.5px] leading-relaxed text-foreground/85 mt-1">{t.short}</p>
                   {t.related && t.related.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-2">
