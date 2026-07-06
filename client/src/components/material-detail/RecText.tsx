@@ -14,6 +14,7 @@
  *   </RecText>
  */
 import * as React from 'react';
+import { TermText } from '@/components/TermLink';
 
 type Segment = { type: 'text' | 'table'; content: string };
 
@@ -68,6 +69,7 @@ function parseAsciiTable(block: string): { headers: string[]; rows: string[][] }
 }
 
 function AsciiTable({ block }: { block: string }) {
+  const seen = new Set<string>(); // 이 표 안에서 용어 첫등장(셀 순서대로) — 프로즈와 독립
   const parsed = parseAsciiTable(block);
   if (!parsed) {
     return (
@@ -93,7 +95,7 @@ function AsciiTable({ block }: { block: string }) {
             <tr key={i} className={i % 2 === 0 ? 'bg-white/10' : ''}>
               {r.map((c, j) => (
                 <td key={j} className="border border-current/20 px-1.5 py-0.5 align-top">
-                  {c}
+                  <TermText text={c} seen={seen} />
                 </td>
               ))}
             </tr>
@@ -126,8 +128,9 @@ export function RecText({
         seg.type === 'table' ? (
           <AsciiTable key={i} block={seg.content} />
         ) : (
+          // R227/E14 — 세그먼트별 첫등장(표는 AsciiTable 내부 seen 으로 독립 → 표 내부 용어도 링크).
           <div key={i} className="whitespace-pre-line">
-            {seg.content}
+            <TermText text={seg.content} />
           </div>
         ),
       )}
