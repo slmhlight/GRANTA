@@ -94,9 +94,28 @@ export function suggestAutolink(form, ambiguous) {
   if (isJunkForm(form)) return false;
   if (form.length < 4 || form.length > 18) return false; // 약어(<4)·설명블롭(>18)은 명시링크만
   if (!/[a-z]/i.test(form)) return false;      // 순수 숫자(4150·304)는 명시링크만 (§A 오탐 방지)
+  if (AUTOLINK_STOP.has(form)) return false;   // 원소명·흔한 영어단어·서술어(§D — 산문 상시등장 → 과링크 재앙)
   if (!/[0-9]/.test(form) && GENERIC_WORDS.has(form)) return false; // 설명어 leak (wing·tank·marine…)
   return true;
 }
+
+/** autolink 제외 — 산문에 흔히 등장하는 단독 토큰(원소명·일반 영어단어·서술어).
+ *  §D "원소기호/명·약어·일반어 기본 false". 재료 지정력이 낮거나 과링크 위험이 큰 form 만.
+ *  (합성어 form: castcarbonsteel·pchighviscosity 등은 산문에 그대로 안 나와 자기제한적 → 미포함.) */
+export const AUTOLINK_STOP = new Set([
+  // 원소명(영문) — 조성 서술에 상시 등장, 순원소 재료로의 링크는 저가치
+  'chromium', 'molybdenum', 'manganese', 'niobium', 'vanadium', 'rhenium', 'lithium', 'boron',
+  'tungsten', 'tantalum', 'titanium', 'aluminum', 'aluminium', 'magnesium', 'nickel', 'cobalt',
+  'copper', 'silicon', 'zirconium', 'hafnium', 'beryllium', 'carbon', 'iron', 'diamond',
+  'purechromium', 'purerhenium', 'ethylene', 'terephthalate', 'copolymer',
+  // 흔한 영어단어(단독 토큰) — 물성/공정 서술에 상시 등장
+  'yield', 'peak', 'cycle', 'depth', 'ratio', 'target', 'spec', 'full', 'more', 'soft', 'rigid',
+  'lean', 'single', 'ahead', 'glass', 'gray', 'naval', 'music', 'rail', 'fused', 'woven', 'twill',
+  'nasa', 'alli', 'density', 'derivative', 'natural', 'section', 'variant', 'crystal', 'cryogenic',
+  'electrical', 'russian', 'injection', 'honeycomb', 'strengthened', 'ductile',
+  // 일반 서술 접두/복합(산문에 단독 토큰으로 새어나오면 오탐)
+  'hightemp', 'mediumcarbon', 'microcarbon', 'maragingsteel', 'superduplex',
+]);
 
 /** 스토리 제목/이름에서 새는 설명 단어 (합금 지정자 아님) — autolink 제외 (§D). */
 export const GENERIC_WORDS = new Set([

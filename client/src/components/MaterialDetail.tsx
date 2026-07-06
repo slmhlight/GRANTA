@@ -26,13 +26,15 @@ import { SpecBadgeList } from '@/components/material-detail/SpecBadgeList';
 /* R161 — Similar / alternative materials card → Composition tab. */
 import { SimilarMaterialsCard } from '@/components/material-detail/SimilarMaterialsCard';
 import { WikiBacklinksCard } from '@/components/material-detail/WikiBacklinksCard';
+import { StoryLinkedText } from '@/components/material-detail/StoryLinkedText';
 import { useWikiRefs } from '@/hooks/useWikiRefs';
+import { buildAutolinkMap } from '@/lib/wiki-link';
 /* R177 — Recommendation text renderer (ASCII table → real <table>). */
 import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor, CONFIDENCE, CONFIDENCE_ORDER } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
-import { useState as useStateRD, useEffect as useEffectRD, lazy as lazyRD, Suspense as SuspenseRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
+import { useState as useStateRD, useEffect as useEffectRD, useMemo as useMemoRD, lazy as lazyRD, Suspense as SuspenseRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
 
 /* R222c — recharts 차트 lazy 분리 (named export → default 변환). 메인 청크에서 recharts 제거. */
@@ -106,6 +108,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
   const t = useT();
   // R227/E14/H2 — 위키 상호참조(backlink) 데이터. 실패 시 null → 카드 숨김(비치명적).
   const wikiLookups = useWikiRefs();
+  // R227/E14/H2b — 스토리 본문 인라인 auto-link 조회 맵(빌드 allowlist). null 이면 평문 렌더.
+  const wikiAutolink = useMemoRD(() => (wikiLookups ? buildAutolinkMap(wikiLookups) : null), [wikiLookups]);
   // R53a — Radar axes + normalize base (localStorage 저장)
   const [radarAxes, setRadarAxes] = useStateRD<RadarAxis[]>(() => {
     try {
@@ -842,7 +846,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                   const tl = material.story_v2.timeline;
                   return (
                     <div className="mt-2 space-y-2.5 text-[11.5px] text-foreground/85 leading-relaxed">
-                      {secs.hook && <p className="font-semibold text-foreground/95 italic">{secs.hook}</p>}
+                      {secs.hook && <p className="font-semibold text-foreground/95 italic"><StoryLinkedText text={secs.hook} map={wikiAutolink} byKey={wikiLookups?.byKey ?? null} selfKey={material.story_key} onSelectMaterial={onSelectMaterial} /></p>}
                       {tl && tl.length > 0 && (
                         <div className="rounded border px-2 py-1.5 space-y-1" style={{ borderColor: `${famColor}40`, background: `${famColor}0a` }}>
                           {tl.map((e, i) => (
@@ -856,7 +860,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                       {ORDER.filter((k) => k !== 'hook' && secs[k]).map((k) => (
                         <div key={k}>
                           <p className="text-[10px] font-semibold uppercase tracking-wide mb-0.5" style={{ color: famColor }}>{SEC_LABEL[k]}</p>
-                          <p className="whitespace-pre-wrap">{secs[k]}</p>
+                          <p className="whitespace-pre-wrap"><StoryLinkedText text={secs[k] as string} map={wikiAutolink} byKey={wikiLookups?.byKey ?? null} selfKey={material.story_key} onSelectMaterial={onSelectMaterial} /></p>
                         </div>
                       ))}
                     </div>
@@ -864,7 +868,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 })() : material.story && (
                   <div className="mt-2 space-y-2 text-[11.5px] text-foreground/85 leading-relaxed">
                     {material.story.split('\n\n').map((para, i) => (
-                      <p key={i} className="whitespace-pre-wrap">{para}</p>
+                      <p key={i} className="whitespace-pre-wrap"><StoryLinkedText text={para} map={wikiAutolink} byKey={wikiLookups?.byKey ?? null} selfKey={material.story_key} onSelectMaterial={onSelectMaterial} /></p>
                     ))}
                   </div>
                 )}
