@@ -10,7 +10,7 @@ import { GLOSSARY, glossaryArticle } from '@/lib/glossary';
 import { GuideSidebar } from './GuideSidebar';
 import { TOC } from './toc';
 import { useReadChapters, GlossaryText, GuideMaterialMapContext } from './components';
-import { GlossaryFigure } from './glossary-figures';
+import { GlossaryFigure, GlossaryPhoto } from './glossary-figures';
 import { useWikiRefs } from '@/hooks/useWikiRefs';
 import { buildAutolinkMap } from '@/lib/wiki-link';
 
@@ -76,6 +76,7 @@ export default function GuideTermPage() {
                       <h2 className="text-[15px] font-bold text-foreground border-b border-border/60 pb-1 mb-2">{sec.heading}</h2>
                       <p className="text-[13.5px] leading-relaxed text-foreground/90 whitespace-pre-line"><GlossaryText excludeTermSlug={slug}>{sec.body}</GlossaryText></p>
                       {sec.figure && <GlossaryFigure id={sec.figure} />}
+                      {sec.photo && <GlossaryPhoto id={sec.photo.id} caption={sec.photo.caption} credit={sec.photo.credit} />}
                     </section>
                   ))}
                   {article.example_materials && article.example_materials.length > 0 && (

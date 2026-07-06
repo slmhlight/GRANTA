@@ -41,3 +41,24 @@ export function GlossaryFigure({ id }: { id: string }): ReactElement | null {
 }
 
 export const GLOSSARY_FIGURE_IDS = Object.keys(URLS);
+
+/* R227/E14/H4c — 실제 미세조직 사진 슬롯. 라이선스 확보된 파일을 client/src/assets/glossary/photos/
+ * 에 넣으면(파일명 = id) 자동 번들·렌더. 파일이 없으면 null(비치명적). credit=출처 표기(라이선스 준수). */
+const photoPngs = import.meta.glob('../../assets/glossary/photos/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' }) as Record<string, string>;
+const PHOTO_URLS: Record<string, string> = {};
+for (const [p, url] of Object.entries(photoPngs)) {
+  const id = p.split('/').pop()!.replace(/\.(png|jpe?g|webp)$/i, '');
+  PHOTO_URLS[id] = url;
+}
+export function GlossaryPhoto({ id, caption, credit }: { id: string; caption: string; credit?: string }): ReactElement | null {
+  const src = PHOTO_URLS[id];
+  if (!src) return null; // 파일 미제공 시 표시 안 함
+  return (
+    <figure className="my-4 rounded-lg border border-border bg-card/60 p-3">
+      <img src={src} alt={caption} className="w-full h-auto rounded" loading="lazy" />
+      <figcaption className="text-[11px] text-muted-foreground mt-1.5 leading-snug">
+        {caption}{credit && <span className="block text-[10px] text-muted-foreground/70 mt-0.5">출처: {credit}</span>}
+      </figcaption>
+    </figure>
+  );
+}

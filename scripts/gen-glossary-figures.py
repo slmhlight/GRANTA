@@ -399,6 +399,29 @@ def fig_fracture_crack():
     save(fig, "fracture-crack")
 
 
+def fig_gp_zones():
+    """석출경화 — 시효 진행에 따른 석출물 변화(과포화→GP존→중간석출→과시효). 개략."""
+    fig, axes = plt.subplots(1, 4, figsize=(10.2, 3.0))
+    np.random.seed(3)
+    stages = [
+        ("I. 과포화 고용체", 0, 0),
+        ("II. GP존 (정합)\n미세·최고경도", 60, 9),
+        ("III. 중간 석출물\n(반정합)", 20, 42),
+        ("IV. 과시효 (비정합)\n조대화·강도↓", 6, 150),
+    ]
+    for ax, (title, n, s) in zip(axes, stages):
+        ax.add_patch(Circle((0.5, 0.58), 0.42, facecolor="#eef1f4", edgecolor=C_AX, lw=1.4))
+        if n:
+            ang = np.random.rand(n) * 2 * np.pi
+            rad = np.sqrt(np.random.rand(n)) * 0.36
+            ax.scatter(0.5 + rad * np.cos(ang), 0.58 + rad * np.sin(ang), s=s, c=C_M, edgecolors="none")
+        ax.text(0.5, 0.02, title, ha="center", va="bottom", fontsize=8.8, color=C_AX, fontweight="bold")
+        ax.set_xlim(0, 1); ax.set_ylim(-0.02, 1.05); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("석출경화 — 시효에 따른 석출물 변화 (개략)", fontsize=11, color=C_AX, y=1.03)
+    fig.subplots_adjust(left=0.01, right=0.99, top=0.9, bottom=0.02, wspace=0.06)
+    save(fig, "gp-zones")
+
+
 def fig_galvanic_cell():
     """갈바닉 부식 — 활성(양극) 금속이 귀한(음극) 금속과 접촉해 가속 부식."""
     fig, ax = plt.subplots(figsize=(7.2, 4.4))
@@ -456,4 +479,5 @@ if __name__ == "__main__":
     fig_fracture_crack()
     fig_galvanic_cell()
     fig_sensitization()
+    fig_gp_zones()
     print("done →", os.path.abspath(OUT))
