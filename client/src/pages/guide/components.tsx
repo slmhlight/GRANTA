@@ -3,7 +3,7 @@
  * Guide.tsx 가 너무 커져 분리. svg 들은 ./svgs.tsx 로 별도 분리.
  */
 import { useState, useEffect } from 'react';
-import { Link } from 'wouter';
+import { Link, useParams } from 'wouter';
 import { ExternalLink, Play, Settings, ChevronDown, ChevronRight } from 'lucide-react';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 
@@ -142,7 +142,12 @@ export function useReadChapters(): { read: Set<string>; toggle: (id: string) => 
  *  hash navigation (#ch6 등) 시 해당 챕터 자동 펼침.
  *  R187 — 학습 진행률 tracking: 'Mark as read' 버튼 + ✓ badge. */
 export function Chapter({ n, id, title, learn, prereq, children }: { n: number; id: string; title: string; learn: string[]; prereq?: React.ReactNode; children?: React.ReactNode }) {
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 639px)').matches);
+  /* R227/E14/H7 — 멀티페이지 라우팅. /guide/:section 이면 매칭 챕터만 렌더(나머지 null).
+     section 미설정(/guide 랜딩)이면 종전대로 전부 렌더 → 하위호환. */
+  const routeParams = useParams<{ section?: string }>();
+  const routedSection = routeParams?.section;
+  const isMobileInit = typeof window !== 'undefined' && window.matchMedia('(max-width: 639px)').matches;
+  const [isMobile, setIsMobile] = useState(() => isMobileInit);
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 639px)');
     const on = () => setIsMobile(mq.matches);
@@ -159,7 +164,7 @@ export function Chapter({ n, id, title, learn, prereq, children }: { n: number; 
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, [id]);
-  const effectiveOpen = isMobile ? open : true;
+  const effectiveOpen = routedSection ? true : (isMobile ? open : true); // 라우팅 단일 챕터는 항상 펼침
   // R187 — 진행률 hook
   const { isRead, toggle } = useReadChapters();
   const read = isRead(id);
@@ -168,6 +173,8 @@ export function Chapter({ n, id, title, learn, prereq, children }: { n: number; 
    * Read 가 true 일 때 default collapsed (이미 학습 — review 시 expand). */
   const [reviewOpen, setReviewOpen] = useState(false);
   const learnVisible = !read || reviewOpen;
+  // R227/E14/H7 — 라우팅: 다른 섹션이면 이 챕터는 렌더 안 함 (모든 hook 호출 이후이므로 안전).
+  if (routedSection && routedSection !== id) return null;
   return (
     <section id={id} className="scroll-mt-24 mt-14">
       <div className="border-b-2 border-accent/30 pb-4 mb-5">

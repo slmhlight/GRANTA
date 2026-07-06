@@ -6,13 +6,14 @@
  * Ansys Granta EduPack 교육자료; 일반 재료역학) 기반. 워크드 예제의 수치는
  * 방법을 보여주기 위한 예시이며 특정 재료의 측정값이 아님.
  */
-import { Link } from 'wouter';
+import { Link, useParams, useLocation } from 'wouter';
 import { useState } from 'react';
 import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass, Rocket, ChevronDown, Search, X, BookMarked } from 'lucide-react';
 import { searchGuide, type GuideIndexEntry } from './guide/index-entries';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { GlossaryBrowser } from '@/components/GlossaryBrowser';
+import { GuideSidebar } from './guide/GuideSidebar';
 // C1: Guide 페이지 구성요소를 ./guide/{components,svgs}.tsx 로 분리해 파일 사이즈 축소.
 import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario, useReadChapters } from './guide/components';
 import {
@@ -75,6 +76,16 @@ const EXTRA_TILES: ScenarioTile[] = [
 const SCENARIO_TILES = [...POPULAR_TILES, ...EXTRA_TILES];
 
 export default function Guide() {
+  // R227/E14/H7 — 멀티페이지: /guide = 랜딩, /guide/:section = 단일 챕터(+사이드바).
+  const routeParams = useParams<{ section?: string }>();
+  const section = routeParams?.section;
+  const [, navigate] = useLocation();
+  /* 랜딩의 기존 #chX 앵커(학습경로·CTA·흐름도 SVG 포함)를 위임 처리 → /guide/chX SPA 이동.
+     앵커 개별 수정 없이 한 곳에서 라우팅(멀티페이지에서 챕터는 별도 페이지이므로). */
+  const onLandingAnchorClick = (e: React.MouseEvent) => {
+    const a = (e.target as HTMLElement)?.closest?.('a[href^="#ch"]') as HTMLElement | null;
+    if (a) { e.preventDefault(); navigate(`/guide/${(a.getAttribute('href') || '').slice(1)}`); }
+  };
   const [dialogKey, setDialogKey] = useState<ScenarioKey | null>(null);
   const openConfig = (k: ScenarioKey) => setDialogKey(k);
   // R61 #3 — 자주 쓰는 6개만 처음 노출. "더 보기" 로 나머지 10 펼침.
@@ -169,7 +180,10 @@ export default function Guide() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-3xl px-5 py-10">
+      <div className="flex">
+        <GuideSidebar toc={TOC} section={section} isRead={isChapterRead} />
+        <div className="mx-auto max-w-3xl px-5 py-10 flex-1 min-w-0">
+        {!section && (<div onClick={onLandingAnchorClick}>
         {/* Hero */}
         <div className="rounded-xl border border-accent/30 bg-gradient-to-br from-accent/10 to-emerald-500/5 p-6">
           <p className="text-[11px] tracking-[0.25em] uppercase text-accent font-bold">기계공학 1학년부터 따라올 수 있는</p>
@@ -392,7 +406,8 @@ export default function Guide() {
             })}
           </ol>
         </div>
-
+        </div>)}
+        {section && (<>
         {/* ── Chapter 7: 실전 사례 ─────────────────────────────────────── */}
         <Chapter
           n={1}
@@ -2245,7 +2260,8 @@ export default function Guide() {
         >
           <GlossaryBrowser />
         </Chapter>
-
+        </>)}
+        </div>
       </div>
     </div>
   );

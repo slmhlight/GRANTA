@@ -24,6 +24,7 @@ function AppRouter() {
         <Switch>
           <Route path={"/"} component={Home} />
           <Route path={"/guide"} component={Guide} />
+          <Route path={"/guide/:section"} component={Guide} />
           <Route path={"/tools"} component={Tools} />
           <Route path={"/404"} component={NotFound} />
           <Route component={NotFound} />
