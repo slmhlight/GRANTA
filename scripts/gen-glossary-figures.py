@@ -399,6 +399,47 @@ def fig_fracture_crack():
     save(fig, "fracture-crack")
 
 
+def fig_galvanic_cell():
+    """갈바닉 부식 — 활성(양극) 금속이 귀한(음극) 금속과 접촉해 가속 부식."""
+    fig, ax = plt.subplots(figsize=(7.2, 4.4))
+    ax.add_patch(Rectangle((0.5, 0.3), 9, 2.9, facecolor="#dce8f2", edgecolor=C_A, lw=1))
+    ax.text(5.0, 0.6, "전해질 (예: 해수)", ha="center", fontsize=9.5, color=C_A)
+    ax.add_patch(Rectangle((1.6, 1.3), 1.5, 2.4, facecolor="#b6bac0", edgecolor=C_M, lw=2.2))
+    ax.text(2.35, 4.05, "양극 (활성 금속)", ha="center", fontsize=9.5, color=C_M, fontweight="bold")
+    ax.text(2.35, 3.78, "→ 가속 부식", ha="center", fontsize=8.5, color=C_M)
+    ax.add_patch(Rectangle((6.9, 1.3), 1.5, 2.4, facecolor="#cdd0d5", edgecolor=C_A, lw=2.2))
+    ax.text(7.65, 4.05, "음극 (귀한 금속)", ha="center", fontsize=9.5, color=C_A, fontweight="bold")
+    ax.text(7.65, 3.78, "→ 보호됨", ha="center", fontsize=8.5, color=C_A)
+    ax.plot([2.35, 2.35, 7.65, 7.65], [3.7, 4.55, 4.55, 3.7], color=C_AX, lw=1.6)
+    ax.text(5.0, 4.72, r"$e^{-}$  전자 흐름", ha="center", fontsize=9.5, color=C_AX)
+    ax.annotate(r"$M^{n+}$ 용출", xy=(3.25, 2.5), xytext=(4.7, 2.5), fontsize=9.5, color=C_M, va="center",
+                arrowprops=dict(arrowstyle="<-", color=C_M, lw=1.2))
+    ax.set_xlim(0, 10); ax.set_ylim(0, 5.1); ax.axis("off")
+    save(fig, "galvanic-cell")
+
+
+def fig_sensitization():
+    """예민화 — 입계 Cr 탄화물 석출 + 인접 Cr 결핍역(입계부식 취약)."""
+    fig, ax = plt.subplots(figsize=(7.2, 4.2))
+    ax.add_patch(Rectangle((0.5, 0.5), 4.3, 3.0, facecolor="#e8ecf0", edgecolor=C_AX, lw=1.2))
+    ax.add_patch(Rectangle((5.2, 0.5), 4.3, 3.0, facecolor="#e8ecf0", edgecolor=C_AX, lw=1.2))
+    ax.text(2.65, 1.9, "결정립 A", ha="center", color=C_AX, fontsize=10)
+    ax.text(7.35, 1.9, "결정립 B", ha="center", color=C_AX, fontsize=10)
+    # Cr 결핍역 (입계 양쪽 밝은 띠)
+    ax.add_patch(Rectangle((4.55, 0.5), 0.9, 3.0, facecolor=C_M, alpha=0.13))
+    # 입계
+    ax.plot([5.0, 5.0], [0.5, 3.5], color=C_AX, lw=2)
+    # Cr 탄화물 (입계 석출)
+    for y in [1.0, 1.7, 2.4, 3.1]:
+        ax.add_patch(Circle((5.0, y), 0.15, facecolor="#111", edgecolor="none"))
+    ax.annotate("Cr 탄화물 (입계 석출)", xy=(5.0, 3.1), xytext=(5.7, 4.05), fontsize=9, color=C_AX, ha="left",
+                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
+    ax.annotate("Cr 결핍역 → 입계부식 취약", xy=(4.55, 1.2), xytext=(0.6, 4.05), fontsize=9, color=C_M, ha="left",
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    ax.set_xlim(0, 10); ax.set_ylim(0, 4.7); ax.axis("off")
+    save(fig, "sensitization")
+
+
 if __name__ == "__main__":
     fig_martensite_lattice()
     fig_fcc_bcc()
@@ -413,4 +454,6 @@ if __name__ == "__main__":
     fig_passivation_pitting()
     fig_scc_venn()
     fig_fracture_crack()
+    fig_galvanic_cell()
+    fig_sensitization()
     print("done →", os.path.abspath(OUT))
