@@ -33,6 +33,11 @@ client/public/materials.json
 client/public/build-meta.json
 data/validation-report.md
 
+# R227/E14 — 위키 인덱스는 build:wiki 산출물(materials.json 관행). CI 가 build:data→build:wiki 로 재생성.
+client/public/wiki-index.json
+client/public/wiki-backlinks.json
+client/public/wiki-meta.json
+
 # R100 — Hyundai Steel catalog OCR 산출 텍스트 (각 ~500 KB, source = PDF).
 #         의사 결정 근거 자료로 보관하지만 repo tracking 은 불필요.
 data/hyundai-steel-pt1-ocr.txt

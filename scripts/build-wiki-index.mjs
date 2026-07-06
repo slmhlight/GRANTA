@@ -72,8 +72,8 @@ for (const [key, st] of Object.entries(doc.stories)) {
   const uns = [...new Set(members.flatMap((x) => x.entry.uns || []))];
   entities.push({
     id: key, type: 'material', display: st.display || key,
-    story_key: key, rep_stable_id: rep,
-    surface_forms: [...formMap.entries()].map(([form, sid]) => ({ form, sid })),
+    story_key: key, rep_stable_id: rep, rep_id: rev[rep] || null,  // rep_id = 클라이언트 m.id(legacy) — 네비게이션용
+    surface_forms: [...formMap.entries()].map(([form, sid]) => ({ form, sid, id: rev[sid] || null })),
     uns, member_count: members.length,
   });
 }
@@ -143,7 +143,8 @@ const backlinkObj = {
   _note: 'R227/E14/H2 위키 역인덱스: entityId → 이 재료를 본문에서 언급하는 스토리들. allowlist auto-link 매칭(단어경계·self제외).',
   generated_from: inputHashes, backlinks,
 };
-fs.writeFileSync(path.join(ROOT, 'data/wiki-backlinks.json'), JSON.stringify(backlinkObj, null, 1) + '\n');
+// 산출물은 client/public/ (gitignore, CI/build:wiki 가 재생성 — materials.json 관행). build:data 선행 필요.
+fs.writeFileSync(path.join(ROOT, 'client/public/wiki-backlinks.json'), JSON.stringify(backlinkObj, null, 1) + '\n');
 const entitiesWithBacklink = Object.keys(backlinks).length;
 const storiesWithOutlink = new Set(sampleEdges.map(() => 0)); // placeholder
 const outByStory = {};
@@ -156,7 +157,7 @@ const index = {
   inputHashes,
   entities,
 };
-fs.writeFileSync(path.join(ROOT, 'data/wiki-index.json'), JSON.stringify(index, null, 1) + '\n');
+fs.writeFileSync(path.join(ROOT, 'client/public/wiki-index.json'), JSON.stringify(index, null, 1) + '\n');
 
 const totalForms = entities.reduce((s, e) => s + e.surface_forms.length, 0);
 const meta = {
@@ -174,7 +175,7 @@ const meta = {
   avg_outlink_per_story: Number(avgOut),
   backlink_sample: sampleEdges,
 };
-fs.writeFileSync(path.join(ROOT, 'data/wiki-meta.json'), JSON.stringify(meta, null, 1) + '\n');
+fs.writeFileSync(path.join(ROOT, 'client/public/wiki-meta.json'), JSON.stringify(meta, null, 1) + '\n');
 
 console.log(`wiki-index: 엔티티 ${entities.length} · surface-form ${totalForms} (autolink 제안 ${autolinkYes} / off ${autolinkNo}) · 모호 form ${ambiguousForms}`);
 console.log('모호 상위:', ambiguityReport.slice(0, 12).map((a) => `${a.form}(${a.owners.length})`).join(' '));

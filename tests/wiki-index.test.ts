@@ -17,17 +17,17 @@ const ROOT = process.cwd();
 const rd = (p: string) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 const materialsRaw = rd('client/public/materials.json');
 const storiesRaw = rd('data/alloy-stories.json');
-const IDX = JSON.parse(rd('data/wiki-index.json')) as {
+const IDX = JSON.parse(rd('client/public/wiki-index.json')) as {
   version: number;
   inputHashes: { materials: string; stories: string };
   entities: Array<{
-    id: string; type: string; display: string; story_key: string; rep_stable_id: string;
-    surface_forms: Array<{ form: string; sid: string; autolink?: boolean; ambiguous?: boolean }>;
+    id: string; type: string; display: string; story_key: string; rep_stable_id: string; rep_id: string | null;
+    surface_forms: Array<{ form: string; sid: string; id: string | null; autolink?: boolean; ambiguous?: boolean }>;
     uns: string[]; member_count: number;
   }>;
 };
 const STORIES = JSON.parse(storiesRaw).stories as Record<string, { stable_ids: string[] }>;
-const BL = JSON.parse(rd('data/wiki-backlinks.json')) as {
+const BL = JSON.parse(rd('client/public/wiki-backlinks.json')) as {
   generated_from: { materials: string; stories: string };
   backlinks: Record<string, string[]>;
 };
@@ -42,8 +42,15 @@ describe('wiki-index 스키마·무결성 (R227/E14/H1)', () => {
       expect(e.type).toBe('material');
       expect(e.story_key, `${e.id} story_key`).toBeTruthy();
       expect(e.rep_stable_id, `${e.id} rep`).toMatch(/^[A-Z]{3}-\d+/);
+      expect(e.rep_id, `${e.id} rep_id(legacy — 클라이언트 네비게이션)`).toBeTruthy();
       expect(Array.isArray(e.surface_forms) && e.surface_forms.length > 0, `${e.id} forms`).toBe(true);
     }
+  });
+
+  it('rep_id 는 실제 materials entry 로 해석됨 (클라이언트 네비게이션 유효)', () => {
+    const mIds = new Set((JSON.parse(materialsRaw) as Array<{ id: string }>).map((x) => x.id));
+    const bad = IDX.entities.filter((e) => !mIds.has(e.rep_id!)).map((e) => e.id);
+    expect(bad).toEqual([]);
   });
 
   it('엔티티 id(slug) 유니크', () => {

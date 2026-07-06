@@ -21,6 +21,9 @@ jobs:
       - name: Generate materials.json (data pipeline)
         # client/public/materials.json 는 R91 부터 .gitignore 처리 — CI 에서 매 run 직접 생성.
         run: pnpm build:data
+      - name: Generate wiki index (R227/E14 — build:data 선행 필요)
+        # client/public/wiki-*.json 은 build:wiki 산출물(.gitignore). 게이트 tests/wiki-index.test.ts 가 읽음.
+        run: pnpm build:wiki
       - name: Type check (tsc --noEmit)
         run: pnpm check
       - name: "Lint (eslint — 정책 룰: react-hooks·TDZ·dark: 금지)"
