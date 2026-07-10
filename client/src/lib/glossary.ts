@@ -25,7 +25,9 @@ export const GLOSSARY = glossaryJson as unknown as GlossaryData;
 
 /* R227/E14/H4c — A4 상세 본문(확장 term 만). */
 export interface GlossaryPhoto { id: string; caption: string; credit?: string }
-export interface GlossarySection { heading: string; body: string; figure?: string; photo?: GlossaryPhoto }
+/** H4d D7 — 열거형 정보(탄화물 종류·grade 비교 등)는 표로. body 다음에 렌더. */
+export interface GlossaryTable { headers: string[]; rows: string[][] }
+export interface GlossarySection { heading: string; body: string; figure?: string; photo?: GlossaryPhoto; table?: GlossaryTable }
 export interface GlossaryExampleMaterial { label: string; id: string }
 export interface GlossaryArticle { sections: GlossarySection[]; example_materials?: GlossaryExampleMaterial[]; refs?: string[] }
 const ARTICLES = (articlesJson as unknown as { articles: Record<string, GlossaryArticle> }).articles;

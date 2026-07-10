@@ -75,6 +75,31 @@ export default function GuideTermPage() {
                     <section key={i}>
                       <h2 className="text-[15px] font-bold text-foreground border-b border-border/60 pb-1 mb-2">{sec.heading}</h2>
                       <p className="text-[13.5px] leading-relaxed text-foreground/90 whitespace-pre-line"><GlossaryText excludeTermSlug={slug}>{sec.body}</GlossaryText></p>
+                      {/* H4d D7 — 열거형 정보 표 (탄화물 종류·grade 비교 등). 셀에도 용어 자동링크. */}
+                      {sec.table && (
+                        <div className="overflow-x-auto my-3">
+                          <table className="w-full text-[12px] border border-border rounded">
+                            <thead>
+                              <tr className="bg-muted/60">
+                                {sec.table.headers.map((h) => (
+                                  <th key={h} className="px-2 py-1.5 text-left font-semibold border-b border-border whitespace-nowrap">{h}</th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {sec.table.rows.map((row, ri) => (
+                                <tr key={ri} className={ri % 2 ? 'bg-muted/20' : ''}>
+                                  {row.map((cell, ci) => (
+                                    <td key={ci} className={`px-2 py-1.5 border-b border-border/50 align-top ${ci === 0 ? 'font-semibold whitespace-nowrap' : ''}`}>
+                                      <GlossaryText excludeTermSlug={slug}>{cell}</GlossaryText>
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
                       {sec.figure && <GlossaryFigure id={sec.figure} />}
                       {sec.photo && <GlossaryPhoto id={sec.photo.id} caption={sec.photo.caption} credit={sec.photo.credit} />}
                     </section>
