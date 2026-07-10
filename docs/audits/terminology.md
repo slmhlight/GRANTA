@@ -1,17 +1,16 @@
 # 용어 정확·일관 감사 리포트 (자동 생성 — audit-terminology.mjs)
 
-> §3.1 대응표 기준 한글 열처리어 사용처: **총 629 건 / 75 (용어×소스)**. Phase 5 영어원문 스윕의 작업 목록.
-> **"정규화" 오역(열처리 문맥): 4 건** — 최우선 교정.
+> §3.1 대응표 기준 한글 열처리어 사용처: **총 625 건 / 75 (용어×소스)**. Phase 5 영어원문 스윕의 작업 목록.
+> **"정규화" 오역(열처리 문맥): 0 건** — 최우선 교정.
 
 | 한글 패턴 | 영어 표준 | 소스 | 건수 | 오역 | 샘플 |
 |---|---|---|---|---|---|
-| 정규화 | Normalizing | 스토리 (data/alloy-stories.json) | 4 | **⚠** | 심이다.", "breakthrough": "정규화(normalizing)로 페라이트-펄라이트 조직을  |
 | 시효 | Aging | 스토리 (data/alloy-stories.json) | 69 |  | 제거해 단면 어느 방향으로든 균일한 인성을 낸다. 시효 온도(H900~H1150)로 강도를 조율하는 것도 같 |
-| 담금질|소입 | Quenching | 스토리 (data/alloy-stories.json) | 52 |  | 께 독일 뒤렌의 알프레드 빌름은 Al-Cu 합금을 담금질해 두고 며칠 뒤 강도가 두 배로 오른 것을 발견했다 |
+| 담금질|소입 | Quenching | 스토리 (data/alloy-stories.json) | 50 |  | 께 독일 뒤렌의 알프레드 빌름은 Al-Cu 합금을 담금질해 두고 며칠 뒤 강도가 두 배로 오른 것을 발견했다 |
 | 시효 | Aging | 글로서리 A4 (data/glossary-articles.json) | 31 |  |  강의 강화 원리가 바로 마르텐사이트(+후속 석출·시효)다." }, {  |
 | 뜨임|소려 | Tempering | 글로서리 A4 (data/glossary-articles.json) | 27 |  |  그대로는 취성이 커서, 실제 부품에는 거의 항상 뜨임을 거쳐 인성을 회복시킨 뒤 사용한다."  |
 | 담금질|소입 | Quenching | 글로서리 A4 (data/glossary-articles.json) | 25 |  |  "body": "마르텐사이트는 강을 급랭(담금질)할 때 생기는 대표적인 경화 조직이다. 이름은 강의 |
-| 뜨임|소려 | Tempering | 스토리 (data/alloy-stories.json) | 23 |  |  형성을 맡는다 — 그 결과 300M 같은 담금질-뜨임 초고강도강보다 같은 강도에서 훨씬 잘 안 깨진다. 청 |
+| 뜨임|소려 | Tempering | 스토리 (data/alloy-stories.json) | 21 |  |  형성을 맡는다 — 그 결과 300M 같은 담금질-뜨임 초고강도강보다 같은 강도에서 훨씬 잘 안 깨진다. 청 |
 | 침탄 | Carburizing | 스토리 (data/alloy-stories.json) | 21 |  | 면 1018·1020 으로, 표면 경화가 필요하면 침탄강으로 간다.", "fun_fact": "클립· |
 | 경화능 | Hardenability | 스토리 (data/alloy-stories.json) | 21 |  |  "breakthrough": "보론 미량이 경화능을 극적으로 높여 금형 냉각만으로 완전 마르텐사이트를 |
 | 시효 | Aging | 공정 프로파일 (data/process-profiles.json) | 21 |  | uCrZr 석출경화 Cu — 순동보다 훨씬 양호. 시효 상태 가공 권장.", "guidance_key |
@@ -47,6 +46,7 @@
 | 경화능 | Hardenability | 글로서리 A4 (data/glossary-articles.json) | 5 |  |  "heading": "임계냉각속도와 경화능", "figure": "ttt- |
 | 질화(?!물|텅스텐) | Nitriding | 선택 인사이트 (data/selection-insights.json) | 5 |  | 면)", "use": "8620 침탄 / 4140 질화", "why": "기어는 표면 피로(HRC 58+)와 |
 | 질화(?!물|텅스텐) | Nitriding | 가이드 프로즈(UI) (client/src/pages/Guide.tsx) | 5 |  | 인성 ≥ 30 J</b> (충격 흡수), 침탄 / 질화 / 유도 경화 적용 가능 alloy. AGMA gra |
+| 불림 | Normalizing | 스토리 (data/alloy-stories.json) | 4 |  | breakthrough": "Normalizing(불림)으로 페라이트-펄라이트 조직을 미세·균질하게 만들어  |
 | 질화(?!물|텅스텐) | Nitriding | 글로서리 정의 (data/glossary.json) | 4 |  | /Acm 이상으로 가열 후 공랭하여 조직을 미세·균질화하는 열처리. 풀림보다 강도·경도가 약간 높다.",  |
 | 응력제거|응력 제거 | Stress relief | 글로서리 A4 (data/glossary-articles.json) | 4 |  | : "세 요소 중 하나를 끊으면 된다. 잔류응력을 응력제거풀림으로 낮추고, 환경(염화물 농도·온도)을 관리하 |
 | 침탄 | Carburizing | 공정 프로파일 (data/process-profiles.json) | 4 |  | "label": "보통", "note": "침탄강 (8620/9310) — 침탄 전 가공 표준. 침탄 |
