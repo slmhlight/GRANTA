@@ -974,124 +974,243 @@ def fig_cast_iron_family():
 
 
 def fig_forming_processes():
-    """소성가공 4공정 — Rolling·Forging·Extrusion·Drawing 개략."""
-    fig, axes = plt.subplots(2, 2, figsize=(9.0, 6.6))
-    # (1) Rolling — 롤 2개 사이 판재
+    """소성가공 4공정 v2 — 결정립 변화·유동선·치수 주석 포함 (Figure Quality v2)."""
+    from matplotlib.patches import Ellipse
+    fig, axes = plt.subplots(2, 2, figsize=(9.6, 7.0))
+    rng = np.random.RandomState(2)
+    BIL = "#d98f4a"; DIE = "#8a96a3"
+    # ── (1) Rolling — 입측 등축립 → 출측 연신립 + 회전·t0/t1 ──
     ax = axes[0, 0]
-    ax.add_patch(Rectangle((0.05, 0.44), 0.9, 0.16, facecolor="#c9ccd2", edgecolor=C_AX, lw=1.2))
-    ax.add_patch(Rectangle((0.05, 0.47), 0.42, 0.13, facecolor="#b0b4bc", edgecolor="none"))  # 두꺼운 입측
-    ax.add_patch(Circle((0.5, 0.78), 0.16, facecolor="#8a96a3", edgecolor=C_AX, lw=1.5))
-    ax.add_patch(Circle((0.5, 0.26), 0.16, facecolor="#8a96a3", edgecolor=C_AX, lw=1.5))
-    for (cy, s) in [(0.78, 1), (0.26, -1)]:
-        ax.annotate("", xy=(0.58, cy + 0.1 * s), xytext=(0.42, cy + 0.1 * s),
-                    arrowprops=dict(arrowstyle="->", color="#333", lw=1.2, connectionstyle=f"arc3,rad={-0.5 * s}"))
-    ax.annotate("", xy=(0.97, 0.52), xytext=(0.82, 0.52), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=2))
-    ax.text(0.5, 0.02, "롤 사이로 눌러 얇게 — 판·형강", ha="center", fontsize=8.3, color=C_MUTE)
+    ax.add_patch(Rectangle((0.03, 0.42), 0.44, 0.2, facecolor="#d9dde2", edgecolor=C_AX, lw=1.2))   # 입측(두꺼움)
+    ax.add_patch(Rectangle((0.53, 0.475), 0.44, 0.11, facecolor="#c9ccd2", edgecolor=C_AX, lw=1.2))  # 출측(얇음)
+    ax.add_patch(Polygon([(0.47, 0.42), (0.53, 0.475), (0.53, 0.585), (0.47, 0.62)], facecolor="#d1d5da", edgecolor=C_AX, lw=1.0))
+    # 결정립: 입측 등축 원 → 출측 납작 타원
+    for _ in range(12):
+        ax.add_patch(Circle((rng.uniform(0.06, 0.42), rng.uniform(0.455, 0.585)), 0.017, facecolor="none", edgecolor="#5a6572", lw=0.7))
+    for _ in range(12):
+        ax.add_patch(Ellipse((rng.uniform(0.57, 0.94), rng.uniform(0.505, 0.555)), 0.075, 0.014, facecolor="none", edgecolor="#5a6572", lw=0.7))
+    # 롤 + 회전 화살표 (롤이 출측 판을 정확히 무는 위치)
+    ax.add_patch(Circle((0.5, 0.74), 0.155, facecolor=DIE, edgecolor=C_AX, lw=1.5))
+    ax.add_patch(Circle((0.5, 0.32), 0.155, facecolor=DIE, edgecolor=C_AX, lw=1.5))
+    ax.add_patch(Circle((0.5, 0.74), 0.02, facecolor=C_AX)); ax.add_patch(Circle((0.5, 0.32), 0.02, facecolor=C_AX))
+    for (cy, s) in [(0.74, 1), (0.32, -1)]:
+        ax.annotate("", xy=(0.585, cy + 0.09 * s), xytext=(0.415, cy + 0.09 * s),
+                    arrowprops=dict(arrowstyle="->", color="#222", lw=1.3, connectionstyle=f"arc3,rad={-0.6 * s}"))
+    ax.annotate("", xy=(0.99, 0.53), xytext=(0.9, 0.53), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=2))
+    # 치수 주석 t0 → t1
+    ax.annotate("", xy=(0.055, 0.42), xytext=(0.055, 0.62), arrowprops=dict(arrowstyle="<->", color=C_M, lw=0.9))
+    ax.text(0.075, 0.665, "$t_0$", fontsize=9, color=C_M)
+    ax.annotate("", xy=(0.945, 0.475), xytext=(0.945, 0.585), arrowprops=dict(arrowstyle="<->", color=C_M, lw=0.9))
+    ax.text(0.9, 0.63, "$t_1$", fontsize=9, color=C_M)
+    ax.text(0.5, 0.045, "등축립 → 압연 방향 연신립 (이방성 발생) · 열간은 재결정", ha="center", fontsize=7.8, color=C_MUTE)
     ax.set_title("압연 (Rolling)", fontsize=10.5, color=C_AX, fontweight="bold")
-    # (2) Forging — 다이로 단조
+    # ── (2) Forging — 형단조 곡면 다이·플래시·grain flow ──
     ax = axes[0, 1]
-    ax.add_patch(Rectangle((0.25, 0.62), 0.5, 0.2, facecolor="#8a96a3", edgecolor=C_AX, lw=1.5))  # 상형
-    ax.add_patch(Rectangle((0.25, 0.08), 0.5, 0.14, facecolor="#8a96a3", edgecolor=C_AX, lw=1.5))  # 하형
-    ax.add_patch(Polygon([(0.33, 0.22), (0.67, 0.22), (0.72, 0.42), (0.62, 0.62), (0.38, 0.62), (0.28, 0.42)],
-                         facecolor="#d98f4a", edgecolor=C_M, lw=1.4))  # 배부른 소재
-    ax.annotate("", xy=(0.5, 0.66), xytext=(0.5, 0.92), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2.6))
-    ax.text(0.56, 0.85, "타격/가압", fontsize=8.3, color=C_M)
-    ax.text(0.5, 0.02, "다이 사이에서 눌러 성형 — 결정립 유동선", ha="center", fontsize=8.3, color=C_MUTE)
+    ax.add_patch(Polygon([(0.18, 0.88), (0.82, 0.88), (0.82, 0.66), (0.68, 0.66), (0.6, 0.58), (0.4, 0.58), (0.32, 0.66), (0.18, 0.66)],
+                         facecolor=DIE, edgecolor=C_AX, lw=1.4))  # 상형(형상 파임)
+    ax.add_patch(Polygon([(0.18, 0.1), (0.82, 0.1), (0.82, 0.32), (0.68, 0.32), (0.6, 0.4), (0.4, 0.4), (0.32, 0.32), (0.18, 0.32)],
+                         facecolor=DIE, edgecolor=C_AX, lw=1.4))  # 하형
+    ax.add_patch(Polygon([(0.32, 0.34), (0.4, 0.42), (0.6, 0.42), (0.68, 0.34), (0.78, 0.49), (0.68, 0.64),
+                          (0.6, 0.56), (0.4, 0.56), (0.32, 0.64), (0.22, 0.49)],
+                         facecolor=BIL, edgecolor=C_M, lw=1.3))  # 성형 소재
+    # 플래시(분할면으로 삐져나온 잔탕)
+    ax.add_patch(Rectangle((0.13, 0.465), 0.1, 0.05, facecolor=BIL, edgecolor=C_M, lw=0.9))
+    ax.add_patch(Rectangle((0.77, 0.465), 0.1, 0.05, facecolor=BIL, edgecolor=C_M, lw=0.9))
+    ax.annotate("플래시(flash)", xy=(0.875, 0.462), xytext=(1.01, 0.365), fontsize=7.6, color=C_M, ha="right",
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=0.8))
+    # grain flow — 형상을 따라 흐르는 유동선
+    tt = np.linspace(-1, 1, 60)
+    for off in [-0.055, -0.02, 0.02, 0.055]:
+        xs = 0.5 + tt * 0.21
+        ys = 0.49 + off + 0.075 * np.sign(off) * (1 - tt ** 2) * (abs(off) / 0.055)
+        ax.plot(xs, ys, color="#8a4a2a", lw=0.9, alpha=0.85)
+    ax.annotate("", xy=(0.5, 0.9), xytext=(0.5, 1.0), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2.6))
+    ax.text(0.56, 0.95, "타격/가압", fontsize=8.2, color=C_M)
+    ax.text(0.5, 0.02, "", ha="center", fontsize=1)
+    ax.text(0.42, 0.02, "grain flow 가 형상을 따라 이어짐 → 피로에 강함", ha="center", fontsize=7.8, color=C_MUTE)
     ax.set_title("단조 (Forging)", fontsize=10.5, color=C_AX, fontweight="bold")
-    # (3) Extrusion — 컨테이너에서 다이로 압출
+    # ── (3) Extrusion — 램·수렴 유동선·L형 단면 출력 ──
     ax = axes[1, 0]
-    ax.add_patch(Rectangle((0.06, 0.3), 0.5, 0.4, facecolor="none", edgecolor=C_AX, lw=2))       # 컨테이너
-    ax.add_patch(Rectangle((0.1, 0.34), 0.42, 0.32, facecolor="#d98f4a", edgecolor="none"))       # 빌릿
-    ax.add_patch(Polygon([(0.56, 0.3), (0.56, 0.7), (0.68, 0.58), (0.68, 0.42)], facecolor="#8a96a3", edgecolor=C_AX, lw=1.4))  # 다이
-    ax.add_patch(Rectangle((0.68, 0.44), 0.27, 0.12, facecolor="#d98f4a", edgecolor=C_M, lw=1.0))  # 압출재
-    ax.annotate("", xy=(0.16, 0.5), xytext=(0.02, 0.5), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2.4))
-    ax.annotate("", xy=(0.99, 0.5), xytext=(0.9, 0.5), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.8))
-    ax.text(0.5, 0.12, "빌릿을 다이 구멍으로 밀어냄 — 봉·관·복잡 단면", ha="center", fontsize=8.3, color=C_MUTE)
+    ax.add_patch(Rectangle((0.04, 0.3), 0.56, 0.4, facecolor="none", edgecolor=C_AX, lw=2))
+    ax.add_patch(Rectangle((0.05, 0.32), 0.07, 0.36, facecolor="#5a6572", edgecolor=C_AX, lw=1.0))  # 램+패드
+    ax.add_patch(Rectangle((0.12, 0.33), 0.47, 0.34, facecolor=BIL, edgecolor="none"))               # 빌릿
+    ax.add_patch(Polygon([(0.59, 0.3), (0.59, 0.7), (0.72, 0.57), (0.72, 0.43)], facecolor=DIE, edgecolor=C_AX, lw=1.4))
+    ax.add_patch(Rectangle((0.72, 0.455), 0.26, 0.09, facecolor=BIL, edgecolor=C_M, lw=1.0))         # 압출재
+    # 수렴 유동선
+    for y0 in [0.38, 0.45, 0.55, 0.62]:
+        xs = np.linspace(0.15, 0.7, 40)
+        ys = y0 + (0.5 - y0) * ((xs - 0.15) / 0.55) ** 2.2
+        ax.plot(xs, ys, color="#8a4a2a", lw=0.85, alpha=0.85)
+    ax.annotate("", xy=(0.05, 0.5), xytext=(-0.04, 0.5), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2.4))
+    ax.text(0.06, 0.745, "램(ram) — 가압 ~수백 MPa", fontsize=7.4, color=C_M)
+    ax.annotate("", xy=(1.0, 0.5), xytext=(0.93, 0.5), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.8))
+    # 출력 단면 예시(L형 프로파일)
+    ax.add_patch(Polygon([(0.8, 0.13), (0.97, 0.13), (0.97, 0.19), (0.87, 0.19), (0.87, 0.33), (0.8, 0.33)],
+                         facecolor=BIL, edgecolor=C_M, lw=1.0))
+    ax.text(0.885, 0.055, "복잡 단면 가능", fontsize=7.4, color=C_MUTE, ha="center")
+    ax.text(0.34, 0.16, "유동선이 다이로 수렴 —\n압출비 10~100 (Al 400~500 °C)", fontsize=7.6, color=C_MUTE, ha="center")
     ax.set_title("압출 (Extrusion)", fontsize=10.5, color=C_AX, fontweight="bold")
-    # (4) Drawing — 다이로 인발
+    # ── (4) Drawing — 다이 반단면·각도·d0→d1·인발력 ──
     ax = axes[1, 1]
-    ax.add_patch(Polygon([(0.3, 0.72), (0.55, 0.58), (0.55, 0.42), (0.3, 0.28)], facecolor="#8a96a3", edgecolor=C_AX, lw=1.4))
-    ax.add_patch(Polygon([(0.3, 0.72), (0.55, 0.58), (0.55, 0.42), (0.3, 0.28)], facecolor="none", edgecolor=C_AX, lw=1.4))
-    ax.add_patch(Rectangle((0.02, 0.42), 0.31, 0.16, facecolor="#d98f4a", edgecolor="none"))      # 굵은 입측
-    ax.add_patch(Rectangle((0.55, 0.465), 0.42, 0.07, facecolor="#d98f4a", edgecolor=C_M, lw=1.0))  # 가는 출측
-    ax.annotate("", xy=(0.99, 0.5), xytext=(0.85, 0.5), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2.4))
-    ax.text(0.9, 0.6, "당김", fontsize=8.3, color=C_M, ha="center")
-    ax.text(0.5, 0.12, "다이를 통해 당겨 가늘게 — 선재·정밀 봉·관", ha="center", fontsize=8.3, color=C_MUTE)
+    ax.add_patch(Polygon([(0.34, 0.86), (0.58, 0.63), (0.58, 0.555), (0.34, 0.555)], facecolor=DIE, edgecolor=C_AX, lw=1.3))
+    ax.add_patch(Polygon([(0.34, 0.14), (0.58, 0.37), (0.58, 0.445), (0.34, 0.445)], facecolor=DIE, edgecolor=C_AX, lw=1.3))
+    ax.add_patch(Rectangle((0.02, 0.4), 0.34, 0.2, facecolor=BIL, edgecolor="none"))                 # 굵은 입측 d0
+    ax.add_patch(Polygon([(0.36, 0.4), (0.58, 0.455), (0.58, 0.545), (0.36, 0.6)], facecolor=BIL, edgecolor="none"))
+    ax.add_patch(Rectangle((0.58, 0.455), 0.4, 0.09, facecolor=BIL, edgecolor=C_M, lw=1.0))          # 가는 출측 d1
+    # 다이 각도 α
+    ax.plot([0.34, 0.62], [0.5, 0.5], color=C_AX, lw=0.6, ls=":")
+    ax.annotate("반각 $\\alpha \\approx$ 6~10°", xy=(0.47, 0.55), xytext=(0.36, 0.73), fontsize=7.6, color=C_AX,
+                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.8))
+    # 치수
+    ax.annotate("", xy=(0.05, 0.4), xytext=(0.05, 0.6), arrowprops=dict(arrowstyle="<->", color=C_M, lw=0.9))
+    ax.text(0.075, 0.65, "$d_0$", fontsize=9, color=C_M)
+    ax.annotate("", xy=(0.93, 0.455), xytext=(0.93, 0.545), arrowprops=dict(arrowstyle="<->", color=C_M, lw=0.9))
+    ax.text(0.885, 0.6, "$d_1$", fontsize=9, color=C_M)
+    ax.annotate("", xy=(1.0, 0.5), xytext=(0.955, 0.5), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2.2))
+    ax.text(0.975, 0.41, "F", fontsize=9.5, color=C_M, fontweight="bold", ha="center")
+    ax.text(0.2, 0.335, "윤활 필수", fontsize=7.4, color=C_MUTE, ha="center")
+    ax.text(0.5, 0.06, "패스당 단면감소 20~45% · 가공경화 누적 → 중간 Annealing", ha="center", fontsize=7.8, color=C_MUTE)
     ax.set_title("인발 (Drawing)", fontsize=10.5, color=C_AX, fontweight="bold")
     for ax in axes.ravel():
-        ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.set_aspect("equal"); ax.axis("off")
-    fig.suptitle("소성가공 4대 공정 (개략) — 압연·단조·압출·인발", fontsize=11.5, color=C_AX, y=0.99)
-    fig.subplots_adjust(left=0.02, right=0.98, top=0.9, bottom=0.03, wspace=0.08, hspace=0.2)
+        ax.set_xlim(-0.06, 1.02); ax.set_ylim(0, 1.02); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("소성가공 4대 공정 (개략) — 힘·유동·조직 변화", fontsize=11.5, color=C_AX, y=0.99)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.92, bottom=0.02, wspace=0.06, hspace=0.14)
     save(fig, "forming-processes")
 
 
 def fig_casting_process():
-    """주조 — 사형 주조 단면 개략 (탕구·러너·라이저·캐비티)."""
-    fig, ax = plt.subplots(figsize=(7.6, 4.6))
-    ax.add_patch(Rectangle((0.5, 0.4), 9, 4.2, facecolor="#d8cdb8", edgecolor=C_AX, lw=1.5))     # 사형(모래)
-    ax.plot([0.5, 9.5], [2.5, 2.5], color=C_AX, lw=1.0, ls=":")                                   # 상형/하형 경계
-    # 캐비티(제품): 아령 모양
-    ax.add_patch(Rectangle((3.2, 1.4), 3.6, 1.0, facecolor="#e8a34e", edgecolor=C_M, lw=1.4))
-    # 탕구(sprue) 깔때기 + 수직로
-    ax.add_patch(Polygon([(1.7, 4.6), (2.5, 4.6), (2.25, 3.9), (1.95, 3.9)], facecolor="#e8a34e", edgecolor=C_M, lw=1.2))
-    ax.add_patch(Rectangle((1.95, 1.4), 0.3, 2.5, facecolor="#e8a34e", edgecolor=C_M, lw=1.2))
-    ax.add_patch(Rectangle((2.25, 1.4), 0.95, 0.55, facecolor="#e8a34e", edgecolor=C_M, lw=1.2))  # 러너
-    # 라이저(riser·압탕)
-    ax.add_patch(Rectangle((5.7, 2.4), 0.7, 1.8, facecolor="#e8a34e", edgecolor=C_M, lw=1.2))
-    ax.annotate("쇳물 주입", xy=(2.1, 4.65), xytext=(0.7, 5.2), fontsize=9, color=C_M,
-                arrowprops=dict(arrowstyle="->", color=C_M, lw=1.1))
-    ax.annotate("탕구(sprue)", xy=(2.1, 3.4), xytext=(0.55, 3.4), fontsize=8.5, color=C_AX,
+    """주조 v2 — 사형 단면(레이들·코어·수축관) + 응고 조직 인셋 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(9.6, 5.4))
+    rng = np.random.RandomState(6)
+    # ── 사형(모래) 본체 + 모래 텍스처(stipple) ──
+    ax.add_patch(Rectangle((0.5, 0.4), 9, 4.2, facecolor="#d8cdb8", edgecolor=C_AX, lw=1.5))
+    sx = rng.uniform(0.6, 9.4, 950); sy = rng.uniform(0.5, 4.5, 950)
+    ax.scatter(sx, sy, s=1.1, c="#b9ab90", alpha=0.6, zorder=1)
+    ax.plot([0.5, 9.5], [2.5, 2.5], color=C_AX, lw=1.0, ls=":", zorder=3)  # 분할면(parting line)
+    ax.text(9.42, 2.62, "분할면", fontsize=7.2, color=C_AX, ha="right", zorder=6)
+    ax.text(9.42, 4.38, "상형(cope)", fontsize=7.5, color="#6b5d43", ha="right", zorder=6)
+    ax.text(9.42, 0.55, "하형(drag)", fontsize=7.5, color="#6b5d43", ha="right", zorder=6)
+    # ── 쇳물 시스템 (온도 그라데이션: 탕구 뜨거움 → 말단 식음) ──
+    HOT, MID = "#f2903a", "#e8a34e"
+    ax.add_patch(Polygon([(1.7, 4.6), (2.5, 4.6), (2.25, 3.9), (1.95, 3.9)], facecolor=HOT, edgecolor=C_M, lw=1.2, zorder=4))
+    ax.add_patch(Rectangle((1.95, 1.4), 0.3, 2.5, facecolor=HOT, edgecolor=C_M, lw=1.2, zorder=4))
+    ax.add_patch(Rectangle((2.25, 1.4), 0.95, 0.55, facecolor=MID, edgecolor=C_M, lw=1.2, zorder=4))  # 러너
+    ax.add_patch(Rectangle((3.2, 1.4), 3.6, 1.0, facecolor=MID, edgecolor=C_M, lw=1.4, zorder=4))     # 제품
+    # 코어(모래 심) — 제품 속 구멍
+    ax.add_patch(Circle((4.6, 1.9), 0.32, facecolor="#cdbfa2", edgecolor="#6b5d43", lw=1.2, zorder=5))
+    ax.annotate("코어(core) — 구멍·중공부", xy=(4.6, 2.22), xytext=(3.15, 3.35), fontsize=7.8, color="#6b5d43", zorder=6,
+                arrowprops=dict(arrowstyle="->", color="#6b5d43", lw=0.9))
+    # 라이저 + 수축관(shrinkage pipe — 라이저가 수축을 흡수한 증거)
+    ax.add_patch(Rectangle((5.7, 2.4), 0.7, 1.8, facecolor=MID, edgecolor=C_M, lw=1.2, zorder=4))
+    ax.add_patch(Polygon([(5.82, 4.2), (6.28, 4.2), (6.05, 3.55)], facecolor="#d8cdb8", edgecolor=C_M, lw=1.0, zorder=5))
+    ax.annotate("수축관(pipe) —\n라이저가 수축을 대신 흡수", xy=(6.05, 3.85), xytext=(7.15, 4.0), fontsize=7.8, color=C_M, zorder=6,
+                va="center", arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    # 레이들(주입)
+    ax.add_patch(Polygon([(0.85, 5.25), (1.75, 5.25), (1.55, 4.85), (1.05, 4.85)], facecolor="#8a96a3", edgecolor=C_AX, lw=1.2, zorder=6))
+    ax.plot([1.62, 2.02], [4.92, 4.62], color=HOT, lw=3.0, zorder=6, solid_capstyle="round")
+    ax.text(0.72, 5.42, "레이들 — 쇳물 주입 (주철 ~1400 °C · 주강 ~1600 °C)", fontsize=7.8, color=C_M, zorder=6)
+    # 콜아웃
+    ax.annotate("탕구(sprue)", xy=(2.1, 3.4), xytext=(0.62, 3.4), fontsize=8.2, color=C_AX, zorder=6,
                 arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
-    ax.annotate("제품 캐비티", xy=(5.0, 1.9), xytext=(4.4, 0.65), fontsize=8.8, color=C_M,
+    ax.annotate("러너(runner)", xy=(2.7, 1.65), xytext=(0.62, 1.0), fontsize=7.8, color=C_AX, zorder=6,
+                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
+    ax.annotate("제품 캐비티", xy=(5.6, 1.55), xytext=(5.3, 0.62), fontsize=8.4, color=C_M, zorder=6,
                 arrowprops=dict(arrowstyle="->", color=C_M, lw=1.0))
-    ax.annotate("라이저(압탕) — 수축 보충·마지막에 응고", xy=(6.05, 3.9), xytext=(6.8, 5.15), fontsize=8.3, color=C_AX,
+    ax.annotate("라이저(압탕) — 마지막에 응고하도록 설계", xy=(6.4, 3.1), xytext=(6.9, 2.35), fontsize=7.8, color=C_AX, zorder=6,
                 arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
-    ax.annotate("사형(모래 주형)", xy=(8.6, 1.0), xytext=(8.6, 1.0), fontsize=8.8, color="#6b5d43", ha="center")
-    ax.text(5.0, 5.35, "", fontsize=1)
-    ax.set_xlim(0, 10.2); ax.set_ylim(0, 5.6); ax.set_aspect("equal"); ax.axis("off")
-    ax.set_title("사형 주조 단면 (개략) — 쇳물의 길", fontsize=11, color=C_AX, pad=6)
+    # ── 인셋: 응고 조직 (주형벽→중심: 칠층·주상정·등축정) ──
+    ix, iy, iw, ih = 7.6, 0.55, 2.2, 1.35
+    ax.add_patch(Rectangle((ix, iy), iw, ih, facecolor="white", edgecolor=C_AX, lw=1.2, zorder=7))
+    ax.add_patch(Rectangle((ix, iy), 0.18, ih, facecolor="#9aa4ae", edgecolor="none", zorder=8))  # 주형벽
+    # 칠층(미세 등축)
+    for _ in range(40):
+        ax.add_patch(Circle((rng.uniform(ix + 0.2, ix + 0.42), rng.uniform(iy + 0.06, iy + ih - 0.06)),
+                            0.018, facecolor="#c9ccd2", edgecolor=C_AX, lw=0.3, zorder=8))
+    # 주상정(길쭉)
+    for k in range(5):
+        y0 = iy + 0.12 + k * (ih - 0.24) / 4
+        ax.add_patch(Polygon([(ix + 0.44, y0 - 0.07), (ix + 1.25, y0 - 0.045), (ix + 1.25, y0 + 0.045), (ix + 0.44, y0 + 0.07)],
+                             facecolor="#dfe3e8", edgecolor=C_AX, lw=0.5, zorder=8))
+    # 중심 등축정
+    for _ in range(16):
+        ax.add_patch(Circle((rng.uniform(ix + 1.3, ix + iw - 0.08), rng.uniform(iy + 0.1, iy + ih - 0.1)),
+                            rng.uniform(0.035, 0.06), facecolor="#c9ccd2", edgecolor=C_AX, lw=0.4, zorder=8))
+    ax.text(ix + iw / 2, iy + ih + 0.08, "응고 조직: 칠층→주상정→등축정", fontsize=7.2, color=C_AX, ha="center", zorder=8)
+    ax.annotate("", xy=(ix - 0.05, iy + ih * 0.6), xytext=(6.85, 1.75), zorder=7,
+                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.8, ls=":"))
+    ax.set_xlim(0, 10.2); ax.set_ylim(0.1, 5.75); ax.set_aspect("equal"); ax.axis("off")
+    ax.set_title("사형 주조 단면 (개략) — 쇳물의 길과 응고의 설계", fontsize=11.5, color=C_AX, pad=6)
     save(fig, "casting-process")
 
 
 def fig_sintering_stages():
-    """소결 3단계 — 분말 접촉 → 목(neck) 형성 → 치밀화(기공 잔류)."""
-    fig, axes = plt.subplots(1, 3, figsize=(9.6, 3.6))
+    """소결 3단계 v2 — 크기분포 분말·실제 neck 필렛·수축 표시 + 밀도-시간 인셋 (Figure Quality v2)."""
+    fig = plt.figure(figsize=(10.2, 4.6))
+    gs = fig.add_gridspec(1, 4, width_ratios=[1, 1, 1, 0.85], wspace=0.32)
+    axes = [fig.add_subplot(gs[0, i]) for i in range(3)]
+    axc = fig.add_subplot(gs[0, 3])
     rng = np.random.RandomState(3)
-    centers = [(0.3, 0.65), (0.62, 0.72), (0.48, 0.4), (0.78, 0.42), (0.25, 0.32), (0.72, 0.14), (0.4, 0.12)]
-    r0 = 0.14
-    # (1) 분말 충전
+    # 크기 분포 있는 분말(현실적) — 중심·반경
+    P = [(0.30, 0.66, 0.15), (0.63, 0.73, 0.12), (0.48, 0.42, 0.16), (0.79, 0.44, 0.115),
+         (0.24, 0.33, 0.115), (0.71, 0.16, 0.13), (0.41, 0.13, 0.10), (0.85, 0.72, 0.08)]
+    # ① 분말 충전 (점 접촉)
     ax = axes[0]
-    for (cx, cy) in centers:
-        ax.add_patch(Circle((cx, cy), r0, facecolor="#c9ccd2", edgecolor=C_AX, lw=1.2))
-    ax.set_title("① 분말 충전", fontsize=10, color=C_AX, fontweight="bold")
-    ax.text(0.5, -0.06, "점 접촉 — 기공 많음", ha="center", fontsize=8.3, color=C_MUTE, transform=ax.transAxes)
-    # (2) 목(neck) 형성
+    for (cx, cy, r) in P:
+        ax.add_patch(Circle((cx, cy), r, facecolor="#cdd1d7", edgecolor=C_AX, lw=1.2))
+        ax.add_patch(Circle((cx - r * 0.3, cy + r * 0.3), r * 0.35, facecolor="white", alpha=0.35, edgecolor="none"))  # 하이라이트(입체감)
+    ax.text(0.5, -0.075, "① 점 접촉 — 상대밀도 ~60%", ha="center", fontsize=8.2, color=C_MUTE, transform=ax.transAxes)
+    ax.set_title("분말 충전", fontsize=10, color=C_AX, fontweight="bold")
+    # ② 목 성장 (실제 필렛: 접점 양쪽 오목 필렛 원)
     ax = axes[1]
-    for (cx, cy) in centers:
-        ax.add_patch(Circle((cx, cy), r0 * 1.06, facecolor="#c9ccd2", edgecolor=C_AX, lw=1.2))
-    for i in range(len(centers)):
-        for j in range(i + 1, len(centers)):
-            a, b = np.array(centers[i]), np.array(centers[j])
-            d = np.linalg.norm(a - b)
-            if d < r0 * 2.4:
+    for (cx, cy, r) in P:
+        ax.add_patch(Circle((cx, cy), r * 1.04, facecolor="#cdd1d7", edgecolor=C_AX, lw=1.2))
+    for i in range(len(P)):
+        for j in range(i + 1, len(P)):
+            a = np.array(P[i][:2]); b = np.array(P[j][:2]); ra, rb = P[i][2], P[j][2]
+            d = np.linalg.norm(b - a)
+            if d < (ra + rb) * 1.18:
+                u = (b - a) / d; perp = np.array([-u[1], u[0]])
+                w = min(ra, rb) * 0.62
+                # neck 몸통
+                ax.add_patch(Polygon([a + perp * w, b + perp * w, b - perp * w, a - perp * w],
+                                     facecolor="#cdd1d7", edgecolor="none", zorder=2))
+                # 오목 필렛(작은 흰 원으로 표면장력 곡률 표현)
                 mid = (a + b) / 2
-                perp = np.array([-(b - a)[1], (b - a)[0]]) / d
-                w = r0 * 0.55
-                ax.add_patch(Polygon([a + perp * w * 0.6, b + perp * w * 0.6, b - perp * w * 0.6, a - perp * w * 0.6],
-                                     facecolor="#c9ccd2", edgecolor="none"))
-    ax.set_title("② 목(neck) 성장", fontsize=10, color=C_AX, fontweight="bold")
-    ax.text(0.5, -0.06, "확산으로 접점이 붙음 — 수축 시작", ha="center", fontsize=8.3, color=C_MUTE, transform=ax.transAxes)
-    # (3) 치밀화
+                for s in (1, -1):
+                    ax.add_patch(Circle(mid + perp * (w + 0.028) * s, 0.03, facecolor="white", edgecolor=C_AX, lw=0.7, zorder=3))
+    ax.annotate("목(neck)", xy=(0.47, 0.56), xytext=(0.06, 0.9), fontsize=7.8, color=C_M,
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    ax.text(0.5, -0.075, "② 확산으로 목 성장 — 수축 시작", ha="center", fontsize=8.0, color=C_MUTE, transform=ax.transAxes)
+    ax.set_title("목(neck) 성장 (융점의 0.7~0.9배)", fontsize=10, color=C_AX, fontweight="bold")
+    # ③ 치밀화 — 다각립 + 삼중점 기공 + 수축 화살표
     ax = axes[2]
-    grains = _poly_grains(ax, n=8, bbox=(0.06, 0.02, 0.88, 0.86), color="#c9ccd2", lw=1.2, seed=77)
-    for (cx, cy) in [(0.36, 0.5), (0.66, 0.3), (0.58, 0.68)]:
-        ax.add_patch(Circle((cx, cy), 0.022, facecolor="white", edgecolor=C_AX, lw=0.8))
-    ax.set_title("③ 치밀화", fontsize=10, color=C_AX, fontweight="bold")
-    ax.text(0.5, -0.06, "결정립 형성 — 소량의 잔류 기공(백색)", ha="center", fontsize=8.3, color=C_MUTE, transform=ax.transAxes)
+    grains = _poly_grains(ax, n=9, bbox=(0.1, 0.06, 0.8, 0.8), color="#cdd1d7", lw=1.2, seed=77)
+    for (cx, cy) in [(0.38, 0.5), (0.64, 0.32), (0.56, 0.66), (0.3, 0.26)]:
+        ax.add_patch(Circle((cx, cy), 0.02, facecolor="white", edgecolor=C_AX, lw=0.8, zorder=5))
+    for (x, y, dx0, dy0) in [(0.5, 0.95, 0, -1), (0.5, 0.0, 0, 1), (0.02, 0.46, 1, 0), (0.98, 0.46, -1, 0)]:
+        ax.annotate("", xy=(x + 0.055 * dx0, y + 0.055 * dy0), xytext=(x, y),
+                    arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.4))
+    ax.text(0.5, -0.075, "③ 결정립+잔류기공 — 상대밀도 92~98%", ha="center", fontsize=8.0, color=C_MUTE, transform=ax.transAxes)
+    ax.set_title("치밀화 (수축)", fontsize=10, color=C_AX, fontweight="bold")
     for ax in axes:
-        ax.set_xlim(0, 1); ax.set_ylim(-0.02, 0.92); ax.set_aspect("equal"); ax.axis("off")
-    fig.suptitle("소결(sintering) — 녹이지 않고 붙인다 (개략)", fontsize=11.5, color=C_AX, y=1.0)
-    fig.subplots_adjust(left=0.02, right=0.98, top=0.84, bottom=0.1, wspace=0.08)
+        ax.set_xlim(0, 1); ax.set_ylim(-0.02, 0.95); ax.set_aspect("equal"); ax.axis("off")
+    # ── 인셋: 상대밀도-시간 곡선 (3단계 매핑) ──
+    t = np.linspace(0, 10, 200)
+    rho = 60 + 38 * (1 - np.exp(-t / 2.6)) ** 1.4
+    axc.plot(t, rho, color=C_A, lw=2.2)
+    axc.axhline(100, color=C_MUTE, lw=0.8, ls=":")
+    axc.text(9.8, 100.8, "100%", fontsize=7, color=C_MUTE, ha="right")
+    for x0, x1, lab in [(0, 1.2, "①"), (1.2, 5.0, "②"), (5.0, 10, "③")]:
+        axc.axvspan(x0, x1, color=C_MUTE, alpha=0.06)
+        axc.text((x0 + x1) / 2, 63, lab, fontsize=9, color=C_AX, ha="center")
+    axc.set_xlabel("소결 시간 →", fontsize=8.5, color=C_AX)
+    axc.set_ylabel("상대밀도 (%)", fontsize=7.5, color=C_AX, labelpad=1)
+    axc.set_xlim(0, 10); axc.set_ylim(55, 104)
+    axc.set_xticks([]); axc.tick_params(labelsize=7, colors=C_AX)
+    axc.spines[["top", "right"]].set_visible(False)
+    axc.set_title("치밀화 곡선", fontsize=9, color=C_AX)
+    fig.suptitle("소결(sintering) — 녹이지 않고 확산으로 붙인다 (개략)", fontsize=11.5, color=C_AX, y=1.0)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.82, bottom=0.14)
     save(fig, "sintering-stages")
 
 
@@ -1132,69 +1251,120 @@ def fig_stress_concentration_kt():
 
 
 def fig_hardness_tests():
-    """경도시험 3종 — Brinell(구)·Vickers(피라미드)·Rockwell(깊이)."""
-    fig, axes = plt.subplots(1, 3, figsize=(9.6, 3.8))
+    """경도시험 3종 v2 — 단면+압흔 평면도+하중·식·적용범위 (Figure Quality v2)."""
+    fig, axes = plt.subplots(1, 3, figsize=(10.2, 4.6))
     for ax in axes:
-        ax.add_patch(Rectangle((0.05, 0.05), 0.9, 0.42, facecolor="#d5d9de", edgecolor=C_AX, lw=1.3))  # 시편
-    # Brinell
+        ax.add_patch(Rectangle((0.05, 0.16), 0.9, 0.34, facecolor="#d5d9de", edgecolor=C_AX, lw=1.3))  # 시편
+    # ── Brinell ──
     ax = axes[0]
-    ax.add_patch(Circle((0.5, 0.66), 0.17, facecolor="#8a96a3", edgecolor=C_AX, lw=1.4))
-    ax.add_patch(Polygon([(0.35, 0.47), (0.65, 0.47), (0.5, 0.4)], facecolor="white", edgecolor=C_AX, lw=1.0))  # 구형 압흔
-    ax.annotate("", xy=(0.5, 0.85), xytext=(0.5, 0.99), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2))
-    ax.annotate("", xy=(0.35, 0.33), xytext=(0.65, 0.33), arrowprops=dict(arrowstyle="<->", color=C_M, lw=0.9))
-    ax.text(0.5, 0.25, "압흔 지름 d 측정", ha="center", fontsize=8, color=C_M)
-    ax.set_title("Brinell (HB) — 강구/초경구", fontsize=9.8, color=C_AX, fontweight="bold")
-    ax.text(0.5, -0.05, "큰 압흔 = 주물·모재 평균 경도", ha="center", fontsize=7.8, color=C_MUTE, transform=ax.transAxes)
-    # Vickers
+    ax.add_patch(Circle((0.5, 0.66), 0.15, facecolor="#8a96a3", edgecolor=C_AX, lw=1.4))
+    ax.text(0.5, 0.66, "Ø10", fontsize=7.5, color="white", ha="center", va="center")
+    ax.add_patch(Polygon([(0.36, 0.5), (0.64, 0.5), (0.5, 0.435)], facecolor="white", edgecolor=C_AX, lw=1.0))
+    ax.annotate("", xy=(0.5, 0.84), xytext=(0.5, 0.97), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2))
+    ax.text(0.56, 0.915, "3000 kgf", fontsize=7.6, color=C_M)
+    # 평면도 인셋: 원형 압흔 + d
+    ax.add_patch(Circle((0.24, 0.315), 0.075, facecolor="white", edgecolor=C_AX, lw=1.1))
+    ax.annotate("", xy=(0.165, 0.315), xytext=(0.315, 0.315), arrowprops=dict(arrowstyle="<->", color=C_M, lw=0.8))
+    ax.text(0.24, 0.21, "압흔 d 측정", fontsize=7.2, color=C_M, ha="center")
+    ax.text(0.68, 0.37, "$HB=\\frac{2F}{\\pi D(D-\\sqrt{D^2-d^2})}$", fontsize=8.5, color=C_AX, ha="center")
+    ax.text(0.5, 0.06, "범위 ~650 HB · 큰 압흔 = 거친 조직 평균(주물·모재)", ha="center", fontsize=7.4, color=C_MUTE)
+    ax.set_title("Brinell (HB) — 구 압입", fontsize=10, color=C_AX, fontweight="bold")
+    # ── Vickers ──
     ax = axes[1]
-    ax.add_patch(Polygon([(0.38, 0.78), (0.62, 0.78), (0.5, 0.47)], facecolor="#8a96a3", edgecolor=C_AX, lw=1.4))
-    ax.add_patch(Polygon([(0.44, 0.47), (0.5, 0.5), (0.56, 0.47), (0.5, 0.41)], facecolor="white", edgecolor=C_AX, lw=1.0))
-    ax.annotate("", xy=(0.5, 0.85), xytext=(0.5, 0.99), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2))
-    ax.text(0.5, 0.25, "대각선 d₁·d₂ 측정", ha="center", fontsize=8, color=C_M)
-    ax.set_title("Vickers (HV) — 다이아몬드 피라미드", fontsize=9.8, color=C_AX, fontweight="bold")
-    ax.text(0.5, -0.05, "미세 압흔 = 얇은 층·미세조직·전 경도역", ha="center", fontsize=7.8, color=C_MUTE, transform=ax.transAxes)
-    # Rockwell
+    ax.add_patch(Polygon([(0.4, 0.8), (0.6, 0.8), (0.5, 0.5)], facecolor="#8a96a3", edgecolor=C_AX, lw=1.4))
+    ax.text(0.5, 0.86, "136°", fontsize=7.4, color=C_AX, ha="center")
+    ax.add_patch(Polygon([(0.455, 0.5), (0.5, 0.525), (0.545, 0.5), (0.5, 0.45)], facecolor="white", edgecolor=C_AX, lw=1.0))
+    ax.annotate("", xy=(0.5, 0.88), xytext=(0.5, 0.97), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2))
+    ax.text(0.56, 0.93, "1~120 kgf", fontsize=7.6, color=C_M)
+    # 평면도: 마름모 압흔 + 대각선
+    dx, dy0 = 0.24, 0.315
+    ax.add_patch(Polygon([(dx, dy0 + 0.08), (dx + 0.08, dy0), (dx, dy0 - 0.08), (dx - 0.08, dy0)],
+                         facecolor="white", edgecolor=C_AX, lw=1.1))
+    ax.plot([dx - 0.08, dx + 0.08], [dy0, dy0], color=C_M, lw=0.7, ls=":")
+    ax.plot([dx, dx], [dy0 - 0.08, dy0 + 0.08], color=C_M, lw=0.7, ls=":")
+    ax.text(dx, 0.21, "대각선 $d_1{\\cdot}d_2$", fontsize=7.2, color=C_M, ha="center")
+    ax.text(0.68, 0.37, "$HV=1.854\\,F/d^2$", fontsize=8.5, color=C_AX, ha="center")
+    ax.text(0.5, 0.06, "전 경도역 한 척도 · 미세 압흔 = 얇은 층·상(相)별 측정", ha="center", fontsize=7.4, color=C_MUTE)
+    ax.set_title("Vickers (HV) — 다이아몬드 피라미드", fontsize=10, color=C_AX, fontweight="bold")
+    # ── Rockwell ──
     ax = axes[2]
-    ax.add_patch(Polygon([(0.42, 0.8), (0.58, 0.8), (0.5, 0.47)], facecolor="#8a96a3", edgecolor=C_AX, lw=1.4))
-    ax.annotate("", xy=(0.5, 0.87), xytext=(0.5, 0.995), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2))
-    ax.annotate("", xy=(0.66, 0.47), xytext=(0.66, 0.36), arrowprops=dict(arrowstyle="<->", color=C_M, lw=0.9))
-    ax.text(0.79, 0.41, "깊이 t", fontsize=8, color=C_M)
-    ax.plot([0.44, 0.56], [0.405, 0.405], color=C_AX, lw=1.0)
-    ax.set_title("Rockwell (HRC 등) — 깊이 직독", fontsize=9.8, color=C_AX, fontweight="bold")
-    ax.text(0.5, -0.05, "빠르고 간편 = 현장·열처리 검사 표준", ha="center", fontsize=7.8, color=C_MUTE, transform=ax.transAxes)
+    ax.add_patch(Polygon([(0.43, 0.8), (0.57, 0.8), (0.5, 0.5)], facecolor="#8a96a3", edgecolor=C_AX, lw=1.4))
+    ax.text(0.61, 0.72, "120°\n다이아몬드 콘", fontsize=7.0, color=C_AX)
+    ax.annotate("", xy=(0.5, 0.88), xytext=(0.5, 0.97), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=2))
+    ax.text(0.56, 0.93, "150 kgf (HRC)", fontsize=7.6, color=C_M)
+    # 깊이 직독: 기준선-압입 깊이 t
+    ax.plot([0.35, 0.65], [0.5, 0.5], color=C_AX, lw=0.8, ls=":")
+    ax.plot([0.44, 0.56], [0.44, 0.44], color=C_M, lw=1.2)
+    ax.annotate("", xy=(0.68, 0.5), xytext=(0.68, 0.44), arrowprops=dict(arrowstyle="<->", color=C_M, lw=0.9))
+    ax.annotate("깊이 t 직독 (다이얼/디지털)", xy=(0.68, 0.44), xytext=(0.72, 0.3), fontsize=7.2, color=C_M,
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=0.7))
+    ax.text(0.24, 0.315, "HRC 20~70\nHRB(연질재)\nHRA(초경)", fontsize=7.2, color=C_AX, ha="center")
+    ax.text(0.5, 0.06, "수 초 측정 = 현장·열처리 전수검사 표준", ha="center", fontsize=7.4, color=C_MUTE)
+    ax.set_title("Rockwell (HRC 등) — 깊이 직독", fontsize=10, color=C_AX, fontweight="bold")
     for ax in axes:
-        ax.set_xlim(0, 1); ax.set_ylim(-0.02, 1.02); ax.set_aspect("equal"); ax.axis("off")
-    fig.suptitle("경도시험 3종 (개략) — 무엇으로 눌러 무엇을 재는가", fontsize=11.5, color=C_AX, y=1.0)
-    fig.subplots_adjust(left=0.02, right=0.98, top=0.82, bottom=0.08, wspace=0.1)
+        ax.set_xlim(0, 1); ax.set_ylim(0, 1.02); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("경도시험 3종 (개략) — 압입자·하중·측정량·적용 범위", fontsize=11.5, color=C_AX, y=1.0)
+    # 하단 공통: 환산 감각 바
+    fig.text(0.5, 0.015, "환산 감각(강): 60 HRC $\\approx$ 700 HV · 40 HRC $\\approx$ 390 HV $\\approx$ 370 HB · 200 HB $\\approx$ 210 HV — 정밀 환산은 ASTM E140",
+             ha="center", fontsize=7.8, color=C_AX)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.84, bottom=0.1, wspace=0.08)
     save(fig, "hardness-tests")
 
 
 def fig_hip_densification():
-    """HIP — 등방 가압으로 내부 기공 폐쇄 (전/후)."""
-    fig, axes = plt.subplots(1, 2, figsize=(8.8, 4.4))
+    """HIP v2 — 장비 단면(압력용기·히터·부품) + 조직 전/후 + 조건·밀도 수치 (Figure Quality v2)."""
+    fig = plt.figure(figsize=(10.2, 4.8))
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.0, 1, 1], wspace=0.12)
+    axv = fig.add_subplot(gs[0, 0])
+    ax1 = fig.add_subplot(gs[0, 1])
+    ax2 = fig.add_subplot(gs[0, 2])
     rng = np.random.RandomState(8)
-    # (좌) HIP 전 — 결정립 + 기공(입계·입내)
-    ax = axes[0]
-    grains = _poly_grains(ax, n=10, color="#e9e4da", lw=1.2, seed=83)
-    pores = [(0.3, 0.62), (0.55, 0.4), (0.72, 0.7), (0.45, 0.78), (0.62, 0.18), (0.2, 0.3), (0.82, 0.42)]
-    for (cx, cy) in pores:
-        ax.add_patch(Circle((cx, cy), rng.uniform(0.02, 0.045), facecolor="#2a2a2a", edgecolor="none"))
-    ax.set_title("HIP 전 — 기공 잔류", fontsize=10.5, color=C_M, fontweight="bold")
-    ax.text(0.5, -0.07, "주조 수축공·AM 기공(검정) — 피로 균열의 시작점", ha="center", fontsize=8.2, color=C_MUTE, transform=ax.transAxes)
-    # (우) HIP 후 — 기공 소멸 + 등방 가압 화살표
-    ax = axes[1]
-    _poly_grains(ax, n=10, color="#e9e4da", lw=1.2, seed=83)
-    for (x, y, dx, dy) in [(0.5, 1.12, 0, -1), (0.5, -0.12, 0, 1), (-0.12, 0.5, 1, 0), (1.12, 0.5, -1, 0),
-                           (1.05, 1.05, -1, -1), (-0.05, 1.05, 1, -1), (1.05, -0.05, -1, 1), (-0.05, -0.05, 1, 1)]:
-        n = np.hypot(dx, dy)
-        ax.annotate("", xy=(x + 0.1 * dx / n, y + 0.1 * dy / n), xytext=(x, y),
-                    arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.6))
-    ax.set_title("HIP 후 — 치밀화", fontsize=10.5, color=C_A, fontweight="bold")
-    ax.text(0.5, -0.07, "고온(0.7Tm)+고압 Ar(100~200 MPa) 등방 가압 → 기공 확산 폐쇄", ha="center", fontsize=8.2, color=C_MUTE, transform=ax.transAxes)
-    for ax in axes:
-        ax.set_xlim(-0.2, 1.2); ax.set_ylim(-0.2, 1.2); ax.set_aspect("equal"); ax.axis("off")
-    fig.suptitle("열간등방압소결 HIP (hot isostatic pressing) — 개략", fontsize=11.5, color=C_AX, y=0.99)
-    fig.subplots_adjust(left=0.02, right=0.98, top=0.86, bottom=0.09, wspace=0.08)
+    # ── (좌) HIP 장비 단면 ──
+    axv.add_patch(Rectangle((0.18, 0.06), 0.64, 0.88, facecolor="#aeb6bf", edgecolor=C_AX, lw=2.2))   # 압력용기(후육)
+    axv.add_patch(Rectangle((0.26, 0.13), 0.48, 0.74, facecolor="#e8ebee", edgecolor=C_AX, lw=1.0))    # 내부(로)
+    for y in np.linspace(0.18, 0.82, 8):                                                               # 히터 코일
+        axv.add_patch(Circle((0.30, y), 0.017, facecolor=C_M, edgecolor="none"))
+        axv.add_patch(Circle((0.70, y), 0.017, facecolor=C_M, edgecolor="none"))
+    axv.add_patch(Polygon([(0.42, 0.32), (0.58, 0.32), (0.61, 0.5), (0.55, 0.66), (0.45, 0.66), (0.39, 0.5)],
+                          facecolor="#c9a05a", edgecolor="#7a5f2a", lw=1.3))                            # 부품
+    # Ar 가압 화살표(부품 향해 사방)
+    for (x, y, dx0, dy0) in [(0.5, 0.8, 0, -1), (0.5, 0.2, 0, 1), (0.335, 0.5, 1, 0), (0.665, 0.5, -1, 0)]:
+        axv.annotate("", xy=(x + 0.07 * dx0, y + 0.07 * dy0), xytext=(x, y),
+                     arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.5))
+    axv.annotate("가스 주입구 (Ar)", xy=(0.5, 0.945), xytext=(0.5, 1.04), fontsize=7.6, color=C_A, ha="center",
+                 arrowprops=dict(arrowstyle="->", color=C_A, lw=0.9))
+    axv.text(0.13, 0.5, "후육 압력용기", fontsize=7.4, color=C_AX, rotation=90, va="center")
+    axv.annotate("히터", xy=(0.30, 0.75), xytext=(0.06, 0.86), fontsize=7.4, color=C_M,
+                 arrowprops=dict(arrowstyle="->", color=C_M, lw=0.8))
+    axv.text(0.5, -0.06, "Ar 100~200 MPa · 융점의 ~0.7배 (Ti-6-4: ~920 °C/100 MPa/2 h)",
+             ha="center", fontsize=7.6, color=C_MUTE, transform=axv.transAxes)
+    axv.set_title("HIP 장비 단면", fontsize=10.5, color=C_AX, fontweight="bold")
+    axv.set_xlim(0, 1); axv.set_ylim(-0.02, 1.08); axv.set_aspect("equal"); axv.axis("off")
+    # ── (중) HIP 전 조직 ──
+    grains = _poly_grains(ax1, n=10, color="#e9e4da", lw=1.2, seed=83)
+    pores = [(0.3, 0.62, 0.042), (0.55, 0.4, 0.03), (0.72, 0.7, 0.045), (0.45, 0.78, 0.024),
+             (0.62, 0.18, 0.036), (0.2, 0.3, 0.028), (0.82, 0.42, 0.022)]
+    for (cx, cy, r) in pores:
+        ax1.add_patch(Circle((cx, cy), r, facecolor="#2a2a2a", edgecolor="none", zorder=5))
+    # lack-of-fusion(판상 결함)도 하나
+    ax1.add_patch(Ellipse := Polygon([(0.32, 0.13), (0.5, 0.16), (0.52, 0.135), (0.34, 0.105)],
+                                     facecolor="#2a2a2a", edgecolor="none", zorder=5))
+    ax1.annotate("구형 기공(가스)", xy=(0.72, 0.7), xytext=(0.72, 0.97), fontsize=7.4, color="#2a2a2a",
+                 arrowprops=dict(arrowstyle="->", color="#2a2a2a", lw=0.8))
+    ax1.annotate("판상 미융합(LoF)", xy=(0.42, 0.135), xytext=(0.6, 0.015), fontsize=7.4, color="#2a2a2a",
+                 arrowprops=dict(arrowstyle="->", color="#2a2a2a", lw=0.8))
+    ax1.set_title("HIP 전 — 상대밀도 ~99.5%", fontsize=10.5, color=C_M, fontweight="bold")
+    ax1.text(0.5, -0.06, "AM·주조 기공 — 피로 균열 시작점", ha="center", fontsize=7.6, color=C_MUTE, transform=ax1.transAxes)
+    ax1.set_xlim(-0.02, 1.02); ax1.set_ylim(-0.02, 1.02); ax1.set_aspect("equal"); ax1.axis("off")
+    # ── (우) HIP 후 조직 — 기공 소멸(닫힌 흔적 없음) ──
+    _poly_grains(ax2, n=10, color="#e9e4da", lw=1.2, seed=83)
+    ax2.annotate("기공 확산 폐쇄 —\n흉터 없이 접합", xy=(0.55, 0.42), xytext=(0.62, 0.9), fontsize=7.6, color=C_A,
+                 arrowprops=dict(arrowstyle="->", color=C_A, lw=0.9))
+    ax2.set_title("HIP 후 — ~100% 치밀", fontsize=10.5, color=C_A, fontweight="bold")
+    ax2.text(0.5, -0.06, "피로수명 회복 (단조재 수준 근접) · 표면 연결 기공은 예외", ha="center", fontsize=7.6, color=C_MUTE, transform=ax2.transAxes)
+    ax2.set_xlim(-0.02, 1.02); ax2.set_ylim(-0.02, 1.02); ax2.set_aspect("equal"); ax2.axis("off")
+    fig.suptitle("열간등방압소결 HIP (hot isostatic pressing) — 장비·조건·조직 변화 (개략)", fontsize=11.5, color=C_AX, y=1.0)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.84, bottom=0.1)
     save(fig, "hip-densification")
 
 
