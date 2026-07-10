@@ -1,0 +1,289 @@
+{
+  "stable_id": "MET-1020",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cast-iron",
+    "alloy_base": "F-AB-ni-hard-1-white-cast-iron-astm-a532-class-i-a",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0470",
+  "origin": "reference(supplementary)",
+  "id": "R_0470",
+  "name": "Ni-Hard 1 (white cast iron, ASTM A532 Class I-A)",
+  "category": "Metal",
+  "subcategory": "Cast Iron",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "As-cast (martensitic, hardened)",
+  "ranges": {
+    "density": {
+      "min": 7.7,
+      "max": 7.7,
+      "typical": 7.7,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 400,
+      "max": 400,
+      "typical": 400,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 0.5,
+      "max": 0.5,
+      "typical": 0.5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 550,
+      "max": 550,
+      "typical": 550,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 15,
+      "max": 15,
+      "typical": 15,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A536 ductile iron"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "max_service_temp": {
+      "min": 340,
+      "max": 460,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "thermal_expansion": {
+      "min": 9.35,
+      "max": 12.65,
+      "typical": 11,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "poisson_ratio": {
+      "min": 0.221,
+      "max": 0.299,
+      "typical": 0.26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "melting_point": {
+      "min": 1020,
+      "max": 1380,
+      "typical": 1200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "price_per_cm3": {
+      "min": 0.0099,
+      "max": 0.0133,
+      "typical": 0.0116,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.5,
+      "max": 1.5,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "2.8~3.6",
+    "Ni": "3.3~5.0",
+    "Cr": "1.4~4.0",
+    "Si": "≤0.8",
+    "Mn": "≤2.0"
+  },
+  "sources": [
+    {
+      "label": "ASTM A532/A532M — Abrasion-Resistant Cast Irons",
+      "url": "https://store.astm.org/a0532_a0532m-10r19.html",
+      "verified": true
+    },
+    {
+      "label": "Penticton Foundry — ASTM A532 Class I Type A (Ni-Hard 1)",
+      "url": "https://www.pentictonfoundry.com/news/astm-a532-class-i-type-a/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASTM A536 ductile iron",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.7,
+      400,
+      400,
+      0.5,
+      180,
+      550,
+      15
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": "백주철(white cast iron) — 탄소가 흑연이 아니라 시멘타이트(Fe₃C)로 굳어 파단면이 흰 주철. Ni-Cr 합금계(Ni-Hard)로 마르텐사이트 기지 + M₃C 탄화물, 경도 ≥550HB. 취성 파단(항복 없음 — σy≈UTS 표기·El<1%). 슬러리 펌프·라이너·분쇄 부품 등 내마모 전용. ASTM A532 Class I Type A.",
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM A532",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM A536",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "related": [
+    "Gray Cast Iron (Class 30)"
+  ],
+  "aliases": [
+    "Ni-Hard",
+    "NiHard 1",
+    "ASTM A532 Class I Type A",
+    "abrasion-resistant white iron",
+    "ASTM A532 Class I-A"
+  ],
+  "fracture_toughness": 35,
+  "density": 7.7,
+  "yield_strength": 400,
+  "uts": 400,
+  "elongation": 0.5,
+  "modulus": 180,
+  "hardness": 550,
+  "thermal_conductivity": 15,
+  "fatigue_strength": 180,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASTM A532/A532M — Abrasion-Resistant Cast Irons",
+  "families": [
+    "Metal",
+    "Cast Iron",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 5,
+  "max_service_temp": 400,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.26,
+  "specific_heat": 460,
+  "melting_point": 1200,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0116,
+  "popularity": 3.33,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.5,
+  "total_cost_estimate": 1.35,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

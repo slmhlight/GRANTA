@@ -1,0 +1,61 @@
+{
+  "_note": "R227/H4d — 신규 합금 추가 소스 (계획 §5·§5.4: 분류 완결 + 언급-부재 합금). build-materials 가 supRaw 최후미에 합류(granta-datasheets 다음) — legacy_id 안정성을 위해 이 파일이 '지정 append 지점': 새 entry 는 반드시 이 파일 끝에만 추가(append-only), 다른 supRaw 소스(supplementary/cast-alloys/granta) 는 동결. 스키마는 cast-alloys.json 과 동일. points=[density,σy,uts,El,modulus,hardness,k]. 값은 규격 datasheet 검증(백주철 ASTM A532 · ADI ASTM A897).",
+  "materials": [
+    {
+      "name": "Ni-Hard 1 (white cast iron, ASTM A532 Class I-A)",
+      "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "heat_treatment": "As-cast (martensitic, hardened)",
+      "related": ["Gray Cast Iron (Class 30)"],
+      "aliases": ["Ni-Hard", "NiHard 1", "ASTM A532 Class I Type A", "abrasion-resistant white iron"],
+      "composition": { "Fe": "balance", "C": "2.8~3.6", "Ni": "3.3~5.0", "Cr": "1.4~4.0", "Si": "≤0.8", "Mn": "≤2.0" },
+      "points": [[7.7, 400, 400, 0.5, 180, 550, 15]],
+      "sources": [
+        { "label": "ASTM A532/A532M — Abrasion-Resistant Cast Irons", "url": "https://store.astm.org/a0532_a0532m-10r19.html", "verified": true },
+        { "label": "Penticton Foundry — ASTM A532 Class I Type A (Ni-Hard 1)", "url": "https://www.pentictonfoundry.com/news/astm-a532-class-i-type-a/", "verified": true }
+      ],
+      "industry_note": "백주철(white cast iron) — 탄소가 흑연이 아니라 시멘타이트(Fe₃C)로 굳어 파단면이 흰 주철. Ni-Cr 합금계(Ni-Hard)로 마르텐사이트 기지 + M₃C 탄화물, 경도 ≥550HB. 취성 파단(항복 없음 — σy≈UTS 표기·El<1%). 슬러리 펌프·라이너·분쇄 부품 등 내마모 전용. ASTM A532 Class I Type A."
+    },
+    {
+      "name": "High-Cr White Iron 25%Cr (ASTM A532 Class III-A)",
+      "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "heat_treatment": "Hardened + stress relieved (heat treated)",
+      "related": ["Gray Cast Iron (Class 30)"],
+      "aliases": ["25% Cr white iron", "high-chromium white iron", "ASTM A532 Class III Type A", "27Cr iron"],
+      "composition": { "Fe": "balance", "C": "2.0~3.3", "Cr": "23~30", "Mn": "≤2.0", "Mo": "≤3.0", "Ni": "≤2.5", "Si": "≤1.5" },
+      "points": [[7.6, 500, 500, 0.5, 195, 600, 15]],
+      "sources": [
+        { "label": "ASTM A532/A532M — Abrasion-Resistant Cast Irons", "url": "https://store.astm.org/a0532_a0532m-10r19.html", "verified": true },
+        { "label": "Penticton Foundry — Chrome White Iron (ASTM A532)", "url": "https://www.pentictonfoundry.com/alloys/abrasion-resistant-cast-irons/", "verified": true }
+      ],
+      "industry_note": "고크로뮴 백주철(25%Cr) — M₇C₃ 크로뮴 탄화물(1500~1800HV)이 기지에 분산, 열처리(경화) 후 ≥600HB. 취성 파단(항복 없음 — σy≈UTS 표기·El<1%). Ni-Hard 보다 내식·내마모 우수 — 광산 슬러리 펌프·밀 라이너·임펠러. ASTM A532 Class III Type A."
+    },
+    {
+      "name": "ADI Grade 900 (austempered ductile iron, ASTM A897)",
+      "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "heat_treatment": "Austempered (900/650/09)",
+      "related": ["Ductile Iron 65-45-12"],
+      "aliases": ["ADI 900", "ASTM A897 Grade 900/650/09", "ADI Grade 1", "austempered ductile iron 900"],
+      "composition": { "Fe": "balance", "C": "3.4~3.8", "Si": "2.2~2.8", "Mn": "≤0.35", "Mg": "0.03~0.05", "Cu": "≤0.8", "Ni": "≤2.0", "Mo": "≤0.3" },
+      "points": [[7.1, 650, 900, 9, 163, 305, 22]],
+      "sources": [
+        { "label": "ASTM A897/A897M — Austempered Ductile Iron Castings", "url": "https://store.astm.org/a0897_a0897m-22.html", "verified": true },
+        { "label": "Pacific Alloy — Austempered Ductile Iron (A897)", "url": "https://pacificalloy.com/austempered-ductile-iron/", "verified": true }
+      ],
+      "industry_note": "ADI = 구상흑연주철을 Austempering(오스템퍼링)해 ausferrite(침상 페라이트+안정 오스테나이트) 조직으로 만든 주철 — 일반 구상흑연주철의 약 2배 강도·1.5배 피로강도, 강 단조품 대비 ~10% 가볍고 저렴. Grade 900/650/09 = UTS≥900/σy≥650MPa/El≥9%/269~341HB. 기어·크랭크샤프트·서스펜션 부품. ASTM A897."
+    },
+    {
+      "name": "ADI Grade 1200 (austempered ductile iron, ASTM A897)",
+      "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "heat_treatment": "Austempered (1200/850/04)",
+      "related": ["ASTM A536 Ductile Iron 100-70-03 (high-strength)"],
+      "aliases": ["ADI 1200", "ASTM A897 Grade 1200/850/04", "ADI Grade 3", "austempered ductile iron 1200"],
+      "composition": { "Fe": "balance", "C": "3.4~3.8", "Si": "2.2~2.8", "Mn": "≤0.35", "Mg": "0.03~0.05", "Cu": "≤0.8", "Ni": "≤2.0", "Mo": "≤0.3" },
+      "points": [[7.1, 850, 1200, 4, 161, 390, 22]],
+      "sources": [
+        { "label": "ASTM A897/A897M — Austempered Ductile Iron Castings", "url": "https://store.astm.org/a0897_a0897m-22.html", "verified": true },
+        { "label": "Penticton Foundry — ASTM A897 Grade 3 (1200/850/04)", "url": "https://www.pentictonfoundry.com/news/astm-a897-grade-3-175-125-04/", "verified": true }
+      ],
+      "industry_note": "ADI 고강도 grade — 낮은 Austempering 온도로 미세 ausferrite 를 얻어 UTS≥1200/σy≥850MPa/El≥4%/341~444HB. 강도-인성 균형이 담금질강에 근접하면서 주조 성형성 유지. 대형 기어·중장비 트랙 부품·철도. ASTM A897 Grade 1200/850/04."
+    }
+  ]
+}

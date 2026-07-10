@@ -16,668 +16,1960 @@
     "martensite": {
       "display": "마르텐사이트 (Martensite)",
       "category": "microstructure",
-      "surface_forms": ["마르텐사이트", "martensite", "martensitic"],
-      "autolink": ["마르텐사이트", "martensite"],
+      "surface_forms": [
+        "마르텐사이트",
+        "martensite",
+        "martensitic"
+      ],
+      "autolink": [
+        "마르텐사이트",
+        "martensite"
+      ],
       "short": "오스테나이트를 급랭(담금질)할 때 탄소가 빠져나가지 못하고 과포화된 체심정방(BCT) 구조로 무확산 전단변태되어 생기는 상. 매우 단단하지만 취성이 커, 보통 뜨임으로 인성을 회복시킨다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating", "Callister, Materials Science & Engineering"],
-      "related": ["austenite", "quenching", "tempering", "retained-austenite"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating",
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "austenite",
+        "quenching",
+        "tempering",
+        "retained-austenite"
+      ]
     },
     "austenite": {
       "display": "오스테나이트 (Austenite)",
       "category": "microstructure",
-      "surface_forms": ["오스테나이트", "austenite", "austenitic", "γ-상", "감마상"],
-      "autolink": ["오스테나이트", "austenite"],
+      "surface_forms": [
+        "오스테나이트",
+        "austenite",
+        "austenitic",
+        "γ-상",
+        "감마상"
+      ],
+      "autolink": [
+        "오스테나이트",
+        "austenite"
+      ],
       "short": "철의 면심입방(FCC) 상(γ). 탄소 고용도가 높고 연성이 좋으며 비자성. 탄소강에서는 고온상이지만, 오스테나이트계 스테인리스강은 Ni·Mn 로 상온에서도 안정하다.",
-      "sources": ["ASM Handbook Vol.1", "Reed-Hill, Physical Metallurgy Principles"],
-      "related": ["ferrite", "martensite", "retained-austenite"]
+      "sources": [
+        "ASM Handbook Vol.1",
+        "Reed-Hill, Physical Metallurgy Principles"
+      ],
+      "related": [
+        "ferrite",
+        "martensite",
+        "retained-austenite"
+      ]
     },
     "ferrite": {
       "display": "페라이트 (Ferrite)",
       "category": "microstructure",
-      "surface_forms": ["페라이트", "ferrite", "ferritic", "α-상"],
-      "autolink": ["페라이트", "ferrite"],
+      "surface_forms": [
+        "페라이트",
+        "ferrite",
+        "ferritic",
+        "α-상"
+      ],
+      "autolink": [
+        "페라이트",
+        "ferrite"
+      ],
       "short": "철의 체심입방(BCC) 상(α). 탄소 고용도가 매우 낮고 연하며 강자성. 연성·인성은 좋으나 강도는 낮다.",
-      "sources": ["ASM Handbook Vol.1", "Callister, Materials Science & Engineering"],
-      "related": ["austenite", "pearlite", "cementite"]
+      "sources": [
+        "ASM Handbook Vol.1",
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "austenite",
+        "pearlite",
+        "cementite"
+      ]
     },
     "pearlite": {
       "display": "펄라이트 (Pearlite)",
       "category": "microstructure",
-      "surface_forms": ["펄라이트", "pearlite", "pearlitic"],
-      "autolink": ["펄라이트", "pearlite"],
+      "surface_forms": [
+        "펄라이트",
+        "pearlite",
+        "pearlitic"
+      ],
+      "autolink": [
+        "펄라이트",
+        "pearlite"
+      ],
       "short": "공석변태로 페라이트와 시멘타이트(Fe₃C)가 교대로 쌓인 층상 조직. 층 간격이 좁을수록 강하다.",
-      "sources": ["Callister, Materials Science & Engineering", "Reed-Hill, Physical Metallurgy Principles"],
-      "related": ["ferrite", "cementite", "eutectoid"]
+      "sources": [
+        "Callister, Materials Science & Engineering",
+        "Reed-Hill, Physical Metallurgy Principles"
+      ],
+      "related": [
+        "ferrite",
+        "cementite",
+        "eutectoid"
+      ]
     },
     "bainite": {
       "display": "베이나이트 (Bainite)",
       "category": "microstructure",
-      "surface_forms": ["베이나이트", "bainite", "bainitic"],
-      "autolink": ["베이나이트", "bainite"],
+      "surface_forms": [
+        "베이나이트",
+        "bainite",
+        "bainitic"
+      ],
+      "autolink": [
+        "베이나이트",
+        "bainite"
+      ],
       "short": "펄라이트와 마르텐사이트 사이 온도에서 형성되는 미세한 페라이트+탄화물 조직. 강도와 인성의 균형이 좋다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating", "Bhadeshia, Bainite in Steels"],
-      "related": ["martensite", "pearlite", "tempering"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating",
+        "Bhadeshia, Bainite in Steels"
+      ],
+      "related": [
+        "martensite",
+        "pearlite",
+        "tempering"
+      ]
     },
     "cementite": {
       "display": "시멘타이트 (Cementite, Fe₃C)",
       "category": "microstructure",
-      "surface_forms": ["시멘타이트", "cementite"],
-      "autolink": ["시멘타이트", "cementite"],
+      "surface_forms": [
+        "시멘타이트",
+        "cementite"
+      ],
+      "autolink": [
+        "시멘타이트",
+        "cementite"
+      ],
       "short": "철탄화물 Fe₃C. 매우 단단하고 취성인 세라믹성 상으로, 강의 경도를 높이지만 그 자체는 깨지기 쉽다.",
-      "sources": ["Callister, Materials Science & Engineering"],
-      "related": ["pearlite", "carbide", "ferrite"]
+      "sources": [
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "pearlite",
+        "carbide",
+        "ferrite"
+      ]
     },
     "retained-austenite": {
       "display": "잔류 오스테나이트 (Retained Austenite)",
       "category": "microstructure",
-      "surface_forms": ["잔류 오스테나이트", "잔류오스테나이트", "retained austenite"],
-      "autolink": ["잔류 오스테나이트", "잔류오스테나이트", "retained austenite"],
+      "surface_forms": [
+        "잔류 오스테나이트",
+        "잔류오스테나이트",
+        "retained austenite"
+      ],
+      "autolink": [
+        "잔류 오스테나이트",
+        "잔류오스테나이트",
+        "retained austenite"
+      ],
       "short": "담금질 후 마르텐사이트로 변태하지 못하고 상온에 남은 오스테나이트. 치수 안정성과 경도를 떨어뜨려 서브제로 처리로 줄인다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["austenite", "martensite", "quenching"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "austenite",
+        "martensite",
+        "quenching"
+      ]
     },
     "sigma-phase": {
       "display": "시그마상 (Sigma Phase, σ)",
       "category": "microstructure",
-      "surface_forms": ["시그마상", "sigma phase", "σ-상", "σ phase"],
-      "autolink": ["시그마상", "sigma phase"],
+      "surface_forms": [
+        "시그마상",
+        "sigma phase",
+        "σ-상",
+        "σ phase"
+      ],
+      "autolink": [
+        "시그마상",
+        "sigma phase"
+      ],
       "short": "Fe-Cr 계에서 600–900°C 장시간 노출 시 석출하는 경하고 취성인 금속간상. 인성과 내식성을 크게 떨어뜨려 듀플렉스·고Cr 스테인리스강에서 회피 대상이다.",
-      "sources": ["ASM Handbook Vol.1", "IMOA Duplex Stainless Steel Guide"],
-      "related": ["intermetallic", "sensitization", "toughness"]
+      "sources": [
+        "ASM Handbook Vol.1",
+        "IMOA Duplex Stainless Steel Guide"
+      ],
+      "related": [
+        "intermetallic",
+        "sensitization",
+        "toughness"
+      ]
     },
     "carbide": {
       "display": "탄화물 (Carbide)",
       "category": "microstructure",
-      "surface_forms": ["탄화물", "carbide"],
-      "autolink": ["탄화물"],
+      "surface_forms": [
+        "탄화물",
+        "carbide"
+      ],
+      "autolink": [
+        "탄화물"
+      ],
       "short": "금속과 탄소의 화합물(예 Cr₂₃C₆·VC·WC). 경도와 내마모성을 높이지만, 입계에 석출하면 예민화·입계부식을 유발한다.",
-      "sources": ["ASM Handbook Vol.1"],
-      "related": ["cementite", "sensitization", "precipitation-hardening"]
+      "sources": [
+        "ASM Handbook Vol.1"
+      ],
+      "related": [
+        "cementite",
+        "sensitization",
+        "precipitation-hardening"
+      ]
     },
     "intermetallic": {
       "display": "금속간화합물 (Intermetallic)",
       "category": "microstructure",
-      "surface_forms": ["금속간화합물", "금속간 화합물", "intermetallic"],
-      "autolink": ["금속간화합물", "금속간 화합물", "intermetallic"],
+      "surface_forms": [
+        "금속간화합물",
+        "금속간 화합물",
+        "intermetallic"
+      ],
+      "autolink": [
+        "금속간화합물",
+        "금속간 화합물",
+        "intermetallic"
+      ],
       "short": "두 금속이 정해진 화학량론비로 결합한 규칙적 결정상(예 Ni₃(Al,Ti) γ′, Fe₂Nb). 석출강화의 핵심이지만 과다하면 취성을 유발한다.",
-      "sources": ["Callister, Materials Science & Engineering", "ASM Handbook Vol.3"],
-      "related": ["precipitation-hardening", "sigma-phase"]
+      "sources": [
+        "Callister, Materials Science & Engineering",
+        "ASM Handbook Vol.3"
+      ],
+      "related": [
+        "precipitation-hardening",
+        "sigma-phase"
+      ]
     },
     "precipitation-hardening": {
       "display": "석출경화 (Precipitation Hardening)",
       "category": "strengthening",
-      "surface_forms": ["석출경화", "석출 경화", "precipitation hardening", "age hardening", "시효경화"],
-      "autolink": ["석출경화", "석출 경화", "precipitation hardening", "시효경화"],
+      "surface_forms": [
+        "석출경화",
+        "석출 경화",
+        "precipitation hardening",
+        "age hardening",
+        "시효경화"
+      ],
+      "autolink": [
+        "석출경화",
+        "석출 경화",
+        "precipitation hardening",
+        "시효경화"
+      ],
       "short": "과포화 고용체를 시효처리하여 미세한 2차상 석출물을 균일 분산시켜 전위 이동을 막아 강도를 높이는 기구. 17-4 PH·Inconel 718·2024 Al 등의 강화 원리.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating", "Callister, Materials Science & Engineering"],
-      "related": ["solution-treatment", "aging", "solid-solution-strengthening", "intermetallic"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating",
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "solution-treatment",
+        "aging",
+        "solid-solution-strengthening",
+        "intermetallic"
+      ]
     },
     "solid-solution-strengthening": {
       "display": "고용강화 (Solid-Solution Strengthening)",
       "category": "strengthening",
-      "surface_forms": ["고용강화", "고용 강화", "solid solution strengthening", "solid-solution strengthening"],
-      "autolink": ["고용강화", "고용 강화", "solid solution strengthening"],
+      "surface_forms": [
+        "고용강화",
+        "고용 강화",
+        "solid solution strengthening",
+        "solid-solution strengthening"
+      ],
+      "autolink": [
+        "고용강화",
+        "고용 강화",
+        "solid solution strengthening"
+      ],
       "short": "용질 원자가 모상 격자에 고용되어 격자를 왜곡시키고 전위 이동을 방해해 강도를 높이는 기구. 대표적으로 Ni-Cr·황동.",
-      "sources": ["Callister, Materials Science & Engineering"],
-      "related": ["solid-solution", "precipitation-hardening", "work-hardening"]
+      "sources": [
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "solid-solution",
+        "precipitation-hardening",
+        "work-hardening"
+      ]
     },
     "work-hardening": {
       "display": "가공경화 (Work Hardening)",
       "category": "strengthening",
-      "surface_forms": ["가공경화", "가공 경화", "변형경화", "work hardening", "strain hardening"],
-      "autolink": ["가공경화", "가공 경화", "변형경화", "work hardening", "strain hardening"],
+      "surface_forms": [
+        "가공경화",
+        "가공 경화",
+        "변형경화",
+        "work hardening",
+        "strain hardening"
+      ],
+      "autolink": [
+        "가공경화",
+        "가공 경화",
+        "변형경화",
+        "work hardening",
+        "strain hardening"
+      ],
       "short": "냉간 소성변형으로 전위밀도가 증가하여 강도·경도가 오르고 연성이 떨어지는 현상. 냉간가공·오스테나이트계 스테인리스강 강화의 원리.",
-      "sources": ["Callister, Materials Science & Engineering", "Dieter, Mechanical Metallurgy"],
-      "related": ["cold-work", "recrystallization", "annealing"]
+      "sources": [
+        "Callister, Materials Science & Engineering",
+        "Dieter, Mechanical Metallurgy"
+      ],
+      "related": [
+        "cold-work",
+        "recrystallization",
+        "annealing"
+      ]
     },
     "grain-refinement": {
       "display": "결정립 미세화 (Grain Refinement)",
       "category": "strengthening",
-      "surface_forms": ["결정립 미세화", "결정립미세화", "결정립", "grain refinement", "grain size", "Hall-Petch", "홀-페치"],
-      "autolink": ["결정립 미세화", "결정립미세화", "grain refinement", "Hall-Petch"],
+      "surface_forms": [
+        "결정립 미세화",
+        "결정립미세화",
+        "결정립",
+        "grain refinement",
+        "grain size",
+        "Hall-Petch",
+        "홀-페치"
+      ],
+      "autolink": [
+        "결정립 미세화",
+        "결정립미세화",
+        "grain refinement",
+        "Hall-Petch"
+      ],
       "short": "결정립을 작게 만들어 입계 면적을 늘려 전위 이동을 막는 강화 기구. 강도와 인성을 동시에 높이는 유일한 기구(Hall-Petch: σ ∝ d^−½).",
-      "sources": ["Callister, Materials Science & Engineering", "Reed-Hill, Physical Metallurgy Principles"],
-      "related": ["recrystallization", "normalizing", "toughness"]
+      "sources": [
+        "Callister, Materials Science & Engineering",
+        "Reed-Hill, Physical Metallurgy Principles"
+      ],
+      "related": [
+        "recrystallization",
+        "normalizing",
+        "toughness"
+      ]
     },
     "dispersion-strengthening": {
       "display": "분산강화 (Dispersion Strengthening, ODS)",
       "category": "strengthening",
-      "surface_forms": ["분산강화", "분산 강화", "dispersion strengthening", "ODS"],
-      "autolink": ["분산강화", "분산 강화", "dispersion strengthening"],
+      "surface_forms": [
+        "분산강화",
+        "분산 강화",
+        "dispersion strengthening",
+        "ODS"
+      ],
+      "autolink": [
+        "분산강화",
+        "분산 강화",
+        "dispersion strengthening"
+      ],
       "short": "고온에서도 고용되지 않는 미세한 산화물 등 입자를 분산시켜 전위·입계 이동을 막는 강화. 산화물 분산강화(ODS) 합금이 대표적.",
-      "sources": ["ASM Handbook Vol.7 Powder Metallurgy"],
-      "related": ["precipitation-hardening", "creep"]
+      "sources": [
+        "ASM Handbook Vol.7 Powder Metallurgy"
+      ],
+      "related": [
+        "precipitation-hardening",
+        "creep"
+      ]
     },
     "quenching": {
       "display": "담금질 · 소입 (Quenching)",
       "category": "heat-treatment",
-      "surface_forms": ["담금질", "소입", "quenching", "quench", "quenched"],
-      "autolink": ["담금질", "소입", "quenching"],
+      "surface_forms": [
+        "담금질",
+        "소입",
+        "quenching",
+        "quench",
+        "quenched"
+      ],
+      "autolink": [
+        "담금질",
+        "소입",
+        "quenching"
+      ],
       "short": "오스테나이트화한 강을 물·기름 등으로 급랭하여 마르텐사이트를 형성, 경화하는 열처리. 급랭 속도가 경화능을 좌우한다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["tempering", "martensite", "annealing", "normalizing"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "tempering",
+        "martensite",
+        "annealing",
+        "normalizing"
+      ]
     },
     "tempering": {
       "display": "뜨임 · 소려 (Tempering)",
       "category": "heat-treatment",
-      "surface_forms": ["뜨임", "소려", "tempering", "tempered", "temper"],
-      "autolink": ["뜨임", "소려", "tempering"],
+      "surface_forms": [
+        "뜨임",
+        "소려",
+        "tempering",
+        "tempered",
+        "temper"
+      ],
+      "autolink": [
+        "뜨임",
+        "소려",
+        "tempering"
+      ],
       "short": "담금질한 강을 A1 이하로 재가열하여 마르텐사이트의 과도한 취성을 낮추고 인성을 회복시키는 처리. 온도로 강도-인성 균형을 조절한다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["quenching", "martensite", "toughness"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "quenching",
+        "martensite",
+        "toughness"
+      ]
     },
     "annealing": {
       "display": "풀림 · 어닐링 (Annealing)",
       "category": "heat-treatment",
-      "surface_forms": ["풀림", "어닐링", "annealing", "annealed", "anneal"],
-      "autolink": ["풀림", "어닐링", "annealing"],
+      "surface_forms": [
+        "풀림",
+        "어닐링",
+        "annealing",
+        "annealed",
+        "anneal"
+      ],
+      "autolink": [
+        "풀림",
+        "어닐링",
+        "annealing"
+      ],
       "short": "가열 후 노랭·서랭하여 재료를 연화시키고 잔류응력을 제거하며 연성·조직 균질성을 회복시키는 열처리.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["normalizing", "recrystallization", "stress-relief"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "normalizing",
+        "recrystallization",
+        "stress-relief"
+      ]
     },
     "normalizing": {
       "display": "불림 · 노멀라이징 (Normalizing)",
       "category": "heat-treatment",
-      "surface_forms": ["불림", "노멀라이징", "normalizing", "normalized"],
-      "autolink": ["불림", "노멀라이징", "normalizing"],
+      "surface_forms": [
+        "불림",
+        "노멀라이징",
+        "normalizing",
+        "normalized"
+      ],
+      "autolink": [
+        "불림",
+        "노멀라이징",
+        "normalizing"
+      ],
       "short": "A3/Acm 이상으로 가열 후 공랭하여 조직을 미세·균질화하는 열처리. 풀림보다 강도·경도가 약간 높다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["annealing", "grain-refinement", "pearlite"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "annealing",
+        "grain-refinement",
+        "pearlite"
+      ]
     },
     "solution-treatment": {
       "display": "용체화처리 (Solution Treatment)",
       "category": "heat-treatment",
-      "surface_forms": ["용체화처리", "용체화 처리", "용체화", "solution treatment", "solution annealing", "solutionizing"],
-      "autolink": ["용체화처리", "용체화 처리", "용체화", "solution treatment"],
+      "surface_forms": [
+        "용체화처리",
+        "용체화 처리",
+        "용체화",
+        "solution treatment",
+        "solution annealing",
+        "solutionizing"
+      ],
+      "autolink": [
+        "용체화처리",
+        "용체화 처리",
+        "용체화",
+        "solution treatment"
+      ],
       "short": "석출물·합금원소를 모상에 고르게 재고용시키기 위해 고온에서 유지한 뒤 급랭하는 처리. 석출경화의 1단계이자 스테인리스강 예민화 해소에도 쓰인다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["aging", "precipitation-hardening", "sensitization"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "aging",
+        "precipitation-hardening",
+        "sensitization"
+      ]
     },
     "aging": {
       "display": "시효 · 에이징 (Aging)",
       "category": "heat-treatment",
-      "surface_forms": ["시효", "에이징", "시효처리", "aging", "ageing", "aged"],
-      "autolink": ["시효", "에이징", "시효처리", "aging"],
+      "surface_forms": [
+        "시효",
+        "에이징",
+        "시효처리",
+        "aging",
+        "ageing",
+        "aged"
+      ],
+      "autolink": [
+        "시효",
+        "에이징",
+        "시효처리",
+        "aging"
+      ],
       "short": "용체화 후 상온(자연시효) 또는 일정 온도(인공시효)에서 유지하여 미세 석출물을 형성시키는 처리. 과다 시효(overaging)는 석출물이 조대화해 강도가 떨어진다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["solution-treatment", "precipitation-hardening"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "solution-treatment",
+        "precipitation-hardening"
+      ]
     },
     "carburizing": {
       "display": "침탄 (Carburizing)",
       "category": "heat-treatment",
-      "surface_forms": ["침탄", "carburizing", "carburising", "case hardening"],
-      "autolink": ["침탄", "carburizing"],
+      "surface_forms": [
+        "침탄",
+        "carburizing",
+        "carburising",
+        "case hardening"
+      ],
+      "autolink": [
+        "침탄",
+        "carburizing"
+      ],
       "short": "저탄소강 표면에 탄소를 확산 침투시킨 뒤 담금질하여 표면만 경화하는 표면경화법. 단단한 표면과 인성 있는 내부를 동시에 얻는다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["nitriding", "quenching", "hardness"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "nitriding",
+        "quenching",
+        "hardness"
+      ]
     },
     "nitriding": {
       "display": "질화 (Nitriding)",
       "category": "heat-treatment",
-      "surface_forms": ["질화", "nitriding", "nitrided"],
-      "autolink": ["질화", "nitriding"],
+      "surface_forms": [
+        "질화",
+        "nitriding",
+        "nitrided"
+      ],
+      "autolink": [
+        "질화",
+        "nitriding"
+      ],
       "short": "표면에 질소를 확산시켜 단단한 질화물 층을 만드는 저온 표면경화법. 변형이 적고 내마모·피로에 유리하다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["carburizing", "hardness", "fatigue"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "carburizing",
+        "hardness",
+        "fatigue"
+      ]
     },
     "recrystallization": {
       "display": "재결정 (Recrystallization)",
       "category": "heat-treatment",
-      "surface_forms": ["재결정", "recrystallization", "recrystallisation"],
-      "autolink": ["재결정", "recrystallization"],
+      "surface_forms": [
+        "재결정",
+        "recrystallization",
+        "recrystallisation"
+      ],
+      "autolink": [
+        "재결정",
+        "recrystallization"
+      ],
       "short": "냉간가공된 금속을 가열할 때 저장된 변형에너지를 구동력으로 무변형의 새 결정립이 생겨 연화되는 과정. 재결정온도가 냉간/열간가공을 가른다.",
-      "sources": ["Callister, Materials Science & Engineering", "Reed-Hill, Physical Metallurgy Principles"],
-      "related": ["cold-work", "annealing", "grain-refinement", "hot-work"]
+      "sources": [
+        "Callister, Materials Science & Engineering",
+        "Reed-Hill, Physical Metallurgy Principles"
+      ],
+      "related": [
+        "cold-work",
+        "annealing",
+        "grain-refinement",
+        "hot-work"
+      ]
     },
     "stress-relief": {
       "display": "응력제거풀림 (Stress Relief)",
       "category": "heat-treatment",
-      "surface_forms": ["응력제거풀림", "응력 제거", "응력제거", "stress relief", "stress relieving"],
-      "autolink": ["응력제거풀림", "응력제거", "stress relief"],
+      "surface_forms": [
+        "응력제거풀림",
+        "응력 제거",
+        "응력제거",
+        "stress relief",
+        "stress relieving"
+      ],
+      "autolink": [
+        "응력제거풀림",
+        "응력제거",
+        "stress relief"
+      ],
       "short": "잔류응력을 낮추기 위해 변태점 이하에서 가열·유지하는 저온 열처리. 용접·주조·AM 부품의 변형·균열을 줄인다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["residual-stress", "annealing", "hip"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "residual-stress",
+        "annealing",
+        "hip"
+      ]
     },
     "hip": {
       "display": "열간정수압성형 (HIP)",
       "category": "heat-treatment",
-      "surface_forms": ["열간정수압성형", "HIP", "hot isostatic pressing"],
-      "autolink": ["열간정수압성형", "HIP", "hot isostatic pressing"],
+      "surface_forms": [
+        "열간정수압성형",
+        "HIP",
+        "hot isostatic pressing"
+      ],
+      "autolink": [
+        "열간정수압성형",
+        "HIP",
+        "hot isostatic pressing"
+      ],
       "short": "고온과 고압 불활성기체를 동시에 가해 내부 기공을 압착·소멸시켜 밀도·연성·피로수명을 높이는 후처리. 주조·AM 부품의 결함 치유에 널리 쓰인다.",
-      "sources": ["ASM Handbook Vol.7 Powder Metallurgy", "ASTM F3055 (AM)"],
-      "related": ["porosity", "residual-stress", "fatigue"]
+      "sources": [
+        "ASM Handbook Vol.7 Powder Metallurgy",
+        "ASTM F3055 (AM)"
+      ],
+      "related": [
+        "porosity",
+        "residual-stress",
+        "fatigue"
+      ]
     },
     "toughness": {
       "display": "인성 (Toughness)",
       "category": "mechanical",
-      "surface_forms": ["인성", "toughness", "impact toughness"],
-      "autolink": ["인성", "toughness"],
+      "surface_forms": [
+        "인성",
+        "toughness",
+        "impact toughness"
+      ],
+      "autolink": [
+        "인성",
+        "toughness"
+      ],
       "short": "재료가 파괴되기 전까지 흡수하는 에너지로, 강도와 연성의 조합. 충격·노치가 있는 부품에서 특히 중요하며 온도에 민감하다.",
-      "sources": ["Callister, Materials Science & Engineering", "ASM Handbook Vol.8"],
-      "related": ["ductility", "brittleness", "fracture-toughness", "dbtt"]
+      "sources": [
+        "Callister, Materials Science & Engineering",
+        "ASM Handbook Vol.8"
+      ],
+      "related": [
+        "ductility",
+        "brittleness",
+        "fracture-toughness",
+        "dbtt"
+      ]
     },
     "ductility": {
       "display": "연성 (Ductility)",
       "category": "mechanical",
-      "surface_forms": ["연성", "ductility", "ductile"],
-      "autolink": ["연성", "ductility"],
+      "surface_forms": [
+        "연성",
+        "ductility",
+        "ductile"
+      ],
+      "autolink": [
+        "연성",
+        "ductility"
+      ],
       "short": "파단 전까지 소성변형할 수 있는 능력으로, 연신율·단면감소율로 나타낸다. 높으면 갑작스런 취성파괴 위험이 낮다.",
-      "sources": ["Callister, Materials Science & Engineering"],
-      "related": ["brittleness", "toughness", "elongation"]
+      "sources": [
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "brittleness",
+        "toughness",
+        "elongation"
+      ]
     },
     "brittleness": {
       "display": "취성 (Brittleness)",
       "category": "mechanical",
-      "surface_forms": ["취성", "취화", "brittleness", "brittle", "embrittlement"],
-      "autolink": ["취성", "취화", "brittleness"],
+      "surface_forms": [
+        "취성",
+        "취화",
+        "brittleness",
+        "brittle",
+        "embrittlement"
+      ],
+      "autolink": [
+        "취성",
+        "취화",
+        "brittleness"
+      ],
       "short": "소성변형을 거의 하지 않고 파괴되는 성질(연성의 반대). 경고 없이 파단하므로 설계에서 회피 대상이며, 저온·수소·석출물이 취화를 유발한다.",
-      "sources": ["Callister, Materials Science & Engineering"],
-      "related": ["ductility", "dbtt", "hydrogen-embrittlement", "toughness"]
+      "sources": [
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "ductility",
+        "dbtt",
+        "hydrogen-embrittlement",
+        "toughness"
+      ]
     },
     "fatigue": {
       "display": "피로 (Fatigue)",
       "category": "mechanical",
-      "surface_forms": ["피로", "fatigue"],
-      "autolink": ["피로", "fatigue"],
+      "surface_forms": [
+        "피로",
+        "fatigue"
+      ],
+      "autolink": [
+        "피로",
+        "fatigue"
+      ],
       "short": "항복강도보다 낮은 응력이라도 반복적으로 작용하면 균열이 생겨 성장하다 파괴되는 현상. 실제 기계 파손의 큰 비중을 차지한다.",
-      "sources": ["Shigley, Mechanical Engineering Design", "ASM Handbook Vol.19 Fatigue & Fracture"],
-      "related": ["fatigue-limit", "fracture-toughness", "residual-stress"]
+      "sources": [
+        "Shigley, Mechanical Engineering Design",
+        "ASM Handbook Vol.19 Fatigue & Fracture"
+      ],
+      "related": [
+        "fatigue-limit",
+        "fracture-toughness",
+        "residual-stress"
+      ]
     },
     "creep": {
       "display": "크리프 (Creep)",
       "category": "mechanical",
-      "surface_forms": ["크리프", "creep"],
-      "autolink": ["크리프", "creep"],
+      "surface_forms": [
+        "크리프",
+        "creep"
+      ],
+      "autolink": [
+        "크리프",
+        "creep"
+      ],
       "short": "융점의 약 0.4배 이상 고온에서 일정 응력 하에 시간이 지남에 따라 서서히 변형이 누적되는 현상. 터빈·보일러 부품 수명을 지배한다.",
-      "sources": ["ASM Handbook Vol.19", "Ashby, Materials Selection in Mechanical Design"],
-      "related": ["dispersion-strengthening", "grain-refinement"]
+      "sources": [
+        "ASM Handbook Vol.19",
+        "Ashby, Materials Selection in Mechanical Design"
+      ],
+      "related": [
+        "dispersion-strengthening",
+        "grain-refinement"
+      ]
     },
     "fracture-toughness": {
       "display": "파괴인성 (Fracture Toughness, K_IC)",
       "category": "mechanical",
-      "surface_forms": ["파괴인성", "fracture toughness", "K_IC", "KIC", "파괴인성"],
-      "autolink": ["파괴인성", "fracture toughness"],
+      "surface_forms": [
+        "파괴인성",
+        "fracture toughness",
+        "K_IC",
+        "KIC",
+        "파괴인성"
+      ],
+      "autolink": [
+        "파괴인성",
+        "fracture toughness"
+      ],
       "short": "균열이 있는 재료가 불안정한 취성파괴에 저항하는 능력(응력확대계수 임계값 K_IC). 강도가 높을수록 대개 낮아지는 상충관계가 있다.",
-      "sources": ["ASM Handbook Vol.19", "Anderson, Fracture Mechanics"],
-      "related": ["toughness", "fatigue", "brittleness"]
+      "sources": [
+        "ASM Handbook Vol.19",
+        "Anderson, Fracture Mechanics"
+      ],
+      "related": [
+        "toughness",
+        "fatigue",
+        "brittleness"
+      ]
     },
     "fatigue-limit": {
       "display": "피로한도 (Fatigue / Endurance Limit)",
       "category": "mechanical",
-      "surface_forms": ["피로한도", "피로 한도", "fatigue limit", "endurance limit"],
-      "autolink": ["피로한도", "피로 한도", "fatigue limit", "endurance limit"],
+      "surface_forms": [
+        "피로한도",
+        "피로 한도",
+        "fatigue limit",
+        "endurance limit"
+      ],
+      "autolink": [
+        "피로한도",
+        "피로 한도",
+        "fatigue limit",
+        "endurance limit"
+      ],
       "short": "그 아래 응력진폭에서는 사실상 무한 반복수명을 갖는 응력 한계. 강(BCC)에는 뚜렷이 존재하지만 알루미늄 등에는 명확하지 않다.",
-      "sources": ["Shigley, Mechanical Engineering Design"],
-      "related": ["fatigue", "fracture-toughness"]
+      "sources": [
+        "Shigley, Mechanical Engineering Design"
+      ],
+      "related": [
+        "fatigue",
+        "fracture-toughness"
+      ]
     },
     "dbtt": {
       "display": "연성–취성 천이온도 (DBTT)",
       "category": "mechanical",
-      "surface_forms": ["연성-취성 천이온도", "천이온도", "DBTT", "ductile-brittle transition"],
-      "autolink": ["연성-취성 천이온도", "천이온도", "DBTT"],
+      "surface_forms": [
+        "연성-취성 천이온도",
+        "천이온도",
+        "DBTT",
+        "ductile-brittle transition"
+      ],
+      "autolink": [
+        "연성-취성 천이온도",
+        "천이온도",
+        "DBTT"
+      ],
       "short": "이 온도 아래에서 체심입방(BCC) 금속의 인성이 급격히 떨어져 취성파괴하는 온도. 저온용 강 선정의 핵심 지표(예 타이타닉 사고).",
-      "sources": ["ASM Handbook Vol.1", "Callister, Materials Science & Engineering"],
-      "related": ["toughness", "brittleness", "ferrite"]
+      "sources": [
+        "ASM Handbook Vol.1",
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "toughness",
+        "brittleness",
+        "ferrite"
+      ]
     },
     "hardness": {
       "display": "경도 (Hardness)",
       "category": "mechanical",
-      "surface_forms": ["경도", "hardness"],
-      "autolink": ["경도"],
+      "surface_forms": [
+        "경도",
+        "hardness"
+      ],
+      "autolink": [
+        "경도"
+      ],
       "short": "국부적 소성변형(압입)에 저항하는 성질. Vickers(HV)·Rockwell(HRC)·Brinell(HB)로 측정하며 인장강도·내마모성과 상관이 있다.",
-      "sources": ["ASM Handbook Vol.8 Mechanical Testing"],
-      "related": ["tensile-strength", "carburizing", "nitriding"]
+      "sources": [
+        "ASM Handbook Vol.8 Mechanical Testing"
+      ],
+      "related": [
+        "tensile-strength",
+        "carburizing",
+        "nitriding"
+      ]
     },
     "yield-strength": {
       "display": "항복강도 (Yield Strength, σy)",
       "category": "mechanical",
-      "surface_forms": ["항복강도", "항복 강도", "yield strength"],
-      "autolink": ["항복강도", "항복 강도", "yield strength"],
+      "surface_forms": [
+        "항복강도",
+        "항복 강도",
+        "yield strength"
+      ],
+      "autolink": [
+        "항복강도",
+        "항복 강도",
+        "yield strength"
+      ],
       "short": "영구(소성) 변형이 시작되는 응력으로, 보통 0.2% 오프셋으로 정의한다. 설계에서 허용응력의 기준.",
-      "sources": ["ASM Handbook Vol.8", "Callister, Materials Science & Engineering"],
-      "related": ["tensile-strength", "elastic-modulus", "ductility"]
+      "sources": [
+        "ASM Handbook Vol.8",
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "tensile-strength",
+        "elastic-modulus",
+        "ductility"
+      ]
     },
     "tensile-strength": {
       "display": "인장강도 (Ultimate Tensile Strength, UTS)",
       "category": "mechanical",
-      "surface_forms": ["인장강도", "인장 강도", "tensile strength", "UTS"],
-      "autolink": ["인장강도", "인장 강도", "tensile strength"],
+      "surface_forms": [
+        "인장강도",
+        "인장 강도",
+        "tensile strength",
+        "UTS"
+      ],
+      "autolink": [
+        "인장강도",
+        "인장 강도",
+        "tensile strength"
+      ],
       "short": "인장시험에서 재료가 견디는 최대 공칭응력. 이 값을 넘으면 네킹이 시작되어 파단으로 이어진다.",
-      "sources": ["ASM Handbook Vol.8"],
-      "related": ["yield-strength", "ductility", "hardness"]
+      "sources": [
+        "ASM Handbook Vol.8"
+      ],
+      "related": [
+        "yield-strength",
+        "ductility",
+        "hardness"
+      ]
     },
     "elastic-modulus": {
       "display": "탄성계수 · 영률 (Elastic Modulus, E)",
       "category": "mechanical",
-      "surface_forms": ["탄성계수", "영률", "영 계수", "elastic modulus", "Young's modulus", "Youngs modulus"],
-      "autolink": ["탄성계수", "영률", "elastic modulus", "Young's modulus"],
+      "surface_forms": [
+        "탄성계수",
+        "영률",
+        "영 계수",
+        "elastic modulus",
+        "Young's modulus",
+        "Youngs modulus"
+      ],
+      "autolink": [
+        "탄성계수",
+        "영률",
+        "elastic modulus",
+        "Young's modulus"
+      ],
       "short": "탄성영역에서 응력÷변형률로, 재료 강성의 척도. 조성·열처리에 거의 무관하고 결합 종류로 결정되어 강은 ≈200 GPa로 일정하다.",
-      "sources": ["Callister, Materials Science & Engineering", "Ashby, Materials Selection"],
-      "related": ["yield-strength"]
+      "sources": [
+        "Callister, Materials Science & Engineering",
+        "Ashby, Materials Selection"
+      ],
+      "related": [
+        "yield-strength"
+      ]
     },
     "corrosion-resistance": {
       "display": "내식성 (Corrosion Resistance)",
       "category": "corrosion",
-      "surface_forms": ["내식성", "내부식성", "corrosion resistance"],
-      "autolink": ["내식성", "내부식성", "corrosion resistance"],
+      "surface_forms": [
+        "내식성",
+        "내부식성",
+        "corrosion resistance"
+      ],
+      "autolink": [
+        "내식성",
+        "내부식성",
+        "corrosion resistance"
+      ],
       "short": "환경과의 화학·전기화학 반응에 의한 열화(부식)에 견디는 성질. 스테인리스강·타이타늄·니켈합금은 부동태 피막으로 내식성을 얻는다.",
-      "sources": ["ASM Handbook Vol.13 Corrosion"],
-      "related": ["passivation", "pitting", "galvanic", "pren"]
+      "sources": [
+        "ASM Handbook Vol.13 Corrosion"
+      ],
+      "related": [
+        "passivation",
+        "pitting",
+        "galvanic",
+        "pren"
+      ]
     },
     "galvanic": {
       "display": "갈바닉 부식 (Galvanic Corrosion)",
       "category": "corrosion",
-      "surface_forms": ["갈바닉 부식", "갈바닉부식", "갈바닉", "galvanic corrosion", "galvanic"],
-      "autolink": ["갈바닉 부식", "갈바닉부식", "galvanic corrosion"],
+      "surface_forms": [
+        "갈바닉 부식",
+        "갈바닉부식",
+        "갈바닉",
+        "galvanic corrosion",
+        "galvanic"
+      ],
+      "autolink": [
+        "갈바닉 부식",
+        "갈바닉부식",
+        "galvanic corrosion"
+      ],
       "short": "전위가 다른 두 금속이 전해질에서 접촉하면 덜 귀한(활성) 금속이 양극이 되어 가속 부식되는 현상. 이종금속 체결부 설계에서 주의.",
-      "sources": ["ASM Handbook Vol.13 Corrosion"],
-      "related": ["corrosion-resistance", "passivation"]
+      "sources": [
+        "ASM Handbook Vol.13 Corrosion"
+      ],
+      "related": [
+        "corrosion-resistance",
+        "passivation"
+      ]
     },
     "pitting": {
       "display": "공식 · 점부식 (Pitting Corrosion)",
       "category": "corrosion",
-      "surface_forms": ["공식", "점부식", "공식부식", "pitting", "pitting corrosion"],
-      "autolink": ["점부식", "공식부식", "pitting corrosion"],
+      "surface_forms": [
+        "공식",
+        "점부식",
+        "공식부식",
+        "pitting",
+        "pitting corrosion"
+      ],
+      "autolink": [
+        "점부식",
+        "공식부식",
+        "pitting corrosion"
+      ],
       "short": "부동태 피막이 국부적으로 깨져 작고 깊은 구멍이 뚫리는 국부부식. 염화물 환경에서 흔하며 PREN·Mo 첨가로 저항을 높인다. (주의: '공식'은 formula 와 동음이의)",
-      "sources": ["ASM Handbook Vol.13 Corrosion"],
-      "related": ["crevice", "pren", "passivation", "corrosion-resistance"]
+      "sources": [
+        "ASM Handbook Vol.13 Corrosion"
+      ],
+      "related": [
+        "crevice",
+        "pren",
+        "passivation",
+        "corrosion-resistance"
+      ]
     },
     "crevice": {
       "display": "틈부식 (Crevice Corrosion)",
       "category": "corrosion",
-      "surface_forms": ["틈부식", "틈새부식", "crevice corrosion"],
-      "autolink": ["틈부식", "틈새부식", "crevice corrosion"],
+      "surface_forms": [
+        "틈부식",
+        "틈새부식",
+        "crevice corrosion"
+      ],
+      "autolink": [
+        "틈부식",
+        "틈새부식",
+        "crevice corrosion"
+      ],
       "short": "개스킷·겹침부 등 정체된 틈새 용액에서 산소 결핍과 산성화로 진행되는 국부부식. 공식과 기구가 유사하나 더 낮은 임계온도에서 발생.",
-      "sources": ["ASM Handbook Vol.13 Corrosion"],
-      "related": ["pitting", "pren", "corrosion-resistance"]
+      "sources": [
+        "ASM Handbook Vol.13 Corrosion"
+      ],
+      "related": [
+        "pitting",
+        "pren",
+        "corrosion-resistance"
+      ]
     },
     "scc": {
       "display": "응력부식균열 (Stress Corrosion Cracking, SCC)",
       "category": "corrosion",
-      "surface_forms": ["응력부식균열", "응력 부식 균열", "stress corrosion cracking", "SCC"],
-      "autolink": ["응력부식균열", "응력 부식 균열", "stress corrosion cracking", "SCC"],
+      "surface_forms": [
+        "응력부식균열",
+        "응력 부식 균열",
+        "stress corrosion cracking",
+        "SCC"
+      ],
+      "autolink": [
+        "응력부식균열",
+        "응력 부식 균열",
+        "stress corrosion cracking",
+        "SCC"
+      ],
       "short": "인장응력과 특정 부식환경이 동시에 작용해 균열이 성장하는 취성 파괴. 오스테나이트계 SS의 염화물 SCC, 황동의 암모니아 균열이 대표적.",
-      "sources": ["ASM Handbook Vol.13 Corrosion"],
-      "related": ["hydrogen-embrittlement", "residual-stress", "pitting"]
+      "sources": [
+        "ASM Handbook Vol.13 Corrosion"
+      ],
+      "related": [
+        "hydrogen-embrittlement",
+        "residual-stress",
+        "pitting"
+      ]
     },
     "intergranular": {
       "display": "입계부식 (Intergranular Corrosion)",
       "category": "corrosion",
-      "surface_forms": ["입계부식", "입계 부식", "intergranular corrosion", "IGC"],
-      "autolink": ["입계부식", "입계 부식", "intergranular corrosion"],
+      "surface_forms": [
+        "입계부식",
+        "입계 부식",
+        "intergranular corrosion",
+        "IGC"
+      ],
+      "autolink": [
+        "입계부식",
+        "입계 부식",
+        "intergranular corrosion"
+      ],
       "short": "결정립계를 따라 선택적으로 진행되는 부식. 예민화된 스테인리스강에서 입계 Cr 결핍이 원인이며, 저탄소(L)·안정화 등급으로 방지한다.",
-      "sources": ["ASM Handbook Vol.13 Corrosion"],
-      "related": ["sensitization", "carbide", "solution-treatment"]
+      "sources": [
+        "ASM Handbook Vol.13 Corrosion"
+      ],
+      "related": [
+        "sensitization",
+        "carbide",
+        "solution-treatment"
+      ]
     },
     "sensitization": {
       "display": "예민화 (Sensitization)",
       "category": "corrosion",
-      "surface_forms": ["예민화", "sensitization", "sensitisation"],
-      "autolink": ["예민화", "sensitization"],
+      "surface_forms": [
+        "예민화",
+        "sensitization",
+        "sensitisation"
+      ],
+      "autolink": [
+        "예민화",
+        "sensitization"
+      ],
       "short": "스테인리스강이 500–800°C에 노출될 때 입계에 Cr 탄화물이 석출하며 인근이 Cr 결핍이 되어 입계부식에 취약해지는 현상. 용접 HAZ에서 흔하다.",
-      "sources": ["ASM Handbook Vol.13 Corrosion"],
-      "related": ["intergranular", "carbide", "solution-treatment"]
+      "sources": [
+        "ASM Handbook Vol.13 Corrosion"
+      ],
+      "related": [
+        "intergranular",
+        "carbide",
+        "solution-treatment"
+      ]
     },
     "passivation": {
       "display": "부동태화 (Passivation)",
       "category": "corrosion",
-      "surface_forms": ["부동태화", "부동태", "passivation", "passive film"],
-      "autolink": ["부동태화", "부동태", "passivation"],
+      "surface_forms": [
+        "부동태화",
+        "부동태",
+        "passivation",
+        "passive film"
+      ],
+      "autolink": [
+        "부동태화",
+        "부동태",
+        "passivation"
+      ],
       "short": "표면에 얇고 치밀한 산화 피막(스테인리스강의 Cr₂O₃)이 형성되어 부식이 크게 억제되는 상태. 손상 시 산소가 있으면 스스로 재생된다.",
-      "sources": ["ASM Handbook Vol.13 Corrosion"],
-      "related": ["corrosion-resistance", "pitting", "sensitization"]
+      "sources": [
+        "ASM Handbook Vol.13 Corrosion"
+      ],
+      "related": [
+        "corrosion-resistance",
+        "pitting",
+        "sensitization"
+      ]
     },
     "hydrogen-embrittlement": {
       "display": "수소취화 (Hydrogen Embrittlement)",
       "category": "corrosion",
-      "surface_forms": ["수소취화", "수소 취화", "수소취성", "hydrogen embrittlement"],
-      "autolink": ["수소취화", "수소 취화", "수소취성", "hydrogen embrittlement"],
+      "surface_forms": [
+        "수소취화",
+        "수소 취화",
+        "수소취성",
+        "hydrogen embrittlement"
+      ],
+      "autolink": [
+        "수소취화",
+        "수소 취화",
+        "수소취성",
+        "hydrogen embrittlement"
+      ],
       "short": "흡수된 수소 원자가 고강도강(대략 UTS≥1000 MPa)의 인성을 떨어뜨려 지연·취성파괴를 일으키는 현상. 산세·전기도금·부식에서 유입된다.",
-      "sources": ["ASM Handbook Vol.13 Corrosion"],
-      "related": ["brittleness", "scc", "tensile-strength"]
+      "sources": [
+        "ASM Handbook Vol.13 Corrosion"
+      ],
+      "related": [
+        "brittleness",
+        "scc",
+        "tensile-strength"
+      ]
     },
     "pren": {
       "display": "공식저항당량 (PREN)",
       "category": "corrosion",
-      "surface_forms": ["공식저항당량", "PREN", "PRE"],
-      "autolink": ["공식저항당량", "PREN"],
+      "surface_forms": [
+        "공식저항당량",
+        "PREN",
+        "PRE"
+      ],
+      "autolink": [
+        "공식저항당량",
+        "PREN"
+      ],
       "short": "스테인리스강의 내공식성 지표. PREN = %Cr + 3.3×%Mo + 16×%N 로 계산하며, 값이 클수록 염화물 공식·틈부식에 강하다(듀플렉스≈35, 슈퍼듀플렉스≥40).",
-      "sources": ["IMOA / ISSF Stainless Steel Guides"],
-      "related": ["pitting", "crevice", "corrosion-resistance"]
+      "sources": [
+        "IMOA / ISSF Stainless Steel Guides"
+      ],
+      "related": [
+        "pitting",
+        "crevice",
+        "corrosion-resistance"
+      ]
     },
     "cold-work": {
       "display": "냉간가공 (Cold Work)",
       "category": "processing",
-      "surface_forms": ["냉간가공", "냉간 가공", "cold work", "cold working", "cold rolled"],
-      "autolink": ["냉간가공", "냉간 가공", "cold work", "cold working"],
+      "surface_forms": [
+        "냉간가공",
+        "냉간 가공",
+        "cold work",
+        "cold working",
+        "cold rolled"
+      ],
+      "autolink": [
+        "냉간가공",
+        "냉간 가공",
+        "cold work",
+        "cold working"
+      ],
       "short": "재결정온도 이하에서 하는 소성가공. 가공경화로 강도·경도가 오르고 연성이 떨어지며, 표면·치수 정밀도가 좋다.",
-      "sources": ["Dieter, Mechanical Metallurgy"],
-      "related": ["work-hardening", "hot-work", "recrystallization", "rolling"]
+      "sources": [
+        "Dieter, Mechanical Metallurgy"
+      ],
+      "related": [
+        "work-hardening",
+        "hot-work",
+        "recrystallization",
+        "rolling"
+      ]
     },
     "hot-work": {
       "display": "열간가공 (Hot Work)",
       "category": "processing",
-      "surface_forms": ["열간가공", "열간 가공", "hot work", "hot working", "hot rolled"],
-      "autolink": ["열간가공", "열간 가공", "hot work", "hot working"],
+      "surface_forms": [
+        "열간가공",
+        "열간 가공",
+        "hot work",
+        "hot working",
+        "hot rolled"
+      ],
+      "autolink": [
+        "열간가공",
+        "열간 가공",
+        "hot work",
+        "hot working"
+      ],
       "short": "재결정온도 이상에서 하는 소성가공. 낮은 하중으로 큰 변형이 가능하고 재결정으로 조직이 미세·균질해지나, 표면 산화·치수 정밀도는 떨어진다.",
-      "sources": ["Dieter, Mechanical Metallurgy"],
-      "related": ["cold-work", "recrystallization", "forging"]
+      "sources": [
+        "Dieter, Mechanical Metallurgy"
+      ],
+      "related": [
+        "cold-work",
+        "recrystallization",
+        "forging"
+      ]
     },
     "rolling": {
       "display": "압연 (Rolling)",
       "category": "processing",
-      "surface_forms": ["압연", "rolling", "rolled"],
-      "autolink": ["압연"],
+      "surface_forms": [
+        "압연",
+        "rolling",
+        "rolled"
+      ],
+      "autolink": [
+        "압연"
+      ],
       "short": "회전하는 롤 사이로 재료를 통과시켜 두께를 줄이고 판·형재를 만드는 성형. 냉간·열간으로 나뉜다.",
-      "sources": ["Dieter, Mechanical Metallurgy", "ASM Handbook Vol.14 Forming"],
-      "related": ["cold-work", "hot-work", "extrusion"]
+      "sources": [
+        "Dieter, Mechanical Metallurgy",
+        "ASM Handbook Vol.14 Forming"
+      ],
+      "related": [
+        "cold-work",
+        "hot-work",
+        "extrusion"
+      ]
     },
     "forging": {
       "display": "단조 (Forging)",
       "category": "processing",
-      "surface_forms": ["단조", "forging", "forged"],
-      "autolink": ["단조"],
+      "surface_forms": [
+        "단조",
+        "forging",
+        "forged"
+      ],
+      "autolink": [
+        "단조"
+      ],
       "short": "압축 하중으로 금속을 성형하는 가공. 조직을 치밀화하고 방향성 유동선(grain flow)을 형성해 주조·기계가공품보다 강인하다.",
-      "sources": ["ASM Handbook Vol.14 Forming and Forging"],
-      "related": ["casting", "hot-work", "toughness"]
+      "sources": [
+        "ASM Handbook Vol.14 Forming and Forging"
+      ],
+      "related": [
+        "casting",
+        "hot-work",
+        "toughness"
+      ]
     },
     "casting": {
       "display": "주조 (Casting)",
       "category": "processing",
-      "surface_forms": ["주조", "casting", "as-cast", "cast"],
-      "autolink": ["주조", "casting"],
+      "surface_forms": [
+        "주조",
+        "casting",
+        "as-cast",
+        "cast"
+      ],
+      "autolink": [
+        "주조",
+        "casting"
+      ],
       "short": "용융 금속을 주형에 부어 응고시켜 복잡한 형상을 얻는 공정. 단조품보다 방향성이 없고 기공·수축결함이 생길 수 있어 HIP으로 보완한다.",
-      "sources": ["ASM Handbook Vol.15 Casting"],
-      "related": ["forging", "porosity", "hip"]
+      "sources": [
+        "ASM Handbook Vol.15 Casting"
+      ],
+      "related": [
+        "forging",
+        "porosity",
+        "hip"
+      ]
     },
     "sintering": {
       "display": "소결 (Sintering)",
       "category": "processing",
-      "surface_forms": ["소결", "sintering", "sintered"],
-      "autolink": ["소결", "sintering"],
+      "surface_forms": [
+        "소결",
+        "sintering",
+        "sintered"
+      ],
+      "autolink": [
+        "소결",
+        "sintering"
+      ],
       "short": "분말을 융점 이하로 가열해 원자 확산으로 입자를 결합·치밀화하는 공정. 분말야금·세라믹·바인더젯 AM의 핵심 단계.",
-      "sources": ["ASM Handbook Vol.7 Powder Metallurgy"],
-      "related": ["porosity", "hip"]
+      "sources": [
+        "ASM Handbook Vol.7 Powder Metallurgy"
+      ],
+      "related": [
+        "porosity",
+        "hip"
+      ]
     },
     "extrusion": {
       "display": "압출 (Extrusion)",
       "category": "processing",
-      "surface_forms": ["압출", "extrusion", "extruded"],
-      "autolink": ["압출", "extrusion"],
+      "surface_forms": [
+        "압출",
+        "extrusion",
+        "extruded"
+      ],
+      "autolink": [
+        "압출",
+        "extrusion"
+      ],
       "short": "재료를 다이 구멍으로 밀어내 일정한 단면의 형재를 연속 생산하는 가공. 알루미늄 형재가 대표적.",
-      "sources": ["Dieter, Mechanical Metallurgy", "ASM Handbook Vol.14 Forming"],
-      "related": ["drawing", "rolling", "hot-work"]
+      "sources": [
+        "Dieter, Mechanical Metallurgy",
+        "ASM Handbook Vol.14 Forming"
+      ],
+      "related": [
+        "drawing",
+        "rolling",
+        "hot-work"
+      ]
     },
     "drawing": {
       "display": "인발 (Drawing)",
       "category": "processing",
-      "surface_forms": ["인발", "wire drawing", "drawing"],
-      "autolink": ["인발", "wire drawing"],
+      "surface_forms": [
+        "인발",
+        "wire drawing",
+        "drawing"
+      ],
+      "autolink": [
+        "인발",
+        "wire drawing"
+      ],
       "short": "재료를 다이 구멍으로 당겨 단면적을 줄이는 가공. 선재·관·봉의 정밀 치수와 매끄러운 표면, 가공경화를 얻는다.",
-      "sources": ["Dieter, Mechanical Metallurgy"],
-      "related": ["extrusion", "cold-work", "work-hardening"]
+      "sources": [
+        "Dieter, Mechanical Metallurgy"
+      ],
+      "related": [
+        "extrusion",
+        "cold-work",
+        "work-hardening"
+      ]
     },
     "anisotropy": {
       "display": "이방성 (Anisotropy)",
       "category": "am",
-      "surface_forms": ["이방성", "anisotropy", "anisotropic"],
-      "autolink": ["이방성", "anisotropy"],
+      "surface_forms": [
+        "이방성",
+        "anisotropy",
+        "anisotropic"
+      ],
+      "autolink": [
+        "이방성",
+        "anisotropy"
+      ],
       "short": "방향에 따라 물성이 다른 성질. 적층제조(AM) 부품은 적층방향(Z)의 강도·연성·피로가 XY 평면보다 낮은 경향이 있어 방향을 고려해 설계·시험한다.",
-      "sources": ["ASTM F42 AM Standards", "AM 재료 문헌"],
-      "related": ["residual-stress", "porosity", "fatigue"]
+      "sources": [
+        "ASTM F42 AM Standards",
+        "AM 재료 문헌"
+      ],
+      "related": [
+        "residual-stress",
+        "porosity",
+        "fatigue"
+      ]
     },
     "residual-stress": {
       "display": "잔류응력 (Residual Stress)",
       "category": "am",
-      "surface_forms": ["잔류응력", "잔류 응력", "residual stress"],
-      "autolink": ["잔류응력", "잔류 응력", "residual stress"],
+      "surface_forms": [
+        "잔류응력",
+        "잔류 응력",
+        "residual stress"
+      ],
+      "autolink": [
+        "잔류응력",
+        "잔류 응력",
+        "residual stress"
+      ],
       "short": "외력을 제거한 뒤에도 재료 내부에 남아 있는 응력. 급랭·용접·AM의 급한 열구배로 생기며 변형·균열·피로수명 저하를 유발해 응력제거·HIP으로 완화한다.",
-      "sources": ["ASM Handbook Vol.4", "AM 재료 문헌"],
-      "related": ["stress-relief", "hip", "scc", "fatigue"]
+      "sources": [
+        "ASM Handbook Vol.4",
+        "AM 재료 문헌"
+      ],
+      "related": [
+        "stress-relief",
+        "hip",
+        "scc",
+        "fatigue"
+      ]
     },
     "porosity": {
       "display": "기공 · 기공률 (Porosity)",
       "category": "am",
-      "surface_forms": ["기공", "기공률", "porosity", "porous"],
-      "autolink": ["기공", "기공률", "porosity"],
+      "surface_forms": [
+        "기공",
+        "기공률",
+        "porosity",
+        "porous"
+      ],
+      "autolink": [
+        "기공",
+        "기공률",
+        "porosity"
+      ],
       "short": "재료 내부의 빈 공간. 주조·AM에서 가스·미용융으로 생기며 응력집중원이 되어 피로·연성을 떨어뜨린다. HIP·공정 최적화로 줄인다.",
-      "sources": ["ASM Handbook Vol.7", "AM 재료 문헌"],
-      "related": ["hip", "casting", "sintering", "fatigue"]
+      "sources": [
+        "ASM Handbook Vol.7",
+        "AM 재료 문헌"
+      ],
+      "related": [
+        "hip",
+        "casting",
+        "sintering",
+        "fatigue"
+      ]
     },
     "phase-transformation": {
       "display": "상변태 (Phase Transformation)",
       "category": "phase",
-      "surface_forms": ["상변태", "상 변태", "phase transformation"],
-      "autolink": ["상변태", "상 변태", "phase transformation"],
+      "surface_forms": [
+        "상변태",
+        "상 변태",
+        "phase transformation"
+      ],
+      "autolink": [
+        "상변태",
+        "상 변태",
+        "phase transformation"
+      ],
       "short": "온도·압력·조성 변화에 따라 재료의 결정상이 다른 상으로 바뀌는 현상(예 γ→α, 액상→고상). 응고·열처리·강화의 근간이다.",
-      "sources": ["Reed-Hill, Physical Metallurgy Principles", "Callister, Materials Science & Engineering"],
-      "related": ["eutectoid", "eutectic", "martensite", "austenite"]
+      "sources": [
+        "Reed-Hill, Physical Metallurgy Principles",
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "eutectoid",
+        "eutectic",
+        "martensite",
+        "austenite"
+      ]
     },
     "eutectoid": {
       "display": "공석변태 (Eutectoid)",
       "category": "phase",
-      "surface_forms": ["공석변태", "공석", "eutectoid"],
-      "autolink": ["공석변태", "eutectoid"],
+      "surface_forms": [
+        "공석변태",
+        "공석",
+        "eutectoid"
+      ],
+      "autolink": [
+        "공석변태",
+        "eutectoid"
+      ],
       "short": "하나의 고상이 냉각 시 두 개의 다른 고상으로 동시에 분해되는 반응. 강에서는 오스테나이트(0.76%C)가 727°C에서 페라이트+시멘타이트(=펄라이트)로 분해된다.",
-      "sources": ["Callister, Materials Science & Engineering"],
-      "related": ["pearlite", "austenite", "phase-transformation"]
+      "sources": [
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "pearlite",
+        "austenite",
+        "phase-transformation"
+      ]
     },
     "eutectic": {
       "display": "공정반응 (Eutectic)",
       "category": "phase",
-      "surface_forms": ["공정반응", "공정 반응", "eutectic"],
-      "autolink": ["공정반응", "공정 반응", "eutectic"],
+      "surface_forms": [
+        "공정반응",
+        "공정 반응",
+        "eutectic"
+      ],
+      "autolink": [
+        "공정반응",
+        "공정 반응",
+        "eutectic"
+      ],
       "short": "액상이 냉각 시 두 고상으로 동시에 응고하는 반응. Al-Si(≈12.6%Si) 등이 대표적이며 융점이 낮고 유동성이 좋아 주조성이 우수하다. (주의: '공정'은 process 와 동음이의)",
-      "sources": ["Callister, Materials Science & Engineering"],
-      "related": ["casting", "solid-solution", "phase-transformation"]
+      "sources": [
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "casting",
+        "solid-solution",
+        "phase-transformation"
+      ]
     },
     "solid-solution": {
       "display": "고용체 (Solid Solution)",
       "category": "phase",
-      "surface_forms": ["고용체", "solid solution"],
-      "autolink": ["고용체", "solid solution"],
+      "surface_forms": [
+        "고용체",
+        "solid solution"
+      ],
+      "autolink": [
+        "고용체",
+        "solid solution"
+      ],
       "short": "용질 원자가 용매 결정격자에 균일하게 녹아든 단일 고상. 원자 위치에 따라 치환형·침입형으로 나뉘며 고용강화의 바탕이 된다.",
-      "sources": ["Callister, Materials Science & Engineering"],
-      "related": ["solid-solution-strengthening", "austenite", "ferrite"]
+      "sources": [
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "solid-solution-strengthening",
+        "austenite",
+        "ferrite"
+      ]
     },
     "elongation": {
       "display": "연신율 (Elongation)",
       "category": "mechanical",
-      "surface_forms": ["연신율", "연신", "elongation"],
-      "autolink": ["연신율", "elongation"],
+      "surface_forms": [
+        "연신율",
+        "연신",
+        "elongation"
+      ],
+      "autolink": [
+        "연신율",
+        "elongation"
+      ],
       "short": "인장시험에서 파단까지 표점거리가 늘어난 비율(%). 연성을 나타내는 대표 척도로, 값이 클수록 소성변형 여력이 크다.",
-      "sources": ["ASM Handbook Vol.8 Mechanical Testing"],
-      "related": ["ductility", "tensile-strength"]
+      "sources": [
+        "ASM Handbook Vol.8 Mechanical Testing"
+      ],
+      "related": [
+        "ductility",
+        "tensile-strength"
+      ]
     },
     "tool-steel": {
       "display": "공구강 (Tool Steel)",
       "category": "alloy-family",
-      "surface_forms": ["공구강", "tool steel"],
-      "autolink": ["공구강", "tool steel"],
+      "surface_forms": [
+        "공구강",
+        "tool steel"
+      ],
+      "autolink": [
+        "공구강",
+        "tool steel"
+      ],
       "short": "절삭·성형·금형 공구에 쓰는 고탄소·고합금강. 높은 경도·내마모성과 고온에서도 경도를 유지하는 적열경도를 위해 담금질+뜨임하며, 냉간(D2·A2·O1)·열간(H13)·고속도(M2) 계열로 나뉜다.",
-      "sources": ["ASM Handbook Vol.1", "G. Roberts et al., Tool Steels (ASM)"],
-      "related": ["martensite", "tempering", "hardness", "carbide"]
+      "sources": [
+        "ASM Handbook Vol.1",
+        "G. Roberts et al., Tool Steels (ASM)"
+      ],
+      "related": [
+        "martensite",
+        "tempering",
+        "hardness",
+        "carbide"
+      ]
     },
     "maraging-steel": {
       "display": "마레이징강 (Maraging Steel)",
       "category": "alloy-family",
-      "surface_forms": ["마레이징강", "마레이징 강", "maraging steel", "마르에이징강"],
-      "autolink": ["마레이징강", "마레이징 강", "maraging steel"],
+      "surface_forms": [
+        "마레이징강",
+        "마레이징 강",
+        "maraging steel",
+        "마르에이징강"
+      ],
+      "autolink": [
+        "마레이징강",
+        "마레이징 강",
+        "maraging steel"
+      ],
       "short": "탄소를 거의 넣지 않고 니켈(약 18%) 마르텐사이트 기지를 금속간화합물(Ni₃Mo·Ni₃Ti) 시효 석출로 강화한 초고강도강. 담금질 없이도 무른 마르텐사이트 상태에서 가공·용접한 뒤 저온 시효로 변형 적게 강화한다.",
-      "sources": ["ASM Handbook Vol.1", "ASM Specialty Handbook: Carbon and Alloy Steels"],
-      "related": ["martensite", "precipitation-hardening", "aging"]
+      "sources": [
+        "ASM Handbook Vol.1",
+        "ASM Specialty Handbook: Carbon and Alloy Steels"
+      ],
+      "related": [
+        "martensite",
+        "precipitation-hardening",
+        "aging"
+      ]
     },
     "martempering": {
       "display": "마르퀜칭 · 마템퍼링 (Martempering)",
       "category": "heat-treatment",
-      "surface_forms": ["마르퀜칭", "마템퍼링", "martempering", "marquenching"],
-      "autolink": ["마르퀜칭", "마템퍼링", "martempering"],
+      "surface_forms": [
+        "마르퀜칭",
+        "마템퍼링",
+        "martempering",
+        "marquenching"
+      ],
+      "autolink": [
+        "마르퀜칭",
+        "마템퍼링",
+        "martempering"
+      ],
       "short": "담금질 변형·균열을 줄이는 열처리. Ms 부근 온도의 염욕 등에서 잠시 유지해 부품 표면과 중심의 온도를 고르게 한 뒤 공랭하여 마르텐사이트로 변태시켜, 변태 응력을 낮춘다.",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["quenching", "martensite", "residual-stress"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "quenching",
+        "martensite",
+        "residual-stress"
+      ]
     },
     "subzero-treatment": {
       "display": "서브제로 · 심랭 처리 (Sub-zero Treatment)",
       "category": "heat-treatment",
-      "surface_forms": ["서브제로처리", "서브제로 처리", "심랭처리", "심랭 처리", "sub-zero treatment", "cryogenic treatment"],
-      "autolink": ["서브제로처리", "서브제로 처리", "심랭처리", "심랭 처리"],
+      "surface_forms": [
+        "서브제로처리",
+        "서브제로 처리",
+        "심랭처리",
+        "심랭 처리",
+        "sub-zero treatment",
+        "cryogenic treatment"
+      ],
+      "autolink": [
+        "서브제로처리",
+        "서브제로 처리",
+        "심랭처리",
+        "심랭 처리"
+      ],
       "short": "담금질 후 0 °C 이하(예 −80 °C 드라이아이스, −196 °C 액체질소)로 냉각해, 상온에 남은 잔류 오스테나이트를 마르텐사이트로 추가 변태시키는 처리. 치수 안정성과 경도·내마모성을 높인다(공구강·게이지·베어링).",
-      "sources": ["ASM Handbook Vol.4 Heat Treating"],
-      "related": ["retained-austenite", "quenching", "martensite"]
+      "sources": [
+        "ASM Handbook Vol.4 Heat Treating"
+      ],
+      "related": [
+        "retained-austenite",
+        "quenching",
+        "martensite"
+      ]
     },
     "tensile-stress": {
       "display": "인장응력 (Tensile Stress)",
       "category": "mechanical",
-      "surface_forms": ["인장응력", "인장 응력", "tensile stress"],
-      "autolink": ["인장응력", "인장 응력", "tensile stress"],
+      "surface_forms": [
+        "인장응력",
+        "인장 응력",
+        "tensile stress"
+      ],
+      "autolink": [
+        "인장응력",
+        "인장 응력",
+        "tensile stress"
+      ],
       "short": "재료를 잡아당겨 늘리려는 방향의 응력. 눌러 줄이는 압축응력의 반대이며, 균열·피로·응력부식균열을 진전시키는 주된 구동력이 된다.",
-      "sources": ["Callister, Materials Science & Engineering"],
-      "related": ["yield-strength", "scc", "fatigue"]
+      "sources": [
+        "Callister, Materials Science & Engineering"
+      ],
+      "related": [
+        "yield-strength",
+        "scc",
+        "fatigue"
+      ]
     },
     "stress-concentration": {
       "display": "응력집중 (Stress Concentration)",
       "category": "mechanical",
-      "surface_forms": ["응력집중", "응력 집중", "stress concentration", "노치효과"],
-      "autolink": ["응력집중", "응력 집중", "stress concentration"],
+      "surface_forms": [
+        "응력집중",
+        "응력 집중",
+        "stress concentration",
+        "노치효과"
+      ],
+      "autolink": [
+        "응력집중",
+        "응력 집중",
+        "stress concentration"
+      ],
       "short": "노치·구멍·급격한 단면 변화 주변에서 응력이 국부적으로 크게 높아지는 현상. 피로 균열과 취성 파괴의 시작점이 되므로, 설계에서 모서리를 둥글리고 단면 변화를 완만히 해 완화한다.",
-      "sources": ["Shigley, Mechanical Engineering Design", "Peterson's Stress Concentration Factors"],
-      "related": ["fatigue", "fracture-toughness", "brittleness"]
+      "sources": [
+        "Shigley, Mechanical Engineering Design",
+        "Peterson's Stress Concentration Factors"
+      ],
+      "related": [
+        "fatigue",
+        "fracture-toughness",
+        "brittleness"
+      ]
     },
     "stainless-steel": {
       "display": "스테인리스강 (Stainless Steel)",
       "category": "alloy-family",
-      "surface_forms": ["스테인리스강", "스테인리스 강", "스테인레스강", "stainless steel"],
-      "autolink": ["스테인리스강", "스테인리스 강", "stainless steel"],
+      "surface_forms": [
+        "스테인리스강",
+        "스테인리스 강",
+        "스테인레스강",
+        "stainless steel"
+      ],
+      "autolink": [
+        "스테인리스강",
+        "스테인리스 강",
+        "stainless steel"
+      ],
       "short": "크로뮴을 약 10.5% 이상 넣어 표면 부동태 피막으로 내식성을 얻은 강. 조직에 따라 오스테나이트계(304·316)·페라이트계·마르텐사이트계·듀플렉스로 나뉘며, 내식·위생·미관으로 가장 널리 쓰인다.",
-      "sources": ["ASM Handbook Vol.1", "ASM Specialty Handbook: Stainless Steels"],
-      "related": ["passivation", "austenite", "ferrite", "duplex-stainless-steel"]
+      "sources": [
+        "ASM Handbook Vol.1",
+        "ASM Specialty Handbook: Stainless Steels"
+      ],
+      "related": [
+        "passivation",
+        "austenite",
+        "ferrite",
+        "duplex-stainless-steel"
+      ]
     },
     "duplex-stainless-steel": {
       "display": "듀플렉스 스테인리스강 (Duplex Stainless Steel)",
       "category": "alloy-family",
-      "surface_forms": ["듀플렉스 스테인리스강", "듀플렉스강", "듀플렉스", "duplex stainless steel", "duplex"],
-      "autolink": ["듀플렉스 스테인리스강", "듀플렉스강", "듀플렉스", "duplex stainless steel"],
+      "surface_forms": [
+        "듀플렉스 스테인리스강",
+        "듀플렉스강",
+        "듀플렉스",
+        "duplex stainless steel",
+        "duplex"
+      ],
+      "autolink": [
+        "듀플렉스 스테인리스강",
+        "듀플렉스강",
+        "듀플렉스",
+        "duplex stainless steel"
+      ],
       "short": "오스테나이트와 페라이트가 대략 반반 섞인 스테인리스강. 오스테나이트계보다 강도가 높고, 페라이트 조직 덕분에 염화물 응력부식균열·공식에 강하다(2205·슈퍼듀플렉스).",
-      "sources": ["IMOA Practical Guidelines for Duplex Stainless Steels", "ASM Handbook Vol.1"],
-      "related": ["stainless-steel", "scc", "pren", "ferrite"]
+      "sources": [
+        "IMOA Practical Guidelines for Duplex Stainless Steels",
+        "ASM Handbook Vol.1"
+      ],
+      "related": [
+        "stainless-steel",
+        "scc",
+        "pren",
+        "ferrite"
+      ]
     },
     "nickel-superalloy": {
       "display": "니켈기 초합금 (Nickel Superalloy)",
       "category": "alloy-family",
-      "surface_forms": ["니켈기 초합금", "니켈 초합금", "니켈합금", "초합금", "superalloy", "nickel superalloy"],
-      "autolink": ["니켈기 초합금", "니켈 초합금", "니켈합금", "초합금", "nickel superalloy"],
+      "surface_forms": [
+        "니켈기 초합금",
+        "니켈 초합금",
+        "니켈합금",
+        "초합금",
+        "superalloy",
+        "nickel superalloy"
+      ],
+      "autolink": [
+        "니켈기 초합금",
+        "니켈 초합금",
+        "니켈합금",
+        "초합금",
+        "nickel superalloy"
+      ],
       "short": "니켈을 주성분으로 고온 강도·내산화·내크리프가 뛰어난 합금. γ′·γ″ 석출과 고용강화로 융점 가까운 온도까지 강도를 유지해 가스터빈·제트엔진 고온부에 쓰인다(Inconel·Waspaloy·Haynes).",
-      "sources": ["ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys", "Reed, The Superalloys"],
-      "related": ["creep", "precipitation-hardening", "corrosion-resistance"]
+      "sources": [
+        "ASM Specialty Handbook: Nickel, Cobalt, and Their Alloys",
+        "Reed, The Superalloys"
+      ],
+      "related": [
+        "creep",
+        "precipitation-hardening",
+        "corrosion-resistance"
+      ]
     },
     "high-speed-steel": {
       "display": "고속도강 (High-Speed Steel, HSS)",
       "category": "alloy-family",
-      "surface_forms": ["고속도강", "고속도 강", "high-speed steel", "high speed steel", "HSS"],
-      "autolink": ["고속도강", "고속도 강", "high-speed steel", "high speed steel"],
+      "surface_forms": [
+        "고속도강",
+        "고속도 강",
+        "high-speed steel",
+        "high speed steel",
+        "HSS"
+      ],
+      "autolink": [
+        "고속도강",
+        "고속도 강",
+        "high-speed steel",
+        "high speed steel"
+      ],
       "short": "텅스텐·몰리브데넘·바나듐·크로뮴을 다량 함유한 공구강. 뜨임 시 이차경화로 적열경도를 얻어, 절삭 중 고온에서도 경도를 유지하므로 고속 절삭공구에 쓰인다(M2·M42).",
-      "sources": ["ASM Handbook Vol.1", "G. Roberts et al., Tool Steels (ASM)"],
-      "related": ["tool-steel", "tempering", "carbide"]
+      "sources": [
+        "ASM Handbook Vol.1",
+        "G. Roberts et al., Tool Steels (ASM)"
+      ],
+      "related": [
+        "tool-steel",
+        "tempering",
+        "carbide"
+      ]
+    },
+    "white-cast-iron": {
+      "display": "백주철 (White Cast Iron)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "백주철",
+        "white cast iron",
+        "white iron",
+        "Ni-Hard",
+        "니하드"
+      ],
+      "autolink": [
+        "백주철",
+        "white cast iron"
+      ],
+      "short": "탄소가 흑연이 아니라 시멘타이트(Fe₃C)나 크로뮴 탄화물로 굳어, 파단면이 하얗게 보이는 주철. 탄화물 덕분에 매우 단단해 내마모 부품(슬러리 펌프·분쇄기 라이너)에 쓰이지만, 취성이 커서 충격 하중에는 부적합하다.",
+      "sources": [
+        "ASM Handbook Vol.1 (Cast Irons)",
+        "ASTM A532/A532M"
+      ],
+      "related": [
+        "cementite",
+        "carbide",
+        "austempered-ductile-iron",
+        "casting",
+        "brittleness"
+      ]
+    },
+    "austempered-ductile-iron": {
+      "display": "ADI (Austempered Ductile Iron)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "ADI",
+        "austempered ductile iron",
+        "오스템퍼 구상흑연주철",
+        "오스템퍼드 덕타일"
+      ],
+      "autolink": [
+        "austempered ductile iron",
+        "ADI"
+      ],
+      "short": "구상흑연주철을 Austempering(오스템퍼링) 열처리해 ausferrite(침상 페라이트+탄소 안정화 오스테나이트) 조직으로 만든 주철. 일반 구상흑연주철의 약 2배 강도와 우수한 피로강도를 내면서 주조의 형상 자유도·경제성을 유지해, 기어·크랭크샤프트·중장비 부품에 쓰인다.",
+      "sources": [
+        "ASTM A897/A897M",
+        "ASM Handbook Vol.1 (Cast Irons)"
+      ],
+      "related": [
+        "austempering",
+        "bainite",
+        "white-cast-iron",
+        "casting",
+        "fatigue"
+      ]
+    },
+    "austempering": {
+      "display": "오스템퍼링 (Austempering)",
+      "category": "heat-treatment",
+      "surface_forms": [
+        "오스템퍼링",
+        "austempering",
+        "오스템퍼",
+        "austemper"
+      ],
+      "autolink": [
+        "오스템퍼링",
+        "austempering"
+      ],
+      "short": "오스테나이트화한 강·주철을 Ms 바로 위 온도(약 250~400 °C)의 염욕에 담가 항온 유지, 마르텐사이트 대신 베이나이트(주철에서는 ausferrite)로 변태시키는 열처리. 급랭이 없어 변형·균열 위험이 작고, 높은 인성과 강도를 함께 얻는다.",
+      "sources": [
+        "ASM Handbook Vol.4 (Heat Treating)",
+        "ASTM A897 (ADI)"
+      ],
+      "related": [
+        "bainite",
+        "quenching",
+        "martempering",
+        "austempered-ductile-iron"
+      ]
+    },
+    "metastable-phase": {
+      "display": "준안정상 (Metastable Phase)",
+      "category": "phase",
+      "surface_forms": [
+        "준안정상",
+        "metastable phase",
+        "metastable",
+        "준안정"
+      ],
+      "autolink": [
+        "준안정상",
+        "metastable"
+      ],
+      "short": "열역학적으로 가장 안정한 상태(안정상)는 아니지만, 그 상태로 가는 변화가 너무 느려 사실상 그대로 머무는 상. 강 속의 시멘타이트(Fe₃C)와 마르텐사이트가 대표적 — 진짜 안정상은 흑연·페라이트지만, 보통 온도에서는 수명 내내 준안정상으로 남아 실용적으로는 '안정'하게 쓰인다.",
+      "sources": [
+        "Callister, Materials Science & Engineering",
+        "ASM Handbook Vol.3 (Alloy Phase Diagrams)"
+      ],
+      "related": [
+        "stable-phase",
+        "cementite",
+        "martensite",
+        "phase-transformation"
+      ]
+    },
+    "stable-phase": {
+      "display": "안정상 (Stable Phase)",
+      "category": "phase",
+      "surface_forms": [
+        "안정상",
+        "stable phase",
+        "평형상"
+      ],
+      "autolink": [
+        "안정상"
+      ],
+      "short": "주어진 온도·조성에서 자유에너지가 가장 낮아, 시간이 충분히 지나면 결국 도달하는 평형 상태의 상. 철-탄소계의 진짜 안정상은 흑연이지만 실제 강은 준안정상인 시멘타이트로 굳는다 — 상태도의 실선(Fe-Fe₃C)과 점선(Fe-흑연)이 이 차이를 나타낸다.",
+      "sources": [
+        "ASM Handbook Vol.3 (Alloy Phase Diagrams)",
+        "Reed-Hill, Physical Metallurgy Principles"
+      ],
+      "related": [
+        "metastable-phase",
+        "eutectoid",
+        "phase-transformation"
+      ]
+    },
+    "precipitation": {
+      "display": "석출 (Precipitation)",
+      "category": "phase",
+      "surface_forms": [
+        "석출",
+        "precipitation",
+        "precipitate",
+        "석출물"
+      ],
+      "autolink": [
+        "석출물"
+      ],
+      "short": "고용체에 녹아 있던 원소가 고용한도를 넘으면, 기지 속에서 새로운 상(석출물)으로 빠져나와 생기는 현상. 미세하게 분산되면 강화(석출경화)가 되지만, 입계에 몰리거나(예민화) 원치 않는 상(σ·δ)이 생기면 오히려 성질을 해친다 — 같은 석출도 '어디에 어떤 크기로'가 결정한다.",
+      "sources": [
+        "Callister, Materials Science & Engineering",
+        "ASM Handbook Vol.4"
+      ],
+      "related": [
+        "precipitation-hardening",
+        "coarsening",
+        "sensitization",
+        "aging",
+        "solid-solution"
+      ]
+    },
+    "coarsening": {
+      "display": "조대화 (Coarsening / Ostwald Ripening)",
+      "category": "phase",
+      "surface_forms": [
+        "조대화",
+        "coarsening",
+        "Ostwald ripening",
+        "오스트발트 라이프닝"
+      ],
+      "autolink": [
+        "조대화",
+        "coarsening"
+      ],
+      "short": "미세한 석출물·결정립이 고온에서 시간이 지나며 큰 것은 더 크게, 작은 것은 녹아 없어지며 평균 크기가 커지는 현상. 표면에너지를 줄이려는 자연스러운 변화지만, 석출물 간격이 벌어져 강도가 떨어진다 — 과시효와 크리프 수명 저하의 근본 원인.",
+      "sources": [
+        "Reed-Hill, Physical Metallurgy Principles",
+        "ASM Handbook Vol.4"
+      ],
+      "related": [
+        "precipitation",
+        "aging",
+        "creep",
+        "grain-refinement"
+      ]
     }
   }
 }

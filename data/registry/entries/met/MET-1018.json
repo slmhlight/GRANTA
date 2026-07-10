@@ -1,0 +1,291 @@
+{
+  "stable_id": "MET-1018",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-cast-iron",
+    "alloy_base": "F-AB-adi-grade-900-austempered-ductile-iron-astm-a897",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0472",
+  "origin": "reference(supplementary)",
+  "id": "R_0472",
+  "name": "ADI Grade 900 (austempered ductile iron, ASTM A897)",
+  "category": "Metal",
+  "subcategory": "Cast Iron",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "Austempered (900/650/09)",
+  "ranges": {
+    "density": {
+      "min": 7.1,
+      "max": 7.1,
+      "typical": 7.1,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 650,
+      "max": 650,
+      "typical": 650,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 163,
+      "max": 163,
+      "typical": 163,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 305,
+      "max": 305,
+      "typical": 305,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 22,
+      "max": 22,
+      "typical": 22,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 405,
+      "max": 405,
+      "typical": 405,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 25,
+      "max": 50,
+      "typical": 35,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASTM A536 ductile iron"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "max_service_temp": {
+      "min": 340,
+      "max": 460,
+      "typical": 400,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "thermal_expansion": {
+      "min": 9.35,
+      "max": 12.65,
+      "typical": 11,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "poisson_ratio": {
+      "min": 0.221,
+      "max": 0.299,
+      "typical": 0.26,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "melting_point": {
+      "min": 1020,
+      "max": 1380,
+      "typical": 1200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "price_per_kg": {
+      "min": 1.275,
+      "max": 1.725,
+      "typical": 1.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "price_per_cm3": {
+      "min": 0.009,
+      "max": 0.0122,
+      "typical": 0.0106,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Cast Iron"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.77,
+      "max": 1.77,
+      "typical": 1.77,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "3.4~3.8",
+    "Si": "2.2~2.8",
+    "Mn": "≤0.35",
+    "Mg": "0.03~0.05",
+    "Cu": "≤0.8",
+    "Ni": "≤2.0",
+    "Mo": "≤0.3"
+  },
+  "sources": [
+    {
+      "label": "ASTM A897/A897M — Austempered Ductile Iron Castings",
+      "url": "https://store.astm.org/a0897_a0897m-22.html",
+      "verified": true
+    },
+    {
+      "label": "Pacific Alloy — Austempered Ductile Iron (A897)",
+      "url": "https://pacificalloy.com/austempered-ductile-iron/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASTM A536 ductile iron",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.1,
+      650,
+      900,
+      9,
+      163,
+      305,
+      22
+    ]
+  ],
+  "machinability": "Excellent",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": "ADI = 구상흑연주철을 Austempering(오스템퍼링)해 ausferrite(침상 페라이트+안정 오스테나이트) 조직으로 만든 주철 — 일반 구상흑연주철의 약 2배 강도·1.5배 피로강도, 강 단조품 대비 ~10% 가볍고 저렴. Grade 900/650/09 = UTS≥900/σy≥650MPa/El≥9%/269~341HB. 기어·크랭크샤프트·서스펜션 부품. ASTM A897.",
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM A897",
+        "org": "ASTM"
+      },
+      {
+        "id": "ASTM A536",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "related": [
+    "Ductile Iron 65-45-12"
+  ],
+  "aliases": [
+    "ADI 900",
+    "ASTM A897 Grade 900/650/09",
+    "ADI Grade 1",
+    "austempered ductile iron 900",
+    "ASTM A897"
+  ],
+  "fracture_toughness": 35,
+  "density": 7.1,
+  "yield_strength": 650,
+  "uts": 900,
+  "elongation": 9,
+  "modulus": 163,
+  "hardness": 305,
+  "thermal_conductivity": 22,
+  "fatigue_strength": 405,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASTM A897/A897M — Austempered Ductile Iron Castings",
+  "families": [
+    "Metal",
+    "Cast Iron",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 5,
+  "max_service_temp": 400,
+  "thermal_expansion": 11,
+  "poisson_ratio": 0.26,
+  "specific_heat": 460,
+  "melting_point": 1200,
+  "price_per_kg": 1.5,
+  "price_per_cm3": 0.0106,
+  "popularity": 3.37,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.3,
+  "price_condition_factor": 1.18,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 1.77,
+  "total_cost_estimate": 1.59,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "confidence_tier": "high"
+}

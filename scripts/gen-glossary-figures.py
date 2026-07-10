@@ -914,6 +914,65 @@ def fig_case_hardening():
     save(fig, "case-hardening")
 
 
+def fig_cast_iron_family():
+    """주철 4계열 조직 — 회주철(편상흑연)·구상흑연·백주철(탄화물)·ADI(ausferrite). 전용 조직도."""
+    fig, axes = plt.subplots(2, 2, figsize=(8.8, 7.4))
+    rng = np.random.RandomState(21)
+    # (1) 회주철 — 편상(flake) 흑연: 가늘고 구부러진 검은 조각들
+    ax = axes[0, 0]
+    ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#f2ede6", edgecolor=C_AX, lw=1.3))
+    for _ in range(26):
+        x0, y0 = rng.uniform(0.06, 0.94, 2)
+        ang = rng.uniform(0, np.pi)
+        ln = rng.uniform(0.08, 0.22)
+        t = np.linspace(-ln / 2, ln / 2, 24)
+        curv = rng.uniform(-2.5, 2.5)
+        xs = x0 + t * np.cos(ang) - curv * t ** 2 * np.sin(ang)
+        ys = y0 + t * np.sin(ang) + curv * t ** 2 * np.cos(ang)
+        ax.plot(np.clip(xs, 0.02, 0.98), np.clip(ys, 0.02, 0.98), color="#1a1a1a", lw=2.4, solid_capstyle="round")
+    ax.set_title("회주철 (gray iron)", fontsize=10, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, -0.05, "편상 흑연 — 균열처럼 작용해 취약, 감쇠·절삭성 우수", ha="center", fontsize=8, color=C_MUTE, transform=ax.transAxes)
+    # (2) 구상흑연주철 — 둥근 흑연 nodule
+    ax = axes[0, 1]
+    ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#f2ede6", edgecolor=C_AX, lw=1.3))
+    for _ in range(13):
+        x0, y0 = rng.uniform(0.1, 0.9, 2)
+        ax.add_patch(Circle((x0, y0), rng.uniform(0.035, 0.06), facecolor="#1a1a1a", edgecolor="none"))
+    ax.set_title("구상흑연주철 (ductile iron)", fontsize=10, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, -0.05, "Mg 처리로 흑연이 구상 — 응력집중 해소, 연성 회복", ha="center", fontsize=8, color=C_MUTE, transform=ax.transAxes)
+    # (3) 백주철 — 흑연 없음: 탄화물 기지(밝음) + 펄라이트 섬(어둠)
+    ax = axes[1, 0]
+    ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#f6f3ee", edgecolor=C_AX, lw=1.3))
+    for _ in range(16):
+        x0, y0 = rng.uniform(0.08, 0.92, 2)
+        w0, h0 = rng.uniform(0.07, 0.16), rng.uniform(0.05, 0.1)
+        blob = Polygon([(x0 + w0 * np.cos(a) * rng.uniform(0.7, 1.2), y0 + h0 * np.sin(a) * rng.uniform(0.7, 1.2))
+                        for a in np.linspace(0, 2 * np.pi, 9)[:-1]],
+                       facecolor="#4a4a4a", edgecolor="none", alpha=0.85)
+        ax.add_patch(blob)
+    ax.set_title("백주철 (white iron)", fontsize=10, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, -0.05, "흑연 없음 — $\\mathrm{Fe_3C/M_7C_3}$ 탄화물 기지(밝음)+펄라이트(어둠), 내마모·취성", ha="center", fontsize=7.6, color=C_MUTE, transform=ax.transAxes)
+    # (4) ADI — 구상 흑연 + ausferrite(침상 페라이트) 기지
+    ax = axes[1, 1]
+    ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#f2ede6", edgecolor=C_AX, lw=1.3))
+    for _ in range(240):
+        x0, y0 = rng.uniform(0.03, 0.97, 2)
+        ang = rng.uniform(0, np.pi)
+        ln = rng.uniform(0.025, 0.06)
+        ax.plot([x0 - ln * np.cos(ang), x0 + ln * np.cos(ang)], [y0 - ln * np.sin(ang), y0 + ln * np.sin(ang)],
+                color="#2f6f8f", lw=1.0, alpha=0.55)
+    for _ in range(10):
+        x0, y0 = rng.uniform(0.12, 0.88, 2)
+        ax.add_patch(Circle((x0, y0), rng.uniform(0.035, 0.055), facecolor="#1a1a1a", edgecolor="#f2ede6", lw=1.2))
+    ax.set_title("ADI (austempered ductile iron)", fontsize=10, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, -0.05, "구상 흑연 + ausferrite(침상 페라이트+안정 γ) — 강급 강도", ha="center", fontsize=8, color=C_MUTE, transform=ax.transAxes)
+    for ax in axes.ravel():
+        ax.set_xlim(-0.01, 1.01); ax.set_ylim(-0.01, 1.01); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("주철 가족 — 흑연·탄화물의 형태가 성질을 결정한다 (개략)", fontsize=11.5, color=C_AX, y=0.99)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.9, bottom=0.05, wspace=0.10, hspace=0.24)
+    save(fig, "cast-iron-family")
+
+
 def fig_strengthening_mechanisms():
     """4대 강화기구 — 전위가 용질·결정립계·석출물·전위얽힘에 막힘(개략)."""
     fig, axes = plt.subplots(2, 2, figsize=(8.6, 7.0))
@@ -1082,6 +1141,7 @@ if __name__ == "__main__":
     fig_austenite_micro()
     fig_cementite_forms()
     fig_carbide_micro()
+    fig_cast_iron_family()
     fig_strengthening_mechanisms()
     fig_case_hardening()
     fig_stainless_families()

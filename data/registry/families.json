@@ -1,7 +1,7 @@
 {
-  "count": 818,
+  "count": 822,
   "kinds": {
-    "alloy-base": 673,
+    "alloy-base": 677,
     "category": 4,
     "subcategory": 131,
     "element-family": 10
@@ -1025,6 +1025,26 @@
       "member_count": 1,
       "members": [
         "MET-1000"
+      ]
+    },
+    {
+      "id": "F-AB-adi-grade-1200-austempered-ductile-iron-astm-a897",
+      "label": "ADI Grade 1200 (austempered ductile iron, ASTM A897)",
+      "kind": "alloy-base",
+      "parent": "F-MET-cast-iron",
+      "member_count": 1,
+      "members": [
+        "MET-1017"
+      ]
+    },
+    {
+      "id": "F-AB-adi-grade-900-austempered-ductile-iron-astm-a897",
+      "label": "ADI Grade 900 (austempered ductile iron, ASTM A897)",
+      "kind": "alloy-base",
+      "parent": "F-MET-cast-iron",
+      "member_count": 1,
+      "members": [
+        "MET-1018"
       ]
     },
     {
@@ -3404,6 +3424,16 @@
       ]
     },
     {
+      "id": "F-AB-high-cr-white-iron-25-cr-astm-a532-class-iii-a",
+      "label": "High-Cr White Iron 25%Cr (ASTM A532 Class III-A)",
+      "kind": "alloy-base",
+      "parent": "F-MET-cast-iron",
+      "member_count": 1,
+      "members": [
+        "MET-1019"
+      ]
+    },
+    {
       "id": "F-AB-hips",
       "label": "HIPS",
       "kind": "alloy-base",
@@ -4211,6 +4241,16 @@
       "member_count": 1,
       "members": [
         "POL-0007"
+      ]
+    },
+    {
+      "id": "F-AB-ni-hard-1-white-cast-iron-astm-a532-class-i-a",
+      "label": "Ni-Hard 1 (white cast iron, ASTM A532 Class I-A)",
+      "kind": "alloy-base",
+      "parent": "F-MET-cast-iron",
+      "member_count": 1,
+      "members": [
+        "MET-1020"
       ]
     },
     {
@@ -7662,7 +7702,7 @@
       "label": "Iron-based",
       "kind": "element-family",
       "parent": null,
-      "member_count": 443,
+      "member_count": 447,
       "members": [
         "MET-0001",
         "MET-0002",
@@ -7830,10 +7870,14 @@
         "MET-0993",
         "MET-0994",
         "MET-0326",
+        "MET-1017",
+        "MET-1018",
         "MET-0327",
         "MET-0328",
         "MET-0329",
         "MET-0330",
+        "MET-1019",
+        "MET-1020",
         "MET-0355",
         "MET-0356",
         "MET-0357",
@@ -8393,7 +8437,7 @@
       "label": "Metal",
       "kind": "category",
       "parent": null,
-      "member_count": 923
+      "member_count": 927
     },
     {
       "id": "F-MET-advanced-high-strength-steel",
@@ -8505,7 +8549,7 @@
       "label": "Cast Iron",
       "kind": "subcategory",
       "parent": "F-MET",
-      "member_count": 4
+      "member_count": 8
     },
     {
       "id": "F-MET-cobalt-alloy",
