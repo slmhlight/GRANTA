@@ -224,37 +224,45 @@ def fig_iron_carbon():
 
 
 def fig_ttt():
-    """TTT/냉각변태 (개략) — 코가 왼쪽을 향하는 C-곡선. 냉각경로·라벨 겹침 회피."""
-    fig, ax = plt.subplots(figsize=(7.0, 4.5))
+    """TTT/냉각변태 (개략) — 시작/완료 곡선을 색·화살표 리더로 명확 구분, 급랭도 약간의 기울기."""
+    fig, ax = plt.subplots(figsize=(7.4, 4.7))
     # C-곡선: 시간 x = f(온도), 코(nose)에서 최소시간 → 온도의 파라볼라
     temp = np.linspace(210, 715, 220)
     nose = 545.0
     x_start = 0.55 + 1.55 * ((temp - nose) / 255.0) ** 2
-    x_finish = x_start + 0.55
-    ax.plot(x_start, temp, color=C_AX, lw=1.9)
-    ax.plot(x_finish, temp, color=C_MUTE, lw=1.3, ls="--")
+    x_finish = x_start + 0.62
+    # 시작(진한 초록 실선) vs 완료(보라 파선) — 색+선종+리더 화살표 3중 구분
+    C_ST, C_FI = "#2f7d4f", "#7a5aa8"
+    ax.plot(x_start, temp, color=C_ST, lw=2.3)
+    ax.plot(x_finish, temp, color=C_FI, lw=1.8, ls=(0, (6, 3)))
+    # 변태 영역(시작~완료 사이) 옅은 음영 — 두 곡선이 쌍임을 시각화
+    ax.fill_betweenx(temp, x_start, x_finish, color="#8a8f4a", alpha=0.10)
+    ax.annotate("변태 시작 곡선", xy=(1.20, 710), xytext=(1.62, 752),
+                fontsize=9.5, color=C_ST, fontweight="bold", ha="left", va="center",
+                arrowprops=dict(arrowstyle="-|>", color=C_ST, lw=1.3))
+    ax.annotate("변태 완료 곡선", xy=(float(x_finish[30]), float(temp[30])), xytext=(2.62, 320),
+                fontsize=9.5, color=C_FI, fontweight="bold", ha="left",
+                arrowprops=dict(arrowstyle="-|>", color=C_FI, lw=1.3))
+    ax.text(2.05, 505, "변태 진행", color="#6b7042", fontsize=8, ha="center")
     # Ms / Mf
-    ax.plot([0, 3.5], [300, 300], color=C_M, lw=1.3, ls="--")
-    ax.plot([0, 3.5], [180, 180], color=C_M, lw=1.0, ls=":")
-    ax.text(3.55, 300, "Ms", color=C_M, fontsize=10, va="center")
-    ax.text(3.55, 180, "Mf", color=C_M, fontsize=10, va="center")
-    # 냉각경로: 급랭 (코 왼쪽 수직) → 마르텐사이트
-    ax.annotate("", xy=(0.26, 165), xytext=(0.26, 735),
+    ax.plot([0, 3.6], [300, 300], color=C_M, lw=1.3, ls="--")
+    ax.plot([0, 3.6], [180, 180], color=C_M, lw=1.0, ls=":")
+    ax.text(3.65, 300, "Ms", color=C_M, fontsize=10, va="center")
+    ax.text(3.65, 180, "Mf", color=C_M, fontsize=10, va="center")
+    # 냉각경로: 급랭 — 완전 수직이 아니라 약간의 기울기(현실 냉각속도)
+    ax.annotate("", xy=(0.38, 165), xytext=(0.16, 735),
                 arrowprops=dict(arrowstyle="-|>", color=C_A, lw=2.5))
-    ax.text(0.13, 455, "급랭 → 마르텐사이트", color=C_A, fontsize=9.5, rotation=90, va="center", ha="center")
+    ax.text(0.115, 440, "급랭 → 마르텐사이트", color=C_A, fontsize=9.5, rotation=84, va="center", ha="center")
     # 냉각경로: 서랭 (완만·코 오른쪽 통과) → 펄라이트
-    ax.annotate("", xy=(3.05, 470), xytext=(0.45, 735),
+    ax.annotate("", xy=(3.28, 470), xytext=(0.5, 735),
                 arrowprops=dict(arrowstyle="-|>", color=C_G, lw=2.5))
-    ax.text(2.35, 640, "서랭 → 펄라이트", color=C_G, fontsize=9.5, ha="center")
-    # 곡선 라벨 (곡선 옆 빈 공간)
-    ax.text(1.55, 690, "변태 시작", color=C_AX, fontsize=9.5)
-    ax.text(2.75, 250, "변태 완료", color=C_MUTE, fontsize=9.5)
-    # 코(nose): start·finish 사이 빈 공간에서 화살표로 지시 (점선과 겹치지 않게)
-    ax.annotate("코(nose)", xy=(0.56, nose), xytext=(0.98, 628), fontsize=8.5, color=C_AX, ha="left",
-                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
+    ax.text(2.5, 655, "서랭 → 펄라이트", color=C_G, fontsize=9.5, ha="center")
+    # 코(nose): 시작~완료 사이 음영 밴드 안(곡선 비접촉)에서 짧은 화살표로 지시
+    ax.annotate("코(nose)\n변태 최속점", xy=(0.585, nose), xytext=(0.8, 520), fontsize=8.0, color=C_AX,
+                ha="left", va="center", arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
     ax.set_xlabel("시간 (log)", fontsize=11, color=C_AX)
     ax.set_ylabel("온도 (°C)", fontsize=11, color=C_AX)
-    ax.set_xlim(0, 3.9); ax.set_ylim(120, 780)
+    ax.set_xlim(0, 4.0); ax.set_ylim(120, 780)
     ax.set_xticks([]); ax.spines[["top", "right"]].set_visible(False)
     ax.tick_params(colors=C_AX, labelsize=9)
     save(fig, "ttt-curve")
@@ -479,31 +487,35 @@ def _fill_parallel(ax, rect, angle_deg, spacing=0.06, color=C_M, lw=1.0):
 
 
 def fig_martensite_morphology():
-    """마르텐사이트 형태 — 라스(저·중탄소) vs 판상/렌티큘러(고탄소). 개략."""
+    """마르텐사이트 형태 — 라스(저·중탄소) vs 판상/렌티큘러(고탄소). 불규칙 다각형 구오스테나이트립 기반."""
     from matplotlib.patches import Ellipse
-    fig, axes = plt.subplots(1, 2, figsize=(9.2, 4.4))
-    # 라스: 결정립을 조각(packet)으로 나눠 각 조각에 평행 라스
+    fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.6))
+    rng = np.random.RandomState(4)
+    # (좌) 라스: 구 오스테나이트립(다각형) 안에 방향이 다른 평행 라스 packet
     ax = axes[0]
-    ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#f4efe9", edgecolor=C_AX, lw=1.5))
-    packets = [((0.0, 0.0, 0.5, 0.5), 22), ((0.5, 0.0, 0.5, 0.5), -32),
-               ((0.0, 0.5, 0.5, 0.5), -58), ((0.5, 0.5, 0.5, 0.5), 62)]
-    for rect, ang in packets:
-        _fill_parallel(ax, rect, ang, spacing=0.055, color=C_M, lw=0.9)
-    ax.plot([0.5, 0.5], [0, 1], color=C_AX, lw=0.8, alpha=0.5)
-    ax.plot([0, 1], [0.5, 0.5], color=C_AX, lw=0.8, alpha=0.5)
+    grains = _poly_grains(ax, n=9, color="#f4efe9", lw=1.6, seed=11)
+    for patch, verts in grains:
+        _laths_in(ax, patch, verts, rng.uniform(0, 180), spacing=0.045, color=C_M, lw=0.95)
     ax.set_title("라스 마르텐사이트 (저·중탄소강)", fontsize=10.5, color=C_M, fontweight="bold")
-    # 판상/렌티큘러: 렌즈 모양 판 교차
+    ax.text(0.5, -0.06, "구 오스테나이트립(다각형) 안에 평행 라스 다발(packet)", ha="center",
+            fontsize=8.2, color=C_MUTE, transform=ax.transAxes)
+    # (우) 판상/렌티큘러: 다각형 립 안에서 렌즈 판이 서로 교차 (립 경계를 넘지 않음)
     ax = axes[1]
-    ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#f4efe9", edgecolor=C_AX, lw=1.5))
-    lenses = [(0.35, 0.62, 0.62, 0.13, 28), (0.62, 0.38, 0.7, 0.11, -22),
-              (0.48, 0.78, 0.42, 0.09, -68), (0.72, 0.68, 0.4, 0.08, 48),
-              (0.28, 0.32, 0.5, 0.1, -50), (0.55, 0.2, 0.38, 0.08, 15)]
-    for cx, cy, w, h, ang in lenses:
-        ax.add_patch(Ellipse((cx, cy), w, h, angle=ang, facecolor=C_M, alpha=0.28, edgecolor=C_M, lw=1.2))
+    grains = _poly_grains(ax, n=6, color="#f4efe9", lw=1.6, seed=23)
+    for patch, verts in grains:
+        w0 = max(np.ptp(verts[:, 0]), np.ptp(verts[:, 1]))
+        for (cx, cy) in _pts_inside(verts, 4, rng, shrink=0.55):
+            ell = Ellipse((cx, cy), w0 * rng.uniform(0.45, 0.85), w0 * rng.uniform(0.07, 0.12),
+                          angle=rng.uniform(0, 180), facecolor=C_M, alpha=0.32, edgecolor=C_M, lw=1.1)
+            ell.set_clip_path(patch)
+            ax.add_patch(ell)
     ax.set_title("판상(렌티큘러) 마르텐사이트 (고탄소강)", fontsize=10.5, color=C_M, fontweight="bold")
+    ax.text(0.5, -0.06, "렌즈 모양 판이 립 내부에서 교차 · 사이는 잔류 오스테나이트", ha="center",
+            fontsize=8.2, color=C_MUTE, transform=ax.transAxes)
     for ax in axes:
-        ax.set_xlim(-0.02, 1.02); ax.set_ylim(-0.02, 1.02); ax.set_aspect("equal"); ax.axis("off")
-    fig.suptitle("마르텐사이트 형태 (개략)", fontsize=11, color=C_AX, y=1.0)
+        ax.set_xlim(-0.01, 1.01); ax.set_ylim(-0.01, 1.01); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("마르텐사이트 형태 (개략)", fontsize=11.5, color=C_AX, y=1.02)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.88, bottom=0.08, wspace=0.08)
     save(fig, "martensite-morphology")
 
 
@@ -543,6 +555,92 @@ def _voronoi_grains(ax, pts, color="#eef1f4"):
         ax.add_patch(Polygon(poly, facecolor=color, edgecolor=C_AX, lw=1.0))
 
 
+# ── 미세조직 공통 헬퍼 (H4d D1: grain = 불규칙 다각형·6각↑, Voronoi) ──────────
+def _clip_poly_bbox(verts, x0, y0, x1, y1):
+    """다각형을 bbox 로 실제 클리핑 (Sutherland–Hodgman). 경계 Voronoi 셀의 far-point 꼭짓점 제거."""
+    pts = [tuple(p) for p in verts]
+    edges = [
+        (lambda p: p[0] >= x0, lambda a, b: (x0, a[1] + (x0 - a[0]) / (b[0] - a[0]) * (b[1] - a[1]))),
+        (lambda p: p[0] <= x1, lambda a, b: (x1, a[1] + (x1 - a[0]) / (b[0] - a[0]) * (b[1] - a[1]))),
+        (lambda p: p[1] >= y0, lambda a, b: (a[0] + (y0 - a[1]) / (b[1] - a[1]) * (b[0] - a[0]), y0)),
+        (lambda p: p[1] <= y1, lambda a, b: (a[0] + (y1 - a[1]) / (b[1] - a[1]) * (b[0] - a[0]), y1)),
+    ]
+    for inside, intersect in edges:
+        if not pts:
+            break
+        nxt = []
+        for i in range(len(pts)):
+            cur, prv = pts[i], pts[i - 1]
+            ci, pi = inside(cur), inside(prv)
+            if ci:
+                if not pi:
+                    nxt.append(intersect(prv, cur))
+                nxt.append(cur)
+            elif pi:
+                nxt.append(intersect(prv, cur))
+        pts = nxt
+    return np.array(pts) if len(pts) >= 3 else None
+
+
+def _poly_grains(ax, n=14, bbox=(0, 0, 1, 1), color="#f4efe9", edge=C_AX, lw=1.2, seed=0):
+    """불규칙 다각형 결정립으로 bbox 를 채움. [(Polygon patch, 꼭짓점 array)] 반환 — 상 채움/클리핑용.
+    꼭짓점은 bbox 로 실제 클리핑되어 centroid·크기 계산이 안전(자식 요소가 밖으로 새지 않음)."""
+    from scipy.spatial import Voronoi
+    rng = np.random.RandomState(seed)
+    x0, y0, w, h = bbox
+    pts = rng.rand(n, 2) * [w, h] + [x0, y0]
+    far = np.array([[x0 - 3 * w, y0 - 3 * h], [x0 - 3 * w, y0 + 4 * h],
+                    [x0 + 4 * w, y0 - 3 * h], [x0 + 4 * w, y0 + 4 * h]])
+    vor = Voronoi(np.vstack([pts, far]))
+    out = []
+    for pr in vor.point_region[:len(pts)]:
+        region = vor.regions[pr]
+        if not region or -1 in region:
+            continue
+        raw = np.array([vor.vertices[i] for i in region])
+        verts = _clip_poly_bbox(raw, x0, y0, x0 + w, y0 + h)
+        if verts is None:
+            continue
+        patch = Polygon(verts, facecolor=color, edgecolor=edge, lw=lw)
+        ax.add_patch(patch)
+        out.append((patch, verts))
+    return out
+
+
+def _lamellae_in(ax, patch, verts, angle_deg, spacing=0.045, color="#333", lw=2.0):
+    """결정립(patch) 내부를 층상(펄라이트)으로 채움 — 각 립마다 방향 다르게."""
+    a = np.deg2rad(angle_deg)
+    dx, dy = np.cos(a), np.sin(a)
+    cx, cy = verts[:, 0].mean(), verts[:, 1].mean()
+    diag = max(np.ptp(verts[:, 0]), np.ptp(verts[:, 1])) * 1.6
+    for t in np.arange(-diag, diag, spacing):
+        px, py = cx - dy * t, cy + dx * t
+        ln, = ax.plot([px - dx * diag, px + dx * diag], [py - dy * diag, py + dy * diag],
+                      color=color, lw=lw, solid_capstyle="butt")
+        ln.set_clip_path(patch)
+
+
+def _laths_in(ax, patch, verts, angle_deg, spacing=0.05, color=C_M, lw=1.0):
+    """결정립 내부 평행 라스(마르텐사이트) — packet 표현."""
+    a = np.deg2rad(angle_deg)
+    dx, dy = np.cos(a), np.sin(a)
+    cx, cy = verts[:, 0].mean(), verts[:, 1].mean()
+    diag = max(np.ptp(verts[:, 0]), np.ptp(verts[:, 1])) * 1.6
+    for t in np.arange(-diag, diag, spacing):
+        px, py = cx - dy * t, cy + dx * t
+        ln, = ax.plot([px - dx * diag, px + dx * diag], [py - dy * diag, py + dy * diag],
+                      color=color, lw=lw, alpha=0.6)
+        ln.set_clip_path(patch)
+
+
+def _pts_inside(verts, n, rng, shrink=0.72):
+    """다각형 내부 점 n개(중심 수축 샘플링 — 경계 걸침 방지)."""
+    cx, cy = verts[:, 0].mean(), verts[:, 1].mean()
+    idx = rng.randint(0, len(verts), n)
+    frac = rng.uniform(0.15, shrink, n)
+    return [(cx + (verts[i, 0] - cx) * f, cy + (verts[i, 1] - cy) * f) for i, f in zip(idx, frac)]
+
+
 def fig_grain_structure():
     """결정립 조직 — 등축(어닐링) / 냉간가공(연신) / 재결정. 개략."""
     fig, axes = plt.subplots(1, 3, figsize=(10.2, 3.5))
@@ -570,38 +668,157 @@ def fig_grain_structure():
 
 
 def fig_steel_microstructures():
-    """탄소 함량별 강 미세조직 — 아공석/공석/과공석 (개략)."""
-    fig, axes = plt.subplots(1, 3, figsize=(9.6, 3.4))
+    """탄소 함량별 강 미세조직 — 아공석/공석/과공석. 불규칙 다각형 결정립(Voronoi) 기반."""
+    fig, axes = plt.subplots(1, 3, figsize=(10.2, 3.9))
     titles = ["아공석강 (<0.76%C)\n페라이트 + 펄라이트",
               "공석강 (0.76%C)\n전부 펄라이트",
               "과공석강 (>0.76%C)\n펄라이트 + 입계 시멘타이트"]
-    np.random.seed(5)
+    rng = np.random.RandomState(5)
     for k, (ax, title) in enumerate(zip(axes, titles)):
-        ax.add_patch(Circle((0.5, 0.55), 0.42, facecolor="#f4efe9", edgecolor=C_AX, lw=1.4))
-        clipc = Circle((0.5, 0.55), 0.42, transform=ax.transData)
-        # 펄라이트 영역(층상 해칭) + 페라이트(밝음)/시멘타이트(입계)
-        if k == 0:  # 아공석: 밝은 페라이트 바탕 + 깔끔한 펄라이트 콜로니 2개
-            for (px, py, pw, ph) in [(0.30, 0.30, 0.27, 0.22), (0.54, 0.58, 0.23, 0.19)]:
-                clipp = Rectangle((px, py), pw, ph, transform=ax.transData)
-                for i, yy in enumerate(np.arange(py, py + ph, 0.028)):
-                    ln, = ax.plot([px, px + pw], [yy, yy], color="#333" if i % 2 == 0 else "none", lw=1.7)
-                    ln.set_clip_path(clipp)
-            ax.text(0.25, 0.76, "α 페라이트", fontsize=7.5, color=C_A)
-            ax.text(0.435, 0.255, "펄라이트", fontsize=7, color="#333", ha="center")
-        elif k == 1:  # 공석: 전면 펄라이트
-            for i, off in enumerate(np.arange(-0.4, 0.4, 0.035)):
-                ln, = ax.plot([0.1, 0.9], [0.55 + off, 0.55 + off], color="#333" if i % 2 == 0 else "none", lw=2.2)
-                ln.set_clip_path(clipc)
-        else:  # 과공석: 펄라이트 + 입계 시멘타이트 망
-            for i, off in enumerate(np.arange(-0.4, 0.4, 0.045)):
-                ln, = ax.plot([0.1, 0.9], [0.55 + off, 0.55 + off], color="#555" if i % 2 == 0 else "none", lw=1.6)
-                ln.set_clip_path(clipc)
-            ax.add_patch(Circle((0.5, 0.55), 0.42, facecolor="none", edgecolor="#111", lw=2.5))
-            ax.text(0.5, 1.02, "입계 Fe₃C", fontsize=8, color="#111", ha="center")
-        ax.text(0.5, 0.02, title, ha="center", va="bottom", fontsize=8.5, color=C_AX, fontweight="bold")
-        ax.set_xlim(0, 1); ax.set_ylim(-0.02, 1.12); ax.set_aspect("equal"); ax.axis("off")
-    fig.suptitle("탄소 함량별 강 미세조직 (냉각 후, 개략)", fontsize=11, color=C_AX, y=1.04)
+        if k == 0:
+            # 아공석: 밝은 페라이트 다각립 + 일부 립이 펄라이트 콜로니(층상)
+            grains = _poly_grains(ax, n=13, color="#f6f1ea", lw=1.2, seed=7)
+            pearl_idx = rng.choice(len(grains), size=max(3, len(grains) * 2 // 5), replace=False)
+            for i in pearl_idx:
+                patch, verts = grains[i]
+                _lamellae_in(ax, patch, verts, rng.uniform(0, 180), spacing=0.035, color="#3a3a3a", lw=1.6)
+            ax.text(0.16, 1.045, "α 페라이트", fontsize=8, color=C_A, ha="center")
+            ax.text(0.72, 1.045, "펄라이트 콜로니", fontsize=8, color="#333", ha="center")
+        elif k == 1:
+            # 공석: 전 립이 펄라이트 — 립마다 층 방향 다름
+            grains = _poly_grains(ax, n=11, color="#f4efe9", lw=1.2, seed=17)
+            for patch, verts in grains:
+                _lamellae_in(ax, patch, verts, rng.uniform(0, 180), spacing=0.037, color="#3a3a3a", lw=1.6)
+            ax.text(0.5, 1.045, "펄라이트 (립마다 층 방향 다름)", fontsize=8, color="#333", ha="center")
+        else:
+            # 과공석: 펄라이트 립 + 립 경계를 감싸는 두꺼운 시멘타이트 망(어두운 경계)
+            grains = _poly_grains(ax, n=11, color="#f4efe9", edge="#101010", lw=3.4, seed=29)
+            for patch, verts in grains:
+                _lamellae_in(ax, patch, verts, rng.uniform(0, 180), spacing=0.045, color="#5a5a5a", lw=1.3)
+            ax.text(0.5, 1.045, "입계 Fe₃C 망(두꺼운 경계) + 펄라이트", fontsize=8, color="#101010", ha="center")
+        ax.text(0.5, -0.06, title, ha="center", va="top", fontsize=8.6, color=C_AX, fontweight="bold", transform=ax.transAxes)
+        ax.set_xlim(-0.01, 1.01); ax.set_ylim(-0.01, 1.09); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("탄소 함량별 강 미세조직 (서랭 후, 개략)", fontsize=11.5, color=C_AX, y=1.03)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.86, bottom=0.14, wspace=0.10)
     save(fig, "steel-microstructures")
+
+
+def fig_austenite_micro():
+    """오스테나이트 조직 — 등축 다각립 + 어닐링 쌍정(annealing twin). 전용 조직도."""
+    fig, ax = plt.subplots(figsize=(6.8, 4.6))
+    rng = np.random.RandomState(9)
+    grains = _poly_grains(ax, n=12, bbox=(0, 0, 1.45, 1.0), color="#f7ead8", edge=C_AX, lw=1.4, seed=31)
+    # 어닐링 쌍정: 일부 립 내부에 평행 직선 띠(twin band)
+    twin_idx = rng.choice(len(grains), size=max(3, len(grains) // 2), replace=False)
+    for i in twin_idx:
+        patch, verts = grains[i]
+        cx, cy = verts[:, 0].mean(), verts[:, 1].mean()
+        a = rng.uniform(0, np.pi)
+        dx, dy = np.cos(a), np.sin(a)
+        diag = max(np.ptp(verts[:, 0]), np.ptp(verts[:, 1]))
+        off = rng.uniform(0.05, 0.12)
+        band = Polygon([(cx - dx * diag - dy * off, cy - dy * diag + dx * off),
+                        (cx + dx * diag - dy * off, cy + dy * diag + dx * off),
+                        (cx + dx * diag + dy * off, cy + dy * diag - dx * off),
+                        (cx - dx * diag + dy * off, cy - dy * diag - dx * off)],
+                       facecolor=C_G, alpha=0.28, edgecolor=C_G, lw=1.0)
+        band.set_clip_path(patch)
+        ax.add_patch(band)
+    # 콜아웃 — 라벨(우측 여백)에서 가장 가까운(오른쪽) 립을 지시해 화살표를 짧게
+    twin_set = set(int(i) for i in twin_idx)
+    twin_near = max((grains[i] for i in twin_set), key=lambda g: g[1][:, 0].mean())
+    plain_near = max((g for j, g in enumerate(grains) if j not in twin_set), key=lambda g: g[1][:, 0].mean())
+    twin_y = twin_near[1][:, 1].mean()
+    plain_y = plain_near[1][:, 1].mean()
+    # 라벨 y 를 대상 립의 상하 위치에 맞춰 배치 → 화살표 교차 방지
+    ty, py = (0.78, 0.3) if twin_y >= plain_y else (0.3, 0.78)
+    ax.annotate("어닐링 쌍정(twin) —\n오스테나이트계의 특징", xy=(twin_near[1][:, 0].mean(), twin_y),
+                xytext=(1.52, ty), fontsize=8.6, color=C_G, va="center",
+                arrowprops=dict(arrowstyle="->", color=C_G, lw=1.0))
+    ax.annotate("등축 다각형 결정립\n(FCC γ)", xy=(plain_near[1][:, 0].mean(), plain_y),
+                xytext=(1.52, py), fontsize=8.6, color=C_AX, va="center",
+                arrowprops=dict(arrowstyle="->", color=C_AX, lw=1.0))
+    ax.set_xlim(-0.01, 2.15); ax.set_ylim(-0.03, 1.03); ax.set_aspect("equal"); ax.axis("off")
+    ax.set_title("오스테나이트 조직 (개략) — 304 스테인리스강 유형", fontsize=11, color=C_AX, pad=8)
+    save(fig, "austenite-micro")
+
+
+def fig_cementite_forms():
+    """시멘타이트 형태 4종 — 층상(펄라이트)·입계 망·구상화·미세 분산. 전용 조직도."""
+    fig, axes = plt.subplots(2, 2, figsize=(8.8, 7.2))
+    rng = np.random.RandomState(13)
+    # (1) 층상 — 펄라이트
+    ax = axes[0, 0]
+    grains = _poly_grains(ax, n=8, color="#f4efe9", lw=1.2, seed=41)
+    for patch, verts in grains:
+        _lamellae_in(ax, patch, verts, rng.uniform(0, 180), spacing=0.045, color="#333", lw=1.9)
+    ax.set_title("층상 (펄라이트 속 Fe₃C)", fontsize=10, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, -0.05, "페라이트와 교대 층 · 서랭 조직", ha="center", fontsize=8, color=C_MUTE, transform=ax.transAxes)
+    # (2) 초석 입계망 — 과공석강
+    ax = axes[0, 1]
+    _poly_grains(ax, n=10, color="#f4efe9", edge="#101010", lw=4.0, seed=43)
+    ax.set_title("초석 입계 망 (과공석강)", fontsize=10, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, -0.05, "립 경계를 감싸는 망 — 취성의 원인", ha="center", fontsize=8, color=C_MUTE, transform=ax.transAxes)
+    # (3) 구상화(spheroidite)
+    ax = axes[1, 0]
+    grains = _poly_grains(ax, n=8, color="#f6f1ea", lw=1.0, seed=47)
+    for patch, verts in grains:
+        for (cx, cy) in _pts_inside(verts, 9, rng):
+            ax.add_patch(Circle((cx, cy), rng.uniform(0.012, 0.026), facecolor="#222", edgecolor="none"))
+    ax.set_title("구상화 (spheroidite)", fontsize=10, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, -0.05, "둥근 입자 → 연하고 가공 쉬움 (구상화 annealing)", ha="center", fontsize=8, color=C_MUTE, transform=ax.transAxes)
+    # (4) 미세 분산 — tempered martensite
+    ax = axes[1, 1]
+    grains = _poly_grains(ax, n=8, color="#f6efe9", lw=1.0, seed=53)
+    for patch, verts in grains:
+        _laths_in(ax, patch, verts, rng.uniform(0, 180), spacing=0.07, color=C_M, lw=0.6)
+        for (cx, cy) in _pts_inside(verts, 26, rng, shrink=0.85):
+            ax.add_patch(Circle((cx, cy), rng.uniform(0.004, 0.009), facecolor="#222", edgecolor="none"))
+    ax.set_title("미세 분산 (tempered martensite)", fontsize=10, color=C_AX, fontweight="bold", pad=3)
+    ax.text(0.5, -0.05, "Tempering 으로 석출한 미세 탄화물 — 강도·인성 균형", ha="center", fontsize=8, color=C_MUTE, transform=ax.transAxes)
+    for ax in axes.ravel():
+        ax.set_xlim(-0.01, 1.01); ax.set_ylim(-0.01, 1.01); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("시멘타이트(Fe₃C)의 형태 — 같은 상, 다른 분포, 다른 성질 (개략)", fontsize=11.5, color=C_AX, y=0.99)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.9, bottom=0.05, wspace=0.10, hspace=0.24)
+    save(fig, "cementite-forms")
+
+
+def fig_carbide_micro():
+    """탄화물 분포 조직 — 합금강(입내 미세 MC·입계 M23C6) vs 초경합금(WC-Co). 전용 조직도."""
+    fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.6))
+    rng = np.random.RandomState(19)
+    # (좌) 합금강: 기지 다각립 + 입내 미세 MC 점 + 입계 따라 M23C6 사슬
+    ax = axes[0]
+    grains = _poly_grains(ax, n=8, color="#f4f0e9", lw=1.3, seed=61)
+    for patch, verts in grains:
+        for (cx, cy) in _pts_inside(verts, 14, rng, shrink=0.8):
+            ax.add_patch(Circle((cx, cy), rng.uniform(0.005, 0.011), facecolor="#8a2f2a", edgecolor="none"))
+    # 입계 사슬: 각 립 변을 따라 검은 점
+    for patch, verts in grains:
+        for i in range(len(verts)):
+            a, b = verts[i], verts[(i + 1) % len(verts)]
+            for f in np.linspace(0.15, 0.85, 4):
+                p = a + (b - a) * f
+                if 0.02 < p[0] < 0.98 and 0.02 < p[1] < 0.98:
+                    ax.add_patch(Circle((p[0], p[1]), 0.011, facecolor="#111", edgecolor="none"))
+    ax.annotate("입내 미세 MC\n(V·Nb·Ti 탄화물)", xy=(0.32, 0.62), xytext=(0.03, 1.06), fontsize=8.2, color="#8a2f2a",
+                arrowprops=dict(arrowstyle="->", color="#8a2f2a", lw=0.9))
+    ax.annotate("입계 $\\mathrm{M_{23}C_6}$ 사슬\n(예민화·크리프 관련)", xy=(0.62, 0.4), xytext=(0.6, 1.06), fontsize=8.2, color="#111",
+                arrowprops=dict(arrowstyle="->", color="#111", lw=0.9))
+    ax.set_title("합금강 속 탄화물", fontsize=10.5, color=C_AX, fontweight="bold", pad=22)
+    # (우) 초경합금 WC-Co: 각진 WC 입자(작은 다각형·촘촘) + 밝은 Co 결합상
+    ax = axes[1]
+    ax.add_patch(Rectangle((0, 0), 1, 1, facecolor="#e9dfc9", edgecolor=C_AX, lw=1.2))  # Co binder
+    _poly_grains(ax, n=42, color="#5a6675", edge="#e9dfc9", lw=2.4, seed=67)
+    ax.annotate("WC 입자 (각진 다각형·~1500 HV)", xy=(0.35, 0.55), xytext=(0.02, 1.06), fontsize=8.2, color="#39424e",
+                arrowprops=dict(arrowstyle="->", color="#39424e", lw=0.9))
+    ax.annotate("Co 결합상(binder) — 인성 담당", xy=(0.68, 0.32), xytext=(0.56, -0.1), fontsize=8.2, color="#8a6d1d",
+                arrowprops=dict(arrowstyle="->", color="#8a6d1d", lw=0.9))
+    ax.set_title("초경합금 (WC-Co cemented carbide)", fontsize=10.5, color=C_AX, fontweight="bold", pad=22)
+    for ax in axes:
+        ax.set_xlim(-0.01, 1.01); ax.set_ylim(-0.16, 1.18); ax.set_aspect("equal"); ax.axis("off")
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.86, bottom=0.02, wspace=0.10)
+    save(fig, "carbide-micro")
 
 
 def fig_gp_zones():
@@ -862,6 +1079,9 @@ if __name__ == "__main__":
     fig_pearlite()
     fig_grain_structure()
     fig_steel_microstructures()
+    fig_austenite_micro()
+    fig_cementite_forms()
+    fig_carbide_micro()
     fig_strengthening_mechanisms()
     fig_case_hardening()
     fig_stainless_families()
