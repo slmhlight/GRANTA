@@ -56,6 +56,20 @@
         { "label": "Penticton Foundry — ASTM A897 Grade 3 (1200/850/04)", "url": "https://www.pentictonfoundry.com/news/astm-a897-grade-3-175-125-04/", "verified": true }
       ],
       "industry_note": "ADI 고강도 grade — 낮은 Austempering 온도로 미세 ausferrite 를 얻어 UTS≥1200/σy≥850MPa/El≥4%/341~444HB. 강도-인성 균형이 담금질강에 근접하면서 주조 성형성 유지. 대형 기어·중장비 트랙 부품·철도. ASTM A897 Grade 1200/850/04."
+    },
+    {
+      "name": "Grade P92 (9Cr-2W creep steel, ASTM A335)",
+      "category": "Metal", "subcategory": "Heat-Resistant Steel", "process": "Wrought",
+      "heat_treatment": "Normalized 1040°C + Tempered 730°C min",
+      "related": ["Grade 91 (P91, 9Cr-1MoVNb)"],
+      "aliases": ["P92", "ASTM A335 P92", "UNS K92460", "9Cr-2W", "X10CrWMoVNb9-2", "T92"],
+      "composition": { "Fe": "balance", "Cr": "8.5~9.5", "W": "1.5~2.0", "Mo": "0.3~0.6", "V": "0.15~0.25", "Nb": "0.04~0.09", "C": "0.07~0.13", "N": "0.03~0.07", "B": "0.001~0.006" },
+      "points": [[7.85, 440, 620, 20, 218, 220, 26]],
+      "sources": [
+        { "label": "ASTM A335/A335M — Seamless Ferritic Alloy-Steel Pipe for High-Temperature Service", "url": "https://store.astm.org/a0335_a0335m-24.html", "verified": true },
+        { "label": "Metalspiping — ASTM A335 P92 (9Cr-2W) properties", "url": "http://www.metalspiping.com/astm-a335-p92.html", "verified": true }
+      ],
+      "industry_note": "P91 의 후속 크리프강 — Mo 일부를 W 2%로 바꾸고 B 미량 첨가해 105 h 크리프 강도를 P91 대비 ~30% 높였다. USC(초초임계) 보일러 주증기관·헤더의 표준(~620°C). σy≥440/UTS≥620MPa/El≥20%/HB≤250 (N+T: 1040°C Normalizing + ≥730°C Tempering). 용접 후 PWHT 필수·Type IV HAZ 크리프 균열 관리가 실무 핵심. ASTM A335/A213(T92)."
     }
   ]
 }

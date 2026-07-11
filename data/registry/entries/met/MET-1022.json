@@ -1,0 +1,286 @@
+{
+  "stable_id": "MET-1022",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-heat-resistant-steel",
+    "alloy_base": "F-AB-grade-p92-9cr-2w-creep-steel-astm-a335",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0474",
+  "origin": "reference(supplementary)",
+  "id": "R_0474",
+  "name": "Grade P92 (9Cr-2W creep steel, ASTM A335)",
+  "category": "Metal",
+  "subcategory": "Heat-Resistant Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Normalized 1040°C + Tempered 730°C min",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 440,
+      "max": 440,
+      "typical": 440,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 620,
+      "max": 620,
+      "typical": 620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 218,
+      "max": 218,
+      "typical": 218,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 26,
+      "max": 26,
+      "typical": 26,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 279,
+      "max": 279,
+      "typical": 279,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
+    },
+    "impact_strength": {
+      "min": 15,
+      "max": 60,
+      "typical": 35,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Iron-based generic"
+    },
+    "fracture_toughness": {
+      "min": 80,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASME B&PV Sec.II heat-resistant"
+    },
+    "electrical_conductivity": {
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "max_service_temp": {
+      "min": 315,
+      "max": 585,
+      "typical": 450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "thermal_expansion": {
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "specific_heat": {
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "melting_point": {
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "price_per_kg": {
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Heat-Resistant Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.58,
+      "max": 2.58,
+      "typical": 2.58,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "8.5~9.5",
+    "W": "1.5~2.0",
+    "Mo": "0.3~0.6",
+    "V": "0.15~0.25",
+    "Nb": "0.04~0.09",
+    "C": "0.07~0.13",
+    "N": "0.03~0.07",
+    "B": "0.001~0.006"
+  },
+  "sources": [
+    {
+      "label": "ASTM A335/A335M — Seamless Ferritic Alloy-Steel Pipe for High-Temperature Service",
+      "url": "https://store.astm.org/a0335_a0335m-24.html",
+      "verified": true
+    },
+    {
+      "label": "Metalspiping — ASTM A335 P92 (9Cr-2W) properties",
+      "url": "http://www.metalspiping.com/astm-a335-p92.html",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASME B&PV Sec.II heat-resistant",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      440,
+      620,
+      20,
+      218,
+      220,
+      26
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Good",
+  "corrosion_resistance": "Poor",
+  "industry_note": "P91 의 후속 크리프강 — Mo 일부를 W 2%로 바꾸고 B 미량 첨가해 105 h 크리프 강도를 P91 대비 ~30% 높였다. USC(초초임계) 보일러 주증기관·헤더의 표준(~620°C). σy≥440/UTS≥620MPa/El≥20%/HB≤250 (N+T: 1040°C Normalizing + ≥730°C Tempering). 용접 후 PWHT 필수·Type IV HAZ 크리프 균열 관리가 실무 핵심. ASTM A335/A213(T92).",
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM A335",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "related": [
+    "Grade 91 (P91, 9Cr-1MoVNb)"
+  ],
+  "aliases": [
+    "P92",
+    "ASTM A335 P92",
+    "UNS K92460",
+    "9Cr-2W",
+    "X10CrWMoVNb9-2",
+    "T92",
+    "9Cr-2W creep steel",
+    "ASTM A335"
+  ],
+  "fracture_toughness": 100,
+  "density": 7.85,
+  "yield_strength": 440,
+  "uts": 620,
+  "elongation": 20,
+  "modulus": 218,
+  "hardness": 220,
+  "thermal_conductivity": 26,
+  "fatigue_strength": 279,
+  "impact_strength": 35,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "ASTM A335/A335M — Seamless Ferritic Alloy-Steel Pipe for High-Temperature Service",
+  "families": [
+    "Metal",
+    "Heat-Resistant Steel",
+    "Iron-based"
+  ],
+  "fatigue_estimated": true,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
+  "popularity": 1.57,
+  "machining_cost_factor": 0.9,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 2.58,
+  "total_cost_estimate": 2.32,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}
