@@ -74,6 +74,21 @@ for (const [srcFile, label] of [
     for (const { p, s } of collect) corpus.push({ src: label, key: p, text: s });
   } catch { /* optional source */ }
 }
+// (H4g) 가이드 14챕터 프로즈 — Guide.tsx 의 JSX 텍스트 노드·한글 문자열 리터럴.
+// 이전까지 감사 사각지대(합금명·용어 언급이 코퍼스 밖) → 편입.
+try {
+  const tsx = fs.readFileSync(path.join(ROOT, 'client/src/pages/Guide.tsx'), 'utf8');
+  let gi = 0;
+  for (const m of tsx.matchAll(/>([^<>{}]{6,})</g)) {
+    const t = m[1].trim();
+    if (!t || /^https?:|className|^\w+=/.test(t)) continue;
+    if (!/[가-힣]/.test(t) && t.length < 12) continue;
+    corpus.push({ src: 'guide', key: `tsx#${gi++}`, text: t });
+  }
+  for (const m of tsx.matchAll(/\{\s*['"`]([^'"`]{8,})['"`]\s*\}/g)) {
+    if (/[가-힣]/.test(m[1])) corpus.push({ src: 'guide', key: `str#${gi++}`, text: m[1] });
+  }
+} catch { /* optional */ }
 
 /* ── 3) 합금-형 언급 추출 (Latin) ──────────────────────────────── */
 // 대상 패턴(보수적·타깃형): 규격 grade·상용명+숫자·PH 계열·UNS. 순수숫자·연도·규격서 번호 제외.
@@ -107,6 +122,8 @@ const STOP_RE = [
   /^[CE] ?\d{1,3}$/i, // 온도·모듈러스 파편 ("C 27"·"E 114"; 구리 C+5자리는 통과)
   /^D ?\d{3,4}$/i, // 문서·규격 코드 (D008·D 8302; D2 등 1자리는 통과)
   /^[IVX]{1,4} ?\d+$/, // 로마숫자 Type 표기 (III 25 µm 등)
+  /^HT-?\d{2,3}$/i, // 항공 강 강도클래스 표기 (HT-125/HT-150 = heat-treated ksi — 합금명 아님)
+  /^AR-?0\d$/i, // FAA 보고서 번호 (FAA AR-03 등; AR400 내마모강은 통과)
 ];
 // 항공기·엔진·무기 호칭 — 합금 아님 (실재 합금과 겹치지 않는 것만: A380 다이캐스트 합금 등은 제외)
 const NON_MATERIAL = new Set([

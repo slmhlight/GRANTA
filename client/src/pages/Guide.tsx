@@ -464,7 +464,7 @@ export default function Guide() {
               <>필터: <b>Fatigue Strength ≥ 225</b> (<F>est.</F>가 붙었는지 상세에서 확인).</>,
               <><b>Compare</b>로 피로강도·연신율·강도 함께 비교 — <b>≤20개</b>면 Radar 오버레이로 한눈에.</>,
             ]}
-            families={<>티타늄(높은 피로/강도비), 고강도강(4340), 일부 니켈합금. <span className="text-muted-foreground">알루미늄은 뚜렷한 내구한도가 없어 주의.</span></>}
+            families={<>티타늄(높은 피로/강도비), 고강도강(AISI 4340), 일부 니켈합금. <span className="text-muted-foreground">알루미늄은 뚜렷한 내구한도가 없어 주의.</span></>}
           />
 
           <Scenario
@@ -496,7 +496,7 @@ export default function Guide() {
               <>필터: <b>Corrosion resistance = Excellent/Good</b> + <b>Yield</b> 하한.</>,
               <>정량 부식(부식속도·PREN 등)은 앱에 없으므로 <b>데이터시트</b>로 최종 확인.</>,
             ]}
-            families={<>스테인리스(316L, 듀플렉스 2205), 티타늄, 니켈합금(Inconel 625).</>}
+            families={<>스테인리스(AISI 316L, 듀플렉스 2205(UNS S32205)), 티타늄, 니켈합금(Inconel 625).</>}
           />
 
           <Scenario
@@ -504,7 +504,7 @@ export default function Guide() {
             presetKey="lowcost"
             onConfigure={openConfig}
             diagram={<SvgLowcost />}
-            examples={<>자동차 차체·새시 패널, 가전 외장(스탬핑 강판), 일반 산업기계 프레임. <ExtLink href="https://en.wikipedia.org/wiki/Carbon_steel">Carbon steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/6061_aluminium_alloy">6061 Al</ExtLink></>}
+            examples={<>자동차 차체·새시 패널, 가전 외장(스탬핑 강판), 일반 산업기계 프레임. <ExtLink href="https://en.wikipedia.org/wiki/Carbon_steel">Carbon steel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/6061_aluminium_alloy">AA 6061 Al</ExtLink></>}
             title="저원가 대량 생산 부품"
             situation="성능 요구는 평범하고 단가가 최우선."
             needs={<>필요 강도 <F>σy</F>를 만족하면서 <b>kg당 가격 최소</b>.</>}
@@ -512,7 +512,7 @@ export default function Guide() {
               <>필터: <b>Yield</b> 하한으로 “쓸 수 있는” 재료만 남김.</>,
               <>상단 <b>Index = 저원가 강도 <F>σy/Cm</F></b>로 정렬 · <b>Compare</b>에 <b>Price</b> 열 추가.</>,
             ]}
-            families={<>탄소강·저합금강, 일반 알루미늄(6061), 일부 폴리머.</>}
+            families={<>탄소강·저합금강, 일반 알루미늄(AA 6061), 일부 폴리머.</>}
           />
 
           <Scenario
@@ -559,7 +559,7 @@ export default function Guide() {
             steps={[
               <>필터: <b>Hardness ≥ 600 HV</b>, <b>Impact ≥ 15 J</b> (인성).</>,
               <><b>Compare</b>로 HV·KIC·가격 비교 (HRC 가 더 익숙하면 HV ≈ 10×HRC).</>,
-              <>상세 팝업에서 <b>권장 후공정 (R17)</b> 확인 — DLC·TiN·CrN PVD 코팅으로 표면만 강화 가능.</>,
+              <>상세 팝업에서 <b>권장 후공정</b> 확인 — DLC·TiN·CrN PVD 코팅으로 표면만 강화 가능.</>,
             ]}
             families={<>WC-Co (텅스텐 카바이드), 공구강 H13/D2/M2, Stellite 6/12 (Co 합금), 고경도 베어링강 52100. PVD/CVD 표면 코팅.</>}
           />
@@ -592,10 +592,10 @@ export default function Guide() {
             needs={<>저온에서도 <b>충격 인성 유지</b> (Charpy ≥ 27 J at -196 °C 요구가 흔함). 자성 변화 적음 (MRI 응용). 열전도 낮음 (열침입 감소).</>}
             steps={[
               <>필터: <b>Impact Strength ≥ 100 J</b>, <b>Category = Metal</b>, fcc 결정 구조 선호 (오스테나이트계 STS).</>,
-              <>Compare 의 σy·UTS·연신율·열전도도 비교. <b>FCC 구조 (304L/316L) 는 DBTT 가 없어 안전</b>.</>,
+              <>Compare 의 σy·UTS·연신율·열전도도 비교. <b>FCC 구조 (AISI 304L/AISI 316L) 는 DBTT 가 없어 안전</b>.</>,
               <>상세 팝업의 출처에서 저온 시험 데이터 확인 (ASTM E1820).</>,
             ]}
-            families={<>304L/316L (austenitic SS, no DBTT), 9% Ni 강 (LNG 표준), Invar 36 (정밀 저열팽창), Al 5083 (LNG cargo containment), Cu OFE.</>}
+            families={<>AISI 304L/AISI 316L (austenitic SS, no DBTT), 9% Ni 강 (LNG 표준), Invar 36 (정밀 저열팽창), AA 5083 (LNG cargo containment), Cu OFE.</>}
           />
 
           <Scenario
@@ -610,7 +610,7 @@ export default function Guide() {
             steps={[
               <>필터: <b>Electrical Conductivity ≥ 80 %IACS</b>, <b>σy ≥ 200 MPa</b> (가공 강도).</>,
               <><b>Index = Cu / σy</b> 또는 <b>k / ρ</b> (방열도 함께 본다면).</>,
-              <>Compare 로 σ·전도도·가격 비교. 도금 (Ag/Sn) 은 R17 권장 코팅에서 확인.</>,
+              <>Compare 로 σ·전도도·가격 비교. 도금 (Ag/Sn) 은 상세 팝업의 권장 코팅에서 확인.</>,
             ]}
             families={<>구리 OFE (C10100, ~101 %IACS), CuCrZr (C18150, 응력 완화 저항), 황동 C26000, 알루미늄 1350 (경량 transmission), Cu-Be C17200 (정밀 접점·스프링).</>}
           />
@@ -630,7 +630,7 @@ export default function Guide() {
               <>Compare 로 σy·KIC·내식 비교. 수소 환경이면 H₂ 취화 저항 (Ni·Cr 함량) 검증.</>,
               <>상세 팝업의 ASME 표준 합금 (P-No.) 확인.</>,
             ]}
-            families={<>SA-516 Gr70 (보일러), 4130 / 4140 (수소 탱크 라이너), 304L/316L (화학 reactor), Inconel 625 (H₂S 환경), Type II/III/IV 복합재 탱크 wrap.</>}
+            families={<>SA-516 Gr70 (보일러), AISI 4130 / AISI 4140 (수소 탱크 라이너), AISI 304L/AISI 316L (화학 reactor), Inconel 625 (H₂S 환경), Type II/III/IV 복합재 탱크 wrap.</>}
           />
 
           <Scenario
@@ -644,10 +644,10 @@ export default function Guide() {
             needs={<>표면 <b>경도 ≥ 600 HV</b> (접촉 피로), 코어 <b>인성 ≥ 30 J</b> (충격 흡수), 침탄 / 질화 / 유도 경화 적용 가능 alloy. AGMA grade 2/3.</>}
             steps={[
               <>필터: <b>Hardness 300–400 HV</b> (코어), <b>Impact ≥ 30 J</b>, <b>Process ⊃ Wrought</b>.</>,
-              <>상세 팝업 R17 권장 후공정 — 침탄/질화/유도경화 표면 처리 alloy 만 후보.</>,
+              <>상세 팝업의 권장 후공정 — 침탄/질화/유도경화 표면 처리 alloy 만 후보.</>,
               <>Compare 의 Machinability 가 Good 이상 (가공성).</>,
             ]}
-            families={<>침탄강 SAE 8620 / 9310 (항공), 질화강 31CrMoV9 (산업), 4140 / 4340 (자동차 변속), Maraging 300 (high-end racing), 분말야금 P/M gear (저가).</>}
+            families={<>침탄강 AISI 8620 / AISI 9310 (항공), 질화강 31CrMoV9 (산업), AISI 4140 / AISI 4340 (자동차 변속), Maraging 300 (high-end racing), 분말야금 P/M gear (저가).</>}
           />
 
           <Scenario
@@ -664,7 +664,7 @@ export default function Guide() {
               <>고온 ↔ 저온 환경이면 사용 온도 확인 (스테인리스 A4-80 / Inconel).</>,
               <>Compare 의 부식 등급 비교. 갈바닉 부식 회피.</>,
             ]}
-            families={<>Class 8.8/10.9 = SAE 4140/4340 quenched-tempered, Class 12.9 = SCM440 표면 경화, 항공 H-11 / MP35N / Inconel 718 (제트엔진), 스테인리스 A2-70 / A4-80 (해양).</>}
+            families={<>Class 8.8/10.9 = AISI 4140 / AISI 4340 quenched-tempered, Class 12.9 = SCM440 표면 경화, 항공 H-11 / MP35N / Inconel 718 (제트엔진), 스테인리스 A2-70 / A4-80 (해양).</>}
           />
 
           <Scenario
@@ -679,7 +679,7 @@ export default function Guide() {
             steps={[
               <>필터: <b>Hardness ≥ 400 HV</b> (담금 후), <b>Max Service Temp ≥ 500 °C</b>, <b>Process ⊃ Wrought</b> 또는 <b>LPBF</b> (3D 프린팅 mold).</>,
               <>Compare 의 열피로 저항 + 가공성. EDM 가공성 따로 보고.</>,
-              <>인서트 표면만 PVD TiAlN/CrN R17 권장 코팅 — 수명 3–5× 연장.</>,
+              <>인서트 표면만 PVD TiAlN/CrN 권장 코팅 — 수명 3–5× 연장.</>,
             ]}
             families={<>H13 (열간 die 표준), P20 (사출 pre-hardened), S7 (shock), D2 (cold work), Maraging M300 (LPBF mold, conformal cooling), Stavax (corrosion-resistant 사출), CPM 3V (high impact PM tool).</>}
           />
@@ -880,16 +880,16 @@ export default function Guide() {
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[24%]">도메인 (요구)</th><th className="p-2 font-semibold">우선 검토 family</th><th className="p-2 font-semibold w-[16%]">참고 사례</th></tr></thead>
               <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
-                <tr><td className="p-2 font-medium">구조 + 경량 (E·σy / ρ)</td><td className="p-2">고강도 알루미늄 (Scalmalloy · AlSi10Mg · 7075) · 티타늄 (Ti-6Al-4V · CP grade) · 마그네슘 (AZ31)</td><td className="p-2">브래킷·항공·자동차</td></tr>
+                <tr><td className="p-2 font-medium">구조 + 경량 (E·σy / ρ)</td><td className="p-2">고강도 알루미늄 (Scalmalloy · AlSi10Mg · AA 7075) · 티타늄 (Ti-6Al-4V · CP grade) · 마그네슘 (AZ31)</td><td className="p-2">브래킷·항공·자동차</td></tr>
                 <tr><td className="p-2 font-medium">고온 (≥ 600 °C · creep)</td><td className="p-2">Ni 초합금 (Inconel 718/625/617 · Haynes 230) · Co 합금 (L605 · Stellite) · Ti 중온(≤540 °C)</td><td className="p-2">배기·터빈·재사용 로켓</td></tr>
-                <tr><td className="p-2 font-medium">내식 (해수·산·Cl⁻)</td><td className="p-2">Ni 합금 (Hastelloy C-22 · Inconel 625) · 316L · Duplex (2205) · Ti grade 2</td><td className="p-2">해양·반도체·화학</td></tr>
+                <tr><td className="p-2 font-medium">내식 (해수·산·Cl⁻)</td><td className="p-2">Ni 합금 (Hastelloy C-22 · Inconel 625) · AISI 316L · Duplex (2205, UNS S32205) · Ti grade 2</td><td className="p-2">해양·반도체·화학</td></tr>
                 <tr><td className="p-2 font-medium">전기 전도 (σ_elec)</td><td className="p-2">Cu (OFHC · CuCrZr) · Al 1xxx · Ag-alloy · 청동</td><td className="p-2">버스바·접점·열교환</td></tr>
                 <tr><td className="p-2 font-medium">내마모 (HV·접촉)</td><td className="p-2">공구강 (D2 · H13 · M2) · WC-Co · Stellite · CoCrMo · 케이스 hardening 강</td><td className="p-2">금형·다이·베어링</td></tr>
-                <tr><td className="p-2 font-medium">생체적합</td><td className="p-2">Ti-6Al-4V ELI (Grade 23) · CoCrMo (F75) · 316L · CP-Ti</td><td className="p-2">임플란트·스텐트</td></tr>
+                <tr><td className="p-2 font-medium">생체적합</td><td className="p-2">Ti-6Al-4V ELI (Grade 23) · CoCrMo (F75) · AISI 316L · CP-Ti</td><td className="p-2">임플란트·스텐트</td></tr>
                 <tr><td className="p-2 font-medium">치수 안정 (저 CTE)</td><td className="p-2">Invar (Fe-Ni36) · Kovar · Pure W · Pyrex glass · CFRP</td><td className="p-2">정밀 광학·측정기</td></tr>
-                <tr><td className="p-2 font-medium">경량 방열 (k/ρ)</td><td className="p-2">Al (6061 · 1100) · Cu · 흑연 복합재 · AlSiC</td><td className="p-2">히트싱크·열교환기</td></tr>
-                <tr><td className="p-2 font-medium">탄성에너지 (σy²/E)</td><td className="p-2">스프링강 (52100 · 9254) · 마레이징강 · CuBe · 글래스 섬유</td><td className="p-2">스프링·다이어프램·힌지</td></tr>
-                <tr><td className="p-2 font-medium">압력 / 폭발</td><td className="p-2">압력용기 강 (A516 · A335 · P91) · Inconel 625 (수소) · 4130 (라이너) · 316L (화학)</td><td className="p-2">탱크·실린더·보일러</td></tr>
+                <tr><td className="p-2 font-medium">경량 방열 (k/ρ)</td><td className="p-2">Al (AA 6061 · AA 1100) · Cu · 흑연 복합재 · AlSiC</td><td className="p-2">히트싱크·열교환기</td></tr>
+                <tr><td className="p-2 font-medium">탄성에너지 (σy²/E)</td><td className="p-2">스프링강 (AISI 52100 · 9254) · 마레이징강 · CuBe · 글래스 섬유</td><td className="p-2">스프링·다이어프램·힌지</td></tr>
+                <tr><td className="p-2 font-medium">압력 / 폭발</td><td className="p-2">압력용기 강 (A516 · A335 · P91) · Inconel 625 (수소) · AISI 4130 (라이너) · AISI 316L (화학)</td><td className="p-2">탱크·실린더·보일러</td></tr>
               </tbody>
             </table>
           </div>
@@ -902,16 +902,16 @@ export default function Guide() {
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[18%]">환경</th><th className="p-2 font-semibold w-[18%]">조건</th><th className="p-2 font-semibold">적합 합금</th><th className="p-2 font-semibold">회피·주의</th></tr></thead>
               <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12px]">
-                <tr><td className="p-2 font-medium">해수 부식</td><td className="p-2">Cl⁻ · 산화 환경</td><td className="p-2">Hastelloy · 316L · Cu-Ni 90/10 · Duplex 2205 · Ti</td><td className="p-2 text-rose-700">탄소강 · 304 · Al (피팅·균열)</td></tr>
+                <tr><td className="p-2 font-medium">해수 부식</td><td className="p-2">Cl⁻ · 산화 환경</td><td className="p-2">Hastelloy · AISI 316L · Cu-Ni 90/10 · Duplex 2205 · Ti</td><td className="p-2 text-rose-700">탄소강 · AISI 304 · Al (피팅·균열)</td></tr>
                 <tr><td className="p-2 font-medium">산성 (H₂SO₄·HCl)</td><td className="p-2">강산 · 고온</td><td className="p-2">Hastelloy C-22/B-3 · 904L · Ti-Pd · 탄탈럼</td><td className="p-2 text-rose-700">탄소강 · SS 일반 · Al · 청동</td></tr>
-                <tr><td className="p-2 font-medium">알칼리 (NaOH)</td><td className="p-2">강염기</td><td className="p-2">Ni 200 · Inconel 600 · Monel 400 · 탄소강 (저농도)</td><td className="p-2 text-rose-700">Al · Zn · 304/316 (균열)</td></tr>
-                <tr><td className="p-2 font-medium">고온 (≥ 700 °C)</td><td className="p-2">대기·연소가스</td><td className="p-2">Inconel 617/625/X · Haynes 230 · MA956 · CMSX-4</td><td className="p-2 text-rose-700">탄소강 · 4140 · Al · 일반 SS</td></tr>
-                <tr><td className="p-2 font-medium">저온 / 극저온</td><td className="p-2">LNG (-162 °C) · 우주 (-269 °C)</td><td className="p-2">Inconel 718 · 316L · 9% Ni 강 · Al 5083 · Cu</td><td className="p-2 text-rose-700">탄소강 · 4140 · BCC 구조 (DBTT)</td></tr>
-                <tr><td className="p-2 font-medium">방사선 (원자력·우주)</td><td className="p-2">중성자·γ·X-ray</td><td className="p-2">SS 304L · Inconel 718 · Zircaloy-4 · MA956</td><td className="p-2 text-rose-700">Al · 구리 (swelling) · 폴리머</td></tr>
+                <tr><td className="p-2 font-medium">알칼리 (NaOH)</td><td className="p-2">강염기</td><td className="p-2">Ni 200 · Inconel 600 · Monel 400 · 탄소강 (저농도)</td><td className="p-2 text-rose-700">Al · Zn · AISI 304/316 (균열)</td></tr>
+                <tr><td className="p-2 font-medium">고온 (≥ 700 °C)</td><td className="p-2">대기·연소가스</td><td className="p-2">Inconel 617/625/X · Haynes 230 · MA956 · CMSX-4</td><td className="p-2 text-rose-700">탄소강 · AISI 4140 · Al · 일반 SS</td></tr>
+                <tr><td className="p-2 font-medium">저온 / 극저온</td><td className="p-2">LNG (-162 °C) · 우주 (-269 °C)</td><td className="p-2">Inconel 718 · AISI 316L · 9% Ni 강 · AA 5083 · Cu</td><td className="p-2 text-rose-700">탄소강 · AISI 4140 · BCC 구조 (DBTT)</td></tr>
+                <tr><td className="p-2 font-medium">방사선 (원자력·우주)</td><td className="p-2">중성자·γ·X-ray</td><td className="p-2">SS AISI 304L · Inconel 718 · Zircaloy-4 · MA956</td><td className="p-2 text-rose-700">Al · 구리 (swelling) · 폴리머</td></tr>
                 <tr><td className="p-2 font-medium">마모 / 부식 복합</td><td className="p-2">슬러리·미세입자</td><td className="p-2">Stellite · WC-Co · CoCrMo · Hardfaced steel · 알루미나 코팅</td><td className="p-2 text-rose-700">연강 · Al 일반 · 폴리머</td></tr>
-                <tr><td className="p-2 font-medium">수소 환경</td><td className="p-2">고압 H₂ · 700 bar</td><td className="p-2">316L · 304L · Inconel 625 · 4130 (라이너) · CFRP wrap</td><td className="p-2 text-rose-700">고강도 강 (4340 · maraging) · Ni-base 일부 (H-취화)</td></tr>
+                <tr><td className="p-2 font-medium">수소 환경</td><td className="p-2">고압 H₂ · 700 bar</td><td className="p-2">AISI 316L · AISI 304L · Inconel 625 · AISI 4130 (라이너) · CFRP wrap</td><td className="p-2 text-rose-700">고강도 강 (AISI 4340 · maraging) · Ni-base 일부 (H-취화)</td></tr>
                 <tr><td className="p-2 font-medium">갈바닉 부식</td><td className="p-2">이종 금속 접촉</td><td className="p-2">같은 family 통일 · 절연 와셔 · 캐소드 가드</td><td className="p-2 text-rose-700">Al + steel 직접 접촉 · Cu + Zn 결합</td></tr>
-                <tr><td className="p-2 font-medium">미생물 부식 (MIC)</td><td className="p-2">정체 수·황화수소</td><td className="p-2">Cu · 6Mo SS (254 SMO) · Ti</td><td className="p-2 text-rose-700">탄소강 · 304 · Al</td></tr>
+                <tr><td className="p-2 font-medium">미생물 부식 (MIC)</td><td className="p-2">정체 수·황화수소</td><td className="p-2">Cu · 6Mo SS (254 SMO) · Ti</td><td className="p-2 text-rose-700">탄소강 · AISI 304 · Al</td></tr>
               </tbody>
             </table>
           </div>
@@ -1048,14 +1048,14 @@ export default function Guide() {
                 <tr><td className="p-2 font-mono">Solution Annealed (SA, Condition A)</td><td className="p-2">PH 강 일반</td><td className="p-2">PH 강 출발조건, 시효 전 가공·용접 적합 (σy 낮음, El ↑)</td></tr>
                 <tr><td className="p-2 font-mono">Aged · PH (Precipitation Hardened)</td><td className="p-2">PH 강 · Al 7xxx · Ni 합금</td><td className="p-2">시효 경화 — σy·강도 ↑, El ↓</td></tr>
                 <tr><td className="p-2 font-mono">STA (Solution + Aged)</td><td className="p-2">Ti-6Al-4V 등</td><td className="p-2">Ti 합금 표준 강화 조건</td></tr>
-                <tr><td className="p-2 font-mono">Q&T (Quenched & Tempered)</td><td className="p-2">탄소·합금강 (4140, 4340)</td><td className="p-2">담금질 + 템퍼링 — 강도·인성 균형, 일반 구조강 기본</td></tr>
+                <tr><td className="p-2 font-mono">Q&T (Quenched & Tempered)</td><td className="p-2">탄소·합금강 (AISI 4140, AISI 4340)</td><td className="p-2">담금질 + 템퍼링 — 강도·인성 균형, 일반 구조강 기본</td></tr>
                 <tr><td className="p-2 font-mono">Normalized</td><td className="p-2">탄소·합금강</td><td className="p-2">균질 미세조직, 응력 완화, σy·연성 중간</td></tr>
                 <tr><td className="p-2 font-mono">Annealed (Full / Soft)</td><td className="p-2">모든 합금</td><td className="p-2">최대 연성·가공성, σy ↓ (시작점)</td></tr>
                 <tr><td className="p-2 font-mono">Stress-relieved</td><td className="p-2">AM 부품 일반</td><td className="p-2">AM 잔류응력 완화, 미세조직 변화 미미</td></tr>
                 <tr><td className="p-2 font-mono">HIP (Hot Isostatic Press)</td><td className="p-2">AM 부품 · 주조</td><td className="p-2">기공 제거 → 피로 강도·연신 ↑ (AM 표준)</td></tr>
                 <tr><td className="p-2 font-mono">As-built / As-printed (ASB)</td><td className="p-2">AM 모든 합금</td><td className="p-2">AM 후처리 없음 — 잔류응력 + 일부 기공, 피로 ↓</td></tr>
-                <tr><td className="p-2 font-mono">T6</td><td className="p-2">Al 합금 (6061, 7075, AlSi10Mg)</td><td className="p-2">Al 표준 시효 (peak hardness)</td></tr>
-                <tr><td className="p-2 font-mono">T651</td><td className="p-2">Al 7xxx · 2024</td><td className="p-2">T6 + stress-relieved (잔류응력 ↓)</td></tr>
+                <tr><td className="p-2 font-mono">T6</td><td className="p-2">Al 합금 (AA 6061, AA 7075, AlSi10Mg)</td><td className="p-2">Al 표준 시효 (peak hardness)</td></tr>
+                <tr><td className="p-2 font-mono">T651</td><td className="p-2">Al 7xxx · AA 2024</td><td className="p-2">T6 + stress-relieved (잔류응력 ↓)</td></tr>
                 <tr><td className="p-2 font-mono">T7 (T73 · T74)</td><td className="p-2">Al 7xxx</td><td className="p-2">Over-aged — 응력부식 ↑, σy 약간 ↓</td></tr>
                 <tr><td className="p-2 font-mono">T4</td><td className="p-2">Al 2xxx</td><td className="p-2">Solution + 자연시효 — El ↑, σy 중간</td></tr>
                 <tr><td className="p-2 font-mono">O Temper</td><td className="p-2">Al 합금 일반</td><td className="p-2">Annealed Al — 최대 연성</td></tr>
@@ -1606,9 +1606,9 @@ export default function Guide() {
               { n: 3, tag: '표면 거칠기', t: '표면 처리 무시 → 피로 50% ↓', d: 'AM as-built 표면 Ra ~25 μm 또는 절삭 직후 Ra ~3 μm 도 피로 강도 감소. 노치 효과 (Kf ≈ 1.5~3) 로 σf 가 1/2 까지.', fix: '회전·반복 하중 부품은 polishing (Ra ≤ 0.8 μm) 또는 shot peening (잔류 압축응력 부여) 필수.' },
               { n: 4, tag: '갈바닉 부식', t: 'Al + Steel 직접 접촉', d: 'Al 과 Steel 의 갈바닉 전위차로 Al 쪽 급속 부식. 해양·습한 환경에서 6 개월 내 파공 사례.', fix: '같은 family 통일 또는 절연 와셔 (PTFE · 나일론) 삽입. 캐소드 보호 (희생 양극).' },
               { n: 5, tag: '노치 효과', t: 'Sharp corner / 구멍 모서리 stress concentration 무시', d: 'σ_max = Kt · σ_nom (Kt 보통 2~4). SF 가 sufficient 라도 노치 부근만 응력 집중 → 균열 시작.', fix: '구멍·모서리에 fillet radius 적용 (r ≥ 1/4 board thickness). FEA 로 stress concentration 확인.' },
-              { n: 6, tag: '용접성', t: 'AM AlSi10Mg 부품 용접', d: 'AlSi10Mg 는 SiAl 공정 사출 미세조직 — 용접 시 균열 (porosity, crack). Vendor datasheet 의 용접성 정보 누락.', fix: '용접 필요 시 wrought 6061 또는 5052 로 대체. AM 부품은 mechanical fastening (bolt) 또는 friction stir welding 검토.' },
-              { n: 7, tag: 'H 취화', t: '고강도 강 (4340 · maraging) + 수소 환경', d: 'σy > 1000 MPa 고강도 강은 H₂ 가스 / 산세 / 도금 (Cd · Zn) 에서 수소 흡수 → 지연 파괴. 우주·압력용기 인명 사고 보고.', fix: 'σy ≤ 900 MPa 강 또는 316L / Inconel 625. 도금 후 baking (200 °C / 24 h) 으로 수소 제거.' },
-              { n: 8, tag: '저온 취성', t: '탄소강을 LNG (-162 °C) 환경에 사용', d: 'BCC 결정 (탄소강 · 4140) 은 DBTT (Ductile-Brittle Transition Temperature) 이하에서 갑자기 취성화. -50 °C 이하에서 충격 인성 1/10 까지.', fix: 'FCC 결정 (316L · 304L · 9% Ni 강 · Al · Cu) 사용. Charpy V-notch 시험으로 사용 온도 -10 °C 이하에서도 27 J 이상 확인.' },
+              { n: 6, tag: '용접성', t: 'AM AlSi10Mg 부품 용접', d: 'AlSi10Mg 는 SiAl 공정 사출 미세조직 — 용접 시 균열 (porosity, crack). Vendor datasheet 의 용접성 정보 누락.', fix: '용접 필요 시 wrought AA 6061 또는 AA 5052 로 대체. AM 부품은 mechanical fastening (bolt) 또는 friction stir welding 검토.' },
+              { n: 7, tag: 'H 취화', t: '고강도 강 (AISI 4340 · maraging) + 수소 환경', d: 'σy > 1000 MPa 고강도 강은 H₂ 가스 / 산세 / 도금 (Cd · Zn) 에서 수소 흡수 → 지연 파괴. 우주·압력용기 인명 사고 보고.', fix: 'σy ≤ 900 MPa 강 또는 AISI 316L / Inconel 625. 도금 후 baking (200 °C / 24 h) 으로 수소 제거.' },
+              { n: 8, tag: '저온 취성', t: '탄소강을 LNG (-162 °C) 환경에 사용', d: 'BCC 결정 (탄소강 · AISI 4140) 은 DBTT (Ductile-Brittle Transition Temperature) 이하에서 갑자기 취성화. -50 °C 이하에서 충격 인성 1/10 까지.', fix: 'FCC 결정 (AISI 316L · AISI 304L · 9% Ni 강 · Al · Cu) 사용. Charpy V-notch 시험으로 사용 온도 -10 °C 이하에서도 27 J 이상 확인.' },
               { n: 9, tag: '열팽창 mismatch', t: '이종 재료 조합 정밀 부품에서 CTE 무시', d: 'Al (CTE 23) + Steel (12) 가 같은 부품에 있으면 100 °C 온도 변화에서 mismatch 0.1% — 정밀 광학·전자에서 치명적.', fix: 'Invar (CTE 1.3) · Kovar (5.5) · CFRP (≈0) 같은 저 CTE 재료. 또는 Si 같은 substrate 와 매칭.' },
               { n: 10, tag: '데이터 confidence 무시', t: 'class · derived 라벨을 측정값처럼 설계에 사용', d: 'KIC 가 class 라벨 = family 평균 추정. 동일 alloy 의 다른 heat 에서 ±30% 변동. fatigue derived 도 동일.', fix: '인증·시제품 단계에서 측정값 또는 vendor datasheet 측정 항목 확보. detail 의 confidence 라벨 항상 확인. Ch.13 datasheet 섹션 참고.' },
             ].map((m) => (
@@ -1739,10 +1739,10 @@ export default function Guide() {
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold">공정</th><th className="p-2 font-semibold">에너지 / 빌드 방식</th><th className="p-2 font-semibold">표준 합금</th><th className="p-2 font-semibold">강점</th><th className="p-2 font-semibold">한계</th></tr></thead>
               <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12px]">
-                <tr><td className="p-2 font-medium">LPBF (SLM, DMLS)</td><td className="p-2">고출력 레이저 · 분말 베드</td><td className="p-2">Ti-6Al-4V · Inconel 718/625 · AlSi10Mg · 316L · 17-4 PH · CoCrMo</td><td className="p-2">정밀도 ±50 µm · 미세조직 미세 · 내부 채널 가능</td><td className="p-2">잔류응력 高 · Z 이방성 · 표면 거칠기 高 · 분말 회수 까다로움</td></tr>
+                <tr><td className="p-2 font-medium">LPBF (SLM, DMLS)</td><td className="p-2">고출력 레이저 · 분말 베드</td><td className="p-2">Ti-6Al-4V · Inconel 718/625 · AlSi10Mg · AISI 316L · 17-4 PH · CoCrMo</td><td className="p-2">정밀도 ±50 µm · 미세조직 미세 · 내부 채널 가능</td><td className="p-2">잔류응력 高 · Z 이방성 · 표면 거칠기 高 · 분말 회수 까다로움</td></tr>
                 <tr><td className="p-2 font-medium">EBM (Electron Beam Melting)</td><td className="p-2">전자빔 · 진공 분말 베드</td><td className="p-2">Ti-6Al-4V · CoCr · 일부 Ni 초합금</td><td className="p-2">잔류응력 低 (700 °C 고온 빌드) · 내부 응력 없음</td><td className="p-2">정밀도 ±200 µm · 진공 환경 必 · 분말 입도 大 (45–100 µm)</td></tr>
                 <tr><td className="p-2 font-medium">DED (LMD · DMD)</td><td className="p-2">레이저·분말 노즐 동시 · 자유 빌드</td><td className="p-2">대부분 금속</td><td className="p-2">대형 부품 · 다재료 · 수리·복원 가능</td><td className="p-2">정밀도 ±500 µm · 후가공 필수 · 표면 매우 거침</td></tr>
-                <tr><td className="p-2 font-medium">Binder Jetting</td><td className="p-2">바인더 분사 + 후소결</td><td className="p-2">316L · 304L · Bronze · Inconel 625</td><td className="p-2">생산성 高 · 잔류응력 0 · 형상 자유도 高</td><td className="p-2">소결 수축 ~3% · 밀도 95–98% (HIP 필수) · 합금 제한적</td></tr>
+                <tr><td className="p-2 font-medium">Binder Jetting</td><td className="p-2">바인더 분사 + 후소결</td><td className="p-2">AISI 316L · AISI 304L · Bronze · Inconel 625</td><td className="p-2">생산성 高 · 잔류응력 0 · 형상 자유도 高</td><td className="p-2">소결 수축 ~3% · 밀도 95–98% (HIP 필수) · 합금 제한적</td></tr>
               </tbody>
             </table>
           </div>
@@ -1803,14 +1803,14 @@ export default function Guide() {
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[20%]">산업·인증</th><th className="p-2 font-semibold w-[18%]">규격</th><th className="p-2 font-semibold">적합 합금 (예시)</th></tr></thead>
               <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
-                <tr><td className="p-2 font-medium">항공기 구조</td><td className="p-2">AS9100 · NADCAP · FAA 14 CFR 25</td><td className="p-2">Ti-6Al-4V (AMS 4928) · Inconel 718 (AMS 5663) · 7075-T7 · Al 2024-T3 · 4340 · 17-4 PH</td></tr>
-                <tr><td className="p-2 font-medium">의료 임플란트</td><td className="p-2">ISO 13485 · ISO 10993 · FDA 510(k)</td><td className="p-2">Ti-6Al-4V ELI (Grade 23) · CoCrMo (ASTM F75) · 316L (ASTM F138) · CP-Ti Grade 4</td></tr>
-                <tr><td className="p-2 font-medium">압력 용기</td><td className="p-2">ASME B&PV Sec.VIII · ASME P-No. matching</td><td className="p-2">SA-516 Gr70 (보일러) · SA-240 Type 304/316L (화학) · SA-335 P91 (발전소) · Inconel 625 (H₂)</td></tr>
-                <tr><td className="p-2 font-medium">석유·가스 (sour)</td><td className="p-2">NACE MR0175 / ISO 15156</td><td className="p-2">Inconel 625 · Hastelloy C-276 · 316L (제한적) · Duplex 2205 (제한적)</td></tr>
-                <tr><td className="p-2 font-medium">원자력 1st loop</td><td className="p-2">ASME Sec.III · ASME NQA-1</td><td className="p-2">SA-508 Cl.3 · Inconel 600/690 · Zircaloy-4 · 316L</td></tr>
+                <tr><td className="p-2 font-medium">항공기 구조</td><td className="p-2">AS9100 · NADCAP · FAA 14 CFR 25</td><td className="p-2">Ti-6Al-4V (AMS 4928) · Inconel 718 (AMS 5663) · AA 7075-T7 · AA 2024-T3 · AISI 4340 · 17-4 PH</td></tr>
+                <tr><td className="p-2 font-medium">의료 임플란트</td><td className="p-2">ISO 13485 · ISO 10993 · FDA 510(k)</td><td className="p-2">Ti-6Al-4V ELI (Grade 23) · CoCrMo (ASTM F75) · AISI 316L (ASTM F138) · CP-Ti Grade 4</td></tr>
+                <tr><td className="p-2 font-medium">압력 용기</td><td className="p-2">ASME B&PV Sec.VIII · ASME P-No. matching</td><td className="p-2">SA-516 Gr70 (보일러) · SA-240 Type 304/AISI 316L (화학) · SA-335 P91 (발전소) · Inconel 625 (H₂)</td></tr>
+                <tr><td className="p-2 font-medium">석유·가스 (sour)</td><td className="p-2">NACE MR0175 / ISO 15156</td><td className="p-2">Inconel 625 · Hastelloy C-276 · AISI 316L (제한적) · Duplex 2205 (제한적)</td></tr>
+                <tr><td className="p-2 font-medium">원자력 1st loop</td><td className="p-2">ASME Sec.III · ASME NQA-1</td><td className="p-2">SA-508 Cl.3 · Inconel 600/690 · Zircaloy-4 · AISI 316L</td></tr>
                 <tr><td className="p-2 font-medium">건축 구조강</td><td className="p-2">AISC · EUROCODE 3 · KBC 2022</td><td className="p-2">A36 · A572 Gr50 · A992 · A500 Gr B</td></tr>
                 <tr><td className="p-2 font-medium">자동차 (EU)</td><td className="p-2">RoHS · REACH · ELV</td><td className="p-2">대부분 합금 — Pb·Cd·Cr⁶⁺ 제한. 일반 stainless · Al · 강 OK.</td></tr>
-                <tr><td className="p-2 font-medium">식품·음료</td><td className="p-2">FDA 21 CFR 177 · NSF/ANSI 51</td><td className="p-2">316L · 304L · 2205 · Hastelloy C-22 (acid)</td></tr>
+                <tr><td className="p-2 font-medium">식품·음료</td><td className="p-2">FDA 21 CFR 177 · NSF/ANSI 51</td><td className="p-2">AISI 316L · AISI 304L · 2205 · Hastelloy C-22 (acid)</td></tr>
                 <tr><td className="p-2 font-medium">군용</td><td className="p-2">MIL-DTL · MIL-STD</td><td className="p-2">MIL-S-46100 (장갑) · MIL-T-9046 (Ti) · MIL-A-46100 (Al)</td></tr>
               </tbody>
             </table>
@@ -1822,12 +1822,12 @@ export default function Guide() {
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[20%]">공정</th><th className="p-2 font-semibold w-[12%]">평가 지표</th><th className="p-2 font-semibold">고려사항</th></tr></thead>
               <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
-                <tr><td className="p-2 font-medium">절삭 (machining)</td><td className="p-2 font-mono">Machinability rating (Al 1100 = 100%)</td><td className="p-2">Al 6061 = 70% · 1018 강 = 70% · 4140 = 60% · 304 SS = 40% · Ti-6Al-4V = 22% · Inconel 718 = 12% · CoCrMo = 10%. 가공시간 = (100/MR) × 기본. 절삭유·공구 마모도 비례.</td></tr>
-                <tr><td className="p-2 font-medium">용접 (welding)</td><td className="p-2 font-mono">CET (Carbon Equivalent) · Schaeffler diagram</td><td className="p-2">CET &lt; 0.4 = pre-heat 불요. CET 0.4–0.6 = 150–200 °C pre-heat. CET &gt; 0.6 = 위험 (예: 4340 · maraging). Stainless 는 Schaeffler diagram 으로 Cr/Ni eq 평가.</td></tr>
-                <tr><td className="p-2 font-medium">성형 (forming)</td><td className="p-2 font-mono">N-value (변형 경화 지수) · r-value</td><td className="p-2">Deep drawing 은 n &gt; 0.2, r &gt; 1.4 권장. 304 SS / 6022-T4 Al 우수. 7075 / 마라징 어려움.</td></tr>
-                <tr><td className="p-2 font-medium">단조 (forging)</td><td className="p-2 font-mono">Forgeability rating</td><td className="p-2">Al · 1018 강 우수. Ti · Ni superalloy 는 좁은 온도창 (Ti-6Al-4V 950–1000 °C). 정밀 단조 (closed die) 는 부품마다 다이 비용 ↑.</td></tr>
+                <tr><td className="p-2 font-medium">절삭 (machining)</td><td className="p-2 font-mono">Machinability rating (AA 1100 = 100%)</td><td className="p-2">AA 6061 = 70% · AISI 1018 강 = 70% · AISI 4140 = 60% · 304 SS = 40% · Ti-6Al-4V = 22% · Inconel 718 = 12% · CoCrMo = 10%. 가공시간 = (100/MR) × 기본. 절삭유·공구 마모도 비례.</td></tr>
+                <tr><td className="p-2 font-medium">용접 (welding)</td><td className="p-2 font-mono">CET (Carbon Equivalent) · Schaeffler diagram</td><td className="p-2">CET &lt; 0.4 = pre-heat 불요. CET 0.4–0.6 = 150–200 °C pre-heat. CET &gt; 0.6 = 위험 (예: AISI 4340 · maraging). Stainless 는 Schaeffler diagram 으로 Cr/Ni eq 평가.</td></tr>
+                <tr><td className="p-2 font-medium">성형 (forming)</td><td className="p-2 font-mono">N-value (변형 경화 지수) · r-value</td><td className="p-2">Deep drawing 은 n &gt; 0.2, r &gt; 1.4 권장. 304 SS / 6022-T4 Al 우수. AA 7075 / 마라징 어려움.</td></tr>
+                <tr><td className="p-2 font-medium">단조 (forging)</td><td className="p-2 font-mono">Forgeability rating</td><td className="p-2">Al · AISI 1018 강 우수. Ti · Ni superalloy 는 좁은 온도창 (Ti-6Al-4V 950–1000 °C). 정밀 단조 (closed die) 는 부품마다 다이 비용 ↑.</td></tr>
                 <tr><td className="p-2 font-medium">주조 (casting)</td><td className="p-2 font-mono">유동성 · 수축률 · 결함률</td><td className="p-2">Investment casting (Ti · CoCrMo · 304SS · Inconel 718) — 정밀 ±0.5%. Die casting (Al · Zn · Mg). Sand casting (탄소강 · Al · 청동).</td></tr>
-                <tr><td className="p-2 font-medium">AM (LPBF · EBM · DED)</td><td className="p-2 font-mono">분말 spec · 빌드 방향 · 후처리</td><td className="p-2">표준화된 alloy 만 (Ti-6Al-4V · IN718 · 17-4 PH · 316L · AlSi10Mg · CoCrMo). HIP 후처리로 ±20% 성능 변동. <a href="#ch9" className="text-accent hover:underline">Ch.10 AM 특화</a> 참고.</td></tr>
+                <tr><td className="p-2 font-medium">AM (LPBF · EBM · DED)</td><td className="p-2 font-mono">분말 spec · 빌드 방향 · 후처리</td><td className="p-2">표준화된 alloy 만 (Ti-6Al-4V · Inconel 718 · 17-4 PH · AISI 316L · AlSi10Mg · CoCrMo). HIP 후처리로 ±20% 성능 변동. <a href="#ch9" className="text-accent hover:underline">Ch.10 AM 특화</a> 참고.</td></tr>
                 <tr><td className="p-2 font-medium">표면처리</td><td className="p-2 font-mono">밀착성 · 두께 · 환경 적합성</td><td className="p-2">Al 양극산화 (anodize) · 강 도금 (Zn · Cd · Cr) · Ti TiN/DLC · stainless passivation. 의료 임플란트는 micro arc oxidation 또는 plasma electrolytic oxidation.</td></tr>
               </tbody>
             </table>
@@ -1879,7 +1879,7 @@ export default function Guide() {
           <div className="space-y-4 mt-3">
             <div className="rounded-lg border border-border bg-card p-4">
               <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">① 자동차 — F1 엔진 블록 재료 변천사</p>
-              <p className="text-sm leading-relaxed"><b className="text-foreground">변천:</b> Cast iron (1950s) → 4340 alloy steel (1970s) → A356-T6 cast aluminum (1990s) → Honeycomb composite + Al 7075 (2010s).</p>
+              <p className="text-sm leading-relaxed"><b className="text-foreground">변천:</b> Cast iron (1950s) → AISI 4340 alloy steel (1970s) → A356-T6 cast aluminum (1990s) → Honeycomb composite + AA 7075 (2010s).</p>
               <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인:</b> 출력/무게 (engine specific power) = 200 → 1500 hp/L. 시린더 압력 = 100 → 240 bar. 회전수 = 6,000 → 18,000 rpm. 매번 더 가벼우면서도 더 강하고 더 thermally stable 한 재료가 필요.</p>
               <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">앱에서 재현:</b> 사례 "구조 브래킷" + Index = E^½/ρ + Yield ≥ 400 + Process = LPBF → Al 7075 · Ti-6Al-4V · Scalmalloy 후보.</p>
             </div>
@@ -1947,8 +1947,8 @@ export default function Guide() {
               <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
                 <tr><td className="p-2 font-mono text-foreground/70">n=N (measured)</td><td className="p-2">N 개 실측 데이터점의 평균 ± 범위. n 클수록 신뢰 ↑.</td><td className="p-2 text-emerald-700">✓ 인증·시제품 설계에 직접 사용 가능</td></tr>
                 <tr><td className="p-2 font-mono text-sky-600">handbook</td><td className="p-2">ASM Handbook · MMPDS · vendor datasheet 의 표준 typical 값.</td><td className="p-2 text-emerald-700">✓ 예비 설계·후보 좁히기에 적합</td></tr>
-                <tr><td className="p-2 font-mono text-amber-600">class</td><td className="p-2">같은 family/subcategory 의 평균값으로 추정 (R56 KIC fallback 등).</td><td className="p-2 text-amber-700">⚠ Ashby 차트·후보 선정 용. 설계값으로는 부적합 — 출처 확인 必</td></tr>
-                <tr><td className="p-2 font-mono text-rose-500">≈UTS (derived)</td><td className="p-2">다른 물성에서 유도 (R56 Fatigue σ_f ≈ 0.45·σy 등 Shigley 근사).</td><td className="p-2 text-rose-700">⚠ 정성적 비교만. 정량 설계는 측정값으로 대체 必</td></tr>
+                <tr><td className="p-2 font-mono text-amber-600">class</td><td className="p-2">같은 family/subcategory 의 평균값으로 추정 (family KIC fallback 등).</td><td className="p-2 text-amber-700">⚠ Ashby 차트·후보 선정 용. 설계값으로는 부적합 — 출처 확인 必</td></tr>
+                <tr><td className="p-2 font-mono text-rose-500">≈UTS (derived)</td><td className="p-2">다른 물성에서 유도 (Fatigue σ_f ≈ 0.45·σy 등 Shigley 근사).</td><td className="p-2 text-rose-700">⚠ 정성적 비교만. 정량 설계는 측정값으로 대체 必</td></tr>
               </tbody>
             </table>
           </div>
@@ -1967,7 +1967,7 @@ export default function Guide() {
                 <tr><td className="p-2 font-medium">Haynes International (H-3000·3008·3068)</td><td className="p-2">vendor</td><td className="p-2">Haynes 230·X·282·25 (L605) 등 고온합금</td></tr>
                 <tr><td className="p-2 font-medium">Carpenter Technology Custom</td><td className="p-2">vendor</td><td className="p-2">17-4 PH·15-5 PH·Custom 465·A286·Maraging 등 PH 합금</td></tr>
                 <tr><td className="p-2 font-medium">EOS · Renishaw · SLM Solutions · GE Additive</td><td className="p-2">vendor (AM)</td><td className="p-2">LPBF·EBM 합금의 build orientation·후처리별 측정값</td></tr>
-                <tr><td className="p-2 font-medium">Shigley's Mechanical Engineering Design</td><td className="p-2">교과서</td><td className="p-2">Fatigue endurance limit σ_f ≈ k · σy 근사 (R56 derived 출처)</td></tr>
+                <tr><td className="p-2 font-medium">Shigley's Mechanical Engineering Design</td><td className="p-2">교과서</td><td className="p-2">Fatigue endurance limit σ_f ≈ k · σy 근사 (derived 출처)</td></tr>
                 <tr><td className="p-2 font-medium">ASME B&PV Section II·D · ASTM A335</td><td className="p-2">규격</td><td className="p-2">압력용기·발전소 강재 (Grade 91/P91) 의 elevated-temp design</td></tr>
                 <tr><td className="p-2 font-medium">ECCC datasheets</td><td className="p-2">creep DB</td><td className="p-2">P91·9Cr 합금 등의 10⁵ h creep rupture</td></tr>
                 <tr><td className="p-2 font-medium">LME spot prices (2026 Q1) + vendor 가격 책자</td><td className="p-2">시장 데이터</td><td className="p-2">원자재 단가 (price_per_kg). 분기별 갱신.</td></tr>
@@ -2133,9 +2133,9 @@ export default function Guide() {
           {/* 14.1 — Steel + Stainless */}
           <H3>14.1 Steel + Stainless (탄소강·합금강·스테인리스) — ASM Vol.1·2</H3>
           <ul className="list-disc pl-6 space-y-1.5 text-sm leading-relaxed">
-            <li><b>AISI/SAE 4-digit 명명법</b> — 첫 2자리 = 합금 계열 (10xx=carbon, 41xx=Cr-Mo, 43xx=Ni-Cr-Mo, 86xx=Ni-Cr-Mo), 뒤 2자리 = 탄소량 × 100 (예: 1045 = 0.45%C, 4140 = Cr-Mo + 0.40%C).</li>
+            <li><b>AISI/SAE 4-digit 명명법</b> — 첫 2자리 = 합금 계열 (10xx=carbon, 41xx=Cr-Mo, 43xx=Ni-Cr-Mo, 86xx=Ni-Cr-Mo), 뒤 2자리 = 탄소량 × 100 (예: AISI 1045 = 0.45%C, AISI 4140 = Cr-Mo + 0.40%C).</li>
             <li><b>4단계 열처리</b> = Annealing (전체 풀림) → Normalizing (공냉 결정립 균질) → Quenching (급랭 Martensite) → Tempering (변태 응력 완화). <F>TTT/CCT/Jominy</F> 곡선으로 경화능 (hardenability) 예측.</li>
-            <li><b>Stainless 5 family</b>: ① Austenitic (304/316, FCC, 비자성, 인성 ↑) ② Ferritic (430, BCC, Mg/Cr 자성, 비싼 Ni 회피) ③ Martensitic (410/420, Q+T, 칼날) ④ Duplex (2205, α+γ 혼합, 강도+부식) ⑤ PH (17-4PH H900, 석출 경화).</li>
+            <li><b>Stainless 5 family</b>: ① Austenitic (AISI 304/316, FCC, 비자성, 인성 ↑) ② Ferritic (AISI 430, BCC, Mg/Cr 자성, 비싼 Ni 회피) ③ Martensitic (AISI 410/420, Q+T, 칼날) ④ Duplex (2205, α+γ 혼합, 강도+부식) ⑤ PH (17-4PH H900, 석출 경화).</li>
             <li><b>부식 메커니즘</b> 5: passivation (Cr₂O₃ 막) · pitting (Cl⁻ 침공) · sensitization (450-850°C, Cr 결정립계 carbide) · SCC (응력+환경) · galvanic (이종금속).</li>
             <li><b>경도 변환</b>: HRC ≈ HV/10 (대략, 글로서리와 통일 — HV 300≈HRC 30, HV 500≈HRC 49, HV 600≈HRC 55), HB ≈ HV × 0.95 (단, 700 HV 초과 시 HRC 표만 사용). 정확값은 ASTM E140 표 (비선형).</li>
             <li><b>한국·일본·EU 매핑</b>: SUS304 (JIS) = STS304 (KS) = AISI 304 = EN 1.4301. SCM440 (JIS/KS) = AISI 4140.</li>
@@ -2145,11 +2145,11 @@ export default function Guide() {
           {/* 14.2 — Aluminum */}
           <H3>14.2 Aluminum (Wrought + Cast) — ASM Vol.2 · MMPDS Ch.3</H3>
           <ul className="list-disc pl-6 space-y-1.5 text-sm leading-relaxed">
-            <li><b>Wrought 4-digit designation</b>: 1xxx (≥99.0% Al) · 2xxx (Al-Cu, 2024 항공) · 3xxx (Al-Mn, 3003 캔) · 4xxx (Al-Si, 용접 wire) · 5xxx (Al-Mg, 5083 해양) · 6xxx (Al-Mg-Si, 6061 범용·압출) · 7xxx (Al-Zn-Mg, 7075 항공) · 8xxx (Al-Li, 2090/2195 우주).</li>
+            <li><b>Wrought 4-digit designation</b>: 1xxx (≥99.0% Al) · 2xxx (Al-Cu, AA 2024 항공) · 3xxx (Al-Mn, AA 3003 캔) · 4xxx (Al-Si, 용접 wire) · 5xxx (Al-Mg, AA 5083 해양) · 6xxx (Al-Mg-Si, AA 6061 범용·압출) · 7xxx (Al-Zn-Mg, AA 7075 항공) · 8xxx (Al-Li, 2090/2195 우주).</li>
             <li><b>Temper code</b>: F (제조 그대로) · O (annealed) · H (cold-worked, H12 = 1/4 hard) · T (heat-treated, T6 = solution + artificial aging peak, T7 = overaged for SCC) · W (solution unstable).</li>
             <li><b>시효 석출상</b>: 2xxx → θ' (Al₂Cu); 6xxx → β' (Mg₂Si); 7xxx → η' (MgZn₂); 8xxx Al-Li → T1 (Al₂CuLi) + δ' (Al₃Li).</li>
             <li><b>SCC 회피</b>: 7xxx → T7 (overaged); 2xxx → Alclad (pure Al 표면 layer); 5xxx → ≤200°C (β phase 회피).</li>
-            <li><b>Cl⁻ 환경 추천</b>: 5083/5086 (해양 hull) · 5052 (자동차 외부) · 6063 (건축 외장). 회피: 2024 (T3 시 SCC 위험), 7075 (T6).</li>
+            <li><b>Cl⁻ 환경 추천</b>: AA 5083/5086 (해양 hull) · AA 5052 (자동차 외부) · AA 6063 (건축 외장). 회피: AA 2024 (T3 시 SCC 위험), AA 7075 (T6).</li>
             <li className="text-muted-foreground">출처: ASM Desk Edition Section "Aluminum and Aluminum Alloys" + MMPDS-08 Chapter 3 intro + Aluminum Association datasheets.</li>
           </ul>
 
@@ -2221,8 +2221,8 @@ export default function Guide() {
           <p className="text-sm text-muted-foreground mt-1">출처: ASM Desk Edition Appendix "Property Data for Elements" + NIST WebElements.</p>
 
           {/* 14.9 — MMPDS-08 steel allowables */}
-          <H3>14.9 MMPDS-08 Steel allowables (AISI 4130, 4340, 8740, 300M, D6AC)</H3>
-          <p className="text-sm leading-relaxed mt-1">MMPDS-08 Chapter 2 의 high-strength low-alloy 강 design values: <b>AISI 4130</b> (HT-125 / HT-150, Cr-Mo 항공 frame) · <b>AISI 4340</b> (HT-150~260, Ni-Cr-Mo 고강도) · <b>8740</b> (Ni-Cr-Mo 변형) · <b>300M</b> (Si-modified 4340, landing gear) · <b>D6AC</b> (ultra-high-strength 항공). Ftu/Fty/Fcy/Fsu/Fbru/E 표 (SI 변환 포함).</p>
+          <H3>14.9 MMPDS-08 Steel allowables (AISI 4130, AISI 4340, 8740, 300M, D6AC)</H3>
+          <p className="text-sm leading-relaxed mt-1">MMPDS-08 Chapter 2 의 high-strength low-alloy 강 design values: <b>AISI 4130</b> (HT-125 / HT-150, Cr-Mo 항공 frame) · <b>AISI 4340</b> (HT-150~260, Ni-Cr-Mo 고강도) · <b>8740</b> (Ni-Cr-Mo 변형) · <b>300M</b> (Si-modified AISI 4340, landing gear) · <b>D6AC</b> (ultra-high-strength 항공). Ftu/Fty/Fcy/Fsu/Fbru/E 표 (SI 변환 포함).</p>
           <p className="text-sm text-muted-foreground mt-1">출처: MMPDS-08 Chapter 2 + FAA AR-03/57 (low-alloy steels).</p>
 
           {/* 외부 학습 자료 */}

@@ -90,7 +90,7 @@ export function isJunkForm(f) {
  *  조건: 글자 포함(순숫자 불가)·산문 영어단어와 무충돌·단일 entity 해석(ambiguous 는 어차피 차단).
  *  P91/P92(크리프강)·X-grade(라인파이프)·M-grade(HSS)·A36(구조강)·L80(유정관)·P20(금형강). */
 export const SHORT_AUTOLINK_OK = new Set([
-  'p91', 'p92', 'x42', 'x52', 'x60', 'x65', 'x70', 'x80', 'm35', 'm42', 'm50', 'a36', 'l80', 'p20',
+  'p91', 'p92', 'x42', 'x52', 'x60', 'x65', 'x70', 'x80', 'm35', 'm42', 'm50', 'a36', 'l80', 'p20', 'h13',
 ]);
 
 /** autolink 후보 판정(자동 제안 — 이후 수동 검수 대상).
@@ -118,7 +118,7 @@ export const AUTOLINK_STOP = new Set([
   'purechromium', 'purerhenium', 'ethylene', 'terephthalate', 'copolymer',
   // 흔한 영어단어(단독 토큰) — 물성/공정 서술에 상시 등장
   'yield', 'peak', 'cycle', 'depth', 'ratio', 'target', 'spec', 'full', 'more', 'soft', 'rigid',
-  'lean', 'single', 'ahead', 'glass', 'gray', 'naval', 'music', 'rail', 'fused', 'woven', 'twill',
+  'lean', 'single', 'ahead', 'glass', 'gray', 'naval', 'music', 'rail', 'fused', 'woven', 'twill', 'creep',
   'nasa', 'alli', 'density', 'derivative', 'natural', 'section', 'variant', 'crystal', 'cryogenic',
   'electrical', 'russian', 'injection', 'honeycomb', 'strengthened', 'ductile',
   // 일반 서술 접두/복합(산문에 단독 토큰으로 새어나오면 오탐)
