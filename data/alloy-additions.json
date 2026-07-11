@@ -3,73 +3,647 @@
   "materials": [
     {
       "name": "Ni-Hard 1 (white cast iron, ASTM A532 Class I-A)",
-      "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "category": "Metal",
+      "subcategory": "Cast Iron",
+      "process": "Cast",
       "heat_treatment": "As-cast (martensitic, hardened)",
-      "related": ["Gray Cast Iron (Class 30)"],
-      "aliases": ["Ni-Hard", "NiHard 1", "ASTM A532 Class I Type A", "abrasion-resistant white iron"],
-      "composition": { "Fe": "balance", "C": "2.8~3.6", "Ni": "3.3~5.0", "Cr": "1.4~4.0", "Si": "≤0.8", "Mn": "≤2.0" },
-      "points": [[7.7, 400, 400, 0.5, 180, 550, 15]],
+      "related": [
+        "Gray Cast Iron (Class 30)"
+      ],
+      "aliases": [
+        "Ni-Hard",
+        "NiHard 1",
+        "ASTM A532 Class I Type A",
+        "abrasion-resistant white iron"
+      ],
+      "composition": {
+        "Fe": "balance",
+        "C": "2.8~3.6",
+        "Ni": "3.3~5.0",
+        "Cr": "1.4~4.0",
+        "Si": "≤0.8",
+        "Mn": "≤2.0"
+      },
+      "points": [
+        [
+          7.7,
+          400,
+          400,
+          0.5,
+          180,
+          550,
+          15
+        ]
+      ],
       "sources": [
-        { "label": "ASTM A532/A532M — Abrasion-Resistant Cast Irons", "url": "https://store.astm.org/a0532_a0532m-10r19.html", "verified": true },
-        { "label": "Penticton Foundry — ASTM A532 Class I Type A (Ni-Hard 1)", "url": "https://www.pentictonfoundry.com/news/astm-a532-class-i-type-a/", "verified": true }
+        {
+          "label": "ASTM A532/A532M — Abrasion-Resistant Cast Irons",
+          "url": "https://store.astm.org/a0532_a0532m-10r19.html",
+          "verified": true
+        },
+        {
+          "label": "Penticton Foundry — ASTM A532 Class I Type A (Ni-Hard 1)",
+          "url": "https://www.pentictonfoundry.com/news/astm-a532-class-i-type-a/",
+          "verified": true
+        }
       ],
       "industry_note": "백주철(white cast iron) — 탄소가 흑연이 아니라 시멘타이트(Fe₃C)로 굳어 파단면이 흰 주철. Ni-Cr 합금계(Ni-Hard)로 마르텐사이트 기지 + M₃C 탄화물, 경도 ≥550HB. 취성 파단(항복 없음 — σy≈UTS 표기·El<1%). 슬러리 펌프·라이너·분쇄 부품 등 내마모 전용. ASTM A532 Class I Type A."
     },
     {
       "name": "High-Cr White Iron 25%Cr (ASTM A532 Class III-A)",
-      "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "category": "Metal",
+      "subcategory": "Cast Iron",
+      "process": "Cast",
       "heat_treatment": "Hardened + stress relieved (heat treated)",
-      "related": ["Gray Cast Iron (Class 30)"],
-      "aliases": ["25% Cr white iron", "high-chromium white iron", "ASTM A532 Class III Type A", "27Cr iron"],
-      "composition": { "Fe": "balance", "C": "2.0~3.3", "Cr": "23~30", "Mn": "≤2.0", "Mo": "≤3.0", "Ni": "≤2.5", "Si": "≤1.5" },
-      "points": [[7.6, 500, 500, 0.5, 195, 600, 15]],
+      "related": [
+        "Gray Cast Iron (Class 30)"
+      ],
+      "aliases": [
+        "25% Cr white iron",
+        "high-chromium white iron",
+        "ASTM A532 Class III Type A",
+        "27Cr iron"
+      ],
+      "composition": {
+        "Fe": "balance",
+        "C": "2.0~3.3",
+        "Cr": "23~30",
+        "Mn": "≤2.0",
+        "Mo": "≤3.0",
+        "Ni": "≤2.5",
+        "Si": "≤1.5"
+      },
+      "points": [
+        [
+          7.6,
+          500,
+          500,
+          0.5,
+          195,
+          600,
+          15
+        ]
+      ],
       "sources": [
-        { "label": "ASTM A532/A532M — Abrasion-Resistant Cast Irons", "url": "https://store.astm.org/a0532_a0532m-10r19.html", "verified": true },
-        { "label": "Penticton Foundry — Chrome White Iron (ASTM A532)", "url": "https://www.pentictonfoundry.com/alloys/abrasion-resistant-cast-irons/", "verified": true }
+        {
+          "label": "ASTM A532/A532M — Abrasion-Resistant Cast Irons",
+          "url": "https://store.astm.org/a0532_a0532m-10r19.html",
+          "verified": true
+        },
+        {
+          "label": "Penticton Foundry — Chrome White Iron (ASTM A532)",
+          "url": "https://www.pentictonfoundry.com/alloys/abrasion-resistant-cast-irons/",
+          "verified": true
+        }
       ],
       "industry_note": "고크로뮴 백주철(25%Cr) — M₇C₃ 크로뮴 탄화물(1500~1800HV)이 기지에 분산, 열처리(경화) 후 ≥600HB. 취성 파단(항복 없음 — σy≈UTS 표기·El<1%). Ni-Hard 보다 내식·내마모 우수 — 광산 슬러리 펌프·밀 라이너·임펠러. ASTM A532 Class III Type A."
     },
     {
       "name": "ADI Grade 900 (austempered ductile iron, ASTM A897)",
-      "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "category": "Metal",
+      "subcategory": "Cast Iron",
+      "process": "Cast",
       "heat_treatment": "Austempered (900/650/09)",
-      "related": ["Ductile Iron 65-45-12"],
-      "aliases": ["ADI 900", "ASTM A897 Grade 900/650/09", "ADI Grade 1", "austempered ductile iron 900"],
-      "composition": { "Fe": "balance", "C": "3.4~3.8", "Si": "2.2~2.8", "Mn": "≤0.35", "Mg": "0.03~0.05", "Cu": "≤0.8", "Ni": "≤2.0", "Mo": "≤0.3" },
-      "points": [[7.1, 650, 900, 9, 163, 305, 22]],
+      "related": [
+        "Ductile Iron 65-45-12"
+      ],
+      "aliases": [
+        "ADI 900",
+        "ASTM A897 Grade 900/650/09",
+        "ADI Grade 1",
+        "austempered ductile iron 900"
+      ],
+      "composition": {
+        "Fe": "balance",
+        "C": "3.4~3.8",
+        "Si": "2.2~2.8",
+        "Mn": "≤0.35",
+        "Mg": "0.03~0.05",
+        "Cu": "≤0.8",
+        "Ni": "≤2.0",
+        "Mo": "≤0.3"
+      },
+      "points": [
+        [
+          7.1,
+          650,
+          900,
+          9,
+          163,
+          305,
+          22
+        ]
+      ],
       "sources": [
-        { "label": "ASTM A897/A897M — Austempered Ductile Iron Castings", "url": "https://store.astm.org/a0897_a0897m-22.html", "verified": true },
-        { "label": "Pacific Alloy — Austempered Ductile Iron (A897)", "url": "https://pacificalloy.com/austempered-ductile-iron/", "verified": true }
+        {
+          "label": "ASTM A897/A897M — Austempered Ductile Iron Castings",
+          "url": "https://store.astm.org/a0897_a0897m-22.html",
+          "verified": true
+        },
+        {
+          "label": "Pacific Alloy — Austempered Ductile Iron (A897)",
+          "url": "https://pacificalloy.com/austempered-ductile-iron/",
+          "verified": true
+        }
       ],
       "industry_note": "ADI = 구상흑연주철을 Austempering(오스템퍼링)해 ausferrite(침상 페라이트+안정 오스테나이트) 조직으로 만든 주철 — 일반 구상흑연주철의 약 2배 강도·1.5배 피로강도, 강 단조품 대비 ~10% 가볍고 저렴. Grade 900/650/09 = UTS≥900/σy≥650MPa/El≥9%/269~341HB. 기어·크랭크샤프트·서스펜션 부품. ASTM A897."
     },
     {
       "name": "ADI Grade 1200 (austempered ductile iron, ASTM A897)",
-      "category": "Metal", "subcategory": "Cast Iron", "process": "Cast",
+      "category": "Metal",
+      "subcategory": "Cast Iron",
+      "process": "Cast",
       "heat_treatment": "Austempered (1200/850/04)",
-      "related": ["ASTM A536 Ductile Iron 100-70-03 (high-strength)"],
-      "aliases": ["ADI 1200", "ASTM A897 Grade 1200/850/04", "ADI Grade 3", "austempered ductile iron 1200"],
-      "composition": { "Fe": "balance", "C": "3.4~3.8", "Si": "2.2~2.8", "Mn": "≤0.35", "Mg": "0.03~0.05", "Cu": "≤0.8", "Ni": "≤2.0", "Mo": "≤0.3" },
-      "points": [[7.1, 850, 1200, 4, 161, 390, 22]],
+      "related": [
+        "ASTM A536 Ductile Iron 100-70-03 (high-strength)"
+      ],
+      "aliases": [
+        "ADI 1200",
+        "ASTM A897 Grade 1200/850/04",
+        "ADI Grade 3",
+        "austempered ductile iron 1200"
+      ],
+      "composition": {
+        "Fe": "balance",
+        "C": "3.4~3.8",
+        "Si": "2.2~2.8",
+        "Mn": "≤0.35",
+        "Mg": "0.03~0.05",
+        "Cu": "≤0.8",
+        "Ni": "≤2.0",
+        "Mo": "≤0.3"
+      },
+      "points": [
+        [
+          7.1,
+          850,
+          1200,
+          4,
+          161,
+          390,
+          22
+        ]
+      ],
       "sources": [
-        { "label": "ASTM A897/A897M — Austempered Ductile Iron Castings", "url": "https://store.astm.org/a0897_a0897m-22.html", "verified": true },
-        { "label": "Penticton Foundry — ASTM A897 Grade 3 (1200/850/04)", "url": "https://www.pentictonfoundry.com/news/astm-a897-grade-3-175-125-04/", "verified": true }
+        {
+          "label": "ASTM A897/A897M — Austempered Ductile Iron Castings",
+          "url": "https://store.astm.org/a0897_a0897m-22.html",
+          "verified": true
+        },
+        {
+          "label": "Penticton Foundry — ASTM A897 Grade 3 (1200/850/04)",
+          "url": "https://www.pentictonfoundry.com/news/astm-a897-grade-3-175-125-04/",
+          "verified": true
+        }
       ],
       "industry_note": "ADI 고강도 grade — 낮은 Austempering 온도로 미세 ausferrite 를 얻어 UTS≥1200/σy≥850MPa/El≥4%/341~444HB. 강도-인성 균형이 담금질강에 근접하면서 주조 성형성 유지. 대형 기어·중장비 트랙 부품·철도. ASTM A897 Grade 1200/850/04."
     },
     {
       "name": "Grade P92 (9Cr-2W creep steel, ASTM A335)",
-      "category": "Metal", "subcategory": "Heat-Resistant Steel", "process": "Wrought",
+      "category": "Metal",
+      "subcategory": "Heat-Resistant Steel",
+      "process": "Wrought",
       "heat_treatment": "Normalized 1040°C + Tempered 730°C min",
-      "related": ["Grade 91 (P91, 9Cr-1MoVNb)"],
-      "aliases": ["P92", "ASTM A335 P92", "UNS K92460", "9Cr-2W", "X10CrWMoVNb9-2", "T92"],
-      "composition": { "Fe": "balance", "Cr": "8.5~9.5", "W": "1.5~2.0", "Mo": "0.3~0.6", "V": "0.15~0.25", "Nb": "0.04~0.09", "C": "0.07~0.13", "N": "0.03~0.07", "B": "0.001~0.006" },
-      "points": [[7.85, 440, 620, 20, 218, 220, 26]],
+      "related": [
+        "Grade 91 (P91, 9Cr-1MoVNb)"
+      ],
+      "aliases": [
+        "P92",
+        "ASTM A335 P92",
+        "UNS K92460",
+        "9Cr-2W",
+        "X10CrWMoVNb9-2",
+        "T92"
+      ],
+      "composition": {
+        "Fe": "balance",
+        "Cr": "8.5~9.5",
+        "W": "1.5~2.0",
+        "Mo": "0.3~0.6",
+        "V": "0.15~0.25",
+        "Nb": "0.04~0.09",
+        "C": "0.07~0.13",
+        "N": "0.03~0.07",
+        "B": "0.001~0.006"
+      },
+      "points": [
+        [
+          7.85,
+          440,
+          620,
+          20,
+          218,
+          220,
+          26
+        ]
+      ],
       "sources": [
-        { "label": "ASTM A335/A335M — Seamless Ferritic Alloy-Steel Pipe for High-Temperature Service", "url": "https://store.astm.org/a0335_a0335m-24.html", "verified": true },
-        { "label": "Metalspiping — ASTM A335 P92 (9Cr-2W) properties", "url": "http://www.metalspiping.com/astm-a335-p92.html", "verified": true }
+        {
+          "label": "ASTM A335/A335M — Seamless Ferritic Alloy-Steel Pipe for High-Temperature Service",
+          "url": "https://store.astm.org/a0335_a0335m-24.html",
+          "verified": true
+        },
+        {
+          "label": "Metalspiping — ASTM A335 P92 (9Cr-2W) properties",
+          "url": "http://www.metalspiping.com/astm-a335-p92.html",
+          "verified": true
+        }
       ],
       "industry_note": "P91 의 후속 크리프강 — Mo 일부를 W 2%로 바꾸고 B 미량 첨가해 105 h 크리프 강도를 P91 대비 ~30% 높였다. USC(초초임계) 보일러 주증기관·헤더의 표준(~620°C). σy≥440/UTS≥620MPa/El≥20%/HB≤250 (N+T: 1040°C Normalizing + ≥730°C Tempering). 용접 후 PWHT 필수·Type IV HAZ 크리프 균열 관리가 실무 핵심. ASTM A335/A213(T92)."
+    },
+    {
+      "name": "HK40 (cast 25Cr-20Ni heat-resistant, ASTM A297)",
+      "category": "Metal",
+      "subcategory": "Stainless Steel - Austenitic",
+      "process": "Cast",
+      "heat_treatment": "As-cast",
+      "related": [
+        "310S"
+      ],
+      "aliases": [
+        "HK-40",
+        "ASTM A297 Grade HK",
+        "UNS J94204",
+        "25-20 cast",
+        "reformer tube alloy"
+      ],
+      "composition": {
+        "Fe": "balance",
+        "Cr": "23~27",
+        "Ni": "19~22",
+        "C": "0.35~0.45",
+        "Si": "≤2.0",
+        "Mn": "≤2.0"
+      },
+      "points": [
+        [
+          7.75,
+          240,
+          450,
+          10,
+          190,
+          180,
+          14
+        ]
+      ],
+      "sources": [
+        {
+          "label": "ASTM A297/A297M — Heat-Resistant Steel Castings (Grade HK: UTS≥65ksi/YS≥35ksi/El≥10%)",
+          "url": "https://www.iron-foundry.com/ASTM-A297-Standard-Specification-Steel-Casting-Alloy.html",
+          "verified": true
+        },
+        {
+          "label": "MetalTek — Cast Grade HK 40 (C 0.35-0.45)",
+          "url": "https://www.metaltek.com/alloy/specialty-alloys-heat-resistant-stainless-steel-mtek-hk-40/",
+          "verified": true
+        }
+      ],
+      "industry_note": "석유화학 개질로(reformer) 튜브의 고전 — 25Cr-20Ni 주조 내열강(310 의 주조 사촌). C 0.4%가 입계 탄화물 network 를 만들어 크리프 강도를 벌지만 연성·용접성은 희생(보수용접 까다로움). ~1000°C 복사부 튜브·노 내 구조물. 현대 개질로는 HP-Nb(미세합금) 로 세대교체 중이나 기존 설비 표준으로 잔존. ASTM A297 Grade HK."
+    },
+    {
+      "name": "ZA-27 (zinc-aluminum casting alloy, ASTM B791)",
+      "category": "Metal",
+      "subcategory": "Zinc Alloy",
+      "process": "Cast",
+      "heat_treatment": "As-cast (sand/permanent mold)",
+      "related": [
+        "Zamak 3 (Zinc)"
+      ],
+      "aliases": [
+        "ZA27",
+        "UNS Z35841",
+        "zinc aluminum 27",
+        "ILZRO ZA-27"
+      ],
+      "composition": {
+        "Zn": "balance",
+        "Al": "25~28",
+        "Cu": "2.0~2.5",
+        "Mg": "0.01~0.02"
+      },
+      "points": [
+        [
+          5.0,
+          365,
+          420,
+          3,
+          78,
+          115,
+          125
+        ]
+      ],
+      "sources": [
+        {
+          "label": "Eastern Alloys — ZA-27 zinc aluminum alloy properties",
+          "url": "https://www.eazall.com/za27",
+          "verified": true
+        },
+        {
+          "label": "MakeItFrom — Zinc-Aluminum 27 (ZA-27, Z35841)",
+          "url": "https://www.makeitfrom.com/material-properties/Zinc-Aluminum-27-ZA-27-Z35841",
+          "verified": true
+        }
+      ],
+      "industry_note": "ZA(zinc-aluminum) 계열의 최고강도 grade — Al 27%로 아연 합금이면서 회주철급 인장강도(≥400MPa)·알루미늄 주물의 ~3배 강도. 낮은 융점(≈500°C)으로 금형 수명이 길고, 무윤활 베어링 특성(고 Al+Cu)이 좋아 부싱·베어링 대체로도 쓰인다. 고압 다이캐스팅에는 부적합(중력·영구주형 전용) — 박육 다이캐스팅은 Zamak 계열이 담당. ASTM B791/B86."
+    },
+    {
+      "name": "DC53 (Cr8 cold-work tool steel, Daido)",
+      "category": "Metal",
+      "subcategory": "Tool Steel - Cold-Work",
+      "process": "Wrought",
+      "heat_treatment": "Hardened (1030°C Q + 520°C double temper, HRC 62-64 secondary hardening)",
+      "related": [
+        "D2 Tool Steel (AISI D2, cold-work die)"
+      ],
+      "aliases": [
+        "Daido DC53",
+        "Cr8 die steel",
+        "SKD11 개량강"
+      ],
+      "composition": {
+        "Fe": "balance",
+        "C": "0.95~1.05",
+        "Cr": "7.5~8.5",
+        "Mo": "1.8~2.1",
+        "V": "0.15~0.35",
+        "Si": "0.8~1.2",
+        "Mn": "0.3~0.5"
+      },
+      "points": [
+        [
+          7.85,
+          2000,
+          2250,
+          2,
+          210,
+          750,
+          21
+        ]
+      ],
+      "sources": [
+        {
+          "label": "International Mold Steel — DC53 (HRC 62-64 @520°C temper)",
+          "url": "https://imsteel.com/dc53/",
+          "verified": true
+        },
+        {
+          "label": "Daido Steel — DC53 technical datasheet",
+          "url": "https://www.daidodmsv.com/wp-content/uploads/2021/06/dc53.pdf",
+          "verified": true
+        }
+      ],
+      "industry_note": "D2(SKD11)의 후계로 설계된 Cr8 냉간금형강 — Cr 을 12→8%로 낮추고 Mo·V 로 조정해 조대 M₇C₃ 탄화물을 줄였다. 결과: 같은 열처리에서 D2 보다 높은 경도(62-64 HRC)와 ~2배 인성, 와이어컷 균열 저항·피삭성 개선. 520°C 2차경화 뜨임이 표준이라 표면처리(질화·PVD)와 궁합이 좋다. 프레스 금형·펀치·전단날의 D2 대체 표준."
+    },
+    {
+      "name": "M35 HSS (Co5 high speed steel, DIN 1.3243)",
+      "category": "Metal",
+      "subcategory": "Tool Steel",
+      "process": "Wrought",
+      "heat_treatment": "Q+T (HRC 64-66, ~1210°C austenitize + 550°C triple temper)",
+      "related": [
+        "M42 HSS"
+      ],
+      "aliases": [
+        "AISI M35",
+        "1.3243",
+        "HS6-5-2-5",
+        "SKH55",
+        "EMo5Co5",
+        "cobalt HSS"
+      ],
+      "composition": {
+        "Fe": "balance",
+        "W": "5.9~6.7",
+        "Mo": "4.7~5.2",
+        "Co": "4.5~5.0",
+        "Cr": "3.8~4.5",
+        "V": "1.7~2.1",
+        "C": "0.87~0.95"
+      },
+      "points": [
+        [
+          8.14,
+          2100,
+          2500,
+          1,
+          220,
+          790,
+          20
+        ]
+      ],
+      "sources": [
+        {
+          "label": "Otai Special Steel — M35 / 1.3243 / HS6-5-2-5 / SKH55 datasheet",
+          "url": "https://www.astmsteel.com/product/tool-steel-m35-1-3243-hs6-5-2-5-skh55/",
+          "verified": true
+        },
+        {
+          "label": "Saglam Metal — 1.3243 (HS6-5-2-5) high speed steel",
+          "url": "https://www.saglammetal.com/en/steel/tool-steel/high-speed-steel/13243-hs6-5-2-5",
+          "verified": true
+        }
+      ],
+      "industry_note": "M2 에 Co 5%를 더한 코발트 고속도강 — Co 가 기지의 고온 연화를 늦춰 적열경도(red hardness)가 한 단계 올라간다(625°C 노출 후에도 HRC 63~65). M2 로 부족하고 M42(Co 8%)까지는 필요 없는 스테인리스·조질강 드릴·탭·밀링커터의 중간 표준. 유럽·일본에서는 HSS-E(HS6-5-2-5·SKH55) 표기로 유통. 인성은 M2 보다 약간 낮다."
+    },
+    {
+      "name": "A357.0 (Al-Si-Mg premium casting, AMS 4219)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "process": "Cast",
+      "heat_treatment": "T6 (solution + artificial aging, permanent mold)",
+      "related": [
+        "A356.0 (Al-Si-Mg cast)"
+      ],
+      "aliases": [
+        "A357",
+        "UNS A13570",
+        "AlSi7Mg0.6",
+        "AMS 4219 casting"
+      ],
+      "composition": {
+        "Al": "balance",
+        "Si": "6.5~7.5",
+        "Mg": "0.40~0.7",
+        "Ti": "0.04~0.20",
+        "Be": "0.04~0.07"
+      },
+      "points": [
+        [
+          2.68,
+          250,
+          320,
+          4,
+          72,
+          100,
+          155
+        ]
+      ],
+      "sources": [
+        {
+          "label": "SAE AMS 4219 — A357.0-T61 Castings (7.0Si-0.55Mg-0.12Ti-0.06Be)",
+          "url": "https://www.sae.org/standards/content/ams4219c/",
+          "verified": true
+        },
+        {
+          "label": "Modulus Metal — A357.0 permanent mold cast T6 (UNS A13570)",
+          "url": "https://www.modulusmetal.com/aluminum-a357-0-permanent-mold-cast-t6/",
+          "verified": true
+        }
+      ],
+      "industry_note": "A356 의 고강도 형제 — Mg 를 0.35→0.55%로 올려 Mg₂Si 석출을 늘리고 Be 미량으로 산화막·철 개재물 형태를 제어한 항공용 프리미엄 주조합금. 같은 주조성에 T6 강도가 A356 대비 ~10-15% 높아 항공기 구조 주물(AMS 4219)·미사일 부품의 표준. Be 함유라 용해·가공 분진 관리(독성)가 요구된다는 점이 A356 과의 실무 차이."
+    },
+    {
+      "name": "A201.0 (Al-Cu-Ag premium casting, AMS 4229)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Cu Alloys (2xxx)",
+      "process": "Cast",
+      "heat_treatment": "T7 (solution + overaged)",
+      "related": [
+        "AA 2219 (cryogenic)"
+      ],
+      "aliases": [
+        "A201",
+        "UNS A12010",
+        "Al-Cu-Ag casting",
+        "AMS 4229 casting",
+        "KO-1"
+      ],
+      "composition": {
+        "Al": "balance",
+        "Cu": "4.0~5.0",
+        "Ag": "0.4~1.0",
+        "Mg": "0.15~0.35",
+        "Mn": "0.20~0.40",
+        "Ti": "0.15~0.35"
+      },
+      "points": [
+        [
+          2.8,
+          360,
+          415,
+          3,
+          71,
+          140,
+          121
+        ]
+      ],
+      "sources": [
+        {
+          "label": "SAE AMS 4229 — 201.0-T7 Castings (min YS 48ksi / UTS 56ksi)",
+          "url": "https://www.sae.org/standards/content/ams4229/",
+          "verified": true
+        },
+        {
+          "label": "Modulus Metal — A201.0 cast T7 (UNS A12010)",
+          "url": "https://www.modulusmetal.com/aluminum-a201-0-cast-t7-mechanical-properties/",
+          "verified": true
+        }
+      ],
+      "industry_note": "주조 알루미늄의 강도 정점 — Al-Cu 에 은(Ag) ~0.7%를 넣어 Ω상 석출을 유도한 프리미엄 주조합금(σy 350+ MPa, 주조재로는 예외적). 항공기 구조·군용 부품에서 '단조 대체 주물'로 쓰인다. 대가: 주조성 나쁨(응고범위 넓어 hot tearing 민감)·고온균열 민감·가격(Ag). 그래서 형상 자유가 필요한 고강도 부품에만 선택적으로 투입된다. AMS 4229(T7)."
+    },
+    {
+      "name": "IN-100 (cast Ni superalloy, AMS 5397)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Cast",
+      "heat_treatment": "As-cast (equiaxed)",
+      "related": [
+        "MAR-M 247"
+      ],
+      "aliases": [
+        "IN100",
+        "Inconel 100",
+        "UNS N13100",
+        "René 100 근연",
+        "AMS 5397 casting"
+      ],
+      "composition": {
+        "Ni": "balance",
+        "Co": "13~17",
+        "Cr": "8~11",
+        "Al": "5.0~6.0",
+        "Ti": "4.5~5.0",
+        "Mo": "2~4",
+        "V": "0.7~1.2",
+        "C": "0.15~0.20",
+        "B": "0.01~0.02",
+        "Zr": "0.03~0.09"
+      },
+      "points": [
+        [
+          7.75,
+          655,
+          795,
+          5,
+          215,
+          370,
+          12
+        ]
+      ],
+      "sources": [
+        {
+          "label": "SAE AMS 5397 — IN-100 Castings (min UTS 795 / YS 655 MPa / El 5%)",
+          "url": "https://www.sae.org/standards/content/ams5397/",
+          "verified": true
+        },
+        {
+          "label": "Nickel Institute — Engineering Properties of IN-100 Alloy",
+          "url": "https://nickelinstitute.org/media/1707/in_100alloyengineeringproperties_483_.pdf",
+          "verified": true
+        }
+      ],
+      "industry_note": "1960년대 International Nickel 이 개발한 등축 주조 초합금의 원조 — γ′ 분율 ~60%(Al+Ti ≈10%)로 당대 최강이면서, W 대신 가벼운 조성이라 밀도 7.75 로 초합금치고 가볍다. 1세대 터빈 블레이드·휠의 표준이었고 이후 DS(방향성응고)·단결정(CMSX 계)으로 세대교체되었지만, 분말야금(PM IN-100)으로 디스크 합금으로 부활해 F100 엔진 등에 남아 있다. AMS 5397."
+    },
+    {
+      "name": "Inconel 740H (Ni-Cr-Co A-USC boiler alloy)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Wrought",
+      "heat_treatment": "Solution annealed + aged (STA, ASME Code Case 2702)",
+      "related": [
+        "Nimonic 263"
+      ],
+      "aliases": [
+        "740H",
+        "INCONEL alloy 740H",
+        "UNS N07740",
+        "Alloy 740H"
+      ],
+      "composition": {
+        "Ni": "balance",
+        "Cr": "23.5~25.5",
+        "Co": "19~21",
+        "Nb": "0.5~2.5",
+        "Ti": "0.5~2.5",
+        "Al": "0.2~2.0",
+        "Fe": "≤3.0",
+        "Mn": "≤1.0",
+        "C": "0.005~0.08"
+      },
+      "points": [
+        [
+          8.05,
+          620,
+          1035,
+          20,
+          221,
+          300,
+          10
+        ]
+      ],
+      "sources": [
+        {
+          "label": "Special Metals — INCONEL alloy 740H technical bulletin",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf",
+          "verified": true
+        },
+        {
+          "label": "Gen3 CSP (Georgia Tech) — Inconel 740H thermophysical properties",
+          "url": "https://gen3csp.gatech.edu/inconel-alloy-740h/",
+          "verified": true
+        }
+      ],
+      "industry_note": "700°C급 A-USC(초초임계+) 발전을 위해 개발된 γ′ 석출강화 Ni 합금 — 철계 크리프강(P92)이 끝나는 620°C 너머의 증기관·헤더용. ASME Code Case 2702 로 보일러 압력부 승인을 받은 최초의 시효경화 Ni 합금이라는 것이 상징적(σy≥620/UTS≥1035MPa). 25Cr 로 증기 산화·석탄재 부식도 견딘다. 용접 후 재시효 필요·가격이 철계의 수 배라 A-USC 실증 프로젝트 중심으로 쓰인다."
     }
   ]
 }

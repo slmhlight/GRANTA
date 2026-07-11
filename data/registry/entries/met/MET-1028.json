@@ -1,0 +1,285 @@
+{
+  "stable_id": "MET-1028",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel",
+    "alloy_base": "F-AB-m35-hss-co5-high-speed-steel-din-1-3243",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0478",
+  "origin": "reference(supplementary)",
+  "id": "R_0478",
+  "name": "M35 HSS (Co5 high speed steel, DIN 1.3243)",
+  "category": "Metal",
+  "subcategory": "Tool Steel",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Q+T (HRC 64-66, ~1210°C austenitize + 550°C triple temper)",
+  "ranges": {
+    "density": {
+      "min": 8.14,
+      "max": 8.14,
+      "typical": 8.14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 2100,
+      "max": 2100,
+      "typical": 2100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2500,
+      "max": 2500,
+      "typical": 2500,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 1,
+      "max": 1,
+      "typical": 1,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 220,
+      "max": 220,
+      "typical": 220,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 790,
+      "max": 790,
+      "typical": 790,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 735,
+      "max": 1050,
+      "typical": 882,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 10,
+      "max": 22,
+      "typical": 15,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Crucible PM tool steel"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "price_per_cm3": {
+      "min": 0.0415,
+      "max": 0.0561,
+      "typical": 0.0488,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "W": "5.9~6.7",
+    "Mo": "4.7~5.2",
+    "Co": "4.5~5.0",
+    "Cr": "3.8~4.5",
+    "V": "1.7~2.1",
+    "C": "0.87~0.95"
+  },
+  "sources": [
+    {
+      "label": "Otai Special Steel — M35 / 1.3243 / HS6-5-2-5 / SKH55 datasheet",
+      "url": "https://www.astmsteel.com/product/tool-steel-m35-1-3243-hs6-5-2-5-skh55/",
+      "verified": true
+    },
+    {
+      "label": "Saglam Metal — 1.3243 (HS6-5-2-5) high speed steel",
+      "url": "https://www.saglammetal.com/en/steel/tool-steel/high-speed-steel/13243-hs6-5-2-5",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Crucible PM tool steel",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.14,
+      2100,
+      2500,
+      1,
+      220,
+      790,
+      20
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": "M2 에 Co 5%를 더한 코발트 고속도강 — Co 가 기지의 고온 연화를 늦춰 적열경도(red hardness)가 한 단계 올라간다(625°C 노출 후에도 HRC 63~65). M2 로 부족하고 M42(Co 8%)까지는 필요 없는 스테인리스·조질강 드릴·탭·밀링커터의 중간 표준. 유럽·일본에서는 HSS-E(HS6-5-2-5·SKH55) 표기로 유통. 인성은 M2 보다 약간 낮다.",
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "DIN 1.3243",
+        "org": "DIN"
+      }
+    ]
+  },
+  "related": [
+    "M42 HSS"
+  ],
+  "aliases": [
+    "AISI M35",
+    "1.3243",
+    "HS6-5-2-5",
+    "SKH55",
+    "EMo5Co5",
+    "cobalt HSS",
+    "Co5 high speed steel",
+    "DIN 1.3243"
+  ],
+  "fracture_toughness": 15,
+  "fatigue_strength": 882,
+  "density": 8.14,
+  "yield_strength": 2100,
+  "uts": 2500,
+  "elongation": 1,
+  "modulus": 220,
+  "hardness": 790,
+  "thermal_conductivity": 20,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Otai Special Steel — M35 / 1.3243 / HS6-5-2-5 / SKH55 datasheet",
+  "families": [
+    "Metal",
+    "Tool Steel",
+    "Iron-based"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0488,
+  "popularity": 2.97,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1.4,
+  "price_condition_factor": 1.23,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.75,
+  "total_cost_estimate": 7.75,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

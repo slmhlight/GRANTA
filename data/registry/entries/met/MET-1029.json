@@ -1,0 +1,273 @@
+{
+  "stable_id": "MET-1029",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-tool-steel-cold-work",
+    "alloy_base": "F-AB-dc53-cr8-cold-work-tool-steel-daido",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0477",
+  "origin": "reference(supplementary)",
+  "id": "R_0477",
+  "name": "DC53 (Cr8 cold-work tool steel, Daido)",
+  "category": "Metal",
+  "subcategory": "Tool Steel - Cold-Work",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Hardened (1030°C Q + 520°C double temper, HRC 62-64 secondary hardening)",
+  "ranges": {
+    "density": {
+      "min": 7.85,
+      "max": 7.85,
+      "typical": 7.85,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 2000,
+      "max": 2000,
+      "typical": 2000,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 2250,
+      "max": 2250,
+      "typical": 2250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 210,
+      "max": 210,
+      "typical": 210,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 750,
+      "max": 750,
+      "typical": 750,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 21,
+      "max": 21,
+      "typical": 21,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 700,
+      "max": 1000,
+      "typical": 840,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.1 Tool Steels)"
+    },
+    "impact_strength": {
+      "min": 4,
+      "max": 25,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Martensitic/Tool steel"
+    },
+    "fracture_toughness": {
+      "min": 15,
+      "max": 40,
+      "typical": 25,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Tool Steels"
+    },
+    "electrical_conductivity": {
+      "min": 4.25,
+      "max": 5.75,
+      "typical": 5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - Cold-Work"
+    },
+    "max_service_temp": {
+      "min": 467.5,
+      "max": 632.5,
+      "typical": 550,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - Cold-Work"
+    },
+    "thermal_expansion": {
+      "min": 9.775,
+      "max": 13.225,
+      "typical": 11.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - Cold-Work"
+    },
+    "poisson_ratio": {
+      "min": 0.2465,
+      "max": 0.3335,
+      "typical": 0.29,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - Cold-Work"
+    },
+    "specific_heat": {
+      "min": 391,
+      "max": 529,
+      "typical": 460,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - Cold-Work"
+    },
+    "melting_point": {
+      "min": 1215.5,
+      "max": 1644.5,
+      "typical": 1430,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - Cold-Work"
+    },
+    "price_per_kg": {
+      "min": 5.1,
+      "max": 6.9,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - Cold-Work"
+    },
+    "price_per_cm3": {
+      "min": 0.04,
+      "max": 0.0542,
+      "typical": 0.0471,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Tool Steel - Cold-Work"
+    },
+    "delivered_price_per_kg": {
+      "min": 7.12,
+      "max": 7.12,
+      "typical": 7.12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "C": "0.95~1.05",
+    "Cr": "7.5~8.5",
+    "Mo": "1.8~2.1",
+    "V": "0.15~0.35",
+    "Si": "0.8~1.2",
+    "Mn": "0.3~0.5"
+  },
+  "sources": [
+    {
+      "label": "International Mold Steel — DC53 (HRC 62-64 @520°C temper)",
+      "url": "https://imsteel.com/dc53/",
+      "verified": true
+    },
+    {
+      "label": "Daido Steel — DC53 technical datasheet",
+      "url": "https://www.daidodmsv.com/wp-content/uploads/2021/06/dc53.pdf",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Tool Steels",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.85,
+      2000,
+      2250,
+      2,
+      210,
+      750,
+      21
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Poor",
+  "corrosion_resistance": "Poor",
+  "industry_note": "D2(SKD11)의 후계로 설계된 Cr8 냉간금형강 — Cr 을 12→8%로 낮추고 Mo·V 로 조정해 조대 M₇C₃ 탄화물을 줄였다. 결과: 같은 열처리에서 D2 보다 높은 경도(62-64 HRC)와 ~2배 인성, 와이어컷 균열 저항·피삭성 개선. 520°C 2차경화 뜨임이 표준이라 표면처리(질화·PVD)와 궁합이 좋다. 프레스 금형·펀치·전단날의 D2 대체 표준.",
+  "meta": {
+    "reference": true
+  },
+  "related": [
+    "D2 Tool Steel (AISI D2, cold-work die)"
+  ],
+  "aliases": [
+    "Daido DC53",
+    "Cr8 die steel",
+    "SKD11 개량강",
+    "Cr8 cold-work tool steel"
+  ],
+  "fracture_toughness": 25,
+  "fatigue_strength": 840,
+  "density": 7.85,
+  "yield_strength": 2000,
+  "uts": 2250,
+  "elongation": 2,
+  "modulus": 210,
+  "hardness": 750,
+  "thermal_conductivity": 21,
+  "impact_strength": 12,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "International Mold Steel — DC53 (HRC 62-64 @520°C temper)",
+  "families": [
+    "Metal",
+    "Tool Steel - Cold-Work",
+    "Iron-based",
+    "Tool Steel"
+  ],
+  "electrical_conductivity": 5,
+  "max_service_temp": 550,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1430,
+  "price_per_kg": 6,
+  "price_per_cm3": 0.0471,
+  "popularity": 3.03,
+  "machining_cost_factor": 1.1,
+  "ht_cost_factor": 1.2,
+  "price_condition_factor": 1.13,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 7.12,
+  "total_cost_estimate": 7.83,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

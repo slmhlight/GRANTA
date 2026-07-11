@@ -85,7 +85,7 @@ const ALLOY_PATTERNS = [
   /\b\d{2}-\d{1,2}(?:-\d{1,2})? ?(?:PH|Mo)\b/g,
   /\b(?:Inconel|Incoloy|Hastelloy|Haynes|Monel|Nimonic|Waspaloy|Rene|René|Udimet|Stellite|MAR-M|CMSX)[- ]?[\w-]{0,8}\b/g,
   // 일반 짧은 grade 코드 — 규격기관 접두(ASTM A967 등)·경도(HRC 30)·온도 문맥은 lookbehind/lookahead 로 제외
-  /(?<!ASTM )(?<!AMS )(?<!AWS )(?<!ISO )(?<!ASME )(?<!NACE )(?<!API )\b[A-Z]{1,3}[- ]?\d{2,4}[A-Z]{0,2}\b(?! ?°C)/g,
+  /(?<!ASTM )(?<!AMS )(?<!AWS )(?<!ISO )(?<!ASME )(?<!NACE )(?<!API )(?<!SAE )(?<!JIS )(?<!MIL-)(?<!MIL )(?<!DTL-)(?<!\/)\b[A-Z]{1,3}[- ]?\d{2,4}[A-Z]{0,2}\b(?! ?°C)/g,
   /\b(?:Grade|Gr\.?) ?\d{1,3}\b/gi,
 ];
 // 규격서·단위·연도·temper 조건 — 합금명 아님
@@ -99,7 +99,20 @@ const STOP_RE = [
   /^GR(ADE)?\.? ?\d{1,3}$/i, // Grade N — 문맥 없인 판별 불가(과공·grade 91 등) → 별도 검토
   /^(AC|WQ|OQ|AQ|FC)\d*$/i, // 냉각 약어
   /^(DIN|EN|JIS|KS|GOST)\b/i,
+  /^(KIC|KISCC|LMP|PAG|HSS|PCD|PBT|CE|PREN)[- ]?\d*$/i, // 물성 기호·공정 약어 + 숫자
+  /^(VIM|VAR|ESR)[- ]?\d*$/i, // 용해 공정 접두 (VIM 9310 등 — 합금 본체는 별도 매칭)
+  /^CMH[- ]?\d+$/i, // 핸드북 (CMH-17)
+  /^F[- ]?\d{4}$/i, // ASTM F 4자리 규격 (F3301 등; F75 같은 2자리 합금명은 통과)
+  /^G ?\d{3,4}$/i, // ASTM G·JIS G 규격 번호
+  /^[CE] ?\d{1,3}$/i, // 온도·모듈러스 파편 ("C 27"·"E 114"; 구리 C+5자리는 통과)
+  /^D ?\d{3,4}$/i, // 문서·규격 코드 (D008·D 8302; D2 등 1자리는 통과)
+  /^[IVX]{1,4} ?\d+$/, // 로마숫자 Type 표기 (III 25 µm 등)
 ];
+// 항공기·엔진·무기 호칭 — 합금 아님 (실재 합금과 겹치지 않는 것만: A380 다이캐스트 합금 등은 제외)
+const NON_MATERIAL = new Set([
+  'a320', 'a350', 'b47', 'b52', 'b58', 'f15', 'f16', 'f86', 'a18', 'p47', 'p51',
+  'sr71', 'm16', 'j57', 'j79', 'f404', 'cfm56',
+]);
 const isStop = (s) => STOP_RE.some((re) => re.test(s.trim()));
 
 const mentions = new Map(); // norm → { raw, count, srcs:Set, cls, matchId }
@@ -111,12 +124,18 @@ for (const { src, key, text } of corpus) {
       const raw = m[0].trim();
       if (isStop(raw)) continue;
       const nf = norm(raw);
-      if (!nf || nf.length < 2 || seen.has(nf)) continue;
+      if (!nf || nf.length < 2 || seen.has(nf) || NON_MATERIAL.has(nf)) continue;
       seen.add(nf);
       let rec = mentions.get(nf);
       if (!rec) {
-        const w = wikiForms.get(nf);
-        const dbId = dbForms.get(nf);
+        // 별칭 폴백: 실험 접두 X- 제거·PH 접두 부여·브랜드 접두 제거 (X7050→7050, 13-8Mo→PH13-8Mo, Haynes Stellite→Stellite)
+        const alts = [nf, nf.replace(/^x(?=\d)/, ''), `ph${nf}`, nf.replace(/^haynes(?=[a-z])/, '')];
+        let w = null, dbId = null;
+        for (const alt of alts) {
+          w = wikiForms.get(alt);
+          dbId = dbForms.get(alt);
+          if (w || dbId) break;
+        }
         const cls = w ? (w.autolink ? 'linked' : 'exists-unlinked') : dbId ? 'exists-unlinked' : 'absent';
         rec = { raw, count: 0, srcs: new Set(), cls, matchId: w ? w.id : dbId || null };
         mentions.set(nf, rec);

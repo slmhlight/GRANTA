@@ -1,6 +1,6 @@
 {
  "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
- "entries": 1134,
+ "entries": 1142,
  "ht_families_parsed": 34,
  "assignments": {
   "CER-0001": {
@@ -8350,6 +8350,69 @@
    "htc": "qt",
    "insight": "carbon-alloy-steel",
    "cg": "steel-alloy"
+  },
+  "MET-1023": {
+   "colorf": "Copper",
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "aged",
+   "insight": "aluminum",
+   "cg": "al-cast-am"
+  },
+  "MET-1024": {
+   "colorf": "Aluminum",
+   "mach": "al-cast-am",
+   "weld": "none",
+   "htc": "aged",
+   "ht": "AlSi cast / AM (AlSi10Mg, AlSi12, A357)",
+   "htg": "h02-aa",
+   "insight": "aluminum",
+   "cg": "al-cast-am"
+  },
+  "MET-1025": {
+   "colorf": "Nickel",
+   "mach": "ni-super",
+   "weld": "none",
+   "wg": "w30-inconel",
+   "insight": "ni-superalloy",
+   "cg": "ni-super"
+  },
+  "MET-1026": {
+   "colorf": "Nickel",
+   "mach": "ni-super",
+   "weld": "none",
+   "htc": "case",
+   "insight": "ni-superalloy",
+   "cg": "ni-super"
+  },
+  "MET-1027": {
+   "colorf": "Steel",
+   "mach": "ss-austenitic",
+   "weld": "schaeffler",
+   "insight": "stainless",
+   "cg": "ss-austenitic"
+  },
+  "MET-1028": {
+   "colorf": "Steel",
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel",
+   "cg": "tool-steel"
+  },
+  "MET-1029": {
+   "colorf": "Steel",
+   "mach": "tool-steel",
+   "weld": "ce",
+   "htc": "qt",
+   "insight": "tool-steel",
+   "cg": "tool-steel"
+  },
+  "MET-1030": {
+   "colorf": "Aluminum",
+   "mach": "al-cast-am",
+   "weld": "none",
+   "cg": "al-cast-am"
   },
   "POL-0001": {
    "colorf": "Polymer",

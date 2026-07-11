@@ -1,0 +1,179 @@
+{
+  "stable_id": "MET-1030",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-zinc-alloy",
+    "alloy_base": "F-AB-za-27-zinc-aluminum-casting-alloy-astm-b791",
+    "element_families": [
+      "F-EL-zinc-based"
+    ]
+  },
+  "legacy_id": "R_0476",
+  "origin": "reference(supplementary)",
+  "id": "R_0476",
+  "name": "ZA-27 (zinc-aluminum casting alloy, ASTM B791)",
+  "category": "Metal",
+  "subcategory": "Zinc Alloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "As-cast (sand/permanent mold)",
+  "ranges": {
+    "density": {
+      "min": 5,
+      "max": 5,
+      "typical": 5,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 365,
+      "max": 365,
+      "typical": 365,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 420,
+      "max": 420,
+      "typical": 420,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 3,
+      "max": 3,
+      "typical": 3,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 78,
+      "max": 78,
+      "typical": 78,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 115,
+      "max": 115,
+      "typical": 115,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 125,
+      "max": 125,
+      "typical": 125,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 110,
+      "max": 168,
+      "typical": 139,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.38·σy (Aluminum Association handbook)"
+    },
+    "impact_strength": null,
+    "fracture_toughness": {
+      "min": 30.8,
+      "max": 56,
+      "typical": 42,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Aluminum Association handbook × HT:as-cast / forged (no T-temper) (k×1.4)"
+    }
+  },
+  "composition": {
+    "Zn": "balance",
+    "Al": "25~28",
+    "Cu": "2.0~2.5",
+    "Mg": "0.01~0.02"
+  },
+  "sources": [
+    {
+      "label": "Eastern Alloys — ZA-27 zinc aluminum alloy properties",
+      "url": "https://www.eazall.com/za27",
+      "verified": true
+    },
+    {
+      "label": "MakeItFrom — Zinc-Aluminum 27 (ZA-27, Z35841)",
+      "url": "https://www.makeitfrom.com/material-properties/Zinc-Aluminum-27-ZA-27-Z35841",
+      "verified": false
+    },
+    {
+      "label": "KIC fallback: Aluminum Association handbook",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      5,
+      365,
+      420,
+      3,
+      78,
+      115,
+      125
+    ]
+  ],
+  "machinability": null,
+  "weldability": null,
+  "corrosion_resistance": null,
+  "industry_note": "ZA(zinc-aluminum) 계열의 최고강도 grade — Al 27%로 아연 합금이면서 회주철급 인장강도(≥400MPa)·알루미늄 주물의 ~3배 강도. 낮은 융점(≈500°C)으로 금형 수명이 길고, 무윤활 베어링 특성(고 Al+Cu)이 좋아 부싱·베어링 대체로도 쓰인다. 고압 다이캐스팅에는 부적합(중력·영구주형 전용) — 박육 다이캐스팅은 Zamak 계열이 담당. ASTM B791/B86.",
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM B791",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "related": [
+    "Zamak 3 (Zinc)"
+  ],
+  "aliases": [
+    "ZA27",
+    "UNS Z35841",
+    "zinc aluminum 27",
+    "ILZRO ZA-27",
+    "ASTM B791"
+  ],
+  "fracture_toughness": 42,
+  "fatigue_strength": 139,
+  "density": 5,
+  "yield_strength": 365,
+  "uts": 420,
+  "elongation": 3,
+  "modulus": 78,
+  "hardness": 115,
+  "thermal_conductivity": 125,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "Eastern Alloys — ZA-27 zinc aluminum alloy properties",
+  "families": [
+    "Metal",
+    "Zinc Alloy"
+  ],
+  "popularity": 2.32,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "medium"
+}

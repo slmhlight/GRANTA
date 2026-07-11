@@ -1,0 +1,284 @@
+{
+  "stable_id": "MET-1024",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "alloy_base": "F-AB-a357-0-al-si-mg-premium-casting-ams-4219",
+    "element_families": [
+      "F-EL-aluminum-based"
+    ]
+  },
+  "legacy_id": "R_0479",
+  "origin": "reference(supplementary)",
+  "id": "R_0479",
+  "name": "A357.0 (Al-Si-Mg premium casting, AMS 4219)",
+  "category": "Metal",
+  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "T6 (solution + artificial aging, permanent mold)",
+  "ranges": {
+    "density": {
+      "min": 2.68,
+      "max": 2.68,
+      "typical": 2.68,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 320,
+      "max": 320,
+      "typical": 320,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 72,
+      "max": 72,
+      "typical": 72,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 100,
+      "max": 100,
+      "typical": 100,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 155,
+      "max": 155,
+      "typical": 155,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 60,
+      "max": 90,
+      "typical": 75,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "impact_strength": {
+      "min": 3,
+      "max": 8,
+      "typical": 5,
+      "n": 3,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "fracture_toughness": {
+      "min": 19,
+      "max": 19,
+      "typical": 19,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy-specific KIC"
+    },
+    "electrical_conductivity": {
+      "min": 39,
+      "max": 39,
+      "typical": 39,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "max_service_temp": {
+      "min": 175,
+      "max": 175,
+      "typical": 175,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "thermal_expansion": {
+      "min": 21.5,
+      "max": 21.5,
+      "typical": 21.5,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "poisson_ratio": {
+      "min": 0.33,
+      "max": 0.33,
+      "typical": 0.33,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "specific_heat": {
+      "min": 963,
+      "max": 963,
+      "typical": 963,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "melting_point": {
+      "min": 615,
+      "max": 615,
+      "typical": 615,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "price_per_kg": {
+      "min": 4,
+      "max": 4,
+      "typical": 4,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "price_per_cm3": {
+      "min": 0.0107,
+      "max": 0.0107,
+      "typical": 0.0107,
+      "n": 0,
+      "estimated": false,
+      "confidence": "handbook",
+      "provenance": "alloy:a357"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.2,
+      "max": 5.2,
+      "typical": 5.2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Al": "balance",
+    "Si": "6.5~7.5",
+    "Mg": "0.40~0.7",
+    "Ti": "0.04~0.20",
+    "Be": "0.04~0.07"
+  },
+  "sources": [
+    {
+      "label": "MatWeb — Aluminum A357 cast",
+      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A357+aluminum",
+      "verified": false
+    },
+    {
+      "label": "SAE AMS 4219 — A357.0-T61 Castings (7.0Si-0.55Mg-0.12Ti-0.06Be)",
+      "url": "https://www.sae.org/standards/content/ams4219c/",
+      "verified": true
+    },
+    {
+      "label": "Modulus Metal — A357.0 permanent mold cast T6 (UNS A13570)",
+      "url": "https://www.modulusmetal.com/aluminum-a357-0-permanent-mold-cast-t6/",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      2.68,
+      250,
+      320,
+      4,
+      72,
+      100,
+      155
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Fair",
+  "corrosion_resistance": "Good",
+  "industry_note": "A356 의 고강도 형제 — Mg 를 0.35→0.55%로 올려 Mg₂Si 석출을 늘리고 Be 미량으로 산화막·철 개재물 형태를 제어한 항공용 프리미엄 주조합금. 같은 주조성에 T6 강도가 A356 대비 ~10-15% 높아 항공기 구조 주물(AMS 4219)·미사일 부품의 표준. Be 함유라 용해·가공 분진 관리(독성)가 요구된다는 점이 A356 과의 실무 차이.",
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "AMS 4219",
+        "org": "AMS"
+      },
+      {
+        "id": "UNS A13570",
+        "org": "UNS"
+      }
+    ]
+  },
+  "related": [
+    "A356.0 (Al-Si-Mg cast)"
+  ],
+  "aliases": [
+    "A357",
+    "UNS A13570",
+    "AlSi7Mg0.6",
+    "AMS 4219 casting",
+    "AMS 4219"
+  ],
+  "fracture_toughness": 19,
+  "fatigue_strength": 75,
+  "density": 2.68,
+  "yield_strength": 250,
+  "uts": 320,
+  "elongation": 4,
+  "modulus": 72,
+  "hardness": 100,
+  "thermal_conductivity": 155,
+  "impact_strength": 5,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "MatWeb — Aluminum A357 cast",
+  "families": [
+    "Metal",
+    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum-based"
+  ],
+  "fatigue_estimated": false,
+  "electrical_conductivity": 39,
+  "max_service_temp": 175,
+  "thermal_expansion": 21.5,
+  "poisson_ratio": 0.33,
+  "specific_heat": 963,
+  "melting_point": 615,
+  "price_per_kg": 4,
+  "price_per_cm3": 0.0107,
+  "popularity": 3.5,
+  "machining_cost_factor": 0.6,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.2,
+  "total_cost_estimate": 3.12,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "confidence_tier": "high"
+}

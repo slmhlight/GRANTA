@@ -1911,6 +1911,148 @@ def fig_red_hardness():
     save(fig, "red-hardness")
 
 
+def fig_jominy():
+    """경화능 전용 — Jominy 끝단 급랭 장치 + 거리-경도 곡선 3강종 (Figure Quality v2)."""
+    fig, (axL, axR) = plt.subplots(1, 2, figsize=(9.8, 4.4), gridspec_kw={"width_ratios": [1, 1.55]})
+
+    # (좌) 시험 장치 단면 — 봉 세워 놓고 아래 끝만 수분사
+    axL.set_xlim(0, 10); axL.set_ylim(0, 10); axL.set_aspect("equal"); axL.axis("off")
+    bar_x, bar_w, bar_y0, bar_y1 = 4.1, 1.8, 3.2, 9.0
+    # 냉각 구배(아래=급랭 어두움 → 위=서랭 밝음)
+    grad = np.linspace(0, 1, 60).reshape(-1, 1)
+    axL.imshow(grad, extent=(bar_x, bar_x + bar_w, bar_y0, bar_y1), origin="lower",
+               cmap="OrRd", alpha=0.85, aspect="auto", zorder=2)
+    axL.add_patch(Rectangle((bar_x, bar_y0), bar_w, bar_y1 - bar_y0, facecolor="none",
+                            edgecolor=C_AX, lw=1.6, zorder=3))
+    # 지지 플랜지
+    axL.plot([bar_x - 0.7, bar_x + bar_w + 0.7], [bar_y1, bar_y1], color=C_AX, lw=2.4)
+    axL.text(bar_x + bar_w / 2, bar_y1 + 0.35, "Ø25 × 100 mm 시편 (오스테나이트화 직후)",
+             ha="center", fontsize=8.2, color=C_AX)
+    # 물 분사 노즐
+    axL.add_patch(Rectangle((bar_x + bar_w / 2 - 0.28, 0.8), 0.56, 0.9, facecolor="#9fb7c9",
+                            edgecolor=C_AX, lw=1.0))
+    for dx in (-0.28, 0.0, 0.28):
+        xs = np.full(24, bar_x + bar_w / 2 + dx * 0.6)
+        ys = np.linspace(1.8, bar_y0 - 0.08, 24)
+        axL.plot(xs + 0.06 * np.sin(ys * 7 + dx * 9), ys, color="#2f6fb0", lw=1.3, alpha=0.75, zorder=1)
+    axL.text(bar_x + bar_w / 2, 0.12, "수분사 (끝단만 급랭)", ha="center", fontsize=8.4,
+             color="#2f6fb0", fontweight="bold")
+    # 냉각속도 스펙트럼 화살표
+    axL.annotate("", xy=(bar_x - 0.85, bar_y1 - 0.2), xytext=(bar_x - 0.85, bar_y0 + 0.2),
+                 arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.4))
+    axL.text(bar_x - 1.15, (bar_y0 + bar_y1) / 2, "냉각속도\n급 → 완", ha="right", va="center",
+             fontsize=8.2, color=C_M)
+    # 경도 측정 방향
+    axL.annotate("", xy=(bar_x + bar_w + 0.9, bar_y0 + 0.25), xytext=(bar_x + bar_w + 0.9, bar_y1 - 0.4),
+                 arrowprops=dict(arrowstyle="-|>", color=C_AX, lw=1.1))
+    axL.text(bar_x + bar_w + 1.15, (bar_y0 + bar_y1) / 2, "끝에서 거리별로\n경도 측정 →", ha="left",
+             va="center", fontsize=8.0, color=C_AX)
+    axL.set_title("Jominy 끝단 급랭 시험 (ASTM A255)", fontsize=10.5, color=C_AX, fontweight="bold")
+
+    # (우) 거리-경도 곡선 — 같은 0.4%C, 다른 경화능
+    d = np.linspace(0, 50, 300)
+    def jcurve(h0, hmin, d50, k):
+        return hmin + (h0 - hmin) / (1 + np.exp((d - d50) / k))
+    h1045 = jcurve(57, 22, 6, 2.2)     # 얕은 경화 — 급락
+    h4140 = jcurve(56, 30, 20, 5.0)    # 중간
+    h4340 = jcurve(56, 38, 38, 7.0)    # 깊은 경화 — 완만
+    axR.plot(d, h1045, color=C_A, lw=2.2, label="1045 (무합금)")
+    axR.plot(d, h4140, color=C_G, lw=2.2, label="4140 (Cr-Mo)")
+    axR.plot(d, h4340, color=C_M, lw=2.2, label="4340 (Ni-Cr-Mo)")
+    axR.set_xlim(0, 50); axR.set_ylim(15, 65)
+    axR.set_xlabel("급랭 끝단으로부터 거리 (mm)", fontsize=9)
+    axR.set_ylabel("경도 (HRC)", fontsize=9)
+    axR.tick_params(labelsize=8)
+    axR.grid(alpha=0.25, lw=0.6)
+    # 시작 경도 = 탄소 몫
+    axR.annotate("시작 경도는 셋이 같다\n(탄소 ~0.4%가 결정)", xy=(1.2, 56.5), xytext=(13, 58.8),
+                 fontsize=8.2, color=C_AX, va="center",
+                 arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
+    # 유지 깊이 = 합금 몫
+    axR.annotate("", xy=(40, 41), xytext=(11, 26),
+                 arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.2, ls=(0, (4, 2))))
+    axR.text(27, 25.5, "곡선이 완만할수록 경화능↑\n(Mo·Cr·Ni·B 가 미는 것)", fontsize=8.2, color=C_M,
+             ha="center")
+    axR.legend(fontsize=8.2, loc="upper right", framealpha=0.9)
+    axR.set_title("거리-경도 곡선 — 경화능의 지문", fontsize=10.5, color=C_AX, fontweight="bold")
+
+    fig.suptitle("경화능 — 최고 경도(탄소)와 경화 깊이(합금)는 다른 능력이다", fontsize=11.5,
+                 color=C_AX, y=1.02)
+    fig.subplots_adjust(left=0.04, right=0.98, top=0.86, bottom=0.13, wspace=0.18)
+    save(fig, "jominy")
+
+
+def fig_bainite_upper_lower():
+    """베이나이트 전용 — 온도 사다리 + 상부/하부 조직 대비 (탄화물 위치가 핵심, Figure Quality v2)."""
+    fig = plt.figure(figsize=(9.8, 4.5))
+    gs = fig.add_gridspec(1, 3, width_ratios=[0.5, 1, 1], wspace=0.24)
+    axT = fig.add_subplot(gs[0]); axU = fig.add_subplot(gs[1]); axB = fig.add_subplot(gs[2])
+
+    # (좌) 등온변태 온도 사다리
+    axT.set_xlim(0, 1); axT.set_ylim(150, 650); axT.set_xticks([])
+    axT.set_ylabel("등온변태 온도 (°C)", fontsize=9)
+    axT.tick_params(labelsize=8)
+    zones = [(550, 650, "#f4e8d7", "펄라이트"), (400, 550, "#f9dcc5", "상부\n베이나이트"),
+             (250, 400, "#f5c6a8", "하부\n베이나이트"), (150, 250, "#eebdb8", "마르텐사이트\n(Ms 아래)")]
+    for y0, y1, c, lab in zones:
+        axT.add_patch(Rectangle((0, y0), 1, y1 - y0, facecolor=c, edgecolor=C_AX, lw=0.9))
+        axT.text(0.5, (y0 + y1) / 2, lab, ha="center", va="center", fontsize=8.2, color=C_AX)
+    axT.set_title("변태 온도역", fontsize=10, color=C_AX, fontweight="bold")
+
+    # (중) 상부 베이나이트 — 라스 다발(sheaf) + 라스 '사이' 탄화물 필름
+    rng = np.random.RandomState(11)
+    for ax, upper in ((axU, True), (axB, False)):
+        ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.set_aspect("equal"); ax.axis("off")
+        ax.add_patch(Rectangle((0.02, 0.06), 0.96, 0.86, facecolor="#f7f3ee", edgecolor=C_AX, lw=1.4))
+    # 상부: 3개 sheaf(평행 라스 묶음), 라스 경계에 길쭉한 시멘타이트 필름
+    sheaves = [((0.08, 0.12, 0.42, 0.76), 62), ((0.52, 0.44, 0.44, 0.46), -48), ((0.30, 0.10, 0.55, 0.30), 8)]
+    for (x0, y0, w, h), ang in sheaves:
+        a = np.deg2rad(ang); dx, dy = np.cos(a), np.sin(a)
+        cx, cy = x0 + w / 2, y0 + h / 2
+        clip = Rectangle((x0, y0), w, h, facecolor="#efe6da", edgecolor=C_MUTE, lw=0.8)
+        axU.add_patch(clip)
+        diag = max(w, h) * 1.5
+        for t in np.arange(-diag, diag, 0.052):
+            px, py = cx - dy * t, cy + dx * t
+            ln, = axU.plot([px - dx * diag, px + dx * diag], [py - dy * diag, py + dy * diag],
+                           color=C_A, lw=1.1, alpha=0.55)
+            ln.set_clip_path(clip)
+            # 라스 사이 탄화물 필름(길쭉한 검은 조각)
+            for s in rng.uniform(-diag * 0.5, diag * 0.5, 2):
+                fx, fy = px + dx * s, py + dy * s
+                seg, = axU.plot([fx - dx * 0.035, fx + dx * 0.035], [fy - dy * 0.035, fy + dy * 0.035],
+                                color="#1f2933", lw=2.6, solid_capstyle="round")
+                seg.set_clip_path(clip)
+    axU.set_title("상부 베이나이트 (550~400 °C)", fontsize=10, color=C_G, fontweight="bold")
+    axU.text(0.5, -0.02, "탄화물이 라스 ‘사이’에 필름형으로 —\n깃털(feathery) 모양 · 인성 불리", ha="center",
+             va="top", fontsize=8.3, color=C_AX, transform=axU.transAxes)
+
+    # (우) 하부 베이나이트 — 침상 판 + 판 '안' 미세 탄화물 점 (프레임에 클리핑)
+    frameB = Rectangle((0.02, 0.06), 0.96, 0.86, facecolor="none", edgecolor="none")
+    axB.add_patch(frameB)
+    n_plates = 26
+    for _ in range(n_plates):
+        cx, cy = rng.uniform(0.14, 0.86), rng.uniform(0.18, 0.80)
+        ang = np.deg2rad(rng.choice([55, 60, -55, -60]) + rng.uniform(-6, 6))
+        L = rng.uniform(0.10, 0.17)
+        dx, dy = np.cos(ang) * L, np.sin(ang) * L
+        ln, = axB.plot([cx - dx, cx + dx], [cy - dy, cy + dy], color=C_A, lw=3.6, alpha=0.8,
+                       solid_capstyle="round")
+        ln.set_clip_path(frameB)
+        # 판 내부 미세 탄화물(점) — 판 방향과 ~60° 로 정렬된 짧은 점열
+        for f in np.linspace(-0.6, 0.6, 4):
+            pt, = axB.plot(cx + dx * f, cy + dy * f, marker="o", ms=1.9, color="#1f2933", zorder=5)
+            pt.set_clip_path(frameB)
+    axB.set_title("하부 베이나이트 (400 °C~Ms)", fontsize=10, color=C_M, fontweight="bold")
+    axB.text(0.5, -0.02, "탄화물이 판 ‘안’에 미세하게 —\n침상(acicular) · 강도+인성 우수", ha="center",
+             va="top", fontsize=8.3, color=C_AX, transform=axB.transAxes)
+
+    fig.suptitle("상부 vs 하부 베이나이트 — 탄화물의 ‘위치’가 성질을 가른다 (오스템퍼링의 목표 = 하부)",
+                 fontsize=11.5, color=C_AX, y=1.02)
+    fig.subplots_adjust(left=0.07, right=0.98, top=0.84, bottom=0.12)
+    save(fig, "bainite-upper-lower")
+
+
 if __name__ == "__main__":
     fig_martensite_lattice()
     fig_fcc_bcc()
@@ -1955,4 +2097,6 @@ if __name__ == "__main__":
     fig_stainless_families()
     fig_superalloy_strength()
     fig_red_hardness()
+    fig_jominy()
+    fig_bainite_upper_lower()
     print("done →", os.path.abspath(OUT))

@@ -115,7 +115,12 @@
       "surface_forms": [
         "베이나이트",
         "bainite",
-        "bainitic"
+        "bainitic",
+        "sheaf",
+        "다발",
+        "feathery",
+        "acicular",
+        "침상"
       ],
       "autolink": [
         "베이나이트",
@@ -359,12 +364,16 @@
         "분산강화",
         "분산 강화",
         "dispersion strengthening",
-        "ODS"
+        "ODS",
+        "오로완",
+        "Orowan"
       ],
       "autolink": [
         "분산강화",
         "분산 강화",
-        "dispersion strengthening"
+        "dispersion strengthening",
+        "오로완",
+        "Orowan"
       ],
       "short": "고온에서도 고용되지 않는 미세한 산화물 등 입자를 분산시켜 전위·입계 이동을 막는 강화. 산화물 분산강화(ODS) 합금이 대표적.",
       "sources": [
@@ -383,7 +392,9 @@
         "소입",
         "quenching",
         "quench",
-        "quenched"
+        "quenched",
+        "as-quenched",
+        "애즈퀜치드"
       ],
       "autolink": [
         "담금질",
@@ -409,12 +420,15 @@
         "소려",
         "tempering",
         "tempered",
-        "temper"
+        "temper",
+        "2차경화",
+        "secondary hardening"
       ],
       "autolink": [
         "뜨임",
         "소려",
-        "tempering"
+        "tempering",
+        "2차경화"
       ],
       "short": "담금질한 강을 A1 이하로 재가열하여 마르텐사이트의 과도한 취성을 낮추고 인성을 회복시키는 처리. 온도로 강도-인성 균형을 조절한다.",
       "sources": [
@@ -511,13 +525,16 @@
         "시효처리",
         "aging",
         "ageing",
-        "aged"
+        "aged",
+        "과시효",
+        "overaging"
       ],
       "autolink": [
         "시효",
         "에이징",
         "시효처리",
-        "aging"
+        "aging",
+        "과시효"
       ],
       "short": "용체화 후 상온(자연시효) 또는 일정 온도(인공시효)에서 유지하여 미세 석출물을 형성시키는 처리. 과다 시효(overaging)는 석출물이 조대화해 강도가 떨어진다.",
       "sources": [
@@ -1081,11 +1098,15 @@
       "surface_forms": [
         "예민화",
         "sensitization",
-        "sensitisation"
+        "sensitisation",
+        "위드 디케이",
+        "weld decay"
       ],
       "autolink": [
         "예민화",
-        "sensitization"
+        "sensitization",
+        "위드 디케이",
+        "weld decay"
       ],
       "short": "스테인리스강이 500–800°C에 노출될 때 입계에 Cr 탄화물이 석출하며 인근이 Cr 결핍이 되어 입계부식에 취약해지는 현상. 용접 HAZ에서 흔하다.",
       "sources": [
@@ -1104,12 +1125,17 @@
         "부동태화",
         "부동태",
         "passivation",
-        "passive film"
+        "passive film",
+        "유리철",
+        "free iron",
+        "heat tint",
+        "열변색"
       ],
       "autolink": [
         "부동태화",
         "부동태",
-        "passivation"
+        "passivation",
+        "유리철"
       ],
       "short": "표면에 얇고 치밀한 산화 피막(스테인리스강의 Cr₂O₃)이 형성되어 부식이 크게 억제되는 상태. 손상 시 산소가 있으면 스스로 재생된다.",
       "sources": [
@@ -1408,12 +1434,15 @@
         "기공",
         "기공률",
         "porosity",
-        "porous"
+        "porous",
+        "lack of fusion",
+        "용융 불완전"
       ],
       "autolink": [
         "기공",
         "기공률",
-        "porosity"
+        "porosity",
+        "lack of fusion"
       ],
       "short": "재료 내부의 빈 공간. 주조·AM에서 가스·미용융으로 생기며 응력집중원이 되어 피로·연성을 떨어뜨린다. HIP·공정 최적화로 줄인다.",
       "sources": [
@@ -1856,7 +1885,9 @@
         "오스템퍼링",
         "austempering",
         "오스템퍼",
-        "austemper"
+        "austemper",
+        "salt bath",
+        "염욕"
       ],
       "autolink": [
         "오스템퍼링",
@@ -2179,6 +2210,322 @@
         "casting",
         "galvanic",
         "anisotropy"
+      ]
+    },
+    "tmcp": {
+      "display": "제어압연 (TMCP)",
+      "category": "processing",
+      "surface_forms": [
+        "TMCP",
+        "제어압연",
+        "가속냉각",
+        "thermo-mechanical controlled processing",
+        "controlled rolling"
+      ],
+      "autolink": [
+        "TMCP",
+        "제어압연"
+      ],
+      "short": "압연 온도·압하량·냉각 속도를 정밀하게 제어해, 합금원소를 더 넣지 않고 결정립 미세화만으로 강도와 인성을 함께 올리는 후판 제조 기술. Thermo-Mechanical Controlled Processing 의 약자다.",
+      "sources": [
+        "ASM Handbook Vol.1",
+        "JFE Technical Report — TMCP Steel Plates"
+      ],
+      "related": [
+        "grain-refinement",
+        "rolling",
+        "normalizing",
+        "carbon-steel"
+      ]
+    },
+    "galling": {
+      "display": "갈링 (Galling)",
+      "category": "mechanical",
+      "surface_forms": [
+        "갈링",
+        "galling",
+        "내갈링",
+        "응착 마모",
+        "anti-galling"
+      ],
+      "autolink": [
+        "갈링",
+        "galling"
+      ],
+      "short": "미끄럼 접촉하는 금속 표면이 국부적으로 들러붙었다(응착) 찢어지며 표면이 뜯기고 융기하는 심한 응착 마모. 스테인리스·티타늄 볼트가 조이다 말고 눌어붙는 고질병이 이것이다.",
+      "sources": [
+        "ASM Handbook Vol.18 (Friction, Lubrication, and Wear)",
+        "ASTM G98 — Galling Resistance Test"
+      ],
+      "related": [
+        "cold-work",
+        "stainless-steel",
+        "titanium-alloy",
+        "cobalt-alloy"
+      ]
+    },
+    "patenting": {
+      "display": "파텐팅 (Patenting)",
+      "category": "heat-treatment",
+      "surface_forms": [
+        "파텐팅",
+        "patenting"
+      ],
+      "autolink": [
+        "파텐팅",
+        "patenting"
+      ],
+      "short": "강선(wire)을 오스테나이트화한 뒤 약 540 °C 염욕·연욕에 담가 등온변태시켜, 아주 미세한 펄라이트를 만드는 선재 전용 열처리. 피아노선급 초고강도 와이어의 출발점이다.",
+      "sources": [
+        "ASM Handbook Vol.4 (Heat Treating)",
+        "Totten — Steel Heat Treatment Handbook"
+      ],
+      "related": [
+        "pearlite",
+        "austempering",
+        "cold-work",
+        "cementite"
+      ]
+    },
+    "sour-service": {
+      "display": "사워 서비스 (Sour Service)",
+      "category": "corrosion",
+      "surface_forms": [
+        "사워 서비스",
+        "sour service",
+        "sour",
+        "SSC",
+        "황화물 응력균열",
+        "H2S 환경"
+      ],
+      "autolink": [
+        "사워 서비스",
+        "sour service"
+      ],
+      "short": "H₂S(황화수소)가 섞인 원유·천연가스 환경을 부르는 업계 용어. H₂S 는 수소취성을 크게 촉진해 고강도강을 골라 깨뜨리므로, NACE MR0175 규격이 쓸 수 있는 재료와 경도 상한을 정해 둔다.",
+      "sources": [
+        "NACE MR0175 / ISO 15156",
+        "API 5CT"
+      ],
+      "related": [
+        "hydrogen-embrittlement",
+        "scc",
+        "carbon-steel"
+      ]
+    },
+    "coherency": {
+      "display": "정합 (Coherency)",
+      "category": "strengthening",
+      "surface_forms": [
+        "정합",
+        "coherent",
+        "coherency",
+        "정합 석출",
+        "반정합",
+        "비정합"
+      ],
+      "autolink": [
+        "coherent",
+        "coherency"
+      ],
+      "short": "석출 입자의 원자 배열이 모상(기지) 격자와 끊기지 않고 이어져 있는 상태. 정합 입자 주변의 격자 뒤틀림(변형장)이 전위를 방해하는 것이 석출경화 초기 강화의 정체다.",
+      "sources": [
+        "Porter & Easterling — Phase Transformations in Metals and Alloys",
+        "ASM Handbook Vol.4"
+      ],
+      "related": [
+        "precipitation-hardening",
+        "aging",
+        "coarsening",
+        "dispersion-strengthening"
+      ]
+    },
+    "cemented-carbide": {
+      "display": "초경합금 (Cemented Carbide)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "초경합금",
+        "cemented carbide",
+        "WC-Co",
+        "초경",
+        "텅스텐 카바이드 공구"
+      ],
+      "autolink": [
+        "초경합금",
+        "cemented carbide"
+      ],
+      "short": "WC(텅스텐 탄화물) 입자를 코발트 금속으로 붙여 소결한 복합재료 — 현장에서 '초경'이라 부른다. 세라믹급 경도와 금속의 인성을 절충해, 절삭공구·금형의 표준 재료가 되었다.",
+      "sources": [
+        "ASM Handbook Vol.7 (Powder Metallurgy)",
+        "Sandvik Coromant — Metal Cutting Technology"
+      ],
+      "related": [
+        "carbide",
+        "sintering",
+        "high-speed-steel",
+        "hardness"
+      ]
+    },
+    "graphite": {
+      "display": "흑연 (Graphite)",
+      "category": "microstructure",
+      "surface_forms": [
+        "흑연",
+        "graphite",
+        "편상 흑연",
+        "구상 흑연",
+        "흑연화",
+        "graphitization",
+        "flake",
+        "nodular",
+        "편상",
+        "구상"
+      ],
+      "autolink": [
+        "흑연"
+      ],
+      "short": "주철 속 탄소가 취하는 안정한 모습 — 부드러운 순수 탄소 결정. 흑연이 편상(조각)이냐 구상(공)이냐에 따라 회주철과 연성주철로 성격이 갈린다. Si 가 흑연 생성을 밀어 준다.",
+      "sources": [
+        "ASM Handbook Vol.1 (Cast Irons)",
+        "ASM Specialty Handbook — Cast Irons"
+      ],
+      "related": [
+        "gray-cast-iron",
+        "white-cast-iron",
+        "cementite",
+        "stable-phase",
+        "metastable-phase"
+      ]
+    },
+    "gray-cast-iron": {
+      "display": "회주철 (Gray Cast Iron)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "회주철",
+        "gray cast iron",
+        "gray iron",
+        "grey cast iron",
+        "편상흑연주철"
+      ],
+      "autolink": [
+        "회주철",
+        "gray iron"
+      ],
+      "short": "탄소가 편상(조각) 흑연으로 굳어 파단면이 회색으로 보이는, 세상에서 가장 많이 만드는 주철. 압축·진동 감쇠·피삭성의 값싼 왕이지만, 편상 흑연이 내부 노치처럼 작용해 인장에는 약하다.",
+      "sources": [
+        "ASTM A48/A48M — Gray Iron Castings",
+        "ASM Handbook Vol.1 (Cast Irons)"
+      ],
+      "related": [
+        "graphite",
+        "white-cast-iron",
+        "austempered-ductile-iron",
+        "casting",
+        "brittleness"
+      ]
+    },
+    "hot-cracking": {
+      "display": "고온균열 (Hot Cracking)",
+      "category": "processing",
+      "surface_forms": [
+        "고온균열",
+        "hot cracking",
+        "응고균열",
+        "solidification cracking",
+        "hot tearing",
+        "액화균열"
+      ],
+      "autolink": [
+        "고온균열",
+        "hot cracking"
+      ],
+      "short": "응고가 끝나기 직전, 결정립 사이에 마지막으로 남은 액체 막이 수축 응력에 찢어지며 생기는 균열. 용접의 크레이터 균열과 주조의 hot tearing 이 같은 병의 두 이름이다.",
+      "sources": [
+        "Kou — Welding Metallurgy",
+        "AWS Welding Handbook"
+      ],
+      "related": [
+        "casting",
+        "eutectic",
+        "ferrite",
+        "hydrogen-embrittlement"
+      ]
+    },
+    "pwht": {
+      "display": "용접 후열처리 (PWHT)",
+      "category": "heat-treatment",
+      "surface_forms": [
+        "PWHT",
+        "용접 후열처리",
+        "후열처리",
+        "post-weld heat treatment",
+        "응력제거 열처리"
+      ],
+      "autolink": [
+        "PWHT",
+        "용접 후열처리"
+      ],
+      "short": "용접을 마친 부품을 다시 가열해 잔류응력을 풀고 HAZ(열영향부)의 경화 조직을 뜨임하는 열처리. Post-Weld Heat Treatment 의 약자로, 압력용기·배관 코드의 단골 요구사항이다.",
+      "sources": [
+        "ASME BPVC Section VIII / B31.3",
+        "AWS Welding Handbook"
+      ],
+      "related": [
+        "tempering",
+        "residual-stress",
+        "sensitization",
+        "hydrogen-embrittlement"
+      ]
+    },
+    "phase-diagram": {
+      "display": "상태도 (Phase Diagram)",
+      "category": "phase",
+      "surface_forms": [
+        "상태도",
+        "phase diagram",
+        "평형상태도",
+        "equilibrium diagram"
+      ],
+      "autolink": [
+        "상태도"
+      ],
+      "short": "온도(세로)와 조성(가로)에 따라 어떤 상(phase)이 안정한지를 그린 재료의 지도. 열처리·주조·용접의 모든 논의가 여기서 출발한다 — Fe-C 상태도가 그 대표다.",
+      "sources": [
+        "Callister — Materials Science and Engineering",
+        "ASM Handbook Vol.3 (Alloy Phase Diagrams)"
+      ],
+      "related": [
+        "stable-phase",
+        "metastable-phase",
+        "eutectic",
+        "phase-transformation"
+      ]
+    },
+    "hardenability": {
+      "display": "경화능 (Hardenability)",
+      "category": "heat-treatment",
+      "surface_forms": [
+        "경화능",
+        "hardenability",
+        "조미니",
+        "Jominy",
+        "질량효과",
+        "임계지름"
+      ],
+      "autolink": [
+        "경화능",
+        "hardenability"
+      ],
+      "short": "담금질했을 때 표면만이 아니라 '얼마나 깊은 곳까지' 마르텐사이트로 굳는가의 능력. 최고 경도는 탄소가 정하지만, 경화 깊이는 합금원소가 정한다 — 두 개념을 혼동하면 강종 선택이 틀어진다.",
+      "sources": [
+        "ASM Handbook Vol.4 (Heat Treating)",
+        "ASTM A255 — Jominy End-Quench Test"
+      ],
+      "related": [
+        "quenching",
+        "martensite",
+        "tempering",
+        "alloy-steel"
       ]
     }
   }

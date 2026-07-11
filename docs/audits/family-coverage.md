@@ -1,22 +1,22 @@
 # 분류 완결 감사 리포트 (자동 생성 — audit-family-coverage.mjs)
 
-> DB subcategory 132 ↔ 글로서리 alloy-family 16. (a)=페이지 없는 계열(후보), (b)=글로서리만 있고 DB 빈약.
+> DB subcategory 132 ↔ 글로서리 alloy-family 18. (a)=페이지 없는 계열(후보), (b)=글로서리만 있고 DB 빈약.
 
 ## (a) DB subcategory 전수 — 글로서리 계열 페이지 유무
 
 | subcategory | entry 수 | 글로서리 | A4 문서 |
 |---|---|---|---|
-| Metal / Nickel Superalloy | 117 | nickel-superalloy | ✓ |
+| Metal / Nickel Superalloy | 119 | nickel-superalloy | ✓ |
 | Metal / Copper Alloy | 87 | **—** |  |
 | Metal / Carbon Steel | 85 | **—** |  |
-| Metal / Stainless Steel - Austenitic | 72 | stainless-steel | ✓ |
+| Metal / Stainless Steel - Austenitic | 73 | stainless-steel | ✓ |
 | Metal / Alloy Steel | 57 | **—** |  |
-| Metal / Aluminum - Si Alloys (6xxx/7xxx) | 49 | **—** |  |
+| Metal / Aluminum - Si Alloys (6xxx/7xxx) | 50 | **—** |  |
 | Metal / Stainless Steel - Ferritic/Martensitic | 41 | stainless-steel | ✓ |
 | Metal / Refractory Metal | 33 | **—** |  |
-| Metal / Tool Steel | 29 | tool-steel | ✓ |
+| Metal / Tool Steel | 30 | tool-steel | ✓ |
+| Metal / Aluminum - Cu Alloys (2xxx) | 23 | **—** |  |
 | Metal / Titanium - α+β | 22 | **—** |  |
-| Metal / Aluminum - Cu Alloys (2xxx) | 22 | **—** |  |
 | Metal / Stainless Steel - PH | 21 | precipitation-hardening | ✓ |
 | Metal / Titanium - Pure / CP Grades | 20 | **—** |  |
 | Metal / Aluminum - Mg Alloys (5xxx) | 20 | **—** |  |
@@ -55,6 +55,7 @@
 | Metal / Microalloyed Steel | 4 | **—** |  |
 | Metal / Low-Alloy Steel - Cryogenic Ni | 4 | **—** |  |
 | Metal / Shipbuilding Steel | 4 | **—** |  |
+| Metal / Tool Steel - Cold-Work | 4 | **—** |  |
 | Composite / Foam-Polymer | 4 | **—** |  |
 | Metal / Copper Alloy - Brass | 3 | **—** |  |
 | Polymer / Polymer - Polyethylene | 3 | **—** |  |
@@ -79,7 +80,6 @@
 | Metal / Zirconium Alloy | 3 | **—** |  |
 | Metal / Cobalt Alloy - Multiphase | 3 | **—** |  |
 | Metal / High-Strength Low-Alloy Steel | 3 | **—** |  |
-| Metal / Tool Steel - Cold-Work | 3 | **—** |  |
 | Metal / Tool Steel - Hot-Work | 3 | **—** |  |
 | Ceramic / Glass-ceramic | 3 | **—** |  |
 | Ceramic / Glass | 3 | **—** |  |
@@ -92,6 +92,7 @@
 | Polymer / Polymer - PP | 2 | **—** |  |
 | Polymer / Polymer - PVC | 2 | **—** |  |
 | Polymer / Polymer - PVDF | 2 | **—** |  |
+| Metal / Zinc Alloy | 2 | **—** |  |
 | Polymer / Polymer - Polyimide | 2 | **—** |  |
 | Polymer / Polymer - Polyamide CF | 2 | **—** |  |
 | Metal / Cobalt Alloy | 2 | **—** |  |
@@ -110,7 +111,6 @@
 | Metal / Beryllium Alloy | 1 | **—** |  |
 | Metal / Shape Memory Alloy | 1 | **—** |  |
 | Polymer / Polymer - ASA | 1 | **—** |  |
-| Metal / Zinc Alloy | 1 | **—** |  |
 | Metal / Cobalt Alloy - Chromium | 1 | **—** |  |
 | Polymer / Polymer - PAI | 1 | **—** |  |
 | Polymer / Polymer - UHMWPE | 1 | **—** |  |
@@ -159,6 +159,8 @@
 | refractory-metal | 고융점 금속 (Refractory Metal) | ✓ |  |
 | cobalt-alloy | 코발트 합금 (Cobalt Alloy) | ✓ |  |
 | magnesium-alloy | 마그네슘 합금 (Magnesium Alloy) | ✓ |  |
+| cemented-carbide | 초경합금 (Cemented Carbide) | ✓ |  |
+| gray-cast-iron | 회주철 (Gray Cast Iron) | ✓ |  |
 
 > 후보 판단 기준: entry 수가 많은 미커버 subcategory(상단 — 표) 순으로 alloy-family 용어·문서 신설 검토.
 > 백주철(white cast iron)·ADI 는 §5 확정 — Cast Iron subcat 하위로 추가 예정.

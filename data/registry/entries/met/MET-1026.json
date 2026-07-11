@@ -1,0 +1,278 @@
+{
+  "stable_id": "MET-1026",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-nickel-superalloy",
+    "alloy_base": "F-AB-inconel-740h-ni-cr-co-a-usc-boiler-alloy",
+    "element_families": [
+      "F-EL-nickel-based"
+    ]
+  },
+  "legacy_id": "R_0482",
+  "origin": "reference(supplementary)",
+  "id": "R_0482",
+  "name": "Inconel 740H (Ni-Cr-Co A-USC boiler alloy)",
+  "category": "Metal",
+  "subcategory": "Nickel Superalloy",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Wrought"
+  ],
+  "heat_treatment": "Solution annealed + aged (STA, ASME Code Case 2702)",
+  "ranges": {
+    "density": {
+      "min": 8.05,
+      "max": 8.05,
+      "typical": 8.05,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 620,
+      "max": 620,
+      "typical": 620,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 1035,
+      "max": 1035,
+      "typical": 1035,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 20,
+      "max": 20,
+      "typical": 20,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 221,
+      "max": 221,
+      "typical": 221,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 248,
+      "max": 341,
+      "typical": 298,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.48·σy (Special Metals fatigue data)"
+    },
+    "impact_strength": {
+      "min": 30,
+      "max": 100,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Ni-based superalloy"
+    },
+    "fracture_toughness": {
+      "min": 70,
+      "max": 130,
+      "typical": 100,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:Special Metals/Haynes general"
+    },
+    "electrical_conductivity": {
+      "min": 0.91,
+      "max": 1.69,
+      "typical": 1.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "max_service_temp": {
+      "min": 630,
+      "max": 1170,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "thermal_expansion": {
+      "min": 9.1,
+      "max": 16.9,
+      "typical": 13,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "poisson_ratio": {
+      "min": 0.21,
+      "max": 0.39,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "specific_heat": {
+      "min": 308,
+      "max": 572,
+      "typical": 440,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "melting_point": {
+      "min": 945,
+      "max": 1755,
+      "typical": 1350,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_kg": {
+      "min": 42,
+      "max": 78,
+      "typical": 60,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "price_per_cm3": {
+      "min": 0.3381,
+      "max": 0.6279,
+      "typical": 0.483,
+      "n": 0,
+      "estimated": true,
+      "confidence": "family",
+      "provenance": "2nd_family:Nickel Superalloy"
+    },
+    "delivered_price_per_kg": {
+      "min": 81.9,
+      "max": 81.9,
+      "typical": 81.9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Ni": "balance",
+    "Cr": "23.5~25.5",
+    "Co": "19~21",
+    "Nb": "0.5~2.5",
+    "Ti": "0.5~2.5",
+    "Al": "0.2~2.0",
+    "Fe": "≤3.0",
+    "Mn": "≤1.0",
+    "C": "0.005~0.08"
+  },
+  "sources": [
+    {
+      "label": "Special Metals — INCONEL alloy 740H technical bulletin",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf",
+      "verified": true
+    },
+    {
+      "label": "Gen3 CSP (Georgia Tech) — Inconel 740H thermophysical properties",
+      "url": "https://gen3csp.gatech.edu/inconel-alloy-740h/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: Special Metals/Haynes general",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      8.05,
+      620,
+      1035,
+      20,
+      221,
+      300,
+      10
+    ]
+  ],
+  "machinability": "Poor",
+  "weldability": "Fair",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "700°C급 A-USC(초초임계+) 발전을 위해 개발된 γ′ 석출강화 Ni 합금 — 철계 크리프강(P92)이 끝나는 620°C 너머의 증기관·헤더용. ASME Code Case 2702 로 보일러 압력부 승인을 받은 최초의 시효경화 Ni 합금이라는 것이 상징적(σy≥620/UTS≥1035MPa). 25Cr 로 증기 산화·석탄재 부식도 견딘다. 용접 후 재시효 필요·가격이 철계의 수 배라 A-USC 실증 프로젝트 중심으로 쓰인다.",
+  "meta": {
+    "reference": true
+  },
+  "related": [
+    "Nimonic 263"
+  ],
+  "aliases": [
+    "740H",
+    "INCONEL alloy 740H",
+    "UNS N07740",
+    "Alloy 740H"
+  ],
+  "fracture_toughness": 100,
+  "fatigue_strength": 298,
+  "density": 8.05,
+  "yield_strength": 620,
+  "uts": 1035,
+  "elongation": 20,
+  "modulus": 221,
+  "hardness": 300,
+  "thermal_conductivity": 10,
+  "impact_strength": 60,
+  "manufacturer": "Reference data",
+  "process": "Wrought",
+  "source": "Special Metals — INCONEL alloy 740H technical bulletin",
+  "families": [
+    "Metal",
+    "Nickel Superalloy",
+    "Nickel-based",
+    "Superalloy"
+  ],
+  "electrical_conductivity": 1.3,
+  "max_service_temp": 900,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 440,
+  "melting_point": 1350,
+  "price_per_kg": 60,
+  "price_per_cm3": 0.483,
+  "popularity": 2.07,
+  "machining_cost_factor": 2.6,
+  "ht_cost_factor": 1.45,
+  "price_condition_factor": 1.3,
+  "price_form_factor": 1.05,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 81.9,
+  "total_cost_estimate": 212.94,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Co 21% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
+  ],
+  "confidence_tier": "high"
+}

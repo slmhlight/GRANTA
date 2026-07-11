@@ -1,0 +1,307 @@
+{
+  "stable_id": "MET-1027",
+  "family": {
+    "category": "F-MET",
+    "subcategory": "F-MET-stainless-steel-austenitic",
+    "alloy_base": "F-AB-hk40-cast-25cr-20ni-heat-resistant-astm-a297",
+    "element_families": [
+      "F-EL-iron-based"
+    ]
+  },
+  "legacy_id": "R_0475",
+  "origin": "reference(supplementary)",
+  "id": "R_0475",
+  "name": "HK40 (cast 25Cr-20Ni heat-resistant, ASTM A297)",
+  "category": "Metal",
+  "subcategory": "Stainless Steel - Austenitic",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Cast"
+  ],
+  "heat_treatment": "As-cast",
+  "ranges": {
+    "density": {
+      "min": 7.75,
+      "max": 7.75,
+      "typical": 7.75,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 240,
+      "max": 240,
+      "typical": 240,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 450,
+      "max": 450,
+      "typical": 450,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 10,
+      "max": 10,
+      "typical": 10,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 190,
+      "max": 190,
+      "typical": 190,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "thermal_conductivity": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": {
+      "min": 84,
+      "max": 120,
+      "typical": 101,
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+    },
+    "impact_strength": {
+      "min": 80,
+      "max": 180,
+      "typical": 130,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Stainless Austenitic"
+    },
+    "fracture_toughness": {
+      "min": 100,
+      "max": 200,
+      "typical": 140,
+      "n": 0,
+      "confidence": "class",
+      "provenance": "class:ASM Vol.1 Austenitic SS"
+    },
+    "electrical_conductivity": {
+      "min": 2.04,
+      "max": 2.76,
+      "typical": 2.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "max_service_temp": {
+      "min": 739.5,
+      "max": 1000.5,
+      "typical": 870,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "thermal_expansion": {
+      "min": 14.45,
+      "max": 19.55,
+      "typical": 17,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "poisson_ratio": {
+      "min": 0.255,
+      "max": 0.345,
+      "typical": 0.3,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "specific_heat": {
+      "min": 425,
+      "max": 575,
+      "typical": 500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "melting_point": {
+      "min": 1232.5,
+      "max": 1667.5,
+      "typical": 1450,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_kg": {
+      "min": 4.675,
+      "max": 6.325,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "price_per_cm3": {
+      "min": 0.0362,
+      "max": 0.049,
+      "typical": 0.0426,
+      "n": 0,
+      "estimated": true,
+      "confidence": "subfamily",
+      "provenance": "3rd_family:Stainless Steel - Austenitic"
+    },
+    "delivered_price_per_kg": {
+      "min": 5.5,
+      "max": 5.5,
+      "typical": 5.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "Fe": "balance",
+    "Cr": "23~27",
+    "Ni": "19~22",
+    "C": "0.35~0.45",
+    "Si": "≤2.0",
+    "Mn": "≤2.0"
+  },
+  "sources": [
+    {
+      "label": "ASTM A297/A297M — Heat-Resistant Steel Castings (Grade HK: UTS≥65ksi/YS≥35ksi/El≥10%)",
+      "url": "https://www.iron-foundry.com/ASTM-A297-Standard-Specification-Steel-Casting-Alloy.html",
+      "verified": true
+    },
+    {
+      "label": "MetalTek — Cast Grade HK 40 (C 0.35-0.45)",
+      "url": "https://www.metaltek.com/alloy/specialty-alloys-heat-resistant-stainless-steel-mtek-hk-40/",
+      "verified": true
+    },
+    {
+      "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "points": [
+    [
+      7.75,
+      240,
+      450,
+      10,
+      190,
+      180,
+      14
+    ]
+  ],
+  "machinability": "Fair",
+  "weldability": "Good",
+  "corrosion_resistance": "Excellent",
+  "industry_note": "석유화학 개질로(reformer) 튜브의 고전 — 25Cr-20Ni 주조 내열강(310 의 주조 사촌). C 0.4%가 입계 탄화물 network 를 만들어 크리프 강도를 벌지만 연성·용접성은 희생(보수용접 까다로움). ~1000°C 복사부 튜브·노 내 구조물. 현대 개질로는 HP-Nb(미세합금) 로 세대교체 중이나 기존 설비 표준으로 잔존. ASTM A297 Grade HK.",
+  "meta": {
+    "reference": true,
+    "specs": [
+      {
+        "id": "ASTM A297",
+        "org": "ASTM"
+      }
+    ]
+  },
+  "related": [
+    "310S"
+  ],
+  "aliases": [
+    "HK-40",
+    "ASTM A297 Grade HK",
+    "UNS J94204",
+    "25-20 cast",
+    "reformer tube alloy",
+    "cast 25Cr-20Ni heat-resistant",
+    "ASTM A297"
+  ],
+  "fracture_toughness": 140,
+  "fatigue_strength": 101,
+  "density": 7.75,
+  "yield_strength": 240,
+  "uts": 450,
+  "elongation": 10,
+  "modulus": 190,
+  "hardness": 180,
+  "thermal_conductivity": 14,
+  "impact_strength": 130,
+  "manufacturer": "Reference data",
+  "process": "Cast",
+  "source": "ASTM A297/A297M — Heat-Resistant Steel Castings (Grade HK: UTS≥65ksi/YS≥35ksi/El≥10%)",
+  "families": [
+    "Metal",
+    "Stainless Steel - Austenitic",
+    "Iron-based",
+    "Stainless Steel",
+    "Austenitic"
+  ],
+  "electrical_conductivity": 2.4,
+  "max_service_temp": 870,
+  "thermal_expansion": 17,
+  "poisson_ratio": 0.3,
+  "specific_heat": 500,
+  "melting_point": 1450,
+  "price_per_kg": 5.5,
+  "price_per_cm3": 0.0426,
+  "popularity": 3.42,
+  "machining_cost_factor": 1,
+  "ht_cost_factor": 1,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 5.5,
+  "total_cost_estimate": 5.5,
+  "min_wall_thickness": 2.5,
+  "surface_finish_typical": 12.5,
+  "tolerance_class": "IT13-14",
+  "rohs_compliant": true,
+  "svhc_concerns": [
+    "Ni 22% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 1860,
+      "uts": 2070,
+      "E": 210
+    },
+    {
+      "temp": 200,
+      "ys": 1700,
+      "uts": 1900,
+      "E": 200
+    },
+    {
+      "temp": 400,
+      "ys": 1380,
+      "uts": 1620,
+      "E": 180
+    }
+  ],
+  "confidence_tier": "high"
+}
