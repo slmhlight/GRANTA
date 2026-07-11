@@ -26,9 +26,7 @@ Build the dataset from sources (optional — output is committed):
 ```bash
 pnpm build:data   # data/material_db.json + enriched CSV → client/public/materials.json
 ```
-Production build: `pnpm build` · Type-check: `pnpm check`
-
-See [`CLAUDE.md`](./CLAUDE.md) for environment notes and [`docs/PROJECT_PLAN.md`](./docs/PROJECT_PLAN.md) for the full plan.
+Production build: `pnpm build` · Type-check: `pnpm check` · Tests: `pnpm test`
 
 ## Deploy (GitHub Pages)
 The app is a pure static SPA and ships with a GitHub Actions workflow that builds and

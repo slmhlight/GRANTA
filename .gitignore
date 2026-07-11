@@ -14,11 +14,19 @@ coverage/
 
 # editor / OS
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.local
 *.swp
 
-# local-only Claude settings
-.claude/settings.local.json
+# AI 도구·에이전트 설정 (로컬 보관 — repo 추적 불필요)
+CLAUDE.md
+.claude/
+
+# 내부 개발 문서 (계획·백로그·전략·설계·감사 — 로컬/히스토리에 보존).
+#   운영 문서(배포 가이드)만 추적 유지. 감사 리포트는 audit 스크립트가 로컬 재생성.
+docs/*
+!docs/DEPLOY_GITHUB_PAGES.md
 
 # project recovery scratch (not part of the codebase)
 _inspect/
