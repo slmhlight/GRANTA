@@ -1045,6 +1045,166 @@ def fig_case_hardening():
     save(fig, "case-hardening")
 
 
+def fig_ferrite_micro():
+    """페라이트 전용 조직도 — 저탄소강의 등축 BCC 다각립 + 소량 펄라이트 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(6.8, 4.6))
+    rng = np.random.RandomState(14)
+    grains = _poly_grains(ax, n=14, bbox=(0, 0, 1.45, 1.0), color="#f2f4f6", edge=C_AX, lw=1.3, seed=51)
+    # 저탄소강: 일부 립만 펄라이트(어두운 층상)
+    pearl_idx = rng.choice(len(grains), size=max(2, len(grains) // 6), replace=False)
+    for i in pearl_idx:
+        patch, verts = grains[i]
+        _lamellae_in(ax, patch, verts, rng.uniform(0, 180), spacing=0.03, color="#3a3a3a", lw=1.4)
+    plain = max((g for j, g in enumerate(grains) if j not in set(int(x) for x in pearl_idx)),
+                key=lambda g: g[1][:, 0].mean())
+    ax.annotate("등축 페라이트 립 (BCC α)\n— 연하고(~90 HV) 연성·강자성", xy=(plain[1][:, 0].mean(), plain[1][:, 1].mean()),
+                xytext=(1.52, 0.72), fontsize=8.4, color=C_A, va="center",
+                arrowprops=dict(arrowstyle="->", color=C_A, lw=1.0))
+    pp = grains[pearl_idx[0]]
+    ax.annotate("소량의 펄라이트\n(탄소 0.1~0.2% 몫)", xy=(pp[1][:, 0].mean(), pp[1][:, 1].mean()),
+                xytext=(1.52, 0.28), fontsize=8.4, color="#3a3a3a", va="center",
+                arrowprops=dict(arrowstyle="->", color="#3a3a3a", lw=1.0))
+    ax.set_xlim(-0.01, 2.2); ax.set_ylim(-0.03, 1.03); ax.set_aspect("equal"); ax.axis("off")
+    ax.set_title("페라이트 조직 (개략) — 저탄소강(연강) 유형", fontsize=11, color=C_AX, pad=8)
+    save(fig, "ferrite-micro")
+
+
+def fig_hall_petch():
+    """결정립 미세화 전용 — Hall–Petch 직선 + 조대/미세 조직 인셋 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(7.6, 5.0))
+    d_inv = np.linspace(1, 8, 100)  # d^{-1/2} (mm^{-1/2})
+    sy = 70 + 22 * d_inv
+    ax.plot(d_inv, sy, color=C_A, lw=2.4)
+    ax.set_xlabel("$d^{-1/2}$  (결정립이 작을수록 → 오른쪽)", fontsize=10, color=C_AX)
+    ax.set_ylabel("항복강도 $\\sigma_y$ (MPa)", fontsize=10, color=C_AX)
+    ax.text(4.5, 235, "$\\sigma_y = \\sigma_0 + k\\,d^{-1/2}$", fontsize=12, color=C_A, ha="center")
+    ax.annotate("$\\sigma_0$ (단결정 한계)", xy=(1.05, 93), xytext=(1.7, 65), fontsize=8.5, color=C_MUTE,
+                arrowprops=dict(arrowstyle="->", color=C_MUTE, lw=0.9))
+    # 인셋 2: 조대(좌상, 선 위 여백) vs 미세(우하, 선 아래 여백) — 단위정사각 Voronoi 를 스케일(등방 형상 유지)
+    from scipy.spatial import Voronoi
+    for (x0, y0, n, seed, lab) in [(1.15, 190, 6, 61, "조대립 $d\\approx$0.1 mm (약함·인성↓)"),
+                                    (5.35, 62, 24, 67, "미세립 $d\\approx$0.01 mm (강함·인성↑ — 유일한 동시 개선)")]:
+        iw, ih = 1.7, 48
+        ax.add_patch(Rectangle((x0, y0), iw, ih, facecolor="white", edgecolor=C_AX, lw=1.1, zorder=5))
+        rng = np.random.RandomState(seed)
+        pts = rng.rand(n, 2)
+        far = np.array([[-3, -3], [-3, 4], [4, -3], [4, 4]])
+        vor = Voronoi(np.vstack([pts, far]))
+        for pr in vor.point_region[:n]:
+            region = vor.regions[pr]
+            if not region or -1 in region:
+                continue
+            v = _clip_poly_bbox(np.array([vor.vertices[i] for i in region]), 0, 0, 1, 1)
+            if v is not None:
+                sv = np.column_stack([x0 + v[:, 0] * iw, y0 + v[:, 1] * ih])
+                ax.add_patch(Polygon(sv, facecolor="#eef1f4", edgecolor=C_AX, lw=0.7, zorder=6))
+        ax.text(x0 + iw / 2, y0 - 6, lab, fontsize=7.4, color=C_AX, ha="center", va="top", zorder=6)
+    ax.annotate("", xy=(5.9, 118), xytext=(3.0, 200), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.6))
+    ax.text(4.62, 182, "결정립 미세화", fontsize=8.5, color=C_M, ha="center", rotation=-30)
+    ax.set_xlim(0.8, 8.2); ax.set_ylim(45, 260)
+    ax.set_xticks([]); ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_title("Hall–Petch 관계 — 결정립이 작을수록 강해진다 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    save(fig, "hall-petch")
+
+
+def fig_cold_work_effects():
+    """냉간가공 전용 — %CW 에 따른 강도↑·연성↓ + 연신 조직 인셋 (Figure Quality v2)."""
+    from matplotlib.patches import Ellipse
+    fig, ax = plt.subplots(figsize=(7.6, 5.0))
+    cw = np.linspace(0, 60, 200)
+    uts = 45 + 50 * (1 - np.exp(-cw / 22))
+    el = 8 + 82 * np.exp(-cw / 13)
+    ax.plot(cw, uts, color=C_M, lw=2.4)
+    ax.plot(cw, el, color=C_A, lw=2.4)
+    ax.text(46, 92, "강도·경도 ↑", fontsize=10, color=C_M, fontweight="bold")
+    ax.text(46, 20, "연성(연신율) ↓", fontsize=10, color=C_A, fontweight="bold")
+    ax.axvline(37, color=C_MUTE, lw=1.0, ls=":")
+    ax.annotate("연성 고갈 → 균열 위험\n(중간 Annealing 으로 회복 후 재가공)", xy=(37, 15), xytext=(15, 30),
+                fontsize=8.2, color=C_MUTE, arrowprops=dict(arrowstyle="->", color=C_MUTE, lw=0.9))
+    # 조직 인셋: 0%CW 등축(좌상 — 곡선 위 여백) vs 50%CW 연신(우하 — 곡선 아래 여백)
+    for (x0, y0, mode, lab, above) in [(2.5, 79, "eq", "0 %CW — 등축립", False),
+                                        (44, 16, "el", "50 %CW — 연신립+전위↑", True)]:
+        iw, ih = 14, 23
+        ax.add_patch(Rectangle((x0, y0), iw, ih, facecolor="white", edgecolor=C_AX, lw=1.1, zorder=5))
+        rng = np.random.RandomState(9 if mode == "eq" else 13)
+        if mode == "eq":
+            for _ in range(9):
+                ax.add_patch(Circle((rng.uniform(x0 + 1.5, x0 + iw - 1.5), rng.uniform(y0 + 3, y0 + ih - 3)),
+                                    rng.uniform(1.1, 1.9), facecolor="#eef1f4", edgecolor=C_AX, lw=0.7, zorder=6))
+        else:
+            for _ in range(9):
+                ax.add_patch(Ellipse((rng.uniform(x0 + 2, x0 + iw - 2), rng.uniform(y0 + 3, y0 + ih - 3)),
+                                     rng.uniform(5.5, 8.5), rng.uniform(1.0, 1.7), facecolor="#eef1f4",
+                                     edgecolor=C_AX, lw=0.7, zorder=6))
+        if above:
+            ax.text(x0 + iw / 2, y0 + ih + 1.5, lab, fontsize=7.6, color=C_AX, ha="center", va="bottom", zorder=6)
+        else:
+            ax.text(x0 + iw / 2, y0 - 2.5, lab, fontsize=7.6, color=C_AX, ha="center", va="top", zorder=6)
+    ax.set_xlabel("냉간가공률 %CW (단면 감소율) →", fontsize=10, color=C_AX)
+    ax.set_ylabel("상대값", fontsize=10, color=C_AX)
+    ax.set_xlim(0, 62); ax.set_ylim(0, 105)
+    ax.set_yticks([]); ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_title("냉간가공의 효과 — 강해지는 대신 연성을 소모한다 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    save(fig, "cold-work-effects")
+
+
+def fig_hot_cold_scale():
+    """열간/온간/냉간 전용 — 상동온도(T/Tm) 척도와 재결정 경계 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(8.6, 4.6))
+    # 온도 척도 바
+    zones = [(0.0, 0.3, "#dfe9f4", "냉간가공 (cold work)"), (0.3, 0.6, "#efe6d0", "온간가공 (warm)"),
+             (0.6, 1.0, "#f3ddd0", "열간가공 (hot work)")]
+    for x0, x1, col, lab in zones:
+        ax.add_patch(Rectangle((x0, 0.52), x1 - x0, 0.16, facecolor=col, edgecolor=C_AX, lw=1.2))
+        ax.text((x0 + x1) / 2, 0.74, lab, fontsize=9.5, color=C_AX, ha="center", fontweight="bold")
+    ax.axvline(0.4, ymin=0.35, ymax=0.62, color=C_M, lw=1.6, ls="--")
+    ax.annotate("재결정온도 $\\approx 0.4\\,T_m$ (K)", xy=(0.4, 0.52), xytext=(0.32, 0.3), fontsize=9, color=C_M,
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=1.0))
+    for x, t in [(0, "0"), (0.3, "0.3"), (0.6, "0.6"), (1.0, "$T_m$(융점)")]:
+        ax.text(x, 0.47, t, fontsize=8.5, color=C_AX, ha="center", va="top")
+    # 특징 비교(아래 2열)
+    ax.text(0.15, 0.16, "가공경화 O — 강해짐\n치수·표면 정밀\n큰 가공력·연성 한계", fontsize=8.4, color=C_A, ha="center", linespacing=1.5)
+    ax.text(0.8, 0.16, "동적 재결정 — 안 강해짐\n큰 변형 가능·주조조직 개선\n산화 스케일·치수 러프", fontsize=8.4, color=C_M, ha="center", linespacing=1.5)
+    ax.annotate("", xy=(0.62, 0.2), xytext=(0.38, 0.2), arrowprops=dict(arrowstyle="<->", color=C_MUTE, lw=1.0))
+    # 예: 강(Tm~1800K) 열간압연 ~1100°C, 납은 상온이 이미 열간!
+    ax.text(0.5, 0.9, "예: 강의 열간압연 ~1100 °C · 납(Tm 600 K)은 상온이 이미 '열간' — 기준은 절대온도 비율", fontsize=8.4, color=C_MUTE, ha="center")
+    ax.set_xlim(-0.04, 1.06); ax.set_ylim(0, 1.0); ax.axis("off")
+    ax.set_title("냉간·온간·열간의 경계 — 상동온도 $T/T_m$ 이 정한다 (개략)", fontsize=11.5, color=C_AX, pad=6)
+    save(fig, "hot-cold-scale")
+
+
+def fig_annealing_cycle():
+    """Annealing vs Normalizing 전용 — 온도-시간 사이클과 조직 결과 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(8.6, 5.0))
+    t = np.linspace(0, 10, 400)
+    # 공통 가열·유지 (A3 위 ~880°C), 이후 냉각 분기
+    def cycle(cool_rate):
+        T = np.where(t < 2, 20 + (880 - 20) * t / 2, 880.0)
+        T = np.where(t > 4, 880 * np.exp(-cool_rate * (t - 4)) + 20, T)
+        return T
+    ax.plot(t, cycle(0.18), color=C_G, lw=2.4)   # 노냉(완전 annealing)
+    ax.plot(t, cycle(0.55), color=C_A, lw=2.4)   # 공랭(normalizing)
+    ax.axhline(727, color=C_M, lw=1.0, ls=":")
+    ax.axhline(880, color=C_MUTE, lw=0.8, ls=":")
+    ax.text(9.85, 745, "$A_1$ 727 °C", fontsize=8, color=C_M, ha="right")
+    ax.text(9.85, 898, "오스테나이트화 ($A_3$+30~50 °C)", fontsize=8, color=C_MUTE, ha="right")
+    ax.text(7.4, 560, "노냉(furnace cool)\n→ Annealing: 조대 펄라이트\n= 가장 연함·절삭 준비", fontsize=8.6, color=C_G)
+    ax.text(2.6, 200, "공랭(air cool)\n→ Normalizing: 미세 펄라이트\n= 약간 강함·조직 균질", fontsize=8.6, color=C_A)
+    ax.annotate("가열", xy=(1.0, 450), xytext=(0.25, 620), fontsize=8.5, color=C_AX,
+                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
+    ax.annotate("유지(균열)", xy=(3.0, 880), xytext=(2.4, 960), fontsize=8.5, color=C_AX,
+                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
+    ax.set_xlabel("시간 →", fontsize=10, color=C_AX)
+    ax.set_ylabel("온도 (°C)", fontsize=10, color=C_AX)
+    ax.set_xlim(0, 10); ax.set_ylim(0, 1020)
+    ax.set_xticks([]); ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_title("Annealing vs Normalizing — 같은 가열, 다른 냉각, 다른 조직 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    save(fig, "annealing-cycle")
+
+
 def fig_cast_iron_family():
     """주철 4계열 조직 — 회주철(편상흑연)·구상흑연·백주철(탄화물)·ADI(ausferrite). 전용 조직도."""
     fig, axes = plt.subplots(2, 2, figsize=(8.8, 7.4))
@@ -1668,6 +1828,11 @@ if __name__ == "__main__":
     fig_cementite_forms()
     fig_carbide_micro()
     fig_cast_iron_family()
+    fig_ferrite_micro()
+    fig_hall_petch()
+    fig_cold_work_effects()
+    fig_hot_cold_scale()
+    fig_annealing_cycle()
     fig_forming_processes()
     fig_casting_process()
     fig_sintering_stages()
