@@ -67,6 +67,34 @@ describe('linkify — §D 규칙', () => {
   });
 });
 
+describe('linkify — H4f-C sliding + 3자 화이트리스트', () => {
+  const MAP2: AutolinkMap = new Map([
+    ...MAP,
+    ['p91', T('grade-91', 'M_10', 'Grade 91')],
+    ['m42', T('high-speed-steel', 'M_11', 'M42 HSS')],
+    ['hastelloyx', T('hastelloy-x', 'M_12', 'Hastelloy X')],
+    ['haynes230', T('haynes-230', 'M_13', 'Haynes 230')],
+  ]);
+  it('나열식 run 에서 뒤 항목도 링크 — "Inconel 718·Hastelloy X·Haynes 230"', () => {
+    const n = linkify('Inconel 718·Hastelloy X·Haynes 230 이 있다', MAP2, null, null);
+    expect(linkTexts(n)).toEqual(['Inconel 718', 'Hastelloy X', 'Haynes 230']);
+    expect(plainOf(n)).toBe('Inconel 718·Hastelloy X·Haynes 230 이 있다'); // 무손실
+  });
+  it('선두 토큰 미스 후 재시도 — "공구강 M42" 아닌 "HSS M42" 같은 접두 뒤 항목', () => {
+    const n = linkify('보일러엔 P91 이, 절삭엔 M42 가 쓰인다', MAP2, null, null);
+    expect(linkTexts(n)).toEqual(['P91', 'M42']);
+  });
+  it('3자 폼은 map 등록시에만 — 미등록 3자(304)는 여전히 무링크', () => {
+    const n = linkify('304 는 map 에 없다', MAP2, null, null);
+    expect(linkTexts(n)).toEqual([]);
+  });
+  it('2자 토큰은 map 에 있어도 링크 안 함(하한 3)', () => {
+    const MAP3: AutolinkMap = new Map([['d2', T('d2', 'M_20', 'D2')]]);
+    const n = linkify('D2 공구강', MAP3, null, null);
+    expect(linkTexts(n)).toEqual([]);
+  });
+});
+
 describe('linkify — authored [[key|label]]', () => {
   it('key 해결 시 label 로 링크', () => {
     const n = linkify('참조: [[peek|폴리이터이터케톤]] 를 보라', MAP, BYKEY, null);

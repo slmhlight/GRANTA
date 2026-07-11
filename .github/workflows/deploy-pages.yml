@@ -49,6 +49,12 @@ jobs:
       - name: Build data (regenerate client/public/materials.json)
         run: pnpm build:data
 
+      # R227/E14 — wiki-index/backlinks 는 gitignore 된 build:wiki 산출물.
+      # 이 스텝이 빠지면 배포 사이트에서 fetch 404 → 재료 자동링크·백링크 카드가 조용히 전멸한다.
+      # (tests/pipeline-integrity.test.ts 가 이 스텝의 존재를 게이트함)
+      - name: Build wiki index (material auto-links & backlinks)
+        run: pnpm build:wiki
+
       - name: Build static site
         run: pnpm exec vite build
 

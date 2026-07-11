@@ -94,7 +94,8 @@ export function linkify(
       continue;
     }
     if (!map) { nodes.push({ t: 'text', s: seg.s }); continue; }
-    // auto-link 스캔
+    // auto-link 스캔 — run 선두 프리픽스 최장 매칭 + 미스/히트 후 run 내 다음 토큰부터 재시도(sliding).
+    // sliding 은 "M35·M42"·"Inconel 625·Hastelloy X" 같은 나열에서 뒤 항목도 링크되게 한다 (H4f-C).
     const src = seg.s;
     let last = 0;
     RUN.lastIndex = 0;
@@ -107,7 +108,7 @@ export function linkify(
       let hitTgt: AutolinkTarget | null = null;
       for (let n = toks.length; n >= 1; n--) {
         const cand = norm(toks.slice(0, n).join(''));
-        if (cand.length < 4) continue;
+        if (cand.length < 3) continue; // 1~2자는 항상 제외; 3자는 빌드타임 화이트리스트(SHORT_AUTOLINK_OK)가 맵 등록을 통제
         const tgt = map.get(cand);
         if (tgt && tgt.repId && tgt.entityId !== selfKey && !linked.has(tgt.entityId)) {
           hitLen = prefixLen(run, toks, n);
@@ -119,7 +120,12 @@ export function linkify(
         if (start > last) nodes.push({ t: 'text', s: src.slice(last, start) });
         nodes.push({ t: 'link', s: run.slice(0, hitLen), entityId: hitTgt.entityId, repId: hitTgt.repId!, display: hitTgt.display });
         linked.add(hitTgt.entityId);
-        last = start + hitLen; // run 의 나머지 꼬리는 다음 flush 에서 평문 처리
+        last = start + hitLen;
+        // run 꼬리("·M42" 등)를 이어서 스캔 — 구분자 1자 건너뛰고 재개
+        if (hitLen < run.length) RUN.lastIndex = start + hitLen + 1;
+      } else if (toks.length > 1) {
+        // 선두 토큰 매칭 실패 — 다음 토큰부터 재시도 ("Grade 1200/850" 의 뒷항목 등)
+        RUN.lastIndex = start + prefixLen(run, toks, 1) + 1;
       }
     }
     if (last < src.length) nodes.push({ t: 'text', s: src.slice(last) });

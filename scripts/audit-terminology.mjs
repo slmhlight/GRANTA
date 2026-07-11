@@ -20,6 +20,7 @@ const MAP = [
   { ko: /뜨임|소려/g, en: 'Tempering' },
   { ko: /불림/g, en: 'Normalizing' },
   { ko: /정규화/g, en: 'Normalizing', ctx: true }, // 오역 — 열처리 문맥만
+  { ko: /정상화/g, en: 'Normalizing', ctx: true }, // 오역 변종 (H4f — normalizing 문서 표제에서 실검출) — 열처리 문맥만
   { ko: /풀림/g, en: 'Annealing' },
   { ko: /용체화/g, en: 'Solution treatment' },
   { ko: /시효/g, en: 'Aging' },

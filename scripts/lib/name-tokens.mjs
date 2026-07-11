@@ -86,13 +86,21 @@ export function isJunkForm(f) {
   return false;
 }
 
+/** 3자 지정자 화이트리스트 (H4f-C) — 검증된 고유·고가치 grade 코드만.
+ *  조건: 글자 포함(순숫자 불가)·산문 영어단어와 무충돌·단일 entity 해석(ambiguous 는 어차피 차단).
+ *  P91/P92(크리프강)·X-grade(라인파이프)·M-grade(HSS)·A36(구조강)·L80(유정관)·P20(금형강). */
+export const SHORT_AUTOLINK_OK = new Set([
+  'p91', 'p92', 'x42', 'x52', 'x60', 'x65', 'x70', 'x80', 'm35', 'm42', 'm50', 'a36', 'l80', 'p20',
+]);
+
 /** autolink 후보 판정(자동 제안 — 이후 수동 검수 대상).
- *  보수적: 길이≥4 · 알파벳 포함(순수숫자 4150/304 제외 — 단어경계 처리 전까지 명시링크만) · 비-junk · 비-모호.
+ *  보수적: 길이≥4(화이트리스트 3자 예외) · 알파벳 포함(순수숫자 4150/304 제외 — 단어경계 처리 전까지 명시링크만) · 비-junk · 비-모호.
  *  @param ambiguous  이 form 이 2개 이상 엔티티로 해석되면 true (호출측이 전역 계산해 전달) */
 export function suggestAutolink(form, ambiguous) {
   if (ambiguous) return false;
   if (isJunkForm(form)) return false;
-  if (form.length < 4 || form.length > 18) return false; // 약어(<4)·설명블롭(>18)은 명시링크만
+  if (form.length < 4 && !SHORT_AUTOLINK_OK.has(form)) return false; // 약어(<4)는 화이트리스트만
+  if (form.length > 18) return false; // 설명블롭(>18)은 명시링크만
   if (!/[a-z]/i.test(form)) return false;      // 순수 숫자(4150·304)는 명시링크만 (§A 오탐 방지)
   if (AUTOLINK_STOP.has(form)) return false;   // 원소명·흔한 영어단어·서술어(§D — 산문 상시등장 → 과링크 재앙)
   if (!/[0-9]/.test(form) && GENERIC_WORDS.has(form)) return false; // 설명어 leak (wing·tank·marine…)

@@ -85,11 +85,13 @@ describe('wiki-index 스키마·무결성 (R227/E14/H1)', () => {
     expect(bad).toEqual([]);
   });
 
-  it('autolink=true form 은 len≥4·알파벳 포함 (순수숫자/약어 제외)', () => {
+  it('autolink=true form 은 len≥4·알파벳 포함 (순수숫자/약어 제외; 3자는 화이트리스트만)', async () => {
+    // H4f-C — 검증된 3자 grade 코드 화이트리스트 (name-tokens SHORT_AUTOLINK_OK 와 동일 SSOT)
+    const { SHORT_AUTOLINK_OK } = await import('../scripts/lib/name-tokens.mjs');
     const bad: string[] = [];
     for (const e of IDX.entities) for (const sf of e.surface_forms) {
       if (!sf.autolink) continue;
-      if (sf.form.length < 4) bad.push(`${e.id}: 짧은 autolink "${sf.form}"`);
+      if (sf.form.length < 4 && !SHORT_AUTOLINK_OK.has(sf.form)) bad.push(`${e.id}: 짧은 autolink "${sf.form}"`);
       if (!/[a-z]/.test(sf.form)) bad.push(`${e.id}: 숫자만 autolink "${sf.form}"`);
     }
     expect(bad.slice(0, 20)).toEqual([]);
