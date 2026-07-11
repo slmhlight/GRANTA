@@ -1,6 +1,6 @@
 # 분류 완결 감사 리포트 (자동 생성 — audit-family-coverage.mjs)
 
-> DB subcategory 132 ↔ 글로서리 alloy-family 6. (a)=페이지 없는 계열(후보), (b)=글로서리만 있고 DB 빈약.
+> DB subcategory 132 ↔ 글로서리 alloy-family 16. (a)=페이지 없는 계열(후보), (b)=글로서리만 있고 DB 빈약.
 
 ## (a) DB subcategory 전수 — 글로서리 계열 페이지 유무
 
@@ -36,12 +36,13 @@
 | Composite / Carbon-Epoxy | 9 | **—** |  |
 | Metal / Aluminum - Mn Alloys (3xxx) | 8 | **—** |  |
 | Polymer / Polymer - POM | 8 | **—** |  |
+| Metal / Cast Iron | 8 | **—** |  |
 | Ceramic / Carbide | 8 | **—** |  |
 | Polymer / Polymer - Polycarbonate | 7 | **—** |  |
 | Metal / Rail Steel | 7 | **—** |  |
+| Metal / Heat-Resistant Steel | 7 | **—** |  |
 | Polymer / Polymer - PEI/ULTEM | 6 | **—** |  |
 | Metal / Pipeline Steel | 6 | **—** |  |
-| Metal / Heat-Resistant Steel | 6 | **—** |  |
 | Metal / Pressure Vessel Steel | 6 | **—** |  |
 | Polymer / Polymer - PSU | 5 | **—** |  |
 | Metal / Advanced High-Strength Steel | 5 | **—** |  |
@@ -52,7 +53,6 @@
 | Polymer / Polymer - PEEK | 4 | **—** |  |
 | Polymer / Polymer - PMMA | 4 | **—** |  |
 | Metal / Microalloyed Steel | 4 | **—** |  |
-| Metal / Cast Iron | 4 | **—** |  |
 | Metal / Low-Alloy Steel - Cryogenic Ni | 4 | **—** |  |
 | Metal / Shipbuilding Steel | 4 | **—** |  |
 | Composite / Foam-Polymer | 4 | **—** |  |
@@ -149,6 +149,16 @@
 | duplex-stainless-steel | 듀플렉스 스테인리스강 (Duplex Stainless Steel) | ✓ |  |
 | nickel-superalloy | 니켈기 초합금 (Nickel Superalloy) | ✓ |  |
 | high-speed-steel | 고속도강 (High-Speed Steel, HSS) | ✓ |  |
+| white-cast-iron | 백주철 (White Cast Iron) | ✓ |  |
+| austempered-ductile-iron | ADI (Austempered Ductile Iron) | ✓ |  |
+| carbon-steel | 탄소강 (Carbon Steel) | ✓ |  |
+| alloy-steel | 합금강 (Alloy Steel) | ✓ |  |
+| aluminum-alloy | 알루미늄 합금 (Aluminum Alloy) | ✓ |  |
+| copper-alloy | 구리 합금 (Copper Alloy) | ✓ |  |
+| titanium-alloy | 티타늄 합금 (Titanium Alloy) | ✓ |  |
+| refractory-metal | 고융점 금속 (Refractory Metal) | ✓ |  |
+| cobalt-alloy | 코발트 합금 (Cobalt Alloy) | ✓ |  |
+| magnesium-alloy | 마그네슘 합금 (Magnesium Alloy) | ✓ |  |
 
 > 후보 판단 기준: entry 수가 많은 미커버 subcategory(상단 — 표) 순으로 alloy-family 용어·문서 신설 검토.
 > 백주철(white cast iron)·ADI 는 §5 확정 — Cast Iron subcat 하위로 추가 예정.

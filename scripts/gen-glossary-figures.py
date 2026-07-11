@@ -1205,6 +1205,47 @@ def fig_annealing_cycle():
     save(fig, "annealing-cycle")
 
 
+def fig_orowan():
+    """분산강화 전용 — Orowan 우회 3단계 + 간격-강도 관계 (Figure Quality v2)."""
+    fig, axes = plt.subplots(1, 3, figsize=(9.6, 3.6))
+    P = [(0.35, 0.5), (0.65, 0.5)]
+    r = 0.055
+    for k, (ax, title) in enumerate(zip(axes, ["① 접근", "② 활처럼 휨 (bowing)", "③ 통과 — 루프를 남김"])):
+        for (cx, cy) in P:
+            ax.add_patch(Circle((cx, cy), r, facecolor=C_G, edgecolor=C_AX, lw=1.2, zorder=4))
+        if k == 0:
+            ax.plot([0.05, 0.95], [0.3, 0.3], color="#1f2933", lw=2.2)
+            ax.annotate("", xy=(0.5, 0.41), xytext=(0.5, 0.31), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.4))
+            ax.text(0.56, 0.35, "τ", fontsize=10, color=C_M)
+        elif k == 1:
+            xs = np.linspace(0.05, 0.95, 200)
+            ys = np.full_like(xs, 0.5)
+            mid = (xs > P[0][0] + r) & (xs < P[1][0] - r)
+            ys[mid] = 0.5 + 0.16 * np.sin((xs[mid] - (P[0][0] + r)) / (P[1][0] - P[0][0] - 2 * r) * np.pi)
+            left = xs <= P[0][0] + r
+            right = xs >= P[1][0] - r
+            ys[left] = 0.5 - 0.0
+            ys[right] = 0.5 - 0.0
+            ax.plot(xs, ys, color="#1f2933", lw=2.2)
+            ax.annotate("간격 λ 가 좁을수록\n더 큰 응력이 필요", xy=(0.5, 0.68), xytext=(0.5, 0.88), fontsize=7.8,
+                        color=C_M, ha="center", arrowprops=dict(arrowstyle="->", color=C_M, lw=0.8))
+            ax.annotate("", xy=(P[1][0] - r - 0.01, 0.5), xytext=(P[0][0] + r + 0.01, 0.5),
+                        arrowprops=dict(arrowstyle="<->", color=C_MUTE, lw=0.8))
+            ax.text(0.5, 0.44, "λ", fontsize=9, color=C_MUTE, ha="center")
+        else:
+            ax.plot([0.05, 0.95], [0.72, 0.72], color="#1f2933", lw=2.2)
+            for (cx, cy) in P:
+                ax.add_patch(Circle((cx, cy), r + 0.03, facecolor="none", edgecolor="#1f2933", lw=1.3,
+                                    ls=(0, (3, 2)), zorder=5))
+            ax.text(0.5, 0.28, "입자 둘레에 전위 루프 잔류\n→ 다음 전위는 더 힘들어짐(강화 누적)", fontsize=7.6,
+                    color=C_AX, ha="center")
+        ax.set_title(title, fontsize=10, color=C_AX, fontweight="bold")
+        ax.set_xlim(0, 1); ax.set_ylim(0.1, 1.0); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("Orowan 우회 — 전위가 뚫지 못하는 입자를 지나는 법 ($\\Delta\\tau \\propto 1/\\lambda$)", fontsize=11.5, color=C_AX, y=1.0)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.8, bottom=0.03, wspace=0.08)
+    save(fig, "orowan")
+
+
 def fig_al_families():
     """알루미늄 계열 전용 — 시리즈별 σy 스펙트럼 바 + 강화방식 구분 (Figure Quality v2)."""
     fig, ax = plt.subplots(figsize=(8.8, 5.2))
@@ -1895,6 +1936,7 @@ if __name__ == "__main__":
     fig_cementite_forms()
     fig_carbide_micro()
     fig_cast_iron_family()
+    fig_orowan()
     fig_al_families()
     fig_ti_families()
     fig_ferrite_micro()

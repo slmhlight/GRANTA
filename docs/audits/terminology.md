@@ -1,21 +1,22 @@
 # 용어 정확·일관 감사 리포트 (자동 생성 — audit-terminology.mjs)
 
-> §3.1 대응표 기준 한글 열처리어 사용처: **총 650 건 / 76 (용어×소스)**. Phase 5 영어원문 스윕의 작업 목록.
+> §3.1 대응표 기준 한글 열처리어 사용처: **총 672 건 / 79 (용어×소스)**. Phase 5 영어원문 스윕의 작업 목록.
 > **"정규화" 오역(열처리 문맥): 0 건** — 최우선 교정.
 
 | 한글 패턴 | 영어 표준 | 소스 | 건수 | 오역 | 샘플 |
 |---|---|---|---|---|---|
-| 시효 | Aging | 스토리 (data/alloy-stories.json) | 69 |  | 제거해 단면 어느 방향으로든 균일한 인성을 낸다. 시효 온도(H900~H1150)로 강도를 조율하는 것도 같 |
-| 시효 | Aging | 글로서리 A4 (data/glossary-articles.json) | 50 |  |  강의 강화 원리가 바로 마르텐사이트(+후속 석출·시효)다." }, {  |
+| 시효 | Aging | 글로서리 A4 (data/glossary-articles.json) | 66 |  |  강의 강화 원리가 바로 마르텐사이트(+후속 석출·시효)다." }, {  |
+| 시효 | Aging | 스토리 (data/alloy-stories.json) | 43 |  |  어느 방향으로든 균일한 인성을 낸다. Aging(시효) 온도(H900~H1150)로 강도를 조율하는 것도  |
 | 담금질|소입 | Quenching | 스토리 (data/alloy-stories.json) | 31 |  | 프레드 빌름은 Al-Cu 합금을 Quenching(담금질)해 두고 며칠 뒤 강도가 두 배로 오른 것을 발견했 |
-| 예민화 | Sensitization | 글로서리 A4 (data/glossary-articles.json) | 23 |  | 800 °C 에서 입계에 크로뮴 탄화물이 석출하는 예민화로 입계부식에 취약해질 수 있다(저탄소 L 등급·안정 |
-| 경화능 | Hardenability | 스토리 (data/alloy-stories.json) | 21 |  |  "breakthrough": "보론 미량이 경화능을 극적으로 높여 금형 냉각만으로 완전 마르텐사이트를 |
+| 예민화 | Sensitization | 글로서리 A4 (data/glossary-articles.json) | 30 |  | 800 °C 에서 입계에 크로뮴 탄화물이 석출하는 예민화로 입계부식에 취약해질 수 있다(저탄소 L 등급·안정 |
+| 경화능 | Hardenability | 글로서리 A4 (data/glossary-articles.json) | 25 |  |  "heading": "임계냉각속도와 경화능", "figure": "ttt- |
+| 뜨임|소려 | Tempering | 글로서리 A4 (data/glossary-articles.json) | 24 |  | 커서, 실제 부품에는 거의 항상 Tempering(뜨임)을 거쳐 인성을 회복시킨 뒤 사용한다."  |
 | 시효 | Aging | 공정 프로파일 (data/process-profiles.json) | 21 |  | uCrZr 석출경화 Cu — 순동보다 훨씬 양호. 시효 상태 가공 권장.", "guidance_key |
+| 침탄 | Carburizing | 글로서리 A4 (data/glossary-articles.json) | 19 |  |  "최고 경도 유지 — 공구·베어링·침탄품" ],  |
+| 담금질|소입 | Quenching | 글로서리 A4 (data/glossary-articles.json) | 18 |  | : "마르텐사이트는 강을 급랭(Quenching, 담금질)할 때 생기는 대표적인 경화 조직이다. 이름은 강의 |
 | 뜨임|소려 | Tempering | 스토리 (data/alloy-stories.json) | 17 |  | 같은 Quenching(담금질)-Tempering(뜨임) 초고강도강보다 같은 강도에서 훨씬 잘 안 깨진다.  |
-| 담금질|소입 | Quenching | 글로서리 A4 (data/glossary-articles.json) | 17 |  | : "마르텐사이트는 강을 급랭(Quenching, 담금질)할 때 생기는 대표적인 경화 조직이다. 이름은 강의 |
-| 뜨임|소려 | Tempering | 글로서리 A4 (data/glossary-articles.json) | 16 |  | 커서, 실제 부품에는 거의 항상 Tempering(뜨임)을 거쳐 인성을 회복시킨 뒤 사용한다."  |
-| 침탄 | Carburizing | 글로서리 A4 (data/glossary-articles.json) | 16 |  |  앞당기고, 반대로 표면을 매끄럽게 하거나 숏피닝·침탄·질화로 표면에 압축 잔류응력을 넣으면 수명이 크게 늘 |
 | 시효 | Aging | HT 가이드 (data/ht-guidance.json) | 16 |  | / ASTM B107 / B90 (AZ31B, 비시효 -O/-H24) / ASTM B107 (Mg 압출 |
+| 경화능 | Hardenability | 스토리 (data/alloy-stories.json) | 15 |  | ugh": "보론 미량이 Hardenability(경화능)를 극적으로 높여 금형 냉각만으로 완전 마르텐사이트 |
 | 담금질|소입 | Quenching | 글로서리 정의 (data/glossary.json) | 14 |  |  "short": "오스테나이트를 급랭(담금질)할 때 탄소가 빠져나가지 못하고 과포화된 체심정방( |
 | 시효 | Aging | 글로서리 정의 (data/glossary.json) | 14 |  |  "age hardening", "시효경화" ], "autolink |
 | 시효 | Aging | 선택 인사이트 (data/selection-insights.json) | 14 |  | 소 마르텐사이트라 용체화 상태 가공 → 480°C 시효(변형 ~0.06%)로 완성 — Q+T 강의 담금질 변 |
@@ -27,17 +28,15 @@
 | 침탄 | Carburizing | 스토리 (data/alloy-stories.json) | 10 |  | 으로, 표면 경화가 필요하면 Carburizing(침탄)강으로 간다.", "fun_fact": "클 |
 | 용체화 | Solution treatment | 글로서리 A4 (data/glossary-articles.json) | 10 |  |  "body": "시효(에이징)는 용체화·급랭으로 만든 과포화 고용체를 적절한 온도에서 유지 |
 | 오스테나이트화 | Austenitizing | 글로서리 A4 (data/glossary-articles.json) | 10 |  |  "body": "Quenching(소입)은 오스테나이트화한 강을 임계냉각속도 이상으로 급랭해 마르텐사 |
-| 경화능 | Hardenability | 글로서리 A4 (data/glossary-articles.json) | 10 |  |  "heading": "임계냉각속도와 경화능", "figure": "ttt- |
-| 예민화 | Sensitization | 스토리 (data/alloy-stories.json) | 9 |  | 6Ti 는 Ti 로 탄화물을 안정화해 고온 용접부 예민화를 막고, 316H 는 탄소를 높여 고온 크리프를,  |
 | 뜨임|소려 | Tempering | 글로서리 정의 (data/glossary.json) | 9 |  | 어 생기는 상. 매우 단단하지만 취성이 커, 보통 뜨임으로 인성을 회복시킨다.", "source |
 | 서브제로 | Sub-zero (cryogenic) treatment | 글로서리 A4 (data/glossary-articles.json) | 9 |  | 류 오스테나이트는 치수 불안정·경도 저하를 유발해 서브제로 처리로 줄인다.\n③ Tempering 없이 방치 |
+| 응력제거|응력 제거 | Stress relief | 글로서리 A4 (data/glossary-articles.json) | 9 |  | : "세 요소 중 하나를 끊으면 된다. 잔류응력을 응력제거Annealing(풀림)으로 낮추고, 환경(염화물  |
 | 적열경도 | Red hardness | 글로서리 A4 (data/glossary-articles.json) | 9 |  | 속도강이 절삭 중 발생하는 고온에서도 경도를 유지(적열경도)하는 원리가 바로 이것이다." } |
 | 용체화 | Solution treatment | 글로서리 정의 (data/glossary.json) | 8 |  | ment": { "display": "용체화처리 (Solution Treatment)",  |
-| 응력제거|응력 제거 | Stress relief | 글로서리 A4 (data/glossary-articles.json) | 8 |  | : "세 요소 중 하나를 끊으면 된다. 잔류응력을 응력제거Annealing(풀림)으로 낮추고, 환경(염화물  |
 | 용체화 | Solution treatment | HT 가이드 (data/ht-guidance.json) | 8 |  | 상 + 미세편석 상태 — 시효만으로 부족, 균질화/용체화가 선행돼야 함.\n ① Stress Relief: |
 | 침탄 | Carburizing | 코팅 추천 (data/coating-recommendations.json) | 8 |  | tion": "C<0.35% 강은 경화 불충분 — 침탄강 영역." }, { "coating": "sh |
 | 시효 | Aging | 가이드 프로즈(UI) (client/src/pages/Guide.tsx) | 8 |  |  className="p-2">PH 강 출발조건, 시효 전 가공·용접 적합 (σy 낮음, El ↑)</td> |
-| 용체화 | Solution treatment | 스토리 (data/alloy-stories.json) | 7 |  |  스테인리스 — Solution treatment(용체화) 상태로 가공한 뒤 480~620°C 시효를 걸면  |
+| 용체화 | Solution treatment | 스토리 (data/alloy-stories.json) | 7 |  |  스테인리스 — Solution treatment(용체화) 상태로 가공한 뒤 480~620°C Aging을  |
 | 풀림 | Annealing | 글로서리 정의 (data/glossary.json) | 7 |  | ling": { "display": "풀림 · 어닐링 (Annealing)", "c |
 | 응력제거|응력 제거 | Stress relief | 글로서리 정의 (data/glossary.json) | 7 |  | lief": { "display": "응력제거풀림 (Stress Relief)",  |
 | 예민화 | Sensitization | 글로서리 정의 (data/glossary.json) | 7 |  | ). 경도와 내마모성을 높이지만, 입계에 석출하면 예민화·입계부식을 유발한다.", "source |
@@ -45,6 +44,7 @@
 | 마르퀜칭|마템퍼링 | Martempering | 글로서리 정의 (data/glossary.json) | 6 |  | ring": { "display": "마르퀜칭 · 마템퍼링 (Martempering)",  |
 | 서브제로 | Sub-zero (cryogenic) treatment | 글로서리 정의 (data/glossary.json) | 6 |  | 남은 오스테나이트. 치수 안정성과 경도를 떨어뜨려 서브제로 처리로 줄인다.", "sources" |
 | 시효 | Aging | HT 글로서리(UI) (client/src/lib/ht-glossary.ts) | 6 |  | ealed', effect: 'PH 강 출발조건, 시효 전 가공·용접 적합 (σy 낮음, El ↑)' }], |
+| 예민화 | Sensitization | 스토리 (data/alloy-stories.json) | 5 |  | 을 안정화해 고온 용접부 Sensitization(예민화)을 막고, 316H 는 탄소를 높여 고온 크리프를, |
 | 질화(?!물|텅스텐) | Nitriding | 선택 인사이트 (data/selection-insights.json) | 5 |  | 면)", "use": "8620 침탄 / 4140 질화", "why": "기어는 표면 피로(HRC 58+)와 |
 | 질화(?!물|텅스텐) | Nitriding | 가이드 프로즈(UI) (client/src/pages/Guide.tsx) | 5 |  | 인성 ≥ 30 J</b> (충격 흡수), 침탄 / 질화 / 유도 경화 적용 가능 alloy. AGMA gra |
 | 불림 | Normalizing | 스토리 (data/alloy-stories.json) | 4 |  | breakthrough": "Normalizing(불림)으로 페라이트-펄라이트 조직을 미세·균질하게 만들어  |
@@ -57,6 +57,8 @@
 | 예민화 | Sensitization | 선택 인사이트 (data/selection-insights.json) | 4 |  | — Cl⁻ 가 없는 환경에서 가장 경제적. 용접부 예민화가 걱정되면 L(저탄소) grade." },  |
 | 불림 | Normalizing | 글로서리 정의 (data/glossary.json) | 3 |  | zing": { "display": "불림 · 노멀라이징 (Normalizing)",  |
 | 침탄 | Carburizing | 글로서리 정의 (data/glossary.json) | 3 |  | zing": { "display": "침탄 (Carburizing)", "categ |
+| 경화능 | Hardenability | 글로서리 정의 (data/glossary.json) | 3 |  | 르텐사이트를 형성, 경화하는 열처리. 급랭 속도가 경화능을 좌우한다.", "sources": [ |
+| 시효 | Aging | 절삭성 가이드 (data/machining-guidance.json) | 3 |  | m) 있으므로 정밀 공차는 이를 공제해 가공하거나 시효 후 연삭로 잡는다.\n\n【표준】 AMS 5643 ( |
 | 질화(?!물|텅스텐) | Nitriding | HT 가이드 (data/ht-guidance.json) | 3 |  | buriz·nitrid·cementation·침탄·질화", "field": "heat_treatment |
 | 경화능 | Hardenability | 선택 인사이트 (data/selection-insights.json) | 3 |  | 어·볼트류는 '요구 강도(HT 후) + 단면 크기(경화능) + 가공·비용'의 삼각형이다. 필요 이상의 합금강 |
 | 침탄 | Carburizing | 가이드 프로즈(UI) (client/src/pages/Guide.tsx) | 3 |  | 어 <b>인성 ≥ 30 J</b> (충격 흡수), 침탄 / 질화 / 유도 경화 적용 가능 alloy. AGM |
@@ -67,9 +69,10 @@
 | 질화(?!물|텅스텐) | Nitriding | HT 글로서리(UI) (client/src/lib/ht-glossary.ts) | 2 |  | led', effect: 'β-transus 위 균질화, 인성 ↑, El ↓' }], // Ni-base |
 | 풀림 | Annealing | 가이드 프로즈(UI) (client/src/pages/Guide.tsx) | 2 |  |  situation="인장·전단·반복 풀림 — 토크 설계는 σ_yield 의 60-90 %로 p |
 | 응력제거|응력 제거 | Stress relief | 스토리 (data/alloy-stories.json) | 1 |  | 1144 Stressproof 는 여기에 냉간가공+응력제거를 더해 열처리 없이 σy ~700 MPa 를 내, |
-| 적열경도 | Red hardness | 스토리 (data/alloy-stories.json) | 1 |  | ·V 탄화물이 뜨거운 절삭날에서도 무뎌지지 않는 ‘적열경도(red hardness)’를 준다. M4 는 V  |
-| 경화능 | Hardenability | 글로서리 정의 (data/glossary.json) | 1 |  | 르텐사이트를 형성, 경화하는 열처리. 급랭 속도가 경화능을 좌우한다.", "sources": [ |
 | 불림 | Normalizing | 글로서리 A4 (data/glossary-articles.json) | 1 |  | 요", "body": "정상화(불림)는 강을 A₃(또는 Acm)선 위로 가열해 오스테나이 |
+| 뜨임|소려 | Tempering | 절삭성 가이드 (data/machining-guidance.json) | 1 |  | 트화하고 chip 으로 급랭되며 1~3 μm 의 미뜨임(untempered) 마르텐사이트 백색층이 생긴다.  |
+| 응력제거|응력 제거 | Stress relief | 절삭성 가이드 (data/machining-guidance.json) | 1 |  | .01~0.05%). 필요하면 580~650 °C 응력제거 후 서랭으로 안정화한다.\n\n【표준】 ASTM  |
+| 오스테나이트화 | Austenitizing | 절삭성 가이드 (data/machining-guidance.json) | 1 |  | 구 끝 온도(800~1000 °C)가 표면을 순간 오스테나이트화하고 chip 으로 급랭되며 1~3 μm 의  |
 | 질화(?!물|텅스텐) | Nitriding | 공정 프로파일 (data/process-profiles.json) | 1 |  | ", "case": "이 조건은 표면경화(침탄/질화) 상태 — 용접열이 경화층을 손상. 용접은 표면경화  |
 | 응력제거|응력 제거 | Stress relief | HT 가이드 (data/ht-guidance.json) | 1 |  | 80-600°C / 1-2 h / 진공·Ar (잔류응력 제거·치수 안정). 열처리 강화 개념 없음(α 단상) |
 | 침탄 | Carburizing | HT 가이드 (data/ht-guidance.json) | 1 |  | carburiz·nitrid·cementation·침탄·질화", "field": "heat_treatm |

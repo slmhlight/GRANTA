@@ -2105,6 +2105,81 @@
         "passivation",
         "aluminum-alloy"
       ]
+    },
+    "refractory-metal": {
+      "display": "고융점 금속 (Refractory Metal)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "고융점 금속",
+        "refractory metal",
+        "내화금속",
+        "refractory"
+      ],
+      "autolink": [
+        "고융점 금속",
+        "refractory metal"
+      ],
+      "short": "융점이 대략 2000 °C 를 넘는 금속들 — 텅스텐(3422)·레늄·탄탈럼·몰리브데넘·니오븀. 초합금도 녹는 극한 온도를 버티는 마지막 보루지만, 상온 취성(W·Mo)과 고온 산화라는 약점 때문에 진공·불활성 환경이나 코팅과 함께 쓴다.",
+      "sources": [
+        "ASM Handbook Vol.2 (Nonferrous)",
+        "Plansee/H.C. Starck 기술자료"
+      ],
+      "related": [
+        "dbtt",
+        "sintering",
+        "creep",
+        "brittleness"
+      ]
+    },
+    "cobalt-alloy": {
+      "display": "코발트 합금 (Cobalt Alloy)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "코발트 합금",
+        "cobalt alloy",
+        "Co 합금",
+        "코발트기"
+      ],
+      "autolink": [
+        "코발트 합금",
+        "cobalt alloy"
+      ],
+      "short": "마모·부식·고온·인체를 동시에 견디는 특수 가족. Stellite(내마모 hardfacing)·CoCrMo(인공관절)·Haynes 188/L-605(가스터빈 연소기)·MP35N(초고강도 체결구)이 대표다. 비싸고 가공이 어려워 '다른 재료가 못 버티는 자리' 전용이다.",
+      "sources": [
+        "ASM Handbook Vol.2 (Nonferrous)",
+        "ASTM F75/F1537"
+      ],
+      "related": [
+        "carbide",
+        "nickel-superalloy",
+        "work-hardening",
+        "high-speed-steel"
+      ]
+    },
+    "magnesium-alloy": {
+      "display": "마그네슘 합금 (Magnesium Alloy)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "마그네슘 합금",
+        "magnesium alloy",
+        "Mg 합금",
+        "마그네슘합금"
+      ],
+      "autolink": [
+        "마그네슘 합금",
+        "magnesium alloy"
+      ],
+      "short": "밀도 1.74 g/cm³ — 실용 구조 금속 중 가장 가볍다(알루미늄의 2/3). 진동 감쇠·전자파 차폐·주조성이 좋아 전자기기 섀시·자동차 부품에 쓰이지만, 내식성이 약하고 분진·swarf 의 발화 위험이 있어 설계·가공 모두 전용 규율이 따른다.",
+      "sources": [
+        "ASM Handbook Vol.2 (Nonferrous)",
+        "ASTM B90/B94"
+      ],
+      "related": [
+        "aluminum-alloy",
+        "casting",
+        "galvanic",
+        "anisotropy"
+      ]
     }
   }
 }
