@@ -415,37 +415,91 @@ def fig_dbtt_curve():
 
 
 def fig_passivation_pitting():
-    """부동태 피막과 공식(pitting) 발생 — 모식도."""
-    fig, ax = plt.subplots(figsize=(7.2, 3.8))
-    ax.add_patch(Rectangle((0.5, 0.2), 9, 2.0, facecolor="#cfd3d8", edgecolor=C_AX, lw=1.2))
-    ax.text(3.2, 1.15, "금속 (스테인리스강 등)", ha="center", fontsize=10, color=C_AX)
-    ax.add_patch(Rectangle((0.5, 2.2), 9, 0.26, facecolor="#4a9b6e", edgecolor="none"))
-    ax.text(0.7, 2.72, "부동태 피막 (치밀한 Cr₂O₃ 산화막)", fontsize=9, color="#2f6b4a", ha="left")
-    # Cl- 공격 (위첨자 마이너스는 mathtext 로 — 폰트 tofu 회피)
-    ax.annotate(r"$\mathrm{Cl^{-}}$", xy=(6.5, 2.5), xytext=(6.5, 3.5), fontsize=13, color=C_M, ha="center",
-                arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.8))
-    # pit (금속으로 파고든 V)
-    ax.add_patch(Polygon([(6.05, 2.2), (6.95, 2.2), (6.62, 0.7), (6.5, 0.45), (6.38, 0.7)],
-                         facecolor="white", edgecolor=C_M, lw=1.5))
-    ax.annotate("공식(pit)\n피막 국부 파괴→국부 부식", xy=(6.7, 1.2), xytext=(7.7, 1.5),
-                fontsize=9, color=C_M, ha="left",
+    """부동태 피막과 공식 v2 — 자가재생 vs 자가촉매 공식 화학 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(9.6, 5.2))
+    # 금속 + 피막 + 전해질
+    ax.add_patch(Rectangle((0.5, 0.2), 9.2, 2.0, facecolor="#cfd3d8", edgecolor=C_AX, lw=1.2))
+    ax.text(2.1, 0.5, "금속 (스테인리스강)", ha="center", fontsize=9.5, color=C_AX)
+    ax.add_patch(Rectangle((0.5, 2.42), 9.2, 1.95, facecolor="#dce8f2", alpha=0.55, edgecolor="none"))
+    ax.text(9.55, 4.15, "전해질 (염화물 수용액)", fontsize=8.5, color=C_A, ha="right")
+    ax.add_patch(Rectangle((0.5, 2.2), 9.2, 0.22, facecolor="#4a9b6e", edgecolor="none"))
+    ax.annotate("부동태 피막 $\\mathrm{Cr_2O_3}$ — 두께 겨우 2~5 nm", xy=(1.7, 2.32), xytext=(0.7, 3.15),
+                fontsize=8.6, color="#2f6b4a", arrowprops=dict(arrowstyle="->", color="#2f6b4a", lw=0.9))
+    # (좌) 자가재생: 긁힘 + O2 재생
+    ax.add_patch(Polygon([(3.1, 2.2), (3.3, 2.2), (3.2, 2.05)], facecolor="white", edgecolor="#2f6b4a", lw=1.0))
+    ax.annotate("긁힘 → $\\mathrm{O_2}$ 만 있으면 수 초 내 재생(self-healing)", xy=(3.2, 2.28), xytext=(2.0, 3.7),
+                fontsize=8.2, color="#2f6b4a", arrowprops=dict(arrowstyle="->", color="#2f6b4a", lw=0.9))
+    # (우) 공식 pit — 내부 화학
+    ax.add_patch(Polygon([(6.35, 2.2), (7.45, 2.2), (7.05, 0.85), (6.9, 0.6), (6.72, 0.85)],
+                         facecolor="#f3e4e0", edgecolor=C_M, lw=1.5))
+    # Cl- 유입(입구로 이주)
+    for x0 in (6.6, 7.2):
+        ax.annotate("$\\mathrm{Cl^-}$", xy=(x0, 2.35), xytext=(x0 - 0.25, 3.35), fontsize=10, color=C_M,
+                    arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.2))
+    # pit 내부: 양극 용해·산성화
+    ax.text(6.92, 1.55, "$\\mathrm{M \\to M^{2+} + 2e^-}$", fontsize=8.2, color=C_M, ha="center")
+    ax.text(6.92, 1.15, "가수분해 → $\\mathrm{H^+}$ 축적\npH ↓ (2~3)", fontsize=7.4, color=C_M, ha="center")
+    # 전자 흐름(금속 내부) → 바깥 음극
+    ax.annotate("", xy=(4.7, 1.0), xytext=(6.6, 0.95),
+                arrowprops=dict(arrowstyle="-|>", color=C_AX, lw=1.2, ls="--"))
+    ax.text(5.6, 0.72, "$e^-$", fontsize=9, color=C_AX, ha="center")
+    # 피막 표면 음극 반응
+    ax.text(4.4, 2.85, "음극(피막 표면): $\\mathrm{O_2+2H_2O+4e^- \\to 4OH^-}$", fontsize=8.0, color=C_A, ha="center")
+    # 자가촉매 사이클 화살표
+    ax.annotate("", xy=(7.62, 1.7), xytext=(7.62, 2.6),
+                arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.3, connectionstyle="arc3,rad=-0.6"))
+    ax.text(8.6, 1.5, "산성화가 $\\mathrm{Cl^-}$ 를 더 부르고\n용해를 가속 — 자가촉매", fontsize=7.8, color=C_M, ha="center")
+    ax.annotate("공식(pit) — 좁고 깊게 진행", xy=(7.0, 0.75), xytext=(8.35, 0.7), fontsize=8.4, color=C_M,
                 arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
-    ax.set_xlim(0, 12.2); ax.set_ylim(0, 4); ax.axis("off")
+    ax.set_xlim(0.2, 10.0); ax.set_ylim(0.1, 4.6); ax.axis("off")
+    ax.set_title("부동태(passivation)와 공식(pitting) — 재생하는 방패, 뚫리면 자가촉매 (개략)", fontsize=11, color=C_AX, pad=6)
     save(fig, "passivation-pitting")
 
 
 def fig_scc_venn():
-    """응력부식균열 = 인장응력 + 부식환경 + 감수성 재료 (동시 작용)."""
-    fig, ax = plt.subplots(figsize=(5.8, 5.2))
-    data = [((0.37, 0.60), "인장응력", C_A, (0.20, 0.83)),
-            ((0.63, 0.60), "부식환경", C_M, (0.80, 0.83)),
-            ((0.50, 0.38), "감수성 재료", C_G, (0.50, 0.14))]
-    for (cx, cy), label, col, (lx, ly) in data:
-        ax.add_patch(Circle((cx, cy), 0.25, facecolor=col, alpha=0.16, edgecolor=col, lw=1.8))
-        ax.text(lx, ly, label, ha="center", color=col, fontsize=11, fontweight="bold")
-    ax.text(0.50, 0.53, "SCC", ha="center", va="center", fontsize=15, fontweight="bold", color=C_AX)
-    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
-    ax.set_title("응력부식균열 — 세 요소가 동시에 있을 때만 발생", fontsize=11, color=C_AX, pad=8)
+    """응력부식균열 v2 — 3요소 벤(구체 예시) + 가지치기 균열 조직도 (Figure Quality v2)."""
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(9.8, 5.0), gridspec_kw={"width_ratios": [1.05, 1]})
+    # ── (좌) 벤 다이어그램 + 각 원 안 구체 예시 ──
+    data = [((0.37, 0.62), "인장응력", C_A, (0.16, 0.885), "작동응력\n잔류응력(용접)\n볼트 체결력"),
+            ((0.63, 0.62), "부식환경", C_M, (0.84, 0.885), "염화물(해수)\n$\\mathrm{H_2S}$(sour)\n고온수·가성"),
+            ((0.50, 0.38), "감수성 재료", C_G, (0.50, 0.05), "오스테나이트계 SS\n고강도강(HRC≥32)\n황동(암모니아)")]
+    for (cx, cy), label, col, (lx, ly), ex in data:
+        ax.add_patch(Circle((cx, cy), 0.26, facecolor=col, alpha=0.15, edgecolor=col, lw=1.8))
+        ax.text(lx, ly, label, ha="center", color=col, fontsize=10.5, fontweight="bold")
+        # 원 안 예시(작게)
+        exx, exy = (cx - 0.09, cy + 0.1) if cx < 0.5 else ((cx + 0.09, cy + 0.1) if cx > 0.5 else (cx, cy - 0.13))
+        ax.text(exx, exy, ex, ha="center", va="center", fontsize=6.6, color=col, linespacing=1.4)
+    ax.text(0.50, 0.545, "SCC", ha="center", va="center", fontsize=14, fontweight="bold", color=C_AX)
+    ax.text(0.5, -0.075, "하나만 제거해도 멈춘다 — 응력완화·재질 변경·환경 제어가 모두 대책", ha="center",
+            fontsize=7.8, color=C_MUTE, transform=ax.transAxes)
+    ax.set_xlim(0, 1); ax.set_ylim(-0.02, 1.0); ax.set_aspect("equal"); ax.axis("off")
+    ax.set_title("세 요소의 교집합에서만 발생", fontsize=10.5, color=C_AX, fontweight="bold")
+    # ── (우) 가지치기 균열 조직도 — SCC 의 지문 (박스를 낮춰 위 여백에 σ·pit 라벨 분리) ──
+    grains = _poly_grains(ax2, n=11, bbox=(0.05, 0.02, 0.9, 0.7), color="#eef0f3", lw=1.0, seed=37)
+    ax2.add_patch(Polygon([(0.42, 0.72), (0.5, 0.72), (0.46, 0.655)], facecolor="white", edgecolor=C_M, lw=1.0))
+    trunk = [(0.46, 0.67), (0.48, 0.56), (0.43, 0.47), (0.47, 0.36), (0.42, 0.26)]
+    br1 = [(0.48, 0.56), (0.58, 0.51), (0.63, 0.43), (0.6, 0.34)]
+    br2 = [(0.43, 0.47), (0.33, 0.4), (0.3, 0.31)]
+    br3 = [(0.63, 0.43), (0.72, 0.38)]
+    for path in (trunk, br1, br2, br3):
+        xs, ys = zip(*path)
+        ax2.plot(xs, ys, color=C_M, lw=1.6, solid_capstyle="round", zorder=6)
+    # σ 인장 화살표(박스 위 전용 줄)
+    ax2.annotate("", xy=(0.1, 0.79), xytext=(0.24, 0.79), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.6))
+    ax2.annotate("", xy=(0.9, 0.79), xytext=(0.76, 0.79), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.6))
+    ax2.text(0.5, 0.775, "σ (인장)", fontsize=8.5, color=C_A, ha="center", va="center")
+    # pit 라벨(최상단 전용 줄 — 짧은 수직 화살표)
+    ax2.annotate("표면 pit 에서 시작", xy=(0.46, 0.73), xytext=(0.35, 0.92), fontsize=7.8, color=C_M,
+                 arrowprops=dict(arrowstyle="->", color=C_M, lw=0.8))
+    # 가지치기 라벨(우하 여백에서 가지 끝 지시)
+    ax2.annotate("입계를 따라 가지치기(branching) — SCC 파면의 지문", xy=(0.71, 0.375), xytext=(0.97, 0.12),
+                 fontsize=7.6, color=C_M, ha="right", arrowprops=dict(arrowstyle="->", color=C_M, lw=0.8))
+    ax2.text(0.5, -0.075, "하중은 항복 아래·부식은 눈에 안 띄게 — 예고 없이 취성 파단", ha="center",
+             fontsize=7.8, color=C_MUTE, transform=ax2.transAxes)
+    ax2.set_xlim(0, 1); ax2.set_ylim(-0.02, 1.0); ax2.set_aspect("equal"); ax2.axis("off")
+    ax2.set_title("가지치는 균열 — 304 SS + 염화물 유형", fontsize=10.5, color=C_AX, fontweight="bold")
+    fig.suptitle("응력부식균열 SCC (stress corrosion cracking) — 개략", fontsize=11.5, color=C_AX, y=0.99)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.86, bottom=0.09, wspace=0.08)
     save(fig, "scc-venn")
 
 
@@ -822,66 +876,143 @@ def fig_carbide_micro():
 
 
 def fig_gp_zones():
-    """석출경화 — 시효 진행에 따른 석출물 변화(과포화→GP존→중간석출→과시효). 개략."""
-    fig, axes = plt.subplots(1, 4, figsize=(10.2, 3.0))
-    np.random.seed(3)
+    """석출경화 v2 — 4단계 조직 + 경도 곡선 매핑 + 전단↔우회 전환 (Figure Quality v2)."""
+    fig = plt.figure(figsize=(10.2, 5.8))
+    gs = fig.add_gridspec(2, 4, height_ratios=[1.15, 1], hspace=0.3, wspace=0.08)
+    axes = [fig.add_subplot(gs[0, i]) for i in range(4)]
+    axc = fig.add_subplot(gs[1, :])
+    rng = np.random.RandomState(3)
     stages = [
-        ("I. 과포화 고용체", 0, 0),
-        ("II. GP존 (정합)\n미세·최고경도", 60, 9),
-        ("III. 중간 석출물\n(반정합)", 20, 42),
-        ("IV. 과시효 (비정합)\n조대화·강도↓", 6, 150),
+        ("I. 과포화 고용체", 0, 0, False),
+        ("II. GP존 (정합)", 60, 9, True),
+        ("III. 중간 석출상 (반정합)", 20, 42, False),
+        ("IV. 과시효 (비정합·조대)", 6, 150, False),
     ]
-    for ax, (title, n, s) in zip(axes, stages):
-        ax.add_patch(Circle((0.5, 0.58), 0.42, facecolor="#eef1f4", edgecolor=C_AX, lw=1.4))
+    for ax, (title, n, s, halo) in zip(axes, stages):
+        ax.add_patch(Circle((0.5, 0.55), 0.42, facecolor="#eef1f4", edgecolor=C_AX, lw=1.4))
         if n:
-            ang = np.random.rand(n) * 2 * np.pi
-            rad = np.sqrt(np.random.rand(n)) * 0.36
-            ax.scatter(0.5 + rad * np.cos(ang), 0.58 + rad * np.sin(ang), s=s, c=C_M, edgecolors="none")
-        ax.text(0.5, 0.02, title, ha="center", va="bottom", fontsize=8.8, color=C_AX, fontweight="bold")
-        ax.set_xlim(0, 1); ax.set_ylim(-0.02, 1.05); ax.set_aspect("equal"); ax.axis("off")
-    fig.suptitle("석출경화 — 시효에 따른 석출물 변화 (개략)", fontsize=11, color=C_AX, y=1.03)
-    fig.subplots_adjust(left=0.01, right=0.99, top=0.9, bottom=0.02, wspace=0.06)
+            ang = rng.rand(n) * 2 * np.pi
+            rad = np.sqrt(rng.rand(n)) * 0.36
+            xs, ys = 0.5 + rad * np.cos(ang), 0.55 + rad * np.sin(ang)
+            if halo:  # 정합 변형장(halo) — 격자 왜곡 표현
+                ax.scatter(xs, ys, s=s * 6.5, c="none", edgecolors=C_M, linewidths=0.4, alpha=0.5)
+            ax.scatter(xs, ys, s=s, c=C_M, edgecolors="none")
+        if title.startswith("I."):
+            gx, gy = np.meshgrid(np.linspace(0.24, 0.76, 6), np.linspace(0.3, 0.8, 6))
+            ax.scatter(gx, gy, s=7, c="#9aa4ae")
+            ax.text(0.5, 0.55, "", fontsize=1)
+        ax.text(0.5, 0.02, title, ha="center", va="bottom", fontsize=8.4, color=C_AX, fontweight="bold")
+        ax.set_xlim(0, 1); ax.set_ylim(-0.02, 1.03); ax.set_aspect("equal"); ax.axis("off")
+    axes[1].annotate("정합 변형장 —\n전위가 '베어야' 통과", xy=(0.62, 0.75), xytext=(0.52, 1.06), fontsize=7.2, color=C_M,
+                     arrowprops=dict(arrowstyle="->", color=C_M, lw=0.8), annotation_clip=False)
+    # ── (하) 경도-시효시간 곡선 + 단계 매핑 ──
+    lt = np.linspace(0, 6, 300)
+    hard = 40 + 58 * np.exp(-((lt - 3.1) ** 2) / 1.6)
+    axc.plot(lt, hard, color=C_A, lw=2.4)
+    for x0, x1, lab in [(0, 0.8, "I"), (0.8, 2.6, "II"), (2.6, 4.0, "III"), (4.0, 6, "IV")]:
+        axc.axvspan(x0, x1, color=C_MUTE, alpha=0.05)
+        axc.text((x0 + x1) / 2, 34, lab, fontsize=9.5, color=C_AX, ha="center")
+    axc.plot(3.1, 98.2, "o", color=C_M, ms=7)
+    axc.annotate("최고경도 = 전단(cutting)↔우회(Orowan) 전환점", xy=(3.18, 98.5), xytext=(3.75, 103), fontsize=8.4,
+                 color=C_M, arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    axc.text(1.35, 72, "미세·정합 → 전위가 자름\n(자를수록 강해짐)", fontsize=7.8, color=C_AX, ha="center")
+    axc.text(5.0, 72, "조대·간격↑ → 전위가 우회\n(간격 클수록 약해짐)", fontsize=7.8, color=C_AX, ha="center")
+    axc.set_xlabel("시효 시간 (log) →", fontsize=9.5, color=C_AX)
+    axc.set_ylabel("경도", fontsize=9.5, color=C_AX)
+    axc.set_xlim(0, 6); axc.set_ylim(30, 108)
+    axc.set_xticks([]); axc.set_yticks([])
+    axc.spines[["top", "right"]].set_visible(False)
+    fig.suptitle("석출경화의 진행 — 조직(위)과 경도(아래)의 대응 (개략)", fontsize=11.5, color=C_AX, y=0.99)
+    fig.subplots_adjust(left=0.05, right=0.98, top=0.88, bottom=0.09)
     save(fig, "gp-zones")
 
 
 def fig_galvanic_cell():
-    """갈바닉 부식 — 활성(양극) 금속이 귀한(음극) 금속과 접촉해 가속 부식."""
-    fig, ax = plt.subplots(figsize=(7.2, 4.4))
+    """갈바닉 부식 v2 — 전지 반응 + 갈바닉 계열 스케일 + 면적비 경고 (Figure Quality v2)."""
+    fig, (ax, axs) = plt.subplots(1, 2, figsize=(9.8, 4.9), gridspec_kw={"width_ratios": [2.1, 1]})
+    # ── (좌) 전지 ──
     ax.add_patch(Rectangle((0.5, 0.3), 9, 2.9, facecolor="#dce8f2", edgecolor=C_A, lw=1))
-    ax.text(5.0, 0.6, "전해질 (예: 해수)", ha="center", fontsize=9.5, color=C_A)
-    ax.add_patch(Rectangle((1.6, 1.3), 1.5, 2.4, facecolor="#b6bac0", edgecolor=C_M, lw=2.2))
-    ax.text(2.35, 4.05, "양극 (활성 금속)", ha="center", fontsize=9.5, color=C_M, fontweight="bold")
-    ax.text(2.35, 3.78, "→ 가속 부식", ha="center", fontsize=8.5, color=C_M)
+    ax.text(5.0, 0.55, "전해질 (해수 등 — 이온 통로)", ha="center", fontsize=9, color=C_A)
+    # 양극(용해로 거칠어진 윤곽)
+    ax.add_patch(Polygon([(1.6, 1.3), (3.1, 1.3), (3.05, 1.8), (3.12, 2.3), (3.0, 2.8), (3.1, 3.3), (3.1, 3.7), (1.6, 3.7)],
+                         facecolor="#b6bac0", edgecolor=C_M, lw=2.2))
+    ax.text(2.35, 4.06, "양극 (활성) — 가속 부식", ha="center", fontsize=9.2, color=C_M, fontweight="bold")
+    ax.text(2.35, 1.05, "예: 알루미늄·아연", ha="center", fontsize=7.6, color=C_M)
     ax.add_patch(Rectangle((6.9, 1.3), 1.5, 2.4, facecolor="#cdd0d5", edgecolor=C_A, lw=2.2))
-    ax.text(7.65, 4.05, "음극 (귀한 금속)", ha="center", fontsize=9.5, color=C_A, fontweight="bold")
-    ax.text(7.65, 3.78, "→ 보호됨", ha="center", fontsize=8.5, color=C_A)
-    ax.plot([2.35, 2.35, 7.65, 7.65], [3.7, 4.55, 4.55, 3.7], color=C_AX, lw=1.6)
-    ax.text(5.0, 4.72, r"$e^{-}$  전자 흐름", ha="center", fontsize=9.5, color=C_AX)
-    ax.annotate(r"$M^{n+}$ 용출", xy=(3.25, 2.5), xytext=(4.7, 2.5), fontsize=9.5, color=C_M, va="center",
-                arrowprops=dict(arrowstyle="<-", color=C_M, lw=1.2))
-    ax.set_xlim(0, 10); ax.set_ylim(0, 5.1); ax.axis("off")
+    ax.text(7.65, 4.06, "음극 (귀함) — 보호됨", ha="center", fontsize=9.2, color=C_A, fontweight="bold")
+    ax.text(7.65, 1.05, "예: 구리·SS·흑연", ha="center", fontsize=7.6, color=C_A)
+    # 도선 + 전자 방향 (연결점을 라벨 밖 가장자리로)
+    ax.plot([1.75, 1.75, 8.25, 8.25], [3.7, 4.55, 4.55, 3.7], color=C_AX, lw=1.6)
+    ax.annotate("", xy=(6.1, 4.55), xytext=(3.9, 4.55), arrowprops=dict(arrowstyle="-|>", color=C_AX, lw=1.4))
+    ax.text(5.0, 4.72, "$e^-$ 전자: 양극 → 음극", ha="center", fontsize=9, color=C_AX)
+    # 반응식
+    ax.annotate("$\\mathrm{M \\to M^{n+} + ne^-}$ (용해)", xy=(3.15, 2.5), xytext=(4.55, 2.75), fontsize=8.6, color=C_M,
+                va="center", arrowprops=dict(arrowstyle="<-", color=C_M, lw=1.1))
+    ax.text(5.5, 1.85, "$\\mathrm{O_2+2H_2O+4e^- \\to 4OH^-}$", fontsize=8.4, color=C_A, ha="center")
+    ax.annotate("", xy=(6.85, 2.2), xytext=(6.2, 2.0), arrowprops=dict(arrowstyle="->", color=C_A, lw=0.9))
+    # 이온 전류(전해질 내)
+    ax.annotate("", xy=(6.6, 0.85), xytext=(3.4, 0.85), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.0, ls=":"))
+    ax.text(5.0, 0.98, "이온 이동", fontsize=7.4, color=C_A, ha="center")
+    ax.text(5.0, -0.12, "면적비 경고: 작은 양극 + 큰 음극 = 최악 (예: 강판의 SS 볼트는 안전, SS 판의 강 볼트는 위험)",
+            ha="center", fontsize=8.0, color=C_M)
+    ax.set_xlim(0, 10); ax.set_ylim(-0.4, 5.1); ax.axis("off")
+    # ── (우) 갈바닉 계열(해수 기준 개략) ──
+    series = [("Mg", 1.00), ("Zn", 0.88), ("Al 합금", 0.76), ("탄소강", 0.62), ("주철", 0.55),
+              ("황동", 0.42), ("구리", 0.35), ("316 SS(부동태)", 0.22), ("티타늄", 0.12), ("흑연", 0.03)]
+    for i, (name, y) in enumerate(series):
+        col = C_M if y > 0.6 else (C_G if y > 0.3 else C_A)
+        axs.plot([0.32, 0.42], [y, y], color=col, lw=2.4)
+        axs.text(0.46, y, name, fontsize=7.8, color=col, va="center")
+    axs.annotate("", xy=(0.25, 0.02), xytext=(0.25, 1.0), arrowprops=dict(arrowstyle="-|>", color=C_AX, lw=1.2))
+    axs.text(0.14, 0.99, "활성\n(양극 됨)", fontsize=7.6, color=C_M, ha="center", va="top")
+    axs.text(0.14, 0.05, "귀함\n(음극 됨)", fontsize=7.6, color=C_A, ha="center", va="bottom")
+    axs.text(0.5, -0.115, "계열에서 멀리 떨어진\n조합일수록 위험", fontsize=7.8, color=C_MUTE, ha="center")
+    axs.set_xlim(0, 1); axs.set_ylim(-0.2, 1.1); axs.axis("off")
+    axs.set_title("갈바닉 계열 (해수, 개략)", fontsize=9.5, color=C_AX, fontweight="bold")
+    fig.suptitle("갈바닉 부식 (galvanic corrosion) — 이종 금속 접촉 전지 (개략)", fontsize=11.5, color=C_AX, y=0.99)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.86, bottom=0.06, wspace=0.05)
     save(fig, "galvanic-cell")
 
 
 def fig_sensitization():
-    """예민화 — 입계 Cr 탄화물 석출 + 인접 Cr 결핍역(입계부식 취약)."""
-    fig, ax = plt.subplots(figsize=(7.2, 4.2))
+    """예민화 v2 — 입계 탄화물 + Cr 농도 프로파일(12% 부동태선) + 온도창 (Figure Quality v2)."""
+    fig = plt.figure(figsize=(9.4, 5.4))
+    gs = fig.add_gridspec(2, 1, height_ratios=[1.5, 1], hspace=0.32)
+    ax = fig.add_subplot(gs[0])
+    axp = fig.add_subplot(gs[1])
+    # ── (상) 조직: 두 결정립 + 입계 탄화물 + 결핍띠 ──
     ax.add_patch(Rectangle((0.5, 0.5), 4.3, 3.0, facecolor="#e8ecf0", edgecolor=C_AX, lw=1.2))
     ax.add_patch(Rectangle((5.2, 0.5), 4.3, 3.0, facecolor="#e8ecf0", edgecolor=C_AX, lw=1.2))
-    ax.text(2.65, 1.9, "결정립 A", ha="center", color=C_AX, fontsize=10)
-    ax.text(7.35, 1.9, "결정립 B", ha="center", color=C_AX, fontsize=10)
-    # Cr 결핍역 (입계 양쪽 밝은 띠)
-    ax.add_patch(Rectangle((4.55, 0.5), 0.9, 3.0, facecolor=C_M, alpha=0.13))
-    # 입계
+    ax.text(2.0, 1.9, "결정립 A\n(Cr 18% — 부동태 유지)", ha="center", color=C_AX, fontsize=8.6)
+    ax.text(8.0, 1.9, "결정립 B", ha="center", color=C_AX, fontsize=8.6)
+    ax.add_patch(Rectangle((4.5, 0.5), 1.0, 3.0, facecolor=C_M, alpha=0.14))
     ax.plot([5.0, 5.0], [0.5, 3.5], color=C_AX, lw=2)
-    # Cr 탄화물 (입계 석출)
-    for y in [1.0, 1.7, 2.4, 3.1]:
-        ax.add_patch(Circle((5.0, y), 0.15, facecolor="#111", edgecolor="none"))
-    ax.annotate("Cr 탄화물 (입계 석출)", xy=(5.0, 3.1), xytext=(5.7, 4.05), fontsize=9, color=C_AX, ha="left",
-                arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
-    ax.annotate("Cr 결핍역 → 입계부식 취약", xy=(4.55, 1.2), xytext=(0.6, 4.05), fontsize=9, color=C_M, ha="left",
-                arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
-    ax.set_xlim(0, 10); ax.set_ylim(0, 4.7); ax.axis("off")
+    for y in [0.9, 1.55, 2.2, 2.85]:
+        ax.add_patch(Circle((5.0, y), 0.14, facecolor="#111", edgecolor="none"))
+    ax.annotate("$\\mathrm{Cr_{23}C_6}$ 입계 석출\n(500~800 °C 노출 — 용접 HAZ·서랭)", xy=(5.05, 2.85), xytext=(6.1, 3.95),
+                fontsize=8.4, color=C_AX, ha="left", arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.9))
+    ax.annotate("Cr 결핍띠 → 부동태 상실\n= 입계부식·IGSCC 통로", xy=(4.6, 1.2), xytext=(0.55, 3.95), fontsize=8.4,
+                color=C_M, ha="left", arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    ax.set_xlim(0, 10); ax.set_ylim(0.3, 4.6); ax.axis("off")
+    # ── (하) Cr 농도 프로파일 (입계 가로지름) ──
+    x = np.linspace(-1, 1, 400)
+    cr = 18 - 8.5 * np.exp(-(x / 0.18) ** 2)
+    axp.plot(x, cr, color=C_AX, lw=2.0)
+    axp.axhline(12, color=C_M, lw=1.2, ls="--")
+    axp.text(0.98, 12.4, "부동태 한계 ~12% Cr", fontsize=7.8, color=C_M, ha="right")
+    mask = cr < 12
+    axp.fill_between(x, cr, 12, where=mask, color=C_M, alpha=0.18)
+    axp.annotate("입계 부근만 12% 아래로 —\n여기만 선택적으로 부식", xy=(0.1, 10.2), xytext=(0.42, 14.6), fontsize=7.8,
+                 color=C_M, arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    axp.axvline(0, color=C_AX, lw=0.8, ls=":")
+    axp.text(0.02, 18.6, "입계", fontsize=7.4, color=C_AX)
+    axp.set_xlabel("입계로부터의 거리 →", fontsize=9, color=C_AX)
+    axp.set_ylabel("Cr (%)", fontsize=9, color=C_AX)
+    axp.set_xlim(-1, 1); axp.set_ylim(8, 20)
+    axp.set_xticks([]); axp.tick_params(labelsize=7.5, colors=C_AX)
+    axp.spines[["top", "right"]].set_visible(False)
+    fig.suptitle("예민화 (sensitization) — 입계 크로뮴 탄화물이 만드는 방어선의 구멍 (개략)", fontsize=11.5, color=C_AX, y=0.98)
+    fig.subplots_adjust(left=0.09, right=0.97, top=0.88, bottom=0.1)
     save(fig, "sensitization")
 
 
