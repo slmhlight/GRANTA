@@ -1205,6 +1205,73 @@ def fig_annealing_cycle():
     save(fig, "annealing-cycle")
 
 
+def fig_al_families():
+    """알루미늄 계열 전용 — 시리즈별 σy 스펙트럼 바 + 강화방식 구분 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(8.8, 5.2))
+    # (이름, σy MPa, 열처리형?, 주원소·강화)
+    rows = [
+        ("1100-O  (순Al 99%+)", 35, False, "전도·내식 — 가공경화만"),
+        ("3003-H14  (+Mn)", 145, False, "일반 판재 — 가공경화"),
+        ("5052-H32  (+Mg)", 195, False, "해양·용접 구조 — 고용+가공경화"),
+        ("6061-T6  (+Mg·Si)", 276, True, "압출·범용 구조 — Mg₂Si 석출"),
+        ("2024-T3  (+Cu)", 345, True, "항공 인장재 — Al₂CuMg 석출"),
+        ("7075-T6  (+Zn·Mg·Cu)", 503, True, "항공 최고강도 — MgZn₂ 석출"),
+    ]
+    y = np.arange(len(rows))[::-1]
+    for yi, (name, sy, ht, note) in zip(y, rows):
+        col = C_M if ht else C_A
+        ax.barh(yi, sy, height=0.55, color=col, alpha=0.75)
+        ax.text(-12, yi, name, va="center", ha="right", fontsize=8.6, color=C_AX)
+        if sy >= 160:
+            ax.text(sy + 8, yi, f"{sy} MPa", va="center", fontsize=8.2, color=col)
+            ax.text(sy / 2, yi, note, va="center", ha="center", fontsize=6.8, color="white")
+        else:
+            ax.text(sy + 8, yi, f"{sy} MPa — {note}", va="center", fontsize=7.6, color=col)
+    ax.text(390, 5.32, "■ 열처리형(석출경화)", fontsize=8.6, color=C_M)
+    ax.text(390, 4.86, "■ 비열처리형(가공·고용)", fontsize=8.6, color=C_A)
+    ax.axvline(250, color=C_MUTE, lw=0.8, ls=":")
+    ax.text(252, -0.62, "A36 구조강 σy(250)", fontsize=7.2, color=C_MUTE)
+    ax.set_xlabel("항복강도 σy (MPa, 대표 temper)", fontsize=10, color=C_AX)
+    ax.set_xlim(0, 585); ax.set_ylim(-0.8, 5.8)
+    ax.set_yticks([]); ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.set_title("알루미늄 합금 계열 — 시리즈·강화방식·강도 스펙트럼 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.24, right=0.97, top=0.9, bottom=0.12)
+    save(fig, "al-families")
+
+
+def fig_ti_families():
+    """티타늄 계열 전용 — α↔β 스펙트럼과 대표 합금 위치 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(9.0, 4.6))
+    # 스펙트럼 밴드
+    segs = [(0, 0.28, "#dfe9f4", "α (알파)"), (0.28, 0.42, "#e8e3ee", "near-α"),
+            (0.42, 0.72, "#eadfe5", "α+β"), (0.72, 1.0, "#f3ddd0", "β (베타)")]
+    for x0, x1, col, lab in segs:
+        ax.add_patch(Rectangle((x0, 0.5), x1 - x0, 0.14, facecolor=col, edgecolor=C_AX, lw=1.1))
+        ax.text((x0 + x1) / 2, 0.69, lab, fontsize=9.5, color=C_AX, ha="center", fontweight="bold")
+    ax.annotate("", xy=(1.02, 0.57), xytext=(-0.02, 0.57), arrowprops=dict(arrowstyle="->", color=C_MUTE, lw=0.8))
+    ax.text(0.0, 0.435, "β 안정화 원소(V·Mo·Cr) 증가 →", fontsize=7.6, color=C_MUTE)
+    # 대표 합금 마커(위/아래 지그재그 콜아웃)
+    alloys = [
+        (0.10, "CP-Ti (Gr1~4)", "내식·용접성 최고 — 화학 플랜트·판형 열교환기", True),
+        (0.34, "Ti-3Al-2.5V (Gr9)", "관·자전거 프레임 — 냉간가공 가능", False),
+        (0.55, "Ti-6Al-4V (Gr5/23)", "시장의 절반 — 항공·의료·AM 표준", True),
+        (0.85, "Ti-5553·Beta-C", "고강도 단조(σy 1200+)·랜딩기어 — 열처리로 조절", False),
+    ]
+    for x, name, note, up in alloys:
+        ax.plot(x, 0.57, "o", color=C_M, ms=7, zorder=5)
+        ty = 0.88 if up else 0.24
+        ax.annotate(f"{name}\n{note}", xy=(x, 0.615 if up else 0.525), xytext=(x, ty),
+                    fontsize=7.8, color=C_AX, ha="center", va="center",
+                    arrowprops=dict(arrowstyle="->", color=C_AX, lw=0.8))
+    # 특성 그래디언트 요약
+    ax.text(0.02, 0.06, "← 용접성·내식·크리프(고온)", fontsize=8.2, color=C_A)
+    ax.text(0.98, 0.06, "강도·경화능(열처리 반응) →", fontsize=8.2, color=C_M, ha="right")
+    ax.set_xlim(-0.04, 1.04); ax.set_ylim(0, 1.0); ax.axis("off")
+    ax.set_title("티타늄 합금 계열 — α↔β 스펙트럼 위의 지도 (개략)", fontsize=11.5, color=C_AX, pad=6)
+    save(fig, "ti-families")
+
+
 def fig_cast_iron_family():
     """주철 4계열 조직 — 회주철(편상흑연)·구상흑연·백주철(탄화물)·ADI(ausferrite). 전용 조직도."""
     fig, axes = plt.subplots(2, 2, figsize=(8.8, 7.4))
@@ -1828,6 +1895,8 @@ if __name__ == "__main__":
     fig_cementite_forms()
     fig_carbide_micro()
     fig_cast_iron_family()
+    fig_al_families()
+    fig_ti_families()
     fig_ferrite_micro()
     fig_hall_petch()
     fig_cold_work_effects()

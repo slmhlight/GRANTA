@@ -1970,6 +1970,141 @@
         "creep",
         "grain-refinement"
       ]
+    },
+    "carbon-steel": {
+      "display": "탄소강 (Carbon Steel)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "탄소강",
+        "carbon steel",
+        "저탄소강",
+        "중탄소강",
+        "고탄소강",
+        "연강"
+      ],
+      "autolink": [
+        "탄소강",
+        "carbon steel"
+      ],
+      "short": "철에 탄소(≤~2%)와 소량의 망가니즈·규소만 넣은 가장 기본적인 강. 탄소량이 늘수록 펄라이트가 많아져 강해지고 연성·용접성이 줄어든다 — 저탄소(구조·판재), 중탄소(축·기어), 고탄소(스프링·공구)로 용도가 갈린다. 세계에서 가장 많이 생산되는 금속 재료다.",
+      "sources": [
+        "ASM Handbook Vol.1",
+        "ASTM A29"
+      ],
+      "related": [
+        "pearlite",
+        "ferrite",
+        "eutectoid",
+        "alloy-steel",
+        "quenching"
+      ]
+    },
+    "alloy-steel": {
+      "display": "합금강 (Alloy Steel)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "합금강",
+        "alloy steel",
+        "저합금강",
+        "low-alloy steel"
+      ],
+      "autolink": [
+        "합금강",
+        "alloy steel"
+      ],
+      "short": "탄소강에 크로뮴·몰리브데넘·니켈 등을 수 % 더해 경화능·인성·내열을 끌어올린 강. 합금원소의 주된 역할은 '두꺼운 단면 속까지 Quenching 이 듣게' 하는 것(경화능) — 4140·4340 같은 조질강이 축·기어·랜딩기어의 표준이 된 이유다.",
+      "sources": [
+        "ASM Handbook Vol.1",
+        "SAE J404"
+      ],
+      "related": [
+        "carbon-steel",
+        "quenching",
+        "tempering",
+        "martensite",
+        "tool-steel"
+      ]
+    },
+    "aluminum-alloy": {
+      "display": "알루미늄 합금 (Aluminum Alloy)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "알루미늄 합금",
+        "aluminum alloy",
+        "aluminium alloy",
+        "Al 합금"
+      ],
+      "autolink": [
+        "알루미늄 합금",
+        "aluminum alloy"
+      ],
+      "short": "밀도 2.7 g/cm³(강의 1/3)에 자연 산화막의 내식성을 갖춘 경량 구조재. 1xxx~7xxx 시리즈로 나뉘며, 2xxx·6xxx·7xxx 는 석출경화(열처리형), 3xxx·5xxx 는 가공·고용강화(비열처리형)로 강도를 얻는다 — 항공기와 음료 캔이 같은 가족이다.",
+      "sources": [
+        "ASM Handbook Vol.2 (Nonferrous)",
+        "Aluminum Association Teal Sheets"
+      ],
+      "related": [
+        "precipitation-hardening",
+        "aging",
+        "work-hardening",
+        "extrusion",
+        "anisotropy"
+      ]
+    },
+    "copper-alloy": {
+      "display": "구리 합금 (Copper Alloy)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "구리 합금",
+        "copper alloy",
+        "동합금",
+        "황동",
+        "청동",
+        "brass",
+        "bronze"
+      ],
+      "autolink": [
+        "구리 합금",
+        "copper alloy",
+        "동합금"
+      ],
+      "short": "전기·열전도(순동)와 내식·내해수(청동·백동), 스프링 강도(BeCu)까지 아우르는 오래된 합금 가족. 아연을 넣으면 황동, 주석·알루미늄을 넣으면 청동, 니켈을 넣으면 백동 — 첨가 원소가 이름과 용도를 정한다. 전도도와 강도는 대체로 반비례한다.",
+      "sources": [
+        "ASM Handbook Vol.2 (Nonferrous)",
+        "CDA (Copper Development Association)"
+      ],
+      "related": [
+        "solid-solution",
+        "galvanic",
+        "drawing",
+        "solid-solution-strengthening"
+      ]
+    },
+    "titanium-alloy": {
+      "display": "티타늄 합금 (Titanium Alloy)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "티타늄 합금",
+        "titanium alloy",
+        "Ti 합금",
+        "티타늄합금"
+      ],
+      "autolink": [
+        "티타늄 합금",
+        "titanium alloy"
+      ],
+      "short": "강의 60% 무게로 비슷한 강도를 내고, 바닷물에도 견디는 산화막을 가진 항공·의료의 주력 금속. 상온 결정구조에 따라 α(내식·용접성)·α+β(균형 — Ti-6Al-4V)·β(고강도 열처리형)로 나뉜다. 비싼 이유는 원료가 아니라 추출·가공의 어려움이다.",
+      "sources": [
+        "ASM Handbook Vol.2 (Nonferrous)",
+        "ASTM B265/B348"
+      ],
+      "related": [
+        "anisotropy",
+        "hip",
+        "creep",
+        "passivation",
+        "aluminum-alloy"
+      ]
     }
   }
 }
