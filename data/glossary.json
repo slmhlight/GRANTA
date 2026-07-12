@@ -19,7 +19,10 @@
       "surface_forms": [
         "마르텐사이트",
         "martensite",
-        "martensitic"
+        "martensitic",
+        "정방정",
+        "tetragonal",
+        "BCT"
       ],
       "autolink": [
         "마르텐사이트",
@@ -1154,7 +1157,9 @@
         "수소취화",
         "수소 취화",
         "수소취성",
-        "hydrogen embrittlement"
+        "hydrogen embrittlement",
+        "수소화물",
+        "hydride"
       ],
       "autolink": [
         "수소취화",
@@ -2750,6 +2755,204 @@
         "phase-transformation",
         "carbon-steel",
         "tmcp"
+      ]
+    },
+    "commodity-polymer": {
+      "display": "범용 플라스틱 (PE · PP · PS · PVC · ABS · PMMA)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "범용 플라스틱",
+        "범용 수지",
+        "commodity plastic",
+        "HDPE",
+        "PMMA",
+        "ABS",
+        "PVC",
+        "PETG",
+        "PLA"
+      ],
+      "autolink": [
+        "범용 플라스틱",
+        "범용 수지"
+      ],
+      "short": "전 세계 플라스틱 생산량의 대부분을 차지하는 피라미드의 바닥층 — 싸고, 가볍고, 성형이 쉽다. 강도 대신 '충분히 싸고 충분히 좋은'이 설계 철학이며, PE·PP·PS·PVC 4대장에 ABS·PMMA·PET 계열이 더해진다.",
+      "sources": [
+        "Osswald — Materials Science of Polymers for Engineers",
+        "PlasticsEurope Market Data"
+      ],
+      "related": [
+        "polyamide",
+        "polycarbonate",
+        "high-performance-polymer",
+        "fluoropolymer",
+        "elastomer",
+        "creep"
+      ]
+    },
+    "fluoropolymer": {
+      "display": "불소수지 (PTFE · PVDF · ETFE)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "불소수지",
+        "플루오로폴리머",
+        "테플론",
+        "PTFE",
+        "PVDF",
+        "ETFE",
+        "fluoropolymer",
+        "Teflon"
+      ],
+      "autolink": [
+        "불소수지",
+        "테플론"
+      ],
+      "short": "탄소-불소 결합(유기화학에서 가장 강한 단일결합)으로 무장한 수지 가족. 거의 모든 화학물질에 불활성이고 마찰계수가 재료 전체에서 최저(~0.05)라, 개스킷·화학 배관 라이닝·논스틱의 대명사가 되었다. PTFE(테플론)가 원조다.",
+      "sources": [
+        "DuPont/Chemours Teflon 기술자료",
+        "Arkema Kynar PVDF Guide"
+      ],
+      "related": [
+        "commodity-polymer",
+        "high-performance-polymer",
+        "creep",
+        "galling",
+        "corrosion-resistance"
+      ]
+    },
+    "elastomer": {
+      "display": "엘라스토머 (고무 · TPU · 실리콘)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "엘라스토머",
+        "고무",
+        "elastomer",
+        "TPU",
+        "실리콘 고무",
+        "NBR",
+        "쇼어 경도"
+      ],
+      "autolink": [
+        "엘라스토머"
+      ],
+      "short": "유리전이온도가 상온보다 훨씬 낮고 사슬이 그물로 묶여 있어, 수백 % 늘어났다가 되돌아오는 재료 가족. 열경화 고무(NBR·실리콘)와 열가소성 TPU/TPE 로 갈리며, 씰·O링·타이어·완충의 세계를 담당한다.",
+      "sources": [
+        "Gent — Engineering with Rubber",
+        "Parker O-Ring Handbook"
+      ],
+      "related": [
+        "commodity-polymer",
+        "fluoropolymer",
+        "fatigue",
+        "creep"
+      ]
+    },
+    "mmc": {
+      "display": "금속·세라믹기지 복합재 (MMC · CMC)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "금속기지 복합재",
+        "세라믹기지 복합재",
+        "MMC",
+        "CMC",
+        "metal matrix composite",
+        "ceramic matrix composite"
+      ],
+      "autolink": [
+        "금속기지 복합재",
+        "세라믹기지 복합재",
+        "MMC",
+        "CMC"
+      ],
+      "short": "기지가 수지가 아닌 복합재 — MMC 는 금속(주로 Al)에 세라믹 입자를 심어 강성·내마모를 벌고, CMC 는 세라믹에 세라믹 섬유를 심어 '깨지지 않는 세라믹'을 만든다. 서로 반대 방향의 보강이라는 점이 흥미로운 가족.",
+      "sources": [
+        "ASM Handbook Vol.21 (Composites)",
+        "GE Aviation CMC 기술자료"
+      ],
+      "related": [
+        "cfrp",
+        "non-oxide-ceramic",
+        "cemented-carbide",
+        "fracture-toughness"
+      ]
+    },
+    "shape-memory-alloy": {
+      "display": "형상기억합금 (SMA · Nitinol)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "형상기억합금",
+        "니티놀",
+        "shape memory alloy",
+        "SMA",
+        "Nitinol",
+        "초탄성"
+      ],
+      "autolink": [
+        "형상기억합금",
+        "니티놀",
+        "초탄성"
+      ],
+      "short": "마르텐사이트 변태를 '가역'으로 쓰는 합금 — 구부러진 채 가열하면 원형으로 돌아오고(형상기억), 변태온도 위에서는 8% 변형을 놓는 순간 되돌린다(초탄성). Ni-Ti 니티놀이 대표로, 혈관 스텐트와 안경테가 이 원리로 산다.",
+      "sources": [
+        "Otsuka & Wayman — Shape Memory Materials",
+        "ASTM F2063 (의료용 NiTi)"
+      ],
+      "related": [
+        "martensite",
+        "phase-transformation",
+        "fatigue",
+        "oxide-ceramic"
+      ]
+    },
+    "controlled-expansion-alloy": {
+      "display": "저열팽창 합금 (Invar · Kovar)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "저열팽창 합금",
+        "인바",
+        "코바",
+        "Invar",
+        "Kovar",
+        "controlled expansion"
+      ],
+      "autolink": [
+        "저열팽창 합금",
+        "인바"
+      ],
+      "short": "온도가 변해도 거의 늘지 않는 합금 — Invar(Fe-36Ni)의 열팽창은 강의 1/10(~1.2 ppm/K)로, 자기 수축이 열팽창을 상쇄하는 '인바 효과' 덕분이다(발견자 기욤은 1920년 노벨물리학상). Kovar 는 유리와 팽창을 맞춰 기밀 실링에 쓴다.",
+      "sources": [
+        "Guillaume (1920 Nobel Lecture)",
+        "Carpenter Invar 36 / Kovar 기술자료"
+      ],
+      "related": [
+        "ferrite",
+        "cfrp",
+        "phase-transformation"
+      ]
+    },
+    "zirconium-alloy": {
+      "display": "지르코늄 합금 (Zircaloy)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "지르코늄 합금",
+        "지르칼로이",
+        "Zircaloy",
+        "zirconium alloy",
+        "핵연료 피복관"
+      ],
+      "autolink": [
+        "지르코늄 합금",
+        "지르칼로이"
+      ],
+      "short": "원자로를 위해 존재하는 금속 — 열중성자를 거의 흡수하지 않으면서(하프늄 제거가 관건) 고온수에 견뎌, 핵연료를 감싸는 피복관의 표준이 되었다. Zircaloy-2(BWR)·Zircaloy-4(PWR)가 반세기 넘게 그 자리를 지킨다.",
+      "sources": [
+        "ASTM B811 (원자로용 Zr 합금 튜브)",
+        "IAEA — Zirconium Alloys in Nuclear Applications"
+      ],
+      "related": [
+        "hydrogen-embrittlement",
+        "corrosion-resistance",
+        "non-oxide-ceramic",
+        "refractory-metal"
       ]
     }
   }
