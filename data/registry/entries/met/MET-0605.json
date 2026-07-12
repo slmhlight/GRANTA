@@ -279,7 +279,8 @@
     "UNS N07080",
     "EN 2.4952",
     "NiCr20TiAl",
-    "Alloy 80A"
+    "Alloy 80A",
+    "Nimonic 80"
   ],
   "families": [
     "Metal",
@@ -358,5 +359,15 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS N07080",
+        "EN 2.4952",
+        "NiCr20TiAl",
+        "Alloy 80A"
+      ]
+    }
+  }
 }

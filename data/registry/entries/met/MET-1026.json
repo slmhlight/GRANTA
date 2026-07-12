@@ -232,7 +232,8 @@
     "740H",
     "INCONEL alloy 740H",
     "UNS N07740",
-    "Alloy 740H"
+    "Alloy 740H",
+    "Inconel 740 (≈)"
   ],
   "fracture_toughness": 100,
   "fatigue_strength": 298,
@@ -274,5 +275,15 @@
   "svhc_concerns": [
     "Co 21% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "740H",
+        "INCONEL alloy 740H",
+        "UNS N07740",
+        "Alloy 740H"
+      ]
+    }
+  }
 }

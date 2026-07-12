@@ -273,7 +273,8 @@
   "aliases": [
     "UNS S13800",
     "EN 1.4534",
-    "PH13-8Mo"
+    "PH13-8Mo",
+    "XM-13"
   ],
   "families": [
     "Metal",
@@ -351,5 +352,14 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS S13800",
+        "EN 1.4534",
+        "PH13-8Mo"
+      ]
+    }
+  }
 }

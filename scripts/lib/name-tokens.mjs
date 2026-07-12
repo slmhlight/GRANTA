@@ -82,6 +82,7 @@ export function isJunkForm(f) {
   if (/^\d+h$/.test(f)) return true;         // "4h" "16h" (시효 시간)
   if (/^\d+(c|f)$/.test(f)) return true;      // "480c" 온도
   if (/^\d{1,2}$/.test(f)) return true;       // 순수 1~2자 숫자 "30" "12"
+  if (/^[gc]f\d{2}$/.test(f)) return true;    // 보강재 접미 (GF30·CF30 — 특정 재료 지정자 아님, H4i)
   if (TERM_STOP.has(f)) return true;          // 야금 용어(pren·iacs·dbtt…) — 재료 form 아님
   return false;
 }
@@ -90,7 +91,7 @@ export function isJunkForm(f) {
  *  조건: 글자 포함(순숫자 불가)·산문 영어단어와 무충돌·단일 entity 해석(ambiguous 는 어차피 차단).
  *  P91/P92(크리프강)·X-grade(라인파이프)·M-grade(HSS)·A36(구조강)·L80(유정관)·P20(금형강). */
 export const SHORT_AUTOLINK_OK = new Set([
-  'p91', 'p92', 'x42', 'x52', 'x60', 'x65', 'x70', 'x80', 'm35', 'm42', 'm50', 'a36', 'l80', 'p20', 'h13',
+  'p91', 'p92', 'x42', 'x52', 'x60', 'x65', 'x70', 'x80', 'm35', 'm42', 'm50', 'a36', 'l80', 'p20', 'h13', 'c22',
 ]);
 
 /** autolink 후보 판정(자동 제안 — 이후 수동 검수 대상).

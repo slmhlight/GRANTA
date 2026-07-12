@@ -277,7 +277,10 @@
   "aliases": [
     "UNS S15700",
     "EN 1.4568",
-    "15-7 PH"
+    "15-7 PH",
+    "PH 15-7 Mo",
+    "PH15-7Mo",
+    "XM-12"
   ],
   "families": [
     "Metal",
@@ -306,5 +309,14 @@
   "svhc_concerns": [
     "Ni 7.75% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS S15700",
+        "EN 1.4568",
+        "15-7 PH"
+      ]
+    }
+  }
 }

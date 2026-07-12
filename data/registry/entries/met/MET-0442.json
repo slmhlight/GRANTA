@@ -251,7 +251,8 @@
   "aliases": [
     "UNS C63000",
     "EN CW307G",
-    "nickel-aluminium bronze"
+    "nickel-aluminium bronze",
+    "C6300 (JIS ≈)"
   ],
   "families": [
     "Metal",
@@ -280,5 +281,14 @@
   "svhc_concerns": [
     "Ni 5.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS C63000",
+        "EN CW307G",
+        "nickel-aluminium bronze"
+      ]
+    }
+  }
 }

@@ -22,7 +22,11 @@
         "martensitic",
         "정방정",
         "tetragonal",
-        "BCT"
+        "BCT",
+        "lath",
+        "라스",
+        "plate 마르텐사이트",
+        "plate"
       ],
       "autolink": [
         "마르텐사이트",
@@ -145,7 +149,9 @@
       "category": "microstructure",
       "surface_forms": [
         "시멘타이트",
-        "cementite"
+        "cementite",
+        "orthorhombic",
+        "사방정"
       ],
       "autolink": [
         "시멘타이트",
@@ -341,7 +347,10 @@
         "grain refinement",
         "grain size",
         "Hall-Petch",
-        "홀-페치"
+        "홀-페치",
+        "pinning",
+        "피닝",
+        "grain boundary"
       ],
       "autolink": [
         "결정립 미세화",
@@ -369,7 +378,9 @@
         "dispersion strengthening",
         "ODS",
         "오로완",
-        "Orowan"
+        "Orowan",
+        "mechanical alloying",
+        "기계적 합금화"
       ],
       "autolink": [
         "분산강화",
@@ -397,7 +408,12 @@
         "quench",
         "quenched",
         "as-quenched",
-        "애즈퀜치드"
+        "애즈퀜치드",
+        "quench crack",
+        "담금질 균열",
+        "mass effect",
+        "quench severity",
+        "H-계수"
       ],
       "autolink": [
         "담금질",
@@ -425,7 +441,11 @@
         "tempered",
         "temper",
         "2차경화",
-        "secondary hardening"
+        "secondary hardening",
+        "tempered martensite",
+        "뜨임 마르텐사이트",
+        "untempered",
+        "미뜨임"
       ],
       "autolink": [
         "뜨임",
@@ -501,7 +521,9 @@
         "용체화",
         "solution treatment",
         "solution annealing",
-        "solutionizing"
+        "solutionizing",
+        "quench sensitivity",
+        "burning"
       ],
       "autolink": [
         "용체화처리",
@@ -530,7 +552,8 @@
         "ageing",
         "aged",
         "과시효",
-        "overaging"
+        "overaging",
+        "peak aging"
       ],
       "autolink": [
         "시효",
@@ -648,7 +671,10 @@
       "surface_forms": [
         "열간정수압성형",
         "HIP",
-        "hot isostatic pressing"
+        "hot isostatic pressing",
+        "encapsulation",
+        "thermally induced porosity",
+        "캡슐화"
       ],
       "autolink": [
         "열간정수압성형",
@@ -720,7 +746,9 @@
         "취화",
         "brittleness",
         "brittle",
-        "embrittlement"
+        "embrittlement",
+        "cleavage",
+        "벽개"
       ],
       "autolink": [
         "취성",
@@ -743,7 +771,9 @@
       "category": "mechanical",
       "surface_forms": [
         "피로",
-        "fatigue"
+        "fatigue",
+        "initiation",
+        "propagation"
       ],
       "autolink": [
         "피로",
@@ -765,7 +795,9 @@
       "category": "mechanical",
       "surface_forms": [
         "크리프",
-        "creep"
+        "creep",
+        "single-crystal",
+        "단결정"
       ],
       "autolink": [
         "크리프",
@@ -789,7 +821,8 @@
         "fracture toughness",
         "K_IC",
         "KIC",
-        "파괴인성"
+        "파괴인성",
+        "CTOD"
       ],
       "autolink": [
         "파괴인성",
@@ -813,7 +846,10 @@
         "피로한도",
         "피로 한도",
         "fatigue limit",
-        "endurance limit"
+        "endurance limit",
+        "fatigue strength",
+        "FAT class",
+        "피로 등급"
       ],
       "autolink": [
         "피로한도",
@@ -955,7 +991,12 @@
       "surface_forms": [
         "내식성",
         "내부식성",
-        "corrosion resistance"
+        "corrosion resistance",
+        "patina",
+        "녹청",
+        "erosion-corrosion",
+        "에로전",
+        "biofouling"
       ],
       "autolink": [
         "내식성",
@@ -981,7 +1022,10 @@
         "갈바닉부식",
         "갈바닉",
         "galvanic corrosion",
-        "galvanic"
+        "galvanic",
+        "galvanic series",
+        "갈바닉 계열",
+        "self-healing"
       ],
       "autolink": [
         "갈바닉 부식",
@@ -1029,7 +1073,8 @@
       "surface_forms": [
         "틈부식",
         "틈새부식",
-        "crevice corrosion"
+        "crevice corrosion",
+        "under-deposit corrosion"
       ],
       "autolink": [
         "틈부식",
@@ -1078,7 +1123,11 @@
         "입계부식",
         "입계 부식",
         "intergranular corrosion",
-        "IGC"
+        "IGC",
+        "intergranular",
+        "sugaring",
+        "설탕화",
+        "L-grade"
       ],
       "autolink": [
         "입계부식",
@@ -1103,7 +1152,9 @@
         "sensitization",
         "sensitisation",
         "위드 디케이",
-        "weld decay"
+        "weld decay",
+        "stabilization",
+        "안정화강"
       ],
       "autolink": [
         "예민화",
@@ -1132,7 +1183,9 @@
         "유리철",
         "free iron",
         "heat tint",
-        "열변색"
+        "열변색",
+        "pickling",
+        "산세"
       ],
       "autolink": [
         "부동태화",
@@ -1159,7 +1212,15 @@
         "수소취성",
         "hydrogen embrittlement",
         "수소화물",
-        "hydride"
+        "hydride",
+        "delayed fracture",
+        "지연파괴",
+        "HEDE",
+        "HELP",
+        "de-embrittlement",
+        "mechanical plating",
+        "Nelson curve",
+        "넬슨 선도"
       ],
       "autolink": [
         "수소취화",
@@ -1183,7 +1244,8 @@
       "surface_forms": [
         "공식저항당량",
         "PREN",
-        "PRE"
+        "PRE",
+        "mill cert"
       ],
       "autolink": [
         "공식저항당량",
@@ -1258,7 +1320,11 @@
       "surface_forms": [
         "압연",
         "rolling",
-        "rolled"
+        "rolled",
+        "hot rolling",
+        "cold rolling",
+        "열간압연",
+        "냉간압연"
       ],
       "autolink": [
         "압연"
@@ -1280,7 +1346,15 @@
       "surface_forms": [
         "단조",
         "forging",
-        "forged"
+        "forged",
+        "grain flow",
+        "open-die",
+        "as-forged",
+        "flash",
+        "잔탕",
+        "자유단조",
+        "coining",
+        "압인"
       ],
       "autolink": [
         "단조"
@@ -1302,7 +1376,14 @@
         "주조",
         "casting",
         "as-cast",
-        "cast"
+        "cast",
+        "sprue",
+        "탕구",
+        "permanent mold",
+        "investment casting",
+        "금형주조",
+        "정밀주조",
+        "mold"
       ],
       "autolink": [
         "주조",
@@ -1324,7 +1405,10 @@
       "surface_forms": [
         "소결",
         "sintering",
-        "sintered"
+        "sintered",
+        "net shape",
+        "wrought",
+        "전신재"
       ],
       "autolink": [
         "소결",
@@ -1345,7 +1429,11 @@
       "surface_forms": [
         "압출",
         "extrusion",
-        "extruded"
+        "extruded",
+        "speed cracking",
+        "press quench",
+        "seam weld",
+        "용착선"
       ],
       "autolink": [
         "압출",
@@ -1390,7 +1478,9 @@
       "surface_forms": [
         "이방성",
         "anisotropy",
-        "anisotropic"
+        "anisotropic",
+        "texture",
+        "집합조직"
       ],
       "autolink": [
         "이방성",
@@ -1441,7 +1531,8 @@
         "porosity",
         "porous",
         "lack of fusion",
-        "용융 불완전"
+        "용융 불완전",
+        "LPBF"
       ],
       "autolink": [
         "기공",
@@ -1514,7 +1605,9 @@
       "surface_forms": [
         "공정반응",
         "공정 반응",
-        "eutectic"
+        "eutectic",
+        "modification",
+        "개량처리"
       ],
       "autolink": [
         "공정반응",
@@ -1536,7 +1629,11 @@
       "category": "phase",
       "surface_forms": [
         "고용체",
-        "solid solution"
+        "solid solution",
+        "substitutional",
+        "interstitial",
+        "치환형",
+        "침입형"
       ],
       "autolink": [
         "고용체",
@@ -1578,7 +1675,8 @@
       "category": "alloy-family",
       "surface_forms": [
         "공구강",
-        "tool steel"
+        "tool steel",
+        "heat checking"
       ],
       "autolink": [
         "공구강",
@@ -1628,7 +1726,8 @@
         "마르퀜칭",
         "마템퍼링",
         "martempering",
-        "marquenching"
+        "marquenching",
+        "interrupted quench"
       ],
       "autolink": [
         "마르퀜칭",
@@ -1811,7 +1910,9 @@
         "고속도 강",
         "high-speed steel",
         "high speed steel",
-        "HSS"
+        "HSS",
+        "Red hardness",
+        "적열경도"
       ],
       "autolink": [
         "고속도강",
@@ -2016,7 +2117,10 @@
         "저탄소강",
         "중탄소강",
         "고탄소강",
-        "연강"
+        "연강",
+        "plain carbon",
+        "rebar",
+        "철근"
       ],
       "autolink": [
         "탄소강",
@@ -2097,7 +2201,16 @@
         "황동",
         "청동",
         "brass",
-        "bronze"
+        "bronze",
+        "dezincification",
+        "탈아연",
+        "gilding metal",
+        "red brass",
+        "yellow brass",
+        "nickel silver",
+        "니켈 실버",
+        "non-sparking",
+        "비발화"
       ],
       "autolink": [
         "구리 합금",
@@ -2123,7 +2236,9 @@
         "티타늄 합금",
         "titanium alloy",
         "Ti 합금",
-        "티타늄합금"
+        "티타늄합금",
+        "Kroll process",
+        "CP-Ti"
       ],
       "autolink": [
         "티타늄 합금",
@@ -2149,7 +2264,8 @@
         "고융점 금속",
         "refractory metal",
         "내화금속",
-        "refractory"
+        "refractory",
+        "NbTi"
       ],
       "autolink": [
         "고융점 금속",
@@ -2225,7 +2341,10 @@
         "제어압연",
         "가속냉각",
         "thermo-mechanical controlled processing",
-        "controlled rolling"
+        "controlled rolling",
+        "HSLA",
+        "microalloyed",
+        "미세합금"
       ],
       "autolink": [
         "TMCP",
@@ -2251,7 +2370,10 @@
         "galling",
         "내갈링",
         "응착 마모",
-        "anti-galling"
+        "anti-galling",
+        "cold welding",
+        "냉간 용접",
+        "smearing"
       ],
       "autolink": [
         "갈링",
@@ -2274,7 +2396,9 @@
       "category": "heat-treatment",
       "surface_forms": [
         "파텐팅",
-        "patenting"
+        "patenting",
+        "sorbite",
+        "소르바이트"
       ],
       "autolink": [
         "파텐팅",
@@ -2301,7 +2425,8 @@
         "sour",
         "SSC",
         "황화물 응력균열",
-        "H2S 환경"
+        "H2S 환경",
+        "sweet service"
       ],
       "autolink": [
         "사워 서비스",
@@ -2327,7 +2452,11 @@
         "coherency",
         "정합 석출",
         "반정합",
-        "비정합"
+        "비정합",
+        "semi-coherent",
+        "incoherent",
+        "misfit",
+        "cutting"
       ],
       "autolink": [
         "coherent",
@@ -2353,7 +2482,9 @@
         "cemented carbide",
         "WC-Co",
         "초경",
-        "텅스텐 카바이드 공구"
+        "텅스텐 카바이드 공구",
+        "cermet",
+        "서멧"
       ],
       "autolink": [
         "초경합금",
@@ -2385,7 +2516,9 @@
         "flake",
         "nodular",
         "편상",
-        "구상"
+        "구상",
+        "graphitic corrosion",
+        "흑연화 부식"
       ],
       "autolink": [
         "흑연"
@@ -2411,7 +2544,11 @@
         "gray cast iron",
         "gray iron",
         "grey cast iron",
-        "편상흑연주철"
+        "편상흑연주철",
+        "growth",
+        "ductile iron",
+        "구상흑연주철",
+        "연성주철"
       ],
       "autolink": [
         "회주철",
@@ -2439,7 +2576,8 @@
         "응고균열",
         "solidification cracking",
         "hot tearing",
-        "액화균열"
+        "액화균열",
+        "crater fill"
       ],
       "autolink": [
         "고온균열",
@@ -2490,7 +2628,11 @@
         "상태도",
         "phase diagram",
         "평형상태도",
-        "equilibrium diagram"
+        "equilibrium diagram",
+        "lever rule",
+        "solvus",
+        "지렛대 법칙",
+        "고용한계선"
       ],
       "autolink": [
         "상태도"
@@ -2516,7 +2658,8 @@
         "조미니",
         "Jominy",
         "질량효과",
-        "임계지름"
+        "임계지름",
+        "ideal critical diameter"
       ],
       "autolink": [
         "경화능",
@@ -2544,7 +2687,9 @@
         "nylon",
         "PA6",
         "PA66",
-        "PA12"
+        "PA12",
+        "conditioned",
+        "조습"
       ],
       "autolink": [
         "폴리아마이드",
@@ -2625,7 +2770,8 @@
         "PEEK",
         "PEI",
         "PPS",
-        "PSU"
+        "PSU",
+        "PAEK"
       ],
       "autolink": [
         "고성능 폴리머",
@@ -2653,7 +2799,8 @@
         "alumina",
         "zirconia",
         "Y-TZP",
-        "ZTA"
+        "ZTA",
+        "ceramic steel"
       ],
       "autolink": [
         "산화물 세라믹",
@@ -2682,7 +2829,9 @@
         "질화규소",
         "silicon carbide",
         "silicon nitride",
-        "탄화붕소"
+        "탄화붕소",
+        "RB-SiC",
+        "SSiC"
       ],
       "autolink": [
         "비산화물 세라믹",
@@ -2710,7 +2859,16 @@
         "CFRP",
         "carbon fiber",
         "프리프레그",
-        "prepreg"
+        "prepreg",
+        "quasi-isotropic",
+        "interlaminar",
+        "peel",
+        "준등방",
+        "층간박리",
+        "thermoset",
+        "열경화성",
+        "closed-cell",
+        "post-cure"
       ],
       "autolink": [
         "탄소섬유복합재",
@@ -2738,7 +2896,10 @@
         "TRIP강",
         "핫스탬핑강",
         "press hardening steel",
-        "기가스틸"
+        "기가스틸",
+        "edge cracking",
+        "Dual-Phase",
+        "TWIP"
       ],
       "autolink": [
         "초고장력강",
@@ -2769,7 +2930,8 @@
         "ABS",
         "PVC",
         "PETG",
-        "PLA"
+        "PLA",
+        "long-chain branching"
       ],
       "autolink": [
         "범용 플라스틱",
@@ -2829,7 +2991,11 @@
         "TPU",
         "실리콘 고무",
         "NBR",
-        "쇼어 경도"
+        "쇼어 경도",
+        "Shore",
+        "compression set",
+        "damping",
+        "압축영구변형"
       ],
       "autolink": [
         "엘라스토머"
@@ -2855,7 +3021,9 @@
         "MMC",
         "CMC",
         "metal matrix composite",
-        "ceramic matrix composite"
+        "ceramic matrix composite",
+        "graceful failure",
+        "Al-SiC"
       ],
       "autolink": [
         "금속기지 복합재",
@@ -2884,7 +3052,10 @@
         "shape memory alloy",
         "SMA",
         "Nitinol",
-        "초탄성"
+        "초탄성",
+        "twin",
+        "쌍정",
+        "deformation twin"
       ],
       "autolink": [
         "형상기억합금",
@@ -2912,7 +3083,8 @@
         "코바",
         "Invar",
         "Kovar",
-        "controlled expansion"
+        "controlled expansion",
+        "Fe-Ni-Co"
       ],
       "autolink": [
         "저열팽창 합금",
@@ -2937,7 +3109,9 @@
         "지르칼로이",
         "Zircaloy",
         "zirconium alloy",
-        "핵연료 피복관"
+        "핵연료 피복관",
+        "cladding",
+        "피복관"
       ],
       "autolink": [
         "지르코늄 합금",
@@ -2953,6 +3127,33 @@
         "corrosion-resistance",
         "non-oxide-ceramic",
         "refractory-metal"
+      ]
+    },
+    "schaeffler-diagram": {
+      "display": "쉐플러 다이어그램 (Schaeffler Diagram)",
+      "category": "phase",
+      "surface_forms": [
+        "쉐플러 다이어그램",
+        "쉐플러",
+        "Schaeffler",
+        "Ni 당량",
+        "Cr 당량",
+        "DeLong",
+        "WRC-1992"
+      ],
+      "autolink": [
+        "쉐플러"
+      ],
+      "short": "스테인리스강 용접금속의 조성을 Cr 당량(페라이트化 능력)·Ni 당량(오스테나이트化 능력) 두 축의 좌표로 찍어, 어떤 조직(오스테나이트·페라이트·마르텐사이트·듀플렉스)이 나올지 예측하는 지도. 이종 용접·용접봉 선정의 고전적 도구다.",
+      "sources": [
+        "Schaeffler (1949) — Constitution Diagram",
+        "Kou — Welding Metallurgy"
+      ],
+      "related": [
+        "austenite",
+        "ferrite",
+        "stainless-steel",
+        "hot-cracking"
       ]
     }
   }

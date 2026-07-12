@@ -260,7 +260,9 @@
   "aliases": [
     "UNS A92618",
     "EN AW-2618",
-    "AlCu2Mg1.5Ni"
+    "AlCu2Mg1.5Ni",
+    "RR58 (Hiduminium)",
+    "RR58"
   ],
   "families": [
     "Metal",
@@ -288,5 +290,14 @@
   "svhc_concerns": [
     "Ni 1.2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "UNS A92618",
+        "EN AW-2618",
+        "AlCu2Mg1.5Ni"
+      ]
+    }
+  }
 }

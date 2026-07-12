@@ -5619,6 +5619,31 @@
         "ASTM B811 — Zr Alloy Tubes for Nuclear Service",
         "Motta & Couet — Zirconium Alloys for Nuclear Fuel Cladding (Annu. Rev.)"
       ]
+    },
+    "schaeffler-diagram": {
+      "sections": [
+        {
+          "heading": "개요",
+          "body": "합금원소는 두 패로 나뉜다 — 페라이트를 미는 쪽(Cr·Mo·Si·Nb)과 오스테나이트를 미는 쪽(Ni·C·N·Mn). 쉐플러 다이어그램은 이 둘을 각각 하나의 숫자로 접어(Cr 당량·Ni 당량) 조성을 2차원 좌표로 만들고, 그 위에 용접금속의 조직 영역을 그려 둔 지도다. 1949년 쉐플러가 발표한 이후 스테인리스 용접 야금의 공용어가 되었다."
+        },
+        {
+          "heading": "읽는 법",
+          "body": "가로축 Cr 당량 = Cr + Mo + 1.5Si + 0.5Nb, 세로축 Ni 당량 = Ni + 30C + 0.5Mn (판별식은 판본에 따라 조금씩 다르다). 좌표를 찍으면 오스테나이트(A)·페라이트(F)·마르텐사이트(M)와 그 혼합 영역 중 어디에 앉는지 보인다 — 304(18Cr-8Ni)가 A 영역 하단, 즉 δ 페라이트 수 %를 남기는 위치에 설계된 조성임을 한눈에 확인할 수 있다. 이 δ 페라이트 잔량이 고온균열을 막는 열쇠다."
+        },
+        {
+          "heading": "실무 — 무엇에 쓰나",
+          "body": "① 용접봉 선정 — 모재 조성과 희석률로 용접금속 좌표를 예측해, 균열 안전 영역(δ 페라이트 5~10%)에 들어오는 filler 를 고른다(308L 이 304 보다 페라이트 쪽에 설계된 이유).\n② 이종 용접 — 탄소강×스테인리스 조인트의 용접금속이 마르텐사이트 영역으로 떨어지지 않게 309L 같은 고합금 filler 로 끌어올리는 판단이 이 지도 위에서 이뤄진다.\n③ 이 앱의 Engineering Tools 에 Schaeffler 계산기가 있어 조성만 넣으면 좌표를 바로 얻을 수 있다."
+        },
+        {
+          "heading": "주의점",
+          "body": "쉐플러 원판은 N 를 무시하고 급랭 조직 기준이라 한계가 있다 — N 를 반영한 DeLong 판, 응고 모드까지 다루는 WRC-1992 판이 후속 표준이다(측정은 Ferritescope 로 검증). 또 이것은 '용접금속' 예측 도구다 — 모재 열처리 조직이나 장시간 사용 후 상변화(σ상 등)는 별도 문제로 다뤄야 한다."
+        }
+      ],
+      "refs": [
+        "Schaeffler, A. L. (1949) — Constitution Diagram for Stainless Steel Weld Metal",
+        "Kou — Welding Metallurgy",
+        "WRC-1992 Diagram (Kotecki & Siewert)"
+      ]
     }
   }
 }

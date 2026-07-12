@@ -98,7 +98,8 @@ const ALLOY_PATTERNS = [
   /\bAM ?3\d{2}\b/g,
   /\bPH ?\d{2}-\d(?:\s?Mo)?\b/g,
   /\b\d{2}-\d{1,2}(?:-\d{1,2})? ?(?:PH|Mo)\b/g,
-  /\b(?:Inconel|Incoloy|Hastelloy|Haynes|Monel|Nimonic|Waspaloy|Rene|René|Udimet|Stellite|MAR-M|CMSX)[- ]?[\w-]{0,8}\b/g,
+  // 브랜드+지정번호 — 꼬리는 숫자 시작 토큰만 흡수 ("Monel Ni-Cu"·"Waspaloy bar" 방지, H4i)
+  /\b(?:Inconel|Incoloy|Hastelloy|Haynes|Monel|Nimonic|Waspaloy|Rene|René|Udimet|Stellite|MAR-M|CMSX)(?:[- ]?[A-Z]?-?\d[\w.]{0,7})?\b/g,
   // 일반 짧은 grade 코드 — 규격기관 접두(ASTM A967 등)·경도(HRC 30)·온도 문맥은 lookbehind/lookahead 로 제외
   /(?<!ASTM )(?<!AMS )(?<!AWS )(?<!ISO )(?<!ASME )(?<!NACE )(?<!API )(?<!SAE )(?<!JIS )(?<!MIL-)(?<!MIL )(?<!DTL-)(?<!\/)\b[A-Z]{1,3}[- ]?\d{2,4}[A-Z]{0,2}\b(?! ?°C)/g,
   /\b(?:Grade|Gr\.?) ?\d{1,3}\b/gi,
@@ -122,9 +123,36 @@ const STOP_RE = [
   /^[CE] ?\d{1,3}$/i, // 온도·모듈러스 파편 ("C 27"·"E 114"; 구리 C+5자리는 통과)
   /^D ?\d{3,4}$/i, // 문서·규격 코드 (D008·D 8302; D2 등 1자리는 통과)
   /^[IVX]{1,4} ?\d+$/, // 로마숫자 Type 표기 (III 25 µm 등)
-  /^HT-?\d{2,3}$/i, // 항공 강 강도클래스 표기 (HT-125/HT-150 = heat-treated ksi — 합금명 아님)
+  /^HT-? ?\d{1,3}$/i, // 강도클래스·열처리 파편 (HT-125·"HT 10")
   /^AR-?0\d$/i, // FAA 보고서 번호 (FAA AR-03 등; AR400 내마모강은 통과)
+  // H4i — 원문 확인으로 판명된 비합금 (오탐 재분류)
+  /^(FAR|CFR|CS|FDA|FAA|QQ|TM|SMC|KBC|AS)[- ]?\d/i, // 인증·법규·문서 번호 (FAR 25·CFR 177·QQ-N-286·NASA TM·AS9100)
+  /^(HIP|SHT|EBM|LPBF|SLM|DED) ?\d{1,4}$/i, // 공정 파라미터 파편 (HIP 1120°C·SHT 520·EBM 45µm)
+  /^EOS ?\d*$/i, // 장비 제조사 (EOS 17-4 파편)
+  /^TF\d{2}$/i, // temper 코드 (C17200 TF00)
+  /^P\d{3}$/i, // 방진 보호구 등급 (P100 — K110·M247 등 합금과 무충돌)
+  /^N-?\d{3}$/i, // QQ-N-286 파편 등 (N+3자리 합금 없음)
+  /^E ?\d{4}$/i, // ASTM E 시험규격 (E1820·E1570; E52100 5자리는 통과)
+  /^G ?\d{2}$/i, // 아연도금 코팅 등급 (G60·G90)
+  /^(SA|SB)-\d{2,3}$/i, // ASME 재료규격 접두 (SA-240·SA-335)
+  /^A(500|706|743|744|352|967)$/i, // ASTM 규격 번호 — 합금명과 충돌 없는 것만 명시
+  /^B(171|187|453)$/i, // ASTM B 구리 규격 번호
+  /^WRC-?\d{4}$/i, // 용접연구회 다이어그램 판 (WRC-1992)
 ];
+// 실재하나 등재 보류 — 사유 기록 (리포트 별도 섹션으로 이동, absent 집계 제외)
+const DOCUMENTED_ABSENT = new Map([
+  ['sx300', '독점 Cu계 AM 합금 — 공개 검증 datasheet 없음'],
+  ['m55j', '탄소섬유 원사 규격 — 구조 entry 범위 밖(라미네이트는 CFRP 로 수록)'],
+  ['dx51d', 'EN 아연도금 강판 grade — KS D 3506 등가 서술용 언급'],
+  ['zk60a', 'Mg 단조합금 — 1회 언급·수요 미확인'],
+  ['unsn07720', 'Udimet 720Li — 1회 언급(터빈 디스크 niche)'],
+  ['unsn13017', 'HT 노트 인용 UNS — 대응 상용명 미상'],
+  ['unsr56410', 'Ti-6246 — β Ti 노트 인용'],
+  ['unsr58153', 'β Ti 변형 grade — 노트 인용'],
+  ['unsr58210', 'β Ti 변형 grade — 노트 인용'],
+  ['unsm16600', 'Mg 합금 UNS — 노트 인용'],
+  ['unsk93160', 'Maraging 350 — DB 는 250/300 만 수록'],
+]);
 // 항공기·엔진·무기 호칭 — 합금 아님 (실재 합금과 겹치지 않는 것만: A380 다이캐스트 합금 등은 제외)
 const NON_MATERIAL = new Set([
   'a320', 'a350', 'b47', 'b52', 'b58', 'f15', 'f16', 'f86', 'a18', 'p47', 'p51',
@@ -133,20 +161,35 @@ const NON_MATERIAL = new Set([
 const isStop = (s) => STOP_RE.some((re) => re.test(s.trim()));
 
 const mentions = new Map(); // norm → { raw, count, srcs:Set, cls, matchId }
+const documented = new Map(); // norm → { raw, count, srcs:Set, reason }
 for (const { src, key, text } of corpus) {
   const seen = new Set();
+  const spans = []; // [start,end] — 앞선(우선) 패턴의 스팬. 뒤 패턴의 부분 매치("M 247" ⊂ "MAR-M 247") 차단 (H4i)
   for (const re of ALLOY_PATTERNS) {
     re.lastIndex = 0;
     for (const m of text.matchAll(re)) {
+      const s = m.index, e = s + m[0].length;
+      if (spans.some(([a, b]) => s < b && a < e)) continue; // 우선 패턴 스팬과 겹침 → 파편
       const raw = m[0].trim();
       if (isStop(raw)) continue;
-      const nf = norm(raw);
-      if (!nf || nf.length < 2 || seen.has(nf) || NON_MATERIAL.has(nf)) continue;
+      // é 등 결합 분음부호 제거 후 정규화 (René → Rene)
+      const nf = norm(raw.normalize('NFD').replace(/[̀-ͯ]/g, ''));
+      if (!nf || nf.length < 2 || NON_MATERIAL.has(nf)) continue;
+      spans.push([s, e]);
+      if (seen.has(nf)) continue;
       seen.add(nf);
+      if (DOCUMENTED_ABSENT.has(nf)) {
+        let d = documented.get(nf);
+        if (!d) { d = { raw, count: 0, srcs: new Set(), reason: DOCUMENTED_ABSENT.get(nf) }; documented.set(nf, d); }
+        d.count++;
+        if (d.srcs.size < 3) d.srcs.add(`${src}:${key.slice(0, 42)}`);
+        continue;
+      }
       let rec = mentions.get(nf);
       if (!rec) {
-        // 별칭 폴백: 실험 접두 X- 제거·PH 접두 부여·브랜드 접두 제거 (X7050→7050, 13-8Mo→PH13-8Mo, Haynes Stellite→Stellite)
+        // 별칭 폴백: 실험 접두 X-·PH 접두·브랜드 접두·후미 변형문자 (X7050→7050, 13-8Mo→PH13-8Mo, SM490Y→SM490)
         const alts = [nf, nf.replace(/^x(?=\d)/, ''), `ph${nf}`, nf.replace(/^haynes(?=[a-z])/, '')];
+        if (/\d[a-z]$/.test(nf)) alts.push(nf.slice(0, -1));
         let w = null, dbId = null;
         for (const alt of alts) {
           w = wikiForms.get(alt);
@@ -167,7 +210,21 @@ for (const { src, key, text } of corpus) {
 const termIntro = new Map(); // english norm → {ko, en, count, srcs}
 // "…한글용어(English)" — 한글은 괄호 직전 1~2 어절만(긴 구문 유입 방지)
 const INTRO_RE = /([가-힣·]{2,12}(?:\s[가-힣·]{2,12})?)\(([A-Za-z][A-Za-z\s'-]{2,32})\)/g;
-const EN_STOP = new Set(['si', 'iso', 'astm', 'ams', 'ks', 'jis', 'en', 'din', 'uns', 'ai']);
+const EN_STOP = new Set(['si', 'iso', 'astm', 'ams', 'ks', 'jis', 'en', 'din', 'uns', 'ai',
+  // H4i — ③ 노이즈 재분류: 기관·프로그램·상표·어원 설명·광의 일반어 (용어화 부적절)
+  'asme', 'slwt', 'celcon', 'hpht', 'rampt', 'grcop', 'guillaume', 'ductibor', 'spallation',
+  'sweet', 'poison', 'patent', 'pearl', 'cement', 'commodity', 'retorque', 'kinetics',
+  'scratch', 'rusting', 'ironbased', 'alsi', 'wirerod', 'moltenlead', 'delrinvshostaform',
+  // H4i-2 — ③ 잔여 전수분류: 기관·상표·관용구·문맥 파편(실질 개념은 surface 흡수 완료)
+  'wshape', 'iads', 'duralumin', 'vimvar', 'screwmachine', 'dualcertified', 'marinegrade',
+  'naca', 'aircrafttubing', 'taps', 'brushberyllium', 'unioncarbide', 'ornl', 'msre', 'mpie',
+  'osseointegration', 'rheniumeffect', 'ausc', 'gelspinning', 'laminatedglass', 'dyneema',
+  'goretex', 'nomex', 'celazole', 'frozensmoke', 'invariable', 'copperbottomed', 'pigtail',
+  'catenary', 'sheath', 'cucrnb', 'ssme', 'balsa', 'bamboo', 'hexagonalcell', 'skin',
+  'norun', 'hard', 'metalreplacement', 'rubbing', 'welding', 'chipping', 'diecut', 'cryo',
+  'cbnwheel', 'induction', 'acsr', 'rohs', 'citric', 'hepa', 'oemproprietary', 'xyvsz',
+  'materialindex', 'osteoconductive', 'ferrotic',
+]);
 for (const { src, key, text } of corpus) {
   INTRO_RE.lastIndex = 0;
   for (const m of text.matchAll(INTRO_RE)) {
@@ -214,6 +271,14 @@ md.push('');
 md.push('| 한글 | English | 횟수 | 출처(샘플) |');
 md.push('|---|---|---|---|');
 for (const t of terms.slice(0, 100)) md.push(`| ${t.ko} | ${t.en} | ${t.count} | ${[...t.srcs].slice(0, 2).join(' · ')} |`);
+md.push('');
+md.push('## ④ 등재 보류 (실재 확인·사유 기록 — absent 집계 제외)');
+md.push('');
+md.push('| 언급 | 횟수 | 보류 사유 |');
+md.push('|---|---|---|');
+for (const [, d] of [...documented.entries()].sort((a, b) => b[1].count - a[1].count)) {
+  md.push(`| ${d.raw} | ${d.count} | ${d.reason} |`);
+}
 md.push('');
 
 fs.mkdirSync(path.join(ROOT, 'docs/audits'), { recursive: true });
