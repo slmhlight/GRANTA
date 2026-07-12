@@ -56,7 +56,29 @@ const SUBCAT_TO_SLUG = {
   'Magnesium Alloy': 'magnesium-alloy',
   'Cast Iron': 'gray-cast-iron',
   'Zinc Alloy': 'casting',
-  // 나머지 subcat(폴리머·세라믹·컴포지트 세분류 등)은 의도적으로 미매핑 → (a) 리포트에 후보로 등장
+  // H4h — 비금속 계열 페이지 신설분
+  'Oxide': 'oxide-ceramic',
+  'Carbide': 'non-oxide-ceramic',
+  'Nitride': 'non-oxide-ceramic',
+  'Polymer - Polyamide': 'polyamide',
+  'Polymer - Polyamide GF': 'polyamide',
+  'Polymer - Polyamide CF': 'polyamide',
+  'Polymer - POM': 'pom',
+  'Polymer - Polycarbonate': 'polycarbonate',
+  'Polymer - PEI/ULTEM': 'high-performance-polymer',
+  'Polymer - PSU': 'high-performance-polymer',
+  'Polymer - PPSU': 'high-performance-polymer',
+  'Polymer - PPS': 'high-performance-polymer',
+  'Polymer - PEEK': 'high-performance-polymer',
+  'Polymer - PEEK GF': 'high-performance-polymer',
+  'Polymer - PEEK CF': 'high-performance-polymer',
+  'Carbon-Epoxy': 'cfrp',
+  'Glass-Epoxy': 'cfrp',
+  'Glass-Polyester': 'cfrp',
+  'Aramid-Epoxy': 'cfrp',
+  'Advanced High-Strength Steel': 'ahss',
+  'Press-Hardening Steel': 'ahss',
+  // 나머지 subcat(폴리머 범용 수지·특수 복합재 등)은 의도적으로 미매핑 → (a) 리포트에 후보로 등장
 };
 
 const bySubcat = new Map();
