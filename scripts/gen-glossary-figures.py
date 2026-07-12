@@ -2155,6 +2155,273 @@ def fig_ceramic_families():
     save(fig, "ceramic-families")
 
 
+def _family_barh(name, title, subtitle, items, xlabel, legend_map, xmax=None, note=None, legend_loc="upper right"):
+    """계열 스펙트럼 공용 포맷 — 가로 막대(겹침 무발생) + 계열 색 + 값 라벨 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(8.8, 0.52 * len(items) + 2.1))
+    ys = range(len(items))
+    vals = [v for _, v, _ in items]
+    xm = xmax or max(vals) * 1.18
+    for y, (label, v, kind) in enumerate(items):
+        ax.barh(y, v, height=0.6, color=legend_map[kind][1], edgecolor="white", linewidth=0.6)
+        ax.text(v + xm * 0.012, y, f"{v:,}", va="center", fontsize=8.2, color=C_AX)
+    ax.set_yticks(list(ys))
+    ax.set_yticklabels([label for label, _, _ in items], fontsize=8.8)
+    ax.invert_yaxis()
+    ax.set_xlim(0, xm)
+    ax.set_xlabel(xlabel, fontsize=9)
+    ax.tick_params(labelsize=8)
+    ax.grid(axis="x", alpha=0.25, lw=0.6)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=c) for _, (_, c) in legend_map.items()]
+    labels = [lab for _, (lab, _) in legend_map.items()]
+    ax.legend(handles, labels, fontsize=7.8, loc=legend_loc, framealpha=0.95)
+    if note:
+        ax.text(0.0, 1.02, note, transform=ax.transAxes, ha="left", fontsize=7.8, color=C_MUTE)
+    ax.set_title(title + " — " + subtitle, fontsize=11, color=C_AX, fontweight="bold", pad=14)
+    fig.subplots_adjust(left=0.30, right=0.97, top=0.86, bottom=0.16)
+    save(fig, name)
+
+
+def fig_cu_families():
+    _family_barh(
+        "cu-families", "구리 합금 계열", "σy 스펙트럼 (대표 조건, 개략)",
+        [("순동 C11000 (annealed)", 70, "s"),
+         ("쿠프로니켈 C71500 (70/30)", 140, "s"),
+         ("황동 C26000 (H02 냉간)", 360, "w"),
+         ("CuCrZr (aged)", 400, "p"),
+         ("알루미늄청동 C63000", 415, "s"),
+         ("인청동 C51000 (H)", 470, "w"),
+         ("베릴륨동 C17200 (AT)", 1100, "p")],
+        "항복강도 σy (MPa, 개략)",
+        {"s": ("고용·기본", C_A), "w": ("가공경화", C_G), "p": ("석출경화", C_M)},
+        note="전도도는 대체로 강도와 반비례 — 순동 100 %IACS ↔ 베릴륨동 ~22 %IACS")
+
+
+def fig_co_families():
+    _family_barh(
+        "co-families", "코발트 합금 계열", "σy 와 세 갈래 용도 (개략)",
+        [("CoCrMo F75 (주조·생체)", 450, "b"),
+         ("L605 / Haynes 25 (고온 판재)", 460, "h"),
+         ("Haynes 188 (연소기)", 465, "h"),
+         ("Stellite 6 (하드페이싱)", 540, "w"),
+         ("CoCrMo F1537 (단조·생체)", 830, "b"),
+         ("MP35N (aged — 최강 Co계)", 1600, "b")],
+        "항복강도 σy (MPa, 개략)",
+        {"w": ("내마모 (Stellite)", C_M), "h": ("고온 (Haynes·L605)", C_G), "b": ("생체·고강도 (CoCrMo·MP35N)", C_A)},
+        note="내마모 계열의 본체는 σy 가 아니라 경도(~40 HRC)와 탄화물")
+
+
+def fig_mg_families():
+    _family_barh(
+        "mg-families", "마그네슘 합금 계열", "σy 스펙트럼 (개략) — 전 계열 밀도 1.74~1.85 g/cm³",
+        [("AZ91D (다이캐스트)", 150, "c"),
+         ("WE43 (T6 — 고온·희토류)", 170, "r"),
+         ("AZ31B (판재·압출)", 200, "w"),
+         ("ZK60A (T5 — 고강도 단조)", 260, "w")],
+        "항복강도 σy (MPa, 개략)",
+        {"c": ("주조 (AZ 다이캐스트)", C_A), "w": ("가공재 (AZ31·ZK60)", C_G), "r": ("희토류계 (WE43)", C_M)},
+        note="같은 σy 라도 무게는 Al 의 2/3, 강의 1/4 급 — '비강도'로 읽을 것")
+
+
+def fig_refractory_melting():
+    _family_barh(
+        "refractory-melting", "고융점 금속", "융점 스펙트럼 — 이 가족의 신분증 (°C)",
+        [("텅스텐 W", 3422, "m"),
+         ("레늄 Re", 3186, "d"),
+         ("탄탈럼 Ta", 3017, "d"),
+         ("몰리브데넘 Mo", 2623, "m"),
+         ("니오븀 Nb", 2477, "m")],
+        "융점 (°C)",
+        {"m": ("상온 취성 주의 (W·Mo·Nb — DBTT)", C_M), "d": ("상온 연성 (Ta·Re)", C_A)},
+        xmax=4300,
+        note="비교: 철 1538 °C · 니켈 1455 °C — 초합금이 끝나는 곳에서 시작하는 가족",
+        legend_loc="lower right")
+
+
+def fig_toolsteel_hardness():
+    _family_barh(
+        "toolsteel-hardness", "공구강 계열", "사용 경도 스펙트럼 (HRC, 개략)",
+        [("P20 (몰드 — pre-hardened)", 32, "mo"),
+         ("H13 (열간 다이캐스트)", 48, "h"),
+         ("S7 (내충격)", 56, "s"),
+         ("A2 (공랭 냉간)", 61, "c"),
+         ("O1 (유랭 냉간)", 62, "c"),
+         ("D2 (고크로뮴 냉간)", 62, "c"),
+         ("DC53 (Cr8 개량)", 63, "c"),
+         ("M2 (범용 HSS)", 65, "hs"),
+         ("M42 (Co8 HSS)", 67, "hs")],
+        "사용 경도 (HRC, 개략)",
+        {"mo": ("몰드", C_MUTE), "h": ("열간", C_G), "s": ("내충격", "#7a5195"), "c": ("냉간", C_A), "hs": ("고속도", C_M)},
+        xmax=78,
+        note="열간(H)은 경도 대신 고온 연화 저항, 내충격(S)은 인성이 본체")
+
+
+def fig_maraging_grades():
+    _family_barh(
+        "maraging-grades", "마레이징강", "grade 별 σy — 가공은 무른 상태에서, 강도는 Aging 후 (개략)",
+        [("용체화 상태 (가공·용접 시점)", 800, "a"),
+         ("Maraging 250 (aged)", 1720, "g"),
+         ("Maraging 300 (aged)", 2000, "g"),
+         ("Maraging 350 (aged)", 2400, "g")],
+        "항복강도 σy (MPa, 개략)",
+        {"a": ("annealed/용체화 — 무른 마르텐사이트", C_A), "g": ("480 °C Aging 후", C_M)},
+        note="탄소 거의 0 — 강화는 Ni₃(Ti,Mo) 금속간화합물 석출의 몫")
+
+
+def fig_schaeffler():
+    """쉐플러 다이어그램 전용 — Cr/Ni 당량 조직 지도 (개략, Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(8.6, 6.0))
+    ax.set_xlim(0, 30); ax.set_ylim(0, 24)
+    ax.set_xlabel("Cr 당량 = Cr + Mo + 1.5Si + 0.5Nb", fontsize=9.5)
+    ax.set_ylabel("Ni 당량 = Ni + 30C + 0.5Mn", fontsize=9.5)
+    ax.tick_params(labelsize=8.5)
+    # 영역(개략 폴리곤 — 실제 경계의 단순화)
+    A = Polygon([(0, 12), (13, 8.5), (30, 16), (30, 24), (0, 24)], closed=True,
+                facecolor="#f3e3cd", edgecolor="none", alpha=0.9)
+    M = Polygon([(0, 0), (13, 0), (13, 8.5), (0, 12)], closed=True,
+                facecolor="#eebdb8", edgecolor="none", alpha=0.9)
+    F = Polygon([(17, 0), (30, 0), (30, 10), (24, 6.5), (17, 1.5)], closed=True,
+                facecolor="#dbe7f3", edgecolor="none", alpha=0.9)
+    AF = Polygon([(13, 8.5), (30, 16), (30, 10), (24, 6.5)], closed=True,
+                 facecolor="#e9edc9", edgecolor="none", alpha=0.9)
+    MF = Polygon([(13, 0), (17, 0), (17, 1.5), (24, 6.5), (13, 8.5)], closed=True,
+                 facecolor="#e8d9ec", edgecolor="none", alpha=0.9)
+    for p in (A, M, F, AF, MF):
+        ax.add_patch(p)
+    ax.text(7, 19, "오스테나이트 (A)", fontsize=10.5, color="#8a5a1f", fontweight="bold")
+    ax.text(3.2, 4.5, "마르텐사이트 (M)", fontsize=9.5, color="#8f2f28", fontweight="bold")
+    ax.text(25.5, 2.2, "페라이트 (F)", fontsize=9.5, color="#2f5b8f", fontweight="bold", ha="center")
+    ax.text(23.5, 10.6, "A + F", fontsize=9.5, color="#5c6b2f", fontweight="bold")
+    ax.text(16.6, 4.6, "M + F\n/ M + A", fontsize=8.2, color="#5b3a6b", ha="center")
+    # 페라이트 5~10% 안전 밴드 (고온균열 회피 창 — 개략)
+    ax.plot([14, 30], [9.4, 17.2], color=C_AX, lw=1.1, ls=(0, (5, 3)))
+    ax.plot([15.5, 30], [8.8, 15.4], color=C_AX, lw=1.1, ls=(0, (5, 3)))
+    ax.text(28.2, 17.4, "δ 페라이트 5~10%\n(고온균열 안전 창)", fontsize=7.8, color=C_AX, ha="right", va="bottom")
+    # 대표 grade 점
+    PTS = [("410", 12.5, 2.5), ("430", 17.5, 1.8), ("304", 19, 10.3), ("308L", 20.5, 11.2),
+           ("309L", 24.5, 13.5), ("316L", 21.5, 11.6), ("2205", 25.5, 9.0)]
+    for name, x, y in PTS:
+        ax.scatter(x, y, s=52, color="#1f2933", zorder=5, edgecolor="white", linewidth=0.7)
+        dy = 0.55 if name not in ("308L", "316L") else -1.0
+        ax.text(x, y + dy, name, fontsize=8.4, ha="center", color="#1f2933",
+                va="bottom" if dy > 0 else "top", fontweight="bold")
+    # 이종 용접 희석 화살표 (탄소강 × 309L)
+    ax.scatter(1.2, 1.5, s=52, color=C_M, zorder=5, edgecolor="white", linewidth=0.7)
+    ax.text(1.3, 0.7, "탄소강", fontsize=8.2, color=C_M, ha="left", fontweight="bold")
+    ax.annotate("", xy=(24.0, 13.2), xytext=(1.8, 1.9),
+                arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.2, ls=(0, (4, 2))))
+    ax.text(9.2, 2.2, "이종 용접 희석 경로 — 중간이 M 지대를\n지나므로 309L 로 A 쪽에 착지시킨다",
+            fontsize=7.9, color=C_M, ha="center", va="center")
+    ax.set_title("쉐플러 다이어그램 — 용접금속 조직의 지도 (개략)", fontsize=11.5, color=C_AX, fontweight="bold")
+    fig.subplots_adjust(left=0.09, right=0.97, top=0.93, bottom=0.09)
+    save(fig, "schaeffler")
+
+
+def fig_he_triangle():
+    """수소취성 전용 — 3요소 벤 + 베이킹 창 (Figure Quality v2)."""
+    fig, (axL, axR) = plt.subplots(1, 2, figsize=(9.6, 4.3), gridspec_kw={"width_ratios": [1.15, 1]})
+    axL.set_xlim(0, 10); axL.set_ylim(0, 10); axL.set_aspect("equal"); axL.axis("off")
+    cs = [(3.6, 6.2, C_A, "원자수소 유입\n(도금·산세·부식·용접)"),
+          (6.4, 6.2, C_G, "인장응력\n(외력+잔류응력)"),
+          (5.0, 3.6, C_M, "감수성 재료\n(고강도강 ≥HRC 32)")]
+    for cx, cy, c, lab in cs:
+        axL.add_patch(Circle((cx, cy), 2.6, facecolor=c, alpha=0.25, edgecolor=c, lw=1.6))
+    axL.text(3.0, 7.6, cs[0][3], fontsize=8.4, ha="center", color="#2f5b8f")
+    axL.text(7.1, 7.6, cs[1][3], fontsize=8.4, ha="center", color="#8a5a1f")
+    axL.text(5.0, 1.7, cs[2][3], fontsize=8.4, ha="center", color="#8f2f28")
+    axL.text(5.0, 5.4, "지연파괴", fontsize=10.5, ha="center", color="#1f2933", fontweight="bold")
+    axL.text(5.0, 4.7, "(수 시간~수일 뒤)", fontsize=7.6, ha="center", color=C_MUTE)
+    axL.set_title("세 원이 겹칠 때만 일어난다 — 하나를 끊는 게 대책", fontsize=10, color=C_AX, fontweight="bold")
+    # (우) 베이킹 창
+    axR.set_xlim(0, 10); axR.set_ylim(0, 10); axR.axis("off")
+    axR.add_patch(Rectangle((0.6, 6.4), 8.8, 1.5, facecolor="#dbe7f3", edgecolor=C_A, lw=1.2))
+    axR.text(5.0, 7.15, "도금 후 4시간 이내 착수", ha="center", fontsize=8.8, color="#2f5b8f", fontweight="bold")
+    axR.add_patch(Rectangle((0.6, 3.9), 8.8, 1.5, facecolor="#f3e3cd", edgecolor=C_G, lw=1.2))
+    axR.text(5.0, 4.65, "190~220 °C × 수 시간~24 h (강도급별)", ha="center", fontsize=8.8, color="#8a5a1f", fontweight="bold")
+    axR.add_patch(Rectangle((0.6, 1.4), 8.8, 1.5, facecolor="#eebdb8", edgecolor=C_M, lw=1.2))
+    axR.text(5.0, 2.15, "수소 방출 — 취성 회복 (ASTM F519 검증)", ha="center", fontsize=8.8, color="#8f2f28", fontweight="bold")
+    for y in (6.4, 3.9):
+        axR.annotate("", xy=(5.0, y - 0.35), xytext=(5.0, y - 0.05),
+                     arrowprops=dict(arrowstyle="-|>", color=C_AX, lw=1.2))
+    axR.set_title("베이킹(de-embrittlement) 창 — 시간이 생명", fontsize=10, color=C_AX, fontweight="bold")
+    fig.suptitle("수소취성 — 3요소의 교집합, 그리고 도금 라인의 시계", fontsize=11.5, color=C_AX, y=1.0)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.84, bottom=0.04, wspace=0.1)
+    save(fig, "he-triangle")
+
+
+def fig_solidification_cracking():
+    """고온균열 전용 — 응고 액막과 수축 구속 (Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(8.6, 4.4))
+    ax.set_xlim(0, 10); ax.set_ylim(0, 10); ax.set_aspect("equal"); ax.axis("off")
+    # 주상정 4기둥 (아래에서 위로 응고 성장)
+    rng = np.random.RandomState(5)
+    cols = [(0.8, 2.2), (2.6, 4.4), (4.8, 6.6), (7.0, 8.8)]
+    for x0, x1 in cols:
+        verts = [(x0, 0.6)]
+        xs = np.linspace(x0, x1, 7)
+        for i, x in enumerate(xs):
+            verts.append((x, 6.2 + 0.55 * np.sin(i * 1.9) + rng.uniform(-0.15, 0.15)))
+        verts.append((x1, 0.6))
+        ax.add_patch(Polygon(verts, closed=True, facecolor="#dbe7f3", edgecolor=C_A, lw=1.3))
+    # 결정 사이 마지막 액막 (저융점 편석)
+    for (a0, a1), (b0, b1) in zip(cols[:-1], cols[1:]):
+        gap_l, gap_r = a1, b0
+        ax.add_patch(Polygon([(gap_l, 0.8), (gap_r, 0.8), ((gap_l + gap_r) / 2 + 0.05, 6.6)],
+                             closed=True, facecolor="#f0b27a", edgecolor="#c2621f", lw=1.0, alpha=0.9))
+    ax.text(3.55, 7.3, "마지막 액막 (S·P 저융점 편석 — Fe-S 공정 988 °C)", fontsize=8.3, color="#c2621f", ha="center")
+    # 수축 구속 화살표
+    ax.annotate("", xy=(0.2, 3.6), xytext=(1.6, 3.6), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.6))
+    ax.annotate("", xy=(9.8, 3.6), xytext=(8.4, 3.6), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.6))
+    ax.text(0.25, 4.15, "응고 수축\n+ 구속", fontsize=8.2, color=C_M)
+    ax.text(9.75, 4.15, "응고 수축\n+ 구속", fontsize=8.2, color=C_M, ha="right")
+    # 균열 (세 번째 액막이 찢어짐 — gap 6.6~7.0)
+    zz = [(6.82, 0.9), (6.72, 1.9), (6.92, 2.9), (6.76, 3.9), (6.9, 4.9), (6.8, 5.8)]
+    ax.plot([p[0] for p in zz], [p[1] for p in zz], color="#1f2933", lw=2.2)
+    ax.text(7.15, 1.5, "응고 균열\n(액막이 찢김)", fontsize=8.4, color="#1f2933")
+    ax.text(5.0, 0.15, "대책 = 3요소 중 하나 제거: 저 S·P 청정도 · δ 페라이트 5~10% (SS) · 필러로 조성 이동 (Al) · 구속 완화",
+            fontsize=8.0, color=C_AX, ha="center")
+    ax.set_title("고온균열 — 응고 마지막 순간, 액막이 수축을 못 이길 때 (개략)", fontsize=11.5, color=C_AX, fontweight="bold")
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.9, bottom=0.02)
+    save(fig, "solidification-cracking")
+
+
+def fig_am_anisotropy():
+    """AM 이방성 전용 — 적층 방향과 물성 격차 (Figure Quality v2)."""
+    fig, (axL, axR) = plt.subplots(1, 2, figsize=(9.4, 4.2), gridspec_kw={"width_ratios": [1, 1.2]})
+    # (좌) 적층 방향 모식
+    axL.set_xlim(0, 10); axL.set_ylim(0, 10); axL.set_aspect("equal"); axL.axis("off")
+    for i in range(7):
+        y = 1.2 + i * 1.0
+        ax_c = "#dbe7f3" if i % 2 == 0 else "#cfdeee"
+        axL.add_patch(Rectangle((2.2, y), 5.2, 0.9, facecolor=ax_c, edgecolor=C_A, lw=0.8))
+    axL.annotate("", xy=(9.2, 4.8), xytext=(7.9, 4.8), arrowprops=dict(arrowstyle="<->", color=C_G, lw=1.6))
+    axL.text(9.35, 4.8, "XY\n(층 방향)", fontsize=8.6, color=C_G, va="center")
+    axL.annotate("", xy=(4.8, 9.4), xytext=(4.8, 8.4), arrowprops=dict(arrowstyle="<->", color=C_M, lw=1.6))
+    axL.text(5.1, 9.0, "Z (적층 방향)", fontsize=8.6, color=C_M, va="center")
+    axL.text(4.8, 0.4, "층간 계면·기공이 Z 인장의 약한 고리", fontsize=8.2, color=C_MUTE, ha="center")
+    axL.set_title("적층이 만드는 방향성", fontsize=10, color=C_AX, fontweight="bold")
+    # (우) XY 대비 Z 상대 물성 (as-built, 개략)
+    props = [("인장강도", 92), ("항복강도", 90), ("연신율", 55), ("피로수명", 60)]
+    ys = range(len(props))
+    axR.barh(list(ys), [100] * len(props), height=0.62, color="#e5e9ee", edgecolor="white")
+    axR.barh(list(ys), [v for _, v in props], height=0.62, color=C_M, alpha=0.85, edgecolor="white")
+    for y, (lab, v) in zip(ys, props):
+        axR.text(v - 2, y, f"{v}%", va="center", ha="right", fontsize=8.4, color="white", fontweight="bold")
+    axR.set_yticks(list(ys))
+    axR.set_yticklabels([lab for lab, _ in props], fontsize=9)
+    axR.invert_yaxis()
+    axR.set_xlim(0, 112)
+    axR.set_xlabel("Z 방향 물성 (XY = 100% 기준, as-built LPBF 개략)", fontsize=8.8)
+    axR.tick_params(labelsize=8)
+    axR.axvline(100, color=C_AX, lw=1.0, ls=(0, (4, 2)))
+    axR.text(101, -0.55, "XY 기준", fontsize=7.8, color=C_AX)
+    axR.set_title("어디가 얼마나 약한가 — 연신·피로가 급소", fontsize=10, color=C_AX, fontweight="bold")
+    axR.text(0.98, -0.28, "HIP·열처리로 격차가 크게 줄어든다 (설계는 Z 값 기준)", transform=axR.transAxes,
+             ha="right", fontsize=7.8, color=C_MUTE)
+    fig.suptitle("AM 이방성 — 성질에 방향이 생기는 이유와 크기", fontsize=11.5, color=C_AX, y=1.0)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.84, bottom=0.18, wspace=0.24)
+    save(fig, "am-anisotropy")
+
+
 if __name__ == "__main__":
     fig_martensite_lattice()
     fig_fcc_bcc()
@@ -2203,4 +2470,14 @@ if __name__ == "__main__":
     fig_bainite_upper_lower()
     fig_polymer_pyramid()
     fig_ceramic_families()
+    fig_cu_families()
+    fig_co_families()
+    fig_mg_families()
+    fig_refractory_melting()
+    fig_toolsteel_hardness()
+    fig_maraging_grades()
+    fig_schaeffler()
+    fig_he_triangle()
+    fig_solidification_cracking()
+    fig_am_anisotropy()
     print("done →", os.path.abspath(OUT))
