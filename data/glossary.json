@@ -10,7 +10,7 @@
     "processing": "성형 · 가공",
     "am": "적층제조 (AM)",
     "phase": "상 · 상변태 · 평형",
-    "alloy-family": "합금 계열"
+    "alloy-family": "재료 계열"
   },
   "terms": {
     "martensite": {
@@ -2527,6 +2527,229 @@
         "martensite",
         "tempering",
         "alloy-steel"
+      ]
+    },
+    "polyamide": {
+      "display": "폴리아마이드 (PA · 나일론)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "폴리아마이드",
+        "나일론",
+        "polyamide",
+        "nylon",
+        "PA6",
+        "PA66",
+        "PA12"
+      ],
+      "autolink": [
+        "폴리아마이드",
+        "나일론"
+      ],
+      "short": "아마이드 결합(-CO-NH-)으로 이어진 열가소성 수지 — 상표명 '나일론'으로 더 유명하다. 질기고 내마모·내피로성이 좋아 기어·부싱 같은 '움직이는 플라스틱 부품'의 기본값이지만, 물을 먹으면(흡습) 치수와 강성이 변하는 것이 최대 특징이자 함정이다.",
+      "sources": [
+        "Osswald — Materials Science of Polymers for Engineers",
+        "BASF Ultramid · DuPont Zytel 기술자료"
+      ],
+      "related": [
+        "pom",
+        "polycarbonate",
+        "high-performance-polymer",
+        "fatigue"
+      ]
+    },
+    "pom": {
+      "display": "폴리아세탈 (POM · 아세탈)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "폴리아세탈",
+        "아세탈",
+        "POM",
+        "acetal",
+        "델린",
+        "Delrin"
+      ],
+      "autolink": [
+        "폴리아세탈",
+        "아세탈",
+        "POM"
+      ],
+      "short": "높은 결정성 덕분에 플라스틱 중 가장 '금속처럼' 거동하는 수지 — 강성·치수안정·저마찰·내피로의 균형이 좋아 정밀 기어·베어링·스냅핏의 표준이다. 대표 상표가 Delrin(호모폴리머)과 Hostaform(코폴리머).",
+      "sources": [
+        "DuPont Delrin Design Guide",
+        "Celanese Hostaform 기술자료"
+      ],
+      "related": [
+        "polyamide",
+        "polycarbonate",
+        "fatigue",
+        "creep"
+      ]
+    },
+    "polycarbonate": {
+      "display": "폴리카보네이트 (PC)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "폴리카보네이트",
+        "polycarbonate",
+        "Lexan",
+        "Makrolon"
+      ],
+      "autolink": [
+        "폴리카보네이트"
+      ],
+      "short": "유리처럼 투명하면서 유리의 ~250배 충격을 견디는 비정질 수지. 보안경·방탄창·헬멧·전자기기 하우징의 표준이지만, 유기용제·응력균열에 약하고 긁힘에 무르다는 대가를 치른다.",
+      "sources": [
+        "SABIC Lexan · Covestro Makrolon 기술자료",
+        "Osswald — Materials Science of Polymers"
+      ],
+      "related": [
+        "polyamide",
+        "pom",
+        "high-performance-polymer",
+        "toughness"
+      ]
+    },
+    "high-performance-polymer": {
+      "display": "고성능 폴리머 (PEEK · PEI · PSU · PPS)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "고성능 폴리머",
+        "고성능 플라스틱",
+        "high-performance polymer",
+        "슈퍼 엔지니어링 플라스틱",
+        "PEEK",
+        "PEI",
+        "PPS",
+        "PSU"
+      ],
+      "autolink": [
+        "고성능 폴리머",
+        "슈퍼 엔지니어링 플라스틱"
+      ],
+      "short": "연속사용온도 150 °C 를 넘기는 폴리머 피라미드의 꼭대기층 — PEEK·PEI(ULTEM)·PSU·PPS 가 대표다. 금속 대체(경량화)·항공 난연·의료 멸균처럼 '비싸도 폴리머여야 하는' 자리에 쓰며, kg 단가가 범용 수지의 수십 배다.",
+      "sources": [
+        "Victrex PEEK · SABIC ULTEM · Solvay Udel/Radel 기술자료",
+        "Osswald — Materials Science of Polymers"
+      ],
+      "related": [
+        "polyamide",
+        "polycarbonate",
+        "pom",
+        "creep"
+      ]
+    },
+    "oxide-ceramic": {
+      "display": "산화물 세라믹 (알루미나 · 지르코니아)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "산화물 세라믹",
+        "알루미나",
+        "지르코니아",
+        "alumina",
+        "zirconia",
+        "Y-TZP",
+        "ZTA"
+      ],
+      "autolink": [
+        "산화물 세라믹",
+        "알루미나",
+        "지르코니아"
+      ],
+      "short": "금속 산화물이 이온결합으로 굳은 세라믹 — 알루미나(Al₂O₃)와 지르코니아(ZrO₂)가 양대 축이다. 경도·내식·절연이 뛰어나고, 지르코니아는 상변태를 역이용한 변태강화로 '깨지지 않으려 버티는 세라믹'이 되었다.",
+      "sources": [
+        "ASM Engineered Materials Handbook Vol.4 (Ceramics)",
+        "CoorsTek 기술자료"
+      ],
+      "related": [
+        "non-oxide-ceramic",
+        "cemented-carbide",
+        "fracture-toughness",
+        "phase-transformation",
+        "brittleness"
+      ]
+    },
+    "non-oxide-ceramic": {
+      "display": "비산화물 세라믹 (SiC · Si₃N₄ · B₄C · AlN)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "비산화물 세라믹",
+        "탄화규소",
+        "질화규소",
+        "silicon carbide",
+        "silicon nitride",
+        "탄화붕소"
+      ],
+      "autolink": [
+        "비산화물 세라믹",
+        "탄화규소",
+        "질화규소"
+      ],
+      "short": "탄화물·질화물처럼 산소 없는 공유결합 세라믹. 산화물보다 단단하고 가볍고 고온에 강하지만, 공유결합이라 소결이 어려워 값이 비싸다. SiC(내마모·방열)·Si₃N₄(베어링 볼)·B₄C(방탄)·AlN(방열 기판)이 대표.",
+      "sources": [
+        "ASM Engineered Materials Handbook Vol.4 (Ceramics)",
+        "Munro — NIST 세라믹 물성 데이터"
+      ],
+      "related": [
+        "oxide-ceramic",
+        "cemented-carbide",
+        "brittleness",
+        "hardness"
+      ]
+    },
+    "cfrp": {
+      "display": "탄소섬유복합재 (CFRP)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "탄소섬유복합재",
+        "탄소섬유 강화 플라스틱",
+        "CFRP",
+        "carbon fiber",
+        "프리프레그",
+        "prepreg"
+      ],
+      "autolink": [
+        "탄소섬유복합재",
+        "프리프레그"
+      ],
+      "short": "탄소섬유(강성·강도)를 에폭시 수지(형상·하중 전달)에 심은 복합재료. 강철보다 강하면서 알루미늄보다 가벼워 항공 1차 구조까지 올라갔지만, 성질이 방향에 따라 다르고(이방성) 층 사이가 약하다는 복합재 고유의 문법을 요구한다.",
+      "sources": [
+        "CMH-17 Composite Materials Handbook",
+        "Ashby — Materials Selection in Mechanical Design"
+      ],
+      "related": [
+        "anisotropy",
+        "galvanic",
+        "fracture-toughness",
+        "fatigue"
+      ]
+    },
+    "ahss": {
+      "display": "초고장력강 (AHSS)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "초고장력강",
+        "AHSS",
+        "DP강",
+        "TRIP강",
+        "핫스탬핑강",
+        "press hardening steel",
+        "기가스틸"
+      ],
+      "autolink": [
+        "초고장력강",
+        "AHSS"
+      ],
+      "short": "자동차 차체를 위해 태어난 강 가족 — 두 상 이상을 섞은 미세조직 설계(DP·TRIP·MART)로 UTS 600~2000 MPa 를 내면서 프레스 성형이 가능하게 만든 강이다. '더 강한 강으로 더 얇게'가 차체 경량화의 제1 전략이다.",
+      "sources": [
+        "WorldAutoSteel — AHSS Application Guidelines",
+        "ArcelorMittal Usibor 기술자료"
+      ],
+      "related": [
+        "martensite",
+        "retained-austenite",
+        "phase-transformation",
+        "carbon-steel",
+        "tmcp"
       ]
     }
   }

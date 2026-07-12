@@ -2053,6 +2053,108 @@ def fig_bainite_upper_lower():
     save(fig, "bainite-upper-lower")
 
 
+def fig_polymer_pyramid():
+    """고성능 폴리머 전용 — 폴리머 피라미드 + 연속사용온도 축 (Figure Quality v2)."""
+    fig, (axL, axR) = plt.subplots(1, 2, figsize=(9.8, 4.6), gridspec_kw={"width_ratios": [1.15, 1]})
+
+    # (좌) 피라미드 — 3계층
+    axL.set_xlim(0, 10); axL.set_ylim(0, 10); axL.axis("off")
+    tiers = [
+        (0.4, 0.6, 9.2, 2.6, "#dbe7f3", "범용 (commodity)", "PE · PP · PS · PVC", "값싸고 대량 — 포장·생활용품"),
+        (1.6, 3.6, 6.8, 2.6, "#f3e3cd", "엔지니어링", "PA · POM · PC · ABS · PBT", "기계 부품 — 기어·하우징"),
+        (2.9, 6.6, 4.2, 2.6, "#f3d2c2", "고성능 (슈퍼 엔지니어링)", "PEEK · PEI · PSU · PPS", "금속 대체·항공·의료"),
+    ]
+    for x, y, w, h, c, name, resins, use in tiers:
+        axL.add_patch(Polygon([(x, y), (x + w, y), (x + w * 0.86 + x * 0.14 if False else x + w - 0.65, y + h), (x + 0.65, y + h)],
+                              closed=True, facecolor=c, edgecolor=C_AX, lw=1.4))
+        axL.text(5, y + h * 0.66, name, ha="center", fontsize=9.6, fontweight="bold", color=C_AX)
+        axL.text(5, y + h * 0.40, resins, ha="center", fontsize=8.6, color="#1f2933")
+        axL.text(5, y + h * 0.15, use, ha="center", fontsize=7.6, color=C_MUTE)
+    # 가격·물량 화살표
+    axL.annotate("", xy=(0.35, 9.4), xytext=(0.35, 0.7), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.3))
+    axL.text(0.1, 5.0, "가격·성능 ↑", rotation=90, va="center", fontsize=8.4, color=C_M)
+    axL.annotate("", xy=(9.85, 0.7), xytext=(9.85, 9.4), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.3))
+    axL.text(9.55, 5.0, "생산량 ↑", rotation=90, va="center", fontsize=8.4, color=C_A)
+    axL.set_title("폴리머 피라미드", fontsize=11, color=C_AX, fontweight="bold")
+
+    # (우) 연속사용온도 축 — 반결정/비정질 구분
+    resins = [
+        ("PE", 60, "s"), ("ABS", 78, "a"), ("POM", 92, "s"), ("PP", 104, "s"),
+        ("PA66", 116, "s"), ("PC", 128, "a"), ("PSU", 160, "a"), ("PEI", 172, "a"),
+        ("PPS", 220, "s"), ("PEEK", 250, "s"),
+    ]
+    axR.set_xlim(0, 1.6); axR.set_ylim(20, 290)
+    axR.set_xticks([])
+    axR.set_ylabel("연속사용온도 (°C, 개략)", fontsize=9)
+    axR.tick_params(labelsize=8)
+    axR.grid(axis="y", alpha=0.25, lw=0.6)
+    axR.axhline(150, color=C_M, lw=1.0, ls=(0, (4, 2)))
+    axR.text(1.56, 153, "150 °C — 고성능의 문턱", fontsize=7.8, color=C_M, ha="right")
+    for name, t, kind in resins:
+        c = C_G if kind == "s" else C_A
+        axR.plot([0.28, 0.55], [t, t], color=c, lw=2.6, solid_capstyle="round")
+        axR.text(0.62, t, name, fontsize=8.6, color=c, va="center", fontweight="bold")
+    axR.plot([], [], color=C_G, lw=2.6, label="반결정 (내약품·내마모)")
+    axR.plot([], [], color=C_A, lw=2.6, label="비정질 (투명·치수안정)")
+    axR.legend(fontsize=7.8, loc="upper right", framealpha=0.9)
+    axR.set_title("어디까지 버티나", fontsize=10.5, color=C_AX, fontweight="bold")
+
+    fig.suptitle("고성능 폴리머 — 피라미드의 꼭대기층 (연속사용온도 150 °C 이상)", fontsize=11.5, color=C_AX, y=1.0)
+    fig.subplots_adjust(left=0.02, right=0.99, top=0.85, bottom=0.08, wspace=0.16)
+    save(fig, "polymer-pyramid")
+
+
+def fig_ceramic_families():
+    """세라믹 계열 전용 — 경도 vs 파괴인성 지도 (산화물/비산화물/초경, Figure Quality v2)."""
+    fig, ax = plt.subplots(figsize=(8.8, 5.4))
+    # (이름, K_IC, HV, 계열) — 개략 대표값
+    pts = [
+        ("유리", 0.7, 550, "o"),
+        ("알루미나 96%", 3.5, 1400, "o"), ("알루미나 99.5%", 4.0, 1600, "o"),
+        ("ZTA", 5.5, 1500, "o"), ("Y-TZP 지르코니아", 8.0, 1250, "o"), ("Mg-PSZ", 10.0, 1100, "o"),
+        ("SiC", 4.0, 2500, "n"), ("Si$_3$N$_4$", 6.5, 1500, "n"), ("B$_4$C", 3.5, 2900, "n"),
+        ("AlN", 3.0, 1100, "n"), ("WC-Co 6%", 9.0, 1600, "c"),
+    ]
+    COLORS = {"o": C_G, "n": C_A, "c": C_M}
+    # 포인트별 라벨 오프셋 (dx, dy, ha, va) — 겹침 없는 명시 배치
+    LBL = {
+        "유리": (0, 90, "center", "bottom"),
+        "알루미나 96%": (-0.18, 0, "right", "center"),
+        "알루미나 99.5%": (0, 95, "center", "bottom"),
+        "ZTA": (0, 95, "center", "bottom"),
+        "Y-TZP 지르코니아": (0, 95, "center", "bottom"),
+        "Mg-PSZ": (0, 95, "center", "bottom"),
+        "SiC": (0, -140, "center", "top"),
+        "Si$_3$N$_4$": (0.18, 90, "left", "bottom"),
+        "B$_4$C": (0, 95, "center", "bottom"),
+        "AlN": (0, -140, "center", "top"),
+        "WC-Co 6%": (0, 95, "center", "bottom"),
+    }
+    for name, k, hv, fam in pts:
+        ax.scatter(k, hv, s=90, color=COLORS[fam], edgecolor="white", linewidth=0.8, zorder=4)
+        dx, dy, ha, va = LBL[name]
+        ax.text(k + dx, hv + dy, name, fontsize=8.4, ha=ha, va=va, color=COLORS[fam])
+    # 변태강화 화살표 (알루미나 → 지르코니아) — 텍스트는 화살표 아래쪽
+    ax.annotate("", xy=(7.6, 1280), xytext=(4.3, 1560),
+                arrowprops=dict(arrowstyle="-|>", color=C_G, lw=1.3, ls=(0, (4, 2))))
+    ax.text(5.6, 1300, "변태강화 (지르코니아)", fontsize=8.2, color=C_G, ha="center", va="top")
+    # 강(비교 기준) — 축 밖 화살표
+    ax.annotate("강(Q+T)은 K$_IC$ 50+ →", xy=(11.6, 620), xytext=(8.2, 620),
+                fontsize=8.6, color=C_MUTE,
+                arrowprops=dict(arrowstyle="->", color=C_MUTE, lw=1.0))
+    ax.set_xlim(0, 12); ax.set_ylim(300, 3200)
+    ax.set_xlabel("파괴인성 K$_{IC}$ (MPa√m, 개략)", fontsize=9.5)
+    ax.set_ylabel("경도 (HV, 개략)", fontsize=9.5)
+    ax.tick_params(labelsize=8.5)
+    ax.grid(alpha=0.25, lw=0.6)
+    for fam, label in (("o", "산화물 (Al₂O₃·ZrO₂)"), ("n", "비산화물 (SiC·Si₃N₄·B₄C·AlN)"), ("c", "초경 (WC-Co)")):
+        ax.scatter([], [], s=90, color=COLORS[fam], label=label)
+    ax.legend(fontsize=8.4, loc="upper right", framealpha=0.92)
+    ax.set_title("세라믹 가족 지도 — 단단할수록 잘 깨지는 저울 위에서", fontsize=11.5, color=C_AX, fontweight="bold")
+    fig.subplots_adjust(left=0.1, right=0.97, top=0.92, bottom=0.11)
+    save(fig, "ceramic-families")
+
+
 if __name__ == "__main__":
     fig_martensite_lattice()
     fig_fcc_bcc()
@@ -2099,4 +2201,6 @@ if __name__ == "__main__":
     fig_red_hardness()
     fig_jominy()
     fig_bainite_upper_lower()
+    fig_polymer_pyramid()
+    fig_ceramic_families()
     print("done →", os.path.abspath(OUT))
