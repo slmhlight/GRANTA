@@ -367,7 +367,18 @@ function extractAliases(name) {
 function aliasesFor(name) {
   const set = new Set(extractAliases(name));
   const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
-  for (const tok of String(name).split(/[\s(),/]+/)) if (/\d/.test(tok)) keys.add(norm(tok));
+  // R227/H5-D1 (W2) — 서술구 비교 designation("cast 304"·"higher-C 304"·"≈ AISI 420 mod")이
+  //   ALIAS_MAP 키로 걸려 타 합금 규격이 오주입되던 버그(예: AISI 302 가 304 규격 획득 → SUS304→302 오귀속).
+  //   token 직전 문맥(같은 절 내, 20자 창)에 비교/근사 수식어가 있으면 키 제외.
+  //   정식 등가명(42CrMo4→4140·Ti-6242·A356→AlSi7Mg)은 수식어 없이 인접하므로 보존.
+  //   토큰 경계는 기존 split(/[\s(),/]+/)과 동일(=/[^\s(),/]+/) — "430°C" 온도를 통째로 유지해
+  //   숫자키 오검출(430°C→430) 방지. 여기에 qualifier 가드만 추가.
+  const QUALIFIER = /(?:cast|higher|lower|approx\.?|about|based\s*on|similar|\btype\b|\bmod\b|≈|~|\bvs\.?)[^)(]*$/i;
+  for (const mt of String(name).matchAll(/[^\s(),/]+/g)) {
+    if (!/\d/.test(mt[0])) continue;
+    if (QUALIFIER.test(name.slice(Math.max(0, mt.index - 20), mt.index))) continue;
+    keys.add(norm(mt[0]));
+  }
   // Sprint1 A1 — sub-token 매칭 강화. "Tool Steel H13" / "Maraging 300 (UNS K93120)" /
   //   "Stainless Steel 17-4PH" 같은 prefix-augmented name 도 ALIAS_MAP 매칭.
   const subTokens = String(name).toLowerCase().match(/\b(?:h1[013]|m2|d2|d3|skd\d{2}|17[\s-]?4\s?ph|15[\s-]?5\s?ph|maraging\s?\d{0,3}|inconel\s?\d{3}|hastelloy\s?[a-z]\b|hastelloy\s?[cxbn]-?\d{0,3}|haynes\s?\d{3}|nimonic\s?\d{2,3}|monel\s?[a-z]?-?\d{0,3}|aa\s?\d{4}|s45c|scm\d{3,4}|sncm\d{3}|sus\d{3}|suj2|s\d{2,3}c|\d{4,5}ph|4\d{3}|8620|9310|52100|100cr6|cocrmo|f75|f1537)\b/g) || [];

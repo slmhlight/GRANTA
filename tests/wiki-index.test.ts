@@ -85,6 +85,23 @@ describe('wiki-index 스키마·무결성 (R227/E14/H1)', () => {
     expect(bad).toEqual([]);
   });
 
+  // H5-D1 (W2) — 폼 소유권: 서술구 오주입(SUS304→AISI 302) 데이터 수정 잠금 + 이름>별칭 규칙.
+  it('SUS304/STS304 는 AISI 302 엔티티에 귀속되지 않음 (aliasesFor 서술구 오주입 회귀 차단)', () => {
+    const e302 = IDX.entities.find((e) => e.id === 'aisi-302');
+    if (e302) {
+      const forms = new Set(e302.surface_forms.map((s) => s.form));
+      expect([...forms].filter((f) => f === 'sus304' || f === 'sts304'), 'aisi-302 에 304 JIS/KS 폼 잔존').toEqual([]);
+    }
+  });
+
+  it('폼 소유권 — 소유 확정 시 비-소유 엔티티는 autolink 억제(owned_by 표식)', () => {
+    const bad: string[] = [];
+    for (const e of IDX.entities) for (const sf of e.surface_forms as Array<{ form: string; autolink?: boolean; owned_by?: string }>) {
+      if (sf.owned_by && sf.owned_by !== e.id && sf.autolink) bad.push(`${e.id}: ${sf.form} owned_by ${sf.owned_by} 인데 autolink`);
+    }
+    expect(bad).toEqual([]);
+  });
+
   it('autolink=true form 은 len≥4·알파벳 포함 (순수숫자/약어 제외; 3자는 화이트리스트만)', async () => {
     // H4f-C — 검증된 3자 grade 코드 화이트리스트 (name-tokens SHORT_AUTOLINK_OK 와 동일 SSOT)
     const { SHORT_AUTOLINK_OK } = await import('../scripts/lib/name-tokens.mjs');

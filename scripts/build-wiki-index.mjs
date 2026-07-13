@@ -37,19 +37,23 @@ function pickRep(members) {
 }
 
 // ── surface-form 수집 (엔티티당) ──
-// form → {form, sid} : 이 form 이 유래한 멤버 stable_id (클릭 시 그 멤버 열기)
+// form → {form, source} : source='name'(entry 이름 유래) | 'alias'(별칭 유래).
+// H5-D1 (W2) 소유권 규칙의 입력 — 이름-유래가 별칭-유래를 이긴다(SUS304 가 302 별칭에 새는 것 등 차단).
 function memberForms(entry) {
-  const out = [];
+  const tagged = []; // {form, source}
   const base = entry.name.replace(/\s*[—(].*$/, '').trim();
-  for (const tk of tokensOf(base)) out.push(tk);
-  // 한글 동의어 (KO 매핑: 영문 base → 한글)
+  for (const tk of tokensOf(base)) tagged.push({ form: tk, source: 'name' });
   const koBase = KO[base.toLowerCase()];
-  if (koBase) out.push(norm(koBase));
-  for (const tk of tokensOf(base)) { const ko = KO[tk]; if (ko) out.push(norm(ko)); }
-  // 별칭·UNS
-  for (const a of (entry.aliases || [])) for (const tk of tokensOf(a)) out.push(tk);
-  // 정제: 영숫자만·설명블롭(>24) 제거·junk 제거 (표제/조성 blob 유입 차단)
-  return [...new Set(out)].filter((f) => f && f.length <= 24 && /^[a-z0-9]+$/.test(f) && !isJunkForm(f));
+  if (koBase) tagged.push({ form: norm(koBase), source: 'name' });
+  for (const tk of tokensOf(base)) { const ko = KO[tk]; if (ko) tagged.push({ form: norm(ko), source: 'name' }); }
+  for (const a of (entry.aliases || [])) for (const tk of tokensOf(a)) tagged.push({ form: tk, source: 'alias' });
+  // 정제 + 동일 form 은 name 우선(멤버 내에서 이름·별칭 둘 다면 name 으로 승격)
+  const best = new Map();
+  for (const { form, source } of tagged) {
+    if (!form || form.length > 24 || !/^[a-z0-9]+$/.test(form) || isJunkForm(form)) continue;
+    if (!best.has(form) || (source === 'name' && best.get(form) === 'alias')) best.set(form, source);
+  }
+  return [...best.entries()].map(([form, source]) => ({ form, source }));
 }
 
 // 1) 엔티티(스토리 단위) 조립
@@ -63,48 +67,65 @@ for (const [key, st] of Object.entries(doc.stories)) {
   // form → sid (여러 멤버가 같은 form 이면 rep 우선).
   // ※ 스토리 display(제목)는 토큰화하지 않음 — 제목의 설명어("wing"·"tank"·조성 blob)가 새는 원인.
   //   surface-form 은 실제 멤버 entry 이름/별칭/UNS 에서만.
-  const formMap = new Map();
+  const formMap = new Map(); // form → {sid, source}
   for (const { sid, entry } of members) {
-    for (const f of memberForms(entry)) {
-      if (!formMap.has(f) || sid === rep) formMap.set(f, sid);
+    for (const { form: f, source } of memberForms(entry)) {
+      const cur = formMap.get(f);
+      // rep 멤버 우선(클릭 타깃) + name-source 우선(소유권)
+      if (!cur || sid === rep || (source === 'name' && cur.source === 'alias')) formMap.set(f, { sid, source });
     }
   }
   const uns = [...new Set(members.flatMap((x) => x.entry.uns || []))];
   entities.push({
     id: key, type: 'material', display: st.display || key,
     story_key: key, rep_stable_id: rep, rep_id: rev[rep] || null,  // rep_id = 클라이언트 m.id(legacy) — 네비게이션용
-    surface_forms: [...formMap.entries()].map(([form, sid]) => ({ form, sid, id: rev[sid] || null })),
+    surface_forms: [...formMap.entries()].map(([form, { sid, source }]) => ({ form, sid, id: rev[sid] || null, source })),
     uns, member_count: members.length,
   });
 }
 
-// 2) 전역 ambiguity: 같은 form 이 2+ 엔티티에 → 모호
-const formOwners = new Map(); // form → Set(entityId)
-for (const e of entities) for (const { form } of e.surface_forms) {
-  if (!formOwners.has(form)) formOwners.set(form, new Set());
-  formOwners.get(form).add(e.id);
-}
-// UNS 도 surface (검색용, 정규화)
-for (const e of entities) for (const u of e.uns) {
-  const nu = norm(u); if (!nu) continue;
-  if (!formOwners.has(nu)) formOwners.set(nu, new Set());
-  formOwners.get(nu).add(e.id);
+// 2) 전역 소유권: 같은 form 이 여러 엔티티에 → 소유권 규칙(H5-D1 W2).
+//    form → Map(entityId → source). UNS 는 alias-급 source.
+const formOwners = new Map();
+const addOwner = (form, eid, source) => {
+  if (!formOwners.has(form)) formOwners.set(form, new Map());
+  const m = formOwners.get(form);
+  if (!m.has(eid) || (source === 'name' && m.get(eid) === 'alias')) m.set(eid, source);
+};
+for (const e of entities) for (const sf of e.surface_forms) addOwner(sf.form, e.id, sf.source);
+for (const e of entities) for (const u of e.uns) { const nu = norm(u); if (nu) addOwner(nu, e.id, 'alias'); }
+
+/** 소유권 판정: 반환 {owner|null, ambiguous}.
+ *  규칙 ① 단일 엔티티 → 소유. ② 이름-유래가 정확히 하나 → 그 엔티티 소유(별칭-유래 무시).
+ *  ③ 이름-유래 2+ 또는 (이름-유래 0 & 별칭-유래 2+) → 모호. */
+function resolveOwner(form) {
+  const m = formOwners.get(form);
+  if (!m) return { owner: null, ambiguous: false };
+  const owners = [...m.keys()];
+  if (owners.length === 1) return { owner: owners[0], ambiguous: false };
+  const nameOwners = owners.filter((eid) => m.get(eid) === 'name');
+  if (nameOwners.length === 1) return { owner: nameOwners[0], ambiguous: false };
+  return { owner: null, ambiguous: true };
 }
 
 // 3) autolink 제안 + ambiguity 플래그 부착
 let autolinkYes = 0, autolinkNo = 0, ambiguousForms = 0;
-const ambiguityReport = [];
+const ambiguityReport = [], reattributed = [];
 for (const e of entities) {
   for (const sf of e.surface_forms) {
-    const owners = formOwners.get(sf.form);
-    const ambiguous = owners && owners.size > 1;
-    sf.autolink = suggestAutolink(sf.form, ambiguous);
+    const { owner, ambiguous } = resolveOwner(sf.form);
+    // 소유자가 확정됐고 이 엔티티가 아니면 → 이 엔티티에선 autolink 억제(소유 엔티티만 링크)
+    const ownedElsewhere = owner && owner !== e.id;
+    sf.autolink = !ownedElsewhere && suggestAutolink(sf.form, ambiguous);
     if (ambiguous) sf.ambiguous = true;
+    if (ownedElsewhere && !ambiguous) { sf.owned_by = owner; reattributed.push({ form: sf.form, from: e.id, to: owner }); }
     if (sf.autolink) autolinkYes++; else autolinkNo++;
   }
 }
-for (const [form, owners] of formOwners) {
-  if (owners.size > 1 && form.length >= 3) { ambiguousForms++; ambiguityReport.push({ form, owners: [...owners] }); }
+for (const [form, m] of formOwners) {
+  if (m.size > 1 && form.length >= 3 && resolveOwner(form).ambiguous) {
+    ambiguousForms++; ambiguityReport.push({ form, owners: [...m.keys()] });
+  }
 }
 ambiguityReport.sort((a, b) => b.owners.length - a.owners.length);
 
