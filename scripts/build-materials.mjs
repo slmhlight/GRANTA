@@ -2987,11 +2987,31 @@ const ELEV_DATA = {
 // R226g/축3d — 외부 곡선 테이블 (모듈 스코프 1회 로드; 없으면 빈 테이블 — 파이프는 no-op).
 let EXT_CURVES = {};
 try { EXT_CURVES = JSON.parse(fs.readFileSync(path.join(DATA, 'elevated-temp-curves.json'), 'utf8')).curves || {}; } catch { /* optional */ }
+// H5 W9+ — ELEV_DATA 매칭 정밀화: 패턴의 숫자 경계가 다른 숫자에 붙으면(규격·UNS 번호 내부 substring) 거부.
+//   근절한 오매칭: 'a2'→"ASTM A297"·"A216"·"A228"·"A205"·"A201"·"SA213", '420'→"S42000",
+//   '310'→"3105"(AA3105)·"9310", 'h11'→"H111", 'ti grade 2'→"Ti Grade 23" 등 (H5 W9+ 버그 근절).
+function elevPatternMatch(name, pattern) {
+  const startDigit = /[0-9]/.test(pattern[0]);
+  const endDigit = /[0-9]/.test(pattern[pattern.length - 1]);
+  let i = name.indexOf(pattern);
+  while (i !== -1) {
+    const before = name[i - 1] ?? ' ';
+    const after = name[i + pattern.length] ?? ' ';
+    if ((!startDigit || !/[0-9]/.test(before)) && (!endDigit || !/[0-9]/.test(after))) return true;
+    i = name.indexOf(pattern, i + 1);
+  }
+  return false;
+}
 function injectTempCurves(m) {
   if (!m || !m.name) return;
   const n = String(m.name).toLowerCase();
   for (const [pattern, data] of Object.entries(ELEV_DATA)) {
-    if (n.includes(pattern)) {
+    if (elevPatternMatch(n, pattern)) {
+      // H5 W9+ — 구조용 탄소강이 마르텐사이트-SS/공구강 곡선에 오매칭(예: SHN420·SM420C 가 '420' martensitic 곡선에)하는 잔여 차단:
+      //   subcategory 가 탄소강인데 곡선 RT 강도가 자기 RT σy 를 1.5× 초과하면 타-계열 곡선 → 스킵.
+      const rtSy = m.yield_strength ?? m.ranges?.yield_strength?.typical;
+      const curveRt = data.elevated_temp?.find(p => p.temp <= 30)?.ys ?? data.elevated_temp?.[0]?.ys;
+      if (/carbon steel/i.test(m.subcategory || '') && rtSy && curveRt && curveRt > rtSy * 1.5) continue;
       if (!m.elevated_temp || m.elevated_temp.length === 0) {
         m.elevated_temp = data.elevated_temp;
       } else {
