@@ -9,13 +9,21 @@
   "h02-aa": {
    "pattern": "^aa[\\s-]?(2|6|7)\\d{3}|^alsi|^a3[56]\\d|^a380|^aluminum",
    "field": "name",
-   "text": "⚠ Aluminum T6 / T7 Aging — Heat-Treatable Al Alloys (2xxx / 6xxx / 7xxx)\n표준 절차:\n  ① Solution Heat Treat (SHT): 495-540°C / 30 min - 4 h (합금별 — 아래 grade 참조)\n  ② Quench: water (가장 빠름) 또는 polymer quench (5-10% PAG)\n  ③ Artificial Aging: 120-200°C / 4-24 h / AC (합금·temper 별 — 아래 grade 참조)\n\n【⚠ 주의 1 — Quench Delay (가장 critical)】\nSHT 후 quench 까지의 시간 통제 절대 중요:\n• 시간 한계: 5-15 초 (응용 별)\n• 한계 초과 시:\n  - Grain boundary 에 precipitate 형성 (재 dissolve 어려움)\n  - 부식 저항 손실 (입계 anodic site)\n  - 강도 손실 10-20%\n\n【권장 대응】\n• Quench tank 가 furnace 직속 (transfer time < 5 초)\n• Conveyor system (자동 transfer)\n• 큰 부품: forced air quench 또는 spray quench\n• Quench medium temperature 통제 (water RT, polymer 60°C)\n\n【⚠ 주의 2 — Quench Distortion (Thin Sheet)】\n얇은 sheet (< 3 mm) 의 water quench:\n• Differential cooling rate → warping (1° 이상)\n• Twist (sheet 형상 변형)\n• Final dimension 손실\n\n【권장 대응】\n• Polymer quench (PAG 25%):\n  - Cooling rate 약 50% 감소 (water 대비)\n  - 강도 손실 5% 미만\n  - Distortion 70-80% 감소\n• Spray quench (uniform cooling)\n• 큰 부품·압출재: oil quench (왜곡 저감, 강도 소폭 손실)\n\n【⚠ 주의 3 — Over-aging vs Peak Aging 선택】\n응용별 condition 선택:\n• T6 (peak strength): 일반 구조 부품\n  - 7075-T6: σy 503 MPa\n• T73 (over-aged, SCC-resistant): 해양 / 부식 환경\n  - 7075-T73: σy 430 MPa (T6 의 85%)\n  - SCC 저항: T6 대비 약 100배 향상\n• T7351 (T73 + stretched): 정밀 부품\n  - 잔류응력 < 30 MPa\n• T87 (NASA Space Shuttle): controlled aging\n\n【⚠ 주의 4 — Natural Aging (T4) 안정】\nT4 (solution + natural aging at RT) 의 시간 의존성:\n• Quench 직후: W condition (unstable)\n• 1 day: σy 의 60% 회복\n• 5 days: σy 의 95% 회복 (stable)\n• T4 stock 은 5 일 후 사용 가능\n• Cold forming 후 T6 aging 으로 강화 가능\n\n【표준】\nAA T-temper system · AMS 2772 (Al heat treatment) · MMPDS-2018",
+   "text": "⚠ Aluminum T6 / T7 Aging — Heat-Treatable Al Alloys (2xxx / 6xxx / 7xxx)\n표준 절차:\n  ① Solution Heat Treat (SHT): 495-540°C / 30 min - 4 h (합금별 상이)\n  ② Quench: water (가장 빠름) 또는 polymer quench (5-10% PAG)\n  ③ Artificial Aging: 120-200°C / 4-24 h / AC (합금·temper 별 상이)\n\n【⚠ 주의 1 — Quench Delay (가장 critical)】\nSHT 후 quench 까지의 시간 통제 절대 중요:\n• 시간 한계: 5-15 초 (응용 별)\n• 한계 초과 시:\n  - Grain boundary 에 precipitate 형성 (재 dissolve 어려움)\n  - 부식 저항 손실 (입계 anodic site)\n  - 강도 손실 10-20%\n\n【권장 대응】\n• Quench tank 가 furnace 직속 (transfer time < 5 초)\n• Conveyor system (자동 transfer)\n• 큰 부품: forced air quench 또는 spray quench\n• Quench medium temperature 통제 (water RT, polymer 60°C)\n\n【⚠ 주의 2 — Quench Distortion (Thin Sheet)】\n얇은 sheet (< 3 mm) 의 water quench:\n• Differential cooling rate → warping (1° 이상)\n• Twist (sheet 형상 변형)\n• Final dimension 손실\n\n【권장 대응】\n• Polymer quench (PAG 25%):\n  - Cooling rate 약 50% 감소 (water 대비)\n  - 강도 손실 5% 미만\n  - Distortion 70-80% 감소\n• Spray quench (uniform cooling)\n• 큰 부품·압출재: oil quench (왜곡 저감, 강도 소폭 손실)\n\n【⚠ 주의 3 — Over-aging vs Peak Aging 선택】\n응용별 condition 선택:\n• T6 (peak strength): 일반 구조 부품\n  - 7075-T6: σy 503 MPa\n• T73 (over-aged, SCC-resistant): 해양 / 부식 환경\n  - 7075-T73: σy 430 MPa (T6 의 85%)\n  - SCC 저항: T6 대비 약 100배 향상\n• T7351 (T73 + stretched): 정밀 부품\n  - 잔류응력 < 30 MPa\n• T87 (NASA Space Shuttle): controlled aging\n\n【⚠ 주의 4 — Natural Aging (T4) 안정】\nT4 (solution + natural aging at RT) 의 시간 의존성:\n• Quench 직후: W condition (unstable)\n• 1 day: σy 의 60% 회복\n• 5 days: σy 의 95% 회복 (stable)\n• T4 stock 은 5 일 후 사용 가능\n• Cold forming 후 T6 aging 으로 강화 가능\n\n【표준】\nAA T-temper system · AMS 2772 (Al heat treatment) · MMPDS-2018",
    "by_grade": {
     "6061": "【6061】 SHT 530 °C → WQ → T6 Aging 175 °C/8 h(peak, σy ~276). 범용 압출·구조.",
     "6063": "【6063】 SHT ~520 °C → Aging 175~185 °C. 압출 전용 — 큰 형상은 oil quench 로 왜곡 저감.",
     "6082": "【6082】 6061 과 유사(SHT ~530 °C·Aging 175 °C). EU 구조용, 압출은 oil quench 가능.",
     "7075": "【7075】 SHT 460-490 °C → WQ → T6 120 °C/24 h(peak, σy 503). SCC 환경은 T73(120+165 °C 2단 — σy ~430·SCC 100배↑).",
-    "2024": "【2024】 SHT 495 °C → WQ → T3(natural aging) 또는 T6. Cu 계라 응고균열·SCC 민감."
+    "2024": "【2024】 SHT 495 °C → WQ → T3(natural aging) 또는 T6. Cu 계라 응고균열·SCC 민감.",
+    "2014": "【2014 (Al-Cu-Si-Mg)】 SHT 500 °C → WQ → T6 aging 170 °C. 항공 forging.",
+    "2219": "【2219 (Al-Cu 6.3%)】 SHT 535 °C → T87 aging 175 °C/24h. 2xxx 중 용접성 최고(NASA ET).",
+    "alsi10mg": "【AlSi10Mg (AM/cast)】 SHT 520-540 °C + aging — 단 AM 은 조직 조대화로 주조 T6 이득 적음. Direct aging 160-170 °C 옵션(am-alsi 블록 참조).",
+    "alsi7mg": "【AlSi7Mg / A356】 T6: SHT 540 °C/WQ + aging 155 °C. 항공·자동차 정밀 주조.",
+    "a356": "【A356 (AlSi7Mg cast)】 T6: SHT 540 °C/WQ + aging 155 °C. 항공 주조.",
+    "a357": "【A357 (AlSi7Mg premium cast)】 T6: SHT 540 °C + aging 155-170 °C. 항공 premium 주조.",
+    "a380": "【A380 (die-cast AlSi)】 통상 비열처리(F) — die-cast 는 blister 위험으로 T6 제한적.",
+    "6005": "【6005/6005A】 SHT 530 °C → T6 aging 175 °C. 압출 구조."
    }
   },
   "h03-17": {
@@ -36,7 +44,7 @@
   "h06-maraging": {
    "pattern": "^maraging|^vascomax|^18ni-?\\d",
    "field": "name",
-   "text": "✓ Maraging Steel Aging — 18Ni-7Co-5Mo-Ti (C-Free Martensitic)\nFusion welding 우수 + 가장 easy HT (C-free 라 quench crack 없음).\n\n표준 절차:\n  ① Solution: 815°C / 1 h / AC (soft martensite 형성)\n  ② Aging: 480-500°C / 3-8 h / AC (Ni₃Mo / Ni₃Ti precipitate — 등급별은 아래 grade 참조)\n\n【⚠ 주의 1 — Aged 후 가공 불가】\nAged condition 의 hardness:\n• HRC 50-53 (peak strength)\n• 일반 carbide tool 매우 빠르게 마모\n• 가공 거의 불가\n\n【권장 sequence】\n  ① Solution annealed condition (HRC 30, σy 800 MPa)\n  ② CNC machining (carbide insert, 일반 cutting)\n  ③ Aging (480°C / 3-6 h)\n  ④ Final grinding (light, dimensional adjustment)\n\n【⚠ 주의 2 — Dimensional Change】\nAging 시 contraction:\n• Aging shrinkage: 약 0.05% (~ 0.05 mm per 100 mm)\n• Mechanism: Ni₃Mo / Ni₃Ti precipitate 형성으로 atomic rearrangement\n• Precision 부품 (aerospace landing gear) 의 경우 critical\n\n【권장 대응】\n• 가공 시 tolerance allowance (+ 0.05% over-size)\n• Aging 후 final grinding (dimensional QC)\n• 정밀 부품: pre-aging + post-aging dimensional 측정 + 보정\n\n【표준】\nAMS 6512/6514/6515 · ASTM A579 (18Ni-250/300/350 grade별)",
+   "text": "✓ Maraging Steel Aging — 18Ni-7Co-5Mo-Ti (C-Free Martensitic)\nFusion welding 우수 + 가장 easy HT (C-free 라 quench crack 없음).\n\n표준 절차:\n  ① Solution: 815°C / 1 h / AC (soft martensite 형성)\n  ② Aging: 480-500°C / 3-8 h / AC (Ni₃Mo / Ni₃Ti precipitate — 등급별 상이)\n\n【⚠ 주의 1 — Aged 후 가공 불가】\nAged condition 의 hardness:\n• HRC 50-53 (peak strength)\n• 일반 carbide tool 매우 빠르게 마모\n• 가공 거의 불가\n\n【권장 sequence】\n  ① Solution annealed condition (HRC 30, σy 800 MPa)\n  ② CNC machining (carbide insert, 일반 cutting)\n  ③ Aging (480°C / 3-6 h)\n  ④ Final grinding (light, dimensional adjustment)\n\n【⚠ 주의 2 — Dimensional Change】\nAging 시 contraction:\n• Aging shrinkage: 약 0.05% (~ 0.05 mm per 100 mm)\n• Mechanism: Ni₃Mo / Ni₃Ti precipitate 형성으로 atomic rearrangement\n• Precision 부품 (aerospace landing gear) 의 경우 critical\n\n【권장 대응】\n• 가공 시 tolerance allowance (+ 0.05% over-size)\n• Aging 후 final grinding (dimensional QC)\n• 정밀 부품: pre-aging + post-aging dimensional 측정 + 보정\n\n【표준】\nAMS 6512/6514/6515 · ASTM A579 (18Ni-250/300/350 grade별)",
    "by_grade": {
     "250": "【Maraging 250 (18Ni-250)】 Aging 482 °C / 3-6 h → σy ~1670 MPa.",
     "300": "【Maraging 300 (18Ni-300)】 Aging 482 °C / 3-6 h → σy ~2070 MPa. 가장 널리 쓰임.",
@@ -51,11 +59,13 @@
   "h08-beta": {
    "pattern": "^beta-?21s|^beta-?c|^ti-?15-?3|^ti-?5553|^ti-?10v",
    "field": "name",
-   "text": "⚠ β-Ti Aging — β 안정화 원소(Mo·V·Cr) 농축 metastable β 합금, sub-transus Aging(시효)으로 강도 ↑↑.\n\n표준 절차:\n  ① Solution: 850°C / 30 min / AC (β-only structure)\n  ② Fast cooling: β-phase 유지 + ω-phase 회피\n  ③ Aging: 480-540°C / 4-8 h / AC (α precipitate in β matrix — 등급별은 아래 grade 참조)\n\n【⚠ 주의 — ω-Phase (Cooling Rate 부족 시, 가장 critical)】\nβ-Ti 의 metastable phase 형성 위험:\n• Solution → RT cooling 시 ω-phase 형성 (intermediate brittle phase)\n• ω-phase 의 특성:\n  - Atomic structure: distorted β-phase\n  - Hardness: HV 500+ (β-phase HV 250 의 2배)\n  - Brittleness: 응력 받으면 즉시 균열\n  - 잔존: RT 까지 stable (annealing 없이 회복 불가)\n\n【권장 cooling rate】\n• Water quench (WQ) — 가장 빠름, ω-phase 회피\n• Fast Air Cool (AC) with forced air — second best\n• Slow AC: 회피 (ω-phase 형성 위험)\n\n결과:\n• WQ + Aging: σy 1300 MPa, El 5-8% (peak)\n• Slow AC: ω-phase 잔존, brittle (RT bending 시 균열)\n\n【⚠ 주의 — α-Case (Ti 와 동일)】\nHT atmosphere 의 O / N 흡수 동일:\n• Vacuum HT 또는 Ar atmosphere 필수\n• Air HT 후 surface grinding\n\n【표준】\nAMS 4914/4958/4984 (β-Ti grade별) · 일부 grade 는 OEM proprietary",
+   "text": "⚠ β-Ti Aging — β 안정화 원소(Mo·V·Cr) 농축 metastable β 합금, sub-transus Aging(시효)으로 강도 ↑↑.\n\n표준 절차:\n  ① Solution: 850°C / 30 min / AC (β-only structure)\n  ② Fast cooling: β-phase 유지 + ω-phase 회피\n  ③ Aging: 480-540°C / 4-8 h / AC (α precipitate in β matrix — 등급별 상이)\n\n【⚠ 주의 — ω-Phase (Cooling Rate 부족 시, 가장 critical)】\nβ-Ti 의 metastable phase 형성 위험:\n• Solution → RT cooling 시 ω-phase 형성 (intermediate brittle phase)\n• ω-phase 의 특성:\n  - Atomic structure: distorted β-phase\n  - Hardness: HV 500+ (β-phase HV 250 의 2배)\n  - Brittleness: 응력 받으면 즉시 균열\n  - 잔존: RT 까지 stable (annealing 없이 회복 불가)\n\n【권장 cooling rate】\n• Water quench (WQ) — 가장 빠름, ω-phase 회피\n• Fast Air Cool (AC) with forced air — second best\n• Slow AC: 회피 (ω-phase 형성 위험)\n\n결과:\n• WQ + Aging: σy 1300 MPa, El 5-8% (peak)\n• Slow AC: ω-phase 잔존, brittle (RT bending 시 균열)\n\n【⚠ 주의 — α-Case (Ti 와 동일)】\nHT atmosphere 의 O / N 흡수 동일:\n• Vacuum HT 또는 Ar atmosphere 필수\n• Air HT 후 surface grinding\n\n【표준】\nAMS 4914/4958/4984 (β-Ti grade별) · 일부 grade 는 OEM proprietary",
    "by_grade": {
     "beta-21s": "【Beta-21S】 Aging 480-540 °C / 8 h. 산화저항 우수 β-Ti(항공 배기).",
     "beta-c": "【Beta-C (Ti-3Al-8V-6Cr-4Mo-4Zr)】 Aging 510 °C / 8 h. 스프링·고강도 파스너.",
-    "ti-15-3": "【Ti-15-3 (Ti-15V-3Cr-3Al-3Sn)】 Aging 540 °C / 4 h. 냉간성형 후 Aging — sheet 성형재."
+    "ti-15-3": "【Ti-15-3 (Ti-15V-3Cr-3Al-3Sn)】 Aging 540 °C / 4 h. 냉간성형 후 Aging — sheet 성형재.",
+    "ti-5553": "【Ti-5553】 solution(β-transus 근처) + aging ~600 °C. 착륙장치 forging(고강도·고인성).",
+    "ti-10v-2fe-3al": "【Ti-10-2-3 (Ti-10V-2Fe-3Al)】 STA(solution + aging). 착륙장치 forging."
    }
   },
   "h09-azd": {
@@ -66,7 +76,7 @@
   "h10-c17200": {
    "pattern": "^c17200|^c18150|^c18000|^cube|^cucrz",
    "field": "name",
-   "text": "주의. PH Cu — 석출경화 구리합금 (Be·Cr-Zr·Ni-Si-Cr 계). 재료별 Aging(시효)·주의는 아래 grade 참조.\n\n표준 절차:\n  ① Solution: 800-980°C / 1 h / WQ\n  ② Aging: 315-500°C / 3 h / AC (합금별 — 아래 grade 참조)\n\n【⚠⚠ 주의 1 — BeCu 의 Be Fume 위험 (가장 critical)】\nHT furnace 의 Be vapor / fume:\n• Aging 온도 315°C 에서 Be 미량 vapor\n• 일반 air furnace 의 ventilation 부족 시 작업자 노출\n• Berylliosis (CBD) 위험\n\n【필수 안전 절차】\n• Vacuum furnace 필수 (Be vapor containment)\n• ULPA filter exhaust (99.999% @ 0.12 μm)\n• 작업자: respirator (SCBA) — furnace open 시\n• Workplace: OSHA Be standard (1910.1024)\n\n【⚠ 주의 2 — CuCrZr Aging Precision】\nCuCrZr 의 aging temperature precision:\n• Peak performance: 450°C / 3 h\n• Over-aging:\n  - Conductivity loss (precipitate coarsening)\n  - Strength loss (precipitate over-grown)\n• Under-aging:\n  - Strength 부족\n  - Application failure\n\n【권장 atmosphere】\n• Vacuum 10⁻⁴ mbar (best)\n• Inert gas (Ar 99.999%)\n• Reducing atmosphere (N₂ + H₂, 단 Cu oxide reduction)\n\n【표준】\nAMS 4533 · ASTM B441 (PH Cu grade별)",
+   "text": "주의. PH Cu — 석출경화 구리합금 (Be·Cr-Zr·Ni-Si-Cr 계). 재료별 Aging(시효)·주의는.\n\n표준 절차:\n  ① Solution: 800-980°C / 1 h / WQ\n  ② Aging: 315-500°C / 3 h / AC (합금별 상이)\n\n【⚠⚠ 주의 1 — BeCu 의 Be Fume 위험 (가장 critical)】\nHT furnace 의 Be vapor / fume:\n• Aging 온도 315°C 에서 Be 미량 vapor\n• 일반 air furnace 의 ventilation 부족 시 작업자 노출\n• Berylliosis (CBD) 위험\n\n【필수 안전 절차】\n• Vacuum furnace 필수 (Be vapor containment)\n• ULPA filter exhaust (99.999% @ 0.12 μm)\n• 작업자: respirator (SCBA) — furnace open 시\n• Workplace: OSHA Be standard (1910.1024)\n\n【⚠ 주의 2 — CuCrZr Aging Precision】\nCuCrZr 의 aging temperature precision:\n• Peak performance: 450°C / 3 h\n• Over-aging:\n  - Conductivity loss (precipitate coarsening)\n  - Strength loss (precipitate over-grown)\n• Under-aging:\n  - Strength 부족\n  - Application failure\n\n【권장 atmosphere】\n• Vacuum 10⁻⁴ mbar (best)\n• Inert gas (Ar 99.999%)\n• Reducing atmosphere (N₂ + H₂, 단 Cu oxide reduction)\n\n【표준】\nAMS 4533 · ASTM B441 (PH Cu grade별)",
    "by_grade": {
     "becu": "【BeCu C17200】 Aging 315 °C / 3 h(HRC 35-40). ⚠ Be fume 발암성 — vacuum furnace + ULPA 배기 필수.",
     "c17200": "【BeCu C17200】 Aging 315 °C / 3 h(HRC 35-40). ⚠ Be fume 발암성 — vacuum furnace + ULPA 배기 필수.",
@@ -142,7 +152,7 @@
   "am-cu": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM 고전도 Cu — 후처리 (grade별 상이, 아래 참조)\n  석출경화 Cu — grade별 후처리는 아래 참조.\n【주의】 고온 대기 노출 시 산화 — 진공/환원 분위기.\n【표준】 제조사(EOS 등) 데이터시트 · NASA 공정 문헌 (grade별)",
+   "text": "⚠ AM 고전도 Cu — 후처리 (grade별 상이)\n  석출경화 Cu — grade별로 후처리 상이.\n【주의】 고온 대기 노출 시 산화 — 진공/환원 분위기.\n【표준】 제조사(EOS 등) 데이터시트 · NASA 공정 문헌 (grade별)",
    "by_grade": {
     "cucrzr": "【CuCrZr】 Solution treatment(용체화) 970-1000°C 급냉 + Aging(시효) 450-480°C / 2-4 h — 또는 as-built 직접 Aging(제조사 옵션). Aging으로 전도도·강도 동시 회복.",
     "grcop": "【GRCop-42/84】 석출이 응고 중 형성 — 별도 Aging 불필요, HIP(기공 폐쇄·연소실 기밀)가 관행 (NASA RAMPT)."
