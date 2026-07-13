@@ -279,7 +279,10 @@
   "source": "Datasheet 2",
   "aliases": [
     "18Ni-9Co",
-    "HRC 53-55"
+    "HRC 53-55",
+    "Maraging 350",
+    "18Ni-350",
+    "VascoMax 350"
   ],
   "families": [
     "Metal",
@@ -308,5 +311,13 @@
     "Ni 18% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
     "Co 12% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "18Ni-9Co",
+        "HRC 53-55"
+      ]
+    }
+  }
 }

@@ -245,7 +245,11 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "Datasheet 2",
-  "aliases": [],
+  "aliases": [
+    "ZK60A",
+    "UNS M16600",
+    "M16600"
+  ],
   "families": [
     "Metal",
     "Magnesium",
@@ -269,5 +273,10 @@
   "total_cost_estimate": 14.74,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    }
+  }
 }

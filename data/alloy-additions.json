@@ -644,6 +644,58 @@
         }
       ],
       "industry_note": "700°C급 A-USC(초초임계+) 발전을 위해 개발된 γ′ 석출강화 Ni 합금 — 철계 크리프강(P92)이 끝나는 620°C 너머의 증기관·헤더용. ASME Code Case 2702 로 보일러 압력부 승인을 받은 최초의 시효경화 Ni 합금이라는 것이 상징적(σy≥620/UTS≥1035MPa). 25Cr 로 증기 산화·석탄재 부식도 견딘다. 용접 후 재시효 필요·가격이 철계의 수 배라 A-USC 실증 프로젝트 중심으로 쓰인다."
+    },
+    {
+      "name": "Astroloy (Ni-Co-Cr γ′ superalloy)",
+      "category": "Metal",
+      "subcategory": "Nickel Superalloy",
+      "process": "Wrought",
+      "heat_treatment": "Solution + double age (STA, AMS 5846)",
+      "related": [
+        "Udimet 720"
+      ],
+      "aliases": [
+        "Astroloy",
+        "Astroloy M",
+        "UNS N13017",
+        "N13017",
+        "AMS 5846"
+      ],
+      "composition": {
+        "Ni": "balance",
+        "Co": "15~20",
+        "Cr": "14~16",
+        "Mo": "4.5~5.5",
+        "Al": "3.9~4.5",
+        "Ti": "3.3~3.7",
+        "C": "≤0.04",
+        "B": "≤0.025",
+        "Zr": "≤0.06"
+      },
+      "points": [
+        [
+          7.92,
+          965,
+          1275,
+          10,
+          214,
+          345,
+          10.5
+        ]
+      ],
+      "sources": [
+        {
+          "label": "ATI — Astroloy datasheet (UNS N13017, AMS 5846: σy≥965 / UTS≥1275 MPa / El≥10%)",
+          "url": "https://www.atimaterials.com/Products/Pages/ati-astroloy.aspx",
+          "verified": true
+        },
+        {
+          "label": "E-FORU / matweb — Astroloy N13017 물성 (E 214 GPa · k 10.5 W/m·K · CTE 14.5 µm/m·°C)",
+          "url": "http://www.eforu-materials.com/nickel-metal-and-alloys/22386.html",
+          "verified": true
+        }
+      ],
+      "industry_note": "1960년대 개발된 γ′ 고분율(~50%) Ni 초합금 — Waspaloy(γ′ ~25%)와 Udimet 720 사이의 고강도 디스크·링 합금(σy≥965·UTS≥1275MPa). Co 17%·Al+Ti ≈8%로 γ′ 를 많이 석출시켜 650~815°C 크리프·피로를 벌지만, 그만큼 단조·용접이 까다로워(Strain-Age Cracking 위험) EBW·등온단조로 다룬다. 초기엔 주조/단조였고 이후 분말야금(P/M Astroloy)으로 제트엔진 터빈 디스크에 쓰였으며, 현대는 Udimet 720Li·RR1000 로 세대교체되었다. UNS N13017 · AMS 5846."
     }
   ]
 }

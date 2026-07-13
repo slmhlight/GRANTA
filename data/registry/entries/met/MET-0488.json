@@ -281,7 +281,10 @@
   "source": "Datasheet 1",
   "aliases": [
     "18Ni-9Co",
-    "soft 30-35 HRC"
+    "soft 30-35 HRC",
+    "Maraging 350",
+    "18Ni-350",
+    "VascoMax 350"
   ],
   "families": [
     "Metal",
@@ -311,5 +314,13 @@
     "Co 12% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
   "confidence_tier": "high",
-  "fatigue_estimated": true
+  "fatigue_estimated": true,
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "18Ni-9Co",
+        "soft 30-35 HRC"
+      ]
+    }
+  }
 }

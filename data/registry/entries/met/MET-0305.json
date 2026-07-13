@@ -247,7 +247,10 @@
     "Z140",
     "Z180",
     "Z225",
-    "Z275"
+    "Z275",
+    "DX51D+Z",
+    "DX51D",
+    "EN 10346 DX51D"
   ],
   "families": [
     "Metal",
@@ -272,5 +275,17 @@
   "total_cost_estimate": 1.3,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "KS D 3506",
+        "JIS G 3302",
+        "Z140",
+        "Z180",
+        "Z225",
+        "Z275"
+      ]
+    }
+  }
 }

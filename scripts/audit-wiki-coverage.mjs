@@ -144,17 +144,17 @@ const STOP_RE = [
 ];
 // 실재하나 등재 보류 — 사유 기록 (리포트 별도 섹션으로 이동, absent 집계 제외)
 const DOCUMENTED_ABSENT = new Map([
-  ['sx300', '독점 Cu계 AM 합금 — 공개 검증 datasheet 없음'],
-  ['m55j', '탄소섬유 원사 규격 — 구조 entry 범위 밖(라미네이트는 CFRP 로 수록)'],
-  ['dx51d', 'EN 아연도금 강판 grade — KS D 3506 등가 서술용 언급'],
-  ['zk60a', 'Mg 단조합금 — 1회 언급·수요 미확인'],
-  ['unsn07720', 'Udimet 720Li — 1회 언급(터빈 디스크 niche)'],
-  ['unsn13017', 'HT 노트 인용 UNS — 대응 상용명 미상'],
+  ['sx300', '가상 예시 합금 — Guide 로켓엔진 의사결정 시나리오의 자체개발 Cu-AM 예시(실 datasheet 없음, H5 W8 판정: 비-entry)'],
+  ['m55j', '탄소섬유 원사 규격 — 구조 entry 범위 밖(라미네이트는 CFRP M55J/Epoxy 로 수록)'],
+  ['dx51d', 'EN 아연도금 강판 — SGCC(KS D 3506) 별칭으로 검색 가능(H5 W8)'],
+  ['zk60a', 'Mg 단조합금 — ZK60 별칭으로 검색 가능(H5 W8)'],
+  ['unsn07720', 'Udimet 720/720Li — DB entry 수록(UNS 는 노트 인용)'],
+  ['unsn13017', 'Astroloy(N13017) — H5 W8 entry 등재(alloy-additions, γ′ 초합금)'],
   ['unsr56410', 'Ti-6246 — β Ti 노트 인용'],
-  ['unsr58153', 'β Ti 변형 grade — 노트 인용'],
-  ['unsr58210', 'β Ti 변형 grade — 노트 인용'],
-  ['unsm16600', 'Mg 합금 UNS — 노트 인용'],
-  ['unsk93160', 'Maraging 350 — DB 는 250/300 만 수록'],
+  ['unsr58153', 'Ti-15-3(R58153) — DB entry 수록(UNS 필드)'],
+  ['unsr58210', 'Beta-21S(R58210) — DB entry 수록(UNS 필드)'],
+  ['unsm16600', 'ZK60A UNS — ZK60 별칭으로 검색 가능(H5 W8)'],
+  ['unsk93160', 'Maraging 350(K93160) — C350 별칭으로 검색 가능(H5 W8)'],
 ]);
 // 항공기·엔진·무기 호칭 — 합금 아님 (실재 합금과 겹치지 않는 것만: A380 다이캐스트 합금 등은 제외)
 const NON_MATERIAL = new Set([

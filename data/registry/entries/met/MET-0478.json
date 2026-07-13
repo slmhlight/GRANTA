@@ -245,7 +245,11 @@
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "Datasheet 1",
-  "aliases": [],
+  "aliases": [
+    "ZK60A",
+    "UNS M16600",
+    "M16600"
+  ],
   "families": [
     "Metal",
     "Magnesium",
@@ -271,6 +275,9 @@
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "aliases": {
+      "from": []
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
