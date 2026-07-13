@@ -189,18 +189,19 @@ function scanTree(node: unknown, loc: string, bad: string[]): void {
 }
 
 describe('§3.1 확장 — 공정노트·인사이트·코팅·프로파일·스토리·Guide (W5)', () => {
-  it('HT·절삭성·용접성 가이드 블록', () => {
+  it('HT·절삭성·용접성 가이드 블록 (text + by_grade)', () => {
     const bad: string[] = [];
-    for (const [k, b] of Object.entries<any>(readJSON('data/ht-guidance.json').blocks)) {
-      bad.push(...violations(b.text ?? '', `ht:${k}`));
-    }
-    for (const [k, b] of Object.entries<any>(readJSON('data/welding-guidance.json').blocks)) {
-      bad.push(...violations(b.text ?? '', `weld:${k}`));
-    }
+    // W20 — text 뿐 아니라 by_grade(grade별 authored 콘텐츠)도 §3.1 준수 검사.
+    const scanBlock = (b: any, loc: string) => {
+      bad.push(...violations(b.text ?? '', loc));
+      for (const [g, txt] of Object.entries<any>(b.by_grade ?? {})) bad.push(...violations(String(txt), `${loc}|${g}`));
+    };
+    for (const [k, b] of Object.entries<any>(readJSON('data/ht-guidance.json').blocks)) scanBlock(b, `ht:${k}`);
+    for (const [k, b] of Object.entries<any>(readJSON('data/welding-guidance.json').blocks)) scanBlock(b, `weld:${k}`);
     for (const [k, v] of Object.entries<any>(readJSON('data/machining-guidance.json').guidance)) {
       bad.push(...violations(String(v), `mach:${k}`));
     }
-    expect(bad, bad.slice(0, 20).join('\n')).toEqual([]);
+    expect(bad, bad.slice(0, 30).join('\n')).toEqual([]);
   });
 
   it('선택 인사이트·코팅 추천', () => {

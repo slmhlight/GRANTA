@@ -207,7 +207,8 @@ export function insightPickMatches(m: Material, pick: InsightPick): boolean {
  * (filler·예열·PWHT·템퍼)는 by_grade 에 각 grade 마다 authored. 재료는 자기 grade 콘텐츠만 조회한다
  * (렌더 필터가 아니라 데이터 authoring — 형제 grade 는 애초에 결과에 포함되지 않음). */
 
-const norm = (s: string) => s.toLowerCase().replace(/[\s.\-()]/g, '');
+// 소문자화만 — 공백·하이픈·괄호는 자연 경계로 유지(구분자 제거 시 "300 (18Ni)"→"30018ni" 로 숫자 인접 오판).
+const norm = (s: string) => s.toLowerCase();
 
 /** 재료 name+aliases 에서 by_grade 키에 해당하는 authored 콘텐츠 선택 (가장 구체적 키 우선). */
 export function gradeGuidanceFor(byGrade: Record<string, string> | undefined, m: Material): string | null {
@@ -215,7 +216,7 @@ export function gradeGuidanceFor(byGrade: Record<string, string> | undefined, m:
   const hay = ` ${norm(`${m.name} ${(m.aliases || []).join(' ')}`)} `;
   const keys = Object.keys(byGrade).sort((a, b) => b.length - a.length); // 긴(구체적) 키 우선
   for (const k of keys) {
-    // 경계 매칭: 정규화 hay 에 grade 키가 (숫자 접두/접미 없이) 등장 — 4140 이 14140/41400 오탐 방지.
+    // 경계 매칭: hay 에 grade 키가 (숫자 접두/접미 없이) 등장 — 4140 이 14140/41400 오탐 방지.
     const nk = norm(k);
     let idx = hay.indexOf(nk);
     while (idx !== -1) {
