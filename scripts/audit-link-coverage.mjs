@@ -4,7 +4,7 @@
  * 코퍼스(글로서리 article 본문·표 + Guide.tsx JSX 텍스트 + 스토리 본문)에서 합금-형 언급을
  * 추출하고, wiki-index autolink 맵으로 링크 성패를 시뮬레이션(client/src/lib/wiki-link.ts 의
  * sliding + len>=3 로직 복제)한다. 리포트만(docs/audits/link-coverage.md) — 게이트는
- * tests/link-coverage.test.ts 가 실제 TS linkify 로 별도 수행(로직 드리프트 원천 차단).
+ * tests/wiki-link.test.ts(H5-D2 통합) 가 실제 TS linkify 로 별도 수행(로직 드리프트 원천 차단).
  *
  * 사용: node scripts/audit-link-coverage.mjs   (build:data → build:wiki 산출물 필요)
  */
@@ -127,7 +127,7 @@ function scan(texts) {
 const rArt = scan(corpus.article), rGuide = scan(corpus.guide), rStory = scan(corpus.story);
 const md = ['# 재료 링크 커버리지 감사 (자동 — audit-link-coverage.mjs)', ''];
 md.push('> 코퍼스: 글로서리 article + Guide.tsx + 스토리. wiki-index autolink 맵으로 시뮬(sliding+len≥3).');
-md.push('> **게이트는 tests/link-coverage.test.ts (실 TS linkify)** — 본 리포트는 실패 유형 진단용.');
+md.push('> **게이트는 tests/wiki-link.test.ts (실 TS linkify)** — 본 리포트는 실패 유형 진단용.');
 md.push('');
 md.push('| 코퍼스 | 언급 | 링크 | 실패 | 커버리지 |');
 md.push('|---|---|---|---|---|');
