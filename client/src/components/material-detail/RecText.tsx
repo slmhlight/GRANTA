@@ -68,7 +68,7 @@ function parseAsciiTable(block: string): { headers: string[]; rows: string[][] }
   return { headers, rows: validRows };
 }
 
-function AsciiTable({ block }: { block: string }) {
+function AsciiTable({ block, highlight }: { block: string; highlight?: RegExp | null }) {
   const seen = new Set<string>(); // 이 표 안에서 용어 첫등장(셀 순서대로) — 프로즈와 독립
   const parsed = parseAsciiTable(block);
   if (!parsed) {
@@ -95,7 +95,7 @@ function AsciiTable({ block }: { block: string }) {
             <tr key={i} className={i % 2 === 0 ? 'bg-white/10' : ''}>
               {r.map((c, j) => (
                 <td key={j} className="border border-current/20 px-1.5 py-0.5 align-top">
-                  <TermText text={c} seen={seen} />
+                  <TermText text={c} seen={seen} highlight={highlight} />
                 </td>
               ))}
             </tr>
@@ -114,10 +114,13 @@ export function RecText({
   text,
   children,
   className,
+  highlight,
 }: {
   text?: string;
   children?: React.ReactNode;
   className?: string;
+  /** W20 — 현재 재료 지정자 강조 정규식(가족 공통 가이드에서 형제 grade 와 구분). */
+  highlight?: RegExp | null;
 }) {
   const rawText = text != null ? text : flattenToString(children);
   const segments = React.useMemo(() => splitSegments(rawText), [rawText]);
@@ -126,11 +129,11 @@ export function RecText({
     <div className={className || 'text-[11px] leading-relaxed'}>
       {segments.map((seg, i) =>
         seg.type === 'table' ? (
-          <AsciiTable key={i} block={seg.content} />
+          <AsciiTable key={i} block={seg.content} highlight={highlight} />
         ) : (
           // R227/E14 — 세그먼트별 첫등장(표는 AsciiTable 내부 seen 으로 독립 → 표 내부 용어도 링크).
           <div key={i} className="whitespace-pre-line">
-            <TermText text={seg.content} />
+            <TermText text={seg.content} highlight={highlight} />
           </div>
         ),
       )}

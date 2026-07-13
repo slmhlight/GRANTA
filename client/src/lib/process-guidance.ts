@@ -193,3 +193,47 @@ export function insightPickMatches(m: Material, pick: InsightPick): boolean {
     return t.length >= 2 && hay.includes(t);
   });
 }
+
+/* ── W20 — 가족 공통 가이드에서 "현재 재료" 강조 ──
+ * 절삭성·HT·용접 가이드는 가족/공정 단위 텍스트라 형제 grade 가 함께 언급된다(설계상).
+ * 카드에 "계열 공통" 프레임을 씌우고, 본문에서 현재 재료의 지정자를 강조해 혼동을 없앤다. */
+
+/** 현재 재료의 지정자 토큰(강조용) — name+aliases 에서 3자+ 숫자·grade 코드 추출. */
+export function materialDesignationTokens(m: Material): string[] {
+  const src = `${m.name} ${(m.aliases || []).join(' ')}`;
+  const toks = new Set<string>();
+  const pats: RegExp[] = [
+    /Ti-6Al-4V/gi, /AlSi\d+Mg/gi, /CuCrZr/gi, /CoCrMo/gi, /GRCop-\d{2}/gi,
+    /\b\d{1,2}-\d\s?PH\b/gi,          // 17-4 PH · 15-5 PH
+    /\b\d{1,2}-\d[A-Z]?\b/g,          // 17-4 · 15-5 (맨 grade-dash 폼)
+    /\b[A-Z]{1,3}\d{2,5}[A-Z]?\b/g,   // H13 · CPM3V · 440C(문자 접미)
+    /\b\d{3,5}[A-Z]?\b/g,             // 304 · 6061 · 718 · 52100
+  ];
+  for (const re of pats) {
+    re.lastIndex = 0;
+    let mm: RegExpExecArray | null;
+    while ((mm = re.exec(src)) !== null) {
+      const t = mm[0].trim();
+      if (t.replace(/[^a-z0-9]/gi, '').length >= 3) toks.add(t);
+    }
+  }
+  return Array.from(toks);
+}
+
+// 값-단위 오탐 가드: 숫자 지정자가 값(400°C·718 MPa 등)으로 쓰인 경우 강조 제외.
+const HL_UNIT_GUARD = `(?!\\s*(?:°|℃|℉|MPa|GPa|kN|HV|HB|HRC|HRB|%|mm|µm|h\\b|시간|년|배|rpm|kJ|min|W\\b|℃))`;
+
+/** 가이드 텍스트에서 현재 재료 지정자를 강조하는 정규식 (없으면 null). global + 캡처그룹 1. */
+export function materialHighlightRegex(m: Material): RegExp | null {
+  const toks = materialDesignationTokens(m);
+  if (!toks.length) return null;
+  const body = toks
+    .sort((a, b) => b.length - a.length)
+    .map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|');
+  try {
+    return new RegExp(`\\b(${body})\\b${HL_UNIT_GUARD}`, 'g');
+  } catch {
+    return null;
+  }
+}
