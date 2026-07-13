@@ -92,6 +92,8 @@ export default function Guide() {
   const searchResults: GuideIndexEntry[] = searchQ ? searchGuide(searchQ) : [];
   const gotoEntry = (e: GuideIndexEntry) => {
     setSearchQ(''); setSearchOpen(false);
+    // W6+ — 글로서리 용어는 전용 term 페이지로 SPA 이동.
+    if (e.termSlug) { navigate(`/guide/term/${e.termSlug}`); return; }
     // hashchange listener (Chapter) 가 자동으로 chapter open. 직접 anchor 클릭.
     window.location.hash = `#${e.ch}`;
     // smooth scroll + 강조 효과
@@ -155,9 +157,13 @@ export default function Guide() {
                   className="w-full text-left px-3 py-2 hover:bg-muted/40 border-b border-border/30 last:border-0"
                 >
                   <div className="flex items-baseline gap-2">
-                    <span className="text-[10px] bg-accent/15 text-accent rounded px-1.5 py-0.5 font-bold flex-shrink-0">Ch.{r.chapterN}</span>
-                    <span className="text-[12px] font-semibold text-foreground">{r.chapterLabel}</span>
-                    {r.section && <span className="text-[10px] text-muted-foreground">› {r.section}</span>}
+                    {r.termSlug ? (
+                      <span className="text-[10px] bg-violet-500/15 text-violet-700 rounded px-1.5 py-0.5 font-bold flex-shrink-0">용어</span>
+                    ) : (
+                      <span className="text-[10px] bg-accent/15 text-accent rounded px-1.5 py-0.5 font-bold flex-shrink-0">Ch.{r.chapterN}</span>
+                    )}
+                    <span className="text-[12px] font-semibold text-foreground">{r.termSlug ? r.section : r.chapterLabel}</span>
+                    {!r.termSlug && r.section && <span className="text-[10px] text-muted-foreground">› {r.section}</span>}
                   </div>
                   <p className="text-[11px] text-foreground/70 mt-0.5 line-clamp-2">{r.snippet}</p>
                 </button>

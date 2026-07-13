@@ -56,6 +56,30 @@ describe('glossary SSOT — autolink 안전', () => {
       }
     }
   });
+
+  /* H5-D2 (W6) — 검색 노이즈가 prose 과링크로 번지지 않게 하는 방어막.
+   * surface_forms(검색·감사용)에는 'plate martensite'의 plate, 'cast iron growth'의 growth 등
+   * 광범위 영단어가 정당하게 있으나(=실제 야금 연관), 이들이 autolink 로 승격되면 본문의
+   * 흔한 단어가 전부 링크돼 노이즈가 된다. autolink 는 큐레이션된 소수 폼만 — 이를 강제. */
+  it('과광범위 일반 영단어·초단축 영문은 autolink 제외 (surface_forms/검색 전용)', () => {
+    const GENERIC_EN = new Set([
+      'plate', 'mold', 'mould', 'growth', 'twin', 'cast', 'bar', 'sheet', 'rod', 'wire',
+      'ring', 'weld', 'heat', 'cold', 'hot', 'pipe', 'tube', 'strip', 'block', 'form',
+      'age', 'grade', 'class', 'core', 'case', 'free', 'red', 'cell', 'wear', 'flow',
+      'film', 'hard', 'soft', 'tough', 'skin', 'band', 'draw', 'roll', 'set', 'pin',
+    ]);
+    const bad: string[] = [];
+    for (const [k, t] of Object.entries(terms)) {
+      for (const a of t.autolink || []) {
+        if (GENERIC_EN.has(String(a).toLowerCase())) bad.push(`${k}: 과광범위 "${a}" autolink 승격`);
+        // 영문 단독폼은 alnum 3자 이상 (KO 폼은 대상 아님)
+        if (/^[\x00-\x7f]+$/.test(a) && a.replace(/[^a-z0-9]/gi, '').length < 3) {
+          bad.push(`${k}: 초단축 영문 autolink "${a}"`);
+        }
+      }
+    }
+    expect(bad, bad.join('\n')).toEqual([]);
+  });
 });
 
 describe('glossary SSOT — 핵심 앵커', () => {

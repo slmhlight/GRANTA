@@ -3,7 +3,10 @@
  * 각 entry: chapter anchor (#chXX) + section title + keywords + snippet.
  * Search 시 fuzzy-substring 매칭 → 결과 dropdown.
  * 새 chapter/sub-section 추가 시 이 파일에 entry 추가 (chapter 본문 hard-coded 텍스트는 검색 대상에서 빠짐).
+ * H5-D2 (W6+) — 글로서리 117용어는 GLOSSARY.terms 에서 자동 파생(termSlug → /guide/term/:slug).
+ *   수동 용어 목록 이중관리 제거: 신규 용어 추가 시 무손질로 검색 편입.
  */
+import { GLOSSARY } from '@/lib/glossary';
 
 export interface GuideIndexEntry {
   ch: string;       // anchor id (e.g. 'ch10')
@@ -12,6 +15,7 @@ export interface GuideIndexEntry {
   section?: string; // optional sub-section
   keywords: string[]; // search keywords (한국어 + 영어 + 약어)
   snippet: string;  // 결과 dropdown 에 보여줄 한 줄 요약
+  termSlug?: string; // 있으면 글로서리 용어 — /guide/term/:slug 로 이동 (앵커 스크롤 대신)
 }
 
 export const GUIDE_INDEX: GuideIndexEntry[] = [
@@ -71,16 +75,29 @@ export const GUIDE_INDEX: GuideIndexEntry[] = [
   { ch: 'ch8', chapterN: 13, chapterLabel: '데이터 해석·출처·단위·FAQ', section: '단위 변환', keywords: ['SI', 'imperial', 'MPa', 'ksi', 'GPa', 'Msi', 'Celsius', 'Fahrenheit', 'lb/in3', 'BTU'], snippet: 'MPa↔ksi · GPa↔Msi · °C↔°F · g/cm³↔lb/in³ · KIC' },
   { ch: 'ch8', chapterN: 13, chapterLabel: '데이터 해석·출처·단위·FAQ', section: 'FAQ 10항목', keywords: ['FAQ', 'collection', 'shortcut', 'language', 'unit', 'reset', 'bookmark', 'URL'], snippet: '같은 합금 여러 row / class 신뢰성 / AM 방향 / 단위 / collection 등' },
 
-  // Ch.15 (chGloss) — 기술용어 사전 (글로서리)
-  { ch: 'chGloss', chapterN: 15, chapterLabel: '기술용어 사전 (글로서리)', keywords: ['글로서리', 'glossary', '용어', '용어사전', 'term', '정의', 'definition', '마르텐사이트', 'martensite', '오스테나이트', 'austenite', '석출경화', 'precipitation', '크리프', 'creep', '피로', 'fatigue', '내식성', 'corrosion', '부동태', 'passivation', '예민화', 'sensitization', '인성', 'toughness', '담금질', 'quench', '뜨임', 'temper', '시효', 'aging'], snippet: '금속·재료 전문용어 — 미세조직·강화·열처리·부식·파괴·성형·AM 표준 정의 + 검색' },
+  // Ch.15 (chGloss) — 기술용어 사전 (글로서리). 개별 용어는 아래 GLOSSARY_ENTRIES 에서 자동 파생.
+  { ch: 'chGloss', chapterN: 15, chapterLabel: '기술용어 사전 (글로서리)', keywords: ['글로서리', 'glossary', '용어', '용어사전', 'term', '정의', 'definition', '전문용어'], snippet: '금속·재료 전문용어 — 미세조직·강화·열처리·부식·파괴·성형·AM 표준 정의 + 검색' },
 ];
 
-/** R66 — 단순 substring match (fuzzy 는 너무 노이즈). 다국어 (KO+EN) 동시 매칭 위해 keywords 가 다국어 포함. */
+/* H5-D2 (W6+) — 글로서리 용어 자동 파생 검색 엔트리.
+ * keywords = display + surface_forms (KO·EN·약어 전량 → 어떤 표기로도 검색). snippet = short 정의.
+ * termSlug 로 /guide/term/:slug 이동. GLOSSARY.terms 가 SSOT 이므로 신규 용어는 자동 편입. */
+export const GLOSSARY_ENTRIES: GuideIndexEntry[] = Object.entries(GLOSSARY.terms).map(([slug, t]) => ({
+  ch: 'chGloss',
+  chapterN: 15,
+  chapterLabel: '기술용어 사전',
+  section: t.display,
+  termSlug: slug,
+  keywords: [t.display, ...(t.surface_forms || [])],
+  snippet: t.short,
+}));
+
+/** R66 — 단순 substring match (fuzzy 는 너무 노이즈). 다국어 (KO+EN) 동시 매칭 위해 keywords 가 다국어 포함.
+ *  W6+ — 챕터 우선, 이어서 글로서리 용어(자동 파생) 매칭. 최대 12. */
 export function searchGuide(q: string): GuideIndexEntry[] {
   const query = q.trim().toLowerCase();
   if (query.length < 2) return [];
-  return GUIDE_INDEX.filter((e) => {
-    const haystack = [e.chapterLabel, e.section || '', e.snippet, ...e.keywords].join(' ').toLowerCase();
-    return haystack.includes(query);
-  }).slice(0, 12);
+  const match = (e: GuideIndexEntry) =>
+    [e.chapterLabel, e.section || '', e.snippet, ...e.keywords].join(' ').toLowerCase().includes(query);
+  return [...GUIDE_INDEX.filter(match), ...GLOSSARY_ENTRIES.filter(match)].slice(0, 12);
 }
