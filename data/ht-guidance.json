@@ -51,7 +51,7 @@
   "h08-beta": {
    "pattern": "^beta-?21s|^beta-?c|^ti-?15-?3|^ti-?5553|^ti-?10v",
    "field": "name",
-   "text": "⚠ β-Ti Aging — β 안정화 원소(Mo·V·Cr) 농축 metastable β 합금, sub-transus Aging(시효)으로 강도 ↑↑.\n\n표준 절차:\n  ① Solution: 850°C / 30 min / AC (β-only structure)\n  ② Fast cooling: β-phase 유지 + ω-phase 회피\n  ③ Aging: 480-540°C / 4-8 h / AC (α precipitate in β matrix — 등급별은 아래 grade 참조)\n\n【⚠ 주의 — ω-Phase (Cooling Rate 부족 시, 가장 critical)】\nβ-Ti 의 metastable phase 형성 위험:\n• Solution → RT cooling 시 ω-phase 형성 (intermediate brittle phase)\n• ω-phase 의 특성:\n  - Atomic structure: distorted β-phase\n  - Hardness: HV 500+ (β-phase HV 250 의 2배)\n  - Brittleness: 응력 받으면 즉시 균열\n  - 잔존: RT 까지 stable (annealing 없이 회복 불가)\n\n【권장 cooling rate】\n• Water quench (WQ) — 가장 빠름, ω-phase 회피\n• Fast Air Cool (AC) with forced air — second best\n• Slow AC: 회피 (ω-phase 형성 위험)\n\n결과:\n• WQ + Aging: σy 1300 MPa, El 5-8% (peak)\n• Slow AC: ω-phase 잔존, brittle (RT bending 시 균열)\n\n【⚠ 주의 — α-Case (Ti 와 동일)】\nHT atmosphere 의 O / N 흡수 동일:\n• Vacuum HT 또는 Ar atmosphere 필수\n• Air HT 후 surface grinding\n\n【표준】\nAMS 4914/4958/4984 (β-Ti grade별) · Beta-21S/Ti-5553 는 OEM proprietary",
+   "text": "⚠ β-Ti Aging — β 안정화 원소(Mo·V·Cr) 농축 metastable β 합금, sub-transus Aging(시효)으로 강도 ↑↑.\n\n표준 절차:\n  ① Solution: 850°C / 30 min / AC (β-only structure)\n  ② Fast cooling: β-phase 유지 + ω-phase 회피\n  ③ Aging: 480-540°C / 4-8 h / AC (α precipitate in β matrix — 등급별은 아래 grade 참조)\n\n【⚠ 주의 — ω-Phase (Cooling Rate 부족 시, 가장 critical)】\nβ-Ti 의 metastable phase 형성 위험:\n• Solution → RT cooling 시 ω-phase 형성 (intermediate brittle phase)\n• ω-phase 의 특성:\n  - Atomic structure: distorted β-phase\n  - Hardness: HV 500+ (β-phase HV 250 의 2배)\n  - Brittleness: 응력 받으면 즉시 균열\n  - 잔존: RT 까지 stable (annealing 없이 회복 불가)\n\n【권장 cooling rate】\n• Water quench (WQ) — 가장 빠름, ω-phase 회피\n• Fast Air Cool (AC) with forced air — second best\n• Slow AC: 회피 (ω-phase 형성 위험)\n\n결과:\n• WQ + Aging: σy 1300 MPa, El 5-8% (peak)\n• Slow AC: ω-phase 잔존, brittle (RT bending 시 균열)\n\n【⚠ 주의 — α-Case (Ti 와 동일)】\nHT atmosphere 의 O / N 흡수 동일:\n• Vacuum HT 또는 Ar atmosphere 필수\n• Air HT 후 surface grinding\n\n【표준】\nAMS 4914/4958/4984 (β-Ti grade별) · 일부 grade 는 OEM proprietary",
    "by_grade": {
     "beta-21s": "【Beta-21S】 Aging 480-540 °C / 8 h. 산화저항 우수 β-Ti(항공 배기).",
     "beta-c": "【Beta-C (Ti-3Al-8V-6Cr-4Mo-4Zr)】 Aging 510 °C / 8 h. 스프링·고강도 파스너.",
@@ -142,7 +142,11 @@
   "am-cu": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM 고전도 Cu (CuCrZr · GRCop) — 후처리\n  • CuCrZr: Solution treatment(용체화) 970-1000°C 급냉 + Aging(시효) 450-480°C / 2-4 h — 또는 as-built 직접 Aging(제조사 옵션). Aging으로 전도도·강도 동시 회복.\n  • GRCop-42/84: 석출이 응고 중 형성 — 별도 Aging 불필요, HIP(기공 폐쇄·연소실 기밀)가 관행 (NASA RAMPT).\n【주의】 고온 대기 노출 시 산화 — 진공/환원 분위기.\n【표준】 제조사(EOS CuCrZr 등) 데이터시트 · NASA GRCop 공정 문헌"
+   "text": "⚠ AM 고전도 Cu — 후처리 (grade별 상이, 아래 참조)\n  석출경화 Cu — grade별 후처리는 아래 참조.\n【주의】 고온 대기 노출 시 산화 — 진공/환원 분위기.\n【표준】 제조사(EOS 등) 데이터시트 · NASA 공정 문헌 (grade별)",
+   "by_grade": {
+    "cucrzr": "【CuCrZr】 Solution treatment(용체화) 970-1000°C 급냉 + Aging(시효) 450-480°C / 2-4 h — 또는 as-built 직접 Aging(제조사 옵션). Aging으로 전도도·강도 동시 회복.",
+    "grcop": "【GRCop-42/84】 석출이 응고 중 형성 — 별도 Aging 불필요, HIP(기공 폐쇄·연소실 기밀)가 관행 (NASA RAMPT)."
+   }
   }
  },
  "am_map": {
