@@ -104,17 +104,20 @@ const ALLOY_PATTERNS = [
   /(?<!ASTM )(?<!AMS )(?<!AWS )(?<!ISO )(?<!ASME )(?<!NACE )(?<!API )(?<!SAE )(?<!JIS )(?<!MIL-)(?<!MIL )(?<!DTL-)(?<!\/)\b[A-Z]{1,3}[- ]?\d{2,4}[A-Z]{0,2}\b(?! ?°C)/g,
   /\b(?:Grade|Gr\.?) ?\d{1,3}\b/gi,
 ];
-// 규격서·단위·연도·temper 조건 — 합금명 아님
+// 규격서·단위·연도·temper 조건 — 합금명 아님.
+// ※ H5-D1 (W3) 동결(2026-07-13): FILTER_AUDIT 로 전 항목 계측·검토 완료.
+//    known-material(dbForms/wikiForms) 은 STOP 이전에 통과하므로 실합금(A36·A2·F75·S7 등)
+//    오차단 없음 — 아래 패턴은 '비-재료 토큰'에만 적용. 0건 항목은 방어적 가드(콘텐츠 변경 대비).
+//    신규 항목 추가는 반드시 원문 확인 후. #5 등 광범위 패턴도 known-material 우선 판정이 보호막.
 const STOP_RE = [
-  /^(ASTM|AMS|ISO|EN|JIS|DIN|KS|SAE|AWS|API|NACE|MIL|BS|GB)[- ]?[A-Z]?\d/i, // 규격서 번호
-  /^(19|20)\d{2}$/, // 연도
-  /^\d+$/, // 순수 숫자
+  /^(ASTM|AMS|ISO|EN|JIS|DIN|KS|SAE|AWS|API|NACE|MIL|BS|GB)[- ]?[A-Z]?\d/i, // 규격서 번호(EN/JIS/DIN/KS 접두 포함 — 구 중복 패턴 #8 흡수)
+  /^(19|20)\d{2}$/, // 연도 (방어)
+  /^\d+$/, // 순수 숫자 (방어)
   /^(HRC|HRB|HBW?|HV|MPA|GPA|KSI|PSI|RA|UTS|CVN)[- ]?\d*$/i, // 경도·물성 값
   /^(H|T|TH|RH|CH|O)[- ]?\d{1,4}$/i, // temper·시효 조건 (H900·T6·TH1050·RH950)
-  /^(A|B|C|F|S)\d{1,2}$/i, // 짧은 클래스 라벨
+  /^(A|B|C|F|S)\d{1,2}$/i, // 짧은 클래스 라벨(Shore A40·A60 등) — 실합금은 known-material 우선 통과
   /^GR(ADE)?\.? ?\d{1,3}$/i, // Grade N — 문맥 없인 판별 불가(과공·grade 91 등) → 별도 검토
-  /^(AC|WQ|OQ|AQ|FC)\d*$/i, // 냉각 약어
-  /^(DIN|EN|JIS|KS|GOST)\b/i,
+  /^(AC|WQ|OQ|AQ|FC)\d*$/i, // 냉각 약어 (방어)
   /^(KIC|KISCC|LMP|PAG|HSS|PCD|PBT|CE|PREN)[- ]?\d*$/i, // 물성 기호·공정 약어 + 숫자
   /^(VIM|VAR|ESR)[- ]?\d*$/i, // 용해 공정 접두 (VIM 9310 등 — 합금 본체는 별도 매칭)
   /^CMH[- ]?\d+$/i, // 핸드북 (CMH-17)
@@ -158,7 +161,18 @@ const NON_MATERIAL = new Set([
   'a320', 'a350', 'b47', 'b52', 'b58', 'f15', 'f16', 'f86', 'a18', 'p47', 'p51',
   'sr71', 'm16', 'j57', 'j79', 'f404', 'cfm56',
 ]);
-const isStop = (s) => STOP_RE.some((re) => re.test(s.trim()));
+// H5-D1 (W3) — 필터 계측(env FILTER_AUDIT): 항목별 차단 실적 → 사문화(0건)·과차단 검출용.
+const FA = !!process.env.FILTER_AUDIT;
+const STOP_HITS = STOP_RE.map(() => ({ n: 0, ex: new Set() }));
+const NM_HITS = new Map(), EN_HITS = new Map();
+const isStop = (s) => {
+  const t = s.trim();
+  for (let i = 0; i < STOP_RE.length; i++) if (STOP_RE[i].test(t)) {
+    if (FA) { STOP_HITS[i].n++; if (STOP_HITS[i].ex.size < 6) STOP_HITS[i].ex.add(t); }
+    return true;
+  }
+  return false;
+};
 
 const mentions = new Map(); // norm → { raw, count, srcs:Set, cls, matchId }
 const documented = new Map(); // norm → { raw, count, srcs:Set, reason }
@@ -171,10 +185,21 @@ for (const { src, key, text } of corpus) {
       const s = m.index, e = s + m[0].length;
       if (spans.some(([a, b]) => s < b && a < e)) continue; // 우선 패턴 스팬과 겹침 → 파편
       const raw = m[0].trim();
-      if (isStop(raw)) continue;
       // é 등 결합 분음부호 제거 후 정규화 (René → Rene)
       const nf = norm(raw.normalize('NFD').replace(/[̀-ͯ]/g, ''));
-      if (!nf || nf.length < 2 || NON_MATERIAL.has(nf)) continue;
+      if (!nf || nf.length < 2) continue;
+      // H5-D1 (W3) — known-material 판정을 STOP 필터보다 우선.
+      //   실합금(A36·A2·F75·S7 등)이 짧은-라벨 STOP(#5 [ABCFS]\d{1,2})에 오차단되던 문제 해소.
+      //   별칭 폴백 포함(X7050→7050·13-8Mo→PH13-8Mo·SM490Y→SM490).
+      const alts = [nf, nf.replace(/^x(?=\d)/, ''), `ph${nf}`, nf.replace(/^haynes(?=[a-z])/, '')];
+      if (/\d[a-z]$/.test(nf)) alts.push(nf.slice(0, -1));
+      let w = null, dbId = null;
+      for (const alt of alts) { w = wikiForms.get(alt); dbId = dbForms.get(alt); if (w || dbId) break; }
+      const known = !!(w || dbId);
+      if (!known) {
+        if (isStop(raw)) continue;                         // 규격서·단위·연도 등 (비-재료만)
+        if (NON_MATERIAL.has(nf)) { if (FA) NM_HITS.set(nf, (NM_HITS.get(nf) || 0) + 1); continue; }
+      }
       spans.push([s, e]);
       if (seen.has(nf)) continue;
       seen.add(nf);
@@ -187,15 +212,6 @@ for (const { src, key, text } of corpus) {
       }
       let rec = mentions.get(nf);
       if (!rec) {
-        // 별칭 폴백: 실험 접두 X-·PH 접두·브랜드 접두·후미 변형문자 (X7050→7050, 13-8Mo→PH13-8Mo, SM490Y→SM490)
-        const alts = [nf, nf.replace(/^x(?=\d)/, ''), `ph${nf}`, nf.replace(/^haynes(?=[a-z])/, '')];
-        if (/\d[a-z]$/.test(nf)) alts.push(nf.slice(0, -1));
-        let w = null, dbId = null;
-        for (const alt of alts) {
-          w = wikiForms.get(alt);
-          dbId = dbForms.get(alt);
-          if (w || dbId) break;
-        }
         const cls = w ? (w.autolink ? 'linked' : 'exists-unlinked') : dbId ? 'exists-unlinked' : 'absent';
         rec = { raw, count: 0, srcs: new Set(), cls, matchId: w ? w.id : dbId || null };
         mentions.set(nf, rec);
@@ -230,7 +246,8 @@ for (const { src, key, text } of corpus) {
   for (const m of text.matchAll(INTRO_RE)) {
     const ko = m[1].trim(), en = m[2].trim();
     const ne = norm(en);
-    if (!ne || ne.length < 4 || EN_STOP.has(ne)) continue;
+    if (!ne || ne.length < 4) continue;
+    if (EN_STOP.has(ne)) { if (FA) EN_HITS.set(ne, (EN_HITS.get(ne) || 0) + 1); continue; }
     if (termForms.has(ne) || termForms.has(norm(ko))) continue; // 이미 글로서리
     if (wikiForms.has(ne) || dbForms.has(ne)) continue; // 재료명
     let rec = termIntro.get(ne);
@@ -282,6 +299,21 @@ for (const [, d] of [...documented.entries()].sort((a, b) => b[1].count - a[1].c
 md.push('');
 
 fs.mkdirSync(path.join(ROOT, 'docs/audits'), { recursive: true });
+if (FA) {
+  // W3 필터 계측 리포트 — 항목별 차단 실적. 0건=사문화 후보.
+  const fam = ['# 오탐 필터 계측 (FILTER_AUDIT — audit-wiki-coverage.mjs)', ''];
+  fam.push('## STOP_RE 패턴별 차단 실적 (0건 = 사문화)', '', '| # | 패턴 | 차단 | 샘플 |', '|---|---|---|---|');
+  STOP_RE.forEach((re, i) => fam.push(`| ${i} | \`${String(re).replace(/\|/g, '\\|').slice(0, 46)}\` | ${STOP_HITS[i].n} | ${[...STOP_HITS[i].ex].slice(0, 4).join(', ')} |`));
+  fam.push('', '## NON_MATERIAL 항목별 (0건 = 사문화)', '', '| 항목 | 차단 |', '|---|---|');
+  for (const nm of NON_MATERIAL) fam.push(`| ${nm} | ${NM_HITS.get(nm) || 0} |`);
+  fam.push('', '## EN_STOP 항목별 (0건 = 사문화)', '', '| 항목 | 차단 |', '|---|---|');
+  for (const en of EN_STOP) fam.push(`| ${en} | ${EN_HITS.get(en) || 0} |`);
+  fs.writeFileSync(path.join(ROOT, 'docs/audits/filter-audit.md'), fam.join('\n') + '\n');
+  const deadStop = STOP_HITS.filter((h) => h.n === 0).length;
+  const deadNM = [...NON_MATERIAL].filter((x) => !(NM_HITS.get(x) > 0)).length;
+  const deadEN = [...EN_STOP].filter((x) => !(EN_HITS.get(x) > 0)).length;
+  console.log(`FILTER_AUDIT: STOP 사문화 ${deadStop}/${STOP_RE.length} · NON_MATERIAL 사문화 ${deadNM}/${NON_MATERIAL.size} · EN_STOP 사문화 ${deadEN}/${EN_STOP.size} → docs/audits/filter-audit.md`);
+}
 fs.writeFileSync(path.join(ROOT, 'docs/audits/wiki-coverage.md'), md.join('\n') + '\n');
 fs.writeFileSync(path.join(ROOT, 'docs/audits/wiki-coverage.json'), JSON.stringify({
   absent: absent.map((r) => ({ raw: r.raw, count: r.count, srcs: [...r.srcs] })),
