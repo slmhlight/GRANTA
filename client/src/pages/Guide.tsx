@@ -1899,8 +1899,8 @@ export default function Guide() {
 
             <div className="rounded-lg border border-border bg-card p-4">
               <p className="text-[11px] font-semibold uppercase tracking-wide text-accent mb-1.5">③ 로켓 — SpaceX Raptor engine 연소실</p>
-              <p className="text-sm leading-relaxed"><b className="text-foreground">선택:</b> Inconel 718 (외벽) + 자체 개발 <b>SX-300 (Cu-based AM 합금)</b> (regenerative cooling 채널) + Cu coating.</p>
-              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인:</b> 챔버 압력 = 300 bar, 온도 3500 °C (가스), 벽면 600 °C (cooling 으로). 열전도도 (Cu) + 강도 (Inconel) 의 trade-off → 2 재료 동시 사용. SX-300 은 Cu (k=400 W/m·K) + Cr/Nb 강화 (σy ~600 MPa) — AM 으로 cooling 채널 직접 빌드.</p>
+              <p className="text-sm leading-relaxed"><b className="text-foreground">선택:</b> Inconel 718 (외벽) + <b>GRCop-42 (NASA Cu-Cr-Nb AM 합금)</b> (regenerative cooling 채널) + Cu coating.</p>
+              <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">의사결정 요인:</b> 챔버 압력 = 300 bar, 온도 3500 °C (가스), 벽면 600 °C (cooling 으로). 열전도도 (Cu) + 강도 (Inconel) 의 trade-off → 2 재료 동시 사용. GRCop-42 는 Cu 기지의 높은 열전도 (k ≈ 280 W/m·K) 에 Cr₂Nb 분산강화를 더해, 순동이 물러지는 500~800 °C 에서도 강도·크리프를 유지한다 — AM(LPBF) 으로 cooling 채널을 직접 빌드. (NASA 가 로켓 연소실용으로 개발한 Cu-Cr-Nb 계열이며, SpaceX Raptor 급 엔진의 자체 Cu 합금도 같은 원리다.)</p>
               <p className="text-sm leading-relaxed mt-1"><b className="text-foreground">앱에서 재현:</b> Inconel 617/625 (사례 "고온 부품") + Cu (사례 "전기 전도체") 비교. AM 후처리는 <a href="#ch9" className="text-accent hover:underline">Ch.10</a> 참고.</p>
             </div>
 
