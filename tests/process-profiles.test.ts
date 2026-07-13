@@ -9,7 +9,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { FAMILIES } from '../client/src/lib/ht-alloy-specific';
-import { materialDesignationTokens, materialHighlightRegex } from '../client/src/lib/process-guidance';
+import { gradeGuidanceFor } from '../client/src/lib/process-guidance';
 import type { Material } from '../client/src/lib/materials';
 
 const ROOT = process.cwd();
@@ -115,45 +115,31 @@ describe('할당 커버리지 (정보 리포트)', () => {
   });
 });
 
-/* W20 — 가족 공통 가이드에서 "현재 재료" 강조 로직.
- * 핵심 안전성: 현재 재료 지정자만 강조하고 (1) 형제 grade (2) 값-단위(400°C·718 MPa 등) 는 강조하지 않는다.
- * 숫자-지정자 오탐은 이 프로젝트의 반복 리스크(H4g 교훈) → 회귀 잠금. */
-describe('W20 현재 재료 강조 (materialHighlightRegex)', () => {
+/* W20 — grade 별 authored 가이드 선택 (by_grade). 재료는 자기 grade 콘텐츠만 조회, 형제 grade 미포함.
+ * 핵심: (1) 정확한 grade 선택 (2) 숫자 경계로 오탐 방지(4140≠14140) (3) 별칭(SCM440=4140) 매칭. */
+describe('W20 grade 별 가이드 선택 (gradeGuidanceFor)', () => {
   const M = (name: string, aliases: string[] = []): Material => ({ name, aliases } as Material);
-  const marks = (name: string, aliases: string[], text: string): string[] => {
-    const re = materialHighlightRegex(M(name, aliases));
-    if (!re) return [];
-    return (text.match(re) || []).map((s) => s.trim());
-  };
+  const BG = { '304': 'C304', '316': 'C316', '321': 'C321', '347': 'C347' };
 
-  it('지정자 토큰 추출 (숫자·grade 코드, 3자+)', () => {
-    expect(materialDesignationTokens(M('AISI 304'))).toContain('304');
-    expect(materialDesignationTokens(M('AA 6061-T6'))).toContain('6061');
-    expect(materialDesignationTokens(M('Inconel 718'))).toContain('718');
-    expect(materialDesignationTokens(M('AISI H13'))).toContain('H13');
-    expect(materialDesignationTokens(M('Ti-6Al-4V'))).toContain('Ti-6Al-4V');
-    // 2자리 이하 grade(D2·A2)·temper(T6)는 제외(오탐 방지)
-    expect(materialDesignationTokens(M('AISI D2'))).not.toContain('D2');
+  it('현재 재료 grade 의 콘텐츠만 선택 (형제 미포함)', () => {
+    expect(gradeGuidanceFor(BG, M('AISI 304 — Annealed'))).toBe('C304');
+    expect(gradeGuidanceFor(BG, M('AISI 316L / STS316L'))).toBe('C316'); // 316L → 316 키
+    expect(gradeGuidanceFor(BG, M('AISI 321'))).toBe('C321');
   });
 
-  it('현재 재료는 강조, 형제 grade 는 미강조', () => {
-    const m1 = marks('AISI 304', [], 'Austenitic (304/316/321/347) — 304 는 예민화, 316 은 Mo.');
-    expect(m1.every((x) => x === '304')).toBe(true);
-    expect(m1.length).toBeGreaterThanOrEqual(2); // 두 번의 304
-    const m2 = marks('AA 6061-T6', [], '6061-T6 σy 276. 7075-T6 503. 6063 압출.');
-    expect(m2).toEqual(['6061']); // 7075·6063 형제 제외
+  it('숫자 경계 — 부분 숫자 오탐 방지', () => {
+    // 4140 키가 14140·41400 에 오매칭되지 않음
+    expect(gradeGuidanceFor({ '4140': 'X' }, M('AISI 14140 (가상)'))).toBeNull();
+    expect(gradeGuidanceFor({ '414': 'X' }, M('AISI 4140'))).toBeNull(); // 414 ⊄ 4140 (경계)
   });
 
-  it('값-단위(온도·응력)로 쓰인 숫자는 미강조 (오탐 가드)', () => {
-    // Monel 400: grade "400" 은 강조하되 400°C·400 MPa 는 제외
-    const m = marks('Monel 400', [], 'Pre-heat 400°C · Monel 400 단상 · σy 400 MPa.');
-    expect(m).toEqual(['400']); // 'Monel 400' 의 400 만 (400°C·400 MPa 제외)
-    // Inconel 718: 718°C 제외
-    const m2 = marks('Inconel 718', [], 'Inconel 718 후처리. 718°C 시효.');
-    expect(m2).toEqual(['718']);
+  it('별칭(cross-standard)으로도 grade 매칭', () => {
+    expect(gradeGuidanceFor({ '4140': 'CrMo' }, M('42CrMo4', ['AISI 4140', 'SCM440']))).toBe('CrMo');
   });
 
-  it('지정자 없는 재료는 정규식 null (강조 없음)', () => {
-    expect(materialHighlightRegex(M('Pure Copper OFHC'))).toBeNull();
+  it('가장 구체적(긴) 키 우선 · 미해당 재료는 null', () => {
+    expect(gradeGuidanceFor({ '440': 'A', '440C': 'B' }, M('AISI 440C'))).toBe('B');
+    expect(gradeGuidanceFor(BG, M('AISI 310S'))).toBeNull(); // 310S 는 by_grade 에 없음 → 공통만
+    expect(gradeGuidanceFor(undefined, M('AISI 304'))).toBeNull();
   });
 });

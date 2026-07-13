@@ -124,7 +124,7 @@ export function machinabilitySources(m: Material): string[] {
   return m.category === 'Polymer' ? MACH_SOURCES.polymer : MACH_SOURCES.metal;
 }
 
-interface GuidanceBlock { pattern: string; field: string; nonferrous_only?: boolean; text: string }
+interface GuidanceBlock { pattern: string; field: string; nonferrous_only?: boolean; text: string; by_grade?: Record<string, string> }
 const HT_GUIDANCE = (htGuidanceData as any).blocks as Record<string, GuidanceBlock>;
 const WELD_GUIDANCE = (weldGuidanceData as any).blocks as Record<string, GuidanceBlock>;
 
@@ -147,13 +147,19 @@ function amGuidanceKey(m: Material): string | null {
 
 export function resolveHtGuidanceTexts(m: Material): string[] {
   const out: string[] = [];
-  const amKey = amGuidanceKey(m);
-  if (amKey && HT_GUIDANCE[amKey]) out.push(HT_GUIDANCE[amKey].text);   // AM 후처리 우선 (as-built 사용자에게 가장 유효)
-  const htg = m.profiles?.htg;
-  if (htg && HT_GUIDANCE[htg]) out.push(HT_GUIDANCE[htg].text);
+  // W20 — 블록 공통 text + 이 재료 grade 의 authored by_grade 콘텐츠만 (형제 grade 미포함).
+  const pushBlock = (key: string | null | undefined) => {
+    if (!key) return;
+    const b = HT_GUIDANCE[key];
+    if (!b) return;
+    const grade = gradeGuidanceFor(b.by_grade, m);
+    out.push(grade ? `${b.text}\n\n${grade}` : b.text);
+  };
+  pushBlock(amGuidanceKey(m));   // AM 후처리 우선 (as-built 사용자에게 가장 유효)
+  pushBlock(m.profiles?.htg);
   const htc = m.profiles?.htc;
-  if (htc === 'hip' && HT_GUIDANCE['hip']) out.push(HT_GUIDANCE['hip'].text);
-  if (htc === 'case' && HT_GUIDANCE['case']) out.push(HT_GUIDANCE['case'].text);
+  if (htc === 'hip') pushBlock('hip');
+  if (htc === 'case') pushBlock('case');
   return out;
 }
 
@@ -165,7 +171,9 @@ export function resolveWeldGuidance(m: Material, hasCeMetrics: boolean): string 
   const b = WELD_GUIDANCE[wg];
   if (!b) return null;
   if (b.nonferrous_only && hasCeMetrics) return null;
-  return b.text;
+  // W20 — 계열 공통 text + 이 재료 grade 전용 authored 콘텐츠(by_grade). 형제 grade 는 포함되지 않음.
+  const grade = gradeGuidanceFor(b.by_grade, m);
+  return grade ? `${b.text}\n\n${grade}` : b.text;
 }
 
 /** R226r — 용접 조건(HT) 노트: 용접성 rating 은 조성기반(조건무관)이나, 경화/시효/냉간 상태는
@@ -194,46 +202,29 @@ export function insightPickMatches(m: Material, pick: InsightPick): boolean {
   });
 }
 
-/* ── W20 — 가족 공통 가이드에서 "현재 재료" 강조 ──
- * 절삭성·HT·용접 가이드는 가족/공정 단위 텍스트라 형제 grade 가 함께 언급된다(설계상).
- * 카드에 "계열 공통" 프레임을 씌우고, 본문에서 현재 재료의 지정자를 강조해 혼동을 없앤다. */
+/* ── W20 — grade 별 authored 가이드 콘텐츠 선택 ──
+ * 절삭성·HT·용접 가이드의 계열 공통 물리는 text(현재 재료에도 적용), grade 별로 갈리는 파라미터
+ * (filler·예열·PWHT·템퍼)는 by_grade 에 각 grade 마다 authored. 재료는 자기 grade 콘텐츠만 조회한다
+ * (렌더 필터가 아니라 데이터 authoring — 형제 grade 는 애초에 결과에 포함되지 않음). */
 
-/** 현재 재료의 지정자 토큰(강조용) — name+aliases 에서 3자+ 숫자·grade 코드 추출. */
-export function materialDesignationTokens(m: Material): string[] {
-  const src = `${m.name} ${(m.aliases || []).join(' ')}`;
-  const toks = new Set<string>();
-  const pats: RegExp[] = [
-    /Ti-6Al-4V/gi, /AlSi\d+Mg/gi, /CuCrZr/gi, /CoCrMo/gi, /GRCop-\d{2}/gi,
-    /\b\d{1,2}-\d\s?PH\b/gi,          // 17-4 PH · 15-5 PH
-    /\b\d{1,2}-\d[A-Z]?\b/g,          // 17-4 · 15-5 (맨 grade-dash 폼)
-    /\b[A-Z]{1,3}\d{2,5}[A-Z]?\b/g,   // H13 · CPM3V · 440C(문자 접미)
-    /\b\d{3,5}[A-Z]?\b/g,             // 304 · 6061 · 718 · 52100
-  ];
-  for (const re of pats) {
-    re.lastIndex = 0;
-    let mm: RegExpExecArray | null;
-    while ((mm = re.exec(src)) !== null) {
-      const t = mm[0].trim();
-      if (t.replace(/[^a-z0-9]/gi, '').length >= 3) toks.add(t);
+const norm = (s: string) => s.toLowerCase().replace(/[\s.\-()]/g, '');
+
+/** 재료 name+aliases 에서 by_grade 키에 해당하는 authored 콘텐츠 선택 (가장 구체적 키 우선). */
+export function gradeGuidanceFor(byGrade: Record<string, string> | undefined, m: Material): string | null {
+  if (!byGrade) return null;
+  const hay = ` ${norm(`${m.name} ${(m.aliases || []).join(' ')}`)} `;
+  const keys = Object.keys(byGrade).sort((a, b) => b.length - a.length); // 긴(구체적) 키 우선
+  for (const k of keys) {
+    // 경계 매칭: 정규화 hay 에 grade 키가 (숫자 접두/접미 없이) 등장 — 4140 이 14140/41400 오탐 방지.
+    const nk = norm(k);
+    let idx = hay.indexOf(nk);
+    while (idx !== -1) {
+      const before = hay[idx - 1] ?? ' ';
+      const after = hay[idx + nk.length] ?? ' ';
+      const digitBoundary = !/[0-9]/.test(before) && !/[0-9]/.test(after);
+      if (digitBoundary) return byGrade[k];
+      idx = hay.indexOf(nk, idx + 1);
     }
   }
-  return Array.from(toks);
-}
-
-// 값-단위 오탐 가드: 숫자 지정자가 값(400°C·718 MPa 등)으로 쓰인 경우 강조 제외.
-const HL_UNIT_GUARD = `(?!\\s*(?:°|℃|℉|MPa|GPa|kN|HV|HB|HRC|HRB|%|mm|µm|h\\b|시간|년|배|rpm|kJ|min|W\\b|℃))`;
-
-/** 가이드 텍스트에서 현재 재료 지정자를 강조하는 정규식 (없으면 null). global + 캡처그룹 1. */
-export function materialHighlightRegex(m: Material): RegExp | null {
-  const toks = materialDesignationTokens(m);
-  if (!toks.length) return null;
-  const body = toks
-    .sort((a, b) => b.length - a.length)
-    .map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-    .join('|');
-  try {
-    return new RegExp(`\\b(${body})\\b${HL_UNIT_GUARD}`, 'g');
-  } catch {
-    return null;
-  }
+  return null;
 }

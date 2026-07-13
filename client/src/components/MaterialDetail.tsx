@@ -13,7 +13,7 @@ import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/l
 import { htGlossaryFor } from '@/lib/ht-glossary';
 import { htAlloySpecificFor } from '@/lib/ht-alloy-specific';
 import { computeCET, computeCEIIW, computePcm, computeSchaeffler, machiningCostBand, htCostBand } from '@/lib/welding-machinability';
-import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote, resolveMachiningGuidance, machinabilitySources, resolveInsights, insightPickMatches, resolveHtGuidanceTexts, resolveWeldGuidance, resolveWeldConditionNote, machinabilityConditionMult, materialHighlightRegex, insightGroupLabel } from '@/lib/process-guidance';
+import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote, resolveMachiningGuidance, machinabilitySources, resolveInsights, insightPickMatches, resolveHtGuidanceTexts, resolveWeldGuidance, resolveWeldConditionNote, machinabilityConditionMult } from '@/lib/process-guidance';
 /* R222c — recharts(~150KB)는 아래에서 lazy 로드 (elev-temp/creep 데이터 있는 재료의 탭이 열릴 때만). */
 import { resolveCoatingPlan, PURPOSE_LABEL } from '@/lib/coatings';
 /* R157b — MaterialDetail 의 sub-components 분리. */
@@ -41,21 +41,6 @@ import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type Norma
 /* R222c — recharts 차트 lazy 분리 (named export → default 변환). 메인 청크에서 recharts 제거. */
 const TempCurveChart = lazyRD(() => import('@/components/TempCurveChart').then(m => ({ default: m.TempCurveChart })));
 const CreepRuptureChart = lazyRD(() => import('@/components/CreepRuptureChart').then(m => ({ default: m.CreepRuptureChart })));
-
-/* W20 — 절삭성·HT·용접 가이드는 가족/공정 단위 텍스트라 형제 grade 가 함께 언급된다(설계상).
- * 카드에 "계열 공통" 프레임을 씌워 현재 재료가 그 계열의 한 멤버임을 명시 → 혼동 제거.
- * (본문에서 현재 재료 지정자는 <mark> 로 강조 — materialHighlightRegex.) */
-function FamilyGuideNote({ familyLabel, materialName }: { familyLabel: string | null; materialName: string }) {
-  return (
-    <p className="text-[10px] leading-relaxed text-foreground/60 mb-1.5 flex items-start gap-1">
-      <Layers className="w-3 h-3 mt-[1px] flex-shrink-0 opacity-70" />
-      <span>
-        {familyLabel ? <><b>{familyLabel}</b> 계열</> : '이 재료가 속한 계열'} 공통 지침 — 형제 grade 가 함께 언급될 수 있습니다.{' '}
-        현재 재료(<b className="text-foreground/80">{materialName}</b>) 관련 부분은 <mark className="bg-amber-200/70 text-amber-950 rounded-[3px] px-0.5">강조</mark> 표시.
-      </span>
-    </p>
-  );
-}
 
 interface MaterialDetailProps {
   material: Material | null;
@@ -551,9 +536,6 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               const weldGuidance = resolveWeldGuidance(material, !!weldWorst);
               // R226r — 용접성 rating 은 조성기반(조건무관)이나, 경화/시효/냉간 상태는 HAZ 연화 유발 → 조건별 HAZ 노트
               const weldCondNote = resolveWeldConditionNote(material);
-              // W20 — 가족 공통 가이드 프레이밍: 계열 라벨 + 현재 재료 지정자 강조(형제 grade 혼재 해소)
-              const famLabel = insightGroupLabel(material.profiles?.insight);
-              const hlRe = materialHighlightRegex(material);
               /* R113 + R152b — 3 카드 모두 collapsible (mobile 가독성). default: Machinability open · HT/Weld closed.
                  R152b: 폭 좁은 detail panel (좌측 floating popup 430px 또는 모바일) 에서 2-column 이 텍스트
                  wrap 으로 가독성 ↓ → 항상 1 column stack 으로 변경. */
@@ -615,8 +597,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         {machGuidance && (
                           <div className="mt-2 pt-2 border-t border-current/15">
                             <p className="text-[11px] font-semibold leading-relaxed mb-1">⚠ 가공 주의사항 / 권장 방법:</p>
-                            <FamilyGuideNote familyLabel={famLabel} materialName={material.name} />
-                            <RecText className="text-[11px] leading-relaxed" highlight={hlRe}>{machGuidance}</RecText>
+                            <RecText className="text-[11px] leading-relaxed">{machGuidance}</RecText>
                           </div>
                         )}
                         {/* R226j — 출처는 콘텐츠 SSOT(process-profiles.json)에서 카테고리별 도출 */}
@@ -705,8 +686,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                                 {htGuidanceTexts.length > 0 && (
                                   <div className={htCost ? 'mt-2 pt-2 border-t border-current/15' : ''}>
                                     <p className="text-[11px] font-semibold leading-relaxed mb-1">⚠ 열처리 주의사항:</p>
-                                    <FamilyGuideNote familyLabel={famLabel} materialName={material.name} />
-                                    <RecText className="text-[11px] leading-relaxed" highlight={hlRe}>{htGuidanceTexts.join('\n\n')}</RecText>
+                                    <RecText className="text-[11px] leading-relaxed">{htGuidanceTexts.join('\n\n')}</RecText>
                                   </div>
                                 )}
                                 <p className="text-[10px] mt-2 pt-1.5 border-t border-current/10 text-foreground/60">
@@ -785,11 +765,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                             {weldWorst === 'low' && '✓ 일반 절차 가능. 표준 용접봉 + 일반 procedure.'}
                           </RecText>
                           {/* R226k — 합금별 용접 권고: m.profiles.wg → welding-guidance.json (구 인라인 71블록 이관; nonferrous 는 CE 지표 없을 때만).
-                              W20 — 가족 공통 블록이라 형제 grade 혼재 → 프레임 + 현재 재료 강조 분리. */}
+                              W20 — 텍스트는 계열 공통 + 이 재료 grade 전용(by_grade) 이 이미 합쳐져 형제 grade 는 표시되지 않음. */}
                           {weldGuidance && (
                             <div className="mt-2">
-                              <FamilyGuideNote familyLabel={famLabel} materialName={material.name} />
-                              <RecText className="text-[11px] leading-relaxed" highlight={hlRe}>{weldGuidance}</RecText>
+                              <RecText className="text-[11px] leading-relaxed">{weldGuidance}</RecText>
                             </div>
                           )}
                           {sch && <p className="text-[11px] leading-relaxed text-foreground/80 mt-1"><TermText text={sch.note} /></p>}
