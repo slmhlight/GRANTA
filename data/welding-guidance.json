@@ -71,7 +71,7 @@
    "text": "주의. PH Stainless — 용접도 'Condition A 에서'\n\n절삭과 같은 논리가 용접에도 적용된다: Solution(Condition A) 상태에서 용접하고, 강도는 마지막 Aging 한 번으로. Aged 상태(H900)를 용접하면 HAZ 가 과시효되어 피로강도를 잃고 회복이 거의 불가능하다.\n\n【공통 권장 방법】\n• Process: GTAW(DCEN) 또는 GMAW · Shielding Ar\n• Pre-heat 불필요 · Inter-pass <175°C\n• 순서: Condition A 용접 → Aging(H900~H1150 요구별) → 치수 확인\n\n【Aging 등급 선택이 곧 설계】\nH900(peak, σy 1170)은 강하지만 SCC·수소취성에 민감 — 해양은 H1075, sour service 는 H1150 처럼 낮춰 잡는 것이 규격 관행(NACE)이다. 산세·도금 후에는 280 °C/4 h 수소 베이킹을 잊지 않는다.\n\n【표준】 AMS 5643/5659/5862 · AWS D1.6",
    "by_grade": {
     "17-4": "【17-4 PH】 Filler ER630(AMS 5826, 모재 매칭). 가장 범용 PH 스테인리스.",
-    "15-5": "【15-5 PH】 Filler matching(15-5 전용). 17-4 의 δ-페라이트를 줄인 등가 grade — 횡방향 인성 우위.",
+    "15-5": "【15-5 PH】 Filler matching(15-5 전용). δ-페라이트를 줄인 개량 PH grade — 횡방향 인성 우위.",
     "custom 465": "【Custom 465】 전용 filler. σy 1600 MPa 급 초고강도 PH — 항공/레이싱, 용접은 극히 제한적.",
     "ph 13-8": "【PH 13-8 Mo】 전용 filler. 청정도 높은 진공용해재 — 등방 인성·SCC 저항 최상, 항공 구조."
    }
@@ -127,10 +127,17 @@
    "text": "✓ AA 2219 — Al-Cu 6.3% (low Mg, ~0.02%)\n2xxx 시리즈 중 GMAW 가능한 유일한 grade 입니다.\nNASA Space Shuttle external tank (ET-1 ~ ET-135, 1981-2011) 의 GMAW 가 이 합금의 대표적인 응용입니다.\n\n【권장 방법】\n• Welding: GMAW (preferred) 또는 GTAW\n• Filler: ER2319 (matching, Cu 6.3%) + DC EP\n• Shielding: Argon (99.997% purity 이상, welding grade)\n\n【⚠ 주의 1 — Pre-heat 통제】\n• Pre-heat: 100~150°C\n• 너무 낮으면 porosity 발생 (Cu-rich 영역에서 H 가스 흡수)\n• 너무 높으면 over-aging\n\n【⚠ 주의 2 — Interpass 온도 통제】\n• Inter-pass < 200°C 유지\n• 초과 시 over-aging 진행 → 강도 영구 손실\n\n【⚠ 주의 3 — Post-weld Aging 필요】\n• T87 aging (200°C/24h)\n• As-welded σy 약 250 MPa → T87 후 약 400 MPa 회복\n\n【NDT 권장】\nRadiograph (RT) + Liquid Penetrant (LP)\nNASA Space Shuttle ET 표준: NASA NSTS 08303 100% RT inspection\n\n【표준】\nNASA NSTS 08303 (External Tank welding) · AWS D17.1"
   },
   "w17-aa": {
-   "pattern": "^aa[\\s-]?2099\\b|al-?li",
+   "pattern": "^aa[\\s-]?2099\\b|\\bal-li\\b",
    "field": "name",
    "nonferrous_only": true,
-   "text": "⚠ Al-Li 2099 — Lithium 함유 합금 (Li 1.6~2%)\nAirbus A350 inner wing skin 및 lower wing stringer 의 표준 합금입니다.\nLithium 의 가스 흡수 특성으로 fusion welding 이 매우 어렵습니다.\n\n【권장 방법 — FSW Only】\nLi-Cu-Mg 합금의 fusion 처리는 EWI (Edison Welding Institute) 의 LCC (Low-Cost Closure) 표준에 따라 FSW 만 사용합니다.\n• Fusion welding 강행 시 σy 약 60% 손실\n\n【⚠ 주의 1 — Lithium 의 H₂O 반응성】\nLithium 은 공기 중 수분과 즉시 반응하여 LiOH + H₂ 가스를 생성합니다.\n생성된 H₂ 가스는 weld pool 에 trapped 되어 porosity 의 주요 원인이 됩니다.\nLi₂O film 도 동시에 형성되며, weld pool 내부 inclusion 으로 강도 저하를 유발합니다.\n\n【⚠ 주의 2 — Cleanroom Welding 필수】\n• 작업 환경: 상대 습도 < 30% RH\n• Particle: < ISO Class 7 (1000 particle/m³)\n• Piping 내 oil 또는 water 잔류 절대 회피 (Li 와 반응)\n\n【⚠ 주의 3 — 가공 시 oil 잔류 회피】\n• Pre-weld 세척: dry IPA (Isopropyl Alcohol) — water-based cleaner 금지\n• Tool: dedicated, no oil residual\n\n【NDT 권장】\nPhased Array Ultrasonic (PA-UT) — 미세 porosity 검출에 RT 보다 우수\n\n【표준】\nEWI LCC (Low-Cost Closure) FSW · AWS D17.1 · Airbus AIPS 06-01-009"
+   "text": "⚠ Al-Li 합금 (Al-Cu-Li 계, Li 1~2.4%)\n항공 경량 구조(주익 skin·stringer·동체 sheet)의 차세대 합금군입니다.\nLithium 의 가스 흡수 특성으로 fusion welding 이 매우 어렵습니다.\n\n【권장 방법 — FSW Only】\nLi-Cu-Mg 합금의 fusion 처리는 EWI (Edison Welding Institute) 의 LCC (Low-Cost Closure) 표준에 따라 FSW 만 사용합니다.\n• Fusion welding 강행 시 σy 약 60% 손실\n\n【⚠ 주의 1 — Lithium 의 H₂O 반응성】\nLithium 은 공기 중 수분과 즉시 반응하여 LiOH + H₂ 가스를 생성합니다.\n생성된 H₂ 가스는 weld pool 에 trapped 되어 porosity 의 주요 원인이 됩니다.\nLi₂O film 도 동시에 형성되며, weld pool 내부 inclusion 으로 강도 저하를 유발합니다.\n\n【⚠ 주의 2 — Cleanroom Welding 필수】\n• 작업 환경: 상대 습도 < 30% RH\n• Particle: < ISO Class 7 (1000 particle/m³)\n• Piping 내 oil 또는 water 잔류 절대 회피 (Li 와 반응)\n\n【⚠ 주의 3 — 가공 시 oil 잔류 회피】\n• Pre-weld 세척: dry IPA (Isopropyl Alcohol) — water-based cleaner 금지\n• Tool: dedicated, no oil residual\n\n【NDT 권장】\nPhased Array Ultrasonic (PA-UT) — 미세 porosity 검출에 RT 보다 우수\n\n【표준】\nEWI LCC (Low-Cost Closure) FSW · AWS D17.1 · Airbus AIPS 06-01-009",
+   "by_grade": {
+    "2099": "【AA 2099 (Arconic Airware 압출)】 Airbus A350 inner wing skin·lower stringer 표준. T83 peak — FSW only.",
+    "2198": "【AA 2198 (Constellium Airware sheet)】 동체 sheet(1.8~3.2 mm) — T8. FSW only(발사체 탱크 FSW 실적).",
+    "2196": "【AA 2196 (T8511 압출)】 stringer·frame 압출용. FSW only.",
+    "2090": "【AA 2090 (Al-Li-Cu)】 1st-gen — 압출·판재. 이방성 커 설계 주의. FSW only.",
+    "8090": "【AA 8090 (1st-gen, Li 2.4%)】 최고 Li 함량 1세대 — 인성·이방성 이슈로 현역 축소. FSW only."
+   }
   },
   "w18-aa": {
    "pattern": "^aa[\\s-]?(5052|5083|5086|5454|5754|5005)",
@@ -224,7 +231,7 @@
     "601": "【Inconel 601 (high-Cr·Al)】 Filler ERNiCr-3 계열. 열처리 furnace muffle.",
     "625": "【Inconel 625 (Nb-Mo)】 Filler ERNiCrMo-3(AMS 5837). ⚠ Nb 3.65% → Laves phase 균열: 입열<1 kJ/mm·급냉·980°C stress-relief.",
     "617": "【Inconel 617 (Co-Mo)】 Filler ERNiCrCoMo-1(AMS 5887). A-USC 터빈 650°C+. high-T PWHT 권장.",
-    "690": "【Inconel 690 (high-Cr)】 Filler ENiCrFe-7(AMS 5798). 600 대체 내SCC — nuclear SG."
+    "690": "【Inconel 690 (high-Cr)】 Filler ENiCrFe-7(AMS 5798). 고Cr(30%) 내SCC 강화형 — nuclear SG 표준."
    }
   },
   "w27-inconel": {
@@ -352,7 +359,7 @@
     "800": "【Incoloy 800 (Fe-Ni)】 Filler ENi-1. 일반 high-T. Ti/Nb 안정화 없음 → sensitization 주의.",
     "825": "【Incoloy 825 (Mo·Cu)】 Filler ENiCrMo-3(AMS 5837). H₂SO₄·HF 내산 piping.",
     "909": "【Incoloy 909 (low-CTE, Curie 235°C)】 stress-relief 760°C/1h. WQ 회피(CTE drift). 터빈 seal.",
-    "925": "【Incoloy 925 (PH 825)】 시효강화 — oil&gas downhole. 825 절차 준용 + aging."
+    "925": "【Incoloy 925 (γ' 시효강화형)】 oil&gas downhole. 고용강화형 절차 + post-weld aging."
    }
   },
   "w43-cocrmo": {
