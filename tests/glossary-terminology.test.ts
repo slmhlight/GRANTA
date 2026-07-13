@@ -57,31 +57,79 @@ const JOSA = [
   '에서는', '에서의', '에서', '에는', '에도', '에', '도', '만', '보다', '처럼', '부터', '까지',
 ];
 const HANGUL = /[가-힣]/;
+const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-/** standalone 한글 HT 용어인데 병기(직전 40자 내 EN)가 아닌 위치 → 위반 목록. */
+/** H5-D1 (W4) — 병기 패턴 직접 파싱(직전 40자 창 휴리스틱 대체).
+ *  KO 가 아래 병기 형태 안에 있으면 면제(=위반 아님):
+ *   ① EN(KO   — "Quenching(담금질" · "Red hardness(적열경도"  (여는 괄호 앞 단어가 EN)
+ *   ② KO(EN)  — "경화능(hardenability)"  (KO 직후 (EN)
+ *   ③ (…EN…KO…) — "(Quenching, 담금질)" · "(EN·KO)"  (같은 괄호 안 EN·KO 공존)
+ *  창(window) 없이 구조로 판정 → 장문·다중병기 오탐/미탐 제거. */
+export function isAnnotated(text: string, idx: number, ko: string, en: string): boolean {
+  const enL = en.toLowerCase();
+  const koEnd = idx + ko.length;
+  // ② KO(EN…) — KO 직후 여는 괄호 안에 EN (역병기)
+  const am = text.slice(koEnd).match(/^\s*[(（]([^)）]*)[)）]/);
+  if (am && am[1].toLowerCase().includes(enL)) return true;
+  // ①③ KO 가 괄호 안 → 괄호 content + 괄호 앞 '영문 run'(추가 단어 포함) 에 EN 존재
+  //    "Sub-zero treatment(서브제로…)" · "stress relief annealing(응력제거 풀림)" · "Annealing(어닐링·풀림)" 처리.
+  const before = text.slice(0, idx);
+  const open = Math.max(before.lastIndexOf('('), before.lastIndexOf('（'));
+  if (open !== -1 && !/[)）]/.test(before.slice(open + 1))) {
+    const closeRel = text.slice(open).search(/[)）]/);
+    const parenContent = text.slice(open + 1, closeRel === -1 ? open + 80 : open + closeRel).toLowerCase();
+    const preRun = (before.slice(0, open).match(/[A-Za-z][A-Za-z0-9 .\-]*$/) || [''])[0].toLowerCase();
+    if (parenContent.includes(enL) || preRun.includes(enL)) return true;
+  }
+  return false;
+}
+
+/** standalone 한글 HT 용어인데 병기 형태 밖 → 위반 목록. */
 function violations(text: string, loc: string): string[] {
   const out: string[] = [];
   if (!text) return out;
   for (const [ko, en] of TERMS) {
     let idx = 0;
     while ((idx = text.indexOf(ko, idx)) !== -1) {
-      const before = idx > 0 ? text[idx - 1] : '';
+      const beforeCh = idx > 0 ? text[idx - 1] : '';
       const rest = text.slice(idx + ko.length);
       const isJosaOrEnd =
         !rest[0] || !HANGUL.test(rest[0]) ||
         JOSA.some((j) => rest.startsWith(j) && !HANGUL.test(rest[j.length] ?? ''));
-      const standalone = !HANGUL.test(before) && isJosaOrEnd;
-      if (standalone) {
-        const pre = text.slice(Math.max(0, idx - 40), idx).toLowerCase();
-        if (!pre.includes(en.toLowerCase())) {
-          out.push(`${loc}: "…${text.slice(Math.max(0, idx - 14), idx + ko.length + 10)}…" — ${ko}→${en} 병기/영어화 필요`);
-        }
+      const standalone = !HANGUL.test(beforeCh) && isJosaOrEnd;
+      if (standalone && !isAnnotated(text, idx, ko, en)) {
+        out.push(`${loc}: "…${text.slice(Math.max(0, idx - 14), idx + ko.length + 10)}…" — ${ko}→${en} 병기/영어화 필요`);
       }
       idx += ko.length;
     }
   }
   return out;
 }
+
+describe('§3.1 병기 파서 (W4 — 창 없는 구조 판정)', () => {
+  it('EN(KO) 형태는 면제', () => {
+    expect(isAnnotated('Quenching(담금질)', 'Quenching('.length, '담금질', 'Quenching')).toBe(true);
+    expect(isAnnotated('Red hardness(적열경도)', 'Red hardness('.length, '적열경도', 'Red hardness')).toBe(true);
+  });
+  it('KO(EN) 역병기도 면제', () => {
+    expect(isAnnotated('경화능(hardenability)은', 0, '경화능', 'Hardenability')).toBe(true);
+  });
+  it('(EN, KO) 같은 괄호 공존 면제', () => {
+    const t = '베이킹(de-embrittlement, 담금질 회복)';
+    expect(isAnnotated(t, t.indexOf('담금질'), '담금질', 'Quenching')).toBe(false); // EN 은 quenching 이 아님
+    const t2 = '(Quenching, 담금질)';
+    expect(isAnnotated(t2, t2.indexOf('담금질'), '담금질', 'Quenching')).toBe(true);
+  });
+  it('창 밖(멀리 있는) EN 은 면제 안 함 — 구 40자 휴리스틱 오탐 제거', () => {
+    const t = 'Quenching 은 중요한 공정이며 여러 문장 뒤에 다시 담금질 이 나온다';
+    expect(isAnnotated(t, t.indexOf('담금질'), '담금질', 'Quenching')).toBe(false);
+  });
+  it('다중 병기 문장 — 각 KO 는 자기 괄호로만 판정', () => {
+    const t = 'Quenching(담금질) 후 Tempering(뜨임) 을 한다';
+    expect(isAnnotated(t, t.indexOf('담금질'), '담금질', 'Quenching')).toBe(true);
+    expect(isAnnotated(t, t.indexOf('뜨임'), '뜨임', 'Tempering')).toBe(true);
+  });
+});
 
 describe('§3.1 열처리 용어 표기 게이트 (영어 기본표기·병기 규칙)', () => {
   it('글로서리 문서(heading·body·table)에 병기 없는 한글 HT 용어 없음', () => {
