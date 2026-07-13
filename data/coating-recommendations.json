@@ -4,8 +4,8 @@
   "ASM Handbook Vol.5 Surface Engineering",
   "MIL-A-8625 · MIL-DTL-5541 · MIL-DTL-16232",
   "ASTM B633·B733·A967/A380·A123·B545·F519/B850",
-  "AMS 2430(피닝)·2406(경질Cr)·2444(PVD)·2488(Ti 양극산화)·2753(QPQ)·2759(질화)·4782(알루미나이징)",
-  "ISO 1461·2081 · Ensinger/MCAM 가공·어닐링 가이드"
+  "AMS 2430(피닝)·2406(경질Cr)·2444(PVD)·2488(Ti 양극산화)·2753(QPQ)·2759(Nitriding, 질화)·4782(알루미나이징)",
+  "ISO 1461·2081 · Ensinger/MCAM 가공·Annealing(풀림) 가이드"
  ],
  "assignment": {
   "by_mach": {
@@ -98,10 +98,10 @@
   "steel-alloy": {
    "title": "기계구조용 합금강",
    "recs": [
-    { "coating": "nitriding", "purpose": "wear", "when": "축·기어·캠의 내마모+피로 (최종 열처리로)", "why": "Cr-Mo 강은 질화 최적 강종 — 표면 500–1100 HV·변형 최소 (AMS 2759). Q&T 템퍼 온도 아래에서 처리 가능한지 확인." },
+    { "coating": "nitriding", "purpose": "wear", "when": "축·기어·캠의 내마모+피로 (최종 열처리로)", "why": "Cr-Mo 강은 Nitriding(질화) 최적 강종 — 표면 500–1100 HV·변형 최소 (AMS 2759). Q&T 템퍼 온도 아래에서 처리 가능한지 확인." },
     { "coating": "induction-hardening", "purpose": "wear", "when": "국부 표면 경화 (저널·스플라인·캠 로브)", "why": "중탄소 이상(C≥0.4%)에서 국부 50–58 HRC — 자동차 양산 표준.", "caution": "C<0.35% 강은 경화 불충분 — 침탄강 영역." },
     { "coating": "shot-peening", "purpose": "fatigue", "when": "피로 임계 부품 (스프링·기어 루트·커넥팅로드)", "why": "압축잔류응력으로 피로한도 +30~50% (SAE J442·AMS 2430) — 고강도 Q&T 일수록 효과 큼." },
-    { "coating": "hard-chrome", "purpose": "wear", "when": "유압 로드·롤의 내마모·저마찰·치수 보수", "why": "20–250 µm·~1000 HV (AMS 2406) — 재연마·재도금 보수 사이클 관행.", "caution": "REACH Cr⁶⁺ 규제 — 신규 설계는 HVOF·질화 대체 검토." },
+    { "coating": "hard-chrome", "purpose": "wear", "when": "유압 로드·롤의 내마모·저마찰·치수 보수", "why": "20–250 µm·~1000 HV (AMS 2406) — 재연마·재도금 보수 사이클 관행.", "caution": "REACH Cr⁶⁺ 규제 — 신규 설계는 HVOF·Nitriding 대체 검토." },
     { "coating": "zinc-plating", "purpose": "corrosion", "when": "일반 방청 (패스너·하우징)", "why": "합금강 방청도 아연 도금이 표준 (ASTM B633)." }
    ],
    "notes": []
@@ -109,11 +109,11 @@
   "case-hard": {
    "title": "침탄강 (기어강)",
    "recs": [
-    { "coating": "carburizing", "purpose": "wear", "when": "기어 치면·캠 — 표면 60 HRC + 심부 인성", "why": "침탄 전용 저탄소 합금강(8620/9310)의 본연의 최종 공정 (SAE J404) — 침탄→담금질→저온템퍼→연삭 순서." },
-    { "coating": "shot-peening", "purpose": "fatigue", "when": "침탄 기어의 치근 굽힘피로 (자동차·항공 감속기)", "why": "침탄 후 피닝이 치근 피로 +20~30% — 양산 기어 표준 관행 (AGMA/SAE)." },
+    { "coating": "carburizing", "purpose": "wear", "when": "기어 치면·캠 — 표면 60 HRC + 심부 인성", "why": "Carburizing(침탄) 전용 저탄소 합금강(8620/9310)의 본연의 최종 공정 (SAE J404) — Carburizing→Quenching(담금질)→저온템퍼→연삭 순서." },
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "Carburizing 기어의 치근 굽힘피로 (자동차·항공 감속기)", "why": "Carburizing 후 피닝이 치근 피로 +20~30% — 양산 기어 표준 관행 (AGMA/SAE)." },
     { "coating": "phosphate", "purpose": "corrosion", "when": "조립 전 방청·초기 길들이기", "why": "기어·베어링류 관행 (MIL-DTL-16232)." }
    ],
-   "notes": ["침탄은 이 강종의 설계 전제 — '코팅 선택'이 아니라 공정 순서(가공→침탄→연삭) 계획이 핵심."]
+   "notes": ["Carburizing은 이 강종의 설계 전제 — '코팅 선택'이 아니라 공정 순서(가공→Carburizing→연삭) 계획이 핵심."]
   },
   "bearing": {
    "title": "베어링강",
@@ -128,9 +128,9 @@
   "maraging": {
    "title": "마레이징강",
    "recs": [
-    { "coating": "shot-peening", "purpose": "fatigue", "when": "금형·항공 피로 부품", "why": "저온 공정이라 시효 물성 무영향 — 피로한도 개선 (AMS 2430)." },
-    { "coating": "nitriding", "purpose": "wear", "when": "금형 표면 내마모", "why": "질화 온도(480–500°C)가 시효 온도(480°C)와 겹쳐 시효+질화 동시 사이클이 관행 — 표면 750+ HV.", "caution": "시효 시간·온도 합산 관리(과시효 방지) — 열처리 업체와 사이클 협의." },
-    { "coating": "pvd-tialn", "purpose": "wear", "when": "AM 금형 인서트의 이형성·마모", "why": "저온 PVD(<500°C)로 시효 상태 유지한 채 표면 강화." }
+    { "coating": "shot-peening", "purpose": "fatigue", "when": "금형·항공 피로 부품", "why": "저온 공정이라 Aging(시효) 물성 무영향 — 피로한도 개선 (AMS 2430)." },
+    { "coating": "nitriding", "purpose": "wear", "when": "금형 표면 내마모", "why": "Nitriding(질화) 온도(480–500°C)가 Aging 온도(480°C)와 겹쳐 Aging+Nitriding 동시 사이클이 관행 — 표면 750+ HV.", "caution": "Aging 시간·온도 합산 관리(과시효 방지) — 열처리 업체와 사이클 협의." },
+    { "coating": "pvd-tialn", "purpose": "wear", "when": "AM 금형 인서트의 이형성·마모", "why": "저온 PVD(<500°C)로 Aging 상태 유지한 채 표면 강화." }
    ],
    "notes": []
   },
@@ -139,7 +139,7 @@
    "recs": [
     { "coating": "pvd-tialn", "purpose": "wear", "when": "다이캐스팅 다이·열간 금형·고속 절삭공구", "why": "H13 다이캐스팅 다이 표준 (AMS 2444 계열) — 800°C 내산화·용탕 솔더링 방지.", "caution": "코팅 온도(400–500°C)가 템퍼 온도 이하인지 확인 — 저온템퍼 냉간공구강(D2 200°C 템퍼)은 저온 PVD 공정 선택." },
     { "coating": "pvd-tin", "purpose": "wear", "when": "범용 절삭공구·펀치 (경제형)", "why": "가장 흔한 PVD(금색) — TiAlN 대비 저가, 사용온도 <600°C." },
-    { "coating": "nitriding", "purpose": "wear", "when": "열간 금형 표면 (PVD 하지 겸용)", "why": "H13 질화 후 PVD '듀플렉스'가 다이 수명 연장 표준 — 박막 함몰(계란껍질 효과) 방지." },
+    { "coating": "nitriding", "purpose": "wear", "when": "열간 금형 표면 (PVD 하지 겸용)", "why": "H13 Nitriding(질화) 후 PVD '듀플렉스'가 다이 수명 연장 표준 — 박막 함몰(계란껍질 효과) 방지." },
     { "coating": "black-oxide", "purpose": "corrosion", "when": "공구 보관 방청", "why": "치수 무변화 경방청 (MIL-DTL-13924)." }
    ],
    "notes": []
@@ -166,7 +166,7 @@
    "title": "마르텐사이트 스테인리스",
    "recs": [
     { "coating": "passivation", "purpose": "corrosion", "when": "경화·연마 후 마무리", "why": "가공 유리철 제거 (ASTM A967).", "caution": "경화 상태(HRC 50+)는 산 접촉 수소취성에 민감 — 구연산 저농도 공정·필요 시 베이킹.", "caution_mach": { "ss-416": "416(S 첨가)은 질산욕 침식 — 구연산 공정 권장 (A967)." } },
-    { "coating": "nitriding", "purpose": "wear", "when": "밸브·노즐·커틀러리 내마모 (410/420)", "why": "표면 ~1000 HV·저변형 (AMS 2759).", "caution": "질화는 표면 Cr 을 CrN 으로 소모 — 내식성 일부 저하. 내식 우선 부품엔 부적합." },
+    { "coating": "nitriding", "purpose": "wear", "when": "밸브·노즐·커틀러리 내마모 (410/420)", "why": "표면 ~1000 HV·저변형 (AMS 2759).", "caution": "Nitriding(질화)은 표면 Cr 을 CrN 으로 소모 — 내식성 일부 저하. 내식 우선 부품엔 부적합." },
     { "coating": "pvd-tin", "purpose": "wear", "when": "커틀러리·의료 기구·금형 (내마모+외관)", "why": "저온 박막 경질층 — 모재 내식 유지." }
    ],
    "notes": []
@@ -174,11 +174,11 @@
   "ss-ph": {
    "title": "석출경화 스테인리스 (PH)",
    "recs": [
-    { "coating": "passivation", "purpose": "corrosion", "when": "시효 후 표준 마무리", "why": "ASTM A967 — 저온 공정이라 시효(H900 등) 물성 무영향." },
+    { "coating": "passivation", "purpose": "corrosion", "when": "Aging(시효) 후 표준 마무리", "why": "ASTM A967 — 저온 공정이라 Aging(H900 등) 물성 무영향." },
     { "coating": "shot-peening", "purpose": "fatigue", "when": "항공 구조 피팅·랜딩기어 부품", "why": "고강도 시효재의 피로 개선 표준 (AMS 2430)." },
     { "coating": "hvof-wcco", "purpose": "wear", "when": "랜딩기어·유압 로드 (경질크롬 대체)", "why": "AMS 2447 — 17-4/15-5 항공 유압재에서 Cr⁶⁺ 회피 관행." }
    ],
-   "notes": ["질화(≥500°C)는 시효 온도(H900=482°C)와 간섭 — 과시효로 강도 저하. 필요하면 저온 플라즈마 질화 또는 H1150 상태에서 수행."]
+   "notes": ["Nitriding(질화)(≥500°C)는 Aging 온도(H900=482°C)와 간섭 — 과시효로 강도 저하. 필요하면 저온 플라즈마 Nitriding 또는 H1150 상태에서 수행."]
   },
   "ss-duplex": {
    "title": "듀플렉스 스테인리스",
@@ -195,7 +195,7 @@
    "recs": [
     { "coating": "passivation", "purpose": "corrosion", "when": "가공 후 표준 마무리", "why": "유리철 제거·부동태 회복 (ASTM A967/A380) — 전 스테인리스 공통 전제." }
    ],
-   "notes": ["세부 계열(오스테나이트/마르텐사이트/PH/듀플렉스)에 따라 전해연마·질화·피닝 등 추가 옵션이 갈린다."]
+   "notes": ["세부 계열(오스테나이트/마르텐사이트/PH/듀플렉스)에 따라 전해연마·Nitriding(질화)·피닝 등 추가 옵션이 갈린다."]
   },
   "al-wrought": {
    "title": "가공용 알루미늄",

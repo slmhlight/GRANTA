@@ -641,10 +641,10 @@ export default function Guide() {
             examples={<>자동차 변속기 (8AT 의 sun gear), 산업 감속기, 헬리콥터 main gearbox, 로봇 harmonic drive, 항공 엔진 액세서리 기어. <ExtLink href="https://en.wikipedia.org/wiki/Gear">Gear</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/Case-hardening">Case hardening</ExtLink></>}
             title="기어 (변속기 · 감속기)"
             situation="이빨 접촉 (Hertz contact) + 굽힘 응력 + 충격 부하 + 100M 사이클 이상의 피로 환경."
-            needs={<>표면 <b>경도 ≥ 600 HV</b> (접촉 피로), 코어 <b>인성 ≥ 30 J</b> (충격 흡수), 침탄 / 질화 / 유도 경화 적용 가능 alloy. AGMA grade 2/3.</>}
+            needs={<>표면 <b>경도 ≥ 600 HV</b> (접촉 피로), 코어 <b>인성 ≥ 30 J</b> (충격 흡수), Carburizing(침탄) / Nitriding(질화) / 유도 경화 적용 가능 alloy. AGMA grade 2/3.</>}
             steps={[
               <>필터: <b>Hardness 300–400 HV</b> (코어), <b>Impact ≥ 30 J</b>, <b>Process ⊃ Wrought</b>.</>,
-              <>상세 팝업의 권장 후공정 — 침탄/질화/유도경화 표면 처리 alloy 만 후보.</>,
+              <>상세 팝업의 권장 후공정 — Carburizing/Nitriding/유도경화 표면 처리 alloy 만 후보.</>,
               <>Compare 의 Machinability 가 Good 이상 (가공성).</>,
             ]}
             families={<>침탄강 AISI 8620 / AISI 9310 (항공), 질화강 31CrMoV9 (산업), AISI 4140 / AISI 4340 (자동차 변속), Maraging 300 (high-end racing), 분말야금 P/M gear (저가).</>}
@@ -1045,16 +1045,16 @@ export default function Guide() {
                 <tr><td className="p-2 font-mono">H1075</td><td className="p-2">17-4 PH</td><td className="p-2">σy ~860 MPa, 충격인성 우수</td></tr>
                 <tr><td className="p-2 font-mono">H1100</td><td className="p-2">17-4 PH</td><td className="p-2">σy ~795 MPa, 내응력부식 ↑</td></tr>
                 <tr><td className="p-2 font-mono">H1150</td><td className="p-2">17-4 PH</td><td className="p-2">최대 연성, σy ~720 MPa, 내응력부식 최대</td></tr>
-                <tr><td className="p-2 font-mono">Solution Annealed (SA, Condition A)</td><td className="p-2">PH 강 일반</td><td className="p-2">PH 강 출발조건, 시효 전 가공·용접 적합 (σy 낮음, El ↑)</td></tr>
-                <tr><td className="p-2 font-mono">Aged · PH (Precipitation Hardened)</td><td className="p-2">PH 강 · Al 7xxx · Ni 합금</td><td className="p-2">시효 경화 — σy·강도 ↑, El ↓</td></tr>
+                <tr><td className="p-2 font-mono">Solution Annealed (SA, Condition A)</td><td className="p-2">PH 강 일반</td><td className="p-2">PH 강 출발조건, Aging(시효) 전 가공·용접 적합 (σy 낮음, El ↑)</td></tr>
+                <tr><td className="p-2 font-mono">Aged · PH (Precipitation Hardened)</td><td className="p-2">PH 강 · Al 7xxx · Ni 합금</td><td className="p-2">Aging 경화 — σy·강도 ↑, El ↓</td></tr>
                 <tr><td className="p-2 font-mono">STA (Solution + Aged)</td><td className="p-2">Ti-6Al-4V 등</td><td className="p-2">Ti 합금 표준 강화 조건</td></tr>
-                <tr><td className="p-2 font-mono">Q&T (Quenched & Tempered)</td><td className="p-2">탄소·합금강 (AISI 4140, AISI 4340)</td><td className="p-2">담금질 + 템퍼링 — 강도·인성 균형, 일반 구조강 기본</td></tr>
+                <tr><td className="p-2 font-mono">Q&T (Quenched & Tempered)</td><td className="p-2">탄소·합금강 (AISI 4140, AISI 4340)</td><td className="p-2">Quenching(담금질) + Tempering(뜨임) — 강도·인성 균형, 일반 구조강 기본</td></tr>
                 <tr><td className="p-2 font-mono">Normalized</td><td className="p-2">탄소·합금강</td><td className="p-2">균질 미세조직, 응력 완화, σy·연성 중간</td></tr>
                 <tr><td className="p-2 font-mono">Annealed (Full / Soft)</td><td className="p-2">모든 합금</td><td className="p-2">최대 연성·가공성, σy ↓ (시작점)</td></tr>
                 <tr><td className="p-2 font-mono">Stress-relieved</td><td className="p-2">AM 부품 일반</td><td className="p-2">AM 잔류응력 완화, 미세조직 변화 미미</td></tr>
                 <tr><td className="p-2 font-mono">HIP (Hot Isostatic Press)</td><td className="p-2">AM 부품 · 주조</td><td className="p-2">기공 제거 → 피로 강도·연신 ↑ (AM 표준)</td></tr>
                 <tr><td className="p-2 font-mono">As-built / As-printed (ASB)</td><td className="p-2">AM 모든 합금</td><td className="p-2">AM 후처리 없음 — 잔류응력 + 일부 기공, 피로 ↓</td></tr>
-                <tr><td className="p-2 font-mono">T6</td><td className="p-2">Al 합금 (AA 6061, AA 7075, AlSi10Mg)</td><td className="p-2">Al 표준 시효 (peak hardness)</td></tr>
+                <tr><td className="p-2 font-mono">T6</td><td className="p-2">Al 합금 (AA 6061, AA 7075, AlSi10Mg)</td><td className="p-2">Al 표준 Aging (peak hardness)</td></tr>
                 <tr><td className="p-2 font-mono">T651</td><td className="p-2">Al 7xxx · AA 2024</td><td className="p-2">T6 + stress-relieved (잔류응력 ↓)</td></tr>
                 <tr><td className="p-2 font-mono">T7 (T73 · T74)</td><td className="p-2">Al 7xxx</td><td className="p-2">Over-aged — 응력부식 ↑, σy 약간 ↓</td></tr>
                 <tr><td className="p-2 font-mono">T4</td><td className="p-2">Al 2xxx</td><td className="p-2">Solution + 자연시효 — El ↑, σy 중간</td></tr>
@@ -1064,7 +1064,7 @@ export default function Guide() {
                 <tr><td className="p-2 font-mono">β-annealed</td><td className="p-2">Ti 합금</td><td className="p-2">β-transus 위 균질화, 인성 ↑, El ↓</td></tr>
                 <tr><td className="p-2 font-mono">SA + Aged</td><td className="p-2">Inconel 718 · Waspaloy</td><td className="p-2">Ni superalloy 강화 — γ′ 석출</td></tr>
                 <tr><td className="p-2 font-mono">Homogenized</td><td className="p-2">주조 · AM 일반</td><td className="p-2">주조·AM 미세편석 균질화</td></tr>
-                <tr><td className="p-2 font-mono">PH (Cu)</td><td className="p-2">CuBe · CuCr</td><td className="p-2">Cu 시효 — 강도·전도성 균형</td></tr>
+                <tr><td className="p-2 font-mono">PH (Cu)</td><td className="p-2">CuBe · CuCr</td><td className="p-2">Cu Aging — 강도·전도성 균형</td></tr>
               </tbody>
             </table>
           </div>
@@ -2118,7 +2118,7 @@ export default function Guide() {
           title="재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
           learn={[
             '강(Steel) — AISI/SAE 4-digit numbering, 4단계 열처리, Stainless 5 family',
-            '알루미늄 — Wrought 4-digit + Temper code (F/O/H/T/W), 시효 석출상',
+            '알루미늄 — Wrought 4-digit + Temper code (F/O/H/T/W), Aging(시효) 석출상',
             '타이타늄 — β-transus, α/β/α+β 5 family, MA/BA/STA 모드',
             '니켈 슈퍼합금 — γ/γ\'/γ" 강화, TCP phase 회피, coating',
             '구리 — UNS·JIS·KS 매핑, temper code, 부식 환경 분류',
@@ -2147,7 +2147,7 @@ export default function Guide() {
           <ul className="list-disc pl-6 space-y-1.5 text-sm leading-relaxed">
             <li><b>Wrought 4-digit designation</b>: 1xxx (≥99.0% Al) · 2xxx (Al-Cu, AA 2024 항공) · 3xxx (Al-Mn, AA 3003 캔) · 4xxx (Al-Si, 용접 wire) · 5xxx (Al-Mg, AA 5083 해양) · 6xxx (Al-Mg-Si, AA 6061 범용·압출) · 7xxx (Al-Zn-Mg, AA 7075 항공) · 8xxx (Al-Li, 2090/2195 우주).</li>
             <li><b>Temper code</b>: F (제조 그대로) · O (annealed) · H (cold-worked, H12 = 1/4 hard) · T (heat-treated, T6 = solution + artificial aging peak, T7 = overaged for SCC) · W (solution unstable).</li>
-            <li><b>시효 석출상</b>: 2xxx → θ' (Al₂Cu); 6xxx → β' (Mg₂Si); 7xxx → η' (MgZn₂); 8xxx Al-Li → T1 (Al₂CuLi) + δ' (Al₃Li).</li>
+            <li><b>Aging 석출상</b>: 2xxx → θ' (Al₂Cu); 6xxx → β' (Mg₂Si); 7xxx → η' (MgZn₂); 8xxx Al-Li → T1 (Al₂CuLi) + δ' (Al₃Li).</li>
             <li><b>SCC 회피</b>: 7xxx → T7 (overaged); 2xxx → Alclad (pure Al 표면 layer); 5xxx → ≤200°C (β phase 회피).</li>
             <li><b>Cl⁻ 환경 추천</b>: AA 5083/5086 (해양 hull) · AA 5052 (자동차 외부) · AA 6063 (건축 외장). 회피: AA 2024 (T3 시 SCC 위험), AA 7075 (T6).</li>
             <li className="text-muted-foreground">출처: ASM Desk Edition Section "Aluminum and Aluminum Alloys" + MMPDS-08 Chapter 3 intro + Aluminum Association datasheets.</li>

@@ -104,7 +104,7 @@
     "rating": 55,
     "band": "normal",
     "label": "보통",
-    "note": "CuCrZr 석출경화 Cu — 순동보다 훨씬 양호. 시효 상태 가공 권장.",
+    "note": "CuCrZr 석출경화 Cu — 순동보다 훨씬 양호. Aging(시효) 상태 가공 권장.",
     "guidance_key": "cu-pure"
    },
    "carbon-low": {
@@ -139,21 +139,21 @@
     "rating": 65,
     "band": "normal",
     "label": "보통",
-    "note": "침탄강 (8620/9310) — 침탄 전 가공 표준. 침탄 후는 연삭만.",
+    "note": "침탄강 (8620/9310) — Carburizing(침탄) 전 가공 표준. Carburizing 후는 연삭만.",
     "guidance_key": "carbon-medhigh"
    },
    "bearing": {
     "rating": 40,
     "band": "normal",
     "label": "보통",
-    "note": "베어링강 (52100) — spheroidize-annealed 상태 가공, 담금질 후 연삭.",
+    "note": "베어링강 (52100) — spheroidize-annealed 상태 가공, Quenching(담금질) 후 연삭.",
     "guidance_key": "bearing"
    },
    "maraging": {
     "rating": 45,
     "band": "normal",
     "label": "보통",
-    "note": "Maraging — 용체화 상태 가공성 양호(저C 마르텐사이트), 시효 후 마무리 연삭.",
+    "note": "Maraging — Solution treatment(용체화) 상태 가공성 양호(저C 마르텐사이트), Aging 후 마무리 연삭.",
     "guidance_key": "maraging"
    },
    "magnesium": {
@@ -195,7 +195,7 @@
     "rating": 35,
     "band": "hard",
     "label": "어려움",
-    "note": "PH 스테인리스 (17-4 등) — 용체화(A) 상태 가공 후 시효 (치수변화 ~0.05% 반영).",
+    "note": "PH 스테인리스 (17-4 등) — Solution treatment(용체화)(A) 상태 가공 후 Aging(시효) (치수변화 ~0.05% 반영).",
     "guidance_key": "ss-ph"
    },
    "ss-duplex": {
@@ -209,7 +209,7 @@
     "rating": 15,
     "band": "very_hard",
     "label": "매우 어려움",
-    "note": "Ni 초내열합금 — work-hardening·저열전도. Sol-T 상태 rough 가공 → 시효 → 연삭 마무리.",
+    "note": "Ni 초내열합금 — work-hardening·저열전도. Sol-T 상태 rough 가공 → Aging(시효) → 연삭 마무리.",
     "guidance_key": "ni-superalloy"
    },
    "ni-super-solidsol": {
@@ -326,7 +326,7 @@
    "pol-amorphous": {
     "band": "easy",
     "label": "우수 (비정질 — 절삭유 주의)",
-    "note": "비정질 열가소성 (PC/PEI/PSU/PPSU/PES) — 절삭성 자체는 우수하나 수용성 절삭유·석유계 유제가 environmental stress-cracking(ESC) 을 유발할 수 있음. 냉각은 순수 물 또는 압축공기 권장 (Quadrant/MCAM 가공 가이드). 잔류응력 완화 어닐링 후 가공하면 크랙·휨 감소."
+    "note": "비정질 열가소성 (PC/PEI/PSU/PPSU/PES) — 절삭성 자체는 우수하나 수용성 절삭유·석유계 유제가 environmental stress-cracking(ESC) 을 유발할 수 있음. 냉각은 순수 물 또는 압축공기 권장 (Quadrant/MCAM 가공 가이드). 잔류응력 완화 Annealing(풀림) 후 가공하면 크랙·휨 감소."
    },
    "pol-filled": {
     "band": "hard",
@@ -356,7 +356,7 @@
    "pol-brittle": {
     "band": "normal",
     "label": "취성 (크랙·치핑)",
-    "note": "경질 취성 비정질 (PMMA/PS) — 과열·과이송 시 크랙·치핑·크레이징. 예리한 공구·낮은 이송·충분한 냉각, 어닐링 후 가공 권장."
+    "note": "경질 취성 비정질 (PMMA/PS) — 과열·과이송 시 크랙·치핑·크레이징. 예리한 공구·낮은 이송·충분한 냉각, Annealing(풀림) 후 가공 권장."
    }
   },
   "sources": {
@@ -367,7 +367,7 @@
    ],
    "polymer": [
     "Ensinger — Machining Recommendations for Engineering Plastics",
-    "Quadrant(현 MCAM) — Machining Guidelines (GF/CF→초경·PCD 필수, 비정질 ESC·절삭유, 응력완화 어닐링 원문 확인)",
+    "Quadrant(현 MCAM) — Machining Guidelines (GF/CF→초경·PCD 필수, 비정질 ESC·절삭유, 응력완화 Annealing(풀림) 원문 확인)",
     "Curbell Plastics — Plastic Machining Guidelines"
    ]
   },
@@ -425,28 +425,28 @@
  },
  "condition_notes": {
   "_note": "키 = 'mach프로파일|htc클래스'. 같은 합금이라도 조건(variation) entry 별로 다른 가공 노트 — 조건별 고유 stable_id 에 htc 가 스탬프되므로 조건마다 구분 표시된다.",
-  "ni-super|aged": "시효(STA/aged) 상태 — σy·경도 상승으로 가공 난도 수 배 상승 (718: Sol-T HRC 25-30 → STA HRC 38-44). 표준 시퀀스: 용체화 상태 rough 가공 → 시효 → CBN 연삭 마무리.",
-  "ni-super|soft": "용체화(Sol-T) 상태 — 이 합금의 가공 적기. rough/semi-finish 를 이 상태에서 끝내고 시효 후 최소 마무리만.",
-  "ni-super-solidsol|aged": "시효 상태 고용강화 Ni — 가공 난도 최상급. ceramic(SiAlON) 고속 또는 CBN.",
-  "cobalt|aged": "시효/경화 Co 합금 — CNC 절삭 사실상 불가 영역. 연삭(cBN wheel)·EDM 검토.",
+  "ni-super|aged": "Aging(시효)(STA/aged) 상태 — σy·경도 상승으로 가공 난도 수 배 상승 (718: Sol-T HRC 25-30 → STA HRC 38-44). 표준 시퀀스: Solution treatment(용체화) 상태 rough 가공 → Aging → CBN 연삭 마무리.",
+  "ni-super|soft": "Solution treatment(용체화)(Sol-T) 상태 — 이 합금의 가공 적기. rough/semi-finish 를 이 상태에서 끝내고 Aging(시효) 후 최소 마무리만.",
+  "ni-super-solidsol|aged": "Aging(시효) 상태 고용강화 Ni — 가공 난도 최상급. ceramic(SiAlON) 고속 또는 CBN.",
+  "cobalt|aged": "Aging(시효)/경화 Co 합금 — CNC 절삭 사실상 불가 영역. 연삭(cBN wheel)·EDM 검토.",
   "crmo|qt": "Q+T 상태 (HRC 30+) — 공구수명 어닐 대비 ~1/10. 잔여 가공은 CBN/세라믹 또는 연삭. 신규 가공은 어닐재 구매 → 가공 → Q+T → 연삭 순서 권장.",
   "crmo|soft": "어닐/노멀라이즈 상태 — 이 강의 가공 적기. Q+T 예정이면 치수 여유(연삭 0.2-0.5 mm) 남기고 가공.",
   "nicrmo|qt": "Q+T 고강도 상태 (σy 800+ MPa) — coated carbide 저속, 또는 가공 순서 재검토 (어닐 가공 → HT).",
   "carbon-medhigh|qt": "Q+T 상태 중·고탄소강 — 경도에 따라 공구수명 급감. HRC 35+ 면 hard turning(CBN) 영역.",
-  "bearing|qt": "담금질 베어링강 (HRC 58-64) — 절삭 불가, 연삭·hard turning(CBN) 전용.",
+  "bearing|qt": "Quenching(담금질) 베어링강 (HRC 58-64) — 절삭 불가, 연삭·hard turning(CBN) 전용.",
   "tool-steel|qt": "경화 공구강 (HRC 50-65) — 연삭·EDM·hard milling(고경도 coated carbide) 전용. 일반 절삭은 어닐 상태에서.",
-  "ss-ph|aged": "시효(H900 등) 상태 — 용체화(Condition A) 대비 난도 상승. 관례: A 상태 가공 → 시효(475°C, 치수변화 ~-0.05%) → 필요 시 마무리.",
-  "ss-ph|soft": "용체화(Condition A) 상태 — PH 강의 가공 적기. 시효 수축(~0.05%) 감안한 치수 보정.",
-  "maraging|aged": "시효 상태 maraging (HRC 50+) — 마무리 연삭 전용. rough 는 용체화 상태에서.",
-  "maraging|soft": "용체화 상태 — 저탄소 마르텐사이트라 HRC 30 수준, 가공성 양호. 시효 수축(~0.06-0.10%) 반영.",
+  "ss-ph|aged": "Aging(시효)(H900 등) 상태 — Solution treatment(용체화)(Condition A) 대비 난도 상승. 관례: A 상태 가공 → Aging(475°C, 치수변화 ~-0.05%) → 필요 시 마무리.",
+  "ss-ph|soft": "Solution treatment(용체화)(Condition A) 상태 — PH 강의 가공 적기. Aging(시효) 수축(~0.05%) 감안한 치수 보정.",
+  "maraging|aged": "Aging(시효) 상태 maraging (HRC 50+) — 마무리 연삭 전용. rough 는 Solution treatment(용체화) 상태에서.",
+  "maraging|soft": "Solution treatment(용체화) 상태 — 저탄소 마르텐사이트라 HRC 30 수준, 가공성 양호. Aging(시효) 수축(~0.06-0.10%) 반영.",
   "ss-austenitic|cold": "가공경화(strain-hardened) 상태 — 표면 경도 상승, rubbing 시 급속 경화. 깊은 절입 유지.",
   "ti-alloy|aged": "STA 상태 Ti — annealed 대비 강도↑·가공성↓. 절삭 파라미터 하향.",
   "al-6xxx|aged": "T6 상태 — Al 가공 적기 (연질 O 상태보다 chip 처리 오히려 양호).",
   "al-7xxx|aged": "T6/T7 상태 — 가공 양호. 두꺼운 판 잔류응력 해제(T7x51) 재질이 정밀가공 시 휨 적음.",
   "al-2xxx|aged": "T3/T6/T8 상태 — 가공 양호. 박벽 정밀부품은 응력해제(T x51) 계열 권장.",
   "magnesium|aged": "T5/T6 Mg — 가공성 최상 유지. 발화 안전 절차는 조건 무관 필수.",
-  "cu-crzr|aged": "시효 상태 CuCrZr — 이 상태가 가공 적기 (순동형 gummy 거동 감소).",
-  "becu|aged": "시효(AT/HT) BeCu (HRC 35-40) — 가공은 A(용체화) 상태에서, 시효 후 경연삭. Be 안전 절차 필수.",
+  "cu-crzr|aged": "Aging(시효) 상태 CuCrZr — 이 상태가 가공 적기 (순동형 gummy 거동 감소).",
+  "becu|aged": "Aging(시효)(AT/HT) BeCu (HRC 35-40) — 가공은 A(Solution treatment, 용체화) 상태에서, Aging 후 경연삭. Be 안전 절차 필수.",
   "ni-super|as-built": "AM as-built — 잔류응력 大. 응력해제/HIP 후 가공 권장 (왜곡 방지).",
   "ti-alloy|as-built": "AM as-built Ti — 잔류응력·표면 α-case 유의. 응력해제 후 가공, 지지구조 제거 시 발열 주의.",
   "al-cast-am|as-built": "AM as-built AlSi — 응력해제(300°C) 후 가공 권장. Si 상 공구 마모는 조건 무관."
@@ -454,9 +454,9 @@
  "weld_condition_notes": {
   "_note": "R226r — 용접성 *rating*(Schaeffler/CE_IIW/CET/Pcm)은 조성 기반이라 조건(HT) 무관(=올바름). 다만 열처리 상태는 용접 열영향부(HAZ)에서 강도 손실을 유발 → 조건(htc)별 HAZ 주의 노트. 키=htc 클래스(m.profiles.htc, stable_id 스탬프). soft/hip/as-built 는 노트 없음(연화 이슈 없음).",
   "aged": "이 조건은 시효경화(aged/PH) 상태 — 용접 열영향부(HAZ)에서 석출물 과시효·재고용으로 국부 연화. 강도 회복은 용접 후 재시효(필요 시 재용체화). 모재 강도 유지가 중요하면 용접부 위치·후열처리 설계 필요.",
-  "qt": "이 조건은 조질(Q&T) 상태 — HAZ 에서 템퍼링 연화 또는 재경화(저온균열) 양면. 경화성 강은 예열·후열(PWHT)로 균열 방지 + 연화 구간 강도 손실 감안.",
+  "qt": "이 조건은 조질(Q&T) 상태 — HAZ 에서 Tempering(뜨임) 연화 또는 재경화(저온균열) 양면. 경화성 강은 예열·후열(PWHT)로 균열 방지 + 연화 구간 강도 손실 감안.",
   "cold": "이 조건은 냉간가공 경화 상태 — HAZ 재결정으로 국부 강도 상실 (비가역: 조립 후 재냉간가공 불가). 강도 의존 부위는 용접 회피 또는 어닐재로 설계.",
-  "case": "이 조건은 표면경화(침탄/질화) 상태 — 용접열이 경화층을 손상. 용접은 표면경화 전 또는 경화층 밖에서 수행."
+  "case": "이 조건은 표면경화(Carburizing(침탄)/Nitriding(질화)) 상태 — 용접열이 경화층을 손상. 용접은 표면경화 전 또는 경화층 밖에서 수행."
  },
  "weld_models": {
   "ce": "탄소당량(CE_IIW·CET·Pcm) 기반 냉간균열 감수성 평가 — C-Mn/저합금강 전용 (AWS D1.1 적용범위).",

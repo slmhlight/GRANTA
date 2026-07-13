@@ -74,27 +74,27 @@
   "am-alsi": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM (LPBF) AlSi10Mg/AlSi7Mg — 후처리 (전통 T6 관행과 다름!)\nAs-built 가 가장 강함 (미세 셀 조직 + Si 네트워크, UTS ~430-490 MPa).\n  ① Stress Relief 270-300°C / 2 h: 잔류응력·이방성 완화 — 단 Si 네트워크 분해로 강도 20-40% ↓, 연성 ↑ (강도 중요 부품엔 신중)\n  ② 전통 T6 (SHT 520-540°C + 시효): AM 에선 조직 조대화로 주조 T6 만큼의 이득 없음 — 관행적 T6 지시를 그대로 옮기지 말 것\n  ③ Direct aging 160-170°C: 강도 유지하며 응력 일부 완화 (제조사 옵션)\n【표준】 ASTM F3318 (AlSi10Mg PBF) · EOS/SLM 제조사 데이터시트"
+   "text": "⚠ AM (LPBF) AlSi10Mg/AlSi7Mg — 후처리 (전통 T6 관행과 다름!)\nAs-built 가 가장 강함 (미세 셀 조직 + Si 네트워크, UTS ~430-490 MPa).\n  ① Stress Relief 270-300°C / 2 h: 잔류응력·이방성 완화 — 단 Si 네트워크 분해로 강도 20-40% ↓, 연성 ↑ (강도 중요 부품엔 신중)\n  ② 전통 T6 (SHT 520-540°C + Aging(시효)): AM 에선 조직 조대화로 주조 T6 만큼의 이득 없음 — 관행적 T6 지시를 그대로 옮기지 말 것\n  ③ Direct aging 160-170°C: 강도 유지하며 응력 일부 완화 (제조사 옵션)\n【표준】 ASTM F3318 (AlSi10Mg PBF) · EOS/SLM 제조사 데이터시트"
   },
   "am-ni718": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM (LPBF) Inconel 718 — 후처리\nAs-built 는 Laves 상 + 미세편석 상태 — 시효만으로 부족, 균질화/용체화가 선행돼야 함.\n  ① Stress Relief: 950-980°C / 1 h (플레이트 분리 전)\n  ② 균질화/용체화: 954-1065°C (δ·Laves 제어 목적별 선택)\n  ③ 2단 시효: 718°C / 8 h → 노랭 → 621°C / 8-10 h / AC (γ″·γ′ 석출 — AMS 5662 계열)\n  ④ HIP 옵션: 1120-1185°C / ≥100 MPa — 피로 임계 부품 기공 폐쇄\n【표준】 ASTM F3055 (IN718 PBF) · AMS 5662/5664 준용 · F3301"
+   "text": "⚠ AM (LPBF) Inconel 718 — 후처리\nAs-built 는 Laves 상 + 미세편석 상태 — 시효만으로 부족, 균질화/Solution treatment(용체화)가 선행돼야 함.\n  ① Stress Relief: 950-980°C / 1 h (플레이트 분리 전)\n  ② 균질화/Solution treatment: 954-1065°C (δ·Laves 제어 목적별 선택)\n  ③ 2단 Aging(시효): 718°C / 8 h → 노랭 → 621°C / 8-10 h / AC (γ″·γ′ 석출 — AMS 5662 계열)\n  ④ HIP 옵션: 1120-1185°C / ≥100 MPa — 피로 임계 부품 기공 폐쇄\n【표준】 ASTM F3055 (IN718 PBF) · AMS 5662/5664 준용 · F3301"
   },
   "am-ni625": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM (LPBF) Inconel 625 — 후처리\n고용강화 합금 — 시효 불필요. 목적별:\n  ① Stress Relief: ~870°C / 1 h (치수 안정·플레이트 분리 전)\n  ② Anneal: 980-1050°C (연성·내식 회복, 편석 완화) / Grade 별 F3056 참조\n  ③ HIP: 1120-1180°C / ≥100 MPa (피로·기밀 임계 부품)\n【주의】 600-900°C 장시간 유지 시 δ/카바이드 석출로 인성·내식 저하 — 불필요한 중간온도 체류 회피.\n【표준】 ASTM F3056 (IN625 PBF) · F3301"
+   "text": "⚠ AM (LPBF) Inconel 625 — 후처리\n고용강화 합금 — Aging(시효) 불필요. 목적별:\n  ① Stress Relief: ~870°C / 1 h (치수 안정·플레이트 분리 전)\n  ② Anneal: 980-1050°C (연성·내식 회복, 편석 완화) / Grade 별 F3056 참조\n  ③ HIP: 1120-1180°C / ≥100 MPa (피로·기밀 임계 부품)\n【주의】 600-900°C 장시간 유지 시 δ/카바이드 석출로 인성·내식 저하 — 불필요한 중간온도 체류 회피.\n【표준】 ASTM F3056 (IN625 PBF) · F3301"
   },
   "am-ni-solidsol": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM 고용강화 Ni (Hastelloy X · Haynes 230) — 후처리\n시효 개념 없음 — 용체화급 어닐이 핵심:\n  ① Stress Relief ~870-980°C (플레이트 분리 전)\n  ② Solution Anneal: 1120-1175°C / 급냉 (재결정·탄화물 용해 — 연성·크리프 회복)\n  ③ HIP 옵션 (연소기 등 피로 부품)\n【표준】 제조사(Haynes) AM 가이드 · ASTM F3301"
+   "text": "⚠ AM 고용강화 Ni (Hastelloy X · Haynes 230) — 후처리\nAging(시효) 개념 없음 — 용체화급 어닐이 핵심:\n  ① Stress Relief ~870-980°C (플레이트 분리 전)\n  ② Solution Anneal: 1120-1175°C / 급냉 (재결정·탄화물 용해 — 연성·크리프 회복)\n  ③ HIP 옵션 (연소기 등 피로 부품)\n【표준】 제조사(Haynes) AM 가이드 · ASTM F3301"
   },
   "am-282": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM Haynes 282 — 후처리\nγ′ 석출강화 — 용체화 + 2단 시효가 표준:\n  ① Stress Relief (플레이트 분리 전)\n  ② Solution: ~1120-1135°C\n  ③ 2단 시효: 1010°C / 2 h → 788°C / 8 h (Haynes 표준 사이클)\n【표준】 Haynes International 282 데이터시트 · ASTM F3301"
+   "text": "⚠ AM Haynes 282 — 후처리\nγ′ 석출강화 — Solution treatment(용체화) + 2단 Aging(시효)이 표준:\n  ① Stress Relief (플레이트 분리 전)\n  ② Solution: ~1120-1135°C\n  ③ 2단 Aging: 1010°C / 2 h → 788°C / 8 h (Haynes 표준 사이클)\n【표준】 Haynes International 282 데이터시트 · ASTM F3301"
   },
   "am-316l": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
@@ -104,22 +104,22 @@
   "am-ph": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM (LPBF) 17-4/15-5 PH — 후처리\nAs-built 는 잔류 오스테나이트 분율이 분말·분위기 따라 크게 변동 — 직접 시효만 하면 물성 산포 큼:\n  ① Solution (Condition A): 1040°C / 30 min-1 h / 급냉 — 마르텐사이트 재확립 (권장 선행)\n  ② 시효: H900 482°C/1h (peak) ~ H1150 (고인성) — 재래 규격과 동일 눈금\n  ③ HIP 옵션 (피로 임계)\n【표준】 ASTM F3301 · AMS 5604/5643 준용 · 제조사(EOS 17-4PH 등) 데이터시트"
+   "text": "⚠ AM (LPBF) 17-4/15-5 PH — 후처리\nAs-built 는 잔류 오스테나이트 분율이 분말·분위기 따라 크게 변동 — 직접 Aging(시효)만 하면 물성 산포 큼:\n  ① Solution (Condition A): 1040°C / 30 min-1 h / 급냉 — 마르텐사이트 재확립 (권장 선행)\n  ② Aging: H900 482°C/1h (peak) ~ H1150 (고인성) — 재래 규격과 동일 눈금\n  ③ HIP 옵션 (피로 임계)\n【표준】 ASTM F3301 · AMS 5604/5643 준용 · 제조사(EOS 17-4PH 등) 데이터시트"
   },
   "am-cocr": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM (LPBF) CoCrMo — 후처리\n의료·치과 관행: HIP + 용체화로 주조 결함·이방성 해소:\n  ① Stress Relief (플레이트 분리 전)\n  ② HIP: ~1200°C / ≥100 MPa (F75 주조 준용 — 기공 폐쇄)\n  ③ Solution Anneal: 1150-1230°C (탄화물 조절·연성 회복)\n【표준】 ASTM F3213 (CoCr PBF) · F75/F1537 준용"
+   "text": "⚠ AM (LPBF) CoCrMo — 후처리\n의료·치과 관행: HIP + Solution treatment(용체화)로 주조 결함·이방성 해소:\n  ① Stress Relief (플레이트 분리 전)\n  ② HIP: ~1200°C / ≥100 MPa (F75 주조 준용 — 기공 폐쇄)\n  ③ Solution Anneal: 1150-1230°C (탄화물 조절·연성 회복)\n【표준】 ASTM F3213 (CoCr PBF) · F75/F1537 준용"
   },
   "am-maraging": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM (LPBF) Maraging 300 (1.2709/MS1) — 후처리\nAs-built 가 이미 저탄소 마르텐사이트 — 용체화 없이 직접 시효가 표준:\n  ① Direct Aging: 490°C ± 10°C / 6 h / AC → ~54 HRC · UTS ~1950 MPa (as-built ~1100 대비 약 1.8배)\n  ② 치수 임계 금형: 시효 전 Stress Relief 병행 검토\n  ③ 용체화(815-840°C)는 조직 리셋 필요시에만\n【표준】 EOS MS1 데이터시트 (490°C/6h) · ASTM F3301"
+   "text": "⚠ AM (LPBF) Maraging 300 (1.2709/MS1) — 후처리\nAs-built 가 이미 저탄소 마르텐사이트 — Solution treatment(용체화) 없이 직접 Aging이 표준:\n  ① Direct Aging: 490°C ± 10°C / 6 h / AC → ~54 HRC · UTS ~1950 MPa (as-built ~1100 대비 약 1.8배)\n  ② 치수 임계 금형: Aging 전 Stress Relief 병행 검토\n  ③ Solution treatment(815-840°C)는 조직 리셋 필요시에만\n【표준】 EOS MS1 데이터시트 (490°C/6h) · ASTM F3301"
   },
   "am-cu": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM 고전도 Cu (CuCrZr · GRCop) — 후처리\n  • CuCrZr: 용체화 970-1000°C 급냉 + 시효 450-480°C / 2-4 h — 또는 as-built 직접 시효(제조사 옵션). 시효로 전도도·강도 동시 회복.\n  • GRCop-42/84: 석출이 응고 중 형성 — 별도 시효 불필요, HIP(기공 폐쇄·연소실 기밀)가 관행 (NASA RAMPT).\n【주의】 고온 대기 노출 시 산화 — 진공/환원 분위기.\n【표준】 제조사(EOS CuCrZr 등) 데이터시트 · NASA GRCop 공정 문헌"
+   "text": "⚠ AM 고전도 Cu (CuCrZr · GRCop) — 후처리\n  • CuCrZr: Solution treatment(용체화) 970-1000°C 급냉 + Aging(시효) 450-480°C / 2-4 h — 또는 as-built 직접 Aging(제조사 옵션). Aging으로 전도도·강도 동시 회복.\n  • GRCop-42/84: 석출이 응고 중 형성 — 별도 Aging 불필요, HIP(기공 폐쇄·연소실 기밀)가 관행 (NASA RAMPT).\n【주의】 고온 대기 노출 시 산화 — 진공/환원 분위기.\n【표준】 제조사(EOS CuCrZr 등) 데이터시트 · NASA GRCop 공정 문헌"
   }
  },
  "am_map": {
