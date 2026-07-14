@@ -1987,7 +1987,8 @@
         "bainite",
         "white-cast-iron",
         "casting",
-        "fatigue"
+        "fatigue",
+        "ductile-cast-iron"
       ]
     },
     "austempering": {
@@ -2541,7 +2542,8 @@
         "white-cast-iron",
         "cementite",
         "stable-phase",
-        "metastable-phase"
+        "metastable-phase",
+        "ductile-cast-iron"
       ]
     },
     "gray-cast-iron": {
@@ -2553,10 +2555,7 @@
         "gray iron",
         "grey cast iron",
         "편상흑연주철",
-        "growth",
-        "ductile iron",
-        "구상흑연주철",
-        "연성주철"
+        "growth"
       ],
       "autolink": [
         "회주철",
@@ -2572,7 +2571,8 @@
         "white-cast-iron",
         "austempered-ductile-iron",
         "casting",
-        "brittleness"
+        "brittleness",
+        "ductile-cast-iron"
       ]
     },
     "hot-cracking": {
@@ -3162,6 +3162,38 @@
         "ferrite",
         "stainless-steel",
         "hot-cracking"
+      ]
+    },
+    "ductile-cast-iron": {
+      "display": "연성주철 (Ductile Cast Iron)",
+      "category": "alloy-family",
+      "surface_forms": [
+        "연성주철",
+        "구상흑연주철",
+        "ductile cast iron",
+        "ductile iron",
+        "nodular cast iron",
+        "nodular iron",
+        "spheroidal graphite iron",
+        "SG iron",
+        "덕타일 아이언"
+      ],
+      "autolink": [
+        "연성주철",
+        "구상흑연주철",
+        "ductile iron"
+      ],
+      "short": "탄소가 편상이 아니라 '공(球)' 모양 흑연으로 굳은 주철. Mg 를 소량 넣어 흑연을 구상화하면 편상 흑연이 만들던 내부 노치가 사라져, 회주철과 달리 강하고 질기다 — 주조의 값·형상 자유도에 강에 가까운 인성을 더한 구조용 주철의 주력이다.",
+      "sources": [
+        "ASTM A536 — Ductile Iron Castings",
+        "ASM Handbook Vol.1 (Cast Irons)"
+      ],
+      "related": [
+        "gray-cast-iron",
+        "austempered-ductile-iron",
+        "graphite",
+        "white-cast-iron",
+        "casting"
       ]
     }
   }
