@@ -14,7 +14,7 @@ for (const [p, url] of Object.entries(pngs)) {
   URLS[id] = url;
 }
 
-const CAPTIONS: Record<string, string> = {
+export const CAPTIONS: Record<string, string> = {
   'iron-carbon':
     '그림 · 철–탄소(Fe–C) 상태도 개략. 오스테나이트(γ, FCC)는 고온상이며 냉각 시 조성에 따라 페라이트(α)·펄라이트·시멘타이트(Fe₃C)로 분해된다. 공석점 = 0.76 %C · 727 °C.',
   'ttt-curve':
@@ -141,15 +141,30 @@ const CAPTIONS: Record<string, string> = {
     '그림 · 인바 효과 — Fe-Ni 팽창의 골짜기(개략). 열팽창계수(CTE)가 Ni 36%에서 ~1.2 ppm/K 로 바닥을 찍고 양쪽으로 올라간다(자기변형이 열팽창을 상쇄). 조성을 틀면 42·48 합금처럼 유리·세라믹의 팽창에 맞출 수 있다. Kovar 는 Fe-Ni-Co 3원계로 붕규산유리(~5 ppm/K)에 정합한다.',
 };
 
+/* H5 W14 — 도표 접근성. img alt = 캡션 첫 문장(한 줄 요약), 전체 캡션은 aria-describedby 로
+ * figcaption 에 연결(스크린리더: 짧은 alt + 상세 설명). ALTS 는 자동추출이 어색한 캡션 예외. */
+const ALTS: Record<string, string> = {
+  // 예: 'some-fig': '커스텀 한 줄 alt' — 현재 전 캡션이 서술형 첫 문장으로 충분해 비어 있음.
+};
+export function figureAlt(id: string, caption?: string): string {
+  if (ALTS[id]) return ALTS[id];
+  if (!caption) return id;
+  // "그림 · " 접두 제거 → 첫 문장(소수점 오인 방지: 마침표 뒤 공백/끝만 문장경계).
+  const s = caption.replace(/^그림\s*·\s*/, '');
+  const m = s.match(/^(.*?[.。](?:\s|$))/);
+  return (m ? m[1] : s).trim();
+}
+
 /** 도표 id 로 렌더 (없으면 null). PNG + 캡션. */
 export function GlossaryFigure({ id }: { id: string }): ReactElement | null {
   const src = URLS[id];
   if (!src) return null;
   const cap = CAPTIONS[id];
+  const capId = cap ? `figcap-${id}` : undefined;
   return (
     <figure className="my-4 rounded-lg border border-border bg-card/60 p-3">
-      <img src={src} alt={cap || id} className="w-full h-auto rounded" loading="lazy" />
-      {cap && <figcaption className="text-[11px] text-muted-foreground mt-1.5 leading-snug">{cap}</figcaption>}
+      <img src={src} alt={figureAlt(id, cap)} aria-describedby={capId} className="w-full h-auto rounded" loading="lazy" />
+      {cap && <figcaption id={capId} className="text-[11px] text-muted-foreground mt-1.5 leading-snug">{cap}</figcaption>}
     </figure>
   );
 }

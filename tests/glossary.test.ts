@@ -13,6 +13,7 @@ import path from 'node:path';
 import { findTermSpans, linkifyTerms } from '@/lib/glossary-link';
 import { searchGuide, GLOSSARY_ENTRIES } from '@/pages/guide/index-entries';
 import { GLOSSARY } from '@/lib/glossary';
+import { figureAlt, CAPTIONS } from '@/pages/guide/glossary-figures';
 
 const g = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/glossary.json'), 'utf8'));
 const terms: Record<string, any> = g.terms;
@@ -139,6 +140,17 @@ describe('glossary A4 본문(articles) 무결성', () => {
   });
   it('도표 레지스트리에 id 존재', () => {
     expect(figIds.size).toBeGreaterThanOrEqual(3);
+  });
+  // H5 W14 — 접근성: 모든 캡션이 비지 않은·한 줄(≤80자)·'그림 ·' 접두 없는 alt 를 만든다.
+  it('도표 alt = 캡션 한 줄 요약 (전 도표)', () => {
+    const bad: string[] = [];
+    for (const [id, cap] of Object.entries(CAPTIONS)) {
+      const alt = figureAlt(id, cap);
+      if (!alt) bad.push(`${id}: alt 비어있음`);
+      else if (alt.length > 80) bad.push(`${id}: alt 너무 김 (${alt.length}자)`);
+      else if (/^그림\s*·/.test(alt)) bad.push(`${id}: '그림 ·' 접두 미제거`);
+    }
+    expect(bad, bad.join('\n')).toEqual([]);
   });
 });
 
