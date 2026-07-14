@@ -2422,6 +2422,153 @@ def fig_am_anisotropy():
     save(fig, "am-anisotropy")
 
 
+def fig_friction_map():
+    """불소수지 마찰 지도 — 대표 재료의 마찰계수(vs 강, 건조·무윤활) 가로바. PTFE 가 고체 최저 (개략)."""
+    fig, ax = plt.subplots(figsize=(8.4, 4.7))
+    # (이름, 대표 μ, 불소수지?)
+    rows = [
+        ("PTFE (순)", 0.06, True),
+        ("PTFE (유리·청동 충전)", 0.14, True),
+        ("UHMWPE", 0.16, False),
+        ("PFA / FEP", 0.22, True),
+        ("아세탈 (POM)", 0.28, False),
+        ("PVDF (Kynar)", 0.32, True),
+        ("나일론 PA66 (건조)", 0.35, False),
+        ("강 / 강 (건조)", 0.70, False),
+    ]
+    y = np.arange(len(rows))[::-1]
+    for yi, (name, cof, fp) in zip(y, rows):
+        col = C_A if fp else C_MUTE
+        ax.barh(yi, cof, height=0.58, color=col, alpha=0.82)
+        ax.text(-0.008, yi, name, va="center", ha="right", fontsize=8.5, color=C_AX)
+        ax.text(cof + 0.008, yi, f"{cof:.2f}", va="center", fontsize=8.3, color=col, fontweight="bold")
+    ax.axvspan(0, 0.10, color=C_M, alpha=0.07)
+    ax.axvline(0.10, color=C_M, lw=0.9, ls=":")
+    ax.text(0.105, len(rows) - 0.55, "μ≤0.10 — 고체 최저역", fontsize=7.6, color=C_M)
+    ax.text(0.40, 6.1, "■ 불소수지", fontsize=8.8, color=C_A)
+    ax.text(0.40, 5.5, "■ 그 밖의 재료", fontsize=8.8, color=C_MUTE)
+    ax.set_xlabel("마찰계수 μ  (vs 강, 건조·무윤활, 개략)", fontsize=10, color=C_AX)
+    ax.set_xlim(0, 0.82); ax.set_ylim(-0.7, len(rows) - 0.02)
+    ax.set_yticks([]); ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.set_title("불소수지 마찰 지도 — 저마찰이 간판인 이유 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.27, right=0.97, top=0.9, bottom=0.13)
+    save(fig, "friction-map")
+
+
+def fig_shore_scale():
+    """엘라스토머 경도 — 쇼어 A/D 스케일 위 대표 제품 지도 (개략)."""
+    fig, ax = plt.subplots(figsize=(9.6, 4.4))
+    grad = np.linspace(0, 1, 256).reshape(1, -1)
+    ax.imshow(grad, extent=[0, 100, 0.40, 0.52], aspect="auto", cmap="YlOrBr", alpha=0.62, zorder=1)
+    ax.add_patch(Rectangle((0, 0.40), 100, 0.12, fill=False, edgecolor=C_AX, lw=1.3, zorder=3))
+    for a in range(0, 101, 10):
+        ax.plot([a, a], [0.40, 0.37], color=C_AX, lw=0.9)
+        ax.text(a, 0.325, f"{a}", ha="center", fontsize=7.4, color=C_AX)
+    ax.text(50, 0.25, "Shore A 경도 (연질 엘라스토머)", ha="center", fontsize=9.5, color=C_AX, fontweight="bold")
+    prods = [
+        (5, "젤리·소프트 겔"), (20, "고무밴드"), (40, "지우개"), (50, "신발 밑창"),
+        (60, "타이어 트레드"), (70, "표준 O링(70A)"), (83, "롤러스케이트 휠"), (94, "쇼핑카트 바퀴"),
+    ]
+    for i, (x, lab) in enumerate(prods):
+        ax.plot(x, 0.46, "o", color=C_M, ms=6, zorder=5)
+        ty = 0.66 if i % 2 == 0 else 0.79
+        ax.annotate(lab, xy=(x, 0.52), xytext=(x, ty), fontsize=7.6, color=C_AX, ha="center",
+                    arrowprops=dict(arrowstyle="->", color=C_MUTE, lw=0.7))
+    ax.annotate("", xy=(100, 0.90), xytext=(88, 0.90), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.4))
+    ax.text(94, 0.945, "Shore D 로 →\n(A90 $\\approx$ D40, 반강성)", ha="center", fontsize=7.2, color=C_A)
+    ax.set_xlim(-4, 108); ax.set_ylim(0.18, 1.0); ax.axis("off")
+    ax.set_title("엘라스토머 경도 — 쇼어 스케일 위의 대표 제품 (개략)", fontsize=11.5, color=C_AX, pad=4)
+    save(fig, "shore-scale")
+
+
+def fig_mmc_stiffness():
+    """MMC 비강성 — E/ρ 가로바. 단일 금속은 25~27 에 몰려 있고 Al-SiC 가 그 벽을 넘는다 (개략)."""
+    fig, ax = plt.subplots(figsize=(8.8, 4.8))
+    # (이름, E GPa, ρ g/cm³, MMC?)
+    rows = [
+        ("Mg AZ31", 45, 1.77, False),
+        ("Al 6061", 69, 2.70, False),
+        ("Ti-6Al-4V", 114, 4.43, False),
+        ("강 (steel)", 210, 7.85, False),
+        ("Al-SiC (30 vol%, DRA)", 115, 2.88, True),
+        ("Al-SiC (63 vol%, 패키징)", 188, 3.01, True),
+    ]
+    y = np.arange(len(rows))[::-1]
+    for yi, (name, E, rho, mmc) in zip(y, rows):
+        sp = E / rho
+        col = C_M if mmc else C_A
+        ax.barh(yi, sp, height=0.56, color=col, alpha=0.8)
+        ax.text(-1.0, yi, name, va="center", ha="right", fontsize=8.4, color=C_AX)
+        ax.text(sp + 0.6, yi, f"{sp:.0f}", va="center", fontsize=8.4, color=col, fontweight="bold")
+        ax.text(sp / 2, yi, f"E {E}·ρ {rho}", va="center", ha="center", fontsize=6.7, color="white")
+    ax.axvspan(24, 28, color=C_A, alpha=0.10)
+    ax.text(26, len(rows) - 0.2, "금속의 벽\n25~27", ha="center", fontsize=7.6, color=C_A)
+    ax.text(31, 5.15, "■ 단일 금속", fontsize=8.6, color=C_A)
+    ax.text(46, 5.15, "■ 금속기지 복합재(MMC)", fontsize=8.6, color=C_M)
+    ax.set_xlabel("비강성 E/ρ  (GPa ÷ g/cm³, 개략)", fontsize=10, color=C_AX)
+    ax.set_xlim(0, 70); ax.set_ylim(-0.7, len(rows) - 0.02)
+    ax.set_yticks([]); ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.set_title("MMC 비강성 — 왜 금속에 SiC 를 심는가 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.26, right=0.97, top=0.9, bottom=0.12)
+    save(fig, "mmc-stiffness")
+
+
+def fig_superelasticity():
+    """초탄성 NiTi — 응력유기 마르텐사이트 '깃발' 곡선(로딩·언로딩 플래토·~8% 회복) (개략)."""
+    fig, ax = plt.subplots(figsize=(7.6, 5.0))
+    load_x = [0, 1.0, 1.2, 6.8, 7.0, 8.5]
+    load_y = [0, 380, 500, 520, 560, 720]
+    unload_x = [8.5, 7.6, 7.4, 1.6, 1.4, 0]
+    unload_y = [720, 300, 210, 190, 150, 0]
+    ax.plot(load_x, load_y, color=C_M, lw=2.4, label="가력(loading)")
+    ax.plot(unload_x, unload_y, color=C_A, lw=2.4, label="제하(unloading)")
+    ax.annotate("상부 플래토 — 응력유기 마르텐사이트(SIM) 형성", xy=(4.2, 512), xytext=(1.8, 655),
+                fontsize=7.8, color=C_M, arrowprops=dict(arrowstyle="->", color=C_M, lw=0.8))
+    ax.annotate("하부 플래토 — 역변태(오스테나이트 복귀)", xy=(4.6, 195), xytext=(2.7, 55),
+                fontsize=7.8, color=C_A, arrowprops=dict(arrowstyle="->", color=C_A, lw=0.8))
+    ax.annotate("", xy=(8.5, -45), xytext=(0, -45), arrowprops=dict(arrowstyle="<->", color=C_AX, lw=0.9))
+    ax.text(4.25, -82, "회복 변형 ~8% (일반 금속 탄성의 ~20배)", ha="center", fontsize=8, color=C_AX)
+    ax.text(7.15, 405, "이력 루프 면적\n= 감쇠(에너지 흡수)", fontsize=7.0, color=C_MUTE, ha="center")
+    ax.set_xlabel("변형 ε (%)", fontsize=10, color=C_AX)
+    ax.set_ylabel("응력 σ (MPa)", fontsize=10, color=C_AX)
+    ax.set_xlim(-0.3, 9.2); ax.set_ylim(-105, 780)
+    ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.legend(loc="upper left", fontsize=8.5, frameon=False)
+    ax.set_title("초탄성(superelasticity) — NiTi 의 깃발 곡선 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.12, right=0.97, top=0.9, bottom=0.13)
+    save(fig, "superelasticity")
+
+
+def fig_invar_valley():
+    """Fe-Ni 팽창 골짜기 — CTE vs Ni%(인바 효과, 36%에서 최소) (개략)."""
+    fig, ax = plt.subplots(figsize=(8.2, 5.0))
+    ni = [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 55, 64]
+    cte = [12.0, 7.0, 3.0, 1.2, 2.6, 5.0, 6.5, 8.0, 9.0, 9.8, 10.2, 11.5, 13.0]
+    ax.plot(ni, cte, color=C_A, lw=2.4, marker="o", ms=3.5, zorder=3)
+    ax.plot(36, 1.2, "o", color=C_M, ms=9, zorder=5)
+    ax.annotate("Invar 36 — CTE ~1.2 (골짜기 바닥)", xy=(36, 1.2), xytext=(38.5, -1.6),
+                fontsize=8.2, color=C_M, arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9))
+    for x, yv, lab in [(42, 6.5, "42 합금\n(리드프레임)"), (48, 9.8, "48 합금\n(연질유리 실링)")]:
+        ax.plot(x, yv, "s", color=C_AX, ms=6, zorder=4)
+        ax.annotate(lab, xy=(x, yv), xytext=(x - 1.3, yv + 2.7), fontsize=7.3, color=C_AX, ha="center",
+                    arrowprops=dict(arrowstyle="->", color=C_MUTE, lw=0.7))
+    ax.axhline(12, color=C_MUTE, lw=0.8, ls=":")
+    ax.text(58.5, 12.35, "보통 강 ~12", fontsize=7.4, color=C_MUTE)
+    ax.text(29.5, 15.3, "※ Kovar(Fe-29Ni-17Co)는 3원계 — CTE ~5 로 붕규산유리에 정합(별도 계열)",
+            fontsize=6.8, color=C_MUTE)
+    ax.set_xlabel("Ni 함량 (wt%)", fontsize=10, color=C_AX)
+    ax.set_ylabel("선팽창계수 CTE (ppm/K, 상온)", fontsize=10, color=C_AX)
+    ax.set_xlim(28, 66); ax.set_ylim(-3, 16.5)
+    ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_title("인바 효과 — Fe-Ni 팽창의 골짜기 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.11, right=0.97, top=0.9, bottom=0.12)
+    save(fig, "invar-valley")
+
+
 if __name__ == "__main__":
     fig_martensite_lattice()
     fig_fcc_bcc()
@@ -2480,4 +2627,9 @@ if __name__ == "__main__":
     fig_he_triangle()
     fig_solidification_cracking()
     fig_am_anisotropy()
+    fig_friction_map()
+    fig_shore_scale()
+    fig_mmc_stiffness()
+    fig_superelasticity()
+    fig_invar_valley()
     print("done →", os.path.abspath(OUT))
