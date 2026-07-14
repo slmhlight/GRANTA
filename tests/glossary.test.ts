@@ -128,6 +128,11 @@ describe('glossary A4 본문(articles) 무결성', () => {
       for (const em of a.example_materials || []) {
         if (!em.label || !em.id) bad.push(`${slug}: example_material 은 label·id 필수`);
       }
+      // H5 W13 — Tools 딥링크 CTA: label 필수 + href 는 앱 내부 경로(/)만 (외부 href 주입 차단)
+      if (a.cta) {
+        if (typeof a.cta.label !== 'string' || !a.cta.label) bad.push(`${slug}: cta.label 필수`);
+        if (typeof a.cta.href !== 'string' || !a.cta.href.startsWith('/')) bad.push(`${slug}: cta.href 는 내부경로(/)여야`);
+      }
       if (!Array.isArray(a.refs) || !a.refs.length) bad.push(`${slug}: no refs`);
     }
     expect(bad, bad.join('\n')).toEqual([]);

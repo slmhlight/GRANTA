@@ -3,9 +3,9 @@
  * 9 계산기 — Kt / Galvanic / Buckling / CTE mismatch / Hardness / Pressure vessel / Larson-Miller / Mohr / Schaeffler.
  * 각 카드 = 입력 + 결과 + Guide 챕터 link. 수식은 lib/engineering-calcs.ts (R210 B7).
  */
-import { useState } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { Link } from 'wouter';
-import { ArrowLeft, Calculator, Zap, BookOpen } from 'lucide-react';
+import { ArrowLeft, Calculator, Zap, BookOpen, GraduationCap } from 'lucide-react';
 // R210 B7 — 계산기 수식은 lib/engineering-calcs.ts 순수 함수에서 (테스트 가능). UI 는 그대로.
 import {
   ktFactor, galvanicDeltaV, galvanicBand, buckling, thermalMismatchStress,
@@ -795,7 +795,54 @@ function SchaefflerCalc() {
   );
 }
 
+/* H5 W13 — 계산기 ↔ 글로서리 용어 양방향 매핑. key = ?calc= 딥링크 id. */
+const CALC_TERMS: Record<string, { slug: string; label: string }> = {
+  kt: { slug: 'stress-concentration', label: '응력집중 (Kt)' },
+  galvanic: { slug: 'galvanic', label: '갈바닉 부식' },
+  buckling: { slug: 'elastic-modulus', label: '탄성계수' },
+  cte: { slug: 'controlled-expansion-alloy', label: '저팽창 합금 (CTE)' },
+  hardness: { slug: 'hardness', label: '경도' },
+  pressure: { slug: 'tensile-stress', label: '인장응력 (후프)' },
+  lmp: { slug: 'creep', label: '크리프' },
+  mohr: { slug: 'tensile-stress', label: '인장·전단 응력' },
+  schaeffler: { slug: 'schaeffler-diagram', label: '쉐플러 다이어그램' },
+};
+const CALC_IDS = Object.keys(CALC_TERMS);
+
+/* 계산기 래퍼 — ?calc= 딥링크 앵커(scroll-mt)·하이라이트 링 + 용어 페이지 역링크. */
+function CalcCard({ id, highlight, children }: { id: string; highlight: boolean; children: ReactNode }) {
+  const t = CALC_TERMS[id];
+  return (
+    <div id={`calc-${id}`} className={`scroll-mt-24 rounded-lg transition-shadow ${highlight ? 'ring-2 ring-accent ring-offset-2 ring-offset-background' : ''}`}>
+      {children}
+      {t && (
+        <Link
+          href={`/guide/term/${t.slug}`}
+          className="mt-1 ml-1 inline-flex items-center gap-1 text-[10.5px] text-accent/80 hover:text-accent hover:underline"
+        >
+          <GraduationCap className="w-3 h-3" /> 용어 설명: {t.label}
+        </Link>
+      )}
+    </div>
+  );
+}
+
 export default function Tools() {
+  // H5 W13 — ?calc=<id> 딥링크: 해당 계산기로 스크롤 + 잠깐 하이라이트.
+  const [highlight, setHighlight] = useState<string | null>(null);
+  useEffect(() => {
+    const calc = new URLSearchParams(window.location.search).get('calc');
+    if (!calc || !CALC_IDS.includes(calc)) return;
+    setHighlight(calc);
+    // 계산기 9종(SVG 포함) 레이아웃이 안정된 뒤 스크롤 — rAF 는 이르게 발화해 위치가 어긋남.
+    // behavior:'smooth' 는 prefers-reduced-motion·일부 환경에서 무시되므로 기본(auto)로 확실히 이동.
+    const scroll = setTimeout(
+      () => document.getElementById(`calc-${calc}`)?.scrollIntoView({ block: 'center' }),
+      180,
+    );
+    const timer = setTimeout(() => setHighlight(null), 3000);
+    return () => { clearTimeout(scroll); clearTimeout(timer); };
+  }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-20 h-12 flex items-center gap-3 px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
@@ -839,15 +886,15 @@ export default function Tools() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <KtCalc />
-          <GalvanicCalc />
-          <BucklingCalc />
-          <CTEMismatch />
-          <HardnessConv />
-          <PressureVessel />
-          <LMPCalc />
-          <MohrCalc />
-          <SchaefflerCalc />
+          <CalcCard id="kt" highlight={highlight === 'kt'}><KtCalc /></CalcCard>
+          <CalcCard id="galvanic" highlight={highlight === 'galvanic'}><GalvanicCalc /></CalcCard>
+          <CalcCard id="buckling" highlight={highlight === 'buckling'}><BucklingCalc /></CalcCard>
+          <CalcCard id="cte" highlight={highlight === 'cte'}><CTEMismatch /></CalcCard>
+          <CalcCard id="hardness" highlight={highlight === 'hardness'}><HardnessConv /></CalcCard>
+          <CalcCard id="pressure" highlight={highlight === 'pressure'}><PressureVessel /></CalcCard>
+          <CalcCard id="lmp" highlight={highlight === 'lmp'}><LMPCalc /></CalcCard>
+          <CalcCard id="mohr" highlight={highlight === 'mohr'}><MohrCalc /></CalcCard>
+          <CalcCard id="schaeffler" highlight={highlight === 'schaeffler'}><SchaefflerCalc /></CalcCard>
         </div>
 
         <div className="mt-8 pt-4 border-t border-border space-y-3 text-[12px] text-muted-foreground">

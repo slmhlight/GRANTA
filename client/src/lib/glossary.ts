@@ -29,7 +29,9 @@ export interface GlossaryPhoto { id: string; caption: string; credit?: string }
 export interface GlossaryTable { headers: string[]; rows: string[][] }
 export interface GlossarySection { heading: string; body: string; figure?: string; photo?: GlossaryPhoto; table?: GlossaryTable }
 export interface GlossaryExampleMaterial { label: string; id: string }
-export interface GlossaryArticle { sections: GlossarySection[]; example_materials?: GlossaryExampleMaterial[]; refs?: string[] }
+/** H5 W13 — 용어 → Tools 계산기 딥링크 CTA. href 는 앱 내부 경로(/tools?calc=…)여야. */
+export interface GlossaryCTA { label: string; href: string }
+export interface GlossaryArticle { sections: GlossarySection[]; example_materials?: GlossaryExampleMaterial[]; refs?: string[]; cta?: GlossaryCTA }
 const ARTICLES = (articlesJson as unknown as { articles: Record<string, GlossaryArticle> }).articles;
 export function glossaryArticle(slug: string): GlossaryArticle | undefined { return ARTICLES[slug]; }
 export function hasGlossaryArticle(slug: string): boolean { return !!ARTICLES[slug]; }

@@ -5,7 +5,7 @@
  */
 import { useMemo } from 'react';
 import { Link, useParams } from 'wouter';
-import { ArrowLeft, GraduationCap, BookMarked, ChevronRight } from 'lucide-react';
+import { ArrowLeft, GraduationCap, BookMarked, ChevronRight, Calculator } from 'lucide-react';
 import { GLOSSARY, glossaryArticle } from '@/lib/glossary';
 import { GuideSidebar } from './GuideSidebar';
 import { TOC } from './toc';
@@ -67,6 +67,16 @@ export default function GuideTermPage() {
               <div className="mt-4 rounded-lg border border-accent/30 bg-accent/5 p-4">
                 <p className="text-[14px] leading-relaxed text-foreground/90">{term.short}</p>
               </div>
+
+              {/* H5 W13 — Tools 계산기 딥링크 CTA (해당 용어를 실습할 계산기가 있으면) */}
+              {article?.cta && (
+                <Link
+                  href={article.cta.href}
+                  className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-2 text-[13px] font-semibold text-emerald-800 hover:bg-emerald-100 transition-colors"
+                >
+                  <Calculator className="w-4 h-4" /> {article.cta.label}
+                </Link>
+              )}
 
               {/* A4 상세 본문 (있는 term 만) — 섹션별 프로즈(용어·합금 자동링크) + 도표 */}
               {article && (
