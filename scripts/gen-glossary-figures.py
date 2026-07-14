@@ -2457,28 +2457,44 @@ def fig_friction_map():
 
 
 def fig_shore_scale():
-    """엘라스토머 경도 — 쇼어 A/D 스케일 위 대표 제품 지도 (개략)."""
-    fig, ax = plt.subplots(figsize=(9.6, 4.4))
+    """경도 — 쇼어 A(연질)·D(경질) 두 스케일과 대표 제품, 겹침 영역 (개략)."""
+    fig, ax = plt.subplots(figsize=(9.8, 5.8))
     grad = np.linspace(0, 1, 256).reshape(1, -1)
-    ax.imshow(grad, extent=[0, 100, 0.40, 0.52], aspect="auto", cmap="YlOrBr", alpha=0.62, zorder=1)
-    ax.add_patch(Rectangle((0, 0.40), 100, 0.12, fill=False, edgecolor=C_AX, lw=1.3, zorder=3))
-    for a in range(0, 101, 10):
-        ax.plot([a, a], [0.40, 0.37], color=C_AX, lw=0.9)
-        ax.text(a, 0.325, f"{a}", ha="center", fontsize=7.4, color=C_AX)
-    ax.text(50, 0.25, "Shore A 경도 (연질 엘라스토머)", ha="center", fontsize=9.5, color=C_AX, fontweight="bold")
-    prods = [
-        (5, "젤리·소프트 겔"), (20, "고무밴드"), (40, "지우개"), (50, "신발 밑창"),
-        (60, "타이어 트레드"), (70, "표준 O링(70A)"), (83, "롤러스케이트 휠"), (94, "쇼핑카트 바퀴"),
-    ]
-    for i, (x, lab) in enumerate(prods):
-        ax.plot(x, 0.46, "o", color=C_M, ms=6, zorder=5)
-        ty = 0.66 if i % 2 == 0 else 0.79
-        ax.annotate(lab, xy=(x, 0.52), xytext=(x, ty), fontsize=7.6, color=C_AX, ha="center",
+    # ── Shore A 바 (위) ──
+    ax.imshow(grad, extent=[0, 100, 0.80, 0.88], aspect="auto", cmap="YlOrBr", alpha=0.60, zorder=1)
+    ax.add_patch(Rectangle((0, 0.80), 100, 0.08, fill=False, edgecolor=C_AX, lw=1.3, zorder=3))
+    ax.add_patch(Rectangle((80, 0.80), 20, 0.08, facecolor=C_A, alpha=0.16, edgecolor="none", zorder=2))  # 겹침
+    for a in range(0, 101, 20):
+        ax.plot([a, a], [0.80, 0.785], color=C_AX, lw=0.9)
+        ax.text(a, 0.755, f"{a}", ha="center", fontsize=7.4, color=C_AX)
+    ax.text(-5, 0.84, "Shore A", ha="right", va="center", fontsize=9.5, color=C_AX, fontweight="bold")
+    ax.text(50, 0.712, "연질 엘라스토머 (고무·씰)", ha="center", fontsize=8.2, color=C_MUTE)
+    aprod = [(20, "고무밴드"), (40, "지우개"), (60, "타이어 트레드"), (70, "표준 O링 70A"), (85, "스케이트 휠"), (95, "카트 바퀴")]
+    for i, (x, lab) in enumerate(aprod):
+        ax.plot(x, 0.84, "o", color=C_M, ms=5.5, zorder=5)
+        ty = 0.905 if i % 2 == 0 else 0.975
+        ax.annotate(lab, xy=(x, 0.88), xytext=(x, ty), fontsize=7.4, color=C_AX, ha="center",
                     arrowprops=dict(arrowstyle="->", color=C_MUTE, lw=0.7))
-    ax.annotate("", xy=(100, 0.90), xytext=(88, 0.90), arrowprops=dict(arrowstyle="-|>", color=C_A, lw=1.4))
-    ax.text(94, 0.945, "Shore D 로 →\n(A90 $\\approx$ D40, 반강성)", ha="center", fontsize=7.2, color=C_A)
-    ax.set_xlim(-4, 108); ax.set_ylim(0.18, 1.0); ax.axis("off")
-    ax.set_title("엘라스토머 경도 — 쇼어 스케일 위의 대표 제품 (개략)", fontsize=11.5, color=C_AX, pad=4)
+    # ── 겹침 안내 ──
+    ax.text(50, 0.60, "두 스케일은 반강성 영역에서 겹친다 —  A80~100 $\\approx$ D30~58   (A90 $\\approx$ D40)",
+            ha="center", fontsize=8.4, color=C_A, fontweight="bold")
+    # ── Shore D 바 (아래) ──
+    ax.imshow(grad, extent=[0, 100, 0.32, 0.40], aspect="auto", cmap="PuBu", alpha=0.55, zorder=1)
+    ax.add_patch(Rectangle((0, 0.32), 100, 0.08, fill=False, edgecolor=C_AX, lw=1.3, zorder=3))
+    ax.add_patch(Rectangle((30, 0.32), 28, 0.08, facecolor=C_A, alpha=0.16, edgecolor="none", zorder=2))  # 겹침
+    for d in range(0, 101, 20):
+        ax.plot([d, d], [0.40, 0.415], color=C_AX, lw=0.9)
+        ax.text(d, 0.44, f"{d}", ha="center", fontsize=7.4, color=C_AX)
+    ax.text(-5, 0.36, "Shore D", ha="right", va="center", fontsize=9.5, color=C_AX, fontweight="bold")
+    ax.text(50, 0.478, "반강성·경질 (하드 플라스틱)", ha="center", fontsize=8.2, color=C_MUTE)
+    dprod = [(45, "롤러블레이드 휠"), (55, "스키 부츠"), (65, "골프공"), (75, "안전모(경질)"), (85, "볼링공")]
+    for i, (x, lab) in enumerate(dprod):
+        ax.plot(x, 0.36, "o", color=C_A, ms=5.5, zorder=5)
+        ty = 0.225 if i % 2 == 0 else 0.135
+        ax.annotate(lab, xy=(x, 0.32), xytext=(x, ty), fontsize=7.4, color=C_AX, ha="center",
+                    arrowprops=dict(arrowstyle="->", color=C_MUTE, lw=0.7))
+    ax.set_xlim(-9, 106); ax.set_ylim(0.08, 1.02); ax.axis("off")
+    ax.set_title("경도 스케일 — 쇼어 A(연질)와 D(경질), 대표 제품 (개략)", fontsize=11.5, color=C_AX, pad=6)
     save(fig, "shore-scale")
 
 
