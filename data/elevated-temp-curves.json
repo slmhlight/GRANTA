@@ -3,6 +3,15 @@
  "curves": {},
  "_note_by_id": "R226l — stable_id 키 곡선 (build-from-registry 가 entry.elevated_temp 부재 시 부착; ID 기반 — 이름 매칭 없음). 출처: Ansys Granta MI datasheet (사용자 제공 PDF, 벡터 좌표 추출 — 23°C 앵커 검증). E-only 곡선 허용 (TempCurveChart 필드 옵션).",
  "by_id": {
+  "POL-0034": {
+   "elevated_temp": [
+    { "temp": 25, "ys": 110, "uts": 110, "E": 3.6 },
+    { "temp": 100, "ys": 95, "uts": 95, "E": 3.4 },
+    { "temp": 150, "ys": 75, "uts": 75, "E": 3.0 },
+    { "temp": 200, "ys": 35, "uts": 35, "E": 1.5 }
+   ],
+   "src": "Ultem 1010(PEI) 사출성형 고온 인장/모듈러스 곡선 (핸드북 PEI injection-molded, RT→200°C — Tg≈217°C 근접 급강하). build-materials ELEV_DATA 'ultem 1010' 곡선이 W9++ 23°C 앵커 게이트에서 드롭됨: entry σy 가 FDM 오염값(65)이라 곡선 RT(110) 대비 ratio 1.69>1.4. σy 교정(→105, r226-value-corrections POL-0034) 은 build-registry 단계라 build-materials 게이트(교정 前 값)보다 늦어 재부착 불가 → 교정 後 부착되는 by_id 로 이관. RT 110/3.6 은 ASTM 계열, entry SABIC ISO 105/3.2 와 방법차 범위 내."
+  },
   "MET-0239": {
    "elevated_temp": [
     {

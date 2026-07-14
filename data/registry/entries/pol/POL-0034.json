@@ -30,32 +30,32 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 58,
-      "max": 75,
-      "typical": 65,
-      "n": 3,
-      "confidence": "measured"
+      "min": 105,
+      "typical": 105,
+      "max": 105,
+      "confidence": "handbook",
+      "provenance": "교정: SABIC ULTEM Resin 1010 Technical Data Sheet (ISO 527 injection-molded: tensile stress at yield 105 MPa · tensile modulus 3200 MPa · strain at break 60% · stress at break 85 MPa) · UL Prospector Ultem 1010 (datasheet 351635)"
     },
     "uts": {
-      "min": 72,
-      "max": 90,
-      "typical": 81,
-      "n": 3,
-      "confidence": "measured"
+      "min": 110,
+      "typical": 110,
+      "max": 110,
+      "confidence": "handbook",
+      "provenance": "교정: SABIC ULTEM Resin 1010 Technical Data Sheet (ISO 527 injection-molded: tensile stress at yield 105 MPa · tensile modulus 3200 MPa · strain at break 60% · stress at break 85 MPa) · UL Prospector Ultem 1010 (datasheet 351635)"
     },
     "elongation": {
-      "min": 40,
-      "max": 90,
-      "typical": 65,
-      "n": 3,
-      "confidence": "measured"
+      "min": 60,
+      "typical": 60,
+      "max": 60,
+      "confidence": "handbook",
+      "provenance": "교정: SABIC ULTEM Resin 1010 Technical Data Sheet (ISO 527 injection-molded: tensile stress at yield 105 MPa · tensile modulus 3200 MPa · strain at break 60% · stress at break 85 MPa) · UL Prospector Ultem 1010 (datasheet 351635)"
     },
     "modulus": {
-      "min": 2.78,
-      "max": 2.78,
-      "typical": 2.78,
-      "n": 3,
-      "confidence": "measured"
+      "min": 3.2,
+      "typical": 3.2,
+      "max": 3.2,
+      "confidence": "handbook",
+      "provenance": "교정: SABIC ULTEM Resin 1010 Technical Data Sheet (ISO 527 injection-molded: tensile stress at yield 105 MPa · tensile modulus 3200 MPa · strain at break 60% · stress at break 85 MPa) · UL Prospector Ultem 1010 (datasheet 351635)"
     },
     "hardness": {
       "min": 16,
@@ -203,29 +203,11 @@
   "points": [
     [
       1.27,
-      65,
-      81,
-      65,
-      2.78,
+      105,
+      110,
+      60,
+      3.2,
       18,
-      0.22
-    ],
-    [
-      1.27,
-      58,
-      72,
-      40,
-      2.78,
-      16,
-      0.22
-    ],
-    [
-      1.27,
-      75,
-      90,
-      90,
-      2.78,
-      20,
       0.22
     ]
   ],
@@ -242,10 +224,10 @@
     "_r173_note_applied": true
   },
   "density": 1.27,
-  "yield_strength": 65,
-  "uts": 81,
-  "elongation": 65,
-  "modulus": 2.78,
+  "yield_strength": 105,
+  "uts": 110,
+  "elongation": 60,
+  "modulus": 3.2,
   "hardness": 18,
   "thermal_conductivity": 0.22,
   "fatigue_strength": null,
@@ -284,5 +266,88 @@
   "surface_finish_typical": 50,
   "tolerance_class": "IT15",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 58,
+        "max": 75,
+        "typical": 65,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 65
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 72,
+        "max": 90,
+        "typical": 81,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 81
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 40,
+        "max": 90,
+        "typical": 65,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 65
+    },
+    "modulus": {
+      "had_range": true,
+      "val_range": {
+        "min": 2.78,
+        "max": 2.78,
+        "typical": 2.78,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 2.78
+    },
+    "_basis": "entry 는 Injection-Molded 인데 DB 값(σy 65 · UTS 81 · E 2.78GPa)이 Stratasys FDM(3D프린팅) datasheet 로 오염 — 사출 대비 저강도. FDM 소스 혼입이 원인. SABIC Ultem 1010 사출성형 실측으로 교정 (H5 W9++ 파생: 저 σy 가 고온곡선 23°C 앵커 게이트에서 곡선 드롭 유발).",
+    "_src": "SABIC ULTEM Resin 1010 Technical Data Sheet (ISO 527 injection-molded: tensile stress at yield 105 MPa · tensile modulus 3200 MPa · strain at break 60% · stress at break 85 MPa) · UL Prospector Ultem 1010 (datasheet 351635)",
+    "points": {
+      "from": [
+        [
+          1.27,
+          65,
+          81,
+          65,
+          2.78,
+          18,
+          0.22
+        ],
+        [
+          1.27,
+          58,
+          72,
+          40,
+          2.78,
+          16,
+          0.22
+        ],
+        [
+          1.27,
+          75,
+          90,
+          90,
+          2.78,
+          20,
+          0.22
+        ]
+      ]
+    }
+  }
 }

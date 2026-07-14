@@ -690,6 +690,14 @@
     ]
   },
   "ranges": {
+    "POL-0034": {
+      "yield_strength": 105,
+      "uts": 110,
+      "elongation": 60,
+      "modulus": 3.2,
+      "basis": "entry 는 Injection-Molded 인데 DB 값(σy 65 · UTS 81 · E 2.78GPa)이 Stratasys FDM(3D프린팅) datasheet 로 오염 — 사출 대비 저강도. FDM 소스 혼입이 원인. SABIC Ultem 1010 사출성형 실측으로 교정 (H5 W9++ 파생: 저 σy 가 고온곡선 23°C 앵커 게이트에서 곡선 드롭 유발).",
+      "src": "SABIC ULTEM Resin 1010 Technical Data Sheet (ISO 527 injection-molded: tensile stress at yield 105 MPa · tensile modulus 3200 MPa · strain at break 60% · stress at break 85 MPa) · UL Prospector Ultem 1010 (datasheet 351635)"
+    },
     "MET-0459": {
       "yield_strength": 345,
       "uts": 485,
