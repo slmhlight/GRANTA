@@ -1288,17 +1288,21 @@ export function htAlloySpecificFor(
 
   const fam = FAMILIES.find(f => f.familyName === familyName);
   if (!fam) return undefined;
+  // H5 — 조건 코드는 **최장(최특이) 우선** 매칭. htStr.includes(code) 는 "t651".includes("t6")=true 라
+  // 삽입순서상 t6 가 t651 보다 먼저면 T651 재료가 T6 조건으로 잘못 잡힌다(전 xx51 stretched temper 동일:
+  // T651⊃T6·T7351⊃T73·T351⊃T3). 코드 길이 내림차순 정렬로 특이 코드를 먼저 시도해 근본 해소.
+  const condEntries = Object.entries(fam.conditions).sort((a, b) => b[0].length - a[0].length);
   for (const family of [fam]) {
     // Try heat_treatment field first
     if (htStr) {
-      for (const [code, desc] of Object.entries(family.conditions)) {
+      for (const [code, desc] of condEntries) {
         if (htStr === code || htStr.startsWith(code + ' ') || htStr.includes(code)) {
           return { family, description: desc };
         }
       }
     }
     // Then try material name (for "17-4 PH — H900" pattern)
-    for (const [code, desc] of Object.entries(family.conditions)) {
+    for (const [code, desc] of condEntries) {
       const codeNorm = code.toLowerCase();
       // Match standalone code (e.g., "H900" as word, T6 as word)
       const re = new RegExp(`\\b${codeNorm.replace(/[+().°]/g, '\\$&')}\\b`, 'i');
