@@ -2585,6 +2585,151 @@ def fig_invar_valley():
     save(fig, "invar-valley")
 
 
+def fig_banana_diagram():
+    """AHSS 바나나 다이어그램 — 인장강도 vs 총연신율. 강도↑ 연신↓ 역상관 + 3세대가 빈칸을 채움 (개략)."""
+    fig, ax = plt.subplots(figsize=(9.2, 5.6))
+    pts = [
+        (300, 42, "연강·IF", 0), (340, 38, "BH", 0), (400, 33, "IF-HS", 0),
+        (450, 27, "HSLA", 1), (550, 23, "HSLA590", 1),
+        (600, 21, "DP600", 2), (780, 15, "DP780", 2), (980, 8, "DP980", 2),
+        (700, 27, "TRIP700", 2), (780, 24, "TRIP780", 2),
+        (800, 11, "CP800", 2), (1200, 5, "MART1200", 2), (1500, 4, "PHS·MART1500", 2),
+        (950, 50, "TWIP", 3), (1050, 44, "TWIP", 3),
+        (1000, 28, "Q&P·3세대", 3), (1180, 23, "Medium-Mn", 3),
+    ]
+    colors = {0: C_MUTE, 1: C_A, 2: C_M, 3: "#2f8f5f"}
+    labels_grp = {0: "연강·BH", 1: "재래 HSLA", 2: "AHSS 1세대 (DP·TRIP·CP·MART)", 3: "AHSS 3세대·TWIP"}
+    seen = set()
+    for uts, el, lab, grp in pts:
+        ax.scatter(uts, el, s=54, color=colors[grp], alpha=0.85, edgecolor="white", lw=0.6, zorder=4,
+                   label=labels_grp[grp] if grp not in seen else None)
+        seen.add(grp)
+        ax.annotate(lab, (uts, el), textcoords="offset points", xytext=(0, 7), fontsize=6.4, color=C_AX, ha="center")
+    bx = np.linspace(300, 1600, 60)
+    by = 55 * (300 / bx) ** 1.4
+    ax.plot(bx, by, color=C_MUTE, lw=1.1, ls="--", alpha=0.7, zorder=2)
+    ax.text(1230, 12, "재래강의 '바나나'\n강도↑ → 연신↓", fontsize=7.6, color=C_MUTE)
+    ax.annotate("3세대·TWIP 가\n바나나 위 빈칸을 채움", xy=(1000, 42), xytext=(1180, 48), fontsize=7.8, color="#2f8f5f",
+                arrowprops=dict(arrowstyle="->", color="#2f8f5f", lw=0.8))
+    ax.set_xlabel("인장강도 UTS (MPa)", fontsize=10, color=C_AX)
+    ax.set_ylabel("총 연신율 (%)", fontsize=10, color=C_AX)
+    ax.set_xlim(200, 1680); ax.set_ylim(0, 58)
+    ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.legend(loc="upper right", fontsize=7.6, frameon=False)
+    ax.set_title("AHSS 바나나 다이어그램 — 강도와 연성의 줄다리기 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.08, right=0.97, top=0.9, bottom=0.11)
+    save(fig, "banana-diagram")
+
+
+def fig_carbide_cobalt():
+    """초경합금 — Co 함량 vs 경도·인성 트레이드오프 (Co↑ → 경도↓·인성↑) (개략)."""
+    fig, ax = plt.subplots(figsize=(8.6, 5.2))
+    co = [6, 10, 15, 20, 25]
+    hv = [1600, 1500, 1350, 1150, 980]
+    kic = [9.5, 11, 13, 15.5, 18]
+    ax.plot(co, hv, color=C_M, lw=2.3, marker="o", ms=5.5, zorder=3)
+    ax.set_xlabel("Co 결합상 함량 (wt%)", fontsize=10, color=C_AX)
+    ax.set_ylabel("비커스 경도 HV", fontsize=10, color=C_M)
+    ax.tick_params(axis="y", labelcolor=C_M, labelsize=8)
+    ax.tick_params(axis="x", labelsize=8, colors=C_AX)
+    ax.set_xlim(4, 27); ax.set_ylim(800, 1760)
+    ax2 = ax.twinx()
+    ax2.plot(co, kic, color=C_A, lw=2.3, marker="s", ms=5.5, zorder=3)
+    ax2.set_ylabel("파괴인성 $K_{IC}$ (MPa$\\sqrt{\\mathrm{m}}$)", fontsize=10, color=C_A)
+    ax2.tick_params(axis="y", labelcolor=C_A, labelsize=8)
+    ax2.set_ylim(8, 20)
+    ax.spines["top"].set_visible(False); ax2.spines["top"].set_visible(False)
+    ax.annotate("6% — 절삭 인서트\n(경도·내마모)", xy=(6, 1600), xytext=(7.3, 1650), fontsize=7.2, color=C_M,
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=0.7))
+    ax.annotate("20~25% — 광산·프레스 다이\n(충격·인성)", xy=(24, 1000), xytext=(13.5, 880), fontsize=7.2, color=C_A,
+                arrowprops=dict(arrowstyle="->", color=C_A, lw=0.7))
+    ax.text(15, 1720, "● 경도 HV", fontsize=8.2, color=C_M, ha="center")
+    ax.text(21, 1720, "■ 인성 K_IC", fontsize=8.2, color=C_A, ha="center")
+    ax.set_title("초경합금(WC-Co) — Co 가 경도와 인성을 맞바꾼다 (개략, ~1 μm WC)", fontsize=11, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.10, right=0.88, top=0.9, bottom=0.11)
+    save(fig, "carbide-cobalt")
+
+
+def fig_nylon_moisture():
+    """폴리아미드 흡습 — 습도에 따른 강도·강성 저하(가소화). 신율·인성은 반대로 상승 (개략, PA66)."""
+    fig, ax = plt.subplots(figsize=(8.6, 5.0))
+    rh = [0, 20, 50, 80, 100]
+    strength = [100, 88, 71, 60, 52]
+    modulus = [100, 78, 47, 35, 30]
+    ax.plot(rh, strength, color=C_M, lw=2.3, marker="o", ms=5.5, label="인장강도")
+    ax.plot(rh, modulus, color=C_A, lw=2.3, marker="s", ms=5.5, label="탄성률(강성)")
+    ax.axvline(50, color=C_MUTE, lw=0.8, ls=":")
+    ax.text(51.5, 95, "표준 조습\n(50% RH)", fontsize=7.2, color=C_MUTE)
+    ax.annotate("흡습하면 신율·충격인성은 반대로 크게 오름\n(가소화 — 물이 사슬 사이 윤활)", xy=(82, 42), xytext=(16, 26),
+                fontsize=7.6, color="#2f8f5f", arrowprops=dict(arrowstyle="->", color="#2f8f5f", lw=0.8))
+    ax.set_xlabel("상대습도 / 흡습 수준 (%)", fontsize=10, color=C_AX)
+    ax.set_ylabel("물성 유지율 (건조 DAM = 100%)", fontsize=10, color=C_AX)
+    ax.set_xlim(-3, 103); ax.set_ylim(20, 106)
+    ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.legend(loc="upper right", fontsize=8.4, frameon=False)
+    ax.set_title("폴리아미드(나일론) 흡습 효과 — 강도·강성은 내리고 인성은 올린다 (개략, PA66)", fontsize=10.5, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.10, right=0.97, top=0.9, bottom=0.11)
+    save(fig, "nylon-moisture")
+
+
+def fig_cfrp_laminate():
+    """CFRP 적층 설계 — 층 배향에 따른 면내 강성(Ex). 같은 재료라도 층 방향이 강성을 정한다 (개략)."""
+    fig, ax = plt.subplots(figsize=(8.8, 5.0))
+    rows = [
+        ("UD 0° (섬유 방향)", 130, "최고 강성"),
+        ("[0/90] 크로스플라이", 70, "두 방향 균형"),
+        ("준등방 [0/±45/90]", 50, "면내 등방(기본)"),
+        ("±45°", 17, "전단·비틀림 담당"),
+        ("UD 90° (횡방향)", 9, "최저(수지 지배)"),
+    ]
+    y = np.arange(len(rows))[::-1]
+    for yi, (name, E, note) in zip(y, rows):
+        ax.barh(yi, E, height=0.56, color=C_A, alpha=0.82)
+        ax.text(-2, yi, name, va="center", ha="right", fontsize=8.4, color=C_AX)
+        ax.text(E + 2, yi, f"{E} GPa", va="center", fontsize=8.2, color=C_A, fontweight="bold")
+        ax.text(E + 22, yi, note, va="center", fontsize=7.0, color=C_MUTE)
+    ax.axvline(70, color=C_MUTE, lw=0.8, ls=":")
+    ax.text(71, len(rows) - 0.42, "Al ~70 참고", fontsize=7.0, color=C_MUTE)
+    ax.set_xlabel("면내 탄성률 Ex (GPa) — 탄소/에폭시 UD E₁~130 · E₂~9 기준", fontsize=9.2, color=C_AX)
+    ax.set_xlim(0, 165); ax.set_ylim(-0.8, len(rows) - 0.05)
+    ax.set_yticks([]); ax.tick_params(labelsize=8, colors=C_AX)
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.set_title("CFRP 적층 설계 — 층 방향이 강성을 만든다 (개략)", fontsize=11, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.23, right=0.97, top=0.9, bottom=0.12)
+    save(fig, "cfrp-laminate")
+
+
+def fig_galling_mechanism():
+    """갈링(응착 마모) 3단계 — 돌기 접촉 → 냉간압접(응착) → 찢김·전이. 기구 모식 (개략)."""
+    fig, axes = plt.subplots(1, 3, figsize=(9.6, 3.7))
+    steps = ["① 돌기 접촉", "② 응착 (냉간압접)", "③ 찢김·전이"]
+    for k, (ax, title) in enumerate(zip(axes, steps)):
+        xs = np.linspace(0, 1, 200)
+        top = 0.62 + 0.03 * np.sin(xs * 40) + 0.02 * np.sin(xs * 13)
+        bot = 0.38 - 0.03 * np.sin(xs * 38 + 1) - 0.02 * np.sin(xs * 11)
+        ax.fill_between(xs, top, 0.98, color="#b9c2cc", alpha=0.9)
+        ax.fill_between(xs, 0.02, bot, color="#cdd4dc", alpha=0.9)
+        ax.plot(xs, top, color=C_AX, lw=1.0); ax.plot(xs, bot, color=C_AX, lw=1.0)
+        ax.annotate("", xy=(0.86, 0.82), xytext=(0.56, 0.82), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.6))
+        ax.annotate("", xy=(0.14, 0.18), xytext=(0.44, 0.18), arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.6))
+        if k == 0:
+            ax.plot(0.5, 0.5, "o", color=C_M, ms=6, zorder=5)
+            ax.text(0.5, 0.06, "돌기끼리 실접촉\n(진실 접촉면적 작음)", ha="center", fontsize=7.2, color=C_MUTE)
+        elif k == 1:
+            ax.add_patch(Circle((0.5, 0.5), 0.05, facecolor=C_M, alpha=0.4, edgecolor=C_M, lw=1.3, zorder=5))
+            ax.text(0.5, 0.06, "국부 압력·청정면 →\n원자결합(냉간압접)", ha="center", fontsize=7.2, color=C_MUTE)
+        else:
+            ax.add_patch(Polygon([(0.6, 0.4), (0.68, 0.5), (0.62, 0.6), (0.53, 0.5)], facecolor="#cdd4dc", edgecolor=C_M, lw=1.3, zorder=5))
+            ax.text(0.5, 0.06, "약한 쪽이 뜯겨 상대면에 전이\n→ 표면 융기·긁힘(galled)", ha="center", fontsize=7.2, color=C_MUTE)
+        ax.set_title(title, fontsize=10, color=C_AX, fontweight="bold")
+        ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.set_aspect("equal"); ax.axis("off")
+    fig.suptitle("갈링(응착 마모) — 같은 금속끼리 눌러 미끄러지면 들러붙어 뜯긴다 (개략)", fontsize=11, color=C_AX, y=1.0)
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.8, bottom=0.03, wspace=0.08)
+    save(fig, "galling-mechanism")
+
+
 if __name__ == "__main__":
     fig_martensite_lattice()
     fig_fcc_bcc()
@@ -2648,4 +2793,9 @@ if __name__ == "__main__":
     fig_mmc_stiffness()
     fig_superelasticity()
     fig_invar_valley()
+    fig_banana_diagram()
+    fig_carbide_cobalt()
+    fig_nylon_moisture()
+    fig_cfrp_laminate()
+    fig_galling_mechanism()
     print("done →", os.path.abspath(OUT))

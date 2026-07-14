@@ -152,6 +152,23 @@ describe('glossary A4 본문(articles) 무결성', () => {
     }
     expect(bad, bad.join('\n')).toEqual([]);
   });
+  // H5 W15 — 무도표 확정 유지(사유 명문). 새 무도표 article 은 도표를 넣거나 여기 사유와 함께 등재.
+  it('무도표 article 은 ≤6 이며 전부 사유 명문', () => {
+    const DOCUMENTED_NO_FIGURE: Record<string, string> = {
+      pren: '수식 중심(PREN = Cr+3.3Mo+16N) — 단일 도표보다 식이 본체',
+      'sour-service': '규격 중심(NACE MR0175/ISO 15156) — 도표보다 조건표',
+      'residual-stress': '원인(용접·주조·가공·상변태) 다양 — 대표 1장으로 오도 우려',
+      'sigma-phase': '개념(취성 금속간상) — sensitization/ferrite-micro 로 대체 설명',
+      intermetallic: '광범위 개념(수백 화합물) — 대표 단일 도표 부적절',
+      'zirconium-alloy': '표(세대·핵심물성)가 골격 — W12 정량 표 2종',
+    };
+    const noFig = Object.entries(articles)
+      .filter(([, a]) => !(a.sections || []).some((s: any) => s.figure))
+      .map(([slug]) => slug);
+    const undocumented = noFig.filter((s) => !DOCUMENTED_NO_FIGURE[s]);
+    expect(undocumented, `무도표인데 사유 미등재: ${undocumented.join(', ')}`).toEqual([]);
+    expect(noFig.length, `무도표 ${noFig.length} > 6`).toBeLessThanOrEqual(6);
+  });
 });
 
 /* ── glossary-link.ts 매처 (R227/E14/H4b — 흡수 통합) ──
