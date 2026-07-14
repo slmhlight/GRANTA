@@ -265,32 +265,6 @@
     "Austenitic"
   ],
   "fatigue_estimated": false,
-  "elevated_temp": [
-    {
-      "temp": 20,
-      "ys": 250,
-      "uts": 580,
-      "E": 195
-    },
-    {
-      "temp": 300,
-      "ys": 150,
-      "uts": 450,
-      "E": null
-    },
-    {
-      "temp": 500,
-      "ys": 130,
-      "uts": 400,
-      "E": null
-    },
-    {
-      "temp": 600,
-      "ys": 120,
-      "uts": 330,
-      "E": 153
-    }
-  ],
   "electrical_conductivity": 2.4,
   "max_service_temp": 870,
   "thermal_expansion": 17.3,
@@ -311,23 +285,6 @@
   "rohs_compliant": true,
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
-  ],
-  "creep_rupture": [
-    {
-      "temp": 600,
-      "stress": 150,
-      "hours": 1000
-    },
-    {
-      "temp": 700,
-      "stress": 60,
-      "hours": 1000
-    },
-    {
-      "temp": 800,
-      "stress": 20,
-      "hours": 1000
-    }
   ],
   "confidence_tier": "high",
   "industry_note": "UNS S30403 / SUS304L / 1.4307 — 304 의 ELC (C ≤ 0.030%) 변종. Sensitization 회피로 용접 후 PWHT 불필요. σy ≈ 170 / UTS ≈ 485 / El 40% (304 대비 5% 낮은 강도, 더 좋은 weldability). 식품·의약·반도체 super-clean piping (EP polish Ra<0.4) 표준. 08 은 잘못 (정정값: ≤0.030).",

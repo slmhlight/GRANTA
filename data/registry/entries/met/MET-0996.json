@@ -262,32 +262,6 @@
     "Austenitic"
   ],
   "fatigue_estimated": false,
-  "elevated_temp": [
-    {
-      "temp": 20,
-      "ys": 290,
-      "uts": 580,
-      "E": 200
-    },
-    {
-      "temp": 300,
-      "ys": 190,
-      "uts": 480,
-      "E": null
-    },
-    {
-      "temp": 500,
-      "ys": 150,
-      "uts": 430,
-      "E": null
-    },
-    {
-      "temp": 600,
-      "ys": 140,
-      "uts": 360,
-      "E": 156
-    }
-  ],
   "electrical_conductivity": 2.3,
   "max_service_temp": 870,
   "thermal_expansion": 16,
@@ -310,6 +284,38 @@
   "rohs_compliant": true,
   "svhc_concerns": [
     "Ni 13% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
+  ],
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 220,
+      "uts": 550,
+      "E": 200
+    },
+    {
+      "temp": 200,
+      "ys": 170,
+      "uts": 480,
+      "E": 191
+    },
+    {
+      "temp": 400,
+      "ys": 140,
+      "uts": 430,
+      "E": 174
+    },
+    {
+      "temp": 600,
+      "ys": 115,
+      "uts": 370,
+      "E": 156
+    },
+    {
+      "temp": 800,
+      "ys": 80,
+      "uts": 220,
+      "E": 132
+    }
   ],
   "creep_rupture": [
     {

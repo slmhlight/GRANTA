@@ -3002,16 +3002,22 @@ function elevPatternMatch(name, pattern) {
   }
   return false;
 }
+// H5 W9+ — 곡선 조건별 분화(23°C 앵커 게이팅): ELEV_DATA/REAL_PROPS 곡선은 특정 조건(annealed·T6·Q+T 등)을 대표.
+//   곡선 RT(≤30°C) ys 가 이 entry 의 RT σy 와 ±40%(ratio 1.4) 밖이면 다른 조건 → 미부착.
+//   대표 조건만 곡선을 받고 off-peak 조건은 곡선 미표시(조건별 데이터 없음을 정직하게 — 스케일링=합성 금지).
+//   앵커 판정 불가(σy·곡선ys 결측) 시 기존대로 통과.
+function elevAnchorOk(m, curve) {
+  const rtSy = m.yield_strength ?? m.ranges?.yield_strength?.typical;
+  const c = curve?.find?.(p => p.temp <= 30)?.ys ?? curve?.[0]?.ys;
+  if (!rtSy || !c) return true;
+  return Math.max(c, rtSy) / Math.min(c, rtSy) <= 1.4;
+}
 function injectTempCurves(m) {
   if (!m || !m.name) return;
   const n = String(m.name).toLowerCase();
   for (const [pattern, data] of Object.entries(ELEV_DATA)) {
     if (elevPatternMatch(n, pattern)) {
-      // H5 W9+ — 구조용 탄소강이 마르텐사이트-SS/공구강 곡선에 오매칭(예: SHN420·SM420C 가 '420' martensitic 곡선에)하는 잔여 차단:
-      //   subcategory 가 탄소강인데 곡선 RT 강도가 자기 RT σy 를 1.5× 초과하면 타-계열 곡선 → 스킵.
-      const rtSy = m.yield_strength ?? m.ranges?.yield_strength?.typical;
-      const curveRt = data.elevated_temp?.find(p => p.temp <= 30)?.ys ?? data.elevated_temp?.[0]?.ys;
-      if (/carbon steel/i.test(m.subcategory || '') && rtSy && curveRt && curveRt > rtSy * 1.5) continue;
+      if (!elevAnchorOk(m, data.elevated_temp)) continue;   // 조건 불일치(off-peak) → 부착 안 함
       if (!m.elevated_temp || m.elevated_temp.length === 0) {
         m.elevated_temp = data.elevated_temp;
       } else {
@@ -3070,7 +3076,7 @@ for (const m of all) {
       m.ranges.impact_strength.provenance = rpTag;
       m.impact_strength = m.ranges.impact_strength.typical;
     }
-    if (rp.elevated_temp) m.elevated_temp = rp.elevated_temp;
+    if (rp.elevated_temp && elevAnchorOk(m, rp.elevated_temp)) m.elevated_temp = rp.elevated_temp;   // H5 W9+ 조건별 앵커 게이팅
   }
   /* R109 — alloy-specific fatigue + impact (handbook) 적용. realPropsFor 없을 때만 (realPropsFor 는 핵심 11종 고정밀).
      R129 — HT condition multiplier 적용: peak-aged baseline 대비 condition-scaled.
@@ -4517,6 +4523,17 @@ for (const m of all) {
   }
 }
 console.log(`R144c — specs: ${withSpec}/${all.length} materials matched, ${totalSpecs} total spec refs`);
+
+// H5 W9++ — 조건별 곡선 분화 최종 게이트: 조건별 σy(strain-hardened↑·annealed↓) 조정이 injectTempCurves 이후
+//   pass 에서 적용되므로, 최종 σy 기준으로 앵커 재검. base σy 로 통과했던 off-peak 잔여(cold-worked SS 등) 제거.
+//   ELEV_DATA/REAL_PROPS 곡선만 대상(by_id Granta 곡선은 build:data 단계에서 자체 앵커 게이팅).
+let elevDropped2 = 0;
+for (const m of all) {
+  if (m.elevated_temp && m.elevated_temp.length && !elevAnchorOk(m, m.elevated_temp)) {
+    delete m.elevated_temp; delete m.creep_rupture; elevDropped2++;
+  }
+}
+if (elevDropped2) console.log(`H5 W9++ — 최종 σy 앵커 불일치 elevated_temp ${elevDropped2} 제거 (조건 분화)`);
 
 const liveJson = path.join(ROOT, 'client', 'public', 'materials.json');
 const backup = path.join(DATA, 'materials.original.json');

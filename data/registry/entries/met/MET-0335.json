@@ -329,32 +329,6 @@
     "Cobalt-based"
   ],
   "fatigue_estimated": false,
-  "elevated_temp": [
-    {
-      "temp": 20,
-      "ys": 450,
-      "uts": 655,
-      "E": 230
-    },
-    {
-      "temp": 540,
-      "ys": 380,
-      "uts": 560,
-      "E": null
-    },
-    {
-      "temp": 760,
-      "ys": 280,
-      "uts": 420,
-      "E": null
-    },
-    {
-      "temp": 870,
-      "ys": 180,
-      "uts": 280,
-      "E": null
-    }
-  ],
   "electrical_conductivity": 1.5,
   "max_service_temp": 600,
   "thermal_expansion": 12.5,
@@ -375,5 +349,31 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
+  "elevated_temp": [
+    {
+      "temp": 25,
+      "ys": 500,
+      "uts": 800,
+      "E": 230
+    },
+    {
+      "temp": 200,
+      "ys": 460,
+      "uts": 760,
+      "E": 220
+    },
+    {
+      "temp": 400,
+      "ys": 420,
+      "uts": 700,
+      "E": 200
+    },
+    {
+      "temp": 600,
+      "ys": 400,
+      "uts": 600,
+      "E": 180
+    }
+  ],
   "confidence_tier": "high"
 }
