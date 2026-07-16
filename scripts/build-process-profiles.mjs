@@ -52,6 +52,14 @@ for (const [src, tbl] of Object.entries(CREC.assignment)) {
   }
 }
 
+// H6 E15 — 부식(corrosion) 가이드 그룹(corr) 매핑 SSOT — cg 와 완전 동형 (순수 키 조회, regex 0)
+const CORRG = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'corrosion-guidance.json'), 'utf8'));
+for (const [src, tbl] of Object.entries(CORRG.assignment)) {
+  for (const [k, v] of Object.entries(tbl)) {
+    if (!CORRG.groups[v]) { console.error(`❌ corrosion-guidance assignment.${src}.${k} → 미정의 그룹 '${v}'`); process.exit(1); }
+  }
+}
+
 // R226p Phase 5b — family-color 분류기 (client/src/lib/material-colors.ts CLASSES 파싱)
 const COLOR_CLASSES = parseColorClasses(path.join(ROOT, 'client', 'src', 'lib', 'material-colors.ts'));
 if (COLOR_CLASSES.length < 10) { console.error(`❌ material-colors.ts CLASSES 파싱 실패 — ${COLOR_CLASSES.length}개만 추출`); process.exit(1); }
@@ -91,6 +99,11 @@ for (const cc of fs.readdirSync(REG)) {
       || (a.insight && CREC.assignment.by_insight[a.insight])
       || CREC.assignment.by_category[rec.category] || null;
     if (cg) a.cg = cg;
+    // H6 E15 — 부식 가이드 그룹: cg 와 동형 (mach → insight → category)
+    const corr = (a.mach && CORRG.assignment.by_mach[a.mach])
+      || (a.insight && CORRG.assignment.by_insight[a.insight])
+      || CORRG.assignment.by_category[rec.category] || null;
+    if (corr) a.corr = corr;
     assignments[sid] = a;   // 빈 {} 라도 레코드 존재 = "분류 완료·해당 없음" 명시
     count++;
   }

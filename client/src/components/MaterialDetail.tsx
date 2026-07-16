@@ -17,6 +17,8 @@ import { computeCET, computeCEIIW, computePcm, computeSchaeffler, machiningCostB
 import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote, resolveMachiningGuidance, machinabilitySources, resolveInsights, insightPickMatches, resolveHtGuidanceTexts, resolveWeldGuidance, resolveWeldConditionNote, machinabilityConditionMult } from '@/lib/process-guidance';
 /* R222c — recharts(~150KB)는 아래에서 lazy 로드 (elev-temp/creep 데이터 있는 재료의 탭이 열릴 때만). */
 import { resolveCoatingPlan, PURPOSE_LABEL } from '@/lib/coatings';
+/* H6 E15 — 부식 카드: 그룹 SSOT(corrosion-guidance.json) + 빌드 스탬프 profiles.corr + PREN. */
+import { resolveCorrosionPlan, VERDICT_LABEL, RISK_LABEL } from '@/lib/corrosion-guidance';
 /* R157b — MaterialDetail 의 sub-components 분리. */
 import { SourcesList } from '@/components/material-detail/SourcesList';
 import { RangeRow, fmt } from '@/components/material-detail/RangeRow';
@@ -1024,6 +1026,60 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 <p className="text-[10px] text-muted-foreground mt-1">{t('detail.regulated.note')}</p>
               </div>
             )}
+            {/* H6 E15: 부식 성격·취약 모드 — 그룹 SSOT(빌드 스탬프 profiles.corr → corrosion-guidance.json).
+                단일 등급이 모드별 취약(Cl-SCC·공식·입계)을 가리지 않도록 모드 캐비엇 병기.
+                역할 분리: 이 카드=성격/취약 모드 · 아래 코팅 카드=표면 대책. */}
+            {(() => {
+              const cp = resolveCorrosionPlan(material);
+              if (!cp) return null;
+              return (
+                <div className="mt-3 rounded border border-cyan-600/30 bg-cyan-50/40 p-2.5">
+                  <p className="text-[11px] font-semibold text-cyan-800 mb-1 uppercase tracking-wide flex items-center gap-2 flex-wrap">
+                    Corrosion · 부식 성격 — {cp.group.title}
+                    {cp.rating && <span className="text-[9px] px-1 rounded bg-cyan-600/15 text-cyan-800 border border-cyan-600/30 normal-case">종합 {cp.rating}</span>}
+                    {cp.pren && (
+                      <span
+                        className="text-[9px] px-1 rounded bg-cyan-600/15 text-cyan-800 border border-cyan-600/30 normal-case"
+                        title={`PREN = Cr + 3.3·Mo + 16·N — 염화물 공식(pitting) 저항 지표.${cp.pren.nMissing ? ' N 조성 미기재 → 0 가정(하한값).' : ''}`}
+                      >
+                        PREN ≈ {cp.pren.value}{cp.pren.nMissing ? ' (N=0 하한)' : ''}
+                      </span>
+                    )}
+                  </p>
+                  <p className="text-[10px] text-foreground/75 mb-1.5 leading-relaxed">{cp.group.intro}</p>
+                  <div className="space-y-0.5 mb-1.5">
+                    {cp.group.media.map((md, i) => {
+                      const v = VERDICT_LABEL[md.verdict];
+                      return (
+                        <p key={i} className="text-[10.5px] leading-snug">
+                          <span className="text-foreground/80">{md.env}</span>
+                          {' — '}<b className={v.cls}>{v.label}</b>
+                          {md.note && <span className="text-muted-foreground"> · {md.note}</span>}
+                        </p>
+                      );
+                    })}
+                  </div>
+                  {cp.group.modes.length > 0 && (
+                    <div className="space-y-0.5 border-t border-cyan-600/15 pt-1.5">
+                      {cp.group.modes.map((mo, i) => {
+                        const r = RISK_LABEL[mo.risk];
+                        return (
+                          <p key={i} className="text-[10.5px] leading-snug">
+                            <span className={mo.risk === 'high' ? 'text-rose-700' : 'text-foreground/80'}>{mo.risk === 'high' ? '⚠ ' : ''}{mo.mode}</span>
+                            {' — 위험도 '}<b className={r.cls}>{r.label}</b>
+                            {mo.note && <span className="text-muted-foreground"> · {mo.note}</span>}
+                          </p>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {cp.group.caution && <p className="text-[10px] text-amber-700 mt-1.5">⚠ {cp.group.caution}</p>}
+                  {cp.conditionNotes.map((n, i) => <p key={i} className="text-[10px] text-amber-700 mt-1">⚠ {n}</p>)}
+                  <p className="text-[10px] text-foreground/60 mt-1.5">표면 대책(도금·아노다이즈 등)은 아래 <b>권장 후공정</b> 카드 참조.</p>
+                  <p className="text-[9px] text-muted-foreground mt-1.5 pt-1 border-t border-cyan-600/15"><b>출처</b>: {cp.group.sources.join(' · ')} — 일반 관행 요약, 설계 검증 대체 불가.</p>
+                </div>
+              );
+            })()}
             {/* R226s/E10: 권장 후공정 — 합금 그룹별 목적·근거 기반 추천 (빌드 스탬프 profiles.cg → coating-recommendations.json) */}
             {(() => {
               const plan = resolveCoatingPlan(material);
