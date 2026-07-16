@@ -124,11 +124,19 @@ describe('개별 합금 노트 (E15c — base-키 조회)', () => {
     const stale = Object.keys((g as any).alloy_notes).filter((k) => !k.startsWith('_') && !bases.has(k));
     expect(stale, `재료와 매칭 안 되는 alloy_notes 키: ${stale.join(', ')}`).toEqual([]);
   });
-  it('앵커 — 304(PREN 언급)·7075(T73 과시효)·2205 는 개별 노트, 무등재 합금은 null', () => {
+  it('E15d — corr 스탬프 전 엔트리가 개별 노트 해석 (636 base 100% 커버 게이트)', () => {
+    const missing = new Set<string>();
+    for (const m of mats) {
+      if (!(m.profiles as any)?.corr) continue;
+      if (alloyNoteFor(m.name) === null) missing.add(m.name.split(' — ')[0].trim());
+    }
+    expect([...missing], `alloy_notes 누락 base: ${[...missing].join(', ')}`).toEqual([]);
+  });
+  it('앵커 — 304(PREN 언급)·7075(T73 과시효)·2205(CPT)·1010(도금 모재)·PEEK·Ta', () => {
     expect(alloyNoteFor('AISI 304 — Annealed (Wrought)')).toMatch(/PREN ~19/);
     expect(alloyNoteFor('AA 7075 — T6')).toMatch(/T73/);
     expect(alloyNoteFor('2205 Duplex Stainless')).toMatch(/CPT/);
-    expect(alloyNoteFor('AISI 1010 — Annealed (Wrought)')).toBeNull();
+    expect(alloyNoteFor('AISI 1010 — Annealed (Wrought)')).toMatch(/도금 모재/);
   });
   it('resolveCorrosionPlan 이 alloyNote 를 노출', () => {
     const p = resolveCorrosionPlan(byName('AISI 304 — Annealed (Wrought)')!)!;
