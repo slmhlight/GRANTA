@@ -425,6 +425,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     ))}
                   </tbody>
                 </table>
+                {/* H6 G3-1 — 곡선 출처 명시 (원칙 3). "개별 인용 미기재" 는 재검증 대기의 정직한 표기. */}
+                {material.elevated_temp_src && (
+                  <p className="text-[10px] text-muted-foreground mt-1">출처: {material.elevated_temp_src}</p>
+                )}
               </div>
             )}
             {/* R20: Creep rupture (log–log, one line per temperature) */}

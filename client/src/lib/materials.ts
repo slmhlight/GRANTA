@@ -93,6 +93,8 @@ export interface Material {
   popularity?: number | null; // 0–5, 산업 사용 빈도 휴리스틱 (5 = 가장 흔히 쓰이는 표준 합금)
   /** R20: Tensile properties at elevated temperature. E (Young's modulus, GPa) 추가. */
   elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null; E?: number | null }>;
+  /** H6 G3-1 — 고온 데이터(곡선·크리프) 출처. 인라인 배치(R20~C3)·REAL_PROPS·by_id(Granta) 전파. */
+  elevated_temp_src?: string;
   /** R20: Creep rupture data — Larson-Miller / stress-time-temperature 표면용. 100h, 1000h, 10000h, 100000h 표준. */
   creep_rupture?: Array<{ temp: number; stress: number; hours: number }>;
   heat_treatment?: string | null;
