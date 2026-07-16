@@ -2,7 +2,7 @@
   "stable_id": "MET-0765",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-stainless-steel-austenitic",
+    "subcategory": "F-MET-stainless-steel-duplex",
     "alloy_base": "F-AB-superduplex-stainless",
     "element_families": [
       "F-EL-iron-based"
@@ -13,7 +13,7 @@
   "id": "C_0067",
   "name": "Superduplex Stainless — Heat-Treated",
   "category": "Metal",
-  "subcategory": "Stainless Steel - Austenitic",
+  "subcategory": "Stainless Steel - Duplex",
   "tier": "curated",
   "manufacturers": [
     "EOS"
@@ -321,5 +321,10 @@
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "subcategory": {
+      "from": "Stainless Steel - Austenitic"
+    }
+  }
 }

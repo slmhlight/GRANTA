@@ -166,6 +166,8 @@ for (const r of records) {
 
 // 4c) R226 P4 — ID-키 값 교정 (가짜 variant 실제값; data/corrections/ — H6 D5 분할).
 //     원본값을 _corrections 에 보존 → 라운드트립이 "무손실 + 문서화된 교정"임을 증명.
+// fields 교정 허용 키 — 적용(4c)과 라운드트립 복원이 같은 목록을 공유해야 무손실 유지.
+const FIELD_CORR_KEYS = ['name', 'process', 'heat_treatment', 'corrosion_resistance', 'machinability', 'weldability'];
 let corrApplied = 0;
 try {
   const corr = CORRECTIONS;
@@ -226,11 +228,14 @@ try {
         r.points = [PO.map(p => { const v = r.ranges && r.ranges[p] && r.ranges[p].typical; return (typeof v === 'number' && isFinite(v)) ? v : null; })];
       }
     }
-    // 비-수치 필드 교정 (name·process·heat_treatment) — 잘못된 라벨/공정 수정. ID 는 freeze 라 불변.
+    // 비-수치 필드 교정 (name·process·heat_treatment·정성등급) — 잘못된 라벨/공정/등급 수정. ID 는 freeze 라 불변.
     const fx = corr.fields && corr.fields[r.stable_id];
     if (fx) {
       ch.fields = {};
-      for (const k of ['name', 'process', 'heat_treatment']) if (fx[k] != null) { ch.fields[k] = { from: (k in r) ? r[k] : null }; r[k] = fx[k]; }
+      for (const k of FIELD_CORR_KEYS) if (fx[k] != null) { ch.fields[k] = { from: (k in r) ? r[k] : null }; r[k] = fx[k]; }
+      // 화이트리스트 밖 키는 silent skip 금지 — 오타·미지원 필드를 빌드에서 즉시 노출
+      const unknown = Object.keys(fx).filter(k => !FIELD_CORR_KEYS.includes(k) && !['basis', 'src'].includes(k));
+      if (unknown.length) { console.error(`❌ fields 교정 미지원 키 (${r.stable_id}): ${unknown.join(', ')} — FIELD_CORR_KEYS 확장 필요`); process.exit(1); }
       ch._fbasis = fx.basis; ch._fsrc = fx.src;
     }
     // 제거 후 잔존한 mill-annealed(astm default) = 단일조건 alloy → placeholder 라벨을 "Annealed" 로 정직화 (합금 보존).
@@ -311,7 +316,7 @@ for (const cc of fs.readdirSync(entriesRoot)) {
         if (c[p].had_range) rec.ranges[p] = (c[p].val_range === undefined ? null : c[p].val_range); else delete rec.ranges[p];
         if (c[p].had_scalar) rec[p] = (c[p].val_scalar === undefined ? null : c[p].val_scalar); else delete rec[p];
       }
-      if (c.fields) for (const k of ['name', 'process', 'heat_treatment']) if (c.fields[k]) { if (c.fields[k].from == null) delete rec[k]; else rec[k] = c.fields[k].from; }
+      if (c.fields) for (const k of FIELD_CORR_KEYS) if (c.fields[k]) { if (c.fields[k].from == null) delete rec[k]; else rec[k] = c.fields[k].from; }
       if (c.subcategory) rec.subcategory = c.subcategory.from;   // Ti 재분류 등 — 원본 subcat 복원
       if (c.points) rec.points = c.points.from;   // 재생성된 points → 원본(CSV) 복원
       if (c.sources) rec.sources = c.sources.from;   // generic 출처 업그레이드 → 원본 복원

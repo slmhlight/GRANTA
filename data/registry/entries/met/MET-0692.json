@@ -2,7 +2,7 @@
   "stable_id": "MET-0692",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-stainless-steel-austenitic",
+    "subcategory": "F-MET-stainless-steel-duplex",
     "alloy_base": "F-AB-2304-lean-duplex",
     "element_families": [
       "F-EL-iron-based"
@@ -13,7 +13,7 @@
   "id": "R_0124",
   "name": "2304 lean duplex",
   "category": "Metal",
-  "subcategory": "Stainless Steel - Austenitic",
+  "subcategory": "Stainless Steel - Duplex",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -300,5 +300,10 @@
   "svhc_concerns": [
     "Ni 5.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "subcategory": {
+      "from": "Stainless Steel - Austenitic"
+    }
+  }
 }
