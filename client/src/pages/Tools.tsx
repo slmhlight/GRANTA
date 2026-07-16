@@ -379,7 +379,7 @@ function KtCalc() {
         K<sub>t</sub> ≈ <b className="text-base">{kt.toFixed(2)}</b>
       </div>
       <p className="text-[11px] text-muted-foreground mt-2">설계 응력 = σ × K<sub>t</sub>. 피로 고려 시 K<sub>f</sub> = 1 + q·(K<sub>t</sub>−1) (q: 강 0.9·Al 0.6·취성 0).</p>
-      <Link href="/guide#ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 노치·좌굴 →</Link>
+      <Link href="/guide/ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 노치·좌굴 →</Link>
     </div>
   );
 }
@@ -430,7 +430,7 @@ function GalvanicCalc() {
         <p className="text-[12px] mt-1">{advice}</p>
       </div>
       <p className="text-[11px] text-muted-foreground mt-2">기준: 해수 (3.5% NaCl) at 25°C, vs Ag/AgCl. 산성·고온에서 더 위험.</p>
-      <Link href="/guide#ch10" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.3 환경별 합금 →</Link>
+      <Link href="/guide/ch10" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.3 환경별 합금 →</Link>
     </div>
   );
 }
@@ -463,7 +463,7 @@ function BucklingCalc() {
         <div className="text-base">P_cr ≈ <b>{Pcr.toFixed(1)} kN</b></div>
       </div>
       <p className="text-[11px] text-muted-foreground mt-2">설계 안전계수 SF = P_cr / P_applied. 항공 SF ≥ 1.5, 일반 ≥ 2.</p>
-      <Link href="/guide#ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 좌굴 이론 →</Link>
+      <Link href="/guide/ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 좌굴 이론 →</Link>
     </div>
   );
 }
@@ -494,7 +494,7 @@ function CTEMismatch() {
         <div className="text-base">σ_th ≈ <b>{sigma.toFixed(0)} MPa</b></div>
       </div>
       <p className="text-[11px] text-muted-foreground mt-2">참고: Al 23 · Steel 12 · Ti 9 · Invar 1.3 · CFRP ≈0 · 세라믹 5-8 (×10⁻⁶/K).</p>
-      <Link href="/guide#ch11" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.9 #9 CTE mismatch →</Link>
+      <Link href="/guide/ch11" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.9 #9 CTE mismatch →</Link>
     </div>
   );
 }
@@ -521,7 +521,7 @@ function HardnessConv() {
         <div className="text-emerald-700 mt-1 pt-1 border-t border-border/30">UTS 추정 ≈ <b>{UTS.toFixed(0)} MPa</b></div>
       </div>
       <p className="text-[11px] text-muted-foreground mt-2">UTS ≈ 3.45 × HV (탄소강). 다른 합금은 vendor datasheet 사용.</p>
-      <Link href="/guide#ch1" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.4 물성 사전 →</Link>
+      <Link href="/guide/ch1" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.4 물성 사전 →</Link>
     </div>
   );
 }
@@ -552,7 +552,7 @@ function PressureVessel() {
         <div className="text-[11px] mt-1">t/r = {(t / r).toFixed(3)} {thick && <span className="text-amber-700">· 두꺼운 벽 — Lame 식 권장</span>}</div>
       </div>
       <p className="text-[11px] text-muted-foreground mt-2">ASME B&PV Sec. VIII SF ≥ 3 (UTS) · 1.5 (σy). 부식 여유 (corrosion allowance) 1-3 mm 추가.</p>
-      <Link href="/guide#ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 압력용기 →</Link>
+      <Link href="/guide/ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 압력용기 →</Link>
     </div>
   );
 }
@@ -611,7 +611,7 @@ function LMPCalc() {
         <div className="text-emerald-700">→ T₂={T2}°C 에서 같은 LMP 의 수명 ≈ <b className="text-base">{t2.toExponential(2)} h</b></div>
       </div>
       <p className="text-[11px] text-muted-foreground mt-1">전형: P91 σ=100 MPa LMP ≈ 22.5. Inconel 718 σ=400 MPa LMP ≈ 24. ECCC datasheets 참고.</p>
-      <Link href="/guide#ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.10 LMP →</Link>
+      <Link href="/guide/ch9" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.10 LMP →</Link>
     </div>
   );
 }
@@ -669,7 +669,7 @@ function MohrCalc() {
         <div>τ_max = <b>{tmax.toFixed(1)}</b> MPa · 회전각 = <b>{angle.toFixed(1)}°</b></div>
         <div className="text-emerald-700 mt-1 pt-1 border-t border-border/30">von Mises σ_eq = √(σ₁² − σ₁σ₂ + σ₂²) ≈ <b>{Math.sqrt(s1*s1 - s1*s2 + s2*s2).toFixed(1)}</b> MPa</div>
       </div>
-      <Link href="/guide#ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 Mohr·복합응력 →</Link>
+      <Link href="/guide/ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 Mohr·복합응력 →</Link>
     </div>
   );
 }
@@ -790,7 +790,7 @@ function SchaefflerCalc() {
         <div className="text-emerald-700 mt-1">예측 미세조직: <b>{phase}</b></div>
       </div>
       <p className="text-[11px] text-muted-foreground mt-1">전형: 304 SS Cr-eq≈18·Ni-eq≈10 (γ) · 17-4 PH Cr-eq≈16·Ni-eq≈5 (Mart.) · 2205 Duplex Cr-eq≈25·Ni-eq≈10 (A+F).</p>
-      <Link href="/guide#ch12" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.11 가공성·용접성 →</Link>
+      <Link href="/guide/ch12" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.11 가공성·용접성 →</Link>
     </div>
   );
 }
@@ -873,9 +873,9 @@ export default function Tools() {
         <div className="rounded-lg border border-border/60 bg-muted/30 p-4 mb-6 text-[12px] text-foreground/80 leading-relaxed">
           <p className="font-semibold mb-1.5">📚 계산기 9 개의 적용 영역</p>
           <ul className="list-disc pl-5 space-y-0.5">
-            <li><b>Kt (응력 집중)</b> — hole/fillet/notch/groove 형상의 stress amplification. 피로 설계 핵심. <span className="text-muted-foreground">→ Guide <Link href="/guide#ch4" className="text-accent">Ch.7 보 하중</Link></span></li>
-            <li><b>Galvanic</b> — 이종금속 부식. anode-cathode 전위차 + 면적비. 해양·외기 환경. <span className="text-muted-foreground">→ Guide <Link href="/guide#ch10" className="text-accent">Ch.3 family + 환경</Link></span></li>
-            <li><b>Buckling (Euler)</b> — 압축 부재 임계하중 P_cr = π²EI/(KL)². 가늘고 긴 column. <span className="text-muted-foreground">→ Guide <Link href="/guide#ch5" className="text-accent">Ch.8 비틀림·좌굴</Link></span></li>
+            <li><b>Kt (응력 집중)</b> — hole/fillet/notch/groove 형상의 stress amplification. 피로 설계 핵심. <span className="text-muted-foreground">→ Guide <Link href="/guide/ch4" className="text-accent">Ch.7 보 하중</Link></span></li>
+            <li><b>Galvanic</b> — 이종금속 부식. anode-cathode 전위차 + 면적비. 해양·외기 환경. <span className="text-muted-foreground">→ Guide <Link href="/guide/ch10" className="text-accent">Ch.3 family + 환경</Link></span></li>
+            <li><b>Buckling (Euler)</b> — 압축 부재 임계하중 P_cr = π²EI/(KL)². 가늘고 긴 column. <span className="text-muted-foreground">→ Guide <Link href="/guide/ch5" className="text-accent">Ch.8 비틀림·좌굴</Link></span></li>
             <li><b>CTE mismatch</b> — 이종재료 접합부 열응력. 반도체 패키지·복합재. ΔL = α × L × ΔT.</li>
             <li><b>Hardness convert</b> — HV ↔ HRC ↔ HB. ASTM E140. UTS ≈ 3.45 × HV (강 한정).</li>
             <li><b>Pressure vessel</b> — Thin-wall σ_hoop = pD/(2t), σ_axial = pD/(4t). ASME VIII Div 1.</li>

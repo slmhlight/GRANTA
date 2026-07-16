@@ -94,17 +94,9 @@ export default function Guide() {
     setSearchQ(''); setSearchOpen(false);
     // W6+ — 글로서리 용어는 전용 term 페이지로 SPA 이동.
     if (e.termSlug) { navigate(`/guide/term/${e.termSlug}`); return; }
-    // hashchange listener (Chapter) 가 자동으로 chapter open. 직접 anchor 클릭.
-    window.location.hash = `#${e.ch}`;
-    // smooth scroll + 강조 효과
-    setTimeout(() => {
-      const el = document.getElementById(e.ch);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        el.classList.add('ring-2', 'ring-accent', 'rounded-lg');
-        setTimeout(() => el.classList.remove('ring-2', 'ring-accent', 'rounded-lg'), 2400);
-      }
-    }, 200);
+    // H6 A-1 — 멀티페이지 라우팅에서 챕터는 별도 페이지: hash+getElementById 는 랜딩/타 챕터에
+    // 대상 요소가 없어 무동작이었음 → 경로 네비게이션으로 교체.
+    navigate(`/guide/${e.ch}`);
   };
   return (
     <GuideMaterialMapContext.Provider value={materialMap}>

@@ -5,6 +5,7 @@
  * 사용자 입력 점 (σ_m, σ_a) → 각 alloy 별 SF = 1 / (σ_a/σ_f + σ_m/σ_u).
  */
 import { useState } from 'react';
+import { Link } from 'wouter';
 import type { Material } from '@/lib/materials';
 
 interface Props {
@@ -136,7 +137,7 @@ export default function GoodmanChart({ materials, series }: Props) {
           </tbody>
         </table>
       </div>
-      <p className="text-[11px] text-muted-foreground mt-2">σ_f 없는 alloy 는 σ_f ≈ 0.45·σy 근사 사용 (Shigley). σ_u 없으면 1.3·σy. <a href="/guide#ch2" className="text-accent hover:underline">Guide Ch.5 Basquin·Goodman →</a></p>
+      <p className="text-[11px] text-muted-foreground mt-2">σ_f 없는 alloy 는 σ_f ≈ 0.45·σy 근사 사용 (Shigley). σ_u 없으면 1.3·σy. <Link href="/guide/ch2" className="text-accent hover:underline">Guide Ch.5 Basquin·Goodman →</Link></p>
     </div>
   );
 }

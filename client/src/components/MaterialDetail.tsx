@@ -5,6 +5,7 @@
  */
 
 import { X, Plus, Check, ExternalLink, Layers, Atom, Wrench, FlaskConical, BookText, Coins, Thermometer, Star, AlertTriangle, Pin, Lightbulb, ArrowLeft } from 'lucide-react';
+import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -323,7 +324,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 </span>
               ))}
               {/* R67 #11 — MMPDS A/B basis 안내 link → Guide datasheet section */}
-              <a href="/guide#ch8" className="ml-auto text-accent hover:underline">A/B basis 의미 →</a>
+              <Link href="/guide/ch8" className="ml-auto text-accent hover:underline">A/B basis 의미 →</Link>
             </div>
             {(() => {
               /* R112 — Category-aware property filter. polymer 만 Tg/HDT 표시, metal/ceramic/composite 에서는 hide. */
