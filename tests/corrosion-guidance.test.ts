@@ -8,7 +8,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { resolveCorrosionPlan, prenOf } from '@/lib/corrosion-guidance';
+import { resolveCorrosionPlan, prenOf, prenBand, alloyNoteFor } from '@/lib/corrosion-guidance';
 import type { Material } from '@/lib/materials';
 import guidance from '../data/corrosion-guidance.json';
 
@@ -110,6 +110,38 @@ describe('합금 앵커 — 그룹 배정 + 모드 캐비엇', () => {
     if (!ph) return; // 데이터 변동 허용
     const p = resolveCorrosionPlan(ph)!;
     expect(p.conditionNotes.some((n) => n.includes('H1025'))).toBe(true);
+  });
+});
+
+describe('개별 합금 노트 (E15c — base-키 조회)', () => {
+  it('alloy_notes 전 키가 실제 재료 base 와 매칭 (stale 키 차단)', () => {
+    const bases = new Set<string>();
+    for (const m of mats) {
+      const b = m.name.split(' — ')[0].trim();
+      bases.add(b);
+      bases.add(b.split(' (')[0].trim());
+    }
+    const stale = Object.keys((g as any).alloy_notes).filter((k) => !k.startsWith('_') && !bases.has(k));
+    expect(stale, `재료와 매칭 안 되는 alloy_notes 키: ${stale.join(', ')}`).toEqual([]);
+  });
+  it('앵커 — 304(PREN 언급)·7075(T73 과시효)·2205 는 개별 노트, 무등재 합금은 null', () => {
+    expect(alloyNoteFor('AISI 304 — Annealed (Wrought)')).toMatch(/PREN ~19/);
+    expect(alloyNoteFor('AA 7075 — T6')).toMatch(/T73/);
+    expect(alloyNoteFor('2205 Duplex Stainless')).toMatch(/CPT/);
+    expect(alloyNoteFor('AISI 1010 — Annealed (Wrought)')).toBeNull();
+  });
+  it('resolveCorrosionPlan 이 alloyNote 를 노출', () => {
+    const p = resolveCorrosionPlan(byName('AISI 304 — Annealed (Wrought)')!)!;
+    expect(p.alloyNote).toMatch(/316 급 검토/);
+  });
+});
+
+describe('PREN 밴드 (관행 사용 등급)', () => {
+  it('18→담수·경부식 · 24→연안 · 35→해수 · 42→상시 침지', () => {
+    expect(prenBand(18)).toBe('담수·경부식 급');
+    expect(prenBand(24)).toBe('연안·간헐 염화물 급');
+    expect(prenBand(35)).toBe('해수·공정수 급');
+    expect(prenBand(42)).toBe('상시 침지·초내식 급');
   });
 });
 

@@ -18,7 +18,7 @@ import { resolveMachinability, resolvePolymerMachinability, resolveConditionNote
 /* R222c — recharts(~150KB)는 아래에서 lazy 로드 (elev-temp/creep 데이터 있는 재료의 탭이 열릴 때만). */
 import { resolveCoatingPlan, PURPOSE_LABEL } from '@/lib/coatings';
 /* H6 E15 — 부식 카드: 그룹 SSOT(corrosion-guidance.json) + 빌드 스탬프 profiles.corr + PREN. */
-import { resolveCorrosionPlan, VERDICT_LABEL, RISK_LABEL } from '@/lib/corrosion-guidance';
+import { resolveCorrosionPlan, VERDICT_LABEL, RISK_LABEL, prenBand } from '@/lib/corrosion-guidance';
 /* R157b — MaterialDetail 의 sub-components 분리. */
 import { SourcesList } from '@/components/material-detail/SourcesList';
 import { RangeRow, fmt } from '@/components/material-detail/RangeRow';
@@ -813,10 +813,16 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                           className="text-[9px] px-1 rounded bg-cyan-600/15 text-cyan-800 border border-cyan-600/30"
                           title={`PREN = Cr + 3.3·Mo + 16·N — 염화물 공식(pitting) 저항 지표.${cp.pren.nMissing ? ' N 조성 미기재 → 0 가정(하한값).' : ''}`}
                         >
-                          PREN ≈ {cp.pren.value}{cp.pren.nMissing ? ' (N=0 하한)' : ''}
+                          PREN ≈ {cp.pren.value}{cp.pren.nMissing ? ' (N=0 하한)' : ''} · {prenBand(cp.pren.value)}
                         </span>
                       )}
                     </p>
+                    {/* H6 E15c — 이 합금 개별 노트 (base-키 조회) — 계열 공통 위에 개별 차별점 강조 */}
+                    {cp.alloyNote && (
+                      <p className="text-[10.5px] leading-snug mb-1.5 rounded bg-cyan-600/10 border border-cyan-600/25 px-1.5 py-1">
+                        <b className="text-cyan-900">이 합금:</b> <span className="text-foreground/85">{cp.alloyNote}</span>
+                      </p>
+                    )}
                     <p className="text-[10px] text-foreground/75 mb-1.5 leading-relaxed">{cp.group.intro}</p>
                     <div className="space-y-0.5 mb-1.5">
                       {cp.group.media.map((md, i) => {

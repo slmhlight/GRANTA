@@ -30,7 +30,23 @@ export interface CorrosionGroup {
 
 const GROUPS = (guidanceData as any).groups as Record<string, CorrosionGroup>;
 const MODS = (guidanceData as any).condition_mods as Record<string, { corr?: string; htc?: string; text: string }>;
+/* H6 E15c — 개별 합금 1줄 노트 (base-키 exact 조회 — 계열 공통과 별개인 이 합금만의 차별점). */
+const ALLOY_NOTES = (guidanceData as any).alloy_notes as Record<string, string>;
 export const CORROSION_TOP_SOURCES: string[] = (guidanceData as any).sources || [];
+
+/** PREN 해석 밴드 — 관행적 사용 등급 (Outokumpu/IMOA 계열 밴딩, 개략). */
+export function prenBand(v: number): string {
+  if (v >= 40) return '상시 침지·초내식 급';
+  if (v >= 30) return '해수·공정수 급';
+  if (v >= 20) return '연안·간헐 염화물 급';
+  return '담수·경부식 급';
+}
+
+/** 개별 합금 노트 — base(— 앞) exact → 괄호 제거형 exact 순 조회. 런타임 regex 없음. */
+export function alloyNoteFor(name: string): string | null {
+  const base = String(name).split(' — ')[0].trim();
+  return ALLOY_NOTES[base] ?? ALLOY_NOTES[base.split(' (')[0].trim()] ?? null;
+}
 
 /** 조성 문자열/숫자 → 대표값 (범위는 중앙값, 'balance'는 null — PREN 원소는 balance 아님). */
 function elemVal(comp: Material['composition'], el: string): number | null {
@@ -58,6 +74,8 @@ export interface CorrosionPlan {
   /** 종합 등급 (빌드 스탬프 corrosion_resistance — 표시용, 모드 캐비엇과 병기). */
   rating: string | null;
   pren: PrenResult | null;
+  /** H6 E15c — 이 합금만의 차별점 1줄 (base-키 조회, 없으면 null → 계열 공통만). */
+  alloyNote: string | null;
   /** 조건 보정 노트 (해당 시). */
   conditionNotes: string[];
 }
@@ -81,6 +99,7 @@ export function resolveCorrosionPlan(m: Material): CorrosionPlan | null {
     group,
     rating: (m as Material & { corrosion_resistance?: string }).corrosion_resistance ?? null,
     pren: prenOf(m),
+    alloyNote: alloyNoteFor(m.name),
     conditionNotes,
   };
 }
