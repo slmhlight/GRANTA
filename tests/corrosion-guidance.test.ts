@@ -24,18 +24,39 @@ describe('corrosion-guidance SSOT 스키마', () => {
       }
     }
   });
-  it('전 그룹: title·intro·media(≥2)·modes(≥1)·sources(≥1) + enum 유효', () => {
+  it('전 그룹: title·intro·modes(≥1)·sources(≥1) + enum 유효', () => {
     const V = new Set(['excellent', 'good', 'caution', 'poor']);
     const R = new Set(['high', 'med', 'low']);
     for (const [key, gr] of Object.entries<any>(g.groups)) {
       expect(gr.title, key).toBeTruthy();
       expect(String(gr.intro).length, `${key} intro`).toBeGreaterThan(30);
-      expect(gr.media.length, `${key} media`).toBeGreaterThanOrEqual(2);
       expect(gr.modes.length, `${key} modes`).toBeGreaterThanOrEqual(1);
       expect(gr.sources.length, `${key} sources`).toBeGreaterThanOrEqual(1);
       for (const m of gr.media) expect(V.has(m.verdict), `${key} verdict '${m.verdict}'`).toBe(true);
       for (const m of gr.modes) expect(R.has(m.risk), `${key} risk '${m.risk}'`).toBe(true);
     }
+  });
+  it('매체 6축 고정 — 전 그룹 동일 축·동일 순서 (해수/염수·강산/약산 분리 — 사용자 지시)', () => {
+    const AXES = ['대기', '해수', '염수·염화물', '강산', '약산(묽은산·유기산)', '알칼리'];
+    for (const [key, gr] of Object.entries<any>(g.groups)) {
+      expect(gr.media.map((m: any) => m.env), `${key} 매체 축`).toEqual(AXES);
+    }
+  });
+  it('강산/약산 verdict 실분화 — 축만 쪼갠 형식 분리가 아님', () => {
+    // 대표 앵커: 오스테나이트 SS(강산 caution ↔ 약산 good) · Ti(강산 caution ↔ 해수 excellent)
+    const ss = g.groups['ss-austenitic'].media;
+    expect(ss.find((m: any) => m.env === '강산').verdict).toBe('caution');
+    expect(ss.find((m: any) => m.env.startsWith('약산')).verdict).toBe('good');
+    const ti = g.groups['ti'].media;
+    expect(ti.find((m: any) => m.env === '해수').verdict).toBe('excellent');
+    expect(ti.find((m: any) => m.env === '강산').verdict).toBe('caution');
+    // 전 그룹 통계: 강산≠약산 verdict 인 그룹이 3분의 1 이상 (실분화 증명)
+    const diff = Object.values<any>(g.groups).filter((gr) => {
+      const s = gr.media.find((m: any) => m.env === '강산')?.verdict;
+      const w = gr.media.find((m: any) => m.env.startsWith('약산'))?.verdict;
+      return s !== w;
+    }).length;
+    expect(diff).toBeGreaterThanOrEqual(8);
   });
 });
 

@@ -1,5 +1,5 @@
 {
- "_note": "H6 E15 — Corrosion(부식) 카드 SSOT. 패턴은 coating-recommendations.json 미러: groups(매체별 verdict + 취약 모드 + 주의) + assignment(by_mach→by_insight→by_category, build-process-profiles 가 m.profiles.corr 스탬프) + condition_mods. 원칙: 단일 등급이 모드별 취약(Cl-SCC·공식·입계)을 가리지 않도록 **모드 캐비엇 필수** — 카드는 '성격/취약모드', 코팅 카드는 '표면 대책'(역할 분리·상호참조). verdict: excellent|good|caution|poor. risk: high|med|low. 일반 관행 요약 — 설계 검증 대체 불가.",
+ "_note": "H6 E15 — Corrosion(부식) 카드 SSOT. 패턴은 coating-recommendations.json 미러: groups(매체 6축 고정: 대기·해수·염수·염화물·강산·약산(묽은산·유기산)·알칼리 — verdict + 취약 모드 + 주의) + assignment(by_mach→by_insight→by_category, build-process-profiles 가 m.profiles.corr 스탬프) + condition_mods. 원칙: 단일 등급이 모드별 취약(Cl-SCC·공식·입계)을 가리지 않도록 **모드 캐비엇 필수** — 카드는 '성격/취약모드', 코팅 카드는 '표면 대책'(역할 분리·상호참조). verdict: excellent|good|caution|poor. risk: high|med|low. 일반 관행 요약 — 설계 검증 대체 불가.",
  "sources": [
   "ASM Handbook Vol.13A/13B (Corrosion: Fundamentals / Materials)",
   "NACE MR0175 / ISO 15156 (sour service)",
@@ -9,40 +9,84 @@
  ],
  "assignment": {
   "by_mach": {
-   "fm-steel": "steel-low", "carbon-low": "steel-low",
-   "carbon-medhigh": "steel-alloy", "crmo": "steel-alloy", "nicrmo": "steel-alloy", "case-hard": "steel-alloy", "bearing": "steel-alloy", "hadfield": "steel-alloy",
+   "fm-steel": "steel-low",
+   "carbon-low": "steel-low",
+   "carbon-medhigh": "steel-alloy",
+   "crmo": "steel-alloy",
+   "nicrmo": "steel-alloy",
+   "case-hard": "steel-alloy",
+   "bearing": "steel-alloy",
+   "hadfield": "steel-alloy",
    "tool-steel": "tool-steel",
    "maraging": "maraging",
-   "cast-iron-gray": "cast-iron", "cast-iron-ductile": "cast-iron",
-   "ss-303": "ss-austenitic", "ss-austenitic": "ss-austenitic",
+   "cast-iron-gray": "cast-iron",
+   "cast-iron-ductile": "cast-iron",
+   "ss-303": "ss-austenitic",
+   "ss-austenitic": "ss-austenitic",
    "ss-ferritic": "ss-ferritic",
-   "ss-416": "ss-martensitic", "ss-martensitic": "ss-martensitic",
+   "ss-416": "ss-martensitic",
+   "ss-martensitic": "ss-martensitic",
    "ss-ph": "ss-ph",
    "ss-duplex": "ss-duplex",
-   "ni-super": "ni-super", "ni-super-solidsol": "ni-super",
+   "ni-super": "ni-super",
+   "ni-super-solidsol": "ni-super",
    "ni-fe-lowexp": "ni-fe-lowexp",
    "cobalt": "cocr",
-   "ti-cp": "ti", "ti-alloy": "ti",
+   "ti-cp": "ti",
+   "ti-alloy": "ti",
    "zirconium": "zirconium",
-   "al-fm": "al-wrought", "al-6xxx": "al-wrought", "al-7xxx": "al-wrought", "al-2xxx": "al-wrought", "al-5xxx": "al-wrought", "al-soft": "al-wrought",
+   "al-fm": "al-wrought",
+   "al-6xxx": "al-wrought",
+   "al-7xxx": "al-wrought",
+   "al-2xxx": "al-wrought",
+   "al-5xxx": "al-wrought",
+   "al-soft": "al-wrought",
    "al-cast-am": "al-cast-am",
    "magnesium": "mg",
-   "brass": "cu", "cuni": "cu", "becu": "cu", "cu-pure": "cu", "cu-crzr": "cu", "bronze-wrought": "cu", "bronze-bearing": "cu",
+   "brass": "cu",
+   "cuni": "cu",
+   "becu": "cu",
+   "cu-pure": "cu",
+   "cu-crzr": "cu",
+   "bronze-wrought": "cu",
+   "bronze-bearing": "cu",
    "zinc-diecast": "zn",
-   "tungsten": "refractory", "ta-nb": "refractory", "moly": "refractory", "refractory": "refractory",
-   "pol-rigid": "polymer", "pol-amorphous": "polymer", "pol-filled": "polymer", "pol-soft": "polymer", "pol-brittle": "polymer", "pol-thermoset": "polymer", "pol-elastomer": "polymer", "pol-foam": "polymer"
+   "tungsten": "refractory",
+   "ta-nb": "refractory",
+   "moly": "refractory",
+   "refractory": "refractory",
+   "pol-rigid": "polymer",
+   "pol-amorphous": "polymer",
+   "pol-filled": "polymer",
+   "pol-soft": "polymer",
+   "pol-brittle": "polymer",
+   "pol-thermoset": "polymer",
+   "pol-elastomer": "polymer",
+   "pol-foam": "polymer"
   },
   "by_insight": {
-   "structural-steel": "steel-low", "carbon-alloy-steel": "steel-alloy", "tool-steel": "tool-steel",
-   "stainless": "ss-general", "stainless-highperf": "ss-general",
-   "aluminum": "al-wrought", "titanium": "ti", "ni-superalloy": "ni-super", "cobalt": "cocr",
-   "copper": "cu", "magnesium": "mg", "refractory": "refractory"
+   "structural-steel": "steel-low",
+   "carbon-alloy-steel": "steel-alloy",
+   "tool-steel": "tool-steel",
+   "stainless": "ss-general",
+   "stainless-highperf": "ss-general",
+   "aluminum": "al-wrought",
+   "titanium": "ti",
+   "ni-superalloy": "ni-super",
+   "cobalt": "cocr",
+   "copper": "cu",
+   "magnesium": "mg",
+   "refractory": "refractory"
   },
-  "by_category": { "Polymer": "polymer", "Ceramic": "ceramic" }
+  "by_category": {
+   "Polymer": "polymer",
+   "Ceramic": "ceramic"
+  }
  },
  "condition_mods": {
   "ph_peak_aged_scc": {
-   "corr": "ss-ph", "htc": "aged",
+   "corr": "ss-ph",
+   "htc": "aged",
    "text": "석출경화 SS 의 최고강도 시효(H900 급)는 염화물 SCC·수소취성에 민감 — 해양·염화물 환경은 H1025 이상 과시효 조건이 관행 (NACE MR0175 도 조건 제한)."
   },
   "am_as_built_pitting": {
@@ -55,360 +99,1299 @@
    "title": "탄소강·구조강",
    "intro": "부동태 피막이 없어 물+산소만 있으면 녹(적청)이 진행된다 — '내식성'이 아니라 '방식(防蝕) 설계'가 전제인 가족. 건조 실내에서는 방청유로 충분하지만 옥외·습윤은 도장/아연도금이 기본값.",
    "media": [
-    { "env": "대기(건조 실내)", "verdict": "good", "note": "방청유·인산염 관리 전제" },
-    { "env": "대기(옥외·습윤)", "verdict": "poor", "note": "무방호 시 연 0.02–0.2 mm 녹 진행 — 도장·아연도금 필수" },
-    { "env": "해수·염수", "verdict": "poor", "note": "비말대 최악 — 도금+도장 duplex 또는 스테인리스 대체" },
-    { "env": "산·알칼리", "verdict": "poor", "note": "산 즉각 침식. 농알칼리는 상온 한정 견딤(가성취화 주의)" }
+    {
+     "env": "대기",
+     "verdict": "caution",
+     "note": "건조 실내는 방청유로 충분 — 습윤·옥외는 도장/아연도금 없이는 연 0.02–0.2 mm 녹"
+    },
+    {
+     "env": "해수",
+     "verdict": "poor",
+     "note": "비말대 최악 — duplex 도금+도장 또는 재질 변경"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "poor",
+     "note": "융설제·염수 분무 — 무방호 사용 불가"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "염산·황산 즉각 침식"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "poor",
+     "note": "묽은 산·탄산(CO₂ 용존수)도 지속 침식 — 배관 내면 처리 전제"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "caution",
+     "note": "상온 알칼리는 견딤(부동태 유사) — 고온 농가성은 가성취화(SCC)"
+    }
    ],
    "modes": [
-    { "mode": "균일 부식(녹)", "risk": "high", "note": "예측 가능한 두께 감소 — 부식여유(corrosion allowance) 설계 가능" },
-    { "mode": "갈바닉", "risk": "med", "note": "구리·스테인리스와 접합 시 강이 양극(희생)이 된다 — 절연 와셔·도장" }
+    {
+     "mode": "균일 부식(녹)",
+     "risk": "high",
+     "note": "예측 가능한 두께 감소 — 부식여유(corrosion allowance) 설계 가능"
+    },
+    {
+     "mode": "갈바닉",
+     "risk": "med",
+     "note": "구리·스테인리스와 접합 시 강이 양극(희생)이 된다 — 절연 와셔·도장"
+    }
    ],
    "caution": "대책은 재질이 아니라 표면 — 후처리 추천 카드(아연도금·용융아연·도장)와 함께 볼 것.",
-   "sources": ["ASM Handbook Vol.13A", "ISO 9223 (대기 부식 등급)"]
+   "sources": [
+    "ASM Handbook Vol.13A",
+    "ISO 9223 (대기 부식 등급)"
+   ]
   },
   "steel-alloy": {
    "title": "합금강·조질강 (4140·4340·침탄강 등)",
    "intro": "Cr·Mo·Ni 는 강도·경화능용이지 내식용이 아니다 — 부식 거동은 탄소강과 같은 나부식 가족. 고강도일수록 수소가 관여하는 파괴(수소취성·SCC)가 추가 위험.",
    "media": [
-    { "env": "대기(옥외·습윤)", "verdict": "poor", "note": "탄소강과 동급 — 도금/도장 전제" },
-    { "env": "해수·염수", "verdict": "poor", "note": "무방호 사용 불가" },
-    { "env": "황화수소(sour)", "verdict": "caution", "note": "경도 HRC 22 초과는 NACE MR0175 황화물 SCC 제한 대상" }
+    {
+     "env": "대기",
+     "verdict": "caution",
+     "note": "탄소강과 동급 — 도금/도장 전제"
+    },
+    {
+     "env": "해수",
+     "verdict": "poor",
+     "note": "무방호 사용 불가"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "poor",
+     "note": "염화물 + 고강도 = SCC·수소취성 겹침"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "즉각 침식"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "poor",
+     "note": "탄소강과 동일"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "caution",
+     "note": "상온 한정 — 가성취화 주의"
+    }
    ],
    "modes": [
-    { "mode": "수소취성 (HE)", "risk": "high", "note": "UTS≥1000 MPa + 전해도금/산세 조합이 전형 — 베이킹(ASTM B850) 규정 준수" },
-    { "mode": "부식피로", "risk": "med", "note": "습윤 환경 반복하중은 피로한도가 사실상 소멸 — S-N 곡선 보정 필요" }
+    {
+     "mode": "수소취성 (HE)",
+     "risk": "high",
+     "note": "UTS≥1000 MPa + 전해도금/산세 조합이 전형 — 베이킹(ASTM B850) 규정 준수"
+    },
+    {
+     "mode": "부식피로",
+     "risk": "med",
+     "note": "습윤 환경 반복하중은 피로한도가 사실상 소멸 — S-N 곡선 보정 필요"
+    }
    ],
    "caution": "고강도 조질재의 도금 방청은 수소취성 관리가 세트다 — 코팅 카드의 베이킹 규정 참조.",
-   "sources": ["ASM Handbook Vol.13A", "NACE MR0175", "ASTM B850/F519"]
+   "sources": [
+    "ASM Handbook Vol.13A",
+    "NACE MR0175",
+    "ASTM B850/F519"
+   ]
   },
   "tool-steel": {
    "title": "공구강",
    "intro": "고탄소·고합금이지만 Cr 이 탄화물로 묶여 있어 자유 Cr 이 부족 — 스테인리스가 아니다. 연마면이 습기에 노출되면 녹이 빠르게 점 형태로 시작된다.",
    "media": [
-    { "env": "대기(공구 보관)", "verdict": "caution", "note": "방청유·방습 보관 관례 — 지문도 부식 기점" },
-    { "env": "수용성 절삭유", "verdict": "caution", "note": "농도 관리 실패 시 점녹 — 사용 후 건조" },
-    { "env": "해수·산", "verdict": "poor", "note": "적용 외 — 내식 요구 금형은 420/440C 또는 코팅" }
+    {
+     "env": "대기",
+     "verdict": "caution",
+     "note": "방청유·방습 보관 관례 — 지문도 부식 기점"
+    },
+    {
+     "env": "해수",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "poor",
+     "note": "수용성 절삭유 농도 관리 실패 시 점녹"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "poor",
+     "note": "적용 외 — 내식 금형은 420/440C 또는 코팅"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "caution",
+     "note": "알칼리 세정은 단시간 가능"
+    }
    ],
    "modes": [
-    { "mode": "점녹(연마면)", "risk": "high", "note": "경면 금형은 크로뮴 도금·질화로 보호하는 관행" }
+    {
+     "mode": "점녹(연마면)",
+     "risk": "high",
+     "note": "경면 금형은 크로뮴 도금·질화로 보호하는 관행"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B", "Uddeholm 금형 관리 가이드"]
+   "sources": [
+    "ASM Handbook Vol.13B",
+    "Uddeholm 금형 관리 가이드"
+   ]
   },
   "maraging": {
    "title": "마레이징강",
    "intro": "Ni 18% 라는 숫자에 속기 쉬운 함정 가족 — Cr 이 없어 부동태가 없고, 탄소강 수준으로 녹슨다. 초고강도(σy 1700+)라 수소취성 민감도도 최상급.",
    "media": [
-    { "env": "대기(습윤)", "verdict": "poor", "note": "가공 직후부터 방청 관리 — Ni 도금·크로메이트 관례" },
-    { "env": "해수·염화물", "verdict": "poor", "note": "SCC + 일반 부식 — 무방호 사용 불가" }
+    {
+     "env": "대기",
+     "verdict": "poor",
+     "note": "Cr 0 — 습기에 탄소강처럼 녹슨다. 가공 직후부터 방청 관리"
+    },
+    {
+     "env": "해수",
+     "verdict": "poor",
+     "note": "SCC + 일반 부식 — 무방호 불가"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "poor",
+     "note": "염화물 SCC 민감(초고강도)"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "caution",
+     "note": "상온 한정"
+    }
    ],
    "modes": [
-    { "mode": "수소취성 (HE)", "risk": "high", "note": "σy 1700–2400 MPa — 도금·산세 후 베이킹 필수, 음극방식 과보호도 수소원" },
-    { "mode": "SCC", "risk": "med", "note": "염화물 환경 고응력부 — 과시효로 완화" }
+    {
+     "mode": "수소취성 (HE)",
+     "risk": "high",
+     "note": "σy 1700–2400 MPa — 도금·산세 후 베이킹 필수, 음극방식 과보호도 수소원"
+    },
+    {
+     "mode": "SCC",
+     "risk": "med",
+     "note": "염화물 환경 고응력부 — 과시효로 완화"
+    }
    ],
    "caution": "'스테인리스 아님' 을 팀 전체가 아는 것이 최선의 대책이다.",
-   "sources": ["ASM Handbook Vol.13B", "Carpenter 마레이징 datasheet"]
+   "sources": [
+    "ASM Handbook Vol.13B",
+    "Carpenter 마레이징 datasheet"
+   ]
   },
   "cast-iron": {
    "title": "주철 (회주철·구상흑연)",
    "intro": "강보다 느리게 녹슬지만(두꺼운 단면·흑연 개재) 고유 모드가 있다 — 흑연 부식(graphitic corrosion): 철이 녹아 나가고 흑연 골격만 남아 겉은 멀쩡한데 강도가 사라진다. 매설 수도관의 고전 파손 원인.",
    "media": [
-    { "env": "대기·실내", "verdict": "good", "note": "두께 여유 + 표면 흑연이 완만한 녹 — 도장 관례" },
-    { "env": "토양·매설수", "verdict": "caution", "note": "흑연 부식 위험 — 연질토·해안 매설은 폴리에틸렌 슬리브/음극방식" },
-    { "env": "해수", "verdict": "caution", "note": "Ni-Resist(오스테나이트 주철)가 해수용 파생 — 일반 회주철은 제한" },
-    { "env": "산", "verdict": "poor", "note": "즉각 침식" }
+    {
+     "env": "대기",
+     "verdict": "good",
+     "note": "두께 여유 + 표면 흑연 — 완만한 녹, 도장 관례"
+    },
+    {
+     "env": "해수",
+     "verdict": "caution",
+     "note": "일반 회주철 제한 — 해수용은 Ni-Resist(오스테나이트 주철)"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "caution",
+     "note": "매설·염수는 흑연 부식 위험 — PE 슬리브/음극방식"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "즉각 침식"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "caution",
+     "note": "묽은 산 완만 침식 — 단기간 한정"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "good",
+     "note": "농가성 증발기 실적 — 주철의 의외 강점"
+    }
    ],
    "modes": [
-    { "mode": "흑연 부식", "risk": "high", "note": "외관 정상·강도 상실 — 타격음·초음파로 진단, 발견 시 교체" },
-    { "mode": "갈바닉", "risk": "med", "note": "잔존 흑연이 음극으로 작용해 인접 새 부품(펌프 임펠러 등)을 가속 부식" }
+    {
+     "mode": "흑연 부식",
+     "risk": "high",
+     "note": "외관 정상·강도 상실 — 타격음·초음파로 진단, 발견 시 교체"
+    },
+    {
+     "mode": "갈바닉",
+     "risk": "med",
+     "note": "잔존 흑연이 음극으로 작용해 인접 새 부품(펌프 임펠러 등)을 가속 부식"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B (cast iron)", "AWWA C105 (매설 배관 방식)"]
+   "sources": [
+    "ASM Handbook Vol.13B (cast iron)",
+    "AWWA C105 (매설 배관 방식)"
+   ]
   },
   "ss-austenitic": {
    "title": "오스테나이트계 스테인리스 (304·316 계열)",
    "intro": "Cr₂O₃ 부동태 피막의 표준 가족 — 대기·담수·식품·질산에 탁월. 그러나 '스테인리스=녹 안 씀'의 함정이 셋 있다: 염화물 공식, 60°C 이상 염화물 SCC, 용접부 예민화.",
    "media": [
-    { "env": "대기·담수·식품", "verdict": "excellent", "note": "표준 선택 — 위생 배관·주방·건축" },
-    { "env": "해수·염수", "verdict": "caution", "note": "304 정체수 공식 위험 — 316(Mo 2%)이 하한, 상시 침지는 duplex/6Mo 급" },
-    { "env": "산", "verdict": "good", "note": "산화성(질산) 우수 · 환원성(염산 등)은 농도·온도 제한 급격" },
-    { "env": "알칼리", "verdict": "excellent", "note": "고온 농가성만 주의" }
+    {
+     "env": "대기",
+     "verdict": "excellent",
+     "note": "표준 선택 — 건축·주방·위생"
+    },
+    {
+     "env": "해수",
+     "verdict": "caution",
+     "note": "304 정체 해수 공식 위험 — 316(Mo 2%)이 하한, 상시 침지는 duplex/6Mo"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "caution",
+     "note": "염수 분무·융설제 — 공식·틈부식 + 60°C 이상은 SCC (보온재 아래 CUI 고전)"
+    },
+    {
+     "env": "강산",
+     "verdict": "caution",
+     "note": "산화성(질산) 탁월 ↔ 환원성(염산·불산) 불가 — 산의 종류가 갈림길"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "good",
+     "note": "유기산·묽은 황산(상온) 광범위 — 온도 상승 시 재검토"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "excellent",
+     "note": "고온 농가성만 주의"
+    }
    ],
    "modes": [
-    { "mode": "염화물 SCC", "risk": "high", "note": "인장응력+염화물+약 60°C 이상 3박자 — 보온재 아래 배관(CUI)이 고전 사고. 대책: duplex/페라이트계 전환" },
-    { "mode": "공식(pitting)", "risk": "med", "note": "PREN(Cr+3.3Mo+16N)이 지표 — 304≈19 · 316≈24. 정체수·틈새가 가속" },
-    { "mode": "입계부식(예민화)", "risk": "med", "note": "용접 HAZ 500–800°C 노출 — L 등급(저탄소)·안정화강(321/347)으로 예방" }
+    {
+     "mode": "염화물 SCC",
+     "risk": "high",
+     "note": "인장응력+염화물+약 60°C 이상 3박자 — 보온재 아래 배관(CUI)이 고전 사고. 대책: duplex/페라이트계 전환"
+    },
+    {
+     "mode": "공식(pitting)",
+     "risk": "med",
+     "note": "PREN(Cr+3.3Mo+16N)이 지표 — 304≈19 · 316≈24. 정체수·틈새가 가속"
+    },
+    {
+     "mode": "입계부식(예민화)",
+     "risk": "med",
+     "note": "용접 HAZ 500–800°C 노출 — L 등급(저탄소)·안정화강(321/347)으로 예방"
+    }
    ],
    "caution": "등급표의 'Excellent' 는 대기·담수 기준이다 — 염화물·온도가 개입하면 모드별로 따져야 한다.",
-   "sources": ["Outokumpu Corrosion Handbook", "ASM Handbook Vol.13B", "NACE SP0169"]
+   "sources": [
+    "Outokumpu Corrosion Handbook",
+    "ASM Handbook Vol.13B",
+    "NACE SP0169"
+   ]
   },
   "ss-ferritic": {
    "title": "페라이트계 스테인리스 (430·444 계열)",
    "intro": "Ni 없는 Cr 강 — 오스테나이트계보다 싸고, 의외의 강점이 있다: 염화물 SCC 에 사실상 면역(BCC 조직). 온수기 탱크에 444 가 쓰이는 이유.",
    "media": [
-    { "env": "대기·담수", "verdict": "good", "note": "430 실내 양호 — 해안 대기는 얼룩(tea staining)" },
-    { "env": "해수·염수", "verdict": "caution", "note": "공식은 PREN 따라 — 444(Mo 2%)가 실용 하한" },
-    { "env": "산", "verdict": "caution", "note": "오스테나이트계보다 좁은 사용역" }
+    {
+     "env": "대기",
+     "verdict": "good",
+     "note": "430 실내 양호 — 해안 대기는 얼룩(tea staining)"
+    },
+    {
+     "env": "해수",
+     "verdict": "caution",
+     "note": "444(Mo 2%)가 실용 하한 — 온수기 탱크 실적"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "caution",
+     "note": "공식은 PREN 따라 — 단 SCC 는 사실상 면역(강점)"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "오스테나이트계보다 좁음 — 환원성 불가"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "caution",
+     "note": "묽은 유기산 한정"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "good",
+     "note": ""
+    }
    ],
    "modes": [
-    { "mode": "염화물 SCC", "risk": "low", "note": "오스테나이트계 대비 결정적 강점 — SCC 환경 대체재" },
-    { "mode": "공식", "risk": "med", "note": "PREN 기준 동일 적용" },
-    { "mode": "입계부식", "risk": "med", "note": "용접 시 오스테나이트계보다 빠르게 예민화 — 안정화(Ti/Nb) 등급 사용" },
-    { "mode": "475°C 취화", "risk": "med", "note": "400–500°C 장기 노출 금지 (부식 아닌 취화지만 함께 관리)" }
+    {
+     "mode": "염화물 SCC",
+     "risk": "low",
+     "note": "오스테나이트계 대비 결정적 강점 — SCC 환경 대체재"
+    },
+    {
+     "mode": "공식",
+     "risk": "med",
+     "note": "PREN 기준 동일 적용"
+    },
+    {
+     "mode": "입계부식",
+     "risk": "med",
+     "note": "용접 시 오스테나이트계보다 빠르게 예민화 — 안정화(Ti/Nb) 등급 사용"
+    },
+    {
+     "mode": "475°C 취화",
+     "risk": "med",
+     "note": "400–500°C 장기 노출 금지 (부식 아닌 취화지만 함께 관리)"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B", "Outokumpu Corrosion Handbook"]
+   "sources": [
+    "ASM Handbook Vol.13B",
+    "Outokumpu Corrosion Handbook"
+   ]
   },
   "ss-martensitic": {
    "title": "마르텐사이트계 스테인리스 (410·420·440C)",
    "intro": "경도를 위해 내식을 양보한 가족 — Cr 12–17%지만 탄소가 Cr 탄화물을 만들어 부동태가 약하다. 스테인리스 중 내식 최하위이며, 열처리 상태가 내식을 좌우한다(경화+템퍼링 상태가 최적).",
    "media": [
-    { "env": "대기(실내·건조)", "verdict": "good", "note": "칼·베어링·밸브 트림의 근거" },
-    { "env": "대기(해안)·담수 상시", "verdict": "caution", "note": "점녹 진행 — 440C 는 무른 조건에서 더 취약" },
-    { "env": "해수·산", "verdict": "poor", "note": "적용 외" }
+    {
+     "env": "대기",
+     "verdict": "good",
+     "note": "건조·실내 — 칼·밸브 트림의 근거"
+    },
+    {
+     "env": "해수",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "caution",
+     "note": "점녹 진행(PREN ~12) — 정체수 회피"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "poor",
+     "note": "식품산(구연산 등) 단시간 한정"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "caution",
+     "note": ""
+    }
    ],
    "modes": [
-    { "mode": "수소취성", "risk": "high", "note": "고경도(HRC 50+)에서 도금·산세·음극방식 수소에 민감" },
-    { "mode": "공식", "risk": "med", "note": "PREN 낮음(410≈12) — 정체수 회피" },
-    { "mode": "템퍼취화 구간 부식", "risk": "med", "note": "370–560°C 템퍼링은 내식·인성 동시 저하 — 회피 관행" }
+    {
+     "mode": "수소취성",
+     "risk": "high",
+     "note": "고경도(HRC 50+)에서 도금·산세·음극방식 수소에 민감"
+    },
+    {
+     "mode": "공식",
+     "risk": "med",
+     "note": "PREN 낮음(410≈12) — 정체수 회피"
+    },
+    {
+     "mode": "템퍼취화 구간 부식",
+     "risk": "med",
+     "note": "370–560°C 템퍼링은 내식·인성 동시 저하 — 회피 관행"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B", "ASTM A276"]
+   "sources": [
+    "ASM Handbook Vol.13B",
+    "ASTM A276"
+   ]
   },
   "ss-ph": {
    "title": "석출경화 스테인리스 (17-4·15-5·13-8)",
    "intro": "강도와 내식의 절충 — 내식은 304 에 근접하면서 σy 1000+ MPa. 단 시효 조건이 내식·SCC 민감도를 함께 정한다: 최고강도(H900)가 가장 민감, 과시효(H1025+)가 안전 쪽.",
    "media": [
-    { "env": "대기·담수", "verdict": "good", "note": "항공 구조·밸브 축 표준" },
-    { "env": "해수·염수", "verdict": "caution", "note": "상시 침지보다 비말·간헐 — 침지는 duplex/초합금 영역" },
-    { "env": "산", "verdict": "caution", "note": "오스테나이트계보다 좁음" }
+    {
+     "env": "대기",
+     "verdict": "good",
+     "note": "항공 구조·밸브 축 표준"
+    },
+    {
+     "env": "해수",
+     "verdict": "caution",
+     "note": "비말·간헐 노출까지 — 상시 침지는 duplex/초합금"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "caution",
+     "note": "시효 조건 의존 — H900 은 SCC 민감, H1025+ 권장"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "환원성 불가"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "caution",
+     "note": "304 급에 근접하나 좁음"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "good",
+     "note": ""
+    }
    ],
    "modes": [
-    { "mode": "SCC (시효 조건 의존)", "risk": "high", "note": "H900 해양 환경 SCC 사고가 고전 — H1025/H1150 과시효가 관행 (조건별 카드 참조)" },
-    { "mode": "수소취성", "risk": "med", "note": "고강도 시효 상태 + 도금·음극방식 조합 주의" }
+    {
+     "mode": "SCC (시효 조건 의존)",
+     "risk": "high",
+     "note": "H900 해양 환경 SCC 사고가 고전 — H1025/H1150 과시효가 관행 (조건별 카드 참조)"
+    },
+    {
+     "mode": "수소취성",
+     "risk": "med",
+     "note": "고강도 시효 상태 + 도금·음극방식 조합 주의"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B", "AMS 5604 / Carpenter 17-4 datasheet", "NACE MR0175"]
+   "sources": [
+    "ASM Handbook Vol.13B",
+    "AMS 5604 / Carpenter 17-4 datasheet",
+    "NACE MR0175"
+   ]
   },
   "ss-duplex": {
    "title": "듀플렉스 스테인리스 (2205·2507)",
    "intro": "오스테나이트+페라이트 50:50 — 공식 저항(PREN 35–43)과 SCC 저항을 동시에 잡은 해양·화학 플랜트의 해결사. 강도도 오스테나이트계의 2배라 감육 설계 가능.",
    "media": [
-    { "env": "해수·염수", "verdict": "excellent", "note": "2205 가 해수 열교환기 표준, 2507(super)은 상시 침지·고온" },
-    { "env": "산", "verdict": "good", "note": "황산·인산 광범위 — 환원성 강산은 제한" },
-    { "env": "대기·담수", "verdict": "excellent", "note": "" }
+    {
+     "env": "대기",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "해수",
+     "verdict": "excellent",
+     "note": "2205 해수 열교환기 표준 · 2507 상시 침지"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "excellent",
+     "note": "PREN 35–43 — CPT(임계공식온도)로 정량 선정"
+    },
+    {
+     "env": "강산",
+     "verdict": "good",
+     "note": "황산·인산 광범위 — 비등 염산 등 환원성 강산은 제한"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "excellent",
+     "note": "유기산 전역"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "excellent",
+     "note": ""
+    }
    ],
    "modes": [
-    { "mode": "염화물 SCC", "risk": "low", "note": "페라이트 골격 덕 — 오스테나이트계의 SCC 대체재" },
-    { "mode": "공식", "risk": "low", "note": "PREN 2205≈35 · 2507≈42 — CPT(임계공식온도)로 정량 선정" },
-    { "mode": "σ상 취화", "risk": "med", "note": "700–950°C 노출(용접 過입열·열처리 실수)에 금속간상 석출 — 내식·인성 동시 급락. 용접 절차 관리가 핵심" },
-    { "mode": "475°C 취화", "risk": "med", "note": "300–500°C 장기 사용 금지" }
+    {
+     "mode": "염화물 SCC",
+     "risk": "low",
+     "note": "페라이트 골격 덕 — 오스테나이트계의 SCC 대체재"
+    },
+    {
+     "mode": "공식",
+     "risk": "low",
+     "note": "PREN 2205≈35 · 2507≈42 — CPT(임계공식온도)로 정량 선정"
+    },
+    {
+     "mode": "σ상 취화",
+     "risk": "med",
+     "note": "700–950°C 노출(용접 過입열·열처리 실수)에 금속간상 석출 — 내식·인성 동시 급락. 용접 절차 관리가 핵심"
+    },
+    {
+     "mode": "475°C 취화",
+     "risk": "med",
+     "note": "300–500°C 장기 사용 금지"
+    }
    ],
    "caution": "듀플렉스의 적은 부식이 아니라 열이력이다 — 용접·열처리 창을 지키면 최상급.",
-   "sources": ["Outokumpu Corrosion Handbook", "ASM Handbook Vol.13B", "ASTM A923 (금속간상 검출)"]
+   "sources": [
+    "Outokumpu Corrosion Handbook",
+    "ASM Handbook Vol.13B",
+    "ASTM A923 (금속간상 검출)"
+   ]
   },
   "ss-general": {
    "title": "스테인리스강 (일반)",
    "intro": "Cr 부동태 피막 기반의 내식 가족 — 세부 계열(오스테나이트·페라이트·마르텐사이트·듀플렉스·PH)에 따라 염화물 SCC·공식·예민화 민감도가 크게 다르다.",
    "media": [
-    { "env": "대기·담수", "verdict": "excellent", "note": "" },
-    { "env": "해수·염화물", "verdict": "caution", "note": "계열·PREN 확인 필수" }
+    {
+     "env": "대기",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "해수",
+     "verdict": "caution",
+     "note": "계열·PREN 확인 — 316 급 이상"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "caution",
+     "note": "공식·SCC 는 세부 계열 카드 기준"
+    },
+    {
+     "env": "강산",
+     "verdict": "caution",
+     "note": "산화성 우수 · 환원성 불가"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "good",
+     "note": ""
+    },
+    {
+     "env": "알칼리",
+     "verdict": "excellent",
+     "note": ""
+    }
    ],
    "modes": [
-    { "mode": "염화물 공식·SCC", "risk": "med", "note": "PREN 과 온도로 판단 — 세부 계열 카드 기준" }
+    {
+     "mode": "염화물 공식·SCC",
+     "risk": "med",
+     "note": "PREN 과 온도로 판단 — 세부 계열 카드 기준"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B"]
+   "sources": [
+    "ASM Handbook Vol.13B"
+   ]
   },
   "ni-super": {
    "title": "니켈기 초합금 (Inconel·Hastelloy·Monel)",
    "intro": "부식의 최상위 계급 — 스테인리스가 손드는 환경(고온 염화물·환원성 강산·해수 상시)을 위해 존재한다. 합금별 전문 분야가 뚜렷: 625=해수·용접재, C-276=환원성 산·혼산, Monel=HF·해수 스플래시, 600/690=고온 수증기·원자로.",
    "media": [
-    { "env": "해수·염수", "verdict": "excellent", "note": "625·C-276·Monel — 공식·틈부식·SCC 모두 상급" },
-    { "env": "산(환원성 포함)", "verdict": "excellent", "note": "C-276/C-22 가 염산·혼산의 최후 보루 — 합금별 내산 지도 확인" },
-    { "env": "고온 산화·염화", "verdict": "good", "note": "고온 염화물·황화 분위기는 합금별 제한 확인" },
-    { "env": "알칼리", "verdict": "excellent", "note": "가성 소다 농축 공정 = Ni 200/600 영역" }
+    {
+     "env": "대기",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "해수",
+     "verdict": "excellent",
+     "note": "625·C-276·Monel — 공식·틈부식·SCC 모두 상급"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "excellent",
+     "note": "고온 염수까지 — 합금별 한계만 확인"
+    },
+    {
+     "env": "강산",
+     "verdict": "excellent",
+     "note": "C-276/C-22 가 염산·혼산의 최후 보루 — 합금별 내산 지도 확인"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "알칼리",
+     "verdict": "excellent",
+     "note": "가성 소다 농축 = Ni 200/600 영역"
+    }
    ],
    "modes": [
-    { "mode": "염화물 SCC", "risk": "low", "note": "Ni≥45% 는 사실상 면역 — 오스테나이트 SS 의 SCC 탈출구" },
-    { "mode": "입계부식", "risk": "med", "note": "600 계 예민화·용접 HAZ — 690/625 로 개선, 안정화 열처리" },
-    { "mode": "고온 황화", "risk": "med", "note": "S 함유 연료·분위기에서 Ni-S 저융점 공정 — 합금 선택 제한" }
+    {
+     "mode": "염화물 SCC",
+     "risk": "low",
+     "note": "Ni≥45% 는 사실상 면역 — 오스테나이트 SS 의 SCC 탈출구"
+    },
+    {
+     "mode": "입계부식",
+     "risk": "med",
+     "note": "600 계 예민화·용접 HAZ — 690/625 로 개선, 안정화 열처리"
+    },
+    {
+     "mode": "고온 황화",
+     "risk": "med",
+     "note": "S 함유 연료·분위기에서 Ni-S 저융점 공정 — 합금 선택 제한"
+    }
    ],
    "caution": "값이 문제일 뿐 성능은 최상 — '스테인리스로 못 버티면 니켈로'가 플랜트 관행.",
-   "sources": ["Special Metals / Haynes 내식 datasheet", "ASM Handbook Vol.13B", "NACE MR0175"]
+   "sources": [
+    "Special Metals / Haynes 내식 datasheet",
+    "ASM Handbook Vol.13B",
+    "NACE MR0175"
+   ]
   },
   "ni-fe-lowexp": {
    "title": "저팽창 합금 (Invar·Kovar)",
    "intro": "Ni 36% 라는 숫자와 달리 Cr 이 없어 부동태가 없다 — 습기에 탄소강처럼 녹스는, 마레이징과 같은 '녹스는 고니켈' 함정 가족. 정밀 부품이라 녹 한 점이 치명적이다.",
    "media": [
-    { "env": "대기(습윤)", "verdict": "poor", "note": "무방호 보관 금지 — Ni/금 도금·방습 포장 관례" },
-    { "env": "해수·산", "verdict": "poor", "note": "적용 외" }
+    {
+     "env": "대기",
+     "verdict": "poor",
+     "note": "Cr 0 — 습기 녹. Ni/금 도금·방습 포장 관례"
+    },
+    {
+     "env": "해수",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "caution",
+     "note": ""
+    }
    ],
    "modes": [
-    { "mode": "균일 부식(녹)", "risk": "high", "note": "치수 안정용 부품의 녹 = 기능 상실 — 도금이 사실상 필수" }
+    {
+     "mode": "균일 부식(녹)",
+     "risk": "high",
+     "note": "치수 안정용 부품의 녹 = 기능 상실 — 도금이 사실상 필수"
+    }
    ],
-   "sources": ["Carpenter Invar 36 datasheet", "ASTM F15"]
+   "sources": [
+    "Carpenter Invar 36 datasheet",
+    "ASTM F15"
+   ]
   },
   "cocr": {
    "title": "코발트기 합금 (Stellite·CoCrMo·L605)",
    "intro": "Cr 부동태 + 마모 저항의 결합 — 부식과 마모가 동시에 오는 자리(밸브 시트·펌프 슬리브·인체)의 전문가. CoCrMo 는 체액 환경 수십 년 실적의 생체 표준.",
    "media": [
-    { "env": "해수·염수", "verdict": "good", "note": "Stellite 밸브 트림 — 침식·캐비테이션 겸용" },
-    { "env": "체액(생체)", "verdict": "excellent", "note": "CoCrMo (ASTM F75/F1537) — 마모부식(fretting) 실적" },
-    { "env": "산", "verdict": "good", "note": "산화성 양호 — 환원성 강산은 Ni 계 영역" }
+    {
+     "env": "대기",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "해수",
+     "verdict": "good",
+     "note": "Stellite 밸브 트림 — 침식·캐비테이션 겸용"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "good",
+     "note": "체액(생리식염 환경) 수십 년 실적 — CoCrMo"
+    },
+    {
+     "env": "강산",
+     "verdict": "caution",
+     "note": "산화성 양호 — 환원성 강산은 Ni 계 영역"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "good",
+     "note": ""
+    },
+    {
+     "env": "알칼리",
+     "verdict": "good",
+     "note": ""
+    }
    ],
    "modes": [
-    { "mode": "마모부식(tribocorrosion)", "risk": "low", "note": "이 가족의 존재 이유 — 피막 파괴·재생 반복 환경에서 최강" },
-    { "mode": "갈바닉(생체 혼합)", "risk": "med", "note": "Ti 스템+CoCr 헤드 조합의 taper 부식 — 설계·조립 관리" }
+    {
+     "mode": "마모부식(tribocorrosion)",
+     "risk": "low",
+     "note": "이 가족의 존재 이유 — 피막 파괴·재생 반복 환경에서 최강"
+    },
+    {
+     "mode": "갈바닉(생체 혼합)",
+     "risk": "med",
+     "note": "Ti 스템+CoCr 헤드 조합의 taper 부식 — 설계·조립 관리"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B", "ASTM F75/F1537", "Kennametal Stellite 가이드"]
+   "sources": [
+    "ASM Handbook Vol.13B",
+    "ASTM F75/F1537",
+    "Kennametal Stellite 가이드"
+   ]
   },
   "ti": {
    "title": "티타늄 (CP·Ti-6Al-4V)",
    "intro": "TiO₂ 부동태의 화신 — 해수·염화물·산화성 산·표백 환경에서 사실상 부식 제로. 담수화 플랜트·해수 열교환기·화학 플랜트의 종결자. 약점은 명확: 환원성 산(염산·황산)과 불산, 그리고 고온 틈부식.",
    "media": [
-    { "env": "해수·염수", "verdict": "excellent", "note": "상시 침지·고유속 모두 — 부식여유 0 설계 가능" },
-    { "env": "산(산화성)", "verdict": "excellent", "note": "질산·습염소 탁월" },
-    { "env": "산(환원성)", "verdict": "poor", "note": "염산·묽은황산·불산 침식 — Grade 7(Pd) / Ni 계로" },
-    { "env": "알칼리", "verdict": "good", "note": "고온 농가성 제한" }
+    {
+     "env": "대기",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "해수",
+     "verdict": "excellent",
+     "note": "상시 침지·고유속 — 부식여유 0 설계 가능"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "excellent",
+     "note": "습염소·표백 환경까지 — 단 70°C+ 틈새는 Grade 7/12"
+    },
+    {
+     "env": "강산",
+     "verdict": "caution",
+     "note": "산화성(질산) 탁월 ↔ 환원성(염산·황산·불산) 침식 — 산의 종류가 갈림길"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "good",
+     "note": "유기산 대부분 — 뜨거운 옥살산·개미산 예외"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "good",
+     "note": "고온 농가성 제한"
+    }
    ],
    "modes": [
-    { "mode": "틈부식", "risk": "med", "note": "70°C+ 염화물 틈새 — Grade 7/12(Pd·Mo-Ni)가 대책" },
-    { "mode": "갈바닉(상대재)", "risk": "med", "note": "Ti 는 귀극 — 접합된 Al·강이 희생 부식된다. 절연 설계" },
-    { "mode": "수소화물 취화", "risk": "med", "note": "음극방식 과보호·산세 수소 흡수 — TiH 석출 취화" }
+    {
+     "mode": "틈부식",
+     "risk": "med",
+     "note": "70°C+ 염화물 틈새 — Grade 7/12(Pd·Mo-Ni)가 대책"
+    },
+    {
+     "mode": "갈바닉(상대재)",
+     "risk": "med",
+     "note": "Ti 는 귀극 — 접합된 Al·강이 희생 부식된다. 절연 설계"
+    },
+    {
+     "mode": "수소화물 취화",
+     "risk": "med",
+     "note": "음극방식 과보호·산세 수소 흡수 — TiH 석출 취화"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B (Ti)", "TIMET 내식 가이드"]
+   "sources": [
+    "ASM Handbook Vol.13B (Ti)",
+    "TIMET 내식 가이드"
+   ]
   },
   "zirconium": {
    "title": "지르코늄 합금",
    "intro": "티타늄도 손드는 환경을 위한 산(酸)의 전문가 — 끓는 염산·질산·아세트산까지 견딘다(화학 플랜트 반응기). 원자로 밖에서의 존재 이유가 바로 내산성. 약점은 불산과 산화성 염화물(FeCl₃).",
    "media": [
-    { "env": "산(환원성 포함)", "verdict": "excellent", "note": "비등 HCl·H₂SO₄(~70%)·유기산 — 금속 중 최상급" },
-    { "env": "알칼리", "verdict": "excellent", "note": "용융 가성까지" },
-    { "env": "해수", "verdict": "good", "note": "실적은 산 대비 적음" },
-    { "env": "불산·FeCl₃", "verdict": "poor", "note": "즉각 침식 — 절대 금기" }
+    {
+     "env": "대기",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "해수",
+     "verdict": "good",
+     "note": "실적은 산 대비 적음"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "caution",
+     "note": "산화성 염화물(FeCl₃·CuCl₂)은 절대 금기 — 공식 급진"
+    },
+    {
+     "env": "강산",
+     "verdict": "excellent",
+     "note": "비등 염산·황산(~70%)·질산 — 금속 중 최상급. 불산만 금기"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "excellent",
+     "note": "아세트산 등 유기산 전역"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "excellent",
+     "note": "용융 가성까지"
+    }
    ],
    "modes": [
-    { "mode": "수소화물 취화", "risk": "med", "note": "수소 흡수 → 수소화물 판상 석출 (원자로 피복관의 고전 이슈)" },
-    { "mode": "발화(분말)", "risk": "high", "note": "부식 아님 주의 — 가공 분진 자연발화성" }
+    {
+     "mode": "수소화물 취화",
+     "risk": "med",
+     "note": "수소 흡수 → 수소화물 판상 석출 (원자로 피복관의 고전 이슈)"
+    },
+    {
+     "mode": "발화(분말)",
+     "risk": "high",
+     "note": "부식 아님 주의 — 가공 분진 자연발화성"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B (Zr)", "ATI Wah Chang Zr 내식 차트"]
+   "sources": [
+    "ASM Handbook Vol.13B (Zr)",
+    "ATI Wah Chang Zr 내식 차트"
+   ]
   },
   "al-wrought": {
    "title": "알루미늄 전신재 (1xxx~7xxx)",
    "intro": "얇지만 즉시 재생되는 Al₂O₃ 피막 — 중성 환경(대기·담수)에서 우수하나 pH 4 이하·9 이상에서 피막이 녹는 양쪽성 금속. 계열 차가 크다: 5xxx/6xxx 는 해양 실적, 2xxx/7xxx(Cu·Zn 고강도)는 부식·SCC 취약이 항공 설계의 상수.",
    "media": [
-    { "env": "대기·담수", "verdict": "good", "note": "1xxx/3xxx/5xxx/6xxx — 건축·일반 구조 표준" },
-    { "env": "해수·염수", "verdict": "caution", "note": "5xxx(5083-H116)·6xxx 는 해양 등급 — 2xxx/7xxx 는 클래딩·도장 없이 불가" },
-    { "env": "산·알칼리", "verdict": "poor", "note": "양쪽성 — 세제·모르타르 접촉도 침식. 크로메이트/아노다이즈로 완화" }
+    {
+     "env": "대기",
+     "verdict": "good",
+     "note": "1xxx/3xxx/5xxx/6xxx — 건축 표준. 2xxx/7xxx 는 도장/클래딩 전제"
+    },
+    {
+     "env": "해수",
+     "verdict": "caution",
+     "note": "5083-H116·6xxx 해양 등급 한정 — 2xxx/7xxx 불가"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "caution",
+     "note": "융설제·염수 분무 — 공식 반점 + 갈바닉(강 볼트) 겹침"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "양쪽성 — pH 4 이하 피막 용해"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "caution",
+     "note": "아세트산·질산(농)은 예외적 견딤 — 대부분 묽은 산은 침식"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "poor",
+     "note": "pH 9 이상 피막 용해 — 모르타르·세제 접촉도 침식"
+    }
    ],
    "modes": [
-    { "mode": "갈바닉", "risk": "high", "note": "Al 은 거의 항상 양극(희생) — 강·구리·CFRP 와 접합 시 절연 필수. 빗물 이온만으로도 진행" },
-    { "mode": "SCC·박리부식", "risk": "med", "note": "7xxx-T6·2xxx 고전 — T73/T7451 과시효·클래딩이 표준 대책" },
-    { "mode": "공식", "risk": "med", "note": "염화물 반점 — 외관 문제가 대부분이나 박판·튜브는 관통" },
-    { "mode": "입계부식(5xxx)", "risk": "med", "note": "Mg≥3.5% + 65°C+ 장기 노출 시 β상 석출(예민화) — H116/H321 템퍼가 관리 등급" }
+    {
+     "mode": "갈바닉",
+     "risk": "high",
+     "note": "Al 은 거의 항상 양극(희생) — 강·구리·CFRP 와 접합 시 절연 필수. 빗물 이온만으로도 진행"
+    },
+    {
+     "mode": "SCC·박리부식",
+     "risk": "med",
+     "note": "7xxx-T6·2xxx 고전 — T73/T7451 과시효·클래딩이 표준 대책"
+    },
+    {
+     "mode": "공식",
+     "risk": "med",
+     "note": "염화물 반점 — 외관 문제가 대부분이나 박판·튜브는 관통"
+    },
+    {
+     "mode": "입계부식(5xxx)",
+     "risk": "med",
+     "note": "Mg≥3.5% + 65°C+ 장기 노출 시 β상 석출(예민화) — H116/H321 템퍼가 관리 등급"
+    }
    ],
    "caution": "계열·템퍼가 내식을 정한다 — 같은 '알루미늄'이라도 5083-H116 과 7075-T6 은 반대편이다.",
-   "sources": ["ASM Handbook Vol.13B (Al)", "MMPDS (SCC 등급표)", "AA Aluminum Design Manual"]
+   "sources": [
+    "ASM Handbook Vol.13B (Al)",
+    "MMPDS (SCC 등급표)",
+    "AA Aluminum Design Manual"
+   ]
   },
   "al-cast-am": {
    "title": "알루미늄 주조·AM (AlSi 계)",
    "intro": "Si 공정 조직 기반 — 전신재 중성 거동과 유사하나 주조 기공·AM 표면 조도가 부식 기점이 되기 쉽다. Cu 함유 주조합금(A201 등)은 전신 2xxx 처럼 취약 쪽.",
    "media": [
-    { "env": "대기·담수", "verdict": "good", "note": "AlSi10Mg·A356 — 도장 병행 관례" },
-    { "env": "해수", "verdict": "caution", "note": "Cu-free 합금 한정 — 크로메이트+도장" },
-    { "env": "산·알칼리", "verdict": "poor", "note": "전신재와 동일(양쪽성)" }
+    {
+     "env": "대기",
+     "verdict": "good",
+     "note": "AlSi10Mg·A356 — 도장 병행 관례"
+    },
+    {
+     "env": "해수",
+     "verdict": "caution",
+     "note": "Cu-free 합금 한정 — 크로메이트+도장"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "caution",
+     "note": "기공·AM 표면이 공식 기점"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "양쪽성"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "caution",
+     "note": "전신재와 동일"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "poor",
+     "note": "양쪽성"
+    }
    ],
    "modes": [
-    { "mode": "공식(기공 기점)", "risk": "med", "note": "AM as-built 표면·주조 기공 — 함침·표면 개선이 유효" },
-    { "mode": "갈바닉", "risk": "high", "note": "전신재와 동일 — 인서트(강 볼트) 접촉부 관리" }
+    {
+     "mode": "공식(기공 기점)",
+     "risk": "med",
+     "note": "AM as-built 표면·주조 기공 — 함침·표면 개선이 유효"
+    },
+    {
+     "mode": "갈바닉",
+     "risk": "high",
+     "note": "전신재와 동일 — 인서트(강 볼트) 접촉부 관리"
+    }
    ],
-   "sources": ["ASM Handbook Vol.13B", "EOS AlSi10Mg datasheet"]
+   "sources": [
+    "ASM Handbook Vol.13B",
+    "EOS AlSi10Mg datasheet"
+   ]
   },
   "mg": {
    "title": "마그네슘 합금",
    "intro": "구조 금속 중 전기화학적으로 가장 비(卑)한 — 갈바닉 계열 최하단이라 다른 금속과 닿는 순간 자신이 희생양극이 된다. 무방호 사용은 건조 실내 한정이며, 표면처리(크로메이트·아노다이즈)+절연 설계가 세트.",
    "media": [
-    { "env": "대기(건조)", "verdict": "caution", "note": "표면처리 전제 — 신품 AZ91 도 습기에 백분(白粉)" },
-    { "env": "해수·염화물", "verdict": "poor", "note": "급속 침식 — 융설제 튀는 차체 부위도 회피" },
-    { "env": "산", "verdict": "poor", "note": "즉각 용해 (불산만 예외적 피막)" },
-    { "env": "알칼리", "verdict": "good", "note": "의외의 안정역 — 알칼리 세정 가능" }
+    {
+     "env": "대기",
+     "verdict": "caution",
+     "note": "표면처리(크로메이트·아노다이즈) 전제 — 무처리는 백분"
+    },
+    {
+     "env": "해수",
+     "verdict": "poor",
+     "note": "급속 침식"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "poor",
+     "note": "융설제 튀는 차체 부위도 회피"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "즉각 용해 (불산만 예외적 피막)"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "poor",
+     "note": "즉각 침식"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "good",
+     "note": "의외의 안정역 — 알칼리 세정 가능"
+    }
    ],
    "modes": [
-    { "mode": "갈바닉", "risk": "high", "note": "강 볼트 하나로 국부 관통 — 절연 와셔·Al 스페이서·실런트가 설계 표준" },
-    { "mode": "일반 부식", "risk": "high", "note": "불순물(Fe·Ni·Cu) 수 ppm 이 부식속도 10배 — 고순도(HP) 등급 선택" }
+    {
+     "mode": "갈바닉",
+     "risk": "high",
+     "note": "강 볼트 하나로 국부 관통 — 절연 와셔·Al 스페이서·실런트가 설계 표준"
+    },
+    {
+     "mode": "일반 부식",
+     "risk": "high",
+     "note": "불순물(Fe·Ni·Cu) 수 ppm 이 부식속도 10배 — 고순도(HP) 등급 선택"
+    }
    ],
    "caution": "경량의 대가 — 부식 설계 없이 쓰는 재료가 아니다.",
-   "sources": ["ASM Handbook Vol.13B (Mg)", "Magnesium Elektron 가이드"]
+   "sources": [
+    "ASM Handbook Vol.13B (Mg)",
+    "Magnesium Elektron 가이드"
+   ]
   },
   "cu": {
    "title": "구리·황동·청동·CuNi",
    "intro": "해수의 명가 — CuNi 90-10 은 선박 배관 표준(생물 부착도 억제). 담수·대기(녹청 안정층)도 우수. 고유 약점 둘: 암모니아 SCC(황동 season cracking)와 유속 한계(침식부식).",
    "media": [
-    { "env": "해수·염수", "verdict": "good", "note": "CuNi·Al-bronze 상급(유속 한계 내) — 황동은 탈아연 주의" },
-    { "env": "대기·담수", "verdict": "excellent", "note": "지붕·배관 수백 년 실적" },
-    { "env": "암모니아·아민", "verdict": "poor", "note": "황동 SCC 즉발 — 냉간가공품 응력제거 필수" },
-    { "env": "산(산화성)", "verdict": "poor", "note": "질산 침식 — 환원성 묽은산은 제한적 가능" }
+    {
+     "env": "대기",
+     "verdict": "excellent",
+     "note": "지붕·배관 수백 년 실적(녹청 안정층)"
+    },
+    {
+     "env": "해수",
+     "verdict": "good",
+     "note": "CuNi 90-10 선박 배관 표준 — 유속 한계(~3.5 m/s) 내"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "good",
+     "note": "황동은 탈아연 주의(DZR 등급) — CuNi·청동 양호"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "질산 즉발 침식 — 산화성 강산 금기"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "caution",
+     "note": "비산화성 묽은산(아세트산·묽은 황산)은 공기 차단 조건에서 가능"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "good",
+     "note": "단 암모니아·아민은 SCC 즉발(황동) — 별도 금기"
+    }
    ],
    "modes": [
-    { "mode": "SCC (암모니아)", "risk": "high", "note": "황동 한정 고전 — 탄약 season cracking. 저아연 황동·응력제거로 완화" },
-    { "mode": "탈аルロイ(탈아연)", "risk": "med", "note": "Zn≥15% 황동 — 비소 첨가(DZR) 등급으로 예방" },
-    { "mode": "침식부식", "risk": "med", "note": "유속 한계(CuNi 90-10 ≈3.5 m/s) 초과 시 피막 박리 — 설계 유속 관리" },
-    { "mode": "갈바닉(상대재 가해)", "risk": "med", "note": "Cu 는 귀한 쪽 — 접합된 Al·강·Zn 을 가속 부식시킴" }
+    {
+     "mode": "SCC (암모니아)",
+     "risk": "high",
+     "note": "황동 한정 고전 — 탄약 season cracking. 저아연 황동·응력제거로 완화"
+    },
+    {
+     "mode": "탈аルロイ(탈아연)",
+     "risk": "med",
+     "note": "Zn≥15% 황동 — 비소 첨가(DZR) 등급으로 예방"
+    },
+    {
+     "mode": "침식부식",
+     "risk": "med",
+     "note": "유속 한계(CuNi 90-10 ≈3.5 m/s) 초과 시 피막 박리 — 설계 유속 관리"
+    },
+    {
+     "mode": "갈바닉(상대재 가해)",
+     "risk": "med",
+     "note": "Cu 는 귀한 쪽 — 접합된 Al·강·Zn 을 가속 부식시킴"
+    }
    ],
-   "sources": ["CDA seawater alloy guide", "ASM Handbook Vol.13B (Cu)"]
+   "sources": [
+    "CDA seawater alloy guide",
+    "ASM Handbook Vol.13B (Cu)"
+   ]
   },
   "zn": {
    "title": "아연 다이캐스트 (Zamak)",
    "intro": "아연도금이 강을 지키는 원리(희생양극) 그대로 — 자신은 비한 금속이라 산·알칼리·해수에 약하다. 다이캐스트 부품은 크로메이트+도장/도금이 표준 마감.",
    "media": [
-    { "env": "대기(실내)", "verdict": "good", "note": "크로메이트 마감 전제" },
-    { "env": "대기(옥외)·습윤", "verdict": "caution", "note": "백청 — 도장 병행" },
-    { "env": "해수·산·알칼리", "verdict": "poor", "note": "적용 외" }
+    {
+     "env": "대기",
+     "verdict": "good",
+     "note": "크로메이트 마감 전제 — 옥외는 백청·도장 병행"
+    },
+    {
+     "env": "해수",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "poor",
+     "note": "적용 외"
+    },
+    {
+     "env": "강산",
+     "verdict": "poor",
+     "note": "즉각 용해"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "poor",
+     "note": "양쪽성 — 묽은 산도 침식"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "poor",
+     "note": "양쪽성 — 알칼리도 침식"
+    }
    ],
    "modes": [
-    { "mode": "입계부식(구합금)", "risk": "med", "note": "Pb·Sn·Cd 불순물 구형 Zamak 의 고전 — 현행 고순도 규격(ASTM B86)은 해소" }
+    {
+     "mode": "입계부식(구합금)",
+     "risk": "med",
+     "note": "Pb·Sn·Cd 불순물 구형 Zamak 의 고전 — 현행 고순도 규격(ASTM B86)은 해소"
+    }
    ],
-   "sources": ["ASTM B86", "ASM Handbook Vol.13B (Zn)"]
+   "sources": [
+    "ASTM B86",
+    "ASM Handbook Vol.13B (Zn)"
+   ]
   },
   "refractory": {
    "title": "내화 금속 (W·Mo·Ta·Nb)",
    "intro": "상온 대기에선 조용하지만 고온 대기에서 극적으로 갈리는 가족 — W/Mo 는 500°C+ 에서 산화물이 승화(보호막 없음)해 진공·환원 분위기 전용. Ta 는 반대로 '산의 왕' — 백금급 내산으로 화학 플랜트 라이닝에 쓰인다.",
    "media": [
-    { "env": "대기(상온)", "verdict": "good", "note": "전 계열 안정" },
-    { "env": "대기(고온 500°C+)", "verdict": "poor", "note": "W/Mo 산화 승화 — 진공·Ar/H₂ 분위기 전용. 코팅(MoSi₂)으로 일부 확장" },
-    { "env": "산", "verdict": "excellent", "note": "Ta 가 비등 HCl·HNO₃·H₂SO₄ 전역 — 불산·발연황산만 예외" },
-    { "env": "용융 금속·염", "verdict": "good", "note": "W/Mo 도가니 실적 — 개별 확인" }
+    {
+     "env": "대기",
+     "verdict": "good",
+     "note": "상온 전 계열 안정 — 단 500°C+ 대기는 W/Mo 산화물 승화(진공·환원 분위기 전용)"
+    },
+    {
+     "env": "해수",
+     "verdict": "good",
+     "note": "Ta/Nb 양호 — W/Mo 실적 적음"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "good",
+     "note": "Ta 기준 — 열염수까지"
+    },
+    {
+     "env": "강산",
+     "verdict": "excellent",
+     "note": "Ta = 백금급(비등 HCl·HNO₃·H₂SO₄) — 불산·발연황산만 예외. W/Mo 는 제한적"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "excellent",
+     "note": "Ta 기준 전역"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "caution",
+     "note": "Ta 는 뜨거운 알칼리에 약함(의외 약점) — 용융 가성 침식"
+    }
    ],
    "modes": [
-    { "mode": "고온 산화(W·Mo)", "risk": "high", "note": "부식 설계의 본체 — 분위기 관리가 재료 선택보다 중요" },
-    { "mode": "수소취성(Ta·Nb)", "risk": "med", "note": "산세·음극 조건 수소 흡수 — 취화" }
+    {
+     "mode": "고온 산화(W·Mo)",
+     "risk": "high",
+     "note": "부식 설계의 본체 — 분위기 관리가 재료 선택보다 중요"
+    },
+    {
+     "mode": "수소취성(Ta·Nb)",
+     "risk": "med",
+     "note": "산세·음극 조건 수소 흡수 — 취화"
+    }
    ],
-   "sources": ["Plansee 내식·내산화 가이드", "ASM Handbook Vol.13B"]
+   "sources": [
+    "Plansee 내식·내산화 가이드",
+    "ASM Handbook Vol.13B"
+   ]
   },
   "polymer": {
    "title": "폴리머 (전해 부식 무관 — 내약품성으로 판단)",
    "intro": "금속 부식(전기화학)은 일어나지 않는다 — 대신 화학 열화가 별개 축으로 존재: 용제 침투·팽윤, 가수분해(에스터계), 산화·UV 취화, 응력균열(ESC). '녹슬지 않음'과 '견딤'은 다르다.",
    "media": [
-    { "env": "물·습기", "verdict": "good", "note": "PA(나일론)는 흡습 물성 변화 · PC/에스터계는 열수 가수분해 주의" },
-    { "env": "산·알칼리", "verdict": "good", "note": "PE/PP/PTFE 강함 — PC/PMMA/ABS 는 용제·알칼리 취약. 재질별 내약품표 확인" },
-    { "env": "용제·연료", "verdict": "caution", "note": "비결정성(PC·PMMA·ABS)이 ESC 취약 — 결정성(POM·PA·PPS)이 강함" },
-    { "env": "UV·옥외", "verdict": "caution", "note": "안정제·카본블랙 배합 전제 — 무배합 옥외 취화" }
+    {
+     "env": "대기",
+     "verdict": "good",
+     "note": "전해 부식 무관 — 단 UV 는 안정제 배합 전제(무배합 옥외 취화)"
+    },
+    {
+     "env": "해수",
+     "verdict": "excellent",
+     "note": "해수 자체는 무해 — PA 는 흡습 물성 변화만"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "excellent",
+     "note": "염화물 무관 — 금속 대비 결정적 강점"
+    },
+    {
+     "env": "강산",
+     "verdict": "caution",
+     "note": "PE/PP/PTFE 강함 ↔ PC/PMMA/PA 침식 — 재질×약품 매트릭스 확인"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "good",
+     "note": "대부분 견딤 — PA(나일론)는 산에 약한 편"
+    },
+    {
+     "env": "알칼리",
+     "verdict": "caution",
+     "note": "PE/PP 강함 ↔ PC(가수분해)·PET 취약 — 재질별 확인"
+    }
    ],
    "modes": [
-    { "mode": "응력균열(ESC)", "risk": "high", "note": "응력+약한 용제 조합 — 세정제·구리스 접촉 파손의 단골" },
-    { "mode": "가수분해", "risk": "med", "note": "PET/PC/에스터계 TPU — 고온 습열 환경 등급 확인" }
+    {
+     "mode": "응력균열(ESC)",
+     "risk": "high",
+     "note": "응력+약한 용제 조합 — 세정제·구리스 접촉 파손의 단골"
+    },
+    {
+     "mode": "가수분해",
+     "risk": "med",
+     "note": "PET/PC/에스터계 TPU — 고온 습열 환경 등급 확인"
+    }
    ],
    "caution": "금속식 '내식 등급'이 아니라 재질×약품 매트릭스로 판단 — 제조사 내약품표가 SSOT.",
-   "sources": ["제조사 내약품표 (Chemours·SABIC·BASF)", "ISO 4599 (ESC)"]
+   "sources": [
+    "제조사 내약품표 (Chemours·SABIC·BASF)",
+    "ISO 4599 (ESC)"
+   ]
   },
   "ceramic": {
    "title": "세라믹 (사실상 불활성)",
    "intro": "이온·공유결합 자체가 이미 '산화된' 상태 — 전기화학 부식이 없고 대부분의 산·알칼리·용제에 불활성. 예외만 기억하면 된다: 불산(유리·산화물 침식), 고온 용융염·용융금속, 그리고 지르코니아의 저온 열화(LTD, 수분).",
    "media": [
-    { "env": "산·알칼리·용제", "verdict": "excellent", "note": "불산·열농인산만 예외" },
-    { "env": "해수·물", "verdict": "excellent", "note": "Y-TZP 지르코니아만 130–300°C 수분 LTD 주의" },
-    { "env": "용융염·금속(고온)", "verdict": "caution", "note": "개별 상성 확인 (도가니 선정표)" }
+    {
+     "env": "대기",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "해수",
+     "verdict": "excellent",
+     "note": "Y-TZP 지르코니아만 130–300°C 수분 LTD 주의"
+    },
+    {
+     "env": "염수·염화물",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "강산",
+     "verdict": "excellent",
+     "note": "불산·열농인산만 예외"
+    },
+    {
+     "env": "약산(묽은산·유기산)",
+     "verdict": "excellent",
+     "note": ""
+    },
+    {
+     "env": "알칼리",
+     "verdict": "good",
+     "note": "고온 용융 알칼리 예외"
+    }
    ],
    "modes": [
-    { "mode": "저온 열화 LTD (Y-TZP)", "risk": "med", "note": "수분+중온에서 정방정→단사정 상변태 — 의료 임플란트 규격(ISO 13356)이 관리" }
+    {
+     "mode": "저온 열화 LTD (Y-TZP)",
+     "risk": "med",
+     "note": "수분+중온에서 정방정→단사정 상변태 — 의료 임플란트 규격(ISO 13356)이 관리"
+    }
    ],
-   "sources": ["ASM Engineered Materials Handbook Vol.4", "ISO 13356"]
+   "sources": [
+    "ASM Engineered Materials Handbook Vol.4",
+    "ISO 13356"
+   ]
   }
  }
 }
