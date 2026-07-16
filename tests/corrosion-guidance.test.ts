@@ -132,15 +132,43 @@ describe('개별 합금 노트 (E15c — base-키 조회)', () => {
     }
     expect([...missing], `alloy_notes 누락 base: ${[...missing].join(', ')}`).toEqual([]);
   });
-  it('앵커 — 304(PREN 언급)·7075(T73 과시효)·2205(CPT)·1010(도금 모재)·PEEK·Ta', () => {
-    expect(alloyNoteFor('AISI 304 — Annealed (Wrought)')).toMatch(/PREN ~19/);
-    expect(alloyNoteFor('AA 7075 — T6')).toMatch(/T73/);
-    expect(alloyNoteFor('2205 Duplex Stainless')).toMatch(/CPT/);
-    expect(alloyNoteFor('AISI 1010 — Annealed (Wrought)')).toMatch(/도금 모재/);
+  it('E15f — 전 노트 {t, src} 형식·개별 출처 필수 (배치 주석 수준 출처 재발 차단)', () => {
+    const bad = Object.entries<any>((g as any).alloy_notes)
+      .filter(([k]) => !k.startsWith('_'))
+      .filter(([, v]) => typeof v !== 'object' || !v.t || String(v.t).length < 10 || !v.src || String(v.src).length < 2)
+      .map(([k]) => k);
+    expect(bad, `t/src 형식 위반 키: ${bad.join(', ')}`).toEqual([]);
   });
-  it('resolveCorrosionPlan 이 alloyNote 를 노출', () => {
+  it('E15f — 동일 텍스트 공유 ≤3키 (같은 재료의 표기 변형만 — 대형 묶음 재발 차단)', () => {
+    const byText = new Map<string, string[]>();
+    for (const [k, v] of Object.entries<any>((g as any).alloy_notes)) {
+      if (k.startsWith('_')) continue;
+      const arr = byText.get(v.t) || [];
+      arr.push(k);
+      byText.set(v.t, arr);
+    }
+    const big = [...byText.values()].filter((ks) => ks.length > 3).map((ks) => ks.join('|'));
+    expect(big, `4키+ 공유 묶음: ${big.join(' / ')}`).toEqual([]);
+  });
+  it('앵커 — 304(PREN 언급)·7075(T73 과시효)·2205(CPT)·1010(도금 모재)', () => {
+    expect(alloyNoteFor('AISI 304 — Annealed (Wrought)')!.t).toMatch(/PREN ~19/);
+    expect(alloyNoteFor('AA 7075 — T6')!.t).toMatch(/T73/);
+    expect(alloyNoteFor('2205 Duplex Stainless')!.t).toMatch(/CPT/);
+    expect(alloyNoteFor('AISI 1010 — Annealed (Wrought)')!.t).toMatch(/도금 모재/);
+  });
+  it('앵커 — E15f 웹 검증 교정: SHP=강널말뚝(내후성강 아님)·SG325=LPG 용기·CBN↔Diamond 분리', () => {
+    const shp = alloyNoteFor('SHP275W (KS F 4603, weldable steel sheet pile) — As-rolled')!;
+    expect(shp.t).toMatch(/강널말뚝/);
+    expect(shp.t).not.toMatch(/내후성|녹층/);
+    expect(shp.src).toMatch(/KS F 4603/);
+    expect(alloyNoteFor('SG325 (KS D 3533) — Normalized')!.t).toMatch(/LPG 용기/);
+    expect(alloyNoteFor('Diamond — Sintered')!.t).toMatch(/철계 절삭 금기/);
+    expect(alloyNoteFor('CBN — Sintered')!.t).toMatch(/철계 고속 절삭/);
+  });
+  it('resolveCorrosionPlan 이 alloyNote {t, src} 를 노출', () => {
     const p = resolveCorrosionPlan(byName('AISI 304 — Annealed (Wrought)')!)!;
-    expect(p.alloyNote).toMatch(/316 급 검토/);
+    expect(p.alloyNote!.t).toMatch(/316 급 검토/);
+    expect(p.alloyNote!.src.length).toBeGreaterThan(2);
   });
 });
 
