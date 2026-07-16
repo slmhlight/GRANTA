@@ -3999,5 +3999,287 @@
    "t": "EOS PA1101 — PA11(피마자유 bio-PA): PA12 대비 인성·유연 우위, 저흡습 — SLS 다공 표면의 흡습·오염 경로 관리는 SLS 공통. (구 DB 의 PA12 오기는 교정 완료)",
    "src": "EOS PA 1101 MDS(PA11 명기)"
   }
+ },
+ "alloy_adjust": {
+  "_note": "합금별 매체 verdict 보정 3층 — ① pren: 스테인리스(Cr≥10.5) 염화물 축을 PREN 밴드로 조정 ② rules: 조성 임계 규칙(그룹 한정) ③ by_base: 명시 오버라이드(datasheet 근거). 적용 순서 ①→②→③(후순위가 우선). 그룹 기본값과 달라진 축만 UI 에 \"합금 보정\" 마커. 모든 항목 why·src 필수 — 게이트 검증.",
+  "pren": {
+   "groups": [
+    "ss-austenitic",
+    "ss-ferritic",
+    "ss-martensitic",
+    "ss-ph",
+    "ss-duplex",
+    "ss-general"
+   ],
+   "src": "Outokumpu Corrosion Handbook · IMOA (PREN-CPT 밴딩)",
+   "axes": {
+    "해수": [
+     [
+      40,
+      "excellent"
+     ],
+     [
+      30,
+      "good"
+     ],
+     [
+      20,
+      "caution"
+     ],
+     [
+      0,
+      "poor"
+     ]
+    ],
+    "염수·염화물": [
+     [
+      30,
+      "excellent"
+     ],
+     [
+      20,
+      "good"
+     ],
+     [
+      12,
+      "caution"
+     ],
+     [
+      0,
+      "poor"
+     ]
+    ]
+   }
+  },
+  "rules": [
+   {
+    "group": "cu",
+    "el": "Zn",
+    "min": 28,
+    "axes": {
+     "해수": "poor",
+     "염수·염화물": "caution"
+    },
+    "why": "Zn 28%+ 황동 — 탈아연 부식 감수성",
+    "src": "ASM Vol.13B(탈아연) · CDA"
+   },
+   {
+    "group": "cu",
+    "el": "Zn",
+    "min": 15,
+    "max": 28,
+    "axes": {
+     "해수": "caution"
+    },
+    "why": "중아연 황동 — 해수 상시 침지 제한",
+    "src": "ASM Vol.13B · CDA"
+   },
+   {
+    "group": "cu",
+    "el": "Ni",
+    "min": 9,
+    "axes": {
+     "해수": "excellent",
+     "염수·염화물": "excellent"
+    },
+    "why": "CuNi(무아연) — 선박 해수 배관 표준(생물 부착 억제)",
+    "src": "CDA(CuNi 해수 적용)",
+    "maxOther": {
+     "el": "Zn",
+     "max": 1
+    }
+   },
+   {
+    "group": "cu",
+    "el": "Al",
+    "min": 6,
+    "axes": {
+     "해수": "excellent"
+    },
+    "why": "Al 청동/NAB — 해수 프로펠러·캐비테이션 실적",
+    "src": "CDA C95800 · NAVSEA"
+   },
+   {
+    "group": "al-wrought",
+    "el": "Cu",
+    "min": 1.8,
+    "axes": {
+     "해수": "poor",
+     "염수·염화물": "poor"
+    },
+    "why": "Cu 함유(2xxx 등) — 나내식 최하위 Al: 클래드/도장 전제",
+    "src": "ASM Vol.13B(Al)"
+   },
+   {
+    "group": "al-wrought",
+    "el": "Zn",
+    "min": 4,
+    "axes": {
+     "해수": "poor"
+    },
+    "why": "7xxx — 해양 나사용 부적합(SCC·공식)",
+    "src": "ASM Vol.13B(Al)"
+   },
+   {
+    "group": "al-wrought",
+    "el": "Mg",
+    "min": 2.2,
+    "maxOther": {
+     "el": "Cu",
+     "max": 0.5
+    },
+    "axes": {
+     "해수": "good",
+     "염수·염화물": "good"
+    },
+    "why": "5xxx 해양 판재 — 선체·데크 실적",
+    "src": "ASM Vol.13B(Al) · ASTM B928"
+   },
+   {
+    "group": "al-cast-am",
+    "el": "Cu",
+    "min": 1.5,
+    "axes": {
+     "해수": "poor",
+     "염수·염화물": "poor"
+    },
+    "why": "Cu 함유 주조 Al(A319/A380 계) — 습윤·염화물 도장 전제",
+    "src": "ASM 주조 Al"
+   },
+   {
+    "group": "ni-super",
+    "el": "Mo",
+    "max": 8,
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "고온 전용 합금(저 Mo) — 수용액 산 내식은 설계 대상 아님: C/B 계열로",
+    "src": "ASM Handbook(초합금 구분) · Haynes"
+   }
+  ],
+  "by_base": {
+   "Hastelloy X": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "고온 전용(연소기) — 수용액 산 사용 비대상",
+    "src": "Haynes X datasheet"
+   },
+   "Inconel 617": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "고온 전용(VHTR·연소기) — 수용액 산 비대상",
+    "src": "Special Metals 617"
+   },
+   "Rene 41": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "고온 전용(터빈 시트) — 수용액 산 비대상",
+    "src": "ASM Handbook(초합금)"
+   },
+   "Monel 400": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "HF·묽은 환원산 전문 — 산화성 산(질산 등)은 불가",
+    "src": "Special Metals Monel 400"
+   },
+   "Monel K-500": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "성격은 Monel 400 — 산화성 산 불가",
+    "src": "Special Metals K-500"
+   },
+   "Nickel 200": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "가성(알칼리) 전문 — 산은 묽은 환원산 한정",
+    "src": "Special Metals Nickel 200"
+   },
+   "CP-Nickel": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "가성 전문 — 산은 묽은 환원산 한정",
+    "src": "Special Metals Nickel 200"
+   },
+   "Incoloy 800H": {
+    "axes": {
+     "해수": "caution"
+    },
+    "why": "고온 크리프용(Cr-Ni-Fe) — 해수 내식은 304 급으로 취급",
+    "src": "Special Metals 800H"
+   },
+   "Incoloy 909": {
+    "axes": {
+     "해수": "poor",
+     "염수·염화물": "poor",
+     "강산": "poor",
+     "약산(묽은산·유기산)": "caution"
+    },
+    "why": "Cr 0 저팽창 설계 — 내식 관점 사실상 탄소강 급",
+    "src": "Special Metals 909"
+   },
+   "Incoloy 901": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "디스크 합금 — 수용액 산 비대상",
+    "src": "Special Metals 901"
+   },
+   "Ti Grade 7": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Pd 첨가 — 환원성 산·틈부식 저항 개선이 존재 이유",
+    "src": "ASTM B265 · TIMET"
+   },
+   "Ti Grade 11": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Pd 첨가(Gr1 기반) — 환원성 산 저항 개선",
+    "src": "ASTM B265"
+   },
+   "Titanium Grade 11": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Pd 첨가(Gr1 기반) — 환원성 산 저항 개선",
+    "src": "ASTM B265"
+   },
+   "Ti Grade 12": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Mo-Ni 첨가 — Pd 없이 틈부식·환원산 개선한 경제형",
+    "src": "ASTM B265 · TIMET"
+   },
+   "Incoloy 825": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Cu-Mo 첨가 황산·인산 전문 설계 — 산세 설비 표준",
+    "src": "Special Metals INCOLOY 825"
+   },
+   "Inconel 690": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Cr 30% — 질산 서비스 실적(재처리 설비)",
+    "src": "Special Metals INCONEL 690"
+   },
+   "904L": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Cu 첨가 황산 전용 설계 — 그룹 기본(caution)의 예외",
+    "src": "Outokumpu 904L"
+   }
+  }
  }
 }

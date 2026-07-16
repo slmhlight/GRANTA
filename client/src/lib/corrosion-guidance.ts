@@ -30,6 +30,14 @@ export interface CorrosionGroup {
 
 const GROUPS = (guidanceData as any).groups as Record<string, CorrosionGroup>;
 const MODS = (guidanceData as any).condition_mods as Record<string, { corr?: string; htc?: string; text: string }>;
+/* H6 E15i — 합금별 매체 verdict 보정층: ① PREN 밴드(ss-* 염화물 축) ② 조성 임계 규칙 ③ base 오버라이드. */
+interface AdjustRule { group: string; el: string; min?: number; max?: number; maxOther?: { el: string; max: number }; axes: Record<string, string>; why: string; src: string }
+interface AdjustCfg {
+  pren: { groups: string[]; src: string; axes: Record<string, [number, string][]> };
+  rules: AdjustRule[];
+  by_base: Record<string, { axes: Record<string, string>; why: string; src: string }>;
+}
+const ADJ = (guidanceData as any).alloy_adjust as AdjustCfg;
 /* H6 E15c/E15f — 개별 합금 1줄 노트 + 노트별 출처 (base-키 exact 조회 — 이 합금만의 특징적 주의사항). */
 export interface AlloyNote { t: string; src: string }
 const ALLOY_NOTES = (guidanceData as any).alloy_notes as Record<string, AlloyNote>;
@@ -69,6 +77,59 @@ export function prenOf(m: Material): PrenResult | null {
   return { value: Math.round((cr + 3.3 * mo + 16 * (n ?? 0)) * 10) / 10, nMissing: n == null };
 }
 
+/** E15i — 보정 적용 후 매체 행: 그룹 기본과 다르면 adj 에 근거(원값·이유·출처) 기록. */
+export interface ResolvedMedia extends CorrosionMedia {
+  adj?: { from: CorrosionMedia['verdict']; why: string; src: string };
+}
+
+/** 그룹 media → ① PREN 밴드 → ② 조성 임계 규칙 → ③ base 오버라이드 순 적용 (후순위 우선). */
+function resolveMedia(m: Material, groupKey: string, group: CorrosionGroup, pren: PrenResult | null): ResolvedMedia[] {
+  const rows: ResolvedMedia[] = group.media.map((md) => ({ ...md }));
+  const apply = (env: string, verdict: string, why: string, src: string) => {
+    const row = rows.find((r) => r.env === env);
+    if (!row) return;
+    if (row.verdict === verdict) {
+      // 후순위 레이어가 같은 verdict 재단언 — 더 구체적인 사유(by_base 등)로 근거만 갱신
+      if (row.adj) row.adj = { from: row.adj.from, why, src };
+      return;
+    }
+    row.adj = { from: row.adj?.from ?? row.verdict, why, src };
+    row.verdict = verdict as CorrosionMedia['verdict'];
+  };
+  if (ADJ?.pren && pren && ADJ.pren.groups.includes(groupKey)) {
+    for (const [env, bands] of Object.entries(ADJ.pren.axes)) {
+      const hit = bands.find(([min]) => pren.value >= min);
+      if (hit) apply(env, hit[1], `PREN ${pren.value}${pren.nMissing ? '(N=0 하한)' : ''} 밴드`, ADJ.pren.src);
+    }
+  }
+  // 'balance' 원소는 100 − (타 원소 대표값 합) 으로 해석 (황동 Zn=balance 등 — composition-classifier 관례)
+  const elemValB = (el: string): number => {
+    const direct = elemVal(m.composition, el);
+    if (direct != null) return direct;
+    const comp = m.composition;
+    if (!comp || typeof comp !== 'object' || Array.isArray(comp)) return 0;
+    if (String((comp as Record<string, unknown>)[el] ?? '') !== 'balance') return 0;
+    let others = 0;
+    for (const [k, raw] of Object.entries(comp as Record<string, unknown>)) {
+      if (k === el || raw == null || String(raw) === 'balance') continue;
+      others += elemVal(comp, k) ?? 0;
+    }
+    return Math.max(0, 100 - others);
+  };
+  for (const rule of ADJ?.rules ?? []) {
+    if (rule.group !== groupKey) continue;
+    const v = elemValB(rule.el);
+    if (rule.min != null && v < rule.min) continue;
+    if (rule.max != null && v > rule.max) continue;
+    if (rule.maxOther && elemValB(rule.maxOther.el) > rule.maxOther.max) continue;
+    for (const [env, verdict] of Object.entries(rule.axes)) apply(env, verdict, rule.why, rule.src);
+  }
+  const base = String(m.name).split(' — ')[0].trim();
+  const ov = ADJ?.by_base?.[base] ?? ADJ?.by_base?.[base.split(' (')[0].trim()];
+  if (ov) for (const [env, verdict] of Object.entries(ov.axes)) apply(env, verdict, ov.why, ov.src);
+  return rows;
+}
+
 export interface CorrosionPlan {
   groupKey: string;
   group: CorrosionGroup;
@@ -77,6 +138,8 @@ export interface CorrosionPlan {
   pren: PrenResult | null;
   /** H6 E15c/E15f — 이 합금만의 특징적 주의사항 + 개별 출처 (base-키 조회). */
   alloyNote: AlloyNote | null;
+  /** E15i — 합금 보정 적용된 매체 표 (그룹 기본과 다른 축은 adj 에 원값·근거). */
+  media: ResolvedMedia[];
   /** 조건 보정 노트 (해당 시). */
   conditionNotes: string[];
 }
@@ -95,12 +158,14 @@ export function resolveCorrosionPlan(m: Material): CorrosionPlan | null {
     if (!mod.corr && !mod.htc) continue;
     conditionNotes.push(mod.text);
   }
+  const pren = prenOf(m);
   return {
     groupKey: key,
     group,
     rating: (m as Material & { corrosion_resistance?: string }).corrosion_resistance ?? null,
-    pren: prenOf(m),
+    pren,
     alloyNote: alloyNoteFor(m.name),
+    media: resolveMedia(m, key, group, pren),
     conditionNotes,
   };
 }

@@ -825,14 +825,22 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                       </p>
                     )}
                     <p className="text-[10px] text-foreground/75 mb-1.5 leading-relaxed">{cp.group.intro}</p>
+                    {/* E15i — 합금 보정 적용 표 (그룹 기본과 다른 축은 원값→보정값·근거 병기) */}
                     <div className="space-y-0.5 mb-1.5">
-                      {cp.group.media.map((md, i) => {
+                      {cp.media.map((md, i) => {
                         const v = VERDICT_LABEL[md.verdict];
                         return (
                           <p key={i} className="text-[10.5px] leading-snug">
                             <span className="text-foreground/80">{md.env}</span>
                             {' — '}<b className={v.cls}>{v.label}</b>
-                            {md.note && <span className="text-muted-foreground"> · {md.note}</span>}
+                            {md.adj && (
+                              <span className="text-[9px] text-cyan-800 bg-cyan-600/10 rounded px-1 ml-1 whitespace-nowrap" title={`그룹 기본 ${VERDICT_LABEL[md.adj.from].label} → ${v.label} · ${md.adj.why} (${md.adj.src})`}>
+                                합금 보정: {VERDICT_LABEL[md.adj.from].label}→{v.label}
+                              </span>
+                            )}
+                            {/* 보정 시 그룹 원주석은 숨김(타 합금 언급으로 모순 가능) — 보정 사유·출처만 표기 */}
+                            {!md.adj && md.note && <span className="text-muted-foreground"> · {md.note}</span>}
+                            {md.adj && <span className="text-[9px] text-foreground/45"> · {md.adj.why} — {md.adj.src}</span>}
                           </p>
                         );
                       })}

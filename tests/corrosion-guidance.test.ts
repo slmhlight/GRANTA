@@ -198,6 +198,66 @@ describe('개별 합금 노트 (E15c — base-키 조회)', () => {
   });
 });
 
+describe('E15i — 합금별 매체 verdict 보정층', () => {
+  const AXES = ['대기', '해수', '염수·염화물', '강산', '약산(묽은산·유기산)', '알칼리'];
+  const V = new Set(['excellent', 'good', 'caution', 'poor']);
+  it('스키마 — pren.groups 실재·rules/by_base 축·verdict 유효·why/src 필수', () => {
+    const adj = (g as any).alloy_adjust;
+    expect(adj).toBeDefined();
+    for (const gk of adj.pren.groups) expect((g as any).groups[gk], `pren group '${gk}'`).toBeDefined();
+    expect(adj.pren.src.length).toBeGreaterThan(3);
+    for (const [env, bands] of Object.entries<any>(adj.pren.axes)) {
+      expect(AXES.includes(env), `pren 축 '${env}'`).toBe(true);
+      for (const [min, v] of bands) { expect(typeof min).toBe('number'); expect(V.has(v), `pren verdict '${v}'`).toBe(true); }
+    }
+    for (const r of adj.rules) {
+      expect((g as any).groups[r.group], `rule group '${r.group}'`).toBeDefined();
+      expect(r.why?.length, 'rule why').toBeGreaterThan(3);
+      expect(r.src?.length, 'rule src').toBeGreaterThan(3);
+      for (const [env, v] of Object.entries<any>(r.axes)) { expect(AXES.includes(env), `rule 축 '${env}'`).toBe(true); expect(V.has(v)).toBe(true); }
+    }
+    const bases = new Set<string>();
+    for (const m of mats) { const b = m.name.split(' — ')[0].trim(); bases.add(b); bases.add(b.split(' (')[0].trim()); }
+    for (const [b, ov] of Object.entries<any>(adj.by_base)) {
+      expect(bases.has(b), `by_base stale 키 '${b}'`).toBe(true);
+      expect(ov.why?.length).toBeGreaterThan(3);
+      expect(ov.src?.length).toBeGreaterThan(3);
+      for (const [env, v] of Object.entries<any>(ov.axes)) { expect(AXES.includes(env), `by_base 축 '${env}'`).toBe(true); expect(V.has(v)).toBe(true); }
+    }
+  });
+  it('PREN 밴드 — 654 SMO 해수 excellent↑ · 304 해수 poor↓ (그룹 기본 caution 에서 양방향)', () => {
+    const smo = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('654 SMO'))!)!;
+    const sea1 = smo.media.find((r) => r.env === '해수')!;
+    expect(sea1.verdict).toBe('excellent');
+    expect(sea1.adj?.from).toBe('caution');
+    expect(sea1.adj?.why).toMatch(/PREN/);
+    const p304 = resolveCorrosionPlan(byName('AISI 304 — Annealed (Wrought)')!)!;
+    const sea2 = p304.media.find((r) => r.env === '해수')!;
+    expect(sea2.verdict).toBe('poor');
+    expect(sea2.adj?.why).toMatch(/PREN 18/);
+  });
+  it('조성 규칙 — C28000(Zn40) 해수 poor · CuNi(Ni30) 해수 excellent · AA 2024 해수 poor · AA 5083 해수 good', () => {
+    const muntz = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('C28000'))!)!;
+    expect(muntz.media.find((r) => r.env === '해수')!.verdict).toBe('poor');
+    const cuni = resolveCorrosionPlan(mats.find((m) => /^C71500|^Cupronickel 70/.test(m.name))!)!;
+    expect(cuni.media.find((r) => r.env === '해수')!.verdict).toBe('excellent');
+    const a2024 = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('AA 2024'))!)!;
+    expect(a2024.media.find((r) => r.env === '해수')!.verdict).toBe('poor');
+    const a5083 = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('AA 5083'))!)!;
+    expect(a5083.media.find((r) => r.env === '해수')!.verdict).toBe('good');
+  });
+  it('by_base — Ti Gr7 강산 good↑ · Waspaloy(저Mo 규칙) 강산 caution↓ · C-276 강산 excellent 유지', () => {
+    const gr7 = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Ti Grade 7'))!)!;
+    expect(gr7.media.find((r) => r.env === '강산')!.verdict).toBe('good');
+    const wasp = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Waspaloy'))!)!;
+    const acid = wasp.media.find((r) => r.env === '강산')!;
+    expect(acid.verdict).toBe('caution');
+    expect(acid.adj?.from).toBe('excellent');
+    const c276 = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Hastelloy C-276'))!)!;
+    expect(c276.media.find((r) => r.env === '강산')!.verdict).toBe('excellent');
+  });
+});
+
 describe('PREN 밴드 (관행 사용 등급)', () => {
   it('18→담수·경부식 · 24→연안 · 35→해수 · 42→상시 침지', () => {
     expect(prenBand(18)).toBe('담수·경부식 급');
