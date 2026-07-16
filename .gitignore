@@ -39,6 +39,8 @@ data/materials.preview.json
 #       CI/Deploy workflow 는 install 후 `pnpm build:data` 단계로 직접 생성하므로 git tracking 불필요.
 client/public/materials.json
 client/public/build-meta.json
+# H6 A-3 — QueryBar 필터 힌트 산출물 (build:stats). 커밋본이 5주 stale 서빙되던 실사고 → 매 빌드 재생성.
+client/public/property-stats.json
 data/validation-report.md
 
 # R227/E14 — 위키 인덱스는 build:wiki 산출물(materials.json 관행). CI 가 build:data→build:wiki 로 재생성.

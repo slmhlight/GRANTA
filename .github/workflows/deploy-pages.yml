@@ -55,6 +55,11 @@ jobs:
       - name: Build wiki index (material auto-links & backlinks)
         run: pnpm build:wiki
 
+      # H6 A-3 — property-stats.json 은 QueryBar 필터 힌트(p10/median/p90) 산출물.
+      # 과거 git-tracked 커밋본이 registry 대비 5주 stale 로 서빙되던 실사고 → gitignore + 매 배포 재생성.
+      - name: Build property stats (QueryBar hints)
+        run: pnpm build:stats
+
       - name: Build static site
         run: pnpm exec vite build
 

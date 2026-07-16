@@ -19,9 +19,10 @@ const read = (p: string) => readFileSync(resolve(ROOT, p), 'utf8');
 /** 워크플로별로 반드시 존재해야 하는 산출물 생성 스텝. */
 const REQUIRED_STEPS: Record<string, string[]> = {
   // 배포는 사이트가 fetch 하는 모든 gitignored 산출물을 직접 재생성해야 한다.
-  '.github/workflows/deploy-pages.yml': ['pnpm build:data', 'pnpm build:wiki'],
+  // H6 A-3: property-stats.json 도 동일 부류 (커밋본 5주 stale 서빙 실사고 → build:stats 필수).
+  '.github/workflows/deploy-pages.yml': ['pnpm build:data', 'pnpm build:wiki', 'pnpm build:stats'],
   // CI 는 테스트·빌드 전에 동일 산출물이 준비되어야 한다.
-  '.github/workflows/ci.yml': ['pnpm build:data', 'pnpm build:wiki'],
+  '.github/workflows/ci.yml': ['pnpm build:data', 'pnpm build:wiki', 'pnpm build:stats'],
 };
 
 describe('워크플로 산출물 스텝 무결성 (H4f — 배포 build:wiki 누락 재발 방지)', () => {

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --host",
     "build:data": "node scripts/build-from-registry.mjs",
+    "build:stats": "node scripts/build-property-stats.mjs",
     "build:profiles": "node scripts/build-process-profiles.mjs",
     "build:wiki": "node scripts/build-wiki-index.mjs",
     "build:registry": "node scripts/build-materials.mjs && node scripts/build-registry.mjs",

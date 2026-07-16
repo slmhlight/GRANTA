@@ -24,6 +24,9 @@ jobs:
       - name: Generate wiki index (R227/E14 — build:data 선행 필요)
         # client/public/wiki-*.json 은 build:wiki 산출물(.gitignore). 게이트 tests/wiki-index.test.ts 가 읽음.
         run: pnpm build:wiki
+      - name: Generate property stats (H6 A-3 — QueryBar 필터 힌트, build:data 선행 필요)
+        # client/public/property-stats.json 은 R167 산출물 — 과거 커밋본이 5주 stale 로 서빙되던 실사고.
+        run: pnpm build:stats
       - name: Type check (tsc --noEmit)
         run: pnpm check
       - name: "Lint (eslint — 정책 룰: react-hooks·TDZ·dark: 금지)"
