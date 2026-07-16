@@ -41,6 +41,21 @@ function parseCompositionRange(rangeStr: string): { min: number; max: number } |
 }
 
 /**
+ * H6 A-2 — 'balance'(잔부)는 "값 없음"이 아니라 "최대 성분": 100 − (타 원소 합) 으로 추정.
+ * 타 원소 max 합이 잔부의 min 을, min 합이 잔부의 max 를 정한다.
+ * (기존엔 null 반환 → isElementHigh('Fe',50)=false → balance-Fe 강 전체(658곳)가 철강 분기 탈락.)
+ */
+function balanceRange(entries: [string, unknown][], element: string): { min: number; max: number } {
+  let sumMin = 0, sumMax = 0;
+  for (const [el, v] of entries) {
+    if (el === element || v === null || v === undefined || v === '') continue;
+    const r = typeof v === 'number' ? { min: v, max: v } : parseCompositionRange(String(v));
+    if (r) { sumMin += r.min; sumMax += r.max; }
+  }
+  return { min: Math.max(0, 100 - sumMax), max: Math.min(100, 100 - sumMin) };
+}
+
+/**
  * Extract element concentration from material composition
  */
 function getElementConcentration(material: Material, element: string): { min: number; max: number } | null {
@@ -50,6 +65,9 @@ function getElementConcentration(material: Material, element: string): { min: nu
   if (Array.isArray(comp)) {
     const found = comp.find(item => Array.isArray(item) && item[0] === element);
     if (found && found[1]) {
+      if (String(found[1]) === 'balance') {
+        return balanceRange(comp.map((it: any) => [it[0], it[1]] as [string, unknown]), element);
+      }
       return parseCompositionRange(found[1] as string);
     }
   }
@@ -59,7 +77,8 @@ function getElementConcentration(material: Material, element: string): { min: nu
     const value = (comp as any)[element];
     if (value === null || value === undefined || value === '') return null;
     if (typeof value === 'number') return { min: value, max: value };
-    return parseCompositionRange(String(value)); // parse to numeric bounds (null for "balance")
+    if (String(value) === 'balance') return balanceRange(Object.entries(comp as Record<string, unknown>), element);
+    return parseCompositionRange(String(value));
   }
 
   return null;
@@ -111,14 +130,16 @@ export function classifyMaterialByComposition(material: Material): string {
     if (isElementHigh(material, 'Cr', 12) && isElementHigh(material, 'Mo', 2)) {
       return 'Stainless Steel - Duplex';
     }
+    // H6 A-2 — 마레이징(Fe-balance·Ni 17~19·Co 8~9.5·Mo 4~5)을 Ni-Co 분기보다 먼저:
+    // Fe 가 잔부(≥50%)인 강이 "Nickel-based" 로 빠지는 모순 방지. Ni 문턱 18→17 (18Ni 계 min 17).
+    if (isElementHigh(material, 'Mo', 4) && isElementHigh(material, 'Ni', 17) && isElementHigh(material, 'Co', 5)) {
+      return 'Maraging Steel';
+    }
     if (isElementHigh(material, 'Ni', 8) && isElementHigh(material, 'Co', 5)) {
       return 'Nickel-based Superalloy';
     }
     if (isElementHigh(material, 'Ni', 45)) {
       return 'Nickel-based Superalloy';
-    }
-    if (isElementHigh(material, 'Mo', 4) && isElementHigh(material, 'Ni', 18)) {
-      return 'Maraging Steel';
     }
     if (isElementHigh(material, 'C', 0.8)) {
       return 'Tool Steel';
