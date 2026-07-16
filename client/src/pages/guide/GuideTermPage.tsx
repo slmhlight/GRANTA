@@ -9,7 +9,7 @@ import { ArrowLeft, GraduationCap, BookMarked, ChevronRight, Calculator } from '
 import { GLOSSARY, glossaryArticle } from '@/lib/glossary';
 import { GuideSidebar } from './GuideSidebar';
 import { TOC } from './toc';
-import { useReadChapters, GlossaryText, GuideMaterialMapContext } from './components';
+import { useReadChapters, GlossaryText, GuideMaterialMapContext, GuideWikiByKeyContext } from './components';
 import { GlossaryFigure, GlossaryPhoto } from './glossary-figures';
 import { useWikiRefs } from '@/hooks/useWikiRefs';
 import { buildAutolinkMap } from '@/lib/wiki-link';
@@ -26,6 +26,7 @@ export default function GuideTermPage() {
 
   return (
     <GuideMaterialMapContext.Provider value={materialMap}>
+    <GuideWikiByKeyContext.Provider value={wikiLookups?.byKey ?? null}>
     <div className="min-h-screen bg-background text-foreground">
       {/* 헤더 */}
       <header className="sticky top-0 z-20 h-12 flex items-center gap-2 sm:gap-3 px-2 sm:px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
@@ -189,6 +190,7 @@ export default function GuideTermPage() {
         </div>
       </div>
     </div>
+    </GuideWikiByKeyContext.Provider>
     </GuideMaterialMapContext.Provider>
   );
 }

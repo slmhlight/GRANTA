@@ -12,6 +12,11 @@ import { TermLink } from '@/components/TermLink';
 
 /* R227/E14 — 가이드 본문 합금명 자동링크용 재료 autolink 맵(wiki-index). Guide 가 Provider 로 주입. */
 export const GuideMaterialMapContext = createContext<AutolinkMap | null>(null);
+/* H6 W16 — authored 명시링크 [[key|label]] 해석용 엔티티 byKey 맵(wiki-index).
+ * linkify 는 파서를 기구현(스토리 경로) — 글로서리/가이드 렌더 경로에도 전달해 활성화.
+ * 미로드 시 null → [[…]] 는 라벨 평문 강등 (비치명적, linkify 자체 규칙). */
+export type WikiByKey = Map<string, { id: string; rep_id: string | null; display: string }>;
+export const GuideWikiByKeyContext = createContext<WikiByKey | null>(null);
 
 /** R61 #4 — 약어/기호 풀이 사전. F 컴포넌트가 자식 텍스트를 lookup → title 자동 부여.
  *  hover 시 native browser tooltip 으로 풀이 표시. 모바일에서는 첫 등장 시 한 번 해설.
@@ -109,11 +114,12 @@ function glossarySkip(type: unknown): boolean {
   if (type === F || type === ExtLink || type === Term || type === H3) return true;
   return typeof type === 'string' && GLOSSARY_SKIP_TAGS.has(type);
 }
-interface GlossaryCtx { termSeen: Set<string>; matSeen: Set<string>; matMap: AutolinkMap | null }
+interface GlossaryCtx { termSeen: Set<string>; matSeen: Set<string>; matMap: AutolinkMap | null; byKey: WikiByKey | null }
 
-/** 문자열 leaf → 재료 링크(violet, /?d=repId) + 기술용어 링크(teal, popover) 합성. */
+/** 문자열 leaf → 재료 링크(violet, /?d=repId) + 기술용어 링크(teal, popover) 합성.
+ *  H6 W16 — byKey 전달로 authored [[key|label]] 도 해석 (byKey 없이도 linkify 가 라벨 평문 강등). */
 function renderGlossaryString(str: string, ctx: GlossaryCtx, keyPrefix: string): ReactNode {
-  const matNodes = ctx.matMap ? linkify(str, ctx.matMap, null, null, ctx.matSeen) : [{ t: 'text' as const, s: str }];
+  const matNodes = ctx.matMap || ctx.byKey ? linkify(str, ctx.matMap, ctx.byKey, null, ctx.matSeen) : [{ t: 'text' as const, s: str }];
   const out: ReactNode[] = [];
   matNodes.forEach((mn, mi) => {
     if (mn.t === 'link') {
@@ -153,7 +159,8 @@ function processGlossary(node: ReactNode, ctx: GlossaryCtx, keyPrefix: string): 
  *  excludeTermSlug: 현재 용어 페이지 자신은 링크 제외(자기링크 방지). */
 export function GlossaryText({ children, excludeTermSlug }: { children: ReactNode; excludeTermSlug?: string }) {
   const matMap = useContext(GuideMaterialMapContext);
-  const ctx: GlossaryCtx = { termSeen: new Set(excludeTermSlug ? [excludeTermSlug] : []), matSeen: new Set(), matMap };
+  const byKey = useContext(GuideWikiByKeyContext);   // H6 W16 — authored [[key|label]]
+  const ctx: GlossaryCtx = { termSeen: new Set(excludeTermSlug ? [excludeTermSlug] : []), matSeen: new Set(), matMap, byKey };
   return <>{processGlossary(children, ctx, 'g')}</>;
 }
 

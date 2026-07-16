@@ -18,7 +18,7 @@ import { GuideSidebar } from './guide/GuideSidebar';
 import { ChapterSubToc } from './guide/ChapterSubToc';
 import { TOC } from './guide/toc';
 // C1: Guide 페이지 구성요소를 ./guide/{components,svgs}.tsx 로 분리해 파일 사이즈 축소.
-import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario, useReadChapters, GuideMaterialMapContext } from './guide/components';
+import { F, Note, ExtLink, Term, Chapter, H3, PropCard, Step, ShapeCard, LoadCard, Scenario, useReadChapters, GuideMaterialMapContext, GuideWikiByKeyContext } from './guide/components';
 import { useWikiRefs } from '@/hooks/useWikiRefs';
 import { buildAutolinkMap } from '@/lib/wiki-link';
 import {
@@ -100,6 +100,7 @@ export default function Guide() {
   };
   return (
     <GuideMaterialMapContext.Provider value={materialMap}>
+    <GuideWikiByKeyContext.Provider value={wikiLookups?.byKey ?? null}>
     <div className="min-h-screen bg-background text-foreground">
       <ScenarioDialog scenarioKey={dialogKey} open={dialogKey !== null} onOpenChange={(v) => { if (!v) setDialogKey(null); }} />
       {/* 상단 바 — R66 검색 + R101 모바일 layout fix (whitespace-nowrap + 모바일 라벨 축약 + min-w-0). */}
@@ -2255,6 +2256,7 @@ export default function Guide() {
         </div>
       </div>
     </div>
+    </GuideWikiByKeyContext.Provider>
     </GuideMaterialMapContext.Provider>
   );
 }

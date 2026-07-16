@@ -112,6 +112,39 @@ describe('linkify — authored [[key|label]]', () => {
     expect(linkTexts(n)).toEqual([]);
     expect(plainOf(n)).toBe('정의없음');
   });
+
+  /* H6 W16 — 코퍼스 게이트: 콘텐츠에 저작된 모든 [[key]] 가 실제 wiki-index 엔티티로 해석돼야.
+   * 런타임은 미해결 key 를 평문 강등(비치명)하므로 오타는 조용히 링크만 사라진다 — CI 에서 잡는다. */
+  it('저작된 [[key]] 전부 wiki-index 에 실재 (글로서리 article + 스토리)', () => {
+    const idxPath = path.resolve(process.cwd(), 'client/public/wiki-index.json');
+    if (!fs.existsSync(idxPath)) return; // build:wiki 선행 필요 (CI 는 항상 생성)
+    const idx = JSON.parse(fs.readFileSync(idxPath, 'utf8'));
+    const keys = new Set((idx.entities || []).map((e: any) => e.id));
+    const MARK = /\[\[([^\]|]+)(?:\|[^\]]*)?\]\]/g;
+    const bad: string[] = [];
+    const scan = (text: string, where: string) => {
+      let m: RegExpExecArray | null;
+      MARK.lastIndex = 0;
+      while ((m = MARK.exec(String(text))) !== null) {
+        if (!keys.has(m[1].trim())) bad.push(`${where}: [[${m[1]}]]`);
+      }
+    };
+    const arts = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/glossary-articles.json'), 'utf8')).articles;
+    for (const [slug, a] of Object.entries<any>(arts)) {
+      for (const s of a.sections || []) {
+        scan(s.body || '', `article ${slug}`);
+        for (const row of s.table?.rows || []) for (const cell of row) scan(cell, `article ${slug} (표)`);
+      }
+    }
+    const stories = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/alloy-stories.json'), 'utf8')).stories
+      ?? JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/alloy-stories.json'), 'utf8'));
+    for (const [k, st] of Object.entries<any>(stories)) {
+      if (k.startsWith('_')) continue;
+      for (const sec of Object.values<any>(st.sections || {})) scan(String(sec ?? ''), `story ${k}`);
+      if (st.legacy_text) scan(st.legacy_text, `story ${k}`);
+    }
+    expect(bad, `저작 [[key]] 미해결(오타 — 평문 강등됨):\n${bad.join('\n')}`).toEqual([]);
+  });
 });
 
 describe('buildAutolinkMap + 실제 wiki-index 정밀도', () => {
