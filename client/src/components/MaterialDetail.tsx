@@ -817,10 +817,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         </span>
                       )}
                     </p>
-                    {/* H6 E15c/E15f — 이 합금 개별 노트 + 노트별 출처 (base-키 조회) */}
+                    {/* H6 E15c/E15f/E15h — 합금 개별 노트(텍스트가 합금 지정으로 시작 — 라벨 불요) + 노트별 출처 */}
                     {cp.alloyNote && (
                       <p className="text-[10.5px] leading-snug mb-1.5 rounded bg-cyan-600/10 border border-cyan-600/25 px-1.5 py-1">
-                        <b className="text-cyan-900">이 합금:</b> <span className="text-foreground/85">{cp.alloyNote.t}</span>{' '}
+                        <span className="text-foreground/85">{cp.alloyNote.t}</span>{' '}
                         <span className="text-[9px] text-foreground/45 whitespace-nowrap">— 출처: {cp.alloyNote.src}</span>
                       </p>
                     )}

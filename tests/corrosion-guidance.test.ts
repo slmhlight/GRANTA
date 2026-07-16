@@ -139,7 +139,30 @@ describe('개별 합금 노트 (E15c — base-키 조회)', () => {
       .map(([k]) => k);
     expect(bad, `t/src 형식 위반 키: ${bad.join(', ')}`).toEqual([]);
   });
-  it('E15f — 동일 텍스트 공유 ≤3키 (같은 재료의 표기 변형만 — 대형 묶음 재발 차단)', () => {
+  it('E15h — 동일 텍스트 공유는 명시적 표기 변형 세트만 (그 외 일체 공유 = 실패)', () => {
+    // 같은 재료의 표기/철자 변형만 등재. 다른 합금·등급·그레이드는 공유 금지 — 세트 추가는 리뷰 대상.
+    const VARIANT_SETS: string[][] = [
+      ['CuNi30', 'Cupronickel 70/30'], ['ULTEM 1010', 'Ultem 1010'], ['PSU Udel P-1700', 'Udel P-1700'],
+      ['PES', 'PESU'], ['PPS Fortron 1140L4', 'PPS GF40'], ['PC', 'Polycarbonate'], ['PC-ABS', 'ABS-PC'],
+      ['PS', 'Polystyrene'], ['POM Homopolymer', 'POM-H'], ['POM Copolymer', 'POM-C'], ['PP', 'Polypropylene'],
+      ['PVDF', 'PVDF Kynar 740'], ['Fused Silica', 'Quartz'],
+      ['API 5L X65 / L450 PSL2', 'API 5L X65 PSL2'],
+      ['API 5L X70 / L485 PSL2', 'API 5L X70 PSL2', 'API 5L X70 line pipe'],
+      ['AISI 4140 / 42CrMo4', '42CrMo4'], ['9% Ni Steel', 'ASTM A553 Type I'],
+      ['R260 Rail Steel', 'Rail Steel R260'], ['O1', 'O1 tool steel'], ['D2', 'D2 Tool Steel'],
+      ['H13', 'H13 Tool Steel', 'Tool Steel H13'], ['Maraging 300', 'Maraging C300'],
+      ['AISI 304L / STS304 ULC', 'AISI 304L / STS304L', '304L'], ['Zeron 100', 'ZERON 100'],
+      ['A286', 'Carpenter A-286'], ['SS420', 'Stainless Steel 420'], ['15-5 PH Stainless', '15-5PH'],
+      ['Nickel 200', 'CP-Nickel'], ['Hastelloy C-22', 'Hastelloy C22'], ['Allvac 718Plus', 'Inconel 718Plus'],
+      ['IN-100', 'Inconel 100'], ['C10200', 'OF Copper C10200'], ['OFE Copper C10100', 'OFHC Copper C10100'],
+      ['C12200', 'DHP Copper C12200'], ['Copper', 'Cu'], ['C22000', 'Commercial Bronze C22000'],
+      ['Bronze C95400', 'C95400 Aluminum Bronze'], ['Beryllium Copper C17200', 'C17200', 'Be-Cu'],
+      ['Ti Grade 1', 'Ti CP Gr1'], ['Ti Grade 3', 'Ti CP Gr3'], ['Ti Grade 11', 'Titanium Grade 11'],
+      ['Ti Grade 23', 'Ti-6Al-4V Grade 23 ELI'], ['Ti6242', 'Ti-6Al-2Sn-4Zr-2Mo'],
+      ['A205', 'A20X / A6061-RAM2'], ['A356', 'A356.0'], ['Nb-1Zr', 'Niobium-1Zr'],
+      ['C-103', 'Niobium C-103'], ['AZ80', 'AZ80A'],
+    ];
+    const allowed = VARIANT_SETS.map((s) => new Set(s));
     const byText = new Map<string, string[]>();
     for (const [k, v] of Object.entries<any>((g as any).alloy_notes)) {
       if (k.startsWith('_')) continue;
@@ -147,8 +170,11 @@ describe('개별 합금 노트 (E15c — base-키 조회)', () => {
       arr.push(k);
       byText.set(v.t, arr);
     }
-    const big = [...byText.values()].filter((ks) => ks.length > 3).map((ks) => ks.join('|'));
-    expect(big, `4키+ 공유 묶음: ${big.join(' / ')}`).toEqual([]);
+    const bad = [...byText.values()]
+      .filter((ks) => ks.length >= 2)
+      .filter((ks) => !allowed.some((set) => ks.every((k) => set.has(k))))
+      .map((ks) => ks.join('|'));
+    expect(bad, `allowlist 밖 공유 묶음: ${bad.join(' / ')}`).toEqual([]);
   });
   it('앵커 — 304(PREN 언급)·7075(T73 과시효)·2205(CPT)·1010(도금 모재)', () => {
     expect(alloyNoteFor('AISI 304 — Annealed (Wrought)')!.t).toMatch(/PREN ~19/);
