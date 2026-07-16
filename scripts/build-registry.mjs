@@ -13,8 +13,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sourceAuthority } from './lib/source-labels.mjs';   // R226f/축1a — weak-provenance(aggregator/other-only) 판정
+import { loadCorrections } from './lib/corrections.mjs';   // H6 D5 — 도메인 분할 로더 (data/corrections/*.json)
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// H6 D5 — try 밖 최상위 로드: 도메인 충돌·파싱 오류는 빌드 크래시 (silent skip 금지).
+const CORRECTIONS = loadCorrections(ROOT);
 const PUB = path.join(ROOT, 'client', 'public', 'materials');
 const OUT = path.join(ROOT, 'data', 'registry');
 
@@ -90,7 +93,7 @@ fs.writeFileSync(FREEZE, JSON.stringify({ _note: 'frozen legacy_id→stable_id (
 //     freeze 는 위에서 이미 기록 → 제거된 ID 는 reserved(재사용 안 됨). cleanJson 에는 남아있으나 미출력이라 round-trip 무영향.
 let removed = 0;
 try {
-  const rm = (JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'r226-value-corrections.json'), 'utf8')).remove) || {};
+  const rm = CORRECTIONS.remove || {};   // H6 D5 — data/corrections/remove.json
   const rmBases = new Set(rm.bases || []);
   const rmHT = new Set((rm.heatTreatments || []).map(s => String(s).toLowerCase().trim()));
   const rmIds = new Set(rm.ids || []);   // 특정 stable_id 제거 (중복 조건 등) — stable_id 는 위 freeze 에서 이미 할당됨
@@ -161,11 +164,11 @@ for (const r of records) {
   if (JSON.stringify(stripped) !== cleanJson.get(r.legacy_id)) { faithMiss++; if (faithEx.length < 3) faithEx.push(r.stable_id); }
 }
 
-// 4c) R226 P4 — ID-키 값 교정 (가짜 variant 실제값; data/r226-value-corrections.json).
+// 4c) R226 P4 — ID-키 값 교정 (가짜 variant 실제값; data/corrections/ — H6 D5 분할).
 //     원본값을 _corrections 에 보존 → 라운드트립이 "무손실 + 문서화된 교정"임을 증명.
 let corrApplied = 0;
 try {
-  const corr = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'r226-value-corrections.json'), 'utf8'));
+  const corr = CORRECTIONS;
   for (const r of records) {
     const ch = {};
     const compFix = corr.compositionByBase && corr.compositionByBase[baseOf(r.name)];
@@ -344,7 +347,7 @@ console.log('family:', Object.keys(families).length, '— ' + Object.entries(kin
 console.log('index.json:', Math.round(fs.statSync(path.join(OUT, 'index.json')).size / 1024), 'KB · families.json:', Math.round(fs.statSync(path.join(OUT, 'families.json')).size / 1024), 'KB');
 console.log('per-entry 파일:', records.length, '생성 (data/registry/entries/<cat>/<id>.json)');
 console.log(`무손실(교정 전) faithful 검증: 불일치 ${faithMiss}`, faithMiss ? `❌ ${faithEx.join(',')}` : '✓');
-console.log(`값 교정 적용: ${corrApplied} entry (data/r226-value-corrections.json, stable_id 키)`);
+console.log(`값 교정 적용: ${corrApplied} entry (data/corrections/, stable_id 키 — H6 D5 분할)`);
 console.log(`라운드트립(교정 복원 후) 검증: ${readBack} 읽음 · 불일치 ${mismatch}`, mismatch ? `❌ 예: ${badEx.join(', ')}` : '✓ 무손실+문서화교정');
 console.log(`\n=== P3 검수: 가짜 variant (같은 alloy-base, 다른 HT 라벨에 동일 σy/UTS/El) ===`);
 console.log(`해당 alloy-base ${fakeBases}개 · entry ${fakeEntries}개:`);

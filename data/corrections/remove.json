@@ -1,0 +1,20 @@
+{
+ "_note": "중복·합성 조건 제거 (R226b, 사용자 승인). bases: generic 4130/4140/4340 은 reference(올바른 조성·실제 Q+T 템퍼값)의 열등 복제 / Tantalum (Pure) 은 curated MET-0662 와 동일값 중복. heatTreatments: mill-annealed(astm default)=annealed 정확중복 / as-cast/forged=wrought 합금엔 distinct 실데이터 없음(웹확인: forged≈HT, cast=별개합금 CF8/CF8M). base 의 마지막 실조건 entry 는 안전상 보존.",
+ "remove": {
+  "bases": [
+   "AISI 4130",
+   "AISI 4140",
+   "AISI 4340",
+   "Tantalum (Pure)"
+  ],
+  "heatTreatments": [
+   "mill-annealed (astm default)",
+   "as-cast / forged"
+  ],
+  "_ids_note": "R226d — 특정 stable_id 제거. MET-0111(AA 2024-T351 Annealed)·MET-0113(AA 2024-T351 T81)는 'AA 2024' 그룹과 중복(동일 σy/UTS) — 고유 T351(MET-0112)만 보존.",
+  "ids": [
+   "MET-0111",
+   "MET-0113"
+  ]
+ }
+}

@@ -11,6 +11,8 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+// H6 D5 — corrections 도메인 분할: 로더 병합 뷰 사용 (구 r226-value-corrections.json 단일 파일 은퇴).
+import { loadCorrections } from '../scripts/lib/corrections.mjs';
 
 const ROOT = process.cwd();
 const REG = path.join(ROOT, 'data', 'registry', 'entries');
@@ -23,7 +25,7 @@ for (const cc of fs.readdirSync(REG)) {
 }
 const byId = new Map(all.map((m) => [m.stable_id, m]));
 const freeze = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'registry-id-freeze.json'), 'utf8')).map as Record<string, string>;
-const corr = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'r226-value-corrections.json'), 'utf8'));
+const corr = loadCorrections(ROOT) as any;
 const primBase = (n: string) => String(n).split(' — ')[0].trim();
 const primDesig = (n: string) => primBase(n).split(' (')[0].trim();
 

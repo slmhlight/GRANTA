@@ -8,9 +8,11 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+// H6 D5 — 단일 파일(888줄) → data/corrections/ 도메인 분할. 로더가 병합 + 도메인 충돌 게이트.
+import { loadCorrections } from '../scripts/lib/corrections.mjs';
 
 const ROOT = process.cwd();
-const corr = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'r226-value-corrections.json'), 'utf8'));
+const corr = loadCorrections(ROOT) as any;
 const REG = path.join(ROOT, 'data', 'registry', 'entries');
 const ids = new Set<string>();
 for (const cc of fs.readdirSync(REG)) for (const fn of fs.readdirSync(path.join(REG, cc))) ids.add(JSON.parse(fs.readFileSync(path.join(REG, cc, fn), 'utf8')).stable_id);

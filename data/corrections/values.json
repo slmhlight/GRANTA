@@ -1,0 +1,206 @@
+{
+ "_meta": {
+  "r": "R226 P4 — 가짜 variant 실제값 도출 (공정상태 매핑 모델)",
+  "model": "조건을 공정상태별 실제값에 매핑. soft(annealed/as-cast·forged/mill-annealed)=annealed값; hard(aged/STA/hardened)=실제 강화값. 합금이 비-열처리·비-냉간가공이면 hard 라벨=annealed(아티팩트, 값 정상).",
+  "note": "CSV generic Ti α/β 3종은 placeholder 조성 + 가짜값이었음 — datasheet 검증값으로 조성·물성 동시 교정.",
+  "applied_by": "scripts/build-registry.mjs (stable_id 키)",
+  "schema": "compositionByBase: base 이름→조성객체 / ranges: stable_id→{yield_strength,uts,elongation,basis,src}"
+ },
+ "_note": "값 교정 (stable_id 키). ranges: 물성 교정(basis·src 필수) — build-registry 4c 적용, 원본은 entry _corrections 보존. fields: 필드 단위 교정.",
+ "ranges": {
+  "POL-0034": {
+   "yield_strength": 105,
+   "uts": 110,
+   "elongation": 60,
+   "modulus": 3.2,
+   "basis": "entry 는 Injection-Molded 인데 DB 값(σy 65 · UTS 81 · E 2.78GPa)이 Stratasys FDM(3D프린팅) datasheet 로 오염 — 사출 대비 저강도. FDM 소스 혼입이 원인. SABIC Ultem 1010 사출성형 실측으로 교정 (H5 W9++ 파생: 저 σy 가 고온곡선 23°C 앵커 게이트에서 곡선 드롭 유발).",
+   "src": "SABIC ULTEM Resin 1010 Technical Data Sheet (ISO 527 injection-molded: tensile stress at yield 105 MPa · tensile modulus 3200 MPa · strain at break 60% · stress at break 85 MPa) · UL Prospector Ultem 1010 (datasheet 351635)"
+  },
+  "MET-0459": {
+   "yield_strength": 345,
+   "uts": 485,
+   "basis": "ASTM A588 Gr A ≤4in plate 최소 (50ksi/70ksi). DB σy=250 은 A36 항복값 오기(조성·HB 140≈UTS485/3.45 는 정합)",
+   "src": "ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)"
+  },
+  "MET-0785": {
+   "yield_strength": 310,
+   "uts": 480,
+   "elongation": 25,
+   "basis": "430 annealed — DB 242/365 는 A240 min(205/450)의 UTS 미달 오염 (min-spec 확장 스윕 발견). AK Steel typical 로 교정",
+   "src": "ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)"
+  },
+  "MET-0788": {
+   "yield_strength": 380,
+   "uts": 500,
+   "basis": "430 strain-hardened — DB 297/448 은 annealed 수준 + A240 min 미달. cold-worked 하한으로 교정",
+   "src": "AK Steel 430 (cold-rolled YS 380~500 / UTS 480~586)"
+  },
+  "MET-0478": {
+   "yield_strength": 285,
+   "uts": 350,
+   "basis": "ZK60A-T5 압출 typical — DB 195/305 는 AMS 4352 spec-min(TYS 230/UTS 310)조차 미달하는 오염값 (golden 확장 probe 발견)",
+   "src": "ASM Handbook Vol.2 — ZK60A-T5 extruded (TYS 285 / UTS 350) · MatWeb ZK60A-T5"
+  },
+  "MET-0571": {
+   "uts": 1276,
+   "basis_kind": "min_spec",
+   "basis": "이름이 AMS 5662 를 주장 — UTS typ 1241 은 spec-min 1276 미달(집계에 비-5662 조건 혼입 의심; σy typ 1034 는 spec-min 정합). spec-min 으로 보수 교정 (min-spec 게이트 발견)",
+   "src": "AMS 5662 RT 최소: YS 150ksi(1034) / UTS 185ksi(1276)"
+  },
+  "POL-0026": {
+   "elongation": 2.5,
+   "basis": "PEEK GF30 — DB El 9.8~13.1% 는 30% 유리섬유 강화에 물리적으로 불가한 unfilled 급 값(오염). GF30 파단연신 2~3% 로 교정 (ρ·E·σy·UTS 는 Granta 값과 정합 확인)",
+   "src": "Ansys Granta MI datasheet 'PEEK (30% glass fiber)' (사용자 제공 PDF: El 2~3%) · Victrex 450GL30 TDS (El break ~2%)"
+  },
+  "MET-0239": {
+   "yield_strength": 285,
+   "uts": 385,
+   "elongation": 37,
+   "basis": "AISI 1015 annealed — DB 167/286/26 은 annealed 1015 표준 대비 과소(1008급 오염). Granta 밴드 255~315/345~430/29~45 midpoint 로 교정",
+   "src": "Ansys Granta MI — Carbon steel AISI 1015 annealed (사용자 제공 R226l) · ASM Vol.1 1015 annealed (σy 284/UTS 386/El 37)"
+  },
+  "MET-0245": {
+   "yield_strength": 295,
+   "uts": 395,
+   "basis": "AISI 1020 annealed — DB 350/510 은 annealed 대역(265~325/355~435) 초과 — cold-drawn 값 혼입 오염. ASM annealed typical 로 교정",
+   "src": "Ansys Granta MI — Carbon steel AISI 1020 annealed (사용자 제공 R226l) · ASM Vol.1 1020 annealed (σy 295/UTS 395)"
+  },
+  "MET-0047": {
+   "elongation": 23,
+   "basis": "AISI 6150 annealed — DB El 12.1% 는 annealed 대역(18~28) 미달 (Q+T 값 혼입 의심). σy/UTS 는 대역 내 → El 만 교정",
+   "src": "Ansys Granta MI — Low alloy steel AISI 6150 annealed (사용자 제공 R226l: El 18~28) · ASM Vol.1 6150 annealed El ~23%"
+  },
+  "MET-0780": {
+   "yield_strength": 293,
+   "uts": 520,
+   "elongation": 25,
+   "basis": "AISI 410 annealed — DB 242/365 는 UTS 가 A276/A240 min(450) 미달하는 generic 합성 오염 (430 사례와 동형). Granta 276~310/483~600·El 20~35 로 교정 (별도 SS410 R_0331_0 은 정합)",
+   "src": "Ansys Granta MI — Stainless steel martensitic AISI 410 annealed (사용자 제공 R226m) · ASTM A276 410 annealed (YS≥205/UTS≥450)"
+  },
+  "MET-0905": {
+   "yield_strength": 827,
+   "uts": 861,
+   "elongation": 15,
+   "basis": "Ti-5Al-2.5Sn Grade6 α annealed (열처리 불가)",
+   "src": "ASTM B265 Gr6 · alloysintl Ti 5-2.5"
+  },
+  "MET-0904": {
+   "yield_strength": 827,
+   "uts": 861,
+   "elongation": 15,
+   "basis": "Grade6 α 비-열처리 → aged ≈ annealed",
+   "src": "ASTM B265 Gr6"
+  },
+  "MET-0908": {
+   "yield_strength": 827,
+   "uts": 861,
+   "elongation": 15,
+   "basis": "Grade6 α — 냉간가공 비표준 → annealed 기준",
+   "src": "ASTM B265 Gr6"
+  },
+  "MET-0911": {
+   "yield_strength": 1000,
+   "uts": 1100,
+   "elongation": 10,
+   "basis": "Ti-6Al-2Sn-4Zr-6Mo annealed",
+   "src": "niticu Ti-6246 datasheet (≥1000σy/1100-1300UTS)"
+  },
+  "MET-0914": {
+   "yield_strength": 1000,
+   "uts": 1100,
+   "elongation": 10,
+   "basis": "Ti-6246 α/β 냉간가공 비표준 → annealed",
+   "src": "niticu Ti-6246"
+  },
+  "MET-0910": {
+   "yield_strength": 1105,
+   "uts": 1200,
+   "elongation": 10,
+   "basis": "Ti-6246 STA (solution+age) — bi-modal σy1105",
+   "src": "WTCP Ti-6246 (titanium.org) + niticu"
+  },
+  "MET-0934": {
+   "yield_strength": 910,
+   "uts": 937,
+   "elongation": 18,
+   "basis": "Ti-8Al-1Mo-1V near-α duplex annealed",
+   "src": "AZoM UNS R54810"
+  },
+  "MET-0933": {
+   "yield_strength": 910,
+   "uts": 937,
+   "elongation": 18,
+   "basis": "near-α 시효응답 미미 → aged ≈ annealed",
+   "src": "AZoM R54810"
+  },
+  "MET-0937": {
+   "yield_strength": 910,
+   "uts": 937,
+   "elongation": 18,
+   "basis": "near-α 냉간가공 비표준 → annealed",
+   "src": "AZoM R54810"
+  },
+  "MET-0878": {
+   "yield_strength": 900,
+   "uts": 965,
+   "elongation": 10,
+   "basis": "Ti-6Al-4V ELI STA (solution+age)",
+   "src": "ASTM F136 + AMS Ti-6-4 STA"
+  },
+  "MET-0799": {
+   "yield_strength": 450,
+   "uts": 760,
+   "elongation": 14,
+   "basis": "440C annealed (HBW207, σy448)",
+   "src": "Atlas/AZoM 440C datasheet"
+  },
+  "MET-0803": {
+   "yield_strength": 450,
+   "uts": 760,
+   "elongation": 14,
+   "basis": "마르텐사이트 — 냉간가공 안 함 → annealed",
+   "src": "Atlas 440C"
+  },
+  "MET-0798": {
+   "yield_strength": 1900,
+   "uts": 1970,
+   "elongation": 2,
+   "basis": "440C 경화+템퍼 (HRC58-60)",
+   "src": "CarTech 440C datasheet (UTS max 1970)"
+  },
+  "POL-0095": {
+   "yield_strength": 46,
+   "uts": 50,
+   "basis": "GPPS σy~46/UTS~50 — R221c 가 UTS 만 42 로 낮춰 σy>UTS 발생, 교정",
+   "src": "MakeItFrom/BPF GPPS (yield 36-46, tensile 40-60)"
+  },
+  "POL-0049": {
+   "yield_strength": 28,
+   "uts": 35,
+   "basis": "PHB σy~28/UTS~35 — σy35>UTS30 물리 불가능 교정",
+   "src": "ScienceDirect PHB overview (tensile 30-35)"
+  },
+  "MET-0662": {
+   "yield_strength": 165,
+   "uts": 240,
+   "elongation": 40,
+   "fatigue_strength": 110,
+   "basis": "pure Ta wrought annealed 기준값 (As-built→wrought; 공백 채움). fatigue=0.46·UTS (endurance 상한 ≤0.63 준수)",
+   "src": "사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)"
+  }
+ },
+ "fields": {
+  "MET-0588": {
+   "heat_treatment": "Precipitation-aged (AMS 5670 equiv)",
+   "basis": "815/1230 = aged X-750 (datasheet 확인, AMS 5670 typical σy115ksi/UTS170ksi min ~ 137ksi/192ksi). 'As-built (no post-processing)' 라벨은 야금학적 불가 — γ'-합금은 시효 없이 이 강도 도달 불가. 값 유지, 라벨만 aged 로 교정.",
+   "src": "Special Metals SMC-067 INCONEL X-750 datasheet (사용자 첨부)"
+  },
+  "MET-0662": {
+   "name": "Tantalum (Ta) — Wrought, Annealed",
+   "process": "Wrought",
+   "heat_treatment": "Annealed",
+   "basis": "As-built(AM) 공정을 wrought 로 전환 (사용자 지시). 이름·공정·HT 정합 + 기준값.",
+   "src": "사용자 지시"
+  }
+ }
+}

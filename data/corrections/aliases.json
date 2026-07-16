@@ -1,0 +1,324 @@
+{
+ "_note": "R226d 대응합금 — cross-standard 지역명(JIS/KS) 보강 → 검색·식별성. 누적 gap 해소: die-cast Al(ADC)·Carbon Steel(S_C/SM_C)·Aluminum(JIS A)·Copper(JIS C 4자리)·Tool Steel(SKD/STD·SKH)·Inconel(NCF). 한국 사용자 위해 KS 병기(SM45C·STD11 등). AlSi10Mg≈ADC-3(Al-Si-Mg)·A380≈ADC-10(Al-Si-Cu). 1018/1080/1095·P20·M50 등 깨끗한 JIS 대응 없는 것은 제외. structural steel 은 표준간 근사 대응(다른 규격·유사 grade)이라 '≈' 마커 명기 — A36≈SS400/Q235·A572Gr50≈SM490/S355/Q345·A992≈SN490/S355·A516Gr70≈SGV480/SB480·A588GrA≈SMA490W/S355J2W. A588 은 σy 250(A36 오기)→345 교정 후 weathering cross-ref 추가(ranges MET-0459).",
+ "aliasesByBase": {
+  "ZK60": [
+   "ZK60A",
+   "UNS M16600",
+   "M16600"
+  ],
+  "Maraging C350": [
+   "Maraging 350",
+   "18Ni-350",
+   "VascoMax 350"
+  ],
+  "SGCC": [
+   "DX51D+Z",
+   "DX51D",
+   "EN 10346 DX51D"
+  ],
+  "A380": [
+   "ADC-10"
+  ],
+  "Al12Si": [
+   "ADC-1"
+  ],
+  "AlSi10Mg": [
+   "ADC-3",
+   "A360"
+  ],
+  "A356": [
+   "AC4C"
+  ],
+  "A319": [
+   "AC2B (JIS ≈)"
+  ],
+  "AISI 1010": [
+   "S10C",
+   "SM10C"
+  ],
+  "AISI 1015": [
+   "S15C",
+   "SM15C"
+  ],
+  "AISI 1020": [
+   "S20C",
+   "SM20C"
+  ],
+  "AISI 1025": [
+   "S25C",
+   "SM25C"
+  ],
+  "AISI 1030": [
+   "S30C",
+   "SM30C"
+  ],
+  "AISI 1040": [
+   "S40C",
+   "SM40C"
+  ],
+  "AISI 1045": [
+   "S45C",
+   "SM45C"
+  ],
+  "AISI 1050": [
+   "S50C",
+   "SM50C"
+  ],
+  "AISI 1144": [
+   "SUM43"
+  ],
+  "12L14": [
+   "SUM24L"
+  ],
+  "AA 6061": [
+   "A6061"
+  ],
+  "AA 6063": [
+   "A6063"
+  ],
+  "AA 6082": [
+   "A6082"
+  ],
+  "AA 6101": [
+   "A6101"
+  ],
+  "AA 7050": [
+   "A7050"
+  ],
+  "AA 7075": [
+   "A7075"
+  ],
+  "AA 5052": [
+   "A5052"
+  ],
+  "AA 5083": [
+   "A5083"
+  ],
+  "AA 5086": [
+   "A5086"
+  ],
+  "AA 5454": [
+   "A5454"
+  ],
+  "AA 2011": [
+   "A2011"
+  ],
+  "AA 2014": [
+   "A2014"
+  ],
+  "AA 2017": [
+   "A2017"
+  ],
+  "AA 2024": [
+   "A2024"
+  ],
+  "AA 2219": [
+   "A2219"
+  ],
+  "AA 3003": [
+   "A3003"
+  ],
+  "AA 3004": [
+   "A3004"
+  ],
+  "AA 1050": [
+   "A1050"
+  ],
+  "AA 1100": [
+   "A1100"
+  ],
+  "AA 1200": [
+   "A1200"
+  ],
+  "C10200": [
+   "C1020"
+  ],
+  "C11000": [
+   "C1100"
+  ],
+  "C12000": [
+   "C1201"
+  ],
+  "C12200": [
+   "C1220"
+  ],
+  "C17200": [
+   "C1720"
+  ],
+  "C21000": [
+   "C2100"
+  ],
+  "C22000": [
+   "C2200"
+  ],
+  "C23000": [
+   "C2300"
+  ],
+  "C26000": [
+   "C2600"
+  ],
+  "C26800": [
+   "C2680"
+  ],
+  "C28000": [
+   "C2800"
+  ],
+  "C36000": [
+   "C3600"
+  ],
+  "C44300": [
+   "C4430"
+  ],
+  "C51900": [
+   "C5191"
+  ],
+  "C75200": [
+   "C7521"
+  ],
+  "C27000": [
+   "C2700"
+  ],
+  "D2": [
+   "SKD11",
+   "STD11"
+  ],
+  "D2 Tool Steel": [
+   "SKD11",
+   "STD11",
+   "K110 (Böhler ≈)"
+  ],
+  "D3 tool steel": [
+   "SKD1",
+   "STD1"
+  ],
+  "A2 tool steel": [
+   "SKD12",
+   "STD12"
+  ],
+  "O1": [
+   "SKS3",
+   "STS3"
+  ],
+  "O1 tool steel": [
+   "SKS3",
+   "STS3"
+  ],
+  "H11": [
+   "SKD6",
+   "STD6"
+  ],
+  "H13": [
+   "SKD61",
+   "STD61"
+  ],
+  "H13 Tool Steel": [
+   "SKD61",
+   "STD61"
+  ],
+  "Tool Steel H13": [
+   "SKD61",
+   "STD61"
+  ],
+  "AISI H21": [
+   "SKD5",
+   "STD5"
+  ],
+  "M4 tool steel": [
+   "SKH54"
+  ],
+  "M42 HSS": [
+   "SKH59"
+  ],
+  "Inconel 600": [
+   "NCF600"
+  ],
+  "Inconel 601": [
+   "NCF601"
+  ],
+  "Inconel 625": [
+   "NCF625",
+   "IN625"
+  ],
+  "Inconel 718": [
+   "NCF718",
+   "IN718"
+  ],
+  "Inconel X-750": [
+   "NCF750"
+  ],
+  "Incoloy 800H": [
+   "NCF800",
+   "Incoloy 800 (≈)"
+  ],
+  "Incoloy 825": [
+   "NCF825"
+  ],
+  "Monel 400": [
+   "NW4400",
+   "Monell"
+  ],
+  "Nickel 200": [
+   "NW2200"
+  ],
+  "ASTM A36": [
+   "SS400 (JIS/KS ≈)",
+   "Q235 (GB ≈)",
+   "S235JR (EN ≈)",
+   "S235 (≈)"
+  ],
+  "ASTM A572 Grade 50": [
+   "SM490 (JIS/KS ≈)",
+   "S355 (EN ≈)",
+   "Q345 (GB ≈)"
+  ],
+  "A992": [
+   "SN490 (JIS/KS ≈)",
+   "S355 (EN ≈)"
+  ],
+  "A516 Grade 70": [
+   "SGV480 (JIS ≈)",
+   "SB480 (KS ≈)"
+  ],
+  "ASTM A588 Grade A": [
+   "SMA490W (JIS ≈)",
+   "S355J2W (EN ≈)"
+  ],
+  "2205 Duplex Stainless": [
+   "UNS S32205",
+   "UNS S31803",
+   "1.4462",
+   "SAF 2205"
+  ],
+  "Superduplex 2507": [
+   "1.4410",
+   "SAF 2507"
+  ],
+  "15-7 PH": [
+   "PH 15-7 Mo",
+   "PH15-7Mo",
+   "XM-12"
+  ],
+  "PH13-8 Mo": [
+   "XM-13"
+  ],
+  "Super 304H": [
+   "UNS S30432"
+  ],
+  "Inconel 740H": [
+   "Inconel 740 (≈)"
+  ],
+  "Nimonic 80A": [
+   "Nimonic 80"
+  ],
+  "CMSX-4": [
+   "CMSX"
+  ],
+  "AA 2618": [
+   "RR58 (Hiduminium)",
+   "RR58"
+  ],
+  "Nickel-Aluminium Bronze C63000": [
+   "C6300 (JIS ≈)"
+  ]
+ }
+}
