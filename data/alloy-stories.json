@@ -2369,7 +2369,8 @@
     "MET-0963",
     "MET-0964",
     "MET-0978",
-    "MET-0979"
+    "MET-0979",
+    "MET-1029"
    ],
    "refs": [
     "Roberts G, Krauss G, Kennedy R (1998) Tool Steels, 5th ed., ASM International",
@@ -6027,6 +6028,113 @@
     "today": "인공관절 볼헤드, 내마모 라이너·노즐·다이, 절삭 인서트에 쓰인다. 더 높은 인성은 지르코니아로, 더 높은 경도·강성·값은 알루미나로 갈린다.",
     "fun_fact": "오래 쓰는 인공 고관절의 볼헤드 상당수가 ZTA 다 — 알루미나만큼 단단해 잘 닳지 않으면서 지르코니아만큼 잘 안 깨지는, 두 세라믹의 장점을 한 몸에 담은 절충이다."
    }
+  },
+  "white-cast-iron": {
+   "stable_ids": [
+    "MET-1020",
+    "MET-1019"
+   ],
+   "sections": {
+    "hook": "깨져도 좋으니 닳지만 말라 — 흑연을 포기하고 탄화물을 얻은 주철. 광산 분쇄기와 슬러리 펌프가 이 재료로 버틴다.",
+    "origin": "보통 주철은 탄소가 흑연으로 빠져나와 무르고 잘 깎인다. 반대로 급랭하거나 Cr·Ni 를 넣어 탄소를 탄화물(M₃C·M₇C₃)로 붙잡으면, 파단면이 하얗게 빛나는 백주철이 된다. 1915년 무렵 Ni·Cr 을 높인 주철이 극단적인 내마모성을 낸다는 것이 알려졌고, 여기서 \"Ni-Hard\" 라는 이름이 붙었다.",
+    "breakthrough": "Ni-Hard(Class I) 는 Ni 로 기지를 마르텐사이트화해 경도를 얻는 1세대다. 이후 Cr 을 25% 대까지 올린 고크롬 백주철(Class III)이 등장하면서, 탄화물이 더 단단한 M₇C₃ 형태로 바뀌고 기지에도 Cr 이 남아 내마모와 (제한적) 내식을 함께 얻었다. ASTM A532 가 이 계열 전체를 등급으로 정리한다.",
+    "adoption": "광산 분쇄기 라이너·그라인딩 볼·슬러리 펌프 임펠러·시멘트 원료 분쇄기처럼 \"긁힘(gouging)과 충격이 반복되는\" 자리에 들어간다. 인성이 거의 없어 구조 부재로는 쓰지 않는다 — 마모판으로 갈아 끼우는 소모품이 본령이다.",
+    "today": "고크롬 백주철이 주류이고 Ni-Hard 는 저비용·중충격 자리에 남았다. 부식이 함께 오는 습식 슬러리에서는 탄화물이 아니라 기지가 먼저 녹아 탄화물이 탈락하므로, 환경에 따라 스테인리스·고분자 라이닝과 비교 검토한다.",
+    "fun_fact": "\"백\"주철이라는 이름은 성분이 아니라 파단면 색에서 왔다 — 흑연이 없어 파단면이 은백색으로 빛난다. 흑연이 있는 회주철은 파단면이 회색이다."
+   },
+   "refs": [
+    "ASTM A532/A532M — Standard Specification for Abrasion-Resistant Cast Irons",
+    "Davis J R (ed.) ASM Handbook Vol.1 — White Irons (내마모 주철)",
+    "Temperform / Lawton Standard — \"Man of Steel: White Iron\" (개발 경위)",
+    "Penticton Foundry — ASTM A532 Class I Type A / Class III Type A 데이터시트"
+   ],
+   "timeline": [
+    {
+     "year": 1915,
+     "event": "Ni·Cr 을 높인 주철의 극단적 내마모성 확인 — 이후 \"Ni-Hard\" 이름 정착",
+     "ref": 3
+    },
+    {
+     "year": 1993,
+     "event": "ASTM A532 제정 — 내마모 주철 등급 체계화 (Class I Ni-Hard · Class II/III 고크롬)",
+     "ref": 1
+    }
+   ],
+   "display": "White Cast Iron (Ni-Hard · High-Cr, ASTM A532)"
+  },
+  "austempered-ductile-iron": {
+   "stable_ids": [
+    "MET-1018",
+    "MET-1017"
+   ],
+   "sections": {
+    "hook": "주철에 강의 열처리를 걸어 강도를 두 배로 — 무게와 원가는 주철, 강도는 단조강에 근접한 오스템퍼 구상흑연주철.",
+    "origin": "보통 주철은 탄소가 흑연으로 빠져나와 무르고 잘 깎인다. 반대로 급랭하거나 Cr·Ni 를 넣어 탄소를 탄화물로 붙잡으면 백주철이 된다. ADI 는 다른 길을 간다 — 구상흑연주철을 오스템퍼링(Austempering, 항온 변태 열처리) 처리해 기지 조직만 바꾸는 것이다. Austempering 자체는 1930년대 Bain 과 Davenport 가 강에서 베이나이트를 발견하며 확립했고, 구상흑연주철은 1943년에 나왔다. 두 기술이 각각 존재했지만 주철에 이 열처리를 걸어 상용화한 것은 1970년대다.",
+    "breakthrough": "1970년대에 Austempering 을 구상흑연주철에 적용하는 연구가 진행됐고, 1977년 핀란드 Karkkila 주조소가 오스테나이트+베이나이트 기지의 신형 구상흑연주철을 발표했다. 이 조직은 뒤에 \"오스페라이트(ausferrite)\" 로 불린다 — 탄소가 과포화된 잔류 오스테나이트가 변형을 받으면 마르텐사이트로 바뀌며 국부적으로 더 단단해진다.",
+    "adoption": "기어·크랭크축·서스펜션 암·레일 부품처럼 단조강이 쓰이던 자리를 노린다. 주조로 형상을 뽑고(가공 절감) 열처리로 강도를 얻으니, 단조 대비 원가와 무게에서 이긴다. ASTM A897 이 Grade 750부터 1600까지 등급을 정의한다.",
+    "today": "국내외 양산 기어·농기계 부품에 자리 잡았다. 주의점은 두 가지 — Austempering 은 단면 두께에 민감해 대형 부품은 조직 편차가 생기고, 부식 성격은 여전히 구상흑연주철 그대로라 방식 설계는 별개다.",
+    "fun_fact": "등급 숫자(900·1200)는 인장강도(MPa)다 — Grade 1200 은 UTS 1,200MPa 급으로, 조질 4140 과 겨루는 수치다. 재료가 여전히 \"주철\" 이라는 점이 놀라운 부분."
+   },
+   "refs": [
+    "ASTM A897/A897M — Standard Specification for Austempered Ductile Iron Castings",
+    "Davis J R (ed.) ASM Handbook Vol.1 — Austempered Ductile Iron",
+    "Wikipedia — Austempered Ductile Iron (개발 경위: 1970년대 적용·1977 Karkkila)"
+   ],
+   "timeline": [
+    {
+     "year": 1930,
+     "event": "Bain·Davenport 가 강에서 베이나이트 발견 — 오스템퍼링(Austempering) 열처리 확립 (1930년대)",
+     "ref": 2
+    },
+    {
+     "year": 1943,
+     "event": "구상흑연주철 발명 — 흑연 구상화로 주철에 연성 부여",
+     "ref": 2
+    },
+    {
+     "year": 1977,
+     "event": "핀란드 Karkkila 주조소가 오스테나이트+베이나이트 기지 구상흑연주철 발표 (1970년대 적용 연구의 결실)",
+     "ref": 3
+    },
+    {
+     "year": 1990,
+     "event": "ASTM A897 최초 승인 — ADI 등급 규격화",
+     "ref": 1
+    }
+   ],
+   "display": "Austempered Ductile Iron (ADI, ASTM A897)"
+  },
+  "inconel-740h": {
+   "stable_ids": [
+    "MET-1026"
+   ],
+   "sections": {
+    "hook": "석탄 화력의 효율 한계를 760°C 로 밀어 올리기 위해 설계된 합금 — 보일러 헤더를 용접해서 만들 수 있는 최초의 석출경화(Precipitation-hardened) Ni 합금.",
+    "origin": "2001년 미국 DOE 가 배출을 줄이면서 효율을 올리는 초초임계(A-USC) 석탄화력 R&D 를 제안했다. 목표는 증기 온도 760°C(1400°F) — 기존 9Cr 강(P91/P92)이나 오스테나이트 강으로는 크리프가 버티지 못하는 영역이었고, 니켈 합금을 보일러 압력부에 쓰는 길이 필요했다.",
+    "breakthrough": "Special Metals 가 740 을 개량한 740H 는 γ′ 석출 시효(Aging)로 크리프 강도를 확보하면서, 용접부 시효균열과 조직 안정성 문제를 조성 조정(Al/Ti 비·Nb)으로 풀었다. 2011년 ASME Code Case 2702 로 승인되며 크리프 영역의 용접 구조에 허용된 첫 석출경화(Precipitation-hardened) Ni 합금이 됐다.",
+    "adoption": "A-USC 보일러의 과열기·재열기 튜브와 주증기 헤더가 표적이다. 실증 프로그램(미국·유럽·중국·인도)에서 튜브·파이프·후육 헤더 제작과 용접 절차가 검증됐고, 최근에는 초임계 CO₂ 발전 부품으로도 평가된다.",
+    "today": "A-USC 상용 플랜트 자체가 각국 정책에 좌우돼 보급 속도는 느리지만, 740H 는 \"니켈 합금을 보일러 압력부에 쓴다\" 는 선례를 만들었다. 부식 축은 수용액이 아니라 석탄재·황 분위기의 고온 부식과 증기측 산화다.",
+    "fun_fact": "740H 의 H 는 개량판을 뜻한다 — 원본 740 은 장기 시효(Aging)에서 η(에타)상이 생겨 인성이 떨어지는 문제가 있었고, 조성을 손봐 이를 억제한 것이 740H 다."
+   },
+   "refs": [
+    "Special Metals — INCONEL alloy 740H 기술 회보",
+    "ASME Code Case 2702 — UNS N07740 (용접 구조 허용)",
+    "EPRI — Alloy 740/740H Code Case 승인 자료",
+    "McCoy S A et al. — Development and application of INCONEL alloy 740H"
+   ],
+   "timeline": [
+    {
+     "year": 2001,
+     "event": "미국 DOE 가 760°C 급 A-USC 석탄화력 소재 개발 프로그램 제안 — 740H 개발의 출발점",
+     "ref": 4
+    },
+    {
+     "year": 2011,
+     "event": "ASME Code Case 2702 승인 — 크리프 영역 용접 구조에 허용된 첫 시효경화 Ni 합금",
+     "ref": 2
+    }
+   ],
+   "display": "INCONEL alloy 740H (UNS N07740)"
   }
  }
 }
