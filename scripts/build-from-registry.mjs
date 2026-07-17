@@ -133,6 +133,11 @@ for (const m of all) {
   if (m.sources[0] !== first) srcReordered++;
 }
 if (srcReordered) console.log(`  출처 정렬(G3-2): 첫 출처 교체 ${srcReordered} entry (검색링크 강등·권위 우선)`);
+// G3-2a' — 잔존 검색 URL(큐레이션 라벨+검색페이지 URL 조합) 라벨 투명화: 문서로 오인 방지.
+//   GUID 딥링크 자동 교체는 MatWeb 안티봇으로 불가 — 교체 전까지 정직 표기(강등과 세트).
+for (const m of all) for (const s of m.sources || []) {
+  if (isSearchUrl(s.url) && !/검색결과/.test(s.label || '')) s.label = `${s.label} — 검색결과(문서 아님)`;
+}
 // R226f/축4c — UNS 정규 필드 (별칭·이름·specs 에서 도출; 외부 연동 키)
 for (const m of all) { const u = extractUNS(m); if (u.length) m.uns = u; }
 

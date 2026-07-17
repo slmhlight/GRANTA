@@ -1629,9 +1629,11 @@ const nonCurated = Array.from(ncGroups.values()).map((grp, idx) => {
   const resolvedCond = resolveAsSupplied(grp.cond, grp.process);
   /* R112 — Polymer CSV entry 에 family vendor URL 자동 추가 (verified). polymer 94종 의 verified URL 비율 ↑. */
   const polyVendor = rep.category === 'Polymer' ? polymerVendorURL(sub, grp.name) : null;
+  /* G3-2c — matwebSearch(검색결과 페이지) 생성 중단: 문서가 아니라 출처 자격 미달 (감사 G3-2).
+   *   기존 강등(정렬)에 이어 fallback 생성 자체를 소거 — 실 출처(realSrc·familyHandbook·vendor)만. */
   const baseSrc = grp.hasAm
-    ? [...manus.filter(m => m !== 'Generic').map(mf => ({ label: `${mf} (AM vendor datasheet)`, url: null, verified: false })), ...realSrc, matwebSearch(grp.name)]
-    : [...realSrc, familyHandbook(rep.category, sub), matwebSearch(grp.name)];
+    ? [...manus.filter(m => m !== 'Generic').map(mf => ({ label: `${mf} (AM vendor datasheet)`, url: null, verified: false })), ...realSrc]
+    : [...realSrc, familyHandbook(rep.category, sub)];
   const sources = dedupeSources(polyVendor ? [polyVendor, ...baseSrc] : baseSrc);
   const conditions = uniq(g.map(r => { const mm = String(r.material_name).match(/\(([^)]+)\)/); return mm ? mm[1] : null; }));
   return {
