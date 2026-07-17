@@ -75,6 +75,18 @@ export const GUIDE_INDEX: GuideIndexEntry[] = [
   { ch: 'ch8', chapterN: 13, chapterLabel: '데이터 해석·출처·단위·FAQ', section: '단위 변환', keywords: ['SI', 'imperial', 'MPa', 'ksi', 'GPa', 'Msi', 'Celsius', 'Fahrenheit', 'lb/in3', 'BTU'], snippet: 'MPa↔ksi · GPa↔Msi · °C↔°F · g/cm³↔lb/in³ · KIC' },
   { ch: 'ch8', chapterN: 13, chapterLabel: '데이터 해석·출처·단위·FAQ', section: 'FAQ 10항목', keywords: ['FAQ', 'collection', 'shortcut', 'language', 'unit', 'reset', 'bookmark', 'URL'], snippet: '같은 합금 여러 row / class 신뢰성 / AM 방향 / 단위 / collection 등' },
 
+  // Ch.14 (ch15) — 재료 family 기본론 (A-8: 검색 인덱스 누락 보충 — 14.1~14.9 전체)
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', keywords: ['family', '계열', '기본론', '패밀리', 'steel', 'aluminum', 'titanium', 'nickel', 'copper'], snippet: 'Steel·Al·Ti·Ni·Cu·KS 강종 — 계열별 기본 구조와 대표 물성 표' },
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', section: '14.1 Steel + Stainless', keywords: ['탄소강', '합금강', '스테인리스', 'carbon steel', 'alloy steel', 'stainless', 'AISI', 'ASM Vol.1'], snippet: '탄소강·합금강·스테인리스 계열 구조 — ASM Vol.1·2 기반' },
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', section: '14.2 Aluminum', keywords: ['알루미늄', 'aluminum', 'wrought', 'cast', 'temper', 'AA', '2xxx', '6xxx', '7xxx'], snippet: '전신재·주조 알루미늄 시리즈와 temper — MMPDS Ch.3' },
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', section: '14.3 Titanium', keywords: ['티타늄', 'titanium', 'CP', 'alpha', 'beta', 'α+β', 'Ti-6Al-4V'], snippet: 'CP·α·β·α+β 티타늄 분류 — Boyer(ASM Vol.2)' },
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', section: '14.4 Nickel superalloy', keywords: ['니켈', 'nickel', 'superalloy', '초합금', 'gamma prime', "γ'", 'Inconel', 'Hastelloy'], snippet: 'γ·γ′·γ″ 강화 기구와 니켈 초합금 지도 — Donachie' },
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', section: '14.5 Copper alloys', keywords: ['구리', 'copper', '황동', 'brass', '청동', 'bronze', 'CuNi', '풍산'], snippet: '구리 합금 계열 — 황동·청동·CuNi·BeCu' },
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', section: '14.6 한국 KS 강종', keywords: ['KS', '강종', 'SS275', 'SM490', 'SD400', 'SHN', '현대제철', 'POSCO', '국산'], snippet: 'KS 규격 강종 지도 — 일반구조·용접구조·철근·형강' },
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', section: '14.7 MMPDS 통계 기준', keywords: ['MMPDS', 'A-basis', 'B-basis', 'S-basis', 'typical', '통계', 'allowable', '설계 허용치'], snippet: 'A/B/S-Basis 와 Typical 의 차이 — 항공 설계 허용치 통계' },
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', section: '14.8 순금속 물성표', keywords: ['순금속', 'pure metal', 'physical', '밀도', '융점', '열전도', 'ASM Desk'], snippet: '순금속 물리 물성 조견표 — ASM Desk Edition' },
+  { ch: 'ch15', chapterN: 14, chapterLabel: '재료 family 기본론', section: '14.9 MMPDS Steel allowables', keywords: ['4130', '4340', '8740', '300M', 'allowable', '항공강', 'MMPDS-08'], snippet: '항공 강재 설계 허용치 — AISI 4130·4340·8740·300M' },
+
   // Ch.15 (chGloss) — 기술용어 사전 (글로서리). 개별 용어는 아래 GLOSSARY_ENTRIES 에서 자동 파생.
   { ch: 'chGloss', chapterN: 15, chapterLabel: '기술용어 사전 (글로서리)', keywords: ['글로서리', 'glossary', '용어', '용어사전', 'term', '정의', 'definition', '전문용어'], snippet: '금속·재료 전문용어 — 미세조직·강화·열처리·부식·파괴·성형·AM 표준 정의 + 검색' },
 ];

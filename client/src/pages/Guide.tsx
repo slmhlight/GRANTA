@@ -10,6 +10,8 @@ import { Link, useParams, useLocation } from 'wouter';
 import { useState, useMemo } from 'react';
 import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass, Rocket, ChevronDown, Search, X, BookMarked } from 'lucide-react';
 import { searchGuide, type GuideIndexEntry } from './guide/index-entries';
+// A-5 — 재료 수 동적화 (하드코딩 stale 방지: 총계·카테고리 수는 빌드 산출물 SSOT 에서)
+import BM from '../../public/build-meta.json';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { GlossaryBrowser } from '@/components/GlossaryBrowser';
@@ -424,7 +426,7 @@ export default function Guide() {
             examples={<>GE Aviation의 LPBF 제트엔진 연료 노즐·브래킷, Airbus A350 캐빈 브래킷(티타늄 LPBF). <ExtLink href="https://en.wikipedia.org/wiki/3D_printing#Aerospace">Aerospace AM 개요</ExtLink></>}
             title="경량 고강성 구조 브래킷 (드론·항공, LPBF 출력)"
             situation="진동·하중을 받는 마운트를 가능한 한 가볍게, 충분히 강하고 덜 휘게. 금속 적층제조로 출력."
-            needs={<>하중·처짐 분석(Ch.2) 결과 예: <F>σy ≥ 300 MPa</F>, <F>E ≥ 90 GPa</F>, 무게 최소.</>}
+            needs={<>하중·처짐 분석(Ch.5) 결과 예: <F>σy ≥ 300 MPa</F>, <F>E ≥ 90 GPa</F>, 무게 최소.</>}
             steps={[
               <>좌측 필터: <b>Yield ≥ 300</b>, <b>Modulus ≥ 90</b>, <b>Process = LPBF</b>.</>,
               <>상단 <b>Index = 경량 강성 보 <F>E^½/ρ</F></b> 선택. <b>+ constraint</b>로 <F>σy^⅔/ρ</F> 추가.</>,
@@ -1083,7 +1085,7 @@ export default function Guide() {
           prereq={<>벡터·힘·기본 적분(약간) — 모르면 결과 식만 외우고 넘어가도 됩니다.</>}
         >
 
-          <H3><Lightbulb className="w-4 h-4 text-amber-500"/> 2.1 응력 = 힘 ÷ 면적 — 가장 먼저 만나는 식</H3>
+          <H3><Lightbulb className="w-4 h-4 text-amber-500"/> 5.1 응력 = 힘 ÷ 면적 — 가장 먼저 만나는 식</H3>
           <p className="leading-relaxed">
             막대를 잡아당기는 힘 <F>F</F> 가 단면적 <F>A</F> 에 골고루 퍼진다면, 단면 안 어디서나 같은 응력이 작용합니다. 이게 <F>σ = F / A</F>.
             영구 변형을 막으려면 <b>작용 응력이 항복강도 σy 보다 충분히 작아야</b> 합니다.
@@ -1104,13 +1106,13 @@ export default function Guide() {
             <Step n={3} title="앱에서 후보 좁히기" result={<>좌측 <b>Yield Strength</b> 필터 하한을 <b>400</b>으로 설정.</>} note="알루미늄 일반품은 탈락, 고강도 알루미늄 일부·강·티타늄·니켈 통과." />
           </div>
 
-          <H3><Lightbulb className="w-4 h-4 text-amber-500"/> 2.2 처짐과 강성 — “덜 휘려면 E가 얼마여야 하나?”</H3>
+          <H3><Lightbulb className="w-4 h-4 text-amber-500"/> 5.2 처짐과 강성 — “덜 휘려면 E가 얼마여야 하나?”</H3>
           <p className="leading-relaxed">
             “덜 휜다”는 <b>강성</b>의 문제이고, 강성은 <b>형상(I)</b> + <b>재료 E</b>로 결정됩니다. 가장 단순한 예는 외팔보:
           </p>
           <p className="font-mono text-[13px] mt-1 bg-muted/40 inline-block px-2 py-1 rounded">δ_max = F · L³ / (3 · E · I)</p>
           <p className="text-sm mt-2 text-muted-foreground">
-            <F>I</F> = 단면 2차모멘트(단면 모양으로 결정, Chapter 3). 처짐 한계 <F>δ_max</F> 를 정하면 식을 뒤집어서 <F>필요 E·I</F> 를 알 수 있고, <F>I</F> 가 단면으로 정해지면 <F>필요 E</F> 가 나옵니다.
+            <F>I</F> = 단면 2차모멘트(단면 모양으로 결정, Chapter 6). 처짐 한계 <F>δ_max</F> 를 정하면 식을 뒤집어서 <F>필요 E·I</F> 를 알 수 있고, <F>I</F> 가 단면으로 정해지면 <F>필요 E</F> 가 나옵니다.
           </p>
 
           <div className="rounded-lg border border-emerald-400/30 bg-emerald-50/40 p-4 my-4">
@@ -1124,10 +1126,10 @@ export default function Guide() {
           </div>
 
           <Note tone="tip">
-            <b>강성 직관.</b> 강성이 부족하면 보통 <b>단면을 키우는 게 재료를 바꾸는 것보다 효과적</b>입니다 (<F>I</F> 는 두께의 <b>세제곱</b>에 비례 — Chapter 3 참고). 무게·공간 제약이 빡빡할 때만 “더 단단한 재료”로 갑니다.
+            <b>강성 직관.</b> 강성이 부족하면 보통 <b>단면을 키우는 게 재료를 바꾸는 것보다 효과적</b>입니다 (<F>I</F> 는 두께의 <b>세제곱</b>에 비례 — Chapter 6 참고). 무게·공간 제약이 빡빡할 때만 “더 단단한 재료”로 갑니다.
           </Note>
 
-          <H3><Lightbulb className="w-4 h-4 text-amber-500"/> 2.3 그 밖의 흔한 변환 (치트시트)</H3>
+          <H3><Lightbulb className="w-4 h-4 text-amber-500"/> 5.3 그 밖의 흔한 변환 (치트시트)</H3>
           <div className="overflow-x-auto mt-2">
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold">요구</th><th className="p-2 font-semibold">보는 물성 / 식</th></tr></thead>
@@ -1419,7 +1421,7 @@ export default function Guide() {
           learn={[
             '6가지 표준 하중·지지조건의 최대 처짐 / 최대 모멘트 공식',
             '식의 형태: 외팔보는 L³·L⁴ 계수가 크고, 양단고정은 매우 작다',
-            '단면(Chapter 3)과 결합하여 필요 E·I 와 필요 σy 를 산출하는 흐름',
+            '단면(Chapter 6)과 결합하여 필요 E·I 와 필요 σy 를 산출하는 흐름',
           ]}
         >
           <p className="leading-relaxed">
@@ -1515,7 +1517,7 @@ export default function Guide() {
             '얇은 압력 용기의 후프·축방향 응력',
           ]}
         >
-          <H3>5.1 비틀림 (원형축)</H3>
+          <H3>8.1 비틀림 (원형축)</H3>
           <p className="leading-relaxed">토크 <F>T</F> 가 원형 축에 작용할 때 전단응력은 표면(<F>c = D/2</F>)에서 최대입니다.</p>
           <div className="rounded-lg border border-border bg-card p-3 my-3 h-[220px]"><SvgTorsion /></div>
           <ul className="list-disc pl-6 mt-1 space-y-1 text-sm leading-relaxed">
@@ -1527,7 +1529,7 @@ export default function Guide() {
             비원형 단면의 <F>J</F> 는 간단한 닫힌식이 없습니다. 직사각형은 <F>J ≈ β · b · h³</F> (β는 h/b에 의존). 개단면(I·L·채널)은 비틀림에 매우 약하므로 비틀림 부품엔 권장하지 않습니다.
           </Note>
 
-          <H3>5.2 좌굴 (Euler 식) — 가는 기둥의 함정</H3>
+          <H3>8.2 좌굴 (Euler 식) — 가는 기둥의 함정</H3>
           <div className="flex items-start gap-4 mt-2">
             <div className="w-48 h-40 bg-muted/30 rounded border border-border/60 flex items-center justify-center p-2 flex-shrink-0"><SvgColumn /></div>
             <div className="text-sm leading-relaxed">
@@ -1544,14 +1546,14 @@ export default function Guide() {
           </div>
           <Note tone="tip">강도(σy) 와 좌굴 둘 다 점검: <b>가는 부재는 좌굴이 먼저</b>, 굵은 부재는 강도가 먼저.</Note>
 
-          <H3>5.3 복합 응력 (von Mises)</H3>
+          <H3>8.3 복합 응력 (von Mises)</H3>
           <p className="text-sm leading-relaxed">굽힘과 비틀림이 동시에 작용하는 회전축처럼, 축응력 <F>σ_x</F> 와 전단응력 <F>τ</F> 가 같이 있을 때는 등가응력을 σy 와 비교합니다.</p>
           <p className="font-mono text-sm mt-1 bg-muted/40 inline-block px-2 py-1 rounded">σ_eq = √(σ_x² + 3·τ²) ≤ σy / SF</p>
           <p className="text-[12px] mt-1 text-muted-foreground">일반 3축 응력: <F>σ_eq = √[½((σ₁−σ₂)² + (σ₂−σ₃)² + (σ₃−σ₁)²)]</F></p>
           <div className="rounded-lg border border-border bg-card p-3 my-3 h-[240px]"><SvgMohr /></div>
           <p className="text-[12px] text-muted-foreground">응력 요소(좌)의 σ_x·τ 가 작용할 때, 면의 회전에 따른 응력 변화를 <b>Mohr 원</b>(우)으로 시각화합니다. 원의 양 끝이 <b>주응력 σ₁, σ₂</b> 이고 정점이 <b>최대 전단 τ_max</b>.</p>
 
-          <H3>5.4 얇은 압력 용기</H3>
+          <H3>8.4 얇은 압력 용기</H3>
           <p className="text-sm leading-relaxed">반경 <F>r</F>, 두께 <F>t</F>, 내압 <F>p</F> (<F>t ≪ r</F>):</p>
           <div className="rounded-lg border border-border bg-card p-3 my-3 h-[220px]"><SvgPressureVessel /></div>
           <ul className="list-disc pl-6 mt-1 text-sm font-mono">
@@ -1638,7 +1640,7 @@ export default function Guide() {
         >
           <p className="leading-relaxed">전통 단조·압연재는 microstructure 가 균질하고 데이터 신뢰도가 높지만, AM 합금은 <b>빌드 방향·분말·후처리</b> 3 변수로 인해 같은 alloy 라도 결과가 크게 다릅니다. 이 챕터는 AM 합금을 선택·검증할 때 반드시 체크할 사항을 정리합니다.</p>
 
-          <H3>8.1 빌드 방향 이방성 (XY vs Z)</H3>
+          <H3>10.1 빌드 방향 이방성 (XY vs Z)</H3>
           <p className="text-sm leading-relaxed">LPBF·EBM 부품은 적층 방향 (보통 Z, "build direction") 과 적층면 (XY) 사이에 미세조직 차이가 큽니다. 일반적으로:</p>
           {/* R68 — AM 빌드 방향 이방성 도식 */}
           <div className="rounded-lg border border-border bg-card p-3 my-3">
@@ -1689,7 +1691,7 @@ export default function Guide() {
             <b>실무 팁.</b> 응력이 한 방향이면 XY 평면을 그 방향으로 배치하도록 빌드 방향 설계. 회전 부품·복잡 형상은 <b>HIP 처리로 이방성·기공 동시 감소</b>가 표준.
           </Note>
 
-          <H3>8.2 후처리 표준 워크플로우</H3>
+          <H3>10.2 후처리 표준 워크플로우</H3>
           <div className="rounded-lg border border-border bg-card p-3 my-3 h-[260px]"><SvgHIPEffect /></div>
           {/* R68 — 후처리 7단계 flow 도식 */}
           <div className="rounded-lg border border-border bg-card p-3 my-3 overflow-x-auto">
@@ -1733,7 +1735,7 @@ export default function Guide() {
             </table>
           </div>
 
-          <H3>8.3 AM 공정별 비교</H3>
+          <H3>10.3 AM 공정별 비교</H3>
           <div className="overflow-x-auto mt-2">
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold">공정</th><th className="p-2 font-semibold">에너지 / 빌드 방식</th><th className="p-2 font-semibold">표준 합금</th><th className="p-2 font-semibold">강점</th><th className="p-2 font-semibold">한계</th></tr></thead>
@@ -1746,7 +1748,7 @@ export default function Guide() {
             </table>
           </div>
 
-          <H3>8.4 분말 spec · 추적성</H3>
+          <H3>10.4 분말 spec · 추적성</H3>
           <ul className="list-disc pl-6 mt-1 text-sm leading-relaxed">
             <li><b>입도 (PSD)</b>: LPBF 15–45 µm · EBM 45–100 µm · Binder Jet 5–25 µm. 입도 변동 → 적층 밀도·표면 거칠기 차이.</li>
             <li><b>산소 함량 (O)</b>: Ti 합금 &lt;0.13 wt% (Grade 23 ELI), Inconel 718 &lt;0.005 wt%. 산소 ↑ → 취성 ↑.</li>
@@ -1760,7 +1762,7 @@ export default function Guide() {
           </Note>
 
           {/* R66 B — Larson-Miller (creep) + Arrhenius (oxidation) + 외부 링크 */}
-          <H3>8.5 고온 부품 수명 예측 — Larson-Miller parameter</H3>
+          <H3>10.5 고온 부품 수명 예측 — Larson-Miller parameter</H3>
           <Note tone="why" title="Larson-Miller parameter (LMP) — creep rupture 예측">
             <p className="leading-relaxed">고온 부품 (Inconel 718 750°C, P91 600°C 보일러) 의 수명은 응력·온도·시간 3 변수. Larson-Miller 가 이를 하나의 parameter 로 통합.</p>
             <p className="mt-1 font-mono text-[13px]">LMP = T · (C + log₁₀(t_r))</p>
@@ -1954,7 +1956,7 @@ export default function Guide() {
 
           {/* R64 — 데이터 출처 (Provenance) */}
           <H3>데이터 출처 (Provenance)</H3>
-          <p className="text-sm leading-relaxed">이 앱의 1,000 금속 + 133 폴리머 + 39 세라믹 + 34 복합재 (총 1,206) 데이터는 다음 출처에서 수집·종합되었습니다.</p>
+          <p className="text-sm leading-relaxed">이 앱의 {BM.byCategory.Metal.toLocaleString()} 금속 + {BM.byCategory.Polymer} 폴리머 + {BM.byCategory.Ceramic} 세라믹 + {BM.byCategory.Composite} 복합재 (총 {BM.totalAlloys.toLocaleString()}) 데이터는 다음 출처에서 수집·종합되었습니다.</p>
           <div className="overflow-x-auto mt-2">
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[28%]">출처</th><th className="p-2 font-semibold w-[20%]">유형</th><th className="p-2 font-semibold">담당 범위</th></tr></thead>
@@ -2003,10 +2005,10 @@ export default function Guide() {
             {[
               { q: '같은 합금이 여러 row 로 나오는 이유?', a: '열처리 condition (Annealed / Solution / Aged / Q+T / H900 등) 별로 별도 row 입니다. 같은 alloy 라도 condition 마다 σy 가 2배 이상 차이날 수 있어 분리해 표시합니다.' },
               { q: 'class 라벨이 붙은 값을 설계에 그대로 쓸 수 있나요?', a: '아니오. class 는 family 평균에서 유도한 추정값입니다. 후보 좁히기·Ashby 차트 용도로 쓰고, 정량 설계는 출처 데이터시트의 측정값을 직접 사용하세요.' },
-              { q: 'AM 합금 데이터는 어느 빌드 방향 기준?', a: 'vendor datasheet 기준입니다. 대부분 XY (적층면 수직) 표준이며, Z 방향은 ~10–30% 낮은 값이 일반적. 자세한 영향은 Chapter 8 (AM 특화) 참고.' },
+              { q: 'AM 합금 데이터는 어느 빌드 방향 기준?', a: 'vendor datasheet 기준입니다. 대부분 XY (적층면 수직) 표준이며, Z 방향은 ~10–30% 낮은 값이 일반적. 자세한 영향은 Chapter 10 (AM 특화) 참고.' },
               { q: 'Fatigue strength 가 derived 인 합금은 신뢰할만한가?', a: 'Shigley 근사 (σ_f ≈ k · σy, k = 0.38–0.52) 로 채워진 값입니다. 정성적 비교에는 OK 이나 실 설계는 S-N 곡선이나 endurance limit 측정값으로 대체하세요.' },
               { q: 'Compare 패널에서 Radar 차트는 왜 21개 이상일 때 비활성?', a: '오버레이가 너무 많으면 시각 비교가 어렵습니다. 20개 이하로 좁히거나, 표·CSV 로 비교하세요.' },
-              { q: 'KIC 값이 없는 합금이 많은 이유?', a: '실측 데이터가 39 alloys (3.8%) 뿐이었습니다. Sprint 4 C2 에서 family fallback (ASM Vol. 1·2 + MMPDS) 로 814 alloys 까지 채워 82.2% 커버. fallback 표시는 confidence "class".' },
+              { q: 'KIC 값이 없는 합금이 많은 이유?', a: '실측 데이터가 최초 39 alloys 뿐이었습니다. family fallback (ASM Vol. 1·2 + MMPDS) 과 이후 검증 보강으로 현재 금속 대부분(~98%)을 커버. fallback 표시는 confidence "class".' },
               { q: '단위·언어를 어디서 바꾸나요?', a: '우측 상단 헤더의 <b>한 / EN</b> 토글 (언어), <b>SI / Imperial</b> 토글 (단위). 즉시 전환되며 localStorage 에 저장.' },
               { q: '필터를 적용했는데 결과가 0개 입니다.', a: '좌측 사이드바 상단의 <b>Reset</b> 또는 헤더의 <b>필터 초기화</b>. preset 으로 진입한 경우 banner 의 ↻ Reset 버튼.' },
               { q: '결과를 다시 보고 싶을 때 (북마크)?', a: 'URL 이 자동으로 필터·preset·index 를 인코딩합니다. 브라우저 즐겨찾기에 추가하거나 link 공유하면 같은 상태로 재현됩니다.' },
