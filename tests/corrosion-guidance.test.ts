@@ -246,6 +246,28 @@ describe('E15i — 합금별 매체 verdict 보정층', () => {
     const a5083 = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('AA 5083'))!)!;
     expect(a5083.media.find((r) => r.env === '해수')!.verdict).toBe('good');
   });
+  it('E15j — 수지별 판정: PTFE 강산 excellent ↔ POM 강산 poor · PVDF 알칼리 caution 유지 · PET 알칼리 poor', () => {
+    const ptfe = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('PTFE'))!)!;
+    expect(ptfe.media.find((r) => r.env === '강산')!.verdict).toBe('excellent');
+    const pom = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('POM Homopolymer') || m.name.startsWith('POM-H'))!)!;
+    expect(pom.media.find((r) => r.env === '강산')!.verdict).toBe('poor');
+    const pvdf = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('PVDF'))!)!;
+    expect(pvdf.media.find((r) => r.env === '강산')!.verdict).toBe('excellent');
+    expect(pvdf.media.find((r) => r.env === '알칼리')!.verdict).toBe('caution');
+    const pet = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('PET ') || m.name === 'PET')!)!;
+    expect(pet.media.find((r) => r.env === '알칼리')!.verdict).toBe('poor');
+  });
+  it('E15j — 세라믹 예외: WC-Co 강산 poor(바인더 침출) · MgO 해수 poor(수화) · SiC 는 그룹 기본 유지', () => {
+    const wc = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Tungsten Carbide'))!)!;
+    const acid = wc.media.find((r) => r.env === '강산')!;
+    expect(acid.verdict).toBe('poor');
+    expect(acid.adj?.why).toMatch(/바인더|Co/);
+    const mgo = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Magnesia'))!)!;
+    expect(mgo.media.find((r) => r.env === '해수')!.verdict).toBe('poor');
+    const sic = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Silicon Carbide'))!)!;
+    expect(sic.media.find((r) => r.env === '강산')!.verdict).toBe('excellent');
+    expect(sic.media.find((r) => r.env === '강산')!.adj).toBeUndefined();
+  });
   it('by_base — Ti Gr7 강산 good↑ · Waspaloy(저Mo 규칙) 강산 caution↓ · C-276 강산 excellent 유지', () => {
     const gr7 = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Ti Grade 7'))!)!;
     expect(gr7.media.find((r) => r.env === '강산')!.verdict).toBe('good');
