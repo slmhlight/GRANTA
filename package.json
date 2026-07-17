@@ -27,7 +27,8 @@
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "sim:puredigit": "node scripts/sim-pure-digit.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
