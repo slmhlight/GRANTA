@@ -2008,7 +2008,7 @@ export default function Guide() {
               { q: 'AM 합금 데이터는 어느 빌드 방향 기준?', a: 'vendor datasheet 기준입니다. 대부분 XY (적층면 수직) 표준이며, Z 방향은 ~10–30% 낮은 값이 일반적. 자세한 영향은 Chapter 10 (AM 특화) 참고.' },
               { q: 'Fatigue strength 가 derived 인 합금은 신뢰할만한가?', a: 'Shigley 근사 (σ_f ≈ k · σy, k = 0.38–0.52) 로 채워진 값입니다. 정성적 비교에는 OK 이나 실 설계는 S-N 곡선이나 endurance limit 측정값으로 대체하세요.' },
               { q: 'Compare 패널에서 Radar 차트는 왜 21개 이상일 때 비활성?', a: '오버레이가 너무 많으면 시각 비교가 어렵습니다. 20개 이하로 좁히거나, 표·CSV 로 비교하세요.' },
-              { q: 'KIC 값이 없는 합금이 많은 이유?', a: '실측 데이터가 최초 39 alloys 뿐이었습니다. family fallback (ASM Vol. 1·2 + MMPDS) 과 이후 검증 보강으로 현재 금속 대부분(~98%)을 커버. fallback 표시는 confidence "class".' },
+              { q: 'KIC 값이 없는 합금이 많은 이유?', a: `실측 데이터가 최초 39 alloys 뿐이었습니다. family fallback (ASM Vol. 1·2 + MMPDS) 과 이후 검증 보강으로 현재 금속 ${(BM as any).kicCoverage.covered}/${(BM as any).kicCoverage.total} (${(BM as any).kicCoverage.pct}%) 커버. fallback 표시는 confidence "class".` },
               { q: '단위·언어를 어디서 바꾸나요?', a: '우측 상단 헤더의 <b>한 / EN</b> 토글 (언어), <b>SI / Imperial</b> 토글 (단위). 즉시 전환되며 localStorage 에 저장.' },
               { q: '필터를 적용했는데 결과가 0개 입니다.', a: '좌측 사이드바 상단의 <b>Reset</b> 또는 헤더의 <b>필터 초기화</b>. preset 으로 진입한 경우 banner 의 ↻ Reset 버튼.' },
               { q: '결과를 다시 보고 싶을 때 (북마크)?', a: 'URL 이 자동으로 필터·preset·index 를 인코딩합니다. 브라우저 즐겨찾기에 추가하거나 link 공유하면 같은 상태로 재현됩니다.' },

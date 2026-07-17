@@ -219,6 +219,7 @@ const buildMeta = {
   anomaliesBySeverity: { high: sevCount.high, med: sevCount.med, low: sevCount.low },
   verifiedSrcMaterials: withVerifiedSrc,
   // R226f/축4b — provenance KPI (DATA-STRATEGY 축1: standard+handbook ≥ 50% 목표 추적)
+  kicCoverage: (() => { const met = all.filter(m => m.category === 'Metal'); const cov = met.filter(m => m.ranges && m.ranges.fracture_toughness).length; return { covered: cov, total: met.length, pct: Math.round(cov / met.length * 1000) / 10 }; })(),   // A-5 — Guide FAQ 동적화용
   authorityDistribution: (() => { const d = {}; for (const m of all) for (const s of m.sources || []) d[s.authority] = (d[s.authority] || 0) + 1; return d; })(),
   unsMaterials: all.filter(m => m.uns?.length).length,
   source: 'registry (R226 P5)',
