@@ -257,6 +257,34 @@ describe('E15i — 합금별 매체 verdict 보정층', () => {
     const pet = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('PET ') || m.name === 'PET')!)!;
     expect(pet.media.find((r) => r.env === '알칼리')!.verdict).toBe('poor');
   });
+  it('E15k — refractory 개별화: Ta 강산 excellent 무보정(그룹=판정) · V poor · Mo caution · WHA 바인더 침출', () => {
+    const ta = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Tantalum ('))!)!;
+    const taAcid = ta.media.find((r) => r.env === '강산')!;
+    expect(taAcid.verdict).toBe('excellent');
+    expect(taAcid.adj).toBeUndefined();   // Ta 는 그룹 기본이 곧 자기 판정
+    const v = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Vanadium'))!)!;
+    expect(v.media.find((r) => r.env === '강산')!.verdict).toBe('poor');
+    const mo = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Molybdenum'))!)!;
+    expect(mo.media.find((r) => r.env === '강산')!.verdict).toBe('caution');
+    const wha = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Tungsten Heavy Alloy'))!)!;
+    const whaAcid = wha.media.find((r) => r.env === '강산')!;
+    expect(whaAcid.verdict).toBe('poor');
+    expect(whaAcid.adj?.why).toMatch(/바인더/);
+  });
+  it('E15k — MP35N 해수 excellent · A588 대기 good(내후) · Naval Brass 해수 caution(Zn 규칙 예외 복권) · Scalmalloy 해수 good', () => {
+    const mp = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('MP35N'))!)!;
+    expect(mp.media.find((r) => r.env === '해수')!.verdict).toBe('excellent');
+    const a588 = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('ASTM A588'))!)!;
+    const atm = a588.media.find((r) => r.env === '대기')!;
+    expect(atm.verdict).toBe('good');
+    expect(atm.adj?.why).toMatch(/내후성|녹층/);
+    const naval = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Naval Brass'))!)!;
+    const sea = naval.media.find((r) => r.env === '해수')!;
+    expect(sea.verdict).toBe('caution');   // Zn28 규칙 poor → by_base 복권
+    expect(sea.adj?.why).toMatch(/억제/);
+    const scal = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Scalmalloy'))!)!;
+    expect(scal.media.find((r) => r.env === '해수')!.verdict).toBe('good');
+  });
   it('E15j — 세라믹 예외: WC-Co 강산 poor(바인더 침출) · MgO 해수 poor(수화) · SiC 는 그룹 기본 유지', () => {
     const wc = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Tungsten Carbide'))!)!;
     const acid = wc.media.find((r) => r.env === '강산')!;

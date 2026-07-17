@@ -4155,6 +4155,21 @@
     },
     "why": "고온 전용 합금(저 Mo) — 수용액 산 내식은 설계 대상 아님: C/B 계열로",
     "src": "ASM Handbook(초합금 구분) · Haynes"
+   },
+   {
+    "group": "al-cast-am",
+    "el": "Mg",
+    "min": 2.2,
+    "maxOther": {
+     "el": "Cu",
+     "max": 0.5
+    },
+    "axes": {
+     "해수": "good",
+     "염수·염화물": "good"
+    },
+    "why": "Al-Mg(-Sc/Zr) 5xxx 계보 AM — 해양 후보군(as-built 표면 처리 전제)",
+    "src": "APWorks Scalmalloy · EOS Al5X1"
    }
   ],
   "by_base": {
@@ -5286,6 +5301,157 @@
     },
     "why": "소다라임 유리 — 알칼리 표면 침식·장기 습기 풍화: 산엔 강함(불산 예외는 그룹 공통)",
     "src": "Schott 유리 기술자료"
+   },
+   "Vanadium": {
+    "axes": {
+     "강산": "poor",
+     "약산(묽은산·유기산)": "caution"
+    },
+    "why": "V — 산화성 산(질산)에 즉시 용해·묽은 산도 침식: 그룹 표(Ta 기준)의 최대 예외",
+    "src": "ASM Vol.13B(내화금속)"
+   },
+   "Molybdenum": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "Mo 계 — 비산화 산(HCl·황산)엔 양호하나 산화성 산(질산·왕수) 침식: Ta 급 아님",
+    "src": "ASM Vol.13B(내화금속) · Plansee"
+   },
+   "TZM": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "Mo 계 — 비산화 산(HCl·황산)엔 양호하나 산화성 산(질산·왕수) 침식: Ta 급 아님",
+    "src": "ASM Vol.13B(내화금속) · Plansee"
+   },
+   "Mo-0.5Ti": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "Mo 계 — 비산화 산(HCl·황산)엔 양호하나 산화성 산(질산·왕수) 침식: Ta 급 아님",
+    "src": "ASM Vol.13B(내화금속) · Plansee"
+   },
+   "Mo-La": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "Mo 계 — 비산화 산(HCl·황산)엔 양호하나 산화성 산(질산·왕수) 침식: Ta 급 아님",
+    "src": "ASM Vol.13B(내화금속) · Plansee"
+   },
+   "Mo-Re": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "Mo 계 — 비산화 산(HCl·황산)엔 양호하나 산화성 산(질산·왕수) 침식: Ta 급 아님",
+    "src": "ASM Vol.13B(내화금속) · Plansee"
+   },
+   "Rhenium": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "Re — 질산 등 산화성 산에 용해(Re₂O₇): 산 환경 비대상",
+    "src": "ASM Vol.13B"
+   },
+   "Chromium": {
+    "axes": {
+     "강산": "caution"
+    },
+    "why": "벌크 Cr — 염산·황산에 활성 용해(질산은 부동태): 부동태의 원조라는 통념과 달리 비산화 산 취약",
+    "src": "ASM Vol.13B"
+   },
+   "Niobium": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Nb — 내산 Ta 한 단계 아래(비등 진한 산은 제한): excellent 는 Ta 전용",
+    "src": "ASM Vol.13B(내화금속)"
+   },
+   "Nb-1Zr": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Nb — 내산 Ta 한 단계 아래(비등 진한 산은 제한): excellent 는 Ta 전용",
+    "src": "ASM Vol.13B(내화금속)"
+   },
+   "Niobium-1Zr": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Nb — 내산 Ta 한 단계 아래(비등 진한 산은 제한): excellent 는 Ta 전용",
+    "src": "ASM Vol.13B(내화금속)"
+   },
+   "C-103": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Nb — 내산 Ta 한 단계 아래(비등 진한 산은 제한): excellent 는 Ta 전용",
+    "src": "ASM Vol.13B(내화금속)"
+   },
+   "Niobium C-103": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "Nb — 내산 Ta 한 단계 아래(비등 진한 산은 제한): excellent 는 Ta 전용",
+    "src": "ASM Vol.13B(내화금속)"
+   },
+   "Tungsten": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "W — 상온 단일 산 안정(HF+질산 혼산·용융 알칼리만 예외): Ta 급 전승은 아님",
+    "src": "Plansee W 자료"
+   },
+   "W-La": {
+    "axes": {
+     "강산": "good"
+    },
+    "why": "W — 상온 단일 산 안정(HF+질산 혼산·용융 알칼리만 예외): Ta 급 전승은 아님",
+    "src": "Plansee W 자료"
+   },
+   "Tungsten Heavy Alloy": {
+    "axes": {
+     "강산": "poor",
+     "해수": "caution",
+     "염수·염화물": "caution"
+    },
+    "why": "WHA — W 아닌 Ni-Fe 바인더가 산·염수에서 선택 침출(입자 탈락)",
+    "src": "Plansee/Mi-Tech WHA 자료"
+   },
+   "MP35N": {
+    "axes": {
+     "해수": "excellent",
+     "염수·염화물": "excellent"
+    },
+    "why": "MP35N — 해수·sour SCC 사실상 면역(NACE 무제한 급): 그룹(good) 상회",
+    "src": "SPS MP35N · NACE MR0175"
+   },
+   "ASTM A588 Grade A": {
+    "axes": {
+     "대기": "good"
+    },
+    "why": "내후성강 — 건습 반복·비염화물 조건에서 안정 녹층로 무도장 설계(그룹 caution 의 예외): 상시습윤·해안은 통상강 취급",
+    "src": "ASTM A588 · FHWA 내후성강 지침"
+   },
+   "SPA-H": {
+    "axes": {
+     "대기": "good"
+    },
+    "why": "내후성 열연 — 안정 녹층 형성 조건(건습 반복) 전제의 무도장 설계",
+    "src": "KS D 3542"
+   },
+   "Naval Brass C46400": {
+    "axes": {
+     "해수": "caution"
+    },
+    "why": "Sn 억제 황동 — 탈아연 억제로 해수 실적 보유(고아연 잔존 주의): Zn 규칙(poor)의 예외",
+    "src": "CDA C46400 · ASM Vol.13B"
+   },
+   "C44300": {
+    "axes": {
+     "해수": "caution"
+    },
+    "why": "As 억제 애드미럴티 황동 — 복수기 전통 실적(현대는 CuNi/Ti 대체 추세)",
+    "src": "CDA C44300"
    }
   }
  }
