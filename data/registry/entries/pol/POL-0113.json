@@ -143,6 +143,11 @@
   },
   "sources": [
     {
+      "label": "Syensqo (Solvay) — Radel PPSU polyphenylsulfone (official)",
+      "url": "https://www.syensqo.com/en/brands/radel-ppsu",
+      "verified": true
+    },
+    {
       "label": "Datasheet — PPSU Radel R-5100 (Solvay)",
       "url": "https://www.syensqo.com/en/product/radel-ppsu",
       "verified": true
@@ -236,5 +241,26 @@
       "E": 0.5
     }
   ],
-  "elevated_temp_src": "Victrex·Solvay·Celanese·Arkema·SABIC·BASF·Stratasys datasheet 측정값 (R151 배치)"
+  "elevated_temp_src": "Victrex·Solvay·Celanese·Arkema·SABIC·BASF·Stratasys datasheet 측정값 (R151 배치)",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet — PPSU Radel R-5100 (Solvay)",
+          "url": "https://www.syensqo.com/en/product/radel-ppsu",
+          "verified": true
+        },
+        {
+          "label": "Applications: Hot/cold-water plumbing fitting (Aquatherm/Vexel), aircraft interior (lavatory/galley), 의료 surgical tray (autoclave 1000+ cycles), 식품 service tray (steam clean)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AZoM/Goodfellow — Polyphenylsulphone (PPSU) 물성",
+          "url": "https://www.azom.com/article.aspx?ArticleID=2260",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

@@ -188,6 +188,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "ASM — C19400 high-conductivity copper",
       "url": null,
       "verified": false
@@ -275,5 +280,31 @@
   "total_cost_estimate": 11.34,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM — C19400 high-conductivity copper",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Cu alloys general",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Copper Development Association — Alloy C19400 (Copper-Iron CuFeP)",
+          "url": "https://alloys.copper.org/alloy/C19400",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

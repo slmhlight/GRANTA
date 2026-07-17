@@ -190,6 +190,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
       "label": "Otai Special Steel — M35 / 1.3243 / HS6-5-2-5 / SKH55 datasheet",
       "url": "https://www.astmsteel.com/product/tool-steel-m35-1-3243-hs6-5-2-5-skh55/",
       "verified": true
@@ -281,5 +286,26 @@
   "svhc_concerns": [
     "Co 5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Otai Special Steel — M35 / 1.3243 / HS6-5-2-5 / SKH55 datasheet",
+          "url": "https://www.astmsteel.com/product/tool-steel-m35-1-3243-hs6-5-2-5-skh55/",
+          "verified": true
+        },
+        {
+          "label": "Saglam Metal — 1.3243 (HS6-5-2-5) high speed steel",
+          "url": "https://www.saglammetal.com/en/steel/tool-steel/high-speed-steel/13243-hs6-5-2-5",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: Crucible PM tool steel",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -189,6 +189,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — 스테인리스 판·시트(듀플렉스 포함) 규격",
+      "url": "https://www.astm.org/a0240_a0240m-20a.html",
+      "verified": false
+    },
+    {
       "label": "Outokumpu 2507 SAF / Sandmeyer Duplex",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
       "verified": true
@@ -291,6 +301,20 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Outokumpu 2507 SAF / Sandmeyer Duplex",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: Rolled Alloys ZERON 100",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "UNS S32750",

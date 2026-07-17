@@ -190,6 +190,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
+    {
       "label": "Datasheet 2",
       "url": "https://www.carpentertechnology.com/alloy-finder/a-286",
       "verified": true
@@ -307,5 +317,21 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 2",
+          "url": "https://www.carpentertechnology.com/alloy-finder/a-286",
+          "verified": true
+        },
+        {
+          "label": "MatWeb 2",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=A286",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

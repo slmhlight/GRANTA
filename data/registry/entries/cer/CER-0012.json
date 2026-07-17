@@ -121,6 +121,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "verified": false
+    },
+    {
       "label": "Applications: 실험기기, 광학 렌즈 (저분산), 요리 기구, 냉열 사이클 부품",
       "url": null,
       "verified": false
@@ -174,5 +179,26 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Borosilicate Glass (Type I/III, Pyrex 7740 / Schott Duran 8330 / KS B0801). 80% SiO₂ + 13% B₂O₃ + 4% Na₂O + 3% Al₂O₃. CTE 3.3×10⁻⁶/K (soda-lime 9 의 1/3 — thermal shock 우수, 100°C ΔT 견딤). σf 70 (flexural) / E 64 / ρ 2.23 / Tmax 500°C continuous, 800°C short. Refractive 1.474. 실험실 beaker, 화학 reactor, 가정 ovenware (Pyrex 'casserole'), 광학 (BK7 = 광 grade), 약병 (Type I borosilicate 약전 표준)."
+  "industry_note": "Borosilicate Glass (Type I/III, Pyrex 7740 / Schott Duran 8330 / KS B0801). 80% SiO₂ + 13% B₂O₃ + 4% Na₂O + 3% Al₂O₃. CTE 3.3×10⁻⁶/K (soda-lime 9 의 1/3 — thermal shock 우수, 100°C ΔT 견딤). σf 70 (flexural) / E 64 / ρ 2.23 / Tmax 500°C continuous, 800°C short. Refractive 1.474. 실험실 beaker, 화학 reactor, 가정 ovenware (Pyrex 'casserole'), 광학 (BK7 = 광 grade), 약병 (Type I borosilicate 약전 표준).",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: 실험기기, 광학 렌즈 (저분산), 요리 기구, 냉열 사이클 부품",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Corning Pyrex 7740 technical reference",
+          "url": "https://www.corning.com/",
+          "verified": false
+        },
+        {
+          "label": "Schott Duran 3.3 borosilicate technical guide",
+          "url": "https://www.schott.com/en-int/products/borosilicate-glass",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

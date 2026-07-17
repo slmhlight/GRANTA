@@ -111,6 +111,11 @@
   "composition": {},
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.1 — Composites",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-1-composites",
+      "verified": false
+    },
+    {
       "label": "Gurit — Foam Core — SAN (Corecell M80)",
       "url": "https://www.gurit.com/products/",
       "verified": true
@@ -160,5 +165,21 @@
   "price_per_cm3": 0.001,
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Sandwich panel core foam: • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안."
+  "industry_note": "Sandwich panel core foam: • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Gurit — Foam Core — SAN (Corecell M80)",
+          "url": "https://www.gurit.com/products/",
+          "verified": true
+        },
+        {
+          "label": "Apps: 선박 hull 코어, 자동차 패널 코어",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -185,6 +185,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Copper.org — C12200 DHP Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C12200",
       "verified": true
@@ -264,6 +269,25 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper.org — C12200 DHP Copper",
+          "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C12200",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 3",
+          "url": "https://www.poongsan.co.kr/eng/business/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AA 2xxx Al-Cu",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "UNS C12200",

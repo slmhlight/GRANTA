@@ -182,6 +182,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Special Metals — Nickel 200/201",
       "url": "http://web.archive.org/web/20240714185430/https://www.specialmetals.com/documents/technical-bulletins/nickel-200.pdf",
       "verified": true
@@ -311,5 +316,26 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Nickel 200/201",
+          "url": "http://web.archive.org/web/20240714185430/https://www.specialmetals.com/documents/technical-bulletins/nickel-200.pdf",
+          "verified": true
+        },
+        {
+          "label": "EOS Nickel NiCP MDS",
+          "url": "https://www.eos.info/var/assets/05-datasheet-images/Assets_MDS_Metal/EOS_Nickel_NiCP/Material_DataSheet_EOS_Nickel_NiCP_en.pdf",
+          "verified": true
+        },
+        {
+          "label": "EOS MDS summary — nickel nicp",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-nickel-nicp",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

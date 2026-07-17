@@ -121,6 +121,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
+      "verified": true
+    },
+    {
       "label": "CoorsTek — Mullite (3Al₂O₃·2SiO₂)",
       "url": "https://www.coorstek.com/en/materials/",
       "verified": true
@@ -176,5 +181,26 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Mullite (3Al₂O₃·2SiO₂, orthorhombic Pbnm) — refractory ceramic + low CTE (5.6×10⁻⁶/K — Pyrex 와 비슷). Tm 1850°C, ρ 3.16 g/cc, σf 200-250, E 145 GPa, KIC 2.5. Tmax 1750°C continuous (oxidation 우수). Thermal conductivity 6 W/m·K (insulator). 우주 thermal protection system (Space Shuttle tile — alumina-silica fiber 가 mullite + 빈공간), 산업 furnace refractory (1500°C+), kiln roller, 전기 substrate. Cordierite 와 함께 가장 low-CTE 일반 ceramic."
+  "industry_note": "Mullite (3Al₂O₃·2SiO₂, orthorhombic Pbnm) — refractory ceramic + low CTE (5.6×10⁻⁶/K — Pyrex 와 비슷). Tm 1850°C, ρ 3.16 g/cc, σf 200-250, E 145 GPa, KIC 2.5. Tmax 1750°C continuous (oxidation 우수). Thermal conductivity 6 W/m·K (insulator). 우주 thermal protection system (Space Shuttle tile — alumina-silica fiber 가 mullite + 빈공간), 산업 furnace refractory (1500°C+), kiln roller, 전기 substrate. Cordierite 와 함께 가장 low-CTE 일반 ceramic.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "CoorsTek — Mullite (3Al₂O₃·2SiO₂)",
+          "url": "https://www.coorstek.com/en/materials/",
+          "verified": true
+        },
+        {
+          "label": "Applications: 고온 furnace 라이너, 열적 충격 부품, 글래스 furnace",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Saint-Gobain Mullite refractory data",
+          "url": "https://www.ceramicsrefractories.saint-gobain.com/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

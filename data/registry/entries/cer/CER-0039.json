@@ -126,6 +126,16 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "verified": false
+    },
+    {
+      "label": "Fahrenholtz W G et al. — Ultra-High Temperature Ceramics (Wiley)",
+      "url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9781118700853",
+      "verified": false
+    },
+    {
       "label": "Applications: 극초음속 비행체 nose tip, 로켓 throat, 용탕 측정 thermo well",
       "url": null,
       "verified": false
@@ -180,5 +190,26 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "ZrB₂ (Zirconium Diboride, hexagonal AlB₂-type) — sister UHTC of HfB₂ (lower cost). Tm 3245°C, ρ 6.10 g/cc (HfB₂ 의 55% — 가벼움 advantage). σf 360-450 / E 510 / KIC 3.5 / Tmax 2200°C inert. ZrB₂-SiC composite oxidation 저항 1700°C+. Hypersonic leading edge (DARPA Falcon HTV-2), refractory crucible (molten metal contact), 우주 thermal protection. SPS sintering 표준."
+  "industry_note": "ZrB₂ (Zirconium Diboride, hexagonal AlB₂-type) — sister UHTC of HfB₂ (lower cost). Tm 3245°C, ρ 6.10 g/cc (HfB₂ 의 55% — 가벼움 advantage). σf 360-450 / E 510 / KIC 3.5 / Tmax 2200°C inert. ZrB₂-SiC composite oxidation 저항 1700°C+. Hypersonic leading edge (DARPA Falcon HTV-2), refractory crucible (molten metal contact), 우주 thermal protection. SPS sintering 표준.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: 극초음속 비행체 nose tip, 로켓 throat, 용탕 측정 thermo well",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Saint-Gobain ZrB₂ technical data",
+          "url": "https://www.refractories.saint-gobain.com/",
+          "verified": false
+        },
+        {
+          "label": "Fahrenholtz et al. — UHTC review (J. Eur. Ceram. Soc. 2007)",
+          "url": "https://doi.org/10.1016/j.jeurceramsoc.2006.07.006",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -189,6 +189,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Datasheet 1",
       "url": "ANSYS Granta — Aluminum, 6151, T6 (UNS A96151, EN AW-6151, JIS A6151)",
       "verified": true
@@ -260,5 +265,26 @@
   "total_cost_estimate": 4.91,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "ANSYS Granta — Aluminum, 6151, T6 (UNS A96151, EN AW-6151, JIS A6151)",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

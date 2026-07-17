@@ -111,6 +111,11 @@
   "composition": {},
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.1 — Composites",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-1-composites",
+      "verified": false
+    },
+    {
       "label": "Apps: 자동차 hood·trunk lid·panels (FRP large parts), 인프라 패널",
       "url": null,
       "verified": false
@@ -170,5 +175,31 @@
   "price_per_cm3": 0.0057,
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "SMC (Sheet Molding Compound) — polyester / vinyl ester resin + 25-30% chopped glass fiber (25mm length) + CaCO₃ filler + low-profile additive (LPA). Compression molded (matched die, 150-160°C, 10-50 MPa). σf 80-110, σy 70-90, E 11-15 GPa, ρ 1.85-1."
+  "industry_note": "SMC (Sheet Molding Compound) — polyester / vinyl ester resin + 25-30% chopped glass fiber (25mm length) + CaCO₃ filler + low-profile additive (LPA). Compression molded (matched die, 150-160°C, 10-50 MPa). σf 80-110, σy 70-90, E 11-15 GPa, ρ 1.85-1.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Apps: 자동차 hood·trunk lid·panels (FRP large parts), 인프라 패널",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Continental Structural Plastics SMC technical",
+          "url": "https://www.cspresins.com/",
+          "verified": false
+        },
+        {
+          "label": "Magna International SMC body panel",
+          "url": "https://www.magna.com/",
+          "verified": false
+        },
+        {
+          "label": "JLON Composite — SMC (Sheet Molding Compound) JL-6006, 30-33% glass",
+          "url": "https://www.jloncomposite.com/sheet-moulding-compound-SMC.html",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

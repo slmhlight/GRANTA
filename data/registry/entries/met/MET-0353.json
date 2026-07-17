@@ -190,6 +190,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys and Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "AMS 5844 / ASTM F562 — MP35N 급 다상 Co-Ni 합금 규격",
+      "url": "https://www.astm.org/f0562-13r20.html",
+      "verified": false
+    },
+    {
       "label": "Carpenter Technology — MP35N Multiphase Alloy",
       "url": "https://www.carpentertechnology.com/alloy-finder/mp35n",
       "verified": true
@@ -274,5 +284,26 @@
   "svhc_concerns": [
     "Ni 37% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Carpenter Technology — MP35N Multiphase Alloy",
+          "url": "https://www.carpentertechnology.com/alloy-finder/mp35n",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 3",
+          "url": "https://www.spsfasteners.com/wp-content/uploads/MP35N-Fastener-Material-Datasheet.pdf",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 3",
+          "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/MP35N.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

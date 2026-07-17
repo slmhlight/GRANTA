@@ -138,6 +138,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "verified": false
+    },
+    {
       "label": "CeramTec — Silicon Nitride (Si₃N₄, HIP'd)",
       "url": "https://www.ceramtec.com/en/industries/",
       "verified": true
@@ -197,5 +202,31 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "Si₃N₄ (Silicon Nitride) — covalent ceramic. 변종: • Sintered (SSN, pressureless): σf 600-800 / E 290 / KIC 6.5 / Tmax 1300°C • HIP'd (Hot Isostatic Press): σf 800-1000 / E 310-320 / KIC 8 / Tmax 1400°C — 가장 high-Q • Reaction-bonded (RBSN): σf 200-300 / E 200 / lower density • Sintered Reaction-Bonded (SRBSN): σf 600-800 ρ 3.17-3."
+  "industry_note": "Si₃N₄ (Silicon Nitride) — covalent ceramic. 변종: • Sintered (SSN, pressureless): σf 600-800 / E 290 / KIC 6.5 / Tmax 1300°C • HIP'd (Hot Isostatic Press): σf 800-1000 / E 310-320 / KIC 8 / Tmax 1400°C — 가장 high-Q • Reaction-bonded (RBSN): σf 200-300 / E 200 / lower density • Sintered Reaction-Bonded (SRBSN): σf 600-800 ρ 3.17-3.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "CeramTec — Silicon Nitride (Si₃N₄, HIP'd)",
+          "url": "https://www.ceramtec.com/en/industries/",
+          "verified": true
+        },
+        {
+          "label": "Applications: 베어링 볼 (롤링 베어링 hybrid), 절삭 인서트, 디젤 엔진 글로 플러그, 터빈 로터",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "CoorsTek Silicon Nitride (SiNitride) datasheet",
+          "url": "https://www.coorstek.com/english/materials/ceramics/silicon-nitride/",
+          "verified": true
+        },
+        {
+          "label": "Kyocera Silicon Nitride (SN-220C/235P) datasheet",
+          "url": "https://global.kyocera.com/prdct/fc/",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

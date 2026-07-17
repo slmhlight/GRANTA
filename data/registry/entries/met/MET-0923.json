@@ -225,6 +225,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "TIMET — Ti-6Al-4V Grade 5 MatWeb",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V",
       "verified": false
@@ -439,6 +444,25 @@
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "TIMET — Ti-6Al-4V Grade 5 MatWeb",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-6Al-4V",
+          "verified": false
+        },
+        {
+          "label": "Nikon SLM Ti6Al4V Gr23",
+          "url": "https://nikon-slm-solutions.com/wp-content/uploads/2025/11/mds5137.pdf",
+          "verified": true
+        },
+        {
+          "label": "EOS Titanium",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/titanium",
+          "verified": true
+        }
+      ]
     }
   }
 }

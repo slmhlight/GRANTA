@@ -183,6 +183,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys and Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "ASTM A677/A683 — 무방향성 전기강판 규격",
+      "url": "https://www.astm.org/a0677-19.html",
+      "verified": false
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000002.jsp",
       "verified": true
@@ -246,5 +256,16 @@
   "total_cost_estimate": 1.83,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000002.jsp",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

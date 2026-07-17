@@ -187,6 +187,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A536 / A897 / A532 — 구상흑연·ADI·내마모 주철 규격군",
+      "url": "https://www.astm.org/a0536-84r19e01.html",
+      "verified": false
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://www.portlandbolt.com/technical/specifications/astm-a536/",
       "verified": true
@@ -266,5 +276,26 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.portlandbolt.com/technical/specifications/astm-a536/",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "ASTM A536-84 Standard Specification for Ductile Iron Castings",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASTM A536 ductile iron",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

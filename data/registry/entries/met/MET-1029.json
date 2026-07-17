@@ -190,6 +190,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A681 — 합금 공구강 규격",
+      "url": "https://www.astm.org/a0681-08r22.html",
+      "verified": false
+    },
+    {
       "label": "International Mold Steel — DC53 (HRC 62-64 @520°C temper)",
       "url": "https://imsteel.com/dc53/",
       "verified": true
@@ -269,5 +279,26 @@
   "total_cost_estimate": 7.83,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "International Mold Steel — DC53 (HRC 62-64 @520°C temper)",
+          "url": "https://imsteel.com/dc53/",
+          "verified": true
+        },
+        {
+          "label": "Daido Steel — DC53 technical datasheet",
+          "url": "https://www.daidodmsv.com/wp-content/uploads/2021/06/dc53.pdf",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Tool Steels",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

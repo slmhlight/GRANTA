@@ -188,6 +188,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Copper.org — C71500 70-30 Cupronickel",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C71500",
       "verified": true
@@ -288,5 +293,26 @@
   "svhc_concerns": [
     "Ni 33% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper.org — C71500 70-30 Cupronickel",
+          "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C71500",
+          "verified": true
+        },
+        {
+          "label": "C71500 CuNi30 / Copper Development Assoc.",
+          "url": "https://www.copper.org/resources/properties/microstructure/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: Copper.org Cu-Ni",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

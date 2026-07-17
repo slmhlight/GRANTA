@@ -192,6 +192,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "WorldAutoSteel — AHSS Application Guidelines V7",
+      "url": "https://ahssinsights.org/",
+      "verified": false
+    },
+    {
       "label": "Datasheet 1",
       "url": "ANSYS Granta — Dual phase steel YS600 cold rolled (EN 10336:2007 HCT980X, EN 1.0944)",
       "verified": true
@@ -265,5 +275,26 @@
   "total_cost_estimate": 1.4,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "ANSYS Granta — Dual phase steel YS600 cold rolled (EN 10336:2007 HCT980X, EN 1.0944)",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000004.jsp",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "ArcelorMittal DP 980 LCE Y600 / World Auto Steel DP 700/1000",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

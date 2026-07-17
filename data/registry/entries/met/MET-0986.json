@@ -186,6 +186,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "EN 10025 / 제조사 내마모강 규격 (Hardox·Armox 계)",
+      "url": "https://www.en-standard.eu/bs-en-10025-2-2019-hot-rolled-products-of-structural-steels/",
+      "verified": false
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://www.ssab.com/products/brands/hardox",
       "verified": true
@@ -249,5 +259,16 @@
   "total_cost_estimate": 2.32,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.ssab.com/products/brands/hardox",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

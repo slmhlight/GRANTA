@@ -183,6 +183,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A572/A572M — 고강도 저합금 Nb-V 구조강 규격",
+      "url": "https://www.astm.org/a0572_a0572m-21e01.html",
+      "verified": false
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://bgh.de/en/materials/",
       "verified": true
@@ -244,5 +254,16 @@
   "total_cost_estimate": 2.55,
   "tolerance_class": "IT12-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://bgh.de/en/materials/",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

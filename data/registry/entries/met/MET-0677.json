@@ -193,6 +193,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "IACS UR W11 — 선급 선체 구조용 강 통일 규칙",
+      "url": "https://iacs.org.uk/publications/unified-requirements/ur-w/",
+      "verified": false
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://ww2.eagle.org/en/rules-and-resources/rules-and-guides.html",
       "verified": true
@@ -290,5 +300,36 @@
   "total_cost_estimate": 1.42,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://ww2.eagle.org/en/rules-and-resources/rules-and-guides.html",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ABS/DNV class shipbuilding",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "ABS (American Bureau of Shipping) Rules — Hull Steel Grade",
+          "url": "https://ww2.eagle.org/",
+          "verified": false
+        },
+        {
+          "label": "DNV-OS-B101 — Shipbuilding Steel Plate",
+          "url": "https://www.dnv.com/",
+          "verified": false
+        },
+        {
+          "label": "KR Korean Register — Ship Steel Grade Standards",
+          "url": "https://www.krs.co.kr/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

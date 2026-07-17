@@ -125,6 +125,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "verified": false
+    },
+    {
       "label": "Element Six — Diamond (CVD synthetic)",
       "url": "https://www.e6.com/en/applications",
       "verified": true
@@ -184,5 +189,31 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Synthetic Diamond — CVD (Chemical Vapor Deposition, e.g. Element Six MWPECVD) or HPHT (High-Pressure High-Temperature, GE / De Beers). Cubic (sp³)."
+  "industry_note": "Synthetic Diamond — CVD (Chemical Vapor Deposition, e.g. Element Six MWPECVD) or HPHT (High-Pressure High-Temperature, GE / De Beers). Cubic (sp³).",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Element Six — Diamond (CVD synthetic)",
+          "url": "https://www.e6.com/en/applications",
+          "verified": true
+        },
+        {
+          "label": "Applications: 절삭공구 (PCD inserts), 광학 윈도우 (적외), 열 확산기 (전력반도체)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Element Six CVD Diamond reference",
+          "url": "https://www.e6.com/",
+          "verified": false
+        },
+        {
+          "label": "Diamond Materials TM-100 CVD diamond",
+          "url": "https://www.diamond-materials.com/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

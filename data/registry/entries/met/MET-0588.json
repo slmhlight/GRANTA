@@ -190,6 +190,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Special Metals — Inconel Alloy X-750",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf",
       "verified": true
@@ -276,6 +281,25 @@
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Inconel Alloy X-750",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-x-750.pdf",
+          "verified": true
+        },
+        {
+          "label": "EOS (AM vendor datasheet)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "UNS N07750",

@@ -182,6 +182,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "EOS Copper Cu PDS - M290 20μm",
       "url": "https://www.eos.info/metal-solutions/data-sheets/copper/pds-eos-copper-cu-eos-m-290-20um",
       "verified": true
@@ -307,5 +312,26 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "EOS Copper Cu PDS - M290 20μm",
+          "url": "https://www.eos.info/metal-solutions/data-sheets/copper/pds-eos-copper-cu-eos-m-290-20um",
+          "verified": true
+        },
+        {
+          "label": "EOS Copper CuCP PDS - M290 1kW 40μm",
+          "url": "https://www.eos.info/metal-solutions/data-sheets/copper/pds-eos-copper-cucp-eos-m-290-1kw-40um",
+          "verified": true
+        },
+        {
+          "label": "EOS MDS summary — copper cu",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-copper-cu",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

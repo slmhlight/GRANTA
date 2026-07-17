@@ -190,6 +190,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Aluminum 7050 (aerospace)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+7050",
       "verified": false
@@ -270,5 +275,31 @@
   "total_cost_estimate": 6.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Aluminum 7050 (aerospace)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Aluminum+7050",
+          "verified": false
+        },
+        {
+          "label": "MatWeb 1",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA%207050-T7451",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Aluminum Association AA 7075-T651",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (T7451/T7651 인장·물성, PDF 직접 판독)",
+          "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1016/Kaiser_Aluminum_7050_Sheet_Coil_and_Plate.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

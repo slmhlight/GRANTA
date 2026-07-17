@@ -191,6 +191,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Rene 88DT",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+88DT",
       "verified": false
@@ -282,5 +287,31 @@
   "svhc_concerns": [
     "Co 13% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Rene 88DT",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+88DT",
+          "verified": false
+        },
+        {
+          "label": "GE / ASM — Rene 88DT turbine-disc superalloy",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Google Patents WO2014058491A2 — Nickel-based superalloy (R88DT 조성 범위)",
+          "url": "https://patents.google.com/patent/WO2014058491A2/en",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

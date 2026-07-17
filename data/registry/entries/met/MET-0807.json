@@ -187,6 +187,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
+    {
       "label": "ASM — MA956 oxide-dispersion-strengthened FeCrAl",
       "url": null,
       "verified": false
@@ -275,5 +285,31 @@
   "total_cost_estimate": 3.68,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASM — MA956 oxide-dispersion-strengthened FeCrAl",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Special Metals — INCOLOY alloy MA956 공식 데이터시트 (Publication SMC-008, ©2004; 조성·물리물성·인장/크리프 그래프, pdftotext 텍스트 추출 검증)",
+          "url": "http://specialmetals.ir/images/technical_info/Fer-base/Incoloy-alloy-MA956.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

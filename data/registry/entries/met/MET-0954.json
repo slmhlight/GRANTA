@@ -208,6 +208,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
       "label": "Carpenter Technology — VascoMax C300 (Maraging 300)",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
       "verified": true
@@ -508,5 +513,26 @@
     "Ni 19% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
     "Co 9.5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Carpenter Technology — VascoMax C300 (Maraging 300)",
+          "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
+          "verified": true
+        },
+        {
+          "label": "Nikon SLM 1.2709 MDS 2026-04.1",
+          "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/MDS_1.2709_2026-04.1_EN.pdf",
+          "verified": true
+        },
+        {
+          "label": "Renishaw TDS - Renishaw Maraging Steel M300",
+          "url": "https://www.renishaw.com/en/material-datasheet-maraging-steel-m300--17862",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

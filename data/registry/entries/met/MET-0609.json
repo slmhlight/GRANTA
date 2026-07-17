@@ -190,6 +190,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene%2080",
       "verified": false
@@ -284,5 +289,41 @@
   "svhc_concerns": [
     "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 1",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene%2080",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Special Metals — Rene 80 Technical Bulletin",
+          "url": "https://www.specialmetals.com/",
+          "verified": false
+        },
+        {
+          "label": "GE Aviation Rene 80 (legacy CF6, F404 turbine blade)",
+          "url": "https://www.geaviation.com/",
+          "verified": false
+        },
+        {
+          "label": "Neway AeroTech — Rene 80 (equiaxed crystal casting) 조성+물성 페이지",
+          "url": "https://www.newayaerotech.com/services/equiaxed-crystal-casting/rene-80",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

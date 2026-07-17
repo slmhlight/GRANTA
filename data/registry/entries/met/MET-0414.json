@@ -185,6 +185,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Copper.org — C11000 ETP Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
       "verified": true
@@ -275,5 +280,26 @@
   "total_cost_estimate": 9.61,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper.org — C11000 ETP Copper",
+          "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C11000",
+          "verified": true
+        },
+        {
+          "label": "C11000 ETP Copper / Copper Development Assoc.",
+          "url": "https://www.copper.org/resources/properties/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AA 1xxx CP Al",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

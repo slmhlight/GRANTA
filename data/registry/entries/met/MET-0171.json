@@ -186,6 +186,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Datasheet 3",
       "url": "ANSYS Granta — Aluminum, commercial purity, 1200 (O/H14/H19) (UNS A91200, EN AW-1200, JIS H4120)",
       "verified": true
@@ -261,6 +266,25 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 3",
+          "url": "ANSYS Granta — Aluminum, commercial purity, 1200 (O/H14/H19) (UNS A91200, EN AW-1200, JIS H4120)",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 3",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AA 1xxx CP Al",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": []
     }

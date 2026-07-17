@@ -182,6 +182,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Special Metals Ni 200/201 datasheet",
       "url": "http://web.archive.org/web/20240714185430/https://www.specialmetals.com/documents/technical-bulletins/nickel-200.pdf",
       "verified": true
@@ -264,5 +269,16 @@
   "total_cost_estimate": 96.39,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals Ni 200/201 datasheet",
+          "url": "http://web.archive.org/web/20240714185430/https://www.specialmetals.com/documents/technical-bulletins/nickel-200.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

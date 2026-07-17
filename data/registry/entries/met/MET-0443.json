@@ -184,6 +184,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Copper.org — C10200 Oxygen-Free Copper",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C10200",
       "verified": true
@@ -261,6 +266,25 @@
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper.org — C10200 Oxygen-Free Copper",
+          "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C10200",
+          "verified": true
+        },
+        {
+          "label": "ASM — oxygen-free copper C10200",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AISI carbon steel",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "points": {
       "from": [
         [

@@ -120,6 +120,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
+      "verified": true
+    },
+    {
       "label": "Applications: 압전 진동자 (시계·MEMS), QCM 센서, 광학 편광 부품",
       "url": null,
       "verified": false
@@ -174,5 +179,26 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "α-Quartz (trigonal, P3₂21, single-crystal SiO₂) — natural form (Brazil) 또는 hydrothermally grown (Sawyer, Toyo). ρ 2.65 g/cc, **α→β transition 573°C** (Tmax 자료의 의미 — 이 온도 위에서 더 이상 piezoelectric 안 됨), Tm 1670°C (β-cristobalite 형태). σf 50 MPa, E 95 GPa (anisotropic: a-axis 87, c-axis 105), CTE 14."
+  "industry_note": "α-Quartz (trigonal, P3₂21, single-crystal SiO₂) — natural form (Brazil) 또는 hydrothermally grown (Sawyer, Toyo). ρ 2.65 g/cc, **α→β transition 573°C** (Tmax 자료의 의미 — 이 온도 위에서 더 이상 piezoelectric 안 됨), Tm 1670°C (β-cristobalite 형태). σf 50 MPa, E 95 GPa (anisotropic: a-axis 87, c-axis 105), CTE 14.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: 압전 진동자 (시계·MEMS), QCM 센서, 광학 편광 부품",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MatWeb — Single-crystal Quartz",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Quartz%20single%20crystal",
+          "verified": false
+        },
+        {
+          "label": "Roditi International Quartz technical guide",
+          "url": "https://www.roditi.com/SingleCrystal/Quartz/Properties.html",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

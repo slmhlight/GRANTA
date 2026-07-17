@@ -138,6 +138,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "verified": false
+    },
+    {
       "label": "CoorsTek — Silicon Carbide (SiC, sintered)",
       "url": "https://www.coorstek.com/en/materials/silicon-carbide/",
       "verified": true
@@ -197,5 +202,31 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "SiC (Silicon Carbide, carborundum). 변종: Sintered SiC (Hexoloy, σf 400 / E 410 / ρ 3.13 / Tmax 1600°C) / Reaction-Bonded (RB-SiC, σf 200 / E 380 / ρ 3.05 — Si melt-infiltrated graphite preform) / Chemical-Vapor-Deposited (CVD-SiC, σf 600 / Tmax 1500°C, semicon-grade)."
+  "industry_note": "SiC (Silicon Carbide, carborundum). 변종: Sintered SiC (Hexoloy, σf 400 / E 410 / ρ 3.13 / Tmax 1600°C) / Reaction-Bonded (RB-SiC, σf 200 / E 380 / ρ 3.05 — Si melt-infiltrated graphite preform) / Chemical-Vapor-Deposited (CVD-SiC, σf 600 / Tmax 1500°C, semicon-grade).",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "CoorsTek — Silicon Carbide (SiC, sintered)",
+          "url": "https://www.coorstek.com/en/materials/silicon-carbide/",
+          "verified": true
+        },
+        {
+          "label": "Applications: 기계적 씰, 베어링, 강화 코팅, 우주항공 거울 기재, 반도체 wafer chuck",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "CoorsTek SiC (PureSiC sintered, RB-SiC) datasheet",
+          "url": "https://www.coorstek.com/english/materials/ceramics/silicon-carbide/",
+          "verified": true
+        },
+        {
+          "label": "Saint-Gobain Hexoloy SiC datasheet",
+          "url": "https://www.ceramicsrefractories.saint-gobain.com/products/hexoloy-sic-products/sintered-sic",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

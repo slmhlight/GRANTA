@@ -120,6 +120,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "verified": false
+    },
+    {
       "label": "3M — Boron Carbide (B₄C)",
       "url": "https://www.3m.com/3M/en_US/p/d/b40065023/",
       "verified": true
@@ -179,5 +184,31 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "B₄C (Boron Carbide, rhombohedral B₁₂C₃) — 3rd hardest material (Diamond > c-BN > B₄C). ρ 2.52 g/cc (very light), σf 280-410, E 460 GPa, Mohs 9.3."
+  "industry_note": "B₄C (Boron Carbide, rhombohedral B₁₂C₃) — 3rd hardest material (Diamond > c-BN > B₄C). ρ 2.52 g/cc (very light), σf 280-410, E 460 GPa, Mohs 9.3.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "3M — Boron Carbide (B₄C)",
+          "url": "https://www.3m.com/3M/en_US/p/d/b40065023/",
+          "verified": true
+        },
+        {
+          "label": "Applications: 방탄 패널 (가장 가벼운 ballistic ceramic), 핵중성자 흡수, 연마재",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "CoorsTek Boron Carbide datasheet",
+          "url": "https://www.coorstek.com/english/materials/ceramics/boron-carbide/",
+          "verified": true
+        },
+        {
+          "label": "Saint-Gobain Hexoloy B₄C",
+          "url": "https://www.ceramicsrefractories.saint-gobain.com/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

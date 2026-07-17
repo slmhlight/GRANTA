@@ -124,6 +124,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
+      "verified": true
+    },
+    {
       "label": "Applications: 정밀 가공 가능한 세라믹 (선반·드릴), 진공 부품, 우주 부품 (BlueOrigin)",
       "url": null,
       "verified": false
@@ -177,5 +182,26 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Macor (Corning, fluorophlogopite mica + borosilicate glass matrix). ρ 2.52 g/cc, max service 800°C continuous / 1000°C short-term, no softening below 800°C. σf 94 MPa (flexure), E 64 GPa, KIC 1.5, CTE 9.3×10⁻⁶/K (matches metals — joinable with metal seals). 일반 cutter 로 가공 가능 — 굳어지지 않은 상태 ceramic 의 유일한 옵션. Dielectric strength 40 kV/mm, εr 6.0. 진공 챔버 fixture, semicon ALD wafer support, MRI coil mount, 광학 mounting hardware. Brittle — impact 약함."
+  "industry_note": "Macor (Corning, fluorophlogopite mica + borosilicate glass matrix). ρ 2.52 g/cc, max service 800°C continuous / 1000°C short-term, no softening below 800°C. σf 94 MPa (flexure), E 64 GPa, KIC 1.5, CTE 9.3×10⁻⁶/K (matches metals — joinable with metal seals). 일반 cutter 로 가공 가능 — 굳어지지 않은 상태 ceramic 의 유일한 옵션. Dielectric strength 40 kV/mm, εr 6.0. 진공 챔버 fixture, semicon ALD wafer support, MRI coil mount, 광학 mounting hardware. Brittle — impact 약함.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: 정밀 가공 가능한 세라믹 (선반·드릴), 진공 부품, 우주 부품 (BlueOrigin)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Corning Macor machinable glass-ceramic datasheet",
+          "url": "https://www.corning.com/worldwide/en/products/advanced-optics/product-materials/specialty-glass-and-glass-ceramics/glass-ceramics/macor.html",
+          "verified": true
+        },
+        {
+          "label": "Schott Macor (licensed)",
+          "url": "https://www.schott.com/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -122,6 +122,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
+      "verified": true
+    },
+    {
       "label": "Applications: 촉매 변환기 honeycomb (자동차 배기), 가열 부품, 인덕션 cooktop 판",
       "url": null,
       "verified": false
@@ -173,5 +178,21 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Cordierite (2MgO·2Al₂O₃·5SiO₂, orthorhombic Cccm) — **lowest CTE silicate ceramic** (1.5-2.5×10⁻⁶/K — Zerodur 의 5×). Tm 1450°C, ρ 2.65 g/cc, σf 70-130, E 70 GPa, KIC 1.5. Tmax 1400°C continuous. **자동차 catalytic converter substrate** (가장 흔한 — NGK / Corning Celcor honeycomb 표준) — exhaust 800°C cycle thermal shock 견딤. Refractory kiln furniture, glass-melting tool, electric stove burner."
+  "industry_note": "Cordierite (2MgO·2Al₂O₃·5SiO₂, orthorhombic Cccm) — **lowest CTE silicate ceramic** (1.5-2.5×10⁻⁶/K — Zerodur 의 5×). Tm 1450°C, ρ 2.65 g/cc, σf 70-130, E 70 GPa, KIC 1.5. Tmax 1400°C continuous. **자동차 catalytic converter substrate** (가장 흔한 — NGK / Corning Celcor honeycomb 표준) — exhaust 800°C cycle thermal shock 견딤. Refractory kiln furniture, glass-melting tool, electric stove burner.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: 촉매 변환기 honeycomb (자동차 배기), 가열 부품, 인덕션 cooktop 판",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "NGK Insulators Cordierite Honeycomb Ceramic",
+          "url": "https://www.ngk-insulators.com/en/",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

@@ -189,6 +189,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
+    {
       "label": "AK Steel — 420 Stainless Steel",
       "url": "https://www.aksteel.com/our-products/stainless/420-stainless-steel",
       "verified": true
@@ -287,5 +297,26 @@
     }
   ],
   "elevated_temp_src": "핸드북 typical — 개별 인용 미기재 (R24 배치 · 재검증 대상)",
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AK Steel — 420 Stainless Steel",
+          "url": "https://www.aksteel.com/our-products/stainless/420-stainless-steel",
+          "verified": true
+        },
+        {
+          "label": "BLT",
+          "url": "https://www.xa-blt.com/en/powder/420/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -191,7 +191,11 @@ try {
     //   MatWeb DataSheet GUID 등 특정 datasheet 는 보존) + 권위 family 출처 보강(sourcesBySubcategory 정의 족보).
     // R226f/축1a — 보강 대상 확장: generic 외에도 aggregator/other-only(권위 출처 전무) entry 는 족보 출처 append.
     const weakProv = (r.sources || []).length > 0 && (r.sources || []).every(s => ['aggregator', 'other'].includes(sourceAuthority(s)));
-    if (r.tier === 'generic' || weakProv) {
+    /* H6 W2-3 — 보강 조건 확장: 제조사 datasheet 는 있으나 **표준·핸드북 인용이 없는** entry 도 족보 출처 append.
+     *   근거: KPI 진단(2026-07-17) — 234 entry 가 vendor-only 라 "이 값이 어느 규격 체계의 것인가" 가 부재.
+     *   족보 출처(sourcesBySubcategory)는 subcategory 단위 권위 인용(ASM Vol.1/2·ASTM A29 등)이라 안전. */
+    const noStandard = (r.sources || []).length > 0 && !(r.sources || []).some(s => ['standard', 'handbook'].includes(sourceAuthority(s)));
+    if (r.tier === 'generic' || weakProv || noStandard) {
       const isSearchLink = (s) => !s.url || /quicktext|searchtext=|google\.[a-z.]+\/search|bing\.com\/search|wikipedia/i.test(s.url || '');
       const kept = r.tier === 'generic' ? (r.sources || []).filter(s => !isSearchLink(s)) : (r.sources || []);   // search-link 제거는 generic 만 (기존 semantics 보존)
       const su = corr.sourcesBySubcategory && corr.sourcesBySubcategory[r.subcategory];

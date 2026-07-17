@@ -184,6 +184,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Pure Tungsten W",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tungsten",
       "verified": false
@@ -261,5 +266,26 @@
   "total_cost_estimate": 132.3,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Pure Tungsten W",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tungsten",
+          "verified": false
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.plansee.com/en/materials/tungsten.html",
+          "verified": true
+        },
+        {
+          "label": "MatWeb 1",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Tungsten%20pure",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

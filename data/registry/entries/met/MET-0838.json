@@ -191,6 +191,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A564/A564M — 석출경화 스테인리스 봉·형강 규격",
+      "url": "https://www.astm.org/a0564_a0564m-19a.html",
+      "verified": false
+    },
+    {
       "label": "EOS MDS summary — stainlesssteel cx",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-cx",
       "verified": true
@@ -285,6 +295,30 @@
   "confidence_tier": "high",
   "industry_note": "EOS CX — proprietary PH tool stainless steel for LPBF AM (Cr 12, Ni 9, C 0.04, Ti 1, Al — Custom 465-class chemistry). Tmax 315°C. 산업 mold inserts (conformal cooling channel), aerospace tool insert, 의료 surgical instrument. AM LPBF 특화 — wrought 형태 미존재.",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "EOS MDS summary — stainlesssteel cx",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-cx",
+          "verified": true
+        },
+        {
+          "label": "EOS",
+          "url": "https://www.eos.info/metal-solutions/data-sheets/stainlesssteel/pds-eos-stainlesssteel-cx-eos-m-290-30um",
+          "verified": true
+        },
+        {
+          "label": "EOS",
+          "url": "https://www.eos.info/metal-solutions/data-sheets/stainlesssteel/pds-eos-stainlesssteel-cx-eos-m-290-40-80um",
+          "verified": true
+        },
+        {
+          "label": "EOS CX (martensitic PH stainless for AM) datasheet",
+          "url": "https://www.eos.info/en-us/3d-printing-materials/metals/stainless-tool-corrosion-resistant-steel",
+          "verified": true
+        }
+      ]
+    },
     "points": {
       "from": [
         [

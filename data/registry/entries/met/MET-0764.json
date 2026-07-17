@@ -192,6 +192,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — 스테인리스 판·시트(듀플렉스 포함) 규격",
+      "url": "https://www.astm.org/a0240_a0240m-20a.html",
+      "verified": false
+    },
+    {
       "label": "Outokumpu — Super Duplex 2507 (1.4410)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
       "verified": true
@@ -325,6 +335,25 @@
   "_corrections": {
     "subcategory": {
       "from": "Stainless Steel - Austenitic"
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "Outokumpu — Super Duplex 2507 (1.4410)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
+          "verified": true
+        },
+        {
+          "label": "EOS MDS summary — stainlesssteel superduplex",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-superduplex",
+          "verified": true
+        },
+        {
+          "label": "Sandvik SAF 2507 datasheet",
+          "url": "https://www.alleima.com/en/products-and-services/tube/sanmac-tube/",
+          "verified": true
+        }
+      ]
     }
   }
 }

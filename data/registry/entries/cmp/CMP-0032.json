@@ -119,6 +119,11 @@
   ],
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.1 — Composites",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-1-composites",
+      "verified": false
+    },
+    {
       "label": "Apps: 최고급 방탄 (Level IV plate), 등반·낚시 rope, 의료 sutures",
       "url": null,
       "verified": false
@@ -177,5 +182,26 @@
   "price_per_cm3": 0.2425,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "UHMWPE (Ultra-High Molecular Weight Polyethylene, MW > 3M Da). DSM Dyneema SK75/SK78/SK99, Honeywell Spectra 900/1000/2000. **Gel-spun + ultra-drawn** → 80-90% crystalline (vs HDPE 의 60%) → 가장 strong fiber/weight ratio. σf fiber 3."
+  "industry_note": "UHMWPE (Ultra-High Molecular Weight Polyethylene, MW > 3M Da). DSM Dyneema SK75/SK78/SK99, Honeywell Spectra 900/1000/2000. **Gel-spun + ultra-drawn** → 80-90% crystalline (vs HDPE 의 60%) → 가장 strong fiber/weight ratio. σf fiber 3.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Apps: 최고급 방탄 (Level IV plate), 등반·낚시 rope, 의료 sutures",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "DSM Dyneema SK75/SK78/SK99 datasheet",
+          "url": "https://www.dsm.com/dyneema/en_US/home.html",
+          "verified": true
+        },
+        {
+          "label": "Honeywell Spectra fiber datasheet",
+          "url": "https://www.honeywell.com/us/en/products/services/spectra-fiber",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

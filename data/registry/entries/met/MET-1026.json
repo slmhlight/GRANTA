@@ -192,6 +192,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Special Metals — INCONEL alloy 740H technical bulletin",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf",
       "verified": true
@@ -277,6 +282,25 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — INCONEL alloy 740H technical bulletin",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf",
+          "verified": true
+        },
+        {
+          "label": "Gen3 CSP (Georgia Tech) — Inconel 740H thermophysical properties",
+          "url": "https://gen3csp.gatech.edu/inconel-alloy-740h/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "740H",

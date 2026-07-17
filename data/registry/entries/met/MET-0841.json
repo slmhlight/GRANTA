@@ -204,6 +204,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A564/A564M — 석출경화 스테인리스 봉·형강 규격",
+      "url": "https://www.astm.org/a0564_a0564m-19a.html",
+      "verified": false
+    },
+    {
       "label": "Carpenter Technology — Custom 630 (17-4 PH)",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
       "verified": true
@@ -469,5 +479,26 @@
   "svhc_concerns": [
     "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Carpenter Technology — Custom 630 (17-4 PH)",
+          "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/stainless-steels",
+          "verified": true
+        },
+        {
+          "label": "Nikon SLM 17-4PH MDS 2026-02",
+          "url": "https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf",
+          "verified": true
+        },
+        {
+          "label": "EOS Stainless Steel",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/stainless-steel",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

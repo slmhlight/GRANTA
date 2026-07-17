@@ -189,6 +189,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://www.aksteel.com/sites/default/files/2018-01/440a440b440c201706.pdf",
       "verified": true
@@ -270,5 +280,26 @@
   "total_cost_estimate": 7.23,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.aksteel.com/sites/default/files/2018-01/440a440b440c201706.pdf",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

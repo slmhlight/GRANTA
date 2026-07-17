@@ -188,6 +188,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "BLT",
       "url": "https://www.xa-blt.com/en/powder/ti-6-5al-1mo-1v-2zr/",
       "verified": true
@@ -301,6 +306,25 @@
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "BLT",
+          "url": "https://www.xa-blt.com/en/powder/ti-6-5al-1mo-1v-2zr/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: MMPDS-2018 Titanium",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
+          "url": null,
+          "verified": false
+        }
+      ]
     }
   }
 }

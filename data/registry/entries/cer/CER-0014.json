@@ -120,6 +120,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
+      "verified": true
+    },
+    {
       "label": "Applications: Zerodur (망원경 거울 기재), Ceran (인덕션 cooktop), 광학 fiber 케이블 부품",
       "url": null,
       "verified": false
@@ -174,5 +179,26 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Lithium Aluminosilicate (LAS) glass-ceramic (Zerodur by Schott, Clearceram-Z by Ohara). Crystal phase: β-quartz solid solution (Li₂O·Al₂O₃·SiO₂). CTE 0.02 ± 0.05 ppm/°C (20-100°C) — 사실상 zero. σf 110 / E 88 / ρ 2.5 / Tmax 800°C continuous, 1000°C short. 대형 telescope mirror substrate (VLT, ELT, JWST mirror substrate — 8m diameter Zerodur), wafer stepper precision mirror, EUV lithography reticle (~$5M each). 매우 비싼 ($500-2000/kg)."
+  "industry_note": "Lithium Aluminosilicate (LAS) glass-ceramic (Zerodur by Schott, Clearceram-Z by Ohara). Crystal phase: β-quartz solid solution (Li₂O·Al₂O₃·SiO₂). CTE 0.02 ± 0.05 ppm/°C (20-100°C) — 사실상 zero. σf 110 / E 88 / ρ 2.5 / Tmax 800°C continuous, 1000°C short. 대형 telescope mirror substrate (VLT, ELT, JWST mirror substrate — 8m diameter Zerodur), wafer stepper precision mirror, EUV lithography reticle (~$5M each). 매우 비싼 ($500-2000/kg).",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: Zerodur (망원경 거울 기재), Ceran (인덕션 cooktop), 광학 fiber 케이블 부품",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Schott Zerodur LAS glass-ceramic datasheet",
+          "url": "https://www.schott.com/en-int/products/zerodur-p1000269",
+          "verified": true
+        },
+        {
+          "label": "Corning ULE / similar LAS glass-ceramics",
+          "url": "https://www.corning.com/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

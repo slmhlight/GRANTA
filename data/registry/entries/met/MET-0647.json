@@ -185,6 +185,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Pure Molybdenum / TZM",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Molybdenum",
       "verified": false
@@ -259,5 +264,26 @@
   "total_cost_estimate": 85.68,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Pure Molybdenum / TZM",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Molybdenum",
+          "verified": false
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.plansee.com/en/materials/molybdenum.html",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Refractory",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

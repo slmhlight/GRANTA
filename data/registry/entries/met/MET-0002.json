@@ -190,6 +190,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "WorldAutoSteel — AHSS Application Guidelines V7",
+      "url": "https://ahssinsights.org/",
+      "verified": false
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://www.worldautosteel.org/ahss-application-guidelines-update-begins/",
       "verified": true
@@ -257,5 +267,21 @@
   "total_cost_estimate": 1.42,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.worldautosteel.org/ahss-application-guidelines-update-begins/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AHSS family",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

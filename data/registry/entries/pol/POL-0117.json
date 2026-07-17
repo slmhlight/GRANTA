@@ -156,6 +156,11 @@
   },
   "sources": [
     {
+      "label": "Syensqo (Solvay) — Udel PSU polysulfone (official)",
+      "url": "https://www.syensqo.com/en/brands/udel-psu",
+      "verified": true
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/eviva.html",
       "verified": true
@@ -221,5 +226,16 @@
   "surface_finish_typical": 50,
   "tolerance_class": "IT15",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/eviva.html",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

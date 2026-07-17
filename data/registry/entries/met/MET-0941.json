@@ -194,6 +194,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
       "label": "EOS MDS summary — toolsteel cm55",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-toolsteel-cm55",
       "verified": true
@@ -355,5 +360,26 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "EOS MDS summary — toolsteel cm55",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-toolsteel-cm55",
+          "verified": true
+        },
+        {
+          "label": "EOS",
+          "url": "https://www.eos.info/3d-printing-materials/metal/tool-steel/eos-toolsteel-cm55",
+          "verified": true
+        },
+        {
+          "label": "EOS",
+          "url": "https://www.eos.info/metal-solutions/data-sheets/toolsteel/pds-eos-toolsteel-cm55-eos-m-290-40-80um",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

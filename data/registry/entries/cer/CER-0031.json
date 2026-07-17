@@ -126,6 +126,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
+      "verified": true
+    },
+    {
       "label": "Applications: 반도체 etching chamber 코팅 (Cl/F 플라즈마 저항), YAG 레이저 도가니, ZrO₂ 안정화제",
       "url": null,
       "verified": false
@@ -176,5 +181,21 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Y₂O₃ (Yttrium oxide, cubic bixbyite structure) — high-T refractory oxide. Tm 2410°C, ρ 5.03 g/cc, σf 130-200, E 170 GPa, KIC 2. Tmax 2200°C inert."
+  "industry_note": "Y₂O₃ (Yttrium oxide, cubic bixbyite structure) — high-T refractory oxide. Tm 2410°C, ρ 5.03 g/cc, σf 130-200, E 170 GPa, KIC 2. Tmax 2200°C inert.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: 반도체 etching chamber 코팅 (Cl/F 플라즈마 저항), YAG 레이저 도가니, ZrO₂ 안정화제",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Treibacher Industrie Y2O3 high-purity reference",
+          "url": "https://www.treibacher.com/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

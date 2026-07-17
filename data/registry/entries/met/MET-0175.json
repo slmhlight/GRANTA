@@ -181,6 +181,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "EOS MDS summary — aluminium al5x1",
       "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-aluminium-al5x1",
       "verified": true
@@ -288,5 +293,26 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "EOS MDS summary — aluminium al5x1",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-aluminium-al5x1",
+          "verified": true
+        },
+        {
+          "label": "EOS",
+          "url": "https://www.eos.info/metal-solutions/data-sheets/aluminium/pds-eos-aluminium-al5x1-eos-m-290-40um",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: Aluminum Association handbook",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

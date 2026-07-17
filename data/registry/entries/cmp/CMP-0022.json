@@ -111,6 +111,11 @@
   "composition": {},
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.1 — Composites",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-1-composites",
+      "verified": false
+    },
+    {
       "label": "MatWeb — PVC plastic",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PVC",
       "verified": false
@@ -165,5 +170,26 @@
   "price_per_cm3": 0.0012,
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Sandwich panel core foam: • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안."
+  "industry_note": "Sandwich panel core foam: • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — PVC plastic",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PVC",
+          "verified": false
+        },
+        {
+          "label": "Apps: 선박 hull 코어, 풍력 블레이드 코어 (대량)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "DIAB Divinycell H 데이터시트 (rev 26 SI)",
+          "url": "https://diab-media.azureedge.net/eyajkrhd/diab-divinycell-h-may-2026-rev26-si.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

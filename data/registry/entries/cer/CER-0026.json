@@ -138,6 +138,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/results/-/journal_content/56/16883557/PUBLICATION/",
+      "verified": true
+    },
+    {
       "label": "CoorsTek — Magnesium Aluminate Spinel (MgAl₂O₄, transparent)",
       "url": "https://www.coorstek.com/en/materials/alumina/",
       "verified": true
@@ -197,5 +202,31 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "MgAl₂O₄ (Magnesium Aluminate Spinel) — cubic structure → 결정 입자 사이 광 산란 없음 → 다결정인데도 transparent ceramic. ρ 3.58, σf 200, E 280, KIC 2, Tmax 1900°C (Tm 2135°C). 광 투과 200-5000 nm (UV-mid IR). Mohs 8 (보석 spinel). 군용 transparent armor (시야창 — 1/3 가격 sapphire 대비 동등 ballistic 성능), 미사일 IR dome (3-5 μm window), 광학 visor. Surmet ALON 도 비슷 (Al₂₃O₂₇N₅, ALON 알루미늄 산질화물). 가공 비싸 ($1000+/kg)."
+  "industry_note": "MgAl₂O₄ (Magnesium Aluminate Spinel) — cubic structure → 결정 입자 사이 광 산란 없음 → 다결정인데도 transparent ceramic. ρ 3.58, σf 200, E 280, KIC 2, Tmax 1900°C (Tm 2135°C). 광 투과 200-5000 nm (UV-mid IR). Mohs 8 (보석 spinel). 군용 transparent armor (시야창 — 1/3 가격 sapphire 대비 동등 ballistic 성능), 미사일 IR dome (3-5 μm window), 광학 visor. Surmet ALON 도 비슷 (Al₂₃O₂₇N₅, ALON 알루미늄 산질화물). 가공 비싸 ($1000+/kg).",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "CoorsTek — Magnesium Aluminate Spinel (MgAl₂O₄, transparent)",
+          "url": "https://www.coorstek.com/en/materials/alumina/",
+          "verified": true
+        },
+        {
+          "label": "Applications: transparent armor (장갑차 윈도우), IR dome (3-5 μm), HID 램프 envelope",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Surmet Spinel (transparent armor) datasheet",
+          "url": "https://www.surmet.com/our-technology/altrr-spinel/",
+          "verified": true
+        },
+        {
+          "label": "ARL Spinel transparent ceramic technical paper",
+          "url": "https://apps.dtic.mil/sti/citations/AD1027541",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

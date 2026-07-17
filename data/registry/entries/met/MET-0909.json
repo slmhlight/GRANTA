@@ -189,6 +189,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys (β alloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Industry data — Ti-5553 (solution + aged)",
       "url": null,
       "verified": false
@@ -310,6 +315,30 @@
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "Industry data — Ti-5553 (solution + aged)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: TIMET beta Ti",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Neway AeroTech — Ti-5Al-5V-5Mo-3Cr (Ti5553) 물성표 (UTS 1200~1300, YS 1100~1200, 신율 ~10%, 35~40 HRC, E 115 GPa)",
+          "url": "https://www.newayaerotech.com/services/equiaxed-crystal-casting/ti-5al-5v-5mo-3cr-ti5553",
+          "verified": true
+        }
+      ]
     }
   }
 }

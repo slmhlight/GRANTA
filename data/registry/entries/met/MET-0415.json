@@ -187,6 +187,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Copper.org — C18150 Copper-Chromium-Zirconium",
       "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C18150",
       "verified": true
@@ -266,5 +271,26 @@
   "total_cost_estimate": 10.21,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Copper.org — C18150 Copper-Chromium-Zirconium",
+          "url": "https://www.copper.org/resources/properties/db/results.php?Bid=C18150",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: Cu-Cr-Zr / Cu-Ni-Si-Cr family",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

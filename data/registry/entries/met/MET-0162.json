@@ -193,6 +193,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Nikon SLM A2024-RAM2C MDS 2024-06.1",
       "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/mds5146.pdf",
       "verified": true
@@ -346,5 +351,26 @@
     }
   ],
   "elevated_temp_src": "MMPDS-15 · ASM Handbook Vol.2 · Special Metals · Carpenter Technology datasheets (R21 배치)",
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Nikon SLM A2024-RAM2C MDS 2024-06.1",
+          "url": "https://nikon-slm-solutions.com/wp-content/uploads/2024/07/mds5146.pdf",
+          "verified": true
+        },
+        {
+          "label": "3D Systems Certified A6061-RAM2(A) MDS (related Al-RAM2 alloy)",
+          "url": "https://www.3dsystems.com/sites/default/files/2024-07/3d-systems-certified-a6061-ram2-a-mds-letter-us-web.pdf",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AA 6061-T6",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

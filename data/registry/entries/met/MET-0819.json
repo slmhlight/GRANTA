@@ -187,6 +187,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
+    {
       "label": "Velo3D",
       "url": "https://www.velo3d.com/material-data-sheets/",
       "verified": true
@@ -267,5 +277,21 @@
   "svhc_concerns": [
     "Ni 6% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Velo3D",
+          "url": "https://www.velo3d.com/material-data-sheets/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 PH SS general",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -190,6 +190,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Nikon SLM CuNi2SiCr MDS 2023-04.1",
       "url": "https://nikon-slm-solutions.com/materials/copper/",
       "verified": true
@@ -276,6 +281,25 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Nikon SLM CuNi2SiCr MDS 2023-04.1",
+          "url": "https://nikon-slm-solutions.com/materials/copper/",
+          "verified": true
+        },
+        {
+          "label": "GE Additive M2 Series 5 CuNi2SiCr CMDS",
+          "url": "https://www.colibriumadditive.com/sites/default/files/M2SERIES5_CuNi2SiCr_1kW_CMDS_20241108_RevA.pdf",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: Cu-Cr-Zr / Cu-Ni-Si-Cr family",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "points": {
       "from": [
         [

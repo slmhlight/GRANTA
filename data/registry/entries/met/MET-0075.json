@@ -193,6 +193,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A29/A29M · SAE J404 — 침탄용 합금강 봉재 규격",
+      "url": "https://www.astm.org/a0029_a0029m-20.html",
+      "verified": false
+    },
+    {
       "label": "Datasheet 2",
       "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
       "verified": true
@@ -271,5 +281,21 @@
   "svhc_concerns": [
     "Ni 2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 2",
+          "url": "https://www.carpentertechnology.com/en/alloy-techzone/technical-information/technical-articles/specialty-steel",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -190,6 +190,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Inconel 939",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+939",
       "verified": false
@@ -320,5 +325,36 @@
   "svhc_concerns": [
     "Co 20% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Inconel 939",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+939",
+          "verified": false
+        },
+        {
+          "label": "IN939 reference / Inconel 939 paper",
+          "url": "https://en.wikipedia.org/wiki/Inconel",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Heliyon (Elsevier, open access) — A systematic review of Inconel 939 alloy parts development via AM (조성 Table 1 + cast/HT 인장)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10862689/",
+          "verified": true
+        },
+        {
+          "label": "Regent Steel — IN939/Inconel 939 datasheet (조성 + as-cast/heat-treated 인장 + rupture vs temp)",
+          "url": "https://www.regentsteel.com/in939.html",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

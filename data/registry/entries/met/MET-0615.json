@@ -193,6 +193,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Udimet 720",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Udimet+720",
       "verified": false
@@ -280,5 +285,36 @@
   "svhc_concerns": [
     "Co 14.7% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Udimet 720",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Udimet+720",
+          "verified": false
+        },
+        {
+          "label": "MatWeb 2",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Udimet%20720Li",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Special Metals UDIMET alloy 720 Nickel Base Alloy datasheet (조성 + 1000h rupture strength)",
+          "url": "https://www.lookpolymers.com/polymer_Special-Metals-UDIMET-alloy-720-Nickel-Base-Alloy.php",
+          "verified": true
+        },
+        {
+          "label": "TMS Superalloys 2000 — Characteristics and Properties of As-HIP P/M Alloy 720 (인장·creep·LCF)",
+          "url": "https://www.tms.org/superalloys/10.7449/2000/Superalloys_2000_135_142.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

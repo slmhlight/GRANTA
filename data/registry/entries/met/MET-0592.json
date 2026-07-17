@@ -197,6 +197,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=MAR-M%20247",
       "verified": false
@@ -275,5 +280,26 @@
   "svhc_concerns": [
     "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 1",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=MAR-M%20247",
+          "verified": false
+        },
+        {
+          "label": "TMS Superalloys 1984 — Properties of Cast MAR-M-247 for Turbine Blisk Applications (Kaufman/GE, Grainex+HIP 인장·creep)",
+          "url": "https://www.tms.org/superalloys/10.7449/1984/Superalloys_1984_43_52.pdf",
+          "verified": true
+        },
+        {
+          "label": "Markforged — M247 Nickel Superalloy Binder Jetting Material Datasheet (REV 1.0, as-sintered+HIP)",
+          "url": "https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/PX100/M247NickelSuperalloy.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

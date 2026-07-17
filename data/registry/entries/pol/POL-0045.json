@@ -149,6 +149,11 @@
   },
   "sources": [
     {
+      "label": "Indorama Ventures — PET resins (세계 최대 PET 제조사, official)",
+      "url": "https://www.indoramaventures.com/en/our-products/pet",
+      "verified": true
+    },
+    {
       "label": "Datasheet — PET-GF30 Rynite 530 (DuPont, industrial gear)",
       "url": "https://www.dupont.com/products/rynite.html",
       "verified": true
@@ -216,5 +221,31 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "PET (Polyethylene Terephthalate, semi-crystalline thermoplastic). Tg ≈ 75°C, Tm ≈ 245°C, HDT (1.8 MPa) ≈ 105°C unfilled, max service 100-130°C. Unfilled: σy 60-70 / UTS 60-75 / El 30-70% / E 2."
+  "industry_note": "PET (Polyethylene Terephthalate, semi-crystalline thermoplastic). Tg ≈ 75°C, Tm ≈ 245°C, HDT (1.8 MPa) ≈ 105°C unfilled, max service 100-130°C. Unfilled: σy 60-70 / UTS 60-75 / El 30-70% / E 2.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet — PET-GF30 Rynite 530 (DuPont, industrial gear)",
+          "url": "https://www.dupont.com/products/rynite.html",
+          "verified": true
+        },
+        {
+          "label": "Applications: 산업 기어 (모터 감속기, 출력 1~10 kW), 펌프 임펠러, 자동차 워셔 펌프, 전기 커넥터 하우징 (Tyco/TE), 헤어드라이어 핫 housing, 토스터 외장",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "DuPont Rynite PET-GF technical datasheet",
+          "url": "https://www.dupont.com/products/rynite-pet-thermoplastic-polyester.html",
+          "verified": true
+        },
+        {
+          "label": "MatWeb — PET Semi-Crystalline general",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=PET",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

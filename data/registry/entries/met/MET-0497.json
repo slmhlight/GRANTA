@@ -191,6 +191,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Wikipedia — CMSX-4 single crystal superalloy",
       "url": "https://en.wikipedia.org/wiki/CMSX",
       "verified": false
@@ -294,6 +299,35 @@
   ],
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Wikipedia — CMSX-4 single crystal superalloy",
+          "url": "https://en.wikipedia.org/wiki/CMSX",
+          "verified": false
+        },
+        {
+          "label": "Cannon-Muskegon — CMSX-4 single-crystal superalloy",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: GE Aviation Single Crystal",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Cannon-Muskegon CMSX-4 single-crystal datasheet",
+          "url": "https://cannonmuskegon.com/products/single-crystal-superalloys",
+          "verified": true
+        },
+        {
+          "label": "Reed RC, The Superalloys (Cambridge 2006) Ch.6",
+          "url": "https://www.cambridge.org/core/books/superalloys/",
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "CMSX-4",

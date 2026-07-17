@@ -177,6 +177,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Pure Rhenium Re",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Rhenium",
       "verified": false
@@ -264,5 +269,31 @@
   "total_cost_estimate": 2835,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Pure Rhenium Re",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Rhenium",
+          "verified": false
+        },
+        {
+          "label": "Plansee / ASM — pure rhenium",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Refractory",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Plansee Rhenium technical data",
+          "url": "https://www.plansee.com/en/materials/rhenium.html",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

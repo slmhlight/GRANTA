@@ -191,6 +191,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A681 — 합금 공구강 규격",
+      "url": "https://www.astm.org/a0681-08r22.html",
+      "verified": false
+    },
+    {
       "label": "Böhler-Uddeholm — P20 / M238 Mould Steel",
       "url": "https://www.bohler-edelstahl.com/en/products/m238/",
       "verified": true
@@ -268,5 +278,26 @@
   "svhc_concerns": [
     "Ni 3% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Böhler-Uddeholm — P20 / M238 Mould Steel",
+          "url": "https://www.bohler-edelstahl.com/en/products/m238/",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.daido.co.jp/en/products/plastic_mold/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Tool Steels",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

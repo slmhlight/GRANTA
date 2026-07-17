@@ -122,6 +122,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "verified": false
+    },
+    {
       "label": "Kennametal — Sialon (β-SiAlON)",
       "url": "https://www.kennametal.com/us/en/products/wear-protection/wear-parts",
       "verified": true
@@ -180,5 +185,31 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "β-SiAlON (Si₃N₄ + Al₂O₃ + AlN solid solution) — sintering 우수 + Si₃N₄ properties 유지. ρ 3.20-3.30 g/cc, σf 650-900, E 280-300, KIC 5-7. Tmax 1400°C continuous in air (Si₃N₄ 와 비슷 oxidation 저항). 가공 cost Si₃N₄ 보다 낮음 (lower sintering T). 절삭 공구 insert (gray cast iron 가공 표준 — Si₃N₄/SiAlON tool 가 carbide 대비 4× life), 자동차 valve seat, molten Al 처리 furnace 부품, glass forming."
+  "industry_note": "β-SiAlON (Si₃N₄ + Al₂O₃ + AlN solid solution) — sintering 우수 + Si₃N₄ properties 유지. ρ 3.20-3.30 g/cc, σf 650-900, E 280-300, KIC 5-7. Tmax 1400°C continuous in air (Si₃N₄ 와 비슷 oxidation 저항). 가공 cost Si₃N₄ 보다 낮음 (lower sintering T). 절삭 공구 insert (gray cast iron 가공 표준 — Si₃N₄/SiAlON tool 가 carbide 대비 4× life), 자동차 valve seat, molten Al 처리 furnace 부품, glass forming.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Kennametal — Sialon (β-SiAlON)",
+          "url": "https://www.kennametal.com/us/en/products/wear-protection/wear-parts",
+          "verified": true
+        },
+        {
+          "label": "Applications: 절삭공구 (주철·고온합금 가공), 용접 노즐, 베어링",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Kyocera SiAlON (SN-87) datasheet",
+          "url": "https://global.kyocera.com/prdct/fc/",
+          "verified": true
+        },
+        {
+          "label": "Saint-Gobain Syalon (β-SiAlON)",
+          "url": "https://www.ceramicsrefractories.saint-gobain.com/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -197,6 +197,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "IACS UR W11 — 선급 선체 구조용 강 통일 규칙",
+      "url": "https://iacs.org.uk/publications/unified-requirements/ur-w/",
+      "verified": false
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://www.octalmetals.com/ah36-dh36-eh36-shipbuilding-steel-plate/",
       "verified": true
@@ -290,5 +300,41 @@
   "total_cost_estimate": 2.27,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.octalmetals.com/ah36-dh36-eh36-shipbuilding-steel-plate/",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "ABS / DNV-GL / KR / LR Rules for Building and Classing Steel Vessels Part 2 — Materials",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "ASTM A131 / A131M-19 Standard Spec for Structural Steel for Ships",
+          "verified": true
+        },
+        {
+          "label": "ABS (American Bureau of Shipping) Rules — Hull Steel Grade",
+          "url": "https://ww2.eagle.org/",
+          "verified": false
+        },
+        {
+          "label": "DNV-OS-B101 — Shipbuilding Steel Plate",
+          "url": "https://www.dnv.com/",
+          "verified": false
+        },
+        {
+          "label": "KR Korean Register — Ship Steel Grade Standards",
+          "url": "https://www.krs.co.kr/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -189,6 +189,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A681 — 합금 공구강 규격",
+      "url": "https://www.astm.org/a0681-08r22.html",
+      "verified": false
+    },
+    {
       "label": "AK Steel — 420 Stainless Steel",
       "url": "https://www.aksteel.com/our-products/stainless/420-stainless-steel",
       "verified": true
@@ -270,5 +280,31 @@
   "total_cost_estimate": 3.96,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AK Steel — 420 Stainless Steel",
+          "url": "https://www.aksteel.com/our-products/stainless/420-stainless-steel",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.uddeholm.com/en/products/uddeholm-stavax-esr/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Tool Steels",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Bohler M333 Isoplast — comparable PH stainless mold steel",
+          "url": "https://www.bohler.at/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

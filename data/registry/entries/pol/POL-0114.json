@@ -143,6 +143,11 @@
   },
   "sources": [
     {
+      "label": "Syensqo (Solvay) — Radel PPSU polyphenylsulfone (official)",
+      "url": "https://www.syensqo.com/en/brands/radel-ppsu",
+      "verified": true
+    },
+    {
       "label": "Datasheet — Radel R-5000 (PPSU, Solvay)",
       "url": "https://www.syensqo.com/en/product/radel-ppsu",
       "verified": true
@@ -225,5 +230,21 @@
     }
   ],
   "elevated_temp_src": "Victrex PEEK technical guide · SABIC ULTEM design guide · Solvay KetaSpire/KEPSTAN datasheet · DuPont Delrin handbook · SABIC Lexan design guide (R34a 배치)",
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet — Radel R-5000 (PPSU, Solvay)",
+          "url": "https://www.syensqo.com/en/product/radel-ppsu",
+          "verified": true
+        },
+        {
+          "label": "Applications: 고온 의료기기 (steam sterilization 1000회+), 항공기 휘장, 배관 fittings",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

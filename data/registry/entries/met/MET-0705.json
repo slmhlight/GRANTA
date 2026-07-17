@@ -191,6 +191,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
+    {
       "label": "Outokumpu — 254 SMO Super Austenitic",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/254-smo",
       "verified": true
@@ -320,5 +330,26 @@
   "svhc_concerns": [
     "Ni 18.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Outokumpu — 254 SMO Super Austenitic",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/254-smo",
+          "verified": true
+        },
+        {
+          "label": "EOS MDS summary — stainlesssteel 254",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-254",
+          "verified": true
+        },
+        {
+          "label": "Outokumpu — 254 SMO datasheet",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/254-smo",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

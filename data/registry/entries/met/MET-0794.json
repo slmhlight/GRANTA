@@ -188,6 +188,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
+    {
       "label": "Datasheet 1",
       "url": "ANSYS Granta — Stainless steel, martensitic, AISI 440A annealed (UNS S44002)",
       "verified": true
@@ -262,5 +272,26 @@
   "total_cost_estimate": 3.93,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "ANSYS Granta — Stainless steel, martensitic, AISI 440A annealed (UNS S44002)",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.crucible.com/eselector/product.aspx?StlName=440A",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

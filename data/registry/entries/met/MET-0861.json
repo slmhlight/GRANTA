@@ -185,6 +185,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "BLT",
       "url": "https://www.xa-blt.com/en/powder/cp-ti-grade1/",
       "verified": true
@@ -295,5 +300,26 @@
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "BLT",
+          "url": "https://www.xa-blt.com/en/powder/cp-ti-grade1/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: MMPDS-2018 Titanium",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

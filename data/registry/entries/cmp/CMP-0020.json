@@ -111,6 +111,11 @@
   "composition": {},
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.1 — Composites",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-1-composites",
+      "verified": false
+    },
+    {
       "label": "Evonik ROHACELL — Foam Core — PMI (Rohacell 110 IG)",
       "url": "https://www.rohacell.com/product/rohacell/",
       "verified": true
@@ -160,5 +165,21 @@
   "price_per_cm3": 0.033,
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Sandwich panel core foam: • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안."
+  "industry_note": "Sandwich panel core foam: • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Evonik ROHACELL — Foam Core — PMI (Rohacell 110 IG)",
+          "url": "https://www.rohacell.com/product/rohacell/",
+          "verified": true
+        },
+        {
+          "label": "Apps: 고밀도 항공 샌드위치 코어, 헬리콥터 부품",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

@@ -185,6 +185,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys & Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Datasheet 4",
       "url": "https://www.poongsan.co.kr/eng/business/",
       "verified": true
@@ -256,5 +261,26 @@
   "total_cost_estimate": 14,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 4",
+          "url": "https://www.poongsan.co.kr/eng/business/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Cu alloys general",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Cu alloys)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

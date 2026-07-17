@@ -117,6 +117,26 @@ if (profileGateErrors.length) {
 // 1b) 출처 라벨 정리 (R226d/R226e) — placeholder 라벨("Datasheet N"·"MatWeb N") → URL 도메인 서술 라벨. lib/source-labels.mjs improveLabel 사용.
 let relabeled = 0;
 for (const m of all) if (m.sources) m.sources = m.sources.map(s => { const ns = improveLabel(s); if (ns !== s) relabeled++; return { ...ns, authority: sourceAuthority(ns) }; });   // D3 — 권위 등급 부착
+// 1b') W2-3 — 폴리머 시험 표준 인용: 폴리머 물성(σy·E·El·HDT)은 ISO 527/178/75 로 측정된다.
+//   값이 아니라 "측정 방법의 근거" 를 병기 — standard/handbook 인용이 없는 Polymer entry 에만(중복 방지).
+//   이름 regex 없음(category·ranges 필드 기반). 값 SSOT 불변 — presentation.
+const POLY_TEST_STD = [
+  { label: 'ISO 527-1/-2 — 플라스틱 인장 물성 시험법 (σy·UTS·연신율 측정 근거)', url: 'https://www.iso.org/standard/75824.html', verified: false, authority: 'standard' },
+  { label: 'ISO 178 — 플라스틱 굽힘 물성 시험법 (굽힘 탄성률 측정 근거)', url: 'https://www.iso.org/standard/70513.html', verified: false, authority: 'standard' },
+];
+const POLY_HDT_STD = { label: 'ISO 75-1/-2 — 하중 하 열변형 온도(HDT) 시험법', url: 'https://www.iso.org/standard/61784.html', verified: false, authority: 'standard' };
+let polyStdAdded = 0;
+for (const m of all) {
+  if (m.category !== 'Polymer') continue;
+  const srcs = m.sources || (m.sources = []);
+  if (srcs.some(x => x.authority === 'standard' || x.authority === 'handbook')) continue;
+  const add = [...POLY_TEST_STD];
+  if (m.ranges && m.ranges.max_service_temp) add.push(POLY_HDT_STD);
+  m.sources = [...add, ...srcs];
+  polyStdAdded++;
+}
+if (polyStdAdded) console.log(`  폴리머 시험 표준 인용: ${polyStdAdded} entry (ISO 527/178/75 — 값 불변, 측정 근거 병기)`);
+
 // 1b+) G3-2 — 출처 정렬(presentation): 권위 高 우선·검색결과 URL(문서 아님)은 최하위 강등.
 //   값 SSOT(레지스트리) 불변 — 산출물 표시 순서만. 동순위는 원 순서 유지(stable).
 //   근거: 245 재료의 "첫 출처"가 MatWeb QuickText 검색페이지(문서 추적 불가)였던 감사 G3-2.

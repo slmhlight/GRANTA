@@ -188,6 +188,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys and Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "ASTM F75 / F1537 — Co-Cr-Mo 주조·단조 의료용 합금 규격",
+      "url": "https://www.astm.org/f0075-18.html",
+      "verified": false
+    },
+    {
       "label": "Kennametal/MatWeb — Stellite 12",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+12",
       "verified": false
@@ -286,5 +296,31 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Kennametal/MatWeb — Stellite 12",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Stellite+12",
+          "verified": false
+        },
+        {
+          "label": "Kennametal Stellite — Stellite 12 hardfacing",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Kennametal Stellite — Stellite 12 Alloy Technical Data (official)",
+          "url": "https://www.stellite.com/us/en/alloys/stellite/stellite-12-alloy.html",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

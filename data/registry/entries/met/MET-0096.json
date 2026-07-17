@@ -188,6 +188,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys and Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "ASTM B26/B108 — 알루미늄 사형·금형 주조 규격",
+      "url": "https://www.astm.org/b0026_b0026m-18.html",
+      "verified": false
+    },
+    {
       "label": "A413 / AlSi12 — Alcotec / Aluminum Assoc.",
       "url": null,
       "verified": false
@@ -296,6 +306,35 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "A413 / AlSi12 — Alcotec / Aluminum Assoc.",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: EOS AlSi10Mg cast",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MakeItFrom — 413.0 (A04130, S12B) Cast Aluminum (property table)",
+          "url": "https://www.makeitfrom.com/material-properties/413.0-A04130-S12B-Cast-Aluminum",
+          "verified": false
+        },
+        {
+          "label": "Sunrise Metal — AlSi12 (A413) aluminium casting alloy 데이터시트",
+          "url": "https://www.sunrise-metal.com/aluminum-alloy-alsi12/",
+          "verified": true
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "AlSi12",

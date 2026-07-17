@@ -120,6 +120,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "verified": false
+    },
+    {
       "label": "Applications: 철계 가공 절삭공구 (다이아몬드 대체 — Fe 친화성 없음)",
       "url": null,
       "verified": false
@@ -173,5 +178,26 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "c-BN (cubic Boron Nitride, sphalerite structure) — 2nd hardest material (Diamond 다음). ρ 3.48 g/cc, σf 800-1500, E 720 GPa, Mohs 9.9. Tmax 1300°C in air (vs Diamond 700°C — c-BN 우월 for ferrous machining). Sumitomo Sumiboron / Element Six CBN500. Sintered CBN (PCBN) inserts for 자동차 transmission gear 가공, 베어링 race 마무리, hard-turning replace grinding. Cost $300-800/insert."
+  "industry_note": "c-BN (cubic Boron Nitride, sphalerite structure) — 2nd hardest material (Diamond 다음). ρ 3.48 g/cc, σf 800-1500, E 720 GPa, Mohs 9.9. Tmax 1300°C in air (vs Diamond 700°C — c-BN 우월 for ferrous machining). Sumitomo Sumiboron / Element Six CBN500. Sintered CBN (PCBN) inserts for 자동차 transmission gear 가공, 베어링 race 마무리, hard-turning replace grinding. Cost $300-800/insert.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: 철계 가공 절삭공구 (다이아몬드 대체 — Fe 친화성 없음)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Element Six CBN technical data",
+          "url": "https://www.e6.com/",
+          "verified": false
+        },
+        {
+          "label": "Sumitomo Electric Sumiboron CBN",
+          "url": "https://www.sumitomoelectric.com/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

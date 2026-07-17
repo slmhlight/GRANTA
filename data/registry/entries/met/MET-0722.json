@@ -189,6 +189,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://kist.re.kr/eng/index.do",
       "verified": true
@@ -264,5 +274,26 @@
   "svhc_concerns": [
     "Ni 10% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://kist.re.kr/eng/index.do",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 304/304L",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.19 SS fatigue)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

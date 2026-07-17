@@ -99,6 +99,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys and Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "ASTM B86 — 아연 합금 다이캐스팅 규격",
+      "url": "https://www.astm.org/b0086-18.html",
+      "verified": false
+    },
+    {
       "label": "Eastern Alloys — ZA-27 zinc aluminum alloy properties",
       "url": "https://www.eazall.com/za27",
       "verified": true
@@ -175,5 +185,26 @@
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Eastern Alloys — ZA-27 zinc aluminum alloy properties",
+          "url": "https://www.eazall.com/za27",
+          "verified": true
+        },
+        {
+          "label": "MakeItFrom — Zinc-Aluminum 27 (ZA-27, Z35841)",
+          "url": "https://www.makeitfrom.com/material-properties/Zinc-Aluminum-27-ZA-27-Z35841",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Aluminum Association handbook",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

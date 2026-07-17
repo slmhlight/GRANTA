@@ -126,6 +126,11 @@
   },
   "sources": [
     {
+      "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
+      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "verified": false
+    },
+    {
       "label": "Applications: Cermet 절삭공구 (TiC-Ni-Mo), 마모 코팅 (PVD/CVD), 항공 탱크 라이닝",
       "url": null,
       "verified": false
@@ -177,5 +182,21 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "TiC (Titanium Carbide, NaCl structure) — Tm 3140°C, ρ 4.93 g/cc, σf 260-310, E 450 GPa, KIC 3, HV 28-32 GPa. Tmax 1400°C inert. WC-Co cutting tool 의 alloying (TiC, TaC 추가 → 1500°C wear 보존, Ti(C,N) 코팅 표준). Cermet (TiC + Ni-Mo binder) cutting tool — high-speed steel 가공 표준. TiC-particle reinforced steel (Hardide coating). 우주 ablative heat shield mid-layer."
+  "industry_note": "TiC (Titanium Carbide, NaCl structure) — Tm 3140°C, ρ 4.93 g/cc, σf 260-310, E 450 GPa, KIC 3, HV 28-32 GPa. Tmax 1400°C inert. WC-Co cutting tool 의 alloying (TiC, TaC 추가 → 1500°C wear 보존, Ti(C,N) 코팅 표준). Cermet (TiC + Ni-Mo binder) cutting tool — high-speed steel 가공 표준. TiC-particle reinforced steel (Hardide coating). 우주 ablative heat shield mid-layer.",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Applications: Cermet 절삭공구 (TiC-Ni-Mo), 마모 코팅 (PVD/CVD), 항공 탱크 라이닝",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "CoorsTek TiC ceramic technical data",
+          "url": "https://www.coorstek.com/",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

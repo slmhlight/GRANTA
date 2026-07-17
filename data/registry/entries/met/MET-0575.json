@@ -191,6 +191,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Inconel 738LC",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+738LC",
       "verified": false
@@ -340,5 +345,31 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Inconel 738LC",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Inconel+738LC",
+          "verified": false
+        },
+        {
+          "label": "IN738LC reference (PCC / Cannon-Muskegon)",
+          "url": "https://en.wikipedia.org/wiki/Inconel",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "METU MSc thesis — IN 738 LC Microstructure Optimization (Table 1.3 조성, INCO[21] 인용)",
+          "url": "https://etd.lib.metu.edu.tr/upload/12622106/index.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

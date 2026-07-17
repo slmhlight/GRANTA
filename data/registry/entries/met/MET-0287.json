@@ -177,6 +177,21 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": true
+    },
+    {
+      "label": "ASTM A108 — Cold-Finished Carbon and Alloy Steel Bars",
+      "url": "https://store.astm.org/a0108-18.html",
+      "verified": true
+    },
+    {
       "label": "Datasheet 1",
       "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000005.jsp",
       "verified": true
@@ -250,5 +265,26 @@
   "delivered_price_per_kg": 1.36,
   "total_cost_estimate": 1.22,
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "https://product.posco.com/homepage/product/eng/jsp/s91l5000005.jsp",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AISI carbon steel",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

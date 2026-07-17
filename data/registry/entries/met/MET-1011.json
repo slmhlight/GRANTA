@@ -190,6 +190,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Special Metals — Monel Alloy 400",
       "url": "https://www.rolledalloys.ca/wp-content/uploads/400_Datasheet-rolled-alloys.pdf",
       "verified": true
@@ -269,6 +274,24 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Monel Alloy 400",
+          "url": "https://www.rolledalloys.ca/wp-content/uploads/400_Datasheet-rolled-alloys.pdf",
+          "verified": true
+        },
+        {
+          "label": "Ansys Granta MI — Nickel-copper alloy, MONEL 400, hard (spring temper) (Materials Data for Simulation datasheet, 사용자 제공 R226l)",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": []
     }
