@@ -914,6 +914,8 @@ const HEAT_TREATMENT_OPTIONS: { value: string; label: string; help?: string }[] 
   { value: 'Stress-relieved', label: 'Stress-relieved', help: '저온 가열 — 잔류 응력만 제거 (강도 거의 유지)' },
   { value: 'Normalized', label: 'Normalized (불림)', help: '공냉 — 결정립 미세화 (탄소강)' },
   { value: 'Hardened', label: 'Hardened (담금)', help: '표면경화 (침탄/질화) 또는 마르텐사이트 변태' },
+  /* A10 — 냉간가공 상태의 정식 카테고리 (기존엔 Hardened 에 오흡수되거나 미노출) */
+  { value: 'Cold-worked / Strain-hardened', label: 'Cold-worked (냉간가공)', help: '가공경화 — Strain-hardened / 압연·인발 / H1x·H3x temper' },
 ];
 interface HeatTreatmentFilterProps {
   selected: string[];

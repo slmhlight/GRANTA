@@ -58,13 +58,25 @@ const NORMALIZE = (s: string) => String(s || '').toLowerCase().trim().replace(/[
 export function htGlossaryFor(ht: string): HtEntry | undefined {
   const k = NORMALIZE(ht);
   if (!k) return undefined;
-  // longest prefix match
+  // A10 — 두 단계 모두 "매칭된 키 최장(최특이) 우선". 삽입 순서 의존이던 기존 방식은
+  // 짧은 키가 앞서면 더 특이한 항목을 가리는 T651→T6 류 버그 소지 (htAlloySpecificFor H5 교훈 일반화).
+  let best: { len: number; entry: HtEntry } | null = null;
   for (const [keys, entry] of ENTRIES) {
-    if (keys.some(key => k === key || k.startsWith(key + ' ') || k.endsWith(' ' + key))) return entry;
+    for (const key of keys) {
+      if ((k === key || k.startsWith(key + ' ') || k.endsWith(' ' + key)) && (!best || key.length > best.len)) {
+        best = { len: key.length, entry };
+      }
+    }
   }
-  // partial match (포함)
+  if (best) return best.entry;
+  // partial match (포함) — 동일하게 최장 우선
   for (const [keys, entry] of ENTRIES) {
-    if (keys.some(key => k.includes(key))) return entry;
+    for (const key of keys) {
+      if (k.includes(key) && (!best || key.length > best.len)) best = { len: key.length, entry };
+    }
   }
-  return undefined;
+  return best?.entry;
 }
+
+/** A10 감사 전용 — 매처 후보 전수 산출용 (읽기 전용). */
+export const HT_GLOSSARY_ENTRIES = ENTRIES;
