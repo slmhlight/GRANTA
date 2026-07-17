@@ -869,6 +869,11 @@ function ActiveFilterChips({ filters, updateFilter }: ActiveFilterChipsProps) {
     chips.push({ key: 'compRanges', label: `Comp: ${n}원소`, onRemove: () => updateFilter('compositionRanges', {}) });
   }
   if (filters.corrosion.length) chips.push({ key: 'corrosion', label: `Corr: ${filters.corrosion.join('/')}`, onRemove: () => updateFilter('corrosion', []) });
+  if (filters.corrosionEnvMin && Object.keys(filters.corrosionEnvMin).length) {
+    const lbl = Object.entries(filters.corrosionEnvMin).map(([e, v]) => `${e.split('(')[0]}${v === 'excellent' ? '=탁월' : '≥양호'}`).join(' · ');
+    chips.push({ key: 'corrEnv', label: `내식 환경: ${lbl}`, onRemove: () => updateFilter('corrosionEnvMin', {}) });
+  }
+  if (filters.hasElevatedData) chips.push({ key: 'elevData', label: '고온 데이터 보유', onRemove: () => updateFilter('hasElevatedData', false) });
   if (filters.machinability.length) chips.push({ key: 'mach', label: `Mach: ${filters.machinability.join('/')}`, onRemove: () => updateFilter('machinability', []) });
   if (filters.weldability.length) chips.push({ key: 'weld', label: `Weld: ${filters.weldability.join('/')}`, onRemove: () => updateFilter('weldability', []) });
   if (filters.rohsOnly) chips.push({ key: 'rohs', label: `RoHS 통과만`, onRemove: () => updateFilter('rohsOnly', false) });
@@ -958,6 +963,59 @@ function HeatTreatmentFilter({ selected, onChange }: HeatTreatmentFilterProps) {
               Clear
             </button>
           )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── E15l: 환경별 내식성 필터 (부식 카드의 합금 보정 판정 기준 — 그룹 기본값 아님) ──
+const CORR_ENV_ROWS: { env: string; short: string }[] = [
+  { env: '해수', short: '해수' },
+  { env: '염수·염화물', short: '염수·염화물' },
+  { env: '강산', short: '강산' },
+  { env: '약산(묽은산·유기산)', short: '약산' },
+  { env: '알칼리', short: '알칼리' },
+  { env: '대기', short: '대기(내후)' },
+];
+
+function CorrosionEnvFilter({ value, onChange }: { value: Record<string, 'good' | 'excellent'>; onChange: (v: Record<string, 'good' | 'excellent'>) => void }) {
+  const [expanded, setExpanded] = useState(false);
+  const active = Object.keys(value).length;
+  const set = (env: string, min: 'good' | 'excellent' | null) => {
+    const next = { ...value };
+    if (min === null) delete next[env];
+    else next[env] = min;
+    onChange(next);
+  };
+  return (
+    <div className="px-3 py-1.5">
+      <button onClick={() => setExpanded(!expanded)} className="w-full flex items-center justify-between text-xs font-medium hover:text-accent">
+        <span>내식 환경 <span className="text-[9px] text-muted-foreground font-normal">합금 보정 판정</span></span>
+        <span className="flex items-center gap-1">
+          {active > 0 && <span className="text-[10px] bg-accent/15 text-accent rounded px-1">{active}</span>}
+          <span className="text-muted-foreground">{expanded ? '−' : '+'}</span>
+        </span>
+      </button>
+      {expanded && (
+        <div className="mt-1.5 space-y-1">
+          {CORR_ENV_ROWS.map(({ env, short }) => {
+            const cur = value[env] ?? null;
+            const seg = (min: 'good' | 'excellent' | null, label: string) => (
+              <button
+                key={String(min)}
+                onClick={() => set(env, min)}
+                className={`px-1.5 py-0.5 text-[10px] rounded border ${cur === min ? 'bg-accent text-accent-foreground border-accent' : 'border-border text-muted-foreground hover:border-accent/50'}`}
+              >{label}</button>
+            );
+            return (
+              <div key={env} className="flex items-center justify-between gap-1">
+                <span className="text-[11px] text-foreground/80">{short}</span>
+                <span className="flex gap-1">{seg(null, '전체')}{seg('good', '양호+')}{seg('excellent', '탁월')}</span>
+              </div>
+            );
+          })}
+          <p className="text-[9px] text-muted-foreground leading-snug pt-0.5">부식 카드와 동일한 판정(PREN·조성 규칙·개별 오버라이드 적용 후). 판정 대상 아님(복합재)은 필터 시 제외.</p>
         </div>
       )}
     </div>
@@ -1213,8 +1271,16 @@ export default function FilterSidebar({
         {/* ── 6. 품질·내환경성 ── */}
         <SectionGroup label="품질 · Quality" />
         <QualitativeFilter label="Corrosion resistance" options={corrosionOpts} selected={filters.corrosion} onChange={v => updateFilter('corrosion', v)} />
+        {/* E15l — 환경별 내식 (부식 카드 합금 보정 판정 기반) */}
+        <CorrosionEnvFilter value={filters.corrosionEnvMin || {}} onChange={v => updateFilter('corrosionEnvMin', v)} />
         <QualitativeFilter label="Machinability" options={machinabilityOpts} selected={filters.machinability} onChange={v => updateFilter('machinability', v)} />
         <QualitativeFilter label="Weldability" options={weldabilityOpts} selected={filters.weldability} onChange={v => updateFilter('weldability', v)} />
+        {/* E15l — 고온 데이터 보유 (승온/크리프 곡선) */}
+        <label className="flex items-center gap-2 px-3 py-2 text-xs cursor-pointer select-none hover:bg-muted/40 rounded">
+          <input type="checkbox" checked={!!filters.hasElevatedData} onChange={(e) => updateFilter('hasElevatedData', e.target.checked)} className="accent-accent" />
+          <span className="flex-1">고온 데이터 보유만</span>
+          <span className="text-[10px] text-muted-foreground">승온·크리프 곡선</span>
+        </label>
 
         {/* ── 7. 규제 ── */}
         <SectionGroup label="규제 · Regulatory" />

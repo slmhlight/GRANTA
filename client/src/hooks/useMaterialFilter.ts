@@ -17,6 +17,8 @@ import { fuzzyContains } from '@/lib/fuzzy-search';
 import { matchAnyHeatTreatment } from '@/lib/ht-matcher';
 // R157b — FilterState type + DEFAULT_FILTERS 도 lib 로 이동.
 import { type FilterState, DEFAULT_FILTERS } from '@/lib/filter-state';
+// E15l — 환경별 내식 필터 (합금 보정 적용 후 verdict 기준, WeakMap 캐시).
+import { passesCorrosionEnv } from '@/lib/corrosion-guidance';
 
 // Re-export for backward compat (Home / ScenarioDialog / 다른 consumer).
 export { DEFAULT_FILTERS, type FilterState };
@@ -220,6 +222,10 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.corrosion.length) result = result.filter(m => m.corrosion_resistance != null && filters.corrosion.includes(String(m.corrosion_resistance)));
     if (filters.machinability.length) result = result.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
     if (filters.weldability.length) result = result.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
+    // E15l — 환경별 내식 최소 등급 (부식 카드와 동일한 합금 보정 판정 사용)
+    if (filters.corrosionEnvMin && Object.keys(filters.corrosionEnvMin).length) result = result.filter(m => passesCorrosionEnv(m, filters.corrosionEnvMin));
+    // E15l — 고온 데이터 보유 (승온 곡선 또는 크리프 파단 곡선)
+    if (filters.hasElevatedData) result = result.filter(m => (m.elevated_temp && m.elevated_temp.length > 0) || (m.creep_rupture && m.creep_rupture.length > 0));
     // R16: RoHS toggle — false (default) 면 통과, true 면 rohs_compliant === false 만 제외 (null/true 유지).
     if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant !== false);
     // R38e: 열처리 다중 선택 — m.heat_treatment 가 선택된 라벨 중 하나로 시작 or 포함 일 때 통과.
@@ -285,6 +291,8 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.corrosion.length > 0) count++;
     if (filters.machinability.length > 0) count++;
     if (filters.weldability.length > 0) count++;
+    if (filters.corrosionEnvMin && Object.keys(filters.corrosionEnvMin).length > 0) count++;
+    if (filters.hasElevatedData) count++;
     if (filters.rohsOnly) count++;
     if (filters.heatTreatments && filters.heatTreatments.length > 0) count++;
     return count;
@@ -364,6 +372,8 @@ export function useMaterialFilter(materials: Material[]) {
     if (filters.corrosion.length) baseSet = baseSet.filter(m => m.corrosion_resistance != null && filters.corrosion.includes(String(m.corrosion_resistance)));
     if (filters.machinability.length) baseSet = baseSet.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
     if (filters.weldability.length) baseSet = baseSet.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
+    if (filters.corrosionEnvMin && Object.keys(filters.corrosionEnvMin).length) baseSet = baseSet.filter(m => passesCorrosionEnv(m, filters.corrosionEnvMin));
+    if (filters.hasElevatedData) baseSet = baseSet.filter(m => (m.elevated_temp && m.elevated_temp.length > 0) || (m.creep_rupture && m.creep_rupture.length > 0));
     if (filters.rohsOnly) baseSet = baseSet.filter(m => m.rohs_compliant !== false);
     if (filters.heatTreatments && filters.heatTreatments.length) {
       const wanted = filters.heatTreatments.map(s => s.toLowerCase());

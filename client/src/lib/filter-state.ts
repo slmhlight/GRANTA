@@ -41,6 +41,10 @@ export interface FilterState {
   corrosion: string[];
   machinability: string[];
   weldability: string[];
+  /** E15l: 환경별 내식 최소 등급 (합금 보정 적용 후 verdict 기준) — 예: { '해수': 'good', '강산': 'excellent' }. */
+  corrosionEnvMin: Record<string, 'good' | 'excellent'>;
+  /** E15l: 고온 데이터(elevated_temp 또는 creep_rupture 곡선) 보유 재료만. */
+  hasElevatedData?: boolean;
   /** R16: RoHS 통과 재료만 표시 (납·카드뮴·수은 한계 통과). null/undefined 데이터는 포함. */
   rohsOnly?: boolean;
   /** R38e: 열처리 다중 선택 (As-built/Annealed/Solution/Aged/Q&T/HIP/Normalized/Stress-relieved/...) */
@@ -86,6 +90,8 @@ export const DEFAULT_FILTERS: FilterState = {
   corrosion: [],
   machinability: [],
   weldability: [],
+  corrosionEnvMin: {},
+  hasElevatedData: false,
   rohsOnly: false,
   heatTreatments: [],
   query: '',

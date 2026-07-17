@@ -8,7 +8,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { resolveCorrosionPlan, prenOf, prenBand, alloyNoteFor } from '@/lib/corrosion-guidance';
+import { resolveCorrosionPlan, prenOf, prenBand, alloyNoteFor, passesCorrosionEnv } from '@/lib/corrosion-guidance';
 import type { Material } from '@/lib/materials';
 import guidance from '../data/corrosion-guidance.json';
 
@@ -305,6 +305,28 @@ describe('E15i — 합금별 매체 verdict 보정층', () => {
     expect(acid.adj?.from).toBe('excellent');
     const c276 = resolveCorrosionPlan(mats.find((m) => m.name.startsWith('Hastelloy C-276'))!)!;
     expect(c276.media.find((r) => r.env === '강산')!.verdict).toBe('excellent');
+  });
+});
+
+describe('E15l — 환경별 내식 필터 (합금 보정 판정 기반)', () => {
+  it('654 SMO 해수=탁월 통과 · 304 해수≥양호 탈락 · PTFE 강산=탁월 통과 · POM-H 강산≥양호 탈락', () => {
+    const smo = mats.find((m) => m.name.startsWith('654 SMO'))!;
+    expect(passesCorrosionEnv(smo, { '해수': 'excellent' })).toBe(true);
+    const p304 = byName('AISI 304 — Annealed (Wrought)')!;
+    expect(passesCorrosionEnv(p304, { '해수': 'good' })).toBe(false);
+    const ptfe = mats.find((m) => m.name.startsWith('PTFE'))!;
+    expect(passesCorrosionEnv(ptfe, { '강산': 'excellent' })).toBe(true);
+    const pom = mats.find((m) => m.name.startsWith('POM-H'))!;
+    expect(passesCorrosionEnv(pom, { '강산': 'good' })).toBe(false);
+  });
+  it('빈 필터는 전체 통과 · 복수 환경 AND · corr 미스탬프(Composite)는 활성 시 탈락', () => {
+    const comp = mats.find((m) => m.category === 'Composite')!;
+    expect(passesCorrosionEnv(comp, {})).toBe(true);
+    expect(passesCorrosionEnv(comp, { '해수': 'good' })).toBe(false);
+    const c276 = mats.find((m) => m.name.startsWith('Hastelloy C-276'))!;
+    expect(passesCorrosionEnv(c276, { '해수': 'good', '강산': 'good' })).toBe(true);
+    const smo = mats.find((m) => m.name.startsWith('654 SMO'))!;
+    expect(passesCorrosionEnv(smo, { '해수': 'excellent', '강산': 'excellent' })).toBe(false); // 654 강산은 caution
   });
 });
 

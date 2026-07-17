@@ -170,6 +170,36 @@ export function resolveCorrosionPlan(m: Material): CorrosionPlan | null {
   };
 }
 
+/* ── E15l — 환경별 내식 필터 지원 ─────────────────────────────────────────
+ * 필터는 "합금 보정 적용 후" verdict 기준 (E15i~k 레이어 반영 — 그룹 기본값이 아님).
+ * 재료 객체 단위 WeakMap 캐시 — 필터 재실행마다 조성 파싱 반복 방지. */
+export const CORROSION_ENV_AXES = ['대기', '해수', '염수·염화물', '강산', '약산(묽은산·유기산)', '알칼리'] as const;
+const VERDICT_RANK: Record<CorrosionMedia['verdict'], number> = { poor: 0, caution: 1, good: 2, excellent: 3 };
+const mediaCache = new WeakMap<object, ResolvedMedia[] | null>();
+
+/** 보정 적용 media (캐시) — corr 미스탬프(Composite)는 null. */
+export function resolvedMediaFor(m: Material): ResolvedMedia[] | null {
+  if (mediaCache.has(m as object)) return mediaCache.get(m as object) ?? null;
+  const key = (m.profiles as { corr?: string } | undefined)?.corr;
+  const group = key ? GROUPS[key] : undefined;
+  const rows = key && group ? resolveMedia(m, key, group, prenOf(m)) : null;
+  mediaCache.set(m as object, rows);
+  return rows;
+}
+
+/** 환경별 최소 등급 필터 통과 여부 — envMin 예: { '해수': 'good', '강산': 'excellent' }.
+ *  corr 미스탬프 재료는 필터 활성 시 탈락 (판정 불가 ≠ 통과). */
+export function passesCorrosionEnv(m: Material, envMin: Record<string, 'good' | 'excellent'>): boolean {
+  const wanted = Object.entries(envMin);
+  if (!wanted.length) return true;
+  const rows = resolvedMediaFor(m);
+  if (!rows) return false;
+  return wanted.every(([env, min]) => {
+    const row = rows.find((r) => r.env === env);
+    return !!row && VERDICT_RANK[row.verdict] >= VERDICT_RANK[min];
+  });
+}
+
 export const VERDICT_LABEL: Record<CorrosionMedia['verdict'], { label: string; cls: string }> = {
   excellent: { label: '탁월', cls: 'text-emerald-700' },
   good: { label: '양호', cls: 'text-emerald-600' },
