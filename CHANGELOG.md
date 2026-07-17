@@ -2,6 +2,28 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## R143 ~ H6 (2026-07-17) — 압축 현행화 (W19)
+
+> R142 이후 기록이 정체됐던 구간의 요약. 상세는 git log·docs/MASTER-BACKLOG.md(로컬)·각 커밋 본문 참조.
+> 이후부터는 라운드 단위로 이 파일에 즉시 기록한다.
+
+- **R143~R225**: 필터·비교·상세 패널 고도화, 단위 변환(SI/Imperial), KO/EN i18n, 시나리오 프리셋,
+  온보딩 투어, PDF 인쇄, 즐겨찾기/컬렉션 — UI 기반 완성기.
+- **R226 시리즈 (레지스트리 전환기)**: per-entry 레지스트리 SSOT + stable ID 동결(MET/POL/CER/CMP) ·
+  corrections 체계(무손실 라운드트립) · 공정 가이드 Material ID 전면 개편(런타임 regex 0 —
+  절삭성/용접성/HT/인사이트/코팅 profiles 스탬프) · Granta PDF 검증 파이프(온도곡선 벡터 추출) ·
+  유사재료 log-distance 개편 · 스토리 시스템 v2(stable_id 동결, 294 스토리) · 주조 합금·별칭·출처 정비.
+- **H4 (위키·글로서리)**: 재료↔용어 상호참조(wiki-index·백링크·자동링크) · 글로서리 118용어 = 118 A4 ·
+  도표 67종 · 감사 3종 전지표 0 · 배포 파이프 build:wiki 게이트.
+- **H5**: 링크 커버리지 감사·폼 소유권·병기 파서 · W20 "다른 합금 혼재" 전량 해소 · 신규 13종 통합 ·
+  고온곡선 조건별 분화(23°C 앵커) · 미니 계열 정량 격상.
+- **H6 (진행 중)**: corrections 도메인 분할(D5) · W16 명시링크 · **E15 부식 카드 전 프로그램**
+  (그룹 25종 + 합금 노트 636 base 전량 {t,src} + 웹 대조 대장 + 매체 표 합금 보정층(PREN·조성 규칙·
+  by_base, 발화 478/1105) + 내식 환경 필터) · A10 런타임 매처 전수 감사(+HT 필터 6건 교정·Cold-worked
+  카테고리 신설) · W17 순숫자 시뮬(봉인 유지 확정) · G3-1 곡선 출처 전파 · G3-2 검색링크 강등(660 entry) ·
+  A-1~A-8 광역 스윕 버그 전건 수정(가이드 딥링크·balance 분류·property-stats 파이프·stale 수치/번호/인덱스).
+- 게이트 현황: vitest 917 tests / 51 files · 이상치 high 0 · 라운드트립 무손실 0 불일치.
+
 ## R142 — Schaeffler diagram 라인 가시성 결정적 강화
 
 R141a 의 boundary line 이 oklch(0.45 0.15 …) + strokeWidth 1.6 으로 zone tint 위에서 흡수되어 보이지 않음 → 완전 재설계:
