@@ -117,6 +117,22 @@ if (profileGateErrors.length) {
 // 1b) 출처 라벨 정리 (R226d/R226e) — placeholder 라벨("Datasheet N"·"MatWeb N") → URL 도메인 서술 라벨. lib/source-labels.mjs improveLabel 사용.
 let relabeled = 0;
 for (const m of all) if (m.sources) m.sources = m.sources.map(s => { const ns = improveLabel(s); if (ns !== s) relabeled++; return { ...ns, authority: sourceAuthority(ns) }; });   // D3 — 권위 등급 부착
+// 1b+) G3-2 — 출처 정렬(presentation): 권위 高 우선·검색결과 URL(문서 아님)은 최하위 강등.
+//   값 SSOT(레지스트리) 불변 — 산출물 표시 순서만. 동순위는 원 순서 유지(stable).
+//   근거: 245 재료의 "첫 출처"가 MatWeb QuickText 검색페이지(문서 추적 불가)였던 감사 G3-2.
+const AUTH_RANK = { standard: 0, handbook: 1, manufacturer: 2, aggregator: 3, other: 4 };
+const isSearchUrl = (u) => /QuickText\.aspx|[?&]SearchText=|\/search\?|google\.[a-z.]+\/search|bing\.com\/search/i.test(u || '');
+let srcReordered = 0;
+for (const m of all) {
+  if (!m.sources || m.sources.length < 2) continue;
+  const first = m.sources[0];
+  m.sources = m.sources
+    .map((s, i) => ({ s, i, r: isSearchUrl(s.url) ? 9 : (AUTH_RANK[s.authority] ?? 4) }))
+    .sort((a, b) => a.r - b.r || a.i - b.i)
+    .map(x => x.s);
+  if (m.sources[0] !== first) srcReordered++;
+}
+if (srcReordered) console.log(`  출처 정렬(G3-2): 첫 출처 교체 ${srcReordered} entry (검색링크 강등·권위 우선)`);
 // R226f/축4c — UNS 정규 필드 (별칭·이름·specs 에서 도출; 외부 연동 키)
 for (const m of all) { const u = extractUNS(m); if (u.length) m.uns = u; }
 
